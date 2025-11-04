@@ -635,7 +635,7 @@ float_to_half_int.exit:                           ; preds = %169, %172, %182, %1
   br i1 %or.cond7.i.i, label %float_to_uint_int.exit, label %218
 
 218:                                              ; preds = %.lr.ph273
-  %219 = tail call float @llvm.fabs.f32(float %.0174.val231) #7
+  %219 = tail call float @llvm.fabs.f32(float %.0174.val231) #8
   %220 = fcmp oeq float %219, 0x7FF0000000000000
   %221 = fcmp ogt float %.0174.val231, 0x41F0000000000000
   %or.cond.i.i = or i1 %221, %220
@@ -1057,7 +1057,7 @@ uint_to_half.exit.us.us:                          ; preds = %101, %99, %92, %90,
   br i1 %or.cond7.i.i.us.us, label %float_to_uint_int.exit.us.us, label %114
 
 114:                                              ; preds = %.lr.ph289.us.us
-  %115 = tail call float @llvm.fabs.f32(float %.0172.val246.us.us) #7
+  %115 = tail call float @llvm.fabs.f32(float %.0172.val246.us.us) #8
   %116 = fcmp oeq float %115, 0x7FF0000000000000
   %117 = fcmp ogt float %.0172.val246.us.us, 0x41F0000000000000
   %or.cond.i.i.us.us = or i1 %117, %116
@@ -2773,7 +2773,7 @@ float_to_half_int.exit:                           ; preds = %153, %156, %166, %1
   br i1 %or.cond7.i.i, label %float_to_uint_int.exit, label %204
 
 204:                                              ; preds = %202
-  %205 = tail call float @llvm.fabs.f32(float %.0162.val194) #7
+  %205 = tail call float @llvm.fabs.f32(float %.0162.val194) #8
   %206 = fcmp oeq float %205, 0x7FF0000000000000
   %207 = fcmp ogt float %.0162.val194, 0x41F0000000000000
   %or.cond.i.i = or i1 %207, %206
@@ -3919,11 +3919,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #3
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #4
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @half_to_float_buffer(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #4 {
+define internal fastcc void @half_to_float_buffer(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #5 {
   %4 = icmp sgt i32 %2, 7
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -4471,7 +4471,7 @@ half_to_float.exit83:                             ; preds = %287, %289, %291, %2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @half_to_float4(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 {
+define internal fastcc void @half_to_float4(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 {
   %3 = load i16, ptr %1, align 2, !tbaa !36
   %4 = zext i16 %3 to i32
   %5 = shl nuw nsw i32 %4, 13
@@ -4637,17 +4637,18 @@ half_to_float.exit19:                             ; preds = %83, %85, %87, %88
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #6
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #7
 
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { memory(none) }
+attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

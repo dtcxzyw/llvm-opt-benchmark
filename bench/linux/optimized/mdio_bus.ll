@@ -2329,7 +2329,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mdio_bus_device_stat_fie
   ret i64 %19
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -2351,7 +2351,7 @@ attributes #9 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
 attributes #11 = { nocallback nounwind }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nounwind }
 attributes #16 = { nounwind memory(read) }

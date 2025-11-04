@@ -913,7 +913,7 @@ mmbit_set_i.exit131:                              ; preds = %.thread356, %.lr.ph
   %505 = getelementptr inbounds nuw i8, ptr %468, i64 80
   store i8 0, ptr %505, align 8
   store i64 %.0.i60, ptr %496, align 8
-  %506 = tail call signext i8 @nfaQueueInitState(ptr noundef %92, ptr noundef nonnull %468) #7
+  %506 = tail call signext i8 @nfaQueueInitState(ptr noundef %92, ptr noundef nonnull %468) #8
   %507 = getelementptr inbounds nuw i8, ptr %468, i64 104
   store i32 0, ptr %507, align 8, !alias.scope !7
   %508 = getelementptr inbounds nuw i8, ptr %468, i64 112
@@ -944,7 +944,7 @@ nfaRevAccelCheck.exit.thread:                     ; preds = %393, %382, %372, %3
   br i1 %.not34.i, label %init_outfixes_for_block.exit, label %519
 
 519:                                              ; preds = %514
-  tail call void @blockInitSufPQ(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %1, i8 noundef signext range(i8 0, 2) %14) #7
+  tail call void @blockInitSufPQ(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %1, i8 noundef signext range(i8 0, 2) %14) #8
   br label %init_outfixes_for_block.exit
 
 init_outfixes_for_block.exit:                     ; preds = %514, %519
@@ -964,7 +964,7 @@ init_outfixes_for_block.exit.thread:              ; preds = %511, %init_outfixes
   %527 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %528 = load ptr, ptr %527, align 8
   %529 = load i64, ptr %71, align 8
-  %530 = tail call i32 @hwlmExec(ptr noundef %.0.i, ptr noundef %528, i64 noundef %., i64 noundef 0, ptr noundef nonnull @roseCallback, ptr noundef %1, i64 noundef %529) #7
+  %530 = tail call i32 @hwlmExec(ptr noundef %.0.i, ptr noundef %528, i64 noundef %., i64 noundef 0, ptr noundef nonnull @roseCallback, ptr noundef %1, i64 noundef %529) #8
   br label %roseBlockFloating.exit.thread
 
 531:                                              ; preds = %init_outfixes_for_block.exit
@@ -1541,9 +1541,9 @@ mmbit_set_i.exit:                                 ; preds = %.thread376, %.lr.ph
   %898 = getelementptr inbounds nuw i8, ptr %728, i64 168
   store i64 0, ptr %898, align 8, !alias.scope !19
   store i32 3, ptr %893, align 4, !alias.scope !19
-  %899 = tail call signext i8 @nfaQueueInitState(ptr noundef nonnull %735, ptr noundef %728) #7
+  %899 = tail call signext i8 @nfaQueueInitState(ptr noundef nonnull %735, ptr noundef %728) #8
   %900 = load ptr, ptr %728, align 8
-  %901 = tail call signext i8 @nfaQueueExecToMatch(ptr noundef %900, ptr noundef nonnull %728, i64 noundef %spec.select.i) #7
+  %901 = tail call signext i8 @nfaQueueExecToMatch(ptr noundef %900, ptr noundef nonnull %728, i64 noundef %spec.select.i) #8
   %.not79.i = icmp eq i8 %901, 0
   br i1 %.not79.i, label %902, label %1011
 
@@ -2211,11 +2211,11 @@ runEagerPrefixesBlock.exit:                       ; preds = %531, %._crit_edge61
   br i1 %1293, label %1294, label %1296
 
 1294:                                             ; preds = %1288
-  %1295 = tail call signext i8 @nfaExecMcClellan8_B(ptr noundef nonnull %1284, i64 noundef %1287, ptr noundef %1290, i64 noundef %1289, ptr noundef nonnull @roseAnchoredCallback, ptr noundef %1) #7
+  %1295 = tail call signext i8 @nfaExecMcClellan8_B(ptr noundef nonnull %1284, i64 noundef %1287, ptr noundef %1290, i64 noundef %1289, ptr noundef nonnull @roseAnchoredCallback, ptr noundef %1) #8
   br label %1298
 
 1296:                                             ; preds = %1288
-  %1297 = tail call signext i8 @nfaExecMcClellan16_B(ptr noundef nonnull %1284, i64 noundef %1287, ptr noundef %1290, i64 noundef %1289, ptr noundef nonnull @roseAnchoredCallback, ptr noundef %1) #7
+  %1297 = tail call signext i8 @nfaExecMcClellan16_B(ptr noundef nonnull %1284, i64 noundef %1287, ptr noundef %1290, i64 noundef %1289, ptr noundef nonnull @roseAnchoredCallback, ptr noundef %1) #8
   br label %1298
 
 1298:                                             ; preds = %1296, %1294, %1283
@@ -2382,7 +2382,7 @@ roseBlockFloating.exit:                           ; preds = %1368
   %1378 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %1379 = load i64, ptr %1378, align 8
   %1380 = and i64 %1379, %1377
-  %1381 = tail call i32 @hwlmExec(ptr noundef nonnull %1308, ptr noundef %1376, i64 noundef %.0.i49, i64 noundef %1374, ptr noundef nonnull @roseFloatingCallback, ptr noundef nonnull %1, i64 noundef %1380) #7
+  %1381 = tail call i32 @hwlmExec(ptr noundef nonnull %1308, ptr noundef %1376, i64 noundef %.0.i49, i64 noundef %1374, ptr noundef nonnull @roseFloatingCallback, ptr noundef nonnull %1, i64 noundef %1380) #8
   %1382 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %1383 = load i8, ptr %1382, align 8
   %1384 = and i8 %1383, 11
@@ -2412,7 +2412,7 @@ roseBlockFloating.exit.thread:                    ; preds = %1318, %mmbit_any.ex
   br i1 %.not11.i, label %flushQueuedLiterals.exit.thread.thread, label %flushQueuedLiterals.exit
 
 flushQueuedLiterals.exit:                         ; preds = %1391, %1392
-  %1394 = tail call i64 @flushQueuedLiterals_i(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %6) #7
+  %1394 = tail call i64 @flushQueuedLiterals_i(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %6) #8
   %1395 = icmp eq i64 %1394, 0
   br i1 %1395, label %cleanUpDelayed.exit.thread, label %flushQueuedLiterals.exit.flushQueuedLiterals.exit.thread_crit_edge
 
@@ -2514,7 +2514,7 @@ canSkipCatchUpMPV.exit.thread419:                 ; preds = %1431, %1413, %1410,
   br i1 %.not14.i262, label %1449, label %1446
 
 1446:                                             ; preds = %canSkipCatchUpMPV.exit.thread419
-  %1447 = tail call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %6) #7
+  %1447 = tail call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %6) #8
   %1448 = icmp eq i32 %1447, 0
   br i1 %1448, label %roseCatchUpTo.exit, label %._crit_edge768
 
@@ -2530,7 +2530,7 @@ canSkipCatchUpMPV.exit.thread419:                 ; preds = %1431, %1413, %1410,
   br label %roseCatchUpTo.exit
 
 canSkipCatchUpMPV.exit.thread415:                 ; preds = %1440, %canSkipCatchUpMPV.exit
-  %1451 = tail call i64 @roseCatchUpMPV_i(ptr noundef %0, i64 noundef %1408, ptr noundef %1) #7
+  %1451 = tail call i64 @roseCatchUpMPV_i(ptr noundef %0, i64 noundef %1408, ptr noundef %1) #8
   br label %roseCatchUpTo.exit
 
 1452:                                             ; preds = %1404
@@ -2629,7 +2629,7 @@ mmbit_any.exit240:                                ; preds = %1466, %1469, %1472,
   br i1 %.not28.i, label %1502, label %1499
 
 1499:                                             ; preds = %1496
-  %1500 = tail call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %6) #7
+  %1500 = tail call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %6) #8
   %1501 = icmp eq i32 %1500, 0
   br i1 %1501, label %roseCatchUpTo.exit, label %1502
 
@@ -2639,7 +2639,7 @@ mmbit_any.exit240:                                ; preds = %1466, %1469, %1472,
   br label %roseCatchUpTo.exit
 
 mmbit_any.exit240.thread:                         ; preds = %.lr.ph621, %mmbit_any.exit240
-  %1503 = tail call i64 @roseCatchUpAll(i64 noundef %1408, ptr noundef %1) #7
+  %1503 = tail call i64 @roseCatchUpAll(i64 noundef %1408, ptr noundef %1) #8
   br label %roseCatchUpTo.exit
 
 roseCatchUpTo.exit:                               ; preds = %canSkipCatchUpMPV.exit.thread415, %1449, %1446, %1402, %1499, %1502, %mmbit_any.exit240.thread
@@ -3125,7 +3125,7 @@ mmbit_sparse_iter_unset.exit:                     ; preds = %1672, %1739, %1595,
 roseFlushLastByteHistory.exit:                    ; preds = %1512, %1515, %mmbit_sparse_iter_unset.exit
   store i64 %6, ptr %74, align 32
   %1777 = load i32, ptr %1507, align 8
-  %1778 = tail call i64 @roseRunProgram(ptr noundef %0, ptr noundef %1, i32 noundef %1777, i64 noundef 0, i64 noundef %6, i8 noundef zeroext 8) #7
+  %1778 = tail call i64 @roseRunProgram(ptr noundef %0, ptr noundef %1, i32 noundef %1777, i64 noundef 0, i64 noundef %6, i8 noundef zeroext 8) #8
   br label %cleanUpDelayed.exit.thread
 
 cleanUpDelayed.exit.thread:                       ; preds = %flushQueuedLiterals.exit, %roseBlockFloating.exit.thread, %1509, %1506, %roseCatchUpTo.exit, %roseBlockFloating.exit, %roseBlockAnchored.exit, %roseFlushLastByteHistory.exit
@@ -3156,8 +3156,8 @@ declare signext i8 @nfaQueueExecToMatch(ptr noundef, ptr noundef, i64 noundef) l
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #3
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #5
 
 declare signext i8 @nfaExecMcClellan8_B(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3178,25 +3178,26 @@ declare i64 @roseCatchUpMPV_i(ptr noundef, i64 noundef, ptr noundef) local_unnam
 declare i64 @roseRunProgram(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #6
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #6
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

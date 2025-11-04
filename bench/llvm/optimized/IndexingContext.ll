@@ -39,7 +39,7 @@ define dso_local noundef zeroext i1 @_ZN5clang5index15IndexingContext11shouldInd
   br i1 %.not.i.i, label %_ZL15isGeneratedDeclPKN5clang4DeclE.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #11
+  %7 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #12
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !9
@@ -169,7 +169,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit.i:         ; preds = %13, %5
 
 _ZN5clang5index15IndexingContext10handleDeclEPKNS_4DeclENS_14SourceLocationEjN4llvm8ArrayRefINS0_14SymbolRelationEEEPKNS_11DeclContextE.exit: ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.i, %19
   %.011.i = phi ptr [ %21, %19 ], [ %1, %_ZNK5clang4Decl14getDeclContextEv.exit.i ]
-  %22 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef %.0.i) #11
+  %22 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef %.0.i) #12
   store ptr %3, ptr %6, align 8, !tbaa !413
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %4, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !415
@@ -212,7 +212,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %15, %9, %7
 
 24:                                               ; preds = %21, %_ZNK5clang4Decl14getDeclContextEv.exit
   %.011 = phi ptr [ %23, %21 ], [ %1, %_ZNK5clang4Decl14getDeclContextEv.exit ]
-  %25 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef %.0) #11
+  %25 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef %.0) #12
   store ptr %4, ptr %8, align 8, !tbaa !413
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %5, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !415
@@ -268,7 +268,7 @@ _ZL22shouldSkipNamelessDeclPKN5clang9NamedDeclE.exit: ; preds = %23
   br i1 %32, label %_ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit, label %33
 
 33:                                               ; preds = %27
-  %34 = tail call i32 @_ZNK5clang13SourceManager18getFileLocSlowCaseENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %31, i32 %2) #11
+  %34 = tail call i32 @_ZNK5clang13SourceManager18getFileLocSlowCaseENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %31, i32 %2) #12
   br label %_ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit
 
 _ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit: ; preds = %27, %33
@@ -284,7 +284,7 @@ _ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit: ; preds = %27, 
   br label %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit
 
 39:                                               ; preds = %_ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit
-  %40 = tail call i32 @_ZNK5clang13SourceManager13getFileIDSlowEj(ptr noundef nonnull align 8 dereferenceable(696) %31, i32 noundef %35) #11
+  %40 = tail call i32 @_ZNK5clang13SourceManager13getFileIDSlowEj(ptr noundef nonnull align 8 dereferenceable(696) %31, i32 noundef %35) #12
   br label %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit
 
 _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit: ; preds = %38, %39
@@ -365,7 +365,7 @@ _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i: ; preds
   br label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread
 
 _ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %46
-  %81 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager13loadSLocEntryEjPb(ptr noundef nonnull align 8 dereferenceable(696) %31, i32 noundef %47, ptr noundef nonnull %12) #11
+  %81 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager13loadSLocEntryEjPb(ptr noundef nonnull align 8 dereferenceable(696) %31, i32 noundef %47, ptr noundef nonnull %12) #12
   %.pre = load i8, ptr %12, align 1, !tbaa !417, !range !25
   %82 = trunc nuw i8 %.pre to i1
   br i1 %82, label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread111, label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread
@@ -428,7 +428,7 @@ _ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread: ; preds = %_ZN
   %102 = load ptr, ptr %.08284, align 8, !tbaa !423
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 32
   %104 = load ptr, ptr %103, align 8
-  %105 = call noundef ptr %104(ptr noundef nonnull align 8 dereferenceable(33) %.08284) #11
+  %105 = call noundef ptr %104(ptr noundef nonnull align 8 dereferenceable(33) %.08284) #12
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 28
   %107 = load i32, ptr %106, align 4
   %108 = and i32 %107, 127
@@ -455,7 +455,7 @@ _ZL16getCanonicalDeclPKN5clang4DeclE.exit:        ; preds = %.thread, %111
   %116 = load ptr, ptr %114, align 8, !tbaa !423
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 32
   %118 = load ptr, ptr %117, align 8
-  %119 = call noundef ptr %118(ptr noundef nonnull align 8 dereferenceable(33) %114) #11
+  %119 = call noundef ptr %118(ptr noundef nonnull align 8 dereferenceable(33) %114) #12
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 28
   %121 = load i32, ptr %120, align 4
   %122 = and i32 %121, 127
@@ -488,7 +488,7 @@ _ZL16getCanonicalDeclPKN5clang4DeclE.exit61:      ; preds = %125, %115, %_ZL16ge
   br i1 %134, label %135, label %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE7reserveEm.exit
 
 135:                                              ; preds = %_ZL16getCanonicalDeclPKN5clang4DeclE.exit61
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %128, i64 noundef %133, i64 noundef 16) #11
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %128, i64 noundef %133, i64 noundef 16) #12
   br label %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE7reserveEm.exit
 
 _ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE7reserveEm.exit: ; preds = %_ZL16getCanonicalDeclPKN5clang4DeclE.exit61, %135
@@ -506,7 +506,7 @@ _ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE7reserveEm.exit: ; pred
   br i1 %141, label %144, label %142
 
 142:                                              ; preds = %137
-  %143 = call noundef zeroext i1 @_ZN5clang5index21isFunctionLocalSymbolEPKNS_4DeclE(ptr noundef nonnull %.0.i55) #11
+  %143 = call noundef zeroext i1 @_ZN5clang5index21isFunctionLocalSymbolEPKNS_4DeclE(ptr noundef nonnull %.0.i55) #12
   br i1 %143, label %.sink.split, label %144
 
 144:                                              ; preds = %142, %137
@@ -546,13 +546,13 @@ _ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE7reserveEm.exit: ; pred
   %154 = load ptr, ptr %151, align 8, !tbaa !423
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 32
   %156 = load ptr, ptr %155, align 8
-  %157 = call noundef zeroext i1 %156(ptr noundef nonnull align 8 dereferenceable(8) %151, ptr noundef %.0.i55, i32 noundef %149, ptr %152, i64 %153, i32 %2, ptr noundef nonnull byval(%"struct.clang::index::IndexDataConsumer::ASTNodeInfo") align 8 %14) #11
+  %157 = call noundef zeroext i1 %156(ptr noundef nonnull align 8 dereferenceable(8) %151, ptr noundef %.0.i55, i32 noundef %149, ptr %152, i64 %153, i32 %2, ptr noundef nonnull byval(%"struct.clang::index::IndexDataConsumer::ASTNodeInfo") align 8 %14) #12
   %158 = load ptr, ptr %13, align 8, !tbaa !3
   %159 = icmp eq ptr %158, %128
   br i1 %159, label %_ZN4llvm11SmallVectorIN5clang5index14SymbolRelationELj6EED2Ev.exit, label %160
 
 160:                                              ; preds = %._crit_edge
-  call void @free(ptr noundef %158) #11
+  call void @free(ptr noundef %158) #12
   br label %_ZN4llvm11SmallVectorIN5clang5index14SymbolRelationELj6EED2Ev.exit
 
 _ZN4llvm11SmallVectorIN5clang5index14SymbolRelationELj6EED2Ev.exit: ; preds = %._crit_edge, %160
@@ -567,7 +567,7 @@ _ZN4llvm11SmallVectorIN5clang5index14SymbolRelationELj6EED2Ev.exit: ; preds = %.
   %164 = load ptr, ptr %163, align 8, !tbaa !423
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 32
   %166 = load ptr, ptr %165, align 8
-  %167 = call noundef ptr %166(ptr noundef nonnull align 8 dereferenceable(33) %163) #11
+  %167 = call noundef ptr %166(ptr noundef nonnull align 8 dereferenceable(33) %163) #12
   %.val.i = load ptr, ptr %13, align 8, !tbaa !3
   %.val5.i = load i32, ptr %129, align 8, !tbaa !9
   %168 = zext i32 %.val5.i to i64
@@ -693,7 +693,7 @@ default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
 
 210:                                              ; preds = %208
   %211 = add nuw nsw i64 %168, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %128, i64 noundef %211, i64 noundef 16) #11
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %128, i64 noundef %211, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %129, align 8, !tbaa !9
   %.pre.i = load ptr, ptr %13, align 8, !tbaa !3
   %.pre11.i = zext i32 %.pre.i.i to i64
@@ -738,7 +738,7 @@ define dso_local noundef zeroext i1 @_ZN5clang5index15IndexingContext15handleRef
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call noundef zeroext i1 @_ZN5clang5index21isFunctionLocalSymbolEPKNS_4DeclE(ptr noundef %1) #11
+  %13 = tail call noundef zeroext i1 @_ZN5clang5index21isFunctionLocalSymbolEPKNS_4DeclE(ptr noundef %1) #12
   br i1 %13, label %24, label %14
 
 14:                                               ; preds = %12, %8
@@ -778,7 +778,7 @@ define dso_local noundef zeroext i1 @_ZN5clang5index15IndexingContext14importedM
   br i1 %.not34, label %7, label %97
 
 7:                                                ; preds = %2
-  %8 = tail call { ptr, i64 } @_ZNK5clang10ImportDecl17getIdentifierLocsEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #11
+  %8 = tail call { ptr, i64 } @_ZNK5clang10ImportDecl17getIdentifierLocsEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #12
   %9 = extractvalue { ptr, i64 } %8, 1
   %10 = icmp eq i64 %9, 0
   %11 = extractvalue { ptr, i64 } %8, 0
@@ -795,7 +795,7 @@ define dso_local noundef zeroext i1 @_ZN5clang5index15IndexingContext14importedM
   br i1 %19, label %_ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit, label %20
 
 20:                                               ; preds = %7
-  %21 = tail call i32 @_ZNK5clang13SourceManager18getFileLocSlowCaseENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %18, i32 %storemerge) #11
+  %21 = tail call i32 @_ZNK5clang13SourceManager18getFileLocSlowCaseENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %18, i32 %storemerge) #12
   br label %_ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit
 
 _ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit: ; preds = %7, %20
@@ -811,7 +811,7 @@ _ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit: ; preds = %7, %
   br label %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit
 
 26:                                               ; preds = %_ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit
-  %27 = tail call i32 @_ZNK5clang13SourceManager13getFileIDSlowEj(ptr noundef nonnull align 8 dereferenceable(696) %18, i32 noundef %22) #11
+  %27 = tail call i32 @_ZNK5clang13SourceManager13getFileIDSlowEj(ptr noundef nonnull align 8 dereferenceable(696) %18, i32 noundef %22) #12
   br label %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit
 
 _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit: ; preds = %25, %26
@@ -892,7 +892,7 @@ _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i: ; preds
   br label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread
 
 _ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %33
-  %68 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager13loadSLocEntryEjPb(ptr noundef nonnull align 8 dereferenceable(696) %18, i32 noundef %34, ptr noundef nonnull %3) #11
+  %68 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager13loadSLocEntryEjPb(ptr noundef nonnull align 8 dereferenceable(696) %18, i32 noundef %34, ptr noundef nonnull %3) #12
   %.pre = load i8, ptr %3, align 1, !tbaa !417, !range !25
   %69 = trunc nuw i8 %.pre to i1
   br i1 %69, label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread45, label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread
@@ -946,7 +946,7 @@ _ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread: ; preds = %_ZN
   %93 = load ptr, ptr %92, align 8, !tbaa !423
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 48
   %95 = load ptr, ptr %94, align 8
-  %96 = call noundef zeroext i1 %95(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull %1, ptr noundef %78, i32 noundef %.pre-phi, i32 %storemerge) #11
+  %96 = call noundef zeroext i1 %95(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull %1, ptr noundef %78, i32 noundef %.pre-phi, i32 %storemerge) #12
   br label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread45
 
 _ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread45: ; preds = %29, %72, %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit, %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread, %90
@@ -980,7 +980,7 @@ common.ret10:                                     ; preds = %5, %6
   %12 = load ptr, ptr %4, align 8, !tbaa !423
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %3, ptr noundef nonnull %0, i32 noundef 4, i32 %.sroa.0.0.copyload) #11
+  %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %3, ptr noundef nonnull %0, i32 noundef 4, i32 %.sroa.0.0.copyload) #12
   br label %common.ret10
 }
 
@@ -1014,7 +1014,7 @@ tailrecurse:                                      ; preds = %_ZNK5clang4Decl14ge
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
-  %17 = tail call noundef i32 @_ZNK5clang12FunctionDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(168) %.tr) #11
+  %17 = tail call noundef i32 @_ZNK5clang12FunctionDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(168) %.tr) #12
   br label %50
 
 18:                                               ; preds = %12
@@ -1026,7 +1026,7 @@ tailrecurse:                                      ; preds = %_ZNK5clang4Decl14ge
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
-  %24 = tail call noundef i32 @_ZNK5clang7VarDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(100) %.tr) #11
+  %24 = tail call noundef i32 @_ZNK5clang7VarDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(100) %.tr) #12
   br label %50
 
 25:                                               ; preds = %18
@@ -1037,12 +1037,12 @@ tailrecurse:                                      ; preds = %_ZNK5clang4Decl14ge
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
-  %30 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl30getInstantiatedFromMemberClassEv(ptr noundef nonnull align 8 dereferenceable(144) %.tr) #11
+  %30 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl30getInstantiatedFromMemberClassEv(ptr noundef nonnull align 8 dereferenceable(144) %.tr) #12
   %.not54 = icmp eq ptr %30, null
   br i1 %.not54, label %.thread76, label %31
 
 31:                                               ; preds = %28
-  %32 = tail call noundef i32 @_ZNK5clang13CXXRecordDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(144) %.tr) #11
+  %32 = tail call noundef i32 @_ZNK5clang13CXXRecordDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(144) %.tr) #12
   br label %50
 
 33:                                               ; preds = %25
@@ -1052,12 +1052,12 @@ tailrecurse:                                      ; preds = %_ZNK5clang4Decl14ge
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
-  %37 = tail call noundef ptr @_ZNK5clang8EnumDecl29getInstantiatedFromMemberEnumEv(ptr noundef nonnull align 8 dereferenceable(156) %.tr) #11
+  %37 = tail call noundef ptr @_ZNK5clang8EnumDecl29getInstantiatedFromMemberEnumEv(ptr noundef nonnull align 8 dereferenceable(156) %.tr) #12
   %.not53 = icmp eq ptr %37, null
   br i1 %.not53, label %.thread76, label %38
 
 38:                                               ; preds = %35
-  %39 = tail call noundef i32 @_ZNK5clang8EnumDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(156) %.tr) #11
+  %39 = tail call noundef i32 @_ZNK5clang8EnumDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(156) %.tr) #12
   br label %50
 
 40:                                               ; preds = %33
@@ -1086,7 +1086,7 @@ tailrecurse:                                      ; preds = %_ZNK5clang4Decl14ge
 
 _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %41, %47
   %.0.i.i = phi ptr [ %48, %47 ], [ %46, %41 ]
-  %49 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef %.0.i.i) #11
+  %49 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef %.0.i.i) #12
   %.not52 = icmp eq ptr %49, null
   br i1 %.not52, label %.thread76.loopexit, label %tailrecurse
 
@@ -1179,7 +1179,7 @@ define internal fastcc noundef zeroext i1 @_ZL43shouldReportOccurrenceForSystemD
   store i8 0, ptr %4, align 1, !tbaa !417
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %4, ptr %5, align 8, !tbaa !560
-  %11 = call noundef zeroext i1 @_ZN5clang5index35applyForEachSymbolRoleInterruptibleEjN4llvm12function_refIFbNS0_10SymbolRoleEEEE(i32 noundef %10, ptr nonnull @"_ZN4llvm12function_refIFbN5clang5index10SymbolRoleEEE11callback_fnIZZL43shouldReportOccurrenceForSystemDeclOnlyModebjNS_8ArrayRefINS2_14SymbolRelationEEEENK3$_0clEjEUlS3_E_EEblS3_", i64 %8) #11
+  %11 = call noundef zeroext i1 @_ZN5clang5index35applyForEachSymbolRoleInterruptibleEjN4llvm12function_refIFbNS0_10SymbolRoleEEEE(i32 noundef %10, ptr nonnull @"_ZN4llvm12function_refIFbN5clang5index10SymbolRoleEEE11callback_fnIZZL43shouldReportOccurrenceForSystemDeclOnlyModebjNS_8ArrayRefINS2_14SymbolRelationEEEENK3$_0clEjEUlS3_E_EEblS3_", i64 %8) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %12 = load i8, ptr %4, align 1, !tbaa !417, !range !25, !noundef !26
   %13 = trunc nuw i8 %12 to i1
@@ -1205,12 +1205,12 @@ define internal fastcc noundef ptr @_ZL35adjustTemplateImplicitInstantiationPKN5
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl31getTemplateInstantiationPatternEv(ptr noundef nonnull align 8 dereferenceable(144) %0) #11
+  %7 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl31getTemplateInstantiationPatternEv(ptr noundef nonnull align 8 dereferenceable(144) %0) #12
   %.not92 = icmp eq ptr %7, null
   br i1 %.not92, label %8, label %.thread140
 
 8:                                                ; preds = %6
-  %9 = tail call noundef ptr @_ZNK5clang31ClassTemplateSpecializationDecl22getSpecializedTemplateEv(ptr noundef nonnull align 8 dereferenceable(181) %0) #11
+  %9 = tail call noundef ptr @_ZNK5clang31ClassTemplateSpecializationDecl22getSpecializedTemplateEv(ptr noundef nonnull align 8 dereferenceable(181) %0) #12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !425
   br label %.thread140
@@ -1222,7 +1222,7 @@ define internal fastcc noundef ptr @_ZL35adjustTemplateImplicitInstantiationPKN5
   br i1 %.not84, label %17, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call noundef ptr @_ZNK5clang12FunctionDecl31getTemplateInstantiationPatternEb(ptr noundef nonnull align 8 dereferenceable(168) %0, i1 noundef zeroext true) #11
+  %16 = tail call noundef ptr @_ZNK5clang12FunctionDecl31getTemplateInstantiationPatternEb(ptr noundef nonnull align 8 dereferenceable(168) %0, i1 noundef zeroext true) #12
   br label %.thread140
 
 17:                                               ; preds = %12
@@ -1233,7 +1233,7 @@ define internal fastcc noundef ptr @_ZL35adjustTemplateImplicitInstantiationPKN5
   br i1 %.not85, label %23, label %21
 
 21:                                               ; preds = %17
-  %22 = tail call noundef ptr @_ZNK5clang7VarDecl31getTemplateInstantiationPatternEv(ptr noundef nonnull align 8 dereferenceable(100) %0) #11
+  %22 = tail call noundef ptr @_ZNK5clang7VarDecl31getTemplateInstantiationPatternEv(ptr noundef nonnull align 8 dereferenceable(100) %0) #12
   br label %.thread140
 
 23:                                               ; preds = %17
@@ -1243,7 +1243,7 @@ define internal fastcc noundef ptr @_ZL35adjustTemplateImplicitInstantiationPKN5
   br i1 %.not86, label %28, label %26
 
 26:                                               ; preds = %23
-  %27 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl30getInstantiatedFromMemberClassEv(ptr noundef nonnull align 8 dereferenceable(144) %0) #11
+  %27 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl30getInstantiatedFromMemberClassEv(ptr noundef nonnull align 8 dereferenceable(144) %0) #12
   br label %.thread140
 
 28:                                               ; preds = %23
@@ -1252,7 +1252,7 @@ define internal fastcc noundef ptr @_ZL35adjustTemplateImplicitInstantiationPKN5
   br i1 %.not87, label %32, label %30
 
 30:                                               ; preds = %28
-  %31 = tail call noundef ptr @_ZNK5clang8EnumDecl29getInstantiatedFromMemberEnumEv(ptr noundef nonnull align 8 dereferenceable(156) %0) #11
+  %31 = tail call noundef ptr @_ZNK5clang8EnumDecl29getInstantiatedFromMemberEnumEv(ptr noundef nonnull align 8 dereferenceable(156) %0) #12
   br label %.thread140
 
 32:                                               ; preds = %28
@@ -1276,7 +1276,7 @@ define internal fastcc noundef ptr @_ZL35adjustTemplateImplicitInstantiationPKN5
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.0.0.copyload.i = load i64, ptr %38, align 8, !tbaa !415
-  %39 = tail call i64 @_ZNK5clang11DeclContext6lookupENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 %.sroa.0.0.copyload.i) #11
+  %39 = tail call i64 @_ZNK5clang11DeclContext6lookupENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 %.sroa.0.0.copyload.i) #12
   %.not175180 = icmp eq i64 %39, 0
   br i1 %.not175180, label %.thread140, label %.lr.ph
 
@@ -1347,7 +1347,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %58, %64
 
 69:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit
   %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 -64
-  %71 = tail call noundef ptr @_ZNK5clang8EnumDecl29getInstantiatedFromMemberEnumEv(ptr noundef nonnull align 8 dereferenceable(156) %70) #11
+  %71 = tail call noundef ptr @_ZNK5clang8EnumDecl29getInstantiatedFromMemberEnumEv(ptr noundef nonnull align 8 dereferenceable(156) %70) #12
   %.not90 = icmp eq ptr %71, null
   br i1 %.not90, label %.thread140, label %72
 
@@ -1355,7 +1355,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %58, %64
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 64
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.0.0.copyload.i105 = load i64, ptr %74, align 8, !tbaa !415
-  %75 = tail call i64 @_ZNK5clang11DeclContext6lookupENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(32) %73, i64 %.sroa.0.0.copyload.i105) #11
+  %75 = tail call i64 @_ZNK5clang11DeclContext6lookupENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(32) %73, i64 %.sroa.0.0.copyload.i105) #12
   %.not179 = icmp eq i64 %75, 0
   br i1 %.not179, label %.thread140, label %76
 
@@ -1393,7 +1393,7 @@ define internal fastcc noundef zeroext i1 @_ZL17isDeclADefinitionPKN5clang4DeclE
   br i1 %.not.not, label %12, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call noundef i32 @_ZNK5clang7VarDecl28isThisDeclarationADefinitionERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull align 8 dereferenceable(23216) %2) #11
+  %10 = tail call noundef i32 @_ZNK5clang7VarDecl28isThisDeclarationADefinitionERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull align 8 dereferenceable(23216) %2) #12
   %11 = icmp ne i32 %10, 0
   br label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread
 
@@ -1443,7 +1443,7 @@ _ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i: ; preds = %23
   br i1 %or.cond6.not.i, label %37, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread
 
 37:                                               ; preds = %35
-  %38 = tail call noundef zeroext i1 @_ZNK5clang4Decl15hasDefiningAttrEv(ptr noundef nonnull align 8 dereferenceable(168) %0) #11
+  %38 = tail call noundef zeroext i1 @_ZNK5clang4Decl15hasDefiningAttrEv(ptr noundef nonnull align 8 dereferenceable(168) %0) #12
   br label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread
 
 _ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit: ; preds = %12
@@ -1468,7 +1468,7 @@ _ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit: ; preds = %12
   %49 = load ptr, ptr %0, align 8, !tbaa !423
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 72
   %51 = load ptr, ptr %50, align 8
-  %52 = tail call noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(136) %0) #11
+  %52 = tail call noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(136) %0) #12
   br i1 %52, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread, label %53
 
 53:                                               ; preds = %48
@@ -1573,7 +1573,7 @@ _ZL22shouldSkipNamelessDeclPKN5clang9NamedDeclE.exit: ; preds = %19
 
 _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %.thread34, %28
   %.0.i.i = phi ptr [ %29, %28 ], [ %27, %.thread34 ]
-  %30 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef %.0.i.i) #11
+  %30 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef %.0.i.i) #12
   br label %.preheader, !llvm.loop !571
 
 .loopexit:                                        ; preds = %21, %21, %21, %21, %21, %21, %5, %12, %16, %_ZL22shouldSkipNamelessDeclPKN5clang9NamedDeclE.exit, %.preheader, %1
@@ -1711,7 +1711,7 @@ default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
 47:                                               ; preds = %44
   %48 = add nuw nsw i64 %4, 1
   %49 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %.0.val, ptr noundef nonnull %49, i64 noundef %48, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %.0.val, ptr noundef nonnull %49, i64 noundef %48, i64 noundef 16) #12
   %.pre.i = load i32, ptr %3, align 8, !tbaa !9
   %.pre = load ptr, ptr %.0.val, align 8, !tbaa !3
   %.pre11 = zext i32 %.pre.i to i64
@@ -1747,7 +1747,7 @@ define dso_local void @_ZN5clang5index15IndexingContext18handleMacroDefinedERKNS
   %9 = load ptr, ptr %8, align 8, !tbaa !423
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef 2, i32 %2) #11
+  %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef 2, i32 %2) #12
   br label %13
 
 13:                                               ; preds = %4, %6
@@ -1781,7 +1781,7 @@ define dso_local noundef zeroext i1 @_ZN5clang5index15IndexingContext26shouldInd
   br i1 %16, label %_ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit, label %17
 
 17:                                               ; preds = %11
-  %18 = tail call i32 @_ZNK5clang13SourceManager18getFileLocSlowCaseENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %15, i32 %2) #11
+  %18 = tail call i32 @_ZNK5clang13SourceManager18getFileLocSlowCaseENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %15, i32 %2) #12
   br label %_ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit
 
 _ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit: ; preds = %11, %17
@@ -1797,7 +1797,7 @@ _ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit: ; preds = %11, 
   br label %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit
 
 23:                                               ; preds = %_ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit
-  %24 = tail call i32 @_ZNK5clang13SourceManager13getFileIDSlowEj(ptr noundef nonnull align 8 dereferenceable(696) %15, i32 noundef %19) #11
+  %24 = tail call i32 @_ZNK5clang13SourceManager13getFileIDSlowEj(ptr noundef nonnull align 8 dereferenceable(696) %15, i32 noundef %19) #12
   br label %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit
 
 _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit: ; preds = %22, %23
@@ -1878,7 +1878,7 @@ _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i: ; preds
   br label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread
 
 _ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %30
-  %65 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager13loadSLocEntryEjPb(ptr noundef nonnull align 8 dereferenceable(696) %15, i32 noundef %31, ptr noundef nonnull %4) #11
+  %65 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager13loadSLocEntryEjPb(ptr noundef nonnull align 8 dereferenceable(696) %15, i32 noundef %31, ptr noundef nonnull %4) #12
   %.pre = load i8, ptr %4, align 1, !tbaa !417, !range !25
   %66 = trunc nuw i8 %.pre to i1
   br i1 %66, label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread15, label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread
@@ -1917,7 +1917,7 @@ define dso_local void @_ZN5clang5index15IndexingContext20handleMacroUndefinedERK
   %9 = load ptr, ptr %8, align 8, !tbaa !423
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef 512, i32 %2) #11
+  %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef 512, i32 %2) #12
   br label %13
 
 13:                                               ; preds = %4, %6
@@ -1935,7 +1935,7 @@ define dso_local void @_ZN5clang5index15IndexingContext20handleMacroReferenceERK
   %9 = load ptr, ptr %8, align 8, !tbaa !423
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef 4, i32 %2) #11
+  %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef 4, i32 %2) #12
   br label %13
 
 13:                                               ; preds = %4, %6
@@ -2017,7 +2017,7 @@ _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i: ; pre
   br label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit
 
 40:                                               ; preds = %10
-  %41 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager13loadSLocEntryEjPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 noundef %11, ptr noundef null) #11
+  %41 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager13loadSLocEntryEjPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 noundef %11, ptr noundef null) #12
   br label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit
 
 42:                                               ; preds = %8
@@ -2111,7 +2111,7 @@ _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i: ; preds
   br label %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit
 
 93:                                               ; preds = %63
-  %94 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager13loadSLocEntryEjPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 noundef %64, ptr noundef null) #11
+  %94 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager13loadSLocEntryEjPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 noundef %64, ptr noundef null) #12
   br label %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit
 
 95:                                               ; preds = %61
@@ -2181,7 +2181,7 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplIN
   br i1 %9, label %10, label %32
 
 10:                                               ; preds = %4
-  %11 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %8, i64 noundef 16) #11
+  %11 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %8, i64 noundef 16) #12
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load i32, ptr %13, align 8, !tbaa !9
@@ -2194,7 +2194,7 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplIN
   %18 = zext i32 %14 to i64
   %19 = add nuw nsw i64 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %20, i64 noundef %19, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %20, i64 noundef %19, i64 noundef 16) #12
   %.pre.i = load i32, ptr %13, align 8, !tbaa !9
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit
 
@@ -2224,7 +2224,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %37 = tail call i32 @llvm.umin.i32(i32 %36, i32 30)
   %.sroa.speculated.i.i = zext nneg i32 %37 to i64
   %38 = shl nuw nsw i64 4096, %.sroa.speculated.i.i
-  %39 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %38, i64 noundef 16) #11
+  %39 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %38, i64 noundef 16) #12
   %40 = load i32, ptr %34, align 8, !tbaa !9
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %42 = load i32, ptr %41, align 4, !tbaa !431
@@ -2235,7 +2235,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %44 = zext i32 %40 to i64
   %45 = add nuw nsw i64 %44, 1
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull %46, i64 noundef %45, i64 noundef 8) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull %46, i64 noundef %45, i64 noundef 8) #12
   %.pre.i.i = load i32, ptr %34, align 8, !tbaa !9
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit
 
@@ -2351,7 +2351,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit.thread:    ; preds = %0
 12:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.thread, %_ZNK5clang4Decl14getDeclContextEv.exit
   %.pn = phi ptr [ %8, %_ZNK5clang4Decl14getDeclContextEv.exit.thread ], [ %4, %_ZNK5clang4Decl14getDeclContextEv.exit ]
   %spec.select.i.i4 = getelementptr inbounds i8, ptr %.pn, i64 -64
-  %13 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl31getTemplateInstantiationPatternEv(ptr noundef nonnull align 8 dereferenceable(144) %spec.select.i.i4) #11
+  %13 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl31getTemplateInstantiationPatternEv(ptr noundef nonnull align 8 dereferenceable(144) %spec.select.i.i4) #12
   br label %.thread5
 
 _ZNK5clang4Decl14getDeclContextEv.exit15:         ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.thread, %_ZNK5clang4Decl14getDeclContextEv.exit
@@ -2364,7 +2364,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit15:         ; preds = %_ZNK5clang4Decl14ge
 
 18:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit15
   %19 = getelementptr inbounds i8, ptr %.0.i.i14, i64 -64
-  %20 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl30getInstantiatedFromMemberClassEv(ptr noundef nonnull align 8 dereferenceable(144) %19) #11
+  %20 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl30getInstantiatedFromMemberClassEv(ptr noundef nonnull align 8 dereferenceable(144) %19) #12
   br label %.thread5
 
 .thread5:                                         ; preds = %18, %12, %_ZNK5clang4Decl14getDeclContextEv.exit15
@@ -2390,8 +2390,8 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2404,7 +2404,8 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

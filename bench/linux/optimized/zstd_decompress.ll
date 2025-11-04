@@ -28,7 +28,7 @@ define dso_local i64 @ZSTD_sizeof_DCtx(ptr noundef readonly captures(address_is_
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 30168
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i64 @ZSTD_sizeof_DDict(ptr noundef %5) #10
+  %6 = tail call i64 @ZSTD_sizeof_DDict(ptr noundef %5) #11
   %7 = add i64 %6, 95944
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 30224
   %9 = load i64, ptr %8, align 8
@@ -76,19 +76,19 @@ define dso_local noundef ptr @ZSTD_initStaticDCtx(ptr noundef %0, i64 noundef %1
   store i32 0, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 95936
   store i64 0, ptr %17, align 8
-  %18 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #11, !srcloc !5
+  %18 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #12, !srcloc !5
   %19 = icmp eq i32 %18, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, i8 0, i64 20, i1 false)
   br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %8
-  %21 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #11, !srcloc !6
+  %21 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #12, !srcloc !6
   %22 = icmp ugt i32 %18, 6
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %20
-  %24 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #11, !srcloc !7
+  %24 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #12, !srcloc !7
   %25 = extractvalue { i32, i32, i32 } %24, 1
   br label %.thread
 
@@ -137,7 +137,7 @@ define dso_local ptr @ZSTD_createDCtx_advanced(ptr noundef readonly byval(%struc
   br i1 %9, label %47, label %10
 
 10:                                               ; preds = %1
-  %11 = tail call ptr @ZSTD_customMalloc(i64 noundef 95944, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %0) #10
+  %11 = tail call ptr @ZSTD_customMalloc(i64 noundef 95944, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %0) #11
   %12 = icmp eq ptr %11, null
   br i1 %12, label %47, label %13
 
@@ -164,19 +164,19 @@ define dso_local ptr @ZSTD_createDCtx_advanced(ptr noundef readonly byval(%struc
   store i32 0, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 95936
   store i64 0, ptr %25, align 8
-  %26 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #11, !srcloc !5
+  %26 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #12, !srcloc !5
   %27 = icmp eq i32 %26, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %23, i8 0, i64 20, i1 false)
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %13
-  %29 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #11, !srcloc !6
+  %29 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #12, !srcloc !6
   %30 = icmp ugt i32 %26, 6
   br i1 %30, label %31, label %.thread
 
 31:                                               ; preds = %28
-  %32 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #11, !srcloc !7
+  %32 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #12, !srcloc !7
   %33 = extractvalue { i32, i32, i32 } %32, 1
   br label %.thread
 
@@ -210,7 +210,7 @@ define dso_local ptr @ZSTD_createDCtx_advanced(ptr noundef readonly byval(%struc
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @ZSTD_createDCtx() local_unnamed_addr #0 align 16 {
-  %1 = tail call ptr @ZSTD_customMalloc(i64 noundef 95944, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 @ZSTD_defaultCMem) #10
+  %1 = tail call ptr @ZSTD_customMalloc(i64 noundef 95944, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 @ZSTD_defaultCMem) #11
   %2 = icmp eq ptr %1, null
   br i1 %2, label %35, label %3
 
@@ -233,19 +233,19 @@ define dso_local ptr @ZSTD_createDCtx() local_unnamed_addr #0 align 16 {
   store i32 0, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 95936
   store i64 0, ptr %13, align 8
-  %14 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #11, !srcloc !5
+  %14 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #12, !srcloc !5
   %15 = icmp eq i32 %14, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %11, i8 0, i64 20, i1 false)
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %3
-  %17 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #11, !srcloc !6
+  %17 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #12, !srcloc !6
   %18 = icmp ugt i32 %14, 6
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %16
-  %20 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #11, !srcloc !7
+  %20 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #12, !srcloc !7
   %21 = extractvalue { i32, i32, i32 } %20, 1
   br label %.thread
 
@@ -293,13 +293,13 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_freeDCtx(ptr noundef %0) lo
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 30168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i64 @ZSTD_freeDDict(ptr noundef %11) #10
+  %12 = tail call i64 @ZSTD_freeDDict(ptr noundef %11) #11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 30192
   store i32 0, ptr %13, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 30216
   %15 = load ptr, ptr %14, align 8
-  tail call void @ZSTD_customFree(ptr noundef %15, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %2) #10
+  tail call void @ZSTD_customFree(ptr noundef %15, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %2) #11
   store ptr null, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 30200
   %17 = load ptr, ptr %16, align 8
@@ -312,16 +312,16 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_freeDCtx(ptr noundef %0) lo
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %19
-  tail call void @ZSTD_customFree(ptr noundef nonnull %20, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %2) #10
+  tail call void @ZSTD_customFree(ptr noundef nonnull %20, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %2) #11
   br label %23
 
 23:                                               ; preds = %22, %19
-  tail call void @ZSTD_customFree(ptr noundef nonnull %17, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %2) #10
+  tail call void @ZSTD_customFree(ptr noundef nonnull %17, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %2) #11
   store ptr null, ptr %16, align 8
   br label %24
 
 24:                                               ; preds = %23, %8
-  tail call void @ZSTD_customFree(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %2) #10
+  tail call void @ZSTD_customFree(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %2) #11
   br label %25
 
 25:                                               ; preds = %24, %4, %1
@@ -840,7 +840,7 @@ define internal fastcc { i64, i64 } @ZSTD_findFrameSizeInfo(ptr noundef %0, i64 
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false), !annotation !11
-  %31 = call i64 @ZSTD_getcBlockSize(ptr noundef %28, i64 noundef %29, ptr noundef nonnull %4) #10
+  %31 = call i64 @ZSTD_getcBlockSize(ptr noundef %28, i64 noundef %29, ptr noundef nonnull %4) #11
   %32 = icmp ult i64 %31, -119
   br i1 %32, label %.lr.ph, label %.thread
 
@@ -870,7 +870,7 @@ define internal fastcc { i64, i64 } @ZSTD_findFrameSizeInfo(ptr noundef %0, i64 
 45:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false), !annotation !11
-  %46 = call i64 @ZSTD_getcBlockSize(ptr noundef %40, i64 noundef %41, ptr noundef nonnull %4) #10
+  %46 = call i64 @ZSTD_getcBlockSize(ptr noundef %40, i64 noundef %41, ptr noundef nonnull %4) #11
   %47 = icmp ult i64 %46, -119
   br i1 %47, label %.lr.ph, label %.thread
 
@@ -948,7 +948,7 @@ define dso_local i64 @ZSTD_decompressBound(ptr noundef %0, i64 noundef %1) local
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i64 @ZSTD_insertBlock(ptr noundef %0, ptr noundef %1, i64 noundef returned %2) local_unnamed_addr #0 align 16 {
-  tail call void @ZSTD_checkContinuity(ptr noundef %0, ptr noundef %1, i64 noundef %2) #10
+  tail call void @ZSTD_checkContinuity(ptr noundef %0, ptr noundef %1, i64 noundef %2) #11
   %4 = getelementptr i8, ptr %1, i64 %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 29888
   store ptr %4, ptr %5, align 8
@@ -971,8 +971,8 @@ define internal fastcc i64 @ZSTD_decompressMultiFrame(ptr noundef %0, ptr nounde
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call ptr @ZSTD_DDict_dictContent(ptr noundef nonnull %7) #10
-  %13 = tail call i64 @ZSTD_DDict_dictSize(ptr noundef nonnull %7) #10
+  %12 = tail call ptr @ZSTD_DDict_dictContent(ptr noundef nonnull %7) #11
+  %13 = tail call i64 @ZSTD_DDict_dictSize(ptr noundef nonnull %7) #11
   br label %14
 
 14:                                               ; preds = %11, %8
@@ -1064,8 +1064,8 @@ define internal fastcc i64 @ZSTD_decompressMultiFrame(ptr noundef %0, ptr nounde
   br i1 %10, label %92, label %82
 
 82:                                               ; preds = %81
-  %83 = call ptr @ZSTD_DDict_dictContent(ptr noundef nonnull %7) #10
-  %84 = call i64 @ZSTD_DDict_dictSize(ptr noundef nonnull %7) #10
+  %83 = call ptr @ZSTD_DDict_dictContent(ptr noundef nonnull %7) #11
+  %84 = call i64 @ZSTD_DDict_dictSize(ptr noundef nonnull %7) #11
   %85 = getelementptr i8, ptr %83, i64 %84
   %86 = load ptr, ptr %18, align 8
   %87 = icmp ne ptr %86, %85
@@ -1088,7 +1088,7 @@ define internal fastcc i64 @ZSTD_decompressMultiFrame(ptr noundef %0, ptr nounde
   store ptr %31, ptr %32, align 8
   store ptr %33, ptr %34, align 8
   store ptr %25, ptr %35, align 8
-  call void @ZSTD_copyDDictParameters(ptr noundef %0, ptr noundef nonnull %7) #10
+  call void @ZSTD_copyDDictParameters(ptr noundef %0, ptr noundef nonnull %7) #11
   br label %ZSTD_decompressBegin_usingDict.exit.thread
 
 92:                                               ; preds = %81
@@ -1145,7 +1145,7 @@ define internal fastcc i64 @ZSTD_decompressMultiFrame(ptr noundef %0, ptr nounde
   br label %ZSTD_decompressBegin_usingDict.exit.thread
 
 ZSTD_decompressBegin_usingDict.exit.thread:       ; preds = %109, %92, %82
-  call void @ZSTD_checkContinuity(ptr noundef %0, ptr noundef %57, i64 noundef %58) #10
+  call void @ZSTD_checkContinuity(ptr noundef %0, ptr noundef %57, i64 noundef %58) #11
   %110 = getelementptr i8, ptr %57, i64 %58
   %111 = load i32, ptr %17, align 8
   %112 = icmp eq i32 %111, 0
@@ -1197,7 +1197,7 @@ ZSTD_decompressBegin_usingDict.exit.thread:       ; preds = %109, %92, %82
   %150 = ptrtoint ptr %110 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, i8 0, i64 12, i1 false), !annotation !11
-  %151 = call i64 @ZSTD_getcBlockSize(ptr noundef %148, i64 noundef %149, ptr noundef nonnull %9) #10
+  %151 = call i64 @ZSTD_getcBlockSize(ptr noundef %148, i64 noundef %149, ptr noundef nonnull %9) #11
   %152 = icmp ult i64 %151, -119
   br i1 %152, label %.lr.ph64, label %.thread41
 
@@ -1268,7 +1268,7 @@ ZSTD_decompressBegin_usingDict.exit.thread:       ; preds = %109, %92, %82
 190:                                              ; preds = %160
   %191 = ptrtoint ptr %168 to i64
   %192 = sub i64 %191, %165
-  %193 = call i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef %155, i64 noundef %192, ptr noundef %157, i64 noundef %153, i32 noundef 1, i32 noundef 0) #10
+  %193 = call i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef %155, i64 noundef %192, ptr noundef %157, i64 noundef %153, i32 noundef 1, i32 noundef 0) #11
   %194 = icmp ult i64 %193, -119
   br i1 %194, label %.thread32, label %.thread41
 
@@ -1279,7 +1279,7 @@ ZSTD_decompressBegin_usingDict.exit.thread:       ; preds = %109, %92, %82
   br i1 %197, label %200, label %198
 
 198:                                              ; preds = %.thread32
-  %199 = call i32 @xxh64_update(ptr noundef nonnull %38, ptr noundef %155, i64 noundef %195) #10
+  %199 = call i32 @xxh64_update(ptr noundef nonnull %38, ptr noundef %155, i64 noundef %195) #11
   br label %200
 
 200:                                              ; preds = %198, %.thread32
@@ -1299,7 +1299,7 @@ ZSTD_decompressBegin_usingDict.exit.thread:       ; preds = %109, %92, %82
 206:                                              ; preds = %200
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, i8 0, i64 12, i1 false), !annotation !11
-  %207 = call i64 @ZSTD_getcBlockSize(ptr noundef %202, i64 noundef %203, ptr noundef nonnull %9) #10
+  %207 = call i64 @ZSTD_getcBlockSize(ptr noundef %202, i64 noundef %203, ptr noundef nonnull %9) #11
   %208 = icmp ult i64 %207, -119
   br i1 %208, label %.lr.ph64, label %.thread41
 
@@ -1328,7 +1328,7 @@ ZSTD_decompressBegin_usingDict.exit.thread:       ; preds = %109, %92, %82
   br i1 %224, label %225, label %230
 
 225:                                              ; preds = %222
-  %226 = call i64 @xxh64_digest(ptr noundef nonnull %38) #10
+  %226 = call i64 @xxh64_digest(ptr noundef nonnull %38) #11
   %227 = trunc i64 %226 to i32
   %228 = load i32, ptr %202, align 1
   %229 = icmp eq i32 %228, %227
@@ -1343,7 +1343,7 @@ ZSTD_decompressBegin_usingDict.exit.thread:       ; preds = %109, %92, %82
   %233 = phi ptr [ %63, %ZSTD_decompressBegin_usingDict.exit.thread ], [ %63, %220 ], [ %63, %225 ], [ %63, %209 ], [ %231, %230 ], [ %202, %217 ], [ %63, %.thread41 ], [ %63, %144 ], [ %63, %115 ], [ %63, %141 ]
   %234 = phi i64 [ %62, %ZSTD_decompressBegin_usingDict.exit.thread ], [ %62, %220 ], [ %62, %225 ], [ %62, %209 ], [ %232, %230 ], [ %203, %217 ], [ %62, %.thread41 ], [ %62, %144 ], [ %62, %115 ], [ %62, %141 ]
   %235 = phi i64 [ -72, %ZSTD_decompressBegin_usingDict.exit.thread ], [ -22, %220 ], [ -22, %225 ], [ -20, %209 ], [ %214, %230 ], [ %214, %217 ], [ %.ph40, %.thread41 ], [ %145, %144 ], [ %139, %115 ], [ -72, %141 ]
-  %236 = call i32 @ZSTD_getErrorCode(i64 noundef %235) #10
+  %236 = call i32 @ZSTD_getErrorCode(i64 noundef %235) #11
   %237 = icmp eq i32 %236, 10
   %238 = and i1 %56, %237
   br i1 %238, label %.thread23, label %239
@@ -1390,7 +1390,7 @@ define dso_local i64 @ZSTD_decompressDCtx(ptr noundef %0, ptr noundef %1, i64 no
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 30168
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i64 @ZSTD_freeDDict(ptr noundef %10) #10
+  %11 = tail call i64 @ZSTD_freeDDict(ptr noundef %10) #11
   store i32 0, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   br label %18
@@ -1421,7 +1421,7 @@ define dso_local i64 @ZSTD_decompress_usingDDict(ptr noundef %0, ptr noundef %1,
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @ZSTD_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.ZSTD_customMem, align 8
-  %6 = tail call ptr @ZSTD_customMalloc(i64 noundef 95944, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 @ZSTD_defaultCMem) #10
+  %6 = tail call ptr @ZSTD_customMalloc(i64 noundef 95944, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 @ZSTD_defaultCMem) #11
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread2, label %8
 
@@ -1444,19 +1444,19 @@ define dso_local i64 @ZSTD_decompress(ptr noundef %0, i64 noundef %1, ptr nounde
   store i32 0, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 95936
   store i64 0, ptr %18, align 8
-  %19 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #11, !srcloc !5
+  %19 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #12, !srcloc !5
   %20 = icmp eq i32 %19, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %16, i8 0, i64 20, i1 false)
   br i1 %20, label %27, label %21
 
 21:                                               ; preds = %8
-  %22 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #11, !srcloc !6
+  %22 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #12, !srcloc !6
   %23 = icmp ugt i32 %19, 6
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %21
-  %25 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #11, !srcloc !7
+  %25 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #12, !srcloc !7
   %26 = extractvalue { i32, i32, i32 } %25, 1
   br label %27
 
@@ -1481,7 +1481,7 @@ define dso_local i64 @ZSTD_decompress(ptr noundef %0, i64 noundef %1, ptr nounde
   store i32 0, ptr %39, align 4
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 30208
   store i32 0, ptr %40, align 8
-  %41 = tail call i64 @ZSTD_freeDDict(ptr noundef null) #10
+  %41 = tail call i64 @ZSTD_freeDDict(ptr noundef null) #11
   store i32 0, ptr %14, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %42 = tail call fastcc i64 @ZSTD_decompressMultiFrame(ptr noundef nonnull %6, ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef null, i64 noundef 0, ptr noundef null)
@@ -1493,12 +1493,12 @@ define dso_local i64 @ZSTD_decompress(ptr noundef %0, i64 noundef %1, ptr nounde
 45:                                               ; preds = %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %46 = load ptr, ptr %11, align 8
-  %47 = tail call i64 @ZSTD_freeDDict(ptr noundef %46) #10
+  %47 = tail call i64 @ZSTD_freeDDict(ptr noundef %46) #11
   store i32 0, ptr %14, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 30216
   %49 = load ptr, ptr %48, align 8
-  tail call void @ZSTD_customFree(ptr noundef %49, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %5) #10
+  tail call void @ZSTD_customFree(ptr noundef %49, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %5) #11
   store ptr null, ptr %48, align 8
   %50 = load ptr, ptr %35, align 8
   %51 = icmp eq ptr %50, null
@@ -1510,16 +1510,16 @@ define dso_local i64 @ZSTD_decompress(ptr noundef %0, i64 noundef %1, ptr nounde
   br i1 %54, label %56, label %55
 
 55:                                               ; preds = %52
-  tail call void @ZSTD_customFree(ptr noundef nonnull %53, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %5) #10
+  tail call void @ZSTD_customFree(ptr noundef nonnull %53, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %5) #11
   br label %56
 
 56:                                               ; preds = %55, %52
-  tail call void @ZSTD_customFree(ptr noundef nonnull %50, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %5) #10
+  tail call void @ZSTD_customFree(ptr noundef nonnull %50, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %5) #11
   store ptr null, ptr %35, align 8
   br label %57
 
 57:                                               ; preds = %56, %45
-  tail call void @ZSTD_customFree(ptr noundef nonnull %6, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %5) #10
+  tail call void @ZSTD_customFree(ptr noundef nonnull %6, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %5) #11
   br label %ZSTD_freeDCtx.exit
 
 ZSTD_freeDCtx.exit:                               ; preds = %27, %57
@@ -1604,7 +1604,7 @@ define dso_local range(i64 -119, 4294967296) i64 @ZSTD_decompressContinue(ptr no
   br i1 %25, label %26, label %.thread13
 
 26:                                               ; preds = %23
-  tail call void @ZSTD_checkContinuity(ptr noundef %0, ptr noundef %1, i64 noundef %2) #10
+  tail call void @ZSTD_checkContinuity(ptr noundef %0, ptr noundef %1, i64 noundef %2) #11
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 29968
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, %4
@@ -1711,7 +1711,7 @@ define dso_local range(i64 -119, 4294967296) i64 @ZSTD_decompressContinue(ptr no
 88:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, i8 0, i64 12, i1 false), !annotation !11
-  %89 = call i64 @ZSTD_getcBlockSize(ptr noundef %3, i64 noundef 3, ptr noundef nonnull %6) #10
+  %89 = call i64 @ZSTD_getcBlockSize(ptr noundef %3, i64 noundef 3, ptr noundef nonnull %6) #11
   %90 = icmp ult i64 %89, -119
   br i1 %90, label %91, label %120
 
@@ -1784,7 +1784,7 @@ define dso_local range(i64 -119, 4294967296) i64 @ZSTD_decompressContinue(ptr no
   ]
 
 125:                                              ; preds = %122
-  %126 = tail call i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef 1, i32 noundef 1) #10
+  %126 = tail call i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef 1, i32 noundef 1) #11
   br label %149
 
 127:                                              ; preds = %122
@@ -1860,7 +1860,7 @@ define dso_local range(i64 -119, 4294967296) i64 @ZSTD_decompressContinue(ptr no
 
 168:                                              ; preds = %161
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 30000
-  %170 = tail call i32 @xxh64_update(ptr noundef nonnull %169, ptr noundef %1, i64 noundef %155) #10
+  %170 = tail call i32 @xxh64_update(ptr noundef nonnull %169, ptr noundef %1, i64 noundef %155) #11
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 29920
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %171
@@ -1918,7 +1918,7 @@ define dso_local range(i64 -119, 4294967296) i64 @ZSTD_decompressContinue(ptr no
 
 197:                                              ; preds = %193
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 30000
-  %199 = tail call i64 @xxh64_digest(ptr noundef nonnull %198) #10
+  %199 = tail call i64 @xxh64_digest(ptr noundef nonnull %198) #11
   %200 = trunc i64 %199 to i32
   %201 = load i32, ptr %3, align 1
   %202 = icmp eq i32 %201, %200
@@ -1991,7 +1991,7 @@ define internal fastcc range(i64 -119, 1) i64 @ZSTD_decodeFrameHeader(ptr nounde
   %26 = load i32, ptr %25, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %26, ptr %4, align 4
-  %27 = call i64 @xxh64(ptr noundef nonnull %4, i64 noundef 4, i64 noundef 0) #10
+  %27 = call i64 @xxh64(ptr noundef nonnull %4, i64 noundef 4, i64 noundef 0) #11
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, -1
@@ -2004,7 +2004,7 @@ define internal fastcc range(i64 -119, 1) i64 @ZSTD_decodeFrameHeader(ptr nounde
   %34 = load ptr, ptr %18, align 8
   %35 = getelementptr ptr, ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8
-  %37 = call i32 @ZSTD_getDictID_fromDDict(ptr noundef %36) #10
+  %37 = call i32 @ZSTD_getDictID_fromDDict(ptr noundef %36) #11
   %38 = icmp eq i32 %37, %26
   %39 = icmp eq i32 %37, 0
   %40 = or i1 %38, %39
@@ -2022,7 +2022,7 @@ define internal fastcc range(i64 -119, 1) i64 @ZSTD_decodeFrameHeader(ptr nounde
 48:                                               ; preds = %43
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 30168
   %50 = load ptr, ptr %49, align 8
-  %51 = call i64 @ZSTD_freeDDict(ptr noundef %50) #10
+  %51 = call i64 @ZSTD_freeDDict(ptr noundef %50) #11
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 30192
   store i64 0, ptr %49, align 8
   %53 = load i32, ptr %25, align 4
@@ -2061,7 +2061,7 @@ ZSTD_DCtx_selectFrameDDict.exit:                  ; preds = %48, %43, %20, %16, 
 
 72:                                               ; preds = %66
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 30000
-  tail call void @xxh64_reset(ptr noundef nonnull %73, i64 noundef 0) #10
+  tail call void @xxh64_reset(ptr noundef nonnull %73, i64 noundef 0) #11
   br label %76
 
 74:                                               ; preds = %62
@@ -2113,7 +2113,7 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 10264
   %18 = ptrtoint ptr %13 to i64
   %19 = add i64 %2, -8
-  %20 = tail call i64 @HUF_readDTableX2_wksp(ptr noundef nonnull %17, ptr noundef %16, i64 noundef %19, ptr noundef %0, i64 noundef 10264) #10
+  %20 = tail call i64 @HUF_readDTableX2_wksp(ptr noundef nonnull %17, ptr noundef %16, i64 noundef %19, ptr noundef %0, i64 noundef 10264) #11
   %21 = icmp ult i64 %20, -119
   %22 = select i1 %21, i64 %20, i64 0
   %23 = getelementptr i8, ptr %16, i64 %22
@@ -2128,7 +2128,7 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
   store i32 0, ptr %6, align 4, !annotation !11
   %25 = add nuw i64 %20, 8
   %gepdiff = sub i64 %2, %25
-  %26 = call i64 @FSE_readNCount(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %23, i64 noundef %gepdiff) #10
+  %26 = call i64 @FSE_readNCount(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %23, i64 noundef %gepdiff) #11
   %27 = icmp ult i64 %26, -119
   br i1 %27, label %28, label %.critedge
 
@@ -2145,7 +2145,7 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 4104
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 26664
-  call void @ZSTD_buildFSETable(ptr noundef nonnull %35, ptr noundef nonnull %4, i32 noundef %29, ptr noundef nonnull @OF_base, ptr noundef nonnull @OF_bits, i32 noundef %32, ptr noundef nonnull %36, i64 noundef 628, i32 noundef 0) #10
+  call void @ZSTD_buildFSETable(ptr noundef nonnull %35, ptr noundef nonnull %4, i32 noundef %29, ptr noundef nonnull @OF_base, ptr noundef nonnull @OF_bits, i32 noundef %32, ptr noundef nonnull %36, i64 noundef 628, i32 noundef 0) #11
   %37 = getelementptr i8, ptr %23, i64 %26
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2158,7 +2158,7 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
   store i32 0, ptr %9, align 4, !annotation !11
   %38 = add i64 %20, %26
   %gepdiff20 = sub i64 %19, %38
-  %39 = call i64 @FSE_readNCount(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %37, i64 noundef %gepdiff20) #10
+  %39 = call i64 @FSE_readNCount(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %37, i64 noundef %gepdiff20) #11
   %40 = icmp ult i64 %39, -119
   br i1 %40, label %41, label %.critedge2
 
@@ -2174,7 +2174,7 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 6160
-  call void @ZSTD_buildFSETable(ptr noundef nonnull %48, ptr noundef nonnull %7, i32 noundef %42, ptr noundef nonnull @ML_base, ptr noundef nonnull @ML_bits, i32 noundef %45, ptr noundef nonnull %36, i64 noundef 628, i32 noundef 0) #10
+  call void @ZSTD_buildFSETable(ptr noundef nonnull %48, ptr noundef nonnull %7, i32 noundef %42, ptr noundef nonnull @ML_base, ptr noundef nonnull @ML_bits, i32 noundef %45, ptr noundef nonnull %36, i64 noundef 628, i32 noundef 0) #11
   %49 = getelementptr i8, ptr %37, i64 %39
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2187,7 +2187,7 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
   store i32 0, ptr %12, align 4, !annotation !11
   %50 = ptrtoint ptr %49 to i64
   %51 = sub i64 %18, %50
-  %52 = call i64 @FSE_readNCount(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %49, i64 noundef %51) #10
+  %52 = call i64 @FSE_readNCount(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %49, i64 noundef %51) #11
   %53 = icmp ult i64 %52, -119
   br i1 %53, label %54, label %.critedge4
 
@@ -2202,7 +2202,7 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
   br i1 %59, label %.critedge4, label %60
 
 60:                                               ; preds = %57
-  call void @ZSTD_buildFSETable(ptr noundef %0, ptr noundef nonnull %10, i32 noundef %55, ptr noundef nonnull @LL_base, ptr noundef nonnull @LL_bits, i32 noundef %58, ptr noundef nonnull %36, i64 noundef 628, i32 noundef 0) #10
+  call void @ZSTD_buildFSETable(ptr noundef %0, ptr noundef nonnull %10, i32 noundef %55, ptr noundef nonnull @LL_base, ptr noundef nonnull @LL_bits, i32 noundef %58, ptr noundef nonnull %36, i64 noundef 628, i32 noundef 0) #11
   %61 = getelementptr i8, ptr %49, i64 %52
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -2433,8 +2433,8 @@ define dso_local noundef i64 @ZSTD_decompressBegin_usingDDict(ptr noundef initia
   br i1 %3, label %13, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @ZSTD_DDict_dictContent(ptr noundef nonnull %1) #10
-  %6 = tail call i64 @ZSTD_DDict_dictSize(ptr noundef nonnull %1) #10
+  %5 = tail call ptr @ZSTD_DDict_dictContent(ptr noundef nonnull %1) #11
+  %6 = tail call i64 @ZSTD_DDict_dictSize(ptr noundef nonnull %1) #11
   %7 = getelementptr i8, ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 29912
   %9 = load ptr, ptr %8, align 8
@@ -2482,7 +2482,7 @@ define dso_local noundef i64 @ZSTD_decompressBegin_usingDDict(ptr noundef initia
   br i1 %3, label %35, label %34
 
 34:                                               ; preds = %13
-  tail call void @ZSTD_copyDDictParameters(ptr noundef %0, ptr noundef nonnull %1) #10
+  tail call void @ZSTD_copyDDictParameters(ptr noundef %0, ptr noundef nonnull %1) #11
   br label %35
 
 35:                                               ; preds = %34, %13
@@ -2533,7 +2533,7 @@ define dso_local i32 @ZSTD_getDictID_fromFrame(ptr noundef readonly captures(add
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @ZSTD_createDStream() local_unnamed_addr #0 align 16 {
-  %1 = tail call ptr @ZSTD_customMalloc(i64 noundef 95944, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 @ZSTD_defaultCMem) #10
+  %1 = tail call ptr @ZSTD_customMalloc(i64 noundef 95944, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 @ZSTD_defaultCMem) #11
   %2 = icmp eq ptr %1, null
   br i1 %2, label %35, label %3
 
@@ -2556,19 +2556,19 @@ define dso_local ptr @ZSTD_createDStream() local_unnamed_addr #0 align 16 {
   store i32 0, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 95936
   store i64 0, ptr %13, align 8
-  %14 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #11, !srcloc !5
+  %14 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #12, !srcloc !5
   %15 = icmp eq i32 %14, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %11, i8 0, i64 20, i1 false)
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %3
-  %17 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #11, !srcloc !6
+  %17 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #12, !srcloc !6
   %18 = icmp ugt i32 %14, 6
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %16
-  %20 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #11, !srcloc !7
+  %20 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #12, !srcloc !7
   %21 = extractvalue { i32, i32, i32 } %20, 1
   br label %.thread
 
@@ -2624,19 +2624,19 @@ define dso_local noundef ptr @ZSTD_initStaticDStream(ptr noundef %0, i64 noundef
   store i32 0, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 95936
   store i64 0, ptr %17, align 8
-  %18 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #11, !srcloc !5
+  %18 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #12, !srcloc !5
   %19 = icmp eq i32 %18, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, i8 0, i64 20, i1 false)
   br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %8
-  %21 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #11, !srcloc !6
+  %21 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #12, !srcloc !6
   %22 = icmp ugt i32 %18, 6
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %20
-  %24 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #11, !srcloc !7
+  %24 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #12, !srcloc !7
   %25 = extractvalue { i32, i32, i32 } %24, 1
   br label %.thread
 
@@ -2685,7 +2685,7 @@ define dso_local ptr @ZSTD_createDStream_advanced(ptr noundef readonly byval(%st
   br i1 %9, label %47, label %10
 
 10:                                               ; preds = %1
-  %11 = tail call ptr @ZSTD_customMalloc(i64 noundef 95944, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %0) #10
+  %11 = tail call ptr @ZSTD_customMalloc(i64 noundef 95944, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %0) #11
   %12 = icmp eq ptr %11, null
   br i1 %12, label %47, label %13
 
@@ -2712,19 +2712,19 @@ define dso_local ptr @ZSTD_createDStream_advanced(ptr noundef readonly byval(%st
   store i32 0, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 95936
   store i64 0, ptr %25, align 8
-  %26 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #11, !srcloc !5
+  %26 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #12, !srcloc !5
   %27 = icmp eq i32 %26, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %23, i8 0, i64 20, i1 false)
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %13
-  %29 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #11, !srcloc !6
+  %29 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #12, !srcloc !6
   %30 = icmp ugt i32 %26, 6
   br i1 %30, label %31, label %.thread
 
 31:                                               ; preds = %28
-  %32 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #11, !srcloc !7
+  %32 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #12, !srcloc !7
   %33 = extractvalue { i32, i32, i32 } %32, 1
   br label %.thread
 
@@ -2782,7 +2782,7 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary_advance
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 30168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i64 @ZSTD_freeDDict(ptr noundef %11) #10
+  %12 = tail call i64 @ZSTD_freeDDict(ptr noundef %11) #11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 30192
   store i32 0, ptr %13, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
@@ -2793,7 +2793,7 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary_advance
 
 17:                                               ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 30112
-  %19 = tail call ptr @ZSTD_createDDict_advanced(ptr noundef nonnull %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %18) #10
+  %19 = tail call ptr @ZSTD_createDDict_advanced(ptr noundef nonnull %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %18) #11
   store ptr %19, ptr %10, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %23, label %21
@@ -2822,7 +2822,7 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary_byRefer
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 30168
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i64 @ZSTD_freeDDict(ptr noundef %9) #10
+  %10 = tail call i64 @ZSTD_freeDDict(ptr noundef %9) #11
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 30192
   store i32 0, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
@@ -2833,7 +2833,7 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary_byRefer
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 30112
-  %17 = tail call ptr @ZSTD_createDDict_advanced(ptr noundef nonnull %1, i64 noundef %2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %16) #10
+  %17 = tail call ptr @ZSTD_createDDict_advanced(ptr noundef nonnull %1, i64 noundef %2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %16) #11
   store ptr %17, ptr %8, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %21, label %19
@@ -2859,7 +2859,7 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary(ptr nou
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 30168
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i64 @ZSTD_freeDDict(ptr noundef %9) #10
+  %10 = tail call i64 @ZSTD_freeDDict(ptr noundef %9) #11
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 30192
   store i32 0, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
@@ -2870,7 +2870,7 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary(ptr nou
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 30112
-  %17 = tail call ptr @ZSTD_createDDict_advanced(ptr noundef nonnull %1, i64 noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %16) #10
+  %17 = tail call ptr @ZSTD_createDDict_advanced(ptr noundef nonnull %1, i64 noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %16) #11
   store ptr %17, ptr %8, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %21, label %19
@@ -2896,7 +2896,7 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_refPrefix_advanced(ptr
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 30168
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i64 @ZSTD_freeDDict(ptr noundef %10) #10
+  %11 = tail call i64 @ZSTD_freeDDict(ptr noundef %10) #11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 30192
   store i32 0, ptr %12, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
@@ -2907,7 +2907,7 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_refPrefix_advanced(ptr
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 30112
-  %18 = tail call ptr @ZSTD_createDDict_advanced(ptr noundef nonnull %1, i64 noundef %2, i32 noundef 1, i32 noundef %3, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %17) #10
+  %18 = tail call ptr @ZSTD_createDDict_advanced(ptr noundef nonnull %1, i64 noundef %2, i32 noundef 1, i32 noundef %3, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %17) #11
   store ptr %18, ptr %9, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %23, label %20
@@ -2936,7 +2936,7 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_refPrefix(ptr noundef 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 30168
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i64 @ZSTD_freeDDict(ptr noundef %9) #10
+  %10 = tail call i64 @ZSTD_freeDDict(ptr noundef %9) #11
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 30192
   store i32 0, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
@@ -2947,7 +2947,7 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_refPrefix(ptr noundef 
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 30112
-  %17 = tail call ptr @ZSTD_createDDict_advanced(ptr noundef nonnull %1, i64 noundef %2, i32 noundef 1, i32 noundef 1, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %16) #10
+  %17 = tail call ptr @ZSTD_createDDict_advanced(ptr noundef nonnull %1, i64 noundef %2, i32 noundef 1, i32 noundef 1, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %16) #11
   store ptr %17, ptr %8, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %22, label %19
@@ -2974,7 +2974,7 @@ define dso_local range(i64 -64, 6) i64 @ZSTD_initDStream_usingDict(ptr noundef c
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 30168
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i64 @ZSTD_freeDDict(ptr noundef %7) #10
+  %8 = tail call i64 @ZSTD_freeDDict(ptr noundef %7) #11
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 30192
   store i32 0, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
@@ -2985,7 +2985,7 @@ define dso_local range(i64 -64, 6) i64 @ZSTD_initDStream_usingDict(ptr noundef c
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 30112
-  %15 = tail call ptr @ZSTD_createDDict_advanced(ptr noundef nonnull %1, i64 noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %14) #10
+  %15 = tail call ptr @ZSTD_createDDict_advanced(ptr noundef nonnull %1, i64 noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %14) #11
   store ptr %15, ptr %6, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread3, label %17
@@ -3035,7 +3035,7 @@ define dso_local noundef range(i64 -60, 1) i64 @ZSTD_DCtx_reset(ptr noundef capt
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 30168
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i64 @ZSTD_freeDDict(ptr noundef %17) #10
+  %18 = tail call i64 @ZSTD_freeDDict(ptr noundef %17) #11
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 30192
   store i32 0, ptr %19, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
@@ -3064,7 +3064,7 @@ define dso_local range(i64 1, 6) i64 @ZSTD_initDStream(ptr noundef captures(none
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 30168
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i64 @ZSTD_freeDDict(ptr noundef %5) #10
+  %6 = tail call i64 @ZSTD_freeDDict(ptr noundef %5) #11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 30192
   store i32 0, ptr %7, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -3112,7 +3112,7 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_refDDict(ptr noundef c
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 30168
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i64 @ZSTD_freeDDict(ptr noundef %13) #10
+  %14 = tail call i64 @ZSTD_freeDDict(ptr noundef %13) #11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 30192
   store i32 0, ptr %15, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
@@ -3138,18 +3138,18 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_refDDict(ptr noundef c
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 30112
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 1 dereferenceable(24) %27, i64 24, i1 false)
-  %28 = tail call ptr @ZSTD_customMalloc(i64 noundef 24, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %7) #10
+  %28 = tail call ptr @ZSTD_customMalloc(i64 noundef 24, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %7) #11
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.thread, label %30
 
 30:                                               ; preds = %26
-  %31 = tail call ptr @ZSTD_customCalloc(i64 noundef 512, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %7) #10
+  %31 = tail call ptr @ZSTD_customCalloc(i64 noundef 512, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %7) #11
   store ptr %31, ptr %28, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %30
-  tail call void @ZSTD_customFree(ptr noundef nonnull %28, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %7) #10
+  tail call void @ZSTD_customFree(ptr noundef nonnull %28, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %7) #11
   br label %.thread
 
 .thread:                                          ; preds = %33, %26
@@ -3183,7 +3183,7 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_refDDict(ptr noundef c
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(24) %39, i64 24, i1 false)
   %47 = shl i64 %44, 4
-  %48 = tail call ptr @ZSTD_customCalloc(i64 noundef %47, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %6) #10
+  %48 = tail call ptr @ZSTD_customCalloc(i64 noundef %47, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %6) #11
   %49 = load ptr, ptr %38, align 8
   %50 = load i64, ptr %43, align 8
   %51 = icmp eq ptr %48, null
@@ -3205,10 +3205,10 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_refDDict(ptr noundef c
   br i1 %58, label %91, label %59
 
 59:                                               ; preds = %.preheader17
-  %60 = call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %57) #10
+  %60 = call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %57) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %60, ptr %4, align 4
-  %61 = call i64 @xxh64(ptr noundef nonnull %4, i64 noundef 4, i64 noundef 0) #10
+  %61 = call i64 @xxh64(ptr noundef nonnull %4, i64 noundef 4, i64 noundef 0) #11
   %62 = load i64, ptr %43, align 8
   %63 = add i64 %62, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3227,7 +3227,7 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_refDDict(ptr noundef c
 .preheader15:                                     ; preds = %66, %79
   %72 = phi ptr [ %84, %79 ], [ %70, %66 ]
   %73 = phi i64 [ %81, %79 ], [ %67, %66 ]
-  %74 = call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %72) #10
+  %74 = call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %72) #11
   %75 = icmp eq i32 %74, %60
   br i1 %75, label %76, label %79
 
@@ -3267,15 +3267,15 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_refDDict(ptr noundef c
   br label %126
 
 .loopexit18:                                      ; preds = %91, %52
-  call void @ZSTD_customFree(ptr noundef %49, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %5) #10
+  call void @ZSTD_customFree(ptr noundef %49, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %5) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %94
 
 94:                                               ; preds = %.loopexit18, %37
-  %95 = call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %1) #10
+  %95 = call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %1) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %95, ptr %3, align 4
-  %96 = call i64 @xxh64(ptr noundef nonnull %3, i64 noundef 4, i64 noundef 0) #10
+  %96 = call i64 @xxh64(ptr noundef nonnull %3, i64 noundef 4, i64 noundef 0) #11
   %97 = load i64, ptr %43, align 8
   %98 = add i64 %97, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3294,7 +3294,7 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_refDDict(ptr noundef c
 .preheader:                                       ; preds = %101, %114
   %107 = phi ptr [ %119, %114 ], [ %105, %101 ]
   %108 = phi i64 [ %116, %114 ], [ %102, %101 ]
-  %109 = call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %107) #10
+  %109 = call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %107) #11
   %110 = icmp eq i32 %109, %95
   br i1 %110, label %111, label %114
 
@@ -3550,7 +3550,7 @@ define dso_local i64 @ZSTD_sizeof_DStream(ptr noundef readonly captures(address_
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 30168
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i64 @ZSTD_sizeof_DDict(ptr noundef %5) #10
+  %6 = tail call i64 @ZSTD_sizeof_DDict(ptr noundef %5) #11
   %7 = add i64 %6, 95944
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 30224
   %9 = load i64, ptr %8, align 8
@@ -3768,7 +3768,7 @@ select.unfold:                                    ; preds = %36, %22, %32
   %104 = load i32, ptr %87, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %104, ptr %4, align 4
-  %105 = call i64 @xxh64(ptr noundef nonnull %4, i64 noundef 4, i64 noundef 0) #10
+  %105 = call i64 @xxh64(ptr noundef nonnull %4, i64 noundef 4, i64 noundef 0) #11
   %106 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %107 = load i64, ptr %106, align 8
   %108 = add i64 %107, -1
@@ -3781,7 +3781,7 @@ select.unfold:                                    ; preds = %36, %22, %32
   %112 = load ptr, ptr %98, align 8
   %113 = getelementptr ptr, ptr %112, i64 %111
   %114 = load ptr, ptr %113, align 8
-  %115 = call i32 @ZSTD_getDictID_fromDDict(ptr noundef %114) #10
+  %115 = call i32 @ZSTD_getDictID_fromDDict(ptr noundef %114) #11
   %116 = icmp eq i32 %115, %104
   %117 = icmp eq i32 %115, 0
   %118 = or i1 %116, %117
@@ -3798,7 +3798,7 @@ select.unfold:                                    ; preds = %36, %22, %32
 
 126:                                              ; preds = %121
   %127 = load ptr, ptr %61, align 8
-  %128 = call i64 @ZSTD_freeDDict(ptr noundef %127) #10
+  %128 = call i64 @ZSTD_freeDDict(ptr noundef %127) #11
   store i64 0, ptr %61, align 8
   %129 = load i32, ptr %87, align 4
   store i32 %129, ptr %71, align 8
@@ -3884,7 +3884,7 @@ ZSTD_DCtx_selectFrameDDict.exit:                  ; preds = %126, %121, %100, %9
 
 172:                                              ; preds = %170
   %173 = load ptr, ptr %61, align 8
-  %174 = tail call i64 @ZSTD_freeDDict(ptr noundef %173) #10
+  %174 = tail call i64 @ZSTD_freeDDict(ptr noundef %173) #11
   store i32 0, ptr %59, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
   br label %ZSTD_getDDict.exit
@@ -3938,7 +3938,7 @@ ZSTD_getDDict.exit:                               ; preds = %172, %175, %177
 
 .thread42:                                        ; preds = %197
   %199 = load ptr, ptr %61, align 8
-  %200 = tail call i64 @ZSTD_freeDDict(ptr noundef %199) #10
+  %200 = tail call i64 @ZSTD_freeDDict(ptr noundef %199) #11
   store i32 0, ptr %59, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
   br label %212
@@ -3953,8 +3953,8 @@ ZSTD_getDDict.exit:                               ; preds = %172, %175, %177
   br i1 %204, label %212, label %205
 
 205:                                              ; preds = %202
-  %206 = tail call ptr @ZSTD_DDict_dictContent(ptr noundef nonnull %203) #10
-  %207 = tail call i64 @ZSTD_DDict_dictSize(ptr noundef nonnull %203) #10
+  %206 = tail call ptr @ZSTD_DDict_dictContent(ptr noundef nonnull %203) #11
+  %207 = tail call i64 @ZSTD_DDict_dictSize(ptr noundef nonnull %203) #11
   %208 = getelementptr i8, ptr %206, i64 %207
   %209 = load ptr, ptr %62, align 8
   %210 = icmp ne ptr %209, %208
@@ -3985,7 +3985,7 @@ ZSTD_getDDict.exit:                               ; preds = %172, %175, %177
   br i1 %213, label %219, label %218
 
 218:                                              ; preds = %212
-  tail call void @ZSTD_copyDDictParameters(ptr noundef %0, ptr noundef nonnull %214) #10
+  tail call void @ZSTD_copyDDictParameters(ptr noundef %0, ptr noundef nonnull %214) #11
   br label %219
 
 219:                                              ; preds = %218, %212
@@ -4074,10 +4074,10 @@ ZSTD_getDDict.exit:                               ; preds = %172, %175, %177
 
 272:                                              ; preds = %266
   %273 = load ptr, ptr %85, align 8
-  tail call void @ZSTD_customFree(ptr noundef %273, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %86) #10
+  tail call void @ZSTD_customFree(ptr noundef %273, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %86) #11
   store i64 0, ptr %82, align 8
   store i64 0, ptr %47, align 8
-  %274 = tail call ptr @ZSTD_customMalloc(i64 noundef %254, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %86) #10
+  %274 = tail call ptr @ZSTD_customMalloc(i64 noundef %254, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %86) #11
   store ptr %274, ptr %85, align 8
   %275 = icmp eq ptr %274, null
   br i1 %275, label %.thread38, label %276
@@ -4494,20 +4494,20 @@ declare dso_local i64 @xxh64(ptr noundef, i64 noundef, i64 noundef) local_unname
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #8
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #9
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #8
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #9
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -4518,9 +4518,10 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #7 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind memory(none) }
+attributes #9 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

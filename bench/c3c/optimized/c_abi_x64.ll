@@ -60,11 +60,11 @@ define dso_local noundef zeroext i1 @try_use_registers(ptr noundef captures(none
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @x64_indirect_return_result(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = tail call zeroext i1 @type_is_abi_aggregate(ptr noundef %0) #7
+  %2 = tail call zeroext i1 @type_is_abi_aggregate(ptr noundef %0) #8
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @abi_arg_new_indirect_not_by_val(ptr noundef %0) #7
+  %4 = tail call ptr @abi_arg_new_indirect_not_by_val(ptr noundef %0) #8
   br label %25
 
 5:                                                ; preds = %1
@@ -94,11 +94,11 @@ define dso_local ptr @x64_indirect_return_result(ptr noundef %0) local_unnamed_a
   br i1 %21, label %22, label %.critedge
 
 22:                                               ; preds = %16
-  %23 = tail call ptr @abi_arg_new_direct_int_ext(ptr noundef nonnull %6) #7
+  %23 = tail call ptr @abi_arg_new_direct_int_ext(ptr noundef nonnull %6) #8
   br label %25
 
 .critedge:                                        ; preds = %13, %16
-  %24 = tail call ptr @abi_arg_new_direct() #7
+  %24 = tail call ptr @abi_arg_new_direct() #8
   br label %25
 
 25:                                               ; preds = %.critedge, %22, %3
@@ -143,7 +143,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   br label %.backedge
 
 6:                                                ; preds = %.backedge
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_lowering, ptr noundef nonnull @.str.3, i32 noundef 29) #8
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_lowering, ptr noundef nonnull @.str.3, i32 noundef 29) #9
   unreachable
 
 7:                                                ; preds = %.backedge
@@ -196,7 +196,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   br i1 %41, label %.loopexit, label %42
 
 42:                                               ; preds = %37
-  %43 = tail call ptr @type_get_ptr(ptr noundef %40) #7
+  %43 = tail call ptr @type_get_ptr(ptr noundef %40) #8
   br label %.loopexit
 
 44:                                               ; preds = %.backedge, %.backedge, %.backedge, %.backedge
@@ -216,27 +216,27 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   ]
 
 51:                                               ; preds = %49
-  %52 = tail call ptr @type_get_subarray(ptr noundef %47) #7
+  %52 = tail call ptr @type_get_subarray(ptr noundef %47) #8
   br label %.loopexit
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %55 = load i32, ptr %54, align 8
-  %56 = tail call ptr @type_get_array(ptr noundef %47, i32 noundef %55) #7
+  %56 = tail call ptr @type_get_array(ptr noundef %47, i32 noundef %55) #8
   br label %.loopexit
 
 57:                                               ; preds = %49
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %59 = load i32, ptr %58, align 8
-  %60 = tail call ptr @type_get_vector(ptr noundef %47, i32 noundef %59) #7
+  %60 = tail call ptr @type_get_vector(ptr noundef %47, i32 noundef %59) #8
   br label %.loopexit
 
 61:                                               ; preds = %49
-  %62 = tail call ptr @type_get_flexible_array(ptr noundef %47) #7
+  %62 = tail call ptr @type_get_flexible_array(ptr noundef %47) #8
   br label %.loopexit
 
 63:                                               ; preds = %49
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_lowering, ptr noundef nonnull @.str.3, i32 noundef 77) #8
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_lowering, ptr noundef nonnull @.str.3, i32 noundef 77) #9
   unreachable
 
 .loopexit:                                        ; preds = %.backedge, %44, %37, %61, %57, %53, %51, %42, %26, %24
@@ -251,7 +251,7 @@ declare ptr @abi_arg_new_direct() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @x64_indirect_result(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = tail call fastcc ptr @type_lowering(ptr noundef %0)
-  %4 = tail call zeroext i1 @type_is_abi_aggregate(ptr noundef %3) #7
+  %4 = tail call zeroext i1 @type_is_abi_aggregate(ptr noundef %3) #8
   br i1 %4, label %x64_type_is_illegal_vector.exit.thread24, label %5
 
 5:                                                ; preds = %2
@@ -260,7 +260,7 @@ define dso_local ptr @x64_indirect_result(ptr noundef readonly captures(none) %0
   br i1 %.not.i, label %7, label %x64_type_is_illegal_vector.exit.thread
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @type_size(ptr noundef nonnull %3) #7
+  %8 = tail call i32 @type_size(ptr noundef nonnull %3) #8
   %9 = icmp ult i32 %8, 9
   %10 = zext i32 %8 to i64
   %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 268), align 4
@@ -314,27 +314,27 @@ x64_type_is_illegal_vector.exit.thread:           ; preds = %x64_type_is_illegal
   br i1 %34, label %35, label %.critedge
 
 35:                                               ; preds = %29
-  %36 = tail call ptr @abi_arg_new_direct_int_ext(ptr noundef nonnull %3) #7
+  %36 = tail call ptr @abi_arg_new_direct_int_ext(ptr noundef nonnull %3) #8
   br label %51
 
 .critedge:                                        ; preds = %26, %29
-  %37 = tail call ptr @abi_arg_new_direct() #7
+  %37 = tail call ptr @abi_arg_new_direct() #8
   br label %51
 
 x64_type_is_illegal_vector.exit.thread24:         ; preds = %x64_type_is_illegal_vector.exit, %x64_type_is_illegal_vector.exit, %7, %2
-  %38 = tail call i32 @type_abi_alignment(ptr noundef %3) #7
+  %38 = tail call i32 @type_abi_alignment(ptr noundef %3) #8
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %39, label %45
 
 39:                                               ; preds = %x64_type_is_illegal_vector.exit.thread24
-  %40 = tail call i32 @type_size(ptr noundef %3) #7
+  %40 = tail call i32 @type_size(ptr noundef %3) #8
   %41 = icmp ult i32 %38, 9
   %42 = icmp ult i32 %40, 9
   %or.cond = select i1 %41, i1 %42, i1 false
   br i1 %or.cond, label %43, label %45
 
 43:                                               ; preds = %39
-  %44 = tail call ptr @abi_arg_new_direct_coerce_int() #7
+  %44 = tail call ptr @abi_arg_new_direct_coerce_int() #8
   br label %51
 
 45:                                               ; preds = %39, %x64_type_is_illegal_vector.exit.thread24
@@ -342,11 +342,11 @@ x64_type_is_illegal_vector.exit.thread24:         ; preds = %x64_type_is_illegal
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %45
-  %48 = tail call ptr @abi_arg_new_indirect_realigned(i32 noundef 8, ptr noundef %3) #7
+  %48 = tail call ptr @abi_arg_new_indirect_realigned(i32 noundef 8, ptr noundef %3) #8
   br label %51
 
 49:                                               ; preds = %45
-  %50 = tail call ptr @abi_arg_new_indirect_by_val(ptr noundef %3) #7
+  %50 = tail call ptr @abi_arg_new_indirect_by_val(ptr noundef %3) #8
   br label %51
 
 51:                                               ; preds = %49, %47, %43, %.critedge, %35
@@ -378,7 +378,7 @@ define dso_local ptr @x64_classify_reg_call_struct_type_check(ptr noundef %0, pt
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, 2
   store i32 %8, ptr %6, align 4
-  %9 = tail call ptr @abi_arg_new_direct() #7
+  %9 = tail call ptr @abi_arg_new_direct() #8
   br label %x64_indirect_return_result.exit
 
 10:                                               ; preds = %2
@@ -391,11 +391,11 @@ define dso_local ptr @x64_classify_reg_call_struct_type_check(ptr noundef %0, pt
   br i1 %.not, label %40, label %16
 
 16:                                               ; preds = %10
-  %17 = tail call zeroext i1 @type_is_abi_aggregate(ptr noundef nonnull %0) #7
+  %17 = tail call zeroext i1 @type_is_abi_aggregate(ptr noundef nonnull %0) #8
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16
-  %19 = tail call ptr @abi_arg_new_indirect_not_by_val(ptr noundef nonnull %0) #7
+  %19 = tail call ptr @abi_arg_new_indirect_not_by_val(ptr noundef nonnull %0) #8
   br label %x64_indirect_return_result.exit
 
 20:                                               ; preds = %16
@@ -425,11 +425,11 @@ define dso_local ptr @x64_classify_reg_call_struct_type_check(ptr noundef %0, pt
   br i1 %36, label %37, label %.critedge.i
 
 37:                                               ; preds = %31
-  %38 = tail call ptr @abi_arg_new_direct_int_ext(ptr noundef nonnull %21) #7
+  %38 = tail call ptr @abi_arg_new_direct_int_ext(ptr noundef nonnull %21) #8
   br label %x64_indirect_return_result.exit
 
 .critedge.i:                                      ; preds = %31, %28
-  %39 = tail call ptr @abi_arg_new_direct() #7
+  %39 = tail call ptr @abi_arg_new_direct() #8
   br label %x64_indirect_return_result.exit
 
 40:                                               ; preds = %10
@@ -477,17 +477,17 @@ x64_type_is_structure.exit:                       ; preds = %48
 
 59:                                               ; preds = %x64_type_is_structure.exit, %56
   %.025 = phi ptr [ %57, %56 ], [ %58, %x64_type_is_structure.exit ]
-  %60 = tail call zeroext i1 @abi_arg_is_indirect(ptr noundef %.025) #7
+  %60 = tail call zeroext i1 @abi_arg_is_indirect(ptr noundef %.025) #8
   br i1 %60, label %61, label %85
 
 61:                                               ; preds = %59
   store i32 0, ptr %1, align 4
   store i32 0, ptr %47, align 4
-  %62 = tail call zeroext i1 @type_is_abi_aggregate(ptr noundef nonnull %0) #7
+  %62 = tail call zeroext i1 @type_is_abi_aggregate(ptr noundef nonnull %0) #8
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %61
-  %64 = tail call ptr @abi_arg_new_indirect_not_by_val(ptr noundef nonnull %0) #7
+  %64 = tail call ptr @abi_arg_new_indirect_not_by_val(ptr noundef nonnull %0) #8
   br label %x64_indirect_return_result.exit
 
 65:                                               ; preds = %61
@@ -517,11 +517,11 @@ x64_type_is_structure.exit:                       ; preds = %48
   br i1 %81, label %82, label %.critedge.i32
 
 82:                                               ; preds = %76
-  %83 = tail call ptr @abi_arg_new_direct_int_ext(ptr noundef nonnull %66) #7
+  %83 = tail call ptr @abi_arg_new_direct_int_ext(ptr noundef nonnull %66) #8
   br label %x64_indirect_return_result.exit
 
 .critedge.i32:                                    ; preds = %76, %73
-  %84 = tail call ptr @abi_arg_new_direct() #7
+  %84 = tail call ptr @abi_arg_new_direct() #8
   br label %x64_indirect_return_result.exit
 
 85:                                               ; preds = %59
@@ -538,7 +538,7 @@ x64_type_is_structure.exit:                       ; preds = %48
   br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %85, %40, %43
-  %92 = tail call ptr @abi_arg_new_direct() #7
+  %92 = tail call ptr @abi_arg_new_direct() #8
   br label %x64_indirect_return_result.exit
 
 x64_indirect_return_result.exit:                  ; preds = %.critedge.i32, %82, %63, %.critedge.i, %37, %18, %._crit_edge, %5
@@ -564,11 +564,11 @@ define internal fastcc ptr @x64_classify_argument_type(ptr noundef %0, i32 nound
   ]
 
 8:                                                ; preds = %4
-  %9 = tail call ptr @abi_arg_ignore() #7
+  %9 = tail call ptr @abi_arg_ignore() #8
   br label %100
 
 10:                                               ; preds = %4
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.x64_classify_argument_type, ptr noundef nonnull @.str.2, i32 noundef 793) #8
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.x64_classify_argument_type, ptr noundef nonnull @.str.2, i32 noundef 793) #9
   unreachable
 
 11:                                               ; preds = %4
@@ -608,7 +608,7 @@ define internal fastcc ptr @x64_classify_argument_type(ptr noundef %0, i32 nound
   br i1 %32, label %33, label %.critedgethread-pre-split
 
 33:                                               ; preds = %27
-  %34 = tail call ptr @abi_arg_new_direct_coerce_int_ext(ptr noundef %14) #7
+  %34 = tail call ptr @abi_arg_new_direct_coerce_int_ext(ptr noundef %14) #8
   br label %100
 
 35:                                               ; preds = %4
@@ -634,7 +634,7 @@ define internal fastcc ptr @x64_classify_argument_type(ptr noundef %0, i32 nound
   ]
 
 40:                                               ; preds = %.critedge
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.x64_classify_argument_type, ptr noundef nonnull @.str.2, i32 noundef 816) #8
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.x64_classify_argument_type, ptr noundef nonnull @.str.2, i32 noundef 816) #9
   unreachable
 
 41:                                               ; preds = %.critedge
@@ -661,9 +661,9 @@ define internal fastcc ptr @x64_classify_argument_type(ptr noundef %0, i32 nound
   br i1 %.not, label %.thread, label %52
 
 52:                                               ; preds = %51
-  %53 = tail call i32 @abi_type_size(ptr %.sroa.011.0) #7
-  %54 = tail call i32 @abi_type_abi_alignment(ptr nonnull %.sroa.06.0) #7
-  %55 = tail call ptr @abi_arg_new_direct_pair(ptr %.sroa.011.0, ptr nonnull %.sroa.06.0) #7
+  %53 = tail call i32 @abi_type_size(ptr %.sroa.011.0) #8
+  %54 = tail call i32 @abi_type_abi_alignment(ptr nonnull %.sroa.06.0) #8
+  %55 = tail call ptr @abi_arg_new_direct_pair(ptr %.sroa.011.0, ptr nonnull %.sroa.06.0) #8
   br label %100
 
 .thread:                                          ; preds = %49, %.critedge, %51
@@ -682,7 +682,7 @@ define internal fastcc ptr @x64_classify_argument_type(ptr noundef %0, i32 nound
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %58
-  %65 = tail call ptr @abi_arg_new_direct() #7
+  %65 = tail call ptr @abi_arg_new_direct() #8
   br label %100
 
 66:                                               ; preds = %58
@@ -730,15 +730,15 @@ define internal fastcc ptr @x64_classify_argument_type(ptr noundef %0, i32 nound
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %86
-  %95 = tail call ptr @abi_arg_new_direct() #7
+  %95 = tail call ptr @abi_arg_new_direct() #8
   br label %100
 
 96:                                               ; preds = %86, %83, %73
-  %97 = tail call ptr @abi_arg_new_direct_coerce_type(ptr noundef %60) #7
+  %97 = tail call ptr @abi_arg_new_direct_coerce_type(ptr noundef %60) #8
   br label %100
 
 98:                                               ; preds = %.thread
-  %99 = tail call ptr @abi_arg_new_direct_coerce_int() #7
+  %99 = tail call ptr @abi_arg_new_direct_coerce_int() #8
   br label %100
 
 100:                                              ; preds = %98, %96, %94, %64, %52, %33, %11, %8
@@ -791,7 +791,7 @@ define dso_local void @x64_classify_post_merge(i64 noundef %0, ptr noundef captu
 define dso_local void @x64_classify_struct_union(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = tail call i32 @type_size(ptr noundef %0) #7
+  %9 = tail call i32 @type_size(ptr noundef %0) #8
   %10 = zext i32 %9 to i64
   %11 = icmp ugt i32 %9, 64
   br i1 %11, label %x64_classify_post_merge.exit, label %12
@@ -851,7 +851,7 @@ define dso_local void @x64_classify_struct_union(ptr noundef %0, i64 noundef %1,
 37:                                               ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 72
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call i32 @type_size(ptr noundef %39) #7
+  %40 = tail call i32 @type_size(ptr noundef %39) #8
   %.not48 = icmp ne i32 %9, %40
   %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 268), align 4
   %42 = sext i32 %41 to i64
@@ -872,7 +872,7 @@ define dso_local void @x64_classify_struct_union(ptr noundef %0, i64 noundef %1,
 46:                                               ; preds = %37, %44, %29
   %47 = getelementptr inbounds nuw i8, ptr %31, i64 72
   %48 = load ptr, ptr %47, align 8
-  %49 = tail call i32 @type_abi_alignment(ptr noundef %48) #7
+  %49 = tail call i32 @type_abi_alignment(ptr noundef %48) #8
   %50 = zext i32 %49 to i64
   %51 = urem i64 %35, %50
   %.not49 = icmp eq i64 %51, 0
@@ -915,7 +915,7 @@ define dso_local void @x64_classify_struct_union(ptr noundef %0, i64 noundef %1,
   br label %x64_merge.exit
 
 63:                                               ; preds = %60
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.x64_merge, ptr noundef nonnull @.str.2, i32 noundef 203) #8
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.x64_merge, ptr noundef nonnull @.str.2, i32 noundef 203) #9
   unreachable
 
 x64_merge.exit:                                   ; preds = %55, %60, %61, %62
@@ -948,7 +948,7 @@ x64_merge.exit:                                   ; preds = %55, %60, %61, %62
   br label %x64_merge.exit63
 
 70:                                               ; preds = %67
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.x64_merge, ptr noundef nonnull @.str.2, i32 noundef 203) #8
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.x64_merge, ptr noundef nonnull @.str.2, i32 noundef 203) #9
   unreachable
 
 x64_merge.exit63:                                 ; preds = %x64_merge.exit, %67, %68, %69
@@ -1056,7 +1056,7 @@ define internal fastcc void @x64_classify(ptr noundef readonly captures(none) %0
   ]
 
 10:                                               ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.x64_classify, ptr noundef nonnull @.str.2, i32 noundef 387) #8
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.x64_classify, ptr noundef nonnull @.str.2, i32 noundef 387) #9
   unreachable
 
 11:                                               ; preds = %5
@@ -1094,7 +1094,7 @@ define internal fastcc void @x64_classify(ptr noundef readonly captures(none) %0
   br label %x64_classify_vector.exit
 
 19:                                               ; preds = %5
-  %20 = tail call i32 @type_size(ptr noundef nonnull %8) #7
+  %20 = tail call i32 @type_size(ptr noundef nonnull %8) #8
   %21 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %20)
   %22 = icmp eq i32 %21, 1
   br i1 %22, label %.split.i, label %39
@@ -1169,17 +1169,17 @@ x64_classify_vector.exit:                         ; preds = %.sink.split.i, %42,
 define dso_local void @x64_classify_array(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = tail call i32 @type_size(ptr noundef %0) #7
+  %9 = tail call i32 @type_size(ptr noundef %0) #8
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @type_size(ptr noundef %12) #7
+  %13 = tail call i32 @type_size(ptr noundef %12) #8
   %14 = zext i32 %13 to i64
   %15 = icmp ugt i32 %9, 64
   br i1 %15, label %x64_classify_post_merge.exit, label %16
 
 16:                                               ; preds = %6
-  %17 = tail call i32 @type_abi_alignment(ptr noundef %12) #7
+  %17 = tail call i32 @type_abi_alignment(ptr noundef %12) #8
   %18 = zext i32 %17 to i64
   %19 = urem i64 %1, %18
   %.not = icmp eq i64 %19, 0
@@ -1203,7 +1203,7 @@ define dso_local void @x64_classify_array(ptr noundef %0, i64 noundef %1, ptr no
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %24
-  %27 = tail call i32 @type_size(ptr noundef %12) #7
+  %27 = tail call i32 @type_size(ptr noundef %12) #8
   %.not35 = icmp ne i32 %9, %27
   %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 268), align 4
   %29 = sext i32 %28 to i64
@@ -1259,7 +1259,7 @@ define dso_local void @x64_classify_array(ptr noundef %0, i64 noundef %1, ptr no
   br label %x64_merge.exit
 
 46:                                               ; preds = %43
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.x64_merge, ptr noundef nonnull @.str.2, i32 noundef 203) #8
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.x64_merge, ptr noundef nonnull @.str.2, i32 noundef 203) #9
   unreachable
 
 x64_merge.exit:                                   ; preds = %.lr.ph, %43, %44, %45
@@ -1292,7 +1292,7 @@ x64_merge.exit:                                   ; preds = %.lr.ph, %43, %44, %
   br label %x64_merge.exit42
 
 53:                                               ; preds = %50
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.x64_merge, ptr noundef nonnull @.str.2, i32 noundef 203) #8
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.x64_merge, ptr noundef nonnull @.str.2, i32 noundef 203) #9
   unreachable
 
 x64_merge.exit42:                                 ; preds = %x64_merge.exit, %50, %51, %52
@@ -1344,7 +1344,7 @@ x64_classify_post_merge.exit:                     ; preds = %20, %67, %66, %.thr
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @x64_classify_vector(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5) local_unnamed_addr #1 {
-  %7 = tail call i32 @type_size(ptr noundef %0) #7
+  %7 = tail call i32 @type_size(ptr noundef %0) #8
   %8 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %7)
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %.split, label %26
@@ -1417,7 +1417,7 @@ define dso_local void @x64_classify_vector(ptr noundef %0, i64 noundef %1, ptr n
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @x64_bits_contain_no_user_data(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = tail call i32 @type_size(ptr noundef %0) #7
+  %4 = tail call i32 @type_size(ptr noundef %0) #8
   %.not = icmp ugt i32 %4, %1
   br i1 %.not, label %5, label %.loopexit
 
@@ -1432,7 +1432,7 @@ define dso_local noundef zeroext i1 @x64_bits_contain_no_user_data(ptr noundef %
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @type_size(ptr noundef %9) #7
+  %10 = tail call i32 @type_size(ptr noundef %9) #8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i32, ptr %11, align 8
   %.not71 = icmp eq i32 %12, 0
@@ -1525,7 +1525,7 @@ thread-pre-split:                                 ; preds = %2, %tailrecurse.bac
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @type_size(ptr noundef %10) #7
+  %11 = tail call i32 @type_size(ptr noundef %10) #8
   %.not.i = icmp ugt i32 %11, %.tr1928
   tail call void @llvm.assume(i1 %.not.i)
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 104
@@ -1583,7 +1583,7 @@ tailrecurse.backedge:                             ; preds = %x64_get_member_at_o
 37:                                               ; preds = %thread-pre-split
   %38 = getelementptr inbounds nuw i8, ptr %.tr27, i64 56
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call i32 @type_size(ptr noundef %39) #7
+  %40 = tail call i32 @type_size(ptr noundef %39) #8
   %41 = urem i32 %.tr1928, %40
   br label %tailrecurse.backedge
 
@@ -1640,7 +1640,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   ]
 
 7:                                                ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.x64_get_int_type_at_offset, ptr noundef nonnull @.str.2, i32 noundef 570) #8
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.x64_get_int_type_at_offset, ptr noundef nonnull @.str.2, i32 noundef 570) #9
   unreachable
 
 8:                                                ; preds = %tailrecurse, %tailrecurse, %tailrecurse
@@ -1652,7 +1652,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %.not38, label %10, label %x64_get_member_at_offset.exit.thread
 
 10:                                               ; preds = %9
-  %11 = tail call i32 @type_size(ptr noundef nonnull %5) #7
+  %11 = tail call i32 @type_size(ptr noundef nonnull %5) #8
   %12 = add i32 %11, %3
   %13 = add i32 %3, 8
   %14 = tail call zeroext i1 @x64_bits_contain_no_user_data(ptr noundef %2, i32 noundef %12, i32 noundef %13)
@@ -1663,7 +1663,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 72
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 @type_size(ptr noundef %19) #7
+  %20 = tail call i32 @type_size(ptr noundef %19) #8
   %.not.i = icmp ugt i32 %20, %.tr46
   br i1 %.not.i, label %21, label %x64_get_member_at_offset.exit.thread
 
@@ -1765,18 +1765,18 @@ tailrecurse.backedge:                             ; preds = %x64_get_member_at_o
   br label %abi_type_get_int_bits.exit
 
 61:                                               ; preds = %tailrecurse
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.x64_get_int_type_at_offset, ptr noundef nonnull @.str.2, i32 noundef 609) #8
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.x64_get_int_type_at_offset, ptr noundef nonnull @.str.2, i32 noundef 609) #9
   unreachable
 
 62:                                               ; preds = %tailrecurse
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %64 = load ptr, ptr %63, align 8
-  %65 = tail call i32 @type_size(ptr noundef %64) #7
+  %65 = tail call i32 @type_size(ptr noundef %64) #8
   %66 = urem i32 %.tr46, %65
   br label %tailrecurse.backedge
 
 x64_get_member_at_offset.exit.thread:             ; preds = %.lr.ph.preheader.i, %21, %24, %15, %tailrecurse, %57, %49, %10, %9, %8
-  %67 = tail call i32 @type_size(ptr noundef %2) #7
+  %67 = tail call i32 @type_size(ptr noundef %2) #8
   %68 = zext i32 %67 to i64
   %69 = zext i32 %3 to i64
   %70 = sub nsw i64 %68, %69
@@ -1794,7 +1794,7 @@ x64_get_member_at_offset.exit.thread:             ; preds = %.lr.ph.preheader.i,
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %74
-  %79 = tail call ptr @type_int_unsigned_by_bitsize(i64 noundef range(i64 0, 65) %75) #7
+  %79 = tail call ptr @type_int_unsigned_by_bitsize(i64 noundef range(i64 0, 65) %75) #8
   br label %abi_type_get_int_bits.exit
 
 80:                                               ; preds = %74
@@ -1830,19 +1830,19 @@ define dso_local ptr @x64_classify_return(ptr noundef %0) local_unnamed_addr #1 
   br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %5
-  %9 = tail call ptr @abi_arg_ignore() #7
+  %9 = tail call ptr @abi_arg_ignore() #8
   br label %x64_indirect_return_result.exit
 
 10:                                               ; preds = %1
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.x64_classify_return, ptr noundef nonnull @.str.2, i32 noundef 697) #8
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.x64_classify_return, ptr noundef nonnull @.str.2, i32 noundef 697) #9
   unreachable
 
 11:                                               ; preds = %1
-  %12 = tail call zeroext i1 @type_is_abi_aggregate(ptr noundef %0) #7
+  %12 = tail call zeroext i1 @type_is_abi_aggregate(ptr noundef %0) #8
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
-  %14 = tail call ptr @abi_arg_new_indirect_not_by_val(ptr noundef %0) #7
+  %14 = tail call ptr @abi_arg_new_indirect_not_by_val(ptr noundef %0) #8
   br label %x64_indirect_return_result.exit
 
 15:                                               ; preds = %11
@@ -1872,11 +1872,11 @@ define dso_local ptr @x64_classify_return(ptr noundef %0) local_unnamed_addr #1 
   br i1 %31, label %32, label %.critedge.i
 
 32:                                               ; preds = %26
-  %33 = tail call ptr @abi_arg_new_direct_int_ext(ptr noundef nonnull %16) #7
+  %33 = tail call ptr @abi_arg_new_direct_int_ext(ptr noundef nonnull %16) #8
   br label %x64_indirect_return_result.exit
 
 .critedge.i:                                      ; preds = %26, %23
-  %34 = tail call ptr @abi_arg_new_direct() #7
+  %34 = tail call ptr @abi_arg_new_direct() #8
   br label %x64_indirect_return_result.exit
 
 35:                                               ; preds = %1
@@ -1911,7 +1911,7 @@ define dso_local ptr @x64_classify_return(ptr noundef %0) local_unnamed_addr #1 
   br i1 %54, label %55, label %.thread
 
 55:                                               ; preds = %49
-  %56 = tail call ptr @abi_arg_new_direct_coerce_int_ext(ptr noundef nonnull %0) #7
+  %56 = tail call ptr @abi_arg_new_direct_coerce_int_ext(ptr noundef nonnull %0) #8
   br label %x64_indirect_return_result.exit
 
 57:                                               ; preds = %1
@@ -1920,7 +1920,7 @@ define dso_local ptr @x64_classify_return(ptr noundef %0) local_unnamed_addr #1 
   br label %.critedge
 
 59:                                               ; preds = %1
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.x64_classify_return, ptr noundef nonnull @.str.2, i32 noundef 715) #8
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.x64_classify_return, ptr noundef nonnull @.str.2, i32 noundef 715) #9
   unreachable
 
 .critedge:                                        ; preds = %57, %35, %5
@@ -1950,9 +1950,9 @@ define dso_local ptr @x64_classify_return(ptr noundef %0) local_unnamed_addr #1 
   br i1 %.not, label %.thread, label %68
 
 68:                                               ; preds = %67
-  %69 = tail call i32 @abi_type_size(ptr %.sroa.07.0) #7
-  %70 = tail call i32 @abi_type_abi_alignment(ptr nonnull %.sroa.03.0) #7
-  %71 = tail call ptr @abi_arg_new_direct_pair(ptr %.sroa.07.0, ptr nonnull %.sroa.03.0) #7
+  %69 = tail call i32 @abi_type_size(ptr %.sroa.07.0) #8
+  %70 = tail call i32 @abi_type_abi_alignment(ptr nonnull %.sroa.03.0) #8
+  %71 = tail call ptr @abi_arg_new_direct_pair(ptr %.sroa.07.0, ptr nonnull %.sroa.03.0) #8
   br label %x64_indirect_return_result.exit
 
 .thread:                                          ; preds = %49, %46, %65, %.critedge, %67
@@ -1971,15 +1971,15 @@ define dso_local ptr @x64_classify_return(ptr noundef %0) local_unnamed_addr #1 
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %74
-  %81 = tail call ptr @abi_arg_new_direct() #7
+  %81 = tail call ptr @abi_arg_new_direct() #8
   br label %x64_indirect_return_result.exit
 
 82:                                               ; preds = %74
-  %83 = tail call ptr @abi_arg_new_direct_coerce_type(ptr noundef %78) #7
+  %83 = tail call ptr @abi_arg_new_direct_coerce_type(ptr noundef %78) #8
   br label %x64_indirect_return_result.exit
 
 84:                                               ; preds = %.thread
-  %85 = tail call ptr @abi_arg_new_direct_coerce_int() #7
+  %85 = tail call ptr @abi_arg_new_direct_coerce_int() #8
   br label %x64_indirect_return_result.exit
 
 x64_indirect_return_result.exit:                  ; preds = %.critedge.i, %32, %13, %84, %82, %80, %68, %55, %8
@@ -2033,7 +2033,7 @@ x64_get_fp_type_at_offset.exit.thread:            ; preds = %14
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 72
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 @type_size(ptr noundef %19) #7
+  %20 = tail call i32 @type_size(ptr noundef %19) #8
   %.not.i.i = icmp ugt i32 %20, %.tr26.i
   tail call void @llvm.assume(i1 %.not.i.i)
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 104
@@ -2083,7 +2083,7 @@ x64_get_member_at_offset.exit.i:                  ; preds = %.lr.ph.i.i, %.x64_g
   %44 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 56
   %45 = load ptr, ptr %44, align 8
   %46 = tail call fastcc ptr @type_lowering(ptr noundef %45)
-  %47 = tail call i32 @type_size(ptr noundef %46) #7
+  %47 = tail call i32 @type_size(ptr noundef %46) #8
   %48 = urem i32 %.tr26.i, %47
   br label %tailrecurse.i.backedge
 
@@ -2098,8 +2098,8 @@ x64_get_fp_type_at_offset.exit:                   ; preds = %11
   br i1 %50, label %x64_get_fp_type_at_offset.exit120.thread, label %51
 
 51:                                               ; preds = %x64_get_fp_type_at_offset.exit
-  %52 = tail call i32 @type_size(ptr noundef nonnull %.tr.i) #7
-  %53 = tail call i32 @type_size(ptr noundef %2) #7
+  %52 = tail call i32 @type_size(ptr noundef nonnull %.tr.i) #8
+  %53 = tail call i32 @type_size(ptr noundef %2) #8
   %54 = sub i32 %53, %3
   %55 = icmp ugt i32 %54, %52
   br i1 %55, label %56, label %.loopexit
@@ -2142,7 +2142,7 @@ tailrecurse.i77:                                  ; preds = %tailrecurse.i77.bac
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 72
   %71 = load ptr, ptr %70, align 8
-  %72 = tail call i32 @type_size(ptr noundef %71) #7
+  %72 = tail call i32 @type_size(ptr noundef %71) #8
   %.not.i.i86 = icmp ugt i32 %72, %.tr26.i79
   tail call void @llvm.assume(i1 %.not.i.i86)
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 104
@@ -2192,7 +2192,7 @@ x64_get_member_at_offset.exit.i94:                ; preds = %.lr.ph.i.i93, %.x64
   %96 = getelementptr inbounds nuw i8, ptr %.tr.i78, i64 56
   %97 = load ptr, ptr %96, align 8
   %98 = tail call fastcc ptr @type_lowering(ptr noundef %97)
-  %99 = tail call i32 @type_size(ptr noundef %98) #7
+  %99 = tail call i32 @type_size(ptr noundef %98) #8
   %100 = urem i32 %.tr26.i79, %99
   br label %tailrecurse.i77.backedge
 
@@ -2258,7 +2258,7 @@ tailrecurse.i99:                                  ; preds = %tailrecurse.i99.bac
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 72
   %126 = load ptr, ptr %125, align 8
-  %127 = tail call i32 @type_size(ptr noundef %126) #7
+  %127 = tail call i32 @type_size(ptr noundef %126) #8
   %.not.i.i108 = icmp ugt i32 %127, %.tr26.i101
   tail call void @llvm.assume(i1 %.not.i.i108)
   %128 = getelementptr inbounds nuw i8, ptr %124, i64 104
@@ -2308,7 +2308,7 @@ x64_get_member_at_offset.exit.i116:               ; preds = %.lr.ph.i.i115, %.x6
   %151 = getelementptr inbounds nuw i8, ptr %.tr.i100, i64 56
   %152 = load ptr, ptr %151, align 8
   %153 = tail call fastcc ptr @type_lowering(ptr noundef %152)
-  %154 = tail call i32 @type_size(ptr noundef %153) #7
+  %154 = tail call i32 @type_size(ptr noundef %153) #8
   %155 = urem i32 %.tr26.i101, %154
   br label %tailrecurse.i99.backedge
 
@@ -2327,7 +2327,7 @@ x64_get_fp_type_at_offset.exit98:                 ; preds = %64, %119
   br i1 %or.cond76, label %160, label %162
 
 160:                                              ; preds = %x64_get_fp_type_at_offset.exit98
-  %161 = tail call ptr @type_get_vector(ptr noundef nonnull %.tr.i, i32 noundef 2) #7
+  %161 = tail call ptr @type_get_vector(ptr noundef nonnull %.tr.i, i32 noundef 2) #8
   br label %x64_get_fp_type_at_offset.exit120.thread
 
 162:                                              ; preds = %x64_get_fp_type_at_offset.exit98
@@ -2405,7 +2405,7 @@ tailrecurse.i121:                                 ; preds = %tailrecurse.i121.ba
   %196 = load ptr, ptr %195, align 8
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 72
   %198 = load ptr, ptr %197, align 8
-  %199 = tail call i32 @type_size(ptr noundef %198) #7
+  %199 = tail call i32 @type_size(ptr noundef %198) #8
   %.not.i.i130 = icmp ugt i32 %199, %.tr26.i123
   tail call void @llvm.assume(i1 %.not.i.i130)
   %200 = getelementptr inbounds nuw i8, ptr %196, i64 104
@@ -2455,7 +2455,7 @@ x64_get_member_at_offset.exit.i138:               ; preds = %.lr.ph.i.i137, %.x6
   %223 = getelementptr inbounds nuw i8, ptr %.tr.i122, i64 56
   %224 = load ptr, ptr %223, align 8
   %225 = tail call fastcc ptr @type_lowering(ptr noundef %224)
-  %226 = tail call i32 @type_size(ptr noundef %225) #7
+  %226 = tail call i32 @type_size(ptr noundef %225) #8
   %227 = urem i32 %.tr26.i123, %226
   br label %tailrecurse.i121.backedge
 
@@ -2466,7 +2466,7 @@ tailrecurse.i121.backedge:                        ; preds = %222, %x64_get_membe
 
 x64_get_fp_type_at_offset.exit142:                ; preds = %194, %191, %181
   %228 = phi i32 [ 2, %181 ], [ 2, %194 ], [ 4, %191 ]
-  %229 = tail call ptr @type_get_vector(ptr noundef nonnull %.tr.i, i32 noundef %228) #7
+  %229 = tail call ptr @type_get_vector(ptr noundef nonnull %.tr.i, i32 noundef %228) #8
   br label %x64_get_fp_type_at_offset.exit120.thread
 
 230:                                              ; preds = %178, %169
@@ -2502,7 +2502,7 @@ x64_get_fp_type_at_offset.exit142:                ; preds = %194, %191, %181
 
 247:                                              ; preds = %244, %235
   %248 = load ptr, ptr @type_float16, align 8
-  %249 = tail call ptr @type_get_vector(ptr noundef %248, i32 noundef 4) #7
+  %249 = tail call ptr @type_get_vector(ptr noundef %248, i32 noundef 4) #8
   br label %x64_get_fp_type_at_offset.exit120.thread
 
 250:                                              ; preds = %244
@@ -2516,7 +2516,7 @@ x64_get_fp_type_at_offset.exit120.thread:         ; preds = %122, %107, %x64_get
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @x64_get_byte_vector_type(ptr noundef %0) unnamed_addr #1 {
-  %2 = tail call ptr @type_abi_find_single_struct_element(ptr noundef %0) #7
+  %2 = tail call ptr @type_abi_find_single_struct_element(ptr noundef %0) #8
   %.not = icmp eq ptr %2, null
   %spec.select = select i1 %.not, ptr %0, ptr %2
   %3 = tail call fastcc ptr @type_lowering(ptr noundef %spec.select)
@@ -2537,16 +2537,16 @@ define internal fastcc ptr @x64_get_byte_vector_type(ptr noundef %0) unnamed_add
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call zeroext i1 @type_is_int128(ptr noundef %12) #7
+  %13 = tail call zeroext i1 @type_is_int128(ptr noundef %12) #8
   br i1 %13, label %14, label %22
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr @type_ulong, align 8
-  %16 = tail call i32 @type_size(ptr noundef nonnull %3) #7
+  %16 = tail call i32 @type_size(ptr noundef nonnull %3) #8
   br label %.sink.split
 
 17:                                               ; preds = %1
-  %18 = tail call i32 @type_size(ptr noundef nonnull %3) #7
+  %18 = tail call i32 @type_size(ptr noundef nonnull %3) #8
   %19 = load ptr, ptr @type_double, align 8
   br label %.sink.split
 
@@ -2554,7 +2554,7 @@ define internal fastcc ptr @x64_get_byte_vector_type(ptr noundef %0) unnamed_add
   %.sink16 = phi i32 [ %18, %17 ], [ %16, %14 ]
   %.sink = phi ptr [ %19, %17 ], [ %15, %14 ]
   %20 = lshr i32 %.sink16, 3
-  %21 = tail call ptr @type_get_vector(ptr noundef %.sink, i32 noundef %20) #7
+  %21 = tail call ptr @type_get_vector(ptr noundef %.sink, i32 noundef %20) #8
   br label %22
 
 22:                                               ; preds = %.sink.split, %1, %5, %8
@@ -2575,7 +2575,7 @@ define dso_local void @c_abi_func_create_x64(ptr noundef %0) local_unnamed_addr 
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %1
-  tail call void @c_abi_func_create_win64(ptr noundef nonnull %0) #7
+  tail call void @c_abi_func_create_win64(ptr noundef nonnull %0) #8
   br label %.thread65
 
 8:                                                ; preds = %1
@@ -2585,7 +2585,7 @@ define dso_local void @c_abi_func_create_x64(ptr noundef %0) local_unnamed_addr 
   %12 = tail call ptr @x64_classify_return(ptr noundef %11)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %12, ptr %13, align 8
-  %14 = tail call zeroext i1 @abi_arg_is_indirect(ptr noundef %12) #7
+  %14 = tail call zeroext i1 @abi_arg_is_indirect(ptr noundef %12) #8
   %spec.select = select i1 %14, i32 5, i32 6
   %15 = load i16, ptr %0, align 8
   %16 = and i16 %15, 128
@@ -2596,7 +2596,7 @@ define dso_local void @c_abi_func_create_x64(ptr noundef %0) local_unnamed_addr 
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = tail call fastcc ptr @type_lowering(ptr noundef %19)
-  %21 = tail call ptr @type_get_ptr(ptr noundef %20) #7
+  %21 = tail call ptr @type_get_ptr(ptr noundef %20) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = tail call fastcc ptr @type_lowering(ptr noundef readonly %21)
   %23 = call fastcc ptr @x64_classify_argument_type(ptr noundef %22, i32 noundef %spec.select, ptr noundef %4, i32 noundef 1)
@@ -2645,7 +2645,7 @@ x64_classify_parameter.exit:                      ; preds = %try_use_registers.e
 41:                                               ; preds = %38
   %42 = zext i32 %40 to i64
   %43 = shl nuw nsw i64 %42, 5
-  %44 = tail call ptr @calloc_arena(i64 noundef %43) #7
+  %44 = tail call ptr @calloc_arena(i64 noundef %43) #8
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %46
 
@@ -2709,7 +2709,7 @@ x64_classify_parameter.exit53:                    ; preds = %try_use_registers.e
 68:                                               ; preds = %65
   %69 = zext i32 %67 to i64
   %70 = shl nuw nsw i64 %69, 5
-  %71 = tail call ptr @calloc_arena(i64 noundef %70) #7
+  %71 = tail call ptr @calloc_arena(i64 noundef %70) #8
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %73
 
@@ -2787,42 +2787,43 @@ declare i32 @abi_type_abi_alignment(ptr) local_unnamed_addr #2
 
 declare ptr @abi_arg_new_direct_pair(ptr, ptr) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #4
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
+declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind }
-attributes #8 = { noreturn nounwind }
+attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind }
+attributes #9 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

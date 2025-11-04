@@ -57,7 +57,7 @@ define range(i32 -1094995529, 1) i32 @ff_msrle_decode(ptr noundef %0, ptr nounde
 
 25:                                               ; preds = %17
   %26 = sub nsw i32 %16, %.089136.i
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %26, i32 noundef %.087137.i) #5
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %26, i32 noundef %.087137.i) #6
   br label %msrle_decode_pal4.exit
 
 27:                                               ; preds = %17
@@ -195,7 +195,7 @@ bytestream2_get_byte.exit105.i:                   ; preds = %53, %52
   br i1 %exitcond161.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !34
 
 95:                                               ; preds = %58
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #5
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #6
   br label %msrle_decode_pal4.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.split.i.preheader, %.lr.ph.split.i
@@ -261,7 +261,7 @@ bytestream2_get_byte.exit105.i:                   ; preds = %53, %52
   br i1 %131, label %132, label %133
 
 132:                                              ; preds = %128
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %.089136.i, i32 noundef %30, i32 noundef %16) #5
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %.089136.i, i32 noundef %30, i32 noundef %16) #6
   br label %msrle_decode_pal4.exit
 
 133:                                              ; preds = %128
@@ -330,7 +330,7 @@ bytestream2_get_byte.exit107.i:                   ; preds = %138, %137
   br i1 %.not97.i, label %msrle_decode_pal4.exit, label %167
 
 167:                                              ; preds = %.critedge.i
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.4, i32 noundef %166) #5
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.4, i32 noundef %166) #6
   br label %msrle_decode_pal4.exit
 
 168:                                              ; preds = %4, %4, %4, %4
@@ -439,7 +439,7 @@ bytestream2_get_be16.exit.i:                      ; preds = %212
   %221 = ptrtoint ptr %220 to i64
   %222 = sub i64 %198, %221
   %223 = trunc i64 %222 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.5, i32 noundef %223) #5
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.5, i32 noundef %223) #6
   br label %msrle_decode_pal4.exit
 
 224:                                              ; preds = %.loopexit184.i
@@ -511,7 +511,7 @@ bytestream2_get_byte.exit161.i:                   ; preds = %252, %251
   br i1 %or.cond157.i, label %260, label %259
 
 259:                                              ; preds = %bytestream2_get_byte.exit161.i
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.6) #5
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.6) #6
   br label %msrle_decode_pal4.exit
 
 260:                                              ; preds = %bytestream2_get_byte.exit161.i
@@ -555,7 +555,7 @@ bytestream2_get_byte.exit161.i:                   ; preds = %252, %251
   br i1 %286, label %287, label %288
 
 287:                                              ; preds = %284
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.7) #5
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.7) #6
   br label %msrle_decode_pal4.exit
 
 288:                                              ; preds = %284
@@ -785,11 +785,11 @@ bytestream2_get_le32.exit.i:                      ; preds = %370, %369
   br i1 %381, label %.lr.ph.i11, label %.outer185._crit_edge.i, !llvm.loop !38
 
 .outer185._crit_edge.i:                           ; preds = %.outer.backedge.i, %.thread.i, %.backedge.i, %168
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.8) #5
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.8) #6
   br label %msrle_decode_pal4.exit
 
 382:                                              ; preds = %4
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %2) #5
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %2) #6
   br label %msrle_decode_pal4.exit
 
 msrle_decode_pal4.exit:                           ; preds = %bytestream2_get_byte.exit.i13, %bytestream2_get_byte.exit.i, %.outer185._crit_edge.i, %287, %259, %219, %bytestream2_get_be16.exit.i, %167, %.critedge.i, %132, %95, %25, %382
@@ -805,21 +805,22 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #4
+declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -24,7 +24,7 @@ define hidden void @jMkCDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   store i32 %2, ptr %11, align 4
   %12 = load ptr, ptr %0, align 8
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull %0) #5
+  tail call void %13(ptr noundef nonnull %0) #6
   br label %14
 
 14:                                               ; preds = %4, %7
@@ -46,7 +46,7 @@ define hidden void @jMkCDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   store i32 %2, ptr %22, align 4
   %23 = load ptr, ptr %0, align 8
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull %0) #5
+  tail call void %24(ptr noundef nonnull %0) #6
   br label %25
 
 25:                                               ; preds = %18, %14
@@ -58,7 +58,7 @@ define hidden void @jMkCDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call ptr %31(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 1280) #5
+  %32 = tail call ptr %31(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 1280) #6
   store ptr %32, ptr %3, align 8
   br label %33
 
@@ -82,7 +82,7 @@ define hidden void @jMkCDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   store i32 8, ptr %43, align 8
   %44 = load ptr, ptr %0, align 8
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull %0) #5
+  tail call void %45(ptr noundef nonnull %0) #6
   br label %46
 
 46:                                               ; preds = %41, %35
@@ -159,7 +159,7 @@ define hidden void @jMkCDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   store i32 8, ptr %70, align 8
   %71 = load ptr, ptr %0, align 8
   %72 = load ptr, ptr %71, align 8
-  tail call void %72(ptr noundef nonnull %0) #5
+  tail call void %72(ptr noundef nonnull %0) #6
   br label %73
 
 73:                                               ; preds = %68, %._crit_edge90
@@ -198,7 +198,7 @@ define hidden void @jMkCDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   store i32 8, ptr %89, align 8
   %90 = load ptr, ptr %0, align 8
   %91 = load ptr, ptr %90, align 8
-  tail call void %91(ptr noundef nonnull %0) #5
+  tail call void %91(ptr noundef nonnull %0) #6
   br label %92
 
 92:                                               ; preds = %87, %.lr.ph100.split.us
@@ -233,7 +233,7 @@ define hidden void @jMkCDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   store i32 8, ptr %105, align 8
   %106 = load ptr, ptr %0, align 8
   %107 = load ptr, ptr %106, align 8
-  tail call void %107(ptr noundef nonnull %0) #5
+  tail call void %107(ptr noundef nonnull %0) #6
   br label %108
 
 108:                                              ; preds = %.lr.ph100.split._crit_edge, %101
@@ -389,7 +389,7 @@ define hidden void @jGenOptTbl(ptr noundef %0, ptr noundef writeonly captures(no
   store i32 39, ptr %61, align 8
   %62 = load ptr, ptr %0, align 8
   %63 = load ptr, ptr %62, align 8
-  tail call void %63(ptr noundef nonnull %0) #5
+  tail call void %63(ptr noundef nonnull %0) #6
   br label %64
 
 64:                                               ; preds = %59, %57
@@ -436,7 +436,7 @@ define hidden void @jGenOptTbl(ptr noundef %0, ptr noundef writeonly captures(no
   store i32 39, ptr %82, align 8
   %83 = load ptr, ptr %0, align 8
   %84 = load ptr, ptr %83, align 8
-  tail call void %84(ptr noundef nonnull %0) #5
+  tail call void %84(ptr noundef nonnull %0) #6
   br label %85
 
 85:                                               ; preds = %80, %.lr.ph129
@@ -533,7 +533,7 @@ define hidden void @jIHEncoder(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call ptr %4(ptr noundef %0, i32 noundef 1, i64 noundef 184) #5
+  %5 = tail call ptr %4(ptr noundef %0, i32 noundef 1, i64 noundef 184) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store ptr %5, ptr %6, align 8
   store ptr @start_pass_huff, ptr %5, align 8
@@ -641,7 +641,7 @@ define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %39, ptr %46, align 4
   %47 = load ptr, ptr %0, align 8
   %48 = load ptr, ptr %47, align 8
-  tail call void %48(ptr noundef nonnull %0) #5
+  tail call void %48(ptr noundef nonnull %0) #6
   br label %49
 
 49:                                               ; preds = %.lr.ph.split, %42
@@ -657,7 +657,7 @@ define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %41, ptr %54, align 4
   %55 = load ptr, ptr %0, align 8
   %56 = load ptr, ptr %55, align 8
-  tail call void %56(ptr noundef nonnull %0) #5
+  tail call void %56(ptr noundef nonnull %0) #6
   br label %57
 
 57:                                               ; preds = %49, %50
@@ -670,7 +670,7 @@ define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
 62:                                               ; preds = %57
   %63 = load ptr, ptr %15, align 8
   %64 = load ptr, ptr %63, align 8
-  %65 = tail call ptr %64(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 2056) #5
+  %65 = tail call ptr %64(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 2056) #6
   store ptr %65, ptr %59, align 8
   br label %66
 
@@ -686,7 +686,7 @@ define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
 72:                                               ; preds = %66
   %73 = load ptr, ptr %15, align 8
   %74 = load ptr, ptr %73, align 8
-  %75 = tail call ptr %74(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 2056) #5
+  %75 = tail call ptr %74(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 2056) #6
   store ptr %75, ptr %69, align 8
   br label %76
 
@@ -823,7 +823,7 @@ define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr noundef reado
   store i32 6, ptr %59, align 8
   %60 = load ptr, ptr %0, align 8
   %61 = load ptr, ptr %60, align 8
-  tail call void %61(ptr noundef nonnull %0) #5
+  tail call void %61(ptr noundef nonnull %0) #6
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %57, %._crit_edge.i, %31
@@ -893,7 +893,7 @@ define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr noundef reado
   store i32 6, ptr %89, align 8
   %90 = load ptr, ptr %0, align 8
   %91 = load ptr, ptr %90, align 8
-  tail call void %91(ptr noundef nonnull %0) #5
+  tail call void %91(ptr noundef nonnull %0) #6
   br label %.thread.i
 
 92:                                               ; preds = %.backedge.i
@@ -987,7 +987,7 @@ define internal void @finish_pass_gather(ptr noundef %0) #0 {
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %24
-  %29 = tail call ptr @jAlcHTable(ptr noundef nonnull %0) #5
+  %29 = tail call ptr @jAlcHTable(ptr noundef nonnull %0) #6
   store ptr %29, ptr %25, align 8
   br label %30
 
@@ -1013,7 +1013,7 @@ define internal void @finish_pass_gather(ptr noundef %0) #0 {
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %38
-  %43 = tail call ptr @jAlcHTable(ptr noundef nonnull %0) #5
+  %43 = tail call ptr @jAlcHTable(ptr noundef nonnull %0) #6
   store ptr %43, ptr %39, align 8
   br label %44
 
@@ -1102,7 +1102,7 @@ define internal range(i32 0, 2) i32 @encode_mcu_huff(ptr noundef %0, ptr noundef
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call i32 %45(ptr noundef %41) #5
+  %46 = tail call i32 %45(ptr noundef %41) #6
   %.not.i.i.i.i = icmp eq i32 %46, 0
   br i1 %.not.i.i.i.i, label %emit_restart.exit.thread, label %dump_buffer.exit.i.i.i
 
@@ -1136,7 +1136,7 @@ dump_buffer.exit.i.i.i:                           ; preds = %40
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8
-  %65 = tail call i32 %64(ptr noundef %60) #5
+  %65 = tail call i32 %64(ptr noundef %60) #6
   %.not.i33.i.i.i = icmp eq i32 %65, 0
   br i1 %.not.i33.i.i.i, label %emit_restart.exit.thread, label %dump_buffer.exit35.i.i.i
 
@@ -1181,7 +1181,7 @@ dump_buffer.exit35.i.i.i:                         ; preds = %59
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %83 = load ptr, ptr %82, align 8
-  %84 = tail call i32 %83(ptr noundef %79) #5
+  %84 = tail call i32 %83(ptr noundef %79) #6
   %.not.i.i = icmp eq i32 %84, 0
   br i1 %.not.i.i, label %emit_restart.exit.thread, label %dump_buffer.exit.i
 
@@ -1211,7 +1211,7 @@ dump_buffer.exit.i:                               ; preds = %78
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %100 = load ptr, ptr %99, align 8
-  %101 = tail call i32 %100(ptr noundef %.pre180) #5
+  %101 = tail call i32 %100(ptr noundef %.pre180) #6
   %.not.i17.i = icmp eq i32 %101, 0
   br i1 %.not.i17.i, label %emit_restart.exit.thread, label %dump_buffer.exit19.i
 
@@ -1313,7 +1313,7 @@ emit_restart.exit:                                ; preds = %110, %105, %17, %2
   %156 = load ptr, ptr %14, align 8
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %157, align 8
-  tail call void %158(ptr noundef nonnull %156) #5
+  tail call void %158(ptr noundef nonnull %156) #6
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %152, %._crit_edge.i, %126
@@ -1338,7 +1338,7 @@ emit_restart.exit:                                ; preds = %110, %105, %17, %2
   %172 = load ptr, ptr %14, align 8
   %173 = load ptr, ptr %172, align 8
   %174 = load ptr, ptr %173, align 8
-  tail call void %174(ptr noundef nonnull %172) #5
+  tail call void %174(ptr noundef nonnull %172) #6
   br label %175
 
 175:                                              ; preds = %168, %._crit_edge.thread.i
@@ -1374,7 +1374,7 @@ emit_restart.exit:                                ; preds = %110, %105, %17, %2
   %194 = load ptr, ptr %193, align 8
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 24
   %196 = load ptr, ptr %195, align 8
-  %197 = tail call i32 %196(ptr noundef %192) #5
+  %197 = tail call i32 %196(ptr noundef %192) #6
   %.not.i.i111 = icmp eq i32 %197, 0
   br i1 %.not.i.i111, label %emit_restart.exit.thread, label %dump_buffer.exit.i112
 
@@ -1408,7 +1408,7 @@ dump_buffer.exit.i112:                            ; preds = %191
   %213 = load ptr, ptr %212, align 8
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 24
   %215 = load ptr, ptr %214, align 8
-  %216 = tail call i32 %215(ptr noundef %211) #5
+  %216 = tail call i32 %215(ptr noundef %211) #6
   %.not.i33.i109 = icmp eq i32 %216, 0
   br i1 %.not.i33.i109, label %emit_restart.exit.thread, label %dump_buffer.exit35.i110
 
@@ -1466,7 +1466,7 @@ dump_buffer.exit35.i110:                          ; preds = %210
   %244 = load ptr, ptr %243, align 8
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 24
   %246 = load ptr, ptr %245, align 8
-  %247 = tail call i32 %246(ptr noundef %242) #5
+  %247 = tail call i32 %246(ptr noundef %242) #6
   %.not.i.i98 = icmp eq i32 %247, 0
   br i1 %.not.i.i98, label %emit_restart.exit.thread, label %dump_buffer.exit.i99
 
@@ -1500,7 +1500,7 @@ dump_buffer.exit.i99:                             ; preds = %241
   %263 = load ptr, ptr %262, align 8
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 24
   %265 = load ptr, ptr %264, align 8
-  %266 = tail call i32 %265(ptr noundef %261) #5
+  %266 = tail call i32 %265(ptr noundef %261) #6
   %.not.i33.i96 = icmp eq i32 %266, 0
   br i1 %.not.i33.i96, label %emit_restart.exit.thread, label %dump_buffer.exit35.i97
 
@@ -1573,7 +1573,7 @@ emit_bits.exit100:                                ; preds = %270, %226
   %298 = load ptr, ptr %14, align 8
   %299 = load ptr, ptr %298, align 8
   %300 = load ptr, ptr %299, align 8
-  tail call void %300(ptr noundef nonnull %298) #5
+  tail call void %300(ptr noundef nonnull %298) #6
   br label %301
 
 301:                                              ; preds = %294, %.lr.ph86.i
@@ -1608,7 +1608,7 @@ emit_bits.exit100:                                ; preds = %270, %226
   %319 = load ptr, ptr %318, align 8
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 24
   %321 = load ptr, ptr %320, align 8
-  %322 = tail call i32 %321(ptr noundef %317) #5
+  %322 = tail call i32 %321(ptr noundef %317) #6
   %.not.i.i85 = icmp eq i32 %322, 0
   br i1 %.not.i.i85, label %emit_restart.exit.thread, label %dump_buffer.exit.i86
 
@@ -1642,7 +1642,7 @@ dump_buffer.exit.i86:                             ; preds = %316
   %338 = load ptr, ptr %337, align 8
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 24
   %340 = load ptr, ptr %339, align 8
-  %341 = tail call i32 %340(ptr noundef %336) #5
+  %341 = tail call i32 %340(ptr noundef %336) #6
   %.not.i33.i83 = icmp eq i32 %341, 0
   br i1 %.not.i33.i83, label %emit_restart.exit.thread, label %dump_buffer.exit35.i84
 
@@ -1691,7 +1691,7 @@ dump_buffer.exit35.i84:                           ; preds = %335
   %360 = load ptr, ptr %14, align 8
   %361 = load ptr, ptr %360, align 8
   %362 = load ptr, ptr %361, align 8
-  tail call void %362(ptr noundef nonnull %360) #5
+  tail call void %362(ptr noundef nonnull %360) #6
   br label %._crit_edge94.thread.i
 
 ._crit_edge94.thread.i:                           ; preds = %._crit_edge87.i, %356, %._crit_edge94.i
@@ -1715,7 +1715,7 @@ dump_buffer.exit35.i84:                           ; preds = %335
   %376 = load ptr, ptr %14, align 8
   %377 = load ptr, ptr %376, align 8
   %378 = load ptr, ptr %377, align 8
-  tail call void %378(ptr noundef nonnull %376) #5
+  tail call void %378(ptr noundef nonnull %376) #6
   br label %379
 
 379:                                              ; preds = %372, %._crit_edge94.thread.i
@@ -1750,7 +1750,7 @@ dump_buffer.exit35.i84:                           ; preds = %335
   %397 = load ptr, ptr %396, align 8
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 24
   %399 = load ptr, ptr %398, align 8
-  %400 = tail call i32 %399(ptr noundef %395) #5
+  %400 = tail call i32 %399(ptr noundef %395) #6
   %.not.i.i72 = icmp eq i32 %400, 0
   br i1 %.not.i.i72, label %emit_restart.exit.thread, label %dump_buffer.exit.i73
 
@@ -1784,7 +1784,7 @@ dump_buffer.exit.i73:                             ; preds = %394
   %416 = load ptr, ptr %415, align 8
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 24
   %418 = load ptr, ptr %417, align 8
-  %419 = tail call i32 %418(ptr noundef %414) #5
+  %419 = tail call i32 %418(ptr noundef %414) #6
   %.not.i33.i70 = icmp eq i32 %419, 0
   br i1 %.not.i33.i70, label %emit_restart.exit.thread, label %dump_buffer.exit35.i71
 
@@ -1841,7 +1841,7 @@ dump_buffer.exit35.i71:                           ; preds = %413
   %444 = load ptr, ptr %443, align 8
   %445 = getelementptr inbounds nuw i8, ptr %444, i64 24
   %446 = load ptr, ptr %445, align 8
-  %447 = tail call i32 %446(ptr noundef %442) #5
+  %447 = tail call i32 %446(ptr noundef %442) #6
   %.not.i.i59 = icmp eq i32 %447, 0
   br i1 %.not.i.i59, label %emit_restart.exit.thread, label %dump_buffer.exit.i60
 
@@ -1875,7 +1875,7 @@ dump_buffer.exit.i60:                             ; preds = %441
   %463 = load ptr, ptr %462, align 8
   %464 = getelementptr inbounds nuw i8, ptr %463, i64 24
   %465 = load ptr, ptr %464, align 8
-  %466 = tail call i32 %465(ptr noundef %461) #5
+  %466 = tail call i32 %465(ptr noundef %461) #6
   %.not.i33.i57 = icmp eq i32 %466, 0
   br i1 %.not.i33.i57, label %emit_restart.exit.thread, label %dump_buffer.exit35.i58
 
@@ -1923,7 +1923,7 @@ dump_buffer.exit35.i58:                           ; preds = %460
   %485 = load ptr, ptr %14, align 8
   %486 = load ptr, ptr %485, align 8
   %487 = load ptr, ptr %486, align 8
-  tail call void %487(ptr noundef nonnull %485) #5
+  tail call void %487(ptr noundef nonnull %485) #6
   br label %488
 
 488:                                              ; preds = %481, %476
@@ -1958,7 +1958,7 @@ dump_buffer.exit35.i58:                           ; preds = %460
   %506 = load ptr, ptr %505, align 8
   %507 = getelementptr inbounds nuw i8, ptr %506, i64 24
   %508 = load ptr, ptr %507, align 8
-  %509 = tail call i32 %508(ptr noundef %504) #5
+  %509 = tail call i32 %508(ptr noundef %504) #6
   %.not.i.i47 = icmp eq i32 %509, 0
   br i1 %.not.i.i47, label %emit_restart.exit.thread, label %dump_buffer.exit.i48
 
@@ -1992,7 +1992,7 @@ dump_buffer.exit.i48:                             ; preds = %503
   %525 = load ptr, ptr %524, align 8
   %526 = getelementptr inbounds nuw i8, ptr %525, i64 24
   %527 = load ptr, ptr %526, align 8
-  %528 = tail call i32 %527(ptr noundef %523) #5
+  %528 = tail call i32 %527(ptr noundef %523) #6
   %.not.i33.i = icmp eq i32 %528, 0
   br i1 %.not.i33.i, label %emit_restart.exit.thread, label %dump_buffer.exit35.i
 
@@ -2109,7 +2109,7 @@ define internal void @finish_pass_huff(ptr noundef %0) #0 {
   %22 = load ptr, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 %24(ptr noundef %0) #5
+  %25 = tail call i32 %24(ptr noundef %0) #6
   %.not.i.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i.i, label %48, label %dump_buffer.exit.i.i
 
@@ -2137,7 +2137,7 @@ dump_buffer.exit.i.i:                             ; preds = %21
   %37 = load ptr, ptr %4, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call i32 %39(ptr noundef %0) #5
+  %40 = tail call i32 %39(ptr noundef %0) #6
   %.not.i33.i.i = icmp eq i32 %40, 0
   br i1 %.not.i33.i.i, label %48, label %dump_buffer.exit35.i.i
 
@@ -2162,7 +2162,7 @@ dump_buffer.exit35.i.i:                           ; preds = %36
   store i32 24, ptr %50, align 8
   %51 = load ptr, ptr %0, align 8
   %52 = load ptr, ptr %51, align 8
-  tail call void %52(ptr noundef nonnull %0) #5
+  tail call void %52(ptr noundef nonnull %0) #6
   br label %flush_bits.exit
 
 flush_bits.exit:                                  ; preds = %44, %1, %48
@@ -2192,15 +2192,16 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.abs.i16(i16, i1 immarg) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #4
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

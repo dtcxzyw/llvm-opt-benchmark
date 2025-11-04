@@ -89,7 +89,7 @@ define i32 @ff_silk_decode_superframe(ptr noundef captures(none) %0, ptr noundef
 
 12:                                               ; preds = %6
   %13 = load ptr, ptr %0, align 8, !tbaa !4
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %13, i32 noundef 16, ptr noundef nonnull @.str) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %13, i32 noundef 16, ptr noundef nonnull @.str) #10
   br label %212
 
 14:                                               ; preds = %6
@@ -156,7 +156,7 @@ silk_flush_frame.exit:                            ; preds = %38, %35, %14
 
 43:                                               ; preds = %.preheader125, %43
   %indvars.iv = phi i64 [ 0, %.preheader125 ], [ %indvars.iv.next, %43 ]
-  %44 = tail call i32 @ff_opus_rc_dec_log(ptr noundef %1, i32 noundef 1) #9
+  %44 = tail call i32 @ff_opus_rc_dec_log(ptr noundef %1, i32 noundef 1) #10
   %45 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
   store i32 %44, ptr %45, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -164,7 +164,7 @@ silk_flush_frame.exit:                            ; preds = %38, %35, %14
   br i1 %exitcond.not, label %46, label %43, !llvm.loop !19
 
 46:                                               ; preds = %43
-  %47 = tail call i32 @ff_opus_rc_dec_log(ptr noundef %1, i32 noundef 1) #9
+  %47 = tail call i32 @ff_opus_rc_dec_log(ptr noundef %1, i32 noundef 1) #10
   %48 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv143
   store i32 %47, ptr %48, align 4, !tbaa !18
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
@@ -229,7 +229,7 @@ silk_flush_frame.exit:                            ; preds = %38, %35, %14
   br i1 %.not139, label %68, label %66
 
 66:                                               ; preds = %.lr.ph.split
-  %67 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %42) #9
+  %67 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %42) #10
   store i32 %67, ptr %64, align 4, !tbaa !18
   br label %68
 
@@ -525,17 +525,17 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
 26:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
-  %27 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_stereo_s1) #9
-  %28 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_stereo_s2) #9
+  %27 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_stereo_s1) #10
+  %28 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_stereo_s2) #10
   %29 = sdiv i32 %27, 5
   %30 = mul nsw i32 %29, 3
   %31 = add i32 %30, %28
-  %32 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_stereo_s3) #9
-  %33 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_stereo_s2) #9
+  %32 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_stereo_s3) #10
+  %33 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_stereo_s2) #10
   %34 = srem i32 %27, 5
   %35 = mul nsw i32 %34, 3
   %36 = add i32 %33, %35
-  %37 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_stereo_s3) #9
+  %37 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_stereo_s3) #10
   br label %38
 
 38:                                               ; preds = %26, %38
@@ -578,7 +578,7 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   br i1 %.not, label %64, label %66
 
 64:                                               ; preds = %54
-  %65 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_mid_only) #9
+  %65 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_mid_only) #10
   br label %66
 
 66:                                               ; preds = %54, %64
@@ -594,11 +594,11 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   br i1 %.not254, label %70, label %72
 
 70:                                               ; preds = %69
-  %71 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_frame_type_inactive) #9
+  %71 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_frame_type_inactive) #10
   br label %76
 
 72:                                               ; preds = %69
-  %73 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_frame_type_active) #9
+  %73 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_frame_type_active) #10
   %74 = and i32 %73, 1
   %75 = ashr i32 %73, 1
   br label %76
@@ -633,9 +633,9 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   br i1 %.not261, label %90, label %99
 
 90:                                               ; preds = %88, %87
-  %91 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %84) #9
+  %91 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %84) #10
   %92 = shl i32 %91, 3
-  %93 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_gain_lowbits) #9
+  %93 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_gain_lowbits) #10
   %94 = or i32 %92, %93
   %95 = load i32, ptr %23, align 4, !tbaa !16
   %.not262 = icmp eq i32 %95, 0
@@ -648,7 +648,7 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   br label %108
 
 99:                                               ; preds = %88, %85
-  %100 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_gain_delta) #9
+  %100 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_gain_delta) #10
   %101 = shl i32 %100, 1
   %102 = add nsw i32 %101, -16
   %103 = load i32, ptr %81, align 4, !tbaa !39
@@ -698,7 +698,7 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   %133 = getelementptr inbounds [2 x [33 x i16]], ptr @ff_silk_model_lsf_s1, i64 %132
   %134 = sext i32 %.0 to i64
   %135 = getelementptr inbounds [33 x i16], ptr %133, i64 %134
-  %136 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %135) #9
+  %136 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %135) #10
   %137 = zext i32 %136 to i64
   %sext.i = shl i64 %137, 56
   %138 = ashr exact i64 %sext.i, 56
@@ -724,7 +724,7 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   %.in132.i = load i8, ptr %.in132.in.i, align 1, !tbaa !43
   %147 = zext i8 %.in132.i to i64
   %148 = getelementptr inbounds nuw [10 x i16], ptr @ff_silk_model_lsf_s2, i64 %147
-  %149 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %148) #9
+  %149 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %148) #10
   %150 = trunc i32 %149 to i8
   %151 = add i8 %150, -4
   %152 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i
@@ -733,7 +733,7 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   br i1 %153, label %154, label %158
 
 154:                                              ; preds = %145
-  %155 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_lsf_s2_ext) #9
+  %155 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_lsf_s2_ext) #10
   %156 = trunc i32 %155 to i8
   %157 = sub i8 %151, %156
   br label %.sink.split.i
@@ -743,7 +743,7 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   br i1 %159, label %160, label %164
 
 160:                                              ; preds = %158
-  %161 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_lsf_s2_ext) #9
+  %161 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_lsf_s2_ext) #10
   %162 = trunc i32 %161 to i8
   %163 = add i8 %162, 4
   br label %.sink.split.i
@@ -1177,7 +1177,7 @@ silk_stabilize_lsf.exit.i:                        ; preds = %289, %389
   br i1 %392, label %393, label %silk_decode_lpc.exit
 
 393:                                              ; preds = %silk_stabilize_lsf.exit.i
-  %394 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_lsf_interpolation_offset) #9
+  %394 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_lsf_interpolation_offset) #10
   %.not122.i = icmp eq i32 %394, 4
   br i1 %.not122.i, label %silk_decode_lpc.exit, label %395
 
@@ -1253,7 +1253,7 @@ silk_decode_lpc.exit:                             ; preds = %silk_stabilize_lsf.
   br i1 %.not256, label %.thread, label %426
 
 426:                                              ; preds = %423
-  %427 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_pitch_delta) #9
+  %427 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_pitch_delta) #10
   %.not257 = icmp eq i32 %427, 0
   br i1 %.not257, label %.thread, label %428
 
@@ -1265,13 +1265,13 @@ silk_decode_lpc.exit:                             ; preds = %silk_stabilize_lsf.
   br label %451
 
 .thread:                                          ; preds = %422, %423, %426
-  %433 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_pitch_highbits) #9
+  %433 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_pitch_highbits) #10
   %434 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %435 = load i32, ptr %434, align 8, !tbaa !13
   %436 = zext i32 %435 to i64
   %437 = getelementptr inbounds nuw ptr, ptr @silk_decode_frame.model, i64 %436
   %438 = load ptr, ptr %437, align 8, !tbaa !59
-  %439 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef %438) #9
+  %439 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef %438) #10
   %440 = load i32, ptr %434, align 8, !tbaa !13
   %441 = zext i32 %440 to i64
   %442 = getelementptr inbounds nuw i16, ptr @ff_silk_pitch_min_lag, i64 %441
@@ -1300,13 +1300,13 @@ silk_decode_lpc.exit:                             ; preds = %silk_stabilize_lsf.
   br i1 %457, label %459, label %463
 
 459:                                              ; preds = %458
-  %460 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_pitch_contour_nb10ms) #9
+  %460 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_pitch_contour_nb10ms) #10
   %461 = zext i32 %460 to i64
   %462 = getelementptr inbounds nuw [2 x i8], ptr @ff_silk_pitch_offset_nb10ms, i64 %461
   br label %476
 
 463:                                              ; preds = %458
-  %464 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_pitch_contour_mbwb10ms) #9
+  %464 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_pitch_contour_mbwb10ms) #10
   %465 = zext i32 %464 to i64
   %466 = getelementptr inbounds nuw [2 x i8], ptr @ff_silk_pitch_offset_mbwb10ms, i64 %465
   br label %476
@@ -1315,13 +1315,13 @@ silk_decode_lpc.exit:                             ; preds = %silk_stabilize_lsf.
   br i1 %457, label %468, label %472
 
 468:                                              ; preds = %467
-  %469 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_pitch_contour_nb20ms) #9
+  %469 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_pitch_contour_nb20ms) #10
   %470 = zext i32 %469 to i64
   %471 = getelementptr inbounds nuw [4 x i8], ptr @ff_silk_pitch_offset_nb20ms, i64 %470
   br label %476
 
 472:                                              ; preds = %467
-  %473 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_pitch_contour_mbwb20ms) #9
+  %473 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_pitch_contour_mbwb20ms) #10
   %474 = zext i32 %473 to i64
   %475 = getelementptr inbounds nuw [4 x i8], ptr @ff_silk_pitch_offset_mbwb20ms, i64 %474
   br label %476
@@ -1362,7 +1362,7 @@ silk_decode_lpc.exit:                             ; preds = %silk_stabilize_lsf.
   br i1 %exitcond.not, label %._crit_edge305, label %488, !llvm.loop !62
 
 ._crit_edge305:                                   ; preds = %488, %476
-  %496 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_ltp_filter) #9
+  %496 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_ltp_filter) #10
   %497 = load i32, ptr %77, align 8, !tbaa !10
   %498 = icmp sgt i32 %497, 0
   br i1 %498, label %.lr.ph309, label %._crit_edge310
@@ -1376,7 +1376,7 @@ silk_decode_lpc.exit:                             ; preds = %silk_stabilize_lsf.
 
 503:                                              ; preds = %.lr.ph309, %516
   %indvars.iv354 = phi i64 [ 0, %.lr.ph309 ], [ %indvars.iv.next355, %516 ]
-  %504 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef %501) #9
+  %504 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef %501) #10
   %505 = load ptr, ptr %502, align 8, !tbaa !63
   %506 = sext i32 %504 to i64
   %507 = getelementptr inbounds [5 x i8], ptr %505, i64 %506
@@ -1407,7 +1407,7 @@ silk_decode_lpc.exit:                             ; preds = %silk_stabilize_lsf.
   br i1 %.not255, label %520, label %.thread285
 
 520:                                              ; preds = %._crit_edge310
-  %521 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_ltp_scale_index) #9
+  %521 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_ltp_scale_index) #10
   %522 = zext i32 %521 to i64
   %523 = getelementptr inbounds nuw i16, ptr @ff_silk_ltp_scale_factor, i64 %522
   %524 = load i16, ptr %523, align 2, !tbaa !36
@@ -1422,7 +1422,7 @@ silk_decode_lpc.exit:                             ; preds = %silk_stabilize_lsf.
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %10, i8 0, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %528 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_lcg_seed) #9
+  %528 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_lcg_seed) #10
   %529 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %530 = load i32, ptr %529, align 8, !tbaa !13
   %531 = zext i32 %530 to i64
@@ -1434,7 +1434,7 @@ silk_decode_lpc.exit:                             ; preds = %silk_stabilize_lsf.
   %537 = load i8, ptr %536, align 1, !tbaa !43
   %538 = zext i8 %537 to i64
   %539 = getelementptr inbounds [10 x i16], ptr @ff_silk_model_exc_rate, i64 %134
-  %540 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %539) #9
+  %540 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %539) #10
   %.not144.i = icmp eq i8 %537, 0
   br i1 %.not144.i, label %silk_decode_excitation.exit, label %.lr.ph123.i
 
@@ -1454,7 +1454,7 @@ silk_decode_lpc.exit:                             ; preds = %silk_stabilize_lsf.
 
 549:                                              ; preds = %567, %.lr.ph123.i
   %indvars.iv.i269 = phi i64 [ 0, %.lr.ph123.i ], [ %indvars.iv.next.i270, %567 ]
-  %550 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %542) #9
+  %550 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %542) #10
   %551 = trunc i32 %550 to i8
   %552 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i269
   store i8 %551, ptr %552, align 1, !tbaa !43
@@ -1475,7 +1475,7 @@ silk_decode_lpc.exit:                             ; preds = %silk_stabilize_lsf.
   br i1 %.not101.i, label %.critedge.thread.i, label %559
 
 559:                                              ; preds = %.lr.ph.i
-  %560 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ff_silk_model_pulse_count, i64 342)) #9
+  %560 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ff_silk_model_pulse_count, i64 342)) #10
   %561 = trunc i32 %560 to i8
   store i8 %561, ptr %552, align 1, !tbaa !43
   %562 = icmp eq i8 %561, 17
@@ -1494,7 +1494,7 @@ silk_decode_lpc.exit:                             ; preds = %silk_stabilize_lsf.
   br i1 %563, label %564, label %567
 
 564:                                              ; preds = %.critedge.i, %.critedge.thread.i
-  %565 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ff_silk_model_pulse_count, i64 380)) #9
+  %565 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ff_silk_model_pulse_count, i64 380)) #10
   %566 = trunc i32 %565 to i8
   store i8 %566, ptr %552, align 1, !tbaa !43
   br label %567
@@ -1526,7 +1526,7 @@ silk_count_children.exit.i:                       ; preds = %568
   %576 = lshr i32 %575, 1
   %577 = zext nneg i32 %576 to i64
   %578 = getelementptr inbounds nuw i16, ptr @ff_silk_model_pulse_location, i64 %577
-  %579 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %578) #9
+  %579 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %578) #10
   %580 = sub nsw i32 %572, %579
   store i32 %579, ptr %543, align 8, !tbaa !18
   store i32 %580, ptr %544, align 4, !tbaa !18
@@ -1552,7 +1552,7 @@ silk_count_children.exit.i:                       ; preds = %568
   %589 = ashr i32 %588, 1
   %590 = sext i32 %589 to i64
   %591 = getelementptr inbounds i16, ptr getelementptr inbounds nuw (i8, ptr @ff_silk_model_pulse_location, i64 336), i64 %590
-  %592 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %591) #9
+  %592 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %591) #10
   %593 = sub nsw i32 %584, %592
   br label %silk_count_children.exit105.i
 
@@ -1579,7 +1579,7 @@ silk_count_children.exit105.i:                    ; preds = %585, %581
   %602 = ashr i32 %601, 1
   %603 = sext i32 %602 to i64
   %604 = getelementptr inbounds i16, ptr getelementptr inbounds nuw (i8, ptr @ff_silk_model_pulse_location, i64 672), i64 %603
-  %605 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %604) #9
+  %605 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %604) #10
   %606 = sub nsw i32 %597, %605
   br label %silk_count_children.exit109.i
 
@@ -1606,7 +1606,7 @@ silk_count_children.exit109.i:                    ; preds = %598, %594
   %615 = ashr i32 %614, 1
   %616 = sext i32 %615 to i64
   %617 = getelementptr inbounds i16, ptr getelementptr inbounds nuw (i8, ptr @ff_silk_model_pulse_location, i64 1008), i64 %616
-  %618 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %617) #9
+  %618 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %617) #10
   %619 = sub nsw i32 %610, %618
   br label %silk_count_children.exit113.i
 
@@ -1661,7 +1661,7 @@ silk_count_children.exit113.i:                    ; preds = %611, %607
   %638 = phi i32 [ %.promoted135.i, %.lr.ph134.i ], [ %641, %637 ]
   %.085133.i = phi i32 [ 0, %.lr.ph134.i ], [ %642, %637 ]
   %639 = shl i32 %638, 1
-  %640 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_excitation_lsb) #9
+  %640 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_excitation_lsb) #10
   %641 = or i32 %640, %639
   %642 = add nuw nsw i32 %.085133.i, 1
   %exitcond168.not.i = icmp eq i32 %642, %630
@@ -1698,7 +1698,7 @@ silk_count_children.exit113.i:                    ; preds = %611, %607
   %narrow.i273 = tail call i8 @llvm.umin.i8(i8 %655, i8 6)
   %spec.select.i274 = zext nneg i8 %narrow.i273 to i64
   %656 = getelementptr inbounds nuw [3 x i16], ptr %636, i64 %spec.select.i274
-  %657 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %656) #9
+  %657 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %656) #10
   %658 = icmp eq i32 %657, 0
   br i1 %658, label %659, label %661
 
@@ -2007,7 +2007,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nounwind uwtable
 define void @ff_silk_free(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @av_freep(ptr noundef %0) #9
+  tail call void @av_freep(ptr noundef %0) #10
   ret void
 }
 
@@ -2050,11 +2050,11 @@ define range(i32 -22, 1) i32 @ff_silk_init(ptr noundef %0, ptr noundef writeonly
   br i1 %or.cond, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %2) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %2) #10
   br label %17
 
 6:                                                ; preds = %3
-  %7 = tail call noalias ptr @av_mallocz(i64 noundef 10592) #9
+  %7 = tail call noalias ptr @av_mallocz(i64 noundef 10592) #10
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %17, label %8
 
@@ -2094,7 +2094,7 @@ ff_silk_flush.exit:                               ; preds = %silk_flush_frame.ex
 
 declare noalias ptr @av_mallocz(i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -2604,25 +2604,25 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #8
+declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ssub.sat.i32(i32, i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2630,11 +2630,12 @@ attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "st
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
+attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

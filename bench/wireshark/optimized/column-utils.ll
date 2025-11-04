@@ -77,19 +77,19 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @col_setup(ptr noundef captures(none) initializes((8, 12), (16, 40)) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @localeconv() #17
+  %3 = tail call ptr @localeconv() #18
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr @col_decimal_point, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %5, align 8
   %6 = sext i32 %1 to i64
-  %7 = tail call noalias ptr @g_malloc_n(i64 noundef %6, i64 noundef 88) #18
+  %7 = tail call noalias ptr @g_malloc_n(i64 noundef %6, i64 noundef 88) #19
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %8, align 8
-  %9 = tail call noalias dereferenceable_or_null(188) ptr @g_malloc(i64 noundef 188) #19
+  %9 = tail call noalias dereferenceable_or_null(188) ptr @g_malloc(i64 noundef 188) #20
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %9, ptr %10, align 8
-  %11 = tail call noalias dereferenceable_or_null(188) ptr @g_malloc(i64 noundef 188) #19
+  %11 = tail call noalias dereferenceable_or_null(188) ptr @g_malloc(i64 noundef 188) #20
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %11, ptr %12, align 8
   %13 = icmp sgt i32 %1, 0
@@ -112,10 +112,10 @@ define void @col_setup(ptr noundef captures(none) initializes((8, 12), (16, 40))
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %17 = add i32 %1, 1
   %18 = sext i32 %17 to i64
-  %19 = tail call noalias ptr @g_malloc_n(i64 noundef %18, i64 noundef 8) #18
+  %19 = tail call noalias ptr @g_malloc_n(i64 noundef %18, i64 noundef 8) #19
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %19, ptr %20, align 8
-  %21 = tail call noalias ptr @g_malloc_n(i64 noundef %18, i64 noundef 8) #18
+  %21 = tail call noalias ptr @g_malloc_n(i64 noundef %18, i64 noundef 8) #19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %21, ptr %22, align 8
   br label %23
@@ -538,7 +538,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
 54:                                               ; preds = %44
   %55 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call i64 @strlen(ptr noundef %56) #20
+  %57 = tail call i64 @strlen(ptr noundef %56) #21
   %58 = trunc i64 %57 to i32
   %59 = getelementptr inbounds nuw i8, ptr %48, i64 72
   store i32 %58, ptr %59, align 8
@@ -1236,7 +1236,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
 
 68:                                               ; preds = %65, %60
   %69 = phi ptr [ %67, %65 ], [ %64, %60 ]
-  %70 = call i64 @strlen(ptr noundef %69) #20
+  %70 = call i64 @strlen(ptr noundef %69) #21
   %.not45 = icmp ult i64 %70, %.
   br i1 %.not45, label %71, label %col_get_writable.exit.thread
 
@@ -1652,7 +1652,7 @@ define internal fastcc void @col_do_append_fstr(ptr noundef readonly captures(no
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #20
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #21
   br label %10
 
 10:                                               ; preds = %5, %8
@@ -1705,7 +1705,7 @@ define internal fastcc void @col_do_append_fstr(ptr noundef readonly captures(no
 
 42:                                               ; preds = %39, %34
   %43 = phi ptr [ %41, %39 ], [ %38, %34 ]
-  %44 = call i64 @strlen(ptr noundef %43) #20
+  %44 = call i64 @strlen(ptr noundef %43) #21
   %45 = icmp ne i64 %44, 0
   %or.cond = select i1 %23, i1 %45, i1 false
   br i1 %or.cond, label %46, label %49
@@ -1723,7 +1723,7 @@ define internal fastcc void @col_do_append_fstr(ptr noundef readonly captures(no
 51:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.va_copy.p0(ptr nonnull %7, ptr %4)
-  %52 = call i32 @__vsnprintf_chk(ptr noundef nonnull %6, i64 noundef 4096, i32 noundef 2, i64 noundef 4096, ptr noundef %3, ptr noundef nonnull %7) #17
+  %52 = call i32 @__vsnprintf_chk(ptr noundef nonnull %6, i64 noundef 4096, i32 noundef 2, i64 noundef 4096, ptr noundef %3, ptr noundef nonnull %7) #18
   %53 = sext i32 %52 to i64
   call void @llvm.va_end.p0(ptr nonnull %7)
   %.not47 = icmp ugt i64 %., %53
@@ -1967,7 +1967,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
 68:                                               ; preds = %61, %66
   %.035 = phi ptr [ %5, %66 ], [ %63, %61 ]
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %69 = call i32 @__vsnprintf_chk(ptr noundef nonnull %6, i64 noundef 4096, i32 noundef 2, i64 noundef 4096, ptr noundef %2, ptr noundef nonnull %4) #17
+  %69 = call i32 @__vsnprintf_chk(ptr noundef nonnull %6, i64 noundef 4096, i32 noundef 2, i64 noundef 4096, ptr noundef %2, ptr noundef nonnull %4) #18
   %70 = sext i32 %69 to i64
   call void @llvm.va_end.p0(ptr nonnull %4)
   %.not40 = icmp ugt i64 %., %70
@@ -1987,7 +1987,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   br i1 %78, label %79, label %83
 
 79:                                               ; preds = %73
-  %80 = call i64 @strlen(ptr noundef %.pre49) #20
+  %80 = call i64 @strlen(ptr noundef %.pre49) #21
   %81 = trunc i64 %80 to i32
   %82 = add i32 %77, %81
   store i32 %82, ptr %76, align 8
@@ -2143,7 +2143,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
 68:                                               ; preds = %61, %66
   %.037 = phi ptr [ %5, %66 ], [ %63, %61 ]
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %69 = call i32 @__vsnprintf_chk(ptr noundef nonnull %6, i64 noundef 4096, i32 noundef 2, i64 noundef 4096, ptr noundef %2, ptr noundef nonnull %4) #17
+  %69 = call i32 @__vsnprintf_chk(ptr noundef nonnull %6, i64 noundef 4096, i32 noundef 2, i64 noundef 4096, ptr noundef %2, ptr noundef nonnull %4) #18
   %70 = sext i32 %69 to i64
   call void @llvm.va_end.p0(ptr nonnull %4)
   %.not42 = icmp ugt i64 %., %70
@@ -2159,7 +2159,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %76 = getelementptr inbounds nuw i8, ptr %55, i64 72
   %77 = load i32, ptr %76, align 8
   %78 = load ptr, ptr %64, align 8
-  %79 = call i64 @strlen(ptr noundef %78) #20
+  %79 = call i64 @strlen(ptr noundef %78) #21
   %80 = trunc i64 %79 to i32
   %81 = call i32 @llvm.smax.i32(i32 %77, i32 0)
   %storemerge = add i32 %81, %80
@@ -2342,7 +2342,7 @@ define void @col_set_str(ptr noundef readonly captures(address_is_null) %0, i32 
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 784, ptr noundef nonnull @.str.8) #21
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 784, ptr noundef nonnull @.str.8) #22
   unreachable
 
 5:                                                ; preds = %3
@@ -2833,7 +2833,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
 
 77:                                               ; preds = %65, %70, %73
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %78 = call i32 @__vsnprintf_chk(ptr noundef nonnull %5, i64 noundef 4096, i32 noundef 2, i64 noundef 4096, ptr noundef %2, ptr noundef nonnull %4) #17
+  %78 = call i32 @__vsnprintf_chk(ptr noundef nonnull %5, i64 noundef 4096, i32 noundef 2, i64 noundef 4096, ptr noundef %2, ptr noundef nonnull %4) #18
   call void @llvm.va_end.p0(ptr nonnull %4)
   %.not36 = icmp slt i32 %78, %.
   br i1 %.not36, label %81, label %79
@@ -3274,7 +3274,7 @@ define void @set_fd_time(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   br i1 %26, label %27, label %get_frame_timestamp_precision.exit.i
 
 27:                                               ; preds = %25
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #22
   unreachable
 
 get_frame_timestamp_precision.exit.i:             ; preds = %25, %20
@@ -3316,7 +3316,7 @@ get_frame_timestamp_precision.exit.i:             ; preds = %25, %20
   br i1 %42, label %43, label %set_time_seconds.exit
 
 43:                                               ; preds = %41
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #22
   unreachable
 
 44:                                               ; preds = %34
@@ -3329,11 +3329,11 @@ get_frame_timestamp_precision.exit.i:             ; preds = %25, %20
   br i1 %48, label %49, label %set_time_seconds.exit
 
 49:                                               ; preds = %47
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #22
   unreachable
 
 50:                                               ; preds = %34
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1517, ptr noundef nonnull @__func__.set_fd_time, ptr noundef nonnull @.str.9) #21
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1517, ptr noundef nonnull @__func__.set_fd_time, ptr noundef nonnull @.str.9) #22
   unreachable
 
 set_time_seconds.exit.sink.split:                 ; preds = %44, %38
@@ -3389,7 +3389,7 @@ set_time_seconds.exit:                            ; preds = %set_time_seconds.ex
   br i1 %73, label %74, label %set_time_seconds.exit56
 
 74:                                               ; preds = %72
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #22
   unreachable
 
 set_time_seconds.exit56:                          ; preds = %67, %72
@@ -3407,7 +3407,7 @@ set_time_seconds.exit56:                          ; preds = %67, %72
   br label %79
 
 78:                                               ; preds = %60
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1538, ptr noundef nonnull @__func__.set_fd_time, ptr noundef nonnull @.str.9) #21
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1538, ptr noundef nonnull @__func__.set_fd_time, ptr noundef nonnull @.str.9) #22
   unreachable
 
 79:                                               ; preds = %75, %set_time_seconds.exit56
@@ -3453,7 +3453,7 @@ set_time_seconds.exit56:                          ; preds = %67, %72
   br i1 %98, label %99, label %set_time_seconds.exit60
 
 99:                                               ; preds = %97
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #22
   unreachable
 
 set_time_seconds.exit60:                          ; preds = %92, %97
@@ -3471,7 +3471,7 @@ set_time_seconds.exit60:                          ; preds = %92, %97
   br label %104
 
 103:                                              ; preds = %85
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1559, ptr noundef nonnull @__func__.set_fd_time, ptr noundef nonnull @.str.9) #21
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1559, ptr noundef nonnull @__func__.set_fd_time, ptr noundef nonnull @.str.9) #22
   unreachable
 
 104:                                              ; preds = %100, %set_time_seconds.exit60
@@ -3511,7 +3511,7 @@ set_time_seconds.exit60:                          ; preds = %92, %97
   br i1 %121, label %122, label %get_frame_timestamp_precision.exit.i62
 
 122:                                              ; preds = %120
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #22
   unreachable
 
 get_frame_timestamp_precision.exit.i62:           ; preds = %120, %115
@@ -3555,7 +3555,7 @@ get_frame_timestamp_precision.exit.i62:           ; preds = %120, %115
   br i1 %141, label %142, label %get_frame_timestamp_precision.exit.i66
 
 142:                                              ; preds = %140
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #22
   unreachable
 
 get_frame_timestamp_precision.exit.i66:           ; preds = %140, %135
@@ -3570,7 +3570,7 @@ get_frame_timestamp_precision.exit.i66:           ; preds = %140, %135
   br label %set_abs_ymd_time.exit
 
 145:                                              ; preds = %3
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1584, ptr noundef nonnull @__func__.set_fd_time, ptr noundef nonnull @.str.9) #21
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1584, ptr noundef nonnull @__func__.set_fd_time, ptr noundef nonnull @.str.9) #22
   unreachable
 
 set_abs_ymd_time.exit:                            ; preds = %get_frame_timestamp_precision.exit.i66, %130, %get_frame_timestamp_precision.exit.i62, %110, %get_frame_timestamp_precision.exit.i, %15, %104, %105, %79, %80, %set_time_seconds.exit, %55, %143, %123, %28, %8, %3
@@ -3653,7 +3653,7 @@ define internal fastcc void @set_abs_time(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %44, label %45, label %get_frame_timestamp_precision.exit
 
 45:                                               ; preds = %43
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #22
   unreachable
 
 get_frame_timestamp_precision.exit:               ; preds = %38, %43
@@ -3767,7 +3767,7 @@ define internal fastcc void @set_abs_ydoy_time(ptr noundef %0, ptr noundef %1, p
   br i1 %50, label %51, label %get_frame_timestamp_precision.exit
 
 51:                                               ; preds = %49
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #22
   unreachable
 
 get_frame_timestamp_precision.exit:               ; preds = %44, %49
@@ -3886,7 +3886,7 @@ define internal fastcc void @set_time_hour_min_sec(ptr noundef readonly captures
   br i1 %44, label %45, label %get_frame_timestamp_precision.exit
 
 45:                                               ; preds = %43
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #22
   unreachable
 
 get_frame_timestamp_precision.exit:               ; preds = %37, %43
@@ -4032,7 +4032,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   br i1 %64, label %65, label %get_default_timestamp_precision.exit
 
 65:                                               ; preds = %63
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1018, ptr noundef nonnull @__func__.get_default_timestamp_precision, ptr noundef nonnull @.str.9) #21
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1018, ptr noundef nonnull @__func__.get_default_timestamp_precision, ptr noundef nonnull @.str.9) #22
   unreachable
 
 get_default_timestamp_precision.exit:             ; preds = %58, %63
@@ -4271,7 +4271,7 @@ define void @col_fill_in_frame_data(ptr noundef %0, ptr noundef readonly capture
   br i1 %101, label %102, label %103
 
 102:                                              ; preds = %100
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #22
   unreachable
 
 set_epoch_time.exit.i.i.i:                        ; preds = %84
@@ -4367,7 +4367,7 @@ col_set_epoch_time.exit.i.i:                      ; preds = %103, %set_epoch_tim
   br label %col_set_fmt_time.exit
 
 168:                                              ; preds = %32
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1635, ptr noundef nonnull @__func__.col_set_cls_time, ptr noundef nonnull @.str.9) #21
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1635, ptr noundef nonnull @__func__.col_set_cls_time, ptr noundef nonnull @.str.9) #22
   unreachable
 
 169:                                              ; preds = %31
@@ -4495,7 +4495,7 @@ col_set_epoch_time.exit.i.i:                      ; preds = %103, %set_epoch_tim
   br label %col_set_fmt_time.exit
 
 258:                                              ; preds = %31
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1688, ptr noundef nonnull @__func__.col_set_fmt_time, ptr noundef nonnull @.str.9) #21
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1688, ptr noundef nonnull @__func__.col_set_fmt_time, ptr noundef nonnull @.str.9) #22
   unreachable
 
 259:                                              ; preds = %4
@@ -4715,7 +4715,7 @@ define void @col_fill_in(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroe
   br label %87
 
 58:                                               ; preds = %16
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 2053, ptr noundef nonnull @__func__.col_fill_in, ptr noundef nonnull @.str.9) #21
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 2053, ptr noundef nonnull @__func__.col_fill_in, ptr noundef nonnull @.str.9) #22
   unreachable
 
 59:                                               ; preds = %16
@@ -4723,7 +4723,7 @@ define void @col_fill_in(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroe
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %59
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 2057, ptr noundef nonnull @__func__.col_fill_in, ptr noundef nonnull @.str.9) #21
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 2057, ptr noundef nonnull @__func__.col_fill_in, ptr noundef nonnull @.str.9) #22
   unreachable
 
 62:                                               ; preds = %59
@@ -5178,7 +5178,7 @@ define void @col_fill_in_error(ptr noundef readonly captures(address_is_null) %0
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %.split.us
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 2097, ptr noundef nonnull @__func__.col_fill_in_error, ptr noundef nonnull @.str.9) #21
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 2097, ptr noundef nonnull @__func__.col_fill_in_error, ptr noundef nonnull @.str.9) #22
   unreachable
 
 28:                                               ; preds = %.split.us
@@ -5439,7 +5439,7 @@ define internal fastcc void @col_set_abs_ymd_time(ptr noundef %0, ptr noundef re
   br i1 %25, label %26, label %get_frame_timestamp_precision.exit.i
 
 26:                                               ; preds = %24
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #22
   unreachable
 
 get_frame_timestamp_precision.exit.i:             ; preds = %24, %19
@@ -5525,7 +5525,7 @@ define internal fastcc void @col_set_rel_time(ptr noundef %0, ptr noundef readon
   br i1 %35, label %36, label %set_time_seconds.exit
 
 36:                                               ; preds = %34
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #22
   unreachable
 
 set_time_seconds.exit:                            ; preds = %29, %34
@@ -5583,7 +5583,7 @@ set_time_seconds.exit:                            ; preds = %29, %34
   br i1 %73, label %74, label %set_time_seconds.exit29
 
 74:                                               ; preds = %72
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #22
   unreachable
 
 set_time_seconds.exit29:                          ; preds = %67, %72
@@ -5593,7 +5593,7 @@ set_time_seconds.exit29:                          ; preds = %67, %72
   br label %76
 
 75:                                               ; preds = %15
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1295, ptr noundef nonnull @__func__.col_set_rel_time, ptr noundef nonnull @.str.9) #21
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1295, ptr noundef nonnull @__func__.col_set_rel_time, ptr noundef nonnull @.str.9) #22
   unreachable
 
 76:                                               ; preds = %set_time_seconds.exit29, %set_time_seconds.exit
@@ -5666,7 +5666,7 @@ define internal fastcc void @col_set_delta_time(ptr noundef %0, ptr noundef read
   br i1 %35, label %36, label %set_time_seconds.exit
 
 36:                                               ; preds = %34
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #22
   unreachable
 
 set_time_seconds.exit:                            ; preds = %29, %34
@@ -5724,7 +5724,7 @@ set_time_seconds.exit:                            ; preds = %29, %34
   br i1 %73, label %74, label %set_time_seconds.exit29
 
 74:                                               ; preds = %72
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #22
   unreachable
 
 set_time_seconds.exit29:                          ; preds = %67, %72
@@ -5734,7 +5734,7 @@ set_time_seconds.exit29:                          ; preds = %67, %72
   br label %76
 
 75:                                               ; preds = %15
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1324, ptr noundef nonnull @__func__.col_set_delta_time, ptr noundef nonnull @.str.9) #21
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1324, ptr noundef nonnull @__func__.col_set_delta_time, ptr noundef nonnull @.str.9) #22
   unreachable
 
 76:                                               ; preds = %set_time_seconds.exit29, %set_time_seconds.exit
@@ -5807,7 +5807,7 @@ define internal fastcc void @col_set_delta_time_dis(ptr noundef %0, ptr noundef 
   br i1 %35, label %36, label %set_time_seconds.exit
 
 36:                                               ; preds = %34
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #22
   unreachable
 
 set_time_seconds.exit:                            ; preds = %29, %34
@@ -5865,7 +5865,7 @@ set_time_seconds.exit:                            ; preds = %29, %34
   br i1 %73, label %74, label %set_time_seconds.exit29
 
 74:                                               ; preds = %72
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #22
   unreachable
 
 set_time_seconds.exit29:                          ; preds = %67, %72
@@ -5875,7 +5875,7 @@ set_time_seconds.exit29:                          ; preds = %67, %72
   br label %76
 
 75:                                               ; preds = %15
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1354, ptr noundef nonnull @__func__.col_set_delta_time_dis, ptr noundef nonnull @.str.9) #21
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1354, ptr noundef nonnull @__func__.col_set_delta_time_dis, ptr noundef nonnull @.str.9) #22
   unreachable
 
 76:                                               ; preds = %set_time_seconds.exit29, %set_time_seconds.exit
@@ -5931,7 +5931,7 @@ define internal fastcc void @col_set_utc_ymd_time(ptr noundef %0, ptr noundef re
   br i1 %25, label %26, label %get_frame_timestamp_precision.exit.i
 
 26:                                               ; preds = %24
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #22
   unreachable
 
 get_frame_timestamp_precision.exit.i:             ; preds = %24, %19
@@ -5987,17 +5987,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #16
+declare i64 @llvm.abs.i64(i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #16
+declare i32 @llvm.abs.i32(i32, i1 immarg) #17
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6015,12 +6015,13 @@ attributes #12 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "sta
 attributes #13 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind }
-attributes #18 = { allocsize(0,1) }
-attributes #19 = { allocsize(0) }
-attributes #20 = { nounwind willreturn memory(read) }
-attributes #21 = { noreturn }
+attributes #16 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nounwind }
+attributes #19 = { allocsize(0,1) }
+attributes #20 = { allocsize(0) }
+attributes #21 = { nounwind willreturn memory(read) }
+attributes #22 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

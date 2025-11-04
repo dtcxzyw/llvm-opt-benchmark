@@ -352,7 +352,7 @@ entry:
   br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %1) #30
+  tail call void @_ZdlPv(ptr noundef %1) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %entry, %if.then.i.i
@@ -361,7 +361,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %entry
   br i1 %cmp.i.i.i.1, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1, label %if.then.i.i.1
 
 if.then.i.i.1:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef %2) #30
+  tail call void @_ZdlPv(ptr noundef %2) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %if.then.i.i.1
@@ -370,7 +370,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1: ; preds = %_ZN
   br i1 %cmp.i.i.i.2, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.2, label %if.then.i.i.2
 
 if.then.i.i.2:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1
-  tail call void @_ZdlPv(ptr noundef %3) #30
+  tail call void @_ZdlPv(ptr noundef %3) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.2
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.2: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1, %if.then.i.i.2
@@ -379,7 +379,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.2: ; preds = %_ZN
   br i1 %cmp.i.i.i.3, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.3, label %if.then.i.i.3
 
 if.then.i.i.3:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.2
-  tail call void @_ZdlPv(ptr noundef %4) #30
+  tail call void @_ZdlPv(ptr noundef %4) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.3
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.3: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.2, %if.then.i.i.3
@@ -388,7 +388,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.3: ; preds = %_ZN
   br i1 %cmp.i.i.i.4, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.4, label %if.then.i.i.4
 
 if.then.i.i.4:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.3
-  tail call void @_ZdlPv(ptr noundef %5) #30
+  tail call void @_ZdlPv(ptr noundef %5) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.4
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.4: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.3, %if.then.i.i.4
@@ -397,7 +397,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.4: ; preds = %_ZN
   br i1 %cmp.i.i.i.5, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.5, label %if.then.i.i.5
 
 if.then.i.i.5:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.4
-  tail call void @_ZdlPv(ptr noundef %6) #30
+  tail call void @_ZdlPv(ptr noundef %6) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.5
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.5: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.4, %if.then.i.i.5
@@ -406,7 +406,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.5: ; preds = %_ZN
   br i1 %cmp.i.i.i.6, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.6, label %if.then.i.i.6
 
 if.then.i.i.6:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.5
-  tail call void @_ZdlPv(ptr noundef %7) #30
+  tail call void @_ZdlPv(ptr noundef %7) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.6
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.6: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.5, %if.then.i.i.6
@@ -415,7 +415,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.6: ; preds = %_ZN
   br i1 %cmp.i.i.i.7, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.7, label %if.then.i.i.7
 
 if.then.i.i.7:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.6
-  tail call void @_ZdlPv(ptr noundef %8) #30
+  tail call void @_ZdlPv(ptr noundef %8) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.7: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.6, %if.then.i.i.7
@@ -424,7 +424,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.7: ; preds = %_ZN
   br i1 %cmp.i.i.i.8, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.8, label %if.then.i.i.8
 
 if.then.i.i.8:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.7
-  tail call void @_ZdlPv(ptr noundef %9) #30
+  tail call void @_ZdlPv(ptr noundef %9) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.8
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.8: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.7, %if.then.i.i.8
@@ -433,7 +433,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.8: ; preds = %_ZN
   br i1 %cmp.i.i.i.9, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.9, label %if.then.i.i.9
 
 if.then.i.i.9:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.8
-  tail call void @_ZdlPv(ptr noundef %10) #30
+  tail call void @_ZdlPv(ptr noundef %10) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.9
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.9: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.8, %if.then.i.i.9
@@ -442,7 +442,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.9: ; preds = %_ZN
   br i1 %cmp.i.i.i.10, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.10, label %if.then.i.i.10
 
 if.then.i.i.10:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.9
-  tail call void @_ZdlPv(ptr noundef %11) #30
+  tail call void @_ZdlPv(ptr noundef %11) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.10
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.10: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.9, %if.then.i.i.10
@@ -451,7 +451,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.10: ; preds = %_Z
   br i1 %cmp.i.i.i.11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.11, label %if.then.i.i.11
 
 if.then.i.i.11:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.10
-  tail call void @_ZdlPv(ptr noundef %12) #30
+  tail call void @_ZdlPv(ptr noundef %12) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.11
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.11: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.10, %if.then.i.i.11
@@ -460,7 +460,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.11: ; preds = %_Z
   br i1 %cmp.i.i.i.12, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12, label %if.then.i.i.12
 
 if.then.i.i.12:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.11
-  tail call void @_ZdlPv(ptr noundef %13) #30
+  tail call void @_ZdlPv(ptr noundef %13) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.11, %if.then.i.i.12
@@ -750,7 +750,7 @@ invoke.cont44:                                    ; preds = %invoke.cont28
   br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i391
 
 if.then.i.i391:                                   ; preds = %invoke.cont44
-  call void @_ZdlPv(ptr noundef %18) #30
+  call void @_ZdlPv(ptr noundef %18) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %invoke.cont44, %if.then.i.i391
@@ -823,7 +823,7 @@ invoke.cont54:                                    ; preds = %call5.i.noexc
   br i1 %cmp.i.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont54
-  call void @_ZdlPv(ptr noundef %24) #30
+  call void @_ZdlPv(ptr noundef %24) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %invoke.cont54, %if.then.i.i.i
@@ -841,7 +841,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef %27) #30
+  call void @_ZdlPv(ptr noundef %27) #31
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
@@ -859,7 +859,7 @@ invoke.cont.i.i:                                  ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, label %if.then.i.i.i.i401
 
 if.then.i.i.i.i401:                               ; preds = %invoke.cont.i.i
-  call void @_ZdlPv(ptr noundef nonnull %29) #30
+  call void @_ZdlPv(ptr noundef nonnull %29) #31
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i401, %invoke.cont.i.i
@@ -868,7 +868,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %cmp.i.i.i2.i, label %_ZN12SkyboxParamsD2Ev.exit, label %if.then.i.i3.i
 
 if.then.i.i3.i:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef %30) #30
+  call void @_ZdlPv(ptr noundef %30) #31
   br label %_ZN12SkyboxParamsD2Ev.exit
 
 _ZN12SkyboxParamsD2Ev.exit:                       ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, %if.then.i.i3.i
@@ -938,7 +938,7 @@ invoke.cont63:                                    ; preds = %.noexc411
   br i1 %cmp.i.i.i.i414, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i416, label %if.then.i.i.i415
 
 if.then.i.i.i415:                                 ; preds = %invoke.cont63
-  call void @_ZdlPv(ptr noundef %39) #30
+  call void @_ZdlPv(ptr noundef %39) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i416
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i416: ; preds = %invoke.cont63, %if.then.i.i.i415
@@ -947,7 +947,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i416: ; preds = %
   br i1 %cmp.i.i.i2.i418, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i, label %if.then.i.i3.i419
 
 if.then.i.i3.i419:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i416
-  call void @_ZdlPv(ptr noundef %40) #30
+  call void @_ZdlPv(ptr noundef %40) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i416, %if.then.i.i3.i419
@@ -956,7 +956,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i: ; preds = %_Z
   br i1 %cmp.i.i.i8.i, label %_ZN9SunParamsD2Ev.exit, label %if.then.i.i9.i
 
 if.then.i.i9.i:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i
-  call void @_ZdlPv(ptr noundef %41) #30
+  call void @_ZdlPv(ptr noundef %41) #31
   br label %_ZN9SunParamsD2Ev.exit
 
 _ZN9SunParamsD2Ev.exit:                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i, %if.then.i.i9.i
@@ -1009,7 +1009,7 @@ invoke.cont72:                                    ; preds = %.noexc438
   br i1 %cmp.i.i.i.i441, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i443, label %if.then.i.i.i442
 
 if.then.i.i.i442:                                 ; preds = %invoke.cont72
-  call void @_ZdlPv(ptr noundef %48) #30
+  call void @_ZdlPv(ptr noundef %48) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i443
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i443: ; preds = %invoke.cont72, %if.then.i.i.i442
@@ -1018,7 +1018,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i443: ; preds = %
   br i1 %cmp.i.i.i2.i445, label %invoke.cont83, label %if.then.i.i3.i446
 
 if.then.i.i3.i446:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i443
-  call void @_ZdlPv(ptr noundef %49) #30
+  call void @_ZdlPv(ptr noundef %49) #31
   br label %invoke.cont83
 
 invoke.cont83:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i443, %if.then.i.i3.i446
@@ -1124,7 +1124,7 @@ invoke.cont86:                                    ; preds = %invoke.cont83
   br i1 %tobool.not.i.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %invoke.cont86
-  call void @_ZdlPv(ptr noundef nonnull %50) #30
+  call void @_ZdlPv(ptr noundef nonnull %50) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.i:         ; preds = %delete.notnull.i.i, %invoke.cont86
@@ -1133,7 +1133,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.i:         ; preds = %delete.notnull.i.i,
   br i1 %tobool.not.i.1.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i, label %delete.notnull.i.1.i
 
 delete.notnull.i.1.i:                             ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %51) #30
+  call void @_ZdlPv(ptr noundef nonnull %51) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i:       ; preds = %delete.notnull.i.1.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.i
@@ -1142,7 +1142,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i:       ; preds = %delete.notnull.i.1.
   br i1 %tobool.not.i.2.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i, label %delete.notnull.i.2.i
 
 delete.notnull.i.2.i:                             ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i
-  call void @_ZdlPv(ptr noundef nonnull %52) #30
+  call void @_ZdlPv(ptr noundef nonnull %52) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i:       ; preds = %delete.notnull.i.2.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i
@@ -1151,7 +1151,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i:       ; preds = %delete.notnull.i.2.
   br i1 %tobool.not.i.3.i, label %_ZN3irr5video9SMaterialD2Ev.exit, label %delete.notnull.i.3.i
 
 delete.notnull.i.3.i:                             ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i
-  call void @_ZdlPv(ptr noundef nonnull %53) #30
+  call void @_ZdlPv(ptr noundef nonnull %53) #31
   br label %_ZN3irr5video9SMaterialD2Ev.exit
 
 _ZN3irr5video9SMaterialD2Ev.exit:                 ; preds = %delete.notnull.i.3.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i
@@ -1191,7 +1191,7 @@ invoke.cont102:                                   ; preds = %invoke.cont98
   br i1 %cmp.i.i.i.i472, label %_ZN10ShaderInfoD2Ev.exit, label %if.then.i.i.i473
 
 if.then.i.i.i473:                                 ; preds = %invoke.cont102
-  call void @_ZdlPv(ptr noundef %58) #30
+  call void @_ZdlPv(ptr noundef %58) #31
   br label %_ZN10ShaderInfoD2Ev.exit
 
 _ZN10ShaderInfoD2Ev.exit:                         ; preds = %invoke.cont102, %if.then.i.i.i473
@@ -1200,7 +1200,7 @@ _ZN10ShaderInfoD2Ev.exit:                         ; preds = %invoke.cont102, %if
   br i1 %cmp.i.i.i478, label %invoke.cont119, label %if.then.i.i479
 
 if.then.i.i479:                                   ; preds = %_ZN10ShaderInfoD2Ev.exit
-  call void @_ZdlPv(ptr noundef %60) #30
+  call void @_ZdlPv(ptr noundef %60) #31
   br label %invoke.cont119
 
 invoke.cont119:                                   ; preds = %_ZN10ShaderInfoD2Ev.exit, %if.then.i.i479
@@ -1309,7 +1309,7 @@ invoke.cont123:                                   ; preds = %invoke.cont119
   br i1 %tobool.not.i.i540, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i542, label %delete.notnull.i.i541
 
 delete.notnull.i.i541:                            ; preds = %invoke.cont123
-  call void @_ZdlPv(ptr noundef nonnull %61) #30
+  call void @_ZdlPv(ptr noundef nonnull %61) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i542
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.i542:      ; preds = %delete.notnull.i.i541, %invoke.cont123
@@ -1318,7 +1318,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.i542:      ; preds = %delete.notnull.i.i5
   br i1 %tobool.not.i.1.i544, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i546, label %delete.notnull.i.1.i545
 
 delete.notnull.i.1.i545:                          ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.i542
-  call void @_ZdlPv(ptr noundef nonnull %62) #30
+  call void @_ZdlPv(ptr noundef nonnull %62) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i546
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i546:    ; preds = %delete.notnull.i.1.i545, %_ZN3irr5video14SMaterialLayerD2Ev.exit.i542
@@ -1327,7 +1327,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i546:    ; preds = %delete.notnull.i.1.
   br i1 %tobool.not.i.2.i548, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i550, label %delete.notnull.i.2.i549
 
 delete.notnull.i.2.i549:                          ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i546
-  call void @_ZdlPv(ptr noundef nonnull %63) #30
+  call void @_ZdlPv(ptr noundef nonnull %63) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i550
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i550:    ; preds = %delete.notnull.i.2.i549, %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i546
@@ -1336,7 +1336,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i550:    ; preds = %delete.notnull.i.2.
   br i1 %tobool.not.i.3.i552, label %invoke.cont132, label %delete.notnull.i.3.i553
 
 delete.notnull.i.3.i553:                          ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i550
-  call void @_ZdlPv(ptr noundef nonnull %64) #30
+  call void @_ZdlPv(ptr noundef nonnull %64) #31
   br label %invoke.cont132
 
 invoke.cont132:                                   ; preds = %delete.notnull.i.3.i553, %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i550
@@ -1438,7 +1438,7 @@ invoke.cont136:                                   ; preds = %invoke.cont132
   br i1 %tobool.not.i.i610, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i612, label %delete.notnull.i.i611
 
 delete.notnull.i.i611:                            ; preds = %invoke.cont136
-  call void @_ZdlPv(ptr noundef nonnull %65) #30
+  call void @_ZdlPv(ptr noundef nonnull %65) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i612
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.i612:      ; preds = %delete.notnull.i.i611, %invoke.cont136
@@ -1447,7 +1447,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.i612:      ; preds = %delete.notnull.i.i6
   br i1 %tobool.not.i.1.i614, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i616, label %delete.notnull.i.1.i615
 
 delete.notnull.i.1.i615:                          ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.i612
-  call void @_ZdlPv(ptr noundef nonnull %66) #30
+  call void @_ZdlPv(ptr noundef nonnull %66) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i616
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i616:    ; preds = %delete.notnull.i.1.i615, %_ZN3irr5video14SMaterialLayerD2Ev.exit.i612
@@ -1456,7 +1456,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i616:    ; preds = %delete.notnull.i.1.
   br i1 %tobool.not.i.2.i618, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i620, label %delete.notnull.i.2.i619
 
 delete.notnull.i.2.i619:                          ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i616
-  call void @_ZdlPv(ptr noundef nonnull %67) #30
+  call void @_ZdlPv(ptr noundef nonnull %67) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i620
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i620:    ; preds = %delete.notnull.i.2.i619, %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i616
@@ -1465,7 +1465,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i620:    ; preds = %delete.notnull.i.2.
   br i1 %tobool.not.i.3.i622, label %_ZN3irr5video9SMaterialD2Ev.exit624, label %delete.notnull.i.3.i623
 
 delete.notnull.i.3.i623:                          ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i620
-  call void @_ZdlPv(ptr noundef nonnull %68) #30
+  call void @_ZdlPv(ptr noundef nonnull %68) #31
   br label %_ZN3irr5video9SMaterialD2Ev.exit624
 
 _ZN3irr5video9SMaterialD2Ev.exit624:              ; preds = %delete.notnull.i.3.i623, %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i620
@@ -1491,7 +1491,7 @@ invoke.cont149:                                   ; preds = %_ZN3irr5video9SMate
   br i1 %cmp.i.i.i637, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit643, label %if.then.i.i638
 
 if.then.i.i638:                                   ; preds = %invoke.cont149
-  call void @_ZdlPv(ptr noundef %71) #30
+  call void @_ZdlPv(ptr noundef %71) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit643
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit643: ; preds = %invoke.cont149, %if.then.i.i638
@@ -1579,7 +1579,7 @@ lpad43:                                           ; preds = %invoke.cont28
   br i1 %cmp.i.i.i656, label %ehcleanup, label %if.then.i.i657
 
 if.then.i.i657:                                   ; preds = %lpad43
-  call void @_ZdlPv(ptr noundef %78) #30
+  call void @_ZdlPv(ptr noundef %78) #31
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad43, %if.then.i.i657
@@ -1593,7 +1593,7 @@ lpad53:                                           ; preds = %call5.i.noexc, %.no
 
 ehcleanup57:                                      ; preds = %lpad53, %lpad1.i
   %.pn328 = phi { ptr, i32 } [ %79, %lpad53 ], [ %22, %lpad1.i ]
-  call void @_ZN12SkyboxParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp49) #31
+  call void @_ZN12SkyboxParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp49) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp49)
   br label %ehcleanup306
 
@@ -1604,7 +1604,7 @@ lpad62:                                           ; preds = %.noexc411, %.noexc4
 
 ehcleanup66:                                      ; preds = %lpad62, %lpad.i
   %.pn330 = phi { ptr, i32 } [ %80, %lpad62 ], [ %36, %lpad.i ]
-  call void @_ZN9SunParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp58) #31
+  call void @_ZN9SunParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp58) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp58)
   br label %ehcleanup306
 
@@ -1615,14 +1615,14 @@ lpad71:                                           ; preds = %.noexc438, %invoke.
 
 ehcleanup75:                                      ; preds = %lpad71, %lpad.i428
   %.pn332 = phi { ptr, i32 } [ %81, %lpad71 ], [ %45, %lpad.i428 ]
-  call void @_ZN10MoonParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %ref.tmp67) #31
+  call void @_ZN10MoonParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %ref.tmp67) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp67)
   br label %ehcleanup306
 
 lpad85:                                           ; preds = %invoke.cont83
   %82 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp81) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp81) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp81)
   br label %ehcleanup306
 
@@ -1634,7 +1634,7 @@ lpad97:                                           ; preds = %invoke.cont98, %_ZN
   br i1 %cmp.i.i.i663, label %ehcleanup106, label %if.then.i.i664
 
 if.then.i.i664:                                   ; preds = %lpad97
-  call void @_ZdlPv(ptr noundef %84) #30
+  call void @_ZdlPv(ptr noundef %84) #31
   br label %ehcleanup106
 
 ehcleanup106:                                     ; preds = %lpad97, %if.then.i.i664
@@ -1645,14 +1645,14 @@ ehcleanup106:                                     ; preds = %lpad97, %if.then.i.
 lpad122:                                          ; preds = %invoke.cont119
   %85 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp117) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp117) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp117)
   br label %ehcleanup306
 
 lpad135:                                          ; preds = %invoke.cont132
   %86 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp130) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp130) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp130)
   br label %ehcleanup306
 
@@ -1664,7 +1664,7 @@ lpad148:                                          ; preds = %_ZN3irr5video9SMate
   br i1 %cmp.i.i.i670, label %ehcleanup153, label %if.then.i.i671
 
 if.then.i.i671:                                   ; preds = %lpad148
-  call void @_ZdlPv(ptr noundef %88) #30
+  call void @_ZdlPv(ptr noundef %88) #31
   br label %ehcleanup153
 
 ehcleanup153:                                     ; preds = %lpad148, %if.then.i.i671
@@ -1734,7 +1734,7 @@ invoke.cont173:                                   ; preds = %invoke.cont169
   br i1 %tobool.not.i.i732, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i734, label %delete.notnull.i.i733
 
 delete.notnull.i.i733:                            ; preds = %invoke.cont173
-  call void @_ZdlPv(ptr noundef nonnull %89) #30
+  call void @_ZdlPv(ptr noundef nonnull %89) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i734
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.i734:      ; preds = %delete.notnull.i.i733, %invoke.cont173
@@ -1743,7 +1743,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.i734:      ; preds = %delete.notnull.i.i7
   br i1 %tobool.not.i.1.i736, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i738, label %delete.notnull.i.1.i737
 
 delete.notnull.i.1.i737:                          ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.i734
-  call void @_ZdlPv(ptr noundef nonnull %90) #30
+  call void @_ZdlPv(ptr noundef nonnull %90) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i738
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i738:    ; preds = %delete.notnull.i.1.i737, %_ZN3irr5video14SMaterialLayerD2Ev.exit.i734
@@ -1752,7 +1752,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i738:    ; preds = %delete.notnull.i.1.
   br i1 %tobool.not.i.2.i740, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i742, label %delete.notnull.i.2.i741
 
 delete.notnull.i.2.i741:                          ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i738
-  call void @_ZdlPv(ptr noundef nonnull %91) #30
+  call void @_ZdlPv(ptr noundef nonnull %91) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i742
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i742:    ; preds = %delete.notnull.i.2.i741, %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i738
@@ -1761,7 +1761,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i742:    ; preds = %delete.notnull.i.2.
   br i1 %tobool.not.i.3.i744, label %_ZN3irr5video9SMaterialD2Ev.exit746, label %delete.notnull.i.3.i745
 
 delete.notnull.i.3.i745:                          ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i742
-  call void @_ZdlPv(ptr noundef nonnull %92) #30
+  call void @_ZdlPv(ptr noundef nonnull %92) #31
   br label %_ZN3irr5video9SMaterialD2Ev.exit746
 
 _ZN3irr5video9SMaterialD2Ev.exit746:              ; preds = %delete.notnull.i.3.i745, %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i742
@@ -1779,7 +1779,7 @@ _ZN3irr5video9SMaterialD2Ev.exit746:              ; preds = %delete.notnull.i.3.
 lpad172:                                          ; preds = %invoke.cont169
   %93 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp167) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp167) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp167)
   br label %ehcleanup306
 
@@ -1792,7 +1792,7 @@ invoke.cont194:                                   ; preds = %call2.i10.i.noexc65
   br i1 %cmp.i.i.i747, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit753, label %if.then.i.i748
 
 if.then.i.i748:                                   ; preds = %invoke.cont194
-  call void @_ZdlPv(ptr noundef %94) #30
+  call void @_ZdlPv(ptr noundef %94) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit753
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit753: ; preds = %invoke.cont194, %if.then.i.i748
@@ -1827,7 +1827,7 @@ invoke.cont206:                                   ; preds = %call2.i10.i.noexc76
   br i1 %cmp.i.i.i766, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit772, label %if.then.i.i767
 
 if.then.i.i767:                                   ; preds = %invoke.cont206
-  call void @_ZdlPv(ptr noundef %99) #30
+  call void @_ZdlPv(ptr noundef %99) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit772
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit772: ; preds = %invoke.cont206, %if.then.i.i767
@@ -1889,7 +1889,7 @@ cond.end245:                                      ; preds = %cond.false233
   br i1 %cmp.i.i.i809, label %cleanup.done268.thread, label %if.then.i.i810
 
 if.then.i.i810:                                   ; preds = %cond.end245
-  call void @_ZdlPv(ptr noundef %106) #30
+  call void @_ZdlPv(ptr noundef %106) #31
   br label %cleanup.done268.thread
 
 cleanup.done268.thread:                           ; preds = %cond.end245, %if.then.i.i810
@@ -1906,7 +1906,7 @@ cleanup.action274:                                ; preds = %cleanup.done268.thr
   br i1 %cmp.i.i.i816, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit822, label %if.then.i.i817
 
 if.then.i.i817:                                   ; preds = %cleanup.action274
-  call void @_ZdlPv(ptr noundef %107) #30
+  call void @_ZdlPv(ptr noundef %107) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit822
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit822: ; preds = %cleanup.action274, %if.then.i.i817
@@ -1919,7 +1919,7 @@ cleanup.done296:                                  ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.i.i823, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit829, label %if.then.i.i824
 
 if.then.i.i824:                                   ; preds = %cleanup.done296
-  call void @_ZdlPv(ptr noundef %108) #30
+  call void @_ZdlPv(ptr noundef %108) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit829
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit829: ; preds = %cleanup.done296, %if.then.i.i824
@@ -1952,7 +1952,7 @@ lpad193:                                          ; preds = %call2.i10.i.noexc65
   br i1 %cmp.i.i.i832, label %ehcleanup198, label %if.then.i.i833
 
 if.then.i.i833:                                   ; preds = %lpad193
-  call void @_ZdlPv(ptr noundef %113) #30
+  call void @_ZdlPv(ptr noundef %113) #31
   br label %ehcleanup198
 
 ehcleanup198:                                     ; preds = %lpad193, %if.then.i.i833, %lpad191
@@ -1973,7 +1973,7 @@ lpad205:                                          ; preds = %call2.i10.i.noexc76
   br i1 %cmp.i.i.i839, label %ehcleanup210, label %if.then.i.i840
 
 if.then.i.i840:                                   ; preds = %lpad205
-  call void @_ZdlPv(ptr noundef %116) #30
+  call void @_ZdlPv(ptr noundef %116) #31
   br label %ehcleanup210
 
 ehcleanup210:                                     ; preds = %lpad205, %if.then.i.i840, %lpad203
@@ -1999,7 +1999,7 @@ lpad242:                                          ; preds = %cond.false233
   br i1 %cmp.i.i.i846, label %cleanup.action257, label %if.then.i.i847
 
 if.then.i.i847:                                   ; preds = %lpad242
-  call void @_ZdlPv(ptr noundef %120) #30
+  call void @_ZdlPv(ptr noundef %120) #31
   br label %cleanup.action257
 
 cleanup.action257:                                ; preds = %lpad242, %if.then.i.i847
@@ -2013,7 +2013,7 @@ cleanup.action278:                                ; preds = %cleanup.action257, 
   br i1 %cmp.i.i.i853, label %cleanup.action285, label %if.then.i.i854
 
 if.then.i.i854:                                   ; preds = %cleanup.action278
-  call void @_ZdlPv(ptr noundef %121) #30
+  call void @_ZdlPv(ptr noundef %121) #31
   br label %cleanup.action285
 
 cleanup.action285:                                ; preds = %cleanup.action278, %if.then.i.i854
@@ -2027,7 +2027,7 @@ ehcleanup301:                                     ; preds = %cleanup.action285, 
   br i1 %cmp.i.i.i860, label %ehcleanup302, label %if.then.i.i861
 
 if.then.i.i861:                                   ; preds = %ehcleanup301
-  call void @_ZdlPv(ptr noundef %122) #30
+  call void @_ZdlPv(ptr noundef %122) #31
   br label %ehcleanup302
 
 ehcleanup302:                                     ; preds = %ehcleanup301, %if.then.i.i861
@@ -2056,38 +2056,38 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i868
   %vtable.i.i.i = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !19
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %125 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %125(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr.i.i) #31
+  call void %125(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr.i.i) #32
   br label %_ZN7irr_ptrIN3irr5scene11CMeshBufferINS0_5video9S3DVertexEEEvED2Ev.exit
 
 _ZN7irr_ptrIN3irr5scene11CMeshBufferINS0_5video9S3DVertexEEEvED2Ev.exit: ; preds = %delete.notnull.i.i.i, %if.then.i.i868, %ehcleanup306
   store ptr null, ptr %m_stars, align 8, !tbaa !137
-  call void @_ZN10MoonParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %m_moon_params) #31
-  call void @_ZN9SunParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_sun_params) #31
-  call void @_ZN12SkyboxParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %m_sky_params) #31
+  call void @_ZN10MoonParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %m_moon_params) #32
+  call void @_ZN9SunParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_sun_params) #32
+  call void @_ZN12SkyboxParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %m_sky_params) #32
   %arraydestroy.element314.ptr = getelementptr inbounds nuw i8, ptr %this, i64 2272
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element314.ptr) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element314.ptr) #32
   %arraydestroy.element314.ptr.1 = getelementptr inbounds nuw i8, ptr %this, i64 2088
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element314.ptr.1) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element314.ptr.1) #32
   %arraydestroy.element314.ptr.2 = getelementptr inbounds nuw i8, ptr %this, i64 1904
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element314.ptr.2) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element314.ptr.2) #32
   %arraydestroy.element314.ptr.3 = getelementptr inbounds nuw i8, ptr %this, i64 1720
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element314.ptr.3) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element314.ptr.3) #32
   %arraydestroy.element314.ptr.4 = getelementptr inbounds nuw i8, ptr %this, i64 1536
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element314.ptr.4) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element314.ptr.4) #32
   %arraydestroy.element314.ptr.5 = getelementptr inbounds nuw i8, ptr %this, i64 1352
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element314.ptr.5) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element314.ptr.5) #32
   %arraydestroy.element314.ptr.6 = getelementptr inbounds nuw i8, ptr %this, i64 1168
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element314.ptr.6) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element314.ptr.6) #32
   %arraydestroy.element314.ptr.7 = getelementptr inbounds nuw i8, ptr %this, i64 984
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element314.ptr.7) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element314.ptr.7) #32
   %arraydestroy.element314.ptr.8 = getelementptr inbounds nuw i8, ptr %this, i64 800
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element314.ptr.8) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element314.ptr.8) #32
   %arraydestroy.element314.ptr.9 = getelementptr inbounds nuw i8, ptr %this, i64 616
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element314.ptr.9) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element314.ptr.9) #32
   %arraydestroy.element314.ptr.10 = getelementptr inbounds nuw i8, ptr %this, i64 432
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element314.ptr.10) #31
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %m_materials.ptr) #31
-  call void @_ZN3irr5scene10ISceneNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(222) %this, ptr noundef nonnull %5) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element314.ptr.10) #32
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %m_materials.ptr) #32
+  call void @_ZN3irr5scene10ISceneNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(222) %this, ptr noundef nonnull %5) #32
   resume { ptr, i32 } %.pn354.pn
 }
 
@@ -2163,7 +2163,7 @@ lpad4:                                            ; preds = %if.end, %if.then
 while.body.i.i:                                   ; preds = %lpad4, %while.body.i.i
   %__cur.010.i.i = phi ptr [ %7, %while.body.i.i ], [ %6, %lpad4 ]
   %7 = load ptr, ptr %__cur.010.i.i, align 8, !tbaa !143
-  tail call void @_ZdlPv(ptr noundef %__cur.010.i.i) #30
+  tail call void @_ZdlPv(ptr noundef %__cur.010.i.i) #31
   %cmp.not.i.i = icmp eq ptr %7, %Children
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit, label %while.body.i.i, !llvm.loop !152
 
@@ -2180,7 +2180,7 @@ if.then.i.i.i:                                    ; preds = %_ZNSt7__cxx1110_Lis
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i
-  tail call void @_ZdlPv(ptr noundef %9) #30
+  tail call void @_ZdlPv(ptr noundef %9) #31
   br label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit: ; preds = %if.then.i.i.i, %if.then.i.i.i.i.i.i, %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit
@@ -2206,7 +2206,7 @@ entry:
   br i1 %tobool.not.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit:           ; preds = %delete.notnull.i, %entry
@@ -2216,7 +2216,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit:           ; preds = %delete.notnull.i, %
   br i1 %tobool.not.i.1, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1, label %delete.notnull.i.1
 
 delete.notnull.i.1:                               ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.1:         ; preds = %delete.notnull.i.1, %_ZN3irr5video14SMaterialLayerD2Ev.exit
@@ -2226,7 +2226,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.1:         ; preds = %delete.notnull.i.1,
   br i1 %tobool.not.i.2, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2, label %delete.notnull.i.2
 
 delete.notnull.i.2:                               ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.1
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.2:         ; preds = %delete.notnull.i.2, %_ZN3irr5video14SMaterialLayerD2Ev.exit.1
@@ -2236,7 +2236,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.2:         ; preds = %delete.notnull.i.2,
   br i1 %tobool.not.i.3, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.3, label %delete.notnull.i.3
 
 delete.notnull.i.3:                               ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.2
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.3
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.3:         ; preds = %delete.notnull.i.3, %_ZN3irr5video14SMaterialLayerD2Ev.exit.2
@@ -2257,7 +2257,7 @@ entry:
   br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #30
+  tail call void @_ZdlPv(ptr noundef %0) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %entry, %if.then.i.i
@@ -2276,7 +2276,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %4) #30
+  tail call void @_ZdlPv(ptr noundef %4) #31
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i: ; preds = %for.body.i.i.i.i, %if.then.i.i.i.i.i.i.i
@@ -2294,7 +2294,7 @@ invoke.cont.i:                                    ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #31
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %if.then.i.i.i, %invoke.cont.i
@@ -2305,7 +2305,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %cmp.i.i.i2, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8, label %if.then.i.i3
 
 if.then.i.i3:                                     ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef %7) #30
+  tail call void @_ZdlPv(ptr noundef %7) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %if.then.i.i3
@@ -2322,7 +2322,7 @@ entry:
   br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #30
+  tail call void @_ZdlPv(ptr noundef %0) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %entry, %if.then.i.i
@@ -2333,7 +2333,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %entry
   br i1 %cmp.i.i.i2, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7, label %if.then.i.i3
 
 if.then.i.i3:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef %2) #30
+  tail call void @_ZdlPv(ptr noundef %2) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %if.then.i.i3
@@ -2344,7 +2344,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %_ZNS
   br i1 %cmp.i.i.i8, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13, label %if.then.i.i9
 
 if.then.i.i9:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7
-  tail call void @_ZdlPv(ptr noundef %4) #30
+  tail call void @_ZdlPv(ptr noundef %4) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7, %if.then.i.i9
@@ -2361,7 +2361,7 @@ entry:
   br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #30
+  tail call void @_ZdlPv(ptr noundef %0) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %entry, %if.then.i.i
@@ -2372,7 +2372,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %entry
   br i1 %cmp.i.i.i2, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7, label %if.then.i.i3
 
 if.then.i.i3:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef %2) #30
+  tail call void @_ZdlPv(ptr noundef %2) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %if.then.i.i3
@@ -2413,7 +2413,7 @@ if.then6.i:                                       ; preds = %if.then3.i
   br label %if.end21.i
 
 delete.notnull.i:                                 ; preds = %if.then3.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #31
   store ptr null, ptr %TextureMatrix.i, align 8, !tbaa !33
   br label %if.end21.i
 
@@ -2421,7 +2421,7 @@ if.else12.i:                                      ; preds = %for.body.preheader
   br i1 %tobool14.not.i, label %if.else18.i, label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.else12.i
-  %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #32
+  %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %call.i, ptr noundef nonnull align 4 dereferenceable(64) %3, i64 64, i1 false), !tbaa.struct !153
   store ptr %call.i, ptr %TextureMatrix.i, align 8, !tbaa !33
   br label %if.end21.i
@@ -2481,7 +2481,7 @@ if.then6.i.1:                                     ; preds = %if.then3.i.1
   br label %if.end21.i.1
 
 delete.notnull.i.1:                               ; preds = %if.then3.i.1
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #31
   store ptr null, ptr %TextureMatrix.i.1, align 8, !tbaa !33
   br label %if.end21.i.1
 
@@ -2489,7 +2489,7 @@ if.else12.i.1:                                    ; preds = %if.end21.i
   br i1 %tobool14.not.i.1, label %if.else18.i.1, label %invoke.cont.i.1
 
 invoke.cont.i.1:                                  ; preds = %if.else12.i.1
-  %call.i.1 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #32
+  %call.i.1 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %call.i.1, ptr noundef nonnull align 4 dereferenceable(64) %10, i64 64, i1 false), !tbaa.struct !153
   store ptr %call.i.1, ptr %TextureMatrix.i.1, align 8, !tbaa !33
   br label %if.end21.i.1
@@ -2549,7 +2549,7 @@ if.then6.i.2:                                     ; preds = %if.then3.i.2
   br label %if.end21.i.2
 
 delete.notnull.i.2:                               ; preds = %if.then3.i.2
-  tail call void @_ZdlPv(ptr noundef nonnull %16) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %16) #31
   store ptr null, ptr %TextureMatrix.i.2, align 8, !tbaa !33
   br label %if.end21.i.2
 
@@ -2557,7 +2557,7 @@ if.else12.i.2:                                    ; preds = %if.end21.i.1
   br i1 %tobool14.not.i.2, label %if.else18.i.2, label %invoke.cont.i.2
 
 invoke.cont.i.2:                                  ; preds = %if.else12.i.2
-  %call.i.2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #32
+  %call.i.2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %call.i.2, ptr noundef nonnull align 4 dereferenceable(64) %17, i64 64, i1 false), !tbaa.struct !153
   store ptr %call.i.2, ptr %TextureMatrix.i.2, align 8, !tbaa !33
   br label %if.end21.i.2
@@ -2617,7 +2617,7 @@ if.then6.i.3:                                     ; preds = %if.then3.i.3
   br label %if.end21.i.3
 
 delete.notnull.i.3:                               ; preds = %if.then3.i.3
-  tail call void @_ZdlPv(ptr noundef nonnull %23) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %23) #31
   store ptr null, ptr %TextureMatrix.i.3, align 8, !tbaa !33
   br label %if.end21.i.3
 
@@ -2625,7 +2625,7 @@ if.else12.i.3:                                    ; preds = %if.end21.i.2
   br i1 %tobool14.not.i.3, label %if.else18.i.3, label %invoke.cont.i.3
 
 invoke.cont.i.3:                                  ; preds = %if.else12.i.3
-  %call.i.3 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #32
+  %call.i.3 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %call.i.3, ptr noundef nonnull align 4 dereferenceable(64) %24, i64 64, i1 false), !tbaa.struct !153
   store ptr %call.i.3, ptr %TextureMatrix.i.3, align 8, !tbaa !33
   br label %if.end21.i.3
@@ -2679,7 +2679,7 @@ entry:
   br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #30
+  tail call void @_ZdlPv(ptr noundef %0) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %entry, %if.then.i.i
@@ -2748,7 +2748,7 @@ if.end:                                           ; preds = %_ZSteqIcEN9__gnu_cx
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %texture, ptr noundef nonnull align 8 dereferenceable(32) %sun_texture)
   %m_sun_texture = getelementptr inbounds nuw i8, ptr %this, i64 2984
   store ptr null, ptr %m_sun_texture, align 8, !tbaa !155
-  %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %sun_texture, ptr noundef nonnull @.str.21) #31
+  %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %sun_texture, ptr noundef nonnull @.str.21) #32
   %cmp.i73 = icmp eq i32 %call.i, 0
   br i1 %cmp.i73, label %if.then15, label %if.else
 
@@ -2867,7 +2867,7 @@ invoke.cont:                                      ; preds = %if.then37
   br i1 %tobool.not.i.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %invoke.cont
-  call void @_ZdlPv(ptr noundef nonnull %14) #30
+  call void @_ZdlPv(ptr noundef nonnull %14) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.i:         ; preds = %delete.notnull.i.i, %invoke.cont
@@ -2876,7 +2876,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.i:         ; preds = %delete.notnull.i.i,
   br i1 %tobool.not.i.1.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i, label %delete.notnull.i.1.i
 
 delete.notnull.i.1.i:                             ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %15) #30
+  call void @_ZdlPv(ptr noundef nonnull %15) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i:       ; preds = %delete.notnull.i.1.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.i
@@ -2885,7 +2885,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i:       ; preds = %delete.notnull.i.1.
   br i1 %tobool.not.i.2.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i, label %delete.notnull.i.2.i
 
 delete.notnull.i.2.i:                             ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i
-  call void @_ZdlPv(ptr noundef nonnull %16) #30
+  call void @_ZdlPv(ptr noundef nonnull %16) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i:       ; preds = %delete.notnull.i.2.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i
@@ -2894,7 +2894,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i:       ; preds = %delete.notnull.i.2.
   br i1 %tobool.not.i.3.i, label %_ZN3irr5video9SMaterialD2Ev.exit, label %delete.notnull.i.3.i
 
 delete.notnull.i.3.i:                             ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i
-  call void @_ZdlPv(ptr noundef nonnull %17) #30
+  call void @_ZdlPv(ptr noundef nonnull %17) #31
   br label %_ZN3irr5video9SMaterialD2Ev.exit
 
 _ZN3irr5video9SMaterialD2Ev.exit:                 ; preds = %delete.notnull.i.3.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i
@@ -2923,7 +2923,7 @@ _ZN3irr5video9SMaterialD2Ev.exit:                 ; preds = %delete.notnull.i.3.
 lpad:                                             ; preds = %if.then37
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   resume { ptr, i32 } %20
 
@@ -2993,7 +2993,7 @@ if.end:                                           ; preds = %_ZSteqIcEN9__gnu_cx
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %texture, ptr noundef nonnull align 8 dereferenceable(32) %moon_texture)
   %m_moon_texture = getelementptr inbounds nuw i8, ptr %this, i64 2992
   store ptr null, ptr %m_moon_texture, align 8, !tbaa !160
-  %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %moon_texture, ptr noundef nonnull @.str.22) #31
+  %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %moon_texture, ptr noundef nonnull @.str.22) #32
   %cmp.i73 = icmp eq i32 %call.i, 0
   br i1 %cmp.i73, label %if.then15, label %if.else
 
@@ -3112,7 +3112,7 @@ invoke.cont:                                      ; preds = %if.then37
   br i1 %tobool.not.i.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %invoke.cont
-  call void @_ZdlPv(ptr noundef nonnull %14) #30
+  call void @_ZdlPv(ptr noundef nonnull %14) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.i:         ; preds = %delete.notnull.i.i, %invoke.cont
@@ -3121,7 +3121,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.i:         ; preds = %delete.notnull.i.i,
   br i1 %tobool.not.i.1.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i, label %delete.notnull.i.1.i
 
 delete.notnull.i.1.i:                             ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %15) #30
+  call void @_ZdlPv(ptr noundef nonnull %15) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i:       ; preds = %delete.notnull.i.1.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.i
@@ -3130,7 +3130,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i:       ; preds = %delete.notnull.i.1.
   br i1 %tobool.not.i.2.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i, label %delete.notnull.i.2.i
 
 delete.notnull.i.2.i:                             ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i
-  call void @_ZdlPv(ptr noundef nonnull %16) #30
+  call void @_ZdlPv(ptr noundef nonnull %16) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i:       ; preds = %delete.notnull.i.2.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i
@@ -3139,7 +3139,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i:       ; preds = %delete.notnull.i.2.
   br i1 %tobool.not.i.3.i, label %_ZN3irr5video9SMaterialD2Ev.exit, label %delete.notnull.i.3.i
 
 delete.notnull.i.3.i:                             ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i
-  call void @_ZdlPv(ptr noundef nonnull %17) #30
+  call void @_ZdlPv(ptr noundef nonnull %17) #31
   br label %_ZN3irr5video9SMaterialD2Ev.exit
 
 _ZN3irr5video9SMaterialD2Ev.exit:                 ; preds = %delete.notnull.i.3.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i
@@ -3168,7 +3168,7 @@ _ZN3irr5video9SMaterialD2Ev.exit:                 ; preds = %delete.notnull.i.3.
 lpad:                                             ; preds = %if.then37
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   resume { ptr, i32 } %20
 
@@ -3228,7 +3228,7 @@ invoke.cont:                                      ; preds = %entry
 while.body.i.i:                                   ; preds = %invoke.cont, %while.body.i.i
   %__cur.010.i.i = phi ptr [ %5, %while.body.i.i ], [ %4, %invoke.cont ]
   %5 = load ptr, ptr %__cur.010.i.i, align 8, !tbaa !143
-  tail call void @_ZdlPv(ptr noundef %__cur.010.i.i) #30
+  tail call void @_ZdlPv(ptr noundef %__cur.010.i.i) #31
   %cmp.not.i.i = icmp eq ptr %5, %Children
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit, label %while.body.i.i, !llvm.loop !152
 
@@ -3247,7 +3247,7 @@ if.then.i.i.i:                                    ; preds = %_ZNSt7__cxx1110_Lis
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i
-  tail call void @_ZdlPv(ptr noundef %7) #30
+  tail call void @_ZdlPv(ptr noundef %7) #31
   br label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit: ; preds = %if.then.i.i.i, %if.then.i.i.i.i.i.i, %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit
@@ -3257,7 +3257,7 @@ terminate.lpad:                                   ; preds = %entry
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #33
+  tail call void @__clang_call_terminate(ptr %10) #34
   unreachable
 }
 
@@ -3543,7 +3543,7 @@ invoke.cont55:                                    ; preds = %invoke.cont39
   br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i408
 
 if.then.i.i408:                                   ; preds = %invoke.cont55
-  call void @_ZdlPv(ptr noundef %15) #30
+  call void @_ZdlPv(ptr noundef %15) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %invoke.cont55, %if.then.i.i408
@@ -3616,7 +3616,7 @@ invoke.cont67:                                    ; preds = %call5.i.noexc
   br i1 %cmp.i.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont67
-  call void @_ZdlPv(ptr noundef %21) #30
+  call void @_ZdlPv(ptr noundef %21) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %invoke.cont67, %if.then.i.i.i
@@ -3634,7 +3634,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef %24) #30
+  call void @_ZdlPv(ptr noundef %24) #31
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
@@ -3652,7 +3652,7 @@ invoke.cont.i.i:                                  ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, label %if.then.i.i.i.i418
 
 if.then.i.i.i.i418:                               ; preds = %invoke.cont.i.i
-  call void @_ZdlPv(ptr noundef nonnull %26) #30
+  call void @_ZdlPv(ptr noundef nonnull %26) #31
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i418, %invoke.cont.i.i
@@ -3661,7 +3661,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %cmp.i.i.i2.i, label %_ZN12SkyboxParamsD2Ev.exit, label %if.then.i.i3.i
 
 if.then.i.i3.i:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef %27) #30
+  call void @_ZdlPv(ptr noundef %27) #31
   br label %_ZN12SkyboxParamsD2Ev.exit
 
 _ZN12SkyboxParamsD2Ev.exit:                       ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, %if.then.i.i3.i
@@ -3731,7 +3731,7 @@ invoke.cont76:                                    ; preds = %.noexc428
   br i1 %cmp.i.i.i.i431, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i433, label %if.then.i.i.i432
 
 if.then.i.i.i432:                                 ; preds = %invoke.cont76
-  call void @_ZdlPv(ptr noundef %36) #30
+  call void @_ZdlPv(ptr noundef %36) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i433
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i433: ; preds = %invoke.cont76, %if.then.i.i.i432
@@ -3740,7 +3740,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i433: ; preds = %
   br i1 %cmp.i.i.i2.i435, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i, label %if.then.i.i3.i436
 
 if.then.i.i3.i436:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i433
-  call void @_ZdlPv(ptr noundef %37) #30
+  call void @_ZdlPv(ptr noundef %37) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i433, %if.then.i.i3.i436
@@ -3749,7 +3749,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i: ; preds = %_Z
   br i1 %cmp.i.i.i8.i, label %_ZN9SunParamsD2Ev.exit, label %if.then.i.i9.i
 
 if.then.i.i9.i:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i
-  call void @_ZdlPv(ptr noundef %38) #30
+  call void @_ZdlPv(ptr noundef %38) #31
   br label %_ZN9SunParamsD2Ev.exit
 
 _ZN9SunParamsD2Ev.exit:                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i, %if.then.i.i9.i
@@ -3802,7 +3802,7 @@ invoke.cont85:                                    ; preds = %.noexc455
   br i1 %cmp.i.i.i.i458, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i460, label %if.then.i.i.i459
 
 if.then.i.i.i459:                                 ; preds = %invoke.cont85
-  call void @_ZdlPv(ptr noundef %45) #30
+  call void @_ZdlPv(ptr noundef %45) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i460
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i460: ; preds = %invoke.cont85, %if.then.i.i.i459
@@ -3811,7 +3811,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i460: ; preds = %
   br i1 %cmp.i.i.i2.i462, label %invoke.cont96, label %if.then.i.i3.i463
 
 if.then.i.i3.i463:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i460
-  call void @_ZdlPv(ptr noundef %46) #30
+  call void @_ZdlPv(ptr noundef %46) #31
   br label %invoke.cont96
 
 invoke.cont96:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i460, %if.then.i.i3.i463
@@ -3917,7 +3917,7 @@ invoke.cont99:                                    ; preds = %invoke.cont96
   br i1 %tobool.not.i.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %invoke.cont99
-  call void @_ZdlPv(ptr noundef nonnull %47) #30
+  call void @_ZdlPv(ptr noundef nonnull %47) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.i:         ; preds = %delete.notnull.i.i, %invoke.cont99
@@ -3926,7 +3926,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.i:         ; preds = %delete.notnull.i.i,
   br i1 %tobool.not.i.1.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i, label %delete.notnull.i.1.i
 
 delete.notnull.i.1.i:                             ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %48) #30
+  call void @_ZdlPv(ptr noundef nonnull %48) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i:       ; preds = %delete.notnull.i.1.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.i
@@ -3935,7 +3935,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i:       ; preds = %delete.notnull.i.1.
   br i1 %tobool.not.i.2.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i, label %delete.notnull.i.2.i
 
 delete.notnull.i.2.i:                             ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i
-  call void @_ZdlPv(ptr noundef nonnull %49) #30
+  call void @_ZdlPv(ptr noundef nonnull %49) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i:       ; preds = %delete.notnull.i.2.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i
@@ -3944,7 +3944,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i:       ; preds = %delete.notnull.i.2.
   br i1 %tobool.not.i.3.i, label %_ZN3irr5video9SMaterialD2Ev.exit, label %delete.notnull.i.3.i
 
 delete.notnull.i.3.i:                             ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i
-  call void @_ZdlPv(ptr noundef nonnull %50) #30
+  call void @_ZdlPv(ptr noundef nonnull %50) #31
   br label %_ZN3irr5video9SMaterialD2Ev.exit
 
 _ZN3irr5video9SMaterialD2Ev.exit:                 ; preds = %delete.notnull.i.3.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i
@@ -3984,7 +3984,7 @@ invoke.cont115:                                   ; preds = %invoke.cont111
   br i1 %cmp.i.i.i.i489, label %_ZN10ShaderInfoD2Ev.exit, label %if.then.i.i.i490
 
 if.then.i.i.i490:                                 ; preds = %invoke.cont115
-  call void @_ZdlPv(ptr noundef %55) #30
+  call void @_ZdlPv(ptr noundef %55) #31
   br label %_ZN10ShaderInfoD2Ev.exit
 
 _ZN10ShaderInfoD2Ev.exit:                         ; preds = %invoke.cont115, %if.then.i.i.i490
@@ -3993,7 +3993,7 @@ _ZN10ShaderInfoD2Ev.exit:                         ; preds = %invoke.cont115, %if
   br i1 %cmp.i.i.i495, label %invoke.cont132, label %if.then.i.i496
 
 if.then.i.i496:                                   ; preds = %_ZN10ShaderInfoD2Ev.exit
-  call void @_ZdlPv(ptr noundef %57) #30
+  call void @_ZdlPv(ptr noundef %57) #31
   br label %invoke.cont132
 
 invoke.cont132:                                   ; preds = %_ZN10ShaderInfoD2Ev.exit, %if.then.i.i496
@@ -4102,7 +4102,7 @@ invoke.cont136:                                   ; preds = %invoke.cont132
   br i1 %tobool.not.i.i557, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i559, label %delete.notnull.i.i558
 
 delete.notnull.i.i558:                            ; preds = %invoke.cont136
-  call void @_ZdlPv(ptr noundef nonnull %58) #30
+  call void @_ZdlPv(ptr noundef nonnull %58) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i559
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.i559:      ; preds = %delete.notnull.i.i558, %invoke.cont136
@@ -4111,7 +4111,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.i559:      ; preds = %delete.notnull.i.i5
   br i1 %tobool.not.i.1.i561, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i563, label %delete.notnull.i.1.i562
 
 delete.notnull.i.1.i562:                          ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.i559
-  call void @_ZdlPv(ptr noundef nonnull %59) #30
+  call void @_ZdlPv(ptr noundef nonnull %59) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i563
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i563:    ; preds = %delete.notnull.i.1.i562, %_ZN3irr5video14SMaterialLayerD2Ev.exit.i559
@@ -4120,7 +4120,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i563:    ; preds = %delete.notnull.i.1.
   br i1 %tobool.not.i.2.i565, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i567, label %delete.notnull.i.2.i566
 
 delete.notnull.i.2.i566:                          ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i563
-  call void @_ZdlPv(ptr noundef nonnull %60) #30
+  call void @_ZdlPv(ptr noundef nonnull %60) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i567
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i567:    ; preds = %delete.notnull.i.2.i566, %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i563
@@ -4129,7 +4129,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i567:    ; preds = %delete.notnull.i.2.
   br i1 %tobool.not.i.3.i569, label %invoke.cont145, label %delete.notnull.i.3.i570
 
 delete.notnull.i.3.i570:                          ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i567
-  call void @_ZdlPv(ptr noundef nonnull %61) #30
+  call void @_ZdlPv(ptr noundef nonnull %61) #31
   br label %invoke.cont145
 
 invoke.cont145:                                   ; preds = %delete.notnull.i.3.i570, %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i567
@@ -4231,7 +4231,7 @@ invoke.cont149:                                   ; preds = %invoke.cont145
   br i1 %tobool.not.i.i627, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i629, label %delete.notnull.i.i628
 
 delete.notnull.i.i628:                            ; preds = %invoke.cont149
-  call void @_ZdlPv(ptr noundef nonnull %62) #30
+  call void @_ZdlPv(ptr noundef nonnull %62) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i629
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.i629:      ; preds = %delete.notnull.i.i628, %invoke.cont149
@@ -4240,7 +4240,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.i629:      ; preds = %delete.notnull.i.i6
   br i1 %tobool.not.i.1.i631, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i633, label %delete.notnull.i.1.i632
 
 delete.notnull.i.1.i632:                          ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.i629
-  call void @_ZdlPv(ptr noundef nonnull %63) #30
+  call void @_ZdlPv(ptr noundef nonnull %63) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i633
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i633:    ; preds = %delete.notnull.i.1.i632, %_ZN3irr5video14SMaterialLayerD2Ev.exit.i629
@@ -4249,7 +4249,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i633:    ; preds = %delete.notnull.i.1.
   br i1 %tobool.not.i.2.i635, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i637, label %delete.notnull.i.2.i636
 
 delete.notnull.i.2.i636:                          ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i633
-  call void @_ZdlPv(ptr noundef nonnull %64) #30
+  call void @_ZdlPv(ptr noundef nonnull %64) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i637
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i637:    ; preds = %delete.notnull.i.2.i636, %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i633
@@ -4258,7 +4258,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i637:    ; preds = %delete.notnull.i.2.
   br i1 %tobool.not.i.3.i639, label %_ZN3irr5video9SMaterialD2Ev.exit641, label %delete.notnull.i.3.i640
 
 delete.notnull.i.3.i640:                          ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i637
-  call void @_ZdlPv(ptr noundef nonnull %65) #30
+  call void @_ZdlPv(ptr noundef nonnull %65) #31
   br label %_ZN3irr5video9SMaterialD2Ev.exit641
 
 _ZN3irr5video9SMaterialD2Ev.exit641:              ; preds = %delete.notnull.i.3.i640, %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i637
@@ -4284,7 +4284,7 @@ invoke.cont162:                                   ; preds = %_ZN3irr5video9SMate
   br i1 %cmp.i.i.i654, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit660, label %if.then.i.i655
 
 if.then.i.i655:                                   ; preds = %invoke.cont162
-  call void @_ZdlPv(ptr noundef %68) #30
+  call void @_ZdlPv(ptr noundef %68) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit660
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit660: ; preds = %invoke.cont162, %if.then.i.i655
@@ -4372,7 +4372,7 @@ lpad54:                                           ; preds = %invoke.cont39
   br i1 %cmp.i.i.i673, label %ehcleanup59, label %if.then.i.i674
 
 if.then.i.i674:                                   ; preds = %lpad54
-  call void @_ZdlPv(ptr noundef %75) #30
+  call void @_ZdlPv(ptr noundef %75) #31
   br label %ehcleanup59
 
 ehcleanup59:                                      ; preds = %lpad54, %if.then.i.i674
@@ -4386,7 +4386,7 @@ lpad66:                                           ; preds = %call5.i.noexc, %.no
 
 ehcleanup70:                                      ; preds = %lpad66, %lpad1.i
   %.pn342 = phi { ptr, i32 } [ %76, %lpad66 ], [ %19, %lpad1.i ]
-  call void @_ZN12SkyboxParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp62) #31
+  call void @_ZN12SkyboxParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp62) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp62)
   br label %ehcleanup319
 
@@ -4397,7 +4397,7 @@ lpad75:                                           ; preds = %.noexc428, %.noexc4
 
 ehcleanup79:                                      ; preds = %lpad75, %lpad.i
   %.pn344 = phi { ptr, i32 } [ %77, %lpad75 ], [ %33, %lpad.i ]
-  call void @_ZN9SunParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp71) #31
+  call void @_ZN9SunParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp71) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp71)
   br label %ehcleanup319
 
@@ -4408,14 +4408,14 @@ lpad84:                                           ; preds = %.noexc455, %invoke.
 
 ehcleanup88:                                      ; preds = %lpad84, %lpad.i445
   %.pn346 = phi { ptr, i32 } [ %78, %lpad84 ], [ %42, %lpad.i445 ]
-  call void @_ZN10MoonParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %ref.tmp80) #31
+  call void @_ZN10MoonParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %ref.tmp80) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp80)
   br label %ehcleanup319
 
 lpad98:                                           ; preds = %invoke.cont96
   %79 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp94) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp94) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp94)
   br label %ehcleanup319
 
@@ -4427,7 +4427,7 @@ lpad110:                                          ; preds = %invoke.cont111, %_Z
   br i1 %cmp.i.i.i680, label %ehcleanup119, label %if.then.i.i681
 
 if.then.i.i681:                                   ; preds = %lpad110
-  call void @_ZdlPv(ptr noundef %81) #30
+  call void @_ZdlPv(ptr noundef %81) #31
   br label %ehcleanup119
 
 ehcleanup119:                                     ; preds = %lpad110, %if.then.i.i681
@@ -4438,14 +4438,14 @@ ehcleanup119:                                     ; preds = %lpad110, %if.then.i
 lpad135:                                          ; preds = %invoke.cont132
   %82 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp130) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp130) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp130)
   br label %ehcleanup319
 
 lpad148:                                          ; preds = %invoke.cont145
   %83 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp143) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp143) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp143)
   br label %ehcleanup319
 
@@ -4457,7 +4457,7 @@ lpad161:                                          ; preds = %_ZN3irr5video9SMate
   br i1 %cmp.i.i.i687, label %ehcleanup166, label %if.then.i.i688
 
 if.then.i.i688:                                   ; preds = %lpad161
-  call void @_ZdlPv(ptr noundef %85) #30
+  call void @_ZdlPv(ptr noundef %85) #31
   br label %ehcleanup166
 
 ehcleanup166:                                     ; preds = %lpad161, %if.then.i.i688
@@ -4527,7 +4527,7 @@ invoke.cont186:                                   ; preds = %invoke.cont182
   br i1 %tobool.not.i.i749, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i751, label %delete.notnull.i.i750
 
 delete.notnull.i.i750:                            ; preds = %invoke.cont186
-  call void @_ZdlPv(ptr noundef nonnull %86) #30
+  call void @_ZdlPv(ptr noundef nonnull %86) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i751
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.i751:      ; preds = %delete.notnull.i.i750, %invoke.cont186
@@ -4536,7 +4536,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.i751:      ; preds = %delete.notnull.i.i7
   br i1 %tobool.not.i.1.i753, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i755, label %delete.notnull.i.1.i754
 
 delete.notnull.i.1.i754:                          ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.i751
-  call void @_ZdlPv(ptr noundef nonnull %87) #30
+  call void @_ZdlPv(ptr noundef nonnull %87) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i755
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i755:    ; preds = %delete.notnull.i.1.i754, %_ZN3irr5video14SMaterialLayerD2Ev.exit.i751
@@ -4545,7 +4545,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i755:    ; preds = %delete.notnull.i.1.
   br i1 %tobool.not.i.2.i757, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i759, label %delete.notnull.i.2.i758
 
 delete.notnull.i.2.i758:                          ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i755
-  call void @_ZdlPv(ptr noundef nonnull %88) #30
+  call void @_ZdlPv(ptr noundef nonnull %88) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i759
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i759:    ; preds = %delete.notnull.i.2.i758, %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i755
@@ -4554,7 +4554,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i759:    ; preds = %delete.notnull.i.2.
   br i1 %tobool.not.i.3.i761, label %_ZN3irr5video9SMaterialD2Ev.exit763, label %delete.notnull.i.3.i762
 
 delete.notnull.i.3.i762:                          ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i759
-  call void @_ZdlPv(ptr noundef nonnull %89) #30
+  call void @_ZdlPv(ptr noundef nonnull %89) #31
   br label %_ZN3irr5video9SMaterialD2Ev.exit763
 
 _ZN3irr5video9SMaterialD2Ev.exit763:              ; preds = %delete.notnull.i.3.i762, %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i759
@@ -4572,7 +4572,7 @@ _ZN3irr5video9SMaterialD2Ev.exit763:              ; preds = %delete.notnull.i.3.
 lpad185:                                          ; preds = %invoke.cont182
   %90 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp180) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp180) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp180)
   br label %ehcleanup319
 
@@ -4585,7 +4585,7 @@ invoke.cont207:                                   ; preds = %call2.i10.i.noexc67
   br i1 %cmp.i.i.i764, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit770, label %if.then.i.i765
 
 if.then.i.i765:                                   ; preds = %invoke.cont207
-  call void @_ZdlPv(ptr noundef %91) #30
+  call void @_ZdlPv(ptr noundef %91) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit770
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit770: ; preds = %invoke.cont207, %if.then.i.i765
@@ -4620,7 +4620,7 @@ invoke.cont219:                                   ; preds = %call2.i10.i.noexc78
   br i1 %cmp.i.i.i783, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit789, label %if.then.i.i784
 
 if.then.i.i784:                                   ; preds = %invoke.cont219
-  call void @_ZdlPv(ptr noundef %96) #30
+  call void @_ZdlPv(ptr noundef %96) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit789
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit789: ; preds = %invoke.cont219, %if.then.i.i784
@@ -4682,7 +4682,7 @@ cond.end258:                                      ; preds = %cond.false246
   br i1 %cmp.i.i.i826, label %cleanup.done281.thread, label %if.then.i.i827
 
 if.then.i.i827:                                   ; preds = %cond.end258
-  call void @_ZdlPv(ptr noundef %103) #30
+  call void @_ZdlPv(ptr noundef %103) #31
   br label %cleanup.done281.thread
 
 cleanup.done281.thread:                           ; preds = %cond.end258, %if.then.i.i827
@@ -4699,7 +4699,7 @@ cleanup.action287:                                ; preds = %cleanup.done281.thr
   br i1 %cmp.i.i.i833, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit839, label %if.then.i.i834
 
 if.then.i.i834:                                   ; preds = %cleanup.action287
-  call void @_ZdlPv(ptr noundef %104) #30
+  call void @_ZdlPv(ptr noundef %104) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit839
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit839: ; preds = %cleanup.action287, %if.then.i.i834
@@ -4712,7 +4712,7 @@ cleanup.done309:                                  ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.i.i840, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit846, label %if.then.i.i841
 
 if.then.i.i841:                                   ; preds = %cleanup.done309
-  call void @_ZdlPv(ptr noundef %105) #30
+  call void @_ZdlPv(ptr noundef %105) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit846
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit846: ; preds = %cleanup.done309, %if.then.i.i841
@@ -4745,7 +4745,7 @@ lpad206:                                          ; preds = %call2.i10.i.noexc67
   br i1 %cmp.i.i.i849, label %ehcleanup211, label %if.then.i.i850
 
 if.then.i.i850:                                   ; preds = %lpad206
-  call void @_ZdlPv(ptr noundef %110) #30
+  call void @_ZdlPv(ptr noundef %110) #31
   br label %ehcleanup211
 
 ehcleanup211:                                     ; preds = %lpad206, %if.then.i.i850, %lpad204
@@ -4766,7 +4766,7 @@ lpad218:                                          ; preds = %call2.i10.i.noexc78
   br i1 %cmp.i.i.i856, label %ehcleanup223, label %if.then.i.i857
 
 if.then.i.i857:                                   ; preds = %lpad218
-  call void @_ZdlPv(ptr noundef %113) #30
+  call void @_ZdlPv(ptr noundef %113) #31
   br label %ehcleanup223
 
 ehcleanup223:                                     ; preds = %lpad218, %if.then.i.i857, %lpad216
@@ -4792,7 +4792,7 @@ lpad255:                                          ; preds = %cond.false246
   br i1 %cmp.i.i.i863, label %cleanup.action270, label %if.then.i.i864
 
 if.then.i.i864:                                   ; preds = %lpad255
-  call void @_ZdlPv(ptr noundef %117) #30
+  call void @_ZdlPv(ptr noundef %117) #31
   br label %cleanup.action270
 
 cleanup.action270:                                ; preds = %lpad255, %if.then.i.i864
@@ -4806,7 +4806,7 @@ cleanup.action291:                                ; preds = %cleanup.action270, 
   br i1 %cmp.i.i.i870, label %cleanup.action298, label %if.then.i.i871
 
 if.then.i.i871:                                   ; preds = %cleanup.action291
-  call void @_ZdlPv(ptr noundef %118) #30
+  call void @_ZdlPv(ptr noundef %118) #31
   br label %cleanup.action298
 
 cleanup.action298:                                ; preds = %cleanup.action291, %if.then.i.i871
@@ -4820,7 +4820,7 @@ ehcleanup314:                                     ; preds = %cleanup.action298, 
   br i1 %cmp.i.i.i877, label %ehcleanup315, label %if.then.i.i878
 
 if.then.i.i878:                                   ; preds = %ehcleanup314
-  call void @_ZdlPv(ptr noundef %119) #30
+  call void @_ZdlPv(ptr noundef %119) #31
   br label %ehcleanup315
 
 ehcleanup315:                                     ; preds = %ehcleanup314, %if.then.i.i878
@@ -4849,38 +4849,38 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i885
   %vtable.i.i.i = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !19
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %122 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %122(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr.i.i) #31
+  call void %122(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr.i.i) #32
   br label %_ZN7irr_ptrIN3irr5scene11CMeshBufferINS0_5video9S3DVertexEEEvED2Ev.exit
 
 _ZN7irr_ptrIN3irr5scene11CMeshBufferINS0_5video9S3DVertexEEEvED2Ev.exit: ; preds = %delete.notnull.i.i.i, %if.then.i.i885, %ehcleanup319
   store ptr null, ptr %m_stars, align 8, !tbaa !137
-  call void @_ZN10MoonParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %m_moon_params) #31
-  call void @_ZN9SunParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_sun_params) #31
-  call void @_ZN12SkyboxParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %m_sky_params) #31
+  call void @_ZN10MoonParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %m_moon_params) #32
+  call void @_ZN9SunParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_sun_params) #32
+  call void @_ZN12SkyboxParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %m_sky_params) #32
   %arraydestroy.element327.ptr = getelementptr inbounds nuw i8, ptr %this, i64 2272
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element327.ptr) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element327.ptr) #32
   %arraydestroy.element327.ptr.1 = getelementptr inbounds nuw i8, ptr %this, i64 2088
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element327.ptr.1) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element327.ptr.1) #32
   %arraydestroy.element327.ptr.2 = getelementptr inbounds nuw i8, ptr %this, i64 1904
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element327.ptr.2) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element327.ptr.2) #32
   %arraydestroy.element327.ptr.3 = getelementptr inbounds nuw i8, ptr %this, i64 1720
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element327.ptr.3) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element327.ptr.3) #32
   %arraydestroy.element327.ptr.4 = getelementptr inbounds nuw i8, ptr %this, i64 1536
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element327.ptr.4) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element327.ptr.4) #32
   %arraydestroy.element327.ptr.5 = getelementptr inbounds nuw i8, ptr %this, i64 1352
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element327.ptr.5) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element327.ptr.5) #32
   %arraydestroy.element327.ptr.6 = getelementptr inbounds nuw i8, ptr %this, i64 1168
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element327.ptr.6) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element327.ptr.6) #32
   %arraydestroy.element327.ptr.7 = getelementptr inbounds nuw i8, ptr %this, i64 984
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element327.ptr.7) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element327.ptr.7) #32
   %arraydestroy.element327.ptr.8 = getelementptr inbounds nuw i8, ptr %this, i64 800
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element327.ptr.8) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element327.ptr.8) #32
   %arraydestroy.element327.ptr.9 = getelementptr inbounds nuw i8, ptr %this, i64 616
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element327.ptr.9) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element327.ptr.9) #32
   %arraydestroy.element327.ptr.10 = getelementptr inbounds nuw i8, ptr %this, i64 432
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element327.ptr.10) #31
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %m_materials.ptr) #31
-  call void @_ZN3irr5scene10ISceneNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(222) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT3Sky, i64 8)) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %arraydestroy.element327.ptr.10) #32
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %m_materials.ptr) #32
+  call void @_ZN3irr5scene10ISceneNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(222) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT3Sky, i64 8)) #32
   resume { ptr, i32 } %.pn368.pn
 }
 
@@ -5002,7 +5002,7 @@ invoke.cont9:                                     ; preds = %if.end
   br i1 %cmp.i.i.i, label %invoke.cont13, label %if.then.i.i836
 
 if.then.i.i836:                                   ; preds = %invoke.cont9
-  call void @_ZdlPv(ptr noundef %6) #30
+  call void @_ZdlPv(ptr noundef %6) #31
   br label %invoke.cont13
 
 invoke.cont13:                                    ; preds = %invoke.cont9, %if.then.i.i836
@@ -5189,7 +5189,7 @@ lpad8:                                            ; preds = %if.end
   br i1 %cmp.i.i.i931, label %ehcleanup, label %if.then.i.i932
 
 if.then.i.i932:                                   ; preds = %lpad8
-  call void @_ZdlPv(ptr noundef %49) #30
+  call void @_ZdlPv(ptr noundef %49) #31
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad8, %if.then.i.i932
@@ -5997,7 +5997,7 @@ cleanup706.sink.split:                            ; preds = %invoke.cont177, %if
   br label %cleanup706
 
 cleanup706:                                       ; preds = %cleanup706.sink.split, %invoke.cont45
-  call void @_ZN13ScopeProfilerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %sp) #31
+  call void @_ZN13ScopeProfilerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %sp) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %sp)
   br label %cleanup716
 
@@ -6006,7 +6006,7 @@ cleanup716:                                       ; preds = %cleanup706, %entry
 
 ehcleanup711:                                     ; preds = %ehcleanup688, %lpad41, %lpad25, %lpad17
   %.pn822.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %50, %lpad17 ], [ %51, %lpad25 ], [ %.pn822.pn.pn.pn.pn, %ehcleanup688 ], [ %52, %lpad41 ]
-  call void @_ZN13ScopeProfilerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %sp) #31
+  call void @_ZN13ScopeProfilerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %sp) #32
   br label %ehcleanup715
 
 ehcleanup715:                                     ; preds = %ehcleanup711, %ehcleanup
@@ -6017,7 +6017,7 @@ ehcleanup715:                                     ; preds = %ehcleanup711, %ehcl
 
 declare void @_ZN13ScopeProfilerC1EP8ProfilerRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE17ScopeProfilerType(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -6054,10 +6054,10 @@ if.end12:                                         ; preds = %if.else7, %if.then5
   ret float %wicked_time_of_day.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sin.f64(double) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #10
 
 ; Function Attrs: mustprogress uwtable
@@ -6238,7 +6238,7 @@ cleanup:                                          ; preds = %if.end, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #10
 
 ; Function Attrs: mustprogress uwtable
@@ -8456,7 +8456,7 @@ invoke.cont10:                                    ; preds = %cond.end
   br i1 %cmp.i.i.i, label %cleanup.done18, label %if.then.i.i44
 
 if.then.i.i44:                                    ; preds = %invoke.cont10
-  call void @_ZdlPv(ptr noundef %14) #30
+  call void @_ZdlPv(ptr noundef %14) #31
   br label %cleanup.done18
 
 cleanup.done18:                                   ; preds = %invoke.cont10, %if.then.i.i44
@@ -8474,7 +8474,7 @@ lpad9:                                            ; preds = %cond.end
   br i1 %cmp.i.i.i45, label %cleanup.done22, label %if.then.i.i46
 
 if.then.i.i46:                                    ; preds = %lpad9
-  call void @_ZdlPv(ptr noundef %16) #30
+  call void @_ZdlPv(ptr noundef %16) #31
   br label %cleanup.done22
 
 cleanup.done22:                                   ; preds = %lpad9, %if.then.i.i46
@@ -8488,7 +8488,7 @@ invoke.cont:
   %rgen = alloca %class.PcgRandom, align 8
   %r = alloca %"class.irr::core::vector3d", align 8
   %m_stars = getelementptr inbounds nuw i8, ptr %this, i64 2976
-  %call = tail call noalias noundef nonnull dereferenceable(336) ptr @_Znwm(i64 noundef 336) #32
+  %call = tail call noalias noundef nonnull dereferenceable(336) ptr @_Znwm(i64 noundef 336) #33
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 312
   %DebugName.i.i = getelementptr inbounds nuw i8, ptr %call, i64 320
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !164
@@ -8596,7 +8596,7 @@ delete.notnull.i.i:                               ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %add.ptr.i, align 8, !tbaa !19
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr.i) #31
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr.i) #32
   br label %_ZN7irr_ptrIN3irr5scene11CMeshBufferINS0_5video9S3DVertexEEEvE5resetEPS5_.exit
 
 _ZN7irr_ptrIN3irr5scene11CMeshBufferINS0_5video9S3DVertexEEEvE5resetEPS5_.exit: ; preds = %delete.notnull.i.i, %if.then.i, %invoke.cont
@@ -8714,7 +8714,7 @@ _ZNSt12_Vector_baseIN3irr5video9S3DVertexESaIS2_EE11_M_allocateEm.exit.i.i: ; pr
   %sub.ptr.lhs.cast.i30.i.i = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i32.i.i = sub i64 %sub.ptr.lhs.cast.i30.i.i, %sub.ptr.rhs.cast.i.i
   %mul.i.i.i.i.i = mul nuw nsw i64 %conv.i, 36
-  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #32
+  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #33
   %cmp.not6.i.i.i.i.i = icmp eq ptr %14, %16
   br i1 %cmp.not6.i.i.i.i.i, label %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i, label %for.body.i.i.i.i.i
 
@@ -8732,7 +8732,7 @@ _ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i
   br i1 %tobool.not.i.i15.i, label %_ZNSt12_Vector_baseIN3irr5video9S3DVertexESaIS2_EE13_M_deallocateEPS2_m.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %14) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #31
   br label %_ZNSt12_Vector_baseIN3irr5video9S3DVertexESaIS2_EE13_M_deallocateEPS2_m.exit.i.i
 
 _ZNSt12_Vector_baseIN3irr5video9S3DVertexESaIS2_EE13_M_deallocateEPS2_m.exit.i.i: ; preds = %if.then.i.i.i, %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i
@@ -8796,7 +8796,7 @@ _ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i: ; preds = %if.else.i171
   %sub.ptr.lhs.cast.i30.i.i174 = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i32.i.i175 = sub i64 %sub.ptr.lhs.cast.i30.i.i174, %sub.ptr.rhs.cast.i.i166
   %mul.i.i.i.i.i176 = shl nuw nsw i64 %conv.i169, 1
-  %call5.i.i.i.i.i177 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i176) #32
+  %call5.i.i.i.i.i177 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i176) #33
   %cmp.i.i.i34.i.i = icmp sgt i64 %sub.ptr.sub.i32.i.i175, 0
   br i1 %cmp.i.i.i34.i.i, label %if.then.i.i.i35.i.i, label %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit.i.i
 
@@ -8809,7 +8809,7 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit.i.i: ; preds = %if.then.i.i.
   br i1 %tobool.not.i.i15.i178, label %_ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit.i.i, label %if.then.i.i.i179
 
 if.then.i.i.i179:                                 ; preds = %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %20) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %20) #31
   br label %_ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit.i.i
 
 _ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit.i.i: ; preds = %if.then.i.i.i179, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit.i.i
@@ -8997,7 +8997,7 @@ if.else.i.i.i:                                    ; preds = %_ZN3irr4core8CMatri
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.else.i.i.i
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #34
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #35
   unreachable
 
 _ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %if.else.i.i.i
@@ -9010,7 +9010,7 @@ _ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; 
   %cmp.not.i.i.i.i.i252 = icmp ne i64 %cond.i.i.i.i.i, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i.i.i252)
   %mul.i.i.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i.i.i, 36
-  %call5.i.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #32
+  %call5.i.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #33
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   store <2 x float> %70, ptr %add.ptr.i.i.i.i, align 4, !tbaa !21
   %ref.tmp42.sroa.0.sroa.6.0.add.ptr.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 8
@@ -9044,7 +9044,7 @@ _ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, label %if.then.i41.i.i.i.i
 
 if.then.i41.i.i.i.i:                              ; preds = %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %84) #30
+  call void @_ZdlPv(ptr noundef nonnull %84) #31
   %.pre648.pre = load ptr, ptr %m_stars, align 8, !tbaa !137
   br label %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i
 
@@ -9099,7 +9099,7 @@ if.else.i.i.i265:                                 ; preds = %_ZN3irr4core5arrayI
   br i1 %cmp.i.i.i.i.i269, label %if.then.i.i.i.i.i297, label %_ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i270
 
 if.then.i.i.i.i.i297:                             ; preds = %if.else.i.i.i265
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #34
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #35
   unreachable
 
 _ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i270: ; preds = %if.else.i.i.i265
@@ -9112,7 +9112,7 @@ _ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i270:
   %cmp.not.i.i.i.i.i276 = icmp ne i64 %cond.i.i.i.i.i275, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i.i.i276)
   %mul.i.i.i.i.i.i.i278 = mul nuw nsw i64 %cond.i.i.i.i.i275, 36
-  %call5.i.i.i.i.i.i.i279 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i278) #32
+  %call5.i.i.i.i.i.i.i279 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i278) #33
   %add.ptr.i.i.i.i282 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i279, i64 %sub.ptr.sub.i.i.i.i.i.i268
   store <2 x float> %74, ptr %add.ptr.i.i.i.i282, align 4, !tbaa !21
   %ref.tmp48.sroa.0.sroa.6.0.add.ptr.i.i.i.i282.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i282, i64 8
@@ -9146,7 +9146,7 @@ _ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i
   br i1 %tobool.not.i.i.i.i.i293, label %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i295, label %if.then.i41.i.i.i.i294
 
 if.then.i41.i.i.i.i294:                           ; preds = %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i290
-  call void @_ZdlPv(ptr noundef nonnull %89) #30
+  call void @_ZdlPv(ptr noundef nonnull %89) #31
   %.pre651.pre = load ptr, ptr %m_stars, align 8, !tbaa !137
   br label %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i295
 
@@ -9201,7 +9201,7 @@ if.else.i.i.i311:                                 ; preds = %_ZN3irr4core5arrayI
   br i1 %cmp.i.i.i.i.i315, label %if.then.i.i.i.i.i343, label %_ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i316
 
 if.then.i.i.i.i.i343:                             ; preds = %if.else.i.i.i311
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #34
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #35
   unreachable
 
 _ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i316: ; preds = %if.else.i.i.i311
@@ -9214,7 +9214,7 @@ _ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i316:
   %cmp.not.i.i.i.i.i322 = icmp ne i64 %cond.i.i.i.i.i321, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i.i.i322)
   %mul.i.i.i.i.i.i.i324 = mul nuw nsw i64 %cond.i.i.i.i.i321, 36
-  %call5.i.i.i.i.i.i.i325 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i324) #32
+  %call5.i.i.i.i.i.i.i325 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i324) #33
   %add.ptr.i.i.i.i328 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i325, i64 %sub.ptr.sub.i.i.i.i.i.i314
   store <2 x float> %77, ptr %add.ptr.i.i.i.i328, align 4, !tbaa !21
   %ref.tmp56.sroa.0.sroa.6.0.add.ptr.i.i.i.i328.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i328, i64 8
@@ -9248,7 +9248,7 @@ _ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i
   br i1 %tobool.not.i.i.i.i.i339, label %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i341, label %if.then.i41.i.i.i.i340
 
 if.then.i41.i.i.i.i340:                           ; preds = %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i336
-  call void @_ZdlPv(ptr noundef nonnull %94) #30
+  call void @_ZdlPv(ptr noundef nonnull %94) #31
   %.pre654.pre = load ptr, ptr %m_stars, align 8, !tbaa !137
   br label %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i341
 
@@ -9303,7 +9303,7 @@ if.else.i.i.i357:                                 ; preds = %_ZN3irr4core5arrayI
   br i1 %cmp.i.i.i.i.i361, label %if.then.i.i.i.i.i389, label %_ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i362
 
 if.then.i.i.i.i.i389:                             ; preds = %if.else.i.i.i357
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #34
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #35
   unreachable
 
 _ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i362: ; preds = %if.else.i.i.i357
@@ -9316,7 +9316,7 @@ _ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i362:
   %cmp.not.i.i.i.i.i368 = icmp ne i64 %cond.i.i.i.i.i367, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i.i.i368)
   %mul.i.i.i.i.i.i.i370 = mul nuw nsw i64 %cond.i.i.i.i.i367, 36
-  %call5.i.i.i.i.i.i.i371 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i370) #32
+  %call5.i.i.i.i.i.i.i371 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i370) #33
   %add.ptr.i.i.i.i374 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i371, i64 %sub.ptr.sub.i.i.i.i.i.i360
   store <2 x float> %79, ptr %add.ptr.i.i.i.i374, align 4, !tbaa !21
   %ref.tmp64.sroa.0.sroa.6.0.add.ptr.i.i.i.i374.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i374, i64 8
@@ -9350,7 +9350,7 @@ _ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i
   br i1 %tobool.not.i.i.i.i.i385, label %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i387, label %if.then.i41.i.i.i.i386
 
 if.then.i41.i.i.i.i386:                           ; preds = %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i382
-  call void @_ZdlPv(ptr noundef nonnull %99) #30
+  call void @_ZdlPv(ptr noundef nonnull %99) #31
   br label %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i387
 
 _ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i387: ; preds = %if.then.i41.i.i.i.i386, %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i382
@@ -9406,7 +9406,7 @@ if.else.i.i.i397:                                 ; preds = %for.body76
   br i1 %cmp.i.i.i.i.i401, label %if.then.i.i.i.i.i416, label %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.i
 
 if.then.i.i.i.i.i416:                             ; preds = %if.else.i.i.i397
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #34
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #35
   unreachable
 
 _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %if.else.i.i.i397
@@ -9419,7 +9419,7 @@ _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %if.else.i.i.i3
   %cmp.not.i.i.i.i.i407 = icmp ne i64 %cond.i.i.i.i.i406, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i.i.i407)
   %mul.i.i.i.i.i.i.i409 = shl nuw nsw i64 %cond.i.i.i.i.i406, 1
-  %call5.i.i.i.i.i.i.i410 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i409) #32
+  %call5.i.i.i.i.i.i.i410 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i409) #33
   %add.ptr.i.i.i.i412 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i410, i64 %sub.ptr.sub.i.i.i.i.i.i400
   store i16 %mul82, ptr %add.ptr.i.i.i.i412, align 2, !tbaa !275
   %cmp.i.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i400, 0
@@ -9435,7 +9435,7 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i.i.i: ; preds = %if.the
   br i1 %tobool.not.i.i.i.i.i414, label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.i, label %if.then.i39.i.i.i.i
 
 if.then.i39.i.i.i.i:                              ; preds = %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %107) #30
+  call void @_ZdlPv(ptr noundef nonnull %107) #31
   %.pre657.pre = load ptr, ptr %m_stars, align 8, !tbaa !137
   br label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.i
 
@@ -9479,7 +9479,7 @@ if.else.i.i.i423:                                 ; preds = %_ZN3irr4core5arrayI
   br i1 %cmp.i.i.i.i.i427, label %if.then.i.i.i.i.i450, label %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.i428
 
 if.then.i.i.i.i.i450:                             ; preds = %if.else.i.i.i423
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #34
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #35
   unreachable
 
 _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.i428: ; preds = %if.else.i.i.i423
@@ -9492,7 +9492,7 @@ _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.i428: ; preds = %if.else.i.i
   %cmp.not.i.i.i.i.i434 = icmp ne i64 %cond.i.i.i.i.i433, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i.i.i434)
   %mul.i.i.i.i.i.i.i436 = shl nuw nsw i64 %cond.i.i.i.i.i433, 1
-  %call5.i.i.i.i.i.i.i437 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i436) #32
+  %call5.i.i.i.i.i.i.i437 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i436) #33
   %add.ptr.i.i.i.i440 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i437, i64 %sub.ptr.sub.i.i.i.i.i.i426
   store i16 %conv91, ptr %add.ptr.i.i.i.i440, align 2, !tbaa !275
   %cmp.i.i.i.i.i.i.i441 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i426, 0
@@ -9508,7 +9508,7 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i.i.i442: ; preds = %if.
   br i1 %tobool.not.i.i.i.i.i445, label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.i447, label %if.then.i39.i.i.i.i446
 
 if.then.i39.i.i.i.i446:                           ; preds = %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i.i.i442
-  call void @_ZdlPv(ptr noundef nonnull %112) #30
+  call void @_ZdlPv(ptr noundef nonnull %112) #31
   %.pre660.pre = load ptr, ptr %m_stars, align 8, !tbaa !137
   br label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.i447
 
@@ -9552,7 +9552,7 @@ if.else.i.i.i458:                                 ; preds = %_ZN3irr4core5arrayI
   br i1 %cmp.i.i.i.i.i462, label %if.then.i.i.i.i.i485, label %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.i463
 
 if.then.i.i.i.i.i485:                             ; preds = %if.else.i.i.i458
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #34
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #35
   unreachable
 
 _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.i463: ; preds = %if.else.i.i.i458
@@ -9565,7 +9565,7 @@ _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.i463: ; preds = %if.else.i.i
   %cmp.not.i.i.i.i.i469 = icmp ne i64 %cond.i.i.i.i.i468, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i.i.i469)
   %mul.i.i.i.i.i.i.i471 = shl nuw nsw i64 %cond.i.i.i.i.i468, 1
-  %call5.i.i.i.i.i.i.i472 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i471) #32
+  %call5.i.i.i.i.i.i.i472 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i471) #33
   %add.ptr.i.i.i.i475 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i472, i64 %sub.ptr.sub.i.i.i.i.i.i461
   store i16 %conv99, ptr %add.ptr.i.i.i.i475, align 2, !tbaa !275
   %cmp.i.i.i.i.i.i.i476 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i461, 0
@@ -9581,7 +9581,7 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i.i.i477: ; preds = %if.
   br i1 %tobool.not.i.i.i.i.i480, label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.i482, label %if.then.i39.i.i.i.i481
 
 if.then.i39.i.i.i.i481:                           ; preds = %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i.i.i477
-  call void @_ZdlPv(ptr noundef nonnull %117) #30
+  call void @_ZdlPv(ptr noundef nonnull %117) #31
   %.pre663.pre = load ptr, ptr %m_stars, align 8, !tbaa !137
   br label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.i482
 
@@ -9624,7 +9624,7 @@ if.else.i.i.i493:                                 ; preds = %_ZN3irr4core5arrayI
   br i1 %cmp.i.i.i.i.i497, label %if.then.i.i.i.i.i520, label %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.i498
 
 if.then.i.i.i.i.i520:                             ; preds = %if.else.i.i.i493
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #34
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #35
   unreachable
 
 _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.i498: ; preds = %if.else.i.i.i493
@@ -9637,7 +9637,7 @@ _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.i498: ; preds = %if.else.i.i
   %cmp.not.i.i.i.i.i504 = icmp ne i64 %cond.i.i.i.i.i503, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i.i.i504)
   %mul.i.i.i.i.i.i.i506 = shl nuw nsw i64 %cond.i.i.i.i.i503, 1
-  %call5.i.i.i.i.i.i.i507 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i506) #32
+  %call5.i.i.i.i.i.i.i507 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i506) #33
   %add.ptr.i.i.i.i510 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i507, i64 %sub.ptr.sub.i.i.i.i.i.i496
   store i16 %conv99, ptr %add.ptr.i.i.i.i510, align 2, !tbaa !275
   %cmp.i.i.i.i.i.i.i511 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i496, 0
@@ -9653,7 +9653,7 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i.i.i512: ; preds = %if.
   br i1 %tobool.not.i.i.i.i.i515, label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.i517, label %if.then.i39.i.i.i.i516
 
 if.then.i39.i.i.i.i516:                           ; preds = %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i.i.i512
-  call void @_ZdlPv(ptr noundef nonnull %122) #30
+  call void @_ZdlPv(ptr noundef nonnull %122) #31
   %.pre666.pre = load ptr, ptr %m_stars, align 8, !tbaa !137
   br label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.i517
 
@@ -9697,7 +9697,7 @@ if.else.i.i.i528:                                 ; preds = %_ZN3irr4core5arrayI
   br i1 %cmp.i.i.i.i.i532, label %if.then.i.i.i.i.i555, label %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.i533
 
 if.then.i.i.i.i.i555:                             ; preds = %if.else.i.i.i528
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #34
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #35
   unreachable
 
 _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.i533: ; preds = %if.else.i.i.i528
@@ -9710,7 +9710,7 @@ _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.i533: ; preds = %if.else.i.i
   %cmp.not.i.i.i.i.i539 = icmp ne i64 %cond.i.i.i.i.i538, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i.i.i539)
   %mul.i.i.i.i.i.i.i541 = shl nuw nsw i64 %cond.i.i.i.i.i538, 1
-  %call5.i.i.i.i.i.i.i542 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i541) #32
+  %call5.i.i.i.i.i.i.i542 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i541) #33
   %add.ptr.i.i.i.i545 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i542, i64 %sub.ptr.sub.i.i.i.i.i.i531
   store i16 %conv115, ptr %add.ptr.i.i.i.i545, align 2, !tbaa !275
   %cmp.i.i.i.i.i.i.i546 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i531, 0
@@ -9726,7 +9726,7 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i.i.i547: ; preds = %if.
   br i1 %tobool.not.i.i.i.i.i550, label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.i552, label %if.then.i39.i.i.i.i551
 
 if.then.i39.i.i.i.i551:                           ; preds = %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i.i.i547
-  call void @_ZdlPv(ptr noundef nonnull %127) #30
+  call void @_ZdlPv(ptr noundef nonnull %127) #31
   %.pre669.pre = load ptr, ptr %m_stars, align 8, !tbaa !137
   br label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.i552
 
@@ -9769,7 +9769,7 @@ if.else.i.i.i563:                                 ; preds = %_ZN3irr4core5arrayI
   br i1 %cmp.i.i.i.i.i567, label %if.then.i.i.i.i.i590, label %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.i568
 
 if.then.i.i.i.i.i590:                             ; preds = %if.else.i.i.i563
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #34
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #35
   unreachable
 
 _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.i568: ; preds = %if.else.i.i.i563
@@ -9782,7 +9782,7 @@ _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.i568: ; preds = %if.else.i.i
   %cmp.not.i.i.i.i.i574 = icmp ne i64 %cond.i.i.i.i.i573, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i.i.i574)
   %mul.i.i.i.i.i.i.i576 = shl nuw nsw i64 %cond.i.i.i.i.i573, 1
-  %call5.i.i.i.i.i.i.i577 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i576) #32
+  %call5.i.i.i.i.i.i.i577 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i576) #33
   %add.ptr.i.i.i.i580 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i577, i64 %sub.ptr.sub.i.i.i.i.i.i566
   store i16 %mul82, ptr %add.ptr.i.i.i.i580, align 2, !tbaa !275
   %cmp.i.i.i.i.i.i.i581 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i566, 0
@@ -9798,7 +9798,7 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i.i.i582: ; preds = %if.
   br i1 %tobool.not.i.i.i.i.i585, label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.i587, label %if.then.i39.i.i.i.i586
 
 if.then.i39.i.i.i.i586:                           ; preds = %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i.i.i582
-  call void @_ZdlPv(ptr noundef nonnull %132) #30
+  call void @_ZdlPv(ptr noundef nonnull %132) #31
   br label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.i587
 
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.i587: ; preds = %if.then.i39.i.i.i.i586, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i.i.i582
@@ -9843,7 +9843,7 @@ entry:
   store i32 %sun_tint.coerce, ptr %fog_sun_tint, align 8, !tbaa !94
   %fog_moon_tint = getelementptr inbounds nuw i8, ptr %this, i64 2700
   store i32 %moon_tint.coerce, ptr %fog_moon_tint, align 4, !tbaa !94
-  %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %use_sun_tint, ptr noundef nonnull @.str.26) #31
+  %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %use_sun_tint, ptr noundef nonnull @.str.26) #32
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then, label %if.else
 
@@ -9853,7 +9853,7 @@ if.then:                                          ; preds = %entry
   br label %if.end9
 
 if.else:                                          ; preds = %entry
-  %call.i11 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %use_sun_tint, ptr noundef nonnull @.str.27) #31
+  %call.i11 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %use_sun_tint, ptr noundef nonnull @.str.27) #32
   %cmp.i12 = icmp eq i32 %call.i11, 0
   %m_default_tint6 = getelementptr inbounds nuw i8, ptr %this, i64 2964
   br i1 %cmp.i12, label %if.then5, label %if.else7
@@ -10019,7 +10019,7 @@ invoke.cont:                                      ; preds = %_ZNSt6vectorINSt7__
   br i1 %tobool.not.i.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %invoke.cont
-  call void @_ZdlPv(ptr noundef nonnull %14) #30
+  call void @_ZdlPv(ptr noundef nonnull %14) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.i:         ; preds = %delete.notnull.i.i, %invoke.cont
@@ -10028,7 +10028,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.i:         ; preds = %delete.notnull.i.i,
   br i1 %tobool.not.i.1.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i, label %delete.notnull.i.1.i
 
 delete.notnull.i.1.i:                             ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %15) #30
+  call void @_ZdlPv(ptr noundef nonnull %15) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i:       ; preds = %delete.notnull.i.1.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.i
@@ -10037,7 +10037,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i:       ; preds = %delete.notnull.i.1.
   br i1 %tobool.not.i.2.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i, label %delete.notnull.i.2.i
 
 delete.notnull.i.2.i:                             ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i
-  call void @_ZdlPv(ptr noundef nonnull %16) #30
+  call void @_ZdlPv(ptr noundef nonnull %16) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i:       ; preds = %delete.notnull.i.2.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i
@@ -10046,7 +10046,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i:       ; preds = %delete.notnull.i.2.
   br i1 %tobool.not.i.3.i, label %_ZN3irr5video9SMaterialD2Ev.exit, label %delete.notnull.i.3.i
 
 delete.notnull.i.3.i:                             ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i
-  call void @_ZdlPv(ptr noundef nonnull %17) #30
+  call void @_ZdlPv(ptr noundef nonnull %17) #31
   br label %_ZN3irr5video9SMaterialD2Ev.exit
 
 _ZN3irr5video9SMaterialD2Ev.exit:                 ; preds = %delete.notnull.i.3.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i
@@ -10062,7 +10062,7 @@ return:                                           ; preds = %_ZN3irr5video9SMate
 lpad:                                             ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKS5_EEERS5_DpOT_.exit
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp) #31
+  call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   resume { ptr, i32 } %18
 }
@@ -10070,14 +10070,14 @@ lpad:                                             ; preds = %_ZNSt6vectorINSt7__
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3irr5scene10ISceneNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(222) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #33
+  tail call void @llvm.trap() #34
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3irr5scene10ISceneNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(222) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #33
+  tail call void @llvm.trap() #34
   unreachable
 }
 
@@ -10263,7 +10263,7 @@ if.else.i.i:                                      ; preds = %if.then.i
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 %sub.i)
   %add.i.i.i = add nuw nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i
   %mul.i.i.i.i.i = mul nuw nsw i64 %add.i.i.i, 12
-  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #32
+  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #33
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i
   %4 = sub i64 96, %sub.ptr.sub.i.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.i.i, i8 0, i64 %4, i1 false), !tbaa !21
@@ -10284,7 +10284,7 @@ _ZNSt6vectorIN3irr4core8vector3dIfEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i.
   br i1 %tobool.not.i73.i.i, label %_ZNSt12_Vector_baseIN3irr4core8vector3dIfEESaIS3_EE13_M_deallocateEPS3_m.exit75.i.i, label %if.then.i74.i.i
 
 if.then.i74.i.i:                                  ; preds = %_ZNSt6vectorIN3irr4core8vector3dIfEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #31
   br label %_ZNSt12_Vector_baseIN3irr4core8vector3dIfEESaIS3_EE13_M_deallocateEPS3_m.exit75.i.i
 
 _ZNSt12_Vector_baseIN3irr4core8vector3dIfEESaIS3_EE13_M_deallocateEPS3_m.exit75.i.i: ; preds = %if.then.i74.i.i, %_ZNSt6vectorIN3irr4core8vector3dIfEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i.i
@@ -10798,10 +10798,10 @@ if.end:                                           ; preds = %if.then4, %if.then
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(222) %child)
   %Children = getelementptr inbounds nuw i8, ptr %this, i64 152
-  %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #32
+  %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #33
   %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 16
   store ptr %child, ptr %_M_storage.i.i.i, align 8, !tbaa !90
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i, ptr noundef nonnull %Children) #31
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i, ptr noundef nonnull %Children) #32
   %_M_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %4 = load i64, ptr %_M_size.i.i, align 8, !tbaa !295
   %add.i.i = add i64 %4, 1
@@ -10865,7 +10865,7 @@ delete.notnull.i:                                 ; preds = %_ZNSt8optionalISt14
   %vtable.i = load ptr, ptr %add.ptr, align 8, !tbaa !19
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
   %5 = load ptr, ptr %vfn.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr) #31
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr) #32
   br label %_ZNK3irr17IReferenceCounted4dropEv.exit
 
 _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %_ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exit
@@ -10873,8 +10873,8 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
   %6 = load i64, ptr %_M_size.i.i.i, align 8, !tbaa !295
   %sub.i.i.i = add i64 %6, -1
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i, align 8, !tbaa !295
-  tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #31
-  tail call void @_ZdlPv(ptr noundef %2) #30
+  tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #32
+  tail call void @_ZdlPv(ptr noundef %2) #31
   br label %return
 
 return:                                           ; preds = %_ZNK3irr17IReferenceCounted4dropEv.exit, %entry
@@ -10897,7 +10897,7 @@ for.cond.cleanup:                                 ; preds = %_ZNK3irr17IReferenc
 while.body.i.i:                                   ; preds = %for.cond.cleanup, %while.body.i.i
   %__cur.010.i.i = phi ptr [ %0, %while.body.i.i ], [ %.pre, %for.cond.cleanup ]
   %0 = load ptr, ptr %__cur.010.i.i, align 8, !tbaa !143
-  tail call void @_ZdlPv(ptr noundef %__cur.010.i.i) #30
+  tail call void @_ZdlPv(ptr noundef %__cur.010.i.i) #31
   %cmp.not.i.i = icmp eq ptr %0, %Children
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx114listIPN3irr5scene10ISceneNodeESaIS4_EE5clearEv.exit, label %while.body.i.i, !llvm.loop !152
 
@@ -10941,7 +10941,7 @@ delete.notnull.i:                                 ; preds = %_ZNSt8optionalISt14
   %vtable.i = load ptr, ptr %add.ptr, align 8, !tbaa !19
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
   %5 = load ptr, ptr %vfn.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr) #31
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr) #32
   br label %_ZNK3irr17IReferenceCounted4dropEv.exit
 
 _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %_ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exit
@@ -11086,7 +11086,7 @@ delete.notnull.i:                                 ; preds = %if.end
   %vtable.i = load ptr, ptr %add.ptr8, align 8, !tbaa !19
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
   %4 = load ptr, ptr %vfn.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr8) #31
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr8) #32
   br label %_ZNK3irr17IReferenceCounted4dropEv.exit
 
 _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %if.end
@@ -11226,29 +11226,29 @@ entry:
 ; Function Attrs: nounwind uwtable
 define linkonce_odr dso_local void @_ZTv0_n24_N3irr5scene10ISceneNodeD1Ev(ptr noundef %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #33
+  tail call void @llvm.trap() #34
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr dso_local void @_ZTv0_n24_N3irr5scene10ISceneNodeD0Ev(ptr noundef %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #33
+  tail call void @llvm.trap() #34
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3SkyD1Ev(ptr noundef nonnull align 8 dereferenceable(3016) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @_ZN3SkyD2Ev(ptr noundef nonnull align 8 dereferenceable(3016) %this, ptr noundef nonnull @_ZTT3Sky) #31
+  tail call void @_ZN3SkyD2Ev(ptr noundef nonnull align 8 dereferenceable(3016) %this, ptr noundef nonnull @_ZTT3Sky) #32
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3SkyD0Ev(ptr noundef nonnull align 8 dereferenceable(3016) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @_ZN3SkyD2Ev(ptr noundef nonnull align 8 dereferenceable(3016) %this, ptr noundef nonnull @_ZTT3Sky) #31
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #30
+  tail call void @_ZN3SkyD2Ev(ptr noundef nonnull align 8 dereferenceable(3016) %this, ptr noundef nonnull @_ZTT3Sky) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #31
   ret void
 }
 
@@ -11290,7 +11290,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  tail call void @_ZN3SkyD2Ev(ptr noundef nonnull align 8 dereferenceable(3016) %3, ptr noundef nonnull @_ZTT3Sky) #31
+  tail call void @_ZN3SkyD2Ev(ptr noundef nonnull align 8 dereferenceable(3016) %3, ptr noundef nonnull @_ZTT3Sky) #32
   ret void
 }
 
@@ -11301,15 +11301,15 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  tail call void @_ZN3SkyD2Ev(ptr noundef nonnull align 8 dereferenceable(3016) %3, ptr noundef nonnull @_ZTT3Sky) #31
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #30
+  tail call void @_ZN3SkyD2Ev(ptr noundef nonnull align 8 dereferenceable(3016) %3, ptr noundef nonnull @_ZTT3Sky) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #31
   ret void
 }
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #20 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #31
-  tail call void @_ZSt9terminatev() #33
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #32
+  tail call void @_ZSt9terminatev() #34
   unreachable
 }
 
@@ -11359,7 +11359,7 @@ for.body.i.i.i:                                   ; preds = %if.then4, %_ZSt8_De
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i
-  tail call void @_ZdlPv(ptr noundef %6) #30
+  tail call void @_ZdlPv(ptr noundef %6) #31
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i: ; preds = %for.body.i.i.i, %if.then.i.i.i.i.i.i
@@ -11377,7 +11377,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #31
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %if.then.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit
@@ -11434,7 +11434,7 @@ for.body.i.i.i101:                                ; preds = %_ZSt8_DestroyINSt7_
   br i1 %cmp.i.i.i.i.i.i.i102, label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i104, label %if.then.i.i.i.i.i.i103
 
 if.then.i.i.i.i.i.i103:                           ; preds = %for.body.i.i.i101
-  tail call void @_ZdlPv(ptr noundef %11) #30
+  tail call void @_ZdlPv(ptr noundef %11) #31
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i104
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i104: ; preds = %for.body.i.i.i101, %if.then.i.i.i.i.i.i103
@@ -11503,16 +11503,16 @@ if.then.i.i.i:                                    ; preds = %cond.true.i
   br i1 %cmp2.i.i.i, label %if.then3.i.i.i, label %if.end.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #34
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #35
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
-  tail call void @_ZSt17__throw_bad_allocv() #34
+  tail call void @_ZSt17__throw_bad_allocv() #35
   unreachable
 
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i: ; preds = %cond.true.i
   %mul.i.i.i = shl nuw nsw i64 %__n, 5
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #32
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #33
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i, %entry
@@ -11527,16 +11527,16 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  %2 = tail call ptr @__cxa_begin_catch(ptr %1) #31
+  %2 = tail call ptr @__cxa_begin_catch(ptr %1) #32
   %tobool.not.i = icmp eq ptr %cond.i, null
   br i1 %tobool.not.i, label %invoke.cont9, label %if.then.i
 
 if.then.i:                                        ; preds = %lpad
-  tail call void @_ZdlPv(ptr noundef nonnull %cond.i) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %cond.i) #31
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %if.then.i, %lpad
-  invoke void @__cxa_rethrow() #34
+  invoke void @__cxa_rethrow() #35
           to label %unreachable unwind label %lpad8
 
 lpad8:                                            ; preds = %invoke.cont9
@@ -11552,7 +11552,7 @@ terminate.lpad:                                   ; preds = %lpad8
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #33
+  tail call void @__clang_call_terminate(ptr %5) #34
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont9
@@ -11632,7 +11632,7 @@ lpad:                                             ; preds = %if.then.i.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  %10 = call ptr @__cxa_begin_catch(ptr %9) #31
+  %10 = call ptr @__cxa_begin_catch(ptr %9) #32
   %cmp.not3.i.i = icmp eq ptr %__cur.020, %__result
   br i1 %cmp.not3.i.i, label %invoke.cont5, label %for.body.i.i
 
@@ -11644,7 +11644,7 @@ for.body.i.i:                                     ; preds = %lpad, %_ZSt8_Destro
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i, label %if.then.i.i.i.i.i14
 
 if.then.i.i.i.i.i14:                              ; preds = %for.body.i.i
-  call void @_ZdlPv(ptr noundef %11) #30
+  call void @_ZdlPv(ptr noundef %11) #31
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i: ; preds = %for.body.i.i, %if.then.i.i.i.i.i14
@@ -11653,7 +11653,7 @@ _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i
   br i1 %cmp.not.i.i, label %invoke.cont5, label %for.body.i.i, !llvm.loop !98
 
 invoke.cont5:                                     ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i, %lpad
-  invoke void @__cxa_rethrow() #34
+  invoke void @__cxa_rethrow() #35
           to label %unreachable unwind label %lpad4
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -11673,7 +11673,7 @@ terminate.lpad:                                   ; preds = %lpad4
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #33
+  call void @__clang_call_terminate(ptr %15) #34
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont5
@@ -11743,7 +11743,7 @@ lpad:                                             ; preds = %if.then.i.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  %10 = call ptr @__cxa_begin_catch(ptr %9) #31
+  %10 = call ptr @__cxa_begin_catch(ptr %9) #32
   %cmp.not3.i.i = icmp eq ptr %__cur.018, %__result
   br i1 %cmp.not3.i.i, label %invoke.cont3, label %for.body.i.i
 
@@ -11755,7 +11755,7 @@ for.body.i.i:                                     ; preds = %lpad, %_ZSt8_Destro
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i, label %if.then.i.i.i.i.i14
 
 if.then.i.i.i.i.i14:                              ; preds = %for.body.i.i
-  call void @_ZdlPv(ptr noundef %11) #30
+  call void @_ZdlPv(ptr noundef %11) #31
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i: ; preds = %for.body.i.i, %if.then.i.i.i.i.i14
@@ -11764,7 +11764,7 @@ _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i
   br i1 %cmp.not.i.i, label %invoke.cont3, label %for.body.i.i, !llvm.loop !98
 
 invoke.cont3:                                     ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i, %lpad
-  invoke void @__cxa_rethrow() #34
+  invoke void @__cxa_rethrow() #35
           to label %unreachable unwind label %lpad2
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -11784,7 +11784,7 @@ terminate.lpad:                                   ; preds = %lpad2
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #33
+  call void @__clang_call_terminate(ptr %15) #34
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont3
@@ -11802,11 +11802,11 @@ entry:
   br i1 %cmp.i.i.i.i, label %_ZN10ShaderInfoD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #30
+  tail call void @_ZdlPv(ptr noundef %0) #31
   br label %_ZN10ShaderInfoD2Ev.exit
 
 _ZN10ShaderInfoD2Ev.exit:                         ; preds = %entry, %if.then.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #31
   ret void
 }
 
@@ -11819,20 +11819,20 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3irr17IReferenceCountedD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #31
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.floor.f32(float) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.minnum.f32(float, float) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.maxnum.f32(float, float) #10
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
@@ -11914,7 +11914,7 @@ if.then.i:                                        ; preds = %if.else10
   br i1 %cmp.i.i.i.i.i, label %if.end11, label %if.then.i.i.i.i16
 
 if.then.i.i.i.i16:                                ; preds = %if.then.i
-  tail call void @_ZdlPv(ptr noundef %10) #30
+  tail call void @_ZdlPv(ptr noundef %10) #31
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then.i, %if.then.i.i.i.i16, %if.else10, %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJRKS5_EEEvDpOT_.exit, %if.then
@@ -11924,7 +11924,7 @@ if.end11:                                         ; preds = %if.then.i, %if.then
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #22
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.cos.f64(double) #10
 
 ; Function Attrs: mustprogress uwtable
@@ -11988,7 +11988,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !19
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr.i.i) #31
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr.i.i) #32
   br label %_ZN7irr_ptrIN3irr5scene11CMeshBufferINS0_5video9S3DVertexEEEvED2Ev.exit
 
 _ZN7irr_ptrIN3irr5scene11CMeshBufferINS0_5video9S3DVertexEEEvED2Ev.exit: ; preds = %delete.notnull.i.i.i, %if.then.i.i, %entry
@@ -12000,7 +12000,7 @@ _ZN7irr_ptrIN3irr5scene11CMeshBufferINS0_5video9S3DVertexEEEvED2Ev.exit: ; preds
   br i1 %cmp.i.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN7irr_ptrIN3irr5scene11CMeshBufferINS0_5video9S3DVertexEEEvED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef %6) #30
+  tail call void @_ZdlPv(ptr noundef %6) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN7irr_ptrIN3irr5scene11CMeshBufferINS0_5video9S3DVertexEEEvED2Ev.exit, %if.then.i.i.i
@@ -12011,7 +12011,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br i1 %cmp.i.i.i2.i, label %_ZN10MoonParamsD2Ev.exit, label %if.then.i.i3.i
 
 if.then.i.i3.i:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  tail call void @_ZdlPv(ptr noundef %8) #30
+  tail call void @_ZdlPv(ptr noundef %8) #31
   br label %_ZN10MoonParamsD2Ev.exit
 
 _ZN10MoonParamsD2Ev.exit:                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %if.then.i.i3.i
@@ -12022,7 +12022,7 @@ _ZN10MoonParamsD2Ev.exit:                         ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.i.i.i4, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i6, label %if.then.i.i.i5
 
 if.then.i.i.i5:                                   ; preds = %_ZN10MoonParamsD2Ev.exit
-  tail call void @_ZdlPv(ptr noundef %10) #30
+  tail call void @_ZdlPv(ptr noundef %10) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i6
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i6: ; preds = %_ZN10MoonParamsD2Ev.exit, %if.then.i.i.i5
@@ -12033,7 +12033,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i6: ; preds = %_Z
   br i1 %cmp.i.i.i2.i8, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i, label %if.then.i.i3.i9
 
 if.then.i.i3.i9:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i6
-  tail call void @_ZdlPv(ptr noundef %12) #30
+  tail call void @_ZdlPv(ptr noundef %12) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i6, %if.then.i.i3.i9
@@ -12044,7 +12044,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i: ; preds = %_Z
   br i1 %cmp.i.i.i8.i, label %_ZN9SunParamsD2Ev.exit, label %if.then.i.i9.i
 
 if.then.i.i9.i:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i
-  tail call void @_ZdlPv(ptr noundef %14) #30
+  tail call void @_ZdlPv(ptr noundef %14) #31
   br label %_ZN9SunParamsD2Ev.exit
 
 _ZN9SunParamsD2Ev.exit:                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i, %if.then.i.i9.i
@@ -12055,7 +12055,7 @@ _ZN9SunParamsD2Ev.exit:                           ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.i.i.i17, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i19, label %if.then.i.i.i18
 
 if.then.i.i.i18:                                  ; preds = %_ZN9SunParamsD2Ev.exit
-  tail call void @_ZdlPv(ptr noundef %16) #30
+  tail call void @_ZdlPv(ptr noundef %16) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i19
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i19: ; preds = %_ZN9SunParamsD2Ev.exit, %if.then.i.i.i18
@@ -12074,7 +12074,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %20) #30
+  tail call void @_ZdlPv(ptr noundef %20) #31
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
@@ -12092,7 +12092,7 @@ invoke.cont.i.i:                                  ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %22) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %22) #31
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %invoke.cont.i.i
@@ -12103,7 +12103,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %cmp.i.i.i2.i20, label %arraydestroy.body.preheader, label %if.then.i.i3.i21
 
 if.then.i.i3.i21:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
-  tail call void @_ZdlPv(ptr noundef %23) #30
+  tail call void @_ZdlPv(ptr noundef %23) #31
   br label %arraydestroy.body.preheader
 
 arraydestroy.body.preheader:                      ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, %if.then.i.i3.i21
@@ -12119,7 +12119,7 @@ arraydestroy.body:                                ; preds = %arraydestroy.body.p
   br i1 %tobool.not.i.i25, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %arraydestroy.body
-  tail call void @_ZdlPv(ptr noundef nonnull %25) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %25) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.i:         ; preds = %delete.notnull.i.i, %arraydestroy.body
@@ -12129,7 +12129,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.i:         ; preds = %delete.notnull.i.i,
   br i1 %tobool.not.i.1.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i, label %delete.notnull.i.1.i
 
 delete.notnull.i.1.i:                             ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %26) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %26) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i:       ; preds = %delete.notnull.i.1.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.i
@@ -12139,7 +12139,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i:       ; preds = %delete.notnull.i.1.
   br i1 %tobool.not.i.2.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i, label %delete.notnull.i.2.i
 
 delete.notnull.i.2.i:                             ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i
-  tail call void @_ZdlPv(ptr noundef nonnull %27) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %27) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i:       ; preds = %delete.notnull.i.2.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i
@@ -12149,7 +12149,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i:       ; preds = %delete.notnull.i.2.
   br i1 %tobool.not.i.3.i, label %_ZN3irr5video9SMaterialD2Ev.exit, label %delete.notnull.i.3.i
 
 delete.notnull.i.3.i:                             ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i
-  tail call void @_ZdlPv(ptr noundef nonnull %28) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %28) #31
   br label %_ZN3irr5video9SMaterialD2Ev.exit
 
 _ZN3irr5video9SMaterialD2Ev.exit:                 ; preds = %delete.notnull.i.3.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i
@@ -12181,7 +12181,7 @@ invoke.cont.i:                                    ; preds = %arraydestroy.done3
 while.body.i.i.i:                                 ; preds = %invoke.cont.i, %while.body.i.i.i
   %__cur.010.i.i.i = phi ptr [ %35, %while.body.i.i.i ], [ %34, %invoke.cont.i ]
   %35 = load ptr, ptr %__cur.010.i.i.i, align 8, !tbaa !143
-  tail call void @_ZdlPv(ptr noundef %__cur.010.i.i.i) #30
+  tail call void @_ZdlPv(ptr noundef %__cur.010.i.i.i) #31
   %cmp.not.i.i.i = icmp eq ptr %35, %Children.i
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i, label %while.body.i.i.i, !llvm.loop !152
 
@@ -12200,14 +12200,14 @@ if.then.i.i.i.i27:                                ; preds = %_ZNSt7__cxx1110_Lis
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZN3irr5scene10ISceneNodeD2Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i27
-  tail call void @_ZdlPv(ptr noundef %37) #30
+  tail call void @_ZdlPv(ptr noundef %37) #31
   br label %_ZN3irr5scene10ISceneNodeD2Ev.exit
 
 terminate.lpad.i:                                 ; preds = %arraydestroy.done3
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  tail call void @__clang_call_terminate(ptr %40) #33
+  tail call void @__clang_call_terminate(ptr %40) #34
   unreachable
 
 _ZN3irr5scene10ISceneNodeD2Ev.exit:               ; preds = %if.then.i.i.i.i27, %if.then.i.i.i.i.i.i.i, %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i
@@ -12642,7 +12642,7 @@ _ZNSt12_Vector_baseIN3irr5video9S3DVertexESaIS2_EE11_M_allocateEm.exit.i.i: ; pr
   %sub.ptr.lhs.cast.i30.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i32.i.i = sub i64 %sub.ptr.lhs.cast.i30.i.i, %sub.ptr.rhs.cast.i.i
   %mul.i.i.i.i.i = mul nuw nsw i64 %conv.i, 36
-  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #32
+  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #33
   %cmp.not6.i.i.i.i.i = icmp eq ptr %3, %5
   br i1 %cmp.not6.i.i.i.i.i, label %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i, label %for.body.i.i.i.i.i
 
@@ -12660,7 +12660,7 @@ _ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i
   br i1 %tobool.not.i.i15.i, label %_ZNSt12_Vector_baseIN3irr5video9S3DVertexESaIS2_EE13_M_deallocateEPS2_m.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #31
   br label %_ZNSt12_Vector_baseIN3irr5video9S3DVertexESaIS2_EE13_M_deallocateEPS2_m.exit.i.i
 
 _ZNSt12_Vector_baseIN3irr5video9S3DVertexESaIS2_EE13_M_deallocateEPS2_m.exit.i.i: ; preds = %if.then.i.i.i, %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i
@@ -12712,7 +12712,7 @@ if.else.i.i37:                                    ; preds = %for.body
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i37
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #34
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #35
   unreachable
 
 _ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i37
@@ -12725,7 +12725,7 @@ _ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; pr
   %cmp.not.i.i.i.i = icmp ne i64 %cond.i.i.i.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i.i.i)
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i.i, 36
-  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #32
+  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #33
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %add.ptr.i.i.i, ptr noundef nonnull align 4 dereferenceable(36) %arrayidx, i64 36, i1 false), !tbaa.struct !248
   %cmp.not6.i.i.i.i.i.i = icmp eq ptr %9, %6
@@ -12747,7 +12747,7 @@ _ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i41.i.i.i
 
 if.then.i41.i.i.i:                                ; preds = %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #31
   br label %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i41.i.i.i, %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i
@@ -12878,7 +12878,7 @@ _ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i: ; preds = %if.else.i47
   %sub.ptr.lhs.cast.i30.i.i50 = ptrtoint ptr %25 to i64
   %sub.ptr.sub.i32.i.i51 = sub i64 %sub.ptr.lhs.cast.i30.i.i50, %sub.ptr.rhs.cast.i.i42
   %mul.i.i.i.i.i52 = shl nuw nsw i64 %conv.i45, 1
-  %call5.i.i.i.i.i53 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i52) #32
+  %call5.i.i.i.i.i53 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i52) #33
   %cmp.i.i.i34.i.i = icmp sgt i64 %sub.ptr.sub.i32.i.i51, 0
   br i1 %cmp.i.i.i34.i.i, label %if.then.i.i.i35.i.i, label %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit.i.i
 
@@ -12891,7 +12891,7 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit.i.i: ; preds = %if.then.i.i.
   br i1 %tobool.not.i.i15.i54, label %_ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit.i.i, label %if.then.i.i.i55
 
 if.then.i.i.i55:                                  ; preds = %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %23) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %23) #31
   br label %_ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit.i.i
 
 _ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit.i.i: ; preds = %if.then.i.i.i55, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit.i.i
@@ -12940,7 +12940,7 @@ if.else.i.i.i:                                    ; preds = %for.body15
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.else.i.i.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #34
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #35
   unreachable
 
 _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %if.else.i.i.i
@@ -12953,7 +12953,7 @@ _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %if.else.i.i.i
   %cmp.not.i.i.i.i.i76 = icmp ne i64 %cond.i.i.i.i.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i.i.i.i76)
   %mul.i.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i.i, 1
-  %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #32
+  %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #33
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   store i16 %conv20, ptr %add.ptr.i.i.i.i, align 2, !tbaa !275
   %cmp.i.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i, 0
@@ -12969,7 +12969,7 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i.i.i: ; preds = %if.the
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.i, label %if.then.i39.i.i.i.i
 
 if.then.i39.i.i.i.i:                              ; preds = %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %30) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %30) #31
   br label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.i: ; preds = %if.then.i39.i.i.i.i, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i.i.i
@@ -13123,7 +13123,7 @@ entry:
   br i1 %tobool.not.i.i.i.i.i, label %_ZN3irr4core5arrayItED2Ev.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   br label %_ZN3irr4core5arrayItED2Ev.exit.i
 
 _ZN3irr4core5arrayItED2Ev.exit.i:                 ; preds = %if.then.i.i.i.i.i, %entry
@@ -13133,7 +13133,7 @@ _ZN3irr4core5arrayItED2Ev.exit.i:                 ; preds = %if.then.i.i.i.i.i, 
   br i1 %tobool.not.i.i.i.i3.i, label %_ZN3irr4core5arrayINS_5video9S3DVertexEED2Ev.exit.i, label %if.then.i.i.i.i4.i
 
 if.then.i.i.i.i4.i:                               ; preds = %_ZN3irr4core5arrayItED2Ev.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #31
   br label %_ZN3irr4core5arrayINS_5video9S3DVertexEED2Ev.exit.i
 
 _ZN3irr4core5arrayINS_5video9S3DVertexEED2Ev.exit.i: ; preds = %if.then.i.i.i.i4.i, %_ZN3irr4core5arrayItED2Ev.exit.i
@@ -13143,7 +13143,7 @@ _ZN3irr4core5arrayINS_5video9S3DVertexEED2Ev.exit.i: ; preds = %if.then.i.i.i.i4
   br i1 %tobool.not.i.i.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i.i, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %_ZN3irr4core5arrayINS_5video9S3DVertexEED2Ev.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.i.i:       ; preds = %delete.notnull.i.i.i, %_ZN3irr4core5arrayINS_5video9S3DVertexEED2Ev.exit.i
@@ -13153,7 +13153,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.i.i:       ; preds = %delete.notnull.i.i.
   br i1 %tobool.not.i.1.i.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i.i, label %delete.notnull.i.1.i.i
 
 delete.notnull.i.1.i.i:                           ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i.i:     ; preds = %delete.notnull.i.1.i.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.i.i
@@ -13163,7 +13163,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i.i:     ; preds = %delete.notnull.i.1.
   br i1 %tobool.not.i.2.i.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i, label %delete.notnull.i.2.i.i
 
 delete.notnull.i.2.i.i:                           ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i:     ; preds = %delete.notnull.i.2.i.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i.i
@@ -13173,7 +13173,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i:     ; preds = %delete.notnull.i.2.
   br i1 %tobool.not.i.3.i.i, label %_ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED2Ev.exit, label %delete.notnull.i.3.i.i
 
 delete.notnull.i.3.i.i:                           ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #31
   br label %_ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED2Ev.exit
 
 _ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED2Ev.exit: ; preds = %delete.notnull.i.3.i.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i
@@ -13192,7 +13192,7 @@ entry:
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN3irr4core5arrayItED2Ev.exit.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   br label %_ZN3irr4core5arrayItED2Ev.exit.i.i
 
 _ZN3irr4core5arrayItED2Ev.exit.i.i:               ; preds = %if.then.i.i.i.i.i.i, %entry
@@ -13202,7 +13202,7 @@ _ZN3irr4core5arrayItED2Ev.exit.i.i:               ; preds = %if.then.i.i.i.i.i.i
   br i1 %tobool.not.i.i.i.i3.i.i, label %_ZN3irr4core5arrayINS_5video9S3DVertexEED2Ev.exit.i.i, label %if.then.i.i.i.i4.i.i
 
 if.then.i.i.i.i4.i.i:                             ; preds = %_ZN3irr4core5arrayItED2Ev.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #31
   br label %_ZN3irr4core5arrayINS_5video9S3DVertexEED2Ev.exit.i.i
 
 _ZN3irr4core5arrayINS_5video9S3DVertexEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i4.i.i, %_ZN3irr4core5arrayItED2Ev.exit.i.i
@@ -13212,7 +13212,7 @@ _ZN3irr4core5arrayINS_5video9S3DVertexEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.
   br i1 %tobool.not.i.i.i.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i.i.i, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %_ZN3irr4core5arrayINS_5video9S3DVertexEED2Ev.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i.i.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.i.i.i:     ; preds = %delete.notnull.i.i.i.i, %_ZN3irr4core5arrayINS_5video9S3DVertexEED2Ev.exit.i.i
@@ -13222,7 +13222,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.i.i.i:     ; preds = %delete.notnull.i.i.
   br i1 %tobool.not.i.1.i.i.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i.i.i, label %delete.notnull.i.1.i.i.i
 
 delete.notnull.i.1.i.i.i:                         ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i.i.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i.i.i:   ; preds = %delete.notnull.i.1.i.i.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.i.i.i
@@ -13232,7 +13232,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i.i.i:   ; preds = %delete.notnull.i.1.
   br i1 %tobool.not.i.2.i.i.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i.i, label %delete.notnull.i.2.i.i.i
 
 delete.notnull.i.2.i.i.i:                         ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i.i:   ; preds = %delete.notnull.i.2.i.i.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i.i.i
@@ -13242,11 +13242,11 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i.i:   ; preds = %delete.notnull.i.2.
   br i1 %tobool.not.i.3.i.i.i, label %_ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED1Ev.exit, label %delete.notnull.i.3.i.i.i
 
 delete.notnull.i.3.i.i.i:                         ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #31
   br label %_ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED1Ev.exit
 
 _ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED1Ev.exit: ; preds = %delete.notnull.i.3.i.i.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #31
   ret void
 }
 
@@ -13266,7 +13266,7 @@ entry:
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN3irr4core5arrayItED2Ev.exit.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #31
   br label %_ZN3irr4core5arrayItED2Ev.exit.i.i
 
 _ZN3irr4core5arrayItED2Ev.exit.i.i:               ; preds = %if.then.i.i.i.i.i.i, %entry
@@ -13276,7 +13276,7 @@ _ZN3irr4core5arrayItED2Ev.exit.i.i:               ; preds = %if.then.i.i.i.i.i.i
   br i1 %tobool.not.i.i.i.i3.i.i, label %_ZN3irr4core5arrayINS_5video9S3DVertexEED2Ev.exit.i.i, label %if.then.i.i.i.i4.i.i
 
 if.then.i.i.i.i4.i.i:                             ; preds = %_ZN3irr4core5arrayItED2Ev.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #31
   br label %_ZN3irr4core5arrayINS_5video9S3DVertexEED2Ev.exit.i.i
 
 _ZN3irr4core5arrayINS_5video9S3DVertexEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i4.i.i, %_ZN3irr4core5arrayItED2Ev.exit.i.i
@@ -13286,7 +13286,7 @@ _ZN3irr4core5arrayINS_5video9S3DVertexEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.
   br i1 %tobool.not.i.i.i.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i.i.i, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %_ZN3irr4core5arrayINS_5video9S3DVertexEED2Ev.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i.i.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.i.i.i:     ; preds = %delete.notnull.i.i.i.i, %_ZN3irr4core5arrayINS_5video9S3DVertexEED2Ev.exit.i.i
@@ -13296,7 +13296,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.i.i.i:     ; preds = %delete.notnull.i.i.
   br i1 %tobool.not.i.1.i.i.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i.i.i, label %delete.notnull.i.1.i.i.i
 
 delete.notnull.i.1.i.i.i:                         ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i.i.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i.i.i:   ; preds = %delete.notnull.i.1.i.i.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.i.i.i
@@ -13306,7 +13306,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i.i.i:   ; preds = %delete.notnull.i.1.
   br i1 %tobool.not.i.2.i.i.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i.i, label %delete.notnull.i.2.i.i.i
 
 delete.notnull.i.2.i.i.i:                         ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i.i:   ; preds = %delete.notnull.i.2.i.i.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i.i.i
@@ -13316,7 +13316,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i.i:   ; preds = %delete.notnull.i.2.
   br i1 %tobool.not.i.3.i.i.i, label %_ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED1Ev.exit, label %delete.notnull.i.3.i.i.i
 
 delete.notnull.i.3.i.i.i:                         ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #31
   br label %_ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED1Ev.exit
 
 _ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED1Ev.exit: ; preds = %delete.notnull.i.3.i.i.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i.i
@@ -13339,7 +13339,7 @@ entry:
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN3irr4core5arrayItED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #31
   br label %_ZN3irr4core5arrayItED2Ev.exit.i.i.i
 
 _ZN3irr4core5arrayItED2Ev.exit.i.i.i:             ; preds = %if.then.i.i.i.i.i.i.i, %entry
@@ -13349,7 +13349,7 @@ _ZN3irr4core5arrayItED2Ev.exit.i.i.i:             ; preds = %if.then.i.i.i.i.i.i
   br i1 %tobool.not.i.i.i.i3.i.i.i, label %_ZN3irr4core5arrayINS_5video9S3DVertexEED2Ev.exit.i.i.i, label %if.then.i.i.i.i4.i.i.i
 
 if.then.i.i.i.i4.i.i.i:                           ; preds = %_ZN3irr4core5arrayItED2Ev.exit.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #31
   br label %_ZN3irr4core5arrayINS_5video9S3DVertexEED2Ev.exit.i.i.i
 
 _ZN3irr4core5arrayINS_5video9S3DVertexEED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i4.i.i.i, %_ZN3irr4core5arrayItED2Ev.exit.i.i.i
@@ -13359,7 +13359,7 @@ _ZN3irr4core5arrayINS_5video9S3DVertexEED2Ev.exit.i.i.i: ; preds = %if.then.i.i.
   br i1 %tobool.not.i.i.i.i.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %_ZN3irr4core5arrayINS_5video9S3DVertexEED2Ev.exit.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i.i.i.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.i.i.i.i:   ; preds = %delete.notnull.i.i.i.i.i, %_ZN3irr4core5arrayINS_5video9S3DVertexEED2Ev.exit.i.i.i
@@ -13369,7 +13369,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.i.i.i.i:   ; preds = %delete.notnull.i.i.
   br i1 %tobool.not.i.1.i.i.i.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i.i.i.i, label %delete.notnull.i.1.i.i.i.i
 
 delete.notnull.i.1.i.i.i.i:                       ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i.i.i.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i.i.i.i: ; preds = %delete.notnull.i.1.i.i.i.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.i.i.i.i
@@ -13379,7 +13379,7 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i.i.i.i: ; preds = %delete.notnull.i.1.
   br i1 %tobool.not.i.2.i.i.i.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i.i.i, label %delete.notnull.i.2.i.i.i.i
 
 delete.notnull.i.2.i.i.i.i:                       ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #31
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i.i.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i.i.i: ; preds = %delete.notnull.i.2.i.i.i.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i.i.i.i
@@ -13389,11 +13389,11 @@ _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i.i.i: ; preds = %delete.notnull.i.2.
   br i1 %tobool.not.i.3.i.i.i.i, label %_ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED0Ev.exit, label %delete.notnull.i.3.i.i.i.i
 
 delete.notnull.i.3.i.i.i.i:                       ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #31
   br label %_ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED0Ev.exit
 
 _ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED0Ev.exit: ; preds = %delete.notnull.i.3.i.i.i.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #31
   ret void
 }
 
@@ -13494,7 +13494,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.31) #34
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.31) #35
   unreachable
 
 _ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %if.else
@@ -13502,7 +13502,7 @@ _ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = 
   %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 256204778801521550)
   %mul.i.i.i = mul nuw nsw i64 %5, 36
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #32
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #33
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   %xtraiter85 = and i64 %__n, 3
   %lcmp.mod86.not = icmp eq i64 %xtraiter85, 0
@@ -13574,7 +13574,7 @@ _ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; 
   br i1 %tobool.not.i82, label %_ZNSt12_Vector_baseIN3irr5video9S3DVertexESaIS2_EE13_M_deallocateEPS2_m.exit84, label %if.then.i83
 
 if.then.i83:                                      ; preds = %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #31
   br label %_ZNSt12_Vector_baseIN3irr5video9S3DVertexESaIS2_EE13_M_deallocateEPS2_m.exit84
 
 _ZNSt12_Vector_baseIN3irr5video9S3DVertexESaIS2_EE13_M_deallocateEPS2_m.exit84: ; preds = %if.then.i83, %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
@@ -13639,7 +13639,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.31) #34
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.31) #35
   unreachable
 
 _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
@@ -13647,7 +13647,7 @@ _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 4611686018427387903)
   %mul.i.i.i = shl nuw nsw i64 %5, 1
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #32
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #33
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   store i16 0, ptr %add.ptr, align 2, !tbaa !275
   %cmp.i.i.i.i.i70 = icmp eq i64 %__n, 1
@@ -13673,7 +13673,7 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit: ; preds = %if.then.i.i.i76,
   br i1 %tobool.not.i77, label %_ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit79, label %if.then.i78
 
 if.then.i78:                                      ; preds = %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #31
   br label %_ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit79
 
 _ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit79: ; preds = %if.then.i78, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit
@@ -13691,7 +13691,7 @@ if.end44:                                         ; preds = %_ZNSt12_Vector_base
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #10
 
 ; Function Attrs: mustprogress uwtable
@@ -13708,7 +13708,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #34
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #35
   unreachable
 
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
@@ -13725,7 +13725,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
 
 cond.true.i:                                      ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 5
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #32
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #33
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %cond.true.i, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
@@ -13874,7 +13874,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit, label %if.then.i69
 
 if.then.i69:                                      ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit68
-  call void @_ZdlPv(ptr noundef nonnull %1) #30
+  call void @_ZdlPv(ptr noundef nonnull %1) #31
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %if.then.i69, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit68
@@ -13895,9 +13895,9 @@ invoke.cont19:                                    ; preds = %if.then.i.i.i.i
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  %26 = call ptr @__cxa_begin_catch(ptr %25) #31
-  call void @_ZdlPv(ptr noundef nonnull %cond.i47) #30
-  invoke void @__cxa_rethrow() #34
+  %26 = call ptr @__cxa_begin_catch(ptr %25) #32
+  call void @_ZdlPv(ptr noundef nonnull %cond.i47) #31
+  invoke void @__cxa_rethrow() #35
           to label %unreachable unwind label %lpad17
 
 invoke.cont20:                                    ; preds = %lpad17
@@ -13907,7 +13907,7 @@ terminate.lpad:                                   ; preds = %lpad17
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #33
+  call void @__clang_call_terminate(ptr %28) #34
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont19
@@ -13929,7 +13929,7 @@ entry:
   %__dnew.i.i76.i = alloca i64, align 8
   %__dnew.i.i.i = alloca i64, align 8
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #31
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #32
   store ptr getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 16), ptr @_ZL19accessDeniedStringsB5cxx11, align 16, !tbaa !82
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i.i)
   store i64 16, ptr %__dnew.i.i.i, align 8, !tbaa !128
@@ -14164,7 +14164,7 @@ arraydestroy.body.i:                              ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %if.then.i.i208.i
 
 if.then.i.i208.i:                                 ; preds = %arraydestroy.body.i
-  call void @_ZdlPv(ptr noundef %31) #30
+  call void @_ZdlPv(ptr noundef %31) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %arraydestroy.body.i, %if.then.i.i208.i
@@ -14184,53 +14184,53 @@ __cxx_global_var_init.1.exit:                     ; preds = %call2.i10.i.noexc19
   %arrayidx.i.i.i201.i = getelementptr inbounds i8, ptr %34, i64 %33
   store i8 0, ptr %arrayidx.i.i.i201.i, align 1, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i.i197.i)
-  %35 = call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor, ptr null, ptr nonnull @__dso_handle) #31
+  %35 = call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor, ptr null, ptr nonnull @__dso_handle) #32
   ret void
 }
 
 declare extern_weak void @_ZTH13warningstream() #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #10
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #26
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #26
+declare void @llvm.assume(i1 noundef) #27
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #27
+declare void @llvm.experimental.noalias.scope.decl(metadata) #28
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #28
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #29
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x float> @llvm.floor.v2f32(<2 x float>) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x double> @llvm.sin.v2f64(<2 x double>) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x double> @llvm.cos.v2f64(<2 x double>) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #29
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #30
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #29
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #30
 
 attributes #0 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -14242,7 +14242,7 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #7 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress uwtable "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -14258,15 +14258,16 @@ attributes #22 = { noreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"=
 attributes #23 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #24 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #25 = { uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #28 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #29 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #30 = { builtin nounwind }
-attributes #31 = { nounwind }
-attributes #32 = { builtin allocsize(0) }
-attributes #33 = { noreturn nounwind }
-attributes #34 = { noreturn }
+attributes #26 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #28 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #29 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #30 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #31 = { builtin nounwind }
+attributes #32 = { nounwind }
+attributes #33 = { builtin allocsize(0) }
+attributes #34 = { noreturn nounwind }
+attributes #35 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

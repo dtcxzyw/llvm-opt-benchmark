@@ -35,7 +35,7 @@ define internal range(i32 -2147483648, 1) i32 @paf_video_init(ptr noundef %0) #0
   br i1 %or.cond, label %13, label %12
 
 12:                                               ; preds = %1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2, i32 noundef %5, i32 noundef %8) #8
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2, i32 noundef %5, i32 noundef %8) #9
   br label %.loopexit
 
 13:                                               ; preds = %1
@@ -45,12 +45,12 @@ define internal range(i32 -2147483648, 1) i32 @paf_video_init(ptr noundef %0) #0
   %16 = and i32 %15, -256
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %18 = load i64, ptr %17, align 8, !tbaa !35
-  %19 = tail call i32 @av_image_check_size2(i32 noundef %5, i32 noundef %16, i64 noundef %18, i32 noundef 11, i32 noundef 0, ptr noundef nonnull %0) #8
+  %19 = tail call i32 @av_image_check_size2(i32 noundef %5, i32 noundef %16, i64 noundef %18, i32 noundef 11, i32 noundef 0, ptr noundef nonnull %0) #9
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %13
-  %22 = tail call ptr @av_frame_alloc() #8
+  %22 = tail call ptr @av_frame_alloc() #9
   store ptr %22, ptr %3, align 8, !tbaa !36
   %.not36 = icmp eq ptr %22, null
   br i1 %.not36, label %.loopexit, label %23
@@ -78,7 +78,7 @@ define internal range(i32 -2147483648, 1) i32 @paf_video_init(ptr noundef %0) #0
   %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next, %33 ]
   %35 = load i32, ptr %29, align 8, !tbaa !37
   %36 = sext i32 %35 to i64
-  %37 = tail call noalias ptr @av_mallocz(i64 noundef %36) #8
+  %37 = tail call noalias ptr @av_mallocz(i64 noundef %36) #9
   %38 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   store ptr %37, ptr %38, align 8, !tbaa !41
   %.not37 = icmp eq ptr %37, null
@@ -119,7 +119,7 @@ bytestream2_get_byte.exit:                        ; preds = %4
   br i1 %or.cond, label %23, label %24
 
 23:                                               ; preds = %bytestream2_get_byte.exit
-  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #8
+  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #9
   br label %.critedge
 
 24:                                               ; preds = %bytestream2_get_byte.exit
@@ -144,7 +144,7 @@ bytestream2_get_byte.exit:                        ; preds = %4
 
 40:                                               ; preds = %26, %24
   %41 = load ptr, ptr %6, align 8, !tbaa !36
-  %42 = tail call i32 @ff_reget_buffer(ptr noundef nonnull %0, ptr noundef %41, i32 noundef 0) #8
+  %42 = tail call i32 @ff_reget_buffer(ptr noundef nonnull %0, ptr noundef %41, i32 noundef 0) #9
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %.critedge, label %44
 
@@ -468,8 +468,8 @@ bytestream2_get_byte.exit153:                     ; preds = %164
   br i1 %232, label %.lr.ph, label %.loopexit, !llvm.loop !60
 
 233:                                              ; preds = %.loopexit158
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 395) #8
-  tail call void @abort() #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 395) #9
+  tail call void @abort() #10
   unreachable
 
 .loopexit:                                        ; preds = %231, %188, %175, %177, %138, %160
@@ -486,13 +486,13 @@ bytestream2_get_byte.exit153:                     ; preds = %164
   %244 = load i32, ptr %243, align 8, !tbaa !28
   %245 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %246 = load i32, ptr %245, align 4, !tbaa !33
-  tail call void @av_image_copy_plane(ptr noundef %235, i32 noundef %237, ptr noundef %242, i32 noundef %244, i32 noundef %244, i32 noundef %246) #8
+  tail call void @av_image_copy_plane(ptr noundef %235, i32 noundef %237, ptr noundef %242, i32 noundef %244, i32 noundef %244, i32 noundef %246) #9
   %247 = load i32, ptr %123, align 8, !tbaa !49
   %248 = add nsw i32 %247, 1
   %249 = and i32 %248, 3
   store i32 %249, ptr %123, align 8, !tbaa !49
   %250 = load ptr, ptr %6, align 8, !tbaa !36
-  %251 = tail call i32 @av_frame_ref(ptr noundef %1, ptr noundef %250) #8
+  %251 = tail call i32 @av_frame_ref(ptr noundef %1, ptr noundef %250) #9
   %252 = icmp slt i32 %251, 0
   br i1 %252, label %.critedge, label %253
 
@@ -510,14 +510,14 @@ bytestream2_get_byte.exit153:                     ; preds = %164
 define internal noundef i32 @paf_video_close(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !4
-  tail call void @av_frame_free(ptr noundef %3) #8
+  tail call void @av_frame_free(ptr noundef %3) #9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   br label %5
 
 5:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
-  tail call void @av_freep(ptr noundef nonnull %6) #8
+  tail call void @av_freep(ptr noundef nonnull %6) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %7, label %5, !llvm.loop !61
@@ -1229,14 +1229,14 @@ declare void @av_frame_free(ptr noundef) local_unnamed_addr #2
 
 declare void @av_freep(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.abs.i8(i8, i1 immarg) #7
+declare i8 @llvm.abs.i8(i8, i1 immarg) #8
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1245,9 +1245,10 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn nounwind }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

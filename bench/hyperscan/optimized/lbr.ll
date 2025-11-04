@@ -22,7 +22,7 @@ define hidden noundef signext i8 @nfaExecLbrDot_queueCompressState(ptr noundef %
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  tail call void @repeatPack(ptr noundef %11, ptr noundef nonnull %14, ptr noundef nonnull %15, i64 noundef %9) #8
+  tail call void @repeatPack(ptr noundef %11, ptr noundef nonnull %14, ptr noundef nonnull %15, i64 noundef %9) #9
   ret i8 0
 }
 
@@ -33,7 +33,7 @@ define hidden noundef signext i8 @nfaExecLbrDot_expandState(ptr noundef %0, ptr 
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @repeatUnpack(ptr noundef %2, ptr noundef nonnull %9, i64 noundef %3, ptr noundef nonnull %10) #8
+  tail call void @repeatUnpack(ptr noundef %2, ptr noundef nonnull %9, i64 noundef %3, ptr noundef nonnull %10) #9
   store i64 0, ptr %1, align 8
   ret i8 0
 }
@@ -55,7 +55,7 @@ define hidden noundef signext i8 @nfaExecLbrDot_reportCurrent(ptr noundef readon
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 %13(i64 noundef 0, i64 noundef %11, i32 noundef %15, ptr noundef %17) #8
+  %18 = tail call i32 %13(i64 noundef 0, i64 noundef %11, i32 noundef %15, ptr noundef %17) #9
   ret i8 0
 }
 
@@ -121,7 +121,7 @@ repeatIsDead.exit.thread:                         ; preds = %3, %repeatIsDead.ex
   ]
 
 31:                                               ; preds = %23
-  %32 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #8
+  %32 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 33:                                               ; preds = %23
@@ -153,19 +153,19 @@ repeatIsDead.exit.thread:                         ; preds = %3, %repeatIsDead.ex
   br label %repeatHasMatch.exit
 
 52:                                               ; preds = %23
-  %53 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #8
+  %53 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 54:                                               ; preds = %23
-  %55 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %7, ptr noundef nonnull %30, i64 noundef %20) #8
+  %55 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %7, ptr noundef nonnull %30, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 56:                                               ; preds = %23
-  %57 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #8
+  %57 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 58:                                               ; preds = %23
-  %59 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %7, ptr noundef nonnull %30, i64 noundef %20) #8
+  %59 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %7, ptr noundef nonnull %30, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 default.unreachable:                              ; preds = %23
@@ -299,7 +299,7 @@ clearRepeat.exit:                                 ; preds = %4, %4
 39:                                               ; preds = %.split.i.thread, %.split.i
   %40 = phi ptr [ %16, %.split.i.thread ], [ %38, %.split.i ]
   %41 = phi ptr [ %15, %.split.i.thread ], [ %37, %.split.i ]
-  call void @repeatStoreRing(ptr noundef nonnull %9, ptr noundef nonnull %40, ptr noundef %41, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreRing(ptr noundef nonnull %9, ptr noundef nonnull %40, ptr noundef %41, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 42:                                               ; preds = %.split.i
@@ -313,23 +313,23 @@ clearRepeat.exit:                                 ; preds = %4, %4
 44:                                               ; preds = %.split.i.thread21, %.split.i
   %45 = phi ptr [ %22, %.split.i.thread21 ], [ %38, %.split.i ]
   %46 = phi ptr [ %21, %.split.i.thread21 ], [ %37, %.split.i ]
-  call void @repeatStoreRange(ptr noundef nonnull %9, ptr noundef nonnull %45, ptr noundef %46, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreRange(ptr noundef nonnull %9, ptr noundef nonnull %45, ptr noundef %46, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 47:                                               ; preds = %.split.i.thread22, %.split.i
   %48 = phi ptr [ %25, %.split.i.thread22 ], [ %38, %.split.i ]
-  call void @repeatStoreBitmap(ptr noundef nonnull %9, ptr noundef nonnull %48, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreBitmap(ptr noundef nonnull %9, ptr noundef nonnull %48, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 49:                                               ; preds = %.split.i.thread23, %.split.i
   %50 = phi ptr [ %31, %.split.i.thread23 ], [ %38, %.split.i ]
   %51 = phi ptr [ %30, %.split.i.thread23 ], [ %37, %.split.i ]
-  call void @repeatStoreSparseOptimalP(ptr noundef nonnull %9, ptr noundef nonnull %50, ptr noundef %51, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreSparseOptimalP(ptr noundef nonnull %9, ptr noundef nonnull %50, ptr noundef %51, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 52:                                               ; preds = %.split.i.thread24, %.split.i
   %53 = phi ptr [ %33, %.split.i.thread24 ], [ %38, %.split.i ]
-  call void @repeatStoreTrailer(ptr noundef nonnull %9, ptr noundef nonnull %53, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreTrailer(ptr noundef nonnull %9, ptr noundef nonnull %53, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 lbrTop.exit:                                      ; preds = %4, %clearRepeat.exit, %52, %49, %47, %44, %43, %42, %39, %.split.i
@@ -337,7 +337,7 @@ lbrTop.exit:                                      ; preds = %4, %clearRepeat.exi
   %55 = zext i32 %54 to i64
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @repeatPack(ptr noundef %2, ptr noundef nonnull %56, ptr noundef nonnull %57, i64 noundef %1) #8
+  call void @repeatPack(ptr noundef %2, ptr noundef nonnull %56, ptr noundef nonnull %57, i64 noundef %1) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i8 1
 }
@@ -371,7 +371,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLbrDot_Q(ptr noundef %0, ptr nou
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 %14(i64 noundef 0, i64 noundef %23, i32 noundef %25, ptr noundef %27) #8
+  %28 = tail call i32 %14(i64 noundef 0, i64 noundef %23, i32 noundef %25, ptr noundef %27) #9
   store i8 0, ptr %10, align 8
   %.not109.i = icmp eq i32 %28, 0
   br i1 %.not109.i, label %nfaExecLbrDot_Q_i.exit, label %29
@@ -468,7 +468,7 @@ repeatIsDead.exit118.i.thread:                    ; preds = %49, %repeatIsDead.e
   ]
 
 74:                                               ; preds = %72
-  %75 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %65, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %69, i64 noundef %.0.i21) #8
+  %75 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %65, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %69, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 76:                                               ; preds = %72, %72
@@ -491,19 +491,19 @@ repeatIsDead.exit118.i.thread:                    ; preds = %49, %repeatIsDead.e
   br label %repeatNextMatch.exit
 
 89:                                               ; preds = %72
-  %90 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %65, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %69, i64 noundef %.0.i21) #8
+  %90 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %65, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %69, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 91:                                               ; preds = %72
-  %92 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %65, ptr noundef nonnull %.0.shrunk.i116.i.in.in, i64 noundef %.0.i21) #8
+  %92 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %65, ptr noundef nonnull %.0.shrunk.i116.i.in.in, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 93:                                               ; preds = %72
-  %94 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %65, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %69, i64 noundef %.0.i21) #8
+  %94 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %65, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %69, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 95:                                               ; preds = %72
-  %96 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %65, ptr noundef nonnull %.0.shrunk.i116.i.in.in, i64 noundef %.0.i21) #8
+  %96 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %65, ptr noundef nonnull %.0.shrunk.i116.i.in.in, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 97:                                               ; preds = %72
@@ -518,7 +518,7 @@ repeatNextMatch.exit:                             ; preds = %82, %76, %74, %89, 
 
 100:                                              ; preds = %repeatNextMatch.exit
   %101 = load i32, ptr %47, align 4
-  %102 = tail call i32 %61(i64 noundef 0, i64 noundef %.0.i29, i32 noundef %101, ptr noundef %62) #8
+  %102 = tail call i32 %61(i64 noundef 0, i64 noundef %.0.i29, i32 noundef %101, ptr noundef %62) #9
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %nfaExecLbrDot_Q_i.exit, label %72
 
@@ -652,7 +652,7 @@ repeatIsDead.exit.i.i4:                           ; preds = %135, %135, %135, %1
   ]
 
 147:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreRing(ptr noundef nonnull %139, ptr noundef nonnull %146, ptr noundef %143, i64 noundef %131, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %139, ptr noundef nonnull %146, ptr noundef %143, i64 noundef %131, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 148:                                              ; preds = %.split.i.i8
@@ -664,19 +664,19 @@ repeatIsDead.exit.i.i4:                           ; preds = %135, %135, %135, %1
   br label %lbrTop.exit.i
 
 150:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreRange(ptr noundef nonnull %139, ptr noundef nonnull %146, ptr noundef %143, i64 noundef %131, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %139, ptr noundef nonnull %146, ptr noundef %143, i64 noundef %131, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 151:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %139, ptr noundef nonnull %146, i64 noundef %131, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %139, ptr noundef nonnull %146, i64 noundef %131, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 152:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %139, ptr noundef nonnull %146, ptr noundef %143, i64 noundef %131, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %139, ptr noundef nonnull %146, ptr noundef %143, i64 noundef %131, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 153:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %139, ptr noundef nonnull %146, i64 noundef %131, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %139, ptr noundef nonnull %146, i64 noundef %131, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 154:                                              ; preds = %repeatIsDead.exit.i.i4
@@ -691,23 +691,23 @@ repeatIsDead.exit.i.i4:                           ; preds = %135, %135, %135, %1
   ]
 
 155:                                              ; preds = %154
-  %156 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %139, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %156 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %139, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 157:                                              ; preds = %154
-  %158 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %143) #8
+  %158 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %143) #9
   br label %repeatLastTop.exit
 
 159:                                              ; preds = %154
-  %160 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %160 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 161:                                              ; preds = %154
-  %162 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %139, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %143) #8
+  %162 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %139, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %143) #9
   br label %repeatLastTop.exit
 
 163:                                              ; preds = %154
-  %164 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %139, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %164 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %139, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 default.unreachable:                              ; preds = %154
@@ -731,7 +731,7 @@ repeatLastTop.exit:                               ; preds = %154, %154, %.thread
   ]
 
 167:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreRing(ptr noundef nonnull %139, ptr noundef nonnull %165, ptr noundef %143, i64 noundef %131, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %139, ptr noundef nonnull %165, ptr noundef %143, i64 noundef %131, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 168:                                              ; preds = %.split16.i.i11
@@ -739,19 +739,19 @@ repeatLastTop.exit:                               ; preds = %154, %154, %.thread
   br label %lbrTop.exit.i
 
 169:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreRange(ptr noundef nonnull %139, ptr noundef nonnull %165, ptr noundef %143, i64 noundef %131, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %139, ptr noundef nonnull %165, ptr noundef %143, i64 noundef %131, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 170:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %139, ptr noundef nonnull %165, i64 noundef %131, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %139, ptr noundef nonnull %165, i64 noundef %131, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 171:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %139, ptr noundef nonnull %165, ptr noundef %143, i64 noundef %131, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %139, ptr noundef nonnull %165, ptr noundef %143, i64 noundef %131, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 172:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %139, ptr noundef nonnull %165, i64 noundef %131, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %139, ptr noundef nonnull %165, i64 noundef %131, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 nfaExecLbrDot_TopScan.exit:                       ; preds = %repeatIsDead.exit.i.thread51, %.lr.ph.preheader, %.lr.ph, %133
@@ -825,7 +825,7 @@ repeatIsDead.exit.i.i:                            ; preds = %188, %188, %188, %1
   ]
 
 200:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %198, i64 noundef %191, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %198, i64 noundef %191, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 201:                                              ; preds = %.split.i.i
@@ -837,19 +837,19 @@ repeatIsDead.exit.i.i:                            ; preds = %188, %188, %188, %1
   br label %lbrTop.exit.i
 
 203:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %198, i64 noundef %191, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %198, i64 noundef %191, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 204:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in, i64 noundef %191, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in, i64 noundef %191, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 205:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %198, i64 noundef %191, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %198, i64 noundef %191, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 206:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in, i64 noundef %191, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in, i64 noundef %191, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 207:                                              ; preds = %repeatIsDead.exit.i.i
@@ -864,23 +864,23 @@ repeatIsDead.exit.i.i:                            ; preds = %188, %188, %188, %1
   ]
 
 208:                                              ; preds = %207
-  %209 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in) #8
+  %209 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in) #9
   br label %repeatLastTop.exit14
 
 210:                                              ; preds = %207
-  %211 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %198) #8
+  %211 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %198) #9
   br label %repeatLastTop.exit14
 
 212:                                              ; preds = %207
-  %213 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i116.i.in.in) #8
+  %213 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i116.i.in.in) #9
   br label %repeatLastTop.exit14
 
 214:                                              ; preds = %207
-  %215 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %198) #8
+  %215 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %198) #9
   br label %repeatLastTop.exit14
 
 216:                                              ; preds = %207
-  %217 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in) #8
+  %217 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in) #9
   br label %repeatLastTop.exit14
 
 default.unreachable82:                            ; preds = %207
@@ -903,7 +903,7 @@ repeatLastTop.exit14:                             ; preds = %207, %207, %188, %2
   ]
 
 219:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %198, i64 noundef %191, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %198, i64 noundef %191, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 220:                                              ; preds = %.split16.i.i
@@ -911,19 +911,19 @@ repeatLastTop.exit14:                             ; preds = %207, %207, %188, %2
   br label %lbrTop.exit.i
 
 221:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %198, i64 noundef %191, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %198, i64 noundef %191, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 222:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in, i64 noundef %191, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in, i64 noundef %191, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 223:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %198, i64 noundef %191, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %198, i64 noundef %191, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 224:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in, i64 noundef %191, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %194, ptr noundef nonnull %.0.shrunk.i116.i.in.in, i64 noundef %191, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 default.unreachable118:                           ; preds = %.split.i.i
@@ -991,7 +991,7 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   ]
 
 249:                                              ; preds = %243
-  %250 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %238, ptr noundef nonnull %248) #8
+  %250 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %238, ptr noundef nonnull %248) #9
   br label %repeatLastTop.exit.i
 
 251:                                              ; preds = %243, %243
@@ -999,19 +999,19 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   br label %repeatLastTop.exit.i
 
 253:                                              ; preds = %243
-  %254 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %248, ptr noundef %247) #8
+  %254 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %248, ptr noundef %247) #9
   br label %repeatLastTop.exit.i
 
 255:                                              ; preds = %243
-  %256 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %248) #8
+  %256 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %248) #9
   br label %repeatLastTop.exit.i
 
 257:                                              ; preds = %243
-  %258 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %238, ptr noundef nonnull %248, ptr noundef %247) #8
+  %258 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %238, ptr noundef nonnull %248, ptr noundef %247) #9
   br label %repeatLastTop.exit.i
 
 259:                                              ; preds = %243
-  %260 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %238, ptr noundef nonnull %248) #8
+  %260 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %238, ptr noundef nonnull %248) #9
   br label %repeatLastTop.exit.i
 
 repeatLastTop.exit.i:                             ; preds = %259, %257, %255, %253, %251, %249, %243
@@ -1057,7 +1057,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrDot_Q2(ptr noundef %0, ptr no
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 %14(i64 noundef 0, i64 noundef %23, i32 noundef %25, ptr noundef %27) #8
+  %28 = tail call i32 %14(i64 noundef 0, i64 noundef %23, i32 noundef %25, ptr noundef %27) #9
   store i8 0, ptr %10, align 8
   %.not109.i = icmp eq i32 %28, 0
   br i1 %.not109.i, label %nfaExecLbrDot_Q_i.exit, label %29
@@ -1143,7 +1143,7 @@ repeatIsDead.exit118.i.thread:                    ; preds = %46, %repeatIsDead.e
   ]
 
 66:                                               ; preds = %56
-  %67 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %60, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %64, i64 noundef %.0101.i104) #8
+  %67 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %60, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %64, i64 noundef %.0101.i104) #9
   br label %repeatNextMatch.exit
 
 68:                                               ; preds = %56, %56
@@ -1168,19 +1168,19 @@ repeatIsDead.exit118.i.thread:                    ; preds = %46, %repeatIsDead.e
   br label %repeatNextMatch.exit
 
 83:                                               ; preds = %56
-  %84 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %60, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %64, i64 noundef %.0101.i104) #8
+  %84 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %60, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %64, i64 noundef %.0101.i104) #9
   br label %repeatNextMatch.exit
 
 85:                                               ; preds = %56
-  %86 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %60, ptr noundef nonnull %.0.shrunk.i116.i.in.in, i64 noundef %.0101.i104) #8
+  %86 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %60, ptr noundef nonnull %.0.shrunk.i116.i.in.in, i64 noundef %.0101.i104) #9
   br label %repeatNextMatch.exit
 
 87:                                               ; preds = %56
-  %88 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %60, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %64, i64 noundef %.0101.i104) #8
+  %88 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %60, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %64, i64 noundef %.0101.i104) #9
   br label %repeatNextMatch.exit
 
 89:                                               ; preds = %56
-  %90 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %60, ptr noundef nonnull %.0.shrunk.i116.i.in.in, i64 noundef %.0101.i104) #8
+  %90 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %60, ptr noundef nonnull %.0.shrunk.i116.i.in.in, i64 noundef %.0101.i104) #9
   br label %repeatNextMatch.exit
 
 91:                                               ; preds = %56
@@ -1332,7 +1332,7 @@ repeatIsDead.exit.i.i4:                           ; preds = %132, %132, %132, %1
   ]
 
 144:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreRing(ptr noundef nonnull %136, ptr noundef nonnull %143, ptr noundef %140, i64 noundef %128, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %136, ptr noundef nonnull %143, ptr noundef %140, i64 noundef %128, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 145:                                              ; preds = %.split.i.i8
@@ -1344,19 +1344,19 @@ repeatIsDead.exit.i.i4:                           ; preds = %132, %132, %132, %1
   br label %lbrTop.exit.i
 
 147:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreRange(ptr noundef nonnull %136, ptr noundef nonnull %143, ptr noundef %140, i64 noundef %128, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %136, ptr noundef nonnull %143, ptr noundef %140, i64 noundef %128, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 148:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %136, ptr noundef nonnull %143, i64 noundef %128, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %136, ptr noundef nonnull %143, i64 noundef %128, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 149:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %136, ptr noundef nonnull %143, ptr noundef %140, i64 noundef %128, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %136, ptr noundef nonnull %143, ptr noundef %140, i64 noundef %128, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 150:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %136, ptr noundef nonnull %143, i64 noundef %128, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %136, ptr noundef nonnull %143, i64 noundef %128, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 151:                                              ; preds = %repeatIsDead.exit.i.i4
@@ -1371,23 +1371,23 @@ repeatIsDead.exit.i.i4:                           ; preds = %132, %132, %132, %1
   ]
 
 152:                                              ; preds = %151
-  %153 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %136, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %153 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %136, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 154:                                              ; preds = %151
-  %155 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %140) #8
+  %155 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %140) #9
   br label %repeatLastTop.exit
 
 156:                                              ; preds = %151
-  %157 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %157 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 158:                                              ; preds = %151
-  %159 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %136, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %140) #8
+  %159 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %136, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %140) #9
   br label %repeatLastTop.exit
 
 160:                                              ; preds = %151
-  %161 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %136, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %161 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %136, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 default.unreachable:                              ; preds = %151
@@ -1411,7 +1411,7 @@ repeatLastTop.exit:                               ; preds = %151, %151, %.thread
   ]
 
 164:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreRing(ptr noundef nonnull %136, ptr noundef nonnull %162, ptr noundef %140, i64 noundef %128, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %136, ptr noundef nonnull %162, ptr noundef %140, i64 noundef %128, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 165:                                              ; preds = %.split16.i.i11
@@ -1419,19 +1419,19 @@ repeatLastTop.exit:                               ; preds = %151, %151, %.thread
   br label %lbrTop.exit.i
 
 166:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreRange(ptr noundef nonnull %136, ptr noundef nonnull %162, ptr noundef %140, i64 noundef %128, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %136, ptr noundef nonnull %162, ptr noundef %140, i64 noundef %128, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 167:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %136, ptr noundef nonnull %162, i64 noundef %128, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %136, ptr noundef nonnull %162, i64 noundef %128, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 168:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %136, ptr noundef nonnull %162, ptr noundef %140, i64 noundef %128, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %136, ptr noundef nonnull %162, ptr noundef %140, i64 noundef %128, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 169:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %136, ptr noundef nonnull %162, i64 noundef %128, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %136, ptr noundef nonnull %162, i64 noundef %128, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 nfaExecLbrDot_TopScan.exit:                       ; preds = %repeatIsDead.exit.i.thread60, %.lr.ph.preheader, %.lr.ph, %130
@@ -1505,7 +1505,7 @@ repeatIsDead.exit.i.i:                            ; preds = %185, %185, %185, %1
   ]
 
 197:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %195, i64 noundef %188, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %195, i64 noundef %188, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 198:                                              ; preds = %.split.i.i
@@ -1517,19 +1517,19 @@ repeatIsDead.exit.i.i:                            ; preds = %185, %185, %185, %1
   br label %lbrTop.exit.i
 
 200:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %195, i64 noundef %188, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %195, i64 noundef %188, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 201:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in, i64 noundef %188, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in, i64 noundef %188, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 202:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %195, i64 noundef %188, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %195, i64 noundef %188, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 203:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in, i64 noundef %188, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in, i64 noundef %188, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 204:                                              ; preds = %repeatIsDead.exit.i.i
@@ -1544,23 +1544,23 @@ repeatIsDead.exit.i.i:                            ; preds = %185, %185, %185, %1
   ]
 
 205:                                              ; preds = %204
-  %206 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in) #8
+  %206 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in) #9
   br label %repeatLastTop.exit14
 
 207:                                              ; preds = %204
-  %208 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %195) #8
+  %208 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %195) #9
   br label %repeatLastTop.exit14
 
 209:                                              ; preds = %204
-  %210 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i116.i.in.in) #8
+  %210 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i116.i.in.in) #9
   br label %repeatLastTop.exit14
 
 211:                                              ; preds = %204
-  %212 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %195) #8
+  %212 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %195) #9
   br label %repeatLastTop.exit14
 
 213:                                              ; preds = %204
-  %214 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in) #8
+  %214 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in) #9
   br label %repeatLastTop.exit14
 
 default.unreachable91:                            ; preds = %204
@@ -1583,7 +1583,7 @@ repeatLastTop.exit14:                             ; preds = %204, %204, %185, %2
   ]
 
 216:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %195, i64 noundef %188, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %195, i64 noundef %188, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 217:                                              ; preds = %.split16.i.i
@@ -1591,19 +1591,19 @@ repeatLastTop.exit14:                             ; preds = %204, %204, %185, %2
   br label %lbrTop.exit.i
 
 218:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %195, i64 noundef %188, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %195, i64 noundef %188, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 219:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in, i64 noundef %188, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in, i64 noundef %188, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 220:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %195, i64 noundef %188, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in, ptr noundef %195, i64 noundef %188, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 221:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in, i64 noundef %188, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i116.i.in.in, i64 noundef %188, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 default.unreachable127:                           ; preds = %.split.i.i
@@ -1671,7 +1671,7 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   ]
 
 246:                                              ; preds = %240
-  %247 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %235, ptr noundef nonnull %245) #8
+  %247 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %235, ptr noundef nonnull %245) #9
   br label %repeatLastTop.exit.i
 
 248:                                              ; preds = %240, %240
@@ -1679,19 +1679,19 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   br label %repeatLastTop.exit.i
 
 250:                                              ; preds = %240
-  %251 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %245, ptr noundef %244) #8
+  %251 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %245, ptr noundef %244) #9
   br label %repeatLastTop.exit.i
 
 252:                                              ; preds = %240
-  %253 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %245) #8
+  %253 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %245) #9
   br label %repeatLastTop.exit.i
 
 254:                                              ; preds = %240
-  %255 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %235, ptr noundef nonnull %245, ptr noundef %244) #8
+  %255 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %235, ptr noundef nonnull %245, ptr noundef %244) #9
   br label %repeatLastTop.exit.i
 
 256:                                              ; preds = %240
-  %257 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %235, ptr noundef nonnull %245) #8
+  %257 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %235, ptr noundef nonnull %245) #9
   br label %repeatLastTop.exit.i
 
 repeatLastTop.exit.i:                             ; preds = %256, %254, %252, %250, %248, %246, %240
@@ -1856,7 +1856,7 @@ repeatIsDead.exit.i.i:                            ; preds = %51, %51, %51, %51, 
   ]
 
 63:                                               ; preds = %.split.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %55, ptr noundef nonnull %62, ptr noundef %59, i64 noundef %47, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %55, ptr noundef nonnull %62, ptr noundef %59, i64 noundef %47, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 64:                                               ; preds = %.split.i.i
@@ -1868,19 +1868,19 @@ repeatIsDead.exit.i.i:                            ; preds = %51, %51, %51, %51, 
   br label %lbrTop.exit
 
 66:                                               ; preds = %.split.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %55, ptr noundef nonnull %62, ptr noundef %59, i64 noundef %47, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %55, ptr noundef nonnull %62, ptr noundef %59, i64 noundef %47, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 67:                                               ; preds = %.split.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %55, ptr noundef nonnull %62, i64 noundef %47, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %55, ptr noundef nonnull %62, i64 noundef %47, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 68:                                               ; preds = %.split.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %55, ptr noundef nonnull %62, ptr noundef %59, i64 noundef %47, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %55, ptr noundef nonnull %62, ptr noundef %59, i64 noundef %47, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 69:                                               ; preds = %.split.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %55, ptr noundef nonnull %62, i64 noundef %47, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %55, ptr noundef nonnull %62, i64 noundef %47, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 70:                                               ; preds = %repeatIsDead.exit.i.i
@@ -1895,23 +1895,23 @@ repeatIsDead.exit.i.i:                            ; preds = %51, %51, %51, %51, 
   ]
 
 71:                                               ; preds = %70
-  %72 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %55, ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #8
+  %72 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %55, ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #9
   br label %repeatLastTop.exit
 
 73:                                               ; preds = %70
-  %74 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i.in.in, ptr noundef %59) #8
+  %74 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i.in.in, ptr noundef %59) #9
   br label %repeatLastTop.exit
 
 75:                                               ; preds = %70
-  %76 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #8
+  %76 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #9
   br label %repeatLastTop.exit
 
 77:                                               ; preds = %70
-  %78 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %55, ptr noundef nonnull %.0.shrunk.i.i.i.in.in, ptr noundef %59) #8
+  %78 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %55, ptr noundef nonnull %.0.shrunk.i.i.i.in.in, ptr noundef %59) #9
   br label %repeatLastTop.exit
 
 79:                                               ; preds = %70
-  %80 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %55, ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #8
+  %80 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %55, ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #9
   br label %repeatLastTop.exit
 
 default.unreachable:                              ; preds = %70
@@ -1935,7 +1935,7 @@ repeatLastTop.exit:                               ; preds = %70, %70, %.thread14
   ]
 
 83:                                               ; preds = %.split16.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %55, ptr noundef nonnull %81, ptr noundef %59, i64 noundef %47, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %55, ptr noundef nonnull %81, ptr noundef %59, i64 noundef %47, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 84:                                               ; preds = %.split16.i.i
@@ -1943,19 +1943,19 @@ repeatLastTop.exit:                               ; preds = %70, %70, %.thread14
   br label %lbrTop.exit
 
 85:                                               ; preds = %.split16.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %55, ptr noundef nonnull %81, ptr noundef %59, i64 noundef %47, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %55, ptr noundef nonnull %81, ptr noundef %59, i64 noundef %47, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 86:                                               ; preds = %.split16.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %55, ptr noundef nonnull %81, i64 noundef %47, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %55, ptr noundef nonnull %81, i64 noundef %47, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 87:                                               ; preds = %.split16.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %55, ptr noundef nonnull %81, ptr noundef %59, i64 noundef %47, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %55, ptr noundef nonnull %81, ptr noundef %59, i64 noundef %47, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 88:                                               ; preds = %.split16.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %55, ptr noundef nonnull %81, i64 noundef %47, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %55, ptr noundef nonnull %81, i64 noundef %47, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 repeatIsDead.exit76.thread:                       ; preds = %32, %repeatIsDead.exit79
@@ -2009,7 +2009,7 @@ repeatIsDead.exit.i:                              ; preds = %93, %93, %93, %93, 
   ]
 
 103:                                              ; preds = %.split.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %101, i64 noundef %90, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %101, i64 noundef %90, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 104:                                              ; preds = %.split.i
@@ -2021,19 +2021,19 @@ repeatIsDead.exit.i:                              ; preds = %93, %93, %93, %93, 
   br label %lbrTop.exit
 
 106:                                              ; preds = %.split.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %101, i64 noundef %90, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %101, i64 noundef %90, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 107:                                              ; preds = %.split.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %90, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %90, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 108:                                              ; preds = %.split.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %101, i64 noundef %90, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %101, i64 noundef %90, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 109:                                              ; preds = %.split.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %90, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %90, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 110:                                              ; preds = %repeatIsDead.exit.i
@@ -2048,23 +2048,23 @@ repeatIsDead.exit.i:                              ; preds = %93, %93, %93, %93, 
   ]
 
 111:                                              ; preds = %110
-  %112 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in) #8
+  %112 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in) #9
   br label %repeatLastTop.exit104
 
 113:                                              ; preds = %110
-  %114 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %101) #8
+  %114 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %101) #9
   br label %repeatLastTop.exit104
 
 115:                                              ; preds = %110
-  %116 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i80.in.in) #8
+  %116 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i80.in.in) #9
   br label %repeatLastTop.exit104
 
 117:                                              ; preds = %110
-  %118 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %101) #8
+  %118 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %101) #9
   br label %repeatLastTop.exit104
 
 119:                                              ; preds = %110
-  %120 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in) #8
+  %120 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in) #9
   br label %repeatLastTop.exit104
 
 default.unreachable184:                           ; preds = %110
@@ -2087,7 +2087,7 @@ repeatLastTop.exit104:                            ; preds = %110, %110, %93, %11
   ]
 
 122:                                              ; preds = %.split16.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %101, i64 noundef %90, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %101, i64 noundef %90, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 123:                                              ; preds = %.split16.i
@@ -2095,19 +2095,19 @@ repeatLastTop.exit104:                            ; preds = %110, %110, %93, %11
   br label %lbrTop.exit
 
 124:                                              ; preds = %.split16.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %101, i64 noundef %90, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %101, i64 noundef %90, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 125:                                              ; preds = %.split16.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %90, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %90, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 126:                                              ; preds = %.split16.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %101, i64 noundef %90, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %101, i64 noundef %90, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 127:                                              ; preds = %.split16.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %90, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %97, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %90, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 default.unreachable217:                           ; preds = %.split.i
@@ -2180,7 +2180,7 @@ repeatIsDead.exit.thread:                         ; preds = %138, %repeatIsDead.
   ]
 
 152:                                              ; preds = %143
-  %153 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %145, ptr noundef nonnull %150, ptr noundef %149, i64 noundef %.064.lcssa) #8
+  %153 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %145, ptr noundef nonnull %150, ptr noundef %149, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 154:                                              ; preds = %143
@@ -2211,19 +2211,19 @@ repeatIsDead.exit.thread:                         ; preds = %138, %repeatIsDead.
   br i1 %.not.i95, label %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge, label %nfaExecLbrDot_TopScan.exit
 
 173:                                              ; preds = %143
-  %174 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %145, ptr noundef nonnull %150, ptr noundef %149, i64 noundef %.064.lcssa) #8
+  %174 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %145, ptr noundef nonnull %150, ptr noundef %149, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 175:                                              ; preds = %143
-  %176 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %145, ptr noundef nonnull %150, i64 noundef %.064.lcssa) #8
+  %176 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %145, ptr noundef nonnull %150, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 177:                                              ; preds = %143
-  %178 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %145, ptr noundef nonnull %150, ptr noundef %149, i64 noundef %.064.lcssa) #8
+  %178 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %145, ptr noundef nonnull %150, ptr noundef %149, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 179:                                              ; preds = %143
-  %180 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %145, ptr noundef nonnull %150, i64 noundef %.064.lcssa) #8
+  %180 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %145, ptr noundef nonnull %150, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 lbrInAccept.exit:                                 ; preds = %179, %177, %175, %173, %154, %152
@@ -2259,7 +2259,7 @@ lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lb
   ]
 
 191:                                              ; preds = %lbrInAccept.exit.thread
-  %192 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %184, ptr noundef nonnull %189, ptr noundef %188, i64 noundef %.064.lcssa) #8
+  %192 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %184, ptr noundef nonnull %189, ptr noundef %188, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 193:                                              ; preds = %lbrInAccept.exit.thread
@@ -2289,19 +2289,19 @@ lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lb
   br i1 %.not.i98, label %repeatHasMatch.exit.thread.thread, label %nfaExecLbrDot_TopScan.exit
 
 212:                                              ; preds = %lbrInAccept.exit.thread
-  %213 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %184, ptr noundef nonnull %189, ptr noundef %188, i64 noundef %.064.lcssa) #8
+  %213 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %184, ptr noundef nonnull %189, ptr noundef %188, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 214:                                              ; preds = %lbrInAccept.exit.thread
-  %215 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %184, ptr noundef nonnull %189, i64 noundef %.064.lcssa) #8
+  %215 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %184, ptr noundef nonnull %189, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 216:                                              ; preds = %lbrInAccept.exit.thread
-  %217 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %184, ptr noundef nonnull %189, ptr noundef %188, i64 noundef %.064.lcssa) #8
+  %217 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %184, ptr noundef nonnull %189, ptr noundef %188, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 218:                                              ; preds = %lbrInAccept.exit.thread
-  %219 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %184, ptr noundef nonnull %189, i64 noundef %.064.lcssa) #8
+  %219 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %184, ptr noundef nonnull %189, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %191, %212, %214, %216, %218
@@ -2327,7 +2327,7 @@ repeatHasMatch.exit.thread:                       ; preds = %repeatHasMatch.exit
   ]
 
 222:                                              ; preds = %repeatHasMatch.exit.thread
-  %223 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %184, ptr noundef nonnull %189, ptr noundef %188, i64 noundef %.064.lcssa) #8
+  %223 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %184, ptr noundef nonnull %189, ptr noundef %188, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 repeatHasMatch.exit.thread.thread:                ; preds = %207, %193, %200, %repeatHasMatch.exit.thread, %repeatHasMatch.exit.thread
@@ -2351,19 +2351,19 @@ repeatHasMatch.exit.thread.thread:                ; preds = %207, %193, %200, %r
   br i1 %or.cond.i112, label %repeatNextMatch.exit, label %repeatNextMatch.exit.thread
 
 238:                                              ; preds = %repeatHasMatch.exit.thread
-  %239 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %184, ptr noundef nonnull %189, ptr noundef %188, i64 noundef %.064.lcssa) #8
+  %239 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %184, ptr noundef nonnull %189, ptr noundef %188, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 240:                                              ; preds = %repeatHasMatch.exit.thread
-  %241 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %184, ptr noundef nonnull %189, i64 noundef %.064.lcssa) #8
+  %241 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %184, ptr noundef nonnull %189, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 242:                                              ; preds = %repeatHasMatch.exit.thread
-  %243 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %184, ptr noundef nonnull %189, ptr noundef %188, i64 noundef %.064.lcssa) #8
+  %243 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %184, ptr noundef nonnull %189, ptr noundef %188, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 244:                                              ; preds = %repeatHasMatch.exit.thread
-  %245 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %184, ptr noundef nonnull %189, i64 noundef %.064.lcssa) #8
+  %245 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %184, ptr noundef nonnull %189, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 246:                                              ; preds = %repeatHasMatch.exit.thread
@@ -2398,7 +2398,7 @@ define hidden noundef signext i8 @nfaExecLbrVerm_queueCompressState(ptr noundef 
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  tail call void @repeatPack(ptr noundef %11, ptr noundef nonnull %14, ptr noundef nonnull %15, i64 noundef %9) #8
+  tail call void @repeatPack(ptr noundef %11, ptr noundef nonnull %14, ptr noundef nonnull %15, i64 noundef %9) #9
   ret i8 0
 }
 
@@ -2409,7 +2409,7 @@ define hidden noundef signext i8 @nfaExecLbrVerm_expandState(ptr noundef %0, ptr
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @repeatUnpack(ptr noundef %2, ptr noundef nonnull %9, i64 noundef %3, ptr noundef nonnull %10) #8
+  tail call void @repeatUnpack(ptr noundef %2, ptr noundef nonnull %9, i64 noundef %3, ptr noundef nonnull %10) #9
   store i64 0, ptr %1, align 8
   ret i8 0
 }
@@ -2431,7 +2431,7 @@ define hidden noundef signext i8 @nfaExecLbrVerm_reportCurrent(ptr noundef reado
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 %13(i64 noundef 0, i64 noundef %11, i32 noundef %15, ptr noundef %17) #8
+  %18 = tail call i32 %13(i64 noundef 0, i64 noundef %11, i32 noundef %15, ptr noundef %17) #9
   ret i8 0
 }
 
@@ -2497,7 +2497,7 @@ repeatIsDead.exit.thread:                         ; preds = %3, %repeatIsDead.ex
   ]
 
 31:                                               ; preds = %23
-  %32 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #8
+  %32 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 33:                                               ; preds = %23
@@ -2529,19 +2529,19 @@ repeatIsDead.exit.thread:                         ; preds = %3, %repeatIsDead.ex
   br label %repeatHasMatch.exit
 
 52:                                               ; preds = %23
-  %53 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #8
+  %53 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 54:                                               ; preds = %23
-  %55 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %7, ptr noundef nonnull %30, i64 noundef %20) #8
+  %55 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %7, ptr noundef nonnull %30, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 56:                                               ; preds = %23
-  %57 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #8
+  %57 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 58:                                               ; preds = %23
-  %59 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %7, ptr noundef nonnull %30, i64 noundef %20) #8
+  %59 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %7, ptr noundef nonnull %30, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 default.unreachable:                              ; preds = %23
@@ -2675,7 +2675,7 @@ clearRepeat.exit:                                 ; preds = %4, %4
 39:                                               ; preds = %.split.i.thread, %.split.i
   %40 = phi ptr [ %16, %.split.i.thread ], [ %38, %.split.i ]
   %41 = phi ptr [ %15, %.split.i.thread ], [ %37, %.split.i ]
-  call void @repeatStoreRing(ptr noundef nonnull %9, ptr noundef nonnull %40, ptr noundef %41, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreRing(ptr noundef nonnull %9, ptr noundef nonnull %40, ptr noundef %41, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 42:                                               ; preds = %.split.i
@@ -2689,23 +2689,23 @@ clearRepeat.exit:                                 ; preds = %4, %4
 44:                                               ; preds = %.split.i.thread21, %.split.i
   %45 = phi ptr [ %22, %.split.i.thread21 ], [ %38, %.split.i ]
   %46 = phi ptr [ %21, %.split.i.thread21 ], [ %37, %.split.i ]
-  call void @repeatStoreRange(ptr noundef nonnull %9, ptr noundef nonnull %45, ptr noundef %46, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreRange(ptr noundef nonnull %9, ptr noundef nonnull %45, ptr noundef %46, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 47:                                               ; preds = %.split.i.thread22, %.split.i
   %48 = phi ptr [ %25, %.split.i.thread22 ], [ %38, %.split.i ]
-  call void @repeatStoreBitmap(ptr noundef nonnull %9, ptr noundef nonnull %48, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreBitmap(ptr noundef nonnull %9, ptr noundef nonnull %48, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 49:                                               ; preds = %.split.i.thread23, %.split.i
   %50 = phi ptr [ %31, %.split.i.thread23 ], [ %38, %.split.i ]
   %51 = phi ptr [ %30, %.split.i.thread23 ], [ %37, %.split.i ]
-  call void @repeatStoreSparseOptimalP(ptr noundef nonnull %9, ptr noundef nonnull %50, ptr noundef %51, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreSparseOptimalP(ptr noundef nonnull %9, ptr noundef nonnull %50, ptr noundef %51, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 52:                                               ; preds = %.split.i.thread24, %.split.i
   %53 = phi ptr [ %33, %.split.i.thread24 ], [ %38, %.split.i ]
-  call void @repeatStoreTrailer(ptr noundef nonnull %9, ptr noundef nonnull %53, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreTrailer(ptr noundef nonnull %9, ptr noundef nonnull %53, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 lbrTop.exit:                                      ; preds = %4, %clearRepeat.exit, %52, %49, %47, %44, %43, %42, %39, %.split.i
@@ -2713,7 +2713,7 @@ lbrTop.exit:                                      ; preds = %4, %clearRepeat.exi
   %55 = zext i32 %54 to i64
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @repeatPack(ptr noundef %2, ptr noundef nonnull %56, ptr noundef nonnull %57, i64 noundef %1) #8
+  call void @repeatPack(ptr noundef %2, ptr noundef nonnull %56, ptr noundef nonnull %57, i64 noundef %1) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i8 1
 }
@@ -2747,7 +2747,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLbrVerm_Q(ptr noundef %0, ptr no
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 %14(i64 noundef 0, i64 noundef %23, i32 noundef %25, ptr noundef %27) #8
+  %28 = tail call i32 %14(i64 noundef 0, i64 noundef %23, i32 noundef %25, ptr noundef %27) #9
   store i8 0, ptr %10, align 8
   %.not109.i = icmp eq i32 %28, 0
   br i1 %.not109.i, label %nfaExecLbrVerm_Q_i.exit, label %29
@@ -2990,7 +2990,7 @@ vermicelliExec.exit:                              ; preds = %.lr.ph169, %75, %.p
   ]
 
 152:                                              ; preds = %150
-  %153 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %143, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %147, i64 noundef %.0.i21) #8
+  %153 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %143, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %147, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 154:                                              ; preds = %150, %150
@@ -3013,19 +3013,19 @@ vermicelliExec.exit:                              ; preds = %.lr.ph169, %75, %.p
   br label %repeatNextMatch.exit
 
 167:                                              ; preds = %150
-  %168 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %143, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %147, i64 noundef %.0.i21) #8
+  %168 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %143, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %147, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 169:                                              ; preds = %150
-  %170 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %143, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0.i21) #8
+  %170 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %143, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 171:                                              ; preds = %150
-  %172 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %143, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %147, i64 noundef %.0.i21) #8
+  %172 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %143, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %147, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 173:                                              ; preds = %150
-  %174 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %143, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0.i21) #8
+  %174 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %143, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 175:                                              ; preds = %150
@@ -3040,7 +3040,7 @@ repeatNextMatch.exit:                             ; preds = %160, %154, %152, %1
 
 178:                                              ; preds = %repeatNextMatch.exit
   %179 = load i32, ptr %49, align 4
-  %180 = tail call i32 %136(i64 noundef 0, i64 noundef %.0.i29, i32 noundef %179, ptr noundef %137) #8
+  %180 = tail call i32 %136(i64 noundef 0, i64 noundef %.0.i29, i32 noundef %179, ptr noundef %137) #9
   %181 = icmp eq i32 %180, 0
   br i1 %181, label %nfaExecLbrVerm_Q_i.exit, label %150
 
@@ -3329,7 +3329,7 @@ repeatIsDead.exit.i.i4:                           ; preds = %.thread116, %.threa
   ]
 
 313:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreRing(ptr noundef nonnull %305, ptr noundef nonnull %312, ptr noundef %309, i64 noundef %221, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %305, ptr noundef nonnull %312, ptr noundef %309, i64 noundef %221, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 314:                                              ; preds = %.split.i.i8
@@ -3341,19 +3341,19 @@ repeatIsDead.exit.i.i4:                           ; preds = %.thread116, %.threa
   br label %lbrTop.exit.i
 
 316:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreRange(ptr noundef nonnull %305, ptr noundef nonnull %312, ptr noundef %309, i64 noundef %221, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %305, ptr noundef nonnull %312, ptr noundef %309, i64 noundef %221, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 317:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %305, ptr noundef nonnull %312, i64 noundef %221, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %305, ptr noundef nonnull %312, i64 noundef %221, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 318:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %305, ptr noundef nonnull %312, ptr noundef %309, i64 noundef %221, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %305, ptr noundef nonnull %312, ptr noundef %309, i64 noundef %221, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 319:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %305, ptr noundef nonnull %312, i64 noundef %221, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %305, ptr noundef nonnull %312, i64 noundef %221, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 320:                                              ; preds = %repeatIsDead.exit.i.i4
@@ -3368,23 +3368,23 @@ repeatIsDead.exit.i.i4:                           ; preds = %.thread116, %.threa
   ]
 
 321:                                              ; preds = %320
-  %322 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %305, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %322 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %305, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 323:                                              ; preds = %320
-  %324 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %309) #8
+  %324 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %309) #9
   br label %repeatLastTop.exit
 
 325:                                              ; preds = %320
-  %326 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %326 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 327:                                              ; preds = %320
-  %328 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %305, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %309) #8
+  %328 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %305, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %309) #9
   br label %repeatLastTop.exit
 
 329:                                              ; preds = %320
-  %330 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %305, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %330 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %305, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 default.unreachable:                              ; preds = %320
@@ -3408,7 +3408,7 @@ repeatLastTop.exit:                               ; preds = %320, %320, %.thread
   ]
 
 333:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreRing(ptr noundef nonnull %305, ptr noundef nonnull %331, ptr noundef %309, i64 noundef %221, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %305, ptr noundef nonnull %331, ptr noundef %309, i64 noundef %221, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 334:                                              ; preds = %.split16.i.i11
@@ -3416,19 +3416,19 @@ repeatLastTop.exit:                               ; preds = %320, %320, %.thread
   br label %lbrTop.exit.i
 
 335:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreRange(ptr noundef nonnull %305, ptr noundef nonnull %331, ptr noundef %309, i64 noundef %221, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %305, ptr noundef nonnull %331, ptr noundef %309, i64 noundef %221, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 336:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %305, ptr noundef nonnull %331, i64 noundef %221, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %305, ptr noundef nonnull %331, i64 noundef %221, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 337:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %305, ptr noundef nonnull %331, ptr noundef %309, i64 noundef %221, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %305, ptr noundef nonnull %331, ptr noundef %309, i64 noundef %221, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 338:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %305, ptr noundef nonnull %331, i64 noundef %221, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %305, ptr noundef nonnull %331, i64 noundef %221, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 nfaExecLbrVerm_TopScan.exit:                      ; preds = %.lr.ph173, %212, %223
@@ -3502,7 +3502,7 @@ repeatIsDead.exit.i.i:                            ; preds = %354, %354, %354, %3
   ]
 
 366:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %364, i64 noundef %357, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %364, i64 noundef %357, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 367:                                              ; preds = %.split.i.i
@@ -3514,19 +3514,19 @@ repeatIsDead.exit.i.i:                            ; preds = %354, %354, %354, %3
   br label %lbrTop.exit.i
 
 369:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %364, i64 noundef %357, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %364, i64 noundef %357, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 370:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %357, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %357, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 371:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %364, i64 noundef %357, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %364, i64 noundef %357, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 372:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %357, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %357, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 373:                                              ; preds = %repeatIsDead.exit.i.i
@@ -3541,23 +3541,23 @@ repeatIsDead.exit.i.i:                            ; preds = %354, %354, %354, %3
   ]
 
 374:                                              ; preds = %373
-  %375 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #8
+  %375 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #9
   br label %repeatLastTop.exit14
 
 376:                                              ; preds = %373
-  %377 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %364) #8
+  %377 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %364) #9
   br label %repeatLastTop.exit14
 
 378:                                              ; preds = %373
-  %379 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i118.i.in.in) #8
+  %379 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i118.i.in.in) #9
   br label %repeatLastTop.exit14
 
 380:                                              ; preds = %373
-  %381 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %364) #8
+  %381 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %364) #9
   br label %repeatLastTop.exit14
 
 382:                                              ; preds = %373
-  %383 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #8
+  %383 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #9
   br label %repeatLastTop.exit14
 
 default.unreachable145:                           ; preds = %373
@@ -3580,7 +3580,7 @@ repeatLastTop.exit14:                             ; preds = %373, %373, %354, %3
   ]
 
 385:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %364, i64 noundef %357, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %364, i64 noundef %357, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 386:                                              ; preds = %.split16.i.i
@@ -3588,19 +3588,19 @@ repeatLastTop.exit14:                             ; preds = %373, %373, %354, %3
   br label %lbrTop.exit.i
 
 387:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %364, i64 noundef %357, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %364, i64 noundef %357, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 388:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %357, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %357, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 389:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %364, i64 noundef %357, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %364, i64 noundef %357, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 390:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %357, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %357, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 default.unreachable235:                           ; preds = %.split.i.i
@@ -3668,7 +3668,7 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   ]
 
 415:                                              ; preds = %409
-  %416 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %404, ptr noundef nonnull %414) #8
+  %416 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %404, ptr noundef nonnull %414) #9
   br label %repeatLastTop.exit.i
 
 417:                                              ; preds = %409, %409
@@ -3676,19 +3676,19 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   br label %repeatLastTop.exit.i
 
 419:                                              ; preds = %409
-  %420 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %414, ptr noundef %413) #8
+  %420 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %414, ptr noundef %413) #9
   br label %repeatLastTop.exit.i
 
 421:                                              ; preds = %409
-  %422 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %414) #8
+  %422 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %414) #9
   br label %repeatLastTop.exit.i
 
 423:                                              ; preds = %409
-  %424 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %404, ptr noundef nonnull %414, ptr noundef %413) #8
+  %424 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %404, ptr noundef nonnull %414, ptr noundef %413) #9
   br label %repeatLastTop.exit.i
 
 425:                                              ; preds = %409
-  %426 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %404, ptr noundef nonnull %414) #8
+  %426 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %404, ptr noundef nonnull %414) #9
   br label %repeatLastTop.exit.i
 
 repeatLastTop.exit.i:                             ; preds = %425, %423, %421, %419, %417, %415, %409
@@ -3734,7 +3734,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrVerm_Q2(ptr noundef %0, ptr n
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 %14(i64 noundef 0, i64 noundef %23, i32 noundef %25, ptr noundef %27) #8
+  %28 = tail call i32 %14(i64 noundef 0, i64 noundef %23, i32 noundef %25, ptr noundef %27) #9
   store i8 0, ptr %10, align 8
   %.not109.i = icmp eq i32 %28, 0
   br i1 %.not109.i, label %nfaExecLbrVerm_Q_i.exit, label %29
@@ -3966,7 +3966,7 @@ vermicelliExec.exit:                              ; preds = %.lr.ph182, %72, %.p
   ]
 
 144:                                              ; preds = %134
-  %145 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %138, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %142, i64 noundef %.0101.i191) #8
+  %145 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %138, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %142, i64 noundef %.0101.i191) #9
   br label %repeatNextMatch.exit
 
 146:                                              ; preds = %134, %134
@@ -3991,19 +3991,19 @@ vermicelliExec.exit:                              ; preds = %.lr.ph182, %72, %.p
   br label %repeatNextMatch.exit
 
 161:                                              ; preds = %134
-  %162 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %138, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %142, i64 noundef %.0101.i191) #8
+  %162 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %138, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %142, i64 noundef %.0101.i191) #9
   br label %repeatNextMatch.exit
 
 163:                                              ; preds = %134
-  %164 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %138, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0101.i191) #8
+  %164 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %138, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0101.i191) #9
   br label %repeatNextMatch.exit
 
 165:                                              ; preds = %134
-  %166 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %138, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %142, i64 noundef %.0101.i191) #8
+  %166 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %138, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %142, i64 noundef %.0101.i191) #9
   br label %repeatNextMatch.exit
 
 167:                                              ; preds = %134
-  %168 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %138, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0101.i191) #8
+  %168 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %138, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0101.i191) #9
   br label %repeatNextMatch.exit
 
 169:                                              ; preds = %134
@@ -4314,7 +4314,7 @@ repeatIsDead.exit.i.i4:                           ; preds = %.thread129, %.threa
   ]
 
 310:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreRing(ptr noundef nonnull %302, ptr noundef nonnull %309, ptr noundef %306, i64 noundef %218, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %302, ptr noundef nonnull %309, ptr noundef %306, i64 noundef %218, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 311:                                              ; preds = %.split.i.i8
@@ -4326,19 +4326,19 @@ repeatIsDead.exit.i.i4:                           ; preds = %.thread129, %.threa
   br label %lbrTop.exit.i
 
 313:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreRange(ptr noundef nonnull %302, ptr noundef nonnull %309, ptr noundef %306, i64 noundef %218, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %302, ptr noundef nonnull %309, ptr noundef %306, i64 noundef %218, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 314:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %302, ptr noundef nonnull %309, i64 noundef %218, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %302, ptr noundef nonnull %309, i64 noundef %218, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 315:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %302, ptr noundef nonnull %309, ptr noundef %306, i64 noundef %218, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %302, ptr noundef nonnull %309, ptr noundef %306, i64 noundef %218, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 316:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %302, ptr noundef nonnull %309, i64 noundef %218, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %302, ptr noundef nonnull %309, i64 noundef %218, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 317:                                              ; preds = %repeatIsDead.exit.i.i4
@@ -4353,23 +4353,23 @@ repeatIsDead.exit.i.i4:                           ; preds = %.thread129, %.threa
   ]
 
 318:                                              ; preds = %317
-  %319 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %302, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %319 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %302, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 320:                                              ; preds = %317
-  %321 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %306) #8
+  %321 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %306) #9
   br label %repeatLastTop.exit
 
 322:                                              ; preds = %317
-  %323 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %323 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 324:                                              ; preds = %317
-  %325 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %302, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %306) #8
+  %325 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %302, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %306) #9
   br label %repeatLastTop.exit
 
 326:                                              ; preds = %317
-  %327 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %302, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %327 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %302, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 default.unreachable:                              ; preds = %317
@@ -4393,7 +4393,7 @@ repeatLastTop.exit:                               ; preds = %317, %317, %.thread
   ]
 
 330:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreRing(ptr noundef nonnull %302, ptr noundef nonnull %328, ptr noundef %306, i64 noundef %218, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %302, ptr noundef nonnull %328, ptr noundef %306, i64 noundef %218, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 331:                                              ; preds = %.split16.i.i11
@@ -4401,19 +4401,19 @@ repeatLastTop.exit:                               ; preds = %317, %317, %.thread
   br label %lbrTop.exit.i
 
 332:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreRange(ptr noundef nonnull %302, ptr noundef nonnull %328, ptr noundef %306, i64 noundef %218, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %302, ptr noundef nonnull %328, ptr noundef %306, i64 noundef %218, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 333:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %302, ptr noundef nonnull %328, i64 noundef %218, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %302, ptr noundef nonnull %328, i64 noundef %218, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 334:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %302, ptr noundef nonnull %328, ptr noundef %306, i64 noundef %218, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %302, ptr noundef nonnull %328, ptr noundef %306, i64 noundef %218, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 335:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %302, ptr noundef nonnull %328, i64 noundef %218, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %302, ptr noundef nonnull %328, i64 noundef %218, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 nfaExecLbrVerm_TopScan.exit:                      ; preds = %.lr.ph186, %209, %220
@@ -4487,7 +4487,7 @@ repeatIsDead.exit.i.i:                            ; preds = %351, %351, %351, %3
   ]
 
 363:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %361, i64 noundef %354, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %361, i64 noundef %354, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 364:                                              ; preds = %.split.i.i
@@ -4499,19 +4499,19 @@ repeatIsDead.exit.i.i:                            ; preds = %351, %351, %351, %3
   br label %lbrTop.exit.i
 
 366:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %361, i64 noundef %354, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %361, i64 noundef %354, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 367:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %354, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %354, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 368:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %361, i64 noundef %354, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %361, i64 noundef %354, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 369:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %354, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %354, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 370:                                              ; preds = %repeatIsDead.exit.i.i
@@ -4526,23 +4526,23 @@ repeatIsDead.exit.i.i:                            ; preds = %351, %351, %351, %3
   ]
 
 371:                                              ; preds = %370
-  %372 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #8
+  %372 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #9
   br label %repeatLastTop.exit14
 
 373:                                              ; preds = %370
-  %374 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %361) #8
+  %374 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %361) #9
   br label %repeatLastTop.exit14
 
 375:                                              ; preds = %370
-  %376 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i118.i.in.in) #8
+  %376 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i118.i.in.in) #9
   br label %repeatLastTop.exit14
 
 377:                                              ; preds = %370
-  %378 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %361) #8
+  %378 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %361) #9
   br label %repeatLastTop.exit14
 
 379:                                              ; preds = %370
-  %380 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #8
+  %380 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #9
   br label %repeatLastTop.exit14
 
 default.unreachable158:                           ; preds = %370
@@ -4565,7 +4565,7 @@ repeatLastTop.exit14:                             ; preds = %370, %370, %351, %3
   ]
 
 382:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %361, i64 noundef %354, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %361, i64 noundef %354, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 383:                                              ; preds = %.split16.i.i
@@ -4573,19 +4573,19 @@ repeatLastTop.exit14:                             ; preds = %370, %370, %351, %3
   br label %lbrTop.exit.i
 
 384:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %361, i64 noundef %354, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %361, i64 noundef %354, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 385:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %354, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %354, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 386:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %361, i64 noundef %354, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %361, i64 noundef %354, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 387:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %354, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %354, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 default.unreachable248:                           ; preds = %.split.i.i
@@ -4653,7 +4653,7 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   ]
 
 412:                                              ; preds = %406
-  %413 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %401, ptr noundef nonnull %411) #8
+  %413 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %401, ptr noundef nonnull %411) #9
   br label %repeatLastTop.exit.i
 
 414:                                              ; preds = %406, %406
@@ -4661,19 +4661,19 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   br label %repeatLastTop.exit.i
 
 416:                                              ; preds = %406
-  %417 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %411, ptr noundef %410) #8
+  %417 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %411, ptr noundef %410) #9
   br label %repeatLastTop.exit.i
 
 418:                                              ; preds = %406
-  %419 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %411) #8
+  %419 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %411) #9
   br label %repeatLastTop.exit.i
 
 420:                                              ; preds = %406
-  %421 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %401, ptr noundef nonnull %411, ptr noundef %410) #8
+  %421 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %401, ptr noundef nonnull %411, ptr noundef %410) #9
   br label %repeatLastTop.exit.i
 
 422:                                              ; preds = %406
-  %423 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %401, ptr noundef nonnull %411) #8
+  %423 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %401, ptr noundef nonnull %411) #9
   br label %repeatLastTop.exit.i
 
 repeatLastTop.exit.i:                             ; preds = %422, %420, %418, %416, %414, %412, %406
@@ -5343,7 +5343,7 @@ repeatIsDead.exit.i.i:                            ; preds = %.thread237, %.threa
   ]
 
 323:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %315, ptr noundef nonnull %322, ptr noundef %319, i64 noundef %231, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %315, ptr noundef nonnull %322, ptr noundef %319, i64 noundef %231, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 324:                                              ; preds = %.split.i.i
@@ -5355,19 +5355,19 @@ repeatIsDead.exit.i.i:                            ; preds = %.thread237, %.threa
   br label %lbrTop.exit
 
 326:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %315, ptr noundef nonnull %322, ptr noundef %319, i64 noundef %231, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %315, ptr noundef nonnull %322, ptr noundef %319, i64 noundef %231, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 327:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %315, ptr noundef nonnull %322, i64 noundef %231, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %315, ptr noundef nonnull %322, i64 noundef %231, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 328:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %315, ptr noundef nonnull %322, ptr noundef %319, i64 noundef %231, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %315, ptr noundef nonnull %322, ptr noundef %319, i64 noundef %231, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 329:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %315, ptr noundef nonnull %322, i64 noundef %231, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %315, ptr noundef nonnull %322, i64 noundef %231, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 330:                                              ; preds = %repeatIsDead.exit.i.i
@@ -5382,23 +5382,23 @@ repeatIsDead.exit.i.i:                            ; preds = %.thread237, %.threa
   ]
 
 331:                                              ; preds = %330
-  %332 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %315, ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #8
+  %332 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %315, ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #9
   br label %repeatLastTop.exit
 
 333:                                              ; preds = %330
-  %334 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i.in.in, ptr noundef %319) #8
+  %334 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i.in.in, ptr noundef %319) #9
   br label %repeatLastTop.exit
 
 335:                                              ; preds = %330
-  %336 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #8
+  %336 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #9
   br label %repeatLastTop.exit
 
 337:                                              ; preds = %330
-  %338 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %315, ptr noundef nonnull %.0.shrunk.i.i.i.in.in, ptr noundef %319) #8
+  %338 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %315, ptr noundef nonnull %.0.shrunk.i.i.i.in.in, ptr noundef %319) #9
   br label %repeatLastTop.exit
 
 339:                                              ; preds = %330
-  %340 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %315, ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #8
+  %340 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %315, ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #9
   br label %repeatLastTop.exit
 
 default.unreachable:                              ; preds = %330
@@ -5422,7 +5422,7 @@ repeatLastTop.exit:                               ; preds = %330, %330, %.thread
   ]
 
 343:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %315, ptr noundef nonnull %341, ptr noundef %319, i64 noundef %231, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %315, ptr noundef nonnull %341, ptr noundef %319, i64 noundef %231, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 344:                                              ; preds = %.split16.i.i
@@ -5430,19 +5430,19 @@ repeatLastTop.exit:                               ; preds = %330, %330, %.thread
   br label %lbrTop.exit
 
 345:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %315, ptr noundef nonnull %341, ptr noundef %319, i64 noundef %231, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %315, ptr noundef nonnull %341, ptr noundef %319, i64 noundef %231, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 346:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %315, ptr noundef nonnull %341, i64 noundef %231, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %315, ptr noundef nonnull %341, i64 noundef %231, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 347:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %315, ptr noundef nonnull %341, ptr noundef %319, i64 noundef %231, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %315, ptr noundef nonnull %341, ptr noundef %319, i64 noundef %231, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 348:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %315, ptr noundef nonnull %341, i64 noundef %231, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %315, ptr noundef nonnull %341, i64 noundef %231, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 repeatIsDead.exit76.thread:                       ; preds = %nfaExecLbrVerm_StreamSilent.exit90, %repeatIsDead.exit76
@@ -5498,7 +5498,7 @@ repeatIsDead.exit.i:                              ; preds = %353, %353, %353, %3
   ]
 
 368:                                              ; preds = %.split.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %366, i64 noundef %359, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %366, i64 noundef %359, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 369:                                              ; preds = %.split.i
@@ -5510,19 +5510,19 @@ repeatIsDead.exit.i:                              ; preds = %353, %353, %353, %3
   br label %lbrTop.exit
 
 371:                                              ; preds = %.split.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %366, i64 noundef %359, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %366, i64 noundef %359, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 372:                                              ; preds = %.split.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %359, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %359, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 373:                                              ; preds = %.split.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %366, i64 noundef %359, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %366, i64 noundef %359, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 374:                                              ; preds = %.split.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %359, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %359, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 375:                                              ; preds = %repeatIsDead.exit.i
@@ -5537,23 +5537,23 @@ repeatIsDead.exit.i:                              ; preds = %353, %353, %353, %3
   ]
 
 376:                                              ; preds = %375
-  %377 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in) #8
+  %377 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in) #9
   br label %repeatLastTop.exit108
 
 378:                                              ; preds = %375
-  %379 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %366) #8
+  %379 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %366) #9
   br label %repeatLastTop.exit108
 
 380:                                              ; preds = %375
-  %381 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i80.in.in) #8
+  %381 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i80.in.in) #9
   br label %repeatLastTop.exit108
 
 382:                                              ; preds = %375
-  %383 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %366) #8
+  %383 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %366) #9
   br label %repeatLastTop.exit108
 
 384:                                              ; preds = %375
-  %385 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in) #8
+  %385 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in) #9
   br label %repeatLastTop.exit108
 
 default.unreachable287:                           ; preds = %375
@@ -5576,7 +5576,7 @@ repeatLastTop.exit108:                            ; preds = %375, %375, %353, %3
   ]
 
 387:                                              ; preds = %.split16.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %366, i64 noundef %359, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %366, i64 noundef %359, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 388:                                              ; preds = %.split16.i
@@ -5584,19 +5584,19 @@ repeatLastTop.exit108:                            ; preds = %375, %375, %353, %3
   br label %lbrTop.exit
 
 389:                                              ; preds = %.split16.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %366, i64 noundef %359, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %366, i64 noundef %359, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 390:                                              ; preds = %.split16.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %359, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %359, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 391:                                              ; preds = %.split16.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %366, i64 noundef %359, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %366, i64 noundef %359, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 392:                                              ; preds = %.split16.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %359, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %359, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 default.unreachable401:                           ; preds = %.split.i
@@ -5666,7 +5666,7 @@ repeatIsDead.exit.thread:                         ; preds = %._crit_edge, %repea
   ]
 
 416:                                              ; preds = %407
-  %417 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %409, ptr noundef nonnull %414, ptr noundef %413, i64 noundef %.064.lcssa) #8
+  %417 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %409, ptr noundef nonnull %414, ptr noundef %413, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 418:                                              ; preds = %407
@@ -5697,19 +5697,19 @@ repeatIsDead.exit.thread:                         ; preds = %._crit_edge, %repea
   br i1 %.not.i99, label %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge, label %nfaExecLbrVerm_TopScan.exit
 
 437:                                              ; preds = %407
-  %438 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %409, ptr noundef nonnull %414, ptr noundef %413, i64 noundef %.064.lcssa) #8
+  %438 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %409, ptr noundef nonnull %414, ptr noundef %413, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 439:                                              ; preds = %407
-  %440 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %409, ptr noundef nonnull %414, i64 noundef %.064.lcssa) #8
+  %440 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %409, ptr noundef nonnull %414, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 441:                                              ; preds = %407
-  %442 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %409, ptr noundef nonnull %414, ptr noundef %413, i64 noundef %.064.lcssa) #8
+  %442 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %409, ptr noundef nonnull %414, ptr noundef %413, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 443:                                              ; preds = %407
-  %444 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %409, ptr noundef nonnull %414, i64 noundef %.064.lcssa) #8
+  %444 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %409, ptr noundef nonnull %414, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 lbrInAccept.exit:                                 ; preds = %443, %441, %439, %437, %418, %416
@@ -5745,7 +5745,7 @@ lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lb
   ]
 
 455:                                              ; preds = %lbrInAccept.exit.thread
-  %456 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %448, ptr noundef nonnull %453, ptr noundef %452, i64 noundef %.064.lcssa) #8
+  %456 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %448, ptr noundef nonnull %453, ptr noundef %452, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 457:                                              ; preds = %lbrInAccept.exit.thread
@@ -5775,19 +5775,19 @@ lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lb
   br i1 %.not.i102, label %repeatHasMatch.exit.thread.thread, label %nfaExecLbrVerm_TopScan.exit
 
 476:                                              ; preds = %lbrInAccept.exit.thread
-  %477 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %448, ptr noundef nonnull %453, ptr noundef %452, i64 noundef %.064.lcssa) #8
+  %477 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %448, ptr noundef nonnull %453, ptr noundef %452, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 478:                                              ; preds = %lbrInAccept.exit.thread
-  %479 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %448, ptr noundef nonnull %453, i64 noundef %.064.lcssa) #8
+  %479 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %448, ptr noundef nonnull %453, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 480:                                              ; preds = %lbrInAccept.exit.thread
-  %481 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %448, ptr noundef nonnull %453, ptr noundef %452, i64 noundef %.064.lcssa) #8
+  %481 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %448, ptr noundef nonnull %453, ptr noundef %452, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 482:                                              ; preds = %lbrInAccept.exit.thread
-  %483 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %448, ptr noundef nonnull %453, i64 noundef %.064.lcssa) #8
+  %483 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %448, ptr noundef nonnull %453, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %455, %476, %478, %480, %482
@@ -5813,7 +5813,7 @@ repeatHasMatch.exit.thread:                       ; preds = %repeatHasMatch.exit
   ]
 
 486:                                              ; preds = %repeatHasMatch.exit.thread
-  %487 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %448, ptr noundef nonnull %453, ptr noundef %452, i64 noundef %.064.lcssa) #8
+  %487 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %448, ptr noundef nonnull %453, ptr noundef %452, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 repeatHasMatch.exit.thread.thread:                ; preds = %471, %457, %464, %repeatHasMatch.exit.thread, %repeatHasMatch.exit.thread
@@ -5837,19 +5837,19 @@ repeatHasMatch.exit.thread.thread:                ; preds = %471, %457, %464, %r
   br i1 %or.cond.i116, label %repeatNextMatch.exit, label %repeatNextMatch.exit.thread
 
 502:                                              ; preds = %repeatHasMatch.exit.thread
-  %503 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %448, ptr noundef nonnull %453, ptr noundef %452, i64 noundef %.064.lcssa) #8
+  %503 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %448, ptr noundef nonnull %453, ptr noundef %452, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 504:                                              ; preds = %repeatHasMatch.exit.thread
-  %505 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %448, ptr noundef nonnull %453, i64 noundef %.064.lcssa) #8
+  %505 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %448, ptr noundef nonnull %453, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 506:                                              ; preds = %repeatHasMatch.exit.thread
-  %507 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %448, ptr noundef nonnull %453, ptr noundef %452, i64 noundef %.064.lcssa) #8
+  %507 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %448, ptr noundef nonnull %453, ptr noundef %452, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 508:                                              ; preds = %repeatHasMatch.exit.thread
-  %509 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %448, ptr noundef nonnull %453, i64 noundef %.064.lcssa) #8
+  %509 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %448, ptr noundef nonnull %453, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 510:                                              ; preds = %repeatHasMatch.exit.thread
@@ -5884,7 +5884,7 @@ define hidden noundef signext i8 @nfaExecLbrNVerm_queueCompressState(ptr noundef
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  tail call void @repeatPack(ptr noundef %11, ptr noundef nonnull %14, ptr noundef nonnull %15, i64 noundef %9) #8
+  tail call void @repeatPack(ptr noundef %11, ptr noundef nonnull %14, ptr noundef nonnull %15, i64 noundef %9) #9
   ret i8 0
 }
 
@@ -5895,7 +5895,7 @@ define hidden noundef signext i8 @nfaExecLbrNVerm_expandState(ptr noundef %0, pt
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @repeatUnpack(ptr noundef %2, ptr noundef nonnull %9, i64 noundef %3, ptr noundef nonnull %10) #8
+  tail call void @repeatUnpack(ptr noundef %2, ptr noundef nonnull %9, i64 noundef %3, ptr noundef nonnull %10) #9
   store i64 0, ptr %1, align 8
   ret i8 0
 }
@@ -5917,7 +5917,7 @@ define hidden noundef signext i8 @nfaExecLbrNVerm_reportCurrent(ptr noundef read
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 %13(i64 noundef 0, i64 noundef %11, i32 noundef %15, ptr noundef %17) #8
+  %18 = tail call i32 %13(i64 noundef 0, i64 noundef %11, i32 noundef %15, ptr noundef %17) #9
   ret i8 0
 }
 
@@ -5983,7 +5983,7 @@ repeatIsDead.exit.thread:                         ; preds = %3, %repeatIsDead.ex
   ]
 
 31:                                               ; preds = %23
-  %32 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #8
+  %32 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 33:                                               ; preds = %23
@@ -6015,19 +6015,19 @@ repeatIsDead.exit.thread:                         ; preds = %3, %repeatIsDead.ex
   br label %repeatHasMatch.exit
 
 52:                                               ; preds = %23
-  %53 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #8
+  %53 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 54:                                               ; preds = %23
-  %55 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %7, ptr noundef nonnull %30, i64 noundef %20) #8
+  %55 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %7, ptr noundef nonnull %30, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 56:                                               ; preds = %23
-  %57 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #8
+  %57 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 58:                                               ; preds = %23
-  %59 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %7, ptr noundef nonnull %30, i64 noundef %20) #8
+  %59 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %7, ptr noundef nonnull %30, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 default.unreachable:                              ; preds = %23
@@ -6161,7 +6161,7 @@ clearRepeat.exit:                                 ; preds = %4, %4
 39:                                               ; preds = %.split.i.thread, %.split.i
   %40 = phi ptr [ %16, %.split.i.thread ], [ %38, %.split.i ]
   %41 = phi ptr [ %15, %.split.i.thread ], [ %37, %.split.i ]
-  call void @repeatStoreRing(ptr noundef nonnull %9, ptr noundef nonnull %40, ptr noundef %41, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreRing(ptr noundef nonnull %9, ptr noundef nonnull %40, ptr noundef %41, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 42:                                               ; preds = %.split.i
@@ -6175,23 +6175,23 @@ clearRepeat.exit:                                 ; preds = %4, %4
 44:                                               ; preds = %.split.i.thread21, %.split.i
   %45 = phi ptr [ %22, %.split.i.thread21 ], [ %38, %.split.i ]
   %46 = phi ptr [ %21, %.split.i.thread21 ], [ %37, %.split.i ]
-  call void @repeatStoreRange(ptr noundef nonnull %9, ptr noundef nonnull %45, ptr noundef %46, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreRange(ptr noundef nonnull %9, ptr noundef nonnull %45, ptr noundef %46, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 47:                                               ; preds = %.split.i.thread22, %.split.i
   %48 = phi ptr [ %25, %.split.i.thread22 ], [ %38, %.split.i ]
-  call void @repeatStoreBitmap(ptr noundef nonnull %9, ptr noundef nonnull %48, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreBitmap(ptr noundef nonnull %9, ptr noundef nonnull %48, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 49:                                               ; preds = %.split.i.thread23, %.split.i
   %50 = phi ptr [ %31, %.split.i.thread23 ], [ %38, %.split.i ]
   %51 = phi ptr [ %30, %.split.i.thread23 ], [ %37, %.split.i ]
-  call void @repeatStoreSparseOptimalP(ptr noundef nonnull %9, ptr noundef nonnull %50, ptr noundef %51, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreSparseOptimalP(ptr noundef nonnull %9, ptr noundef nonnull %50, ptr noundef %51, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 52:                                               ; preds = %.split.i.thread24, %.split.i
   %53 = phi ptr [ %33, %.split.i.thread24 ], [ %38, %.split.i ]
-  call void @repeatStoreTrailer(ptr noundef nonnull %9, ptr noundef nonnull %53, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreTrailer(ptr noundef nonnull %9, ptr noundef nonnull %53, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 lbrTop.exit:                                      ; preds = %4, %clearRepeat.exit, %52, %49, %47, %44, %43, %42, %39, %.split.i
@@ -6199,7 +6199,7 @@ lbrTop.exit:                                      ; preds = %4, %clearRepeat.exi
   %55 = zext i32 %54 to i64
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @repeatPack(ptr noundef %2, ptr noundef nonnull %56, ptr noundef nonnull %57, i64 noundef %1) #8
+  call void @repeatPack(ptr noundef %2, ptr noundef nonnull %56, ptr noundef nonnull %57, i64 noundef %1) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i8 1
 }
@@ -6233,7 +6233,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLbrNVerm_Q(ptr noundef %0, ptr n
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 %14(i64 noundef 0, i64 noundef %23, i32 noundef %25, ptr noundef %27) #8
+  %28 = tail call i32 %14(i64 noundef 0, i64 noundef %23, i32 noundef %25, ptr noundef %27) #9
   store i8 0, ptr %10, align 8
   %.not109.i = icmp eq i32 %28, 0
   br i1 %.not109.i, label %nfaExecLbrNVerm_Q_i.exit, label %29
@@ -6480,7 +6480,7 @@ nvermicelliExec.exit:                             ; preds = %.lr.ph154, %74, %.p
   ]
 
 155:                                              ; preds = %153
-  %156 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %146, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %150, i64 noundef %.0.i21) #8
+  %156 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %146, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %150, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 157:                                              ; preds = %153, %153
@@ -6503,19 +6503,19 @@ nvermicelliExec.exit:                             ; preds = %.lr.ph154, %74, %.p
   br label %repeatNextMatch.exit
 
 170:                                              ; preds = %153
-  %171 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %146, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %150, i64 noundef %.0.i21) #8
+  %171 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %146, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %150, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 172:                                              ; preds = %153
-  %173 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %146, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0.i21) #8
+  %173 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %146, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 174:                                              ; preds = %153
-  %175 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %146, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %150, i64 noundef %.0.i21) #8
+  %175 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %146, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %150, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 176:                                              ; preds = %153
-  %177 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %146, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0.i21) #8
+  %177 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %146, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 178:                                              ; preds = %153
@@ -6530,7 +6530,7 @@ repeatNextMatch.exit:                             ; preds = %163, %157, %155, %1
 
 181:                                              ; preds = %repeatNextMatch.exit
   %182 = load i32, ptr %49, align 4
-  %183 = tail call i32 %139(i64 noundef 0, i64 noundef %.0.i29, i32 noundef %182, ptr noundef %140) #8
+  %183 = tail call i32 %139(i64 noundef 0, i64 noundef %.0.i29, i32 noundef %182, ptr noundef %140) #9
   %184 = icmp eq i32 %183, 0
   br i1 %184, label %nfaExecLbrNVerm_Q_i.exit, label %153
 
@@ -6822,7 +6822,7 @@ repeatIsDead.exit.i.i4:                           ; preds = %.thread101, %.threa
   ]
 
 318:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreRing(ptr noundef nonnull %310, ptr noundef nonnull %317, ptr noundef %314, i64 noundef %224, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %310, ptr noundef nonnull %317, ptr noundef %314, i64 noundef %224, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 319:                                              ; preds = %.split.i.i8
@@ -6834,19 +6834,19 @@ repeatIsDead.exit.i.i4:                           ; preds = %.thread101, %.threa
   br label %lbrTop.exit.i
 
 321:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreRange(ptr noundef nonnull %310, ptr noundef nonnull %317, ptr noundef %314, i64 noundef %224, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %310, ptr noundef nonnull %317, ptr noundef %314, i64 noundef %224, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 322:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %310, ptr noundef nonnull %317, i64 noundef %224, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %310, ptr noundef nonnull %317, i64 noundef %224, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 323:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %310, ptr noundef nonnull %317, ptr noundef %314, i64 noundef %224, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %310, ptr noundef nonnull %317, ptr noundef %314, i64 noundef %224, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 324:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %310, ptr noundef nonnull %317, i64 noundef %224, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %310, ptr noundef nonnull %317, i64 noundef %224, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 325:                                              ; preds = %repeatIsDead.exit.i.i4
@@ -6861,23 +6861,23 @@ repeatIsDead.exit.i.i4:                           ; preds = %.thread101, %.threa
   ]
 
 326:                                              ; preds = %325
-  %327 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %310, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %327 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %310, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 328:                                              ; preds = %325
-  %329 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %314) #8
+  %329 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %314) #9
   br label %repeatLastTop.exit
 
 330:                                              ; preds = %325
-  %331 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %331 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 332:                                              ; preds = %325
-  %333 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %310, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %314) #8
+  %333 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %310, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %314) #9
   br label %repeatLastTop.exit
 
 334:                                              ; preds = %325
-  %335 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %310, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %335 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %310, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 default.unreachable:                              ; preds = %325
@@ -6901,7 +6901,7 @@ repeatLastTop.exit:                               ; preds = %325, %325, %.thread
   ]
 
 338:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreRing(ptr noundef nonnull %310, ptr noundef nonnull %336, ptr noundef %314, i64 noundef %224, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %310, ptr noundef nonnull %336, ptr noundef %314, i64 noundef %224, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 339:                                              ; preds = %.split16.i.i11
@@ -6909,19 +6909,19 @@ repeatLastTop.exit:                               ; preds = %325, %325, %.thread
   br label %lbrTop.exit.i
 
 340:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreRange(ptr noundef nonnull %310, ptr noundef nonnull %336, ptr noundef %314, i64 noundef %224, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %310, ptr noundef nonnull %336, ptr noundef %314, i64 noundef %224, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 341:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %310, ptr noundef nonnull %336, i64 noundef %224, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %310, ptr noundef nonnull %336, i64 noundef %224, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 342:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %310, ptr noundef nonnull %336, ptr noundef %314, i64 noundef %224, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %310, ptr noundef nonnull %336, ptr noundef %314, i64 noundef %224, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 343:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %310, ptr noundef nonnull %336, i64 noundef %224, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %310, ptr noundef nonnull %336, i64 noundef %224, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 nfaExecLbrNVerm_TopScan.exit:                     ; preds = %.lr.ph158, %215, %226
@@ -6995,7 +6995,7 @@ repeatIsDead.exit.i.i:                            ; preds = %359, %359, %359, %3
   ]
 
 371:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %369, i64 noundef %362, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %369, i64 noundef %362, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 372:                                              ; preds = %.split.i.i
@@ -7007,19 +7007,19 @@ repeatIsDead.exit.i.i:                            ; preds = %359, %359, %359, %3
   br label %lbrTop.exit.i
 
 374:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %369, i64 noundef %362, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %369, i64 noundef %362, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 375:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %362, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %362, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 376:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %369, i64 noundef %362, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %369, i64 noundef %362, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 377:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %362, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %362, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 378:                                              ; preds = %repeatIsDead.exit.i.i
@@ -7034,23 +7034,23 @@ repeatIsDead.exit.i.i:                            ; preds = %359, %359, %359, %3
   ]
 
 379:                                              ; preds = %378
-  %380 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #8
+  %380 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #9
   br label %repeatLastTop.exit14
 
 381:                                              ; preds = %378
-  %382 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %369) #8
+  %382 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %369) #9
   br label %repeatLastTop.exit14
 
 383:                                              ; preds = %378
-  %384 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i118.i.in.in) #8
+  %384 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i118.i.in.in) #9
   br label %repeatLastTop.exit14
 
 385:                                              ; preds = %378
-  %386 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %369) #8
+  %386 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %369) #9
   br label %repeatLastTop.exit14
 
 387:                                              ; preds = %378
-  %388 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #8
+  %388 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #9
   br label %repeatLastTop.exit14
 
 default.unreachable130:                           ; preds = %378
@@ -7073,7 +7073,7 @@ repeatLastTop.exit14:                             ; preds = %378, %378, %359, %3
   ]
 
 390:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %369, i64 noundef %362, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %369, i64 noundef %362, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 391:                                              ; preds = %.split16.i.i
@@ -7081,19 +7081,19 @@ repeatLastTop.exit14:                             ; preds = %378, %378, %359, %3
   br label %lbrTop.exit.i
 
 392:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %369, i64 noundef %362, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %369, i64 noundef %362, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 393:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %362, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %362, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 394:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %369, i64 noundef %362, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %369, i64 noundef %362, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 395:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %362, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %365, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %362, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 default.unreachable220:                           ; preds = %.split.i.i
@@ -7161,7 +7161,7 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   ]
 
 420:                                              ; preds = %414
-  %421 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %409, ptr noundef nonnull %419) #8
+  %421 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %409, ptr noundef nonnull %419) #9
   br label %repeatLastTop.exit.i
 
 422:                                              ; preds = %414, %414
@@ -7169,19 +7169,19 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   br label %repeatLastTop.exit.i
 
 424:                                              ; preds = %414
-  %425 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %419, ptr noundef %418) #8
+  %425 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %419, ptr noundef %418) #9
   br label %repeatLastTop.exit.i
 
 426:                                              ; preds = %414
-  %427 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %419) #8
+  %427 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %419) #9
   br label %repeatLastTop.exit.i
 
 428:                                              ; preds = %414
-  %429 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %409, ptr noundef nonnull %419, ptr noundef %418) #8
+  %429 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %409, ptr noundef nonnull %419, ptr noundef %418) #9
   br label %repeatLastTop.exit.i
 
 430:                                              ; preds = %414
-  %431 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %409, ptr noundef nonnull %419) #8
+  %431 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %409, ptr noundef nonnull %419) #9
   br label %repeatLastTop.exit.i
 
 repeatLastTop.exit.i:                             ; preds = %430, %428, %426, %424, %422, %420, %414
@@ -7227,7 +7227,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrNVerm_Q2(ptr noundef %0, ptr 
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 %14(i64 noundef 0, i64 noundef %23, i32 noundef %25, ptr noundef %27) #8
+  %28 = tail call i32 %14(i64 noundef 0, i64 noundef %23, i32 noundef %25, ptr noundef %27) #9
   store i8 0, ptr %10, align 8
   %.not109.i = icmp eq i32 %28, 0
   br i1 %.not109.i, label %nfaExecLbrNVerm_Q_i.exit, label %29
@@ -7463,7 +7463,7 @@ nvermicelliExec.exit:                             ; preds = %.lr.ph167, %71, %.p
   ]
 
 147:                                              ; preds = %137
-  %148 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %141, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %145, i64 noundef %.0101.i176) #8
+  %148 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %141, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %145, i64 noundef %.0101.i176) #9
   br label %repeatNextMatch.exit
 
 149:                                              ; preds = %137, %137
@@ -7488,19 +7488,19 @@ nvermicelliExec.exit:                             ; preds = %.lr.ph167, %71, %.p
   br label %repeatNextMatch.exit
 
 164:                                              ; preds = %137
-  %165 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %141, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %145, i64 noundef %.0101.i176) #8
+  %165 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %141, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %145, i64 noundef %.0101.i176) #9
   br label %repeatNextMatch.exit
 
 166:                                              ; preds = %137
-  %167 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %141, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0101.i176) #8
+  %167 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %141, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0101.i176) #9
   br label %repeatNextMatch.exit
 
 168:                                              ; preds = %137
-  %169 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %141, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %145, i64 noundef %.0101.i176) #8
+  %169 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %141, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %145, i64 noundef %.0101.i176) #9
   br label %repeatNextMatch.exit
 
 170:                                              ; preds = %137
-  %171 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %141, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0101.i176) #8
+  %171 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %141, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0101.i176) #9
   br label %repeatNextMatch.exit
 
 172:                                              ; preds = %137
@@ -7814,7 +7814,7 @@ repeatIsDead.exit.i.i4:                           ; preds = %.thread114, %.threa
   ]
 
 315:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreRing(ptr noundef nonnull %307, ptr noundef nonnull %314, ptr noundef %311, i64 noundef %221, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %307, ptr noundef nonnull %314, ptr noundef %311, i64 noundef %221, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 316:                                              ; preds = %.split.i.i8
@@ -7826,19 +7826,19 @@ repeatIsDead.exit.i.i4:                           ; preds = %.thread114, %.threa
   br label %lbrTop.exit.i
 
 318:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreRange(ptr noundef nonnull %307, ptr noundef nonnull %314, ptr noundef %311, i64 noundef %221, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %307, ptr noundef nonnull %314, ptr noundef %311, i64 noundef %221, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 319:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %307, ptr noundef nonnull %314, i64 noundef %221, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %307, ptr noundef nonnull %314, i64 noundef %221, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 320:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %307, ptr noundef nonnull %314, ptr noundef %311, i64 noundef %221, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %307, ptr noundef nonnull %314, ptr noundef %311, i64 noundef %221, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 321:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %307, ptr noundef nonnull %314, i64 noundef %221, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %307, ptr noundef nonnull %314, i64 noundef %221, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 322:                                              ; preds = %repeatIsDead.exit.i.i4
@@ -7853,23 +7853,23 @@ repeatIsDead.exit.i.i4:                           ; preds = %.thread114, %.threa
   ]
 
 323:                                              ; preds = %322
-  %324 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %307, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %324 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %307, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 325:                                              ; preds = %322
-  %326 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %311) #8
+  %326 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %311) #9
   br label %repeatLastTop.exit
 
 327:                                              ; preds = %322
-  %328 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %328 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 329:                                              ; preds = %322
-  %330 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %307, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %311) #8
+  %330 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %307, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %311) #9
   br label %repeatLastTop.exit
 
 331:                                              ; preds = %322
-  %332 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %307, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %332 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %307, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 default.unreachable:                              ; preds = %322
@@ -7893,7 +7893,7 @@ repeatLastTop.exit:                               ; preds = %322, %322, %.thread
   ]
 
 335:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreRing(ptr noundef nonnull %307, ptr noundef nonnull %333, ptr noundef %311, i64 noundef %221, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %307, ptr noundef nonnull %333, ptr noundef %311, i64 noundef %221, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 336:                                              ; preds = %.split16.i.i11
@@ -7901,19 +7901,19 @@ repeatLastTop.exit:                               ; preds = %322, %322, %.thread
   br label %lbrTop.exit.i
 
 337:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreRange(ptr noundef nonnull %307, ptr noundef nonnull %333, ptr noundef %311, i64 noundef %221, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %307, ptr noundef nonnull %333, ptr noundef %311, i64 noundef %221, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 338:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %307, ptr noundef nonnull %333, i64 noundef %221, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %307, ptr noundef nonnull %333, i64 noundef %221, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 339:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %307, ptr noundef nonnull %333, ptr noundef %311, i64 noundef %221, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %307, ptr noundef nonnull %333, ptr noundef %311, i64 noundef %221, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 340:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %307, ptr noundef nonnull %333, i64 noundef %221, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %307, ptr noundef nonnull %333, i64 noundef %221, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 nfaExecLbrNVerm_TopScan.exit:                     ; preds = %.lr.ph171, %212, %223
@@ -7987,7 +7987,7 @@ repeatIsDead.exit.i.i:                            ; preds = %356, %356, %356, %3
   ]
 
 368:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %366, i64 noundef %359, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %366, i64 noundef %359, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 369:                                              ; preds = %.split.i.i
@@ -7999,19 +7999,19 @@ repeatIsDead.exit.i.i:                            ; preds = %356, %356, %356, %3
   br label %lbrTop.exit.i
 
 371:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %366, i64 noundef %359, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %366, i64 noundef %359, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 372:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %359, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %359, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 373:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %366, i64 noundef %359, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %366, i64 noundef %359, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 374:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %359, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %359, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 375:                                              ; preds = %repeatIsDead.exit.i.i
@@ -8026,23 +8026,23 @@ repeatIsDead.exit.i.i:                            ; preds = %356, %356, %356, %3
   ]
 
 376:                                              ; preds = %375
-  %377 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #8
+  %377 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #9
   br label %repeatLastTop.exit14
 
 378:                                              ; preds = %375
-  %379 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %366) #8
+  %379 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %366) #9
   br label %repeatLastTop.exit14
 
 380:                                              ; preds = %375
-  %381 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i118.i.in.in) #8
+  %381 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i118.i.in.in) #9
   br label %repeatLastTop.exit14
 
 382:                                              ; preds = %375
-  %383 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %366) #8
+  %383 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %366) #9
   br label %repeatLastTop.exit14
 
 384:                                              ; preds = %375
-  %385 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #8
+  %385 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #9
   br label %repeatLastTop.exit14
 
 default.unreachable143:                           ; preds = %375
@@ -8065,7 +8065,7 @@ repeatLastTop.exit14:                             ; preds = %375, %375, %356, %3
   ]
 
 387:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %366, i64 noundef %359, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %366, i64 noundef %359, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 388:                                              ; preds = %.split16.i.i
@@ -8073,19 +8073,19 @@ repeatLastTop.exit14:                             ; preds = %375, %375, %356, %3
   br label %lbrTop.exit.i
 
 389:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %366, i64 noundef %359, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %366, i64 noundef %359, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 390:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %359, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %359, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 391:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %366, i64 noundef %359, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %366, i64 noundef %359, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 392:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %359, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %359, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 default.unreachable233:                           ; preds = %.split.i.i
@@ -8153,7 +8153,7 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   ]
 
 417:                                              ; preds = %411
-  %418 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %406, ptr noundef nonnull %416) #8
+  %418 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %406, ptr noundef nonnull %416) #9
   br label %repeatLastTop.exit.i
 
 419:                                              ; preds = %411, %411
@@ -8161,19 +8161,19 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   br label %repeatLastTop.exit.i
 
 421:                                              ; preds = %411
-  %422 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %416, ptr noundef %415) #8
+  %422 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %416, ptr noundef %415) #9
   br label %repeatLastTop.exit.i
 
 423:                                              ; preds = %411
-  %424 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %416) #8
+  %424 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %416) #9
   br label %repeatLastTop.exit.i
 
 425:                                              ; preds = %411
-  %426 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %406, ptr noundef nonnull %416, ptr noundef %415) #8
+  %426 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %406, ptr noundef nonnull %416, ptr noundef %415) #9
   br label %repeatLastTop.exit.i
 
 427:                                              ; preds = %411
-  %428 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %406, ptr noundef nonnull %416) #8
+  %428 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %406, ptr noundef nonnull %416) #9
   br label %repeatLastTop.exit.i
 
 repeatLastTop.exit.i:                             ; preds = %427, %425, %423, %421, %419, %417, %411
@@ -8854,7 +8854,7 @@ repeatIsDead.exit.i.i:                            ; preds = %.thread223, %.threa
   ]
 
 331:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %323, ptr noundef nonnull %330, ptr noundef %327, i64 noundef %237, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %323, ptr noundef nonnull %330, ptr noundef %327, i64 noundef %237, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 332:                                              ; preds = %.split.i.i
@@ -8866,19 +8866,19 @@ repeatIsDead.exit.i.i:                            ; preds = %.thread223, %.threa
   br label %lbrTop.exit
 
 334:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %323, ptr noundef nonnull %330, ptr noundef %327, i64 noundef %237, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %323, ptr noundef nonnull %330, ptr noundef %327, i64 noundef %237, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 335:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %323, ptr noundef nonnull %330, i64 noundef %237, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %323, ptr noundef nonnull %330, i64 noundef %237, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 336:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %323, ptr noundef nonnull %330, ptr noundef %327, i64 noundef %237, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %323, ptr noundef nonnull %330, ptr noundef %327, i64 noundef %237, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 337:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %323, ptr noundef nonnull %330, i64 noundef %237, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %323, ptr noundef nonnull %330, i64 noundef %237, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 338:                                              ; preds = %repeatIsDead.exit.i.i
@@ -8893,23 +8893,23 @@ repeatIsDead.exit.i.i:                            ; preds = %.thread223, %.threa
   ]
 
 339:                                              ; preds = %338
-  %340 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %323, ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #8
+  %340 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %323, ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #9
   br label %repeatLastTop.exit
 
 341:                                              ; preds = %338
-  %342 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i.in.in, ptr noundef %327) #8
+  %342 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i.in.in, ptr noundef %327) #9
   br label %repeatLastTop.exit
 
 343:                                              ; preds = %338
-  %344 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #8
+  %344 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #9
   br label %repeatLastTop.exit
 
 345:                                              ; preds = %338
-  %346 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %323, ptr noundef nonnull %.0.shrunk.i.i.i.in.in, ptr noundef %327) #8
+  %346 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %323, ptr noundef nonnull %.0.shrunk.i.i.i.in.in, ptr noundef %327) #9
   br label %repeatLastTop.exit
 
 347:                                              ; preds = %338
-  %348 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %323, ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #8
+  %348 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %323, ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #9
   br label %repeatLastTop.exit
 
 default.unreachable:                              ; preds = %338
@@ -8933,7 +8933,7 @@ repeatLastTop.exit:                               ; preds = %338, %338, %.thread
   ]
 
 351:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %323, ptr noundef nonnull %349, ptr noundef %327, i64 noundef %237, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %323, ptr noundef nonnull %349, ptr noundef %327, i64 noundef %237, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 352:                                              ; preds = %.split16.i.i
@@ -8941,19 +8941,19 @@ repeatLastTop.exit:                               ; preds = %338, %338, %.thread
   br label %lbrTop.exit
 
 353:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %323, ptr noundef nonnull %349, ptr noundef %327, i64 noundef %237, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %323, ptr noundef nonnull %349, ptr noundef %327, i64 noundef %237, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 354:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %323, ptr noundef nonnull %349, i64 noundef %237, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %323, ptr noundef nonnull %349, i64 noundef %237, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 355:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %323, ptr noundef nonnull %349, ptr noundef %327, i64 noundef %237, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %323, ptr noundef nonnull %349, ptr noundef %327, i64 noundef %237, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 356:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %323, ptr noundef nonnull %349, i64 noundef %237, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %323, ptr noundef nonnull %349, i64 noundef %237, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 repeatIsDead.exit76.thread:                       ; preds = %nfaExecLbrNVerm_StreamSilent.exit90, %repeatIsDead.exit76
@@ -9009,7 +9009,7 @@ repeatIsDead.exit.i:                              ; preds = %361, %361, %361, %3
   ]
 
 376:                                              ; preds = %.split.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %374, i64 noundef %367, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %374, i64 noundef %367, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 377:                                              ; preds = %.split.i
@@ -9021,19 +9021,19 @@ repeatIsDead.exit.i:                              ; preds = %361, %361, %361, %3
   br label %lbrTop.exit
 
 379:                                              ; preds = %.split.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %374, i64 noundef %367, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %374, i64 noundef %367, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 380:                                              ; preds = %.split.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %367, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %367, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 381:                                              ; preds = %.split.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %374, i64 noundef %367, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %374, i64 noundef %367, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 382:                                              ; preds = %.split.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %367, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %367, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 383:                                              ; preds = %repeatIsDead.exit.i
@@ -9048,23 +9048,23 @@ repeatIsDead.exit.i:                              ; preds = %361, %361, %361, %3
   ]
 
 384:                                              ; preds = %383
-  %385 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in) #8
+  %385 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in) #9
   br label %repeatLastTop.exit108
 
 386:                                              ; preds = %383
-  %387 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %374) #8
+  %387 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %374) #9
   br label %repeatLastTop.exit108
 
 388:                                              ; preds = %383
-  %389 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i80.in.in) #8
+  %389 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i80.in.in) #9
   br label %repeatLastTop.exit108
 
 390:                                              ; preds = %383
-  %391 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %374) #8
+  %391 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %374) #9
   br label %repeatLastTop.exit108
 
 392:                                              ; preds = %383
-  %393 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in) #8
+  %393 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in) #9
   br label %repeatLastTop.exit108
 
 default.unreachable273:                           ; preds = %383
@@ -9087,7 +9087,7 @@ repeatLastTop.exit108:                            ; preds = %383, %383, %361, %3
   ]
 
 395:                                              ; preds = %.split16.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %374, i64 noundef %367, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %374, i64 noundef %367, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 396:                                              ; preds = %.split16.i
@@ -9095,19 +9095,19 @@ repeatLastTop.exit108:                            ; preds = %383, %383, %361, %3
   br label %lbrTop.exit
 
 397:                                              ; preds = %.split16.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %374, i64 noundef %367, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %374, i64 noundef %367, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 398:                                              ; preds = %.split16.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %367, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %367, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 399:                                              ; preds = %.split16.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %374, i64 noundef %367, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %374, i64 noundef %367, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 400:                                              ; preds = %.split16.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %367, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %370, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %367, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 default.unreachable387:                           ; preds = %.split.i
@@ -9177,7 +9177,7 @@ repeatIsDead.exit.thread:                         ; preds = %._crit_edge, %repea
   ]
 
 424:                                              ; preds = %415
-  %425 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %417, ptr noundef nonnull %422, ptr noundef %421, i64 noundef %.064.lcssa) #8
+  %425 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %417, ptr noundef nonnull %422, ptr noundef %421, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 426:                                              ; preds = %415
@@ -9208,19 +9208,19 @@ repeatIsDead.exit.thread:                         ; preds = %._crit_edge, %repea
   br i1 %.not.i99, label %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge, label %nfaExecLbrNVerm_TopScan.exit
 
 445:                                              ; preds = %415
-  %446 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %417, ptr noundef nonnull %422, ptr noundef %421, i64 noundef %.064.lcssa) #8
+  %446 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %417, ptr noundef nonnull %422, ptr noundef %421, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 447:                                              ; preds = %415
-  %448 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %417, ptr noundef nonnull %422, i64 noundef %.064.lcssa) #8
+  %448 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %417, ptr noundef nonnull %422, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 449:                                              ; preds = %415
-  %450 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %417, ptr noundef nonnull %422, ptr noundef %421, i64 noundef %.064.lcssa) #8
+  %450 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %417, ptr noundef nonnull %422, ptr noundef %421, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 451:                                              ; preds = %415
-  %452 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %417, ptr noundef nonnull %422, i64 noundef %.064.lcssa) #8
+  %452 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %417, ptr noundef nonnull %422, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 lbrInAccept.exit:                                 ; preds = %451, %449, %447, %445, %426, %424
@@ -9256,7 +9256,7 @@ lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lb
   ]
 
 463:                                              ; preds = %lbrInAccept.exit.thread
-  %464 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %456, ptr noundef nonnull %461, ptr noundef %460, i64 noundef %.064.lcssa) #8
+  %464 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %456, ptr noundef nonnull %461, ptr noundef %460, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 465:                                              ; preds = %lbrInAccept.exit.thread
@@ -9286,19 +9286,19 @@ lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lb
   br i1 %.not.i102, label %repeatHasMatch.exit.thread.thread, label %nfaExecLbrNVerm_TopScan.exit
 
 484:                                              ; preds = %lbrInAccept.exit.thread
-  %485 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %456, ptr noundef nonnull %461, ptr noundef %460, i64 noundef %.064.lcssa) #8
+  %485 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %456, ptr noundef nonnull %461, ptr noundef %460, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 486:                                              ; preds = %lbrInAccept.exit.thread
-  %487 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %456, ptr noundef nonnull %461, i64 noundef %.064.lcssa) #8
+  %487 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %456, ptr noundef nonnull %461, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 488:                                              ; preds = %lbrInAccept.exit.thread
-  %489 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %456, ptr noundef nonnull %461, ptr noundef %460, i64 noundef %.064.lcssa) #8
+  %489 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %456, ptr noundef nonnull %461, ptr noundef %460, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 490:                                              ; preds = %lbrInAccept.exit.thread
-  %491 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %456, ptr noundef nonnull %461, i64 noundef %.064.lcssa) #8
+  %491 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %456, ptr noundef nonnull %461, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %463, %484, %486, %488, %490
@@ -9324,7 +9324,7 @@ repeatHasMatch.exit.thread:                       ; preds = %repeatHasMatch.exit
   ]
 
 494:                                              ; preds = %repeatHasMatch.exit.thread
-  %495 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %456, ptr noundef nonnull %461, ptr noundef %460, i64 noundef %.064.lcssa) #8
+  %495 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %456, ptr noundef nonnull %461, ptr noundef %460, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 repeatHasMatch.exit.thread.thread:                ; preds = %479, %465, %472, %repeatHasMatch.exit.thread, %repeatHasMatch.exit.thread
@@ -9348,19 +9348,19 @@ repeatHasMatch.exit.thread.thread:                ; preds = %479, %465, %472, %r
   br i1 %or.cond.i116, label %repeatNextMatch.exit, label %repeatNextMatch.exit.thread
 
 510:                                              ; preds = %repeatHasMatch.exit.thread
-  %511 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %456, ptr noundef nonnull %461, ptr noundef %460, i64 noundef %.064.lcssa) #8
+  %511 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %456, ptr noundef nonnull %461, ptr noundef %460, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 512:                                              ; preds = %repeatHasMatch.exit.thread
-  %513 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %456, ptr noundef nonnull %461, i64 noundef %.064.lcssa) #8
+  %513 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %456, ptr noundef nonnull %461, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 514:                                              ; preds = %repeatHasMatch.exit.thread
-  %515 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %456, ptr noundef nonnull %461, ptr noundef %460, i64 noundef %.064.lcssa) #8
+  %515 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %456, ptr noundef nonnull %461, ptr noundef %460, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 516:                                              ; preds = %repeatHasMatch.exit.thread
-  %517 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %456, ptr noundef nonnull %461, i64 noundef %.064.lcssa) #8
+  %517 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %456, ptr noundef nonnull %461, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 518:                                              ; preds = %repeatHasMatch.exit.thread
@@ -9395,7 +9395,7 @@ define hidden noundef signext i8 @nfaExecLbrShuf_queueCompressState(ptr noundef 
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  tail call void @repeatPack(ptr noundef %11, ptr noundef nonnull %14, ptr noundef nonnull %15, i64 noundef %9) #8
+  tail call void @repeatPack(ptr noundef %11, ptr noundef nonnull %14, ptr noundef nonnull %15, i64 noundef %9) #9
   ret i8 0
 }
 
@@ -9406,7 +9406,7 @@ define hidden noundef signext i8 @nfaExecLbrShuf_expandState(ptr noundef %0, ptr
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @repeatUnpack(ptr noundef %2, ptr noundef nonnull %9, i64 noundef %3, ptr noundef nonnull %10) #8
+  tail call void @repeatUnpack(ptr noundef %2, ptr noundef nonnull %9, i64 noundef %3, ptr noundef nonnull %10) #9
   store i64 0, ptr %1, align 8
   ret i8 0
 }
@@ -9428,7 +9428,7 @@ define hidden noundef signext i8 @nfaExecLbrShuf_reportCurrent(ptr noundef reado
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 %13(i64 noundef 0, i64 noundef %11, i32 noundef %15, ptr noundef %17) #8
+  %18 = tail call i32 %13(i64 noundef 0, i64 noundef %11, i32 noundef %15, ptr noundef %17) #9
   ret i8 0
 }
 
@@ -9494,7 +9494,7 @@ repeatIsDead.exit.thread:                         ; preds = %3, %repeatIsDead.ex
   ]
 
 31:                                               ; preds = %23
-  %32 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #8
+  %32 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 33:                                               ; preds = %23
@@ -9526,19 +9526,19 @@ repeatIsDead.exit.thread:                         ; preds = %3, %repeatIsDead.ex
   br label %repeatHasMatch.exit
 
 52:                                               ; preds = %23
-  %53 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #8
+  %53 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 54:                                               ; preds = %23
-  %55 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %7, ptr noundef nonnull %30, i64 noundef %20) #8
+  %55 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %7, ptr noundef nonnull %30, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 56:                                               ; preds = %23
-  %57 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #8
+  %57 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 58:                                               ; preds = %23
-  %59 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %7, ptr noundef nonnull %30, i64 noundef %20) #8
+  %59 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %7, ptr noundef nonnull %30, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 default.unreachable:                              ; preds = %23
@@ -9672,7 +9672,7 @@ clearRepeat.exit:                                 ; preds = %4, %4
 39:                                               ; preds = %.split.i.thread, %.split.i
   %40 = phi ptr [ %16, %.split.i.thread ], [ %38, %.split.i ]
   %41 = phi ptr [ %15, %.split.i.thread ], [ %37, %.split.i ]
-  call void @repeatStoreRing(ptr noundef nonnull %9, ptr noundef nonnull %40, ptr noundef %41, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreRing(ptr noundef nonnull %9, ptr noundef nonnull %40, ptr noundef %41, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 42:                                               ; preds = %.split.i
@@ -9686,23 +9686,23 @@ clearRepeat.exit:                                 ; preds = %4, %4
 44:                                               ; preds = %.split.i.thread21, %.split.i
   %45 = phi ptr [ %22, %.split.i.thread21 ], [ %38, %.split.i ]
   %46 = phi ptr [ %21, %.split.i.thread21 ], [ %37, %.split.i ]
-  call void @repeatStoreRange(ptr noundef nonnull %9, ptr noundef nonnull %45, ptr noundef %46, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreRange(ptr noundef nonnull %9, ptr noundef nonnull %45, ptr noundef %46, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 47:                                               ; preds = %.split.i.thread22, %.split.i
   %48 = phi ptr [ %25, %.split.i.thread22 ], [ %38, %.split.i ]
-  call void @repeatStoreBitmap(ptr noundef nonnull %9, ptr noundef nonnull %48, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreBitmap(ptr noundef nonnull %9, ptr noundef nonnull %48, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 49:                                               ; preds = %.split.i.thread23, %.split.i
   %50 = phi ptr [ %31, %.split.i.thread23 ], [ %38, %.split.i ]
   %51 = phi ptr [ %30, %.split.i.thread23 ], [ %37, %.split.i ]
-  call void @repeatStoreSparseOptimalP(ptr noundef nonnull %9, ptr noundef nonnull %50, ptr noundef %51, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreSparseOptimalP(ptr noundef nonnull %9, ptr noundef nonnull %50, ptr noundef %51, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 52:                                               ; preds = %.split.i.thread24, %.split.i
   %53 = phi ptr [ %33, %.split.i.thread24 ], [ %38, %.split.i ]
-  call void @repeatStoreTrailer(ptr noundef nonnull %9, ptr noundef nonnull %53, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreTrailer(ptr noundef nonnull %9, ptr noundef nonnull %53, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 lbrTop.exit:                                      ; preds = %4, %clearRepeat.exit, %52, %49, %47, %44, %43, %42, %39, %.split.i
@@ -9710,7 +9710,7 @@ lbrTop.exit:                                      ; preds = %4, %clearRepeat.exi
   %55 = zext i32 %54 to i64
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @repeatPack(ptr noundef %2, ptr noundef nonnull %56, ptr noundef nonnull %57, i64 noundef %1) #8
+  call void @repeatPack(ptr noundef %2, ptr noundef nonnull %56, ptr noundef nonnull %57, i64 noundef %1) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i8 1
 }
@@ -9744,7 +9744,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLbrShuf_Q(ptr noundef %0, ptr no
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 %14(i64 noundef 0, i64 noundef %23, i32 noundef %25, ptr noundef %27) #8
+  %28 = tail call i32 %14(i64 noundef 0, i64 noundef %23, i32 noundef %25, ptr noundef %27) #9
   store i8 0, ptr %10, align 8
   %.not109.i = icmp eq i32 %28, 0
   br i1 %.not109.i, label %nfaExecLbrShuf_Q_i.exit, label %29
@@ -9823,7 +9823,7 @@ repeatIsDead.exit120.i.thread:                    ; preds = %53, %repeatIsDead.e
   %68 = load <2 x i64>, ptr %46, align 16
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 %66
   %70 = getelementptr inbounds nuw i8, ptr %64, i64 %65
-  %71 = tail call ptr @shuftiExec(<2 x i64> noundef %67, <2 x i64> noundef %68, ptr noundef %69, ptr noundef %70) #8
+  %71 = tail call ptr @shuftiExec(<2 x i64> noundef %67, <2 x i64> noundef %68, ptr noundef %69, ptr noundef %70) #9
   %72 = icmp eq ptr %71, %70
   br i1 %72, label %lbrFwdScanShuf.exit.thread, label %73
 
@@ -9870,7 +9870,7 @@ lbrFwdScanShuf.exit.thread:                       ; preds = %63, %73
   ]
 
 95:                                               ; preds = %93
-  %96 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %86, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %90, i64 noundef %.0.i21) #8
+  %96 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %86, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %90, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 97:                                               ; preds = %93, %93
@@ -9893,19 +9893,19 @@ lbrFwdScanShuf.exit.thread:                       ; preds = %63, %73
   br label %repeatNextMatch.exit
 
 110:                                              ; preds = %93
-  %111 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %86, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %90, i64 noundef %.0.i21) #8
+  %111 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %86, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %90, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 112:                                              ; preds = %93
-  %113 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %86, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0.i21) #8
+  %113 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %86, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 114:                                              ; preds = %93
-  %115 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %86, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %90, i64 noundef %.0.i21) #8
+  %115 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %86, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %90, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 116:                                              ; preds = %93
-  %117 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %86, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0.i21) #8
+  %117 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %86, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 118:                                              ; preds = %93
@@ -9920,7 +9920,7 @@ repeatNextMatch.exit:                             ; preds = %103, %97, %95, %110
 
 121:                                              ; preds = %repeatNextMatch.exit
   %122 = load i32, ptr %50, align 4
-  %123 = tail call i32 %79(i64 noundef 0, i64 noundef %.0.i29, i32 noundef %122, ptr noundef %80) #8
+  %123 = tail call i32 %79(i64 noundef 0, i64 noundef %.0.i29, i32 noundef %122, ptr noundef %80) #9
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %nfaExecLbrShuf_Q_i.exit, label %93
 
@@ -10050,7 +10050,7 @@ repeatIsDead.exit.i.thread59:                     ; preds = %138, %repeatIsDead.
   %181 = load <2 x i64>, ptr %46, align 16
   %182 = getelementptr inbounds nuw i8, ptr %177, i64 %179
   %183 = getelementptr inbounds nuw i8, ptr %177, i64 %178
-  %184 = tail call ptr @rshuftiExec(<2 x i64> noundef %180, <2 x i64> noundef %181, ptr noundef %182, ptr noundef %183) #8
+  %184 = tail call ptr @rshuftiExec(<2 x i64> noundef %180, <2 x i64> noundef %181, ptr noundef %182, ptr noundef %183) #9
   %185 = getelementptr inbounds i8, ptr %182, i64 -1
   %186 = icmp eq ptr %184, %185
   br i1 %186, label %.thread68, label %187
@@ -10111,7 +10111,7 @@ repeatIsDead.exit.i.i4:                           ; preds = %.thread68, %.thread
   ]
 
 206:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreRing(ptr noundef nonnull %198, ptr noundef nonnull %205, ptr noundef %202, i64 noundef %164, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %198, ptr noundef nonnull %205, ptr noundef %202, i64 noundef %164, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 207:                                              ; preds = %.split.i.i8
@@ -10123,19 +10123,19 @@ repeatIsDead.exit.i.i4:                           ; preds = %.thread68, %.thread
   br label %lbrTop.exit.i
 
 209:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreRange(ptr noundef nonnull %198, ptr noundef nonnull %205, ptr noundef %202, i64 noundef %164, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %198, ptr noundef nonnull %205, ptr noundef %202, i64 noundef %164, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 210:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %198, ptr noundef nonnull %205, i64 noundef %164, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %198, ptr noundef nonnull %205, i64 noundef %164, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 211:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %198, ptr noundef nonnull %205, ptr noundef %202, i64 noundef %164, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %198, ptr noundef nonnull %205, ptr noundef %202, i64 noundef %164, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 212:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %198, ptr noundef nonnull %205, i64 noundef %164, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %198, ptr noundef nonnull %205, i64 noundef %164, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 213:                                              ; preds = %repeatIsDead.exit.i.i4
@@ -10150,23 +10150,23 @@ repeatIsDead.exit.i.i4:                           ; preds = %.thread68, %.thread
   ]
 
 214:                                              ; preds = %213
-  %215 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %198, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %215 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %198, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 216:                                              ; preds = %213
-  %217 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %202) #8
+  %217 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %202) #9
   br label %repeatLastTop.exit
 
 218:                                              ; preds = %213
-  %219 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %219 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 220:                                              ; preds = %213
-  %221 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %198, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %202) #8
+  %221 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %198, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %202) #9
   br label %repeatLastTop.exit
 
 222:                                              ; preds = %213
-  %223 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %198, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %223 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %198, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 default.unreachable:                              ; preds = %213
@@ -10190,7 +10190,7 @@ repeatLastTop.exit:                               ; preds = %213, %213, %.thread
   ]
 
 226:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreRing(ptr noundef nonnull %198, ptr noundef nonnull %224, ptr noundef %202, i64 noundef %164, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %198, ptr noundef nonnull %224, ptr noundef %202, i64 noundef %164, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 227:                                              ; preds = %.split16.i.i11
@@ -10198,19 +10198,19 @@ repeatLastTop.exit:                               ; preds = %213, %213, %.thread
   br label %lbrTop.exit.i
 
 228:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreRange(ptr noundef nonnull %198, ptr noundef nonnull %224, ptr noundef %202, i64 noundef %164, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %198, ptr noundef nonnull %224, ptr noundef %202, i64 noundef %164, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 229:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %198, ptr noundef nonnull %224, i64 noundef %164, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %198, ptr noundef nonnull %224, i64 noundef %164, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 230:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %198, ptr noundef nonnull %224, ptr noundef %202, i64 noundef %164, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %198, ptr noundef nonnull %224, ptr noundef %202, i64 noundef %164, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 231:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %198, ptr noundef nonnull %224, i64 noundef %164, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %198, ptr noundef nonnull %224, i64 noundef %164, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 nfaExecLbrShuf_TopScan.exit:                      ; preds = %.lr.ph, %155, %166
@@ -10284,7 +10284,7 @@ repeatIsDead.exit.i.i:                            ; preds = %247, %247, %247, %2
   ]
 
 259:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257, i64 noundef %250, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257, i64 noundef %250, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 260:                                              ; preds = %.split.i.i
@@ -10296,19 +10296,19 @@ repeatIsDead.exit.i.i:                            ; preds = %247, %247, %247, %2
   br label %lbrTop.exit.i
 
 262:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257, i64 noundef %250, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257, i64 noundef %250, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 263:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %250, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %250, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 264:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257, i64 noundef %250, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257, i64 noundef %250, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 265:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %250, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %250, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 266:                                              ; preds = %repeatIsDead.exit.i.i
@@ -10323,23 +10323,23 @@ repeatIsDead.exit.i.i:                            ; preds = %247, %247, %247, %2
   ]
 
 267:                                              ; preds = %266
-  %268 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #8
+  %268 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #9
   br label %repeatLastTop.exit14
 
 269:                                              ; preds = %266
-  %270 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257) #8
+  %270 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257) #9
   br label %repeatLastTop.exit14
 
 271:                                              ; preds = %266
-  %272 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i118.i.in.in) #8
+  %272 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i118.i.in.in) #9
   br label %repeatLastTop.exit14
 
 273:                                              ; preds = %266
-  %274 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257) #8
+  %274 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257) #9
   br label %repeatLastTop.exit14
 
 275:                                              ; preds = %266
-  %276 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #8
+  %276 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #9
   br label %repeatLastTop.exit14
 
 default.unreachable97:                            ; preds = %266
@@ -10362,7 +10362,7 @@ repeatLastTop.exit14:                             ; preds = %266, %266, %247, %2
   ]
 
 278:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257, i64 noundef %250, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257, i64 noundef %250, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 279:                                              ; preds = %.split16.i.i
@@ -10370,19 +10370,19 @@ repeatLastTop.exit14:                             ; preds = %266, %266, %247, %2
   br label %lbrTop.exit.i
 
 280:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257, i64 noundef %250, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257, i64 noundef %250, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 281:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %250, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %250, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 282:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257, i64 noundef %250, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257, i64 noundef %250, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 283:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %250, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %250, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 default.unreachable147:                           ; preds = %.split.i.i
@@ -10450,7 +10450,7 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   ]
 
 308:                                              ; preds = %302
-  %309 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %297, ptr noundef nonnull %307) #8
+  %309 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %297, ptr noundef nonnull %307) #9
   br label %repeatLastTop.exit.i
 
 310:                                              ; preds = %302, %302
@@ -10458,19 +10458,19 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   br label %repeatLastTop.exit.i
 
 312:                                              ; preds = %302
-  %313 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %307, ptr noundef %306) #8
+  %313 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %307, ptr noundef %306) #9
   br label %repeatLastTop.exit.i
 
 314:                                              ; preds = %302
-  %315 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %307) #8
+  %315 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %307) #9
   br label %repeatLastTop.exit.i
 
 316:                                              ; preds = %302
-  %317 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %297, ptr noundef nonnull %307, ptr noundef %306) #8
+  %317 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %297, ptr noundef nonnull %307, ptr noundef %306) #9
   br label %repeatLastTop.exit.i
 
 318:                                              ; preds = %302
-  %319 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %297, ptr noundef nonnull %307) #8
+  %319 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %297, ptr noundef nonnull %307) #9
   br label %repeatLastTop.exit.i
 
 repeatLastTop.exit.i:                             ; preds = %318, %316, %314, %312, %310, %308, %302
@@ -10516,7 +10516,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrShuf_Q2(ptr noundef %0, ptr n
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 %14(i64 noundef 0, i64 noundef %23, i32 noundef %25, ptr noundef %27) #8
+  %28 = tail call i32 %14(i64 noundef 0, i64 noundef %23, i32 noundef %25, ptr noundef %27) #9
   store i8 0, ptr %10, align 8
   %.not109.i = icmp eq i32 %28, 0
   br i1 %.not109.i, label %nfaExecLbrShuf_Q_i.exit, label %29
@@ -10592,7 +10592,7 @@ repeatIsDead.exit120.i.thread:                    ; preds = %50, %repeatIsDead.e
   %65 = load <2 x i64>, ptr %46, align 16
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 %63
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 %62
-  %68 = tail call ptr @shuftiExec(<2 x i64> noundef %64, <2 x i64> noundef %65, ptr noundef %66, ptr noundef %67) #8
+  %68 = tail call ptr @shuftiExec(<2 x i64> noundef %64, <2 x i64> noundef %65, ptr noundef %66, ptr noundef %67) #9
   %69 = icmp eq ptr %68, %67
   br i1 %69, label %lbrFwdScanShuf.exit.thread, label %70
 
@@ -10631,7 +10631,7 @@ lbrFwdScanShuf.exit.thread:                       ; preds = %60, %70
   ]
 
 87:                                               ; preds = %77
-  %88 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %81, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %85, i64 noundef %.0101.i125) #8
+  %88 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %81, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %85, i64 noundef %.0101.i125) #9
   br label %repeatNextMatch.exit
 
 89:                                               ; preds = %77, %77
@@ -10656,19 +10656,19 @@ lbrFwdScanShuf.exit.thread:                       ; preds = %60, %70
   br label %repeatNextMatch.exit
 
 104:                                              ; preds = %77
-  %105 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %81, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %85, i64 noundef %.0101.i125) #8
+  %105 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %81, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %85, i64 noundef %.0101.i125) #9
   br label %repeatNextMatch.exit
 
 106:                                              ; preds = %77
-  %107 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %81, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0101.i125) #8
+  %107 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %81, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0101.i125) #9
   br label %repeatNextMatch.exit
 
 108:                                              ; preds = %77
-  %109 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %81, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %85, i64 noundef %.0101.i125) #8
+  %109 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %81, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %85, i64 noundef %.0101.i125) #9
   br label %repeatNextMatch.exit
 
 110:                                              ; preds = %77
-  %111 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %81, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0101.i125) #8
+  %111 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %81, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0101.i125) #9
   br label %repeatNextMatch.exit
 
 112:                                              ; preds = %77
@@ -10820,7 +10820,7 @@ repeatIsDead.exit.i.thread71:                     ; preds = %135, %repeatIsDead.
   %178 = load <2 x i64>, ptr %46, align 16
   %179 = getelementptr inbounds nuw i8, ptr %174, i64 %176
   %180 = getelementptr inbounds nuw i8, ptr %174, i64 %175
-  %181 = tail call ptr @rshuftiExec(<2 x i64> noundef %177, <2 x i64> noundef %178, ptr noundef %179, ptr noundef %180) #8
+  %181 = tail call ptr @rshuftiExec(<2 x i64> noundef %177, <2 x i64> noundef %178, ptr noundef %179, ptr noundef %180) #9
   %182 = getelementptr inbounds i8, ptr %179, i64 -1
   %183 = icmp eq ptr %181, %182
   br i1 %183, label %.thread81, label %184
@@ -10881,7 +10881,7 @@ repeatIsDead.exit.i.i4:                           ; preds = %.thread81, %.thread
   ]
 
 203:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreRing(ptr noundef nonnull %195, ptr noundef nonnull %202, ptr noundef %199, i64 noundef %161, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %195, ptr noundef nonnull %202, ptr noundef %199, i64 noundef %161, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 204:                                              ; preds = %.split.i.i8
@@ -10893,19 +10893,19 @@ repeatIsDead.exit.i.i4:                           ; preds = %.thread81, %.thread
   br label %lbrTop.exit.i
 
 206:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreRange(ptr noundef nonnull %195, ptr noundef nonnull %202, ptr noundef %199, i64 noundef %161, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %195, ptr noundef nonnull %202, ptr noundef %199, i64 noundef %161, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 207:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %195, ptr noundef nonnull %202, i64 noundef %161, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %195, ptr noundef nonnull %202, i64 noundef %161, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 208:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %195, ptr noundef nonnull %202, ptr noundef %199, i64 noundef %161, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %195, ptr noundef nonnull %202, ptr noundef %199, i64 noundef %161, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 209:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %195, ptr noundef nonnull %202, i64 noundef %161, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %195, ptr noundef nonnull %202, i64 noundef %161, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 210:                                              ; preds = %repeatIsDead.exit.i.i4
@@ -10920,23 +10920,23 @@ repeatIsDead.exit.i.i4:                           ; preds = %.thread81, %.thread
   ]
 
 211:                                              ; preds = %210
-  %212 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %212 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 213:                                              ; preds = %210
-  %214 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %199) #8
+  %214 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %199) #9
   br label %repeatLastTop.exit
 
 215:                                              ; preds = %210
-  %216 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %216 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 217:                                              ; preds = %210
-  %218 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %199) #8
+  %218 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %199) #9
   br label %repeatLastTop.exit
 
 219:                                              ; preds = %210
-  %220 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %220 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 default.unreachable:                              ; preds = %210
@@ -10960,7 +10960,7 @@ repeatLastTop.exit:                               ; preds = %210, %210, %.thread
   ]
 
 223:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreRing(ptr noundef nonnull %195, ptr noundef nonnull %221, ptr noundef %199, i64 noundef %161, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %195, ptr noundef nonnull %221, ptr noundef %199, i64 noundef %161, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 224:                                              ; preds = %.split16.i.i11
@@ -10968,19 +10968,19 @@ repeatLastTop.exit:                               ; preds = %210, %210, %.thread
   br label %lbrTop.exit.i
 
 225:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreRange(ptr noundef nonnull %195, ptr noundef nonnull %221, ptr noundef %199, i64 noundef %161, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %195, ptr noundef nonnull %221, ptr noundef %199, i64 noundef %161, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 226:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %195, ptr noundef nonnull %221, i64 noundef %161, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %195, ptr noundef nonnull %221, i64 noundef %161, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 227:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %195, ptr noundef nonnull %221, ptr noundef %199, i64 noundef %161, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %195, ptr noundef nonnull %221, ptr noundef %199, i64 noundef %161, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 228:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %195, ptr noundef nonnull %221, i64 noundef %161, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %195, ptr noundef nonnull %221, i64 noundef %161, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 nfaExecLbrShuf_TopScan.exit:                      ; preds = %.lr.ph, %152, %163
@@ -11054,7 +11054,7 @@ repeatIsDead.exit.i.i:                            ; preds = %244, %244, %244, %2
   ]
 
 256:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254, i64 noundef %247, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254, i64 noundef %247, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 257:                                              ; preds = %.split.i.i
@@ -11066,19 +11066,19 @@ repeatIsDead.exit.i.i:                            ; preds = %244, %244, %244, %2
   br label %lbrTop.exit.i
 
 259:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254, i64 noundef %247, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254, i64 noundef %247, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 260:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %247, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %247, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 261:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254, i64 noundef %247, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254, i64 noundef %247, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 262:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %247, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %247, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 263:                                              ; preds = %repeatIsDead.exit.i.i
@@ -11093,23 +11093,23 @@ repeatIsDead.exit.i.i:                            ; preds = %244, %244, %244, %2
   ]
 
 264:                                              ; preds = %263
-  %265 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #8
+  %265 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #9
   br label %repeatLastTop.exit14
 
 266:                                              ; preds = %263
-  %267 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254) #8
+  %267 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254) #9
   br label %repeatLastTop.exit14
 
 268:                                              ; preds = %263
-  %269 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i118.i.in.in) #8
+  %269 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i118.i.in.in) #9
   br label %repeatLastTop.exit14
 
 270:                                              ; preds = %263
-  %271 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254) #8
+  %271 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254) #9
   br label %repeatLastTop.exit14
 
 272:                                              ; preds = %263
-  %273 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #8
+  %273 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #9
   br label %repeatLastTop.exit14
 
 default.unreachable110:                           ; preds = %263
@@ -11132,7 +11132,7 @@ repeatLastTop.exit14:                             ; preds = %263, %263, %244, %2
   ]
 
 275:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254, i64 noundef %247, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254, i64 noundef %247, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 276:                                              ; preds = %.split16.i.i
@@ -11140,19 +11140,19 @@ repeatLastTop.exit14:                             ; preds = %263, %263, %244, %2
   br label %lbrTop.exit.i
 
 277:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254, i64 noundef %247, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254, i64 noundef %247, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 278:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %247, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %247, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 279:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254, i64 noundef %247, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254, i64 noundef %247, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 280:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %247, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %247, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 default.unreachable160:                           ; preds = %.split.i.i
@@ -11220,7 +11220,7 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   ]
 
 305:                                              ; preds = %299
-  %306 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %294, ptr noundef nonnull %304) #8
+  %306 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %294, ptr noundef nonnull %304) #9
   br label %repeatLastTop.exit.i
 
 307:                                              ; preds = %299, %299
@@ -11228,19 +11228,19 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   br label %repeatLastTop.exit.i
 
 309:                                              ; preds = %299
-  %310 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %304, ptr noundef %303) #8
+  %310 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %304, ptr noundef %303) #9
   br label %repeatLastTop.exit.i
 
 311:                                              ; preds = %299
-  %312 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %304) #8
+  %312 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %304) #9
   br label %repeatLastTop.exit.i
 
 313:                                              ; preds = %299
-  %314 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %294, ptr noundef nonnull %304, ptr noundef %303) #8
+  %314 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %294, ptr noundef nonnull %304, ptr noundef %303) #9
   br label %repeatLastTop.exit.i
 
 315:                                              ; preds = %299
-  %316 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %294, ptr noundef nonnull %304) #8
+  %316 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %294, ptr noundef nonnull %304) #9
   br label %repeatLastTop.exit.i
 
 repeatLastTop.exit.i:                             ; preds = %315, %313, %311, %309, %307, %305, %299
@@ -11352,7 +11352,7 @@ repeatIsDead.exit82.thread:                       ; preds = %38, %repeatIsDead.e
   %62 = load <2 x i64>, ptr %32, align 16
   %63 = load <2 x i64>, ptr %33, align 16
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 %55
-  %65 = tail call ptr @shuftiExec(<2 x i64> noundef %62, <2 x i64> noundef %63, ptr noundef nonnull %61, ptr noundef nonnull %64) #8
+  %65 = tail call ptr @shuftiExec(<2 x i64> noundef %62, <2 x i64> noundef %63, ptr noundef nonnull %61, ptr noundef nonnull %64) #9
   %66 = icmp eq ptr %65, %64
   br i1 %66, label %nfaExecLbrShuf_StreamSilent.exit, label %67
 
@@ -11401,7 +11401,7 @@ repeatIsDead.exit79.thread:                       ; preds = %nfaExecLbrShuf_Stre
   %81 = load <2 x i64>, ptr %32, align 16
   %82 = load <2 x i64>, ptr %33, align 16
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 %75
-  %84 = tail call ptr @shuftiExec(<2 x i64> noundef %81, <2 x i64> noundef %82, ptr noundef %80, ptr noundef %83) #8
+  %84 = tail call ptr @shuftiExec(<2 x i64> noundef %81, <2 x i64> noundef %82, ptr noundef %80, ptr noundef %83) #9
   %85 = icmp eq ptr %84, %83
   br i1 %85, label %nfaExecLbrShuf_StreamSilent.exit90, label %86
 
@@ -11508,7 +11508,7 @@ repeatIsDead.exit82.thread126:                    ; preds = %nfaExecLbrShuf_Stre
   %131 = load <2 x i64>, ptr %33, align 16
   %132 = getelementptr inbounds nuw i8, ptr %127, i64 %129
   %133 = getelementptr inbounds nuw i8, ptr %127, i64 %128
-  %134 = tail call ptr @rshuftiExec(<2 x i64> noundef %130, <2 x i64> noundef %131, ptr noundef %132, ptr noundef %133) #8
+  %134 = tail call ptr @rshuftiExec(<2 x i64> noundef %130, <2 x i64> noundef %131, ptr noundef %132, ptr noundef %133) #9
   %135 = getelementptr inbounds i8, ptr %132, i64 -1
   %136 = icmp eq ptr %134, %135
   br i1 %136, label %.thread153, label %137
@@ -11569,7 +11569,7 @@ repeatIsDead.exit.i.i:                            ; preds = %.thread153, %.threa
   ]
 
 156:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %148, ptr noundef nonnull %155, ptr noundef %152, i64 noundef %114, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %148, ptr noundef nonnull %155, ptr noundef %152, i64 noundef %114, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 157:                                              ; preds = %.split.i.i
@@ -11581,19 +11581,19 @@ repeatIsDead.exit.i.i:                            ; preds = %.thread153, %.threa
   br label %lbrTop.exit
 
 159:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %148, ptr noundef nonnull %155, ptr noundef %152, i64 noundef %114, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %148, ptr noundef nonnull %155, ptr noundef %152, i64 noundef %114, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 160:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %148, ptr noundef nonnull %155, i64 noundef %114, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %148, ptr noundef nonnull %155, i64 noundef %114, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 161:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %148, ptr noundef nonnull %155, ptr noundef %152, i64 noundef %114, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %148, ptr noundef nonnull %155, ptr noundef %152, i64 noundef %114, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 162:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %148, ptr noundef nonnull %155, i64 noundef %114, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %148, ptr noundef nonnull %155, i64 noundef %114, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 163:                                              ; preds = %repeatIsDead.exit.i.i
@@ -11608,23 +11608,23 @@ repeatIsDead.exit.i.i:                            ; preds = %.thread153, %.threa
   ]
 
 164:                                              ; preds = %163
-  %165 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %148, ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #8
+  %165 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %148, ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #9
   br label %repeatLastTop.exit
 
 166:                                              ; preds = %163
-  %167 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i.in.in, ptr noundef %152) #8
+  %167 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i.in.in, ptr noundef %152) #9
   br label %repeatLastTop.exit
 
 168:                                              ; preds = %163
-  %169 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #8
+  %169 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #9
   br label %repeatLastTop.exit
 
 170:                                              ; preds = %163
-  %171 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %148, ptr noundef nonnull %.0.shrunk.i.i.i.in.in, ptr noundef %152) #8
+  %171 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %148, ptr noundef nonnull %.0.shrunk.i.i.i.in.in, ptr noundef %152) #9
   br label %repeatLastTop.exit
 
 172:                                              ; preds = %163
-  %173 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %148, ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #8
+  %173 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %148, ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #9
   br label %repeatLastTop.exit
 
 default.unreachable:                              ; preds = %163
@@ -11648,7 +11648,7 @@ repeatLastTop.exit:                               ; preds = %163, %163, %.thread
   ]
 
 176:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %148, ptr noundef nonnull %174, ptr noundef %152, i64 noundef %114, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %148, ptr noundef nonnull %174, ptr noundef %152, i64 noundef %114, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 177:                                              ; preds = %.split16.i.i
@@ -11656,19 +11656,19 @@ repeatLastTop.exit:                               ; preds = %163, %163, %.thread
   br label %lbrTop.exit
 
 178:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %148, ptr noundef nonnull %174, ptr noundef %152, i64 noundef %114, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %148, ptr noundef nonnull %174, ptr noundef %152, i64 noundef %114, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 179:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %148, ptr noundef nonnull %174, i64 noundef %114, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %148, ptr noundef nonnull %174, i64 noundef %114, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 180:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %148, ptr noundef nonnull %174, ptr noundef %152, i64 noundef %114, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %148, ptr noundef nonnull %174, ptr noundef %152, i64 noundef %114, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 181:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %148, ptr noundef nonnull %174, i64 noundef %114, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %148, ptr noundef nonnull %174, i64 noundef %114, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 repeatIsDead.exit76.thread:                       ; preds = %nfaExecLbrShuf_StreamSilent.exit90, %repeatIsDead.exit76
@@ -11724,7 +11724,7 @@ repeatIsDead.exit.i:                              ; preds = %186, %186, %186, %1
   ]
 
 201:                                              ; preds = %.split.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199, i64 noundef %192, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199, i64 noundef %192, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 202:                                              ; preds = %.split.i
@@ -11736,19 +11736,19 @@ repeatIsDead.exit.i:                              ; preds = %186, %186, %186, %1
   br label %lbrTop.exit
 
 204:                                              ; preds = %.split.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199, i64 noundef %192, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199, i64 noundef %192, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 205:                                              ; preds = %.split.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %192, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %192, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 206:                                              ; preds = %.split.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199, i64 noundef %192, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199, i64 noundef %192, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 207:                                              ; preds = %.split.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %192, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %192, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 208:                                              ; preds = %repeatIsDead.exit.i
@@ -11763,23 +11763,23 @@ repeatIsDead.exit.i:                              ; preds = %186, %186, %186, %1
   ]
 
 209:                                              ; preds = %208
-  %210 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in) #8
+  %210 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in) #9
   br label %repeatLastTop.exit108
 
 211:                                              ; preds = %208
-  %212 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199) #8
+  %212 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199) #9
   br label %repeatLastTop.exit108
 
 213:                                              ; preds = %208
-  %214 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i80.in.in) #8
+  %214 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i80.in.in) #9
   br label %repeatLastTop.exit108
 
 215:                                              ; preds = %208
-  %216 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199) #8
+  %216 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199) #9
   br label %repeatLastTop.exit108
 
 217:                                              ; preds = %208
-  %218 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in) #8
+  %218 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in) #9
   br label %repeatLastTop.exit108
 
 default.unreachable203:                           ; preds = %208
@@ -11802,7 +11802,7 @@ repeatLastTop.exit108:                            ; preds = %208, %208, %186, %2
   ]
 
 220:                                              ; preds = %.split16.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199, i64 noundef %192, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199, i64 noundef %192, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 221:                                              ; preds = %.split16.i
@@ -11810,19 +11810,19 @@ repeatLastTop.exit108:                            ; preds = %208, %208, %186, %2
   br label %lbrTop.exit
 
 222:                                              ; preds = %.split16.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199, i64 noundef %192, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199, i64 noundef %192, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 223:                                              ; preds = %.split16.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %192, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %192, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 224:                                              ; preds = %.split16.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199, i64 noundef %192, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199, i64 noundef %192, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 225:                                              ; preds = %.split16.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %192, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %192, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 default.unreachable244:                           ; preds = %.split.i
@@ -11892,7 +11892,7 @@ repeatIsDead.exit.thread:                         ; preds = %._crit_edge, %repea
   ]
 
 249:                                              ; preds = %240
-  %250 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %242, ptr noundef nonnull %247, ptr noundef %246, i64 noundef %.064.lcssa) #8
+  %250 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %242, ptr noundef nonnull %247, ptr noundef %246, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 251:                                              ; preds = %240
@@ -11923,19 +11923,19 @@ repeatIsDead.exit.thread:                         ; preds = %._crit_edge, %repea
   br i1 %.not.i99, label %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge, label %nfaExecLbrShuf_TopScan.exit
 
 270:                                              ; preds = %240
-  %271 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %242, ptr noundef nonnull %247, ptr noundef %246, i64 noundef %.064.lcssa) #8
+  %271 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %242, ptr noundef nonnull %247, ptr noundef %246, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 272:                                              ; preds = %240
-  %273 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %242, ptr noundef nonnull %247, i64 noundef %.064.lcssa) #8
+  %273 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %242, ptr noundef nonnull %247, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 274:                                              ; preds = %240
-  %275 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %242, ptr noundef nonnull %247, ptr noundef %246, i64 noundef %.064.lcssa) #8
+  %275 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %242, ptr noundef nonnull %247, ptr noundef %246, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 276:                                              ; preds = %240
-  %277 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %242, ptr noundef nonnull %247, i64 noundef %.064.lcssa) #8
+  %277 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %242, ptr noundef nonnull %247, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 lbrInAccept.exit:                                 ; preds = %276, %274, %272, %270, %251, %249
@@ -11971,7 +11971,7 @@ lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lb
   ]
 
 288:                                              ; preds = %lbrInAccept.exit.thread
-  %289 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %281, ptr noundef nonnull %286, ptr noundef %285, i64 noundef %.064.lcssa) #8
+  %289 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %281, ptr noundef nonnull %286, ptr noundef %285, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 290:                                              ; preds = %lbrInAccept.exit.thread
@@ -12001,19 +12001,19 @@ lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lb
   br i1 %.not.i102, label %repeatHasMatch.exit.thread.thread, label %nfaExecLbrShuf_TopScan.exit
 
 309:                                              ; preds = %lbrInAccept.exit.thread
-  %310 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %281, ptr noundef nonnull %286, ptr noundef %285, i64 noundef %.064.lcssa) #8
+  %310 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %281, ptr noundef nonnull %286, ptr noundef %285, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 311:                                              ; preds = %lbrInAccept.exit.thread
-  %312 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %281, ptr noundef nonnull %286, i64 noundef %.064.lcssa) #8
+  %312 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %281, ptr noundef nonnull %286, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 313:                                              ; preds = %lbrInAccept.exit.thread
-  %314 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %281, ptr noundef nonnull %286, ptr noundef %285, i64 noundef %.064.lcssa) #8
+  %314 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %281, ptr noundef nonnull %286, ptr noundef %285, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 315:                                              ; preds = %lbrInAccept.exit.thread
-  %316 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %281, ptr noundef nonnull %286, i64 noundef %.064.lcssa) #8
+  %316 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %281, ptr noundef nonnull %286, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %288, %309, %311, %313, %315
@@ -12039,7 +12039,7 @@ repeatHasMatch.exit.thread:                       ; preds = %repeatHasMatch.exit
   ]
 
 319:                                              ; preds = %repeatHasMatch.exit.thread
-  %320 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %281, ptr noundef nonnull %286, ptr noundef %285, i64 noundef %.064.lcssa) #8
+  %320 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %281, ptr noundef nonnull %286, ptr noundef %285, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 repeatHasMatch.exit.thread.thread:                ; preds = %304, %290, %297, %repeatHasMatch.exit.thread, %repeatHasMatch.exit.thread
@@ -12063,19 +12063,19 @@ repeatHasMatch.exit.thread.thread:                ; preds = %304, %290, %297, %r
   br i1 %or.cond.i116, label %repeatNextMatch.exit, label %repeatNextMatch.exit.thread
 
 335:                                              ; preds = %repeatHasMatch.exit.thread
-  %336 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %281, ptr noundef nonnull %286, ptr noundef %285, i64 noundef %.064.lcssa) #8
+  %336 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %281, ptr noundef nonnull %286, ptr noundef %285, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 337:                                              ; preds = %repeatHasMatch.exit.thread
-  %338 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %281, ptr noundef nonnull %286, i64 noundef %.064.lcssa) #8
+  %338 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %281, ptr noundef nonnull %286, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 339:                                              ; preds = %repeatHasMatch.exit.thread
-  %340 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %281, ptr noundef nonnull %286, ptr noundef %285, i64 noundef %.064.lcssa) #8
+  %340 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %281, ptr noundef nonnull %286, ptr noundef %285, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 341:                                              ; preds = %repeatHasMatch.exit.thread
-  %342 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %281, ptr noundef nonnull %286, i64 noundef %.064.lcssa) #8
+  %342 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %281, ptr noundef nonnull %286, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 343:                                              ; preds = %repeatHasMatch.exit.thread
@@ -12110,7 +12110,7 @@ define hidden noundef signext i8 @nfaExecLbrTruf_queueCompressState(ptr noundef 
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  tail call void @repeatPack(ptr noundef %11, ptr noundef nonnull %14, ptr noundef nonnull %15, i64 noundef %9) #8
+  tail call void @repeatPack(ptr noundef %11, ptr noundef nonnull %14, ptr noundef nonnull %15, i64 noundef %9) #9
   ret i8 0
 }
 
@@ -12121,7 +12121,7 @@ define hidden noundef signext i8 @nfaExecLbrTruf_expandState(ptr noundef %0, ptr
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @repeatUnpack(ptr noundef %2, ptr noundef nonnull %9, i64 noundef %3, ptr noundef nonnull %10) #8
+  tail call void @repeatUnpack(ptr noundef %2, ptr noundef nonnull %9, i64 noundef %3, ptr noundef nonnull %10) #9
   store i64 0, ptr %1, align 8
   ret i8 0
 }
@@ -12143,7 +12143,7 @@ define hidden noundef signext i8 @nfaExecLbrTruf_reportCurrent(ptr noundef reado
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 %13(i64 noundef 0, i64 noundef %11, i32 noundef %15, ptr noundef %17) #8
+  %18 = tail call i32 %13(i64 noundef 0, i64 noundef %11, i32 noundef %15, ptr noundef %17) #9
   ret i8 0
 }
 
@@ -12209,7 +12209,7 @@ repeatIsDead.exit.thread:                         ; preds = %3, %repeatIsDead.ex
   ]
 
 31:                                               ; preds = %23
-  %32 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #8
+  %32 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 33:                                               ; preds = %23
@@ -12241,19 +12241,19 @@ repeatIsDead.exit.thread:                         ; preds = %3, %repeatIsDead.ex
   br label %repeatHasMatch.exit
 
 52:                                               ; preds = %23
-  %53 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #8
+  %53 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 54:                                               ; preds = %23
-  %55 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %7, ptr noundef nonnull %30, i64 noundef %20) #8
+  %55 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %7, ptr noundef nonnull %30, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 56:                                               ; preds = %23
-  %57 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #8
+  %57 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef %29, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 58:                                               ; preds = %23
-  %59 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %7, ptr noundef nonnull %30, i64 noundef %20) #8
+  %59 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %7, ptr noundef nonnull %30, i64 noundef %20) #9
   br label %repeatHasMatch.exit
 
 default.unreachable:                              ; preds = %23
@@ -12387,7 +12387,7 @@ clearRepeat.exit:                                 ; preds = %4, %4
 39:                                               ; preds = %.split.i.thread, %.split.i
   %40 = phi ptr [ %16, %.split.i.thread ], [ %38, %.split.i ]
   %41 = phi ptr [ %15, %.split.i.thread ], [ %37, %.split.i ]
-  call void @repeatStoreRing(ptr noundef nonnull %9, ptr noundef nonnull %40, ptr noundef %41, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreRing(ptr noundef nonnull %9, ptr noundef nonnull %40, ptr noundef %41, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 42:                                               ; preds = %.split.i
@@ -12401,23 +12401,23 @@ clearRepeat.exit:                                 ; preds = %4, %4
 44:                                               ; preds = %.split.i.thread21, %.split.i
   %45 = phi ptr [ %22, %.split.i.thread21 ], [ %38, %.split.i ]
   %46 = phi ptr [ %21, %.split.i.thread21 ], [ %37, %.split.i ]
-  call void @repeatStoreRange(ptr noundef nonnull %9, ptr noundef nonnull %45, ptr noundef %46, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreRange(ptr noundef nonnull %9, ptr noundef nonnull %45, ptr noundef %46, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 47:                                               ; preds = %.split.i.thread22, %.split.i
   %48 = phi ptr [ %25, %.split.i.thread22 ], [ %38, %.split.i ]
-  call void @repeatStoreBitmap(ptr noundef nonnull %9, ptr noundef nonnull %48, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreBitmap(ptr noundef nonnull %9, ptr noundef nonnull %48, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 49:                                               ; preds = %.split.i.thread23, %.split.i
   %50 = phi ptr [ %31, %.split.i.thread23 ], [ %38, %.split.i ]
   %51 = phi ptr [ %30, %.split.i.thread23 ], [ %37, %.split.i ]
-  call void @repeatStoreSparseOptimalP(ptr noundef nonnull %9, ptr noundef nonnull %50, ptr noundef %51, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreSparseOptimalP(ptr noundef nonnull %9, ptr noundef nonnull %50, ptr noundef %51, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 52:                                               ; preds = %.split.i.thread24, %.split.i
   %53 = phi ptr [ %33, %.split.i.thread24 ], [ %38, %.split.i ]
-  call void @repeatStoreTrailer(ptr noundef nonnull %9, ptr noundef nonnull %53, i64 noundef %1, i8 noundef signext 0) #8
+  call void @repeatStoreTrailer(ptr noundef nonnull %9, ptr noundef nonnull %53, i64 noundef %1, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 lbrTop.exit:                                      ; preds = %4, %clearRepeat.exit, %52, %49, %47, %44, %43, %42, %39, %.split.i
@@ -12425,7 +12425,7 @@ lbrTop.exit:                                      ; preds = %4, %clearRepeat.exi
   %55 = zext i32 %54 to i64
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @repeatPack(ptr noundef %2, ptr noundef nonnull %56, ptr noundef nonnull %57, i64 noundef %1) #8
+  call void @repeatPack(ptr noundef %2, ptr noundef nonnull %56, ptr noundef nonnull %57, i64 noundef %1) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i8 1
 }
@@ -12459,7 +12459,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLbrTruf_Q(ptr noundef %0, ptr no
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 %14(i64 noundef 0, i64 noundef %23, i32 noundef %25, ptr noundef %27) #8
+  %28 = tail call i32 %14(i64 noundef 0, i64 noundef %23, i32 noundef %25, ptr noundef %27) #9
   store i8 0, ptr %10, align 8
   %.not109.i = icmp eq i32 %28, 0
   br i1 %.not109.i, label %nfaExecLbrTruf_Q_i.exit, label %29
@@ -12538,7 +12538,7 @@ repeatIsDead.exit120.i.thread:                    ; preds = %53, %repeatIsDead.e
   %68 = load <2 x i64>, ptr %46, align 16
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 %66
   %70 = getelementptr inbounds nuw i8, ptr %64, i64 %65
-  %71 = tail call ptr @truffleExec(<2 x i64> noundef %67, <2 x i64> noundef %68, ptr noundef %69, ptr noundef %70) #8
+  %71 = tail call ptr @truffleExec(<2 x i64> noundef %67, <2 x i64> noundef %68, ptr noundef %69, ptr noundef %70) #9
   %72 = icmp eq ptr %71, %70
   br i1 %72, label %lbrFwdScanTruf.exit.thread, label %73
 
@@ -12585,7 +12585,7 @@ lbrFwdScanTruf.exit.thread:                       ; preds = %63, %73
   ]
 
 95:                                               ; preds = %93
-  %96 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %86, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %90, i64 noundef %.0.i21) #8
+  %96 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %86, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %90, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 97:                                               ; preds = %93, %93
@@ -12608,19 +12608,19 @@ lbrFwdScanTruf.exit.thread:                       ; preds = %63, %73
   br label %repeatNextMatch.exit
 
 110:                                              ; preds = %93
-  %111 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %86, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %90, i64 noundef %.0.i21) #8
+  %111 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %86, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %90, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 112:                                              ; preds = %93
-  %113 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %86, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0.i21) #8
+  %113 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %86, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 114:                                              ; preds = %93
-  %115 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %86, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %90, i64 noundef %.0.i21) #8
+  %115 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %86, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %90, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 116:                                              ; preds = %93
-  %117 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %86, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0.i21) #8
+  %117 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %86, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0.i21) #9
   br label %repeatNextMatch.exit
 
 118:                                              ; preds = %93
@@ -12635,7 +12635,7 @@ repeatNextMatch.exit:                             ; preds = %103, %97, %95, %110
 
 121:                                              ; preds = %repeatNextMatch.exit
   %122 = load i32, ptr %50, align 4
-  %123 = tail call i32 %79(i64 noundef 0, i64 noundef %.0.i29, i32 noundef %122, ptr noundef %80) #8
+  %123 = tail call i32 %79(i64 noundef 0, i64 noundef %.0.i29, i32 noundef %122, ptr noundef %80) #9
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %nfaExecLbrTruf_Q_i.exit, label %93
 
@@ -12765,7 +12765,7 @@ repeatIsDead.exit.i.thread59:                     ; preds = %138, %repeatIsDead.
   %181 = load <2 x i64>, ptr %46, align 16
   %182 = getelementptr inbounds nuw i8, ptr %177, i64 %179
   %183 = getelementptr inbounds nuw i8, ptr %177, i64 %178
-  %184 = tail call ptr @rtruffleExec(<2 x i64> noundef %180, <2 x i64> noundef %181, ptr noundef %182, ptr noundef %183) #8
+  %184 = tail call ptr @rtruffleExec(<2 x i64> noundef %180, <2 x i64> noundef %181, ptr noundef %182, ptr noundef %183) #9
   %185 = getelementptr inbounds i8, ptr %182, i64 -1
   %186 = icmp eq ptr %184, %185
   br i1 %186, label %.thread68, label %187
@@ -12826,7 +12826,7 @@ repeatIsDead.exit.i.i4:                           ; preds = %.thread68, %.thread
   ]
 
 206:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreRing(ptr noundef nonnull %198, ptr noundef nonnull %205, ptr noundef %202, i64 noundef %164, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %198, ptr noundef nonnull %205, ptr noundef %202, i64 noundef %164, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 207:                                              ; preds = %.split.i.i8
@@ -12838,19 +12838,19 @@ repeatIsDead.exit.i.i4:                           ; preds = %.thread68, %.thread
   br label %lbrTop.exit.i
 
 209:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreRange(ptr noundef nonnull %198, ptr noundef nonnull %205, ptr noundef %202, i64 noundef %164, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %198, ptr noundef nonnull %205, ptr noundef %202, i64 noundef %164, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 210:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %198, ptr noundef nonnull %205, i64 noundef %164, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %198, ptr noundef nonnull %205, i64 noundef %164, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 211:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %198, ptr noundef nonnull %205, ptr noundef %202, i64 noundef %164, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %198, ptr noundef nonnull %205, ptr noundef %202, i64 noundef %164, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 212:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %198, ptr noundef nonnull %205, i64 noundef %164, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %198, ptr noundef nonnull %205, i64 noundef %164, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 213:                                              ; preds = %repeatIsDead.exit.i.i4
@@ -12865,23 +12865,23 @@ repeatIsDead.exit.i.i4:                           ; preds = %.thread68, %.thread
   ]
 
 214:                                              ; preds = %213
-  %215 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %198, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %215 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %198, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 216:                                              ; preds = %213
-  %217 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %202) #8
+  %217 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %202) #9
   br label %repeatLastTop.exit
 
 218:                                              ; preds = %213
-  %219 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %219 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 220:                                              ; preds = %213
-  %221 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %198, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %202) #8
+  %221 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %198, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %202) #9
   br label %repeatLastTop.exit
 
 222:                                              ; preds = %213
-  %223 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %198, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %223 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %198, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 default.unreachable:                              ; preds = %213
@@ -12905,7 +12905,7 @@ repeatLastTop.exit:                               ; preds = %213, %213, %.thread
   ]
 
 226:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreRing(ptr noundef nonnull %198, ptr noundef nonnull %224, ptr noundef %202, i64 noundef %164, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %198, ptr noundef nonnull %224, ptr noundef %202, i64 noundef %164, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 227:                                              ; preds = %.split16.i.i11
@@ -12913,19 +12913,19 @@ repeatLastTop.exit:                               ; preds = %213, %213, %.thread
   br label %lbrTop.exit.i
 
 228:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreRange(ptr noundef nonnull %198, ptr noundef nonnull %224, ptr noundef %202, i64 noundef %164, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %198, ptr noundef nonnull %224, ptr noundef %202, i64 noundef %164, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 229:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %198, ptr noundef nonnull %224, i64 noundef %164, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %198, ptr noundef nonnull %224, i64 noundef %164, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 230:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %198, ptr noundef nonnull %224, ptr noundef %202, i64 noundef %164, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %198, ptr noundef nonnull %224, ptr noundef %202, i64 noundef %164, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 231:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %198, ptr noundef nonnull %224, i64 noundef %164, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %198, ptr noundef nonnull %224, i64 noundef %164, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 nfaExecLbrTruf_TopScan.exit:                      ; preds = %.lr.ph, %155, %166
@@ -12999,7 +12999,7 @@ repeatIsDead.exit.i.i:                            ; preds = %247, %247, %247, %2
   ]
 
 259:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257, i64 noundef %250, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257, i64 noundef %250, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 260:                                              ; preds = %.split.i.i
@@ -13011,19 +13011,19 @@ repeatIsDead.exit.i.i:                            ; preds = %247, %247, %247, %2
   br label %lbrTop.exit.i
 
 262:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257, i64 noundef %250, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257, i64 noundef %250, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 263:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %250, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %250, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 264:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257, i64 noundef %250, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257, i64 noundef %250, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 265:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %250, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %250, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 266:                                              ; preds = %repeatIsDead.exit.i.i
@@ -13038,23 +13038,23 @@ repeatIsDead.exit.i.i:                            ; preds = %247, %247, %247, %2
   ]
 
 267:                                              ; preds = %266
-  %268 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #8
+  %268 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #9
   br label %repeatLastTop.exit14
 
 269:                                              ; preds = %266
-  %270 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257) #8
+  %270 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257) #9
   br label %repeatLastTop.exit14
 
 271:                                              ; preds = %266
-  %272 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i118.i.in.in) #8
+  %272 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i118.i.in.in) #9
   br label %repeatLastTop.exit14
 
 273:                                              ; preds = %266
-  %274 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257) #8
+  %274 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257) #9
   br label %repeatLastTop.exit14
 
 275:                                              ; preds = %266
-  %276 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #8
+  %276 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #9
   br label %repeatLastTop.exit14
 
 default.unreachable97:                            ; preds = %266
@@ -13077,7 +13077,7 @@ repeatLastTop.exit14:                             ; preds = %266, %266, %247, %2
   ]
 
 278:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257, i64 noundef %250, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257, i64 noundef %250, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 279:                                              ; preds = %.split16.i.i
@@ -13085,19 +13085,19 @@ repeatLastTop.exit14:                             ; preds = %266, %266, %247, %2
   br label %lbrTop.exit.i
 
 280:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257, i64 noundef %250, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257, i64 noundef %250, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 281:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %250, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %250, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 282:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257, i64 noundef %250, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %257, i64 noundef %250, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 283:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %250, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %253, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %250, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 default.unreachable147:                           ; preds = %.split.i.i
@@ -13165,7 +13165,7 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   ]
 
 308:                                              ; preds = %302
-  %309 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %297, ptr noundef nonnull %307) #8
+  %309 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %297, ptr noundef nonnull %307) #9
   br label %repeatLastTop.exit.i
 
 310:                                              ; preds = %302, %302
@@ -13173,19 +13173,19 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   br label %repeatLastTop.exit.i
 
 312:                                              ; preds = %302
-  %313 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %307, ptr noundef %306) #8
+  %313 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %307, ptr noundef %306) #9
   br label %repeatLastTop.exit.i
 
 314:                                              ; preds = %302
-  %315 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %307) #8
+  %315 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %307) #9
   br label %repeatLastTop.exit.i
 
 316:                                              ; preds = %302
-  %317 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %297, ptr noundef nonnull %307, ptr noundef %306) #8
+  %317 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %297, ptr noundef nonnull %307, ptr noundef %306) #9
   br label %repeatLastTop.exit.i
 
 318:                                              ; preds = %302
-  %319 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %297, ptr noundef nonnull %307) #8
+  %319 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %297, ptr noundef nonnull %307) #9
   br label %repeatLastTop.exit.i
 
 repeatLastTop.exit.i:                             ; preds = %318, %316, %314, %312, %310, %308, %302
@@ -13231,7 +13231,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrTruf_Q2(ptr noundef %0, ptr n
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 %14(i64 noundef 0, i64 noundef %23, i32 noundef %25, ptr noundef %27) #8
+  %28 = tail call i32 %14(i64 noundef 0, i64 noundef %23, i32 noundef %25, ptr noundef %27) #9
   store i8 0, ptr %10, align 8
   %.not109.i = icmp eq i32 %28, 0
   br i1 %.not109.i, label %nfaExecLbrTruf_Q_i.exit, label %29
@@ -13307,7 +13307,7 @@ repeatIsDead.exit120.i.thread:                    ; preds = %50, %repeatIsDead.e
   %65 = load <2 x i64>, ptr %46, align 16
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 %63
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 %62
-  %68 = tail call ptr @truffleExec(<2 x i64> noundef %64, <2 x i64> noundef %65, ptr noundef %66, ptr noundef %67) #8
+  %68 = tail call ptr @truffleExec(<2 x i64> noundef %64, <2 x i64> noundef %65, ptr noundef %66, ptr noundef %67) #9
   %69 = icmp eq ptr %68, %67
   br i1 %69, label %lbrFwdScanTruf.exit.thread, label %70
 
@@ -13346,7 +13346,7 @@ lbrFwdScanTruf.exit.thread:                       ; preds = %60, %70
   ]
 
 87:                                               ; preds = %77
-  %88 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %81, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %85, i64 noundef %.0101.i125) #8
+  %88 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %81, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %85, i64 noundef %.0101.i125) #9
   br label %repeatNextMatch.exit
 
 89:                                               ; preds = %77, %77
@@ -13371,19 +13371,19 @@ lbrFwdScanTruf.exit.thread:                       ; preds = %60, %70
   br label %repeatNextMatch.exit
 
 104:                                              ; preds = %77
-  %105 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %81, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %85, i64 noundef %.0101.i125) #8
+  %105 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %81, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %85, i64 noundef %.0101.i125) #9
   br label %repeatNextMatch.exit
 
 106:                                              ; preds = %77
-  %107 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %81, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0101.i125) #8
+  %107 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %81, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0101.i125) #9
   br label %repeatNextMatch.exit
 
 108:                                              ; preds = %77
-  %109 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %81, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %85, i64 noundef %.0101.i125) #8
+  %109 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %81, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %85, i64 noundef %.0101.i125) #9
   br label %repeatNextMatch.exit
 
 110:                                              ; preds = %77
-  %111 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %81, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0101.i125) #8
+  %111 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %81, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %.0101.i125) #9
   br label %repeatNextMatch.exit
 
 112:                                              ; preds = %77
@@ -13535,7 +13535,7 @@ repeatIsDead.exit.i.thread71:                     ; preds = %135, %repeatIsDead.
   %178 = load <2 x i64>, ptr %46, align 16
   %179 = getelementptr inbounds nuw i8, ptr %174, i64 %176
   %180 = getelementptr inbounds nuw i8, ptr %174, i64 %175
-  %181 = tail call ptr @rtruffleExec(<2 x i64> noundef %177, <2 x i64> noundef %178, ptr noundef %179, ptr noundef %180) #8
+  %181 = tail call ptr @rtruffleExec(<2 x i64> noundef %177, <2 x i64> noundef %178, ptr noundef %179, ptr noundef %180) #9
   %182 = getelementptr inbounds i8, ptr %179, i64 -1
   %183 = icmp eq ptr %181, %182
   br i1 %183, label %.thread81, label %184
@@ -13596,7 +13596,7 @@ repeatIsDead.exit.i.i4:                           ; preds = %.thread81, %.thread
   ]
 
 203:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreRing(ptr noundef nonnull %195, ptr noundef nonnull %202, ptr noundef %199, i64 noundef %161, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %195, ptr noundef nonnull %202, ptr noundef %199, i64 noundef %161, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 204:                                              ; preds = %.split.i.i8
@@ -13608,19 +13608,19 @@ repeatIsDead.exit.i.i4:                           ; preds = %.thread81, %.thread
   br label %lbrTop.exit.i
 
 206:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreRange(ptr noundef nonnull %195, ptr noundef nonnull %202, ptr noundef %199, i64 noundef %161, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %195, ptr noundef nonnull %202, ptr noundef %199, i64 noundef %161, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 207:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %195, ptr noundef nonnull %202, i64 noundef %161, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %195, ptr noundef nonnull %202, i64 noundef %161, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 208:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %195, ptr noundef nonnull %202, ptr noundef %199, i64 noundef %161, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %195, ptr noundef nonnull %202, ptr noundef %199, i64 noundef %161, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 209:                                              ; preds = %.split.i.i8
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %195, ptr noundef nonnull %202, i64 noundef %161, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %195, ptr noundef nonnull %202, i64 noundef %161, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 210:                                              ; preds = %repeatIsDead.exit.i.i4
@@ -13635,23 +13635,23 @@ repeatIsDead.exit.i.i4:                           ; preds = %.thread81, %.thread
   ]
 
 211:                                              ; preds = %210
-  %212 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %212 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 213:                                              ; preds = %210
-  %214 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %199) #8
+  %214 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %199) #9
   br label %repeatLastTop.exit
 
 215:                                              ; preds = %210
-  %216 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %216 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 217:                                              ; preds = %210
-  %218 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %199) #8
+  %218 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in, ptr noundef %199) #9
   br label %repeatLastTop.exit
 
 219:                                              ; preds = %210
-  %220 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #8
+  %220 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i.i.i5.in.in) #9
   br label %repeatLastTop.exit
 
 default.unreachable:                              ; preds = %210
@@ -13675,7 +13675,7 @@ repeatLastTop.exit:                               ; preds = %210, %210, %.thread
   ]
 
 223:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreRing(ptr noundef nonnull %195, ptr noundef nonnull %221, ptr noundef %199, i64 noundef %161, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %195, ptr noundef nonnull %221, ptr noundef %199, i64 noundef %161, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 224:                                              ; preds = %.split16.i.i11
@@ -13683,19 +13683,19 @@ repeatLastTop.exit:                               ; preds = %210, %210, %.thread
   br label %lbrTop.exit.i
 
 225:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreRange(ptr noundef nonnull %195, ptr noundef nonnull %221, ptr noundef %199, i64 noundef %161, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %195, ptr noundef nonnull %221, ptr noundef %199, i64 noundef %161, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 226:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %195, ptr noundef nonnull %221, i64 noundef %161, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %195, ptr noundef nonnull %221, i64 noundef %161, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 227:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %195, ptr noundef nonnull %221, ptr noundef %199, i64 noundef %161, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %195, ptr noundef nonnull %221, ptr noundef %199, i64 noundef %161, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 228:                                              ; preds = %.split16.i.i11
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %195, ptr noundef nonnull %221, i64 noundef %161, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %195, ptr noundef nonnull %221, i64 noundef %161, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 nfaExecLbrTruf_TopScan.exit:                      ; preds = %.lr.ph, %152, %163
@@ -13769,7 +13769,7 @@ repeatIsDead.exit.i.i:                            ; preds = %244, %244, %244, %2
   ]
 
 256:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254, i64 noundef %247, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254, i64 noundef %247, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 257:                                              ; preds = %.split.i.i
@@ -13781,19 +13781,19 @@ repeatIsDead.exit.i.i:                            ; preds = %244, %244, %244, %2
   br label %lbrTop.exit.i
 
 259:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254, i64 noundef %247, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254, i64 noundef %247, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 260:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %247, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %247, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 261:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254, i64 noundef %247, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254, i64 noundef %247, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 262:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %247, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %247, i8 noundef signext 0) #9
   br label %lbrTop.exit.i
 
 263:                                              ; preds = %repeatIsDead.exit.i.i
@@ -13808,23 +13808,23 @@ repeatIsDead.exit.i.i:                            ; preds = %244, %244, %244, %2
   ]
 
 264:                                              ; preds = %263
-  %265 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #8
+  %265 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #9
   br label %repeatLastTop.exit14
 
 266:                                              ; preds = %263
-  %267 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254) #8
+  %267 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254) #9
   br label %repeatLastTop.exit14
 
 268:                                              ; preds = %263
-  %269 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i118.i.in.in) #8
+  %269 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i118.i.in.in) #9
   br label %repeatLastTop.exit14
 
 270:                                              ; preds = %263
-  %271 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254) #8
+  %271 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254) #9
   br label %repeatLastTop.exit14
 
 272:                                              ; preds = %263
-  %273 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #8
+  %273 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in) #9
   br label %repeatLastTop.exit14
 
 default.unreachable110:                           ; preds = %263
@@ -13847,7 +13847,7 @@ repeatLastTop.exit14:                             ; preds = %263, %263, %244, %2
   ]
 
 275:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254, i64 noundef %247, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254, i64 noundef %247, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 276:                                              ; preds = %.split16.i.i
@@ -13855,19 +13855,19 @@ repeatLastTop.exit14:                             ; preds = %263, %263, %244, %2
   br label %lbrTop.exit.i
 
 277:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254, i64 noundef %247, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254, i64 noundef %247, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 278:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %247, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %247, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 279:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254, i64 noundef %247, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, ptr noundef %254, i64 noundef %247, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 280:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %247, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i118.i.in.in, i64 noundef %247, i8 noundef signext 1) #9
   br label %lbrTop.exit.i
 
 default.unreachable160:                           ; preds = %.split.i.i
@@ -13935,7 +13935,7 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   ]
 
 305:                                              ; preds = %299
-  %306 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %294, ptr noundef nonnull %304) #8
+  %306 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %294, ptr noundef nonnull %304) #9
   br label %repeatLastTop.exit.i
 
 307:                                              ; preds = %299, %299
@@ -13943,19 +13943,19 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   br label %repeatLastTop.exit.i
 
 309:                                              ; preds = %299
-  %310 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %304, ptr noundef %303) #8
+  %310 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %304, ptr noundef %303) #9
   br label %repeatLastTop.exit.i
 
 311:                                              ; preds = %299
-  %312 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %304) #8
+  %312 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %304) #9
   br label %repeatLastTop.exit.i
 
 313:                                              ; preds = %299
-  %314 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %294, ptr noundef nonnull %304, ptr noundef %303) #8
+  %314 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %294, ptr noundef nonnull %304, ptr noundef %303) #9
   br label %repeatLastTop.exit.i
 
 315:                                              ; preds = %299
-  %316 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %294, ptr noundef nonnull %304) #8
+  %316 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %294, ptr noundef nonnull %304) #9
   br label %repeatLastTop.exit.i
 
 repeatLastTop.exit.i:                             ; preds = %315, %313, %311, %309, %307, %305, %299
@@ -14067,7 +14067,7 @@ repeatIsDead.exit82.thread:                       ; preds = %38, %repeatIsDead.e
   %62 = load <2 x i64>, ptr %32, align 16
   %63 = load <2 x i64>, ptr %33, align 16
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 %55
-  %65 = tail call ptr @truffleExec(<2 x i64> noundef %62, <2 x i64> noundef %63, ptr noundef nonnull %61, ptr noundef nonnull %64) #8
+  %65 = tail call ptr @truffleExec(<2 x i64> noundef %62, <2 x i64> noundef %63, ptr noundef nonnull %61, ptr noundef nonnull %64) #9
   %66 = icmp eq ptr %65, %64
   br i1 %66, label %nfaExecLbrTruf_StreamSilent.exit, label %67
 
@@ -14116,7 +14116,7 @@ repeatIsDead.exit79.thread:                       ; preds = %nfaExecLbrTruf_Stre
   %81 = load <2 x i64>, ptr %32, align 16
   %82 = load <2 x i64>, ptr %33, align 16
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 %75
-  %84 = tail call ptr @truffleExec(<2 x i64> noundef %81, <2 x i64> noundef %82, ptr noundef %80, ptr noundef %83) #8
+  %84 = tail call ptr @truffleExec(<2 x i64> noundef %81, <2 x i64> noundef %82, ptr noundef %80, ptr noundef %83) #9
   %85 = icmp eq ptr %84, %83
   br i1 %85, label %nfaExecLbrTruf_StreamSilent.exit90, label %86
 
@@ -14223,7 +14223,7 @@ repeatIsDead.exit82.thread126:                    ; preds = %nfaExecLbrTruf_Stre
   %131 = load <2 x i64>, ptr %33, align 16
   %132 = getelementptr inbounds nuw i8, ptr %127, i64 %129
   %133 = getelementptr inbounds nuw i8, ptr %127, i64 %128
-  %134 = tail call ptr @rtruffleExec(<2 x i64> noundef %130, <2 x i64> noundef %131, ptr noundef %132, ptr noundef %133) #8
+  %134 = tail call ptr @rtruffleExec(<2 x i64> noundef %130, <2 x i64> noundef %131, ptr noundef %132, ptr noundef %133) #9
   %135 = getelementptr inbounds i8, ptr %132, i64 -1
   %136 = icmp eq ptr %134, %135
   br i1 %136, label %.thread153, label %137
@@ -14284,7 +14284,7 @@ repeatIsDead.exit.i.i:                            ; preds = %.thread153, %.threa
   ]
 
 156:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %148, ptr noundef nonnull %155, ptr noundef %152, i64 noundef %114, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %148, ptr noundef nonnull %155, ptr noundef %152, i64 noundef %114, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 157:                                              ; preds = %.split.i.i
@@ -14296,19 +14296,19 @@ repeatIsDead.exit.i.i:                            ; preds = %.thread153, %.threa
   br label %lbrTop.exit
 
 159:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %148, ptr noundef nonnull %155, ptr noundef %152, i64 noundef %114, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %148, ptr noundef nonnull %155, ptr noundef %152, i64 noundef %114, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 160:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %148, ptr noundef nonnull %155, i64 noundef %114, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %148, ptr noundef nonnull %155, i64 noundef %114, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 161:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %148, ptr noundef nonnull %155, ptr noundef %152, i64 noundef %114, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %148, ptr noundef nonnull %155, ptr noundef %152, i64 noundef %114, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 162:                                              ; preds = %.split.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %148, ptr noundef nonnull %155, i64 noundef %114, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %148, ptr noundef nonnull %155, i64 noundef %114, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 163:                                              ; preds = %repeatIsDead.exit.i.i
@@ -14323,23 +14323,23 @@ repeatIsDead.exit.i.i:                            ; preds = %.thread153, %.threa
   ]
 
 164:                                              ; preds = %163
-  %165 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %148, ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #8
+  %165 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %148, ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #9
   br label %repeatLastTop.exit
 
 166:                                              ; preds = %163
-  %167 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i.in.in, ptr noundef %152) #8
+  %167 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i.i.i.in.in, ptr noundef %152) #9
   br label %repeatLastTop.exit
 
 168:                                              ; preds = %163
-  %169 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #8
+  %169 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #9
   br label %repeatLastTop.exit
 
 170:                                              ; preds = %163
-  %171 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %148, ptr noundef nonnull %.0.shrunk.i.i.i.in.in, ptr noundef %152) #8
+  %171 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %148, ptr noundef nonnull %.0.shrunk.i.i.i.in.in, ptr noundef %152) #9
   br label %repeatLastTop.exit
 
 172:                                              ; preds = %163
-  %173 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %148, ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #8
+  %173 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %148, ptr noundef nonnull %.0.shrunk.i.i.i.in.in) #9
   br label %repeatLastTop.exit
 
 default.unreachable:                              ; preds = %163
@@ -14363,7 +14363,7 @@ repeatLastTop.exit:                               ; preds = %163, %163, %.thread
   ]
 
 176:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %148, ptr noundef nonnull %174, ptr noundef %152, i64 noundef %114, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %148, ptr noundef nonnull %174, ptr noundef %152, i64 noundef %114, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 177:                                              ; preds = %.split16.i.i
@@ -14371,19 +14371,19 @@ repeatLastTop.exit:                               ; preds = %163, %163, %.thread
   br label %lbrTop.exit
 
 178:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %148, ptr noundef nonnull %174, ptr noundef %152, i64 noundef %114, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %148, ptr noundef nonnull %174, ptr noundef %152, i64 noundef %114, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 179:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %148, ptr noundef nonnull %174, i64 noundef %114, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %148, ptr noundef nonnull %174, i64 noundef %114, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 180:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %148, ptr noundef nonnull %174, ptr noundef %152, i64 noundef %114, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %148, ptr noundef nonnull %174, ptr noundef %152, i64 noundef %114, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 181:                                              ; preds = %.split16.i.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %148, ptr noundef nonnull %174, i64 noundef %114, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %148, ptr noundef nonnull %174, i64 noundef %114, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 repeatIsDead.exit76.thread:                       ; preds = %nfaExecLbrTruf_StreamSilent.exit90, %repeatIsDead.exit76
@@ -14439,7 +14439,7 @@ repeatIsDead.exit.i:                              ; preds = %186, %186, %186, %1
   ]
 
 201:                                              ; preds = %.split.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199, i64 noundef %192, i8 noundef signext 0) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199, i64 noundef %192, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 202:                                              ; preds = %.split.i
@@ -14451,19 +14451,19 @@ repeatIsDead.exit.i:                              ; preds = %186, %186, %186, %1
   br label %lbrTop.exit
 
 204:                                              ; preds = %.split.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199, i64 noundef %192, i8 noundef signext 0) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199, i64 noundef %192, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 205:                                              ; preds = %.split.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %192, i8 noundef signext 0) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %192, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 206:                                              ; preds = %.split.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199, i64 noundef %192, i8 noundef signext 0) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199, i64 noundef %192, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 207:                                              ; preds = %.split.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %192, i8 noundef signext 0) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %192, i8 noundef signext 0) #9
   br label %lbrTop.exit
 
 208:                                              ; preds = %repeatIsDead.exit.i
@@ -14478,23 +14478,23 @@ repeatIsDead.exit.i:                              ; preds = %186, %186, %186, %1
   ]
 
 209:                                              ; preds = %208
-  %210 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in) #8
+  %210 = tail call i64 @repeatLastTopRing(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in) #9
   br label %repeatLastTop.exit108
 
 211:                                              ; preds = %208
-  %212 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199) #8
+  %212 = tail call i64 @repeatLastTopRange(ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199) #9
   br label %repeatLastTop.exit108
 
 213:                                              ; preds = %208
-  %214 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i80.in.in) #8
+  %214 = tail call i64 @repeatLastTopBitmap(ptr noundef nonnull %.0.shrunk.i80.in.in) #9
   br label %repeatLastTop.exit108
 
 215:                                              ; preds = %208
-  %216 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199) #8
+  %216 = tail call i64 @repeatLastTopSparseOptimalP(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199) #9
   br label %repeatLastTop.exit108
 
 217:                                              ; preds = %208
-  %218 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in) #8
+  %218 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in) #9
   br label %repeatLastTop.exit108
 
 default.unreachable203:                           ; preds = %208
@@ -14517,7 +14517,7 @@ repeatLastTop.exit108:                            ; preds = %208, %208, %186, %2
   ]
 
 220:                                              ; preds = %.split16.i
-  tail call void @repeatStoreRing(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199, i64 noundef %192, i8 noundef signext 1) #8
+  tail call void @repeatStoreRing(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199, i64 noundef %192, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 221:                                              ; preds = %.split16.i
@@ -14525,19 +14525,19 @@ repeatLastTop.exit108:                            ; preds = %208, %208, %186, %2
   br label %lbrTop.exit
 
 222:                                              ; preds = %.split16.i
-  tail call void @repeatStoreRange(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199, i64 noundef %192, i8 noundef signext 1) #8
+  tail call void @repeatStoreRange(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199, i64 noundef %192, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 223:                                              ; preds = %.split16.i
-  tail call void @repeatStoreBitmap(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %192, i8 noundef signext 1) #8
+  tail call void @repeatStoreBitmap(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %192, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 224:                                              ; preds = %.split16.i
-  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199, i64 noundef %192, i8 noundef signext 1) #8
+  tail call void @repeatStoreSparseOptimalP(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, ptr noundef %199, i64 noundef %192, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 225:                                              ; preds = %.split16.i
-  tail call void @repeatStoreTrailer(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %192, i8 noundef signext 1) #8
+  tail call void @repeatStoreTrailer(ptr noundef nonnull %195, ptr noundef nonnull %.0.shrunk.i80.in.in, i64 noundef %192, i8 noundef signext 1) #9
   br label %lbrTop.exit
 
 default.unreachable244:                           ; preds = %.split.i
@@ -14607,7 +14607,7 @@ repeatIsDead.exit.thread:                         ; preds = %._crit_edge, %repea
   ]
 
 249:                                              ; preds = %240
-  %250 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %242, ptr noundef nonnull %247, ptr noundef %246, i64 noundef %.064.lcssa) #8
+  %250 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %242, ptr noundef nonnull %247, ptr noundef %246, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 251:                                              ; preds = %240
@@ -14638,19 +14638,19 @@ repeatIsDead.exit.thread:                         ; preds = %._crit_edge, %repea
   br i1 %.not.i99, label %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge, label %nfaExecLbrTruf_TopScan.exit
 
 270:                                              ; preds = %240
-  %271 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %242, ptr noundef nonnull %247, ptr noundef %246, i64 noundef %.064.lcssa) #8
+  %271 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %242, ptr noundef nonnull %247, ptr noundef %246, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 272:                                              ; preds = %240
-  %273 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %242, ptr noundef nonnull %247, i64 noundef %.064.lcssa) #8
+  %273 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %242, ptr noundef nonnull %247, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 274:                                              ; preds = %240
-  %275 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %242, ptr noundef nonnull %247, ptr noundef %246, i64 noundef %.064.lcssa) #8
+  %275 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %242, ptr noundef nonnull %247, ptr noundef %246, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 276:                                              ; preds = %240
-  %277 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %242, ptr noundef nonnull %247, i64 noundef %.064.lcssa) #8
+  %277 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %242, ptr noundef nonnull %247, i64 noundef %.064.lcssa) #9
   br label %lbrInAccept.exit
 
 lbrInAccept.exit:                                 ; preds = %276, %274, %272, %270, %251, %249
@@ -14686,7 +14686,7 @@ lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lb
   ]
 
 288:                                              ; preds = %lbrInAccept.exit.thread
-  %289 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %281, ptr noundef nonnull %286, ptr noundef %285, i64 noundef %.064.lcssa) #8
+  %289 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %281, ptr noundef nonnull %286, ptr noundef %285, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 290:                                              ; preds = %lbrInAccept.exit.thread
@@ -14716,19 +14716,19 @@ lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lb
   br i1 %.not.i102, label %repeatHasMatch.exit.thread.thread, label %nfaExecLbrTruf_TopScan.exit
 
 309:                                              ; preds = %lbrInAccept.exit.thread
-  %310 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %281, ptr noundef nonnull %286, ptr noundef %285, i64 noundef %.064.lcssa) #8
+  %310 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %281, ptr noundef nonnull %286, ptr noundef %285, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 311:                                              ; preds = %lbrInAccept.exit.thread
-  %312 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %281, ptr noundef nonnull %286, i64 noundef %.064.lcssa) #8
+  %312 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %281, ptr noundef nonnull %286, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 313:                                              ; preds = %lbrInAccept.exit.thread
-  %314 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %281, ptr noundef nonnull %286, ptr noundef %285, i64 noundef %.064.lcssa) #8
+  %314 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %281, ptr noundef nonnull %286, ptr noundef %285, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 315:                                              ; preds = %lbrInAccept.exit.thread
-  %316 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %281, ptr noundef nonnull %286, i64 noundef %.064.lcssa) #8
+  %316 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %281, ptr noundef nonnull %286, i64 noundef %.064.lcssa) #9
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %288, %309, %311, %313, %315
@@ -14754,7 +14754,7 @@ repeatHasMatch.exit.thread:                       ; preds = %repeatHasMatch.exit
   ]
 
 319:                                              ; preds = %repeatHasMatch.exit.thread
-  %320 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %281, ptr noundef nonnull %286, ptr noundef %285, i64 noundef %.064.lcssa) #8
+  %320 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %281, ptr noundef nonnull %286, ptr noundef %285, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 repeatHasMatch.exit.thread.thread:                ; preds = %304, %290, %297, %repeatHasMatch.exit.thread, %repeatHasMatch.exit.thread
@@ -14778,19 +14778,19 @@ repeatHasMatch.exit.thread.thread:                ; preds = %304, %290, %297, %r
   br i1 %or.cond.i116, label %repeatNextMatch.exit, label %repeatNextMatch.exit.thread
 
 335:                                              ; preds = %repeatHasMatch.exit.thread
-  %336 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %281, ptr noundef nonnull %286, ptr noundef %285, i64 noundef %.064.lcssa) #8
+  %336 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %281, ptr noundef nonnull %286, ptr noundef %285, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 337:                                              ; preds = %repeatHasMatch.exit.thread
-  %338 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %281, ptr noundef nonnull %286, i64 noundef %.064.lcssa) #8
+  %338 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %281, ptr noundef nonnull %286, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 339:                                              ; preds = %repeatHasMatch.exit.thread
-  %340 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %281, ptr noundef nonnull %286, ptr noundef %285, i64 noundef %.064.lcssa) #8
+  %340 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %281, ptr noundef nonnull %286, ptr noundef %285, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 341:                                              ; preds = %repeatHasMatch.exit.thread
-  %342 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %281, ptr noundef nonnull %286, i64 noundef %.064.lcssa) #8
+  %342 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %281, ptr noundef nonnull %286, i64 noundef %.064.lcssa) #9
   br label %repeatNextMatch.exit
 
 343:                                              ; preds = %repeatHasMatch.exit.thread
@@ -14878,14 +14878,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.cttz.i16(i16, i1 immarg) #7
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
@@ -14894,8 +14894,9 @@ attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

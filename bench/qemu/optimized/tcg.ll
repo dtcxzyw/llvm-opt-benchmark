@@ -324,7 +324,7 @@ define dso_local noundef ptr @gen_new_label() local_unnamed_addr #0 {
 
 tcg_malloc.exit:                                  ; preds = %8, %10
   %.0.i = phi ptr [ %9, %8 ], [ %3, %10 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %.0.i, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %.0.i, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = add i32 %12, 1
@@ -385,7 +385,7 @@ memop_alignment_bits.exit.i:                      ; preds = %4
   br label %atom_and_align_for_opc.exit
 
 12:                                               ; preds = %memop_alignment_bits.exit.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5793, ptr noundef nonnull @__func__.atom_and_align_for_opc, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5793, ptr noundef nonnull @__func__.atom_and_align_for_opc, ptr noundef null) #32
   unreachable
 
 atom_and_align_for_opc.exit:                      ; preds = %memop_alignment_bits.exit.i, %9, %10
@@ -719,7 +719,7 @@ define dso_local void @tcg_expand_vec_op(i32 noundef %0, i32 noundef %1, i32 nou
   call void @llvm.assume(i1 %51)
   %52 = trunc i64 %42 to i32
   %53 = shl i32 255, %52
-  call void @tcg_gen_shli_vec(i32 noundef 1, ptr noundef %47, ptr noundef %49, i64 noundef %42) #30
+  call void @tcg_gen_shli_vec(i32 noundef 1, ptr noundef %47, ptr noundef %49, i64 noundef %42) #31
   %54 = and i32 %53, 255
   %55 = zext nneg i32 %54 to i64
   %56 = mul nuw i64 %55, 72340172838076673
@@ -729,7 +729,7 @@ define dso_local void @tcg_expand_vec_op(i32 noundef %0, i32 noundef %1, i32 nou
   %60 = ptrtoint ptr %58 to i64
   %61 = sub i64 %59, %60
   %62 = inttoptr i64 %61 to ptr
-  call void @tcg_gen_and_vec(i32 noundef 0, ptr noundef %47, ptr noundef %47, ptr noundef %62) #30
+  call void @tcg_gen_and_vec(i32 noundef 0, ptr noundef %47, ptr noundef %47, ptr noundef %62) #31
   br label %expand_vec_sari.exit
 
 63:                                               ; preds = %38
@@ -737,7 +737,7 @@ define dso_local void @tcg_expand_vec_op(i32 noundef %0, i32 noundef %1, i32 nou
   call void @llvm.assume(i1 %64)
   %65 = trunc i64 %42 to i32
   %66 = lshr i32 255, %65
-  call void @tcg_gen_shri_vec(i32 noundef 1, ptr noundef %47, ptr noundef %49, i64 noundef %42) #30
+  call void @tcg_gen_shri_vec(i32 noundef 1, ptr noundef %47, ptr noundef %49, i64 noundef %42) #31
   %67 = zext nneg i32 %66 to i64
   %68 = mul nuw i64 %67, 72340172838076673
   %69 = call ptr @tcg_constant_internal(i32 noundef %1, i64 noundef %68)
@@ -746,7 +746,7 @@ define dso_local void @tcg_expand_vec_op(i32 noundef %0, i32 noundef %1, i32 nou
   %72 = ptrtoint ptr %70 to i64
   %73 = sub i64 %71, %72
   %74 = inttoptr i64 %73 to ptr
-  call void @tcg_gen_and_vec(i32 noundef 0, ptr noundef %47, ptr noundef %47, ptr noundef %74) #30
+  call void @tcg_gen_and_vec(i32 noundef 0, ptr noundef %47, ptr noundef %47, ptr noundef %74) #31
   br label %expand_vec_sari.exit
 
 75:                                               ; preds = %38
@@ -772,16 +772,16 @@ define dso_local void @tcg_expand_vec_op(i32 noundef %0, i32 noundef %1, i32 nou
   %90 = ptrtoint ptr %89 to i64
   %91 = getelementptr inbounds nuw i8, ptr %84, i64 %48
   %92 = ptrtoint ptr %91 to i64
-  call void @vec_gen_3(i32 noundef 200, i32 noundef %1, i32 noundef 0, i64 noundef %90, i64 noundef %92, i64 noundef %92) #30
+  call void @vec_gen_3(i32 noundef 200, i32 noundef %1, i32 noundef 0, i64 noundef %90, i64 noundef %92, i64 noundef %92) #31
   %93 = load ptr, ptr %43, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 %87
   %95 = ptrtoint ptr %94 to i64
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 %48
   %97 = ptrtoint ptr %96 to i64
-  call void @vec_gen_3(i32 noundef 201, i32 noundef %1, i32 noundef 0, i64 noundef %95, i64 noundef %97, i64 noundef %97) #30
+  call void @vec_gen_3(i32 noundef 201, i32 noundef %1, i32 noundef 0, i64 noundef %95, i64 noundef %97, i64 noundef %97) #31
   %98 = add i64 %42, 8
-  call void @tcg_gen_sari_vec(i32 noundef 1, ptr noundef %82, ptr noundef %82, i64 noundef %98) #30
-  call void @tcg_gen_sari_vec(i32 noundef 1, ptr noundef %88, ptr noundef %88, i64 noundef %98) #30
+  call void @tcg_gen_sari_vec(i32 noundef 1, ptr noundef %82, ptr noundef %82, i64 noundef %98) #31
+  call void @tcg_gen_sari_vec(i32 noundef 1, ptr noundef %88, ptr noundef %88, i64 noundef %98) #31
   %99 = load ptr, ptr %43, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 %46
   %101 = ptrtoint ptr %100 to i64
@@ -789,7 +789,7 @@ define dso_local void @tcg_expand_vec_op(i32 noundef %0, i32 noundef %1, i32 nou
   %103 = ptrtoint ptr %102 to i64
   %104 = getelementptr inbounds nuw i8, ptr %99, i64 %87
   %105 = ptrtoint ptr %104 to i64
-  call void @vec_gen_3(i32 noundef 196, i32 noundef %1, i32 noundef 0, i64 noundef %101, i64 noundef %103, i64 noundef %105) #30
+  call void @vec_gen_3(i32 noundef 196, i32 noundef %1, i32 noundef 0, i64 noundef %101, i64 noundef %103, i64 noundef %105) #31
   %106 = load ptr, ptr %43, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 %81
   %108 = load i64, ptr %107, align 8
@@ -829,7 +829,7 @@ define dso_local void @tcg_expand_vec_op(i32 noundef %0, i32 noundef %1, i32 nou
   br label %tcg_temp_free_vec.exit.i
 
 132:                                              ; preds = %76
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #31
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #32
   unreachable
 
 tcg_temp_free_vec.exit.i:                         ; preds = %112, %76, %76
@@ -854,7 +854,7 @@ tcg_temp_free_vec.exit.i:                         ; preds = %112, %76, %76
   br label %tcg_temp_free_vec.exit52.sink.split.i
 
 143:                                              ; preds = %tcg_temp_free_vec.exit.i
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #31
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #32
   unreachable
 
 144:                                              ; preds = %75
@@ -869,14 +869,14 @@ tcg_temp_free_vec.exit.i:                         ; preds = %112, %76, %76
 
 152:                                              ; preds = %144
   %153 = call i64 @llvm.umin.i64(i64 %42, i64 31)
-  call void @tcg_gen_sari_vec(i32 noundef 2, ptr noundef %150, ptr noundef %49, i64 noundef %153) #30
-  call void @tcg_gen_shri_vec(i32 noundef 3, ptr noundef %47, ptr noundef %49, i64 noundef %42) #30
+  call void @tcg_gen_sari_vec(i32 noundef 2, ptr noundef %150, ptr noundef %49, i64 noundef %153) #31
+  call void @tcg_gen_shri_vec(i32 noundef 3, ptr noundef %47, ptr noundef %49, i64 noundef %42) #31
   %154 = load ptr, ptr %43, align 8
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 %46
   %156 = ptrtoint ptr %155 to i64
   %157 = getelementptr inbounds nuw i8, ptr %154, i64 %149
   %158 = ptrtoint ptr %157 to i64
-  call void @vec_gen_4(i32 noundef 195, i32 noundef %1, i32 noundef 2, i64 noundef %156, i64 noundef %156, i64 noundef %158, i64 noundef 170) #30
+  call void @vec_gen_4(i32 noundef 195, i32 noundef %1, i32 noundef 2, i64 noundef %156, i64 noundef %156, i64 noundef %158, i64 noundef 170) #31
   br label %167
 
 159:                                              ; preds = %144
@@ -886,11 +886,11 @@ tcg_temp_free_vec.exit.i:                         ; preds = %112, %76, %76
   %163 = ptrtoint ptr %161 to i64
   %164 = sub i64 %162, %163
   %165 = inttoptr i64 %164 to ptr
-  call void @tcg_gen_cmp_vec(i32 noundef 6, i32 noundef 3, ptr noundef %150, ptr noundef %165, ptr noundef %49) #30
-  call void @tcg_gen_shri_vec(i32 noundef 3, ptr noundef %47, ptr noundef %49, i64 noundef %42) #30
+  call void @tcg_gen_cmp_vec(i32 noundef 6, i32 noundef 3, ptr noundef %150, ptr noundef %165, ptr noundef %49) #31
+  call void @tcg_gen_shri_vec(i32 noundef 3, ptr noundef %47, ptr noundef %49, i64 noundef %42) #31
   %166 = sub i64 64, %42
-  call void @tcg_gen_shli_vec(i32 noundef 3, ptr noundef %150, ptr noundef %150, i64 noundef %166) #30
-  call void @tcg_gen_or_vec(i32 noundef 3, ptr noundef %47, ptr noundef %47, ptr noundef %150) #30
+  call void @tcg_gen_shli_vec(i32 noundef 3, ptr noundef %150, ptr noundef %150, i64 noundef %166) #31
+  call void @tcg_gen_or_vec(i32 noundef 3, ptr noundef %47, ptr noundef %47, ptr noundef %150) #31
   br label %167
 
 167:                                              ; preds = %159, %152
@@ -915,11 +915,11 @@ tcg_temp_free_vec.exit.i:                         ; preds = %112, %76, %76
   br label %tcg_temp_free_vec.exit52.sink.split.i
 
 178:                                              ; preds = %167
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #31
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #32
   unreachable
 
 179:                                              ; preds = %75
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 4124, ptr noundef nonnull @__func__.expand_vec_sari, ptr noundef null) #31
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 4124, ptr noundef nonnull @__func__.expand_vec_sari, ptr noundef null) #32
   unreachable
 
 tcg_temp_free_vec.exit52.sink.split.i:            ; preds = %174, %139
@@ -956,7 +956,7 @@ tcg_temp_free_vec.exit52.sink.split.i:            ; preds = %174, %139
   br i1 %or.cond24.not.i, label %200, label %201
 
 200:                                              ; preds = %197
-  call void @vec_gen_4(i32 noundef 202, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %39, i64 noundef %39, i64 noundef %42) #30
+  call void @vec_gen_4(i32 noundef 202, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %39, i64 noundef %39, i64 noundef %42) #31
   br label %expand_vec_sari.exit
 
 201:                                              ; preds = %197, %196
@@ -966,12 +966,12 @@ tcg_temp_free_vec.exit52.sink.split.i:            ; preds = %174, %139
   %205 = ptrtoint ptr %203 to i64
   %206 = sub i64 %204, %205
   %207 = inttoptr i64 %206 to ptr
-  call void @tcg_gen_shli_vec(i32 noundef %2, ptr noundef %207, ptr noundef %49, i64 noundef %42) #30
+  call void @tcg_gen_shli_vec(i32 noundef %2, ptr noundef %207, ptr noundef %49, i64 noundef %42) #31
   %208 = shl i32 8, %2
   %209 = sext i32 %208 to i64
   %210 = sub i64 %209, %42
-  call void @tcg_gen_shri_vec(i32 noundef %2, ptr noundef %47, ptr noundef %49, i64 noundef %210) #30
-  call void @tcg_gen_or_vec(i32 noundef %2, ptr noundef %47, ptr noundef %47, ptr noundef %207) #30
+  call void @tcg_gen_shri_vec(i32 noundef %2, ptr noundef %47, ptr noundef %49, i64 noundef %210) #31
+  call void @tcg_gen_or_vec(i32 noundef %2, ptr noundef %47, ptr noundef %47, ptr noundef %207) #31
   %211 = load ptr, ptr %43, align 8
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 %206
   %213 = load i64, ptr %212, align 8
@@ -1010,7 +1010,7 @@ tcg_temp_free_vec.exit52.sink.split.i:            ; preds = %174, %139
   br label %expand_vec_sari.exit
 
 237:                                              ; preds = %201
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #31
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #32
   unreachable
 
 238:                                              ; preds = %38
@@ -1039,12 +1039,12 @@ tcg_temp_free_vec.exit52.sink.split.i:            ; preds = %174, %139
   br i1 %or.cond39.not.i, label %255, label %256
 
 254:                                              ; preds = %250
-  call void @tcg_gen_dup_i32_vec(i32 noundef %2, ptr noundef %246, ptr noundef %240) #30
-  call void @tcg_gen_rotlv_vec(i32 noundef %2, ptr noundef %47, ptr noundef %49, ptr noundef %246) #30
+  call void @tcg_gen_dup_i32_vec(i32 noundef %2, ptr noundef %246, ptr noundef %240) #31
+  call void @tcg_gen_rotlv_vec(i32 noundef %2, ptr noundef %47, ptr noundef %49, ptr noundef %246) #31
   br label %tcg_temp_free_i32.exit.i
 
 255:                                              ; preds = %252
-  call void @tcg_gen_dup_i32_vec(i32 noundef 1, ptr noundef %246, ptr noundef %240) #30
+  call void @tcg_gen_dup_i32_vec(i32 noundef 1, ptr noundef %246, ptr noundef %240) #31
   call fastcc void @expand_vec_rotv(i32 noundef %1, i32 noundef 1, ptr noundef %47, ptr noundef %49, ptr noundef %246, i1 noundef zeroext false)
   br label %tcg_temp_free_i32.exit.i
 
@@ -1057,27 +1057,27 @@ tcg_temp_free_vec.exit52.sink.split.i:            ; preds = %174, %139
   br i1 %260, label %261, label %tcg_temp_new_i32.exit.i
 
 261:                                              ; preds = %256
-  call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %242) #32
+  call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %242) #33
   unreachable
 
 tcg_temp_new_i32.exit.i:                          ; preds = %256
   %262 = getelementptr inbounds nuw i8, ptr %242, i64 672
   %263 = sext i32 %258 to i64
   %264 = getelementptr inbounds %struct.TCGTemp, ptr %262, i64 %263
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %264, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %264, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   store i64 554050781184, ptr %264, align 8
   %265 = load ptr, ptr %43, align 8
   %266 = ptrtoint ptr %264 to i64
   %267 = ptrtoint ptr %265 to i64
   %268 = sub i64 %266, %267
   %269 = inttoptr i64 %268 to ptr
-  call void @tcg_gen_neg_i32(ptr noundef %269, ptr noundef %240) #30
+  call void @tcg_gen_neg_i32(ptr noundef %269, ptr noundef %240) #31
   %270 = shl i32 8, %2
   %271 = add i32 %270, -1
-  call void @tcg_gen_andi_i32(ptr noundef %269, ptr noundef %269, i32 noundef %271) #30
-  call void @tcg_gen_shls_vec(i32 noundef %2, ptr noundef %246, ptr noundef %49, ptr noundef %240) #30
-  call void @tcg_gen_shrs_vec(i32 noundef %2, ptr noundef %47, ptr noundef %49, ptr noundef %269) #30
-  call void @tcg_gen_or_vec(i32 noundef %2, ptr noundef %47, ptr noundef %47, ptr noundef %246) #30
+  call void @tcg_gen_andi_i32(ptr noundef %269, ptr noundef %269, i32 noundef %271) #31
+  call void @tcg_gen_shls_vec(i32 noundef %2, ptr noundef %246, ptr noundef %49, ptr noundef %240) #31
+  call void @tcg_gen_shrs_vec(i32 noundef %2, ptr noundef %47, ptr noundef %49, ptr noundef %269) #31
+  call void @tcg_gen_or_vec(i32 noundef %2, ptr noundef %47, ptr noundef %47, ptr noundef %246) #31
   %272 = load ptr, ptr %43, align 8
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 %268
   %274 = load i64, ptr %273, align 8
@@ -1116,7 +1116,7 @@ tcg_temp_new_i32.exit.i:                          ; preds = %256
   br label %tcg_temp_free_i32.exit.i
 
 298:                                              ; preds = %tcg_temp_new_i32.exit.i
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #31
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #32
   unreachable
 
 tcg_temp_free_i32.exit.i:                         ; preds = %278, %tcg_temp_new_i32.exit.i, %tcg_temp_new_i32.exit.i, %255, %254
@@ -1158,7 +1158,7 @@ tcg_temp_free_i32.exit.i:                         ; preds = %278, %tcg_temp_new_
   br label %expand_vec_sari.exit
 
 325:                                              ; preds = %tcg_temp_free_i32.exit.i
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #31
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #32
   unreachable
 
 326:                                              ; preds = %38
@@ -1232,14 +1232,14 @@ find_first_bit.exit.i.i:                          ; preds = %337
   br i1 %362, label %363, label %tcg_temp_alloc.exit.i.i
 
 363:                                              ; preds = %.thread.i.i
-  call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %44) #32
+  call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %44) #33
   unreachable
 
 tcg_temp_alloc.exit.i.i:                          ; preds = %.thread.i.i
   %364 = getelementptr inbounds nuw i8, ptr %44, i64 672
   %365 = sext i32 %360 to i64
   %366 = getelementptr inbounds %struct.TCGTemp, ptr %364, i64 %365
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %366, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %366, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   store i64 549823184896, ptr %366, align 8
   br label %tcg_temp_new_internal.exit.i
 
@@ -1298,14 +1298,14 @@ find_first_bit.exit.i63.i:                        ; preds = %373
   br i1 %398, label %399, label %tcg_temp_alloc.exit.i66.i
 
 399:                                              ; preds = %.thread.i65.i
-  call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %367) #32
+  call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %367) #33
   unreachable
 
 tcg_temp_alloc.exit.i66.i:                        ; preds = %.thread.i65.i
   %400 = getelementptr inbounds nuw i8, ptr %367, i64 672
   %401 = sext i32 %396 to i64
   %402 = getelementptr inbounds %struct.TCGTemp, ptr %400, i64 %401
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %402, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %402, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   store i64 549823184896, ptr %402, align 8
   br label %tcg_temp_new_internal.exit67.i
 
@@ -1324,13 +1324,13 @@ tcg_temp_new_internal.exit67.i:                   ; preds = %tcg_temp_alloc.exit
   br i1 %410, label %411, label %413
 
 411:                                              ; preds = %tcg_temp_new_internal.exit67.i
-  %412 = call ptr @g_hash_table_new(ptr noundef nonnull @g_int64_hash, ptr noundef nonnull @g_int64_equal) #30
+  %412 = call ptr @g_hash_table_new(ptr noundef nonnull @g_int64_hash, ptr noundef nonnull @g_int64_equal) #31
   store ptr %412, ptr %408, align 8
   br label %413
 
 413:                                              ; preds = %411, %tcg_temp_new_internal.exit67.i
   %.0.i.i = phi ptr [ %412, %411 ], [ %409, %tcg_temp_new_internal.exit67.i ]
-  %414 = call ptr @g_hash_table_lookup(ptr noundef %.0.i.i, ptr noundef nonnull %10) #30
+  %414 = call ptr @g_hash_table_lookup(ptr noundef %.0.i.i, ptr noundef nonnull %10) #31
   %415 = icmp eq ptr %414, null
   br i1 %415, label %416, label %tcg_constant_internal.exit.i
 
@@ -1343,19 +1343,19 @@ tcg_temp_new_internal.exit67.i:                   ; preds = %tcg_temp_alloc.exit
   br i1 %420, label %421, label %tcg_temp_alloc.exit.i68.i
 
 421:                                              ; preds = %416
-  call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %403) #32
+  call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %403) #33
   unreachable
 
 tcg_temp_alloc.exit.i68.i:                        ; preds = %416
   %422 = getelementptr inbounds nuw i8, ptr %403, i64 672
   %423 = sext i32 %418 to i64
   %424 = getelementptr inbounds %struct.TCGTemp, ptr %422, i64 %423
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %424, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %424, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   store i64 567003054080, ptr %424, align 8
   %425 = load i64, ptr %10, align 8
   %426 = getelementptr inbounds nuw i8, ptr %424, i64 8
   store i64 %425, ptr %426, align 8
-  %427 = call i32 @g_hash_table_insert(ptr noundef %.0.i.i, ptr noundef nonnull %426, ptr noundef nonnull %424) #30
+  %427 = call i32 @g_hash_table_insert(ptr noundef %.0.i.i, ptr noundef nonnull %426, ptr noundef nonnull %424) #31
   br label %tcg_constant_internal.exit.i
 
 tcg_constant_internal.exit.i:                     ; preds = %tcg_temp_alloc.exit.i68.i, %413
@@ -1369,7 +1369,7 @@ tcg_constant_internal.exit.i:                     ; preds = %tcg_temp_alloc.exit
   %433 = ptrtoint ptr %432 to i64
   %434 = getelementptr inbounds nuw i8, ptr %428, i64 %48
   %435 = ptrtoint ptr %434 to i64
-  call void @vec_gen_3(i32 noundef 200, i32 noundef 4, i32 noundef 0, i64 noundef %433, i64 noundef %435, i64 noundef %429) #30
+  call void @vec_gen_3(i32 noundef 200, i32 noundef 4, i32 noundef 0, i64 noundef %433, i64 noundef %435, i64 noundef %429) #31
   %436 = load ptr, ptr %43, align 8
   %437 = getelementptr inbounds nuw i8, ptr %436, i64 %406
   %438 = ptrtoint ptr %437 to i64
@@ -1377,15 +1377,15 @@ tcg_constant_internal.exit.i:                     ; preds = %tcg_temp_alloc.exit
   %440 = ptrtoint ptr %439 to i64
   %441 = getelementptr inbounds nuw i8, ptr %436, i64 %333
   %442 = ptrtoint ptr %441 to i64
-  call void @vec_gen_3(i32 noundef 200, i32 noundef 4, i32 noundef 0, i64 noundef %438, i64 noundef %440, i64 noundef %442) #30
-  call void @tcg_gen_mul_vec(i32 noundef 1, ptr noundef %371, ptr noundef %371, ptr noundef %407) #30
-  call void @tcg_gen_shri_vec(i32 noundef 1, ptr noundef %371, ptr noundef %371, i64 noundef 8) #30
+  call void @vec_gen_3(i32 noundef 200, i32 noundef 4, i32 noundef 0, i64 noundef %438, i64 noundef %440, i64 noundef %442) #31
+  call void @tcg_gen_mul_vec(i32 noundef 1, ptr noundef %371, ptr noundef %371, ptr noundef %407) #31
+  call void @tcg_gen_shri_vec(i32 noundef 1, ptr noundef %371, ptr noundef %371, i64 noundef 8) #31
   %443 = load ptr, ptr %43, align 8
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 %46
   %445 = ptrtoint ptr %444 to i64
   %446 = getelementptr inbounds nuw i8, ptr %443, i64 %370
   %447 = ptrtoint ptr %446 to i64
-  call void @vec_gen_3(i32 noundef 197, i32 noundef 4, i32 noundef 0, i64 noundef %445, i64 noundef %447, i64 noundef %447) #30
+  call void @vec_gen_3(i32 noundef 197, i32 noundef 4, i32 noundef 0, i64 noundef %445, i64 noundef %447, i64 noundef %447) #31
   %448 = load ptr, ptr %43, align 8
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 %370
   %450 = load i64, ptr %449, align 8
@@ -1425,7 +1425,7 @@ tcg_constant_internal.exit.i:                     ; preds = %tcg_temp_alloc.exit
   br label %tcg_temp_free_vec.exit.i67
 
 474:                                              ; preds = %tcg_constant_internal.exit.i
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #31
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #32
   unreachable
 
 tcg_temp_free_vec.exit.i67:                       ; preds = %454, %tcg_constant_internal.exit.i, %tcg_constant_internal.exit.i
@@ -1450,7 +1450,7 @@ tcg_temp_free_vec.exit.i67:                       ; preds = %454, %tcg_constant_
   br label %tcg_temp_free_vec.exit55.sink.split.i
 
 485:                                              ; preds = %tcg_temp_free_vec.exit.i67
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #31
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #32
   unreachable
 
 486:                                              ; preds = %332, %332
@@ -1486,13 +1486,13 @@ tcg_temp_free_vec.exit.i67:                       ; preds = %454, %tcg_constant_
   br i1 %513, label %514, label %516
 
 514:                                              ; preds = %486
-  %515 = call ptr @g_hash_table_new(ptr noundef nonnull @g_int64_hash, ptr noundef nonnull @g_int64_equal) #30
+  %515 = call ptr @g_hash_table_new(ptr noundef nonnull @g_int64_hash, ptr noundef nonnull @g_int64_equal) #31
   store ptr %515, ptr %511, align 8
   br label %516
 
 516:                                              ; preds = %514, %486
   %.0.i69.i = phi ptr [ %515, %514 ], [ %512, %486 ]
-  %517 = call ptr @g_hash_table_lookup(ptr noundef %.0.i69.i, ptr noundef nonnull %9) #30
+  %517 = call ptr @g_hash_table_lookup(ptr noundef %.0.i69.i, ptr noundef nonnull %9) #31
   %518 = icmp eq ptr %517, null
   br i1 %518, label %519, label %tcg_constant_internal.exit72.i
 
@@ -1505,19 +1505,19 @@ tcg_temp_free_vec.exit.i67:                       ; preds = %454, %tcg_constant_
   br i1 %523, label %524, label %tcg_temp_alloc.exit.i71.i
 
 524:                                              ; preds = %519
-  call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %506) #32
+  call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %506) #33
   unreachable
 
 tcg_temp_alloc.exit.i71.i:                        ; preds = %519
   %525 = getelementptr inbounds nuw i8, ptr %506, i64 672
   %526 = sext i32 %521 to i64
   %527 = getelementptr inbounds %struct.TCGTemp, ptr %525, i64 %526
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %527, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %527, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   store i64 567003054080, ptr %527, align 8
   %528 = load i64, ptr %9, align 8
   %529 = getelementptr inbounds nuw i8, ptr %527, i64 8
   store i64 %528, ptr %529, align 8
-  %530 = call i32 @g_hash_table_insert(ptr noundef %.0.i69.i, ptr noundef nonnull %529, ptr noundef nonnull %527) #30
+  %530 = call i32 @g_hash_table_insert(ptr noundef %.0.i69.i, ptr noundef nonnull %529, ptr noundef nonnull %527) #31
   br label %tcg_constant_internal.exit72.i
 
 tcg_constant_internal.exit72.i:                   ; preds = %tcg_temp_alloc.exit.i71.i, %516
@@ -1531,7 +1531,7 @@ tcg_constant_internal.exit72.i:                   ; preds = %tcg_temp_alloc.exit
   %536 = ptrtoint ptr %535 to i64
   %537 = getelementptr inbounds nuw i8, ptr %531, i64 %48
   %538 = ptrtoint ptr %537 to i64
-  call void @vec_gen_3(i32 noundef 200, i32 noundef %1, i32 noundef 0, i64 noundef %536, i64 noundef %538, i64 noundef %532) #30
+  call void @vec_gen_3(i32 noundef 200, i32 noundef %1, i32 noundef 0, i64 noundef %536, i64 noundef %538, i64 noundef %532) #31
   %539 = load ptr, ptr %43, align 8
   %540 = getelementptr inbounds nuw i8, ptr %539, i64 %497
   %541 = ptrtoint ptr %540 to i64
@@ -1539,7 +1539,7 @@ tcg_constant_internal.exit72.i:                   ; preds = %tcg_temp_alloc.exit
   %543 = ptrtoint ptr %542 to i64
   %544 = getelementptr inbounds nuw i8, ptr %539, i64 %333
   %545 = ptrtoint ptr %544 to i64
-  call void @vec_gen_3(i32 noundef 200, i32 noundef %1, i32 noundef 0, i64 noundef %541, i64 noundef %543, i64 noundef %545) #30
+  call void @vec_gen_3(i32 noundef 200, i32 noundef %1, i32 noundef 0, i64 noundef %541, i64 noundef %543, i64 noundef %545) #31
   %546 = load ptr, ptr %43, align 8
   %547 = getelementptr inbounds nuw i8, ptr %546, i64 %503
   %548 = ptrtoint ptr %547 to i64
@@ -1547,7 +1547,7 @@ tcg_constant_internal.exit72.i:                   ; preds = %tcg_temp_alloc.exit
   %550 = ptrtoint ptr %549 to i64
   %551 = getelementptr inbounds nuw i8, ptr %546, i64 %534
   %552 = ptrtoint ptr %551 to i64
-  call void @vec_gen_3(i32 noundef 201, i32 noundef %1, i32 noundef 0, i64 noundef %548, i64 noundef %550, i64 noundef %552) #30
+  call void @vec_gen_3(i32 noundef 201, i32 noundef %1, i32 noundef 0, i64 noundef %548, i64 noundef %550, i64 noundef %552) #31
   %553 = load ptr, ptr %43, align 8
   %554 = getelementptr inbounds nuw i8, ptr %553, i64 %509
   %555 = ptrtoint ptr %554 to i64
@@ -1555,11 +1555,11 @@ tcg_constant_internal.exit72.i:                   ; preds = %tcg_temp_alloc.exit
   %557 = ptrtoint ptr %556 to i64
   %558 = getelementptr inbounds nuw i8, ptr %553, i64 %333
   %559 = ptrtoint ptr %558 to i64
-  call void @vec_gen_3(i32 noundef 201, i32 noundef %1, i32 noundef 0, i64 noundef %555, i64 noundef %557, i64 noundef %559) #30
-  call void @tcg_gen_mul_vec(i32 noundef 1, ptr noundef %492, ptr noundef %492, ptr noundef %498) #30
-  call void @tcg_gen_mul_vec(i32 noundef 1, ptr noundef %504, ptr noundef %504, ptr noundef %510) #30
-  call void @tcg_gen_shri_vec(i32 noundef 1, ptr noundef %492, ptr noundef %492, i64 noundef 8) #30
-  call void @tcg_gen_shri_vec(i32 noundef 1, ptr noundef %504, ptr noundef %504, i64 noundef 8) #30
+  call void @vec_gen_3(i32 noundef 201, i32 noundef %1, i32 noundef 0, i64 noundef %555, i64 noundef %557, i64 noundef %559) #31
+  call void @tcg_gen_mul_vec(i32 noundef 1, ptr noundef %492, ptr noundef %492, ptr noundef %498) #31
+  call void @tcg_gen_mul_vec(i32 noundef 1, ptr noundef %504, ptr noundef %504, ptr noundef %510) #31
+  call void @tcg_gen_shri_vec(i32 noundef 1, ptr noundef %492, ptr noundef %492, i64 noundef 8) #31
+  call void @tcg_gen_shri_vec(i32 noundef 1, ptr noundef %504, ptr noundef %504, i64 noundef 8) #31
   %560 = load ptr, ptr %43, align 8
   %561 = getelementptr inbounds nuw i8, ptr %560, i64 %46
   %562 = ptrtoint ptr %561 to i64
@@ -1567,7 +1567,7 @@ tcg_constant_internal.exit72.i:                   ; preds = %tcg_temp_alloc.exit
   %564 = ptrtoint ptr %563 to i64
   %565 = getelementptr inbounds nuw i8, ptr %560, i64 %503
   %566 = ptrtoint ptr %565 to i64
-  call void @vec_gen_3(i32 noundef 197, i32 noundef %1, i32 noundef 0, i64 noundef %562, i64 noundef %564, i64 noundef %566) #30
+  call void @vec_gen_3(i32 noundef 197, i32 noundef %1, i32 noundef 0, i64 noundef %562, i64 noundef %564, i64 noundef %566) #31
   %567 = load ptr, ptr %43, align 8
   %568 = getelementptr inbounds nuw i8, ptr %567, i64 %491
   %569 = load i64, ptr %568, align 8
@@ -1607,7 +1607,7 @@ tcg_constant_internal.exit72.i:                   ; preds = %tcg_temp_alloc.exit
   br label %tcg_temp_free_vec.exit56.i
 
 593:                                              ; preds = %tcg_constant_internal.exit72.i
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #31
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #32
   unreachable
 
 tcg_temp_free_vec.exit56.i:                       ; preds = %573, %tcg_constant_internal.exit72.i, %tcg_constant_internal.exit72.i
@@ -1650,7 +1650,7 @@ tcg_temp_free_vec.exit56.i:                       ; preds = %573, %tcg_constant_
   br label %tcg_temp_free_vec.exit57.i
 
 620:                                              ; preds = %tcg_temp_free_vec.exit56.i
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #31
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #32
   unreachable
 
 tcg_temp_free_vec.exit57.i:                       ; preds = %600, %tcg_temp_free_vec.exit56.i, %tcg_temp_free_vec.exit56.i
@@ -1693,7 +1693,7 @@ tcg_temp_free_vec.exit57.i:                       ; preds = %600, %tcg_temp_free
   br label %tcg_temp_free_vec.exit58.i
 
 647:                                              ; preds = %tcg_temp_free_vec.exit57.i
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #31
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #32
   unreachable
 
 tcg_temp_free_vec.exit58.i:                       ; preds = %627, %tcg_temp_free_vec.exit57.i, %tcg_temp_free_vec.exit57.i
@@ -1718,11 +1718,11 @@ tcg_temp_free_vec.exit58.i:                       ; preds = %627, %tcg_temp_free
   br label %tcg_temp_free_vec.exit55.sink.split.i
 
 658:                                              ; preds = %tcg_temp_free_vec.exit58.i
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #31
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #32
   unreachable
 
 659:                                              ; preds = %332
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 4263, ptr noundef nonnull @__func__.expand_vec_mul, ptr noundef null) #31
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 4263, ptr noundef nonnull @__func__.expand_vec_mul, ptr noundef null) #32
   unreachable
 
 tcg_temp_free_vec.exit55.sink.split.i:            ; preds = %654, %481
@@ -1780,7 +1780,7 @@ tcg_temp_free_vec.exit55.sink.split.i:            ; preds = %654, %481
   %693 = load i64, ptr %7, align 8
   %694 = load i64, ptr %8, align 8
   %695 = zext i32 %692 to i64
-  call void @vec_gen_4(i32 noundef 190, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %693, i64 noundef %694, i64 noundef %695) #30
+  call void @vec_gen_4(i32 noundef 190, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %693, i64 noundef %694, i64 noundef %695) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %expand_vec_sari.exit
@@ -1860,7 +1860,7 @@ tcg_temp_free_vec.exit55.sink.split.i:            ; preds = %654, %481
   %742 = load i64, ptr %5, align 8
   %743 = load i64, ptr %6, align 8
   %744 = zext i32 %741 to i64
-  call void @vec_gen_6(i32 noundef 192, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %742, i64 noundef %743, i64 noundef %737, i64 noundef %736, i64 noundef %744) #30
+  call void @vec_gen_6(i32 noundef 192, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %742, i64 noundef %743, i64 noundef %737, i64 noundef %736, i64 noundef %744) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %expand_vec_sari.exit
@@ -1894,7 +1894,7 @@ define internal fastcc void @expand_vec_rotv(i32 noundef %0, i32 noundef %1, ptr
   %19 = ptrtoint ptr %4 to i64
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 %19
   %21 = ptrtoint ptr %20 to i64
-  tail call void @vec_gen_4(i32 noundef %11, i32 noundef %0, i32 noundef %1, i64 noundef %15, i64 noundef %18, i64 noundef %18, i64 noundef %21) #30
+  tail call void @vec_gen_4(i32 noundef %11, i32 noundef %0, i32 noundef %1, i64 noundef %15, i64 noundef %18, i64 noundef %18, i64 noundef %21) #31
   br label %tcg_temp_free_vec.exit
 
 22:                                               ; preds = %6
@@ -1906,22 +1906,22 @@ define internal fastcc void @expand_vec_rotv(i32 noundef %0, i32 noundef %1, ptr
   %28 = inttoptr i64 %27 to ptr
   %29 = shl i32 8, %1
   %30 = sext i32 %29 to i64
-  tail call void @tcg_gen_dupi_vec(i32 noundef %1, ptr noundef %28, i64 noundef %30) #30
-  tail call void @tcg_gen_sub_vec(i32 noundef %1, ptr noundef %28, ptr noundef %28, ptr noundef %4) #30
+  tail call void @tcg_gen_dupi_vec(i32 noundef %1, ptr noundef %28, i64 noundef %30) #31
+  tail call void @tcg_gen_sub_vec(i32 noundef %1, ptr noundef %28, ptr noundef %28, ptr noundef %4) #31
   br i1 %5, label %31, label %32
 
 31:                                               ; preds = %22
-  tail call void @tcg_gen_shlv_vec(i32 noundef %1, ptr noundef %28, ptr noundef %3, ptr noundef %28) #30
-  tail call void @tcg_gen_shrv_vec(i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #30
+  tail call void @tcg_gen_shlv_vec(i32 noundef %1, ptr noundef %28, ptr noundef %3, ptr noundef %28) #31
+  tail call void @tcg_gen_shrv_vec(i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #31
   br label %33
 
 32:                                               ; preds = %22
-  tail call void @tcg_gen_shrv_vec(i32 noundef %1, ptr noundef %28, ptr noundef %3, ptr noundef %28) #30
-  tail call void @tcg_gen_shlv_vec(i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #30
+  tail call void @tcg_gen_shrv_vec(i32 noundef %1, ptr noundef %28, ptr noundef %3, ptr noundef %28) #31
+  tail call void @tcg_gen_shlv_vec(i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #31
   br label %33
 
 33:                                               ; preds = %32, %31
-  tail call void @tcg_gen_or_vec(i32 noundef %1, ptr noundef %2, ptr noundef %2, ptr noundef %28) #30
+  tail call void @tcg_gen_or_vec(i32 noundef %1, ptr noundef %2, ptr noundef %2, ptr noundef %28) #31
   %34 = load ptr, ptr %9, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %27
   %36 = load i64, ptr %35, align 8
@@ -1960,7 +1960,7 @@ define internal fastcc void @expand_vec_rotv(i32 noundef %0, i32 noundef %1, ptr
   br label %tcg_temp_free_vec.exit
 
 60:                                               ; preds = %33
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #32
   unreachable
 
 tcg_temp_free_vec.exit:                           ; preds = %40, %33, %33, %10
@@ -1973,7 +1973,7 @@ declare void @llvm.va_end.p0(ptr) #6
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_register_jit(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = tail call noalias dereferenceable_or_null(842) ptr @g_malloc(i64 noundef 842) #33
+  %4 = tail call noalias dereferenceable_or_null(842) ptr @g_malloc(i64 noundef 842) #34
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(784) %4, ptr noundef nonnull align 8 dereferenceable(784) @tcg_register_jit_int.img_template, i64 784, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i64 %3, ptr %5, align 8
@@ -1983,16 +1983,16 @@ define dso_local void @tcg_register_jit(ptr noundef %0, i64 noundef %1) local_un
   store i64 %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 704
   %.07.i.i = getelementptr i8, ptr %4, i64 705
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07.i.i, ptr noundef nonnull dereferenceable(6) @.str.140) #34
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07.i.i, ptr noundef nonnull dereferenceable(6) @.str.140) #35
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %find_string.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %.08.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.07.i.i, %2 ]
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.08.i.i) #34
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.08.i.i) #35
   %12 = getelementptr i8, ptr %.08.i.i, i64 %11
   %.0.i.i = getelementptr i8, ptr %12, i64 1
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i.i, ptr noundef nonnull dereferenceable(6) @.str.140) #34
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i.i, ptr noundef nonnull dereferenceable(6) @.str.140) #35
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %find_string.exit.i, label %.lr.ph.i.i
 
@@ -2008,16 +2008,16 @@ find_string.exit.i:                               ; preds = %.lr.ph.i.i, %2
   store i64 %3, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 216
   store i64 %1, ptr %21, align 8
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07.i.i, ptr noundef nonnull dereferenceable(12) @.str.141) #34
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07.i.i, ptr noundef nonnull dereferenceable(12) @.str.141) #35
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %find_string.exit58.i, label %.lr.ph.i54.i
 
 .lr.ph.i54.i:                                     ; preds = %find_string.exit.i, %.lr.ph.i54.i
   %.08.i55.i = phi ptr [ %.0.i56.i, %.lr.ph.i54.i ], [ %.07.i.i, %find_string.exit.i ]
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.08.i55.i) #34
+  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.08.i55.i) #35
   %25 = getelementptr i8, ptr %.08.i55.i, i64 %24
   %.0.i56.i = getelementptr i8, ptr %25, i64 1
-  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i56.i, ptr noundef nonnull dereferenceable(12) @.str.141) #34
+  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i56.i, ptr noundef nonnull dereferenceable(12) @.str.141) #35
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %find_string.exit58.i, label %.lr.ph.i54.i
 
@@ -2028,16 +2028,16 @@ find_string.exit58.i:                             ; preds = %.lr.ph.i54.i, %find
   %30 = trunc i64 %29 to i32
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 248
   store i32 %30, ptr %31, align 8
-  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07.i.i, ptr noundef nonnull dereferenceable(14) @.str.142) #34
+  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07.i.i, ptr noundef nonnull dereferenceable(14) @.str.142) #35
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %find_string.exit64.i, label %.lr.ph.i60.i
 
 .lr.ph.i60.i:                                     ; preds = %find_string.exit58.i, %.lr.ph.i60.i
   %.08.i61.i = phi ptr [ %.0.i62.i, %.lr.ph.i60.i ], [ %.07.i.i, %find_string.exit58.i ]
-  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.08.i61.i) #34
+  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.08.i61.i) #35
   %35 = getelementptr i8, ptr %.08.i61.i, i64 %34
   %.0.i62.i = getelementptr i8, ptr %35, i64 1
-  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i62.i, ptr noundef nonnull dereferenceable(14) @.str.142) #34
+  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i62.i, ptr noundef nonnull dereferenceable(14) @.str.142) #35
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %find_string.exit64.i, label %.lr.ph.i60.i
 
@@ -2048,16 +2048,16 @@ find_string.exit64.i:                             ; preds = %.lr.ph.i60.i, %find
   %40 = trunc i64 %39 to i32
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 312
   store i32 %40, ptr %41, align 8
-  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07.i.i, ptr noundef nonnull dereferenceable(13) @.str.143) #34
+  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07.i.i, ptr noundef nonnull dereferenceable(13) @.str.143) #35
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %find_string.exit70.i, label %.lr.ph.i66.i
 
 .lr.ph.i66.i:                                     ; preds = %find_string.exit64.i, %.lr.ph.i66.i
   %.08.i67.i = phi ptr [ %.0.i68.i, %.lr.ph.i66.i ], [ %.07.i.i, %find_string.exit64.i ]
-  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.08.i67.i) #34
+  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.08.i67.i) #35
   %45 = getelementptr i8, ptr %.08.i67.i, i64 %44
   %.0.i68.i = getelementptr i8, ptr %45, i64 1
-  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i68.i, ptr noundef nonnull dereferenceable(13) @.str.143) #34
+  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i68.i, ptr noundef nonnull dereferenceable(13) @.str.143) #35
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %find_string.exit70.i, label %.lr.ph.i66.i
 
@@ -2070,16 +2070,16 @@ find_string.exit70.i:                             ; preds = %.lr.ph.i66.i, %find
   store i32 %50, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 408
   store i64 58, ptr %52, align 8
-  %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07.i.i, ptr noundef nonnull dereferenceable(8) @.str.144) #34
+  %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07.i.i, ptr noundef nonnull dereferenceable(8) @.str.144) #35
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %find_string.exit76.i, label %.lr.ph.i72.i
 
 .lr.ph.i72.i:                                     ; preds = %find_string.exit70.i, %.lr.ph.i72.i
   %.08.i73.i = phi ptr [ %.0.i74.i, %.lr.ph.i72.i ], [ %.07.i.i, %find_string.exit70.i ]
-  %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.08.i73.i) #34
+  %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.08.i73.i) #35
   %56 = getelementptr i8, ptr %.08.i73.i, i64 %55
   %.0.i74.i = getelementptr i8, ptr %56, i64 1
-  %57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i74.i, ptr noundef nonnull dereferenceable(8) @.str.144) #34
+  %57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i74.i, ptr noundef nonnull dereferenceable(8) @.str.144) #35
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %find_string.exit76.i, label %.lr.ph.i72.i
 
@@ -2090,16 +2090,16 @@ find_string.exit76.i:                             ; preds = %.lr.ph.i72.i, %find
   %61 = trunc i64 %60 to i32
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 440
   store i32 %61, ptr %62, align 8
-  %63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07.i.i, ptr noundef nonnull dereferenceable(8) @.str.145) #34
+  %63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07.i.i, ptr noundef nonnull dereferenceable(8) @.str.145) #35
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %find_string.exit82.i, label %.lr.ph.i78.i
 
 .lr.ph.i78.i:                                     ; preds = %find_string.exit76.i, %.lr.ph.i78.i
   %.08.i79.i = phi ptr [ %.0.i80.i, %.lr.ph.i78.i ], [ %.07.i.i, %find_string.exit76.i ]
-  %65 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.08.i79.i) #34
+  %65 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.08.i79.i) #35
   %66 = getelementptr i8, ptr %.08.i79.i, i64 %65
   %.0.i80.i = getelementptr i8, ptr %66, i64 1
-  %67 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i80.i, ptr noundef nonnull dereferenceable(8) @.str.145) #34
+  %67 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i80.i, ptr noundef nonnull dereferenceable(8) @.str.145) #35
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %find_string.exit82.i, label %.lr.ph.i78.i
 
@@ -2110,16 +2110,16 @@ find_string.exit82.i:                             ; preds = %.lr.ph.i78.i, %find
   %71 = trunc i64 %70 to i32
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 504
   store i32 %71, ptr %72, align 8
-  %73 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07.i.i, ptr noundef nonnull dereferenceable(16) @.str.146) #34
+  %73 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07.i.i, ptr noundef nonnull dereferenceable(16) @.str.146) #35
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %tcg_register_jit_int.exit, label %.lr.ph.i84.i
 
 .lr.ph.i84.i:                                     ; preds = %find_string.exit82.i, %.lr.ph.i84.i
   %.08.i85.i = phi ptr [ %.0.i86.i, %.lr.ph.i84.i ], [ %.07.i.i, %find_string.exit82.i ]
-  %75 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.08.i85.i) #34
+  %75 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.08.i85.i) #35
   %76 = getelementptr i8, ptr %.08.i85.i, i64 %75
   %.0.i86.i = getelementptr i8, ptr %76, i64 1
-  %77 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i86.i, ptr noundef nonnull dereferenceable(16) @.str.146) #34
+  %77 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i86.i, ptr noundef nonnull dereferenceable(16) @.str.146) #35
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %tcg_register_jit_int.exit, label %.lr.ph.i84.i
 
@@ -2144,7 +2144,7 @@ tcg_register_jit_int.exit:                        ; preds = %.lr.ph.i84.i, %find
   %89 = getelementptr inbounds nuw i8, ptr %4, i64 671
   store i64 %86, ptr %89, align 1
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 784
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(58) %90, ptr noundef nonnull align 1 dereferenceable(58) @debug_frame, i64 noundef 58, i1 noundef false) #30
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(58) %90, ptr noundef nonnull align 1 dereferenceable(58) @debug_frame, i64 noundef 58, i1 noundef false) #31
   %91 = getelementptr inbounds nuw i8, ptr %4, i64 808
   store i64 %3, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %4, i64 816
@@ -2173,7 +2173,7 @@ define dso_local nonnull ptr @tcg_malloc_internal(ptr noundef captures(none) %0,
 4:                                                ; preds = %2
   %narrow = add nuw i32 %1, 16
   %5 = zext i32 %narrow to i64
-  %6 = tail call noalias ptr @g_malloc(i64 noundef %5) #33
+  %6 = tail call noalias ptr @g_malloc(i64 noundef %5) #34
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2201,7 +2201,7 @@ define dso_local nonnull ptr @tcg_malloc_internal(ptr noundef captures(none) %0,
   br i1 %.not40, label %19, label %26
 
 19:                                               ; preds = %17, %14
-  %20 = tail call noalias dereferenceable_or_null(32784) ptr @g_malloc(i64 noundef 32784) #33
+  %20 = tail call noalias dereferenceable_or_null(32784) ptr @g_malloc(i64 noundef 32784) #34
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 32768, ptr %21, align 8
   store ptr null, ptr %20, align 16
@@ -2251,7 +2251,7 @@ define dso_local void @tcg_pool_reset(ptr noundef captures(none) %0) local_unnam
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.010 = phi ptr [ %4, %.lr.ph ], [ %3, %1 ]
   %4 = load ptr, ptr %.010, align 16
-  tail call void @g_free(ptr noundef nonnull %.010) #30
+  tail call void @g_free(ptr noundef nonnull %.010) #31
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
@@ -2592,7 +2592,7 @@ tcg_target_init.exit.i:                           ; preds = %9, %7
   br label %157
 
 156:                                              ; preds = %100
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 3266, ptr noundef nonnull @__func__.process_constraint_sets, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 3266, ptr noundef nonnull @__func__.process_constraint_sets, ptr noundef null) #32
   unreachable
 
 157:                                              ; preds = %153, %150, %147, %144, %141, %138, %135, %132, %129, %126, %123, %120, %117, %114, %111, %108, %105, %102
@@ -2744,7 +2744,7 @@ default.unreachable:                              ; preds = %163
   unreachable
 
 252:                                              ; preds = %163
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 3341, ptr noundef nonnull @__func__.process_constraint_sets, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 3341, ptr noundef nonnull @__func__.process_constraint_sets, ptr noundef null) #32
   unreachable
 
 253:                                              ; preds = %238, %220, %199, %181, %163, %.lr.ph228.i.i
@@ -2828,7 +2828,7 @@ tcg_context_init.exit:                            ; preds = %.preheader.i, %.lr.
   store i32 %277, ptr getelementptr inbounds nuw (i8, ptr @tcg_init_ctx, i64 48), align 8
   %278 = sext i32 %273 to i64
   %279 = getelementptr inbounds %struct.TCGTemp, ptr getelementptr inbounds nuw (i8, ptr @tcg_init_ctx, i64 672), i64 %278
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %279, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %279, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   store i64 12901744645, ptr %279, align 8
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 32
   store ptr @.str.53, ptr %280, align 8
@@ -2841,7 +2841,7 @@ tcg_context_init.exit:                            ; preds = %.preheader.i, %.lr.
   %286 = sub i64 %284, %285
   %287 = inttoptr i64 %286 to ptr
   store ptr %287, ptr @tcg_env, align 8
-  tail call void @tcg_region_init(i64 noundef %0, i32 noundef %1, i32 noundef %2) #30
+  tail call void @tcg_region_init(i64 noundef %0, i32 noundef %1, i32 noundef %2) #31
   ret void
 }
 
@@ -2873,7 +2873,7 @@ define dso_local ptr @tcg_tb_alloc(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %20, label %21, label %23, !prof !4
 
 21:                                               ; preds = %8
-  %22 = tail call zeroext i1 @tcg_region_alloc(ptr noundef nonnull %0) #30
+  %22 = tail call zeroext i1 @tcg_region_alloc(ptr noundef nonnull %0) #31
   br i1 %22, label %.loopexit, label %8
 
 23:                                               ; preds = %8
@@ -2922,7 +2922,7 @@ define dso_local void @tcg_prologue_init() local_unnamed_addr #0 {
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 672
   %21 = sext i32 %14 to i64
   %22 = getelementptr inbounds %struct.TCGTemp, ptr %20, i64 %21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %22, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %22, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   store i64 12901744644, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr @.str.3, ptr %23, align 8
@@ -2969,7 +2969,7 @@ tcg_out_push.exit.i:                              ; preds = %31, %28
   br i1 %or.cond.not.i, label %58, label %44
 
 44:                                               ; preds = %39
-  %45 = tail call i32 @arch_prctl(i32 noundef 4097, i64 noundef %42) #30
+  %45 = tail call i32 @arch_prctl(i32 noundef 4097, i64 noundef %42) #31
   %.not.i41 = icmp eq i32 %45, 0
   br i1 %.not.i41, label %46, label %47
 
@@ -3127,19 +3127,19 @@ tcg_target_qemu_prologue.exit:                    ; preds = %tcg_out_pop.exit.i
   %115 = ptrtoint ptr %.val to i64
   %116 = sub i64 %114, %115
   %117 = load ptr, ptr %3, align 8
-  tail call void @perf_report_prologue(ptr noundef %117, i64 noundef %116) #30
+  tail call void @perf_report_prologue(ptr noundef %117, i64 noundef %116) #31
   %118 = load i32, ptr @qemu_loglevel, align 4
   %119 = and i32 %118, 1
   %.not43 = icmp eq i32 %119, 0
   br i1 %.not43, label %141, label %120
 
 120:                                              ; preds = %tcg_target_qemu_prologue.exit
-  %121 = tail call ptr @qemu_log_trylock() #30
+  %121 = tail call ptr @qemu_log_trylock() #31
   %.not = icmp eq ptr %121, null
   br i1 %.not, label %141, label %122
 
 122:                                              ; preds = %120
-  %123 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %121, i32 noundef 1, ptr noundef nonnull @.str, i64 noundef %116) #30
+  %123 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %121, i32 noundef 1, ptr noundef nonnull @.str, i64 noundef %116) #31
   %124 = load ptr, ptr %7, align 8
   %.not39 = icmp eq ptr %124, null
   %125 = load ptr, ptr %3, align 8
@@ -3150,7 +3150,7 @@ tcg_target_qemu_prologue.exit:                    ; preds = %tcg_out_pop.exit.i
   %128 = ptrtoint ptr %125 to i64
   %129 = sub i64 %127, %128
   %130 = sub i64 %116, %129
-  tail call void @disas(ptr noundef nonnull %121, ptr noundef %125, i64 noundef %129) #30
+  tail call void @disas(ptr noundef nonnull %121, ptr noundef %125, i64 noundef %129) #31
   %.not45 = icmp eq i64 %116, %129
   br i1 %.not45, label %.loopexit, label %.lr.ph
 
@@ -3161,22 +3161,22 @@ tcg_target_qemu_prologue.exit:                    ; preds = %tcg_out_pop.exit.i
   %133 = add i64 %.044, %132
   %134 = getelementptr inbounds nuw i8, ptr %131, i64 %.044
   %135 = load i64, ptr %134, align 8
-  %136 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %121, i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef %133, i64 noundef %135) #30
+  %136 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %121, i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef %133, i64 noundef %135) #31
   %137 = add i64 %.044, 8
   %138 = icmp ult i64 %137, %130
   br i1 %138, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
 139:                                              ; preds = %122
-  tail call void @disas(ptr noundef nonnull %121, ptr noundef %125, i64 noundef %116) #30
+  tail call void @disas(ptr noundef nonnull %121, ptr noundef %125, i64 noundef %116) #31
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %126, %139
-  %140 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %121, i32 noundef 1, ptr noundef nonnull @.str.2) #30
-  tail call void @qemu_log_unlock(ptr noundef nonnull %121) #30
+  %140 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %121, i32 noundef 1, ptr noundef nonnull @.str.2) #31
+  tail call void @qemu_log_unlock(ptr noundef nonnull %121) #31
   br label %141
 
 141:                                              ; preds = %120, %.loopexit, %tcg_target_qemu_prologue.exit
-  tail call void @tcg_region_prologue_set(ptr noundef nonnull %2) #30
+  tail call void @tcg_region_prologue_set(ptr noundef nonnull %2) #31
   ret void
 }
 
@@ -3202,7 +3202,7 @@ define dso_local void @tcg_func_start(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.010.i = phi ptr [ %4, %.lr.ph.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.010.i, align 16
-  tail call void @g_free(ptr noundef nonnull %.010.i) #30
+  tail call void @g_free(ptr noundef nonnull %.010.i) #31
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %tcg_pool_reset.exit, label %.lr.ph.i, !llvm.loop !8
 
@@ -3215,7 +3215,7 @@ tcg_pool_reset.exit:                              ; preds = %.lr.ph.i, %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(384) %9, i8 noundef 0, i64 noundef 384, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(384) %9, i8 noundef 0, i64 noundef 384, i1 noundef false) #31
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 240
   br label %27
 
@@ -3255,7 +3255,7 @@ tcg_pool_reset.exit:                              ; preds = %.lr.ph.i, %1
   br i1 %.not, label %31, label %30
 
 30:                                               ; preds = %27
-  tail call void @g_hash_table_remove_all(ptr noundef nonnull %29) #30
+  tail call void @g_hash_table_remove_all(ptr noundef nonnull %29) #31
   br label %31
 
 31:                                               ; preds = %27, %30
@@ -3295,7 +3295,7 @@ define dso_local void @tcg_set_frame(ptr noundef initializes((88, 104)) %0, i32 
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %16 = sext i32 %9 to i64
   %17 = getelementptr inbounds %struct.TCGTemp, ptr %15, i64 %16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %17, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %17, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   %18 = and i32 %1, 255
   %19 = zext nneg i32 %18 to i64
   %20 = or disjoint i64 %19, 12901744640
@@ -3332,7 +3332,7 @@ define dso_local ptr @tcg_global_mem_new_i32(ptr noundef %0, i64 noundef %1, ptr
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 672
   %16 = sext i32 %9 to i64
   %17 = getelementptr inbounds %struct.TCGTemp, ptr %15, i64 %16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %17, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %17, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   store i64 8589934592, ptr %17, align 8
   %18 = load i64, ptr %7, align 8
   %19 = lshr i64 %18, 32
@@ -3359,7 +3359,7 @@ define dso_local ptr @tcg_global_mem_new_i32(ptr noundef %0, i64 noundef %1, ptr
   br label %tcg_global_mem_new_internal.exit
 
 30:                                               ; preds = %3
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1772, ptr noundef nonnull @__func__.tcg_global_mem_new_internal, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1772, ptr noundef nonnull @__func__.tcg_global_mem_new_internal, ptr noundef null) #32
   unreachable
 
 tcg_global_mem_new_internal.exit:                 ; preds = %3, %22
@@ -3399,7 +3399,7 @@ define dso_local ptr @tcg_global_mem_new_i64(ptr noundef %0, i64 noundef %1, ptr
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 672
   %16 = sext i32 %9 to i64
   %17 = getelementptr inbounds %struct.TCGTemp, ptr %15, i64 %16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %17, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %17, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   store i64 8589934592, ptr %17, align 8
   %18 = load i64, ptr %7, align 8
   %19 = lshr i64 %18, 32
@@ -3426,7 +3426,7 @@ define dso_local ptr @tcg_global_mem_new_i64(ptr noundef %0, i64 noundef %1, ptr
   br label %tcg_global_mem_new_internal.exit
 
 30:                                               ; preds = %3
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1772, ptr noundef nonnull @__func__.tcg_global_mem_new_internal, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1772, ptr noundef nonnull @__func__.tcg_global_mem_new_internal, ptr noundef null) #32
   unreachable
 
 tcg_global_mem_new_internal.exit:                 ; preds = %3, %22
@@ -3466,7 +3466,7 @@ define dso_local ptr @tcg_global_mem_new_ptr(ptr noundef %0, i64 noundef %1, ptr
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 672
   %16 = sext i32 %9 to i64
   %17 = getelementptr inbounds %struct.TCGTemp, ptr %15, i64 %16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %17, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %17, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   store i64 8589934592, ptr %17, align 8
   %18 = load i64, ptr %7, align 8
   %19 = lshr i64 %18, 32
@@ -3493,7 +3493,7 @@ define dso_local ptr @tcg_global_mem_new_ptr(ptr noundef %0, i64 noundef %1, ptr
   br label %tcg_global_mem_new_internal.exit
 
 30:                                               ; preds = %3
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1772, ptr noundef nonnull @__func__.tcg_global_mem_new_internal, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1772, ptr noundef nonnull @__func__.tcg_global_mem_new_internal, ptr noundef null) #32
   unreachable
 
 tcg_global_mem_new_internal.exit:                 ; preds = %3, %22
@@ -3574,7 +3574,7 @@ find_first_bit.exit:                              ; preds = %10
   br i1 %36, label %switch.lookup, label %37
 
 37:                                               ; preds = %.thread
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1867, ptr noundef nonnull @__func__.tcg_temp_new_internal, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1867, ptr noundef nonnull @__func__.tcg_temp_new_internal, ptr noundef null) #32
   unreachable
 
 switch.lookup:                                    ; preds = %.thread
@@ -3586,7 +3586,7 @@ switch.lookup:                                    ; preds = %.thread
   br i1 %41, label %42, label %tcg_temp_alloc.exit
 
 42:                                               ; preds = %switch.lookup
-  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %4) #32
+  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %4) #33
   unreachable
 
 tcg_temp_alloc.exit:                              ; preds = %switch.lookup
@@ -3597,7 +3597,7 @@ tcg_temp_alloc.exit:                              ; preds = %switch.lookup
   %44 = sext i32 %39 to i64
   %.idx64 = mul nsw i64 %44, 56
   %45 = getelementptr inbounds i8, ptr %43, i64 %.idx64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %45, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %45, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   %46 = zext nneg i32 %0 to i64
   %47 = shl nuw nsw i64 %46, 16
   %48 = and i32 %1, 7
@@ -3623,14 +3623,14 @@ tcg_temp_alloc.exit:                              ; preds = %switch.lookup
   br i1 %60, label %61, label %tcg_temp_alloc.exit50
 
 61:                                               ; preds = %56
-  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %4) #32
+  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %4) #33
   unreachable
 
 tcg_temp_alloc.exit50:                            ; preds = %56
   %62 = sext i32 %58 to i64
   %.idx = mul nsw i64 %62, 56
   %63 = getelementptr inbounds i8, ptr %43, i64 %.idx
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %63, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %63, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   %64 = add nsw i64 %.idx64, 56
   %65 = icmp eq i64 %.idx, %64
   tail call void @llvm.assume(i1 %65)
@@ -3659,14 +3659,14 @@ define dso_local ptr @tcg_temp_new_i32() local_unnamed_addr #0 {
   br i1 %6, label %7, label %tcg_temp_new_internal.exit
 
 7:                                                ; preds = %0
-  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %2) #32
+  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %2) #33
   unreachable
 
 tcg_temp_new_internal.exit:                       ; preds = %0
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 672
   %9 = sext i32 %4 to i64
   %10 = getelementptr inbounds %struct.TCGTemp, ptr %8, i64 %9
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %10, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %10, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   store i64 554050781184, ptr %10, align 8
   %11 = load ptr, ptr %1, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -3728,14 +3728,14 @@ find_first_bit.exit.i:                            ; preds = %4
   br i1 %29, label %30, label %tcg_temp_alloc.exit.i
 
 30:                                               ; preds = %.thread.i
-  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %2) #32
+  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %2) #33
   unreachable
 
 tcg_temp_alloc.exit.i:                            ; preds = %.thread.i
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 672
   %32 = sext i32 %27 to i64
   %33 = getelementptr inbounds %struct.TCGTemp, ptr %31, i64 %32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %33, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %33, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   store i64 549755813888, ptr %33, align 8
   br label %tcg_temp_new_internal.exit
 
@@ -3761,14 +3761,14 @@ define dso_local ptr @tcg_temp_new_i64() local_unnamed_addr #0 {
   br i1 %6, label %7, label %tcg_temp_new_internal.exit
 
 7:                                                ; preds = %0
-  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %2) #32
+  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %2) #33
   unreachable
 
 tcg_temp_new_internal.exit:                       ; preds = %0
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 672
   %9 = sext i32 %4 to i64
   %10 = getelementptr inbounds %struct.TCGTemp, ptr %8, i64 %9
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %10, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %10, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   store i64 554067623936, ptr %10, align 8
   %11 = load ptr, ptr %1, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -3830,14 +3830,14 @@ find_first_bit.exit.i:                            ; preds = %4
   br i1 %29, label %30, label %tcg_temp_alloc.exit.i
 
 30:                                               ; preds = %.thread.i
-  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %2) #32
+  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %2) #33
   unreachable
 
 tcg_temp_alloc.exit.i:                            ; preds = %.thread.i
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 672
   %32 = sext i32 %27 to i64
   %33 = getelementptr inbounds %struct.TCGTemp, ptr %31, i64 %32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %33, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %33, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   store i64 549772656640, ptr %33, align 8
   br label %tcg_temp_new_internal.exit
 
@@ -3863,14 +3863,14 @@ define dso_local ptr @tcg_temp_new_ptr() local_unnamed_addr #0 {
   br i1 %6, label %7, label %tcg_temp_new_internal.exit
 
 7:                                                ; preds = %0
-  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %2) #32
+  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %2) #33
   unreachable
 
 tcg_temp_new_internal.exit:                       ; preds = %0
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 672
   %9 = sext i32 %4 to i64
   %10 = getelementptr inbounds %struct.TCGTemp, ptr %8, i64 %9
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %10, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %10, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   store i64 554067623936, ptr %10, align 8
   %11 = load ptr, ptr %1, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -3932,14 +3932,14 @@ find_first_bit.exit.i:                            ; preds = %4
   br i1 %29, label %30, label %tcg_temp_alloc.exit.i
 
 30:                                               ; preds = %.thread.i
-  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %2) #32
+  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %2) #33
   unreachable
 
 tcg_temp_alloc.exit.i:                            ; preds = %.thread.i
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 672
   %32 = sext i32 %27 to i64
   %33 = getelementptr inbounds %struct.TCGTemp, ptr %31, i64 %32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %33, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %33, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   store i64 549772656640, ptr %33, align 8
   br label %tcg_temp_new_internal.exit
 
@@ -3965,7 +3965,7 @@ define dso_local ptr @tcg_temp_new_i128() local_unnamed_addr #0 {
   br i1 %6, label %7, label %tcg_temp_alloc.exit.i
 
 7:                                                ; preds = %0
-  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %2) #32
+  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %2) #33
   unreachable
 
 tcg_temp_alloc.exit.i:                            ; preds = %0
@@ -3973,7 +3973,7 @@ tcg_temp_alloc.exit.i:                            ; preds = %0
   %9 = sext i32 %4 to i64
   %.idx2 = mul nsw i64 %9, 56
   %10 = getelementptr inbounds i8, ptr %8, i64 %.idx2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %10, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %10, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   store i64 554067689472, ptr %10, align 8
   %11 = load i32, ptr %3, align 8
   %12 = add i32 %11, 1
@@ -3982,14 +3982,14 @@ tcg_temp_alloc.exit.i:                            ; preds = %0
   br i1 %13, label %14, label %tcg_temp_new_internal.exit
 
 14:                                               ; preds = %tcg_temp_alloc.exit.i
-  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %2) #32
+  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %2) #33
   unreachable
 
 tcg_temp_new_internal.exit:                       ; preds = %tcg_temp_alloc.exit.i
   %15 = sext i32 %11 to i64
   %.idx = mul nsw i64 %15, 56
   %16 = getelementptr inbounds i8, ptr %8, i64 %.idx
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %16, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %16, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   %17 = add nsw i64 %.idx2, 56
   %18 = icmp eq i64 %.idx, %17
   tail call void @llvm.assume(i1 %18)
@@ -4088,7 +4088,7 @@ define dso_local void @tcg_temp_free_internal(ptr noundef %0) local_unnamed_addr
   br label %29
 
 28:                                               ; preds = %1
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #32
   unreachable
 
 29:                                               ; preds = %1, %1, %6
@@ -4137,7 +4137,7 @@ define dso_local void @tcg_temp_free_i32(ptr noundef %0) local_unnamed_addr #0 {
   br label %tcg_temp_free_internal.exit
 
 30:                                               ; preds = %1
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #32
   unreachable
 
 tcg_temp_free_internal.exit:                      ; preds = %1, %1, %10
@@ -4186,7 +4186,7 @@ define dso_local void @tcg_temp_free_i64(ptr noundef %0) local_unnamed_addr #0 {
   br label %tcg_temp_free_internal.exit
 
 30:                                               ; preds = %1
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #32
   unreachable
 
 tcg_temp_free_internal.exit:                      ; preds = %1, %1, %10
@@ -4235,7 +4235,7 @@ define dso_local void @tcg_temp_free_i128(ptr noundef %0) local_unnamed_addr #0 
   br label %tcg_temp_free_internal.exit
 
 30:                                               ; preds = %1
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #32
   unreachable
 
 tcg_temp_free_internal.exit:                      ; preds = %1, %1, %10
@@ -4284,7 +4284,7 @@ define dso_local void @tcg_temp_free_ptr(ptr noundef %0) local_unnamed_addr #0 {
   br label %tcg_temp_free_internal.exit
 
 30:                                               ; preds = %1
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #32
   unreachable
 
 tcg_temp_free_internal.exit:                      ; preds = %1, %1, %10
@@ -4333,7 +4333,7 @@ define dso_local void @tcg_temp_free_vec(ptr noundef %0) local_unnamed_addr #0 {
   br label %tcg_temp_free_internal.exit
 
 30:                                               ; preds = %1
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #32
   unreachable
 
 tcg_temp_free_internal.exit:                      ; preds = %1, %1, %10
@@ -4354,13 +4354,13 @@ define dso_local ptr @tcg_constant_internal(i32 noundef %0, i64 noundef %1) loca
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_int64_hash, ptr noundef nonnull @g_int64_equal) #30
+  %12 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_int64_hash, ptr noundef nonnull @g_int64_equal) #31
   store ptr %12, ptr %8, align 8
   br label %13
 
 13:                                               ; preds = %11, %2
   %.0 = phi ptr [ %12, %11 ], [ %9, %2 ]
-  %14 = call ptr @g_hash_table_lookup(ptr noundef %.0, ptr noundef nonnull %3) #30
+  %14 = call ptr @g_hash_table_lookup(ptr noundef %.0, ptr noundef nonnull %3) #31
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %33
 
@@ -4373,14 +4373,14 @@ define dso_local ptr @tcg_constant_internal(i32 noundef %0, i64 noundef %1) loca
   br i1 %20, label %21, label %tcg_temp_alloc.exit
 
 21:                                               ; preds = %16
-  call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %5) #32
+  call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %5) #33
   unreachable
 
 tcg_temp_alloc.exit:                              ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 672
   %23 = sext i32 %18 to i64
   %24 = getelementptr inbounds %struct.TCGTemp, ptr %22, i64 %23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %24, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %24, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   %25 = and i64 %7, 255
   %26 = shl nuw nsw i64 %25, 16
   %27 = shl nuw nsw i64 %25, 24
@@ -4390,7 +4390,7 @@ tcg_temp_alloc.exit:                              ; preds = %16
   %30 = load i64, ptr %3, align 8
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %30, ptr %31, align 8
-  %32 = call i32 @g_hash_table_insert(ptr noundef %.0, ptr noundef nonnull %31, ptr noundef nonnull %24) #30
+  %32 = call i32 @g_hash_table_insert(ptr noundef %.0, ptr noundef nonnull %31, ptr noundef nonnull %24) #31
   br label %33
 
 33:                                               ; preds = %tcg_temp_alloc.exit, %13
@@ -4422,13 +4422,13 @@ define dso_local ptr @tcg_constant_i32(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %1
-  %10 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_int64_hash, ptr noundef nonnull @g_int64_equal) #30
+  %10 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_int64_hash, ptr noundef nonnull @g_int64_equal) #31
   store ptr %10, ptr %6, align 8
   br label %11
 
 11:                                               ; preds = %9, %1
   %.0.i = phi ptr [ %10, %9 ], [ %7, %1 ]
-  %12 = call ptr @g_hash_table_lookup(ptr noundef %.0.i, ptr noundef nonnull %2) #30
+  %12 = call ptr @g_hash_table_lookup(ptr noundef %.0.i, ptr noundef nonnull %2) #31
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %tcg_constant_internal.exit
 
@@ -4441,19 +4441,19 @@ define dso_local ptr @tcg_constant_i32(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %18, label %19, label %tcg_temp_alloc.exit.i
 
 19:                                               ; preds = %14
-  call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %5) #32
+  call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %5) #33
   unreachable
 
 tcg_temp_alloc.exit.i:                            ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 672
   %21 = sext i32 %16 to i64
   %22 = getelementptr inbounds %struct.TCGTemp, ptr %20, i64 %21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %22, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %22, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   store i64 566935683072, ptr %22, align 8
   %23 = load i64, ptr %2, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %23, ptr %24, align 8
-  %25 = call i32 @g_hash_table_insert(ptr noundef %.0.i, ptr noundef nonnull %24, ptr noundef nonnull %22) #30
+  %25 = call i32 @g_hash_table_insert(ptr noundef %.0.i, ptr noundef nonnull %24, ptr noundef nonnull %22) #31
   br label %tcg_constant_internal.exit
 
 tcg_constant_internal.exit:                       ; preds = %11, %tcg_temp_alloc.exit.i
@@ -4480,13 +4480,13 @@ define dso_local ptr @tcg_constant_i64(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %1
-  %9 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_int64_hash, ptr noundef nonnull @g_int64_equal) #30
+  %9 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_int64_hash, ptr noundef nonnull @g_int64_equal) #31
   store ptr %9, ptr %5, align 8
   br label %10
 
 10:                                               ; preds = %8, %1
   %.0.i = phi ptr [ %9, %8 ], [ %6, %1 ]
-  %11 = call ptr @g_hash_table_lookup(ptr noundef %.0.i, ptr noundef nonnull %2) #30
+  %11 = call ptr @g_hash_table_lookup(ptr noundef %.0.i, ptr noundef nonnull %2) #31
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %tcg_constant_internal.exit
 
@@ -4499,19 +4499,19 @@ define dso_local ptr @tcg_constant_i64(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %17, label %18, label %tcg_temp_alloc.exit.i
 
 18:                                               ; preds = %13
-  call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %4) #32
+  call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %4) #33
   unreachable
 
 tcg_temp_alloc.exit.i:                            ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 672
   %20 = sext i32 %15 to i64
   %21 = getelementptr inbounds %struct.TCGTemp, ptr %19, i64 %20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %21, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %21, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   store i64 566952525824, ptr %21, align 8
   %22 = load i64, ptr %2, align 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 %22, ptr %23, align 8
-  %24 = call i32 @g_hash_table_insert(ptr noundef %.0.i, ptr noundef nonnull %23, ptr noundef nonnull %21) #30
+  %24 = call i32 @g_hash_table_insert(ptr noundef %.0.i, ptr noundef nonnull %23, ptr noundef nonnull %21) #31
   br label %tcg_constant_internal.exit
 
 tcg_constant_internal.exit:                       ; preds = %10, %tcg_temp_alloc.exit.i
@@ -4538,13 +4538,13 @@ define dso_local ptr @tcg_constant_ptr_int(i64 noundef %0) local_unnamed_addr #0
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %1
-  %9 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_int64_hash, ptr noundef nonnull @g_int64_equal) #30
+  %9 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_int64_hash, ptr noundef nonnull @g_int64_equal) #31
   store ptr %9, ptr %5, align 8
   br label %10
 
 10:                                               ; preds = %8, %1
   %.0.i = phi ptr [ %9, %8 ], [ %6, %1 ]
-  %11 = call ptr @g_hash_table_lookup(ptr noundef %.0.i, ptr noundef nonnull %2) #30
+  %11 = call ptr @g_hash_table_lookup(ptr noundef %.0.i, ptr noundef nonnull %2) #31
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %tcg_constant_internal.exit
 
@@ -4557,19 +4557,19 @@ define dso_local ptr @tcg_constant_ptr_int(i64 noundef %0) local_unnamed_addr #0
   br i1 %17, label %18, label %tcg_temp_alloc.exit.i
 
 18:                                               ; preds = %13
-  call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %4) #32
+  call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %4) #33
   unreachable
 
 tcg_temp_alloc.exit.i:                            ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 672
   %20 = sext i32 %15 to i64
   %21 = getelementptr inbounds %struct.TCGTemp, ptr %19, i64 %20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %21, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %21, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   store i64 566952525824, ptr %21, align 8
   %22 = load i64, ptr %2, align 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 %22, ptr %23, align 8
-  %24 = call i32 @g_hash_table_insert(ptr noundef %.0.i, ptr noundef nonnull %23, ptr noundef nonnull %21) #30
+  %24 = call i32 @g_hash_table_insert(ptr noundef %.0.i, ptr noundef nonnull %23, ptr noundef nonnull %21) #31
   br label %tcg_constant_internal.exit
 
 tcg_constant_internal.exit:                       ; preds = %10, %tcg_temp_alloc.exit.i
@@ -4585,7 +4585,7 @@ tcg_constant_internal.exit:                       ; preds = %10, %tcg_temp_alloc
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @tcg_constant_vec(i32 noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i64 @dup_const(i32 noundef %1, i64 noundef %2) #30
+  %4 = tail call i64 @dup_const(i32 noundef %1, i64 noundef %2) #31
   %5 = tail call ptr @tcg_constant_internal(i32 noundef %0, i64 noundef %4)
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -4609,7 +4609,7 @@ tcg_constant_vec.exit:
   %8 = and i64 %7, 549755813888
   %9 = icmp ne i64 %8, 0
   tail call void @llvm.assume(i1 %9)
-  %10 = tail call i64 @dup_const(i32 noundef %1, i64 noundef %2) #30
+  %10 = tail call i64 @dup_const(i32 noundef %1, i64 noundef %2) #31
   %11 = trunc i64 %7 to i32
   %12 = lshr i32 %11, 16
   %13 = and i32 %12, 255
@@ -5036,13 +5036,13 @@ define internal fastcc void @tcg_gen_callN(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not, label %8, label %.critedge
 
 8:                                                ; preds = %4
-  %9 = tail call i32 @g_once_init_enter(ptr noundef nonnull %6) #30
+  %9 = tail call i32 @g_once_init_enter(ptr noundef nonnull %6) #31
   %.not88 = icmp eq i32 %9, 0
   br i1 %.not88, label %.critedge, label %10, !prof !21
 
 10:                                               ; preds = %8
   tail call fastcc void @init_call_layout(ptr noundef nonnull %1)
-  tail call void @g_once_init_leave(ptr noundef nonnull %6, i64 noundef 1) #30
+  tail call void @g_once_init_leave(ptr noundef nonnull %6, i64 noundef 1) #31
   br label %.critedge
 
 .critedge:                                        ; preds = %4, %10, %8
@@ -5204,7 +5204,7 @@ tcg_op_alloc.exit:                                ; preds = %38, %53, %55
   br i1 %exitcond.not, label %.loopexit, label %86, !llvm.loop !23
 
 90:                                               ; preds = %68
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 2496, ptr noundef nonnull @__func__.tcg_gen_callN, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 2496, ptr noundef nonnull @__func__.tcg_gen_callN, ptr noundef null) #32
   unreachable
 
 .loopexit:                                        ; preds = %86, %83, %79, %77
@@ -5307,14 +5307,14 @@ find_first_bit.exit.i.i:                          ; preds = %119
   br i1 %144, label %145, label %tcg_temp_alloc.exit.i.i
 
 145:                                              ; preds = %.thread.i.i
-  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %117) #32
+  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %117) #33
   unreachable
 
 tcg_temp_alloc.exit.i.i:                          ; preds = %.thread.i.i
   %146 = getelementptr inbounds nuw i8, ptr %117, i64 672
   %147 = sext i32 %142 to i64
   %148 = getelementptr inbounds %struct.TCGTemp, ptr %146, i64 %147
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %148, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %148, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   store i64 549772656640, ptr %148, align 8
   br label %tcg_temp_ebb_new_i64.exit
 
@@ -5334,11 +5334,11 @@ tcg_temp_ebb_new_i64.exit:                        ; preds = %find_first_bit.exit
   br i1 %159, label %160, label %161
 
 160:                                              ; preds = %tcg_temp_ebb_new_i64.exit
-  tail call void @tcg_gen_ext_i32_i64(ptr noundef %153, ptr noundef %156) #30
+  tail call void @tcg_gen_ext_i32_i64(ptr noundef %153, ptr noundef %156) #31
   br label %162
 
 161:                                              ; preds = %tcg_temp_ebb_new_i64.exit
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %153, ptr noundef %156) #30
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %153, ptr noundef %156) #31
   br label %162
 
 162:                                              ; preds = %161, %160
@@ -5354,7 +5354,7 @@ tcg_temp_ebb_new_i64.exit:                        ; preds = %find_first_bit.exit
   br label %171
 
 170:                                              ; preds = %101
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 2528, ptr noundef nonnull @__func__.tcg_gen_callN, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 2528, ptr noundef nonnull @__func__.tcg_gen_callN, ptr noundef null) #32
   unreachable
 
 171:                                              ; preds = %162, %113
@@ -5473,7 +5473,7 @@ tcg_temp_ebb_new_i64.exit:                        ; preds = %find_first_bit.exit
   br label %tcg_temp_free_i64.exit
 
 235:                                              ; preds = %.lr.ph107
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1985, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #32
   unreachable
 
 tcg_temp_free_i64.exit:                           ; preds = %.lr.ph107, %.lr.ph107, %215
@@ -5623,7 +5623,7 @@ define dso_local void @tcg_dump_ops(ptr noundef readonly captures(none) %0, ptr 
   ]
 
 12:                                               ; preds = %7
-  %13 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.5) #30
+  %13 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.5) #31
   %14 = call i32 @llvm.smax.i32(i32 %13, i32 0)
   %15 = load i8, ptr %6, align 2
   %.not431 = icmp eq i8 %15, 0
@@ -5639,7 +5639,7 @@ define dso_local void @tcg_dump_ops(ptr noundef readonly captures(none) %0, ptr 
   %.0313385 = phi i32 [ %14, %.lr.ph387 ], [ %22, %17 ]
   %18 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv449
   %19 = load i64, ptr %18, align 8
-  %20 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.6, i64 noundef %19) #30
+  %20 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.6, i64 noundef %19) #31
   %21 = call i32 @llvm.smax.i32(i32 %20, i32 0)
   %22 = add i32 %21, %.0313385
   %indvars.iv.next450 = add nuw nsw i64 %indvars.iv449, 1
@@ -5661,7 +5661,7 @@ define dso_local void @tcg_dump_ops(ptr noundef readonly captures(none) %0, ptr 
   %35 = load i64, ptr %34, align 8
   %36 = inttoptr i64 %35 to ptr
   %37 = load ptr, ptr %11, align 8
-  %38 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.7, ptr noundef %37) #30
+  %38 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.7, ptr noundef %37) #31
   %39 = call i32 @llvm.smax.i32(i32 %38, i32 0)
   %40 = load ptr, ptr %32, align 8
   %41 = icmp eq ptr %40, %36
@@ -5670,11 +5670,11 @@ define dso_local void @tcg_dump_ops(ptr noundef readonly captures(none) %0, ptr 
 42:                                               ; preds = %23
   %43 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.8, ptr noundef %44) #30
+  %45 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.8, ptr noundef %44) #31
   br label %48
 
 46:                                               ; preds = %23
-  %47 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.9, ptr noundef %36) #30
+  %47 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.9, ptr noundef %36) #31
   br label %48
 
 48:                                               ; preds = %46, %42
@@ -5686,7 +5686,7 @@ define dso_local void @tcg_dump_ops(ptr noundef readonly captures(none) %0, ptr 
   %52 = lshr i64 %51, 32
   %53 = trunc nuw i64 %52 to i32
   %54 = and i32 %53, 255
-  %55 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.10, i32 noundef %54, i32 noundef %24) #30
+  %55 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.10, i32 noundef %54, i32 noundef %24) #31
   %56 = call i32 @llvm.smax.i32(i32 %55, i32 0)
   %57 = add i32 %.2315, %56
   %.not429 = icmp ult i32 %8, 16777216
@@ -5713,7 +5713,7 @@ define dso_local void @tcg_dump_ops(ptr noundef readonly captures(none) %0, ptr 
   %59 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
   %60 = load i64, ptr %59, align 8
   %61 = call fastcc ptr @tcg_get_arg_str(ptr noundef %0, ptr noundef %4, i64 noundef %60)
-  %62 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.11, ptr noundef nonnull %4) #30
+  %62 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.11, ptr noundef nonnull %4) #31
   %63 = call i32 @llvm.smax.i32(i32 %62, i32 0)
   %64 = add i32 %63, %.3316379
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5726,7 +5726,7 @@ define dso_local void @tcg_dump_ops(ptr noundef readonly captures(none) %0, ptr 
   %gep = getelementptr inbounds nuw i64, ptr %invariant.gep, i64 %indvars.iv444
   %65 = load i64, ptr %gep, align 8
   %66 = call fastcc ptr @tcg_get_arg_str(ptr noundef %0, ptr noundef %4, i64 noundef %65)
-  %67 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.11, ptr noundef nonnull %4) #30
+  %67 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.11, ptr noundef nonnull %4) #31
   %68 = call i32 @llvm.smax.i32(i32 %67, i32 0)
   %69 = add i32 %68, %.4317381
   %indvars.iv.next445 = add nuw nsw i64 %indvars.iv444, 1
@@ -5735,7 +5735,7 @@ define dso_local void @tcg_dump_ops(ptr noundef readonly captures(none) %0, ptr 
 
 70:                                               ; preds = %7
   %71 = load ptr, ptr %11, align 8
-  %72 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.7, ptr noundef %71) #30
+  %72 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.7, ptr noundef %71) #31
   %73 = call i32 @llvm.smax.i32(i32 %72, i32 0)
   %74 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %75 = load i8, ptr %74, align 8
@@ -5762,7 +5762,7 @@ define dso_local void @tcg_dump_ops(ptr noundef readonly captures(none) %0, ptr 
   %92 = shl nuw nsw i32 32, %spec.select.i
   %93 = lshr i32 %87, 24
   %94 = shl i32 8, %93
-  %95 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.12, i32 noundef %92, i32 noundef %94) #30
+  %95 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.12, i32 noundef %92, i32 noundef %94) #31
   %96 = call i32 @llvm.smax.i32(i32 %95, i32 0)
   %97 = add nuw i32 %96, %73
   br label %98
@@ -5796,7 +5796,7 @@ define dso_local void @tcg_dump_ops(ptr noundef readonly captures(none) %0, ptr 
   %104 = getelementptr inbounds nuw i64, ptr %99, i64 %indvars.iv454
   %105 = load i64, ptr %104, align 8
   %106 = call fastcc ptr @tcg_get_arg_str(ptr noundef %0, ptr noundef %4, i64 noundef %105)
-  %107 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.15, ptr noundef nonnull %103, ptr noundef nonnull %4) #30
+  %107 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.15, ptr noundef nonnull %103, ptr noundef nonnull %4) #31
   %108 = call i32 @llvm.smax.i32(i32 %107, i32 0)
   %109 = add i32 %108, %.6319389
   %exitcond460.not = icmp eq i64 %indvars.iv.next455, %wide.trip.count459
@@ -5812,7 +5812,7 @@ define dso_local void @tcg_dump_ops(ptr noundef readonly captures(none) %0, ptr 
   %112 = getelementptr inbounds nuw i64, ptr %100, i64 %indvars.iv461
   %113 = load i64, ptr %112, align 8
   %114 = call fastcc ptr @tcg_get_arg_str(ptr noundef %0, ptr noundef %4, i64 noundef %113)
-  %115 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.15, ptr noundef nonnull %111, ptr noundef nonnull %4) #30
+  %115 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.15, ptr noundef nonnull %111, ptr noundef nonnull %4) #31
   %116 = call i32 @llvm.smax.i32(i32 %115, i32 0)
   %117 = add i32 %116, %.7320395
   %118 = add nuw nsw i32 %.4397, 1
@@ -5875,11 +5875,11 @@ define dso_local void @tcg_dump_ops(ptr noundef readonly captures(none) %0, ptr 
 127:                                              ; preds = %120
   %128 = getelementptr inbounds nuw ptr, ptr @cond_name, i64 %124
   %129 = load ptr, ptr %128, align 8
-  %130 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.11, ptr noundef %129) #30
+  %130 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.11, ptr noundef %129) #31
   br label %133
 
 131:                                              ; preds = %120
-  %132 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.16, i64 noundef %124) #30
+  %132 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.16, i64 noundef %124) #31
   br label %133
 
 133:                                              ; preds = %131, %127
@@ -5921,11 +5921,11 @@ define dso_local void @tcg_dump_ops(ptr noundef readonly captures(none) %0, ptr 
   %160 = and i64 %159, 7
   %161 = getelementptr inbounds nuw ptr, ptr @alignment_name, i64 %160
   %162 = load ptr, ptr %161, align 8
-  %163 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.17, ptr noundef %156, ptr noundef %162, ptr noundef %158, i32 noundef %143) #30
+  %163 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.17, ptr noundef %156, ptr noundef %162, ptr noundef %158, i32 noundef %143) #31
   br label %166
 
 164:                                              ; preds = %135
-  %165 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.18, i32 noundef %142, i32 noundef %143) #30
+  %165 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.18, i32 noundef %142, i32 noundef %143) #31
   br label %166
 
 166:                                              ; preds = %164, %153
@@ -5944,11 +5944,11 @@ define dso_local void @tcg_dump_ops(ptr noundef readonly captures(none) %0, ptr 
 
 174:                                              ; preds = %168
   %175 = getelementptr inbounds nuw [6 x i8], ptr @bswap_flag_name, i64 %172
-  %176 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.11, ptr noundef nonnull %175) #30
+  %176 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.11, ptr noundef nonnull %175) #31
   br label %179
 
 177:                                              ; preds = %168
-  %178 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.16, i64 noundef %172) #30
+  %178 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.16, i64 noundef %172) #31
   br label %179
 
 179:                                              ; preds = %177, %174
@@ -5969,11 +5969,11 @@ define dso_local void @tcg_dump_ops(ptr noundef readonly captures(none) %0, ptr 
 188:                                              ; preds = %181
   %189 = getelementptr inbounds nuw ptr, ptr @plugin_from_name, i64 %186
   %190 = load ptr, ptr %189, align 8
-  %191 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.8, ptr noundef nonnull %190) #30
+  %191 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.8, ptr noundef nonnull %190) #31
   br label %.thread366
 
 .thread:                                          ; preds = %181
-  %192 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.19, i64 noundef %186) #30
+  %192 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.19, i64 noundef %186) #31
   br label %.thread366
 
 .thread366:                                       ; preds = %188, %.thread
@@ -6006,7 +6006,7 @@ define dso_local void @tcg_dump_ops(ptr noundef readonly captures(none) %0, ptr 
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 2
   %203 = load i16, ptr %202, align 2
   %204 = zext i16 %203 to i32
-  %205 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.20, ptr noundef nonnull %196, i32 noundef %204) #30
+  %205 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.20, ptr noundef nonnull %196, i32 noundef %204) #31
   %206 = call i32 @llvm.smax.i32(i32 %205, i32 0)
   %207 = add i32 %206, %.9322
   %208 = add nuw nsw i32 %.5, 1
@@ -6027,7 +6027,7 @@ switch.lookup:                                    ; preds = %194
   %switch.load504 = load ptr, ptr %switch.gep503, align 8
   %.not351 = icmp eq i32 %.3309, 0
   %217 = select i1 %.not351, ptr @.str.14, ptr @.str.13
-  %218 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.40, ptr noundef nonnull %217, ptr noundef nonnull %switch.load, ptr noundef nonnull %switch.load504) #30
+  %218 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.40, ptr noundef nonnull %217, ptr noundef nonnull %switch.load, ptr noundef nonnull %switch.load504) #31
   %219 = call i32 @llvm.smax.i32(i32 %218, i32 0)
   %220 = add i32 %219, %.9322
   %221 = add nuw nsw i32 %.5, 1
@@ -6054,7 +6054,7 @@ switch.lookup:                                    ; preds = %194
   %228 = select i1 %.not353, ptr @.str.14, ptr @.str.13
   %229 = getelementptr inbounds nuw i64, ptr %225, i64 %indvars.iv465
   %230 = load i64, ptr %229, align 8
-  %231 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.41, ptr noundef nonnull %228, i64 noundef %230) #30
+  %231 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.41, ptr noundef nonnull %228, i64 noundef %230) #31
   %232 = call i32 @llvm.smax.i32(i32 %231, i32 0)
   %233 = add i32 %232, %.14401
   %234 = add nuw nsw i32 %.7403, 1
@@ -6101,7 +6101,7 @@ switch.lookup:                                    ; preds = %194
   br i1 %.not359, label %.loopexit372, label %246
 
 246:                                              ; preds = %244
-  %247 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.42) #30
+  %247 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.42) #31
   br label %248
 
 248:                                              ; preds = %246, %254
@@ -6113,7 +6113,7 @@ switch.lookup:                                    ; preds = %194
   br i1 %.not363, label %254, label %252
 
 252:                                              ; preds = %248
-  %253 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.43, i32 noundef %.8410) #30
+  %253 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.43, i32 noundef %.8410) #31
   br label %254
 
 254:                                              ; preds = %248, %252
@@ -6124,7 +6124,7 @@ switch.lookup:                                    ; preds = %194
   br i1 %.not360, label %.loopexit371, label %.lr.ph415.preheader
 
 .lr.ph415.preheader:                              ; preds = %.loopexit372
-  %255 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.44) #30
+  %255 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.44) #31
   %256 = lshr i32 %243, 4
   br label %.lr.ph415
 
@@ -6136,7 +6136,7 @@ switch.lookup:                                    ; preds = %194
   br i1 %.not362, label %260, label %258
 
 258:                                              ; preds = %.lr.ph415
-  %259 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.43, i32 noundef %.9413) #30
+  %259 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.43, i32 noundef %.9413) #31
   br label %260
 
 260:                                              ; preds = %.lr.ph415, %258
@@ -6170,22 +6170,22 @@ output_pref.exit:                                 ; preds = %265
 output_pref.exit.thread:                          ; preds = %output_pref.exit, %265
   %.str.13.sink = phi ptr [ @.str.13, %265 ], [ %spec.select, %output_pref.exit ]
   %270 = phi i32 [ 0, %265 ], [ %268, %output_pref.exit ]
-  %271 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull %.str.13.sink) #30
+  %271 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull %.str.13.sink) #31
   switch i32 %270, label %276 [
     i32 0, label %272
     i32 -1, label %274
   ]
 
 272:                                              ; preds = %output_pref.exit.thread
-  %273 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.21) #30
+  %273 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.21) #31
   br label %278
 
 274:                                              ; preds = %output_pref.exit.thread
-  %275 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.39) #30
+  %275 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.39) #31
   br label %278
 
 276:                                              ; preds = %output_pref.exit.thread
-  %277 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.46, i32 noundef %270) #30
+  %277 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.46, i32 noundef %270) #31
   br label %278
 
 278:                                              ; preds = %274, %276, %272
@@ -6230,21 +6230,21 @@ define internal fastcc noundef nonnull ptr @tcg_get_arg_str(ptr noundef readonly
 16:                                               ; preds = %3, %3
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %18 = load ptr, ptr %17, align 8
-  tail call void @pstrcpy(ptr noundef nonnull %1, i32 noundef 128, ptr noundef %18) #30
+  tail call void @pstrcpy(ptr noundef nonnull %1, i32 noundef 128, ptr noundef %18) #31
   br label %tcg_get_arg_str_ptr.exit
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %21 = load i32, ptr %20, align 4
   %22 = sub i32 %11, %21
-  %23 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %1, i64 noundef 128, i32 noundef 1, i64 noundef -1, ptr noundef nonnull @.str.86, i32 noundef %22) #30
+  %23 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %1, i64 noundef 128, i32 noundef 1, i64 noundef -1, ptr noundef nonnull @.str.86, i32 noundef %22) #31
   br label %tcg_get_arg_str_ptr.exit
 
 24:                                               ; preds = %3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %26 = load i32, ptr %25, align 4
   %27 = sub i32 %11, %26
-  %28 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %1, i64 noundef 128, i32 noundef 1, i64 noundef -1, ptr noundef nonnull @.str.87, i32 noundef %27) #30
+  %28 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %1, i64 noundef 128, i32 noundef 1, i64 noundef -1, ptr noundef nonnull @.str.87, i32 noundef %27) #31
   br label %tcg_get_arg_str_ptr.exit
 
 29:                                               ; preds = %3
@@ -6262,13 +6262,13 @@ define internal fastcc noundef nonnull ptr @tcg_get_arg_str(ptr noundef readonly
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  %35 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %1, i64 noundef 128, i32 noundef 1, i64 noundef -1, ptr noundef nonnull @.str.88, i32 noundef %34) #30
+  %35 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %1, i64 noundef 128, i32 noundef 1, i64 noundef -1, ptr noundef nonnull @.str.88, i32 noundef %34) #31
   br label %tcg_get_arg_str_ptr.exit
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %38 = load i64, ptr %37, align 8
-  %39 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %1, i64 noundef 128, i32 noundef 1, i64 noundef -1, ptr noundef nonnull @.str.19, i64 noundef %38) #30
+  %39 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %1, i64 noundef 128, i32 noundef 1, i64 noundef -1, ptr noundef nonnull @.str.19, i64 noundef %38) #31
   br label %tcg_get_arg_str_ptr.exit
 
 40:                                               ; preds = %29, %29, %29
@@ -6278,11 +6278,11 @@ define internal fastcc noundef nonnull ptr @tcg_get_arg_str(ptr noundef readonly
   %44 = shl i32 64, %43
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %46 = load i64, ptr %45, align 8
-  %47 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %1, i64 noundef 128, i32 noundef 1, i64 noundef -1, ptr noundef nonnull @.str.89, i32 noundef %44, i64 noundef %46) #30
+  %47 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %1, i64 noundef 128, i32 noundef 1, i64 noundef -1, ptr noundef nonnull @.str.89, i32 noundef %44, i64 noundef %46) #31
   br label %tcg_get_arg_str_ptr.exit
 
 48:                                               ; preds = %29
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 2666, ptr noundef nonnull @__func__.tcg_get_arg_str_ptr, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 2666, ptr noundef nonnull @__func__.tcg_get_arg_str_ptr, ptr noundef null) #32
   unreachable
 
 tcg_get_arg_str_ptr.exit:                         ; preds = %3, %16, %19, %24, %31, %36, %40
@@ -6346,7 +6346,7 @@ define dso_local void @tcg_op_remove(ptr noundef captures(none) %0, ptr noundef 
   br i1 %23, label %.sink.split.sink.split, label %.sink.split
 
 24:                                               ; preds = %9
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 3386, ptr noundef nonnull @__func__.remove_label_use, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 3386, ptr noundef nonnull @__func__.remove_label_use, ptr noundef null) #32
   unreachable
 
 25:                                               ; preds = %2, %2
@@ -6392,7 +6392,7 @@ define dso_local void @tcg_op_remove(ptr noundef captures(none) %0, ptr noundef 
   br i1 %44, label %.sink.split.sink.split, label %.sink.split
 
 45:                                               ; preds = %30
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 3386, ptr noundef nonnull @__func__.remove_label_use, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 3386, ptr noundef nonnull @__func__.remove_label_use, ptr noundef null) #32
   unreachable
 
 46:                                               ; preds = %2
@@ -6438,7 +6438,7 @@ define dso_local void @tcg_op_remove(ptr noundef captures(none) %0, ptr noundef 
   br i1 %65, label %.sink.split.sink.split, label %.sink.split
 
 66:                                               ; preds = %51
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 3386, ptr noundef nonnull @__func__.remove_label_use, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 3386, ptr noundef nonnull @__func__.remove_label_use, ptr noundef null) #32
   unreachable
 
 .sink.split.sink.split:                           ; preds = %59, %63, %38, %42, %17, %21
@@ -6869,25 +6869,25 @@ define dso_local i32 @tcg_gen_code(ptr noundef %0, ptr noundef captures(none) in
   br i1 %.not243, label %.critedge, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call zeroext i1 @qemu_log_in_addr_range(i64 noundef %2) #30
+  %10 = tail call zeroext i1 @qemu_log_in_addr_range(i64 noundef %2) #31
   br i1 %10, label %11, label %.critedge, !prof !4
 
 11:                                               ; preds = %9
-  %12 = tail call ptr @qemu_log_trylock() #30
+  %12 = tail call ptr @qemu_log_trylock() #31
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.critedge, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %12, i32 noundef 1, ptr noundef nonnull @.str.47) #30
+  %14 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %12, i32 noundef 1, ptr noundef nonnull @.str.47) #31
   tail call void @tcg_dump_ops(ptr noundef %0, ptr noundef nonnull %12, i1 noundef zeroext false)
-  %15 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %12, i32 noundef 1, ptr noundef nonnull @.str.2) #30
-  tail call void @qemu_log_unlock(ptr noundef nonnull %12) #30
+  %15 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %12, i32 noundef 1, ptr noundef nonnull @.str.2) #31
+  tail call void @qemu_log_unlock(ptr noundef nonnull %12) #31
   br label %.critedge
 
 .critedge:                                        ; preds = %3, %11, %13, %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(384) %16, i8 noundef 0, i64 noundef 384, i1 noundef false) #30
-  tail call void @tcg_optimize(ptr noundef %0) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(384) %16, i8 noundef 0, i64 noundef 384, i1 noundef false) #31
+  tail call void @tcg_optimize(ptr noundef %0) #31
   tail call fastcc void @reachable_code_pass(ptr noundef %0)
   tail call fastcc void @liveness_pass_0(ptr noundef %0)
   tail call fastcc void @liveness_pass_1(ptr noundef %0)
@@ -6903,19 +6903,19 @@ define dso_local i32 @tcg_gen_code(ptr noundef %0, ptr noundef captures(none) in
   br i1 %.not244, label %.critedge130, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call zeroext i1 @qemu_log_in_addr_range(i64 noundef %2) #30
+  %24 = tail call zeroext i1 @qemu_log_in_addr_range(i64 noundef %2) #31
   br i1 %24, label %25, label %.critedge130, !prof !4
 
 25:                                               ; preds = %23
-  %26 = tail call ptr @qemu_log_trylock() #30
+  %26 = tail call ptr @qemu_log_trylock() #31
   %.not126 = icmp eq ptr %26, null
   br i1 %.not126, label %.critedge130, label %27
 
 27:                                               ; preds = %25
-  %28 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %26, i32 noundef 1, ptr noundef nonnull @.str.48) #30
+  %28 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %26, i32 noundef 1, ptr noundef nonnull @.str.48) #31
   tail call void @tcg_dump_ops(ptr noundef nonnull %0, ptr noundef nonnull %26, i1 noundef zeroext false)
-  %29 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %26, i32 noundef 1, ptr noundef nonnull @.str.2) #30
-  tail call void @qemu_log_unlock(ptr noundef nonnull %26) #30
+  %29 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %26, i32 noundef 1, ptr noundef nonnull @.str.2) #31
+  tail call void @qemu_log_unlock(ptr noundef nonnull %26) #31
   br label %.critedge130
 
 .critedge130:                                     ; preds = %20, %25, %27, %23
@@ -6933,19 +6933,19 @@ define dso_local i32 @tcg_gen_code(ptr noundef %0, ptr noundef captures(none) in
   br i1 %.not245, label %.critedge132, label %35
 
 35:                                               ; preds = %32
-  %36 = tail call zeroext i1 @qemu_log_in_addr_range(i64 noundef %2) #30
+  %36 = tail call zeroext i1 @qemu_log_in_addr_range(i64 noundef %2) #31
   br i1 %36, label %37, label %.critedge132, !prof !4
 
 37:                                               ; preds = %35
-  %38 = tail call ptr @qemu_log_trylock() #30
+  %38 = tail call ptr @qemu_log_trylock() #31
   %.not127 = icmp eq ptr %38, null
   br i1 %.not127, label %.critedge132, label %39
 
 39:                                               ; preds = %37
-  %40 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %38, i32 noundef 1, ptr noundef nonnull @.str.49) #30
+  %40 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %38, i32 noundef 1, ptr noundef nonnull @.str.49) #31
   tail call void @tcg_dump_ops(ptr noundef nonnull %0, ptr noundef nonnull %38, i1 noundef zeroext true)
-  %41 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %38, i32 noundef 1, ptr noundef nonnull @.str.2) #30
-  tail call void @qemu_log_unlock(ptr noundef nonnull %38) #30
+  %41 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %38, i32 noundef 1, ptr noundef nonnull @.str.2) #31
+  tail call void @qemu_log_unlock(ptr noundef nonnull %38) #31
   br label %.critedge132
 
 .critedge132:                                     ; preds = %32, %37, %39, %35
@@ -6991,7 +6991,7 @@ define dso_local i32 @tcg_gen_code(ptr noundef %0, ptr noundef captures(none) in
   br label %59
 
 58:                                               ; preds = %47
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 2625, ptr noundef nonnull @__func__.tcg_reg_alloc_start, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 2625, ptr noundef nonnull @__func__.tcg_reg_alloc_start, ptr noundef null) #32
   unreachable
 
 59:                                               ; preds = %56, %54, %53, %47
@@ -7006,7 +7006,7 @@ define dso_local i32 @tcg_gen_code(ptr noundef %0, ptr noundef captures(none) in
 
 tcg_reg_alloc_start.exit:                         ; preds = %59, %.critedge132
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 29400
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %63, i8 noundef 0, i64 noundef 256, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %63, i8 noundef 0, i64 noundef 256, i1 noundef false) #31
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %65 = load ptr, ptr %64, align 8
   %.not.i = icmp eq ptr %65, null
@@ -7158,7 +7158,7 @@ tcg_malloc.exit.._crit_edge_crit_edge:            ; preds = %tcg_malloc.exit
   br label %138
 
 137:                                              ; preds = %131
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #32
   unreachable
 
 138:                                              ; preds = %136, %135, %131, %131
@@ -7242,7 +7242,7 @@ set_temp_val_nonreg.exit.i.i:                     ; preds = %151, %temp_dead.exi
   br label %set_temp_val_nonreg.exit.i.i.i.i
 
 172:                                              ; preds = %166
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #32
   unreachable
 
 set_temp_val_nonreg.exit.i.i.i.i:                 ; preds = %171, %170, %166, %166
@@ -7317,7 +7317,7 @@ set_temp_val_nonreg.exit.i.i.i.i:                 ; preds = %171, %170, %166, %1
   br label %209
 
 208:                                              ; preds = %201
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #32
   unreachable
 
 209:                                              ; preds = %207, %206, %201, %201
@@ -7363,7 +7363,7 @@ temp_dead.exit87.i:                               ; preds = %set_temp_val_nonreg
   br label %227
 
 226:                                              ; preds = %temp_dead.exit87.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #32
   unreachable
 
 227:                                              ; preds = %225, %224, %temp_dead.exit87.i, %temp_dead.exit87.i
@@ -7416,7 +7416,7 @@ set_temp_val_nonreg.exit.i.i89.i:                 ; preds = %230, %227
   br label %set_temp_val_nonreg.exit.i.i93.i
 
 247:                                              ; preds = %241
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #32
   unreachable
 
 set_temp_val_nonreg.exit.i.i93.i:                 ; preds = %246, %245, %241, %241
@@ -7554,7 +7554,7 @@ set_temp_val_reg.exit.i:                          ; preds = %282, %274
   br label %set_temp_val_nonreg.exit.i.i.i156
 
 323:                                              ; preds = %317
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #32
   unreachable
 
 set_temp_val_nonreg.exit.i.i.i156:                ; preds = %322, %321, %317, %317
@@ -7624,7 +7624,7 @@ set_temp_val_nonreg.exit.i.i163:                  ; preds = %330, %temp_dead.exi
   br label %set_temp_val_nonreg.exit.i.i.i.i166
 
 351:                                              ; preds = %345
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #32
   unreachable
 
 set_temp_val_nonreg.exit.i.i.i.i166:              ; preds = %350, %349, %345, %345
@@ -7743,7 +7743,7 @@ set_temp_val_reg.exit.i148:                       ; preds = %383, %375, %353
   br label %421
 
 420:                                              ; preds = %set_temp_val_reg.exit.i148
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5010, ptr noundef nonnull @__func__.tcg_reg_alloc_dup, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5010, ptr noundef nonnull @__func__.tcg_reg_alloc_dup, ptr noundef null) #32
   unreachable
 
 421:                                              ; preds = %410, %404, %399
@@ -7774,7 +7774,7 @@ set_temp_val_reg.exit.i148:                       ; preds = %383, %375, %353
   br label %433
 
 432:                                              ; preds = %425
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #32
   unreachable
 
 433:                                              ; preds = %431, %430, %425, %425
@@ -7835,7 +7835,7 @@ temp_dead.exit89.i:                               ; preds = %set_temp_val_nonreg
   br label %457
 
 456:                                              ; preds = %449
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #32
   unreachable
 
 457:                                              ; preds = %455, %454, %449, %449
@@ -7879,7 +7879,7 @@ set_temp_val_nonreg.exit.i.i91.i:                 ; preds = %460, %457
   br i1 %477, label %479, label %478
 
 478:                                              ; preds = %470
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.4, i32 noundef 6436, ptr noundef nonnull @__PRETTY_FUNCTION__.tcg_gen_code) #31
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.4, i32 noundef 6436, ptr noundef nonnull @__PRETTY_FUNCTION__.tcg_gen_code) #32
   unreachable
 
 479:                                              ; preds = %470, %468
@@ -7928,7 +7928,7 @@ set_temp_val_nonreg.exit.i.i91.i:                 ; preds = %460, %457
   br label %502
 
 501:                                              ; preds = %491
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #32
   unreachable
 
 502:                                              ; preds = %500, %499, %491, %491
@@ -7978,7 +7978,7 @@ set_temp_val_nonreg.exit.i.i169:                  ; preds = %505, %502
   ]
 
 524:                                              ; preds = %518
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4761, ptr noundef nonnull @__func__.tcg_reg_alloc_bb_end, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4761, ptr noundef nonnull @__func__.tcg_reg_alloc_bb_end, ptr noundef null) #32
   unreachable
 
 temp_save.exit.i:                                 ; preds = %518, %518, %518
@@ -8358,7 +8358,7 @@ tcg_out_st.exit.i:                                ; preds = %tcg_out_sib_offset.
   br label %load_arg_normal.exit.i
 
 730:                                              ; preds = %551
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5622, ptr noundef nonnull @__func__.tcg_reg_alloc_call, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5622, ptr noundef nonnull @__func__.tcg_reg_alloc_call, ptr noundef null) #32
   unreachable
 
 load_arg_normal.exit.i:                           ; preds = %713, %712, %708, %tcg_out_sib_offset.exit228, %716, %584, %load_arg_reg.exit.i.i
@@ -8402,7 +8402,7 @@ load_arg_normal.exit.i:                           ; preds = %713, %712, %708, %t
   br label %746
 
 745:                                              ; preds = %735
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #32
   unreachable
 
 746:                                              ; preds = %744, %743, %735, %735
@@ -8621,7 +8621,7 @@ set_temp_val_reg.exit.i188:                       ; preds = %828, %820
   br label %847
 
 847:                                              ; preds = %846, %837
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 143, ptr noundef nonnull @__func__.tcg_target_call_oarg_reg, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 143, ptr noundef nonnull @__func__.tcg_target_call_oarg_reg, ptr noundef null) #32
   unreachable
 
 .lr.ph124.i:                                      ; preds = %.lr.ph124.i, %.lr.ph124.preheader.i
@@ -8638,7 +8638,7 @@ set_temp_val_reg.exit.i188:                       ; preds = %828, %820
   br i1 %exitcond143.not.i, label %.lr.ph128.i, label %.lr.ph124.i, !llvm.loop !47
 
 854:                                              ; preds = %798
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5706, ptr noundef nonnull @__func__.tcg_reg_alloc_call, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5706, ptr noundef nonnull @__func__.tcg_reg_alloc_call, ptr noundef null) #32
   unreachable
 
 .lr.ph128.i:                                      ; preds = %.lr.ph124.i, %set_temp_val_reg.exit.i188
@@ -8689,7 +8689,7 @@ set_temp_val_reg.exit.i188:                       ; preds = %828, %820
   br label %877
 
 876:                                              ; preds = %869
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #32
   unreachable
 
 877:                                              ; preds = %875, %874, %869, %869
@@ -8923,7 +8923,7 @@ tcg_reg_alloc_mov.exit:                           ; preds = %temp_dead.exit113.i
   br i1 %1003, label %switch.lookup, label %1004
 
 1004:                                             ; preds = %999
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 6069, ptr noundef nonnull @__func__.tcg_out_ld_helper_args, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 6069, ptr noundef nonnull @__func__.tcg_out_ld_helper_args, ptr noundef null) #32
   unreachable
 
 switch.lookup:                                    ; preds = %999
@@ -8951,7 +8951,7 @@ switch.lookup:                                    ; preds = %999
   br label %tcg_out_helper_add_mov.exit.i.i.i
 
 1015:                                             ; preds = %switch.lookup
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 6013, ptr noundef nonnull @__func__.tcg_out_helper_add_mov, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 6013, ptr noundef nonnull @__func__.tcg_out_helper_add_mov, ptr noundef null) #32
   unreachable
 
 tcg_out_helper_add_mov.exit.i.i.i:                ; preds = %1014, %1011, %switch.lookup
@@ -8995,7 +8995,7 @@ tcg_out_helper_add_mov.exit.i.i.i:                ; preds = %1014, %1011, %switc
   br label %tcg_out_ld_helper_args.exit.i.i
 
 1030:                                             ; preds = %tcg_out_helper_add_mov.exit.i.i.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 6122, ptr noundef nonnull @__func__.tcg_out_ld_helper_args, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 6122, ptr noundef nonnull @__func__.tcg_out_ld_helper_args, ptr noundef null) #32
   unreachable
 
 tcg_out_ld_helper_args.exit.i.i:                  ; preds = %1021, %tcg_out_helper_add_mov.exit.i.i.i, %tcg_out_helper_add_mov.exit.i.i.i
@@ -9052,7 +9052,7 @@ tcg_out_ld_helper_args.exit.i.i:                  ; preds = %1021, %tcg_out_help
   br label %tcg_out_qemu_ld_slow_path.exit.i
 
 1050:                                             ; preds = %tcg_out_ld_helper_args.exit.i.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 6194, ptr noundef nonnull @__func__.tcg_out_ld_helper_ret, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 6194, ptr noundef nonnull @__func__.tcg_out_ld_helper_ret, ptr noundef null) #32
   unreachable
 
 tcg_out_qemu_ld_slow_path.exit.i:                 ; preds = %1045, %1038
@@ -9104,7 +9104,7 @@ tcg_out_qemu_ld_slow_path.exit.i:                 ; preds = %1045, %1038
   br label %1076
 
 1075:                                             ; preds = %1069
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 6240, ptr noundef nonnull @__func__.tcg_out_st_helper_args, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 6240, ptr noundef nonnull @__func__.tcg_out_st_helper_args, ptr noundef null) #32
   unreachable
 
 1076:                                             ; preds = %1074, %1073, %1069, %1069, %1069
@@ -9132,7 +9132,7 @@ tcg_out_qemu_ld_slow_path.exit.i:                 ; preds = %1045, %1038
   br label %tcg_out_helper_add_mov.exit.i.i14.i
 
 1087:                                             ; preds = %1076
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 6013, ptr noundef nonnull @__func__.tcg_out_helper_add_mov, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 6013, ptr noundef nonnull @__func__.tcg_out_helper_add_mov, ptr noundef null) #32
   unreachable
 
 tcg_out_helper_add_mov.exit.i.i14.i:              ; preds = %1086, %1083, %1076
@@ -9178,7 +9178,7 @@ tcg_out_helper_add_mov.exit.i.i14.i:              ; preds = %1086, %1083, %1076
   br label %1103
 
 1102:                                             ; preds = %1097
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 6013, ptr noundef nonnull @__func__.tcg_out_helper_add_mov, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 6013, ptr noundef nonnull @__func__.tcg_out_helper_add_mov, ptr noundef null) #32
   unreachable
 
 1103:                                             ; preds = %1101, %1098, %1097
@@ -9450,7 +9450,7 @@ tcg_out_sib_offset.exit64.i.i.i:                  ; preds = %1203, %1202, %1198
   br label %tcg_out_qemu_st_slow_path.exit.i
 
 1244:                                             ; preds = %tcg_out_helper_add_mov.exit.i.i14.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 6308, ptr noundef nonnull @__func__.tcg_out_st_helper_args, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 6308, ptr noundef nonnull @__func__.tcg_out_st_helper_args, ptr noundef null) #32
   unreachable
 
 tcg_out_qemu_st_slow_path.exit.i:                 ; preds = %1241, %1240, %1236, %tcg_out_helper_add_mov.exit58.i.i.i
@@ -9494,7 +9494,7 @@ tcg_out_qemu_st_slow_path.exit.i:                 ; preds = %1241, %1240, %1236,
   %1270 = sub i64 %1268, %1260
   %sext.i = shl i64 %1270, 32
   %1271 = ashr exact i64 %sext.i, 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %1259, i8 noundef -112, i64 noundef range(i64 -2147483648, 2147483648) %1271, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %1259, i8 noundef -112, i64 noundef range(i64 -2147483648, 2147483648) %1271, i1 noundef false) #31
   store ptr %1269, ptr %72, align 8
   %1272 = getelementptr inbounds nuw i8, ptr %0, i64 168
   br label %1273
@@ -9530,7 +9530,7 @@ tcg_out_qemu_st_slow_path.exit.i:                 ; preds = %1241, %1240, %1236,
 
 1287:                                             ; preds = %1284
   %1288 = getelementptr inbounds nuw i8, ptr %.04360.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.03762.i, ptr noundef nonnull align 1 %1288, i64 noundef range(i64 0, 34359738361) %1277, i1 noundef false) #30
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.03762.i, ptr noundef nonnull align 1 %1288, i64 noundef range(i64 0, 34359738361) %1277, i1 noundef false) #31
   %1289 = getelementptr inbounds nuw i8, ptr %.03762.i, i64 %1277
   br label %1290
 
@@ -9588,7 +9588,7 @@ tcg_out_qemu_st_slow_path.exit.i:                 ; preds = %1241, %1240, %1236,
   br label %patch_reloc.exit.i
 
 1319:                                             ; preds = %1290
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 205, ptr noundef nonnull @__func__.patch_reloc, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 205, ptr noundef nonnull @__func__.patch_reloc, ptr noundef null) #32
   unreachable
 
 patch_reloc.exit.i:                               ; preds = %1317, %1309
@@ -9664,7 +9664,7 @@ tcg_out_pool_finalize.exit:                       ; preds = %1321, %.loopexit250
   br label %patch_reloc.exit.i211
 
 1351:                                             ; preds = %.lr.ph.i206
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 205, ptr noundef nonnull @__func__.patch_reloc, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 205, ptr noundef nonnull @__func__.patch_reloc, ptr noundef null) #32
   unreachable
 
 patch_reloc.exit.i211:                            ; preds = %1349, %1340
@@ -9762,7 +9762,7 @@ define internal fastcc void @reachable_code_pass(ptr noundef captures(none) %0) 
   br label %30
 
 29:                                               ; preds = %.lr.ph.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 3505, ptr noundef nonnull @__func__.move_label_uses, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 3505, ptr noundef nonnull @__func__.move_label_uses, ptr noundef null) #32
   unreachable
 
 30:                                               ; preds = %28, %27, %.lr.ph.i
@@ -10755,7 +10755,7 @@ la_global_sync.exit.i:                            ; preds = %329, %315
   br i1 %.not.i319, label %la_reset_pref.exit.i320, label %347
 
 341:                                              ; preds = %.lr.ph.i314
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 3709, ptr noundef nonnull @__func__.la_bb_sync, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 3709, ptr noundef nonnull @__func__.la_bb_sync, ptr noundef null) #32
   unreachable
 
 la_reset_pref.exit.i320:                          ; preds = %335
@@ -10803,7 +10803,7 @@ la_reset_pref.exit.i320:                          ; preds = %335
   br label %la_reset_pref.exit.i325
 
 357:                                              ; preds = %.lr.ph.i322
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 3662, ptr noundef nonnull @__func__.la_bb_end, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 3662, ptr noundef nonnull @__func__.la_bb_end, ptr noundef null) #32
   unreachable
 
 358:                                              ; preds = %.lr.ph.i322, %.lr.ph.i322, %.lr.ph.i322
@@ -11092,13 +11092,13 @@ define internal fastcc zeroext i1 @liveness_pass_2(ptr noundef %0) unnamed_addr 
   br i1 %14, label %15, label %tcg_temp_alloc.exit
 
 15:                                               ; preds = %11
-  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %0) #32
+  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %0) #33
   unreachable
 
 tcg_temp_alloc.exit:                              ; preds = %11
   %16 = sext i32 %12 to i64
   %17 = getelementptr inbounds %struct.TCGTemp, ptr %5, i64 %16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %17, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %17, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   %18 = load i64, ptr %8, align 8
   %19 = and i64 %18, 4278190080
   store i64 %19, ptr %17, align 8
@@ -11296,7 +11296,7 @@ tcg_temp_alloc.exit:                              ; preds = %11
   br i1 %.not40.i, label %120, label %tcg_malloc_internal.exit
 
 120:                                              ; preds = %118, %115
-  %121 = tail call noalias dereferenceable_or_null(32784) ptr @g_malloc(i64 noundef 32784) #33
+  %121 = tail call noalias dereferenceable_or_null(32784) ptr @g_malloc(i64 noundef 32784) #34
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store i32 32768, ptr %122, align 8
   store ptr null, ptr %121, align 16
@@ -11578,7 +11578,7 @@ tcg_op_insert_before.exit:                        ; preds = %102, %tcg_malloc_in
   br i1 %.not40.i194, label %256, label %tcg_malloc_internal.exit198
 
 256:                                              ; preds = %254, %251
-  %257 = tail call noalias dereferenceable_or_null(32784) ptr @g_malloc(i64 noundef 32784) #33
+  %257 = tail call noalias dereferenceable_or_null(32784) ptr @g_malloc(i64 noundef 32784) #34
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
   store i32 32768, ptr %258, align 8
   store ptr null, ptr %257, align 16
@@ -11721,7 +11721,7 @@ define internal fastcc void @tcg_reg_alloc_op(ptr noundef %0, ptr noundef nonnul
   %25 = load i8, ptr %24, align 2
   %26 = zext i8 %25 to i64
   %27 = shl nuw nsw i64 %26, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 %20, ptr noundef nonnull align 1 %23, i64 noundef range(i64 0, 34359738361) %27, i1 noundef false) #30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 %20, ptr noundef nonnull align 1 %23, i64 noundef range(i64 0, 34359738361) %27, i1 noundef false) #31
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %29 = load i32, ptr %28, align 4
   %trunc = trunc i32 %7 to i8
@@ -12319,7 +12319,7 @@ set_temp_val_reg.exit.thread:                     ; preds = %176, %297, %289, %2
   br label %339
 
 338:                                              ; preds = %328
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #32
   unreachable
 
 339:                                              ; preds = %337, %336, %328, %328
@@ -12396,7 +12396,7 @@ temp_dead.exit:                                   ; preds = %set_temp_val_nonreg
   br label %374
 
 373:                                              ; preds = %362
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4791, ptr noundef nonnull @__func__.tcg_reg_alloc_cbranch, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4791, ptr noundef nonnull @__func__.tcg_reg_alloc_cbranch, ptr noundef null) #32
   unreachable
 
 374:                                              ; preds = %370, %368, %362, %362
@@ -12437,7 +12437,7 @@ temp_dead.exit:                                   ; preds = %set_temp_val_nonreg
   ]
 
 391:                                              ; preds = %385
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4761, ptr noundef nonnull @__func__.tcg_reg_alloc_bb_end, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4761, ptr noundef nonnull @__func__.tcg_reg_alloc_bb_end, ptr noundef null) #32
   unreachable
 
 temp_save.exit.i:                                 ; preds = %385, %385, %385
@@ -13554,7 +13554,7 @@ tcg_out_extrl_i64_i32.exit:                       ; preds = %814, %825
   br label %1039
 
 1038:                                             ; preds = %1033
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 3605, ptr noundef nonnull @__func__.tcg_out_vec_op, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 3605, ptr noundef nonnull @__func__.tcg_out_vec_op, ptr noundef null) #32
   unreachable
 
 1039:                                             ; preds = %1034, %1033
@@ -13648,7 +13648,7 @@ tcg_out_extrl_i64_i32.exit:                       ; preds = %814, %825
   br label %tcg_out_extu_i32_i64.exit
 
 1089:                                             ; preds = %843
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 3670, ptr noundef nonnull @__func__.tcg_out_vec_op, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 3670, ptr noundef nonnull @__func__.tcg_out_vec_op, ptr noundef null) #32
   unreachable
 
 1090:                                             ; preds = %841
@@ -14620,7 +14620,7 @@ tcg_out_bswap32.exit491.i:                        ; preds = %1361, %1358
   br label %tcg_out_extu_i32_i64.exit
 
 1548:                                             ; preds = %1521, %1517
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 3032, ptr noundef nonnull @__func__.tcg_out_op, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 3032, ptr noundef nonnull @__func__.tcg_out_op, ptr noundef null) #32
   unreachable
 
 1549:                                             ; preds = %1090
@@ -14702,7 +14702,7 @@ tcg_out_bswap32.exit491.i:                        ; preds = %1361, %1358
   br label %tcg_out_extu_i32_i64.exit
 
 .critedge.thread.i:                               ; preds = %1571, %1562, %1561
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 3066, ptr noundef nonnull @__func__.tcg_out_op, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 3066, ptr noundef nonnull @__func__.tcg_out_op, ptr noundef null) #32
   unreachable
 
 1586:                                             ; preds = %1090
@@ -14737,7 +14737,7 @@ tcg_out_bswap32.exit491.i:                        ; preds = %1361, %1358
   br label %tcg_out_extu_i32_i64.exit
 
 .critedge485.i:                                   ; preds = %1588, %1586
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 3078, ptr noundef nonnull @__func__.tcg_out_op, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 3078, ptr noundef nonnull @__func__.tcg_out_op, ptr noundef null) #32
   unreachable
 
 1600:                                             ; preds = %1090
@@ -14796,7 +14796,7 @@ tcg_out_bswap32.exit491.i:                        ; preds = %1361, %1358
   br label %tcg_out_extu_i32_i64.exit
 
 .critedge487.thread.i:                            ; preds = %1610, %1601, %1600
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 3095, ptr noundef nonnull @__func__.tcg_out_op, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 3095, ptr noundef nonnull @__func__.tcg_out_op, ptr noundef null) #32
   unreachable
 
 1625:                                             ; preds = %1090, %1090
@@ -14819,7 +14819,7 @@ tcg_out_bswap32.exit491.i:                        ; preds = %1361, %1358
   br label %tcg_out_extu_i32_i64.exit
 
 1636:                                             ; preds = %1090
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 3127, ptr noundef nonnull @__func__.tcg_out_op, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 3127, ptr noundef nonnull @__func__.tcg_out_op, ptr noundef null) #32
   unreachable
 
 tcg_out_extu_i32_i64.exit:                        ; preds = %1635, %1625, %1621, %1619, %1607, %1604, %1597, %1594, %1591, %1582, %1580, %1568, %1565, %1559, %1558, %1545, %1537, %1533, %1525, %1512, %1498, %1495, %1489, %1484, %1481, %1475, %1470, %1447, %1442, %1424, %1419, %1412, %1408, %1404, %1400, %1393, %1389, %1385, %1381, %1378, %1375, %1374, %tcg_out_bswap32.exit491.i, %1357, %tcg_out_bswap32.exit489.i, %tcg_out_bswap32.exit.i, %1305, %1292, %1288, %1284, %1276, %1272, %1268, %1264, %1261, %1255, %1253, %1241, %1232, %1231, %1217, %1212, %1208, %1204, %1200, %1188, %1183, %1175, %1172, %1163, %1159, %1152, %1146, %1141, %1135, %1130, %1124, %1119, %1115, %1112, %1108, %1105, %1103, %1101, %1077, %1067, %1026, %1023, %1020, %1010, %989, %976, %969, %962, %tcg_out_ext32u.exit.i, %786, %tcg_out_extrl_i64_i32.exit, %761, %tcg_out_ext32u.exit, %709, %tcg_out_ext16u.exit, %653, %tcg_out_modrm.exit423, %tcg_out_ext8u.exit, %566, %tcg_out_modrm.exit
@@ -14875,7 +14875,7 @@ tcg_out_extu_i32_i64.exit:                        ; preds = %1635, %1625, %1621,
   br label %1658
 
 1657:                                             ; preds = %1651
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #32
   unreachable
 
 1658:                                             ; preds = %1656, %1655, %1651, %1651
@@ -14914,7 +14914,7 @@ temp_dead.exit420:                                ; preds = %set_temp_val_nonreg
 
 ; Function Attrs: noinline nounwind sspstrong uwtable
 define dso_local void @__jit_debug_register_code() local_unnamed_addr #15 {
-  tail call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !91
+  tail call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #31, !srcloc !91
   ret void
 }
 
@@ -14998,8 +14998,8 @@ define internal fastcc i32 @expand_vec_cond(i32 noundef %0, i32 noundef %1, ptr 
   %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
   %39 = inttoptr i64 %38 to ptr
-  tail call void @tcg_gen_sub_vec(i32 noundef 3, ptr noundef %27, ptr noundef %18, ptr noundef %39) #30
-  tail call void @tcg_gen_sub_vec(i32 noundef 3, ptr noundef %33, ptr noundef %21, ptr noundef %39) #30
+  tail call void @tcg_gen_sub_vec(i32 noundef 3, ptr noundef %27, ptr noundef %18, ptr noundef %39) #31
+  tail call void @tcg_gen_sub_vec(i32 noundef 3, ptr noundef %33, ptr noundef %21, ptr noundef %39) #31
   %40 = load ptr, ptr %14, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %26
   %42 = ptrtoint ptr %41 to i64
@@ -15058,7 +15058,7 @@ default.unreachable:                              ; preds = %1
   unreachable
 
 17:                                               ; preds = %1
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1371, ptr noundef nonnull @__func__.init_call_layout, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1371, ptr noundef nonnull @__func__.init_call_layout, ptr noundef null) #32
   unreachable
 
 18:                                               ; preds = %14, %11, %8, %6
@@ -15093,7 +15093,7 @@ default.unreachable:                              ; preds = %1
   ]
 
 23:                                               ; preds = %21
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1398, ptr noundef nonnull @__func__.init_call_layout, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1398, ptr noundef nonnull @__func__.init_call_layout, ptr noundef null) #32
   unreachable
 
 layout_arg_normal_n.exit.loopexit.critedge:       ; preds = %21
@@ -15145,7 +15145,7 @@ layout_arg_normal_n.exit:                         ; preds = %layout_arg_normal_n
   br i1 %52, label %54, label %53
 
 53:                                               ; preds = %._crit_edge
-  tail call void @__assert_fail(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.4, i32 noundef 1459, ptr noundef nonnull @__PRETTY_FUNCTION__.init_call_layout) #31
+  tail call void @__assert_fail(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.4, i32 noundef 1459, ptr noundef nonnull @__PRETTY_FUNCTION__.init_call_layout) #32
   unreachable
 
 54:                                               ; preds = %._crit_edge
@@ -15153,7 +15153,7 @@ layout_arg_normal_n.exit:                         ; preds = %layout_arg_normal_n
   br i1 %55, label %57, label %56
 
 56:                                               ; preds = %54
-  tail call void @__assert_fail(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.4, i32 noundef 1461, ptr noundef nonnull @__PRETTY_FUNCTION__.init_call_layout) #31
+  tail call void @__assert_fail(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.4, i32 noundef 1461, ptr noundef nonnull @__PRETTY_FUNCTION__.init_call_layout) #32
   unreachable
 
 57:                                               ; preds = %.thread, %54
@@ -15259,7 +15259,7 @@ default.unreachable:                              ; preds = %57, %29
   br i1 %.not11.i, label %41, label %42
 
 41:                                               ; preds = %40
-  tail call void @__assert_fail(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.4, i32 noundef 3135, ptr noundef nonnull @__PRETTY_FUNCTION__.get_constraint_priority) #31
+  tail call void @__assert_fail(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.4, i32 noundef 3135, ptr noundef nonnull @__PRETTY_FUNCTION__.get_constraint_priority) #32
   unreachable
 
 42:                                               ; preds = %40
@@ -15314,7 +15314,7 @@ get_constraint_priority.exit:                     ; preds = %15, %26, %33, %36, 
   br i1 %.not11.i42, label %69, label %70
 
 69:                                               ; preds = %68
-  tail call void @__assert_fail(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.4, i32 noundef 3135, ptr noundef nonnull @__PRETTY_FUNCTION__.get_constraint_priority) #31
+  tail call void @__assert_fail(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.4, i32 noundef 3135, ptr noundef nonnull @__PRETTY_FUNCTION__.get_constraint_priority) #32
   unreachable
 
 70:                                               ; preds = %68
@@ -15347,8 +15347,8 @@ get_constraint_priority.exit44:                   ; preds = %get_constraint_prio
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #1
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #18
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @tcg_out_movi(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
@@ -15677,7 +15677,7 @@ new_pool_alloc.exit.i.i:                          ; preds = %170, %168
 
 181:                                              ; preds = %.lr.ph.i.i.i
   %182 = getelementptr inbounds nuw i8, ptr %178, i64 32
-  %183 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %175, ptr noundef nonnull dereferenceable(8) %182, i64 noundef 8) #34
+  %183 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %175, ptr noundef nonnull dereferenceable(8) %182, i64 noundef 8) #35
   %184 = icmp sgt i32 %183, -1
   br i1 %184, label %new_pool_label.exit.i, label %185
 
@@ -15946,7 +15946,7 @@ tcg_out_vex_opc.exit49:                           ; preds = %111, %113
   br label %130
 
 129:                                              ; preds = %6
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 959, ptr noundef nonnull @__func__.tcg_out_mov, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 959, ptr noundef nonnull @__func__.tcg_out_mov, ptr noundef null) #32
   unreachable
 
 130:                                              ; preds = %tcg_out_vex_opc.exit45, %tcg_out_vex_opc.exit47, %tcg_out_vex_opc.exit49, %17, %tcg_out_vex_opc.exit, %12, %14, %4
@@ -15954,7 +15954,7 @@ tcg_out_vex_opc.exit49:                           ; preds = %111, %113
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite) uwtable
-define internal fastcc void @tcg_out_modrm(ptr noundef captures(none) %0, i32 noundef range(i32 3, 135614) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #18 {
+define internal fastcc void @tcg_out_modrm(ptr noundef captures(none) %0, i32 noundef range(i32 3, 135614) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #19 {
   %5 = and i32 %1, 32768
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %10, label %6
@@ -16128,7 +16128,7 @@ define internal fastcc void @tcg_out_vex_opc(ptr noundef captures(none) %0, i32 
   br i1 %.not35, label %35, label %36
 
 35:                                               ; preds = %33
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 681, ptr noundef nonnull @__func__.tcg_out_vex_opc, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 681, ptr noundef nonnull @__func__.tcg_out_vex_opc, ptr noundef null) #32
   unreachable
 
 36:                                               ; preds = %33, %31, %26
@@ -16202,7 +16202,7 @@ define internal fastcc void @tcg_out_vex_opc(ptr noundef captures(none) %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite) uwtable
-define internal fastcc void @tcg_out_opc(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #18 {
+define internal fastcc void @tcg_out_opc(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #19 {
   %6 = and i32 %1, 32768
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %11, label %7
@@ -16344,7 +16344,7 @@ define internal fastcc void @tcg_out_vex_modrm(ptr noundef captures(none) %0, i3
   br i1 %.not31.i, label %13, label %14
 
 13:                                               ; preds = %11
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 722, ptr noundef nonnull @__func__.tcg_out_evex_opc, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 722, ptr noundef nonnull @__func__.tcg_out_evex_opc, ptr noundef null) #32
   unreachable
 
 14:                                               ; preds = %11, %9, %7
@@ -16412,7 +16412,7 @@ tcg_out_evex_opc.exit:                            ; preds = %14, %16, %18
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #19
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @tgen_arithi(ptr noundef captures(none) %0, i32 noundef range(i32 0, 4104) %1, i32 noundef %2, i64 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
@@ -16664,7 +16664,7 @@ tcg_out_modrm.exit:                               ; preds = %94, %99
   br label %138
 
 137:                                              ; preds = %127
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 1494, ptr noundef nonnull @__func__.tgen_arithi, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 1494, ptr noundef nonnull @__func__.tgen_arithi, ptr noundef null) #32
   unreachable
 
 138:                                              ; preds = %131, %121, %tcg_out_modrm.exit, %tcg_out_ext16u.exit, %tcg_out_ext8u.exit, %tcg_out_ext32u.exit, %10
@@ -16672,7 +16672,7 @@ tcg_out_modrm.exit:                               ; preds = %94, %99
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @tcg_out_ext32u(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #20 {
+define internal fastcc void @tcg_out_ext32u(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #21 {
   %4 = lshr i32 %1, 1
   %5 = and i32 %4, 4
   %6 = lshr i32 %2, 3
@@ -16710,7 +16710,7 @@ tcg_out_modrm.exit:                               ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @tcg_out_ext8u(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #20 {
+define internal fastcc void @tcg_out_ext8u(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #21 {
   %4 = lshr i32 %1, 1
   %5 = and i32 %4, 4
   %6 = lshr i32 %2, 3
@@ -16754,7 +16754,7 @@ tcg_out_modrm.exit:                               ; preds = %3, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @tcg_out_ext16u(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #20 {
+define internal fastcc void @tcg_out_ext16u(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #21 {
   %4 = lshr i32 %1, 1
   %5 = and i32 %4, 4
   %6 = lshr i32 %2, 3
@@ -16799,9 +16799,9 @@ tcg_out_modrm.exit:                               ; preds = %3, %9
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #1
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal fastcc void @tcg_raise_tb_overflow(ptr noundef %0) unnamed_addr #21 {
+define internal fastcc void @tcg_raise_tb_overflow(ptr noundef %0) unnamed_addr #22 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 30688
-  tail call void @__longjmp_chk(ptr noundef nonnull %2, i32 noundef -2) #31
+  tail call void @__longjmp_chk(ptr noundef nonnull %2, i32 noundef -2) #32
   unreachable
 }
 
@@ -16822,7 +16822,7 @@ declare i32 @llvm.cttz.i32(i32, i1 immarg) #1
 declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #22
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: write) uwtable
 define internal fastcc nonnull ptr @opcode_args_ct(i32 %.0.val) unnamed_addr #12 {
@@ -17203,7 +17203,7 @@ define internal fastcc void @temp_load(ptr noundef %0, ptr noundef %1, i32 nound
   br label %43
 
 42:                                               ; preds = %5
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4697, ptr noundef nonnull @__func__.temp_load, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4697, ptr noundef nonnull @__func__.temp_load, ptr noundef null) #32
   unreachable
 
 43:                                               ; preds = %26, %23
@@ -17262,7 +17262,7 @@ define internal fastcc void @temp_allocate_frame(ptr noundef %0, ptr noundef cap
   br i1 %10, label %switch.lookup, label %11
 
 11:                                               ; preds = %2
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4377, ptr noundef nonnull @__func__.temp_allocate_frame, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4377, ptr noundef nonnull @__func__.temp_allocate_frame, ptr noundef null) #32
   unreachable
 
 switch.lookup:                                    ; preds = %2
@@ -17284,7 +17284,7 @@ switch.lookup:                                    ; preds = %2
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %switch.lookup
-  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %0) #32
+  tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %0) #33
   unreachable
 
 26:                                               ; preds = %switch.lookup
@@ -17622,7 +17622,7 @@ tcg_out_vex_opc.exit41:                           ; preds = %132, %134
   br label %144
 
 143:                                              ; preds = %5
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 1285, ptr noundef nonnull @__func__.tcg_out_st, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 1285, ptr noundef nonnull @__func__.tcg_out_st, ptr noundef null) #32
   unreachable
 
 144:                                              ; preds = %tcg_out_vex_opc.exit39, %tcg_out_modrm_offset.exit35, %tcg_out_modrm_offset.exit, %tcg_out_vex_opc.exit, %tcg_out_vex_opc.exit41, %tcg_out_vex_opc.exit37, %45
@@ -17733,7 +17733,7 @@ tcg_reg_free.exit:                                ; preds = %47
   br i1 %56, label %.preheader79, label %57, !llvm.loop !101
 
 57:                                               ; preds = %tcg_reg_free.exit
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4604, ptr noundef nonnull @__func__.tcg_reg_alloc, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4604, ptr noundef nonnull @__func__.tcg_reg_alloc, ptr noundef null) #32
   unreachable
 
 .thread73.sink.split:                             ; preds = %52, %42
@@ -17865,7 +17865,7 @@ tcg_out_sti.exit.thread:                          ; preds = %.tcg_out_sti.exit.t
   br label %61
 
 60:                                               ; preds = %12
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4517, ptr noundef nonnull @__func__.temp_sync, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4517, ptr noundef nonnull @__func__.temp_sync, ptr noundef null) #32
   unreachable
 
 61:                                               ; preds = %tcg_out_sti.exit, %48, %12
@@ -17901,7 +17901,7 @@ tcg_out_sti.exit.thread:                          ; preds = %.tcg_out_sti.exit.t
   br label %76
 
 75:                                               ; preds = %66
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4471, ptr noundef nonnull @__func__.temp_free_or_dead, ptr noundef null) #32
   unreachable
 
 76:                                               ; preds = %74, %70, %66, %66
@@ -18132,7 +18132,7 @@ new_pool_alloc.exit.i:                            ; preds = %98, %96
 
 109:                                              ; preds = %.lr.ph.i.i
   %110 = getelementptr inbounds nuw i8, ptr %106, i64 32
-  %111 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %103, ptr noundef nonnull dereferenceable(8) %110, i64 noundef 8) #34
+  %111 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %103, ptr noundef nonnull dereferenceable(8) %110, i64 noundef 8) #35
   %112 = icmp sgt i32 %111, -1
   br i1 %112, label %new_pool_label.exit, label %113
 
@@ -18385,7 +18385,7 @@ tcg_out_vex_opc.exit35:                           ; preds = %111, %113
   br label %123
 
 122:                                              ; preds = %5
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 1233, ptr noundef nonnull @__func__.tcg_out_ld, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 1233, ptr noundef nonnull @__func__.tcg_out_ld, ptr noundef null) #32
   unreachable
 
 123:                                              ; preds = %tcg_out_modrm_offset.exit, %tcg_out_vex_opc.exit, %tcg_out_vex_opc.exit35, %tcg_out_vex_opc.exit33, %tcg_out_vex_opc.exit31, %45
@@ -18394,7 +18394,7 @@ tcg_out_vex_opc.exit35:                           ; preds = %111, %113
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal fastcc void @tcg_out_modrm_offset(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) unnamed_addr #23 {
+define internal fastcc void @tcg_out_modrm_offset(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) unnamed_addr #24 {
   %6 = tail call i32 @llvm.smax.i32(i32 %3, i32 0)
   %7 = and i32 %1, 32768
   %.not.i = icmp eq i32 %7, 0
@@ -18579,7 +18579,7 @@ define internal fastcc void @tcg_out_sib_offset(ptr noundef captures(none) %0, i
   br label %91
 
 38:                                               ; preds = %25
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 813, ptr noundef nonnull @__func__.tcg_out_sib_offset, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 813, ptr noundef nonnull @__func__.tcg_out_sib_offset, ptr noundef null) #32
   unreachable
 
 39:                                               ; preds = %6
@@ -18939,7 +18939,7 @@ tcg_out_vex_opc.exit28:                           ; preds = %115, %119
   br label %143
 
 142:                                              ; preds = %14
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 994, ptr noundef nonnull @__func__.tcg_out_dup_vec, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 994, ptr noundef nonnull @__func__.tcg_out_dup_vec, ptr noundef null) #32
   unreachable
 
 143:                                              ; preds = %tcg_out_vex_opc.exit26, %tcg_out_vex_opc.exit28, %8
@@ -19136,7 +19136,7 @@ tcg_out_vex_opc.exit39:                           ; preds = %63, %67
   br label %109
 
 108:                                              ; preds = %17
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 1026, ptr noundef nonnull @__func__.tcg_out_dupm_vec, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 1026, ptr noundef nonnull @__func__.tcg_out_dupm_vec, ptr noundef null) #32
   unreachable
 
 109:                                              ; preds = %tcg_out_vex_opc.exit, %38, %tcg_out_vex_opc.exit39, %85, %9
@@ -19225,7 +19225,7 @@ new_pool_alloc.exit.i:                            ; preds = %33, %31
 
 44:                                               ; preds = %.lr.ph.i.i
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %46 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %38, ptr noundef nonnull dereferenceable(8) %45, i64 noundef 8) #34
+  %46 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %38, ptr noundef nonnull dereferenceable(8) %45, i64 noundef 8) #35
   %47 = icmp sgt i32 %46, -1
   br i1 %47, label %new_pool_label.exit, label %48
 
@@ -19340,7 +19340,7 @@ tcg_reg_free.exit46:                              ; preds = %43
   br i1 %.not68, label %47, label %.preheader, !llvm.loop !104
 
 47:                                               ; preds = %45
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4650, ptr noundef nonnull @__func__.tcg_reg_alloc_pair, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 4650, ptr noundef nonnull @__func__.tcg_reg_alloc_pair, ptr noundef null) #32
   unreachable
 
 48:                                               ; preds = %42, %tcg_reg_free.exit
@@ -19349,7 +19349,7 @@ tcg_reg_free.exit46:                              ; preds = %43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @tcg_out_ext32s(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #20 {
+define internal fastcc void @tcg_out_ext32s(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #21 {
   %4 = lshr i32 %1, 1
   %5 = and i32 %4, 4
   %6 = lshr i32 %2, 3
@@ -19562,7 +19562,7 @@ tcg_out_cmp_vec_k1.exit.i:                        ; preds = %30, %24, %18
   br i1 %.not31.i.i.i, label %56, label %57
 
 56:                                               ; preds = %54
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 722, ptr noundef nonnull @__func__.tcg_out_evex_opc, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 722, ptr noundef nonnull @__func__.tcg_out_evex_opc, ptr noundef null) #32
   unreachable
 
 57:                                               ; preds = %54, %52, %tcg_out_cmp_vec_k1.exit.i
@@ -19670,7 +19670,7 @@ define internal fastcc zeroext i1 @tcg_out_cmp_vec_noinv(ptr noundef captures(no
   br i1 %.not, label %14, label %13
 
 13:                                               ; preds = %7
-  tail call void @__assert_fail(ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.51, i32 noundef 3173, ptr noundef nonnull @__PRETTY_FUNCTION__.tcg_out_cmp_vec_noinv) #31
+  tail call void @__assert_fail(ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.51, i32 noundef 3173, ptr noundef nonnull @__PRETTY_FUNCTION__.tcg_out_cmp_vec_noinv) #32
   unreachable
 
 14:                                               ; preds = %7
@@ -19688,7 +19688,7 @@ define internal fastcc zeroext i1 @tcg_out_cmp_vec_noinv(ptr noundef captures(no
   br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %18
-  tail call void @__assert_fail(ptr noundef nonnull @.str.138, ptr noundef nonnull @.str.51, i32 noundef 3190, ptr noundef nonnull @__PRETTY_FUNCTION__.tcg_out_cmp_vec_noinv) #31
+  tail call void @__assert_fail(ptr noundef nonnull @.str.138, ptr noundef nonnull @.str.51, i32 noundef 3190, ptr noundef nonnull @__PRETTY_FUNCTION__.tcg_out_cmp_vec_noinv) #32
   unreachable
 
 .thread:                                          ; preds = %18
@@ -19731,7 +19731,7 @@ define internal fastcc zeroext i1 @tcg_out_cmp_vec_noinv(ptr noundef captures(no
   br label %37
 
 36:                                               ; preds = %26
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 3205, ptr noundef nonnull @__func__.tcg_out_cmp_vec_noinv, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 3205, ptr noundef nonnull @__func__.tcg_out_cmp_vec_noinv, ptr noundef null) #32
   unreachable
 
 37:                                               ; preds = %33, %31
@@ -19966,7 +19966,7 @@ tcg_out_reloc.exit51:                             ; preds = %101, %103
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite) uwtable
-define internal fastcc void @tcg_out_shifti(ptr noundef captures(none) %0, i32 noundef range(i32 0, 4104) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #18 {
+define internal fastcc void @tcg_out_shifti(ptr noundef captures(none) %0, i32 noundef range(i32 0, 4104) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #19 {
   %5 = and i32 %1, 8184
   %6 = and i32 %1, 7
   %7 = icmp eq i32 %3, 1
@@ -19993,7 +19993,7 @@ define internal fastcc void @tcg_out_shifti(ptr noundef captures(none) %0, i32 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @tcg_out_ctz(ptr noundef captures(none) %0, i32 noundef range(i32 0, 4097) %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i1 noundef zeroext %5) unnamed_addr #24 {
+define internal fastcc void @tcg_out_ctz(ptr noundef captures(none) %0, i32 noundef range(i32 0, 4097) %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i1 noundef zeroext %5) unnamed_addr #25 {
   %7 = load i32, ptr @cpuinfo, align 4
   %8 = and i32 %7, 32
   %.not = icmp eq i32 %8, 0
@@ -20644,7 +20644,7 @@ define internal fastcc void @tcg_out_movcond(ptr noundef captures(none) %0, i32 
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @tcg_out_rolw_8(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #25 {
+define internal fastcc void @tcg_out_rolw_8(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #26 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -21258,7 +21258,7 @@ tcg_out_modrm_offset.exit107.i:                   ; preds = %.sink.split46.i.i10
   br label %tcg_out_qemu_ld_direct.exit
 
 303:                                              ; preds = %6
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 2444, ptr noundef nonnull @__func__.tcg_out_qemu_ld_direct, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 2444, ptr noundef nonnull @__func__.tcg_out_qemu_ld_direct, ptr noundef null) #32
   unreachable
 
 tcg_out_qemu_ld_direct.exit:                      ; preds = %15, %20, %29, %tcg_out_ext16u.exit.i, %60, %66, %72, %78, %87, %108, %110, %tcg_out_modrm_offset.exit107.i, %229, %269
@@ -21481,7 +21481,7 @@ define internal fastcc void @tcg_out_qemu_st(ptr noundef %0, i32 noundef %1, i32
 
 gen_new_label.exit.i:                             ; preds = %103, %101
   %.0.i.i.i = phi ptr [ %102, %101 ], [ %96, %103 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %.0.i.i.i, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %.0.i.i.i, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   %104 = getelementptr inbounds nuw i8, ptr %95, i64 40
   %105 = load i32, ptr %104, align 8
   %106 = add i32 %105, 1
@@ -21521,7 +21521,7 @@ gen_new_label.exit.i:                             ; preds = %103, %101
 
 gen_new_label.exit46.i:                           ; preds = %124, %122
   %.0.i.i45.i = phi ptr [ %123, %122 ], [ %117, %124 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %.0.i.i45.i, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %.0.i.i45.i, i8 noundef 0, i64 noundef 56, i1 noundef false) #31
   %125 = getelementptr inbounds nuw i8, ptr %116, i64 40
   %126 = load i32, ptr %125, align 8
   %127 = add i32 %126, 1
@@ -21745,7 +21745,7 @@ tcg_out_jxx.exit52.i:                             ; preds = %tcg_out_reloc.exit.
   br label %tcg_out_qemu_st_direct.exit
 
 246:                                              ; preds = %6
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 2572, ptr noundef nonnull @__func__.tcg_out_qemu_st_direct, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 2572, ptr noundef nonnull @__func__.tcg_out_qemu_st_direct, ptr noundef null) #32
   unreachable
 
 tcg_out_qemu_st_direct.exit:                      ; preds = %13, %18, %24, %29, %37, %80, %88, %tcg_out_jxx.exit52.i
@@ -21775,7 +21775,7 @@ tcg_out_qemu_st_direct.exit:                      ; preds = %13, %18, %24, %29, 
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @tcg_out_mb(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #25 {
+define internal fastcc void @tcg_out_mb(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #26 {
   %3 = and i64 %1, 2
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %16, label %4
@@ -22285,7 +22285,7 @@ memop_alignment_bits.exit.i:                      ; preds = %21, %20, %16
   br label %atom_and_align_for_opc.exit
 
 39:                                               ; preds = %memop_alignment_bits.exit.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5793, ptr noundef nonnull @__func__.atom_and_align_for_opc, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5793, ptr noundef nonnull @__func__.atom_and_align_for_opc, ptr noundef null) #32
   unreachable
 
 atom_and_align_for_opc.exit:                      ; preds = %memop_alignment_bits.exit.i, %26, %27, %28, %29, %31, %32, %35, %37
@@ -22324,7 +22324,7 @@ atom_and_align_for_opc.exit:                      ; preds = %memop_alignment_bit
 
 new_ldst_label.exit:                              ; preds = %52, %54
   %.0.i.i91 = phi ptr [ %53, %52 ], [ %47, %54 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.0.i.i91, i8 noundef 0, i64 noundef 64, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.0.i.i91, i8 noundef 0, i64 noundef 64, i1 noundef false) #31
   %55 = getelementptr inbounds nuw i8, ptr %.0.i.i91, i64 56
   store ptr null, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -22695,7 +22695,7 @@ tcg_out_sib_offset.exit119:                       ; preds = %207, %204
 
 new_ldst_label.exit100:                           ; preds = %231, %233
   %.0.i.i99 = phi ptr [ %232, %231 ], [ %226, %233 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.0.i.i99, i8 noundef 0, i64 noundef 64, i1 noundef false) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.0.i.i99, i8 noundef 0, i64 noundef 64, i1 noundef false) #31
   %234 = getelementptr inbounds nuw i8, ptr %.0.i.i99, i64 56
   store ptr null, ptr %234, align 8
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -22901,7 +22901,7 @@ define internal fastcc void @tcg_out_helper_load_slots(ptr noundef captures(none
   br label %tcg_out_movext3.exit
 
 79:                                               ; preds = %61
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 640, ptr noundef nonnull @__func__.tcg_out_movext3, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 640, ptr noundef nonnull @__func__.tcg_out_movext3, ptr noundef null) #32
   unreachable
 
 80:                                               ; preds = %23
@@ -22916,7 +22916,7 @@ define internal fastcc void @tcg_out_helper_load_slots(ptr noundef captures(none
   br label %tcg_out_movext3.exit
 
 85:                                               ; preds = %23
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5903, ptr noundef nonnull @__func__.tcg_out_helper_load_slots, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5903, ptr noundef nonnull @__func__.tcg_out_helper_load_slots, ptr noundef null) #32
   unreachable
 
 tcg_out_movext3.exit:                             ; preds = %10, %62, %44, %41, %38, %35, %80, %82
@@ -22950,7 +22950,7 @@ define internal fastcc void @tcg_out_helper_load_common_args(ptr noundef capture
   ]
 
 17:                                               ; preds = %4
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5962, ptr noundef nonnull @__func__.tcg_out_helper_load_common_args, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5962, ptr noundef nonnull @__func__.tcg_out_helper_load_common_args, ptr noundef null) #32
   unreachable
 
 18:                                               ; preds = %4
@@ -23406,7 +23406,7 @@ tcg_out_extrl_i64_i32.exit50.i:                   ; preds = %186, %180
   br label %tcg_out_movext.exit
 
 203:                                              ; preds = %3
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 512, ptr noundef nonnull @__func__.tcg_out_movext, ptr noundef null) #31
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 512, ptr noundef nonnull @__func__.tcg_out_movext, ptr noundef null) #32
   unreachable
 
 tcg_out_movext.exit:                              ; preds = %tcg_out_ext8u.exit.i, %35, %tcg_out_ext16u.exit.i, %62, %71, %tcg_out_extrl_i64_i32.exit.i, %97, %117, %tcg_out_ext32u.exit.i.i, %146, %tcg_out_ext32u.exit.i, %tcg_out_extrl_i64_i32.exit50.i, %202
@@ -23485,37 +23485,37 @@ declare void @helper_stq_mmu(ptr noundef, i64 noundef, i64 noundef, i32 noundef,
 declare void @helper_st16_mmu(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef) #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #19
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #19
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #26
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #27
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #26
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #27
+declare void @llvm.assume(i1 noundef) #28
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #28
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #29
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #28
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #29
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #28
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #29
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #28
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #29
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #29
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #30
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #28
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #29
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
@@ -23535,23 +23535,24 @@ attributes #14 = { nofree nounwind "no-trapping-math"="true" "stack-protector-bu
 attributes #15 = { noinline nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #16 = { nofree noinline norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #17 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #21 = { noreturn nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #22 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #23 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #24 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #25 = { inlinehint mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #27 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #28 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #29 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #30 = { nounwind }
-attributes #31 = { noreturn nounwind }
-attributes #32 = { noreturn }
-attributes #33 = { nounwind allocsize(0) }
-attributes #34 = { nounwind willreturn memory(read) }
+attributes #18 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #22 = { noreturn nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #23 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #24 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #25 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #26 = { inlinehint mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #28 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #29 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #30 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #31 = { nounwind }
+attributes #32 = { noreturn nounwind }
+attributes #33 = { noreturn }
+attributes #34 = { nounwind allocsize(0) }
+attributes #35 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

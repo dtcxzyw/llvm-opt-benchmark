@@ -94,7 +94,7 @@ define internal range(i32 -22, 1) i32 @dnxhd_encode_init(ptr noundef %0) #0 {
   ]
 
 14:                                               ; preds = %13, %13, %12
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.16) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.16) #12
   br label %.loopexit
 
 15:                                               ; preds = %13
@@ -106,7 +106,7 @@ define internal range(i32 -22, 1) i32 @dnxhd_encode_init(ptr noundef %0) #0 {
   br i1 %.not146, label %.thread163, label %18
 
 18:                                               ; preds = %17
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.17) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.17) #12
   br label %.loopexit
 
 19:                                               ; preds = %15
@@ -117,7 +117,7 @@ define internal range(i32 -22, 1) i32 @dnxhd_encode_init(ptr noundef %0) #0 {
   br i1 %or.cond168, label %.thread163, label %21
 
 21:                                               ; preds = %19
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.18) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.18) #12
   br label %.loopexit
 
 .thread163:                                       ; preds = %12, %12, %17, %19
@@ -128,19 +128,19 @@ define internal range(i32 -22, 1) i32 @dnxhd_encode_init(ptr noundef %0) #0 {
   store i32 %10, ptr %24, align 8, !tbaa !65
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 7000
   %26 = load i32, ptr %25, align 8, !tbaa !28
-  %27 = tail call i32 @ff_dnxhd_find_cid(ptr noundef nonnull %0, i32 noundef %26) #11
+  %27 = tail call i32 @ff_dnxhd_find_cid(ptr noundef nonnull %0, i32 noundef %26) #12
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 6992
   store i32 %27, ptr %28, align 16, !tbaa !66
   %.not148 = icmp eq i32 %27, 0
   br i1 %.not148, label %29, label %30
 
 29:                                               ; preds = %.thread163
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.19) #11
-  tail call void @ff_dnxhd_print_profiles(ptr noundef nonnull %0, i32 noundef 16) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.19) #12
+  tail call void @ff_dnxhd_print_profiles(ptr noundef nonnull %0, i32 noundef 16) #12
   br label %.loopexit
 
 30:                                               ; preds = %.thread163
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.20, i32 noundef %27) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.20, i32 noundef %27) #12
   %31 = load i32, ptr %28, align 16, !tbaa !66
   %32 = add i32 %31, -1270
   %or.cond = icmp ult i32 %32, 5
@@ -164,19 +164,19 @@ define internal range(i32 -22, 1) i32 @dnxhd_encode_init(ptr noundef %0) #0 {
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %39, %35
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.21) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.21) #12
   br label %.loopexit
 
 44:                                               ; preds = %39
-  %45 = tail call ptr @ff_dnxhd_get_cid_table(i32 noundef %31) #11
+  %45 = tail call ptr @ff_dnxhd_get_cid_table(i32 noundef %31) #12
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 7008
   store ptr %45, ptr %46, align 16, !tbaa !70
   %.not149 = icmp eq ptr %45, null
   br i1 %.not149, label %47, label %48
 
 47:                                               ; preds = %44
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 414) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 414) #12
+  tail call void @abort() #13
   unreachable
 
 48:                                               ; preds = %44
@@ -191,15 +191,15 @@ define internal range(i32 -22, 1) i32 @dnxhd_encode_init(ptr noundef %0) #0 {
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 652
   store i32 %53, ptr %54, align 4, !tbaa !74
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 1504
-  tail call void @ff_blockdsp_init(ptr noundef nonnull %55) #11
+  tail call void @ff_blockdsp_init(ptr noundef nonnull %55) #12
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 4912
-  tail call void @ff_fdctdsp_init(ptr noundef nonnull %56, ptr noundef nonnull %0) #11
-  tail call void @ff_mpv_idct_init(ptr noundef nonnull %49) #11
+  tail call void @ff_fdctdsp_init(ptr noundef nonnull %56, ptr noundef nonnull %0) #12
+  tail call void @ff_mpv_idct_init(ptr noundef nonnull %49) #12
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 4928
-  tail call void @ff_mpegvideoencdsp_init(ptr noundef nonnull %57, ptr noundef nonnull %0) #11
+  tail call void @ff_mpegvideoencdsp_init(ptr noundef nonnull %57, ptr noundef nonnull %0) #12
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 5000
-  tail call void @ff_pixblockdsp_init(ptr noundef nonnull %58, ptr noundef nonnull %0) #11
-  tail call void @ff_dct_encode_init(ptr noundef nonnull %49) #11
+  tail call void @ff_pixblockdsp_init(ptr noundef nonnull %58, ptr noundef nonnull %0) #12
+  tail call void @ff_dct_encode_init(ptr noundef nonnull %49) #12
   %59 = load i32, ptr %9, align 4, !tbaa !63
   %.not150 = icmp eq i32 %59, 0
   br i1 %.not150, label %63, label %60
@@ -207,7 +207,7 @@ define internal range(i32 -22, 1) i32 @dnxhd_encode_init(ptr noundef %0) #0 {
 60:                                               ; preds = %48
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 2904
   %62 = load i32, ptr %25, align 8, !tbaa !28
-  tail call void @ff_videodsp_init(ptr noundef nonnull %61, i32 noundef %62) #11
+  tail call void @ff_videodsp_init(ptr noundef nonnull %61, i32 noundef %62) #12
   br label %63
 
 63:                                               ; preds = %60, %48
@@ -273,7 +273,7 @@ define internal range(i32 -22, 1) i32 @dnxhd_encode_init(ptr noundef %0) #0 {
   br i1 %.not154, label %93, label %92
 
 92:                                               ; preds = %89
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.25) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.25) #12
   br label %.loopexit
 
 93:                                               ; preds = %89, %87
@@ -289,15 +289,15 @@ define internal range(i32 -22, 1) i32 @dnxhd_encode_init(ptr noundef %0) #0 {
 
 101:                                              ; preds = %93
   %102 = load i32, ptr %28, align 16, !tbaa !66
-  %103 = tail call i32 @ff_dnxhd_get_hr_frame_size(i32 noundef %102, i32 noundef %79, i32 noundef %75) #11
+  %103 = tail call i32 @ff_dnxhd_get_hr_frame_size(i32 noundef %102, i32 noundef %79, i32 noundef %75) #12
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 7308
   store i32 %103, ptr %104, align 4, !tbaa !85
   %105 = icmp sgt i32 %103, -1
   br i1 %105, label %107, label %106
 
 106:                                              ; preds = %101
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.24, i32 noundef 466) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.24, i32 noundef 466) #12
+  tail call void @abort() #13
   unreachable
 
 107:                                              ; preds = %101
@@ -323,7 +323,7 @@ define internal range(i32 -22, 1) i32 @dnxhd_encode_init(ptr noundef %0) #0 {
   %.sink = select i1 %116, i32 %118, i32 640
   %119 = getelementptr inbounds nuw i8, ptr %3, i64 7316
   store i32 %.sink, ptr %119, align 4, !tbaa !88
-  %120 = tail call fastcc i32 @dnxhd_init_qmat(ptr noundef nonnull %3) #13
+  %120 = tail call fastcc i32 @dnxhd_init_qmat(ptr noundef nonnull %3) #14
   %121 = icmp slt i32 %120, 0
   br i1 %121, label %.loopexit, label %122
 
@@ -339,19 +339,19 @@ define internal range(i32 -22, 1) i32 @dnxhd_encode_init(ptr noundef %0) #0 {
   br label %127
 
 127:                                              ; preds = %125, %122
-  %128 = tail call fastcc i32 @dnxhd_init_vlc(ptr noundef nonnull %3) #13
+  %128 = tail call fastcc i32 @dnxhd_init_vlc(ptr noundef nonnull %3) #14
   %129 = icmp slt i32 %128, 0
   br i1 %129, label %.loopexit, label %130
 
 130:                                              ; preds = %127
-  %131 = tail call fastcc i32 @dnxhd_init_rc(ptr noundef nonnull %3) #13
+  %131 = tail call fastcc i32 @dnxhd_init_rc(ptr noundef nonnull %3) #14
   %132 = icmp slt i32 %131, 0
   br i1 %132, label %.loopexit, label %133
 
 133:                                              ; preds = %130
   %134 = load i32, ptr %78, align 8, !tbaa !78
   %135 = sext i32 %134 to i64
-  %136 = tail call noalias ptr @av_calloc(i64 noundef %135, i64 noundef 4) #11
+  %136 = tail call noalias ptr @av_calloc(i64 noundef %135, i64 noundef 4) #12
   %137 = getelementptr inbounds nuw i8, ptr %3, i64 7024
   store ptr %136, ptr %137, align 16, !tbaa !91
   %.not156 = icmp eq ptr %136, null
@@ -360,7 +360,7 @@ define internal range(i32 -22, 1) i32 @dnxhd_encode_init(ptr noundef %0) #0 {
 138:                                              ; preds = %133
   %139 = load i32, ptr %78, align 8, !tbaa !78
   %140 = sext i32 %139 to i64
-  %141 = tail call noalias ptr @av_calloc(i64 noundef %140, i64 noundef 4) #11
+  %141 = tail call noalias ptr @av_calloc(i64 noundef %140, i64 noundef 4) #12
   %142 = getelementptr inbounds nuw i8, ptr %3, i64 7032
   store ptr %141, ptr %142, align 8, !tbaa !92
   %.not157 = icmp eq ptr %141, null
@@ -369,7 +369,7 @@ define internal range(i32 -22, 1) i32 @dnxhd_encode_init(ptr noundef %0) #0 {
 143:                                              ; preds = %138
   %144 = load i32, ptr %96, align 4, !tbaa !82
   %145 = sext i32 %144 to i64
-  %146 = tail call noalias ptr @av_calloc(i64 noundef %145, i64 noundef 4) #11
+  %146 = tail call noalias ptr @av_calloc(i64 noundef %145, i64 noundef 4) #12
   %147 = getelementptr inbounds nuw i8, ptr %3, i64 10544
   store ptr %146, ptr %147, align 16, !tbaa !93
   %.not158 = icmp eq ptr %146, null
@@ -378,7 +378,7 @@ define internal range(i32 -22, 1) i32 @dnxhd_encode_init(ptr noundef %0) #0 {
 148:                                              ; preds = %143
   %149 = load i32, ptr %96, align 4, !tbaa !82
   %150 = sext i32 %149 to i64
-  %151 = tail call noalias ptr @av_calloc(i64 noundef %150, i64 noundef 1) #11
+  %151 = tail call noalias ptr @av_calloc(i64 noundef %150, i64 noundef 1) #12
   %152 = getelementptr inbounds nuw i8, ptr %3, i64 10552
   store ptr %151, ptr %152, align 8, !tbaa !94
   %.not159 = icmp eq ptr %151, null
@@ -397,7 +397,7 @@ define internal range(i32 -22, 1) i32 @dnxhd_encode_init(ptr noundef %0) #0 {
   br i1 %160, label %161, label %162
 
 161:                                              ; preds = %157
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.27) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.27) #12
   br label %.loopexit
 
 162:                                              ; preds = %157
@@ -418,7 +418,7 @@ define internal range(i32 -22, 1) i32 @dnxhd_encode_init(ptr noundef %0) #0 {
   br label %.loopexit
 
 170:                                              ; preds = %.thread166, %162
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.28) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.28) #12
   br label %.loopexit
 
 171:                                              ; preds = %162
@@ -436,7 +436,7 @@ define internal range(i32 -22, 1) i32 @dnxhd_encode_init(ptr noundef %0) #0 {
 
 .lr.ph:                                           ; preds = %171, %174
   %indvars.iv = phi i64 [ %indvars.iv.next, %174 ], [ 1, %171 ]
-  %178 = tail call ptr @av_memdup(ptr noundef nonnull %3, i64 noundef 10592) #11
+  %178 = tail call ptr @av_memdup(ptr noundef nonnull %3, i64 noundef 10592) #12
   %179 = getelementptr inbounds nuw ptr, ptr %172, i64 %indvars.iv
   store ptr %178, ptr %179, align 8, !tbaa !98
   %.not160 = icmp eq ptr %178, null
@@ -455,7 +455,7 @@ define internal range(i32 -2147483648, 1) i32 @dnxhd_encode_picture(ptr noundef 
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 7308
   %9 = load i32, ptr %8, align 4, !tbaa !85
   %10 = sext i32 %9 to i64
-  %11 = tail call i32 @ff_get_encode_buffer(ptr noundef %0, ptr noundef %1, i64 noundef %10, i32 noundef 0) #11
+  %11 = tail call i32 @ff_get_encode_buffer(ptr noundef %0, ptr noundef %1, i64 noundef %10, i32 noundef 0) #12
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %554, label %13
 
@@ -715,7 +715,7 @@ dnxhd_write_header.exit:                          ; preds = %96, %111
   store i32 %.0106149.i, ptr %59, align 4, !tbaa !122
   %181 = load ptr, ptr %67, align 8, !tbaa !123
   %182 = load i32, ptr %60, align 8, !tbaa !78
-  %183 = tail call i32 %181(ptr noundef nonnull %0, ptr noundef nonnull @dnxhd_calc_bits_thread, ptr noundef null, ptr noundef null, i32 noundef %182) #11
+  %183 = tail call i32 %181(ptr noundef nonnull %0, ptr noundef nonnull @dnxhd_calc_bits_thread, ptr noundef null, ptr noundef null, i32 noundef %182) #12
   %184 = add nuw nsw i32 %.0106149.i, 1
   %185 = load i32, ptr %75, align 8, !tbaa !97
   %186 = icmp slt i32 %184, %185
@@ -933,7 +933,7 @@ select.unfold127.i:                               ; preds = %246, %242
   %278 = load ptr, ptr %16, align 8, !tbaa !71
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 680
   %280 = load ptr, ptr %279, align 8, !tbaa !123
-  %281 = tail call i32 %280(ptr noundef %278, ptr noundef nonnull @dnxhd_calc_bits_thread, ptr noundef null, ptr noundef null, i32 noundef %277) #11
+  %281 = tail call i32 %280(ptr noundef %278, ptr noundef nonnull @dnxhd_calc_bits_thread, ptr noundef null, ptr noundef null, i32 noundef %277) #12
   %282 = load i32, ptr %60, align 8, !tbaa !78
   %283 = icmp sgt i32 %282, 0
   %.pre87.i.i = load i32, ptr %64, align 16, !tbaa !128
@@ -1100,7 +1100,7 @@ dnxhd_find_qscale.exit.i:                         ; preds = %303, %.loopexit248
 
 358:                                              ; preds = %._crit_edge79.i
   %359 = load ptr, ptr %67, align 8, !tbaa !123
-  %360 = tail call i32 %359(ptr noundef %0, ptr noundef nonnull @dnxhd_mb_var_thread, ptr noundef null, ptr noundef null, i32 noundef %.lcssa.i) #11
+  %360 = tail call i32 %359(ptr noundef %0, ptr noundef nonnull @dnxhd_mb_var_thread, ptr noundef null, ptr noundef null, i32 noundef %.lcssa.i) #12
   %361 = load ptr, ptr %68, align 16, !tbaa !138
   %362 = load ptr, ptr %69, align 8, !tbaa !139
   %363 = load i32, ptr %63, align 4, !tbaa !82
@@ -1348,7 +1348,7 @@ radix_sort.exit.split.i:                          ; preds = %radix_sort.exit.i, 
   br i1 %483, label %.lr.ph86.i, label %.critedge.i, !llvm.loop !149
 
 dnxhd_encode_rdo.exit:                            ; preds = %242, %316, %262
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.31) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.31) #12
   br label %554
 
 .loopexit:                                        ; preds = %.critedge.i, %select.unfold127.i, %._crit_edge79.i, %radix_sort.exit.split.us.i
@@ -1435,7 +1435,7 @@ dnxhd_setup_threads_slices.exit:                  ; preds = %._crit_edge.i89
   %.063.lcssa = phi i32 [ 0, %dnxhd_setup_threads_slices.exit ], [ 0, %.loopexit ], [ %523, %.lr.ph ]
   %.lcssa119 = phi i32 [ %500, %dnxhd_setup_threads_slices.exit ], [ %484, %.loopexit ], [ %524, %.lr.ph ]
   %527 = load ptr, ptr %67, align 8, !tbaa !123
-  %528 = tail call i32 %527(ptr noundef %0, ptr noundef nonnull @dnxhd_encode_thread, ptr noundef %.0, ptr noundef null, i32 noundef %.lcssa119) #11
+  %528 = tail call i32 %527(ptr noundef %0, ptr noundef nonnull @dnxhd_encode_thread, ptr noundef %.0, ptr noundef null, i32 noundef %.lcssa119) #12
   %529 = load i32, ptr %80, align 4, !tbaa !88
   %530 = sext i32 %529 to i64
   %531 = getelementptr inbounds i8, ptr %.0, i64 %530
@@ -1469,7 +1469,7 @@ dnxhd_setup_threads_slices.exit:                  ; preds = %._crit_edge.i89
 550:                                              ; preds = %._crit_edge
   %551 = load i32, ptr %59, align 4, !tbaa !122
   %552 = mul i32 %551, 118
-  %553 = tail call i32 @ff_side_data_set_encoder_stats(ptr noundef %1, i32 noundef %552, ptr noundef null, i32 noundef 0, i32 noundef 1) #11
+  %553 = tail call i32 @ff_side_data_set_encoder_stats(ptr noundef %1, i32 noundef %552, ptr noundef null, i32 noundef 0, i32 noundef 1) #12
   store i32 1, ptr %3, align 4, !tbaa !104
   br label %554
 
@@ -1483,35 +1483,35 @@ define internal noundef i32 @dnxhd_encode_end(ptr noundef readonly captures(none
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 10480
-  tail call void @av_freep(ptr noundef nonnull %4) #11
+  tail call void @av_freep(ptr noundef nonnull %4) #12
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 10488
-  tail call void @av_freep(ptr noundef nonnull %5) #11
+  tail call void @av_freep(ptr noundef nonnull %5) #12
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 10512
-  tail call void @av_freep(ptr noundef nonnull %6) #11
+  tail call void @av_freep(ptr noundef nonnull %6) #12
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 10520
-  tail call void @av_freep(ptr noundef nonnull %7) #11
+  tail call void @av_freep(ptr noundef nonnull %7) #12
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 10544
-  tail call void @av_freep(ptr noundef nonnull %8) #11
+  tail call void @av_freep(ptr noundef nonnull %8) #12
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 10552
-  tail call void @av_freep(ptr noundef nonnull %9) #11
+  tail call void @av_freep(ptr noundef nonnull %9) #12
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 10576
-  tail call void @av_freep(ptr noundef nonnull %10) #11
+  tail call void @av_freep(ptr noundef nonnull %10) #12
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 10560
-  tail call void @av_freep(ptr noundef nonnull %11) #11
+  tail call void @av_freep(ptr noundef nonnull %11) #12
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 10568
-  tail call void @av_freep(ptr noundef nonnull %12) #11
+  tail call void @av_freep(ptr noundef nonnull %12) #12
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 7024
-  tail call void @av_freep(ptr noundef nonnull %13) #11
+  tail call void @av_freep(ptr noundef nonnull %13) #12
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 7032
-  tail call void @av_freep(ptr noundef nonnull %14) #11
+  tail call void @av_freep(ptr noundef nonnull %14) #12
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 10416
-  tail call void @av_freep(ptr noundef nonnull %15) #11
+  tail call void @av_freep(ptr noundef nonnull %15) #12
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 10424
-  tail call void @av_freep(ptr noundef nonnull %16) #11
+  tail call void @av_freep(ptr noundef nonnull %16) #12
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 10440
-  tail call void @av_freep(ptr noundef nonnull %17) #11
+  tail call void @av_freep(ptr noundef nonnull %17) #12
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 10432
-  tail call void @av_freep(ptr noundef nonnull %18) #11
+  tail call void @av_freep(ptr noundef nonnull %18) #12
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 7040
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 7048
   %21 = load ptr, ptr %20, align 8, !tbaa !98
@@ -1527,7 +1527,7 @@ define internal noundef i32 @dnxhd_encode_end(ptr noundef readonly captures(none
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %.preheader ]
   %25 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
-  tail call void @av_freep(ptr noundef nonnull %25) #11
+  tail call void @av_freep(ptr noundef nonnull %25) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr %22, align 8, !tbaa !96
   %27 = sext i32 %26 to i64
@@ -1576,7 +1576,7 @@ define internal range(i32 -2147483648, 2147483647) i32 @dnxhd_10bit_dct_quantize
   %7 = load ptr, ptr %6, align 8, !tbaa !154
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %9 = load ptr, ptr %8, align 8, !tbaa !155
-  tail call void %9(ptr noundef %1) #11
+  tail call void %9(ptr noundef %1) #12
   %10 = load i16, ptr %1, align 2, !tbaa !156
   %11 = sext i16 %10 to i32
   %12 = add nsw i32 %11, 2
@@ -1692,7 +1692,7 @@ define internal range(i32 -2147483648, 2147483647) i32 @dnxhd_10bit_dct_quantize
 
 75:                                               ; preds = %._crit_edge
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 2056
-  tail call void @ff_block_permute(ptr noundef nonnull %1, ptr noundef nonnull %76, ptr noundef nonnull %7, i32 noundef %.06778) #11
+  tail call void @ff_block_permute(ptr noundef nonnull %1, ptr noundef nonnull %76, ptr noundef nonnull %7, i32 noundef %.06778) #12
   br label %77
 
 77:                                               ; preds = %75, %._crit_edge
@@ -1736,7 +1736,7 @@ define internal i32 @dnxhd_10bit_dct_quantize(ptr noundef %0, ptr noundef %1, i3
   %12 = getelementptr inbounds [64 x i32], ptr %11, i64 %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %14 = load ptr, ptr %13, align 8, !tbaa !155
-  tail call void %14(ptr noundef %1) #11
+  tail call void %14(ptr noundef %1) #12
   %15 = load i16, ptr %1, align 2, !tbaa !156
   %16 = sext i16 %15 to i32
   %17 = add nsw i32 %16, 2
@@ -1780,7 +1780,7 @@ define internal i32 @dnxhd_10bit_dct_quantize(ptr noundef %0, ptr noundef %1, i3
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 2056
-  tail call void @ff_block_permute(ptr noundef nonnull %1, ptr noundef nonnull %42, ptr noundef nonnull %7, i32 noundef %spec.select) #11
+  tail call void @ff_block_permute(ptr noundef nonnull %1, ptr noundef nonnull %42, ptr noundef nonnull %7, i32 noundef %spec.select) #12
   br label %43
 
 43:                                               ; preds = %41, %38
@@ -1874,7 +1874,7 @@ define internal fastcc range(i32 -12, 1) i32 @dnxhd_init_qmat(ptr noundef initia
   %13 = load i32, ptr %12, align 8, !tbaa !97
   %14 = add nsw i32 %13, 1
   %15 = sext i32 %14 to i64
-  %16 = tail call noalias ptr @av_calloc(i64 noundef %15, i64 noundef 256) #11
+  %16 = tail call noalias ptr @av_calloc(i64 noundef %15, i64 noundef 256) #12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 10424
   store ptr %16, ptr %17, align 8, !tbaa !167
   %.not = icmp eq ptr %16, null
@@ -1886,7 +1886,7 @@ define internal fastcc range(i32 -12, 1) i32 @dnxhd_init_qmat(ptr noundef initia
   %21 = load i32, ptr %20, align 8, !tbaa !97
   %22 = add nsw i32 %21, 1
   %23 = sext i32 %22 to i64
-  %24 = tail call noalias ptr @av_calloc(i64 noundef %23, i64 noundef 256) #11
+  %24 = tail call noalias ptr @av_calloc(i64 noundef %23, i64 noundef 256) #12
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 10416
   store ptr %24, ptr %25, align 16, !tbaa !168
   %.not90 = icmp eq ptr %24, null
@@ -1898,7 +1898,7 @@ define internal fastcc range(i32 -12, 1) i32 @dnxhd_init_qmat(ptr noundef initia
   %29 = load i32, ptr %28, align 8, !tbaa !97
   %30 = add nsw i32 %29, 1
   %31 = sext i32 %30 to i64
-  %32 = tail call noalias ptr @av_calloc(i64 noundef %31, i64 noundef 256) #11
+  %32 = tail call noalias ptr @av_calloc(i64 noundef %31, i64 noundef 256) #12
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 10432
   store ptr %32, ptr %33, align 16, !tbaa !169
   %.not91 = icmp eq ptr %32, null
@@ -1910,7 +1910,7 @@ define internal fastcc range(i32 -12, 1) i32 @dnxhd_init_qmat(ptr noundef initia
   %37 = load i32, ptr %36, align 8, !tbaa !97
   %38 = add nsw i32 %37, 1
   %39 = sext i32 %38 to i64
-  %40 = tail call noalias ptr @av_calloc(i64 noundef %39, i64 noundef 256) #11
+  %40 = tail call noalias ptr @av_calloc(i64 noundef %39, i64 noundef 256) #12
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 10440
   store ptr %40, ptr %41, align 8, !tbaa !170
   %.not92 = icmp eq ptr %40, null
@@ -1946,7 +1946,7 @@ define internal fastcc range(i32 -12, 1) i32 @dnxhd_init_qmat(ptr noundef initia
   %58 = load ptr, ptr %10, align 16, !tbaa !71
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 440
   %60 = load i32, ptr %59, align 8, !tbaa !97
-  call void @ff_convert_matrix(ptr noundef nonnull %9, ptr noundef %54, ptr noundef %55, ptr noundef nonnull %2, i32 noundef %57, i32 noundef 1, i32 noundef %60, i32 noundef 1) #11
+  call void @ff_convert_matrix(ptr noundef nonnull %9, ptr noundef %54, ptr noundef %55, ptr noundef nonnull %2, i32 noundef %57, i32 noundef 1, i32 noundef %60, i32 noundef 1) #12
   %61 = load ptr, ptr %3, align 16, !tbaa !70
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 48
   %63 = load ptr, ptr %62, align 8, !tbaa !166
@@ -1976,7 +1976,7 @@ define internal fastcc range(i32 -12, 1) i32 @dnxhd_init_qmat(ptr noundef initia
   %79 = load ptr, ptr %10, align 16, !tbaa !71
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 440
   %81 = load i32, ptr %80, align 8, !tbaa !97
-  call void @ff_convert_matrix(ptr noundef nonnull %9, ptr noundef %76, ptr noundef %77, ptr noundef nonnull %2, i32 noundef %78, i32 noundef 1, i32 noundef %81, i32 noundef 1) #11
+  call void @ff_convert_matrix(ptr noundef nonnull %9, ptr noundef %76, ptr noundef %77, ptr noundef nonnull %2, i32 noundef %78, i32 noundef 1, i32 noundef %81, i32 noundef 1) #12
   %82 = load ptr, ptr %10, align 16, !tbaa !71
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 440
   %84 = load i32, ptr %83, align 8, !tbaa !97
@@ -2120,28 +2120,28 @@ define internal fastcc range(i32 -12, 1) i32 @dnxhd_init_vlc(ptr noundef capture
   %5 = shl nuw i32 1, %4
   %6 = shl i32 4, %4
   %7 = sext i32 %6 to i64
-  %8 = tail call noalias ptr @av_calloc(i64 noundef %7, i64 noundef 4) #11
+  %8 = tail call noalias ptr @av_calloc(i64 noundef %7, i64 noundef 4) #12
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 10480
   store ptr %8, ptr %9, align 16, !tbaa !182
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.loopexit, label %10
 
 10:                                               ; preds = %1
-  %11 = tail call noalias ptr @av_calloc(i64 noundef %7, i64 noundef 1) #11
+  %11 = tail call noalias ptr @av_calloc(i64 noundef %7, i64 noundef 1) #12
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 10488
   store ptr %11, ptr %12, align 8, !tbaa !183
   %.not99 = icmp eq ptr %11, null
   br i1 %.not99, label %.loopexit, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call noalias ptr @av_mallocz(i64 noundef 126) #11
+  %14 = tail call noalias ptr @av_mallocz(i64 noundef 126) #12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 10512
   store ptr %14, ptr %15, align 16, !tbaa !184
   %.not100 = icmp eq ptr %14, null
   br i1 %.not100, label %.loopexit, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call noalias ptr @av_mallocz(i64 noundef 63) #11
+  %17 = tail call noalias ptr @av_mallocz(i64 noundef 63) #12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 10520
   store ptr %17, ptr %18, align 8, !tbaa !185
   %.not101 = icmp eq ptr %17, null
@@ -2267,8 +2267,8 @@ define internal fastcc range(i32 -12, 1) i32 @dnxhd_init_vlc(ptr noundef capture
   br i1 %40, label %.thread, label %89
 
 89:                                               ; preds = %88
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.24, i32 noundef 248) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.24, i32 noundef 248) #12
+  tail call void @abort() #13
   unreachable
 
 .thread.sink.split:                               ; preds = %80, %71
@@ -2319,8 +2319,8 @@ define internal fastcc range(i32 -12, 1) i32 @dnxhd_init_vlc(ptr noundef capture
   br i1 %116, label %118, label %117
 
 117:                                              ; preds = %110
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.24, i32 noundef 258) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.24, i32 noundef 258) #12
+  tail call void @abort() #13
   unreachable
 
 118:                                              ; preds = %110
@@ -2359,7 +2359,7 @@ define internal fastcc range(i32 -12, 1) i32 @dnxhd_init_rc(ptr noundef captures
   %8 = load i32, ptr %7, align 4, !tbaa !82
   %9 = mul nsw i32 %6, %8
   %10 = sext i32 %9 to i64
-  %11 = tail call noalias ptr @av_calloc(i64 noundef %10, i64 noundef 8) #11
+  %11 = tail call noalias ptr @av_calloc(i64 noundef %10, i64 noundef 8) #12
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 10576
   store ptr %11, ptr %12, align 16, !tbaa !127
   %.not = icmp eq ptr %11, null
@@ -2375,7 +2375,7 @@ define internal fastcc range(i32 -12, 1) i32 @dnxhd_init_rc(ptr noundef captures
 17:                                               ; preds = %13
   %18 = load i32, ptr %7, align 4, !tbaa !82
   %19 = sext i32 %18 to i64
-  %20 = tail call noalias ptr @av_calloc(i64 noundef %19, i64 noundef 8) #11
+  %20 = tail call noalias ptr @av_calloc(i64 noundef %19, i64 noundef 8) #12
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 10560
   store ptr %20, ptr %21, align 16, !tbaa !138
   %.not15 = icmp eq ptr %20, null
@@ -2384,7 +2384,7 @@ define internal fastcc range(i32 -12, 1) i32 @dnxhd_init_rc(ptr noundef captures
 22:                                               ; preds = %17
   %23 = load i32, ptr %7, align 4, !tbaa !82
   %24 = sext i32 %23 to i64
-  %25 = tail call noalias ptr @av_calloc(i64 noundef %24, i64 noundef 8) #11
+  %25 = tail call noalias ptr @av_calloc(i64 noundef %24, i64 noundef 8) #12
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 10568
   store ptr %25, ptr %26, align 8, !tbaa !139
   %.not16 = icmp eq ptr %25, null
@@ -2539,8 +2539,8 @@ define internal noundef i32 @dnxhd_encode_thread(ptr noundef readonly captures(n
   br i1 %86, label %88, label %87
 
 87:                                               ; preds = %85
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i32 noundef 150) #11
-  call void @abort() #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i32 noundef 150) #12
+  call void @abort() #13
   unreachable
 
 88:                                               ; preds = %85
@@ -2601,7 +2601,7 @@ flush_put_bits.exit:                              ; preds = %88, %4, %._crit_edg
   br label %put_bits.exit
 
 123:                                              ; preds = %112
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.32) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.32) #12
   br label %put_bits.exit
 
 put_bits.exit:                                    ; preds = %116, %123, %109
@@ -2637,7 +2637,7 @@ put_bits.exit:                                    ; preds = %116, %123, %109
   br label %put_bits.exit61
 
 143:                                              ; preds = %132
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.32) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.32) #12
   br label %put_bits.exit61
 
 put_bits.exit61:                                  ; preds = %136, %143, %129
@@ -2701,13 +2701,13 @@ put_bits.exit61:                                  ; preds = %136, %143, %129
   %186 = sub nsw i32 %.pre, %50
   %187 = add nsw i32 %185, 1
   %188 = sdiv i32 %187, 2
-  call void %175(ptr noundef nonnull %57, ptr noundef %160, i64 noundef 16, i64 noundef %149, i32 noundef 16, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef %185, i32 noundef %186) #11
+  call void %175(ptr noundef nonnull %57, ptr noundef %160, i64 noundef 16, i64 noundef %149, i32 noundef 16, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef %185, i32 noundef %186) #12
   %189 = load ptr, ptr %54, align 8, !tbaa !200
   %190 = load i64, ptr %48, align 8, !tbaa !106
-  call void %189(ptr noundef nonnull %58, ptr noundef %169, i64 noundef 8, i64 noundef %190, i32 noundef 8, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef %188, i32 noundef %186) #11
+  call void %189(ptr noundef nonnull %58, ptr noundef %169, i64 noundef 8, i64 noundef %190, i32 noundef 8, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef %188, i32 noundef %186) #12
   %191 = load ptr, ptr %54, align 8, !tbaa !200
   %192 = load i64, ptr %48, align 8, !tbaa !106
-  call void %191(ptr noundef nonnull %59, ptr noundef %173, i64 noundef 8, i64 noundef %192, i32 noundef 8, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef %188, i32 noundef %186) #11
+  call void %191(ptr noundef nonnull %59, ptr noundef %173, i64 noundef 8, i64 noundef %192, i32 noundef 8, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef %188, i32 noundef %186) #12
   %193 = shl i32 16, %145
   %194 = shl i32 8, %145
   br label %.thread
@@ -2743,15 +2743,15 @@ put_bits.exit61:                                  ; preds = %136, %143, %129
   %210 = phi i32 [ %208, %206 ], [ %204, %._crit_edge151 ]
   %211 = shl nsw i32 %165, 4
   %212 = add nsw i32 %211, 16
-  call void %175(ptr noundef nonnull %57, ptr noundef %160, i64 noundef 32, i64 noundef %149, i32 noundef 16, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef %204, i32 noundef %205) #11
+  call void %175(ptr noundef nonnull %57, ptr noundef %160, i64 noundef 32, i64 noundef %149, i32 noundef 16, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef %204, i32 noundef %205) #12
   %213 = load ptr, ptr %54, align 8, !tbaa !200
   %214 = sext i32 %212 to i64
   %215 = load i64, ptr %48, align 8, !tbaa !106
   %216 = ashr exact i32 %212, 1
-  call void %213(ptr noundef nonnull %58, ptr noundef %169, i64 noundef %214, i64 noundef %215, i32 noundef %216, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef %210, i32 noundef %205) #11
+  call void %213(ptr noundef nonnull %58, ptr noundef %169, i64 noundef %214, i64 noundef %215, i32 noundef %216, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef %210, i32 noundef %205) #12
   %217 = load ptr, ptr %54, align 8, !tbaa !200
   %218 = load i64, ptr %48, align 8, !tbaa !106
-  call void %217(ptr noundef nonnull %59, ptr noundef %173, i64 noundef %214, i64 noundef %218, i32 noundef %216, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef %210, i32 noundef %205) #11
+  call void %217(ptr noundef nonnull %59, ptr noundef %173, i64 noundef %214, i64 noundef %218, i32 noundef %216, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef %210, i32 noundef %205) #12
   %219 = shl i32 32, %145
   %220 = ashr exact i32 %219, 1
   %221 = shl i32 %212, %145
@@ -2771,19 +2771,19 @@ put_bits.exit61:                                  ; preds = %136, %143, %129
   %224 = load ptr, ptr %53, align 8, !tbaa !201
   %sext180 = shl i64 %.0246.i, 32
   %225 = ashr exact i64 %sext180, 32
-  call void %224(ptr noundef nonnull %60, ptr noundef %.0248.i, i64 noundef %225) #11
+  call void %224(ptr noundef nonnull %60, ptr noundef %.0248.i, i64 noundef %225) #12
   %226 = load ptr, ptr %53, align 8, !tbaa !201
   %227 = sext i32 %146 to i64
   %228 = getelementptr inbounds i8, ptr %.0248.i, i64 %227
-  call void %226(ptr noundef nonnull %61, ptr noundef nonnull %228, i64 noundef %225) #11
+  call void %226(ptr noundef nonnull %61, ptr noundef nonnull %228, i64 noundef %225) #12
   %229 = load ptr, ptr %53, align 8, !tbaa !201
   br i1 %.not254.i, label %230, label %269
 
 230:                                              ; preds = %.thread
   %231 = sext i32 %.0247.i to i64
-  call void %229(ptr noundef nonnull %64, ptr noundef %.0249.i, i64 noundef %231) #11
+  call void %229(ptr noundef nonnull %64, ptr noundef %.0249.i, i64 noundef %231) #12
   %232 = load ptr, ptr %53, align 8, !tbaa !201
-  call void %232(ptr noundef nonnull %65, ptr noundef %.0250.i, i64 noundef %231) #11
+  call void %232(ptr noundef nonnull %65, ptr noundef %.0250.i, i64 noundef %231) #12
   %233 = load i32, ptr %73, align 8, !tbaa !78
   %234 = icmp eq i32 %72, %233
   br i1 %234, label %235, label %258
@@ -2804,78 +2804,78 @@ put_bits.exit61:                                  ; preds = %136, %143, %129
   %243 = load ptr, ptr %75, align 8, !tbaa !76
   %244 = sext i32 %.0.i to i64
   %245 = getelementptr inbounds i8, ptr %.0248.i, i64 %244
-  call void %243(ptr noundef nonnull %68, ptr noundef %245, i64 noundef %225) #11
+  call void %243(ptr noundef nonnull %68, ptr noundef %245, i64 noundef %225) #12
   %246 = load ptr, ptr %75, align 8, !tbaa !76
   %247 = getelementptr inbounds i8, ptr %245, i64 %227
-  call void %246(ptr noundef nonnull %69, ptr noundef nonnull %247, i64 noundef %225) #11
+  call void %246(ptr noundef nonnull %69, ptr noundef nonnull %247, i64 noundef %225) #12
   %248 = load ptr, ptr %75, align 8, !tbaa !76
   %249 = sext i32 %.0245.i to i64
   %250 = getelementptr inbounds i8, ptr %.0249.i, i64 %249
-  call void %248(ptr noundef nonnull %62, ptr noundef %250, i64 noundef %231) #11
+  call void %248(ptr noundef nonnull %62, ptr noundef %250, i64 noundef %231) #12
   %251 = load ptr, ptr %75, align 8, !tbaa !76
   %252 = getelementptr inbounds i8, ptr %.0250.i, i64 %249
-  call void %251(ptr noundef nonnull %63, ptr noundef %252, i64 noundef %231) #11
+  call void %251(ptr noundef nonnull %63, ptr noundef %252, i64 noundef %231) #12
   br label %dnxhd_get_blocks.exit
 
 253:                                              ; preds = %240
   %254 = load ptr, ptr %76, align 8, !tbaa !202
-  call void %254(ptr noundef nonnull %68) #11
+  call void %254(ptr noundef nonnull %68) #12
   %255 = load ptr, ptr %76, align 8, !tbaa !202
-  call void %255(ptr noundef nonnull %69) #11
+  call void %255(ptr noundef nonnull %69) #12
   %256 = load ptr, ptr %76, align 8, !tbaa !202
-  call void %256(ptr noundef nonnull %62) #11
+  call void %256(ptr noundef nonnull %62) #12
   %257 = load ptr, ptr %76, align 8, !tbaa !202
-  call void %257(ptr noundef nonnull %63) #11
+  call void %257(ptr noundef nonnull %63) #12
   br label %dnxhd_get_blocks.exit
 
 258:                                              ; preds = %235, %230
   %259 = load ptr, ptr %53, align 8, !tbaa !201
   %260 = sext i32 %.0.i to i64
   %261 = getelementptr inbounds i8, ptr %.0248.i, i64 %260
-  call void %259(ptr noundef nonnull %68, ptr noundef %261, i64 noundef %225) #11
+  call void %259(ptr noundef nonnull %68, ptr noundef %261, i64 noundef %225) #12
   %262 = load ptr, ptr %53, align 8, !tbaa !201
   %263 = getelementptr inbounds i8, ptr %261, i64 %227
-  call void %262(ptr noundef nonnull %69, ptr noundef nonnull %263, i64 noundef %225) #11
+  call void %262(ptr noundef nonnull %69, ptr noundef nonnull %263, i64 noundef %225) #12
   %264 = load ptr, ptr %53, align 8, !tbaa !201
   %265 = sext i32 %.0245.i to i64
   %266 = getelementptr inbounds i8, ptr %.0249.i, i64 %265
-  call void %264(ptr noundef nonnull %62, ptr noundef %266, i64 noundef %231) #11
+  call void %264(ptr noundef nonnull %62, ptr noundef %266, i64 noundef %231) #12
   %267 = load ptr, ptr %53, align 8, !tbaa !201
   %268 = getelementptr inbounds i8, ptr %.0250.i, i64 %265
-  call void %267(ptr noundef nonnull %63, ptr noundef %268, i64 noundef %231) #11
+  call void %267(ptr noundef nonnull %63, ptr noundef %268, i64 noundef %231) #12
   br label %dnxhd_get_blocks.exit
 
 269:                                              ; preds = %.thread
   %270 = sext i32 %.0.i to i64
   %271 = getelementptr inbounds i8, ptr %.0248.i, i64 %270
-  call void %229(ptr noundef nonnull %62, ptr noundef %271, i64 noundef %225) #11
+  call void %229(ptr noundef nonnull %62, ptr noundef %271, i64 noundef %225) #12
   %272 = load ptr, ptr %53, align 8, !tbaa !201
   %273 = getelementptr inbounds i8, ptr %271, i64 %227
-  call void %272(ptr noundef nonnull %63, ptr noundef nonnull %273, i64 noundef %225) #11
+  call void %272(ptr noundef nonnull %63, ptr noundef nonnull %273, i64 noundef %225) #12
   %274 = load ptr, ptr %53, align 8, !tbaa !201
   %275 = sext i32 %.0247.i to i64
-  call void %274(ptr noundef nonnull %64, ptr noundef %.0249.i, i64 noundef %275) #11
+  call void %274(ptr noundef nonnull %64, ptr noundef %.0249.i, i64 noundef %275) #12
   %276 = load ptr, ptr %53, align 8, !tbaa !201
   %277 = getelementptr inbounds i8, ptr %.0249.i, i64 %227
-  call void %276(ptr noundef nonnull %65, ptr noundef nonnull %277, i64 noundef %275) #11
+  call void %276(ptr noundef nonnull %65, ptr noundef nonnull %277, i64 noundef %275) #12
   %278 = load ptr, ptr %53, align 8, !tbaa !201
   %279 = sext i32 %.0245.i to i64
   %280 = getelementptr inbounds i8, ptr %.0249.i, i64 %279
-  call void %278(ptr noundef nonnull %66, ptr noundef %280, i64 noundef %275) #11
+  call void %278(ptr noundef nonnull %66, ptr noundef %280, i64 noundef %275) #12
   %281 = load ptr, ptr %53, align 8, !tbaa !201
   %282 = getelementptr inbounds i8, ptr %280, i64 %227
-  call void %281(ptr noundef nonnull %67, ptr noundef nonnull %282, i64 noundef %275) #11
+  call void %281(ptr noundef nonnull %67, ptr noundef nonnull %282, i64 noundef %275) #12
   %283 = load ptr, ptr %53, align 8, !tbaa !201
-  call void %283(ptr noundef nonnull %68, ptr noundef %.0250.i, i64 noundef %275) #11
+  call void %283(ptr noundef nonnull %68, ptr noundef %.0250.i, i64 noundef %275) #12
   %284 = load ptr, ptr %53, align 8, !tbaa !201
   %285 = getelementptr inbounds i8, ptr %.0250.i, i64 %227
-  call void %284(ptr noundef nonnull %69, ptr noundef nonnull %285, i64 noundef %275) #11
+  call void %284(ptr noundef nonnull %69, ptr noundef nonnull %285, i64 noundef %275) #12
   %286 = load ptr, ptr %53, align 8, !tbaa !201
   %287 = getelementptr inbounds i8, ptr %.0250.i, i64 %279
-  call void %286(ptr noundef nonnull %70, ptr noundef %287, i64 noundef %275) #11
+  call void %286(ptr noundef nonnull %70, ptr noundef %287, i64 noundef %275) #12
   %288 = load ptr, ptr %53, align 8, !tbaa !201
   %289 = getelementptr inbounds i8, ptr %287, i64 %227
-  call void %288(ptr noundef nonnull %71, ptr noundef nonnull %289, i64 noundef %275) #11
+  call void %288(ptr noundef nonnull %71, ptr noundef nonnull %289, i64 noundef %275) #12
   br label %dnxhd_get_blocks.exit
 
 dnxhd_get_blocks.exit:                            ; preds = %242, %253, %258, %269
@@ -2915,7 +2915,7 @@ dnxhd_get_blocks.exit:                            ; preds = %242, %253, %258, %2
   %.0.i54115 = phi i32 [ %297, %294 ], [ %303, %300 ]
   %307 = phi i32 [ %299, %294 ], [ %305, %300 ]
   %308 = load ptr, ptr %.in, align 8, !tbaa !75
-  %309 = call i32 %308(ptr noundef nonnull %34, ptr noundef nonnull %293, i32 noundef %307, i32 noundef %107, ptr noundef nonnull %5) #11
+  %309 = call i32 %308(ptr noundef nonnull %34, ptr noundef nonnull %293, i32 noundef %307, i32 noundef %107, ptr noundef nonnull %5) #12
   %310 = load i16, ptr %293, align 2, !tbaa !156
   %311 = sext i16 %310 to i32
   %312 = zext nneg i32 %.0.i54115 to i64
@@ -3000,7 +3000,7 @@ dnxhd_encode_dc.exit:                             ; preds = %317, %327
   br label %369
 
 368:                                              ; preds = %357
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.32) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.32) #12
   br label %369
 
 369:                                              ; preds = %368, %361
@@ -3081,7 +3081,7 @@ put_bits.exit65:                                  ; preds = %354, %369
   br label %409
 
 408:                                              ; preds = %397
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.32) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.32) #12
   br label %409
 
 409:                                              ; preds = %408, %401
@@ -3132,7 +3132,7 @@ put_bits.exit69:                                  ; preds = %394, %409
   br label %437
 
 436:                                              ; preds = %425
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.32) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.32) #12
   br label %437
 
 437:                                              ; preds = %436, %429
@@ -3184,7 +3184,7 @@ dnxhd_encode_block.exit:                          ; preds = %put_bits.exit73, %p
   br label %460
 
 459:                                              ; preds = %448
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.32) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.32) #12
   br label %460
 
 460:                                              ; preds = %459, %452
@@ -3358,13 +3358,13 @@ define internal noundef i32 @dnxhd_calc_bits_thread(ptr noundef readonly capture
   %113 = sub nsw i32 %.pre136, %32
   %114 = add nsw i32 %112, 1
   %115 = sdiv i32 %114, 2
-  call void %102(ptr noundef nonnull %39, ptr noundef %88, i64 noundef 16, i64 noundef %77, i32 noundef 16, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef %112, i32 noundef %113) #11
+  call void %102(ptr noundef nonnull %39, ptr noundef %88, i64 noundef 16, i64 noundef %77, i32 noundef 16, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef %112, i32 noundef %113) #12
   %116 = load ptr, ptr %36, align 8, !tbaa !200
   %117 = load i64, ptr %30, align 8, !tbaa !106
-  call void %116(ptr noundef nonnull %40, ptr noundef %96, i64 noundef 8, i64 noundef %117, i32 noundef 8, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef %115, i32 noundef %113) #11
+  call void %116(ptr noundef nonnull %40, ptr noundef %96, i64 noundef 8, i64 noundef %117, i32 noundef 8, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef %115, i32 noundef %113) #12
   %118 = load ptr, ptr %36, align 8, !tbaa !200
   %119 = load i64, ptr %30, align 8, !tbaa !106
-  call void %118(ptr noundef nonnull %41, ptr noundef %100, i64 noundef 8, i64 noundef %119, i32 noundef 8, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef %115, i32 noundef %113) #11
+  call void %118(ptr noundef nonnull %41, ptr noundef %100, i64 noundef 8, i64 noundef %119, i32 noundef 8, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef %115, i32 noundef %113) #12
   %120 = shl i32 16, %73
   %121 = shl i32 8, %73
   br label %.thread
@@ -3400,15 +3400,15 @@ define internal noundef i32 @dnxhd_calc_bits_thread(ptr noundef readonly capture
   %137 = phi i32 [ %135, %133 ], [ %131, %._crit_edge137 ]
   %138 = shl nsw i32 %69, 4
   %139 = add nsw i32 %138, 16
-  call void %102(ptr noundef nonnull %39, ptr noundef %88, i64 noundef 32, i64 noundef %77, i32 noundef 16, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef %131, i32 noundef %132) #11
+  call void %102(ptr noundef nonnull %39, ptr noundef %88, i64 noundef 32, i64 noundef %77, i32 noundef 16, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef %131, i32 noundef %132) #12
   %140 = load ptr, ptr %36, align 8, !tbaa !200
   %141 = sext i32 %139 to i64
   %142 = load i64, ptr %30, align 8, !tbaa !106
   %143 = ashr exact i32 %139, 1
-  call void %140(ptr noundef nonnull %40, ptr noundef %96, i64 noundef %141, i64 noundef %142, i32 noundef %143, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef %137, i32 noundef %132) #11
+  call void %140(ptr noundef nonnull %40, ptr noundef %96, i64 noundef %141, i64 noundef %142, i32 noundef %143, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef %137, i32 noundef %132) #12
   %144 = load ptr, ptr %36, align 8, !tbaa !200
   %145 = load i64, ptr %30, align 8, !tbaa !106
-  call void %144(ptr noundef nonnull %41, ptr noundef %100, i64 noundef %141, i64 noundef %145, i32 noundef %143, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef %137, i32 noundef %132) #11
+  call void %144(ptr noundef nonnull %41, ptr noundef %100, i64 noundef %141, i64 noundef %145, i32 noundef %143, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef %137, i32 noundef %132) #12
   %146 = shl i32 32, %73
   %147 = ashr exact i32 %146, 1
   %148 = shl i32 %139, %73
@@ -3428,19 +3428,19 @@ define internal noundef i32 @dnxhd_calc_bits_thread(ptr noundef readonly capture
   %151 = load ptr, ptr %35, align 8, !tbaa !201
   %sext = shl i64 %.0246.i, 32
   %152 = ashr exact i64 %sext, 32
-  call void %151(ptr noundef nonnull %42, ptr noundef %.0248.i, i64 noundef %152) #11
+  call void %151(ptr noundef nonnull %42, ptr noundef %.0248.i, i64 noundef %152) #12
   %153 = load ptr, ptr %35, align 8, !tbaa !201
   %154 = sext i32 %74 to i64
   %155 = getelementptr inbounds i8, ptr %.0248.i, i64 %154
-  call void %153(ptr noundef nonnull %43, ptr noundef nonnull %155, i64 noundef %152) #11
+  call void %153(ptr noundef nonnull %43, ptr noundef nonnull %155, i64 noundef %152) #12
   %156 = load ptr, ptr %35, align 8, !tbaa !201
   br i1 %.not254.i, label %157, label %196
 
 157:                                              ; preds = %.thread
   %158 = sext i32 %.0247.i to i64
-  call void %156(ptr noundef nonnull %46, ptr noundef %.0249.i, i64 noundef %158) #11
+  call void %156(ptr noundef nonnull %46, ptr noundef %.0249.i, i64 noundef %158) #12
   %159 = load ptr, ptr %35, align 8, !tbaa !201
-  call void %159(ptr noundef nonnull %47, ptr noundef %.0250.i, i64 noundef %158) #11
+  call void %159(ptr noundef nonnull %47, ptr noundef %.0250.i, i64 noundef %158) #12
   %160 = load i32, ptr %55, align 8, !tbaa !78
   %161 = icmp eq i32 %54, %160
   br i1 %161, label %162, label %185
@@ -3461,78 +3461,78 @@ define internal noundef i32 @dnxhd_calc_bits_thread(ptr noundef readonly capture
   %170 = load ptr, ptr %57, align 8, !tbaa !76
   %171 = sext i32 %.0.i to i64
   %172 = getelementptr inbounds i8, ptr %.0248.i, i64 %171
-  call void %170(ptr noundef nonnull %50, ptr noundef %172, i64 noundef %152) #11
+  call void %170(ptr noundef nonnull %50, ptr noundef %172, i64 noundef %152) #12
   %173 = load ptr, ptr %57, align 8, !tbaa !76
   %174 = getelementptr inbounds i8, ptr %172, i64 %154
-  call void %173(ptr noundef nonnull %51, ptr noundef nonnull %174, i64 noundef %152) #11
+  call void %173(ptr noundef nonnull %51, ptr noundef nonnull %174, i64 noundef %152) #12
   %175 = load ptr, ptr %57, align 8, !tbaa !76
   %176 = sext i32 %.0245.i to i64
   %177 = getelementptr inbounds i8, ptr %.0249.i, i64 %176
-  call void %175(ptr noundef nonnull %44, ptr noundef %177, i64 noundef %158) #11
+  call void %175(ptr noundef nonnull %44, ptr noundef %177, i64 noundef %158) #12
   %178 = load ptr, ptr %57, align 8, !tbaa !76
   %179 = getelementptr inbounds i8, ptr %.0250.i, i64 %176
-  call void %178(ptr noundef nonnull %45, ptr noundef %179, i64 noundef %158) #11
+  call void %178(ptr noundef nonnull %45, ptr noundef %179, i64 noundef %158) #12
   br label %dnxhd_get_blocks.exit
 
 180:                                              ; preds = %167
   %181 = load ptr, ptr %58, align 8, !tbaa !202
-  call void %181(ptr noundef nonnull %50) #11
+  call void %181(ptr noundef nonnull %50) #12
   %182 = load ptr, ptr %58, align 8, !tbaa !202
-  call void %182(ptr noundef nonnull %51) #11
+  call void %182(ptr noundef nonnull %51) #12
   %183 = load ptr, ptr %58, align 8, !tbaa !202
-  call void %183(ptr noundef nonnull %44) #11
+  call void %183(ptr noundef nonnull %44) #12
   %184 = load ptr, ptr %58, align 8, !tbaa !202
-  call void %184(ptr noundef nonnull %45) #11
+  call void %184(ptr noundef nonnull %45) #12
   br label %dnxhd_get_blocks.exit
 
 185:                                              ; preds = %162, %157
   %186 = load ptr, ptr %35, align 8, !tbaa !201
   %187 = sext i32 %.0.i to i64
   %188 = getelementptr inbounds i8, ptr %.0248.i, i64 %187
-  call void %186(ptr noundef nonnull %50, ptr noundef %188, i64 noundef %152) #11
+  call void %186(ptr noundef nonnull %50, ptr noundef %188, i64 noundef %152) #12
   %189 = load ptr, ptr %35, align 8, !tbaa !201
   %190 = getelementptr inbounds i8, ptr %188, i64 %154
-  call void %189(ptr noundef nonnull %51, ptr noundef nonnull %190, i64 noundef %152) #11
+  call void %189(ptr noundef nonnull %51, ptr noundef nonnull %190, i64 noundef %152) #12
   %191 = load ptr, ptr %35, align 8, !tbaa !201
   %192 = sext i32 %.0245.i to i64
   %193 = getelementptr inbounds i8, ptr %.0249.i, i64 %192
-  call void %191(ptr noundef nonnull %44, ptr noundef %193, i64 noundef %158) #11
+  call void %191(ptr noundef nonnull %44, ptr noundef %193, i64 noundef %158) #12
   %194 = load ptr, ptr %35, align 8, !tbaa !201
   %195 = getelementptr inbounds i8, ptr %.0250.i, i64 %192
-  call void %194(ptr noundef nonnull %45, ptr noundef %195, i64 noundef %158) #11
+  call void %194(ptr noundef nonnull %45, ptr noundef %195, i64 noundef %158) #12
   br label %dnxhd_get_blocks.exit
 
 196:                                              ; preds = %.thread
   %197 = sext i32 %.0.i to i64
   %198 = getelementptr inbounds i8, ptr %.0248.i, i64 %197
-  call void %156(ptr noundef nonnull %44, ptr noundef %198, i64 noundef %152) #11
+  call void %156(ptr noundef nonnull %44, ptr noundef %198, i64 noundef %152) #12
   %199 = load ptr, ptr %35, align 8, !tbaa !201
   %200 = getelementptr inbounds i8, ptr %198, i64 %154
-  call void %199(ptr noundef nonnull %45, ptr noundef nonnull %200, i64 noundef %152) #11
+  call void %199(ptr noundef nonnull %45, ptr noundef nonnull %200, i64 noundef %152) #12
   %201 = load ptr, ptr %35, align 8, !tbaa !201
   %202 = sext i32 %.0247.i to i64
-  call void %201(ptr noundef nonnull %46, ptr noundef %.0249.i, i64 noundef %202) #11
+  call void %201(ptr noundef nonnull %46, ptr noundef %.0249.i, i64 noundef %202) #12
   %203 = load ptr, ptr %35, align 8, !tbaa !201
   %204 = getelementptr inbounds i8, ptr %.0249.i, i64 %154
-  call void %203(ptr noundef nonnull %47, ptr noundef nonnull %204, i64 noundef %202) #11
+  call void %203(ptr noundef nonnull %47, ptr noundef nonnull %204, i64 noundef %202) #12
   %205 = load ptr, ptr %35, align 8, !tbaa !201
   %206 = sext i32 %.0245.i to i64
   %207 = getelementptr inbounds i8, ptr %.0249.i, i64 %206
-  call void %205(ptr noundef nonnull %48, ptr noundef %207, i64 noundef %202) #11
+  call void %205(ptr noundef nonnull %48, ptr noundef %207, i64 noundef %202) #12
   %208 = load ptr, ptr %35, align 8, !tbaa !201
   %209 = getelementptr inbounds i8, ptr %207, i64 %154
-  call void %208(ptr noundef nonnull %49, ptr noundef nonnull %209, i64 noundef %202) #11
+  call void %208(ptr noundef nonnull %49, ptr noundef nonnull %209, i64 noundef %202) #12
   %210 = load ptr, ptr %35, align 8, !tbaa !201
-  call void %210(ptr noundef nonnull %50, ptr noundef %.0250.i, i64 noundef %202) #11
+  call void %210(ptr noundef nonnull %50, ptr noundef %.0250.i, i64 noundef %202) #12
   %211 = load ptr, ptr %35, align 8, !tbaa !201
   %212 = getelementptr inbounds i8, ptr %.0250.i, i64 %154
-  call void %211(ptr noundef nonnull %51, ptr noundef nonnull %212, i64 noundef %202) #11
+  call void %211(ptr noundef nonnull %51, ptr noundef nonnull %212, i64 noundef %202) #12
   %213 = load ptr, ptr %35, align 8, !tbaa !201
   %214 = getelementptr inbounds i8, ptr %.0250.i, i64 %206
-  call void %213(ptr noundef nonnull %52, ptr noundef %214, i64 noundef %202) #11
+  call void %213(ptr noundef nonnull %52, ptr noundef %214, i64 noundef %202) #12
   %215 = load ptr, ptr %35, align 8, !tbaa !201
   %216 = getelementptr inbounds i8, ptr %214, i64 %154
-  call void %215(ptr noundef nonnull %53, ptr noundef nonnull %216, i64 noundef %202) #11
+  call void %215(ptr noundef nonnull %53, ptr noundef nonnull %216, i64 noundef %202) #12
   br label %dnxhd_get_blocks.exit
 
 dnxhd_get_blocks.exit:                            ; preds = %169, %180, %185, %196
@@ -3573,7 +3573,7 @@ dnxhd_switch_matrix.exit:                         ; preds = %221, %225
   %231 = shl i32 %indvars.iv132.tr, 1
   %232 = and i32 %231, 4
   %233 = select i1 %.not.i82, i32 %232, i32 %230
-  %234 = call i32 %229(ptr noundef nonnull %19, ptr noundef nonnull %5, i32 noundef %233, i32 noundef %10, ptr noundef nonnull %6) #11
+  %234 = call i32 %229(ptr noundef nonnull %19, ptr noundef nonnull %5, i32 noundef %233, i32 noundef %10, ptr noundef nonnull %6) #12
   %.not.i8595 = icmp slt i32 %234, 1
   br i1 %.not.i8595, label %dnxhd_calc_ac_bits.exit, label %.lr.ph.preheader
 
@@ -3771,7 +3771,7 @@ dnxhd_calc_ac_bits.exit:                          ; preds = %262, %dnxhd_switch_
 
 dnxhd_unquantize_c.exit:                          ; preds = %340, %304
   %341 = load ptr, ptr %65, align 8, !tbaa !210
-  call void %341(ptr noundef nonnull %5) #11
+  call void %341(ptr noundef nonnull %5) #12
   br label %342
 
 342:                                              ; preds = %dnxhd_unquantize_c.exit, %342
@@ -3913,10 +3913,10 @@ define internal noundef i32 @dnxhd_mb_var_thread(ptr noundef readonly captures(n
 56:                                               ; preds = %52
   %57 = load ptr, ptr %43, align 8, !tbaa !214
   %58 = load i64, ptr %30, align 8, !tbaa !105
-  %59 = tail call i32 %57(ptr noundef %.0111164, i64 noundef %58) #11
+  %59 = tail call i32 %57(ptr noundef %.0111164, i64 noundef %58) #12
   %60 = load ptr, ptr %44, align 8, !tbaa !215
   %61 = load i64, ptr %30, align 8, !tbaa !105
-  %62 = tail call i32 %60(ptr noundef %.0111164, i64 noundef %61) #11
+  %62 = tail call i32 %60(ptr noundef %.0111164, i64 noundef %61) #12
   %.pre194 = load i32, ptr %31, align 4, !tbaa !79
   br label %.loopexit
 
@@ -4119,29 +4119,29 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #10
+declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4153,10 +4153,11 @@ attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { cold }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -241,7 +241,7 @@ ZSTD_decompress.exit:                             ; preds = %31, %35, %36, %ZSTD
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @ZSTDv02_createDCtx() local_unnamed_addr #3 {
-  %1 = tail call noalias dereferenceable_or_null(141384) ptr @malloc(i64 noundef 141384) #20
+  %1 = tail call noalias dereferenceable_or_null(141384) ptr @malloc(i64 noundef 141384) #21
   %2 = icmp eq ptr %1, null
   br i1 %2, label %ZSTD_createDCtx.exit, label %3
 
@@ -260,7 +260,7 @@ ZSTD_createDCtx.exit:                             ; preds = %0, %3
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define noundef i64 @ZSTDv02_freeDCtx(ptr noundef captures(none) %0) local_unnamed_addr #4 {
-  tail call void @free(ptr noundef %0) #21
+  tail call void @free(ptr noundef %0) #22
   ret i64 0
 }
 
@@ -533,7 +533,7 @@ HUF_decompress.exit.i.i:                          ; preds = %48
   %spec.store.select.i.i.i = select i1 %67, i64 2, i64 %spec.select.i.i.i
   %68 = getelementptr inbounds nuw ptr, ptr @HUF_decompress.decompress, i64 %spec.store.select.i.i.i
   %69 = load ptr, ptr %68, align 8, !tbaa !25
-  %70 = tail call i64 %69(ptr noundef nonnull %20, i64 noundef range(i64 0, 524288) %23, ptr noundef nonnull %35, i64 noundef range(i64 0, 524288) %27) #21
+  %70 = tail call i64 %69(ptr noundef nonnull %20, i64 noundef range(i64 0, 524288) %23, ptr noundef nonnull %35, i64 noundef range(i64 0, 524288) %27) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %71 = icmp ult i64 %70, -119
   br i1 %71, label %ZSTD_decodeLiteralsBlock.exit, label %ZSTD_decodeLiteralsBlock.exit.thread28
@@ -8345,14 +8345,14 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.abs.i16(i16, i1 immarg) #19
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #20
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8374,8 +8374,9 @@ attributes #16 = { mustprogress nofree nounwind willreturn allockind("alloc,unin
 attributes #17 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nounwind allocsize(0) }
-attributes #21 = { nounwind }
+attributes #20 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nounwind allocsize(0) }
+attributes #22 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

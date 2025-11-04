@@ -18,21 +18,21 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @lv_anim_core_init() local_unnamed_addr #0 {
-  tail call void @lv_ll_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), i32 noundef 136) #10
-  %1 = tail call ptr @lv_timer_create(ptr noundef nonnull @anim_timer, i32 noundef 33, ptr noundef null) #10
+  tail call void @lv_ll_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), i32 noundef 136) #11
+  %1 = tail call ptr @lv_timer_create(ptr noundef nonnull @anim_timer, i32 noundef 33, ptr noundef null) #11
   store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 296), align 8, !tbaa !3
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 288), align 8, !tbaa !30
-  %2 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  %2 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #11
   %3 = icmp eq ptr %2, null
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 296), align 8, !tbaa !3
   br i1 %3, label %5, label %6
 
 5:                                                ; preds = %0
-  tail call void @lv_timer_pause(ptr noundef %4) #10
+  tail call void @lv_timer_pause(ptr noundef %4) #11
   br label %anim_mark_list_change.exit
 
 6:                                                ; preds = %0
-  tail call void @lv_timer_resume(ptr noundef %4) #10
+  tail call void @lv_timer_resume(ptr noundef %4) #11
   br label %anim_mark_list_change.exit
 
 anim_mark_list_change.exit:                       ; preds = %5, %6
@@ -50,7 +50,7 @@ define internal void @anim_timer(ptr readnone captures(none) %0) #0 {
   %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 289), align 1, !tbaa !31, !range !32, !noundef !33
   %3 = xor i8 %2, 1
   store i8 %3, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 289), align 1, !tbaa !31
-  %4 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  %4 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #11
   %.not82 = icmp eq ptr %4, null
   br i1 %.not82, label %._crit_edge, label %.lr.ph
 
@@ -58,7 +58,7 @@ define internal void @anim_timer(ptr readnone captures(none) %0) #0 {
   %.083 = phi ptr [ %.1, %152 ], [ %4, %1 ]
   %5 = getelementptr inbounds nuw i8, ptr %.083, i64 116
   %6 = load i32, ptr %5, align 4, !tbaa !34
-  %7 = tail call i32 @lv_tick_elaps(i32 noundef %6) #10
+  %7 = tail call i32 @lv_tick_elaps(i32 noundef %6) #11
   %8 = getelementptr inbounds nuw i8, ptr %.083, i64 128
   %9 = load i8, ptr %8, align 8
   %10 = and i8 %9, 1
@@ -68,7 +68,7 @@ define internal void @anim_timer(ptr readnone captures(none) %0) #0 {
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %.083, i64 120
   %13 = load i32, ptr %12, align 8, !tbaa !36
-  %14 = tail call i32 @lv_tick_elaps(i32 noundef %13) #10
+  %14 = tail call i32 @lv_tick_elaps(i32 noundef %13) #11
   %15 = getelementptr inbounds nuw i8, ptr %.083, i64 124
   %16 = load i32, ptr %15, align 4, !tbaa !37
   %.not72 = icmp ne i32 %16, -1
@@ -95,7 +95,7 @@ define internal void @anim_timer(ptr readnone captures(none) %0) #0 {
   br label %29
 
 29:                                               ; preds = %11, %18, %25
-  %30 = tail call i32 @lv_tick_get() #10
+  %30 = tail call i32 @lv_tick_get() #11
   store i32 %30, ptr %5, align 4, !tbaa !34
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 288), align 8, !tbaa !30
   %31 = load i8, ptr %8, align 8
@@ -137,7 +137,7 @@ define internal void @anim_timer(ptr readnone captures(none) %0) #0 {
   br i1 %.not76, label %60, label %52
 
 52:                                               ; preds = %49
-  %53 = tail call i32 %51(ptr noundef nonnull %.083) #10
+  %53 = tail call i32 %51(ptr noundef nonnull %.083) #11
   %54 = getelementptr inbounds nuw i8, ptr %.083, i64 72
   %55 = load i32, ptr %54, align 8, !tbaa !40
   %56 = add nsw i32 %55, %53
@@ -156,7 +156,7 @@ define internal void @anim_timer(ptr readnone captures(none) %0) #0 {
   br i1 %.not77, label %64, label %63
 
 63:                                               ; preds = %60
-  tail call void %62(ptr noundef nonnull %.083) #10
+  tail call void %62(ptr noundef nonnull %.083) #11
   br label %64
 
 64:                                               ; preds = %63, %60
@@ -186,7 +186,7 @@ define internal void @anim_timer(ptr readnone captures(none) %0) #0 {
   %77 = phi i32 [ %73, %75 ], [ %69, %71 ]
   %78 = getelementptr inbounds nuw i8, ptr %.083, i64 64
   %79 = load ptr, ptr %78, align 8, !tbaa !44
-  %80 = tail call i32 %79(ptr noundef nonnull %.083) #10
+  %80 = tail call i32 %79(ptr noundef nonnull %.083) #11
   %81 = getelementptr inbounds nuw i8, ptr %.083, i64 76
   %82 = load i32, ptr %81, align 4, !tbaa !45
   %.not78 = icmp eq i32 %80, %82
@@ -201,7 +201,7 @@ define internal void @anim_timer(ptr readnone captures(none) %0) #0 {
 
 86:                                               ; preds = %83
   %87 = load ptr, ptr %.083, align 8, !tbaa !47
-  tail call void %85(ptr noundef %87, i32 noundef %80) #10
+  tail call void %85(ptr noundef %87, i32 noundef %80) #11
   br label %88
 
 88:                                               ; preds = %86, %83
@@ -216,7 +216,7 @@ define internal void @anim_timer(ptr readnone captures(none) %0) #0 {
   br i1 %.not80, label %95, label %94
 
 94:                                               ; preds = %91
-  tail call void %93(ptr noundef nonnull %.083, i32 noundef %80) #10
+  tail call void %93(ptr noundef nonnull %.083, i32 noundef %80) #11
   br label %95
 
 95:                                               ; preds = %88, %91, %94, %76
@@ -267,19 +267,19 @@ define internal void @anim_timer(ptr readnone captures(none) %0) #0 {
   br i1 %or.cond.i, label %116, label %._crit_edge47.i
 
 116:                                              ; preds = %._crit_edge.i
-  tail call void @lv_ll_remove(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.083) #10
+  tail call void @lv_ll_remove(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.083) #11
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 288), align 8, !tbaa !30
-  %117 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  %117 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #11
   %118 = icmp eq ptr %117, null
   %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 296), align 8, !tbaa !3
   br i1 %118, label %120, label %121
 
 120:                                              ; preds = %116
-  tail call void @lv_timer_pause(ptr noundef %119) #10
+  tail call void @lv_timer_pause(ptr noundef %119) #11
   br label %anim_mark_list_change.exit.i
 
 121:                                              ; preds = %116
-  tail call void @lv_timer_resume(ptr noundef %119) #10
+  tail call void @lv_timer_resume(ptr noundef %119) #11
   br label %anim_mark_list_change.exit.i
 
 anim_mark_list_change.exit.i:                     ; preds = %121, %120
@@ -289,7 +289,7 @@ anim_mark_list_change.exit.i:                     ; preds = %121, %120
   br i1 %.not45.i, label %125, label %124
 
 124:                                              ; preds = %anim_mark_list_change.exit.i
-  tail call void %123(ptr noundef nonnull %.083) #10
+  tail call void %123(ptr noundef nonnull %.083) #11
   br label %125
 
 125:                                              ; preds = %124, %anim_mark_list_change.exit.i
@@ -299,11 +299,11 @@ anim_mark_list_change.exit.i:                     ; preds = %121, %120
   br i1 %.not46.i, label %129, label %128
 
 128:                                              ; preds = %125
-  tail call void %127(ptr noundef nonnull %.083) #10
+  tail call void %127(ptr noundef nonnull %.083) #11
   br label %129
 
 129:                                              ; preds = %128, %125
-  tail call void @lv_free(ptr noundef nonnull %.083) #10
+  tail call void @lv_free(ptr noundef nonnull %.083) #11
   br label %anim_completed_handler.exit
 
 ._crit_edge47.i:                                  ; preds = %._crit_edge.i
@@ -345,11 +345,11 @@ anim_completed_handler.exit:                      ; preds = %140, %._crit_edge47
   br i1 %147, label %148, label %150
 
 148:                                              ; preds = %anim_completed_handler.exit
-  %149 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  %149 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #11
   br label %152
 
 150:                                              ; preds = %anim_completed_handler.exit
-  %151 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.083) #10
+  %151 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.083) #11
   br label %152
 
 152:                                              ; preds = %150, %148
@@ -363,19 +363,19 @@ anim_completed_handler.exit:                      ; preds = %140, %._crit_edge47
 
 ; Function Attrs: nounwind uwtable
 define void @lv_anim_core_deinit() local_unnamed_addr #0 {
-  tail call void @lv_ll_clear_custom(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull @remove_anim) #10
+  tail call void @lv_ll_clear_custom(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull @remove_anim) #11
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 288), align 8, !tbaa !30
-  %1 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  %1 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #11
   %2 = icmp eq ptr %1, null
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 296), align 8, !tbaa !3
   br i1 %2, label %4, label %5
 
 4:                                                ; preds = %0
-  tail call void @lv_timer_pause(ptr noundef %3) #10
+  tail call void @lv_timer_pause(ptr noundef %3) #11
   br label %lv_anim_delete_all.exit
 
 5:                                                ; preds = %0
-  tail call void @lv_timer_resume(ptr noundef %3) #10
+  tail call void @lv_timer_resume(ptr noundef %3) #11
   br label %lv_anim_delete_all.exit
 
 lv_anim_delete_all.exit:                          ; preds = %4, %5
@@ -384,19 +384,19 @@ lv_anim_delete_all.exit:                          ; preds = %4, %5
 
 ; Function Attrs: nounwind uwtable
 define void @lv_anim_delete_all() local_unnamed_addr #0 {
-  tail call void @lv_ll_clear_custom(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull @remove_anim) #10
+  tail call void @lv_ll_clear_custom(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull @remove_anim) #11
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 288), align 8, !tbaa !30
-  %1 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  %1 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #11
   %2 = icmp eq ptr %1, null
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 296), align 8, !tbaa !3
   br i1 %2, label %4, label %5
 
 4:                                                ; preds = %0
-  tail call void @lv_timer_pause(ptr noundef %3) #10
+  tail call void @lv_timer_pause(ptr noundef %3) #11
   br label %anim_mark_list_change.exit
 
 5:                                                ; preds = %0
-  tail call void @lv_timer_resume(ptr noundef %3) #10
+  tail call void @lv_timer_resume(ptr noundef %3) #11
   br label %anim_mark_list_change.exit
 
 anim_mark_list_change.exit:                       ; preds = %4, %5
@@ -405,7 +405,7 @@ anim_mark_list_change.exit:                       ; preds = %4, %5
 
 ; Function Attrs: nounwind uwtable
 define void @lv_anim_init(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 136) #10
+  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 136) #11
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 500, ptr %2, align 4, !tbaa !43
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -429,7 +429,7 @@ define i32 @lv_anim_path_linear(ptr noundef readonly captures(none) %0) #0 {
   %3 = load i32, ptr %2, align 8, !tbaa !38
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %5 = load i32, ptr %4, align 4, !tbaa !43
-  %6 = tail call i32 @lv_map(i32 noundef %3, i32 noundef 0, i32 noundef %5, i32 noundef 0, i32 noundef 1024) #10
+  %6 = tail call i32 @lv_map(i32 noundef %3, i32 noundef 0, i32 noundef %5, i32 noundef 0, i32 noundef 1024) #11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load i32, ptr %7, align 8, !tbaa !41
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -443,7 +443,7 @@ define i32 @lv_anim_path_linear(ptr noundef readonly captures(none) %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @lv_anim_start(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @lv_ll_ins_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  %2 = tail call ptr @lv_ll_ins_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #11
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.preheader, label %3
 
@@ -451,7 +451,7 @@ define nonnull ptr @lv_anim_start(ptr noundef %0) local_unnamed_addr #0 {
   br label %.preheader
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @lv_memcpy(ptr noundef nonnull %2, ptr noundef %0, i64 noundef 136) #10
+  %4 = tail call ptr @lv_memcpy(ptr noundef nonnull %2, ptr noundef %0, i64 noundef 136) #11
   %5 = load ptr, ptr %0, align 8, !tbaa !47
   %6 = icmp eq ptr %5, %0
   br i1 %6, label %7, label %8
@@ -468,7 +468,7 @@ define nonnull ptr @lv_anim_start(ptr noundef %0) local_unnamed_addr #0 {
   %13 = and i8 %11, -5
   %14 = or disjoint i8 %13, %12
   store i8 %14, ptr %10, align 8
-  %15 = tail call i32 @lv_tick_get() #10
+  %15 = tail call i32 @lv_tick_get() #11
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 116
   store i32 %15, ptr %16, align 4, !tbaa !34
   %17 = load i8, ptr %10, align 8
@@ -485,7 +485,7 @@ define nonnull ptr @lv_anim_start(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not37, label %31, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call i32 %22(ptr noundef nonnull %2) #10
+  %24 = tail call i32 %22(ptr noundef nonnull %2) #11
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %26 = load i32, ptr %25, align 8, !tbaa !40
   %27 = add nsw i32 %26, %24
@@ -523,7 +523,7 @@ define nonnull ptr @lv_anim_start(ptr noundef %0) local_unnamed_addr #0 {
   %42 = load ptr, ptr %2, align 8, !tbaa !47
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %44 = load i32, ptr %43, align 8, !tbaa !40
-  tail call void %40(ptr noundef %42, i32 noundef %44) #10
+  tail call void %40(ptr noundef %42, i32 noundef %44) #11
   br label %45
 
 45:                                               ; preds = %41, %38
@@ -535,22 +535,22 @@ define nonnull ptr @lv_anim_start(ptr noundef %0) local_unnamed_addr #0 {
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %50 = load i32, ptr %49, align 8, !tbaa !40
-  tail call void %47(ptr noundef nonnull %2, i32 noundef %50) #10
+  tail call void %47(ptr noundef nonnull %2, i32 noundef %50) #11
   br label %51
 
 51:                                               ; preds = %45, %48, %8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 288), align 8, !tbaa !30
-  %52 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  %52 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #11
   %53 = icmp eq ptr %52, null
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 296), align 8, !tbaa !3
   br i1 %53, label %55, label %56
 
 55:                                               ; preds = %51
-  tail call void @lv_timer_pause(ptr noundef %54) #10
+  tail call void @lv_timer_pause(ptr noundef %54) #11
   br label %anim_mark_list_change.exit
 
 56:                                               ; preds = %51
-  tail call void @lv_timer_resume(ptr noundef %54) #10
+  tail call void @lv_timer_resume(ptr noundef %54) #11
   br label %anim_mark_list_change.exit
 
 anim_mark_list_change.exit:                       ; preds = %55, %56
@@ -682,7 +682,7 @@ define internal fastcc void @remove_concurrent_anims(ptr noundef nonnull readonl
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %5, %1
-  %10 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  %10 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #11
   %.not34 = icmp eq ptr %10, null
   br i1 %.not34, label %.loopexit, label %.lr.ph
 
@@ -722,38 +722,38 @@ define internal fastcc void @remove_concurrent_anims(ptr noundef nonnull readonl
   br i1 %28, label %29, label %40
 
 29:                                               ; preds = %26
-  tail call void @lv_ll_remove(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.02135) #10
+  tail call void @lv_ll_remove(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.02135) #11
   %30 = getelementptr inbounds nuw i8, ptr %.02135, i64 40
   %31 = load ptr, ptr %30, align 8, !tbaa !52
   %.not29 = icmp eq ptr %31, null
   br i1 %.not29, label %33, label %32
 
 32:                                               ; preds = %29
-  tail call void %31(ptr noundef nonnull %.02135) #10
+  tail call void %31(ptr noundef nonnull %.02135) #11
   br label %33
 
 33:                                               ; preds = %32, %29
-  tail call void @lv_free(ptr noundef nonnull %.02135) #10
+  tail call void @lv_free(ptr noundef nonnull %.02135) #11
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 288), align 8, !tbaa !30
-  %34 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  %34 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #11
   %35 = icmp eq ptr %34, null
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 296), align 8, !tbaa !3
   br i1 %35, label %37, label %38
 
 37:                                               ; preds = %33
-  tail call void @lv_timer_pause(ptr noundef %36) #10
+  tail call void @lv_timer_pause(ptr noundef %36) #11
   br label %anim_mark_list_change.exit
 
 38:                                               ; preds = %33
-  tail call void @lv_timer_resume(ptr noundef %36) #10
+  tail call void @lv_timer_resume(ptr noundef %36) #11
   br label %anim_mark_list_change.exit
 
 anim_mark_list_change.exit:                       ; preds = %37, %38
-  %39 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  %39 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #11
   br label %42
 
 40:                                               ; preds = %26, %23, %19, %15, %.lr.ph
-  %41 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.02135) #10
+  %41 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.02135) #11
   br label %42
 
 42:                                               ; preds = %40, %anim_mark_list_change.exit
@@ -795,7 +795,7 @@ define i32 @lv_anim_get_playtime(ptr noundef readonly captures(none) %0) local_u
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @lv_anim_delete(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  %3 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #11
   %.not19 = icmp eq ptr %3, null
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
@@ -809,34 +809,34 @@ define zeroext i1 @lv_anim_delete(ptr noundef readnone captures(address) %0, ptr
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %14
   %.01420.us.us = phi ptr [ %15, %14 ], [ %3, %.lr.ph.split.us ]
-  tail call void @lv_ll_remove(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.01420.us.us) #10
+  tail call void @lv_ll_remove(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.01420.us.us) #11
   %6 = getelementptr inbounds nuw i8, ptr %.01420.us.us, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !52
   %.not.i.us.us = icmp eq ptr %7, null
   br i1 %.not.i.us.us, label %remove_anim.exit.us.us, label %8
 
 8:                                                ; preds = %.lr.ph.split.us.split.us
-  tail call void %7(ptr noundef nonnull %.01420.us.us) #10
+  tail call void %7(ptr noundef nonnull %.01420.us.us) #11
   br label %remove_anim.exit.us.us
 
 remove_anim.exit.us.us:                           ; preds = %8, %.lr.ph.split.us.split.us
-  tail call void @lv_free(ptr noundef nonnull %.01420.us.us) #10
+  tail call void @lv_free(ptr noundef nonnull %.01420.us.us) #11
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 288), align 8, !tbaa !30
-  %9 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  %9 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #11
   %10 = icmp eq ptr %9, null
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 296), align 8, !tbaa !3
   br i1 %10, label %13, label %12
 
 12:                                               ; preds = %remove_anim.exit.us.us
-  tail call void @lv_timer_resume(ptr noundef %11) #10
+  tail call void @lv_timer_resume(ptr noundef %11) #11
   br label %14
 
 13:                                               ; preds = %remove_anim.exit.us.us
-  tail call void @lv_timer_pause(ptr noundef %11) #10
+  tail call void @lv_timer_pause(ptr noundef %11) #11
   br label %14
 
 14:                                               ; preds = %13, %12
-  %15 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  %15 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #11
   %.not.us.us = icmp eq ptr %15, null
   br i1 %.not.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !58
 
@@ -849,38 +849,38 @@ remove_anim.exit.us.us:                           ; preds = %8, %.lr.ph.split.us
   br i1 %18, label %20, label %anim_mark_list_change.exit.us
 
 anim_mark_list_change.exit.us:                    ; preds = %.lr.ph.split.us.split
-  %19 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.01420.us) #10
+  %19 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.01420.us) #11
   br label %31
 
 20:                                               ; preds = %.lr.ph.split.us.split
-  tail call void @lv_ll_remove(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.01420.us) #10
+  tail call void @lv_ll_remove(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.01420.us) #11
   %21 = getelementptr inbounds nuw i8, ptr %.01420.us, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !52
   %.not.i.us = icmp eq ptr %22, null
   br i1 %.not.i.us, label %remove_anim.exit.us, label %23
 
 23:                                               ; preds = %20
-  tail call void %22(ptr noundef nonnull %.01420.us) #10
+  tail call void %22(ptr noundef nonnull %.01420.us) #11
   br label %remove_anim.exit.us
 
 remove_anim.exit.us:                              ; preds = %23, %20
-  tail call void @lv_free(ptr noundef nonnull %.01420.us) #10
+  tail call void @lv_free(ptr noundef nonnull %.01420.us) #11
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 288), align 8, !tbaa !30
-  %24 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  %24 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #11
   %25 = icmp eq ptr %24, null
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 296), align 8, !tbaa !3
   br i1 %25, label %28, label %27
 
 27:                                               ; preds = %remove_anim.exit.us
-  tail call void @lv_timer_resume(ptr noundef %26) #10
+  tail call void @lv_timer_resume(ptr noundef %26) #11
   br label %29
 
 28:                                               ; preds = %remove_anim.exit.us
-  tail call void @lv_timer_pause(ptr noundef %26) #10
+  tail call void @lv_timer_pause(ptr noundef %26) #11
   br label %29
 
 29:                                               ; preds = %28, %27
-  %30 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  %30 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #11
   br label %31
 
 31:                                               ; preds = %29, %anim_mark_list_change.exit.us
@@ -900,38 +900,38 @@ remove_anim.exit.us:                              ; preds = %23, %20
   br i1 %34, label %35, label %anim_mark_list_change.exit.us25
 
 35:                                               ; preds = %.lr.ph.split.split.us
-  tail call void @lv_ll_remove(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.01420.us23) #10
+  tail call void @lv_ll_remove(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.01420.us23) #11
   %36 = getelementptr inbounds nuw i8, ptr %.01420.us23, i64 40
   %37 = load ptr, ptr %36, align 8, !tbaa !52
   %.not.i.us26 = icmp eq ptr %37, null
   br i1 %.not.i.us26, label %remove_anim.exit.us27, label %39
 
 anim_mark_list_change.exit.us25:                  ; preds = %.lr.ph.split.split.us
-  %38 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.01420.us23) #10
+  %38 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.01420.us23) #11
   br label %47
 
 39:                                               ; preds = %35
-  tail call void %37(ptr noundef nonnull %.01420.us23) #10
+  tail call void %37(ptr noundef nonnull %.01420.us23) #11
   br label %remove_anim.exit.us27
 
 remove_anim.exit.us27:                            ; preds = %39, %35
-  tail call void @lv_free(ptr noundef nonnull %.01420.us23) #10
+  tail call void @lv_free(ptr noundef nonnull %.01420.us23) #11
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 288), align 8, !tbaa !30
-  %40 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  %40 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #11
   %41 = icmp eq ptr %40, null
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 296), align 8, !tbaa !3
   br i1 %41, label %44, label %43
 
 43:                                               ; preds = %remove_anim.exit.us27
-  tail call void @lv_timer_resume(ptr noundef %42) #10
+  tail call void @lv_timer_resume(ptr noundef %42) #11
   br label %45
 
 44:                                               ; preds = %remove_anim.exit.us27
-  tail call void @lv_timer_pause(ptr noundef %42) #10
+  tail call void @lv_timer_pause(ptr noundef %42) #11
   br label %45
 
 45:                                               ; preds = %44, %43
-  %46 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  %46 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #11
   br label %47
 
 47:                                               ; preds = %45, %anim_mark_list_change.exit.us25
@@ -954,38 +954,38 @@ remove_anim.exit.us27:                            ; preds = %39, %35
   br i1 %54, label %55, label %anim_mark_list_change.exit
 
 55:                                               ; preds = %51
-  tail call void @lv_ll_remove(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.01420) #10
+  tail call void @lv_ll_remove(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.01420) #11
   %56 = getelementptr inbounds nuw i8, ptr %.01420, i64 40
   %57 = load ptr, ptr %56, align 8, !tbaa !52
   %.not.i = icmp eq ptr %57, null
   br i1 %.not.i, label %remove_anim.exit, label %58
 
 58:                                               ; preds = %55
-  tail call void %57(ptr noundef nonnull %.01420) #10
+  tail call void %57(ptr noundef nonnull %.01420) #11
   br label %remove_anim.exit
 
 remove_anim.exit:                                 ; preds = %55, %58
-  tail call void @lv_free(ptr noundef nonnull %.01420) #10
+  tail call void @lv_free(ptr noundef nonnull %.01420) #11
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 288), align 8, !tbaa !30
-  %59 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  %59 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #11
   %60 = icmp eq ptr %59, null
   %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 296), align 8, !tbaa !3
   br i1 %60, label %62, label %63
 
 62:                                               ; preds = %remove_anim.exit
-  tail call void @lv_timer_pause(ptr noundef %61) #10
+  tail call void @lv_timer_pause(ptr noundef %61) #11
   br label %64
 
 63:                                               ; preds = %remove_anim.exit
-  tail call void @lv_timer_resume(ptr noundef %61) #10
+  tail call void @lv_timer_resume(ptr noundef %61) #11
   br label %64
 
 64:                                               ; preds = %62, %63
-  %65 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  %65 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #11
   br label %67
 
 anim_mark_list_change.exit:                       ; preds = %.lr.ph.split.split, %51
-  %66 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.01420) #10
+  %66 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.01420) #11
   br label %67
 
 67:                                               ; preds = %anim_mark_list_change.exit, %64
@@ -1003,18 +1003,18 @@ declare ptr @lv_ll_get_head(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @remove_anim(ptr noundef %0) #0 {
-  tail call void @lv_ll_remove(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef %0) #10
+  tail call void @lv_ll_remove(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef %0) #11
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !52
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void %3(ptr noundef nonnull %0) #10
+  tail call void %3(ptr noundef nonnull %0) #11
   br label %5
 
 5:                                                ; preds = %4, %1
-  tail call void @lv_free(ptr noundef nonnull %0) #10
+  tail call void @lv_free(ptr noundef nonnull %0) #11
   ret void
 }
 
@@ -1024,7 +1024,7 @@ declare void @lv_ll_clear_custom(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @lv_anim_get(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  %3 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #11
   %.not11 = icmp eq ptr %3, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -1039,7 +1039,7 @@ define noundef ptr @lv_anim_get(ptr noundef readnone captures(address) %0, ptr n
   br i1 %6, label %._crit_edge, label %7
 
 7:                                                ; preds = %.lr.ph.split.us
-  %8 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.012.us) #10
+  %8 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.012.us) #11
   %.not.us = icmp eq ptr %8, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !59
 
@@ -1056,7 +1056,7 @@ define noundef ptr @lv_anim_get(ptr noundef readnone captures(address) %0, ptr n
   br i1 %14, label %._crit_edge, label %15
 
 15:                                               ; preds = %.lr.ph.split, %11
-  %16 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.012) #10
+  %16 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.012) #11
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !59
 
@@ -1073,7 +1073,7 @@ define ptr @lv_anim_get_timer() local_unnamed_addr #4 {
 
 ; Function Attrs: nounwind uwtable
 define zeroext i16 @lv_anim_count_running() local_unnamed_addr #0 {
-  %1 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  %1 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #11
   %.not4 = icmp eq ptr %1, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
@@ -1081,7 +1081,7 @@ define zeroext i16 @lv_anim_count_running() local_unnamed_addr #0 {
   %.06 = phi ptr [ %3, %.lr.ph ], [ %1, %0 ]
   %.035 = phi i16 [ %2, %.lr.ph ], [ 0, %0 ]
   %2 = add i16 %.035, 1
-  %3 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.06) #10
+  %3 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.06) #11
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
 
@@ -1153,8 +1153,8 @@ define i32 @lv_anim_path_ease_in(ptr noundef readonly captures(none) %0) local_u
   %3 = load i32, ptr %2, align 8, !tbaa !38
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %5 = load i32, ptr %4, align 4, !tbaa !43
-  %6 = tail call i32 @lv_map(i32 noundef %3, i32 noundef 0, i32 noundef %5, i32 noundef 0, i32 noundef 1024) #10
-  %7 = tail call i32 @lv_cubic_bezier(i32 noundef %6, i32 noundef 430, i32 noundef 0, i32 noundef 1024, i32 noundef 1024) #10
+  %6 = tail call i32 @lv_map(i32 noundef %3, i32 noundef 0, i32 noundef %5, i32 noundef 0, i32 noundef 1024) #11
+  %7 = tail call i32 @lv_cubic_bezier(i32 noundef %6, i32 noundef 430, i32 noundef 0, i32 noundef 1024, i32 noundef 1024) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load i32, ptr %8, align 8, !tbaa !41
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1172,8 +1172,8 @@ define i32 @lv_anim_path_ease_out(ptr noundef readonly captures(none) %0) local_
   %3 = load i32, ptr %2, align 8, !tbaa !38
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %5 = load i32, ptr %4, align 4, !tbaa !43
-  %6 = tail call i32 @lv_map(i32 noundef %3, i32 noundef 0, i32 noundef %5, i32 noundef 0, i32 noundef 1024) #10
-  %7 = tail call i32 @lv_cubic_bezier(i32 noundef %6, i32 noundef 0, i32 noundef 0, i32 noundef 593, i32 noundef 1024) #10
+  %6 = tail call i32 @lv_map(i32 noundef %3, i32 noundef 0, i32 noundef %5, i32 noundef 0, i32 noundef 1024) #11
+  %7 = tail call i32 @lv_cubic_bezier(i32 noundef %6, i32 noundef 0, i32 noundef 0, i32 noundef 593, i32 noundef 1024) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load i32, ptr %8, align 8, !tbaa !41
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1191,8 +1191,8 @@ define i32 @lv_anim_path_ease_in_out(ptr noundef readonly captures(none) %0) loc
   %3 = load i32, ptr %2, align 8, !tbaa !38
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %5 = load i32, ptr %4, align 4, !tbaa !43
-  %6 = tail call i32 @lv_map(i32 noundef %3, i32 noundef 0, i32 noundef %5, i32 noundef 0, i32 noundef 1024) #10
-  %7 = tail call i32 @lv_cubic_bezier(i32 noundef %6, i32 noundef 430, i32 noundef 0, i32 noundef 593, i32 noundef 1024) #10
+  %6 = tail call i32 @lv_map(i32 noundef %3, i32 noundef 0, i32 noundef %5, i32 noundef 0, i32 noundef 1024) #11
+  %7 = tail call i32 @lv_cubic_bezier(i32 noundef %6, i32 noundef 430, i32 noundef 0, i32 noundef 593, i32 noundef 1024) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load i32, ptr %8, align 8, !tbaa !41
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1210,8 +1210,8 @@ define i32 @lv_anim_path_overshoot(ptr noundef readonly captures(none) %0) local
   %3 = load i32, ptr %2, align 8, !tbaa !38
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %5 = load i32, ptr %4, align 4, !tbaa !43
-  %6 = tail call i32 @lv_map(i32 noundef %3, i32 noundef 0, i32 noundef %5, i32 noundef 0, i32 noundef 1024) #10
-  %7 = tail call i32 @lv_cubic_bezier(i32 noundef %6, i32 noundef 341, i32 noundef 0, i32 noundef 683, i32 noundef 1300) #10
+  %6 = tail call i32 @lv_map(i32 noundef %3, i32 noundef 0, i32 noundef %5, i32 noundef 0, i32 noundef 1024) #11
+  %7 = tail call i32 @lv_cubic_bezier(i32 noundef %6, i32 noundef 341, i32 noundef 0, i32 noundef 683, i32 noundef 1300) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load i32, ptr %8, align 8, !tbaa !41
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1229,7 +1229,7 @@ define i32 @lv_anim_path_bounce(ptr noundef readonly captures(none) %0) local_un
   %3 = load i32, ptr %2, align 8, !tbaa !38
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %5 = load i32, ptr %4, align 4, !tbaa !43
-  %6 = tail call i32 @lv_map(i32 noundef %3, i32 noundef 0, i32 noundef %5, i32 noundef 0, i32 noundef 1024) #10
+  %6 = tail call i32 @lv_map(i32 noundef %3, i32 noundef 0, i32 noundef %5, i32 noundef 0, i32 noundef 1024) #11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load i32, ptr %7, align 8, !tbaa !41
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1289,7 +1289,7 @@ define i32 @lv_anim_path_bounce(ptr noundef readonly captures(none) %0) local_un
   %.0 = phi i32 [ %narrow, %13 ], [ %20, %18 ], [ %25, %24 ], [ %31, %29 ], [ %36, %35 ], [ %6, %33 ]
   %39 = tail call i32 @llvm.smax.i32(i32 %.0, i32 0)
   %40 = tail call i32 @llvm.umin.i32(i32 %39, i32 1024)
-  %41 = tail call i32 @lv_bezier3(i32 noundef %40, i32 noundef 0, i32 noundef 500, i32 noundef 800, i32 noundef 1024) #10
+  %41 = tail call i32 @lv_bezier3(i32 noundef %40, i32 noundef 0, i32 noundef 500, i32 noundef 800, i32 noundef 1024) #11
   %42 = mul nsw i32 %41, %.046
   %43 = ashr i32 %42, 10
   %44 = load i32, ptr %7, align 8, !tbaa !41
@@ -1330,8 +1330,8 @@ define i32 @lv_anim_path_custom_bezier3(ptr noundef readonly captures(none) %0) 
   %15 = load i32, ptr %14, align 8, !tbaa !38
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %17 = load i32, ptr %16, align 4, !tbaa !43
-  %18 = tail call i32 @lv_map(i32 noundef %15, i32 noundef 0, i32 noundef %17, i32 noundef 0, i32 noundef 1024) #10
-  %19 = tail call i32 @lv_cubic_bezier(i32 noundef %18, i32 noundef range(i32 -32768, 32768) %4, i32 noundef range(i32 -32768, 32768) %7, i32 noundef range(i32 -32768, 32768) %10, i32 noundef range(i32 -32768, 32768) %13) #10
+  %18 = tail call i32 @lv_map(i32 noundef %15, i32 noundef 0, i32 noundef %17, i32 noundef 0, i32 noundef 1024) #11
+  %19 = tail call i32 @lv_cubic_bezier(i32 noundef %18, i32 noundef range(i32 -32768, 32768) %4, i32 noundef range(i32 -32768, 32768) %7, i32 noundef range(i32 -32768, 32768) %10, i32 noundef range(i32 -32768, 32768) %13) #11
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %21 = load i32, ptr %20, align 8, !tbaa !41
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1545,7 +1545,7 @@ define noundef ptr @lv_anim_custom_get(ptr noundef readonly captures(address_is_
 
 5:                                                ; preds = %2, %3
   %6 = phi ptr [ %4, %3 ], [ null, %2 ]
-  %7 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  %7 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #11
   %.not11.i = icmp eq ptr %7, null
   br i1 %.not11.i, label %lv_anim_get.exit, label %.lr.ph.i
 
@@ -1560,7 +1560,7 @@ define noundef ptr @lv_anim_custom_get(ptr noundef readonly captures(address_is_
   br i1 %10, label %lv_anim_get.exit, label %11
 
 11:                                               ; preds = %.lr.ph.split.us.i
-  %12 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.012.us.i) #10
+  %12 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.012.us.i) #11
   %.not.us.i = icmp eq ptr %12, null
   br i1 %.not.us.i, label %lv_anim_get.exit, label %.lr.ph.split.us.i, !llvm.loop !59
 
@@ -1577,7 +1577,7 @@ define noundef ptr @lv_anim_custom_get(ptr noundef readonly captures(address_is_
   br i1 %18, label %lv_anim_get.exit, label %19
 
 19:                                               ; preds = %15, %.lr.ph.split.i
-  %20 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.012.i) #10
+  %20 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.012.i) #11
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %lv_anim_get.exit, label %.lr.ph.split.i, !llvm.loop !59
 
@@ -1641,7 +1641,7 @@ define void @lv_anim_pause(ptr noundef captures(address_is_null) %0) local_unnam
   %4 = load i8, ptr %3, align 8
   %5 = or i8 %4, 1
   store i8 %5, ptr %3, align 8
-  %6 = tail call i32 @lv_tick_get() #10
+  %6 = tail call i32 @lv_tick_get() #11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %6, ptr %7, align 8, !tbaa !36
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -1662,7 +1662,7 @@ define void @lv_anim_pause_for(ptr noundef captures(address_is_null) %0, i32 nou
   %5 = load i8, ptr %4, align 8
   %6 = or i8 %5, 1
   store i8 %6, ptr %4, align 8
-  %7 = tail call i32 @lv_tick_get() #10
+  %7 = tail call i32 @lv_tick_get() #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %7, ptr %8, align 8, !tbaa !36
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -1702,17 +1702,17 @@ declare void @lv_timer_resume(ptr noundef) local_unnamed_addr #1
 
 declare i32 @lv_cubic_bezier(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #9
+declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1723,8 +1723,9 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

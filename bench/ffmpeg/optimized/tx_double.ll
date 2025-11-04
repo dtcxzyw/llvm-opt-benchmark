@@ -188,7 +188,7 @@ define void @ff_tx_init_tabs_double(i32 noundef %0) local_unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i32, ptr @sr_tabs_init_once, i64 %indvars.iv
   %12 = getelementptr inbounds nuw ptr, ptr @sr_tabs_init_funcs, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !5
-  %14 = tail call i32 @pthread_once(ptr noundef nonnull %11, ptr noundef %13) #16
+  %14 = tail call i32 @pthread_once(ptr noundef nonnull %11, ptr noundef %13) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -221,7 +221,7 @@ define void @ff_tx_init_tabs_double(i32 noundef %0) local_unnamed_addr #0 {
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i32, ptr @nptwo_tabs_init_once, i64 %indvars.iv47
   %26 = load ptr, ptr %17, align 8, !tbaa !14
-  %27 = tail call i32 @pthread_once(ptr noundef nonnull %25, ptr noundef %26) #16
+  %27 = tail call i32 @pthread_once(ptr noundef nonnull %25, ptr noundef %26) #17
   %28 = sdiv i32 %.141, %21
   br label %.loopexit
 
@@ -253,7 +253,7 @@ define range(i32 -12, 1) i32 @ff_tx_mdct_gen_exp_double(ptr noundef captures(non
   %11 = and i32 %3, -2
   %12 = select i1 %.not.not, i32 %4, i32 %11
   %13 = sext i32 %12 to i64
-  %14 = tail call ptr @av_malloc_array(i64 noundef %13, i64 noundef 16) #16
+  %14 = tail call ptr @av_malloc_array(i64 noundef %13, i64 noundef 16) #17
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %15, align 8, !tbaa !27
   %.not40 = icmp eq ptr %14, null
@@ -319,16 +319,16 @@ define range(i32 -12, 1) i32 @ff_tx_mdct_gen_exp_double(ptr noundef captures(non
 
 declare ptr @av_malloc_array(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.cos.f64(double) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sin.f64(double) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -795,8 +795,8 @@ define internal void @ff_tx_fft2_ns_double_c(ptr readnone captures(none) %0, ptr
 
 ; Function Attrs: cold nounwind optsize uwtable
 define internal i32 @ff_tx_fft_sr_codelet_init_double_c(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef %3, i32 noundef %4, i32 %5, ptr readnone captures(none) %6) #0 {
-  tail call void @ff_tx_init_tabs_double(i32 noundef %4) #17
-  %8 = tail call i32 @ff_tx_gen_ptwo_revtab(ptr noundef %0, ptr noundef %3) #16
+  tail call void @ff_tx_init_tabs_double(i32 noundef %4) #18
+  %8 = tail call i32 @ff_tx_gen_ptwo_revtab(ptr noundef %0, ptr noundef %3) #17
   ret i32 %8
 }
 
@@ -987,7 +987,7 @@ define internal void @ff_tx_fft8_ns_double_c(ptr readnone captures(none) %0, ptr
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -2177,12 +2177,12 @@ define internal void @ff_tx_fft3_double_c(ptr readnone captures(none) %0, ptr no
 
 ; Function Attrs: cold nounwind optsize uwtable
 define internal i32 @ff_tx_fft_factor_init_double_c(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 %5, ptr readnone captures(none) %6) #0 {
-  tail call void @ff_tx_init_tabs_double(i32 noundef %4) #17
+  tail call void @ff_tx_init_tabs_double(i32 noundef %4) #18
   %8 = icmp eq i32 %4, 15
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @ff_tx_gen_pfa_input_map(ptr noundef %0, ptr noundef %3, i32 noundef 3, i32 noundef 5) #16
+  %10 = tail call i32 @ff_tx_gen_pfa_input_map(ptr noundef %0, ptr noundef %3, i32 noundef 3, i32 noundef 5) #17
   br label %15
 
 11:                                               ; preds = %7
@@ -2191,7 +2191,7 @@ define internal i32 @ff_tx_fft_factor_init_double_c(ptr noundef %0, ptr readnone
   br i1 %.not, label %15, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @ff_tx_gen_default_map(ptr noundef %0, ptr noundef %3) #16
+  %14 = tail call i32 @ff_tx_gen_default_map(ptr noundef %0, ptr noundef %3) #17
   br label %15
 
 15:                                               ; preds = %11, %13, %9
@@ -3038,7 +3038,7 @@ define internal void @ff_tx_fft_double_c(ptr noundef readonly captures(none) %0,
   %19 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %14, %11 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !5
-  tail call void %21(ptr noundef %19, ptr noundef %1, ptr noundef %12, i64 noundef %3) #16
+  tail call void %21(ptr noundef %19, ptr noundef %1, ptr noundef %12, i64 noundef %3) #17
   ret void
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3064,7 +3064,7 @@ define internal i32 @ff_tx_fft_init_double_c(ptr noundef %0, ptr readnone captur
   store i32 %10, ptr %8, align 4, !tbaa !61
   %11 = and i64 %2, 6917529027641081854
   %12 = or disjoint i64 %11, 2305843009213693953
-  %13 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 2, i64 noundef %12, ptr noundef nonnull %8, i32 noundef %4, i32 noundef %5, ptr noundef %6) #16
+  %13 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 2, i64 noundef %12, ptr noundef nonnull %8, i32 noundef %4, i32 noundef %5, ptr noundef %6) #17
   %.not17 = icmp eq i32 %13, 0
   br i1 %.not17, label %14, label %18
 
@@ -3072,7 +3072,7 @@ define internal i32 @ff_tx_fft_init_double_c(ptr noundef %0, ptr readnone captur
   br i1 %.not, label %17, label %15
 
 15:                                               ; preds = %14
-  %16 = call i32 @ff_tx_gen_inplace_map(ptr noundef %0, i32 noundef %4) #16
+  %16 = call i32 @ff_tx_gen_inplace_map(ptr noundef %0, i32 noundef %4) #17
   %.not18 = icmp eq i32 %16, 0
   br i1 %.not18, label %17, label %18
 
@@ -3138,7 +3138,7 @@ define internal void @ff_tx_fft_inplace_double_c(ptr noundef readonly captures(n
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8, !tbaa !5
   %29 = load ptr, ptr %7, align 8, !tbaa !58
-  tail call void %28(ptr noundef %29, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %3) #16
+  tail call void %28(ptr noundef %29, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %3) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -3147,7 +3147,7 @@ define internal void @ff_tx_fft_inplace_double_c(ptr noundef readonly captures(n
 define internal i32 @ff_tx_fft_inplace_small_init_double_c(ptr noundef initializes((24, 32)) %0, ptr readnone captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) #0 {
   %8 = sext i32 %4 to i64
   %9 = shl nsw i64 %8, 4
-  %10 = tail call noalias ptr @av_malloc(i64 noundef %9) #16
+  %10 = tail call noalias ptr @av_malloc(i64 noundef %9) #17
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %10, ptr %11, align 8, !tbaa !57
   %.not = icmp eq ptr %10, null
@@ -3155,7 +3155,7 @@ define internal i32 @ff_tx_fft_inplace_small_init_double_c(ptr noundef initializ
 
 12:                                               ; preds = %7
   %13 = and i64 %2, -2
-  %14 = tail call i32 @ff_tx_fft_init_double_c(ptr noundef nonnull %0, ptr poison, i64 noundef %13, ptr poison, i32 noundef %4, i32 noundef %5, ptr noundef %6) #17
+  %14 = tail call i32 @ff_tx_fft_init_double_c(ptr noundef nonnull %0, ptr poison, i64 noundef %13, ptr poison, i32 noundef %4, i32 noundef %5, ptr noundef %6) #18
   br label %15
 
 15:                                               ; preds = %7, %12
@@ -3227,7 +3227,7 @@ define internal void @ff_tx_fft_pfa_double_c(ptr noundef readonly captures(none)
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds %struct.AVComplexDouble, ptr %36, i64 %39
   %41 = load ptr, ptr %19, align 8, !tbaa !27
-  tail call void %34(ptr noundef %35, ptr noundef %40, ptr noundef %41, i64 noundef %25) #16
+  tail call void %34(ptr noundef %35, ptr noundef %40, ptr noundef %41, i64 noundef %25) #17
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %24
   br i1 %exitcond75.not, label %.preheader57, label %.preheader58.us, !llvm.loop !67
@@ -3242,7 +3242,7 @@ define internal void @ff_tx_fft_pfa_double_c(ptr noundef readonly captures(none)
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds %struct.AVComplexDouble, ptr %44, i64 %47
   %49 = load ptr, ptr %19, align 8, !tbaa !27
-  tail call void %42(ptr noundef %43, ptr noundef %48, ptr noundef %49, i64 noundef %25) #16
+  tail call void %42(ptr noundef %43, ptr noundef %48, ptr noundef %49, i64 noundef %25) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %24
   br i1 %exitcond.not, label %.preheader, label %.preheader58, !llvm.loop !67
@@ -3277,7 +3277,7 @@ define internal void @ff_tx_fft_pfa_double_c(ptr noundef readonly captures(none)
   %62 = getelementptr inbounds %struct.AVComplexDouble, ptr %20, i64 %61
   %63 = load ptr, ptr %18, align 8, !tbaa !57
   %64 = getelementptr inbounds %struct.AVComplexDouble, ptr %63, i64 %61
-  tail call void %58(ptr noundef nonnull %60, ptr noundef %62, ptr noundef %64, i64 noundef 16) #16
+  tail call void %58(ptr noundef nonnull %60, ptr noundef %62, ptr noundef %64, i64 noundef 16) #17
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
   br i1 %exitcond80.not, label %.preheader, label %57, !llvm.loop !68
@@ -3306,7 +3306,7 @@ define internal i32 @ff_tx_fft_pfa_init_double_c(ptr noundef %0, ptr readnone ca
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 1, ptr %8, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %10 = call i32 @ff_tx_decompose_length(ptr noundef nonnull %9, i32 noundef 2, i32 noundef %4, i32 noundef %5) #16
+  %10 = call i32 @ff_tx_decompose_length(ptr noundef nonnull %9, i32 noundef 2, i32 noundef %4, i32 noundef %5) #17
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %.thread142, label %.preheader149
 
@@ -3324,11 +3324,11 @@ define internal i32 @ff_tx_fft_pfa_init_double_c(ptr noundef %0, ptr readnone ca
   %.not = icmp samesign ult i32 %15, 2
   %spec.select = select i1 %.not, i32 %13, i32 %14
   %spec.select131 = select i1 %.not, i32 %14, i32 %13
-  call void @ff_tx_clear_ctx(ptr noundef %0) #16
+  call void @ff_tx_clear_ctx(ptr noundef %0) #17
   store i32 1, ptr %8, align 4, !tbaa !61
   %16 = and i64 %.0104159, 6917529027641081854
   %17 = or disjoint i64 %16, -6917529027641081856
-  %18 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 2, i64 noundef %17, ptr noundef nonnull %8, i32 noundef %spec.select, i32 noundef %5, ptr noundef %6) #16
+  %18 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 2, i64 noundef %17, ptr noundef nonnull %8, i32 noundef %spec.select, i32 noundef %5, ptr noundef %6) #17
   %19 = icmp eq i32 %18, -12
   br i1 %19, label %.thread142, label %20
 
@@ -3338,7 +3338,7 @@ define internal i32 @ff_tx_fft_pfa_init_double_c(ptr noundef %0, ptr readnone ca
 
 22:                                               ; preds = %20
   %23 = or disjoint i64 %16, -9223372036854775808
-  %24 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 2, i64 noundef %23, ptr noundef nonnull %8, i32 noundef %spec.select, i32 noundef %5, ptr noundef %6) #16
+  %24 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 2, i64 noundef %23, ptr noundef nonnull %8, i32 noundef %spec.select, i32 noundef %5, ptr noundef %6) #17
   %25 = icmp eq i32 %24, -12
   br i1 %25, label %.thread142, label %26
 
@@ -3349,7 +3349,7 @@ define internal i32 @ff_tx_fft_pfa_init_double_c(ptr noundef %0, ptr readnone ca
 28:                                               ; preds = %20, %26
   store i32 2, ptr %8, align 4, !tbaa !61
   %29 = or disjoint i64 %16, 2305843009213693953
-  %30 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 2, i64 noundef %29, ptr noundef nonnull %8, i32 noundef %spec.select131, i32 noundef %5, ptr noundef %6) #16
+  %30 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 2, i64 noundef %29, ptr noundef nonnull %8, i32 noundef %spec.select131, i32 noundef %5, ptr noundef %6) #17
   %31 = icmp eq i32 %30, -12
   br i1 %31, label %.thread142, label %.lr.ph.preheader
 
@@ -3367,7 +3367,7 @@ define internal i32 @ff_tx_fft_pfa_init_double_c(ptr noundef %0, ptr readnone ca
 
 37:                                               ; preds = %.lr.ph
   %38 = or disjoint i64 %35, -9223372036854775808
-  %39 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 2, i64 noundef %38, ptr noundef nonnull %8, i32 noundef %spec.select131, i32 noundef %5, ptr noundef %6) #16
+  %39 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 2, i64 noundef %38, ptr noundef nonnull %8, i32 noundef %spec.select131, i32 noundef %5, ptr noundef %6) #17
   %40 = icmp eq i32 %39, -12
   br i1 %40, label %.thread142, label %41
 
@@ -3379,7 +3379,7 @@ define internal i32 @ff_tx_fft_pfa_init_double_c(ptr noundef %0, ptr readnone ca
   br i1 %.not125, label %.loopexit, label %44
 
 44:                                               ; preds = %43
-  %45 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 2, i64 noundef %33, ptr noundef nonnull %8, i32 noundef %spec.select131, i32 noundef %5, ptr noundef %6) #16
+  %45 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 2, i64 noundef %33, ptr noundef nonnull %8, i32 noundef %spec.select131, i32 noundef %5, ptr noundef %6) #17
   %46 = icmp eq i32 %45, -12
   br i1 %46, label %.thread142, label %.lr.ph
 
@@ -3397,14 +3397,14 @@ define internal i32 @ff_tx_fft_pfa_init_double_c(ptr noundef %0, ptr readnone ca
   %51 = load i32, ptr %50, align 8, !tbaa !17
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 160
   %53 = load i32, ptr %52, align 8, !tbaa !17
-  %54 = call i32 @ff_tx_gen_compound_mapping(ptr noundef %0, ptr noundef %3, i32 noundef 0, i32 noundef %51, i32 noundef %53) #16
+  %54 = call i32 @ff_tx_gen_compound_mapping(ptr noundef %0, ptr noundef %3, i32 noundef 0, i32 noundef %51, i32 noundef %53) #17
   %.not126 = icmp eq i32 %54, 0
   br i1 %.not126, label %55, label %.thread142
 
 55:                                               ; preds = %.thread147
   %56 = sext i32 %4 to i64
   %57 = shl nsw i64 %56, 4
-  %58 = call noalias ptr @av_malloc(i64 noundef %57) #16
+  %58 = call noalias ptr @av_malloc(i64 noundef %57) #17
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %58, ptr %59, align 8, !tbaa !57
   %.not127 = icmp eq ptr %58, null
@@ -3479,7 +3479,7 @@ define internal i32 @ff_tx_fft_pfa_init_double_c(ptr noundef %0, ptr readnone ca
 
 92:                                               ; preds = %91
   %93 = shl nsw i64 %.0103, 4
-  %94 = call noalias ptr @av_malloc(i64 noundef %93) #16
+  %94 = call noalias ptr @av_malloc(i64 noundef %93) #17
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %94, ptr %95, align 8, !tbaa !27
   %.not130 = icmp eq ptr %94, null
@@ -3552,7 +3552,7 @@ define internal void @ff_tx_fft_pfa_ns_double_c(ptr noundef readonly captures(no
   %36 = getelementptr inbounds %struct.AVComplexDouble, ptr %32, i64 %35
   %37 = mul nsw i64 %indvars.iv, %25
   %38 = getelementptr inbounds %struct.AVComplexDouble, ptr %2, i64 %37
-  tail call void %30(ptr noundef %31, ptr noundef %36, ptr noundef %38, i64 noundef %24) #16
+  tail call void %30(ptr noundef %31, ptr noundef %36, ptr noundef %38, i64 noundef %24) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %23
   br i1 %exitcond.not, label %.preheader47, label %29, !llvm.loop !73
@@ -3577,7 +3577,7 @@ define internal void @ff_tx_fft_pfa_ns_double_c(ptr noundef readonly captures(no
   %48 = getelementptr inbounds %struct.AVComplexDouble, ptr %20, i64 %47
   %49 = load ptr, ptr %18, align 8, !tbaa !57
   %50 = getelementptr inbounds %struct.AVComplexDouble, ptr %49, i64 %47
-  tail call void %44(ptr noundef nonnull %46, ptr noundef %48, ptr noundef %50, i64 noundef 16) #16
+  tail call void %44(ptr noundef nonnull %46, ptr noundef %48, ptr noundef %50, i64 noundef 16) #17
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
   br i1 %exitcond58.not, label %.preheader, label %43, !llvm.loop !74
@@ -3727,7 +3727,7 @@ define internal range(i32 -12, 1) i32 @ff_tx_fft_init_naive_small_double_c(ptr n
   %12 = mul nsw i32 %4, %4
   %13 = zext nneg i32 %12 to i64
   %14 = shl nuw nsw i64 %13, 4
-  %15 = tail call noalias ptr @av_malloc(i64 noundef %14) #16
+  %15 = tail call noalias ptr @av_malloc(i64 noundef %14) #17
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %16, align 8, !tbaa !27
   %.not23 = icmp eq ptr %15, null
@@ -3808,7 +3808,7 @@ define internal void @ff_tx_mdct_fwd_double_c(ptr noundef readonly captures(none
   %24 = load ptr, ptr %23, align 8, !tbaa !5
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8, !tbaa !58
-  tail call void %24(ptr noundef %26, ptr noundef %1, ptr noundef %1, i64 noundef 16) #16
+  tail call void %24(ptr noundef %26, ptr noundef %1, ptr noundef %1, i64 noundef 16) #17
   %27 = icmp sgt i32 %21, 0
   br i1 %27, label %.lr.ph117.preheader, label %._crit_edge118
 
@@ -3948,20 +3948,20 @@ define internal i32 @ff_tx_mdct_init_double_c(ptr noundef initializes((140, 152)
   %14 = and i64 %2, 6917529027641081854
   %15 = or disjoint i64 %14, 2305843009213693953
   %16 = ashr i32 %4, 1
-  %17 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 2, i64 noundef %15, ptr noundef nonnull %8, i32 noundef %16, i32 noundef %5, ptr noundef nonnull %6) #16
+  %17 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 2, i64 noundef %15, ptr noundef nonnull %8, i32 noundef %16, i32 noundef %5, ptr noundef nonnull %6) #17
   %.not48 = icmp eq i32 %17, 0
   br i1 %.not48, label %21, label %18
 
 18:                                               ; preds = %7
   %19 = or disjoint i64 %14, 1
-  %20 = call i32 @ff_tx_init_subtx(ptr noundef nonnull %0, i32 noundef 2, i64 noundef %19, ptr noundef nonnull %8, i32 noundef %16, i32 noundef %5, ptr noundef nonnull %6) #16
+  %20 = call i32 @ff_tx_init_subtx(ptr noundef nonnull %0, i32 noundef 2, i64 noundef %19, ptr noundef nonnull %8, i32 noundef %16, i32 noundef %5, ptr noundef nonnull %6) #17
   %.not49 = icmp eq i32 %20, 0
   br i1 %.not49, label %21, label %.loopexit
 
 21:                                               ; preds = %18, %7
   %22 = sext i32 %16 to i64
   %23 = shl nsw i64 %22, 2
-  %24 = call noalias ptr @av_malloc(i64 noundef %23) #16
+  %24 = call noalias ptr @av_malloc(i64 noundef %23) #17
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %24, ptr %25, align 8, !tbaa !59
   %.not50 = icmp eq ptr %24, null
@@ -4061,7 +4061,7 @@ define internal void @ff_tx_mdct_inv_double_c(ptr noundef readonly captures(none
   %20 = load ptr, ptr %19, align 8, !tbaa !5
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !58
-  tail call void %20(ptr noundef %22, ptr noundef %1, ptr noundef %1, i64 noundef 16) #16
+  tail call void %20(ptr noundef %22, ptr noundef %1, ptr noundef %1, i64 noundef 16) #17
   %23 = sext i32 %8 to i64
   %24 = getelementptr inbounds %struct.AVComplexDouble, ptr %6, i64 %23
   %25 = icmp sgt i32 %18, 0
@@ -4328,7 +4328,7 @@ define internal void @ff_tx_mdct_pfa_3xM_fwd_double_c(ptr noundef readonly captu
   %127 = load ptr, ptr %28, align 8, !tbaa !57
   %128 = mul nsw i64 %indvars.iv147, %29
   %129 = getelementptr inbounds %struct.AVComplexDouble, ptr %127, i64 %128
-  tail call void %125(ptr noundef %126, ptr noundef %129, ptr noundef %129, i64 noundef 16) #16
+  tail call void %125(ptr noundef %126, ptr noundef %129, ptr noundef %129, i64 noundef 16) #17
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next148, 3
   br i1 %exitcond150.not, label %.preheader, label %124, !llvm.loop !92
@@ -4413,7 +4413,7 @@ define internal i32 @ff_tx_mdct_pfa_init_double_c(ptr noundef initializes((140, 
   store float %16, ptr %17, align 4, !tbaa !85
   %18 = and i64 %2, 6917529027641081854
   %19 = or disjoint i64 %18, 2305843009213693953
-  %20 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 2, i64 noundef %19, ptr noundef nonnull %8, i32 noundef %13, i32 noundef %5, ptr noundef nonnull %6) #16
+  %20 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 2, i64 noundef %19, ptr noundef nonnull %8, i32 noundef %13, i32 noundef %5, ptr noundef nonnull %6) #17
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %21, label %69
 
@@ -4421,7 +4421,7 @@ define internal i32 @ff_tx_mdct_pfa_init_double_c(ptr noundef initializes((140, 
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !76
   %24 = load i32, ptr %11, align 8, !tbaa !11
-  %25 = call i32 @ff_tx_gen_compound_mapping(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %23, i32 noundef %24, i32 noundef %13) #16
+  %25 = call i32 @ff_tx_gen_compound_mapping(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %23, i32 noundef %24, i32 noundef %13) #17
   %.not59 = icmp eq i32 %25, 0
   br i1 %.not59, label %26, label %69
 
@@ -4511,7 +4511,7 @@ define internal i32 @ff_tx_mdct_pfa_init_double_c(ptr noundef initializes((140, 
 ._crit_edge69:                                    ; preds = %63, %.preheader
   %59 = sext i32 %10 to i64
   %60 = shl nsw i64 %59, 4
-  %61 = call noalias ptr @av_malloc(i64 noundef %60) #16
+  %61 = call noalias ptr @av_malloc(i64 noundef %60) #17
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %61, ptr %62, align 8, !tbaa !57
   %.not62 = icmp eq ptr %61, null
@@ -4529,7 +4529,7 @@ define internal i32 @ff_tx_mdct_pfa_init_double_c(ptr noundef initializes((140, 
 
 67:                                               ; preds = %._crit_edge69
   %68 = sdiv i32 %10, %13
-  call void @ff_tx_init_tabs_double(i32 noundef %68) #17
+  call void @ff_tx_init_tabs_double(i32 noundef %68) #18
   br label %69
 
 69:                                               ; preds = %._crit_edge69, %53, %21, %7, %67
@@ -4771,7 +4771,7 @@ define internal void @ff_tx_mdct_pfa_5xM_fwd_double_c(ptr noundef readonly captu
   %174 = load ptr, ptr %32, align 8, !tbaa !57
   %175 = mul nsw i64 %indvars.iv147, %33
   %176 = getelementptr inbounds %struct.AVComplexDouble, ptr %174, i64 %175
-  tail call void %172(ptr noundef %173, ptr noundef %176, ptr noundef %176, i64 noundef 16) #16
+  tail call void %172(ptr noundef %173, ptr noundef %176, ptr noundef %176, i64 noundef 16) #17
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next148, 5
   br i1 %exitcond150.not, label %.preheader, label %171, !llvm.loop !100
@@ -5127,7 +5127,7 @@ define internal void @ff_tx_mdct_pfa_7xM_fwd_double_c(ptr noundef readonly captu
   %224 = load ptr, ptr %36, align 8, !tbaa !57
   %225 = mul nsw i64 %indvars.iv147, %37
   %226 = getelementptr inbounds %struct.AVComplexDouble, ptr %224, i64 %225
-  tail call void %222(ptr noundef %223, ptr noundef %226, ptr noundef %226, i64 noundef 16) #16
+  tail call void %222(ptr noundef %223, ptr noundef %226, ptr noundef %226, i64 noundef 16) #17
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next148, 7
   br i1 %exitcond150.not, label %.preheader, label %221, !llvm.loop !104
@@ -5513,7 +5513,7 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_double_c(ptr noundef readonly captu
   %240 = load ptr, ptr %40, align 8, !tbaa !57
   %241 = mul nsw i64 %indvars.iv147, %41
   %242 = getelementptr inbounds %struct.AVComplexDouble, ptr %240, i64 %241
-  tail call void %238(ptr noundef %239, ptr noundef %242, ptr noundef %242, i64 noundef 16) #16
+  tail call void %238(ptr noundef %239, ptr noundef %242, ptr noundef %242, i64 noundef 16) #17
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next148, 9
   br i1 %exitcond150.not, label %.preheader, label %237, !llvm.loop !108
@@ -6067,7 +6067,7 @@ fft15.exit:                                       ; preds = %59
   %372 = load ptr, ptr %51, align 8, !tbaa !57
   %373 = mul nsw i64 %indvars.iv166, %52
   %374 = getelementptr inbounds %struct.AVComplexDouble, ptr %372, i64 %373
-  tail call void %370(ptr noundef %371, ptr noundef %374, ptr noundef %374, i64 noundef 16) #16
+  tail call void %370(ptr noundef %371, ptr noundef %374, ptr noundef %374, i64 noundef 16) #17
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond169.not = icmp eq i64 %indvars.iv.next167, 15
   br i1 %exitcond169.not, label %.preheader, label %369, !llvm.loop !112
@@ -6286,7 +6286,7 @@ define internal void @ff_tx_mdct_pfa_3xM_inv_double_c(ptr noundef readonly captu
   %103 = load ptr, ptr %32, align 8, !tbaa !57
   %104 = mul nsw i64 %indvars.iv122, %.pre-phi
   %105 = getelementptr inbounds %struct.AVComplexDouble, ptr %103, i64 %104
-  tail call void %101(ptr noundef %102, ptr noundef %105, ptr noundef %105, i64 noundef 16) #16
+  tail call void %101(ptr noundef %102, ptr noundef %105, ptr noundef %105, i64 noundef 16) #17
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 3
   br i1 %exitcond125.not, label %.preheader, label %100, !llvm.loop !116
@@ -6552,7 +6552,7 @@ define internal void @ff_tx_mdct_pfa_5xM_inv_double_c(ptr noundef readonly captu
   %150 = load ptr, ptr %36, align 8, !tbaa !57
   %151 = mul nsw i64 %indvars.iv122, %.pre-phi
   %152 = getelementptr inbounds %struct.AVComplexDouble, ptr %150, i64 %151
-  tail call void %148(ptr noundef %149, ptr noundef %152, ptr noundef %152, i64 noundef 16) #16
+  tail call void %148(ptr noundef %149, ptr noundef %152, ptr noundef %152, i64 noundef 16) #17
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 5
   br i1 %exitcond125.not, label %.preheader, label %147, !llvm.loop !120
@@ -6874,7 +6874,7 @@ define internal void @ff_tx_mdct_pfa_7xM_inv_double_c(ptr noundef readonly captu
   %200 = load ptr, ptr %40, align 8, !tbaa !57
   %201 = mul nsw i64 %indvars.iv122, %.pre-phi
   %202 = getelementptr inbounds %struct.AVComplexDouble, ptr %200, i64 %201
-  tail call void %198(ptr noundef %199, ptr noundef %202, ptr noundef %202, i64 noundef 16) #16
+  tail call void %198(ptr noundef %199, ptr noundef %202, ptr noundef %202, i64 noundef 16) #17
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 7
   br i1 %exitcond125.not, label %.preheader, label %197, !llvm.loop !124
@@ -7226,7 +7226,7 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_double_c(ptr noundef readonly captu
   %216 = load ptr, ptr %44, align 8, !tbaa !57
   %217 = mul nsw i64 %indvars.iv122, %.pre-phi
   %218 = getelementptr inbounds %struct.AVComplexDouble, ptr %216, i64 %217
-  tail call void %214(ptr noundef %215, ptr noundef %218, ptr noundef %218, i64 noundef 16) #16
+  tail call void %214(ptr noundef %215, ptr noundef %218, ptr noundef %218, i64 noundef 16) #17
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 9
   br i1 %exitcond125.not, label %.preheader, label %213, !llvm.loop !128
@@ -7746,7 +7746,7 @@ fft15.exit:                                       ; preds = %61
   %348 = load ptr, ptr %55, align 8, !tbaa !57
   %349 = mul nsw i64 %indvars.iv141, %.pre-phi
   %350 = getelementptr inbounds %struct.AVComplexDouble, ptr %348, i64 %349
-  tail call void %346(ptr noundef %347, ptr noundef %350, ptr noundef %350, i64 noundef 16) #16
+  tail call void %346(ptr noundef %347, ptr noundef %350, ptr noundef %350, i64 noundef 16) #17
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next142, 15
   br i1 %exitcond144.not, label %.preheader, label %345, !llvm.loop !132
@@ -7959,7 +7959,7 @@ define internal void @ff_tx_mdct_inv_full_double_c(ptr noundef readonly captures
   %11 = load ptr, ptr %10, align 8, !tbaa !58
   %12 = sext i32 %7 to i64
   %13 = getelementptr inbounds double, ptr %1, i64 %12
-  tail call void %9(ptr noundef %11, ptr noundef %13, ptr noundef %2, i64 noundef %3) #16
+  tail call void %9(ptr noundef %11, ptr noundef %13, ptr noundef %2, i64 noundef %3) #17
   %14 = lshr i64 %3, 3
   %15 = icmp sgt i32 %7, 0
   br i1 %15, label %.lr.ph.preheader, label %._crit_edge
@@ -8008,7 +8008,7 @@ define internal i32 @ff_tx_mdct_inv_full_init_double_c(ptr noundef initializes((
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store float %10, ptr %11, align 4, !tbaa !85
   %12 = and i64 %2, -5
-  %13 = tail call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 3, i64 noundef %12, ptr noundef null, i32 noundef %4, i32 noundef 1, ptr noundef nonnull %6) #16
+  %13 = tail call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 3, i64 noundef %12, ptr noundef null, i32 noundef %4, i32 noundef 1, ptr noundef nonnull %6) #17
   ret i32 %13
 }
 
@@ -8026,7 +8026,7 @@ define internal void @ff_tx_rdft_r2c_double_c(ptr noundef readonly captures(none
   %14 = load ptr, ptr %13, align 8, !tbaa !5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !58
-  tail call void %14(ptr noundef %16, ptr noundef %1, ptr noundef %2, i64 noundef 16) #16
+  tail call void %14(ptr noundef %16, ptr noundef %1, ptr noundef %2, i64 noundef 16) #17
   %17 = load double, ptr %1, align 8, !tbaa !51
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load double, ptr %18, align 8, !tbaa !53
@@ -8137,7 +8137,7 @@ define internal i32 @ff_tx_rdft_init_double_c(ptr noundef initializes((140, 152)
   store float %13, ptr %14, align 4, !tbaa !85
   %15 = and i64 %2, -25
   %16 = ashr i32 %4, 1
-  %17 = tail call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 2, i64 noundef %15, ptr noundef null, i32 noundef %16, i32 noundef %5, ptr noundef nonnull %6) #16
+  %17 = tail call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 2, i64 noundef %15, ptr noundef null, i32 noundef %16, i32 noundef %5, ptr noundef nonnull %6) #17
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %18, label %.loopexit
 
@@ -8146,7 +8146,7 @@ define internal i32 @ff_tx_rdft_init_double_c(ptr noundef initializes((140, 152)
   %20 = add nsw i32 %19, 8
   %21 = sext i32 %20 to i64
   %22 = shl nsw i64 %21, 4
-  %23 = tail call noalias ptr @av_mallocz(i64 noundef %22) #16
+  %23 = tail call noalias ptr @av_mallocz(i64 noundef %22) #17
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %24, align 8, !tbaa !27
   %.not66 = icmp eq ptr %23, null
@@ -8265,7 +8265,7 @@ define internal void @ff_tx_rdft_r2r_double_c(ptr noundef readonly captures(none
   %16 = load ptr, ptr %15, align 8, !tbaa !5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !58
-  tail call void %16(ptr noundef %18, ptr noundef %1, ptr noundef %2, i64 noundef 16) #16
+  tail call void %16(ptr noundef %18, ptr noundef %1, ptr noundef %2, i64 noundef 16) #17
   %19 = load double, ptr %1, align 8, !tbaa !51
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load double, ptr %20, align 8, !tbaa !53
@@ -8391,7 +8391,7 @@ define internal void @ff_tx_rdft_r2r_mod2_double_c(ptr noundef readonly captures
   %16 = load ptr, ptr %15, align 8, !tbaa !5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !58
-  tail call void %16(ptr noundef %18, ptr noundef %1, ptr noundef %2, i64 noundef 16) #16
+  tail call void %16(ptr noundef %18, ptr noundef %1, ptr noundef %2, i64 noundef 16) #17
   %19 = load double, ptr %1, align 8, !tbaa !51
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load double, ptr %20, align 8, !tbaa !53
@@ -8540,7 +8540,7 @@ define internal void @ff_tx_rdft_r2i_double_c(ptr noundef readonly captures(none
   %16 = load ptr, ptr %15, align 8, !tbaa !5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !58
-  tail call void %16(ptr noundef %18, ptr noundef %1, ptr noundef %2, i64 noundef 16) #16
+  tail call void %16(ptr noundef %18, ptr noundef %1, ptr noundef %2, i64 noundef 16) #17
   %19 = load double, ptr %1, align 8, !tbaa !51
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load double, ptr %20, align 8, !tbaa !53
@@ -8654,7 +8654,7 @@ define internal void @ff_tx_rdft_r2i_mod2_double_c(ptr noundef readonly captures
   %16 = load ptr, ptr %15, align 8, !tbaa !5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !58
-  tail call void %16(ptr noundef %18, ptr noundef %1, ptr noundef %2, i64 noundef 16) #16
+  tail call void %16(ptr noundef %18, ptr noundef %1, ptr noundef %2, i64 noundef 16) #17
   %19 = load double, ptr %1, align 8, !tbaa !51
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load double, ptr %20, align 8, !tbaa !53
@@ -8824,7 +8824,7 @@ define internal void @ff_tx_rdft_c2r_double_c(ptr noundef readonly captures(none
   %41 = load ptr, ptr %40, align 8, !tbaa !5
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = load ptr, ptr %42, align 8, !tbaa !58
-  tail call void %41(ptr noundef %43, ptr noundef %1, ptr noundef nonnull %2, i64 noundef 16) #16
+  tail call void %41(ptr noundef %43, ptr noundef %1, ptr noundef nonnull %2, i64 noundef 16) #17
   ret void
 
 44:                                               ; preds = %.lr.ph, %44
@@ -8897,7 +8897,7 @@ define internal void @ff_tx_dctII_double_c(ptr noundef readonly captures(none) %
   %12 = load ptr, ptr %11, align 8, !tbaa !5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !58
-  tail call void %12(ptr noundef %14, ptr noundef %1, ptr noundef %2, i64 noundef 16) #16
+  tail call void %12(ptr noundef %14, ptr noundef %1, ptr noundef %2, i64 noundef 16) #17
   %15 = getelementptr inbounds double, ptr %1, i64 %.pre-phi
   %16 = load double, ptr %15, align 8, !tbaa !28
   %17 = icmp sgt i32 %5, 2
@@ -8982,7 +8982,7 @@ define internal i32 @ff_tx_dct_init_double_c(ptr noundef %0, ptr readnone captur
 
 15:                                               ; preds = %10, %7
   %.043 = phi i32 [ %11, %10 ], [ %4, %7 ]
-  %16 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 7, i64 noundef %2, ptr noundef null, i32 noundef %.043, i32 noundef %5, ptr noundef nonnull %8) #16
+  %16 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 7, i64 noundef %2, ptr noundef null, i32 noundef %.043, i32 noundef %5, ptr noundef nonnull %8) #17
   %.not46 = icmp eq i32 %16, 0
   br i1 %.not46, label %17, label %.loopexit
 
@@ -8991,7 +8991,7 @@ define internal i32 @ff_tx_dct_init_double_c(ptr noundef %0, ptr readnone captur
   %19 = mul nsw i32 %18, 3
   %20 = sext i32 %19 to i64
   %21 = shl nsw i64 %20, 3
-  %22 = call noalias ptr @av_malloc(i64 noundef %21) #16
+  %22 = call noalias ptr @av_malloc(i64 noundef %21) #17
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %23, align 8, !tbaa !27
   %.not47 = icmp eq ptr %22, null
@@ -9101,7 +9101,7 @@ define internal void @ff_tx_dctIII_double_c(ptr noundef readonly captures(none) 
   %16 = load ptr, ptr %15, align 8, !tbaa !5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !58
-  tail call void %16(ptr noundef %18, ptr noundef %1, ptr noundef nonnull %2, i64 noundef 4) #16
+  tail call void %16(ptr noundef %18, ptr noundef %1, ptr noundef nonnull %2, i64 noundef 4) #17
   %19 = icmp sgt i32 %14, 0
   br i1 %19, label %.lr.ph70.preheader, label %._crit_edge71
 
@@ -9191,7 +9191,7 @@ define internal void @ff_tx_dctI_double_c(ptr noundef readonly captures(none) %0
   %19 = load ptr, ptr %18, align 8, !tbaa !5
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !58
-  tail call void %19(ptr noundef %21, ptr noundef %1, ptr noundef %8, i64 noundef 8) #16
+  tail call void %19(ptr noundef %21, ptr noundef %1, ptr noundef %8, i64 noundef 8) #17
   ret void
 
 22:                                               ; preds = %.lr.ph, %22
@@ -9239,7 +9239,7 @@ define internal i32 @ff_tx_dcstI_init_double_c(ptr noundef %0, ptr noundef reado
   %23 = select i1 %22, i32 2, i32 0
   %24 = add nsw i32 %21, %23
   %25 = shl nsw i32 %24, 1
-  %26 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 7, i64 noundef %20, ptr noundef null, i32 noundef %25, i32 noundef 0, ptr noundef nonnull %8) #16
+  %26 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 7, i64 noundef %20, ptr noundef null, i32 noundef %25, i32 noundef 0, ptr noundef nonnull %8) #17
   %.not16 = icmp eq i32 %26, 0
   br i1 %.not16, label %27, label %34
 
@@ -9248,7 +9248,7 @@ define internal i32 @ff_tx_dcstI_init_double_c(ptr noundef %0, ptr noundef reado
   %29 = add i32 %28, 2
   %30 = sext i32 %29 to i64
   %31 = shl nsw i64 %30, 3
-  %32 = call noalias ptr @av_mallocz(i64 noundef %31) #16
+  %32 = call noalias ptr @av_mallocz(i64 noundef %31) #17
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %32, ptr %33, align 8, !tbaa !57
   %.not17 = icmp eq ptr %32, null
@@ -9286,7 +9286,7 @@ define internal void @ff_tx_dstI_double_c(ptr noundef readonly captures(none) %0
   %15 = load ptr, ptr %14, align 8, !tbaa !5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !58
-  tail call void %15(ptr noundef %17, ptr noundef %1, ptr noundef nonnull %8, i64 noundef 4) #16
+  tail call void %15(ptr noundef %17, ptr noundef %1, ptr noundef nonnull %8, i64 noundef 4) #17
   ret void
 
 18:                                               ; preds = %.lr.ph, %18
@@ -9312,16 +9312,16 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #15
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #16
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -9333,9 +9333,10 @@ attributes #11 = { nofree norecurse nosync nounwind memory(read, argmem: readwri
 attributes #12 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nounwind }
-attributes #17 = { cold }
+attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nounwind }
+attributes #18 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

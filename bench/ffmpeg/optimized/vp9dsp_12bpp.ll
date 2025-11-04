@@ -7,17 +7,17 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: cold nounwind optsize uwtable
 define void @ff_vp9dsp_init_12(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @ff_vp9dsp_intrapred_init_12(ptr noundef %0) #10
-  tail call fastcc void @vp9dsp_itxfm_init(ptr noundef %0) #10
-  tail call fastcc void @vp9dsp_loopfilter_init(ptr noundef %0) #10
-  tail call fastcc void @ff_vp9dsp_mc_init_12(ptr noundef %0) #10
-  tail call fastcc void @ff_vp9dsp_scaled_mc_init_12(ptr noundef %0) #10
+  tail call fastcc void @ff_vp9dsp_intrapred_init_12(ptr noundef %0) #11
+  tail call fastcc void @vp9dsp_itxfm_init(ptr noundef %0) #11
+  tail call fastcc void @vp9dsp_loopfilter_init(ptr noundef %0) #11
+  tail call fastcc void @ff_vp9dsp_mc_init_12(ptr noundef %0) #11
+  tail call fastcc void @ff_vp9dsp_scaled_mc_init_12(ptr noundef %0) #11
   ret void
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
 define internal fastcc void @ff_vp9dsp_intrapred_init_12(ptr noundef %0) unnamed_addr #0 {
-  tail call void @ff_vp9dsp_intrapred_init_10(ptr noundef %0) #11
+  tail call void @ff_vp9dsp_intrapred_init_10(ptr noundef %0) #12
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr @tm_4x4_c, ptr %2, align 8, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -137,7 +137,7 @@ define internal fastcc void @vp9dsp_loopfilter_init(ptr noundef writeonly captur
 
 ; Function Attrs: cold nounwind optsize uwtable
 define internal fastcc void @ff_vp9dsp_mc_init_12(ptr noundef %0) unnamed_addr #0 {
-  tail call void @ff_vp9dsp_mc_init_10(ptr noundef %0) #11
+  tail call void @ff_vp9dsp_mc_init_10(ptr noundef %0) #12
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 792
   store ptr @put_8tap_smooth_64hv_c, ptr %3, align 8, !tbaa !4
@@ -323,7 +323,7 @@ define internal fastcc void @ff_vp9dsp_mc_init_12(ptr noundef %0) unnamed_addr #
 
 ; Function Attrs: cold nounwind optsize uwtable
 define internal fastcc void @ff_vp9dsp_scaled_mc_init_12(ptr noundef %0) unnamed_addr #0 {
-  tail call void @ff_vp9dsp_scaled_mc_init_10(ptr noundef %0) #11
+  tail call void @ff_vp9dsp_scaled_mc_init_10(ptr noundef %0) #12
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2048
   store ptr @put_scaled_smooth_64_c, ptr %2, align 8, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2064
@@ -11568,17 +11568,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #9
+declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -11589,9 +11589,10 @@ attributes #5 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { cold }
-attributes #11 = { nounwind }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { cold }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

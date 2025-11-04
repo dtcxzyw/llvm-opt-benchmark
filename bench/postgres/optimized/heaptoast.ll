@@ -33,8 +33,8 @@ define dso_local void @heap_toast_delete(ptr noundef %0, ptr noundef %1, i1 noun
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
-  call void @heap_deform_tuple(ptr noundef %1, ptr noundef %7, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
-  call void @toast_delete_external(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext %2) #8
+  call void @heap_deform_tuple(ptr noundef %1, ptr noundef %7, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
+  call void @toast_delete_external(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext %2) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -62,12 +62,12 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 8
-  call void @heap_deform_tuple(ptr noundef %1, ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
+  call void @heap_deform_tuple(ptr noundef %1, ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #9
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %4
-  call void @heap_deform_tuple(ptr noundef nonnull %2, ptr noundef nonnull %13, ptr noundef nonnull %8, ptr noundef nonnull %6) #8
+  call void @heap_deform_tuple(ptr noundef nonnull %2, ptr noundef nonnull %13, ptr noundef nonnull %8, ptr noundef nonnull %6) #9
   br label %16
 
 16:                                               ; preds = %4, %15
@@ -84,7 +84,7 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   store ptr %.sink, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %9, ptr %21, align 8
-  call void @toast_tuple_init(ptr noundef nonnull %10) #8
+  call void @toast_tuple_init(ptr noundef nonnull %10) #9
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %23 = load i8, ptr %22, align 8
   %24 = and i8 %23, 4
@@ -115,7 +115,7 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
 37:                                               ; preds = %30, %33
   %38 = phi i64 [ %36, %33 ], [ 2032, %30 ]
   %39 = sub nsw i64 %38, %.083
-  %40 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
+  %40 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #9
   %41 = icmp ugt i64 %40, %39
   br i1 %41, label %.lr.ph, label %.thread104
 
@@ -124,7 +124,7 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   br label %43
 
 43:                                               ; preds = %.lr.ph, %73
-  %44 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext true, i1 noundef zeroext false) #8
+  %44 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext true, i1 noundef zeroext false) #9
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %.thread104, label %46
 
@@ -141,7 +141,7 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %46
-  call void @toast_tuple_try_compression(ptr noundef nonnull %10, i32 noundef %44) #8
+  call void @toast_tuple_try_compression(ptr noundef nonnull %10, i32 noundef %44) #9
   br label %62
 
 57:                                               ; preds = %46
@@ -168,17 +168,17 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   br i1 %.not94, label %73, label %72
 
 72:                                               ; preds = %68
-  call void @toast_tuple_externalize(ptr noundef nonnull %10, i32 noundef %44, i32 noundef %11) #8
+  call void @toast_tuple_externalize(ptr noundef nonnull %10, i32 noundef %44, i32 noundef %11) #9
   br label %73
 
 73:                                               ; preds = %62, %68, %72
-  %74 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
+  %74 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #9
   %75 = icmp ugt i64 %74, %39
   br i1 %75, label %43, label %.thread104
 
 .thread104:                                       ; preds = %73, %43, %37
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %77 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
+  %77 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #9
   %78 = icmp ugt i64 %77, %39
   br i1 %78, label %.lr.ph113, label %.critedge
 
@@ -190,35 +190,35 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   br i1 %.not95, label %.critedge, label %82
 
 82:                                               ; preds = %.lr.ph113
-  %83 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext false, i1 noundef zeroext false) #8
+  %83 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext false, i1 noundef zeroext false) #9
   %84 = icmp slt i32 %83, 0
   br i1 %84, label %.critedge, label %85
 
 85:                                               ; preds = %82
-  call void @toast_tuple_externalize(ptr noundef nonnull %10, i32 noundef %83, i32 noundef %11) #8
-  %86 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
+  call void @toast_tuple_externalize(ptr noundef nonnull %10, i32 noundef %83, i32 noundef %11) #9
+  %86 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #9
   %87 = icmp ugt i64 %86, %39
   br i1 %87, label %.lr.ph113, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph113, %85, %82, %.thread104
-  %88 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
+  %88 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #9
   %89 = icmp ugt i64 %88, %39
   br i1 %89, label %.lr.ph116, label %.thread108
 
 .lr.ph116:                                        ; preds = %.critedge, %92
-  %90 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext true, i1 noundef zeroext true) #8
+  %90 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext true, i1 noundef zeroext true) #9
   %91 = icmp slt i32 %90, 0
   br i1 %91, label %.thread108, label %92
 
 92:                                               ; preds = %.lr.ph116
-  call void @toast_tuple_try_compression(ptr noundef nonnull %10, i32 noundef %90) #8
-  %93 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
+  call void @toast_tuple_try_compression(ptr noundef nonnull %10, i32 noundef %90) #9
+  %93 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #9
   %94 = icmp ugt i64 %93, %39
   br i1 %94, label %.lr.ph116, label %.thread108
 
 .thread108:                                       ; preds = %92, %.lr.ph116, %.critedge
   %95 = sub nsw i64 8160, %.083
-  %96 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
+  %96 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #9
   %97 = icmp ugt i64 %96, %95
   br i1 %97, label %.lr.ph118, label %.critedge2
 
@@ -230,13 +230,13 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   br i1 %.not96, label %.critedge2, label %101
 
 101:                                              ; preds = %.lr.ph118
-  %102 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext false, i1 noundef zeroext true) #8
+  %102 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext false, i1 noundef zeroext true) #9
   %103 = icmp slt i32 %102, 0
   br i1 %103, label %.critedge2, label %104
 
 104:                                              ; preds = %101
-  call void @toast_tuple_externalize(ptr noundef nonnull %10, i32 noundef %102, i32 noundef %11) #8
-  %105 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
+  call void @toast_tuple_externalize(ptr noundef nonnull %10, i32 noundef %102, i32 noundef %11) #9
+  %105 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #9
   %106 = icmp ugt i64 %105, %95
   br i1 %106, label %.lr.ph118, label %.critedge2
 
@@ -263,12 +263,12 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
 
 118:                                              ; preds = %114, %110
   %.082 = phi i32 [ %117, %114 ], [ 24, %110 ]
-  %119 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
+  %119 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #9
   %120 = trunc i64 %119 to i32
   %121 = add i32 %.082, %120
   %122 = sext i32 %121 to i64
   %123 = add nsw i64 %122, 24
-  %124 = call ptr @palloc0(i64 noundef %123) #8
+  %124 = call ptr @palloc0(i64 noundef %123) #9
   store i32 %121, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -300,12 +300,12 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   %.not100 = icmp eq i8 %144, 0
   %145 = getelementptr inbounds nuw i8, ptr %124, i64 47
   %146 = select i1 %.not100, ptr null, ptr %145
-  call void @heap_fill_tuple(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %140, i64 noundef %141, ptr noundef nonnull %142, ptr noundef %146) #8
+  call void @heap_fill_tuple(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %140, i64 noundef %141, ptr noundef nonnull %142, ptr noundef %146) #9
   br label %147
 
 147:                                              ; preds = %.critedge2, %118
   %.0 = phi ptr [ %124, %118 ], [ %1, %.critedge2 ]
-  call void @toast_tuple_cleanup(ptr noundef nonnull %10) #8
+  call void @toast_tuple_cleanup(ptr noundef nonnull %10) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -343,7 +343,7 @@ define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @heap_deform_tuple(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
+  call void @heap_deform_tuple(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   %7 = sext i32 %6 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %5, i8 0, i64 %7, i1 false)
   %8 = icmp sgt i32 %6, 0
@@ -376,7 +376,7 @@ define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %17
-  %24 = call ptr @detoast_external_attr(ptr noundef nonnull %20) #8
+  %24 = call ptr @detoast_external_attr(ptr noundef nonnull %20) #9
   %25 = ptrtoint ptr %24 to i64
   store i64 %25, ptr %18, align 8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
@@ -389,7 +389,7 @@ define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %27, %2
-  %28 = call ptr @heap_form_tuple(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
+  %28 = call ptr @heap_form_tuple(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %29, ptr noundef nonnull align 4 dereferenceable(6) %30, i64 6, i1 false)
@@ -452,7 +452,7 @@ define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_
   %70 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv43
   %71 = load i64, ptr %70, align 8
   %72 = inttoptr i64 %71 to ptr
-  call void @pfree(ptr noundef %72) #8
+  call void @pfree(ptr noundef %72) #9
   br label %73
 
 73:                                               ; preds = %.lr.ph40, %69
@@ -498,7 +498,7 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
   store i32 0, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %0, ptr %13, align 8
-  call void @heap_deform_tuple(ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
+  call void @heap_deform_tuple(ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
   %14 = sext i32 %8 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 0, i64 %14, i1 false)
   %15 = icmp sgt i32 %8, 0
@@ -535,7 +535,7 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
   br i1 %or.cond, label %32, label %36
 
 32:                                               ; preds = %24
-  %33 = call ptr @detoast_attr(ptr noundef nonnull %27) #8
+  %33 = call ptr @detoast_attr(ptr noundef nonnull %27) #9
   %34 = ptrtoint ptr %33 to i64
   store i64 %34, ptr %25, align 8
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
@@ -561,11 +561,11 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
 ._crit_edge.thread:                               ; preds = %3, %37, %._crit_edge
   %.0.lcssa70 = phi i1 [ true, %37 ], [ false, %._crit_edge ], [ false, %3 ]
   %.053 = phi i32 [ %40, %37 ], [ 24, %._crit_edge ], [ 24, %3 ]
-  %41 = call i64 @heap_compute_data_size(ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
+  %41 = call i64 @heap_compute_data_size(ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
   %42 = trunc i64 %41 to i32
   %43 = add i32 %.053, %42
   %44 = sext i32 %43 to i64
-  %45 = call ptr @palloc0(i64 noundef %44) #8
+  %45 = call ptr @palloc0(i64 noundef %44) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %45, ptr noundef nonnull align 4 dereferenceable(23) %0, i64 23, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 18
   %47 = load i16, ptr %46, align 2
@@ -593,7 +593,7 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
   %63 = getelementptr inbounds nuw i8, ptr %45, i64 20
   %64 = getelementptr inbounds nuw i8, ptr %45, i64 23
   %spec.select = select i1 %.0.lcssa70, ptr %64, ptr null
-  call void @heap_fill_tuple(ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %61, i64 noundef %62, ptr noundef nonnull %63, ptr noundef %spec.select) #8
+  call void @heap_fill_tuple(ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %61, i64 noundef %62, ptr noundef nonnull %63, ptr noundef %spec.select) #9
   br i1 %15, label %.lr.ph61.preheader, label %._crit_edge62
 
 .lr.ph61.preheader:                               ; preds = %._crit_edge.thread
@@ -611,7 +611,7 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
   %69 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv63
   %70 = load i64, ptr %69, align 8
   %71 = inttoptr i64 %70 to ptr
-  call void @pfree(ptr noundef %71) #8
+  call void @pfree(ptr noundef %71) #9
   br label %72
 
 72:                                               ; preds = %.lr.ph61, %68
@@ -644,7 +644,7 @@ define dso_local ptr @toast_build_flattened_tuple(ptr noundef %0, ptr noundef re
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %3
-  %10 = call ptr @heap_form_tuple(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %2) #8
+  %10 = call ptr @heap_form_tuple(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %2) #9
   br label %._crit_edge30
 
 .lr.ph.preheader:                                 ; preds = %3
@@ -675,7 +675,7 @@ define dso_local ptr @toast_build_flattened_tuple(ptr noundef %0, ptr noundef re
   br i1 %24, label %25, label %31
 
 25:                                               ; preds = %19
-  %26 = tail call ptr @detoast_external_attr(ptr noundef nonnull %22) #8
+  %26 = tail call ptr @detoast_external_attr(ptr noundef nonnull %22) #9
   %27 = ptrtoint ptr %26 to i64
   store i64 %27, ptr %20, align 8
   %28 = add i32 %.02325, 1
@@ -691,7 +691,7 @@ define dso_local ptr @toast_build_flattened_tuple(ptr noundef %0, ptr noundef re
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %31
-  %32 = call ptr @heap_form_tuple(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %2) #8
+  %32 = call ptr @heap_form_tuple(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %2) #9
   %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph29.preheader, label %._crit_edge30
 
@@ -703,7 +703,7 @@ define dso_local ptr @toast_build_flattened_tuple(ptr noundef %0, ptr noundef re
   %indvars.iv32 = phi i64 [ 0, %.lr.ph29.preheader ], [ %indvars.iv.next33, %.lr.ph29 ]
   %34 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv32
   %35 = load ptr, ptr %34, align 8
-  call void @pfree(ptr noundef %35) #8
+  call void @pfree(ptr noundef %35) #9
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count35
   br i1 %exitcond36.not, label %._crit_edge30, label %.lr.ph29, !llvm.loop !12
@@ -730,7 +730,7 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
   %15 = udiv i64 %14, 1996
   %16 = trunc i64 %15 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %17 = call i32 @toast_open_indexes(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %9) #8
+  %17 = call i32 @toast_open_indexes(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %9) #9
   %18 = sext i32 %3 to i64
   %19 = udiv i64 %18, 1996
   %20 = urem i64 %18, 1996
@@ -742,7 +742,7 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
   %26 = urem i64 %24, 1996
   %27 = trunc i64 %25 to i32
   %28 = zext i32 %1 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %8, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %28) #8
+  call void @ScanKeyInit(ptr noundef nonnull %8, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %28) #9
   %29 = icmp eq i32 %21, 0
   %30 = icmp eq i32 %27, %16
   %or.cond = and i1 %29, %30
@@ -756,15 +756,15 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
   br i1 %32, label %35, label %36
 
 35:                                               ; preds = %31
-  call void @ScanKeyInit(ptr noundef nonnull %33, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 65, i64 noundef %34) #8
+  call void @ScanKeyInit(ptr noundef nonnull %33, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 65, i64 noundef %34) #9
   br label %39
 
 36:                                               ; preds = %31
-  call void @ScanKeyInit(ptr noundef nonnull %33, i16 noundef signext 2, i16 noundef zeroext 4, i32 noundef 150, i64 noundef %34) #8
+  call void @ScanKeyInit(ptr noundef nonnull %33, i16 noundef signext 2, i16 noundef zeroext 4, i32 noundef 150, i64 noundef %34) #9
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %sext96 = shl i64 %25, 32
   %38 = ashr exact i64 %sext96, 32
-  call void @ScanKeyInit(ptr noundef nonnull %37, i16 noundef signext 2, i16 noundef zeroext 2, i32 noundef 149, i64 noundef %38) #8
+  call void @ScanKeyInit(ptr noundef nonnull %37, i16 noundef signext 2, i16 noundef zeroext 2, i32 noundef 149, i64 noundef %38) #9
   br label %39
 
 39:                                               ; preds = %6, %35, %36
@@ -773,9 +773,9 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
   %41 = sext i32 %17 to i64
   %42 = getelementptr inbounds ptr, ptr %40, i64 %41
   %43 = load ptr, ptr %42, align 8
-  %44 = call ptr @get_toast_snapshot() #8
-  %45 = call ptr @systable_beginscan_ordered(ptr noundef nonnull %0, ptr noundef %43, ptr noundef %44, i32 noundef %.080, ptr noundef nonnull %8) #8
-  %46 = call ptr @systable_getnext_ordered(ptr noundef %45, i32 noundef 1) #8
+  %44 = call ptr @get_toast_snapshot() #9
+  %45 = call ptr @systable_beginscan_ordered(ptr noundef nonnull %0, ptr noundef %43, ptr noundef %44, i32 noundef %.080, ptr noundef nonnull %8) #9
+  %46 = call ptr @systable_getnext_ordered(ptr noundef %45, i32 noundef 1) #9
   %.not109 = icmp eq ptr %46, null
   br i1 %.not109, label %._crit_edge, label %.lr.ph
 
@@ -818,12 +818,12 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
   br label %77
 
 71:                                               ; preds = %66
-  %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
-  %76 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1, ptr noundef nonnull %75) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 729, ptr noundef nonnull @__func__.heap_fetch_toast_slice) #8
+  %76 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1, ptr noundef nonnull %75) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 729, ptr noundef nonnull @__func__.heap_fetch_toast_slice) #9
   unreachable
 
 77:                                               ; preds = %68, %62
@@ -833,13 +833,13 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
   br i1 %.not94, label %86, label %79
 
 79:                                               ; preds = %77
-  %80 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  %81 = call i32 @errcode(i32 noundef 16779816) #8
+  %80 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %81 = call i32 @errcode(i32 noundef 16779816) #9
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
-  %85 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %55, i32 noundef %.083110, i32 noundef %1, ptr noundef nonnull %84) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 742, ptr noundef nonnull @__func__.heap_fetch_toast_slice) #8
+  %85 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %55, i32 noundef %.083110, i32 noundef %1, ptr noundef nonnull %84) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 742, ptr noundef nonnull @__func__.heap_fetch_toast_slice) #9
   unreachable
 
 86:                                               ; preds = %77
@@ -847,13 +847,13 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
   br i1 %87, label %88, label %95
 
 88:                                               ; preds = %86
-  %89 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  %90 = call i32 @errcode(i32 noundef 16779816) #8
+  %89 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %90 = call i32 @errcode(i32 noundef 16779816) #9
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  %94 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %.083110, i32 noundef %21, i32 noundef %27, i32 noundef %1, ptr noundef nonnull %93) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 749, ptr noundef nonnull @__func__.heap_fetch_toast_slice) #8
+  %94 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %.083110, i32 noundef %21, i32 noundef %27, i32 noundef %1, ptr noundef nonnull %93) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 749, ptr noundef nonnull @__func__.heap_fetch_toast_slice) #9
   unreachable
 
 95:                                               ; preds = %86
@@ -864,13 +864,13 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
 
 98:                                               ; preds = %95
   %99 = add i32 %16, 1
-  %100 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  %101 = call i32 @errcode(i32 noundef 16779816) #8
+  %100 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %101 = call i32 @errcode(i32 noundef 16779816) #9
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
-  %105 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %.081, i32 noundef %97, i32 noundef %.083110, i32 noundef %99, i32 noundef %1, ptr noundef nonnull %104) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 758, ptr noundef nonnull @__func__.heap_fetch_toast_slice) #8
+  %105 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %.081, i32 noundef %97, i32 noundef %.083110, i32 noundef %99, i32 noundef %1, ptr noundef nonnull %104) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 758, ptr noundef nonnull @__func__.heap_fetch_toast_slice) #9
   unreachable
 
 106:                                              ; preds = %95
@@ -894,7 +894,7 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %116, ptr nonnull align 1 %117, i64 %119, i1 false)
   %120 = add i32 %.083110, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %121 = call ptr @systable_getnext_ordered(ptr noundef %45, i32 noundef 1) #8
+  %121 = call ptr @systable_getnext_ordered(ptr noundef %45, i32 noundef 1) #9
   %.not = icmp eq ptr %121, null
   br i1 %.not, label %._crit_edge, label %52, !llvm.loop !13
 
@@ -905,20 +905,20 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
   br i1 %.not92, label %130, label %123
 
 123:                                              ; preds = %._crit_edge
-  %124 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  %125 = call i32 @errcode(i32 noundef 16779816) #8
+  %124 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %125 = call i32 @errcode(i32 noundef 16779816) #9
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
-  %129 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %.083.lcssa, i32 noundef %1, ptr noundef nonnull %128) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 786, ptr noundef nonnull @__func__.heap_fetch_toast_slice) #8
+  %129 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %.083.lcssa, i32 noundef %1, ptr noundef nonnull %128) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 786, ptr noundef nonnull @__func__.heap_fetch_toast_slice) #9
   unreachable
 
 130:                                              ; preds = %._crit_edge
-  call void @systable_endscan_ordered(ptr noundef %45) #8
+  call void @systable_endscan_ordered(ptr noundef %45) #9
   %131 = load ptr, ptr %7, align 8
   %132 = load i32, ptr %9, align 4
-  call void @toast_close_indexes(ptr noundef %131, i32 noundef %132, i32 noundef 1) #8
+  call void @toast_close_indexes(ptr noundef %131, i32 noundef %132, i32 noundef 1) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1003,9 +1003,9 @@ define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef rang
   br label %fetch_att.exit
 
 42:                                               ; preds = %.split.i, %27
-  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef range(i32 -32768, 32768) %26) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #8
+  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef range(i32 -32768, 32768) %26) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #9
   unreachable
 
 45:                                               ; preds = %14
@@ -1013,7 +1013,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef rang
   br label %fetch_att.exit
 
 47:                                               ; preds = %8
-  %48 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #8
+  %48 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #9
   br label %fetch_att.exit
 
 49:                                               ; preds = %4
@@ -1031,7 +1031,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef rang
   br label %fetch_att.exit
 
 56:                                               ; preds = %49
-  %57 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #8
+  %57 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #9
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %45, %40, %37, %34, %31, %47, %56, %55
@@ -1060,11 +1060,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1073,9 +1073,10 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

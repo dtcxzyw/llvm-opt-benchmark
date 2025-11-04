@@ -208,7 +208,7 @@ define noundef range(i32 0, 84) i32 @_Z17lodepng_load_filePPhPmPKc(ptr noundef w
 
 13:                                               ; preds = %10
   store i64 %8, ptr %1, align 8, !tbaa !3
-  %14 = tail call noalias noundef ptr @malloc(i64 noundef %8) #31
+  %14 = tail call noalias noundef ptr @malloc(i64 noundef %8) #32
   store ptr %14, ptr %0, align 8, !tbaa !7
   %15 = icmp eq ptr %14, null
   %16 = icmp ne i64 %8, 0
@@ -269,7 +269,7 @@ define noundef range(i32 0, 84) i32 @_Z28lodepng_huffman_code_lengthsPjPKjmj(ptr
 
 10:                                               ; preds = %4
   %11 = mul i64 %2, 24
-  %12 = tail call noalias noundef ptr @malloc(i64 noundef %11) #31
+  %12 = tail call noalias noundef ptr @malloc(i64 noundef %11) #32
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %148, label %.lr.ph
 
@@ -326,7 +326,7 @@ define noundef range(i32 0, 84) i32 @_Z28lodepng_huffman_code_lengthsPjPKjmj(ptr
 34:                                               ; preds = %.lr.ph.preheader.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %35 = mul i64 %.1, 24
-  %36 = tail call noalias noundef ptr @malloc(i64 noundef %35) #31
+  %36 = tail call noalias noundef ptr @malloc(i64 noundef %35) #32
   br label %37
 
 37:                                               ; preds = %63, %34
@@ -409,7 +409,7 @@ define noundef range(i32 0, 84) i32 @_Z28lodepng_huffman_code_lengthsPjPKjmj(ptr
   br label %_ZL12bpmnode_sortP7BPMNodem.exit
 
 _ZL12bpmnode_sortP7BPMNodem.exit:                 ; preds = %66, %.lr.ph.preheader.i.i
-  tail call void @free(ptr noundef %36) #32
+  tail call void @free(ptr noundef %36) #33
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %3, ptr %67, align 8, !tbaa !29
   %68 = shl i32 %3, 1
@@ -422,19 +422,19 @@ _ZL12bpmnode_sortP7BPMNodem.exit:                 ; preds = %66, %.lr.ph.prehead
   store i32 %70, ptr %72, align 8, !tbaa !35
   %73 = zext i32 %70 to i64
   %74 = mul nuw nsw i64 %73, 24
-  %75 = tail call noalias noundef ptr @malloc(i64 noundef %74) #31
+  %75 = tail call noalias noundef ptr @malloc(i64 noundef %74) #32
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %75, ptr %76, align 8, !tbaa !36
   %77 = shl nuw nsw i64 %73, 3
-  %78 = tail call noalias noundef ptr @malloc(i64 noundef %77) #31
+  %78 = tail call noalias noundef ptr @malloc(i64 noundef %77) #32
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %78, ptr %79, align 8, !tbaa !37
   %80 = zext i32 %3 to i64
   %81 = shl nuw nsw i64 %80, 3
-  %82 = tail call noalias noundef ptr @malloc(i64 noundef %81) #31
+  %82 = tail call noalias noundef ptr @malloc(i64 noundef %81) #32
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %82, ptr %83, align 8, !tbaa !38
-  %84 = tail call noalias noundef ptr @malloc(i64 noundef %81) #31
+  %84 = tail call noalias noundef ptr @malloc(i64 noundef %81) #32
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %84, ptr %85, align 8, !tbaa !39
   %86 = icmp ne ptr %75, null
@@ -653,18 +653,18 @@ _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit130: ; preds = %._crit_edge63.i124,
 .loopexit:                                        ; preds = %._crit_edge152, %._crit_edge148, %_ZL12bpmnode_sortP7BPMNodem.exit
   %143 = phi ptr [ %127, %._crit_edge148 ], [ %84, %_ZL12bpmnode_sortP7BPMNodem.exit ], [ %127, %._crit_edge152 ]
   %144 = load ptr, ptr %76, align 8, !tbaa !36
-  tail call void @free(ptr noundef %144) #32
+  tail call void @free(ptr noundef %144) #33
   %145 = load ptr, ptr %79, align 8, !tbaa !37
-  tail call void @free(ptr noundef %145) #32
+  tail call void @free(ptr noundef %145) #33
   %146 = load ptr, ptr %83, align 8, !tbaa !38
-  tail call void @free(ptr noundef %146) #32
-  tail call void @free(ptr noundef %143) #32
+  tail call void @free(ptr noundef %146) #33
+  tail call void @free(ptr noundef %143) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %147
 
 147:                                              ; preds = %26, %.loopexit, %24
   %.074 = phi i32 [ 0, %24 ], [ 0, %26 ], [ %spec.select, %.loopexit ]
-  tail call void @free(ptr noundef nonnull %12) #32
+  tail call void @free(ptr noundef nonnull %12) #33
   br label %148
 
 148:                                              ; preds = %10, %4, %147
@@ -1264,7 +1264,7 @@ _ZL11ensureBits9P16LodePNGBitReaderm.exit:        ; preds = %44, %46, %35
   %83 = lshr i64 %80, 1
   %84 = add i64 %83, %79
   %85 = load ptr, ptr %0, align 8, !tbaa !53
-  %86 = tail call noalias noundef ptr @realloc(ptr noundef %85, i64 noundef %84) #33
+  %86 = tail call noalias noundef ptr @realloc(ptr noundef %85, i64 noundef %84) #34
   %.not.i.i.i = icmp eq ptr %86, null
   br i1 %.not.i.i.i, label %_ZL21LodePNGBitReader_initP16LodePNGBitReaderPKhm.exit.thread, label %.thread.i.i.i
 
@@ -1311,7 +1311,7 @@ _ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSetti
   %105 = lshr i64 %102, 1
   %106 = add i64 %105, %101
   %107 = load ptr, ptr %0, align 8, !tbaa !53
-  %108 = tail call noalias noundef ptr @realloc(ptr noundef %107, i64 noundef %106) #33
+  %108 = tail call noalias noundef ptr @realloc(ptr noundef %107, i64 noundef %106) #34
   %.not.i.i = icmp eq ptr %108, null
   br i1 %.not.i.i, label %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit.thread94, label %.thread.i.i
 
@@ -1334,7 +1334,7 @@ _ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSetti
   br i1 %110, label %111, label %126
 
 111:                                              ; preds = %109
-  %112 = tail call noalias noundef dereferenceable_or_null(1152) ptr @malloc(i64 noundef 1152) #31
+  %112 = tail call noalias noundef dereferenceable_or_null(1152) ptr @malloc(i64 noundef 1152) #32
   %.not.i.i.i36 = icmp eq ptr %112, null
   br i1 %.not.i.i.i36, label %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.thread.i, label %.preheader25.i.i.i
 
@@ -1371,7 +1371,7 @@ _ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSetti
   br i1 %exitcond42.not.i.i.i, label %117, label %.preheader.i.i.i, !llvm.loop !70
 
 117:                                              ; preds = %.preheader.i.i.i
-  %118 = tail call noalias noundef dereferenceable_or_null(1152) ptr @malloc(i64 noundef 1152) #31
+  %118 = tail call noalias noundef dereferenceable_or_null(1152) ptr @malloc(i64 noundef 1152) #32
   store ptr %118, ptr %20, align 8, !tbaa !71
   %.not.i.i.i.i = icmp eq ptr %118, null
   br i1 %.not.i.i.i.i, label %_ZL25generateFixedDistanceTreeP11HuffmanTree.exit.sink.split.i.i, label %_ZL23generateFixedLitLenTreeP11HuffmanTree.exit.i.i
@@ -1381,12 +1381,12 @@ _ZL23generateFixedLitLenTreeP11HuffmanTree.exit.i.i: ; preds = %117
   store i32 288, ptr %21, align 4, !tbaa !75
   store i32 15, ptr %22, align 8, !tbaa !76
   %119 = call fastcc noundef i32 @_ZL28HuffmanTree_makeFromLengths2P11HuffmanTree(ptr noundef nonnull %6)
-  tail call void @free(ptr noundef nonnull %112) #32
+  tail call void @free(ptr noundef nonnull %112) #33
   %.not.i111.i = icmp eq i32 %119, 0
   br i1 %.not.i111.i, label %120, label %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.thread.i
 
 120:                                              ; preds = %_ZL23generateFixedLitLenTreeP11HuffmanTree.exit.i.i
-  %121 = tail call noalias noundef dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #31
+  %121 = tail call noalias noundef dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #32
   %.not.i5.i.i = icmp eq ptr %121, null
   br i1 %.not.i5.i.i, label %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.thread.i, label %.preheader.i6.i.i
 
@@ -1399,7 +1399,7 @@ _ZL23generateFixedLitLenTreeP11HuffmanTree.exit.i.i: ; preds = %117
   br i1 %.not11.i.i.i, label %123, label %.preheader.i6.i.i, !llvm.loop !77
 
 123:                                              ; preds = %.preheader.i6.i.i
-  %124 = tail call noalias noundef dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #31
+  %124 = tail call noalias noundef dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #32
   store ptr %124, ptr %23, align 8, !tbaa !71
   %.not.i.i9.i.i = icmp eq ptr %124, null
   br i1 %.not.i.i9.i.i, label %_ZL25generateFixedDistanceTreeP11HuffmanTree.exit.sink.split.i.i, label %.preheader.i.preheader.i10.i.i
@@ -1414,7 +1414,7 @@ _ZL23generateFixedLitLenTreeP11HuffmanTree.exit.i.i: ; preds = %117
 _ZL25generateFixedDistanceTreeP11HuffmanTree.exit.sink.split.i.i: ; preds = %.preheader.i.preheader.i10.i.i, %123, %117
   %.sink.i.i = phi ptr [ %112, %117 ], [ %121, %.preheader.i.preheader.i10.i.i ], [ %121, %123 ]
   %.0.ph.i.i = phi i32 [ 83, %117 ], [ %125, %.preheader.i.preheader.i10.i.i ], [ 83, %123 ]
-  tail call void @free(ptr noundef nonnull %.sink.i.i) #32
+  tail call void @free(ptr noundef nonnull %.sink.i.i) #33
   br label %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.i
 
 126:                                              ; preds = %109
@@ -1476,7 +1476,7 @@ _ZL12ensureBits17P16LodePNGBitReaderm.exit.i.i:   ; preds = %_ZL12ensureBits17P1
   %161 = and i32 %159, 15
   %162 = add i64 %.sroa.42.0137, 17
   %163 = add nuw nsw i32 %161, 4
-  %164 = tail call noalias noundef dereferenceable_or_null(76) ptr @malloc(i64 noundef 76) #31
+  %164 = tail call noalias noundef dereferenceable_or_null(76) ptr @malloc(i64 noundef 76) #32
   %.not.i113.i = icmp eq ptr %164, null
   br i1 %.not.i113.i, label %_ZL21getTreeInflateDynamicP11HuffmanTreeS0_P16LodePNGBitReader.exit.i, label %165
 
@@ -1556,7 +1556,7 @@ _ZL11ensureBits9P16LodePNGBitReaderm.exit.i.i:    ; preds = %187, %185, %176
   br i1 %.not156.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !79
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
-  %204 = tail call noalias noundef dereferenceable_or_null(76) ptr @malloc(i64 noundef 76) #31
+  %204 = tail call noalias noundef dereferenceable_or_null(76) ptr @malloc(i64 noundef 76) #32
   store ptr %204, ptr %16, align 8, !tbaa !71
   %.not.i168.i.i = icmp eq ptr %204, null
   br i1 %.not.i168.i.i, label %_ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.thread.i.i, label %.preheader.i.preheader.i.i
@@ -1575,8 +1575,8 @@ _ZL11ensureBits9P16LodePNGBitReaderm.exit.i.i:    ; preds = %187, %185, %176
   br label %_ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.thread.i.i
 
 206:                                              ; preds = %.preheader.i.preheader.i.i
-  %207 = tail call noalias noundef dereferenceable_or_null(1152) ptr @malloc(i64 noundef 1152) #31
-  %208 = tail call noalias noundef dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #31
+  %207 = tail call noalias noundef dereferenceable_or_null(1152) ptr @malloc(i64 noundef 1152) #32
+  %208 = tail call noalias noundef dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #32
   %209 = icmp ne ptr %207, null
   %210 = icmp ne ptr %208, null
   %or.cond.i.i = and i1 %209, %210
@@ -1896,15 +1896,15 @@ _ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.thread.i.i: ; preds = %
   %.0128.i.i = phi i32 [ 83, %._crit_edge.i.i ], [ 64, %359 ], [ %366, %365 ], [ %364, %363 ], [ %.1129.i.i, %.thread178.i.i ], [ 83, %206 ], [ %205, %.preheader.i.preheader._ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.thread_crit_edge.i.i ], [ 50, %165 ], [ 50, %.loopexit.i.i ], [ 54, %306 ], [ 16, %305 ]
   %.0125.i.i = phi ptr [ null, %._crit_edge.i.i ], [ %207, %359 ], [ %207, %365 ], [ %207, %363 ], [ %207, %.thread178.i.i ], [ %207, %206 ], [ null, %.preheader.i.preheader._ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.thread_crit_edge.i.i ], [ null, %165 ], [ %207, %305 ], [ %207, %306 ], [ %207, %.loopexit.i.i ]
   %.0124.i.i = phi ptr [ null, %._crit_edge.i.i ], [ %208, %359 ], [ %208, %365 ], [ %208, %363 ], [ %208, %.thread178.i.i ], [ %208, %206 ], [ null, %.preheader.i.preheader._ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.thread_crit_edge.i.i ], [ null, %165 ], [ %208, %305 ], [ %208, %306 ], [ %208, %.loopexit.i.i ]
-  tail call void @free(ptr noundef nonnull %164) #32
-  tail call void @free(ptr noundef %.0125.i.i) #32
-  tail call void @free(ptr noundef %.0124.i.i) #32
+  tail call void @free(ptr noundef nonnull %164) #33
+  tail call void @free(ptr noundef %.0125.i.i) #33
+  tail call void @free(ptr noundef %.0124.i.i) #33
   %369 = load ptr, ptr %5, align 8, !tbaa !93
-  tail call void @free(ptr noundef %369) #32
+  tail call void @free(ptr noundef %369) #33
   %370 = load ptr, ptr %16, align 8, !tbaa !71
-  tail call void @free(ptr noundef %370) #32
-  tail call void @free(ptr noundef %368) #32
-  tail call void @free(ptr noundef %367) #32
+  tail call void @free(ptr noundef %370) #33
+  tail call void @free(ptr noundef %368) #33
+  tail call void @free(ptr noundef %367) #33
   br label %_ZL21getTreeInflateDynamicP11HuffmanTreeS0_P16LodePNGBitReader.exit.i
 
 _ZL21getTreeInflateDynamicP11HuffmanTreeS0_P16LodePNGBitReader.exit.i: ; preds = %_ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.thread.i.i, %_ZL12ensureBits17P16LodePNGBitReaderm.exit.i.i, %126
@@ -2447,7 +2447,7 @@ _ZL14lodepng_memcpyPvPKvm.exit137.thread.i:       ; preds = %.lr.ph.i, %699, %.l
   %709 = lshr i64 %701, 1
   %710 = add i64 %706, %709
   %711 = load ptr, ptr %0, align 8, !tbaa !53
-  %712 = tail call noalias noundef ptr @realloc(ptr noundef %711, i64 noundef %710) #33
+  %712 = tail call noalias noundef ptr @realloc(ptr noundef %711, i64 noundef %710) #34
   %.not.i139.i = icmp eq ptr %712, null
   br i1 %.not.i139.i, label %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit, label %.thread.i140.i
 
@@ -2487,17 +2487,17 @@ _ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSetti
   %720 = phi ptr [ %.pre181.i.pre143, %661 ], [ %.pre181.i.pre, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.thread.i ], [ %.pre181.i.pre143, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.i ], [ %.pre181.i.pre143, %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit.loopexit.split.loop.exit121 ], [ %.pre181.i.pre143, %675 ], [ %.pre181.i.pre143, %699 ], [ %.pre181.i.pre143, %708 ], [ %.pre181.i.pre143, %_ZL16ucvector_reserveP8ucvectorm.exit141.thread.i ], [ %.pre181.i.pre143, %_ZL14lodepng_memcpyPvPKvm.exit137.i ]
   %.2.i = phi i32 [ %..i, %661 ], [ %.083.ph.i, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.thread.i ], [ %.083.i, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.i ], [ %spec.select, %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit.loopexit.split.loop.exit121 ], [ 0, %_ZL14lodepng_memcpyPvPKvm.exit137.i ], [ 51, %_ZL16ucvector_reserveP8ucvectorm.exit141.thread.i ], [ 83, %708 ], [ 16, %699 ], [ 52, %675 ]
   %721 = load ptr, ptr %6, align 8, !tbaa !93
-  tail call void @free(ptr noundef %721) #32
+  tail call void @free(ptr noundef %721) #33
   %722 = load ptr, ptr %20, align 8, !tbaa !71
-  tail call void @free(ptr noundef %722) #32
-  tail call void @free(ptr noundef %.pre180250.i) #32
-  tail call void @free(ptr noundef %720) #32
+  tail call void @free(ptr noundef %722) #33
+  tail call void @free(ptr noundef %.pre180250.i) #33
+  tail call void @free(ptr noundef %720) #33
   %723 = load ptr, ptr %7, align 8, !tbaa !93
-  tail call void @free(ptr noundef %723) #32
+  tail call void @free(ptr noundef %723) #33
   %724 = load ptr, ptr %23, align 8, !tbaa !71
-  tail call void @free(ptr noundef %724) #32
-  tail call void @free(ptr noundef %719) #32
-  tail call void @free(ptr noundef %718) #32
+  tail call void @free(ptr noundef %724) #33
+  tail call void @free(ptr noundef %719) #33
+  tail call void @free(ptr noundef %718) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not30 = icmp eq i32 %.2.i, 0
@@ -2591,7 +2591,7 @@ define noundef range(i32 0, 91) i32 @_Z15lodepng_deflatePPhPmPKhmPK23LodePNGComp
 41:                                               ; preds = %29
   %42 = lshr i64 %39, 1
   %43 = add i64 %38, %42
-  %44 = call noalias noundef ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %43) #33
+  %44 = call noalias noundef ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %43) #34
   %.not.i.i.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i.i.i, label %_ZL16lodepng_deflatevP8ucvectorPKhmPK23LodePNGCompressSettings.exit, label %.thread.i.i.i.i
 
@@ -2661,24 +2661,24 @@ _ZL14lodepng_memcpyPvPKvm.exit.i.i:               ; preds = %.lr.ph.preheader.i.
   %spec.store.select1.i = select i1 %82, i64 1, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %84 = load i32, ptr %83, align 8, !tbaa !117
-  %85 = call noalias noundef dereferenceable_or_null(262144) ptr @malloc(i64 noundef 262144) #31
+  %85 = call noalias noundef dereferenceable_or_null(262144) ptr @malloc(i64 noundef 262144) #32
   store ptr %85, ptr %13, align 8, !tbaa !118
   %86 = zext i32 %84 to i64
   %87 = shl nuw nsw i64 %86, 2
-  %88 = call noalias noundef ptr @malloc(i64 noundef %87) #31
+  %88 = call noalias noundef ptr @malloc(i64 noundef %87) #32
   %89 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %88, ptr %89, align 8, !tbaa !120
   %90 = shl nuw nsw i64 %86, 1
-  %91 = call noalias noundef ptr @malloc(i64 noundef %90) #31
+  %91 = call noalias noundef ptr @malloc(i64 noundef %90) #32
   %92 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %91, ptr %92, align 8, !tbaa !121
-  %93 = call noalias noundef ptr @malloc(i64 noundef %90) #31
+  %93 = call noalias noundef ptr @malloc(i64 noundef %90) #32
   %94 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store ptr %93, ptr %94, align 8, !tbaa !122
-  %95 = call noalias noundef dereferenceable_or_null(1036) ptr @malloc(i64 noundef 1036) #31
+  %95 = call noalias noundef dereferenceable_or_null(1036) ptr @malloc(i64 noundef 1036) #32
   %96 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %95, ptr %96, align 8, !tbaa !123
-  %97 = call noalias noundef ptr @malloc(i64 noundef %90) #31
+  %97 = call noalias noundef ptr @malloc(i64 noundef %90) #32
   %98 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %97, ptr %98, align 8, !tbaa !124
   %.not.i56.i = icmp eq ptr %85, null
@@ -2788,7 +2788,7 @@ _ZL9hash_initP4Hashj.exit.i:                      ; preds = %.lr.ph68.i.i, %.pre
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %124, i8 0, i64 16, i1 false)
-  %140 = call noalias noundef dereferenceable_or_null(1152) ptr @malloc(i64 noundef 1152) #31
+  %140 = call noalias noundef dereferenceable_or_null(1152) ptr @malloc(i64 noundef 1152) #32
   %.not.i.i58.i = icmp eq ptr %140, null
   br i1 %.not.i.i58.i, label %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i, label %.preheader25.i.i.i
 
@@ -2825,13 +2825,13 @@ _ZL9hash_initP4Hashj.exit.i:                      ; preds = %.lr.ph68.i.i, %.pre
   br i1 %exitcond42.not.i.i.i, label %145, label %.preheader.i.i.i, !llvm.loop !70
 
 145:                                              ; preds = %.preheader.i.i.i
-  %146 = call noalias noundef dereferenceable_or_null(1152) ptr @malloc(i64 noundef 1152) #31
+  %146 = call noalias noundef dereferenceable_or_null(1152) ptr @malloc(i64 noundef 1152) #32
   store ptr %146, ptr %125, align 8, !tbaa !71
   %.not.i.i.i59.i = icmp eq ptr %146, null
   br i1 %.not.i.i.i59.i, label %_ZL23generateFixedLitLenTreeP11HuffmanTree.exit.thread82.i.i, label %_ZL23generateFixedLitLenTreeP11HuffmanTree.exit.i.i
 
 _ZL23generateFixedLitLenTreeP11HuffmanTree.exit.thread82.i.i: ; preds = %145
-  call void @free(ptr noundef nonnull %140) #32
+  call void @free(ptr noundef nonnull %140) #33
   br label %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
 _ZL23generateFixedLitLenTreeP11HuffmanTree.exit.i.i: ; preds = %145
@@ -2839,12 +2839,12 @@ _ZL23generateFixedLitLenTreeP11HuffmanTree.exit.i.i: ; preds = %145
   store i32 288, ptr %126, align 4, !tbaa !75
   store i32 15, ptr %127, align 8, !tbaa !76
   %147 = call fastcc noundef i32 @_ZL28HuffmanTree_makeFromLengths2P11HuffmanTree(ptr noundef nonnull %10)
-  call void @free(ptr noundef nonnull %140) #32
+  call void @free(ptr noundef nonnull %140) #33
   %.not.i60.i = icmp eq i32 %147, 0
   br i1 %.not.i60.i, label %148, label %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
 148:                                              ; preds = %_ZL23generateFixedLitLenTreeP11HuffmanTree.exit.i.i
-  %149 = call noalias noundef dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #31
+  %149 = call noalias noundef dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #32
   %.not.i35.i.i = icmp eq ptr %149, null
   br i1 %.not.i35.i.i, label %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i, label %.preheader.i36.i.i
 
@@ -2857,13 +2857,13 @@ _ZL23generateFixedLitLenTreeP11HuffmanTree.exit.i.i: ; preds = %145
   br i1 %.not11.i.i.i, label %151, label %.preheader.i36.i.i, !llvm.loop !77
 
 151:                                              ; preds = %.preheader.i36.i.i
-  %152 = call noalias noundef dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #31
+  %152 = call noalias noundef dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #32
   store ptr %152, ptr %128, align 8, !tbaa !71
   %.not.i.i39.i.i = icmp eq ptr %152, null
   br i1 %.not.i.i39.i.i, label %_ZL25generateFixedDistanceTreeP11HuffmanTree.exit.thread87.i.i, label %_ZL25generateFixedDistanceTreeP11HuffmanTree.exit.i.i
 
 _ZL25generateFixedDistanceTreeP11HuffmanTree.exit.thread87.i.i: ; preds = %151
-  call void @free(ptr noundef nonnull %149) #32
+  call void @free(ptr noundef nonnull %149) #33
   br label %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
 _ZL25generateFixedDistanceTreeP11HuffmanTree.exit.i.i: ; preds = %151
@@ -2871,7 +2871,7 @@ _ZL25generateFixedDistanceTreeP11HuffmanTree.exit.i.i: ; preds = %151
   store i32 32, ptr %129, align 4, !tbaa !75
   store i32 15, ptr %130, align 8, !tbaa !76
   %153 = call fastcc noundef i32 @_ZL28HuffmanTree_makeFromLengths2P11HuffmanTree(ptr noundef nonnull %11)
-  call void @free(ptr noundef nonnull %149) #32
+  call void @free(ptr noundef nonnull %149) #33
   %.not31.i.i = icmp eq i32 %153, 0
   br i1 %.not31.i.i, label %154, label %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
@@ -2896,7 +2896,7 @@ _ZL25generateFixedDistanceTreeP11HuffmanTree.exit.i.i: ; preds = %151
 165:                                              ; preds = %158
   %166 = lshr i64 %163, 1
   %167 = add i64 %166, %161
-  %168 = call noalias noundef ptr @realloc(ptr noundef %.pre113.i, i64 noundef %167) #33
+  %168 = call noalias noundef ptr @realloc(ptr noundef %.pre113.i, i64 noundef %167) #34
   %.not.i.i.i.i.i = icmp eq ptr %168, null
   br i1 %.not.i.i.i.i.i, label %_ZL9writeBitsP16LodePNGBitWriterjm.exit.i.i, label %.thread.i.i.i.i.i
 
@@ -2950,7 +2950,7 @@ _ZL9writeBitsP16LodePNGBitWriterjm.exit.i.i:      ; preds = %174, %165
 195:                                              ; preds = %188
   %196 = lshr i64 %193, 1
   %197 = add i64 %196, %191
-  %198 = call noalias noundef ptr @realloc(ptr noundef %.pre115.i, i64 noundef %197) #33
+  %198 = call noalias noundef ptr @realloc(ptr noundef %.pre115.i, i64 noundef %197) #34
   %.not.i.i.i47.i.i = icmp eq ptr %198, null
   br i1 %.not.i.i.i47.i.i, label %_ZL9writeBitsP16LodePNGBitWriterjm.exit52.i.i, label %.thread.i.i.i48.i.i
 
@@ -3002,7 +3002,7 @@ _ZL9writeBitsP16LodePNGBitWriterjm.exit52.i.i:    ; preds = %204, %195
 223:                                              ; preds = %216
   %224 = lshr i64 %221, 1
   %225 = add i64 %224, %219
-  %226 = call noalias noundef ptr @realloc(ptr noundef %.pre116.i, i64 noundef %225) #33
+  %226 = call noalias noundef ptr @realloc(ptr noundef %.pre116.i, i64 noundef %225) #34
   %.not.i.i.i56.i.i = icmp eq ptr %226, null
   br i1 %.not.i.i.i56.i.i, label %_ZL9writeBitsP16LodePNGBitWriterjm.exit61.i.i, label %.thread.i.i.i57.i.i
 
@@ -3056,7 +3056,7 @@ _ZL9writeBitsP16LodePNGBitWriterjm.exit61.i.i:    ; preds = %232, %223
 ..thread_crit_edge.i.i:                           ; preds = %238
   call fastcc void @_ZL13writeLZ77dataP16LodePNGBitWriterPK8uivectorPK11HuffmanTreeS6_(ptr noundef nonnull %14, ptr noundef %12, ptr noundef %10, ptr noundef %11)
   %244 = load ptr, ptr %12, align 8, !tbaa !131
-  call void @free(ptr noundef %244) #32
+  call void @free(ptr noundef %244) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.pre95.i.i = load ptr, ptr %10, align 8, !tbaa !93
   %.pre97.i.i = load ptr, ptr %125, align 8, !tbaa !71
@@ -3095,7 +3095,7 @@ _ZL9writeBitsP16LodePNGBitWriterjm.exit61.i.i:    ; preds = %232, %223
 262:                                              ; preds = %257
   %263 = lshr i64 %260, 1
   %264 = add i64 %263, %259
-  %265 = call noalias noundef ptr @realloc(ptr noundef %.pre118.i, i64 noundef %264) #33
+  %265 = call noalias noundef ptr @realloc(ptr noundef %.pre118.i, i64 noundef %264) #34
   %.not.i.i.i64.i.i = icmp eq ptr %265, null
   br i1 %.not.i.i.i64.i.i, label %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit.i.i, label %.thread.i.i.i65.i.i
 
@@ -3181,7 +3181,7 @@ _ZL17writeBitsReversedP16LodePNGBitWriterjm.exit.i.i: ; preds = %271, %262, %.lr
 309:                                              ; preds = %304
   %310 = lshr i64 %307, 1
   %311 = add i64 %310, %306
-  %312 = call noalias noundef ptr @realloc(ptr noundef %.pre119.i, i64 noundef %311) #33
+  %312 = call noalias noundef ptr @realloc(ptr noundef %.pre119.i, i64 noundef %311) #34
   %.not.i.i.i74.i.i = icmp eq ptr %312, null
   br i1 %.not.i.i.i74.i.i, label %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.loopexit.i, label %.thread.i.i.i75.i.i
 
@@ -3222,7 +3222,7 @@ _ZL17writeBitsReversedP16LodePNGBitWriterjm.exit.i.i: ; preds = %271, %262, %.lr
 
 _ZL17writeBitsReversedP16LodePNGBitWriterjm.exit79.critedge.i.i: ; preds = %238
   %335 = load ptr, ptr %12, align 8, !tbaa !131
-  call void @free(ptr noundef %335) #32
+  call void @free(ptr noundef %335) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
@@ -3234,21 +3234,21 @@ _ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit
 _ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i: ; preds = %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.loopexit.i, %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit79.critedge.i.i, %.thread.i.i, %_ZL25generateFixedDistanceTreeP11HuffmanTree.exit.i.i, %_ZL25generateFixedDistanceTreeP11HuffmanTree.exit.thread87.i.i, %148, %_ZL23generateFixedLitLenTreeP11HuffmanTree.exit.i.i, %_ZL23generateFixedLitLenTreeP11HuffmanTree.exit.thread82.i.i, %139
   %.1.i.i = phi i32 [ %153, %_ZL25generateFixedDistanceTreeP11HuffmanTree.exit.i.i ], [ 83, %_ZL25generateFixedDistanceTreeP11HuffmanTree.exit.thread87.i.i ], [ 0, %.thread.i.i ], [ 83, %148 ], [ 83, %_ZL23generateFixedLitLenTreeP11HuffmanTree.exit.thread82.i.i ], [ %147, %_ZL23generateFixedLitLenTreeP11HuffmanTree.exit.i.i ], [ 83, %139 ], [ %243, %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit79.critedge.i.i ], [ 0, %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.loopexit.i ]
   %337 = load ptr, ptr %10, align 8, !tbaa !93
-  call void @free(ptr noundef %337) #32
+  call void @free(ptr noundef %337) #33
   %338 = load ptr, ptr %125, align 8, !tbaa !71
-  call void @free(ptr noundef %338) #32
+  call void @free(ptr noundef %338) #33
   %339 = load ptr, ptr %123, align 8, !tbaa !80
-  call void @free(ptr noundef %339) #32
+  call void @free(ptr noundef %339) #33
   %340 = load ptr, ptr %131, align 8, !tbaa !81
-  call void @free(ptr noundef %340) #32
+  call void @free(ptr noundef %340) #33
   %341 = load ptr, ptr %11, align 8, !tbaa !93
-  call void @free(ptr noundef %341) #32
+  call void @free(ptr noundef %341) #33
   %342 = load ptr, ptr %128, align 8, !tbaa !71
-  call void @free(ptr noundef %342) #32
+  call void @free(ptr noundef %342) #33
   %343 = load ptr, ptr %124, align 8, !tbaa !80
-  call void @free(ptr noundef %343) #32
+  call void @free(ptr noundef %343) #33
   %344 = load ptr, ptr %132, align 8, !tbaa !81
-  call void @free(ptr noundef %344) #32
+  call void @free(ptr noundef %344) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %743
@@ -3266,9 +3266,9 @@ _ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %106, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, i8 0, i64 16, i1 false)
-  %347 = call noalias noundef dereferenceable_or_null(1144) ptr @malloc(i64 noundef 1144) #31
-  %348 = call noalias noundef dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #31
-  %349 = call noalias noundef dereferenceable_or_null(76) ptr @malloc(i64 noundef 76) #31
+  %347 = call noalias noundef dereferenceable_or_null(1144) ptr @malloc(i64 noundef 1144) #32
+  %348 = call noalias noundef dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #32
+  %349 = call noalias noundef dereferenceable_or_null(76) ptr @malloc(i64 noundef 76) #32
   %350 = icmp ne ptr %347, null
   %351 = icmp ne ptr %348, null
   %or.cond.i63.i = and i1 %350, %351
@@ -3386,7 +3386,7 @@ _ZL15uivector_resizeP8uivectorm.exit.i.i:         ; preds = %364, %361
 
 401:                                              ; preds = %394
   %402 = shl i64 %.020.i.i.i, 2
-  %403 = call noalias noundef ptr @malloc(i64 noundef %402) #31
+  %403 = call noalias noundef ptr @malloc(i64 noundef %402) #32
   store ptr %403, ptr %113, align 8, !tbaa !71
   %.not22.i.i.i = icmp eq ptr %403, null
   br i1 %.not22.i.i.i, label %_ZL14deflateDynamicP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i, label %404
@@ -3417,7 +3417,7 @@ _ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit.i.i: ; preds = %40
 
 414:                                              ; preds = %.preheader300.i.i
   %415 = shl i64 %.020.i236.i.i, 2
-  %416 = call noalias noundef ptr @malloc(i64 noundef %415) #31
+  %416 = call noalias noundef ptr @malloc(i64 noundef %415) #32
   store ptr %416, ptr %116, align 8, !tbaa !71
   %.not22.i238.i.i = icmp eq ptr %416, null
   br i1 %.not22.i238.i.i, label %_ZL14deflateDynamicP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i, label %417
@@ -3444,8 +3444,8 @@ _ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit241.i.i: ; preds = 
   %427 = zext nneg i32 %426 to i64
   %428 = add nuw nsw i64 %427, %424
   %429 = shl nuw nsw i64 %428, 2
-  %430 = call noalias noundef ptr @malloc(i64 noundef %429) #31
-  %431 = call noalias noundef ptr @malloc(i64 noundef %429) #31
+  %430 = call noalias noundef ptr @malloc(i64 noundef %429) #32
+  %431 = call noalias noundef ptr @malloc(i64 noundef %429) #32
   %432 = icmp ne ptr %430, null
   %433 = icmp ne ptr %431, null
   %or.cond5.i.i = and i1 %432, %433
@@ -3704,7 +3704,7 @@ _ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit241.i.i: ; preds = 
 540:                                              ; preds = %535
   %541 = lshr i64 %538, 1
   %542 = add i64 %541, %537
-  %543 = call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %542) #33
+  %543 = call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %542) #34
   %.not.i.i28.i.i.i = icmp eq ptr %543, null
   br i1 %.not.i.i28.i.i.i, label %_ZL9writeBitsP16LodePNGBitWriterjm.exit.i70.i, label %.thread.i.i29.i.i.i
 
@@ -3780,7 +3780,7 @@ _ZL9writeBitsP16LodePNGBitWriterjm.exit.i70.i:    ; preds = %549, %540
 583:                                              ; preds = %578
   %584 = lshr i64 %581, 1
   %585 = add i64 %584, %580
-  %586 = call noalias noundef ptr @realloc(ptr noundef %.pre109.i, i64 noundef %585) #33
+  %586 = call noalias noundef ptr @realloc(ptr noundef %.pre109.i, i64 noundef %585) #34
   %.not.i.i.i.i78.i = icmp eq ptr %586, null
   br i1 %.not.i.i.i.i78.i, label %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit.i75.i, label %.thread.i.i.i.i79.i
 
@@ -3853,7 +3853,7 @@ _ZL17writeBitsReversedP16LodePNGBitWriterjm.exit.i75.i: ; preds = %592, %583, %5
 623:                                              ; preds = %618
   %624 = lshr i64 %621, 1
   %625 = add i64 %624, %620
-  %626 = call noalias noundef ptr @realloc(ptr noundef %.pre112.i, i64 noundef %625) #33
+  %626 = call noalias noundef ptr @realloc(ptr noundef %.pre112.i, i64 noundef %625) #34
   %.not.i.i28.i254.i.i = icmp eq ptr %626, null
   br i1 %.not.i.i28.i254.i.i, label %_ZL9writeBitsP16LodePNGBitWriterjm.exit259.i.i, label %.thread.i.i29.i255.i.i
 
@@ -3912,7 +3912,7 @@ _ZL17writeBitsReversedP16LodePNGBitWriterjm.exit.i75.i: ; preds = %592, %583, %5
 658:                                              ; preds = %653
   %659 = lshr i64 %656, 1
   %660 = add i64 %659, %655
-  %661 = call noalias noundef ptr @realloc(ptr noundef %.pre111.i, i64 noundef %660) #33
+  %661 = call noalias noundef ptr @realloc(ptr noundef %.pre111.i, i64 noundef %660) #34
   %.not.i.i28.i267.i.i = icmp eq ptr %661, null
   br i1 %.not.i.i28.i267.i.i, label %_ZL9writeBitsP16LodePNGBitWriterjm.exit259.i.i, label %.thread.i.i29.i268.i.i
 
@@ -3974,7 +3974,7 @@ _ZL17writeBitsReversedP16LodePNGBitWriterjm.exit.i75.i: ; preds = %592, %583, %5
 695:                                              ; preds = %690
   %696 = lshr i64 %693, 1
   %697 = add i64 %696, %692
-  %698 = call noalias noundef ptr @realloc(ptr noundef %.pre110.i, i64 noundef %697) #33
+  %698 = call noalias noundef ptr @realloc(ptr noundef %.pre110.i, i64 noundef %697) #34
   %.not.i.i28.i280.i.i = icmp eq ptr %698, null
   br i1 %.not.i.i28.i280.i.i, label %_ZL9writeBitsP16LodePNGBitWriterjm.exit259.i.i, label %.thread.i.i29.i281.i.i
 
@@ -4044,35 +4044,35 @@ _ZL14deflateDynamicP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.ex
   %.0195.i.i = phi ptr [ null, %355 ], [ null, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit.i.i ], [ null, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit241.i.i ], [ %430, %725 ], [ null, %345 ], [ %430, %421 ], [ %430, %._crit_edge339.i.i ], [ null, %363 ], [ null, %401 ], [ null, %404 ], [ null, %414 ], [ null, %417 ], [ %430, %._crit_edge331.i.i ]
   %.1.i64.i = phi i32 [ %360, %355 ], [ %407, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit.i.i ], [ %420, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit241.i.i ], [ 0, %725 ], [ 83, %345 ], [ 83, %421 ], [ 64, %._crit_edge339.i.i ], [ 83, %363 ], [ 83, %401 ], [ %406, %404 ], [ 83, %414 ], [ %419, %417 ], [ %504, %._crit_edge331.i.i ]
   %731 = load ptr, ptr %6, align 8, !tbaa !131
-  call void @free(ptr noundef %731) #32
+  call void @free(ptr noundef %731) #33
   %732 = load ptr, ptr %7, align 8, !tbaa !93
-  call void @free(ptr noundef %732) #32
+  call void @free(ptr noundef %732) #33
   %733 = load ptr, ptr %113, align 8, !tbaa !71
-  call void @free(ptr noundef %733) #32
+  call void @free(ptr noundef %733) #33
   %734 = load ptr, ptr %105, align 8, !tbaa !80
-  call void @free(ptr noundef %734) #32
+  call void @free(ptr noundef %734) #33
   %735 = load ptr, ptr %120, align 8, !tbaa !81
-  call void @free(ptr noundef %735) #32
+  call void @free(ptr noundef %735) #33
   %736 = load ptr, ptr %8, align 8, !tbaa !93
-  call void @free(ptr noundef %736) #32
+  call void @free(ptr noundef %736) #33
   %737 = load ptr, ptr %116, align 8, !tbaa !71
-  call void @free(ptr noundef %737) #32
+  call void @free(ptr noundef %737) #33
   %738 = load ptr, ptr %106, align 8, !tbaa !80
-  call void @free(ptr noundef %738) #32
+  call void @free(ptr noundef %738) #33
   %739 = load ptr, ptr %121, align 8, !tbaa !81
-  call void @free(ptr noundef %739) #32
+  call void @free(ptr noundef %739) #33
   %740 = load ptr, ptr %9, align 8, !tbaa !93
-  call void @free(ptr noundef %740) #32
-  call void @free(ptr noundef %730) #32
+  call void @free(ptr noundef %740) #33
+  call void @free(ptr noundef %730) #33
   %741 = load ptr, ptr %107, align 8, !tbaa !80
-  call void @free(ptr noundef %741) #32
+  call void @free(ptr noundef %741) #33
   %742 = load ptr, ptr %122, align 8, !tbaa !81
-  call void @free(ptr noundef %742) #32
-  call void @free(ptr noundef %347) #32
-  call void @free(ptr noundef %348) #32
-  call void @free(ptr noundef %349) #32
-  call void @free(ptr noundef %.0195.i.i) #32
-  call void @free(ptr noundef %.0196.i.i) #32
+  call void @free(ptr noundef %742) #33
+  call void @free(ptr noundef %347) #33
+  call void @free(ptr noundef %348) #33
+  call void @free(ptr noundef %349) #33
+  call void @free(ptr noundef %.0195.i.i) #33
+  call void @free(ptr noundef %.0196.i.i) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -4089,12 +4089,12 @@ _ZL14deflateDynamicP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.ex
 
 _ZL9hash_initP4Hashj.exit.thread.i:               ; preds = %743, %_ZL9hash_initP4Hashj.exit.i, %99, %78
   %.046.i = phi i32 [ 83, %99 ], [ 83, %78 ], [ 0, %_ZL9hash_initP4Hashj.exit.i ], [ %.2.i, %743 ]
-  call void @free(ptr noundef %85) #32
-  call void @free(ptr noundef %88) #32
-  call void @free(ptr noundef %91) #32
-  call void @free(ptr noundef %93) #32
-  call void @free(ptr noundef %95) #32
-  call void @free(ptr noundef %97) #32
+  call void @free(ptr noundef %85) #33
+  call void @free(ptr noundef %88) #33
+  call void @free(ptr noundef %91) #33
+  call void @free(ptr noundef %93) #33
+  call void @free(ptr noundef %95) #33
+  call void @free(ptr noundef %97) #33
   br label %_ZL16lodepng_deflatevP8ucvectorPKhmPK23LodePNGCompressSettings.exit
 
 _ZL16lodepng_deflatevP8ucvectorPKhmPK23LodePNGCompressSettings.exit: ; preds = %41, %_ZL14lodepng_memcpyPvPKvm.exit.i.i, %5, %24, %_ZL9hash_initP4Hashj.exit.thread.i
@@ -4310,7 +4310,7 @@ _ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit.thread: ; preds = %10, %_ZL
   %13 = load i64, ptr %7, align 8, !tbaa !3
   %14 = add i64 %13, 6
   store i64 %14, ptr %1, align 8, !tbaa !3
-  %15 = call noalias noundef ptr @malloc(i64 noundef %14) #31
+  %15 = call noalias noundef ptr @malloc(i64 noundef %14) #32
   store ptr %15, ptr %0, align 8, !tbaa !7
   %.not33 = icmp eq ptr %15, null
   br i1 %.not33, label %.thread, label %16
@@ -4407,7 +4407,7 @@ _ZL7adler32PKhj.exit:                             ; preds = %16, %._crit_edge.lo
 .thread:                                          ; preds = %_ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit.thread, %_ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit.thread38, %_ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit, %._crit_edge
   %.03144 = phi i32 [ 0, %._crit_edge ], [ 111, %_ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit.thread38 ], [ %12, %_ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit ], [ 83, %_ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit.thread ]
   %58 = load ptr, ptr %6, align 8, !tbaa !7
-  call void @free(ptr noundef %58) #32
+  call void @free(ptr noundef %58) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.03144
@@ -5469,7 +5469,7 @@ _ZL29lodepng_chunk_type_name_validPKh.exit:       ; preds = %4
 
 33:                                               ; preds = %12
   %34 = load ptr, ptr %0, align 8, !tbaa !7
-  %35 = tail call noalias noundef ptr @realloc(ptr noundef %34, i64 noundef %32) #33
+  %35 = tail call noalias noundef ptr @realloc(ptr noundef %34, i64 noundef %32) #34
   %.not22 = icmp eq ptr %35, null
   br i1 %.not22, label %_ZL29lodepng_chunk_type_name_validPKh.exit.thread, label %36
 
@@ -5516,7 +5516,7 @@ define noundef range(i32 0, 84) i32 @_Z20lodepng_chunk_createPPhPmmPKcPKh(ptr no
 14:                                               ; preds = %12
   %15 = lshr i64 %7, 1
   %16 = add i64 %10, %15
-  %17 = tail call noalias noundef ptr @realloc(ptr noundef %6, i64 noundef %16) #33
+  %17 = tail call noalias noundef ptr @realloc(ptr noundef %6, i64 noundef %16) #34
   %.not.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i, label %_ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit, label %.thread.i.i.i.i
 
@@ -5584,7 +5584,7 @@ define void @_Z26lodepng_color_mode_cleanupP16LodePNGColorMode(ptr noundef captu
   br i1 %.not.i, label %_Z21lodepng_palette_clearP16LodePNGColorMode.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %3) #32
+  tail call void @free(ptr noundef nonnull %3) #33
   br label %_Z21lodepng_palette_clearP16LodePNGColorMode.exit
 
 _Z21lodepng_palette_clearP16LodePNGColorMode.exit: ; preds = %1, %4
@@ -5600,7 +5600,7 @@ define void @_Z21lodepng_palette_clearP16LodePNGColorMode(ptr noundef captures(n
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %3) #32
+  tail call void @free(ptr noundef nonnull %3) #33
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -5616,7 +5616,7 @@ define noundef range(i32 0, 84) i32 @_Z23lodepng_color_mode_copyP16LodePNGColorM
   br i1 %.not.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit, label %5
 
 5:                                                ; preds = %2
-  tail call void @free(ptr noundef nonnull %4) #32
+  tail call void @free(ptr noundef nonnull %4) #33
   br label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %2, %5
@@ -5628,7 +5628,7 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %2, %5
   br i1 %.not, label %_ZL14lodepng_memcpyPvPKvm.exit, label %8
 
 8:                                                ; preds = %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit
-  %9 = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #31
+  %9 = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #32
   store ptr %9, ptr %3, align 8, !tbaa !186
   %.not10 = icmp eq ptr %9, null
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5675,7 +5675,7 @@ define noundef range(i32 0, 109) i32 @_Z19lodepng_palette_addP16LodePNGColorMode
   br i1 %.not, label %8, label %24
 
 8:                                                ; preds = %5
-  %9 = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #31
+  %9 = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #32
   store ptr %9, ptr %6, align 8, !tbaa !186
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.thread, label %.critedge.i
@@ -5928,13 +5928,13 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL22lodepng_add_text_sized
   %8 = load i64, ptr %7, align 8, !tbaa !203
   %9 = shl i64 %8, 3
   %10 = add i64 %9, 8
-  %11 = tail call noalias noundef ptr @realloc(ptr noundef %6, i64 noundef %10) #33
+  %11 = tail call noalias noundef ptr @realloc(ptr noundef %6, i64 noundef %10) #34
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load ptr, ptr %12, align 8, !tbaa !204
   %14 = load i64, ptr %7, align 8, !tbaa !203
   %15 = shl i64 %14, 3
   %16 = add i64 %15, 8
-  %17 = tail call noalias noundef ptr @realloc(ptr noundef %13, i64 noundef %16) #33
+  %17 = tail call noalias noundef ptr @realloc(ptr noundef %13, i64 noundef %16) #34
   %.not31 = icmp eq ptr %11, null
   br i1 %.not31, label %18, label %.thread37
 
@@ -5958,7 +5958,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL22lodepng_add_text_sized
   store i64 %22, ptr %7, align 8, !tbaa !203
   %strlen.i.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1)
   %23 = add i64 %strlen.i.i, 1
-  %24 = tail call noalias noundef ptr @malloc(i64 noundef %23) #31
+  %24 = tail call noalias noundef ptr @malloc(i64 noundef %23) #32
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %_ZL12alloc_stringPKc.exit, label %25
 
@@ -5981,7 +5981,7 @@ _ZL12alloc_stringPKc.exit:                        ; preds = %20, %_ZL14lodepng_m
   %29 = getelementptr i8, ptr %28, i64 -8
   store ptr %24, ptr %29, align 8, !tbaa !7
   %30 = add i64 %3, 1
-  %31 = tail call noalias noundef ptr @malloc(i64 noundef %30) #31
+  %31 = tail call noalias noundef ptr @malloc(i64 noundef %30) #32
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %_ZL18alloc_string_sizedPKcm.exit, label %32
 
@@ -6031,12 +6031,12 @@ define void @_Z18lodepng_clear_textP11LodePNGInfo(ptr noundef readonly captures(
   %7 = load ptr, ptr %4, align 8, !tbaa !199
   %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.09.i
   %9 = load ptr, ptr %8, align 8, !tbaa !7
-  tail call void @free(ptr noundef %9) #32
+  tail call void @free(ptr noundef %9) #33
   store ptr null, ptr %8, align 8, !tbaa !7
   %10 = load ptr, ptr %5, align 8, !tbaa !204
   %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.09.i
   %12 = load ptr, ptr %11, align 8, !tbaa !7
-  tail call void @free(ptr noundef %12) #32
+  tail call void @free(ptr noundef %12) #33
   store ptr null, ptr %11, align 8, !tbaa !7
   %13 = add i64 %.09.i, 1
   %14 = load i64, ptr %2, align 8, !tbaa !203
@@ -6046,10 +6046,10 @@ define void @_Z18lodepng_clear_textP11LodePNGInfo(ptr noundef readonly captures(
 _ZL19LodePNGText_cleanupP11LodePNGInfo.exit:      ; preds = %6, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %16 = load ptr, ptr %15, align 8, !tbaa !199
-  tail call void @free(ptr noundef %16) #32
+  tail call void @free(ptr noundef %16) #33
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %18 = load ptr, ptr %17, align 8, !tbaa !204
-  tail call void @free(ptr noundef %18) #32
+  tail call void @free(ptr noundef %18) #33
   ret void
 }
 
@@ -6078,22 +6078,22 @@ define internal fastcc void @_ZL20LodePNGIText_cleanupP11LodePNGInfo(ptr noundef
   %9 = load ptr, ptr %4, align 8, !tbaa !215
   %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.015
   %11 = load ptr, ptr %10, align 8, !tbaa !7
-  tail call void @free(ptr noundef %11) #32
+  tail call void @free(ptr noundef %11) #33
   store ptr null, ptr %10, align 8, !tbaa !7
   %12 = load ptr, ptr %5, align 8, !tbaa !216
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.015
   %14 = load ptr, ptr %13, align 8, !tbaa !7
-  tail call void @free(ptr noundef %14) #32
+  tail call void @free(ptr noundef %14) #33
   store ptr null, ptr %13, align 8, !tbaa !7
   %15 = load ptr, ptr %6, align 8, !tbaa !217
   %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.015
   %17 = load ptr, ptr %16, align 8, !tbaa !7
-  tail call void @free(ptr noundef %17) #32
+  tail call void @free(ptr noundef %17) #33
   store ptr null, ptr %16, align 8, !tbaa !7
   %18 = load ptr, ptr %7, align 8, !tbaa !218
   %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.015
   %20 = load ptr, ptr %19, align 8, !tbaa !7
-  tail call void @free(ptr noundef %20) #32
+  tail call void @free(ptr noundef %20) #33
   store ptr null, ptr %19, align 8, !tbaa !7
   %21 = add i64 %.015, 1
   %22 = load i64, ptr %2, align 8, !tbaa !214
@@ -6103,16 +6103,16 @@ define internal fastcc void @_ZL20LodePNGIText_cleanupP11LodePNGInfo(ptr noundef
 ._crit_edge:                                      ; preds = %8, %1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %24 = load ptr, ptr %23, align 8, !tbaa !215
-  tail call void @free(ptr noundef %24) #32
+  tail call void @free(ptr noundef %24) #33
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %26 = load ptr, ptr %25, align 8, !tbaa !216
-  tail call void @free(ptr noundef %26) #32
+  tail call void @free(ptr noundef %26) #33
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %28 = load ptr, ptr %27, align 8, !tbaa !217
-  tail call void @free(ptr noundef %28) #32
+  tail call void @free(ptr noundef %28) #33
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %30 = load ptr, ptr %29, align 8, !tbaa !218
-  tail call void @free(ptr noundef %30) #32
+  tail call void @free(ptr noundef %30) #33
   ret void
 }
 
@@ -6131,25 +6131,25 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL23lodepng_add_itext_size
   %10 = load i64, ptr %9, align 8, !tbaa !214
   %11 = shl i64 %10, 3
   %12 = add i64 %11, 8
-  %13 = tail call noalias noundef ptr @realloc(ptr noundef %8, i64 noundef %12) #33
+  %13 = tail call noalias noundef ptr @realloc(ptr noundef %8, i64 noundef %12) #34
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %15 = load ptr, ptr %14, align 8, !tbaa !216
   %16 = load i64, ptr %9, align 8, !tbaa !214
   %17 = shl i64 %16, 3
   %18 = add i64 %17, 8
-  %19 = tail call noalias noundef ptr @realloc(ptr noundef %15, i64 noundef %18) #33
+  %19 = tail call noalias noundef ptr @realloc(ptr noundef %15, i64 noundef %18) #34
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %21 = load ptr, ptr %20, align 8, !tbaa !217
   %22 = load i64, ptr %9, align 8, !tbaa !214
   %23 = shl i64 %22, 3
   %24 = add i64 %23, 8
-  %25 = tail call noalias noundef ptr @realloc(ptr noundef %21, i64 noundef %24) #33
+  %25 = tail call noalias noundef ptr @realloc(ptr noundef %21, i64 noundef %24) #34
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %27 = load ptr, ptr %26, align 8, !tbaa !218
   %28 = load i64, ptr %9, align 8, !tbaa !214
   %29 = shl i64 %28, 3
   %30 = add i64 %29, 8
-  %31 = tail call noalias noundef ptr @realloc(ptr noundef %27, i64 noundef %30) #33
+  %31 = tail call noalias noundef ptr @realloc(ptr noundef %27, i64 noundef %30) #34
   %32 = icmp ne ptr %13, null
   br i1 %32, label %33, label %34
 
@@ -6189,7 +6189,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL23lodepng_add_itext_size
   store i64 %44, ptr %9, align 8, !tbaa !214
   %strlen.i.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1)
   %45 = add i64 %strlen.i.i, 1
-  %46 = tail call noalias noundef ptr @malloc(i64 noundef %45) #31
+  %46 = tail call noalias noundef ptr @malloc(i64 noundef %45) #32
   %.not.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i, label %_ZL12alloc_stringPKc.exit, label %47
 
@@ -6213,7 +6213,7 @@ _ZL12alloc_stringPKc.exit:                        ; preds = %42, %_ZL14lodepng_m
   store ptr %46, ptr %51, align 8, !tbaa !7
   %strlen.i.i47 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2)
   %52 = add i64 %strlen.i.i47, 1
-  %53 = tail call noalias noundef ptr @malloc(i64 noundef %52) #31
+  %53 = tail call noalias noundef ptr @malloc(i64 noundef %52) #32
   %.not.i.i48 = icmp eq ptr %53, null
   br i1 %.not.i.i48, label %_ZL12alloc_stringPKc.exit52, label %54
 
@@ -6237,7 +6237,7 @@ _ZL12alloc_stringPKc.exit52:                      ; preds = %_ZL12alloc_stringPK
   store ptr %53, ptr %58, align 8, !tbaa !7
   %strlen.i.i53 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3)
   %59 = add i64 %strlen.i.i53, 1
-  %60 = tail call noalias noundef ptr @malloc(i64 noundef %59) #31
+  %60 = tail call noalias noundef ptr @malloc(i64 noundef %59) #32
   %.not.i.i54 = icmp eq ptr %60, null
   br i1 %.not.i.i54, label %_ZL12alloc_stringPKc.exit58, label %61
 
@@ -6260,7 +6260,7 @@ _ZL12alloc_stringPKc.exit58:                      ; preds = %_ZL12alloc_stringPK
   %65 = getelementptr i8, ptr %64, i64 -8
   store ptr %60, ptr %65, align 8, !tbaa !7
   %66 = add i64 %5, 1
-  %67 = tail call noalias noundef ptr @malloc(i64 noundef %66) #31
+  %67 = tail call noalias noundef ptr @malloc(i64 noundef %66) #32
   %.not.i = icmp eq ptr %67, null
   br i1 %.not.i, label %_ZL18alloc_string_sizedPKcm.exit, label %68
 
@@ -6298,11 +6298,11 @@ define noundef range(i32 0, 101) i32 @_Z15lodepng_set_iccP11LodePNGInfoPKcPKhj(p
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %9 = load ptr, ptr %8, align 8, !tbaa !7
-  tail call void @free(ptr noundef %9) #32
+  tail call void @free(ptr noundef %9) #33
   store ptr null, ptr %8, align 8, !tbaa !7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %11 = load ptr, ptr %10, align 8, !tbaa !237
-  tail call void @free(ptr noundef %11) #32
+  tail call void @free(ptr noundef %11) #33
   store ptr null, ptr %10, align 8, !tbaa !237
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i32 0, ptr %12, align 8, !tbaa !238
@@ -6316,7 +6316,7 @@ define noundef range(i32 0, 101) i32 @_Z15lodepng_set_iccP11LodePNGInfoPKcPKhj(p
 15:                                               ; preds = %13
   %strlen.i.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1)
   %16 = add i64 %strlen.i.i, 1
-  %17 = tail call noalias noundef ptr @malloc(i64 noundef %16) #31
+  %17 = tail call noalias noundef ptr @malloc(i64 noundef %16) #32
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %_ZL12alloc_stringPKc.exit.thread, label %19
 
@@ -6339,14 +6339,14 @@ _ZL12alloc_stringPKc.exit.thread:                 ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %17, ptr %22, align 8, !tbaa !239
   %23 = zext i32 %3 to i64
-  %24 = tail call noalias noundef ptr @malloc(i64 noundef %23) #31
+  %24 = tail call noalias noundef ptr @malloc(i64 noundef %23) #32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr %24, ptr %25, align 8, !tbaa !237
   %.not19 = icmp eq ptr %24, null
   br i1 %.not19, label %26, label %_ZL14lodepng_memcpyPvPKvm.exit
 
 26:                                               ; preds = %20
-  tail call void @free(ptr noundef nonnull %17) #32
+  tail call void @free(ptr noundef nonnull %17) #33
   br label %28
 
 _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %20
@@ -6365,11 +6365,11 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %20
 define void @_Z17lodepng_clear_iccP11LodePNGInfo(ptr noundef captures(none) initializes((252, 256), (272, 276)) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8, !tbaa !7
-  tail call void @free(ptr noundef %3) #32
+  tail call void @free(ptr noundef %3) #33
   store ptr null, ptr %2, align 8, !tbaa !7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %5 = load ptr, ptr %4, align 8, !tbaa !237
-  tail call void @free(ptr noundef %5) #32
+  tail call void @free(ptr noundef %5) #33
   store ptr null, ptr %4, align 8, !tbaa !237
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i32 0, ptr %6, align 8, !tbaa !238
@@ -6388,7 +6388,7 @@ define noundef range(i32 0, 84) i32 @_Z16lodepng_set_exifP11LodePNGInfoPKhj(ptr 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load ptr, ptr %7, align 8, !tbaa !249
-  tail call void @free(ptr noundef %8) #32
+  tail call void @free(ptr noundef %8) #33
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 0, ptr %9, align 8, !tbaa !250
   store i32 0, ptr %4, align 8, !tbaa !248
@@ -6396,7 +6396,7 @@ define noundef range(i32 0, 84) i32 @_Z16lodepng_set_exifP11LodePNGInfoPKhj(ptr 
 
 10:                                               ; preds = %6, %3
   %11 = zext i32 %2 to i64
-  %12 = tail call noalias noundef ptr @malloc(i64 noundef %11) #31
+  %12 = tail call noalias noundef ptr @malloc(i64 noundef %11) #32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %12, ptr %13, align 8, !tbaa !249
   %.not12 = icmp eq ptr %12, null
@@ -6425,7 +6425,7 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %14, %.lr.ph.prehead
 define void @_Z18lodepng_clear_exifP11LodePNGInfo(ptr noundef captures(none) initializes((136, 140), (152, 156)) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8, !tbaa !249
-  tail call void @free(ptr noundef %3) #32
+  tail call void @free(ptr noundef %3) #33
   store ptr null, ptr %2, align 8, !tbaa !249
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 0, ptr %4, align 8, !tbaa !250
@@ -6478,7 +6478,7 @@ define void @_Z20lodepng_info_cleanupP11LodePNGInfo(ptr noundef captures(none) i
   br i1 %.not.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %3) #32
+  tail call void @free(ptr noundef nonnull %3) #33
   br label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %1, %4
@@ -6498,12 +6498,12 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %1, %4
   %10 = load ptr, ptr %7, align 8, !tbaa !199
   %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.09.i
   %12 = load ptr, ptr %11, align 8, !tbaa !7
-  tail call void @free(ptr noundef %12) #32
+  tail call void @free(ptr noundef %12) #33
   store ptr null, ptr %11, align 8, !tbaa !7
   %13 = load ptr, ptr %8, align 8, !tbaa !204
   %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.09.i
   %15 = load ptr, ptr %14, align 8, !tbaa !7
-  tail call void @free(ptr noundef %15) #32
+  tail call void @free(ptr noundef %15) #33
   store ptr null, ptr %14, align 8, !tbaa !7
   %16 = add i64 %.09.i, 1
   %17 = load i64, ptr %5, align 8, !tbaa !203
@@ -6513,18 +6513,18 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %1, %4
 _ZL19LodePNGText_cleanupP11LodePNGInfo.exit:      ; preds = %9, %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %19 = load ptr, ptr %18, align 8, !tbaa !199
-  tail call void @free(ptr noundef %19) #32
+  tail call void @free(ptr noundef %19) #33
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %21 = load ptr, ptr %20, align 8, !tbaa !204
-  tail call void @free(ptr noundef %21) #32
+  tail call void @free(ptr noundef %21) #33
   tail call fastcc void @_ZL20LodePNGIText_cleanupP11LodePNGInfo(ptr noundef nonnull %0)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %23 = load ptr, ptr %22, align 8, !tbaa !7
-  tail call void @free(ptr noundef %23) #32
+  tail call void @free(ptr noundef %23) #33
   store ptr null, ptr %22, align 8, !tbaa !7
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %25 = load ptr, ptr %24, align 8, !tbaa !237
-  tail call void @free(ptr noundef %25) #32
+  tail call void @free(ptr noundef %25) #33
   store ptr null, ptr %24, align 8, !tbaa !237
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i32 0, ptr %26, align 8, !tbaa !238
@@ -6532,7 +6532,7 @@ _ZL19LodePNGText_cleanupP11LodePNGInfo.exit:      ; preds = %9, %_Z26lodepng_col
   store i32 0, ptr %27, align 4, !tbaa !236
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %29 = load ptr, ptr %28, align 8, !tbaa !249
-  tail call void @free(ptr noundef %29) #32
+  tail call void @free(ptr noundef %29) #33
   store ptr null, ptr %28, align 8, !tbaa !249
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 0, ptr %30, align 8, !tbaa !250
@@ -6545,7 +6545,7 @@ _ZL19LodePNGText_cleanupP11LodePNGInfo.exit:      ; preds = %9, %_Z26lodepng_col
   %indvars.iv.i = phi i64 [ 0, %_ZL19LodePNGText_cleanupP11LodePNGInfo.exit ], [ %indvars.iv.next.i, %33 ]
   %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8, !tbaa !7
-  tail call void @free(ptr noundef %35) #32
+  tail call void @free(ptr noundef %35) #33
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i6 = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %.not.i6, label %_ZL28LodePNGUnknownChunks_cleanupP11LodePNGInfo.exit, label %33, !llvm.loop !262
@@ -6575,7 +6575,7 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i:
   br i1 %.not.i, label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread, label %9
 
 9:                                                ; preds = %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i
-  %10 = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #31
+  %10 = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #32
   store ptr %10, ptr %5, align 8, !tbaa !186
   %.not10.i = icmp eq ptr %10, null
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -6701,7 +6701,7 @@ _Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread: ; preds = %.lr.p
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %75 = load i32, ptr %74, align 8, !tbaa !250
   %76 = zext i32 %75 to i64
-  %77 = tail call noalias noundef ptr @malloc(i64 noundef %76) #31
+  %77 = tail call noalias noundef ptr @malloc(i64 noundef %76) #32
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %77, ptr %78, align 8, !tbaa !249
   %.not12.i = icmp eq ptr %77, null
@@ -6741,7 +6741,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL25LodePNGUnknownChunks_c
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %4 ]
   %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8, !tbaa !7
-  tail call void @free(ptr noundef %6) #32
+  tail call void @free(ptr noundef %6) #33
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %.not.i, label %_ZL28LodePNGUnknownChunks_cleanupP11LodePNGInfo.exit.preheader, label %4, !llvm.loop !262
@@ -6759,7 +6759,7 @@ _ZL28LodePNGUnknownChunks_cleanupP11LodePNGInfo.exit.preheader: ; preds = %4
   %13 = load i64, ptr %12, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i64, ptr %8, i64 %11
   store i64 %13, ptr %14, align 8, !tbaa !3
-  %15 = tail call noalias noundef ptr @malloc(i64 noundef %13) #31
+  %15 = tail call noalias noundef ptr @malloc(i64 noundef %13) #32
   %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %11
   store ptr %15, ptr %16, align 8, !tbaa !7
   %.not29 = icmp ne ptr %15, null
@@ -7033,7 +7033,7 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %_ZL24lodepng_col
   br i1 %.not.i104, label %136, label %140
 
 136:                                              ; preds = %118
-  %137 = tail call noalias noundef dereferenceable_or_null(136) ptr @malloc(i64 noundef 136) #31
+  %137 = tail call noalias noundef dereferenceable_or_null(136) ptr @malloc(i64 noundef 136) #32
   store ptr %137, ptr %134, align 8, !tbaa !300
   %.not28.i105 = icmp eq ptr %137, null
   br i1 %.not28.i105, label %_ZL14color_tree_addP9ColorTreehhhhj.exit, label %138
@@ -9002,7 +9002,7 @@ define internal fastcc void @_ZL18color_tree_cleanupP9ColorTree(ptr noundef nonn
 5:                                                ; preds = %2
   tail call fastcc void @_ZL18color_tree_cleanupP9ColorTree(ptr noundef %4)
   %6 = load ptr, ptr %3, align 8, !tbaa !300
-  tail call void @free(ptr noundef %6) #32
+  tail call void @free(ptr noundef %6) #33
   br label %7
 
 7:                                                ; preds = %2, %5
@@ -9359,7 +9359,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
   br i1 %.not.i310, label %103, label %107
 
 103:                                              ; preds = %85
-  %104 = tail call noalias noundef dereferenceable_or_null(136) ptr @malloc(i64 noundef 136) #31
+  %104 = tail call noalias noundef dereferenceable_or_null(136) ptr @malloc(i64 noundef 136) #32
   store ptr %104, ptr %101, align 8, !tbaa !300
   %.not28.i = icmp eq ptr %104, null
   br i1 %.not28.i, label %_ZL14color_tree_addP9ColorTreehhhhj.exit, label %105
@@ -9874,7 +9874,7 @@ _ZL14color_tree_hasP9ColorTreehhhh.exit.thread:   ; preds = %_ZL14color_tree_has
   br i1 %.not.i313, label %320, label %324
 
 320:                                              ; preds = %_ZL14color_tree_hasP9ColorTreehhhh.exit.thread
-  %321 = tail call noalias noundef dereferenceable_or_null(136) ptr @malloc(i64 noundef 136) #31
+  %321 = tail call noalias noundef dereferenceable_or_null(136) ptr @malloc(i64 noundef 136) #32
   store ptr %321, ptr %318, align 8, !tbaa !300
   %.not28.i316 = icmp eq ptr %321, null
   br i1 %.not28.i316, label %_ZL14color_tree_addP9ColorTreehhhhj.exit318, label %322
@@ -10841,7 +10841,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL14readChunk_PLTEP16LodeP
   br i1 %.not.i, label %10, label %.critedge.i.preheader
 
 10:                                               ; preds = %7
-  %11 = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #31
+  %11 = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #32
   store ptr %11, ptr %8, align 8, !tbaa !186
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.thread, label %.critedge.i.preheader
@@ -11072,7 +11072,7 @@ define internal fastcc noundef range(i32 0, 90) i32 @_ZL14readChunk_tEXtP11LodeP
 13:                                               ; preds = %.critedge
   %14 = add nuw nsw i32 %.034.lcssa, 1
   %15 = zext nneg i32 %14 to i64
-  %16 = tail call noalias noundef ptr @malloc(i64 noundef %15) #31
+  %16 = tail call noalias noundef ptr @malloc(i64 noundef %15) #32
   %.not44 = icmp eq ptr %16, null
   br i1 %.not44, label %.critedge.thread, label %_ZL14lodepng_memcpyPvPKvm.exit
 
@@ -11082,7 +11082,7 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %13
   store i8 0, ptr %17, align 1, !tbaa !18
   %18 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 %15)
   %19 = add nuw nsw i64 %18, 1
-  %20 = tail call noalias noundef ptr @malloc(i64 noundef %19) #31
+  %20 = tail call noalias noundef ptr @malloc(i64 noundef %19) #32
   %.not45 = icmp eq ptr %20, null
   br i1 %.not45, label %.critedge.thread, label %21
 
@@ -11106,8 +11106,8 @@ _ZL14lodepng_memcpyPvPKvm.exit48:                 ; preds = %21, %.lr.ph.prehead
   %.138 = phi ptr [ %16, %_ZL14lodepng_memcpyPvPKvm.exit48 ], [ null, %.critedge ], [ null, %13 ], [ %16, %_ZL14lodepng_memcpyPvPKvm.exit ], [ null, %3 ]
   %.136 = phi ptr [ %20, %_ZL14lodepng_memcpyPvPKvm.exit48 ], [ null, %.critedge ], [ null, %13 ], [ null, %_ZL14lodepng_memcpyPvPKvm.exit ], [ null, %3 ]
   %.1 = phi i32 [ %24, %_ZL14lodepng_memcpyPvPKvm.exit48 ], [ 89, %.critedge ], [ 83, %13 ], [ 83, %_ZL14lodepng_memcpyPvPKvm.exit ], [ 89, %3 ]
-  tail call void @free(ptr noundef %.138) #32
-  tail call void @free(ptr noundef %.136) #32
+  tail call void @free(ptr noundef %.138) #33
+  tail call void @free(ptr noundef %.136) #33
   ret i32 %.1
 }
 
@@ -11160,7 +11160,7 @@ define internal fastcc noundef i32 @_ZL14readChunk_zTXtP11LodePNGInfoPK22LodePNG
 21:                                               ; preds = %19
   %22 = add nuw nsw i32 %.036.lcssa, 1
   %23 = zext nneg i32 %22 to i64
-  %24 = tail call noalias noundef ptr @malloc(i64 noundef %23) #31
+  %24 = tail call noalias noundef ptr @malloc(i64 noundef %23) #32
   %.not45 = icmp eq ptr %24, null
   br i1 %.not45, label %53, label %_ZL14lodepng_memcpyPvPKvm.exit
 
@@ -11231,9 +11231,9 @@ _ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit: ; preds = %28
 53:                                               ; preds = %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit, %.thread60, %_ZL14lodepng_memcpyPvPKvm.exit, %21, %19, %.critedge, %.thread
   %.035 = phi i32 [ %52, %.thread ], [ 75, %.critedge ], [ 89, %19 ], [ 83, %21 ], [ 72, %_ZL14lodepng_memcpyPvPKvm.exit ], [ %spec.select52, %.thread60 ], [ %spec.select, %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit ]
   %.0 = phi ptr [ %24, %.thread ], [ null, %.critedge ], [ null, %19 ], [ null, %21 ], [ %24, %_ZL14lodepng_memcpyPvPKvm.exit ], [ %24, %.thread60 ], [ %24, %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit ]
-  call void @free(ptr noundef %.0) #32
+  call void @free(ptr noundef %.0) #33
   %54 = load ptr, ptr %7, align 8, !tbaa !7
-  call void @free(ptr noundef %54) #32
+  call void @free(ptr noundef %54) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -11284,7 +11284,7 @@ define internal fastcc noundef i32 @_ZL14readChunk_iTXtP11LodePNGInfoPK22LodePNG
 21:                                               ; preds = %19
   %22 = add nuw nsw i32 %.091.lcssa, 1
   %23 = zext nneg i32 %22 to i64
-  %24 = tail call noalias noundef ptr @malloc(i64 noundef %23) #31
+  %24 = tail call noalias noundef ptr @malloc(i64 noundef %23) #32
   %.not110 = icmp eq ptr %24, null
   br i1 %.not110, label %87, label %_ZL14lodepng_memcpyPvPKvm.exit
 
@@ -11320,7 +11320,7 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %21
   %.192.lcssa.ph = phi i32 [ %.192129, %.lr.ph ], [ %35, %34 ]
   %39 = add i32 %.192.lcssa.ph, 1
   %40 = zext i32 %39 to i64
-  %41 = tail call noalias noundef ptr @malloc(i64 noundef %40) #31
+  %41 = tail call noalias noundef ptr @malloc(i64 noundef %40) #32
   %.not113 = icmp eq ptr %41, null
   br i1 %.not113, label %87, label %42
 
@@ -11362,7 +11362,7 @@ _ZL14lodepng_memcpyPvPKvm.exit121:                ; preds = %42, %.lr.ph.prehead
   %.293.lcssa = phi i32 [ 0, %_ZL14lodepng_memcpyPvPKvm.exit121 ], [ %53, %52 ], [ %.293133, %.lr.ph134 ]
   %57 = add i32 %.293.lcssa, 1
   %58 = zext i32 %57 to i64
-  %59 = tail call noalias noundef ptr @malloc(i64 noundef %58) #31
+  %59 = tail call noalias noundef ptr @malloc(i64 noundef %58) #32
   %.not115 = icmp eq ptr %59, null
   br i1 %.not115, label %87, label %60
 
@@ -11414,7 +11414,7 @@ _ZL14lodepng_memcpyPvPKvm.exit124:                ; preds = %60, %.lr.ph.prehead
 80:                                               ; preds = %77, %66
   %.2 = phi i32 [ %spec.select, %66 ], [ %79, %77 ]
   %81 = load ptr, ptr %6, align 8, !tbaa !7
-  call void @free(ptr noundef %81) #32
+  call void @free(ptr noundef %81) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %87
@@ -11431,9 +11431,9 @@ _ZL14lodepng_memcpyPvPKvm.exit124:                ; preds = %60, %.lr.ph.prehead
   %.089 = phi ptr [ %24, %80 ], [ %24, %82 ], [ null, %4 ], [ null, %.critedge ], [ null, %19 ], [ null, %21 ], [ %24, %_ZL14lodepng_memcpyPvPKvm.exit ], [ %24, %.critedge3 ], [ %24, %.critedge5 ]
   %.088 = phi ptr [ %41, %80 ], [ %41, %82 ], [ null, %4 ], [ null, %.critedge ], [ null, %19 ], [ null, %21 ], [ null, %_ZL14lodepng_memcpyPvPKvm.exit ], [ null, %.critedge3 ], [ %41, %.critedge5 ]
   %.0 = phi ptr [ %59, %80 ], [ %59, %82 ], [ null, %4 ], [ null, %.critedge ], [ null, %19 ], [ null, %21 ], [ null, %_ZL14lodepng_memcpyPvPKvm.exit ], [ null, %.critedge3 ], [ null, %.critedge5 ]
-  call void @free(ptr noundef %.089) #32
-  call void @free(ptr noundef %.088) #32
-  call void @free(ptr noundef %.0) #32
+  call void @free(ptr noundef %.089) #33
+  call void @free(ptr noundef %.088) #33
+  call void @free(ptr noundef %.0) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.090
 }
@@ -11737,11 +11737,11 @@ define internal fastcc noundef i32 @_ZL14readChunk_iCCPP11LodePNGInfoPK22LodePNG
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %12 = load ptr, ptr %11, align 8, !tbaa !7
-  tail call void @free(ptr noundef %12) #32
+  tail call void @free(ptr noundef %12) #33
   store ptr null, ptr %11, align 8, !tbaa !7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %14 = load ptr, ptr %13, align 8, !tbaa !237
-  tail call void @free(ptr noundef %14) #32
+  tail call void @free(ptr noundef %14) #33
   store ptr null, ptr %13, align 8, !tbaa !237
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i32 0, ptr %15, align 8, !tbaa !238
@@ -11786,7 +11786,7 @@ define internal fastcc noundef i32 @_ZL14readChunk_iCCPP11LodePNGInfoPK22LodePNG
 29:                                               ; preds = %27
   %30 = add nuw nsw i32 %.043.lcssa, 1
   %31 = zext nneg i32 %30 to i64
-  %32 = tail call noalias noundef ptr @malloc(i64 noundef %31) #31
+  %32 = tail call noalias noundef ptr @malloc(i64 noundef %31) #32
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %32, ptr %33, align 8, !tbaa !239
   %.not54 = icmp eq ptr %32, null
@@ -12087,14 +12087,14 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL14readChunk_eXIfP11LodeP
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %9 = load ptr, ptr %8, align 8, !tbaa !249
-  tail call void @free(ptr noundef %9) #32
+  tail call void @free(ptr noundef %9) #33
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 0, ptr %10, align 8, !tbaa !250
   store i32 0, ptr %5, align 8, !tbaa !248
   br label %11
 
 11:                                               ; preds = %7, %3
-  %12 = tail call noalias noundef ptr @malloc(i64 noundef %2) #31
+  %12 = tail call noalias noundef ptr @malloc(i64 noundef %2) #32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %12, ptr %13, align 8, !tbaa !249
   %.not12.i = icmp eq ptr %12, null
@@ -12438,7 +12438,7 @@ _ZL22lodepng_pixel_overflowjjPK16LodePNGColorModeS1_.exit.i: ; preds = %45
   br i1 %mul.ov.i30.i.i, label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread.sink.split, label %59
 
 59:                                               ; preds = %_ZL22lodepng_pixel_overflowjjPK16LodePNGColorModeS1_.exit.i
-  %60 = tail call noalias noundef ptr @malloc(i64 noundef %5) #31
+  %60 = tail call noalias noundef ptr @malloc(i64 noundef %5) #32
   %.not282.i = icmp eq ptr %60, null
   br i1 %.not282.i, label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread.sink.split, label %61
 
@@ -13447,7 +13447,7 @@ _ZL15ucvector_resizeP8ucvectorm.exit.i.i:         ; preds = %.thread.i.i.i.i, %5
 
 .thread433.i:                                     ; preds = %.thread426.i
   store i32 91, ptr %19, align 8, !tbaa !402
-  call void @free(ptr noundef nonnull %60) #32
+  call void @free(ptr noundef nonnull %60) #33
   br label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
 
 .thread.i.sink.split:                             ; preds = %111, %140, %296, %320, %329, %_ZL29lodepng_chunk_type_name_validPKh.exit.i, %365, %377, %243, %234, %227, %226, %169, %190, %181, %171, %.critedge.i.i, %97, %108, %423, %.thread426.thread569.i
@@ -13456,11 +13456,11 @@ _ZL15ucvector_resizeP8ucvectorm.exit.i.i:         ; preds = %.thread.i.i.i.i, %5
   br label %.thread.i
 
 .thread.i:                                        ; preds = %370, %355, %351, %347, %343, %325, %316, %292, %288, %284, %278, %272, %159, %.thread.i.sink.split
-  call void @free(ptr noundef nonnull %60) #32
+  call void @free(ptr noundef nonnull %60) #33
   br label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
 
 583:                                              ; preds = %.thread426.i
-  call void @free(ptr noundef nonnull %60) #32
+  call void @free(ptr noundef nonnull %60) #33
   %.not340.i = icmp eq i32 %.0.i367.i, 0
   br i1 %.not340.i, label %584, label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
 
@@ -13492,7 +13492,7 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit.i: ; preds = %584, %switch.l
   %600 = add nuw nsw i64 %599, 7
   %601 = lshr i64 %600, 3
   %602 = add i64 %601, %597
-  %603 = call noalias noundef ptr @malloc(i64 noundef %602) #31
+  %603 = call noalias noundef ptr @malloc(i64 noundef %602) #32
   store ptr %603, ptr %0, align 8, !tbaa !7
   %.not341.i = icmp eq ptr %603, null
   br i1 %.not341.i, label %604, label %605
@@ -14122,7 +14122,7 @@ _ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread: ; preds = %_ZL13decod
 
 _ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit: ; preds = %.thread433.i, %.thread.i, %583, %604, %_ZL20postProcessScanlinesPhS_jjPK11LodePNGInfo.exit.i
   %907 = load ptr, ptr %16, align 8, !tbaa !7
-  call void @free(ptr noundef %907) #32
+  call void @free(ptr noundef %907) #33
   %.pr = load i32, ptr %19, align 8, !tbaa !402
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -14218,7 +14218,7 @@ _ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread86: ; preds = %9
   br i1 %.not.i.i.i50, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i, label %951
 
 951:                                              ; preds = %_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread86
-  call void @free(ptr noundef nonnull %950) #32
+  call void @free(ptr noundef nonnull %950) #33
   br label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %951, %_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread86
@@ -14228,7 +14228,7 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %951, %_ZL24
   br i1 %.not.i51, label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread, label %953
 
 953:                                              ; preds = %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i
-  %954 = call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #31
+  %954 = call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #32
   store ptr %954, ptr %949, align 8, !tbaa !186
   %.not10.i = icmp eq ptr %954, null
   %955 = load i64, ptr %85, align 8, !tbaa !191
@@ -14294,7 +14294,7 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %963, %switch.loo
   %978 = add nuw nsw i64 %977, 7
   %979 = lshr i64 %978, 3
   %980 = add i64 %979, %975
-  %981 = call noalias noundef ptr @malloc(i64 noundef %980) #31
+  %981 = call noalias noundef ptr @malloc(i64 noundef %980) #32
   store ptr %981, ptr %0, align 8, !tbaa !7
   %.not46 = icmp eq ptr %981, null
   br i1 %.not46, label %.thread90, label %982
@@ -14306,7 +14306,7 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %963, %switch.loo
 .thread90:                                        ; preds = %982, %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit
   %storemerge = phi i32 [ %983, %982 ], [ 83, %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit ]
   store i32 %storemerge, ptr %19, align 8, !tbaa !402
-  call void @free(ptr noundef %959) #32
+  call void @free(ptr noundef %959) #33
   %.pre129 = load i32, ptr %19, align 8, !tbaa !402
   br label %_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread87
 
@@ -14402,7 +14402,7 @@ define noundef i32 @_Z21lodepng_decode_memoryPPhPjS1_PKhm16LodePNGColorTypej(ptr
   br i1 %.not.i.i.i, label %_Z21lodepng_state_cleanupP12LodePNGState.exit, label %49
 
 49:                                               ; preds = %7
-  call void @free(ptr noundef nonnull %48) #32
+  call void @free(ptr noundef nonnull %48) #33
   br label %_Z21lodepng_state_cleanupP12LodePNGState.exit
 
 _Z21lodepng_state_cleanupP12LodePNGState.exit:    ; preds = %7, %49
@@ -14502,7 +14502,7 @@ define void @_Z21lodepng_state_cleanupP12LodePNGState(ptr noundef captures(none)
   br i1 %.not.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %3) #32
+  tail call void @free(ptr noundef nonnull %3) #33
   br label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %1, %4
@@ -14546,7 +14546,7 @@ define noundef i32 @_Z19lodepng_decode_filePPhPjS1_PKc16LodePNGColorTypej(ptr no
 
 13:                                               ; preds = %10, %6
   %.0 = phi i32 [ %9, %6 ], [ %12, %10 ]
-  tail call void @free(ptr noundef %.pre) #32
+  tail call void @free(ptr noundef %.pre) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -14574,7 +14574,7 @@ define noundef i32 @_Z21lodepng_decode32_filePPhPjS1_PKc(ptr noundef captures(no
 
 _Z19lodepng_decode_filePPhPjS1_PKc16LodePNGColorTypej.exit: ; preds = %4, %8
   %.0.i = phi i32 [ %7, %4 ], [ %10, %8 ]
-  tail call void @free(ptr noundef %.pre.i) #32
+  tail call void @free(ptr noundef %.pre.i) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
@@ -14602,7 +14602,7 @@ define noundef i32 @_Z21lodepng_decode24_filePPhPjS1_PKc(ptr noundef captures(no
 
 _Z19lodepng_decode_filePPhPjS1_PKc16LodePNGColorTypej.exit: ; preds = %4, %8
   %.0.i = phi i32 [ %7, %4 ], [ %10, %8 ]
-  tail call void @free(ptr noundef %.pre.i) #32
+  tail call void @free(ptr noundef %.pre.i) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
@@ -14660,7 +14660,7 @@ define void @_Z18lodepng_state_copyP12LodePNGStatePKS_(ptr noundef captures(none
   br i1 %.not.i.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i, label %5
 
 5:                                                ; preds = %2
-  tail call void @free(ptr noundef nonnull %4) #32
+  tail call void @free(ptr noundef nonnull %4) #33
   br label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %5, %2
@@ -14714,7 +14714,7 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %5, %2
   br i1 %.not.i, label %select.unfold, label %28
 
 28:                                               ; preds = %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i
-  %29 = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #31
+  %29 = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #32
   store ptr %29, ptr %3, align 8, !tbaa !186
   %.not10.i = icmp eq ptr %29, null
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 184
@@ -15361,7 +15361,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %278, %switch.lookup
   %288 = mul i64 %281, %287
   %289 = add i64 %288, 7
   %290 = lshr i64 %289, 3
-  %291 = tail call noalias noundef ptr @malloc(i64 noundef %290) #31
+  %291 = tail call noalias noundef ptr @malloc(i64 noundef %290) #32
   %292 = icmp eq ptr %291, null
   %293 = icmp ugt i64 %289, 7
   %or.cond42 = and i1 %292, %293
@@ -15383,18 +15383,18 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %278, %switch.lookup
   br i1 %.not338, label %.thread461, label %.thread464
 
 .thread464:                                       ; preds = %295
-  tail call void @free(ptr noundef %291) #32
+  tail call void @free(ptr noundef %291) #33
   br label %.thread456
 
 .thread461.thread:                                ; preds = %.thread458, %294
-  tail call void @free(ptr noundef %291) #32
+  tail call void @free(ptr noundef %291) #33
   br label %.thread456
 
 .thread461:                                       ; preds = %295
   %297 = call fastcc noundef i32 @_ZL19preProcessScanlinesPPhPmPKhjjPK11LodePNGInfoPK22LodePNGEncoderSettings(ptr noundef %7, ptr noundef %8, ptr noundef %291, i32 noundef %3, i32 noundef %4, ptr noundef %10, ptr noundef nonnull %49)
   store i32 %297, ptr %36, align 8, !tbaa !402
   %298 = icmp eq i32 %297, 0
-  tail call void @free(ptr noundef %291) #32
+  tail call void @free(ptr noundef %291) #33
   br i1 %298, label %301, label %.thread456
 
 299:                                              ; preds = %276
@@ -15852,13 +15852,13 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %278, %switch.lookup
 .thread456:                                       ; preds = %416, %418, %485, %.thread461.thread, %227, %267, %273, %.thread464, %.thread450, %_ZL18checkColorValidity16LodePNGColorTypej.exit417.thread, %_ZL18checkColorValidity16LodePNGColorTypej.exit.thread, %._crit_edge490, %407, %410, %481, %484, %301, %303, %310, %316, %321, %326, %330, %334, %339, %343, %348, %353, %359, %367, %369, %373, %377, %382, %386, %393, %499, %503, %.thread461, %299, %57, %52, %47
   call void @_Z20lodepng_info_cleanupP11LodePNGInfo(ptr noundef nonnull %10)
   %505 = load ptr, ptr %7, align 8, !tbaa !7
-  tail call void @free(ptr noundef %505) #32
+  tail call void @free(ptr noundef %505) #33
   %506 = load ptr, ptr %35, align 8, !tbaa !186
   %.not.i.i = icmp eq ptr %506, null
   br i1 %.not.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit, label %507
 
 507:                                              ; preds = %.thread456
-  tail call void @free(ptr noundef nonnull %506) #32
+  tail call void @free(ptr noundef nonnull %506) #33
   br label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %.thread456, %507
@@ -15982,7 +15982,7 @@ define internal fastcc noundef range(i32 0, 109) i32 @_ZL17auto_choose_colorP16L
   br i1 %.not.i, label %_Z21lodepng_palette_clearP16LodePNGColorMode.exit, label %41
 
 41:                                               ; preds = %37
-  tail call void @free(ptr noundef nonnull %40) #32
+  tail call void @free(ptr noundef nonnull %40) #33
   br label %_Z21lodepng_palette_clearP16LodePNGColorMode.exit
 
 _Z21lodepng_palette_clearP16LodePNGColorMode.exit: ; preds = %37, %41
@@ -16012,7 +16012,7 @@ _Z21lodepng_palette_clearP16LodePNGColorMode.exit: ; preds = %37, %41
   br i1 %.not.i102, label %56, label %72
 
 56:                                               ; preds = %44
-  %57 = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #31
+  %57 = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #32
   store ptr %57, ptr %39, align 8, !tbaa !186
   %58 = icmp eq ptr %57, null
   br i1 %58, label %_Z19lodepng_palette_addP16LodePNGColorModehhhh.exit.thread, label %.critedge.i.i
@@ -16114,7 +16114,7 @@ _Z19lodepng_palette_addP16LodePNGColorModehhhh.exit.thread: ; preds = %76, %_ZL3
   br i1 %.not.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i, label %113
 
 113:                                              ; preds = %111
-  tail call void @free(ptr noundef nonnull %112) #32
+  tail call void @free(ptr noundef nonnull %112) #33
   br label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %113, %111
@@ -16126,7 +16126,7 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %113, %111
   br i1 %.not.i103, label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit, label %116
 
 116:                                              ; preds = %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i
-  %117 = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #31
+  %117 = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #32
   store ptr %117, ptr %39, align 8, !tbaa !186
   %.not10.i = icmp eq ptr %117, null
   br i1 %.not10.i, label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit, label %118
@@ -16223,7 +16223,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %7, %switch.lookup
   %33 = mul i64 %32, %28
   %34 = add i64 %33, %28
   store i64 %34, ptr %1, align 8, !tbaa !3
-  %35 = tail call noalias noundef ptr @malloc(i64 noundef %34) #31
+  %35 = tail call noalias noundef ptr @malloc(i64 noundef %34) #32
   store ptr %35, ptr %0, align 8, !tbaa !7
   %.not101 = icmp ne ptr %35, null
   %.not102 = icmp eq i64 %34, 0
@@ -16240,7 +16240,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %7, %switch.lookup
   br i1 %.not104, label %44, label %39
 
 39:                                               ; preds = %37
-  %40 = tail call noalias noundef ptr @malloc(i64 noundef %33) #31
+  %40 = tail call noalias noundef ptr @malloc(i64 noundef %33) #32
   %.not105.not = icmp eq ptr %40, null
   br i1 %.not105.not, label %43, label %41
 
@@ -16251,7 +16251,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %7, %switch.lookup
 
 43:                                               ; preds = %41, %39
   %.2 = phi i32 [ 83, %39 ], [ %42, %41 ]
-  tail call void @free(ptr noundef %40) #32
+  tail call void @free(ptr noundef %40) #33
   br label %267
 
 44:                                               ; preds = %37, %.thread
@@ -16362,12 +16362,12 @@ _ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit:     ; preds = %._crit_edge.i
   %102 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %103 = load i64, ptr %102, align 8, !tbaa !3
   store i64 %103, ptr %1, align 8, !tbaa !3
-  %104 = tail call noalias noundef ptr @malloc(i64 noundef %103) #31
+  %104 = tail call noalias noundef ptr @malloc(i64 noundef %103) #32
   store ptr %104, ptr %0, align 8, !tbaa !7
   %.not = icmp ne ptr %104, null
   %105 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %106 = load i64, ptr %105, align 8, !tbaa !3
-  %107 = tail call noalias noundef ptr @malloc(i64 noundef %106) #31
+  %107 = tail call noalias noundef ptr @malloc(i64 noundef %106) #32
   %108 = icmp ne ptr %107, null
   %109 = icmp eq i64 %106, 0
   %or.cond.not128 = or i1 %109, %108
@@ -16649,7 +16649,7 @@ _ZL15Adam7_interlacePhPKhjjj.exit.split.us:       ; preds = %_ZL15Adam7_interlac
   %233 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv.next139
   %234 = load i64, ptr %233, align 8, !tbaa !3
   %235 = sub i64 %234, %232
-  %236 = tail call noalias noundef ptr @malloc(i64 noundef %235) #31
+  %236 = tail call noalias noundef ptr @malloc(i64 noundef %235) #32
   %.not99.us = icmp eq ptr %236, null
   br i1 %.not99.us, label %.loopexit, label %.thread121.us
 
@@ -16677,7 +16677,7 @@ _ZL15Adam7_interlacePhPKhjjj.exit.split.us:       ; preds = %_ZL15Adam7_interlac
   %.val113.us = load i32, ptr %16, align 8, !tbaa !182
   %.val114.us = load i32, ptr %18, align 4, !tbaa !185
   %253 = tail call fastcc noundef i32 @_ZL6filterPhPKhjjPK16LodePNGColorModePK22LodePNGEncoderSettings(ptr noundef %252, ptr noundef nonnull %236, i32 noundef %242, i32 noundef %248, i32 %.val113.us, i32 %.val114.us, ptr noundef %6)
-  tail call void @free(ptr noundef nonnull %236) #32
+  tail call void @free(ptr noundef nonnull %236) #33
   %.not100.us = icmp eq i32 %253, 0
   br i1 %.not100.us, label %237, label %.loopexit
 
@@ -16707,7 +16707,7 @@ _ZL15Adam7_interlacePhPKhjjj.exit.split:          ; preds = %_ZL15Adam7_interlac
 
 .loopexit:                                        ; preds = %_ZL15Adam7_interlacePhPKhjjj.exit.split, %254, %.thread121.us, %_ZL15Adam7_interlacePhPKhjjj.exit.split.us, %237, %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit
   %.6 = phi i32 [ 83, %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit ], [ 83, %_ZL15Adam7_interlacePhPKhjjj.exit.split.us ], [ 0, %237 ], [ %253, %.thread121.us ], [ 0, %254 ], [ %266, %_ZL15Adam7_interlacePhPKhjjj.exit.split ]
-  tail call void @free(ptr noundef %107) #32
+  tail call void @free(ptr noundef %107) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -16735,7 +16735,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL14writeSignatureP8ucvect
 8:                                                ; preds = %1
   %9 = lshr i64 %6, 1
   %10 = add i64 %9, %4
-  %11 = tail call noalias noundef ptr @realloc(ptr noundef %.pre, i64 noundef %10) #33
+  %11 = tail call noalias noundef ptr @realloc(ptr noundef %.pre, i64 noundef %10) #34
   %.not.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i, label %_ZL15ucvector_resizeP8ucvectorm.exit, label %.thread.i.i
 
@@ -16778,7 +16778,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_IHDRP8ucvecto
 16:                                               ; preds = %12
   %17 = lshr i64 %14, 1
   %18 = add i64 %17, %10
-  %19 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %18) #33
+  %19 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %18) #34
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %.thread.i.i.i
 
@@ -16917,7 +16917,7 @@ _ZL29lodepng_chunk_type_name_validPKh.exit.i:     ; preds = %11
 
 40:                                               ; preds = %19
   %41 = load ptr, ptr %0, align 8, !tbaa !7
-  %42 = tail call noalias noundef ptr @realloc(ptr noundef %41, i64 noundef %39) #33
+  %42 = tail call noalias noundef ptr @realloc(ptr noundef %41, i64 noundef %39) #34
   %.not22.i = icmp eq ptr %42, null
   br i1 %.not22.i, label %_Z20lodepng_chunk_appendPPhPmPKh.exit.thread, label %43
 
@@ -17072,7 +17072,7 @@ define internal fastcc noundef range(i32 0, 117) i32 @_ZL13addChunk_cICPP8ucvect
 28:                                               ; preds = %24
   %29 = lshr i64 %26, 1
   %30 = add i64 %29, %22
-  %31 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %30) #33
+  %31 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %30) #34
   %.not.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %.thread.i.i.i
 
@@ -17314,7 +17314,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_cLLiP8ucvecto
 12:                                               ; preds = %8
   %13 = lshr i64 %10, 1
   %14 = add i64 %13, %6
-  %15 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %14) #33
+  %15 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %14) #34
   %.not.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %.thread.i.i.i
 
@@ -17440,7 +17440,7 @@ _ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.thread: ; preds = %1
 33:                                               ; preds = %29
   %34 = lshr i64 %31, 1
   %35 = add i64 %34, %27
-  %36 = call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %35) #33
+  %36 = call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %35) #34
   %.not.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %.thread.i.i.i
 
@@ -17497,7 +17497,7 @@ _ZL14lodepng_memcpyPvPKvm.exit27:                 ; preds = %_ZL14lodepng_memcpy
 _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %17, %33, %26, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.thread, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit, %_ZL14lodepng_memcpyPvPKvm.exit27
   %.01842 = phi i32 [ 0, %_ZL14lodepng_memcpyPvPKvm.exit27 ], [ 83, %33 ], [ 77, %26 ], [ 77, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.thread ], [ %19, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit ], [ 111, %17 ]
   %62 = load ptr, ptr %4, align 8, !tbaa !7
-  call void @free(ptr noundef %62) #32
+  call void @free(ptr noundef %62) #33
   br label %63
 
 63:                                               ; preds = %3, %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread
@@ -17531,7 +17531,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_sRGBP8ucvecto
 12:                                               ; preds = %8
   %13 = lshr i64 %10, 1
   %14 = add i64 %13, %6
-  %15 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %14) #33
+  %15 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %14) #34
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %_ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit, label %.thread.i.i.i.i
 
@@ -17586,7 +17586,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_gAMAP8ucvecto
 12:                                               ; preds = %8
   %13 = lshr i64 %10, 1
   %14 = add i64 %13, %6
-  %15 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %14) #33
+  %15 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %14) #34
   %.not.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %.thread.i.i.i
 
@@ -17656,7 +17656,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_cHRMP8ucvecto
 12:                                               ; preds = %8
   %13 = lshr i64 %10, 1
   %14 = add i64 %13, %6
-  %15 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %14) #33
+  %15 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %14) #34
   %.not.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %.thread.i.i.i
 
@@ -17869,7 +17869,7 @@ define internal fastcc noundef range(i32 0, 116) i32 @_ZL13addChunk_sBITP8ucvect
 24:                                               ; preds = %20
   %25 = lshr i64 %22, 1
   %26 = add i64 %25, %18
-  %27 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %26) #33
+  %27 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %26) #34
   %.not.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %.thread.i.i.i
 
@@ -17946,7 +17946,7 @@ define internal fastcc noundef range(i32 0, 116) i32 @_ZL13addChunk_sBITP8ucvect
 65:                                               ; preds = %61
   %66 = lshr i64 %63, 1
   %67 = add i64 %66, %59
-  %68 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i96, i64 noundef %67) #33
+  %68 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i96, i64 noundef %67) #34
   %.not.i.i.i97 = icmp eq ptr %68, null
   br i1 %.not.i.i.i97, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %.thread.i.i.i98
 
@@ -18022,7 +18022,7 @@ define internal fastcc noundef range(i32 0, 116) i32 @_ZL13addChunk_sBITP8ucvect
 107:                                              ; preds = %103
   %108 = lshr i64 %105, 1
   %109 = add i64 %108, %101
-  %110 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i102, i64 noundef %109) #33
+  %110 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i102, i64 noundef %109) #34
   %.not.i.i.i103 = icmp eq ptr %110, null
   br i1 %.not.i.i.i103, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %.thread.i.i.i104
 
@@ -18107,7 +18107,7 @@ define internal fastcc noundef range(i32 0, 116) i32 @_ZL13addChunk_sBITP8ucvect
 157:                                              ; preds = %153
   %158 = lshr i64 %155, 1
   %159 = add i64 %158, %151
-  %160 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i108, i64 noundef %159) #33
+  %160 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i108, i64 noundef %159) #34
   %.not.i.i.i109 = icmp eq ptr %160, null
   br i1 %.not.i.i.i109, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %.thread.i.i.i110
 
@@ -18182,7 +18182,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_eXIfP8ucvecto
 13:                                               ; preds = %9
   %14 = lshr i64 %11, 1
   %15 = add i64 %14, %7
-  %16 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %15) #33
+  %16 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %15) #34
   %.not.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i, label %_ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit, label %.thread.i.i.i.i
 
@@ -18262,7 +18262,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_PLTEP8ucvecto
 18:                                               ; preds = %14
   %19 = lshr i64 %16, 1
   %20 = add i64 %19, %12
-  %21 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %20) #33
+  %21 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %20) #34
   %.not.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %.thread.i.i.i
 
@@ -18390,7 +18390,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_tRNSP8ucvecto
 26:                                               ; preds = %22
   %27 = lshr i64 %24, 1
   %28 = add i64 %27, %20
-  %29 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %28) #33
+  %29 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %28) #34
   %.not.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i, label %.thread105, label %.thread.i.i.i
 
@@ -18466,7 +18466,7 @@ _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit:    ; preds = %22, %.thread.i.i.i
 69:                                               ; preds = %65
   %70 = lshr i64 %67, 1
   %71 = add i64 %70, %63
-  %72 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i64, i64 noundef %71) #33
+  %72 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i64, i64 noundef %71) #34
   %.not.i.i.i65 = icmp eq ptr %72, null
   br i1 %.not.i.i.i65, label %.thread105, label %.thread.i.i.i66
 
@@ -18528,7 +18528,7 @@ _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit:    ; preds = %22, %.thread.i.i.i
 102:                                              ; preds = %98
   %103 = lshr i64 %100, 1
   %104 = add i64 %103, %96
-  %105 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i70, i64 noundef %104) #33
+  %105 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i70, i64 noundef %104) #34
   %.not.i.i.i71 = icmp eq ptr %105, null
   br i1 %.not.i.i.i71, label %.thread105, label %.thread.i.i.i72
 
@@ -18626,7 +18626,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_bKGDP8ucvecto
 15:                                               ; preds = %11
   %16 = lshr i64 %13, 1
   %17 = add i64 %16, %9
-  %18 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %17) #33
+  %18 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %17) #34
   %.not.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %.thread.i.i.i
 
@@ -18682,7 +18682,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_bKGDP8ucvecto
 45:                                               ; preds = %41
   %46 = lshr i64 %43, 1
   %47 = add i64 %46, %39
-  %48 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i37, i64 noundef %47) #33
+  %48 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i37, i64 noundef %47) #34
   %.not.i.i.i38 = icmp eq ptr %48, null
   br i1 %.not.i.i.i38, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %.thread.i.i.i39
 
@@ -18758,7 +18758,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_bKGDP8ucvecto
 91:                                               ; preds = %87
   %92 = lshr i64 %89, 1
   %93 = add i64 %92, %85
-  %94 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i43, i64 noundef %93) #33
+  %94 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i43, i64 noundef %93) #34
   %.not.i.i.i44 = icmp eq ptr %94, null
   br i1 %.not.i.i.i44, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %.thread.i.i.i45
 
@@ -18820,7 +18820,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_pHYsP8ucvecto
 12:                                               ; preds = %8
   %13 = lshr i64 %10, 1
   %14 = add i64 %13, %6
-  %15 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %14) #33
+  %15 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %14) #34
   %.not.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %.thread.i.i.i
 
@@ -18942,7 +18942,7 @@ _ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit: ; preds = %4
 25:                                               ; preds = %22
   %26 = lshr i64 %23, 1
   %27 = add i64 %26, %20
-  %28 = call noalias noundef ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %27) #33
+  %28 = call noalias noundef ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %27) #34
   %.not.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i.i, label %_ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit18, label %.thread.i.i.i.i
 
@@ -18999,7 +18999,7 @@ _ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit: ; preds = %22, %.thread.i.i.i.
 51:                                               ; preds = %48
   %52 = lshr i64 %49, 1
   %53 = add i64 %52, %46
-  %54 = call noalias noundef ptr @realloc(ptr noundef %.pre.i.i15, i64 noundef %53) #33
+  %54 = call noalias noundef ptr @realloc(ptr noundef %.pre.i.i15, i64 noundef %53) #34
   %.not.i.i.i.i16 = icmp eq ptr %54, null
   br i1 %.not.i.i.i.i16, label %_ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit18, label %.thread.i.i.i.i17
 
@@ -19045,7 +19045,7 @@ _ZL14lodepng_memcpyPvPKvm.exit.i:                 ; preds = %.lr.ph.preheader.i.
 _ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit18: ; preds = %.lr.ph54, %19, %25, %9, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit, %_ZL14lodepng_memcpyPvPKvm.exit.i, %51, %45, %._crit_edge
   %.1 = phi i32 [ 0, %_ZL14lodepng_memcpyPvPKvm.exit.i ], [ 83, %51 ], [ 77, %45 ], [ 77, %._crit_edge ], [ %11, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit ], [ 111, %9 ], [ 83, %25 ], [ 77, %19 ], [ 77, %.lr.ph54 ]
   %73 = load ptr, ptr %5, align 8, !tbaa !7
-  call void @free(ptr noundef %73) #32
+  call void @free(ptr noundef %73) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
@@ -19074,7 +19074,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_tIMEP8ucvecto
 12:                                               ; preds = %8
   %13 = lshr i64 %10, 1
   %14 = add i64 %13, %6
-  %15 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %14) #33
+  %15 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %14) #34
   %.not.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %.thread.i.i.i
 
@@ -19194,7 +19194,7 @@ _ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.thread: ; preds = %1
 27:                                               ; preds = %23
   %28 = lshr i64 %25, 1
   %29 = add i64 %28, %21
-  %30 = call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %29) #33
+  %30 = call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %29) #34
   %.not.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %.thread.i.i.i
 
@@ -19250,7 +19250,7 @@ _ZL14lodepng_memcpyPvPKvm.exit29:                 ; preds = %_ZL14lodepng_memcpy
 _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %11, %27, %20, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.thread, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit, %_ZL14lodepng_memcpyPvPKvm.exit29
   %.01944 = phi i32 [ 0, %_ZL14lodepng_memcpyPvPKvm.exit29 ], [ 83, %27 ], [ 77, %20 ], [ 77, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.thread ], [ %13, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit ], [ 111, %11 ]
   %55 = load ptr, ptr %5, align 8, !tbaa !7
-  call void @free(ptr noundef %55) #32
+  call void @free(ptr noundef %55) #33
   br label %56
 
 56:                                               ; preds = %4, %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread
@@ -19293,7 +19293,7 @@ define internal fastcc noundef range(i32 0, 90) i32 @_ZL13addChunk_tEXtP8ucvecto
 18:                                               ; preds = %14
   %19 = lshr i64 %16, 1
   %20 = add i64 %19, %12
-  %21 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %20) #33
+  %21 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %20) #34
   %.not.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %.thread.i.i.i
 
@@ -19412,7 +19412,7 @@ _ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.thread: ; preds = %1
 34:                                               ; preds = %30
   %35 = lshr i64 %32, 1
   %36 = add i64 %35, %28
-  %37 = call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %36) #33
+  %37 = call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %36) #34
   %.not.i.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i.i, label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread, label %.thread.i.i.i
 
@@ -19509,7 +19509,7 @@ _ZL14lodepng_memcpyPvPKvm.exit65:                 ; preds = %.lr.ph.preheader.i6
 _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %15, %34, %27, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.thread, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit, %_ZL14lodepng_memcpyPvPKvm.exit65
   %.190 = phi i32 [ 0, %_ZL14lodepng_memcpyPvPKvm.exit65 ], [ 83, %34 ], [ 77, %27 ], [ 77, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.thread ], [ %17, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit ], [ 111, %15 ]
   %75 = load ptr, ptr %8, align 8, !tbaa !7
-  call void @free(ptr noundef %75) #32
+  call void @free(ptr noundef %75) #33
   br label %76
 
 76:                                               ; preds = %7, %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread
@@ -19538,7 +19538,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_IENDP8ucvecto
 10:                                               ; preds = %6
   %11 = lshr i64 %8, 1
   %12 = add i64 %11, %4
-  %13 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %12) #33
+  %13 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %12) #34
   %.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i.i, label %_ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit, label %.thread.i.i.i.i
 
@@ -19656,7 +19656,7 @@ define noundef i32 @_Z21lodepng_encode_memoryPPhPmPKhjj16LodePNGColorTypej(ptr n
   br i1 %.not.i.i.i, label %_Z21lodepng_state_cleanupP12LodePNGState.exit, label %50
 
 50:                                               ; preds = %7
-  call void @free(ptr noundef nonnull %49) #32
+  call void @free(ptr noundef nonnull %49) #33
   br label %_Z21lodepng_state_cleanupP12LodePNGState.exit
 
 _Z21lodepng_state_cleanupP12LodePNGState.exit:    ; preds = %7, %50
@@ -19702,7 +19702,7 @@ define noundef i32 @_Z19lodepng_encode_filePKcPKhjj16LodePNGColorTypej(ptr nound
 
 _Z17lodepng_save_filePKhmPKc.exit:                ; preds = %13, %10, %6
   %.0 = phi i32 [ %9, %6 ], [ 0, %13 ], [ 79, %10 ]
-  tail call void @free(ptr noundef %.pre) #32
+  tail call void @free(ptr noundef %.pre) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -19732,7 +19732,7 @@ define noundef i32 @_Z21lodepng_encode32_filePKcPKhjj(ptr noundef readonly captu
 
 _Z19lodepng_encode_filePKcPKhjj16LodePNGColorTypej.exit: ; preds = %4, %8, %11
   %.0.i = phi i32 [ %7, %4 ], [ 0, %11 ], [ 79, %8 ]
-  tail call void @free(ptr noundef %.pre.i) #32
+  tail call void @free(ptr noundef %.pre.i) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
@@ -19762,7 +19762,7 @@ define noundef i32 @_Z21lodepng_encode24_filePKcPKhjj(ptr noundef readonly captu
 
 _Z19lodepng_encode_filePKcPKhjj16LodePNGColorTypej.exit: ; preds = %4, %8, %11
   %.0.i = phi i32 [ %7, %4 ], [ 0, %11 ], [ 79, %8 ]
-  tail call void @free(ptr noundef %.pre.i) #32
+  tail call void @free(ptr noundef %.pre.i) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
@@ -19931,7 +19931,7 @@ _ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit: ; preds = %_ZL
   %33 = getelementptr inbounds i8, ptr %29, i64 %32
   call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPhEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %33, ptr noundef nonnull %23, ptr noundef nonnull %28)
   %34 = load ptr, ptr %6, align 8, !tbaa !7
-  call void @free(ptr noundef %34) #32
+  call void @free(ptr noundef %34) #33
   br label %35
 
 35:                                               ; preds = %24, %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit
@@ -19985,7 +19985,7 @@ define internal fastcc noundef i32 @_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDec
 26:                                               ; preds = %23
   %27 = lshr i64 %20, 1
   %28 = add i64 %27, %24
-  %29 = tail call noalias noundef ptr @realloc(ptr noundef %19, i64 noundef %28) #33
+  %29 = tail call noalias noundef ptr @realloc(ptr noundef %19, i64 noundef %28) #34
   %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %_ZL15ucvector_resizeP8ucvectorm.exit, label %.thread.i.i
 
@@ -20068,7 +20068,7 @@ _ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit: ; preds = %9, %12
   %24 = getelementptr inbounds i8, ptr %20, i64 %23
   call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPhEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %24, ptr noundef nonnull %14, ptr noundef nonnull %19)
   %25 = load ptr, ptr %5, align 8, !tbaa !7
-  call void @free(ptr noundef %25) #32
+  call void @free(ptr noundef %25) #33
   br label %26
 
 26:                                               ; preds = %15, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit
@@ -20126,7 +20126,7 @@ _ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.i: ; preds = %18, %1
   %30 = getelementptr inbounds i8, ptr %26, i64 %29
   call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPhEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %30, ptr noundef nonnull %20, ptr noundef nonnull %25)
   %31 = load ptr, ptr %4, align 8, !tbaa !7
-  call void @free(ptr noundef %31) #32
+  call void @free(ptr noundef %31) #33
   br label %_ZN7lodepng8compressERSt6vectorIhSaIhEEPKhmRK23LodePNGCompressSettings.exit
 
 _ZN7lodepng8compressERSt6vectorIhSaIhEEPKhmRK23LodePNGCompressSettings.exit: ; preds = %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.i, %21
@@ -20308,7 +20308,7 @@ define void @_ZN7lodepng5StateD2Ev(ptr noundef nonnull align 8 captures(none) de
   br i1 %.not.i.i.i, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %3) #32
+  tail call void @free(ptr noundef nonnull %3) #33
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -20382,20 +20382,20 @@ switch.lookup:                                    ; preds = %14
           to label %42 unwind label %43
 
 42:                                               ; preds = %21
-  call void @_ZN7lodepng5StateD1Ev(ptr noundef nonnull align 8 dereferenceable(640) %9) #32
+  call void @_ZN7lodepng5StateD1Ev(ptr noundef nonnull align 8 dereferenceable(640) %9) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %45
 
 43:                                               ; preds = %21
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7lodepng5StateD1Ev(ptr noundef nonnull align 8 dereferenceable(640) %9) #32
+  call void @_ZN7lodepng5StateD1Ev(ptr noundef nonnull align 8 dereferenceable(640) %9) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %44
 
 45:                                               ; preds = %42, %7
-  call void @free(ptr noundef %11) #32
+  call void @free(ptr noundef %11) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %10
 }
@@ -20468,7 +20468,7 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %12, %switch.look
   br label %41
 
 41:                                               ; preds = %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit, %6
-  tail call void @free(ptr noundef %9) #32
+  tail call void @free(ptr noundef %9) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
@@ -20514,7 +20514,7 @@ define noundef i32 @_ZN7lodepng6decodeERSt6vectorIhSaIhEERjS4_RKNSt7__cxx1112bas
   %16 = ptrtoint ptr %15 to i64
   %17 = ptrtoint ptr %12 to i64
   %18 = sub i64 %16, %17
-  call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %18) #34
+  call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %18) #35
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %10, %13
@@ -20546,7 +20546,7 @@ _ZN7lodepng6decodeERSt6vectorIhSaIhEERjS4_RKS2_16LodePNGColorTypej.exit: ; preds
   %33 = ptrtoint ptr %32 to i64
   %34 = ptrtoint ptr %29 to i64
   %35 = sub i64 %33, %34
-  call void @_ZdlPvm(ptr noundef nonnull %29, i64 noundef %35) #34
+  call void @_ZdlPvm(ptr noundef nonnull %29, i64 noundef %35) #35
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit14
 
 _ZNSt6vectorIhSaIhEED2Ev.exit14:                  ; preds = %_ZN7lodepng6decodeERSt6vectorIhSaIhEERjS4_RKS2_16LodePNGColorTypej.exit, %30
@@ -20576,7 +20576,7 @@ define noundef i32 @_ZN7lodepng6encodeERSt6vectorIhSaIhEEPKhjj16LodePNGColorType
   %19 = sub i64 %17, %18
   %20 = getelementptr inbounds i8, ptr %16, i64 %19
   tail call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPhEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %20, ptr noundef nonnull %10, ptr noundef nonnull %15)
-  tail call void @free(ptr noundef nonnull %10) #32
+  tail call void @free(ptr noundef nonnull %10) #33
   br label %21
 
 21:                                               ; preds = %11, %6
@@ -20642,7 +20642,7 @@ _ZL24lodepng_get_raw_size_lctjj16LodePNGColorTypej.exit: ; preds = %6, %switch.l
   %42 = sub i64 %40, %41
   %43 = getelementptr inbounds i8, ptr %39, i64 %42
   tail call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPhEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %43, ptr noundef nonnull %33, ptr noundef nonnull %38)
-  tail call void @free(ptr noundef nonnull %33) #32
+  tail call void @free(ptr noundef nonnull %33) #33
   br label %_ZN7lodepng6encodeERSt6vectorIhSaIhEEPKhjj16LodePNGColorTypej.exit
 
 _ZN7lodepng6encodeERSt6vectorIhSaIhEEPKhjj16LodePNGColorTypej.exit: ; preds = %30, %34
@@ -20677,7 +20677,7 @@ define noundef i32 @_ZN7lodepng6encodeERSt6vectorIhSaIhEEPKhjjRNS_5StateE(ptr no
   %18 = sub i64 %16, %17
   %19 = getelementptr inbounds i8, ptr %15, i64 %18
   tail call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPhEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %19, ptr noundef nonnull %9, ptr noundef nonnull %14)
-  tail call void @free(ptr noundef nonnull %9) #32
+  tail call void @free(ptr noundef nonnull %9) #33
   br label %20
 
 20:                                               ; preds = %10, %5
@@ -20747,7 +20747,7 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %5, %switch.looku
   %45 = sub i64 %43, %44
   %46 = getelementptr inbounds i8, ptr %42, i64 %45
   tail call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPhEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %46, ptr noundef nonnull %36, ptr noundef nonnull %41)
-  tail call void @free(ptr noundef nonnull %36) #32
+  tail call void @free(ptr noundef nonnull %36) #33
   br label %_ZN7lodepng6encodeERSt6vectorIhSaIhEEPKhjjRNS_5StateE.exit
 
 _ZN7lodepng6encodeERSt6vectorIhSaIhEEPKhjjRNS_5StateE.exit: ; preds = %33, %37
@@ -20784,7 +20784,7 @@ define noundef i32 @_ZN7lodepng6encodeERKNSt7__cxx1112basic_stringIcSt11char_tra
           to label %.noexc10 unwind label %29
 
 .noexc10:                                         ; preds = %12
-  call void @free(ptr noundef nonnull %11) #32
+  call void @free(ptr noundef nonnull %11) #33
   br label %15
 
 15:                                               ; preds = %.noexc10, %.noexc
@@ -20825,7 +20825,7 @@ define noundef i32 @_ZN7lodepng6encodeERKNSt7__cxx1112basic_stringIcSt11char_tra
   %35 = ptrtoint ptr %34 to i64
   %36 = ptrtoint ptr %31 to i64
   %37 = sub i64 %35, %36
-  call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef %37) #34
+  call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef %37) #35
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %29, %32
@@ -20844,7 +20844,7 @@ _ZN7lodepng9save_fileERKSt6vectorIhSaIhEERKNSt7__cxx1112basic_stringIcSt11char_t
   %42 = ptrtoint ptr %41 to i64
   %43 = ptrtoint ptr %38 to i64
   %44 = sub i64 %42, %43
-  call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %44) #34
+  call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %44) #35
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit12
 
 _ZNSt6vectorIhSaIhEED2Ev.exit12:                  ; preds = %_ZN7lodepng9save_fileERKSt6vectorIhSaIhEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %39
@@ -20915,7 +20915,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #19
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef range(i32 0, 84) i32 @_ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj(ptr noundef nonnull captures(none) initializes((8, 16)) %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef range(i64 19, 289) %2, i32 noundef range(i32 7, 16) %3) unnamed_addr #2 {
   %5 = shl nuw nsw i64 %2, 2
-  %6 = tail call noalias noundef ptr @malloc(i64 noundef %5) #31
+  %6 = tail call noalias noundef ptr @malloc(i64 noundef %5) #32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8, !tbaa !71
   %.not = icmp eq ptr %6, null
@@ -20953,15 +20953,15 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL28HuffmanTree_makeFromLe
   %3 = load i32, ptr %2, align 4, !tbaa !75
   %4 = zext i32 %3 to i64
   %5 = shl nuw nsw i64 %4, 2
-  %6 = tail call noalias noundef ptr @malloc(i64 noundef %5) #31
+  %6 = tail call noalias noundef ptr @malloc(i64 noundef %5) #32
   store ptr %6, ptr %0, align 8, !tbaa !93
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !76
   %9 = add i32 %8, 1
   %10 = zext i32 %9 to i64
   %11 = shl nuw nsw i64 %10, 2
-  %12 = tail call noalias noundef ptr @malloc(i64 noundef %11) #31
-  %13 = tail call noalias noundef ptr @malloc(i64 noundef %11) #31
+  %12 = tail call noalias noundef ptr @malloc(i64 noundef %11) #32
+  %13 = tail call noalias noundef ptr @malloc(i64 noundef %11) #32
   %14 = icmp ne ptr %6, null
   %15 = icmp ne ptr %12, null
   %or.cond = and i1 %14, %15
@@ -21060,8 +21060,8 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL28HuffmanTree_makeFromLe
   br i1 %.not58, label %._crit_edge, label %35, !llvm.loop !787
 
 ._crit_edge:                                      ; preds = %47, %.preheader
-  tail call void @free(ptr noundef %12) #32
-  tail call void @free(ptr noundef %13) #32
+  tail call void @free(ptr noundef %12) #33
+  tail call void @free(ptr noundef %13) #33
   %calloc.i = tail call dereferenceable_or_null(2048) ptr @calloc(i64 1, i64 2048)
   %.not.i = icmp eq ptr %calloc.i, null
   br i1 %.not.i, label %_ZL21HuffmanTree_makeTableP11HuffmanTree.exit, label %48
@@ -21132,11 +21132,11 @@ _ZL11reverseBitsjj.exit.i:                        ; preds = %60
   br i1 %exitcond207.not.i, label %80, label %.preheader173.i, !llvm.loop !790
 
 80:                                               ; preds = %.preheader173.i
-  %81 = tail call noalias noundef ptr @malloc(i64 noundef %.1139.i) #31
+  %81 = tail call noalias noundef ptr @malloc(i64 noundef %.1139.i) #32
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %81, ptr %82, align 8, !tbaa !80
   %83 = shl i64 %.1139.i, 1
-  %84 = tail call noalias noundef ptr @malloc(i64 noundef %83) #31
+  %84 = tail call noalias noundef ptr @malloc(i64 noundef %83) #32
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %84, ptr %85, align 8, !tbaa !81
   %.not151.i = icmp eq ptr %81, null
@@ -21190,7 +21190,7 @@ _ZL11reverseBitsjj.exit.i:                        ; preds = %60
   br i1 %exitcond209.not.i, label %105, label %.preheader171.i, !llvm.loop !792
 
 105:                                              ; preds = %103
-  tail call void @free(ptr noundef nonnull %calloc.i) #32
+  tail call void @free(ptr noundef nonnull %calloc.i) #33
   %106 = load i32, ptr %2, align 4, !tbaa !75
   %.not199.i = icmp eq i32 %106, 0
   br i1 %.not199.i, label %.preheader.i, label %.lr.ph189.i
@@ -21355,12 +21355,12 @@ _ZL11reverseBitsjj.exit162.i:                     ; preds = %117
   br i1 %191, label %_ZL21HuffmanTree_makeTableP11HuffmanTree.exit, label %186
 
 .critedge:                                        ; preds = %1
-  tail call void @free(ptr noundef %12) #32
+  tail call void @free(ptr noundef %12) #33
   br label %_ZL21HuffmanTree_makeTableP11HuffmanTree.exit.sink.split
 
 _ZL21HuffmanTree_makeTableP11HuffmanTree.exit.sink.split: ; preds = %80, %.critedge
   %calloc.i.sink = phi ptr [ %13, %.critedge ], [ %calloc.i, %80 ]
-  tail call void @free(ptr noundef %calloc.i.sink) #32
+  tail call void @free(ptr noundef %calloc.i.sink) #33
   br label %_ZL21HuffmanTree_makeTableP11HuffmanTree.exit
 
 _ZL21HuffmanTree_makeTableP11HuffmanTree.exit:    ; preds = %142, %131, %188, %186, %184, %_ZL21HuffmanTree_makeTableP11HuffmanTree.exit.sink.split, %.preheader.i, %.preheader165.i, %._crit_edge
@@ -21403,7 +21403,7 @@ define internal fastcc void @_ZL9writeBitsP16LodePNGBitWriterjm(ptr noundef nonn
   %19 = lshr i64 %16, 1
   %20 = add i64 %19, %14
   %21 = load ptr, ptr %11, align 8, !tbaa !53
-  %22 = tail call noalias noundef ptr @realloc(ptr noundef %21, i64 noundef %20) #33
+  %22 = tail call noalias noundef ptr @realloc(ptr noundef %21, i64 noundef %20) #34
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %_ZL15ucvector_resizeP8ucvectorm.exit, label %.thread.i.i
 
@@ -21467,7 +21467,7 @@ define internal fastcc void @_ZL9writeBitsP16LodePNGBitWriterjm(ptr noundef nonn
   %56 = lshr i64 %53, 1
   %57 = add i64 %56, %51
   %58 = load ptr, ptr %48, align 8, !tbaa !53
-  %59 = tail call noalias noundef ptr @realloc(ptr noundef %58, i64 noundef %57) #33
+  %59 = tail call noalias noundef ptr @realloc(ptr noundef %58, i64 noundef %57) #34
   %.not.i.i28 = icmp eq ptr %59, null
   br i1 %.not.i.i28, label %_ZL15ucvector_resizeP8ucvectorm.exit, label %.thread.i.i29
 
@@ -21861,7 +21861,7 @@ _ZL15updateHashChainP4Hashmjt.exit:               ; preds = %97, %105
 192:                                              ; preds = %182
   %193 = lshr i64 %190, 1
   %194 = add i64 %193, %189
-  %195 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %194) #33
+  %195 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %194) #34
   %.not.not.i.i = icmp eq ptr %195, null
   br i1 %.not.not.i.i, label %.thread283, label %196
 
@@ -21914,7 +21914,7 @@ _ZL18uivector_push_backP8uivectorj.exit:          ; preds = %182, %196
 216:                                              ; preds = %208
   %217 = lshr i64 %214, 1
   %218 = add i64 %217, %213
-  %219 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i244, i64 noundef %218) #33
+  %219 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i244, i64 noundef %218) #34
   %.not.not.i.i246 = icmp eq ptr %219, null
   br i1 %.not.not.i.i246, label %.thread283, label %220
 
@@ -21953,7 +21953,7 @@ _ZL18uivector_push_backP8uivectorj.exit247:       ; preds = %208, %220
 236:                                              ; preds = %228
   %237 = lshr i64 %234, 1
   %238 = add i64 %237, %233
-  %239 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i248, i64 noundef %238) #33
+  %239 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i248, i64 noundef %238) #34
   %.not.not.i.i250 = icmp eq ptr %239, null
   br i1 %.not.not.i.i250, label %.thread283, label %240
 
@@ -22049,7 +22049,7 @@ _ZL15searchCodeIndexPKjmm.exit31.i:               ; preds = %268, %264
 278:                                              ; preds = %_ZL15searchCodeIndexPKjmm.exit31.i
   %279 = lshr i64 %276, 1
   %280 = add i64 %279, %275
-  %281 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i252, i64 noundef %280) #33
+  %281 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i252, i64 noundef %280) #34
   %.not.not.i.i253 = icmp eq ptr %281, null
   br i1 %.not.not.i.i253, label %.lr.ph324, label %282
 
@@ -22309,7 +22309,7 @@ define internal fastcc void @_ZL13writeLZ77dataP16LodePNGBitWriterPK8uivectorPK1
   %35 = lshr i64 %32, 1
   %36 = add i64 %35, %30
   %37 = load ptr, ptr %27, align 8, !tbaa !53
-  %38 = tail call noalias noundef ptr @realloc(ptr noundef %37, i64 noundef %36) #33
+  %38 = tail call noalias noundef ptr @realloc(ptr noundef %37, i64 noundef %36) #34
   %.not.i.i.i = icmp eq ptr %38, null
   br i1 %.not.i.i.i, label %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit, label %.thread.i.i.i
 
@@ -22417,7 +22417,7 @@ _ZL17writeBitsReversedP16LodePNGBitWriterjm.exit: ; preds = %34, %45, %10
   %104 = lshr i64 %101, 1
   %105 = add i64 %104, %99
   %106 = load ptr, ptr %96, align 8, !tbaa !53
-  %107 = tail call noalias noundef ptr @realloc(ptr noundef %106, i64 noundef %105) #33
+  %107 = tail call noalias noundef ptr @realloc(ptr noundef %106, i64 noundef %105) #34
   %.not.i.i.i40 = icmp eq ptr %107, null
   br i1 %.not.i.i.i40, label %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit45, label %.thread.i.i.i41
 
@@ -22514,7 +22514,7 @@ define internal fastcc void @_ZL17writeBitsReversedP16LodePNGBitWriterjm(ptr nou
   %18 = lshr i64 %15, 1
   %19 = add i64 %18, %13
   %20 = load ptr, ptr %10, align 8, !tbaa !53
-  %21 = tail call noalias noundef ptr @realloc(ptr noundef %20, i64 noundef %19) #33
+  %21 = tail call noalias noundef ptr @realloc(ptr noundef %20, i64 noundef %19) #34
   %.not.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i, label %_ZL15ucvector_resizeP8ucvectorm.exit, label %.thread.i.i
 
@@ -22584,7 +22584,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL31HuffmanTree_makeFromFr
 
 13:                                               ; preds = %6
   %14 = shl i64 %.020, 2
-  %15 = tail call noalias noundef ptr @malloc(i64 noundef %14) #31
+  %15 = tail call noalias noundef ptr @malloc(i64 noundef %14) #32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %15, ptr %16, align 8, !tbaa !71
   %.not22 = icmp eq ptr %15, null
@@ -22636,7 +22636,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL18lodepng_chunk_initPPhP
 15:                                               ; preds = %11
   %16 = lshr i64 %13, 1
   %17 = add i64 %16, %9
-  %18 = tail call noalias noundef ptr @realloc(ptr noundef %.pre, i64 noundef %17) #33
+  %18 = tail call noalias noundef ptr @realloc(ptr noundef %.pre, i64 noundef %17) #34
   %.not.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i, label %_ZL15ucvector_resizeP8ucvectorm.exit, label %.thread.i.i
 
@@ -24136,7 +24136,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %5, %switch.lookup
 52:                                               ; preds = %51, %52
   %indvars.iv126 = phi i64 [ 0, %51 ], [ %indvars.iv.next127, %52 ]
   %.125263 = phi i32 [ 0, %51 ], [ %spec.select, %52 ]
-  %53 = tail call noalias noundef ptr @malloc(i64 noundef %25) #31
+  %53 = tail call noalias noundef ptr @malloc(i64 noundef %25) #32
   %54 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv126
   store ptr %53, ptr %54, align 8, !tbaa !7
   %.not303 = icmp eq ptr %53, null
@@ -24259,7 +24259,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %5, %switch.lookup
   %indvars.iv134 = phi i64 [ %indvars.iv.next135, %.loopexit13 ], [ 0, %.loopexit13.preheader ]
   %97 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv134
   %98 = load ptr, ptr %97, align 8, !tbaa !7
-  tail call void @free(ptr noundef %98) #32
+  tail call void @free(ptr noundef %98) #33
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %.not302 = icmp eq i64 %indvars.iv.next135, 5
   br i1 %.not302, label %99, label %.loopexit13, !llvm.loop !843
@@ -24276,7 +24276,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %5, %switch.lookup
 101:                                              ; preds = %100, %101
   %indvars.iv111 = phi i64 [ 0, %100 ], [ %indvars.iv.next112, %101 ]
   %.325439 = phi i32 [ 0, %100 ], [ %spec.select306, %101 ]
-  %102 = tail call noalias noundef ptr @malloc(i64 noundef %25) #31
+  %102 = tail call noalias noundef ptr @malloc(i64 noundef %25) #32
   %103 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv111
   store ptr %102, ptr %103, align 8, !tbaa !7
   %.not294 = icmp eq ptr %102, null
@@ -24433,7 +24433,7 @@ _ZL6ilog2im.exit:                                 ; preds = %125, %129
   %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.loopexit16 ], [ 0, %.loopexit16.preheader ]
   %167 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv123
   %168 = load ptr, ptr %167, align 8, !tbaa !7
-  tail call void @free(ptr noundef %168) #32
+  tail call void @free(ptr noundef %168) #33
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %.not293 = icmp eq i64 %indvars.iv.next124, 5
   br i1 %.not293, label %169, label %.loopexit16, !llvm.loop !853
@@ -24474,7 +24474,7 @@ _ZL6ilog2im.exit:                                 ; preds = %125, %129
 181:                                              ; preds = %179, %181
   %indvars.iv = phi i64 [ 0, %179 ], [ %indvars.iv.next, %181 ]
   %.525622 = phi i32 [ 0, %179 ], [ %spec.select308, %181 ]
-  %182 = tail call noalias noundef ptr @malloc(i64 noundef %25) #31
+  %182 = tail call noalias noundef ptr @malloc(i64 noundef %25) #32
   %183 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   store ptr %182, ptr %183, align 8, !tbaa !7
   %.not284 = icmp eq ptr %182, null
@@ -24530,7 +24530,7 @@ _ZL6ilog2im.exit:                                 ; preds = %125, %129
 
 _ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit: ; preds = %196, %198
   %200 = load ptr, ptr %11, align 8, !tbaa !7
-  call void @free(ptr noundef %200) #32
+  call void @free(ptr noundef %200) #33
   %201 = icmp eq i64 %indvars.iv99, 0
   %.pre = load i64, ptr %194, align 8, !tbaa !3
   %202 = icmp ult i64 %.pre, %.122624
@@ -24579,7 +24579,7 @@ _ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit: ; preds = %196, %19
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %.loopexit21 ], [ 0, %.loopexit21.preheader ]
   %218 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv105
   %219 = load ptr, ptr %218, align 8, !tbaa !7
-  call void @free(ptr noundef %219) #32
+  call void @free(ptr noundef %219) #33
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %.not283 = icmp eq i64 %indvars.iv.next106, 5
   br i1 %.not283, label %220, label %.loopexit21, !llvm.loop !864
@@ -24906,14 +24906,14 @@ _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %
   br i1 %26, label %27, label %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i
 
 27:                                               ; preds = %25
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.129) #35
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.129) #36
   unreachable
 
 _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i:  ; preds = %25
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %8, i64 %11)
   %28 = add nuw i64 %.sroa.speculated.i.i, %8
   %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 9223372036854775807)
-  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #36
+  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #37
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %8
   store i8 0, ptr %31, align 1, !tbaa !18
   %32 = add nsw i64 %11, -1
@@ -24939,7 +24939,7 @@ _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i: ; preds = %36, %_ZSt27__u
 
 37:                                               ; preds = %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i
   %38 = sub i64 %14, %7
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %38) #34
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %38) #35
   br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i
@@ -25074,7 +25074,7 @@ _ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit57: ; preds = %_ZSt2
   br i1 %45, label %46, label %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit
 
 46:                                               ; preds = %40
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.130) #35
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.130) #36
   unreachable
 
 _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit:    ; preds = %40
@@ -25087,7 +25087,7 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit:    ; preds = %40
   br i1 %.not.i, label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit, label %51
 
 51:                                               ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit
-  %52 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #36
+  %52 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #37
   br label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit, %51
@@ -25120,7 +25120,7 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIhSaIh
 
 64:                                               ; preds = %62
   %65 = sub i64 %13, %42
-  tail call void @_ZdlPvm(ptr noundef nonnull %41, i64 noundef %65) #34
+  tail call void @_ZdlPvm(ptr noundef nonnull %41, i64 noundef %65) #35
   br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit: ; preds = %62, %64
@@ -25143,28 +25143,28 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #26
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #27
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #27
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #27
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #27
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #27
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #27
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #27
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
@@ -25177,7 +25177,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare i64 @strlen(ptr captures(none)) local_unnamed_addr #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #27
+declare i32 @llvm.abs.i32(i32, i1 immarg) #31
 
 attributes #0 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -25206,16 +25206,17 @@ attributes #23 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-prote
 attributes #24 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #26 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #27 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #27 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #28 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #29 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #30 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #31 = { nounwind allocsize(0) }
-attributes #32 = { nounwind }
-attributes #33 = { nounwind allocsize(1) }
-attributes #34 = { builtin nounwind }
-attributes #35 = { noreturn }
-attributes #36 = { builtin allocsize(0) }
+attributes #31 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #32 = { nounwind allocsize(0) }
+attributes #33 = { nounwind }
+attributes #34 = { nounwind allocsize(1) }
+attributes #35 = { builtin nounwind }
+attributes #36 = { noreturn }
+attributes #37 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

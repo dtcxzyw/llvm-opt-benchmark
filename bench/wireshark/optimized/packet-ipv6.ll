@@ -1475,7 +1475,7 @@ define ptr @get_ipv6_conversation_data(ptr noundef %0, ptr noundef readonly capt
 
 7:                                                ; preds = %4
   %8 = tail call ptr @wmem_file_scope()
-  %9 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %8, i64 noundef 8) #15
+  %9 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %8, i64 noundef 8) #16
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %11 = load i32, ptr %10, align 4
   store i32 %11, ptr %9, align 4
@@ -1834,7 +1834,7 @@ define internal void @nat64_prefix_uats_ipaddr_tostr_cb(ptr noundef readonly cap
   %8 = tail call noalias ptr @g_strdup(ptr noundef nonnull %6)
   store ptr %8, ptr %1, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call i64 @strlen(ptr noundef %9) #16
+  %10 = tail call i64 @strlen(ptr noundef %9) #17
   %11 = trunc i64 %10 to i32
   br label %14
 
@@ -1929,7 +1929,7 @@ define internal void @nat64_prefix_uats_prefix_len_tostr_cb(ptr noundef readonly
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %17, %18 ]
   %21 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %21, ptr %1, align 8
-  %22 = tail call i64 @strlen(ptr noundef %21) #16
+  %22 = tail call i64 @strlen(ptr noundef %21) #17
   %23 = trunc i64 %22 to i32
   br label %25
 
@@ -2020,7 +2020,7 @@ define internal void @nat64_prefix_uats_prefix_wildcard_len_tostr_cb(ptr noundef
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
   %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %20, ptr %1, align 8
-  %21 = tail call i64 @strlen(ptr noundef %20) #16
+  %21 = tail call i64 @strlen(ptr noundef %20) #17
   %22 = trunc i64 %21 to i32
   br label %24
 
@@ -2087,7 +2087,7 @@ define internal i32 @dissect_ipv6(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %12, i64 noundef 72) #15
+  %13 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %12, i64 noundef 72) #16
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   call void @col_set_str(ptr noundef %15, i32 noundef 35, ptr noundef nonnull @.str.698)
@@ -2228,7 +2228,7 @@ proto_item_set_generated.exit:                    ; preds = %80, %77, %72, %swit
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, i8 0, i64 24, i1 false)
   store i32 3, ptr %97, align 8
-  %98 = call dereferenceable_or_null(16) ptr @wmem_memdup(ptr noundef %96, ptr noundef %95, i64 noundef 16) #17
+  %98 = call dereferenceable_or_null(16) ptr @wmem_memdup(ptr noundef %96, ptr noundef %95, i64 noundef 16) #18
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 176
   store ptr %98, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 168
@@ -2250,7 +2250,7 @@ proto_item_set_generated.exit:                    ; preds = %80, %77, %72, %swit
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, i8 0, i64 24, i1 false)
   store i32 3, ptr %109, align 8
-  %110 = call dereferenceable_or_null(16) ptr @wmem_memdup(ptr noundef %108, ptr noundef %107, i64 noundef 16) #17
+  %110 = call dereferenceable_or_null(16) ptr @wmem_memdup(ptr noundef %108, ptr noundef %107, i64 noundef 16) #18
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store ptr %110, ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 192
@@ -2545,7 +2545,7 @@ ipv6_get_jumbo_plen.exit:                         ; preds = %208
 
 get_ipv6_conversation_data.exit:                  ; preds = %.thread
   %249 = call ptr @wmem_file_scope()
-  %250 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %249, i64 noundef 8) #15
+  %250 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %249, i64 noundef 8) #16
   %251 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %252 = load i32, ptr %251, align 4
   store i32 %252, ptr %250, align 4
@@ -2600,7 +2600,7 @@ proto_item_set_generated.exit304:                 ; preds = %244, %265, %262, %g
   %276 = getelementptr inbounds nuw i8, ptr %13, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %276, i8 0, i64 24, i1 false)
   store i32 3, ptr %276, align 8
-  %277 = call dereferenceable_or_null(16) ptr @wmem_memdup(ptr noundef %275, ptr noundef %95, i64 noundef 16) #17
+  %277 = call dereferenceable_or_null(16) ptr @wmem_memdup(ptr noundef %275, ptr noundef %95, i64 noundef 16) #18
   %278 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %277, ptr %278, align 8
   %279 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -2611,7 +2611,7 @@ proto_item_set_generated.exit304:                 ; preds = %244, %265, %262, %g
   %282 = getelementptr inbounds nuw i8, ptr %13, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %282, i8 0, i64 24, i1 false)
   store i32 3, ptr %282, align 8
-  %283 = call dereferenceable_or_null(16) ptr @wmem_memdup(ptr noundef %281, ptr noundef %107, i64 noundef 16) #17
+  %283 = call dereferenceable_or_null(16) ptr @wmem_memdup(ptr noundef %281, ptr noundef %107, i64 noundef 16) #18
   %284 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store ptr %283, ptr %284, align 8
   %285 = getelementptr inbounds nuw i8, ptr %13, i64 48
@@ -2619,7 +2619,7 @@ proto_item_set_generated.exit304:                 ; preds = %244, %265, %262, %g
   %286 = getelementptr inbounds nuw i8, ptr %13, i64 44
   store i32 16, ptr %286, align 4
   %287 = load ptr, ptr %11, align 8
-  %288 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %287, i64 noundef 32) #15
+  %288 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %287, i64 noundef 32) #16
   %289 = trunc i32 %.0263 to i16
   %290 = getelementptr inbounds nuw i8, ptr %288, i64 4
   store i16 %289, ptr %290, align 4
@@ -2649,7 +2649,7 @@ proto_item_set_generated.exit304:                 ; preds = %244, %265, %262, %g
 
 303:                                              ; preds = %297
   %304 = load ptr, ptr %11, align 8
-  %305 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %304, i64 noundef 32) #15
+  %305 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %304, i64 noundef 32) #16
   %306 = call i32 @tvb_captured_length(ptr noundef %0)
   %307 = getelementptr inbounds nuw i8, ptr %305, i64 16
   store i32 %306, ptr %307, align 8
@@ -2668,7 +2668,7 @@ export_pdu.exit:                                  ; preds = %297, %303
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 %64, ptr %5, align 1
   %314 = load ptr, ptr %11, align 8
-  %315 = call dereferenceable_or_null(1) ptr @wmem_memdup(ptr noundef %314, ptr noundef nonnull %5, i64 noundef 1) #17
+  %315 = call dereferenceable_or_null(1) ptr @wmem_memdup(ptr noundef %314, ptr noundef nonnull %5, i64 noundef 1) #18
   %316 = load ptr, ptr %11, align 8
   %317 = load i32, ptr @proto_ipv6, align 4
   %318 = getelementptr inbounds nuw i8, ptr %1, i64 376
@@ -2686,7 +2686,7 @@ export_pdu.exit:                                  ; preds = %297, %303
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @except_setup_try(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @dissect_ipv6.catch_spec, i64 noundef 1)
   %324 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %325 = call i32 @_setjmp(ptr noundef nonnull %324) #18
+  %325 = call i32 @_setjmp(ptr noundef nonnull %324) #19
   %.not281 = icmp eq i32 %325, 0
   %326 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sink = select i1 %.not281, ptr null, ptr %326
@@ -2759,7 +2759,7 @@ export_pdu.exit:                                  ; preds = %297, %303
 
 350:                                              ; preds = %349
   %.0..0..0..0.27 = load volatile ptr, ptr %7, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.27) #19
+  call void @except_rethrow(ptr noundef %.0..0..0..0.27) #20
   unreachable
 
 351:                                              ; preds = %349, %347
@@ -3161,7 +3161,7 @@ p_ipv6_pinfo_add_len.exit:                        ; preds = %50, %55
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 %23, ptr %5, align 1
   %84 = load ptr, ptr %9, align 8
-  %85 = call dereferenceable_or_null(1) ptr @wmem_memdup(ptr noundef %84, ptr noundef nonnull %5, i64 noundef 1) #17
+  %85 = call dereferenceable_or_null(1) ptr @wmem_memdup(ptr noundef %84, ptr noundef nonnull %5, i64 noundef 1) #18
   %86 = load ptr, ptr %9, align 8
   %87 = load i32, ptr @proto_ipv6, align 4
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 376
@@ -3315,7 +3315,7 @@ p_ipv6_pinfo_add_len.exit.thread:                 ; preds = %p_ipv6_pinfo_select
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 %7, ptr %5, align 1
   %83 = load ptr, ptr %18, align 8
-  %84 = call dereferenceable_or_null(1) ptr @wmem_memdup(ptr noundef %83, ptr noundef nonnull %5, i64 noundef 1) #17
+  %84 = call dereferenceable_or_null(1) ptr @wmem_memdup(ptr noundef %83, ptr noundef nonnull %5, i64 noundef 1) #18
   %85 = load ptr, ptr %18, align 8
   %86 = load i32, ptr @proto_ipv6, align 4
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 376
@@ -3492,7 +3492,7 @@ define internal i32 @dissect_routing6_rt0(ptr noundef %0, ptr noundef %1, ptr no
   %50 = load ptr, ptr %49, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
   store i32 3, ptr %43, align 8
-  %51 = call dereferenceable_or_null(16) ptr @wmem_memdup(ptr noundef %50, ptr noundef nonnull %32, i64 noundef 16) #17
+  %51 = call dereferenceable_or_null(16) ptr @wmem_memdup(ptr noundef %50, ptr noundef nonnull %32, i64 noundef 16) #18
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr %51, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 240
@@ -3576,7 +3576,7 @@ define internal i32 @dissect_routing6_mipv6(ptr noundef %0, ptr noundef %1, ptr 
   %40 = load ptr, ptr %24, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
   store i32 3, ptr %34, align 8
-  %41 = call dereferenceable_or_null(16) ptr @wmem_memdup(ptr noundef %40, ptr noundef %22, i64 noundef 16) #17
+  %41 = call dereferenceable_or_null(16) ptr @wmem_memdup(ptr noundef %40, ptr noundef %22, i64 noundef 16) #18
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr %41, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 240
@@ -3752,7 +3752,7 @@ proto_item_set_generated.exit:                    ; preds = %57, %60, %63
   %94 = load i32, ptr @hf_ipv6_routing_rpl_addr, align 4
   %95 = zext nneg i8 %.0119 to i32
   %96 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %94, ptr noundef %0, i32 noundef %.0118140, i32 noundef %95, i32 noundef 0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6, ptr noundef align 1 dereferenceable(16) %14, i64 noundef 16, i1 noundef false) #20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6, ptr noundef align 1 dereferenceable(16) %14, i64 noundef 16, i1 noundef false) #21
   %97 = sub nuw nsw i32 16, %95
   %98 = zext nneg i32 %97 to i64
   %99 = getelementptr i8, ptr %6, i64 %98
@@ -3857,7 +3857,7 @@ proto_item_set_generated.exit134:                 ; preds = %92, %105, %108
   %142 = load ptr, ptr %86, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 3, ptr %7, align 8
-  %143 = call dereferenceable_or_null(16) ptr @wmem_memdup(ptr noundef %142, ptr noundef nonnull %6, i64 noundef 16) #17
+  %143 = call dereferenceable_or_null(16) ptr @wmem_memdup(ptr noundef %142, ptr noundef nonnull %6, i64 noundef 16) #18
   store ptr %143, ptr %90, align 8
   store ptr %143, ptr %13, align 8
   store i32 16, ptr %91, align 4
@@ -3920,7 +3920,7 @@ define internal i32 @dissect_routing6_srh(ptr noundef %0, ptr noundef %1, ptr no
   %32 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 4, i32 noundef 16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   store i32 3, ptr %24, align 8
-  %33 = call dereferenceable_or_null(16) ptr @wmem_memdup(ptr noundef %31, ptr noundef %32, i64 noundef 16) #17
+  %33 = call dereferenceable_or_null(16) ptr @wmem_memdup(ptr noundef %31, ptr noundef %32, i64 noundef 16) #18
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr %33, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 240
@@ -4000,7 +4000,7 @@ define internal i32 @dissect_routing6_crh(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %26, label %.thread92.thread105, label %29
 
 28:                                               ; preds = %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.887, ptr noundef nonnull @.str.888, i32 noundef 1524) #19
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.887, ptr noundef nonnull @.str.888, i32 noundef 1524) #20
   unreachable
 
 29:                                               ; preds = %19, %10
@@ -5219,7 +5219,7 @@ define internal fastcc void @add_ipv6_address_slaac(ptr noundef readonly capture
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call noalias dereferenceable_or_null(6) ptr @wmem_alloc(ptr noundef %15, i64 noundef 6) #15
+  %16 = tail call noalias dereferenceable_or_null(6) ptr @wmem_alloc(ptr noundef %15, i64 noundef 6) #16
   %17 = tail call ptr @tvb_memcpy(ptr noundef %2, ptr noundef %16, i32 noundef %6, i64 noundef 3)
   %18 = getelementptr i8, ptr %16, i64 3
   %19 = add nuw nsw i32 %3, 13
@@ -5394,7 +5394,7 @@ define internal fastcc void @add_ipv6_address_embed_ipv4(ptr noundef %0, ptr nou
   br label %82
 
 81:                                               ; preds = %37
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.887, ptr noundef nonnull @.str.888, i32 noundef 3451) #19
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.887, ptr noundef nonnull @.str.888, i32 noundef 3451) #20
   unreachable
 
 82:                                               ; preds = %77, %73, %65, %57, %49, %45
@@ -5482,7 +5482,7 @@ proto_item_set_generated.exit111:                 ; preds = %.proto_item_set_gen
   br label %120
 
 120:                                              ; preds = %proto_item_set_generated.exit, %118, %proto_item_set_generated.exit111
-  %121 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0.ph) #21, !srcloc !24
+  %121 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0.ph) #22, !srcloc !24
   %122 = lshr i32 %.0102.ph, 3
   %123 = add nuw nsw i32 %122, %3
   %124 = add nsw i32 %.0102.ph, -33
@@ -6301,7 +6301,7 @@ p_ipv6_pinfo_add_len.exit:                        ; preds = %p_ipv6_pinfo_select
   br i1 %.not.i244, label %43, label %44
 
 43:                                               ; preds = %40
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.900, ptr noundef nonnull @.str.888, i32 noundef 838, ptr noundef nonnull @.str.901) #19
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.900, ptr noundef nonnull @.str.888, i32 noundef 838, ptr noundef nonnull @.str.901) #20
   unreachable
 
 44:                                               ; preds = %40
@@ -6336,7 +6336,7 @@ ipv6_previous_layer_id.exit:                      ; preds = %44, %46
   br i1 %58, label %60, label %59
 
 59:                                               ; preds = %56
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.887, ptr noundef nonnull @.str.888, i32 noundef 2923) #19
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.887, ptr noundef nonnull @.str.888, i32 noundef 2923) #20
   unreachable
 
 60:                                               ; preds = %56, %53
@@ -7478,7 +7478,7 @@ dissect_opt_home_address.exit:                    ; preds = %670, %671
   %676 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef range(i32 -2147483646, 2050) %134, i32 noundef 16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, i8 0, i64 24, i1 false)
   store i32 3, ptr %82, align 8
-  %677 = call dereferenceable_or_null(16) ptr @wmem_memdup(ptr noundef %675, ptr noundef %676, i64 noundef 16) #17
+  %677 = call dereferenceable_or_null(16) ptr @wmem_memdup(ptr noundef %675, ptr noundef %676, i64 noundef 16) #18
   store ptr %677, ptr %83, align 8
   store ptr %677, ptr %84, align 8
   store i32 16, ptr %85, align 4
@@ -7600,7 +7600,7 @@ dissect_opt_apn6.exit:                            ; preds = %715, %710, %645, %6
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %15, ptr %6, align 1
   %750 = load ptr, ptr %20, align 8
-  %751 = call dereferenceable_or_null(1) ptr @wmem_memdup(ptr noundef %750, ptr noundef nonnull %6, i64 noundef 1) #17
+  %751 = call dereferenceable_or_null(1) ptr @wmem_memdup(ptr noundef %750, ptr noundef nonnull %6, i64 noundef 1) #18
   %752 = load ptr, ptr %20, align 8
   %753 = load i32, ptr @proto_ipv6, align 4
   %754 = getelementptr inbounds nuw i8, ptr %2, i64 376
@@ -7680,23 +7680,23 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -7709,17 +7709,18 @@ attributes #7 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stac
 attributes #8 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { allocsize(1) }
-attributes #16 = { nounwind willreturn memory(read) }
-attributes #17 = { allocsize(2) }
-attributes #18 = { nounwind returns_twice }
-attributes #19 = { noreturn }
-attributes #20 = { nounwind }
-attributes #21 = { nounwind memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { allocsize(1) }
+attributes #17 = { nounwind willreturn memory(read) }
+attributes #18 = { allocsize(2) }
+attributes #19 = { nounwind returns_twice }
+attributes #20 = { noreturn }
+attributes #21 = { nounwind }
+attributes #22 = { nounwind memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

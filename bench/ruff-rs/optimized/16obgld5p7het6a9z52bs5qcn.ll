@@ -63,13 +63,13 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17hfb6189c9b318513eE.exit: ; pred
 25:                                               ; preds = %2
   %26 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr811drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$ty_python_semantic..types..Type$GT$$C$ty_ide..NavigationTargets$C$$LT$ty_python_semantic..types..Type$u20$as$u20$ty_ide..HasNavigationTargets$GT$..navigation_targets..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$LT$hashbrown..set..HashSet$LT$ty_ide..NavigationTarget$C$rustc_hash..FxBuildHasher$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$ty_ide..NavigationTarget$GT$$GT$..extend$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$ty_python_semantic..types..Type$GT$$C$ty_ide..NavigationTargets$C$$LT$ty_python_semantic..types..Type$u20$as$u20$ty_ide..HasNavigationTargets$GT$..navigation_targets..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he2b6df4d3a58c5b8E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %4) #11
+  invoke void @"_ZN4core3ptr811drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$ty_python_semantic..types..Type$GT$$C$ty_ide..NavigationTargets$C$$LT$ty_python_semantic..types..Type$u20$as$u20$ty_ide..HasNavigationTargets$GT$..navigation_targets..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$LT$hashbrown..set..HashSet$LT$ty_ide..NavigationTarget$C$rustc_hash..FxBuildHasher$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$ty_ide..NavigationTarget$GT$$GT$..extend$LT$core..iter..adapters..flatten..FlatMap$LT$core..slice..iter..Iter$LT$ty_python_semantic..types..Type$GT$$C$ty_ide..NavigationTargets$C$$LT$ty_python_semantic..types..Type$u20$as$u20$ty_ide..HasNavigationTargets$GT$..navigation_targets..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he2b6df4d3a58c5b8E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %4) #12
           to label %24 unwind label %27
 
 27:                                               ; preds = %25
   %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #12
+  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #13
   unreachable
 }
 
@@ -141,7 +141,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   br label %18
 
 select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, %3
-  call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.640e9b71cc5318774e7be29de6096b20.3, i64 noundef 22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #13
+  call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.640e9b71cc5318774e7be29de6096b20.3, i64 noundef 22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #14
   unreachable
 
 _ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h5a5971c3fb3783c2E.exit: ; preds = %.lr.ph.i.i.i
@@ -158,7 +158,7 @@ _ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h5a5971c3fb
   ret i32 %44
 
 45:                                               ; preds = %_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h5a5971c3fb3783c2E.exit
-  call void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef 0, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #13
+  call void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef 0, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #14
   unreachable
 }
 
@@ -230,7 +230,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   br label %18
 
 select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, %3
-  call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.640e9b71cc5318774e7be29de6096b20.3, i64 noundef 22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #13
+  call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.640e9b71cc5318774e7be29de6096b20.3, i64 noundef 22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #14
   unreachable
 
 _ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h788819ba17b1790aE.exit: ; preds = %.lr.ph.i.i.i
@@ -247,7 +247,7 @@ _ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h788819ba17
   ret i32 %44
 
 45:                                               ; preds = %_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h788819ba17b1790aE.exit
-  call void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef 0, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #13
+  call void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef 0, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #14
   unreachable
 }
 
@@ -319,7 +319,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   br label %18
 
 select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, %3
-  call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.640e9b71cc5318774e7be29de6096b20.3, i64 noundef 22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #13
+  call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.640e9b71cc5318774e7be29de6096b20.3, i64 noundef 22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #14
   unreachable
 
 _ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h286c68935bface10E.exit: ; preds = %.lr.ph.i.i.i
@@ -336,7 +336,7 @@ _ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h286c68935b
   ret i32 %44
 
 45:                                               ; preds = %_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h286c68935bface10E.exit
-  call void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef 0, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #13
+  call void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef 0, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #14
   unreachable
 }
 
@@ -408,7 +408,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   br label %18
 
 select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, %3
-  call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.640e9b71cc5318774e7be29de6096b20.3, i64 noundef 22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #13
+  call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.640e9b71cc5318774e7be29de6096b20.3, i64 noundef 22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #14
   unreachable
 
 _ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h8803b47ce042ce64E.exit: ; preds = %.lr.ph.i.i.i
@@ -425,7 +425,7 @@ _ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h8803b47ce0
   ret i32 %44
 
 45:                                               ; preds = %_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h8803b47ce042ce64E.exit
-  call void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef 0, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #13
+  call void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef 0, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #14
   unreachable
 }
 
@@ -652,7 +652,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hebbd05828185d190E"(ptr dead_on_unwind noalias noundef writable sret([64 x i8]) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(32)) unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.uadd.sat.i64(i64, i64) #4
 
 ; Function Attrs: nonlazybind uwtable
@@ -704,7 +704,7 @@ declare hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h40adbc79baf69b
 declare hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h6889336379dcaa41E(ptr noalias noundef nonnull readonly align 1, ptr noalias noundef readonly align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.cttz.i16(i16, i1 immarg) #4
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #9
 
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN18ty_python_semantic5types10definition14TypeDefinition10full_range17hf5a6bb8ae646f787E(ptr dead_on_unwind noalias noundef writable sret([12 x i8]) align 4 captures(none) dereferenceable(12), ptr noalias noundef readonly align 8 dereferenceable(16), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(224)) unnamed_addr #0
@@ -719,28 +719,29 @@ declare void @_ZN18ty_python_semantic5types10definition14TypeDefinition11focus_r
 declare hidden void @_ZN6ty_ide17NavigationTargets6single17h41a3cb6f617cfda5E(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32), ptr noalias noundef align 4 captures(none) dereferenceable(20)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #10
+declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { cold minsize noreturn nounwind nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { cold minsize noreturn nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #11 = { cold }
-attributes #12 = { cold noreturn nounwind }
-attributes #13 = { noreturn }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #12 = { cold }
+attributes #13 = { cold noreturn nounwind }
+attributes #14 = { noreturn }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

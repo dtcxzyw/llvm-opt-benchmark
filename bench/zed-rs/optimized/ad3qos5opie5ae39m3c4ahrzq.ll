@@ -425,7 +425,7 @@ define hidden void @_ZN10serde_json2de10from_trait17hfbeafcc8fa576f31E.llvm.1655
 
 13:                                               ; preds = %36, %14
   %.pn = phi { ptr, i32 } [ %15, %14 ], [ %37, %36 ]
-  invoke void @"_ZN4core3ptr84drop_in_place$LT$serde_json..de..Deserializer$LT$serde_json..read..SliceRead$GT$$GT$17hbb7d707774e0608dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %9) #31
+  invoke void @"_ZN4core3ptr84drop_in_place$LT$serde_json..de..Deserializer$LT$serde_json..read..SliceRead$GT$$GT$17hbb7d707774e0608dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %9) #33
           to label %71 unwind label %69
 
 14:                                               ; preds = %47, %2
@@ -490,7 +490,7 @@ define hidden void @_ZN10serde_json2de10from_trait17hfbeafcc8fa576f31E.llvm.1655
 36:                                               ; preds = %30
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr48drop_in_place$LT$remote..json_log..LogRecord$GT$17h9548cc223cec65bfE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %8) #31
+  invoke void @"_ZN4core3ptr48drop_in_place$LT$remote..json_log..LogRecord$GT$17h9548cc223cec65bfE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %8) #33
           to label %13 unwind label %69
 
 .loopexit:                                        ; preds = %28, %18
@@ -511,7 +511,7 @@ define hidden void @_ZN10serde_json2de10from_trait17hfbeafcc8fa576f31E.llvm.1655
 
 45:                                               ; preds = %41
   %46 = load ptr, ptr %5, align 8, !noalias !73, !nonnull !7, !noundef !7
-  call void @__rust_dealloc(ptr noundef nonnull %46, i64 noundef %43, i64 noundef %39) #32
+  call void @__rust_dealloc(ptr noundef nonnull %46, i64 noundef %43, i64 noundef %39) #34
   br label %"_ZN4core3ptr84drop_in_place$LT$serde_json..de..Deserializer$LT$serde_json..read..SliceRead$GT$$GT$17hbb7d707774e0608dE.exit"
 
 "_ZN4core3ptr84drop_in_place$LT$serde_json..de..Deserializer$LT$serde_json..read..SliceRead$GT$$GT$17hbb7d707774e0608dE.exit": ; preds = %.loopexit, %41, %45
@@ -541,7 +541,7 @@ define hidden void @_ZN10serde_json2de10from_trait17hfbeafcc8fa576f31E.llvm.1655
 
 56:                                               ; preds = %52
   %57 = load ptr, ptr %4, align 8, !noalias !82, !nonnull !7, !noundef !7
-  call void @__rust_dealloc(ptr noundef nonnull %57, i64 noundef %54, i64 noundef %50) #32
+  call void @__rust_dealloc(ptr noundef nonnull %57, i64 noundef %54, i64 noundef %50) #34
   br label %"_ZN4core3ptr48drop_in_place$LT$remote..json_log..LogRecord$GT$17h9548cc223cec65bfE.exit"
 
 "_ZN4core3ptr48drop_in_place$LT$remote..json_log..LogRecord$GT$17h9548cc223cec65bfE.exit": ; preds = %.noexc5, %52, %56
@@ -569,7 +569,7 @@ define hidden void @_ZN10serde_json2de10from_trait17hfbeafcc8fa576f31E.llvm.1655
 
 67:                                               ; preds = %63
   %68 = load ptr, ptr %3, align 8, !noalias !93, !nonnull !7, !noundef !7
-  call void @__rust_dealloc(ptr noundef nonnull %68, i64 noundef %65, i64 noundef %61) #32
+  call void @__rust_dealloc(ptr noundef nonnull %68, i64 noundef %65, i64 noundef %61) #34
   br label %"_ZN4core3ptr84drop_in_place$LT$serde_json..de..Deserializer$LT$serde_json..read..SliceRead$GT$$GT$17hbb7d707774e0608dE.exit6"
 
 "_ZN4core3ptr84drop_in_place$LT$serde_json..de..Deserializer$LT$serde_json..read..SliceRead$GT$$GT$17hbb7d707774e0608dE.exit6": ; preds = %59, %63, %67
@@ -579,7 +579,7 @@ define hidden void @_ZN10serde_json2de10from_trait17hfbeafcc8fa576f31E.llvm.1655
 69:                                               ; preds = %36, %13
   %70 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #35
   unreachable
 
 71:                                               ; preds = %13
@@ -608,13 +608,13 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deseria
 11:                                               ; preds = %2
   %12 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17hf9ec4d8be5a7a326E.llvm.16556129492738715689"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #31
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17hf9ec4d8be5a7a326E.llvm.16556129492738715689"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #33
           to label %10 unwind label %13
 
 13:                                               ; preds = %11
   %14 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #35
   unreachable
 }
 
@@ -2197,13 +2197,13 @@ define hidden noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$
 11:                                               ; preds = %2
   %12 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17hf9ec4d8be5a7a326E.llvm.16556129492738715689"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #31
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17hf9ec4d8be5a7a326E.llvm.16556129492738715689"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #33
           to label %10 unwind label %13
 
 13:                                               ; preds = %11
   %14 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #35
   unreachable
 }
 
@@ -2227,7 +2227,7 @@ define hidden noundef nonnull align 8 dereferenceable(216) ptr @_ZN13async_proce
 8:                                                ; preds = %2
   %9 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #31
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #33
           to label %22 unwind label %20
 
 10:                                               ; preds = %2
@@ -2246,13 +2246,13 @@ define hidden noundef nonnull align 8 dereferenceable(216) ptr @_ZN13async_proce
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr %3, align 8, !noalias !379, !nonnull !7, !noundef !7
-  tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %16, i64 noundef %12) #32
+  tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %16, i64 noundef %12) #34
   br label %_ZN3std7process7Command3arg17had63be6a8213f5b9E.exit
 
 20:                                               ; preds = %8
   %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #35
   unreachable
 
 22:                                               ; preds = %8
@@ -2574,7 +2574,7 @@ define internal fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..result..Resu
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr %3, align 8, !noalias !445, !nonnull !7, !noundef !7
-  tail call void @__rust_dealloc(ptr noundef nonnull %14, i64 noundef %11, i64 noundef %7) #32
+  tail call void @__rust_dealloc(ptr noundef nonnull %14, i64 noundef %11, i64 noundef %7) #34
   br label %"_ZN4core3ptr48drop_in_place$LT$remote..json_log..LogRecord$GT$17h9548cc223cec65bfE.exit"
 
 "_ZN4core3ptr48drop_in_place$LT$remote..json_log..LogRecord$GT$17h9548cc223cec65bfE.exit": ; preds = %5, %9, %13
@@ -2626,11 +2626,11 @@ define internal fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..result..Resu
 28:                                               ; preds = %26, %21, %19
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef 40, i64 noundef 8) #32, !noalias !486
+  call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef 40, i64 noundef 8) #34, !noalias !486
   resume { ptr, i32 } %29
 
 "_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hc99ad1d40a8214d7E.exit": ; preds = %15, %19, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h2317dc0ea3f2bb6eE.exit.i.i.i.i"
-  call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef 40, i64 noundef 8) #32, !noalias !489
+  call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef 40, i64 noundef 8) #34, !noalias !489
   br label %30
 
 30:                                               ; preds = %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hc99ad1d40a8214d7E.exit", %"_ZN4core3ptr48drop_in_place$LT$remote..json_log..LogRecord$GT$17h9548cc223cec65bfE.exit"
@@ -2647,7 +2647,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16556129492738715689.exit.i": ; preds = %1
   %5 = load ptr, ptr %0, align 8, !alias.scope !492, !nonnull !7, !noundef !7
-  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %3, i64 noundef 1) #32, !noalias !492
+  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %3, i64 noundef 1) #34, !noalias !492
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb48252f6de7aaa31E.llvm.16556129492738715689.exit"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb48252f6de7aaa31E.llvm.16556129492738715689.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16556129492738715689.exit.i"
@@ -2677,7 +2677,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16556129492738715689.exit.i.i": ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !501, !nonnull !7, !noundef !7
-  tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %6, i64 noundef 1) #32, !noalias !501
+  tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %6, i64 noundef 1) #34, !noalias !501
   br label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h39d4104440324367E.llvm.16556129492738715689.exit"
 
 10:                                               ; preds = %1
@@ -2752,11 +2752,11 @@ define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..result..Resul
 15:                                               ; preds = %13, %8, %6
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 40, i64 noundef 8) #32, !noalias !541
+  call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 40, i64 noundef 8) #34, !noalias !541
   resume { ptr, i32 } %16
 
 "_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hc99ad1d40a8214d7E.exit": ; preds = %4, %6, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h2317dc0ea3f2bb6eE.exit.i.i.i.i"
-  call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 40, i64 noundef 8) #32, !noalias !544
+  call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 40, i64 noundef 8) #34, !noalias !544
   br label %3
 }
 
@@ -2793,7 +2793,7 @@ define internal fastcc void @"_ZN4core3ptr87drop_in_place$LT$core..option..Optio
 13:                                               ; preds = %7
   %14 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$alloc..raw_vec..RawVec$LT$proto..Operation$GT$$GT$17h519dee2ed57ba827E.llvm.17929084834415715485"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8) #31
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$alloc..raw_vec..RawVec$LT$proto..Operation$GT$$GT$17h519dee2ed57ba827E.llvm.17929084834415715485"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8) #33
           to label %26 unwind label %24
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he75308c2469b23e7E.llvm.17929084834415715485.exit.i.i.i": ; preds = %7
@@ -2812,13 +2812,13 @@ define internal fastcc void @"_ZN4core3ptr87drop_in_place$LT$core..option..Optio
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %2, align 8, !noalias !560, !nonnull !7, !noundef !7
-  tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %20, i64 noundef %16) #32
+  tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %20, i64 noundef %16) #34
   br label %"_ZN4core3ptr39drop_in_place$LT$proto..BufferChunk$GT$17h13a04ec1b9a14069E.exit.i"
 
 24:                                               ; preds = %13
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #35
   unreachable
 
 26:                                               ; preds = %13
@@ -3828,7 +3828,7 @@ define hidden noundef i64 @_ZN5prost8encoding8hash_map11encoded_len17h55725d2c86
 22:                                               ; preds = %2
   %23 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #31
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #33
           to label %46 unwind label %44
 
 24:                                               ; preds = %2
@@ -3850,7 +3850,7 @@ define hidden noundef i64 @_ZN5prost8encoding8hash_map11encoded_len17h55725d2c86
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %4, align 8, !noalias !711, !nonnull !7, !noundef !7
-  call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef %30, i64 noundef %26) #32
+  call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef %30, i64 noundef %26) #34
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E.exit": ; preds = %24, %28, %32
@@ -3871,7 +3871,7 @@ define hidden noundef i64 @_ZN5prost8encoding8hash_map11encoded_len17h55725d2c86
 44:                                               ; preds = %22
   %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #35
   unreachable
 
 46:                                               ; preds = %22
@@ -3934,7 +3934,7 @@ define hidden noundef align 8 ptr @_ZN5prost8encoding8hash_map18merge_with_defau
 
 30:                                               ; preds = %26
   %31 = load ptr, ptr %8, align 8, !noalias !723, !nonnull !7, !noundef !7
-  call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef %28, i64 noundef %24) #32
+  call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef %28, i64 noundef %24) #34
   br label %.noexc18
 
 32:                                               ; preds = %18
@@ -3972,7 +3972,7 @@ define hidden noundef align 8 ptr @_ZN5prost8encoding8hash_map18merge_with_defau
 
 44:                                               ; preds = %40
   %45 = load ptr, ptr %7, align 8, !noalias !735, !nonnull !7, !noundef !7
-  call void @__rust_dealloc(ptr noundef nonnull %45, i64 noundef %42, i64 noundef %38) #32
+  call void @__rust_dealloc(ptr noundef nonnull %45, i64 noundef %42, i64 noundef %38) #34
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E.exit.i"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E.exit.i": ; preds = %44, %40, %.noexc17
@@ -4012,7 +4012,7 @@ define hidden noundef align 8 ptr @_ZN5prost8encoding8hash_map18merge_with_defau
 
 56:                                               ; preds = %52
   %57 = load ptr, ptr %6, align 8, !noalias !744, !nonnull !7, !noundef !7
-  call void @__rust_dealloc(ptr noundef nonnull %57, i64 noundef %54, i64 noundef %50) #32
+  call void @__rust_dealloc(ptr noundef nonnull %57, i64 noundef %54, i64 noundef %50) #34
   br label %58
 
 58:                                               ; preds = %56, %52, %.noexc18
@@ -4022,18 +4022,18 @@ define hidden noundef align 8 ptr @_ZN5prost8encoding8hash_map18merge_with_defau
 59:                                               ; preds = %16, %18
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #31
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #33
           to label %62 unwind label %60
 
 60:                                               ; preds = %62, %59
   %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #35
   unreachable
 
 62:                                               ; preds = %47, %59
   %.pn.ph = phi { ptr, i32 } [ %lpad.thr_comm, %59 ], [ %48, %47 ]
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #31
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #33
           to label %63 unwind label %60
 
 63:                                               ; preds = %62
@@ -4123,7 +4123,7 @@ define hidden void @_ZN5prost8encoding8hash_map19encode_with_default17hdf68a2a07
 
 46:                                               ; preds = %43
   %47 = load ptr, ptr %5, align 8, !noalias !777, !nonnull !7, !noundef !7
-  call void @__rust_dealloc(ptr noundef nonnull %47, i64 noundef %44, i64 noundef %41) #32
+  call void @__rust_dealloc(ptr noundef nonnull %47, i64 noundef %44, i64 noundef %41) #34
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E.exit": ; preds = %"_ZN62_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3b0e1ab980617b36E.llvm.16556129492738715689.exit", %43, %46
@@ -4376,7 +4376,7 @@ define hidden void @_ZN5prost8encoding8hash_map6encode17h69303a0780d7aa02E(i32 n
 6:                                                ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #31
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #33
           to label %20 unwind label %18
 
 8:                                                ; preds = %3
@@ -4395,7 +4395,7 @@ define hidden void @_ZN5prost8encoding8hash_map6encode17h69303a0780d7aa02E(i32 n
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %4, align 8, !noalias !885, !nonnull !7, !noundef !7
-  call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %14, i64 noundef %10) #32
+  call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %14, i64 noundef %10) #34
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E.exit": ; preds = %8, %12, %16
@@ -4406,7 +4406,7 @@ define hidden void @_ZN5prost8encoding8hash_map6encode17h69303a0780d7aa02E(i32 n
 18:                                               ; preds = %6
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #35
   unreachable
 
 20:                                               ; preds = %6
@@ -4481,7 +4481,7 @@ define hidden noundef align 8 ptr @_ZN5proto16update_followers7Variant5merge17h9
   store ptr %36, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store i64 1, ptr %50, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.38) #34
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.38) #36
   unreachable
 
 51:                                               ; preds = %5
@@ -4727,7 +4727,7 @@ _ZN5prost8encoding7message5merge17hd16522015f705b4fE.exit: ; preds = %69
 122:                                              ; preds = %255, %191, %121
   %123 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #35
   unreachable
 
 124:                                              ; preds = %53
@@ -5255,7 +5255,7 @@ define hidden noundef align 8 ptr @_ZN5proto22create_buffer_for_peer7Variant5mer
   store ptr %27, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store i64 1, ptr %39, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.39) #34
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.39) #36
   unreachable
 
 40:                                               ; preds = %5
@@ -5440,13 +5440,13 @@ _ZN5prost8encoding7message5merge17hb5176ef0af989633E.exit: ; preds = %55
 82:                                               ; preds = %_ZN5prost8encoding15check_wire_type17h5ede80c08301ef8dE.llvm.12582631992428692812.exit.i, %.noexc, %53, %55
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proto..BufferState$GT$17h32f8d3ad761cd76fE"(ptr noalias noundef nonnull align 8 dereferenceable(192) %32) #31
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proto..BufferState$GT$17h32f8d3ad761cd76fE"(ptr noalias noundef nonnull align 8 dereferenceable(192) %32) #33
           to label %.body38.thread unwind label %83
 
 83:                                               ; preds = %143, %82
   %84 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #35
   unreachable
 
 85:                                               ; preds = %42
@@ -5611,7 +5611,7 @@ _ZN5prost8encoding7message5merge17h598d0797c2ba0fd5E.exit: ; preds = %96
 127:                                              ; preds = %122
   %128 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$alloc..raw_vec..RawVec$LT$proto..Operation$GT$$GT$17h519dee2ed57ba827E.llvm.17929084834415715485"(ptr noalias noundef nonnull align 8 dereferenceable(48) %29) #31
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$alloc..raw_vec..RawVec$LT$proto..Operation$GT$$GT$17h519dee2ed57ba827E.llvm.17929084834415715485"(ptr noalias noundef nonnull align 8 dereferenceable(48) %29) #33
           to label %.body38.thread unwind label %138
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he75308c2469b23e7E.llvm.17929084834415715485.exit.i.i.i": ; preds = %122
@@ -5630,13 +5630,13 @@ _ZN5prost8encoding7message5merge17h598d0797c2ba0fd5E.exit: ; preds = %96
 
 136:                                              ; preds = %132
   %137 = load ptr, ptr %6, align 8, !noalias !1048, !nonnull !7, !noundef !7
-  call void @__rust_dealloc(ptr noundef nonnull %137, i64 noundef %134, i64 noundef %130) #32
+  call void @__rust_dealloc(ptr noundef nonnull %137, i64 noundef %134, i64 noundef %130) #34
   br label %"_ZN4core3ptr131drop_in_place$LT$proto..create_buffer_for_peer..Variant..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h17487afdd68ef945E.exit"
 
 138:                                              ; preds = %127
   %139 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #35
   unreachable
 
 "_ZN4core3ptr131drop_in_place$LT$proto..create_buffer_for_peer..Variant..merge$LT$$RF$mut$u20$$RF$$u5b$u8$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h17487afdd68ef945E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he75308c2469b23e7E.llvm.17929084834415715485.exit.i.i.i", %132, %136
@@ -5660,7 +5660,7 @@ _ZN5prost8encoding7message5merge17h598d0797c2ba0fd5E.exit: ; preds = %96
 143:                                              ; preds = %_ZN5prost8encoding15check_wire_type17h5ede80c08301ef8dE.llvm.12582631992428692812.exit.i24, %.noexc28, %94, %96
   %lpad.thr_comm57 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proto..BufferChunk$GT$17h13a04ec1b9a14069E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %30) #31
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proto..BufferChunk$GT$17h13a04ec1b9a14069E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %30) #33
           to label %.body38.thread unwind label %83
 }
 
@@ -6189,7 +6189,7 @@ define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allo
   %8 = add i64 %2, -1
   %9 = icmp sgt i64 %8, -1
   tail call void @llvm.assume(i1 %9)
-  tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %3, i64 noundef %2) #32
+  tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %3, i64 noundef %2) #34
   br label %6
 }
 
@@ -6453,7 +6453,7 @@ define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..o
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16556129492738715689.exit": ; preds = %1
   %6 = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
-  tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %3, i64 noundef 1) #32
+  tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %3, i64 noundef 1) #34
   br label %5
 }
 
@@ -6518,7 +6518,7 @@ define hidden noundef zeroext i1 @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$
   store ptr inttoptr (i64 8 to ptr), ptr %22, align 8, !noalias !1275
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %23, align 8, !noalias !1275
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b76ab01d5750a6d1a437cc5a7344e7fe.5.llvm.16598411116039850189) #34, !noalias !1275
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b76ab01d5750a6d1a437cc5a7344e7fe.5.llvm.16598411116039850189) #36, !noalias !1275
   unreachable
 
 "_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hde299c4356e77d5eE.exit": ; preds = %16
@@ -6596,7 +6596,7 @@ define hidden { i64, ptr } @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..
   store ptr inttoptr (i64 8 to ptr), ptr %22, align 8, !noalias !1321
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %23, align 8, !noalias !1321
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b76ab01d5750a6d1a437cc5a7344e7fe.5.llvm.16598411116039850189) #34, !noalias !1321
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b76ab01d5750a6d1a437cc5a7344e7fe.5.llvm.16598411116039850189) #36, !noalias !1321
   unreachable
 
 "_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h25f8c89ddc170ca5E.exit": ; preds = %16
@@ -6763,11 +6763,11 @@ default.unreachable:                              ; preds = %2
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %2
-  tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17h9b05f56a5e07fcfcE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.50.llvm.16556129492738715689) #34
+  tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17h9b05f56a5e07fcfcE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.50.llvm.16556129492738715689) #36
   unreachable
 
 12:                                               ; preds = %2
-  tail call void @_ZN4core9panicking11panic_const34panic_const_async_fn_resumed_panic17haed46230f705cc23E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.50.llvm.16556129492738715689) #34
+  tail call void @_ZN4core9panicking11panic_const34panic_const_async_fn_resumed_panic17haed46230f705cc23E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.50.llvm.16556129492738715689) #36
   unreachable
 
 "_ZN8blocking7unblock28_$u7b$$u7b$closure$u7d$$u7d$17hef35163263a5dfecE.llvm.16556129492738715689.exit": ; preds = %7
@@ -6824,7 +6824,7 @@ define hidden noundef zeroext i1 @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$
   store ptr inttoptr (i64 8 to ptr), ptr %14, align 8, !noalias !1444
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %15, align 8, !noalias !1444
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2cdd523ae9b53ea509263efbadc8131.7.llvm.15707742245042408555) #34, !noalias !1444
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2cdd523ae9b53ea509263efbadc8131.7.llvm.15707742245042408555) #36, !noalias !1444
   unreachable
 
 "_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h4b3dc7be7433f432E.exit": ; preds = %2
@@ -6894,11 +6894,11 @@ default.unreachable:                              ; preds = %3
   resume { ptr, i32 } %11
 
 12:                                               ; preds = %3
-  tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17h9b05f56a5e07fcfcE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.50.llvm.16556129492738715689) #34, !noalias !1468
+  tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17h9b05f56a5e07fcfcE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.50.llvm.16556129492738715689) #36, !noalias !1468
   unreachable
 
 13:                                               ; preds = %3
-  tail call void @_ZN4core9panicking11panic_const34panic_const_async_fn_resumed_panic17haed46230f705cc23E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.50.llvm.16556129492738715689) #34, !noalias !1468
+  tail call void @_ZN4core9panicking11panic_const34panic_const_async_fn_resumed_panic17haed46230f705cc23E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.50.llvm.16556129492738715689) #36, !noalias !1468
   unreachable
 
 "_ZN8blocking7unblock28_$u7b$$u7b$closure$u7d$$u7d$17h64519a8d600bb75bE.llvm.16556129492738715689.exit": ; preds = %9
@@ -7404,7 +7404,7 @@ define internal fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$a
 
 41:                                               ; preds = %36
   %42 = load i64, ptr %40, align 8, !noalias !1579
-  tail call void @_ZN5alloc7raw_vec12handle_error17hc0e4a0ae60df49a1E(i64 noundef %39, i64 %42) #34, !noalias !1589
+  tail call void @_ZN5alloc7raw_vec12handle_error17hc0e4a0ae60df49a1E(i64 noundef %39, i64 %42) #36, !noalias !1589
   unreachable
 
 _ZN5serde2de7Visitor18visit_borrowed_str17h2f5e6df1d849cd8eE.exit.i.i.i: ; preds = %36
@@ -7427,7 +7427,7 @@ _ZN5serde2de7Visitor18visit_borrowed_str17h2f5e6df1d849cd8eE.exit.i.i.i: ; preds
 
 49:                                               ; preds = %44
   %50 = load i64, ptr %48, align 8, !noalias !1591
-  tail call void @_ZN5alloc7raw_vec12handle_error17hc0e4a0ae60df49a1E(i64 noundef %47, i64 %50) #34, !noalias !1598
+  tail call void @_ZN5alloc7raw_vec12handle_error17hc0e4a0ae60df49a1E(i64 noundef %47, i64 %50) #36, !noalias !1598
   unreachable
 
 "_ZN70_$LT$serde..de..impls..StringVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h63d759c8c3c97297E.exit.i.i.i": ; preds = %44
@@ -7821,7 +7821,7 @@ define hidden noundef ptr @"_ZN8async_fs15set_permissions28_$u7b$$u7b$closure$u7
 11:                                               ; preds = %1
   %12 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfb3da05b43790df0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #31
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfb3da05b43790df0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #33
           to label %25 unwind label %23
 
 13:                                               ; preds = %1
@@ -7840,13 +7840,13 @@ define hidden noundef ptr @"_ZN8async_fs15set_permissions28_$u7b$$u7b$closure$u7
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %2, align 8, !noalias !1726, !nonnull !7, !noundef !7
-  call void @__rust_dealloc(ptr noundef nonnull %22, i64 noundef %19, i64 noundef %15) #32
+  call void @__rust_dealloc(ptr noundef nonnull %22, i64 noundef %19, i64 noundef %15) #34
   br label %_ZN3std2fs15set_permissions17h5bc00f45aeceb3cfE.exit
 
 23:                                               ; preds = %11
   %24 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #35
   unreachable
 
 25:                                               ; preds = %11
@@ -7882,7 +7882,7 @@ define hidden noundef ptr @"_ZN8async_fs5write28_$u7b$$u7b$closure$u7d$$u7d$28_$
 15:                                               ; preds = %1
   %16 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h55c7b5271cf21f00E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #31
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h55c7b5271cf21f00E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #33
           to label %.body unwind label %27, !noalias !1739
 
 17:                                               ; preds = %1
@@ -7904,13 +7904,13 @@ define hidden noundef ptr @"_ZN8async_fs5write28_$u7b$$u7b$closure$u7d$$u7d$28_$
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %3, align 8, !noalias !1756, !nonnull !7, !noundef !7
-  call void @__rust_dealloc(ptr noundef nonnull %26, i64 noundef %23, i64 noundef %19) #32, !noalias !1739
+  call void @__rust_dealloc(ptr noundef nonnull %26, i64 noundef %23, i64 noundef %19) #34, !noalias !1739
   br label %31
 
 27:                                               ; preds = %15
   %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33, !noalias !1739
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #35, !noalias !1739
   unreachable
 
 29:                                               ; preds = %17
@@ -7920,7 +7920,7 @@ define hidden noundef ptr @"_ZN8async_fs5write28_$u7b$$u7b$closure$u7d$$u7d$28_$
 
 .body:                                            ; preds = %15, %29
   %eh.lpad-body = phi { ptr, i32 } [ %30, %29 ], [ %16, %15 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfb3da05b43790df0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #31
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfb3da05b43790df0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #33
           to label %43 unwind label %41
 
 31:                                               ; preds = %25, %21, %.noexc
@@ -7941,7 +7941,7 @@ define hidden noundef ptr @"_ZN8async_fs5write28_$u7b$$u7b$closure$u7d$$u7d$28_$
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %2, align 8, !noalias !1763, !nonnull !7, !noundef !7
-  call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef %37, i64 noundef %33) #32
+  call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef %37, i64 noundef %33) #34
   br label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfb3da05b43790df0E.exit"
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfb3da05b43790df0E.exit": ; preds = %31, %35, %39
@@ -7951,7 +7951,7 @@ define hidden noundef ptr @"_ZN8async_fs5write28_$u7b$$u7b$closure$u7d$$u7d$28_$
 41:                                               ; preds = %.body
   %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #35
   unreachable
 
 43:                                               ; preds = %.body
@@ -8002,11 +8002,11 @@ default.unreachable1:                             ; preds = %3
   ret void
 
 12:                                               ; preds = %3
-  tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17h9b05f56a5e07fcfcE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.50.llvm.16556129492738715689) #34
+  tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17h9b05f56a5e07fcfcE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.50.llvm.16556129492738715689) #36
   unreachable
 
 13:                                               ; preds = %3
-  tail call void @_ZN4core9panicking11panic_const34panic_const_async_fn_resumed_panic17haed46230f705cc23E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.50.llvm.16556129492738715689) #34
+  tail call void @_ZN4core9panicking11panic_const34panic_const_async_fn_resumed_panic17haed46230f705cc23E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.50.llvm.16556129492738715689) #36
   unreachable
 }
 
@@ -8041,7 +8041,7 @@ default.unreachable3:                             ; preds = %2
 13:                                               ; preds = %7
   %14 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfb3da05b43790df0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #31
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfb3da05b43790df0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #33
           to label %.body unwind label %25, !noalias !1780
 
 15:                                               ; preds = %7
@@ -8063,13 +8063,13 @@ default.unreachable3:                             ; preds = %2
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr %3, align 8, !noalias !1792, !nonnull !7, !noundef !7
-  call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %21, i64 noundef %17) #32, !noalias !1780
+  call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %21, i64 noundef %17) #34, !noalias !1780
   br label %29
 
 25:                                               ; preds = %13
   %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33, !noalias !1780
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #35, !noalias !1780
   unreachable
 
 27:                                               ; preds = %15
@@ -8090,11 +8090,11 @@ default.unreachable3:                             ; preds = %2
   ret { i64, ptr } %30
 
 31:                                               ; preds = %2
-  tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17h9b05f56a5e07fcfcE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.50.llvm.16556129492738715689) #34
+  tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17h9b05f56a5e07fcfcE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.50.llvm.16556129492738715689) #36
   unreachable
 
 32:                                               ; preds = %2
-  tail call void @_ZN4core9panicking11panic_const34panic_const_async_fn_resumed_panic17haed46230f705cc23E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.50.llvm.16556129492738715689) #34
+  tail call void @_ZN4core9panicking11panic_const34panic_const_async_fn_resumed_panic17haed46230f705cc23E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.50.llvm.16556129492738715689) #36
   unreachable
 }
 
@@ -8132,11 +8132,11 @@ default.unreachable2:                             ; preds = %2
   ret { i64, ptr } %11
 
 12:                                               ; preds = %2
-  tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17h9b05f56a5e07fcfcE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.50.llvm.16556129492738715689) #34
+  tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17h9b05f56a5e07fcfcE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.50.llvm.16556129492738715689) #36
   unreachable
 
 13:                                               ; preds = %2
-  tail call void @_ZN4core9panicking11panic_const34panic_const_async_fn_resumed_panic17haed46230f705cc23E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.50.llvm.16556129492738715689) #34
+  tail call void @_ZN4core9panicking11panic_const34panic_const_async_fn_resumed_panic17haed46230f705cc23E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.50.llvm.16556129492738715689) #36
   unreachable
 }
 
@@ -8895,7 +8895,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 .body:                                            ; preds = %254, %256
   %eh.lpad-body = phi { ptr, i32 } [ %257, %256 ], [ %255, %254 ]
-  invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..result..Result$LT$remote..json_log..LogRecord$C$serde_json..error..Error$GT$$GT$17h9c54e52b5552d032E"(ptr noalias noundef align 8 dereferenceable(72) %72) #31
+  invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..result..Result$LT$remote..json_log..LogRecord$C$serde_json..error..Error$GT$$GT$17h9c54e52b5552d032E"(ptr noalias noundef align 8 dereferenceable(72) %72) #33
           to label %common.resume unwind label %275
 
 "_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17he497f1bec5942e69E.exit": ; preds = %253, %252, %.noexc53, %.noexc
@@ -8944,13 +8944,13 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 273:                                              ; preds = %269
   %274 = load ptr, ptr %50, align 8, !noalias !1994, !nonnull !7, !noundef !7
-  call void @__rust_dealloc(ptr noundef nonnull %274, i64 noundef %271, i64 noundef %267) #32
+  call void @__rust_dealloc(ptr noundef nonnull %274, i64 noundef %271, i64 noundef %267) #34
   br label %.thread98
 
 275:                                              ; preds = %670, %.body
   %276 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #35
   unreachable
 
 .thread1462:                                      ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17he497f1bec5942e69E.exit.thread", %.thread, %.thread98, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hc99ad1d40a8214d7E.exit59"
@@ -9002,7 +9002,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 common.resume.sink.split:                         ; preds = %290, %702
   %.sroa.0.1.i67.sink = phi ptr [ %.sroa.0.1.i67, %702 ], [ %.sroa.0.1.i, %290 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %703, %702 ], [ %291, %290 ]
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.1.i67.sink, i64 noundef 40, i64 noundef 8) #32, !noalias !7
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.1.i67.sink, i64 noundef 40, i64 noundef 8) #34, !noalias !7
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %670, %.body, %.loopexit.split-lp.i, %644
@@ -9015,7 +9015,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %common.resume.sink.split
 
 "_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hc99ad1d40a8214d7E.exit59": ; preds = %277, %281, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h2317dc0ea3f2bb6eE.exit.i.i.i.i58"
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.1.i, i64 noundef 40, i64 noundef 8) #32, !noalias !2031
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.1.i, i64 noundef 40, i64 noundef 8) #34, !noalias !2031
   br label %.thread1462
 
 292:                                              ; preds = %.thread1468, %.thread1462
@@ -9677,7 +9677,7 @@ default.unreachable:                              ; preds = %349
 
 .invoke.i:                                        ; preds = %495, %.loopexit120.i.i.i.i.i.i.i
   %475 = phi ptr [ @anon.c1df3ba63059bd69085471d9519d4abc.10, %.loopexit120.i.i.i.i.i.i.i ], [ @anon.c1df3ba63059bd69085471d9519d4abc.11, %495 ]
-  invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.c1df3ba63059bd69085471d9519d4abc.8, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %475) #34
+  invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.c1df3ba63059bd69085471d9519d4abc.8, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %475) #36
           to label %.cont.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !2064
 
 .cont.i:                                          ; preds = %.invoke.i
@@ -10176,7 +10176,7 @@ _ZN5serde2de9MapAccess10next_value17h3262acc8856016ecE.exit.i: ; preds = %607
 
 620:                                              ; preds = %617
   %621 = load ptr, ptr %14, align 8, !noalias !2355, !nonnull !7, !noundef !7
-  call void @__rust_dealloc(ptr noundef nonnull %621, i64 noundef %618, i64 noundef %615) #32, !noalias !2064
+  call void @__rust_dealloc(ptr noundef nonnull %621, i64 noundef %618, i64 noundef %615) #34, !noalias !2064
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E.exit.i.i"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E.exit.i.i": ; preds = %620, %617, %.noexc211.i
@@ -10244,7 +10244,7 @@ _ZN5serde2de9MapAccess10next_value17h3262acc8856016ecE.exit.i: ; preds = %607
 
 642:                                              ; preds = %638
   %643 = load ptr, ptr %13, align 8, !noalias !2364, !nonnull !7, !noundef !7
-  call void @__rust_dealloc(ptr noundef nonnull %643, i64 noundef %640, i64 noundef %636) #32, !noalias !2064
+  call void @__rust_dealloc(ptr noundef nonnull %643, i64 noundef %640, i64 noundef %636) #34, !noalias !2064
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E.exit.i"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E.exit.i": ; preds = %642, %638, %634
@@ -10253,13 +10253,13 @@ _ZN5serde2de9MapAccess10next_value17h3262acc8856016ecE.exit.i: ; preds = %607
 
 644:                                              ; preds = %.thread.i, %.loopexit.split-lp.i
   %.pn220.i = phi { ptr, i32 } [ %622, %.thread.i ], [ %lpad.phi.i, %.loopexit.split-lp.i ]
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %48) #31
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %48) #33
           to label %common.resume unwind label %645, !noalias !2064
 
 645:                                              ; preds = %644
   %646 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33, !noalias !2064
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #35, !noalias !2064
   unreachable
 
 "_ZN163_$LT$remote..json_log.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$remote..json_log..LogRecord$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h74d65163a674107aE.exit": ; preds = %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h62b178332f458421E.exit.i", %630, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E.exit.i"
@@ -10378,7 +10378,7 @@ _ZN5serde2de9MapAccess10next_value17h3262acc8856016ecE.exit.i: ; preds = %607
 670:                                              ; preds = %668, %666, %.loopexit.i66
   %671 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..result..Result$LT$remote..json_log..LogRecord$C$serde_json..error..Error$GT$$GT$17h9c54e52b5552d032E"(ptr noalias noundef align 8 dereferenceable(72) %69) #31
+  invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..result..Result$LT$remote..json_log..LogRecord$C$serde_json..error..Error$GT$$GT$17h9c54e52b5552d032E"(ptr noalias noundef align 8 dereferenceable(72) %69) #33
           to label %common.resume unwind label %275
 
 "_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hc9354abb084928ddE.exit": ; preds = %.noexc72, %.noexc71, %.noexc70
@@ -10427,7 +10427,7 @@ _ZN5serde2de9MapAccess10next_value17h3262acc8856016ecE.exit.i: ; preds = %607
 
 687:                                              ; preds = %683
   %688 = load ptr, ptr %9, align 8, !noalias !2395, !nonnull !7, !noundef !7
-  call void @__rust_dealloc(ptr noundef nonnull %688, i64 noundef %685, i64 noundef %681) #32
+  call void @__rust_dealloc(ptr noundef nonnull %688, i64 noundef %685, i64 noundef %681) #34
   br label %.thread110
 
 .thread1468:                                      ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hc9354abb084928ddE.exit.thread", %.thread1464, %.thread110, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hc99ad1d40a8214d7E.exit83"
@@ -10482,7 +10482,7 @@ _ZN5serde2de9MapAccess10next_value17h3262acc8856016ecE.exit.i: ; preds = %607
   br label %common.resume.sink.split
 
 "_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hc99ad1d40a8214d7E.exit83": ; preds = %689, %693, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h2317dc0ea3f2bb6eE.exit.i.i.i.i82"
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.1.i67, i64 noundef 40, i64 noundef 8) #32, !noalias !2432
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.1.i67, i64 noundef 40, i64 noundef 8) #34, !noalias !2432
   br label %.thread1468
 
 704:                                              ; preds = %292
@@ -10576,7 +10576,7 @@ define hidden { i64, ptr } @"_ZN95_$LT$futures_util..io..write_all..WriteAll$LT$
   store ptr inttoptr (i64 8 to ptr), ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %27, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.58) #34
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.58) #36
   unreachable
 
 28:                                               ; preds = %22
@@ -10640,7 +10640,7 @@ define hidden { i64, ptr } @"_ZN95_$LT$futures_util..io..write_all..WriteAll$LT$
   store ptr inttoptr (i64 8 to ptr), ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %27, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.58) #34
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c1df3ba63059bd69085471d9519d4abc.58) #36
   unreachable
 
 28:                                               ; preds = %22
@@ -10830,10 +10830,10 @@ declare noundef nonnull align 8 ptr @_ZN10serde_json5error5Error6syntax17h3c78de
 ; Function Attrs: nonlazybind uwtable
 declare noundef align 8 ptr @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$10ignore_str17h5ea5e6b2dae8e92aE"(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ssub.sat.i32(i32, i32) #24
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.sadd.sat.i32(i32, i32) #24
 
 ; Function Attrs: cold nonlazybind uwtable
@@ -10873,7 +10873,7 @@ declare void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias nound
 declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h19190dca586a6900E"(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #24
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #26
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef align 8 ptr @_ZN5prost8encoding10merge_loop17hee3349519966c4b4E(ptr noalias noundef align 8 dereferenceable(16), ptr noalias noundef align 8 dereferenceable(8), i32 noundef, ptr noalias noundef nonnull readonly align 1, ptr noalias noundef nonnull readonly align 1) unnamed_addr #2
@@ -10909,7 +10909,7 @@ declare { i64, ptr } @"_ZN76_$LT$async_process..ChildStderr$u20$as$u20$futures_i
 declare { i64, ptr } @"_ZN76_$LT$async_process..ChildStdout$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17he015e82f7b5cb0ffE"(ptr noalias noundef align 8 dereferenceable(16), ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #2
 
 ; Function Attrs: nounwind nonlazybind allockind("free") uwtable
-declare void @__rust_dealloc(ptr allocptr noundef, i64 noundef, i64 noundef) unnamed_addr #26
+declare void @__rust_dealloc(ptr allocptr noundef, i64 noundef, i64 noundef) unnamed_addr #27
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef align 8 dereferenceable(64), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #2
@@ -11155,25 +11155,25 @@ declare hidden noundef i64 @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl1
 declare hidden noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h695ffbdccfa750a7E.llvm.6723904779850951100"(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #27
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #28
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #27
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #28
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #28
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #28
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #30
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #29
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #30
+declare void @llvm.experimental.noalias.scope.decl(metadata) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #28
+declare i32 @llvm.abs.i32(i32, i1 immarg) #30
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -11199,17 +11199,19 @@ attributes #20 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" 
 attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #23 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #24 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #25 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #26 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #28 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #29 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: read) }
-attributes #30 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #31 = { cold }
-attributes #32 = { nounwind }
-attributes #33 = { cold noreturn nounwind }
-attributes #34 = { noreturn }
+attributes #26 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #27 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #28 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #29 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #30 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #31 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: read) }
+attributes #32 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #33 = { cold }
+attributes #34 = { nounwind }
+attributes #35 = { cold noreturn nounwind }
+attributes #36 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

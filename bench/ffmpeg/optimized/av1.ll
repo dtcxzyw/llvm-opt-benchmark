@@ -150,7 +150,7 @@ parse_obu_header.exit:                            ; preds = %59
   br i1 %.not49, label %76, label %75
 
 75:                                               ; preds = %70
-  tail call void @avio_write(ptr noundef nonnull %0, ptr noundef nonnull %.03866, i32 noundef %65) #6
+  tail call void @avio_write(ptr noundef nonnull %0, ptr noundef nonnull %.03866, i32 noundef %65) #7
   br label %76
 
 76:                                               ; preds = %75, %70
@@ -205,12 +205,12 @@ define range(i32 -2147483648, 1) i32 @ff_av1_filter_obus_buf(ptr noundef %0, ptr
 13:                                               ; preds = %10
   %14 = add nuw nsw i32 %8, 64
   %15 = zext nneg i32 %14 to i64
-  %16 = call noalias ptr @av_malloc(i64 noundef %15) #6
+  %16 = call noalias ptr @av_malloc(i64 noundef %15) #7
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %22, label %17
 
 17:                                               ; preds = %13
-  call void @ffio_init_write_context(ptr noundef nonnull %5, ptr noundef nonnull %16, i32 noundef %8) #6
+  call void @ffio_init_write_context(ptr noundef nonnull %5, ptr noundef nonnull %16, i32 noundef %8) #7
   %18 = load i32, ptr %2, align 4, !tbaa !10
   %19 = call fastcc i32 @av1_filter_obus(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %18, ptr noundef null)
   %20 = zext nneg i32 %8 to i64
@@ -1215,11 +1215,11 @@ define i32 @ff_isom_write_av1c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br i1 %or.cond, label %133, label %16
 
 16:                                               ; preds = %12
-  tail call void @avio_write(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) #6
+  tail call void @avio_write(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) #7
   br label %133
 
 17:                                               ; preds = %10
-  %18 = call i32 @avio_open_dyn_buf(ptr noundef nonnull %5) #6
+  %18 = call i32 @avio_open_dyn_buf(ptr noundef nonnull %5) #7
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %133, label %.lr.ph.outer
 
@@ -1330,7 +1330,7 @@ parse_obu_header.exit:                            ; preds = %55
 
 72:                                               ; preds = %71
   %73 = load ptr, ptr %5, align 8, !tbaa !33
-  call void @avio_write(ptr noundef %73, ptr noundef nonnull %.041217, i32 noundef %61) #6
+  call void @avio_write(ptr noundef %73, ptr noundef nonnull %.041217, i32 noundef %61) #7
   br label %74
 
 74:                                               ; preds = %72, %63
@@ -1399,28 +1399,28 @@ put_bits.exit75:                                  ; preds = %.thread232, %._crit
   %125 = or i32 %124, -2130706432
   %126 = call i32 @llvm.bswap.i32(i32 %125)
   store i32 %126, ptr %7, align 4, !tbaa !4
-  call void @avio_write(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 4) #6
+  call void @avio_write(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 4) #7
   %.not68 = icmp eq i32 %3, 0
   br i1 %.not68, label %128, label %127
 
 127:                                              ; preds = %put_bits.exit75
-  call void @avio_write(ptr noundef %0, ptr noundef %.256237248, i32 noundef %.2240246) #6
+  call void @avio_write(ptr noundef %0, ptr noundef %.256237248, i32 noundef %.2240246) #7
   br label %128
 
 128:                                              ; preds = %127, %put_bits.exit75
   %129 = load ptr, ptr %5, align 8, !tbaa !33
-  %130 = call i32 @avio_get_dyn_buf(ptr noundef %129, ptr noundef nonnull %8) #6
+  %130 = call i32 @avio_get_dyn_buf(ptr noundef %129, ptr noundef nonnull %8) #7
   %.not69 = icmp eq i32 %130, 0
   br i1 %.not69, label %.thread, label %131
 
 131:                                              ; preds = %128
   %132 = load ptr, ptr %8, align 8, !tbaa !12
-  call void @avio_write(ptr noundef %0, ptr noundef %132, i32 noundef %130) #6
+  call void @avio_write(ptr noundef %0, ptr noundef %132, i32 noundef %130) #7
   br label %.thread
 
 .thread:                                          ; preds = %66, %64, %55, %get_leb128.exit.i, %.lr.ph, %71, %parse_obu_header.exit, %._crit_edge, %128, %131
   %.3 = phi i32 [ %.253238247, %131 ], [ %.253238247, %128 ], [ -1094995529, %._crit_edge ], [ -1094995529, %71 ], [ %61, %parse_obu_header.exit ], [ -1094995529, %.lr.ph ], [ -1094995529, %get_leb128.exit.i ], [ -1094995529, %55 ], [ %69, %66 ], [ -1094995529, %64 ]
-  call void @ffio_free_dyn_buf(ptr noundef nonnull %5) #6
+  call void @ffio_free_dyn_buf(ptr noundef nonnull %5) #7
   br label %133
 
 133:                                              ; preds = %17, %16, %12, %4, %.thread
@@ -1446,25 +1446,26 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.cttz.i8(i8, i1 immarg) #5
+declare i8 @llvm.cttz.i8(i8, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

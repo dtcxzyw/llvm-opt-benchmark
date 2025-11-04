@@ -163,7 +163,7 @@ define void @Dau_DsdGenRandPerm(ptr noundef captures(none) %0, i32 noundef %1) l
 
 .lr.ph21:                                         ; preds = %.lr.ph21.preheader, %.lr.ph21
   %indvars.iv23 = phi i64 [ 0, %.lr.ph21.preheader ], [ %indvars.iv.next24, %.lr.ph21 ]
-  %6 = tail call i32 @rand() #29
+  %6 = tail call i32 @rand() #30
   %7 = srem i32 %6, %1
   %8 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv23
   %9 = load i32, ptr %8, align 4, !tbaa !6
@@ -225,7 +225,7 @@ Dau_DsdFindVarNum.exit:                           ; preds = %.lr.ph.i
 
 .lr.ph21.i:                                       ; preds = %.lr.ph.i12, %.lr.ph21.i
   %indvars.iv23.i = phi i64 [ %indvars.iv.next24.i, %.lr.ph21.i ], [ 0, %.lr.ph.i12 ]
-  %14 = tail call i32 @rand() #29
+  %14 = tail call i32 @rand() #30
   %15 = srem i32 %14, %.0.lcssa.i15
   %16 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv23.i
   %17 = load i32, ptr %16, align 4, !tbaa !6
@@ -2921,7 +2921,7 @@ define i32 @Dau_DsdPerform_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   %193 = load i32, ptr %192, align 4, !tbaa !6
   %194 = add nsw i32 %193, 97
   %195 = add nsw i32 %168, 97
-  %196 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %194, i32 noundef %195) #29
+  %196 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %194, i32 noundef %195) #30
   %197 = load i64, ptr %191, align 8, !tbaa !29
   %198 = and i64 %197, %187
   %199 = xor i64 %197, -1
@@ -2942,7 +2942,7 @@ define i32 @Dau_DsdPerform_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   %209 = load i32, ptr %208, align 4, !tbaa !6
   %210 = add nsw i32 %209, 97
   %211 = add nsw i32 %168, 97
-  %212 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %210, i32 noundef %211) #29
+  %212 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %210, i32 noundef %211) #30
   %213 = load i64, ptr %207, align 8, !tbaa !29
   %214 = and i64 %213, %184
   %215 = xor i64 %213, -1
@@ -2962,7 +2962,7 @@ define i32 @Dau_DsdPerform_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   %224 = load i32, ptr %223, align 4, !tbaa !6
   %225 = add nsw i32 %224, 97
   %226 = add nsw i32 %168, 97
-  %227 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %225, i32 noundef %226) #29
+  %227 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %225, i32 noundef %226) #30
   %228 = load i64, ptr %222, align 8, !tbaa !29
   %229 = and i64 %228, %181
   %230 = xor i64 %228, -1
@@ -2984,7 +2984,7 @@ define i32 @Dau_DsdPerform_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   %241 = load i32, ptr %240, align 4, !tbaa !6
   %242 = add nsw i32 %241, 97
   %243 = add nsw i32 %168, 97
-  %244 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %242, i32 noundef %243) #29
+  %244 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %242, i32 noundef %243) #30
   %245 = load i64, ptr %239, align 8, !tbaa !29
   %246 = and i64 %245, %176
   %247 = xor i64 %245, -1
@@ -3004,7 +3004,7 @@ define i32 @Dau_DsdPerform_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   %256 = load i32, ptr %255, align 4, !tbaa !6
   %257 = add nsw i32 %256, 97
   %258 = add nsw i32 %168, 97
-  %259 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %257, i32 noundef %258) #29
+  %259 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %257, i32 noundef %258) #30
   %260 = load i64, ptr %254, align 8, !tbaa !29
   %261 = and i64 %260, %181
   %262 = xor i64 %260, -1
@@ -3209,7 +3209,7 @@ define noundef nonnull ptr @Dau_DsdPerform(i64 noundef %0) local_unnamed_addr #2
 
 Dau_DsdComputeMatches.exit:                       ; preds = %23, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  tail call void @Dau_DsdRemoveBraces(ptr noundef nonnull @Dau_DsdPerform.pBuffer, ptr noundef nonnull @Dau_DsdComputeMatches.pMatches) #29
+  tail call void @Dau_DsdRemoveBraces(ptr noundef nonnull @Dau_DsdPerform.pBuffer, ptr noundef nonnull @Dau_DsdComputeMatches.pMatches) #30
   ret ptr @Dau_DsdPerform.pBuffer
 }
 
@@ -3909,12 +3909,12 @@ Abc_TtIsConst1.exit:                              ; preds = %.lr.ph.i44, %.lr.ph
 
 Dau_DsdComputeMatches.exit:                       ; preds = %42, %Abc_TtIsConst1.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @Dau_DsdRemoveBraces(ptr noundef nonnull %28, ptr noundef nonnull @Dau_DsdComputeMatches.pMatches) #29
+  call void @Dau_DsdRemoveBraces(ptr noundef nonnull %28, ptr noundef nonnull @Dau_DsdComputeMatches.pMatches) #30
   %.not36 = icmp eq ptr %4, null
   br i1 %.not36, label %47, label %45
 
 45:                                               ; preds = %Dau_DsdComputeMatches.exit
-  %46 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %28) #29
+  %46 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %28) #30
   br label %47
 
 47:                                               ; preds = %45, %Dau_DsdComputeMatches.exit
@@ -4000,7 +4000,7 @@ define range(i32 2, 1) i32 @Dau_Dsd6DecomposeSingleVar(ptr noundef captures(none
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #29
+  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #30
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %Abc_Clock.exit, label %9
 
@@ -4060,7 +4060,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
 .loopexit.thread:                                 ; preds = %.split, %23, %22
   %.2 = phi i32 [ 0, %23 ], [ %.1, %22 ], [ %.021, %.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %28 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #29
+  %28 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #30
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %Abc_Clock.exit23, label %30
 
@@ -4366,7 +4366,7 @@ define i32 @Dau_Dsd6DecomposeDoubleVars(ptr noundef %0, ptr noundef captures(add
   %9 = alloca [10 x i8], align 1
   %10 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %11 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #29
+  %11 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #30
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %Abc_Clock.exit, label %13
 
@@ -4496,7 +4496,7 @@ Dau_Dsd6FindSupportOne.exit.i:                    ; preds = %33
   %87 = add nsw i32 %86, 97
   %88 = load i32, ptr %35, align 4, !tbaa !6
   %89 = add nsw i32 %88, 97
-  %90 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %87, i32 noundef %89) #29
+  %90 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %87, i32 noundef %89) #30
   br label %175
 
 91:                                               ; preds = %Dau_Dsd6FindSupportOne.exit.i
@@ -4510,7 +4510,7 @@ Dau_Dsd6FindSupportOne.exit.i:                    ; preds = %33
   %96 = add nsw i32 %95, 97
   %97 = load i32, ptr %35, align 4, !tbaa !6
   %98 = add nsw i32 %97, 97
-  %99 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %96, i32 noundef %98) #29
+  %99 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %96, i32 noundef %98) #30
   %100 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv75
   %101 = load i64, ptr %100, align 8, !tbaa !29
   %102 = and i64 %101, %50
@@ -4537,7 +4537,7 @@ Dau_Dsd6FindSupportOne.exit.i:                    ; preds = %33
   %117 = add nsw i32 %116, 97
   %118 = load i32, ptr %35, align 4, !tbaa !6
   %119 = add nsw i32 %118, 97
-  %120 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %117, i32 noundef %119) #29
+  %120 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %117, i32 noundef %119) #30
   %121 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv75
   %122 = load i64, ptr %121, align 8, !tbaa !29
   %123 = and i64 %56, %50
@@ -4564,7 +4564,7 @@ Dau_Dsd6FindSupportOne.exit.i:                    ; preds = %33
   %138 = add nsw i32 %137, 97
   %139 = load i32, ptr %35, align 4, !tbaa !6
   %140 = add nsw i32 %139, 97
-  %141 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %138, i32 noundef %140) #29
+  %141 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %138, i32 noundef %140) #30
   %142 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv75
   %143 = load i64, ptr %142, align 8, !tbaa !29
   %144 = and i64 %143, %46
@@ -4593,7 +4593,7 @@ Dau_Dsd6FindSupportOne.exit.i:                    ; preds = %33
   %161 = add nsw i32 %160, 97
   %162 = load i32, ptr %35, align 4, !tbaa !6
   %163 = add nsw i32 %162, 97
-  %164 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %161, i32 noundef %163) #29
+  %164 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %161, i32 noundef %163) #30
   %165 = load i64, ptr %155, align 8, !tbaa !29
   %166 = and i64 %56, %46
   %167 = shl i64 %166, %53
@@ -4669,7 +4669,7 @@ Dau_DsdAddVarDef.exit.i:                          ; preds = %.lr.ph21.i.i, %.pre
 202:                                              ; preds = %Dau_DsdAddVarDef.exit.i
   %203 = add nsw i32 %.358, -2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %204 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #29
+  %204 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #30
   %205 = icmp slt i32 %204, 0
   br i1 %205, label %Abc_Clock.exit.i, label %206
 
@@ -4728,7 +4728,7 @@ Abc_Clock.exit.i:                                 ; preds = %206, %202
 .loopexit.thread.i:                               ; preds = %.split.i, %219, %218
   %.2.i = phi i32 [ 0, %219 ], [ %.1.i, %218 ], [ %.021.i, %.split.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %224 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #29
+  %224 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #30
   %225 = icmp slt i32 %224, 0
   br i1 %225, label %Dau_Dsd6DecomposeSingleVar.exit, label %226
 
@@ -4760,7 +4760,7 @@ Dau_Dsd6DecomposeDoubleVarsOne.exit:              ; preds = %Dau_Dsd6FindSupport
 
 236:                                              ; preds = %Dau_Dsd6DecomposeDoubleVarsOne.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %237 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #29
+  %237 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #30
   %238 = icmp slt i32 %237, 0
   br i1 %238, label %.thread, label %239
 
@@ -4804,7 +4804,7 @@ Dau_Dsd6DecomposeDoubleVarsOne.exit:              ; preds = %Dau_Dsd6FindSupport
 
 253:                                              ; preds = %._crit_edge.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %254 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #29
+  %254 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #30
   %255 = icmp slt i32 %254, 0
   br i1 %255, label %Abc_Clock.exit39, label %256
 
@@ -4843,7 +4843,7 @@ define i32 @Dau_Dsd6DecomposeTripleVars(ptr noundef %0, ptr noundef captures(add
   %11 = alloca i64, align 8
   %12 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %13 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %12) #29
+  %13 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %12) #30
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %Abc_Clock.exit, label %15
 
@@ -5278,7 +5278,7 @@ Abc_TtSuppFindFirst.exit94.i:                     ; preds = %200, %198
   %254 = add nsw i32 %253, 97
   %255 = select i1 %242, ptr @.str.27, ptr @.str.28
   %256 = add nsw i32 %245, 97
-  %257 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %251, i32 noundef %254, ptr noundef nonnull %255, i32 noundef %256) #29
+  %257 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %251, i32 noundef %254, ptr noundef nonnull %255, i32 noundef %256) #30
   %258 = load i32, ptr %20, align 4, !tbaa !87
   %259 = icmp sgt i32 %258, 0
   br i1 %259, label %.lr.ph.i.i, label %..preheader.._crit_edge_crit_edge.i_crit_edge.i
@@ -5402,7 +5402,7 @@ Dau_Dsd6DecomposeTripleVarsInner.exit:            ; preds = %Dau_DsdFindVarDef.e
 
 301:                                              ; preds = %.loopexit111
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %302 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #29
+  %302 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #30
   %303 = icmp slt i32 %302, 0
   br i1 %303, label %Abc_Clock.exit62, label %304
 
@@ -5432,7 +5432,7 @@ Abc_Clock.exit62:                                 ; preds = %301, %304
 
 317:                                              ; preds = %314
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %318 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #29
+  %318 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #30
   %319 = icmp slt i32 %318, 0
   br i1 %319, label %Abc_Clock.exit64, label %320
 
@@ -5467,7 +5467,7 @@ Abc_TtSuppOnlyOne.exit.thread:                    ; preds = %Abc_TtSuppFindFirst
 .loopexit.thread:                                 ; preds = %.loopexit, %Abc_TtSuppOnlyOne.exit.thread
   %.245178 = phi i32 [ %.043, %Abc_TtSuppOnlyOne.exit.thread ], [ %.245, %.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %332 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #29
+  %332 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #30
   %333 = icmp slt i32 %332, 0
   br i1 %333, label %Abc_Clock.exit66, label %334
 
@@ -6006,7 +6006,7 @@ define range(i32 2, 1) i32 @Dau_DsdDecomposeSingleVar(ptr noundef captures(none)
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #29
+  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #30
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %Abc_Clock.exit, label %9
 
@@ -6066,7 +6066,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
 .loopexit.thread:                                 ; preds = %.split, %23, %22
   %.2 = phi i32 [ 0, %23 ], [ %.1, %22 ], [ %.021, %.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %28 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #29
+  %28 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #30
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %Abc_Clock.exit23, label %30
 
@@ -7084,7 +7084,7 @@ define i32 @Dau_DsdDecomposeDoubleVars(ptr noundef %0, ptr noundef %1, ptr nound
   %14 = alloca [2 x [64 x i64]], align 16
   %15 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %16 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %15) #29
+  %16 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %15) #30
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %Abc_Clock.exit, label %18
 
@@ -8168,7 +8168,7 @@ Abc_TtCheckEqualCofs.exit135.thread401:           ; preds = %._crit_edge125.spli
   %489 = add nsw i32 %488, 97
   %490 = load i32, ptr %62, align 4, !tbaa !6
   %491 = add nsw i32 %490, 97
-  %492 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %489, i32 noundef %491) #29
+  %492 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %489, i32 noundef %491) #30
   br i1 %359, label %Abc_TtCofactor0p.exit.thread648.i, label %511
 
 Abc_TtCofactor0p.exit.thread648.i:                ; preds = %Abc_TtCheckEqualCofs.exit135.thread401
@@ -8691,7 +8691,7 @@ Abc_TtCheckEqualCofs.exit89.thread:               ; preds = %._crit_edge125.spli
   %702 = add nsw i32 %701, 97
   %703 = load i32, ptr %62, align 4, !tbaa !6
   %704 = add nsw i32 %703, 97
-  %705 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %702, i32 noundef %704) #29
+  %705 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %702, i32 noundef %704) #30
   br i1 %646, label %Abc_TtCofactor0p.exit241.thread651.i, label %728
 
 Abc_TtCofactor0p.exit241.thread651.i:             ; preds = %Abc_TtCheckEqualCofs.exit89.thread
@@ -9079,7 +9079,7 @@ Abc_TtCheckEqualCofs.exit89.thread410:            ; preds = %655, %670, %685, %.
   %868 = add nsw i32 %867, 97
   %869 = load i32, ptr %62, align 4, !tbaa !6
   %870 = add nsw i32 %869, 97
-  %871 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %868, i32 noundef %870) #29
+  %871 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %868, i32 noundef %870) #30
   br i1 %646, label %Abc_TtCofactor0p.exit341.thread654.i, label %891
 
 Abc_TtCofactor0p.exit341.thread654.i:             ; preds = %866
@@ -9617,7 +9617,7 @@ Abc_TtCheckEqualCofs.exit.thread:                 ; preds = %._crit_edge125.spli
   %1096 = add nsw i32 %1095, 97
   %1097 = load i32, ptr %62, align 4, !tbaa !6
   %1098 = add nsw i32 %1097, 97
-  %1099 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %1096, i32 noundef %1098) #29
+  %1099 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %1096, i32 noundef %1098) #30
   br i1 %1026, label %Abc_TtCofactor0p.exit448.thread657.i, label %1118
 
 Abc_TtCofactor0p.exit448.thread657.i:             ; preds = %Abc_TtCheckEqualCofs.exit.thread
@@ -10001,7 +10001,7 @@ Abc_TtCheckEqualCofs.exit.thread419:              ; preds = %1039, %1057, %1075,
   %1256 = add nsw i32 %1255, 97
   %1257 = load i32, ptr %62, align 4, !tbaa !6
   %1258 = add nsw i32 %1257, 97
-  %1259 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %1256, i32 noundef %1258) #29
+  %1259 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %1256, i32 noundef %1258) #30
   br i1 %1026, label %Abc_TtCofactor1p.exit555.thread660.i, label %1281
 
 Abc_TtCofactor1p.exit555.thread660.i:             ; preds = %1254
@@ -10437,7 +10437,7 @@ Dau_DsdAddVarDef.exit.i:                          ; preds = %.lr.ph21.i.i, %.pre
 1443:                                             ; preds = %Dau_DsdAddVarDef.exit.i
   %1444 = add nsw i32 %.3508, -2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %1445 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #29
+  %1445 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #30
   %1446 = icmp slt i32 %1445, 0
   br i1 %1446, label %Abc_Clock.exit.i, label %1447
 
@@ -10496,7 +10496,7 @@ Abc_Clock.exit.i:                                 ; preds = %1447, %1443
 .loopexit.thread.i:                               ; preds = %.split.i, %1460, %1459
   %.2.i = phi i32 [ 0, %1460 ], [ %.1.i, %1459 ], [ %.021.i, %.split.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %1465 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #29
+  %1465 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #30
   %1466 = icmp slt i32 %1465, 0
   br i1 %1466, label %Dau_DsdDecomposeSingleVar.exit, label %1467
 
@@ -10525,7 +10525,7 @@ Dau_DsdDecomposeDoubleVarsOne.exit:               ; preds = %372, %438, %390, %4
 
 1477:                                             ; preds = %Dau_DsdDecomposeDoubleVarsOne.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %1478 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #29
+  %1478 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #30
   %1479 = icmp slt i32 %1478, 0
   br i1 %1479, label %.thread422, label %1480
 
@@ -10566,7 +10566,7 @@ Dau_DsdDecomposeDoubleVarsOne.exit:               ; preds = %372, %438, %390, %4
 
 1493:                                             ; preds = %._crit_edge.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %1494 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #29
+  %1494 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #30
   %1495 = icmp slt i32 %1494, 0
   br i1 %1495, label %Abc_Clock.exit39, label %1496
 
@@ -10606,7 +10606,7 @@ define i32 @Dau_DsdDecomposeTripleVars(ptr noundef %0, ptr noundef %1, ptr nound
   %12 = alloca [2 x [64 x i64]], align 16
   %13 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %14 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %13) #29
+  %14 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %13) #30
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %Abc_Clock.exit, label %16
 
@@ -12253,7 +12253,7 @@ Abc_TtMux.exit.i:                                 ; preds = %.lr.ph.i227.i, %Dau
   %729 = load i32, ptr %728, align 4, !tbaa !6
   %730 = add nsw i32 %729, 97
   %731 = add nsw i32 %691, 97
-  %732 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %726, i32 noundef %730, ptr noundef nonnull %687, i32 noundef %731) #29
+  %732 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %726, i32 noundef %730, ptr noundef nonnull %687, i32 noundef %731) #30
   %733 = load i32, ptr %25, align 4, !tbaa !87
   %734 = icmp sgt i32 %733, 0
   br i1 %734, label %.lr.ph.i231.i, label %Abc_TtMux.exit..preheader.._crit_edge_crit_edge.i_crit_edge.i
@@ -12381,7 +12381,7 @@ Dau_DsdDecomposeTripleVarsInner.exit:             ; preds = %Dau_DsdFindVarDef.e
 
 776:                                              ; preds = %.loopexit326
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %777 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #29
+  %777 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #30
   %778 = icmp slt i32 %777, 0
   br i1 %778, label %Abc_Clock.exit61, label %779
 
@@ -12411,7 +12411,7 @@ Abc_Clock.exit61:                                 ; preds = %776, %779
 
 792:                                              ; preds = %789
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %793 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #29
+  %793 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #30
   %794 = icmp slt i32 %793, 0
   br i1 %794, label %Abc_Clock.exit63, label %795
 
@@ -12446,7 +12446,7 @@ Abc_TtSuppOnlyOne.exit.thread:                    ; preds = %479, %474, %Dau_Dsd
 .loopexit.thread:                                 ; preds = %.loopexit, %Abc_TtSuppOnlyOne.exit.thread
   %.245446 = phi i32 [ %.043, %Abc_TtSuppOnlyOne.exit.thread ], [ %.245, %.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %807 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #29
+  %807 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #30
   %808 = icmp slt i32 %807, 0
   br i1 %808, label %Abc_Clock.exit65, label %809
 
@@ -13118,12 +13118,12 @@ Abc_TtIsConst1.exit:                              ; preds = %.lr.ph.i45, %.lr.ph
 
 Dau_DsdComputeMatches.exit:                       ; preds = %43, %Abc_TtIsConst1.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @Dau_DsdRemoveBraces(ptr noundef nonnull %29, ptr noundef nonnull @Dau_DsdComputeMatches.pMatches) #29
+  call void @Dau_DsdRemoveBraces(ptr noundef nonnull %29, ptr noundef nonnull @Dau_DsdComputeMatches.pMatches) #30
   %.not37 = icmp eq ptr %4, null
   br i1 %.not37, label %48, label %46
 
 46:                                               ; preds = %Dau_DsdComputeMatches.exit
-  %47 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %29) #29
+  %47 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %29) #30
   br label %48
 
 48:                                               ; preds = %46, %Dau_DsdComputeMatches.exit
@@ -13168,7 +13168,7 @@ define void @Dau_DsdPrintFromTruthFile(ptr noundef captures(none) %0, ptr nounde
 
 Abc_TtCopy.exit:                                  ; preds = %.lr.ph18.preheader.i, %3
   %12 = call i32 @Dau_DsdDecompose(ptr noundef nonnull %5, i32 noundef %2, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
-  %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %4) #29
+  %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %4) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -13199,7 +13199,7 @@ define void @Dau_DsdPrintFromTruth(ptr noundef readonly captures(none) %0, i32 n
 Abc_TtCopy.exit:                                  ; preds = %.lr.ph18.preheader.i, %2
   %11 = call i32 @Dau_DsdDecompose(ptr noundef nonnull %4, i32 noundef %1, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3)
   %12 = load ptr, ptr @stdout, align 8, !tbaa !154
-  %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.6, ptr noundef nonnull %3) #29
+  %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.6, ptr noundef nonnull %3) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -13279,7 +13279,7 @@ define void @Dau_DsdTest555() local_unnamed_addr #2 {
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %17 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %12) #29
+  %17 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %12) #30
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %Abc_Clock.exit, label %19
 
@@ -13316,7 +13316,7 @@ Abc_Clock.exit:                                   ; preds = %0, %19
 33:                                               ; preds = %.lr.ph, %205
   %.028129 = phi i64 [ 0, %.lr.ph ], [ %.1, %205 ]
   %.029128 = phi i32 [ 0, %.lr.ph ], [ %.130, %205 ]
-  %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #30
+  %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #31
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 %34
   %36 = getelementptr inbounds i8, ptr %35, i64 -1
   %37 = load i8, ptr %36, align 1, !tbaa !3
@@ -13528,7 +13528,7 @@ Dau_DsdToTruth.exit:                              ; preds = %72, %74, %Dau_DsdCo
 
 Abc_TtCopy.exit36:                                ; preds = %.lr.ph18.i32
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %96 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #29
+  %96 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #30
   %97 = icmp slt i32 %96, 0
   br i1 %97, label %Abc_Clock.exit38, label %98
 
@@ -13578,7 +13578,7 @@ Abc_Clock.exit38:                                 ; preds = %Abc_TtCopy.exit36, 
   br i1 %.not.i46.i, label %107, label %Abc_TtIsConst1.exit.i
 
 Abc_TtIsConst1.exit.i:                            ; preds = %.lr.ph.i44.i, %.lr.ph.i.i47
-  %110 = call i32 @Dau_DsdDecomposeInt(ptr noundef nonnull %8, ptr noundef nonnull %24, i32 noundef 10) #31
+  %110 = call i32 @Dau_DsdDecomposeInt(ptr noundef nonnull %8, ptr noundef nonnull %24, i32 noundef 10) #32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %111 = load i8, ptr %30, align 8, !tbaa !3
   %.not25.i.i39 = icmp eq i8 %111, 0
@@ -13632,8 +13632,8 @@ Abc_TtIsConst1.exit.i:                            ; preds = %.lr.ph.i44.i, %.lr.
 
 Dau_DsdComputeMatches.exit.i46:                   ; preds = %124, %Abc_TtIsConst1.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @Dau_DsdRemoveBraces(ptr noundef nonnull %30, ptr noundef nonnull @Dau_DsdComputeMatches.pMatches) #29
-  %127 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %30) #29
+  call void @Dau_DsdRemoveBraces(ptr noundef nonnull %30, ptr noundef nonnull @Dau_DsdComputeMatches.pMatches) #30
+  %127 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %30) #30
   br label %Dau_DsdDecompose.exit
 
 ._crit_edge.sink.split.i:                         ; preds = %107, %104
@@ -13645,7 +13645,7 @@ Dau_DsdComputeMatches.exit.i46:                   ; preds = %124, %Abc_TtIsConst
 Dau_DsdDecompose.exit:                            ; preds = %Dau_DsdComputeMatches.exit.i46, %._crit_edge.sink.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %128 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #29
+  %128 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #30
   %129 = icmp slt i32 %128, 0
   br i1 %129, label %Abc_Clock.exit53, label %130
 
@@ -13922,7 +13922,7 @@ Abc_TtEqual.exit:                                 ; preds = %197, %202
   %209 = fdiv double %.028.lcssa, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.32, double noundef %209)
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %210 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #29
+  %210 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #30
   %211 = icmp slt i32 %210, 0
   br i1 %211, label %Abc_Clock.exit109, label %212
 
@@ -14218,24 +14218,24 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #18 {
   br i1 %.not, label %18, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #29
+  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #30
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #29
+  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #30
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #29
+  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #30
   %10 = load ptr, ptr @stdout, align 8, !tbaa !154
-  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #30
+  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #31
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #29
-  call void @free(ptr noundef %9) #29
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #30
+  call void @free(ptr noundef %9) #30
   br label %17
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr @stdout, align 8, !tbaa !154, !noalias !157
-  %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #29
+  %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #30
   br label %17
 
 17:                                               ; preds = %14, %8
@@ -14271,22 +14271,22 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #26
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #26
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #27
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #28
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #27
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #27
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #29
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #27
 
 attributes #0 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -14316,11 +14316,12 @@ attributes #23 = { inlinehint nofree norecurse nosync nounwind memory(argmem: re
 attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #25 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #27 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #27 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #28 = { nofree nounwind }
-attributes #29 = { nounwind }
-attributes #30 = { nounwind willreturn memory(read) }
-attributes #31 = { "function-inline-cost-multiplier"="2" }
+attributes #29 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #30 = { nounwind }
+attributes #31 = { nounwind willreturn memory(read) }
+attributes #32 = { "function-inline-cost-multiplier"="2" }
 
 !llvm.module.flags = !{!0, !1, !2}
 

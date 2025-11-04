@@ -24,7 +24,7 @@ define hidden noundef ptr @rb_st_init_existing_table_with_size(ptr noundef retur
 
 5:                                                ; preds = %3
   %6 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %6, ptr noundef nonnull @.str.1) #23
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %6, ptr noundef nonnull @.str.1) #24
   unreachable
 
 get_power2.exit:                                  ; preds = %3
@@ -53,7 +53,7 @@ get_power2.exit:                                  ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !24
   %25 = shl i64 %24, 3
-  %26 = tail call noalias nonnull ptr @ruby_xmalloc(i64 noundef %25) #24
+  %26 = tail call noalias nonnull ptr @ruby_xmalloc(i64 noundef %25) #25
   %.val17.pre = load i8, ptr %0, align 8, !tbaa !18
   br label %27
 
@@ -64,7 +64,7 @@ get_power2.exit:                                  ; preds = %3
   store ptr %.sink, ptr %28, align 8, !tbaa !25
   %29 = zext nneg i8 %.val17 to i64
   %30 = shl i64 24, %29
-  %31 = tail call noalias nonnull ptr @ruby_xmalloc(i64 noundef %30) #24
+  %31 = tail call noalias nonnull ptr @ruby_xmalloc(i64 noundef %30) #25
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %31, ptr %32, align 8, !tbaa !26
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -82,7 +82,7 @@ get_power2.exit:                                  ; preds = %3
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i64, ptr %39, align 8, !tbaa !24
   %41 = shl i64 %40, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %35, i8 noundef 0, i64 noundef %41, i1 noundef false) #25
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %35, i8 noundef 0, i64 noundef %41, i1 noundef false) #26
   br label %make_tab_empty.exit
 
 make_tab_empty.exit:                              ; preds = %27, %36
@@ -96,7 +96,7 @@ declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef nonnull ptr @rb_st_init_table_with_size(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #24
+  %3 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #25
   %4 = tail call ptr @rb_st_init_existing_table_with_size(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1)
   ret ptr %3
 }
@@ -111,7 +111,7 @@ define dso_local i64 @rb_st_table_size(ptr noundef readonly captures(none) %0) l
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef nonnull ptr @rb_st_init_table(ptr noundef %0) local_unnamed_addr #0 {
 rb_st_init_existing_table_with_size.exit:
-  %1 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #24
+  %1 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #25
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %2, align 8, !tbaa !11
   store i8 2, ptr %1, align 8, !tbaa !18
@@ -121,7 +121,7 @@ rb_st_init_existing_table_with_size.exit:
   store i8 0, ptr %4, align 2, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %5, align 8, !tbaa !25
-  %6 = tail call noalias nonnull dereferenceable(96) ptr @ruby_xmalloc(i64 noundef 96) #24
+  %6 = tail call noalias nonnull dereferenceable(96) ptr @ruby_xmalloc(i64 noundef 96) #25
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %6, ptr %7, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -135,7 +135,7 @@ rb_st_init_existing_table_with_size.exit:
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef nonnull ptr @rb_st_init_numtable() local_unnamed_addr #0 {
-  %1 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #24
+  %1 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #25
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @st_hashtype_num, ptr %2, align 8, !tbaa !11
   store i8 2, ptr %1, align 8, !tbaa !18
@@ -145,7 +145,7 @@ define dso_local noalias noundef nonnull ptr @rb_st_init_numtable() local_unname
   store i8 0, ptr %4, align 2, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %5, align 8, !tbaa !25
-  %6 = tail call noalias nonnull dereferenceable(96) ptr @ruby_xmalloc(i64 noundef 96) #24
+  %6 = tail call noalias nonnull dereferenceable(96) ptr @ruby_xmalloc(i64 noundef 96) #25
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %6, ptr %7, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -159,14 +159,14 @@ define dso_local noalias noundef nonnull ptr @rb_st_init_numtable() local_unname
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef nonnull ptr @rb_st_init_numtable_with_size(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #24
+  %2 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #25
   %3 = tail call ptr @rb_st_init_existing_table_with_size(ptr noundef nonnull %2, ptr noundef nonnull @st_hashtype_num, i64 noundef %0)
   ret ptr %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef nonnull ptr @rb_st_init_strtable() local_unnamed_addr #0 {
-  %1 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #24
+  %1 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #25
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @type_strhash, ptr %2, align 8, !tbaa !11
   store i8 2, ptr %1, align 8, !tbaa !18
@@ -176,7 +176,7 @@ define dso_local noalias noundef nonnull ptr @rb_st_init_strtable() local_unname
   store i8 0, ptr %4, align 2, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %5, align 8, !tbaa !25
-  %6 = tail call noalias nonnull dereferenceable(96) ptr @ruby_xmalloc(i64 noundef 96) #24
+  %6 = tail call noalias nonnull dereferenceable(96) ptr @ruby_xmalloc(i64 noundef 96) #25
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %6, ptr %7, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -190,14 +190,14 @@ define dso_local noalias noundef nonnull ptr @rb_st_init_strtable() local_unname
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef nonnull ptr @rb_st_init_strtable_with_size(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #24
+  %2 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #25
   %3 = tail call ptr @rb_st_init_existing_table_with_size(ptr noundef nonnull %2, ptr noundef nonnull @type_strhash, i64 noundef %0)
   ret ptr %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef nonnull ptr @rb_st_init_strcasetable() local_unnamed_addr #0 {
-  %1 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #24
+  %1 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #25
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @type_strcasehash, ptr %2, align 8, !tbaa !11
   store i8 2, ptr %1, align 8, !tbaa !18
@@ -207,7 +207,7 @@ define dso_local noalias noundef nonnull ptr @rb_st_init_strcasetable() local_un
   store i8 0, ptr %4, align 2, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %5, align 8, !tbaa !25
-  %6 = tail call noalias nonnull dereferenceable(96) ptr @ruby_xmalloc(i64 noundef 96) #24
+  %6 = tail call noalias nonnull dereferenceable(96) ptr @ruby_xmalloc(i64 noundef 96) #25
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %6, ptr %7, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -221,7 +221,7 @@ define dso_local noalias noundef nonnull ptr @rb_st_init_strcasetable() local_un
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef nonnull ptr @rb_st_init_strcasetable_with_size(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #24
+  %2 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #25
   %3 = tail call ptr @rb_st_init_existing_table_with_size(ptr noundef nonnull %2, ptr noundef nonnull @type_strcasehash, i64 noundef %0)
   ret ptr %2
 }
@@ -244,7 +244,7 @@ define dso_local void @rb_st_clear(ptr noundef captures(none) initializes((16, 2
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !24
   %11 = shl i64 %10, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %5, i8 noundef 0, i64 noundef %11, i1 noundef false) #25
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %5, i8 noundef 0, i64 noundef %11, i1 noundef false) #26
   br label %make_tab_empty.exit
 
 make_tab_empty.exit:                              ; preds = %1, %6
@@ -259,11 +259,11 @@ make_tab_empty.exit:                              ; preds = %1, %6
 define dso_local void @rb_st_free_table(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !25
-  tail call void @ruby_xfree(ptr noundef %3) #25
+  tail call void @ruby_xfree(ptr noundef %3) #26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !26
-  tail call void @ruby_xfree(ptr noundef %5) #25
-  tail call void @ruby_xfree(ptr noundef %0) #25
+  tail call void @ruby_xfree(ptr noundef %5) #26
+  tail call void @ruby_xfree(ptr noundef %0) #26
   ret void
 }
 
@@ -299,7 +299,7 @@ define dso_local range(i32 0, 2) i32 @rb_st_lookup(ptr noundef readonly captures
   %.val = load ptr, ptr %4, align 8, !tbaa !11
   %5 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %5, align 8, !tbaa !29
-  %6 = tail call i64 %.val.val(i64 noundef %1) #25
+  %6 = tail call i64 %.val.val(i64 noundef %1) #26
   %7 = icmp eq i64 %6, -1
   %8 = select i1 %7, i64 0, i64 %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -343,7 +343,7 @@ define dso_local range(i32 0, 2) i32 @rb_st_lookup(ptr noundef readonly captures
 31:                                               ; preds = %27
   %32 = load ptr, ptr %4, align 8, !tbaa !11
   %33 = load ptr, ptr %32, align 8, !tbaa !36
-  %34 = tail call i32 %33(i64 noundef %1, i64 noundef %29) #25
+  %34 = tail call i32 %33(i64 noundef %1, i64 noundef %29) #26
   %35 = icmp eq i32 %34, 0
   %.pre39.i = load i32, ptr %13, align 4, !tbaa !28
   %36 = icmp ne i32 %.pre.i, %.pre39.i
@@ -432,7 +432,7 @@ get_bin.exit.i:                                   ; preds = %56, %52, %48, %44
 71:                                               ; preds = %67
   %72 = load ptr, ptr %4, align 8, !tbaa !11
   %73 = load ptr, ptr %72, align 8, !tbaa !36
-  %74 = tail call i32 %73(i64 noundef %1, i64 noundef %69) #25
+  %74 = tail call i32 %73(i64 noundef %1, i64 noundef %69) #26
   %75 = icmp eq i32 %74, 0
   %.pre.i26 = load i32, ptr %13, align 4, !tbaa !28
   %76 = icmp ne i32 %62, %.pre.i26
@@ -499,7 +499,7 @@ define dso_local range(i32 0, 2) i32 @rb_st_get_key(ptr noundef readonly capture
   %.val = load ptr, ptr %4, align 8, !tbaa !11
   %5 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %5, align 8, !tbaa !29
-  %6 = tail call i64 %.val.val(i64 noundef %1) #25
+  %6 = tail call i64 %.val.val(i64 noundef %1) #26
   %7 = icmp eq i64 %6, -1
   %8 = select i1 %7, i64 0, i64 %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -543,7 +543,7 @@ define dso_local range(i32 0, 2) i32 @rb_st_get_key(ptr noundef readonly capture
 31:                                               ; preds = %27
   %32 = load ptr, ptr %4, align 8, !tbaa !11
   %33 = load ptr, ptr %32, align 8, !tbaa !36
-  %34 = tail call i32 %33(i64 noundef %1, i64 noundef %29) #25
+  %34 = tail call i32 %33(i64 noundef %1, i64 noundef %29) #26
   %35 = icmp eq i32 %34, 0
   %.pre39.i = load i32, ptr %13, align 4, !tbaa !28
   %36 = icmp ne i32 %.pre.i, %.pre39.i
@@ -632,7 +632,7 @@ get_bin.exit.i:                                   ; preds = %56, %52, %48, %44
 71:                                               ; preds = %67
   %72 = load ptr, ptr %4, align 8, !tbaa !11
   %73 = load ptr, ptr %72, align 8, !tbaa !36
-  %74 = tail call i32 %73(i64 noundef %1, i64 noundef %69) #25
+  %74 = tail call i32 %73(i64 noundef %1, i64 noundef %69) #26
   %75 = icmp eq i32 %74, 0
   %.pre.i26 = load i32, ptr %13, align 4, !tbaa !28
   %76 = icmp ne i32 %62, %.pre.i26
@@ -701,7 +701,7 @@ define dso_local range(i32 0, 2) i32 @rb_st_insert(ptr noundef captures(none) %0
   %.val = load ptr, ptr %5, align 8, !tbaa !11
   %6 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %6, align 8, !tbaa !29
-  %7 = tail call i64 %.val.val(i64 noundef %1) #25
+  %7 = tail call i64 %.val.val(i64 noundef %1) #26
   %8 = icmp eq i64 %7, -1
   %9 = select i1 %8, i64 0, i64 %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -744,7 +744,7 @@ define dso_local range(i32 0, 2) i32 @rb_st_insert(ptr noundef captures(none) %0
 30:                                               ; preds = %26
   %31 = load ptr, ptr %5, align 8, !tbaa !11
   %32 = load ptr, ptr %31, align 8, !tbaa !36
-  %33 = tail call i32 %32(i64 noundef %1, i64 noundef %28) #25
+  %33 = tail call i32 %32(i64 noundef %1, i64 noundef %28) #26
   %34 = icmp eq i32 %33, 0
   %.pre39.i = load i32, ptr %14, align 4, !tbaa !28
   %35 = icmp ne i32 %.pre.i, %.pre39.i
@@ -886,7 +886,7 @@ define internal fastcc void @rebuild_table_if_necessary(ptr noundef captures(non
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !24
   %21 = shl i64 %20, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %16, i8 noundef 0, i64 noundef %21, i1 noundef false) #25
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %16, i8 noundef 0, i64 noundef %21, i1 noundef false) #26
   br label %22
 
 22:                                               ; preds = %17, %14
@@ -897,7 +897,7 @@ define internal fastcc void @rebuild_table_if_necessary(ptr noundef captures(non
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !11
   %26 = add i64 %10, -1
-  %27 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #24
+  %27 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #25
   %28 = tail call ptr @rb_st_init_existing_table_with_size(ptr noundef nonnull %27, ptr noundef %25, i64 noundef %26)
   tail call fastcc void @rebuild_table_with(ptr noundef nonnull %27, ptr noundef nonnull %0)
   %29 = load i8, ptr %27, align 8, !tbaa !18
@@ -912,17 +912,17 @@ define internal fastcc void @rebuild_table_if_necessary(ptr noundef captures(non
   store i8 %34, ptr %35, align 2, !tbaa !23
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load ptr, ptr %36, align 8, !tbaa !25
-  tail call void @ruby_xfree(ptr noundef %37) #25
+  tail call void @ruby_xfree(ptr noundef %37) #26
   %38 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !25
   store ptr %39, ptr %36, align 8, !tbaa !25
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %41 = load ptr, ptr %40, align 8, !tbaa !26
-  tail call void @ruby_xfree(ptr noundef %41) #25
+  tail call void @ruby_xfree(ptr noundef %41) #26
   %42 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %43 = load ptr, ptr %42, align 8, !tbaa !26
   store ptr %43, ptr %40, align 8, !tbaa !26
-  tail call void @ruby_xfree(ptr noundef nonnull %27) #25
+  tail call void @ruby_xfree(ptr noundef nonnull %27) #26
   br label %rebuild_table.exit
 
 rebuild_table.exit:                               ; preds = %22, %23
@@ -1051,7 +1051,7 @@ get_bin.exit:                                     ; preds = %16, %20, %24, %28
 55:                                               ; preds = %51
   %56 = load ptr, ptr %13, align 8, !tbaa !11
   %57 = load ptr, ptr %56, align 8, !tbaa !36
-  %58 = tail call i32 %57(i64 noundef %1, i64 noundef %53) #25
+  %58 = tail call i32 %57(i64 noundef %1, i64 noundef %53) #26
   %.pre = load i32, ptr %12, align 4, !tbaa !28
   %59 = icmp eq i32 %46, %.pre
   br i1 %59, label %60, label %.loopexit, !prof !52
@@ -1255,7 +1255,7 @@ define dso_local void @rb_st_add_direct(ptr noundef captures(none) %0, i64 nound
   %.val = load ptr, ptr %4, align 8, !tbaa !11
   %5 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %5, align 8, !tbaa !29
-  %6 = tail call i64 %.val.val(i64 noundef %1) #25
+  %6 = tail call i64 %.val.val(i64 noundef %1) #26
   %7 = icmp eq i64 %6, -1
   %8 = select i1 %7, i64 0, i64 %6
   tail call fastcc void @st_add_direct_with_hash(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %8)
@@ -1270,7 +1270,7 @@ define dso_local range(i32 0, 2) i32 @rb_st_insert2(ptr noundef captures(none) %
   %.val = load ptr, ptr %6, align 8, !tbaa !11
   %7 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %7, align 8, !tbaa !29
-  %8 = tail call i64 %.val.val(i64 noundef %1) #25
+  %8 = tail call i64 %.val.val(i64 noundef %1) #26
   %9 = icmp eq i64 %8, -1
   %10 = select i1 %9, i64 0, i64 %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1313,7 +1313,7 @@ define dso_local range(i32 0, 2) i32 @rb_st_insert2(ptr noundef captures(none) %
 31:                                               ; preds = %27
   %32 = load ptr, ptr %6, align 8, !tbaa !11
   %33 = load ptr, ptr %32, align 8, !tbaa !36
-  %34 = tail call i32 %33(i64 noundef %1, i64 noundef %29) #25
+  %34 = tail call i32 %33(i64 noundef %1, i64 noundef %29) #26
   %35 = icmp eq i32 %34, 0
   %.pre39.i = load i32, ptr %15, align 4, !tbaa !28
   %36 = icmp ne i32 %.pre.i, %.pre39.i
@@ -1360,7 +1360,7 @@ find_entry.exit:                                  ; preds = %27, %.loopexit.spli
 
 47:                                               ; preds = %._crit_edge, %.thread52
   %48 = phi i64 [ %.pre, %._crit_edge ], [ -1, %.thread52 ]
-  %49 = tail call i64 %3(i64 noundef %1) #25
+  %49 = tail call i64 %3(i64 noundef %1) #26
   %50 = load i64, ptr %12, align 8, !tbaa !31
   %51 = add i64 %50, 1
   store i64 %51, ptr %12, align 8, !tbaa !31
@@ -1437,7 +1437,7 @@ define hidden noundef ptr @rb_st_replace(ptr noundef returned captures(ret: addr
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !24
   %11 = shl i64 %10, 3
-  %12 = tail call noalias nonnull ptr @ruby_xmalloc(i64 noundef %11) #24
+  %12 = tail call noalias nonnull ptr @ruby_xmalloc(i64 noundef %11) #25
   br label %13
 
 13:                                               ; preds = %2, %6
@@ -1447,7 +1447,7 @@ define hidden noundef ptr @rb_st_replace(ptr noundef returned captures(ret: addr
   %.val18 = load i8, ptr %1, align 8, !tbaa !18
   %15 = zext nneg i8 %.val18 to i64
   %16 = shl i64 24, %15
-  %17 = tail call noalias nonnull ptr @ruby_xmalloc(i64 noundef %16) #24
+  %17 = tail call noalias nonnull ptr @ruby_xmalloc(i64 noundef %16) #25
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %17, ptr %18, align 8, !tbaa !26
   %.val17 = load i8, ptr %1, align 8, !tbaa !18
@@ -1458,14 +1458,14 @@ define hidden noundef ptr @rb_st_replace(ptr noundef returned captures(ret: addr
   br i1 %22, label %23, label %rbimpl_size_mul_or_raise.exit, !prof !51
 
 23:                                               ; preds = %13
-  tail call void @ruby_malloc_size_overflow(i64 noundef 24, i64 noundef %20) #23
+  tail call void @ruby_malloc_size_overflow(i64 noundef 24, i64 noundef %20) #24
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %13
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %25 = load ptr, ptr %24, align 8, !tbaa !26
   %26 = extractvalue { i64, i1 } %21, 0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %17, ptr noundef nonnull readonly align 1 %25, i64 noundef range(i64 1, 0) %26, i1 noundef false) #25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %17, ptr noundef nonnull readonly align 1 %25, i64 noundef range(i64 1, 0) %26, i1 noundef false) #26
   %27 = load ptr, ptr %3, align 8, !tbaa !25
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %ruby_nonempty_memcpy.exit21, label %28
@@ -1480,7 +1480,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %13
 
 33:                                               ; preds = %28
   %34 = load ptr, ptr %14, align 8, !tbaa !25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %34, ptr noundef nonnull readonly align 1 %27, i64 noundef range(i64 1, 0) %32, i1 noundef false) #25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %34, ptr noundef nonnull readonly align 1 %27, i64 noundef range(i64 1, 0) %32, i1 noundef false) #26
   br label %ruby_nonempty_memcpy.exit21
 
 ruby_nonempty_memcpy.exit21:                      ; preds = %33, %28, %rbimpl_size_mul_or_raise.exit
@@ -1492,7 +1492,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef nonnull ptr @rb_st_copy(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #24
+  %2 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #25
   %3 = tail call ptr @rb_st_replace(ptr noundef nonnull %2, ptr noundef %0)
   ret ptr %2
 }
@@ -1510,7 +1510,7 @@ define internal fastcc range(i32 0, 2) i32 @st_general_delete(ptr noundef captur
   %.val = load ptr, ptr %5, align 8, !tbaa !11
   %6 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %6, align 8, !tbaa !29
-  %7 = tail call i64 %.val.val(i64 noundef %4) #25
+  %7 = tail call i64 %.val.val(i64 noundef %4) #26
   %8 = icmp eq i64 %7, -1
   %9 = select i1 %8, i64 0, i64 %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1555,7 +1555,7 @@ define internal fastcc range(i32 0, 2) i32 @st_general_delete(ptr noundef captur
 33:                                               ; preds = %29
   %34 = load ptr, ptr %5, align 8, !tbaa !11
   %35 = load ptr, ptr %34, align 8, !tbaa !36
-  %36 = tail call i32 %35(i64 noundef %19, i64 noundef %31) #25
+  %36 = tail call i32 %35(i64 noundef %19, i64 noundef %31) #26
   %37 = icmp eq i32 %36, 0
   %.pre39.i = load i32, ptr %14, align 4, !tbaa !28
   %38 = icmp ne i32 %.pre.i, %.pre39.i
@@ -1655,7 +1655,7 @@ get_bin.exit.i:                                   ; preds = %59, %55, %51, %47
 74:                                               ; preds = %70
   %75 = load ptr, ptr %5, align 8, !tbaa !11
   %76 = load ptr, ptr %75, align 8, !tbaa !36
-  %77 = tail call i32 %76(i64 noundef %19, i64 noundef %72) #25
+  %77 = tail call i32 %76(i64 noundef %19, i64 noundef %72) #26
   %78 = icmp eq i32 %77, 0
   %.pre.i46 = load i32, ptr %14, align 4, !tbaa !28
   %79 = icmp ne i32 %65, %.pre.i46
@@ -1868,7 +1868,7 @@ define dso_local range(i32 0, 2) i32 @rb_st_shift(ptr noundef captures(none) %0,
 43:                                               ; preds = %38
   %44 = load ptr, ptr %25, align 8, !tbaa !11
   %45 = load ptr, ptr %44, align 8, !tbaa !36
-  %46 = tail call i32 %45(i64 noundef %16, i64 noundef %40) #25
+  %46 = tail call i32 %45(i64 noundef %16, i64 noundef %40) #26
   %47 = icmp eq i32 %46, 0
   %.pre39.i = load i32, ptr %24, align 4, !tbaa !28
   %48 = icmp ne i32 %.pre.i, %.pre39.i
@@ -1961,7 +1961,7 @@ get_bin.exit.i:                                   ; preds = %68, %64, %60, %56
 83:                                               ; preds = %79
   %84 = load ptr, ptr %25, align 8, !tbaa !11
   %85 = load ptr, ptr %84, align 8, !tbaa !36
-  %86 = tail call i32 %85(i64 noundef %16, i64 noundef %81) #25
+  %86 = tail call i32 %85(i64 noundef %16, i64 noundef %81) #26
   %87 = icmp eq i32 %86, 0
   %.pre.i55 = load i32, ptr %24, align 4, !tbaa !28
   %88 = icmp ne i32 %74, %.pre.i55
@@ -2110,7 +2110,7 @@ define dso_local range(i32 0, 2) i32 @rb_st_update(ptr noundef captures(none) %0
   %.val = load ptr, ptr %7, align 8, !tbaa !11
   %8 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %8, align 8, !tbaa !29
-  %9 = tail call i64 %.val.val(i64 noundef %1) #25
+  %9 = tail call i64 %.val.val(i64 noundef %1) #26
   %10 = icmp eq i64 %9, -1
   %11 = select i1 %10, i64 0, i64 %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2158,7 +2158,7 @@ find_table_bin_ind.exit:                          ; preds = %find_table_bin_ind.
 34:                                               ; preds = %30
   %35 = load ptr, ptr %7, align 8, !tbaa !11
   %36 = load ptr, ptr %35, align 8, !tbaa !36
-  %37 = tail call i32 %36(i64 noundef %1, i64 noundef %32) #25
+  %37 = tail call i32 %36(i64 noundef %1, i64 noundef %32) #26
   %38 = icmp eq i32 %37, 0
   %.pre39.i = load i32, ptr %16, align 4, !tbaa !28
   %39 = icmp ne i32 %.pre.i, %.pre39.i
@@ -2253,7 +2253,7 @@ get_bin.exit.i:                                   ; preds = %60, %56, %52, %48
 75:                                               ; preds = %71
   %76 = load ptr, ptr %7, align 8, !tbaa !11
   %77 = load ptr, ptr %76, align 8, !tbaa !36
-  %78 = tail call i32 %77(i64 noundef %1, i64 noundef %73) #25
+  %78 = tail call i32 %77(i64 noundef %1, i64 noundef %73) #26
   %79 = icmp eq i32 %78, 0
   %.pre.i55 = load i32, ptr %16, align 4, !tbaa !28
   %80 = icmp ne i32 %66, %.pre.i55
@@ -2350,7 +2350,7 @@ get_bin.exit.i:                                   ; preds = %60, %56, %52, %48
   %.041.in75 = phi i1 [ true, %108 ], [ false, %106 ], [ false, %.thread87 ], [ false, %81 ]
   %.173 = phi i64 [ %.174, %108 ], [ -1, %106 ], [ -1, %.thread87 ], [ %.042.ph, %81 ]
   %.04371 = phi i64 [ %.04372, %108 ], [ -1, %106 ], [ -1, %.thread87 ], [ -1, %81 ]
-  %114 = call i32 %2(ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef %3, i32 noundef %.04179) #25
+  %114 = call i32 %2(ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef %3, i32 noundef %.04179) #26
   switch i32 %114, label %update_range_for_deleted.exit [
     i32 0, label %115
     i32 2, label %125
@@ -2507,7 +2507,7 @@ define internal fastcc range(i32 0, 2) i32 @st_general_foreach(ptr noundef captu
   %34 = load i64, ptr %27, align 8, !tbaa !33
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %36 = load i64, ptr %35, align 8, !tbaa !49
-  %37 = call i32 %1(i64 noundef %32, i64 noundef %36, i64 noundef %3, i32 noundef 0) #25
+  %37 = call i32 %1(i64 noundef %32, i64 noundef %36, i64 noundef %3, i32 noundef 0) #26
   %38 = icmp eq i32 %37, 4
   %or.cond = and i1 %20, %38
   br i1 %or.cond, label %39, label %44
@@ -2516,7 +2516,7 @@ define internal fastcc range(i32 0, 2) i32 @st_general_foreach(ptr noundef captu
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %40 = load i64, ptr %35, align 8, !tbaa !49
   store i64 %40, ptr %7, align 8, !tbaa !7
-  %41 = call i32 %2(ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef %3, i32 noundef 1) #25
+  %41 = call i32 %2(ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef %3, i32 noundef 1) #26
   %42 = load i64, ptr %6, align 8, !tbaa !7
   store i64 %42, ptr %31, align 8, !tbaa !35
   %43 = load i64, ptr %7, align 8, !tbaa !7
@@ -2565,7 +2565,7 @@ define internal fastcc range(i32 0, 2) i32 @st_general_foreach(ptr noundef captu
 62:                                               ; preds = %58
   %63 = load ptr, ptr %23, align 8, !tbaa !11
   %64 = load ptr, ptr %63, align 8, !tbaa !36
-  %65 = call i32 %64(i64 noundef %50, i64 noundef %60) #25
+  %65 = call i32 %64(i64 noundef %50, i64 noundef %60) #26
   %66 = icmp eq i32 %65, 0
   %.pre39.i = load i32, ptr %19, align 4, !tbaa !28
   %67 = icmp ne i32 %.pre.i.ph, %.pre39.i
@@ -2651,7 +2651,7 @@ get_bin.exit.i:                                   ; preds = %87, %83, %79, %75
 101:                                              ; preds = %97
   %102 = load ptr, ptr %23, align 8, !tbaa !11
   %103 = load ptr, ptr %102, align 8, !tbaa !36
-  %104 = call i32 %103(i64 noundef %50, i64 noundef %99) #25
+  %104 = call i32 %103(i64 noundef %50, i64 noundef %99) #26
   %105 = icmp eq i32 %104, 0
   %.pre.i94 = load i32, ptr %19, align 4, !tbaa !28
   %106 = icmp ne i32 %46, %.pre.i94
@@ -2708,7 +2708,7 @@ find_entry.exit.thread:                           ; preds = %51, %find_entry.exi
   br i1 %or.cond3, label %116, label %118
 
 116:                                              ; preds = %find_entry.exit.thread
-  %117 = call i32 %1(i64 noundef 0, i64 noundef 0, i64 noundef %3, i32 noundef 1) #25
+  %117 = call i32 %1(i64 noundef 0, i64 noundef 0, i64 noundef %3, i32 noundef 1) #26
   br label %.loopexit
 
 118:                                              ; preds = %find_entry.exit.thread
@@ -2803,7 +2803,7 @@ get_bin.exit.i114.us:                             ; preds = %144, %140, %136, %1
 158:                                              ; preds = %154
   %159 = load ptr, ptr %23, align 8, !tbaa !11
   %160 = load ptr, ptr %159, align 8, !tbaa !36
-  %161 = call i32 %160(i64 noundef %124, i64 noundef %156) #25
+  %161 = call i32 %160(i64 noundef %124, i64 noundef %156) #26
   %162 = icmp eq i32 %161, 0
   %.pre.i123.us = load i32, ptr %19, align 4, !tbaa !28
   %163 = icmp ne i32 %125, %.pre.i123.us
@@ -2874,7 +2874,7 @@ get_bin.exit.i114.us:                             ; preds = %144, %140, %136, %1
 186:                                              ; preds = %182
   %187 = load ptr, ptr %23, align 8, !tbaa !11
   %188 = load ptr, ptr %187, align 8, !tbaa !36
-  %189 = call i32 %188(i64 noundef %124, i64 noundef %184) #25
+  %189 = call i32 %188(i64 noundef %124, i64 noundef %184) #26
   %190 = icmp eq i32 %189, 0
   %.pre39.i104 = load i32, ptr %19, align 4, !tbaa !28
   %191 = icmp ne i32 %.pre.i97, %.pre39.i104
@@ -3005,7 +3005,7 @@ define internal i32 @apply_functor(i64 noundef %0, i64 noundef %1, i64 noundef %
   %6 = load ptr, ptr %5, align 8, !tbaa !68
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !70
-  %9 = tail call i32 %6(i64 noundef %0, i64 noundef %1, i64 noundef %8) #25
+  %9 = tail call i32 %6(i64 noundef %0, i64 noundef %1, i64 noundef %8) #26
   ret i32 %9
 }
 
@@ -3490,7 +3490,7 @@ define dso_local noundef i64 @rb_st_numhash(i64 noundef %0) #7 {
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_hash_bulk_insert_into_st_table(i64 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = sdiv i64 %0, 2
-  %5 = tail call ptr @rb_hash_tbl_raw(i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 2299) #25
+  %5 = tail call ptr @rb_hash_tbl_raw(i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 2299) #26
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load i64, ptr %6, align 8, !tbaa !31
   %8 = add i64 %7, %4
@@ -3503,7 +3503,7 @@ define dso_local void @rb_hash_bulk_insert_into_st_table(i64 noundef %0, ptr nou
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !11
-  %14 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #24
+  %14 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #25
   %15 = tail call ptr @rb_st_init_existing_table_with_size(ptr noundef nonnull %14, ptr noundef %13, i64 noundef %8)
   %.val.i = load i8, ptr %5, align 8, !tbaa !18
   %16 = zext nneg i8 %.val.i to i64
@@ -3513,7 +3513,7 @@ define dso_local void @rb_hash_bulk_insert_into_st_table(i64 noundef %0, ptr nou
   br i1 %19, label %20, label %rbimpl_size_mul_or_raise.exit.i, !prof !51
 
 20:                                               ; preds = %11
-  tail call void @ruby_malloc_size_overflow(i64 noundef 24, i64 noundef %17) #23
+  tail call void @ruby_malloc_size_overflow(i64 noundef 24, i64 noundef %17) #24
   unreachable
 
 rbimpl_size_mul_or_raise.exit.i:                  ; preds = %11
@@ -3522,15 +3522,15 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %11
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %24 = load ptr, ptr %23, align 8, !tbaa !26
   %25 = extractvalue { i64, i1 } %18, 0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %24, ptr noundef nonnull readonly align 1 %22, i64 noundef range(i64 1, 0) %25, i1 noundef false) #25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %24, ptr noundef nonnull readonly align 1 %22, i64 noundef range(i64 1, 0) %25, i1 noundef false) #26
   %.pre.i = load ptr, ptr %21, align 8, !tbaa !26
-  tail call void @ruby_xfree(ptr noundef %.pre.i) #25
+  tail call void @ruby_xfree(ptr noundef %.pre.i) #26
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !25
-  tail call void @ruby_xfree(ptr noundef %27) #25
+  tail call void @ruby_xfree(ptr noundef %27) #26
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !25
-  tail call void @ruby_xfree(ptr noundef %29) #25
+  tail call void @ruby_xfree(ptr noundef %29) #26
   %30 = load i8, ptr %14, align 8, !tbaa !18
   store i8 %30, ptr %5, align 8, !tbaa !18
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 1
@@ -3547,7 +3547,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %11
   %38 = load i32, ptr %37, align 4, !tbaa !28
   %39 = add i32 %38, 1
   store i32 %39, ptr %37, align 4, !tbaa !28
-  tail call void @ruby_xfree(ptr noundef nonnull %14) #25
+  tail call void @ruby_xfree(ptr noundef nonnull %14) #26
   br label %st_expand_table.exit
 
 st_expand_table.exit:                             ; preds = %3, %rbimpl_size_mul_or_raise.exit.i
@@ -3581,7 +3581,7 @@ st_expand_table.exit:                             ; preds = %3, %rbimpl_size_mul
   %.013.i = phi i64 [ %71, %rb_obj_written.exit12.i ], [ 0, %49 ]
   %53 = getelementptr i64, ptr %1, i64 %.013.i
   %54 = load i64, ptr %53, align 8, !tbaa !7
-  %55 = tail call i64 @rb_obj_class(i64 noundef %54) #25
+  %55 = tail call i64 @rb_obj_class(i64 noundef %54) #26
   %56 = load i64, ptr @rb_cString, align 8, !tbaa !7
   %57 = icmp eq i64 %55, %56
   br i1 %57, label %58, label %st_stringify.exit.i
@@ -3604,7 +3604,7 @@ RB_FL_ABLE.exit.i.i.i:                            ; preds = %58
   br i1 %or.cond.i.i, label %st_stringify.exit.i, label %68
 
 68:                                               ; preds = %RB_FL_ABLE.exit.i.i.i
-  %69 = tail call i64 @rb_hash_key_str(i64 noundef %54) #25
+  %69 = tail call i64 @rb_hash_key_str(i64 noundef %54) #26
   br label %st_stringify.exit.i
 
 st_stringify.exit.i:                              ; preds = %68, %RB_FL_ABLE.exit.i.i.i, %58, %.preheader
@@ -3620,7 +3620,7 @@ st_stringify.exit.i:                              ; preds = %68, %RB_FL_ABLE.exi
   br i1 %78, label %rb_obj_written.exit.i, label %79
 
 79:                                               ; preds = %st_stringify.exit.i
-  tail call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %70) #25
+  tail call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %70) #26
   br label %rb_obj_written.exit.i
 
 rb_obj_written.exit.i:                            ; preds = %79, %st_stringify.exit.i
@@ -3631,7 +3631,7 @@ rb_obj_written.exit.i:                            ; preds = %79, %st_stringify.e
   br i1 %83, label %rb_obj_written.exit12.i, label %84
 
 84:                                               ; preds = %rb_obj_written.exit.i
-  tail call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %73) #25
+  tail call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %73) #26
   br label %rb_obj_written.exit12.i
 
 rb_obj_written.exit12.i:                          ; preds = %84, %rb_obj_written.exit.i
@@ -3686,7 +3686,7 @@ st_rehash_linear.exit.i:                          ; preds = %st_rehash_linear.ex
 
 23:                                               ; preds = %st_rehash_linear.exit.i
   %24 = load ptr, ptr %14, align 8, !tbaa !25
-  tail call void @ruby_xfree(ptr noundef %24) #25
+  tail call void @ruby_xfree(ptr noundef %24) #26
   store ptr null, ptr %14, align 8, !tbaa !25
   %25 = load i64, ptr %15, align 8, !tbaa !32
   %26 = load i64, ptr %16, align 8, !tbaa !31
@@ -3736,7 +3736,7 @@ st_rehash_linear.exit.i:                          ; preds = %st_rehash_linear.ex
 51:                                               ; preds = %46
   %52 = load ptr, ptr %19, align 8, !tbaa !11
   %53 = load ptr, ptr %52, align 8, !tbaa !36
-  %54 = tail call i32 %53(i64 noundef %48, i64 noundef %49) #25
+  %54 = tail call i32 %53(i64 noundef %48, i64 noundef %49) #26
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !28
   %55 = icmp eq i32 %43, %.pre.i.i
   br i1 %55, label %56, label %st_rehash_linear.exit.i.backedge, !prof !52, !llvm.loop !80
@@ -3804,7 +3804,7 @@ update_range_for_deleted.exit.i.i:                ; preds = %.critedge.i.i.i, %.
   %81 = shl i64 %80, 3
   %.val64.i.i = load i8, ptr %13, align 2, !tbaa !23
   %82 = load ptr, ptr %14, align 8, !tbaa !25
-  %83 = tail call nonnull ptr @ruby_xrealloc(ptr noundef %82, i64 noundef %81) #26
+  %83 = tail call nonnull ptr @ruby_xrealloc(ptr noundef %82, i64 noundef %81) #27
   store ptr %83, ptr %14, align 8, !tbaa !25
   %.val61.i.i = load i8, ptr %0, align 8, !tbaa !18
   %84 = zext i8 %.val61.i.i to i64
@@ -3812,7 +3812,7 @@ update_range_for_deleted.exit.i.i:                ; preds = %.critedge.i.i.i, %.
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load i64, ptr %86, align 8, !tbaa !24
   %88 = shl i64 %87, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %83, i8 noundef 0, i64 noundef %88, i1 noundef false) #25
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %83, i8 noundef 0, i64 noundef %88, i1 noundef false) #26
   %89 = load i64, ptr %15, align 8, !tbaa !32
   %90 = load i64, ptr %16, align 8, !tbaa !31
   %91 = icmp ult i64 %89, %90
@@ -3924,7 +3924,7 @@ get_bin.exit.i.i:                                 ; preds = %114, %110, %106, %1
 145:                                              ; preds = %140
   %146 = load ptr, ptr %19, align 8, !tbaa !11
   %147 = load ptr, ptr %146, align 8, !tbaa !36
-  %148 = tail call i32 %147(i64 noundef %141, i64 noundef %143) #25
+  %148 = tail call i32 %147(i64 noundef %141, i64 noundef %143) #26
   %.pre.i6.i = load i32, ptr %18, align 4, !tbaa !28
   %149 = icmp eq i32 %136, %.pre.i6.i
   br i1 %149, label %150, label %st_rehash_linear.exit.i.backedge, !prof !52, !llvm.loop !80
@@ -3998,7 +3998,7 @@ st_rehash.exit:                                   ; preds = %23, %76, %176, %.lo
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @st_insert_single(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
-  %5 = tail call i64 @rb_obj_class(i64 noundef %2) #25
+  %5 = tail call i64 @rb_obj_class(i64 noundef %2) #26
   %6 = load i64, ptr @rb_cString, align 8, !tbaa !7
   %7 = icmp eq i64 %5, %6
   br i1 %7, label %8, label %st_stringify.exit
@@ -4021,7 +4021,7 @@ RB_FL_ABLE.exit.i.i:                              ; preds = %8
   br i1 %or.cond.i, label %st_stringify.exit, label %18
 
 18:                                               ; preds = %RB_FL_ABLE.exit.i.i
-  %19 = tail call i64 @rb_hash_key_str(i64 noundef %2) #25
+  %19 = tail call i64 @rb_hash_key_str(i64 noundef %2) #26
   br label %st_stringify.exit
 
 st_stringify.exit:                                ; preds = %4, %8, %RB_FL_ABLE.exit.i.i, %18
@@ -4030,7 +4030,7 @@ st_stringify.exit:                                ; preds = %4, %8, %RB_FL_ABLE.
   %.val = load ptr, ptr %21, align 8, !tbaa !11
   %22 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %22, align 8, !tbaa !29
-  %23 = tail call i64 %.val.val(i64 noundef %20) #25
+  %23 = tail call i64 %.val.val(i64 noundef %20) #26
   %24 = icmp eq i64 %23, -1
   %25 = select i1 %24, i64 0, i64 %23
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4056,7 +4056,7 @@ st_stringify.exit:                                ; preds = %4, %8, %RB_FL_ABLE.
   br i1 %38, label %rb_obj_written.exit, label %39
 
 39:                                               ; preds = %st_stringify.exit
-  tail call void @rb_gc_writebarrier(i64 noundef %1, i64 noundef %20) #25
+  tail call void @rb_gc_writebarrier(i64 noundef %1, i64 noundef %20) #26
   br label %rb_obj_written.exit
 
 rb_obj_written.exit:                              ; preds = %st_stringify.exit, %39
@@ -4067,7 +4067,7 @@ rb_obj_written.exit:                              ; preds = %st_stringify.exit, 
   br i1 %43, label %rb_obj_written.exit11, label %44
 
 44:                                               ; preds = %rb_obj_written.exit
-  tail call void @rb_gc_writebarrier(i64 noundef %1, i64 noundef %3) #25
+  tail call void @rb_gc_writebarrier(i64 noundef %1, i64 noundef %3) #26
   br label %rb_obj_written.exit11
 
 rb_obj_written.exit11:                            ; preds = %rb_obj_written.exit, %44
@@ -4089,7 +4089,7 @@ define hidden void @rb_st_compact_table(ptr noundef captures(none) %0) local_unn
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !11
   %10 = shl i64 %3, 1
-  %11 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #24
+  %11 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #25
   %12 = tail call ptr @rb_st_init_existing_table_with_size(ptr noundef nonnull %11, ptr noundef %9, i64 noundef %10)
   tail call fastcc void @rebuild_table_with(ptr noundef nonnull %11, ptr noundef nonnull %0)
   %13 = load i8, ptr %11, align 8, !tbaa !18
@@ -4104,17 +4104,17 @@ define hidden void @rb_st_compact_table(ptr noundef captures(none) %0) local_unn
   store i8 %18, ptr %19, align 2, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !25
-  tail call void @ruby_xfree(ptr noundef %21) #25
+  tail call void @ruby_xfree(ptr noundef %21) #26
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !25
   store ptr %23, ptr %20, align 8, !tbaa !25
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load ptr, ptr %24, align 8, !tbaa !26
-  tail call void @ruby_xfree(ptr noundef %25) #25
+  tail call void @ruby_xfree(ptr noundef %25) #26
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %27 = load ptr, ptr %26, align 8, !tbaa !26
   store ptr %27, ptr %24, align 8, !tbaa !26
-  tail call void @ruby_xfree(ptr noundef nonnull %11) #25
+  tail call void @ruby_xfree(ptr noundef nonnull %11) #26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %28, align 8, !tbaa !32
   %29 = load i64, ptr %2, align 8, !tbaa !27
@@ -4356,14 +4356,14 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #12
 define internal i32 @st_strcmp(i64 noundef %0, i64 noundef %1) #13 {
   %3 = inttoptr i64 %0 to ptr
   %4 = inttoptr i64 %1 to ptr
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #27
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #28
   ret i32 %5
 }
 
 ; Function Attrs: nofree norecurse nounwind sspstrong memory(read, inaccessiblemem: write) uwtable
 define internal i64 @strhash(i64 noundef %0) #14 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #28
   %4 = icmp ugt i64 %3, 7
   br i1 %4, label %.preheader.i, label %.loopexit.i
 
@@ -4570,11 +4570,11 @@ declare void @ruby_malloc_size_overflow(i64 noundef, i64 noundef) local_unnamed_
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #12
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #19
 
 ; Function Attrs: allocsize(1)
-declare nonnull ptr @ruby_xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #19
+declare nonnull ptr @ruby_xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #20
 
 declare i64 @rb_obj_class(i64 noundef) local_unnamed_addr #4
 
@@ -4583,19 +4583,19 @@ declare i64 @rb_hash_key_str(i64 noundef) local_unnamed_addr #4
 declare void @rb_gc_writebarrier(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #20
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #22
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #23
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #22
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #23
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4616,15 +4616,16 @@ attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #16 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #19 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
-attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #23 = { noreturn nounwind }
-attributes #24 = { nounwind allocsize(0) }
-attributes #25 = { nounwind }
-attributes #26 = { nounwind allocsize(1) }
-attributes #27 = { nounwind willreturn memory(read) }
+attributes #19 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #23 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { noreturn nounwind }
+attributes #25 = { nounwind allocsize(0) }
+attributes #26 = { nounwind }
+attributes #27 = { nounwind allocsize(1) }
+attributes #28 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

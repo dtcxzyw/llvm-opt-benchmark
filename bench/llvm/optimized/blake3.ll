@@ -401,7 +401,7 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   %51 = icmp eq i8 %50, 0
   %..i97 = zext i1 %51 to i8
   %52 = or i8 %49, %..i97
-  tail call void @llvm_blake3_compress_in_place(ptr noundef nonnull %25, ptr noundef nonnull %38, i8 noundef zeroext 64, i64 noundef %47, i8 noundef zeroext %52) #10
+  tail call void @llvm_blake3_compress_in_place(ptr noundef nonnull %25, ptr noundef nonnull %38, i8 noundef zeroext 64, i64 noundef %47, i8 noundef zeroext %52) #11
   %53 = load i8, ptr %26, align 1, !tbaa !11
   %54 = add i8 %53, 1
   store i8 %54, ptr %26, align 1, !tbaa !11
@@ -429,7 +429,7 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   %63 = icmp eq i8 %60, 0
   %..i96 = zext i1 %63 to i8
   %64 = or i8 %62, %..i96
-  tail call void @llvm_blake3_compress_in_place(ptr noundef nonnull %25, ptr noundef %.1.i139, i8 noundef zeroext 64, i64 noundef %61, i8 noundef zeroext %64) #10
+  tail call void @llvm_blake3_compress_in_place(ptr noundef nonnull %25, ptr noundef %.1.i139, i8 noundef zeroext 64, i64 noundef %61, i8 noundef zeroext %64) #11
   %65 = load i8, ptr %26, align 1, !tbaa !11
   %66 = add i8 %65, 1
   store i8 %66, ptr %26, align 1, !tbaa !11
@@ -483,7 +483,7 @@ chunk_state_update.exit:                          ; preds = %36, %chunk_state_up
   store i8 %86, ptr %92, align 1, !tbaa !25, !alias.scope !21
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %18, ptr noundef nonnull align 4 dereferenceable(32) %25, i64 32, i1 false)
-  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %18, ptr noundef nonnull %89, i8 noundef zeroext %77, i64 noundef %88, i8 noundef zeroext %86) #10
+  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %18, ptr noundef nonnull %89, i8 noundef zeroext %77, i64 noundef %88, i8 noundef zeroext %86) #11
   %93 = load i32, ptr %18, align 16, !tbaa !26
   %94 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %95 = load i32, ptr %94, align 4, !tbaa !26
@@ -539,7 +539,7 @@ chunk_state_update.exit:                          ; preds = %36, %chunk_state_up
   store i8 %133, ptr %117, align 1, !tbaa !25, !alias.scope !30
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false)
-  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %7, ptr noundef nonnull %114, i8 noundef zeroext 64, i64 noundef 0, i8 noundef zeroext %133) #10
+  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %7, ptr noundef nonnull %114, i8 noundef zeroext 64, i64 noundef 0, i8 noundef zeroext %133) #11
   %134 = load i32, ptr %7, align 16, !tbaa !26
   store i32 %134, ptr %131, align 1
   %135 = getelementptr i8, ptr %130, i64 85
@@ -715,7 +715,7 @@ hasher_merge_cv_stack.exit84:                     ; preds = %hasher_merge_cv_sta
   %235 = icmp eq i8 %232, 0
   %..i94 = zext i1 %235 to i8
   %236 = or i8 %234, %..i94
-  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %20, ptr noundef %.1.i72157, i8 noundef zeroext 64, i64 noundef %233, i8 noundef zeroext %236) #10
+  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %20, ptr noundef %.1.i72157, i8 noundef zeroext 64, i64 noundef %233, i8 noundef zeroext %236) #11
   %237 = load i8, ptr %190, align 1, !tbaa !11
   %238 = add i8 %237, 1
   store i8 %238, ptr %190, align 1, !tbaa !11
@@ -757,7 +757,7 @@ chunk_state_update.exit73:                        ; preds = %chunk_state_update.
   store i8 %254, ptr %195, align 1, !tbaa !25, !alias.scope !38
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
-  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %17, ptr noundef nonnull %192, i8 noundef zeroext %249, i64 noundef %243, i8 noundef zeroext %254) #10
+  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %17, ptr noundef nonnull %192, i8 noundef zeroext %249, i64 noundef %243, i8 noundef zeroext %254) #11
   %255 = load i32, ptr %17, align 16, !tbaa !26
   %256 = load i32, ptr %196, align 4, !tbaa !26
   %257 = load i32, ptr %197, align 8, !tbaa !26
@@ -794,7 +794,7 @@ chunk_state_update.exit73:                        ; preds = %chunk_state_update.
   store i8 %275, ptr %206, align 1, !tbaa !25, !alias.scope !41
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false)
-  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %9, ptr noundef nonnull %203, i8 noundef zeroext 64, i64 noundef 0, i8 noundef zeroext %275) #10
+  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %9, ptr noundef nonnull %203, i8 noundef zeroext 64, i64 noundef 0, i8 noundef zeroext %275) #11
   %276 = load i32, ptr %9, align 16, !tbaa !26
   store i32 %276, ptr %273, align 1
   %277 = getelementptr i8, ptr %272, i64 85
@@ -890,7 +890,7 @@ hasher_merge_cv_stack.exit83:                     ; preds = %hasher_merge_cv_sta
 ._crit_edge:                                      ; preds = %.lr.ph145
   %309 = add nuw nsw i64 %304, 1
   %310 = shl nuw nsw i64 %308, 1
-  call void @llvm_blake3_hash_many(ptr noundef nonnull %4, i64 noundef %309, i64 noundef 1, ptr noundef %0, i64 noundef 0, i1 noundef zeroext false, i8 noundef zeroext %302, i8 noundef zeroext 0, i8 noundef zeroext 0, ptr noundef nonnull %16) #10
+  call void @llvm_blake3_hash_many(ptr noundef nonnull %4, i64 noundef %309, i64 noundef 1, ptr noundef %0, i64 noundef 0, i1 noundef zeroext false, i8 noundef zeroext %302, i8 noundef zeroext 0, i8 noundef zeroext 0, ptr noundef nonnull %16) #11
   %311 = icmp samesign ugt i64 %.0.i81148, %310
   br i1 %311, label %312, label %compress_parents_parallel.exit
 
@@ -943,7 +943,7 @@ compress_subtree_to_parent_node.exit:             ; preds = %compress_parents_pa
   store i8 %333, ptr %166, align 1, !tbaa !25, !alias.scope !49
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false)
-  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %11, ptr noundef nonnull %163, i8 noundef zeroext 64, i64 noundef 0, i8 noundef zeroext %333) #10
+  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %11, ptr noundef nonnull %163, i8 noundef zeroext 64, i64 noundef 0, i8 noundef zeroext %333) #11
   %334 = load i32, ptr %11, align 16, !tbaa !26
   store i32 %334, ptr %331, align 1
   %335 = getelementptr i8, ptr %330, i64 85
@@ -1016,7 +1016,7 @@ hasher_merge_cv_stack.exit82:                     ; preds = %hasher_merge_cv_sta
   store i8 %368, ptr %178, align 1, !tbaa !25, !alias.scope !52
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %13, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false)
-  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %13, ptr noundef nonnull %175, i8 noundef zeroext 64, i64 noundef 0, i8 noundef zeroext %368) #10
+  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %13, ptr noundef nonnull %175, i8 noundef zeroext 64, i64 noundef 0, i8 noundef zeroext %368) #11
   %369 = load i32, ptr %13, align 16, !tbaa !26
   store i32 %369, ptr %366, align 1
   %370 = getelementptr i8, ptr %365, i64 85
@@ -1108,7 +1108,7 @@ hasher_merge_cv_stack.exit:                       ; preds = %hasher_merge_cv_sta
   %413 = icmp eq i8 %412, 0
   %..i93 = zext i1 %413 to i8
   %414 = or i8 %411, %..i93
-  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %25, ptr noundef nonnull %400, i8 noundef zeroext 64, i64 noundef %409, i8 noundef zeroext %414) #10
+  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %25, ptr noundef nonnull %400, i8 noundef zeroext 64, i64 noundef %409, i8 noundef zeroext %414) #11
   %415 = load i8, ptr %26, align 1, !tbaa !11
   %416 = add i8 %415, 1
   store i8 %416, ptr %26, align 1, !tbaa !11
@@ -1136,7 +1136,7 @@ hasher_merge_cv_stack.exit:                       ; preds = %hasher_merge_cv_sta
   %425 = icmp eq i8 %422, 0
   %..i92 = zext i1 %425 to i8
   %426 = or i8 %424, %..i92
-  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %25, ptr noundef %.1.i79174, i8 noundef zeroext 64, i64 noundef %423, i8 noundef zeroext %426) #10
+  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %25, ptr noundef %.1.i79174, i8 noundef zeroext 64, i64 noundef %423, i8 noundef zeroext %426) #11
   %427 = load i8, ptr %26, align 1, !tbaa !11
   %428 = add i8 %427, 1
   store i8 %428, ptr %26, align 1, !tbaa !11
@@ -1204,7 +1204,7 @@ chunk_state_update.exit80:                        ; preds = %397, %chunk_state_u
   store i8 %467, ptr %451, align 1, !tbaa !25, !alias.scope !56
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false)
-  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %5, ptr noundef nonnull %448, i8 noundef zeroext 64, i64 noundef 0, i8 noundef zeroext %467) #10
+  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %5, ptr noundef nonnull %448, i8 noundef zeroext 64, i64 noundef 0, i8 noundef zeroext %467) #11
   %468 = load i32, ptr %5, align 16, !tbaa !26
   store i32 %468, ptr %465, align 1
   %469 = getelementptr i8, ptr %464, i64 85
@@ -1248,7 +1248,7 @@ define dso_local void @llvm_blake3_hasher_finalize(ptr noundef readonly captures
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @llvm_blake3_hasher_init_derive_key(ptr noundef writeonly captures(none) initializes((0, 139), (144, 145)) %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
   tail call void @llvm_blake3_hasher_init_derive_key_raw(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %3)
   ret void
 }
@@ -1311,7 +1311,7 @@ define dso_local void @llvm_blake3_hasher_finalize_seek(ptr noundef readonly cap
   %36 = load i8, ptr %30, align 8, !tbaa !19
   %37 = load i8, ptr %32, align 1, !tbaa !25
   %38 = or i8 %37, 8
-  call void @llvm_blake3_compress_xof(ptr noundef nonnull %8, ptr noundef nonnull %29, i8 noundef zeroext %36, i64 noundef %.022.i57, i8 noundef zeroext %38, ptr noundef nonnull %6) #10
+  call void @llvm_blake3_compress_xof(ptr noundef nonnull %8, ptr noundef nonnull %29, i8 noundef zeroext %36, i64 noundef %.022.i57, i8 noundef zeroext %38, ptr noundef nonnull %6) #11
   %39 = sub nuw nsw i64 64, %.021.i58
   %..023.i = call i64 @llvm.umin.i64(i64 %.023.i56, i64 %39)
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 %.021.i58
@@ -1421,7 +1421,7 @@ output_root_bytes.exit:                           ; preds = %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.5.sroa.0, ptr noundef nonnull align 1 dereferenceable(32) %95, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
-  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %7, ptr noundef nonnull %80, i8 noundef zeroext %92, i64 noundef %91, i8 noundef zeroext %90) #10
+  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %7, ptr noundef nonnull %80, i8 noundef zeroext %92, i64 noundef %91, i8 noundef zeroext %90) #11
   %96 = load i32, ptr %7, align 16, !tbaa !26
   %97 = load i32, ptr %81, align 4, !tbaa !26
   %98 = load i32, ptr %82, align 8, !tbaa !26
@@ -1467,7 +1467,7 @@ output_root_bytes.exit:                           ; preds = %35
   %112 = load i8, ptr %107, align 8, !tbaa !19
   %113 = load i8, ptr %106, align 1, !tbaa !25
   %114 = or i8 %113, 8
-  call void @llvm_blake3_compress_xof(ptr noundef nonnull %9, ptr noundef nonnull %110, i8 noundef zeroext %112, i64 noundef %.022.i2553, i8 noundef zeroext %114, ptr noundef nonnull %5) #10
+  call void @llvm_blake3_compress_xof(ptr noundef nonnull %9, ptr noundef nonnull %110, i8 noundef zeroext %112, i64 noundef %.022.i2553, i8 noundef zeroext %114, ptr noundef nonnull %5) #11
   %115 = sub nuw nsw i64 64, %.021.i2654
   %..023.i29 = call i64 @llvm.umin.i64(i64 %.023.i2452, i64 %115)
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 %.021.i2654
@@ -1517,7 +1517,7 @@ define internal fastcc range(i64 0, -9223372036854775807) i64 @blake3_compress_s
   %10 = alloca %struct.output_t, align 8
   %11 = alloca [16 x ptr], align 16
   %12 = alloca [1024 x i8], align 16
-  %13 = tail call i64 @llvm_blake3_simd_degree() #10
+  %13 = tail call i64 @llvm_blake3_simd_degree() #11
   %14 = shl i64 %13, 10
   %.not = icmp ugt i64 %1, %14
   br i1 %.not, label %88, label %15
@@ -1552,7 +1552,7 @@ define internal fastcc range(i64 0, -9223372036854775807) i64 @blake3_compress_s
   %.028.i.lcssa = phi i64 [ 0, %15 ], [ %21, %._crit_edge.loopexit ]
   %.027.i.lcssa = phi i64 [ 0, %15 ], [ %23, %._crit_edge.loopexit ]
   %.lcssa41 = phi i64 [ %1, %15 ], [ %24, %._crit_edge.loopexit ]
-  call void @llvm_blake3_hash_many(ptr noundef nonnull %8, i64 noundef %.027.i.lcssa, i64 noundef 16, ptr noundef %2, i64 noundef %3, i1 noundef zeroext true, i8 noundef zeroext %4, i8 noundef zeroext 1, i8 noundef zeroext 2, ptr noundef nonnull %5) #10
+  call void @llvm_blake3_hash_many(ptr noundef nonnull %8, i64 noundef %.027.i.lcssa, i64 noundef 16, ptr noundef %2, i64 noundef %3, i1 noundef zeroext true, i8 noundef zeroext %4, i8 noundef zeroext 1, i8 noundef zeroext 2, ptr noundef nonnull %5) #11
   %25 = icmp ugt i64 %1, %.028.i.lcssa
   br i1 %25, label %26, label %compress_chunks_parallel.exit
 
@@ -1582,7 +1582,7 @@ define internal fastcc range(i64 0, -9223372036854775807) i64 @blake3_compress_s
   %39 = icmp eq i8 %36, 0
   %..i31.i = zext i1 %39 to i8
   %40 = or i8 %38, %..i31.i
-  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %9, ptr noundef %.1.i.i47, i8 noundef zeroext 64, i64 noundef %37, i8 noundef zeroext %40) #10
+  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %9, ptr noundef %.1.i.i47, i8 noundef zeroext 64, i64 noundef %37, i8 noundef zeroext %40) #11
   %41 = load i8, ptr %31, align 1, !tbaa !11
   %42 = add i8 %41, 1
   store i8 %42, ptr %31, align 1, !tbaa !11
@@ -1630,7 +1630,7 @@ chunk_state_update.exit.i:                        ; preds = %chunk_state_update.
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 %63
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
-  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %7, ptr noundef nonnull %59, i8 noundef zeroext %53, i64 noundef %47, i8 noundef zeroext %58) #10
+  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %7, ptr noundef nonnull %59, i8 noundef zeroext %53, i64 noundef %47, i8 noundef zeroext %58) #11
   %65 = load i32, ptr %7, align 16, !tbaa !26
   store i32 %65, ptr %64, align 1
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 4
@@ -1684,7 +1684,7 @@ compress_chunks_parallel.exit:                    ; preds = %._crit_edge, %chunk
   %97 = lshr exact i64 %94, 10
   %98 = add i64 %97, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %99 = tail call i64 @llvm_blake3_simd_degree() #10
+  %99 = tail call i64 @llvm_blake3_simd_degree() #11
   %100 = icmp ne i64 %92, 63
   %101 = icmp eq i64 %99, 1
   %or.cond = select i1 %100, i1 %101, i1 false
@@ -1730,7 +1730,7 @@ compress_chunks_parallel.exit:                    ; preds = %._crit_edge, %chunk
   %.0.i.lcssa = phi i64 [ 0, %109 ], [ %118, %._crit_edge55.loopexit ]
   %.lcssa = phi i64 [ 0, %109 ], [ %119, %._crit_edge55.loopexit ]
   %120 = or i8 %4, 4
-  call void @llvm_blake3_hash_many(ptr noundef nonnull %11, i64 noundef %.0.i.lcssa, i64 noundef 1, ptr noundef %2, i64 noundef 0, i1 noundef zeroext false, i8 noundef zeroext %120, i8 noundef zeroext 0, i8 noundef zeroext 0, ptr noundef nonnull %5) #10
+  call void @llvm_blake3_hash_many(ptr noundef nonnull %11, i64 noundef %.0.i.lcssa, i64 noundef 1, ptr noundef %2, i64 noundef 0, i1 noundef zeroext false, i8 noundef zeroext %120, i8 noundef zeroext 0, i8 noundef zeroext 0, ptr noundef nonnull %5) #11
   %121 = icmp ugt i64 %110, %.lcssa
   br i1 %121, label %122, label %compress_parents_parallel.exit
 
@@ -1762,19 +1762,19 @@ declare hidden i64 @llvm_blake3_simd_degree() local_unnamed_addr #5
 
 declare hidden void @llvm_blake3_hash_many(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #7
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #8
 
 declare hidden void @llvm_blake3_compress_xof(ptr noundef, ptr noundef, i8 noundef zeroext, i64 noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1784,10 +1784,11 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
+attributes #8 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

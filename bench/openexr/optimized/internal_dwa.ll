@@ -59,8 +59,8 @@ define hidden i32 @internal_exr_apply_dwaa(ptr noundef %0) local_unnamed_addr #0
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %5 = tail call i64 @internal_exr_huf_compress_spare_bytes() #20
-  %6 = tail call i32 @internal_encode_alloc_buffer(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %5) #20
+  %5 = tail call i64 @internal_exr_huf_compress_spare_bytes() #21
+  %6 = tail call i32 @internal_encode_alloc_buffer(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %5) #21
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %17
 
@@ -102,13 +102,13 @@ define internal fastcc i32 @DwaCompressor_construct(ptr noundef nonnull initiali
   store i1 true, ptr @initializeFuncs.done, align 4
   store ptr @convertFloatToHalf64_scalar, ptr @convertFloatToHalf64, align 8, !tbaa !14
   store ptr @fromHalfZigZag_scalar, ptr @fromHalfZigZag, align 8, !tbaa !14
-  %6 = tail call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 0) #21, !srcloc !15
+  %6 = tail call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 0) #22, !srcloc !15
   %7 = extractvalue { i32, i32, i32, i32 } %6, 0
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %check_for_x86_simd.exit.thread.i, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 1) #21, !srcloc !16
+  %10 = tail call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 1) #22, !srcloc !16
   %11 = extractvalue { i32, i32, i32, i32 } %10, 2
   %12 = extractvalue { i32, i32, i32, i32 } %10, 3
   %13 = lshr i32 %12, 26
@@ -120,7 +120,7 @@ define internal fastcc i32 @DwaCompressor_construct(ptr noundef nonnull initiali
   br i1 %.not7.i.i, label %check_for_x86_simd.exit.thread.i, label %17
 
 17:                                               ; preds = %9
-  %18 = tail call { i32, i32 } asm sideeffect "xgetbv", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #20, !srcloc !17
+  %18 = tail call { i32, i32 } asm sideeffect "xgetbv", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #21, !srcloc !17
   %19 = extractvalue { i32, i32 } %18, 0
   %20 = and i32 %19, 6
   %.not13.i.i = icmp eq i32 %20, 6
@@ -211,7 +211,7 @@ initializeFuncs.exit:                             ; preds = %4, %25, %.sink.spli
   %42 = load i16, ptr %41, align 8, !tbaa !43
   %43 = sext i16 %42 to i64
   %44 = mul nsw i64 %43, 576
-  %45 = tail call noalias ptr @internal_exr_alloc_aligned(ptr noundef %.sink, ptr noundef nonnull %40, i64 noundef %44, i64 noundef 32) #20
+  %45 = tail call noalias ptr @internal_exr_alloc_aligned(ptr noundef %.sink, ptr noundef nonnull %40, i64 noundef %44, i64 noundef 32) #21
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %45, ptr %46, align 8, !tbaa !44
   %.not119 = icmp eq ptr %45, null
@@ -260,7 +260,7 @@ initializeFuncs.exit:                             ; preds = %4, %25, %.sink.spli
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %75 = load i32, ptr %74, align 4, !tbaa !52
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %77 = tail call i32 @exr_get_zip_compression_level(ptr noundef %73, i32 noundef %75, ptr noundef nonnull %76) #20
+  %77 = tail call i32 @exr_get_zip_compression_level(ptr noundef %73, i32 noundef %75, ptr noundef nonnull %76) #21
   %.not120 = icmp eq i32 %77, 0
   br i1 %.not120, label %92, label %.critedge
 
@@ -290,7 +290,7 @@ initializeFuncs.exit:                             ; preds = %4, %25, %.sink.spli
   %93 = load ptr, ptr %30, align 8, !tbaa !29
   %94 = load i32, ptr %74, align 4, !tbaa !52
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 204
-  %96 = tail call i32 @exr_get_dwa_compression_level(ptr noundef %93, i32 noundef %94, ptr noundef nonnull %95) #20
+  %96 = tail call i32 @exr_get_dwa_compression_level(ptr noundef %93, i32 noundef %94, ptr noundef nonnull %95) #21
   br label %.critedge
 
 97:                                               ; preds = %initializeFuncs.exit
@@ -318,7 +318,7 @@ initializeFuncs.exit:                             ; preds = %4, %25, %.sink.spli
   %110 = load i16, ptr %109, align 8, !tbaa !67
   %111 = sext i16 %110 to i64
   %112 = mul nsw i64 %111, 576
-  %113 = tail call noalias ptr @internal_exr_alloc_aligned(ptr noundef %.sink138, ptr noundef nonnull %108, i64 noundef %112, i64 noundef 32) #20
+  %113 = tail call noalias ptr @internal_exr_alloc_aligned(ptr noundef %.sink138, ptr noundef nonnull %108, i64 noundef %112, i64 noundef 32) #21
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %113, ptr %114, align 8, !tbaa !44
   %.not117.not = icmp eq ptr %113, null
@@ -410,7 +410,7 @@ define internal fastcc i32 @DwaCompressor_compress(ptr noundef nonnull captures(
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 168
   %19 = load i64, ptr %3, align 8, !tbaa !74
-  %20 = tail call i32 @internal_encode_alloc_buffer(ptr noundef nonnull %13, i32 noundef 3, ptr noundef nonnull %18, ptr noundef nonnull %14, i64 noundef %19) #20
+  %20 = tail call i32 @internal_encode_alloc_buffer(ptr noundef nonnull %13, i32 noundef 3, ptr noundef nonnull %18, ptr noundef nonnull %14, i64 noundef %19) #21
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %21, label %DwaCompressor_writeRelevantChannelRules.exit.thread
 
@@ -477,7 +477,7 @@ define internal fastcc i32 @DwaCompressor_compress(ptr noundef nonnull captures(
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 448
   %57 = load ptr, ptr %56, align 32, !tbaa !54
   %58 = load ptr, ptr %57, align 8, !tbaa !81
-  %59 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %58, i32 noundef 46) #22
+  %59 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %58, i32 noundef 46) #23
   %.not.i.i = icmp eq ptr %59, null
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 1
   %.0.i.i = select i1 %.not.i.i, ptr %58, ptr %60
@@ -494,11 +494,11 @@ define internal fastcc i32 @DwaCompressor_compress(ptr noundef nonnull captures(
   br i1 %.not7.i.i, label %69, label %67
 
 67:                                               ; preds = %64
-  %68 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %.0.i.i, ptr noundef %66) #22
+  %68 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %.0.i.i, ptr noundef %66) #23
   br label %Classifier_match.exit.i
 
 69:                                               ; preds = %64
-  %70 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0.i.i, ptr noundef nonnull dereferenceable(1) %66) #22
+  %70 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0.i.i, ptr noundef nonnull dereferenceable(1) %66) #23
   br label %Classifier_match.exit.i
 
 Classifier_match.exit.i:                          ; preds = %69, %67
@@ -507,7 +507,7 @@ Classifier_match.exit.i:                          ; preds = %69, %67
   br i1 %.0.shrunk.i.not.i, label %71, label %Classifier_match.exit.thread.i
 
 71:                                               ; preds = %Classifier_match.exit.i
-  %72 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #22
+  %72 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #23
   %73 = add i64 %.03678.i, 3
   %74 = add i64 %73, %72
   %75 = icmp ult i64 %19, %74
@@ -772,7 +772,7 @@ DwaCompressor_setupChannelData.exit:              ; preds = %162
   %199 = lshr i64 %198, 1
   %200 = select i1 %197, i64 16, i64 %199
   %201 = shl i64 %200, 3
-  %202 = tail call ptr %196(i64 noundef %201) #20
+  %202 = tail call ptr %196(i64 noundef %201) #21
   %.not.i401 = icmp eq ptr %202, null
   br i1 %.not.i401, label %DwaCompressor_writeRelevantChannelRules.exit.thread, label %203
 
@@ -787,7 +787,7 @@ DwaCompressor_setupChannelData.exit:              ; preds = %162
   %208 = shl i64 %207, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %202, ptr nonnull align 8 %205, i64 %208, i1 false)
   %209 = load ptr, ptr %204, align 8, !tbaa !110
-  tail call void %189(ptr noundef %209) #20
+  tail call void %189(ptr noundef %209) #21
   br label %.thread.i
 
 .thread.i:                                        ; preds = %206, %203
@@ -1182,8 +1182,8 @@ DctCoderChannelData_push_row.exit:                ; preds = %DctCoderChannelData
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 24
   %420 = load ptr, ptr %419, align 8, !tbaa !29
   %421 = load ptr, ptr %112, align 8, !tbaa !97
-  %422 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %416) #20
-  %423 = call i32 @exr_compress_buffer(ptr noundef %420, i32 noundef 9, ptr noundef %421, i64 noundef %416, ptr noundef %.051.lcssa.i422, i64 noundef %422, ptr noundef nonnull %6) #20
+  %422 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %416) #21
+  %423 = call i32 @exr_compress_buffer(ptr noundef %420, i32 noundef 9, ptr noundef %421, i64 noundef %416, ptr noundef %.051.lcssa.i422, i64 noundef %422, ptr noundef nonnull %6) #21
   %.not380 = icmp eq i32 %423, 0
   br i1 %.not380, label %.thread455, label %427
 
@@ -1225,7 +1225,7 @@ DctCoderChannelData_push_row.exit:                ; preds = %DctCoderChannelData
   %440 = load ptr, ptr %439, align 8, !tbaa !130
   %441 = getelementptr inbounds nuw i8, ptr %438, i64 200
   %442 = load i64, ptr %441, align 8, !tbaa !131
-  %443 = call i32 @internal_huf_compress(ptr noundef nonnull %29, ptr noundef %.0315, i64 noundef %436, ptr noundef %437, i64 noundef %429, ptr noundef %440, i64 noundef %442) #20
+  %443 = call i32 @internal_huf_compress(ptr noundef nonnull %29, ptr noundef %.0315, i64 noundef %436, ptr noundef %437, i64 noundef %429, ptr noundef %440, i64 noundef %442) #21
   switch i32 %443, label %DwaCompressor_writeRelevantChannelRules.exit.thread [
     i32 0, label %._crit_edge570
     i32 4, label %444
@@ -1258,8 +1258,8 @@ DctCoderChannelData_push_row.exit:                ; preds = %DctCoderChannelData
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 24
   %460 = load ptr, ptr %459, align 8, !tbaa !29
   %461 = load ptr, ptr %105, align 8, !tbaa !91
-  %462 = call i64 @exr_compress_max_buffer_size(i64 noundef %457) #20
-  %463 = call i32 @exr_compress_buffer(ptr noundef %460, i32 noundef 9, ptr noundef %461, i64 noundef %457, ptr noundef %.0315, i64 noundef %462, ptr noundef nonnull %7) #20
+  %462 = call i64 @exr_compress_max_buffer_size(i64 noundef %457) #21
+  %463 = call i32 @exr_compress_buffer(ptr noundef %460, i32 noundef 9, ptr noundef %461, i64 noundef %457, ptr noundef %.0315, i64 noundef %462, ptr noundef nonnull %7) #21
   %.not382 = icmp eq i32 %463, 0
   br i1 %.not382, label %.thread462, label %465
 
@@ -1292,7 +1292,7 @@ DctCoderChannelData_push_row.exit:                ; preds = %DctCoderChannelData
   %474 = load ptr, ptr %0, align 8, !tbaa !27
   %475 = getelementptr inbounds nuw i8, ptr %474, i64 192
   %476 = getelementptr inbounds nuw i8, ptr %474, i64 200
-  %477 = call i32 @internal_encode_alloc_buffer(ptr noundef %474, i32 noundef 3, ptr noundef nonnull %475, ptr noundef nonnull %476, i64 noundef %473) #20
+  %477 = call i32 @internal_encode_alloc_buffer(ptr noundef %474, i32 noundef 3, ptr noundef nonnull %475, ptr noundef nonnull %476, i64 noundef %473) #21
   %.not385 = icmp eq i32 %477, 0
   br i1 %.not385, label %478, label %.thread465
 
@@ -1301,7 +1301,7 @@ DctCoderChannelData_push_row.exit:                ; preds = %DctCoderChannelData
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 192
   %481 = load ptr, ptr %480, align 8, !tbaa !130
   %482 = load ptr, ptr %107, align 8, !tbaa !92
-  call void @internal_zip_deconstruct_bytes(ptr noundef %481, ptr noundef %482, i64 noundef %473) #20
+  call void @internal_zip_deconstruct_bytes(ptr noundef %481, ptr noundef %482, i64 noundef %473) #21
   %483 = load ptr, ptr %0, align 8, !tbaa !27
   %484 = getelementptr inbounds nuw i8, ptr %483, i64 24
   %485 = load ptr, ptr %484, align 8, !tbaa !29
@@ -1309,8 +1309,8 @@ DctCoderChannelData_push_row.exit:                ; preds = %DctCoderChannelData
   %487 = load i32, ptr %486, align 8, !tbaa !134
   %488 = getelementptr inbounds nuw i8, ptr %483, i64 192
   %489 = load ptr, ptr %488, align 8, !tbaa !130
-  %490 = call i64 @exr_compress_max_buffer_size(i64 noundef %473) #20
-  %491 = call i32 @exr_compress_buffer(ptr noundef %485, i32 noundef %487, ptr noundef %489, i64 noundef %473, ptr noundef %.2317, i64 noundef %490, ptr noundef nonnull %8) #20
+  %490 = call i64 @exr_compress_max_buffer_size(i64 noundef %473) #21
+  %491 = call i32 @exr_compress_buffer(ptr noundef %485, i32 noundef %487, ptr noundef %489, i64 noundef %473, ptr noundef %.2317, i64 noundef %490, ptr noundef nonnull %8) #21
   %.not386 = icmp eq i32 %491, 0
   br i1 %.not386, label %492, label %.thread465
 
@@ -1342,14 +1342,14 @@ DctCoderChannelData_push_row.exit:                ; preds = %DctCoderChannelData
   %502 = load i64, ptr %501, align 8, !tbaa !136
   %503 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %504 = load ptr, ptr %503, align 8, !tbaa !97
-  %505 = call i64 @internal_rle_compress(ptr noundef %500, i64 noundef %502, ptr noundef %504, i64 noundef %497) #20
+  %505 = call i64 @internal_rle_compress(ptr noundef %500, i64 noundef %502, ptr noundef %504, i64 noundef %497) #21
   store i64 %505, ptr %32, align 8, !tbaa !74
   %506 = load ptr, ptr %0, align 8, !tbaa !27
   %507 = getelementptr inbounds nuw i8, ptr %506, i64 24
   %508 = load ptr, ptr %507, align 8, !tbaa !29
   %509 = load ptr, ptr %499, align 8, !tbaa !135
-  %510 = call i64 @exr_compress_max_buffer_size(i64 noundef %505) #20
-  %511 = call i32 @exr_compress_buffer(ptr noundef %508, i32 noundef 9, ptr noundef %509, i64 noundef %505, ptr noundef %.3318, i64 noundef %510, ptr noundef nonnull %9) #20
+  %510 = call i64 @exr_compress_max_buffer_size(i64 noundef %505) #21
+  %511 = call i32 @exr_compress_buffer(ptr noundef %508, i32 noundef 9, ptr noundef %509, i64 noundef %505, ptr noundef %.3318, i64 noundef %510, ptr noundef nonnull %9) #21
   %.not388 = icmp eq i32 %511, 0
   br i1 %.not388, label %.thread471, label %515
 
@@ -1415,7 +1415,7 @@ define internal fastcc void @DwaCompressor_destroy(ptr noundef nonnull readonly 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8, !tbaa !42
-  tail call void %6(ptr noundef nonnull %3) #20
+  tail call void %6(ptr noundef nonnull %3) #21
   br label %7
 
 7:                                                ; preds = %4, %1
@@ -1427,7 +1427,7 @@ define internal fastcc void @DwaCompressor_destroy(ptr noundef nonnull readonly 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %12 = load ptr, ptr %11, align 8, !tbaa !42
-  tail call void %12(ptr noundef nonnull %9) #20
+  tail call void %12(ptr noundef nonnull %9) #21
   br label %13
 
 13:                                               ; preds = %10, %7
@@ -1439,7 +1439,7 @@ define internal fastcc void @DwaCompressor_destroy(ptr noundef nonnull readonly 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %18 = load ptr, ptr %17, align 8, !tbaa !42
-  tail call void %18(ptr noundef nonnull %15) #20
+  tail call void %18(ptr noundef nonnull %15) #21
   br label %19
 
 19:                                               ; preds = %16, %13
@@ -1467,7 +1467,7 @@ define internal fastcc void @DwaCompressor_destroy(ptr noundef nonnull readonly 
   %27 = phi ptr [ %.pre64, %._crit_edge.loopexit ], [ %21, %.preheader53 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %29 = load ptr, ptr %28, align 8, !tbaa !42
-  tail call void %29(ptr noundef %27) #20
+  tail call void %29(ptr noundef %27) #21
   br label %40
 
 30:                                               ; preds = %.lr.ph, %DctCoderChannelData_destroy.exit
@@ -1482,7 +1482,7 @@ define internal fastcc void @DwaCompressor_destroy(ptr noundef nonnull readonly 
 
 35:                                               ; preds = %30
   %36 = load ptr, ptr %26, align 8, !tbaa !42
-  tail call void %36(ptr noundef nonnull %.val) #20
+  tail call void %36(ptr noundef nonnull %.val) #21
   %.pre = load i32, ptr %22, align 8, !tbaa !45
   br label %DctCoderChannelData_destroy.exit
 
@@ -1502,7 +1502,7 @@ DctCoderChannelData_destroy.exit:                 ; preds = %30, %35
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %45 = load ptr, ptr %44, align 8, !tbaa !42
-  tail call void %45(ptr noundef nonnull %42) #20
+  tail call void %45(ptr noundef nonnull %42) #21
   br label %46
 
 46:                                               ; preds = %43, %40
@@ -1531,7 +1531,7 @@ DctCoderChannelData_destroy.exit:                 ; preds = %30, %35
   %52 = phi ptr [ %.pre66, %._crit_edge57.loopexit ], [ %48, %.preheader ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %54 = load ptr, ptr %53, align 8, !tbaa !42
-  tail call void %54(ptr noundef %52) #20
+  tail call void %54(ptr noundef %52) #21
   br label %68
 
 55:                                               ; preds = %.lr.ph56, %Classifier_destroy.exit
@@ -1551,7 +1551,7 @@ DctCoderChannelData_destroy.exit:                 ; preds = %30, %35
   br i1 %.not4.i, label %64, label %Classifier_destroy.exit
 
 64:                                               ; preds = %61
-  tail call void %57(ptr noundef nonnull %60) #20
+  tail call void %57(ptr noundef nonnull %60) #21
   %.pre65 = load i64, ptr %49, align 8, !tbaa !76
   br label %Classifier_destroy.exit
 
@@ -1578,7 +1578,7 @@ Classifier_destroy.exit:                          ; preds = %55, %61, %64
 
 75:                                               ; preds = %72
   %76 = load ptr, ptr %70, align 8, !tbaa !42
-  tail call void %76(ptr noundef nonnull %74) #20
+  tail call void %76(ptr noundef nonnull %74) #21
   br label %77
 
 77:                                               ; preds = %72, %75
@@ -1593,8 +1593,8 @@ define hidden i32 @internal_exr_apply_dwab(ptr noundef %0) local_unnamed_addr #0
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %5 = tail call i64 @internal_exr_huf_compress_spare_bytes() #20
-  %6 = tail call i32 @internal_encode_alloc_buffer(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %5) #20
+  %5 = tail call i64 @internal_exr_huf_compress_spare_bytes() #21
+  %6 = tail call i32 @internal_encode_alloc_buffer(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %5) #21
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %14
 
@@ -1624,8 +1624,8 @@ define hidden i32 @internal_exr_undo_dwaa(ptr noundef %0, ptr noundef %1, i64 no
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %9 = tail call i64 @internal_exr_huf_decompress_spare_bytes() #20
-  %10 = tail call i32 @internal_decode_alloc_buffer(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef %9) #20
+  %9 = tail call i64 @internal_exr_huf_decompress_spare_bytes() #21
+  %10 = tail call i32 @internal_decode_alloc_buffer(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef %9) #21
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %18
 
@@ -1795,7 +1795,7 @@ define internal fastcc i32 @DwaCompressor_uncompress(ptr noundef nonnull capture
 
 .thread.i.i:                                      ; preds = %62
   %.pre.i.i = add nuw nsw i64 %.04660.i.i, 1
-  %69 = tail call ptr %56(i64 noundef %.pre.i.i) #20
+  %69 = tail call ptr %56(i64 noundef %.pre.i.i) #21
   %.not.i.i = icmp eq ptr %69, null
   br i1 %.not.i.i, label %.thread53.i.i, label %70
 
@@ -1827,7 +1827,7 @@ define internal fastcc i32 @DwaCompressor_uncompress(ptr noundef nonnull capture
 Classifier_destroy.exit.i:                        ; preds = %76, %70
   %.0.i.ph.i = phi i32 [ 23, %70 ], [ %spec.select.i, %76 ]
   %82 = load ptr, ptr %54, align 8, !tbaa !42
-  tail call void %82(ptr noundef nonnull %69) #20
+  tail call void %82(ptr noundef nonnull %69) #21
   %83 = add i64 %.03785.i, 1
   %84 = icmp eq i32 %.0.i.ph.i, 0
   %85 = icmp ne i64 %74, 0
@@ -1844,7 +1844,7 @@ Classifier_destroy.exit.i:                        ; preds = %76, %70
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %89 = load ptr, ptr %88, align 8, !tbaa !41
   %90 = mul i64 %.037.lcssa120.i, 24
-  %91 = tail call ptr %89(i64 noundef %90) #20
+  %91 = tail call ptr %89(i64 noundef %90) #21
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %91, ptr %92, align 8, !tbaa !75
   %.not.i = icmp eq ptr %91, null
@@ -1891,7 +1891,7 @@ Classifier_destroy.exit.i:                        ; preds = %76, %70
 
 .thread.i49.i:                                    ; preds = %102
   %.pre.i50.i = add nuw nsw i64 %.04660.i44.i, 1
-  %109 = tail call ptr %94(i64 noundef %.pre.i50.i) #20
+  %109 = tail call ptr %94(i64 noundef %.pre.i50.i) #21
   %.not.i51.i = icmp eq ptr %109, null
   br i1 %.not.i51.i, label %.thread53.i46.i, label %110
 
@@ -2010,7 +2010,7 @@ DwaCompressor_readChannelRules.exit:              ; preds = %Classifier_read.exi
   %172 = load ptr, ptr %171, align 8, !tbaa !65
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %174 = load ptr, ptr %173, align 8, !tbaa !97
-  %175 = tail call i32 @exr_uncompress_buffer(ptr noundef %172, ptr noundef %.0496, i64 noundef %.sroa.5.0.copyload, ptr noundef %174, i64 noundef %.sroa.4.0.copyload, ptr noundef null) #20
+  %175 = tail call i32 @exr_uncompress_buffer(ptr noundef %172, ptr noundef %.0496, i64 noundef %.sroa.5.0.copyload, ptr noundef %174, i64 noundef %.sroa.4.0.copyload, ptr noundef null) #21
   %.not445 = icmp eq i32 %175, 0
   br i1 %.not445, label %176, label %DwaCompressor_readChannelRules.exit.thread
 
@@ -2042,7 +2042,7 @@ DwaCompressor_readChannelRules.exit:              ; preds = %Classifier_read.exi
   %188 = load ptr, ptr %187, align 8, !tbaa !150
   %189 = getelementptr inbounds nuw i8, ptr %186, i64 192
   %190 = load i64, ptr %189, align 8, !tbaa !151
-  %191 = tail call i32 @internal_huf_decompress(ptr noundef %186, ptr noundef %149, i64 noundef %.sroa.6.0.copyload, ptr noundef nonnull %178, i64 noundef %.sroa.11.0.copyload, ptr noundef %188, i64 noundef %190) #20
+  %191 = tail call i32 @internal_huf_decompress(ptr noundef %186, ptr noundef %149, i64 noundef %.sroa.6.0.copyload, ptr noundef nonnull %178, i64 noundef %.sroa.11.0.copyload, ptr noundef %188, i64 noundef %190) #21
   %.not450 = icmp eq i32 %191, 0
   br i1 %.not450, label %199, label %DwaCompressor_readChannelRules.exit.thread
 
@@ -2051,7 +2051,7 @@ DwaCompressor_readChannelRules.exit:              ; preds = %Classifier_read.exi
   %193 = load ptr, ptr %139, align 8, !tbaa !28
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 24
   %195 = load ptr, ptr %194, align 8, !tbaa !65
-  %196 = call i32 @exr_uncompress_buffer(ptr noundef %195, ptr noundef %149, i64 noundef %.sroa.6.0.copyload, ptr noundef nonnull %178, i64 noundef %180, ptr noundef nonnull %9) #20
+  %196 = call i32 @exr_uncompress_buffer(ptr noundef %195, ptr noundef %149, i64 noundef %.sroa.6.0.copyload, ptr noundef nonnull %178, i64 noundef %180, ptr noundef nonnull %9) #21
   %.not448 = icmp eq i32 %196, 0
   br i1 %.not448, label %197, label %.thread
 
@@ -2081,7 +2081,7 @@ DwaCompressor_readChannelRules.exit:              ; preds = %Classifier_read.exi
   %206 = load ptr, ptr %139, align 8, !tbaa !28
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 184
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 192
-  %209 = call i32 @internal_decode_alloc_buffer(ptr noundef %206, i32 noundef 3, ptr noundef nonnull %207, ptr noundef nonnull %208, i64 noundef %201) #20
+  %209 = call i32 @internal_decode_alloc_buffer(ptr noundef %206, i32 noundef 3, ptr noundef nonnull %207, ptr noundef nonnull %208, i64 noundef %201) #21
   %.not453 = icmp eq i32 %209, 0
   br i1 %.not453, label %210, label %.thread503
 
@@ -2091,7 +2091,7 @@ DwaCompressor_readChannelRules.exit:              ; preds = %Classifier_read.exi
   %213 = load ptr, ptr %212, align 8, !tbaa !65
   %214 = getelementptr inbounds nuw i8, ptr %211, i64 184
   %215 = load ptr, ptr %214, align 8, !tbaa !150
-  %216 = call i32 @exr_uncompress_buffer(ptr noundef %213, ptr noundef %150, i64 noundef %.sroa.7.0.copyload, ptr noundef %215, i64 noundef %201, ptr noundef nonnull %10) #20
+  %216 = call i32 @exr_uncompress_buffer(ptr noundef %213, ptr noundef %150, i64 noundef %.sroa.7.0.copyload, ptr noundef %215, i64 noundef %201, ptr noundef nonnull %10) #21
   %.not454 = icmp eq i32 %216, 0
   %217 = load i64, ptr %10, align 8
   %.not455 = icmp eq i64 %201, %217
@@ -2108,7 +2108,7 @@ DwaCompressor_readChannelRules.exit:              ; preds = %Classifier_read.exi
   %220 = load ptr, ptr %139, align 8, !tbaa !28
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 184
   %222 = load ptr, ptr %221, align 8, !tbaa !150
-  call void @internal_zip_reconstruct_bytes(ptr noundef %219, ptr noundef %222, i64 noundef %201) #20
+  call void @internal_zip_reconstruct_bytes(ptr noundef %219, ptr noundef %222, i64 noundef %201) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %224
 
@@ -2139,7 +2139,7 @@ DwaCompressor_readChannelRules.exit:              ; preds = %Classifier_read.exi
   %236 = load ptr, ptr %235, align 8, !tbaa !65
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %238 = load ptr, ptr %237, align 8, !tbaa !135
-  %239 = call i32 @exr_uncompress_buffer(ptr noundef %236, ptr noundef %151, i64 noundef %.sroa.8.0.copyload, ptr noundef %238, i64 noundef %.sroa.9.0.copyload, ptr noundef nonnull %11) #20
+  %239 = call i32 @exr_uncompress_buffer(ptr noundef %236, ptr noundef %151, i64 noundef %.sroa.8.0.copyload, ptr noundef %238, i64 noundef %.sroa.9.0.copyload, ptr noundef nonnull %11) #21
   %.not457 = icmp eq i32 %239, 0
   %240 = load i64, ptr %11, align 8
   %.not458 = icmp eq i64 %240, %.sroa.9.0.copyload
@@ -2154,7 +2154,7 @@ DwaCompressor_readChannelRules.exit:              ; preds = %Classifier_read.exi
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %243 = load ptr, ptr %242, align 8, !tbaa !97
   %244 = load ptr, ptr %237, align 8, !tbaa !135
-  %245 = call i64 @internal_rle_decompress(ptr noundef %243, i64 noundef %.sroa.10.0.copyload, ptr noundef %244, i64 noundef %.sroa.9.0.copyload) #20
+  %245 = call i64 @internal_rle_decompress(ptr noundef %243, i64 noundef %.sroa.10.0.copyload, ptr noundef %244, i64 noundef %.sroa.9.0.copyload) #21
   %.not459 = icmp eq i64 %245, %.sroa.10.0.copyload
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not459, label %246, label %DwaCompressor_readChannelRules.exit.thread
@@ -2703,8 +2703,8 @@ define hidden i32 @internal_exr_undo_dwab(ptr noundef %0, ptr noundef %1, i64 no
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %9 = tail call i64 @internal_exr_huf_decompress_spare_bytes() #20
-  %10 = tail call i32 @internal_decode_alloc_buffer(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef %9) #20
+  %9 = tail call i64 @internal_exr_huf_decompress_spare_bytes() #21
+  %10 = tail call i32 @internal_decode_alloc_buffer(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef %9) #21
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %18
 
@@ -5468,13 +5468,13 @@ half_to_float.exit379:                            ; preds = %1523, %1525, %1527,
 
 ; Function Attrs: nounwind uwtable
 define internal void @convertFloatToHalf64_f16c(ptr noundef %0, ptr noundef %1) #0 {
-  tail call void asm sideeffect "vmovaps       ($0),     %ymm0         \0Avmovaps   0x20($0),     %ymm1         \0Avmovaps   0x40($0),     %ymm2         \0Avmovaps   0x60($0),     %ymm3         \0Avcvtps2ph $$0,           %ymm0, %xmm0 \0Avcvtps2ph $$0,           %ymm1, %xmm1 \0Avcvtps2ph $$0,           %ymm2, %xmm2 \0Avcvtps2ph $$0,           %ymm3, %xmm3 \0Avmovdqa   %xmm0,       0x00($1)       \0Avmovdqa   %xmm1,       0x10($1)       \0Avmovdqa   %xmm2,       0x20($1)       \0Avmovdqa   %xmm3,       0x30($1)       \0Avmovaps   0x80($0),     %ymm0         \0Avmovaps   0xa0($0),     %ymm1         \0Avmovaps   0xc0($0),     %ymm2         \0Avmovaps   0xe0($0),     %ymm3         \0Avcvtps2ph $$0,           %ymm0, %xmm0 \0Avcvtps2ph $$0,           %ymm1, %xmm1 \0Avcvtps2ph $$0,           %ymm2, %xmm2 \0Avcvtps2ph $$0,           %ymm3, %xmm3 \0Avmovdqa   %xmm0,       0x40($1)       \0Avmovdqa   %xmm1,       0x50($1)       \0Avmovdqa   %xmm2,       0x60($1)       \0Avmovdqa   %xmm3,       0x70($1)       \0Avzeroupper                             \0A", "r,r,~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr %0) #20, !srcloc !178
+  tail call void asm sideeffect "vmovaps       ($0),     %ymm0         \0Avmovaps   0x20($0),     %ymm1         \0Avmovaps   0x40($0),     %ymm2         \0Avmovaps   0x60($0),     %ymm3         \0Avcvtps2ph $$0,           %ymm0, %xmm0 \0Avcvtps2ph $$0,           %ymm1, %xmm1 \0Avcvtps2ph $$0,           %ymm2, %xmm2 \0Avcvtps2ph $$0,           %ymm3, %xmm3 \0Avmovdqa   %xmm0,       0x00($1)       \0Avmovdqa   %xmm1,       0x10($1)       \0Avmovdqa   %xmm2,       0x20($1)       \0Avmovdqa   %xmm3,       0x30($1)       \0Avmovaps   0x80($0),     %ymm0         \0Avmovaps   0xa0($0),     %ymm1         \0Avmovaps   0xc0($0),     %ymm2         \0Avmovaps   0xe0($0),     %ymm3         \0Avcvtps2ph $$0,           %ymm0, %xmm0 \0Avcvtps2ph $$0,           %ymm1, %xmm1 \0Avcvtps2ph $$0,           %ymm2, %xmm2 \0Avcvtps2ph $$0,           %ymm3, %xmm3 \0Avmovdqa   %xmm0,       0x40($1)       \0Avmovdqa   %xmm1,       0x50($1)       \0Avmovdqa   %xmm2,       0x60($1)       \0Avmovdqa   %xmm3,       0x70($1)       \0Avzeroupper                             \0A", "r,r,~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr %0) #21, !srcloc !178
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @fromHalfZigZag_f16c(ptr noundef %0, ptr noundef %1) #0 {
-  tail call void asm sideeffect "vpxor   %xmm3,  %xmm3, %xmm3   \0Avmovdqa    ($0), %xmm8           \0Avmovdqa 112($0), %xmm6           \0Avmovdqu  42($0), %xmm9           \0Avmovdqu  56($0), %xmm7           \0Avmovq    12($0), %xmm3           \0Avpsrldq      $$2, %xmm8, %xmm1   \0Avpslldq      $$4, %xmm8, %xmm2   \0Avpalignr     $$2, 70($0), %xmm8, %xmm0 \0Avpblendw  $$0xfc, 82($0), %xmm1, %xmm1 \0Avpblendw  $$0x1f, 98($0), %xmm2, %xmm2 \0Avpsrldq      $$4, %xmm6, %xmm4         \0Avpslldq      $$2, %xmm6, %xmm5         \0Avpalignr    $$14, %xmm6, %xmm9, %xmm6 \0Avpblendw  $$0xf8, 14($0), %xmm4, %xmm4 \0Avpblendw  $$0x3f, 30($0), %xmm5, %xmm5 \0Avpinsrq      $$1, 108($0), %xmm3, %xmm3\0Avpshuflw $$0x1b, %xmm0, %xmm0          \0Avpshuflw $$0x1b, %xmm2, %xmm2          \0Avpshuflw $$0x1b, %xmm4, %xmm4          \0Avpshuflw $$0x1b, %xmm6, %xmm6          \0Avpshufhw $$0x1b, %xmm0, %xmm0          \0Avpshufhw $$0x1b, %xmm2, %xmm2          \0Avpshufhw $$0x1b, %xmm4, %xmm4          \0Avpshufhw $$0x1b, %xmm6, %xmm6          \0Avpshufd $$0x4e, %xmm0, %xmm0          \0Avpshufd $$0x4e, %xmm2, %xmm2          \0Avpshufd $$0x4e, %xmm4, %xmm4          \0Avpshufd $$0x4e, %xmm6, %xmm6          \0Avpunpcklwd %xmm1, %xmm0, %xmm8       \0Avpunpcklwd %xmm3, %xmm2, %xmm9       \0Avpunpcklwd %xmm5, %xmm4, %xmm10      \0Avpunpcklwd %xmm7, %xmm6, %xmm11      \0Avpunpckhwd %xmm1, %xmm0, %xmm12      \0Avpunpckhwd %xmm3, %xmm2, %xmm13      \0Avpunpckhwd %xmm5, %xmm4, %xmm14      \0Avpunpckhwd %xmm7, %xmm6, %xmm15      \0Avpunpckldq  %xmm9,  %xmm8, %xmm0     \0Avpunpckldq %xmm11, %xmm10, %xmm1     \0Avpunpckhdq  %xmm9,  %xmm8, %xmm2     \0Avpunpckhdq %xmm11, %xmm10, %xmm3     \0Avpunpckldq %xmm13, %xmm12, %xmm4     \0Avpunpckldq %xmm15, %xmm14, %xmm5     \0Avpunpckhdq %xmm13, %xmm12, %xmm6     \0Avpunpckhdq %xmm15, %xmm14, %xmm7     \0Avpunpcklqdq %xmm1,  %xmm0, %xmm8     \0Avpunpckhqdq %xmm1,  %xmm0, %xmm9     \0Avpunpcklqdq %xmm3,  %xmm2, %xmm10    \0Avpunpckhqdq %xmm3,  %xmm2, %xmm11    \0Avpunpcklqdq %xmm4,  %xmm5, %xmm12    \0Avpunpckhqdq %xmm5,  %xmm4, %xmm13    \0Avpunpcklqdq %xmm7,  %xmm6, %xmm14    \0Avpunpckhqdq %xmm7,  %xmm6, %xmm15    \0Avpalignr  $$2,  %xmm9,  %xmm9,  %xmm9 \0Avpalignr  $$4, %xmm10, %xmm10, %xmm10 \0Avpalignr  $$6, %xmm11, %xmm11, %xmm11 \0Avpalignr $$10, %xmm13, %xmm13, %xmm13 \0Avpalignr $$12, %xmm14, %xmm14, %xmm14 \0Avpalignr $$14, %xmm15, %xmm15, %xmm15 \0Avcvtph2ps  %xmm8, %ymm8            \0Avcvtph2ps  %xmm9, %ymm9            \0Avcvtph2ps %xmm10, %ymm10           \0Avcvtph2ps %xmm11, %ymm11           \0Avcvtph2ps %xmm12, %ymm12           \0Avcvtph2ps %xmm13, %ymm13           \0Avcvtph2ps %xmm14, %ymm14           \0Avcvtph2ps %xmm15, %ymm15           \0Avmovaps    %ymm8,    ($1)           \0Avmovaps    %ymm9,  32($1)           \0Avmovaps   %ymm10,  64($1)           \0Avmovaps   %ymm11,  96($1)           \0Avmovaps   %ymm12, 128($1)           \0Avmovaps   %ymm13, 160($1)           \0Avmovaps   %ymm14, 192($1)           \0Avmovaps   %ymm15, 224($1)           \0Avzeroupper                          \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr %1) #20, !srcloc !179
+  tail call void asm sideeffect "vpxor   %xmm3,  %xmm3, %xmm3   \0Avmovdqa    ($0), %xmm8           \0Avmovdqa 112($0), %xmm6           \0Avmovdqu  42($0), %xmm9           \0Avmovdqu  56($0), %xmm7           \0Avmovq    12($0), %xmm3           \0Avpsrldq      $$2, %xmm8, %xmm1   \0Avpslldq      $$4, %xmm8, %xmm2   \0Avpalignr     $$2, 70($0), %xmm8, %xmm0 \0Avpblendw  $$0xfc, 82($0), %xmm1, %xmm1 \0Avpblendw  $$0x1f, 98($0), %xmm2, %xmm2 \0Avpsrldq      $$4, %xmm6, %xmm4         \0Avpslldq      $$2, %xmm6, %xmm5         \0Avpalignr    $$14, %xmm6, %xmm9, %xmm6 \0Avpblendw  $$0xf8, 14($0), %xmm4, %xmm4 \0Avpblendw  $$0x3f, 30($0), %xmm5, %xmm5 \0Avpinsrq      $$1, 108($0), %xmm3, %xmm3\0Avpshuflw $$0x1b, %xmm0, %xmm0          \0Avpshuflw $$0x1b, %xmm2, %xmm2          \0Avpshuflw $$0x1b, %xmm4, %xmm4          \0Avpshuflw $$0x1b, %xmm6, %xmm6          \0Avpshufhw $$0x1b, %xmm0, %xmm0          \0Avpshufhw $$0x1b, %xmm2, %xmm2          \0Avpshufhw $$0x1b, %xmm4, %xmm4          \0Avpshufhw $$0x1b, %xmm6, %xmm6          \0Avpshufd $$0x4e, %xmm0, %xmm0          \0Avpshufd $$0x4e, %xmm2, %xmm2          \0Avpshufd $$0x4e, %xmm4, %xmm4          \0Avpshufd $$0x4e, %xmm6, %xmm6          \0Avpunpcklwd %xmm1, %xmm0, %xmm8       \0Avpunpcklwd %xmm3, %xmm2, %xmm9       \0Avpunpcklwd %xmm5, %xmm4, %xmm10      \0Avpunpcklwd %xmm7, %xmm6, %xmm11      \0Avpunpckhwd %xmm1, %xmm0, %xmm12      \0Avpunpckhwd %xmm3, %xmm2, %xmm13      \0Avpunpckhwd %xmm5, %xmm4, %xmm14      \0Avpunpckhwd %xmm7, %xmm6, %xmm15      \0Avpunpckldq  %xmm9,  %xmm8, %xmm0     \0Avpunpckldq %xmm11, %xmm10, %xmm1     \0Avpunpckhdq  %xmm9,  %xmm8, %xmm2     \0Avpunpckhdq %xmm11, %xmm10, %xmm3     \0Avpunpckldq %xmm13, %xmm12, %xmm4     \0Avpunpckldq %xmm15, %xmm14, %xmm5     \0Avpunpckhdq %xmm13, %xmm12, %xmm6     \0Avpunpckhdq %xmm15, %xmm14, %xmm7     \0Avpunpcklqdq %xmm1,  %xmm0, %xmm8     \0Avpunpckhqdq %xmm1,  %xmm0, %xmm9     \0Avpunpcklqdq %xmm3,  %xmm2, %xmm10    \0Avpunpckhqdq %xmm3,  %xmm2, %xmm11    \0Avpunpcklqdq %xmm4,  %xmm5, %xmm12    \0Avpunpckhqdq %xmm5,  %xmm4, %xmm13    \0Avpunpcklqdq %xmm7,  %xmm6, %xmm14    \0Avpunpckhqdq %xmm7,  %xmm6, %xmm15    \0Avpalignr  $$2,  %xmm9,  %xmm9,  %xmm9 \0Avpalignr  $$4, %xmm10, %xmm10, %xmm10 \0Avpalignr  $$6, %xmm11, %xmm11, %xmm11 \0Avpalignr $$10, %xmm13, %xmm13, %xmm13 \0Avpalignr $$12, %xmm14, %xmm14, %xmm14 \0Avpalignr $$14, %xmm15, %xmm15, %xmm15 \0Avcvtph2ps  %xmm8, %ymm8            \0Avcvtph2ps  %xmm9, %ymm9            \0Avcvtph2ps %xmm10, %ymm10           \0Avcvtph2ps %xmm11, %ymm11           \0Avcvtph2ps %xmm12, %ymm12           \0Avcvtph2ps %xmm13, %ymm13           \0Avcvtph2ps %xmm14, %ymm14           \0Avcvtph2ps %xmm15, %ymm15           \0Avmovaps    %ymm8,    ($1)           \0Avmovaps    %ymm9,  32($1)           \0Avmovaps   %ymm10,  64($1)           \0Avmovaps   %ymm11,  96($1)           \0Avmovaps   %ymm12, 128($1)           \0Avmovaps   %ymm13, 160($1)           \0Avmovaps   %ymm14, 192($1)           \0Avmovaps   %ymm15, 224($1)           \0Avzeroupper                          \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr %1) #21, !srcloc !179
   ret void
 }
 
@@ -5528,49 +5528,49 @@ define internal void @dctInverse8x8_scalar_7(ptr noundef captures(none) %0) #3 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @dctInverse8x8_avx_0(ptr noundef %0) #0 {
-  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avmovaps                 128($0),  %xmm10  \0Avmovaps                 144($0),  %xmm11  \0A                                                                                \0Avinsertf128  $$1, 160($0), %ymm10, %ymm10  \0Avinsertf128  $$1, 176($0), %ymm11, %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0A                                                                                \0Avunpcklps      %ymm6,  %ymm2,  %ymm10  \0Avunpckhps      %ymm6,  %ymm2,  %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0Avmovaps                 192($0),  %xmm8  \0Avmovaps                 208($0),  %xmm9  \0A                                                                                \0Avinsertf128  $$1, 224($0), %ymm8, %ymm8  \0Avinsertf128  $$1, 240($0), %ymm9, %ymm9  \0A                                                                                \0Avunpcklpd      %ymm9,  %ymm8,  %ymm3  \0Avunpckhpd      %ymm9,  %ymm8,  %ymm7  \0A                                                                                \0Avunpcklps      %ymm7,  %ymm3,  %ymm8  \0Avunpckhps      %ymm7,  %ymm3,  %ymm9  \0A                                                                                \0Avunpcklpd      %ymm9,  %ymm8,  %ymm3  \0Avunpckhpd      %ymm9,  %ymm8,  %ymm7  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avpermilps $$0x00, %ymm2, %ymm12       \0Avpermilps $$0x55, %ymm2, %ymm13       \0Avpermilps $$0xaa, %ymm2, %ymm14       \0Avpermilps $$0xff, %ymm2, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm2\0Avpermilps $$0x00, %ymm3, %ymm12       \0Avpermilps $$0x55, %ymm3, %ymm13       \0Avpermilps $$0xaa, %ymm3, %ymm14       \0Avpermilps $$0xff, %ymm3, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm3\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avpermilps $$0x00, %ymm6, %ymm12       \0Avpermilps $$0x55, %ymm6, %ymm13       \0Avpermilps $$0xaa, %ymm6, %ymm14       \0Avpermilps $$0xff, %ymm6, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm6\0Avpermilps $$0x00, %ymm7, %ymm12       \0Avpermilps $$0x55, %ymm7, %ymm13       \0Avpermilps $$0xaa, %ymm7, %ymm14       \0Avpermilps $$0xff, %ymm7, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm7\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avsubps   %ymm6, %ymm2, %ymm14\0Avaddps   %ymm6, %ymm2, %ymm2\0Avpermilps $$0x1b, %ymm14, %ymm14\0Avsubps   %ymm7, %ymm3, %ymm15\0Avaddps   %ymm7, %ymm3, %ymm3\0Avpermilps $$0x1b, %ymm15, %ymm15\0Avperm2f128 $$0x13, %ymm3, %ymm15, %ymm7   \0Avperm2f128 $$0x02, %ymm3, %ymm15, %ymm6   \0Avperm2f128 $$0x13, %ymm2, %ymm14, %ymm5   \0Avperm2f128 $$0x02, %ymm2, %ymm14, %ymm4   \0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avmulps    %ymm5, %ymm10, %ymm14    \0Avmulps    %ymm7, %ymm11, %ymm15    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avaddps   %ymm14, %ymm15, %ymm14    \0Avaddps   %ymm12, %ymm14, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avmulps    %ymm5,   %ymm8, %ymm15   \0Avaddps    %ymm14, %ymm15, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps    %ymm7,  %ymm10, %ymm15   \0Avsubps    %ymm15, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps     %ymm5, %ymm11, %ymm15   \0Avaddps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm7,   %ymm9, %ymm15   \0Avaddps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avmulps    %ymm5,  %ymm9,  %ymm5    \0Avmulps    %ymm7,  %ymm8,  %ymm7    \0Avaddps   %ymm15,  %ymm5, %ymm15    \0Avaddps    %ymm3,  %ymm7,  %ymm3    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmulps    %ymm1,  %ymm4,  %ymm4   \0Avmovaps   %ymm11, %ymm1            \0Avaddps    %ymm4, %ymm11, %ymm11   \0Avsubps    %ymm4,  %ymm1,  %ymm1   \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmulps    %ymm5, %ymm6,  %ymm9    \0Avaddps    %ymm9, %ymm7,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmulps     %ymm3,  %ymm6, %ymm9   \0Avsubps     %ymm9,  %ymm7, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr nonnull @sAvxCoef) #20, !srcloc !180
+  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avmovaps                 128($0),  %xmm10  \0Avmovaps                 144($0),  %xmm11  \0A                                                                                \0Avinsertf128  $$1, 160($0), %ymm10, %ymm10  \0Avinsertf128  $$1, 176($0), %ymm11, %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0A                                                                                \0Avunpcklps      %ymm6,  %ymm2,  %ymm10  \0Avunpckhps      %ymm6,  %ymm2,  %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0Avmovaps                 192($0),  %xmm8  \0Avmovaps                 208($0),  %xmm9  \0A                                                                                \0Avinsertf128  $$1, 224($0), %ymm8, %ymm8  \0Avinsertf128  $$1, 240($0), %ymm9, %ymm9  \0A                                                                                \0Avunpcklpd      %ymm9,  %ymm8,  %ymm3  \0Avunpckhpd      %ymm9,  %ymm8,  %ymm7  \0A                                                                                \0Avunpcklps      %ymm7,  %ymm3,  %ymm8  \0Avunpckhps      %ymm7,  %ymm3,  %ymm9  \0A                                                                                \0Avunpcklpd      %ymm9,  %ymm8,  %ymm3  \0Avunpckhpd      %ymm9,  %ymm8,  %ymm7  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avpermilps $$0x00, %ymm2, %ymm12       \0Avpermilps $$0x55, %ymm2, %ymm13       \0Avpermilps $$0xaa, %ymm2, %ymm14       \0Avpermilps $$0xff, %ymm2, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm2\0Avpermilps $$0x00, %ymm3, %ymm12       \0Avpermilps $$0x55, %ymm3, %ymm13       \0Avpermilps $$0xaa, %ymm3, %ymm14       \0Avpermilps $$0xff, %ymm3, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm3\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avpermilps $$0x00, %ymm6, %ymm12       \0Avpermilps $$0x55, %ymm6, %ymm13       \0Avpermilps $$0xaa, %ymm6, %ymm14       \0Avpermilps $$0xff, %ymm6, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm6\0Avpermilps $$0x00, %ymm7, %ymm12       \0Avpermilps $$0x55, %ymm7, %ymm13       \0Avpermilps $$0xaa, %ymm7, %ymm14       \0Avpermilps $$0xff, %ymm7, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm7\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avsubps   %ymm6, %ymm2, %ymm14\0Avaddps   %ymm6, %ymm2, %ymm2\0Avpermilps $$0x1b, %ymm14, %ymm14\0Avsubps   %ymm7, %ymm3, %ymm15\0Avaddps   %ymm7, %ymm3, %ymm3\0Avpermilps $$0x1b, %ymm15, %ymm15\0Avperm2f128 $$0x13, %ymm3, %ymm15, %ymm7   \0Avperm2f128 $$0x02, %ymm3, %ymm15, %ymm6   \0Avperm2f128 $$0x13, %ymm2, %ymm14, %ymm5   \0Avperm2f128 $$0x02, %ymm2, %ymm14, %ymm4   \0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avmulps    %ymm5, %ymm10, %ymm14    \0Avmulps    %ymm7, %ymm11, %ymm15    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avaddps   %ymm14, %ymm15, %ymm14    \0Avaddps   %ymm12, %ymm14, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avmulps    %ymm5,   %ymm8, %ymm15   \0Avaddps    %ymm14, %ymm15, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps    %ymm7,  %ymm10, %ymm15   \0Avsubps    %ymm15, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps     %ymm5, %ymm11, %ymm15   \0Avaddps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm7,   %ymm9, %ymm15   \0Avaddps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avmulps    %ymm5,  %ymm9,  %ymm5    \0Avmulps    %ymm7,  %ymm8,  %ymm7    \0Avaddps   %ymm15,  %ymm5, %ymm15    \0Avaddps    %ymm3,  %ymm7,  %ymm3    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmulps    %ymm1,  %ymm4,  %ymm4   \0Avmovaps   %ymm11, %ymm1            \0Avaddps    %ymm4, %ymm11, %ymm11   \0Avsubps    %ymm4,  %ymm1,  %ymm1   \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmulps    %ymm5, %ymm6,  %ymm9    \0Avaddps    %ymm9, %ymm7,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmulps     %ymm3,  %ymm6, %ymm9   \0Avsubps     %ymm9,  %ymm7, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr nonnull @sAvxCoef) #21, !srcloc !180
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dctInverse8x8_avx_1(ptr noundef %0) #0 {
-  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avmovaps                 128($0),  %xmm10  \0Avmovaps                 144($0),  %xmm11  \0A                                                                                \0Avinsertf128  $$1, 160($0), %ymm10, %ymm10  \0Avinsertf128  $$1, 176($0), %ymm11, %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0A                                                                                \0Avunpcklps      %ymm6,  %ymm2,  %ymm10  \0Avunpckhps      %ymm6,  %ymm2,  %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0Avmovaps                 192($0),  %xmm8  \0Avmovaps                 208($0),  %xmm9  \0A                                                                                \0Avinsertf128  $$1, 224($0), %ymm8, %ymm8  \0Avinsertf128  $$1, 240($0), %ymm9, %ymm9  \0A                                                                                \0Avunpcklpd      %ymm9,  %ymm8,  %ymm3  \0Avunpckhpd      %ymm9,  %ymm8,  %ymm7  \0A                                                                                \0Avunpcklps      %ymm7,  %ymm3,  %ymm8  \0Avunpckhps      %ymm7,  %ymm3,  %ymm9  \0A                                                                                \0Avunpcklpd      %ymm9,  %ymm8,  %ymm3  \0Avunpckhpd      %ymm9,  %ymm8,  %ymm7  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avpermilps $$0x00, %ymm2, %ymm12       \0Avpermilps $$0x55, %ymm2, %ymm13       \0Avpermilps $$0xaa, %ymm2, %ymm14       \0Avpermilps $$0xff, %ymm2, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm2\0Avpermilps $$0x00, %ymm3, %ymm12       \0Avpermilps $$0x55, %ymm3, %ymm13       \0Avpermilps $$0xaa, %ymm3, %ymm14       \0Avpermilps $$0xff, %ymm3, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm3\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avpermilps $$0x00, %ymm6, %ymm12       \0Avpermilps $$0x55, %ymm6, %ymm13       \0Avpermilps $$0xaa, %ymm6, %ymm14       \0Avpermilps $$0xff, %ymm6, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm6\0Avpermilps $$0x00, %ymm7, %ymm12       \0Avpermilps $$0x55, %ymm7, %ymm13       \0Avpermilps $$0xaa, %ymm7, %ymm14       \0Avpermilps $$0xff, %ymm7, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm7\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avsubps   %ymm6, %ymm2, %ymm14\0Avaddps   %ymm6, %ymm2, %ymm2\0Avpermilps $$0x1b, %ymm14, %ymm14\0Avsubps   %ymm7, %ymm3, %ymm15\0Avaddps   %ymm7, %ymm3, %ymm3\0Avpermilps $$0x1b, %ymm15, %ymm15\0Avperm2f128 $$0x02, %ymm3, %ymm15, %ymm6   \0Avperm2f128 $$0x13, %ymm2, %ymm14, %ymm5   \0Avperm2f128 $$0x02, %ymm2, %ymm14, %ymm4   \0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avmulps    %ymm5, %ymm10, %ymm14    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avaddps   %ymm12, %ymm14, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avmulps    %ymm5,   %ymm8, %ymm15   \0Avaddps    %ymm14, %ymm15, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps     %ymm5, %ymm11, %ymm15   \0Avaddps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avmulps    %ymm5,  %ymm9,  %ymm5    \0Avaddps   %ymm15,  %ymm5, %ymm15    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmulps    %ymm1,  %ymm4,  %ymm4   \0Avmovaps   %ymm11, %ymm1            \0Avaddps    %ymm4, %ymm11, %ymm11   \0Avsubps    %ymm4,  %ymm1,  %ymm1   \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmulps    %ymm5, %ymm6,  %ymm9    \0Avaddps    %ymm9, %ymm7,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmulps     %ymm3,  %ymm6, %ymm9   \0Avsubps     %ymm9,  %ymm7, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr nonnull @sAvxCoef) #20, !srcloc !181
+  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avmovaps                 128($0),  %xmm10  \0Avmovaps                 144($0),  %xmm11  \0A                                                                                \0Avinsertf128  $$1, 160($0), %ymm10, %ymm10  \0Avinsertf128  $$1, 176($0), %ymm11, %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0A                                                                                \0Avunpcklps      %ymm6,  %ymm2,  %ymm10  \0Avunpckhps      %ymm6,  %ymm2,  %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0Avmovaps                 192($0),  %xmm8  \0Avmovaps                 208($0),  %xmm9  \0A                                                                                \0Avinsertf128  $$1, 224($0), %ymm8, %ymm8  \0Avinsertf128  $$1, 240($0), %ymm9, %ymm9  \0A                                                                                \0Avunpcklpd      %ymm9,  %ymm8,  %ymm3  \0Avunpckhpd      %ymm9,  %ymm8,  %ymm7  \0A                                                                                \0Avunpcklps      %ymm7,  %ymm3,  %ymm8  \0Avunpckhps      %ymm7,  %ymm3,  %ymm9  \0A                                                                                \0Avunpcklpd      %ymm9,  %ymm8,  %ymm3  \0Avunpckhpd      %ymm9,  %ymm8,  %ymm7  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avpermilps $$0x00, %ymm2, %ymm12       \0Avpermilps $$0x55, %ymm2, %ymm13       \0Avpermilps $$0xaa, %ymm2, %ymm14       \0Avpermilps $$0xff, %ymm2, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm2\0Avpermilps $$0x00, %ymm3, %ymm12       \0Avpermilps $$0x55, %ymm3, %ymm13       \0Avpermilps $$0xaa, %ymm3, %ymm14       \0Avpermilps $$0xff, %ymm3, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm3\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avpermilps $$0x00, %ymm6, %ymm12       \0Avpermilps $$0x55, %ymm6, %ymm13       \0Avpermilps $$0xaa, %ymm6, %ymm14       \0Avpermilps $$0xff, %ymm6, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm6\0Avpermilps $$0x00, %ymm7, %ymm12       \0Avpermilps $$0x55, %ymm7, %ymm13       \0Avpermilps $$0xaa, %ymm7, %ymm14       \0Avpermilps $$0xff, %ymm7, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm7\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avsubps   %ymm6, %ymm2, %ymm14\0Avaddps   %ymm6, %ymm2, %ymm2\0Avpermilps $$0x1b, %ymm14, %ymm14\0Avsubps   %ymm7, %ymm3, %ymm15\0Avaddps   %ymm7, %ymm3, %ymm3\0Avpermilps $$0x1b, %ymm15, %ymm15\0Avperm2f128 $$0x02, %ymm3, %ymm15, %ymm6   \0Avperm2f128 $$0x13, %ymm2, %ymm14, %ymm5   \0Avperm2f128 $$0x02, %ymm2, %ymm14, %ymm4   \0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avmulps    %ymm5, %ymm10, %ymm14    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avaddps   %ymm12, %ymm14, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avmulps    %ymm5,   %ymm8, %ymm15   \0Avaddps    %ymm14, %ymm15, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps     %ymm5, %ymm11, %ymm15   \0Avaddps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avmulps    %ymm5,  %ymm9,  %ymm5    \0Avaddps   %ymm15,  %ymm5, %ymm15    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmulps    %ymm1,  %ymm4,  %ymm4   \0Avmovaps   %ymm11, %ymm1            \0Avaddps    %ymm4, %ymm11, %ymm11   \0Avsubps    %ymm4,  %ymm1,  %ymm1   \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmulps    %ymm5, %ymm6,  %ymm9    \0Avaddps    %ymm9, %ymm7,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmulps     %ymm3,  %ymm6, %ymm9   \0Avsubps     %ymm9,  %ymm7, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr nonnull @sAvxCoef) #21, !srcloc !181
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dctInverse8x8_avx_2(ptr noundef %0) #0 {
-  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avmovaps                 128($0),  %xmm10  \0Avmovaps                 144($0),  %xmm11  \0A                                                                                \0Avinsertf128  $$1, 160($0), %ymm10, %ymm10  \0Avinsertf128  $$1, 176($0), %ymm11, %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0A                                                                                \0Avunpcklps      %ymm6,  %ymm2,  %ymm10  \0Avunpckhps      %ymm6,  %ymm2,  %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avpermilps $$0x00, %ymm2, %ymm12       \0Avpermilps $$0x55, %ymm2, %ymm13       \0Avpermilps $$0xaa, %ymm2, %ymm14       \0Avpermilps $$0xff, %ymm2, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm2\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avpermilps $$0x00, %ymm6, %ymm12       \0Avpermilps $$0x55, %ymm6, %ymm13       \0Avpermilps $$0xaa, %ymm6, %ymm14       \0Avpermilps $$0xff, %ymm6, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm6\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avsubps   %ymm6, %ymm2, %ymm14\0Avaddps   %ymm6, %ymm2, %ymm2\0Avpermilps $$0x1b, %ymm14, %ymm14\0Avperm2f128 $$0x13, %ymm2, %ymm14, %ymm5   \0Avperm2f128 $$0x02, %ymm2, %ymm14, %ymm4   \0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avmulps    %ymm5, %ymm10, %ymm14    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avaddps   %ymm12, %ymm14, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avmulps    %ymm5,   %ymm8, %ymm15   \0Avaddps    %ymm14, %ymm15, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps     %ymm5, %ymm11, %ymm15   \0Avaddps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avmulps    %ymm5,  %ymm9,  %ymm5    \0Avaddps   %ymm15,  %ymm5, %ymm15    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmulps    %ymm1,  %ymm4,  %ymm4   \0Avmovaps   %ymm11, %ymm1            \0Avaddps    %ymm4, %ymm11, %ymm11   \0Avsubps    %ymm4,  %ymm1,  %ymm1   \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr nonnull @sAvxCoef) #20, !srcloc !182
+  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avmovaps                 128($0),  %xmm10  \0Avmovaps                 144($0),  %xmm11  \0A                                                                                \0Avinsertf128  $$1, 160($0), %ymm10, %ymm10  \0Avinsertf128  $$1, 176($0), %ymm11, %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0A                                                                                \0Avunpcklps      %ymm6,  %ymm2,  %ymm10  \0Avunpckhps      %ymm6,  %ymm2,  %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avpermilps $$0x00, %ymm2, %ymm12       \0Avpermilps $$0x55, %ymm2, %ymm13       \0Avpermilps $$0xaa, %ymm2, %ymm14       \0Avpermilps $$0xff, %ymm2, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm2\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avpermilps $$0x00, %ymm6, %ymm12       \0Avpermilps $$0x55, %ymm6, %ymm13       \0Avpermilps $$0xaa, %ymm6, %ymm14       \0Avpermilps $$0xff, %ymm6, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm6\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avsubps   %ymm6, %ymm2, %ymm14\0Avaddps   %ymm6, %ymm2, %ymm2\0Avpermilps $$0x1b, %ymm14, %ymm14\0Avperm2f128 $$0x13, %ymm2, %ymm14, %ymm5   \0Avperm2f128 $$0x02, %ymm2, %ymm14, %ymm4   \0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avmulps    %ymm5, %ymm10, %ymm14    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avaddps   %ymm12, %ymm14, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avmulps    %ymm5,   %ymm8, %ymm15   \0Avaddps    %ymm14, %ymm15, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps     %ymm5, %ymm11, %ymm15   \0Avaddps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avmulps    %ymm5,  %ymm9,  %ymm5    \0Avaddps   %ymm15,  %ymm5, %ymm15    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmulps    %ymm1,  %ymm4,  %ymm4   \0Avmovaps   %ymm11, %ymm1            \0Avaddps    %ymm4, %ymm11, %ymm11   \0Avsubps    %ymm4,  %ymm1,  %ymm1   \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr nonnull @sAvxCoef) #21, !srcloc !182
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dctInverse8x8_avx_3(ptr noundef %0) #0 {
-  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avmovaps                 128($0),  %xmm10  \0Avmovaps                 144($0),  %xmm11  \0A                                                                                \0Avinsertf128  $$1, 160($0), %ymm10, %ymm10  \0Avinsertf128  $$1, 176($0), %ymm11, %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0A                                                                                \0Avunpcklps      %ymm6,  %ymm2,  %ymm10  \0Avunpckhps      %ymm6,  %ymm2,  %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avpermilps $$0x00, %ymm2, %ymm12       \0Avpermilps $$0x55, %ymm2, %ymm13       \0Avpermilps $$0xaa, %ymm2, %ymm14       \0Avpermilps $$0xff, %ymm2, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm2\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avpermilps $$0x00, %ymm6, %ymm12       \0Avpermilps $$0x55, %ymm6, %ymm13       \0Avpermilps $$0xaa, %ymm6, %ymm14       \0Avpermilps $$0xff, %ymm6, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm6\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avsubps   %ymm6, %ymm2, %ymm14\0Avaddps   %ymm6, %ymm2, %ymm2\0Avpermilps $$0x1b, %ymm14, %ymm14\0Avperm2f128 $$0x02, %ymm2, %ymm14, %ymm4   \0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmulps    %ymm1,  %ymm4,  %ymm4   \0Avmovaps   %ymm11, %ymm1            \0Avaddps    %ymm4, %ymm11, %ymm11   \0Avsubps    %ymm4,  %ymm1,  %ymm1   \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr nonnull @sAvxCoef) #20, !srcloc !183
+  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avmovaps                 128($0),  %xmm10  \0Avmovaps                 144($0),  %xmm11  \0A                                                                                \0Avinsertf128  $$1, 160($0), %ymm10, %ymm10  \0Avinsertf128  $$1, 176($0), %ymm11, %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0A                                                                                \0Avunpcklps      %ymm6,  %ymm2,  %ymm10  \0Avunpckhps      %ymm6,  %ymm2,  %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avpermilps $$0x00, %ymm2, %ymm12       \0Avpermilps $$0x55, %ymm2, %ymm13       \0Avpermilps $$0xaa, %ymm2, %ymm14       \0Avpermilps $$0xff, %ymm2, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm2\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avpermilps $$0x00, %ymm6, %ymm12       \0Avpermilps $$0x55, %ymm6, %ymm13       \0Avpermilps $$0xaa, %ymm6, %ymm14       \0Avpermilps $$0xff, %ymm6, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm6\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avsubps   %ymm6, %ymm2, %ymm14\0Avaddps   %ymm6, %ymm2, %ymm2\0Avpermilps $$0x1b, %ymm14, %ymm14\0Avperm2f128 $$0x02, %ymm2, %ymm14, %ymm4   \0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmulps    %ymm1,  %ymm4,  %ymm4   \0Avmovaps   %ymm11, %ymm1            \0Avaddps    %ymm4, %ymm11, %ymm11   \0Avsubps    %ymm4,  %ymm1,  %ymm1   \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr nonnull @sAvxCoef) #21, !srcloc !183
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dctInverse8x8_avx_4(ptr noundef %0) #0 {
-  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmovaps   %ymm11, %ymm1            \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr nonnull @sAvxCoef) #20, !srcloc !184
+  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmovaps   %ymm11, %ymm1            \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr nonnull @sAvxCoef) #21, !srcloc !184
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dctInverse8x8_avx_5(ptr noundef %0) #0 {
-  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmovaps   %ymm11, %ymm1            \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr nonnull @sAvxCoef) #20, !srcloc !185
+  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmovaps   %ymm11, %ymm1            \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr nonnull @sAvxCoef) #21, !srcloc !185
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dctInverse8x8_avx_6(ptr noundef %0) #0 {
-  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmovaps   %ymm11, %ymm1            \0Avmovaps   %ymm11, %ymm8            \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr nonnull @sAvxCoef) #20, !srcloc !186
+  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmovaps   %ymm11, %ymm1            \0Avmovaps   %ymm11, %ymm8            \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr nonnull @sAvxCoef) #21, !srcloc !186
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dctInverse8x8_avx_7(ptr noundef %0) #0 {
-  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avinsertf128 $$1,  %xmm8,  %ymm8,  %ymm2 \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avmulps   %ymm2, %ymm0, %ymm0  \0Avmovaps %ymm0,    ($0)          \0Avmovaps %ymm0,  32($0)          \0Avmovaps %ymm0,  64($0)          \0Avmovaps %ymm0,  96($0)          \0Avmovaps %ymm0, 128($0)          \0Avmovaps %ymm0, 160($0)          \0Avmovaps %ymm0, 192($0)          \0Avmovaps %ymm0, 224($0)          \0Avzeroupper                   \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr nonnull @sAvxCoef) #20, !srcloc !187
+  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avinsertf128 $$1,  %xmm8,  %ymm8,  %ymm2 \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avmulps   %ymm2, %ymm0, %ymm0  \0Avmovaps %ymm0,    ($0)          \0Avmovaps %ymm0,  32($0)          \0Avmovaps %ymm0,  64($0)          \0Avmovaps %ymm0,  96($0)          \0Avmovaps %ymm0, 128($0)          \0Avmovaps %ymm0, 160($0)          \0Avmovaps %ymm0, 192($0)          \0Avmovaps %ymm0, 224($0)          \0Avzeroupper                   \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr nonnull @sAvxCoef) #21, !srcloc !187
   ret void
 }
 
@@ -6282,11 +6282,11 @@ define internal fastcc void @dctInverse8x8_scalar(ptr noundef captures(none) %0,
   br i1 %exitcond203.not, label %59, label %.preheader, !llvm.loop !191
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #6
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fmuladd.f32(float, float, float) #8
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @dctInverse8x8_sse2(ptr noundef captures(none) %0, i32 noundef range(i32 0, 8) %1) unnamed_addr #8 {
+define internal fastcc void @dctInverse8x8_sse2(ptr noundef captures(none) %0, i32 noundef range(i32 0, 8) %1) unnamed_addr #9 {
   %3 = alloca [8 x <4 x float>], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load <4 x float>, ptr %0, align 16, !tbaa !86
@@ -6784,7 +6784,7 @@ define internal fastcc range(i32 0, 4) i32 @DwaCompressor_initializeBuffers(ptr 
   %32 = load i32, ptr %31, align 8, !tbaa !45
   %33 = sext i32 %32 to i64
   %34 = mul nsw i64 %33, 12
-  %35 = tail call ptr %30(i64 noundef %34) #20
+  %35 = tail call ptr %30(i64 noundef %34) #21
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %35, ptr %36, align 8, !tbaa !114
   %.not.i = icmp eq ptr %35, null
@@ -6795,7 +6795,7 @@ define internal fastcc range(i32 0, 4) i32 @DwaCompressor_initializeBuffers(ptr 
   %39 = load i32, ptr %31, align 8, !tbaa !45
   %40 = sext i32 %39 to i64
   %41 = shl nsw i64 %40, 5
-  %42 = tail call ptr %38(i64 noundef %41) #20
+  %42 = tail call ptr %38(i64 noundef %41) #21
   %.not99.i = icmp eq ptr %42, null
   br i1 %.not99.i, label %DwaCompressor_classifyChannels.exit.thread, label %43
 
@@ -6827,7 +6827,7 @@ define internal fastcc range(i32 0, 4) i32 @DwaCompressor_initializeBuffers(ptr 
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 448
   %58 = load ptr, ptr %57, align 32, !tbaa !54
   %59 = load ptr, ptr %58, align 8, !tbaa !81
-  %60 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %59, i32 noundef 46) #22
+  %60 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %59, i32 noundef 46) #23
   %.not.i.us.i = icmp eq ptr %60, null
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 1
   %.0.i.us.i = select i1 %.not.i.us.i, ptr %59, ptr %61
@@ -6855,7 +6855,7 @@ define internal fastcc range(i32 0, 4) i32 @DwaCompressor_initializeBuffers(ptr 
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %69
-  %74 = tail call i32 @strncmp(ptr noundef nonnull %59, ptr noundef nonnull %67, i64 noundef %64) #22
+  %74 = tail call i32 @strncmp(ptr noundef nonnull %59, ptr noundef nonnull %67, i64 noundef %64) #23
   %.not.i109.us.i = icmp eq i32 %74, 0
   br i1 %.not.i109.us.i, label %.loopexit.loopexit.split.loop.exit.i.us.i, label %75
 
@@ -6909,11 +6909,11 @@ CscPrefixMap_find.exit.us.i:                      ; preds = %75, %77, %.loopexit
   br i1 %.not7.i.us.i, label %101, label %99
 
 99:                                               ; preds = %95
-  %100 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %.0.i.us.i, ptr noundef %98) #22
+  %100 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %.0.i.us.i, ptr noundef %98) #23
   br label %Classifier_match.exit.us.i
 
 101:                                              ; preds = %95
-  %102 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0.i.us.i, ptr noundef nonnull dereferenceable(1) %98) #22
+  %102 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0.i.us.i, ptr noundef nonnull dereferenceable(1) %98) #23
   br label %Classifier_match.exit.us.i
 
 Classifier_match.exit.us.i:                       ; preds = %101, %99
@@ -6964,7 +6964,7 @@ Classifier_match.exit.thread.us.i:                ; preds = %109, %103, %Classif
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 448
   %122 = load ptr, ptr %121, align 32, !tbaa !54
   %123 = load ptr, ptr %122, align 8, !tbaa !81
-  %124 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %123, i32 noundef 46) #22
+  %124 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %123, i32 noundef 46) #23
   %.not.i.i = icmp eq ptr %124, null
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 1
   %.0.i.i = select i1 %.not.i.i, ptr %123, ptr %125
@@ -7004,7 +7004,7 @@ Classifier_match.exit.thread.us.i:                ; preds = %109, %103, %Classif
   br i1 %140, label %141, label %143
 
 141:                                              ; preds = %.lr.ph203
-  %142 = tail call i32 @strncmp(ptr noundef nonnull %123, ptr noundef nonnull %136, i64 noundef %128) #22
+  %142 = tail call i32 @strncmp(ptr noundef nonnull %123, ptr noundef nonnull %136, i64 noundef %128) #23
   %.not.i109.i = icmp eq i32 %142, 0
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i202, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -7118,7 +7118,7 @@ CscPrefixMap_find.exit.i:                         ; preds = %143, %141, %.lr.ph.
 DwaCompressor_classifyChannels.exit:              ; preds = %150, %202, %43, %.preheader.i
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %207 = load ptr, ptr %206, align 8, !tbaa !42
-  tail call void %207(ptr noundef nonnull %42) #20
+  tail call void %207(ptr noundef nonnull %42) #21
   %208 = load i32, ptr %31, align 8, !tbaa !45
   %.not158207 = icmp sgt i32 %208, 0
   br i1 %.not158207, label %.lr.ph213, label %254
@@ -7136,7 +7136,7 @@ DwaCompressor_classifyChannels.exit:              ; preds = %150, %202, %43, %.p
   %.0128200 = phi i64 [ 0, %.lr.ph ], [ %218, %214 ]
   %215 = getelementptr inbounds nuw %struct._Classifier, ptr %12, i64 %.0126201
   %.val = load ptr, ptr %215, align 8, !tbaa !83
-  %216 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val) #22
+  %216 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val) #23
   %217 = add i64 %.0128200, 3
   %218 = add i64 %217, %216
   %219 = add nuw i64 %.0126201, 1
@@ -7165,7 +7165,7 @@ DwaCompressor_classifyChannels.exit:              ; preds = %150, %202, %43, %.p
   ]
 
 230:                                              ; preds = %220
-  %231 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %24) #20
+  %231 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %24) #21
   %232 = tail call noundef i64 @llvm.umax.i64(i64 %213, i64 %231)
   %233 = add i64 %232, %.1129211
   %234 = add i64 %.0133210, 1
@@ -7214,10 +7214,10 @@ DwaCompressor_classifyChannels.exit:              ; preds = %150, %202, %43, %.p
   %.0133.lcssa = phi i64 [ %.3136.ph, %._crit_edge214 ], [ 0, %DwaCompressor_classifyChannels.exit ]
   %.1129.lcssa = phi i64 [ %.4132.ph, %._crit_edge214 ], [ %.0128.lcssa, %DwaCompressor_classifyChannels.exit ]
   store i64 %255, ptr %2, align 16
-  %256 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %.0137.lcssa) #20
-  %257 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %.0141.lcssa) #20
+  %256 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %.0137.lcssa) #21
+  %257 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %.0141.lcssa) #21
   %258 = mul i64 %.0133.lcssa, %25
-  %259 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %258) #20
+  %259 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %258) #21
   %260 = add i64 %.1129.lcssa, 88
   %261 = add i64 %260, %256
   %262 = add i64 %261, %257
@@ -7238,14 +7238,14 @@ DwaCompressor_classifyChannels.exit:              ; preds = %150, %202, %43, %.p
 
 271:                                              ; preds = %268
   %272 = load ptr, ptr %206, align 8, !tbaa !42
-  tail call void %272(ptr noundef nonnull %270) #20
+  tail call void %272(ptr noundef nonnull %270) #21
   %.pre246 = load i64, ptr %265, align 8, !tbaa !149
   br label %273
 
 273:                                              ; preds = %271, %268
   %274 = phi i64 [ %.pre246, %271 ], [ %264, %268 ]
   %275 = load ptr, ptr %29, align 8, !tbaa !41
-  %276 = tail call ptr %275(i64 noundef %274) #20
+  %276 = tail call ptr %275(i64 noundef %274) #21
   store ptr %276, ptr %269, align 8, !tbaa !91
   %.not160 = icmp eq ptr %276, null
   br i1 %.not160, label %DwaCompressor_classifyChannels.exit.thread, label %277
@@ -7270,14 +7270,14 @@ DwaCompressor_classifyChannels.exit:              ; preds = %150, %202, %43, %.p
 
 286:                                              ; preds = %283
   %287 = load ptr, ptr %206, align 8, !tbaa !42
-  tail call void %287(ptr noundef nonnull %285) #20
+  tail call void %287(ptr noundef nonnull %285) #21
   %.pre247 = load i64, ptr %280, align 8, !tbaa !152
   br label %288
 
 288:                                              ; preds = %286, %283
   %289 = phi i64 [ %.pre247, %286 ], [ %258, %283 ]
   %290 = load ptr, ptr %29, align 8, !tbaa !41
-  %291 = tail call ptr %290(i64 noundef %289) #20
+  %291 = tail call ptr %290(i64 noundef %289) #21
   store ptr %291, ptr %284, align 8, !tbaa !92
   %.not162 = icmp eq ptr %291, null
   br i1 %.not162, label %DwaCompressor_classifyChannels.exit.thread, label %292
@@ -7302,12 +7302,12 @@ DwaCompressor_classifyChannels.exit:              ; preds = %150, %202, %43, %.p
 
 301:                                              ; preds = %298
   %302 = load ptr, ptr %206, align 8, !tbaa !42
-  tail call void %302(ptr noundef nonnull %300) #20
+  tail call void %302(ptr noundef nonnull %300) #21
   br label %303
 
 303:                                              ; preds = %301, %298
   %304 = load ptr, ptr %29, align 8, !tbaa !41
-  %305 = tail call ptr %304(i64 noundef %.0137.lcssa) #20
+  %305 = tail call ptr %304(i64 noundef %.0137.lcssa) #21
   store ptr %305, ptr %299, align 8, !tbaa !135
   %.not164 = icmp eq ptr %305, null
   br i1 %.not164, label %DwaCompressor_classifyChannels.exit.thread, label %306
@@ -7321,7 +7321,7 @@ DwaCompressor_classifyChannels.exit:              ; preds = %150, %202, %43, %.p
   br i1 %.not165, label %310, label %308
 
 308:                                              ; preds = %307
-  %309 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %255) #20
+  %309 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %255) #21
   store i64 %309, ptr %2, align 16, !tbaa !74
   br label %310
 
@@ -7348,12 +7348,12 @@ DwaCompressor_classifyChannels.exit:              ; preds = %150, %202, %43, %.p
 
 322:                                              ; preds = %319
   %323 = load ptr, ptr %206, align 8, !tbaa !42
-  tail call void %323(ptr noundef nonnull %321) #20
+  tail call void %323(ptr noundef nonnull %321) #21
   br label %324
 
 324:                                              ; preds = %319, %322
   %325 = load ptr, ptr %29, align 8, !tbaa !41
-  %326 = tail call ptr %325(i64 noundef %315) #20
+  %326 = tail call ptr %325(i64 noundef %315) #21
   store ptr %326, ptr %320, align 8, !tbaa !97
   %.not167 = icmp eq ptr %326, null
   br i1 %.not167, label %DwaCompressor_classifyChannels.exit.thread, label %327
@@ -7370,7 +7370,7 @@ DwaCompressor_classifyChannels.exit.thread:       ; preds = %220, %327, %324, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @DwaCompressor_setupChannelData(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #9 {
+define internal fastcc void @DwaCompressor_setupChannelData(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #10 {
   %2 = alloca [3 x ptr], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -7520,7 +7520,7 @@ define internal fastcc range(i32 0, 2) i32 @DctCoderChannelData_push_row(ptr nou
   %13 = lshr i64 %12, 1
   %14 = select i1 %11, i64 16, i64 %13
   %15 = shl i64 %14, 3
-  %16 = tail call ptr %0(i64 noundef %15) #20
+  %16 = tail call ptr %0(i64 noundef %15) #21
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %29, label %17
 
@@ -7535,7 +7535,7 @@ define internal fastcc range(i32 0, 2) i32 @DctCoderChannelData_push_row(ptr nou
   %22 = shl i64 %21, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr nonnull align 8 %19, i64 %22, i1 false)
   %23 = load ptr, ptr %18, align 8, !tbaa !110
-  tail call void %1(ptr noundef %23) #20
+  tail call void %1(ptr noundef %23) #21
   br label %.thread
 
 .thread:                                          ; preds = %17, %20
@@ -7559,7 +7559,7 @@ define internal fastcc range(i32 0, 2) i32 @DctCoderChannelData_push_row(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @LossyDctEncoder_execute(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull captures(none) initializes((8, 24)) %2) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @LossyDctEncoder_execute(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull captures(none) initializes((8, 24)) %2) unnamed_addr #11 {
   %4 = alloca [3 x ptr], align 16
   %5 = alloca [64 x i16], align 16
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -7616,7 +7616,7 @@ define internal fastcc range(i32 0, 2) i32 @LossyDctEncoder_execute(ptr noundef 
 36:                                               ; preds = %._crit_edge
   %37 = sext i32 %.0134.lcssa to i64
   %38 = shl nsw i64 %37, 1
-  %39 = tail call ptr %0(i64 noundef %38) #20
+  %39 = tail call ptr %0(i64 noundef %38) #21
   %.not146 = icmp eq ptr %39, null
   br i1 %.not146, label %766, label %40
 
@@ -8880,7 +8880,7 @@ half_to_float.exit.us.us.us.us:                   ; preds = %754, %752, %741, %7
   br i1 %.not147, label %766, label %765
 
 765:                                              ; preds = %._crit_edge205
-  tail call void %1(ptr noundef nonnull %.0131) #20
+  tail call void %1(ptr noundef nonnull %.0131) #21
   br label %766
 
 766:                                              ; preds = %._crit_edge205, %765, %36
@@ -8891,7 +8891,7 @@ half_to_float.exit.us.us.us.us:                   ; preds = %754, %752, %741, %7
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 declare i32 @exr_compress_buffer(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -8903,26 +8903,26 @@ declare void @internal_zip_deconstruct_bytes(ptr noundef, ptr noundef, i64 nound
 
 declare i64 @internal_rle_compress(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.ceil.f32(float) #6
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.ceil.f32(float) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #12
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #12
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @LossyDctEncoder_base_construct(ptr noundef nonnull writeonly captures(none) initializes((0, 24), (52, 80)) %0, float noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #14 {
+define internal fastcc void @LossyDctEncoder_base_construct(ptr noundef nonnull writeonly captures(none) initializes((0, 24), (52, 80)) %0, float noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #15 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store float %1, ptr %8, align 4, !tbaa !241
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -9138,7 +9138,7 @@ float_to_half.exit42:                             ; preds = %99, %102, %112, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc zeroext i16 @algoQuantize(i32 noundef range(i32 0, 65536) %0, i32 noundef range(i32 0, 65536) %1, float noundef %2, float noundef %3) unnamed_addr #15 {
+define internal fastcc zeroext i16 @algoQuantize(i32 noundef range(i32 0, 65536) %0, i32 noundef range(i32 0, 65536) %1, float noundef %2, float noundef %3) unnamed_addr #16 {
   %5 = and i32 %0, 32768
   %6 = and i32 %0, 32767
   %7 = tail call float @llvm.fabs.f32(float %3)
@@ -11827,8 +11827,8 @@ handleQuantizeCloseExp.exit:                      ; preds = %half_to_float.exit1
   ret i16 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #6
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #8
 
 declare i32 @exr_uncompress_buffer(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -11839,7 +11839,7 @@ declare void @internal_zip_reconstruct_bytes(ptr noundef, ptr noundef, i64 nound
 declare i64 @internal_rle_decompress(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 24) i32 @LossyDctDecoder_execute(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #10 {
+define internal fastcc range(i32 0, 24) i32 @LossyDctDecoder_execute(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #11 {
   %4 = alloca [3 x ptr], align 16
   %5 = alloca [3 x ptr], align 16
   %6 = alloca [3 x ptr], align 16
@@ -11891,7 +11891,7 @@ define internal fastcc range(i32 0, 24) i32 @LossyDctDecoder_execute(ptr noundef
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader355
   %40 = shl i64 %32, 7
   %41 = or disjoint i64 %40, 32
-  %42 = tail call ptr %0(i64 noundef %41) #20
+  %42 = tail call ptr %0(i64 noundef %41) #21
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %638, label %43
 
@@ -12155,7 +12155,7 @@ half_to_float.exit:                               ; preds = %163, %165, %167, %1
 
 183:                                              ; preds = %150
   %184 = load ptr, ptr @fromHalfZigZag, align 8, !tbaa !14
-  tail call void %184(ptr noundef nonnull %126, ptr noundef %125) #20, !callees !249
+  tail call void %184(ptr noundef nonnull %126, ptr noundef %125) #21, !callees !249
   %185 = icmp slt i32 %.1.i, 2
   br i1 %185, label %.loopexit349.sink.split, label %186
 
@@ -12187,7 +12187,7 @@ half_to_float.exit:                               ; preds = %163, %165, %167, %1
 .loopexit349.sink.split:                          ; preds = %196, %194, %192, %190, %188, %186, %183
   %dctInverse8x8_7.sink = phi ptr [ @dctInverse8x8_7, %183 ], [ @dctInverse8x8_6, %186 ], [ @dctInverse8x8_5, %188 ], [ @dctInverse8x8_4, %190 ], [ @dctInverse8x8_3, %192 ], [ @dctInverse8x8_2, %194 ], [ %dctInverse8x8_1.dctInverse8x8_0, %196 ]
   %198 = load ptr, ptr %dctInverse8x8_7.sink, align 8, !tbaa !14
-  tail call void %198(ptr noundef nonnull %125) #20
+  tail call void %198(ptr noundef nonnull %125) #21
   br label %.loopexit349
 
 .loopexit349:                                     ; preds = %181, %.loopexit349.sink.split
@@ -12481,7 +12481,7 @@ half_to_float.exit:                               ; preds = %163, %165, %167, %1
   %408 = getelementptr inbounds nuw i16, ptr %407, i64 %404
   %409 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv466
   %410 = load ptr, ptr %409, align 8, !tbaa !116
-  tail call void %405(ptr noundef %408, ptr noundef %410) #20, !callees !251
+  tail call void %405(ptr noundef %408, ptr noundef %410) #21, !callees !251
   %indvars.iv.next467 = add nuw nsw i64 %indvars.iv466, 1
   %exitcond470.not = icmp eq i64 %indvars.iv.next467, %wide.trip.count469
   br i1 %exitcond470.not, label %._crit_edge381, label %.lr.ph380.split.us, !llvm.loop !252
@@ -12910,7 +12910,7 @@ half_to_float.exit305.us:                         ; preds = %634, %632, %621, %6
 
 .sink.split:                                      ; preds = %135, %.loopexit, %.preheader346
   %.0246.ph = phi i32 [ 0, %.preheader346 ], [ 0, %.loopexit ], [ 23, %135 ]
-  tail call void %1(ptr noundef nonnull %42) #20
+  tail call void %1(ptr noundef nonnull %42) #21
   br label %638
 
 638:                                              ; preds = %.sink.split, %._crit_edge, %3
@@ -12922,7 +12922,7 @@ half_to_float.exit305.us:                         ; preds = %634, %632, %621, %6
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @interleaveByte2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #8 {
+define internal fastcc void @interleaveByte2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #9 {
   %5 = ptrtoint ptr %0 to i64
   %6 = trunc i64 %5 to i32
   %7 = ptrtoint ptr %1 to i64
@@ -13139,31 +13139,31 @@ define internal fastcc void @interleaveByte2(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #16
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #18
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #19
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #18
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #19
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.ctpop.i16(i16) #18
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.ctpop.i16(i16) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #19
+declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #18
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #19
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #18
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #19
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -13173,21 +13173,22 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #20 = { nounwind }
-attributes #21 = { nounwind memory(none) }
-attributes #22 = { nounwind willreturn memory(read) }
+attributes #8 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #21 = { nounwind }
+attributes #22 = { nounwind memory(none) }
+attributes #23 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

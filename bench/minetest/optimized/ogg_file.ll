@@ -157,11 +157,11 @@ delete.notnull:                                   ; preds = %entry
   br i1 %cmp.i.i.i.i, label %_ZN5sound21OggVorbisBufferSourceD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %delete.notnull
-  tail call void @_ZdlPv(ptr noundef %0) #18
+  tail call void @_ZdlPv(ptr noundef %0) #19
   br label %_ZN5sound21OggVorbisBufferSourceD2Ev.exit
 
 _ZN5sound21OggVorbisBufferSourceD2Ev.exit:        ; preds = %delete.notnull, %if.then.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %datasource) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %datasource) #19
   br label %delete.end
 
 delete.end:                                       ; preds = %_ZN5sound21OggVorbisBufferSourceD2Ev.exit, %entry
@@ -209,7 +209,7 @@ lpad:                                             ; preds = %invoke.cont23, %if.
   br i1 %cmp.i.i.i.i, label %_ZN5sound17OggFileDecodeInfoD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad
-  call void @_ZdlPv(ptr noundef %2) #18
+  call void @_ZdlPv(ptr noundef %2) #19
   br label %_ZN5sound17OggFileDecodeInfoD2Ev.exit
 
 _ZN5sound17OggFileDecodeInfoD2Ev.exit:            ; preds = %lpad, %if.then.i.i.i
@@ -285,7 +285,7 @@ if.then.i41:                                      ; preds = %invoke.cont15
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i52, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 if.then.i.i.i52:                                  ; preds = %if.then.i41
-  invoke void @_ZSt16__throw_bad_castv() #19
+  invoke void @_ZSt16__throw_bad_castv() #20
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i.i.i52
@@ -390,7 +390,7 @@ cleanup:                                          ; preds = %_ZNSt8optionalIN5so
   br i1 %cmp.i.i.i.i45, label %_ZN5sound17OggFileDecodeInfoD2Ev.exit50, label %if.then.i.i.i46
 
 if.then.i.i.i46:                                  ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef %21) #18
+  call void @_ZdlPv(ptr noundef %21) #19
   br label %_ZN5sound17OggFileDecodeInfoD2Ev.exit50
 
 _ZN5sound17OggFileDecodeInfoD2Ev.exit50:          ; preds = %cleanup, %if.then.i.i.i46
@@ -467,7 +467,7 @@ if.then.i97:                                      ; preds = %_ZN11StreamProxylsI
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i97
-  tail call void @_ZSt16__throw_bad_castv() #19
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %if.then.i97
@@ -505,7 +505,7 @@ if.end10:                                         ; preds = %if.then, %entry
   %bytes_per_sample = getelementptr inbounds nuw i8, ptr %decode_info, i64 40
   %11 = load i64, ptr %bytes_per_sample, align 8, !tbaa !48
   %mul = mul i64 %11, %conv11
-  %call12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %mul) #20
+  %call12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %mul) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %bitStream)
   %cmp13237.not = icmp eq i64 %mul, 0
   br i1 %cmp13237.not, label %while.end, label %while.body
@@ -582,7 +582,7 @@ if.then.i116:                                     ; preds = %invoke.cont25
   br i1 %tobool.not.i.i.i168, label %if.then.i.i.i180, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i169
 
 if.then.i.i.i180:                                 ; preds = %if.then.i116
-  invoke void @_ZSt16__throw_bad_castv() #19
+  invoke void @_ZSt16__throw_bad_castv() #20
           to label %.noexc181 unwind label %lpad.loopexit.split-lp
 
 .noexc181:                                        ; preds = %if.then.i.i.i180
@@ -634,7 +634,7 @@ lpad.loopexit.split-lp:                           ; preds = %call1.i175.noexc, %
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit159
 
 while.end:                                        ; preds = %while.cond, %if.end10
-  call void @_ZN5sound17RAIIALSoundBuffer8generateEv(ptr dead_on_unwind writable sret(%"struct.sound::RAIIALSoundBuffer") align 4 %agg.result) #21
+  call void @_ZN5sound17RAIIALSoundBuffer8generateEv(ptr dead_on_unwind writable sret(%"struct.sound::RAIIALSoundBuffer") align 4 %agg.result) #22
   %23 = load i32, ptr %agg.result, align 4, !tbaa !53
   %format = getelementptr inbounds nuw i8, ptr %decode_info, i64 36
   %24 = load i32, ptr %format, align 4, !tbaa !47
@@ -697,7 +697,7 @@ _ZN5sound16getAlErrorStringEi.exit:               ; preds = %switch.lookup, %inv
   br i1 %tobool.not.i131, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %_ZN5sound16getAlErrorStringEi.exit
-  %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #21
+  %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #22
   %call1.i.i135 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull %retval.0.i, i64 noundef %call.i.i.i)
           to label %invoke.cont45 unwind label %lpad44
 
@@ -747,7 +747,7 @@ if.then.i153:                                     ; preds = %invoke.cont52
   br i1 %tobool.not.i.i.i192, label %if.then.i.i.i205, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i193
 
 if.then.i.i.i205:                                 ; preds = %if.then.i153
-  invoke void @_ZSt16__throw_bad_castv() #19
+  invoke void @_ZSt16__throw_bad_castv() #20
           to label %.noexc206 unwind label %lpad44
 
 .noexc206:                                        ; preds = %if.then.i.i.i205
@@ -801,18 +801,18 @@ lpad44:                                           ; preds = %call1.i200.noexc, %
 
 ehcleanup59:                                      ; preds = %lpad44, %lpad36, %lpad31
   %.pn.pn = phi { ptr, i32 } [ %40, %lpad31 ], [ %42, %lpad44 ], [ %41, %lpad36 ]
-  call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %agg.result, i32 noundef 0) #21
+  call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %agg.result, i32 noundef 0) #22
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit159
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %call1.i200.noexc, %invoke.cont52, %invoke.cont50, %invoke.cont47, %invoke.cont45, %_ZN5sound16getAlErrorStringEi.exit, %invoke.cont37, %cleanup.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %bitStream)
-  call void @_ZdaPv(ptr noundef nonnull %call12) #18
+  call void @_ZdaPv(ptr noundef nonnull %call12) #19
   br label %cleanup70
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit159: ; preds = %ehcleanup59, %lpad.loopexit.split-lp, %lpad.loopexit
   %.pn94 = phi { ptr, i32 } [ %.pn.pn, %ehcleanup59 ], [ %lpad.loopexit235, %lpad.loopexit ], [ %lpad.loopexit.split-lp236, %lpad.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %bitStream)
-  call void @_ZdaPv(ptr noundef nonnull %call12) #18
+  call void @_ZdaPv(ptr noundef nonnull %call12) #19
   resume { ptr, i32 } %.pn94
 
 cleanup70:                                        ; preds = %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit, %_ZN11StreamProxylsEPFRSoS0_E.exit
@@ -861,7 +861,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
 define internal void @_GLOBAL__sub_I_ogg_file.cpp() #13 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #21
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #22
   ret void
 }
 
@@ -873,20 +873,20 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #14
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #15
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #14
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #16
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #14
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
-declare ptr @llvm.load.relative.i64(ptr, i64) #16
+declare ptr @llvm.load.relative.i64(ptr, i64) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 attributes #0 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -904,12 +904,13 @@ attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #13 = { uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { builtin nounwind }
-attributes #19 = { noreturn }
-attributes #20 = { builtin allocsize(0) }
-attributes #21 = { nounwind }
+attributes #16 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { builtin nounwind }
+attributes #20 = { noreturn }
+attributes #21 = { builtin allocsize(0) }
+attributes #22 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -15,11 +15,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_BlendPoint(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext %7) local_unnamed_addr #0 {
-  %9 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %0) #4
+  %9 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %0) #5
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #4
+  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #5
   br label %82
 
 12:                                               ; preds = %8
@@ -33,7 +33,7 @@ define hidden zeroext i1 @SDL_BlendPoint(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %or.cond98, label %.critedge, label %18
 
 .critedge:                                        ; preds = %12
-  %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2) #4
+  %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2) #5
   br label %82
 
 18:                                               ; preds = %12
@@ -2507,7 +2507,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   br label %1006
 
 1004:                                             ; preds = %8
-  %1005 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5) #4
+  %1005 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5) #5
   br label %1006
 
 1006:                                             ; preds = %519, %608, %697, %780, %863, %958, %19, %110, %201, %286, %371, %468, %1004
@@ -3190,7 +3190,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGBA(ptr noundef readonly captures(no
   br label %609
 
 607:                                              ; preds = %8
-  %608 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5) #4
+  %608 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5) #5
   br label %609
 
 609:                                              ; preds = %19, %129, %239, %340, %441, %554, %607
@@ -3200,11 +3200,11 @@ define internal zeroext i1 @SDL_BlendPoint_RGBA(ptr noundef readonly captures(no
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_BlendPoints(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext %7) local_unnamed_addr #0 {
-  %9 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %0) #4
+  %9 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %0) #5
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #4
+  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #5
   br label %.loopexit
 
 12:                                               ; preds = %8
@@ -3216,7 +3216,7 @@ define hidden zeroext i1 @SDL_BlendPoints(ptr noundef %0, ptr noundef readonly c
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %12
-  %19 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4) #4
+  %19 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4) #5
   br label %.loopexit
 
 20:                                               ; preds = %12
@@ -3321,7 +3321,7 @@ define hidden zeroext i1 @SDL_BlendPoints(ptr noundef %0, ptr noundef readonly c
   br i1 %or.cond69, label %68, label %70
 
 68:                                               ; preds = %.lr.ph
-  %69 = tail call zeroext i1 %.152(ptr noundef %0, i32 noundef %63, i32 noundef %65, i32 noundef %3, i8 noundef zeroext %.054, i8 noundef zeroext %.056, i8 noundef zeroext %.057, i8 noundef zeroext %7) #4
+  %69 = tail call zeroext i1 %.152(ptr noundef %0, i32 noundef %63, i32 noundef %65, i32 noundef %3, i8 noundef zeroext %.054, i8 noundef zeroext %.056, i8 noundef zeroext %.057, i8 noundef zeroext %7) #5
   br label %70
 
 70:                                               ; preds = %.lr.ph, %68
@@ -3335,23 +3335,24 @@ define hidden zeroext i1 @SDL_BlendPoints(ptr noundef %0, ptr noundef readonly c
   ret i1 %.053
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #3
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #3 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

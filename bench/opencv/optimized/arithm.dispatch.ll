@@ -526,7 +526,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEhNS_12hal_baseline5v_regIhLi16EEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #12
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %29
@@ -556,7 +556,7 @@ define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr nound
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #12
+  tail call void @__clang_call_terminate(ptr %8) #13
   unreachable
 }
 
@@ -616,7 +616,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEaNS_12hal_baseline5v_regIaLi16EEE
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #12
+  call void @__clang_call_terminate(ptr %27) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %24
@@ -687,7 +687,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEtNS_12hal_baseline5v_regItLi8EEEE
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #12
+  call void @__clang_call_terminate(ptr %34) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %31
@@ -754,7 +754,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEsNS_12hal_baseline5v_regIsLi8EEEE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #12
+  call void @__clang_call_terminate(ptr %30) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %27
@@ -821,7 +821,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEiNS_12hal_baseline5v_regIiLi4EEEE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #12
+  call void @__clang_call_terminate(ptr %30) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %27
@@ -888,7 +888,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEfNS_12hal_baseline5v_regIfLi4EEEE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #12
+  call void @__clang_call_terminate(ptr %30) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %27
@@ -1040,7 +1040,7 @@ _ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_6op_addEdiEEvPKT0_mS6_mPS4_mii.ex
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #12
+  call void @__clang_call_terminate(ptr %79) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_6op_addEdiEEvPKT0_mS6_mPS4_mii.exit, %76
@@ -1109,7 +1109,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEhNS_12hal_baseline5v_regIhLi16EEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #12
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %29
@@ -1173,7 +1173,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEaNS_12hal_baseline5v_regIaLi16EEE
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #12
+  call void @__clang_call_terminate(ptr %27) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %24
@@ -1244,7 +1244,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEtNS_12hal_baseline5v_regItLi8EEEE
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #12
+  call void @__clang_call_terminate(ptr %34) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %31
@@ -1311,7 +1311,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEsNS_12hal_baseline5v_regIsLi8EEEE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #12
+  call void @__clang_call_terminate(ptr %30) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %27
@@ -1378,7 +1378,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEiNS_12hal_baseline5v_regIiLi4EEEE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #12
+  call void @__clang_call_terminate(ptr %30) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %27
@@ -1445,7 +1445,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEfNS_12hal_baseline5v_regIfLi4EEEE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #12
+  call void @__clang_call_terminate(ptr %30) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %27
@@ -1597,7 +1597,7 @@ _ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_6op_subEdiEEvPKT0_mS6_mPS4_mii.ex
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #12
+  call void @__clang_call_terminate(ptr %79) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_6op_subEdiEEvPKT0_mS6_mPS4_mii.exit, %76
@@ -1667,7 +1667,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEhNS_12hal_baseline5v_regIhLi16EEE
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #12
+  call void @__clang_call_terminate(ptr %33) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %30
@@ -1731,7 +1731,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEaNS_12hal_baseline5v_regIaLi16EEE
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #12
+  call void @__clang_call_terminate(ptr %26) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %23
@@ -1798,7 +1798,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEtNS_12hal_baseline5v_regItLi8EEEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #12
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %26
@@ -1865,7 +1865,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEsNS_12hal_baseline5v_regIsLi8EEEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #12
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %26
@@ -1932,7 +1932,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEiNS_12hal_baseline5v_regIiLi4EEEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #12
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %26
@@ -2000,7 +2000,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEfNS_12hal_baseline5v_regIfLi4EEEE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #12
+  call void @__clang_call_terminate(ptr %30) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %27
@@ -2158,7 +2158,7 @@ _ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_6op_minEdiEEvPKT0_mS6_mPS4_mii.ex
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #12
+  call void @__clang_call_terminate(ptr %79) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_6op_minEdiEEvPKT0_mS6_mPS4_mii.exit, %76
@@ -2228,7 +2228,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEE
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #12
+  call void @__clang_call_terminate(ptr %33) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %30
@@ -2292,7 +2292,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEaNS_12hal_baseline5v_regIaLi16EEE
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #12
+  call void @__clang_call_terminate(ptr %26) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %23
@@ -2359,7 +2359,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEtNS_12hal_baseline5v_regItLi8EEEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #12
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %26
@@ -2426,7 +2426,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEsNS_12hal_baseline5v_regIsLi8EEEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #12
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %26
@@ -2493,7 +2493,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEiNS_12hal_baseline5v_regIiLi4EEEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #12
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %26
@@ -2561,7 +2561,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEfNS_12hal_baseline5v_regIfLi4EEEE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #12
+  call void @__clang_call_terminate(ptr %30) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %27
@@ -2719,7 +2719,7 @@ _ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_6op_maxEdiEEvPKT0_mS6_mPS4_mii.ex
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #12
+  call void @__clang_call_terminate(ptr %79) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_6op_maxEdiEEvPKT0_mS6_mPS4_mii.exit, %76
@@ -2786,7 +2786,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEhNS_12hal_baseline5v_regIhLi
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #12
+  call void @__clang_call_terminate(ptr %30) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %27
@@ -2855,7 +2855,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEaNS_12hal_baseline5v_regIaLi
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #12
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %29
@@ -2925,7 +2925,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEtNS_12hal_baseline5v_regItLi
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #12
+  call void @__clang_call_terminate(ptr %33) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %30
@@ -2997,7 +2997,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEsNS_12hal_baseline5v_regIsLi
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #12
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %32
@@ -3065,7 +3065,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEiNS_12hal_baseline5v_regIiLi
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #12
+  call void @__clang_call_terminate(ptr %31) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %28
@@ -3133,7 +3133,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEfNS_12hal_baseline5v_regIfLi
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #12
+  call void @__clang_call_terminate(ptr %31) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %28
@@ -3291,7 +3291,7 @@ _ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_10op_absdiffEdiEEvPKT0_mS6_mPS4_m
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #12
+  call void @__clang_call_terminate(ptr %85) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_10op_absdiffEdiEEvPKT0_mS6_mPS4_mii.exit, %82
@@ -3355,7 +3355,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_5op_orEhNS_12hal_baseline5v_regIhLi16EEEE
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #12
+  call void @__clang_call_terminate(ptr %27) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_5op_orEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %24
@@ -3419,7 +3419,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_xorEhNS_12hal_baseline5v_regIhLi16EEE
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #12
+  call void @__clang_call_terminate(ptr %27) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_xorEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %24
@@ -3483,7 +3483,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_andEhNS_12hal_baseline5v_regIhLi16EEE
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #12
+  call void @__clang_call_terminate(ptr %27) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_andEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %24
@@ -3543,7 +3543,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_notEhNS_12hal_baseline5v_regIhLi16EEE
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #12
+  call void @__clang_call_terminate(ptr %24) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_notEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %21
@@ -3769,7 +3769,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5cmp8uEPKhmS3_mPhmiii(ptr noundef re
           to label %.noexc unwind label %110
 
 .noexc:                                           ; preds = %83
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #13
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #14
           to label %84 unwind label %85
 
 84:                                               ; preds = %.noexc
@@ -3784,7 +3784,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5cmp8uEPKhmS3_mPhmiii(ptr noundef re
   br i1 %89, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %85
-  call void @_ZdlPv(ptr noundef %87) #14
+  call void @_ZdlPv(ptr noundef %87) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %85, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -3845,7 +3845,7 @@ _ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_m
   %108 = landingpad { ptr, i32 }
           catch ptr null
   %109 = extractvalue { ptr, i32 } %108, 0
-  call void @__clang_call_terminate(ptr %109) #12
+  call void @__clang_call_terminate(ptr %109) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii.exit, %106
@@ -3859,7 +3859,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_bas
 
 .body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %110
   %eh.lpad-body = phi { ptr, i32 } [ %111, %110 ], [ %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -4082,7 +4082,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5cmp8sEPKamS3_mPhmiii(ptr noundef re
           to label %.noexc unwind label %110
 
 .noexc:                                           ; preds = %83
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #13
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #14
           to label %84 unwind label %85
 
 84:                                               ; preds = %.noexc
@@ -4097,7 +4097,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5cmp8sEPKamS3_mPhmiii(ptr noundef re
   br i1 %89, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %85
-  call void @_ZdlPv(ptr noundef %87) #14
+  call void @_ZdlPv(ptr noundef %87) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %85, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -4158,7 +4158,7 @@ _ZN2cv3hal12cpu_baselineL8cmp_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_m
   %108 = landingpad { ptr, i32 }
           catch ptr null
   %109 = extractvalue { ptr, i32 } %108, 0
-  call void @__clang_call_terminate(ptr %109) #12
+  call void @__clang_call_terminate(ptr %109) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPhmiii.exit, %106
@@ -4172,7 +4172,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_bas
 
 .body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %110
   %eh.lpad-body = phi { ptr, i32 } [ %111, %110 ], [ %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -4405,7 +4405,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16uEPKtmS3_mPhmiii(ptr noundef r
           to label %.noexc unwind label %122
 
 .noexc:                                           ; preds = %93
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #13
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #14
           to label %94 unwind label %95
 
 94:                                               ; preds = %.noexc
@@ -4420,7 +4420,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16uEPKtmS3_mPhmiii(ptr noundef r
   br i1 %99, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %95
-  call void @_ZdlPv(ptr noundef %97) #14
+  call void @_ZdlPv(ptr noundef %97) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %95, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -4483,7 +4483,7 @@ _ZN2cv3hal12cpu_baselineL8cmp_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mP
   %120 = landingpad { ptr, i32 }
           catch ptr null
   %121 = extractvalue { ptr, i32 } %120, 0
-  call void @__clang_call_terminate(ptr %121) #12
+  call void @__clang_call_terminate(ptr %121) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPhmiii.exit, %118
@@ -4497,7 +4497,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_bas
 
 .body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %122
   %eh.lpad-body = phi { ptr, i32 } [ %123, %122 ], [ %96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -4730,7 +4730,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16sEPKsmS3_mPhmiii(ptr noundef r
           to label %.noexc unwind label %122
 
 .noexc:                                           ; preds = %93
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #13
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #14
           to label %94 unwind label %95
 
 94:                                               ; preds = %.noexc
@@ -4745,7 +4745,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16sEPKsmS3_mPhmiii(ptr noundef r
   br i1 %99, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %95
-  call void @_ZdlPv(ptr noundef %97) #14
+  call void @_ZdlPv(ptr noundef %97) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %95, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -4808,7 +4808,7 @@ _ZN2cv3hal12cpu_baselineL8cmp_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mP
   %120 = landingpad { ptr, i32 }
           catch ptr null
   %121 = extractvalue { ptr, i32 } %120, 0
-  call void @__clang_call_terminate(ptr %121) #12
+  call void @__clang_call_terminate(ptr %121) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPhmiii.exit, %118
@@ -4822,7 +4822,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_bas
 
 .body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %122
   %eh.lpad-body = phi { ptr, i32 } [ %123, %122 ], [ %96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -5055,7 +5055,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32sEPKimS3_mPhmiii(ptr noundef r
           to label %.noexc unwind label %122
 
 .noexc:                                           ; preds = %93
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #13
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #14
           to label %94 unwind label %95
 
 94:                                               ; preds = %.noexc
@@ -5070,7 +5070,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32sEPKimS3_mPhmiii(ptr noundef r
   br i1 %99, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %95
-  call void @_ZdlPv(ptr noundef %97) #14
+  call void @_ZdlPv(ptr noundef %97) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %95, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -5133,7 +5133,7 @@ _ZN2cv3hal12cpu_baselineL8cmp_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mP
   %120 = landingpad { ptr, i32 }
           catch ptr null
   %121 = extractvalue { ptr, i32 } %120, 0
-  call void @__clang_call_terminate(ptr %121) #12
+  call void @__clang_call_terminate(ptr %121) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPhmiii.exit, %118
@@ -5147,7 +5147,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_bas
 
 .body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %122
   %eh.lpad-body = phi { ptr, i32 } [ %123, %122 ], [ %96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -5380,7 +5380,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32fEPKfmS3_mPhmiii(ptr noundef r
           to label %.noexc unwind label %122
 
 .noexc:                                           ; preds = %93
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #13
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #14
           to label %94 unwind label %95
 
 94:                                               ; preds = %.noexc
@@ -5395,7 +5395,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32fEPKfmS3_mPhmiii(ptr noundef r
   br i1 %99, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %95
-  call void @_ZdlPv(ptr noundef %97) #14
+  call void @_ZdlPv(ptr noundef %97) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %95, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -5458,7 +5458,7 @@ _ZN2cv3hal12cpu_baselineL8cmp_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mP
   %120 = landingpad { ptr, i32 }
           catch ptr null
   %121 = extractvalue { ptr, i32 } %120, 0
-  call void @__clang_call_terminate(ptr %121) #12
+  call void @__clang_call_terminate(ptr %121) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPhmiii.exit, %118
@@ -5472,7 +5472,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_bas
 
 .body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %122
   %eh.lpad-body = phi { ptr, i32 } [ %123, %122 ], [ %96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -6155,7 +6155,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
           to label %.noexc unwind label %446
 
 .noexc:                                           ; preds = %363
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 820) #13
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 820) #14
           to label %364 unwind label %365
 
 364:                                              ; preds = %.noexc
@@ -6170,7 +6170,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   br i1 %369, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %365
-  call void @_ZdlPv(ptr noundef %367) #14
+  call void @_ZdlPv(ptr noundef %367) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %365, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -6323,7 +6323,7 @@ _ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit: ; preds = %._cri
   %444 = landingpad { ptr, i32 }
           catch ptr null
   %445 = extractvalue { ptr, i32 } %444, 0
-  call void @__clang_call_terminate(ptr %445) #12
+  call void @__clang_call_terminate(ptr %445) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, %442
@@ -6337,7 +6337,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_bas
 
 .body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %446
   %eh.lpad-body = phi { ptr, i32 } [ %447, %446 ], [ %366, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -6459,7 +6459,7 @@ _ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_m
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #12
+  call void @__clang_call_terminate(ptr %63) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, %60
@@ -6579,7 +6579,7 @@ _ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_m
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #12
+  call void @__clang_call_terminate(ptr %58) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, %55
@@ -6701,7 +6701,7 @@ _ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mP
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #12
+  call void @__clang_call_terminate(ptr %60) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, %57
@@ -6824,7 +6824,7 @@ _ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mP
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #12
+  call void @__clang_call_terminate(ptr %61) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, %58
@@ -7045,7 +7045,7 @@ _ZN2cv3hal12cpu_baselineL10mul_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8
   %120 = landingpad { ptr, i32 }
           catch ptr null
   %121 = extractvalue { ptr, i32 } %120, 0
-  call void @__clang_call_terminate(ptr %121) #12
+  call void @__clang_call_terminate(ptr %121) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10mul_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, %118
@@ -7272,7 +7272,7 @@ _ZN2cv3hal12cpu_baselineL10mul_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8
   %126 = landingpad { ptr, i32 }
           catch ptr null
   %127 = extractvalue { ptr, i32 } %126, 0
-  call void @__clang_call_terminate(ptr %127) #12
+  call void @__clang_call_terminate(ptr %127) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10mul_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, %124
@@ -7560,7 +7560,7 @@ _ZN2cv3hal12cpu_baselineL10mul_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit: ; preds = %
   %153 = landingpad { ptr, i32 }
           catch ptr null
   %154 = extractvalue { ptr, i32 } %153, 0
-  call void @__clang_call_terminate(ptr %154) #12
+  call void @__clang_call_terminate(ptr %154) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10mul_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit, %151
@@ -7648,7 +7648,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_m
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #12
+  call void @__clang_call_terminate(ptr %45) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, %42
@@ -7730,7 +7730,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_m
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #12
+  call void @__clang_call_terminate(ptr %39) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, %36
@@ -7815,7 +7815,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mP
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #12
+  call void @__clang_call_terminate(ptr %42) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, %39
@@ -7900,7 +7900,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mP
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #12
+  call void @__clang_call_terminate(ptr %42) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, %39
@@ -7982,7 +7982,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mP
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #12
+  call void @__clang_call_terminate(ptr %39) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, %36
@@ -8186,7 +8186,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mP
   %103 = landingpad { ptr, i32 }
           catch ptr null
   %104 = extractvalue { ptr, i32 } %103, 0
-  call void @__clang_call_terminate(ptr %104) #12
+  call void @__clang_call_terminate(ptr %104) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, %101
@@ -8474,7 +8474,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIdiEEvPKT_mS5_mPS3_miiPKd.exit: ; preds = %._c
   %153 = landingpad { ptr, i32 }
           catch ptr null
   %154 = extractvalue { ptr, i32 } %153, 0
-  call void @__clang_call_terminate(ptr %154) #12
+  call void @__clang_call_terminate(ptr %154) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIdiEEvPKT_mS5_mPS3_miiPKd.exit, %151
@@ -8612,7 +8612,7 @@ _ZN2cv3hal12cpu_baselineL17add_weighted_loopIhNS_12hal_baseline5v_regIhLi16EEEEE
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #12
+  call void @__clang_call_terminate(ptr %76) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL17add_weighted_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, %73
@@ -8741,7 +8741,7 @@ _ZN2cv3hal12cpu_baselineL17add_weighted_loopIaNS_12hal_baseline5v_regIaLi16EEEEE
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #12
+  call void @__clang_call_terminate(ptr %67) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL17add_weighted_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, %64
@@ -8873,7 +8873,7 @@ _ZN2cv3hal12cpu_baselineL17add_weighted_loopItNS_12hal_baseline5v_regItLi8EEEEEv
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #12
+  call void @__clang_call_terminate(ptr %70) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL17add_weighted_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, %67
@@ -9005,7 +9005,7 @@ _ZN2cv3hal12cpu_baselineL17add_weighted_loopIsNS_12hal_baseline5v_regIsLi8EEEEEv
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #12
+  call void @__clang_call_terminate(ptr %70) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL17add_weighted_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, %67
@@ -9362,7 +9362,7 @@ _ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIiNS_12hal_baseline5v_regIiLi4EEEE
   %219 = landingpad { ptr, i32 }
           catch ptr null
   %220 = extractvalue { ptr, i32 } %219, 0
-  call void @__clang_call_terminate(ptr %220) #12
+  call void @__clang_call_terminate(ptr %220) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, %217
@@ -9707,7 +9707,7 @@ _ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIfNS_12hal_baseline5v_regIfLi4EEEE
   %207 = landingpad { ptr, i32 }
           catch ptr null
   %208 = extractvalue { ptr, i32 } %207, 0
-  call void @__clang_call_terminate(ptr %208) #12
+  call void @__clang_call_terminate(ptr %208) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, %205
@@ -10026,7 +10026,7 @@ _ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit: ; 
   %181 = landingpad { ptr, i32 }
           catch ptr null
   %182 = extractvalue { ptr, i32 } %181, 0
-  call void @__clang_call_terminate(ptr %182) #12
+  call void @__clang_call_terminate(ptr %182) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit, %179
@@ -10105,7 +10105,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mP
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #12
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.exit, %32
@@ -10181,7 +10181,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mP
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #12
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.exit, %29
@@ -10259,7 +10259,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #12
+  call void @__clang_call_terminate(ptr %34) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.exit, %31
@@ -10337,7 +10337,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #12
+  call void @__clang_call_terminate(ptr %34) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.exit, %31
@@ -10412,7 +10412,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #12
+  call void @__clang_call_terminate(ptr %31) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.exit, %28
@@ -10476,7 +10476,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #12
+  call void @__clang_call_terminate(ptr %26) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.exit, %23
@@ -10615,7 +10615,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIdiEEvPKT_mPS3_miiPKd.exit: ; preds = %._cr
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #12
+  call void @__clang_call_terminate(ptr %67) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIdiEEvPKT_mPS3_miiPKd.exit, %64
@@ -10690,7 +10690,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEhNS_12hal_baseline5v_regIhLi16EEE
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #12
+  call void @__clang_call_terminate(ptr %34) #13
   unreachable
 
 .critedge:                                        ; preds = %31, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -10708,7 +10708,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEhNS_12hal_baseline5v_regIhLi16EEE
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #12
+  call void @__clang_call_terminate(ptr %40) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
@@ -10718,7 +10718,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
 41:                                               ; preds = %9
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %42
 }
@@ -10788,7 +10788,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEaNS_12hal_baseline5v_regIaLi16EEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #12
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 .critedge:                                        ; preds = %26, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -10806,7 +10806,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEaNS_12hal_baseline5v_regIaLi16EEE
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #12
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
@@ -10816,7 +10816,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
 36:                                               ; preds = %9
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %37
 }
@@ -10890,7 +10890,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEtNS_12hal_baseline5v_regItLi8EEEE
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #12
+  call void @__clang_call_terminate(ptr %36) #13
   unreachable
 
 .critedge:                                        ; preds = %33, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -10908,7 +10908,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEtNS_12hal_baseline5v_regItLi8EEEE
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #12
+  call void @__clang_call_terminate(ptr %42) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %39
@@ -10918,7 +10918,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %39
 43:                                               ; preds = %9
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %44
 }
@@ -10988,7 +10988,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEsNS_12hal_baseline5v_regIsLi8EEEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #12
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -11006,7 +11006,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEsNS_12hal_baseline5v_regIsLi8EEEE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #12
+  call void @__clang_call_terminate(ptr %38) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
@@ -11016,7 +11016,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
@@ -11086,7 +11086,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEiNS_12hal_baseline5v_regIiLi4EEEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #12
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -11104,7 +11104,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEiNS_12hal_baseline5v_regIiLi4EEEE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #12
+  call void @__clang_call_terminate(ptr %38) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
@@ -11114,7 +11114,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
@@ -11184,7 +11184,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEfNS_12hal_baseline5v_regIfLi4EEEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #12
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -11202,7 +11202,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEfNS_12hal_baseline5v_regIfLi4EEEE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #12
+  call void @__clang_call_terminate(ptr %38) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
@@ -11212,7 +11212,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
@@ -11239,7 +11239,7 @@ define void @_ZN2cv3hal6add64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #12
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -11249,7 +11249,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -11321,7 +11321,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEhNS_12hal_baseline5v_regIhLi16EEE
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #12
+  call void @__clang_call_terminate(ptr %34) #13
   unreachable
 
 .critedge:                                        ; preds = %31, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -11339,7 +11339,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEhNS_12hal_baseline5v_regIhLi16EEE
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #12
+  call void @__clang_call_terminate(ptr %40) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
@@ -11349,7 +11349,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
 41:                                               ; preds = %9
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %42
 }
@@ -11416,7 +11416,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEaNS_12hal_baseline5v_regIaLi16EEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #12
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 .critedge:                                        ; preds = %26, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -11434,7 +11434,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEaNS_12hal_baseline5v_regIaLi16EEE
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #12
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
@@ -11444,7 +11444,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
 36:                                               ; preds = %9
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %37
 }
@@ -11518,7 +11518,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEtNS_12hal_baseline5v_regItLi8EEEE
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #12
+  call void @__clang_call_terminate(ptr %36) #13
   unreachable
 
 .critedge:                                        ; preds = %33, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -11536,7 +11536,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEtNS_12hal_baseline5v_regItLi8EEEE
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #12
+  call void @__clang_call_terminate(ptr %42) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %39
@@ -11546,7 +11546,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %39
 43:                                               ; preds = %9
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %44
 }
@@ -11616,7 +11616,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEsNS_12hal_baseline5v_regIsLi8EEEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #12
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -11634,7 +11634,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEsNS_12hal_baseline5v_regIsLi8EEEE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #12
+  call void @__clang_call_terminate(ptr %38) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
@@ -11644,7 +11644,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
@@ -11714,7 +11714,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEiNS_12hal_baseline5v_regIiLi4EEEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #12
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -11732,7 +11732,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEiNS_12hal_baseline5v_regIiLi4EEEE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #12
+  call void @__clang_call_terminate(ptr %38) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
@@ -11742,7 +11742,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
@@ -11812,7 +11812,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEfNS_12hal_baseline5v_regIfLi4EEEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #12
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -11830,7 +11830,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEfNS_12hal_baseline5v_regIfLi4EEEE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #12
+  call void @__clang_call_terminate(ptr %38) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
@@ -11840,7 +11840,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
@@ -11867,7 +11867,7 @@ define void @_ZN2cv3hal6sub64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #12
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -11877,7 +11877,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -11950,7 +11950,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEhNS_12hal_baseline5v_regIhLi16EEE
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #12
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
 .critedge:                                        ; preds = %32, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -11968,7 +11968,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEhNS_12hal_baseline5v_regIhLi16EEE
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #12
+  call void @__clang_call_terminate(ptr %41) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %38
@@ -11978,7 +11978,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %38
 42:                                               ; preds = %9
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %43
 }
@@ -12045,7 +12045,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEaNS_12hal_baseline5v_regIaLi16EEE
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #12
+  call void @__clang_call_terminate(ptr %28) #13
   unreachable
 
 .critedge:                                        ; preds = %25, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -12063,7 +12063,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEaNS_12hal_baseline5v_regIaLi16EEE
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #12
+  call void @__clang_call_terminate(ptr %34) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %31
@@ -12073,7 +12073,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %31
 35:                                               ; preds = %9
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %36
 }
@@ -12143,7 +12143,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEtNS_12hal_baseline5v_regItLi8EEEE
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #12
+  call void @__clang_call_terminate(ptr %31) #13
   unreachable
 
 .critedge:                                        ; preds = %28, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -12161,7 +12161,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEtNS_12hal_baseline5v_regItLi8EEEE
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #12
+  call void @__clang_call_terminate(ptr %37) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
@@ -12171,7 +12171,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
 38:                                               ; preds = %9
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %39
 }
@@ -12241,7 +12241,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEsNS_12hal_baseline5v_regIsLi8EEEE
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #12
+  call void @__clang_call_terminate(ptr %31) #13
   unreachable
 
 .critedge:                                        ; preds = %28, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -12259,7 +12259,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEsNS_12hal_baseline5v_regIsLi8EEEE
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #12
+  call void @__clang_call_terminate(ptr %37) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
@@ -12269,7 +12269,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
 38:                                               ; preds = %9
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %39
 }
@@ -12339,7 +12339,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEiNS_12hal_baseline5v_regIiLi4EEEE
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #12
+  call void @__clang_call_terminate(ptr %31) #13
   unreachable
 
 .critedge:                                        ; preds = %28, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -12357,7 +12357,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEiNS_12hal_baseline5v_regIiLi4EEEE
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #12
+  call void @__clang_call_terminate(ptr %37) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
@@ -12367,7 +12367,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
 38:                                               ; preds = %9
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %39
 }
@@ -12438,7 +12438,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEfNS_12hal_baseline5v_regIfLi4EEEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #12
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -12456,7 +12456,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEfNS_12hal_baseline5v_regIfLi4EEEE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #12
+  call void @__clang_call_terminate(ptr %38) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
@@ -12466,7 +12466,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
@@ -12493,7 +12493,7 @@ define void @_ZN2cv3hal6min64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #12
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -12503,7 +12503,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -12576,7 +12576,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEE
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #12
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
 .critedge:                                        ; preds = %32, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -12594,7 +12594,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEE
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #12
+  call void @__clang_call_terminate(ptr %41) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %38
@@ -12604,7 +12604,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %38
 42:                                               ; preds = %9
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %43
 }
@@ -12671,7 +12671,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEaNS_12hal_baseline5v_regIaLi16EEE
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #12
+  call void @__clang_call_terminate(ptr %28) #13
   unreachable
 
 .critedge:                                        ; preds = %25, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -12689,7 +12689,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEaNS_12hal_baseline5v_regIaLi16EEE
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #12
+  call void @__clang_call_terminate(ptr %34) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %31
@@ -12699,7 +12699,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %31
 35:                                               ; preds = %9
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %36
 }
@@ -12769,7 +12769,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEtNS_12hal_baseline5v_regItLi8EEEE
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #12
+  call void @__clang_call_terminate(ptr %31) #13
   unreachable
 
 .critedge:                                        ; preds = %28, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -12787,7 +12787,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEtNS_12hal_baseline5v_regItLi8EEEE
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #12
+  call void @__clang_call_terminate(ptr %37) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
@@ -12797,7 +12797,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
 38:                                               ; preds = %9
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %39
 }
@@ -12867,7 +12867,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEsNS_12hal_baseline5v_regIsLi8EEEE
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #12
+  call void @__clang_call_terminate(ptr %31) #13
   unreachable
 
 .critedge:                                        ; preds = %28, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -12885,7 +12885,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEsNS_12hal_baseline5v_regIsLi8EEEE
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #12
+  call void @__clang_call_terminate(ptr %37) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
@@ -12895,7 +12895,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
 38:                                               ; preds = %9
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %39
 }
@@ -12965,7 +12965,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEiNS_12hal_baseline5v_regIiLi4EEEE
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #12
+  call void @__clang_call_terminate(ptr %31) #13
   unreachable
 
 .critedge:                                        ; preds = %28, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -12983,7 +12983,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEiNS_12hal_baseline5v_regIiLi4EEEE
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #12
+  call void @__clang_call_terminate(ptr %37) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
@@ -12993,7 +12993,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
 38:                                               ; preds = %9
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %39
 }
@@ -13064,7 +13064,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEfNS_12hal_baseline5v_regIfLi4EEEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #12
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -13082,7 +13082,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEfNS_12hal_baseline5v_regIfLi4EEEE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #12
+  call void @__clang_call_terminate(ptr %38) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
@@ -13092,7 +13092,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
@@ -13119,7 +13119,7 @@ define void @_ZN2cv3hal6max64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #12
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -13129,7 +13129,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -13199,7 +13199,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEhNS_12hal_baseline5v_regIhLi
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #12
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -13217,7 +13217,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEhNS_12hal_baseline5v_regIhLi
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #12
+  call void @__clang_call_terminate(ptr %38) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
@@ -13227,7 +13227,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
@@ -13299,7 +13299,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEaNS_12hal_baseline5v_regIaLi
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #12
+  call void @__clang_call_terminate(ptr %34) #13
   unreachable
 
 .critedge:                                        ; preds = %31, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -13317,7 +13317,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEaNS_12hal_baseline5v_regIaLi
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #12
+  call void @__clang_call_terminate(ptr %40) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
@@ -13327,7 +13327,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
 41:                                               ; preds = %9
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %42
 }
@@ -13400,7 +13400,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEtNS_12hal_baseline5v_regItLi
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #12
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
 .critedge:                                        ; preds = %32, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -13418,7 +13418,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEtNS_12hal_baseline5v_regItLi
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #12
+  call void @__clang_call_terminate(ptr %41) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %38
@@ -13428,7 +13428,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %38
 42:                                               ; preds = %9
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %43
 }
@@ -13503,7 +13503,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEsNS_12hal_baseline5v_regIsLi
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #12
+  call void @__clang_call_terminate(ptr %37) #13
   unreachable
 
 .critedge:                                        ; preds = %34, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -13521,7 +13521,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEsNS_12hal_baseline5v_regIsLi
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #12
+  call void @__clang_call_terminate(ptr %43) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %40
@@ -13531,7 +13531,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %40
 44:                                               ; preds = %9
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %45
 }
@@ -13602,7 +13602,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEiNS_12hal_baseline5v_regIiLi
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #12
+  call void @__clang_call_terminate(ptr %33) #13
   unreachable
 
 .critedge:                                        ; preds = %30, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -13620,7 +13620,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEiNS_12hal_baseline5v_regIiLi
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #12
+  call void @__clang_call_terminate(ptr %39) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %36
@@ -13630,7 +13630,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %36
 40:                                               ; preds = %9
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %41
 }
@@ -13701,7 +13701,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEfNS_12hal_baseline5v_regIfLi
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #12
+  call void @__clang_call_terminate(ptr %33) #13
   unreachable
 
 .critedge:                                        ; preds = %30, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -13719,7 +13719,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEfNS_12hal_baseline5v_regIfLi
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #12
+  call void @__clang_call_terminate(ptr %39) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %36
@@ -13729,7 +13729,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %36
 40:                                               ; preds = %9
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %41
 }
@@ -13756,7 +13756,7 @@ define void @_ZN2cv3hal10absdiff64fEPKdmS2_mPdmiiPv(ptr noundef readonly capture
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #12
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -13766,7 +13766,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -13833,7 +13833,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_5op_orEhNS_12hal_baseline5v_regIhLi16EEEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #12
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 .critedge:                                        ; preds = %26, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_5op_orEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -13851,7 +13851,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_5op_orEhNS_12hal_baseline5v_regIhLi16EEEE
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #12
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
@@ -13861,7 +13861,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
 36:                                               ; preds = %9
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %37
 }
@@ -13928,7 +13928,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_xorEhNS_12hal_baseline5v_regIhLi16EEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #12
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 .critedge:                                        ; preds = %26, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_xorEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -13946,7 +13946,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_xorEhNS_12hal_baseline5v_regIhLi16EEE
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #12
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
@@ -13956,7 +13956,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
 36:                                               ; preds = %9
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %37
 }
@@ -14023,7 +14023,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_andEhNS_12hal_baseline5v_regIhLi16EEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #12
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 .critedge:                                        ; preds = %26, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_andEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -14041,7 +14041,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_andEhNS_12hal_baseline5v_regIhLi16EEE
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #12
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
@@ -14051,7 +14051,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
 36:                                               ; preds = %9
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %37
 }
@@ -14114,7 +14114,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_notEhNS_12hal_baseline5v_regIhLi16EEE
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #12
+  call void @__clang_call_terminate(ptr %26) #13
   unreachable
 
 .critedge:                                        ; preds = %23, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_notEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -14132,7 +14132,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_notEhNS_12hal_baseline5v_regIhLi16EEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #12
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %29
@@ -14142,7 +14142,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %29
 33:                                               ; preds = %9
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %34
 }
@@ -14170,7 +14170,7 @@ define void @_ZN2cv3hal5cmp8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #12
+  call void @__clang_call_terminate(ptr %17) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
@@ -14180,7 +14180,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
 18:                                               ; preds = %9
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %19
 }
@@ -14208,7 +14208,7 @@ define void @_ZN2cv3hal5cmp8sEPKamS2_mPhmiiPv(ptr noundef readonly captures(none
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #12
+  call void @__clang_call_terminate(ptr %17) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
@@ -14218,7 +14218,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
 18:                                               ; preds = %9
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %19
 }
@@ -14246,7 +14246,7 @@ define void @_ZN2cv3hal6cmp16uEPKtmS2_mPhmiiPv(ptr noundef readonly captures(non
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #12
+  call void @__clang_call_terminate(ptr %17) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
@@ -14256,7 +14256,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
 18:                                               ; preds = %9
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %19
 }
@@ -14284,7 +14284,7 @@ define void @_ZN2cv3hal6cmp16sEPKsmS2_mPhmiiPv(ptr noundef readonly captures(non
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #12
+  call void @__clang_call_terminate(ptr %17) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
@@ -14294,7 +14294,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
 18:                                               ; preds = %9
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %19
 }
@@ -14322,7 +14322,7 @@ define void @_ZN2cv3hal6cmp32sEPKimS2_mPhmiiPv(ptr noundef readonly captures(non
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #12
+  call void @__clang_call_terminate(ptr %17) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
@@ -14332,7 +14332,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
 18:                                               ; preds = %9
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %19
 }
@@ -14360,7 +14360,7 @@ define void @_ZN2cv3hal6cmp32fEPKfmS2_mPhmiiPv(ptr noundef readonly captures(non
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #12
+  call void @__clang_call_terminate(ptr %17) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
@@ -14370,7 +14370,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
 18:                                               ; preds = %9
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %19
 }
@@ -14398,7 +14398,7 @@ define void @_ZN2cv3hal6cmp64fEPKdmS2_mPhmiiPv(ptr noundef %0, i64 noundef %1, p
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #12
+  call void @__clang_call_terminate(ptr %17) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
@@ -14408,7 +14408,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
 18:                                               ; preds = %9
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %19
 }
@@ -14435,7 +14435,7 @@ define void @_ZN2cv3hal5mul8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #12
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -14445,7 +14445,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -14472,7 +14472,7 @@ define void @_ZN2cv3hal5mul8sEPKamS2_mPamiiPv(ptr noundef readonly captures(none
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #12
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -14482,7 +14482,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -14509,7 +14509,7 @@ define void @_ZN2cv3hal6mul16uEPKtmS2_mPtmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #12
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -14519,7 +14519,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -14546,7 +14546,7 @@ define void @_ZN2cv3hal6mul16sEPKsmS2_mPsmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #12
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -14556,7 +14556,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -14583,7 +14583,7 @@ define void @_ZN2cv3hal6mul32fEPKfmS2_mPfmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #12
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -14593,7 +14593,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -14620,7 +14620,7 @@ define void @_ZN2cv3hal6mul32sEPKimS2_mPimiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #12
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -14630,7 +14630,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -14657,7 +14657,7 @@ define void @_ZN2cv3hal6mul64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #12
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -14667,7 +14667,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -14758,7 +14758,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_m
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #12
+  call void @__clang_call_terminate(ptr %46) #13
   unreachable
 
 .critedge:                                        ; preds = %43, %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
@@ -14776,7 +14776,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_m
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #12
+  call void @__clang_call_terminate(ptr %52) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %49
@@ -14786,7 +14786,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %49
 53:                                               ; preds = %9
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %54
 }
@@ -14871,7 +14871,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_m
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #12
+  call void @__clang_call_terminate(ptr %40) #13
   unreachable
 
 .critedge:                                        ; preds = %37, %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
@@ -14889,7 +14889,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_m
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #12
+  call void @__clang_call_terminate(ptr %46) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %43
@@ -14899,7 +14899,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %43
 47:                                               ; preds = %9
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %48
 }
@@ -14987,7 +14987,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mP
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #12
+  call void @__clang_call_terminate(ptr %43) #13
   unreachable
 
 .critedge:                                        ; preds = %40, %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
@@ -15005,7 +15005,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mP
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #12
+  call void @__clang_call_terminate(ptr %49) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %46
@@ -15015,7 +15015,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %46
 50:                                               ; preds = %9
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %51
 }
@@ -15103,7 +15103,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mP
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #12
+  call void @__clang_call_terminate(ptr %43) #13
   unreachable
 
 .critedge:                                        ; preds = %40, %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
@@ -15121,7 +15121,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mP
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #12
+  call void @__clang_call_terminate(ptr %49) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %46
@@ -15131,7 +15131,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %46
 50:                                               ; preds = %9
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %51
 }
@@ -15216,7 +15216,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mP
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #12
+  call void @__clang_call_terminate(ptr %40) #13
   unreachable
 
 .critedge:                                        ; preds = %37, %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
@@ -15234,7 +15234,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mP
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #12
+  call void @__clang_call_terminate(ptr %46) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %43
@@ -15244,7 +15244,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %43
 47:                                               ; preds = %9
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %48
 }
@@ -15271,7 +15271,7 @@ define void @_ZN2cv3hal6div32fEPKfmS2_mPfmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #12
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -15281,7 +15281,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -15308,7 +15308,7 @@ define void @_ZN2cv3hal6div64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #12
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -15318,7 +15318,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -15345,7 +15345,7 @@ define void @_ZN2cv3hal13addWeighted8uEPKhmS2_mPhmiiPv(ptr noundef readonly capt
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #12
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -15355,7 +15355,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -15382,7 +15382,7 @@ define void @_ZN2cv3hal13addWeighted8sEPKamS2_mPamiiPv(ptr noundef readonly capt
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #12
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -15392,7 +15392,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -15419,7 +15419,7 @@ define void @_ZN2cv3hal14addWeighted16uEPKtmS2_mPtmiiPv(ptr noundef readonly cap
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #12
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -15429,7 +15429,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -15456,7 +15456,7 @@ define void @_ZN2cv3hal14addWeighted16sEPKsmS2_mPsmiiPv(ptr noundef readonly cap
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #12
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -15466,7 +15466,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -15493,7 +15493,7 @@ define void @_ZN2cv3hal14addWeighted32sEPKimS2_mPimiiPv(ptr noundef readonly cap
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #12
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -15503,7 +15503,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -15530,7 +15530,7 @@ define void @_ZN2cv3hal14addWeighted32fEPKfmS2_mPfmiiPv(ptr noundef readonly cap
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #12
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -15540,7 +15540,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -15567,7 +15567,7 @@ define void @_ZN2cv3hal14addWeighted64fEPKdmS2_mPdmiiPv(ptr noundef readonly cap
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #12
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -15577,7 +15577,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -15659,7 +15659,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mP
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #12
+  call void @__clang_call_terminate(ptr %38) #13
   unreachable
 
 .critedge:                                        ; preds = %35, %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.exit.i
@@ -15677,7 +15677,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mP
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #12
+  call void @__clang_call_terminate(ptr %44) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %41
@@ -15687,7 +15687,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %41
 45:                                               ; preds = %9
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %46
 }
@@ -15766,7 +15766,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mP
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #12
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
 .critedge:                                        ; preds = %32, %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.exit.i
@@ -15784,7 +15784,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mP
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #12
+  call void @__clang_call_terminate(ptr %41) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %38
@@ -15794,7 +15794,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %38
 42:                                               ; preds = %9
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %43
 }
@@ -15875,7 +15875,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #12
+  call void @__clang_call_terminate(ptr %37) #13
   unreachable
 
 .critedge:                                        ; preds = %34, %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.exit.i
@@ -15893,7 +15893,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #12
+  call void @__clang_call_terminate(ptr %43) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %40
@@ -15903,7 +15903,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %40
 44:                                               ; preds = %9
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %45
 }
@@ -15984,7 +15984,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #12
+  call void @__clang_call_terminate(ptr %37) #13
   unreachable
 
 .critedge:                                        ; preds = %34, %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.exit.i
@@ -16002,7 +16002,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #12
+  call void @__clang_call_terminate(ptr %43) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %40
@@ -16012,7 +16012,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %40
 44:                                               ; preds = %9
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %45
 }
@@ -16090,7 +16090,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #12
+  call void @__clang_call_terminate(ptr %34) #13
   unreachable
 
 .critedge:                                        ; preds = %31, %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.exit.i
@@ -16108,7 +16108,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #12
+  call void @__clang_call_terminate(ptr %40) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
@@ -16118,7 +16118,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
 41:                                               ; preds = %9
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %42
 }
@@ -16185,7 +16185,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #12
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 .critedge:                                        ; preds = %26, %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.exit.i
@@ -16203,7 +16203,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #12
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
@@ -16213,7 +16213,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
 36:                                               ; preds = %9
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %37
 }
@@ -16240,7 +16240,7 @@ define void @_ZN2cv3hal8recip64fEPKdmS2_mPdmiiPv(ptr noundef readnone captures(n
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #12
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -16250,7 +16250,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -16259,8 +16259,8 @@ declare void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull al
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #12
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
+  tail call void @_ZSt9terminatev() #13
   unreachable
 }
 
@@ -16275,71 +16275,71 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(p
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #8
+declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i32 @llvm.x86.sse.cvtss2si(<4 x float>) #9
+declare i32 @llvm.x86.sse.cvtss2si(<4 x float>) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i32 @llvm.x86.sse2.cvtsd2si(<2 x double>) #9
+declare i32 @llvm.x86.sse2.cvtsd2si(<2 x double>) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.sadd.sat.i8(i8, i8) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.sadd.sat.i8(i8, i8) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.sadd.sat.i16(i16, i16) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.sadd.sat.i16(i16, i16) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ssub.sat.i8(i8, i8) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ssub.sat.i8(i8, i8) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.ssub.sat.i16(i16, i16) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.ssub.sat.i16(i16, i16) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.smin.i8(i8, i8) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.smin.i8(i8, i8) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umin.i16(i16, i16) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smin.i16(i16, i16) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.smin.i16(i16, i16) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.smax.i8(i8, i8) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.smax.i8(i8, i8) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umax.i16(i16, i16) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smax.i16(i16, i16) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.smax.i16(i16, i16) #12
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
@@ -16349,14 +16349,15 @@ attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #5 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #6 = { cold nofree noreturn }
 attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { noreturn }
-attributes #14 = { builtin nounwind }
-attributes #15 = { nounwind }
+attributes #8 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { noreturn }
+attributes #15 = { builtin nounwind }
+attributes #16 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

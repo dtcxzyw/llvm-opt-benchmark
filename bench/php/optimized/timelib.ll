@@ -55,7 +55,7 @@ define hidden ptr @timelib_get_error_message(i32 noundef %0) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @timelib_time_ctor() local_unnamed_addr #1 {
-  %1 = tail call noalias dereferenceable_or_null(240) ptr @_ecalloc(i64 noundef 1, i64 noundef 240) #17
+  %1 = tail call noalias dereferenceable_or_null(240) ptr @_ecalloc(i64 noundef 1, i64 noundef 240) #18
   ret ptr %1
 }
 
@@ -70,12 +70,12 @@ define hidden void @timelib_time_dtor(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @_efree(ptr noundef nonnull %3) #18
+  tail call void @_efree(ptr noundef nonnull %3) #19
   store ptr null, ptr %2, align 8, !tbaa !9
   br label %5
 
 5:                                                ; preds = %4, %1
-  tail call void @_efree(ptr noundef nonnull %0) #18
+  tail call void @_efree(ptr noundef nonnull %0) #19
   ret void
 }
 
@@ -115,7 +115,7 @@ define hidden range(i32 -1, 2) i32 @timelib_time_compare(ptr noundef readonly ca
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @timelib_time_clone(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
-  %2 = tail call noalias noundef dereferenceable_or_null(240) ptr @_ecalloc(i64 noundef 1, i64 noundef 240) #17
+  %2 = tail call noalias noundef dereferenceable_or_null(240) ptr @_ecalloc(i64 noundef 1, i64 noundef 240) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %2, ptr noundef nonnull align 8 dereferenceable(240) %0, i64 240, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !9
@@ -123,7 +123,7 @@ define hidden noalias noundef ptr @timelib_time_clone(ptr noundef readonly captu
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call noalias ptr @_estrdup(ptr noundef nonnull %4) #18
+  %6 = tail call noalias ptr @_estrdup(ptr noundef nonnull %4) #19
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %6, ptr %7, align 8, !tbaa !9
   br label %8
@@ -150,7 +150,7 @@ declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @timelib_rel_time_ctor() local_unnamed_addr #1 {
-  %1 = tail call noalias dereferenceable_or_null(104) ptr @_ecalloc(i64 noundef 1, i64 noundef 104) #17
+  %1 = tail call noalias dereferenceable_or_null(104) ptr @_ecalloc(i64 noundef 1, i64 noundef 104) #18
   ret ptr %1
 }
 
@@ -160,7 +160,7 @@ define hidden void @timelib_rel_time_dtor(ptr noundef %0) local_unnamed_addr #1 
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %1
-  tail call void @_efree(ptr noundef nonnull %0) #18
+  tail call void @_efree(ptr noundef nonnull %0) #19
   br label %3
 
 3:                                                ; preds = %2, %1
@@ -169,32 +169,32 @@ define hidden void @timelib_rel_time_dtor(ptr noundef %0) local_unnamed_addr #1 
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @timelib_rel_time_clone(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
-  %2 = tail call noalias noundef dereferenceable_or_null(104) ptr @_ecalloc(i64 noundef 1, i64 noundef 104) #17
+  %2 = tail call noalias noundef dereferenceable_or_null(104) ptr @_ecalloc(i64 noundef 1, i64 noundef 104) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) %0, i64 104, i1 false)
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @timelib_time_tz_abbr_update(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %2
-  tail call void @_efree(ptr noundef nonnull %5) #18
+  tail call void @_efree(ptr noundef nonnull %5) #19
   store ptr null, ptr %4, align 8, !tbaa !9
   br label %7
 
 7:                                                ; preds = %6, %2
-  %8 = tail call noalias ptr @_estrdup(ptr noundef nonnull %1) #18
+  %8 = tail call noalias ptr @_estrdup(ptr noundef nonnull %1) #19
   store ptr %8, ptr %4, align 8, !tbaa !9
   %.not17 = icmp eq i64 %3, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %9 = tail call ptr @__ctype_toupper_loc() #20
+  %9 = tail call ptr @__ctype_toupper_loc() #21
   br label %10
 
 10:                                               ; preds = %.lr.ph, %10
@@ -227,7 +227,7 @@ declare ptr @__ctype_toupper_loc() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @timelib_time_offset_ctor() local_unnamed_addr #1 {
-  %1 = tail call noalias dereferenceable_or_null(32) ptr @_ecalloc(i64 noundef 1, i64 noundef 32) #17
+  %1 = tail call noalias dereferenceable_or_null(32) ptr @_ecalloc(i64 noundef 1, i64 noundef 32) #18
   ret ptr %1
 }
 
@@ -239,12 +239,12 @@ define hidden void @timelib_time_offset_dtor(ptr noundef %0) local_unnamed_addr 
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @_efree(ptr noundef nonnull %3) #18
+  tail call void @_efree(ptr noundef nonnull %3) #19
   store ptr null, ptr %2, align 8, !tbaa !23
   br label %5
 
 5:                                                ; preds = %4, %1
-  tail call void @_efree(ptr noundef nonnull %0) #18
+  tail call void @_efree(ptr noundef nonnull %0) #19
   ret void
 }
 
@@ -256,7 +256,7 @@ define hidden ptr @timelib_get_tz_abbr_ptr(ptr noundef %0) local_unnamed_addr #1
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %1
-  tail call void @timelib_update_ts(ptr noundef nonnull %0, ptr noundef null) #18
+  tail call void @timelib_update_ts(ptr noundef nonnull %0, ptr noundef null) #19
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -284,7 +284,7 @@ define hidden void @timelib_error_container_dtor(ptr noundef %0) local_unnamed_a
   %8 = getelementptr inbounds nuw %struct._timelib_error_message, ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !30
-  tail call void @_efree(ptr noundef %10) #18
+  tail call void @_efree(ptr noundef %10) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %2, align 4, !tbaa !26
   %12 = sext i32 %11 to i64
@@ -294,7 +294,7 @@ define hidden void @timelib_error_container_dtor(ptr noundef %0) local_unnamed_a
 ._crit_edge:                                      ; preds = %6, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !29
-  tail call void @_efree(ptr noundef %15) #18
+  tail call void @_efree(ptr noundef %15) #19
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i32, ptr %16, align 8, !tbaa !32
   %18 = icmp sgt i32 %17, 0
@@ -306,7 +306,7 @@ define hidden void @timelib_error_container_dtor(ptr noundef %0) local_unnamed_a
   %20 = getelementptr inbounds nuw %struct._timelib_error_message, ptr %19, i64 %indvars.iv18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !30
-  tail call void @_efree(ptr noundef %22) #18
+  tail call void @_efree(ptr noundef %22) #19
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %23 = load i32, ptr %16, align 8, !tbaa !32
   %24 = sext i32 %23 to i64
@@ -315,8 +315,8 @@ define hidden void @timelib_error_container_dtor(ptr noundef %0) local_unnamed_a
 
 ._crit_edge16:                                    ; preds = %.lr.ph15, %._crit_edge
   %26 = load ptr, ptr %0, align 8, !tbaa !33
-  tail call void @_efree(ptr noundef %26) #18
-  tail call void @_efree(ptr noundef nonnull %0) #18
+  tail call void @_efree(ptr noundef %26) #19
+  tail call void @_efree(ptr noundef nonnull %0) #19
   ret void
 }
 
@@ -364,10 +364,10 @@ define hidden void @timelib_decimal_hour_to_hms(double noundef %0, ptr noundef c
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #9
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -439,8 +439,8 @@ define hidden noundef i64 @timelib_hms_to_seconds(i64 noundef %0, i64 noundef %1
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: read) uwtable
 define hidden i32 @timelib_strcasecmp(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #12 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %28, label %6
 
@@ -488,8 +488,8 @@ define hidden i32 @timelib_strcasecmp(ptr noundef readonly captures(address) %0,
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: read) uwtable
 define hidden i32 @timelib_strncasecmp(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #12 {
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %6 = icmp eq ptr %0, %1
   br i1 %6, label %31, label %7
 
@@ -777,14 +777,14 @@ define hidden void @timelib_dump_rel_time(ptr noundef readonly captures(none) %0
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #15
+declare i64 @llvm.abs.i64(i64, i1 immarg) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -795,18 +795,19 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree norecurse nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nofree nounwind }
-attributes #17 = { nounwind allocsize(0,1) }
-attributes #18 = { nounwind }
-attributes #19 = { nounwind willreturn memory(read) }
-attributes #20 = { nounwind willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nounwind allocsize(0,1) }
+attributes #19 = { nounwind }
+attributes #20 = { nounwind willreturn memory(read) }
+attributes #21 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

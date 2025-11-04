@@ -2139,7 +2139,7 @@ cfl_compute_parameters.exit:                      ; preds = %35, %.split59.us.i.
   %49 = getelementptr inbounds nuw ptr, ptr @cfl_get_subtract_average_fn_c.sub_avg, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 45584
-  tail call void %50(ptr noundef nonnull %12, ptr noundef nonnull %51) #9
+  tail call void %50(ptr noundef nonnull %12, ptr noundef nonnull %51) #10
   store i32 1, ptr %9, align 4
   br label %52
 
@@ -2204,7 +2204,7 @@ cfl_idx_to_alpha.exit:                            ; preds = %69, %72
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 45584
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 10656
   %94 = load i32, ptr %93, align 16
-  tail call void %91(ptr noundef nonnull %92, ptr noundef %87, i32 noundef %2, i32 noundef %.0.i, i32 noundef %94) #9
+  tail call void %91(ptr noundef nonnull %92, ptr noundef %87, i32 noundef %2, i32 noundef %.0.i, i32 noundef %94) #10
   br label %101
 
 95:                                               ; preds = %cfl_idx_to_alpha.exit
@@ -2213,7 +2213,7 @@ cfl_idx_to_alpha.exit:                            ; preds = %69, %72
   %98 = getelementptr inbounds nuw ptr, ptr @cfl_get_predict_lbd_fn_c.pred, i64 %97
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 45584
-  tail call void %99(ptr noundef nonnull %100, ptr noundef %1, i32 noundef %2, i32 noundef %.0.i) #9
+  tail call void %99(ptr noundef nonnull %100, ptr noundef %1, i32 noundef %2, i32 noundef %.0.i) #10
   br label %101
 
 101:                                              ; preds = %95, %84
@@ -5643,7 +5643,7 @@ cfl_subsampling_hbd.exit.i:                       ; preds = %64
   %73 = ptrtoint ptr %33 to i64
   %74 = shl i64 %73, 1
   %75 = inttoptr i64 %74 to ptr
-  tail call void %.0.i.i(ptr noundef %75, i32 noundef %10, ptr noundef nonnull %68) #9
+  tail call void %.0.i.i(ptr noundef %75, i32 noundef %10, ptr noundef nonnull %68) #10
   br label %cfl_store.exit
 
 cfl_subsampling_lbd.exit.i:                       ; preds = %64
@@ -5651,7 +5651,7 @@ cfl_subsampling_lbd.exit.i:                       ; preds = %64
   %cfl_get_luma_subsampling_420_lbd_c.subfn_420.sink.i = select i1 %70, ptr %cfl_get_luma_subsampling_420_lbd_c.subfn_420.cfl_get_luma_subsampling_422_lbd_c.subfn_422.i, ptr @cfl_get_luma_subsampling_444_lbd_c.subfn_444
   %76 = getelementptr inbounds nuw ptr, ptr %cfl_get_luma_subsampling_420_lbd_c.subfn_420.sink.i, i64 %36
   %.0.i53.i = load ptr, ptr %76, align 8
-  tail call void %.0.i53.i(ptr noundef %33, i32 noundef %10, ptr noundef nonnull %68) #9
+  tail call void %.0.i53.i(ptr noundef %33, i32 noundef %10, ptr noundef nonnull %68) #10
   br label %cfl_store.exit
 
 cfl_store.exit:                                   ; preds = %cfl_subsampling_hbd.exit.i, %cfl_subsampling_lbd.exit.i
@@ -5914,7 +5914,7 @@ cfl_subsampling_hbd.exit.i:                       ; preds = %125
   %134 = ptrtoint ptr %93 to i64
   %135 = shl i64 %134, 1
   %136 = inttoptr i64 %135 to ptr
-  tail call void %.0.i.i23(ptr noundef %136, i32 noundef %95, ptr noundef nonnull %129) #9
+  tail call void %.0.i.i23(ptr noundef %136, i32 noundef %95, ptr noundef nonnull %129) #10
   br label %cfl_store.exit
 
 cfl_subsampling_lbd.exit.i:                       ; preds = %125
@@ -5922,23 +5922,23 @@ cfl_subsampling_lbd.exit.i:                       ; preds = %125
   %cfl_get_luma_subsampling_420_lbd_c.subfn_420.sink.i = select i1 %131, ptr %cfl_get_luma_subsampling_420_lbd_c.subfn_420.cfl_get_luma_subsampling_422_lbd_c.subfn_422.i, ptr @cfl_get_luma_subsampling_444_lbd_c.subfn_444
   %137 = getelementptr inbounds nuw ptr, ptr %cfl_get_luma_subsampling_420_lbd_c.subfn_420.sink.i, i64 %.0.i
   %.0.i53.i = load ptr, ptr %137, align 8
-  tail call void %.0.i53.i(ptr noundef %93, i32 noundef %95, ptr noundef nonnull %129) #9
+  tail call void %.0.i53.i(ptr noundef %93, i32 noundef %95, ptr noundef nonnull %129) #10
   br label %cfl_store.exit
 
 cfl_store.exit:                                   ; preds = %cfl_subsampling_hbd.exit.i, %cfl_subsampling_lbd.exit.i
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #8
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5949,8 +5949,9 @@ attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
+attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

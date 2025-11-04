@@ -66,7 +66,7 @@ define linkonce_odr hidden void @_ZN4ncnn8LSTM_x86D2Ev(ptr noundef nonnull align
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #19
+  tail call void @__clang_call_terminate(ptr %20) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %5, %1, %12, %16, %17
@@ -112,7 +112,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %5, %1, %12, %16, %1
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  tail call void @__clang_call_terminate(ptr %41) #19
+  tail call void @__clang_call_terminate(ptr %41) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit1:                           ; preds = %26, %_ZN4ncnn3MatD2Ev.exit, %33, %37, %38
@@ -158,7 +158,7 @@ _ZN4ncnn3MatD2Ev.exit1:                           ; preds = %26, %_ZN4ncnn3MatD2
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  tail call void @__clang_call_terminate(ptr %62) #19
+  tail call void @__clang_call_terminate(ptr %62) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit2:                           ; preds = %47, %_ZN4ncnn3MatD2Ev.exit1, %54, %58, %59
@@ -204,7 +204,7 @@ _ZN4ncnn3MatD2Ev.exit2:                           ; preds = %47, %_ZN4ncnn3MatD2
   %82 = landingpad { ptr, i32 }
           catch ptr null
   %83 = extractvalue { ptr, i32 } %82, 0
-  tail call void @__clang_call_terminate(ptr %83) #19
+  tail call void @__clang_call_terminate(ptr %83) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit3:                           ; preds = %68, %_ZN4ncnn3MatD2Ev.exit2, %75, %79, %80
@@ -250,7 +250,7 @@ _ZN4ncnn3MatD2Ev.exit3:                           ; preds = %68, %_ZN4ncnn3MatD2
   %103 = landingpad { ptr, i32 }
           catch ptr null
   %104 = extractvalue { ptr, i32 } %103, 0
-  tail call void @__clang_call_terminate(ptr %104) #19
+  tail call void @__clang_call_terminate(ptr %104) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit4:                           ; preds = %89, %_ZN4ncnn3MatD2Ev.exit3, %96, %100, %101
@@ -266,7 +266,7 @@ _ZN4ncnn3MatD2Ev.exit4:                           ; preds = %89, %_ZN4ncnn3MatD2
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4ncnn8LSTM_x86D0Ev(ptr noundef nonnull align 8 dereferenceable(1024) %0) unnamed_addr #0 comdat align 2 {
   tail call void @_ZN4ncnn8LSTM_x86D2Ev(ptr noundef nonnull align 8 dereferenceable(1024) %0) #8
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 1024) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 1024) #21
   ret void
 }
 
@@ -654,7 +654,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8LSTM_x867forwardERKSt6ve
   %130 = landingpad { ptr, i32 }
           catch ptr null
   %131 = extractvalue { ptr, i32 } %130, 0
-  call void @__clang_call_terminate(ptr %131) #19
+  call void @__clang_call_terminate(ptr %131) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %117, %96, %123, %127, %128
@@ -771,7 +771,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %117, %96, %123, %12
   %187 = landingpad { ptr, i32 }
           catch ptr null
   %188 = extractvalue { ptr, i32 } %187, 0
-  call void @__clang_call_terminate(ptr %188) #19
+  call void @__clang_call_terminate(ptr %188) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit143:                         ; preds = %174, %153, %180, %184, %185
@@ -821,7 +821,7 @@ _ZN4ncnn3MatD2Ev.exit143:                         ; preds = %174, %153, %180, %1
   %208 = landingpad { ptr, i32 }
           catch ptr null
   %209 = extractvalue { ptr, i32 } %208, 0
-  call void @__clang_call_terminate(ptr %209) #19
+  call void @__clang_call_terminate(ptr %209) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit144:                         ; preds = %206, %205, %201, %191, %194, %189
@@ -872,7 +872,7 @@ _ZN4ncnn3MatD2Ev.exit144:                         ; preds = %206, %205, %201, %1
   %229 = landingpad { ptr, i32 }
           catch ptr null
   %230 = extractvalue { ptr, i32 } %229, 0
-  call void @__clang_call_terminate(ptr %230) #19
+  call void @__clang_call_terminate(ptr %230) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit145:                         ; preds = %227, %226, %222, %212, %215, %210
@@ -1258,7 +1258,7 @@ _ZNK4ncnn3Mat7channelEi.exit454:                  ; preds = %438, %402, %399
   %457 = landingpad { ptr, i32 }
           catch ptr null
   %458 = extractvalue { ptr, i32 } %457, 0
-  call void @__clang_call_terminate(ptr %458) #19
+  call void @__clang_call_terminate(ptr %458) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit146:                         ; preds = %443, %440, %450, %454, %455
@@ -1297,7 +1297,7 @@ _ZN4ncnn3MatD2Ev.exit146:                         ; preds = %443, %440, %450, %4
   %473 = landingpad { ptr, i32 }
           catch ptr null
   %474 = extractvalue { ptr, i32 } %473, 0
-  call void @__clang_call_terminate(ptr %474) #19
+  call void @__clang_call_terminate(ptr %474) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit147:                         ; preds = %460, %_ZN4ncnn3MatD2Ev.exit146, %466, %470, %471
@@ -1336,7 +1336,7 @@ _ZN4ncnn3MatD2Ev.exit147:                         ; preds = %460, %_ZN4ncnn3MatD
   %489 = landingpad { ptr, i32 }
           catch ptr null
   %490 = extractvalue { ptr, i32 } %489, 0
-  call void @__clang_call_terminate(ptr %490) #19
+  call void @__clang_call_terminate(ptr %490) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit148:                         ; preds = %476, %_ZN4ncnn3MatD2Ev.exit147, %482, %486, %487
@@ -1375,7 +1375,7 @@ _ZN4ncnn3MatD2Ev.exit148:                         ; preds = %476, %_ZN4ncnn3MatD
   %505 = landingpad { ptr, i32 }
           catch ptr null
   %506 = extractvalue { ptr, i32 } %505, 0
-  call void @__clang_call_terminate(ptr %506) #19
+  call void @__clang_call_terminate(ptr %506) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit149:                         ; preds = %492, %_ZN4ncnn3MatD2Ev.exit148, %498, %502, %503
@@ -1422,7 +1422,7 @@ _ZN4ncnn3MatD2Ev.exit149:                         ; preds = %492, %_ZN4ncnn3MatD
   %525 = landingpad { ptr, i32 }
           catch ptr null
   %526 = extractvalue { ptr, i32 } %525, 0
-  call void @__clang_call_terminate(ptr %526) #19
+  call void @__clang_call_terminate(ptr %526) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit150:                         ; preds = %511, %507, %518, %522, %523
@@ -1461,7 +1461,7 @@ _ZN4ncnn3MatD2Ev.exit150:                         ; preds = %511, %507, %518, %5
   %541 = landingpad { ptr, i32 }
           catch ptr null
   %542 = extractvalue { ptr, i32 } %541, 0
-  call void @__clang_call_terminate(ptr %542) #19
+  call void @__clang_call_terminate(ptr %542) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit151:                         ; preds = %528, %_ZN4ncnn3MatD2Ev.exit150, %534, %538, %539
@@ -1500,7 +1500,7 @@ _ZN4ncnn3MatD2Ev.exit151:                         ; preds = %528, %_ZN4ncnn3MatD
   %557 = landingpad { ptr, i32 }
           catch ptr null
   %558 = extractvalue { ptr, i32 } %557, 0
-  call void @__clang_call_terminate(ptr %558) #19
+  call void @__clang_call_terminate(ptr %558) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit152:                         ; preds = %544, %_ZN4ncnn3MatD2Ev.exit151, %550, %554, %555
@@ -1539,7 +1539,7 @@ _ZN4ncnn3MatD2Ev.exit152:                         ; preds = %544, %_ZN4ncnn3MatD
   %573 = landingpad { ptr, i32 }
           catch ptr null
   %574 = extractvalue { ptr, i32 } %573, 0
-  call void @__clang_call_terminate(ptr %574) #19
+  call void @__clang_call_terminate(ptr %574) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit153:                         ; preds = %560, %_ZN4ncnn3MatD2Ev.exit152, %566, %570, %571
@@ -1958,7 +1958,7 @@ _ZNK4ncnn3Mat7channelEi.exit458:                  ; preds = %801, %765, %762
   %820 = landingpad { ptr, i32 }
           catch ptr null
   %821 = extractvalue { ptr, i32 } %820, 0
-  call void @__clang_call_terminate(ptr %821) #19
+  call void @__clang_call_terminate(ptr %821) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit154:                         ; preds = %806, %803, %813, %817, %818
@@ -1997,7 +1997,7 @@ _ZN4ncnn3MatD2Ev.exit154:                         ; preds = %806, %803, %813, %8
   %836 = landingpad { ptr, i32 }
           catch ptr null
   %837 = extractvalue { ptr, i32 } %836, 0
-  call void @__clang_call_terminate(ptr %837) #19
+  call void @__clang_call_terminate(ptr %837) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit155:                         ; preds = %823, %_ZN4ncnn3MatD2Ev.exit154, %829, %833, %834
@@ -2036,7 +2036,7 @@ _ZN4ncnn3MatD2Ev.exit155:                         ; preds = %823, %_ZN4ncnn3MatD
   %852 = landingpad { ptr, i32 }
           catch ptr null
   %853 = extractvalue { ptr, i32 } %852, 0
-  call void @__clang_call_terminate(ptr %853) #19
+  call void @__clang_call_terminate(ptr %853) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit156:                         ; preds = %839, %_ZN4ncnn3MatD2Ev.exit155, %845, %849, %850
@@ -2075,7 +2075,7 @@ _ZN4ncnn3MatD2Ev.exit156:                         ; preds = %839, %_ZN4ncnn3MatD
   %868 = landingpad { ptr, i32 }
           catch ptr null
   %869 = extractvalue { ptr, i32 } %868, 0
-  call void @__clang_call_terminate(ptr %869) #19
+  call void @__clang_call_terminate(ptr %869) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit157:                         ; preds = %855, %_ZN4ncnn3MatD2Ev.exit156, %861, %865, %866
@@ -2122,7 +2122,7 @@ _ZN4ncnn3MatD2Ev.exit157:                         ; preds = %855, %_ZN4ncnn3MatD
   %888 = landingpad { ptr, i32 }
           catch ptr null
   %889 = extractvalue { ptr, i32 } %888, 0
-  call void @__clang_call_terminate(ptr %889) #19
+  call void @__clang_call_terminate(ptr %889) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit158:                         ; preds = %874, %870, %881, %885, %886
@@ -2161,7 +2161,7 @@ _ZN4ncnn3MatD2Ev.exit158:                         ; preds = %874, %870, %881, %8
   %904 = landingpad { ptr, i32 }
           catch ptr null
   %905 = extractvalue { ptr, i32 } %904, 0
-  call void @__clang_call_terminate(ptr %905) #19
+  call void @__clang_call_terminate(ptr %905) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit159:                         ; preds = %891, %_ZN4ncnn3MatD2Ev.exit158, %897, %901, %902
@@ -2200,7 +2200,7 @@ _ZN4ncnn3MatD2Ev.exit159:                         ; preds = %891, %_ZN4ncnn3MatD
   %920 = landingpad { ptr, i32 }
           catch ptr null
   %921 = extractvalue { ptr, i32 } %920, 0
-  call void @__clang_call_terminate(ptr %921) #19
+  call void @__clang_call_terminate(ptr %921) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit160:                         ; preds = %907, %_ZN4ncnn3MatD2Ev.exit159, %913, %917, %918
@@ -2239,7 +2239,7 @@ _ZN4ncnn3MatD2Ev.exit160:                         ; preds = %907, %_ZN4ncnn3MatD
   %936 = landingpad { ptr, i32 }
           catch ptr null
   %937 = extractvalue { ptr, i32 } %936, 0
-  call void @__clang_call_terminate(ptr %937) #19
+  call void @__clang_call_terminate(ptr %937) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit161:                         ; preds = %923, %_ZN4ncnn3MatD2Ev.exit160, %929, %933, %934
@@ -2570,7 +2570,7 @@ _ZNK4ncnn3Mat7channelEi.exit462:                  ; preds = %1114, %1074, %1071
   %1133 = landingpad { ptr, i32 }
           catch ptr null
   %1134 = extractvalue { ptr, i32 } %1133, 0
-  call void @__clang_call_terminate(ptr %1134) #19
+  call void @__clang_call_terminate(ptr %1134) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit162:                         ; preds = %1119, %1116, %1126, %1130, %1131
@@ -2609,7 +2609,7 @@ _ZN4ncnn3MatD2Ev.exit162:                         ; preds = %1119, %1116, %1126,
   %1149 = landingpad { ptr, i32 }
           catch ptr null
   %1150 = extractvalue { ptr, i32 } %1149, 0
-  call void @__clang_call_terminate(ptr %1150) #19
+  call void @__clang_call_terminate(ptr %1150) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit163:                         ; preds = %1136, %_ZN4ncnn3MatD2Ev.exit162, %1142, %1146, %1147
@@ -2648,7 +2648,7 @@ _ZN4ncnn3MatD2Ev.exit163:                         ; preds = %1136, %_ZN4ncnn3Mat
   %1165 = landingpad { ptr, i32 }
           catch ptr null
   %1166 = extractvalue { ptr, i32 } %1165, 0
-  call void @__clang_call_terminate(ptr %1166) #19
+  call void @__clang_call_terminate(ptr %1166) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit164:                         ; preds = %1152, %_ZN4ncnn3MatD2Ev.exit163, %1158, %1162, %1163
@@ -2687,7 +2687,7 @@ _ZN4ncnn3MatD2Ev.exit164:                         ; preds = %1152, %_ZN4ncnn3Mat
   %1181 = landingpad { ptr, i32 }
           catch ptr null
   %1182 = extractvalue { ptr, i32 } %1181, 0
-  call void @__clang_call_terminate(ptr %1182) #19
+  call void @__clang_call_terminate(ptr %1182) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit165:                         ; preds = %1168, %_ZN4ncnn3MatD2Ev.exit164, %1174, %1178, %1179
@@ -2742,7 +2742,7 @@ _ZN4ncnn3MatD2Ev.exit165:                         ; preds = %1168, %_ZN4ncnn3Mat
   %1204 = landingpad { ptr, i32 }
           catch ptr null
   %1205 = extractvalue { ptr, i32 } %1204, 0
-  call void @__clang_call_terminate(ptr %1205) #19
+  call void @__clang_call_terminate(ptr %1205) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit166:                         ; preds = %1190, %1186, %1197, %1201, %1202
@@ -2781,7 +2781,7 @@ _ZN4ncnn3MatD2Ev.exit166:                         ; preds = %1190, %1186, %1197,
   %1220 = landingpad { ptr, i32 }
           catch ptr null
   %1221 = extractvalue { ptr, i32 } %1220, 0
-  call void @__clang_call_terminate(ptr %1221) #19
+  call void @__clang_call_terminate(ptr %1221) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit167:                         ; preds = %1207, %_ZN4ncnn3MatD2Ev.exit166, %1213, %1217, %1218
@@ -2820,7 +2820,7 @@ _ZN4ncnn3MatD2Ev.exit167:                         ; preds = %1207, %_ZN4ncnn3Mat
   %1236 = landingpad { ptr, i32 }
           catch ptr null
   %1237 = extractvalue { ptr, i32 } %1236, 0
-  call void @__clang_call_terminate(ptr %1237) #19
+  call void @__clang_call_terminate(ptr %1237) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit168:                         ; preds = %1223, %_ZN4ncnn3MatD2Ev.exit167, %1229, %1233, %1234
@@ -2859,7 +2859,7 @@ _ZN4ncnn3MatD2Ev.exit168:                         ; preds = %1223, %_ZN4ncnn3Mat
   %1252 = landingpad { ptr, i32 }
           catch ptr null
   %1253 = extractvalue { ptr, i32 } %1252, 0
-  call void @__clang_call_terminate(ptr %1253) #19
+  call void @__clang_call_terminate(ptr %1253) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit169:                         ; preds = %1239, %_ZN4ncnn3MatD2Ev.exit168, %1245, %1249, %1250
@@ -2941,7 +2941,7 @@ _ZN4ncnn3MatD2Ev.exit171:                         ; preds = %1255, %_ZN4ncnn3Mat
   %1298 = landingpad { ptr, i32 }
           catch ptr null
   %1299 = extractvalue { ptr, i32 } %1298, 0
-  call void @__clang_call_terminate(ptr %1299) #19
+  call void @__clang_call_terminate(ptr %1299) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit172:                         ; preds = %1285, %_ZN4ncnn3MatD2Ev.exit171, %1291, %1295, %1296
@@ -2986,7 +2986,7 @@ _ZN4ncnn3MatD2Ev.exit173:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %1314 = landingpad { ptr, i32 }
           catch ptr null
   %1315 = extractvalue { ptr, i32 } %1314, 0
-  call void @__clang_call_terminate(ptr %1315) #19
+  call void @__clang_call_terminate(ptr %1315) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit174:                         ; preds = %1301, %_ZN4ncnn3MatD2Ev.exit173, %1307, %1311, %1312
@@ -3030,7 +3030,7 @@ _ZNK4ncnn3Mat5emptyEv.exit448.thread:             ; preds = %_ZN4ncnn3MatC2EiimP
   %1330 = landingpad { ptr, i32 }
           catch ptr null
   %1331 = extractvalue { ptr, i32 } %1330, 0
-  call void @__clang_call_terminate(ptr %1331) #19
+  call void @__clang_call_terminate(ptr %1331) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit175:                         ; preds = %1317, %_ZNK4ncnn3Mat5emptyEv.exit448.thread, %1323, %1327, %1328
@@ -3074,7 +3074,7 @@ _ZNK4ncnn3Mat5emptyEv.exit447.thread:             ; preds = %_ZN4ncnn3MatC2EiimP
   %1346 = landingpad { ptr, i32 }
           catch ptr null
   %1347 = extractvalue { ptr, i32 } %1346, 0
-  call void @__clang_call_terminate(ptr %1347) #19
+  call void @__clang_call_terminate(ptr %1347) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit176:                         ; preds = %1333, %_ZNK4ncnn3Mat5emptyEv.exit447.thread, %1339, %1343, %1344
@@ -3111,7 +3111,7 @@ _ZN4ncnn3MatD2Ev.exit176:                         ; preds = %1333, %_ZNK4ncnn3Ma
   %1361 = landingpad { ptr, i32 }
           catch ptr null
   %1362 = extractvalue { ptr, i32 } %1361, 0
-  call void @__clang_call_terminate(ptr %1362) #19
+  call void @__clang_call_terminate(ptr %1362) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit177:                         ; preds = %1348, %_ZN4ncnn3MatD2Ev.exit169, %1354, %1358, %1359
@@ -3155,7 +3155,7 @@ _ZN4ncnn3MatD2Ev.exit178:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %1377 = landingpad { ptr, i32 }
           catch ptr null
   %1378 = extractvalue { ptr, i32 } %1377, 0
-  call void @__clang_call_terminate(ptr %1378) #19
+  call void @__clang_call_terminate(ptr %1378) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit179:                         ; preds = %1364, %_ZN4ncnn3MatD2Ev.exit178, %1370, %1374, %1375
@@ -3194,7 +3194,7 @@ _ZN4ncnn3MatD2Ev.exit179:                         ; preds = %1364, %_ZN4ncnn3Mat
   %1393 = landingpad { ptr, i32 }
           catch ptr null
   %1394 = extractvalue { ptr, i32 } %1393, 0
-  call void @__clang_call_terminate(ptr %1394) #19
+  call void @__clang_call_terminate(ptr %1394) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit180:                         ; preds = %1391, %1390, %1386, %_ZN4ncnn3MatD2Ev.exit179, %1380, %612
@@ -3234,7 +3234,7 @@ _ZN4ncnn3MatD2Ev.exit180:                         ; preds = %1391, %1390, %1386,
   %1409 = landingpad { ptr, i32 }
           catch ptr null
   %1410 = extractvalue { ptr, i32 } %1409, 0
-  call void @__clang_call_terminate(ptr %1410) #19
+  call void @__clang_call_terminate(ptr %1410) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit181:                         ; preds = %1407, %1406, %1402, %_ZN4ncnn3MatD2Ev.exit180, %1396, %594
@@ -3451,7 +3451,7 @@ _ZN4ncnn3MataSERKS0_.exit489:                     ; preds = %272, %252, %234, %_
   %1518 = landingpad { ptr, i32 }
           catch ptr null
   %1519 = extractvalue { ptr, i32 } %1518, 0
-  call void @__clang_call_terminate(ptr %1519) #19
+  call void @__clang_call_terminate(ptr %1519) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit182:                         ; preds = %1505, %_ZN4ncnn3MataSERKS0_.exit489, %1511, %1515, %1516
@@ -3490,7 +3490,7 @@ _ZN4ncnn3MatD2Ev.exit182:                         ; preds = %1505, %_ZN4ncnn3Mat
   %1534 = landingpad { ptr, i32 }
           catch ptr null
   %1535 = extractvalue { ptr, i32 } %1534, 0
-  call void @__clang_call_terminate(ptr %1535) #19
+  call void @__clang_call_terminate(ptr %1535) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit183:                         ; preds = %1521, %_ZN4ncnn3MatD2Ev.exit182, %1527, %1531, %1532
@@ -3533,7 +3533,7 @@ _ZN4ncnn3MatD2Ev.exit183:                         ; preds = %1521, %_ZN4ncnn3Mat
   %1551 = landingpad { ptr, i32 }
           catch ptr null
   %1552 = extractvalue { ptr, i32 } %1551, 0
-  call void @__clang_call_terminate(ptr %1552) #19
+  call void @__clang_call_terminate(ptr %1552) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit184:                         ; preds = %1538, %1536, %1544, %1548, %1549
@@ -3572,7 +3572,7 @@ _ZN4ncnn3MatD2Ev.exit184:                         ; preds = %1538, %1536, %1544,
   %1567 = landingpad { ptr, i32 }
           catch ptr null
   %1568 = extractvalue { ptr, i32 } %1567, 0
-  call void @__clang_call_terminate(ptr %1568) #19
+  call void @__clang_call_terminate(ptr %1568) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit185:                         ; preds = %1554, %_ZN4ncnn3MatD2Ev.exit184, %1560, %1564, %1565
@@ -4008,7 +4008,7 @@ _ZNK4ncnn3Mat7channelEi.exit344:                  ; preds = %244, %208, %205
   %263 = landingpad { ptr, i32 }
           catch ptr null
   %264 = extractvalue { ptr, i32 } %263, 0
-  call void @__clang_call_terminate(ptr %264) #19
+  call void @__clang_call_terminate(ptr %264) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %249, %246, %256, %260, %261
@@ -4047,7 +4047,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %249, %246, %256, %2
   %279 = landingpad { ptr, i32 }
           catch ptr null
   %280 = extractvalue { ptr, i32 } %279, 0
-  call void @__clang_call_terminate(ptr %280) #19
+  call void @__clang_call_terminate(ptr %280) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit110:                         ; preds = %266, %_ZN4ncnn3MatD2Ev.exit, %272, %276, %277
@@ -4086,7 +4086,7 @@ _ZN4ncnn3MatD2Ev.exit110:                         ; preds = %266, %_ZN4ncnn3MatD
   %295 = landingpad { ptr, i32 }
           catch ptr null
   %296 = extractvalue { ptr, i32 } %295, 0
-  call void @__clang_call_terminate(ptr %296) #19
+  call void @__clang_call_terminate(ptr %296) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit111:                         ; preds = %282, %_ZN4ncnn3MatD2Ev.exit110, %288, %292, %293
@@ -4125,7 +4125,7 @@ _ZN4ncnn3MatD2Ev.exit111:                         ; preds = %282, %_ZN4ncnn3MatD
   %311 = landingpad { ptr, i32 }
           catch ptr null
   %312 = extractvalue { ptr, i32 } %311, 0
-  call void @__clang_call_terminate(ptr %312) #19
+  call void @__clang_call_terminate(ptr %312) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit112:                         ; preds = %298, %_ZN4ncnn3MatD2Ev.exit111, %304, %308, %309
@@ -4172,7 +4172,7 @@ _ZN4ncnn3MatD2Ev.exit112:                         ; preds = %298, %_ZN4ncnn3MatD
   %331 = landingpad { ptr, i32 }
           catch ptr null
   %332 = extractvalue { ptr, i32 } %331, 0
-  call void @__clang_call_terminate(ptr %332) #19
+  call void @__clang_call_terminate(ptr %332) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit113:                         ; preds = %317, %313, %324, %328, %329
@@ -4211,7 +4211,7 @@ _ZN4ncnn3MatD2Ev.exit113:                         ; preds = %317, %313, %324, %3
   %347 = landingpad { ptr, i32 }
           catch ptr null
   %348 = extractvalue { ptr, i32 } %347, 0
-  call void @__clang_call_terminate(ptr %348) #19
+  call void @__clang_call_terminate(ptr %348) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit114:                         ; preds = %334, %_ZN4ncnn3MatD2Ev.exit113, %340, %344, %345
@@ -4250,7 +4250,7 @@ _ZN4ncnn3MatD2Ev.exit114:                         ; preds = %334, %_ZN4ncnn3MatD
   %363 = landingpad { ptr, i32 }
           catch ptr null
   %364 = extractvalue { ptr, i32 } %363, 0
-  call void @__clang_call_terminate(ptr %364) #19
+  call void @__clang_call_terminate(ptr %364) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit115:                         ; preds = %350, %_ZN4ncnn3MatD2Ev.exit114, %356, %360, %361
@@ -4289,7 +4289,7 @@ _ZN4ncnn3MatD2Ev.exit115:                         ; preds = %350, %_ZN4ncnn3MatD
   %379 = landingpad { ptr, i32 }
           catch ptr null
   %380 = extractvalue { ptr, i32 } %379, 0
-  call void @__clang_call_terminate(ptr %380) #19
+  call void @__clang_call_terminate(ptr %380) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit116:                         ; preds = %366, %_ZN4ncnn3MatD2Ev.exit115, %372, %376, %377
@@ -4651,7 +4651,7 @@ _ZNK4ncnn3Mat7channelEi.exit348:                  ; preds = %574, %538, %535
   %593 = landingpad { ptr, i32 }
           catch ptr null
   %594 = extractvalue { ptr, i32 } %593, 0
-  call void @__clang_call_terminate(ptr %594) #19
+  call void @__clang_call_terminate(ptr %594) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit117:                         ; preds = %579, %576, %586, %590, %591
@@ -4690,7 +4690,7 @@ _ZN4ncnn3MatD2Ev.exit117:                         ; preds = %579, %576, %586, %5
   %609 = landingpad { ptr, i32 }
           catch ptr null
   %610 = extractvalue { ptr, i32 } %609, 0
-  call void @__clang_call_terminate(ptr %610) #19
+  call void @__clang_call_terminate(ptr %610) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit118:                         ; preds = %596, %_ZN4ncnn3MatD2Ev.exit117, %602, %606, %607
@@ -4729,7 +4729,7 @@ _ZN4ncnn3MatD2Ev.exit118:                         ; preds = %596, %_ZN4ncnn3MatD
   %625 = landingpad { ptr, i32 }
           catch ptr null
   %626 = extractvalue { ptr, i32 } %625, 0
-  call void @__clang_call_terminate(ptr %626) #19
+  call void @__clang_call_terminate(ptr %626) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit119:                         ; preds = %612, %_ZN4ncnn3MatD2Ev.exit118, %618, %622, %623
@@ -4768,7 +4768,7 @@ _ZN4ncnn3MatD2Ev.exit119:                         ; preds = %612, %_ZN4ncnn3MatD
   %641 = landingpad { ptr, i32 }
           catch ptr null
   %642 = extractvalue { ptr, i32 } %641, 0
-  call void @__clang_call_terminate(ptr %642) #19
+  call void @__clang_call_terminate(ptr %642) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit120:                         ; preds = %628, %_ZN4ncnn3MatD2Ev.exit119, %634, %638, %639
@@ -4815,7 +4815,7 @@ _ZN4ncnn3MatD2Ev.exit120:                         ; preds = %628, %_ZN4ncnn3MatD
   %661 = landingpad { ptr, i32 }
           catch ptr null
   %662 = extractvalue { ptr, i32 } %661, 0
-  call void @__clang_call_terminate(ptr %662) #19
+  call void @__clang_call_terminate(ptr %662) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit121:                         ; preds = %647, %643, %654, %658, %659
@@ -4854,7 +4854,7 @@ _ZN4ncnn3MatD2Ev.exit121:                         ; preds = %647, %643, %654, %6
   %677 = landingpad { ptr, i32 }
           catch ptr null
   %678 = extractvalue { ptr, i32 } %677, 0
-  call void @__clang_call_terminate(ptr %678) #19
+  call void @__clang_call_terminate(ptr %678) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit122:                         ; preds = %664, %_ZN4ncnn3MatD2Ev.exit121, %670, %674, %675
@@ -4893,7 +4893,7 @@ _ZN4ncnn3MatD2Ev.exit122:                         ; preds = %664, %_ZN4ncnn3MatD
   %693 = landingpad { ptr, i32 }
           catch ptr null
   %694 = extractvalue { ptr, i32 } %693, 0
-  call void @__clang_call_terminate(ptr %694) #19
+  call void @__clang_call_terminate(ptr %694) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit123:                         ; preds = %680, %_ZN4ncnn3MatD2Ev.exit122, %686, %690, %691
@@ -4932,7 +4932,7 @@ _ZN4ncnn3MatD2Ev.exit123:                         ; preds = %680, %_ZN4ncnn3MatD
   %709 = landingpad { ptr, i32 }
           catch ptr null
   %710 = extractvalue { ptr, i32 } %709, 0
-  call void @__clang_call_terminate(ptr %710) #19
+  call void @__clang_call_terminate(ptr %710) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit124:                         ; preds = %696, %_ZN4ncnn3MatD2Ev.exit123, %702, %706, %707
@@ -5233,7 +5233,7 @@ _ZNK4ncnn3Mat7channelEi.exit352:                  ; preds = %867, %827, %824
   %886 = landingpad { ptr, i32 }
           catch ptr null
   %887 = extractvalue { ptr, i32 } %886, 0
-  call void @__clang_call_terminate(ptr %887) #19
+  call void @__clang_call_terminate(ptr %887) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit125:                         ; preds = %872, %869, %879, %883, %884
@@ -5272,7 +5272,7 @@ _ZN4ncnn3MatD2Ev.exit125:                         ; preds = %872, %869, %879, %8
   %902 = landingpad { ptr, i32 }
           catch ptr null
   %903 = extractvalue { ptr, i32 } %902, 0
-  call void @__clang_call_terminate(ptr %903) #19
+  call void @__clang_call_terminate(ptr %903) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit126:                         ; preds = %889, %_ZN4ncnn3MatD2Ev.exit125, %895, %899, %900
@@ -5311,7 +5311,7 @@ _ZN4ncnn3MatD2Ev.exit126:                         ; preds = %889, %_ZN4ncnn3MatD
   %918 = landingpad { ptr, i32 }
           catch ptr null
   %919 = extractvalue { ptr, i32 } %918, 0
-  call void @__clang_call_terminate(ptr %919) #19
+  call void @__clang_call_terminate(ptr %919) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit127:                         ; preds = %905, %_ZN4ncnn3MatD2Ev.exit126, %911, %915, %916
@@ -5350,7 +5350,7 @@ _ZN4ncnn3MatD2Ev.exit127:                         ; preds = %905, %_ZN4ncnn3MatD
   %934 = landingpad { ptr, i32 }
           catch ptr null
   %935 = extractvalue { ptr, i32 } %934, 0
-  call void @__clang_call_terminate(ptr %935) #19
+  call void @__clang_call_terminate(ptr %935) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit128:                         ; preds = %921, %_ZN4ncnn3MatD2Ev.exit127, %927, %931, %932
@@ -5407,7 +5407,7 @@ _ZN4ncnn3MatD2Ev.exit128:                         ; preds = %921, %_ZN4ncnn3MatD
   %957 = landingpad { ptr, i32 }
           catch ptr null
   %958 = extractvalue { ptr, i32 } %957, 0
-  call void @__clang_call_terminate(ptr %958) #19
+  call void @__clang_call_terminate(ptr %958) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit129:                         ; preds = %943, %939, %950, %954, %955
@@ -5446,7 +5446,7 @@ _ZN4ncnn3MatD2Ev.exit129:                         ; preds = %943, %939, %950, %9
   %973 = landingpad { ptr, i32 }
           catch ptr null
   %974 = extractvalue { ptr, i32 } %973, 0
-  call void @__clang_call_terminate(ptr %974) #19
+  call void @__clang_call_terminate(ptr %974) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit130:                         ; preds = %960, %_ZN4ncnn3MatD2Ev.exit129, %966, %970, %971
@@ -5485,7 +5485,7 @@ _ZN4ncnn3MatD2Ev.exit130:                         ; preds = %960, %_ZN4ncnn3MatD
   %989 = landingpad { ptr, i32 }
           catch ptr null
   %990 = extractvalue { ptr, i32 } %989, 0
-  call void @__clang_call_terminate(ptr %990) #19
+  call void @__clang_call_terminate(ptr %990) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit131:                         ; preds = %976, %_ZN4ncnn3MatD2Ev.exit130, %982, %986, %987
@@ -5524,7 +5524,7 @@ _ZN4ncnn3MatD2Ev.exit131:                         ; preds = %976, %_ZN4ncnn3MatD
   %1005 = landingpad { ptr, i32 }
           catch ptr null
   %1006 = extractvalue { ptr, i32 } %1005, 0
-  call void @__clang_call_terminate(ptr %1006) #19
+  call void @__clang_call_terminate(ptr %1006) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit132:                         ; preds = %992, %_ZN4ncnn3MatD2Ev.exit131, %998, %1002, %1003
@@ -5604,7 +5604,7 @@ _ZNK4ncnn3Mat5emptyEv.exit332.thread:             ; preds = %1007, %.preheader, 
   %1051 = landingpad { ptr, i32 }
           catch ptr null
   %1052 = extractvalue { ptr, i32 } %1051, 0
-  call void @__clang_call_terminate(ptr %1052) #19
+  call void @__clang_call_terminate(ptr %1052) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit133:                         ; preds = %1038, %_ZNK4ncnn3Mat5emptyEv.exit332.thread, %1044, %1048, %1049
@@ -5648,7 +5648,7 @@ _ZNK4ncnn3Mat5emptyEv.exit331.thread:             ; preds = %_ZN4ncnn3MatC2EiimP
   %1067 = landingpad { ptr, i32 }
           catch ptr null
   %1068 = extractvalue { ptr, i32 } %1067, 0
-  call void @__clang_call_terminate(ptr %1068) #19
+  call void @__clang_call_terminate(ptr %1068) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit134:                         ; preds = %1054, %_ZNK4ncnn3Mat5emptyEv.exit331.thread, %1060, %1064, %1065
@@ -5691,7 +5691,7 @@ _ZN4ncnn3MatD2Ev.exit134:                         ; preds = %1054, %_ZNK4ncnn3Ma
   %1084 = landingpad { ptr, i32 }
           catch ptr null
   %1085 = extractvalue { ptr, i32 } %1084, 0
-  call void @__clang_call_terminate(ptr %1085) #19
+  call void @__clang_call_terminate(ptr %1085) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit135:                         ; preds = %1082, %1081, %1077, %1069, %1071, %418
@@ -5731,7 +5731,7 @@ _ZN4ncnn3MatD2Ev.exit135:                         ; preds = %1082, %1081, %1077,
   %1100 = landingpad { ptr, i32 }
           catch ptr null
   %1101 = extractvalue { ptr, i32 } %1100, 0
-  call void @__clang_call_terminate(ptr %1101) #19
+  call void @__clang_call_terminate(ptr %1101) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit136:                         ; preds = %1098, %1097, %1093, %_ZN4ncnn3MatD2Ev.exit135, %1087, %400
@@ -5778,7 +5778,7 @@ _ZNK4ncnn3Mat5emptyEv.exit329.thread:             ; preds = %81, %_ZN4ncnn3MatC2
   %1117 = landingpad { ptr, i32 }
           catch ptr null
   %1118 = extractvalue { ptr, i32 } %1117, 0
-  call void @__clang_call_terminate(ptr %1118) #19
+  call void @__clang_call_terminate(ptr %1118) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit137:                         ; preds = %1104, %_ZNK4ncnn3Mat5emptyEv.exit329.thread, %1110, %1114, %1115
@@ -5821,7 +5821,7 @@ _ZN4ncnn3MatD2Ev.exit137:                         ; preds = %1104, %_ZNK4ncnn3Ma
   %1134 = landingpad { ptr, i32 }
           catch ptr null
   %1135 = extractvalue { ptr, i32 } %1134, 0
-  call void @__clang_call_terminate(ptr %1135) #19
+  call void @__clang_call_terminate(ptr %1135) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit138:                         ; preds = %1132, %1131, %1127, %1119, %1121, %66
@@ -5867,7 +5867,7 @@ _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %25, %_ZNK4ncnn3Mat5
   %1151 = landingpad { ptr, i32 }
           catch ptr null
   %1152 = extractvalue { ptr, i32 } %1151, 0
-  call void @__clang_call_terminate(ptr %1152) #19
+  call void @__clang_call_terminate(ptr %1152) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit139:                         ; preds = %1138, %_ZNK4ncnn3Mat5emptyEv.exit.thread, %1144, %1148, %1149
@@ -5904,7 +5904,7 @@ _ZN4ncnn3MatD2Ev.exit139:                         ; preds = %1138, %_ZNK4ncnn3Ma
   %1166 = landingpad { ptr, i32 }
           catch ptr null
   %1167 = extractvalue { ptr, i32 } %1166, 0
-  call void @__clang_call_terminate(ptr %1167) #19
+  call void @__clang_call_terminate(ptr %1167) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit140:                         ; preds = %1153, %_ZN4ncnn3MatD2Ev.exit138, %1159, %1163, %1164
@@ -5997,7 +5997,7 @@ define linkonce_odr hidden void @_ZN4ncnn4LSTMD2Ev(ptr noundef nonnull align 8 d
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #19
+  tail call void @__clang_call_terminate(ptr %20) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit5:                           ; preds = %5, %1, %12, %16, %17
@@ -6043,7 +6043,7 @@ _ZN4ncnn3MatD2Ev.exit5:                           ; preds = %5, %1, %12, %16, %1
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  tail call void @__clang_call_terminate(ptr %41) #19
+  tail call void @__clang_call_terminate(ptr %41) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit4:                           ; preds = %26, %_ZN4ncnn3MatD2Ev.exit5, %33, %37, %38
@@ -6089,7 +6089,7 @@ _ZN4ncnn3MatD2Ev.exit4:                           ; preds = %26, %_ZN4ncnn3MatD2
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  tail call void @__clang_call_terminate(ptr %62) #19
+  tail call void @__clang_call_terminate(ptr %62) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit3:                           ; preds = %47, %_ZN4ncnn3MatD2Ev.exit4, %54, %58, %59
@@ -6135,7 +6135,7 @@ _ZN4ncnn3MatD2Ev.exit3:                           ; preds = %47, %_ZN4ncnn3MatD2
   %82 = landingpad { ptr, i32 }
           catch ptr null
   %83 = extractvalue { ptr, i32 } %82, 0
-  tail call void @__clang_call_terminate(ptr %83) #19
+  tail call void @__clang_call_terminate(ptr %83) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit2:                           ; preds = %68, %_ZN4ncnn3MatD2Ev.exit3, %75, %79, %80
@@ -6181,7 +6181,7 @@ _ZN4ncnn3MatD2Ev.exit2:                           ; preds = %68, %_ZN4ncnn3MatD2
   %103 = landingpad { ptr, i32 }
           catch ptr null
   %104 = extractvalue { ptr, i32 } %103, 0
-  tail call void @__clang_call_terminate(ptr %104) #19
+  tail call void @__clang_call_terminate(ptr %104) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit1:                           ; preds = %89, %_ZN4ncnn3MatD2Ev.exit2, %96, %100, %101
@@ -6227,7 +6227,7 @@ _ZN4ncnn3MatD2Ev.exit1:                           ; preds = %89, %_ZN4ncnn3MatD2
   %124 = landingpad { ptr, i32 }
           catch ptr null
   %125 = extractvalue { ptr, i32 } %124, 0
-  tail call void @__clang_call_terminate(ptr %125) #19
+  tail call void @__clang_call_terminate(ptr %125) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %110, %_ZN4ncnn3MatD2Ev.exit1, %117, %121, %122
@@ -6243,7 +6243,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %110, %_ZN4ncnn3MatD
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #8
-  tail call void @_ZSt9terminatev() #19
+  tail call void @_ZSt9terminatev() #20
   unreachable
 }
 
@@ -7359,7 +7359,7 @@ _ZNK4ncnn3Mat7channelEi.exit354:                  ; preds = %322, %286, %283
   %340 = landingpad { ptr, i32 }
           catch ptr null
   %341 = extractvalue { ptr, i32 } %340, 0
-  call void @__clang_call_terminate(ptr %341) #19
+  call void @__clang_call_terminate(ptr %341) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit120:                         ; preds = %326, %323, %333, %337, %338
@@ -7398,7 +7398,7 @@ _ZN4ncnn3MatD2Ev.exit120:                         ; preds = %326, %323, %333, %3
   %356 = landingpad { ptr, i32 }
           catch ptr null
   %357 = extractvalue { ptr, i32 } %356, 0
-  call void @__clang_call_terminate(ptr %357) #19
+  call void @__clang_call_terminate(ptr %357) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit119:                         ; preds = %343, %_ZN4ncnn3MatD2Ev.exit120, %349, %353, %354
@@ -7437,7 +7437,7 @@ _ZN4ncnn3MatD2Ev.exit119:                         ; preds = %343, %_ZN4ncnn3MatD
   %372 = landingpad { ptr, i32 }
           catch ptr null
   %373 = extractvalue { ptr, i32 } %372, 0
-  call void @__clang_call_terminate(ptr %373) #19
+  call void @__clang_call_terminate(ptr %373) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit118:                         ; preds = %359, %_ZN4ncnn3MatD2Ev.exit119, %365, %369, %370
@@ -7476,7 +7476,7 @@ _ZN4ncnn3MatD2Ev.exit118:                         ; preds = %359, %_ZN4ncnn3MatD
   %388 = landingpad { ptr, i32 }
           catch ptr null
   %389 = extractvalue { ptr, i32 } %388, 0
-  call void @__clang_call_terminate(ptr %389) #19
+  call void @__clang_call_terminate(ptr %389) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit117:                         ; preds = %375, %_ZN4ncnn3MatD2Ev.exit118, %381, %385, %386
@@ -7528,7 +7528,7 @@ _ZN4ncnn3MatD2Ev.exit117:                         ; preds = %375, %_ZN4ncnn3MatD
   %410 = landingpad { ptr, i32 }
           catch ptr null
   %411 = extractvalue { ptr, i32 } %410, 0
-  call void @__clang_call_terminate(ptr %411) #19
+  call void @__clang_call_terminate(ptr %411) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit116:                         ; preds = %396, %392, %403, %407, %408
@@ -7567,7 +7567,7 @@ _ZN4ncnn3MatD2Ev.exit116:                         ; preds = %396, %392, %403, %4
   %426 = landingpad { ptr, i32 }
           catch ptr null
   %427 = extractvalue { ptr, i32 } %426, 0
-  call void @__clang_call_terminate(ptr %427) #19
+  call void @__clang_call_terminate(ptr %427) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit115:                         ; preds = %413, %_ZN4ncnn3MatD2Ev.exit116, %419, %423, %424
@@ -7606,7 +7606,7 @@ _ZN4ncnn3MatD2Ev.exit115:                         ; preds = %413, %_ZN4ncnn3MatD
   %442 = landingpad { ptr, i32 }
           catch ptr null
   %443 = extractvalue { ptr, i32 } %442, 0
-  call void @__clang_call_terminate(ptr %443) #19
+  call void @__clang_call_terminate(ptr %443) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit114:                         ; preds = %429, %_ZN4ncnn3MatD2Ev.exit115, %435, %439, %440
@@ -7645,7 +7645,7 @@ _ZN4ncnn3MatD2Ev.exit114:                         ; preds = %429, %_ZN4ncnn3MatD
   %458 = landingpad { ptr, i32 }
           catch ptr null
   %459 = extractvalue { ptr, i32 } %458, 0
-  call void @__clang_call_terminate(ptr %459) #19
+  call void @__clang_call_terminate(ptr %459) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit113:                         ; preds = %445, %_ZN4ncnn3MatD2Ev.exit114, %451, %455, %456
@@ -8003,7 +8003,7 @@ _ZNK4ncnn3Mat7channelEi.exit358:                  ; preds = %653, %617, %614
   %671 = landingpad { ptr, i32 }
           catch ptr null
   %672 = extractvalue { ptr, i32 } %671, 0
-  call void @__clang_call_terminate(ptr %672) #19
+  call void @__clang_call_terminate(ptr %672) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit112:                         ; preds = %657, %654, %664, %668, %669
@@ -8042,7 +8042,7 @@ _ZN4ncnn3MatD2Ev.exit112:                         ; preds = %657, %654, %664, %6
   %687 = landingpad { ptr, i32 }
           catch ptr null
   %688 = extractvalue { ptr, i32 } %687, 0
-  call void @__clang_call_terminate(ptr %688) #19
+  call void @__clang_call_terminate(ptr %688) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit111:                         ; preds = %674, %_ZN4ncnn3MatD2Ev.exit112, %680, %684, %685
@@ -8081,7 +8081,7 @@ _ZN4ncnn3MatD2Ev.exit111:                         ; preds = %674, %_ZN4ncnn3MatD
   %703 = landingpad { ptr, i32 }
           catch ptr null
   %704 = extractvalue { ptr, i32 } %703, 0
-  call void @__clang_call_terminate(ptr %704) #19
+  call void @__clang_call_terminate(ptr %704) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit110:                         ; preds = %690, %_ZN4ncnn3MatD2Ev.exit111, %696, %700, %701
@@ -8120,7 +8120,7 @@ _ZN4ncnn3MatD2Ev.exit110:                         ; preds = %690, %_ZN4ncnn3MatD
   %719 = landingpad { ptr, i32 }
           catch ptr null
   %720 = extractvalue { ptr, i32 } %719, 0
-  call void @__clang_call_terminate(ptr %720) #19
+  call void @__clang_call_terminate(ptr %720) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit109:                         ; preds = %706, %_ZN4ncnn3MatD2Ev.exit110, %712, %716, %717
@@ -8418,7 +8418,7 @@ _ZNK4ncnn3Mat7channelEi.exit362:                  ; preds = %876, %836, %833
   %894 = landingpad { ptr, i32 }
           catch ptr null
   %895 = extractvalue { ptr, i32 } %894, 0
-  call void @__clang_call_terminate(ptr %895) #19
+  call void @__clang_call_terminate(ptr %895) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit108:                         ; preds = %880, %877, %887, %891, %892
@@ -8457,7 +8457,7 @@ _ZN4ncnn3MatD2Ev.exit108:                         ; preds = %880, %877, %887, %8
   %910 = landingpad { ptr, i32 }
           catch ptr null
   %911 = extractvalue { ptr, i32 } %910, 0
-  call void @__clang_call_terminate(ptr %911) #19
+  call void @__clang_call_terminate(ptr %911) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit107:                         ; preds = %897, %_ZN4ncnn3MatD2Ev.exit108, %903, %907, %908
@@ -8496,7 +8496,7 @@ _ZN4ncnn3MatD2Ev.exit107:                         ; preds = %897, %_ZN4ncnn3MatD
   %926 = landingpad { ptr, i32 }
           catch ptr null
   %927 = extractvalue { ptr, i32 } %926, 0
-  call void @__clang_call_terminate(ptr %927) #19
+  call void @__clang_call_terminate(ptr %927) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit106:                         ; preds = %913, %_ZN4ncnn3MatD2Ev.exit107, %919, %923, %924
@@ -8535,7 +8535,7 @@ _ZN4ncnn3MatD2Ev.exit106:                         ; preds = %913, %_ZN4ncnn3MatD
   %942 = landingpad { ptr, i32 }
           catch ptr null
   %943 = extractvalue { ptr, i32 } %942, 0
-  call void @__clang_call_terminate(ptr %943) #19
+  call void @__clang_call_terminate(ptr %943) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit105:                         ; preds = %929, %_ZN4ncnn3MatD2Ev.exit106, %935, %939, %940
@@ -8588,7 +8588,7 @@ _ZN4ncnn3MatD2Ev.exit105:                         ; preds = %929, %_ZN4ncnn3MatD
   %965 = landingpad { ptr, i32 }
           catch ptr null
   %966 = extractvalue { ptr, i32 } %965, 0
-  call void @__clang_call_terminate(ptr %966) #19
+  call void @__clang_call_terminate(ptr %966) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit104:                         ; preds = %951, %947, %958, %962, %963
@@ -8627,7 +8627,7 @@ _ZN4ncnn3MatD2Ev.exit104:                         ; preds = %951, %947, %958, %9
   %981 = landingpad { ptr, i32 }
           catch ptr null
   %982 = extractvalue { ptr, i32 } %981, 0
-  call void @__clang_call_terminate(ptr %982) #19
+  call void @__clang_call_terminate(ptr %982) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit103:                         ; preds = %968, %_ZN4ncnn3MatD2Ev.exit104, %974, %978, %979
@@ -8666,7 +8666,7 @@ _ZN4ncnn3MatD2Ev.exit103:                         ; preds = %968, %_ZN4ncnn3MatD
   %997 = landingpad { ptr, i32 }
           catch ptr null
   %998 = extractvalue { ptr, i32 } %997, 0
-  call void @__clang_call_terminate(ptr %998) #19
+  call void @__clang_call_terminate(ptr %998) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit102:                         ; preds = %984, %_ZN4ncnn3MatD2Ev.exit103, %990, %994, %995
@@ -8705,7 +8705,7 @@ _ZN4ncnn3MatD2Ev.exit102:                         ; preds = %984, %_ZN4ncnn3MatD
   %1013 = landingpad { ptr, i32 }
           catch ptr null
   %1014 = extractvalue { ptr, i32 } %1013, 0
-  call void @__clang_call_terminate(ptr %1014) #19
+  call void @__clang_call_terminate(ptr %1014) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit101:                         ; preds = %1000, %_ZN4ncnn3MatD2Ev.exit102, %1006, %1010, %1011
@@ -8751,7 +8751,7 @@ _ZN4ncnn3MatD2Ev.exit101:                         ; preds = %1000, %_ZN4ncnn3Mat
   %1033 = landingpad { ptr, i32 }
           catch ptr null
   %1034 = extractvalue { ptr, i32 } %1033, 0
-  call void @__clang_call_terminate(ptr %1034) #19
+  call void @__clang_call_terminate(ptr %1034) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit100:                         ; preds = %1019, %1015, %1026, %1030, %1031
@@ -8790,7 +8790,7 @@ _ZN4ncnn3MatD2Ev.exit100:                         ; preds = %1019, %1015, %1026,
   %1049 = landingpad { ptr, i32 }
           catch ptr null
   %1050 = extractvalue { ptr, i32 } %1049, 0
-  call void @__clang_call_terminate(ptr %1050) #19
+  call void @__clang_call_terminate(ptr %1050) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit99:                          ; preds = %1036, %_ZN4ncnn3MatD2Ev.exit100, %1042, %1046, %1047
@@ -8829,7 +8829,7 @@ _ZN4ncnn3MatD2Ev.exit99:                          ; preds = %1036, %_ZN4ncnn3Mat
   %1065 = landingpad { ptr, i32 }
           catch ptr null
   %1066 = extractvalue { ptr, i32 } %1065, 0
-  call void @__clang_call_terminate(ptr %1066) #19
+  call void @__clang_call_terminate(ptr %1066) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit98:                          ; preds = %1052, %_ZN4ncnn3MatD2Ev.exit99, %1058, %1062, %1063
@@ -8868,7 +8868,7 @@ _ZN4ncnn3MatD2Ev.exit98:                          ; preds = %1052, %_ZN4ncnn3Mat
   %1081 = landingpad { ptr, i32 }
           catch ptr null
   %1082 = extractvalue { ptr, i32 } %1081, 0
-  call void @__clang_call_terminate(ptr %1082) #19
+  call void @__clang_call_terminate(ptr %1082) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit97:                          ; preds = %1068, %_ZN4ncnn3MatD2Ev.exit98, %1074, %1078, %1079
@@ -8947,7 +8947,7 @@ _ZNK4ncnn3Mat5emptyEv.exit342.thread:             ; preds = %1083, %_ZN4ncnn3Mat
   %1127 = landingpad { ptr, i32 }
           catch ptr null
   %1128 = extractvalue { ptr, i32 } %1127, 0
-  call void @__clang_call_terminate(ptr %1128) #19
+  call void @__clang_call_terminate(ptr %1128) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit96:                          ; preds = %1114, %_ZNK4ncnn3Mat5emptyEv.exit342.thread, %1120, %1124, %1125
@@ -8986,7 +8986,7 @@ _ZN4ncnn3MatD2Ev.exit96:                          ; preds = %1114, %_ZNK4ncnn3Ma
   %1143 = landingpad { ptr, i32 }
           catch ptr null
   %1144 = extractvalue { ptr, i32 } %1143, 0
-  call void @__clang_call_terminate(ptr %1144) #19
+  call void @__clang_call_terminate(ptr %1144) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit95:                          ; preds = %1130, %_ZN4ncnn3MatD2Ev.exit96, %1136, %1140, %1141
@@ -9029,7 +9029,7 @@ _ZN4ncnn3MatD2Ev.exit95:                          ; preds = %1130, %_ZN4ncnn3Mat
   %1160 = landingpad { ptr, i32 }
           catch ptr null
   %1161 = extractvalue { ptr, i32 } %1160, 0
-  call void @__clang_call_terminate(ptr %1161) #19
+  call void @__clang_call_terminate(ptr %1161) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit94:                          ; preds = %1158, %1157, %1153, %1145, %1147, %497
@@ -9069,7 +9069,7 @@ _ZN4ncnn3MatD2Ev.exit94:                          ; preds = %1158, %1157, %1153,
   %1176 = landingpad { ptr, i32 }
           catch ptr null
   %1177 = extractvalue { ptr, i32 } %1176, 0
-  call void @__clang_call_terminate(ptr %1177) #19
+  call void @__clang_call_terminate(ptr %1177) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit93:                          ; preds = %1174, %1173, %1169, %_ZN4ncnn3MatD2Ev.exit94, %1163, %479
@@ -9115,7 +9115,7 @@ _ZN4ncnn3MatD2Ev.exit93:                          ; preds = %1174, %1173, %1169,
   %1193 = landingpad { ptr, i32 }
           catch ptr null
   %1194 = extractvalue { ptr, i32 } %1193, 0
-  call void @__clang_call_terminate(ptr %1194) #19
+  call void @__clang_call_terminate(ptr %1194) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %1180, %.critedge, %1186, %1190, %1191
@@ -9158,7 +9158,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %1180, %.critedge, %
   %1210 = landingpad { ptr, i32 }
           catch ptr null
   %1211 = extractvalue { ptr, i32 } %1210, 0
-  call void @__clang_call_terminate(ptr %1211) #19
+  call void @__clang_call_terminate(ptr %1211) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit92:                          ; preds = %1197, %1195, %1203, %1207, %1208
@@ -9197,7 +9197,7 @@ _ZN4ncnn3MatD2Ev.exit92:                          ; preds = %1197, %1195, %1203,
   %1226 = landingpad { ptr, i32 }
           catch ptr null
   %1227 = extractvalue { ptr, i32 } %1226, 0
-  call void @__clang_call_terminate(ptr %1227) #19
+  call void @__clang_call_terminate(ptr %1227) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit91:                          ; preds = %1213, %_ZN4ncnn3MatD2Ev.exit92, %1219, %1223, %1224
@@ -9240,7 +9240,7 @@ _ZN4ncnn3MatD2Ev.exit91:                          ; preds = %1213, %_ZN4ncnn3Mat
   %1243 = landingpad { ptr, i32 }
           catch ptr null
   %1244 = extractvalue { ptr, i32 } %1243, 0
-  call void @__clang_call_terminate(ptr %1244) #19
+  call void @__clang_call_terminate(ptr %1244) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit90:                          ; preds = %1230, %1228, %1236, %1240, %1241
@@ -9279,7 +9279,7 @@ _ZN4ncnn3MatD2Ev.exit90:                          ; preds = %1230, %1228, %1236,
   %1259 = landingpad { ptr, i32 }
           catch ptr null
   %1260 = extractvalue { ptr, i32 } %1259, 0
-  call void @__clang_call_terminate(ptr %1260) #19
+  call void @__clang_call_terminate(ptr %1260) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit89:                          ; preds = %1246, %_ZN4ncnn3MatD2Ev.exit90, %1252, %1256, %1257
@@ -9322,7 +9322,7 @@ _ZNK4ncnn3Mat5emptyEv.exit339.thread:             ; preds = %78, %_ZN4ncnn3MatC2
   %1275 = landingpad { ptr, i32 }
           catch ptr null
   %1276 = extractvalue { ptr, i32 } %1275, 0
-  call void @__clang_call_terminate(ptr %1276) #19
+  call void @__clang_call_terminate(ptr %1276) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit88:                          ; preds = %1262, %_ZNK4ncnn3Mat5emptyEv.exit339.thread, %1268, %1272, %1273
@@ -9365,7 +9365,7 @@ _ZN4ncnn3MatD2Ev.exit88:                          ; preds = %1262, %_ZNK4ncnn3Ma
   %1292 = landingpad { ptr, i32 }
           catch ptr null
   %1293 = extractvalue { ptr, i32 } %1292, 0
-  call void @__clang_call_terminate(ptr %1293) #19
+  call void @__clang_call_terminate(ptr %1293) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit87:                          ; preds = %1290, %1289, %1285, %1277, %1279, %63
@@ -9411,7 +9411,7 @@ _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %4, %_ZNK4ncnn3Mat5e
   %1309 = landingpad { ptr, i32 }
           catch ptr null
   %1310 = extractvalue { ptr, i32 } %1309, 0
-  call void @__clang_call_terminate(ptr %1310) #19
+  call void @__clang_call_terminate(ptr %1310) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit86:                          ; preds = %1296, %_ZNK4ncnn3Mat5emptyEv.exit.thread, %1302, %1306, %1307
@@ -9448,7 +9448,7 @@ _ZN4ncnn3MatD2Ev.exit86:                          ; preds = %1296, %_ZNK4ncnn3Ma
   %1324 = landingpad { ptr, i32 }
           catch ptr null
   %1325 = extractvalue { ptr, i32 } %1324, 0
-  call void @__clang_call_terminate(ptr %1325) #19
+  call void @__clang_call_terminate(ptr %1325) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit85:                          ; preds = %1311, %_ZN4ncnn3MatD2Ev.exit87, %1317, %1321, %1322
@@ -9578,7 +9578,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %53
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #19
+  call void @__clang_call_terminate(ptr %78) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit37:                          ; preds = %64, %61, %70, %74, %75
@@ -9704,7 +9704,7 @@ _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %110, %80, %53, %_ZN
   %126 = landingpad { ptr, i32 }
           catch ptr null
   %127 = extractvalue { ptr, i32 } %126, 0
-  call void @__clang_call_terminate(ptr %127) #19
+  call void @__clang_call_terminate(ptr %127) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit38:                          ; preds = %113, %_ZNK4ncnn3Mat5emptyEv.exit.thread, %119, %123, %124
@@ -9747,7 +9747,7 @@ _ZNK4ncnn3Mat5emptyEv.exit58.thread:              ; preds = %10, %_ZNK4ncnn3Mat5
   %142 = landingpad { ptr, i32 }
           catch ptr null
   %143 = extractvalue { ptr, i32 } %142, 0
-  call void @__clang_call_terminate(ptr %143) #19
+  call void @__clang_call_terminate(ptr %143) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit36:                          ; preds = %129, %_ZNK4ncnn3Mat5emptyEv.exit58.thread, %135, %139, %140
@@ -9787,7 +9787,7 @@ _ZN4ncnn3MatD2Ev.exit36:                          ; preds = %129, %_ZNK4ncnn3Mat
   %157 = landingpad { ptr, i32 }
           catch ptr null
   %158 = extractvalue { ptr, i32 } %157, 0
-  call void @__clang_call_terminate(ptr %158) #19
+  call void @__clang_call_terminate(ptr %158) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %144, %_ZN4ncnn3MatD2Ev.exit37, %150, %154, %155
@@ -10448,11 +10448,11 @@ define internal void @_ZN4ncnnL4lstmERKNS_3MatERS0_iS2_S2_S2_S2_S3_S3_RKNS_6Opti
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.exp.f32(float) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.tanh.f32(float) #12
+declare float @llvm.tanh.f32(float) #13
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
 define internal void @_ZN4ncnnL4lstmERKNS_3MatERS0_iS2_S2_S2_S2_S3_S3_RKNS_6OptionE.omp_outlined.3(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8) #7 personality ptr @__gxx_personality_v0 {
@@ -10560,13 +10560,13 @@ define internal void @_ZN4ncnnL4lstmERKNS_3MatERS0_iS2_S2_S2_S2_S3_S3_RKNS_6Opti
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.min.ps(<4 x float>, <4 x float>) #13
+declare <4 x float> @llvm.x86.sse.min.ps(<4 x float>, <4 x float>) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #13
+declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float>) #13
+declare <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float>) #14
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8LSTM_x8612forward_int8ERKSt6vectorINS_3MatESaIS2_EERS4_RKNS_6OptionE(ptr noundef nonnull readonly align 8 dereferenceable(1024) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(64) %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
@@ -10761,7 +10761,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8LSTM_x8612forward_int8ER
   %127 = landingpad { ptr, i32 }
           catch ptr null
   %128 = extractvalue { ptr, i32 } %127, 0
-  call void @__clang_call_terminate(ptr %128) #19
+  call void @__clang_call_terminate(ptr %128) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit162:                         ; preds = %114, %93, %120, %124, %125
@@ -10878,7 +10878,7 @@ _ZN4ncnn3MatD2Ev.exit162:                         ; preds = %114, %93, %120, %12
   %184 = landingpad { ptr, i32 }
           catch ptr null
   %185 = extractvalue { ptr, i32 } %184, 0
-  call void @__clang_call_terminate(ptr %185) #19
+  call void @__clang_call_terminate(ptr %185) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit161:                         ; preds = %171, %150, %177, %181, %182
@@ -10928,7 +10928,7 @@ _ZN4ncnn3MatD2Ev.exit161:                         ; preds = %171, %150, %177, %1
   %205 = landingpad { ptr, i32 }
           catch ptr null
   %206 = extractvalue { ptr, i32 } %205, 0
-  call void @__clang_call_terminate(ptr %206) #19
+  call void @__clang_call_terminate(ptr %206) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit160:                         ; preds = %203, %202, %198, %188, %191, %186
@@ -10979,7 +10979,7 @@ _ZN4ncnn3MatD2Ev.exit160:                         ; preds = %203, %202, %198, %1
   %226 = landingpad { ptr, i32 }
           catch ptr null
   %227 = extractvalue { ptr, i32 } %226, 0
-  call void @__clang_call_terminate(ptr %227) #19
+  call void @__clang_call_terminate(ptr %227) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit159:                         ; preds = %224, %223, %219, %209, %212, %207
@@ -11527,7 +11527,7 @@ _ZNK4ncnn3Mat7channelEi.exit466:                  ; preds = %516, %480, %477
   %534 = landingpad { ptr, i32 }
           catch ptr null
   %535 = extractvalue { ptr, i32 } %534, 0
-  call void @__clang_call_terminate(ptr %535) #19
+  call void @__clang_call_terminate(ptr %535) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit158:                         ; preds = %520, %517, %527, %531, %532
@@ -11566,7 +11566,7 @@ _ZN4ncnn3MatD2Ev.exit158:                         ; preds = %520, %517, %527, %5
   %550 = landingpad { ptr, i32 }
           catch ptr null
   %551 = extractvalue { ptr, i32 } %550, 0
-  call void @__clang_call_terminate(ptr %551) #19
+  call void @__clang_call_terminate(ptr %551) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit157:                         ; preds = %537, %_ZN4ncnn3MatD2Ev.exit158, %543, %547, %548
@@ -11605,7 +11605,7 @@ _ZN4ncnn3MatD2Ev.exit157:                         ; preds = %537, %_ZN4ncnn3MatD
   %566 = landingpad { ptr, i32 }
           catch ptr null
   %567 = extractvalue { ptr, i32 } %566, 0
-  call void @__clang_call_terminate(ptr %567) #19
+  call void @__clang_call_terminate(ptr %567) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit156:                         ; preds = %553, %_ZN4ncnn3MatD2Ev.exit157, %559, %563, %564
@@ -11644,7 +11644,7 @@ _ZN4ncnn3MatD2Ev.exit156:                         ; preds = %553, %_ZN4ncnn3MatD
   %582 = landingpad { ptr, i32 }
           catch ptr null
   %583 = extractvalue { ptr, i32 } %582, 0
-  call void @__clang_call_terminate(ptr %583) #19
+  call void @__clang_call_terminate(ptr %583) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit155:                         ; preds = %569, %_ZN4ncnn3MatD2Ev.exit156, %575, %579, %580
@@ -11696,7 +11696,7 @@ _ZN4ncnn3MatD2Ev.exit155:                         ; preds = %569, %_ZN4ncnn3MatD
   %604 = landingpad { ptr, i32 }
           catch ptr null
   %605 = extractvalue { ptr, i32 } %604, 0
-  call void @__clang_call_terminate(ptr %605) #19
+  call void @__clang_call_terminate(ptr %605) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit154:                         ; preds = %590, %586, %597, %601, %602
@@ -11735,7 +11735,7 @@ _ZN4ncnn3MatD2Ev.exit154:                         ; preds = %590, %586, %597, %6
   %620 = landingpad { ptr, i32 }
           catch ptr null
   %621 = extractvalue { ptr, i32 } %620, 0
-  call void @__clang_call_terminate(ptr %621) #19
+  call void @__clang_call_terminate(ptr %621) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit153:                         ; preds = %607, %_ZN4ncnn3MatD2Ev.exit154, %613, %617, %618
@@ -11774,7 +11774,7 @@ _ZN4ncnn3MatD2Ev.exit153:                         ; preds = %607, %_ZN4ncnn3MatD
   %636 = landingpad { ptr, i32 }
           catch ptr null
   %637 = extractvalue { ptr, i32 } %636, 0
-  call void @__clang_call_terminate(ptr %637) #19
+  call void @__clang_call_terminate(ptr %637) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit152:                         ; preds = %623, %_ZN4ncnn3MatD2Ev.exit153, %629, %633, %634
@@ -11813,7 +11813,7 @@ _ZN4ncnn3MatD2Ev.exit152:                         ; preds = %623, %_ZN4ncnn3MatD
   %652 = landingpad { ptr, i32 }
           catch ptr null
   %653 = extractvalue { ptr, i32 } %652, 0
-  call void @__clang_call_terminate(ptr %653) #19
+  call void @__clang_call_terminate(ptr %653) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit151:                         ; preds = %639, %_ZN4ncnn3MatD2Ev.exit152, %645, %649, %650
@@ -12228,7 +12228,7 @@ _ZNK4ncnn3Mat7channelEi.exit462:                  ; preds = %880, %844, %841
   %898 = landingpad { ptr, i32 }
           catch ptr null
   %899 = extractvalue { ptr, i32 } %898, 0
-  call void @__clang_call_terminate(ptr %899) #19
+  call void @__clang_call_terminate(ptr %899) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit150:                         ; preds = %884, %881, %891, %895, %896
@@ -12267,7 +12267,7 @@ _ZN4ncnn3MatD2Ev.exit150:                         ; preds = %884, %881, %891, %8
   %914 = landingpad { ptr, i32 }
           catch ptr null
   %915 = extractvalue { ptr, i32 } %914, 0
-  call void @__clang_call_terminate(ptr %915) #19
+  call void @__clang_call_terminate(ptr %915) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit149:                         ; preds = %901, %_ZN4ncnn3MatD2Ev.exit150, %907, %911, %912
@@ -12306,7 +12306,7 @@ _ZN4ncnn3MatD2Ev.exit149:                         ; preds = %901, %_ZN4ncnn3MatD
   %930 = landingpad { ptr, i32 }
           catch ptr null
   %931 = extractvalue { ptr, i32 } %930, 0
-  call void @__clang_call_terminate(ptr %931) #19
+  call void @__clang_call_terminate(ptr %931) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit148:                         ; preds = %917, %_ZN4ncnn3MatD2Ev.exit149, %923, %927, %928
@@ -12345,7 +12345,7 @@ _ZN4ncnn3MatD2Ev.exit148:                         ; preds = %917, %_ZN4ncnn3MatD
   %946 = landingpad { ptr, i32 }
           catch ptr null
   %947 = extractvalue { ptr, i32 } %946, 0
-  call void @__clang_call_terminate(ptr %947) #19
+  call void @__clang_call_terminate(ptr %947) #20
   unreachable
 
 948:                                              ; preds = %933, %_ZN4ncnn3MatD2Ev.exit148, %939, %943, %944
@@ -12673,7 +12673,7 @@ _ZNK4ncnn3Mat7channelEi.exit:                     ; preds = %1124, %1084, %1081
   %1142 = landingpad { ptr, i32 }
           catch ptr null
   %1143 = extractvalue { ptr, i32 } %1142, 0
-  call void @__clang_call_terminate(ptr %1143) #19
+  call void @__clang_call_terminate(ptr %1143) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit146:                         ; preds = %1128, %1125, %1135, %1139, %1140
@@ -12712,7 +12712,7 @@ _ZN4ncnn3MatD2Ev.exit146:                         ; preds = %1128, %1125, %1135,
   %1158 = landingpad { ptr, i32 }
           catch ptr null
   %1159 = extractvalue { ptr, i32 } %1158, 0
-  call void @__clang_call_terminate(ptr %1159) #19
+  call void @__clang_call_terminate(ptr %1159) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit145:                         ; preds = %1145, %_ZN4ncnn3MatD2Ev.exit146, %1151, %1155, %1156
@@ -12751,7 +12751,7 @@ _ZN4ncnn3MatD2Ev.exit145:                         ; preds = %1145, %_ZN4ncnn3Mat
   %1174 = landingpad { ptr, i32 }
           catch ptr null
   %1175 = extractvalue { ptr, i32 } %1174, 0
-  call void @__clang_call_terminate(ptr %1175) #19
+  call void @__clang_call_terminate(ptr %1175) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit144:                         ; preds = %1161, %_ZN4ncnn3MatD2Ev.exit145, %1167, %1171, %1172
@@ -12790,7 +12790,7 @@ _ZN4ncnn3MatD2Ev.exit144:                         ; preds = %1161, %_ZN4ncnn3Mat
   %1190 = landingpad { ptr, i32 }
           catch ptr null
   %1191 = extractvalue { ptr, i32 } %1190, 0
-  call void @__clang_call_terminate(ptr %1191) #19
+  call void @__clang_call_terminate(ptr %1191) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit143:                         ; preds = %1177, %_ZN4ncnn3MatD2Ev.exit144, %1183, %1187, %1188
@@ -12839,7 +12839,7 @@ _ZN4ncnn3MatD2Ev.exit143:                         ; preds = %1177, %_ZN4ncnn3Mat
   %1209 = landingpad { ptr, i32 }
           catch ptr null
   %1210 = extractvalue { ptr, i32 } %1209, 0
-  call void @__clang_call_terminate(ptr %1210) #19
+  call void @__clang_call_terminate(ptr %1210) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit133:                         ; preds = %1196, %._crit_edge, %1202, %1206, %1207
@@ -12878,7 +12878,7 @@ _ZN4ncnn3MatD2Ev.exit133:                         ; preds = %1196, %._crit_edge,
   %1225 = landingpad { ptr, i32 }
           catch ptr null
   %1226 = extractvalue { ptr, i32 } %1225, 0
-  call void @__clang_call_terminate(ptr %1226) #19
+  call void @__clang_call_terminate(ptr %1226) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit132:                         ; preds = %1212, %_ZN4ncnn3MatD2Ev.exit133, %1218, %1222, %1223
@@ -12917,7 +12917,7 @@ _ZN4ncnn3MatD2Ev.exit132:                         ; preds = %1212, %_ZN4ncnn3Mat
   %1241 = landingpad { ptr, i32 }
           catch ptr null
   %1242 = extractvalue { ptr, i32 } %1241, 0
-  call void @__clang_call_terminate(ptr %1242) #19
+  call void @__clang_call_terminate(ptr %1242) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit131:                         ; preds = %1228, %_ZN4ncnn3MatD2Ev.exit132, %1234, %1238, %1239
@@ -12956,7 +12956,7 @@ _ZN4ncnn3MatD2Ev.exit131:                         ; preds = %1228, %_ZN4ncnn3Mat
   %1257 = landingpad { ptr, i32 }
           catch ptr null
   %1258 = extractvalue { ptr, i32 } %1257, 0
-  call void @__clang_call_terminate(ptr %1258) #19
+  call void @__clang_call_terminate(ptr %1258) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit130:                         ; preds = %1244, %_ZN4ncnn3MatD2Ev.exit131, %1250, %1254, %1255
@@ -13002,7 +13002,7 @@ _ZN4ncnn3MatD2Ev.exit130:                         ; preds = %1244, %_ZN4ncnn3Mat
   %1277 = landingpad { ptr, i32 }
           catch ptr null
   %1278 = extractvalue { ptr, i32 } %1277, 0
-  call void @__clang_call_terminate(ptr %1278) #19
+  call void @__clang_call_terminate(ptr %1278) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit142:                         ; preds = %1263, %1259, %1270, %1274, %1275
@@ -13041,7 +13041,7 @@ _ZN4ncnn3MatD2Ev.exit142:                         ; preds = %1263, %1259, %1270,
   %1293 = landingpad { ptr, i32 }
           catch ptr null
   %1294 = extractvalue { ptr, i32 } %1293, 0
-  call void @__clang_call_terminate(ptr %1294) #19
+  call void @__clang_call_terminate(ptr %1294) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit141:                         ; preds = %1280, %_ZN4ncnn3MatD2Ev.exit142, %1286, %1290, %1291
@@ -13080,7 +13080,7 @@ _ZN4ncnn3MatD2Ev.exit141:                         ; preds = %1280, %_ZN4ncnn3Mat
   %1309 = landingpad { ptr, i32 }
           catch ptr null
   %1310 = extractvalue { ptr, i32 } %1309, 0
-  call void @__clang_call_terminate(ptr %1310) #19
+  call void @__clang_call_terminate(ptr %1310) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit140:                         ; preds = %1296, %_ZN4ncnn3MatD2Ev.exit141, %1302, %1306, %1307
@@ -13119,7 +13119,7 @@ _ZN4ncnn3MatD2Ev.exit140:                         ; preds = %1296, %_ZN4ncnn3Mat
   %1325 = landingpad { ptr, i32 }
           catch ptr null
   %1326 = extractvalue { ptr, i32 } %1325, 0
-  call void @__clang_call_terminate(ptr %1326) #19
+  call void @__clang_call_terminate(ptr %1326) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit139:                         ; preds = %1312, %_ZN4ncnn3MatD2Ev.exit140, %1318, %1322, %1323
@@ -13165,7 +13165,7 @@ _ZN4ncnn3MatD2Ev.exit139:                         ; preds = %1312, %_ZN4ncnn3Mat
   %1345 = landingpad { ptr, i32 }
           catch ptr null
   %1346 = extractvalue { ptr, i32 } %1345, 0
-  call void @__clang_call_terminate(ptr %1346) #19
+  call void @__clang_call_terminate(ptr %1346) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit138:                         ; preds = %1331, %1327, %1338, %1342, %1343
@@ -13204,7 +13204,7 @@ _ZN4ncnn3MatD2Ev.exit138:                         ; preds = %1331, %1327, %1338,
   %1361 = landingpad { ptr, i32 }
           catch ptr null
   %1362 = extractvalue { ptr, i32 } %1361, 0
-  call void @__clang_call_terminate(ptr %1362) #19
+  call void @__clang_call_terminate(ptr %1362) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit137:                         ; preds = %1348, %_ZN4ncnn3MatD2Ev.exit138, %1354, %1358, %1359
@@ -13243,7 +13243,7 @@ _ZN4ncnn3MatD2Ev.exit137:                         ; preds = %1348, %_ZN4ncnn3Mat
   %1377 = landingpad { ptr, i32 }
           catch ptr null
   %1378 = extractvalue { ptr, i32 } %1377, 0
-  call void @__clang_call_terminate(ptr %1378) #19
+  call void @__clang_call_terminate(ptr %1378) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit136:                         ; preds = %1364, %_ZN4ncnn3MatD2Ev.exit137, %1370, %1374, %1375
@@ -13282,7 +13282,7 @@ _ZN4ncnn3MatD2Ev.exit136:                         ; preds = %1364, %_ZN4ncnn3Mat
   %1393 = landingpad { ptr, i32 }
           catch ptr null
   %1394 = extractvalue { ptr, i32 } %1393, 0
-  call void @__clang_call_terminate(ptr %1394) #19
+  call void @__clang_call_terminate(ptr %1394) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit135:                         ; preds = %1380, %_ZN4ncnn3MatD2Ev.exit136, %1386, %1390, %1391
@@ -13321,7 +13321,7 @@ _ZN4ncnn3MatD2Ev.exit135:                         ; preds = %1380, %_ZN4ncnn3Mat
   %1409 = landingpad { ptr, i32 }
           catch ptr null
   %1410 = extractvalue { ptr, i32 } %1409, 0
-  call void @__clang_call_terminate(ptr %1410) #19
+  call void @__clang_call_terminate(ptr %1410) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit134:                         ; preds = %1396, %_ZN4ncnn3MatD2Ev.exit135, %1402, %1406, %1407
@@ -13402,7 +13402,7 @@ _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %_ZN4ncnn3MatC2EiimP
   %1456 = landingpad { ptr, i32 }
           catch ptr null
   %1457 = extractvalue { ptr, i32 } %1456, 0
-  call void @__clang_call_terminate(ptr %1457) #19
+  call void @__clang_call_terminate(ptr %1457) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit129:                         ; preds = %1443, %_ZNK4ncnn3Mat5emptyEv.exit.thread, %1449, %1453, %1454
@@ -13441,7 +13441,7 @@ _ZN4ncnn3MatD2Ev.exit129:                         ; preds = %1443, %_ZNK4ncnn3Ma
   %1472 = landingpad { ptr, i32 }
           catch ptr null
   %1473 = extractvalue { ptr, i32 } %1472, 0
-  call void @__clang_call_terminate(ptr %1473) #19
+  call void @__clang_call_terminate(ptr %1473) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit128:                         ; preds = %1459, %_ZN4ncnn3MatD2Ev.exit129, %1465, %1469, %1470
@@ -13478,7 +13478,7 @@ _ZN4ncnn3MatD2Ev.exit128:                         ; preds = %1459, %_ZN4ncnn3Mat
   %1487 = landingpad { ptr, i32 }
           catch ptr null
   %1488 = extractvalue { ptr, i32 } %1487, 0
-  call void @__clang_call_terminate(ptr %1488) #19
+  call void @__clang_call_terminate(ptr %1488) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit127:                         ; preds = %1474, %_ZN4ncnn3MatD2Ev.exit134, %1480, %1484, %1485
@@ -13521,7 +13521,7 @@ _ZN4ncnn3MatD2Ev.exit127:                         ; preds = %1474, %_ZN4ncnn3Mat
   %1504 = landingpad { ptr, i32 }
           catch ptr null
   %1505 = extractvalue { ptr, i32 } %1504, 0
-  call void @__clang_call_terminate(ptr %1505) #19
+  call void @__clang_call_terminate(ptr %1505) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit126:                         ; preds = %1491, %1489, %1497, %1501, %1502
@@ -13560,7 +13560,7 @@ _ZN4ncnn3MatD2Ev.exit126:                         ; preds = %1491, %1489, %1497,
   %1520 = landingpad { ptr, i32 }
           catch ptr null
   %1521 = extractvalue { ptr, i32 } %1520, 0
-  call void @__clang_call_terminate(ptr %1521) #19
+  call void @__clang_call_terminate(ptr %1521) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit125:                         ; preds = %1507, %_ZN4ncnn3MatD2Ev.exit126, %1513, %1517, %1518
@@ -13599,7 +13599,7 @@ _ZN4ncnn3MatD2Ev.exit125:                         ; preds = %1507, %_ZN4ncnn3Mat
   %1536 = landingpad { ptr, i32 }
           catch ptr null
   %1537 = extractvalue { ptr, i32 } %1536, 0
-  call void @__clang_call_terminate(ptr %1537) #19
+  call void @__clang_call_terminate(ptr %1537) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit124:                         ; preds = %1534, %1533, %1529, %_ZN4ncnn3MatD2Ev.exit125, %1523, %691
@@ -13639,7 +13639,7 @@ _ZN4ncnn3MatD2Ev.exit124:                         ; preds = %1534, %1533, %1529,
   %1552 = landingpad { ptr, i32 }
           catch ptr null
   %1553 = extractvalue { ptr, i32 } %1552, 0
-  call void @__clang_call_terminate(ptr %1553) #19
+  call void @__clang_call_terminate(ptr %1553) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit123:                         ; preds = %1550, %1549, %1545, %_ZN4ncnn3MatD2Ev.exit124, %1539, %673
@@ -13860,7 +13860,7 @@ _ZN4ncnn3Mat7releaseEv.exit.i491:                 ; preds = %1625, %1626, %1621,
   %1663 = landingpad { ptr, i32 }
           catch ptr null
   %1664 = extractvalue { ptr, i32 } %1663, 0
-  call void @__clang_call_terminate(ptr %1664) #19
+  call void @__clang_call_terminate(ptr %1664) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %1650, %.critedge, %1656, %1660, %1661
@@ -13903,7 +13903,7 @@ _ZN4ncnn3MataSERKS0_.exit496:                     ; preds = %_ZN4ncnn3Mat7releas
   %1679 = landingpad { ptr, i32 }
           catch ptr null
   %1680 = extractvalue { ptr, i32 } %1679, 0
-  call void @__clang_call_terminate(ptr %1680) #19
+  call void @__clang_call_terminate(ptr %1680) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit122:                         ; preds = %1666, %_ZN4ncnn3MataSERKS0_.exit496, %1672, %1676, %1677
@@ -13942,7 +13942,7 @@ _ZN4ncnn3MatD2Ev.exit122:                         ; preds = %1666, %_ZN4ncnn3Mat
   %1695 = landingpad { ptr, i32 }
           catch ptr null
   %1696 = extractvalue { ptr, i32 } %1695, 0
-  call void @__clang_call_terminate(ptr %1696) #19
+  call void @__clang_call_terminate(ptr %1696) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit121:                         ; preds = %1682, %_ZN4ncnn3MatD2Ev.exit122, %1688, %1692, %1693
@@ -13985,7 +13985,7 @@ _ZN4ncnn3MatD2Ev.exit121:                         ; preds = %1682, %_ZN4ncnn3Mat
   %1712 = landingpad { ptr, i32 }
           catch ptr null
   %1713 = extractvalue { ptr, i32 } %1712, 0
-  call void @__clang_call_terminate(ptr %1713) #19
+  call void @__clang_call_terminate(ptr %1713) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit120:                         ; preds = %1699, %1697, %1705, %1709, %1710
@@ -14024,7 +14024,7 @@ _ZN4ncnn3MatD2Ev.exit120:                         ; preds = %1699, %1697, %1705,
   %1728 = landingpad { ptr, i32 }
           catch ptr null
   %1729 = extractvalue { ptr, i32 } %1728, 0
-  call void @__clang_call_terminate(ptr %1729) #19
+  call void @__clang_call_terminate(ptr %1729) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit119:                         ; preds = %1715, %_ZN4ncnn3MatD2Ev.exit120, %1721, %1725, %1726
@@ -14067,7 +14067,7 @@ _ZNK4ncnn3Mat5emptyEv.exit455.thread:             ; preds = %269, %249, %231, %_
   %1744 = landingpad { ptr, i32 }
           catch ptr null
   %1745 = extractvalue { ptr, i32 } %1744, 0
-  call void @__clang_call_terminate(ptr %1745) #19
+  call void @__clang_call_terminate(ptr %1745) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit118:                         ; preds = %1731, %_ZNK4ncnn3Mat5emptyEv.exit455.thread, %1737, %1741, %1742
@@ -14106,7 +14106,7 @@ _ZN4ncnn3MatD2Ev.exit118:                         ; preds = %1731, %_ZNK4ncnn3Ma
   %1760 = landingpad { ptr, i32 }
           catch ptr null
   %1761 = extractvalue { ptr, i32 } %1760, 0
-  call void @__clang_call_terminate(ptr %1761) #19
+  call void @__clang_call_terminate(ptr %1761) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit117:                         ; preds = %1747, %_ZN4ncnn3MatD2Ev.exit118, %1753, %1757, %1758
@@ -14149,7 +14149,7 @@ _ZN4ncnn3MatD2Ev.exit117:                         ; preds = %1747, %_ZN4ncnn3Mat
   %1777 = landingpad { ptr, i32 }
           catch ptr null
   %1778 = extractvalue { ptr, i32 } %1777, 0
-  call void @__clang_call_terminate(ptr %1778) #19
+  call void @__clang_call_terminate(ptr %1778) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit116:                         ; preds = %1764, %1762, %1770, %1774, %1775
@@ -14188,7 +14188,7 @@ _ZN4ncnn3MatD2Ev.exit116:                         ; preds = %1764, %1762, %1770,
   %1793 = landingpad { ptr, i32 }
           catch ptr null
   %1794 = extractvalue { ptr, i32 } %1793, 0
-  call void @__clang_call_terminate(ptr %1794) #19
+  call void @__clang_call_terminate(ptr %1794) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit115:                         ; preds = %1780, %_ZN4ncnn3MatD2Ev.exit116, %1786, %1790, %1791
@@ -15051,7 +15051,7 @@ _ZN4ncnn3MatC2EimiPNS_9AllocatorE.exit:           ; preds = %53
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #19
+  call void @__clang_call_terminate(ptr %78) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit63:                          ; preds = %64, %._crit_edge, %70, %74, %75
@@ -15090,7 +15090,7 @@ _ZN4ncnn3MatD2Ev.exit63:                          ; preds = %64, %._crit_edge, %
   %93 = landingpad { ptr, i32 }
           catch ptr null
   %94 = extractvalue { ptr, i32 } %93, 0
-  call void @__clang_call_terminate(ptr %94) #19
+  call void @__clang_call_terminate(ptr %94) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit62:                          ; preds = %80, %_ZN4ncnn3MatD2Ev.exit63, %86, %90, %91
@@ -15129,7 +15129,7 @@ _ZN4ncnn3MatD2Ev.exit62:                          ; preds = %80, %_ZN4ncnn3MatD2
   %109 = landingpad { ptr, i32 }
           catch ptr null
   %110 = extractvalue { ptr, i32 } %109, 0
-  call void @__clang_call_terminate(ptr %110) #19
+  call void @__clang_call_terminate(ptr %110) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit61:                          ; preds = %96, %_ZN4ncnn3MatD2Ev.exit62, %102, %106, %107
@@ -15390,7 +15390,7 @@ _ZN4ncnn3Mat4fillIaEEvT_.exit:                    ; preds = %.lr.ph29.i, %.lr.ph
   %224 = landingpad { ptr, i32 }
           catch ptr null
   %225 = extractvalue { ptr, i32 } %224, 0
-  call void @__clang_call_terminate(ptr %225) #19
+  call void @__clang_call_terminate(ptr %225) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit60:                          ; preds = %211, %209, %217, %221, %222
@@ -15429,7 +15429,7 @@ _ZN4ncnn3MatD2Ev.exit60:                          ; preds = %211, %209, %217, %2
   %240 = landingpad { ptr, i32 }
           catch ptr null
   %241 = extractvalue { ptr, i32 } %240, 0
-  call void @__clang_call_terminate(ptr %241) #19
+  call void @__clang_call_terminate(ptr %241) #20
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %227, %_ZN4ncnn3MatD2Ev.exit60, %233, %237, %238
@@ -15443,24 +15443,24 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %227, %_ZN4ncnn3MatD
 declare void @_ZN4ncnn3Mat6createEimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.max.ss(<4 x float>, <4 x float>) #13
+declare <4 x float> @llvm.x86.sse.max.ss(<4 x float>, <4 x float>) #14
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #13
+declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #14
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare <8 x i16> @llvm.smin.v8i16(<8 x i16>, <8 x i16>) #12
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare <8 x i16> @llvm.smax.v8i16(<8 x i16>, <8 x i16>) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16>, <8 x i16>) #13
+declare <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16>, <8 x i16>) #14
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.round.f32(float) #12
 
 declare noundef i32 @_ZN4ncnn19cpu_support_x86_xopEv() local_unnamed_addr #1
@@ -16536,37 +16536,37 @@ define internal void @_ZN4ncnnL9lstm_int8ERKNS_3MatES2_RS0_iS2_S2_S2_S2_S3_S3_RK
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #13
+declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16>, <8 x i16>) #13
+declare <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16>, <8 x i16>) #14
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #14
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #17
+declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x float> @llvm.copysign.v4f32(<4 x float>, <4 x float>) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare <4 x float> @llvm.copysign.v4f32(<4 x float>, <4 x float>) #17
 
 attributes #0 = { inlinehint mustprogress nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #1 = { "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
@@ -16580,15 +16580,16 @@ attributes #8 = { nounwind }
 attributes #9 = { mustprogress uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="128" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { alwaysinline norecurse nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="128" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #14 = { nobuiltin nounwind "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { builtin nounwind }
+attributes #12 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #15 = { nobuiltin nounwind "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

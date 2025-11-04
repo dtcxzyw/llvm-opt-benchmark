@@ -135,24 +135,24 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !26
-  %13 = call i32 @ff_get_guid(ptr noundef %12, ptr noundef nonnull %7) #14
+  %13 = call i32 @ff_get_guid(ptr noundef %12, ptr noundef nonnull %7) #15
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %7, ptr noundef nonnull dereferenceable(16) @ff_asf_header, i64 16)
   %.not = icmp eq i32 %bcmp, 0
   br i1 %.not, label %14, label %.thread208
 
 14:                                               ; preds = %1
-  %15 = call i64 @avio_rl64(ptr noundef %12) #14
-  %16 = call i32 @avio_rl32(ptr noundef %12) #14
-  %17 = call i32 @avio_r8(ptr noundef %12) #14
-  %18 = call i32 @avio_r8(ptr noundef %12) #14
+  %15 = call i64 @avio_rl64(ptr noundef %12) #15
+  %16 = call i32 @avio_rl32(ptr noundef %12) #15
+  %17 = call i32 @avio_r8(ptr noundef %12) #15
+  %18 = call i32 @avio_r8(ptr noundef %12) #15
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %19, i8 -1, i64 512, i1 false)
   br label %28
 
 .preheader:                                       ; preds = %28
-  %20 = call i64 @avio_seek(ptr noundef %12, i64 noundef 0, i32 noundef 1) #14
-  %21 = call i32 @ff_get_guid(ptr noundef %12, ptr noundef nonnull %7) #14
-  %22 = call i64 @avio_rl64(ptr noundef %12) #14
+  %20 = call i64 @avio_seek(ptr noundef %12, i64 noundef 0, i32 noundef 1) #15
+  %21 = call i32 @ff_get_guid(ptr noundef %12, ptr noundef nonnull %7) #15
+  %22 = call i64 @avio_rl64(ptr noundef %12) #15
   %bcmp215237 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %7, ptr noundef nonnull dereferenceable(16) @ff_asf_data_header, i64 16)
   %.not154238 = icmp eq i32 %bcmp215237, 0
   br i1 %.not154238, label %._crit_edge, label %.lr.ph
@@ -176,7 +176,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
 
 ._crit_edge:                                      ; preds = %516, %.preheader
   %.lcssa = phi i64 [ %22, %.preheader ], [ %519, %516 ]
-  %31 = call i64 @avio_seek(ptr noundef %12, i64 noundef 0, i32 noundef 1) #14
+  %31 = call i64 @avio_seek(ptr noundef %12, i64 noundef 0, i32 noundef 1) #15
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 161560
   store i64 %31, ptr %32, align 8, !tbaa !36
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 161640
@@ -189,11 +189,11 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
   %spec.select = select i1 %or.cond, i64 %38, i64 -1
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 161568
   store i64 %spec.select, ptr %39, align 8, !tbaa !41
-  %40 = call i32 @ff_get_guid(ptr noundef %12, ptr noundef nonnull %7) #14
-  %41 = call i64 @avio_rl64(ptr noundef %12) #14
-  %42 = call i32 @avio_r8(ptr noundef %12) #14
-  %43 = call i32 @avio_r8(ptr noundef %12) #14
-  %44 = call i32 @avio_feof(ptr noundef %12) #14
+  %40 = call i32 @ff_get_guid(ptr noundef %12, ptr noundef nonnull %7) #15
+  %41 = call i64 @avio_rl64(ptr noundef %12) #15
+  %42 = call i32 @avio_r8(ptr noundef %12) #15
+  %43 = call i32 @avio_r8(ptr noundef %12) #15
+  %44 = call i32 @avio_feof(ptr noundef %12) #15
   %.not171 = icmp eq i32 %44, 0
   br i1 %.not171, label %520, label %.thread208
 
@@ -212,33 +212,33 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
   %51 = load ptr, ptr %9, align 8, !tbaa !11
   %52 = load ptr, ptr %11, align 8, !tbaa !26
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 161584
-  %54 = call i32 @ff_get_guid(ptr noundef %52, ptr noundef nonnull %53) #14
-  %55 = call i64 @avio_rl64(ptr noundef %52) #14
+  %54 = call i32 @ff_get_guid(ptr noundef %52, ptr noundef nonnull %53) #15
+  %55 = call i64 @avio_rl64(ptr noundef %52) #15
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 161600
   store i64 %55, ptr %56, align 8, !tbaa !42
-  %57 = call i64 @avio_rl64(ptr noundef %52) #14
+  %57 = call i64 @avio_rl64(ptr noundef %52) #15
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 161608
   store i64 %57, ptr %58, align 8, !tbaa !43
-  %59 = call i64 @avio_rl64(ptr noundef %52) #14
-  %60 = call i64 @avio_rl64(ptr noundef %52) #14
+  %59 = call i64 @avio_rl64(ptr noundef %52) #15
+  %60 = call i64 @avio_rl64(ptr noundef %52) #15
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 161616
   store i64 %60, ptr %61, align 8, !tbaa !44
-  %62 = call i64 @avio_rl64(ptr noundef %52) #14
+  %62 = call i64 @avio_rl64(ptr noundef %52) #15
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 161624
   store i64 %62, ptr %63, align 8, !tbaa !45
-  %64 = call i32 @avio_rl32(ptr noundef %52) #14
+  %64 = call i32 @avio_rl32(ptr noundef %52) #15
   %65 = getelementptr inbounds nuw i8, ptr %51, i64 161632
   store i32 %64, ptr %65, align 8, !tbaa !46
-  %66 = call i32 @avio_rl32(ptr noundef %52) #14
+  %66 = call i32 @avio_rl32(ptr noundef %52) #15
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 161636
   store i32 %66, ptr %67, align 4, !tbaa !47
-  %68 = call i32 @avio_rl32(ptr noundef %52) #14
+  %68 = call i32 @avio_rl32(ptr noundef %52) #15
   %69 = getelementptr inbounds nuw i8, ptr %51, i64 161640
   store i32 %68, ptr %69, align 8, !tbaa !40
-  %70 = call i32 @avio_rl32(ptr noundef %52) #14
+  %70 = call i32 @avio_rl32(ptr noundef %52) #15
   %71 = getelementptr inbounds nuw i8, ptr %51, i64 161644
   store i32 %70, ptr %71, align 4, !tbaa !48
-  %72 = call i32 @avio_rl32(ptr noundef %52) #14
+  %72 = call i32 @avio_rl32(ptr noundef %52) #15
   %73 = getelementptr inbounds nuw i8, ptr %51, i64 161648
   store i32 %72, ptr %73, align 8, !tbaa !49
   %74 = load i32, ptr %71, align 4, !tbaa !48
@@ -246,7 +246,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
   br i1 %75, label %.thread208, label %76
 
 76:                                               ; preds = %50
-  %77 = call i32 @avio_rl32(ptr noundef %52) #14
+  %77 = call i32 @avio_rl32(ptr noundef %52) #15
   %78 = getelementptr inbounds nuw i8, ptr %51, i64 161652
   store i32 %77, ptr %78, align 4, !tbaa !50
   %79 = load i32, ptr %73, align 8, !tbaa !49
@@ -267,17 +267,17 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
   br i1 %85, label %86, label %87
 
 86:                                               ; preds = %81
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.21) #14
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.21) #15
   br label %asf_read_file_properties.exit.thread205
 
 87:                                               ; preds = %81
-  %88 = call i64 @avio_seek(ptr noundef %83, i64 noundef 0, i32 noundef 1) #14
-  %89 = call ptr @avformat_new_stream(ptr noundef nonnull %0, ptr noundef null) #14
+  %88 = call i64 @avio_seek(ptr noundef %83, i64 noundef 0, i32 noundef 1) #15
+  %89 = call ptr @avformat_new_stream(ptr noundef nonnull %0, ptr noundef null) #15
   %.not.i = icmp eq ptr %89, null
   br i1 %.not.i, label %asf_read_file_properties.exit.thread205, label %90
 
 90:                                               ; preds = %87
-  call void @avpriv_set_pts_info(ptr noundef nonnull %89, i32 noundef 32, i32 noundef 1, i32 noundef 1000) #14
+  call void @avpriv_set_pts_info(ptr noundef nonnull %89, i32 noundef 32, i32 noundef 1, i32 noundef 1000) #15
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 161632
   %92 = load i32, ptr %91, align 8, !tbaa !46
   %93 = zext i32 %92 to i64
@@ -288,7 +288,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
   br i1 %.not161.i, label %97, label %116
 
 97:                                               ; preds = %90
-  %98 = call i64 @avio_size(ptr noundef %83) #14
+  %98 = call i64 @avio_size(ptr noundef %83) #15
   %99 = icmp slt i64 %98, 1
   br i1 %99, label %110, label %100
 
@@ -316,7 +316,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
   br label %116
 
 116:                                              ; preds = %110, %104, %90
-  %117 = call i32 @ff_get_guid(ptr noundef %83, ptr noundef nonnull %6) #14
+  %117 = call i32 @ff_get_guid(ptr noundef %83, ptr noundef nonnull %6) #15
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %6, ptr noundef nonnull dereferenceable(16) @ff_asf_audio_stream, i64 16)
   %.not162.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not162.i, label %126, label %118
@@ -351,11 +351,11 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
 126:                                              ; preds = %125, %124, %120, %118, %116
   %.not167.i = phi i1 [ true, %120 ], [ true, %116 ], [ true, %118 ], [ true, %124 ], [ false, %125 ]
   %.0146.i = phi i32 [ 0, %120 ], [ 1, %116 ], [ 0, %118 ], [ 2, %124 ], [ -1, %125 ]
-  %127 = call i32 @ff_get_guid(ptr noundef %83, ptr noundef nonnull %6) #14
-  %128 = call i64 @avio_skip(ptr noundef %83, i64 noundef 8) #14
-  %129 = call i32 @avio_rl32(ptr noundef %83) #14
-  %130 = call i32 @avio_rl32(ptr noundef %83) #14
-  %131 = call i32 @avio_rl16(ptr noundef %83) #14
+  %127 = call i32 @ff_get_guid(ptr noundef %83, ptr noundef nonnull %6) #15
+  %128 = call i64 @avio_skip(ptr noundef %83, i64 noundef 8) #15
+  %129 = call i32 @avio_rl32(ptr noundef %83) #15
+  %130 = call i32 @avio_rl32(ptr noundef %83) #15
+  %131 = call i32 @avio_rl16(ptr noundef %83) #15
   %132 = and i32 %131, 127
   %133 = getelementptr inbounds nuw i8, ptr %89, i64 12
   store i32 %132, ptr %133, align 4, !tbaa !60
@@ -369,11 +369,11 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
   %140 = load i32, ptr %133, align 4, !tbaa !60
   %141 = sext i32 %140 to i64
   %142 = getelementptr inbounds %struct.ASFStream, ptr %139, i64 %141
-  %143 = call i32 @avio_rl32(ptr noundef %83) #14
+  %143 = call i32 @avio_rl32(ptr noundef %83) #15
   br i1 %.not167.i, label %146, label %144
 
 144:                                              ; preds = %126
-  %145 = call i32 @ff_get_guid(ptr noundef %83, ptr noundef nonnull %6) #14
+  %145 = call i32 @ff_get_guid(ptr noundef %83, ptr noundef nonnull %6) #15
   %bcmp193.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %6, ptr noundef nonnull dereferenceable(16) @ff_asf_ext_stream_audio_stream, i64 16)
   %.not168.i = icmp eq i32 %bcmp193.i, 0
   br i1 %.not168.i, label %.thread182.i, label %146
@@ -388,7 +388,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
   ]
 
 149:                                              ; preds = %146
-  %150 = call i32 @ff_get_wav_header(ptr noundef nonnull %0, ptr noundef %83, ptr noundef nonnull %148, i32 noundef %129, i32 noundef 0) #14
+  %150 = call i32 @ff_get_wav_header(ptr noundef nonnull %0, ptr noundef %83, ptr noundef nonnull %148, i32 noundef %129, i32 noundef 0) #15
   %151 = icmp sgt i32 %150, -1
   br i1 %151, label %._crit_edge.i, label %asf_read_file_properties.exit.thread205
 
@@ -397,16 +397,16 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
   br label %166
 
 .thread182.i:                                     ; preds = %144
-  %152 = call i32 @ff_get_guid(ptr noundef %83, ptr noundef nonnull %6) #14
-  %153 = call i32 @avio_rl32(ptr noundef %83) #14
-  %154 = call i32 @avio_rl32(ptr noundef %83) #14
-  %155 = call i32 @avio_rl32(ptr noundef %83) #14
-  %156 = call i32 @ff_get_guid(ptr noundef %83, ptr noundef nonnull %6) #14
-  %157 = call i32 @avio_rl32(ptr noundef %83) #14
+  %152 = call i32 @ff_get_guid(ptr noundef %83, ptr noundef nonnull %6) #15
+  %153 = call i32 @avio_rl32(ptr noundef %83) #15
+  %154 = call i32 @avio_rl32(ptr noundef %83) #15
+  %155 = call i32 @avio_rl32(ptr noundef %83) #15
+  %156 = call i32 @ff_get_guid(ptr noundef %83, ptr noundef nonnull %6) #15
+  %157 = call i32 @avio_rl32(ptr noundef %83) #15
   %158 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %159 = load ptr, ptr %158, align 8, !tbaa !56
   store i32 1, ptr %159, align 8, !tbaa !62
-  %160 = call i32 @ff_get_wav_header(ptr noundef nonnull %0, ptr noundef %83, ptr noundef nonnull %159, i32 noundef %129, i32 noundef 0) #14
+  %160 = call i32 @ff_get_wav_header(ptr noundef nonnull %0, ptr noundef %83, ptr noundef nonnull %159, i32 noundef %129, i32 noundef 0) #15
   %161 = icmp sgt i32 %160, -1
   br i1 %161, label %162, label %asf_read_file_properties.exit.thread205
 
@@ -426,24 +426,24 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
   %spec.select207.i = zext i1 %170 to i32
   %171 = getelementptr inbounds nuw i8, ptr %89, i64 808
   store i32 %spec.select207.i, ptr %171, align 8, !tbaa !76
-  %172 = call i64 @avio_seek(ptr noundef %83, i64 noundef 0, i32 noundef 1) #14
+  %172 = call i64 @avio_seek(ptr noundef %83, i64 noundef 0, i32 noundef 1) #15
   %reass.sub = sub i64 %172, %88
   %173 = add i64 %reass.sub, 32
   %.not174.i = icmp slt i64 %46, %173
   br i1 %.not174.i, label %183, label %174
 
 174:                                              ; preds = %166
-  %175 = call i32 @avio_r8(ptr noundef %83) #14
+  %175 = call i32 @avio_r8(ptr noundef %83) #15
   %176 = getelementptr inbounds nuw i8, ptr %142, i64 144
   store i32 %175, ptr %176, align 8, !tbaa !77
-  %177 = call i32 @avio_rl16(ptr noundef %83) #14
+  %177 = call i32 @avio_rl16(ptr noundef %83) #15
   %178 = getelementptr inbounds nuw i8, ptr %142, i64 148
   store i32 %177, ptr %178, align 4, !tbaa !78
-  %179 = call i32 @avio_rl16(ptr noundef %83) #14
+  %179 = call i32 @avio_rl16(ptr noundef %83) #15
   %180 = getelementptr inbounds nuw i8, ptr %142, i64 152
   store i32 %179, ptr %180, align 8, !tbaa !79
-  %181 = call i32 @avio_rl16(ptr noundef %83) #14
-  %182 = call i32 @avio_r8(ptr noundef %83) #14
+  %181 = call i32 @avio_rl16(ptr noundef %83) #15
+  %182 = call i32 @avio_r8(ptr noundef %83) #15
   br label %183
 
 183:                                              ; preds = %174, %166
@@ -473,7 +473,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
   br label %asf_read_file_properties.exit
 
 197:                                              ; preds = %146
-  %198 = call i64 @avio_seek(ptr noundef %83, i64 noundef 0, i32 noundef 1) #14
+  %198 = call i64 @avio_seek(ptr noundef %83, i64 noundef 0, i32 noundef 1) #15
   %.neg.i = add nsw i64 %46, -24
   %.neg169.i = add i64 %.neg.i, %88
   %199 = sub i64 %.neg169.i, %198
@@ -481,26 +481,26 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
   br i1 %200, label %201, label %asf_read_file_properties.exit
 
 201:                                              ; preds = %197
-  %202 = call i32 @avio_rl32(ptr noundef %83) #14
-  %203 = call i32 @avio_rl32(ptr noundef %83) #14
-  %204 = call i32 @avio_r8(ptr noundef %83) #14
-  %205 = call i32 @avio_rl16(ptr noundef %83) #14
-  %206 = call i32 @avio_rl32(ptr noundef %83) #14
-  %207 = call i32 @avio_rl32(ptr noundef %83) #14
+  %202 = call i32 @avio_rl32(ptr noundef %83) #15
+  %203 = call i32 @avio_rl32(ptr noundef %83) #15
+  %204 = call i32 @avio_r8(ptr noundef %83) #15
+  %205 = call i32 @avio_rl16(ptr noundef %83) #15
+  %206 = call i32 @avio_rl32(ptr noundef %83) #15
+  %207 = call i32 @avio_rl32(ptr noundef %83) #15
   %208 = load ptr, ptr %147, align 8, !tbaa !56
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 72
   store i32 %207, ptr %209, align 8, !tbaa !80
-  %210 = call i32 @avio_rl32(ptr noundef %83) #14
+  %210 = call i32 @avio_rl32(ptr noundef %83) #15
   %211 = load ptr, ptr %147, align 8, !tbaa !56
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 76
   store i32 %210, ptr %212, align 4, !tbaa !81
-  %213 = call i32 @avio_rl16(ptr noundef %83) #14
-  %214 = call i32 @avio_rl16(ptr noundef %83) #14
+  %213 = call i32 @avio_rl16(ptr noundef %83) #15
+  %214 = call i32 @avio_rl16(ptr noundef %83) #15
   %215 = load ptr, ptr %147, align 8, !tbaa !56
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 56
   store i32 %214, ptr %216, align 8, !tbaa !82
-  %217 = call i32 @avio_rl32(ptr noundef %83) #14
-  %218 = call i64 @avio_skip(ptr noundef %83, i64 noundef 20) #14
+  %217 = call i32 @avio_rl32(ptr noundef %83) #15
+  %218 = call i64 @avio_skip(ptr noundef %83, i64 noundef 20) #15
   %219 = icmp sgt i32 %206, 40
   br i1 %219, label %220, label %238
 
@@ -513,13 +513,13 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
   br i1 %or.cond.i, label %asf_read_file_properties.exit.thread205, label %225
 
 225:                                              ; preds = %220
-  %226 = call i32 @ffio_limit(ptr noundef %83, i32 noundef %221) #14
+  %226 = call i32 @ffio_limit(ptr noundef %83, i32 noundef %221) #15
   %227 = load ptr, ptr %147, align 8, !tbaa !56
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 24
   store i32 %226, ptr %228, align 8, !tbaa !83
   %229 = add nsw i32 %226, 64
   %230 = sext i32 %229 to i64
-  %231 = call noalias ptr @av_mallocz(i64 noundef %230) #14
+  %231 = call noalias ptr @av_mallocz(i64 noundef %230) #15
   %232 = load ptr, ptr %147, align 8, !tbaa !56
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 16
   store ptr %231, ptr %233, align 8, !tbaa !84
@@ -529,7 +529,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
 234:                                              ; preds = %225
   %235 = getelementptr inbounds nuw i8, ptr %232, i64 24
   %236 = load i32, ptr %235, align 8, !tbaa !83
-  %237 = call i32 @avio_read(ptr noundef %83, ptr noundef nonnull %231, i32 noundef %236) #14
+  %237 = call i32 @avio_read(ptr noundef %83, ptr noundef nonnull %231, i32 noundef %236) #15
   br label %238
 
 238:                                              ; preds = %234, %201
@@ -561,7 +561,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
   %252 = phi ptr [ %.pre.i, %246 ], [ %239, %242 ], [ %239, %238 ]
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 8
   store i32 %217, ptr %253, align 8, !tbaa !75
-  %254 = call i32 @ff_codec_get_id(ptr noundef nonnull @ff_codec_bmp_tags, i32 noundef %217) #14
+  %254 = call i32 @ff_codec_get_id(ptr noundef nonnull @ff_codec_bmp_tags, i32 noundef %217) #15
   %255 = load ptr, ptr %147, align 8, !tbaa !56
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 4
   store i32 %254, ptr %256, align 4, !tbaa !57
@@ -569,7 +569,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
   br i1 %.not172.i, label %257, label %261
 
 257:                                              ; preds = %251
-  %258 = call i32 @ff_codec_get_id(ptr noundef nonnull @ff_codec_bmp_tags_unofficial, i32 noundef %217) #14
+  %258 = call i32 @ff_codec_get_id(ptr noundef nonnull @ff_codec_bmp_tags_unofficial, i32 noundef %217) #15
   %259 = load ptr, ptr %147, align 8, !tbaa !56
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 4
   store i32 %258, ptr %260, align 4, !tbaa !57
@@ -588,7 +588,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
   %267 = getelementptr inbounds nuw i8, ptr %262, i64 72
   store i32 0, ptr %267, align 8, !tbaa !80
   %268 = getelementptr inbounds nuw i8, ptr %262, i64 16
-  call void @av_freep(ptr noundef nonnull %268) #14
+  call void @av_freep(ptr noundef nonnull %268) #15
   %269 = load ptr, ptr %147, align 8, !tbaa !56
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 24
   store i32 0, ptr %270, align 8, !tbaa !83
@@ -626,17 +626,17 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
 
 281:                                              ; preds = %280
   %282 = load ptr, ptr %11, align 8, !tbaa !26
-  %283 = call i32 @avio_rl16(ptr noundef %282) #14
-  %284 = call i32 @avio_rl16(ptr noundef %282) #14
-  %285 = call i32 @avio_rl16(ptr noundef %282) #14
-  %286 = call i32 @avio_rl16(ptr noundef %282) #14
-  %287 = call i32 @avio_rl16(ptr noundef %282) #14
+  %283 = call i32 @avio_rl16(ptr noundef %282) #15
+  %284 = call i32 @avio_rl16(ptr noundef %282) #15
+  %285 = call i32 @avio_rl16(ptr noundef %282) #15
+  %286 = call i32 @avio_rl16(ptr noundef %282) #15
+  %287 = call i32 @avio_rl16(ptr noundef %282) #15
   call fastcc void @get_tag(ptr noundef %0, ptr noundef nonnull @.str.22, i32 noundef 0, i32 noundef %283, i32 noundef 32)
   call fastcc void @get_tag(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef %284, i32 noundef 32)
   call fastcc void @get_tag(ptr noundef %0, ptr noundef nonnull @.str.24, i32 noundef 0, i32 noundef %285, i32 noundef 32)
   call fastcc void @get_tag(ptr noundef %0, ptr noundef nonnull @.str.25, i32 noundef 0, i32 noundef %286, i32 noundef 32)
   %288 = sext i32 %287 to i64
-  %289 = call i64 @avio_skip(ptr noundef %282, i64 noundef %288) #14
+  %289 = call i64 @avio_skip(ptr noundef %282, i64 noundef %288) #15
   br label %asf_read_file_properties.exit.thread
 
 290:                                              ; preds = %280
@@ -647,7 +647,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
 291:                                              ; preds = %290
   %.val = load ptr, ptr %9, align 8, !tbaa !11
   %.val174 = load ptr, ptr %11, align 8, !tbaa !26
-  %292 = call i32 @avio_rl16(ptr noundef %.val174) #14
+  %292 = call i32 @avio_rl16(ptr noundef %.val174) #15
   %293 = icmp sgt i32 %292, 0
   br i1 %293, label %.lr.ph.i, label %asf_read_file_properties.exit.thread
 
@@ -659,15 +659,15 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
 295:                                              ; preds = %308, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %308 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %296 = call i32 @avio_r8(ptr noundef %.val174) #14
-  %297 = call i32 @avio_get_str16le(ptr noundef %.val174, i32 noundef %296, ptr noundef nonnull %5, i32 noundef 6) #14
+  %296 = call i32 @avio_r8(ptr noundef %.val174) #15
+  %297 = call i32 @avio_get_str16le(ptr noundef %.val174, i32 noundef %296, ptr noundef nonnull %5, i32 noundef 6) #15
   %298 = icmp ult i32 %297, %296
   br i1 %298, label %299, label %303
 
 299:                                              ; preds = %295
   %300 = sub nuw i32 %296, %297
   %301 = zext i32 %300 to i64
-  %302 = call i64 @avio_skip(ptr noundef %.val174, i64 noundef %301) #14
+  %302 = call i64 @avio_skip(ptr noundef %.val174, i64 noundef %301) #15
   br label %303
 
 303:                                              ; preds = %299, %295
@@ -676,7 +676,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
 
 305:                                              ; preds = %303
   %306 = getelementptr inbounds nuw [6 x i8], ptr %294, i64 %indvars.iv.i
-  %307 = call i64 @av_strlcpy(ptr noundef nonnull %306, ptr noundef nonnull %5, i64 noundef 6) #14
+  %307 = call i64 @av_strlcpy(ptr noundef nonnull %306, ptr noundef nonnull %5, i64 noundef 6) #15
   br label %308
 
 308:                                              ; preds = %305, %303
@@ -693,7 +693,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
 310:                                              ; preds = %309
   %311 = load ptr, ptr %11, align 8, !tbaa !26
   %312 = load ptr, ptr %9, align 8, !tbaa !11
-  %313 = call i32 @avio_rl16(ptr noundef %311) #14
+  %313 = call i32 @avio_rl16(ptr noundef %311) #15
   %314 = icmp sgt i32 %313, 0
   br i1 %314, label %.lr.ph.i178, label %asf_read_file_properties.exit.thread
 
@@ -705,22 +705,22 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
 317:                                              ; preds = %355, %.lr.ph.i178
   %.02838.i = phi i32 [ 0, %.lr.ph.i178 ], [ %356, %355 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %318 = call i32 @avio_rl16(ptr noundef %311) #14
+  %318 = call i32 @avio_rl16(ptr noundef %311) #15
   %319 = and i32 %318, 1
   %spec.select.i179 = add nsw i32 %319, %318
-  %320 = call i32 @avio_get_str16le(ptr noundef %311, i32 noundef %spec.select.i179, ptr noundef nonnull %4, i32 noundef 1024) #14
+  %320 = call i32 @avio_get_str16le(ptr noundef %311, i32 noundef %spec.select.i179, ptr noundef nonnull %4, i32 noundef 1024) #15
   %321 = icmp slt i32 %320, %spec.select.i179
   br i1 %321, label %322, label %326
 
 322:                                              ; preds = %317
   %323 = sub nsw i32 %spec.select.i179, %320
   %324 = zext nneg i32 %323 to i64
-  %325 = call i64 @avio_skip(ptr noundef %311, i64 noundef %324) #14
+  %325 = call i64 @avio_skip(ptr noundef %311, i64 noundef %324) #15
   br label %326
 
 326:                                              ; preds = %322, %317
-  %327 = call i32 @avio_rl16(ptr noundef %311) #14
-  %328 = call i32 @avio_rl16(ptr noundef %311) #14
+  %327 = call i32 @avio_rl16(ptr noundef %311) #15
+  %328 = call i32 @avio_rl16(ptr noundef %311) #15
   %.not31.i = icmp eq i32 %327, 0
   %329 = and i32 %328, 1
   %.not32.i = icmp ne i32 %329, 0
@@ -741,20 +741,20 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
   ]
 
 333:                                              ; preds = %331
-  %334 = call i32 @avio_rl32(ptr noundef %332) #14
+  %334 = call i32 @avio_rl32(ptr noundef %332) #15
   br label %get_value.exit.i
 
 335:                                              ; preds = %331
-  %336 = call i32 @avio_rl32(ptr noundef %332) #14
+  %336 = call i32 @avio_rl32(ptr noundef %332) #15
   br label %get_value.exit.i
 
 337:                                              ; preds = %331
-  %338 = call i64 @avio_rl64(ptr noundef %332) #14
+  %338 = call i64 @avio_rl64(ptr noundef %332) #15
   %339 = trunc i64 %338 to i32
   br label %get_value.exit.i
 
 340:                                              ; preds = %331
-  %341 = call i32 @avio_rl16(ptr noundef %332) #14
+  %341 = call i32 @avio_rl16(ptr noundef %332) #15
   br label %get_value.exit.i
 
 get_value.exit.i:                                 ; preds = %340, %337, %335, %333, %331
@@ -777,20 +777,20 @@ get_value.exit.i:                                 ; preds = %340, %337, %335, %3
   ]
 
 345:                                              ; preds = %343
-  %346 = call i32 @avio_rl32(ptr noundef %344) #14
+  %346 = call i32 @avio_rl32(ptr noundef %344) #15
   br label %get_value.exit37.i
 
 347:                                              ; preds = %343
-  %348 = call i32 @avio_rl32(ptr noundef %344) #14
+  %348 = call i32 @avio_rl32(ptr noundef %344) #15
   br label %get_value.exit37.i
 
 349:                                              ; preds = %343
-  %350 = call i64 @avio_rl64(ptr noundef %344) #14
+  %350 = call i64 @avio_rl64(ptr noundef %344) #15
   %351 = trunc i64 %350 to i32
   br label %get_value.exit37.i
 
 352:                                              ; preds = %343
-  %353 = call i32 @avio_rl16(ptr noundef %344) #14
+  %353 = call i32 @avio_rl16(ptr noundef %344) #15
   br label %get_value.exit37.i
 
 get_value.exit37.i:                               ; preds = %352, %349, %347, %345, %343
@@ -835,18 +835,18 @@ get_value.exit37.i:                               ; preds = %352, %349, %347, %3
   %363 = load ptr, ptr %9, align 8, !tbaa !11
   %364 = load ptr, ptr %11, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %365 = call i64 @avio_rl64(ptr noundef %364) #14
-  %366 = call i64 @avio_rl64(ptr noundef %364) #14
-  %367 = call i32 @avio_rl32(ptr noundef %364) #14
-  %368 = call i32 @avio_rl32(ptr noundef %364) #14
-  %369 = call i32 @avio_rl32(ptr noundef %364) #14
-  %370 = call i32 @avio_rl32(ptr noundef %364) #14
-  %371 = call i32 @avio_rl32(ptr noundef %364) #14
-  %372 = call i32 @avio_rl32(ptr noundef %364) #14
-  %373 = call i32 @avio_rl32(ptr noundef %364) #14
-  %374 = call i32 @avio_rl32(ptr noundef %364) #14
-  %375 = call i32 @avio_rl16(ptr noundef %364) #14
-  %376 = call i32 @avio_rl16(ptr noundef %364) #14
+  %365 = call i64 @avio_rl64(ptr noundef %364) #15
+  %366 = call i64 @avio_rl64(ptr noundef %364) #15
+  %367 = call i32 @avio_rl32(ptr noundef %364) #15
+  %368 = call i32 @avio_rl32(ptr noundef %364) #15
+  %369 = call i32 @avio_rl32(ptr noundef %364) #15
+  %370 = call i32 @avio_rl32(ptr noundef %364) #15
+  %371 = call i32 @avio_rl32(ptr noundef %364) #15
+  %372 = call i32 @avio_rl32(ptr noundef %364) #15
+  %373 = call i32 @avio_rl32(ptr noundef %364) #15
+  %374 = call i32 @avio_rl32(ptr noundef %364) #15
+  %375 = call i32 @avio_rl16(ptr noundef %364) #15
+  %376 = call i32 @avio_rl16(ptr noundef %364) #15
   %377 = icmp ult i32 %375, 128
   br i1 %377, label %378, label %383
 
@@ -859,9 +859,9 @@ get_value.exit37.i:                               ; preds = %352, %349, %347, %3
   br label %383
 
 383:                                              ; preds = %378, %362
-  %384 = call i64 @avio_rl64(ptr noundef %364) #14
-  %385 = call i32 @avio_rl16(ptr noundef %364) #14
-  %386 = call i32 @avio_rl16(ptr noundef %364) #14
+  %384 = call i64 @avio_rl64(ptr noundef %364) #15
+  %385 = call i32 @avio_rl16(ptr noundef %364) #15
+  %386 = call i32 @avio_rl16(ptr noundef %364) #15
   br i1 %377, label %387, label %393
 
 387:                                              ; preds = %383
@@ -896,40 +896,40 @@ get_value.exit37.i:                               ; preds = %352, %349, %347, %3
 
 .lr.ph68.split.us.i:                              ; preds = %.lr.ph68.i, %405
   %.16067.us.i = phi i32 [ %408, %405 ], [ 0, %.lr.ph68.i ]
-  %401 = call i32 @ff_get_guid(ptr noundef %364, ptr noundef nonnull %3) #14
-  %402 = call i32 @avio_rl16(ptr noundef %364) #14
-  %403 = call i32 @avio_rl32(ptr noundef %364) #14
+  %401 = call i32 @ff_get_guid(ptr noundef %364, ptr noundef nonnull %3) #15
+  %402 = call i32 @avio_rl16(ptr noundef %364) #15
+  %403 = call i32 @avio_rl32(ptr noundef %364) #15
   %404 = icmp sgt i32 %403, -1
   br i1 %404, label %405, label %asf_read_ext_stream_properties.exit
 
 405:                                              ; preds = %.lr.ph68.split.us.i
   %406 = zext nneg i32 %403 to i64
-  %407 = call i64 @avio_skip(ptr noundef %364, i64 noundef %406) #14
+  %407 = call i64 @avio_skip(ptr noundef %364, i64 noundef %406) #15
   %408 = add nuw nsw i32 %.16067.us.i, 1
   %exitcond74.not.i = icmp eq i32 %408, %386
   br i1 %exitcond74.not.i, label %asf_read_ext_stream_properties.exit, label %.lr.ph68.split.us.i, !llvm.loop !91
 
 .lr.ph.i186:                                      ; preds = %393, %.lr.ph.i186
   %.05966.i = phi i32 [ %413, %.lr.ph.i186 ], [ 0, %393 ]
-  %409 = call i32 @avio_rl16(ptr noundef %364) #14
-  %410 = call i32 @avio_rl16(ptr noundef %364) #14
+  %409 = call i32 @avio_rl16(ptr noundef %364) #15
+  %410 = call i32 @avio_rl16(ptr noundef %364) #15
   %411 = sext i32 %410 to i64
-  %412 = call i64 @avio_skip(ptr noundef %364, i64 noundef %411) #14
+  %412 = call i64 @avio_skip(ptr noundef %364, i64 noundef %411) #15
   %413 = add nuw nsw i32 %.05966.i, 1
   %exitcond.not.i187 = icmp eq i32 %413, %385
   br i1 %exitcond.not.i187, label %.preheader.i, label %.lr.ph.i186, !llvm.loop !92
 
 .lr.ph68.split.i:                                 ; preds = %431, %.lr.ph68.split.preheader.i
   %indvars.iv.i184 = phi i64 [ 0, %.lr.ph68.split.preheader.i ], [ %indvars.iv.next.i185, %431 ]
-  %414 = call i32 @ff_get_guid(ptr noundef %364, ptr noundef nonnull %3) #14
-  %415 = call i32 @avio_rl16(ptr noundef %364) #14
-  %416 = call i32 @avio_rl32(ptr noundef %364) #14
+  %414 = call i32 @ff_get_guid(ptr noundef %364, ptr noundef nonnull %3) #15
+  %415 = call i32 @avio_rl16(ptr noundef %364) #15
+  %416 = call i32 @avio_rl32(ptr noundef %364) #15
   %417 = icmp sgt i32 %416, -1
   br i1 %417, label %418, label %asf_read_ext_stream_properties.exit
 
 418:                                              ; preds = %.lr.ph68.split.i
   %419 = zext nneg i32 %416 to i64
-  %420 = call i64 @avio_skip(ptr noundef %364, i64 noundef %419) #14
+  %420 = call i64 @avio_skip(ptr noundef %364, i64 noundef %419) #15
   %421 = icmp samesign ult i64 %indvars.iv.i184, 8
   br i1 %421, label %422, label %431
 
@@ -942,7 +942,7 @@ get_value.exit37.i:                               ; preds = %352, %349, %347, %3
   store i16 %425, ptr %426, align 2, !tbaa !96
   %427 = zext i8 %424 to i32
   %428 = and i32 %415, 65535
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.29, i32 noundef %427, i32 noundef %428) #14
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.29, i32 noundef %427, i32 noundef %428) #15
   %429 = load i32, ptr %400, align 8, !tbaa !90
   %430 = add nsw i32 %429, 1
   store i32 %430, ptr %400, align 8, !tbaa !90
@@ -963,8 +963,8 @@ asf_read_ext_stream_properties.exit:              ; preds = %.lr.ph68.split.us.i
   br i1 %.not163, label %433, label %436
 
 433:                                              ; preds = %432
-  %434 = call i32 @ff_get_guid(ptr noundef %12, ptr noundef nonnull %7) #14
-  %435 = call i64 @avio_skip(ptr noundef %12, i64 noundef 6) #14
+  %434 = call i32 @ff_get_guid(ptr noundef %12, ptr noundef nonnull %7) #15
+  %435 = call i64 @avio_skip(ptr noundef %12, i64 noundef 6) #15
   br label %516
 
 436:                                              ; preds = %432
@@ -976,13 +976,13 @@ asf_read_ext_stream_properties.exit:              ; preds = %.lr.ph68.split.us.i
   %438 = load ptr, ptr %11, align 8, !tbaa !26
   %439 = load ptr, ptr %9, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %440 = call i64 @avio_rl64(ptr noundef %438) #14
-  %441 = call i64 @avio_rl64(ptr noundef %438) #14
-  %442 = call i32 @avio_rl32(ptr noundef %438) #14
-  %443 = call i32 @avio_rl16(ptr noundef %438) #14
-  %444 = call i32 @avio_rl16(ptr noundef %438) #14
+  %440 = call i64 @avio_rl64(ptr noundef %438) #15
+  %441 = call i64 @avio_rl64(ptr noundef %438) #15
+  %442 = call i32 @avio_rl32(ptr noundef %438) #15
+  %443 = call i32 @avio_rl16(ptr noundef %438) #15
+  %444 = call i32 @avio_rl16(ptr noundef %438) #15
   %445 = sext i32 %444 to i64
-  %446 = call i64 @avio_skip(ptr noundef %438, i64 noundef %445) #14
+  %446 = call i64 @avio_skip(ptr noundef %438, i64 noundef %445) #15
   %447 = icmp sgt i32 %442, 0
   br i1 %447, label %.lr.ph.i190, label %asf_read_marker.exit
 
@@ -993,13 +993,13 @@ asf_read_ext_stream_properties.exit:              ; preds = %.lr.ph68.split.us.i
 
 449:                                              ; preds = %.critedge.i, %.lr.ph.i190
   %indvars.iv.i192 = phi i64 [ 0, %.lr.ph.i190 ], [ %indvars.iv.next.i194, %.critedge.i ]
-  %450 = call i32 @avio_feof(ptr noundef %438) #14
+  %450 = call i32 @avio_feof(ptr noundef %438) #15
   %.not.i193 = icmp eq i32 %450, 0
   br i1 %.not.i193, label %451, label %asf_read_marker.exit
 
 451:                                              ; preds = %449
-  %452 = call i64 @avio_rl64(ptr noundef %438) #14
-  %453 = call i64 @avio_rl64(ptr noundef %438) #14
+  %452 = call i64 @avio_rl64(ptr noundef %438) #15
+  %453 = call i64 @avio_rl64(ptr noundef %438) #15
   %454 = load i32, ptr %448, align 8, !tbaa !46
   %455 = zext i32 %454 to i64
   %456 = mul nuw nsw i64 %455, 10000
@@ -1009,27 +1009,27 @@ asf_read_ext_stream_properties.exit:              ; preds = %.lr.ph68.split.us.i
   %460 = icmp slt i64 %459, 0
   %461 = select i1 %460, i64 9223372036854775807, i64 -9223372036854775808
   %462 = select i1 %458, i64 %461, i64 %459
-  %463 = call i32 @avio_rl16(ptr noundef %438) #14
-  %464 = call i32 @avio_rl32(ptr noundef %438) #14
-  %465 = call i32 @avio_rl32(ptr noundef %438) #14
-  %466 = call i32 @avio_rl32(ptr noundef %438) #14
+  %463 = call i32 @avio_rl16(ptr noundef %438) #15
+  %464 = call i32 @avio_rl32(ptr noundef %438) #15
+  %465 = call i32 @avio_rl32(ptr noundef %438) #15
+  %466 = call i32 @avio_rl32(ptr noundef %438) #15
   %467 = icmp ugt i32 %466, 1073741823
   br i1 %467, label %asf_read_marker.exit, label %468
 
 468:                                              ; preds = %451
   %469 = shl nuw nsw i32 %466, 1
-  %470 = call i32 @avio_get_str16le(ptr noundef %438, i32 noundef %469, ptr noundef nonnull %2, i32 noundef 1024) #14
+  %470 = call i32 @avio_get_str16le(ptr noundef %438, i32 noundef %469, ptr noundef nonnull %2, i32 noundef 1024) #15
   %471 = icmp slt i32 %470, %466
   br i1 %471, label %472, label %.critedge.i
 
 472:                                              ; preds = %468
   %473 = sub nsw i32 %466, %470
   %474 = zext nneg i32 %473 to i64
-  %475 = call i64 @avio_skip(ptr noundef %438, i64 noundef %474) #14
+  %475 = call i64 @avio_skip(ptr noundef %438, i64 noundef %474) #15
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %472, %468
-  %476 = call ptr @avpriv_new_chapter(ptr noundef %0, i64 noundef %indvars.iv.i192, i64 42949672960000001, i64 noundef %462, i64 noundef -9223372036854775808, ptr noundef nonnull %2) #14
+  %476 = call ptr @avpriv_new_chapter(ptr noundef %0, i64 noundef %indvars.iv.i192, i64 42949672960000001, i64 noundef %462, i64 noundef -9223372036854775808, ptr noundef nonnull %2) #15
   %indvars.iv.next.i194 = add nuw nsw i64 %indvars.iv.i192, 1
   %exitcond.not.i195 = icmp eq i64 %indvars.iv.next.i194, %wide.trip.count.i191
   br i1 %exitcond.not.i195, label %asf_read_marker.exit, label %449, !llvm.loop !97
@@ -1039,7 +1039,7 @@ asf_read_marker.exit:                             ; preds = %449, %451, %.crited
   br label %asf_read_file_properties.exit.thread
 
 477:                                              ; preds = %436
-  %478 = call i32 @avio_feof(ptr noundef %12) #14
+  %478 = call i32 @avio_feof(ptr noundef %12) #15
   %.not165 = icmp eq i32 %478, 0
   br i1 %.not165, label %479, label %.thread208
 
@@ -1055,10 +1055,10 @@ asf_read_marker.exit:                             ; preds = %449, %451, %.crited
 
 482:                                              ; preds = %481
   %483 = load ptr, ptr %25, align 8, !tbaa !99
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.9) #14
-  %484 = call i32 @avio_rl32(ptr noundef %12) #14
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.10) #14
-  %485 = call i32 @av_get_packet(ptr noundef %12, ptr noundef %483, i32 noundef %484) #14
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.9) #15
+  %484 = call i32 @avio_rl32(ptr noundef %12) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.10) #15
+  %485 = call i32 @av_get_packet(ptr noundef %12, ptr noundef %483, i32 noundef %484) #15
   %486 = icmp slt i32 %485, 0
   br i1 %486, label %.thread208, label %487
 
@@ -1067,21 +1067,21 @@ asf_read_marker.exit:                             ; preds = %449, %451, %.crited
   %489 = load ptr, ptr %488, align 8, !tbaa !103
   %490 = getelementptr inbounds nuw i8, ptr %483, i64 32
   %491 = load i32, ptr %490, align 8, !tbaa !104
-  call void @av_hex_dump_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef %489, i32 noundef %491) #14
-  call void @av_packet_unref(ptr noundef %483) #14
-  %492 = call i32 @avio_rl32(ptr noundef %12) #14
+  call void @av_hex_dump_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef %489, i32 noundef %491) #15
+  call void @av_packet_unref(ptr noundef %483) #15
+  %492 = call i32 @avio_rl32(ptr noundef %12) #15
   %493 = icmp ugt i32 %492, 65535
   br i1 %493, label %.thread208, label %494
 
 494:                                              ; preds = %487
   call fastcc void @get_tag(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, i32 noundef -1, i32 noundef %492, i32 noundef 32)
-  %495 = call i32 @avio_rl32(ptr noundef %12) #14
+  %495 = call i32 @avio_rl32(ptr noundef %12) #15
   %496 = icmp ugt i32 %495, 65535
   br i1 %496, label %.thread208, label %497
 
 497:                                              ; preds = %494
   call fastcc void @get_tag(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, i32 noundef -1, i32 noundef %495, i32 noundef 32)
-  %498 = call i32 @avio_rl32(ptr noundef %12) #14
+  %498 = call i32 @avio_rl32(ptr noundef %12) #15
   %499 = icmp ugt i32 %498, 65535
   br i1 %499, label %.thread208, label %500
 
@@ -1095,8 +1095,8 @@ asf_read_marker.exit:                             ; preds = %449, %451, %.crited
   br i1 %.not168, label %502, label %504
 
 502:                                              ; preds = %501
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.14) #14
-  %503 = call i32 @av_dict_set(ptr noundef nonnull %24, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 0) #14
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.14) #15
+  %503 = call i32 @av_dict_set(ptr noundef nonnull %24, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 0) #15
   br label %asf_read_file_properties.exit.thread
 
 504:                                              ; preds = %501
@@ -1105,7 +1105,7 @@ asf_read_marker.exit:                             ; preds = %449, %451, %.crited
   br i1 %.not169, label %505, label %asf_read_file_properties.exit.thread
 
 505:                                              ; preds = %504
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.17) #14
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.17) #15
   br label %asf_read_file_properties.exit.thread
 
 asf_read_file_properties.exit.thread205:          ; preds = %87, %125, %220, %225, %149, %.thread182.i, %86
@@ -1114,40 +1114,40 @@ asf_read_file_properties.exit.thread205:          ; preds = %87, %125, %220, %22
   br label %.thread208
 
 asf_read_file_properties.exit:                    ; preds = %190, %146, %183, %196, %197, %271, %.thread187.i, %276, %278
-  %506 = call i64 @avio_seek(ptr noundef %83, i64 noundef 0, i32 noundef 1) #14
+  %506 = call i64 @avio_seek(ptr noundef %83, i64 noundef 0, i32 noundef 1) #15
   %.neg177.i = add nsw i64 %46, -24
   %.neg178.i = add i64 %.neg177.i, %88
   %507 = sub i64 %.neg178.i, %506
-  %508 = call i64 @avio_skip(ptr noundef %83, i64 noundef %507) #14
+  %508 = call i64 @avio_skip(ptr noundef %83, i64 noundef %507) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %asf_read_file_properties.exit.thread
 
 asf_read_file_properties.exit.thread:             ; preds = %355, %308, %310, %291, %76, %281, %358, %360, %asf_read_marker.exit, %500, %502, %505, %504, %479, %asf_read_file_properties.exit
-  %509 = call i64 @avio_seek(ptr noundef %12, i64 noundef 0, i32 noundef 1) #14
+  %509 = call i64 @avio_seek(ptr noundef %12, i64 noundef 0, i32 noundef 1) #15
   %510 = add i64 %46, %47
   %.not170 = icmp eq i64 %509, %510
   br i1 %.not170, label %514, label %511
 
 511:                                              ; preds = %asf_read_file_properties.exit.thread
-  %512 = call i64 @avio_seek(ptr noundef %12, i64 noundef 0, i32 noundef 1) #14
+  %512 = call i64 @avio_seek(ptr noundef %12, i64 noundef 0, i32 noundef 1) #15
   %513 = sub i64 %512, %47
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.18, i64 noundef %513, i64 noundef %46) #14
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.18, i64 noundef %513, i64 noundef %46) #15
   br label %514
 
 514:                                              ; preds = %511, %asf_read_file_properties.exit.thread
-  %515 = call i64 @avio_seek(ptr noundef %12, i64 noundef %510, i32 noundef 0) #14
+  %515 = call i64 @avio_seek(ptr noundef %12, i64 noundef %510, i32 noundef 0) #15
   br label %516
 
 516:                                              ; preds = %514, %433, %asf_read_ext_stream_properties.exit
-  %517 = call i64 @avio_seek(ptr noundef %12, i64 noundef 0, i32 noundef 1) #14
-  %518 = call i32 @ff_get_guid(ptr noundef %12, ptr noundef nonnull %7) #14
-  %519 = call i64 @avio_rl64(ptr noundef %12) #14
+  %517 = call i64 @avio_seek(ptr noundef %12, i64 noundef 0, i32 noundef 1) #15
+  %518 = call i32 @ff_get_guid(ptr noundef %12, ptr noundef nonnull %7) #15
+  %519 = call i64 @avio_rl64(ptr noundef %12) #15
   %bcmp215 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %7, ptr noundef nonnull dereferenceable(16) @ff_asf_data_header, i64 16)
   %.not154 = icmp eq i32 %bcmp215, 0
   br i1 %.not154, label %._crit_edge, label %45
 
 520:                                              ; preds = %._crit_edge
-  %521 = call i64 @avio_seek(ptr noundef %12, i64 noundef 0, i32 noundef 1) #14
+  %521 = call i64 @avio_seek(ptr noundef %12, i64 noundef 0, i32 noundef 1) #15
   %522 = getelementptr inbounds nuw i8, ptr %10, i64 161552
   store i64 %521, ptr %522, align 8, !tbaa !105
   %523 = getelementptr inbounds nuw i8, ptr %10, i64 161544
@@ -1221,7 +1221,7 @@ asf_read_file_properties.exit.thread:             ; preds = %355, %308, %310, %2
   %566 = getelementptr inbounds nuw i8, ptr %539, i64 76
   %567 = zext nneg i32 %.sink291 to i64
   %568 = zext nneg i32 %.sink290 to i64
-  %569 = call i32 @av_reduce(ptr noundef nonnull %565, ptr noundef nonnull %566, i64 noundef %567, i64 noundef %568, i64 noundef 2147483647) #14
+  %569 = call i32 @av_reduce(ptr noundef nonnull %565, ptr noundef nonnull %566, i64 noundef %567, i64 noundef %568, i64 noundef 2147483647) #15
   br label %570
 
 570:                                              ; preds = %.sink.split, %556, %559, %562
@@ -1235,7 +1235,7 @@ asf_read_file_properties.exit.thread:             ; preds = %355, %308, %310, %2
   %578 = getelementptr inbounds nuw i8, ptr %539, i64 76
   %579 = load i32, ptr %578, align 4, !tbaa !112
   %580 = trunc nuw nsw i64 %indvars.iv244 to i32
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.19, i32 noundef %580, i32 noundef %572, i32 noundef %573, i32 noundef %575, i32 noundef %577, i32 noundef %579) #14
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.19, i32 noundef %580, i32 noundef %572, i32 noundef %573, i32 noundef %575, i32 noundef %577, i32 noundef %579) #15
   %581 = getelementptr inbounds nuw %struct.ASFStream, ptr %10, i64 %indvars.iv244
   %582 = getelementptr inbounds nuw i8, ptr %581, i64 688
   %583 = load i16, ptr %582, align 8, !tbaa !27
@@ -1245,7 +1245,7 @@ asf_read_file_properties.exit.thread:             ; preds = %355, %308, %310, %2
 585:                                              ; preds = %570
   %586 = zext nneg i16 %583 to i64
   %587 = getelementptr inbounds nuw [6 x i8], ptr %528, i64 %586
-  %588 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %587) #15
+  %588 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %587) #16
   %589 = icmp ugt i64 %588, 1
   br i1 %589, label %590, label %599
 
@@ -1257,13 +1257,13 @@ asf_read_file_properties.exit.thread:             ; preds = %355, %308, %310, %2
   %593 = load i8, ptr %592, align 1, !tbaa !93
   store i8 %593, ptr %529, align 1, !tbaa !93
   store i8 0, ptr %530, align 1, !tbaa !93
-  %594 = call ptr @ff_convert_lang_to(ptr noundef nonnull %8, i32 noundef 0) #14
+  %594 = call ptr @ff_convert_lang_to(ptr noundef nonnull %8, i32 noundef 0) #15
   %.not173 = icmp eq ptr %594, null
   br i1 %.not173, label %598, label %595
 
 595:                                              ; preds = %590
   %596 = getelementptr inbounds nuw i8, ptr %539, i64 80
-  %597 = call i32 @av_dict_set(ptr noundef nonnull %596, ptr noundef nonnull @.str.20, ptr noundef nonnull %594, i32 noundef 0) #14
+  %597 = call i32 @av_dict_set(ptr noundef nonnull %596, ptr noundef nonnull @.str.20, ptr noundef nonnull %594, i32 noundef 0) #15
   br label %598
 
 598:                                              ; preds = %595, %590
@@ -1277,7 +1277,7 @@ asf_read_file_properties.exit.thread:             ; preds = %355, %308, %310, %2
 
 600:                                              ; preds = %599
   %601 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  call void @ff_metadata_conv(ptr noundef nonnull %601, ptr noundef null, ptr noundef nonnull @ff_asf_metadata_conv) #14
+  call void @ff_metadata_conv(ptr noundef nonnull %601, ptr noundef null, ptr noundef nonnull @ff_asf_metadata_conv) #15
   br label %.thread208
 
 .thread208:                                       ; preds = %497, %494, %487, %482, %50, %477, %45, %asf_read_file_properties.exit.thread205, %._crit_edge, %1, %600
@@ -1292,7 +1292,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_packet(ptr noundef %0, p
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !26
-  %7 = tail call i32 @avio_feof(ptr noundef %6) #14
+  %7 = tail call i32 @avio_feof(ptr noundef %6) #15
   %.not349.i35 = icmp eq i32 %7, 0
   br i1 %.not349.i35, label %.lr.ph.i.lr.ph, label %.loopexit
 
@@ -1355,7 +1355,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_packet(ptr noundef %0, p
   br i1 %.not316.not.i, label %48, label %47
 
 47:                                               ; preds = %44
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.39) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.39) #15
   br label %48
 
 48:                                               ; preds = %47, %44, %.thread.i
@@ -1365,13 +1365,13 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_packet(ptr noundef %0, p
   br i1 %50, label %52, label %51
 
 51:                                               ; preds = %48
-  tail call void @__assert_fail(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.32, i32 noundef 1149, ptr noundef nonnull @__PRETTY_FUNCTION__.asf_parse_packet) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.32, i32 noundef 1149, ptr noundef nonnull @__PRETTY_FUNCTION__.asf_parse_packet) #17
   unreachable
 
 52:                                               ; preds = %48
   %53 = zext nneg i32 %49 to i64
-  %54 = tail call i64 @avio_skip(ptr noundef %16, i64 noundef %53) #14
-  %55 = tail call i64 @avio_seek(ptr noundef %16, i64 noundef 0, i32 noundef 1) #14
+  %54 = tail call i64 @avio_skip(ptr noundef %16, i64 noundef %53) #15
+  %55 = tail call i64 @avio_seek(ptr noundef %16, i64 noundef 0, i32 noundef 1) #15
   store i64 %55, ptr %33, align 8, !tbaa !117
   %56 = getelementptr inbounds nuw i8, ptr %15, i64 161568
   %57 = load i64, ptr %56, align 8, !tbaa !41
@@ -1390,7 +1390,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_packet(ptr noundef %0, p
 
 63:                                               ; preds = %62
   %64 = load ptr, ptr %3, align 8, !tbaa !11
-  %65 = tail call i32 @avio_r8(ptr noundef %16) #14
+  %65 = tail call i32 @avio_r8(ptr noundef %16) #15
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 161672
   %67 = load i32, ptr %66, align 8, !tbaa !114
   %68 = add nsw i32 %67, -1
@@ -1419,15 +1419,15 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_packet(ptr noundef %0, p
   ]
 
 83:                                               ; preds = %63
-  %84 = tail call i32 @avio_rl32(ptr noundef %16) #14
+  %84 = tail call i32 @avio_rl32(ptr noundef %16) #15
   br label %89
 
 85:                                               ; preds = %63
-  %86 = tail call i32 @avio_rl16(ptr noundef %16) #14
+  %86 = tail call i32 @avio_rl16(ptr noundef %16) #15
   br label %89
 
 87:                                               ; preds = %63
-  %88 = tail call i32 @avio_r8(ptr noundef %16) #14
+  %88 = tail call i32 @avio_r8(ptr noundef %16) #15
   br label %89
 
 .unreachabledefault:                              ; preds = %63
@@ -1452,21 +1452,21 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   ]
 
 94:                                               ; preds = %89
-  %95 = tail call i32 @avio_rl32(ptr noundef %16) #14
+  %95 = tail call i32 @avio_rl32(ptr noundef %16) #15
   %96 = getelementptr inbounds nuw i8, ptr %64, i64 161692
   store i32 %95, ptr %96, align 4, !tbaa !122
   %97 = add nuw nsw i32 %.0164.i.i, 4
   br label %108
 
 98:                                               ; preds = %89
-  %99 = tail call i32 @avio_rl16(ptr noundef %16) #14
+  %99 = tail call i32 @avio_rl16(ptr noundef %16) #15
   %100 = getelementptr inbounds nuw i8, ptr %64, i64 161692
   store i32 %99, ptr %100, align 4, !tbaa !122
   %101 = add nuw nsw i32 %.0164.i.i, 2
   br label %108
 
 102:                                              ; preds = %89
-  %103 = tail call i32 @avio_r8(ptr noundef %16) #14
+  %103 = tail call i32 @avio_r8(ptr noundef %16) #15
   %104 = getelementptr inbounds nuw i8, ptr %64, i64 161692
   store i32 %103, ptr %104, align 4, !tbaa !122
   %105 = add nuw nsw i32 %.0164.i.i, 1
@@ -1489,21 +1489,21 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   ]
 
 111:                                              ; preds = %108
-  %112 = tail call i32 @avio_rl32(ptr noundef %16) #14
+  %112 = tail call i32 @avio_rl32(ptr noundef %16) #15
   %113 = getelementptr inbounds nuw i8, ptr %64, i64 161680
   store i32 %112, ptr %113, align 8, !tbaa !123
   %114 = add nuw nsw i32 %.1165.i.i, 4
   br label %125
 
 115:                                              ; preds = %108
-  %116 = tail call i32 @avio_rl16(ptr noundef %16) #14
+  %116 = tail call i32 @avio_rl16(ptr noundef %16) #15
   %117 = getelementptr inbounds nuw i8, ptr %64, i64 161680
   store i32 %116, ptr %117, align 8, !tbaa !123
   %118 = add nuw nsw i32 %.1165.i.i, 2
   br label %125
 
 119:                                              ; preds = %108
-  %120 = tail call i32 @avio_r8(ptr noundef %16) #14
+  %120 = tail call i32 @avio_r8(ptr noundef %16) #15
   %121 = getelementptr inbounds nuw i8, ptr %64, i64 161680
   store i32 %120, ptr %121, align 8, !tbaa !123
   %122 = add nuw nsw i32 %.1165.i.i, 1
@@ -1524,7 +1524,7 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   %131 = load i32, ptr %130, align 4, !tbaa !122
   %132 = getelementptr inbounds nuw i8, ptr %64, i64 161680
   %133 = load i32, ptr %79, align 4, !tbaa !120
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %64, i32 noundef 56, ptr noundef nonnull @.str.53, i32 noundef %127, i32 noundef %128, i32 noundef %129, i32 noundef %131, i32 noundef %126, i32 noundef %65, i32 noundef %133) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %64, i32 noundef 56, ptr noundef nonnull @.str.53, i32 noundef %127, i32 noundef %128, i32 noundef %129, i32 noundef %131, i32 noundef %126, i32 noundef %65, i32 noundef %133) #15
   %134 = zext nneg i32 %.2.i.i to i64
   %135 = load i32, ptr %132, align 8, !tbaa !123
   %136 = sext i32 %135 to i64
@@ -1536,7 +1536,7 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   br i1 %141, label %142, label %143
 
 142:                                              ; preds = %125
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.54, i32 noundef %135) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.54, i32 noundef %135) #15
   br label %270
 
 143:                                              ; preds = %125
@@ -1544,23 +1544,23 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   br i1 %144, label %145, label %204
 
 145:                                              ; preds = %143
-  %146 = tail call i64 @avio_seek(ptr noundef %16, i64 noundef 0, i32 noundef 1) #14
+  %146 = tail call i64 @avio_seek(ptr noundef %16, i64 noundef 0, i32 noundef 1) #15
   %147 = load i32, ptr %132, align 8, !tbaa !123
   %148 = sext i32 %147 to i64
   %149 = add nsw i64 %146, %148
-  %150 = tail call i32 @avio_rl32(ptr noundef %16) #14
+  %150 = tail call i32 @avio_rl32(ptr noundef %16) #15
   %151 = getelementptr inbounds nuw i8, ptr %78, i64 116
   store i32 %150, ptr %151, align 4, !tbaa !124
   %or.cond183.i.i = icmp ugt i32 %150, 16777215
   br i1 %or.cond183.i.i, label %.critedge.i.i, label %152
 
 .critedge.i.i:                                    ; preds = %145
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.55, i32 noundef %150) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.55, i32 noundef %150) #15
   store i32 0, ptr %151, align 4, !tbaa !124
   br label %270
 
 152:                                              ; preds = %145
-  %153 = tail call i32 @avio_rl32(ptr noundef %16) #14
+  %153 = tail call i32 @avio_rl32(ptr noundef %16) #15
   %154 = zext i32 %153 to i64
   %155 = getelementptr inbounds nuw i8, ptr %64, i64 161704
   store i64 %154, ptr %155, align 8, !tbaa !125
@@ -1584,12 +1584,12 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   br i1 %166, label %167, label %169
 
 167:                                              ; preds = %161
-  %168 = tail call i32 @avio_rl16(ptr noundef %16) #14
+  %168 = tail call i32 @avio_rl16(ptr noundef %16) #15
   br label %169
 
 169:                                              ; preds = %167, %161
   %.0166.i.i = phi i32 [ %168, %167 ], [ %165, %161 ]
-  %170 = tail call i64 @avio_seek(ptr noundef %16, i64 noundef 0, i32 noundef 1) #14
+  %170 = tail call i64 @avio_seek(ptr noundef %16, i64 noundef 0, i32 noundef 1) #15
   %171 = sext i32 %.0166.i.i to i64
   %172 = add nsw i64 %170, %171
   %173 = icmp sgt i64 %172, %149
@@ -1603,8 +1603,8 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   ]
 
 176:                                              ; preds = %174
-  %177 = tail call i32 @avio_r8(ptr noundef %16) #14
-  %178 = tail call i32 @avio_r8(ptr noundef %16) #14
+  %177 = tail call i32 @avio_r8(ptr noundef %16) #15
+  %178 = tail call i32 @avio_r8(ptr noundef %16) #15
   %179 = icmp sgt i32 %177, 0
   %180 = icmp sgt i32 %178, 0
   %or.cond.i.i = select i1 %179, i1 %180, i1 false
@@ -1627,9 +1627,9 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   br label %196
 
 190:                                              ; preds = %174
-  %191 = tail call i64 @avio_skip(ptr noundef %16, i64 noundef 8) #14
-  %192 = tail call i64 @avio_rl64(ptr noundef %16) #14
-  %193 = tail call i64 @avio_rl64(ptr noundef %16) #14
+  %191 = tail call i64 @avio_skip(ptr noundef %16, i64 noundef 8) #15
+  %192 = tail call i64 @avio_rl64(ptr noundef %16) #15
+  %193 = tail call i64 @avio_rl64(ptr noundef %16) #15
   %.not181.i.i = icmp eq i64 %192, -1
   %194 = sdiv i64 %192, 10000
   %storemerge.i.i = select i1 %.not181.i.i, i64 -9223372036854775808, i64 %194
@@ -1638,11 +1638,11 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   br label %196
 
 195:                                              ; preds = %169
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.56) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.56) #15
   br label %.loopexit.i.i
 
 196:                                              ; preds = %190, %184, %181, %176, %174
-  %197 = tail call i64 @avio_seek(ptr noundef %16, i64 noundef %172, i32 noundef 0) #14
+  %197 = tail call i64 @avio_seek(ptr noundef %16, i64 noundef %172, i32 noundef 0) #15
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %198 = load i32, ptr %156, align 8, !tbaa !90
   %199 = sext i32 %198 to i64
@@ -1650,7 +1650,7 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   br i1 %200, label %161, label %.loopexit.i.i, !llvm.loop !127
 
 .loopexit.i.i:                                    ; preds = %196, %195, %152
-  %201 = tail call i64 @avio_seek(ptr noundef %16, i64 noundef %149, i32 noundef 0) #14
+  %201 = tail call i64 @avio_seek(ptr noundef %16, i64 noundef %149, i32 noundef 0) #15
   %202 = load i32, ptr %132, align 8, !tbaa !123
   %203 = add nsw i32 %202, %.2.i.i
   br label %217
@@ -1672,14 +1672,14 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   %211 = sext i32 %210 to i64
   %212 = getelementptr inbounds nuw i8, ptr %64, i64 161704
   store i64 %211, ptr %212, align 8, !tbaa !125
-  %213 = tail call i32 @avio_r8(ptr noundef %16) #14
+  %213 = tail call i32 @avio_r8(ptr noundef %16) #15
   %214 = getelementptr inbounds nuw i8, ptr %64, i64 161720
   store i32 %213, ptr %214, align 8, !tbaa !129
   %215 = add nuw nsw i32 %.2.i.i, 1
   br label %217
 
 216:                                              ; preds = %204
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.57, i32 noundef %135) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.57, i32 noundef %135) #15
   br label %270
 
 217:                                              ; preds = %205, %204, %.loopexit.i.i
@@ -1703,21 +1703,21 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   ]
 
 226:                                              ; preds = %221
-  %227 = tail call i32 @avio_rl32(ptr noundef %16) #14
+  %227 = tail call i32 @avio_rl32(ptr noundef %16) #15
   %228 = getelementptr inbounds nuw i8, ptr %64, i64 161696
   store i32 %227, ptr %228, align 8, !tbaa !132
   %229 = add nsw i32 %.4.i.i, 4
   br label %240
 
 230:                                              ; preds = %221
-  %231 = tail call i32 @avio_rl16(ptr noundef %16) #14
+  %231 = tail call i32 @avio_rl16(ptr noundef %16) #15
   %232 = getelementptr inbounds nuw i8, ptr %64, i64 161696
   store i32 %231, ptr %232, align 8, !tbaa !132
   %233 = add nsw i32 %.4.i.i, 2
   br label %240
 
 234:                                              ; preds = %221
-  %235 = tail call i32 @avio_r8(ptr noundef %16) #14
+  %235 = tail call i32 @avio_r8(ptr noundef %16) #15
   %236 = getelementptr inbounds nuw i8, ptr %64, i64 161696
   store i32 %235, ptr %236, align 8, !tbaa !132
   %237 = add nsw i32 %.4.i.i, 1
@@ -1736,7 +1736,7 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   br i1 %243, label %244, label %245
 
 244:                                              ; preds = %240
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.58) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.58) #15
   br label %270
 
 245:                                              ; preds = %240
@@ -1752,7 +1752,7 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   br i1 %252, label %253, label %254
 
 253:                                              ; preds = %248
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.59, i32 noundef %241, i32 noundef %242, i32 noundef %.5.i.i, i32 noundef %250) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.59, i32 noundef %241, i32 noundef %242, i32 noundef %.5.i.i, i32 noundef %250) #15
   br label %270
 
 254:                                              ; preds = %248
@@ -1835,7 +1835,7 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   store i64 0, ptr %19, align 8, !tbaa !115
   %295 = load i32, ptr %25, align 8, !tbaa !132
   %296 = zext i32 %295 to i64
-  %297 = tail call i64 @avio_skip(ptr noundef %16, i64 noundef %296) #14
+  %297 = tail call i64 @avio_skip(ptr noundef %16, i64 noundef %296) #15
   %298 = load i32, ptr %25, align 8, !tbaa !132
   %299 = load i32, ptr %17, align 8, !tbaa !106
   %300 = sub i32 %299, %298
@@ -1845,7 +1845,7 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   br i1 %302, label %303, label %559
 
 303:                                              ; preds = %294
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.41, i32 noundef %298) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.41, i32 noundef %298) #15
   br label %559
 
 304:                                              ; preds = %287, %._crit_edge370.i
@@ -1867,8 +1867,8 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   br i1 %.not293.i, label %309, label %.thread420.i
 
 309:                                              ; preds = %.thread419.i
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.32, i32 noundef 1182) #14
-  tail call void @abort() #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.32, i32 noundef 1182) #15
+  tail call void @abort() #17
   unreachable
 
 .thread420.i:                                     ; preds = %.thread419.i, %307, %304
@@ -1885,10 +1885,10 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
 
 315:                                              ; preds = %313
   %316 = load i32, ptr %20, align 8, !tbaa !119
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.43, i32 noundef %316, i32 noundef 0, i32 noundef %314) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.43, i32 noundef %316, i32 noundef 0, i32 noundef %314) #15
   %317 = load i32, ptr %25, align 8, !tbaa !132
   %318 = zext i32 %317 to i64
-  %319 = tail call i64 @avio_skip(ptr noundef %16, i64 noundef %318) #14
+  %319 = tail call i64 @avio_skip(ptr noundef %16, i64 noundef %318) #15
   %320 = load i32, ptr %25, align 8, !tbaa !132
   %321 = load i32, ptr %17, align 8, !tbaa !106
   %322 = sub i32 %321, %320
@@ -1912,7 +1912,7 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   %329 = sext i32 %328 to i64
   %330 = add nsw i64 %327, %329
   store i64 %330, ptr %19, align 8, !tbaa !115
-  %331 = tail call i32 @avio_r8(ptr noundef %16) #14
+  %331 = tail call i32 @avio_r8(ptr noundef %16) #15
   store i32 %331, ptr %25, align 8, !tbaa !132
   %332 = getelementptr inbounds nuw i8, ptr %310, i64 116
   store i32 %331, ptr %332, align 4, !tbaa !124
@@ -1928,7 +1928,7 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
 337:                                              ; preds = %326
   store i64 0, ptr %19, align 8, !tbaa !115
   %338 = sext i32 %336 to i64
-  %339 = tail call i64 @avio_skip(ptr noundef %16, i64 noundef %338) #14
+  %339 = tail call i64 @avio_skip(ptr noundef %16, i64 noundef %338) #15
   %340 = load i32, ptr %29, align 4, !tbaa !133
   %341 = load i32, ptr %17, align 8, !tbaa !106
   %342 = sub nsw i32 %341, %340
@@ -1963,15 +1963,15 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   br i1 %.not298.i, label %360, label %359
 
 359:                                              ; preds = %356
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 32, ptr noundef nonnull @.str.44, i32 noundef %349, i32 noundef %346) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 32, ptr noundef nonnull @.str.44, i32 noundef %349, i32 noundef %346) #15
   store i32 0, ptr %311, align 8, !tbaa !137
-  tail call void @av_packet_unref(ptr noundef nonnull %347) #14
+  tail call void @av_packet_unref(ptr noundef nonnull %347) #15
   %.pre377.i = load i32, ptr %350, align 4, !tbaa !124
   br label %360
 
 360:                                              ; preds = %359, %356
   %361 = phi i32 [ %.pre377.i, %359 ], [ %346, %356 ]
-  %362 = tail call i32 @av_new_packet(ptr noundef nonnull %347, i32 noundef %361) #14
+  %362 = tail call i32 @av_new_packet(ptr noundef nonnull %347, i32 noundef %361) #15
   %363 = icmp sgt i32 %362, -1
   br i1 %363, label %364, label %.loopexit
 
@@ -2017,12 +2017,12 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   br i1 %.not302.i, label %390, label %385
 
 385:                                              ; preds = %382
-  %386 = tail call ptr @av_packet_new_side_data(ptr noundef nonnull %347, i32 noundef 0, i64 noundef 1024) #14
+  %386 = tail call ptr @av_packet_new_side_data(ptr noundef nonnull %347, i32 noundef 0, i64 noundef 1024) #15
   %.not303.i = icmp eq ptr %386, null
   br i1 %.not303.i, label %387, label %388
 
 387:                                              ; preds = %385
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.45) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.45) #15
   br label %390
 
 388:                                              ; preds = %385
@@ -2047,7 +2047,7 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   %403 = icmp eq i32 %402, 1
   %404 = zext i1 %403 to i32
   %405 = load i32, ptr %350, align 4, !tbaa !124
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %15, i32 noundef 56, ptr noundef nonnull @.str.46, i32 noundef %391, i32 noundef %392, i32 noundef %395, i32 noundef %404, i32 noundef %405) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %15, i32 noundef 56, ptr noundef nonnull @.str.46, i32 noundef %391, i32 noundef %392, i32 noundef %395, i32 noundef %404, i32 noundef %405) #15
   %406 = load ptr, ptr %8, align 8, !tbaa !107
   %407 = load i32, ptr %20, align 8, !tbaa !119
   %408 = sext i32 %407 to i64
@@ -2082,7 +2082,7 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   %423 = load i32, ptr %25, align 8, !tbaa !132
   %424 = getelementptr inbounds nuw i8, ptr %310, i64 32
   %425 = load ptr, ptr %424, align 8, !tbaa !139
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %15, i32 noundef 56, ptr noundef nonnull @.str.47, i32 noundef %419, i32 noundef %420, i32 noundef %421, i32 noundef %422, i32 noundef %423, ptr noundef %425) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %15, i32 noundef 56, ptr noundef nonnull @.str.47, i32 noundef %419, i32 noundef %420, i32 noundef %421, i32 noundef %422, i32 noundef %423, ptr noundef %425) #15
   %426 = load i32, ptr %25, align 8, !tbaa !132
   %427 = load i32, ptr %17, align 8, !tbaa !106
   %428 = sub i32 %427, %426
@@ -2100,7 +2100,7 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   br i1 %or.cond337.i, label %435, label %436
 
 435:                                              ; preds = %430
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.48, i32 noundef %431, i32 noundef %426, i32 noundef %432) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.48, i32 noundef %431, i32 noundef %426, i32 noundef %432) #15
   br label %559
 
 436:                                              ; preds = %430
@@ -2132,7 +2132,7 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   %450 = load ptr, ptr %424, align 8, !tbaa !139
   %451 = zext i32 %449 to i64
   %452 = getelementptr inbounds nuw i8, ptr %450, i64 %451
-  %453 = tail call i32 @avio_read(ptr noundef %16, ptr noundef %452, i32 noundef %448) #14
+  %453 = tail call i32 @avio_read(ptr noundef %16, ptr noundef %452, i32 noundef %448) #15
   %454 = load i32, ptr %25, align 8, !tbaa !132
   %.not308.i = icmp eq i32 %453, %454
   br i1 %.not308.i, label %475, label %455
@@ -2166,7 +2166,7 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   br label %475
 
 474:                                              ; preds = %461
-  tail call void @av_shrink_packet(ptr noundef nonnull %347, i32 noundef %459) #14
+  tail call void @av_shrink_packet(ptr noundef nonnull %347, i32 noundef %459) #15
   br label %475
 
 475:                                              ; preds = %474, %465, %447
@@ -2185,7 +2185,7 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   %482 = load i32, ptr %24, align 4, !tbaa !122
   %483 = zext i32 %482 to i64
   %484 = getelementptr inbounds nuw i8, ptr %481, i64 %483
-  tail call void @ff_asfcrypt_dec(ptr noundef nonnull %476, ptr noundef %484, i32 noundef %.0255.i) #14
+  tail call void @ff_asfcrypt_dec(ptr noundef nonnull %476, ptr noundef %484, i32 noundef %.0255.i) #15
   br label %485
 
 485:                                              ; preds = %480, %477, %475
@@ -2234,9 +2234,9 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   br i1 %.not311.i, label %.thread327.i, label %508
 
 .thread327.i:                                     ; preds = %506, %.critedge.i
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.49) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.49) #15
   store i32 0, ptr %311, align 8, !tbaa !137
-  tail call void @av_packet_unref(ptr noundef nonnull %347) #14
+  tail call void @av_packet_unref(ptr noundef nonnull %347) #15
   br label %559
 
 508:                                              ; preds = %.critedge.i, %490
@@ -2253,13 +2253,13 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   br i1 %.not312.i, label %517, label %516
 
 516:                                              ; preds = %512
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.50, i32 noundef %487, i32 noundef %514, i32 noundef %510) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.50, i32 noundef %487, i32 noundef %514, i32 noundef %510) #15
   br label %561
 
 517:                                              ; preds = %512
   %518 = add nsw i32 %487, 64
   %519 = sext i32 %518 to i64
-  %520 = tail call ptr @av_buffer_alloc(i64 noundef %519) #14
+  %520 = tail call ptr @av_buffer_alloc(i64 noundef %519) #15
   %.not313.i = icmp eq ptr %520, null
   br i1 %.not313.i, label %561, label %521
 
@@ -2296,7 +2296,7 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   br i1 %.not314.i, label %542, label %543
 
 542:                                              ; preds = %530
-  tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.32, i32 noundef 1339, ptr noundef nonnull @__PRETTY_FUNCTION__.asf_parse_packet) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.32, i32 noundef 1339, ptr noundef nonnull @__PRETTY_FUNCTION__.asf_parse_packet) #17
   unreachable
 
 543:                                              ; preds = %530
@@ -2305,7 +2305,7 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   br i1 %.not315.not.i, label %546, label %545
 
 545:                                              ; preds = %543
-  tail call void @__assert_fail(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.32, i32 noundef 1340, ptr noundef nonnull @__PRETTY_FUNCTION__.asf_parse_packet) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.32, i32 noundef 1340, ptr noundef nonnull @__PRETTY_FUNCTION__.asf_parse_packet) #17
   unreachable
 
 546:                                              ; preds = %543
@@ -2324,14 +2324,14 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   br i1 %557, label %530, label %._crit_edge.i, !llvm.loop !152
 
 ._crit_edge.i:                                    ; preds = %546, %521
-  tail call void @av_buffer_unref(ptr noundef nonnull %347) #14
+  tail call void @av_buffer_unref(ptr noundef nonnull %347) #15
   store ptr %520, ptr %347, align 8, !tbaa !153
   %558 = load ptr, ptr %522, align 8, !tbaa !149
   store ptr %558, ptr %424, align 8, !tbaa !139
   br label %561
 
 559:                                              ; preds = %.thread327.i, %485, %435, %.thread325.i, %337, %315, %303, %294, %270
-  %560 = tail call i32 @avio_feof(ptr noundef %16) #14
+  %560 = tail call i32 @avio_feof(ptr noundef %16) #15
   %.not.i = icmp eq i32 %560, 0
   br i1 %.not.i, label %34, label %.loopexit
 
@@ -2371,7 +2371,7 @@ asf_parse_packet.exit:                            ; preds = %58, %52
   %.0175.i = phi i32 [ %spec.store.select.i, %569 ], [ %573, %572 ]
   %.0128174.i = phi i32 [ -1, %569 ], [ %576, %572 ]
   %.0129173.i = phi i32 [ -1, %569 ], [ %.0128174.i, %572 ]
-  %576 = tail call i32 @avio_r8(ptr noundef %564) #14
+  %576 = tail call i32 @avio_r8(ptr noundef %564) #15
   %577 = icmp ne i32 %.0129173.i, 130
   %578 = icmp ne i32 %.0128174.i, 0
   %or.cond.i = select i1 %577, i1 true, i1 %578
@@ -2390,13 +2390,13 @@ asf_parse_packet.exit:                            ; preds = %58, %52
   br i1 %584, label %706, label %585
 
 585:                                              ; preds = %581
-  %586 = tail call i32 @avio_feof(ptr noundef nonnull %564) #14
+  %586 = tail call i32 @avio_feof(ptr noundef nonnull %564) #15
   %.not152.i = icmp eq i32 %586, 0
   br i1 %.not152.i, label %587, label %589
 
 587:                                              ; preds = %585
-  %588 = tail call i64 @avio_seek(ptr noundef nonnull %564, i64 noundef 0, i32 noundef 1) #14
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.60, i32 noundef %.0129173.i, i64 noundef %588) #14
+  %588 = tail call i64 @avio_seek(ptr noundef nonnull %564, i64 noundef 0, i32 noundef 1) #15
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.60, i32 noundef %.0129173.i, i64 noundef %588) #15
   br label %589
 
 589:                                              ; preds = %587, %585
@@ -2413,30 +2413,30 @@ asf_parse_packet.exit:                            ; preds = %58, %52
   br i1 %or.cond5.i, label %594, label %597
 
 594:                                              ; preds = %.thread164.i
-  %595 = tail call i32 @avio_feof(ptr noundef %564) #14
+  %595 = tail call i32 @avio_feof(ptr noundef %564) #15
   %.not156.i = icmp eq i32 %595, 0
   br i1 %.not156.i, label %596, label %706
 
 596:                                              ; preds = %594
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.61) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.61) #15
   br label %706
 
 597:                                              ; preds = %.thread164.i
-  %598 = tail call i32 @avio_r8(ptr noundef %564) #14
-  %599 = tail call i32 @avio_r8(ptr noundef %564) #14
+  %598 = tail call i32 @avio_r8(ptr noundef %564) #15
+  %599 = tail call i32 @avio_r8(ptr noundef %564) #15
   br label %632
 
 600:                                              ; preds = %589
-  %601 = tail call i32 @avio_feof(ptr noundef nonnull %564) #14
+  %601 = tail call i32 @avio_feof(ptr noundef nonnull %564) #15
   %.not153.i = icmp eq i32 %601, 0
   br i1 %.not153.i, label %602, label %632
 
 602:                                              ; preds = %600
-  %603 = tail call i64 @avio_seek(ptr noundef nonnull %564, i64 noundef -1, i32 noundef 1) #14
+  %603 = tail call i64 @avio_seek(ptr noundef nonnull %564, i64 noundef -1, i32 noundef 1) #15
   br label %632
 
 604:                                              ; preds = %asf_parse_packet.exit
-  %605 = tail call i32 @avio_r8(ptr noundef %564) #14
+  %605 = tail call i32 @avio_r8(ptr noundef %564) #15
   %606 = and i32 %605, 128
   %.not.i13 = icmp eq i32 %606, 0
   br i1 %.not.i13, label %629, label %607
@@ -2447,12 +2447,12 @@ asf_parse_packet.exit:                            ; preds = %58, %52
   br i1 %.not147.i, label %609, label %619
 
 609:                                              ; preds = %607
-  %610 = tail call i32 @avio_r8(ptr noundef %564) #14
-  %611 = tail call i32 @avio_r8(ptr noundef %564) #14
+  %610 = tail call i32 @avio_r8(ptr noundef %564) #15
+  %611 = tail call i32 @avio_r8(ptr noundef %564) #15
   %612 = and i32 %605, 15
   %613 = add nsw i32 %612, -2
   %614 = sext i32 %613 to i64
-  %615 = tail call i64 @avio_seek(ptr noundef %564, i64 noundef %614, i32 noundef 1) #14
+  %615 = tail call i64 @avio_seek(ptr noundef %564, i64 noundef %614, i32 noundef 1) #15
   %616 = add nuw nsw i32 %612, 9
   %617 = icmp ne i32 %610, 0
   %618 = icmp eq i32 %611, 0
@@ -2466,7 +2466,7 @@ asf_parse_packet.exit:                            ; preds = %58, %52
   br i1 %620, label %621, label %622
 
 621:                                              ; preds = %619
-  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.62) #14
+  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.62) #15
   br label %622
 
 622:                                              ; preds = %621, %619
@@ -2483,7 +2483,7 @@ asf_parse_packet.exit:                            ; preds = %58, %52
   br label %627
 
 627:                                              ; preds = %624, %622
-  %628 = tail call i32 @avio_r8(ptr noundef %564) #14
+  %628 = tail call i32 @avio_r8(ptr noundef %564) #15
   br label %630
 
 629:                                              ; preds = %604
@@ -2493,7 +2493,7 @@ asf_parse_packet.exit:                            ; preds = %58, %52
 630:                                              ; preds = %629, %627
   %.2138.i = phi i32 [ %.1137.i, %627 ], [ 8, %629 ]
   %.3135.i = phi i32 [ %628, %627 ], [ %605, %629 ]
-  %631 = tail call i32 @avio_r8(ptr noundef %564) #14
+  %631 = tail call i32 @avio_r8(ptr noundef %564) #15
   br label %632
 
 632:                                              ; preds = %630, %602, %600, %597
@@ -2514,17 +2514,17 @@ asf_parse_packet.exit:                            ; preds = %58, %52
   ]
 
 637:                                              ; preds = %632
-  %638 = tail call i32 @avio_rl32(ptr noundef %564) #14
+  %638 = tail call i32 @avio_rl32(ptr noundef %564) #15
   %639 = add nuw nsw i32 %.0136.i, 4
   br label %648
 
 640:                                              ; preds = %632
-  %641 = tail call i32 @avio_rl16(ptr noundef %564) #14
+  %641 = tail call i32 @avio_rl16(ptr noundef %564) #15
   %642 = add nuw nsw i32 %.0136.i, 2
   br label %648
 
 643:                                              ; preds = %632
-  %644 = tail call i32 @avio_r8(ptr noundef %564) #14
+  %644 = tail call i32 @avio_r8(ptr noundef %564) #15
   %645 = add nuw nsw i32 %.0136.i, 1
   br label %648
 
@@ -2546,17 +2546,17 @@ asf_parse_packet.exit:                            ; preds = %58, %52
   ]
 
 652:                                              ; preds = %648
-  %653 = tail call i32 @avio_rl32(ptr noundef %564) #14
+  %653 = tail call i32 @avio_rl32(ptr noundef %564) #15
   %654 = add nuw nsw i32 %.3139.i, 4
   br label %661
 
 655:                                              ; preds = %648
-  %656 = tail call i32 @avio_rl16(ptr noundef %564) #14
+  %656 = tail call i32 @avio_rl16(ptr noundef %564) #15
   %657 = add nuw nsw i32 %.3139.i, 2
   br label %661
 
 658:                                              ; preds = %648
-  %659 = tail call i32 @avio_r8(ptr noundef %564) #14
+  %659 = tail call i32 @avio_r8(ptr noundef %564) #15
   %660 = add nuw nsw i32 %.3139.i, 1
   br label %661
 
@@ -2573,17 +2573,17 @@ asf_parse_packet.exit:                            ; preds = %58, %52
   ]
 
 665:                                              ; preds = %661
-  %666 = tail call i32 @avio_rl32(ptr noundef %564) #14
+  %666 = tail call i32 @avio_rl32(ptr noundef %564) #15
   %667 = add nuw nsw i32 %.4.i, 4
   br label %674
 
 668:                                              ; preds = %661
-  %669 = tail call i32 @avio_rl16(ptr noundef %564) #14
+  %669 = tail call i32 @avio_rl16(ptr noundef %564) #15
   %670 = add nuw nsw i32 %.4.i, 2
   br label %674
 
 671:                                              ; preds = %661
-  %672 = tail call i32 @avio_r8(ptr noundef %564) #14
+  %672 = tail call i32 @avio_r8(ptr noundef %564) #15
   %673 = add nuw nsw i32 %.4.i, 1
   br label %674
 
@@ -2595,8 +2595,8 @@ asf_parse_packet.exit:                            ; preds = %58, %52
   br i1 %or.cond11.i, label %676, label %678
 
 676:                                              ; preds = %674
-  %677 = tail call i64 @avio_seek(ptr noundef %564, i64 noundef 0, i32 noundef 1) #14
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.63, i32 noundef %.0142.i, i64 noundef %677) #14
+  %677 = tail call i64 @avio_seek(ptr noundef %564, i64 noundef 0, i32 noundef 1) #15
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.63, i32 noundef %.0142.i, i64 noundef %677) #15
   br label %706
 
 678:                                              ; preds = %674
@@ -2604,22 +2604,22 @@ asf_parse_packet.exit:                            ; preds = %58, %52
   br i1 %.not154.i, label %681, label %679
 
 679:                                              ; preds = %678
-  %680 = tail call i64 @avio_seek(ptr noundef %564, i64 noundef 0, i32 noundef 1) #14
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.64, i32 noundef %.0140.i, i64 noundef %680) #14
+  %680 = tail call i64 @avio_seek(ptr noundef %564, i64 noundef 0, i32 noundef 1) #15
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.64, i32 noundef %.0140.i, i64 noundef %680) #15
   br label %706
 
 681:                                              ; preds = %678
-  %682 = tail call i32 @avio_rl32(ptr noundef %564) #14
+  %682 = tail call i32 @avio_rl32(ptr noundef %564) #15
   %683 = getelementptr inbounds nuw i8, ptr %565, i64 161664
   store i32 %682, ptr %683, align 8, !tbaa !128
-  %684 = tail call i32 @avio_rl16(ptr noundef %564) #14
+  %684 = tail call i32 @avio_rl16(ptr noundef %564) #15
   %685 = load i32, ptr %633, align 8, !tbaa !130
   %686 = and i32 %685, 1
   %.not155.i = icmp eq i32 %686, 0
   br i1 %.not155.i, label %691, label %687
 
 687:                                              ; preds = %681
-  %688 = tail call i32 @avio_r8(ptr noundef %564) #14
+  %688 = tail call i32 @avio_r8(ptr noundef %564) #15
   %689 = add nuw nsw i32 %.5.i14, 1
   %690 = and i32 %688, 63
   br label %691
@@ -2639,8 +2639,8 @@ asf_parse_packet.exit:                            ; preds = %58, %52
 696:                                              ; preds = %691
   %697 = getelementptr inbounds nuw i8, ptr %565, i64 161544
   store i32 0, ptr %697, align 8, !tbaa !106
-  %698 = tail call i64 @avio_seek(ptr noundef %564, i64 noundef 0, i32 noundef 1) #14
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.65, i32 noundef %.6.i, i32 noundef %.0142.i, i32 noundef %.0140.i, i64 noundef %698) #14
+  %698 = tail call i64 @avio_seek(ptr noundef %564, i64 noundef 0, i32 noundef 1) #15
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.65, i32 noundef %.6.i, i32 noundef %.0142.i, i32 noundef %.0140.i, i64 noundef %698) #15
   br label %706
 
 asf_get_packet.exit:                              ; preds = %691
@@ -2654,7 +2654,7 @@ asf_get_packet.exit:                              ; preds = %691
   %704 = getelementptr inbounds nuw i8, ptr %565, i64 161688
   store i32 %.1141.i, ptr %704, align 8, !tbaa !116
   %705 = load i32, ptr %9, align 8, !tbaa !51
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.66, i32 noundef %705, i32 noundef %.1141.i, i32 noundef %699) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.66, i32 noundef %705, i32 noundef %.1141.i, i32 noundef %699) #15
   br label %713
 
 706:                                              ; preds = %676, %679, %696, %581, %596, %594
@@ -2668,14 +2668,14 @@ asf_get_packet.exit:                              ; preds = %691
   br i1 %711, label %713, label %712
 
 712:                                              ; preds = %709
-  tail call void @__assert_fail(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.32, i32 noundef 1377, ptr noundef nonnull @__PRETTY_FUNCTION__.asf_read_packet) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.32, i32 noundef 1377, ptr noundef nonnull @__PRETTY_FUNCTION__.asf_read_packet) #17
   unreachable
 
 713:                                              ; preds = %asf_get_packet.exit, %709, %706
   store i64 0, ptr %14, align 8, !tbaa !115
   %714 = load ptr, ptr %5, align 8, !tbaa !26
   %715 = load ptr, ptr %3, align 8, !tbaa !11
-  %716 = tail call i32 @avio_feof(ptr noundef %714) #14
+  %716 = tail call i32 @avio_feof(ptr noundef %714) #15
   %.not349.i = icmp eq i32 %716, 0
   br i1 %.not349.i, label %.lr.ph.i, label %.loopexit
 
@@ -2707,7 +2707,7 @@ define internal noundef i32 @asf_read_close(ptr noundef readonly captures(none) 
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %10 ]
   %11 = getelementptr inbounds nuw %struct.ASFStream, ptr %9, i64 %indvars.iv.i
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  tail call void @av_packet_unref(ptr noundef nonnull %12) #14
+  tail call void @av_packet_unref(ptr noundef nonnull %12) #15
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 116
   store i32 0, ptr %13, align 4, !tbaa !124
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 112
@@ -2746,7 +2746,7 @@ define internal i32 @asf_read_seek(ptr noundef %0, i32 noundef %1, i64 noundef %
   br i1 %.not, label %40, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call i64 @avio_seek_time(ptr noundef nonnull %18, i32 noundef %1, i64 noundef %2, i32 noundef %3) #14
+  %20 = tail call i64 @avio_seek_time(ptr noundef nonnull %18, i32 noundef %1, i64 noundef %2, i32 noundef %3) #15
   %21 = icmp sgt i64 %20, -1
   br i1 %21, label %22, label %38
 
@@ -2771,7 +2771,7 @@ define internal i32 @asf_read_seek(ptr noundef %0, i32 noundef %1, i64 noundef %
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %30 ]
   %31 = getelementptr inbounds nuw %struct.ASFStream, ptr %29, i64 %indvars.iv.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  tail call void @av_packet_unref(ptr noundef nonnull %32) #14
+  tail call void @av_packet_unref(ptr noundef nonnull %32) #15
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 116
   store i32 0, ptr %33, align 4, !tbaa !124
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 112
@@ -2818,7 +2818,7 @@ define internal i32 @asf_read_seek(ptr noundef %0, i32 noundef %1, i64 noundef %
   %indvars.iv.i60 = phi i64 [ 0, %41 ], [ %indvars.iv.next.i61, %49 ]
   %50 = getelementptr inbounds nuw %struct.ASFStream, ptr %48, i64 %indvars.iv.i60
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  tail call void @av_packet_unref(ptr noundef nonnull %51) #14
+  tail call void @av_packet_unref(ptr noundef nonnull %51) #15
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 116
   store i32 0, ptr %52, align 4, !tbaa !124
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 112
@@ -2835,7 +2835,7 @@ asf_reset_header.exit63:                          ; preds = %49
   %56 = load ptr, ptr %17, align 8, !tbaa !26
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %58 = load i64, ptr %57, align 8, !tbaa !167
-  %59 = tail call i64 @avio_seek(ptr noundef %56, i64 noundef %58, i32 noundef 0) #14
+  %59 = tail call i64 @avio_seek(ptr noundef %56, i64 noundef %58, i32 noundef 0) #15
   br label %skip_to_key.exit83
 
 60:                                               ; preds = %40
@@ -2848,20 +2848,20 @@ asf_reset_header.exit63:                          ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %64 = load ptr, ptr %6, align 8, !tbaa !11
   %65 = load ptr, ptr %17, align 8, !tbaa !26
-  %66 = tail call i64 @avio_seek(ptr noundef %65, i64 noundef 0, i32 noundef 1) #14
+  %66 = tail call i64 @avio_seek(ptr noundef %65, i64 noundef 0, i32 noundef 1) #15
   %67 = load ptr, ptr %17, align 8, !tbaa !26
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 161560
   %69 = load i64, ptr %68, align 8, !tbaa !36
   %70 = getelementptr inbounds nuw i8, ptr %64, i64 161568
   %71 = load i64, ptr %70, align 8, !tbaa !41
   %72 = add i64 %71, %69
-  %73 = tail call i64 @avio_seek(ptr noundef %67, i64 noundef %72, i32 noundef 0) #14
+  %73 = tail call i64 @avio_seek(ptr noundef %67, i64 noundef %72, i32 noundef 0) #15
   %74 = icmp slt i64 %73, 0
   br i1 %74, label %asf_build_simple_index.exit, label %75
 
 75:                                               ; preds = %63
   %76 = load ptr, ptr %17, align 8, !tbaa !26
-  %77 = call i32 @ff_get_guid(ptr noundef %76, ptr noundef nonnull %5) #14
+  %77 = call i32 @ff_get_guid(ptr noundef %76, ptr noundef nonnull %5) #15
   %78 = zext i32 %77 to i64
   %79 = icmp slt i32 %77, 0
   br i1 %79, label %.thread.i, label %.preheader.i
@@ -2871,7 +2871,7 @@ asf_reset_header.exit63:                          ; preds = %49
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %5, ptr noundef nonnull dereferenceable(16) @ff_asf_simple_index_header, i64 16)
   %.not.i = icmp eq i32 %bcmp.i, 0
   %80 = load ptr, ptr %17, align 8, !tbaa !26
-  %81 = call i64 @avio_rl64(ptr noundef %80) #14
+  %81 = call i64 @avio_rl64(ptr noundef %80) #15
   br i1 %.not.i, label %95, label %82
 
 82:                                               ; preds = %.preheader.i
@@ -2880,35 +2880,35 @@ asf_reset_header.exit63:                          ; preds = %49
 
 84:                                               ; preds = %82
   %85 = load ptr, ptr %17, align 8, !tbaa !26
-  %86 = call i32 @avio_feof(ptr noundef %85) #14
+  %86 = call i32 @avio_feof(ptr noundef %85) #15
   %.not78.i = icmp eq i32 %86, 0
   br i1 %.not78.i, label %87, label %.thread.i
 
 87:                                               ; preds = %84
   %88 = load ptr, ptr %17, align 8, !tbaa !26
   %89 = add nsw i64 %81, -24
-  %90 = call i64 @avio_skip(ptr noundef %88, i64 noundef %89) #14
+  %90 = call i64 @avio_skip(ptr noundef %88, i64 noundef %89) #15
   %91 = load ptr, ptr %17, align 8, !tbaa !26
-  %92 = call i32 @ff_get_guid(ptr noundef %91, ptr noundef nonnull %5) #14
+  %92 = call i32 @ff_get_guid(ptr noundef %91, ptr noundef nonnull %5) #15
   %93 = zext i32 %92 to i64
   %94 = icmp slt i32 %92, 0
   br i1 %94, label %.thread.i, label %.preheader.i
 
 95:                                               ; preds = %.preheader.i
   %96 = load ptr, ptr %17, align 8, !tbaa !26
-  %97 = call i32 @ff_get_guid(ptr noundef %96, ptr noundef nonnull %5) #14
+  %97 = call i32 @ff_get_guid(ptr noundef %96, ptr noundef nonnull %5) #15
   %98 = zext i32 %97 to i64
   %99 = icmp slt i32 %97, 0
   br i1 %99, label %.thread.i, label %100
 
 100:                                              ; preds = %95
   %101 = load ptr, ptr %17, align 8, !tbaa !26
-  %102 = call i64 @avio_rl64(ptr noundef %101) #14
+  %102 = call i64 @avio_rl64(ptr noundef %101) #15
   %103 = load ptr, ptr %17, align 8, !tbaa !26
-  %104 = call i32 @avio_rl32(ptr noundef %103) #14
+  %104 = call i32 @avio_rl32(ptr noundef %103) #15
   %105 = load ptr, ptr %17, align 8, !tbaa !26
-  %106 = call i32 @avio_rl32(ptr noundef %105) #14
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.68, i64 noundef %102, i32 noundef %104, i32 noundef %106) #14
+  %106 = call i32 @avio_rl32(ptr noundef %105) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.68, i64 noundef %102, i32 noundef %104, i32 noundef %106) #15
   %107 = icmp sgt i32 %106, 0
   br i1 %107, label %.lr.ph.i, label %._crit_edge.i
 
@@ -2922,22 +2922,22 @@ asf_reset_header.exit63:                          ; preds = %49
   %indvars.iv.i64 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i65, %134 ]
   %.06191.i = phi i64 [ -1, %.lr.ph.i ], [ %.162.ph.i, %134 ]
   %111 = load ptr, ptr %17, align 8, !tbaa !26
-  %112 = call i32 @avio_rl32(ptr noundef %111) #14
+  %112 = call i32 @avio_rl32(ptr noundef %111) #15
   %113 = load ptr, ptr %17, align 8, !tbaa !26
-  %114 = call i32 @avio_rl16(ptr noundef %113) #14
+  %114 = call i32 @avio_rl16(ptr noundef %113) #15
   %115 = load i64, ptr %108, align 8, !tbaa !167
   %116 = load i32, ptr %13, align 8, !tbaa !51
   %117 = zext i32 %116 to i64
   %118 = sext i32 %112 to i64
   %119 = mul nsw i64 %117, %118
   %120 = add nsw i64 %119, %115
-  %121 = call i64 @av_rescale(i64 noundef %102, i64 noundef %indvars.iv.i64, i64 noundef 10000) #17
+  %121 = call i64 @av_rescale(i64 noundef %102, i64 noundef %indvars.iv.i64, i64 noundef 10000) #18
   %122 = load i32, ptr %109, align 8, !tbaa !46
   %123 = zext i32 %122 to i64
   %124 = sub nsw i64 %121, %123
   %spec.select.i = call i64 @llvm.smax.i64(i64 %124, i64 0)
   %125 = load ptr, ptr %17, align 8, !tbaa !26
-  %126 = call i32 @avio_feof(ptr noundef %125) #14
+  %126 = call i32 @avio_feof(ptr noundef %125) #15
   %.not76.i = icmp eq i32 %126, 0
   br i1 %.not76.i, label %127, label %.thread.i
 
@@ -2946,12 +2946,12 @@ asf_reset_header.exit63:                          ; preds = %49
   br i1 %.not77.i, label %134, label %128
 
 128:                                              ; preds = %127
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.69, i32 noundef %112, i32 noundef %114, i64 noundef %spec.select.i) #14
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.69, i32 noundef %112, i32 noundef %114, i64 noundef %spec.select.i) #15
   %129 = load ptr, ptr %8, align 8, !tbaa !107
   %130 = getelementptr inbounds ptr, ptr %129, i64 %10
   %131 = load ptr, ptr %130, align 8, !tbaa !108
   %132 = load i32, ptr %13, align 8, !tbaa !51
-  %133 = call i32 @av_add_index_entry(ptr noundef %131, i64 noundef %120, i64 noundef %spec.select.i, i32 noundef %132, i32 noundef 0, i32 noundef 1) #14
+  %133 = call i32 @av_add_index_entry(ptr noundef %131, i64 noundef %120, i64 noundef %spec.select.i, i32 noundef %132, i32 noundef 0, i32 noundef 1) #15
   br label %134
 
 134:                                              ; preds = %128, %127
@@ -2970,7 +2970,7 @@ asf_reset_header.exit63:                          ; preds = %49
 .thread.i:                                        ; preds = %87, %84, %82, %110, %._crit_edge.i, %95, %75
   %.057.i = phi i64 [ %78, %75 ], [ %98, %._crit_edge.i ], [ %98, %95 ], [ -1094995529, %110 ], [ %.1.i, %82 ], [ %.1.i, %84 ], [ %93, %87 ]
   %138 = load ptr, ptr %17, align 8, !tbaa !26
-  %139 = call i64 @avio_seek(ptr noundef %138, i64 noundef %66, i32 noundef 0) #14
+  %139 = call i64 @avio_seek(ptr noundef %138, i64 noundef %66, i32 noundef 0) #15
   br label %asf_build_simple_index.exit
 
 asf_build_simple_index.exit:                      ; preds = %63, %.thread.i
@@ -3000,7 +3000,7 @@ thread-pre-split:                                 ; preds = %asf_build_simple_in
   br i1 %.not56, label %skip_to_key.exit.thread, label %147
 
 147:                                              ; preds = %144
-  %148 = call i32 @av_index_search_timestamp(ptr noundef nonnull %12, i64 noundef %2, i32 noundef %3) #14
+  %148 = call i32 @av_index_search_timestamp(ptr noundef nonnull %12, i64 noundef %2, i32 noundef %3) #15
   %149 = icmp slt i32 %148, 0
   br i1 %149, label %skip_to_key.exit.thread, label %150
 
@@ -3009,9 +3009,9 @@ thread-pre-split:                                 ; preds = %asf_build_simple_in
   %152 = zext nneg i32 %148 to i64
   %153 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %151, i64 %152
   %154 = load i64, ptr %153, align 8, !tbaa !171
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.67, i64 noundef %154) #14
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.67, i64 noundef %154) #15
   %155 = load ptr, ptr %17, align 8, !tbaa !26
-  %156 = call i64 @avio_seek(ptr noundef %155, i64 noundef %154, i32 noundef 0) #14
+  %156 = call i64 @avio_seek(ptr noundef %155, i64 noundef %154, i32 noundef 0) #15
   %157 = icmp slt i64 %156, 0
   br i1 %157, label %skip_to_key.exit83, label %158
 
@@ -3036,7 +3036,7 @@ thread-pre-split:                                 ; preds = %asf_build_simple_in
   %indvars.iv.i67 = phi i64 [ 0, %158 ], [ %indvars.iv.next.i68, %166 ]
   %167 = getelementptr inbounds nuw %struct.ASFStream, ptr %165, i64 %indvars.iv.i67
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  call void @av_packet_unref(ptr noundef nonnull %168) #14
+  call void @av_packet_unref(ptr noundef nonnull %168) #15
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 116
   store i32 0, ptr %169, align 4, !tbaa !124
   %170 = getelementptr inbounds nuw i8, ptr %167, i64 112
@@ -3084,7 +3084,7 @@ asf_reset_header.exit70:                          ; preds = %166
   br i1 %exitcond.not.i74, label %skip_to_key.exit83, label %175, !llvm.loop !173
 
 skip_to_key.exit.thread:                          ; preds = %147, %.thread85, %144, %141
-  %191 = call i32 @ff_seek_frame_binary(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) #14
+  %191 = call i32 @ff_seek_frame_binary(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) #15
   %192 = icmp slt i32 %191, 0
   br i1 %192, label %skip_to_key.exit83, label %193
 
@@ -3109,7 +3109,7 @@ skip_to_key.exit.thread:                          ; preds = %147, %.thread85, %1
   %indvars.iv.i75 = phi i64 [ 0, %193 ], [ %indvars.iv.next.i76, %201 ]
   %202 = getelementptr inbounds nuw %struct.ASFStream, ptr %200, i64 %indvars.iv.i75
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
-  call void @av_packet_unref(ptr noundef nonnull %203) #14
+  call void @av_packet_unref(ptr noundef nonnull %203) #15
   %204 = getelementptr inbounds nuw i8, ptr %202, i64 116
   store i32 0, ptr %204, align 4, !tbaa !124
   %205 = getelementptr inbounds nuw i8, ptr %202, i64 112
@@ -3213,12 +3213,12 @@ define internal noundef i64 @asf_read_pts(ptr noundef %0, i32 noundef %1, ptr no
   store i64 %.047, ptr %2, align 8, !tbaa !141
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8, !tbaa !26
-  %28 = tail call i64 @avio_seek(ptr noundef %27, i64 noundef %.047, i32 noundef 0) #14
+  %28 = tail call i64 @avio_seek(ptr noundef %27, i64 noundef %.047, i32 noundef 0) #15
   %29 = icmp slt i64 %28, 0
   br i1 %29, label %83, label %30
 
 30:                                               ; preds = %25
-  tail call void @ff_read_frame_flush(ptr noundef nonnull %0) #14
+  tail call void @ff_read_frame_flush(ptr noundef nonnull %0) #15
   %.val = load ptr, ptr %7, align 8, !tbaa !11
   %31 = getelementptr inbounds nuw i8, ptr %.val, i64 161544
   store i32 0, ptr %31, align 8, !tbaa !106
@@ -3239,7 +3239,7 @@ define internal noundef i64 @asf_read_pts(ptr noundef %0, i32 noundef %1, ptr no
   %indvars.iv.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i, %38 ]
   %39 = getelementptr inbounds nuw %struct.ASFStream, ptr %37, i64 %indvars.iv.i
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  tail call void @av_packet_unref(ptr noundef nonnull %40) #14
+  tail call void @av_packet_unref(ptr noundef nonnull %40) #15
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 116
   store i32 0, ptr %41, align 4, !tbaa !124
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 112
@@ -3253,7 +3253,7 @@ define internal noundef i64 @asf_read_pts(ptr noundef %0, i32 noundef %1, ptr no
 asf_reset_header.exit:                            ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %.val, i64 161752
   store ptr null, ptr %44, align 8, !tbaa !136
-  %45 = call i32 @av_read_frame(ptr noundef nonnull %0, ptr noundef nonnull %5) #14
+  %45 = call i32 @av_read_frame(ptr noundef nonnull %0, ptr noundef nonnull %5) #15
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %._crit_edge57, label %.lr.ph56
 
@@ -3266,7 +3266,7 @@ asf_reset_header.exit:                            ; preds = %38
   br label %52
 
 ._crit_edge57:                                    ; preds = %80, %asf_reset_header.exit
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.70) #14
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.70) #15
   br label %83
 
 52:                                               ; preds = %.lr.ph56, %80
@@ -3294,7 +3294,7 @@ asf_reset_header.exit:                            ; preds = %38
   %71 = sub nsw i64 %67, %70
   %72 = trunc i64 %71 to i32
   %73 = add i32 %72, 1
-  %74 = call i32 @av_add_index_entry(ptr noundef %61, i64 noundef %67, i64 noundef %56, i32 noundef %68, i32 noundef %73, i32 noundef 1) #14
+  %74 = call i32 @av_add_index_entry(ptr noundef %61, i64 noundef %67, i64 noundef %56, i32 noundef %68, i32 noundef %73, i32 noundef 1) #15
   %75 = load i64, ptr %66, align 8, !tbaa !143
   %76 = add nsw i64 %75, 1
   store i64 %76, ptr %69, align 8, !tbaa !141
@@ -3303,13 +3303,13 @@ asf_reset_header.exit:                            ; preds = %38
   br i1 %78, label %79, label %80
 
 79:                                               ; preds = %55
-  call void @av_packet_unref(ptr noundef nonnull %5) #14
+  call void @av_packet_unref(ptr noundef nonnull %5) #15
   store i64 %67, ptr %2, align 8, !tbaa !141
   br label %83
 
 80:                                               ; preds = %55, %52
-  call void @av_packet_unref(ptr noundef nonnull %5) #14
-  %81 = call i32 @av_read_frame(ptr noundef nonnull %0, ptr noundef nonnull %5) #14
+  call void @av_packet_unref(ptr noundef nonnull %5) #15
+  %81 = call i32 @av_read_frame(ptr noundef nonnull %0, ptr noundef nonnull %5) #15
   %82 = icmp slt i32 %81, 0
   br i1 %82, label %._crit_edge57, label %52
 
@@ -3340,7 +3340,7 @@ define internal fastcc void @asf_read_metadata(ptr noundef %0) unnamed_addr #1 {
   %4 = load ptr, ptr %3, align 8, !tbaa !26
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !11
-  %7 = tail call i32 @avio_rl16(ptr noundef %4) #14
+  %7 = tail call i32 @avio_rl16(ptr noundef %4) #15
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %.loopexit
 
@@ -3351,11 +3351,11 @@ define internal fastcc void @asf_read_metadata(ptr noundef %0) unnamed_addr #1 {
 10:                                               ; preds = %.lr.ph, %67
   %.04357 = phi i32 [ 0, %.lr.ph ], [ %68, %67 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %11 = call i32 @avio_rl16(ptr noundef %4) #14
-  %12 = call i32 @avio_rl16(ptr noundef %4) #14
-  %13 = call i32 @avio_rl16(ptr noundef %4) #14
-  %14 = call i32 @avio_rl16(ptr noundef %4) #14
-  %15 = call i32 @avio_rl32(ptr noundef %4) #14
+  %11 = call i32 @avio_rl16(ptr noundef %4) #15
+  %12 = call i32 @avio_rl16(ptr noundef %4) #15
+  %13 = call i32 @avio_rl16(ptr noundef %4) #15
+  %14 = call i32 @avio_rl16(ptr noundef %4) #15
+  %15 = call i32 @avio_rl32(ptr noundef %4) #15
   %16 = icmp ugt i32 %15, 1073741811
   br i1 %16, label %.thread, label %17
 
@@ -3363,27 +3363,27 @@ define internal fastcc void @asf_read_metadata(ptr noundef %0) unnamed_addr #1 {
   %18 = shl nsw i32 %13, 1
   %19 = or disjoint i32 %18, 1
   %20 = sext i32 %19 to i64
-  %21 = call noalias ptr @av_malloc(i64 noundef %20) #14
+  %21 = call noalias ptr @av_malloc(i64 noundef %20) #15
   store ptr %21, ptr %2, align 8, !tbaa !156
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %.thread, label %22
 
 22:                                               ; preds = %17
-  %23 = call i32 @avio_get_str16le(ptr noundef %4, i32 noundef %13, ptr noundef nonnull %21, i32 noundef %19) #14
+  %23 = call i32 @avio_get_str16le(ptr noundef %4, i32 noundef %13, ptr noundef nonnull %21, i32 noundef %19) #15
   %24 = icmp slt i32 %23, %13
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %22
   %26 = sub nsw i32 %13, %23
   %27 = zext nneg i32 %26 to i64
-  %28 = call i64 @avio_skip(ptr noundef %4, i64 noundef %27) #14
+  %28 = call i64 @avio_skip(ptr noundef %4, i64 noundef %27) #15
   br label %29
 
 29:                                               ; preds = %25, %22
   %30 = load ptr, ptr %2, align 8, !tbaa !156
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.28, i32 noundef %.04357, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef %30) #14
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.28, i32 noundef %.04357, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef %30) #15
   %31 = load ptr, ptr %2, align 8, !tbaa !156
-  %32 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(13) @.str.26) #15
+  %32 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(13) @.str.26) #16
   %.not51 = icmp eq i32 %32, 0
   br i1 %.not51, label %33, label %48
 
@@ -3397,20 +3397,20 @@ define internal fastcc void @asf_read_metadata(ptr noundef %0) unnamed_addr #1 {
   ]
 
 35:                                               ; preds = %33
-  %36 = call i32 @avio_rl16(ptr noundef %34) #14
+  %36 = call i32 @avio_rl16(ptr noundef %34) #15
   br label %get_value.exit
 
 37:                                               ; preds = %33
-  %38 = call i32 @avio_rl32(ptr noundef %34) #14
+  %38 = call i32 @avio_rl32(ptr noundef %34) #15
   br label %get_value.exit
 
 39:                                               ; preds = %33
-  %40 = call i64 @avio_rl64(ptr noundef %34) #14
+  %40 = call i64 @avio_rl64(ptr noundef %34) #15
   %41 = trunc i64 %40 to i32
   br label %get_value.exit
 
 42:                                               ; preds = %33
-  %43 = call i32 @avio_rl16(ptr noundef %34) #14
+  %43 = call i32 @avio_rl16(ptr noundef %34) #15
   br label %get_value.exit
 
 get_value.exit:                                   ; preds = %33, %35, %37, %39, %42
@@ -3425,7 +3425,7 @@ get_value.exit:                                   ; preds = %33, %35, %37, %39, 
   br label %67
 
 48:                                               ; preds = %29
-  %49 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(13) @.str.27) #15
+  %49 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(13) @.str.27) #16
   %.not52 = icmp eq i32 %49, 0
   br i1 %.not52, label %50, label %66
 
@@ -3439,20 +3439,20 @@ get_value.exit:                                   ; preds = %33, %35, %37, %39, 
   ]
 
 52:                                               ; preds = %50
-  %53 = call i32 @avio_rl16(ptr noundef %51) #14
+  %53 = call i32 @avio_rl16(ptr noundef %51) #15
   br label %get_value.exit54
 
 54:                                               ; preds = %50
-  %55 = call i32 @avio_rl32(ptr noundef %51) #14
+  %55 = call i32 @avio_rl32(ptr noundef %51) #15
   br label %get_value.exit54
 
 56:                                               ; preds = %50
-  %57 = call i64 @avio_rl64(ptr noundef %51) #14
+  %57 = call i64 @avio_rl64(ptr noundef %51) #15
   %58 = trunc i64 %57 to i32
   br label %get_value.exit54
 
 59:                                               ; preds = %50
-  %60 = call i32 @avio_rl16(ptr noundef %51) #14
+  %60 = call i32 @avio_rl16(ptr noundef %51) #15
   br label %get_value.exit54
 
 get_value.exit54:                                 ; preds = %50, %52, %54, %56, %59
@@ -3476,7 +3476,7 @@ get_value.exit54:                                 ; preds = %50, %52, %54, %56, 
   br label %.loopexit
 
 67:                                               ; preds = %get_value.exit54, %62, %get_value.exit, %45, %66
-  call void @av_freep(ptr noundef nonnull %2) #14
+  call void @av_freep(ptr noundef nonnull %2) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %68 = add nuw nsw i32 %.04357, 1
   %exitcond.not = icmp eq i32 %68, %7
@@ -3507,13 +3507,13 @@ define internal fastcc void @get_tag(ptr noundef %0, ptr noundef %1, i32 noundef
   store ptr null, ptr %6, align 8, !tbaa !156
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !26
-  %11 = tail call i64 @avio_seek(ptr noundef %10, i64 noundef 0, i32 noundef 1) #14
+  %11 = tail call i64 @avio_seek(ptr noundef %10, i64 noundef 0, i32 noundef 1) #15
   %12 = icmp ult i32 %3, 1073741812
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %5
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i32 noundef 230) #14
-  tail call void @abort() #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i32 noundef 230) #15
+  tail call void @abort() #17
   unreachable
 
 14:                                               ; preds = %5
@@ -3543,7 +3543,7 @@ sub_1:                                            ; preds = %sub_0
   %23 = shl nuw nsw i32 %3, 1
   %24 = add nuw nsw i32 %23, 22
   %25 = zext nneg i32 %24 to i64
-  %26 = tail call noalias ptr @av_malloc(i64 noundef %25) #14
+  %26 = tail call noalias ptr @av_malloc(i64 noundef %25) #15
   store ptr %26, ptr %6, align 8, !tbaa !156
   %.not33 = icmp eq ptr %26, null
   br i1 %.not33, label %65, label %27
@@ -3563,24 +3563,24 @@ sub_1:                                            ; preds = %sub_0
 28:                                               ; preds = %27
   %29 = load ptr, ptr %9, align 8, !tbaa !26
   %30 = or disjoint i32 %23, 1
-  %31 = tail call i32 @avio_get_str16le(ptr noundef %29, i32 noundef %3, ptr noundef nonnull %26, i32 noundef %30) #14
+  %31 = tail call i32 @avio_get_str16le(ptr noundef %29, i32 noundef %3, ptr noundef nonnull %26, i32 noundef %30) #15
   br label %60
 
 32:                                               ; preds = %27
   %33 = load ptr, ptr %9, align 8, !tbaa !26
-  %34 = tail call i32 @avio_read(ptr noundef %33, ptr noundef nonnull %26, i32 noundef %3) #14
+  %34 = tail call i32 @avio_read(ptr noundef %33, ptr noundef nonnull %26, i32 noundef %3) #15
   %35 = zext nneg i32 %3 to i64
   %36 = getelementptr inbounds nuw i8, ptr %26, i64 %35
   store i8 0, ptr %36, align 1, !tbaa !93
   br label %60
 
 37:                                               ; preds = %27
-  %38 = tail call i32 @ff_asf_handle_byte_array(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %3) #14
+  %38 = tail call i32 @ff_asf_handle_byte_array(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %3) #15
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %40, label %65
 
 40:                                               ; preds = %37
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.34, ptr noundef %1) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.34, ptr noundef %1) #15
   br label %65
 
 41:                                               ; preds = %27, %27, %27, %27
@@ -3597,24 +3597,24 @@ sub_1:                                            ; preds = %sub_0
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = tail call i32 @avio_rl32(ptr noundef %42) #14
+  %46 = tail call i32 @avio_rl32(ptr noundef %42) #15
   br label %get_value.exit
 
 47:                                               ; preds = %43
-  %48 = tail call i32 @avio_rl16(ptr noundef %42) #14
+  %48 = tail call i32 @avio_rl16(ptr noundef %42) #15
   br label %get_value.exit
 
 49:                                               ; preds = %41
-  %50 = tail call i32 @avio_rl32(ptr noundef %42) #14
+  %50 = tail call i32 @avio_rl32(ptr noundef %42) #15
   br label %get_value.exit
 
 51:                                               ; preds = %41
-  %52 = tail call i64 @avio_rl64(ptr noundef %42) #14
+  %52 = tail call i64 @avio_rl64(ptr noundef %42) #15
   %53 = trunc i64 %52 to i32
   br label %get_value.exit
 
 54:                                               ; preds = %41
-  %55 = tail call i32 @avio_rl16(ptr noundef %42) #14
+  %55 = tail call i32 @avio_rl16(ptr noundef %42) #15
   br label %get_value.exit
 
 default.unreachable:                              ; preds = %41
@@ -3623,15 +3623,15 @@ default.unreachable:                              ; preds = %41
 get_value.exit:                                   ; preds = %45, %47, %49, %51, %54
   %.0.i = phi i32 [ %50, %49 ], [ %53, %51 ], [ %55, %54 ], [ %46, %45 ], [ %48, %47 ]
   %56 = sext i32 %.0.i to i64
-  %57 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %26, i64 noundef 22, ptr noundef nonnull @.str.35, i64 noundef %56) #14
+  %57 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %26, i64 noundef 22, ptr noundef nonnull @.str.35, i64 noundef %56) #15
   br label %60
 
 58:                                               ; preds = %27
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.36, ptr noundef %1) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.36, ptr noundef %1) #15
   br label %65
 
 59:                                               ; preds = %27
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.37, i32 noundef %2, ptr noundef %1) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.37, i32 noundef %2, ptr noundef %1) #15
   br label %65
 
 60:                                               ; preds = %get_value.exit, %32, %28
@@ -3641,15 +3641,15 @@ get_value.exit:                                   ; preds = %45, %47, %49, %51, 
 
 62:                                               ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %64 = tail call i32 @av_dict_set(ptr noundef nonnull %63, ptr noundef %1, ptr noundef nonnull %26, i32 noundef 0) #14
+  %64 = tail call i32 @av_dict_set(ptr noundef nonnull %63, ptr noundef %1, ptr noundef nonnull %26, i32 noundef 0) #15
   br label %65
 
 65:                                               ; preds = %60, %62, %37, %40, %.tail.thread, %.tail, %59, %58
-  call void @av_freep(ptr noundef nonnull %6) #14
+  call void @av_freep(ptr noundef nonnull %6) #15
   %66 = load ptr, ptr %9, align 8, !tbaa !26
   %67 = zext nneg i32 %3 to i64
   %68 = add nsw i64 %11, %67
-  %69 = call i64 @avio_seek(ptr noundef %66, i64 noundef %68, i32 noundef 0) #14
+  %69 = call i64 @avio_seek(ptr noundef %66, i64 noundef %68, i32 noundef 0) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
@@ -3701,7 +3701,7 @@ declare noalias ptr @av_malloc(i64 noundef) local_unnamed_addr #2
 
 declare ptr @avpriv_new_chapter(ptr noundef, i64 noundef, i64, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.ssub.with.overflow.i64(i64, i64) #6
 
 ; Function Attrs: cold nofree noreturn nounwind
@@ -3753,19 +3753,19 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #13
+declare i64 @llvm.abs.i64(i64, i1 immarg) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13
 
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3774,18 +3774,19 @@ attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "st
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { noreturn nounwind }
-attributes #17 = { nounwind willreturn memory(none) }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind willreturn memory(read) }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

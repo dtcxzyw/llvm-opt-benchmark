@@ -217,7 +217,7 @@ define dso_local noundef ptr @zend_ast_create_znode(ptr noundef readonly capture
   %12 = ptrtoint ptr %2 to i64
   %13 = sub i64 %6, %12
   %..i.i = tail call i64 @llvm.umax.i64(i64 %13, i64 56)
-  %14 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #15
+  %14 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #16
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store ptr %16, ptr %14, align 8, !tbaa !9
@@ -266,7 +266,7 @@ define dso_local noundef ptr @zend_ast_create_zval_with_lineno(ptr noundef reado
   %13 = ptrtoint ptr %3 to i64
   %14 = sub i64 %7, %13
   %..i.i = tail call i64 @llvm.umax.i64(i64 %14, i64 48)
-  %15 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #15
+  %15 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #16
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr %17, ptr %15, align 8, !tbaa !9
@@ -317,7 +317,7 @@ define dso_local noundef ptr @zend_ast_create_zval_ex(ptr noundef readonly captu
   %14 = ptrtoint ptr %4 to i64
   %15 = sub i64 %8, %14
   %..i.i = tail call i64 @llvm.umax.i64(i64 %15, i64 48)
-  %16 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #15
+  %16 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #16
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store ptr %18, ptr %16, align 8, !tbaa !9
@@ -368,7 +368,7 @@ define dso_local noundef ptr @zend_ast_create_zval(ptr noundef readonly captures
   %13 = ptrtoint ptr %3 to i64
   %14 = sub i64 %7, %13
   %..i.i = tail call i64 @llvm.umax.i64(i64 %14, i64 48)
-  %15 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #15
+  %15 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #16
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr %17, ptr %15, align 8, !tbaa !9
@@ -421,7 +421,7 @@ define dso_local noundef ptr @zend_ast_create_zval_from_str(ptr noundef %0) loca
   %15 = ptrtoint ptr %5 to i64
   %16 = sub i64 %9, %15
   %..i.i = tail call i64 @llvm.umax.i64(i64 %16, i64 48)
-  %17 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #15
+  %17 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store ptr %19, ptr %17, align 8, !tbaa !9
@@ -472,7 +472,7 @@ define dso_local noundef ptr @zend_ast_create_zval_from_long(i64 noundef %0) loc
   %13 = ptrtoint ptr %3 to i64
   %14 = sub i64 %7, %13
   %..i.i = tail call i64 @llvm.umax.i64(i64 %14, i64 48)
-  %15 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #15
+  %15 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #16
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr %17, ptr %15, align 8, !tbaa !9
@@ -520,7 +520,7 @@ define dso_local noundef ptr @zend_ast_create_constant(ptr noundef %0, i16 nound
   %13 = ptrtoint ptr %3 to i64
   %14 = sub i64 %7, %13
   %..i.i = tail call i64 @llvm.umax.i64(i64 %14, i64 48)
-  %15 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #15
+  %15 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #16
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr %17, ptr %15, align 8, !tbaa !9
@@ -573,7 +573,7 @@ define dso_local noundef ptr @zend_ast_create_op_array(ptr noundef %0) local_unn
   %12 = ptrtoint ptr %2 to i64
   %13 = sub i64 %6, %12
   %..i.i = tail call i64 @llvm.umax.i64(i64 %13, i64 40)
-  %14 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #15
+  %14 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #16
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr %16, ptr %14, align 8, !tbaa !9
@@ -615,7 +615,7 @@ define dso_local noundef ptr @zend_ast_create_class_const_or_name(ptr noundef %0
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %16 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %14, i64 noundef %6, ptr noundef nonnull %15, i64 noundef %6) #16
+  %16 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %14, i64 noundef %6, ptr noundef nonnull %15, i64 noundef %6) #17
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %58
 
@@ -641,11 +641,11 @@ define dso_local noundef ptr @zend_ast_create_class_const_or_name(ptr noundef %0
   br i1 %.not5.i, label %29, label %28
 
 28:                                               ; preds = %26
-  tail call void @free(ptr noundef nonnull %4) #16
+  tail call void @free(ptr noundef nonnull %4) #17
   br label %zend_string_release.exit
 
 29:                                               ; preds = %26
-  tail call void @_efree(ptr noundef nonnull %4) #16
+  tail call void @_efree(ptr noundef nonnull %4) #17
   br label %zend_string_release.exit
 
 zend_string_release.exit:                         ; preds = %17, %21, %28, %29
@@ -668,7 +668,7 @@ zend_string_release.exit:                         ; preds = %17, %21, %28, %29
   %40 = ptrtoint ptr %30 to i64
   %41 = sub i64 %34, %40
   %..i.i.i = tail call i64 @llvm.umax.i64(i64 %41, i64 40)
-  %42 = tail call noalias ptr @_emalloc(i64 noundef %..i.i.i) #15
+  %42 = tail call noalias ptr @_emalloc(i64 noundef %..i.i.i) #16
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store ptr %44, ptr %42, align 8, !tbaa !9
@@ -729,7 +729,7 @@ zend_ast_alloc.exit.i:                            ; preds = %39, %37
   %69 = ptrtoint ptr %59 to i64
   %70 = sub i64 %63, %69
   %..i.i.i18 = tail call i64 @llvm.umax.i64(i64 %70, i64 48)
-  %71 = tail call noalias ptr @_emalloc(i64 noundef %..i.i.i18) #15
+  %71 = tail call noalias ptr @_emalloc(i64 noundef %..i.i.i18) #16
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 48
   store ptr %73, ptr %71, align 8, !tbaa !9
@@ -826,7 +826,7 @@ define dso_local noundef ptr @zend_ast_create_1(i16 noundef zeroext %0, ptr noun
   %14 = ptrtoint ptr %4 to i64
   %15 = sub i64 %8, %14
   %..i.i = tail call i64 @llvm.umax.i64(i64 %15, i64 40)
-  %16 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #15
+  %16 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #16
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr %18, ptr %16, align 8, !tbaa !9
@@ -899,7 +899,7 @@ define dso_local noundef ptr @zend_ast_create_2(i16 noundef zeroext %0, ptr noun
   %15 = ptrtoint ptr %5 to i64
   %16 = sub i64 %9, %15
   %..i.i = tail call i64 @llvm.umax.i64(i64 %16, i64 48)
-  %17 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #15
+  %17 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store ptr %19, ptr %17, align 8, !tbaa !9
@@ -994,7 +994,7 @@ define dso_local noundef ptr @zend_ast_create_decl(i16 noundef zeroext %0, i32 n
   %21 = ptrtoint ptr %11 to i64
   %22 = sub i64 %15, %21
   %..i.i = tail call i64 @llvm.umax.i64(i64 %22, i64 96)
-  %23 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #15
+  %23 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #16
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 96
   store ptr %25, ptr %23, align 8, !tbaa !9
@@ -1058,7 +1058,7 @@ define dso_local noundef ptr @zend_ast_create_0(i16 noundef zeroext %0) local_un
   %13 = ptrtoint ptr %3 to i64
   %14 = sub i64 %7, %13
   %..i.i = tail call i64 @llvm.umax.i64(i64 %14, i64 32)
-  %15 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #15
+  %15 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #16
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %17, ptr %15, align 8, !tbaa !9
@@ -1108,7 +1108,7 @@ define dso_local noundef ptr @zend_ast_create_3(i16 noundef zeroext %0, ptr noun
   %16 = ptrtoint ptr %6 to i64
   %17 = sub i64 %10, %16
   %..i.i = tail call i64 @llvm.umax.i64(i64 %17, i64 56)
-  %18 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #15
+  %18 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 56
   store ptr %20, ptr %18, align 8, !tbaa !9
@@ -1231,7 +1231,7 @@ define dso_local noundef ptr @zend_ast_create_4(i16 noundef zeroext %0, ptr noun
   %17 = ptrtoint ptr %7 to i64
   %18 = sub i64 %11, %17
   %..i.i = tail call i64 @llvm.umax.i64(i64 %18, i64 64)
-  %19 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #15
+  %19 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #16
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 64
   store ptr %21, ptr %19, align 8, !tbaa !9
@@ -1379,7 +1379,7 @@ define dso_local noundef ptr @zend_ast_create_5(i16 noundef zeroext %0, ptr noun
   %18 = ptrtoint ptr %8 to i64
   %19 = sub i64 %12, %18
   %..i.i = tail call i64 @llvm.umax.i64(i64 %19, i64 72)
-  %20 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #15
+  %20 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #16
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 72
   store ptr %22, ptr %20, align 8, !tbaa !9
@@ -1555,7 +1555,7 @@ define dso_local noundef ptr @zend_ast_create_va(i16 noundef zeroext %0, i16 nou
   %19 = ptrtoint ptr %6 to i64
   %20 = sub i64 %12, %19
   %..i.i = tail call i64 @llvm.umax.i64(i64 %18, i64 %20)
-  %21 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #15
+  %21 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #16
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %9
   store ptr %23, ptr %21, align 8, !tbaa !9
@@ -1649,7 +1649,7 @@ define dso_local noundef ptr @zend_ast_create_n(i32 noundef %0, ...) local_unnam
   %19 = ptrtoint ptr %6 to i64
   %20 = sub i64 %12, %19
   %..i.i.i = call i64 @llvm.umax.i64(i64 %18, i64 %20)
-  %21 = call noalias ptr @_emalloc(i64 noundef %..i.i.i) #15
+  %21 = call noalias ptr @_emalloc(i64 noundef %..i.i.i) #16
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %9
   store ptr %23, ptr %21, align 8, !tbaa !9
@@ -1751,7 +1751,7 @@ define dso_local noundef ptr @zend_ast_create_ex_n(i16 noundef zeroext %0, i32 n
   %20 = ptrtoint ptr %7 to i64
   %21 = sub i64 %13, %20
   %..i.i.i = call i64 @llvm.umax.i64(i64 %19, i64 %21)
-  %22 = call noalias ptr @_emalloc(i64 noundef %..i.i.i) #15
+  %22 = call noalias ptr @_emalloc(i64 noundef %..i.i.i) #16
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %10
   store ptr %24, ptr %22, align 8, !tbaa !9
@@ -1837,7 +1837,7 @@ define dso_local noundef ptr @zend_ast_create_list_0(i16 noundef zeroext %0) loc
   %12 = ptrtoint ptr %2 to i64
   %13 = sub i64 %6, %12
   %..i.i = tail call i64 @llvm.umax.i64(i64 %13, i64 72)
-  %14 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #15
+  %14 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #16
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 72
   store ptr %16, ptr %14, align 8, !tbaa !9
@@ -1883,7 +1883,7 @@ define dso_local noundef ptr @zend_ast_create_list_1(i16 noundef zeroext %0, ptr
   %13 = ptrtoint ptr %3 to i64
   %14 = sub i64 %7, %13
   %..i.i = tail call i64 @llvm.umax.i64(i64 %14, i64 72)
-  %15 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #15
+  %15 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #16
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 72
   store ptr %17, ptr %15, align 8, !tbaa !9
@@ -1950,7 +1950,7 @@ define dso_local noundef ptr @zend_ast_create_list_2(i16 noundef zeroext %0, ptr
   %14 = ptrtoint ptr %4 to i64
   %15 = sub i64 %8, %14
   %..i.i = tail call i64 @llvm.umax.i64(i64 %15, i64 72)
-  %16 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #15
+  %16 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #16
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 72
   store ptr %18, ptr %16, align 8, !tbaa !9
@@ -2028,11 +2028,11 @@ define hidden noundef ptr @zend_ast_create_concat_op(ptr noundef %0, ptr noundef
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = tail call zeroext i1 @zend_binary_op_produces_error(i32 noundef 8, ptr noundef nonnull %9, ptr noundef nonnull %10) #16
+  %11 = tail call zeroext i1 @zend_binary_op_produces_error(i32 noundef 8, ptr noundef nonnull %9, ptr noundef nonnull %10) #17
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call i32 @concat_function(ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %10) #16
+  %13 = tail call i32 @concat_function(ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %10) #17
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %.thread
 
@@ -2054,7 +2054,7 @@ define hidden noundef ptr @zend_ast_create_concat_op(ptr noundef %0, ptr noundef
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr %10, align 8, !tbaa !44
-  tail call void @rc_dtor_func(ptr noundef %24) #16
+  tail call void @rc_dtor_func(ptr noundef %24) #17
   br label %zval_ptr_dtor_nogc.exit
 
 zval_ptr_dtor_nogc.exit:                          ; preds = %15, %18, %23
@@ -2078,7 +2078,7 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %15, %18, %23
   %36 = ptrtoint ptr %26 to i64
   %37 = sub i64 %30, %36
   %..i.i.i = tail call i64 @llvm.umax.i64(i64 %37, i64 48)
-  %38 = tail call noalias ptr @_emalloc(i64 noundef %..i.i.i) #15
+  %38 = tail call noalias ptr @_emalloc(i64 noundef %..i.i.i) #16
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 48
   store ptr %40, ptr %38, align 8, !tbaa !9
@@ -2126,7 +2126,7 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %15, %18, %23
   %62 = ptrtoint ptr %52 to i64
   %63 = sub i64 %56, %62
   %..i.i.i18 = tail call i64 @llvm.umax.i64(i64 %63, i64 48)
-  %64 = tail call noalias ptr @_emalloc(i64 noundef %..i.i.i18) #15
+  %64 = tail call noalias ptr @_emalloc(i64 noundef %..i.i.i18) #16
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 48
   store ptr %66, ptr %64, align 8, !tbaa !9
@@ -2206,7 +2206,7 @@ define dso_local noundef ptr @zend_ast_list_add(ptr noundef captures(ret: addres
   %28 = ptrtoint ptr %15 to i64
   %29 = sub i64 %21, %28
   %..i.i.i = tail call i64 @llvm.umax.i64(i64 %27, i64 %29)
-  %30 = tail call noalias ptr @_emalloc(i64 noundef %..i.i.i) #15
+  %30 = tail call noalias ptr @_emalloc(i64 noundef %..i.i.i) #16
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %18
   store ptr %32, ptr %30, align 8, !tbaa !9
@@ -2386,15 +2386,15 @@ zend_ast_evaluate_ex.exit654:                     ; preds = %.thread885, %.split
 
 46:                                               ; preds = %41
   %47 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %47) #16
+  call void @rc_dtor_func(ptr noundef %47) #17
   br label %.critedge498
 
 48:                                               ; preds = %zend_ast_evaluate_ex.exit654
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %50 = load i16, ptr %49, align 2, !tbaa !62
   %51 = zext i16 %50 to i32
-  %52 = call ptr @get_binary_op(i32 noundef %51) #16
-  %53 = call i32 %52(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7) #16
+  %52 = call ptr @get_binary_op(i32 noundef %51) #17
+  %53 = call i32 %52(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7) #17
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %55 = load i8, ptr %54, align 1, !tbaa !44
   %.not.i635 = icmp eq i8 %55, 0
@@ -2412,7 +2412,7 @@ zend_ast_evaluate_ex.exit654:                     ; preds = %.thread885, %.split
 
 61:                                               ; preds = %56
   %62 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %62) #16
+  call void @rc_dtor_func(ptr noundef %62) #17
   br label %zval_ptr_dtor_nogc.exit637
 
 zval_ptr_dtor_nogc.exit637:                       ; preds = %48, %56, %61
@@ -2433,7 +2433,7 @@ zval_ptr_dtor_nogc.exit637:                       ; preds = %48, %56, %61
 
 70:                                               ; preds = %65
   %71 = load ptr, ptr %7, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %71) #16
+  call void @rc_dtor_func(ptr noundef %71) #17
   br label %.critedge498
 
 72:                                               ; preds = %5, %5
@@ -2514,14 +2514,14 @@ zend_ast_evaluate_ex.exit674:                     ; preds = %.thread898, %.split
 
 106:                                              ; preds = %101
   %107 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %107) #16
+  call void @rc_dtor_func(ptr noundef %107) #17
   br label %.critedge498
 
 108:                                              ; preds = %zend_ast_evaluate_ex.exit674
   %109 = load i16, ptr %1, align 8, !tbaa !60
   %110 = icmp eq i16 %109, 522
   %111 = select i1 %110, ptr @is_smaller_function, ptr @is_smaller_or_equal_function
-  %112 = call i32 %111(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %6) #16, !callees !105
+  %112 = call i32 %111(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %6) #17, !callees !105
   %113 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %114 = load i8, ptr %113, align 1, !tbaa !44
   %.not.i626 = icmp eq i8 %114, 0
@@ -2539,7 +2539,7 @@ zend_ast_evaluate_ex.exit674:                     ; preds = %.thread898, %.split
 
 120:                                              ; preds = %115
   %121 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %121) #16
+  call void @rc_dtor_func(ptr noundef %121) #17
   br label %zval_ptr_dtor_nogc.exit628
 
 zval_ptr_dtor_nogc.exit628:                       ; preds = %108, %115, %120
@@ -2560,7 +2560,7 @@ zval_ptr_dtor_nogc.exit628:                       ; preds = %108, %115, %120
 
 129:                                              ; preds = %124
   %130 = load ptr, ptr %7, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %130) #16
+  call void @rc_dtor_func(ptr noundef %130) #17
   br label %.critedge498
 
 131:                                              ; preds = %5
@@ -2601,8 +2601,8 @@ zend_ast_evaluate_ex.exit684:                     ; preds = %.thread903, %.split
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %147 = load i16, ptr %146, align 2, !tbaa !62
   %148 = zext i16 %147 to i32
-  %149 = call ptr @get_unary_op(i32 noundef %148) #16
-  %150 = call i32 %149(ptr noundef %0, ptr noundef nonnull %6) #16
+  %149 = call ptr @get_unary_op(i32 noundef %148) #17
+  %150 = call i32 %149(ptr noundef %0, ptr noundef nonnull %6) #17
   %151 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %152 = load i8, ptr %151, align 1, !tbaa !44
   %.not.i620 = icmp eq i8 %152, 0
@@ -2620,7 +2620,7 @@ zend_ast_evaluate_ex.exit684:                     ; preds = %.thread903, %.split
 
 158:                                              ; preds = %153
   %159 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %159) #16
+  call void @rc_dtor_func(ptr noundef %159) #17
   br label %.critedge498
 
 160:                                              ; preds = %5
@@ -2647,7 +2647,7 @@ zend_ast_evaluate_ex.exit684:                     ; preds = %.thread903, %.split
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %174 = load i16, ptr %173, align 2, !tbaa !62
   %175 = zext i16 %174 to i32
-  %176 = tail call ptr @zend_get_constant_ex(ptr noundef %172, ptr noundef %2, i32 noundef %175) #16
+  %176 = tail call ptr @zend_get_constant_ex(ptr noundef %172, ptr noundef %2, i32 noundef %175) #17
   %.not477 = icmp eq ptr %176, null
   br i1 %.not477, label %192, label %177, !prof !13
 
@@ -2679,7 +2679,7 @@ zend_ast_evaluate_ex.exit684:                     ; preds = %.thread903, %.split
   br label %.critedge498
 
 191:                                              ; preds = %183
-  tail call void @zval_copy_ctor_func(ptr noundef nonnull %0) #16
+  tail call void @zval_copy_ctor_func(ptr noundef nonnull %0) #17
   br label %.critedge498
 
 192:                                              ; preds = %170
@@ -2726,7 +2726,7 @@ zend_ast_evaluate_ex.exit684:                     ; preds = %.thread903, %.split
   br i1 %.not469, label %211, label %212
 
 211:                                              ; preds = %210
-  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #16
+  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #17
   br label %.critedge498
 
 212:                                              ; preds = %210
@@ -2767,7 +2767,7 @@ zend_ast_evaluate_ex.exit684:                     ; preds = %.thread903, %.split
   br i1 %.not470, label %232, label %233
 
 232:                                              ; preds = %228
-  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1) #16
+  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1) #17
   br label %.critedge498
 
 233:                                              ; preds = %228
@@ -2828,7 +2828,7 @@ zend_ast_evaluate_ex.exit694:                     ; preds = %.thread909, %.split
   br i1 %.not467, label %259, label %.critedge498, !prof !104
 
 259:                                              ; preds = %zend_ast_evaluate_ex.exit694
-  %260 = call zeroext i1 @zend_is_true(ptr noundef nonnull %6) #16
+  %260 = call zeroext i1 @zend_is_true(ptr noundef nonnull %6) #17
   br i1 %260, label %261, label %298
 
 261:                                              ; preds = %259
@@ -2882,11 +2882,11 @@ zend_ast_evaluate_ex.exit704:                     ; preds = %.thread914, %.split
 
 283:                                              ; preds = %278
   %284 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %284) #16
+  call void @rc_dtor_func(ptr noundef %284) #17
   br label %.critedge498
 
 285:                                              ; preds = %zend_ast_evaluate_ex.exit704
-  %286 = call zeroext i1 @zend_is_true(ptr noundef nonnull %7) #16
+  %286 = call zeroext i1 @zend_is_true(ptr noundef nonnull %7) #17
   %287 = select i1 %286, i32 3, i32 2
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %287, ptr %288, align 8, !tbaa !44
@@ -2907,7 +2907,7 @@ zend_ast_evaluate_ex.exit704:                     ; preds = %.thread914, %.split
 
 296:                                              ; preds = %291
   %297 = load ptr, ptr %7, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %297) #16
+  call void @rc_dtor_func(ptr noundef %297) #17
   br label %zval_ptr_dtor_nogc.exit616
 
 298:                                              ; preds = %259
@@ -2933,7 +2933,7 @@ zval_ptr_dtor_nogc.exit616:                       ; preds = %296, %291, %285, %2
 
 307:                                              ; preds = %302
   %308 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %308) #16
+  call void @rc_dtor_func(ptr noundef %308) #17
   br label %.critedge498
 
 309:                                              ; preds = %5
@@ -2971,7 +2971,7 @@ zend_ast_evaluate_ex.exit714:                     ; preds = %.thread919, %.split
   br i1 %.not465, label %323, label %.critedge498, !prof !104
 
 323:                                              ; preds = %zend_ast_evaluate_ex.exit714
-  %324 = call zeroext i1 @zend_is_true(ptr noundef nonnull %6) #16
+  %324 = call zeroext i1 @zend_is_true(ptr noundef nonnull %6) #17
   br i1 %324, label %325, label %327
 
 325:                                              ; preds = %323
@@ -3030,11 +3030,11 @@ zend_ast_evaluate_ex.exit724:                     ; preds = %.thread924, %.split
 
 349:                                              ; preds = %344
   %350 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %350) #16
+  call void @rc_dtor_func(ptr noundef %350) #17
   br label %.critedge498
 
 351:                                              ; preds = %zend_ast_evaluate_ex.exit724
-  %352 = call zeroext i1 @zend_is_true(ptr noundef nonnull %7) #16
+  %352 = call zeroext i1 @zend_is_true(ptr noundef nonnull %7) #17
   %353 = select i1 %352, i32 3, i32 2
   %354 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %353, ptr %354, align 8, !tbaa !44
@@ -3055,7 +3055,7 @@ zend_ast_evaluate_ex.exit724:                     ; preds = %.thread924, %.split
 
 362:                                              ; preds = %357
   %363 = load ptr, ptr %7, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %363) #16
+  call void @rc_dtor_func(ptr noundef %363) #17
   br label %zval_ptr_dtor_nogc.exit607
 
 zval_ptr_dtor_nogc.exit607:                       ; preds = %362, %357, %351, %325
@@ -3076,7 +3076,7 @@ zval_ptr_dtor_nogc.exit607:                       ; preds = %362, %357, %351, %3
 
 371:                                              ; preds = %366
   %372 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %372) #16
+  call void @rc_dtor_func(ptr noundef %372) #17
   br label %.critedge498
 
 373:                                              ; preds = %5
@@ -3114,7 +3114,7 @@ zend_ast_evaluate_ex.exit734:                     ; preds = %.thread929, %.split
   br i1 %.not461, label %387, label %.critedge498, !prof !104
 
 387:                                              ; preds = %zend_ast_evaluate_ex.exit734
-  %388 = call zeroext i1 @zend_is_true(ptr noundef nonnull %6) #16
+  %388 = call zeroext i1 @zend_is_true(ptr noundef nonnull %6) #17
   br i1 %388, label %389, label %404
 
 389:                                              ; preds = %387
@@ -3147,7 +3147,7 @@ zend_ast_evaluate_ex.exit734:                     ; preds = %.thread929, %.split
 
 402:                                              ; preds = %397
   %403 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %403) #16
+  call void @rc_dtor_func(ptr noundef %403) #17
   br label %zval_ptr_dtor_nogc.exit601
 
 zval_ptr_dtor_nogc.exit601:                       ; preds = %393, %397, %402
@@ -3202,7 +3202,7 @@ zend_ast_evaluate_ex.exit744:                     ; preds = %.thread934, %.split
 
 425:                                              ; preds = %420
   %426 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %426) #16
+  call void @rc_dtor_func(ptr noundef %426) #17
   br label %zval_ptr_dtor_nogc.exit598
 
 zval_ptr_dtor_nogc.exit598:                       ; preds = %zend_ast_evaluate_ex.exit744, %420, %425
@@ -3301,7 +3301,7 @@ zend_ast_evaluate_ex.exit764:                     ; preds = %.thread944, %.split
 
 467:                                              ; preds = %462
   %468 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %468) #16
+  call void @rc_dtor_func(ptr noundef %468) #17
   br label %zval_ptr_dtor_nogc.exit595
 
 zval_ptr_dtor_nogc.exit595:                       ; preds = %zend_ast_evaluate_ex.exit764, %462, %467
@@ -3346,7 +3346,7 @@ zend_ast_evaluate_ex.exit774:                     ; preds = %.thread949, %.split
   store i64 0, ptr %6, align 8, !tbaa !44
   %484 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 4, ptr %484, align 8, !tbaa !44
-  %485 = call i32 @add_function(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7) #16
+  %485 = call i32 @add_function(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7) #17
   %486 = getelementptr inbounds nuw i8, ptr %7, i64 9
   %487 = load i8, ptr %486, align 1, !tbaa !44
   %.not.i590 = icmp eq i8 %487, 0
@@ -3364,7 +3364,7 @@ zend_ast_evaluate_ex.exit774:                     ; preds = %.thread949, %.split
 
 493:                                              ; preds = %488
   %494 = load ptr, ptr %7, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %494) #16
+  call void @rc_dtor_func(ptr noundef %494) #17
   br label %.critedge498
 
 495:                                              ; preds = %5
@@ -3405,7 +3405,7 @@ zend_ast_evaluate_ex.exit784:                     ; preds = %.thread954, %.split
   store i64 -1, ptr %6, align 8, !tbaa !44
   %510 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 4, ptr %510, align 8, !tbaa !44
-  %511 = call i32 @mul_function(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7) #16
+  %511 = call i32 @mul_function(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7) #17
   %512 = getelementptr inbounds nuw i8, ptr %7, i64 9
   %513 = load i8, ptr %512, align 1, !tbaa !44
   %.not.i587 = icmp eq i8 %513, 0
@@ -3423,7 +3423,7 @@ zend_ast_evaluate_ex.exit784:                     ; preds = %.thread954, %.split
 
 519:                                              ; preds = %514
   %520 = load ptr, ptr %7, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %520) #16
+  call void @rc_dtor_func(ptr noundef %520) #17
   br label %.critedge498
 
 521:                                              ; preds = %5
@@ -3439,7 +3439,7 @@ zend_ast_evaluate_ex.exit784:                     ; preds = %.thread954, %.split
   br label %.critedge498
 
 526:                                              ; preds = %521
-  %527 = tail call ptr @_zend_new_array_0() #16
+  %527 = tail call ptr @_zend_new_array_0() #17
   store ptr %527, ptr %0, align 8, !tbaa !44
   %528 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 775, ptr %528, align 8, !tbaa !44
@@ -3514,7 +3514,7 @@ zend_ast_evaluate_ex.exit794:                     ; preds = %.thread959, %.split
 
 561:                                              ; preds = %556
   %562 = load ptr, ptr %0, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %562) #16
+  call void @rc_dtor_func(ptr noundef %562) #17
   br label %.critedge498
 
 563:                                              ; preds = %zend_ast_evaluate_ex.exit794
@@ -3568,11 +3568,11 @@ zend_ast_evaluate_ex.exit794:                     ; preds = %.thread959, %.split
   br i1 %.not44.i, label %587, label %585
 
 585:                                              ; preds = %583
-  %586 = call ptr @zend_hash_update(ptr noundef %584, ptr noundef nonnull %.137.i, ptr noundef nonnull %.0397.i) #16
+  %586 = call ptr @zend_hash_update(ptr noundef %584, ptr noundef nonnull %.137.i, ptr noundef nonnull %.0397.i) #17
   br label %589
 
 587:                                              ; preds = %583
-  %588 = call ptr @zend_hash_next_index_insert(ptr noundef %584, ptr noundef nonnull %.0397.i) #16
+  %588 = call ptr @zend_hash_next_index_insert(ptr noundef %584, ptr noundef nonnull %.0397.i) #17
   %.not45.i = icmp eq ptr %588, null
   br i1 %.not45.i, label %.loopexit, label %589
 
@@ -3596,7 +3596,7 @@ zend_ast_evaluate_ex.exit794:                     ; preds = %.thread959, %.split
 
 .loopexit:                                        ; preds = %563, %587
   %.str.7.sink.i = phi ptr [ @.str.7, %587 ], [ @.str.8, %563 ]
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull %.str.7.sink.i) #16
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull %.str.7.sink.i) #17
   %598 = load i8, ptr %533, align 1, !tbaa !44
   %.not.i581 = icmp eq i8 %598, 0
   br i1 %.not.i581, label %zval_ptr_dtor_nogc.exit583, label %599
@@ -3613,7 +3613,7 @@ zend_ast_evaluate_ex.exit794:                     ; preds = %.thread959, %.split
 
 604:                                              ; preds = %599
   %605 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %605) #16
+  call void @rc_dtor_func(ptr noundef %605) #17
   br label %zval_ptr_dtor_nogc.exit583
 
 zval_ptr_dtor_nogc.exit583:                       ; preds = %.loopexit, %599, %604
@@ -3634,7 +3634,7 @@ zval_ptr_dtor_nogc.exit583:                       ; preds = %.loopexit, %599, %6
 
 613:                                              ; preds = %608
   %614 = load ptr, ptr %0, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %614) #16
+  call void @rc_dtor_func(ptr noundef %614) #17
   br label %.critedge498
 
 .loopexit1025:                                    ; preds = %596, %565
@@ -3706,7 +3706,7 @@ zend_ast_evaluate_ex.exit805:                     ; preds = %.thread966, %.split
 
 643:                                              ; preds = %638
   %644 = load ptr, ptr %0, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %644) #16
+  call void @rc_dtor_func(ptr noundef %644) #17
   br label %.critedge498
 
 645:                                              ; preds = %621
@@ -3761,7 +3761,7 @@ zend_ast_evaluate_ex.exit815:                     ; preds = %.thread971, %.split
 
 665:                                              ; preds = %660
   %666 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %666) #16
+  call void @rc_dtor_func(ptr noundef %666) #17
   br label %zval_ptr_dtor_nogc.exit571
 
 zval_ptr_dtor_nogc.exit571:                       ; preds = %658, %660, %665
@@ -3782,7 +3782,7 @@ zval_ptr_dtor_nogc.exit571:                       ; preds = %658, %660, %665
 
 674:                                              ; preds = %669
   %675 = load ptr, ptr %0, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %675) #16
+  call void @rc_dtor_func(ptr noundef %675) #17
   br label %.critedge498
 
 676:                                              ; preds = %zend_ast_evaluate_ex.exit815
@@ -3792,16 +3792,16 @@ zval_ptr_dtor_nogc.exit571:                       ; preds = %658, %660, %665
   br i1 %678, label %680, label %683
 
 680:                                              ; preds = %676
-  %681 = call ptr @zend_hash_next_index_insert(ptr noundef %679, ptr noundef nonnull %7) #16
+  %681 = call ptr @zend_hash_next_index_insert(ptr noundef %679, ptr noundef nonnull %7) #17
   %.not.i817 = icmp eq ptr %681, null
   br i1 %.not.i817, label %682, label %zval_ptr_dtor_nogc.exit586
 
 682:                                              ; preds = %680
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.7) #16
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.7) #17
   br label %zend_ast_add_array_element.exit
 
 683:                                              ; preds = %676
-  %684 = call i32 @array_set_zval_key(ptr noundef %679, ptr noundef nonnull %6, ptr noundef nonnull %7) #16
+  %684 = call i32 @array_set_zval_key(ptr noundef %679, ptr noundef nonnull %6, ptr noundef nonnull %7) #17
   %685 = icmp eq i32 %684, -1
   br i1 %685, label %zend_ast_add_array_element.exit, label %686
 
@@ -3822,7 +3822,7 @@ zval_ptr_dtor_nogc.exit571:                       ; preds = %658, %660, %665
 
 693:                                              ; preds = %688
   %694 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %694) #16
+  call void @rc_dtor_func(ptr noundef %694) #17
   br label %zval_ptr_dtor_nogc.exit10.i
 
 zval_ptr_dtor_nogc.exit10.i:                      ; preds = %693, %688, %686
@@ -3857,7 +3857,7 @@ zend_ast_add_array_element.exit:                  ; preds = %683, %682
 
 707:                                              ; preds = %702
   %708 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %708) #16
+  call void @rc_dtor_func(ptr noundef %708) #17
   br label %zval_ptr_dtor_nogc.exit565
 
 zval_ptr_dtor_nogc.exit565:                       ; preds = %zend_ast_add_array_element.exit, %702, %707
@@ -3877,7 +3877,7 @@ zval_ptr_dtor_nogc.exit565:                       ; preds = %zend_ast_add_array_
 
 715:                                              ; preds = %710
   %716 = load ptr, ptr %7, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %716) #16
+  call void @rc_dtor_func(ptr noundef %716) #17
   br label %zval_ptr_dtor_nogc.exit562
 
 zval_ptr_dtor_nogc.exit562:                       ; preds = %zval_ptr_dtor_nogc.exit565, %710, %715
@@ -3898,13 +3898,13 @@ zval_ptr_dtor_nogc.exit562:                       ; preds = %zval_ptr_dtor_nogc.
 
 724:                                              ; preds = %719
   %725 = load ptr, ptr %0, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %725) #16
+  call void @rc_dtor_func(ptr noundef %725) #17
   br label %.critedge498
 
 zval_ptr_dtor_nogc.exit586.sink.split:            ; preds = %696, %616
   %.sink1112 = phi ptr [ %6, %616 ], [ %7, %696 ]
   %726 = load ptr, ptr %.sink1112, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %726) #16
+  call void @rc_dtor_func(ptr noundef %726) #17
   br label %zval_ptr_dtor_nogc.exit586
 
 zval_ptr_dtor_nogc.exit586:                       ; preds = %zval_ptr_dtor_nogc.exit586.sink.split, %696, %zval_ptr_dtor_nogc.exit10.i, %680, %.loopexit1025, %616
@@ -3921,7 +3921,7 @@ zval_ptr_dtor_nogc.exit586:                       ; preds = %zval_ptr_dtor_nogc.
   br i1 %733, label %734, label %735
 
 734:                                              ; preds = %730
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.2) #17
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.2) #18
   unreachable
 
 735:                                              ; preds = %730
@@ -3993,11 +3993,11 @@ zend_ast_evaluate_ex.exit827:                     ; preds = %.thread982, %.split
 
 766:                                              ; preds = %761
   %767 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %767) #16
+  call void @rc_dtor_func(ptr noundef %767) #17
   br label %zval_ptr_dtor_nogc.exit556
 
 zval_ptr_dtor_nogc.exit556:                       ; preds = %758, %761, %766
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.3) #16
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.3) #17
   br label %.critedge498
 
 768:                                              ; preds = %754
@@ -4024,7 +4024,7 @@ zval_ptr_dtor_nogc.exit556:                       ; preds = %758, %761, %766
 
 779:                                              ; preds = %774
   %780 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %780) #16
+  call void @rc_dtor_func(ptr noundef %780) #17
   br label %.critedge498
 
 781:                                              ; preds = %768
@@ -4033,7 +4033,7 @@ zval_ptr_dtor_nogc.exit556:                       ; preds = %758, %761, %766
   %784 = and i16 %783, 1
   %.not448 = icmp eq i16 %784, 0
   %785 = select i1 %.not448, i32 0, i32 3
-  call void @zend_fetch_dimension_const(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %785) #16
+  call void @zend_fetch_dimension_const(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %785) #17
   %786 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %787 = load i8, ptr %786, align 1, !tbaa !44
   %.not.i548 = icmp eq i8 %787, 0
@@ -4051,7 +4051,7 @@ zval_ptr_dtor_nogc.exit556:                       ; preds = %758, %761, %766
 
 793:                                              ; preds = %788
   %794 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %794) #16
+  call void @rc_dtor_func(ptr noundef %794) #17
   br label %zval_ptr_dtor_nogc.exit550
 
 zval_ptr_dtor_nogc.exit550:                       ; preds = %781, %788, %793
@@ -4072,7 +4072,7 @@ zval_ptr_dtor_nogc.exit550:                       ; preds = %781, %788, %793
 
 802:                                              ; preds = %797
   %803 = load ptr, ptr %7, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %803) #16
+  call void @rc_dtor_func(ptr noundef %803) #17
   br label %zval_ptr_dtor_nogc.exit547
 
 zval_ptr_dtor_nogc.exit547:                       ; preds = %zval_ptr_dtor_nogc.exit550, %797, %802
@@ -4110,8 +4110,8 @@ zval_ptr_dtor_nogc.exit547:                       ; preds = %zval_ptr_dtor_nogc.
 
 .critedge488:                                     ; preds = %820, %808
   %. = phi ptr [ %9, %820 ], [ null, %808 ]
-  %822 = call ptr @zend_lookup_class(ptr noundef %812) #16
-  %823 = call ptr @zend_enum_new(ptr noundef %0, ptr noundef %822, ptr noundef %816, ptr noundef %.) #16
+  %822 = call ptr @zend_lookup_class(ptr noundef %812) #17
+  %823 = call ptr @zend_enum_new(ptr noundef %0, ptr noundef %822, ptr noundef %816, ptr noundef %.) #17
   %824 = getelementptr inbounds nuw i8, ptr %9, i64 9
   %825 = load i8, ptr %824, align 1, !tbaa !44
   %.not.i542 = icmp eq i8 %825, 0
@@ -4129,7 +4129,7 @@ zval_ptr_dtor_nogc.exit547:                       ; preds = %zval_ptr_dtor_nogc.
 
 831:                                              ; preds = %826
   %832 = load ptr, ptr %9, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %832) #16
+  call void @rc_dtor_func(ptr noundef %832) #17
   br label %zval_ptr_dtor_nogc.exit544
 
 zval_ptr_dtor_nogc.exit544:                       ; preds = %.critedge488, %826, %831
@@ -4185,7 +4185,7 @@ zend_ast_evaluate_ex.exit837:                     ; preds = %.thread987, %.split
   br i1 %.not440, label %865, label %855, !prof !104
 
 855:                                              ; preds = %852
-  call void @zend_invalid_class_constant_type_error(i8 noundef zeroext %854) #16
+  call void @zend_invalid_class_constant_type_error(i8 noundef zeroext %854) #17
   %856 = getelementptr inbounds nuw i8, ptr %7, i64 9
   %857 = load i8, ptr %856, align 1, !tbaa !44
   %.not.i539 = icmp eq i8 %857, 0
@@ -4203,7 +4203,7 @@ zend_ast_evaluate_ex.exit837:                     ; preds = %.thread987, %.split
 
 863:                                              ; preds = %858
   %864 = load ptr, ptr %7, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %864) #16
+  call void @rc_dtor_func(ptr noundef %864) #17
   br label %.critedge498
 
 865:                                              ; preds = %852
@@ -4214,7 +4214,7 @@ zend_ast_evaluate_ex.exit837:                     ; preds = %.thread987, %.split
   %867 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %868 = load i16, ptr %867, align 2, !tbaa !62
   %869 = zext i16 %868 to i32
-  %870 = call ptr @zend_get_class_constant_ex(ptr noundef %838, ptr noundef %866, ptr noundef null, i32 noundef %869) #16
+  %870 = call ptr @zend_get_class_constant_ex(ptr noundef %838, ptr noundef %866, ptr noundef null, i32 noundef %869) #17
   br label %885
 
 871:                                              ; preds = %865
@@ -4234,7 +4234,7 @@ zend_ast_evaluate_ex.exit837:                     ; preds = %.thread987, %.split
   %881 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %882 = load i16, ptr %881, align 2, !tbaa !62
   %883 = zext i16 %882 to i32
-  %884 = call ptr @zend_get_class_constant_ex(ptr noundef %838, ptr noundef %866, ptr noundef nonnull %2, i32 noundef %883) #16
+  %884 = call ptr @zend_get_class_constant_ex(ptr noundef %838, ptr noundef %866, ptr noundef nonnull %2, i32 noundef %883) #17
   store ptr %872, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1808), align 8, !tbaa !78
   store i64 %873, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1816), align 8, !tbaa !102
   br label %885
@@ -4264,7 +4264,7 @@ zend_ast_evaluate_ex.exit837:                     ; preds = %.thread987, %.split
 
 896:                                              ; preds = %891
   %897 = load ptr, ptr %7, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %897) #16
+  call void @rc_dtor_func(ptr noundef %897) #17
   br label %.critedge498
 
 898:                                              ; preds = %885
@@ -4295,7 +4295,7 @@ zend_ast_evaluate_ex.exit837:                     ; preds = %.thread987, %.split
   br label %913
 
 912:                                              ; preds = %904
-  call void @zval_copy_ctor_func(ptr noundef nonnull %0) #16
+  call void @zval_copy_ctor_func(ptr noundef nonnull %0) #17
   br label %913
 
 913:                                              ; preds = %.critedge490, %912, %898
@@ -4316,7 +4316,7 @@ zend_ast_evaluate_ex.exit837:                     ; preds = %.thread987, %.split
 
 921:                                              ; preds = %916
   %922 = load ptr, ptr %7, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %922) #16
+  call void @rc_dtor_func(ptr noundef %922) #17
   br label %.critedge498
 
 923:                                              ; preds = %5
@@ -4329,12 +4329,12 @@ zend_ast_evaluate_ex.exit837:                     ; preds = %.thread987, %.split
   %930 = lshr i16 %929, 2
   %931 = or i16 %930, 512
   %932 = zext nneg i16 %931 to i32
-  %933 = tail call ptr @zend_fetch_class_with_scope(ptr noundef %927, i32 noundef %932, ptr noundef %2) #16
+  %933 = tail call ptr @zend_fetch_class_with_scope(ptr noundef %927, i32 noundef %932, ptr noundef %2) #17
   %.not429 = icmp eq ptr %933, null
   br i1 %.not429, label %.critedge498, label %934
 
 934:                                              ; preds = %923
-  %935 = tail call i32 @object_init_ex(ptr noundef %0, ptr noundef nonnull %933) #16
+  %935 = tail call i32 @object_init_ex(ptr noundef %0, ptr noundef nonnull %933) #17
   %.not430 = icmp eq i32 %935, 0
   br i1 %.not430, label %936, label %.critedge498
 
@@ -4350,7 +4350,7 @@ zend_ast_evaluate_ex.exit837:                     ; preds = %.thread987, %.split
   br i1 %.not431, label %993, label %943
 
 943:                                              ; preds = %936
-  %944 = tail call ptr @_zend_new_array(i32 noundef %942) #16
+  %944 = tail call ptr @_zend_new_array(i32 noundef %942) #17
   %945 = load i32, ptr %941, align 8, !tbaa !77
   %.not436.not1029.not = icmp eq i32 %945, 0
   br i1 %.not436.not1029.not, label %.critedge496, label %.lr.ph
@@ -4416,17 +4416,17 @@ zend_ast_evaluate_ex.exit847:                     ; preds = %.thread995, %.split
   br i1 %.not434, label %977, label %973
 
 973:                                              ; preds = %972
-  %974 = call ptr @zend_hash_add(ptr noundef %944, ptr noundef nonnull %.0404, ptr noundef nonnull %10) #16
+  %974 = call ptr @zend_hash_add(ptr noundef %944, ptr noundef nonnull %.0404, ptr noundef nonnull %10) #17
   %.not435 = icmp eq ptr %974, null
   br i1 %.not435, label %975, label %979
 
 975:                                              ; preds = %973
   %976 = getelementptr inbounds nuw i8, ptr %.0404, i64 24
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef nonnull %976) #16
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef nonnull %976) #17
   br label %.critedge494
 
 977:                                              ; preds = %972
-  %978 = call ptr @zend_hash_next_index_insert(ptr noundef %944, ptr noundef nonnull %10) #16
+  %978 = call ptr @zend_hash_next_index_insert(ptr noundef %944, ptr noundef nonnull %10) #17
   br label %979
 
 979:                                              ; preds = %977, %973
@@ -4438,8 +4438,8 @@ zend_ast_evaluate_ex.exit847:                     ; preds = %.thread995, %.split
   br i1 %.not436.not, label %948, label %.critedge496
 
 .critedge494:                                     ; preds = %zend_ast_evaluate_ex.exit847, %975
-  call void @zend_array_destroy(ptr noundef %944) #16
-  call void @zval_ptr_dtor(ptr noundef %0) #16
+  call void @zend_array_destroy(ptr noundef %944) #17
+  call void @zval_ptr_dtor(ptr noundef %0) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge498
 
@@ -4449,7 +4449,7 @@ zend_ast_evaluate_ex.exit847:                     ; preds = %.thread995, %.split
   %984 = load ptr, ptr %983, align 8, !tbaa !129
   %985 = getelementptr inbounds nuw i8, ptr %984, i64 120
   %986 = load ptr, ptr %985, align 8, !tbaa !131
-  %987 = call ptr %986(ptr noundef %982) #16
+  %987 = call ptr %986(ptr noundef %982) #17
   %.not437 = icmp eq ptr %987, null
   br i1 %.not437, label %992, label %988
 
@@ -4457,11 +4457,11 @@ zend_ast_evaluate_ex.exit847:                     ; preds = %.thread995, %.split
   %989 = load ptr, ptr %0, align 8, !tbaa !44
   %990 = getelementptr inbounds nuw i8, ptr %989, i64 16
   %991 = load ptr, ptr %990, align 8, !tbaa !133
-  call void @zend_call_known_function(ptr noundef nonnull %987, ptr noundef %989, ptr noundef %991, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef %944) #16
+  call void @zend_call_known_function(ptr noundef nonnull %987, ptr noundef %989, ptr noundef %991, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef %944) #17
   br label %992
 
 992:                                              ; preds = %988, %.critedge496
-  call void @zend_array_destroy(ptr noundef %944) #16
+  call void @zend_array_destroy(ptr noundef %944) #17
   br label %1049
 
 993:                                              ; preds = %936
@@ -4471,7 +4471,7 @@ zend_ast_evaluate_ex.exit847:                     ; preds = %.thread995, %.split
   br i1 %996, label %997, label %999, !prof !13
 
 997:                                              ; preds = %993
-  %998 = tail call noalias ptr @_emalloc(i64 noundef %995) #15
+  %998 = tail call noalias ptr @_emalloc(i64 noundef %995) #16
   br label %1001
 
 999:                                              ; preds = %993
@@ -4543,17 +4543,17 @@ zend_ast_evaluate_ex.exit847:                     ; preds = %.thread995, %.split
 .lr.ph1037:                                       ; preds = %.preheader, %.lr.ph1037
   %indvars.iv1059 = phi i64 [ %indvars.iv.next1060, %.lr.ph1037 ], [ 0, %.preheader ]
   %1025 = getelementptr inbounds nuw %struct._zval_struct, ptr %1002, i64 %indvars.iv1059
-  call void @zval_ptr_dtor(ptr noundef %1025) #16
+  call void @zval_ptr_dtor(ptr noundef %1025) #17
   %indvars.iv.next1060 = add nuw nsw i64 %indvars.iv1059, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next1060, %.us-phi.in
   br i1 %exitcond.not, label %._crit_edge1038, label %.lr.ph1037
 
 1026:                                             ; preds = %._crit_edge1038
-  call void @_efree(ptr noundef %1002) #16
+  call void @_efree(ptr noundef %1002) #17
   br label %1027
 
 1027:                                             ; preds = %1026, %._crit_edge1038
-  call void @zval_ptr_dtor(ptr noundef %0) #16
+  call void @zval_ptr_dtor(ptr noundef %0) #17
   br label %.critedge498
 
 1028:                                             ; preds = %.split13.i849
@@ -4569,7 +4569,7 @@ zend_ast_evaluate_ex.exit847:                     ; preds = %.thread995, %.split
   %1033 = load ptr, ptr %1032, align 8, !tbaa !129
   %1034 = getelementptr inbounds nuw i8, ptr %1033, i64 120
   %1035 = load ptr, ptr %1034, align 8, !tbaa !131
-  %1036 = call ptr %1035(ptr noundef %1031) #16
+  %1036 = call ptr %1035(ptr noundef %1031) #17
   %.not433 = icmp eq ptr %1036, null
   br i1 %.not433, label %1042, label %1037
 
@@ -4578,7 +4578,7 @@ zend_ast_evaluate_ex.exit847:                     ; preds = %.thread995, %.split
   %1039 = load i32, ptr %941, align 8, !tbaa !77
   %1040 = getelementptr inbounds nuw i8, ptr %1038, i64 16
   %1041 = load ptr, ptr %1040, align 8, !tbaa !133
-  call void @zend_call_known_function(ptr noundef nonnull %1036, ptr noundef %1038, ptr noundef %1041, ptr noundef null, i32 noundef %1039, ptr noundef %1002, ptr noundef null) #16
+  call void @zend_call_known_function(ptr noundef nonnull %1036, ptr noundef %1038, ptr noundef %1041, ptr noundef null, i32 noundef %1039, ptr noundef %1002, ptr noundef null) #17
   br label %1042
 
 1042:                                             ; preds = %1037, %.critedge500
@@ -4592,7 +4592,7 @@ zend_ast_evaluate_ex.exit847:                     ; preds = %.thread995, %.split
 .lr.ph1035:                                       ; preds = %1042, %.lr.ph1035
   %indvars.iv1062 = phi i64 [ %indvars.iv.next1063, %.lr.ph1035 ], [ 0, %1042 ]
   %1044 = getelementptr inbounds nuw %struct._zval_struct, ptr %1002, i64 %indvars.iv1062
-  call void @zval_ptr_dtor(ptr noundef %1044) #16
+  call void @zval_ptr_dtor(ptr noundef %1044) #17
   %indvars.iv.next1063 = add nuw nsw i64 %indvars.iv1062, 1
   %1045 = load i32, ptr %941, align 8, !tbaa !77
   %1046 = zext i32 %1045 to i64
@@ -4600,7 +4600,7 @@ zend_ast_evaluate_ex.exit847:                     ; preds = %.thread995, %.split
   br i1 %1047, label %.lr.ph1035, label %._crit_edge
 
 1048:                                             ; preds = %._crit_edge
-  call void @_efree(ptr noundef %1002) #16
+  call void @_efree(ptr noundef %1002) #17
   br label %1049
 
 1049:                                             ; preds = %1048, %._crit_edge, %992
@@ -4614,13 +4614,13 @@ zend_ast_evaluate_ex.exit847:                     ; preds = %.thread995, %.split
   %1054 = load i32, ptr %1053, align 4, !tbaa !44
   %1055 = or i32 %1054, 256
   store i32 %1055, ptr %1053, align 4, !tbaa !44
-  call void @zval_ptr_dtor(ptr noundef nonnull %0) #16
+  call void @zval_ptr_dtor(ptr noundef nonnull %0) #17
   br label %.critedge498
 
 1056:                                             ; preds = %5
   %1057 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1058 = load ptr, ptr %1057, align 8, !tbaa !53
-  tail call void @zend_create_closure(ptr noundef %0, ptr noundef %1058, ptr noundef %2, ptr noundef %2, ptr noundef null) #16
+  tail call void @zend_create_closure(ptr noundef %0, ptr noundef %1058, ptr noundef %2, ptr noundef %2, ptr noundef null) #17
   br label %.critedge498
 
 1059:                                             ; preds = %5, %5
@@ -4734,7 +4734,7 @@ zend_ast_evaluate_ex.exit877:                     ; preds = %.thread1010, %.spli
 
 1108:                                             ; preds = %1103
   %1109 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %1109) #16
+  call void @rc_dtor_func(ptr noundef %1109) #17
   br label %.critedge498
 
 1110:                                             ; preds = %zend_ast_evaluate_ex.exit877
@@ -4744,7 +4744,7 @@ zend_ast_evaluate_ex.exit877:                     ; preds = %.thread1010, %.spli
   br i1 %1113, label %try_convert_to_string.exit.thread, label %try_convert_to_string.exit
 
 try_convert_to_string.exit:                       ; preds = %1110
-  %1114 = call zeroext i1 @_try_convert_to_string(ptr noundef nonnull %7) #16
+  %1114 = call zeroext i1 @_try_convert_to_string(ptr noundef nonnull %7) #17
   br i1 %1114, label %try_convert_to_string.exit.thread, label %1115
 
 1115:                                             ; preds = %try_convert_to_string.exit
@@ -4765,7 +4765,7 @@ try_convert_to_string.exit:                       ; preds = %1110
 
 1123:                                             ; preds = %1118
   %1124 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %1124) #16
+  call void @rc_dtor_func(ptr noundef %1124) #17
   br label %zval_ptr_dtor_nogc.exit529
 
 zval_ptr_dtor_nogc.exit529:                       ; preds = %1115, %1118, %1123
@@ -4786,7 +4786,7 @@ zval_ptr_dtor_nogc.exit529:                       ; preds = %1115, %1118, %1123
 
 1132:                                             ; preds = %1127
   %1133 = load ptr, ptr %7, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %1133) #16
+  call void @rc_dtor_func(ptr noundef %1133) #17
   br label %.critedge498
 
 try_convert_to_string.exit.thread:                ; preds = %1110, %try_convert_to_string.exit
@@ -4795,7 +4795,7 @@ try_convert_to_string.exit.thread:                ; preds = %1110, %try_convert_
   br i1 %.not424, label %1155, label %1135
 
 1135:                                             ; preds = %try_convert_to_string.exit.thread
-  call void @zend_wrong_property_read(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
+  call void @zend_wrong_property_read(ptr noundef nonnull %6, ptr noundef nonnull %7) #17
   %1136 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %1137 = load i8, ptr %1136, align 1, !tbaa !44
   %.not.i521 = icmp eq i8 %1137, 0
@@ -4813,7 +4813,7 @@ try_convert_to_string.exit.thread:                ; preds = %1110, %try_convert_
 
 1143:                                             ; preds = %1138
   %1144 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %1144) #16
+  call void @rc_dtor_func(ptr noundef %1144) #17
   br label %zval_ptr_dtor_nogc.exit523
 
 zval_ptr_dtor_nogc.exit523:                       ; preds = %1135, %1138, %1143
@@ -4834,7 +4834,7 @@ zval_ptr_dtor_nogc.exit523:                       ; preds = %1135, %1138, %1143
 
 1152:                                             ; preds = %1147
   %1153 = load ptr, ptr %7, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %1153) #16
+  call void @rc_dtor_func(ptr noundef %1153) #17
   br label %zval_ptr_dtor_nogc.exit520
 
 zval_ptr_dtor_nogc.exit520:                       ; preds = %zval_ptr_dtor_nogc.exit523, %1147, %1152
@@ -4853,7 +4853,7 @@ zval_ptr_dtor_nogc.exit520:                       ; preds = %zval_ptr_dtor_nogc.
   br i1 %.not425, label %1162, label %1181
 
 1162:                                             ; preds = %1155
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5) #16
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5) #17
   %1163 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %1164 = load i8, ptr %1163, align 1, !tbaa !44
   %.not.i515 = icmp eq i8 %1164, 0
@@ -4871,7 +4871,7 @@ zval_ptr_dtor_nogc.exit520:                       ; preds = %zval_ptr_dtor_nogc.
 
 1170:                                             ; preds = %1165
   %1171 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %1171) #16
+  call void @rc_dtor_func(ptr noundef %1171) #17
   br label %zval_ptr_dtor_nogc.exit517
 
 zval_ptr_dtor_nogc.exit517:                       ; preds = %1162, %1165, %1170
@@ -4892,12 +4892,12 @@ zval_ptr_dtor_nogc.exit517:                       ; preds = %1162, %1165, %1170
 
 1179:                                             ; preds = %1174
   %1180 = load ptr, ptr %7, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %1180) #16
+  call void @rc_dtor_func(ptr noundef %1180) #17
   br label %.critedge498
 
 1181:                                             ; preds = %1155
   %1182 = load ptr, ptr %7, align 8, !tbaa !44
-  %1183 = call ptr @zend_read_property_ex(ptr noundef %2, ptr noundef nonnull %1156, ptr noundef %1182, i1 noundef zeroext false, ptr noundef %0) #16
+  %1183 = call ptr @zend_read_property_ex(ptr noundef %2, ptr noundef nonnull %1156, ptr noundef %1182, i1 noundef zeroext false, ptr noundef %0) #17
   %1184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !125
   %.not426 = icmp eq ptr %1184, null
   br i1 %.not426, label %1204, label %1185
@@ -4920,7 +4920,7 @@ zval_ptr_dtor_nogc.exit517:                       ; preds = %1162, %1165, %1170
 
 1193:                                             ; preds = %1188
   %1194 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %1194) #16
+  call void @rc_dtor_func(ptr noundef %1194) #17
   br label %zval_ptr_dtor_nogc.exit511
 
 zval_ptr_dtor_nogc.exit511:                       ; preds = %1185, %1188, %1193
@@ -4941,7 +4941,7 @@ zval_ptr_dtor_nogc.exit511:                       ; preds = %1185, %1188, %1193
 
 1202:                                             ; preds = %1197
   %1203 = load ptr, ptr %7, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %1203) #16
+  call void @rc_dtor_func(ptr noundef %1203) #17
   br label %.critedge498
 
 1204:                                             ; preds = %1181
@@ -4983,7 +4983,7 @@ zval_ptr_dtor_nogc.exit511:                       ; preds = %1185, %1188, %1193
 
 1222:                                             ; preds = %1217
   %1223 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %1223) #16
+  call void @rc_dtor_func(ptr noundef %1223) #17
   br label %zval_ptr_dtor_nogc.exit505
 
 zval_ptr_dtor_nogc.exit505:                       ; preds = %1214, %1217, %1222
@@ -5004,11 +5004,11 @@ zval_ptr_dtor_nogc.exit505:                       ; preds = %1214, %1217, %1222
 
 1231:                                             ; preds = %1226
   %1232 = load ptr, ptr %7, align 8, !tbaa !44
-  call void @rc_dtor_func(ptr noundef %1232) #16
+  call void @rc_dtor_func(ptr noundef %1232) #17
   br label %.critedge498
 
 1233:                                             ; preds = %5
-  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.6) #16
+  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.6) #17
   br label %.critedge498
 
 .critedge498:                                     ; preds = %zval_ptr_dtor_nogc.exit586, %526, %zval_ptr_dtor_nogc.exit547, %913, %916, %921, %524, %.critedge, %191, %177, %zval_ptr_dtor_nogc.exit556, %1233, %207, %392, %445, %zend_ast_evaluate_ex.exit, %zend_ast_evaluate_ex.exit664, %zend_ast_evaluate_ex.exit684, %167, %160, %203, %201, %224, %222, %241, %239, %zend_ast_evaluate_ex.exit694, %zend_ast_evaluate_ex.exit714, %zend_ast_evaluate_ex.exit734, %zval_ptr_dtor_nogc.exit601, %zval_ptr_dtor_nogc.exit598, %zend_ast_evaluate_ex.exit754, %zval_ptr_dtor_nogc.exit595, %zend_ast_evaluate_ex.exit774, %zend_ast_evaluate_ex.exit784, %zend_ast_evaluate_ex.exit827, %zval_ptr_dtor_nogc.exit544, %.split13.i, %38, %41, %46, %zval_ptr_dtor_nogc.exit637, %65, %70, %.split13.i656, %98, %101, %106, %zval_ptr_dtor_nogc.exit628, %124, %129, %145, %153, %158, %275, %278, %283, %zval_ptr_dtor_nogc.exit616, %302, %307, %341, %344, %349, %zval_ptr_dtor_nogc.exit607, %366, %371, %483, %488, %493, %509, %514, %519, %771, %774, %779, %1231, %1226, %zval_ptr_dtor_nogc.exit505, %1202, %1197, %zval_ptr_dtor_nogc.exit511, %1179, %1174, %zval_ptr_dtor_nogc.exit517, %1132, %1127, %zval_ptr_dtor_nogc.exit529, %1108, %1103, %1100, %1027, %.critedge494, %887, %891, %896, %863, %858, %855, %724, %719, %zval_ptr_dtor_nogc.exit562, %674, %669, %zval_ptr_dtor_nogc.exit571, %643, %638, %635, %613, %608, %zval_ptr_dtor_nogc.exit583, %561, %556, %553, %192, %zend_ast_evaluate_ex.exit837, %zend_ast_evaluate_ex.exit867, %923, %934, %1049, %1051, %833, %805, %zval_ptr_dtor_nogc.exit520, %1084, %1076, %1056, %752, %232, %211
@@ -5089,7 +5089,7 @@ define dso_local i32 @zend_ast_evaluate(ptr noundef %0, ptr noundef readonly cap
   br i1 %.not.i, label %.thread.i, label %.split13.i
 
 .thread.i:                                        ; preds = %3
-  %6 = call i32 @zend_ast_evaluate_inner(ptr noundef %0, ptr noundef readonly %1, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %4) #18
+  %6 = call i32 @zend_ast_evaluate_inner(ptr noundef %0, ptr noundef readonly %1, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %4) #19
   br label %zend_ast_evaluate_ex.exit
 
 .split13.i:                                       ; preds = %3
@@ -5106,7 +5106,7 @@ define dso_local i32 @zend_ast_evaluate(ptr noundef %0, ptr noundef readonly cap
   %.0.i.i = load i32, ptr %14, align 4, !tbaa !44
   %15 = zext i32 %.0.i.i to i64
   store i64 %15, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1816), align 8, !tbaa !102
-  %16 = call i32 @zend_ast_evaluate_inner(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %4) #18
+  %16 = call i32 @zend_ast_evaluate_inner(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %4) #19
   store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1808), align 8, !tbaa !78
   store i64 %8, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1816), align 8, !tbaa !102
   br label %zend_ast_evaluate_ex.exit
@@ -5125,7 +5125,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define dso_local ptr @zend_ast_copy(ptr noundef nonnull readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i64 @zend_ast_tree_size(ptr noundef %0)
   %3 = add i64 %2, 8
-  %4 = tail call noalias ptr @_emalloc(i64 noundef %3) #15
+  %4 = tail call noalias ptr @_emalloc(i64 noundef %3) #16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = tail call fastcc ptr @zend_ast_tree_copy(ptr noundef nonnull %0, ptr noundef nonnull %5)
   store i32 1, ptr %4, align 4, !tbaa !59
@@ -5497,7 +5497,7 @@ define dso_local void @zend_ast_destroy(ptr noundef readonly captures(address_is
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr %15, align 8, !tbaa !44
-  tail call void @rc_dtor_func(ptr noundef %24) #16
+  tail call void @rc_dtor_func(ptr noundef %24) #17
   br label %zval_ptr_dtor_nogc.exit
 
 25:                                               ; preds = %12
@@ -5552,7 +5552,7 @@ define dso_local void @zend_ast_destroy(ptr noundef readonly captures(address_is
   br i1 %47, label %48, label %zval_ptr_dtor_nogc.exit
 
 48:                                               ; preds = %43
-  tail call void @_efree(ptr noundef nonnull %39) #16
+  tail call void @_efree(ptr noundef nonnull %39) #17
   br label %zval_ptr_dtor_nogc.exit
 
 49:                                               ; preds = %36
@@ -5582,7 +5582,7 @@ define dso_local void @zend_ast_destroy(ptr noundef readonly captures(address_is
   br i1 %62, label %63, label %zend_string_release_ex.exit46
 
 63:                                               ; preds = %58
-  tail call void @_efree(ptr noundef nonnull %53) #16
+  tail call void @_efree(ptr noundef nonnull %53) #17
   br label %zend_string_release_ex.exit46
 
 zend_string_release_ex.exit46:                    ; preds = %63, %58, %54, %51
@@ -5608,7 +5608,7 @@ zend_string_release_ex.exit46:                    ; preds = %63, %58, %54, %51
   br i1 %74, label %75, label %zend_string_release_ex.exit48
 
 75:                                               ; preds = %70
-  tail call void @_efree(ptr noundef nonnull %65) #16
+  tail call void @_efree(ptr noundef nonnull %65) #17
   br label %zend_string_release_ex.exit48
 
 zend_string_release_ex.exit48:                    ; preds = %75, %70, %66, %zend_string_release_ex.exit46
@@ -5634,7 +5634,7 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %.backedge, %36, %49
 define dso_local void @zend_ast_ref_destroy(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @zend_ast_destroy(ptr noundef nonnull %2)
-  tail call void @_efree(ptr noundef %0) #16
+  tail call void @_efree(ptr noundef %0) #17
   ret void
 }
 
@@ -5658,7 +5658,7 @@ define dso_local void @zend_ast_apply(ptr noundef %0, ptr noundef readonly captu
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
-  tail call void %1(ptr noundef nonnull %10, ptr noundef %2) #16
+  tail call void %1(ptr noundef nonnull %10, ptr noundef %2) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %6, align 8, !tbaa !77
   %12 = zext i32 %11 to i64
@@ -5678,7 +5678,7 @@ zend_ast_is_decl.exit:                            ; preds = %3
 16:                                               ; preds = %.lr.ph23, %16
   %indvars.iv28 = phi i64 [ 0, %.lr.ph23 ], [ %indvars.iv.next29, %16 ]
   %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv28
-  tail call void %1(ptr noundef nonnull %17, ptr noundef %2) #16
+  tail call void %1(ptr noundef nonnull %17, ptr noundef %2) #17
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %16
@@ -5693,8 +5693,8 @@ smart_str_alloc.exit:
   %3 = alloca %struct.smart_str, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
-  call void @smart_str_erealloc(ptr noundef nonnull %3, i64 noundef %4) #16
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
+  call void @smart_str_erealloc(ptr noundef nonnull %3, i64 noundef %4) #17
   %5 = load ptr, ptr %3, align 8, !tbaa !137
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5705,7 +5705,7 @@ smart_str_alloc.exit:
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %4, ptr %11, align 8, !tbaa !54
   call fastcc void @zend_ast_export_ex(ptr noundef %3, ptr noundef %1, i32 noundef 0, i32 noundef 0)
-  %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #19
+  %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #20
   %13 = load ptr, ptr %3, align 8, !tbaa !137
   %.not.i4 = icmp eq ptr %13, null
   br i1 %.not.i4, label %20, label %14, !prof !13
@@ -5721,7 +5721,7 @@ smart_str_alloc.exit:
 
 20:                                               ; preds = %14, %smart_str_alloc.exit
   %.0.i6 = phi i64 [ %12, %smart_str_alloc.exit ], [ %17, %14 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %3, i64 noundef %.0.i6) #16
+  call void @smart_str_erealloc(ptr noundef nonnull %3, i64 noundef %.0.i6) #17
   %.pre = load ptr, ptr %3, align 8, !tbaa !137
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre9 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !54
@@ -5899,7 +5899,7 @@ define internal fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noun
 
 22:                                               ; preds = %17, %10
   %.0.i.i = phi i64 [ %15, %10 ], [ %20, %17 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #17
   %.pre2735 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2736 = getelementptr inbounds nuw i8, ptr %.pre2735, i64 16
   %.pre2737 = load i64, ptr %.phi.trans.insert2736, align 8, !tbaa !54
@@ -5932,7 +5932,7 @@ smart_str_appendl.exit:                           ; preds = %17, %22
 
 36:                                               ; preds = %31, %29
   %.0.i1336 = phi i64 [ 8, %29 ], [ %34, %31 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1336) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1336) #17
   %.pre2726 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2727 = getelementptr inbounds nuw i8, ptr %.pre2726, i64 16
   %.pre2728 = load i64, ptr %.phi.trans.insert2727, align 8, !tbaa !54
@@ -5961,7 +5961,7 @@ smart_str_appendl.exit:                           ; preds = %17, %22
   br i1 %.not12.i.i1374, label %54, label %53, !prof !104
 
 53:                                               ; preds = %37
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %51) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %51) #17
   %.pre2729 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2730 = getelementptr inbounds nuw i8, ptr %.pre2729, i64 16
   %.pre2731 = load i64, ptr %.phi.trans.insert2730, align 8, !tbaa !54
@@ -5982,7 +5982,7 @@ smart_str_appendl.exit:                           ; preds = %17, %22
   br i1 %.not12.i1330, label %smart_str_alloc.exit1333, label %63, !prof !104
 
 63:                                               ; preds = %54
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %61) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %61) #17
   %.pre2732 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2733 = getelementptr inbounds nuw i8, ptr %.pre2732, i64 16
   %.pre2734 = load i64, ptr %.phi.trans.insert2733, align 8, !tbaa !54
@@ -6014,7 +6014,7 @@ smart_str_alloc.exit1333:                         ; preds = %54, %63
 
 77:                                               ; preds = %72, %70
   %.0.i.i1341 = phi i64 [ 9, %70 ], [ %75, %72 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1341) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1341) #17
   %.pre2723 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2724 = getelementptr inbounds nuw i8, ptr %.pre2723, i64 16
   %.pre2725 = load i64, ptr %.phi.trans.insert2724, align 8, !tbaa !54
@@ -6070,7 +6070,7 @@ smart_str_appendl.exit1343:                       ; preds = %72, %77
 
 103:                                              ; preds = %98, %96
   %.0.i1326 = phi i64 [ 7, %96 ], [ %101, %98 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1326) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1326) #17
   %.pre2669 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2670 = getelementptr inbounds nuw i8, ptr %.pre2669, i64 16
   %.pre2671 = load i64, ptr %.phi.trans.insert2670, align 8, !tbaa !54
@@ -6110,7 +6110,7 @@ smart_str_alloc.exit1328:                         ; preds = %98, %103
 
 120:                                              ; preds = %115, %113
   %.0.i1321 = phi i64 [ 9, %113 ], [ %118, %115 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1321) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1321) #17
   %.pre2673 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2674 = getelementptr inbounds nuw i8, ptr %.pre2673, i64 16
   %.pre2675 = load i64, ptr %.phi.trans.insert2674, align 8, !tbaa !54
@@ -6150,7 +6150,7 @@ smart_str_alloc.exit1323:                         ; preds = %115, %120
 
 137:                                              ; preds = %132, %130
   %.0.i1316 = phi i64 [ 6, %130 ], [ %135, %132 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1316) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1316) #17
   %.pre2677 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2678 = getelementptr inbounds nuw i8, ptr %.pre2677, i64 16
   %.pre2679 = load i64, ptr %.phi.trans.insert2678, align 8, !tbaa !54
@@ -6188,7 +6188,7 @@ smart_str_alloc.exit1318:                         ; preds = %132, %137
 
 154:                                              ; preds = %149, %148
   %.0.i1311 = phi i64 [ 2, %148 ], [ %152, %149 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1311) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1311) #17
   %.pre2683 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2684 = getelementptr inbounds nuw i8, ptr %.pre2683, i64 16
   %.pre2685 = load i64, ptr %.phi.trans.insert2684, align 8, !tbaa !54
@@ -6216,7 +6216,7 @@ smart_str_alloc.exit1313:                         ; preds = %149, %154
 
 165:                                              ; preds = %160, %159
   %.0.i1306 = phi i64 [ 9, %159 ], [ %163, %160 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1306) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1306) #17
   %.pre2680 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2681 = getelementptr inbounds nuw i8, ptr %.pre2680, i64 16
   %.pre2682 = load i64, ptr %.phi.trans.insert2681, align 8, !tbaa !54
@@ -6248,7 +6248,7 @@ smart_str_alloc.exit1308:                         ; preds = %160, %165
   br i1 %.not12.i.i1713, label %smart_str_appendc_ex.exit1716, label %178, !prof !104
 
 178:                                              ; preds = %175
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %176) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %176) #17
   %.pre2686 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1716
 
@@ -6284,7 +6284,7 @@ smart_str_appendc_ex.exit1716:                    ; preds = %175, %178
   br i1 %.not12.i.i1345, label %.thread, label %197, !prof !104
 
 197:                                              ; preds = %187
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %195) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %195) #17
   %.pre2688 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2689 = getelementptr inbounds nuw i8, ptr %.pre2688, i64 16
   %.pre2690 = load i64, ptr %.phi.trans.insert2689, align 8, !tbaa !54
@@ -6315,7 +6315,7 @@ smart_str_appendc_ex.exit1716:                    ; preds = %175, %178
   br i1 %.not12.i.i1708, label %smart_str_appendc_ex.exit1711, label %209, !prof !104
 
 209:                                              ; preds = %204
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %207) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %207) #17
   %.pre2694 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1711
 
@@ -6343,7 +6343,7 @@ smart_str_appendc_ex.exit1711:                    ; preds = %204, %209
 
 222:                                              ; preds = %217, %smart_str_appendc_ex.exit1711
   %.0.i.i1704 = phi i64 [ 1, %smart_str_appendc_ex.exit1711 ], [ %220, %217 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1704) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1704) #17
   %.pre2695 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1706
 
@@ -6379,7 +6379,7 @@ smart_str_appendc_ex.exit1706:                    ; preds = %217, %222
 
 239:                                              ; preds = %234, %232
   %.0.i1301 = phi i64 [ 2, %232 ], [ %237, %234 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1301) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1301) #17
   %.pre2696 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2697 = getelementptr inbounds nuw i8, ptr %.pre2696, i64 16
   %.pre2698 = load i64, ptr %.phi.trans.insert2697, align 8, !tbaa !54
@@ -6436,7 +6436,7 @@ smart_str_alloc.exit1303:                         ; preds = %234, %239
 
 266:                                              ; preds = %261, %259
   %.0.i1296 = phi i64 [ 4, %259 ], [ %264, %261 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1296) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1296) #17
   %.pre2704 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2705 = getelementptr inbounds nuw i8, ptr %.pre2704, i64 16
   %.pre2706 = load i64, ptr %.phi.trans.insert2705, align 8, !tbaa !54
@@ -6476,7 +6476,7 @@ tailrecurse.backedge:                             ; preds = %smart_str_alloc.exi
 
 281:                                              ; preds = %276, %273
   %.0.i1291 = phi i64 [ 3, %273 ], [ %279, %276 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1291) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1291) #17
   %.pre2699 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2700 = getelementptr inbounds nuw i8, ptr %.pre2699, i64 16
   %.pre2701 = load i64, ptr %.phi.trans.insert2700, align 8, !tbaa !54
@@ -6510,7 +6510,7 @@ smart_str_alloc.exit1293:                         ; preds = %276, %281
 
 296:                                              ; preds = %291, %smart_str_alloc.exit1293
   %.0.i.i1699 = phi i64 [ 1, %smart_str_alloc.exit1293 ], [ %294, %291 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1699) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1699) #17
   %.pre2702 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1701
 
@@ -6534,7 +6534,7 @@ smart_str_appendc_ex.exit1701:                    ; preds = %291, %296
   br i1 %.not12.i.i1693, label %smart_str_appendc_ex.exit1696, label %306, !prof !104
 
 306:                                              ; preds = %303
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %304) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %304) #17
   %.pre2703 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1696
 
@@ -6563,7 +6563,7 @@ smart_str_appendc_ex.exit1696:                    ; preds = %303, %306
 
 319:                                              ; preds = %314, %312
   %.0.i1286 = phi i64 [ 2, %312 ], [ %317, %314 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1286) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1286) #17
   %.pre2707 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2708 = getelementptr inbounds nuw i8, ptr %.pre2707, i64 16
   %.pre2709 = load i64, ptr %.phi.trans.insert2708, align 8, !tbaa !54
@@ -6613,7 +6613,7 @@ smart_str_alloc.exit1288:                         ; preds = %314, %319
 
 341:                                              ; preds = %336, %334
   %.0.i1281 = phi i64 [ 10, %334 ], [ %339, %336 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1281) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1281) #17
   %.pre2636 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2637 = getelementptr inbounds nuw i8, ptr %.pre2636, i64 16
   %.pre2638 = load i64, ptr %.phi.trans.insert2637, align 8, !tbaa !54
@@ -6648,7 +6648,7 @@ smart_str_alloc.exit1283:                         ; preds = %336, %341
 
 355:                                              ; preds = %350, %348
   %.0.i1276 = phi i64 [ 6, %348 ], [ %353, %350 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1276) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1276) #17
   %.pre2639 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2640 = getelementptr inbounds nuw i8, ptr %.pre2639, i64 16
   %.pre2641 = load i64, ptr %.phi.trans.insert2640, align 8, !tbaa !54
@@ -6683,7 +6683,7 @@ smart_str_alloc.exit1278:                         ; preds = %350, %355
 
 369:                                              ; preds = %364, %362
   %.0.i1271 = phi i64 [ 5, %362 ], [ %367, %364 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1271) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1271) #17
   %.pre2642 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2643 = getelementptr inbounds nuw i8, ptr %.pre2642, i64 16
   %.pre2644 = load i64, ptr %.phi.trans.insert2643, align 8, !tbaa !54
@@ -6718,7 +6718,7 @@ smart_str_alloc.exit1273:                         ; preds = %364, %369
 
 383:                                              ; preds = %378, %376
   %.0.i1266 = phi i64 [ 9, %376 ], [ %381, %378 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1266) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1266) #17
   %.pre2645 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2646 = getelementptr inbounds nuw i8, ptr %.pre2645, i64 16
   %.pre2647 = load i64, ptr %.phi.trans.insert2646, align 8, !tbaa !54
@@ -6758,7 +6758,7 @@ smart_str_alloc.exit1268:                         ; preds = %378, %383
 
 400:                                              ; preds = %395, %393
   %.0.i1261 = phi i64 [ 6, %393 ], [ %398, %395 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1261) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1261) #17
   %.pre2649 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2650 = getelementptr inbounds nuw i8, ptr %.pre2649, i64 16
   %.pre2651 = load i64, ptr %.phi.trans.insert2650, align 8, !tbaa !54
@@ -6798,7 +6798,7 @@ smart_str_alloc.exit1263:                         ; preds = %395, %400
 
 416:                                              ; preds = %411, %410
   %.0.i1256 = phi i64 [ 9, %410 ], [ %414, %411 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1256) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1256) #17
   %.pre2653 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2654 = getelementptr inbounds nuw i8, ptr %.pre2653, i64 16
   %.pre2655 = load i64, ptr %.phi.trans.insert2654, align 8, !tbaa !54
@@ -6834,7 +6834,7 @@ smart_str_alloc.exit1263:                         ; preds = %395, %400
 
 429:                                              ; preds = %424, %423
   %.0.i1251 = phi i64 [ 6, %423 ], [ %427, %424 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1251) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1251) #17
   %.pre2659 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2660 = getelementptr inbounds nuw i8, ptr %.pre2659, i64 16
   %.pre2661 = load i64, ptr %.phi.trans.insert2660, align 8, !tbaa !54
@@ -6865,7 +6865,7 @@ smart_str_alloc.exit1253:                         ; preds = %424, %429
   br i1 %.not12.i.i1350, label %smart_str_appendl.exit1353, label %444, !prof !104
 
 444:                                              ; preds = %434
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %442) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %442) #17
   %.pre2662 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2663 = getelementptr inbounds nuw i8, ptr %.pre2662, i64 16
   %.pre2664 = load i64, ptr %.phi.trans.insert2663, align 8, !tbaa !54
@@ -6898,7 +6898,7 @@ smart_str_appendl.exit1353:                       ; preds = %434, %444
   br i1 %.not12.i1245, label %smart_str_alloc.exit1248, label %459, !prof !104
 
 459:                                              ; preds = %456
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %457) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %457) #17
   %.pre2665 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2666 = getelementptr inbounds nuw i8, ptr %.pre2665, i64 16
   %.pre2667 = load i64, ptr %.phi.trans.insert2666, align 8, !tbaa !54
@@ -6933,7 +6933,7 @@ smart_str_alloc.exit1248:                         ; preds = %456, %459
 
 474:                                              ; preds = %469, %467
   %.0.i.i1689 = phi i64 [ 1, %467 ], [ %472, %469 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1689) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1689) #17
   %.pre2668 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1691
 
@@ -6979,7 +6979,7 @@ smart_str_appendc_ex.exit1691:                    ; preds = %469, %474
 
 491:                                              ; preds = %486, %484
   %.0.i.i1720 = phi i64 [ 2, %484 ], [ %489, %486 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1720) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1720) #17
   %.pre2633 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2634 = getelementptr inbounds nuw i8, ptr %.pre2633, i64 16
   %.pre2635 = load i64, ptr %.phi.trans.insert2634, align 8, !tbaa !54
@@ -7022,7 +7022,7 @@ smart_str_alloc.exit.i:                           ; preds = %491, %486
 
 511:                                              ; preds = %506, %504
   %.0.i.i1684 = phi i64 [ 1, %504 ], [ %509, %506 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1684) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1684) #17
   %.pre2631 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1686
 
@@ -7050,7 +7050,7 @@ smart_str_appendc_ex.exit1686:                    ; preds = %506, %511
 
 523:                                              ; preds = %518, %smart_str_appendc_ex.exit1686
   %.0.i.i1679 = phi i64 [ 1, %smart_str_appendc_ex.exit1686 ], [ %521, %518 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1679) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1679) #17
   %.pre2632 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1681
 
@@ -7080,7 +7080,7 @@ smart_str_appendc_ex.exit1681:                    ; preds = %518, %523
 
 536:                                              ; preds = %531, %529
   %.0.i.i1674 = phi i64 [ 1, %529 ], [ %534, %531 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1674) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1674) #17
   %.pre2629 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1676
 
@@ -7108,7 +7108,7 @@ smart_str_appendc_ex.exit1676:                    ; preds = %531, %536
 
 548:                                              ; preds = %543, %smart_str_appendc_ex.exit1676
   %.0.i.i1669 = phi i64 [ 1, %smart_str_appendc_ex.exit1676 ], [ %546, %543 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1669) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1669) #17
   %.pre2630 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1671
 
@@ -7167,7 +7167,7 @@ smart_str_appendc_ex.exit1671:                    ; preds = %543, %548
 
 573:                                              ; preds = %568, %566
   %.0.i1241 = phi i64 [ 5, %566 ], [ %571, %568 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1241) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1241) #17
   %.pre2625 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2626 = getelementptr inbounds nuw i8, ptr %.pre2625, i64 16
   %.pre2627 = load i64, ptr %.phi.trans.insert2626, align 8, !tbaa !54
@@ -7198,7 +7198,7 @@ smart_str_alloc.exit1243:                         ; preds = %568, %573
 
 586:                                              ; preds = %581, %smart_str_alloc.exit1243
   %.0.i.i1664 = phi i64 [ 1, %smart_str_alloc.exit1243 ], [ %584, %581 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1664) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1664) #17
   %.pre2628 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1666
 
@@ -7252,7 +7252,7 @@ smart_str_appendc_ex.exit1666:                    ; preds = %581, %586
 
 613:                                              ; preds = %608, %606
   %.0.i1236 = phi i64 [ 7, %606 ], [ %611, %608 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1236) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1236) #17
   %.pre2617 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2618 = getelementptr inbounds nuw i8, ptr %.pre2617, i64 16
   %.pre2619 = load i64, ptr %.phi.trans.insert2618, align 8, !tbaa !54
@@ -7292,7 +7292,7 @@ smart_str_alloc.exit1238:                         ; preds = %608, %613
 
 630:                                              ; preds = %625, %623
   %.0.i1231 = phi i64 [ 9, %623 ], [ %628, %625 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1231) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1231) #17
   %.pre2621 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2622 = getelementptr inbounds nuw i8, ptr %.pre2621, i64 16
   %.pre2623 = load i64, ptr %.phi.trans.insert2622, align 8, !tbaa !54
@@ -7330,7 +7330,7 @@ smart_str_alloc.exit1233:                         ; preds = %625, %630
 
 645:                                              ; preds = %640, %638
   %.0.i.i1659 = phi i64 [ 1, %638 ], [ %643, %640 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1659) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1659) #17
   %.pre2624 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1661
 
@@ -7360,7 +7360,7 @@ smart_str_appendc_ex.exit1661:                    ; preds = %640, %645
 
 658:                                              ; preds = %653, %651
   %.0.i1226 = phi i64 [ 6, %651 ], [ %656, %653 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1226) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1226) #17
   %.pre2614 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2615 = getelementptr inbounds nuw i8, ptr %.pre2614, i64 16
   %.pre2616 = load i64, ptr %.phi.trans.insert2615, align 8, !tbaa !54
@@ -7408,7 +7408,7 @@ smart_str_alloc.exit1228:                         ; preds = %653, %658
 
 680:                                              ; preds = %675, %670
   %.0.i1221 = phi i64 [ 6, %670 ], [ %678, %675 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1221) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1221) #17
   %.pre2610 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2611 = getelementptr inbounds nuw i8, ptr %.pre2610, i64 16
   %.pre2612 = load i64, ptr %.phi.trans.insert2611, align 8, !tbaa !54
@@ -7445,7 +7445,7 @@ smart_str_alloc.exit1223:                         ; preds = %675, %680
 
 696:                                              ; preds = %691, %689
   %.0.i.i1654 = phi i64 [ 1, %689 ], [ %694, %691 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1654) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1654) #17
   %.pre2613 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1656
 
@@ -7483,7 +7483,7 @@ smart_str_appendc_ex.exit1656:                    ; preds = %691, %696
 
 712:                                              ; preds = %707, %705
   %.0.i1216 = phi i64 [ 4, %705 ], [ %710, %707 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1216) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1216) #17
   %.pre2601 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2602 = getelementptr inbounds nuw i8, ptr %.pre2601, i64 16
   %.pre2603 = load i64, ptr %.phi.trans.insert2602, align 8, !tbaa !54
@@ -7513,7 +7513,7 @@ smart_str_alloc.exit1218:                         ; preds = %707, %712
   br i1 %.not12.i1210, label %smart_str_alloc.exit1213, label %724, !prof !104
 
 724:                                              ; preds = %721
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %722) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %722) #17
   %.pre2607 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2608 = getelementptr inbounds nuw i8, ptr %.pre2607, i64 16
   %.pre2609 = load i64, ptr %.phi.trans.insert2608, align 8, !tbaa !54
@@ -7537,7 +7537,7 @@ smart_str_alloc.exit1213:                         ; preds = %721, %724
   br i1 %.not12.i1205, label %smart_str_alloc.exit1208, label %734, !prof !104
 
 734:                                              ; preds = %731
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %732) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %732) #17
   %.pre2604 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2605 = getelementptr inbounds nuw i8, ptr %.pre2604, i64 16
   %.pre2606 = load i64, ptr %.phi.trans.insert2605, align 8, !tbaa !54
@@ -7588,7 +7588,7 @@ switch.lookup3811:                                ; preds = %6
 
 757:                                              ; preds = %752, %750
   %.0.i.i1649 = phi i64 [ 1, %750 ], [ %755, %752 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1649) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1649) #17
   %.pre2597 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1651
 
@@ -7627,7 +7627,7 @@ smart_str_appendc_ex.exit1651:                    ; preds = %752, %757
 
 775:                                              ; preds = %770, %768
   %.0.i1201 = phi i64 [ 3, %768 ], [ %773, %770 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1201) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1201) #17
   %.pre2594 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2595 = getelementptr inbounds nuw i8, ptr %.pre2594, i64 16
   %.pre2596 = load i64, ptr %.phi.trans.insert2595, align 8, !tbaa !54
@@ -7701,7 +7701,7 @@ smart_str_alloc.exit1203:                         ; preds = %770, %775
 
 800:                                              ; preds = %795, %793
   %.0.i.i1644 = phi i64 [ 1, %793 ], [ %798, %795 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1644) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1644) #17
   %.pre2579 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1646
 
@@ -7747,7 +7747,7 @@ smart_str_appendc_ex.exit1646:                    ; preds = %795, %800
 
 822:                                              ; preds = %817, %815
   %.0.i.i1639 = phi i64 [ 1, %815 ], [ %820, %817 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1639) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1639) #17
   %.pre2580 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1641
 
@@ -7802,7 +7802,7 @@ switch.lookup3814:                                ; preds = %6
 
 847:                                              ; preds = %842, %838
   %.0.i.i1634 = phi i64 [ 1, %838 ], [ %845, %842 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1634) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1634) #17
   %.pre2566 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1636
 
@@ -7832,7 +7832,7 @@ smart_str_appendc_ex.exit1636:                    ; preds = %842, %847
 
 860:                                              ; preds = %855, %853
   %.0.i.i1629 = phi i64 [ 1, %853 ], [ %858, %855 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1629) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1629) #17
   %.pre2565 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1631
 
@@ -7869,7 +7869,7 @@ smart_str_appendc_ex.exit1631:                    ; preds = %855, %860
 
 876:                                              ; preds = %871, %869
   %.0.i1196 = phi i64 [ 5, %869 ], [ %874, %871 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1196) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1196) #17
   %.pre2562 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2563 = getelementptr inbounds nuw i8, ptr %.pre2562, i64 16
   %.pre2564 = load i64, ptr %.phi.trans.insert2563, align 8, !tbaa !54
@@ -7914,7 +7914,7 @@ smart_str_alloc.exit1198:                         ; preds = %871, %876
 
 896:                                              ; preds = %891, %887
   %.0.i.i1624 = phi i64 [ 1, %887 ], [ %894, %891 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1624) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1624) #17
   %.pre2559 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1626
 
@@ -7949,7 +7949,7 @@ smart_str_appendc_ex.exit1626:                    ; preds = %891, %896
 
 910:                                              ; preds = %.thread3272, %904
   %.0.i.i1619 = phi i64 [ 1, %904 ], [ %908, %.thread3272 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1619) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1619) #17
   %.pre2561 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1621
 
@@ -7986,7 +7986,7 @@ smart_str_appendc_ex.exit1621:                    ; preds = %.thread3272, %910
 
 929:                                              ; preds = %924, %916
   %.0.i1191 = phi i64 [ %922, %916 ], [ %927, %924 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1191) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1191) #17
   %.pre2556 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2557 = getelementptr inbounds nuw i8, ptr %.pre2556, i64 16
   %.pre2558 = load i64, ptr %.phi.trans.insert2557, align 8, !tbaa !54
@@ -8025,7 +8025,7 @@ smart_str_alloc.exit1193:                         ; preds = %924, %929
 
 947:                                              ; preds = %942, %938
   %.0.i1186 = phi i64 [ 3, %938 ], [ %945, %942 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1186) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1186) #17
   %.pre2553 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2554 = getelementptr inbounds nuw i8, ptr %.pre2553, i64 16
   %.pre2555 = load i64, ptr %.phi.trans.insert2554, align 8, !tbaa !54
@@ -8064,7 +8064,7 @@ smart_str_alloc.exit1188:                         ; preds = %942, %947
 
 965:                                              ; preds = %960, %956
   %.0.i.i1614 = phi i64 [ 1, %956 ], [ %963, %960 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1614) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1614) #17
   %.pre2551 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1616
 
@@ -8094,7 +8094,7 @@ smart_str_appendc_ex.exit1616:                    ; preds = %960, %965
 
 979:                                              ; preds = %974, %smart_str_appendc_ex.exit1616
   %.0.i.i1609 = phi i64 [ 1, %smart_str_appendc_ex.exit1616 ], [ %977, %974 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1609) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1609) #17
   %.pre2552 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1611
 
@@ -8131,7 +8131,7 @@ smart_str_appendc_ex.exit1611:                    ; preds = %974, %979
 
 999:                                              ; preds = %994, %985
   %.0.i.i1370 = phi i64 [ %992, %985 ], [ %997, %994 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1370) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1370) #17
   %.pre2546 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2547 = getelementptr inbounds nuw i8, ptr %.pre2546, i64 16
   %.pre2548 = load i64, ptr %.phi.trans.insert2547, align 8, !tbaa !54
@@ -8153,7 +8153,7 @@ smart_str_appendc_ex.exit1611:                    ; preds = %974, %979
   br i1 %.not12.i.i1603, label %smart_str_appendc_ex.exit1606, label %1009, !prof !104
 
 1009:                                             ; preds = %1000
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %1007) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %1007) #17
   %.pre2549 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1606
 
@@ -8182,7 +8182,7 @@ smart_str_appendc_ex.exit1606:                    ; preds = %1000, %1009
 
 1023:                                             ; preds = %1018, %smart_str_appendc_ex.exit1606
   %.0.i.i1599 = phi i64 [ 1, %smart_str_appendc_ex.exit1606 ], [ %1021, %1018 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1599) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1599) #17
   %.pre2550 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1601
 
@@ -8212,7 +8212,7 @@ smart_str_appendc_ex.exit1601:                    ; preds = %1018, %1023
 
 1036:                                             ; preds = %1031, %1029
   %.0.i1181 = phi i64 [ 3, %1029 ], [ %1034, %1031 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1181) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1181) #17
   %.pre2543 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2544 = getelementptr inbounds nuw i8, ptr %.pre2543, i64 16
   %.pre2545 = load i64, ptr %.phi.trans.insert2544, align 8, !tbaa !54
@@ -8248,7 +8248,7 @@ smart_str_alloc.exit1183:                         ; preds = %1031, %1036
 
 1052:                                             ; preds = %1047, %1043
   %.0.i1176 = phi i64 [ 2, %1043 ], [ %1050, %1047 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1176) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1176) #17
   %.pre2540 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2541 = getelementptr inbounds nuw i8, ptr %.pre2540, i64 16
   %.pre2542 = load i64, ptr %.phi.trans.insert2541, align 8, !tbaa !54
@@ -8302,7 +8302,7 @@ smart_str_alloc.exit1178:                         ; preds = %1047, %1052
 
 1082:                                             ; preds = %1077, %1071
   %.0.i.i1365 = phi i64 [ %1076, %1071 ], [ %1080, %1077 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1365) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1365) #17
   %.pre2532 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2533 = getelementptr inbounds nuw i8, ptr %.pre2532, i64 16
   %.pre2534 = load i64, ptr %.phi.trans.insert2533, align 8, !tbaa !54
@@ -8338,7 +8338,7 @@ smart_str_append_ex.exit1367:                     ; preds = %1077, %1082
 
 1100:                                             ; preds = %1095, %1089
   %.0.i.i1360 = phi i64 [ %1094, %1089 ], [ %1098, %1095 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1360) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1360) #17
   %.pre2529 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2530 = getelementptr inbounds nuw i8, ptr %.pre2529, i64 16
   %.pre2531 = load i64, ptr %.phi.trans.insert2530, align 8, !tbaa !54
@@ -8377,7 +8377,7 @@ smart_str_append_ex.exit1362:                     ; preds = %1095, %1100
 
 1112:                                             ; preds = %.thread1741, %1107
   %.0.i1171 = phi i64 [ 7, %1107 ], [ %1110, %.thread1741 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1171) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1171) #17
   %.pre2537 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2538 = getelementptr inbounds nuw i8, ptr %.pre2537, i64 16
   %.pre2539 = load i64, ptr %.phi.trans.insert2538, align 8, !tbaa !54
@@ -8516,7 +8516,7 @@ switch.lookup3818:                                ; preds = %6
 
 1158:                                             ; preds = %1153, %1151
   %.0.i1166 = phi i64 [ 4, %1151 ], [ %1156, %1153 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1166) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1166) #17
   %.pre2517 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2518 = getelementptr inbounds nuw i8, ptr %.pre2517, i64 16
   %.pre2519 = load i64, ptr %.phi.trans.insert2518, align 8, !tbaa !54
@@ -8555,7 +8555,7 @@ smart_str_alloc.exit1168:                         ; preds = %1153, %1158
 
 1175:                                             ; preds = %1170, %1168
   %.0.i.i1594 = phi i64 [ 1, %1168 ], [ %1173, %1170 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1594) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1594) #17
   %.pre2520 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1596
 
@@ -8589,7 +8589,7 @@ smart_str_appendc_ex.exit1596:                    ; preds = %1170, %1175
 
 1190:                                             ; preds = %1185, %1183
   %.0.i1161 = phi i64 [ 4, %1183 ], [ %1188, %1185 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1161) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1161) #17
   %.pre2506 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2507 = getelementptr inbounds nuw i8, ptr %.pre2506, i64 16
   %.pre2508 = load i64, ptr %.phi.trans.insert2507, align 8, !tbaa !54
@@ -8634,7 +8634,7 @@ smart_str_alloc.exit1163:                         ; preds = %1185, %1190
 
 1210:                                             ; preds = %.thread3274, %1204
   %.0.i1156 = phi i64 [ 5, %1204 ], [ %1208, %.thread3274 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1156) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1156) #17
   %.pre2512 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2513 = getelementptr inbounds nuw i8, ptr %.pre2512, i64 16
   %.pre2514 = load i64, ptr %.phi.trans.insert2513, align 8, !tbaa !54
@@ -8670,7 +8670,7 @@ smart_str_alloc.exit1158:                         ; preds = %.thread3274, %1210
   br i1 %.not12.i.i1588, label %smart_str_appendc_ex.exit1591, label %1227, !prof !104
 
 1227:                                             ; preds = %1224
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %1225) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %1225) #17
   %.pre2515 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1591
 
@@ -8698,7 +8698,7 @@ smart_str_appendc_ex.exit1591:                    ; preds = %1224, %1227
 
 1240:                                             ; preds = %1235, %smart_str_appendc_ex.exit1591
   %.0.i.i1584 = phi i64 [ 1, %smart_str_appendc_ex.exit1591 ], [ %1238, %1235 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1584) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1584) #17
   %.pre2516 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1586
 
@@ -8733,7 +8733,7 @@ smart_str_appendc_ex.exit1586:                    ; preds = %1235, %1240
 
 1254:                                             ; preds = %1249, %1247
   %.0.i.i1579 = phi i64 [ 1, %1247 ], [ %1252, %1249 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1579) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1579) #17
   %.pre2509 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1581
 
@@ -8763,7 +8763,7 @@ smart_str_appendc_ex.exit1581:                    ; preds = %1249, %1254
 
 1268:                                             ; preds = %1263, %smart_str_appendc_ex.exit1581
   %.0.i.i1574 = phi i64 [ 1, %smart_str_appendc_ex.exit1581 ], [ %1266, %1263 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1574) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1574) #17
   %.pre2510 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1576
 
@@ -8796,7 +8796,7 @@ smart_str_appendc_ex.exit1576:                    ; preds = %1263, %1268
 
 1283:                                             ; preds = %1278, %1274
   %.0.i1151 = phi i64 [ 12, %1274 ], [ %1281, %1278 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1151) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1151) #17
   %.pre2503 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2504 = getelementptr inbounds nuw i8, ptr %.pre2503, i64 16
   %.pre2505 = load i64, ptr %.phi.trans.insert2504, align 8, !tbaa !54
@@ -8836,7 +8836,7 @@ smart_str_alloc.exit1153:                         ; preds = %1278, %1283
 
 1301:                                             ; preds = %1296, %1295
   %.0.i.i1569 = phi i64 [ 1, %1295 ], [ %1299, %1296 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1569) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1569) #17
   %.pre2491 = load ptr, ptr %0, align 8, !tbaa !137
   br label %.thread1745
 
@@ -8869,7 +8869,7 @@ smart_str_alloc.exit1153:                         ; preds = %1278, %1283
 
 1313:                                             ; preds = %1308, %1307
   %.0.i1146 = phi i64 [ 6, %1307 ], [ %1311, %1308 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1146) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1146) #17
   %.pre2495 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2496 = getelementptr inbounds nuw i8, ptr %.pre2495, i64 16
   %.pre2497 = load i64, ptr %.phi.trans.insert2496, align 8, !tbaa !54
@@ -8912,7 +8912,7 @@ smart_str_alloc.exit1148:                         ; preds = %1308, %1313
 
 1332:                                             ; preds = %1327, %1325
   %.0.i1141 = phi i64 [ 4, %1325 ], [ %1330, %1327 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1141) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1141) #17
   %.pre2498 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2499 = getelementptr inbounds nuw i8, ptr %.pre2498, i64 16
   %.pre2500 = load i64, ptr %.phi.trans.insert2499, align 8, !tbaa !54
@@ -8954,7 +8954,7 @@ smart_str_alloc.exit1143:                         ; preds = %1327, %1332
 
 1349:                                             ; preds = %1344, %1342
   %.0.i.i1564 = phi i64 [ 1, %1342 ], [ %1347, %1344 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1564) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1564) #17
   %.pre2502 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1566
 
@@ -8990,7 +8990,7 @@ smart_str_appendc_ex.exit1566:                    ; preds = %1344, %1349
 
 1364:                                             ; preds = %1359, %1357
   %.0.i1136 = phi i64 [ 8, %1357 ], [ %1362, %1359 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1136) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1136) #17
   %.pre2482 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2483 = getelementptr inbounds nuw i8, ptr %.pre2482, i64 16
   %.pre2484 = load i64, ptr %.phi.trans.insert2483, align 8, !tbaa !54
@@ -9030,7 +9030,7 @@ smart_str_alloc.exit1138:                         ; preds = %1359, %1364
   br i1 %.not12.i.i.i, label %1388, label %1387, !prof !104
 
 1387:                                             ; preds = %1379
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %1385) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %1385) #17
   %.pre2485 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2486 = getelementptr inbounds nuw i8, ptr %.pre2485, i64 16
   %.pre2487 = load i64, ptr %.phi.trans.insert2486, align 8, !tbaa !54
@@ -9066,7 +9066,7 @@ smart_str_alloc.exit1138:                         ; preds = %1359, %1364
 
 1402:                                             ; preds = %1397, %1395
   %.0.i1131 = phi i64 [ 7, %1395 ], [ %1400, %1397 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1131) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1131) #17
   %.pre2475 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2476 = getelementptr inbounds nuw i8, ptr %.pre2475, i64 16
   %.pre2477 = load i64, ptr %.phi.trans.insert2476, align 8, !tbaa !54
@@ -9099,7 +9099,7 @@ smart_str_alloc.exit1133:                         ; preds = %1397, %1402
 
 1417:                                             ; preds = %1412, %smart_str_alloc.exit1133
   %.0.i1126 = phi i64 [ 4, %smart_str_alloc.exit1133 ], [ %1415, %1412 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1126) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1126) #17
   %.pre2478 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2479 = getelementptr inbounds nuw i8, ptr %.pre2478, i64 16
   %.pre2480 = load i64, ptr %.phi.trans.insert2479, align 8, !tbaa !54
@@ -9134,7 +9134,7 @@ smart_str_alloc.exit1128:                         ; preds = %1412, %1417
 
 1433:                                             ; preds = %1428, %smart_str_alloc.exit1128
   %.0.i.i1559 = phi i64 [ 1, %smart_str_alloc.exit1128 ], [ %1431, %1428 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1559) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1559) #17
   %.pre2481 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1561
 
@@ -9164,7 +9164,7 @@ smart_str_appendc_ex.exit1561:                    ; preds = %1428, %1433
 
 1446:                                             ; preds = %1441, %1439
   %.0.i1121 = phi i64 [ 5, %1439 ], [ %1444, %1441 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1121) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1121) #17
   %.pre2468 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2469 = getelementptr inbounds nuw i8, ptr %.pre2468, i64 16
   %.pre2470 = load i64, ptr %.phi.trans.insert2469, align 8, !tbaa !54
@@ -9199,7 +9199,7 @@ smart_str_alloc.exit1123:                         ; preds = %1441, %1446
 
 1462:                                             ; preds = %1457, %smart_str_alloc.exit1123
   %.0.i1116 = phi i64 [ 9, %smart_str_alloc.exit1123 ], [ %1460, %1457 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1116) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1116) #17
   %.pre2471 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2472 = getelementptr inbounds nuw i8, ptr %.pre2471, i64 16
   %.pre2473 = load i64, ptr %.phi.trans.insert2472, align 8, !tbaa !54
@@ -9232,7 +9232,7 @@ smart_str_alloc.exit1118:                         ; preds = %1457, %1462
 
 1477:                                             ; preds = %1472, %smart_str_alloc.exit1118
   %.0.i.i1554 = phi i64 [ 1, %smart_str_alloc.exit1118 ], [ %1475, %1472 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1554) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1554) #17
   %.pre2474 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1556
 
@@ -9268,7 +9268,7 @@ smart_str_appendc_ex.exit1556:                    ; preds = %1472, %1477
 
 1493:                                             ; preds = %1488, %1487
   %.0.i1111 = phi i64 [ 4, %1487 ], [ %1491, %1488 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1111) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1111) #17
   %.pre2458 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2459 = getelementptr inbounds nuw i8, ptr %.pre2458, i64 16
   %.pre2460 = load i64, ptr %.phi.trans.insert2459, align 8, !tbaa !54
@@ -9300,7 +9300,7 @@ smart_str_alloc.exit1113:                         ; preds = %1488, %1493
 
 1507:                                             ; preds = %1502, %smart_str_alloc.exit1113
   %.0.i1106 = phi i64 [ 4, %smart_str_alloc.exit1113 ], [ %1505, %1502 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1106) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1106) #17
   %.pre2461 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2462 = getelementptr inbounds nuw i8, ptr %.pre2461, i64 16
   %.pre2463 = load i64, ptr %.phi.trans.insert2462, align 8, !tbaa !54
@@ -9328,7 +9328,7 @@ smart_str_alloc.exit1108:                         ; preds = %1502, %1507
 
 1518:                                             ; preds = %1513, %1512
   %.0.i1101 = phi i64 [ 7, %1512 ], [ %1516, %1513 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1101) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1101) #17
   %.pre2464 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2465 = getelementptr inbounds nuw i8, ptr %.pre2464, i64 16
   %.pre2466 = load i64, ptr %.phi.trans.insert2465, align 8, !tbaa !54
@@ -9367,7 +9367,7 @@ smart_str_alloc.exit1103:                         ; preds = %1513, %1518
 
 1535:                                             ; preds = %1530, %1523
   %.0.i.i1549 = phi i64 [ 1, %1523 ], [ %1533, %1530 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1549) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1549) #17
   %.pre2467 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1551
 
@@ -9397,7 +9397,7 @@ smart_str_appendc_ex.exit1551:                    ; preds = %1530, %1535
 
 1548:                                             ; preds = %1543, %1541
   %.0.i1096 = phi i64 [ 8, %1541 ], [ %1546, %1543 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1096) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1096) #17
   %.pre2451 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2452 = getelementptr inbounds nuw i8, ptr %.pre2451, i64 16
   %.pre2453 = load i64, ptr %.phi.trans.insert2452, align 8, !tbaa !54
@@ -9430,7 +9430,7 @@ smart_str_alloc.exit1098:                         ; preds = %1543, %1548
 
 1563:                                             ; preds = %1558, %smart_str_alloc.exit1098
   %.0.i1091 = phi i64 [ 4, %smart_str_alloc.exit1098 ], [ %1561, %1558 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1091) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1091) #17
   %.pre2454 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2455 = getelementptr inbounds nuw i8, ptr %.pre2454, i64 16
   %.pre2456 = load i64, ptr %.phi.trans.insert2455, align 8, !tbaa !54
@@ -9465,7 +9465,7 @@ smart_str_alloc.exit1093:                         ; preds = %1558, %1563
 
 1579:                                             ; preds = %1574, %smart_str_alloc.exit1093
   %.0.i.i1544 = phi i64 [ 1, %smart_str_alloc.exit1093 ], [ %1577, %1574 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1544) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1544) #17
   %.pre2457 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1546
 
@@ -9502,7 +9502,7 @@ smart_str_appendc_ex.exit1546:                    ; preds = %1574, %1579
 
 1595:                                             ; preds = %1590, %1589
   %.0.i1086 = phi i64 [ 5, %1589 ], [ %1593, %1590 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1086) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1086) #17
   %.pre2442 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2443 = getelementptr inbounds nuw i8, ptr %.pre2442, i64 16
   %.pre2444 = load i64, ptr %.phi.trans.insert2443, align 8, !tbaa !54
@@ -9534,7 +9534,7 @@ smart_str_alloc.exit1088:                         ; preds = %1590, %1595
 
 1609:                                             ; preds = %1604, %smart_str_alloc.exit1088
   %.0.i1081 = phi i64 [ 2, %smart_str_alloc.exit1088 ], [ %1607, %1604 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1081) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1081) #17
   %.pre2445 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2446 = getelementptr inbounds nuw i8, ptr %.pre2445, i64 16
   %.pre2447 = load i64, ptr %.phi.trans.insert2446, align 8, !tbaa !54
@@ -9562,7 +9562,7 @@ smart_str_alloc.exit1083:                         ; preds = %1604, %1609
 
 1620:                                             ; preds = %1615, %1614
   %.0.i1076 = phi i64 [ 9, %1614 ], [ %1618, %1615 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1076) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1076) #17
   %.pre2448 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2449 = getelementptr inbounds nuw i8, ptr %.pre2448, i64 16
   %.pre2450 = load i64, ptr %.phi.trans.insert2449, align 8, !tbaa !54
@@ -9603,7 +9603,7 @@ smart_str_alloc.exit1078:                         ; preds = %1615, %1620
 
 1638:                                             ; preds = %1633, %1631
   %.0.i1071 = phi i64 [ 7, %1631 ], [ %1636, %1633 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1071) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1071) #17
   %.pre2435 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2436 = getelementptr inbounds nuw i8, ptr %.pre2435, i64 16
   %.pre2437 = load i64, ptr %.phi.trans.insert2436, align 8, !tbaa !54
@@ -9636,7 +9636,7 @@ smart_str_alloc.exit1073:                         ; preds = %1633, %1638
 
 1653:                                             ; preds = %1648, %smart_str_alloc.exit1073
   %.0.i1066 = phi i64 [ 4, %smart_str_alloc.exit1073 ], [ %1651, %1648 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1066) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1066) #17
   %.pre2438 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2439 = getelementptr inbounds nuw i8, ptr %.pre2438, i64 16
   %.pre2440 = load i64, ptr %.phi.trans.insert2439, align 8, !tbaa !54
@@ -9671,7 +9671,7 @@ smart_str_alloc.exit1068:                         ; preds = %1648, %1653
 
 1669:                                             ; preds = %1664, %smart_str_alloc.exit1068
   %.0.i.i1539 = phi i64 [ 1, %smart_str_alloc.exit1068 ], [ %1667, %1664 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1539) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1539) #17
   %.pre2441 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1541
 
@@ -9709,7 +9709,7 @@ smart_str_appendc_ex.exit1541:                    ; preds = %1664, %1669
 
 1685:                                             ; preds = %1680, %1678
   %.0.i1061 = phi i64 [ 4, %1678 ], [ %1683, %1680 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1061) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1061) #17
   %.pre2426 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2427 = getelementptr inbounds nuw i8, ptr %.pre2426, i64 16
   %.pre2428 = load i64, ptr %.phi.trans.insert2427, align 8, !tbaa !54
@@ -9739,7 +9739,7 @@ smart_str_alloc.exit1063:                         ; preds = %1680, %1685
 
 1697:                                             ; preds = %1692, %1690
   %.0.i1056 = phi i64 [ 11, %1690 ], [ %1695, %1692 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1056) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1056) #17
   %.pre2429 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2430 = getelementptr inbounds nuw i8, ptr %.pre2429, i64 16
   %.pre2431 = load i64, ptr %.phi.trans.insert2430, align 8, !tbaa !54
@@ -9776,7 +9776,7 @@ smart_str_alloc.exit1058:                         ; preds = %1692, %1697
 
 1713:                                             ; preds = %1708, %1702
   %.0.i1051 = phi i64 [ 2, %1702 ], [ %1711, %1708 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1051) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1051) #17
   %.pre2432 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2433 = getelementptr inbounds nuw i8, ptr %.pre2432, i64 16
   %.pre2434 = load i64, ptr %.phi.trans.insert2433, align 8, !tbaa !54
@@ -9809,7 +9809,7 @@ smart_str_alloc.exit1053:                         ; preds = %1708, %1713
 
 1727:                                             ; preds = %1722, %1720
   %.0.i1046 = phi i64 [ 8, %1720 ], [ %1725, %1722 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1046) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1046) #17
   %.pre2417 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2418 = getelementptr inbounds nuw i8, ptr %.pre2417, i64 16
   %.pre2419 = load i64, ptr %.phi.trans.insert2418, align 8, !tbaa !54
@@ -9842,7 +9842,7 @@ smart_str_alloc.exit1048:                         ; preds = %1722, %1727
 
 1742:                                             ; preds = %1737, %smart_str_alloc.exit1048
   %.0.i.i1534 = phi i64 [ 1, %smart_str_alloc.exit1048 ], [ %1740, %1737 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1534) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1534) #17
   %.pre2420 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1536
 
@@ -9867,7 +9867,7 @@ smart_str_appendc_ex.exit1536:                    ; preds = %1737, %1742
   br i1 %.not12.i1040, label %smart_str_alloc.exit1043, label %1753, !prof !104
 
 1753:                                             ; preds = %1751
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %1752) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %1752) #17
   %.pre2421 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2422 = getelementptr inbounds nuw i8, ptr %.pre2421, i64 16
   %.pre2423 = load i64, ptr %.phi.trans.insert2422, align 8, !tbaa !54
@@ -9900,7 +9900,7 @@ smart_str_alloc.exit1043:                         ; preds = %1751, %1753
 
 1768:                                             ; preds = %1763, %smart_str_alloc.exit1043
   %.0.i.i1529 = phi i64 [ 1, %smart_str_alloc.exit1043 ], [ %1766, %1763 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1529) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1529) #17
   %.pre2424 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1531
 
@@ -9921,7 +9921,7 @@ smart_str_appendc_ex.exit1531:                    ; preds = %1763, %1768
   br i1 %.not12.i.i1523, label %smart_str_appendc_ex.exit1526, label %1776, !prof !104
 
 1776:                                             ; preds = %1774
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %1775) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %1775) #17
   %.pre2425 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1526
 
@@ -9950,7 +9950,7 @@ smart_str_appendc_ex.exit1526:                    ; preds = %1774, %1776
 
 1789:                                             ; preds = %1784, %1782
   %.0.i.i1519 = phi i64 [ 1, %1782 ], [ %1787, %1784 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1519) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1519) #17
   %.pre2413 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1521
 
@@ -9986,7 +9986,7 @@ smart_str_appendc_ex.exit1521:                    ; preds = %1784, %1789
 
 1806:                                             ; preds = %1801, %1799
   %.0.i1036 = phi i64 [ 3, %1799 ], [ %1804, %1801 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1036) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1036) #17
   %.pre2414 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2415 = getelementptr inbounds nuw i8, ptr %.pre2414, i64 16
   %.pre2416 = load i64, ptr %.phi.trans.insert2415, align 8, !tbaa !54
@@ -10049,7 +10049,7 @@ smart_str_alloc.exit1038:                         ; preds = %1801, %1806
 
 1839:                                             ; preds = %1834, %1827
   %.0.i.i.i1731 = phi i64 [ %1832, %1827 ], [ %1837, %1834 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i.i1731) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i.i1731) #17
   %.pre2410 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2411 = getelementptr inbounds nuw i8, ptr %.pre2410, i64 16
   %.pre2412 = load i64, ptr %.phi.trans.insert2411, align 8, !tbaa !54
@@ -10086,7 +10086,7 @@ smart_str_alloc.exit1038:                         ; preds = %1801, %1806
 
 1854:                                             ; preds = %1849, %1847
   %.0.i1031 = phi i64 [ 4, %1847 ], [ %1852, %1849 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1031) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1031) #17
   %.pre2398 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2399 = getelementptr inbounds nuw i8, ptr %.pre2398, i64 16
   %.pre2400 = load i64, ptr %.phi.trans.insert2399, align 8, !tbaa !54
@@ -10125,7 +10125,7 @@ smart_str_alloc.exit1033:                         ; preds = %1849, %1854
 
 1872:                                             ; preds = %1867, %1866
   %.0.i1026 = phi i64 [ 3, %1866 ], [ %1870, %1867 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1026) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1026) #17
   %.pre2401 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2402 = getelementptr inbounds nuw i8, ptr %.pre2401, i64 16
   %.pre2403 = load i64, ptr %.phi.trans.insert2402, align 8, !tbaa !54
@@ -10159,7 +10159,7 @@ smart_str_alloc.exit1028:                         ; preds = %1867, %1872
 
 1887:                                             ; preds = %1882, %smart_str_alloc.exit1028
   %.0.i1021 = phi i64 [ 1, %smart_str_alloc.exit1028 ], [ %1885, %1882 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1021) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1021) #17
   %.pre2404 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2405 = getelementptr inbounds nuw i8, ptr %.pre2404, i64 16
   %.pre2406 = load i64, ptr %.phi.trans.insert2405, align 8, !tbaa !54
@@ -10190,7 +10190,7 @@ smart_str_alloc.exit1023:                         ; preds = %1882, %1887
 
 1900:                                             ; preds = %1895, %1894
   %.0.i1016 = phi i64 [ 1, %1894 ], [ %1898, %1895 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1016) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1016) #17
   %.pre2407 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2408 = getelementptr inbounds nuw i8, ptr %.pre2407, i64 16
   %.pre2409 = load i64, ptr %.phi.trans.insert2408, align 8, !tbaa !54
@@ -10226,7 +10226,7 @@ smart_str_alloc.exit1018:                         ; preds = %1895, %1900
 
 1916:                                             ; preds = %1911, %1907
   %.0.i1011 = phi i64 [ 11, %1907 ], [ %1914, %1911 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1011) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1011) #17
   %.pre2395 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2396 = getelementptr inbounds nuw i8, ptr %.pre2395, i64 16
   %.pre2397 = load i64, ptr %.phi.trans.insert2396, align 8, !tbaa !54
@@ -10268,7 +10268,7 @@ smart_str_alloc.exit1013:                         ; preds = %1911, %1916
 
 1935:                                             ; preds = %1930, %1928
   %.0.i1006 = phi i64 [ 2, %1928 ], [ %1933, %1930 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1006) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1006) #17
   %.pre2392 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2393 = getelementptr inbounds nuw i8, ptr %.pre2392, i64 16
   %.pre2394 = load i64, ptr %.phi.trans.insert2393, align 8, !tbaa !54
@@ -10307,7 +10307,7 @@ smart_str_alloc.exit1008:                         ; preds = %1930, %1935
 
 1952:                                             ; preds = %1947, %1945
   %.0.i1001 = phi i64 [ 9, %1945 ], [ %1950, %1947 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1001) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i1001) #17
   %.pre2381 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2382 = getelementptr inbounds nuw i8, ptr %.pre2381, i64 16
   %.pre2383 = load i64, ptr %.phi.trans.insert2382, align 8, !tbaa !54
@@ -10335,7 +10335,7 @@ smart_str_alloc.exit1003:                         ; preds = %1947, %1952
   br i1 %.not12.i.i1513, label %smart_str_appendc_ex.exit1516, label %1964, !prof !104
 
 1964:                                             ; preds = %1961
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %1962) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %1962) #17
   %.pre2384 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1516
 
@@ -10372,7 +10372,7 @@ smart_str_appendc_ex.exit1516:                    ; preds = %1961, %1964
 
 1981:                                             ; preds = %1976, %1975
   %.0.i996 = phi i64 [ 3, %1975 ], [ %1979, %1976 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i996) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i996) #17
   %.pre2385 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2386 = getelementptr inbounds nuw i8, ptr %.pre2385, i64 16
   %.pre2387 = load i64, ptr %.phi.trans.insert2386, align 8, !tbaa !54
@@ -10406,7 +10406,7 @@ smart_str_alloc.exit998:                          ; preds = %1976, %1981
 
 1996:                                             ; preds = %1991, %smart_str_alloc.exit998
   %.0.i991 = phi i64 [ 2, %smart_str_alloc.exit998 ], [ %1994, %1991 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i991) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i991) #17
   %.pre2388 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2389 = getelementptr inbounds nuw i8, ptr %.pre2388, i64 16
   %.pre2390 = load i64, ptr %.phi.trans.insert2389, align 8, !tbaa !54
@@ -10437,7 +10437,7 @@ smart_str_alloc.exit993:                          ; preds = %1991, %1996
 
 2009:                                             ; preds = %2004, %2003
   %.0.i.i1509 = phi i64 [ 1, %2003 ], [ %2007, %2004 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1509) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1509) #17
   %.pre2391 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1511
 
@@ -10478,7 +10478,7 @@ smart_str_appendc_ex.exit1511:                    ; preds = %2004, %2009
 
 2029:                                             ; preds = %2024, %2022
   %.0.i986 = phi i64 [ 10, %2022 ], [ %2027, %2024 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i986) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i986) #17
   %.pre2368 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2369 = getelementptr inbounds nuw i8, ptr %.pre2368, i64 16
   %.pre2370 = load i64, ptr %.phi.trans.insert2369, align 8, !tbaa !54
@@ -10513,7 +10513,7 @@ smart_str_alloc.exit988:                          ; preds = %2024, %2029
 
 2043:                                             ; preds = %2038, %2036
   %.0.i981 = phi i64 [ 13, %2036 ], [ %2041, %2038 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i981) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i981) #17
   %.pre2371 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2372 = getelementptr inbounds nuw i8, ptr %.pre2371, i64 16
   %.pre2373 = load i64, ptr %.phi.trans.insert2372, align 8, !tbaa !54
@@ -10548,7 +10548,7 @@ smart_str_alloc.exit983:                          ; preds = %2038, %2043
 
 2057:                                             ; preds = %2052, %2050
   %.0.i976 = phi i64 [ 11, %2050 ], [ %2055, %2052 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i976) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i976) #17
   %.pre2374 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2375 = getelementptr inbounds nuw i8, ptr %.pre2374, i64 16
   %.pre2376 = load i64, ptr %.phi.trans.insert2375, align 8, !tbaa !54
@@ -10584,7 +10584,7 @@ smart_str_alloc.exit978:                          ; preds = %2052, %2057
 
 2072:                                             ; preds = %2067, %2065
   %.0.i971 = phi i64 [ 3, %2065 ], [ %2070, %2067 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i971) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i971) #17
   %.pre2377 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2378 = getelementptr inbounds nuw i8, ptr %.pre2377, i64 16
   %.pre2379 = load i64, ptr %.phi.trans.insert2378, align 8, !tbaa !54
@@ -10627,7 +10627,7 @@ smart_str_alloc.exit973:                          ; preds = %2067, %2072
 
 2089:                                             ; preds = %2084, %2082
   %.0.i.i1504 = phi i64 [ 1, %2082 ], [ %2087, %2084 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1504) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1504) #17
   %.pre2380 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1506
 
@@ -10666,7 +10666,7 @@ smart_str_appendc_ex.exit1506:                    ; preds = %2084, %2089
 
 2110:                                             ; preds = %2105, %2096
   %.0.i.i1356 = phi i64 [ %2103, %2096 ], [ %2108, %2105 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1356) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1356) #17
   %.pre2362 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2363 = getelementptr inbounds nuw i8, ptr %.pre2362, i64 16
   %.pre2364 = load i64, ptr %.phi.trans.insert2363, align 8, !tbaa !54
@@ -10688,7 +10688,7 @@ smart_str_appendc_ex.exit1506:                    ; preds = %2084, %2089
   br i1 %.not12.i965, label %smart_str_alloc.exit968, label %2120, !prof !104
 
 2120:                                             ; preds = %2111
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %2118) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %2118) #17
   %.pre2365 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2366 = getelementptr inbounds nuw i8, ptr %.pre2365, i64 16
   %.pre2367 = load i64, ptr %.phi.trans.insert2366, align 8, !tbaa !54
@@ -10728,7 +10728,7 @@ smart_str_alloc.exit968:                          ; preds = %2111, %2120
 
 2141:                                             ; preds = %2136, %2128
   %.0.i961 = phi i64 [ %2134, %2128 ], [ %2139, %2136 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i961) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i961) #17
   %.pre2357 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2358 = getelementptr inbounds nuw i8, ptr %.pre2357, i64 16
   %.pre2359 = load i64, ptr %.phi.trans.insert2358, align 8, !tbaa !54
@@ -10761,7 +10761,7 @@ smart_str_alloc.exit963:                          ; preds = %2136, %2141
 
 2156:                                             ; preds = %2151, %smart_str_alloc.exit963
   %.0.i.i1499 = phi i64 [ 1, %smart_str_alloc.exit963 ], [ %2154, %2151 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1499) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1499) #17
   %.pre2360 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1501
 
@@ -10791,7 +10791,7 @@ smart_str_appendc_ex.exit1501:                    ; preds = %2151, %2156
 
 2170:                                             ; preds = %2165, %smart_str_appendc_ex.exit1501
   %.0.i.i1494 = phi i64 [ 1, %smart_str_appendc_ex.exit1501 ], [ %2168, %2165 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1494) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1494) #17
   %.pre2361 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1496
 
@@ -10824,7 +10824,7 @@ smart_str_appendc_ex.exit1496:                    ; preds = %2165, %2170
 
 2185:                                             ; preds = %2180, %2176
   %.0.i956 = phi i64 [ 2, %2176 ], [ %2183, %2180 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i956) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i956) #17
   %.pre2352 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2353 = getelementptr inbounds nuw i8, ptr %.pre2352, i64 16
   %.pre2354 = load i64, ptr %.phi.trans.insert2353, align 8, !tbaa !54
@@ -10857,7 +10857,7 @@ smart_str_alloc.exit958:                          ; preds = %2180, %2185
 
 2200:                                             ; preds = %2195, %smart_str_alloc.exit958
   %.0.i.i1489 = phi i64 [ 1, %smart_str_alloc.exit958 ], [ %2198, %2195 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1489) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1489) #17
   %.pre2355 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1491
 
@@ -10887,7 +10887,7 @@ smart_str_appendc_ex.exit1491:                    ; preds = %2195, %2200
 
 2214:                                             ; preds = %2209, %smart_str_appendc_ex.exit1491
   %.0.i.i1484 = phi i64 [ 1, %smart_str_appendc_ex.exit1491 ], [ %2212, %2209 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1484) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1484) #17
   %.pre2356 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1486
 
@@ -10921,7 +10921,7 @@ smart_str_appendc_ex.exit1486:                    ; preds = %2209, %2214
 
 2229:                                             ; preds = %2224, %2222
   %.0.i.i1479 = phi i64 [ 1, %2222 ], [ %2227, %2224 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1479) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1479) #17
   %.pre2341 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1481
 
@@ -10960,7 +10960,7 @@ smart_str_appendc_ex.exit1481:                    ; preds = %2224, %2229
 
 2247:                                             ; preds = %2242, %2241
   %.0.i951 = phi i64 [ 3, %2241 ], [ %2245, %2242 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i951) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i951) #17
   %.pre2342 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2343 = getelementptr inbounds nuw i8, ptr %.pre2342, i64 16
   %.pre2344 = load i64, ptr %.phi.trans.insert2343, align 8, !tbaa !54
@@ -10992,7 +10992,7 @@ smart_str_alloc.exit953:                          ; preds = %2242, %2247
 
 2261:                                             ; preds = %2256, %smart_str_alloc.exit953
   %.0.i946 = phi i64 [ 3, %smart_str_alloc.exit953 ], [ %2259, %2256 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i946) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i946) #17
   %.pre2345 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2346 = getelementptr inbounds nuw i8, ptr %.pre2345, i64 16
   %.pre2347 = load i64, ptr %.phi.trans.insert2346, align 8, !tbaa !54
@@ -11020,7 +11020,7 @@ smart_str_alloc.exit948:                          ; preds = %2256, %2261
 
 2272:                                             ; preds = %2267, %2266
   %.0.i941 = phi i64 [ 4, %2266 ], [ %2270, %2267 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i941) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i941) #17
   %.pre2348 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2349 = getelementptr inbounds nuw i8, ptr %.pre2348, i64 16
   %.pre2350 = load i64, ptr %.phi.trans.insert2349, align 8, !tbaa !54
@@ -11060,7 +11060,7 @@ smart_str_alloc.exit943:                          ; preds = %2267, %2272
 
 2289:                                             ; preds = %2284, %2282
   %.0.i.i1474 = phi i64 [ 1, %2282 ], [ %2287, %2284 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1474) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1474) #17
   %.pre2351 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1476
 
@@ -11090,7 +11090,7 @@ smart_str_appendc_ex.exit1476:                    ; preds = %2284, %2289
 
 2302:                                             ; preds = %2297, %2295
   %.0.i936 = phi i64 [ 6, %2295 ], [ %2300, %2297 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i936) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i936) #17
   %.pre2334 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2335 = getelementptr inbounds nuw i8, ptr %.pre2334, i64 16
   %.pre2336 = load i64, ptr %.phi.trans.insert2335, align 8, !tbaa !54
@@ -11134,7 +11134,7 @@ smart_str_alloc.exit938:                          ; preds = %2297, %2302
 
 2323:                                             ; preds = %2318, %2316
   %.0.i931 = phi i64 [ 12, %2316 ], [ %2321, %2318 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i931) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i931) #17
   %.pre2337 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2338 = getelementptr inbounds nuw i8, ptr %.pre2337, i64 16
   %.pre2339 = load i64, ptr %.phi.trans.insert2338, align 8, !tbaa !54
@@ -11170,7 +11170,7 @@ smart_str_alloc.exit933:                          ; preds = %2318, %2323
 
 2338:                                             ; preds = %2333, %2331
   %.0.i.i1469 = phi i64 [ 1, %2331 ], [ %2336, %2333 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1469) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1469) #17
   %.pre2340 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1471
 
@@ -11200,7 +11200,7 @@ smart_str_appendc_ex.exit1471:                    ; preds = %2333, %2338
 
 2351:                                             ; preds = %2346, %2344
   %.0.i926 = phi i64 [ 9, %2344 ], [ %2349, %2346 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i926) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i926) #17
   %.pre2325 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2326 = getelementptr inbounds nuw i8, ptr %.pre2325, i64 16
   %.pre2327 = load i64, ptr %.phi.trans.insert2326, align 8, !tbaa !54
@@ -11239,7 +11239,7 @@ smart_str_alloc.exit928:                          ; preds = %2346, %2351
 
 2369:                                             ; preds = %2364, %2362
   %.0.i921 = phi i64 [ 2, %2362 ], [ %2367, %2364 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i921) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i921) #17
   %.pre2328 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2329 = getelementptr inbounds nuw i8, ptr %.pre2328, i64 16
   %.pre2330 = load i64, ptr %.phi.trans.insert2329, align 8, !tbaa !54
@@ -11274,7 +11274,7 @@ smart_str_alloc.exit923:                          ; preds = %2364, %2369
 
 2384:                                             ; preds = %2379, %2377
   %.0.i916 = phi i64 [ 4, %2377 ], [ %2382, %2379 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i916) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i916) #17
   %.pre2331 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2332 = getelementptr inbounds nuw i8, ptr %.pre2331, i64 16
   %.pre2333 = load i64, ptr %.phi.trans.insert2332, align 8, !tbaa !54
@@ -11333,7 +11333,7 @@ smart_str_alloc.exit918:                          ; preds = %2379, %2384
 
 2411:                                             ; preds = %2406, %2404
   %.0.i.i1464 = phi i64 [ 1, %2404 ], [ %2409, %2406 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1464) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1464) #17
   %.pre2313 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1466
 
@@ -11369,7 +11369,7 @@ smart_str_appendc_ex.exit1466:                    ; preds = %2406, %2411
 
 2427:                                             ; preds = %2422, %2420
   %.0.i.i1459 = phi i64 [ 1, %2420 ], [ %2425, %2422 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1459) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1459) #17
   %.pre2314 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1461
 
@@ -11406,7 +11406,7 @@ smart_str_appendc_ex.exit1461:                    ; preds = %2422, %2427
 
 2442:                                             ; preds = %2437, %2436
   %.0.i911 = phi i64 [ 3, %2436 ], [ %2440, %2437 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i911) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i911) #17
   %.pre2316 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2317 = getelementptr inbounds nuw i8, ptr %.pre2316, i64 16
   %.pre2318 = load i64, ptr %.phi.trans.insert2317, align 8, !tbaa !54
@@ -11442,7 +11442,7 @@ smart_str_appendc_ex.exit1461:                    ; preds = %2422, %2427
 
 2455:                                             ; preds = %2450, %2449
   %.0.i.i1454 = phi i64 [ 1, %2449 ], [ %2453, %2450 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1454) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1454) #17
   %.pre2321 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1456
 
@@ -11478,7 +11478,7 @@ smart_str_appendc_ex.exit1456:                    ; preds = %2450, %2455
 
 2472:                                             ; preds = %2467, %2465
   %.0.i906 = phi i64 [ 3, %2465 ], [ %2470, %2467 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i906) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i906) #17
   %.pre2322 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2323 = getelementptr inbounds nuw i8, ptr %.pre2322, i64 16
   %.pre2324 = load i64, ptr %.phi.trans.insert2323, align 8, !tbaa !54
@@ -11534,7 +11534,7 @@ smart_str_alloc.exit908:                          ; preds = %2467, %2472
 
 2496:                                             ; preds = %2491, %2489
   %.0.i901 = phi i64 [ 5, %2489 ], [ %2494, %2491 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i901) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i901) #17
   %.pre2307 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2308 = getelementptr inbounds nuw i8, ptr %.pre2307, i64 16
   %.pre2309 = load i64, ptr %.phi.trans.insert2308, align 8, !tbaa !54
@@ -11572,7 +11572,7 @@ smart_str_alloc.exit903:                          ; preds = %2491, %2496
 
 2513:                                             ; preds = %2508, %2506
   %.0.i896 = phi i64 [ 3, %2506 ], [ %2511, %2508 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i896) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i896) #17
   %.pre2310 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2311 = getelementptr inbounds nuw i8, ptr %.pre2310, i64 16
   %.pre2312 = load i64, ptr %.phi.trans.insert2311, align 8, !tbaa !54
@@ -11606,7 +11606,7 @@ smart_str_alloc.exit898:                          ; preds = %2508, %2513
 
 2528:                                             ; preds = %2523, %2521
   %.0.i891 = phi i64 [ 5, %2521 ], [ %2526, %2523 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i891) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i891) #17
   %.pre = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre2296 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !54
@@ -11639,7 +11639,7 @@ smart_str_alloc.exit893:                          ; preds = %2523, %2528
 
 2543:                                             ; preds = %2538, %smart_str_alloc.exit893
   %.0.i.i1449 = phi i64 [ 1, %smart_str_alloc.exit893 ], [ %2541, %2538 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1449) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1449) #17
   %.pre2297 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1451
 
@@ -11664,7 +11664,7 @@ smart_str_appendc_ex.exit1451:                    ; preds = %2538, %2543
   br i1 %.not12.i.i1443, label %2555, label %2554, !prof !104
 
 2554:                                             ; preds = %2551
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %2552) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %2552) #17
   %.pre2298 = load ptr, ptr %0, align 8, !tbaa !137
   br label %2555
 
@@ -11693,7 +11693,7 @@ smart_str_appendc_ex.exit1451:                    ; preds = %2538, %2543
 
 2567:                                             ; preds = %.thread3276, %2555
   %.0.i.i1439 = phi i64 [ 1, %2555 ], [ %2565, %.thread3276 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1439) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1439) #17
   %.pre2300 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1441
 
@@ -11718,7 +11718,7 @@ smart_str_appendc_ex.exit1441:                    ; preds = %.thread3276, %2567
   br i1 %.not12.i.i1433, label %2579, label %2578, !prof !104
 
 2578:                                             ; preds = %2575
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %2576) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %2576) #17
   %.pre2301 = load ptr, ptr %0, align 8, !tbaa !137
   br label %2579
 
@@ -11747,7 +11747,7 @@ smart_str_appendc_ex.exit1441:                    ; preds = %.thread3276, %2567
 
 2591:                                             ; preds = %.thread3278, %2579
   %.0.i886 = phi i64 [ 4, %2579 ], [ %2589, %.thread3278 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i886) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i886) #17
   %.pre2303 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2304 = getelementptr inbounds nuw i8, ptr %.pre2303, i64 16
   %.pre2305 = load i64, ptr %.phi.trans.insert2304, align 8, !tbaa !54
@@ -11782,7 +11782,7 @@ smart_str_alloc.exit888:                          ; preds = %.thread3278, %2591
 
 2607:                                             ; preds = %2602, %smart_str_alloc.exit888
   %.0.i.i1429 = phi i64 [ 1, %smart_str_alloc.exit888 ], [ %2605, %2602 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1429) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1429) #17
   %.pre2306 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1431
 
@@ -11812,7 +11812,7 @@ smart_str_appendc_ex.exit1431:                    ; preds = %2602, %2607
 
 2620:                                             ; preds = %2615, %2613
   %.0.i881 = phi i64 [ 9, %2613 ], [ %2618, %2615 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i881) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i881) #17
   %.pre2710 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2711 = getelementptr inbounds nuw i8, ptr %.pre2710, i64 16
   %.pre2712 = load i64, ptr %.phi.trans.insert2711, align 8, !tbaa !54
@@ -11845,7 +11845,7 @@ smart_str_alloc.exit883:                          ; preds = %2615, %2620
 
 2635:                                             ; preds = %2630, %smart_str_alloc.exit883
   %.0.i876 = phi i64 [ 4, %smart_str_alloc.exit883 ], [ %2633, %2630 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i876) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i876) #17
   %.pre2713 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2714 = getelementptr inbounds nuw i8, ptr %.pre2713, i64 16
   %.pre2715 = load i64, ptr %.phi.trans.insert2714, align 8, !tbaa !54
@@ -11882,7 +11882,7 @@ smart_str_alloc.exit878:                          ; preds = %2630, %2635
 
 2651:                                             ; preds = %2646, %2644
   %.0.i871 = phi i64 [ 4, %2644 ], [ %2649, %2646 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i871) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i871) #17
   %.pre2716 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2717 = getelementptr inbounds nuw i8, ptr %.pre2716, i64 16
   %.pre2718 = load i64, ptr %.phi.trans.insert2717, align 8, !tbaa !54
@@ -11918,7 +11918,7 @@ smart_str_alloc.exit873:                          ; preds = %2646, %2651
 
 2667:                                             ; preds = %2662, %2658
   %.0.i866 = phi i64 [ 4, %2658 ], [ %2665, %2662 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i866) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i866) #17
   %.pre2719 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2720 = getelementptr inbounds nuw i8, ptr %.pre2719, i64 16
   %.pre2721 = load i64, ptr %.phi.trans.insert2720, align 8, !tbaa !54
@@ -11953,7 +11953,7 @@ smart_str_alloc.exit868:                          ; preds = %2662, %2667
 
 2683:                                             ; preds = %2678, %smart_str_alloc.exit868
   %.0.i.i1424 = phi i64 [ 1, %smart_str_alloc.exit868 ], [ %2681, %2678 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1424) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1424) #17
   %.pre2722 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1426
 
@@ -12009,7 +12009,7 @@ smart_str_appendc_ex.exit1426:                    ; preds = %2678, %2683
 
 2699:                                             ; preds = %2694, %2692
   %.0.i.i1419 = phi i64 [ 1, %2692 ], [ %2697, %2694 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1419) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1419) #17
   %.pre2524 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1421
 
@@ -12025,7 +12025,7 @@ smart_str_appendc_ex.exit1421:                    ; preds = %2694, %2699
   %2705 = getelementptr inbounds nuw i8, ptr %.02021, i64 8
   %2706 = load ptr, ptr %2705, align 8, !tbaa !63
   tail call fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %2706, i32 noundef %.2721, i32 noundef %3)
-  %2707 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.5) #19
+  %2707 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.5) #20
   %2708 = load ptr, ptr %0, align 8, !tbaa !137
   %.not.i859 = icmp eq ptr %2708, null
   br i1 %.not.i859, label %2714, label %2709, !prof !13
@@ -12040,7 +12040,7 @@ smart_str_appendc_ex.exit1421:                    ; preds = %2694, %2699
 
 2714:                                             ; preds = %2709, %smart_str_appendc_ex.exit1421
   %.0.i861 = phi i64 [ %2707, %smart_str_appendc_ex.exit1421 ], [ %2712, %2709 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i861) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i861) #17
   %.pre2525 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2526 = getelementptr inbounds nuw i8, ptr %.pre2525, i64 16
   %.pre2527 = load i64, ptr %.phi.trans.insert2526, align 8, !tbaa !54
@@ -12073,7 +12073,7 @@ smart_str_alloc.exit863:                          ; preds = %2709, %2714
 
 2729:                                             ; preds = %2724, %smart_str_alloc.exit863
   %.0.i.i1414 = phi i64 [ 1, %smart_str_alloc.exit863 ], [ %2727, %2724 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1414) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1414) #17
   %.pre2528 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1416
 
@@ -12092,7 +12092,7 @@ smart_str_appendc_ex.exit1416:                    ; preds = %2724, %2729
   %2735 = getelementptr inbounds nuw i8, ptr %.02021, i64 8
   %2736 = load ptr, ptr %2735, align 8, !tbaa !63
   tail call fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %2736, i32 noundef %.2721, i32 noundef %3)
-  %2737 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.5) #19
+  %2737 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.5) #20
   %2738 = load ptr, ptr %0, align 8, !tbaa !137
   %.not.i824 = icmp eq ptr %2738, null
   br i1 %.not.i824, label %2744, label %2739, !prof !13
@@ -12107,7 +12107,7 @@ smart_str_appendc_ex.exit1416:                    ; preds = %2724, %2729
 
 2744:                                             ; preds = %2739, %.critedge
   %.0.i826 = phi i64 [ %2737, %.critedge ], [ %2742, %2739 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i826) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i826) #17
   %.pre2521 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2522 = getelementptr inbounds nuw i8, ptr %.pre2521, i64 16
   %.pre2523 = load i64, ptr %.phi.trans.insert2522, align 8, !tbaa !54
@@ -12164,7 +12164,7 @@ smart_str_alloc.exit828:                          ; preds = %2739, %2744
 
 2762:                                             ; preds = %2757, %2755
   %.0.i.i1409 = phi i64 [ 1, %2755 ], [ %2760, %2757 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1409) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1409) #17
   %.pre2589 = load ptr, ptr %0, align 8, !tbaa !137
   br label %2763
 
@@ -12177,14 +12177,14 @@ smart_str_alloc.exit828:                          ; preds = %2739, %2744
   %2767 = load ptr, ptr %0, align 8, !tbaa !137
   %2768 = getelementptr inbounds nuw i8, ptr %2767, i64 16
   store i64 %.1.i.i1410, ptr %2768, align 8, !tbaa !54
-  %2769 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1725) #19
+  %2769 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1725) #20
   %2770 = add i64 %2769, %.1.i.i1410
   %2771 = load i64, ptr %5, align 8, !tbaa !139
   %.not12.i855 = icmp ult i64 %2770, %2771
   br i1 %.not12.i855, label %smart_str_alloc.exit858, label %2772, !prof !104
 
 2772:                                             ; preds = %2763
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %2770) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %2770) #17
   %.pre2590 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2591 = getelementptr inbounds nuw i8, ptr %.pre2590, i64 16
   %.pre2592 = load i64, ptr %.phi.trans.insert2591, align 8, !tbaa !54
@@ -12216,7 +12216,7 @@ smart_str_alloc.exit858:                          ; preds = %2763, %2772
 
 2787:                                             ; preds = %2782, %smart_str_alloc.exit858
   %.0.i.i1404 = phi i64 [ 1, %smart_str_alloc.exit858 ], [ %2785, %2782 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1404) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1404) #17
   %.pre2593 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1406
 
@@ -12232,7 +12232,7 @@ smart_str_appendc_ex.exit1406:                    ; preds = %2782, %2787
   br label %zend_ast_export_list.exit
 
 .critedge816:                                     ; preds = %2753
-  %2793 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1725) #19
+  %2793 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1725) #20
   %2794 = load ptr, ptr %0, align 8, !tbaa !137
   %.not.i819 = icmp eq ptr %2794, null
   br i1 %.not.i819, label %2800, label %2795, !prof !13
@@ -12247,7 +12247,7 @@ smart_str_appendc_ex.exit1406:                    ; preds = %2782, %2787
 
 2800:                                             ; preds = %2795, %.critedge816
   %.0.i821 = phi i64 [ %2793, %.critedge816 ], [ %2798, %2795 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i821) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i821) #17
   %.pre2586 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2587 = getelementptr inbounds nuw i8, ptr %.pre2586, i64 16
   %.pre2588 = load i64, ptr %.phi.trans.insert2587, align 8, !tbaa !54
@@ -12290,7 +12290,7 @@ smart_str_alloc.exit823:                          ; preds = %2795, %2800
 
 2817:                                             ; preds = %2812, %2810
   %.0.i.i1399 = phi i64 [ 1, %2810 ], [ %2815, %2812 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1399) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1399) #17
   %.pre2574 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1401
 
@@ -12320,7 +12320,7 @@ smart_str_appendc_ex.exit1401:                    ; preds = %2812, %2817
 
 2831:                                             ; preds = %2826, %smart_str_appendc_ex.exit1401
   %.0.i851 = phi i64 [ 2, %smart_str_appendc_ex.exit1401 ], [ %2829, %2826 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i851) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i851) #17
   %.pre2575 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2576 = getelementptr inbounds nuw i8, ptr %.pre2575, i64 16
   %.pre2577 = load i64, ptr %.phi.trans.insert2576, align 8, !tbaa !54
@@ -12343,7 +12343,7 @@ smart_str_appendc_ex.exit1401:                    ; preds = %2812, %2817
   br i1 %.not12.i.i1393, label %smart_str_appendc_ex.exit1396, label %2842, !prof !104
 
 2842:                                             ; preds = %2832
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %2840) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %2840) #17
   %.pre2578 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1396
 
@@ -12375,7 +12375,7 @@ smart_str_appendc_ex.exit1396:                    ; preds = %2832, %2842
 
 2856:                                             ; preds = %2851, %.critedge818
   %.0.i = phi i64 [ 2, %.critedge818 ], [ %2854, %2851 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i) #17
   %.pre2571 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2572 = getelementptr inbounds nuw i8, ptr %.pre2571, i64 16
   %.pre2573 = load i64, ptr %.phi.trans.insert2572, align 8, !tbaa !54
@@ -12402,7 +12402,7 @@ smart_str_alloc.exit:                             ; preds = %2851, %2856
 
 .loopexit1761:                                    ; preds = %6, %.loopexit1761.loopexit3822, %switch.lookup3814, %.loopexit1761.loopexit
   %.2726 = phi ptr [ @.str.52, %.loopexit1761.loopexit ], [ %switch.load3816, %switch.lookup3814 ], [ @.str.53, %.loopexit1761.loopexit3822 ], [ @.str.67, %6 ]
-  %2864 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2726) #19
+  %2864 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2726) #20
   %2865 = load ptr, ptr %0, align 8, !tbaa !137
   %.not.i844 = icmp eq ptr %2865, null
   br i1 %.not.i844, label %2871, label %2866, !prof !13
@@ -12417,7 +12417,7 @@ smart_str_alloc.exit:                             ; preds = %2851, %2856
 
 2871:                                             ; preds = %2866, %.loopexit1761
   %.0.i846 = phi i64 [ %2864, %.loopexit1761 ], [ %2869, %2866 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i846) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i846) #17
   %.pre2581 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2582 = getelementptr inbounds nuw i8, ptr %.pre2581, i64 16
   %.pre2583 = load i64, ptr %.phi.trans.insert2582, align 8, !tbaa !54
@@ -12439,7 +12439,7 @@ smart_str_alloc.exit:                             ; preds = %2851, %2856
   br i1 %.not12.i.i1388, label %smart_str_appendc_ex.exit1391, label %2881, !prof !104
 
 2881:                                             ; preds = %2872
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %2879) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %2879) #17
   %.pre2584 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1391
 
@@ -12468,7 +12468,7 @@ smart_str_appendc_ex.exit1391:                    ; preds = %2872, %2881
 
 2895:                                             ; preds = %2890, %smart_str_appendc_ex.exit1391
   %.0.i.i1384 = phi i64 [ 1, %smart_str_appendc_ex.exit1391 ], [ %2893, %2890 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1384) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i1384) #17
   %.pre2585 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit1386
 
@@ -12485,7 +12485,7 @@ smart_str_appendc_ex.exit1386:                    ; preds = %2890, %2895
 
 2901:                                             ; preds = %6, %886, %885, %868, %867, %837
   %.4 = phi ptr [ @.str.68, %837 ], [ @.str.70, %867 ], [ @.str.71, %868 ], [ @.str.73, %885 ], [ @.str.74, %886 ], [ @.str.66, %6 ]
-  %2902 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.4) #19
+  %2902 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.4) #20
   %2903 = load ptr, ptr %0, align 8, !tbaa !137
   %.not.i839 = icmp eq ptr %2903, null
   br i1 %.not.i839, label %2909, label %2904, !prof !13
@@ -12500,7 +12500,7 @@ smart_str_appendc_ex.exit1386:                    ; preds = %2890, %2895
 
 2909:                                             ; preds = %2904, %2901
   %.0.i841 = phi i64 [ %2902, %2901 ], [ %2907, %2904 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i841) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i841) #17
   %.pre2567 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2568 = getelementptr inbounds nuw i8, ptr %.pre2567, i64 16
   %.pre2569 = load i64, ptr %.phi.trans.insert2568, align 8, !tbaa !54
@@ -12528,7 +12528,7 @@ smart_str_alloc.exit843:                          ; preds = %2904, %2909
   br i1 %.not12.i.i1379, label %smart_str_appendc_ex.exit, label %2921, !prof !104
 
 2921:                                             ; preds = %2918
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %2919) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %2919) #17
   %.pre2570 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit
 
@@ -12544,7 +12544,7 @@ smart_str_appendc_ex.exit:                        ; preds = %2918, %2921
 
 .loopexit1763:                                    ; preds = %6, %switch.lookup3811, %switch.lookup
   %.0724 = phi ptr [ %switch.load, %switch.lookup ], [ %switch.load3813, %switch.lookup3811 ], [ @.str.69, %6 ]
-  %2927 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0724) #19
+  %2927 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0724) #20
   %2928 = load ptr, ptr %0, align 8, !tbaa !137
   %.not.i834 = icmp eq ptr %2928, null
   br i1 %.not.i834, label %2934, label %2929, !prof !13
@@ -12559,7 +12559,7 @@ smart_str_appendc_ex.exit:                        ; preds = %2918, %2921
 
 2934:                                             ; preds = %2929, %.loopexit1763
   %.0.i836 = phi i64 [ %2927, %.loopexit1763 ], [ %2932, %2929 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i836) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i836) #17
   %.pre2598 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2599 = getelementptr inbounds nuw i8, ptr %.pre2598, i64 16
   %.pre2600 = load i64, ptr %.phi.trans.insert2599, align 8, !tbaa !54
@@ -12598,7 +12598,7 @@ zend_ast_export_name.exit:                        ; preds = %.thread1748, %1840,
 
 2950:                                             ; preds = %2945, %2943
   %.0.i831 = phi i64 [ 3, %2943 ], [ %2948, %2945 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i831) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i831) #17
   %.pre2488 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert2489 = getelementptr inbounds nuw i8, ptr %.pre2488, i64 16
   %.pre2490 = load i64, ptr %.phi.trans.insert2489, align 8, !tbaa !54
@@ -12722,7 +12722,7 @@ define internal fastcc void @zend_ast_export_zval(ptr noundef nonnull %0, ptr no
 
 23:                                               ; preds = %17, %15
   %.0.i87 = phi i64 [ 4, %15 ], [ %20, %17 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i87) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i87) #17
   %.pre190 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert191 = getelementptr inbounds nuw i8, ptr %.pre190, i64 16
   %.pre192 = load i64, ptr %.phi.trans.insert191, align 8, !tbaa !54
@@ -12756,7 +12756,7 @@ smart_str_alloc.exit89:                           ; preds = %17, %23
 
 38:                                               ; preds = %32, %30
   %.0.i82 = phi i64 [ 5, %30 ], [ %35, %32 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i82) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i82) #17
   %.pre187 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert188 = getelementptr inbounds nuw i8, ptr %.pre187, i64 16
   %.pre189 = load i64, ptr %.phi.trans.insert188, align 8, !tbaa !54
@@ -12790,7 +12790,7 @@ smart_str_alloc.exit84:                           ; preds = %32, %38
 
 53:                                               ; preds = %47, %45
   %.0.i77 = phi i64 [ 4, %45 ], [ %50, %47 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i77) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i77) #17
   %.pre184 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert185 = getelementptr inbounds nuw i8, ptr %.pre184, i64 16
   %.pre186 = load i64, ptr %.phi.trans.insert185, align 8, !tbaa !54
@@ -12873,7 +12873,7 @@ zend_print_long_to_buf.exit:                      ; preds = %74, %zend_print_ulo
 
 90:                                               ; preds = %84, %zend_print_long_to_buf.exit
   %.0.i.i92 = phi i64 [ %82, %zend_print_long_to_buf.exit ], [ %87, %84 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i92) #16
+  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i92) #17
   %.pre181 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert182 = getelementptr inbounds nuw i8, ptr %.pre181, i64 16
   %.pre183 = load i64, ptr %.phi.trans.insert182, align 8, !tbaa !54
@@ -12896,7 +12896,7 @@ smart_str_append_long_ex.exit94:                  ; preds = %84, %90
   %98 = load double, ptr %.0, align 8, !tbaa !44
   %99 = load i64, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 552), align 8, !tbaa !151
   %100 = trunc i64 %99 to i32
-  tail call void @smart_str_append_double(ptr noundef nonnull %0, double noundef %98, i32 noundef %100, i1 noundef zeroext false) #16
+  tail call void @smart_str_append_double(ptr noundef nonnull %0, double noundef %98, i32 noundef %100, i1 noundef zeroext false) #17
   br label %329
 
 101:                                              ; preds = %13
@@ -12915,7 +12915,7 @@ smart_str_append_long_ex.exit94:                  ; preds = %84, %90
 
 109:                                              ; preds = %103, %101
   %.0.i.i133 = phi i64 [ 1, %101 ], [ %106, %103 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i133) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i133) #17
   %.pre179 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit135
 
@@ -12957,7 +12957,7 @@ smart_str_appendc_ex.exit135:                     ; preds = %103, %109
   br i1 %.not12.i.i.i, label %129, label %128, !prof !104
 
 128:                                              ; preds = %125
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %126) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %126) #17
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !137
   br label %129
 
@@ -12982,7 +12982,7 @@ smart_str_appendc_ex.exit135:                     ; preds = %103, %109
 
 smart_str_appendc_ex.exit17.sink.split.i:         ; preds = %137, %129
   %.0.i.i20.sink.i = phi i64 [ %135, %129 ], [ %138, %137 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i20.sink.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i20.sink.i) #17
   %.pre25.i = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit17.i
 
@@ -13010,7 +13010,7 @@ zend_ast_export_str.exit:                         ; preds = %smart_str_appendc_e
   br i1 %.not12.i.i127, label %smart_str_appendc_ex.exit130, label %152, !prof !104
 
 152:                                              ; preds = %zend_ast_export_str.exit
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %149) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %149) #17
   %.pre180 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit130
 
@@ -13040,7 +13040,7 @@ smart_str_appendc_ex.exit130:                     ; preds = %zend_ast_export_str
 
 166:                                              ; preds = %160, %158
   %.0.i.i123 = phi i64 [ 1, %158 ], [ %163, %160 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i123) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i123) #17
   %.pre163 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit125
 
@@ -13121,7 +13121,7 @@ smart_str_appendc_ex.exit125:                     ; preds = %160, %166
 
 206:                                              ; preds = %201, %199
   %.0.i72 = phi i64 [ 2, %199 ], [ %204, %201 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i72) #16
+  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i72) #17
   %.pre164 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert165 = getelementptr inbounds nuw i8, ptr %.pre164, i64 16
   %.pre166 = load i64, ptr %.phi.trans.insert165, align 8, !tbaa !54
@@ -13158,7 +13158,7 @@ smart_str_alloc.exit74:                           ; preds = %201, %206
 
 221:                                              ; preds = %216, %214
   %.0.i.i118 = phi i64 [ 1, %214 ], [ %219, %216 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i118) #16
+  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i118) #17
   %.pre167 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit120
 
@@ -13198,7 +13198,7 @@ smart_str_appendc_ex.exit120:                     ; preds = %216, %221
   br i1 %.not12.i.i.i141, label %239, label %238, !prof !104
 
 238:                                              ; preds = %235
-  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %236) #16
+  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %236) #17
   %.pre.i143 = load ptr, ptr %0, align 8, !tbaa !137
   br label %239
 
@@ -13223,7 +13223,7 @@ smart_str_appendc_ex.exit120:                     ; preds = %216, %221
 
 smart_str_appendc_ex.exit17.sink.split.i146:      ; preds = %247, %239
   %.0.i.i20.sink.i147 = phi i64 [ %245, %239 ], [ %248, %247 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i20.sink.i147) #16
+  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i20.sink.i147) #17
   %.pre25.i148 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit17.i149
 
@@ -13250,7 +13250,7 @@ zend_ast_export_str.exit154:                      ; preds = %smart_str_appendc_e
   br i1 %.not12.i66, label %smart_str_alloc.exit69, label %261, !prof !104
 
 261:                                              ; preds = %zend_ast_export_str.exit154
-  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %259) #16
+  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %259) #17
   %.pre168 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert169 = getelementptr inbounds nuw i8, ptr %.pre168, i64 16
   %.pre170 = load i64, ptr %.phi.trans.insert169, align 8, !tbaa !54
@@ -13325,7 +13325,7 @@ zend_print_long_to_buf.exit97:                    ; preds = %278, %zend_print_ul
 
 292:                                              ; preds = %287, %zend_print_long_to_buf.exit97
   %.0.i.i = phi i64 [ %285, %zend_print_long_to_buf.exit97 ], [ %290, %287 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #16
+  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #17
   %.pre171 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert172 = getelementptr inbounds nuw i8, ptr %.pre171, i64 16
   %.pre173 = load i64, ptr %.phi.trans.insert172, align 8, !tbaa !54
@@ -13349,7 +13349,7 @@ zend_print_long_to_buf.exit97:                    ; preds = %278, %zend_print_ul
   br i1 %.not12.i, label %smart_str_alloc.exit, label %303, !prof !104
 
 303:                                              ; preds = %293
-  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %301) #16
+  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %301) #17
   %.pre174 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert175 = getelementptr inbounds nuw i8, ptr %.pre174, i64 16
   %.pre176 = load i64, ptr %.phi.trans.insert175, align 8, !tbaa !54
@@ -13394,7 +13394,7 @@ smart_str_alloc.exit:                             ; preds = %293, %303
 
 319:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %.0.i.i114 = phi i64 [ 1, %._crit_edge ], [ %316, %._crit_edge.thread ]
-  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i114) #16
+  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i114) #17
   %.pre178 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit
 
@@ -13452,7 +13452,7 @@ define internal fastcc void @zend_ast_export_attributes(ptr noundef nonnull %0, 
 
 17:                                               ; preds = %12, %10
   %.0.i16 = phi i64 [ 2, %10 ], [ %15, %12 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i16) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i16) #17
   %.pre55 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre55, i64 16
   %.pre56 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !54
@@ -13501,7 +13501,7 @@ smart_str_alloc.exit18:                           ; preds = %12, %17
 
 39:                                               ; preds = %34, %32
   %.0.i.i28 = phi i64 [ 2, %32 ], [ %37, %34 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i28) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i28) #17
   %.pre57 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert58 = getelementptr inbounds nuw i8, ptr %.pre57, i64 16
   %.pre59 = load i64, ptr %.phi.trans.insert58, align 8, !tbaa !54
@@ -13556,7 +13556,7 @@ smart_str_alloc.exit.i:                           ; preds = %39, %34
 
 65:                                               ; preds = %60, %59
   %.0.i.i16.i = phi i64 [ 1, %59 ], [ %63, %60 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i16.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i16.i) #17
   %.pre63 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit.i44
 
@@ -13582,7 +13582,7 @@ smart_str_appendc_ex.exit.i44:                    ; preds = %65, %60
 
 75:                                               ; preds = %70, %69
   %.0.i.i37 = phi i64 [ 10, %69 ], [ %73, %70 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i37) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i37) #17
   %.pre60 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert61 = getelementptr inbounds nuw i8, ptr %.pre60, i64 16
   %.pre62 = load i64, ptr %.phi.trans.insert61, align 8, !tbaa !54
@@ -13631,7 +13631,7 @@ smart_str_alloc.exit.i38:                         ; preds = %75, %70
   %100 = phi i64 [ %90, %86 ], [ %92, %91 ]
   %101 = phi ptr [ %88, %86 ], [ %93, %91 ]
   %.0.i.i.i42 = phi i64 [ %90, %86 ], [ %97, %91 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i.i42) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i.i42) #17
   %.pre64 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert65 = getelementptr inbounds nuw i8, ptr %.pre64, i64 16
   %.pre66 = load i64, ptr %.phi.trans.insert65, align 8, !tbaa !54
@@ -13676,7 +13676,7 @@ zend_ast_export_ns_name.exit:                     ; preds = %102, %.thread46
 
 120:                                              ; preds = %115, %113
   %.0.i.i.i = phi i64 [ 1, %113 ], [ %118, %115 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i.i) #17
   %.pre67 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit.i
 
@@ -13705,7 +13705,7 @@ smart_str_appendc_ex.exit.i:                      ; preds = %120, %115
 
 133:                                              ; preds = %128, %smart_str_appendc_ex.exit.i
   %.0.i.i19.i = phi i64 [ 1, %smart_str_appendc_ex.exit.i ], [ %131, %128 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i19.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i19.i) #17
   %.pre68 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit21.i
 
@@ -13743,7 +13743,7 @@ zend_ast_export_attribute_group.exit.thread:      ; preds = %smart_str_alloc.exi
 
 148:                                              ; preds = %zend_ast_export_attribute_group.exit.thread, %zend_ast_export_attribute_group.exit
   %.0.i = phi i64 [ 1, %zend_ast_export_attribute_group.exit ], [ %146, %zend_ast_export_attribute_group.exit.thread ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i) #17
   %.pre70 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert71 = getelementptr inbounds nuw i8, ptr %.pre70, i64 16
   %.pre72 = load i64, ptr %.phi.trans.insert71, align 8, !tbaa !54
@@ -13768,7 +13768,7 @@ smart_str_alloc.exit:                             ; preds = %zend_ast_export_att
   br i1 %.not12.i.i20, label %smart_str_appendc_ex.exit23, label %158, !prof !104
 
 158:                                              ; preds = %157
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %155) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %155) #17
   %.pre74 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit23
 
@@ -13792,7 +13792,7 @@ smart_str_appendc_ex.exit23:                      ; preds = %157, %158
   br i1 %.not12.i.i31, label %smart_str_alloc.exit.i33, label %168, !prof !104
 
 168:                                              ; preds = %.lr.ph.i
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %166) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %166) #17
   %.pre3.i = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
   %.pre4.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !54
@@ -13815,7 +13815,7 @@ smart_str_alloc.exit.i33:                         ; preds = %168, %.lr.ph.i
   br i1 %.not12.i.i20, label %smart_str_appendc_ex.exit, label %178, !prof !104
 
 178:                                              ; preds = %177
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %155) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %155) #17
   %.pre73 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit
 
@@ -13863,7 +13863,7 @@ define internal fastcc void @zend_ast_export_visibility(ptr noundef nonnull %0, 
 
 13:                                               ; preds = %7, %5
   %.0.i41 = phi i64 [ 7, %5 ], [ %10, %7 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i41) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i41) #17
   %.pre = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre44 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !54
@@ -13899,7 +13899,7 @@ smart_str_alloc.exit43:                           ; preds = %7, %13
 
 28:                                               ; preds = %22, %20
   %.0.i36 = phi i64 [ 10, %20 ], [ %25, %22 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i36) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i36) #17
   %.pre45 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert46 = getelementptr inbounds nuw i8, ptr %.pre45, i64 16
   %.pre47 = load i64, ptr %.phi.trans.insert46, align 8, !tbaa !54
@@ -13935,7 +13935,7 @@ smart_str_alloc.exit38:                           ; preds = %22, %28
 
 43:                                               ; preds = %37, %35
   %.0.i31 = phi i64 [ 8, %35 ], [ %40, %37 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i31) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i31) #17
   %.pre48 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert49 = getelementptr inbounds nuw i8, ptr %.pre48, i64 16
   %.pre50 = load i64, ptr %.phi.trans.insert49, align 8, !tbaa !54
@@ -13983,7 +13983,7 @@ smart_str_alloc.exit33:                           ; preds = %37, %43
 
 61:                                               ; preds = %55, %53
   %.0.i26 = phi i64 [ 13, %53 ], [ %58, %55 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i26) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i26) #17
   %.pre51 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert52 = getelementptr inbounds nuw i8, ptr %.pre51, i64 16
   %.pre53 = load i64, ptr %.phi.trans.insert52, align 8, !tbaa !54
@@ -14019,7 +14019,7 @@ smart_str_alloc.exit28:                           ; preds = %55, %61
 
 76:                                               ; preds = %70, %68
   %.0.i21 = phi i64 [ 15, %68 ], [ %73, %70 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i21) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i21) #17
   %.pre54 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert55 = getelementptr inbounds nuw i8, ptr %.pre54, i64 16
   %.pre56 = load i64, ptr %.phi.trans.insert55, align 8, !tbaa !54
@@ -14055,7 +14055,7 @@ smart_str_alloc.exit23:                           ; preds = %70, %76
 
 91:                                               ; preds = %85, %83
   %.0.i = phi i64 [ 12, %83 ], [ %88, %85 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i) #17
   %.pre57 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert58 = getelementptr inbounds nuw i8, ptr %.pre57, i64 16
   %.pre59 = load i64, ptr %.phi.trans.insert58, align 8, !tbaa !54
@@ -14131,7 +14131,7 @@ define internal fastcc void @zend_ast_export_type(ptr noundef nonnull %0, ptr no
 
 21:                                               ; preds = %16, %14
   %.0.i.i = phi i64 [ 1, %14 ], [ %19, %16 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #17
   %.pre52 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit
 
@@ -14176,7 +14176,7 @@ smart_str_appendc_ex.exit:                        ; preds = %16, %21
 
 41:                                               ; preds = %36, %34
   %.0.i.i32 = phi i64 [ 1, %34 ], [ %39, %36 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i32) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i32) #17
   %.pre = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit34
 
@@ -14224,7 +14224,7 @@ smart_str_appendc_ex.exit34:                      ; preds = %36, %41
 
 65:                                               ; preds = %59, %57
   %.0.i.i37 = phi i64 [ 1, %57 ], [ %62, %59 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i37) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i37) #17
   %.pre53 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit39
 
@@ -14305,7 +14305,7 @@ define internal fastcc void @zend_ast_export_stmt(ptr noundef nonnull %0, ptr no
 
 26:                                               ; preds = %21, %19
   %.0.i.i37 = phi i64 [ 4, %19 ], [ %24, %21 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i37) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i37) #17
   %.pre3.i = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
   %.pre4.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !54
@@ -14371,7 +14371,7 @@ zend_ast_export_indent.exit:                      ; preds = %smart_str_alloc.exi
 
 52:                                               ; preds = %46, %44
   %.0.i.i = phi i64 [ 1, %44 ], [ %49, %46 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #17
   %.pre = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit
 
@@ -14402,7 +14402,7 @@ smart_str_appendc_ex.exit:                        ; preds = %46, %52
 
 66:                                               ; preds = %60, %58
   %.0.i.i27 = phi i64 [ 1, %58 ], [ %63, %60 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i27) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i27) #17
   %.pre43 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit29
 
@@ -14438,7 +14438,7 @@ smart_str_appendc_ex.exit29:                      ; preds = %60, %66
 
 78:                                               ; preds = %.thread, %72
   %.0.i.i32 = phi i64 [ 1, %72 ], [ %75, %.thread ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i32) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i32) #17
   %.pre45 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit34
 
@@ -14483,7 +14483,7 @@ define internal fastcc void @zend_ast_export_indent(ptr noundef nonnull %0, i32 
 
 12:                                               ; preds = %7, %5
   %.0.i = phi i64 [ 4, %5 ], [ %10, %7 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i) #17
   %.pre3 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre3, i64 16
   %.pre4 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !54
@@ -14530,7 +14530,7 @@ define internal fastcc void @zend_ast_export_class_no_header(ptr noundef nonnull
 
 14:                                               ; preds = %8, %6
   %.0.i29 = phi i64 [ 9, %6 ], [ %11, %8 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i29) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i29) #17
   %.pre = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre33 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !54
@@ -14572,7 +14572,7 @@ smart_str_alloc.exit31:                           ; preds = %8, %14
 
 33:                                               ; preds = %27, %25
   %.0.i24 = phi i64 [ 12, %25 ], [ %30, %27 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i24) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i24) #17
   %.pre34 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert35 = getelementptr inbounds nuw i8, ptr %.pre34, i64 16
   %.pre36 = load i64, ptr %.phi.trans.insert35, align 8, !tbaa !54
@@ -14608,7 +14608,7 @@ smart_str_alloc.exit26:                           ; preds = %27, %33
 
 49:                                               ; preds = %43, %41
   %.0.i19 = phi i64 [ 3, %41 ], [ %46, %43 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i19) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i19) #17
   %.pre37 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert38 = getelementptr inbounds nuw i8, ptr %.pre37, i64 16
   %.pre39 = load i64, ptr %.phi.trans.insert38, align 8, !tbaa !54
@@ -14652,7 +14652,7 @@ smart_str_alloc.exit21:                           ; preds = %43, %49
 
 68:                                               ; preds = %63, %61
   %.0.i.i = phi i64 [ 4, %61 ], [ %66, %63 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #17
   %.pre3.i = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
   %.pre4.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !54
@@ -14693,7 +14693,7 @@ zend_ast_export_indent.exit.thread:               ; preds = %smart_str_alloc.exi
 
 82:                                               ; preds = %zend_ast_export_indent.exit.thread, %zend_ast_export_indent.exit
   %.0.i = phi i64 [ 1, %zend_ast_export_indent.exit ], [ %79, %zend_ast_export_indent.exit.thread ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i) #17
   %.pre42 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert43 = getelementptr inbounds nuw i8, ptr %.pre42, i64 16
   %.pre44 = load i64, ptr %.phi.trans.insert43, align 8, !tbaa !54
@@ -14755,7 +14755,7 @@ define internal fastcc void @zend_ast_export_list(ptr noundef nonnull %0, ptr no
 
 22:                                               ; preds = %17, %15
   %.0.i = phi i64 [ 2, %15 ], [ %20, %17 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i) #17
   %.pre = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre18 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !54
@@ -14876,7 +14876,7 @@ zend_ast_var_needs_braces.exit.thread:            ; preds = %30, %9, %zend_ast_v
 
 49:                                               ; preds = %44, %zend_ast_var_needs_braces.exit.thread
   %.0.i.i = phi i64 [ 1, %zend_ast_var_needs_braces.exit.thread ], [ %47, %44 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #17
   %.pre = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit
 
@@ -14904,7 +14904,7 @@ smart_str_appendc_ex.exit:                        ; preds = %44, %49
 
 61:                                               ; preds = %56, %smart_str_appendc_ex.exit
   %.0.i.i30 = phi i64 [ 1, %smart_str_appendc_ex.exit ], [ %59, %56 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i30) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i30) #17
   %.pre36 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit32
 
@@ -14983,7 +14983,7 @@ define internal fastcc void @zend_ast_export_if_stmt(ptr noundef nonnull %0, ptr
 
 27:                                               ; preds = %22, %21
   %.0.i51 = phi i64 [ 4, %21 ], [ %25, %22 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i51) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i51) #17
   %.pre103 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert104 = getelementptr inbounds nuw i8, ptr %.pre103, i64 16
   %.pre105 = load i64, ptr %.phi.trans.insert104, align 8, !tbaa !54
@@ -15017,7 +15017,7 @@ smart_str_alloc.exit53:                           ; preds = %22, %27
 
 39:                                               ; preds = %34, %.lr.ph.i
   %.0.i.i56 = phi i64 [ 4, %.lr.ph.i ], [ %37, %34 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i56) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i56) #17
   %.pre3.i = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
   %.pre4.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !54
@@ -15056,7 +15056,7 @@ zend_ast_export_indent.exit.thread:               ; preds = %smart_str_alloc.exi
 
 52:                                               ; preds = %zend_ast_export_indent.exit.thread, %zend_ast_export_indent.exit
   %.0.i46 = phi i64 [ 10, %zend_ast_export_indent.exit ], [ %50, %zend_ast_export_indent.exit.thread ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i46) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i46) #17
   %.pre100 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert101 = getelementptr inbounds nuw i8, ptr %.pre100, i64 16
   %.pre102 = load i64, ptr %.phi.trans.insert101, align 8, !tbaa !54
@@ -15092,7 +15092,7 @@ smart_str_alloc.exit48:                           ; preds = %zend_ast_export_ind
 
 67:                                               ; preds = %62, %57
   %.0.i41 = phi i64 [ 4, %57 ], [ %65, %62 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i41) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i41) #17
   %.pre106 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert107 = getelementptr inbounds nuw i8, ptr %.pre106, i64 16
   %.pre108 = load i64, ptr %.phi.trans.insert107, align 8, !tbaa !54
@@ -15131,7 +15131,7 @@ smart_str_alloc.exit43:                           ; preds = %62, %67
 
 82:                                               ; preds = %77, %.lr.ph.i58
   %.0.i.i63 = phi i64 [ 4, %.lr.ph.i58 ], [ %80, %77 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i63) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i63) #17
   %.pre3.i64 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert.i65 = getelementptr inbounds nuw i8, ptr %.pre3.i64, i64 16
   %.pre4.i66 = load i64, ptr %.phi.trans.insert.i65, align 8, !tbaa !54
@@ -15170,7 +15170,7 @@ zend_ast_export_indent.exit69.thread:             ; preds = %smart_str_alloc.exi
 
 95:                                               ; preds = %zend_ast_export_indent.exit69.thread, %zend_ast_export_indent.exit69
   %.0.i36 = phi i64 [ 7, %zend_ast_export_indent.exit69 ], [ %93, %zend_ast_export_indent.exit69.thread ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i36) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i36) #17
   %.pre111 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert112 = getelementptr inbounds nuw i8, ptr %.pre111, i64 16
   %.pre113 = load i64, ptr %.phi.trans.insert112, align 8, !tbaa !54
@@ -15203,7 +15203,7 @@ smart_str_alloc.exit38:                           ; preds = %zend_ast_export_ind
   br i1 %.not12.i, label %smart_str_alloc.exit, label %110, !prof !104
 
 110:                                              ; preds = %107
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %108) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %108) #17
   %.pre114 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert115 = getelementptr inbounds nuw i8, ptr %.pre114, i64 16
   %.pre116 = load i64, ptr %.phi.trans.insert115, align 8, !tbaa !54
@@ -15255,7 +15255,7 @@ smart_str_alloc.exit:                             ; preds = %107, %110
 
 130:                                              ; preds = %125, %123
   %.0.i.i75 = phi i64 [ 4, %123 ], [ %128, %125 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i75) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i75) #17
   %.pre3.i76 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert.i77 = getelementptr inbounds nuw i8, ptr %.pre3.i76, i64 16
   %.pre4.i78 = load i64, ptr %.phi.trans.insert.i77, align 8, !tbaa !54
@@ -15296,7 +15296,7 @@ zend_ast_export_indent.exit81.thread:             ; preds = %smart_str_alloc.exi
 
 144:                                              ; preds = %zend_ast_export_indent.exit81.thread, %zend_ast_export_indent.exit81
   %.0.i.i = phi i64 [ 1, %zend_ast_export_indent.exit81 ], [ %141, %zend_ast_export_indent.exit81.thread ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #17
   %.pre119 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit
 
@@ -15344,7 +15344,7 @@ define internal fastcc void @zend_ast_export_var_list(ptr noundef nonnull %0, pt
 
 16:                                               ; preds = %11, %9
   %.0.i = phi i64 [ 2, %9 ], [ %14, %11 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i) #17
   %.pre = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre23 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !54
@@ -15386,7 +15386,7 @@ smart_str_alloc.exit:                             ; preds = %11, %16
 
 35:                                               ; preds = %30, %29
   %.0.i.i = phi i64 [ 1, %29 ], [ %33, %30 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #17
   %.pre24 = load ptr, ptr %0, align 8, !tbaa !137
   br label %.thread
 
@@ -15419,7 +15419,7 @@ smart_str_alloc.exit:                             ; preds = %11, %16
 
 47:                                               ; preds = %42, %41
   %.0.i.i15 = phi i64 [ 1, %41 ], [ %45, %42 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i15) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i15) #17
   %.pre28 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit17
 
@@ -15455,7 +15455,7 @@ smart_str_appendc_ex.exit17:                      ; preds = %42, %47
   br i1 %.not12.i.i.i, label %69, label %68, !prof !104
 
 68:                                               ; preds = %60
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %66) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %66) #17
   %.pre29 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert30 = getelementptr inbounds nuw i8, ptr %.pre29, i64 16
   %.pre31 = load i64, ptr %.phi.trans.insert30, align 8, !tbaa !54
@@ -15505,7 +15505,7 @@ define internal fastcc void @zend_ast_export_name_list_ex(ptr noundef nonnull %0
   br i1 %.not, label %25, label %10
 
 10:                                               ; preds = %9
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #19
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #20
   %12 = load ptr, ptr %0, align 8, !tbaa !137
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %18, label %13, !prof !13
@@ -15520,7 +15520,7 @@ define internal fastcc void @zend_ast_export_name_list_ex(ptr noundef nonnull %0
 
 18:                                               ; preds = %13, %10
   %.0.i = phi i64 [ %11, %10 ], [ %16, %13 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i) #17
   %.pre = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre12 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !54
@@ -15571,7 +15571,7 @@ smart_str_alloc.exit:                             ; preds = %13, %18
 
 46:                                               ; preds = %41, %34
   %.0.i.i.i = phi i64 [ %39, %34 ], [ %44, %41 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i.i) #17
   %.pre13 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert14 = getelementptr inbounds nuw i8, ptr %.pre13, i64 16
   %.pre15 = load i64, ptr %.phi.trans.insert14, align 8, !tbaa !54
@@ -15681,7 +15681,7 @@ zend_ast_valid_var_name.exit:                     ; preds = %22, %.preheader.i
 
 39:                                               ; preds = %33, %zend_ast_valid_var_name.exit
   %.0.i.i = phi i64 [ %14, %zend_ast_valid_var_name.exit ], [ %36, %33 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #17
   %.pre = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre30 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !54
@@ -15719,7 +15719,7 @@ zend_ast_valid_var_name.exit:                     ; preds = %22, %.preheader.i
 
 55:                                               ; preds = %49, %.thread
   %.0.i.i19 = phi i64 [ 1, %.thread ], [ %52, %49 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i19) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i19) #17
   %.pre31 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit
 
@@ -15755,7 +15755,7 @@ smart_str_appendc_ex.exit:                        ; preds = %49, %55
   br i1 %.not12.i.i.i, label %zend_ast_export_name.exit.thread, label %76, !prof !104
 
 76:                                               ; preds = %67
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %73) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %73) #17
   %.pre32 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert33 = getelementptr inbounds nuw i8, ptr %.pre32, i64 16
   %.pre34 = load i64, ptr %.phi.trans.insert33, align 8, !tbaa !54
@@ -15794,7 +15794,7 @@ zend_ast_export_name.exit._crit_edge:             ; preds = %zend_ast_export_nam
 
 89:                                               ; preds = %83, %zend_ast_export_name.exit
   %.0.i.i23 = phi i64 [ 1, %zend_ast_export_name.exit ], [ %86, %83 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i23) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i23) #17
   %.pre37 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit25
 
@@ -15850,7 +15850,7 @@ define internal fastcc void @zend_ast_export_ns_name(ptr noundef nonnull %0, ptr
 
 21:                                               ; preds = %15, %14
   %.0.i.i16 = phi i64 [ 1, %14 ], [ %18, %15 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i16) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i16) #17
   %.pre21 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit
 
@@ -15877,7 +15877,7 @@ smart_str_appendc_ex.exit:                        ; preds = %15, %21
 
 32:                                               ; preds = %26, %25
   %.0.i = phi i64 [ 10, %25 ], [ %29, %26 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i) #17
   %.pre = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre20 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !54
@@ -15927,7 +15927,7 @@ smart_str_alloc.exit:                             ; preds = %26, %32
   %58 = phi i64 [ %47, %43 ], [ %49, %48 ]
   %59 = phi ptr [ %45, %43 ], [ %50, %48 ]
   %.0.i.i = phi i64 [ %47, %43 ], [ %54, %48 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #17
   %.pre22 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert23 = getelementptr inbounds nuw i8, ptr %.pre22, i64 16
   %.pre24 = load i64, ptr %.phi.trans.insert23, align 8, !tbaa !54
@@ -16000,7 +16000,7 @@ define internal fastcc void @zend_ast_export_qstr(ptr noundef nonnull %0, i8 nou
 
 20:                                               ; preds = %15, %14
   %.0.i57 = phi i64 [ 2, %14 ], [ %18, %15 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i57) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i57) #17
   %.pre95 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert96 = getelementptr inbounds nuw i8, ptr %.pre95, i64 16
   %.pre97 = load i64, ptr %.phi.trans.insert96, align 8, !tbaa !54
@@ -16028,7 +16028,7 @@ smart_str_alloc.exit59:                           ; preds = %15, %20
 
 31:                                               ; preds = %26, %25
   %.0.i52 = phi i64 [ 2, %25 ], [ %29, %26 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i52) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i52) #17
   %.pre92 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert93 = getelementptr inbounds nuw i8, ptr %.pre92, i64 16
   %.pre94 = load i64, ptr %.phi.trans.insert93, align 8, !tbaa !54
@@ -16056,7 +16056,7 @@ smart_str_alloc.exit54:                           ; preds = %26, %31
 
 42:                                               ; preds = %37, %36
   %.0.i47 = phi i64 [ 2, %36 ], [ %40, %37 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i47) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i47) #17
   %.pre89 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert90 = getelementptr inbounds nuw i8, ptr %.pre89, i64 16
   %.pre91 = load i64, ptr %.phi.trans.insert90, align 8, !tbaa !54
@@ -16084,7 +16084,7 @@ smart_str_alloc.exit49:                           ; preds = %37, %42
 
 53:                                               ; preds = %48, %47
   %.0.i42 = phi i64 [ 2, %47 ], [ %51, %48 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i42) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i42) #17
   %.pre86 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert87 = getelementptr inbounds nuw i8, ptr %.pre86, i64 16
   %.pre88 = load i64, ptr %.phi.trans.insert87, align 8, !tbaa !54
@@ -16112,7 +16112,7 @@ smart_str_alloc.exit44:                           ; preds = %48, %53
 
 64:                                               ; preds = %59, %58
   %.0.i37 = phi i64 [ 2, %58 ], [ %62, %59 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i37) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i37) #17
   %.pre83 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert84 = getelementptr inbounds nuw i8, ptr %.pre83, i64 16
   %.pre85 = load i64, ptr %.phi.trans.insert84, align 8, !tbaa !54
@@ -16140,7 +16140,7 @@ smart_str_alloc.exit39:                           ; preds = %59, %64
 
 75:                                               ; preds = %70, %69
   %.0.i32 = phi i64 [ 2, %69 ], [ %73, %70 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i32) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i32) #17
   %.pre80 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert81 = getelementptr inbounds nuw i8, ptr %.pre80, i64 16
   %.pre82 = load i64, ptr %.phi.trans.insert81, align 8, !tbaa !54
@@ -16168,7 +16168,7 @@ smart_str_alloc.exit34:                           ; preds = %70, %75
 
 86:                                               ; preds = %81, %80
   %.0.i = phi i64 [ 2, %80 ], [ %84, %81 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i) #17
   %.pre98 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert99 = getelementptr inbounds nuw i8, ptr %.pre98, i64 16
   %.pre100 = load i64, ptr %.phi.trans.insert99, align 8, !tbaa !54
@@ -16192,7 +16192,7 @@ smart_str_alloc.exit34:                           ; preds = %70, %75
   br i1 %.not12.i.i, label %99, label %98, !prof !104
 
 98:                                               ; preds = %87
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %96) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %96) #17
   %.pre101 = load ptr, ptr %0, align 8, !tbaa !137
   br label %99
 
@@ -16212,7 +16212,7 @@ smart_str_alloc.exit34:                           ; preds = %70, %75
   br i1 %.not12.i.i61, label %smart_str_appendc_ex.exit64, label %109, !prof !104
 
 109:                                              ; preds = %99
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %107) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %107) #17
   %.pre102 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit64
 
@@ -16248,7 +16248,7 @@ switch.early.test:                                ; preds = %113
 
 122:                                              ; preds = %117, %115
   %.0.i.i67 = phi i64 [ 1, %115 ], [ %120, %117 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i67) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i67) #17
   %.pre = load ptr, ptr %0, align 8, !tbaa !137
   br label %.thread
 
@@ -16283,7 +16283,7 @@ switch.early.test:                                ; preds = %113
 
 134:                                              ; preds = %129, %128
   %.0.i.i72 = phi i64 [ 1, %128 ], [ %132, %129 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i72) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i72) #17
   %.pre79 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit74
 
@@ -16342,7 +16342,7 @@ define internal fastcc void @zend_ast_export_name(ptr noundef nonnull %0, ptr no
 
 24:                                               ; preds = %18, %11
   %.0.i.i = phi i64 [ %16, %11 ], [ %21, %18 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #17
   %.pre = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre9 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !54
@@ -16385,7 +16385,7 @@ define internal fastcc void @zend_ast_export_hook_list(ptr noundef nonnull %0, p
 
 11:                                               ; preds = %5, %3
   %.0.i54 = phi i64 [ 2, %3 ], [ %8, %5 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i54) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i54) #17
   %.pre = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre139 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !54
@@ -16408,7 +16408,7 @@ define internal fastcc void @zend_ast_export_hook_list(ptr noundef nonnull %0, p
   br i1 %.not12.i.i58, label %smart_str_appendc_ex.exit, label %22, !prof !104
 
 22:                                               ; preds = %12
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %19) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %19) #17
   %.pre140 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit
 
@@ -16434,7 +16434,7 @@ smart_str_appendc_ex.exit:                        ; preds = %12, %22
   br i1 %.not12.i.i92, label %smart_str_alloc.exit.i, label %34, !prof !104
 
 34:                                               ; preds = %.lr.ph.i
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %32) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %32) #17
   %.pre3.i = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
   %.pre4.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !54
@@ -16475,7 +16475,7 @@ zend_ast_export_indent.exit:                      ; preds = %smart_str_alloc.exi
   br i1 %.not12.i.i82, label %smart_str_appendc_ex.exit85, label %53, !prof !104
 
 53:                                               ; preds = %._crit_edge
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %51) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %51) #17
   %.pre162 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit85
 
@@ -16500,7 +16500,7 @@ smart_str_appendc_ex.exit85:                      ; preds = %._crit_edge, %53
   br i1 %.not12.i.i99, label %smart_str_alloc.exit.i104, label %64, !prof !104
 
 64:                                               ; preds = %.lr.ph.i95
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %62) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %62) #17
   %.pre3.i101 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert.i102 = getelementptr inbounds nuw i8, ptr %.pre3.i101, i64 16
   %.pre4.i103 = load i64, ptr %.phi.trans.insert.i102, align 8, !tbaa !54
@@ -16528,7 +16528,7 @@ zend_ast_export_indent.exit106:                   ; preds = %smart_str_alloc.exi
   br i1 %.not12.i.i87, label %smart_str_appendc_ex.exit90, label %77, !prof !104
 
 77:                                               ; preds = %zend_ast_export_indent.exit106
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %75) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %75) #17
   %.pre163 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit90
 
@@ -16569,7 +16569,7 @@ smart_str_appendc_ex.exit90:                      ; preds = %zend_ast_export_ind
 
 96:                                               ; preds = %91, %90
   %.0.i49 = phi i64 [ 6, %90 ], [ %94, %91 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i49) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i49) #17
   %.pre141 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert142 = getelementptr inbounds nuw i8, ptr %.pre141, i64 16
   %.pre143 = load i64, ptr %.phi.trans.insert142, align 8, !tbaa !54
@@ -16620,7 +16620,7 @@ smart_str_appendc_ex.exit90:                      ; preds = %zend_ast_export_ind
   %122 = phi i64 [ %113, %108 ], [ %116, %114 ]
   %123 = phi ptr [ %111, %108 ], [ %117, %114 ]
   %.0.i.i = phi i64 [ %113, %108 ], [ %119, %114 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #17
   %.pre147 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert148 = getelementptr inbounds nuw i8, ptr %.pre147, i64 16
   %.pre149 = load i64, ptr %.phi.trans.insert148, align 8, !tbaa !54
@@ -16661,7 +16661,7 @@ smart_str_append_ex.exit:                         ; preds = %114, %121
   br i1 %.not12.i43, label %smart_str_alloc.exit46, label %144, !prof !104
 
 144:                                              ; preds = %142
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %143) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %143) #17
   %.pre156 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert157 = getelementptr inbounds nuw i8, ptr %.pre156, i64 16
   %.pre158 = load i64, ptr %.phi.trans.insert157, align 8, !tbaa !54
@@ -16697,7 +16697,7 @@ smart_str_alloc.exit46:                           ; preds = %142, %144
   br i1 %.not12.i, label %smart_str_alloc.exit, label %161, !prof !104
 
 161:                                              ; preds = %159
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %160) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %160) #17
   %.pre150 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert151 = getelementptr inbounds nuw i8, ptr %.pre150, i64 16
   %.pre152 = load i64, ptr %.phi.trans.insert151, align 8, !tbaa !54
@@ -16732,7 +16732,7 @@ smart_str_alloc.exit:                             ; preds = %159, %161
 
 174:                                              ; preds = %169, %.lr.ph.i107
   %.0.i.i112 = phi i64 [ 4, %.lr.ph.i107 ], [ %172, %169 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i112) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i112) #17
   %.pre3.i113 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert.i114 = getelementptr inbounds nuw i8, ptr %.pre3.i113, i64 16
   %.pre4.i115 = load i64, ptr %.phi.trans.insert.i114, align 8, !tbaa !54
@@ -16772,7 +16772,7 @@ zend_ast_export_indent.exit118.thread:            ; preds = %smart_str_alloc.exi
 smart_str_appendc_ex.exit65.sink.split:           ; preds = %zend_ast_export_indent.exit118, %zend_ast_export_indent.exit118.thread, %smart_str_alloc.exit46, %154, %135
   %.0.i.i73.sink = phi i64 [ %136, %135 ], [ 1, %smart_str_alloc.exit46 ], [ %157, %154 ], [ 1, %zend_ast_export_indent.exit118 ], [ %185, %zend_ast_export_indent.exit118.thread ]
   %.sink.ph = phi i8 [ 59, %135 ], [ 59, %smart_str_alloc.exit46 ], [ 59, %154 ], [ 125, %zend_ast_export_indent.exit118 ], [ 125, %zend_ast_export_indent.exit118.thread ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i73.sink) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i73.sink) #17
   %.pre155 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit65
 
@@ -16799,7 +16799,7 @@ smart_str_appendc_ex.exit65:                      ; preds = %smart_str_appendc_e
   br i1 %.not12.i.i77, label %smart_str_appendc_ex.exit80, label %198, !prof !104
 
 198:                                              ; preds = %195
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %196) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %196) #17
   %.pre161 = load ptr, ptr %0, align 8, !tbaa !137
   br label %smart_str_appendc_ex.exit80
 
@@ -16823,7 +16823,7 @@ smart_str_appendc_ex.exit80:                      ; preds = %195, %198
   br i1 %.not12.i.i123, label %smart_str_alloc.exit.i128, label %208, !prof !104
 
 208:                                              ; preds = %.lr.ph.i119
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %206) #16
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %206) #17
   %.pre3.i125 = load ptr, ptr %0, align 8, !tbaa !137
   %.phi.trans.insert.i126 = getelementptr inbounds nuw i8, ptr %.pre3.i125, i64 16
   %.pre4.i127 = load i64, ptr %.phi.trans.insert.i126, align 8, !tbaa !54
@@ -16859,16 +16859,16 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.cttz.i16(i16, i1 immarg) #14
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -16885,12 +16885,13 @@ attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind allocsize(0) }
-attributes #16 = { nounwind }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { "function-inline-cost-multiplier"="2" }
-attributes #19 = { nounwind willreturn memory(read) }
+attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nounwind allocsize(0) }
+attributes #17 = { nounwind }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { "function-inline-cost-multiplier"="2" }
+attributes #20 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

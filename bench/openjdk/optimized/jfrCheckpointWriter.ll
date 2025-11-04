@@ -56,7 +56,7 @@ $_ZGVZ19compressed_integersvE13comp_integers = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18JfrCheckpointFlushC2EP9JfrBuffermmP6Thread(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
-  %6 = tail call noundef ptr @_ZN20JfrCheckpointManager5flushEP9JfrBuffermmP6Thread(ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) #9
+  %6 = tail call noundef ptr @_ZN20JfrCheckpointManager5flushEP9JfrBuffermmP6Thread(ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) #10
   store ptr %6, ptr %0, align 8
   ret void
 }
@@ -68,11 +68,11 @@ define hidden void @_ZN19JfrCheckpointWriterC2Eb17JfrCheckpointType23JfrCheckpoi
   %5 = zext i1 %1 to i8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call noundef ptr @_ZN20JfrCheckpointManager7acquireEP6Thread23JfrCheckpointBufferKindbm(ptr noundef %7, i32 noundef %3, i1 noundef zeroext false, i64 noundef 0) #9
+  %8 = tail call noundef ptr @_ZN20JfrCheckpointManager7acquireEP6Thread23JfrCheckpointBufferKindbm(ptr noundef %7, i32 noundef %3, i1 noundef zeroext false, i64 noundef 0) #10
   %9 = load ptr, ptr %6, align 8
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEEC2I9JfrBufferEEPT_P6Thread(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef %8, ptr noundef %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #9
+  %11 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #10
   store i64 %11, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %12, align 8
@@ -107,7 +107,7 @@ define hidden void @_ZN19JfrCheckpointWriterC2Eb17JfrCheckpointType23JfrCheckpoi
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call noundef ptr @_ZN20JfrCheckpointManager5flushEP9JfrBuffermmP6Thread(ptr noundef %31, i64 noundef %29, i64 noundef 32, ptr noundef %33) #9
+  %34 = tail call noundef ptr @_ZN20JfrCheckpointManager5flushEP9JfrBuffermmP6Thread(ptr noundef %31, i64 noundef %29, i64 noundef 32, ptr noundef %33) #10
   store ptr %34, ptr %30, align 8
   %.not5.i.i = icmp eq ptr %34, null
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i
@@ -158,10 +158,10 @@ declare noundef ptr @_ZN20JfrCheckpointManager7acquireEP6Thread23JfrCheckpointBu
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19JfrCheckpointWriterC2EP6Threadb17JfrCheckpointType23JfrCheckpointBufferKind(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   %6 = zext i1 %2 to i8
-  %7 = tail call noundef ptr @_ZN20JfrCheckpointManager7acquireEP6Thread23JfrCheckpointBufferKindbm(ptr noundef %1, i32 noundef %4, i1 noundef zeroext false, i64 noundef 0) #9
+  %7 = tail call noundef ptr @_ZN20JfrCheckpointManager7acquireEP6Thread23JfrCheckpointBufferKindbm(ptr noundef %1, i32 noundef %4, i1 noundef zeroext false, i64 noundef 0) #10
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEEC2I9JfrBufferEEPT_P6Thread(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef %7, ptr noundef %1)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #9
+  %9 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #10
   store i64 %9, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %10, align 8
@@ -196,7 +196,7 @@ define hidden void @_ZN19JfrCheckpointWriterC2EP6Threadb17JfrCheckpointType23Jfr
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call noundef ptr @_ZN20JfrCheckpointManager5flushEP9JfrBuffermmP6Thread(ptr noundef %29, i64 noundef %27, i64 noundef 32, ptr noundef %31) #9
+  %32 = tail call noundef ptr @_ZN20JfrCheckpointManager5flushEP9JfrBuffermmP6Thread(ptr noundef %29, i64 noundef %27, i64 noundef 32, ptr noundef %31) #10
   store ptr %32, ptr %28, align 8
   %.not5.i.i = icmp eq ptr %32, null
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i
@@ -245,10 +245,10 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19JfrCheckpointWriterC2EbP6Threadb17JfrCheckpointType(ptr noundef nonnull align 8 dereferenceable(73) %0, i1 noundef zeroext %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 align 2 {
   %6 = zext i1 %3 to i8
-  %7 = tail call noundef ptr @_ZN20JfrCheckpointManager12lease_globalEP6Threadbm(ptr noundef %2, i1 noundef zeroext %1, i64 noundef 0) #9
+  %7 = tail call noundef ptr @_ZN20JfrCheckpointManager12lease_globalEP6Threadbm(ptr noundef %2, i1 noundef zeroext %1, i64 noundef 0) #10
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEEC2I9JfrBufferEEPT_P6Thread(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef %7, ptr noundef %2)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #9
+  %9 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #10
   store i64 %9, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %10, align 8
@@ -283,7 +283,7 @@ define hidden void @_ZN19JfrCheckpointWriterC2EbP6Threadb17JfrCheckpointType(ptr
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call noundef ptr @_ZN20JfrCheckpointManager5flushEP9JfrBuffermmP6Thread(ptr noundef %29, i64 noundef %27, i64 noundef 32, ptr noundef %31) #9
+  %32 = tail call noundef ptr @_ZN20JfrCheckpointManager5flushEP9JfrBuffermmP6Thread(ptr noundef %29, i64 noundef %27, i64 noundef 32, ptr noundef %31) #10
   store ptr %32, ptr %28, align 8
   %.not5.i.i = icmp eq ptr %32, null
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i
@@ -357,7 +357,7 @@ _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i: ; pre
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
   store volatile ptr %11, ptr %16, align 8
   br label %_ZN19JfrCheckpointWriter7releaseEv.exit.sink.split
 
@@ -381,7 +381,7 @@ _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i5: ; pr
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
   store volatile ptr %25, ptr %30, align 8
   br label %_ZN19JfrCheckpointWriter7releaseEv.exit.sink.split
 
@@ -410,7 +410,7 @@ _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i8: ; pr
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
   store volatile ptr %43, ptr %48, align 8
   br label %_ZN19JfrCheckpointWriter7releaseEv.exit.sink.split
 
@@ -426,14 +426,14 @@ _ZN19JfrCheckpointWriter7releaseEv.exit:          ; preds = %_ZN19JfrCheckpointW
   br i1 %.not.i.i.i.i.i.i, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEED2Ev.exit, label %51
 
 51:                                               ; preds = %_ZN19JfrCheckpointWriter7releaseEv.exit
-  %52 = tail call noundef zeroext i1 @_ZNK9JfrBuffer5leaseEv(ptr noundef nonnull align 8 dereferenceable(48) %50) #9
+  %52 = tail call noundef zeroext i1 @_ZNK9JfrBuffer5leaseEv(ptr noundef nonnull align 8 dereferenceable(48) %50) #10
   br i1 %52, label %53, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEED2Ev.exit
 
 53:                                               ; preds = %51
   %54 = load ptr, ptr %49, align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call noundef ptr @_ZN20JfrCheckpointManager5flushEP9JfrBuffermmP6Thread(ptr noundef %54, i64 noundef 0, i64 noundef 0, ptr noundef %56) #9
+  %57 = tail call noundef ptr @_ZN20JfrCheckpointManager5flushEP9JfrBuffermmP6Thread(ptr noundef %54, i64 noundef 0, i64 noundef 0, ptr noundef %56) #10
   store ptr %57, ptr %49, align 8
   br label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEED2Ev.exit
 
@@ -459,7 +459,7 @@ _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit: ; preds
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
   store volatile ptr %6, ptr %11, align 8
   store ptr %6, ptr %0, align 8
   br label %12
@@ -484,15 +484,15 @@ define internal fastcc void @_ZL23write_checkpoint_headerPhlljj(ptr noundef %0, 
   br i1 %8, label %9, label %_ZN18JfrBigEndianWriterC2IhEEPT_m.exit, !prof !7
 
 9:                                                ; preds = %5
-  %10 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ19compressed_integersvE13comp_integers) #9
+  %10 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ19compressed_integersvE13comp_integers) #10
   %.not.i.i.i = icmp eq i32 %10, 0
   br i1 %.not.i.i.i, label %_ZN18JfrBigEndianWriterC2IhEEPT_m.exit, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call noundef zeroext i1 @_ZN12JfrOptionSet19compressed_integersEv() #9
+  %12 = tail call noundef zeroext i1 @_ZN12JfrOptionSet19compressed_integersEv() #10
   %13 = zext i1 %12 to i8
   store i8 %13, ptr @_ZZ19compressed_integersvE13comp_integers, align 1
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZ19compressed_integersvE13comp_integers) #9
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZ19compressed_integersvE13comp_integers) #10
   br label %_ZN18JfrBigEndianWriterC2IhEEPT_m.exit
 
 _ZN18JfrBigEndianWriterC2IhEEPT_m.exit:           ; preds = %5, %9, %11
@@ -532,7 +532,7 @@ _ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i.i10: ; preds = %_Z
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i15: ; preds = %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i.i12, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i.i10
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #9
+  %25 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #10
   %26 = sub nsw i64 %25, %2
   %27 = ptrtoint ptr %24 to i64
   %28 = tail call noundef i64 @llvm.bswap.i64(i64 %26)
@@ -577,7 +577,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18
   br i1 %.not.i.i29, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeIjEEvT_.exit33, label %44
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeIjEEvT_.exit: ; preds = %_ZN18JfrBigEndianWriterC2IhEEPT_m.exit
-  %43 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #9
+  %43 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #10
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeIjEEvT_.exit33
 
 44:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSA_.exit.i.i
@@ -641,7 +641,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef ptr @_ZN20JfrCheckpointManager5flushEP9JfrBuffermmP6Thread(ptr noundef %17, i64 noundef %15, i64 noundef 9, ptr noundef %19) #9
+  %20 = tail call noundef ptr @_ZN20JfrCheckpointManager5flushEP9JfrBuffermmP6Thread(ptr noundef %17, i64 noundef %15, i64 noundef 9, ptr noundef %19) #10
   store ptr %20, ptr %16, align 8
   %.not5.i.i = icmp eq ptr %20, null
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i
@@ -865,7 +865,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef ptr @_ZN20JfrCheckpointManager5flushEP9JfrBuffermmP6Thread(ptr noundef %17, i64 noundef %15, i64 noundef 5, ptr noundef %19) #9
+  %20 = tail call noundef ptr @_ZN20JfrCheckpointManager5flushEP9JfrBuffermmP6Thread(ptr noundef %17, i64 noundef %15, i64 noundef 5, ptr noundef %19) #10
   store ptr %20, ptr %16, align 8
   %.not5.i.i = icmp eq ptr %20, null
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i
@@ -1015,7 +1015,7 @@ define hidden void @_ZN19JfrCheckpointWriter11write_countEjl(ptr noundef nonnull
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call noundef ptr @_ZN20JfrCheckpointManager5flushEP9JfrBuffermmP6Thread(ptr noundef %20, i64 noundef %2, i64 noundef 4, ptr noundef %22) #9
+  %23 = tail call noundef ptr @_ZN20JfrCheckpointManager5flushEP9JfrBuffermmP6Thread(ptr noundef %20, i64 noundef %2, i64 noundef 4, ptr noundef %22) #10
   store ptr %23, ptr %19, align 8
   %.not5.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not5.i.i.i.i, label %.sink.split.i.i.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i
@@ -1281,7 +1281,7 @@ define hidden void @_ZN19JfrCheckpointWriter4copyEPK20JfrCheckpointContext(ptr d
 _ZN19JfrCheckpointWriter12session_dataEPmbPK20JfrCheckpointContext.exit: ; preds = %16, %26, %3, %7
   %.0 = phi i64 [ %15, %7 ], [ 0, %3 ], [ %22, %26 ], [ %22, %16 ]
   %.0.i = phi ptr [ %10, %7 ], [ null, %3 ], [ %.pre.i.pre, %26 ], [ %19, %16 ]
-  tail call void @_ZN7JfrBlob4makeEPKhm(ptr dead_on_unwind writable sret(%class.RefCountHandle) align 8 %0, ptr noundef %.0.i, i64 noundef %.0) #9
+  tail call void @_ZN7JfrBlob4makeEPKhm(ptr dead_on_unwind writable sret(%class.RefCountHandle) align 8 %0, ptr noundef %.0.i, i64 noundef %.0) #10
   ret void
 }
 
@@ -1307,7 +1307,7 @@ _ZN19JfrCheckpointWriter12session_dataEPmbPK20JfrCheckpointContext.exit.thread11
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %9 to i64
   %14 = sub i64 %12, %13
-  tail call void @_ZN7JfrBlob4makeEPKhm(ptr dead_on_unwind writable sret(%class.RefCountHandle) align 8 %0, ptr noundef %9, i64 noundef %14) #9
+  tail call void @_ZN7JfrBlob4makeEPKhm(ptr dead_on_unwind writable sret(%class.RefCountHandle) align 8 %0, ptr noundef %9, i64 noundef %14) #10
   br label %36
 
 15:                                               ; preds = %6
@@ -1346,11 +1346,11 @@ _ZN19JfrCheckpointWriter12session_dataEPmbPK20JfrCheckpointContext.exit.thread11
 
 _ZN19JfrCheckpointWriter12session_dataEPmbPK20JfrCheckpointContext.exit.thread: ; preds = %25, %.thread
   %.pre.i20 = phi ptr [ %.pre.i.pre, %25 ], [ %.pre.i19, %.thread ]
-  tail call void @_ZN7JfrBlob4makeEPKhm(ptr dead_on_unwind writable sret(%class.RefCountHandle) align 8 %0, ptr noundef %.pre.i20, i64 noundef %21) #9
+  tail call void @_ZN7JfrBlob4makeEPKhm(ptr dead_on_unwind writable sret(%class.RefCountHandle) align 8 %0, ptr noundef %.pre.i20, i64 noundef %21) #10
   br label %44
 
 _ZN19JfrCheckpointWriter12session_dataEPmbPK20JfrCheckpointContext.exit: ; preds = %3
-  tail call void @_ZN7JfrBlob4makeEPKhm(ptr dead_on_unwind writable sret(%class.RefCountHandle) align 8 %0, ptr noundef null, i64 noundef 0) #9
+  tail call void @_ZN7JfrBlob4makeEPKhm(ptr dead_on_unwind writable sret(%class.RefCountHandle) align 8 %0, ptr noundef null, i64 noundef 0) #10
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %44, label %36
 
@@ -1386,7 +1386,7 @@ define internal void @__cxx_global_var_init.4() #5 section ".text.startup" comda
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 162, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 162, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -1395,7 +1395,7 @@ define internal void @__cxx_global_var_init.4() #5 section ".text.startup" comda
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #9
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #10
   ret i64 %3
 }
 
@@ -1409,7 +1409,7 @@ define internal void @__cxx_global_var_init.5() #5 section ".text.startup" comda
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -1418,7 +1418,7 @@ define internal void @__cxx_global_var_init.5() #5 section ".text.startup" comda
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #9
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #10
   ret i64 %3
 }
 
@@ -1430,7 +1430,7 @@ define internal void @__cxx_global_var_init.6() #5 section ".text.startup" comda
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 107, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 107, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -1439,7 +1439,7 @@ define internal void @__cxx_global_var_init.6() #5 section ".text.startup" comda
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #9
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #10
   ret i64 %3
 }
 
@@ -1451,7 +1451,7 @@ define internal void @__cxx_global_var_init.7() #5 section ".text.startup" comda
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 80, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 80, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -1460,7 +1460,7 @@ define internal void @__cxx_global_var_init.7() #5 section ".text.startup" comda
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #9
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #10
   ret i64 %3
 }
 
@@ -1475,11 +1475,11 @@ declare noundef zeroext i1 @_ZN12JfrOptionSet19compressed_integersEv() local_unn
 ; Function Attrs: nofree nounwind
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #6
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.bswap.i64(i64) #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #6
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.bswap.i32(i32) #8
 
 declare noundef zeroext i1 @_ZNK9JfrBuffer5leaseEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
@@ -1499,7 +1499,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
 
 _ZN16MemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObj21ExclusiveAccessAssertEC2EP9JfrBufferP6Thread.exit.thread.i: ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = tail call noundef ptr @_ZN20JfrCheckpointManager5flushEP9JfrBuffermmP6Thread(ptr noundef null, i64 noundef 0, i64 noundef 0, ptr noundef %2) #9
+  %7 = tail call noundef ptr @_ZN20JfrCheckpointManager5flushEP9JfrBuffermmP6Thread(ptr noundef null, i64 noundef 0, i64 noundef 0, ptr noundef %2) #10
   store ptr %7, ptr %4, align 8
   %.not1.i.i.i = icmp eq ptr %7, null
   br i1 %.not1.i.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE5flushEv.exit.i.i, label %19
@@ -1547,15 +1547,15 @@ _ZN30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEC2EP
   br i1 %31, label %32, label %_Z19compressed_integersv.exit, !prof !7
 
 32:                                               ; preds = %_ZN30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEC2EP9JfrBufferP6Thread.exit
-  %33 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ19compressed_integersvE13comp_integers) #9
+  %33 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ19compressed_integersvE13comp_integers) #10
   %.not.i = icmp eq i32 %33, 0
   br i1 %.not.i, label %_Z19compressed_integersv.exit, label %34
 
 34:                                               ; preds = %32
-  %35 = tail call noundef zeroext i1 @_ZN12JfrOptionSet19compressed_integersEv() #9
+  %35 = tail call noundef zeroext i1 @_ZN12JfrOptionSet19compressed_integersEv() #10
   %36 = zext i1 %35 to i8
   store i8 %36, ptr @_ZZ19compressed_integersvE13comp_integers, align 1
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZ19compressed_integersvE13comp_integers) #9
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZ19compressed_integersvE13comp_integers) #10
   br label %_Z19compressed_integersv.exit
 
 _Z19compressed_integersv.exit:                    ; preds = %_ZN30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEC2EP9JfrBufferP6Thread.exit, %32, %34
@@ -1567,7 +1567,7 @@ _Z19compressed_integersv.exit:                    ; preds = %_ZN30AcquireRelease
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1577,8 +1577,9 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nofree nounwind }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nounwind }
+attributes #8 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

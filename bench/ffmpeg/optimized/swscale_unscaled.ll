@@ -120,13 +120,13 @@ define void @ff_get_unscaled_swscale(ptr noundef %0) local_unnamed_addr #2 {
   %9 = load i32, ptr %8, align 4, !tbaa !31
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i32, ptr %10, align 16, !tbaa !32
-  %12 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %12 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %13, label %isAnyRGB.exit
 
 13:                                               ; preds = %1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 859) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 859) #14
+  tail call void @abort() #15
   unreachable
 
 isAnyRGB.exit:                                    ; preds = %1
@@ -152,13 +152,13 @@ isAnyRGB.exit:                                    ; preds = %1
   br i1 %27, label %37, label %28
 
 28:                                               ; preds = %24
-  %29 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %29 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i1066 = icmp eq ptr %29, null
   br i1 %.not.i1066, label %30, label %isAnyRGB.exit1068
 
 30:                                               ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 859) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 859) #14
+  tail call void @abort() #15
   unreachable
 
 isAnyRGB.exit1068:                                ; preds = %28
@@ -236,13 +236,13 @@ isAnyRGB.exit1068:                                ; preds = %28
   ]
 
 56:                                               ; preds = %.thread1198, %.thread1198, %.thread1198
-  %57 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %57 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %.not.i1069 = icmp eq ptr %57, null
   br i1 %.not.i1069, label %58, label %isAnyRGB.exit1071
 
 58:                                               ; preds = %56
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 859) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 859) #14
+  tail call void @abort() #15
   unreachable
 
 isAnyRGB.exit1071:                                ; preds = %56
@@ -269,7 +269,7 @@ isAnyRGB.exit1071:                                ; preds = %56
   br i1 %or.cond1065, label %70, label %74
 
 70:                                               ; preds = %66
-  %71 = tail call ptr @ff_yuv2rgb_get_func_ptr(ptr noundef nonnull %0) #13
+  %71 = tail call ptr @ff_yuv2rgb_get_func_ptr(ptr noundef nonnull %0) #14
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %71, ptr %72, align 16, !tbaa !37
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 53188
@@ -392,13 +392,13 @@ isAnyRGB.exit1071:                                ; preds = %56
   br label %.thread1203
 
 .thread1203:                                      ; preds = %80, %79, %95, %88, %90, %92, %89, %97, %100, %96, %74, %102, %105, %103
-  %107 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %107 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i1072 = icmp eq ptr %107, null
   br i1 %.not.i1072, label %108, label %isAnyRGB.exit1074
 
 108:                                              ; preds = %.thread1203
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 859) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 859) #14
+  tail call void @abort() #15
   unreachable
 
 isAnyRGB.exit1074:                                ; preds = %.thread1203
@@ -412,13 +412,13 @@ isAnyRGB.exit1074:                                ; preds = %.thread1203
   br i1 %narrow.not1267, label %130, label %115
 
 115:                                              ; preds = %isAnyRGB.exit1074
-  %116 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %116 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %.not.i1075 = icmp eq ptr %116, null
   br i1 %.not.i1075, label %117, label %isAnyRGB.exit1077
 
 117:                                              ; preds = %115
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 859) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 859) #14
+  tail call void @abort() #15
   unreachable
 
 isAnyRGB.exit1077:                                ; preds = %115
@@ -517,13 +517,13 @@ isAnyRGB.exit1077:                                ; preds = %115
   br i1 %131, label %163, label %174
 
 163:                                              ; preds = %162
-  %164 = tail call ptr @av_pix_fmt_desc_get(i32 noundef 71) #13
+  %164 = tail call ptr @av_pix_fmt_desc_get(i32 noundef 71) #14
   %.not.i1078 = icmp eq ptr %164, null
   br i1 %.not.i1078, label %165, label %166
 
 165:                                              ; preds = %163
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 899) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 899) #14
+  tail call void @abort() #15
   unreachable
 
 166:                                              ; preds = %163
@@ -619,20 +619,20 @@ switch.early.test989:                             ; preds = %188
   br label %193
 
 193:                                              ; preds = %switch.early.test989, %switch.early.test, %191
-  %194 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %194 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 40
   %196 = load i32, ptr %195, align 8, !tbaa !41
   %197 = icmp sgt i32 %196, 9
   br i1 %197, label %198, label %213
 
 198:                                              ; preds = %193
-  %199 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %199 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %.not.i1079 = icmp eq ptr %199, null
   br i1 %.not.i1079, label %200, label %isPlanarRGB.exit
 
 200:                                              ; preds = %198
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 913) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 913) #14
+  tail call void @abort() #15
   unreachable
 
 isPlanarRGB.exit:                                 ; preds = %198
@@ -643,13 +643,13 @@ isPlanarRGB.exit:                                 ; preds = %198
   br i1 %.not, label %204, label %213
 
 204:                                              ; preds = %isPlanarRGB.exit
-  %205 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %205 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %.not.i1082 = icmp eq ptr %205, null
   br i1 %.not.i1082, label %206, label %isFloat.exit
 
 206:                                              ; preds = %204
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 867) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 867) #14
+  tail call void @abort() #15
   unreachable
 
 isFloat.exit:                                     ; preds = %204
@@ -727,20 +727,20 @@ switch.early.test993:                             ; preds = %233
   br label %238
 
 238:                                              ; preds = %switch.early.test993, %switch.early.test992, %236
-  %239 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %239 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 40
   %241 = load i32, ptr %240, align 8, !tbaa !41
   %242 = icmp sgt i32 %241, 9
   br i1 %242, label %243, label %258
 
 243:                                              ; preds = %238
-  %244 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %244 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i1080 = icmp eq ptr %244, null
   br i1 %.not.i1080, label %245, label %isPlanarRGB.exit1081
 
 245:                                              ; preds = %243
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 913) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 913) #14
+  tail call void @abort() #15
   unreachable
 
 isPlanarRGB.exit1081:                             ; preds = %243
@@ -751,13 +751,13 @@ isPlanarRGB.exit1081:                             ; preds = %243
   br i1 %.not1270, label %249, label %258
 
 249:                                              ; preds = %isPlanarRGB.exit1081
-  %250 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %250 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i1083 = icmp eq ptr %250, null
   br i1 %.not.i1083, label %251, label %isFloat.exit1084
 
 251:                                              ; preds = %249
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 867) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 867) #14
+  tail call void @abort() #15
   unreachable
 
 isFloat.exit1084:                                 ; preds = %249
@@ -776,20 +776,20 @@ isFloat.exit1084:                                 ; preds = %249
   br label %258
 
 258:                                              ; preds = %256, %isFloat.exit1084, %isPlanarRGB.exit1081, %238
-  %259 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %259 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 40
   %261 = load i32, ptr %260, align 8, !tbaa !41
   %262 = icmp eq i32 %261, 8
   br i1 %262, label %263, label %273
 
 263:                                              ; preds = %258
-  %264 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %264 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i1089 = icmp eq ptr %264, null
   br i1 %.not.i1089, label %265, label %isPackedRGB.exit
 
 265:                                              ; preds = %263
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 906) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 906) #14
+  tail call void @abort() #15
   unreachable
 
 isPackedRGB.exit:                                 ; preds = %263
@@ -807,20 +807,20 @@ isPackedRGB.exit:                                 ; preds = %263
   br label %273
 
 273:                                              ; preds = %271, %isPackedRGB.exit, %258
-  %274 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %274 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 40
   %276 = load i32, ptr %275, align 8, !tbaa !41
   %277 = icmp eq i32 %276, 8
   br i1 %277, label %278, label %287
 
 278:                                              ; preds = %273
-  %279 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %279 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i1090 = icmp eq ptr %279, null
   br i1 %.not.i1090, label %280, label %isPackedRGB.exit1091
 
 280:                                              ; preds = %278
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 906) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 906) #14
+  tail call void @abort() #15
   unreachable
 
 isPackedRGB.exit1091:                             ; preds = %278
@@ -837,13 +837,13 @@ isPackedRGB.exit1091:                             ; preds = %278
   br label %287
 
 287:                                              ; preds = %285, %isPackedRGB.exit1091, %273
-  %288 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %288 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i1092 = icmp eq ptr %288, null
   br i1 %.not.i1092, label %289, label %isBayer.exit
 
 289:                                              ; preds = %287
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 845) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 845) #14
+  tail call void @abort() #15
   unreachable
 
 isBayer.exit:                                     ; preds = %287
@@ -873,13 +873,13 @@ isBayer.exit:                                     ; preds = %287
   br label %306
 
 299:                                              ; preds = %296
-  %300 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %300 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %.not.i1093 = icmp eq ptr %300, null
   br i1 %.not.i1093, label %301, label %isBayer.exit1094
 
 301:                                              ; preds = %299
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 845) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 845) #14
+  tail call void @abort() #15
   unreachable
 
 isBayer.exit1094:                                 ; preds = %299
@@ -890,9 +890,9 @@ isBayer.exit1094:                                 ; preds = %299
   br i1 %.not975, label %305, label %306
 
 305:                                              ; preds = %isBayer.exit1094
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str) #13
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 2536) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 2536) #14
+  tail call void @abort() #15
   unreachable
 
 306:                                              ; preds = %297, %isBayer.exit1094, %isBayer.exit
@@ -1584,25 +1584,25 @@ usePal.exit:                                      ; preds = %570, %570, %570, %5
   br i1 %or.cond1059, label %956, label %601
 
 601:                                              ; preds = %598
-  %602 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %602 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i1085 = icmp eq ptr %602, null
   br i1 %.not.i1085, label %603, label %isFloat.exit1086
 
 603:                                              ; preds = %601
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 867) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 867) #14
+  tail call void @abort() #15
   unreachable
 
 isFloat.exit1086:                                 ; preds = %601
   %604 = getelementptr inbounds nuw i8, ptr %602, i64 16
   %605 = load i64, ptr %604, align 8, !tbaa !33
-  %606 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %606 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %.not.i1087 = icmp eq ptr %606, null
   br i1 %.not.i1087, label %607, label %isFloat.exit1088
 
 607:                                              ; preds = %isFloat.exit1086
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 867) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 867) #14
+  tail call void @abort() #15
   unreachable
 
 isFloat.exit1088:                                 ; preds = %isFloat.exit1086
@@ -1614,13 +1614,13 @@ isFloat.exit1088:                                 ; preds = %isFloat.exit1086
   br i1 %612, label %613, label %isPlanarYUV.exit1106.thread
 
 613:                                              ; preds = %isFloat.exit1088
-  %614 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %614 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i1095 = icmp eq ptr %614, null
   br i1 %.not.i1095, label %615, label %616
 
 615:                                              ; preds = %613
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 874) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 874) #14
+  tail call void @abort() #15
   unreachable
 
 616:                                              ; preds = %613
@@ -1639,13 +1639,13 @@ isFloat.exit1088:                                 ; preds = %isFloat.exit1086
 
 isFloat16.exit:                                   ; preds = %616, %620
   %625 = phi i32 [ 0, %616 ], [ %624, %620 ]
-  %626 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %626 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %.not.i1096 = icmp eq ptr %626, null
   br i1 %.not.i1096, label %627, label %628
 
 627:                                              ; preds = %isFloat16.exit
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 874) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 874) #14
+  tail call void @abort() #15
   unreachable
 
 628:                                              ; preds = %isFloat16.exit
@@ -1668,13 +1668,13 @@ isFloat16.exit1098:                               ; preds = %628, %632
   br i1 %638, label %639, label %isPlanarYUV.exit1106.thread
 
 639:                                              ; preds = %isFloat16.exit1098
-  %640 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %640 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i1099 = icmp eq ptr %640, null
   br i1 %.not.i1099, label %641, label %642
 
 641:                                              ; preds = %639
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 765) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 765) #14
+  tail call void @abort() #15
   unreachable
 
 642:                                              ; preds = %639
@@ -1685,13 +1685,13 @@ isFloat16.exit1098:                               ; preds = %628, %632
   br i1 %.not3.i1100, label %isPlanarYUV.exit.thread, label %646
 
 646:                                              ; preds = %642
-  %647 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %647 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i1193 = icmp eq ptr %647, null
   br i1 %.not.i1193, label %648, label %649
 
 648:                                              ; preds = %646
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #14
+  tail call void @abort() #15
   unreachable
 
 649:                                              ; preds = %646
@@ -1708,13 +1708,13 @@ isPlanarYUV.exit:                                 ; preds = %649
   br i1 %655, label %isPlanarYUV.exit.thread, label %656
 
 656:                                              ; preds = %isPlanarYUV.exit
-  %657 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %657 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %.not.i1110 = icmp eq ptr %657, null
   br i1 %.not.i1110, label %658, label %659
 
 658:                                              ; preds = %656
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 790) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 790) #14
+  tail call void @abort() #15
   unreachable
 
 659:                                              ; preds = %656
@@ -1741,13 +1741,13 @@ switch.early.test1060:                            ; preds = %663
   ]
 
 isPlanarYUV.exit.thread:                          ; preds = %659, %663, %649, %642, %switch.early.test1060, %switch.early.test1060, %switch.early.test1060, %isPlanarYUV.exit
-  %669 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %669 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %.not.i1101 = icmp eq ptr %669, null
   br i1 %.not.i1101, label %670, label %671
 
 670:                                              ; preds = %isPlanarYUV.exit.thread
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 765) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 765) #14
+  tail call void @abort() #15
   unreachable
 
 671:                                              ; preds = %isPlanarYUV.exit.thread
@@ -1758,13 +1758,13 @@ isPlanarYUV.exit.thread:                          ; preds = %659, %663, %649, %6
   br i1 %.not3.i1102, label %isPlanarYUV.exit1103.thread, label %675
 
 675:                                              ; preds = %671
-  %676 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %676 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %.not.i1190 = icmp eq ptr %676, null
   br i1 %.not.i1190, label %677, label %678
 
 677:                                              ; preds = %675
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #14
+  tail call void @abort() #15
   unreachable
 
 678:                                              ; preds = %675
@@ -1781,13 +1781,13 @@ isPlanarYUV.exit1103:                             ; preds = %678
   br i1 %684, label %isPlanarYUV.exit1103.thread, label %685
 
 685:                                              ; preds = %isPlanarYUV.exit1103
-  %686 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %686 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i1112 = icmp eq ptr %686, null
   br i1 %.not.i1112, label %687, label %688
 
 687:                                              ; preds = %685
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 790) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 790) #14
+  tail call void @abort() #15
   unreachable
 
 688:                                              ; preds = %685
@@ -1814,13 +1814,13 @@ switch.early.test1061:                            ; preds = %692
   ]
 
 isPlanarYUV.exit1103.thread:                      ; preds = %688, %692, %678, %671, %switch.early.test1061, %switch.early.test1061, %switch.early.test1061, %isPlanarYUV.exit1103
-  %698 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %698 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %.not.i1118 = icmp eq ptr %698, null
   br i1 %.not.i1118, label %699, label %700
 
 699:                                              ; preds = %isPlanarYUV.exit1103.thread
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 790) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 790) #14
+  tail call void @abort() #15
   unreachable
 
 700:                                              ; preds = %isPlanarYUV.exit1103.thread
@@ -1847,13 +1847,13 @@ switch.early.test1062:                            ; preds = %704
   ]
 
 710:                                              ; preds = %switch.early.test1062
-  %711 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %711 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i1124 = icmp eq ptr %711, null
   br i1 %.not.i1124, label %712, label %713
 
 712:                                              ; preds = %710
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 790) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 790) #14
+  tail call void @abort() #15
   unreachable
 
 713:                                              ; preds = %710
@@ -1880,13 +1880,13 @@ switch.early.test1063:                            ; preds = %717
   ]
 
 isGray.exit1123.thread:                           ; preds = %713, %717, %700, %704, %switch.early.test1063, %switch.early.test1063, %switch.early.test1063, %switch.early.test1062, %switch.early.test1062, %switch.early.test1062
-  %723 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %723 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i1104 = icmp eq ptr %723, null
   br i1 %.not.i1104, label %724, label %725
 
 724:                                              ; preds = %isGray.exit1123.thread
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 765) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 765) #14
+  tail call void @abort() #15
   unreachable
 
 725:                                              ; preds = %isGray.exit1123.thread
@@ -1897,13 +1897,13 @@ isGray.exit1123.thread:                           ; preds = %713, %717, %700, %7
   br i1 %.not3.i1105, label %isPlanarYUV.exit1106.thread, label %729
 
 729:                                              ; preds = %725
-  %730 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %730 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i1187 = icmp eq ptr %730, null
   br i1 %.not.i1187, label %731, label %732
 
 731:                                              ; preds = %729
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #14
+  tail call void @abort() #15
   unreachable
 
 732:                                              ; preds = %729
@@ -1920,13 +1920,13 @@ isPlanarYUV.exit1106:                             ; preds = %732
   br i1 %738, label %isPlanarYUV.exit1106.thread, label %739
 
 739:                                              ; preds = %isPlanarYUV.exit1106
-  %740 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %740 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %.not.i1107 = icmp eq ptr %740, null
   br i1 %.not.i1107, label %741, label %742
 
 741:                                              ; preds = %739
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 765) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 765) #14
+  tail call void @abort() #15
   unreachable
 
 742:                                              ; preds = %739
@@ -1937,13 +1937,13 @@ isPlanarYUV.exit1106:                             ; preds = %732
   br i1 %.not3.i1108, label %isPlanarYUV.exit1106.thread, label %746
 
 746:                                              ; preds = %742
-  %747 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %747 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %.not.i1184 = icmp eq ptr %747, null
   br i1 %.not.i1184, label %748, label %749
 
 748:                                              ; preds = %746
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #14
+  tail call void @abort() #15
   unreachable
 
 749:                                              ; preds = %746
@@ -1976,23 +1976,23 @@ isPlanarYUV.exit1109:                             ; preds = %749
   br i1 %767, label %768, label %isPlanarYUV.exit1106.thread
 
 768:                                              ; preds = %762
-  %769 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %769 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i1130 = icmp eq ptr %769, null
   br i1 %.not.i1130, label %770, label %771
 
 770:                                              ; preds = %768
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 776) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 776) #14
+  tail call void @abort() #15
   unreachable
 
 771:                                              ; preds = %768
-  %772 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %772 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i.i = icmp eq ptr %772, null
   br i1 %.not.i.i, label %773, label %774
 
 773:                                              ; preds = %771
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 765) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 765) #14
+  tail call void @abort() #15
   unreachable
 
 774:                                              ; preds = %771
@@ -2003,13 +2003,13 @@ isPlanarYUV.exit1109:                             ; preds = %749
   br i1 %.not3.i.i, label %isSemiPlanarYUV.exit, label %778
 
 778:                                              ; preds = %774
-  %779 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %779 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i1181 = icmp eq ptr %779, null
   br i1 %.not.i1181, label %780, label %781
 
 780:                                              ; preds = %778
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #14
+  tail call void @abort() #15
   unreachable
 
 781:                                              ; preds = %778
@@ -2036,23 +2036,23 @@ isPlanarYUV.exit.i:                               ; preds = %781
 
 isSemiPlanarYUV.exit:                             ; preds = %781, %774, %isPlanarYUV.exit.i, %788
   %795 = phi i32 [ 0, %isPlanarYUV.exit.i ], [ %794, %788 ], [ 0, %774 ], [ 0, %781 ]
-  %796 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %796 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %.not.i1131 = icmp eq ptr %796, null
   br i1 %.not.i1131, label %797, label %798
 
 797:                                              ; preds = %isSemiPlanarYUV.exit
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 776) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 776) #14
+  tail call void @abort() #15
   unreachable
 
 798:                                              ; preds = %isSemiPlanarYUV.exit
-  %799 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %799 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %.not.i.i1132 = icmp eq ptr %799, null
   br i1 %.not.i.i1132, label %800, label %801
 
 800:                                              ; preds = %798
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 765) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 765) #14
+  tail call void @abort() #15
   unreachable
 
 801:                                              ; preds = %798
@@ -2063,13 +2063,13 @@ isSemiPlanarYUV.exit:                             ; preds = %781, %774, %isPlana
   br i1 %.not3.i.i1133, label %isSemiPlanarYUV.exit1136, label %805
 
 805:                                              ; preds = %801
-  %806 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %806 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %.not.i1178 = icmp eq ptr %806, null
   br i1 %.not.i1178, label %807, label %808
 
 807:                                              ; preds = %805
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #14
+  tail call void @abort() #15
   unreachable
 
 808:                                              ; preds = %805
@@ -2100,23 +2100,23 @@ isSemiPlanarYUV.exit1136:                         ; preds = %808, %801, %isPlana
   br i1 %823, label %824, label %isPlanarYUV.exit1106.thread
 
 824:                                              ; preds = %isSemiPlanarYUV.exit1136
-  %825 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %825 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i1137 = icmp eq ptr %825, null
   br i1 %.not.i1137, label %826, label %827
 
 826:                                              ; preds = %824
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 958) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 958) #14
+  tail call void @abort() #15
   unreachable
 
 827:                                              ; preds = %824
-  %828 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %828 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i1175 = icmp eq ptr %828, null
   br i1 %.not.i1175, label %829, label %830
 
 829:                                              ; preds = %827
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #14
+  tail call void @abort() #15
   unreachable
 
 830:                                              ; preds = %827
@@ -2150,13 +2150,13 @@ isYUV.exit1177:                                   ; preds = %830
   br i1 %844, label %isSwappedChroma.exit, label %.thread1362
 
 .thread1362:                                      ; preds = %841, %843
-  %845 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %845 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i.i1138 = icmp eq ptr %845, null
   br i1 %.not.i.i1138, label %846, label %847
 
 846:                                              ; preds = %.thread1362
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 765) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 765) #14
+  tail call void @abort() #15
   unreachable
 
 847:                                              ; preds = %.thread1362
@@ -2167,13 +2167,13 @@ isYUV.exit1177:                                   ; preds = %830
   br i1 %.not3.i.i1139, label %isSwappedChroma.exit.sink.split, label %851
 
 851:                                              ; preds = %847
-  %852 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %852 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i1172 = icmp eq ptr %852, null
   br i1 %.not.i1172, label %853, label %854
 
 853:                                              ; preds = %851
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #14
+  tail call void @abort() #15
   unreachable
 
 854:                                              ; preds = %851
@@ -2190,23 +2190,23 @@ isPlanarYUV.exit.i1140:                           ; preds = %854
   br i1 %860, label %isSwappedChroma.exit.sink.split, label %861
 
 861:                                              ; preds = %isPlanarYUV.exit.i1140
-  %862 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %862 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i17.i = icmp eq ptr %862, null
   br i1 %.not.i17.i, label %863, label %864
 
 863:                                              ; preds = %861
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 776) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 776) #14
+  tail call void @abort() #15
   unreachable
 
 864:                                              ; preds = %861
-  %865 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %865 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i.i.i = icmp eq ptr %865, null
   br i1 %.not.i.i.i, label %866, label %867
 
 866:                                              ; preds = %864
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 765) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 765) #14
+  tail call void @abort() #15
   unreachable
 
 867:                                              ; preds = %864
@@ -2217,13 +2217,13 @@ isPlanarYUV.exit.i1140:                           ; preds = %854
   br i1 %.not3.i.i.i, label %isSemiPlanarYUV.exit.i.thread, label %871
 
 871:                                              ; preds = %867
-  %872 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #13
+  %872 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #14
   %.not.i1169 = icmp eq ptr %872, null
   br i1 %.not.i1169, label %873, label %874
 
 873:                                              ; preds = %871
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #14
+  tail call void @abort() #15
   unreachable
 
 874:                                              ; preds = %871
@@ -2262,23 +2262,23 @@ isSwappedChroma.exit.sink.split:                  ; preds = %isPlanarYUV.exit.i1
 
 isSwappedChroma.exit:                             ; preds = %isSwappedChroma.exit.sink.split, %830, %isYUV.exit1177, %841, %843
   %.0.shrunk.i = phi i1 [ false, %isYUV.exit1177 ], [ false, %841 ], [ false, %843 ], [ false, %830 ], [ %889, %isSwappedChroma.exit.sink.split ]
-  %890 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %890 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %.not.i1142 = icmp eq ptr %890, null
   br i1 %.not.i1142, label %891, label %892
 
 891:                                              ; preds = %isSwappedChroma.exit
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 958) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 958) #14
+  tail call void @abort() #15
   unreachable
 
 892:                                              ; preds = %isSwappedChroma.exit
-  %893 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %893 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %.not.i1166 = icmp eq ptr %893, null
   br i1 %.not.i1166, label %894, label %895
 
 894:                                              ; preds = %892
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #14
+  tail call void @abort() #15
   unreachable
 
 895:                                              ; preds = %892
@@ -2312,13 +2312,13 @@ isYUV.exit1168:                                   ; preds = %895
   br i1 %909, label %isSwappedChroma.exit1158.thr_comm, label %.thread1363
 
 .thread1363:                                      ; preds = %906, %908
-  %910 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %910 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %.not.i.i1145 = icmp eq ptr %910, null
   br i1 %.not.i.i1145, label %911, label %912
 
 911:                                              ; preds = %.thread1363
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 765) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 765) #14
+  tail call void @abort() #15
   unreachable
 
 912:                                              ; preds = %.thread1363
@@ -2329,13 +2329,13 @@ isYUV.exit1168:                                   ; preds = %895
   br i1 %.not3.i.i1146, label %isSwappedChroma.exit1158, label %916
 
 916:                                              ; preds = %912
-  %917 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %917 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %.not.i1163 = icmp eq ptr %917, null
   br i1 %.not.i1163, label %918, label %919
 
 918:                                              ; preds = %916
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #14
+  tail call void @abort() #15
   unreachable
 
 919:                                              ; preds = %916
@@ -2352,23 +2352,23 @@ isPlanarYUV.exit.i1147:                           ; preds = %919
   br i1 %925, label %isSwappedChroma.exit1158, label %926
 
 926:                                              ; preds = %isPlanarYUV.exit.i1147
-  %927 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %927 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %.not.i17.i1149 = icmp eq ptr %927, null
   br i1 %.not.i17.i1149, label %928, label %929
 
 928:                                              ; preds = %926
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 776) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 776) #14
+  tail call void @abort() #15
   unreachable
 
 929:                                              ; preds = %926
-  %930 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %930 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %.not.i.i.i1150 = icmp eq ptr %930, null
   br i1 %.not.i.i.i1150, label %931, label %932
 
 931:                                              ; preds = %929
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 765) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 765) #14
+  tail call void @abort() #15
   unreachable
 
 932:                                              ; preds = %929
@@ -2379,13 +2379,13 @@ isPlanarYUV.exit.i1147:                           ; preds = %919
   br i1 %.not3.i.i.i1151, label %isSemiPlanarYUV.exit.i1154.thread, label %936
 
 936:                                              ; preds = %932
-  %937 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #13
+  %937 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %5) #14
   %.not.i1161 = icmp eq ptr %937, null
   br i1 %.not.i1161, label %938, label %939
 
 938:                                              ; preds = %936
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #14
+  tail call void @abort() #15
   unreachable
 
 939:                                              ; preds = %936
@@ -2428,13 +2428,13 @@ isSwappedChroma.exit1158:                         ; preds = %isPlanarYUV.exit.i1
 
 956:                                              ; preds = %isSwappedChroma.exit1158.thr_comm, %switch.early.test1063, %switch.early.test1061, %switch.early.test1060, %isSwappedChroma.exit1158, %598
   %957 = load i32, ptr %2, align 8, !tbaa !6
-  %958 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %957) #13
+  %958 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %957) #14
   %.not.i1159 = icmp eq ptr %958, null
   br i1 %.not.i1159, label %959, label %960
 
 959:                                              ; preds = %956
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 890) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 890) #14
+  tail call void @abort() #15
   unreachable
 
 960:                                              ; preds = %956
@@ -2545,7 +2545,7 @@ ff_copyPlane.exit:                                ; preds = %30, %.preheader.i, 
   %52 = load i32, ptr %51, align 4, !tbaa !48
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 %.40
   %54 = load i32, ptr %53, align 4, !tbaa !48
-  tail call void %41(ptr noundef %48, ptr noundef %50, ptr noundef %37, i32 noundef %43, i32 noundef %45, i32 noundef %52, i32 noundef %54, i32 noundef %46) #13
+  tail call void %41(ptr noundef %48, ptr noundef %50, ptr noundef %37, i32 noundef %43, i32 noundef %45, i32 noundef %52, i32 noundef %54, i32 noundef %46) #14
   ret i32 %4
 }
 
@@ -2619,7 +2619,7 @@ ff_copyPlane.exit:                                ; preds = %30, %.preheader.i, 
   %49 = load i32, ptr %48, align 4, !tbaa !48
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 %.40
   %51 = load i32, ptr %50, align 4, !tbaa !48
-  tail call void %40(ptr noundef %45, ptr noundef %47, ptr noundef %36, i32 noundef %42, i32 noundef %4, i32 noundef %49, i32 noundef %51, i32 noundef %43) #13
+  tail call void %40(ptr noundef %45, ptr noundef %47, ptr noundef %36, i32 noundef %42, i32 noundef %4, i32 noundef %49, i32 noundef %51, i32 noundef %43) #14
   ret i32 %4
 }
 
@@ -2700,13 +2700,13 @@ ff_copyPlane.exit:                                ; preds = %42, %.preheader.i, 
 58:                                               ; preds = %ff_copyPlane.exit
   %59 = load i32, ptr %10, align 4, !tbaa !48
   %60 = load i32, ptr %18, align 4, !tbaa !48
-  tail call void %49(ptr noundef %51, ptr noundef %15, ptr noundef %23, i32 noundef %53, i32 noundef %55, i32 noundef %57, i32 noundef %59, i32 noundef %60) #13
+  tail call void %49(ptr noundef %51, ptr noundef %15, ptr noundef %23, i32 noundef %53, i32 noundef %55, i32 noundef %57, i32 noundef %59, i32 noundef %60) #14
   br label %64
 
 61:                                               ; preds = %ff_copyPlane.exit
   %62 = load i32, ptr %18, align 4, !tbaa !48
   %63 = load i32, ptr %10, align 4, !tbaa !48
-  tail call void %49(ptr noundef %51, ptr noundef %23, ptr noundef %15, i32 noundef %53, i32 noundef %55, i32 noundef %57, i32 noundef %62, i32 noundef %63) #13
+  tail call void %49(ptr noundef %51, ptr noundef %23, ptr noundef %15, i32 noundef %53, i32 noundef %55, i32 noundef %57, i32 noundef %62, i32 noundef %63) #14
   br label %64
 
 64:                                               ; preds = %61, %58
@@ -2786,13 +2786,13 @@ ff_copyPlane.exit:                                ; preds = %40, %.preheader.i, 
 54:                                               ; preds = %ff_copyPlane.exit
   %55 = load i32, ptr %10, align 4, !tbaa !48
   %56 = load i32, ptr %17, align 4, !tbaa !48
-  tail call void %47(ptr noundef %49, ptr noundef %14, ptr noundef %21, i32 noundef %51, i32 noundef %4, i32 noundef %53, i32 noundef %55, i32 noundef %56) #13
+  tail call void %47(ptr noundef %49, ptr noundef %14, ptr noundef %21, i32 noundef %51, i32 noundef %4, i32 noundef %53, i32 noundef %55, i32 noundef %56) #14
   br label %60
 
 57:                                               ; preds = %ff_copyPlane.exit
   %58 = load i32, ptr %17, align 4, !tbaa !48
   %59 = load i32, ptr %10, align 4, !tbaa !48
-  tail call void %47(ptr noundef %49, ptr noundef %21, ptr noundef %14, i32 noundef %51, i32 noundef %4, i32 noundef %53, i32 noundef %58, i32 noundef %59) #13
+  tail call void %47(ptr noundef %49, ptr noundef %21, ptr noundef %14, i32 noundef %51, i32 noundef %4, i32 noundef %53, i32 noundef %58, i32 noundef %59) #14
   br label %60
 
 60:                                               ; preds = %57, %54
@@ -2805,10 +2805,10 @@ declare ptr @ff_yuv2rgb_get_func_ptr(ptr noundef) local_unnamed_addr #3
 define internal noundef i32 @planarToP01xWrapper(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i32, ptr %8, align 8, !tbaa !6
-  %10 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %9) #13
+  %10 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %9) #14
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %12 = load i32, ptr %11, align 4, !tbaa !29
-  %13 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %12) #13
+  %13 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %12) #14
   %14 = load ptr, ptr %5, align 8, !tbaa !49
   %15 = load i32, ptr %6, align 4, !tbaa !48
   %16 = mul nsw i32 %15, %3
@@ -3010,8 +3010,8 @@ define internal noundef i32 @planarToP01xWrapper(ptr noundef readonly captures(n
   br i1 %.not71.us99, label %122, label %127
 
 137:                                              ; preds = %63, %59, %7
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.3, i32 noundef 291) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.3, i32 noundef 291) #14
+  tail call void @abort() #15
   unreachable
 
 .lr.ph94.split.split:                             ; preds = %.lr.ph94.split, %146
@@ -3180,8 +3180,8 @@ define internal noundef i32 @planar8ToP01xleWrapper(ptr noundef readonly capture
   br i1 %exitcond.not, label %._crit_edge79, label %._crit_edge.us94, !llvm.loop !60
 
 80:                                               ; preds = %7
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.3, i32 noundef 338) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.3, i32 noundef 338) #14
+  tail call void @abort() #15
   unreachable
 
 ._crit_edge79:                                    ; preds = %._crit_edge.us94, %41, %.lr.ph78.split, %.preheader
@@ -3248,7 +3248,7 @@ ff_copyPlane.exit:                                ; preds = %26, %.preheader.i, 
   %43 = ashr i32 %4, 2
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %45 = load i32, ptr %44, align 4, !tbaa !48
-  tail call void %30(ptr noundef %32, ptr noundef %40, i32 noundef %42, i32 noundef %43, i32 noundef %45, i32 noundef %36) #13
+  tail call void %30(ptr noundef %32, ptr noundef %40, i32 noundef %42, i32 noundef %43, i32 noundef %45, i32 noundef %36) #14
   %46 = load ptr, ptr @planar2x, align 8, !tbaa !51
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !49
@@ -3262,7 +3262,7 @@ ff_copyPlane.exit:                                ; preds = %26, %.preheader.i, 
   %56 = load i32, ptr %41, align 8, !tbaa !52
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %58 = load i32, ptr %57, align 4, !tbaa !48
-  tail call void %46(ptr noundef %48, ptr noundef %55, i32 noundef %56, i32 noundef %43, i32 noundef %58, i32 noundef %52) #13
+  tail call void %46(ptr noundef %48, ptr noundef %55, i32 noundef %56, i32 noundef %43, i32 noundef %58, i32 noundef %52) #14
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %60 = load ptr, ptr %59, align 8, !tbaa !49
   %.not = icmp ne ptr %60, null
@@ -3322,7 +3322,7 @@ define internal noundef i32 @bgr24ToYv12Wrapper(ptr noundef %0, ptr noundef read
   %31 = load i32, ptr %30, align 8, !tbaa !50
   %32 = load i32, ptr %2, align 4, !tbaa !48
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 39552
-  tail call void %8(ptr noundef %9, ptr noundef %14, ptr noundef %22, ptr noundef %29, i32 noundef %31, i32 noundef %4, i32 noundef %11, i32 noundef %19, i32 noundef %32, ptr noundef nonnull %33) #13
+  tail call void %8(ptr noundef %9, ptr noundef %14, ptr noundef %22, ptr noundef %29, i32 noundef %31, i32 noundef %4, i32 noundef %11, i32 noundef %19, i32 noundef %32, ptr noundef nonnull %33) #14
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !49
   %.not = icmp ne ptr %35, null
@@ -4061,9 +4061,9 @@ define internal noundef i32 @rgbToRgbWrapper(ptr noundef %0, ptr noundef readonl
   %9 = load i32, ptr %8, align 8, !tbaa !6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %11 = load i32, ptr %10, align 4, !tbaa !29
-  %12 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %9) #13
+  %12 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %9) #14
   %13 = load i32, ptr %10, align 4, !tbaa !29
-  %14 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %13) #13
+  %14 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %13) #14
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %16 = load i32, ptr %15, align 4, !tbaa !36
   %17 = add nsw i32 %16, 7
@@ -4077,9 +4077,9 @@ define internal noundef i32 @rgbToRgbWrapper(ptr noundef %0, ptr noundef readonl
   br i1 %.not, label %24, label %27
 
 24:                                               ; preds = %7
-  %25 = tail call ptr @av_get_pix_fmt_name(i32 noundef %9) #13
-  %26 = tail call ptr @av_get_pix_fmt_name(i32 noundef %11) #13
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.8, ptr noundef %25, ptr noundef %26) #13
+  %25 = tail call ptr @av_get_pix_fmt_name(i32 noundef %9) #14
+  %26 = tail call ptr @av_get_pix_fmt_name(i32 noundef %11) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.8, ptr noundef %25, ptr noundef %26) #14
   br label %.loopexit128
 
 27:                                               ; preds = %7
@@ -4174,7 +4174,7 @@ define internal noundef i32 @rgbToRgbWrapper(ptr noundef %0, ptr noundef readonl
   %76 = load i32, ptr %75, align 8, !tbaa !50
   %77 = mul nsw i32 %76, %18
   %78 = add nsw i32 %77, %74
-  tail call void %23(ptr noundef %spec.select, ptr noundef %72, i32 noundef %78) #13
+  tail call void %23(ptr noundef %spec.select, ptr noundef %72, i32 noundef %78) #14
   br label %.loopexit128
 
 79:                                               ; preds = %66, %59
@@ -4200,7 +4200,7 @@ define internal noundef i32 @rgbToRgbWrapper(ptr noundef %0, ptr noundef readonl
 
 ._crit_edge133.us:                                ; preds = %99, %.preheader127.us
   %88 = mul nsw i32 %86, %18
-  tail call void %23(ptr noundef %.pre167, ptr noundef %.1120136.us, i32 noundef %88) #13
+  tail call void %23(ptr noundef %.pre167, ptr noundef %.1120136.us, i32 noundef %88) #14
   br i1 %.fr, label %.preheader.us, label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %.lr.ph135.us, %.preheader.us, %._crit_edge133.us
@@ -4261,7 +4261,7 @@ define internal noundef i32 @rgbToRgbWrapper(ptr noundef %0, ptr noundef readonl
   %.1118137.us142 = phi ptr [ %115, %.loopexit.us146 ], [ %spec.select, %.preheader.us145.preheader ]
   %.1120136.us143 = phi ptr [ %118, %.loopexit.us146 ], [ %82, %.preheader.us145.preheader ]
   %107 = mul nsw i32 %106, %18
-  tail call void %23(ptr noundef %.1118137.us142, ptr noundef %.1120136.us143, i32 noundef %107) #13
+  tail call void %23(ptr noundef %.1118137.us142, ptr noundef %.1120136.us143, i32 noundef %107) #14
   %108 = load i32, ptr %84, align 8, !tbaa !50
   %109 = icmp sgt i32 %108, 0
   br i1 %109, label %.lr.ph135.us147.preheader, label %.loopexit.us146
@@ -4297,7 +4297,7 @@ define internal noundef i32 @rgbToRgbWrapper(ptr noundef %0, ptr noundef readonl
   %.1120136 = phi ptr [ %127, %.lr.ph140.split.split ], [ %82, %.lr.ph140.split ]
   %120 = load i32, ptr %84, align 8, !tbaa !50
   %121 = mul nsw i32 %120, %18
-  tail call void %23(ptr noundef %.1118137, ptr noundef %.1120136, i32 noundef %121) #13
+  tail call void %23(ptr noundef %.1118137, ptr noundef %.1120136, i32 noundef %121) #14
   %122 = load i32, ptr %2, align 4, !tbaa !48
   %123 = sext i32 %122 to i64
   %124 = getelementptr inbounds i8, ptr %.1118137, i64 %123
@@ -4523,11 +4523,11 @@ define internal noundef i32 @planarRgbToRgbWrapper(ptr noundef %0, ptr noundef r
   br i1 %.not, label %37, label %32
 
 32:                                               ; preds = %7
-  %33 = tail call ptr @av_get_pix_fmt_name(i32 noundef %31) #13
+  %33 = tail call ptr @av_get_pix_fmt_name(i32 noundef %31) #14
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %35 = load i32, ptr %34, align 4, !tbaa !29
-  %36 = tail call ptr @av_get_pix_fmt_name(i32 noundef %35) #13
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef %33, ptr noundef %36) #13
+  %36 = tail call ptr @av_get_pix_fmt_name(i32 noundef %35) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef %33, ptr noundef %36) #14
   br label %gbr24ptopacked24.exit
 
 37:                                               ; preds = %7
@@ -4751,10 +4751,10 @@ define internal noundef i32 @planarRgbToRgbWrapper(ptr noundef %0, ptr noundef r
   br label %gbr24ptopacked24.exit
 
 142:                                              ; preds = %37
-  %143 = tail call ptr @av_get_pix_fmt_name(i32 noundef 71) #13
+  %143 = tail call ptr @av_get_pix_fmt_name(i32 noundef 71) #14
   %144 = load i32, ptr %38, align 4, !tbaa !29
-  %145 = tail call ptr @av_get_pix_fmt_name(i32 noundef %144) #13
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef %143, ptr noundef %145) #13
+  %145 = tail call ptr @av_get_pix_fmt_name(i32 noundef %144) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef %143, ptr noundef %145) #14
   br label %gbr24ptopacked24.exit
 
 gbr24ptopacked24.exit:                            ; preds = %122, %98, %80, %56, %82, %40, %125, %134, %142, %32
@@ -4823,11 +4823,11 @@ define internal noundef i32 @planarRgbaToRgbWrapper(ptr noundef %0, ptr noundef 
   br i1 %.not, label %45, label %40
 
 40:                                               ; preds = %7
-  %41 = tail call ptr @av_get_pix_fmt_name(i32 noundef %39) #13
+  %41 = tail call ptr @av_get_pix_fmt_name(i32 noundef %39) #14
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %43 = load i32, ptr %42, align 4, !tbaa !29
-  %44 = tail call ptr @av_get_pix_fmt_name(i32 noundef %43) #13
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef %41, ptr noundef %44) #13
+  %44 = tail call ptr @av_get_pix_fmt_name(i32 noundef %43) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef %41, ptr noundef %44) #14
   br label %gbr24ptopacked24.exit
 
 45:                                               ; preds = %7
@@ -5051,10 +5051,10 @@ define internal noundef i32 @planarRgbaToRgbWrapper(ptr noundef %0, ptr noundef 
   br label %gbr24ptopacked24.exit
 
 150:                                              ; preds = %45
-  %151 = tail call ptr @av_get_pix_fmt_name(i32 noundef 111) #13
+  %151 = tail call ptr @av_get_pix_fmt_name(i32 noundef 111) #14
   %152 = load i32, ptr %46, align 4, !tbaa !29
-  %153 = tail call ptr @av_get_pix_fmt_name(i32 noundef %152) #13
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef %151, ptr noundef %153) #13
+  %153 = tail call ptr @av_get_pix_fmt_name(i32 noundef %152) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef %151, ptr noundef %153) #14
   br label %gbr24ptopacked24.exit
 
 gbr24ptopacked24.exit:                            ; preds = %130, %106, %88, %64, %90, %48, %133, %142, %150, %40
@@ -5119,10 +5119,10 @@ define internal noundef i32 @Rgb16ToPlanarRgb16Wrapper(ptr noundef %0, ptr nound
   store i32 %34, ptr %37, align 4, !tbaa !48
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %39 = load i32, ptr %38, align 8, !tbaa !6
-  %40 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %39) #13
+  %40 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %39) #14
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %42 = load i32, ptr %41, align 4, !tbaa !29
-  %43 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %42) #13
+  %43 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %42) #14
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = load i32, ptr %44, align 8, !tbaa !41
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -5145,7 +5145,7 @@ define internal noundef i32 @Rgb16ToPlanarRgb16Wrapper(ptr noundef %0, ptr nound
 58:                                               ; preds = %7
   %59 = load ptr, ptr %40, align 8, !tbaa !73
   %60 = load ptr, ptr %43, align 8, !tbaa !73
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.10, ptr noundef %59, ptr noundef %60) #13
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.10, ptr noundef %59, ptr noundef %60) #14
   br label %110
 
 .preheader:                                       ; preds = %7, %.preheader
@@ -5201,8 +5201,8 @@ define internal noundef i32 @Rgb16ToPlanarRgb16Wrapper(ptr noundef %0, ptr nound
   br i1 %86, label %88, label %87
 
 87:                                               ; preds = %85
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.3, i32 noundef 929) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.3, i32 noundef 929) #14
+  tail call void @abort() #15
   unreachable
 
 88:                                               ; preds = %85
@@ -5227,8 +5227,8 @@ define internal noundef i32 @Rgb16ToPlanarRgb16Wrapper(ptr noundef %0, ptr nound
   br i1 %100, label %102, label %101
 
 101:                                              ; preds = %99
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.3, i32 noundef 943) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.3, i32 noundef 943) #14
+  tail call void @abort() #15
   unreachable
 
 102:                                              ; preds = %99
@@ -5242,7 +5242,7 @@ define internal noundef i32 @Rgb16ToPlanarRgb16Wrapper(ptr noundef %0, ptr nound
 107:                                              ; preds = %77
   %108 = load ptr, ptr %40, align 8, !tbaa !73
   %109 = load ptr, ptr %43, align 8, !tbaa !73
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.10, ptr noundef %108, ptr noundef %109) #13
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.10, ptr noundef %108, ptr noundef %109) #14
   br label %110
 
 110:                                              ; preds = %79, %88, %93, %102, %107, %58
@@ -5309,10 +5309,10 @@ define internal noundef i32 @planarRgb16ToRgb16Wrapper(ptr noundef %0, ptr nound
   store i32 %34, ptr %37, align 4, !tbaa !48
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %39 = load i32, ptr %38, align 8, !tbaa !6
-  %40 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %39) #13
+  %40 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %39) #14
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %42 = load i32, ptr %41, align 4, !tbaa !29
-  %43 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %42) #13
+  %43 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %42) #14
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %45 = load i32, ptr %44, align 8, !tbaa !41
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -5334,7 +5334,7 @@ define internal noundef i32 @planarRgb16ToRgb16Wrapper(ptr noundef %0, ptr nound
 57:                                               ; preds = %7
   %58 = load ptr, ptr %40, align 8, !tbaa !73
   %59 = load ptr, ptr %43, align 8, !tbaa !73
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef %58, ptr noundef %59) #13
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef %58, ptr noundef %59) #14
   br label %113
 
 60:                                               ; preds = %7
@@ -5421,7 +5421,7 @@ define internal noundef i32 @planarRgb16ToRgb16Wrapper(ptr noundef %0, ptr nound
 110:                                              ; preds = %60
   %111 = load ptr, ptr %40, align 8, !tbaa !73
   %112 = load ptr, ptr %43, align 8, !tbaa !73
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef %111, ptr noundef %112) #13
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef %111, ptr noundef %112) #14
   br label %113
 
 113:                                              ; preds = %62, %70, %78, %86, %94, %102, %110, %57
@@ -5707,11 +5707,11 @@ define internal noundef i32 @rgbToPlanarRgbWrapper(ptr noundef %0, ptr noundef r
   br i1 %exitcond41.not.i96, label %packedtogbr24p.exit, label %.preheader.us.i85, !llvm.loop !76
 
 141:                                              ; preds = %7
-  %142 = tail call ptr @av_get_pix_fmt_name(i32 noundef %28) #13
+  %142 = tail call ptr @av_get_pix_fmt_name(i32 noundef %28) #14
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %144 = load i32, ptr %143, align 4, !tbaa !29
-  %145 = tail call ptr @av_get_pix_fmt_name(i32 noundef %144) #13
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef %142, ptr noundef %145) #13
+  %145 = tail call ptr @av_get_pix_fmt_name(i32 noundef %144) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef %142, ptr noundef %145) #14
   br label %packedtogbr24p.exit
 
 packedtogbr24p.exit:                              ; preds = %._crit_edge.us.i95, %._crit_edge.us.i77, %._crit_edge.us.i61, %._crit_edge.us.i, %.preheader.lr.ph.i80, %113, %.preheader.lr.ph.i64, %84, %.preheader.lr.ph.i48, %56, %.preheader.lr.ph.i, %29, %141
@@ -6132,11 +6132,11 @@ define internal noundef i32 @rgbToPlanarRgbaWrapper(ptr noundef %0, ptr noundef 
   br i1 %exitcond80.not.i90, label %packed24togbrap.exit, label %.preheader53.us.i79, !llvm.loop !80
 
 222:                                              ; preds = %7
-  %223 = tail call ptr @av_get_pix_fmt_name(i32 noundef %35) #13
+  %223 = tail call ptr @av_get_pix_fmt_name(i32 noundef %35) #14
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %225 = load i32, ptr %224, align 4, !tbaa !29
-  %226 = tail call ptr @av_get_pix_fmt_name(i32 noundef %225) #13
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef %223, ptr noundef %226) #13
+  %226 = tail call ptr @av_get_pix_fmt_name(i32 noundef %225) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef %223, ptr noundef %226) #14
   br label %packed24togbrap.exit
 
 packed24togbrap.exit:                             ; preds = %..loopexit_crit_edge.us.us.i104, %..loopexit54_crit_edge.us.i89, %..loopexit_crit_edge.us.us.i, %..loopexit54_crit_edge.us.i, %._crit_edge.us.i67, %._crit_edge.us.i, %.lr.ph69.split.i76, %.lr.ph69.split.us.i91, %159, %.thread144, %.lr.ph69.split.i, %.lr.ph69.split.us.i, %96, %.thread, %.preheader.lr.ph.i54, %66, %.preheader.lr.ph.i, %36, %222
@@ -6168,15 +6168,15 @@ switch.lookup:                                    ; preds = %7
   br i1 %19, label %21, label %20
 
 20:                                               ; preds = %switch.lookup
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.3, i32 noundef 1661) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.3, i32 noundef 1661) #14
+  tail call void @abort() #15
   unreachable
 
 21:                                               ; preds = %switch.lookup
   %22 = load i32, ptr %2, align 4, !tbaa !48
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = load i32, ptr %23, align 8, !tbaa !50
-  tail call void %switch.load(ptr noundef %13, i32 noundef %22, ptr noundef %12, i32 noundef %9, i32 noundef %24) #13
+  tail call void %switch.load(ptr noundef %13, i32 noundef %22, ptr noundef %12, i32 noundef %9, i32 noundef %24) #14
   %25 = load i32, ptr %2, align 4, !tbaa !48
   %26 = shl nsw i32 %25, 1
   %27 = sext i32 %26 to i64
@@ -6196,7 +6196,7 @@ switch.lookup:                                    ; preds = %7
   %.04853 = phi ptr [ %41, %.lr.ph ], [ %28, %21 ]
   %.04952 = phi ptr [ %45, %.lr.ph ], [ %32, %21 ]
   %37 = load i32, ptr %23, align 8, !tbaa !50
-  tail call void %switch.load70(ptr noundef %.04853, i32 noundef %36, ptr noundef %.04952, i32 noundef %35, i32 noundef %37) #13
+  tail call void %switch.load70(ptr noundef %.04853, i32 noundef %36, ptr noundef %.04952, i32 noundef %35, i32 noundef %37) #14
   %38 = load i32, ptr %2, align 4, !tbaa !48
   %39 = shl nsw i32 %38, 1
   %40 = sext i32 %39 to i64
@@ -6223,7 +6223,7 @@ switch.lookup:                                    ; preds = %7
   %53 = sub nsw i32 0, %49
   %54 = sub nsw i32 0, %48
   %55 = load i32, ptr %23, align 8, !tbaa !50
-  tail call void %switch.load(ptr noundef %.048.lcssa, i32 noundef %53, ptr noundef %.049.lcssa, i32 noundef %54, i32 noundef %55) #13
+  tail call void %switch.load(ptr noundef %.048.lcssa, i32 noundef %53, ptr noundef %.049.lcssa, i32 noundef %54, i32 noundef %55) #14
   br label %60
 
 56:                                               ; preds = %._crit_edge
@@ -6232,7 +6232,7 @@ switch.lookup:                                    ; preds = %7
 
 58:                                               ; preds = %56
   %59 = load i32, ptr %23, align 8, !tbaa !50
-  tail call void %switch.load(ptr noundef %.048.lcssa, i32 noundef %49, ptr noundef %.049.lcssa, i32 noundef %48, i32 noundef %59) #13
+  tail call void %switch.load(ptr noundef %.048.lcssa, i32 noundef %49, ptr noundef %.049.lcssa, i32 noundef %48, i32 noundef %59) #14
   br label %60
 
 60:                                               ; preds = %7, %52, %58, %56
@@ -6265,15 +6265,15 @@ switch.lookup:                                    ; preds = %7
   br i1 %19, label %21, label %20
 
 20:                                               ; preds = %switch.lookup
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.3, i32 noundef 1711) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.3, i32 noundef 1711) #14
+  tail call void @abort() #15
   unreachable
 
 21:                                               ; preds = %switch.lookup
   %22 = load i32, ptr %2, align 4, !tbaa !48
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = load i32, ptr %23, align 8, !tbaa !50
-  tail call void %switch.load(ptr noundef %13, i32 noundef %22, ptr noundef %12, i32 noundef %9, i32 noundef %24) #13
+  tail call void %switch.load(ptr noundef %13, i32 noundef %22, ptr noundef %12, i32 noundef %9, i32 noundef %24) #14
   %25 = load i32, ptr %2, align 4, !tbaa !48
   %26 = shl nsw i32 %25, 1
   %27 = sext i32 %26 to i64
@@ -6293,7 +6293,7 @@ switch.lookup:                                    ; preds = %7
   %.04853 = phi ptr [ %41, %.lr.ph ], [ %28, %21 ]
   %.04952 = phi ptr [ %45, %.lr.ph ], [ %32, %21 ]
   %37 = load i32, ptr %23, align 8, !tbaa !50
-  tail call void %switch.load70(ptr noundef %.04853, i32 noundef %36, ptr noundef %.04952, i32 noundef %35, i32 noundef %37) #13
+  tail call void %switch.load70(ptr noundef %.04853, i32 noundef %36, ptr noundef %.04952, i32 noundef %35, i32 noundef %37) #14
   %38 = load i32, ptr %2, align 4, !tbaa !48
   %39 = shl nsw i32 %38, 1
   %40 = sext i32 %39 to i64
@@ -6320,7 +6320,7 @@ switch.lookup:                                    ; preds = %7
   %53 = sub nsw i32 0, %49
   %54 = sub nsw i32 0, %48
   %55 = load i32, ptr %23, align 8, !tbaa !50
-  tail call void %switch.load(ptr noundef %.048.lcssa, i32 noundef %53, ptr noundef %.049.lcssa, i32 noundef %54, i32 noundef %55) #13
+  tail call void %switch.load(ptr noundef %.048.lcssa, i32 noundef %53, ptr noundef %.049.lcssa, i32 noundef %54, i32 noundef %55) #14
   br label %60
 
 56:                                               ; preds = %._crit_edge
@@ -6329,7 +6329,7 @@ switch.lookup:                                    ; preds = %7
 
 58:                                               ; preds = %56
   %59 = load i32, ptr %23, align 8, !tbaa !50
-  tail call void %switch.load(ptr noundef %.048.lcssa, i32 noundef %49, ptr noundef %.049.lcssa, i32 noundef %48, i32 noundef %59) #13
+  tail call void %switch.load(ptr noundef %.048.lcssa, i32 noundef %49, ptr noundef %.049.lcssa, i32 noundef %48, i32 noundef %59) #14
   br label %60
 
 60:                                               ; preds = %7, %52, %58, %56
@@ -6378,8 +6378,8 @@ switch.lookup:                                    ; preds = %7
   br i1 %35, label %37, label %36
 
 36:                                               ; preds = %switch.lookup
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.3, i32 noundef 1763) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.3, i32 noundef 1763) #14
+  tail call void @abort() #15
   unreachable
 
 37:                                               ; preds = %switch.lookup
@@ -6387,7 +6387,7 @@ switch.lookup:                                    ; preds = %7
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %40 = load i32, ptr %39, align 8, !tbaa !50
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 39552
-  tail call void %switch.load(ptr noundef %8, i32 noundef %38, ptr noundef %13, ptr noundef %21, ptr noundef %29, i32 noundef %10, i32 noundef %40, ptr noundef nonnull %41) #13
+  tail call void %switch.load(ptr noundef %8, i32 noundef %38, ptr noundef %13, ptr noundef %21, ptr noundef %29, i32 noundef %10, i32 noundef %40, ptr noundef nonnull %41) #14
   %42 = load i32, ptr %2, align 4, !tbaa !48
   %43 = shl nsw i32 %42, 1
   %44 = sext i32 %43 to i64
@@ -6413,7 +6413,7 @@ switch.lookup:                                    ; preds = %7
   %.07681 = phi ptr [ %66, %.lr.ph ], [ %49, %37 ]
   %.07780 = phi ptr [ %62, %.lr.ph ], [ %45, %37 ]
   %58 = load i32, ptr %39, align 8, !tbaa !50
-  tail call void %switch.load108(ptr noundef %.07780, i32 noundef %57, ptr noundef %.07681, ptr noundef %.07582, ptr noundef %.07483, i32 noundef %56, i32 noundef %58, ptr noundef nonnull %41) #13
+  tail call void %switch.load108(ptr noundef %.07780, i32 noundef %57, ptr noundef %.07681, ptr noundef %.07582, ptr noundef %.07483, i32 noundef %56, i32 noundef %58, ptr noundef nonnull %41) #14
   %59 = load i32, ptr %2, align 4, !tbaa !48
   %60 = shl nsw i32 %59, 1
   %61 = sext i32 %60 to i64
@@ -6446,7 +6446,7 @@ switch.lookup:                                    ; preds = %7
   %78 = sub nsw i32 0, %74
   %79 = sub nsw i32 0, %73
   %80 = load i32, ptr %39, align 8, !tbaa !50
-  tail call void %switch.load(ptr noundef %.077.lcssa, i32 noundef %78, ptr noundef %.076.lcssa, ptr noundef %.075.lcssa, ptr noundef %.074.lcssa, i32 noundef %79, i32 noundef %80, ptr noundef nonnull %41) #13
+  tail call void %switch.load(ptr noundef %.077.lcssa, i32 noundef %78, ptr noundef %.076.lcssa, ptr noundef %.075.lcssa, ptr noundef %.074.lcssa, i32 noundef %79, i32 noundef %80, ptr noundef nonnull %41) #14
   br label %85
 
 81:                                               ; preds = %._crit_edge
@@ -6455,7 +6455,7 @@ switch.lookup:                                    ; preds = %7
 
 83:                                               ; preds = %81
   %84 = load i32, ptr %39, align 8, !tbaa !50
-  tail call void %switch.load(ptr noundef %.077.lcssa, i32 noundef %74, ptr noundef %.076.lcssa, ptr noundef %.075.lcssa, ptr noundef %.074.lcssa, i32 noundef %73, i32 noundef %84, ptr noundef nonnull %41) #13
+  tail call void %switch.load(ptr noundef %.077.lcssa, i32 noundef %74, ptr noundef %.076.lcssa, ptr noundef %.075.lcssa, ptr noundef %.074.lcssa, i32 noundef %73, i32 noundef %84, ptr noundef nonnull %41) #14
   br label %85
 
 85:                                               ; preds = %7, %77, %83, %81
@@ -6633,13 +6633,13 @@ define internal noundef i32 @palToGbrpWrapper(ptr noundef %0, ptr noundef readon
   %10 = load i32, ptr %9, align 8, !tbaa !6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %12 = load i32, ptr %11, align 4, !tbaa !29
-  %13 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %12) #13
+  %13 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %12) #14
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %14, label %15
 
 14:                                               ; preds = %7
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 881) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 881) #14
+  tail call void @abort() #15
   unreachable
 
 15:                                               ; preds = %7
@@ -6727,7 +6727,7 @@ usePal.exit.thread:                               ; preds = %22, %usePal.exit, %
   %44 = load ptr, ptr %37, align 16, !tbaa !49
   %45 = load ptr, ptr %38, align 8, !tbaa !49
   %46 = load i32, ptr %39, align 8, !tbaa !50
-  tail call void %.035(ptr noundef %.03451, ptr noundef %42, ptr noundef %43, ptr noundef %44, ptr noundef %45, i32 noundef %46, ptr noundef nonnull %40) #13, !callees !92
+  tail call void %.035(ptr noundef %.03451, ptr noundef %42, ptr noundef %43, ptr noundef %44, ptr noundef %45, i32 noundef %46, ptr noundef nonnull %40) #14, !callees !92
   %47 = load i32, ptr %2, align 4, !tbaa !48
   br label %52
 
@@ -6804,9 +6804,9 @@ usePal.exit:                                      ; preds = %7, %7, %7, %7, %7, 
   br label %24
 
 .critedge:                                        ; preds = %7, %usePal.exit, %18
-  %22 = tail call ptr @av_get_pix_fmt_name(i32 noundef %9) #13
-  %23 = tail call ptr @av_get_pix_fmt_name(i32 noundef %11) #13
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.8, ptr noundef %22, ptr noundef %23) #13
+  %22 = tail call ptr @av_get_pix_fmt_name(i32 noundef %9) #14
+  %23 = tail call ptr @av_get_pix_fmt_name(i32 noundef %11) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.8, ptr noundef %22, ptr noundef %23) #14
   br label %.loopexit
 
 24:                                               ; preds = %usePal.exit, %usePal.exit, %usePal.exit, %usePal.exit, %18, %18, %20, %19, %21
@@ -6824,7 +6824,7 @@ usePal.exit:                                      ; preds = %7, %7, %7, %7, %7, 
   %.02634 = phi ptr [ %16, %.lr.ph ], [ %35, %28 ]
   %.02733 = phi i32 [ 0, %.lr.ph ], [ %36, %28 ]
   %29 = load i32, ptr %26, align 8, !tbaa !50
-  tail call void %.028(ptr noundef %.035, ptr noundef %.02634, i32 noundef %29, ptr noundef nonnull %27) #13
+  tail call void %.028(ptr noundef %.035, ptr noundef %.02634, i32 noundef %29, ptr noundef nonnull %27) #14
   %30 = load i32, ptr %2, align 4, !tbaa !48
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i8, ptr %.035, i64 %31
@@ -6857,7 +6857,7 @@ define internal noundef i32 @yuv422pToYuy2Wrapper(ptr noundef readonly captures(
   %21 = load i32, ptr %2, align 4, !tbaa !48
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !48
-  tail call void %13(ptr noundef %14, ptr noundef %16, ptr noundef %18, ptr noundef %12, i32 noundef %20, i32 noundef %4, i32 noundef %21, i32 noundef %23, i32 noundef %9) #13
+  tail call void %13(ptr noundef %14, ptr noundef %16, ptr noundef %18, ptr noundef %12, i32 noundef %20, i32 noundef %4, i32 noundef %21, i32 noundef %23, i32 noundef %9) #14
   ret i32 %4
 }
 
@@ -6879,7 +6879,7 @@ define internal noundef i32 @yuv422pToUyvyWrapper(ptr noundef readonly captures(
   %21 = load i32, ptr %2, align 4, !tbaa !48
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !48
-  tail call void %13(ptr noundef %14, ptr noundef %16, ptr noundef %18, ptr noundef %12, i32 noundef %20, i32 noundef %4, i32 noundef %21, i32 noundef %23, i32 noundef %9) #13
+  tail call void %13(ptr noundef %14, ptr noundef %16, ptr noundef %18, ptr noundef %12, i32 noundef %20, i32 noundef %4, i32 noundef %21, i32 noundef %23, i32 noundef %9) #14
   ret i32 %4
 }
 
@@ -7027,7 +7027,7 @@ define internal noundef i32 @planarToYuy2Wrapper(ptr noundef readonly captures(n
   %21 = load i32, ptr %2, align 4, !tbaa !48
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !48
-  tail call void %13(ptr noundef %14, ptr noundef %16, ptr noundef %18, ptr noundef %12, i32 noundef %20, i32 noundef %4, i32 noundef %21, i32 noundef %23, i32 noundef %9) #13
+  tail call void %13(ptr noundef %14, ptr noundef %16, ptr noundef %18, ptr noundef %12, i32 noundef %20, i32 noundef %4, i32 noundef %21, i32 noundef %23, i32 noundef %9) #14
   ret i32 %4
 }
 
@@ -7049,7 +7049,7 @@ define internal noundef i32 @planarToUyvyWrapper(ptr noundef readonly captures(n
   %21 = load i32, ptr %2, align 4, !tbaa !48
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !48
-  tail call void %13(ptr noundef %14, ptr noundef %16, ptr noundef %18, ptr noundef %12, i32 noundef %20, i32 noundef %4, i32 noundef %21, i32 noundef %23, i32 noundef %9) #13
+  tail call void %13(ptr noundef %14, ptr noundef %16, ptr noundef %18, ptr noundef %12, i32 noundef %20, i32 noundef %4, i32 noundef %21, i32 noundef %23, i32 noundef %9) #14
   ret i32 %4
 }
 
@@ -7081,7 +7081,7 @@ define internal noundef i32 @yuyvToYuv420Wrapper(ptr noundef readonly captures(n
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %32 = load i32, ptr %31, align 8, !tbaa !50
   %33 = load i32, ptr %2, align 4, !tbaa !48
-  tail call void %29(ptr noundef %12, ptr noundef %20, ptr noundef %28, ptr noundef %30, i32 noundef %32, i32 noundef %4, i32 noundef %9, i32 noundef %16, i32 noundef %33) #13
+  tail call void %29(ptr noundef %12, ptr noundef %20, ptr noundef %28, ptr noundef %30, i32 noundef %32, i32 noundef %4, i32 noundef %9, i32 noundef %16, i32 noundef %33) #14
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !49
   %.not = icmp ne ptr %35, null
@@ -7141,7 +7141,7 @@ define internal noundef i32 @uyvyToYuv420Wrapper(ptr noundef readonly captures(n
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %32 = load i32, ptr %31, align 8, !tbaa !50
   %33 = load i32, ptr %2, align 4, !tbaa !48
-  tail call void %29(ptr noundef %12, ptr noundef %20, ptr noundef %28, ptr noundef %30, i32 noundef %32, i32 noundef %4, i32 noundef %9, i32 noundef %16, i32 noundef %33) #13
+  tail call void %29(ptr noundef %12, ptr noundef %20, ptr noundef %28, ptr noundef %30, i32 noundef %32, i32 noundef %4, i32 noundef %9, i32 noundef %16, i32 noundef %33) #14
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !49
   %.not = icmp ne ptr %35, null
@@ -7199,7 +7199,7 @@ define internal noundef i32 @yuyvToYuv422Wrapper(ptr noundef readonly captures(n
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = load i32, ptr %29, align 8, !tbaa !50
   %31 = load i32, ptr %2, align 4, !tbaa !48
-  tail call void %27(ptr noundef %12, ptr noundef %19, ptr noundef %26, ptr noundef %28, i32 noundef %30, i32 noundef %4, i32 noundef %9, i32 noundef %16, i32 noundef %31) #13
+  tail call void %27(ptr noundef %12, ptr noundef %19, ptr noundef %26, ptr noundef %28, i32 noundef %30, i32 noundef %4, i32 noundef %9, i32 noundef %16, i32 noundef %31) #14
   ret i32 %4
 }
 
@@ -7229,7 +7229,7 @@ define internal noundef i32 @uyvyToYuv422Wrapper(ptr noundef readonly captures(n
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = load i32, ptr %29, align 8, !tbaa !50
   %31 = load i32, ptr %2, align 4, !tbaa !48
-  tail call void %27(ptr noundef %12, ptr noundef %19, ptr noundef %26, ptr noundef %28, i32 noundef %30, i32 noundef %4, i32 noundef %9, i32 noundef %16, i32 noundef %31) #13
+  tail call void %27(ptr noundef %12, ptr noundef %19, ptr noundef %26, ptr noundef %28, i32 noundef %30, i32 noundef %4, i32 noundef %9, i32 noundef %16, i32 noundef %31) #14
   ret i32 %4
 }
 
@@ -7555,10 +7555,10 @@ define internal noundef i32 @packedCopyWrapper(ptr noundef readonly captures(non
 define internal noundef i32 @planarCopyWrapper(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i32, ptr %8, align 8, !tbaa !6
-  %10 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %9) #13
+  %10 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %9) #14
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %12 = load i32, ptr %11, align 4, !tbaa !29
-  %13 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %12) #13
+  %13 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %12) #14
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 244
@@ -7653,23 +7653,23 @@ define internal noundef i32 @planarCopyWrapper(ptr noundef readonly captures(non
 
 69:                                               ; preds = %67
   %70 = load i32, ptr %11, align 4, !tbaa !29
-  %71 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %70) #13
+  %71 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %70) #14
   %.not.i2563 = icmp eq ptr %71, null
   br i1 %.not.i2563, label %72, label %73
 
 72:                                               ; preds = %69
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 776) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 776) #14
+  tail call void @abort() #15
   unreachable
 
 73:                                               ; preds = %69
-  %74 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %70) #13
+  %74 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %70) #14
   %.not.i.i = icmp eq ptr %74, null
   br i1 %.not.i.i, label %75, label %76
 
 75:                                               ; preds = %73
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 765) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 765) #14
+  tail call void @abort() #15
   unreachable
 
 76:                                               ; preds = %73
@@ -7680,13 +7680,13 @@ define internal noundef i32 @planarCopyWrapper(ptr noundef readonly captures(non
   br i1 %.not3.i.i, label %isSemiPlanarYUV.exit.thread, label %80
 
 80:                                               ; preds = %76
-  %81 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %70) #13
+  %81 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %70) #14
   %.not.i2564 = icmp eq ptr %81, null
   br i1 %.not.i2564, label %82, label %83
 
 82:                                               ; preds = %80
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 758) #14
+  tail call void @abort() #15
   unreachable
 
 83:                                               ; preds = %80
@@ -7739,13 +7739,13 @@ isSemiPlanarYUV.exit.thread:                      ; preds = %83, %76, %isPlanarY
 103:                                              ; preds = %.thread2620, %100, %98
   %.0248526182624 = phi i32 [ %40, %.thread2620 ], [ %.02485.ph, %100 ], [ %.02485.ph, %98 ]
   %104 = load i32, ptr %11, align 4, !tbaa !29
-  %105 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %104) #13
+  %105 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %104) #14
   %.not.i2565 = icmp eq ptr %105, null
   br i1 %.not.i2565, label %106, label %is16BPS.exit
 
 106:                                              ; preds = %103
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 730) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 730) #14
+  tail call void @abort() #15
   unreachable
 
 is16BPS.exit:                                     ; preds = %103
@@ -7756,13 +7756,13 @@ is16BPS.exit:                                     ; preds = %103
 
 109:                                              ; preds = %is16BPS.exit
   %110 = load i32, ptr %11, align 4, !tbaa !29
-  %111 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %110) #13
+  %111 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %110) #14
   %.not.i2578 = icmp eq ptr %111, null
   br i1 %.not.i2578, label %112, label %isNBPS.exit
 
 112:                                              ; preds = %109
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 744) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 744) #14
+  tail call void @abort() #15
   unreachable
 
 isNBPS.exit:                                      ; preds = %109
@@ -7779,13 +7779,13 @@ isNBPS.exit:                                      ; preds = %109
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 40
   %121 = load i32, ptr %120, align 4, !tbaa !41
   %122 = load i32, ptr %11, align 4, !tbaa !29
-  %123 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %122) #13
+  %123 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %122) #14
   %.not.i2583 = icmp eq ptr %123, null
   br i1 %.not.i2583, label %124, label %isBE.exit
 
 124:                                              ; preds = %116
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #14
+  tail call void @abort() #15
   unreachable
 
 isBE.exit:                                        ; preds = %116
@@ -7863,13 +7863,13 @@ isBE.exit:                                        ; preds = %116
 .thread2625:                                      ; preds = %.thread2620, %100
   %.02485261826232627 = phi i32 [ %.02485.ph, %100 ], [ %40, %.thread2620 ]
   %160 = load i32, ptr %8, align 8, !tbaa !6
-  %161 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %160) #13
+  %161 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %160) #14
   %.not.i2579 = icmp eq ptr %161, null
   br i1 %.not.i2579, label %162, label %isNBPS.exit2580
 
 162:                                              ; preds = %.thread2625
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 744) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 744) #14
+  tail call void @abort() #15
   unreachable
 
 isNBPS.exit2580:                                  ; preds = %.thread2625
@@ -7881,13 +7881,13 @@ isNBPS.exit2580:                                  ; preds = %.thread2625
 
 166:                                              ; preds = %isNBPS.exit2580
   %167 = load i32, ptr %11, align 4, !tbaa !29
-  %168 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %167) #13
+  %168 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %167) #14
   %.not.i2581 = icmp eq ptr %168, null
   br i1 %.not.i2581, label %169, label %isNBPS.exit2582
 
 169:                                              ; preds = %166
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 744) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 744) #14
+  tail call void @abort() #15
   unreachable
 
 isNBPS.exit2582:                                  ; preds = %166
@@ -7899,26 +7899,26 @@ isNBPS.exit2582:                                  ; preds = %166
 
 173:                                              ; preds = %isNBPS.exit2582
   %174 = load i32, ptr %8, align 8, !tbaa !6
-  %175 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %174) #13
+  %175 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %174) #14
   %.not.i2566 = icmp eq ptr %175, null
   br i1 %.not.i2566, label %176, label %is16BPS.exit2567
 
 176:                                              ; preds = %173
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 730) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 730) #14
+  tail call void @abort() #15
   unreachable
 
 is16BPS.exit2567:                                 ; preds = %173
   %177 = getelementptr inbounds nuw i8, ptr %175, i64 40
   %178 = load i32, ptr %177, align 8, !tbaa !41
   %179 = load i32, ptr %11, align 4, !tbaa !29
-  %180 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %179) #13
+  %180 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %179) #14
   %.not.i2568 = icmp eq ptr %180, null
   br i1 %.not.i2568, label %181, label %is16BPS.exit2569
 
 181:                                              ; preds = %is16BPS.exit2567
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 730) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 730) #14
+  tail call void @abort() #15
   unreachable
 
 is16BPS.exit2569:                                 ; preds = %is16BPS.exit2567
@@ -7945,13 +7945,13 @@ is16BPS.exit2569:                                 ; preds = %is16BPS.exit2567
 
 198:                                              ; preds = %186
   %199 = load i32, ptr %8, align 8, !tbaa !6
-  %200 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %199) #13
+  %200 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %199) #14
   %.not.i2584 = icmp eq ptr %200, null
   br i1 %.not.i2584, label %201, label %isBE.exit2585
 
 201:                                              ; preds = %198
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #14
+  tail call void @abort() #15
   unreachable
 
 isBE.exit2585:                                    ; preds = %198
@@ -9176,13 +9176,13 @@ isBE.exit2585:                                    ; preds = %198
   %.024872941 = phi ptr [ %54, %.lr.ph2944 ], [ %1159, %.loopexit ]
   %.025192939 = phi ptr [ %59, %.lr.ph2944 ], [ %1156, %.loopexit ]
   %1111 = load i32, ptr %11, align 4, !tbaa !29
-  %1112 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1111) #13
+  %1112 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1111) #14
   %.not.i2586 = icmp eq ptr %1112, null
   br i1 %.not.i2586, label %1113, label %isBE.exit2587
 
 1113:                                             ; preds = %1110
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #14
+  tail call void @abort() #15
   unreachable
 
 isBE.exit2587:                                    ; preds = %1110
@@ -9315,13 +9315,13 @@ isBE.exit2587:                                    ; preds = %1110
   %.625062805 = phi ptr [ %54, %.lr.ph2808 ], [ %1314, %.loopexit2724 ]
   %.125202803 = phi ptr [ %59, %.lr.ph2808 ], [ %1310, %.loopexit2724 ]
   %1172 = load i32, ptr %8, align 8, !tbaa !6
-  %1173 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1172) #13
+  %1173 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1172) #14
   %.not.i2588 = icmp eq ptr %1173, null
   br i1 %.not.i2588, label %1174, label %isBE.exit2589
 
 1174:                                             ; preds = %1171
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #14
+  tail call void @abort() #15
   unreachable
 
 isBE.exit2589:                                    ; preds = %1171
@@ -9333,13 +9333,13 @@ isBE.exit2589:                                    ; preds = %1171
 
 1179:                                             ; preds = %isBE.exit2589
   %1180 = load i32, ptr %11, align 4, !tbaa !29
-  %1181 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1180) #13
+  %1181 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1180) #14
   %.not.i2590 = icmp eq ptr %1181, null
   br i1 %.not.i2590, label %1182, label %isBE.exit2591
 
 1182:                                             ; preds = %1179
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #14
+  tail call void @abort() #15
   unreachable
 
 isBE.exit2591:                                    ; preds = %1179
@@ -9371,13 +9371,13 @@ isBE.exit2591:                                    ; preds = %1179
 .loopexit2740:                                    ; preds = %.loopexit2740.loopexit, %isBE.exit2591, %isBE.exit2589
   %.162478 = phi i32 [ 0, %isBE.exit2591 ], [ 0, %isBE.exit2589 ], [ %1194, %.loopexit2740.loopexit ]
   %1195 = load i32, ptr %8, align 8, !tbaa !6
-  %1196 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1195) #13
+  %1196 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1195) #14
   %.not.i2592 = icmp eq ptr %1196, null
   br i1 %.not.i2592, label %1197, label %isBE.exit2593
 
 1197:                                             ; preds = %.loopexit2740
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #14
+  tail call void @abort() #15
   unreachable
 
 isBE.exit2593:                                    ; preds = %.loopexit2740
@@ -9386,7 +9386,7 @@ isBE.exit2593:                                    ; preds = %.loopexit2740
   %1200 = and i64 %1199, 1
   %.not2553 = icmp eq i64 %1200, 0
   %1201 = load i32, ptr %11, align 4, !tbaa !29
-  %1202 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1201) #13
+  %1202 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1201) #14
   %.not.i2596 = icmp eq ptr %1202, null
   br i1 %.not2553, label %1257, label %1203
 
@@ -9394,8 +9394,8 @@ isBE.exit2593:                                    ; preds = %.loopexit2740
   br i1 %.not.i2596, label %1204, label %isBE.exit2595
 
 1204:                                             ; preds = %1203
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #14
+  tail call void @abort() #15
   unreachable
 
 isBE.exit2595:                                    ; preds = %1203
@@ -9514,8 +9514,8 @@ isBE.exit2595:                                    ; preds = %1203
   br i1 %.not.i2596, label %1258, label %isBE.exit2597
 
 1258:                                             ; preds = %1257
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #14
+  tail call void @abort() #15
   unreachable
 
 isBE.exit2597:                                    ; preds = %1257
@@ -9641,13 +9641,13 @@ isBE.exit2597:                                    ; preds = %1257
 
 1316:                                             ; preds = %1161
   %1317 = load i32, ptr %8, align 8, !tbaa !6
-  %1318 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1317) #13
+  %1318 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1317) #14
   %.not.i2598 = icmp eq ptr %1318, null
   br i1 %.not.i2598, label %1319, label %isBE.exit2599
 
 1319:                                             ; preds = %1316
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #14
+  tail call void @abort() #15
   unreachable
 
 isBE.exit2599:                                    ; preds = %1316
@@ -9656,7 +9656,7 @@ isBE.exit2599:                                    ; preds = %1316
   %1322 = and i64 %1321, 1
   %1323 = icmp eq i64 %1322, 0
   %1324 = load i32, ptr %11, align 4, !tbaa !29
-  %1325 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1324) #13
+  %1325 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1324) #14
   %.not.i2600 = icmp eq ptr %1325, null
   br i1 %1323, label %1326, label %2235
 
@@ -9664,8 +9664,8 @@ isBE.exit2599:                                    ; preds = %1316
   br i1 %.not.i2600, label %1327, label %isBE.exit2601
 
 1327:                                             ; preds = %1326
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #14
+  tail call void @abort() #15
   unreachable
 
 isBE.exit2601:                                    ; preds = %1326
@@ -10876,8 +10876,8 @@ isBE.exit2601:                                    ; preds = %1326
   br i1 %.not.i2600, label %2236, label %isBE.exit2603
 
 2236:                                             ; preds = %2235
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #14
+  tail call void @abort() #15
   unreachable
 
 isBE.exit2603:                                    ; preds = %2235
@@ -12140,13 +12140,13 @@ isBE.exit2603:                                    ; preds = %2235
 
 3198:                                             ; preds = %is16BPS.exit2569
   %3199 = load i32, ptr %8, align 8, !tbaa !6
-  %3200 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3199) #13
+  %3200 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3199) #14
   %.not.i2570 = icmp eq ptr %3200, null
   br i1 %.not.i2570, label %3201, label %is16BPS.exit2571
 
 3201:                                             ; preds = %3198
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 730) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 730) #14
+  tail call void @abort() #15
   unreachable
 
 is16BPS.exit2571:                                 ; preds = %3198
@@ -12157,13 +12157,13 @@ is16BPS.exit2571:                                 ; preds = %3198
 
 3204:                                             ; preds = %is16BPS.exit2571
   %3205 = load i32, ptr %11, align 4, !tbaa !29
-  %3206 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3205) #13
+  %3206 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3205) #14
   %.not.i2572 = icmp eq ptr %3206, null
   br i1 %.not.i2572, label %3207, label %is16BPS.exit2573
 
 3207:                                             ; preds = %3204
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 730) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 730) #14
+  tail call void @abort() #15
   unreachable
 
 is16BPS.exit2573:                                 ; preds = %3204
@@ -12174,26 +12174,26 @@ is16BPS.exit2573:                                 ; preds = %3204
 
 3210:                                             ; preds = %is16BPS.exit2573
   %3211 = load i32, ptr %8, align 8, !tbaa !6
-  %3212 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3211) #13
+  %3212 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3211) #14
   %.not.i2604 = icmp eq ptr %3212, null
   br i1 %.not.i2604, label %3213, label %isBE.exit2605
 
 3213:                                             ; preds = %3210
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #14
+  tail call void @abort() #15
   unreachable
 
 isBE.exit2605:                                    ; preds = %3210
   %3214 = getelementptr inbounds nuw i8, ptr %3212, i64 16
   %3215 = load i64, ptr %3214, align 8, !tbaa !33
   %3216 = load i32, ptr %11, align 4, !tbaa !29
-  %3217 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3216) #13
+  %3217 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3216) #14
   %.not.i2606 = icmp eq ptr %3217, null
   br i1 %.not.i2606, label %3218, label %isBE.exit2607
 
 3218:                                             ; preds = %isBE.exit2605
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #14
+  tail call void @abort() #15
   unreachable
 
 isBE.exit2607:                                    ; preds = %isBE.exit2605
@@ -12244,13 +12244,13 @@ isBE.exit2607:                                    ; preds = %isBE.exit2605
 
 3237:                                             ; preds = %isBE.exit2607, %is16BPS.exit2573, %is16BPS.exit2571
   %3238 = load i32, ptr %8, align 8, !tbaa !6
-  %3239 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3238) #13
+  %3239 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3238) #14
   %.not.i2561 = icmp eq ptr %3239, null
   br i1 %.not.i2561, label %3240, label %isFloat.exit2562
 
 3240:                                             ; preds = %3237
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 867) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 867) #14
+  tail call void @abort() #15
   unreachable
 
 isFloat.exit2562:                                 ; preds = %3237
@@ -12262,13 +12262,13 @@ isFloat.exit2562:                                 ; preds = %3237
 
 3244:                                             ; preds = %isFloat.exit2562
   %3245 = load i32, ptr %11, align 4, !tbaa !29
-  %3246 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3245) #13
+  %3246 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3245) #14
   %.not.i = icmp eq ptr %3246, null
   br i1 %.not.i, label %3247, label %isFloat.exit
 
 3247:                                             ; preds = %3244
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 867) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 867) #14
+  tail call void @abort() #15
   unreachable
 
 isFloat.exit:                                     ; preds = %3244
@@ -12280,26 +12280,26 @@ isFloat.exit:                                     ; preds = %3244
 
 3251:                                             ; preds = %isFloat.exit
   %3252 = load i32, ptr %8, align 8, !tbaa !6
-  %3253 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3252) #13
+  %3253 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3252) #14
   %.not.i2608 = icmp eq ptr %3253, null
   br i1 %.not.i2608, label %3254, label %isBE.exit2609
 
 3254:                                             ; preds = %3251
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #14
+  tail call void @abort() #15
   unreachable
 
 isBE.exit2609:                                    ; preds = %3251
   %3255 = getelementptr inbounds nuw i8, ptr %3253, i64 16
   %3256 = load i64, ptr %3255, align 8, !tbaa !33
   %3257 = load i32, ptr %11, align 4, !tbaa !29
-  %3258 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3257) #13
+  %3258 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3257) #14
   %.not.i2610 = icmp eq ptr %3258, null
   br i1 %.not.i2610, label %3259, label %isBE.exit2611
 
 3259:                                             ; preds = %isBE.exit2609
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 751) #14
+  tail call void @abort() #15
   unreachable
 
 isBE.exit2611:                                    ; preds = %isBE.exit2609
@@ -12372,13 +12372,13 @@ isBE.exit2611:                                    ; preds = %isBE.exit2609
 
 3293:                                             ; preds = %3278
   %3294 = load i32, ptr %8, align 8, !tbaa !6
-  %3295 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3294) #13
+  %3295 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3294) #14
   %.not.i2574 = icmp eq ptr %3295, null
   br i1 %.not.i2574, label %3296, label %is16BPS.exit2575
 
 3296:                                             ; preds = %3293
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 730) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 730) #14
+  tail call void @abort() #15
   unreachable
 
 is16BPS.exit2575:                                 ; preds = %3293
@@ -12389,13 +12389,13 @@ is16BPS.exit2575:                                 ; preds = %3293
 
 3299:                                             ; preds = %is16BPS.exit2575
   %3300 = load i32, ptr %11, align 4, !tbaa !29
-  %3301 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3300) #13
+  %3301 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3300) #14
   %.not.i2576 = icmp eq ptr %3301, null
   br i1 %.not.i2576, label %3302, label %is16BPS.exit2577
 
 3302:                                             ; preds = %3299
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 730) #13
-  tail call void @abort() #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 730) #14
+  tail call void @abort() #15
   unreachable
 
 is16BPS.exit2577:                                 ; preds = %3299
@@ -23111,7 +23111,7 @@ define internal void @bayer_bggr8_to_yv12_copy(ptr noundef readonly captures(non
   store i8 %35, ptr %21, align 1, !tbaa !61
   store i8 %35, ptr %22, align 1, !tbaa !61
   %36 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %36(ptr noundef nonnull %9, ptr noundef %.02429, ptr noundef %.02627, ptr noundef %.02528, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %36(ptr noundef nonnull %9, ptr noundef %.02429, ptr noundef %.02627, ptr noundef %.02528, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %37 = getelementptr inbounds nuw i8, ptr %.02330, i64 2
   %38 = getelementptr inbounds nuw i8, ptr %.02429, i64 2
   %39 = getelementptr inbounds nuw i8, ptr %.02528, i64 1
@@ -23168,7 +23168,7 @@ define internal void @bayer_bggr8_to_yv12_interpolate(ptr noundef readonly captu
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 11
   store i8 %31, ptr %35, align 1, !tbaa !61
   %36 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %36(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %36(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %38 = add nsw i32 %6, -2
   %.0109112 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -23277,7 +23277,7 @@ define internal void @bayer_bggr8_to_yv12_interpolate(ptr noundef readonly captu
   %118 = trunc nuw i16 %117 to i8
   store i8 %118, ptr %35, align 1, !tbaa !61
   %119 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %119(ptr noundef nonnull %9, ptr noundef nonnull %.0107119, ptr noundef nonnull %.0109117, ptr noundef nonnull %.0108118, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %119(ptr noundef nonnull %9, ptr noundef nonnull %.0107119, ptr noundef nonnull %.0109117, ptr noundef nonnull %.0108118, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %120 = add nuw nsw i32 %.0116, 2
   %.0109 = getelementptr inbounds nuw i8, ptr %.0109117, i64 1
   %.0108 = getelementptr inbounds nuw i8, ptr %.0108118, i64 1
@@ -23319,7 +23319,7 @@ define internal void @bayer_bggr8_to_yv12_interpolate(ptr noundef readonly captu
   store i8 %134, ptr %34, align 1, !tbaa !61
   store i8 %134, ptr %35, align 1, !tbaa !61
   %135 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %135(ptr noundef nonnull %9, ptr noundef nonnull %.0107.lcssa133, ptr noundef nonnull %.0109.lcssa131, ptr noundef nonnull %.0108.lcssa132, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %135(ptr noundef nonnull %9, ptr noundef nonnull %.0107.lcssa133, ptr noundef nonnull %.0109.lcssa131, ptr noundef nonnull %.0108.lcssa132, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   br label %136
 
 136:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -23388,7 +23388,7 @@ define internal void @bayer_bggr16le_to_yv12_copy(ptr noundef readonly captures(
   store i8 %43, ptr %21, align 1, !tbaa !61
   store i8 %43, ptr %22, align 1, !tbaa !61
   %44 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %44(ptr noundef nonnull %9, ptr noundef %.02429, ptr noundef %.02627, ptr noundef %.02528, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %44(ptr noundef nonnull %9, ptr noundef %.02429, ptr noundef %.02627, ptr noundef %.02528, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %45 = getelementptr inbounds nuw i8, ptr %.02330, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %.02429, i64 2
   %47 = getelementptr inbounds nuw i8, ptr %.02528, i64 1
@@ -23453,7 +23453,7 @@ define internal void @bayer_bggr16le_to_yv12_interpolate(ptr noundef readonly ca
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 11
   store i8 %39, ptr %43, align 1, !tbaa !61
   %44 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %44(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %44(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %46 = add nsw i32 %6, -2
   %.0109112 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -23570,7 +23570,7 @@ define internal void @bayer_bggr16le_to_yv12_interpolate(ptr noundef readonly ca
   %134 = trunc nuw i32 %133 to i8
   store i8 %134, ptr %43, align 1, !tbaa !61
   %135 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %135(ptr noundef nonnull %9, ptr noundef nonnull %.0107119, ptr noundef nonnull %.0109117, ptr noundef nonnull %.0108118, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %135(ptr noundef nonnull %9, ptr noundef nonnull %.0107119, ptr noundef nonnull %.0109117, ptr noundef nonnull %.0108118, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %136 = add nuw nsw i32 %.0116, 2
   %.0109 = getelementptr inbounds nuw i8, ptr %.0109117, i64 1
   %.0108 = getelementptr inbounds nuw i8, ptr %.0108118, i64 1
@@ -23620,7 +23620,7 @@ define internal void @bayer_bggr16le_to_yv12_interpolate(ptr noundef readonly ca
   store i8 %158, ptr %42, align 1, !tbaa !61
   store i8 %158, ptr %43, align 1, !tbaa !61
   %159 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %159(ptr noundef nonnull %9, ptr noundef nonnull %.0107.lcssa133, ptr noundef nonnull %.0109.lcssa131, ptr noundef nonnull %.0108.lcssa132, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %159(ptr noundef nonnull %9, ptr noundef nonnull %.0107.lcssa133, ptr noundef nonnull %.0109.lcssa131, ptr noundef nonnull %.0108.lcssa132, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   br label %160
 
 160:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -23689,7 +23689,7 @@ define internal void @bayer_bggr16be_to_yv12_copy(ptr noundef readonly captures(
   store i8 %43, ptr %21, align 1, !tbaa !61
   store i8 %43, ptr %22, align 1, !tbaa !61
   %44 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %44(ptr noundef nonnull %9, ptr noundef %.02429, ptr noundef %.02627, ptr noundef %.02528, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %44(ptr noundef nonnull %9, ptr noundef %.02429, ptr noundef %.02627, ptr noundef %.02528, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %45 = getelementptr inbounds nuw i8, ptr %.02330, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %.02429, i64 2
   %47 = getelementptr inbounds nuw i8, ptr %.02528, i64 1
@@ -23754,7 +23754,7 @@ define internal void @bayer_bggr16be_to_yv12_interpolate(ptr noundef readonly ca
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 11
   store i8 %39, ptr %43, align 1, !tbaa !61
   %44 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %44(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %44(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %46 = add nsw i32 %6, -2
   %.0109112 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -23885,7 +23885,7 @@ define internal void @bayer_bggr16be_to_yv12_interpolate(ptr noundef readonly ca
   %148 = trunc nuw i32 %147 to i8
   store i8 %148, ptr %43, align 1, !tbaa !61
   %149 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %149(ptr noundef nonnull %9, ptr noundef nonnull %.0107119, ptr noundef nonnull %.0109117, ptr noundef nonnull %.0108118, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %149(ptr noundef nonnull %9, ptr noundef nonnull %.0107119, ptr noundef nonnull %.0109117, ptr noundef nonnull %.0108118, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %150 = add nuw nsw i32 %.0116, 2
   %.0109 = getelementptr inbounds nuw i8, ptr %.0109117, i64 1
   %.0108 = getelementptr inbounds nuw i8, ptr %.0108118, i64 1
@@ -23935,7 +23935,7 @@ define internal void @bayer_bggr16be_to_yv12_interpolate(ptr noundef readonly ca
   store i8 %172, ptr %42, align 1, !tbaa !61
   store i8 %172, ptr %43, align 1, !tbaa !61
   %173 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %173(ptr noundef nonnull %9, ptr noundef nonnull %.0107.lcssa133, ptr noundef nonnull %.0109.lcssa131, ptr noundef nonnull %.0108.lcssa132, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %173(ptr noundef nonnull %9, ptr noundef nonnull %.0107.lcssa133, ptr noundef nonnull %.0109.lcssa131, ptr noundef nonnull %.0108.lcssa132, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   br label %174
 
 174:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -23996,7 +23996,7 @@ define internal void @bayer_rggb8_to_yv12_copy(ptr noundef readonly captures(non
   store i8 %35, ptr %9, align 1, !tbaa !61
   store i8 %35, ptr %22, align 1, !tbaa !61
   %36 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %36(ptr noundef nonnull %9, ptr noundef %.02429, ptr noundef %.02627, ptr noundef %.02528, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %36(ptr noundef nonnull %9, ptr noundef %.02429, ptr noundef %.02627, ptr noundef %.02528, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %37 = getelementptr inbounds nuw i8, ptr %.02330, i64 2
   %38 = getelementptr inbounds nuw i8, ptr %.02429, i64 2
   %39 = getelementptr inbounds nuw i8, ptr %.02528, i64 1
@@ -24053,7 +24053,7 @@ define internal void @bayer_rggb8_to_yv12_interpolate(ptr noundef readonly captu
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 9
   store i8 %32, ptr %35, align 1, !tbaa !61
   %36 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %36(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %36(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %38 = add nsw i32 %6, -2
   %.0109112 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -24162,7 +24162,7 @@ define internal void @bayer_rggb8_to_yv12_interpolate(ptr noundef readonly captu
   %118 = trunc nuw i16 %117 to i8
   store i8 %118, ptr %35, align 1, !tbaa !61
   %119 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %119(ptr noundef nonnull %9, ptr noundef nonnull %.0107119, ptr noundef nonnull %.0109117, ptr noundef nonnull %.0108118, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %119(ptr noundef nonnull %9, ptr noundef nonnull %.0107119, ptr noundef nonnull %.0109117, ptr noundef nonnull %.0108118, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %120 = add nuw nsw i32 %.0116, 2
   %.0109 = getelementptr inbounds nuw i8, ptr %.0109117, i64 1
   %.0108 = getelementptr inbounds nuw i8, ptr %.0108118, i64 1
@@ -24204,7 +24204,7 @@ define internal void @bayer_rggb8_to_yv12_interpolate(ptr noundef readonly captu
   store i8 %134, ptr %9, align 1, !tbaa !61
   store i8 %134, ptr %35, align 1, !tbaa !61
   %135 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %135(ptr noundef nonnull %9, ptr noundef nonnull %.0107.lcssa133, ptr noundef nonnull %.0109.lcssa131, ptr noundef nonnull %.0108.lcssa132, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %135(ptr noundef nonnull %9, ptr noundef nonnull %.0107.lcssa133, ptr noundef nonnull %.0109.lcssa131, ptr noundef nonnull %.0108.lcssa132, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   br label %136
 
 136:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -24273,7 +24273,7 @@ define internal void @bayer_rggb16le_to_yv12_copy(ptr noundef readonly captures(
   store i8 %43, ptr %9, align 1, !tbaa !61
   store i8 %43, ptr %22, align 1, !tbaa !61
   %44 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %44(ptr noundef nonnull %9, ptr noundef %.02429, ptr noundef %.02627, ptr noundef %.02528, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %44(ptr noundef nonnull %9, ptr noundef %.02429, ptr noundef %.02627, ptr noundef %.02528, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %45 = getelementptr inbounds nuw i8, ptr %.02330, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %.02429, i64 2
   %47 = getelementptr inbounds nuw i8, ptr %.02528, i64 1
@@ -24338,7 +24338,7 @@ define internal void @bayer_rggb16le_to_yv12_interpolate(ptr noundef readonly ca
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 9
   store i8 %40, ptr %43, align 1, !tbaa !61
   %44 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %44(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %44(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %46 = add nsw i32 %6, -2
   %.0109112 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -24455,7 +24455,7 @@ define internal void @bayer_rggb16le_to_yv12_interpolate(ptr noundef readonly ca
   %134 = trunc nuw i32 %133 to i8
   store i8 %134, ptr %43, align 1, !tbaa !61
   %135 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %135(ptr noundef nonnull %9, ptr noundef nonnull %.0107119, ptr noundef nonnull %.0109117, ptr noundef nonnull %.0108118, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %135(ptr noundef nonnull %9, ptr noundef nonnull %.0107119, ptr noundef nonnull %.0109117, ptr noundef nonnull %.0108118, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %136 = add nuw nsw i32 %.0116, 2
   %.0109 = getelementptr inbounds nuw i8, ptr %.0109117, i64 1
   %.0108 = getelementptr inbounds nuw i8, ptr %.0108118, i64 1
@@ -24505,7 +24505,7 @@ define internal void @bayer_rggb16le_to_yv12_interpolate(ptr noundef readonly ca
   store i8 %158, ptr %9, align 1, !tbaa !61
   store i8 %158, ptr %43, align 1, !tbaa !61
   %159 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %159(ptr noundef nonnull %9, ptr noundef nonnull %.0107.lcssa133, ptr noundef nonnull %.0109.lcssa131, ptr noundef nonnull %.0108.lcssa132, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %159(ptr noundef nonnull %9, ptr noundef nonnull %.0107.lcssa133, ptr noundef nonnull %.0109.lcssa131, ptr noundef nonnull %.0108.lcssa132, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   br label %160
 
 160:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -24574,7 +24574,7 @@ define internal void @bayer_rggb16be_to_yv12_copy(ptr noundef readonly captures(
   store i8 %43, ptr %9, align 1, !tbaa !61
   store i8 %43, ptr %22, align 1, !tbaa !61
   %44 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %44(ptr noundef nonnull %9, ptr noundef %.02429, ptr noundef %.02627, ptr noundef %.02528, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %44(ptr noundef nonnull %9, ptr noundef %.02429, ptr noundef %.02627, ptr noundef %.02528, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %45 = getelementptr inbounds nuw i8, ptr %.02330, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %.02429, i64 2
   %47 = getelementptr inbounds nuw i8, ptr %.02528, i64 1
@@ -24639,7 +24639,7 @@ define internal void @bayer_rggb16be_to_yv12_interpolate(ptr noundef readonly ca
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 9
   store i8 %40, ptr %43, align 1, !tbaa !61
   %44 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %44(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %44(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %46 = add nsw i32 %6, -2
   %.0109112 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -24770,7 +24770,7 @@ define internal void @bayer_rggb16be_to_yv12_interpolate(ptr noundef readonly ca
   %148 = trunc nuw i32 %147 to i8
   store i8 %148, ptr %43, align 1, !tbaa !61
   %149 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %149(ptr noundef nonnull %9, ptr noundef nonnull %.0107119, ptr noundef nonnull %.0109117, ptr noundef nonnull %.0108118, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %149(ptr noundef nonnull %9, ptr noundef nonnull %.0107119, ptr noundef nonnull %.0109117, ptr noundef nonnull %.0108118, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %150 = add nuw nsw i32 %.0116, 2
   %.0109 = getelementptr inbounds nuw i8, ptr %.0109117, i64 1
   %.0108 = getelementptr inbounds nuw i8, ptr %.0108118, i64 1
@@ -24820,7 +24820,7 @@ define internal void @bayer_rggb16be_to_yv12_interpolate(ptr noundef readonly ca
   store i8 %172, ptr %9, align 1, !tbaa !61
   store i8 %172, ptr %43, align 1, !tbaa !61
   %173 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %173(ptr noundef nonnull %9, ptr noundef nonnull %.0107.lcssa133, ptr noundef nonnull %.0109.lcssa131, ptr noundef nonnull %.0108.lcssa132, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %173(ptr noundef nonnull %9, ptr noundef nonnull %.0107.lcssa133, ptr noundef nonnull %.0109.lcssa131, ptr noundef nonnull %.0108.lcssa132, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   br label %174
 
 174:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -24881,7 +24881,7 @@ define internal void @bayer_gbrg8_to_yv12_copy(ptr noundef readonly captures(non
   store i8 %35, ptr %21, align 1, !tbaa !61
   store i8 %35, ptr %22, align 1, !tbaa !61
   %36 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %36(ptr noundef nonnull %9, ptr noundef %.02429, ptr noundef %.02627, ptr noundef %.02528, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %36(ptr noundef nonnull %9, ptr noundef %.02429, ptr noundef %.02627, ptr noundef %.02528, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %37 = getelementptr inbounds nuw i8, ptr %.02330, i64 2
   %38 = getelementptr inbounds nuw i8, ptr %.02429, i64 2
   %39 = getelementptr inbounds nuw i8, ptr %.02528, i64 1
@@ -24938,7 +24938,7 @@ define internal void @bayer_gbrg8_to_yv12_interpolate(ptr noundef readonly captu
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 11
   store i8 %31, ptr %35, align 1, !tbaa !61
   %36 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %36(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %36(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %38 = add nsw i32 %6, -2
   %.0109112 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -25047,7 +25047,7 @@ define internal void @bayer_gbrg8_to_yv12_interpolate(ptr noundef readonly captu
   %118 = trunc nuw i16 %117 to i8
   store i8 %118, ptr %35, align 1, !tbaa !61
   %119 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %119(ptr noundef nonnull %9, ptr noundef nonnull %.0107119, ptr noundef nonnull %.0109117, ptr noundef nonnull %.0108118, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %119(ptr noundef nonnull %9, ptr noundef nonnull %.0107119, ptr noundef nonnull %.0109117, ptr noundef nonnull %.0108118, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %120 = add nuw nsw i32 %.0116, 2
   %.0109 = getelementptr inbounds nuw i8, ptr %.0109117, i64 1
   %.0108 = getelementptr inbounds nuw i8, ptr %.0108118, i64 1
@@ -25089,7 +25089,7 @@ define internal void @bayer_gbrg8_to_yv12_interpolate(ptr noundef readonly captu
   store i8 %134, ptr %34, align 1, !tbaa !61
   store i8 %134, ptr %35, align 1, !tbaa !61
   %135 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %135(ptr noundef nonnull %9, ptr noundef nonnull %.0107.lcssa133, ptr noundef nonnull %.0109.lcssa131, ptr noundef nonnull %.0108.lcssa132, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %135(ptr noundef nonnull %9, ptr noundef nonnull %.0107.lcssa133, ptr noundef nonnull %.0109.lcssa131, ptr noundef nonnull %.0108.lcssa132, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   br label %136
 
 136:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -25158,7 +25158,7 @@ define internal void @bayer_gbrg16le_to_yv12_copy(ptr noundef readonly captures(
   store i8 %43, ptr %21, align 1, !tbaa !61
   store i8 %43, ptr %22, align 1, !tbaa !61
   %44 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %44(ptr noundef nonnull %9, ptr noundef %.02429, ptr noundef %.02627, ptr noundef %.02528, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %44(ptr noundef nonnull %9, ptr noundef %.02429, ptr noundef %.02627, ptr noundef %.02528, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %45 = getelementptr inbounds nuw i8, ptr %.02330, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %.02429, i64 2
   %47 = getelementptr inbounds nuw i8, ptr %.02528, i64 1
@@ -25223,7 +25223,7 @@ define internal void @bayer_gbrg16le_to_yv12_interpolate(ptr noundef readonly ca
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 11
   store i8 %39, ptr %43, align 1, !tbaa !61
   %44 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %44(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %44(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %46 = add nsw i32 %6, -2
   %.0109112 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -25340,7 +25340,7 @@ define internal void @bayer_gbrg16le_to_yv12_interpolate(ptr noundef readonly ca
   %134 = trunc nuw i32 %133 to i8
   store i8 %134, ptr %43, align 1, !tbaa !61
   %135 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %135(ptr noundef nonnull %9, ptr noundef nonnull %.0107119, ptr noundef nonnull %.0109117, ptr noundef nonnull %.0108118, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %135(ptr noundef nonnull %9, ptr noundef nonnull %.0107119, ptr noundef nonnull %.0109117, ptr noundef nonnull %.0108118, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %136 = add nuw nsw i32 %.0116, 2
   %.0109 = getelementptr inbounds nuw i8, ptr %.0109117, i64 1
   %.0108 = getelementptr inbounds nuw i8, ptr %.0108118, i64 1
@@ -25390,7 +25390,7 @@ define internal void @bayer_gbrg16le_to_yv12_interpolate(ptr noundef readonly ca
   store i8 %158, ptr %42, align 1, !tbaa !61
   store i8 %158, ptr %43, align 1, !tbaa !61
   %159 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %159(ptr noundef nonnull %9, ptr noundef nonnull %.0107.lcssa133, ptr noundef nonnull %.0109.lcssa131, ptr noundef nonnull %.0108.lcssa132, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %159(ptr noundef nonnull %9, ptr noundef nonnull %.0107.lcssa133, ptr noundef nonnull %.0109.lcssa131, ptr noundef nonnull %.0108.lcssa132, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   br label %160
 
 160:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -25459,7 +25459,7 @@ define internal void @bayer_gbrg16be_to_yv12_copy(ptr noundef readonly captures(
   store i8 %43, ptr %21, align 1, !tbaa !61
   store i8 %43, ptr %22, align 1, !tbaa !61
   %44 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %44(ptr noundef nonnull %9, ptr noundef %.02429, ptr noundef %.02627, ptr noundef %.02528, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %44(ptr noundef nonnull %9, ptr noundef %.02429, ptr noundef %.02627, ptr noundef %.02528, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %45 = getelementptr inbounds nuw i8, ptr %.02330, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %.02429, i64 2
   %47 = getelementptr inbounds nuw i8, ptr %.02528, i64 1
@@ -25524,7 +25524,7 @@ define internal void @bayer_gbrg16be_to_yv12_interpolate(ptr noundef readonly ca
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 11
   store i8 %39, ptr %43, align 1, !tbaa !61
   %44 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %44(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %44(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %46 = add nsw i32 %6, -2
   %.0109112 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -25655,7 +25655,7 @@ define internal void @bayer_gbrg16be_to_yv12_interpolate(ptr noundef readonly ca
   %148 = trunc nuw i32 %147 to i8
   store i8 %148, ptr %43, align 1, !tbaa !61
   %149 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %149(ptr noundef nonnull %9, ptr noundef nonnull %.0107119, ptr noundef nonnull %.0109117, ptr noundef nonnull %.0108118, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %149(ptr noundef nonnull %9, ptr noundef nonnull %.0107119, ptr noundef nonnull %.0109117, ptr noundef nonnull %.0108118, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %150 = add nuw nsw i32 %.0116, 2
   %.0109 = getelementptr inbounds nuw i8, ptr %.0109117, i64 1
   %.0108 = getelementptr inbounds nuw i8, ptr %.0108118, i64 1
@@ -25705,7 +25705,7 @@ define internal void @bayer_gbrg16be_to_yv12_interpolate(ptr noundef readonly ca
   store i8 %172, ptr %42, align 1, !tbaa !61
   store i8 %172, ptr %43, align 1, !tbaa !61
   %173 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %173(ptr noundef nonnull %9, ptr noundef nonnull %.0107.lcssa133, ptr noundef nonnull %.0109.lcssa131, ptr noundef nonnull %.0108.lcssa132, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %173(ptr noundef nonnull %9, ptr noundef nonnull %.0107.lcssa133, ptr noundef nonnull %.0109.lcssa131, ptr noundef nonnull %.0108.lcssa132, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   br label %174
 
 174:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -25766,7 +25766,7 @@ define internal void @bayer_grbg8_to_yv12_copy(ptr noundef readonly captures(non
   store i8 %35, ptr %9, align 1, !tbaa !61
   store i8 %35, ptr %22, align 1, !tbaa !61
   %36 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %36(ptr noundef nonnull %9, ptr noundef %.02429, ptr noundef %.02627, ptr noundef %.02528, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %36(ptr noundef nonnull %9, ptr noundef %.02429, ptr noundef %.02627, ptr noundef %.02528, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %37 = getelementptr inbounds nuw i8, ptr %.02330, i64 2
   %38 = getelementptr inbounds nuw i8, ptr %.02429, i64 2
   %39 = getelementptr inbounds nuw i8, ptr %.02528, i64 1
@@ -25823,7 +25823,7 @@ define internal void @bayer_grbg8_to_yv12_interpolate(ptr noundef readonly captu
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 9
   store i8 %32, ptr %35, align 1, !tbaa !61
   %36 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %36(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %36(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %38 = add nsw i32 %6, -2
   %.0109112 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -25932,7 +25932,7 @@ define internal void @bayer_grbg8_to_yv12_interpolate(ptr noundef readonly captu
   %118 = trunc nuw i16 %117 to i8
   store i8 %118, ptr %35, align 1, !tbaa !61
   %119 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %119(ptr noundef nonnull %9, ptr noundef nonnull %.0107119, ptr noundef nonnull %.0109117, ptr noundef nonnull %.0108118, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %119(ptr noundef nonnull %9, ptr noundef nonnull %.0107119, ptr noundef nonnull %.0109117, ptr noundef nonnull %.0108118, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %120 = add nuw nsw i32 %.0116, 2
   %.0109 = getelementptr inbounds nuw i8, ptr %.0109117, i64 1
   %.0108 = getelementptr inbounds nuw i8, ptr %.0108118, i64 1
@@ -25974,7 +25974,7 @@ define internal void @bayer_grbg8_to_yv12_interpolate(ptr noundef readonly captu
   store i8 %134, ptr %9, align 1, !tbaa !61
   store i8 %134, ptr %35, align 1, !tbaa !61
   %135 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %135(ptr noundef nonnull %9, ptr noundef nonnull %.0107.lcssa133, ptr noundef nonnull %.0109.lcssa131, ptr noundef nonnull %.0108.lcssa132, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %135(ptr noundef nonnull %9, ptr noundef nonnull %.0107.lcssa133, ptr noundef nonnull %.0109.lcssa131, ptr noundef nonnull %.0108.lcssa132, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   br label %136
 
 136:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -26043,7 +26043,7 @@ define internal void @bayer_grbg16le_to_yv12_copy(ptr noundef readonly captures(
   store i8 %43, ptr %9, align 1, !tbaa !61
   store i8 %43, ptr %22, align 1, !tbaa !61
   %44 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %44(ptr noundef nonnull %9, ptr noundef %.02429, ptr noundef %.02627, ptr noundef %.02528, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %44(ptr noundef nonnull %9, ptr noundef %.02429, ptr noundef %.02627, ptr noundef %.02528, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %45 = getelementptr inbounds nuw i8, ptr %.02330, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %.02429, i64 2
   %47 = getelementptr inbounds nuw i8, ptr %.02528, i64 1
@@ -26108,7 +26108,7 @@ define internal void @bayer_grbg16le_to_yv12_interpolate(ptr noundef readonly ca
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 9
   store i8 %40, ptr %43, align 1, !tbaa !61
   %44 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %44(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %44(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %46 = add nsw i32 %6, -2
   %.0109112 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -26225,7 +26225,7 @@ define internal void @bayer_grbg16le_to_yv12_interpolate(ptr noundef readonly ca
   %134 = trunc nuw i32 %133 to i8
   store i8 %134, ptr %43, align 1, !tbaa !61
   %135 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %135(ptr noundef nonnull %9, ptr noundef nonnull %.0107119, ptr noundef nonnull %.0109117, ptr noundef nonnull %.0108118, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %135(ptr noundef nonnull %9, ptr noundef nonnull %.0107119, ptr noundef nonnull %.0109117, ptr noundef nonnull %.0108118, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %136 = add nuw nsw i32 %.0116, 2
   %.0109 = getelementptr inbounds nuw i8, ptr %.0109117, i64 1
   %.0108 = getelementptr inbounds nuw i8, ptr %.0108118, i64 1
@@ -26275,7 +26275,7 @@ define internal void @bayer_grbg16le_to_yv12_interpolate(ptr noundef readonly ca
   store i8 %158, ptr %9, align 1, !tbaa !61
   store i8 %158, ptr %43, align 1, !tbaa !61
   %159 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %159(ptr noundef nonnull %9, ptr noundef nonnull %.0107.lcssa133, ptr noundef nonnull %.0109.lcssa131, ptr noundef nonnull %.0108.lcssa132, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %159(ptr noundef nonnull %9, ptr noundef nonnull %.0107.lcssa133, ptr noundef nonnull %.0109.lcssa131, ptr noundef nonnull %.0108.lcssa132, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   br label %160
 
 160:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -26344,7 +26344,7 @@ define internal void @bayer_grbg16be_to_yv12_copy(ptr noundef readonly captures(
   store i8 %43, ptr %9, align 1, !tbaa !61
   store i8 %43, ptr %22, align 1, !tbaa !61
   %44 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %44(ptr noundef nonnull %9, ptr noundef %.02429, ptr noundef %.02627, ptr noundef %.02528, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %44(ptr noundef nonnull %9, ptr noundef %.02429, ptr noundef %.02627, ptr noundef %.02528, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %45 = getelementptr inbounds nuw i8, ptr %.02330, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %.02429, i64 2
   %47 = getelementptr inbounds nuw i8, ptr %.02528, i64 1
@@ -26409,7 +26409,7 @@ define internal void @bayer_grbg16be_to_yv12_interpolate(ptr noundef readonly ca
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 9
   store i8 %40, ptr %43, align 1, !tbaa !61
   %44 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %44(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %44(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %46 = add nsw i32 %6, -2
   %.0109112 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -26540,7 +26540,7 @@ define internal void @bayer_grbg16be_to_yv12_interpolate(ptr noundef readonly ca
   %148 = trunc nuw i32 %147 to i8
   store i8 %148, ptr %43, align 1, !tbaa !61
   %149 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %149(ptr noundef nonnull %9, ptr noundef nonnull %.0107119, ptr noundef nonnull %.0109117, ptr noundef nonnull %.0108118, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %149(ptr noundef nonnull %9, ptr noundef nonnull %.0107119, ptr noundef nonnull %.0109117, ptr noundef nonnull %.0108118, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   %150 = add nuw nsw i32 %.0116, 2
   %.0109 = getelementptr inbounds nuw i8, ptr %.0109117, i64 1
   %.0108 = getelementptr inbounds nuw i8, ptr %.0108118, i64 1
@@ -26590,7 +26590,7 @@ define internal void @bayer_grbg16be_to_yv12_interpolate(ptr noundef readonly ca
   store i8 %172, ptr %9, align 1, !tbaa !61
   store i8 %172, ptr %43, align 1, !tbaa !61
   %173 = load ptr, ptr @ff_rgb24toyv12, align 8, !tbaa !51
-  call void %173(ptr noundef nonnull %9, ptr noundef nonnull %.0107.lcssa133, ptr noundef nonnull %.0109.lcssa131, ptr noundef nonnull %.0108.lcssa132, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #13
+  call void %173(ptr noundef nonnull %9, ptr noundef nonnull %.0107.lcssa133, ptr noundef nonnull %.0109.lcssa131, ptr noundef nonnull %.0108.lcssa132, i32 noundef 2, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 6, ptr noundef %7) #14
   br label %174
 
 174:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -26842,7 +26842,7 @@ define internal void @gray8aToPacked24(ptr noundef readonly captures(none) %0, p
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.lrint.i64.f32(float) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -26854,23 +26854,23 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.bswap.i16(i16) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.bswap.i32(i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #13
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -26882,11 +26882,12 @@ attributes #6 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true"
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { noreturn nounwind }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

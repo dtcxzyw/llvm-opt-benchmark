@@ -277,7 +277,7 @@ define hidden void @zend_dump_ht(ptr noundef readonly captures(none) %0) local_u
 
 24:                                               ; preds = %23
   %25 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %26 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %25) #11
+  %26 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %25) #12
   br label %27
 
 27:                                               ; preds = %23, %24
@@ -287,16 +287,16 @@ define hidden void @zend_dump_ht(ptr noundef readonly captures(none) %0) local_u
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %.131, i64 24
-  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.1, ptr noundef nonnull %30) #12
+  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.1, ptr noundef nonnull %30) #13
   br label %34
 
 32:                                               ; preds = %27
-  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.2, i64 noundef %.026) #12
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.2, i64 noundef %.026) #13
   br label %34
 
 34:                                               ; preds = %32, %29
   %35 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %36 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 3, i64 1, ptr %35) #11
+  %36 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 3, i64 1, ptr %35) #12
   tail call void @zend_dump_const(ptr noundef nonnull %.02839)
   br label %37
 
@@ -330,29 +330,29 @@ define hidden void @zend_dump_const(ptr noundef readonly captures(none) %0) loca
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %7 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 5, i64 1, ptr %6) #11
+  %7 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 5, i64 1, ptr %6) #12
   br label %76
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %10 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 12, i64 1, ptr %9) #11
+  %10 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 12, i64 1, ptr %9) #12
   br label %76
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %13 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 11, i64 1, ptr %12) #11
+  %13 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 11, i64 1, ptr %12) #12
   br label %76
 
 14:                                               ; preds = %1
   %15 = load ptr, ptr @stderr, align 8, !tbaa !19
   %16 = load i64, ptr %0, align 8, !tbaa !12
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.7, i64 noundef %16) #12
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.7, i64 noundef %16) #13
   br label %76
 
 18:                                               ; preds = %1
   %19 = load ptr, ptr @stderr, align 8, !tbaa !19
   %20 = load double, ptr %0, align 8, !tbaa !12
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.8, double noundef %20) #12
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.8, double noundef %20) #13
   br label %76
 
 22:                                               ; preds = %1
@@ -362,7 +362,7 @@ define hidden void @zend_dump_const(ptr noundef readonly captures(none) %0) loca
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %26 = load i64, ptr %25, align 8, !tbaa !21
-  call void @smart_str_append_escaped(ptr noundef nonnull %2, ptr noundef nonnull %24, i64 noundef %26) #13
+  call void @smart_str_append_escaped(ptr noundef nonnull %2, ptr noundef nonnull %24, i64 noundef %26) #14
   %27 = load ptr, ptr %2, align 8, !tbaa !23
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %smart_str_0.exit, label %28
@@ -377,7 +377,7 @@ define hidden void @zend_dump_const(ptr noundef readonly captures(none) %0) loca
 
 smart_str_0.exit:                                 ; preds = %22, %28
   %33 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %34 = call i64 @fwrite(ptr nonnull @.str.9, i64 9, i64 1, ptr %33) #11
+  %34 = call i64 @fwrite(ptr nonnull @.str.9, i64 9, i64 1, ptr %33) #12
   %35 = load ptr, ptr %2, align 8, !tbaa !23
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i64, ptr %36, align 8, !tbaa !21
@@ -386,7 +386,7 @@ smart_str_0.exit:                                 ; preds = %22, %28
 
 ._crit_edge:                                      ; preds = %63, %smart_str_0.exit
   %38 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %39 = call i64 @fwrite(ptr nonnull @.str.11, i64 2, i64 1, ptr %38) #11
+  %39 = call i64 @fwrite(ptr nonnull @.str.11, i64 2, i64 1, ptr %38) #12
   %40 = load ptr, ptr %2, align 8, !tbaa !23
   %.not.i10 = icmp eq ptr %40, null
   br i1 %.not.i10, label %smart_str_free_ex.exit, label %41
@@ -408,7 +408,7 @@ smart_str_0.exit:                                 ; preds = %22, %28
   br i1 %49, label %50, label %smart_str_free_ex.exit
 
 50:                                               ; preds = %45
-  call void @_efree(ptr noundef nonnull %40) #13
+  call void @_efree(ptr noundef nonnull %40) #14
   br label %smart_str_free_ex.exit
 
 smart_str_free_ex.exit:                           ; preds = %50, %45, %41, %._crit_edge
@@ -426,7 +426,7 @@ smart_str_free_ex.exit:                           ; preds = %50, %45, %41, %._cr
 
 56:                                               ; preds = %.lr.ph
   %57 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %58 = call i64 @fwrite(ptr nonnull @.str.10, i64 2, i64 1, ptr %57) #11
+  %58 = call i64 @fwrite(ptr nonnull @.str.10, i64 2, i64 1, ptr %57) #12
   br label %63
 
 59:                                               ; preds = %.lr.ph
@@ -445,13 +445,13 @@ smart_str_free_ex.exit:                           ; preds = %50, %45, %41, %._cr
 
 69:                                               ; preds = %1
   %70 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %71 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 11, i64 1, ptr %70) #11
+  %71 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 11, i64 1, ptr %70) #12
   br label %76
 
 72:                                               ; preds = %1
   %73 = load ptr, ptr @stderr, align 8, !tbaa !19
   %74 = zext i8 %4 to i32
-  %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.13, i32 noundef %74) #12
+  %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.13, i32 noundef %74) #13
   br label %76
 
 76:                                               ; preds = %72, %69, %smart_str_free_ex.exit, %18, %14, %11, %8, %5
@@ -487,12 +487,12 @@ define dso_local void @zend_dump_var(ptr noundef readonly captures(none) %0, i8 
   %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !41
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.14, i32 noundef %2, ptr noundef nonnull %15) #12
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.14, i32 noundef %2, ptr noundef nonnull %15) #13
   br label %28
 
 17:                                               ; preds = %3
   %18 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.15, i32 noundef %2) #12
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.15, i32 noundef %2) #13
   br label %28
 
 20:                                               ; preds = %3
@@ -502,12 +502,12 @@ define dso_local void @zend_dump_var(ptr noundef readonly captures(none) %0, i8 
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.16, i32 noundef %2) #12
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.16, i32 noundef %2) #13
   br label %28
 
 .thread:                                          ; preds = %4, %20
   %26 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.17, i32 noundef %2) #12
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.17, i32 noundef %2) #13
   br label %28
 
 28:                                               ; preds = %17, %.thread, %23, %8
@@ -521,11 +521,11 @@ define dso_local void @zend_dump_ssa_var(ptr noundef readonly captures(none) %0,
   br i1 %7, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.18, i32 noundef %2) #12
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.18, i32 noundef %2) #13
   br label %13
 
 11:                                               ; preds = %6
-  %12 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 3, i64 1, ptr %8) #11
+  %12 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 3, i64 1, ptr %8) #12
   br label %13
 
 13:                                               ; preds = %11, %9
@@ -552,7 +552,7 @@ define dso_local void @zend_dump_ssa_var(ptr noundef readonly captures(none) %0,
 
 27:                                               ; preds = %21
   %28 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %29 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 6, i64 1, ptr %28) #11
+  %29 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 6, i64 1, ptr %28) #12
   %.pre = load ptr, ptr %19, align 8, !tbaa !42
   %.phi.trans.insert = getelementptr inbounds nuw %struct._zend_ssa_var, ptr %.pre, i64 %22
   %.phi.trans.insert22 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 40
@@ -567,7 +567,7 @@ define dso_local void @zend_dump_ssa_var(ptr noundef readonly captures(none) %0,
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %36 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 6, i64 1, ptr %35) #11
+  %36 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 6, i64 1, ptr %35) #12
   br label %37
 
 37:                                               ; preds = %34, %30
@@ -636,14 +636,14 @@ define internal fastcc void @zend_dump_range(ptr noundef readonly captures(none)
 
 9:                                                ; preds = %5, %1
   %10 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %11 = tail call i64 @fwrite(ptr nonnull @.str.121, i64 7, i64 1, ptr %10) #11
+  %11 = tail call i64 @fwrite(ptr nonnull @.str.121, i64 7, i64 1, ptr %10) #12
   %12 = load i8, ptr %2, align 8, !tbaa !56, !range !57, !noundef !58
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %16 = tail call i64 @fwrite(ptr nonnull @.str.122, i64 4, i64 1, ptr %15) #11
+  %16 = tail call i64 @fwrite(ptr nonnull @.str.122, i64 4, i64 1, ptr %15) #12
   br label %25
 
 17:                                               ; preds = %9
@@ -653,11 +653,11 @@ define internal fastcc void @zend_dump_range(ptr noundef readonly captures(none)
   br i1 %19, label %21, label %23
 
 21:                                               ; preds = %17
-  %22 = tail call i64 @fwrite(ptr nonnull @.str.123, i64 5, i64 1, ptr %20) #11
+  %22 = tail call i64 @fwrite(ptr nonnull @.str.123, i64 5, i64 1, ptr %20) #12
   br label %25
 
 23:                                               ; preds = %17
-  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.124, i64 noundef %18) #12
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.124, i64 noundef %18) #13
   br label %25
 
 25:                                               ; preds = %21, %23, %14
@@ -668,7 +668,7 @@ define internal fastcc void @zend_dump_range(ptr noundef readonly captures(none)
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %31 = tail call i64 @fwrite(ptr nonnull @.str.125, i64 3, i64 1, ptr %30) #11
+  %31 = tail call i64 @fwrite(ptr nonnull @.str.125, i64 3, i64 1, ptr %30) #12
   br label %41
 
 32:                                               ; preds = %25
@@ -679,11 +679,11 @@ define internal fastcc void @zend_dump_range(ptr noundef readonly captures(none)
   br i1 %35, label %37, label %39
 
 37:                                               ; preds = %32
-  %38 = tail call i64 @fwrite(ptr nonnull @.str.126, i64 4, i64 1, ptr %36) #11
+  %38 = tail call i64 @fwrite(ptr nonnull @.str.126, i64 4, i64 1, ptr %36) #12
   br label %41
 
 39:                                               ; preds = %32
-  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.127, i64 noundef %34) #12
+  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.127, i64 noundef %34) #13
   br label %41
 
 41:                                               ; preds = %37, %39, %5, %29
@@ -694,9 +694,9 @@ define internal fastcc void @zend_dump_range(ptr noundef readonly captures(none)
 define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %8 = load i8, ptr %7, align 4, !tbaa !62
-  %9 = tail call ptr @zend_get_opcode_name(i8 noundef zeroext %8) #13
+  %9 = tail call ptr @zend_get_opcode_name(i8 noundef zeroext %8) #14
   %10 = load i8, ptr %7, align 4, !tbaa !62
-  %11 = tail call i32 @zend_get_opcode_flags(i8 noundef zeroext %10) #13
+  %11 = tail call i32 @zend_get_opcode_flags(i8 noundef zeroext %10) #14
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %16, label %12
 
@@ -745,7 +745,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
 
 38:                                               ; preds = %32, %27
   %39 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %40 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 3, i64 1, ptr %39) #11
+  %40 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 3, i64 1, ptr %39) #12
   br label %41
 
 41:                                               ; preds = %.thread, %16, %38, %12
@@ -755,13 +755,13 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 5
-  %fputs = tail call i32 @fputs(ptr nonnull %44, ptr %42) #11
+  %fputs = tail call i32 @fputs(ptr nonnull %44, ptr %42) #12
   br label %49
 
 45:                                               ; preds = %41
   %46 = load i8, ptr %7, align 4, !tbaa !62
   %47 = zext i8 %46 to i32
-  %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.24, i32 noundef %47) #12
+  %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.24, i32 noundef %47) #13
   br label %49
 
 49:                                               ; preds = %45, %43
@@ -781,7 +781,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !12
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.25, ptr noundef nonnull %62) #12
+  %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.25, ptr noundef nonnull %62) #13
   br label %64
 
 64:                                               ; preds = %52, %49
@@ -802,7 +802,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
   %69 = load ptr, ptr @stderr, align 8, !tbaa !19
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %71 = load i32, ptr %70, align 4, !tbaa !70
-  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.26, i32 noundef %71) #12
+  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.26, i32 noundef %71) #13
   br label %236
 
 73:                                               ; preds = %64
@@ -810,9 +810,9 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %76 = load i32, ptr %75, align 4, !tbaa !70
   %77 = trunc i32 %76 to i8
-  %78 = tail call ptr @zend_get_opcode_name(i8 noundef zeroext %77) #13
+  %78 = tail call ptr @zend_get_opcode_name(i8 noundef zeroext %77) #14
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 5
-  %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef nonnull @.str.27, ptr noundef nonnull %79) #12
+  %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef nonnull @.str.27, ptr noundef nonnull %79) #13
   br label %236
 
 81:                                               ; preds = %64
@@ -836,59 +836,59 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
   ]
 
 85:                                               ; preds = %81
-  %86 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 7, i64 1, ptr %84) #11
+  %86 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 7, i64 1, ptr %84) #12
   br label %236
 
 87:                                               ; preds = %81
-  %88 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 8, i64 1, ptr %84) #11
+  %88 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 8, i64 1, ptr %84) #12
   br label %236
 
 89:                                               ; preds = %81
-  %90 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 7, i64 1, ptr %84) #11
+  %90 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 7, i64 1, ptr %84) #12
   br label %236
 
 91:                                               ; preds = %81
-  %92 = tail call i64 @fwrite(ptr nonnull @.str.31, i64 7, i64 1, ptr %84) #11
+  %92 = tail call i64 @fwrite(ptr nonnull @.str.31, i64 7, i64 1, ptr %84) #12
   br label %236
 
 93:                                               ; preds = %81
-  %94 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 9, i64 1, ptr %84) #11
+  %94 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 9, i64 1, ptr %84) #12
   br label %236
 
 95:                                               ; preds = %81
-  %96 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 9, i64 1, ptr %84) #11
+  %96 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 9, i64 1, ptr %84) #12
   br label %236
 
 97:                                               ; preds = %81
-  %98 = tail call i64 @fwrite(ptr nonnull @.str.34, i64 8, i64 1, ptr %84) #11
+  %98 = tail call i64 @fwrite(ptr nonnull @.str.34, i64 8, i64 1, ptr %84) #12
   br label %236
 
 99:                                               ; preds = %81
-  %100 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 9, i64 1, ptr %84) #11
+  %100 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 9, i64 1, ptr %84) #12
   br label %236
 
 101:                                              ; preds = %81
-  %102 = tail call i64 @fwrite(ptr nonnull @.str.36, i64 11, i64 1, ptr %84) #11
+  %102 = tail call i64 @fwrite(ptr nonnull @.str.36, i64 11, i64 1, ptr %84) #12
   br label %236
 
 103:                                              ; preds = %81
-  %104 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 7, i64 1, ptr %84) #11
+  %104 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 7, i64 1, ptr %84) #12
   br label %236
 
 105:                                              ; preds = %81
-  %106 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 11, i64 1, ptr %84) #11
+  %106 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 11, i64 1, ptr %84) #12
   br label %236
 
 107:                                              ; preds = %81
-  %108 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 7, i64 1, ptr %84) #11
+  %108 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 7, i64 1, ptr %84) #12
   br label %236
 
 109:                                              ; preds = %81
-  %110 = tail call i64 @fwrite(ptr nonnull @.str.40, i64 8, i64 1, ptr %84) #11
+  %110 = tail call i64 @fwrite(ptr nonnull @.str.40, i64 8, i64 1, ptr %84) #12
   br label %236
 
 111:                                              ; preds = %81
-  %112 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 6, i64 1, ptr %84) #11
+  %112 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 6, i64 1, ptr %84) #12
   br label %236
 
 113:                                              ; preds = %64
@@ -909,47 +909,47 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
   ]
 
 117:                                              ; preds = %113
-  %118 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 7, i64 1, ptr %116) #11
+  %118 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 7, i64 1, ptr %116) #12
   br label %236
 
 119:                                              ; preds = %113
-  %120 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 8, i64 1, ptr %116) #11
+  %120 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 8, i64 1, ptr %116) #12
   br label %236
 
 121:                                              ; preds = %113
-  %122 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 7, i64 1, ptr %116) #11
+  %122 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 7, i64 1, ptr %116) #12
   br label %236
 
 123:                                              ; preds = %113
-  %124 = tail call i64 @fwrite(ptr nonnull @.str.31, i64 7, i64 1, ptr %116) #11
+  %124 = tail call i64 @fwrite(ptr nonnull @.str.31, i64 7, i64 1, ptr %116) #12
   br label %236
 
 125:                                              ; preds = %113
-  %126 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 9, i64 1, ptr %116) #11
+  %126 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 9, i64 1, ptr %116) #12
   br label %236
 
 127:                                              ; preds = %113
-  %128 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 9, i64 1, ptr %116) #11
+  %128 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 9, i64 1, ptr %116) #12
   br label %236
 
 129:                                              ; preds = %113
-  %130 = tail call i64 @fwrite(ptr nonnull @.str.34, i64 8, i64 1, ptr %116) #11
+  %130 = tail call i64 @fwrite(ptr nonnull @.str.34, i64 8, i64 1, ptr %116) #12
   br label %236
 
 131:                                              ; preds = %113
-  %132 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 9, i64 1, ptr %116) #11
+  %132 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 9, i64 1, ptr %116) #12
   br label %236
 
 133:                                              ; preds = %113
-  %134 = tail call i64 @fwrite(ptr nonnull @.str.36, i64 11, i64 1, ptr %116) #11
+  %134 = tail call i64 @fwrite(ptr nonnull @.str.36, i64 11, i64 1, ptr %116) #12
   br label %236
 
 135:                                              ; preds = %113
-  %136 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 7, i64 1, ptr %116) #11
+  %136 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 7, i64 1, ptr %116) #12
   br label %236
 
 137:                                              ; preds = %113
-  %138 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 5, i64 1, ptr %116) #11
+  %138 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 5, i64 1, ptr %116) #12
   %139 = load i32, ptr %114, align 4, !tbaa !70
   tail call fastcc void @zend_dump_type_info(i32 noundef %139, ptr noundef null, i32 noundef 0, i32 noundef %3)
   br label %236
@@ -973,32 +973,32 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
 
 146:                                              ; preds = %.split
   %147 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %148 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 7, i64 1, ptr %147) #11
+  %148 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 7, i64 1, ptr %147) #12
   br label %236
 
 149:                                              ; preds = %.split
   %150 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %151 = tail call i64 @fwrite(ptr nonnull @.str.44, i64 10, i64 1, ptr %150) #11
+  %151 = tail call i64 @fwrite(ptr nonnull @.str.44, i64 10, i64 1, ptr %150) #12
   br label %236
 
 152:                                              ; preds = %.split
   %153 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %154 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 15, i64 1, ptr %153) #11
+  %154 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 15, i64 1, ptr %153) #12
   br label %236
 
 155:                                              ; preds = %.split
   %156 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %157 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 10, i64 1, ptr %156) #11
+  %157 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 10, i64 1, ptr %156) #12
   br label %236
 
 158:                                              ; preds = %.split
   %159 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %160 = tail call i64 @fwrite(ptr nonnull @.str.47, i64 15, i64 1, ptr %159) #11
+  %160 = tail call i64 @fwrite(ptr nonnull @.str.47, i64 15, i64 1, ptr %159) #12
   br label %236
 
 161:                                              ; preds = %140, %.split
   %162 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %163 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 6, i64 1, ptr %162) #11
+  %163 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 6, i64 1, ptr %162) #12
   br label %236
 
 164:                                              ; preds = %64
@@ -1009,7 +1009,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
 
 168:                                              ; preds = %164
   %169 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %170 = tail call i64 @fwrite(ptr nonnull @.str.48, i64 8, i64 1, ptr %169) #11
+  %170 = tail call i64 @fwrite(ptr nonnull @.str.48, i64 8, i64 1, ptr %169) #12
   br label %236
 
 171:                                              ; preds = %164
@@ -1019,7 +1019,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
 
 173:                                              ; preds = %171
   %174 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %175 = tail call i64 @fwrite(ptr nonnull @.str.49, i64 11, i64 1, ptr %174) #11
+  %175 = tail call i64 @fwrite(ptr nonnull @.str.49, i64 11, i64 1, ptr %174) #12
   br label %236
 
 176:                                              ; preds = %64
@@ -1036,7 +1036,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
 
 182:                                              ; preds = %178
   %183 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %184 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 9, i64 1, ptr %183) #11
+  %184 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 9, i64 1, ptr %183) #12
   br label %195
 
 185:                                              ; preds = %178
@@ -1046,7 +1046,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
 
 187:                                              ; preds = %185
   %188 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %189 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 8, i64 1, ptr %188) #11
+  %189 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 8, i64 1, ptr %188) #12
   br label %195
 
 190:                                              ; preds = %185
@@ -1056,7 +1056,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
 
 192:                                              ; preds = %190
   %193 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %194 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 14, i64 1, ptr %193) #11
+  %194 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 14, i64 1, ptr %193) #12
   br label %195
 
 195:                                              ; preds = %182, %190, %192, %187, %176
@@ -1071,7 +1071,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
   %.not256 = icmp eq i32 %199, 0
   %200 = load ptr, ptr @stderr, align 8, !tbaa !19
   %.str.53..str.54 = select i1 %.not256, ptr @.str.53, ptr @.str.54
-  %201 = tail call i64 @fwrite(ptr nonnull %.str.53..str.54, i64 8, i64 1, ptr %200) #11
+  %201 = tail call i64 @fwrite(ptr nonnull %.str.53..str.54, i64 8, i64 1, ptr %200) #12
   br label %202
 
 202:                                              ; preds = %.sink.split, %195
@@ -1084,7 +1084,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
   %206 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %207 = load i32, ptr %206, align 4, !tbaa !70
   %208 = lshr i32 %207, 2
-  %209 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %205, ptr noundef nonnull @.str.26, i32 noundef %208) #12
+  %209 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %205, ptr noundef nonnull @.str.26, i32 noundef %208) #13
   %210 = load i32, ptr %206, align 4, !tbaa !70
   %211 = and i32 %210, 2
   %.not258 = icmp eq i32 %211, 0
@@ -1092,7 +1092,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
 
 212:                                              ; preds = %204
   %213 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %214 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 9, i64 1, ptr %213) #11
+  %214 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 9, i64 1, ptr %213) #12
   br label %215
 
 215:                                              ; preds = %204, %212, %202
@@ -1109,7 +1109,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
 
 221:                                              ; preds = %217
   %222 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %223 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 6, i64 1, ptr %222) #11
+  %223 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 6, i64 1, ptr %222) #12
   br label %224
 
 224:                                              ; preds = %217, %221, %215
@@ -1128,12 +1128,12 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
 
 230:                                              ; preds = %226
   %231 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %232 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 6, i64 1, ptr %231) #11
+  %232 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 6, i64 1, ptr %231) #12
   br label %236
 
 233:                                              ; preds = %226
   %234 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %235 = tail call i64 @fwrite(ptr nonnull @.str.57, i64 12, i64 1, ptr %234) #11
+  %235 = tail call i64 @fwrite(ptr nonnull @.str.57, i64 12, i64 1, ptr %234) #12
   br label %236
 
 236:                                              ; preds = %230, %233, %226, %73, %137, %135, %133, %131, %129, %127, %125, %123, %121, %119, %117, %171, %173, %168, %224, %146, %149, %152, %155, %158, %161, %85, %87, %89, %91, %93, %95, %97, %99, %101, %103, %105, %107, %109, %111, %68
@@ -1230,7 +1230,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
 
 293:                                              ; preds = %289
   %294 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %295 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 4, i64 1, ptr %294) #11
+  %295 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 4, i64 1, ptr %294) #12
   %296 = load i8, ptr %237, align 1, !tbaa !72
   %297 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %298 = load i32, ptr %297, align 8, !tbaa !12
@@ -1252,7 +1252,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
 306:                                              ; preds = %304
   %307 = load ptr, ptr %1, align 8, !tbaa !77
   %308 = load i32, ptr %307, align 4, !tbaa !79
-  %309 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %305, ptr noundef nonnull @.str.60, i32 noundef %308) #12
+  %309 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %305, ptr noundef nonnull @.str.60, i32 noundef %308) #13
   br label %327
 
 310:                                              ; preds = %304
@@ -1267,7 +1267,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
   %319 = sub i64 %317, %318
   %320 = lshr exact i64 %319, 5
   %321 = trunc i64 %320 to i32
-  %322 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %305, ptr noundef nonnull @.str.61, i32 noundef %321) #12
+  %322 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %305, ptr noundef nonnull @.str.61, i32 noundef %321) #13
   br label %327
 
 323:                                              ; preds = %301
@@ -1372,11 +1372,11 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
 
 376:                                              ; preds = %374
   %377 = getelementptr inbounds nuw i8, ptr %.1216.us, i64 24
-  %378 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %375, ptr noundef nonnull @.str.62, ptr noundef nonnull %377) #12
+  %378 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %375, ptr noundef nonnull @.str.62, ptr noundef nonnull %377) #13
   br label %381
 
 379:                                              ; preds = %374
-  %380 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %375, ptr noundef nonnull @.str.63, i64 noundef %.0214.us) #12
+  %380 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %375, ptr noundef nonnull @.str.63, i64 noundef %.0214.us) #13
   br label %381
 
 381:                                              ; preds = %379, %376
@@ -1391,7 +1391,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
   %389 = sub i64 %387, %388
   %390 = lshr exact i64 %389, 5
   %391 = trunc i64 %390 to i32
-  %392 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %382, ptr noundef nonnull @.str.65, i32 noundef %391) #12
+  %392 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %382, ptr noundef nonnull @.str.65, i32 noundef %391) #13
   br label %393
 
 393:                                              ; preds = %381, %370
@@ -1441,11 +1441,11 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
 
 413:                                              ; preds = %411
   %414 = getelementptr inbounds nuw i8, ptr %.1216, i64 24
-  %415 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %412, ptr noundef nonnull @.str.62, ptr noundef nonnull %414) #12
+  %415 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %412, ptr noundef nonnull @.str.62, ptr noundef nonnull %414) #13
   br label %418
 
 416:                                              ; preds = %411
-  %417 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %412, ptr noundef nonnull @.str.63, i64 noundef %.0214) #12
+  %417 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %412, ptr noundef nonnull @.str.63, i64 noundef %.0214) #13
   br label %418
 
 418:                                              ; preds = %416, %413
@@ -1455,7 +1455,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
   %422 = zext i32 %.2301 to i64
   %423 = getelementptr inbounds nuw i32, ptr %420, i64 %422
   %424 = load i32, ptr %423, align 4, !tbaa !79
-  %425 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %419, ptr noundef nonnull @.str.64, i32 noundef %424) #12
+  %425 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %419, ptr noundef nonnull @.str.64, i32 noundef %424) #13
   br label %426
 
 426:                                              ; preds = %418, %407
@@ -1467,7 +1467,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
 ._crit_edge:                                      ; preds = %426, %393, %350
   %.2.lcssa = phi i32 [ %.0, %350 ], [ %.0, %393 ], [ %.3, %426 ]
   %428 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %429 = tail call i64 @fwrite(ptr nonnull @.str.66, i64 9, i64 1, ptr %428) #11
+  %429 = tail call i64 @fwrite(ptr nonnull @.str.66, i64 9, i64 1, ptr %428) #12
   br label %498
 
 430:                                              ; preds = %347
@@ -1535,7 +1535,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
 
 467:                                              ; preds = %463
   %468 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %469 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 4, i64 1, ptr %468) #11
+  %469 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 4, i64 1, ptr %468) #12
   %470 = load i8, ptr %328, align 2, !tbaa !81
   %471 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %472 = load i32, ptr %471, align 4, !tbaa !12
@@ -1572,7 +1572,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
   %489 = zext nneg i32 %.0 to i64
   %490 = getelementptr inbounds nuw i32, ptr %487, i64 %489
   %491 = load i32, ptr %490, align 4, !tbaa !79
-  %492 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %485, ptr noundef nonnull @.str.60, i32 noundef %491) #12
+  %492 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %485, ptr noundef nonnull @.str.60, i32 noundef %491) #13
   br label %498
 
 493:                                              ; preds = %475
@@ -1600,7 +1600,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
   %508 = sub i64 %506, %507
   %509 = lshr exact i64 %508, 5
   %510 = trunc i64 %509 to i32
-  %511 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %485, ptr noundef nonnull @.str.61, i32 noundef %510) #12
+  %511 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %485, ptr noundef nonnull @.str.61, i32 noundef %510) #13
   %512 = icmp eq i32 %65, 50331648
   br i1 %512, label %.thread293, label %534
 
@@ -1614,7 +1614,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
   %517 = zext i32 %.6 to i64
   %518 = getelementptr inbounds nuw i32, ptr %516, i64 %517
   %519 = load i32, ptr %518, align 4, !tbaa !79
-  %520 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %515, ptr noundef nonnull @.str.60, i32 noundef %519) #12
+  %520 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %515, ptr noundef nonnull @.str.60, i32 noundef %519) #13
   br label %534
 
 .thread293:                                       ; preds = %.thread290, %513
@@ -1630,7 +1630,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
   %530 = sub i64 %528, %529
   %531 = lshr exact i64 %530, 5
   %532 = trunc i64 %531 to i32
-  %533 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %521, ptr noundef nonnull @.str.61, i32 noundef %532) #12
+  %533 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %521, ptr noundef nonnull @.str.61, i32 noundef %532) #13
   br label %534
 
 534:                                              ; preds = %.thread290, %514, %.thread293, %498
@@ -1695,7 +1695,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
 
 572:                                              ; preds = %562
   %573 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %574 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 4, i64 1, ptr %573) #11
+  %574 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 4, i64 1, ptr %573) #12
   %575 = load i8, ptr %535, align 1, !tbaa !66
   %576 = load i32, ptr %565, align 8, !tbaa !12
   %577 = lshr i32 %576, 4
@@ -1714,7 +1714,7 @@ declare i32 @zend_get_opcode_flags(i8 noundef zeroext) local_unnamed_addr #3
 ; Function Attrs: cold nofree nounwind uwtable
 define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3) unnamed_addr #4 {
   %5 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %6 = tail call i64 @fwrite(ptr nonnull @.str.128, i64 2, i64 1, ptr %5) #11
+  %6 = tail call i64 @fwrite(ptr nonnull @.str.128, i64 2, i64 1, ptr %5) #12
   %7 = and i32 %0, 268435456
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
@@ -1731,7 +1731,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %14 = tail call i64 @fwrite(ptr nonnull @.str.130, i64 5, i64 1, ptr %13) #11
+  %14 = tail call i64 @fwrite(ptr nonnull @.str.130, i64 5, i64 1, ptr %13) #12
   br label %15
 
 15:                                               ; preds = %12, %10
@@ -1746,12 +1746,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %21 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %20) #11
+  %21 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %20) #12
   br label %22
 
 22:                                               ; preds = %17, %19
   %23 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %24 = tail call i64 @fwrite(ptr nonnull @.str.131, i64 3, i64 1, ptr %23) #11
+  %24 = tail call i64 @fwrite(ptr nonnull @.str.131, i64 3, i64 1, ptr %23) #12
   br label %25
 
 25:                                               ; preds = %22, %15
@@ -1766,12 +1766,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %31 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %30) #11
+  %31 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %30) #12
   br label %32
 
 32:                                               ; preds = %27, %29
   %33 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %34 = tail call i64 @fwrite(ptr nonnull @.str.132, i64 3, i64 1, ptr %33) #11
+  %34 = tail call i64 @fwrite(ptr nonnull @.str.132, i64 3, i64 1, ptr %33) #12
   br label %35
 
 35:                                               ; preds = %32, %25
@@ -1791,12 +1791,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %43 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %42) #11
+  %43 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %42) #12
   br label %44
 
 44:                                               ; preds = %39, %41
   %45 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %46 = tail call i64 @fwrite(ptr nonnull @.str.133, i64 3, i64 1, ptr %45) #11
+  %46 = tail call i64 @fwrite(ptr nonnull @.str.133, i64 3, i64 1, ptr %45) #12
   br label %47
 
 47:                                               ; preds = %44, %37
@@ -1810,12 +1810,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 50:                                               ; preds = %48
   %51 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %52 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %51) #11
+  %52 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %51) #12
   br label %53
 
 53:                                               ; preds = %48, %50
   %54 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %55 = tail call i64 @fwrite(ptr nonnull @.str.134, i64 3, i64 1, ptr %54) #11
+  %55 = tail call i64 @fwrite(ptr nonnull @.str.134, i64 3, i64 1, ptr %54) #12
   br label %56
 
 56:                                               ; preds = %47, %53, %35
@@ -1830,12 +1830,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 60:                                               ; preds = %58
   %61 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %62 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %61) #11
+  %62 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %61) #12
   br label %63
 
 63:                                               ; preds = %58, %60
   %64 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %65 = tail call i64 @fwrite(ptr nonnull @.str.135, i64 5, i64 1, ptr %64) #11
+  %65 = tail call i64 @fwrite(ptr nonnull @.str.135, i64 5, i64 1, ptr %64) #12
   %.not159 = icmp eq ptr %1, null
   br i1 %.not159, label %365, label %66
 
@@ -1848,11 +1848,11 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not160, label %73, label %71
 
 71:                                               ; preds = %66
-  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.136, ptr noundef nonnull %70) #12
+  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.136, ptr noundef nonnull %70) #13
   br label %365
 
 73:                                               ; preds = %66
-  %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.27, ptr noundef nonnull %70) #12
+  %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.27, ptr noundef nonnull %70) #13
   br label %365
 
 75:                                               ; preds = %56
@@ -1866,12 +1866,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 80:                                               ; preds = %78
   %81 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %82 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %81) #11
+  %82 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %81) #12
   br label %83
 
 83:                                               ; preds = %78, %80
   %84 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %85 = tail call i64 @fwrite(ptr nonnull @.str.137, i64 3, i64 1, ptr %84) #11
+  %85 = tail call i64 @fwrite(ptr nonnull @.str.137, i64 3, i64 1, ptr %84) #12
   br label %365
 
 86:                                               ; preds = %75
@@ -1885,12 +1885,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 90:                                               ; preds = %88
   %91 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %92 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %91) #11
+  %92 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %91) #12
   br label %93
 
 93:                                               ; preds = %88, %90
   %94 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %95 = tail call i64 @fwrite(ptr nonnull @.str.138, i64 4, i64 1, ptr %94) #11
+  %95 = tail call i64 @fwrite(ptr nonnull @.str.138, i64 4, i64 1, ptr %94) #12
   br label %96
 
 96:                                               ; preds = %93, %86
@@ -1907,12 +1907,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 101:                                              ; preds = %99
   %102 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %103 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %102) #11
+  %103 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %102) #12
   br label %104
 
 104:                                              ; preds = %99, %101
   %105 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %106 = tail call i64 @fwrite(ptr nonnull @.str.139, i64 4, i64 1, ptr %105) #11
+  %106 = tail call i64 @fwrite(ptr nonnull @.str.139, i64 4, i64 1, ptr %105) #12
   br label %126
 
 107:                                              ; preds = %96
@@ -1926,12 +1926,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 111:                                              ; preds = %109
   %112 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %113 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %112) #11
+  %113 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %112) #12
   br label %114
 
 114:                                              ; preds = %109, %111
   %115 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %116 = tail call i64 @fwrite(ptr nonnull @.str.140, i64 5, i64 1, ptr %115) #11
+  %116 = tail call i64 @fwrite(ptr nonnull @.str.140, i64 5, i64 1, ptr %115) #12
   br label %126
 
 117:                                              ; preds = %107
@@ -1943,12 +1943,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 120:                                              ; preds = %118
   %121 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %122 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %121) #11
+  %122 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %121) #12
   br label %123
 
 123:                                              ; preds = %118, %120
   %124 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %125 = tail call i64 @fwrite(ptr nonnull @.str.141, i64 4, i64 1, ptr %124) #11
+  %125 = tail call i64 @fwrite(ptr nonnull @.str.141, i64 4, i64 1, ptr %124) #12
   br label %126
 
 126:                                              ; preds = %114, %123, %117, %104
@@ -1963,12 +1963,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 130:                                              ; preds = %128
   %131 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %132 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %131) #11
+  %132 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %131) #12
   br label %133
 
 133:                                              ; preds = %128, %130
   %134 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %135 = tail call i64 @fwrite(ptr nonnull @.str.142, i64 4, i64 1, ptr %134) #11
+  %135 = tail call i64 @fwrite(ptr nonnull @.str.142, i64 4, i64 1, ptr %134) #12
   br label %136
 
 136:                                              ; preds = %133, %126
@@ -1983,12 +1983,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 140:                                              ; preds = %138
   %141 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %142 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %141) #11
+  %142 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %141) #12
   br label %143
 
 143:                                              ; preds = %138, %140
   %144 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %145 = tail call i64 @fwrite(ptr nonnull @.str.143, i64 6, i64 1, ptr %144) #11
+  %145 = tail call i64 @fwrite(ptr nonnull @.str.143, i64 6, i64 1, ptr %144) #12
   br label %146
 
 146:                                              ; preds = %143, %136
@@ -2003,12 +2003,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 150:                                              ; preds = %148
   %151 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %152 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %151) #11
+  %152 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %151) #12
   br label %153
 
 153:                                              ; preds = %148, %150
   %154 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %155 = tail call i64 @fwrite(ptr nonnull @.str.144, i64 6, i64 1, ptr %154) #11
+  %155 = tail call i64 @fwrite(ptr nonnull @.str.144, i64 6, i64 1, ptr %154) #12
   br label %156
 
 156:                                              ; preds = %153, %146
@@ -2023,7 +2023,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 160:                                              ; preds = %158
   %161 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %162 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %161) #11
+  %162 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %161) #12
   br label %163
 
 163:                                              ; preds = %158, %160
@@ -2045,12 +2045,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 169:                                              ; preds = %167
   %170 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %171 = tail call i64 @fwrite(ptr nonnull @.str.145, i64 6, i64 1, ptr %170) #11
+  %171 = tail call i64 @fwrite(ptr nonnull @.str.145, i64 6, i64 1, ptr %170) #12
   br label %210
 
 172:                                              ; preds = %167
   %173 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %174 = tail call i64 @fwrite(ptr nonnull @.str.146, i64 7, i64 1, ptr %173) #11
+  %174 = tail call i64 @fwrite(ptr nonnull @.str.146, i64 7, i64 1, ptr %173) #12
   br label %210
 
 175:                                              ; preds = %167
@@ -2063,7 +2063,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 178:                                              ; preds = %175
   %179 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %180 = tail call i64 @fwrite(ptr nonnull @.str.147, i64 5, i64 1, ptr %179) #11
+  %180 = tail call i64 @fwrite(ptr nonnull @.str.147, i64 5, i64 1, ptr %179) #12
   br label %210
 
 181:                                              ; preds = %175
@@ -2080,7 +2080,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 185:                                              ; preds = %182
   %186 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %187 = tail call i64 @fwrite(ptr nonnull @.str.149, i64 5, i64 1, ptr %186) #11
+  %187 = tail call i64 @fwrite(ptr nonnull @.str.149, i64 5, i64 1, ptr %186) #12
   br label %188
 
 188:                                              ; preds = %185, %182
@@ -2095,12 +2095,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 192:                                              ; preds = %190
   %193 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %194 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %193) #11
+  %194 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %193) #12
   br label %195
 
 195:                                              ; preds = %190, %192
   %196 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %197 = tail call i64 @fwrite(ptr nonnull @.str.150, i64 6, i64 1, ptr %196) #11
+  %197 = tail call i64 @fwrite(ptr nonnull @.str.150, i64 6, i64 1, ptr %196) #12
   br label %198
 
 198:                                              ; preds = %195, %188
@@ -2113,22 +2113,22 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 201:                                              ; preds = %199
   %202 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %203 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %202) #11
+  %203 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %202) #12
   br label %204
 
 204:                                              ; preds = %199, %201
   %205 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %206 = tail call i64 @fwrite(ptr nonnull @.str.151, i64 4, i64 1, ptr %205) #11
+  %206 = tail call i64 @fwrite(ptr nonnull @.str.151, i64 4, i64 1, ptr %205) #12
   br label %207
 
 207:                                              ; preds = %204, %198
   %208 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %209 = tail call i64 @fwrite(ptr nonnull @.str.152, i64 2, i64 1, ptr %208) #11
+  %209 = tail call i64 @fwrite(ptr nonnull @.str.152, i64 2, i64 1, ptr %208) #12
   br label %210
 
 210:                                              ; preds = %181, %172, %207, %178, %169
   %211 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %212 = tail call i64 @fwrite(ptr nonnull @.str.153, i64 5, i64 1, ptr %211) #11
+  %212 = tail call i64 @fwrite(ptr nonnull @.str.153, i64 5, i64 1, ptr %211) #12
   %213 = and i32 %0, 14680064
   %.not139 = icmp eq i32 %213, 0
   br i1 %.not139, label %233, label %214
@@ -2143,7 +2143,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 219:                                              ; preds = %214
   %220 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %221 = tail call i64 @fwrite(ptr nonnull @.str.128, i64 2, i64 1, ptr %220) #11
+  %221 = tail call i64 @fwrite(ptr nonnull @.str.128, i64 2, i64 1, ptr %220) #12
   br i1 %216, label %222, label %.thread
 
 222:                                              ; preds = %219
@@ -2151,17 +2151,17 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 .thread:                                          ; preds = %219
   %223 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %224 = tail call i64 @fwrite(ptr nonnull @.str.142, i64 4, i64 1, ptr %223) #11
+  %224 = tail call i64 @fwrite(ptr nonnull @.str.142, i64 4, i64 1, ptr %223) #12
   br i1 %218, label %231, label %225
 
 225:                                              ; preds = %.thread
   %226 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %227 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %226) #11
+  %227 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %226) #12
   br label %228
 
 228:                                              ; preds = %222, %225
   %229 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %230 = tail call i64 @fwrite(ptr nonnull @.str.144, i64 6, i64 1, ptr %229) #11
+  %230 = tail call i64 @fwrite(ptr nonnull @.str.144, i64 6, i64 1, ptr %229) #12
   br label %231
 
 231:                                              ; preds = %.thread, %228, %222
@@ -2176,14 +2176,14 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 235:                                              ; preds = %233
   %236 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %237 = tail call i64 @fwrite(ptr nonnull @.str.155, i64 5, i64 1, ptr %236) #11
+  %237 = tail call i64 @fwrite(ptr nonnull @.str.155, i64 5, i64 1, ptr %236) #12
   %238 = and i32 %0, 1046528
   %239 = icmp eq i32 %238, 1046528
   br i1 %239, label %240, label %243
 
 240:                                              ; preds = %235
   %241 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %242 = tail call i64 @fwrite(ptr nonnull @.str.137, i64 3, i64 1, ptr %241) #11
+  %242 = tail call i64 @fwrite(ptr nonnull @.str.137, i64 3, i64 1, ptr %241) #12
   br label %328
 
 243:                                              ; preds = %235
@@ -2193,7 +2193,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 245:                                              ; preds = %243
   %246 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %247 = tail call i64 @fwrite(ptr nonnull @.str.138, i64 4, i64 1, ptr %246) #11
+  %247 = tail call i64 @fwrite(ptr nonnull @.str.138, i64 4, i64 1, ptr %246) #12
   br label %248
 
 248:                                              ; preds = %245, %243
@@ -2208,12 +2208,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 252:                                              ; preds = %250
   %253 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %254 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %253) #11
+  %254 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %253) #12
   br label %255
 
 255:                                              ; preds = %250, %252
   %256 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %257 = tail call i64 @fwrite(ptr nonnull @.str.140, i64 5, i64 1, ptr %256) #11
+  %257 = tail call i64 @fwrite(ptr nonnull @.str.140, i64 5, i64 1, ptr %256) #12
   br label %258
 
 258:                                              ; preds = %255, %248
@@ -2228,12 +2228,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 262:                                              ; preds = %260
   %263 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %264 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %263) #11
+  %264 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %263) #12
   br label %265
 
 265:                                              ; preds = %260, %262
   %266 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %267 = tail call i64 @fwrite(ptr nonnull @.str.141, i64 4, i64 1, ptr %266) #11
+  %267 = tail call i64 @fwrite(ptr nonnull @.str.141, i64 4, i64 1, ptr %266) #12
   br label %268
 
 268:                                              ; preds = %265, %258
@@ -2248,12 +2248,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 272:                                              ; preds = %270
   %273 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %274 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %273) #11
+  %274 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %273) #12
   br label %275
 
 275:                                              ; preds = %270, %272
   %276 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %277 = tail call i64 @fwrite(ptr nonnull @.str.142, i64 4, i64 1, ptr %276) #11
+  %277 = tail call i64 @fwrite(ptr nonnull @.str.142, i64 4, i64 1, ptr %276) #12
   br label %278
 
 278:                                              ; preds = %275, %268
@@ -2268,12 +2268,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 282:                                              ; preds = %280
   %283 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %284 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %283) #11
+  %284 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %283) #12
   br label %285
 
 285:                                              ; preds = %280, %282
   %286 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %287 = tail call i64 @fwrite(ptr nonnull @.str.143, i64 6, i64 1, ptr %286) #11
+  %287 = tail call i64 @fwrite(ptr nonnull @.str.143, i64 6, i64 1, ptr %286) #12
   br label %288
 
 288:                                              ; preds = %285, %278
@@ -2288,12 +2288,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 292:                                              ; preds = %290
   %293 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %294 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %293) #11
+  %294 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %293) #12
   br label %295
 
 295:                                              ; preds = %290, %292
   %296 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %297 = tail call i64 @fwrite(ptr nonnull @.str.144, i64 6, i64 1, ptr %296) #11
+  %297 = tail call i64 @fwrite(ptr nonnull @.str.144, i64 6, i64 1, ptr %296) #12
   br label %298
 
 298:                                              ; preds = %295, %288
@@ -2308,12 +2308,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 302:                                              ; preds = %300
   %303 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %304 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %303) #11
+  %304 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %303) #12
   br label %305
 
 305:                                              ; preds = %300, %302
   %306 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %307 = tail call i64 @fwrite(ptr nonnull @.str.153, i64 5, i64 1, ptr %306) #11
+  %307 = tail call i64 @fwrite(ptr nonnull @.str.153, i64 5, i64 1, ptr %306) #12
   br label %308
 
 308:                                              ; preds = %305, %298
@@ -2328,12 +2328,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 312:                                              ; preds = %310
   %313 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %314 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %313) #11
+  %314 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %313) #12
   br label %315
 
 315:                                              ; preds = %310, %312
   %316 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %317 = tail call i64 @fwrite(ptr nonnull @.str.156, i64 6, i64 1, ptr %316) #11
+  %317 = tail call i64 @fwrite(ptr nonnull @.str.156, i64 6, i64 1, ptr %316) #12
   br label %318
 
 318:                                              ; preds = %315, %308
@@ -2348,12 +2348,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 322:                                              ; preds = %320
   %323 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %324 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %323) #11
+  %324 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %323) #12
   br label %325
 
 325:                                              ; preds = %320, %322
   %326 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %327 = tail call i64 @fwrite(ptr nonnull @.str.157, i64 8, i64 1, ptr %326) #11
+  %327 = tail call i64 @fwrite(ptr nonnull @.str.157, i64 8, i64 1, ptr %326) #12
   br label %328
 
 328:                                              ; preds = %318, %325, %240
@@ -2368,12 +2368,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 332:                                              ; preds = %330
   %333 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %334 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %333) #11
+  %334 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %333) #12
   br label %335
 
 335:                                              ; preds = %330, %332
   %336 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %337 = tail call i64 @fwrite(ptr nonnull @.str.132, i64 3, i64 1, ptr %336) #11
+  %337 = tail call i64 @fwrite(ptr nonnull @.str.132, i64 3, i64 1, ptr %336) #12
   br label %338
 
 338:                                              ; preds = %335, %328
@@ -2393,12 +2393,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 344:                                              ; preds = %342
   %345 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %346 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %345) #11
+  %346 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %345) #12
   br label %347
 
 347:                                              ; preds = %342, %344
   %348 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %349 = tail call i64 @fwrite(ptr nonnull @.str.156, i64 6, i64 1, ptr %348) #11
+  %349 = tail call i64 @fwrite(ptr nonnull @.str.156, i64 6, i64 1, ptr %348) #12
   %.not156 = icmp eq ptr %1, null
   br i1 %.not156, label %355, label %.sink.split
 
@@ -2409,7 +2409,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   %352 = load ptr, ptr %351, align 8, !tbaa !84
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 24
   %.str.27..str.136 = select i1 %.not157, ptr @.str.27, ptr @.str.136
-  %354 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %350, ptr noundef nonnull %.str.27..str.136, ptr noundef nonnull %353) #12
+  %354 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %350, ptr noundef nonnull %.str.27..str.136, ptr noundef nonnull %353) #13
   br label %355
 
 355:                                              ; preds = %.sink.split, %347, %340
@@ -2424,12 +2424,12 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 
 359:                                              ; preds = %357
   %360 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %361 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %360) #11
+  %361 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %360) #12
   br label %362
 
 362:                                              ; preds = %357, %359
   %363 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %364 = tail call i64 @fwrite(ptr nonnull @.str.157, i64 8, i64 1, ptr %363) #11
+  %364 = tail call i64 @fwrite(ptr nonnull @.str.157, i64 8, i64 1, ptr %363) #12
   br label %365
 
 365:                                              ; preds = %83, %362, %355, %63, %73, %71
@@ -2454,7 +2454,7 @@ define internal fastcc void @zend_dump_unused_op(i32 %0, i32 noundef range(i32 0
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.26, i32 noundef %0) #12
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.26, i32 noundef %0) #13
   br label %zend_dump_class_fetch_type.exit
 
 8:                                                ; preds = %2
@@ -2463,17 +2463,17 @@ define internal fastcc void @zend_dump_unused_op(i32 %0, i32 noundef range(i32 0
 
 9:                                                ; preds = %8
   %10 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.158, i32 noundef %0) #12
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.158, i32 noundef %0) #13
   br label %zend_dump_class_fetch_type.exit
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %14 = tail call i64 @fwrite(ptr nonnull @.str.159, i64 5, i64 1, ptr %13) #11
+  %14 = tail call i64 @fwrite(ptr nonnull @.str.159, i64 5, i64 1, ptr %13) #12
   br label %zend_dump_class_fetch_type.exit
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %17 = tail call i64 @fwrite(ptr nonnull @.str.160, i64 5, i64 1, ptr %16) #11
+  %17 = tail call i64 @fwrite(ptr nonnull @.str.160, i64 5, i64 1, ptr %16) #12
   br label %zend_dump_class_fetch_type.exit
 
 18:                                               ; preds = %2
@@ -2489,32 +2489,32 @@ define internal fastcc void @zend_dump_unused_op(i32 %0, i32 noundef range(i32 0
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %22 = tail call i64 @fwrite(ptr nonnull @.str.163, i64 7, i64 1, ptr %21) #11
+  %22 = tail call i64 @fwrite(ptr nonnull @.str.163, i64 7, i64 1, ptr %21) #12
   br label %38
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %25 = tail call i64 @fwrite(ptr nonnull @.str.164, i64 9, i64 1, ptr %24) #11
+  %25 = tail call i64 @fwrite(ptr nonnull @.str.164, i64 9, i64 1, ptr %24) #12
   br label %38
 
 26:                                               ; preds = %18
   %27 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %28 = tail call i64 @fwrite(ptr nonnull @.str.165, i64 9, i64 1, ptr %27) #11
+  %28 = tail call i64 @fwrite(ptr nonnull @.str.165, i64 9, i64 1, ptr %27) #12
   br label %38
 
 29:                                               ; preds = %18
   %30 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %31 = tail call i64 @fwrite(ptr nonnull @.str.166, i64 7, i64 1, ptr %30) #11
+  %31 = tail call i64 @fwrite(ptr nonnull @.str.166, i64 7, i64 1, ptr %30) #12
   br label %38
 
 32:                                               ; preds = %18
   %33 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %34 = tail call i64 @fwrite(ptr nonnull @.str.167, i64 12, i64 1, ptr %33) #11
+  %34 = tail call i64 @fwrite(ptr nonnull @.str.167, i64 12, i64 1, ptr %33) #12
   br label %38
 
 35:                                               ; preds = %18
   %36 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %37 = tail call i64 @fwrite(ptr nonnull @.str.168, i64 8, i64 1, ptr %36) #11
+  %37 = tail call i64 @fwrite(ptr nonnull @.str.168, i64 8, i64 1, ptr %36) #12
   br label %38
 
 38:                                               ; preds = %35, %32, %29, %26, %23, %20, %18
@@ -2524,7 +2524,7 @@ define internal fastcc void @zend_dump_unused_op(i32 %0, i32 noundef range(i32 0
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %42 = tail call i64 @fwrite(ptr nonnull @.str.169, i64 14, i64 1, ptr %41) #11
+  %42 = tail call i64 @fwrite(ptr nonnull @.str.169, i64 14, i64 1, ptr %41) #12
   br label %43
 
 43:                                               ; preds = %40, %38
@@ -2534,7 +2534,7 @@ define internal fastcc void @zend_dump_unused_op(i32 %0, i32 noundef range(i32 0
 
 45:                                               ; preds = %43
   %46 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %47 = tail call i64 @fwrite(ptr nonnull @.str.170, i64 9, i64 1, ptr %46) #11
+  %47 = tail call i64 @fwrite(ptr nonnull @.str.170, i64 9, i64 1, ptr %46) #12
   br label %48
 
 48:                                               ; preds = %45, %43
@@ -2544,12 +2544,12 @@ define internal fastcc void @zend_dump_unused_op(i32 %0, i32 noundef range(i32 0
 
 50:                                               ; preds = %48
   %51 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %52 = tail call i64 @fwrite(ptr nonnull @.str.171, i64 12, i64 1, ptr %51) #11
+  %52 = tail call i64 @fwrite(ptr nonnull @.str.171, i64 12, i64 1, ptr %51) #12
   br label %zend_dump_class_fetch_type.exit
 
 53:                                               ; preds = %2
   %54 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %55 = tail call i64 @fwrite(ptr nonnull @.str.161, i64 12, i64 1, ptr %54) #11
+  %55 = tail call i64 @fwrite(ptr nonnull @.str.161, i64 12, i64 1, ptr %54) #12
   br label %zend_dump_class_fetch_type.exit
 
 56:                                               ; preds = %2
@@ -2559,7 +2559,7 @@ define internal fastcc void @zend_dump_unused_op(i32 %0, i32 noundef range(i32 0
 
 58:                                               ; preds = %56
   %59 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %60 = tail call i64 @fwrite(ptr nonnull @.str.162, i64 27, i64 1, ptr %59) #11
+  %60 = tail call i64 @fwrite(ptr nonnull @.str.162, i64 27, i64 1, ptr %59) #12
   br label %zend_dump_class_fetch_type.exit
 
 zend_dump_class_fetch_type.exit:                  ; preds = %50, %48, %2, %9, %8, %15, %53, %56, %58, %12, %5
@@ -2576,7 +2576,7 @@ define dso_local void @zend_dump_op_line(ptr noundef readonly captures(none) %0,
   %8 = load ptr, ptr @stderr, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load i32, ptr %9, align 8, !tbaa !95
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.67, i32 noundef %10) #12
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.67, i32 noundef %10) #13
   br label %12
 
 12:                                               ; preds = %7, %5
@@ -2588,10 +2588,10 @@ define dso_local void @zend_dump_op_line(ptr noundef readonly captures(none) %0,
   %18 = sub i64 %16, %17
   %19 = lshr exact i64 %18, 5
   %20 = trunc i64 %19 to i32
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.68, i32 noundef %20) #12
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.68, i32 noundef %20) #13
   %22 = load ptr, ptr @stderr, align 8, !tbaa !19
   %23 = sub nsw i32 5, %21
-  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.69, i32 noundef %23, i32 noundef 32) #12
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.69, i32 noundef %23, i32 noundef 32) #13
   %25 = and i32 %3, 8
   %.not20 = icmp eq i32 %25, 0
   %.not21 = icmp eq ptr %4, null
@@ -2644,18 +2644,18 @@ define hidden void @zend_dump_op_array_name(ptr noundef readonly captures(none) 
   %11 = load ptr, ptr @stderr, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.71, ptr noundef nonnull %12, ptr noundef nonnull %13) #12
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.71, ptr noundef nonnull %12, ptr noundef nonnull %13) #13
   br label %21
 
 15:                                               ; preds = %7, %4
   %16 = load ptr, ptr @stderr, align 8, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %fputs = tail call i32 @fputs(ptr nonnull %17, ptr %16) #11
+  %fputs = tail call i32 @fputs(ptr nonnull %17, ptr %16) #12
   br label %21
 
 18:                                               ; preds = %1
   %19 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %20 = tail call i64 @fwrite(ptr nonnull @.str.72, i64 6, i64 1, ptr %19) #11
+  %20 = tail call i64 @fwrite(ptr nonnull @.str.72, i64 6, i64 1, ptr %19) #12
   br label %21
 
 21:                                               ; preds = %10, %15, %18
@@ -2719,18 +2719,18 @@ define dso_local void @zend_dump_op_array(ptr noundef readonly captures(none) %0
   %30 = load ptr, ptr @stderr, align 8, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.71, ptr noundef nonnull %31, ptr noundef nonnull %32) #12
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.71, ptr noundef nonnull %31, ptr noundef nonnull %32) #13
   br label %zend_dump_op_array_name.exit
 
 34:                                               ; preds = %26, %23
   %35 = load ptr, ptr @stderr, align 8, !tbaa !19
   %36 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %fputs.i = tail call i32 @fputs(ptr nonnull %36, ptr %35) #11
+  %fputs.i = tail call i32 @fputs(ptr nonnull %36, ptr %35) #12
   br label %zend_dump_op_array_name.exit
 
 37:                                               ; preds = %19
   %38 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %39 = tail call i64 @fwrite(ptr nonnull @.str.72, i64 6, i64 1, ptr %38) #11
+  %39 = tail call i64 @fwrite(ptr nonnull @.str.72, i64 6, i64 1, ptr %38) #12
   br label %zend_dump_op_array_name.exit
 
 zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
@@ -2739,13 +2739,13 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
   %42 = load i32, ptr %41, align 8, !tbaa !105
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %44 = load i32, ptr %43, align 8, !tbaa !106
-  %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.73, i32 noundef %42, i32 noundef %44) #12
+  %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.73, i32 noundef %42, i32 noundef %44) #13
   %46 = load ptr, ptr @stderr, align 8, !tbaa !19
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %48 = load i32, ptr %47, align 4, !tbaa !26
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %50 = load i32, ptr %49, align 8, !tbaa !107
-  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.74, i32 noundef %48, i32 noundef %50) #12
+  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.74, i32 noundef %48, i32 noundef %50) #13
   %.not166 = icmp eq ptr %spec.select195, null
   br i1 %.not166, label %57, label %52
 
@@ -2753,7 +2753,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
   %53 = load ptr, ptr @stderr, align 8, !tbaa !19
   %54 = getelementptr inbounds nuw i8, ptr %.0145, i64 40
   %55 = load i32, ptr %54, align 8, !tbaa !108
-  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.75, i32 noundef %55) #12
+  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.75, i32 noundef %55) #13
   br label %57
 
 57:                                               ; preds = %52, %zend_dump_op_array_name.exit
@@ -2763,7 +2763,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
 
 59:                                               ; preds = %57
   %60 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %61 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 9, i64 1, ptr %60) #11
+  %61 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 9, i64 1, ptr %60) #12
   br label %62
 
 62:                                               ; preds = %59, %57
@@ -2773,14 +2773,14 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
 
 64:                                               ; preds = %62
   %65 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %66 = tail call i64 @fwrite(ptr nonnull @.str.77, i64 11, i64 1, ptr %65) #11
+  %66 = tail call i64 @fwrite(ptr nonnull @.str.77, i64 11, i64 1, ptr %65) #12
   %67 = and i32 %.0154, 256
   %.not169 = icmp eq i32 %67, 0
   br i1 %.not169, label %71, label %68
 
 68:                                               ; preds = %64
   %69 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %70 = tail call i64 @fwrite(ptr nonnull @.str.78, i64 9, i64 1, ptr %69) #11
+  %70 = tail call i64 @fwrite(ptr nonnull @.str.78, i64 9, i64 1, ptr %69) #12
   br label %71
 
 71:                                               ; preds = %68, %64
@@ -2790,7 +2790,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
 
 73:                                               ; preds = %71
   %74 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %75 = tail call i64 @fwrite(ptr nonnull @.str.79, i64 11, i64 1, ptr %74) #11
+  %75 = tail call i64 @fwrite(ptr nonnull @.str.79, i64 11, i64 1, ptr %74) #12
   br label %76
 
 76:                                               ; preds = %71, %73, %62
@@ -2800,7 +2800,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
 
 78:                                               ; preds = %76
   %79 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %80 = tail call i64 @fwrite(ptr nonnull @.str.80, i64 13, i64 1, ptr %79) #11
+  %80 = tail call i64 @fwrite(ptr nonnull @.str.80, i64 13, i64 1, ptr %79) #12
   br label %81
 
 81:                                               ; preds = %78, %76
@@ -2810,7 +2810,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
 
 83:                                               ; preds = %81
   %84 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %85 = tail call i64 @fwrite(ptr nonnull @.str.81, i64 10, i64 1, ptr %84) #11
+  %85 = tail call i64 @fwrite(ptr nonnull @.str.81, i64 10, i64 1, ptr %84) #12
   br label %86
 
 86:                                               ; preds = %83, %81
@@ -2820,7 +2820,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
 
 88:                                               ; preds = %86
   %89 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %90 = tail call i64 @fwrite(ptr nonnull @.str.82, i64 15, i64 1, ptr %89) #11
+  %90 = tail call i64 @fwrite(ptr nonnull @.str.82, i64 15, i64 1, ptr %89) #12
   br label %91
 
 91:                                               ; preds = %88, %86
@@ -2830,18 +2830,18 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
 
 93:                                               ; preds = %91
   %94 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %95 = tail call i64 @fwrite(ptr nonnull @.str.83, i64 16, i64 1, ptr %94) #11
+  %95 = tail call i64 @fwrite(ptr nonnull @.str.83, i64 16, i64 1, ptr %94) #12
   br label %96
 
 96:                                               ; preds = %93, %91
   %97 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %98 = tail call i64 @fwrite(ptr nonnull @.str.84, i64 2, i64 1, ptr %97) #11
+  %98 = tail call i64 @fwrite(ptr nonnull @.str.84, i64 2, i64 1, ptr %97) #12
   %.not175 = icmp eq ptr %2, null
   br i1 %.not175, label %102, label %99
 
 99:                                               ; preds = %96
   %100 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.85, ptr noundef nonnull %2) #12
+  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.85, ptr noundef nonnull %2) #13
   br label %102
 
 102:                                              ; preds = %99, %96
@@ -2853,12 +2853,12 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
   %108 = load i32, ptr %107, align 8, !tbaa !110
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %110 = load i32, ptr %109, align 4, !tbaa !111
-  %111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.86, ptr noundef nonnull %106, i32 noundef %108, i32 noundef %110) #12
+  %111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.86, ptr noundef nonnull %106, i32 noundef %108, i32 noundef %110) #13
   br i1 %.not165, label %125, label %112
 
 112:                                              ; preds = %102
   %113 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %114 = tail call i64 @fwrite(ptr nonnull @.str.87, i64 14, i64 1, ptr %113) #11
+  %114 = tail call i64 @fwrite(ptr nonnull @.str.87, i64 14, i64 1, ptr %113) #12
   %115 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %116 = load i32, ptr %115, align 8, !tbaa !112
   %117 = getelementptr inbounds nuw i8, ptr %15, i64 144
@@ -2892,7 +2892,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
 .lr.ph:                                           ; preds = %.preheader201, %.lr.ph
   %.0153203 = phi i32 [ %133, %.lr.ph ], [ 0, %.preheader201 ]
   %130 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %131 = tail call i64 @fwrite(ptr nonnull @.str.88, i64 7, i64 1, ptr %130) #11
+  %131 = tail call i64 @fwrite(ptr nonnull @.str.88, i64 7, i64 1, ptr %130) #12
   tail call void @zend_dump_ssa_var(ptr noundef nonnull %0, ptr noundef nonnull %.0145, i32 noundef %.0153203, i8 noundef zeroext 8, i32 noundef %.0153203, i32 noundef %1)
   %132 = load ptr, ptr @stderr, align 8, !tbaa !19
   %fputc193 = tail call i32 @fputc(i32 10, ptr %132)
@@ -2970,7 +2970,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
 
 166:                                              ; preds = %._crit_edge
   %167 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %168 = tail call i64 @fwrite(ptr nonnull @.str.89, i64 13, i64 1, ptr %167) #11
+  %168 = tail call i64 @fwrite(ptr nonnull @.str.89, i64 13, i64 1, ptr %167) #12
   %169 = load i32, ptr %163, align 8, !tbaa !118
   %170 = icmp sgt i32 %169, 0
   br i1 %170, label %.lr.ph210, label %.loopexit199
@@ -2991,7 +2991,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
   %180 = load i32, ptr %179, align 4, !tbaa !122
   %181 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %182 = load i32, ptr %181, align 4, !tbaa !123
-  %183 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %173, ptr noundef nonnull @.str.90, i32 noundef %178, i32 noundef %180, i32 noundef %182) #12
+  %183 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %173, ptr noundef nonnull @.str.90, i32 noundef %178, i32 noundef %180, i32 noundef %182) #13
   %184 = load ptr, ptr %171, align 8, !tbaa !119
   %185 = getelementptr inbounds nuw %struct._zend_live_range, ptr %184, i64 %indvars.iv230
   %186 = load i32, ptr %185, align 4, !tbaa !120
@@ -3006,27 +3006,27 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
 
 188:                                              ; preds = %172
   %189 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %190 = tail call i64 @fwrite(ptr nonnull @.str.91, i64 10, i64 1, ptr %189) #11
+  %190 = tail call i64 @fwrite(ptr nonnull @.str.91, i64 10, i64 1, ptr %189) #12
   br label %203
 
 191:                                              ; preds = %172
   %192 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %193 = tail call i64 @fwrite(ptr nonnull @.str.92, i64 7, i64 1, ptr %192) #11
+  %193 = tail call i64 @fwrite(ptr nonnull @.str.92, i64 7, i64 1, ptr %192) #12
   br label %203
 
 194:                                              ; preds = %172
   %195 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %196 = tail call i64 @fwrite(ptr nonnull @.str.93, i64 10, i64 1, ptr %195) #11
+  %196 = tail call i64 @fwrite(ptr nonnull @.str.93, i64 10, i64 1, ptr %195) #12
   br label %203
 
 197:                                              ; preds = %172
   %198 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %199 = tail call i64 @fwrite(ptr nonnull @.str.94, i64 7, i64 1, ptr %198) #11
+  %199 = tail call i64 @fwrite(ptr nonnull @.str.94, i64 7, i64 1, ptr %198) #12
   br label %203
 
 200:                                              ; preds = %172
   %201 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %202 = tail call i64 @fwrite(ptr nonnull @.str.95, i64 6, i64 1, ptr %201) #11
+  %202 = tail call i64 @fwrite(ptr nonnull @.str.95, i64 6, i64 1, ptr %201) #12
   br label %203
 
 203:                                              ; preds = %172, %188, %191, %194, %197, %200
@@ -3044,7 +3044,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
 
 209:                                              ; preds = %.loopexit199
   %210 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %211 = tail call i64 @fwrite(ptr nonnull @.str.96, i64 17, i64 1, ptr %210) #11
+  %211 = tail call i64 @fwrite(ptr nonnull @.str.96, i64 17, i64 1, ptr %210) #12
   %212 = load i32, ptr %207, align 4, !tbaa !124
   %213 = icmp sgt i32 %212, 0
   br i1 %213, label %.lr.ph213, label %.loopexit
@@ -3064,7 +3064,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
   %222 = zext i32 %221 to i64
   %223 = getelementptr inbounds nuw i32, ptr %218, i64 %222
   %224 = load i32, ptr %223, align 4, !tbaa !79
-  %225 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %217, ptr noundef nonnull @.str.97, i32 noundef %224) #12
+  %225 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %217, ptr noundef nonnull @.str.97, i32 noundef %224) #13
   %226 = load ptr, ptr %215, align 8, !tbaa !126
   %227 = getelementptr inbounds nuw %struct._zend_try_catch_element, ptr %226, i64 %indvars.iv233
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 4
@@ -3078,11 +3078,11 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
   %233 = zext i32 %229 to i64
   %234 = getelementptr inbounds nuw i32, ptr %232, i64 %233
   %235 = load i32, ptr %234, align 4, !tbaa !79
-  %236 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %230, ptr noundef nonnull @.str.98, i32 noundef %235) #12
+  %236 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %230, ptr noundef nonnull @.str.98, i32 noundef %235) #13
   br label %239
 
 237:                                              ; preds = %216
-  %238 = tail call i64 @fwrite(ptr nonnull @.str.99, i64 3, i64 1, ptr %230) #11
+  %238 = tail call i64 @fwrite(ptr nonnull @.str.99, i64 3, i64 1, ptr %230) #12
   br label %239
 
 239:                                              ; preds = %237, %231
@@ -3099,11 +3099,11 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
   %247 = zext i32 %243 to i64
   %248 = getelementptr inbounds nuw i32, ptr %246, i64 %247
   %249 = load i32, ptr %248, align 4, !tbaa !79
-  %250 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %244, ptr noundef nonnull @.str.98, i32 noundef %249) #12
+  %250 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %244, ptr noundef nonnull @.str.98, i32 noundef %249) #13
   br label %253
 
 251:                                              ; preds = %239
-  %252 = tail call i64 @fwrite(ptr nonnull @.str.99, i64 3, i64 1, ptr %244) #11
+  %252 = tail call i64 @fwrite(ptr nonnull @.str.99, i64 3, i64 1, ptr %244) #12
   br label %253
 
 253:                                              ; preds = %251, %245
@@ -3120,11 +3120,11 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
   %261 = zext i32 %257 to i64
   %262 = getelementptr inbounds nuw i32, ptr %260, i64 %261
   %263 = load i32, ptr %262, align 4, !tbaa !79
-  %264 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %258, ptr noundef nonnull @.str.100, i32 noundef %263) #12
+  %264 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %258, ptr noundef nonnull @.str.100, i32 noundef %263) #13
   br label %267
 
 265:                                              ; preds = %253
-  %266 = tail call i64 @fwrite(ptr nonnull @.str.101, i64 4, i64 1, ptr %258) #11
+  %266 = tail call i64 @fwrite(ptr nonnull @.str.101, i64 4, i64 1, ptr %258) #12
   br label %267
 
 267:                                              ; preds = %259, %265
@@ -3162,7 +3162,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
 
 282:                                              ; preds = %._crit_edge217
   %283 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %284 = tail call i64 @fwrite(ptr nonnull @.str.89, i64 13, i64 1, ptr %283) #11
+  %284 = tail call i64 @fwrite(ptr nonnull @.str.89, i64 13, i64 1, ptr %283) #12
   %285 = load i32, ptr %279, align 8, !tbaa !118
   %286 = icmp sgt i32 %285, 0
   br i1 %286, label %.lr.ph220, label %.loopexit197
@@ -3183,7 +3183,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
   %296 = load i32, ptr %295, align 4, !tbaa !122
   %297 = getelementptr inbounds nuw i8, ptr %291, i64 8
   %298 = load i32, ptr %297, align 4, !tbaa !123
-  %299 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %289, ptr noundef nonnull @.str.90, i32 noundef %294, i32 noundef %296, i32 noundef %298) #12
+  %299 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %289, ptr noundef nonnull @.str.90, i32 noundef %294, i32 noundef %296, i32 noundef %298) #13
   %300 = load ptr, ptr %287, align 8, !tbaa !119
   %301 = getelementptr inbounds nuw %struct._zend_live_range, ptr %300, i64 %indvars.iv236
   %302 = load i32, ptr %301, align 4, !tbaa !120
@@ -3198,27 +3198,27 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
 
 304:                                              ; preds = %288
   %305 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %306 = tail call i64 @fwrite(ptr nonnull @.str.91, i64 10, i64 1, ptr %305) #11
+  %306 = tail call i64 @fwrite(ptr nonnull @.str.91, i64 10, i64 1, ptr %305) #12
   br label %319
 
 307:                                              ; preds = %288
   %308 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %309 = tail call i64 @fwrite(ptr nonnull @.str.92, i64 7, i64 1, ptr %308) #11
+  %309 = tail call i64 @fwrite(ptr nonnull @.str.92, i64 7, i64 1, ptr %308) #12
   br label %319
 
 310:                                              ; preds = %288
   %311 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %312 = tail call i64 @fwrite(ptr nonnull @.str.93, i64 10, i64 1, ptr %311) #11
+  %312 = tail call i64 @fwrite(ptr nonnull @.str.93, i64 10, i64 1, ptr %311) #12
   br label %319
 
 313:                                              ; preds = %288
   %314 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %315 = tail call i64 @fwrite(ptr nonnull @.str.94, i64 7, i64 1, ptr %314) #11
+  %315 = tail call i64 @fwrite(ptr nonnull @.str.94, i64 7, i64 1, ptr %314) #12
   br label %319
 
 316:                                              ; preds = %288
   %317 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %318 = tail call i64 @fwrite(ptr nonnull @.str.95, i64 6, i64 1, ptr %317) #11
+  %318 = tail call i64 @fwrite(ptr nonnull @.str.95, i64 6, i64 1, ptr %317) #12
   br label %319
 
 319:                                              ; preds = %288, %304, %307, %310, %313, %316
@@ -3236,7 +3236,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
 
 325:                                              ; preds = %.loopexit197
   %326 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %327 = tail call i64 @fwrite(ptr nonnull @.str.96, i64 17, i64 1, ptr %326) #11
+  %327 = tail call i64 @fwrite(ptr nonnull @.str.96, i64 17, i64 1, ptr %326) #12
   %328 = load i32, ptr %323, align 4, !tbaa !124
   %329 = icmp sgt i32 %328, 0
   br i1 %329, label %.lr.ph223, label %.loopexit
@@ -3251,7 +3251,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
   %333 = load ptr, ptr %330, align 8, !tbaa !126
   %334 = getelementptr inbounds nuw %struct._zend_try_catch_element, ptr %333, i64 %indvars.iv239
   %335 = load i32, ptr %334, align 4, !tbaa !127
-  %336 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %332, ptr noundef nonnull @.str.102, i32 noundef %335) #12
+  %336 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %332, ptr noundef nonnull @.str.102, i32 noundef %335) #13
   %337 = load ptr, ptr %330, align 8, !tbaa !126
   %338 = getelementptr inbounds nuw %struct._zend_try_catch_element, ptr %337, i64 %indvars.iv239
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 4
@@ -3261,11 +3261,11 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
   br i1 %.not182, label %344, label %342
 
 342:                                              ; preds = %331
-  %343 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %341, ptr noundef nonnull @.str.103, i32 noundef %340) #12
+  %343 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %341, ptr noundef nonnull @.str.103, i32 noundef %340) #13
   br label %346
 
 344:                                              ; preds = %331
-  %345 = tail call i64 @fwrite(ptr nonnull @.str.99, i64 3, i64 1, ptr %341) #11
+  %345 = tail call i64 @fwrite(ptr nonnull @.str.99, i64 3, i64 1, ptr %341) #12
   br label %346
 
 346:                                              ; preds = %344, %342
@@ -3278,11 +3278,11 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
   br i1 %.not183, label %354, label %352
 
 352:                                              ; preds = %346
-  %353 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %351, ptr noundef nonnull @.str.103, i32 noundef %350) #12
+  %353 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %351, ptr noundef nonnull @.str.103, i32 noundef %350) #13
   br label %356
 
 354:                                              ; preds = %346
-  %355 = tail call i64 @fwrite(ptr nonnull @.str.99, i64 3, i64 1, ptr %351) #11
+  %355 = tail call i64 @fwrite(ptr nonnull @.str.99, i64 3, i64 1, ptr %351) #12
   br label %356
 
 356:                                              ; preds = %354, %352
@@ -3295,11 +3295,11 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
   br i1 %.not184, label %364, label %362
 
 362:                                              ; preds = %356
-  %363 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %361, ptr noundef nonnull @.str.103, i32 noundef %360) #12
+  %363 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %361, ptr noundef nonnull @.str.103, i32 noundef %360) #13
   br label %366
 
 364:                                              ; preds = %356
-  %365 = tail call i64 @fwrite(ptr nonnull @.str.101, i64 4, i64 1, ptr %361) #11
+  %365 = tail call i64 @fwrite(ptr nonnull @.str.101, i64 4, i64 1, ptr %361) #12
   br label %366
 
 366:                                              ; preds = %362, %364
@@ -3340,7 +3340,7 @@ define internal fastcc void @zend_dump_block_header(ptr noundef nonnull readonly
 15:                                               ; preds = %.preheader, %._crit_edge
   %.042 = phi ptr [ %150, %._crit_edge ], [ %12, %.preheader ]
   %16 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %17 = tail call i64 @fwrite(ptr nonnull @.str.172, i64 5, i64 1, ptr %16) #11
+  %17 = tail call i64 @fwrite(ptr nonnull @.str.172, i64 5, i64 1, ptr %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %.042, i64 68
   %19 = load i32, ptr %18, align 4, !tbaa !136
   %20 = getelementptr inbounds nuw i8, ptr %.042, i64 64
@@ -3353,7 +3353,7 @@ define internal fastcc void @zend_dump_block_header(ptr noundef nonnull readonly
   br i1 %24, label %26, label %49
 
 26:                                               ; preds = %15
-  %27 = tail call i64 @fwrite(ptr nonnull @.str.173, i64 7, i64 1, ptr %25) #11
+  %27 = tail call i64 @fwrite(ptr nonnull @.str.173, i64 7, i64 1, ptr %25) #12
   %28 = load ptr, ptr %14, align 8, !tbaa !99
   %29 = getelementptr inbounds %struct._zend_basic_block, ptr %28, i64 %10
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -3372,7 +3372,7 @@ define internal fastcc void @zend_dump_block_header(ptr noundef nonnull readonly
 
 35:                                               ; preds = %34
   %36 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %37 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %36) #11
+  %37 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %36) #12
   br label %38
 
 38:                                               ; preds = %35, %34
@@ -3391,14 +3391,14 @@ define internal fastcc void @zend_dump_block_header(ptr noundef nonnull readonly
   br i1 %48, label %34, label %._crit_edge
 
 49:                                               ; preds = %15
-  %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.174, i32 noundef %23) #12
+  %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.174, i32 noundef %23) #13
   %51 = getelementptr inbounds nuw i8, ptr %.042, i64 96
   %52 = load ptr, ptr %51, align 8, !tbaa !142
   %53 = load i32, ptr %52, align 4, !tbaa !79
   %54 = load i32, ptr %20, align 8, !tbaa !139
   tail call void @zend_dump_ssa_var(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %53, i8 noundef zeroext 0, i32 noundef %54, i32 noundef %4)
   %55 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %56 = tail call i64 @fwrite(ptr nonnull @.str.175, i64 2, i64 1, ptr %55) #11
+  %56 = tail call i64 @fwrite(ptr nonnull @.str.175, i64 2, i64 1, ptr %55) #12
   %57 = getelementptr inbounds nuw i8, ptr %.042, i64 76
   %58 = load i8, ptr %57, align 4, !tbaa !143, !range !57, !noundef !58
   %59 = trunc nuw i8 %58 to i1
@@ -3419,7 +3419,7 @@ define internal fastcc void @zend_dump_block_header(ptr noundef nonnull readonly
 
 69:                                               ; preds = %65, %61
   %70 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %71 = tail call i64 @fwrite(ptr nonnull @.str.176, i64 6, i64 1, ptr %70) #11
+  %71 = tail call i64 @fwrite(ptr nonnull @.str.176, i64 6, i64 1, ptr %70) #12
   %72 = getelementptr inbounds nuw i8, ptr %.042, i64 56
   %73 = load i32, ptr %72, align 8, !tbaa !147
   %.not.i = icmp eq i32 %73, 0
@@ -3439,7 +3439,7 @@ define internal fastcc void @zend_dump_block_header(ptr noundef nonnull readonly
 
 80:                                               ; preds = %76
   %81 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %82 = tail call i64 @fwrite(ptr nonnull @.str.178, i64 6, i64 1, ptr %81) #11
+  %82 = tail call i64 @fwrite(ptr nonnull @.str.178, i64 6, i64 1, ptr %81) #12
   br label %111
 
 83:                                               ; preds = %76
@@ -3461,7 +3461,7 @@ define internal fastcc void @zend_dump_block_header(ptr noundef nonnull readonly
 
 95:                                               ; preds = %87
   %96 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %97 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %96, ptr noundef nonnull @.str.179, i64 noundef %93) #12
+  %97 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %96, ptr noundef nonnull @.str.179, i64 noundef %93) #13
   br label %104
 
 98:                                               ; preds = %87
@@ -3471,18 +3471,18 @@ define internal fastcc void @zend_dump_block_header(ptr noundef nonnull readonly
 100:                                              ; preds = %98
   %101 = load ptr, ptr @stderr, align 8, !tbaa !19
   %102 = sub nsw i64 0, %93
-  %103 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef nonnull @.str.180, i64 noundef %102) #12
+  %103 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef nonnull @.str.180, i64 noundef %102) #13
   br label %104
 
 104:                                              ; preds = %100, %98, %95
   %105 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %106 = tail call i64 @fwrite(ptr nonnull @.str.181, i64 4, i64 1, ptr %105) #11
+  %106 = tail call i64 @fwrite(ptr nonnull @.str.181, i64 4, i64 1, ptr %105) #12
   br label %111
 
 107:                                              ; preds = %83
   %108 = load ptr, ptr @stderr, align 8, !tbaa !19
   %109 = load i64, ptr %60, align 8, !tbaa !150
-  %110 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %108, ptr noundef nonnull @.str.182, i64 noundef %109) #12
+  %110 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %108, ptr noundef nonnull @.str.182, i64 noundef %109) #13
   br label %111
 
 111:                                              ; preds = %107, %104, %80
@@ -3493,7 +3493,7 @@ define internal fastcc void @zend_dump_block_header(ptr noundef nonnull readonly
 
 115:                                              ; preds = %111
   %116 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %117 = tail call i64 @fwrite(ptr nonnull @.str.125, i64 3, i64 1, ptr %116) #11
+  %117 = tail call i64 @fwrite(ptr nonnull @.str.125, i64 3, i64 1, ptr %116) #12
   br label %._crit_edge
 
 118:                                              ; preds = %111
@@ -3516,7 +3516,7 @@ define internal fastcc void @zend_dump_block_header(ptr noundef nonnull readonly
 
 131:                                              ; preds = %122
   %132 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %133 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef nonnull @.str.179, i64 noundef %129) #12
+  %133 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef nonnull @.str.179, i64 noundef %129) #13
   br label %140
 
 134:                                              ; preds = %122
@@ -3526,7 +3526,7 @@ define internal fastcc void @zend_dump_block_header(ptr noundef nonnull readonly
 136:                                              ; preds = %134
   %137 = load ptr, ptr @stderr, align 8, !tbaa !19
   %138 = sub nsw i64 0, %129
-  %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef nonnull @.str.180, i64 noundef %138) #12
+  %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef nonnull @.str.180, i64 noundef %138) #13
   br label %140
 
 140:                                              ; preds = %136, %134, %131
@@ -3538,7 +3538,7 @@ define internal fastcc void @zend_dump_block_header(ptr noundef nonnull readonly
   %143 = load ptr, ptr @stderr, align 8, !tbaa !19
   %144 = getelementptr inbounds nuw i8, ptr %.042, i64 24
   %145 = load i64, ptr %144, align 8, !tbaa !153
-  %146 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.127, i64 noundef %145) #12
+  %146 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.127, i64 noundef %145) #13
   br label %._crit_edge
 
 147:                                              ; preds = %49
@@ -3547,7 +3547,7 @@ define internal fastcc void @zend_dump_block_header(ptr noundef nonnull readonly
 
 ._crit_edge:                                      ; preds = %38, %147, %65, %115, %140, %142, %26
   %148 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %149 = tail call i64 @fwrite(ptr nonnull @.str.84, i64 2, i64 1, ptr %148) #11
+  %149 = tail call i64 @fwrite(ptr nonnull @.str.84, i64 2, i64 1, ptr %148) #12
   %150 = load ptr, ptr %.042, align 8, !tbaa !154
   %.not50 = icmp eq ptr %150, null
   br i1 %.not50, label %.loopexit, label %15
@@ -3559,7 +3559,7 @@ define internal fastcc void @zend_dump_block_header(ptr noundef nonnull readonly
 ; Function Attrs: cold nofree nounwind uwtable
 define hidden void @zend_dump_dominators(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.104, i64 22, i64 1, ptr %3) #11
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.104, i64 22, i64 1, ptr %3) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !97
   %.not.i = icmp eq ptr %6, null
@@ -3581,23 +3581,23 @@ define hidden void @zend_dump_dominators(ptr noundef readonly captures(none) %0,
   %14 = load ptr, ptr @stderr, align 8, !tbaa !19
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.71, ptr noundef nonnull %15, ptr noundef nonnull %16) #12
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.71, ptr noundef nonnull %15, ptr noundef nonnull %16) #13
   br label %zend_dump_op_array_name.exit
 
 18:                                               ; preds = %10, %7
   %19 = load ptr, ptr @stderr, align 8, !tbaa !19
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %fputs.i = tail call i32 @fputs(ptr nonnull %20, ptr %19) #11
+  %fputs.i = tail call i32 @fputs(ptr nonnull %20, ptr %19) #12
   br label %zend_dump_op_array_name.exit
 
 21:                                               ; preds = %2
   %22 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %23 = tail call i64 @fwrite(ptr nonnull @.str.72, i64 6, i64 1, ptr %22) #11
+  %23 = tail call i64 @fwrite(ptr nonnull @.str.72, i64 6, i64 1, ptr %22) #12
   br label %zend_dump_op_array_name.exit
 
 zend_dump_op_array_name.exit:                     ; preds = %13, %18, %21
   %24 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %25 = tail call i64 @fwrite(ptr nonnull @.str.105, i64 2, i64 1, ptr %24) #11
+  %25 = tail call i64 @fwrite(ptr nonnull @.str.105, i64 2, i64 1, ptr %24) #12
   %26 = load i32, ptr %1, align 8, !tbaa !114
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %.lr.ph, label %._crit_edge
@@ -3649,7 +3649,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
 
 11:                                               ; preds = %9, %3
   %12 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.183, i32 noundef %1) #12
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.183, i32 noundef %1) #13
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !115
   %16 = and i32 %15, 1
@@ -3658,7 +3658,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
 
 17:                                               ; preds = %11
   %18 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.184, i64 6, i64 1, ptr %18) #11
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.184, i64 6, i64 1, ptr %18) #12
   %.pre = load i32, ptr %14, align 8, !tbaa !115
   br label %20
 
@@ -3670,7 +3670,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %25 = tail call i64 @fwrite(ptr nonnull @.str.185, i64 5, i64 1, ptr %24) #11
+  %25 = tail call i64 @fwrite(ptr nonnull @.str.185, i64 5, i64 1, ptr %24) #12
   %.pre94 = load i32, ptr %14, align 8, !tbaa !115
   br label %26
 
@@ -3682,7 +3682,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %31 = tail call i64 @fwrite(ptr nonnull @.str.186, i64 7, i64 1, ptr %30) #11
+  %31 = tail call i64 @fwrite(ptr nonnull @.str.186, i64 7, i64 1, ptr %30) #12
   %.pre95 = load i32, ptr %14, align 8, !tbaa !115
   br label %32
 
@@ -3694,7 +3694,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %37 = tail call i64 @fwrite(ptr nonnull @.str.187, i64 7, i64 1, ptr %36) #11
+  %37 = tail call i64 @fwrite(ptr nonnull @.str.187, i64 7, i64 1, ptr %36) #12
   %.pre96 = load i32, ptr %14, align 8, !tbaa !115
   br label %38
 
@@ -3706,7 +3706,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %43 = tail call i64 @fwrite(ptr nonnull @.str.188, i64 5, i64 1, ptr %42) #11
+  %43 = tail call i64 @fwrite(ptr nonnull @.str.188, i64 5, i64 1, ptr %42) #12
   %.pre97 = load i32, ptr %14, align 8, !tbaa !115
   br label %44
 
@@ -3718,7 +3718,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %49 = tail call i64 @fwrite(ptr nonnull @.str.189, i64 6, i64 1, ptr %48) #11
+  %49 = tail call i64 @fwrite(ptr nonnull @.str.189, i64 6, i64 1, ptr %48) #12
   %.pre98 = load i32, ptr %14, align 8, !tbaa !115
   br label %50
 
@@ -3730,7 +3730,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
 
 53:                                               ; preds = %50
   %54 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %55 = tail call i64 @fwrite(ptr nonnull @.str.190, i64 4, i64 1, ptr %54) #11
+  %55 = tail call i64 @fwrite(ptr nonnull @.str.190, i64 4, i64 1, ptr %54) #12
   %.pre99 = load i32, ptr %14, align 8, !tbaa !115
   br label %56
 
@@ -3742,7 +3742,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
 
 59:                                               ; preds = %56
   %60 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %61 = tail call i64 @fwrite(ptr nonnull @.str.191, i64 6, i64 1, ptr %60) #11
+  %61 = tail call i64 @fwrite(ptr nonnull @.str.191, i64 6, i64 1, ptr %60) #12
   %.pre100 = load i32, ptr %14, align 8, !tbaa !115
   br label %62
 
@@ -3754,7 +3754,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
 
 65:                                               ; preds = %62
   %66 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %67 = tail call i64 @fwrite(ptr nonnull @.str.192, i64 8, i64 1, ptr %66) #11
+  %67 = tail call i64 @fwrite(ptr nonnull @.str.192, i64 8, i64 1, ptr %66) #12
   %.pre101 = load i32, ptr %14, align 8, !tbaa !115
   br label %68
 
@@ -3766,7 +3766,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
 
 71:                                               ; preds = %68
   %72 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %73 = tail call i64 @fwrite(ptr nonnull @.str.193, i64 12, i64 1, ptr %72) #11
+  %73 = tail call i64 @fwrite(ptr nonnull @.str.193, i64 12, i64 1, ptr %72) #12
   %.pre103.pre = load i32, ptr %14, align 8, !tbaa !115
   br label %74
 
@@ -3780,7 +3780,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
 
 76:                                               ; preds = %74
   %77 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %78 = tail call i64 @fwrite(ptr nonnull @.str.194, i64 12, i64 1, ptr %77) #11
+  %78 = tail call i64 @fwrite(ptr nonnull @.str.194, i64 12, i64 1, ptr %77) #12
   %.pre102 = load i32, ptr %14, align 8, !tbaa !115
   br label %79
 
@@ -3792,7 +3792,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
 
 82:                                               ; preds = %79
   %83 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %84 = tail call i64 @fwrite(ptr nonnull @.str.195, i64 17, i64 1, ptr %83) #11
+  %84 = tail call i64 @fwrite(ptr nonnull @.str.195, i64 17, i64 1, ptr %83) #12
   %.pre104 = load i32, ptr %14, align 8, !tbaa !115
   br label %85
 
@@ -3804,7 +3804,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
 
 88:                                               ; preds = %85
   %89 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %90 = tail call i64 @fwrite(ptr nonnull @.str.196, i64 12, i64 1, ptr %89) #11
+  %90 = tail call i64 @fwrite(ptr nonnull @.str.196, i64 12, i64 1, ptr %89) #12
   %.pre105 = load i32, ptr %14, align 8, !tbaa !115
   br label %91
 
@@ -3816,7 +3816,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
 
 94:                                               ; preds = %91
   %95 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %96 = tail call i64 @fwrite(ptr nonnull @.str.197, i64 12, i64 1, ptr %95) #11
+  %96 = tail call i64 @fwrite(ptr nonnull @.str.197, i64 12, i64 1, ptr %95) #12
   br label %97
 
 97:                                               ; preds = %94, %91
@@ -3831,11 +3831,11 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
   %103 = load i32, ptr %102, align 4, !tbaa !116
   %104 = add i32 %99, -1
   %105 = add i32 %104, %103
-  %106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.198, i32 noundef %103, i32 noundef %105) #12
+  %106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.198, i32 noundef %103, i32 noundef %105) #13
   br label %109
 
 107:                                              ; preds = %97
-  %108 = tail call i64 @fwrite(ptr nonnull @.str.199, i64 6, i64 1, ptr %100) #11
+  %108 = tail call i64 @fwrite(ptr nonnull @.str.199, i64 6, i64 1, ptr %100) #12
   br label %109
 
 109:                                              ; preds = %107, %101
@@ -3858,7 +3858,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
   %121 = getelementptr inbounds i8, ptr %119, i64 %.idx
   %122 = load ptr, ptr @stderr, align 8, !tbaa !19
   %123 = load i32, ptr %119, align 4, !tbaa !79
-  %124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.200, i32 noundef %123) #12
+  %124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.200, i32 noundef %123) #13
   %125 = icmp sgt i32 %112, 1
   br i1 %125, label %.lr.ph.preheader, label %._crit_edge
 
@@ -3870,14 +3870,14 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
   %.05682 = phi ptr [ %.056, %.lr.ph ], [ %.05681, %.lr.ph.preheader ]
   %126 = load ptr, ptr @stderr, align 8, !tbaa !19
   %127 = load i32, ptr %.05682, align 4, !tbaa !79
-  %128 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %126, ptr noundef nonnull @.str.201, i32 noundef %127) #12
+  %128 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %126, ptr noundef nonnull @.str.201, i32 noundef %127) #13
   %.056 = getelementptr inbounds nuw i8, ptr %.05682, i64 4
   %129 = icmp ult ptr %.056, %121
   br i1 %129, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %113
   %130 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %131 = tail call i64 @fwrite(ptr nonnull @.str.84, i64 2, i64 1, ptr %130) #11
+  %131 = tail call i64 @fwrite(ptr nonnull @.str.84, i64 2, i64 1, ptr %130) #12
   br label %132
 
 132:                                              ; preds = %._crit_edge, %109
@@ -3890,7 +3890,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
   %137 = load ptr, ptr @stderr, align 8, !tbaa !19
   %138 = load ptr, ptr %7, align 8, !tbaa !77
   %139 = load i32, ptr %138, align 4, !tbaa !79
-  %140 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef nonnull @.str.202, i32 noundef %139) #12
+  %140 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef nonnull @.str.202, i32 noundef %139) #13
   %141 = load i32, ptr %133, align 4, !tbaa !157
   %142 = icmp sgt i32 %141, 1
   br i1 %142, label %.lr.ph85, label %._crit_edge86
@@ -3901,7 +3901,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
   %144 = load ptr, ptr %7, align 8, !tbaa !77
   %145 = getelementptr inbounds nuw i32, ptr %144, i64 %indvars.iv
   %146 = load i32, ptr %145, align 4, !tbaa !79
-  %147 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.201, i32 noundef %146) #12
+  %147 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.201, i32 noundef %146) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %148 = load i32, ptr %133, align 4, !tbaa !157
   %149 = sext i32 %148 to i64
@@ -3910,7 +3910,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
 
 ._crit_edge86:                                    ; preds = %.lr.ph85, %136
   %151 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %152 = tail call i64 @fwrite(ptr nonnull @.str.84, i64 2, i64 1, ptr %151) #11
+  %152 = tail call i64 @fwrite(ptr nonnull @.str.84, i64 2, i64 1, ptr %151) #12
   br label %153
 
 153:                                              ; preds = %._crit_edge86, %132
@@ -3921,7 +3921,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
 
 157:                                              ; preds = %153
   %158 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %159 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %158, ptr noundef nonnull @.str.203, i32 noundef %155) #12
+  %159 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %158, ptr noundef nonnull @.str.203, i32 noundef %155) #13
   br label %160
 
 160:                                              ; preds = %157, %153
@@ -3932,7 +3932,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
 
 164:                                              ; preds = %160
   %165 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %166 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %165, ptr noundef nonnull @.str.204, i32 noundef %162) #12
+  %166 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %165, ptr noundef nonnull @.str.204, i32 noundef %162) #13
   br label %167
 
 167:                                              ; preds = %164, %160
@@ -3943,7 +3943,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
 
 171:                                              ; preds = %167
   %172 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %173 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %172, ptr noundef nonnull @.str.205, i32 noundef %169) #12
+  %173 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %172, ptr noundef nonnull @.str.205, i32 noundef %169) #13
   br label %174
 
 174:                                              ; preds = %171, %167
@@ -3954,7 +3954,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
 
 178:                                              ; preds = %174
   %179 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %180 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %179, ptr noundef nonnull @.str.206, i32 noundef %176) #12
+  %180 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %179, ptr noundef nonnull @.str.206, i32 noundef %176) #13
   %181 = load ptr, ptr %4, align 8, !tbaa !99
   %182 = zext nneg i32 %176 to i64
   %183 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %181, i64 %182
@@ -3966,7 +3966,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
 .lr.ph91:                                         ; preds = %178, %.lr.ph91
   %.089 = phi i32 [ %.0, %.lr.ph91 ], [ %.088, %178 ]
   %185 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %186 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %185, ptr noundef nonnull @.str.201, i32 noundef %.089) #12
+  %186 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %185, ptr noundef nonnull @.str.201, i32 noundef %.089) #13
   %187 = load ptr, ptr %4, align 8, !tbaa !99
   %188 = zext nneg i32 %.089 to i64
   %189 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %187, i64 %188
@@ -3977,7 +3977,7 @@ define internal fastcc void @zend_dump_block_info(ptr noundef readonly captures(
 
 ._crit_edge92:                                    ; preds = %.lr.ph91, %178
   %191 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %192 = tail call i64 @fwrite(ptr nonnull @.str.84, i64 2, i64 1, ptr %191) #11
+  %192 = tail call i64 @fwrite(ptr nonnull @.str.84, i64 2, i64 1, ptr %191) #12
   br label %193
 
 193:                                              ; preds = %._crit_edge92, %174
@@ -3993,7 +3993,7 @@ define hidden void @zend_dump_ssa_variables(ptr noundef readonly captures(none) 
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %8 = tail call i64 @fwrite(ptr nonnull @.str.106, i64 19, i64 1, ptr %7) #11
+  %8 = tail call i64 @fwrite(ptr nonnull @.str.106, i64 19, i64 1, ptr %7) #12
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !97
   %.not.i = icmp eq ptr %10, null
@@ -4015,23 +4015,23 @@ define hidden void @zend_dump_ssa_variables(ptr noundef readonly captures(none) 
   %18 = load ptr, ptr @stderr, align 8, !tbaa !19
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.71, ptr noundef nonnull %19, ptr noundef nonnull %20) #12
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.71, ptr noundef nonnull %19, ptr noundef nonnull %20) #13
   br label %zend_dump_op_array_name.exit
 
 22:                                               ; preds = %14, %11
   %23 = load ptr, ptr @stderr, align 8, !tbaa !19
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %fputs.i = tail call i32 @fputs(ptr nonnull %24, ptr %23) #11
+  %fputs.i = tail call i32 @fputs(ptr nonnull %24, ptr %23) #12
   br label %zend_dump_op_array_name.exit
 
 25:                                               ; preds = %6
   %26 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %27 = tail call i64 @fwrite(ptr nonnull @.str.72, i64 6, i64 1, ptr %26) #11
+  %27 = tail call i64 @fwrite(ptr nonnull @.str.72, i64 6, i64 1, ptr %26) #12
   br label %zend_dump_op_array_name.exit
 
 zend_dump_op_array_name.exit:                     ; preds = %17, %22, %25
   %28 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %29 = tail call i64 @fwrite(ptr nonnull @.str.105, i64 2, i64 1, ptr %28) #11
+  %29 = tail call i64 @fwrite(ptr nonnull @.str.105, i64 2, i64 1, ptr %28) #12
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %31 = load i32, ptr %30, align 8, !tbaa !108
   %32 = icmp sgt i32 %31, 0
@@ -4040,7 +4040,7 @@ zend_dump_op_array_name.exit:                     ; preds = %17, %22, %25
 .lr.ph:                                           ; preds = %zend_dump_op_array_name.exit, %56
   %indvars.iv = phi i64 [ %indvars.iv.next, %56 ], [ 0, %zend_dump_op_array_name.exit ]
   %33 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %34 = tail call i64 @fwrite(ptr nonnull @.str.107, i64 4, i64 1, ptr %33) #11
+  %34 = tail call i64 @fwrite(ptr nonnull @.str.107, i64 4, i64 1, ptr %33) #12
   %35 = load ptr, ptr %4, align 8, !tbaa !42
   %36 = getelementptr inbounds nuw %struct._zend_ssa_var, ptr %35, i64 %indvars.iv
   %37 = load i32, ptr %36, align 8, !tbaa !163
@@ -4060,13 +4060,13 @@ zend_dump_op_array_name.exit:                     ; preds = %17, %22, %25
   %.not16 = icmp eq i8 %47, 0
   %48 = load ptr, ptr @stderr, align 8, !tbaa !19
   %.str.109..str.108 = select i1 %.not16, ptr @.str.109, ptr @.str.108
-  %49 = tail call i64 @fwrite(ptr nonnull %.str.109..str.108, i64 2, i64 1, ptr %48) #11
+  %49 = tail call i64 @fwrite(ptr nonnull %.str.109..str.108, i64 2, i64 1, ptr %48) #12
   %50 = load ptr, ptr @stderr, align 8, !tbaa !19
   %51 = load ptr, ptr %4, align 8, !tbaa !42
   %52 = getelementptr inbounds nuw %struct._zend_ssa_var, ptr %51, i64 %indvars.iv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4, !tbaa !165
-  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.110, i32 noundef %54) #12
+  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.110, i32 noundef %54) #13
   br label %56
 
 56:                                               ; preds = %44, %.lr.ph
@@ -4085,7 +4085,7 @@ zend_dump_op_array_name.exit:                     ; preds = %17, %22, %25
 ; Function Attrs: cold nofree nounwind uwtable
 define hidden void @zend_dump_dfg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %5 = tail call i64 @fwrite(ptr nonnull @.str.111, i64 24, i64 1, ptr %4) #11
+  %5 = tail call i64 @fwrite(ptr nonnull @.str.111, i64 24, i64 1, ptr %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !97
   %.not.i = icmp eq ptr %7, null
@@ -4107,23 +4107,23 @@ define hidden void @zend_dump_dfg(ptr noundef readonly captures(none) %0, ptr no
   %15 = load ptr, ptr @stderr, align 8, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.71, ptr noundef nonnull %16, ptr noundef nonnull %17) #12
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.71, ptr noundef nonnull %16, ptr noundef nonnull %17) #13
   br label %zend_dump_op_array_name.exit
 
 19:                                               ; preds = %11, %8
   %20 = load ptr, ptr @stderr, align 8, !tbaa !19
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %fputs.i = tail call i32 @fputs(ptr nonnull %21, ptr %20) #11
+  %fputs.i = tail call i32 @fputs(ptr nonnull %21, ptr %20) #12
   br label %zend_dump_op_array_name.exit
 
 22:                                               ; preds = %3
   %23 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %24 = tail call i64 @fwrite(ptr nonnull @.str.72, i64 6, i64 1, ptr %23) #11
+  %24 = tail call i64 @fwrite(ptr nonnull @.str.72, i64 6, i64 1, ptr %23) #12
   br label %zend_dump_op_array_name.exit
 
 zend_dump_op_array_name.exit:                     ; preds = %14, %19, %22
   %25 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %26 = tail call i64 @fwrite(ptr nonnull @.str.105, i64 2, i64 1, ptr %25) #11
+  %26 = tail call i64 @fwrite(ptr nonnull @.str.105, i64 2, i64 1, ptr %25) #12
   %27 = load i32, ptr %1, align 8, !tbaa !114
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph, label %._crit_edge
@@ -4139,7 +4139,7 @@ zend_dump_op_array_name.exit:                     ; preds = %14, %19, %22
 34:                                               ; preds = %.lr.ph, %34
   %.020 = phi i32 [ 0, %.lr.ph ], [ %57, %34 ]
   %35 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.112, i32 noundef %.020) #12
+  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.112, i32 noundef %.020) #13
   %37 = load ptr, ptr %29, align 8, !tbaa !166
   %38 = load i32, ptr %30, align 4, !tbaa !169
   %39 = mul i32 %38, %.020
@@ -4176,7 +4176,7 @@ zend_dump_op_array_name.exit:                     ; preds = %14, %19, %22
 ; Function Attrs: cold nofree nounwind uwtable
 define internal fastcc void @zend_dump_var_set(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #4 {
   %4 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.207, ptr noundef %1) #12
+  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.207, ptr noundef %1) #13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %6, align 4, !tbaa !26
@@ -4204,7 +4204,7 @@ define internal fastcc void @zend_dump_var_set(ptr noundef readonly captures(non
 
 20:                                               ; preds = %19
   %21 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %22 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %21) #11
+  %22 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %21) #12
   br label %23
 
 23:                                               ; preds = %19, %20
@@ -4226,7 +4226,7 @@ define internal fastcc void @zend_dump_var_set(ptr noundef readonly captures(non
 
 ._crit_edge:                                      ; preds = %25, %3
   %31 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.120, i64 2, i64 1, ptr %31) #11
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.120, i64 2, i64 1, ptr %31) #12
   ret void
 }
 
@@ -4236,7 +4236,7 @@ define hidden void @zend_dump_phi_placement(ptr noundef readonly captures(none) 
   %4 = load ptr, ptr %3, align 8, !tbaa !132
   %5 = load i32, ptr %1, align 8, !tbaa !174
   %6 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %7 = tail call i64 @fwrite(ptr nonnull @.str.117, i64 26, i64 1, ptr %6) #11
+  %7 = tail call i64 @fwrite(ptr nonnull @.str.117, i64 26, i64 1, ptr %6) #12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !97
   %.not.i = icmp eq ptr %9, null
@@ -4258,23 +4258,23 @@ define hidden void @zend_dump_phi_placement(ptr noundef readonly captures(none) 
   %17 = load ptr, ptr @stderr, align 8, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.71, ptr noundef nonnull %18, ptr noundef nonnull %19) #12
+  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.71, ptr noundef nonnull %18, ptr noundef nonnull %19) #13
   br label %zend_dump_op_array_name.exit
 
 21:                                               ; preds = %13, %10
   %22 = load ptr, ptr @stderr, align 8, !tbaa !19
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %fputs.i = tail call i32 @fputs(ptr nonnull %23, ptr %22) #11
+  %fputs.i = tail call i32 @fputs(ptr nonnull %23, ptr %22) #12
   br label %zend_dump_op_array_name.exit
 
 24:                                               ; preds = %2
   %25 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %26 = tail call i64 @fwrite(ptr nonnull @.str.72, i64 6, i64 1, ptr %25) #11
+  %26 = tail call i64 @fwrite(ptr nonnull @.str.72, i64 6, i64 1, ptr %25) #12
   br label %zend_dump_op_array_name.exit
 
 zend_dump_op_array_name.exit:                     ; preds = %16, %21, %24
   %27 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %28 = tail call i64 @fwrite(ptr nonnull @.str.105, i64 2, i64 1, ptr %27) #11
+  %28 = tail call i64 @fwrite(ptr nonnull @.str.105, i64 2, i64 1, ptr %27) #12
   %29 = icmp slt i32 %5, 1
   %.not = icmp eq ptr %4, null
   %or.cond = select i1 %29, i1 true, i1 %.not
@@ -4294,7 +4294,7 @@ zend_dump_op_array_name.exit:                     ; preds = %16, %21, %24
 32:                                               ; preds = %.lr.ph.split
   %33 = load ptr, ptr @stderr, align 8, !tbaa !19
   %34 = trunc nuw nsw i64 %indvars.iv to i32
-  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.112, i32 noundef %34) #12
+  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.112, i32 noundef %34) #13
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %37 = load i32, ptr %36, align 8, !tbaa !140
   %38 = icmp sgt i32 %37, -1
@@ -4302,11 +4302,11 @@ zend_dump_op_array_name.exit:                     ; preds = %16, %21, %24
   br i1 %38, label %40, label %42
 
 40:                                               ; preds = %32
-  %41 = tail call i64 @fwrite(ptr nonnull @.str.118, i64 10, i64 1, ptr %39) #11
+  %41 = tail call i64 @fwrite(ptr nonnull @.str.118, i64 10, i64 1, ptr %39) #12
   br label %.preheader
 
 42:                                               ; preds = %32
-  %43 = tail call i64 @fwrite(ptr nonnull @.str.119, i64 11, i64 1, ptr %39) #11
+  %43 = tail call i64 @fwrite(ptr nonnull @.str.119, i64 11, i64 1, ptr %39) #12
   br label %.preheader
 
 .preheader:                                       ; preds = %42, %40
@@ -4319,7 +4319,7 @@ zend_dump_op_array_name.exit:                     ; preds = %16, %21, %24
 
 45:                                               ; preds = %44
   %46 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %47 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %46) #11
+  %47 = tail call i64 @fwrite(ptr nonnull @.str, i64 2, i64 1, ptr %46) #12
   br label %48
 
 48:                                               ; preds = %44, %45
@@ -4332,7 +4332,7 @@ zend_dump_op_array_name.exit:                     ; preds = %16, %21, %24
 
 52:                                               ; preds = %48
   %53 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %54 = tail call i64 @fwrite(ptr nonnull @.str.120, i64 2, i64 1, ptr %53) #11
+  %54 = tail call i64 @fwrite(ptr nonnull @.str.120, i64 2, i64 1, ptr %53) #12
   br label %55
 
 55:                                               ; preds = %.lr.ph.split, %52
@@ -4352,7 +4352,7 @@ declare void @llvm.assume(i1 noundef) #7
 ; Function Attrs: cold nofree nounwind uwtable
 define internal fastcc void @zend_dump_type_constraint(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1) unnamed_addr #4 {
   %3 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 5, i64 1, ptr %3) #11
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 5, i64 1, ptr %3) #12
   %5 = load i32, ptr %0, align 8, !tbaa !175
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !177
@@ -4366,20 +4366,20 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4390,11 +4390,12 @@ attributes #5 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapp
 attributes #6 = { cold nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nofree nounwind }
-attributes #11 = { cold }
-attributes #12 = { cold nounwind }
-attributes #13 = { nounwind }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nofree nounwind }
+attributes #12 = { cold }
+attributes #13 = { cold nounwind }
+attributes #14 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

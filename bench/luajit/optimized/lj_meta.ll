@@ -40,7 +40,7 @@ define hidden void @lj_meta_init(ptr noundef %0) local_unnamed_addr #0 {
   %12 = ptrtoint ptr %.016 to i64
   %13 = ptrtoint ptr %.021 to i64
   %14 = sub i64 %12, %13
-  %15 = tail call ptr @lj_str_new(ptr noundef %0, ptr noundef nonnull %.021, i64 noundef %14) #6
+  %15 = tail call ptr @lj_str_new(ptr noundef %0, ptr noundef nonnull %.021, i64 noundef %14) #7
   %16 = ptrtoint ptr %15 to i64
   %17 = zext i32 %.01520 to i64
   %18 = getelementptr inbounds nuw %struct.GCRef, ptr %5, i64 %17
@@ -57,7 +57,7 @@ declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unna
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lj_meta_cache(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @lj_tab_getstr(ptr noundef %0, ptr noundef %2) #6
+  %4 = tail call ptr @lj_tab_getstr(ptr noundef %0, ptr noundef %2) #7
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
 
@@ -130,7 +130,7 @@ define hidden nonnull ptr @lj_meta_lookup(ptr noundef readonly captures(none) %0
   %29 = getelementptr inbounds nuw %struct.GCRef, ptr %27, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !17
   %31 = inttoptr i64 %30 to ptr
-  %32 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016, ptr noundef %31) #6
+  %32 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016, ptr noundef %31) #7
   %.not18 = icmp eq ptr %32, null
   br i1 %.not18, label %33, label %38
 
@@ -198,7 +198,7 @@ define hidden noundef ptr @lj_meta_tget(ptr noundef %0, ptr noundef %1, ptr noun
 10:                                               ; preds = %7
   %11 = and i64 %8, 140737488355327
   %12 = inttoptr i64 %11 to ptr
-  %13 = tail call ptr @lj_tab_get(ptr noundef %0, ptr noundef %12, ptr noundef %2) #6
+  %13 = tail call ptr @lj_tab_get(ptr noundef %0, ptr noundef %12, ptr noundef %2) #7
   %14 = load i64, ptr %13, align 8, !tbaa !14
   %15 = icmp eq i64 %14, -1
   br i1 %15, label %16, label %lj_meta_cache.exit.thread46
@@ -223,7 +223,7 @@ define hidden noundef ptr @lj_meta_tget(ptr noundef %0, ptr noundef %1, ptr noun
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 424
   %29 = load i64, ptr %28, align 8, !tbaa !17
   %30 = inttoptr i64 %29 to ptr
-  %31 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %19, ptr noundef %30) #6
+  %31 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %19, ptr noundef %30) #7
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %35, label %32
 
@@ -246,7 +246,7 @@ define hidden noundef ptr @lj_meta_tget(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %42, label %43, label %lj_meta_cache.exit
 
 43:                                               ; preds = %39
-  tail call void @lj_err_optype(ptr noundef %0, ptr noundef nonnull %.03063, i32 noundef 403) #7
+  tail call void @lj_err_optype(ptr noundef %0, ptr noundef nonnull %.03063, i32 noundef 403) #8
   unreachable
 
 lj_meta_cache.exit:                               ; preds = %32, %39
@@ -300,7 +300,7 @@ mmcall.exit:                                      ; preds = %46, %56
   br label %lj_meta_cache.exit.thread46
 
 72:                                               ; preds = %5
-  tail call void @lj_err_msg(ptr noundef %0, i32 noundef 364) #7
+  tail call void @lj_err_msg(ptr noundef %0, i32 noundef 364) #8
   unreachable
 
 lj_meta_cache.exit.thread46:                      ; preds = %21, %16, %10, %35, %mmcall.exit
@@ -337,7 +337,7 @@ define hidden ptr @lj_meta_tset(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 9:                                                ; preds = %6
   %10 = and i64 %7, 140737488355327
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @lj_tab_get(ptr noundef %0, ptr noundef %11, ptr noundef %2) #6
+  %12 = tail call ptr @lj_tab_get(ptr noundef %0, ptr noundef %11, ptr noundef %2) #7
   %13 = load i64, ptr %12, align 8, !tbaa !14
   %.not = icmp eq i64 %13, -1
   br i1 %.not, label %26, label %14, !prof !29
@@ -383,7 +383,7 @@ define hidden ptr @lj_meta_tset(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 432
   %39 = load i64, ptr %38, align 8, !tbaa !17
   %40 = inttoptr i64 %39 to ptr
-  %41 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %29, ptr noundef %40) #6
+  %41 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %29, ptr noundef %40) #7
   %.not.i = icmp eq ptr %41, null
   br i1 %.not.i, label %45, label %42
 
@@ -433,7 +433,7 @@ define hidden ptr @lj_meta_tset(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %66, label %67, label %68
 
 67:                                               ; preds = %64
-  tail call void @lj_err_msg(ptr noundef nonnull %0, i32 noundef 173) #7
+  tail call void @lj_err_msg(ptr noundef nonnull %0, i32 noundef 173) #8
   unreachable
 
 68:                                               ; preds = %64
@@ -444,11 +444,11 @@ define hidden ptr @lj_meta_tset(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %or.cond, label %72, label %73
 
 72:                                               ; preds = %68
-  tail call void @lj_err_msg(ptr noundef nonnull %0, i32 noundef 154) #7
+  tail call void @lj_err_msg(ptr noundef nonnull %0, i32 noundef 154) #8
   unreachable
 
 73:                                               ; preds = %68
-  %74 = tail call ptr @lj_tab_newkey(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %2) #6
+  %74 = tail call ptr @lj_tab_newkey(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %2) #7
   br label %lj_meta_cache.exit.thread73
 
 75:                                               ; preds = %6
@@ -458,7 +458,7 @@ define hidden ptr @lj_meta_tset(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %78, label %79, label %lj_meta_cache.exit
 
 79:                                               ; preds = %75
-  call void @lj_err_optype(ptr noundef %0, ptr noundef nonnull %.05198, i32 noundef 403) #7
+  call void @lj_err_optype(ptr noundef %0, ptr noundef nonnull %.05198, i32 noundef 403) #8
   unreachable
 
 lj_meta_cache.exit:                               ; preds = %42, %75
@@ -518,7 +518,7 @@ mmcall.exit:                                      ; preds = %82, %92
   br i1 %exitcond.not, label %110, label %6, !llvm.loop !42
 
 110:                                              ; preds = %108
-  tail call void @lj_err_msg(ptr noundef %0, i32 noundef 381) #7
+  tail call void @lj_err_msg(ptr noundef %0, i32 noundef 381) #8
   unreachable
 
 lj_meta_cache.exit.thread73:                      ; preds = %60, %14, %19, %73, %mmcall.exit
@@ -554,7 +554,7 @@ define hidden noundef ptr @lj_meta_arith(ptr noundef %0, ptr noundef writeonly c
 18:                                               ; preds = %16
   %19 = and i64 %13, 140737488355327
   %20 = inttoptr i64 %19 to ptr
-  %21 = call i32 @lj_strscan_num(ptr noundef %20, ptr noundef nonnull %6) #6
+  %21 = call i32 @lj_strscan_num(ptr noundef %20, ptr noundef nonnull %6) #7
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %str2num.exit, label %22
 
@@ -573,7 +573,7 @@ define hidden noundef ptr @lj_meta_arith(ptr noundef %0, ptr noundef writeonly c
 29:                                               ; preds = %27
   %30 = and i64 %23, 140737488355327
   %31 = inttoptr i64 %30 to ptr
-  %32 = call i32 @lj_strscan_num(ptr noundef %31, ptr noundef nonnull %7) #6
+  %32 = call i32 @lj_strscan_num(ptr noundef %31, ptr noundef nonnull %7) #7
   %.not.i30 = icmp eq i32 %32, 0
   br i1 %.not.i30, label %str2num.exit, label %._crit_edge
 
@@ -585,7 +585,7 @@ define hidden noundef ptr @lj_meta_arith(ptr noundef %0, ptr noundef writeonly c
   %34 = phi double [ %.pre, %._crit_edge ], [ %26, %22 ]
   %35 = load double, ptr %.0.i.ph, align 8, !tbaa !14
   %36 = add nsw i32 %12, -10
-  %37 = call double @lj_vm_foldarith(double noundef %35, double noundef %34, i32 noundef %36) #6
+  %37 = call double @lj_vm_foldarith(double noundef %35, double noundef %34, i32 noundef %36) #7
   store double %37, ptr %1, align 8, !tbaa !14
   br label %140
 
@@ -636,7 +636,7 @@ str2num.exit:                                     ; preds = %29, %27, %18, %16
   %63 = getelementptr inbounds nuw %struct.GCRef, ptr %61, i64 %62
   %64 = load i64, ptr %63, align 8, !tbaa !17
   %65 = inttoptr i64 %64 to ptr
-  %66 = call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i, ptr noundef %65) #6
+  %66 = call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i, ptr noundef %65) #7
   %.not18.i = icmp eq ptr %66, null
   br i1 %.not18.i, label %67, label %lj_meta_lookup.exit
 
@@ -700,7 +700,7 @@ lj_meta_lookup.exit:                              ; preds = %57, %67
   %100 = getelementptr inbounds nuw %struct.GCRef, ptr %98, i64 %99
   %101 = load i64, ptr %100, align 8, !tbaa !17
   %102 = inttoptr i64 %101 to ptr
-  %103 = call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i36, ptr noundef %102) #6
+  %103 = call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i36, ptr noundef %102) #7
   %.not18.i37 = icmp eq ptr %103, null
   br i1 %.not18.i37, label %104, label %lj_meta_lookup.exit40
 
@@ -721,7 +721,7 @@ lj_meta_lookup.exit40:                            ; preds = %94, %104
   %112 = call fastcc ptr @str2num(ptr noundef nonnull %2, ptr noundef %6)
   %113 = icmp eq ptr %112, null
   %spec.select = select i1 %113, ptr %2, ptr %3
-  call void @lj_err_optype(ptr noundef nonnull %0, ptr noundef nonnull %spec.select, i32 noundef 409) #7
+  call void @lj_err_optype(ptr noundef nonnull %0, ptr noundef nonnull %spec.select, i32 noundef 409) #8
   unreachable
 
 114:                                              ; preds = %lj_meta_lookup.exit40, %lj_meta_lookup.exit
@@ -788,7 +788,7 @@ define internal fastcc noundef ptr @str2num(ptr noundef readonly captures(ret: a
 8:                                                ; preds = %6
   %9 = and i64 %3, 140737488355327
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call i32 @lj_strscan_num(ptr noundef %10, ptr noundef nonnull %1) #6
+  %11 = tail call i32 @lj_strscan_num(ptr noundef %10, ptr noundef nonnull %1) #7
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %13
 
@@ -898,7 +898,7 @@ define hidden noundef ptr @lj_meta_cat(ptr noundef %0, ptr noundef %1, i32 nound
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 488
   %57 = load i64, ptr %56, align 8, !tbaa !17
   %58 = inttoptr i64 %57 to ptr
-  %59 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i, ptr noundef %58) #6
+  %59 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i, ptr noundef %58) #7
   %.not18.i = icmp eq ptr %59, null
   br i1 %.not18.i, label %._crit_edge138, label %lj_meta_lookup.exit
 
@@ -961,7 +961,7 @@ lj_meta_lookup.exit:                              ; preds = %54, %60
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 488
   %87 = load i64, ptr %86, align 8, !tbaa !17
   %88 = inttoptr i64 %87 to ptr
-  %89 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i120, ptr noundef %88) #6
+  %89 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i120, ptr noundef %88) #7
   %.not18.i121 = icmp eq ptr %89, null
   br i1 %.not18.i121, label %._crit_edge141, label %lj_meta_lookup.exit124
 
@@ -994,7 +994,7 @@ lj_meta_lookup.exit124._crit_edge:                ; preds = %lj_meta_lookup.exit
   %.1.idx = select i1 %or.cond115, i64 8, i64 0
   %.1 = getelementptr inbounds nuw i8, ptr %.092, i64 %.1.idx
   %101 = getelementptr inbounds i8, ptr %.1, i64 -8
-  tail call void @lj_err_optype(ptr noundef nonnull %0, ptr noundef nonnull %101, i32 noundef 431) #7
+  tail call void @lj_err_optype(ptr noundef nonnull %0, ptr noundef nonnull %101, i32 noundef 431) #8
   unreachable
 
 102:                                              ; preds = %lj_meta_lookup.exit124._crit_edge, %lj_meta_lookup.exit
@@ -1114,7 +1114,7 @@ lj_meta_lookup.exit124._crit_edge:                ; preds = %lj_meta_lookup.exit
   br i1 %170, label %171, label %172
 
 171:                                              ; preds = %.critedge
-  tail call void @lj_err_msg(ptr noundef %0, i32 noundef 56) #7
+  tail call void @lj_err_msg(ptr noundef %0, i32 noundef 56) #8
   unreachable
 
 172:                                              ; preds = %.critedge
@@ -1137,7 +1137,7 @@ lj_meta_lookup.exit124._crit_edge:                ; preds = %lj_meta_lookup.exit
   br i1 %186, label %187, label %lj_buf_more.exit, !prof !29
 
 187:                                              ; preds = %172
-  %188 = tail call ptr @lj_buf_more2(ptr noundef nonnull %175, i32 noundef range(i32 0, 2147483392) %179) #6
+  %188 = tail call ptr @lj_buf_more2(ptr noundef nonnull %175, i32 noundef range(i32 0, 2147483392) %179) #7
   br label %lj_buf_more.exit
 
 lj_buf_more.exit:                                 ; preds = %172, %187
@@ -1160,7 +1160,7 @@ lj_buf_more.exit:                                 ; preds = %172, %187
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 20
   %196 = load i32, ptr %195, align 4, !tbaa !52
   %197 = getelementptr inbounds nuw i8, ptr %194, i64 24
-  %198 = tail call ptr @lj_buf_putmem(ptr noundef nonnull %175, ptr noundef nonnull %197, i32 noundef %196) #6
+  %198 = tail call ptr @lj_buf_putmem(ptr noundef nonnull %175, ptr noundef nonnull %197, i32 noundef %196) #7
   br label %217
 
 199:                                              ; preds = %.lr.ph
@@ -1180,11 +1180,11 @@ lj_buf_more.exit:                                 ; preds = %172, %187
   %211 = ptrtoint ptr %208 to i64
   %212 = sub i64 %210, %211
   %213 = trunc i64 %212 to i32
-  %214 = tail call ptr @lj_buf_putmem(ptr noundef nonnull %175, ptr noundef %208, i32 noundef %213) #6
+  %214 = tail call ptr @lj_buf_putmem(ptr noundef nonnull %175, ptr noundef %208, i32 noundef %213) #7
   br label %217
 
 215:                                              ; preds = %.lr.ph, %199
-  %216 = tail call ptr @lj_strfmt_putfnum(ptr noundef nonnull %175, i32 noundef 251658293, double noundef %191) #6
+  %216 = tail call ptr @lj_strfmt_putfnum(ptr noundef nonnull %175, i32 noundef 251658293, double noundef %191) #7
   br label %217
 
 217:                                              ; preds = %192, %215, %205
@@ -1199,7 +1199,7 @@ lj_buf_more.exit:                                 ; preds = %172, %187
   %222 = ptrtoint ptr %219 to i64
   %223 = sub i64 %221, %222
   %224 = and i64 %223, 4294967295
-  %225 = tail call ptr @lj_str_new(ptr noundef %0, ptr noundef %219, i64 noundef %224) #6
+  %225 = tail call ptr @lj_str_new(ptr noundef %0, ptr noundef %219, i64 noundef %224) #7
   %226 = ptrtoint ptr %225 to i64
   %227 = or i64 %226, -703687441776640
   store i64 %227, ptr %135, align 8, !tbaa !14
@@ -1237,7 +1237,7 @@ lj_buf_more.exit:                                 ; preds = %172, %187
   br label %251
 
 251:                                              ; preds = %236, %235
-  %252 = tail call i32 @lj_gc_step(ptr noundef nonnull %0) #6
+  %252 = tail call i32 @lj_gc_step(ptr noundef nonnull %0) #7
   br label %253
 
 253:                                              ; preds = %228, %251, %102
@@ -1299,7 +1299,7 @@ define hidden noundef nonnull ptr @lj_meta_len(ptr noundef %0, ptr noundef %1) l
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 464
   %27 = load i64, ptr %26, align 8, !tbaa !17
   %28 = inttoptr i64 %27 to ptr
-  %29 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i, ptr noundef %28) #6
+  %29 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i, ptr noundef %28) #7
   %.not18.i = icmp eq ptr %29, null
   br i1 %.not18.i, label %30, label %lj_meta_lookup.exit
 
@@ -1317,7 +1317,7 @@ lj_meta_lookup.exit:                              ; preds = %22, %30
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %lj_meta_lookup.exit
-  tail call void @lj_err_optype(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 443) #7
+  tail call void @lj_err_optype(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 443) #8
   unreachable
 
 38:                                               ; preds = %lj_meta_lookup.exit
@@ -1389,7 +1389,7 @@ define hidden noundef ptr @lj_meta_equal(ptr noundef readonly captures(none) %0,
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 456
   %18 = load i64, ptr %17, align 8, !tbaa !17
   %19 = inttoptr i64 %18 to ptr
-  %20 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %7, ptr noundef %19) #6
+  %20 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %7, ptr noundef %19) #7
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %24, label %21
 
@@ -1429,7 +1429,7 @@ lj_meta_cache.exit:                               ; preds = %21
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 456
   %41 = load i64, ptr %40, align 8, !tbaa !17
   %42 = inttoptr i64 %41 to ptr
-  %43 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %30, ptr noundef %42) #6
+  %43 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %30, ptr noundef %42) #7
   %.not.i48 = icmp eq ptr %43, null
   br i1 %.not.i48, label %47, label %44
 
@@ -1445,7 +1445,7 @@ lj_meta_cache.exit:                               ; preds = %21
   br label %lj_meta_cache.exit50.thread
 
 lj_meta_cache.exit50:                             ; preds = %44
-  %50 = tail call i32 @lj_obj_equal(ptr noundef nonnull %20, ptr noundef nonnull %43) #6
+  %50 = tail call i32 @lj_obj_equal(ptr noundef nonnull %20, ptr noundef nonnull %43) #7
   %.not46 = icmp eq i32 %50, 0
   br i1 %.not46, label %lj_meta_cache.exit50.thread, label %.thread
 
@@ -1645,7 +1645,7 @@ define hidden ptr @lj_meta_equal_cd(ptr noundef readonly captures(none) %0, i32 
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 456
   %78 = load i64, ptr %77, align 8, !tbaa !17
   %79 = inttoptr i64 %78 to ptr
-  %80 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i, ptr noundef %79) #6
+  %80 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i, ptr noundef %79) #7
   %.not18.i = icmp eq ptr %80, null
   br i1 %.not18.i, label %81, label %lj_meta_lookup.exit
 
@@ -1780,7 +1780,7 @@ define hidden ptr @lj_meta_comp(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %41 = getelementptr inbounds nuw %struct.GCRef, ptr %40, i64 %14
   %42 = load i64, ptr %41, align 8, !tbaa !17
   %43 = inttoptr i64 %42 to ptr
-  %44 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i, ptr noundef %43) #6
+  %44 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i, ptr noundef %43) #7
   %.not18.i = icmp eq ptr %44, null
   br i1 %.not18.i, label %45, label %lj_meta_lookup.exit
 
@@ -1855,7 +1855,7 @@ lj_meta_lookup.exit:                              ; preds = %36, %45
   %86 = inttoptr i64 %85 to ptr
   %87 = and i64 %9, 140737488355327
   %88 = inttoptr i64 %87 to ptr
-  %89 = tail call i32 @lj_str_cmp(ptr noundef %86, ptr noundef %88) #6
+  %89 = tail call i32 @lj_str_cmp(ptr noundef %86, ptr noundef %88) #7
   %90 = and i32 %3, 2
   %.not70 = icmp eq i32 %90, 0
   %91 = icmp slt i32 %89, 1
@@ -1923,7 +1923,7 @@ lj_meta_lookup.exit:                              ; preds = %36, %45
   %125 = getelementptr inbounds nuw %struct.GCRef, ptr %123, i64 %124
   %126 = load i64, ptr %125, align 8, !tbaa !17
   %127 = inttoptr i64 %126 to ptr
-  %128 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i81, ptr noundef %127) #6
+  %128 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i81, ptr noundef %127) #7
   %.not18.i82 = icmp eq ptr %128, null
   br i1 %.not18.i82, label %._crit_edge, label %lj_meta_lookup.exit85
 
@@ -1983,7 +1983,7 @@ lj_meta_lookup.exit85:                            ; preds = %121, %129
   %155 = getelementptr inbounds nuw %struct.GCRef, ptr %153, i64 %154
   %156 = load i64, ptr %155, align 8, !tbaa !17
   %157 = inttoptr i64 %156 to ptr
-  %158 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i89, ptr noundef %157) #6
+  %158 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i89, ptr noundef %157) #7
   %.not18.i90 = icmp eq ptr %158, null
   br i1 %.not18.i90, label %._crit_edge121, label %lj_meta_lookup.exit93
 
@@ -2004,7 +2004,7 @@ lj_meta_lookup.exit93:                            ; preds = %151, %159
   br i1 %164, label %167, label %165
 
 165:                                              ; preds = %lj_meta_lookup.exit93
-  %166 = tail call i32 @lj_obj_equal(ptr noundef nonnull %.1.i83, ptr noundef nonnull %.1.i91) #6
+  %166 = tail call i32 @lj_obj_equal(ptr noundef nonnull %.1.i83, ptr noundef nonnull %.1.i91) #7
   %.not69 = icmp eq i32 %166, 0
   br i1 %.not69, label %167, label %168
 
@@ -2072,7 +2072,7 @@ lj_meta_lookup.exit93:                            ; preds = %151, %159
 .thread104:                                       ; preds = %167, %lj_meta_lookup.exit, %198
   %.058 = phi ptr [ %2, %198 ], [ %2, %lj_meta_lookup.exit ], [ %.159, %167 ]
   %.055 = phi ptr [ %1, %198 ], [ %1, %lj_meta_lookup.exit ], [ %.156, %167 ]
-  tail call void @lj_err_comp(ptr noundef %0, ptr noundef nonnull %.055, ptr noundef %.058) #7
+  tail call void @lj_err_comp(ptr noundef %0, ptr noundef nonnull %.055, ptr noundef %.058) #8
   unreachable
 
 199:                                              ; preds = %.thread98, %.thread, %84
@@ -2109,11 +2109,11 @@ define hidden void @lj_meta_istype(ptr noundef initializes((40, 48)) %0, i32 nou
   ]
 
 19:                                               ; preds = %3
-  %20 = tail call double @lj_lib_checknum(ptr noundef nonnull %0, i32 noundef %18) #6
+  %20 = tail call double @lj_lib_checknum(ptr noundef nonnull %0, i32 noundef %18) #7
   br label %28
 
 21:                                               ; preds = %3
-  %22 = tail call ptr @lj_lib_checkstr(ptr noundef nonnull %0, i32 noundef %18) #6
+  %22 = tail call ptr @lj_lib_checkstr(ptr noundef nonnull %0, i32 noundef %18) #7
   br label %28
 
 23:                                               ; preds = %3
@@ -2121,7 +2121,7 @@ define hidden void @lj_meta_istype(ptr noundef initializes((40, 48)) %0, i32 nou
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !58
-  tail call void @lj_err_argtype(ptr noundef nonnull %0, i32 noundef %18, ptr noundef %27) #7
+  tail call void @lj_err_argtype(ptr noundef nonnull %0, i32 noundef %18, ptr noundef %27) #8
   unreachable
 
 28:                                               ; preds = %21, %19
@@ -2181,7 +2181,7 @@ define hidden void @lj_meta_call(ptr noundef %0, ptr noundef %1, ptr noundef cap
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 496
   %28 = load i64, ptr %27, align 8, !tbaa !17
   %29 = inttoptr i64 %28 to ptr
-  %30 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i, ptr noundef %29) #6
+  %30 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i, ptr noundef %29) #7
   %.not18.i = icmp eq ptr %30, null
   br i1 %.not18.i, label %31, label %lj_meta_lookup.exit
 
@@ -2205,7 +2205,7 @@ lj_meta_lookup.exit:                              ; preds = %23, %31
   br i1 %39, label %.lr.ph, label %._crit_edge
 
 40:                                               ; preds = %lj_meta_lookup.exit
-  tail call void @lj_err_optype_call(ptr noundef nonnull %0, ptr noundef nonnull %1) #7
+  tail call void @lj_err_optype_call(ptr noundef nonnull %0, ptr noundef nonnull %1) #8
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -2241,12 +2241,12 @@ define hidden void @lj_meta_for(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 lj_strscan_numberobj.exit:                        ; preds = %6
   %8 = and i64 %3, 140737488355327
   %9 = inttoptr i64 %8 to ptr
-  %10 = tail call i32 @lj_strscan_num(ptr noundef %9, ptr noundef nonnull %1) #6
+  %10 = tail call i32 @lj_strscan_num(ptr noundef %9, ptr noundef nonnull %1) #7
   %.not19 = icmp eq i32 %10, 0
   br i1 %.not19, label %lj_strscan_numberobj.exit.thread, label %lj_strscan_numberobj.exit.thread11
 
 lj_strscan_numberobj.exit.thread:                 ; preds = %6, %lj_strscan_numberobj.exit
-  tail call void @lj_err_msg(ptr noundef %0, i32 noundef 713) #7
+  tail call void @lj_err_msg(ptr noundef %0, i32 noundef 713) #8
   unreachable
 
 lj_strscan_numberobj.exit.thread11:               ; preds = %2, %lj_strscan_numberobj.exit
@@ -2263,12 +2263,12 @@ lj_strscan_numberobj.exit.thread11:               ; preds = %2, %lj_strscan_numb
 lj_strscan_numberobj.exit8:                       ; preds = %15
   %17 = and i64 %12, 140737488355327
   %18 = inttoptr i64 %17 to ptr
-  %19 = tail call i32 @lj_strscan_num(ptr noundef %18, ptr noundef nonnull %11) #6
+  %19 = tail call i32 @lj_strscan_num(ptr noundef %18, ptr noundef nonnull %11) #7
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %lj_strscan_numberobj.exit8.thread, label %lj_strscan_numberobj.exit8.thread14
 
 lj_strscan_numberobj.exit8.thread:                ; preds = %15, %lj_strscan_numberobj.exit8
-  tail call void @lj_err_msg(ptr noundef %0, i32 noundef 750) #7
+  tail call void @lj_err_msg(ptr noundef %0, i32 noundef 750) #8
   unreachable
 
 lj_strscan_numberobj.exit8.thread14:              ; preds = %lj_strscan_numberobj.exit.thread11, %lj_strscan_numberobj.exit8
@@ -2285,12 +2285,12 @@ lj_strscan_numberobj.exit8.thread14:              ; preds = %lj_strscan_numberob
 lj_strscan_numberobj.exit9:                       ; preds = %24
   %26 = and i64 %21, 140737488355327
   %27 = inttoptr i64 %26 to ptr
-  %28 = tail call i32 @lj_strscan_num(ptr noundef %27, ptr noundef nonnull %20) #6
+  %28 = tail call i32 @lj_strscan_num(ptr noundef %27, ptr noundef nonnull %20) #7
   %.not20 = icmp eq i32 %28, 0
   br i1 %.not20, label %lj_strscan_numberobj.exit9.thread, label %lj_strscan_numberobj.exit9.thread17
 
 lj_strscan_numberobj.exit9.thread:                ; preds = %24, %lj_strscan_numberobj.exit9
-  tail call void @lj_err_msg(ptr noundef %0, i32 noundef 779) #7
+  tail call void @lj_err_msg(ptr noundef %0, i32 noundef 779) #8
   unreachable
 
 lj_strscan_numberobj.exit9.thread17:              ; preds = %lj_strscan_numberobj.exit8.thread14, %lj_strscan_numberobj.exit9
@@ -2310,8 +2310,8 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #5
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2319,8 +2319,9 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
-attributes #7 = { noreturn nounwind }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

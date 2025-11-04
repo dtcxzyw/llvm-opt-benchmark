@@ -27,7 +27,7 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
   store i32 %2, ptr %10, align 4, !tbaa !28
   %11 = load ptr, ptr %0, align 8, !tbaa !3
   %12 = load ptr, ptr %11, align 8, !tbaa !29
-  tail call void %12(ptr noundef nonnull %0) #6
+  tail call void %12(ptr noundef nonnull %0) #7
   br label %13
 
 13:                                               ; preds = %4, %7
@@ -48,7 +48,7 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
   store i32 %2, ptr %20, align 4, !tbaa !28
   %21 = load ptr, ptr %0, align 8, !tbaa !3
   %22 = load ptr, ptr %21, align 8, !tbaa !29
-  tail call void %22(ptr noundef nonnull %0) #6
+  tail call void %22(ptr noundef nonnull %0) #7
   br label %23
 
 23:                                               ; preds = %17, %13
@@ -60,7 +60,7 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !31
   %29 = load ptr, ptr %28, align 8, !tbaa !32
-  %30 = tail call ptr %29(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 1280) #6
+  %30 = tail call ptr %29(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 1280) #7
   store ptr %30, ptr %3, align 8, !tbaa !30
   br label %31
 
@@ -83,7 +83,7 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
   store i32 8, ptr %41, align 8, !tbaa !24
   %42 = load ptr, ptr %40, align 8, !tbaa !29
-  tail call void %42(ptr noundef nonnull %0) #6
+  tail call void %42(ptr noundef nonnull %0) #7
   br label %43
 
 43:                                               ; preds = %39, %33
@@ -161,7 +161,7 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   store i32 8, ptr %69, align 8, !tbaa !24
   %70 = load ptr, ptr %68, align 8, !tbaa !29
-  tail call void %70(ptr noundef nonnull %0) #6
+  tail call void %70(ptr noundef nonnull %0) #7
   br label %71
 
 71:                                               ; preds = %67, %._crit_edge93
@@ -217,7 +217,7 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 40
   store i32 8, ptr %97, align 8, !tbaa !24
   %98 = load ptr, ptr %96, align 8, !tbaa !29
-  tail call void %98(ptr noundef nonnull %0) #6
+  tail call void %98(ptr noundef nonnull %0) #7
   br label %99
 
 99:                                               ; preds = %._crit_edge116, %93
@@ -403,7 +403,7 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr noundef writeonly captur
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   store i32 39, ptr %69, align 8, !tbaa !24
   %70 = load ptr, ptr %68, align 8, !tbaa !29
-  tail call void %70(ptr noundef nonnull %0) #6
+  tail call void %70(ptr noundef nonnull %0) #7
   br label %71
 
 71:                                               ; preds = %67, %.lr.ph129
@@ -540,7 +540,7 @@ define void @jinit_huff_encoder(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !31
   %4 = load ptr, ptr %3, align 8, !tbaa !32
-  %5 = tail call ptr %4(ptr noundef %0, i32 noundef 1, i64 noundef 208) #6
+  %5 = tail call ptr %4(ptr noundef %0, i32 noundef 1, i64 noundef 208) #7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store ptr %5, ptr %6, align 8, !tbaa !57
   store ptr @start_pass_huff, ptr %5, align 8, !tbaa !58
@@ -578,7 +578,7 @@ define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
   store ptr %spec.select, ptr %5, align 8, !tbaa !65
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %spec.select76, ptr %6, align 8, !tbaa !66
-  %7 = tail call i32 @jsimd_can_huff_encode_one_block() #6
+  %7 = tail call i32 @jsimd_can_huff_encode_one_block() #7
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 200
   store i32 %7, ptr %8, align 8, !tbaa !67
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 324
@@ -637,7 +637,7 @@ define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %36, ptr %42, align 4, !tbaa !28
   %43 = load ptr, ptr %0, align 8, !tbaa !3
   %44 = load ptr, ptr %43, align 8, !tbaa !29
-  tail call void %44(ptr noundef nonnull %0) #6
+  tail call void %44(ptr noundef nonnull %0) #7
   br label %45
 
 45:                                               ; preds = %.lr.ph.split, %39
@@ -652,7 +652,7 @@ define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %38, ptr %49, align 4, !tbaa !28
   %50 = load ptr, ptr %0, align 8, !tbaa !3
   %51 = load ptr, ptr %50, align 8, !tbaa !29
-  tail call void %51(ptr noundef nonnull %0) #6
+  tail call void %51(ptr noundef nonnull %0) #7
   br label %52
 
 52:                                               ; preds = %45, %46
@@ -665,7 +665,7 @@ define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
 57:                                               ; preds = %52
   %58 = load ptr, ptr %14, align 8, !tbaa !31
   %59 = load ptr, ptr %58, align 8, !tbaa !32
-  %60 = tail call ptr %59(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 2056) #6
+  %60 = tail call ptr %59(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 2056) #7
   store ptr %60, ptr %54, align 8, !tbaa !62
   br label %61
 
@@ -681,7 +681,7 @@ define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
 67:                                               ; preds = %61
   %68 = load ptr, ptr %14, align 8, !tbaa !31
   %69 = load ptr, ptr %68, align 8, !tbaa !32
-  %70 = tail call ptr %69(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 2056) #6
+  %70 = tail call ptr %69(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 2056) #7
   store ptr %70, ptr %64, align 8, !tbaa !62
   br label %71
 
@@ -822,7 +822,7 @@ define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr noundef reado
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
   store i32 6, ptr %63, align 8, !tbaa !24
   %64 = load ptr, ptr %62, align 8, !tbaa !29
-  tail call void %64(ptr noundef nonnull %0) #6
+  tail call void %64(ptr noundef nonnull %0) #7
   br label %65
 
 65:                                               ; preds = %61, %._crit_edge.i
@@ -891,7 +891,7 @@ define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr noundef reado
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 40
   store i32 6, ptr %93, align 8, !tbaa !24
   %94 = load ptr, ptr %92, align 8, !tbaa !29
-  tail call void %94(ptr noundef nonnull %0) #6
+  tail call void %94(ptr noundef nonnull %0) #7
   br label %.thread.i
 
 95:                                               ; preds = %.backedge.i
@@ -986,7 +986,7 @@ define internal void @finish_pass_gather(ptr noundef %0) #0 {
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %24
-  %29 = tail call ptr @jpeg_alloc_huff_table(ptr noundef nonnull %0) #6
+  %29 = tail call ptr @jpeg_alloc_huff_table(ptr noundef nonnull %0) #7
   store ptr %29, ptr %25, align 8, !tbaa !30
   br label %30
 
@@ -1012,7 +1012,7 @@ define internal void @finish_pass_gather(ptr noundef %0) #0 {
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %38
-  %43 = tail call ptr @jpeg_alloc_huff_table(ptr noundef nonnull %0) #6
+  %43 = tail call ptr @jpeg_alloc_huff_table(ptr noundef nonnull %0) #7
   store ptr %43, ptr %39, align 8, !tbaa !30
   br label %44
 
@@ -1174,7 +1174,7 @@ define internal range(i32 0, 2) i32 @encode_mcu_huff(ptr noundef %0, ptr noundef
   %64 = load ptr, ptr %63, align 8, !tbaa !88
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load ptr, ptr %65, align 8, !tbaa !102
-  %67 = call i32 %66(ptr noundef %62) #6
+  %67 = call i32 %66(ptr noundef %62) #7
   %.not.i.i.i = icmp eq i32 %67, 0
   br i1 %.not.i.i.i, label %flush_bits.exit.i, label %dump_buffer.exit.i.i
 
@@ -1224,7 +1224,7 @@ flush_bits.exit.i:                                ; preds = %61
   %89 = load ptr, ptr %88, align 8, !tbaa !88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %91 = load ptr, ptr %90, align 8, !tbaa !102
-  %92 = call i32 %91(ptr noundef %86) #6
+  %92 = call i32 %91(ptr noundef %86) #7
   %.not.i.i = icmp eq i32 %92, 0
   br i1 %.not.i.i, label %emit_restart.exit.thread, label %dump_buffer.exit.i
 
@@ -1252,7 +1252,7 @@ dump_buffer.exit.i:                               ; preds = %87
   %104 = load ptr, ptr %103, align 8, !tbaa !88
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %106 = load ptr, ptr %105, align 8, !tbaa !102
-  %107 = call i32 %106(ptr noundef %86) #6
+  %107 = call i32 %106(ptr noundef %86) #7
   %.not.i16.i = icmp eq i32 %107, 0
   br i1 %.not.i16.i, label %emit_restart.exit.thread, label %dump_buffer.exit18.i
 
@@ -1341,7 +1341,7 @@ emit_restart.exit:                                ; preds = %117, %111, %22, %2
   br i1 %156, label %183, label %157
 
 157:                                              ; preds = %135
-  %158 = call ptr @jsimd_huff_encode_one_block(ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %142, i32 noundef %144, ptr noundef %149, ptr noundef %154) #6
+  %158 = call ptr @jsimd_huff_encode_one_block(ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %142, i32 noundef %144, ptr noundef %149, ptr noundef %154) #7
   %159 = ptrtoint ptr %158 to i64
   %160 = sub i64 %159, %129
   %.not45.i = icmp eq i64 %160, 0
@@ -1375,7 +1375,7 @@ emit_restart.exit:                                ; preds = %117, %111, %22, %2
   %172 = load ptr, ptr %171, align 8, !tbaa !88
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 24
   %174 = load ptr, ptr %173, align 8, !tbaa !102
-  %175 = call i32 %174(ptr noundef %170) #6
+  %175 = call i32 %174(ptr noundef %170) #7
   %.not.i.i63 = icmp eq i32 %175, 0
   br i1 %.not.i.i63, label %encode_one_block_simd.exit, label %dump_buffer.exit.i64
 
@@ -1396,7 +1396,7 @@ dump_buffer.exit.i64:                             ; preds = %169
 
 183:                                              ; preds = %135
   %184 = load ptr, ptr %5, align 8, !tbaa !92
-  %185 = call ptr @jsimd_huff_encode_one_block(ptr noundef nonnull %5, ptr noundef %184, ptr noundef %142, i32 noundef %144, ptr noundef %149, ptr noundef %154) #6
+  %185 = call ptr @jsimd_huff_encode_one_block(ptr noundef nonnull %5, ptr noundef %184, ptr noundef %142, i32 noundef %144, ptr noundef %149, ptr noundef %154) #7
   %186 = load ptr, ptr %5, align 8, !tbaa !92
   %187 = ptrtoint ptr %185 to i64
   %188 = ptrtoint ptr %186 to i64
@@ -1597,7 +1597,7 @@ define internal void @finish_pass_huff(ptr noundef %0) #0 {
   %39 = load ptr, ptr %5, align 8, !tbaa !88
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load ptr, ptr %40, align 8, !tbaa !102
-  %42 = call i32 %41(ptr noundef %0) #6
+  %42 = call i32 %41(ptr noundef %0) #7
   %.not.i.i = icmp eq i32 %42, 0
   br i1 %.not.i.i, label %51, label %dump_buffer.exit.i
 
@@ -1632,7 +1632,7 @@ flush_bits.exit.thread:                           ; preds = %46, %48, %32
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
   store i32 24, ptr %53, align 8, !tbaa !24
   %54 = load ptr, ptr %52, align 8, !tbaa !29
-  call void %54(ptr noundef nonnull %0) #6
+  call void %54(ptr noundef nonnull %0) #7
   br label %55
 
 55:                                               ; preds = %flush_bits.exit.thread, %51
@@ -1696,7 +1696,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store i32 6, ptr %36, align 8, !tbaa !24
   %37 = load ptr, ptr %35, align 8, !tbaa !29
-  tail call void %37(ptr noundef nonnull %8) #6
+  tail call void %37(ptr noundef nonnull %8) #7
   br label %38
 
 38:                                               ; preds = %34, %21
@@ -1879,7 +1879,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 40
   store i32 6, ptr %142, align 8, !tbaa !24
   %143 = load ptr, ptr %141, align 8, !tbaa !29
-  tail call void %143(ptr noundef nonnull %140) #6
+  tail call void %143(ptr noundef nonnull %140) #7
   br label %144
 
 144:                                              ; preds = %139, %129
@@ -2067,7 +2067,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 40
   store i32 6, ptr %250, align 8, !tbaa !24
   %251 = load ptr, ptr %249, align 8, !tbaa !29
-  tail call void %251(ptr noundef nonnull %248) #6
+  tail call void %251(ptr noundef nonnull %248) #7
   br label %252
 
 252:                                              ; preds = %247, %237
@@ -2257,7 +2257,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 40
   store i32 6, ptr %360, align 8, !tbaa !24
   %361 = load ptr, ptr %359, align 8, !tbaa !29
-  tail call void %361(ptr noundef nonnull %358) #6
+  tail call void %361(ptr noundef nonnull %358) #7
   br label %362
 
 362:                                              ; preds = %357, %347
@@ -2447,7 +2447,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 40
   store i32 6, ptr %470, align 8, !tbaa !24
   %471 = load ptr, ptr %469, align 8, !tbaa !29
-  tail call void %471(ptr noundef nonnull %468) #6
+  tail call void %471(ptr noundef nonnull %468) #7
   br label %472
 
 472:                                              ; preds = %467, %457
@@ -2637,7 +2637,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %580 = getelementptr inbounds nuw i8, ptr %579, i64 40
   store i32 6, ptr %580, align 8, !tbaa !24
   %581 = load ptr, ptr %579, align 8, !tbaa !29
-  tail call void %581(ptr noundef nonnull %578) #6
+  tail call void %581(ptr noundef nonnull %578) #7
   br label %582
 
 582:                                              ; preds = %577, %567
@@ -2827,7 +2827,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %690 = getelementptr inbounds nuw i8, ptr %689, i64 40
   store i32 6, ptr %690, align 8, !tbaa !24
   %691 = load ptr, ptr %689, align 8, !tbaa !29
-  tail call void %691(ptr noundef nonnull %688) #6
+  tail call void %691(ptr noundef nonnull %688) #7
   br label %692
 
 692:                                              ; preds = %687, %677
@@ -3017,7 +3017,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %800 = getelementptr inbounds nuw i8, ptr %799, i64 40
   store i32 6, ptr %800, align 8, !tbaa !24
   %801 = load ptr, ptr %799, align 8, !tbaa !29
-  tail call void %801(ptr noundef nonnull %798) #6
+  tail call void %801(ptr noundef nonnull %798) #7
   br label %802
 
 802:                                              ; preds = %797, %787
@@ -3207,7 +3207,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %910 = getelementptr inbounds nuw i8, ptr %909, i64 40
   store i32 6, ptr %910, align 8, !tbaa !24
   %911 = load ptr, ptr %909, align 8, !tbaa !29
-  tail call void %911(ptr noundef nonnull %908) #6
+  tail call void %911(ptr noundef nonnull %908) #7
   br label %912
 
 912:                                              ; preds = %907, %897
@@ -3397,7 +3397,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1020 = getelementptr inbounds nuw i8, ptr %1019, i64 40
   store i32 6, ptr %1020, align 8, !tbaa !24
   %1021 = load ptr, ptr %1019, align 8, !tbaa !29
-  tail call void %1021(ptr noundef nonnull %1018) #6
+  tail call void %1021(ptr noundef nonnull %1018) #7
   br label %1022
 
 1022:                                             ; preds = %1017, %1007
@@ -3587,7 +3587,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1130 = getelementptr inbounds nuw i8, ptr %1129, i64 40
   store i32 6, ptr %1130, align 8, !tbaa !24
   %1131 = load ptr, ptr %1129, align 8, !tbaa !29
-  tail call void %1131(ptr noundef nonnull %1128) #6
+  tail call void %1131(ptr noundef nonnull %1128) #7
   br label %1132
 
 1132:                                             ; preds = %1127, %1117
@@ -3777,7 +3777,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1240 = getelementptr inbounds nuw i8, ptr %1239, i64 40
   store i32 6, ptr %1240, align 8, !tbaa !24
   %1241 = load ptr, ptr %1239, align 8, !tbaa !29
-  tail call void %1241(ptr noundef nonnull %1238) #6
+  tail call void %1241(ptr noundef nonnull %1238) #7
   br label %1242
 
 1242:                                             ; preds = %1237, %1227
@@ -3967,7 +3967,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1350 = getelementptr inbounds nuw i8, ptr %1349, i64 40
   store i32 6, ptr %1350, align 8, !tbaa !24
   %1351 = load ptr, ptr %1349, align 8, !tbaa !29
-  tail call void %1351(ptr noundef nonnull %1348) #6
+  tail call void %1351(ptr noundef nonnull %1348) #7
   br label %1352
 
 1352:                                             ; preds = %1347, %1337
@@ -4157,7 +4157,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1460 = getelementptr inbounds nuw i8, ptr %1459, i64 40
   store i32 6, ptr %1460, align 8, !tbaa !24
   %1461 = load ptr, ptr %1459, align 8, !tbaa !29
-  tail call void %1461(ptr noundef nonnull %1458) #6
+  tail call void %1461(ptr noundef nonnull %1458) #7
   br label %1462
 
 1462:                                             ; preds = %1457, %1447
@@ -4347,7 +4347,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1570 = getelementptr inbounds nuw i8, ptr %1569, i64 40
   store i32 6, ptr %1570, align 8, !tbaa !24
   %1571 = load ptr, ptr %1569, align 8, !tbaa !29
-  tail call void %1571(ptr noundef nonnull %1568) #6
+  tail call void %1571(ptr noundef nonnull %1568) #7
   br label %1572
 
 1572:                                             ; preds = %1567, %1557
@@ -4537,7 +4537,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1680 = getelementptr inbounds nuw i8, ptr %1679, i64 40
   store i32 6, ptr %1680, align 8, !tbaa !24
   %1681 = load ptr, ptr %1679, align 8, !tbaa !29
-  tail call void %1681(ptr noundef nonnull %1678) #6
+  tail call void %1681(ptr noundef nonnull %1678) #7
   br label %1682
 
 1682:                                             ; preds = %1677, %1667
@@ -4727,7 +4727,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1790 = getelementptr inbounds nuw i8, ptr %1789, i64 40
   store i32 6, ptr %1790, align 8, !tbaa !24
   %1791 = load ptr, ptr %1789, align 8, !tbaa !29
-  tail call void %1791(ptr noundef nonnull %1788) #6
+  tail call void %1791(ptr noundef nonnull %1788) #7
   br label %1792
 
 1792:                                             ; preds = %1787, %1777
@@ -4917,7 +4917,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1900 = getelementptr inbounds nuw i8, ptr %1899, i64 40
   store i32 6, ptr %1900, align 8, !tbaa !24
   %1901 = load ptr, ptr %1899, align 8, !tbaa !29
-  tail call void %1901(ptr noundef nonnull %1898) #6
+  tail call void %1901(ptr noundef nonnull %1898) #7
   br label %1902
 
 1902:                                             ; preds = %1897, %1887
@@ -5260,7 +5260,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %2090 = getelementptr inbounds nuw i8, ptr %2089, i64 40
   store i32 6, ptr %2090, align 8, !tbaa !24
   %2091 = load ptr, ptr %2089, align 8, !tbaa !29
-  tail call void %2091(ptr noundef nonnull %2088) #6
+  tail call void %2091(ptr noundef nonnull %2088) #7
   br label %2092
 
 2092:                                             ; preds = %2087, %2077
@@ -5604,7 +5604,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %2281 = getelementptr inbounds nuw i8, ptr %2280, i64 40
   store i32 6, ptr %2281, align 8, !tbaa !24
   %2282 = load ptr, ptr %2280, align 8, !tbaa !29
-  tail call void %2282(ptr noundef nonnull %2279) #6
+  tail call void %2282(ptr noundef nonnull %2279) #7
   br label %2283
 
 2283:                                             ; preds = %2278, %2268
@@ -5948,7 +5948,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %2472 = getelementptr inbounds nuw i8, ptr %2471, i64 40
   store i32 6, ptr %2472, align 8, !tbaa !24
   %2473 = load ptr, ptr %2471, align 8, !tbaa !29
-  tail call void %2473(ptr noundef nonnull %2470) #6
+  tail call void %2473(ptr noundef nonnull %2470) #7
   br label %2474
 
 2474:                                             ; preds = %2469, %2459
@@ -6292,7 +6292,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %2663 = getelementptr inbounds nuw i8, ptr %2662, i64 40
   store i32 6, ptr %2663, align 8, !tbaa !24
   %2664 = load ptr, ptr %2662, align 8, !tbaa !29
-  tail call void %2664(ptr noundef nonnull %2661) #6
+  tail call void %2664(ptr noundef nonnull %2661) #7
   br label %2665
 
 2665:                                             ; preds = %2660, %2650
@@ -6636,7 +6636,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %2854 = getelementptr inbounds nuw i8, ptr %2853, i64 40
   store i32 6, ptr %2854, align 8, !tbaa !24
   %2855 = load ptr, ptr %2853, align 8, !tbaa !29
-  tail call void %2855(ptr noundef nonnull %2852) #6
+  tail call void %2855(ptr noundef nonnull %2852) #7
   br label %2856
 
 2856:                                             ; preds = %2851, %2841
@@ -6980,7 +6980,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %3045 = getelementptr inbounds nuw i8, ptr %3044, i64 40
   store i32 6, ptr %3045, align 8, !tbaa !24
   %3046 = load ptr, ptr %3044, align 8, !tbaa !29
-  tail call void %3046(ptr noundef nonnull %3043) #6
+  tail call void %3046(ptr noundef nonnull %3043) #7
   br label %3047
 
 3047:                                             ; preds = %3042, %3032
@@ -7324,7 +7324,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %3236 = getelementptr inbounds nuw i8, ptr %3235, i64 40
   store i32 6, ptr %3236, align 8, !tbaa !24
   %3237 = load ptr, ptr %3235, align 8, !tbaa !29
-  tail call void %3237(ptr noundef nonnull %3234) #6
+  tail call void %3237(ptr noundef nonnull %3234) #7
   br label %3238
 
 3238:                                             ; preds = %3233, %3223
@@ -7668,7 +7668,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %3427 = getelementptr inbounds nuw i8, ptr %3426, i64 40
   store i32 6, ptr %3427, align 8, !tbaa !24
   %3428 = load ptr, ptr %3426, align 8, !tbaa !29
-  tail call void %3428(ptr noundef nonnull %3425) #6
+  tail call void %3428(ptr noundef nonnull %3425) #7
   br label %3429
 
 3429:                                             ; preds = %3424, %3414
@@ -8012,7 +8012,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %3618 = getelementptr inbounds nuw i8, ptr %3617, i64 40
   store i32 6, ptr %3618, align 8, !tbaa !24
   %3619 = load ptr, ptr %3617, align 8, !tbaa !29
-  tail call void %3619(ptr noundef nonnull %3616) #6
+  tail call void %3619(ptr noundef nonnull %3616) #7
   br label %3620
 
 3620:                                             ; preds = %3615, %3605
@@ -8356,7 +8356,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %3809 = getelementptr inbounds nuw i8, ptr %3808, i64 40
   store i32 6, ptr %3809, align 8, !tbaa !24
   %3810 = load ptr, ptr %3808, align 8, !tbaa !29
-  tail call void %3810(ptr noundef nonnull %3807) #6
+  tail call void %3810(ptr noundef nonnull %3807) #7
   br label %3811
 
 3811:                                             ; preds = %3806, %3796
@@ -8700,7 +8700,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %4000 = getelementptr inbounds nuw i8, ptr %3999, i64 40
   store i32 6, ptr %4000, align 8, !tbaa !24
   %4001 = load ptr, ptr %3999, align 8, !tbaa !29
-  tail call void %4001(ptr noundef nonnull %3998) #6
+  tail call void %4001(ptr noundef nonnull %3998) #7
   br label %4002
 
 4002:                                             ; preds = %3997, %3987
@@ -9044,7 +9044,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %4191 = getelementptr inbounds nuw i8, ptr %4190, i64 40
   store i32 6, ptr %4191, align 8, !tbaa !24
   %4192 = load ptr, ptr %4190, align 8, !tbaa !29
-  tail call void %4192(ptr noundef nonnull %4189) #6
+  tail call void %4192(ptr noundef nonnull %4189) #7
   br label %4193
 
 4193:                                             ; preds = %4188, %4178
@@ -9388,7 +9388,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %4382 = getelementptr inbounds nuw i8, ptr %4381, i64 40
   store i32 6, ptr %4382, align 8, !tbaa !24
   %4383 = load ptr, ptr %4381, align 8, !tbaa !29
-  tail call void %4383(ptr noundef nonnull %4380) #6
+  tail call void %4383(ptr noundef nonnull %4380) #7
   br label %4384
 
 4384:                                             ; preds = %4379, %4369
@@ -9732,7 +9732,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %4573 = getelementptr inbounds nuw i8, ptr %4572, i64 40
   store i32 6, ptr %4573, align 8, !tbaa !24
   %4574 = load ptr, ptr %4572, align 8, !tbaa !29
-  tail call void %4574(ptr noundef nonnull %4571) #6
+  tail call void %4574(ptr noundef nonnull %4571) #7
   br label %4575
 
 4575:                                             ; preds = %4570, %4560
@@ -10076,7 +10076,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %4764 = getelementptr inbounds nuw i8, ptr %4763, i64 40
   store i32 6, ptr %4764, align 8, !tbaa !24
   %4765 = load ptr, ptr %4763, align 8, !tbaa !29
-  tail call void %4765(ptr noundef nonnull %4762) #6
+  tail call void %4765(ptr noundef nonnull %4762) #7
   br label %4766
 
 4766:                                             ; preds = %4761, %4751
@@ -10420,7 +10420,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %4955 = getelementptr inbounds nuw i8, ptr %4954, i64 40
   store i32 6, ptr %4955, align 8, !tbaa !24
   %4956 = load ptr, ptr %4954, align 8, !tbaa !29
-  tail call void %4956(ptr noundef nonnull %4953) #6
+  tail call void %4956(ptr noundef nonnull %4953) #7
   br label %4957
 
 4957:                                             ; preds = %4952, %4942
@@ -10778,7 +10778,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %5149 = getelementptr inbounds nuw i8, ptr %5148, i64 40
   store i32 6, ptr %5149, align 8, !tbaa !24
   %5150 = load ptr, ptr %5148, align 8, !tbaa !29
-  tail call void %5150(ptr noundef nonnull %5147) #6
+  tail call void %5150(ptr noundef nonnull %5147) #7
   br label %5151
 
 5151:                                             ; preds = %5146, %5136
@@ -11136,7 +11136,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %5343 = getelementptr inbounds nuw i8, ptr %5342, i64 40
   store i32 6, ptr %5343, align 8, !tbaa !24
   %5344 = load ptr, ptr %5342, align 8, !tbaa !29
-  tail call void %5344(ptr noundef nonnull %5341) #6
+  tail call void %5344(ptr noundef nonnull %5341) #7
   br label %5345
 
 5345:                                             ; preds = %5340, %5330
@@ -11494,7 +11494,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %5537 = getelementptr inbounds nuw i8, ptr %5536, i64 40
   store i32 6, ptr %5537, align 8, !tbaa !24
   %5538 = load ptr, ptr %5536, align 8, !tbaa !29
-  tail call void %5538(ptr noundef nonnull %5535) #6
+  tail call void %5538(ptr noundef nonnull %5535) #7
   br label %5539
 
 5539:                                             ; preds = %5534, %5524
@@ -11852,7 +11852,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %5731 = getelementptr inbounds nuw i8, ptr %5730, i64 40
   store i32 6, ptr %5731, align 8, !tbaa !24
   %5732 = load ptr, ptr %5730, align 8, !tbaa !29
-  tail call void %5732(ptr noundef nonnull %5729) #6
+  tail call void %5732(ptr noundef nonnull %5729) #7
   br label %5733
 
 5733:                                             ; preds = %5728, %5718
@@ -12210,7 +12210,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %5925 = getelementptr inbounds nuw i8, ptr %5924, i64 40
   store i32 6, ptr %5925, align 8, !tbaa !24
   %5926 = load ptr, ptr %5924, align 8, !tbaa !29
-  tail call void %5926(ptr noundef nonnull %5923) #6
+  tail call void %5926(ptr noundef nonnull %5923) #7
   br label %5927
 
 5927:                                             ; preds = %5922, %5912
@@ -12568,7 +12568,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %6119 = getelementptr inbounds nuw i8, ptr %6118, i64 40
   store i32 6, ptr %6119, align 8, !tbaa !24
   %6120 = load ptr, ptr %6118, align 8, !tbaa !29
-  tail call void %6120(ptr noundef nonnull %6117) #6
+  tail call void %6120(ptr noundef nonnull %6117) #7
   br label %6121
 
 6121:                                             ; preds = %6116, %6106
@@ -12926,7 +12926,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %6313 = getelementptr inbounds nuw i8, ptr %6312, i64 40
   store i32 6, ptr %6313, align 8, !tbaa !24
   %6314 = load ptr, ptr %6312, align 8, !tbaa !29
-  tail call void %6314(ptr noundef nonnull %6311) #6
+  tail call void %6314(ptr noundef nonnull %6311) #7
   br label %6315
 
 6315:                                             ; preds = %6310, %6300
@@ -13284,7 +13284,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %6507 = getelementptr inbounds nuw i8, ptr %6506, i64 40
   store i32 6, ptr %6507, align 8, !tbaa !24
   %6508 = load ptr, ptr %6506, align 8, !tbaa !29
-  tail call void %6508(ptr noundef nonnull %6505) #6
+  tail call void %6508(ptr noundef nonnull %6505) #7
   br label %6509
 
 6509:                                             ; preds = %6504, %6494
@@ -13642,7 +13642,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %6701 = getelementptr inbounds nuw i8, ptr %6700, i64 40
   store i32 6, ptr %6701, align 8, !tbaa !24
   %6702 = load ptr, ptr %6700, align 8, !tbaa !29
-  tail call void %6702(ptr noundef nonnull %6699) #6
+  tail call void %6702(ptr noundef nonnull %6699) #7
   br label %6703
 
 6703:                                             ; preds = %6698, %6688
@@ -14000,7 +14000,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %6895 = getelementptr inbounds nuw i8, ptr %6894, i64 40
   store i32 6, ptr %6895, align 8, !tbaa !24
   %6896 = load ptr, ptr %6894, align 8, !tbaa !29
-  tail call void %6896(ptr noundef nonnull %6893) #6
+  tail call void %6896(ptr noundef nonnull %6893) #7
   br label %6897
 
 6897:                                             ; preds = %6892, %6882
@@ -14358,7 +14358,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %7089 = getelementptr inbounds nuw i8, ptr %7088, i64 40
   store i32 6, ptr %7089, align 8, !tbaa !24
   %7090 = load ptr, ptr %7088, align 8, !tbaa !29
-  tail call void %7090(ptr noundef nonnull %7087) #6
+  tail call void %7090(ptr noundef nonnull %7087) #7
   br label %7091
 
 7091:                                             ; preds = %7086, %7076
@@ -14716,7 +14716,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %7283 = getelementptr inbounds nuw i8, ptr %7282, i64 40
   store i32 6, ptr %7283, align 8, !tbaa !24
   %7284 = load ptr, ptr %7282, align 8, !tbaa !29
-  tail call void %7284(ptr noundef nonnull %7281) #6
+  tail call void %7284(ptr noundef nonnull %7281) #7
   br label %7285
 
 7285:                                             ; preds = %7280, %7270
@@ -15074,7 +15074,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %7477 = getelementptr inbounds nuw i8, ptr %7476, i64 40
   store i32 6, ptr %7477, align 8, !tbaa !24
   %7478 = load ptr, ptr %7476, align 8, !tbaa !29
-  tail call void %7478(ptr noundef nonnull %7475) #6
+  tail call void %7478(ptr noundef nonnull %7475) #7
   br label %7479
 
 7479:                                             ; preds = %7474, %7464
@@ -15432,7 +15432,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %7671 = getelementptr inbounds nuw i8, ptr %7670, i64 40
   store i32 6, ptr %7671, align 8, !tbaa !24
   %7672 = load ptr, ptr %7670, align 8, !tbaa !29
-  tail call void %7672(ptr noundef nonnull %7669) #6
+  tail call void %7672(ptr noundef nonnull %7669) #7
   br label %7673
 
 7673:                                             ; preds = %7668, %7658
@@ -15790,7 +15790,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %7865 = getelementptr inbounds nuw i8, ptr %7864, i64 40
   store i32 6, ptr %7865, align 8, !tbaa !24
   %7866 = load ptr, ptr %7864, align 8, !tbaa !29
-  tail call void %7866(ptr noundef nonnull %7863) #6
+  tail call void %7866(ptr noundef nonnull %7863) #7
   br label %7867
 
 7867:                                             ; preds = %7862, %7852
@@ -16148,7 +16148,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %8059 = getelementptr inbounds nuw i8, ptr %8058, i64 40
   store i32 6, ptr %8059, align 8, !tbaa !24
   %8060 = load ptr, ptr %8058, align 8, !tbaa !29
-  tail call void %8060(ptr noundef nonnull %8057) #6
+  tail call void %8060(ptr noundef nonnull %8057) #7
   br label %8061
 
 8061:                                             ; preds = %8056, %8046
@@ -16506,7 +16506,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %8253 = getelementptr inbounds nuw i8, ptr %8252, i64 40
   store i32 6, ptr %8253, align 8, !tbaa !24
   %8254 = load ptr, ptr %8252, align 8, !tbaa !29
-  tail call void %8254(ptr noundef nonnull %8251) #6
+  tail call void %8254(ptr noundef nonnull %8251) #7
   br label %8255
 
 8255:                                             ; preds = %8250, %8240
@@ -16864,7 +16864,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %8447 = getelementptr inbounds nuw i8, ptr %8446, i64 40
   store i32 6, ptr %8447, align 8, !tbaa !24
   %8448 = load ptr, ptr %8446, align 8, !tbaa !29
-  tail call void %8448(ptr noundef nonnull %8445) #6
+  tail call void %8448(ptr noundef nonnull %8445) #7
   br label %8449
 
 8449:                                             ; preds = %8444, %8434
@@ -17222,7 +17222,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %8641 = getelementptr inbounds nuw i8, ptr %8640, i64 40
   store i32 6, ptr %8641, align 8, !tbaa !24
   %8642 = load ptr, ptr %8640, align 8, !tbaa !29
-  tail call void %8642(ptr noundef nonnull %8639) #6
+  tail call void %8642(ptr noundef nonnull %8639) #7
   br label %8643
 
 8643:                                             ; preds = %8638, %8628
@@ -17580,7 +17580,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %8835 = getelementptr inbounds nuw i8, ptr %8834, i64 40
   store i32 6, ptr %8835, align 8, !tbaa !24
   %8836 = load ptr, ptr %8834, align 8, !tbaa !29
-  tail call void %8836(ptr noundef nonnull %8833) #6
+  tail call void %8836(ptr noundef nonnull %8833) #7
   br label %8837
 
 8837:                                             ; preds = %8832, %8822
@@ -17938,7 +17938,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %9029 = getelementptr inbounds nuw i8, ptr %9028, i64 40
   store i32 6, ptr %9029, align 8, !tbaa !24
   %9030 = load ptr, ptr %9028, align 8, !tbaa !29
-  tail call void %9030(ptr noundef nonnull %9027) #6
+  tail call void %9030(ptr noundef nonnull %9027) #7
   br label %9031
 
 9031:                                             ; preds = %9026, %9016
@@ -18296,7 +18296,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %9223 = getelementptr inbounds nuw i8, ptr %9222, i64 40
   store i32 6, ptr %9223, align 8, !tbaa !24
   %9224 = load ptr, ptr %9222, align 8, !tbaa !29
-  tail call void %9224(ptr noundef nonnull %9221) #6
+  tail call void %9224(ptr noundef nonnull %9221) #7
   br label %9225
 
 9225:                                             ; preds = %9220, %9210
@@ -18654,7 +18654,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %9417 = getelementptr inbounds nuw i8, ptr %9416, i64 40
   store i32 6, ptr %9417, align 8, !tbaa !24
   %9418 = load ptr, ptr %9416, align 8, !tbaa !29
-  tail call void %9418(ptr noundef nonnull %9415) #6
+  tail call void %9418(ptr noundef nonnull %9415) #7
   br label %9419
 
 9419:                                             ; preds = %9414, %9404
@@ -19012,7 +19012,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %9611 = getelementptr inbounds nuw i8, ptr %9610, i64 40
   store i32 6, ptr %9611, align 8, !tbaa !24
   %9612 = load ptr, ptr %9610, align 8, !tbaa !29
-  tail call void %9612(ptr noundef nonnull %9609) #6
+  tail call void %9612(ptr noundef nonnull %9609) #7
   br label %9613
 
 9613:                                             ; preds = %9608, %9598
@@ -19370,7 +19370,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %9805 = getelementptr inbounds nuw i8, ptr %9804, i64 40
   store i32 6, ptr %9805, align 8, !tbaa !24
   %9806 = load ptr, ptr %9804, align 8, !tbaa !29
-  tail call void %9806(ptr noundef nonnull %9803) #6
+  tail call void %9806(ptr noundef nonnull %9803) #7
   br label %9807
 
 9807:                                             ; preds = %9802, %9792
@@ -19728,7 +19728,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %9999 = getelementptr inbounds nuw i8, ptr %9998, i64 40
   store i32 6, ptr %9999, align 8, !tbaa !24
   %10000 = load ptr, ptr %9998, align 8, !tbaa !29
-  tail call void %10000(ptr noundef nonnull %9997) #6
+  tail call void %10000(ptr noundef nonnull %9997) #7
   br label %10001
 
 10001:                                            ; preds = %9996, %9986
@@ -20086,7 +20086,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %10193 = getelementptr inbounds nuw i8, ptr %10192, i64 40
   store i32 6, ptr %10193, align 8, !tbaa !24
   %10194 = load ptr, ptr %10192, align 8, !tbaa !29
-  tail call void %10194(ptr noundef nonnull %10191) #6
+  tail call void %10194(ptr noundef nonnull %10191) #7
   br label %10195
 
 10195:                                            ; preds = %10190, %10180
@@ -20444,7 +20444,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %10387 = getelementptr inbounds nuw i8, ptr %10386, i64 40
   store i32 6, ptr %10387, align 8, !tbaa !24
   %10388 = load ptr, ptr %10386, align 8, !tbaa !29
-  tail call void %10388(ptr noundef nonnull %10385) #6
+  tail call void %10388(ptr noundef nonnull %10385) #7
   br label %10389
 
 10389:                                            ; preds = %10384, %10374
@@ -20802,7 +20802,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %10581 = getelementptr inbounds nuw i8, ptr %10580, i64 40
   store i32 6, ptr %10581, align 8, !tbaa !24
   %10582 = load ptr, ptr %10580, align 8, !tbaa !29
-  tail call void %10582(ptr noundef nonnull %10579) #6
+  tail call void %10582(ptr noundef nonnull %10579) #7
   br label %10583
 
 10583:                                            ; preds = %10578, %10568
@@ -21156,7 +21156,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %10773 = getelementptr inbounds nuw i8, ptr %10772, i64 40
   store i32 6, ptr %10773, align 8, !tbaa !24
   %10774 = load ptr, ptr %10772, align 8, !tbaa !29
-  tail call void %10774(ptr noundef nonnull %10771) #6
+  tail call void %10774(ptr noundef nonnull %10771) #7
   br label %10775
 
 10775:                                            ; preds = %10770, %10760
@@ -21669,7 +21669,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %11042 = load ptr, ptr %11041, align 8, !tbaa !88
   %11043 = getelementptr inbounds nuw i8, ptr %11042, i64 24
   %11044 = load ptr, ptr %11043, align 8, !tbaa !102
-  %11045 = call i32 %11044(ptr noundef %11040) #6
+  %11045 = call i32 %11044(ptr noundef %11040) #7
   %.not.i = icmp eq i32 %11045, 0
   br i1 %.not.i, label %.critedge, label %dump_buffer.exit
 
@@ -21713,22 +21713,22 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #5
+declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.abs.i16(i16, i1 immarg) #5
+declare i16 @llvm.abs.i16(i16, i1 immarg) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -21736,8 +21736,9 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -17,11 +17,11 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden zeroext i1 @SDL_BlendFillRect(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = alloca %struct.SDL_Rect, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %9 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %0) #5
+  %9 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %0) #6
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #5
+  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #6
   br label %70
 
 12:                                               ; preds = %7
@@ -35,7 +35,7 @@ define hidden zeroext i1 @SDL_BlendFillRect(ptr noundef %0, ptr noundef %1, i32 
   br i1 %or.cond83, label %.critedge, label %18
 
 .critedge:                                        ; preds = %12
-  %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2) #5
+  %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2) #6
   br label %70
 
 18:                                               ; preds = %12
@@ -44,7 +44,7 @@ define hidden zeroext i1 @SDL_BlendFillRect(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.not74, label %22, label %20
 
 20:                                               ; preds = %18
-  %21 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %1, ptr noundef nonnull %19, ptr noundef nonnull %8) #5
+  %21 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %1, ptr noundef nonnull %19, ptr noundef nonnull %8) #6
   br i1 %21, label %22, label %70
 
 22:                                               ; preds = %18, %20
@@ -8898,7 +8898,7 @@ default.unreachable:                              ; preds = %2966, %2680, %2394,
   br i1 %.not1974, label %.loopexit, label %3297, !llvm.loop !75
 
 3411:                                             ; preds = %7
-  %3412 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5) #5
+  %3412 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5) #6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3262, %2928, %2642, %2356, %2046, %3409, %1581, %1239, %945, %651, %333, %1732, %2930, %2644, %2358, %2048, %1738, %3264, %1241, %947, %653, %335, %18, %1583, %3411
@@ -11308,7 +11308,7 @@ default.unreachable:                              ; preds = %1535, %1183, %831, 
   br i1 %.not1115, label %.loopexit, label %1931, !llvm.loop !87
 
 2069:                                             ; preds = %7
-  %2070 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5) #5
+  %2070 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5) #6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1895, %1495, %1143, %791, %403, %2067, %1497, %1145, %793, %405, %18, %1897, %2069
@@ -11320,11 +11320,11 @@ default.unreachable:                              ; preds = %1535, %1183, %831, 
 define hidden zeroext i1 @SDL_BlendFillRects(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext %7) local_unnamed_addr #0 {
   %9 = alloca %struct.SDL_Rect, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %10 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %0) #5
+  %10 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %0) #6
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #5
+  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #6
   br label %.loopexit
 
 13:                                               ; preds = %8
@@ -11336,7 +11336,7 @@ define hidden zeroext i1 @SDL_BlendFillRects(ptr noundef %0, ptr noundef %1, i32
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %13
-  %20 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4) #5
+  %20 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4) #6
   br label %.loopexit
 
 21:                                               ; preds = %13
@@ -11419,11 +11419,11 @@ define hidden zeroext i1 @SDL_BlendFillRects(ptr noundef %0, ptr noundef %1, i32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
   %.056 = phi i1 [ true, %.lr.ph ], [ %.1, %59 ]
   %55 = getelementptr inbounds nuw %struct.SDL_Rect, ptr %1, i64 %indvars.iv
-  %56 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef %55, ptr noundef nonnull %53, ptr noundef nonnull %9) #5
+  %56 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef %55, ptr noundef nonnull %53, ptr noundef nonnull %9) #6
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %54
-  %58 = call zeroext i1 %.135(ptr noundef nonnull %0, ptr noundef nonnull %9, i32 noundef %3, i8 noundef zeroext %.040, i8 noundef zeroext %.039, i8 noundef zeroext %.038, i8 noundef zeroext %7) #5
+  %58 = call zeroext i1 %.135(ptr noundef nonnull %0, ptr noundef nonnull %9, i32 noundef %3, i8 noundef zeroext %.040, i8 noundef zeroext %.039, i8 noundef zeroext %.038, i8 noundef zeroext %7) #6
   br label %59
 
 59:                                               ; preds = %54, %57
@@ -11444,21 +11444,22 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #4
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

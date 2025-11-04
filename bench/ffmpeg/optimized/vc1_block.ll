@@ -75,7 +75,7 @@ define void @ff_vc1_decode_blocks(ptr noundef initializes((6848, 6852)) %0) loca
   %24 = load i32, ptr %23, align 4, !tbaa !48
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4104
   %26 = load i32, ptr %25, align 8, !tbaa !49
-  %27 = tail call i32 @ff_intrax8_decode_picture(ptr noundef nonnull %6, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %19, i32 noundef %22, i32 noundef %24, i32 noundef %26) #10
+  %27 = tail call i32 @ff_intrax8_decode_picture(ptr noundef nonnull %6, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %19, i32 noundef %22, i32 noundef %24, i32 noundef %26) #11
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4336
   %29 = load i32, ptr %10, align 4, !tbaa !50
   %30 = ashr i32 %29, 1
@@ -83,7 +83,7 @@ define void @ff_vc1_decode_blocks(ptr noundef initializes((6848, 6852)) %0) loca
   %32 = load i32, ptr %11, align 8, !tbaa !51
   %33 = ashr i32 %32, 1
   %34 = add nsw i32 %33, -1
-  tail call void @ff_er_add_slice(ptr noundef nonnull %28, i32 noundef 0, i32 noundef 0, i32 noundef %31, i32 noundef %34, i32 noundef 112) #10
+  tail call void @ff_er_add_slice(ptr noundef nonnull %28, i32 noundef 0, i32 noundef 0, i32 noundef %31, i32 noundef %34, i32 noundef 112) #11
   br label %vc1_decode_skip_blocks.exit
 
 35:                                               ; preds = %1
@@ -139,7 +139,7 @@ define void @ff_vc1_decode_blocks(ptr noundef initializes((6848, 6852)) %0) loca
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 652
   %62 = load i32, ptr %61, align 4, !tbaa !62
   %63 = add nsw i32 %62, -1
-  tail call void @ff_er_add_slice(ptr noundef nonnull %55, i32 noundef 0, i32 noundef %57, i32 noundef %60, i32 noundef %63, i32 noundef 112) #10
+  tail call void @ff_er_add_slice(ptr noundef nonnull %55, i32 noundef 0, i32 noundef %57, i32 noundef %60, i32 noundef %63, i32 noundef 112) #11
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 4140
   store i32 1, ptr %64, align 4, !tbaa !63
   %65 = load i32, ptr %56, align 8, !tbaa !60
@@ -173,7 +173,7 @@ define void @ff_vc1_decode_blocks(ptr noundef initializes((6848, 6852)) %0) loca
 
 88:                                               ; preds = %init_block_index.exit.i, %.lr.ph.i
   store i32 0, ptr %69, align 4, !tbaa !65
-  tail call void @ff_init_block_index(ptr noundef nonnull %0) #10
+  tail call void @ff_init_block_index(ptr noundef nonnull %0) #11
   %89 = load i32, ptr %70, align 8, !tbaa !66
   %.not.i.i = icmp eq i32 %89, 0
   br i1 %.not.i.i, label %.init_block_index.exit_crit_edge.i, label %90
@@ -491,7 +491,7 @@ define internal fastcc void @vc1_decode_i_blocks_adv(ptr noundef %0) unnamed_add
 
 118:                                              ; preds = %.lr.ph288, %._crit_edge
   store i32 0, ptr %33, align 4, !tbaa !65
-  tail call void @ff_init_block_index(ptr noundef nonnull %0) #10
+  tail call void @ff_init_block_index(ptr noundef nonnull %0) #11
   %119 = load i32, ptr %55, align 8, !tbaa !66
   %.not.i = icmp eq i32 %119, 0
   br i1 %.not.i, label %init_block_index.exit, label %120
@@ -574,7 +574,7 @@ init_block_index.exit:                            ; preds = %118, %120, %124
   %170 = load ptr, ptr %72, align 8, !tbaa !91
   %171 = sext i32 %145 to i64
   %172 = getelementptr inbounds [6 x [64 x i16]], ptr %170, i64 %171
-  tail call void %169(ptr noundef %172) #10
+  tail call void %169(ptr noundef %172) #11
   %173 = load i32, ptr %33, align 4, !tbaa !65
   %174 = load i32, ptr %36, align 8, !tbaa !64
   %175 = load i32, ptr %74, align 4, !tbaa !92
@@ -645,7 +645,7 @@ init_block_index.exit:                            ; preds = %118, %120, %124
   %218 = load i32, ptr %34, align 8, !tbaa !60
   %219 = load i32, ptr %33, align 4, !tbaa !65
   %220 = load i32, ptr %36, align 8, !tbaa !64
-  tail call void @ff_er_add_slice(ptr noundef nonnull %217, i32 noundef 0, i32 noundef %218, i32 noundef %219, i32 noundef %220, i32 noundef 14) #10
+  tail call void @ff_er_add_slice(ptr noundef nonnull %217, i32 noundef 0, i32 noundef %218, i32 noundef %219, i32 noundef %220, i32 noundef 14) #11
   br label %948
 
 221:                                              ; preds = %213
@@ -946,7 +946,7 @@ get_vlc2.exit:                                    ; preds = %221, %240
 
 410:                                              ; preds = %.thread274
   %411 = load ptr, ptr %94, align 8, !tbaa !116
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %411, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.5) #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %411, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.5) #11
   br label %412
 
 412:                                              ; preds = %410, %.thread274, %302
@@ -1772,7 +1772,7 @@ vc1_decode_i_block_adv.exit:                      ; preds = %.thread318.split.us
   %897 = sext i32 %896 to i64
   %898 = getelementptr inbounds [6 x [64 x i16]], ptr %895, i64 %897
   %899 = getelementptr inbounds [64 x i16], ptr %898, i64 %482
-  tail call void %894(ptr noundef %899) #10
+  tail call void %894(ptr noundef %899) #11
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
   %exitcond298.not = icmp eq i64 %indvars.iv.next296, 6
   br i1 %exitcond298.not, label %900, label %431, !llvm.loop !135
@@ -1793,7 +1793,7 @@ vc1_decode_i_block_adv.exit:                      ; preds = %.thread318.split.us
   br i1 %.not218, label %908, label %907
 
 907:                                              ; preds = %905, %902
-  tail call void @ff_vc1_i_overlap_filter(ptr noundef nonnull %0) #10
+  tail call void @ff_vc1_i_overlap_filter(ptr noundef nonnull %0) #11
   br label %908
 
 908:                                              ; preds = %907, %905, %900
@@ -1803,7 +1803,7 @@ vc1_decode_i_block_adv.exit:                      ; preds = %.thread318.split.us
   br i1 %.not219, label %911, label %910
 
 910:                                              ; preds = %908
-  tail call void @ff_vc1_i_loop_filter(ptr noundef nonnull %0) #10
+  tail call void @ff_vc1_i_loop_filter(ptr noundef nonnull %0) #11
   br label %911
 
 911:                                              ; preds = %910, %908
@@ -1817,11 +1817,11 @@ vc1_decode_i_block_adv.exit:                      ; preds = %.thread318.split.us
   %915 = load i32, ptr %34, align 8, !tbaa !60
   %916 = load i32, ptr %33, align 4, !tbaa !65
   %917 = load i32, ptr %36, align 8, !tbaa !64
-  tail call void @ff_er_add_slice(ptr noundef nonnull %914, i32 noundef 0, i32 noundef %915, i32 noundef %916, i32 noundef %917, i32 noundef 14) #10
+  tail call void @ff_er_add_slice(ptr noundef nonnull %914, i32 noundef 0, i32 noundef %915, i32 noundef %916, i32 noundef %917, i32 noundef 14) #11
   %918 = load ptr, ptr %94, align 8, !tbaa !137
   %.val = load i32, ptr %6, align 8, !tbaa !80
   %919 = load i32, ptr %7, align 4, !tbaa !138
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %918, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %.val, i32 noundef %919) #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %918, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %.val, i32 noundef %919) #11
   br label %948
 
 920:                                              ; preds = %911
@@ -1874,7 +1874,7 @@ vc1_decode_i_block_adv.exit:                      ; preds = %.thread318.split.us
   %945 = add nsw i32 %939, -1
   %946 = shl i32 %.lcssa, %943
   %947 = add nsw i32 %946, -1
-  tail call void @ff_er_add_slice(ptr noundef nonnull %940, i32 noundef 0, i32 noundef %944, i32 noundef %945, i32 noundef %947, i32 noundef 112) #10
+  tail call void @ff_er_add_slice(ptr noundef nonnull %940, i32 noundef 0, i32 noundef %944, i32 noundef %945, i32 noundef %947, i32 noundef 112) #11
   br label %948
 
 948:                                              ; preds = %1, %._crit_edge289, %913, %216
@@ -2009,7 +2009,7 @@ define internal fastcc void @vc1_decode_i_blocks(ptr noundef initializes((8, 12)
 
 86:                                               ; preds = %.lr.ph159, %._crit_edge
   store i32 0, ptr %33, align 4, !tbaa !65
-  tail call void @ff_init_block_index(ptr noundef nonnull %0) #10
+  tail call void @ff_init_block_index(ptr noundef nonnull %0) #11
   %87 = load i32, ptr %41, align 8, !tbaa !66
   %.not.i = icmp eq i32 %87, 0
   br i1 %.not.i, label %init_block_index.exit, label %88
@@ -2091,7 +2091,7 @@ init_block_index.exit:                            ; preds = %86, %88, %92
   %137 = load ptr, ptr %57, align 8, !tbaa !91
   %138 = sext i32 %113 to i64
   %139 = getelementptr inbounds [6 x [64 x i16]], ptr %137, i64 %138
-  tail call void %136(ptr noundef %139) #10
+  tail call void %136(ptr noundef %139) #11
   %140 = load i32, ptr %33, align 4, !tbaa !65
   %141 = load i32, ptr %32, align 8, !tbaa !64
   %142 = load i32, ptr %59, align 4, !tbaa !61
@@ -2707,7 +2707,7 @@ vc1_decode_i_block.exit:                          ; preds = %.split.us.i, %521, 
   %525 = sext i32 %524 to i64
   %526 = getelementptr inbounds [6 x [64 x i16]], ptr %523, i64 %525
   %527 = getelementptr inbounds [64 x i16], ptr %526, i64 %253
-  tail call void %522(ptr noundef %527) #10
+  tail call void %522(ptr noundef %527) #11
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next165, 6
   br i1 %exitcond167.not, label %528, label %211, !llvm.loop !149
@@ -2723,7 +2723,7 @@ vc1_decode_i_block.exit:                          ; preds = %.split.us.i, %521, 
   br i1 %532, label %533, label %548
 
 533:                                              ; preds = %530
-  tail call void @ff_vc1_i_overlap_filter(ptr noundef nonnull %0) #10
+  tail call void @ff_vc1_i_overlap_filter(ptr noundef nonnull %0) #11
   %534 = load i8, ptr %80, align 8, !tbaa !150
   %.not136 = icmp eq i8 %534, 0
   br i1 %.not136, label %.loopexit150, label %.preheader149
@@ -2802,7 +2802,7 @@ vc1_decode_i_block.exit:                          ; preds = %.split.us.i, %521, 
   br i1 %.not137, label %566, label %565
 
 565:                                              ; preds = %.loopexit150
-  tail call void @ff_vc1_i_loop_filter(ptr noundef nonnull %0) #10
+  tail call void @ff_vc1_i_loop_filter(ptr noundef nonnull %0) #11
   br label %566
 
 566:                                              ; preds = %565, %.loopexit150
@@ -2815,12 +2815,12 @@ vc1_decode_i_block.exit:                          ; preds = %.split.us.i, %521, 
   %569 = getelementptr inbounds nuw i8, ptr %0, i64 4336
   %570 = load i32, ptr %33, align 4, !tbaa !65
   %571 = load i32, ptr %32, align 8, !tbaa !64
-  tail call void @ff_er_add_slice(ptr noundef nonnull %569, i32 noundef 0, i32 noundef 0, i32 noundef %570, i32 noundef %571, i32 noundef 14) #10
+  tail call void @ff_er_add_slice(ptr noundef nonnull %569, i32 noundef 0, i32 noundef 0, i32 noundef %570, i32 noundef %571, i32 noundef 14) #11
   %572 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %573 = load ptr, ptr %572, align 8, !tbaa !137
   %.val = load i32, ptr %64, align 8, !tbaa !80
   %574 = load i32, ptr %82, align 4, !tbaa !138
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %573, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %.val, i32 noundef %574) #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %573, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %.val, i32 noundef %574) #11
   br label %604
 
 575:                                              ; preds = %566
@@ -2865,7 +2865,7 @@ vc1_decode_i_block.exit:                          ; preds = %.split.us.i, %521, 
   %601 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %602 = load i32, ptr %601, align 8, !tbaa !115
   %603 = add nsw i32 %602, -1
-  tail call void @ff_er_add_slice(ptr noundef nonnull %597, i32 noundef 0, i32 noundef 0, i32 noundef %600, i32 noundef %603, i32 noundef 112) #10
+  tail call void @ff_er_add_slice(ptr noundef nonnull %597, i32 noundef 0, i32 noundef 0, i32 noundef %600, i32 noundef %603, i32 noundef 112) #11
   br label %604
 
 604:                                              ; preds = %._crit_edge160, %568
@@ -3038,7 +3038,7 @@ define internal fastcc void @vc1_decode_p_blocks(ptr noundef initializes((3352, 
 
 128:                                              ; preds = %.lr.ph214, %._crit_edge
   store i32 0, ptr %42, align 4, !tbaa !65
-  call void @ff_init_block_index(ptr noundef nonnull %0) #10
+  call void @ff_init_block_index(ptr noundef nonnull %0) #11
   %129 = load i32, ptr %43, align 8, !tbaa !66
   %.not.i = icmp eq i32 %129, 0
   br i1 %.not.i, label %init_block_index.exit, label %130
@@ -3139,7 +3139,7 @@ init_block_index.exit:                            ; preds = %128, %130, %134
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 4336
   %188 = load i32, ptr %36, align 8, !tbaa !60
   %189 = load i32, ptr %38, align 8, !tbaa !64
-  call void @ff_er_add_slice(ptr noundef nonnull %187, i32 noundef 0, i32 noundef %188, i32 noundef %155, i32 noundef %189, i32 noundef 14) #10
+  call void @ff_er_add_slice(ptr noundef nonnull %187, i32 noundef 0, i32 noundef %188, i32 noundef %155, i32 noundef %189, i32 noundef 14) #11
   br label %3967
 
 190:                                              ; preds = %183, %181
@@ -3419,7 +3419,7 @@ get_vlc2.exit339.i:                               ; preds = %219, %196
 
 365:                                              ; preds = %.thread396.i
   %366 = load ptr, ptr %96, align 8, !tbaa !116
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %366, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.5.i) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %366, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.5.i) #11
   br label %367
 
 367:                                              ; preds = %365, %.thread396.i, %245
@@ -3605,7 +3605,7 @@ get_vlc2.exit335.i:                               ; preds = %416, %395
   %494 = sext i32 %493 to i64
   %495 = getelementptr inbounds [6 x [64 x i16]], ptr %492, i64 %494
   %496 = getelementptr inbounds [64 x i16], ptr %495, i64 %485
-  call void %491(ptr noundef %496) #10
+  call void %491(ptr noundef %496) #11
   %497 = shl i32 %450, 2
   %498 = shl nuw nsw i32 15, %497
   %499 = or i32 %498, %.0267463.i
@@ -3771,8 +3771,8 @@ get_vlc2.exit.i.i:                                ; preds = %564, %543, %516
   br i1 %617, label %619, label %618
 
 618:                                              ; preds = %616
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #10
-  call void @abort() #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #11
+  call void @abort() #12
   unreachable
 
 619:                                              ; preds = %616
@@ -3861,8 +3861,8 @@ get_mvdata_interlaced.exit.i:                     ; preds = %677, %612, %587, %5
   %679 = load i32, ptr %75, align 4, !tbaa !186
   %680 = load i32, ptr %76, align 8, !tbaa !187
   %681 = load ptr, ptr %70, align 8, !tbaa !59
-  call void @ff_vc1_pred_mv(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0368.i, i32 noundef %.0364.i, i32 noundef 1, i32 noundef %679, i32 noundef %680, ptr noundef %681, i32 noundef %.0360.i, i32 noundef 0) #10
-  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #10
+  call void @ff_vc1_pred_mv(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0368.i, i32 noundef %.0364.i, i32 noundef 1, i32 noundef %679, i32 noundef %680, ptr noundef %681, i32 noundef %.0360.i, i32 noundef 0) #11
+  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #11
   %682 = lshr i32 %.062.i337.i, 1
   %.lobit.i = and i32 %682, 1
   %683 = xor i32 %.lobit.i, 1
@@ -4029,8 +4029,8 @@ get_vlc2.exit.i342.i:                             ; preds = %759, %738, %711
   br i1 %812, label %814, label %813
 
 813:                                              ; preds = %811
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #10
-  call void @abort() #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #11
+  call void @abort() #12
   unreachable
 
 814:                                              ; preds = %811
@@ -4119,14 +4119,14 @@ get_mvdata_interlaced.exit350.i:                  ; preds = %872, %807, %782, %7
   %874 = load i32, ptr %75, align 4, !tbaa !186
   %875 = load i32, ptr %76, align 8, !tbaa !187
   %876 = load ptr, ptr %70, align 8, !tbaa !59
-  call void @ff_vc1_pred_mv(ptr noundef nonnull %0, i32 noundef %.2457.i, i32 noundef %.1369.i, i32 noundef %.1365.i, i32 noundef 0, i32 noundef %874, i32 noundef %875, ptr noundef %876, i32 noundef %.1361.i, i32 noundef 0) #10
-  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef %.2457.i, i32 noundef 0, i32 noundef 0) #10
+  call void @ff_vc1_pred_mv(ptr noundef nonnull %0, i32 noundef %.2457.i, i32 noundef %.1369.i, i32 noundef %.1365.i, i32 noundef 0, i32 noundef %874, i32 noundef %875, ptr noundef %876, i32 noundef %.1361.i, i32 noundef 0) #11
+  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef %.2457.i, i32 noundef 0, i32 noundef 0) #11
   %877 = add nuw nsw i32 %.2457.i, 1
   %exitcond471.not.i = icmp eq i32 %877, 4
   br i1 %exitcond471.not.i, label %878, label %706, !llvm.loop !190
 
 878:                                              ; preds = %get_mvdata_interlaced.exit350.i
-  call void @ff_vc1_mc_4mv_chroma(ptr noundef nonnull %0, i32 noundef 0) #10
+  call void @ff_vc1_mc_4mv_chroma(ptr noundef nonnull %0, i32 noundef 0) #11
   %879 = and i32 %.062.i337.i, 1
   br label %880
 
@@ -4370,7 +4370,7 @@ get_mvdata_interlaced.exit350.i:                  ; preds = %872, %807, %782, %7
 
 1026:                                             ; preds = %.thread429.i
   %1027 = load ptr, ptr %96, align 8, !tbaa !116
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1027, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.12.i) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1027, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.12.i) #11
   br label %1031
 
 .thread434.i:                                     ; preds = %922, %880
@@ -4544,7 +4544,7 @@ get_vlc2.exit.i:                                  ; preds = %1062, %1038
   br i1 %1137, label %1138, label %1139
 
 1138:                                             ; preds = %1135
-  call void @ff_vc1_p_overlap_filter(ptr noundef nonnull %0) #10
+  call void @ff_vc1_p_overlap_filter(ptr noundef nonnull %0) #11
   br label %1139
 
 1139:                                             ; preds = %1138, %1135, %.loopexit.i
@@ -4568,7 +4568,7 @@ vc1_decode_p_mb_intfi.exit:                       ; preds = %1109, %478, %1139
   br i1 %28, label %1149, label %3897
 
 1149:                                             ; preds = %vc1_decode_p_mb_intfi.exit
-  call void @ff_vc1_p_loop_filter(ptr noundef nonnull %0) #10
+  call void @ff_vc1_p_loop_filter(ptr noundef nonnull %0) #11
   br label %3897
 
 1150:                                             ; preds = %190
@@ -5093,7 +5093,7 @@ get_vlc2.exit461.i:                               ; preds = %1340, %1322
 
 1486:                                             ; preds = %.thread558.i
   %1487 = load ptr, ptr %96, align 8, !tbaa !116
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1487, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.5398.i) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1487, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.5398.i) #11
   br label %1488
 
 1488:                                             ; preds = %1486, %.thread558.i, %1363
@@ -5196,7 +5196,7 @@ get_vlc2.exit461.i:                               ; preds = %1340, %1322
   %1551 = sext i32 %1550 to i64
   %1552 = getelementptr inbounds [6 x [64 x i16]], ptr %1549, i64 %1551
   %1553 = getelementptr inbounds [64 x i16], ptr %1552, i64 %1542
-  call void %1548(ptr noundef %1553) #10
+  call void %1548(ptr noundef %1553) #11
   %1554 = shl i32 %1507, 2
   %1555 = shl nuw nsw i32 15, %1554
   %1556 = or i32 %1555, %.0378626.i
@@ -5499,8 +5499,8 @@ get_vlc2.exit.i.i123:                             ; preds = %1726, %1705, %1678
   br i1 %1779, label %1781, label %1780
 
 1780:                                             ; preds = %1778
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #10
-  call void @abort() #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #11
+  call void @abort() #12
   unreachable
 
 1781:                                             ; preds = %1778
@@ -5581,14 +5581,14 @@ get_mvdata_interlaced.exit.i129:                  ; preds = %1813, %1810, %1774,
   %.0519.i = phi i32 [ 0, %1675 ], [ %1771, %1749 ], [ %1777, %1774 ], [ %1838, %1813 ], [ 0, %1810 ]
   %1839 = load i32, ptr %75, align 4, !tbaa !186
   %1840 = load i32, ptr %76, align 8, !tbaa !187
-  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef %.3619.i, i32 noundef %.0526.i, i32 noundef %.0519.i, i32 noundef 0, i32 noundef %1839, i32 noundef %1840, i32 noundef 0) #10
-  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef %.3619.i, i32 noundef 0, i32 noundef 0) #10
+  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef %.3619.i, i32 noundef %.0526.i, i32 noundef %.0519.i, i32 noundef 0, i32 noundef %1839, i32 noundef %1840, i32 noundef 0) #11
+  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef %.3619.i, i32 noundef 0, i32 noundef 0) #11
   %1841 = add nuw nsw i32 %.3619.i, 1
   %exitcond638.not.i = icmp eq i32 %1841, 4
   br i1 %exitcond638.not.i, label %1842, label %1675, !llvm.loop !205
 
 1842:                                             ; preds = %get_mvdata_interlaced.exit.i129
-  call void @ff_vc1_mc_4mv_chroma4(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
+  call void @ff_vc1_mc_4mv_chroma4(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
   br label %2345
 
 1843:                                             ; preds = %1662
@@ -5727,8 +5727,8 @@ get_vlc2.exit.i472.i:                             ; preds = %1896, %1875, %1848
   br i1 %1949, label %1951, label %1950
 
 1950:                                             ; preds = %1948
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #10
-  call void @abort() #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #11
+  call void @abort() #12
   unreachable
 
 1951:                                             ; preds = %1948
@@ -5809,9 +5809,9 @@ get_mvdata_interlaced.exit480.i:                  ; preds = %1983, %1980, %1944,
   %.1520.i = phi i32 [ 0, %1844 ], [ %1941, %1919 ], [ %1947, %1944 ], [ %2008, %1983 ], [ 0, %1980 ]
   %2009 = load i32, ptr %75, align 4, !tbaa !186
   %2010 = load i32, ptr %76, align 8, !tbaa !187
-  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.1527.i, i32 noundef %.1520.i, i32 noundef 2, i32 noundef %2009, i32 noundef %2010, i32 noundef 0) #10
-  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
-  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 0, i32 noundef 0) #10
+  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.1527.i, i32 noundef %.1520.i, i32 noundef 2, i32 noundef %2009, i32 noundef %2010, i32 noundef 0) #11
+  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
+  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 0, i32 noundef 0) #11
   %2011 = and i32 %1846, 1
   %.not416.i = icmp eq i32 %2011, 0
   br i1 %.not416.i, label %get_mvdata_interlaced.exit491.i, label %2012
@@ -5942,8 +5942,8 @@ get_vlc2.exit.i483.i:                             ; preds = %2060, %2039, %2012
   br i1 %2113, label %2115, label %2114
 
 2114:                                             ; preds = %2112
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #10
-  call void @abort() #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #11
+  call void @abort() #12
   unreachable
 
 2115:                                             ; preds = %2112
@@ -6024,10 +6024,10 @@ get_mvdata_interlaced.exit491.i:                  ; preds = %2147, %2144, %2108,
   %.2521.i = phi i32 [ 0, %get_mvdata_interlaced.exit480.i ], [ %2105, %2083 ], [ %2111, %2108 ], [ %2172, %2147 ], [ 0, %2144 ]
   %2173 = load i32, ptr %75, align 4, !tbaa !186
   %2174 = load i32, ptr %76, align 8, !tbaa !187
-  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 2, i32 noundef %.2528.i, i32 noundef %.2521.i, i32 noundef 2, i32 noundef %2173, i32 noundef %2174, i32 noundef 0) #10
-  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 0, i32 noundef 0) #10
-  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef 3, i32 noundef 0, i32 noundef 0) #10
-  call void @ff_vc1_mc_4mv_chroma4(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
+  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 2, i32 noundef %.2528.i, i32 noundef %.2521.i, i32 noundef 2, i32 noundef %2173, i32 noundef %2174, i32 noundef 0) #11
+  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 0, i32 noundef 0) #11
+  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef 3, i32 noundef 0, i32 noundef 0) #11
+  call void @ff_vc1_mc_4mv_chroma4(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
   br label %2345
 
 2175:                                             ; preds = %1843
@@ -6166,8 +6166,8 @@ get_vlc2.exit.i494.i:                             ; preds = %2230, %2209, %2182
   br i1 %2283, label %2285, label %2284
 
 2284:                                             ; preds = %2282
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #10
-  call void @abort() #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #11
+  call void @abort() #12
   unreachable
 
 2285:                                             ; preds = %2282
@@ -6248,8 +6248,8 @@ get_mvdata_interlaced.exit502.i:                  ; preds = %2317, %2314, %2278,
   %.3522.i = phi i32 [ 0, %2175 ], [ %2275, %2253 ], [ %2281, %2278 ], [ %2342, %2317 ], [ 0, %2314 ]
   %2343 = load i32, ptr %75, align 4, !tbaa !186
   %2344 = load i32, ptr %76, align 8, !tbaa !187
-  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.3529.i, i32 noundef %.3522.i, i32 noundef 1, i32 noundef %2343, i32 noundef %2344, i32 noundef 0) #10
-  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #10
+  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.3529.i, i32 noundef %.3522.i, i32 noundef 1, i32 noundef %2343, i32 noundef %2344, i32 noundef 0) #11
+  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #11
   br label %2345
 
 2345:                                             ; preds = %get_mvdata_interlaced.exit502.i, %get_mvdata_interlaced.exit491.i, %1842
@@ -6449,7 +6449,7 @@ get_mvdata_interlaced.exit502.i:                  ; preds = %2317, %2314, %2278,
 
 2456:                                             ; preds = %.thread588.i
   %2457 = load ptr, ptr %96, align 8, !tbaa !116
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %2457, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.12.i133) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %2457, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.12.i133) #11
   br label %2458
 
 2458:                                             ; preds = %2456, %.thread588.i, %2348
@@ -6685,8 +6685,8 @@ get_vlc2.exit.i138:                               ; preds = %2488, %2464
   store i8 0, ptr %2611, align 1, !tbaa !101
   %2612 = load i32, ptr %75, align 4, !tbaa !186
   %2613 = load i32, ptr %76, align 8, !tbaa !187
-  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef %2612, i32 noundef %2613, i32 noundef 0) #10
-  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #10
+  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef %2612, i32 noundef %2613, i32 noundef 0) #11
+  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #11
   %2614 = load ptr, ptr %77, align 8, !tbaa !103
   %2615 = getelementptr inbounds i8, ptr %2614, i64 %2592
   store i8 0, ptr %2615, align 1, !tbaa !101
@@ -6704,7 +6704,7 @@ get_vlc2.exit.i138:                               ; preds = %2488, %2464
   br i1 %2619, label %2620, label %2621
 
 2620:                                             ; preds = %2617
-  call void @ff_vc1_p_overlap_filter(ptr noundef nonnull %0) #10
+  call void @ff_vc1_p_overlap_filter(ptr noundef nonnull %0) #11
   br label %2621
 
 2621:                                             ; preds = %2620, %2617, %.loopexit.i120
@@ -6728,7 +6728,7 @@ vc1_decode_p_mb_intfr.exit:                       ; preds = %2563, %1535, %2621
   br i1 %28, label %2631, label %3897
 
 2631:                                             ; preds = %vc1_decode_p_mb_intfr.exit
-  call void @ff_vc1_p_intfr_loop_filter(ptr noundef nonnull %0) #10
+  call void @ff_vc1_p_intfr_loop_filter(ptr noundef nonnull %0) #11
   br label %3897
 
 2632:                                             ; preds = %190
@@ -7007,7 +7007,7 @@ get_vlc2.exit748.i:                               ; preds = %2706, %2682
   %2831 = load i32, ptr %75, align 4, !tbaa !186
   %2832 = load i32, ptr %76, align 8, !tbaa !187
   %2833 = load ptr, ptr %70, align 8, !tbaa !59
-  call void @ff_vc1_pred_mv(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0602759775.i, i32 noundef %.0600760773.i, i32 noundef 1, i32 noundef %2831, i32 noundef %2832, ptr noundef %2833, i32 noundef 0, i32 noundef 0) #10
+  call void @ff_vc1_pred_mv(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0602759775.i, i32 noundef %.0600760773.i, i32 noundef 1, i32 noundef %2831, i32 noundef %2832, ptr noundef %2833, i32 noundef 0, i32 noundef 0) #11
   %2834 = load i32, ptr %69, align 8, !tbaa !87
   %2835 = icmp eq i32 %2834, 0
   %or.cond.i = or i1 %2728, %2835
@@ -7200,7 +7200,7 @@ get_vlc2.exit748.i:                               ; preds = %2706, %2682
 
 2944:                                             ; preds = %.thread803.i
   %2945 = load ptr, ptr %96, align 8, !tbaa !116
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %2945, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.5620.i) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %2945, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.5620.i) #11
   br label %2946
 
 2946:                                             ; preds = %2944, %.thread803.i, %2836
@@ -7478,7 +7478,7 @@ get_vlc2.exit744.i:                               ; preds = %2994, %2975
 
 3115:                                             ; preds = %.thread833.i
   %3116 = load ptr, ptr %96, align 8, !tbaa !116
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3116, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.12.i173) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3116, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.12.i173) #11
   br label %3120
 
 3117:                                             ; preds = %2961
@@ -7563,7 +7563,7 @@ thread-pre-split837.i:                            ; preds = %3120
 
 3172:                                             ; preds = %thread-pre-split837.i, %thread-pre-split837.thread.i
   %.0609969.i = phi i32 [ %.062.i738.i, %thread-pre-split837.thread.i ], [ %195, %thread-pre-split837.i ]
-  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #10
+  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #11
   br label %.preheader
 
 .preheader:                                       ; preds = %3172, %thread-pre-split837.i
@@ -7684,7 +7684,7 @@ thread-pre-split837.i:                            ; preds = %3120
   %3244 = sext i32 %3243 to i64
   %3245 = getelementptr inbounds [6 x [64 x i16]], ptr %3242, i64 %3244
   %3246 = getelementptr inbounds [64 x i16], ptr %3245, i64 %3235
-  call void %3241(ptr noundef %3246) #10
+  call void %3241(ptr noundef %3246) #11
   %3247 = load i8, ptr %119, align 8, !tbaa !150
   %.not694.i = icmp eq i8 %3247, 0
   br i1 %.not694.i, label %.loopexit.i166, label %.preheader.i165
@@ -7792,8 +7792,8 @@ thread-pre-split837.i:                            ; preds = %3120
   %3305 = load i32, ptr %75, align 4, !tbaa !186
   %3306 = load i32, ptr %76, align 8, !tbaa !187
   %3307 = load ptr, ptr %70, align 8, !tbaa !59
-  call void @ff_vc1_pred_mv(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef %3305, i32 noundef %3306, ptr noundef %3307, i32 noundef 0, i32 noundef 0) #10
-  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #10
+  call void @ff_vc1_pred_mv(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef %3305, i32 noundef %3306, ptr noundef %3307, i32 noundef 0, i32 noundef 0) #11
+  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #11
   br label %.loopexit882.i
 
 3308:                                             ; preds = %2680
@@ -8066,13 +8066,13 @@ get_vlc2.exit732.i:                               ; preds = %3388, %3364
   %3506 = load i32, ptr %75, align 4, !tbaa !186
   %3507 = load i32, ptr %76, align 8, !tbaa !187
   %3508 = load ptr, ptr %70, align 8, !tbaa !59
-  call void @ff_vc1_pred_mv(ptr noundef nonnull %0, i32 noundef %3353, i32 noundef %.2604.i, i32 noundef %.1601.i, i32 noundef 0, i32 noundef %3506, i32 noundef %3507, ptr noundef %3508, i32 noundef 0, i32 noundef 0) #10
+  call void @ff_vc1_pred_mv(ptr noundef nonnull %0, i32 noundef %3353, i32 noundef %.2604.i, i32 noundef %.1601.i, i32 noundef 0, i32 noundef %3506, i32 noundef %3507, ptr noundef %3508, i32 noundef 0, i32 noundef 0) #11
   %3509 = load i32, ptr %69, align 8, !tbaa !87
   %.not724.i = icmp eq i32 %3509, 0
   br i1 %.not724.i, label %3510, label %.thread843.i
 
 3510:                                             ; preds = %3505
-  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef %3353, i32 noundef 0, i32 noundef 0) #10
+  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef %3353, i32 noundef 0, i32 noundef 0) #11
   %.pre.i = load i32, ptr %69, align 8, !tbaa !87
   br label %.thread843.i
 
@@ -8096,7 +8096,7 @@ get_vlc2.exit732.i:                               ; preds = %3388, %3364
   br i1 %3520, label %3521, label %3522
 
 3521:                                             ; preds = %3515
-  call void @ff_vc1_mc_4mv_chroma(ptr noundef nonnull %0, i32 noundef 0) #10
+  call void @ff_vc1_mc_4mv_chroma(ptr noundef nonnull %0, i32 noundef 0) #11
   br label %3522
 
 3522:                                             ; preds = %3521, %3515, %.thread843.i
@@ -8310,7 +8310,7 @@ get_vlc2.exit732.i:                               ; preds = %3388, %3364
 
 3642:                                             ; preds = %.thread872.i
   %3643 = load ptr, ptr %96, align 8, !tbaa !116
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3643, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.19.i) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3643, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.19.i) #11
   br label %3644
 
 3644:                                             ; preds = %3642, %.thread872.i, %3534
@@ -8569,7 +8569,7 @@ get_vlc2.exit.i157:                               ; preds = %3723, %3699
   %3809 = sext i32 %3808 to i64
   %3810 = getelementptr inbounds [6 x [64 x i16]], ptr %3807, i64 %3809
   %3811 = getelementptr inbounds [64 x i16], ptr %3810, i64 %3798
-  call void %3806(ptr noundef %3811) #10
+  call void %3806(ptr noundef %3811) #11
   %3812 = load i8, ptr %119, align 8, !tbaa !150
   %.not717.i = icmp eq i8 %3812, 0
   br i1 %.not717.i, label %.loopexit885.i, label %.preheader884.i
@@ -8690,14 +8690,14 @@ get_vlc2.exit.i157:                               ; preds = %3723, %3699
   %3869 = load i32, ptr %75, align 4, !tbaa !186
   %3870 = load i32, ptr %76, align 8, !tbaa !187
   %3871 = load ptr, ptr %70, align 8, !tbaa !59
-  call void @ff_vc1_pred_mv(ptr noundef nonnull %0, i32 noundef %.6632893.i, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %3869, i32 noundef %3870, ptr noundef %3871, i32 noundef 0, i32 noundef 0) #10
-  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef %.6632893.i, i32 noundef 0, i32 noundef 0) #10
+  call void @ff_vc1_pred_mv(ptr noundef nonnull %0, i32 noundef %.6632893.i, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %3869, i32 noundef %3870, ptr noundef %3871, i32 noundef 0, i32 noundef 0) #11
+  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef %.6632893.i, i32 noundef 0, i32 noundef 0) #11
   %3872 = add nuw nsw i32 %.6632893.i, 1
   %exitcond915.not.i = icmp eq i32 %3872, 4
   br i1 %exitcond915.not.i, label %3873, label %.preheader887.i, !llvm.loop !219
 
 3873:                                             ; preds = %.preheader887.i
-  call void @ff_vc1_mc_4mv_chroma(ptr noundef nonnull %0, i32 noundef 0) #10
+  call void @ff_vc1_mc_4mv_chroma(ptr noundef nonnull %0, i32 noundef 0) #11
   %3874 = load ptr, ptr %73, align 8, !tbaa !117
   %3875 = getelementptr inbounds i8, ptr %3874, i64 %3857
   store i8 0, ptr %3875, align 1, !tbaa !101
@@ -8716,7 +8716,7 @@ get_vlc2.exit.i157:                               ; preds = %3723, %3699
   br i1 %3879, label %3880, label %3881
 
 3880:                                             ; preds = %3877
-  call void @ff_vc1_p_overlap_filter(ptr noundef nonnull %0) #10
+  call void @ff_vc1_p_overlap_filter(ptr noundef nonnull %0) #11
   br label %3881
 
 3881:                                             ; preds = %3880, %3877, %.loopexit882.i
@@ -8746,7 +8746,7 @@ vc1_decode_p_mb.exit:                             ; preds = %3228, %3263, %.thre
   br i1 %28, label %3896, label %3897
 
 3896:                                             ; preds = %vc1_decode_p_mb.exit
-  call void @ff_vc1_p_loop_filter(ptr noundef nonnull %0) #10
+  call void @ff_vc1_p_loop_filter(ptr noundef nonnull %0) #11
   br label %3897
 
 3897:                                             ; preds = %2631, %vc1_decode_p_mb_intfr.exit, %3896, %vc1_decode_p_mb.exit, %vc1_decode_p_mb_intfi.exit, %1149
@@ -8767,13 +8767,13 @@ vc1_decode_p_mb.exit:                             ; preds = %3228, %3263, %.thre
   %3904 = load i32, ptr %36, align 8, !tbaa !60
   %3905 = load i32, ptr %42, align 4, !tbaa !65
   %3906 = load i32, ptr %38, align 8, !tbaa !64
-  call void @ff_er_add_slice(ptr noundef nonnull %3903, i32 noundef 0, i32 noundef %3904, i32 noundef %3905, i32 noundef %3906, i32 noundef 14) #10
+  call void @ff_er_add_slice(ptr noundef nonnull %3903, i32 noundef 0, i32 noundef %3904, i32 noundef %3905, i32 noundef %3906, i32 noundef 14) #11
   %3907 = load ptr, ptr %96, align 8, !tbaa !137
   %.val109 = load i32, ptr %61, align 8, !tbaa !80
   %3908 = load i32, ptr %62, align 4, !tbaa !138
   %3909 = load i32, ptr %42, align 4, !tbaa !65
   %3910 = load i32, ptr %38, align 8, !tbaa !64
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3907, i32 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %.val109, i32 noundef %3908, i32 noundef %3909, i32 noundef %3910) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3907, i32 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %.val109, i32 noundef %3908, i32 noundef %3909, i32 noundef %3910) #11
   br label %3967
 
 3911:                                             ; preds = %3899
@@ -8862,7 +8862,7 @@ vc1_decode_p_mb.exit:                             ; preds = %3228, %3263, %.thre
   %3964 = add nsw i32 %3963, -1
   %3965 = shl i32 %.lcssa196, %3960
   %3966 = add nsw i32 %3965, -1
-  call void @ff_er_add_slice(ptr noundef nonnull %3958, i32 noundef 0, i32 noundef %3961, i32 noundef %3964, i32 noundef %3966, i32 noundef 112) #10
+  call void @ff_er_add_slice(ptr noundef nonnull %3958, i32 noundef 0, i32 noundef %3961, i32 noundef %3964, i32 noundef %3966, i32 noundef 112) #11
   br label %3967
 
 3967:                                             ; preds = %._crit_edge215, %3902, %186
@@ -9030,7 +9030,7 @@ define internal fastcc void @vc1_decode_b_blocks(ptr noundef initializes((3352, 
 
 125:                                              ; preds = %.lr.ph196, %._crit_edge
   store i32 0, ptr %28, align 4, !tbaa !65
-  call void @ff_init_block_index(ptr noundef nonnull %0) #10
+  call void @ff_init_block_index(ptr noundef nonnull %0) #11
   %126 = load i32, ptr %29, align 8, !tbaa !66
   %.not.i = icmp eq i32 %126, 0
   br i1 %.not.i, label %init_block_index.exit, label %127
@@ -9129,7 +9129,7 @@ init_block_index.exit:                            ; preds = %125, %127, %131
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 4336
   %186 = load i32, ptr %22, align 8, !tbaa !60
   %187 = load i32, ptr %24, align 8, !tbaa !64
-  call void @ff_er_add_slice(ptr noundef nonnull %185, i32 noundef 0, i32 noundef %186, i32 noundef %152, i32 noundef %187, i32 noundef 14) #10
+  call void @ff_er_add_slice(ptr noundef nonnull %185, i32 noundef 0, i32 noundef %186, i32 noundef %152, i32 noundef %187, i32 noundef 14) #11
   br label %4764
 
 188:                                              ; preds = %181, %179
@@ -9411,7 +9411,7 @@ get_vlc2.exit387.i:                               ; preds = %217, %194
 
 361:                                              ; preds = %.thread461.i
   %362 = load ptr, ptr %74, align 8, !tbaa !116
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %362, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.5.i) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %362, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.5.i) #11
   br label %363
 
 363:                                              ; preds = %361, %.thread461.i, %243
@@ -9590,7 +9590,7 @@ get_vlc2.exit383.i:                               ; preds = %412, %391
   %483 = load ptr, ptr %83, align 8, !tbaa !134
   %484 = load ptr, ptr %81, align 8, !tbaa !227
   %485 = getelementptr inbounds nuw [64 x i16], ptr %484, i64 %indvars.iv579.i
-  call void %483(ptr noundef %485) #10
+  call void %483(ptr noundef %485) #11
   %486 = load i8, ptr %118, align 8, !tbaa !150
   %.not371.i = icmp eq i8 %486, 0
   br i1 %.not371.i, label %.loopexit.i, label %.preheader.i
@@ -9639,7 +9639,7 @@ get_vlc2.exit383.i:                               ; preds = %412, %391
   %510 = getelementptr inbounds nuw ptr, ptr %33, i64 %509
   %511 = load ptr, ptr %510, align 8, !tbaa !59
   %512 = getelementptr inbounds i8, ptr %511, i64 %505
-  call void %506(ptr noundef %508, ptr noundef %512, i64 noundef %504) #10
+  call void %506(ptr noundef %508, ptr noundef %512, i64 noundef %504) #11
   %indvars.iv.next580.i = add nuw nsw i64 %indvars.iv579.i, 1
   %exitcond582.not.i = icmp eq i64 %indvars.iv.next580.i, 6
   br i1 %exitcond582.not.i, label %.loopexit549.i, label %436, !llvm.loop !230
@@ -9913,8 +9913,8 @@ get_vlc2.exit.i401.i:                             ; preds = %643, %622, %595
   br i1 %696, label %698, label %697
 
 697:                                              ; preds = %695
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #10
-  call void @abort() #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #11
+  call void @abort() #12
   unreachable
 
 698:                                              ; preds = %695
@@ -10145,8 +10145,8 @@ get_vlc2.exit.i390.i:                             ; preds = %803, %782, %760
   br i1 %856, label %858, label %857
 
 857:                                              ; preds = %855
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #10
-  call void @abort() #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #11
+  call void @abort() #12
   unreachable
 
 858:                                              ; preds = %855
@@ -10248,26 +10248,26 @@ get_vlc2.exit.i390.i:                             ; preds = %803, %782, %760
 
 .critedge.i:                                      ; preds = %919
   %923 = load ptr, ptr %74, align 8, !tbaa !137
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %923, i32 noundef 16, ptr noundef nonnull @.str.11) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %923, i32 noundef 16, ptr noundef nonnull @.str.11) #11
   br label %vc1_decode_b_mb_intfi.exit
 
 924:                                              ; preds = %919
-  call void @ff_vc1_pred_b_mv_intfi(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %7) #10
-  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #10
-  call void @ff_vc1_interp_mc(ptr noundef nonnull %0) #10
+  call void @ff_vc1_pred_b_mv_intfi(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %7) #11
+  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #11
+  call void @ff_vc1_interp_mc(ptr noundef nonnull %0) #11
   br label %vc1_b_mc.exit.i
 
 925:                                              ; preds = %917, %916, %851, %826, %get_mvdata_interlaced.exit409.i, %758, %691
-  call void @ff_vc1_pred_b_mv_intfi(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %7) #10
+  call void @ff_vc1_pred_b_mv_intfi(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %7) #11
   br i1 %592, label %926, label %927
 
 926:                                              ; preds = %925
-  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #10
-  call void @ff_vc1_interp_mc(ptr noundef nonnull %0) #10
+  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #11
+  call void @ff_vc1_interp_mc(ptr noundef nonnull %0) #11
   br label %vc1_b_mc.exit.i
 
 927:                                              ; preds = %925
-  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef %593) #10
+  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef %593) #11
   br label %vc1_b_mc.exit.i
 
 vc1_b_mc.exit.i:                                  ; preds = %927, %926, %924
@@ -10455,8 +10455,8 @@ get_vlc2.exit.i.i:                                ; preds = %1006, %985, %958
   br i1 %1059, label %1061, label %1060
 
 1060:                                             ; preds = %1058
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #10
-  call void @abort() #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #11
+  call void @abort() #12
   unreachable
 
 1061:                                             ; preds = %1058
@@ -10544,14 +10544,14 @@ get_vlc2.exit.i.i:                                ; preds = %1006, %985, %958
   br label %get_mvdata_interlaced.exit.i
 
 get_mvdata_interlaced.exit.i:                     ; preds = %1120, %1119, %1054, %1029, %953
-  call void @ff_vc1_pred_b_mv_intfi(ptr noundef nonnull %0, i32 noundef %.2556.i, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull %7) #10
-  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef %.2556.i, i32 noundef %952, i32 noundef 0) #10
+  call void @ff_vc1_pred_b_mv_intfi(ptr noundef nonnull %0, i32 noundef %.2556.i, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull %7) #11
+  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef %.2556.i, i32 noundef %952, i32 noundef 0) #11
   %1122 = add nuw nsw i32 %.2556.i, 1
   %exitcond570.not.i = icmp eq i32 %1122, 4
   br i1 %exitcond570.not.i, label %1123, label %953, !llvm.loop !237
 
 1123:                                             ; preds = %get_mvdata_interlaced.exit.i
-  call void @ff_vc1_mc_4mv_chroma(ptr noundef nonnull %0, i32 noundef %952) #10
+  call void @ff_vc1_mc_4mv_chroma(ptr noundef nonnull %0, i32 noundef %952) #11
   %1124 = and i32 %.062.i385.i, 1
   br label %1125
 
@@ -10795,7 +10795,7 @@ get_mvdata_interlaced.exit.i:                     ; preds = %1120, %1119, %1054,
 
 1271:                                             ; preds = %.thread523.i
   %1272 = load ptr, ptr %74, align 8, !tbaa !116
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1272, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.12.i) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1272, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.12.i) #11
   br label %1276
 
 .thread528.i:                                     ; preds = %1167, %1125
@@ -10980,7 +10980,7 @@ vc1_decode_b_mb_intfi.exit:                       ; preds = %1354, %476, %.crite
   br i1 %.not76, label %4712, label %1383
 
 1383:                                             ; preds = %vc1_decode_b_mb_intfi.exit
-  call void @ff_vc1_b_intfi_loop_filter(ptr noundef nonnull %0) #10
+  call void @ff_vc1_b_intfi_loop_filter(ptr noundef nonnull %0) #11
   br label %4712
 
 1384:                                             ; preds = %188
@@ -11476,7 +11476,7 @@ get_vlc2.exit915.i:                               ; preds = %1565, %1547
 
 1711:                                             ; preds = %.thread1068.i
   %1712 = load ptr, ptr %74, align 8, !tbaa !116
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1712, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.5823.i) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1712, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.5823.i) #11
   br label %1713
 
 1713:                                             ; preds = %1711, %.thread1068.i, %1588
@@ -11574,7 +11574,7 @@ get_vlc2.exit915.i:                               ; preds = %1565, %1547
   %1770 = load ptr, ptr %83, align 8, !tbaa !134
   %1771 = load ptr, ptr %81, align 8, !tbaa !227
   %1772 = getelementptr inbounds nuw [64 x i16], ptr %1771, i64 %indvars.iv1213.i
-  call void %1770(ptr noundef %1772) #10
+  call void %1770(ptr noundef %1772) #11
   br i1 %.not898.i, label %1773, label %1784
 
 1773:                                             ; preds = %1769
@@ -11608,7 +11608,7 @@ get_vlc2.exit915.i:                               ; preds = %1565, %1547
   %1793 = getelementptr inbounds i8, ptr %1792, i64 %.0808.i
   %sext901.i = shl i64 %.0798.in.i, 32
   %1794 = ashr exact i64 %sext901.i, 32
-  call void %1787(ptr noundef %1789, ptr noundef %1793, i64 noundef %1794) #10
+  call void %1787(ptr noundef %1789, ptr noundef %1793, i64 noundef %1794) #11
   %indvars.iv.next1214.i = add nuw nsw i64 %indvars.iv1213.i, 1
   %exitcond1216.not.i = icmp eq i64 %indvars.iv.next1214.i, 6
   br i1 %exitcond1216.not.i, label %.loopexit.i87, label %1723, !llvm.loop !240
@@ -11669,7 +11669,7 @@ get_vlc2.exit915.i:                               ; preds = %1565, %1547
 
 1829:                                             ; preds = %1825
   %1830 = load ptr, ptr %74, align 8, !tbaa !137
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1830, i32 noundef 24, ptr noundef nonnull @.str.12) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1830, i32 noundef 24, ptr noundef nonnull @.str.12) #11
   br label %1831
 
 1831:                                             ; preds = %1829, %1825
@@ -12218,20 +12218,20 @@ get_vlc2.exit911.i:                               ; preds = %2098, %2077
 
 .preheader1146.i:                                 ; preds = %2181, %.preheader1146.i
   %.51160.i = phi i32 [ %2182, %.preheader1146.i ], [ 0, %2181 ]
-  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef %.51160.i, i32 noundef 0, i32 noundef 0) #10
-  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef %.51160.i, i32 noundef 1, i32 noundef 1) #10
+  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef %.51160.i, i32 noundef 0, i32 noundef 0) #11
+  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef %.51160.i, i32 noundef 1, i32 noundef 1) #11
   %2182 = add nuw nsw i32 %.51160.i, 1
   %exitcond1197.not.i = icmp eq i32 %2182, 4
   br i1 %exitcond1197.not.i, label %2183, label %.preheader1146.i, !llvm.loop !246
 
 2183:                                             ; preds = %.preheader1146.i
-  call void @ff_vc1_mc_4mv_chroma4(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
-  call void @ff_vc1_mc_4mv_chroma4(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 1, i32 noundef 1) #10
+  call void @ff_vc1_mc_4mv_chroma4(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
+  call void @ff_vc1_mc_4mv_chroma4(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 1, i32 noundef 1) #11
   br label %3288
 
 2184:                                             ; preds = %2181
-  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #10
-  call void @ff_vc1_interp_mc(ptr noundef nonnull %0) #10
+  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #11
+  call void @ff_vc1_interp_mc(ptr noundef nonnull %0) #11
   br label %3288
 
 2185:                                             ; preds = %2175
@@ -12379,8 +12379,8 @@ get_vlc2.exit.i966.i:                             ; preds = %2243, %2222, %2195
   br i1 %2296, label %2298, label %2297
 
 2297:                                             ; preds = %2295
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #10
-  call void @abort() #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #11
+  call void @abort() #12
   unreachable
 
 2298:                                             ; preds = %2295
@@ -12462,17 +12462,17 @@ get_mvdata_interlaced.exit974.i:                  ; preds = %2330, %2327, %2291,
   %2356 = and i32 %.61163.i, 2
   %2357 = load i32, ptr %98, align 4, !tbaa !186
   %2358 = load i32, ptr %99, align 8, !tbaa !187
-  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef %2356, i32 noundef %.01032.i, i32 noundef %.0.i105, i32 noundef 2, i32 noundef %2357, i32 noundef %2358, i32 noundef %2191) #10
-  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef %2356, i32 noundef %2191, i32 noundef %2191) #10
+  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef %2356, i32 noundef %.01032.i, i32 noundef %.0.i105, i32 noundef 2, i32 noundef %2357, i32 noundef %2358, i32 noundef %2191) #11
+  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef %2356, i32 noundef %2191, i32 noundef %2191) #11
   %2359 = or i32 %.61163.i, 1
-  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef %2359, i32 noundef %2191, i32 noundef %2191) #10
+  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef %2359, i32 noundef %2191, i32 noundef %2191) #11
   %2360 = add nuw nsw i32 %.61163.i, 1
   %exitcond1204.not.i = icmp eq i32 %2360, 4
   br i1 %exitcond1204.not.i, label %2361, label %2190, !llvm.loop !247
 
 2361:                                             ; preds = %get_mvdata_interlaced.exit974.i
-  call void @ff_vc1_mc_4mv_chroma4(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
-  call void @ff_vc1_mc_4mv_chroma4(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 1, i32 noundef 1) #10
+  call void @ff_vc1_mc_4mv_chroma4(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
+  call void @ff_vc1_mc_4mv_chroma4(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 1, i32 noundef 1) #11
   br label %3288
 
 2362:                                             ; preds = %2185
@@ -12611,8 +12611,8 @@ get_vlc2.exit.i955.i:                             ; preds = %2415, %2394, %2367
   br i1 %2468, label %2470, label %2469
 
 2469:                                             ; preds = %2467
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #10
-  call void @abort() #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #11
+  call void @abort() #12
   unreachable
 
 2470:                                             ; preds = %2467
@@ -12693,8 +12693,8 @@ get_mvdata_interlaced.exit963.i:                  ; preds = %2502, %2499, %2463,
   %.11021.i = phi i32 [ 0, %2363 ], [ %2460, %2438 ], [ %2466, %2463 ], [ %2527, %2502 ], [ 0, %2499 ]
   %2528 = load i32, ptr %98, align 4, !tbaa !186
   %2529 = load i32, ptr %99, align 8, !tbaa !187
-  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.11033.i, i32 noundef %.11021.i, i32 noundef 1, i32 noundef %2528, i32 noundef %2529, i32 noundef 0) #10
-  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #10
+  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.11033.i, i32 noundef %.11021.i, i32 noundef 1, i32 noundef %2528, i32 noundef %2529, i32 noundef 0) #11
+  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #11
   %2530 = and i32 %2365, 1
   %.not862.i = icmp eq i32 %2530, 0
   br i1 %.not862.i, label %get_mvdata_interlaced.exit952.i, label %2531
@@ -12825,8 +12825,8 @@ get_vlc2.exit.i944.i:                             ; preds = %2579, %2558, %2531
   br i1 %2632, label %2634, label %2633
 
 2633:                                             ; preds = %2631
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #10
-  call void @abort() #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #11
+  call void @abort() #12
   unreachable
 
 2634:                                             ; preds = %2631
@@ -12907,8 +12907,8 @@ get_mvdata_interlaced.exit952.i:                  ; preds = %2666, %2663, %2627,
   %.21022.i = phi i32 [ 0, %get_mvdata_interlaced.exit963.i ], [ %2624, %2602 ], [ %2630, %2627 ], [ %2691, %2666 ], [ 0, %2663 ]
   %2692 = load i32, ptr %98, align 4, !tbaa !186
   %2693 = load i32, ptr %99, align 8, !tbaa !187
-  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.21034.i, i32 noundef %.21022.i, i32 noundef 1, i32 noundef %2692, i32 noundef %2693, i32 noundef 1) #10
-  call void @ff_vc1_interp_mc(ptr noundef nonnull %0) #10
+  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.21034.i, i32 noundef %.21022.i, i32 noundef 1, i32 noundef %2692, i32 noundef %2693, i32 noundef 1) #11
+  call void @ff_vc1_interp_mc(ptr noundef nonnull %0) #11
   br label %3288
 
 2694:                                             ; preds = %2362
@@ -13052,8 +13052,8 @@ get_vlc2.exit.i933.i:                             ; preds = %2751, %2730, %2703
   br i1 %2804, label %2806, label %2805
 
 2805:                                             ; preds = %2803
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #10
-  call void @abort() #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #11
+  call void @abort() #12
   unreachable
 
 2806:                                             ; preds = %2803
@@ -13134,7 +13134,7 @@ get_mvdata_interlaced.exit941.i:                  ; preds = %2838, %2835, %2799,
   %.31023.i = phi i32 [ 0, %2697 ], [ %2796, %2774 ], [ %2802, %2799 ], [ %2863, %2838 ], [ 0, %2835 ]
   %2864 = load i32, ptr %98, align 4, !tbaa !186
   %2865 = load i32, ptr %99, align 8, !tbaa !187
-  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.31035.i, i32 noundef %.31023.i, i32 noundef 2, i32 noundef %2864, i32 noundef %2865, i32 noundef %2696) #10
+  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.31035.i, i32 noundef %.31023.i, i32 noundef 2, i32 noundef %2864, i32 noundef %2865, i32 noundef %2696) #11
   %2866 = and i32 %2701, 1
   %.not860.i = icmp eq i32 %2866, 0
   br i1 %.not860.i, label %get_mvdata_interlaced.exit930.i, label %2867
@@ -13265,8 +13265,8 @@ get_vlc2.exit.i922.i:                             ; preds = %2915, %2894, %2867
   br i1 %2968, label %2970, label %2969
 
 2969:                                             ; preds = %2967
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #10
-  call void @abort() #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #11
+  call void @abort() #12
   unreachable
 
 2970:                                             ; preds = %2967
@@ -13347,7 +13347,7 @@ get_mvdata_interlaced.exit930.i:                  ; preds = %3002, %2999, %2963,
   %.41024.i = phi i32 [ 0, %get_mvdata_interlaced.exit941.i ], [ %2960, %2938 ], [ %2966, %2963 ], [ %3027, %3002 ], [ 0, %2999 ]
   %3028 = load i32, ptr %98, align 4, !tbaa !186
   %3029 = load i32, ptr %99, align 8, !tbaa !187
-  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 2, i32 noundef %.41036.i, i32 noundef %.41024.i, i32 noundef 2, i32 noundef %3028, i32 noundef %3029, i32 noundef %.0795.i) #10
+  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 2, i32 noundef %.41036.i, i32 noundef %.41024.i, i32 noundef 2, i32 noundef %3028, i32 noundef %3029, i32 noundef %.0795.i) #11
   br i1 %.0814.i, label %3071, label %.preheader1144.i
 
 .preheader1144.i:                                 ; preds = %get_mvdata_interlaced.exit930.i
@@ -13412,18 +13412,18 @@ get_mvdata_interlaced.exit930.i:                  ; preds = %3002, %2999, %2963,
 3071:                                             ; preds = %get_mvdata_interlaced.exit930.i
   %3072 = load i32, ptr %98, align 4, !tbaa !186
   %3073 = load i32, ptr %99, align 8, !tbaa !187
-  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef %3072, i32 noundef %3073, i32 noundef %2699) #10
+  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef %3072, i32 noundef %3073, i32 noundef %2699) #11
   %3074 = load i32, ptr %98, align 4, !tbaa !186
   %3075 = load i32, ptr %99, align 8, !tbaa !187
-  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef %3074, i32 noundef %3075, i32 noundef %2699) #10
+  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef %3074, i32 noundef %3075, i32 noundef %2699) #11
   br label %.loopexit1145.i
 
 .loopexit1145.i:                                  ; preds = %3038, %3071
-  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %2696, i32 noundef 0) #10
-  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %2696, i32 noundef 0) #10
-  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef 2, i32 noundef %.0795.i, i32 noundef 0) #10
-  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef 3, i32 noundef %.0795.i, i32 noundef 0) #10
-  call void @ff_vc1_mc_4mv_chroma4(ptr noundef nonnull %0, i32 noundef %2696, i32 noundef %.0795.i, i32 noundef 0) #10
+  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %2696, i32 noundef 0) #11
+  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %2696, i32 noundef 0) #11
+  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef 2, i32 noundef %.0795.i, i32 noundef 0) #11
+  call void @ff_vc1_mc_4mv_luma(ptr noundef nonnull %0, i32 noundef 3, i32 noundef %.0795.i, i32 noundef 0) #11
+  call void @ff_vc1_mc_4mv_chroma4(ptr noundef nonnull %0, i32 noundef %2696, i32 noundef %.0795.i, i32 noundef 0) #11
   br label %3288
 
 3076:                                             ; preds = %2694
@@ -13558,8 +13558,8 @@ get_vlc2.exit.i.i96:                              ; preds = %3127, %3106, %3079
   br i1 %3180, label %3182, label %3181
 
 3181:                                             ; preds = %3179
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #10
-  call void @abort() #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 296) #11
+  call void @abort() #12
   unreachable
 
 3182:                                             ; preds = %3179
@@ -13640,7 +13640,7 @@ get_mvdata_interlaced.exit.i102:                  ; preds = %3214, %3211, %3175,
   %.51025.i = phi i32 [ 0, %3076 ], [ %3172, %3150 ], [ %3178, %3175 ], [ %3239, %3214 ], [ 0, %3211 ]
   %3240 = load i32, ptr %98, align 4, !tbaa !186
   %3241 = load i32, ptr %99, align 8, !tbaa !187
-  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.51037.i, i32 noundef %.51025.i, i32 noundef 1, i32 noundef %3240, i32 noundef %3241, i32 noundef %2696) #10
+  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.51037.i, i32 noundef %.51025.i, i32 noundef 1, i32 noundef %3240, i32 noundef %3241, i32 noundef %2696) #11
   %3242 = load ptr, ptr %57, align 8, !tbaa !199
   %3243 = load i32, ptr %38, align 4, !tbaa !73
   %3244 = sext i32 %3243 to i64
@@ -13665,7 +13665,7 @@ get_mvdata_interlaced.exit.i102:                  ; preds = %3214, %3211, %3175,
   %3259 = load i32, ptr %99, align 8, !tbaa !187
   %3260 = xor i1 %2695, true
   %3261 = zext i1 %3260 to i32
-  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef %3258, i32 noundef %3259, i32 noundef %3261) #10
+  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef %3258, i32 noundef %3259, i32 noundef %3261) #11
   %3262 = zext i1 %3260 to i64
   %3263 = getelementptr inbounds nuw ptr, ptr %58, i64 %3262
   %3264 = load ptr, ptr %3263, align 8, !tbaa !95
@@ -13703,7 +13703,7 @@ get_mvdata_interlaced.exit.i102:                  ; preds = %3214, %3211, %3175,
   br i1 %3267, label %3266, label %3287, !llvm.loop !249
 
 3287:                                             ; preds = %3266
-  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef %2696) #10
+  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef %2696) #11
   br label %3288
 
 3288:                                             ; preds = %3287, %.loopexit1145.i, %get_mvdata_interlaced.exit952.i, %2361, %2184, %2183
@@ -13903,7 +13903,7 @@ get_mvdata_interlaced.exit.i102:                  ; preds = %3214, %3211, %3175,
 
 3399:                                             ; preds = %.thread1104.i
   %3400 = load ptr, ptr %74, align 8, !tbaa !116
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3400, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.12830.i) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3400, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.12830.i) #11
   br label %3401
 
 3401:                                             ; preds = %3399, %.thread1104.i, %3291
@@ -14132,10 +14132,10 @@ get_vlc2.exit.i89:                                ; preds = %3431, %3407
 3546:                                             ; preds = %3544
   %3547 = load i32, ptr %98, align 4, !tbaa !186
   %3548 = load i32, ptr %99, align 8, !tbaa !187
-  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef %3547, i32 noundef %3548, i32 noundef 0) #10
+  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef %3547, i32 noundef %3548, i32 noundef 0) #11
   %3549 = load i32, ptr %98, align 4, !tbaa !186
   %3550 = load i32, ptr %99, align 8, !tbaa !187
-  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef %3549, i32 noundef %3550, i32 noundef 1) #10
+  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef %3549, i32 noundef %3550, i32 noundef 1) #11
   br label %.thread1113.i
 
 3551:                                             ; preds = %3544
@@ -14143,7 +14143,7 @@ get_vlc2.exit.i89:                                ; preds = %3431, %3407
   %3553 = zext i1 %3552 to i32
   %3554 = load i32, ptr %98, align 4, !tbaa !186
   %3555 = load i32, ptr %99, align 8, !tbaa !187
-  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef %3554, i32 noundef %3555, i32 noundef %3553) #10
+  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef %3554, i32 noundef %3555, i32 noundef %3553) #11
   br i1 %.0814.i, label %3599, label %3556
 
 3556:                                             ; preds = %3551
@@ -14231,7 +14231,7 @@ get_vlc2.exit.i89:                                ; preds = %3431, %3407
   %3617 = load i32, ptr %99, align 8, !tbaa !187
   %3618 = xor i1 %3552, true
   %3619 = zext i1 %3618 to i32
-  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef %3616, i32 noundef %3617, i32 noundef %3619) #10
+  call void @ff_vc1_pred_mv_intfr(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef %3616, i32 noundef %3617, i32 noundef %3619) #11
   %3620 = zext i1 %3618 to i64
   %3621 = getelementptr inbounds nuw ptr, ptr %58, i64 %3620
   %3622 = load ptr, ptr %3621, align 8, !tbaa !95
@@ -14269,12 +14269,12 @@ get_vlc2.exit.i89:                                ; preds = %3431, %3407
   br i1 %3625, label %3624, label %.loopexit1147.i, !llvm.loop !253
 
 .thread1113.i:                                    ; preds = %3546, %3522
-  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #10
-  call void @ff_vc1_interp_mc(ptr noundef nonnull %0) #10
+  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #11
+  call void @ff_vc1_interp_mc(ptr noundef nonnull %0) #11
   br label %3645
 
 .loopexit1147.i:                                  ; preds = %3566, %3624
-  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef %3553) #10
+  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef %3553) #11
   br label %3645
 
 3645:                                             ; preds = %.loopexit1147.i, %.thread1113.i
@@ -14309,7 +14309,7 @@ vc1_decode_b_mb_intfr.exit:                       ; preds = %1763, %3500, %.loop
   br i1 %.not75, label %4712, label %3658
 
 3658:                                             ; preds = %vc1_decode_b_mb_intfr.exit
-  call void @ff_vc1_p_intfr_loop_filter(ptr noundef nonnull %0) #10
+  call void @ff_vc1_p_intfr_loop_filter(ptr noundef nonnull %0) #11
   br label %4712
 
 3659:                                             ; preds = %188
@@ -14715,12 +14715,12 @@ decode012.exit.thread.i149:                       ; preds = %3868
   br i1 %.not458.i, label %3919, label %3911
 
 3911:                                             ; preds = %3910
-  call void @ff_vc1_pred_b_mv(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.0410.i, i32 noundef %spec.select.i124) #10
+  call void @ff_vc1_pred_b_mv(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.0410.i, i32 noundef %spec.select.i124) #11
   br i1 %.not451.i, label %3913, label %3912
 
 3912:                                             ; preds = %3911
-  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #10
-  call void @ff_vc1_interp_mc(ptr noundef nonnull %0) #10
+  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #11
+  call void @ff_vc1_interp_mc(ptr noundef nonnull %0) #11
   br label %vc1_decode_b_mb.exit
 
 3913:                                             ; preds = %3911
@@ -14728,14 +14728,14 @@ decode012.exit.thread.i149:                       ; preds = %3868
   br i1 %3914, label %3915, label %3916
 
 3915:                                             ; preds = %3913
-  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #10
-  call void @ff_vc1_interp_mc(ptr noundef nonnull %0) #10
+  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #11
+  call void @ff_vc1_interp_mc(ptr noundef nonnull %0) #11
   br label %vc1_decode_b_mb.exit
 
 3916:                                             ; preds = %3913
   %3917 = icmp eq i32 %.0408.i, 0
   %3918 = zext i1 %3917 to i32
-  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef %3918) #10
+  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef %3918) #11
   br label %vc1_decode_b_mb.exit
 
 3919:                                             ; preds = %3910
@@ -14971,7 +14971,7 @@ get_vlc2.exit523.i:                               ; preds = %3941, %3920
 
 4062:                                             ; preds = %.thread570.i
   %4063 = load ptr, ptr %74, align 8, !tbaa !116
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %4063, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.5.i127) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %4063, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.5.i127) #11
   br label %4064
 
 4064:                                             ; preds = %4062, %.thread570.i, %get_vlc2.exit523.i
@@ -15048,9 +15048,9 @@ vc1_b_mc.exit532.i:                               ; preds = %get_vlc2.exit519.i,
   store i32 0, ptr %120, align 4, !tbaa !73
   store i32 0, ptr %3, align 4, !tbaa !73
   store i32 0, ptr %2, align 4, !tbaa !73
-  call void @ff_vc1_pred_b_mv(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.0410.i, i32 noundef %.0408.i) #10
-  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #10
-  call void @ff_vc1_interp_mc(ptr noundef nonnull %0) #10
+  call void @ff_vc1_pred_b_mv(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.0410.i, i32 noundef %.0408.i) #11
+  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #11
+  call void @ff_vc1_interp_mc(ptr noundef nonnull %0) #11
   br label %4615
 
 4115:                                             ; preds = %3919
@@ -15063,19 +15063,19 @@ vc1_b_mc.exit532.i:                               ; preds = %get_vlc2.exit519.i,
   br i1 %.not459.i, label %4118, label %4124
 
 4118:                                             ; preds = %4116
-  call void @ff_vc1_pred_b_mv(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %.0408.i) #10
+  call void @ff_vc1_pred_b_mv(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %.0408.i) #11
   %4119 = icmp eq i32 %.0408.i, 2
   br i1 %4119, label %4120, label %4121
 
 4120:                                             ; preds = %4118
-  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #10
-  call void @ff_vc1_interp_mc(ptr noundef nonnull %0) #10
+  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #11
+  call void @ff_vc1_interp_mc(ptr noundef nonnull %0) #11
   br label %vc1_decode_b_mb.exit
 
 4121:                                             ; preds = %4118
   %4122 = icmp eq i32 %.0408.i, 0
   %4123 = zext i1 %4122 to i32
-  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef %4123) #10
+  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef %4123) #11
   br label %vc1_decode_b_mb.exit
 
 4124:                                             ; preds = %4116
@@ -15265,7 +15265,7 @@ vc1_b_mc.exit532.i:                               ; preds = %get_vlc2.exit519.i,
 
 4232:                                             ; preds = %.thread602.i
   %4233 = load ptr, ptr %74, align 8, !tbaa !116
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %4233, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.13.i) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %4233, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.13.i) #11
   br label %4234
 
 4234:                                             ; preds = %4232, %.thread602.i, %4124
@@ -15291,7 +15291,7 @@ vc1_b_mc.exit532.i:                               ; preds = %get_vlc2.exit519.i,
   store i32 %spec.select.i534.i, ptr %47, align 8, !tbaa !80
   %4251 = and i32 %4250, 1
   store i32 %4251, ptr %67, align 8, !tbaa !121
-  call void @ff_vc1_pred_b_mv(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %.0408.i) #10
+  call void @ff_vc1_pred_b_mv(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %.0408.i) #11
   br label %4615
 
 .thread574.i:                                     ; preds = %4115
@@ -15492,12 +15492,12 @@ get_vlc2.exit515.i:                               ; preds = %4277, %4253
   br label %4395
 
 4395:                                             ; preds = %4377, %4364, %4330, %4301, %4300
-  call void @ff_vc1_pred_b_mv(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 2) #10
+  call void @ff_vc1_pred_b_mv(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 2) #11
   br i1 %4299, label %4396, label %4397
 
 4396:                                             ; preds = %4395
-  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #10
-  call void @ff_vc1_interp_mc(ptr noundef nonnull %0) #10
+  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #11
+  call void @ff_vc1_interp_mc(ptr noundef nonnull %0) #11
   br label %vc1_decode_b_mb.exit
 
 4397:                                             ; preds = %4395
@@ -15506,20 +15506,20 @@ get_vlc2.exit515.i:                               ; preds = %4277, %4253
   br i1 %.not476.i, label %4400, label %.thread607.i
 
 .thread154:                                       ; preds = %.thread574.i
-  call void @ff_vc1_pred_b_mv(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %.0408.i) #10
+  call void @ff_vc1_pred_b_mv(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %.0408.i) #11
   %4399 = load i32, ptr %53, align 8, !tbaa !87
   %.not476.i155 = icmp eq i32 %4399, 0
   br i1 %.not476.i155, label %.thread156, label %.thread607.i
 
 4400:                                             ; preds = %4397
-  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #10
-  call void @ff_vc1_interp_mc(ptr noundef nonnull %0) #10
+  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef 0) #11
+  call void @ff_vc1_interp_mc(ptr noundef nonnull %0) #11
   br label %vc1_b_mc.exit
 
 .thread156:                                       ; preds = %.thread154
   %4401 = icmp eq i32 %.0408.i, 0
   %4402 = zext i1 %4401 to i32
-  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef %4402) #10
+  call void @ff_vc1_mc_1mv(ptr noundef nonnull %0, i32 noundef %4402) #11
   br label %vc1_b_mc.exit
 
 vc1_b_mc.exit:                                    ; preds = %4400, %.thread156
@@ -15783,7 +15783,7 @@ get_vlc2.exit511.i:                               ; preds = %4438, %4417
 
 4559:                                             ; preds = %.thread635.i
   %4560 = load ptr, ptr %74, align 8, !tbaa !116
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %4560, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.20.i) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %4560, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.20.i) #11
   br label %4561
 
 4561:                                             ; preds = %4559, %.thread635.i, %get_vlc2.exit511.i
@@ -15967,7 +15967,7 @@ get_vlc2.exit.i137:                               ; preds = %4593, %4569
   %4678 = load ptr, ptr %83, align 8, !tbaa !134
   %4679 = load ptr, ptr %81, align 8, !tbaa !227
   %4680 = getelementptr inbounds nuw [64 x i16], ptr %4679, i64 %indvars.iv661.i
-  call void %4678(ptr noundef %4680) #10
+  call void %4678(ptr noundef %4680) #11
   %4681 = load i8, ptr %118, align 8, !tbaa !150
   %.not506.i = icmp eq i8 %4681, 0
   %.pre675.i = load ptr, ptr %81, align 8, !tbaa !227
@@ -15997,7 +15997,7 @@ get_vlc2.exit.i137:                               ; preds = %4593, %4569
   %.in507.v.i = select i1 %.not500.i, i64 568, i64 576
   %.in507.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in507.v.i
   %4693 = load i64, ptr %.in507.i, align 8, !tbaa !193
-  call void %4687(ptr noundef %4688, ptr noundef %4692, i64 noundef %4693) #10
+  call void %4687(ptr noundef %4688, ptr noundef %4692, i64 noundef %4693) #11
   br label %4709
 
 4694:                                             ; preds = %4638
@@ -16042,7 +16042,7 @@ vc1_decode_b_mb.exit:                             ; preds = %4671, %4695, %4709,
   br i1 %.not74, label %4712, label %4711
 
 4711:                                             ; preds = %vc1_decode_b_mb.exit
-  call void @ff_vc1_i_loop_filter(ptr noundef nonnull %0) #10
+  call void @ff_vc1_i_loop_filter(ptr noundef nonnull %0) #11
   br label %4712
 
 4712:                                             ; preds = %3658, %vc1_decode_b_mb_intfr.exit, %4711, %vc1_decode_b_mb.exit, %vc1_decode_b_mb_intfi.exit, %1383
@@ -16058,13 +16058,13 @@ vc1_decode_b_mb.exit:                             ; preds = %4671, %4695, %4709,
   %4717 = load i32, ptr %22, align 8, !tbaa !60
   %4718 = load i32, ptr %28, align 4, !tbaa !65
   %4719 = load i32, ptr %24, align 8, !tbaa !64
-  call void @ff_er_add_slice(ptr noundef nonnull %4716, i32 noundef 0, i32 noundef %4717, i32 noundef %4718, i32 noundef %4719, i32 noundef 14) #10
+  call void @ff_er_add_slice(ptr noundef nonnull %4716, i32 noundef 0, i32 noundef %4717, i32 noundef %4718, i32 noundef %4719, i32 noundef 14) #11
   %4720 = load ptr, ptr %74, align 8, !tbaa !137
   %.val77 = load i32, ptr %47, align 8, !tbaa !80
   %4721 = load i32, ptr %48, align 4, !tbaa !138
   %4722 = load i32, ptr %28, align 4, !tbaa !65
   %4723 = load i32, ptr %24, align 8, !tbaa !64
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %4720, i32 noundef 16, ptr noundef nonnull @.str.10, i32 noundef %.val77, i32 noundef %4721, i32 noundef %4722, i32 noundef %4723) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %4720, i32 noundef 16, ptr noundef nonnull @.str.10, i32 noundef %.val77, i32 noundef %4721, i32 noundef %4722, i32 noundef %4723) #11
   br label %4764
 
 4724:                                             ; preds = %4712
@@ -16124,7 +16124,7 @@ vc1_decode_b_mb.exit:                             ; preds = %4671, %4695, %4709,
   %4761 = add nsw i32 %4760, -1
   %4762 = shl i32 %.lcssa, %4757
   %4763 = add nsw i32 %4762, -1
-  call void @ff_er_add_slice(ptr noundef nonnull %4755, i32 noundef 0, i32 noundef %4758, i32 noundef %4761, i32 noundef %4763, i32 noundef 112) #10
+  call void @ff_er_add_slice(ptr noundef nonnull %4755, i32 noundef 0, i32 noundef %4758, i32 noundef %4761, i32 noundef %4763, i32 noundef 112) #11
   br label %4764
 
 4764:                                             ; preds = %._crit_edge197, %4715, %184
@@ -16242,7 +16242,7 @@ define internal fastcc void @vc1_put_blocks_clamped(ptr noundef readonly %0, i32
 71:                                               ; preds = %62, %64
   %72 = phi i64 [ %68, %64 ], [ %47, %62 ]
   %73 = phi ptr [ %70, %64 ], [ %53, %62 ]
-  tail call void %63(ptr noundef %61, ptr noundef nonnull %73, i64 noundef %72) #10
+  tail call void %63(ptr noundef %61, ptr noundef nonnull %73, i64 noundef %72) #11
   br label %86
 
 74:                                               ; preds = %41
@@ -16262,7 +16262,7 @@ define internal fastcc void @vc1_put_blocks_clamped(ptr noundef readonly %0, i32
 83:                                               ; preds = %74, %76
   %84 = phi i64 [ %80, %76 ], [ %47, %74 ]
   %85 = phi ptr [ %82, %76 ], [ %53, %74 ]
-  tail call void %75(ptr noundef %61, ptr noundef nonnull %85, i64 noundef %84) #10
+  tail call void %75(ptr noundef %61, ptr noundef nonnull %85, i64 noundef %84) #11
   br label %86
 
 86:                                               ; preds = %28, %34, %83, %71
@@ -16362,7 +16362,7 @@ define internal fastcc void @vc1_put_blocks_clamped(ptr noundef readonly %0, i32
 148:                                              ; preds = %140, %142
   %149 = phi i64 [ %146, %142 ], [ %126, %140 ]
   %150 = phi ptr [ %147, %142 ], [ %131, %140 ]
-  tail call void %141(ptr noundef %139, ptr noundef %150, i64 noundef %149) #10
+  tail call void %141(ptr noundef %139, ptr noundef %150, i64 noundef %149) #11
   br label %162
 
 151:                                              ; preds = %120
@@ -16381,7 +16381,7 @@ define internal fastcc void @vc1_put_blocks_clamped(ptr noundef readonly %0, i32
 159:                                              ; preds = %151, %153
   %160 = phi i64 [ %157, %153 ], [ %126, %151 ]
   %161 = phi ptr [ %158, %153 ], [ %131, %151 ]
-  tail call void %152(ptr noundef %139, ptr noundef %161, i64 noundef %160) #10
+  tail call void %152(ptr noundef %139, ptr noundef %161, i64 noundef %160) #11
   br label %162
 
 162:                                              ; preds = %109, %114, %159, %148
@@ -16524,7 +16524,7 @@ define internal fastcc void @vc1_put_blocks_clamped(ptr noundef readonly %0, i32
 252:                                              ; preds = %250, %244
   %253 = phi ptr [ %248, %244 ], [ %233, %250 ]
   %254 = phi i64 [ %249, %244 ], [ %251, %250 ]
-  tail call void %243(ptr noundef %241, ptr noundef nonnull %253, i64 noundef %254) #10
+  tail call void %243(ptr noundef %241, ptr noundef nonnull %253, i64 noundef %254) #11
   br label %268
 
 255:                                              ; preds = %230
@@ -16546,7 +16546,7 @@ define internal fastcc void @vc1_put_blocks_clamped(ptr noundef readonly %0, i32
 265:                                              ; preds = %263, %257
   %266 = phi ptr [ %261, %257 ], [ %233, %263 ]
   %267 = phi i64 [ %262, %257 ], [ %264, %263 ]
-  tail call void %256(ptr noundef %241, ptr noundef nonnull %266, i64 noundef %267) #10
+  tail call void %256(ptr noundef %241, ptr noundef nonnull %266, i64 noundef %267) #11
   br label %268
 
 268:                                              ; preds = %210, %213, %265, %252
@@ -16668,7 +16668,7 @@ define internal fastcc void @vc1_put_blocks_clamped(ptr noundef readonly %0, i32
 343:                                              ; preds = %341, %336
   %344 = phi ptr [ %339, %336 ], [ %324, %341 ]
   %345 = phi i64 [ %340, %336 ], [ %342, %341 ]
-  tail call void %335(ptr noundef %332, ptr noundef %344, i64 noundef %345) #10
+  tail call void %335(ptr noundef %332, ptr noundef %344, i64 noundef %345) #11
   br label %358
 
 346:                                              ; preds = %321
@@ -16689,7 +16689,7 @@ define internal fastcc void @vc1_put_blocks_clamped(ptr noundef readonly %0, i32
 355:                                              ; preds = %353, %348
   %356 = phi ptr [ %351, %348 ], [ %324, %353 ]
   %357 = phi i64 [ %352, %348 ], [ %354, %353 ]
-  tail call void %347(ptr noundef %332, ptr noundef %356, i64 noundef %357) #10
+  tail call void %347(ptr noundef %332, ptr noundef %356, i64 noundef %357) #11
   br label %358
 
 358:                                              ; preds = %301, %355, %343
@@ -17227,7 +17227,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vc1_decode_intra_block(ptr
   %25 = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %27 = load ptr, ptr %26, align 8, !tbaa !267
-  tail call void %27(ptr noundef %1) #10
+  tail call void %27(ptr noundef %1) #11
   %.0.i371 = tail call i32 @llvm.umin.i32(i32 %25, i32 31)
   %28 = zext nneg i32 %.0.i371 to i64
   %29 = getelementptr inbounds nuw i8, ptr @ff_wmv3_dc_scale_table, i64 %28
@@ -18158,7 +18158,7 @@ define internal fastcc range(i32 -1094995529, 16) i32 @vc1_decode_p_block(ptr no
   %15 = tail call i32 @llvm.abs.i32(i32 %3, i1 true)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %17 = load ptr, ptr %16, align 8, !tbaa !267
-  tail call void %17(ptr noundef %1) #10
+  tail call void %17(ptr noundef %1) #11
   %18 = icmp eq i32 %4, -1
   br i1 %18, label %19, label %50
 
@@ -18402,17 +18402,17 @@ thread-pre-split:                                 ; preds = %161, %152
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 5656
   %169 = load ptr, ptr %168, align 8, !tbaa !280
   %170 = sext i32 %7 to i64
-  tail call void %169(ptr noundef %6, i64 noundef %170, ptr noundef nonnull %1) #10
+  tail call void %169(ptr noundef %6, i64 noundef %170, ptr noundef nonnull %1) #11
   br label %.loopexit
 
 .thread334:                                       ; preds = %148, %165
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 5624
   %172 = load ptr, ptr %171, align 8, !tbaa !134
-  tail call void %172(ptr noundef %1) #10
+  tail call void %172(ptr noundef %1) #11
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 2024
   %174 = load ptr, ptr %173, align 8, !tbaa !281
   %175 = sext i32 %7 to i64
-  tail call void %174(ptr noundef %1, ptr noundef %6, i64 noundef %175) #10
+  tail call void %174(ptr noundef %1, ptr noundef %6, i64 noundef %175) #11
   br label %.loopexit
 
 176:                                              ; preds = %130
@@ -18500,7 +18500,7 @@ thread-pre-split:                                 ; preds = %161, %152
   %..v = select i1 %217, i64 5680, i64 5648
   %. = getelementptr inbounds nuw i8, ptr %0, i64 %..v
   %.sink = load ptr, ptr %., align 8, !tbaa !282
-  tail call void %.sink(ptr noundef %222, i64 noundef %184, ptr noundef %224) #10
+  tail call void %.sink(ptr noundef %222, i64 noundef %184, ptr noundef %224) #11
   br label %.thread340.thread
 
 .thread340.thread:                                ; preds = %.thread340, %185
@@ -18602,7 +18602,7 @@ thread-pre-split344:                              ; preds = %268, %260
   %.16.v = select i1 %272, i64 5664, i64 5632
   %.16 = getelementptr inbounds nuw i8, ptr %0, i64 %.16.v
   %.sink455 = load ptr, ptr %.16, align 8, !tbaa !282
-  tail call void %.sink455(ptr noundef %274, i64 noundef %239, ptr noundef %275) #10
+  tail call void %.sink455(ptr noundef %274, i64 noundef %239, ptr noundef %275) #11
   br label %._crit_edge390.thread
 
 ._crit_edge390.thread:                            ; preds = %._crit_edge390, %241
@@ -18696,7 +18696,7 @@ thread-pre-split357:                              ; preds = %314, %305
   %.17.v = select i1 %318, i64 5672, i64 5640
   %.17 = getelementptr inbounds nuw i8, ptr %0, i64 %.17.v
   %.sink457 = load ptr, ptr %.17, align 8, !tbaa !282
-  tail call void %.sink457(ptr noundef %319, i64 noundef %285, ptr noundef %320) #10
+  tail call void %.sink457(ptr noundef %319, i64 noundef %285, ptr noundef %320) #11
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %286
@@ -18746,22 +18746,22 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.abs.i8(i8, i1 immarg) #8
+declare i8 @llvm.abs.i8(i8, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
+declare void @llvm.assume(i1 noundef) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -18772,10 +18772,11 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn nounwind }
+attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #11 = { nounwind }
+attributes #12 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

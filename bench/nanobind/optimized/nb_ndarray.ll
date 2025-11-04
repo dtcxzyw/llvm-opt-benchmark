@@ -133,12 +133,12 @@ define noundef zeroext i1 @_ZN8nanobind6detail13ndarray_checkEP7_object(ptr noun
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef ptr @_ZN8nanobind6detail12nb_type_nameEP7_object(ptr noundef %9) #19
+  %10 = tail call noundef ptr @_ZN8nanobind6detail12nb_type_nameEP7_object(ptr noundef %9) #20
   %.not14 = icmp eq ptr %10, null
   br i1 %.not14, label %11, label %12, !prof !3
 
 11:                                               ; preds = %7
-  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #20
+  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #21
   unreachable
 
 12:                                               ; preds = %7
@@ -150,26 +150,26 @@ define noundef zeroext i1 @_ZN8nanobind6detail13ndarray_checkEP7_object(ptr noun
   br i1 %.not15, label %15, label %16, !prof !3
 
 15:                                               ; preds = %14
-  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #20
+  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #21
   unreachable
 
 16:                                               ; preds = %14
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(13) @.str.1) #21
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(13) @.str.1) #22
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %28, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(31) @.str.2) #21
+  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(31) @.str.2) #22
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %28, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(44) @.str.3) #21
+  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(44) @.str.3) #22
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %22
-  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(13) @.str.4) #21
+  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(13) @.str.4) #22
   %27 = icmp eq i32 %26, 0
   br label %28
 
@@ -193,7 +193,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %28, %32, %3, %6
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #20
+  tail call void @__clang_call_terminate(ptr %35) #21
   unreachable
 }
 
@@ -203,8 +203,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #2 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
-  tail call void @_ZSt9terminatev() #20
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #20
+  tail call void @_ZSt9terminatev() #21
   unreachable
 }
 
@@ -286,7 +286,7 @@ define noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  tail call void @__clang_call_terminate(ptr %42) #20
+  tail call void @__clang_call_terminate(ptr %42) #21
   unreachable
 
 thread-pre-split:                                 ; preds = %39, %36
@@ -352,7 +352,7 @@ _ZNK8nanobind3str5c_strEv.exit:                   ; preds = %_ZN8nanobind6object
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #20
+  call void @__clang_call_terminate(ptr %64) #21
   unreachable
 
 _ZN8nanobind6objectD2Ev.exit257:                  ; preds = %_ZNK8nanobind3str5c_strEv.exit, %58, %61
@@ -375,7 +375,7 @@ _ZN8nanobind6objectD2Ev.exit257:                  ; preds = %_ZNK8nanobind3str5c
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  call void @__clang_call_terminate(ptr %72) #20
+  call void @__clang_call_terminate(ptr %72) #21
   unreachable
 
 _ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit: ; preds = %_ZN8nanobind6objectD2Ev.exit257, %66, %69
@@ -383,7 +383,7 @@ _ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit: ; preds = %_ZN8nanobind6o
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
-  %73 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(12) @.str.6, i64 noundef 11) #21
+  %73 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(12) @.str.6, i64 noundef 11) #22
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %75, label %93
 
@@ -412,7 +412,7 @@ _ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit: ; preds = %_ZN8nanobind6o
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #20
+  call void @__clang_call_terminate(ptr %85) #21
   unreachable
 
 86:                                               ; preds = %46
@@ -423,12 +423,12 @@ _ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit: ; preds = %_ZN8nanobind6o
 88:                                               ; preds = %_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE.exit
   %89 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #19
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #20
   br label %90
 
 90:                                               ; preds = %88, %86
   %.pn = phi { ptr, i32 } [ %89, %88 ], [ %87, %86 ]
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #19
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %166
@@ -439,7 +439,7 @@ _ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit: ; preds = %_ZN8nanobind6o
   br label %165
 
 93:                                               ; preds = %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit
-  %94 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(6) @.str.8) #21
+  %94 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(6) @.str.8) #22
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %96, label %109
 
@@ -468,7 +468,7 @@ _ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit: ; preds = %_ZN8nanobind6o
   %105 = landingpad { ptr, i32 }
           catch ptr null
   %106 = extractvalue { ptr, i32 } %105, 0
-  call void @__clang_call_terminate(ptr %106) #20
+  call void @__clang_call_terminate(ptr %106) #21
   unreachable
 
 107:                                              ; preds = %96
@@ -477,7 +477,7 @@ _ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit: ; preds = %_ZN8nanobind6o
   br label %165
 
 109:                                              ; preds = %93
-  %110 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(7) @.str.10, i64 noundef 6) #21
+  %110 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(7) @.str.10, i64 noundef 6) #22
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %112, label %thread-pre-split395
 
@@ -506,7 +506,7 @@ _ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit: ; preds = %_ZN8nanobind6o
   %121 = landingpad { ptr, i32 }
           catch ptr null
   %122 = extractvalue { ptr, i32 } %121, 0
-  call void @__clang_call_terminate(ptr %122) #20
+  call void @__clang_call_terminate(ptr %122) #21
   unreachable
 
 123:                                              ; preds = %112
@@ -577,7 +577,7 @@ _ZNKR8nanobind6handle7inc_refEv.exit.i:           ; preds = %134, %.noexc280
   %145 = landingpad { ptr, i32 }
           catch ptr null
   %146 = extractvalue { ptr, i32 } %145, 0
-  call void @__clang_call_terminate(ptr %146) #20
+  call void @__clang_call_terminate(ptr %146) #21
   unreachable
 
 _ZN8nanobind6objectD2Ev.exit287:                  ; preds = %143, %140, %138
@@ -600,13 +600,13 @@ _ZN8nanobind6objectD2Ev.exit287:                  ; preds = %143, %140, %138
   %153 = landingpad { ptr, i32 }
           catch ptr null
   %154 = extractvalue { ptr, i32 } %153, 0
-  call void @__clang_call_terminate(ptr %154) #20
+  call void @__clang_call_terminate(ptr %154) #21
   unreachable
 
 155:                                              ; preds = %_ZNKR8nanobind6handle7inc_refEv.exit.i, %_ZN8nanobind6objectD2Ev.exit.i
   %156 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #19
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %165
 
@@ -631,7 +631,7 @@ _ZN8nanobind6objectD2Ev.exit287:                  ; preds = %143, %140, %138
   %163 = landingpad { ptr, i32 }
           catch ptr null
   %164 = extractvalue { ptr, i32 } %163, 0
-  call void @__clang_call_terminate(ptr %164) #20
+  call void @__clang_call_terminate(ptr %164) #21
   unreachable
 
 _ZN8nanobind6objectD2Ev.exit293:                  ; preds = %125, %157, %158, %161
@@ -640,14 +640,14 @@ _ZN8nanobind6objectD2Ev.exit293:                  ; preds = %125, %157, %158, %1
 
 165:                                              ; preds = %155, %123, %107, %91
   %.pn203.pn = phi { ptr, i32 } [ %156, %155 ], [ %92, %91 ], [ %108, %107 ], [ %124, %123 ]
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #19
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %166
 
 166:                                              ; preds = %165, %90
   %.pn203.pn.pn = phi { ptr, i32 } [ %.pn203.pn, %165 ], [ %.pn, %90 ]
   %.2173 = extractvalue { ptr, i32 } %.pn203.pn.pn, 0
-  %167 = call ptr @__cxa_begin_catch(ptr %.2173) #19
+  %167 = call ptr @__cxa_begin_catch(ptr %.2173) #20
   call void @_ZN8nanobind6object5resetEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   invoke void @__cxa_end_catch()
           to label %168 unwind label %658
@@ -669,7 +669,7 @@ _ZN8nanobind6objectD2Ev.exit293:                  ; preds = %125, %157, %158, %1
   br i1 %.not.i.i294, label %175, label %_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEC2Em.exit.i
 
 175:                                              ; preds = %.noexc296
-  call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.36, i64 noundef 1) #20
+  call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.36, i64 noundef 1) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocI10bufferinfoEC2Em.exit.i: ; preds = %.noexc296
@@ -681,7 +681,7 @@ _ZN8nanobind6detail15scoped_pymallocI10bufferinfoEC2Em.exit.i: ; preds = %.noexc
   br i1 %.not.i84.i, label %177, label %_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEC2Em.exit.i
 
 177:                                              ; preds = %.noexc.i
-  call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.36, i64 noundef 1) #20
+  call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.36, i64 noundef 1) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEC2Em.exit.i: ; preds = %.noexc.i
@@ -819,7 +819,7 @@ thread-pre-split.i:                               ; preds = %189, %186
   br i1 %.not.i85.i, label %221, label %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit.i
 
 221:                                              ; preds = %.noexc86.i
-  call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.36, i64 noundef %218) #20
+  call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.36, i64 noundef %218) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit.i: ; preds = %.noexc86.i
@@ -834,7 +834,7 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit.i: ; preds = %.noexc86.i
   br i1 %.not.i87.i, label %226, label %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit89.i
 
 226:                                              ; preds = %.noexc88.i
-  call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.36, i64 noundef %223) #20
+  call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.36, i64 noundef %223) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit89.i: ; preds = %.noexc88.i
@@ -919,7 +919,7 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit89.i: ; preds = %.noexc88.i
   %261 = landingpad { ptr, i32 }
           catch ptr null
   %262 = extractvalue { ptr, i32 } %261, 0
-  call void @__clang_call_terminate(ptr %262) #20
+  call void @__clang_call_terminate(ptr %262) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit.i: ; preds = %259
@@ -930,7 +930,7 @@ _ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit.i: ; preds = %259
   %264 = landingpad { ptr, i32 }
           catch ptr null
   %265 = extractvalue { ptr, i32 } %264, 0
-  call void @__clang_call_terminate(ptr %265) #20
+  call void @__clang_call_terminate(ptr %265) #21
   unreachable
 
 266:                                              ; preds = %257, %242
@@ -946,7 +946,7 @@ _ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit.i: ; preds = %259
   %268 = landingpad { ptr, i32 }
           catch ptr null
   %269 = extractvalue { ptr, i32 } %268, 0
-  call void @__clang_call_terminate(ptr %269) #20
+  call void @__clang_call_terminate(ptr %269) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit91.i: ; preds = %266, %233
@@ -961,7 +961,7 @@ _ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit91.i: ; preds = %266, %233
   %271 = landingpad { ptr, i32 }
           catch ptr null
   %272 = extractvalue { ptr, i32 } %271, 0
-  call void @__clang_call_terminate(ptr %272) #20
+  call void @__clang_call_terminate(ptr %272) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit90.i: ; preds = %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit.i, %.thread136.i, %181
@@ -975,7 +975,7 @@ _ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit90.i: ; preds = %_ZN8nanobind6de
   %274 = landingpad { ptr, i32 }
           catch ptr null
   %275 = extractvalue { ptr, i32 } %274, 0
-  call void @__clang_call_terminate(ptr %275) #20
+  call void @__clang_call_terminate(ptr %275) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEED2Ev.exit.i: ; preds = %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit90.i
@@ -986,7 +986,7 @@ _ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEED2Ev.exit.i: ; pred
   %277 = landingpad { ptr, i32 }
           catch ptr null
   %278 = extractvalue { ptr, i32 } %277, 0
-  call void @__clang_call_terminate(ptr %278) #20
+  call void @__clang_call_terminate(ptr %278) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit92.i: ; preds = %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit91.i, %231, %203, %184
@@ -1000,7 +1000,7 @@ _ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit92.i: ; preds = %_ZN8nanobind6de
   %280 = landingpad { ptr, i32 }
           catch ptr null
   %281 = extractvalue { ptr, i32 } %280, 0
-  call void @__clang_call_terminate(ptr %281) #20
+  call void @__clang_call_terminate(ptr %281) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEED2Ev.exit93.i: ; preds = %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit92.i, %182
@@ -1013,7 +1013,7 @@ _ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEED2Ev.exit93.i: ; pr
   %283 = landingpad { ptr, i32 }
           catch ptr null
   %284 = extractvalue { ptr, i32 } %283, 0
-  call void @__clang_call_terminate(ptr %284) #20
+  call void @__clang_call_terminate(ptr %284) #21
   unreachable
 
 285:                                              ; preds = %_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEED2Ev.exit.i
@@ -1037,7 +1037,7 @@ _ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEED2Ev.exit93.i: ; pr
   %292 = landingpad { ptr, i32 }
           catch ptr null
   %293 = extractvalue { ptr, i32 } %292, 0
-  call void @__clang_call_terminate(ptr %293) #20
+  call void @__clang_call_terminate(ptr %293) #21
   unreachable
 
 thread-pre-split399:                              ; preds = %287, %290
@@ -1423,7 +1423,7 @@ _ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE.exit315: ; preds = %467
   %476 = landingpad { ptr, i32 }
           catch ptr null
   %477 = extractvalue { ptr, i32 } %476, 0
-  call void @__clang_call_terminate(ptr %477) #20
+  call void @__clang_call_terminate(ptr %477) #21
   unreachable
 
 _ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit318: ; preds = %467, %_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE.exit315, %471, %474
@@ -1458,7 +1458,7 @@ _ZNK8nanobind3str5c_strEv.exit320:                ; preds = %_ZN8nanobind6detail
   ]
 
 482:                                              ; preds = %481
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %14, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, i64 5, i1 false) #19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %14, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, i64 5, i1 false) #20
   br label %489
 
 483:                                              ; preds = %481
@@ -1473,18 +1473,18 @@ _ZNK8nanobind3str5c_strEv.exit320:                ; preds = %_ZN8nanobind6detail
 486:                                              ; preds = %481, %485, %484, %483
   %.0170 = phi ptr [ @.str.16, %483 ], [ @.str.17, %484 ], [ @.str.18, %485 ], [ @.str.15, %481 ]
   %487 = zext i8 %.sroa.5.0.copyload to i32
-  %488 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 11, ptr noundef nonnull @.str.19, ptr noundef nonnull %.0170, i32 noundef %487) #19
+  %488 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 11, ptr noundef nonnull @.str.19, ptr noundef nonnull %.0170, i32 noundef %487) #20
   br label %489
 
 489:                                              ; preds = %486, %482
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr null, ptr %15, align 8
-  %490 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %478, ptr noundef nonnull dereferenceable(6) @.str.20) #21
+  %490 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %478, ptr noundef nonnull dereferenceable(6) @.str.20) #22
   %491 = icmp eq i32 %490, 0
   br i1 %491, label %495, label %492
 
 492:                                              ; preds = %489
-  %493 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %478, ptr noundef nonnull dereferenceable(5) @.str.21) #21
+  %493 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %478, ptr noundef nonnull dereferenceable(5) @.str.21) #22
   %494 = icmp eq i32 %493, 0
   br i1 %494, label %495, label %502
 
@@ -1500,9 +1500,9 @@ _ZNK8nanobind3str5c_strEv.exit320:                ; preds = %_ZN8nanobind6detail
           to label %498 unwind label %500
 
 498:                                              ; preds = %495
-  %499 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16) #19
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #19
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #19
+  %499 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16) #20
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #20
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %561
@@ -1510,13 +1510,13 @@ _ZNK8nanobind3str5c_strEv.exit320:                ; preds = %_ZN8nanobind6detail
 500:                                              ; preds = %495
   %501 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #19
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %559
 
 502:                                              ; preds = %492
-  %503 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %478, ptr noundef nonnull dereferenceable(6) @.str.8) #21
+  %503 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %478, ptr noundef nonnull dereferenceable(6) @.str.8) #22
   %504 = icmp eq i32 %503, 0
   br i1 %504, label %505, label %534
 
@@ -1557,21 +1557,21 @@ _ZNK8nanobind3str5c_strEv.exit320:                ; preds = %_ZN8nanobind6detail
   %514 = load i64, ptr %6, align 8
   store i64 %514, ptr %513, align 8
   store ptr null, ptr %6, align 8
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #19
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !34
   invoke void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJNS_5arg_vEEEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.nanobind::object") align 8 %18, ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(32) %20)
           to label %515 unwind label %528
 
 515:                                              ; preds = %512
-  %516 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %18) #19
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #19
-  call void @_ZN8nanobind5arg_vD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #19
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #19
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #19
+  %516 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %18) #20
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #20
+  call void @_ZN8nanobind5arg_vD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #20
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #20
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #19
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %517 = load i8, ptr %388, align 4
@@ -1592,9 +1592,9 @@ _ZNK8nanobind3str5c_strEv.exit320:                ; preds = %_ZN8nanobind6detail
           to label %522 unwind label %532
 
 522:                                              ; preds = %519
-  %523 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %23) #19
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #19
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #19
+  %523 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %23) #20
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #20
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %561
@@ -1612,13 +1612,13 @@ _ZNK8nanobind3str5c_strEv.exit320:                ; preds = %_ZN8nanobind6detail
 528:                                              ; preds = %512
   %529 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZN8nanobind5arg_vD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #19
+  call void @_ZN8nanobind5arg_vD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #20
   br label %530
 
 530:                                              ; preds = %528, %526
   %.pn214 = phi { ptr, i32 } [ %529, %528 ], [ %527, %526 ]
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #19
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #19
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #20
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #20
   br label %531
 
 531:                                              ; preds = %530, %524
@@ -1626,7 +1626,7 @@ _ZNK8nanobind3str5c_strEv.exit320:                ; preds = %_ZN8nanobind6detail
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #19
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %559
@@ -1634,13 +1634,13 @@ _ZNK8nanobind3str5c_strEv.exit320:                ; preds = %_ZN8nanobind6detail
 532:                                              ; preds = %519
   %533 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #19
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %559
 
 534:                                              ; preds = %502
-  %535 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %478, ptr noundef nonnull dereferenceable(12) @.str.6, i64 noundef 11) #21
+  %535 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %478, ptr noundef nonnull dereferenceable(12) @.str.6, i64 noundef 11) #22
   %536 = icmp eq i32 %535, 0
   br i1 %536, label %537, label %549
 
@@ -1664,11 +1664,11 @@ _ZNK8nanobind3str5c_strEv.exit320:                ; preds = %_ZN8nanobind6detail
           to label %542 unwind label %546
 
 542:                                              ; preds = %539
-  %543 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %25) #19
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #19
+  %543 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %25) #20
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #19
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #19
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #20
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
@@ -1683,8 +1683,8 @@ _ZNK8nanobind3str5c_strEv.exit320:                ; preds = %_ZN8nanobind6detail
   %547 = landingpad { ptr, i32 }
           catch ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #19
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #19
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #20
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #20
   br label %548
 
 548:                                              ; preds = %546, %544
@@ -1695,7 +1695,7 @@ _ZNK8nanobind3str5c_strEv.exit320:                ; preds = %_ZN8nanobind6detail
   br label %559
 
 549:                                              ; preds = %534
-  %550 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %478, ptr noundef nonnull dereferenceable(7) @.str.10, i64 noundef 6) #21
+  %550 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %478, ptr noundef nonnull dereferenceable(7) @.str.10, i64 noundef 6) #22
   %551 = icmp eq i32 %550, 0
   br i1 %551, label %552, label %561
 
@@ -1711,9 +1711,9 @@ _ZNK8nanobind3str5c_strEv.exit320:                ; preds = %_ZN8nanobind6detail
           to label %555 unwind label %557
 
 555:                                              ; preds = %552
-  %556 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %29) #19
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #19
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #19
+  %556 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %29) #20
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #20
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %561
@@ -1721,7 +1721,7 @@ _ZNK8nanobind3str5c_strEv.exit320:                ; preds = %_ZN8nanobind6detail
 557:                                              ; preds = %552
   %558 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #19
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %559
@@ -1729,7 +1729,7 @@ _ZNK8nanobind3str5c_strEv.exit320:                ; preds = %_ZN8nanobind6detail
 559:                                              ; preds = %557, %548, %532, %531, %500
   %.pn216.pn = phi { ptr, i32 } [ %501, %500 ], [ %533, %532 ], [ %.pn214.pn.pn, %531 ], [ %.pn213.pn, %548 ], [ %558, %557 ]
   %.6 = extractvalue { ptr, i32 } %.pn216.pn, 0
-  %560 = call ptr @__cxa_begin_catch(ptr %.6) #19
+  %560 = call ptr @__cxa_begin_catch(ptr %.6) #20
   call void @_ZN8nanobind6object5resetEv(ptr noundef nonnull align 8 dereferenceable(8) %15)
   invoke void @__cxa_end_catch()
           to label %561 unwind label %658
@@ -1740,7 +1740,7 @@ _ZNK8nanobind3str5c_strEv.exit320:                ; preds = %_ZN8nanobind6detail
   br i1 %.not429, label %_ZN8nanobind6objectD2Ev.exit329, label %563
 
 563:                                              ; preds = %561
-  %564 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef nonnull %562, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef null) #19
+  %564 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef nonnull %562, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef null) #20
   %565 = icmp ne ptr %564, null
   %566 = icmp ne ptr %3, null
   %or.cond15 = and i1 %566, %565
@@ -1756,7 +1756,7 @@ _ZNK8nanobind3str5c_strEv.exit320:                ; preds = %_ZN8nanobind6detail
   br i1 %.not.i, label %_ZN8nanobind6detail12cleanup_list6appendEP7_object.exit, label %572
 
 572:                                              ; preds = %567
-  call void @_ZN8nanobind6detail12cleanup_list6expandEv(ptr noundef nonnull align 8 dereferenceable(64) %3) #19
+  call void @_ZN8nanobind6detail12cleanup_list6expandEv(ptr noundef nonnull align 8 dereferenceable(64) %3) #20
   %.pre479 = load i32, ptr %3, align 8
   br label %_ZN8nanobind6detail12cleanup_list6appendEP7_object.exit
 
@@ -1791,7 +1791,7 @@ _ZN8nanobind6detail12cleanup_list6appendEP7_object.exit: ; preds = %567, %572
   %585 = landingpad { ptr, i32 }
           catch ptr null
   %586 = extractvalue { ptr, i32 } %585, 0
-  call void @__clang_call_terminate(ptr %586) #20
+  call void @__clang_call_terminate(ptr %586) #21
   unreachable
 
 _ZN8nanobind6objectD2Ev.exit329:                  ; preds = %561, %579, %580, %583
@@ -1824,7 +1824,7 @@ _ZN8nanobind6objectD2Ev.exit329:                  ; preds = %561, %579, %580, %5
   %594 = landingpad { ptr, i32 }
           catch ptr null
   %595 = extractvalue { ptr, i32 } %594, 0
-  call void @__clang_call_terminate(ptr %595) #20
+  call void @__clang_call_terminate(ptr %595) #21
   unreachable
 
 596:                                              ; preds = %459, %460, %._crit_edge.thread
@@ -1842,7 +1842,7 @@ _ZN8nanobind6objectD2Ev.exit329:                  ; preds = %561, %579, %580, %5
   br i1 %.not.i333, label %599, label %_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEC2Em.exit
 
 599:                                              ; preds = %.noexc334
-  call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.36, i64 noundef 1) #20
+  call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.36, i64 noundef 1) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEC2Em.exit: ; preds = %.noexc334
@@ -1897,7 +1897,7 @@ _ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEC2Em.exit: ; preds = 
   br i1 %.not.i335, label %622, label %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit
 
 622:                                              ; preds = %.noexc336
-  call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.36, i64 noundef %619) #20
+  call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.36, i64 noundef %619) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit: ; preds = %.noexc336
@@ -1920,7 +1920,7 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit: ; preds = %.noexc336
   %629 = landingpad { ptr, i32 }
           catch ptr null
   %630 = extractvalue { ptr, i32 } %629, 0
-  call void @__clang_call_terminate(ptr %630) #20
+  call void @__clang_call_terminate(ptr %630) #21
   unreachable
 
 631:                                              ; preds = %.lr.ph461, %631
@@ -1955,7 +1955,7 @@ _ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit: ; preds = %._crit_edge462, %61
   br i1 %.not219, label %646, label %645
 
 645:                                              ; preds = %644, %640
-  call void @_ZN8nanobind6detail16fail_unspecifiedEv() #20
+  call void @_ZN8nanobind6detail16fail_unspecifiedEv() #21
   unreachable
 
 646:                                              ; preds = %644
@@ -1966,7 +1966,7 @@ _ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit: ; preds = %._crit_edge462, %61
   %648 = landingpad { ptr, i32 }
           catch ptr null
   %649 = extractvalue { ptr, i32 } %648, 0
-  call void @__clang_call_terminate(ptr %649) #20
+  call void @__clang_call_terminate(ptr %649) #21
   unreachable
 
 _ZN8nanobind6objectD2Ev.exit332:                  ; preds = %646, %592, %589, %588, %301, %596, %294
@@ -1990,7 +1990,7 @@ _ZN8nanobind6objectD2Ev.exit332:                  ; preds = %646, %592, %589, %5
   %656 = landingpad { ptr, i32 }
           catch ptr null
   %657 = extractvalue { ptr, i32 } %656, 0
-  call void @__clang_call_terminate(ptr %657) #20
+  call void @__clang_call_terminate(ptr %657) #21
   unreachable
 
 _ZN8nanobind6objectD2Ev.exit339:                  ; preds = %_ZN8nanobind6objectD2Ev.exit332, %651, %654
@@ -2005,7 +2005,7 @@ _ZN8nanobind6objectD2Ev.exit339:                  ; preds = %_ZN8nanobind6object
 .body:                                            ; preds = %_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEED2Ev.exit93.i, %658
   %eh.lpad-body = phi { ptr, i32 } [ %659, %658 ], [ %.pn81.pn.i, %_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEED2Ev.exit93.i ]
   %660 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %660) #20
+  call void @__clang_call_terminate(ptr %660) #21
   unreachable
 }
 
@@ -2035,7 +2035,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN8n
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #20
+  tail call void @__clang_call_terminate(ptr %11) #21
   unreachable
 
 _ZNKR8nanobind6handle7dec_refEv.exit:             ; preds = %2, %5, %8
@@ -2069,7 +2069,7 @@ _ZL11_Py_XDECREFP7_object.exit:                   ; preds = %4, %1, %7
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #20
+  tail call void @__clang_call_terminate(ptr %10) #21
   unreachable
 }
 
@@ -2097,7 +2097,7 @@ define linkonce_odr hidden void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull ali
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #20
+  tail call void @__clang_call_terminate(ptr %9) #21
   unreachable
 
 _ZNKR8nanobind6handle7dec_refEv.exit:             ; preds = %1, %3, %6
@@ -2125,7 +2125,7 @@ define linkonce_odr hidden void @_ZN8nanobind6object5resetEv(ptr noundef nonnull
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #20
+  tail call void @__clang_call_terminate(ptr %9) #21
   unreachable
 
 _ZNKR8nanobind6handle7dec_refEv.exit:             ; preds = %1, %3, %6
@@ -2158,7 +2158,7 @@ define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #20
+  tail call void @__clang_call_terminate(ptr %10) #21
   unreachable
 
 _ZN8nanobind6detail11type_casterIciE8from_cppEPKcNS_9rv_policyEPNS0_12cleanup_listE.exit: ; preds = %4
@@ -2174,7 +2174,7 @@ _ZN8nanobind6detail11type_casterIciE8from_cppEPKcNS_9rv_policyEPNS0_12cleanup_li
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #20
+  call void @__clang_call_terminate(ptr %16) #21
   unreachable
 
 _ZN8nanobind6objectD2Ev.exit:                     ; preds = %_ZN8nanobind6detail11type_casterIciE8from_cppEPKcNS_9rv_policyEPNS0_12cleanup_listE.exit
@@ -2258,7 +2258,7 @@ define linkonce_odr hidden void @_ZN8nanobind5arg_vD2Ev(ptr noundef nonnull alig
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #20
+  tail call void @__clang_call_terminate(ptr %10) #21
   unreachable
 
 _ZN8nanobind6objectD2Ev.exit:                     ; preds = %1, %4, %7
@@ -2317,7 +2317,7 @@ _ZN8nanobind6detail11type_casterINS_6handleEiE8from_cppEOS2_NS_9rv_policyEPNS0_1
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #20
+  tail call void @__clang_call_terminate(ptr %14) #21
   unreachable
 
 _ZN8nanobind6objectD2Ev.exit:                     ; preds = %_ZN8nanobind6detail11type_casterINS_6handleEiE8from_cppEOS2_NS_9rv_policyEPNS0_12cleanup_listE.exit
@@ -2355,7 +2355,7 @@ define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #20
+  tail call void @__clang_call_terminate(ptr %8) #21
   unreachable
 
 _ZN8nanobind6objectD2Ev.exit:                     ; preds = %3
@@ -2416,7 +2416,7 @@ define void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr nou
   ]
 
 5:                                                ; preds = %2
-  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #20
+  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #21
   unreachable
 
 6:                                                ; preds = %2
@@ -2427,7 +2427,7 @@ define void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr nou
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #20
+  tail call void @__clang_call_terminate(ptr %10) #21
   unreachable
 
 _ZN8nanobind18gil_scoped_acquireC2Ev.exit:        ; preds = %6
@@ -2529,7 +2529,7 @@ _ZL11_Py_XDECREFP7_object.exit24:                 ; preds = %19, %_ZL11_Py_XDECR
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  tail call void @__clang_call_terminate(ptr %52) #20
+  tail call void @__clang_call_terminate(ptr %52) #21
   unreachable
 
 _ZN8nanobind18gil_scoped_acquireD2Ev.exit:        ; preds = %49, %2, %1
@@ -2539,7 +2539,7 @@ _ZN8nanobind18gil_scoped_acquireD2Ev.exit:        ; preds = %49, %2, %1
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  tail call void @__clang_call_terminate(ptr %55) #20
+  tail call void @__clang_call_terminate(ptr %55) #21
   unreachable
 }
 
@@ -2552,7 +2552,7 @@ define noundef nonnull ptr @_ZN8nanobind6detail14ndarray_createEPvmPKmP7_objectP
   br i1 %.not.i, label %12, label %_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEC2Em.exit
 
 12:                                               ; preds = %10
-  tail call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.36, i64 noundef 1) #20
+  tail call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.36, i64 noundef 1) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEC2Em.exit: ; preds = %10
@@ -2564,7 +2564,7 @@ _ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEC2Em.exit: ; preds 
   br i1 %.not.i68, label %14, label %_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEC2Em.exit
 
 14:                                               ; preds = %.noexc
-  tail call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.36, i64 noundef 1) #20
+  tail call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.36, i64 noundef 1) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEC2Em.exit: ; preds = %.noexc
@@ -2577,7 +2577,7 @@ _ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEC2Em.exit: ; preds = 
   br i1 %.not.i69, label %17, label %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit
 
 17:                                               ; preds = %.noexc70
-  tail call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.36, i64 noundef %1) #20
+  tail call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.36, i64 noundef %1) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit: ; preds = %.noexc70
@@ -2593,7 +2593,7 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit73.preheader: ; preds = %.noexc7
   br i1 %.not123, label %.loopexit, label %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit73
 
 19:                                               ; preds = %.noexc72
-  tail call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.36, i64 noundef %1) #20
+  tail call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.36, i64 noundef %1) #21
   unreachable
 
 20:                                               ; preds = %_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEC2Em.exit
@@ -2616,7 +2616,7 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit73.preheader: ; preds = %.noexc7
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #20
+  tail call void @__clang_call_terminate(ptr %28) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit73: ; preds = %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit73.preheader, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit73
@@ -2680,7 +2680,7 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit73._crit_edge: ; preds = %_ZN8na
   br i1 %49, label %.lr.ph120, label %.loopexit, !llvm.loop !65
 
 50:                                               ; preds = %37
-  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #20
+  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #21
   unreachable
 
 .loopexit:                                        ; preds = %.preheader114, %.lr.ph120, %.preheader, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit73.preheader, %43
@@ -2738,7 +2738,7 @@ _ZL11_Py_XINCREFP7_object.exit:                   ; preds = %.loopexit, %69
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  tail call void @__clang_call_terminate(ptr %74) #20
+  tail call void @__clang_call_terminate(ptr %74) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit75: ; preds = %_ZL11_Py_XINCREFP7_object.exit
@@ -2749,7 +2749,7 @@ _ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit75: ; preds = %_ZL11_Py_XINCREFP
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  tail call void @__clang_call_terminate(ptr %77) #20
+  tail call void @__clang_call_terminate(ptr %77) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit76: ; preds = %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit75
@@ -2760,7 +2760,7 @@ _ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit76: ; preds = %_ZN8nanobind6deta
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
-  tail call void @__clang_call_terminate(ptr %80) #20
+  tail call void @__clang_call_terminate(ptr %80) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEED2Ev.exit: ; preds = %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit76
@@ -2771,7 +2771,7 @@ _ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEED2Ev.exit: ; preds = 
   %82 = landingpad { ptr, i32 }
           catch ptr null
   %83 = extractvalue { ptr, i32 } %82, 0
-  tail call void @__clang_call_terminate(ptr %83) #20
+  tail call void @__clang_call_terminate(ptr %83) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEED2Ev.exit: ; preds = %_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEED2Ev.exit
@@ -2786,7 +2786,7 @@ _ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit: ; preds = %24, %22
   %85 = landingpad { ptr, i32 }
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
-  tail call void @__clang_call_terminate(ptr %86) #20
+  tail call void @__clang_call_terminate(ptr %86) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEED2Ev.exit77: ; preds = %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit, %20
@@ -2798,7 +2798,7 @@ _ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEED2Ev.exit77: ; preds 
   %88 = landingpad { ptr, i32 }
           catch ptr null
   %89 = extractvalue { ptr, i32 } %88, 0
-  tail call void @__clang_call_terminate(ptr %89) #20
+  tail call void @__clang_call_terminate(ptr %89) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEED2Ev.exit78: ; preds = %_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEED2Ev.exit77
@@ -2950,7 +2950,7 @@ _ZN8nanobind6objectD2Ev.exit:                     ; preds = %4
   br i1 %.not16.i, label %68, label %69, !prof !3
 
 68:                                               ; preds = %67
-  call void @_ZN8nanobind6detail16fail_unspecifiedEv() #20
+  call void @_ZN8nanobind6detail16fail_unspecifiedEv() #21
   unreachable
 
 69:                                               ; preds = %67
@@ -2963,7 +2963,7 @@ _ZN8nanobind6objectD2Ev.exit:                     ; preds = %4
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  call void @__clang_call_terminate(ptr %72) #20
+  call void @__clang_call_terminate(ptr %72) #21
   unreachable
 
 _ZN8nanobind6detailL13nd_ndarray_tpEv.exit:       ; preds = %57, %69
@@ -3091,7 +3091,7 @@ _ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit: ; preds = %_ZNKR8nanobind
   %110 = landingpad { ptr, i32 }
           catch ptr null
   %111 = extractvalue { ptr, i32 } %110, 0
-  call void @__clang_call_terminate(ptr %111) #20
+  call void @__clang_call_terminate(ptr %111) #21
   unreachable
 
 _ZN8nanobind6objectD2Ev.exit139:                  ; preds = %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit, %105, %108
@@ -3109,10 +3109,10 @@ _ZN8nanobind6objectD2Ev.exit139:                  ; preds = %_ZN8nanobind6detail
   %115 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  call void @_ZN8nanobind5arg_vD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #19
+  call void @_ZN8nanobind5arg_vD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #19
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #19
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #20
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #20
   br label %116
 
 116:                                              ; preds = %114, %112
@@ -3194,7 +3194,7 @@ _ZNKR8nanobind6handle7inc_refEv.exit.i146:        ; preds = %130, %.noexc147
   %140 = landingpad { ptr, i32 }
           catch ptr null
   %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #20
+  call void @__clang_call_terminate(ptr %141) #21
   unreachable
 
 _ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit157: ; preds = %134, %135, %138
@@ -3215,7 +3215,7 @@ _ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit157: ; preds = %134, %135, 
   %147 = landingpad { ptr, i32 }
           catch ptr null
   %148 = extractvalue { ptr, i32 } %147, 0
-  call void @__clang_call_terminate(ptr %148) #20
+  call void @__clang_call_terminate(ptr %148) #21
   unreachable
 
 _ZN8nanobind6objectD2Ev.exit160:                  ; preds = %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit157, %142, %145
@@ -3233,8 +3233,8 @@ _ZN8nanobind6objectD2Ev.exit160:                  ; preds = %_ZN8nanobind6detail
   %152 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #19
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #19
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #20
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #20
   br label %153
 
 153:                                              ; preds = %151, %149
@@ -3247,17 +3247,17 @@ _ZN8nanobind6objectD2Ev.exit160:                  ; preds = %_ZN8nanobind6detail
   %.pn82.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn82.pn.pn.pn, %116 ], [ %.pn.pn, %153 ]
   %.453 = extractvalue { ptr, i32 } %.pn82.pn.pn.pn.pn, 0
   %.460 = extractvalue { ptr, i32 } %.pn82.pn.pn.pn.pn, 1
-  %155 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #19
+  %155 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #20
   %156 = icmp eq i32 %.460, %155
   br i1 %156, label %157, label %214
 
 157:                                              ; preds = %154
-  %158 = call ptr @__cxa_begin_catch(ptr %.453) #19
+  %158 = call ptr @__cxa_begin_catch(ptr %.453) #20
   %159 = load ptr, ptr @PyExc_RuntimeError, align 8
   %160 = load ptr, ptr %158, align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
   %162 = load ptr, ptr %161, align 8
-  %163 = call noundef ptr %162(ptr noundef nonnull align 8 dereferenceable(8) %158) #19
+  %163 = call noundef ptr %162(ptr noundef nonnull align 8 dereferenceable(8) %158) #20
   %164 = invoke ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %159, ptr noundef nonnull @.str.33, ptr noundef %163)
           to label %165 unwind label %211
 
@@ -3316,7 +3316,7 @@ _ZNKR8nanobind6handle7inc_refEv.exit.i164:        ; preds = %172, %.noexc165
   %181 = landingpad { ptr, i32 }
           catch ptr null
   %182 = extractvalue { ptr, i32 } %181, 0
-  call void @__clang_call_terminate(ptr %182) #20
+  call void @__clang_call_terminate(ptr %182) #21
   unreachable
 
 _ZN8nanobind6objectD2Ev.exit172:                  ; preds = %179, %176, %.critedge91
@@ -3339,7 +3339,7 @@ _ZN8nanobind6objectD2Ev.exit172:                  ; preds = %179, %176, %.crited
   %189 = landingpad { ptr, i32 }
           catch ptr null
   %190 = extractvalue { ptr, i32 } %189, 0
-  call void @__clang_call_terminate(ptr %190) #20
+  call void @__clang_call_terminate(ptr %190) #21
   unreachable
 
 _ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit175: ; preds = %_ZN8nanobind6objectD2Ev.exit172, %184, %187
@@ -3350,21 +3350,21 @@ _ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit175: ; preds = %_ZN8nanobin
   %192 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #19
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #20
   %.8 = extractvalue { ptr, i32 } %192, 0
   %.763 = extractvalue { ptr, i32 } %192, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %193 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #19
+  %193 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #20
   %194 = icmp eq i32 %.763, %193
   br i1 %194, label %195, label %214
 
 195:                                              ; preds = %191
-  %196 = call ptr @__cxa_begin_catch(ptr %.8) #19
+  %196 = call ptr @__cxa_begin_catch(ptr %.8) #20
   %197 = load ptr, ptr @PyExc_RuntimeError, align 8
   %198 = load ptr, ptr %196, align 8
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 16
   %200 = load ptr, ptr %199, align 8
-  %201 = call noundef ptr %200(ptr noundef nonnull align 8 dereferenceable(8) %196) #19
+  %201 = call noundef ptr %200(ptr noundef nonnull align 8 dereferenceable(8) %196) #20
   %202 = invoke ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %197, ptr noundef nonnull @.str.35, ptr noundef %201)
           to label %203 unwind label %211
 
@@ -3393,7 +3393,7 @@ _ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit175: ; preds = %_ZN8nanobin
   %209 = landingpad { ptr, i32 }
           catch ptr null
   %210 = extractvalue { ptr, i32 } %209, 0
-  call void @__clang_call_terminate(ptr %210) #20
+  call void @__clang_call_terminate(ptr %210) #21
   unreachable
 
 _ZN8nanobind6objectD2Ev.exit178:                  ; preds = %_ZN8nanobind6objectD2Ev.exit160, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit175, %.critedge89, %74, %44, %29, %48, %.critedge, %204, %207, %_ZN8nanobind6objectD2Ev.exit
@@ -3404,12 +3404,12 @@ _ZN8nanobind6objectD2Ev.exit178:                  ; preds = %_ZN8nanobind6object
   %212 = landingpad { ptr, i32 }
           catch ptr null
   %213 = extractvalue { ptr, i32 } %212, 0
-  call void @__clang_call_terminate(ptr %213) #20
+  call void @__clang_call_terminate(ptr %213) #21
   unreachable
 
 214:                                              ; preds = %191, %154
   %.7 = phi ptr [ %.453, %154 ], [ %.8, %191 ]
-  call void @__clang_call_terminate(ptr %.7) #20
+  call void @__clang_call_terminate(ptr %.7) #21
   unreachable
 }
 
@@ -3436,13 +3436,13 @@ define internal void @_ZN8nanobind6detailL26ndarray_capsule_destructorEP7_object
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %9 = load ptr, ptr %8, align 8
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %9) #19
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %9) #20
   br label %13
 
 10:                                               ; preds = %12, %1
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8nanobind11error_scopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #19
+  call void @_ZN8nanobind11error_scopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %11
 
@@ -3461,7 +3461,7 @@ define internal void @_ZN8nanobind6detailL26ndarray_capsule_destructorEP7_object
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #20
+  call void @__clang_call_terminate(ptr %19) #21
   unreachable
 
 _ZN8nanobind11error_scopeD2Ev.exit:               ; preds = %13
@@ -3496,7 +3496,7 @@ define internal void @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_obj
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #20
+  tail call void @__clang_call_terminate(ptr %5) #21
   unreachable
 
 _ZN8nanobind18gil_scoped_acquireC2Ev.exit.i:      ; preds = %1
@@ -3534,7 +3534,7 @@ _ZN8nanobind18gil_scoped_acquireC2Ev.exit.i:      ; preds = %1
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #20
+  tail call void @__clang_call_terminate(ptr %20) #21
   unreachable
 
 21:                                               ; preds = %16, %13, %10, %8, %_ZN8nanobind18gil_scoped_acquireC2Ev.exit.i
@@ -3547,7 +3547,7 @@ _ZN8nanobind18gil_scoped_acquireC2Ev.exit.i:      ; preds = %1
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #20
+  tail call void @__clang_call_terminate(ptr %25) #21
   unreachable
 
 _ZN8nanobind18gil_scoped_acquireD2Ev.exit7.i:     ; preds = %21
@@ -3584,7 +3584,7 @@ define internal void @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_obj
 11:                                               ; preds = %13, %10, %1
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8nanobind11error_scopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #19
+  call void @_ZN8nanobind11error_scopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %12
 
@@ -3603,7 +3603,7 @@ define internal void @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_obj
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #20
+  call void @__clang_call_terminate(ptr %20) #21
   unreachable
 
 "_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbENK3$_1clES2_.exit": ; preds = %14
@@ -3628,7 +3628,7 @@ define linkonce_odr hidden void @_ZN8nanobind11error_scopeD2Ev(ptr noundef nonnu
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #20
+  tail call void @__clang_call_terminate(ptr %10) #21
   unreachable
 }
 
@@ -3652,13 +3652,13 @@ define internal void @"_ZZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlNS
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #20
+  tail call void @__clang_call_terminate(ptr %5) #21
   unreachable
 
 _ZN8nanobind18gil_scoped_acquireC2Ev.exit.i:      ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
-  tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %7) #19
+  tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %7) #20
   invoke void @PyGILState_Release(i32 noundef %2)
           to label %"_ZZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlNS_6dlpack5dtypeEbiicENK3$_0clEPNS0_16managed_dltensorE.exit" unwind label %8
 
@@ -3666,7 +3666,7 @@ _ZN8nanobind18gil_scoped_acquireC2Ev.exit.i:      ; preds = %1
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #20
+  tail call void @__clang_call_terminate(ptr %10) #21
   unreachable
 
 "_ZZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlNS_6dlpack5dtypeEbiicENK3$_0clEPNS0_16managed_dltensorE.exit": ; preds = %_ZN8nanobind18gil_scoped_acquireC2Ev.exit.i
@@ -3679,7 +3679,7 @@ define internal void @_ZN8nanobind6detailL18nb_ndarray_deallocEP7_object(ptr nou
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %5) #19
+  tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %5) #20
   tail call void @PyObject_Free(ptr noundef %0)
   %6 = load i64, ptr %3, align 8
   %7 = add nsw i64 %6, -1
@@ -3820,7 +3820,7 @@ switch.lookup76:                                  ; preds = %.split1
   br i1 %.not.i, label %64, label %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit
 
 64:                                               ; preds = %42
-  tail call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.36, i64 noundef %61) #20
+  tail call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.36, i64 noundef %61) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit: ; preds = %42
@@ -3845,7 +3845,7 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit55.preheader: ; preds = %.noexc
   br label %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit55
 
 72:                                               ; preds = %.noexc
-  tail call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.36, i64 noundef %66) #20
+  tail call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.36, i64 noundef %66) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit55._crit_edge: ; preds = %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit55, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit55.preheader
@@ -3874,7 +3874,7 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit55._crit_edge: ; preds = %_ZN8na
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
-  tail call void @__clang_call_terminate(ptr %85) #20
+  tail call void @__clang_call_terminate(ptr %85) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit: ; preds = %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit55._crit_edge
@@ -3885,7 +3885,7 @@ _ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit: ; preds = %_ZN8nanobind6detail
   %87 = landingpad { ptr, i32 }
           catch ptr null
   %88 = extractvalue { ptr, i32 } %87, 0
-  tail call void @__clang_call_terminate(ptr %88) #20
+  tail call void @__clang_call_terminate(ptr %88) #21
   unreachable
 
 89:                                               ; preds = %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit
@@ -3898,7 +3898,7 @@ _ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit: ; preds = %_ZN8nanobind6detail
   %92 = landingpad { ptr, i32 }
           catch ptr null
   %93 = extractvalue { ptr, i32 } %92, 0
-  tail call void @__clang_call_terminate(ptr %93) #20
+  tail call void @__clang_call_terminate(ptr %93) #21
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit57: ; preds = %89
@@ -4083,11 +4083,11 @@ _ZNKR8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7inc_refEv.exit.i: ; pr
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #20
+  tail call void @__clang_call_terminate(ptr %11) #21
   unreachable
 
 _ZN8nanobind6detail11type_casterINS0_8accessorINS0_8str_attrEEEiE8from_cppEOS4_NS_9rv_policyEPNS0_12cleanup_listE.exit: ; preds = %_ZNKR8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7inc_refEv.exit.i
-  tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #22
+  tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #23
   unreachable
 
 12:                                               ; preds = %_ZNKR8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7inc_refEv.exit.i
@@ -4107,17 +4107,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #17
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #18
+declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4136,12 +4136,13 @@ attributes #13 = { nofree nosync nounwind memory(none) }
 attributes #14 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #19 = { nounwind }
-attributes #20 = { noreturn nounwind }
-attributes #21 = { nounwind willreturn memory(read) }
-attributes #22 = { noreturn }
+attributes #17 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #20 = { nounwind }
+attributes #21 = { noreturn nounwind }
+attributes #22 = { nounwind willreturn memory(read) }
+attributes #23 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 

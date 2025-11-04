@@ -210,7 +210,7 @@ define void @stbi__start_callbacks(ptr noundef initializes((16, 56), (184, 188))
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %9, ptr %11, align 8, !tbaa !14
   %12 = load ptr, ptr %4, align 8, !tbaa !3
-  %13 = tail call i32 %12(ptr noundef %2, ptr noundef nonnull %9, i32 noundef 128) #37
+  %13 = tail call i32 %12(ptr noundef %2, ptr noundef nonnull %9, i32 noundef 128) #38
   %14 = load ptr, ptr %11, align 8, !tbaa !14
   %15 = load ptr, ptr %10, align 8, !tbaa !13
   %16 = ptrtoint ptr %14 to i64
@@ -256,7 +256,7 @@ define void @stbi__refill_buffer(ptr noundef %0) local_unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %8 = load i32, ptr %7, align 4, !tbaa !20
-  %9 = tail call i32 %3(ptr noundef %5, ptr noundef nonnull %6, i32 noundef %8) #37
+  %9 = tail call i32 %3(ptr noundef %5, ptr noundef nonnull %6, i32 noundef %8) #38
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -330,12 +330,12 @@ declare noundef i32 @ungetc(i32 noundef, ptr noundef captures(none)) local_unnam
 
 ; Function Attrs: nofree nounwind uwtable
 define range(i32 0, 2) i32 @stbi__stdio_eof(ptr noundef captures(none) %0) #4 {
-  %2 = tail call i32 @feof(ptr noundef %0) #37
+  %2 = tail call i32 @feof(ptr noundef %0) #38
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %7
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @ferror(ptr noundef %0) #37
+  %4 = tail call i32 @ferror(ptr noundef %0) #38
   %5 = icmp ne i32 %4, 0
   %6 = zext i1 %5 to i32
   br label %7
@@ -369,7 +369,7 @@ define void @stbi__start_file(ptr noundef initializes((16, 56), (184, 188)) %0, 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %8, ptr %10, align 8, !tbaa !14
   %11 = load ptr, ptr %3, align 8, !tbaa !3
-  %12 = tail call i32 %11(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 128) #37
+  %12 = tail call i32 %11(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 128) #38
   %13 = load ptr, ptr %10, align 8, !tbaa !14
   %14 = load ptr, ptr %9, align 8, !tbaa !13
   %15 = ptrtoint ptr %13 to i64
@@ -435,7 +435,7 @@ define noundef i32 @stbi__err(ptr noundef %0) local_unnamed_addr #10 {
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @stbi__malloc(i64 noundef %0) local_unnamed_addr #11 {
-  %2 = tail call noalias ptr @malloc(i64 noundef %0) #38
+  %2 = tail call noalias ptr @malloc(i64 noundef %0) #39
   ret ptr %2
 }
 
@@ -631,7 +631,7 @@ stbi__mad2sizes_valid.exit:                       ; preds = %5, %stbi__mul2sizes
 12:                                               ; preds = %stbi__mad2sizes_valid.exit
   %13 = add nsw i32 %8, %2
   %14 = sext i32 %13 to i64
-  %15 = tail call noalias noundef ptr @malloc(i64 noundef %14) #38
+  %15 = tail call noalias noundef ptr @malloc(i64 noundef %14) #39
   br label %stbi__mad2sizes_valid.exit.thread
 
 stbi__mad2sizes_valid.exit.thread:                ; preds = %3, %stbi__mul2sizes_valid.exit.i, %stbi__mad2sizes_valid.exit, %12
@@ -680,7 +680,7 @@ stbi__mad3sizes_valid.exit:                       ; preds = %11, %stbi__mul2size
 18:                                               ; preds = %stbi__mad3sizes_valid.exit
   %19 = add nsw i32 %14, %3
   %20 = sext i32 %19 to i64
-  %21 = tail call noalias noundef ptr @malloc(i64 noundef %20) #38
+  %21 = tail call noalias noundef ptr @malloc(i64 noundef %20) #39
   br label %stbi__mad3sizes_valid.exit.thread
 
 stbi__mad3sizes_valid.exit.thread:                ; preds = %stbi__mul2sizes_valid.exit.thread16.i, %4, %stbi__mul2sizes_valid.exit.i, %stbi__mul2sizes_valid.exit12.i, %stbi__mad3sizes_valid.exit, %18
@@ -744,7 +744,7 @@ stbi__mad4sizes_valid.exit:                       ; preds = %17, %stbi__mul2size
 24:                                               ; preds = %stbi__mad4sizes_valid.exit
   %25 = add nsw i32 %20, %4
   %26 = sext i32 %25 to i64
-  %27 = tail call noalias noundef ptr @malloc(i64 noundef %26) #38
+  %27 = tail call noalias noundef ptr @malloc(i64 noundef %26) #39
   br label %stbi__mad4sizes_valid.exit.thread
 
 stbi__mad4sizes_valid.exit.thread:                ; preds = %stbi__mul2sizes_valid.exit18.thread30.i, %stbi__mul2sizes_valid.exit.thread25.i, %5, %stbi__mul2sizes_valid.exit.i, %stbi__mul2sizes_valid.exit18.i, %stbi__mul2sizes_valid.exit21.i, %stbi__mad4sizes_valid.exit, %24
@@ -819,7 +819,7 @@ define range(i32 0, 2) i32 @stbi__mul2shorts_valid(i32 noundef %0, i32 noundef %
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @stbi_image_free(ptr noundef captures(none) %0) local_unnamed_addr #13 {
-  tail call void @free(ptr noundef %0) #37
+  tail call void @free(ptr noundef %0) #38
   ret void
 }
 
@@ -891,7 +891,7 @@ define ptr @stbi__load_main(ptr noundef %0, ptr noundef captures(none) %1, ptr n
   %33 = load ptr, ptr %15, align 8, !tbaa !3
   %34 = load ptr, ptr %16, align 8, !tbaa !19
   %35 = load i32, ptr %18, align 4, !tbaa !20
-  %36 = tail call i32 %33(ptr noundef %34, ptr noundef nonnull %17, i32 noundef %35) #37
+  %36 = tail call i32 %33(ptr noundef %34, ptr noundef nonnull %17, i32 noundef %35) #38
   %37 = load ptr, ptr %12, align 8, !tbaa !14
   %38 = load ptr, ptr %19, align 8, !tbaa !13
   %39 = ptrtoint ptr %37 to i64
@@ -1002,17 +1002,17 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
   br i1 %.not15.i, label %stbi__gif_load.exit, label %87
 
 87:                                               ; preds = %84
-  call void @free(ptr noundef nonnull %86) #37
+  call void @free(ptr noundef nonnull %86) #38
   br label %stbi__gif_load.exit
 
 stbi__gif_load.exit:                              ; preds = %77, %82, %84, %87
   %.0.i = phi ptr [ %83, %82 ], [ %75, %77 ], [ null, %87 ], [ null, %84 ]
   %88 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %89 = load ptr, ptr %88, align 8, !tbaa !36
-  call void @free(ptr noundef %89) #37
+  call void @free(ptr noundef %89) #38
   %90 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %91 = load ptr, ptr %90, align 8, !tbaa !37
-  call void @free(ptr noundef %91) #37
+  call void @free(ptr noundef %91) #38
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %131
 
@@ -1148,7 +1148,7 @@ define range(i32 0, 2) i32 @stbi__png_test(ptr noundef %0) local_unnamed_addr #2
   %23 = load ptr, ptr %5, align 8, !tbaa !3
   %24 = load ptr, ptr %6, align 8, !tbaa !19
   %25 = load i32, ptr %8, align 4, !tbaa !20
-  %26 = tail call i32 %23(ptr noundef %24, ptr noundef nonnull %7, i32 noundef %25) #37
+  %26 = tail call i32 %23(ptr noundef %24, ptr noundef nonnull %7, i32 noundef %25) #38
   %27 = load ptr, ptr %2, align 8, !tbaa !14
   %28 = load ptr, ptr %9, align 8, !tbaa !13
   %29 = ptrtoint ptr %27 to i64
@@ -1439,7 +1439,7 @@ stbi__mul2sizes_valid.exit12.i.i:                 ; preds = %stbi__mul2sizes_val
 stbi__malloc_mad3.exit:                           ; preds = %stbi__mul2sizes_valid.exit.thread16.i.i, %stbi__mul2sizes_valid.exit12.i.i
   %120 = mul nsw i32 %111, %107
   %121 = sext i32 %120 to i64
-  %122 = tail call noalias noundef ptr @malloc(i64 noundef %121) #38
+  %122 = tail call noalias noundef ptr @malloc(i64 noundef %121) #39
   %.not369 = icmp eq ptr %122, null
   br i1 %.not369, label %stbi__malloc_mad3.exit.thread, label %124
 
@@ -1478,7 +1478,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   br label %141
 
 139:                                              ; preds = %126
-  tail call void @free(ptr noundef nonnull %122) #37
+  tail call void @free(ptr noundef nonnull %122) #38
   %140 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.77, ptr %140, align 8, !tbaa !22
   br label %.critedge
@@ -1507,7 +1507,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %153 = load ptr, ptr %132, align 8, !tbaa !3
   %154 = load ptr, ptr %133, align 8, !tbaa !19
   %155 = load i32, ptr %135, align 4, !tbaa !20
-  %156 = tail call i32 %153(ptr noundef %154, ptr noundef nonnull %134, i32 noundef %155) #37
+  %156 = tail call i32 %153(ptr noundef %154, ptr noundef nonnull %134, i32 noundef %155) #38
   %157 = load ptr, ptr %129, align 8, !tbaa !14
   %158 = load ptr, ptr %136, align 8, !tbaa !13
   %159 = ptrtoint ptr %157 to i64
@@ -1565,7 +1565,7 @@ stbi__get8.exit:                                  ; preds = %147, %150, %stbi__r
   %184 = load ptr, ptr %132, align 8, !tbaa !3
   %185 = load ptr, ptr %133, align 8, !tbaa !19
   %186 = load i32, ptr %135, align 4, !tbaa !20
-  %187 = tail call i32 %184(ptr noundef %185, ptr noundef nonnull %134, i32 noundef %186) #37
+  %187 = tail call i32 %184(ptr noundef %185, ptr noundef nonnull %134, i32 noundef %186) #38
   %188 = load ptr, ptr %129, align 8, !tbaa !14
   %189 = load ptr, ptr %136, align 8, !tbaa !13
   %190 = ptrtoint ptr %188 to i64
@@ -1622,7 +1622,7 @@ stbi__get8.exit391:                               ; preds = %178, %181, %stbi__r
   %214 = load ptr, ptr %132, align 8, !tbaa !3
   %215 = load ptr, ptr %133, align 8, !tbaa !19
   %216 = load i32, ptr %135, align 4, !tbaa !20
-  %217 = tail call i32 %214(ptr noundef %215, ptr noundef nonnull %134, i32 noundef %216) #37
+  %217 = tail call i32 %214(ptr noundef %215, ptr noundef nonnull %134, i32 noundef %216) #38
   %218 = load ptr, ptr %129, align 8, !tbaa !14
   %219 = load ptr, ptr %136, align 8, !tbaa !13
   %220 = ptrtoint ptr %218 to i64
@@ -1679,7 +1679,7 @@ stbi__get8.exit397:                               ; preds = %208, %211, %stbi__r
   %243 = load ptr, ptr %132, align 8, !tbaa !3
   %244 = load ptr, ptr %133, align 8, !tbaa !19
   %245 = load i32, ptr %135, align 4, !tbaa !20
-  %246 = tail call i32 %243(ptr noundef %244, ptr noundef nonnull %134, i32 noundef %245) #37
+  %246 = tail call i32 %243(ptr noundef %244, ptr noundef nonnull %134, i32 noundef %245) #38
   %247 = load ptr, ptr %129, align 8, !tbaa !14
   %248 = load ptr, ptr %136, align 8, !tbaa !13
   %249 = ptrtoint ptr %247 to i64
@@ -1750,7 +1750,7 @@ stbi__get8.exit403:                               ; preds = %stbi__get8.exit403.
   br label %.preheader517
 
 276:                                              ; preds = %._crit_edge
-  tail call void @free(ptr noundef %122) #37
+  tail call void @free(ptr noundef %122) #38
   %277 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.78, ptr %277, align 8, !tbaa !22
   br label %.critedge
@@ -1832,7 +1832,7 @@ stbi__get8.exit403:                               ; preds = %stbi__get8.exit403.
   %329 = load ptr, ptr %308, align 8, !tbaa !3
   %330 = load ptr, ptr %309, align 8, !tbaa !19
   %331 = load i32, ptr %311, align 4, !tbaa !20
-  %332 = tail call i32 %329(ptr noundef %330, ptr noundef nonnull %310, i32 noundef %331) #37
+  %332 = tail call i32 %329(ptr noundef %330, ptr noundef nonnull %310, i32 noundef %331) #38
   %333 = load ptr, ptr %305, align 8, !tbaa !14
   %334 = load ptr, ptr %312, align 8, !tbaa !13
   %335 = ptrtoint ptr %333 to i64
@@ -1940,7 +1940,7 @@ stbi__get8.exit409:                               ; preds = %323, %326, %stbi__r
   %387 = load ptr, ptr %308, align 8, !tbaa !3
   %388 = load ptr, ptr %309, align 8, !tbaa !19
   %389 = load i32, ptr %311, align 4, !tbaa !20
-  %390 = tail call i32 %387(ptr noundef %388, ptr noundef nonnull %310, i32 noundef %389) #37
+  %390 = tail call i32 %387(ptr noundef %388, ptr noundef nonnull %310, i32 noundef %389) #38
   %391 = load ptr, ptr %305, align 8, !tbaa !14
   %392 = load ptr, ptr %312, align 8, !tbaa !13
   %393 = ptrtoint ptr %391 to i64
@@ -2014,7 +2014,7 @@ stbi__get8.exit415:                               ; preds = %381, %384, %stbi__r
   %423 = load ptr, ptr %317, align 8, !tbaa !53
   %424 = load ptr, ptr %309, align 8, !tbaa !19
   %425 = sub nsw i32 %302, %420
-  tail call void %423(ptr noundef %424, i32 noundef %425) #37
+  tail call void %423(ptr noundef %424, i32 noundef %425) #38
   br label %stbi__skip.exit
 
 .thread.i:                                        ; preds = %414, %416
@@ -2065,7 +2065,7 @@ stbi__skip.exit:                                  ; preds = %.thread482, %422, %
   %443 = load ptr, ptr %285, align 8, !tbaa !3
   %444 = load ptr, ptr %286, align 8, !tbaa !19
   %445 = load i32, ptr %288, align 4, !tbaa !20
-  %446 = tail call i32 %443(ptr noundef %444, ptr noundef nonnull %287, i32 noundef %445) #37
+  %446 = tail call i32 %443(ptr noundef %444, ptr noundef nonnull %287, i32 noundef %445) #38
   %447 = load ptr, ptr %282, align 8, !tbaa !14
   %448 = load ptr, ptr %289, align 8, !tbaa !13
   %449 = ptrtoint ptr %447 to i64
@@ -2160,7 +2160,7 @@ stbi__get8.exit423:                               ; preds = %437, %440, %stbi__r
   %497 = load ptr, ptr %285, align 8, !tbaa !3
   %498 = load ptr, ptr %286, align 8, !tbaa !19
   %499 = load i32, ptr %288, align 4, !tbaa !20
-  %500 = tail call i32 %497(ptr noundef %498, ptr noundef nonnull %287, i32 noundef %499) #37
+  %500 = tail call i32 %497(ptr noundef %498, ptr noundef nonnull %287, i32 noundef %499) #38
   %501 = load ptr, ptr %282, align 8, !tbaa !14
   %502 = load ptr, ptr %289, align 8, !tbaa !13
   %503 = ptrtoint ptr %501 to i64
@@ -2263,7 +2263,7 @@ stbi__get8.exit429:                               ; preds = %491, %494, %stbi__r
   %555 = load ptr, ptr %296, align 8, !tbaa !53
   %556 = load ptr, ptr %286, align 8, !tbaa !19
   %557 = sub nsw i32 %279, %552
-  tail call void %555(ptr noundef %556, i32 noundef %557) #37
+  tail call void %555(ptr noundef %556, i32 noundef %557) #38
   br label %stbi__skip.exit435
 
 .thread.i431:                                     ; preds = %546, %..thread_crit_edge.i432
@@ -2327,7 +2327,7 @@ stbi__skip.exit435:                               ; preds = %._crit_edge544, %55
   %591 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %592 = load ptr, ptr %591, align 8, !tbaa !19
   %593 = sub nsw i32 %567, %586
-  tail call void %590(ptr noundef %592, i32 noundef %593) #37
+  tail call void %590(ptr noundef %592, i32 noundef %593) #38
   br label %stbi__skip.exit441
 
 .thread.i437:                                     ; preds = %578, %..thread_crit_edge.i438
@@ -2375,7 +2375,7 @@ stbi__skip.exit441:                               ; preds = %563, %571, %588, %.
   br i1 %or.cond17, label %612, label %610
 
 610:                                              ; preds = %.thread496
-  tail call void @free(ptr noundef nonnull %122) #37
+  tail call void @free(ptr noundef nonnull %122) #38
   %611 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.79, ptr %611, align 8, !tbaa !22
   br label %.critedge
@@ -2403,7 +2403,7 @@ stbi__skip.exit441:                               ; preds = %563, %571, %588, %.
   br i1 %or.cond23, label %629, label %.thread502
 
 629:                                              ; preds = %612
-  tail call void @free(ptr noundef nonnull %122) #37
+  tail call void @free(ptr noundef nonnull %122) #38
   %630 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.79, ptr %630, align 8, !tbaa !22
   br label %.critedge
@@ -2525,7 +2525,7 @@ stbi__skip.exit441:                               ; preds = %563, %571, %588, %.
   %704 = load ptr, ptr %638, align 8, !tbaa !3
   %705 = load ptr, ptr %639, align 8, !tbaa !19
   %706 = load i32, ptr %641, align 4, !tbaa !20
-  %707 = tail call i32 %704(ptr noundef %705, ptr noundef nonnull %640, i32 noundef %706) #37
+  %707 = tail call i32 %704(ptr noundef %705, ptr noundef nonnull %640, i32 noundef %706) #38
   %708 = load ptr, ptr %635, align 8, !tbaa !14
   %709 = load ptr, ptr %642, align 8, !tbaa !13
   %710 = ptrtoint ptr %708 to i64
@@ -2584,7 +2584,7 @@ stbi__get8.exit447:                               ; preds = %698, %701, %stbi__r
   %736 = load ptr, ptr %638, align 8, !tbaa !3
   %737 = load ptr, ptr %639, align 8, !tbaa !19
   %738 = load i32, ptr %641, align 4, !tbaa !20
-  %739 = tail call i32 %736(ptr noundef %737, ptr noundef nonnull %640, i32 noundef %738) #37
+  %739 = tail call i32 %736(ptr noundef %737, ptr noundef nonnull %640, i32 noundef %738) #38
   %740 = load ptr, ptr %635, align 8, !tbaa !14
   %741 = load ptr, ptr %642, align 8, !tbaa !13
   %742 = ptrtoint ptr %740 to i64
@@ -2641,7 +2641,7 @@ stbi__get8.exit453:                               ; preds = %730, %733, %stbi__r
   %766 = load ptr, ptr %638, align 8, !tbaa !3
   %767 = load ptr, ptr %639, align 8, !tbaa !19
   %768 = load i32, ptr %641, align 4, !tbaa !20
-  %769 = tail call i32 %766(ptr noundef %767, ptr noundef nonnull %640, i32 noundef %768) #37
+  %769 = tail call i32 %766(ptr noundef %767, ptr noundef nonnull %640, i32 noundef %768) #38
   %770 = load ptr, ptr %635, align 8, !tbaa !14
   %771 = load ptr, ptr %642, align 8, !tbaa !13
   %772 = ptrtoint ptr %770 to i64
@@ -2701,7 +2701,7 @@ stbi__get8.exit459:                               ; preds = %760, %763, %stbi__r
   %797 = load ptr, ptr %638, align 8, !tbaa !3
   %798 = load ptr, ptr %639, align 8, !tbaa !19
   %799 = load i32, ptr %641, align 4, !tbaa !20
-  %800 = tail call i32 %797(ptr noundef %798, ptr noundef nonnull %640, i32 noundef %799) #37
+  %800 = tail call i32 %797(ptr noundef %798, ptr noundef nonnull %640, i32 noundef %799) #38
   %801 = load ptr, ptr %635, align 8, !tbaa !14
   %802 = load ptr, ptr %642, align 8, !tbaa !13
   %803 = ptrtoint ptr %801 to i64
@@ -2903,7 +2903,7 @@ stbi__get8.exit465:                               ; preds = %stbi__refill_buffer
   %902 = load ptr, ptr %687, align 8, !tbaa !53
   %903 = load ptr, ptr %639, align 8, !tbaa !19
   %904 = sub nsw i32 %632, %899
-  tail call void %902(ptr noundef %903, i32 noundef %904) #37
+  tail call void %902(ptr noundef %903, i32 noundef %904) #38
   br label %stbi__skip.exit475
 
 .thread.i471:                                     ; preds = %893, %..thread_crit_edge.i472
@@ -3082,17 +3082,17 @@ define ptr @stbi__gif_load(ptr noundef %0, ptr noundef writeonly captures(none) 
   br i1 %.not15, label %21, label %20
 
 20:                                               ; preds = %17
-  call void @free(ptr noundef nonnull %19) #37
+  call void @free(ptr noundef nonnull %19) #38
   br label %21
 
 21:                                               ; preds = %17, %20, %10, %15
   %.0 = phi ptr [ %16, %15 ], [ %8, %10 ], [ null, %20 ], [ null, %17 ]
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !36
-  call void @free(ptr noundef %23) #37
+  call void @free(ptr noundef %23) #38
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !37
-  call void @free(ptr noundef %25) #37
+  call void @free(ptr noundef %25) #38
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
@@ -3170,7 +3170,7 @@ define noundef ptr @stbi__psd_load(ptr noundef %0, ptr noundef writeonly capture
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load ptr, ptr %34, align 8, !tbaa !19
   %36 = sub nsw i32 6, %29
-  tail call void %33(ptr noundef %35, i32 noundef %36) #37
+  tail call void %33(ptr noundef %35, i32 noundef %36) #38
   br label %stbi__skip.exit
 
 .thread.i:                                        ; preds = %21, %..thread_crit_edge.i
@@ -3286,7 +3286,7 @@ stbi__skip.exit:                                  ; preds = %31, %.thread.i
   %87 = shl i32 %48, 2
   %88 = mul i32 %87, %52
   %89 = sext i32 %88 to i64
-  %90 = tail call noalias noundef ptr @malloc(i64 noundef %89) #38
+  %90 = tail call noalias noundef ptr @malloc(i64 noundef %89) #39
   br label %91
 
 91:                                               ; preds = %86, %84
@@ -3368,7 +3368,7 @@ stbi__skip.exit:                                  ; preds = %31, %.thread.i
   br i1 %.not218, label %.critedge, label %.preheader234
 
 .critedge:                                        ; preds = %120, %116
-  tail call void @free(ptr noundef nonnull %.0188) #37
+  tail call void @free(ptr noundef nonnull %.0188) #38
   %123 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.87, ptr %123, align 8, !tbaa !22
   br label %251
@@ -3494,7 +3494,7 @@ stbi__skip.exit:                                  ; preds = %31, %.thread.i
   %162 = load ptr, ptr %19, align 8, !tbaa !3
   %163 = load ptr, ptr %100, align 8, !tbaa !19
   %164 = load i32, ptr %102, align 4, !tbaa !20
-  %165 = tail call i32 %162(ptr noundef %163, ptr noundef nonnull %101, i32 noundef %164) #37
+  %165 = tail call i32 %162(ptr noundef %163, ptr noundef nonnull %101, i32 noundef %164) #38
   %166 = load ptr, ptr %97, align 8, !tbaa !14
   %167 = load ptr, ptr %103, align 8, !tbaa !13
   %168 = ptrtoint ptr %166 to i64
@@ -3738,7 +3738,7 @@ define noundef ptr @stbi__pic_load(ptr noundef %0, ptr noundef writeonly capture
   %27 = load ptr, ptr %11, align 8, !tbaa !3
   %28 = load ptr, ptr %12, align 8, !tbaa !19
   %29 = load i32, ptr %14, align 4, !tbaa !20
-  %30 = tail call i32 %27(ptr noundef %28, ptr noundef nonnull %13, i32 noundef %29) #37
+  %30 = tail call i32 %27(ptr noundef %28, ptr noundef nonnull %13, i32 noundef %29) #38
   %31 = load ptr, ptr %8, align 8, !tbaa !14
   %32 = load ptr, ptr %15, align 8, !tbaa !13
   %33 = ptrtoint ptr %31 to i64
@@ -3792,7 +3792,7 @@ stbi__get8.exit:                                  ; preds = %stbi__get8.exit.sin
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %53 = load ptr, ptr %52, align 8, !tbaa !76
   %54 = load ptr, ptr %12, align 8, !tbaa !19
-  %55 = tail call i32 %53(ptr noundef %54) #37
+  %55 = tail call i32 %53(ptr noundef %54) #38
   %.not6.i = icmp eq i32 %55, 0
   br i1 %.not6.i, label %stbi__at_eof.exit.thread, label %56
 
@@ -3853,7 +3853,7 @@ stbi__mul2sizes_valid.exit.thread16.i.i:          ; preds = %stbi__mul2sizes_val
 stbi__malloc_mad3.exit:                           ; preds = %stbi__mul2sizes_valid.exit.thread16.i.i
   %77 = shl nuw nsw i32 %76, 2
   %78 = zext nneg i32 %77 to i64
-  %79 = tail call noalias noundef ptr @malloc(i64 noundef %78) #38
+  %79 = tail call noalias noundef ptr @malloc(i64 noundef %78) #39
   %.not46 = icmp eq ptr %79, null
   br i1 %.not46, label %stbi__malloc_mad3.exit.thread, label %81
 
@@ -3869,7 +3869,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   br i1 %.not47, label %83, label %84
 
 83:                                               ; preds = %81
-  tail call void @free(ptr noundef nonnull %79) #37
+  tail call void @free(ptr noundef nonnull %79) #38
   br label %84
 
 84:                                               ; preds = %83, %81
@@ -3936,7 +3936,7 @@ stbi__decode_jpeg_header.exit:                    ; preds = %4, %12
   %18 = load ptr, ptr %17, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %18, ptr %19, align 8, !tbaa !16
-  tail call void @free(ptr noundef nonnull %calloc) #37
+  tail call void @free(ptr noundef nonnull %calloc) #38
   br label %20
 
 20:                                               ; preds = %stbi__decode_jpeg_header.exit, %2
@@ -3964,7 +3964,7 @@ define noundef ptr @stbi__jpeg_load(ptr noundef %0, ptr noundef writeonly captur
   store ptr @stbi__YCbCr_to_RGB_simd, ptr %11, align 8, !tbaa !80
   store ptr @stbi__resample_row_hv_2_simd, ptr %12, align 8, !tbaa !81
   %13 = tail call ptr @load_jpeg_image(ptr noundef nonnull %calloc, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
-  tail call void @free(ptr noundef nonnull %calloc) #37
+  tail call void @free(ptr noundef nonnull %calloc) #38
   br label %14
 
 14:                                               ; preds = %9, %7
@@ -4001,7 +4001,7 @@ define range(i32 0, 2) i32 @stbi__pnm_test(ptr noundef %0) local_unnamed_addr #2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %20 = load i32, ptr %19, align 4, !tbaa !20
-  %21 = tail call i32 %15(ptr noundef %17, ptr noundef nonnull %18, i32 noundef %20) #37
+  %21 = tail call i32 %15(ptr noundef %17, ptr noundef nonnull %18, i32 noundef %20) #38
   %22 = load ptr, ptr %2, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %24 = load ptr, ptr %23, align 8, !tbaa !13
@@ -4063,7 +4063,7 @@ stbi__get8.exit:                                  ; preds = %7, %10, %stbi__refi
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %56 = load i32, ptr %55, align 4, !tbaa !20
-  %57 = tail call i32 %51(ptr noundef %53, ptr noundef nonnull %54, i32 noundef %56) #37
+  %57 = tail call i32 %51(ptr noundef %53, ptr noundef nonnull %54, i32 noundef %56) #38
   %58 = load ptr, ptr %2, align 8, !tbaa !14
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %60 = load ptr, ptr %59, align 8, !tbaa !13
@@ -4243,7 +4243,7 @@ stbi__mul2sizes_valid.exit21.i.i:                 ; preds = %stbi__mul2sizes_val
 stbi__malloc_mad4.exit:                           ; preds = %stbi__mul2sizes_valid.exit18.thread30.i.i, %stbi__mul2sizes_valid.exit21.i.i
   %48 = mul i32 %28, %38
   %49 = sext i32 %48 to i64
-  %50 = tail call noalias noundef ptr @malloc(i64 noundef %49) #38
+  %50 = tail call noalias noundef ptr @malloc(i64 noundef %49) #39
   %.not55 = icmp eq ptr %50, null
   br i1 %.not55, label %stbi__malloc_mad4.exit.thread, label %52
 
@@ -4298,14 +4298,14 @@ stbi__getn.exit:                                  ; preds = %55
   %71 = load ptr, ptr %70, align 8, !tbaa !19
   %72 = getelementptr inbounds i8, ptr %50, i64 %69
   %73 = sub nsw i32 %48, %63
-  %74 = tail call i32 %54(ptr noundef %71, ptr noundef nonnull %72, i32 noundef %73) #37
+  %74 = tail call i32 %54(ptr noundef %71, ptr noundef nonnull %72, i32 noundef %73) #38
   %.not69 = icmp eq i32 %74, %73
   %75 = load ptr, ptr %56, align 8, !tbaa !16
   store ptr %75, ptr %58, align 8, !tbaa !14
   br i1 %.not69, label %77, label %stbi__getn.exit.thread
 
 stbi__getn.exit.thread:                           ; preds = %.thread.i, %stbi__getn.exit
-  tail call void @free(ptr noundef nonnull %50) #37
+  tail call void @free(ptr noundef nonnull %50) #38
   %76 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.110, ptr %76, align 8, !tbaa !22
   br label %89
@@ -4383,7 +4383,7 @@ define range(i32 0, 2) i32 @stbi__hdr_test(ptr noundef %0) local_unnamed_addr #2
   %24 = load ptr, ptr %5, align 8, !tbaa !3
   %25 = load ptr, ptr %6, align 8, !tbaa !19
   %26 = load i32, ptr %8, align 4, !tbaa !20
-  %27 = tail call i32 %24(ptr noundef %25, ptr noundef nonnull %7, i32 noundef %26) #37
+  %27 = tail call i32 %24(ptr noundef %25, ptr noundef nonnull %7, i32 noundef %26) #38
   %28 = load ptr, ptr %2, align 8, !tbaa !14
   %29 = load ptr, ptr %9, align 8, !tbaa !13
   %30 = ptrtoint ptr %28 to i64
@@ -4466,7 +4466,7 @@ stbi__hdr_test_core.exit:                         ; preds = %12
   %66 = load ptr, ptr %5, align 8, !tbaa !3
   %67 = load ptr, ptr %6, align 8, !tbaa !19
   %68 = load i32, ptr %8, align 4, !tbaa !20
-  %69 = tail call i32 %66(ptr noundef %67, ptr noundef nonnull %7, i32 noundef %68) #37
+  %69 = tail call i32 %66(ptr noundef %67, ptr noundef nonnull %7, i32 noundef %68) #38
   %70 = load ptr, ptr %2, align 8, !tbaa !14
   %71 = load ptr, ptr %9, align 8, !tbaa !13
   %72 = ptrtoint ptr %70 to i64
@@ -4580,7 +4580,7 @@ define noalias noundef ptr @stbi__hdr_load(ptr noundef %0, ptr noundef writeonly
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 3
   store ptr %30, ptr %8, align 8, !tbaa !22
-  %31 = call i64 @strtol(ptr noundef nonnull %30, ptr noundef nonnull %8, i32 noundef 10) #37
+  %31 = call i64 @strtol(ptr noundef nonnull %30, ptr noundef nonnull %8, i32 noundef 10) #38
   %.promoted = load ptr, ptr %8, align 8, !tbaa !22
   br label %32
 
@@ -4615,7 +4615,7 @@ sub_1:                                            ; preds = %sub_0
 43:                                               ; preds = %.tail
   %44 = getelementptr inbounds nuw i8, ptr %33, i64 3
   store ptr %44, ptr %8, align 8, !tbaa !22
-  %45 = call i64 @strtol(ptr noundef nonnull captures(none) %44, ptr noundef null, i32 noundef 10) #37
+  %45 = call i64 @strtol(ptr noundef nonnull captures(none) %44, ptr noundef null, i32 noundef 10) #38
   %46 = trunc i64 %45 to i32
   %47 = icmp sgt i32 %37, 16777216
   br i1 %47, label %48, label %50
@@ -4741,7 +4741,7 @@ sub_1:                                            ; preds = %sub_0
   %103 = load ptr, ptr %102, align 8, !tbaa !19
   %104 = getelementptr inbounds i8, ptr %9, i64 %101
   %105 = sub nsw i32 4, %98
-  %106 = call i32 %89(ptr noundef %103, ptr noundef nonnull %104, i32 noundef %105) #37
+  %106 = call i32 %89(ptr noundef %103, ptr noundef nonnull %104, i32 noundef %105) #38
   %107 = load ptr, ptr %91, align 8, !tbaa !16
   store ptr %107, ptr %93, align 8, !tbaa !14
   br label %stbi__getn.exit
@@ -4776,7 +4776,7 @@ stbi__getn.exit:                                  ; preds = %100, %.thread.i, %1
 123:                                              ; preds = %stbi__getn.exit
   %124 = zext i8 %122 to i32
   %125 = add nsw i32 %124, -136
-  %126 = call double @ldexp(double noundef 1.000000e+00, i32 noundef %125) #37, !tbaa !23
+  %126 = call double @ldexp(double noundef 1.000000e+00, i32 noundef %125) #38, !tbaa !23
   %127 = fptrunc double %126 to float
   %128 = icmp slt i32 %spec.store.select, 3
   %129 = load i8, ptr %9, align 4, !tbaa !21
@@ -4894,7 +4894,7 @@ stbi__hdr_convert.exit:                           ; preds = %156, %157, %159, %1
   %183 = getelementptr inbounds nuw i8, ptr %10, i64 3
   store i8 %182, ptr %183, align 1, !tbaa !21
   call void @stbi__hdr_convert(ptr noundef nonnull %62, ptr noundef nonnull %10, i32 noundef %spec.store.select)
-  call void @free(ptr noundef %.0120224) #37
+  call void @free(ptr noundef %.0120224) #38
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %87
 
@@ -4908,8 +4908,8 @@ stbi__hdr_convert.exit:                           ; preds = %156, %157, %159, %1
   br i1 %.not149, label %192, label %190
 
 190:                                              ; preds = %184
-  call void @free(ptr noundef %62) #37
-  call void @free(ptr noundef %.0120224) #37
+  call void @free(ptr noundef %62) #38
+  call void @free(ptr noundef %.0120224) #38
   %191 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.109, ptr %191, align 8, !tbaa !22
   br label %._crit_edge226.thread
@@ -4919,12 +4919,12 @@ stbi__hdr_convert.exit:                           ; preds = %156, %157, %159, %1
   br i1 %193, label %stbi__malloc_mad2.exit, label %.preheader185.preheader
 
 stbi__malloc_mad2.exit:                           ; preds = %192
-  %194 = call noalias noundef ptr @malloc(i64 noundef %69) #38
+  %194 = call noalias noundef ptr @malloc(i64 noundef %69) #39
   %.not150 = icmp eq ptr %194, null
   br i1 %.not150, label %stbi__malloc_mad2.exit.thread, label %.preheader185.preheader
 
 stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__malloc_mad2.exit
-  call void @free(ptr noundef %62) #37
+  call void @free(ptr noundef %62) #38
   %195 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.1, ptr %195, align 8, !tbaa !22
   br label %._crit_edge226.thread
@@ -4966,7 +4966,7 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__malloc_mad2.e
   %208 = load ptr, ptr %73, align 8, !tbaa !3
   %209 = load ptr, ptr %74, align 8, !tbaa !19
   %210 = load i32, ptr %76, align 4, !tbaa !20
-  %211 = call i32 %208(ptr noundef %209, ptr noundef nonnull %75, i32 noundef %210) #37
+  %211 = call i32 %208(ptr noundef %209, ptr noundef nonnull %75, i32 noundef %210) #38
   %212 = load ptr, ptr %70, align 8, !tbaa !14
   %213 = load ptr, ptr %77, align 8, !tbaa !13
   %214 = ptrtoint ptr %212 to i64
@@ -5024,7 +5024,7 @@ stbi__get8.exit:                                  ; preds = %202, %stbi__refill_
   %238 = load ptr, ptr %73, align 8, !tbaa !3
   %239 = load ptr, ptr %74, align 8, !tbaa !19
   %240 = load i32, ptr %76, align 4, !tbaa !20
-  %241 = call i32 %238(ptr noundef %239, ptr noundef nonnull %75, i32 noundef %240) #37
+  %241 = call i32 %238(ptr noundef %239, ptr noundef nonnull %75, i32 noundef %240) #38
   %242 = load ptr, ptr %70, align 8, !tbaa !14
   %243 = load ptr, ptr %77, align 8, !tbaa !13
   %244 = ptrtoint ptr %242 to i64
@@ -5071,8 +5071,8 @@ stbi__get8.exit162:                               ; preds = %232, %235, %stbi__r
   br label %.lr.ph215
 
 260:                                              ; preds = %stbi__get8.exit162
-  call void @free(ptr noundef %62) #37
-  call void @free(ptr noundef nonnull %.1121) #37
+  call void @free(ptr noundef %62) #38
+  call void @free(ptr noundef nonnull %.1121) #38
   %261 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.87, ptr %261, align 8, !tbaa !22
   br label %._crit_edge226.thread
@@ -5099,8 +5099,8 @@ stbi__get8.exit162:                               ; preds = %232, %235, %stbi__r
   br label %.preheader183
 
 .thread:                                          ; preds = %205, %264
-  call void @free(ptr noundef %62) #37
-  call void @free(ptr noundef nonnull %.1121) #37
+  call void @free(ptr noundef %62) #38
+  call void @free(ptr noundef nonnull %.1121) #38
   %268 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.87, ptr %268, align 8, !tbaa !22
   br label %._crit_edge226.thread
@@ -5128,7 +5128,7 @@ stbi__get8.exit162:                               ; preds = %232, %235, %stbi__r
   %278 = load ptr, ptr %73, align 8, !tbaa !3
   %279 = load ptr, ptr %74, align 8, !tbaa !19
   %280 = load i32, ptr %76, align 4, !tbaa !20
-  %281 = call i32 %278(ptr noundef %279, ptr noundef nonnull %75, i32 noundef %280) #37
+  %281 = call i32 %278(ptr noundef %279, ptr noundef nonnull %75, i32 noundef %280) #38
   %282 = load ptr, ptr %70, align 8, !tbaa !14
   %283 = load ptr, ptr %77, align 8, !tbaa !13
   %284 = ptrtoint ptr %282 to i64
@@ -5203,7 +5203,7 @@ stbi__get8.exit168:                               ; preds = %272, %275, %stbi__r
 310:                                              ; preds = %302
   %311 = zext i8 %309 to i32
   %312 = add nsw i32 %311, -136
-  %313 = call double @ldexp(double noundef 1.000000e+00, i32 noundef %312) #37, !tbaa !23
+  %313 = call double @ldexp(double noundef 1.000000e+00, i32 noundef %312) #38, !tbaa !23
   %314 = fptrunc double %313 to float
   %315 = load i8, ptr %307, align 1, !tbaa !21
   br i1 %80, label %316, label %329
@@ -5299,7 +5299,7 @@ stbi__hdr_convert.exit170:                        ; preds = %342, %343, %345, %3
   br i1 %exitcond277.not, label %._crit_edge226, label %173, !llvm.loop !95
 
 ._crit_edge226:                                   ; preds = %._crit_edge222
-  call void @free(ptr noundef nonnull %.1121) #37
+  call void @free(ptr noundef nonnull %.1121) #38
   br label %._crit_edge226.thread
 
 ._crit_edge226.thread:                            ; preds = %.preheader187, %260, %.thread, %83, %._crit_edge226, %stbi__malloc_mad2.exit.thread, %190, %63, %59, %52, %48, %.tail.thread, %27, %._crit_edge.thread, %13
@@ -5346,12 +5346,12 @@ stbi__mul2sizes_valid.exit12.i.i:                 ; preds = %12
 stbi__malloc_mad3.exit:                           ; preds = %12, %stbi__mul2sizes_valid.exit12.i.i
   %15 = mul nsw i32 %10, %3
   %16 = sext i32 %15 to i64
-  %17 = tail call noalias noundef ptr @malloc(i64 noundef %16) #38
+  %17 = tail call noalias noundef ptr @malloc(i64 noundef %16) #39
   %18 = icmp eq ptr %17, null
   br i1 %18, label %stbi__malloc_mad3.exit.thread, label %20
 
 stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_valid.exit.thread16.i.i, %5, %stbi__mul2sizes_valid.exit.i.i, %stbi__mul2sizes_valid.exit12.i.i, %stbi__malloc_mad3.exit
-  tail call void @free(ptr noundef nonnull %0) #37
+  tail call void @free(ptr noundef nonnull %0) #38
   %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.1, ptr %19, align 8, !tbaa !22
   br label %67
@@ -5410,7 +5410,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %45 = load float, ptr %44, align 4, !tbaa !86
   %46 = fmul float %45, %24
   %47 = fpext float %46 to double
-  %48 = tail call double @pow(double noundef %47, double noundef %26) #37, !tbaa !23
+  %48 = tail call double @pow(double noundef %47, double noundef %26) #38, !tbaa !23
   %49 = fptrunc double %48 to float
   %50 = tail call float @llvm.fmuladd.f32(float %49, float 2.550000e+02, float 5.000000e-01)
   %51 = fcmp olt float %50, 0.000000e+00
@@ -5456,7 +5456,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   br i1 %exitcond.not, label %._crit_edge57, label %.preheader.us58, !llvm.loop !96
 
 ._crit_edge57:                                    ; preds = %.preheader.us58, %41, %.preheader.lr.ph.split, %20
-  tail call void @free(ptr noundef nonnull %0) #37
+  tail call void @free(ptr noundef nonnull %0) #38
   br label %67
 
 67:                                               ; preds = %4, %._crit_edge57, %stbi__malloc_mad3.exit.thread
@@ -5491,7 +5491,7 @@ define range(i32 0, 2) i32 @stbi__tga_test(ptr noundef %0) local_unnamed_addr #2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %19 = load i32, ptr %18, align 4, !tbaa !20
-  %20 = tail call i32 %14(ptr noundef %16, ptr noundef nonnull %17, i32 noundef %19) #37
+  %20 = tail call i32 %14(ptr noundef %16, ptr noundef nonnull %17, i32 noundef %19) #38
   %21 = load ptr, ptr %2, align 8, !tbaa !14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %23 = load ptr, ptr %22, align 8, !tbaa !13
@@ -5555,7 +5555,7 @@ stbi__get8.exit:                                  ; preds = %stbi__get8.exit.sin
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %54 = load i32, ptr %53, align 4, !tbaa !20
-  %55 = tail call i32 %49(ptr noundef %51, ptr noundef nonnull %52, i32 noundef %54) #37
+  %55 = tail call i32 %49(ptr noundef %51, ptr noundef nonnull %52, i32 noundef %54) #38
   %56 = load ptr, ptr %2, align 8, !tbaa !14
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %58 = load ptr, ptr %57, align 8, !tbaa !13
@@ -5624,7 +5624,7 @@ stbi__get8.exit65.thread:                         ; preds = %44, %stbi__get8.exi
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %93 = load i32, ptr %92, align 4, !tbaa !20
-  %94 = tail call i32 %88(ptr noundef %90, ptr noundef nonnull %91, i32 noundef %93) #37
+  %94 = tail call i32 %88(ptr noundef %90, ptr noundef nonnull %91, i32 noundef %93) #38
   %95 = load ptr, ptr %2, align 8, !tbaa !14
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %97 = load ptr, ptr %96, align 8, !tbaa !13
@@ -5691,7 +5691,7 @@ stbi__get8.exit71:                                ; preds = %80, %83, %stbi__ref
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %129 = load ptr, ptr %128, align 8, !tbaa !19
   %130 = sub nsw i32 4, %123
-  tail call void %127(ptr noundef %129, i32 noundef %130) #37
+  tail call void %127(ptr noundef %129, i32 noundef %130) #38
   %.pre = load ptr, ptr %2, align 8, !tbaa !14
   %.pre101 = load ptr, ptr %4, align 8, !tbaa !16
   br label %stbi__skip.exit
@@ -5726,7 +5726,7 @@ stbi__skip.exit:                                  ; preds = %125, %.thread.i
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %147 = load i32, ptr %146, align 4, !tbaa !20
-  %148 = tail call i32 %142(ptr noundef %144, ptr noundef nonnull %145, i32 noundef %147) #37
+  %148 = tail call i32 %142(ptr noundef %144, ptr noundef nonnull %145, i32 noundef %147) #38
   %149 = load ptr, ptr %2, align 8, !tbaa !14
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %151 = load ptr, ptr %150, align 8, !tbaa !13
@@ -5792,7 +5792,7 @@ stbi__get8.exit79:                                ; preds = %135, %stbi__refill_
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %180 = load ptr, ptr %179, align 8, !tbaa !19
   %181 = sub nsw i32 4, %174
-  tail call void %178(ptr noundef %180, i32 noundef %181) #37
+  tail call void %178(ptr noundef %180, i32 noundef %181) #38
   br label %stbi__skip.exit85
 
 .thread.i81:                                      ; preds = %168, %170
@@ -5826,7 +5826,7 @@ stbi__get8.exit79:                                ; preds = %135, %stbi__refill_
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %198 = load ptr, ptr %197, align 8, !tbaa !19
   %199 = sub nsw i32 9, %192
-  tail call void %196(ptr noundef %198, i32 noundef %199) #37
+  tail call void %196(ptr noundef %198, i32 noundef %199) #38
   br label %stbi__skip.exit85
 
 .thread.i87:                                      ; preds = %185, %188
@@ -5870,7 +5870,7 @@ stbi__skip.exit85:                                ; preds = %.thread.i87, %194, 
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %223 = load i32, ptr %222, align 4, !tbaa !20
-  %224 = tail call i32 %218(ptr noundef %220, ptr noundef nonnull %221, i32 noundef %223) #37
+  %224 = tail call i32 %218(ptr noundef %220, ptr noundef nonnull %221, i32 noundef %223) #38
   %225 = load ptr, ptr %2, align 8, !tbaa !14
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %227 = load ptr, ptr %226, align 8, !tbaa !13
@@ -5967,7 +5967,7 @@ define noundef ptr @stbi__tga_load(ptr noundef %0, ptr noundef writeonly capture
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %26 = load i32, ptr %25, align 4, !tbaa !20
-  %27 = tail call i32 %21(ptr noundef %23, ptr noundef nonnull %24, i32 noundef %26) #37
+  %27 = tail call i32 %21(ptr noundef %23, ptr noundef nonnull %24, i32 noundef %26) #38
   %28 = load ptr, ptr %8, align 8, !tbaa !14
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %30 = load ptr, ptr %29, align 8, !tbaa !13
@@ -6030,7 +6030,7 @@ stbi__get8.exit:                                  ; preds = %13, %16, %stbi__ref
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %63 = load i32, ptr %62, align 4, !tbaa !20
-  %64 = tail call i32 %58(ptr noundef %60, ptr noundef nonnull %61, i32 noundef %63) #37
+  %64 = tail call i32 %58(ptr noundef %60, ptr noundef nonnull %61, i32 noundef %63) #38
   %65 = load ptr, ptr %8, align 8, !tbaa !14
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %67 = load ptr, ptr %66, align 8, !tbaa !13
@@ -6092,7 +6092,7 @@ stbi__get8.exit226:                               ; preds = %50, %53, %stbi__ref
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %99 = load i32, ptr %98, align 4, !tbaa !20
-  %100 = tail call i32 %94(ptr noundef %96, ptr noundef nonnull %97, i32 noundef %99) #37
+  %100 = tail call i32 %94(ptr noundef %96, ptr noundef nonnull %97, i32 noundef %99) #38
   %101 = load ptr, ptr %8, align 8, !tbaa !14
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %103 = load ptr, ptr %102, align 8, !tbaa !13
@@ -6157,7 +6157,7 @@ stbi__get8.exit232:                               ; preds = %86, %89, %stbi__ref
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %138 = load i32, ptr %137, align 4, !tbaa !20
-  %139 = tail call i32 %133(ptr noundef %135, ptr noundef nonnull %136, i32 noundef %138) #37
+  %139 = tail call i32 %133(ptr noundef %135, ptr noundef nonnull %136, i32 noundef %138) #38
   %140 = load ptr, ptr %8, align 8, !tbaa !14
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %142 = load ptr, ptr %141, align 8, !tbaa !13
@@ -6223,7 +6223,7 @@ stbi__get8.exit238:                               ; preds = %125, %128, %stbi__r
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %178 = load i32, ptr %177, align 4, !tbaa !20
-  %179 = tail call i32 %173(ptr noundef %175, ptr noundef nonnull %176, i32 noundef %178) #37
+  %179 = tail call i32 %173(ptr noundef %175, ptr noundef nonnull %176, i32 noundef %178) #38
   %180 = load ptr, ptr %8, align 8, !tbaa !14
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %182 = load ptr, ptr %181, align 8, !tbaa !13
@@ -6285,7 +6285,7 @@ stbi__get8.exit244:                               ; preds = %165, %168, %stbi__r
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %214 = load i32, ptr %213, align 4, !tbaa !20
-  %215 = tail call i32 %209(ptr noundef %211, ptr noundef nonnull %212, i32 noundef %214) #37
+  %215 = tail call i32 %209(ptr noundef %211, ptr noundef nonnull %212, i32 noundef %214) #38
   %216 = load ptr, ptr %8, align 8, !tbaa !14
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %218 = load ptr, ptr %217, align 8, !tbaa !13
@@ -6425,7 +6425,7 @@ stbi__malloc_mad3.exit:                           ; preds = %stbi__mul2sizes_val
   %264 = phi i32 [ %259, %stbi__mul2sizes_valid.exit.i.i ], [ %257, %stbi__mul2sizes_valid.exit.thread16.i ]
   %265 = mul nuw nsw i32 %264, %.0194.ph
   %266 = zext nneg i32 %265 to i64
-  %267 = tail call noalias noundef ptr @malloc(i64 noundef %266) #38
+  %267 = tail call noalias noundef ptr @malloc(i64 noundef %266) #39
   %.not206 = icmp eq ptr %267, null
   br i1 %.not206, label %stbi__malloc_mad3.exit.thread, label %269
 
@@ -6459,7 +6459,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %284 = load ptr, ptr %283, align 8, !tbaa !19
   %285 = sub nsw i32 %48, %278
-  tail call void %282(ptr noundef %284, i32 noundef %285) #37
+  tail call void %282(ptr noundef %284, i32 noundef %285) #38
   br label %stbi__skip.exit
 
 .thread.i:                                        ; preds = %271, %274
@@ -6572,7 +6572,7 @@ stbi__getn.exit.us:                               ; preds = %306, %..thread_crit
   %329 = load ptr, ptr %290, align 8, !tbaa !19
   %330 = getelementptr inbounds i8, ptr %317, i64 %328
   %331 = sub nsw i32 %288, %325
-  %332 = tail call i32 %318(ptr noundef %329, ptr noundef nonnull %330, i32 noundef %331) #37
+  %332 = tail call i32 %318(ptr noundef %329, ptr noundef nonnull %330, i32 noundef %331) #38
   %333 = load ptr, ptr %10, align 8, !tbaa !16
   br label %stbi__getn.exit.sink.split
 
@@ -6605,7 +6605,7 @@ stbi__getn.exit:                                  ; preds = %stbi__getn.exit.sin
   br i1 %341, label %342, label %344
 
 342:                                              ; preds = %340
-  tail call void @free(ptr noundef nonnull %267) #37
+  tail call void @free(ptr noundef nonnull %267) #38
   %343 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.81, ptr %343, align 8, !tbaa !22
   br label %554
@@ -6641,7 +6641,7 @@ stbi__getn.exit:                                  ; preds = %stbi__getn.exit.sin
   %360 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %361 = load ptr, ptr %360, align 8, !tbaa !19
   %362 = sub nsw i32 %120, %355
-  tail call void %359(ptr noundef %361, i32 noundef %362) #37
+  tail call void %359(ptr noundef %361, i32 noundef %362) #38
   br label %stbi__skip.exit270
 
 .thread.i266:                                     ; preds = %349, %..thread_crit_edge.i267
@@ -6654,12 +6654,12 @@ stbi__getn.exit:                                  ; preds = %stbi__getn.exit.sin
 stbi__skip.exit270:                               ; preds = %344, %357, %.thread.i266
   %366 = mul nuw nsw i32 %121, %.0194.ph
   %367 = zext nneg i32 %366 to i64
-  %368 = tail call noalias noundef ptr @malloc(i64 noundef %367) #38
+  %368 = tail call noalias noundef ptr @malloc(i64 noundef %367) #39
   %.not208 = icmp eq ptr %368, null
   br i1 %.not208, label %stbi__malloc_mad2.exit.thread, label %370
 
 stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__skip.exit270
-  tail call void @free(ptr noundef nonnull %267) #37
+  tail call void @free(ptr noundef nonnull %267) #38
   %369 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.1, ptr %369, align 8, !tbaa !22
   br label %554
@@ -6706,8 +6706,8 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__skip.exit270
   br i1 %.not210, label %392, label %.loopexit324
 
 392:                                              ; preds = %390
-  tail call void @free(ptr noundef nonnull %267) #37
-  tail call void @free(ptr noundef nonnull %368) #37
+  tail call void @free(ptr noundef nonnull %267) #38
+  tail call void @free(ptr noundef nonnull %368) #38
   %393 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.81, ptr %393, align 8, !tbaa !22
   br label %554
@@ -6770,7 +6770,7 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__skip.exit270
   %422 = load ptr, ptr %395, align 8, !tbaa !3
   %423 = load ptr, ptr %396, align 8, !tbaa !19
   %424 = load i32, ptr %398, align 4, !tbaa !20
-  %425 = tail call i32 %422(ptr noundef %423, ptr noundef nonnull %397, i32 noundef %424) #37
+  %425 = tail call i32 %422(ptr noundef %423, ptr noundef nonnull %397, i32 noundef %424) #38
   %426 = load ptr, ptr %8, align 8, !tbaa !14
   %427 = load ptr, ptr %399, align 8, !tbaa !13
   %428 = ptrtoint ptr %426 to i64
@@ -6845,7 +6845,7 @@ stbi__get8.exit279:                               ; preds = %416, %419, %stbi__r
   %456 = load ptr, ptr %395, align 8, !tbaa !3
   %457 = load ptr, ptr %396, align 8, !tbaa !19
   %458 = load i32, ptr %398, align 4, !tbaa !20
-  %459 = tail call i32 %456(ptr noundef %457, ptr noundef nonnull %397, i32 noundef %458) #37
+  %459 = tail call i32 %456(ptr noundef %457, ptr noundef nonnull %397, i32 noundef %458) #38
   %460 = load ptr, ptr %8, align 8, !tbaa !14
   %461 = load ptr, ptr %399, align 8, !tbaa !13
   %462 = ptrtoint ptr %460 to i64
@@ -6947,7 +6947,7 @@ stbi__get8.exit285:                               ; preds = %450, %453, %stbi__r
   %504 = load ptr, ptr %395, align 8, !tbaa !3
   %505 = load ptr, ptr %396, align 8, !tbaa !19
   %506 = load i32, ptr %398, align 4, !tbaa !20
-  %507 = tail call i32 %504(ptr noundef %505, ptr noundef nonnull %397, i32 noundef %506) #37
+  %507 = tail call i32 %504(ptr noundef %505, ptr noundef nonnull %397, i32 noundef %506) #38
   %508 = load ptr, ptr %8, align 8, !tbaa !14
   %509 = load ptr, ptr %399, align 8, !tbaa !13
   %510 = ptrtoint ptr %508 to i64
@@ -7051,7 +7051,7 @@ stbi__get8.exit294:                               ; preds = %498, %501, %stbi__r
   br i1 %.not212, label %.loopexit326, label %542
 
 542:                                              ; preds = %.loopexit319
-  tail call void @free(ptr noundef nonnull %.0192) #37
+  tail call void @free(ptr noundef nonnull %.0192) #38
   br label %.loopexit326
 
 .loopexit326:                                     ; preds = %stbi__getn.exit, %stbi__getn.exit.us, %stbi__getn.exit.us.us, %.preheader325, %.loopexit319, %542
@@ -7099,7 +7099,7 @@ define noalias noundef ptr @stbi__convert_16_to_8(ptr noundef captures(none) %0,
   %5 = mul nsw i32 %2, %1
   %6 = mul nsw i32 %5, %3
   %7 = sext i32 %6 to i64
-  %8 = tail call noalias noundef ptr @malloc(i64 noundef %7) #38
+  %8 = tail call noalias noundef ptr @malloc(i64 noundef %7) #39
   %9 = icmp eq ptr %8, null
   br i1 %9, label %11, label %.preheader
 
@@ -7129,7 +7129,7 @@ define noalias noundef ptr @stbi__convert_16_to_8(ptr noundef captures(none) %0,
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !107
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  tail call void @free(ptr noundef %0) #37
+  tail call void @free(ptr noundef %0) #38
   br label %18
 
 18:                                               ; preds = %._crit_edge, %11
@@ -7142,7 +7142,7 @@ define noalias noundef ptr @stbi__convert_8_to_16(ptr noundef captures(none) %0,
   %6 = mul nsw i32 %5, %3
   %7 = shl nsw i32 %6, 1
   %8 = sext i32 %7 to i64
-  %9 = tail call noalias noundef ptr @malloc(i64 noundef %8) #38
+  %9 = tail call noalias noundef ptr @malloc(i64 noundef %8) #39
   %10 = icmp eq ptr %9, null
   br i1 %10, label %12, label %.preheader
 
@@ -7172,7 +7172,7 @@ define noalias noundef ptr @stbi__convert_8_to_16(ptr noundef captures(none) %0,
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  tail call void @free(ptr noundef %0) #37
+  tail call void @free(ptr noundef %0) #38
   br label %19
 
 19:                                               ; preds = %._crit_edge, %12
@@ -7329,7 +7329,7 @@ define ptr @stbi__load_and_postprocess_8bit(ptr noundef %0, ptr noundef captures
   %20 = mul nsw i32 %14, %13
   %21 = mul nsw i32 %20, %19
   %22 = sext i32 %21 to i64
-  %23 = tail call noalias noundef ptr @malloc(i64 noundef %22) #38
+  %23 = tail call noalias noundef ptr @malloc(i64 noundef %22) #39
   %24 = icmp eq ptr %23, null
   br i1 %24, label %26, label %.preheader.i
 
@@ -7359,7 +7359,7 @@ define ptr @stbi__load_and_postprocess_8bit(ptr noundef %0, ptr noundef captures
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !107
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  tail call void @free(ptr noundef nonnull %8) #37
+  tail call void @free(ptr noundef nonnull %8) #38
   br label %stbi__convert_16_to_8.exit
 
 stbi__convert_16_to_8.exit:                       ; preds = %26, %._crit_edge.i
@@ -7481,7 +7481,7 @@ define ptr @stbi__load_and_postprocess_16bit(ptr noundef %0, ptr noundef capture
   %21 = mul nsw i32 %20, %19
   %22 = shl nsw i32 %21, 1
   %23 = sext i32 %22 to i64
-  %24 = tail call noalias noundef ptr @malloc(i64 noundef %23) #38
+  %24 = tail call noalias noundef ptr @malloc(i64 noundef %23) #39
   %25 = icmp eq ptr %24, null
   br i1 %25, label %27, label %.preheader.i
 
@@ -7511,7 +7511,7 @@ define ptr @stbi__load_and_postprocess_16bit(ptr noundef %0, ptr noundef capture
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !108
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  tail call void @free(ptr noundef nonnull %8) #37
+  tail call void @free(ptr noundef nonnull %8) #38
   br label %stbi__convert_8_to_16.exit
 
 stbi__convert_8_to_16.exit:                       ; preds = %27, %._crit_edge.i
@@ -7732,7 +7732,7 @@ define ptr @stbi_load(ptr noundef readonly captures(none) %0, ptr noundef captur
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 192
   store ptr %16, ptr %18, align 8, !tbaa !14
   %19 = load ptr, ptr %11, align 8, !tbaa !3
-  %20 = call i32 %19(ptr noundef nonnull %7, ptr noundef nonnull %16, i32 noundef 128) #37
+  %20 = call i32 %19(ptr noundef nonnull %7, ptr noundef nonnull %16, i32 noundef 128) #38
   %21 = load ptr, ptr %18, align 8, !tbaa !14
   %22 = load ptr, ptr %17, align 8, !tbaa !13
   %23 = ptrtoint ptr %21 to i64
@@ -7808,7 +7808,7 @@ define ptr @stbi_load_from_file(ptr noundef %0, ptr noundef captures(none) %1, p
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 192
   store ptr %12, ptr %14, align 8, !tbaa !14
   %15 = load ptr, ptr %7, align 8, !tbaa !3
-  %16 = call i32 %15(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 128) #37
+  %16 = call i32 %15(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 128) #38
   %17 = load ptr, ptr %14, align 8, !tbaa !14
   %18 = load ptr, ptr %13, align 8, !tbaa !13
   %19 = ptrtoint ptr %17 to i64
@@ -7882,7 +7882,7 @@ define ptr @stbi_load_from_file_16(ptr noundef %0, ptr noundef captures(none) %1
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 192
   store ptr %12, ptr %14, align 8, !tbaa !14
   %15 = load ptr, ptr %7, align 8, !tbaa !3
-  %16 = call i32 %15(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 128) #37
+  %16 = call i32 %15(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 128) #38
   %17 = load ptr, ptr %14, align 8, !tbaa !14
   %18 = load ptr, ptr %13, align 8, !tbaa !13
   %19 = ptrtoint ptr %17 to i64
@@ -7963,7 +7963,7 @@ define ptr @stbi_load_16(ptr noundef readonly captures(none) %0, ptr noundef cap
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 192
   store ptr %16, ptr %18, align 8, !tbaa !14
   %19 = load ptr, ptr %11, align 8, !tbaa !3
-  %20 = call i32 %19(ptr noundef nonnull %7, ptr noundef nonnull %16, i32 noundef 128) #37
+  %20 = call i32 %19(ptr noundef nonnull %7, ptr noundef nonnull %16, i32 noundef 128) #38
   %21 = load ptr, ptr %18, align 8, !tbaa !14
   %22 = load ptr, ptr %17, align 8, !tbaa !13
   %23 = ptrtoint ptr %21 to i64
@@ -8064,7 +8064,7 @@ define ptr @stbi_load_16_from_callbacks(ptr noundef readonly captures(none) %0, 
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 192
   store ptr %13, ptr %15, align 8, !tbaa !14
   %16 = load ptr, ptr %8, align 8, !tbaa !3
-  %17 = call i32 %16(ptr noundef %1, ptr noundef nonnull %13, i32 noundef 128) #37
+  %17 = call i32 %16(ptr noundef %1, ptr noundef nonnull %13, i32 noundef 128) #38
   %18 = load ptr, ptr %15, align 8, !tbaa !14
   %19 = load ptr, ptr %14, align 8, !tbaa !13
   %20 = ptrtoint ptr %18 to i64
@@ -8145,7 +8145,7 @@ define ptr @stbi_load_from_callbacks(ptr noundef readonly captures(none) %0, ptr
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 192
   store ptr %13, ptr %15, align 8, !tbaa !14
   %16 = load ptr, ptr %8, align 8, !tbaa !3
-  %17 = call i32 %16(ptr noundef %1, ptr noundef nonnull %13, i32 noundef 128) #37
+  %17 = call i32 %16(ptr noundef %1, ptr noundef nonnull %13, i32 noundef 128) #38
   %18 = load ptr, ptr %15, align 8, !tbaa !14
   %19 = load ptr, ptr %14, align 8, !tbaa !13
   %20 = ptrtoint ptr %18 to i64
@@ -8346,21 +8346,21 @@ define noundef ptr @stbi__load_gif_main(ptr noundef %0, ptr noundef captures(add
   br i1 %.not94, label %61, label %32
 
 32:                                               ; preds = %23
-  %33 = call ptr @realloc(ptr noundef nonnull %.077130, i64 noundef %31) #39
+  %33 = call ptr @realloc(ptr noundef nonnull %.077130, i64 noundef %31) #40
   %.not97 = icmp eq ptr %33, null
   br i1 %.not97, label %34, label %45
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !35
-  call void @free(ptr noundef %36) #37
+  call void @free(ptr noundef %36) #38
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !36
-  call void @free(ptr noundef %38) #37
+  call void @free(ptr noundef %38) #38
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !37
-  call void @free(ptr noundef %40) #37
-  call void @free(ptr noundef nonnull %.077130) #37
+  call void @free(ptr noundef %40) #38
+  call void @free(ptr noundef nonnull %.077130) #38
   br i1 %.not91, label %stbi__load_gif_main_outofmem.exit, label %41
 
 41:                                               ; preds = %34
@@ -8369,7 +8369,7 @@ define noundef ptr @stbi__load_gif_main(ptr noundef %0, ptr noundef captures(add
   br i1 %.not11.i, label %stbi__load_gif_main_outofmem.exit, label %43
 
 43:                                               ; preds = %41
-  call void @free(ptr noundef nonnull %42) #37
+  call void @free(ptr noundef nonnull %42) #38
   br label %stbi__load_gif_main_outofmem.exit
 
 stbi__load_gif_main_outofmem.exit:                ; preds = %34, %41, %43
@@ -8383,27 +8383,27 @@ stbi__load_gif_main_outofmem.exit:                ; preds = %34, %41, %43
 46:                                               ; preds = %45
   %47 = load ptr, ptr %1, align 8, !tbaa !112
   %48 = shl nuw nsw i64 %indvars.iv.next, 2
-  %49 = call ptr @realloc(ptr noundef %47, i64 noundef %48) #39
+  %49 = call ptr @realloc(ptr noundef %47, i64 noundef %48) #40
   %.not98.not = icmp eq ptr %49, null
   br i1 %.not98.not, label %50, label %60
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !35
-  call void @free(ptr noundef %52) #37
+  call void @free(ptr noundef %52) #38
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %54 = load ptr, ptr %53, align 8, !tbaa !36
-  call void @free(ptr noundef %54) #37
+  call void @free(ptr noundef %54) #38
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !37
-  call void @free(ptr noundef %56) #37
-  call void @free(ptr noundef nonnull %33) #37
+  call void @free(ptr noundef %56) #38
+  call void @free(ptr noundef nonnull %33) #38
   %57 = load ptr, ptr %1, align 8, !tbaa !112
   %.not11.i101 = icmp eq ptr %57, null
   br i1 %.not11.i101, label %.thread, label %58
 
 58:                                               ; preds = %50
-  call void @free(ptr noundef nonnull %57) #37
+  call void @free(ptr noundef nonnull %57) #38
   br label %.thread
 
 .thread:                                          ; preds = %58, %50
@@ -8416,20 +8416,20 @@ stbi__load_gif_main_outofmem.exit:                ; preds = %34, %41, %43
   br label %88
 
 61:                                               ; preds = %23
-  %62 = call noalias noundef ptr @malloc(i64 noundef %31) #38
+  %62 = call noalias noundef ptr @malloc(i64 noundef %31) #39
   %.not95 = icmp eq ptr %62, null
   br i1 %.not95, label %63, label %74
 
 63:                                               ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !35
-  call void @free(ptr noundef %65) #37
+  call void @free(ptr noundef %65) #38
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %67 = load ptr, ptr %66, align 8, !tbaa !36
-  call void @free(ptr noundef %67) #37
+  call void @free(ptr noundef %67) #38
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %69 = load ptr, ptr %68, align 8, !tbaa !37
-  call void @free(ptr noundef %69) #37
+  call void @free(ptr noundef %69) #38
   br i1 %.not91, label %stbi__load_gif_main_outofmem.exit105, label %70
 
 70:                                               ; preds = %63
@@ -8438,7 +8438,7 @@ stbi__load_gif_main_outofmem.exit:                ; preds = %34, %41, %43
   br i1 %.not11.i104, label %stbi__load_gif_main_outofmem.exit105, label %72
 
 72:                                               ; preds = %70
-  call void @free(ptr noundef nonnull %71) #37
+  call void @free(ptr noundef nonnull %71) #38
   br label %stbi__load_gif_main_outofmem.exit105
 
 stbi__load_gif_main_outofmem.exit105:             ; preds = %63, %70, %72
@@ -8451,7 +8451,7 @@ stbi__load_gif_main_outofmem.exit105:             ; preds = %63, %70, %72
 
 75:                                               ; preds = %74
   %76 = shl nuw nsw i64 %indvars.iv.next, 2
-  %77 = call noalias noundef ptr @malloc(i64 noundef %76) #38
+  %77 = call noalias noundef ptr @malloc(i64 noundef %76) #39
   store ptr %77, ptr %1, align 8, !tbaa !112
   %.not96 = icmp eq ptr %77, null
   br i1 %.not96, label %78, label %88
@@ -8459,20 +8459,20 @@ stbi__load_gif_main_outofmem.exit105:             ; preds = %63, %70, %72
 78:                                               ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !35
-  call void @free(ptr noundef %80) #37
+  call void @free(ptr noundef %80) #38
   %81 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %82 = load ptr, ptr %81, align 8, !tbaa !36
-  call void @free(ptr noundef %82) #37
+  call void @free(ptr noundef %82) #38
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %84 = load ptr, ptr %83, align 8, !tbaa !37
-  call void @free(ptr noundef %84) #37
-  call void @free(ptr noundef nonnull %62) #37
+  call void @free(ptr noundef %84) #38
+  call void @free(ptr noundef nonnull %62) #38
   %85 = load ptr, ptr %1, align 8, !tbaa !112
   %.not11.i108 = icmp eq ptr %85, null
   br i1 %.not11.i108, label %stbi__load_gif_main_outofmem.exit109, label %86
 
 86:                                               ; preds = %78
-  call void @free(ptr noundef nonnull %85) #37
+  call void @free(ptr noundef nonnull %85) #38
   br label %stbi__load_gif_main_outofmem.exit109
 
 stbi__load_gif_main_outofmem.exit109:             ; preds = %78, %86
@@ -8519,13 +8519,13 @@ stbi__load_gif_main_outofmem.exit109:             ; preds = %78, %86
   %.072.lcssa = phi i32 [ 0, %18 ], [ %105, %._crit_edge.loopexit ]
   %106 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %107 = load ptr, ptr %106, align 8, !tbaa !35
-  call void @free(ptr noundef %107) #37
+  call void @free(ptr noundef %107) #38
   %108 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %109 = load ptr, ptr %108, align 8, !tbaa !36
-  call void @free(ptr noundef %109) #37
+  call void @free(ptr noundef %109) #38
   %110 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %111 = load ptr, ptr %110, align 8, !tbaa !37
-  call void @free(ptr noundef %111) #37
+  call void @free(ptr noundef %111) #38
   %112 = and i32 %6, -5
   %or.cond.not = icmp eq i32 %112, 0
   br i1 %or.cond.not, label %119, label %113
@@ -8721,12 +8721,12 @@ stbi__mul2sizes_valid.exit18.thread30.i.i:        ; preds = %stbi__mul2sizes_val
 stbi__malloc_mad4.exit:                           ; preds = %stbi__mul2sizes_valid.exit18.thread30.i.i
   %16 = shl nuw nsw i32 %15, 2
   %17 = zext nneg i32 %16 to i64
-  %18 = tail call noalias noundef ptr @malloc(i64 noundef %17) #38
+  %18 = tail call noalias noundef ptr @malloc(i64 noundef %17) #39
   %19 = icmp eq ptr %18, null
   br i1 %19, label %stbi__malloc_mad4.exit.thread, label %21
 
 stbi__malloc_mad4.exit.thread:                    ; preds = %stbi__mul2sizes_valid.exit18.thread30.i.i, %stbi__mul2sizes_valid.exit.thread25.i.i, %5, %stbi__mul2sizes_valid.exit.i.i, %stbi__mul2sizes_valid.exit18.i.i, %stbi__malloc_mad4.exit
-  tail call void @free(ptr noundef nonnull %0) #37
+  tail call void @free(ptr noundef nonnull %0) #38
   %20 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.1, ptr %20, align 8, !tbaa !22
   br label %52
@@ -8766,7 +8766,7 @@ stbi__malloc_mad4.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %36 = uitofp i8 %35 to float
   %37 = fdiv float %36, 2.550000e+02
   %38 = fpext float %37 to double
-  %39 = tail call double @pow(double noundef %38, double noundef %27) #37, !tbaa !23
+  %39 = tail call double @pow(double noundef %38, double noundef %27) #38, !tbaa !23
   %40 = fmul double %39, %29
   %41 = fptrunc double %40 to float
   %42 = getelementptr inbounds float, ptr %18, i64 %33
@@ -8804,7 +8804,7 @@ stbi__malloc_mad4.exit.thread:                    ; preds = %stbi__mul2sizes_val
   br i1 %exitcond66.not, label %.loopexit, label %.lr.ph, !llvm.loop !117
 
 .loopexit:                                        ; preds = %.lr.ph, %21, %._crit_edge52
-  tail call void @free(ptr noundef nonnull %0) #37
+  tail call void @free(ptr noundef nonnull %0) #38
   br label %52
 
 52:                                               ; preds = %4, %.loopexit, %stbi__malloc_mad4.exit.thread
@@ -8857,7 +8857,7 @@ define noalias noundef ptr @stbi_loadf_from_callbacks(ptr noundef readonly captu
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 192
   store ptr %13, ptr %15, align 8, !tbaa !14
   %16 = load ptr, ptr %8, align 8, !tbaa !3
-  %17 = call i32 %16(ptr noundef %1, ptr noundef nonnull %13, i32 noundef 128) #37
+  %17 = call i32 %16(ptr noundef %1, ptr noundef nonnull %13, i32 noundef 128) #38
   %18 = load ptr, ptr %15, align 8, !tbaa !14
   %19 = load ptr, ptr %14, align 8, !tbaa !13
   %20 = ptrtoint ptr %18 to i64
@@ -8923,7 +8923,7 @@ define noalias noundef ptr @stbi_loadf(ptr noundef readonly captures(none) %0, p
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 192
   store ptr %16, ptr %18, align 8, !tbaa !14
   %19 = load ptr, ptr %11, align 8, !tbaa !3
-  %20 = call i32 %19(ptr noundef nonnull %7, ptr noundef nonnull %16, i32 noundef 128) #37
+  %20 = call i32 %19(ptr noundef nonnull %7, ptr noundef nonnull %16, i32 noundef 128) #38
   %21 = load ptr, ptr %18, align 8, !tbaa !14
   %22 = load ptr, ptr %17, align 8, !tbaa !13
   %23 = ptrtoint ptr %21 to i64
@@ -8984,7 +8984,7 @@ define noalias noundef ptr @stbi_loadf_from_file(ptr noundef %0, ptr noundef cap
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 192
   store ptr %12, ptr %14, align 8, !tbaa !14
   %15 = load ptr, ptr %7, align 8, !tbaa !3
-  %16 = call i32 %15(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 128) #37
+  %16 = call i32 %15(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 128) #38
   %17 = load ptr, ptr %14, align 8, !tbaa !14
   %18 = load ptr, ptr %13, align 8, !tbaa !13
   %19 = ptrtoint ptr %17 to i64
@@ -9071,7 +9071,7 @@ define range(i32 0, 2) i32 @stbi_is_hdr(ptr noundef readonly captures(none) %0) 
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 192
   store ptr %11, ptr %13, align 8, !tbaa !14
   %14 = load ptr, ptr %6, align 8, !tbaa !3
-  %15 = call i32 %14(ptr noundef nonnull %3, ptr noundef nonnull %11, i32 noundef 128) #37
+  %15 = call i32 %14(ptr noundef nonnull %3, ptr noundef nonnull %11, i32 noundef 128) #38
   %16 = load ptr, ptr %13, align 8, !tbaa !14
   %17 = load ptr, ptr %12, align 8, !tbaa !13
   %18 = ptrtoint ptr %16 to i64
@@ -9134,7 +9134,7 @@ define range(i32 0, 2) i32 @stbi_is_hdr_from_file(ptr noundef %0) local_unnamed_
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 192
   store ptr %9, ptr %11, align 8, !tbaa !14
   %12 = load ptr, ptr %4, align 8, !tbaa !3
-  %13 = call i32 %12(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 128) #37
+  %13 = call i32 %12(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 128) #38
   %14 = load ptr, ptr %11, align 8, !tbaa !14
   %15 = load ptr, ptr %10, align 8, !tbaa !13
   %16 = ptrtoint ptr %14 to i64
@@ -9194,7 +9194,7 @@ define range(i32 0, 2) i32 @stbi_is_hdr_from_callbacks(ptr noundef readonly capt
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 192
   store ptr %9, ptr %11, align 8, !tbaa !14
   %12 = load ptr, ptr %4, align 8, !tbaa !3
-  %13 = call i32 %12(ptr noundef %1, ptr noundef nonnull %9, i32 noundef 128) #37
+  %13 = call i32 %12(ptr noundef %1, ptr noundef nonnull %9, i32 noundef 128) #38
   %14 = load ptr, ptr %11, align 8, !tbaa !14
   %15 = load ptr, ptr %10, align 8, !tbaa !13
   %16 = ptrtoint ptr %14 to i64
@@ -9285,7 +9285,7 @@ define zeroext i8 @stbi__get8(ptr noundef %0) local_unnamed_addr #2 {
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %20 = load i32, ptr %19, align 4, !tbaa !20
-  %21 = tail call i32 %15(ptr noundef %17, ptr noundef nonnull %18, i32 noundef %20) #37
+  %21 = tail call i32 %15(ptr noundef %17, ptr noundef nonnull %18, i32 noundef %20) #38
   %22 = load ptr, ptr %2, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %24 = load ptr, ptr %23, align 8, !tbaa !13
@@ -9337,7 +9337,7 @@ define range(i32 0, 2) i32 @stbi__at_eof(ptr noundef readonly captures(none) %0)
   %6 = load ptr, ptr %5, align 8, !tbaa !76
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !19
-  %9 = tail call i32 %6(ptr noundef %8) #37
+  %9 = tail call i32 %6(ptr noundef %8) #38
   %.not6 = icmp eq i32 %9, 0
   br i1 %.not6, label %21, label %10
 
@@ -9407,7 +9407,7 @@ define void @stbi__skip(ptr noundef captures(none) %0, i32 noundef %1) local_unn
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !19
   %28 = sub nsw i32 %1, %21
-  tail call void %25(ptr noundef %27, i32 noundef %28) #37
+  tail call void %25(ptr noundef %27, i32 noundef %28) #38
   br label %33
 
 .thread:                                          ; preds = %..thread_crit_edge, %13
@@ -9457,7 +9457,7 @@ define range(i32 0, 2) i32 @stbi__getn(ptr noundef captures(none) %0, ptr nounde
   %20 = load ptr, ptr %19, align 8, !tbaa !19
   %21 = getelementptr inbounds i8, ptr %1, i64 %17
   %22 = sub nsw i32 %2, %14
-  %23 = tail call i32 %18(ptr noundef %20, ptr noundef %21, i32 noundef %22) #37
+  %23 = tail call i32 %18(ptr noundef %20, ptr noundef %21, i32 noundef %22) #38
   %24 = icmp eq i32 %23, %22
   %25 = zext i1 %24 to i32
   %26 = load ptr, ptr %7, align 8, !tbaa !16
@@ -9514,7 +9514,7 @@ define range(i32 0, 65536) i32 @stbi__get16be(ptr noundef %0) local_unnamed_addr
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %20 = load i32, ptr %19, align 4, !tbaa !20
-  %21 = tail call i32 %15(ptr noundef %17, ptr noundef nonnull %18, i32 noundef %20) #37
+  %21 = tail call i32 %15(ptr noundef %17, ptr noundef nonnull %18, i32 noundef %20) #38
   %22 = load ptr, ptr %2, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %24 = load ptr, ptr %23, align 8, !tbaa !13
@@ -9576,7 +9576,7 @@ stbi__get8.exit:                                  ; preds = %7, %10, %stbi__refi
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %56 = load i32, ptr %55, align 4, !tbaa !20
-  %57 = tail call i32 %51(ptr noundef %53, ptr noundef nonnull %54, i32 noundef %56) #37
+  %57 = tail call i32 %51(ptr noundef %53, ptr noundef nonnull %54, i32 noundef %56) #38
   %58 = load ptr, ptr %2, align 8, !tbaa !14
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %60 = load ptr, ptr %59, align 8, !tbaa !13
@@ -9658,7 +9658,7 @@ define range(i32 0, 65536) i32 @stbi__get16le(ptr noundef %0) local_unnamed_addr
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %20 = load i32, ptr %19, align 4, !tbaa !20
-  %21 = tail call i32 %15(ptr noundef %17, ptr noundef nonnull %18, i32 noundef %20) #37
+  %21 = tail call i32 %15(ptr noundef %17, ptr noundef nonnull %18, i32 noundef %20) #38
   %22 = load ptr, ptr %2, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %24 = load ptr, ptr %23, align 8, !tbaa !13
@@ -9720,7 +9720,7 @@ stbi__get8.exit:                                  ; preds = %7, %10, %stbi__refi
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %56 = load i32, ptr %55, align 4, !tbaa !20
-  %57 = tail call i32 %51(ptr noundef %53, ptr noundef nonnull %54, i32 noundef %56) #37
+  %57 = tail call i32 %51(ptr noundef %53, ptr noundef nonnull %54, i32 noundef %56) #38
   %58 = load ptr, ptr %2, align 8, !tbaa !14
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %60 = load ptr, ptr %59, align 8, !tbaa !13
@@ -9822,7 +9822,7 @@ stbi__mul2sizes_valid.exit12.i.i:                 ; preds = %14
 stbi__malloc_mad3.exit:                           ; preds = %14, %stbi__mul2sizes_valid.exit12.i.i
   %17 = mul nsw i32 %12, %4
   %18 = sext i32 %17 to i64
-  %19 = tail call noalias noundef ptr @malloc(i64 noundef %18) #38
+  %19 = tail call noalias noundef ptr @malloc(i64 noundef %18) #39
   %20 = icmp eq ptr %19, null
   br i1 %20, label %stbi__malloc_mad3.exit.thread, label %.preheader197
 
@@ -9855,7 +9855,7 @@ stbi__malloc_mad3.exit:                           ; preds = %14, %stbi__mul2size
   br label %26
 
 stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_valid.exit.thread16.i.i, %7, %stbi__mul2sizes_valid.exit.i.i, %stbi__mul2sizes_valid.exit12.i.i, %stbi__malloc_mad3.exit
-  tail call void @free(ptr noundef %0) #37
+  tail call void @free(ptr noundef %0) #38
   %25 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.1, ptr %25, align 8, !tbaa !22
   br label %158
@@ -10169,8 +10169,8 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   br i1 %.not296, label %.loopexit, label %.lr.ph, !llvm.loop !129
 
 .critedge:                                        ; preds = %.lr.ph258
-  tail call void @free(ptr noundef %0) #37
-  tail call void @free(ptr noundef nonnull %19) #37
+  tail call void @free(ptr noundef %0) #38
+  tail call void @free(ptr noundef nonnull %19) #38
   %157 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.4, ptr %157, align 8, !tbaa !22
   br label %158
@@ -10181,7 +10181,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader197
-  tail call void @free(ptr noundef %0) #37
+  tail call void @free(ptr noundef %0) #38
   br label %158
 
 158:                                              ; preds = %.critedge, %5, %._crit_edge, %stbi__malloc_mad3.exit.thread
@@ -10211,7 +10211,7 @@ define noundef ptr @stbi__convert_format16(ptr noundef captures(ret: address, pr
   %9 = mul i32 %8, %3
   %10 = mul i32 %9, %4
   %11 = zext i32 %10 to i64
-  %12 = tail call noalias noundef ptr @malloc(i64 noundef %11) #38
+  %12 = tail call noalias noundef ptr @malloc(i64 noundef %11) #39
   %13 = icmp eq ptr %12, null
   br i1 %13, label %18, label %.preheader196
 
@@ -10244,7 +10244,7 @@ define noundef ptr @stbi__convert_format16(ptr noundef captures(ret: address, pr
   br label %20
 
 18:                                               ; preds = %7
-  tail call void @free(ptr noundef %0) #37
+  tail call void @free(ptr noundef %0) #38
   %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.1, ptr %19, align 8, !tbaa !22
   br label %152
@@ -10558,8 +10558,8 @@ define noundef ptr @stbi__convert_format16(ptr noundef captures(ret: address, pr
   br i1 %.not294, label %.loopexit, label %.lr.ph, !llvm.loop !142
 
 .critedge:                                        ; preds = %.lr.ph257
-  tail call void @free(ptr noundef %0) #37
-  tail call void @free(ptr noundef nonnull %12) #37
+  tail call void @free(ptr noundef %0) #38
+  tail call void @free(ptr noundef nonnull %12) #38
   %151 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.4, ptr %151, align 8, !tbaa !22
   br label %152
@@ -10570,7 +10570,7 @@ define noundef ptr @stbi__convert_format16(ptr noundef captures(ret: address, pr
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !143
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader196
-  tail call void @free(ptr noundef %0) #37
+  tail call void @free(ptr noundef %0) #38
   br label %152
 
 152:                                              ; preds = %.critedge, %5, %._crit_edge, %18
@@ -10581,11 +10581,11 @@ define noundef ptr @stbi__convert_format16(ptr noundef captures(ret: address, pr
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #19
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #9
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fmuladd.f32(float, float, float) #20
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbi__build_huffman(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @stbi__build_huffman(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #21 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   br label %.preheader66
 
@@ -10866,7 +10866,7 @@ define void @stbi__grow_buffer_unsafe(ptr noundef captures(none) %0) local_unnam
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 52
   %33 = load i32, ptr %32, align 4, !tbaa !20
-  %34 = tail call i32 %28(ptr noundef %30, ptr noundef nonnull %31, i32 noundef %33) #37
+  %34 = tail call i32 %28(ptr noundef %30, ptr noundef nonnull %31, i32 noundef %33) #38
   %35 = load ptr, ptr %15, align 8, !tbaa !14
   %36 = getelementptr inbounds nuw i8, ptr %14, i64 208
   %37 = load ptr, ptr %36, align 8, !tbaa !13
@@ -10935,7 +10935,7 @@ stbi__refill_buffer.exit.i:                       ; preds = %48, %46
   %73 = getelementptr inbounds nuw i8, ptr %56, i64 56
   %74 = getelementptr inbounds nuw i8, ptr %56, i64 52
   %75 = load i32, ptr %74, align 4, !tbaa !20
-  %76 = tail call i32 %70(ptr noundef %72, ptr noundef nonnull %73, i32 noundef %75) #37
+  %76 = tail call i32 %70(ptr noundef %72, ptr noundef nonnull %73, i32 noundef %75) #38
   %77 = load ptr, ptr %57, align 8, !tbaa !14
   %78 = getelementptr inbounds nuw i8, ptr %56, i64 208
   %79 = load ptr, ptr %78, align 8, !tbaa !13
@@ -11014,7 +11014,7 @@ stbi__get8.exit23.backedge:                       ; preds = %102, %105, %stbi__r
   %113 = getelementptr inbounds nuw i8, ptr %96, i64 56
   %114 = getelementptr inbounds nuw i8, ptr %96, i64 52
   %115 = load i32, ptr %114, align 4, !tbaa !20
-  %116 = tail call i32 %110(ptr noundef %112, ptr noundef nonnull %113, i32 noundef %115) #37
+  %116 = tail call i32 %110(ptr noundef %112, ptr noundef nonnull %113, i32 noundef %115) #38
   %117 = load ptr, ptr %97, align 8, !tbaa !14
   %118 = getelementptr inbounds nuw i8, ptr %96, i64 208
   %119 = load ptr, ptr %118, align 8, !tbaa !13
@@ -12964,7 +12964,7 @@ define void @stbi__idct_block(ptr noundef writeonly captures(none) %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbi__idct_simd(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #21 {
+define void @stbi__idct_simd(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #22 {
   %4 = load <8 x i16>, ptr %2, align 16, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load <8 x i16>, ptr %5, align 16, !tbaa !21
@@ -13303,7 +13303,7 @@ define zeroext i8 @stbi__get_marker(ptr noundef captures(none) %0) local_unnamed
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 52
   %25 = load i32, ptr %24, align 4, !tbaa !20
-  %26 = tail call i32 %20(ptr noundef %22, ptr noundef nonnull %23, i32 noundef %25) #37
+  %26 = tail call i32 %20(ptr noundef %22, ptr noundef nonnull %23, i32 noundef %25) #38
   %27 = load ptr, ptr %7, align 8, !tbaa !14
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %29 = load ptr, ptr %28, align 8, !tbaa !13
@@ -13372,7 +13372,7 @@ stbi__get8.exit:                                  ; preds = %12, %stbi__refill_b
   %62 = getelementptr inbounds nuw i8, ptr %45, i64 56
   %63 = getelementptr inbounds nuw i8, ptr %45, i64 52
   %64 = load i32, ptr %63, align 4, !tbaa !20
-  %65 = tail call i32 %59(ptr noundef %61, ptr noundef nonnull %62, i32 noundef %64) #37
+  %65 = tail call i32 %59(ptr noundef %61, ptr noundef nonnull %62, i32 noundef %64) #38
   %66 = load ptr, ptr %46, align 8, !tbaa !14
   %67 = getelementptr inbounds nuw i8, ptr %45, i64 208
   %68 = load ptr, ptr %67, align 8, !tbaa !13
@@ -13551,7 +13551,7 @@ define range(i32 0, 2) i32 @stbi__parse_entropy_coded_data(ptr noundef initializ
   %67 = getelementptr inbounds i8, ptr %63, i64 %66
   %68 = shl nsw i64 %indvars.iv312, 3
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 %68
-  call void %62(ptr noundef %69, i32 noundef %64, ptr noundef nonnull %2) #37
+  call void %62(ptr noundef %69, i32 noundef %64, ptr noundef nonnull %2) #38
   %70 = load i32, ptr %14, align 4, !tbaa !172
   %71 = add nsw i32 %70, -1
   store i32 %71, ptr %14, align 4, !tbaa !172
@@ -13702,7 +13702,7 @@ define range(i32 0, 2) i32 @stbi__parse_entropy_coded_data(ptr noundef initializ
   %148 = getelementptr inbounds i8, ptr %144, i64 %147
   %149 = sext i32 %142 to i64
   %150 = getelementptr inbounds i8, ptr %148, i64 %149
-  call void %143(ptr noundef %150, i32 noundef %145, ptr noundef nonnull %3) #37
+  call void %143(ptr noundef %150, i32 noundef %145, ptr noundef nonnull %3) #38
   %151 = add nuw nsw i32 %.0213279, 1
   %152 = load i32, ptr %112, align 4, !tbaa !187
   %153 = icmp slt i32 %151, %152
@@ -14193,7 +14193,7 @@ stbi__jpeg_dequantize.exit.us:                    ; preds = %42
   %53 = getelementptr inbounds i8, ptr %49, i64 %52
   %54 = shl nsw i64 %indvars.iv, 3
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 %54
-  tail call void %48(ptr noundef %55, i32 noundef %50, ptr noundef nonnull %38) #37
+  tail call void %48(ptr noundef %55, i32 noundef %50, ptr noundef nonnull %38) #38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !203
@@ -14294,7 +14294,7 @@ define range(i32 0, 2) i32 @stbi__process_marker(ptr noundef captures(none) %0, 
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 52
   %41 = load i32, ptr %40, align 4, !tbaa !20
-  %42 = tail call i32 %36(ptr noundef %38, ptr noundef nonnull %39, i32 noundef %41) #37
+  %42 = tail call i32 %36(ptr noundef %38, ptr noundef nonnull %39, i32 noundef %41) #38
   %43 = load ptr, ptr %23, align 8, !tbaa !14
   %44 = getelementptr inbounds nuw i8, ptr %22, i64 208
   %45 = load ptr, ptr %44, align 8, !tbaa !13
@@ -14406,7 +14406,7 @@ stbi__get8.exit.thread:                           ; preds = %stbi__get8.exit
   %97 = getelementptr inbounds nuw i8, ptr %80, i64 56
   %98 = getelementptr inbounds nuw i8, ptr %80, i64 52
   %99 = load i32, ptr %98, align 4, !tbaa !20
-  %100 = tail call i32 %94(ptr noundef %96, ptr noundef nonnull %97, i32 noundef %99) #37
+  %100 = tail call i32 %94(ptr noundef %96, ptr noundef nonnull %97, i32 noundef %99) #38
   %101 = load ptr, ptr %81, align 8, !tbaa !14
   %102 = getelementptr inbounds nuw i8, ptr %80, i64 208
   %103 = load ptr, ptr %102, align 8, !tbaa !13
@@ -14508,7 +14508,7 @@ stbi__get8.exit147:                               ; preds = %86, %89, %stbi__ref
   %153 = getelementptr inbounds nuw i8, ptr %136, i64 56
   %154 = getelementptr inbounds nuw i8, ptr %136, i64 52
   %155 = load i32, ptr %154, align 4, !tbaa !20
-  %156 = tail call i32 %150(ptr noundef %152, ptr noundef nonnull %153, i32 noundef %155) #37
+  %156 = tail call i32 %150(ptr noundef %152, ptr noundef nonnull %153, i32 noundef %155) #38
   %157 = load ptr, ptr %137, align 8, !tbaa !14
   %158 = getelementptr inbounds nuw i8, ptr %136, i64 208
   %159 = load ptr, ptr %158, align 8, !tbaa !13
@@ -14582,7 +14582,7 @@ stbi__get8.exit153:                               ; preds = %142, %145, %stbi__r
   %195 = getelementptr inbounds nuw i8, ptr %178, i64 56
   %196 = getelementptr inbounds nuw i8, ptr %178, i64 52
   %197 = load i32, ptr %196, align 4, !tbaa !20
-  %198 = tail call i32 %192(ptr noundef %194, ptr noundef nonnull %195, i32 noundef %197) #37
+  %198 = tail call i32 %192(ptr noundef %194, ptr noundef nonnull %195, i32 noundef %197) #38
   %199 = load ptr, ptr %179, align 8, !tbaa !14
   %200 = getelementptr inbounds nuw i8, ptr %178, i64 208
   %201 = load ptr, ptr %200, align 8, !tbaa !13
@@ -14691,7 +14691,7 @@ stbi__get8.exit159:                               ; preds = %184, %187, %stbi__r
   %253 = getelementptr inbounds nuw i8, ptr %236, i64 56
   %254 = getelementptr inbounds nuw i8, ptr %236, i64 52
   %255 = load i32, ptr %254, align 4, !tbaa !20
-  %256 = tail call i32 %250(ptr noundef %252, ptr noundef nonnull %253, i32 noundef %255) #37
+  %256 = tail call i32 %250(ptr noundef %252, ptr noundef nonnull %253, i32 noundef %255) #38
   %257 = load ptr, ptr %237, align 8, !tbaa !14
   %258 = getelementptr inbounds nuw i8, ptr %236, i64 208
   %259 = load ptr, ptr %258, align 8, !tbaa !13
@@ -14873,7 +14873,7 @@ stbi__build_fast_ac.exit:                         ; preds = %315, %._crit_edge
   %350 = getelementptr inbounds nuw i8, ptr %333, i64 56
   %351 = getelementptr inbounds nuw i8, ptr %333, i64 52
   %352 = load i32, ptr %351, align 4, !tbaa !20
-  %353 = tail call i32 %347(ptr noundef %349, ptr noundef nonnull %350, i32 noundef %352) #37
+  %353 = tail call i32 %347(ptr noundef %349, ptr noundef nonnull %350, i32 noundef %352) #38
   %354 = load ptr, ptr %334, align 8, !tbaa !14
   %355 = getelementptr inbounds nuw i8, ptr %333, i64 208
   %356 = load ptr, ptr %355, align 8, !tbaa !13
@@ -14966,7 +14966,7 @@ stbi__get8.exit172:                               ; preds = %339, %342, %stbi__r
   %399 = getelementptr inbounds nuw i8, ptr %382, i64 56
   %400 = getelementptr inbounds nuw i8, ptr %382, i64 52
   %401 = load i32, ptr %400, align 4, !tbaa !20
-  %402 = tail call i32 %396(ptr noundef %398, ptr noundef nonnull %399, i32 noundef %401) #37
+  %402 = tail call i32 %396(ptr noundef %398, ptr noundef nonnull %399, i32 noundef %401) #38
   %403 = load ptr, ptr %383, align 8, !tbaa !14
   %404 = getelementptr inbounds nuw i8, ptr %382, i64 208
   %405 = load ptr, ptr %404, align 8, !tbaa !13
@@ -15067,7 +15067,7 @@ stbi__get8.exit178:                               ; preds = %388, %391, %stbi__r
   %456 = getelementptr inbounds nuw i8, ptr %438, i64 40
   %457 = load ptr, ptr %456, align 8, !tbaa !19
   %458 = sub nsw i32 %.4118, %451
-  tail call void %455(ptr noundef %457, i32 noundef %458) #37
+  tail call void %455(ptr noundef %457, i32 noundef %458) #38
   br label %.critedge
 
 .thread.i:                                        ; preds = %443, %..thread_crit_edge.i
@@ -15135,7 +15135,7 @@ stbi__get8.exit.thread:                           ; preds = %13
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %24 = load i32, ptr %23, align 4, !tbaa !20
-  %25 = tail call i32 %19(ptr noundef %21, ptr noundef nonnull %22, i32 noundef %24) #37
+  %25 = tail call i32 %19(ptr noundef %21, ptr noundef nonnull %22, i32 noundef %24) #38
   %26 = load ptr, ptr %5, align 8, !tbaa !14
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 208
   %28 = load ptr, ptr %27, align 8, !tbaa !13
@@ -15237,7 +15237,7 @@ stbi__get8.exit:                                  ; preds = %10, %stbi__refill_b
   %79 = getelementptr inbounds nuw i8, ptr %62, i64 56
   %80 = getelementptr inbounds nuw i8, ptr %62, i64 52
   %81 = load i32, ptr %80, align 4, !tbaa !20
-  %82 = tail call i32 %76(ptr noundef %78, ptr noundef nonnull %79, i32 noundef %81) #37
+  %82 = tail call i32 %76(ptr noundef %78, ptr noundef nonnull %79, i32 noundef %81) #38
   %83 = load ptr, ptr %63, align 8, !tbaa !14
   %84 = getelementptr inbounds nuw i8, ptr %62, i64 208
   %85 = load ptr, ptr %84, align 8, !tbaa !13
@@ -15308,7 +15308,7 @@ stbi__get8.exit77:                                ; preds = %68, %71, %stbi__ref
   %119 = getelementptr inbounds nuw i8, ptr %101, i64 56
   %120 = getelementptr inbounds nuw i8, ptr %101, i64 52
   %121 = load i32, ptr %120, align 4, !tbaa !20
-  %122 = tail call i32 %116(ptr noundef %118, ptr noundef nonnull %119, i32 noundef %121) #37
+  %122 = tail call i32 %116(ptr noundef %118, ptr noundef nonnull %119, i32 noundef %121) #38
   %123 = load ptr, ptr %105, align 8, !tbaa !14
   %124 = getelementptr inbounds nuw i8, ptr %101, i64 208
   %125 = load ptr, ptr %124, align 8, !tbaa !13
@@ -15441,7 +15441,7 @@ stbi__get8.exit83:                                ; preds = %108, %111, %stbi__r
   %187 = getelementptr inbounds nuw i8, ptr %141, i64 56
   %188 = getelementptr inbounds nuw i8, ptr %141, i64 52
   %189 = load i32, ptr %188, align 4, !tbaa !20
-  %190 = tail call i32 %184(ptr noundef %186, ptr noundef nonnull %187, i32 noundef %189) #37
+  %190 = tail call i32 %184(ptr noundef %186, ptr noundef nonnull %187, i32 noundef %189) #38
   %191 = load ptr, ptr %171, align 8, !tbaa !14
   %192 = getelementptr inbounds nuw i8, ptr %141, i64 208
   %193 = load ptr, ptr %192, align 8, !tbaa !13
@@ -15514,7 +15514,7 @@ stbi__get8.exit89:                                ; preds = %176, %179, %stbi__r
   %228 = getelementptr inbounds nuw i8, ptr %211, i64 56
   %229 = getelementptr inbounds nuw i8, ptr %211, i64 52
   %230 = load i32, ptr %229, align 4, !tbaa !20
-  %231 = tail call i32 %225(ptr noundef %227, ptr noundef nonnull %228, i32 noundef %230) #37
+  %231 = tail call i32 %225(ptr noundef %227, ptr noundef nonnull %228, i32 noundef %230) #38
   %232 = load ptr, ptr %214, align 8, !tbaa !14
   %233 = getelementptr inbounds nuw i8, ptr %211, i64 208
   %234 = load ptr, ptr %233, align 8, !tbaa !13
@@ -15587,7 +15587,7 @@ stbi__get8.exit95:                                ; preds = %217, %220, %stbi__r
   %269 = getelementptr inbounds nuw i8, ptr %252, i64 56
   %270 = getelementptr inbounds nuw i8, ptr %252, i64 52
   %271 = load i32, ptr %270, align 4, !tbaa !20
-  %272 = tail call i32 %266(ptr noundef %268, ptr noundef nonnull %269, i32 noundef %271) #37
+  %272 = tail call i32 %266(ptr noundef %268, ptr noundef nonnull %269, i32 noundef %271) #38
   %273 = load ptr, ptr %255, align 8, !tbaa !14
   %274 = getelementptr inbounds nuw i8, ptr %252, i64 208
   %275 = load ptr, ptr %274, align 8, !tbaa !13
@@ -15707,7 +15707,7 @@ define noundef i32 @stbi__free_jpeg_components(ptr noundef captures(none) %0, i3
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %6
-  tail call void @free(ptr noundef nonnull %9) #37
+  tail call void @free(ptr noundef nonnull %9) #38
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   br label %12
@@ -15719,7 +15719,7 @@ define noundef i32 @stbi__free_jpeg_components(ptr noundef captures(none) %0, i3
   br i1 %.not28, label %17, label %15
 
 15:                                               ; preds = %12
-  tail call void @free(ptr noundef nonnull %14) #37
+  tail call void @free(ptr noundef nonnull %14) #38
   store ptr null, ptr %13, align 8, !tbaa !218
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr null, ptr %16, align 8, !tbaa !193
@@ -15732,7 +15732,7 @@ define noundef i32 @stbi__free_jpeg_components(ptr noundef captures(none) %0, i3
   br i1 %.not29, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void @free(ptr noundef nonnull %19) #37
+  tail call void @free(ptr noundef nonnull %19) #38
   store ptr null, ptr %18, align 8, !tbaa !219
   br label %21
 
@@ -15785,7 +15785,7 @@ define range(i32 0, 2) i32 @stbi__process_frame_header(ptr noundef captures(none
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %27 = load i32, ptr %26, align 4, !tbaa !20
-  %28 = tail call i32 %22(ptr noundef %24, ptr noundef nonnull %25, i32 noundef %27) #37
+  %28 = tail call i32 %22(ptr noundef %24, ptr noundef nonnull %25, i32 noundef %27) #38
   %29 = load ptr, ptr %9, align 8, !tbaa !14
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %31 = load ptr, ptr %30, align 8, !tbaa !13
@@ -15889,7 +15889,7 @@ stbi__get8.exit.thread:                           ; preds = %17, %stbi__get8.exi
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %81 = load i32, ptr %80, align 4, !tbaa !20
-  %82 = tail call i32 %76(ptr noundef %78, ptr noundef nonnull %79, i32 noundef %81) #37
+  %82 = tail call i32 %76(ptr noundef %78, ptr noundef nonnull %79, i32 noundef %81) #38
   %83 = load ptr, ptr %9, align 8, !tbaa !14
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %85 = load ptr, ptr %84, align 8, !tbaa !13
@@ -16006,7 +16006,7 @@ stbi__get8.exit207.thread:                        ; preds = %71, %stbi__get8.exi
   %136 = load ptr, ptr %117, align 8, !tbaa !3
   %137 = load ptr, ptr %118, align 8, !tbaa !19
   %138 = load i32, ptr %120, align 4, !tbaa !20
-  %139 = tail call i32 %136(ptr noundef %137, ptr noundef nonnull %119, i32 noundef %138) #37
+  %139 = tail call i32 %136(ptr noundef %137, ptr noundef nonnull %119, i32 noundef %138) #38
   %140 = load ptr, ptr %9, align 8, !tbaa !14
   %141 = load ptr, ptr %121, align 8, !tbaa !13
   %142 = ptrtoint ptr %140 to i64
@@ -16085,7 +16085,7 @@ stbi__get8.exit219.thread:                        ; preds = %172
   %176 = load ptr, ptr %117, align 8, !tbaa !3
   %177 = load ptr, ptr %118, align 8, !tbaa !19
   %178 = load i32, ptr %120, align 4, !tbaa !20
-  %179 = tail call i32 %176(ptr noundef %177, ptr noundef nonnull %119, i32 noundef %178) #37
+  %179 = tail call i32 %176(ptr noundef %177, ptr noundef nonnull %119, i32 noundef %178) #38
   %180 = load ptr, ptr %9, align 8, !tbaa !14
   %181 = load ptr, ptr %121, align 8, !tbaa !13
   %182 = ptrtoint ptr %180 to i64
@@ -16170,7 +16170,7 @@ stbi__get8.exit225.thread:                        ; preds = %212
   %216 = load ptr, ptr %117, align 8, !tbaa !3
   %217 = load ptr, ptr %118, align 8, !tbaa !19
   %218 = load i32, ptr %120, align 4, !tbaa !20
-  %219 = tail call i32 %216(ptr noundef %217, ptr noundef nonnull %119, i32 noundef %218) #37
+  %219 = tail call i32 %216(ptr noundef %217, ptr noundef nonnull %119, i32 noundef %218) #38
   %220 = load ptr, ptr %9, align 8, !tbaa !14
   %221 = load ptr, ptr %121, align 8, !tbaa !13
   %222 = ptrtoint ptr %220 to i64
@@ -16485,7 +16485,7 @@ define range(i32 0, 2) i32 @stbi__decode_jpeg_header(ptr noundef captures(none) 
   %27 = load ptr, ptr %26, align 8, !tbaa !76
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %29 = load ptr, ptr %28, align 8, !tbaa !19
-  %30 = tail call i32 %27(ptr noundef %29) #37
+  %30 = tail call i32 %27(ptr noundef %29) #38
   %.not6.i = icmp eq i32 %30, 0
   br i1 %.not6.i, label %stbi__at_eof.exit.thread, label %31
 
@@ -16543,7 +16543,7 @@ define zeroext range(i8 1, 0) i8 @stbi__skip_jpeg_junk_at_end(ptr noundef readon
   %7 = load ptr, ptr %6, align 8, !tbaa !76
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !19
-  %10 = tail call i32 %7(ptr noundef %9) #37
+  %10 = tail call i32 %7(ptr noundef %9) #38
   %.not6.i = icmp eq i32 %10, 0
   br i1 %.not6.i, label %stbi__at_eof.exit.thread, label %11
 
@@ -16590,7 +16590,7 @@ stbi__at_eof.exit.thread:                         ; preds = %5, %stbi__at_eof.ex
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %37 = getelementptr inbounds nuw i8, ptr %19, i64 52
   %38 = load i32, ptr %37, align 4, !tbaa !20
-  %39 = tail call i32 %33(ptr noundef %35, ptr noundef nonnull %36, i32 noundef %38) #37
+  %39 = tail call i32 %33(ptr noundef %35, ptr noundef nonnull %36, i32 noundef %38) #38
   %40 = load ptr, ptr %20, align 8, !tbaa !14
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 208
   %42 = load ptr, ptr %41, align 8, !tbaa !13
@@ -16646,7 +16646,7 @@ stbi__get8.exit:                                  ; preds = %stbi__get8.exit.pre
   %65 = load ptr, ptr %64, align 8, !tbaa !76
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 40
   %67 = load ptr, ptr %66, align 8, !tbaa !19
-  %68 = tail call i32 %65(ptr noundef %67) #37
+  %68 = tail call i32 %65(ptr noundef %67) #38
   %.not6.i17 = icmp eq i32 %68, 0
   br i1 %.not6.i17, label %stbi__at_eof.exit19.thread, label %69
 
@@ -16693,7 +16693,7 @@ stbi__at_eof.exit19.thread:                       ; preds = %63, %stbi__at_eof.e
   %94 = getelementptr inbounds nuw i8, ptr %77, i64 56
   %95 = getelementptr inbounds nuw i8, ptr %77, i64 52
   %96 = load i32, ptr %95, align 4, !tbaa !20
-  %97 = tail call i32 %91(ptr noundef %93, ptr noundef nonnull %94, i32 noundef %96) #37
+  %97 = tail call i32 %91(ptr noundef %93, ptr noundef nonnull %94, i32 noundef %96) #38
   %98 = load ptr, ptr %78, align 8, !tbaa !14
   %99 = getelementptr inbounds nuw i8, ptr %77, i64 208
   %100 = load ptr, ptr %99, align 8, !tbaa !13
@@ -16915,7 +16915,7 @@ stbi__jpeg_dequantize.exit.us.i:                  ; preds = %77
   %88 = getelementptr inbounds i8, ptr %84, i64 %87
   %89 = shl nsw i64 %indvars.iv.i, 3
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 %89
-  tail call void %83(ptr noundef %90, i32 noundef %85, ptr noundef nonnull %73) #37
+  tail call void %83(ptr noundef %90, i32 noundef %85, ptr noundef nonnull %73) #38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %65, !llvm.loop !203
@@ -17165,7 +17165,7 @@ define noundef ptr @stbi__resample_row_hv_2(ptr noundef returned writeonly captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @stbi__resample_row_hv_2_simd(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 %4) #22 {
+define noundef ptr @stbi__resample_row_hv_2_simd(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 %4) #23 {
   %6 = icmp eq i32 %3, 1
   %7 = load i8, ptr %1, align 1, !tbaa !21
   %8 = load i8, ptr %2, align 1, !tbaa !21
@@ -17439,7 +17439,7 @@ define void @stbi__YCbCr_to_RGB_row(ptr noundef writeonly captures(none) %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbi__YCbCr_to_RGB_simd(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) #22 {
+define void @stbi__YCbCr_to_RGB_simd(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) #23 {
   %7 = icmp eq i32 %5, 4
   %8 = icmp sgt i32 %4, 7
   %or.cond = and i1 %7, %8
@@ -17603,7 +17603,7 @@ define void @stbi__cleanup_jpeg(ptr noundef captures(none) %0) local_unnamed_add
   br i1 %.not.i, label %13, label %11
 
 11:                                               ; preds = %7
-  tail call void @free(ptr noundef nonnull %10) #37
+  tail call void @free(ptr noundef nonnull %10) #38
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   br label %13
@@ -17615,7 +17615,7 @@ define void @stbi__cleanup_jpeg(ptr noundef captures(none) %0) local_unnamed_add
   br i1 %.not28.i, label %18, label %16
 
 16:                                               ; preds = %13
-  tail call void @free(ptr noundef nonnull %15) #37
+  tail call void @free(ptr noundef nonnull %15) #38
   store ptr null, ptr %14, align 8, !tbaa !218
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store ptr null, ptr %17, align 8, !tbaa !193
@@ -17628,7 +17628,7 @@ define void @stbi__cleanup_jpeg(ptr noundef captures(none) %0) local_unnamed_add
   br i1 %.not29.i, label %22, label %21
 
 21:                                               ; preds = %18
-  tail call void @free(ptr noundef nonnull %20) #37
+  tail call void @free(ptr noundef nonnull %20) #38
   store ptr null, ptr %19, align 8, !tbaa !219
   br label %22
 
@@ -17695,7 +17695,7 @@ define noundef ptr @load_jpeg_image(ptr noundef %0, ptr noundef writeonly captur
   br i1 %.not.i.i, label %26, label %24
 
 24:                                               ; preds = %20
-  tail call void @free(ptr noundef nonnull %23) #37
+  tail call void @free(ptr noundef nonnull %23) #38
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   br label %26
@@ -17707,7 +17707,7 @@ define noundef ptr @load_jpeg_image(ptr noundef %0, ptr noundef writeonly captur
   br i1 %.not28.i.i, label %31, label %29
 
 29:                                               ; preds = %26
-  tail call void @free(ptr noundef nonnull %28) #37
+  tail call void @free(ptr noundef nonnull %28) #38
   store ptr null, ptr %27, align 8, !tbaa !218
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 80
   store ptr null, ptr %30, align 8, !tbaa !193
@@ -17720,7 +17720,7 @@ define noundef ptr @load_jpeg_image(ptr noundef %0, ptr noundef writeonly captur
   br i1 %.not29.i.i, label %35, label %34
 
 34:                                               ; preds = %31
-  tail call void @free(ptr noundef nonnull %33) #37
+  tail call void @free(ptr noundef nonnull %33) #38
   store ptr null, ptr %32, align 8, !tbaa !219
   br label %35
 
@@ -17786,7 +17786,7 @@ define noundef ptr @load_jpeg_image(ptr noundef %0, ptr noundef writeonly captur
   br i1 %.not.i.i296, label %66, label %64
 
 64:                                               ; preds = %60
-  tail call void @free(ptr noundef nonnull %63) #37
+  tail call void @free(ptr noundef nonnull %63) #38
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
   br label %66
@@ -17798,7 +17798,7 @@ define noundef ptr @load_jpeg_image(ptr noundef %0, ptr noundef writeonly captur
   br i1 %.not28.i.i297, label %71, label %69
 
 69:                                               ; preds = %66
-  tail call void @free(ptr noundef nonnull %68) #37
+  tail call void @free(ptr noundef nonnull %68) #38
   store ptr null, ptr %67, align 8, !tbaa !218
   %70 = getelementptr inbounds nuw i8, ptr %61, i64 80
   store ptr null, ptr %70, align 8, !tbaa !193
@@ -17811,7 +17811,7 @@ define noundef ptr @load_jpeg_image(ptr noundef %0, ptr noundef writeonly captur
   br i1 %.not29.i.i298, label %75, label %74
 
 74:                                               ; preds = %71
-  tail call void @free(ptr noundef nonnull %73) #37
+  tail call void @free(ptr noundef nonnull %73) #38
   store ptr null, ptr %72, align 8, !tbaa !219
   br label %75
 
@@ -17838,7 +17838,7 @@ define noundef ptr @load_jpeg_image(ptr noundef %0, ptr noundef writeonly captur
 85:                                               ; preds = %76, %.thread333
   %indvars.iv = phi i64 [ 0, %76 ], [ %indvars.iv.next, %.thread333 ]
   %86 = getelementptr inbounds nuw %struct.stbi__resample, ptr %7, i64 %indvars.iv
-  %87 = tail call noalias noundef ptr @malloc(i64 noundef %79) #38
+  %87 = tail call noalias noundef ptr @malloc(i64 noundef %79) #39
   %88 = getelementptr inbounds nuw %struct.anon, ptr %80, i64 %indvars.iv
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 72
   store ptr %87, ptr %89, align 8, !tbaa !219
@@ -17867,7 +17867,7 @@ define noundef ptr @load_jpeg_image(ptr noundef %0, ptr noundef writeonly captur
   br i1 %.not.i.i305, label %99, label %97
 
 97:                                               ; preds = %93
-  tail call void @free(ptr noundef nonnull %96) #37
+  tail call void @free(ptr noundef nonnull %96) #38
   %98 = getelementptr inbounds nuw i8, ptr %94, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %98, i8 0, i64 16, i1 false)
   br label %99
@@ -17879,7 +17879,7 @@ define noundef ptr @load_jpeg_image(ptr noundef %0, ptr noundef writeonly captur
   br i1 %.not28.i.i306, label %104, label %102
 
 102:                                              ; preds = %99
-  tail call void @free(ptr noundef nonnull %101) #37
+  tail call void @free(ptr noundef nonnull %101) #38
   store ptr null, ptr %100, align 8, !tbaa !218
   %103 = getelementptr inbounds nuw i8, ptr %94, i64 80
   store ptr null, ptr %103, align 8, !tbaa !193
@@ -17892,7 +17892,7 @@ define noundef ptr @load_jpeg_image(ptr noundef %0, ptr noundef writeonly captur
   br i1 %.not29.i.i307, label %108, label %107
 
 107:                                              ; preds = %104
-  tail call void @free(ptr noundef nonnull %106) #37
+  tail call void @free(ptr noundef nonnull %106) #38
   store ptr null, ptr %105, align 8, !tbaa !219
   br label %108
 
@@ -18005,7 +18005,7 @@ stbi__mad3sizes_valid.exit.i:                     ; preds = %stbi__mul2sizes_val
 stbi__malloc_mad3.exit:                           ; preds = %stbi__mad3sizes_valid.exit.i
   %150 = add nsw i32 %148, 1
   %151 = sext i32 %150 to i64
-  %152 = tail call noalias noundef ptr @malloc(i64 noundef %151) #38
+  %152 = tail call noalias noundef ptr @malloc(i64 noundef %151) #39
   %.not286 = icmp eq ptr %152, null
   br i1 %.not286, label %stbi__malloc_mad3.exit.thread, label %.preheader356
 
@@ -18041,7 +18041,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   br i1 %.not.i.i315, label %167, label %165
 
 165:                                              ; preds = %161
-  tail call void @free(ptr noundef nonnull %164) #37
+  tail call void @free(ptr noundef nonnull %164) #38
   %166 = getelementptr inbounds nuw i8, ptr %162, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %166, i8 0, i64 16, i1 false)
   br label %167
@@ -18053,7 +18053,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   br i1 %.not28.i.i316, label %172, label %170
 
 170:                                              ; preds = %167
-  tail call void @free(ptr noundef nonnull %169) #37
+  tail call void @free(ptr noundef nonnull %169) #38
   store ptr null, ptr %168, align 8, !tbaa !218
   %171 = getelementptr inbounds nuw i8, ptr %162, i64 80
   store ptr null, ptr %171, align 8, !tbaa !193
@@ -18066,7 +18066,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   br i1 %.not29.i.i317, label %176, label %175
 
 175:                                              ; preds = %172
-  tail call void @free(ptr noundef nonnull %174) #37
+  tail call void @free(ptr noundef nonnull %174) #38
   store ptr null, ptr %173, align 8, !tbaa !219
   br label %176
 
@@ -18109,7 +18109,7 @@ stbi__cleanup_jpeg.exit320:                       ; preds = %176, %stbi__malloc_
   %195 = load i32, ptr %194, align 16, !tbaa !252
   %196 = getelementptr inbounds nuw i8, ptr %180, i64 24
   %197 = load i32, ptr %196, align 8, !tbaa !248
-  %198 = tail call ptr %186(ptr noundef %189, ptr noundef %192, ptr noundef %193, i32 noundef %195, i32 noundef %197) #37
+  %198 = tail call ptr %186(ptr noundef %189, ptr noundef %192, ptr noundef %193, i32 noundef %195, i32 noundef %197) #38
   %199 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv417
   store ptr %198, ptr %199, align 8, !tbaa !22
   %200 = add nsw i32 %182, 1
@@ -18271,7 +18271,7 @@ stbi__cleanup_jpeg.exit320:                       ; preds = %176, %stbi__malloc_
   %289 = load ptr, ptr %157, align 8, !tbaa !22
   %290 = load ptr, ptr %158, align 16, !tbaa !22
   %291 = load i32, ptr %221, align 8, !tbaa !41
-  tail call void %288(ptr noundef nonnull %218, ptr noundef %220, ptr noundef %289, ptr noundef %290, i32 noundef %291, i32 noundef %39) #37
+  tail call void %288(ptr noundef nonnull %218, ptr noundef %220, ptr noundef %289, ptr noundef %290, i32 noundef %291, i32 noundef %39) #38
   %292 = load ptr, ptr %0, align 8, !tbaa !77
   %293 = load i32, ptr %292, align 8, !tbaa !41
   %.not401 = icmp eq i32 %293, 0
@@ -18580,7 +18580,7 @@ stbi__cleanup_jpeg.exit320:                       ; preds = %176, %stbi__malloc_
   %484 = load ptr, ptr %157, align 8, !tbaa !22
   %485 = load ptr, ptr %158, align 16, !tbaa !22
   %486 = load i32, ptr %221, align 8, !tbaa !41
-  tail call void %483(ptr noundef nonnull %218, ptr noundef %220, ptr noundef %484, ptr noundef %485, i32 noundef %486, i32 noundef %39) #37
+  tail call void %483(ptr noundef nonnull %218, ptr noundef %220, ptr noundef %484, ptr noundef %485, i32 noundef %486, i32 noundef %39) #38
   br label %.loopexit
 
 .loopexit:                                        ; preds = %448, %405, %.lr.ph363, %.lr.ph365, %372, %351, %295, %249, %229, %.lr.ph390, %.loopexit.sink.split, %.preheader354, %.preheader352, %.preheader350, %.preheader348, %.preheader346, %.preheader344, %287, %.preheader341, %.preheader339, %.preheader
@@ -18615,7 +18615,7 @@ stbi__cleanup_jpeg.exit320:                       ; preds = %176, %stbi__malloc_
   br i1 %.not.i.i324, label %500, label %498
 
 498:                                              ; preds = %494
-  tail call void @free(ptr noundef nonnull %497) #37
+  tail call void @free(ptr noundef nonnull %497) #38
   %499 = getelementptr inbounds nuw i8, ptr %495, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %499, i8 0, i64 16, i1 false)
   br label %500
@@ -18627,7 +18627,7 @@ stbi__cleanup_jpeg.exit320:                       ; preds = %176, %stbi__malloc_
   br i1 %.not28.i.i325, label %505, label %503
 
 503:                                              ; preds = %500
-  tail call void @free(ptr noundef nonnull %502) #37
+  tail call void @free(ptr noundef nonnull %502) #38
   store ptr null, ptr %501, align 8, !tbaa !218
   %504 = getelementptr inbounds nuw i8, ptr %495, i64 80
   store ptr null, ptr %504, align 8, !tbaa !193
@@ -18640,7 +18640,7 @@ stbi__cleanup_jpeg.exit320:                       ; preds = %176, %stbi__malloc_
   br i1 %.not29.i.i326, label %509, label %508
 
 508:                                              ; preds = %505
-  tail call void @free(ptr noundef nonnull %507) #37
+  tail call void @free(ptr noundef nonnull %507) #38
   store ptr null, ptr %506, align 8, !tbaa !219
   br label %509
 
@@ -18804,7 +18804,7 @@ define range(i32 0, 2) i32 @stbi__jpeg_info(ptr noundef %0, ptr noundef writeonl
 
 stbi__jpeg_info_raw.exit:                         ; preds = %9, %26, %27
   %.0.i = phi i32 [ 0, %9 ], [ 1, %27 ], [ 1, %26 ]
-  tail call void @free(ptr noundef nonnull %calloc) #37
+  tail call void @free(ptr noundef nonnull %calloc) #38
   br label %32
 
 32:                                               ; preds = %stbi__jpeg_info_raw.exit, %5
@@ -18831,7 +18831,7 @@ define range(i32 0, 65536) i32 @stbi__bit_reverse(i32 noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbi__zbuild_huffman(ptr noundef captures(none) initializes((0, 1024)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @stbi__zbuild_huffman(ptr noundef captures(none) initializes((0, 1024)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #21 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca [17 x i32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -19002,7 +19002,7 @@ define range(i32 0, 2) i32 @stbi__zbuild_huffman(ptr noundef captures(none) init
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @stbi__zeof(ptr noundef readonly captures(none) %0) local_unnamed_addr #23 {
+define range(i32 0, 2) i32 @stbi__zeof(ptr noundef readonly captures(none) %0) local_unnamed_addr #24 {
   %2 = load ptr, ptr %0, align 8, !tbaa !275
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !278
@@ -19012,7 +19012,7 @@ define range(i32 0, 2) i32 @stbi__zeof(ptr noundef readonly captures(none) %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define zeroext i8 @stbi__zget8(ptr noundef captures(none) %0) local_unnamed_addr #24 {
+define zeroext i8 @stbi__zget8(ptr noundef captures(none) %0) local_unnamed_addr #25 {
   %2 = load ptr, ptr %0, align 8, !tbaa !275
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !278
@@ -19411,7 +19411,7 @@ define range(i32 0, 2) i32 @stbi__zexpand(ptr noundef captures(none) initializes
 ._crit_edge:                                      ; preds = %30, %.preheader
   %.025.lcssa = phi i32 [ %22, %.preheader ], [ %31, %30 ]
   %33 = zext i32 %.025.lcssa to i64
-  %34 = tail call ptr @realloc(ptr noundef %11, i64 noundef %33) #39
+  %34 = tail call ptr @realloc(ptr noundef %11, i64 noundef %33) #40
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %38
 
@@ -19435,7 +19435,7 @@ define range(i32 0, 2) i32 @stbi__zexpand(ptr noundef captures(none) initializes
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #25
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #26
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @stbi__parse_huffman_block(ptr noundef captures(none) %0) local_unnamed_addr #2 {
@@ -19501,7 +19501,7 @@ define range(i32 0, 2) i32 @stbi__parse_huffman_block(ptr noundef captures(none)
 ._crit_edge.i:                                    ; preds = %31, %.preheader.i
   %.025.lcssa.i = phi i32 [ %29, %.preheader.i ], [ %32, %31 ]
   %33 = zext i32 %.025.lcssa.i to i64
-  %34 = tail call ptr @realloc(ptr noundef %21, i64 noundef %33) #39
+  %34 = tail call ptr @realloc(ptr noundef %21, i64 noundef %33) #40
   %35 = icmp eq ptr %34, null
   br i1 %35, label %stbi__zexpand.exit.thread.sink.split, label %36
 
@@ -19725,7 +19725,7 @@ stbi__zreceive.exit91:                            ; preds = %stbi__zget8.exit.i.
 ._crit_edge.i94:                                  ; preds = %145, %.preheader.i93
   %.025.lcssa.i95 = phi i32 [ %141, %.preheader.i93 ], [ %146, %145 ]
   %148 = zext i32 %.025.lcssa.i95 to i64
-  %149 = tail call ptr @realloc(ptr noundef %122, i64 noundef %148) #39
+  %149 = tail call ptr @realloc(ptr noundef %122, i64 noundef %148) #40
   %150 = icmp eq ptr %149, null
   br i1 %150, label %stbi__zexpand.exit.thread.sink.split, label %151
 
@@ -19790,7 +19790,7 @@ stbi__zexpand.exit.thread:                        ; preds = %stbi__zexpand.exit.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbi__compute_huffman_codes(ptr noundef captures(none) %0) local_unnamed_addr #26 {
+define range(i32 0, 2) i32 @stbi__compute_huffman_codes(ptr noundef captures(none) %0) local_unnamed_addr #27 {
   %2 = alloca %struct.stbi__zhuffman, align 4
   %3 = alloca [455 x i8], align 16
   %4 = alloca [19 x i8], align 16
@@ -20505,7 +20505,7 @@ stbi__zget8.exit:                                 ; preds = %51, %53
 ._crit_edge.i:                                    ; preds = %112, %.preheader.i
   %.025.lcssa.i = phi i32 [ %104, %.preheader.i ], [ %113, %112 ]
   %115 = zext i32 %.025.lcssa.i to i64
-  %116 = tail call ptr @realloc(ptr noundef %95, i64 noundef %115) #39
+  %116 = tail call ptr @realloc(ptr noundef %95, i64 noundef %115) #40
   %117 = icmp eq ptr %116, null
   br i1 %117, label %118, label %stbi__zexpand.exit
 
@@ -20543,7 +20543,7 @@ stbi__zexpand.exit.thread:                        ; preds = %91, %118, %110, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbi__parse_zlib_header(ptr noundef captures(none) %0) local_unnamed_addr #27 {
+define range(i32 0, 2) i32 @stbi__parse_zlib_header(ptr noundef captures(none) %0) local_unnamed_addr #28 {
   %2 = load ptr, ptr %0, align 8, !tbaa !275
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !278
@@ -20840,7 +20840,7 @@ define ptr @stbi_zlib_decode_malloc_guesssize(ptr noundef %0, i32 noundef %1, i3
   %5 = alloca %struct.stbi__zbuf, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = sext i32 %2 to i64
-  %7 = tail call noalias noundef ptr @malloc(i64 noundef %6) #38
+  %7 = tail call noalias noundef ptr @malloc(i64 noundef %6) #39
   %8 = icmp eq ptr %7, null
   br i1 %8, label %28, label %9
 
@@ -20879,7 +20879,7 @@ define ptr @stbi_zlib_decode_malloc_guesssize(ptr noundef %0, i32 noundef %1, i3
 
 26:                                               ; preds = %9
   %27 = load ptr, ptr %13, align 8, !tbaa !285
-  tail call void @free(ptr noundef %27) #37
+  tail call void @free(ptr noundef %27) #38
   br label %28
 
 28:                                               ; preds = %19, %20, %4, %26
@@ -20892,7 +20892,7 @@ define ptr @stbi_zlib_decode_malloc_guesssize(ptr noundef %0, i32 noundef %1, i3
 define ptr @stbi_zlib_decode_malloc(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = alloca %struct.stbi__zbuf, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = tail call noalias noundef dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #38
+  %5 = tail call noalias noundef dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #39
   %6 = icmp eq ptr %5, null
   br i1 %6, label %stbi_zlib_decode_malloc_guesssize.exit, label %7
 
@@ -20931,7 +20931,7 @@ define ptr @stbi_zlib_decode_malloc(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 24:                                               ; preds = %7
   %25 = load ptr, ptr %11, align 8, !tbaa !285
-  tail call void @free(ptr noundef %25) #37
+  tail call void @free(ptr noundef %25) #38
   br label %stbi_zlib_decode_malloc_guesssize.exit
 
 stbi_zlib_decode_malloc_guesssize.exit:           ; preds = %3, %17, %18, %24
@@ -20945,7 +20945,7 @@ define ptr @stbi_zlib_decode_malloc_guesssize_headerflag(ptr noundef %0, i32 nou
   %6 = alloca %struct.stbi__zbuf, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = sext i32 %2 to i64
-  %8 = tail call noalias noundef ptr @malloc(i64 noundef %7) #38
+  %8 = tail call noalias noundef ptr @malloc(i64 noundef %7) #39
   %9 = icmp eq ptr %8, null
   br i1 %9, label %29, label %10
 
@@ -20984,7 +20984,7 @@ define ptr @stbi_zlib_decode_malloc_guesssize_headerflag(ptr noundef %0, i32 nou
 
 27:                                               ; preds = %10
   %28 = load ptr, ptr %14, align 8, !tbaa !285
-  tail call void @free(ptr noundef %28) #37
+  tail call void @free(ptr noundef %28) #38
   br label %29
 
 29:                                               ; preds = %20, %21, %5, %27
@@ -21029,7 +21029,7 @@ define i32 @stbi_zlib_decode_buffer(ptr noundef %0, i32 noundef %1, ptr noundef 
 define ptr @stbi_zlib_decode_noheader_malloc(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = alloca %struct.stbi__zbuf, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = tail call noalias noundef dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #38
+  %5 = tail call noalias noundef dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #39
   %6 = icmp eq ptr %5, null
   br i1 %6, label %26, label %7
 
@@ -21068,7 +21068,7 @@ define ptr @stbi_zlib_decode_noheader_malloc(ptr noundef %0, i32 noundef %1, ptr
 
 24:                                               ; preds = %7
   %25 = load ptr, ptr %11, align 8, !tbaa !285
-  tail call void @free(ptr noundef %25) #37
+  tail call void @free(ptr noundef %25) #38
   br label %26
 
 26:                                               ; preds = %17, %18, %3, %24
@@ -21169,7 +21169,7 @@ define range(i32 0, 2) i32 @stbi__check_png_header(ptr noundef %0) local_unnamed
   %23 = load ptr, ptr %5, align 8, !tbaa !3
   %24 = load ptr, ptr %6, align 8, !tbaa !19
   %25 = load i32, ptr %8, align 4, !tbaa !20
-  %26 = tail call i32 %23(ptr noundef %24, ptr noundef nonnull %7, i32 noundef %25) #37
+  %26 = tail call i32 %23(ptr noundef %24, ptr noundef nonnull %7, i32 noundef %25) #38
   %27 = load ptr, ptr %2, align 8, !tbaa !14
   %28 = load ptr, ptr %9, align 8, !tbaa !13
   %29 = ptrtoint ptr %27 to i64
@@ -21340,7 +21340,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
 stbi__malloc_mad3.exit:                           ; preds = %24, %stbi__mul2sizes_valid.exit12.i.i
   %28 = mul nsw i32 %16, %22
   %29 = sext i32 %28 to i64
-  %30 = tail call noalias noundef ptr @malloc(i64 noundef %29) #38
+  %30 = tail call noalias noundef ptr @malloc(i64 noundef %29) #39
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %30, ptr %31, align 8, !tbaa !296
   %.not = icmp eq ptr %30, null
@@ -21428,7 +21428,7 @@ stbi__mad2sizes_valid.exit.thread:                ; preds = %stbi__mad3sizes_val
 stbi__malloc_mad2.exit:                           ; preds = %54
   %60 = shl nuw nsw i32 %48, 1
   %61 = zext nneg i32 %60 to i64
-  %62 = tail call noalias noundef ptr @malloc(i64 noundef %61) #38
+  %62 = tail call noalias noundef ptr @malloc(i64 noundef %61) #39
   %.not283 = icmp eq ptr %62, null
   br i1 %.not283, label %stbi__malloc_mad2.exit.thread, label %64
 
@@ -21966,13 +21966,13 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__malloc_mad2.e
   br i1 %exitcond463.not, label %._crit_edge, label %82, !llvm.loop !310
 
 ._crit_edge:                                      ; preds = %.loopexit, %64
-  tail call void @free(ptr noundef %62) #37
+  tail call void @free(ptr noundef %62) #38
   br label %302
 
 300:                                              ; preds = %82
   %301 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.50, ptr %301, align 8, !tbaa !22
-  tail call void @free(ptr noundef %62) #37
+  tail call void @free(ptr noundef %62) #38
   br label %302
 
 302:                                              ; preds = %300, %._crit_edge, %stbi__malloc_mad2.exit.thread, %58, %stbi__mad2sizes_valid.exit.thread, %stbi__mad3sizes_valid.exit.thread, %32
@@ -22028,7 +22028,7 @@ stbi__mul2sizes_valid.exit12.i.i:                 ; preds = %24
 stbi__malloc_mad3.exit:                           ; preds = %24, %stbi__mul2sizes_valid.exit12.i.i
   %27 = mul nsw i32 %22, %10
   %28 = sext i32 %27 to i64
-  %29 = tail call noalias noundef ptr @malloc(i64 noundef %28) #38
+  %29 = tail call noalias noundef ptr @malloc(i64 noundef %28) #39
   %.not92 = icmp eq ptr %29, null
   br i1 %.not92, label %stbi__malloc_mad3.exit.thread, label %.preheader100
 
@@ -22132,12 +22132,12 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   br i1 %89, label %.preheader.us, label %._crit_edge103, !llvm.loop !312
 
 .thread:                                          ; preds = %56
-  tail call void @free(ptr noundef %29) #37
+  tail call void @free(ptr noundef %29) #38
   br label %.critedge
 
 ._crit_edge103:                                   ; preds = %._crit_edge.us, %.preheader99
   %90 = load ptr, ptr %30, align 8, !tbaa !296
-  tail call void @free(ptr noundef %90) #37
+  tail call void @free(ptr noundef %90) #38
   %91 = zext i32 %64 to i64
   %92 = getelementptr inbounds nuw i8, ptr %.076106, i64 %91
   %93 = sub i32 %.080105, %64
@@ -22160,7 +22160,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @stbi__compute_transparency(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #26 {
+define noundef i32 @stbi__compute_transparency(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #27 {
   %4 = load ptr, ptr %0, align 8, !tbaa !30
   %5 = load i32, ptr %4, align 8, !tbaa !41
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -22235,7 +22235,7 @@ define noundef i32 @stbi__compute_transparency(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @stbi__compute_transparency16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #26 {
+define noundef i32 @stbi__compute_transparency16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #27 {
   %4 = load ptr, ptr %0, align 8, !tbaa !30
   %5 = load i32, ptr %4, align 8, !tbaa !41
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -22334,7 +22334,7 @@ stbi__mul2sizes_valid.exit.i.i:                   ; preds = %13
 stbi__malloc_mad2.exit:                           ; preds = %13, %stbi__mul2sizes_valid.exit.i.i
   %16 = mul nsw i32 %9, %3
   %17 = sext i32 %16 to i64
-  %18 = tail call noalias noundef ptr @malloc(i64 noundef %17) #38
+  %18 = tail call noalias noundef ptr @malloc(i64 noundef %17) #39
   %19 = icmp eq ptr %18, null
   br i1 %19, label %stbi__malloc_mad2.exit.thread, label %21
 
@@ -22413,7 +22413,7 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %4, %stbi__mul2sizes
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !319
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph55, %.preheader49, %.preheader
-  tail call void @free(ptr noundef %11) #37
+  tail call void @free(ptr noundef %11) #38
   store ptr %18, ptr %10, align 8, !tbaa !296
   br label %52
 
@@ -22453,7 +22453,7 @@ define void @stbi_convert_iphone_png_to_rgb_thread(i32 noundef %0) local_unnamed
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbi__de_iphone(ptr noundef readonly captures(none) %0) local_unnamed_addr #26 {
+define void @stbi__de_iphone(ptr noundef readonly captures(none) %0) local_unnamed_addr #27 {
   %2 = load ptr, ptr %0, align 8, !tbaa !30
   %3 = load i32, ptr %2, align 8, !tbaa !41
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -22634,7 +22634,7 @@ define range(i32 0, 2) i32 @stbi__parse_png_file(ptr noundef captures(none) init
   %33 = load ptr, ptr %15, align 8, !tbaa !3
   %34 = load ptr, ptr %16, align 8, !tbaa !19
   %35 = load i32, ptr %18, align 4, !tbaa !20
-  %36 = tail call i32 %33(ptr noundef %34, ptr noundef nonnull %17, i32 noundef %35) #37
+  %36 = tail call i32 %33(ptr noundef %34, ptr noundef nonnull %17, i32 noundef %35) #38
   %37 = load ptr, ptr %12, align 8, !tbaa !14
   %38 = load ptr, ptr %19, align 8, !tbaa !13
   %39 = ptrtoint ptr %37 to i64
@@ -22755,7 +22755,7 @@ stbi__check_png_header.exit:                      ; preds = %22
   %88 = load ptr, ptr %61, align 8, !tbaa !53
   %89 = load ptr, ptr %16, align 8, !tbaa !19
   %90 = sub nsw i32 %66, %85
-  tail call void %88(ptr noundef %89, i32 noundef %90) #37
+  tail call void %88(ptr noundef %89, i32 noundef %90) #38
   br label %.loopexit
 
 .thread.i:                                        ; preds = %79, %..thread_crit_edge.i
@@ -22833,7 +22833,7 @@ stbi__check_png_header.exit:                      ; preds = %22
   %127 = load ptr, ptr %15, align 8, !tbaa !3
   %128 = load ptr, ptr %16, align 8, !tbaa !19
   %129 = load i32, ptr %18, align 4, !tbaa !20
-  %130 = tail call i32 %127(ptr noundef %128, ptr noundef nonnull %17, i32 noundef %129) #37
+  %130 = tail call i32 %127(ptr noundef %128, ptr noundef nonnull %17, i32 noundef %129) #38
   %131 = load ptr, ptr %12, align 8, !tbaa !14
   %132 = load ptr, ptr %19, align 8, !tbaa !13
   %133 = ptrtoint ptr %131 to i64
@@ -22901,7 +22901,7 @@ stbi__get8.exit:                                  ; preds = %121, %124, %stbi__r
   %161 = load ptr, ptr %15, align 8, !tbaa !3
   %162 = load ptr, ptr %16, align 8, !tbaa !19
   %163 = load i32, ptr %18, align 4, !tbaa !20
-  %164 = tail call i32 %161(ptr noundef %162, ptr noundef nonnull %17, i32 noundef %163) #37
+  %164 = tail call i32 %161(ptr noundef %162, ptr noundef nonnull %17, i32 noundef %163) #38
   %165 = load ptr, ptr %12, align 8, !tbaa !14
   %166 = load ptr, ptr %19, align 8, !tbaa !13
   %167 = ptrtoint ptr %165 to i64
@@ -23112,7 +23112,7 @@ stbi__get8.exit311:                               ; preds = %155, %stbi__refill_
   %251 = load ptr, ptr %15, align 8, !tbaa !3
   %252 = load ptr, ptr %16, align 8, !tbaa !19
   %253 = load i32, ptr %18, align 4, !tbaa !20
-  %254 = tail call i32 %251(ptr noundef %252, ptr noundef nonnull %17, i32 noundef %253) #37
+  %254 = tail call i32 %251(ptr noundef %252, ptr noundef nonnull %17, i32 noundef %253) #38
   %255 = load ptr, ptr %12, align 8, !tbaa !14
   %256 = load ptr, ptr %19, align 8, !tbaa !13
   %257 = ptrtoint ptr %255 to i64
@@ -23168,7 +23168,7 @@ stbi__get8.exit317:                               ; preds = %245, %248, %stbi__r
   %280 = load ptr, ptr %15, align 8, !tbaa !3
   %281 = load ptr, ptr %16, align 8, !tbaa !19
   %282 = load i32, ptr %18, align 4, !tbaa !20
-  %283 = tail call i32 %280(ptr noundef %281, ptr noundef nonnull %17, i32 noundef %282) #37
+  %283 = tail call i32 %280(ptr noundef %281, ptr noundef nonnull %17, i32 noundef %282) #38
   %284 = load ptr, ptr %12, align 8, !tbaa !14
   %285 = load ptr, ptr %19, align 8, !tbaa !13
   %286 = ptrtoint ptr %284 to i64
@@ -23223,7 +23223,7 @@ stbi__get8.exit323:                               ; preds = %274, %277, %stbi__r
   %308 = load ptr, ptr %15, align 8, !tbaa !3
   %309 = load ptr, ptr %16, align 8, !tbaa !19
   %310 = load i32, ptr %18, align 4, !tbaa !20
-  %311 = tail call i32 %308(ptr noundef %309, ptr noundef nonnull %17, i32 noundef %310) #37
+  %311 = tail call i32 %308(ptr noundef %309, ptr noundef nonnull %17, i32 noundef %310) #38
   %312 = load ptr, ptr %12, align 8, !tbaa !14
   %313 = load ptr, ptr %19, align 8, !tbaa !13
   %314 = ptrtoint ptr %312 to i64
@@ -23347,7 +23347,7 @@ stbi__get8.exit329:                               ; preds = %302, %305, %stbi__r
   %358 = load ptr, ptr %15, align 8, !tbaa !3
   %359 = load ptr, ptr %16, align 8, !tbaa !19
   %360 = load i32, ptr %18, align 4, !tbaa !20
-  %361 = tail call i32 %358(ptr noundef %359, ptr noundef nonnull %17, i32 noundef %360) #37
+  %361 = tail call i32 %358(ptr noundef %359, ptr noundef nonnull %17, i32 noundef %360) #38
   %362 = load ptr, ptr %12, align 8, !tbaa !14
   %363 = load ptr, ptr %19, align 8, !tbaa !13
   %364 = ptrtoint ptr %362 to i64
@@ -23532,7 +23532,7 @@ stbi__get8.exit335:                               ; preds = %352, %355, %stbi__r
 445:                                              ; preds = %442
   %446 = load ptr, ptr %11, align 8, !tbaa !326
   %447 = zext i32 %.5221 to i64
-  %448 = tail call ptr @realloc(ptr noundef %446, i64 noundef %447) #39
+  %448 = tail call ptr @realloc(ptr noundef %446, i64 noundef %447) #40
   %.not275 = icmp eq ptr %448, null
   br i1 %.not275, label %.thread366, label %450
 
@@ -23592,7 +23592,7 @@ stbi__getn.exit:                                  ; preds = %456
   %472 = load ptr, ptr %16, align 8, !tbaa !19
   %473 = getelementptr inbounds i8, ptr %454, i64 %470
   %474 = sub nsw i32 %66, %462
-  %475 = tail call i32 %471(ptr noundef %472, ptr noundef %473, i32 noundef %474) #37
+  %475 = tail call i32 %471(ptr noundef %472, ptr noundef %473, i32 noundef %474) #38
   %.not = icmp eq i32 %475, %474
   %476 = load ptr, ptr %13, align 8, !tbaa !16
   store ptr %476, ptr %12, align 8, !tbaa !14
@@ -23640,7 +23640,7 @@ stbi__getn.exit.thread:                           ; preds = %.thread.i337, %stbi
   %.not259 = icmp eq i32 %.0235, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %498 = sext i32 %497 to i64
-  %499 = tail call noalias noundef ptr @malloc(i64 noundef %498) #38
+  %499 = tail call noalias noundef ptr @malloc(i64 noundef %498) #39
   %500 = icmp eq ptr %499, null
   br i1 %500, label %stbi_zlib_decode_malloc_guesssize_headerflag.exit.thread, label %501
 
@@ -23666,7 +23666,7 @@ stbi__getn.exit.thread:                           ; preds = %.thread.i337, %stbi
   br i1 %.not.i341, label %513, label %stbi_zlib_decode_malloc_guesssize_headerflag.exit
 
 513:                                              ; preds = %501
-  tail call void @free(ptr noundef %512) #37
+  tail call void @free(ptr noundef %512) #38
   br label %stbi_zlib_decode_malloc_guesssize_headerflag.exit.thread
 
 stbi_zlib_decode_malloc_guesssize_headerflag.exit.thread: ; preds = %513, %487
@@ -23687,7 +23687,7 @@ stbi_zlib_decode_malloc_guesssize_headerflag.exit: ; preds = %501
   %519 = sub i64 %517, %518
   %520 = trunc i64 %519 to i32
   %521 = load ptr, ptr %11, align 8, !tbaa !326
-  tail call void @free(ptr noundef %521) #37
+  tail call void @free(ptr noundef %521) #38
   store ptr null, ptr %11, align 8, !tbaa !326
   %522 = load i32, ptr %58, align 8, !tbaa !50
   %523 = add nsw i32 %522, 1
@@ -23778,7 +23778,7 @@ stbi_zlib_decode_malloc_guesssize_headerflag.exit: ; preds = %501
 
 563:                                              ; preds = %559, %560, %555
   %564 = load ptr, ptr %10, align 8, !tbaa !331
-  tail call void @free(ptr noundef %564) #37
+  tail call void @free(ptr noundef %564) #38
   store ptr null, ptr %10, align 8, !tbaa !331
   %565 = tail call i32 @stbi__get16be(ptr noundef nonnull %9)
   %566 = tail call i32 @stbi__get16be(ptr noundef nonnull %9)
@@ -23842,7 +23842,7 @@ stbi_zlib_decode_malloc_guesssize_headerflag.exit: ; preds = %501
   %592 = load ptr, ptr %61, align 8, !tbaa !53
   %593 = load ptr, ptr %16, align 8, !tbaa !19
   %594 = sub nsw i32 %66, %589
-  tail call void %592(ptr noundef %593, i32 noundef %594) #37
+  tail call void %592(ptr noundef %593, i32 noundef %594) #38
   br label %.loopexit
 
 .thread.i345:                                     ; preds = %583, %..thread_crit_edge.i346
@@ -23963,15 +23963,15 @@ define ptr @stbi__do_png(ptr noundef captures(none) %0, ptr noundef writeonly ca
   %.0 = phi ptr [ %.1, %42 ], [ %.1, %37 ], [ null, %9 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = load ptr, ptr %46, align 8, !tbaa !296
-  tail call void @free(ptr noundef %47) #37
+  tail call void @free(ptr noundef %47) #38
   store ptr null, ptr %46, align 8, !tbaa !296
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !331
-  tail call void @free(ptr noundef %49) #37
+  tail call void @free(ptr noundef %49) #38
   store ptr null, ptr %48, align 8, !tbaa !331
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !326
-  tail call void @free(ptr noundef %51) #37
+  tail call void @free(ptr noundef %51) #38
   store ptr null, ptr %50, align 8, !tbaa !326
   br label %52
 
@@ -24154,7 +24154,7 @@ define range(i32 0, 2) i32 @stbi__bmp_test_raw(ptr noundef %0) local_unnamed_add
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %20 = load i32, ptr %19, align 4, !tbaa !20
-  %21 = tail call i32 %15(ptr noundef %17, ptr noundef nonnull %18, i32 noundef %20) #37
+  %21 = tail call i32 %15(ptr noundef %17, ptr noundef nonnull %18, i32 noundef %20) #38
   %22 = load ptr, ptr %2, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %24 = load ptr, ptr %23, align 8, !tbaa !13
@@ -24220,7 +24220,7 @@ stbi__get8.exit:                                  ; preds = %7, %stbi__refill_bu
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %57 = load i32, ptr %56, align 4, !tbaa !20
-  %58 = tail call i32 %52(ptr noundef %54, ptr noundef nonnull %55, i32 noundef %57) #37
+  %58 = tail call i32 %52(ptr noundef %54, ptr noundef nonnull %55, i32 noundef %57) #38
   %59 = load ptr, ptr %2, align 8, !tbaa !14
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %61 = load ptr, ptr %60, align 8, !tbaa !13
@@ -24450,7 +24450,7 @@ define noundef ptr @stbi__bmp_parse_header(ptr noundef %0, ptr noundef captures(
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %21 = load i32, ptr %20, align 4, !tbaa !20
-  %22 = tail call i32 %16(ptr noundef %18, ptr noundef nonnull %19, i32 noundef %21) #37
+  %22 = tail call i32 %16(ptr noundef %18, ptr noundef nonnull %19, i32 noundef %21) #38
   %23 = load ptr, ptr %3, align 8, !tbaa !14
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %25 = load ptr, ptr %24, align 8, !tbaa !13
@@ -24516,7 +24516,7 @@ stbi__get8.exit:                                  ; preds = %8, %stbi__refill_bu
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %58 = load i32, ptr %57, align 4, !tbaa !20
-  %59 = tail call i32 %53(ptr noundef %55, ptr noundef nonnull %56, i32 noundef %58) #37
+  %59 = tail call i32 %53(ptr noundef %55, ptr noundef nonnull %56, i32 noundef %58) #38
   %60 = load ptr, ptr %3, align 8, !tbaa !14
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %62 = load ptr, ptr %61, align 8, !tbaa !13
@@ -24896,7 +24896,7 @@ define range(i32 0, 2) i32 @stbi__tga_info(ptr noundef %0, ptr noundef writeonly
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %22 = load i32, ptr %21, align 4, !tbaa !20
-  %23 = tail call i32 %17(ptr noundef %19, ptr noundef nonnull %20, i32 noundef %22) #37
+  %23 = tail call i32 %17(ptr noundef %19, ptr noundef nonnull %20, i32 noundef %22) #38
   %24 = load ptr, ptr %5, align 8, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %26 = load ptr, ptr %25, align 8, !tbaa !13
@@ -24960,7 +24960,7 @@ stbi__get8.exit:                                  ; preds = %stbi__get8.exit.sin
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %57 = load i32, ptr %56, align 4, !tbaa !20
-  %58 = tail call i32 %52(ptr noundef %54, ptr noundef nonnull %55, i32 noundef %57) #37
+  %58 = tail call i32 %52(ptr noundef %54, ptr noundef nonnull %55, i32 noundef %57) #38
   %59 = load ptr, ptr %5, align 8, !tbaa !14
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %61 = load ptr, ptr %60, align 8, !tbaa !13
@@ -25038,7 +25038,7 @@ stbi__get8.exit86.thread:                         ; preds = %47, %stbi__get8.exi
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %101 = load i32, ptr %100, align 4, !tbaa !20
-  %102 = tail call i32 %96(ptr noundef %98, ptr noundef nonnull %99, i32 noundef %101) #37
+  %102 = tail call i32 %96(ptr noundef %98, ptr noundef nonnull %99, i32 noundef %101) #38
   %103 = load ptr, ptr %5, align 8, !tbaa !14
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %105 = load ptr, ptr %104, align 8, !tbaa !13
@@ -25115,7 +25115,7 @@ stbi__get8.exit92:                                ; preds = %88, %91, %stbi__ref
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %142 = load ptr, ptr %141, align 8, !tbaa !19
   %143 = sub nsw i32 4, %136
-  tail call void %140(ptr noundef %142, i32 noundef %143) #37
+  tail call void %140(ptr noundef %142, i32 noundef %143) #38
   %.pre = load ptr, ptr %5, align 8, !tbaa !14
   %.pre135 = load ptr, ptr %7, align 8, !tbaa !16
   br label %stbi__skip.exit
@@ -25150,7 +25150,7 @@ stbi__skip.exit:                                  ; preds = %138, %.thread.i
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %160 = load i32, ptr %159, align 4, !tbaa !20
-  %161 = tail call i32 %155(ptr noundef %157, ptr noundef nonnull %158, i32 noundef %160) #37
+  %161 = tail call i32 %155(ptr noundef %157, ptr noundef nonnull %158, i32 noundef %160) #38
   %162 = load ptr, ptr %5, align 8, !tbaa !14
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %164 = load ptr, ptr %163, align 8, !tbaa !13
@@ -25226,7 +25226,7 @@ stbi__get8.exit100.thread:                        ; preds = %151, %stbi__get8.ex
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %197 = load ptr, ptr %196, align 8, !tbaa !19
   %198 = sub nsw i32 4, %191
-  tail call void %195(ptr noundef %197, i32 noundef %198) #37
+  tail call void %195(ptr noundef %197, i32 noundef %198) #38
   br label %stbi__skip.exit106
 
 .thread.i102:                                     ; preds = %185, %187
@@ -25269,7 +25269,7 @@ stbi__get8.exit100.thread:                        ; preds = %151, %stbi__get8.ex
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %220 = load ptr, ptr %219, align 8, !tbaa !19
   %221 = sub nsw i32 9, %214
-  tail call void %218(ptr noundef %220, i32 noundef %221) #37
+  tail call void %218(ptr noundef %220, i32 noundef %221) #38
   br label %stbi__skip.exit106
 
 .thread.i108:                                     ; preds = %207, %210
@@ -25332,7 +25332,7 @@ stbi__skip.exit106:                               ; preds = %.thread.i108, %216,
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %255 = load i32, ptr %254, align 4, !tbaa !20
-  %256 = tail call i32 %250(ptr noundef %252, ptr noundef nonnull %253, i32 noundef %255) #37
+  %256 = tail call i32 %250(ptr noundef %252, ptr noundef nonnull %253, i32 noundef %255) #38
   %257 = load ptr, ptr %5, align 8, !tbaa !14
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %259 = load ptr, ptr %258, align 8, !tbaa !13
@@ -25392,7 +25392,7 @@ stbi__get8.exit118:                               ; preds = %242, %245, %stbi__r
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %290 = load i32, ptr %289, align 4, !tbaa !20
-  %291 = tail call i32 %285(ptr noundef %287, ptr noundef nonnull %288, i32 noundef %290) #37
+  %291 = tail call i32 %285(ptr noundef %287, ptr noundef nonnull %288, i32 noundef %290) #38
   %292 = load ptr, ptr %5, align 8, !tbaa !14
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %294 = load ptr, ptr %293, align 8, !tbaa !13
@@ -25595,7 +25595,7 @@ define range(i32 0, 2) i32 @stbi__psd_decode_rle(ptr noundef %0, ptr noundef wri
   %26 = load ptr, ptr %8, align 8, !tbaa !3
   %27 = load ptr, ptr %9, align 8, !tbaa !19
   %28 = load i32, ptr %11, align 4, !tbaa !20
-  %29 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %10, i32 noundef %28) #37
+  %29 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %10, i32 noundef %28) #38
   %30 = load ptr, ptr %5, align 8, !tbaa !14
   %31 = load ptr, ptr %12, align 8, !tbaa !13
   %32 = ptrtoint ptr %30 to i64
@@ -25670,7 +25670,7 @@ stbi__get8.exit:                                  ; preds = %20, %stbi__refill_b
   %63 = load ptr, ptr %8, align 8, !tbaa !3
   %64 = load ptr, ptr %9, align 8, !tbaa !19
   %65 = load i32, ptr %11, align 4, !tbaa !20
-  %66 = tail call i32 %63(ptr noundef %64, ptr noundef nonnull %10, i32 noundef %65) #37
+  %66 = tail call i32 %63(ptr noundef %64, ptr noundef nonnull %10, i32 noundef %65) #38
   %67 = load ptr, ptr %5, align 8, !tbaa !14
   %68 = load ptr, ptr %12, align 8, !tbaa !13
   %69 = ptrtoint ptr %67 to i64
@@ -25733,7 +25733,7 @@ stbi__get8.exit50:                                ; preds = %57, %60, %stbi__ref
   %93 = load ptr, ptr %8, align 8, !tbaa !3
   %94 = load ptr, ptr %9, align 8, !tbaa !19
   %95 = load i32, ptr %11, align 4, !tbaa !20
-  %96 = tail call i32 %93(ptr noundef %94, ptr noundef nonnull %10, i32 noundef %95) #37
+  %96 = tail call i32 %93(ptr noundef %94, ptr noundef nonnull %10, i32 noundef %95) #38
   %97 = load ptr, ptr %5, align 8, !tbaa !14
   %98 = load ptr, ptr %12, align 8, !tbaa !13
   %99 = ptrtoint ptr %97 to i64
@@ -25840,7 +25840,7 @@ define range(i32 0, 2) i32 @stbi__pic_is4(ptr noundef %0, ptr noundef readonly c
   %24 = load ptr, ptr %6, align 8, !tbaa !3
   %25 = load ptr, ptr %7, align 8, !tbaa !19
   %26 = load i32, ptr %9, align 4, !tbaa !20
-  %27 = tail call i32 %24(ptr noundef %25, ptr noundef nonnull %8, i32 noundef %26) #37
+  %27 = tail call i32 %24(ptr noundef %25, ptr noundef nonnull %8, i32 noundef %26) #38
   %28 = load ptr, ptr %3, align 8, !tbaa !14
   %29 = load ptr, ptr %10, align 8, !tbaa !13
   %30 = ptrtoint ptr %28 to i64
@@ -25928,7 +25928,7 @@ define range(i32 0, 2) i32 @stbi__pic_test_core(ptr noundef %0) local_unnamed_ad
   %23 = load ptr, ptr %5, align 8, !tbaa !3
   %24 = load ptr, ptr %6, align 8, !tbaa !19
   %25 = load i32, ptr %8, align 4, !tbaa !20
-  %26 = tail call i32 %23(ptr noundef %24, ptr noundef nonnull %7, i32 noundef %25) #37
+  %26 = tail call i32 %23(ptr noundef %24, ptr noundef nonnull %7, i32 noundef %25) #38
   %27 = load ptr, ptr %2, align 8, !tbaa !14
   %28 = load ptr, ptr %9, align 8, !tbaa !13
   %29 = ptrtoint ptr %27 to i64
@@ -25988,7 +25988,7 @@ stbi__pic_is4.exit.preheader:                     ; preds = %12, %stbi__get8.exi
   %53 = load ptr, ptr %5, align 8, !tbaa !3
   %54 = load ptr, ptr %6, align 8, !tbaa !19
   %55 = load i32, ptr %8, align 4, !tbaa !20
-  %56 = tail call i32 %53(ptr noundef %54, ptr noundef nonnull %7, i32 noundef %55) #37
+  %56 = tail call i32 %53(ptr noundef %54, ptr noundef nonnull %7, i32 noundef %55) #38
   %57 = load ptr, ptr %2, align 8, !tbaa !14
   %58 = load ptr, ptr %9, align 8, !tbaa !13
   %59 = ptrtoint ptr %57 to i64
@@ -26056,7 +26056,7 @@ stbi__get8.exit:                                  ; preds = %stbi__get8.exit.sin
   %81 = load ptr, ptr %5, align 8, !tbaa !3
   %82 = load ptr, ptr %6, align 8, !tbaa !19
   %83 = load i32, ptr %8, align 4, !tbaa !20
-  %84 = tail call i32 %81(ptr noundef %82, ptr noundef nonnull %7, i32 noundef %83) #37
+  %84 = tail call i32 %81(ptr noundef %82, ptr noundef nonnull %7, i32 noundef %83) #38
   %85 = load ptr, ptr %2, align 8, !tbaa !14
   %86 = load ptr, ptr %9, align 8, !tbaa !13
   %87 = ptrtoint ptr %85 to i64
@@ -26131,7 +26131,7 @@ define noundef ptr @stbi__readval(ptr noundef %0, i32 noundef %1, ptr noundef wr
 19:                                               ; preds = %17
   %20 = load ptr, ptr %5, align 8, !tbaa !76
   %21 = load ptr, ptr %6, align 8, !tbaa !19
-  %22 = tail call i32 %20(ptr noundef %21) #37
+  %22 = tail call i32 %20(ptr noundef %21) #38
   %.not6.i = icmp eq i32 %22, 0
   br i1 %.not6.i, label %stbi__at_eof.exit.thread, label %23
 
@@ -26173,7 +26173,7 @@ stbi__at_eof.exit.thread.thread:                  ; preds = %stbi__at_eof.exit, 
   %36 = load ptr, ptr %4, align 8, !tbaa !3
   %37 = load ptr, ptr %6, align 8, !tbaa !19
   %38 = load i32, ptr %11, align 4, !tbaa !20
-  %39 = tail call i32 %36(ptr noundef %37, ptr noundef nonnull %10, i32 noundef %38) #37
+  %39 = tail call i32 %36(ptr noundef %37, ptr noundef nonnull %10, i32 noundef %38) #38
   %40 = load ptr, ptr %8, align 8, !tbaa !14
   %41 = load ptr, ptr %12, align 8, !tbaa !13
   %42 = ptrtoint ptr %40 to i64
@@ -26303,7 +26303,7 @@ define noundef ptr @stbi__pic_load_core(ptr noundef %0, i32 noundef %1, i32 noun
   %35 = load ptr, ptr %12, align 8, !tbaa !3
   %36 = load ptr, ptr %13, align 8, !tbaa !19
   %37 = load i32, ptr %15, align 4, !tbaa !20
-  %38 = tail call i32 %35(ptr noundef %36, ptr noundef nonnull %14, i32 noundef %37) #37
+  %38 = tail call i32 %35(ptr noundef %36, ptr noundef nonnull %14, i32 noundef %37) #38
   %39 = load ptr, ptr %9, align 8, !tbaa !14
   %40 = load ptr, ptr %16, align 8, !tbaa !13
   %41 = ptrtoint ptr %39 to i64
@@ -26356,7 +26356,7 @@ stbi__get8.exit:                                  ; preds = %29, %32, %stbi__ref
   %62 = load ptr, ptr %12, align 8, !tbaa !3
   %63 = load ptr, ptr %13, align 8, !tbaa !19
   %64 = load i32, ptr %15, align 4, !tbaa !20
-  %65 = tail call i32 %62(ptr noundef %63, ptr noundef nonnull %14, i32 noundef %64) #37
+  %65 = tail call i32 %62(ptr noundef %63, ptr noundef nonnull %14, i32 noundef %64) #38
   %66 = load ptr, ptr %9, align 8, !tbaa !14
   %67 = load ptr, ptr %16, align 8, !tbaa !13
   %68 = ptrtoint ptr %66 to i64
@@ -26410,7 +26410,7 @@ stbi__get8.exit167:                               ; preds = %56, %59, %stbi__ref
   %89 = load ptr, ptr %12, align 8, !tbaa !3
   %90 = load ptr, ptr %13, align 8, !tbaa !19
   %91 = load i32, ptr %15, align 4, !tbaa !20
-  %92 = tail call i32 %89(ptr noundef %90, ptr noundef nonnull %14, i32 noundef %91) #37
+  %92 = tail call i32 %89(ptr noundef %90, ptr noundef nonnull %14, i32 noundef %91) #38
   %93 = load ptr, ptr %9, align 8, !tbaa !14
   %94 = load ptr, ptr %16, align 8, !tbaa !13
   %95 = ptrtoint ptr %93 to i64
@@ -26465,7 +26465,7 @@ stbi__get8.exit173:                               ; preds = %83, %86, %stbi__ref
   %117 = load ptr, ptr %12, align 8, !tbaa !3
   %118 = load ptr, ptr %13, align 8, !tbaa !19
   %119 = load i32, ptr %15, align 4, !tbaa !20
-  %120 = tail call i32 %117(ptr noundef %118, ptr noundef nonnull %14, i32 noundef %119) #37
+  %120 = tail call i32 %117(ptr noundef %118, ptr noundef nonnull %14, i32 noundef %119) #38
   %121 = load ptr, ptr %9, align 8, !tbaa !14
   %122 = load ptr, ptr %16, align 8, !tbaa !13
   %123 = ptrtoint ptr %121 to i64
@@ -26511,7 +26511,7 @@ stbi__get8.exit179:                               ; preds = %111, %114, %stbi__r
 141:                                              ; preds = %stbi__get8.exit179
   %142 = load ptr, ptr %19, align 8, !tbaa !76
   %143 = load ptr, ptr %13, align 8, !tbaa !19
-  %144 = tail call i32 %142(ptr noundef %143) #37
+  %144 = tail call i32 %142(ptr noundef %143) #38
   %.not6.i = icmp eq i32 %144, 0
   br i1 %.not6.i, label %stbi__at_eof.exit.thread, label %145
 
@@ -26633,7 +26633,7 @@ stbi__at_eof.exit.thread:                         ; preds = %141, %stbi__at_eof.
 180:                                              ; preds = %178
   %181 = load ptr, ptr %19, align 8, !tbaa !76
   %182 = load ptr, ptr %13, align 8, !tbaa !19
-  %183 = tail call i32 %181(ptr noundef %182) #37
+  %183 = tail call i32 %181(ptr noundef %182) #38
   %.not6.i.i = icmp eq i32 %183, 0
   br i1 %.not6.i.i, label %stbi__at_eof.exit.thread.i, label %184
 
@@ -26675,7 +26675,7 @@ stbi__at_eof.exit.thread.thread.i:                ; preds = %stbi__at_eof.exit.t
   %197 = load ptr, ptr %12, align 8, !tbaa !3
   %198 = load ptr, ptr %13, align 8, !tbaa !19
   %199 = load i32, ptr %15, align 4, !tbaa !20
-  %200 = tail call i32 %197(ptr noundef %198, ptr noundef nonnull %14, i32 noundef %199) #37
+  %200 = tail call i32 %197(ptr noundef %198, ptr noundef nonnull %14, i32 noundef %199) #38
   %201 = load ptr, ptr %9, align 8, !tbaa !14
   %202 = load ptr, ptr %16, align 8, !tbaa !13
   %203 = ptrtoint ptr %201 to i64
@@ -26752,7 +26752,7 @@ stbi__readval.exit:                               ; preds = %216
   %231 = load ptr, ptr %12, align 8, !tbaa !3
   %232 = load ptr, ptr %13, align 8, !tbaa !19
   %233 = load i32, ptr %15, align 4, !tbaa !20
-  %234 = tail call i32 %231(ptr noundef %232, ptr noundef nonnull %14, i32 noundef %233) #37
+  %234 = tail call i32 %231(ptr noundef %232, ptr noundef nonnull %14, i32 noundef %233) #38
   %235 = load ptr, ptr %9, align 8, !tbaa !14
   %236 = load ptr, ptr %16, align 8, !tbaa !13
   %237 = ptrtoint ptr %235 to i64
@@ -26794,7 +26794,7 @@ stbi__get8.exit189:                               ; preds = %225, %228, %stbi__r
 252:                                              ; preds = %stbi__get8.exit189
   %253 = load ptr, ptr %19, align 8, !tbaa !76
   %254 = load ptr, ptr %13, align 8, !tbaa !19
-  %255 = tail call i32 %253(ptr noundef %254) #37
+  %255 = tail call i32 %253(ptr noundef %254) #38
   %.not6.i191 = icmp eq i32 %255, 0
   br i1 %.not6.i191, label %stbi__at_eof.exit193.thread, label %256
 
@@ -26836,7 +26836,7 @@ stbi__at_eof.exit193.thread:                      ; preds = %252, %stbi__at_eof.
 268:                                              ; preds = %266
   %269 = load ptr, ptr %19, align 8, !tbaa !76
   %270 = load ptr, ptr %13, align 8, !tbaa !19
-  %271 = tail call i32 %269(ptr noundef %270) #37
+  %271 = tail call i32 %269(ptr noundef %270) #38
   %.not6.i.i198 = icmp eq i32 %271, 0
   br i1 %.not6.i.i198, label %stbi__at_eof.exit.thread.i208, label %272
 
@@ -26873,7 +26873,7 @@ stbi__at_eof.exit.thread.thread.i203:             ; preds = %stbi__at_eof.exit.t
   %284 = load ptr, ptr %12, align 8, !tbaa !3
   %285 = load ptr, ptr %13, align 8, !tbaa !19
   %286 = load i32, ptr %15, align 4, !tbaa !20
-  %287 = tail call i32 %284(ptr noundef %285, ptr noundef nonnull %14, i32 noundef %286) #37
+  %287 = tail call i32 %284(ptr noundef %285, ptr noundef nonnull %14, i32 noundef %286) #38
   %288 = load ptr, ptr %9, align 8, !tbaa !14
   %289 = load ptr, ptr %16, align 8, !tbaa !13
   %290 = ptrtoint ptr %288 to i64
@@ -26989,7 +26989,7 @@ stbi__at_eof.exit193.thread298:                   ; preds = %stbi__at_eof.exit19
   %330 = load ptr, ptr %12, align 8, !tbaa !3
   %331 = load ptr, ptr %13, align 8, !tbaa !19
   %332 = load i32, ptr %15, align 4, !tbaa !20
-  %333 = tail call i32 %330(ptr noundef %331, ptr noundef nonnull %14, i32 noundef %332) #37
+  %333 = tail call i32 %330(ptr noundef %331, ptr noundef nonnull %14, i32 noundef %332) #38
   %334 = load ptr, ptr %9, align 8, !tbaa !14
   %335 = load ptr, ptr %16, align 8, !tbaa !13
   %336 = ptrtoint ptr %334 to i64
@@ -27032,7 +27032,7 @@ stbi__get8.exit225:                               ; preds = %324, %327, %stbi__r
 352:                                              ; preds = %stbi__get8.exit225
   %353 = load ptr, ptr %19, align 8, !tbaa !76
   %354 = load ptr, ptr %13, align 8, !tbaa !19
-  %355 = tail call i32 %353(ptr noundef %354) #37
+  %355 = tail call i32 %353(ptr noundef %354) #38
   %.not6.i227 = icmp eq i32 %355, 0
   br i1 %.not6.i227, label %stbi__at_eof.exit229.thread, label %356
 
@@ -27087,7 +27087,7 @@ stbi__at_eof.exit229.thread:                      ; preds = %352, %stbi__at_eof.
   %375 = load ptr, ptr %12, align 8, !tbaa !3
   %376 = load ptr, ptr %13, align 8, !tbaa !19
   %377 = load i32, ptr %15, align 4, !tbaa !20
-  %378 = tail call i32 %375(ptr noundef %376, ptr noundef nonnull %14, i32 noundef %377) #37
+  %378 = tail call i32 %375(ptr noundef %376, ptr noundef nonnull %14, i32 noundef %377) #38
   %379 = load ptr, ptr %9, align 8, !tbaa !14
   %380 = load ptr, ptr %16, align 8, !tbaa !13
   %381 = ptrtoint ptr %379 to i64
@@ -27140,7 +27140,7 @@ stbi__get8.exit.i234:                             ; preds = %stbi__refill_buffer
   %402 = load ptr, ptr %12, align 8, !tbaa !3
   %403 = load ptr, ptr %13, align 8, !tbaa !19
   %404 = load i32, ptr %15, align 4, !tbaa !20
-  %405 = tail call i32 %402(ptr noundef %403, ptr noundef nonnull %14, i32 noundef %404) #37
+  %405 = tail call i32 %402(ptr noundef %403, ptr noundef nonnull %14, i32 noundef %404) #38
   %406 = load ptr, ptr %9, align 8, !tbaa !14
   %407 = load ptr, ptr %16, align 8, !tbaa !13
   %408 = ptrtoint ptr %406 to i64
@@ -27208,7 +27208,7 @@ stbi__get16be.exit:                               ; preds = %396, %399, %stbi__r
 435:                                              ; preds = %433
   %436 = load ptr, ptr %19, align 8, !tbaa !76
   %437 = load ptr, ptr %13, align 8, !tbaa !19
-  %438 = tail call i32 %436(ptr noundef %437) #37
+  %438 = tail call i32 %436(ptr noundef %437) #38
   %.not6.i.i239 = icmp eq i32 %438, 0
   br i1 %.not6.i.i239, label %stbi__at_eof.exit.thread.i249, label %439
 
@@ -27245,7 +27245,7 @@ stbi__at_eof.exit.thread.thread.i244:             ; preds = %stbi__at_eof.exit.t
   %451 = load ptr, ptr %12, align 8, !tbaa !3
   %452 = load ptr, ptr %13, align 8, !tbaa !19
   %453 = load i32, ptr %15, align 4, !tbaa !20
-  %454 = tail call i32 %451(ptr noundef %452, ptr noundef nonnull %14, i32 noundef %453) #37
+  %454 = tail call i32 %451(ptr noundef %452, ptr noundef nonnull %14, i32 noundef %453) #38
   %455 = load ptr, ptr %9, align 8, !tbaa !14
   %456 = load ptr, ptr %16, align 8, !tbaa !13
   %457 = ptrtoint ptr %455 to i64
@@ -27368,7 +27368,7 @@ stbi__readval.exit256._crit_edge:                 ; preds = %stbi__copyval.exit2
 496:                                              ; preds = %494
   %497 = load ptr, ptr %19, align 8, !tbaa !76
   %498 = load ptr, ptr %13, align 8, !tbaa !19
-  %499 = tail call i32 %497(ptr noundef %498) #37
+  %499 = tail call i32 %497(ptr noundef %498) #38
   %.not6.i.i267 = icmp eq i32 %499, 0
   br i1 %.not6.i.i267, label %stbi__at_eof.exit.thread.i277, label %500
 
@@ -27410,7 +27410,7 @@ stbi__at_eof.exit.thread.thread.i272:             ; preds = %stbi__at_eof.exit.t
   %513 = load ptr, ptr %12, align 8, !tbaa !3
   %514 = load ptr, ptr %13, align 8, !tbaa !19
   %515 = load i32, ptr %15, align 4, !tbaa !20
-  %516 = tail call i32 %513(ptr noundef %514, ptr noundef nonnull %14, i32 noundef %515) #37
+  %516 = tail call i32 %513(ptr noundef %514, ptr noundef nonnull %14, i32 noundef %515) #38
   %517 = load ptr, ptr %9, align 8, !tbaa !14
   %518 = load ptr, ptr %16, align 8, !tbaa !13
   %519 = ptrtoint ptr %517 to i64
@@ -27515,7 +27515,7 @@ define range(i32 0, 2) i32 @stbi__gif_test_raw(ptr noundef %0) local_unnamed_add
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %20 = load i32, ptr %19, align 4, !tbaa !20
-  %21 = tail call i32 %15(ptr noundef %17, ptr noundef nonnull %18, i32 noundef %20) #37
+  %21 = tail call i32 %15(ptr noundef %17, ptr noundef nonnull %18, i32 noundef %20) #38
   %22 = load ptr, ptr %2, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %24 = load ptr, ptr %23, align 8, !tbaa !13
@@ -27581,7 +27581,7 @@ stbi__get8.exit:                                  ; preds = %7, %stbi__refill_bu
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %57 = load i32, ptr %56, align 4, !tbaa !20
-  %58 = tail call i32 %52(ptr noundef %54, ptr noundef nonnull %55, i32 noundef %57) #37
+  %58 = tail call i32 %52(ptr noundef %54, ptr noundef nonnull %55, i32 noundef %57) #38
   %59 = load ptr, ptr %2, align 8, !tbaa !14
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %61 = load ptr, ptr %60, align 8, !tbaa !13
@@ -27647,7 +27647,7 @@ stbi__get8.exit18:                                ; preds = %44, %stbi__refill_b
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %94 = load i32, ptr %93, align 4, !tbaa !20
-  %95 = tail call i32 %89(ptr noundef %91, ptr noundef nonnull %92, i32 noundef %94) #37
+  %95 = tail call i32 %89(ptr noundef %91, ptr noundef nonnull %92, i32 noundef %94) #38
   %96 = load ptr, ptr %2, align 8, !tbaa !14
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %98 = load ptr, ptr %97, align 8, !tbaa !13
@@ -27713,7 +27713,7 @@ stbi__get8.exit24:                                ; preds = %81, %stbi__refill_b
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %131 = load i32, ptr %130, align 4, !tbaa !20
-  %132 = tail call i32 %126(ptr noundef %128, ptr noundef nonnull %129, i32 noundef %131) #37
+  %132 = tail call i32 %126(ptr noundef %128, ptr noundef nonnull %129, i32 noundef %131) #38
   %133 = load ptr, ptr %2, align 8, !tbaa !14
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %135 = load ptr, ptr %134, align 8, !tbaa !13
@@ -27779,7 +27779,7 @@ stbi__get8.exit30:                                ; preds = %118, %stbi__refill_
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %168 = load i32, ptr %167, align 4, !tbaa !20
-  %169 = tail call i32 %163(ptr noundef %165, ptr noundef nonnull %166, i32 noundef %168) #37
+  %169 = tail call i32 %163(ptr noundef %165, ptr noundef nonnull %166, i32 noundef %168) #38
   %170 = load ptr, ptr %2, align 8, !tbaa !14
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %172 = load ptr, ptr %171, align 8, !tbaa !13
@@ -27847,7 +27847,7 @@ stbi__get8.exit36:                                ; preds = %155, %stbi__refill_
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %205 = load i32, ptr %204, align 4, !tbaa !20
-  %206 = tail call i32 %200(ptr noundef %202, ptr noundef nonnull %203, i32 noundef %205) #37
+  %206 = tail call i32 %200(ptr noundef %202, ptr noundef nonnull %203, i32 noundef %205) #38
   %207 = load ptr, ptr %2, align 8, !tbaa !14
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %209 = load ptr, ptr %208, align 8, !tbaa !13
@@ -27936,7 +27936,7 @@ define void @stbi__gif_parse_colortable(ptr noundef %0, ptr noundef writeonly ca
   %27 = load ptr, ptr %9, align 8, !tbaa !3
   %28 = load ptr, ptr %10, align 8, !tbaa !19
   %29 = load i32, ptr %12, align 4, !tbaa !20
-  %30 = tail call i32 %27(ptr noundef %28, ptr noundef nonnull %11, i32 noundef %29) #37
+  %30 = tail call i32 %27(ptr noundef %28, ptr noundef nonnull %11, i32 noundef %29) #38
   %31 = load ptr, ptr %6, align 8, !tbaa !14
   %32 = load ptr, ptr %13, align 8, !tbaa !13
   %33 = ptrtoint ptr %31 to i64
@@ -27992,7 +27992,7 @@ stbi__get8.exit:                                  ; preds = %21, %24, %stbi__ref
   %56 = load ptr, ptr %9, align 8, !tbaa !3
   %57 = load ptr, ptr %10, align 8, !tbaa !19
   %58 = load i32, ptr %12, align 4, !tbaa !20
-  %59 = tail call i32 %56(ptr noundef %57, ptr noundef nonnull %11, i32 noundef %58) #37
+  %59 = tail call i32 %56(ptr noundef %57, ptr noundef nonnull %11, i32 noundef %58) #38
   %60 = load ptr, ptr %6, align 8, !tbaa !14
   %61 = load ptr, ptr %13, align 8, !tbaa !13
   %62 = ptrtoint ptr %60 to i64
@@ -28047,7 +28047,7 @@ stbi__get8.exit20:                                ; preds = %50, %53, %stbi__ref
   %84 = load ptr, ptr %9, align 8, !tbaa !3
   %85 = load ptr, ptr %10, align 8, !tbaa !19
   %86 = load i32, ptr %12, align 4, !tbaa !20
-  %87 = tail call i32 %84(ptr noundef %85, ptr noundef nonnull %11, i32 noundef %86) #37
+  %87 = tail call i32 %84(ptr noundef %85, ptr noundef nonnull %11, i32 noundef %86) #38
   %88 = load ptr, ptr %6, align 8, !tbaa !14
   %89 = load ptr, ptr %13, align 8, !tbaa !13
   %90 = ptrtoint ptr %88 to i64
@@ -28122,7 +28122,7 @@ define range(i32 0, 2) i32 @stbi__gif_header(ptr noundef %0, ptr noundef capture
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %23 = load i32, ptr %22, align 4, !tbaa !20
-  %24 = tail call i32 %18(ptr noundef %20, ptr noundef nonnull %21, i32 noundef %23) #37
+  %24 = tail call i32 %18(ptr noundef %20, ptr noundef nonnull %21, i32 noundef %23) #38
   %25 = load ptr, ptr %5, align 8, !tbaa !14
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %27 = load ptr, ptr %26, align 8, !tbaa !13
@@ -28188,7 +28188,7 @@ stbi__get8.exit:                                  ; preds = %10, %stbi__refill_b
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %60 = load i32, ptr %59, align 4, !tbaa !20
-  %61 = tail call i32 %55(ptr noundef %57, ptr noundef nonnull %58, i32 noundef %60) #37
+  %61 = tail call i32 %55(ptr noundef %57, ptr noundef nonnull %58, i32 noundef %60) #38
   %62 = load ptr, ptr %5, align 8, !tbaa !14
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %64 = load ptr, ptr %63, align 8, !tbaa !13
@@ -28254,7 +28254,7 @@ stbi__get8.exit43:                                ; preds = %47, %stbi__refill_b
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %97 = load i32, ptr %96, align 4, !tbaa !20
-  %98 = tail call i32 %92(ptr noundef %94, ptr noundef nonnull %95, i32 noundef %97) #37
+  %98 = tail call i32 %92(ptr noundef %94, ptr noundef nonnull %95, i32 noundef %97) #38
   %99 = load ptr, ptr %5, align 8, !tbaa !14
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %101 = load ptr, ptr %100, align 8, !tbaa !13
@@ -28320,7 +28320,7 @@ stbi__get8.exit49:                                ; preds = %84, %stbi__refill_b
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %134 = load i32, ptr %133, align 4, !tbaa !20
-  %135 = tail call i32 %129(ptr noundef %131, ptr noundef nonnull %132, i32 noundef %134) #37
+  %135 = tail call i32 %129(ptr noundef %131, ptr noundef nonnull %132, i32 noundef %134) #38
   %136 = load ptr, ptr %5, align 8, !tbaa !14
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %138 = load ptr, ptr %137, align 8, !tbaa !13
@@ -28391,7 +28391,7 @@ stbi__get8.exit.thread:                           ; preds = %124, %87, %50, %13,
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %172 = load i32, ptr %171, align 4, !tbaa !20
-  %173 = tail call i32 %167(ptr noundef %169, ptr noundef nonnull %170, i32 noundef %172) #37
+  %173 = tail call i32 %167(ptr noundef %169, ptr noundef nonnull %170, i32 noundef %172) #38
   %174 = load ptr, ptr %5, align 8, !tbaa !14
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %176 = load ptr, ptr %175, align 8, !tbaa !13
@@ -28464,7 +28464,7 @@ stbi__get8.exit61.thread:                         ; preds = %162, %stbi__get8.ex
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %210 = load i32, ptr %209, align 4, !tbaa !20
-  %211 = tail call i32 %205(ptr noundef %207, ptr noundef nonnull %208, i32 noundef %210) #37
+  %211 = tail call i32 %205(ptr noundef %207, ptr noundef nonnull %208, i32 noundef %210) #38
   %212 = load ptr, ptr %5, align 8, !tbaa !14
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %214 = load ptr, ptr %213, align 8, !tbaa !13
@@ -28542,7 +28542,7 @@ stbi__get8.exit67.thread:                         ; preds = %200, %stbi__get8.ex
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %252 = load i32, ptr %251, align 4, !tbaa !20
-  %253 = tail call i32 %247(ptr noundef %249, ptr noundef nonnull %250, i32 noundef %252) #37
+  %253 = tail call i32 %247(ptr noundef %249, ptr noundef nonnull %250, i32 noundef %252) #38
   %254 = load ptr, ptr %5, align 8, !tbaa !14
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %256 = load ptr, ptr %255, align 8, !tbaa !13
@@ -28607,7 +28607,7 @@ stbi__get8.exit73:                                ; preds = %239, %242, %stbi__r
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %290 = load i32, ptr %289, align 4, !tbaa !20
-  %291 = tail call i32 %285(ptr noundef %287, ptr noundef nonnull %288, i32 noundef %290) #37
+  %291 = tail call i32 %285(ptr noundef %287, ptr noundef nonnull %288, i32 noundef %290) #38
   %292 = load ptr, ptr %5, align 8, !tbaa !14
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %294 = load ptr, ptr %293, align 8, !tbaa !13
@@ -28672,7 +28672,7 @@ stbi__get8.exit79:                                ; preds = %277, %280, %stbi__r
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %328 = load i32, ptr %327, align 4, !tbaa !20
-  %329 = tail call i32 %323(ptr noundef %325, ptr noundef nonnull %326, i32 noundef %328) #37
+  %329 = tail call i32 %323(ptr noundef %325, ptr noundef nonnull %326, i32 noundef %328) #38
   %330 = load ptr, ptr %5, align 8, !tbaa !14
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %332 = load ptr, ptr %331, align 8, !tbaa !13
@@ -28763,7 +28763,7 @@ stbi__get8.exit85:                                ; preds = %315, %318, %stbi__r
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @stbi__gif_info_raw(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
-  %5 = tail call noalias noundef dereferenceable_or_null(34928) ptr @malloc(i64 noundef 34928) #38
+  %5 = tail call noalias noundef dereferenceable_or_null(34928) ptr @malloc(i64 noundef 34928) #39
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
@@ -28778,7 +28778,7 @@ define range(i32 0, 2) i32 @stbi__gif_info_raw(ptr noundef %0, ptr noundef write
   br i1 %.not16, label %10, label %17
 
 10:                                               ; preds = %8
-  tail call void @free(ptr noundef nonnull %5) #37
+  tail call void @free(ptr noundef nonnull %5) #38
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %12 = load ptr, ptr %11, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -28809,7 +28809,7 @@ define range(i32 0, 2) i32 @stbi__gif_info_raw(ptr noundef %0, ptr noundef write
   br label %24
 
 24:                                               ; preds = %21, %20
-  tail call void @free(ptr noundef nonnull %5) #37
+  tail call void @free(ptr noundef nonnull %5) #38
   br label %25
 
 25:                                               ; preds = %24, %10, %6
@@ -28818,7 +28818,7 @@ define range(i32 0, 2) i32 @stbi__gif_info_raw(ptr noundef %0, ptr noundef write
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbi__out_gif_code(ptr noundef captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #28 {
+define void @stbi__out_gif_code(ptr noundef captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #29 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2100
   %4 = zext i16 %1 to i64
   %5 = getelementptr inbounds nuw %struct.stbi__gif_lzw, ptr %3, i64 %4
@@ -28960,7 +28960,7 @@ define ptr @stbi__process_gif_raster(ptr noundef %0, ptr noundef captures(none) 
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %21 = load i32, ptr %20, align 4, !tbaa !20
-  %22 = tail call i32 %16(ptr noundef %18, ptr noundef nonnull %19, i32 noundef %21) #37
+  %22 = tail call i32 %16(ptr noundef %18, ptr noundef nonnull %19, i32 noundef %21) #38
   %23 = load ptr, ptr %3, align 8, !tbaa !14
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %25 = load ptr, ptr %24, align 8, !tbaa !13
@@ -29080,7 +29080,7 @@ stbi__get8.exit.thread:                           ; preds = %11, %stbi__get8.exi
   %76 = load ptr, ptr %57, align 8, !tbaa !3
   %77 = load ptr, ptr %58, align 8, !tbaa !19
   %78 = load i32, ptr %60, align 4, !tbaa !20
-  %79 = tail call i32 %76(ptr noundef %77, ptr noundef nonnull %59, i32 noundef %78) #37
+  %79 = tail call i32 %76(ptr noundef %77, ptr noundef nonnull %59, i32 noundef %78) #38
   %80 = load ptr, ptr %3, align 8, !tbaa !14
   %81 = load ptr, ptr %61, align 8, !tbaa !13
   %82 = ptrtoint ptr %80 to i64
@@ -29147,7 +29147,7 @@ stbi__get8.exit124.thread:                        ; preds = %73, %stbi__get8.exi
   %111 = load ptr, ptr %57, align 8, !tbaa !3
   %112 = load ptr, ptr %58, align 8, !tbaa !19
   %113 = load i32, ptr %60, align 4, !tbaa !20
-  %114 = tail call i32 %111(ptr noundef %112, ptr noundef nonnull %59, i32 noundef %113) #37
+  %114 = tail call i32 %111(ptr noundef %112, ptr noundef nonnull %59, i32 noundef %113) #38
   %115 = load ptr, ptr %3, align 8, !tbaa !14
   %116 = load ptr, ptr %61, align 8, !tbaa !13
   %117 = ptrtoint ptr %115 to i64
@@ -29242,7 +29242,7 @@ stbi__get8.exit130:                               ; preds = %105, %108, %stbi__r
   %158 = load ptr, ptr %157, align 8, !tbaa !53
   %159 = load ptr, ptr %58, align 8, !tbaa !19
   %160 = sub nsw i32 %.078, %154
-  tail call void %158(ptr noundef %159, i32 noundef %160) #37
+  tail call void %158(ptr noundef %159, i32 noundef %160) #38
   br label %stbi__skip.exit
 
 .thread.i:                                        ; preds = %148, %..thread_crit_edge.i
@@ -29277,7 +29277,7 @@ stbi__skip.exit144:                               ; preds = %stbi__skip.exit144.
   %174 = load ptr, ptr %57, align 8, !tbaa !3
   %175 = load ptr, ptr %58, align 8, !tbaa !19
   %176 = load i32, ptr %60, align 4, !tbaa !20
-  %177 = tail call i32 %174(ptr noundef %175, ptr noundef nonnull %59, i32 noundef %176) #37
+  %177 = tail call i32 %174(ptr noundef %175, ptr noundef nonnull %59, i32 noundef %176) #38
   %178 = load ptr, ptr %3, align 8, !tbaa !14
   %179 = load ptr, ptr %61, align 8, !tbaa !13
   %180 = ptrtoint ptr %178 to i64
@@ -29334,7 +29334,7 @@ stbi__get8.exit138:                               ; preds = %168, %stbi__refill_
   %203 = load ptr, ptr %164, align 8, !tbaa !53
   %204 = load ptr, ptr %58, align 8, !tbaa !19
   %205 = sub nsw i32 %194, %200
-  tail call void %203(ptr noundef %204, i32 noundef %205) #37
+  tail call void %203(ptr noundef %204, i32 noundef %205) #38
   br label %stbi__skip.exit144.backedge
 
 stbi__skip.exit144.backedge:                      ; preds = %202, %.thread.i140
@@ -29475,13 +29475,13 @@ stbi__mad3sizes_valid.exit:                       ; preds = %stbi__mul2sizes_val
   %18 = mul nuw nsw i32 %13, %11
   %19 = shl nsw i32 %18, 2
   %20 = zext nneg i32 %19 to i64
-  %21 = tail call noalias noundef ptr @malloc(i64 noundef %20) #38
+  %21 = tail call noalias noundef ptr @malloc(i64 noundef %20) #39
   store ptr %21, ptr %6, align 8, !tbaa !35
-  %22 = tail call noalias noundef ptr @malloc(i64 noundef %20) #38
+  %22 = tail call noalias noundef ptr @malloc(i64 noundef %20) #39
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %22, ptr %23, align 8, !tbaa !37
   %24 = zext nneg i32 %18 to i64
-  %25 = tail call noalias noundef ptr @malloc(i64 noundef %24) #38
+  %25 = tail call noalias noundef ptr @malloc(i64 noundef %24) #39
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %25, ptr %26, align 8, !tbaa !36
   %.not169 = icmp eq ptr %21, null
@@ -29642,7 +29642,7 @@ stbi__skip.exit220:                               ; preds = %stbi__skip.exit220.
   %104 = load ptr, ptr %84, align 8, !tbaa !3
   %105 = load ptr, ptr %85, align 8, !tbaa !19
   %106 = load i32, ptr %87, align 4, !tbaa !20
-  %107 = tail call i32 %104(ptr noundef %105, ptr noundef nonnull %86, i32 noundef %106) #37
+  %107 = tail call i32 %104(ptr noundef %105, ptr noundef nonnull %86, i32 noundef %106) #38
   %108 = load ptr, ptr %81, align 8, !tbaa !14
   %109 = load ptr, ptr %88, align 8, !tbaa !13
   %110 = ptrtoint ptr %108 to i64
@@ -29746,7 +29746,7 @@ stbi__get8.exit188.thread:                        ; preds = %156
   %160 = load ptr, ptr %84, align 8, !tbaa !3
   %161 = load ptr, ptr %85, align 8, !tbaa !19
   %162 = load i32, ptr %87, align 4, !tbaa !20
-  %163 = tail call i32 %160(ptr noundef %161, ptr noundef nonnull %86, i32 noundef %162) #37
+  %163 = tail call i32 %160(ptr noundef %161, ptr noundef nonnull %86, i32 noundef %162) #38
   %164 = load ptr, ptr %81, align 8, !tbaa !14
   %165 = load ptr, ptr %88, align 8, !tbaa !13
   %166 = ptrtoint ptr %164 to i64
@@ -29906,7 +29906,7 @@ stbi__get8.exit188:                               ; preds = %153, %stbi__refill_
   %241 = load ptr, ptr %84, align 8, !tbaa !3
   %242 = load ptr, ptr %85, align 8, !tbaa !19
   %243 = load i32, ptr %87, align 4, !tbaa !20
-  %244 = tail call i32 %241(ptr noundef %242, ptr noundef nonnull %86, i32 noundef %243) #37
+  %244 = tail call i32 %241(ptr noundef %242, ptr noundef nonnull %86, i32 noundef %243) #38
   %245 = load ptr, ptr %81, align 8, !tbaa !14
   %246 = load ptr, ptr %88, align 8, !tbaa !13
   %247 = ptrtoint ptr %245 to i64
@@ -29969,7 +29969,7 @@ stbi__skip.exit220.backedge:                      ; preds = %stbi__get8.exit226,
   %270 = load ptr, ptr %84, align 8, !tbaa !3
   %271 = load ptr, ptr %85, align 8, !tbaa !19
   %272 = load i32, ptr %87, align 4, !tbaa !20
-  %273 = tail call i32 %270(ptr noundef %271, ptr noundef nonnull %86, i32 noundef %272) #37
+  %273 = tail call i32 %270(ptr noundef %271, ptr noundef nonnull %86, i32 noundef %272) #38
   %274 = load ptr, ptr %81, align 8, !tbaa !14
   %275 = load ptr, ptr %88, align 8, !tbaa !13
   %276 = ptrtoint ptr %274 to i64
@@ -30026,7 +30026,7 @@ stbi__get8.exit200:                               ; preds = %264, %stbi__refill_
   %299 = load ptr, ptr %84, align 8, !tbaa !3
   %300 = load ptr, ptr %85, align 8, !tbaa !19
   %301 = load i32, ptr %87, align 4, !tbaa !20
-  %302 = tail call i32 %299(ptr noundef %300, ptr noundef nonnull %86, i32 noundef %301) #37
+  %302 = tail call i32 %299(ptr noundef %300, ptr noundef nonnull %86, i32 noundef %301) #38
   %303 = load ptr, ptr %81, align 8, !tbaa !14
   %304 = load ptr, ptr %88, align 8, !tbaa !13
   %305 = ptrtoint ptr %303 to i64
@@ -30102,7 +30102,7 @@ stbi__get8.exit206:                               ; preds = %293, %296, %stbi__r
   %339 = load ptr, ptr %84, align 8, !tbaa !3
   %340 = load ptr, ptr %85, align 8, !tbaa !19
   %341 = load i32, ptr %87, align 4, !tbaa !20
-  %342 = tail call i32 %339(ptr noundef %340, ptr noundef nonnull %86, i32 noundef %341) #37
+  %342 = tail call i32 %339(ptr noundef %340, ptr noundef nonnull %86, i32 noundef %341) #38
   %343 = load ptr, ptr %81, align 8, !tbaa !14
   %344 = load ptr, ptr %88, align 8, !tbaa !13
   %345 = ptrtoint ptr %343 to i64
@@ -30167,7 +30167,7 @@ stbi__get8.exit212:                               ; preds = %333, %336, %stbi__r
   %372 = load ptr, ptr %91, align 8, !tbaa !53
   %373 = load ptr, ptr %85, align 8, !tbaa !19
   %374 = sub nsw i32 1, %369
-  tail call void %372(ptr noundef %373, i32 noundef %374) #37
+  tail call void %372(ptr noundef %373, i32 noundef %374) #38
   br label %stbi__skip.exit
 
 .thread.i:                                        ; preds = %363, %..thread_crit_edge.i
@@ -30203,7 +30203,7 @@ stbi__skip.exit:                                  ; preds = %371, %.thread.i
   %389 = load ptr, ptr %91, align 8, !tbaa !53
   %390 = load ptr, ptr %85, align 8, !tbaa !19
   %391 = sub nsw i32 %378, %386
-  tail call void %389(ptr noundef %390, i32 noundef %391) #37
+  tail call void %389(ptr noundef %390, i32 noundef %391) #38
   br label %stbi__skip.exit220.backedge
 
 .thread.i216:                                     ; preds = %380, %382
@@ -30233,7 +30233,7 @@ stbi__get8.exit194.thread:                        ; preds = %stbi__get8.exit194.
   %403 = load ptr, ptr %84, align 8, !tbaa !3
   %404 = load ptr, ptr %85, align 8, !tbaa !19
   %405 = load i32, ptr %87, align 4, !tbaa !20
-  %406 = tail call i32 %403(ptr noundef %404, ptr noundef nonnull %86, i32 noundef %405) #37
+  %406 = tail call i32 %403(ptr noundef %404, ptr noundef nonnull %86, i32 noundef %405) #38
   %407 = load ptr, ptr %81, align 8, !tbaa !14
   %408 = load ptr, ptr %88, align 8, !tbaa !13
   %409 = ptrtoint ptr %407 to i64
@@ -30290,7 +30290,7 @@ stbi__get8.exit226:                               ; preds = %397, %stbi__refill_
   %432 = load ptr, ptr %91, align 8, !tbaa !53
   %433 = load ptr, ptr %85, align 8, !tbaa !19
   %434 = sub nsw i32 %423, %429
-  tail call void %432(ptr noundef %433, i32 noundef %434) #37
+  tail call void %432(ptr noundef %433, i32 noundef %434) #38
   br label %stbi__get8.exit194.thread.backedge
 
 stbi__get8.exit194.thread.backedge:               ; preds = %431, %.thread.i228
@@ -30314,21 +30314,21 @@ stbi__skip.exit220.thread:                        ; preds = %stbi__get8.exit, %2
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noalias noundef ptr @stbi__load_gif_main_outofmem(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #29 {
+define noalias noundef ptr @stbi__load_gif_main_outofmem(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #30 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !35
-  tail call void @free(ptr noundef %5) #37
+  tail call void @free(ptr noundef %5) #38
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !36
-  tail call void @free(ptr noundef %7) #37
+  tail call void @free(ptr noundef %7) #38
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !37
-  tail call void @free(ptr noundef %9) #37
+  tail call void @free(ptr noundef %9) #38
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void @free(ptr noundef nonnull %1) #37
+  tail call void @free(ptr noundef nonnull %1) #38
   br label %11
 
 11:                                               ; preds = %10, %3
@@ -30341,7 +30341,7 @@ define noalias noundef ptr @stbi__load_gif_main_outofmem(ptr noundef readonly ca
   br i1 %.not11, label %15, label %14
 
 14:                                               ; preds = %12
-  tail call void @free(ptr noundef nonnull %13) #37
+  tail call void @free(ptr noundef nonnull %13) #38
   br label %15
 
 15:                                               ; preds = %14, %12, %11
@@ -30352,7 +30352,7 @@ define noalias noundef ptr @stbi__load_gif_main_outofmem(ptr noundef readonly ca
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @stbi__gif_info(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
-  %5 = tail call noalias noundef dereferenceable_or_null(34928) ptr @malloc(i64 noundef 34928) #38
+  %5 = tail call noalias noundef dereferenceable_or_null(34928) ptr @malloc(i64 noundef 34928) #39
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %8
 
@@ -30367,7 +30367,7 @@ define range(i32 0, 2) i32 @stbi__gif_info(ptr noundef %0, ptr noundef writeonly
   br i1 %.not16.i, label %10, label %17
 
 10:                                               ; preds = %8
-  tail call void @free(ptr noundef nonnull %5) #37
+  tail call void @free(ptr noundef nonnull %5) #38
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %12 = load ptr, ptr %11, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -30398,7 +30398,7 @@ define range(i32 0, 2) i32 @stbi__gif_info(ptr noundef %0, ptr noundef writeonly
   br label %24
 
 24:                                               ; preds = %21, %20
-  tail call void @free(ptr noundef nonnull %5) #37
+  tail call void @free(ptr noundef nonnull %5) #38
   br label %stbi__gif_info_raw.exit
 
 stbi__gif_info_raw.exit:                          ; preds = %6, %10, %24
@@ -30457,7 +30457,7 @@ define range(i32 0, 2) i32 @stbi__hdr_test_core(ptr noundef %0, ptr noundef read
   %28 = load ptr, ptr %7, align 8, !tbaa !3
   %29 = load ptr, ptr %8, align 8, !tbaa !19
   %30 = load i32, ptr %10, align 4, !tbaa !20
-  %31 = tail call i32 %28(ptr noundef %29, ptr noundef nonnull %9, i32 noundef %30) #37
+  %31 = tail call i32 %28(ptr noundef %29, ptr noundef nonnull %9, i32 noundef %30) #38
   %32 = load ptr, ptr %4, align 8, !tbaa !14
   %33 = load ptr, ptr %11, align 8, !tbaa !13
   %34 = ptrtoint ptr %32 to i64
@@ -30543,7 +30543,7 @@ define noundef ptr @stbi__hdr_gettoken(ptr noundef %0, ptr noundef returned writ
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %21 = load i32, ptr %20, align 4, !tbaa !20
-  %22 = tail call i32 %16(ptr noundef %18, ptr noundef nonnull %19, i32 noundef %21) #37
+  %22 = tail call i32 %16(ptr noundef %18, ptr noundef nonnull %19, i32 noundef %21) #38
   %23 = load ptr, ptr %3, align 8, !tbaa !14
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %25 = load ptr, ptr %24, align 8, !tbaa !13
@@ -30605,7 +30605,7 @@ stbi__get8.exit33:                                ; preds = %stbi__get8.exit33.b
 55:                                               ; preds = %stbi__get8.exit33
   %56 = load ptr, ptr %44, align 8, !tbaa !76
   %57 = load ptr, ptr %45, align 8, !tbaa !19
-  %58 = tail call i32 %56(ptr noundef %57) #37
+  %58 = tail call i32 %56(ptr noundef %57) #38
   %.not6.i = icmp eq i32 %58, 0
   br i1 %.not6.i, label %stbi__at_eof.exit, label %59
 
@@ -30646,7 +30646,7 @@ stbi__at_eof.exit:                                ; preds = %55, %62
 71:                                               ; preds = %.preheader
   %72 = load ptr, ptr %44, align 8, !tbaa !76
   %73 = load ptr, ptr %45, align 8, !tbaa !19
-  %74 = tail call i32 %72(ptr noundef %73) #37
+  %74 = tail call i32 %72(ptr noundef %73) #38
   %.not6.i19 = icmp eq i32 %74, 0
   br i1 %.not6.i19, label %stbi__at_eof.exit21.thread, label %75
 
@@ -30683,7 +30683,7 @@ stbi__at_eof.exit21.thread.thread:                ; preds = %stbi__at_eof.exit21
   %87 = load ptr, ptr %43, align 8, !tbaa !3
   %88 = load ptr, ptr %45, align 8, !tbaa !19
   %89 = load i32, ptr %48, align 4, !tbaa !20
-  %90 = tail call i32 %87(ptr noundef %88, ptr noundef nonnull %47, i32 noundef %89) #37
+  %90 = tail call i32 %87(ptr noundef %88, ptr noundef nonnull %47, i32 noundef %89) #38
   %91 = load ptr, ptr %3, align 8, !tbaa !14
   %92 = load ptr, ptr %49, align 8, !tbaa !13
   %93 = ptrtoint ptr %91 to i64
@@ -30746,7 +30746,7 @@ stbi__get8.exit33.backedge:                       ; preds = %109, %112, %stbi__r
   %115 = load ptr, ptr %43, align 8, !tbaa !3
   %116 = load ptr, ptr %45, align 8, !tbaa !19
   %117 = load i32, ptr %48, align 4, !tbaa !20
-  %118 = tail call i32 %115(ptr noundef %116, ptr noundef nonnull %47, i32 noundef %117) #37
+  %118 = tail call i32 %115(ptr noundef %116, ptr noundef nonnull %47, i32 noundef %117) #38
   %119 = load ptr, ptr %3, align 8, !tbaa !14
   %120 = load ptr, ptr %49, align 8, !tbaa !13
   %121 = ptrtoint ptr %119 to i64
@@ -30789,7 +30789,7 @@ stbi__refill_buffer.exit.i30:                     ; preds = %129, %128
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
-define void @stbi__hdr_convert(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #30 {
+define void @stbi__hdr_convert(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #31 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %5 = load i8, ptr %4, align 1, !tbaa !21
   %.not = icmp eq i8 %5, 0
@@ -30798,7 +30798,7 @@ define void @stbi__hdr_convert(ptr noundef writeonly captures(none) %0, ptr noun
 6:                                                ; preds = %3
   %7 = zext i8 %5 to i32
   %8 = add nsw i32 %7, -136
-  %9 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %8) #37, !tbaa !23
+  %9 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %8) #38, !tbaa !23
   %10 = fptrunc double %9 to float
   %11 = icmp slt i32 %2, 3
   %12 = load i8, ptr %1, align 1, !tbaa !21
@@ -30892,7 +30892,7 @@ define void @stbi__hdr_convert(ptr noundef writeonly captures(none) %0, ptr noun
 declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #31
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #32
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @stbi__hdr_info(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
@@ -30969,7 +30969,7 @@ define range(i32 0, 2) i32 @stbi__hdr_info(ptr noundef %0, ptr noundef writeonly
 39:                                               ; preds = %30
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 3
   store ptr %40, ptr %6, align 8, !tbaa !22
-  %41 = call i64 @strtol(ptr noundef nonnull %40, ptr noundef nonnull %6, i32 noundef 10) #37
+  %41 = call i64 @strtol(ptr noundef nonnull %40, ptr noundef nonnull %6, i32 noundef 10) #38
   br i1 %.not17, label %.cont, label %.else
 
 .else:                                            ; preds = %39
@@ -31015,7 +31015,7 @@ sub_1:                                            ; preds = %43
 57:                                               ; preds = %.tail
   %58 = getelementptr inbounds nuw i8, ptr %44, i64 3
   store ptr %58, ptr %6, align 8, !tbaa !22
-  %59 = call i64 @strtol(ptr noundef nonnull captures(none) %58, ptr noundef null, i32 noundef 10) #37
+  %59 = call i64 @strtol(ptr noundef nonnull captures(none) %58, ptr noundef null, i32 noundef 10) #38
   br i1 %.not, label %.cont25, label %.else27
 
 .else27:                                          ; preds = %57
@@ -31175,7 +31175,7 @@ define range(i32 0, 2) i32 @stbi__psd_info(ptr noundef %0, ptr noundef writeonly
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load ptr, ptr %41, align 8, !tbaa !19
   %43 = sub nsw i32 6, %36
-  tail call void %40(ptr noundef %42, i32 noundef %43) #37
+  tail call void %40(ptr noundef %42, i32 noundef %43) #38
   br label %stbi__skip.exit
 
 .thread.i:                                        ; preds = %28, %..thread_crit_edge.i
@@ -31314,7 +31314,7 @@ define range(i32 0, 2) i32 @stbi__psd_is16(ptr noundef %0) local_unnamed_addr #2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8, !tbaa !19
   %26 = sub nsw i32 6, %19
-  tail call void %23(ptr noundef %25, i32 noundef %26) #37
+  tail call void %23(ptr noundef %25, i32 noundef %26) #38
   br label %stbi__skip.exit
 
 .thread.i:                                        ; preds = %11, %..thread_crit_edge.i
@@ -31396,7 +31396,7 @@ define range(i32 0, 2) i32 @stbi__pic_info(ptr noundef %0, ptr noundef captures(
   %26 = load ptr, ptr %8, align 8, !tbaa !3
   %27 = load ptr, ptr %9, align 8, !tbaa !19
   %28 = load i32, ptr %11, align 4, !tbaa !20
-  %29 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %10, i32 noundef %28) #37
+  %29 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %10, i32 noundef %28) #38
   %30 = load ptr, ptr %5, align 8, !tbaa !14
   %31 = load ptr, ptr %12, align 8, !tbaa !13
   %32 = ptrtoint ptr %30 to i64
@@ -31463,7 +31463,7 @@ stbi__pic_is4.exit:                               ; preds = %15
   %60 = load ptr, ptr %59, align 8, !tbaa !53
   %61 = load ptr, ptr %9, align 8, !tbaa !19
   %62 = sub nsw i32 88, %56
-  tail call void %60(ptr noundef %61, i32 noundef %62) #37
+  tail call void %60(ptr noundef %61, i32 noundef %62) #38
   br label %stbi__skip.exit
 
 .thread.i:                                        ; preds = %stbi__pic_is4.exit, %52
@@ -31498,7 +31498,7 @@ stbi__skip.exit.cont:                             ; preds = %stbi__skip.exit.con
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %69 = load ptr, ptr %68, align 8, !tbaa !76
   %70 = load ptr, ptr %9, align 8, !tbaa !19
-  %71 = tail call i32 %69(ptr noundef %70) #37
+  %71 = tail call i32 %69(ptr noundef %70) #38
   %.not6.i = icmp eq i32 %71, 0
   br i1 %.not6.i, label %stbi__at_eof.exit.thread, label %72
 
@@ -31579,7 +31579,7 @@ stbi__at_eof.exit.thread:                         ; preds = %67, %stbi__at_eof.e
   %101 = load ptr, ptr %100, align 8, !tbaa !53
   %102 = load ptr, ptr %9, align 8, !tbaa !19
   %103 = sub nsw i32 8, %97
-  tail call void %101(ptr noundef %102, i32 noundef %103) #37
+  tail call void %101(ptr noundef %102, i32 noundef %103) #38
   br label %stbi__skip.exit64
 
 .thread.i60:                                      ; preds = %91, %..thread_crit_edge.i61
@@ -31620,7 +31620,7 @@ stbi__skip.exit64:                                ; preds = %99, %.thread.i60
   %120 = load ptr, ptr %8, align 8, !tbaa !3
   %121 = load ptr, ptr %9, align 8, !tbaa !19
   %122 = load i32, ptr %11, align 4, !tbaa !20
-  %123 = tail call i32 %120(ptr noundef %121, ptr noundef nonnull %10, i32 noundef %122) #37
+  %123 = tail call i32 %120(ptr noundef %121, ptr noundef nonnull %10, i32 noundef %122) #38
   %124 = load ptr, ptr %5, align 8, !tbaa !14
   %125 = load ptr, ptr %12, align 8, !tbaa !13
   %126 = ptrtoint ptr %124 to i64
@@ -31673,7 +31673,7 @@ stbi__get8.exit:                                  ; preds = %114, %117, %stbi__r
   %147 = load ptr, ptr %8, align 8, !tbaa !3
   %148 = load ptr, ptr %9, align 8, !tbaa !19
   %149 = load i32, ptr %11, align 4, !tbaa !20
-  %150 = tail call i32 %147(ptr noundef %148, ptr noundef nonnull %10, i32 noundef %149) #37
+  %150 = tail call i32 %147(ptr noundef %148, ptr noundef nonnull %10, i32 noundef %149) #38
   %151 = load ptr, ptr %5, align 8, !tbaa !14
   %152 = load ptr, ptr %12, align 8, !tbaa !13
   %153 = ptrtoint ptr %151 to i64
@@ -31724,7 +31724,7 @@ stbi__get8.exit73:                                ; preds = %141, %144, %stbi__r
   %173 = load ptr, ptr %8, align 8, !tbaa !3
   %174 = load ptr, ptr %9, align 8, !tbaa !19
   %175 = load i32, ptr %11, align 4, !tbaa !20
-  %176 = tail call i32 %173(ptr noundef %174, ptr noundef nonnull %10, i32 noundef %175) #37
+  %176 = tail call i32 %173(ptr noundef %174, ptr noundef nonnull %10, i32 noundef %175) #38
   %177 = load ptr, ptr %5, align 8, !tbaa !14
   %178 = load ptr, ptr %12, align 8, !tbaa !13
   %179 = ptrtoint ptr %177 to i64
@@ -31779,7 +31779,7 @@ stbi__get8.exit79:                                ; preds = %stbi__get8.exit79.s
   %199 = load ptr, ptr %8, align 8, !tbaa !3
   %200 = load ptr, ptr %9, align 8, !tbaa !19
   %201 = load i32, ptr %11, align 4, !tbaa !20
-  %202 = tail call i32 %199(ptr noundef %200, ptr noundef nonnull %10, i32 noundef %201) #37
+  %202 = tail call i32 %199(ptr noundef %200, ptr noundef nonnull %10, i32 noundef %201) #38
   %203 = load ptr, ptr %5, align 8, !tbaa !14
   %204 = load ptr, ptr %12, align 8, !tbaa !13
   %205 = ptrtoint ptr %203 to i64
@@ -31823,7 +31823,7 @@ stbi__get8.exit85:                                ; preds = %193, %196, %stbi__r
 222:                                              ; preds = %stbi__get8.exit85
   %223 = load ptr, ptr %106, align 8, !tbaa !76
   %224 = load ptr, ptr %9, align 8, !tbaa !19
-  %225 = tail call i32 %223(ptr noundef %224) #37
+  %225 = tail call i32 %223(ptr noundef %224) #38
   %.not6.i87 = icmp eq i32 %225, 0
   br i1 %.not6.i87, label %stbi__at_eof.exit89.thread, label %226
 
@@ -31920,7 +31920,7 @@ define range(i32 0, 17) i32 @stbi__pnm_info(ptr noundef initializes((192, 208)) 
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %26 = load i32, ptr %25, align 4, !tbaa !20
-  %27 = tail call i32 %21(ptr noundef %23, ptr noundef nonnull %24, i32 noundef %26) #37
+  %27 = tail call i32 %21(ptr noundef %23, ptr noundef nonnull %24, i32 noundef %26) #38
   %28 = load ptr, ptr %8, align 8, !tbaa !14
   %29 = load ptr, ptr %6, align 8, !tbaa !13
   %30 = ptrtoint ptr %28 to i64
@@ -31982,7 +31982,7 @@ stbi__get8.exit:                                  ; preds = %13, %16, %stbi__ref
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %62 = load i32, ptr %61, align 4, !tbaa !20
-  %63 = tail call i32 %57(ptr noundef %59, ptr noundef nonnull %60, i32 noundef %62) #37
+  %63 = tail call i32 %57(ptr noundef %59, ptr noundef nonnull %60, i32 noundef %62) #38
   %64 = load ptr, ptr %8, align 8, !tbaa !14
   %65 = load ptr, ptr %6, align 8, !tbaa !13
   %66 = ptrtoint ptr %64 to i64
@@ -32067,7 +32067,7 @@ stbi__get8.exit39.thread:                         ; preds = %52, %stbi__get8.exi
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %104 = load i32, ptr %103, align 4, !tbaa !20
-  %105 = tail call i32 %99(ptr noundef %101, ptr noundef nonnull %102, i32 noundef %104) #37
+  %105 = tail call i32 %99(ptr noundef %101, ptr noundef nonnull %102, i32 noundef %104) #38
   %106 = load ptr, ptr %8, align 8, !tbaa !14
   %107 = load ptr, ptr %6, align 8, !tbaa !13
   %108 = ptrtoint ptr %106 to i64
@@ -32204,7 +32204,7 @@ define void @stbi__pnm_skip_whitespace(ptr noundef %0, ptr noundef captures(none
 15:                                               ; preds = %.critedge2
   %16 = load ptr, ptr %5, align 8, !tbaa !76
   %17 = load ptr, ptr %6, align 8, !tbaa !19
-  %18 = tail call i32 %16(ptr noundef %17) #37
+  %18 = tail call i32 %16(ptr noundef %17) #38
   %.not6.i = icmp eq i32 %18, 0
   br i1 %.not6.i, label %stbi__at_eof.exit.thread, label %19
 
@@ -32251,7 +32251,7 @@ stbi__pnm_isspace.exit.thread:                    ; preds = %stbi__at_eof.exit.t
   %34 = load ptr, ptr %4, align 8, !tbaa !3
   %35 = load ptr, ptr %6, align 8, !tbaa !19
   %36 = load i32, ptr %10, align 4, !tbaa !20
-  %37 = tail call i32 %34(ptr noundef %35, ptr noundef nonnull %9, i32 noundef %36) #37
+  %37 = tail call i32 %34(ptr noundef %35, ptr noundef nonnull %9, i32 noundef %36) #38
   %38 = load ptr, ptr %7, align 8, !tbaa !14
   %39 = load ptr, ptr %11, align 8, !tbaa !13
   %40 = ptrtoint ptr %38 to i64
@@ -32298,7 +32298,7 @@ stbi__get8.exit:                                  ; preds = %28, %31, %stbi__ref
 53:                                               ; preds = %.critedge
   %54 = load ptr, ptr %5, align 8, !tbaa !76
   %55 = load ptr, ptr %6, align 8, !tbaa !19
-  %56 = tail call i32 %54(ptr noundef %55) #37
+  %56 = tail call i32 %54(ptr noundef %55) #38
   %.not6.i22 = icmp eq i32 %56, 0
   br i1 %.not6.i22, label %stbi__at_eof.exit24.thread, label %57
 
@@ -32326,7 +32326,7 @@ stbi__at_eof.exit24.thread:                       ; preds = %53, %stbi__at_eof.e
 64:                                               ; preds = %.preheader
   %65 = load ptr, ptr %5, align 8, !tbaa !76
   %66 = load ptr, ptr %6, align 8, !tbaa !19
-  %67 = tail call i32 %65(ptr noundef %66) #37
+  %67 = tail call i32 %65(ptr noundef %66) #38
   %.not6.i26 = icmp eq i32 %67, 0
   br i1 %.not6.i26, label %stbi__at_eof.exit28.thread, label %68
 
@@ -32369,7 +32369,7 @@ stbi__at_eof.exit28.thread:                       ; preds = %64, %stbi__at_eof.e
   %84 = load ptr, ptr %4, align 8, !tbaa !3
   %85 = load ptr, ptr %6, align 8, !tbaa !19
   %86 = load i32, ptr %10, align 4, !tbaa !20
-  %87 = tail call i32 %84(ptr noundef %85, ptr noundef nonnull %9, i32 noundef %86) #37
+  %87 = tail call i32 %84(ptr noundef %85, ptr noundef nonnull %9, i32 noundef %86) #38
   %88 = load ptr, ptr %7, align 8, !tbaa !14
   %89 = load ptr, ptr %11, align 8, !tbaa !13
   %90 = ptrtoint ptr %88 to i64
@@ -32441,7 +32441,7 @@ define range(i32 -2147483648, 214748365) i32 @stbi__pnm_getinteger(ptr noundef %
 16:                                               ; preds = %14
   %17 = load ptr, ptr %4, align 8, !tbaa !76
   %18 = load ptr, ptr %5, align 8, !tbaa !19
-  %19 = tail call i32 %17(ptr noundef %18) #37
+  %19 = tail call i32 %17(ptr noundef %18) #38
   %.not6.i = icmp eq i32 %19, 0
   br i1 %.not6.i, label %stbi__at_eof.exit.thread, label %20
 
@@ -32487,7 +32487,7 @@ stbi__at_eof.exit.thread:                         ; preds = %16, %stbi__at_eof.e
   %42 = load ptr, ptr %3, align 8, !tbaa !3
   %43 = load ptr, ptr %5, align 8, !tbaa !19
   %44 = load i32, ptr %10, align 4, !tbaa !20
-  %45 = tail call i32 %42(ptr noundef %43, ptr noundef nonnull %9, i32 noundef %44) #37
+  %45 = tail call i32 %42(ptr noundef %43, ptr noundef nonnull %9, i32 noundef %44) #38
   %46 = load ptr, ptr %7, align 8, !tbaa !14
   %47 = load ptr, ptr %11, align 8, !tbaa !13
   %48 = ptrtoint ptr %46 to i64
@@ -32602,7 +32602,7 @@ stbi__jpeg_info.exit.thread:                      ; preds = %4
   br label %stbi__jpeg_info.exit.thread56
 
 stbi__jpeg_info.exit.thread56:                    ; preds = %20, %19
-  tail call void @free(ptr noundef nonnull %calloc.i) #37
+  tail call void @free(ptr noundef nonnull %calloc.i) #38
   br label %111
 
 stbi__jpeg_info.exit:                             ; preds = %8
@@ -32615,7 +32615,7 @@ stbi__jpeg_info.exit:                             ; preds = %8
   %30 = load ptr, ptr %29, align 8, !tbaa !15
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 200
   store ptr %30, ptr %31, align 8, !tbaa !16
-  tail call void @free(ptr noundef nonnull %calloc.i) #37
+  tail call void @free(ptr noundef nonnull %calloc.i) #38
   br label %32
 
 32:                                               ; preds = %stbi__jpeg_info.exit, %stbi__jpeg_info.exit.thread
@@ -32672,7 +32672,7 @@ stbi__png_info.exit.thread:                       ; preds = %44, %43
   %55 = getelementptr inbounds nuw i8, ptr %49, i64 200
   store ptr %54, ptr %55, align 8, !tbaa !16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %56 = tail call noalias noundef dereferenceable_or_null(34928) ptr @malloc(i64 noundef 34928) #38
+  %56 = tail call noalias noundef dereferenceable_or_null(34928) ptr @malloc(i64 noundef 34928) #39
   %.not.i.i49 = icmp eq ptr %56, null
   br i1 %.not.i.i49, label %57, label %59
 
@@ -32687,7 +32687,7 @@ stbi__png_info.exit.thread:                       ; preds = %44, %43
   br i1 %.not16.i.i50, label %61, label %68
 
 61:                                               ; preds = %59
-  tail call void @free(ptr noundef nonnull %56) #37
+  tail call void @free(ptr noundef nonnull %56) #38
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %63 = load ptr, ptr %62, align 8, !tbaa !13
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -32718,7 +32718,7 @@ stbi__png_info.exit.thread:                       ; preds = %44, %43
   br label %stbi__gif_info.exit
 
 stbi__gif_info.exit:                              ; preds = %71, %72
-  tail call void @free(ptr noundef nonnull %56) #37
+  tail call void @free(ptr noundef nonnull %56) #38
   br label %111
 
 75:                                               ; preds = %61, %57
@@ -32887,7 +32887,7 @@ define range(i32 0, 2) i32 @stbi_info(ptr noundef readonly captures(none) %0, pt
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 192
   store ptr %16, ptr %18, align 8, !tbaa !14
   %19 = load ptr, ptr %11, align 8, !tbaa !3
-  %20 = call i32 %19(ptr noundef nonnull %6, ptr noundef nonnull %16, i32 noundef 128) #37
+  %20 = call i32 %19(ptr noundef nonnull %6, ptr noundef nonnull %16, i32 noundef 128) #38
   %21 = load ptr, ptr %18, align 8, !tbaa !14
   %22 = load ptr, ptr %17, align 8, !tbaa !13
   %23 = ptrtoint ptr %21 to i64
@@ -32950,7 +32950,7 @@ define range(i32 0, 2) i32 @stbi_info_from_file(ptr noundef %0, ptr noundef capt
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 192
   store ptr %12, ptr %14, align 8, !tbaa !14
   %15 = load ptr, ptr %7, align 8, !tbaa !3
-  %16 = call i32 %15(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 128) #37
+  %16 = call i32 %15(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 128) #38
   %17 = load ptr, ptr %14, align 8, !tbaa !14
   %18 = load ptr, ptr %13, align 8, !tbaa !13
   %19 = ptrtoint ptr %17 to i64
@@ -33030,7 +33030,7 @@ define range(i32 0, 2) i32 @stbi_is_16_bit_from_file(ptr noundef %0) local_unnam
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 192
   store ptr %10, ptr %12, align 8, !tbaa !14
   %13 = load ptr, ptr %5, align 8, !tbaa !3
-  %14 = call i32 %13(ptr noundef %0, ptr noundef nonnull %10, i32 noundef 128) #37
+  %14 = call i32 %13(ptr noundef %0, ptr noundef nonnull %10, i32 noundef 128) #38
   %15 = load ptr, ptr %12, align 8, !tbaa !14
   %16 = load ptr, ptr %11, align 8, !tbaa !13
   %17 = ptrtoint ptr %15 to i64
@@ -33148,7 +33148,7 @@ define range(i32 0, 2) i32 @stbi_info_from_callbacks(ptr noundef readonly captur
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 192
   store ptr %12, ptr %14, align 8, !tbaa !14
   %15 = load ptr, ptr %7, align 8, !tbaa !3
-  %16 = call i32 %15(ptr noundef %1, ptr noundef nonnull %12, i32 noundef 128) #37
+  %16 = call i32 %15(ptr noundef %1, ptr noundef nonnull %12, i32 noundef 128) #38
   %17 = load ptr, ptr %14, align 8, !tbaa !14
   %18 = load ptr, ptr %13, align 8, !tbaa !13
   %19 = ptrtoint ptr %17 to i64
@@ -33267,7 +33267,7 @@ define range(i32 0, 2) i32 @stbi_is_16_bit_from_callbacks(ptr noundef readonly c
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 192
   store ptr %10, ptr %12, align 8, !tbaa !14
   %13 = load ptr, ptr %5, align 8, !tbaa !3
-  %14 = call i32 %13(ptr noundef %1, ptr noundef nonnull %10, i32 noundef 128) #37
+  %14 = call i32 %13(ptr noundef %1, ptr noundef nonnull %10, i32 noundef 128) #38
   %15 = load ptr, ptr %12, align 8, !tbaa !14
   %16 = load ptr, ptr %11, align 8, !tbaa !13
   %17 = ptrtoint ptr %15 to i64
@@ -33340,52 +33340,52 @@ stbi__is_16_main.exit:                            ; preds = %stbi__png_is16.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #32
+declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #33
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #32
+declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #33
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16>, <8 x i16>) #32
+declare <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16>, <8 x i16>) #33
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16>, <8 x i16>) #32
+declare <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16>, <8 x i16>) #33
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #33
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #34
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #33
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #34
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #34
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #35
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #34
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #35
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bitreverse.i16(i16) #34
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.bitreverse.i16(i16) #35
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #34
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #35
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #34
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #35
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #34
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #35
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ctpop.i8(i8) #34
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ctpop.i8(i8) #35
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #34
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #35
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #35
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #36
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #36
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #37
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -33407,26 +33407,27 @@ attributes #16 = { nounwind memory(write, argmem: readwrite, inaccessiblemem: re
 attributes #17 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #32 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #33 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #34 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #35 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #36 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #37 = { nounwind }
-attributes #38 = { nounwind allocsize(0) }
-attributes #39 = { nounwind allocsize(1) }
+attributes #20 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #31 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #33 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #34 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #35 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #36 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #37 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #38 = { nounwind }
+attributes #39 = { nounwind allocsize(0) }
+attributes #40 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

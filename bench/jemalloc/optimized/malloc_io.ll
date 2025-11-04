@@ -13,14 +13,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_wrtmessage(ptr readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   br label %4
 
 4:                                                ; preds = %4, %2
   %.014.i = phi i64 [ 0, %2 ], [ %9, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.014.i
   %6 = sub i64 %3, %.014.i
-  %7 = tail call i64 (i64, ...) @syscall(i64 noundef 1, i32 noundef 2, ptr noundef nonnull %5, i64 noundef %6) #14
+  %7 = tail call i64 (i64, ...) @syscall(i64 noundef 1, i32 noundef 2, ptr noundef nonnull %5, i64 noundef %6) #15
   %8 = icmp sgt i64 %7, -1
   %9 = add i64 %7, %.014.i
   %10 = icmp ult i64 %9, %3
@@ -41,18 +41,18 @@ define hidden void @je_malloc_write(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void %2(ptr noundef null, ptr noundef %0) #14
+  tail call void %2(ptr noundef null, ptr noundef %0) #15
   br label %je_wrtmessage.exit
 
 4:                                                ; preds = %1
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   br label %6
 
 6:                                                ; preds = %6, %4
   %.014.i.i = phi i64 [ 0, %4 ], [ %11, %6 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.014.i.i
   %8 = sub i64 %5, %.014.i.i
-  %9 = tail call i64 (i64, ...) @syscall(i64 noundef 1, i32 noundef 2, ptr noundef nonnull %7, i64 noundef %8) #14
+  %9 = tail call i64 (i64, ...) @syscall(i64 noundef 1, i32 noundef 2, ptr noundef nonnull %7, i64 noundef %8) #15
   %10 = icmp sgt i64 %9, -1
   %11 = add i64 %9, %.014.i.i
   %12 = icmp ult i64 %11, %5
@@ -65,12 +65,12 @@ je_wrtmessage.exit:                               ; preds = %6, %3
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @je_buferror(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @strerror_r(i32 noundef %0, ptr noundef %1, i64 noundef %2) #14
+  %4 = tail call ptr @strerror_r(i32 noundef %0, ptr noundef %1, i64 noundef %2) #15
   %.not = icmp eq ptr %4, %1
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %4, i64 noundef %2) #14
+  %6 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %4, i64 noundef %2) #15
   %7 = getelementptr i8, ptr %1, i64 %2
   %8 = getelementptr i8, ptr %7, i64 -1
   store i8 0, ptr %8, align 1, !tbaa !10
@@ -94,7 +94,7 @@ define hidden i64 @je_malloc_strtoumax(ptr noalias noundef %0, ptr noalias nound
   br i1 %or.cond3, label %6, label %.preheader
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @__errno_location() #15
+  %7 = tail call ptr @__errno_location() #16
   store i32 22, ptr %7, align 4, !tbaa !11
   br label %57
 
@@ -242,7 +242,7 @@ define hidden i64 @je_malloc_strtoumax(ptr noalias noundef %0, ptr noalias nound
   br i1 %47, label %.thread93, label %51
 
 .thread93:                                        ; preds = %.critedge
-  %48 = tail call ptr @__errno_location() #15
+  %48 = tail call ptr @__errno_location() #16
   store i32 34, ptr %48, align 4, !tbaa !11
   %49 = icmp eq ptr %.4, %.2
   %50 = select i1 %49, ptr %0, ptr %.4
@@ -259,7 +259,7 @@ define hidden i64 @je_malloc_strtoumax(ptr noalias noundef %0, ptr noalias nound
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %.critedge7
-  %56 = tail call ptr @__errno_location() #15
+  %56 = tail call ptr @__errno_location() #16
   store i32 22, ptr %56, align 4, !tbaa !11
   br label %57
 
@@ -384,7 +384,7 @@ define hidden i64 @je_malloc_vsnprintf(ptr noundef writeonly captures(none) %0, 
 .loopexit559:                                     ; preds = %.preheader557, %.preheader557, %.preheader557, %.preheader557, %.preheader557, %.preheader557, %.preheader557, %.preheader557, %.preheader557, %.loopexit559.loopexit897
   %.0403 = phi i8 [ %20, %.loopexit559.loopexit897 ], [ 32, %.preheader557 ], [ 32, %.preheader557 ], [ 32, %.preheader557 ], [ 32, %.preheader557 ], [ 32, %.preheader557 ], [ 32, %.preheader557 ], [ 32, %.preheader557 ], [ 32, %.preheader557 ], [ 32, %.preheader557 ]
   store ptr %storemerge, ptr %5, align 8, !tbaa !13
-  %37 = tail call ptr @__errno_location() #15
+  %37 = tail call ptr @__errno_location() #16
   store i32 0, ptr %37, align 4, !tbaa !11
   %38 = call i64 @je_malloc_strtoumax(ptr noundef nonnull %storemerge, ptr noundef nonnull %5, i32 noundef 10)
   %39 = trunc i64 %38 to i32
@@ -449,7 +449,7 @@ define hidden i64 @je_malloc_vsnprintf(ptr noundef writeonly captures(none) %0, 
   br label %thread-pre-split
 
 62:                                               ; preds = %44, %44, %44, %44, %44, %44, %44, %44, %44, %44
-  %63 = tail call ptr @__errno_location() #15
+  %63 = tail call ptr @__errno_location() #16
   store i32 0, ptr %63, align 4, !tbaa !11
   %64 = call i64 @je_malloc_strtoumax(ptr noundef nonnull %45, ptr noundef nonnull %5, i32 noundef 10)
   %65 = trunc i64 %64 to i32
@@ -1658,7 +1658,7 @@ x2s.exit:                                         ; preds = %u2s.exit.i484, %517
   br i1 %605, label %606, label %608
 
 606:                                              ; preds = %602
-  %607 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %604) #13
+  %607 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %604) #14
   br label %610
 
 608:                                              ; preds = %602
@@ -1919,7 +1919,7 @@ define hidden i64 @je_malloc_snprintf(ptr noundef writeonly captures(none) %0, i
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %5 = call i64 @je_malloc_vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %4) #16
+  %5 = call i64 @je_malloc_vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %4) #17
   call void @llvm.va_end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %5
@@ -1940,8 +1940,8 @@ define hidden void @je_malloc_vcprintf(ptr noundef readonly captures(address_is_
   %.not = icmp eq ptr %7, null
   %8 = select i1 %.not, ptr @je_wrtmessage, ptr %7
   %.0 = select i1 %6, ptr %8, ptr %0
-  %9 = call i64 @je_malloc_vsnprintf(ptr noundef nonnull %5, i64 noundef 4096, ptr noundef %2, ptr noundef %3) #16
-  call void %.0(ptr noundef %1, ptr noundef nonnull %5) #14
+  %9 = call i64 @je_malloc_vsnprintf(ptr noundef nonnull %5, i64 noundef 4096, ptr noundef %2, ptr noundef %3) #17
+  call void %.0(ptr noundef %1, ptr noundef nonnull %5) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -1967,8 +1967,8 @@ define hidden void @je_malloc_printf(ptr noundef %0, ...) local_unnamed_addr #9 
   %4 = load ptr, ptr @malloc_message, align 8
   %.not.i = icmp eq ptr %4, null
   %5 = select i1 %.not.i, ptr @je_wrtmessage, ptr %4
-  %6 = call i64 @je_malloc_vsnprintf(ptr noundef nonnull %2, i64 noundef 4096, ptr noundef %0, ptr noundef nonnull %3) #16
-  call void %5(ptr noundef null, ptr noundef nonnull %2) #14
+  %6 = call i64 @je_malloc_vsnprintf(ptr noundef nonnull %2, i64 noundef 4096, ptr noundef %0, ptr noundef nonnull %3) #17
+  call void %5(ptr noundef null, ptr noundef nonnull %2) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.va_end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1987,17 +1987,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #12
+declare i64 @llvm.abs.i64(i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #12
+declare i32 @llvm.abs.i32(i32, i1 immarg) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2011,11 +2011,12 @@ attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #9 = { cold nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind willreturn memory(read) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind willreturn memory(none) }
-attributes #16 = { cold }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind willreturn memory(read) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind willreturn memory(none) }
+attributes #17 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

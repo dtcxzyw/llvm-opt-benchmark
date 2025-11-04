@@ -133,7 +133,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @bdf_driver_requester(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call ptr @ft_service_list_lookup(ptr noundef nonnull @bdf_services, ptr noundef %1) #17
+  %3 = tail call ptr @ft_service_list_lookup(ptr noundef nonnull @bdf_services, ptr noundef %1) #18
   ret ptr %3
 }
 
@@ -151,7 +151,7 @@ define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %16 = load ptr, ptr %15, align 8, !tbaa !3
-  %17 = tail call i32 @FT_Stream_Seek(ptr noundef %0, i64 noundef 0) #17
+  %17 = tail call i32 @FT_Stream_Seek(ptr noundef %0, i64 noundef 0) #18
   store i32 %17, ptr %12, align 4, !tbaa !25
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %18, label %.thread302
@@ -159,7 +159,7 @@ define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
 18:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !25
-  %19 = call ptr @ft_mem_alloc(ptr noundef %16, i64 noundef 88, ptr noundef nonnull %11) #17
+  %19 = call ptr @ft_mem_alloc(ptr noundef %16, i64 noundef 88, ptr noundef nonnull %11) #18
   %20 = load i32, ptr %11, align 4, !tbaa !25
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %21, label %127
@@ -179,14 +179,14 @@ define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
   %28 = load ptr, ptr %27, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !25
-  %29 = call ptr @ft_mem_qalloc(ptr noundef %28, i64 noundef 1024, ptr noundef nonnull %10) #17
+  %29 = call ptr @ft_mem_qalloc(ptr noundef %28, i64 noundef 1024, ptr noundef nonnull %10) #18
   %30 = load i32, ptr %10, align 4, !tbaa !25
   %.not.i.i = icmp eq i32 %30, 0
   br i1 %.not.i.i, label %31, label %bdf_readstream_.exit.i
 
 31:                                               ; preds = %21
   store ptr @bdf_parse_start_, ptr %9, align 8, !tbaa !36
-  %32 = call i64 @FT_Stream_TryRead(ptr noundef nonnull %0, ptr noundef %29, i64 noundef 1024) #17
+  %32 = call i64 @FT_Stream_TryRead(ptr noundef nonnull %0, ptr noundef %29, i64 noundef 1024) #18
   %.not7733.i.i = icmp eq i64 %32, 0
   br i1 %.not7733.i.i, label %bdf_readstream_.exit.i, label %.preheader.preheader.i.i
 
@@ -245,7 +245,7 @@ define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 50:                                               ; preds = %47
   %51 = shl nuw nsw i64 %.06434.i.i, 2
-  %52 = call ptr @ft_mem_qrealloc(ptr noundef %28, i64 noundef 1, i64 noundef %.06434.i.i, i64 noundef %51, ptr noundef %.06235.i.i, ptr noundef nonnull %10) #17
+  %52 = call ptr @ft_mem_qrealloc(ptr noundef %28, i64 noundef 1, i64 noundef %.06434.i.i, i64 noundef %51, ptr noundef %.06235.i.i, ptr noundef nonnull %10) #18
   %53 = load i32, ptr %10, align 4, !tbaa !25
   %.not81.i.i = icmp eq i32 %53, 0
   br i1 %.not81.i.i, label %57, label %bdf_readstream_.exit.i
@@ -262,7 +262,7 @@ define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
   %.2.i.i = phi ptr [ %.06235.i.i, %54 ], [ %52, %50 ]
   %58 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 %.269.i.i
   %59 = sub i64 %.266.i.i, %.269.i.i
-  %60 = call i64 @FT_Stream_TryRead(ptr noundef nonnull %0, ptr noundef %58, i64 noundef %59) #17
+  %60 = call i64 @FT_Stream_TryRead(ptr noundef nonnull %0, ptr noundef %58, i64 noundef %59) #18
   %61 = add i64 %60, %.269.i.i
   %.not77.i.i = icmp eq i64 %60, 0
   br i1 %.not77.i.i, label %bdf_readstream_.exit.i, label %.preheader.preheader.i.i
@@ -278,7 +278,7 @@ define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
 66:                                               ; preds = %62
   %67 = load ptr, ptr %9, align 8, !tbaa !36
   %68 = sub i64 %.070.i.i, %.273.lcssa.i.i
-  %69 = call i32 %67(ptr noundef nonnull %64, i64 noundef %68, i64 noundef %.114.i.i, ptr noundef nonnull %9, ptr noundef nonnull %19) #17
+  %69 = call i32 %67(ptr noundef nonnull %64, i64 noundef %68, i64 noundef %.114.i.i, ptr noundef nonnull %9, ptr noundef nonnull %19) #18
   store i32 %69, ptr %10, align 4, !tbaa !25
   %.not80.i.i = icmp eq i32 %69, 0
   br i1 %.not80.i.i, label %70, label %bdf_readstream_.exit.i
@@ -290,7 +290,7 @@ define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 bdf_readstream_.exit.i:                           ; preds = %57, %50, %66, %49, %31, %21
   %.3.i.i = phi ptr [ %29, %21 ], [ %.06235.i.i, %49 ], [ %29, %31 ], [ %.06235.i.i, %66 ], [ %52, %50 ], [ %.2.i.i, %57 ]
-  call void @ft_mem_free(ptr noundef %28, ptr noundef %.3.i.i) #17
+  call void @ft_mem_free(ptr noundef %28, ptr noundef %.3.i.i) #18
   %73 = load i32, ptr %10, align 4, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -419,16 +419,16 @@ bdf_readstream_.exit._crit_edge.sink.split.i:     ; preds = %.thread102.i, %123
   %.0 = phi ptr [ null, %bdf_readstream_.exit._crit_edge.i ], [ null, %127 ], [ %75, %123 ], [ null, %.thread104.i ]
   %128 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %129 = load ptr, ptr %128, align 8, !tbaa !59
-  call void @ft_mem_free(ptr noundef %16, ptr noundef %129) #17
+  call void @ft_mem_free(ptr noundef %16, ptr noundef %129) #18
   store ptr null, ptr %128, align 8, !tbaa !59
-  call void @ft_mem_free(ptr noundef %16, ptr noundef nonnull %19) #17
+  call void @ft_mem_free(ptr noundef %16, ptr noundef nonnull %19) #18
   %.pre92.i = load i32, ptr %11, align 4, !tbaa !25
   br label %bdf_load_font.exit
 
 bdf_readstream_.exit._crit_edge.i:                ; preds = %bdf_readstream_.exit._crit_edge.sink.split.i, %bdf_readstream_.exit.i
   call fastcc void @bdf_free_font(ptr noundef %75)
   %130 = load ptr, ptr %74, align 8, !tbaa !41
-  call void @ft_mem_free(ptr noundef %16, ptr noundef %130) #17
+  call void @ft_mem_free(ptr noundef %16, ptr noundef %130) #18
   store ptr null, ptr %74, align 8, !tbaa !41
   br label %.thread.i
 
@@ -478,7 +478,7 @@ bdf_load_font.exit:                               ; preds = %127, %.thread.i
 150:                                              ; preds = %146
   %151 = getelementptr inbounds nuw i8, ptr %.1285, i64 168
   %152 = load ptr, ptr %151, align 8, !tbaa !67
-  %153 = call ptr @ft_hash_str_lookup(ptr noundef nonnull @.str.3, ptr noundef %152) #17
+  %153 = call ptr @ft_hash_str_lookup(ptr noundef nonnull @.str.3, ptr noundef %152) #18
   %.not.i245 = icmp eq ptr %153, null
   br i1 %.not.i245, label %bdf_get_font_property.exit.thread, label %bdf_get_font_property.exit
 
@@ -542,7 +542,7 @@ bdf_get_font_property.exit.thread:                ; preds = %bdf_get_font_proper
 175:                                              ; preds = %171
   %176 = getelementptr inbounds nuw i8, ptr %.1285, i64 168
   %177 = load ptr, ptr %176, align 8, !tbaa !67
-  %178 = call ptr @ft_hash_str_lookup(ptr noundef nonnull @.str.4, ptr noundef %177) #17
+  %178 = call ptr @ft_hash_str_lookup(ptr noundef nonnull @.str.4, ptr noundef %177) #18
   %.not.i246 = icmp eq ptr %178, null
   br i1 %.not.i246, label %bdf_get_font_property.exit248.thread, label %bdf_get_font_property.exit248
 
@@ -561,7 +561,7 @@ bdf_get_font_property.exit248:                    ; preds = %175
   br i1 %.not213, label %bdf_get_font_property.exit248.thread, label %186
 
 186:                                              ; preds = %181
-  %187 = call ptr @ft_mem_strdup(ptr noundef %16, ptr noundef nonnull %185, ptr noundef nonnull %12) #17
+  %187 = call ptr @ft_mem_strdup(ptr noundef %16, ptr noundef nonnull %185, ptr noundef nonnull %12) #18
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %187, ptr %188, align 8, !tbaa !71
   %189 = load i32, ptr %12, align 4, !tbaa !25
@@ -595,7 +595,7 @@ bdf_get_font_property.exit248.thread:             ; preds = %175, %171, %181, %b
 200:                                              ; preds = %196
   %201 = getelementptr inbounds nuw i8, ptr %193, i64 168
   %202 = load ptr, ptr %201, align 8, !tbaa !67
-  %203 = call ptr @ft_hash_str_lookup(ptr noundef nonnull @.str.81, ptr noundef %202) #17
+  %203 = call ptr @ft_hash_str_lookup(ptr noundef nonnull @.str.81, ptr noundef %202) #18
   %.not.i.i249 = icmp eq ptr %203, null
   br i1 %.not.i.i249, label %.thread.i251, label %bdf_get_font_property.exit.i
 
@@ -648,7 +648,7 @@ bdf_get_font_property.exit.i:                     ; preds = %200
 
 227:                                              ; preds = %.thread.i251
   %228 = load ptr, ptr %201, align 8, !tbaa !67
-  %229 = call ptr @ft_hash_str_lookup(ptr noundef nonnull @.str.94, ptr noundef %228) #17
+  %229 = call ptr @ft_hash_str_lookup(ptr noundef nonnull @.str.94, ptr noundef %228) #18
   %.not.i113.i = icmp eq ptr %229, null
   br i1 %.not.i113.i, label %.thread129.i, label %bdf_get_font_property.exit115.i
 
@@ -694,7 +694,7 @@ bdf_get_font_property.exit115.i:                  ; preds = %227
 
 248:                                              ; preds = %.thread129.i
   %249 = load ptr, ptr %201, align 8, !tbaa !67
-  %250 = call ptr @ft_hash_str_lookup(ptr noundef nonnull @.str.80, ptr noundef %249) #17
+  %250 = call ptr @ft_hash_str_lookup(ptr noundef nonnull @.str.80, ptr noundef %249) #18
   %.not.i116.i = icmp eq ptr %250, null
   br i1 %.not.i116.i, label %.thread135.i, label %bdf_get_font_property.exit118.i
 
@@ -738,7 +738,7 @@ bdf_get_font_property.exit118.i:                  ; preds = %248
 
 267:                                              ; preds = %.thread135.i
   %268 = load ptr, ptr %201, align 8, !tbaa !67
-  %269 = call ptr @ft_hash_str_lookup(ptr noundef nonnull @.str.29, ptr noundef %268) #17
+  %269 = call ptr @ft_hash_str_lookup(ptr noundef nonnull @.str.29, ptr noundef %268) #18
   %.not.i119.i = icmp eq ptr %269, null
   br i1 %.not.i119.i, label %bdf_get_font_property.exit121.thread.i.preheader, label %bdf_get_font_property.exit121.i
 
@@ -788,7 +788,7 @@ bdf_get_font_property.exit121.thread.i:           ; preds = %bdf_get_font_proper
   br i1 %.not112.i, label %291, label %287
 
 287:                                              ; preds = %bdf_get_font_property.exit121.thread.i
-  %288 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %286) #18
+  %288 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %286) #19
   store i64 %288, ptr %284, align 8, !tbaa !69
   %289 = add i64 %.080141.i, 1
   %290 = add i64 %289, %288
@@ -811,7 +811,7 @@ bdf_get_font_property.exit121.thread.i:           ; preds = %bdf_get_font_proper
 
 296:                                              ; preds = %295, %293
   %.282.i = phi i64 [ 8, %295 ], [ %.181.i, %293 ]
-  %297 = call ptr @ft_mem_qalloc(ptr noundef %192, i64 noundef %.282.i, ptr noundef nonnull %6) #17
+  %297 = call ptr @ft_mem_qalloc(ptr noundef %192, i64 noundef %.282.i, ptr noundef nonnull %6) #18
   %298 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %297, ptr %298, align 8, !tbaa !77
   %299 = load i32, ptr %6, align 4, !tbaa !25
@@ -900,7 +900,7 @@ bdf_interpret_style.exit:                         ; preds = %317
   store i64 %322, ptr %323, align 8, !tbaa !81
   %324 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i32 1, ptr %324, align 8, !tbaa !82
-  %325 = call ptr @ft_mem_alloc(ptr noundef %16, i64 noundef 32, ptr noundef nonnull %12) #17
+  %325 = call ptr @ft_mem_alloc(ptr noundef %16, i64 noundef 32, ptr noundef nonnull %12) #18
   %326 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %325, ptr %326, align 8, !tbaa !83
   %327 = load i32, ptr %12, align 4, !tbaa !25
@@ -1031,7 +1031,7 @@ bdf_interpret_style.exit:                         ; preds = %317
 
 392:                                              ; preds = %388
   %393 = call i64 @llvm.abs.i64(i64 %390, i1 true)
-  %394 = call i64 @FT_MulDiv(i64 noundef %393, i64 noundef 460800, i64 noundef 72270) #17
+  %394 = call i64 @FT_MulDiv(i64 noundef %393, i64 noundef 460800, i64 noundef 72270) #18
   br label %407
 
 395:                                              ; preds = %385
@@ -1160,7 +1160,7 @@ bdf_interpret_style.exit:                         ; preds = %317
   %.0171293298 = phi i16 [ 32767, %.thread295 ], [ %436, %450 ]
   %455 = phi ptr [ %445, %.thread295 ], [ %437, %450 ]
   %456 = zext nneg i16 %.0171293298 to i64
-  %457 = call i64 @FT_MulDiv(i64 noundef %454, i64 noundef %456, i64 noundef 72) #17
+  %457 = call i64 @FT_MulDiv(i64 noundef %454, i64 noundef %456, i64 noundef 72) #18
   store i64 %457, ptr %455, align 8, !tbaa !91
   br label %458
 
@@ -1173,7 +1173,7 @@ bdf_interpret_style.exit:                         ; preds = %317
 460:                                              ; preds = %458
   %461 = zext nneg i16 %.0172 to i64
   %462 = zext nneg i16 %.0171294 to i64
-  %463 = call i64 @FT_MulDiv(i64 noundef %459, i64 noundef %461, i64 noundef %462) #17
+  %463 = call i64 @FT_MulDiv(i64 noundef %459, i64 noundef %461, i64 noundef %462) #18
   br label %.thread299
 
 .thread299:                                       ; preds = %458, %.thread387, %.thread384, %460
@@ -1196,7 +1196,7 @@ bdf_interpret_style.exit:                         ; preds = %317
   %471 = getelementptr inbounds nuw i8, ptr %.1285, i64 96
   %472 = load ptr, ptr %471, align 8, !tbaa !94
   %473 = load i64, ptr %320, align 8, !tbaa !80
-  %474 = call ptr @ft_mem_qrealloc(ptr noundef %16, i64 noundef 16, i64 noundef 0, i64 noundef %473, ptr noundef null, ptr noundef nonnull %12) #17
+  %474 = call ptr @ft_mem_qrealloc(ptr noundef %16, i64 noundef 16, i64 noundef 0, i64 noundef %473, ptr noundef null, ptr noundef nonnull %12) #18
   %475 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr %474, ptr %475, align 8, !tbaa !95
   %476 = load i32, ptr %12, align 4, !tbaa !25
@@ -1272,7 +1272,7 @@ bdf_interpret_style.exit:                         ; preds = %317
   br i1 %.not231, label %556, label %512
 
 512:                                              ; preds = %509
-  %513 = call ptr @ft_mem_strdup(ptr noundef %16, ptr noundef nonnull %511, ptr noundef nonnull %12) #17
+  %513 = call ptr @ft_mem_strdup(ptr noundef %16, ptr noundef nonnull %511, ptr noundef nonnull %12) #18
   %514 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr %513, ptr %514, align 8, !tbaa !103
   %515 = load i32, ptr %12, align 4, !tbaa !25
@@ -1281,7 +1281,7 @@ bdf_interpret_style.exit:                         ; preds = %317
 
 516:                                              ; preds = %512
   %517 = load ptr, ptr %507, align 8, !tbaa !37
-  %518 = call ptr @ft_mem_strdup(ptr noundef %16, ptr noundef %517, ptr noundef nonnull %12) #17
+  %518 = call ptr @ft_mem_strdup(ptr noundef %16, ptr noundef %517, ptr noundef nonnull %12) #18
   %519 = getelementptr inbounds nuw i8, ptr %1, i64 256
   store ptr %518, ptr %519, align 8, !tbaa !104
   %520 = load i32, ptr %12, align 4, !tbaa !25
@@ -1313,12 +1313,12 @@ bdf_interpret_style.exit:                         ; preds = %317
 
 529:                                              ; preds = %526, %526
   %530 = getelementptr inbounds nuw i8, ptr %518, i64 3
-  %531 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %530, ptr noundef nonnull dereferenceable(6) @.str.15) #18
+  %531 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %530, ptr noundef nonnull dereferenceable(6) @.str.15) #19
   %.not235 = icmp eq i32 %531, 0
   br i1 %.not235, label %.thread304, label %532
 
 532:                                              ; preds = %529
-  %533 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %530, ptr noundef nonnull dereferenceable(5) @.str.16) #18
+  %533 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %530, ptr noundef nonnull dereferenceable(5) @.str.16) #19
   %.not236 = icmp eq i32 %533, 0
   br i1 %.not236, label %sub_0, label %.tail.thread
 
@@ -1335,7 +1335,7 @@ sub_0:                                            ; preds = %532
   br i1 %538, label %.thread304, label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_0, %.tail, %532
-  %539 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %530, ptr noundef nonnull dereferenceable(9) @.str.18) #18
+  %539 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %530, ptr noundef nonnull dereferenceable(9) @.str.18) #19
   %.not238 = icmp eq i32 %539, 0
   br i1 %.not238, label %543, label %.critedge
 
@@ -1350,7 +1350,7 @@ sub_0:                                            ; preds = %532
 
 543:                                              ; preds = %.tail.thread
   %544 = load ptr, ptr %514, align 8, !tbaa !103
-  %545 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %544, ptr noundef nonnull dereferenceable(4) @.str.19) #18
+  %545 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %544, ptr noundef nonnull dereferenceable(4) @.str.19) #19
   %.not239.not = icmp eq i32 %545, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %1, ptr %13, align 8, !tbaa !105
@@ -1377,7 +1377,7 @@ sub_0:                                            ; preds = %532
   br label %554
 
 554:                                              ; preds = %.critedge, %549, %543
-  %555 = call i32 @FT_CMap_New(ptr noundef nonnull @bdf_cmap_class, ptr noundef null, ptr noundef nonnull %13, ptr noundef null) #17
+  %555 = call i32 @FT_CMap_New(ptr noundef nonnull @bdf_cmap_class, ptr noundef null, ptr noundef nonnull %13, ptr noundef null) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread302
 
@@ -1390,7 +1390,7 @@ sub_0:                                            ; preds = %532
   store i16 7, ptr %558, align 4, !tbaa !109
   %559 = getelementptr inbounds nuw i8, ptr %14, i64 14
   store i16 0, ptr %559, align 2, !tbaa !110
-  %560 = call i32 @FT_CMap_New(ptr noundef nonnull @bdf_cmap_class, ptr noundef null, ptr noundef nonnull %14, ptr noundef null) #17
+  %560 = call i32 @FT_CMap_New(ptr noundef nonnull @bdf_cmap_class, ptr noundef null, ptr noundef nonnull %14, ptr noundef null) #18
   %561 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %562 = load i32, ptr %561, align 8, !tbaa !111
   %.not232 = icmp eq i32 %562, 0
@@ -1431,30 +1431,30 @@ define internal void @BDF_Face_Done(ptr noundef captures(address_is_null) %0) #0
   tail call fastcc void @bdf_free_font(ptr noundef %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %8 = load ptr, ptr %7, align 8, !tbaa !95
-  tail call void @ft_mem_free(ptr noundef %4, ptr noundef %8) #17
+  tail call void @ft_mem_free(ptr noundef %4, ptr noundef %8) #18
   store ptr null, ptr %7, align 8, !tbaa !95
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %10 = load ptr, ptr %9, align 8, !tbaa !103
-  tail call void @ft_mem_free(ptr noundef %4, ptr noundef %10) #17
+  tail call void @ft_mem_free(ptr noundef %4, ptr noundef %10) #18
   store ptr null, ptr %9, align 8, !tbaa !103
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %12 = load ptr, ptr %11, align 8, !tbaa !104
-  tail call void @ft_mem_free(ptr noundef %4, ptr noundef %12) #17
+  tail call void @ft_mem_free(ptr noundef %4, ptr noundef %12) #18
   store ptr null, ptr %11, align 8, !tbaa !104
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !71
-  tail call void @ft_mem_free(ptr noundef %4, ptr noundef %14) #17
+  tail call void @ft_mem_free(ptr noundef %4, ptr noundef %14) #18
   store ptr null, ptr %13, align 8, !tbaa !71
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8, !tbaa !77
-  tail call void @ft_mem_free(ptr noundef %4, ptr noundef %16) #17
+  tail call void @ft_mem_free(ptr noundef %4, ptr noundef %16) #18
   store ptr null, ptr %15, align 8, !tbaa !77
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load ptr, ptr %17, align 8, !tbaa !83
-  tail call void @ft_mem_free(ptr noundef %4, ptr noundef %18) #17
+  tail call void @ft_mem_free(ptr noundef %4, ptr noundef %18) #18
   store ptr null, ptr %17, align 8, !tbaa !83
   %19 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void @ft_mem_free(ptr noundef %4, ptr noundef %19) #17
+  tail call void @ft_mem_free(ptr noundef %4, ptr noundef %19) #18
   store ptr null, ptr %5, align 8, !tbaa !60
   br label %20
 
@@ -1518,7 +1518,7 @@ define internal range(i32 0, 7) i32 @BDF_Glyph_Load(ptr noundef %0, ptr noundef 
   %30 = trunc i64 %.sroa.11.0.copyload to i32
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 %30, ptr %31, align 8, !tbaa !124
-  tail call void @ft_glyphslot_set_bitmap(ptr noundef %0, ptr noundef %.sroa.104.0.copyload) #17
+  tail call void @ft_glyphslot_set_bitmap(ptr noundef %0, ptr noundef %.sroa.104.0.copyload) #18
   %32 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %11)
   %33 = icmp eq i32 %32, 1
   br i1 %33, label %.split, label %44
@@ -1590,7 +1590,7 @@ define internal range(i32 0, 7) i32 @BDF_Glyph_Load(ptr noundef %0, ptr noundef 
   %69 = load i16, ptr %68, align 2, !tbaa !58
   %70 = zext i16 %69 to i64
   %71 = shl nuw nsw i64 %70, 6
-  tail call void @ft_synthesize_vertical_metrics(ptr noundef nonnull %52, i64 noundef %71) #17
+  tail call void @ft_synthesize_vertical_metrics(ptr noundef nonnull %52, i64 noundef %71) #18
   br label %72
 
 72:                                               ; preds = %4, %44
@@ -1647,7 +1647,7 @@ define internal range(i32 0, 24) i32 @BDF_Size_Request(ptr noundef captures(none
   br i1 %34, label %35, label %.thread
 
 35:                                               ; preds = %22, %28
-  tail call void @FT_Select_Metrics(ptr noundef nonnull %3, i64 noundef 0) #17
+  tail call void @FT_Select_Metrics(ptr noundef nonnull %3, i64 noundef 0) #18
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %37 = load i64, ptr %36, align 8, !tbaa !84
   %38 = shl nsw i64 %37, 6
@@ -1676,7 +1676,7 @@ define internal noundef i32 @BDF_Size_Select(ptr noundef captures(none) initiali
   %3 = load ptr, ptr %0, align 8, !tbaa !115
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 264
   %5 = load ptr, ptr %4, align 8, !tbaa !60
-  tail call void @FT_Select_Metrics(ptr noundef %3, i64 noundef %1) #17
+  tail call void @FT_Select_Metrics(ptr noundef %3, i64 noundef %1) #18
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load i64, ptr %6, align 8, !tbaa !84
   %8 = shl nsw i64 %7, 6
@@ -1732,7 +1732,7 @@ define internal range(i32 0, 7) i32 @bdf_get_bdf_property(ptr noundef readonly c
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %17 = load ptr, ptr %16, align 8, !tbaa !67
-  %18 = tail call ptr @ft_hash_str_lookup(ptr noundef nonnull %1, ptr noundef %17) #17
+  %18 = tail call ptr @ft_hash_str_lookup(ptr noundef nonnull %1, ptr noundef %17) #18
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %bdf_get_font_property.exit.thread, label %bdf_get_font_property.exit
 
@@ -1805,7 +1805,7 @@ define internal fastcc ptr @bdf_get_font_property(ptr noundef readonly captures(
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %14 = load ptr, ptr %13, align 8, !tbaa !67
-  %15 = tail call ptr @ft_hash_str_lookup(ptr noundef nonnull %1, ptr noundef %14) #17
+  %15 = tail call ptr @ft_hash_str_lookup(ptr noundef nonnull %1, ptr noundef %14) #18
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %21, label %16
 
@@ -1852,7 +1852,7 @@ define internal i32 @bdf_parse_start_(ptr noundef %0, i64 noundef %1, i64 %2, pt
   br i1 %.not, label %12, label %23
 
 12:                                               ; preds = %5
-  %13 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.20, i64 noundef 9) #18
+  %13 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.20, i64 noundef 9) #19
   %.not185 = icmp eq i32 %13, 0
   br i1 %.not185, label %14, label %.critedge216
 
@@ -1874,7 +1874,7 @@ define internal i32 @bdf_parse_start_(ptr noundef %0, i64 noundef %1, i64 %2, pt
 switch.edge:                                      ; preds = %14, %14, %14, %14, %14
   %17 = or disjoint i64 %10, 1
   store i64 %17, ptr %4, align 8, !tbaa !26
-  %18 = call ptr @ft_mem_alloc(ptr noundef %9, i64 noundef 248, ptr noundef nonnull %7) #17
+  %18 = call ptr @ft_mem_alloc(ptr noundef %9, i64 noundef 248, ptr noundef nonnull %7) #18
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %18, ptr %19, align 8, !tbaa !41
   %20 = load i32, ptr %7, align 4, !tbaa !25
@@ -1889,7 +1889,7 @@ switch.edge:                                      ; preds = %14, %14, %14, %14, 
 23:                                               ; preds = %5
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %25 = load ptr, ptr %24, align 8, !tbaa !41
-  %26 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.21, i64 noundef 7) #18
+  %26 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.21, i64 noundef 7) #19
   %.not187 = icmp eq i32 %26, 0
   br i1 %.not187, label %27, label %.critedge219
 
@@ -1925,7 +1925,7 @@ switch.edge217:                                   ; preds = %27, %27, %27, %27, 
   %40 = add i64 %38, %39
   %41 = getelementptr inbounds nuw i8, ptr %25, i64 152
   %42 = load ptr, ptr %41, align 8, !tbaa !155
-  %43 = call ptr @ft_mem_qrealloc(ptr noundef %33, i64 noundef 1, i64 noundef %38, i64 noundef %40, ptr noundef %42, ptr noundef nonnull %6) #17
+  %43 = call ptr @ft_mem_qrealloc(ptr noundef %33, i64 noundef 1, i64 noundef %38, i64 noundef %40, ptr noundef %42, ptr noundef nonnull %6) #18
   store ptr %43, ptr %41, align 8, !tbaa !155
   %44 = load i32, ptr %6, align 4, !tbaa !25
   %.not.i = icmp eq i32 %44, 0
@@ -1955,7 +1955,7 @@ bdf_add_comment_.exit:                            ; preds = %31, %36, %45
   br i1 %.not189, label %53, label %.critedge222
 
 53:                                               ; preds = %.critedge219
-  %54 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(16) @.str.22, i64 noundef 15) #18
+  %54 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(16) @.str.22, i64 noundef 15) #19
   %.not190 = icmp eq i32 %54, 0
   br i1 %.not190, label %55, label %.critedge222
 
@@ -2069,7 +2069,7 @@ bdf_atoul_.exit.thread:                           ; preds = %bdf_strtok_.exit, %
   br label %.thread355
 
 103:                                              ; preds = %bdf_atoul_.exit.thread
-  %104 = call ptr @ft_mem_realloc(ptr noundef %9, i64 noundef 24, i64 noundef 0, i64 noundef %95, ptr noundef null, ptr noundef nonnull %7) #17
+  %104 = call ptr @ft_mem_realloc(ptr noundef %9, i64 noundef 24, i64 noundef 0, i64 noundef %95, ptr noundef null, ptr noundef nonnull %7) #18
   %105 = getelementptr inbounds nuw i8, ptr %25, i64 144
   store ptr %104, ptr %105, align 8, !tbaa !68
   %106 = load i32, ptr %7, align 4, !tbaa !25
@@ -2081,7 +2081,7 @@ bdf_atoul_.exit.thread:                           ; preds = %bdf_strtok_.exit, %
   br label %.thread355
 
 108:                                              ; preds = %103
-  %109 = call ptr @ft_mem_qalloc(ptr noundef %9, i64 noundef 40, ptr noundef nonnull %7) #17
+  %109 = call ptr @ft_mem_qalloc(ptr noundef %9, i64 noundef 40, ptr noundef nonnull %7) #18
   %110 = getelementptr inbounds nuw i8, ptr %25, i64 168
   store ptr %109, ptr %110, align 8, !tbaa !67
   %111 = load i32, ptr %7, align 4, !tbaa !25
@@ -2089,14 +2089,14 @@ bdf_atoul_.exit.thread:                           ; preds = %bdf_strtok_.exit, %
   br i1 %.not193, label %112, label %.thread355
 
 112:                                              ; preds = %108
-  %113 = call i32 @ft_hash_str_init(ptr noundef %109, ptr noundef %9) #17
+  %113 = call i32 @ft_hash_str_init(ptr noundef %109, ptr noundef %9) #18
   store i32 %113, ptr %7, align 4, !tbaa !25
   %.not194 = icmp eq i32 %113, 0
   br i1 %.not194, label %114, label %.thread355
 
 114:                                              ; preds = %112
   %115 = getelementptr inbounds nuw i8, ptr %25, i64 208
-  %116 = call i32 @ft_hash_str_init(ptr noundef nonnull %115, ptr noundef %9) #17
+  %116 = call i32 @ft_hash_str_init(ptr noundef nonnull %115, ptr noundef %9) #18
   store i32 %116, ptr %7, align 4, !tbaa !25
   %.not195 = icmp eq i32 %116, 0
   br i1 %.not195, label %.preheader369, label %.thread355
@@ -2105,7 +2105,7 @@ bdf_atoul_.exit.thread:                           ; preds = %bdf_strtok_.exit, %
   %.0170395 = phi i64 [ %120, %119 ], [ 0, %114 ]
   %.0173394 = phi ptr [ %121, %119 ], [ @bdf_properties_, %114 ]
   %117 = load ptr, ptr %.0173394, align 8, !tbaa !159
-  %118 = call i32 @ft_hash_str_insert(ptr noundef %117, i64 noundef %.0170395, ptr noundef nonnull %115, ptr noundef %9) #17
+  %118 = call i32 @ft_hash_str_insert(ptr noundef %117, i64 noundef %.0170395, ptr noundef nonnull %115, ptr noundef %9) #18
   store i32 %118, ptr %7, align 4, !tbaa !25
   %.not196 = icmp eq i32 %118, 0
   br i1 %.not196, label %119, label %.thread355
@@ -2124,7 +2124,7 @@ bdf_atoul_.exit.thread:                           ; preds = %bdf_strtok_.exit, %
   br label %.thread355
 
 .critedge222:                                     ; preds = %55, %53, %.critedge219
-  %125 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(16) @.str.23, i64 noundef 15) #18
+  %125 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(16) @.str.23, i64 noundef 15) #19
   %.not197 = icmp eq i32 %125, 0
   br i1 %.not197, label %126, label %.critedge226
 
@@ -2465,7 +2465,7 @@ bdf_atos_.exit285:                                ; preds = %.lr.ph.i280, %267, 
   br label %.thread355
 
 .critedge226:                                     ; preds = %126, %.critedge222
-  %295 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.24, i64 noundef 4) #18
+  %295 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.24, i64 noundef 4) #19
   %.not199 = icmp eq i32 %295, 0
   br i1 %.not199, label %296, label %.critedge229
 
@@ -2513,9 +2513,9 @@ switch.edge227:                                   ; preds = %switch.edge227.preh
 
 bdf_strtok_.exit291:                              ; preds = %.loopexit.i287
   %306 = load ptr, ptr %25, align 8, !tbaa !163
-  tail call void @ft_mem_free(ptr noundef %9, ptr noundef %306) #17
+  tail call void @ft_mem_free(ptr noundef %9, ptr noundef %306) #18
   store ptr null, ptr %25, align 8, !tbaa !163
-  %307 = call ptr @ft_mem_strdup(ptr noundef %9, ptr noundef nonnull %.2.i289, ptr noundef nonnull %7) #17
+  %307 = call ptr @ft_mem_strdup(ptr noundef %9, ptr noundef nonnull %.2.i289, ptr noundef nonnull %7) #18
   store ptr %307, ptr %25, align 8, !tbaa !163
   %308 = load i32, ptr %7, align 4, !tbaa !25
   %.not210 = icmp eq i32 %308, 0
@@ -2571,7 +2571,7 @@ bdf_strtok_.exit291:                              ; preds = %.loopexit.i287
   br label %.thread355
 
 .critedge229:                                     ; preds = %296, %.critedge226
-  %322 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.25, i64 noundef 4) #18
+  %322 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.25, i64 noundef 4) #19
   %.not201 = icmp eq i32 %322, 0
   br i1 %.not201, label %323, label %.critedge233
 
@@ -2910,7 +2910,7 @@ bdf_atous_.exit343.thread:                        ; preds = %.loopexit.i332, %.l
   br label %.thread355
 
 .critedge233:                                     ; preds = %323, %.critedge229
-  %485 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.26, i64 noundef 5) #18
+  %485 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.26, i64 noundef 5) #19
   %.not203 = icmp eq i32 %485, 0
   br i1 %.not203, label %486, label %.critedge236
 
@@ -3016,7 +3016,7 @@ bdf_strtok_.exit349:                              ; preds = %.loopexit.i345
 
 518:                                              ; preds = %.thread366, %515
   %519 = phi i64 [ 64, %.thread366 ], [ %513, %515 ]
-  %520 = call ptr @ft_mem_realloc(ptr noundef %9, i64 noundef 56, i64 noundef 0, i64 noundef %519, ptr noundef null, ptr noundef nonnull %7) #17
+  %520 = call ptr @ft_mem_realloc(ptr noundef %9, i64 noundef 56, i64 noundef 0, i64 noundef %519, ptr noundef null, ptr noundef nonnull %7) #18
   %521 = getelementptr inbounds nuw i8, ptr %25, i64 96
   store ptr %520, ptr %521, align 8, !tbaa !94
   %522 = load i32, ptr %7, align 4, !tbaa !25
@@ -3051,7 +3051,7 @@ define internal fastcc void @bdf_free_font(ptr noundef %0) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8, !tbaa !153
   %6 = load ptr, ptr %0, align 8, !tbaa !163
-  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %6) #17
+  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %6) #18
   store ptr null, ptr %0, align 8, !tbaa !163
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %8 = load ptr, ptr %7, align 8, !tbaa !67
@@ -3059,16 +3059,16 @@ define internal fastcc void @bdf_free_font(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %3
-  tail call void @ft_hash_str_free(ptr noundef nonnull %8, ptr noundef %5) #17
+  tail call void @ft_hash_str_free(ptr noundef nonnull %8, ptr noundef %5) #18
   %10 = load ptr, ptr %7, align 8, !tbaa !67
-  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %10) #17
+  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %10) #18
   store ptr null, ptr %7, align 8, !tbaa !67
   br label %11
 
 11:                                               ; preds = %3, %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load ptr, ptr %12, align 8, !tbaa !155
-  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %13) #17
+  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %13) #18
   store ptr null, ptr %12, align 8, !tbaa !155
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %15 = load i64, ptr %14, align 8, !tbaa !66
@@ -3092,7 +3092,7 @@ define internal fastcc void @bdf_free_font(ptr noundef %0) unnamed_addr #0 {
 24:                                               ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !37
-  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %26) #17
+  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %26) #18
   %27 = load ptr, ptr %16, align 8, !tbaa !68
   %28 = getelementptr inbounds nuw %struct.bdf_property_t_, ptr %27, i64 %.06872
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -3109,7 +3109,7 @@ define internal fastcc void @bdf_free_font(ptr noundef %0) unnamed_addr #0 {
 ._crit_edge:                                      ; preds = %30, %11
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %35 = load ptr, ptr %34, align 8, !tbaa !68
-  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %35) #17
+  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %35) #18
   store ptr null, ptr %34, align 8, !tbaa !68
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -3125,11 +3125,11 @@ define internal fastcc void @bdf_free_font(ptr noundef %0) unnamed_addr #0 {
   %.06774 = phi ptr [ %44, %.lr.ph76 ], [ %39, %.lr.ph76.preheader ]
   %.16973 = phi i64 [ %43, %.lr.ph76 ], [ 0, %.lr.ph76.preheader ]
   %40 = load ptr, ptr %.06774, align 8, !tbaa !170
-  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %40) #17
+  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %40) #18
   store ptr null, ptr %.06774, align 8, !tbaa !170
   %41 = getelementptr inbounds nuw i8, ptr %.06774, i64 32
   %42 = load ptr, ptr %41, align 8, !tbaa !171
-  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %42) #17
+  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %42) #18
   store ptr null, ptr %41, align 8, !tbaa !171
   %43 = add nuw i64 %.16973, 1
   %44 = getelementptr inbounds nuw i8, ptr %.06774, i64 56
@@ -3152,11 +3152,11 @@ define internal fastcc void @bdf_free_font(ptr noundef %0) unnamed_addr #0 {
   %.179 = phi ptr [ %55, %.lr.ph81 ], [ %50, %.lr.ph81.preheader ]
   %.278 = phi i64 [ %54, %.lr.ph81 ], [ 0, %.lr.ph81.preheader ]
   %51 = load ptr, ptr %.179, align 8, !tbaa !170
-  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %51) #17
+  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %51) #18
   store ptr null, ptr %.179, align 8, !tbaa !170
   %52 = getelementptr inbounds nuw i8, ptr %.179, i64 32
   %53 = load ptr, ptr %52, align 8, !tbaa !171
-  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %53) #17
+  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %53) #18
   store ptr null, ptr %52, align 8, !tbaa !171
   %54 = add nuw i64 %.278, 1
   %55 = getelementptr inbounds nuw i8, ptr %.179, i64 56
@@ -3166,13 +3166,13 @@ define internal fastcc void @bdf_free_font(ptr noundef %0) unnamed_addr #0 {
 
 ._crit_edge82:                                    ; preds = %.lr.ph81, %._crit_edge77
   %58 = load ptr, ptr %36, align 8, !tbaa !94
-  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %58) #17
+  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %58) #18
   store ptr null, ptr %36, align 8, !tbaa !94
   %59 = load ptr, ptr %47, align 8, !tbaa !173
-  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %59) #17
+  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %59) #18
   store ptr null, ptr %47, align 8, !tbaa !173
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  tail call void @ft_hash_str_free(ptr noundef nonnull %60, ptr noundef %5) #17
+  tail call void @ft_hash_str_free(ptr noundef nonnull %60, ptr noundef %5) #18
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %62 = load ptr, ptr %61, align 8, !tbaa !175
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -3184,7 +3184,7 @@ define internal fastcc void @bdf_free_font(ptr noundef %0) unnamed_addr #0 {
   %.084 = phi ptr [ %67, %.lr.ph86 ], [ %62, %._crit_edge82 ]
   %.383 = phi i64 [ %66, %.lr.ph86 ], [ 0, %._crit_edge82 ]
   %65 = load ptr, ptr %.084, align 8, !tbaa !159
-  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %65) #17
+  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %65) #18
   store ptr null, ptr %.084, align 8, !tbaa !159
   %66 = add nuw i64 %.383, 1
   %67 = getelementptr inbounds nuw i8, ptr %.084, i64 24
@@ -3198,7 +3198,7 @@ define internal fastcc void @bdf_free_font(ptr noundef %0) unnamed_addr #0 {
 
 ._crit_edge87:                                    ; preds = %._crit_edge87.loopexit, %._crit_edge82
   %70 = phi ptr [ %.pre92, %._crit_edge87.loopexit ], [ %62, %._crit_edge82 ]
-  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %70) #17
+  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %70) #18
   store ptr null, ptr %61, align 8, !tbaa !175
   br label %71
 
@@ -3275,7 +3275,7 @@ define internal i32 @bdf_parse_properties_(ptr noundef %0, i64 noundef %1, i64 %
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %8 = load ptr, ptr %7, align 8, !tbaa !41
-  %9 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.21, i64 noundef 7) #18
+  %9 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.21, i64 noundef 7) #19
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %.critedge
 
@@ -3312,7 +3312,7 @@ switch.edge:                                      ; preds = %10, %10, %10, %10, 
   %24 = add i64 %22, %23
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %26 = load ptr, ptr %25, align 8, !tbaa !155
-  %27 = call ptr @ft_mem_qrealloc(ptr noundef %17, i64 noundef 1, i64 noundef %22, i64 noundef %24, ptr noundef %26, ptr noundef nonnull %6) #17
+  %27 = call ptr @ft_mem_qrealloc(ptr noundef %17, i64 noundef 1, i64 noundef %22, i64 noundef %24, ptr noundef %26, ptr noundef nonnull %6) #18
   store ptr %27, ptr %25, align 8, !tbaa !155
   %28 = load i32, ptr %6, align 4, !tbaa !25
   %.not.i = icmp eq i32 %28, 0
@@ -3336,7 +3336,7 @@ bdf_add_comment_.exit:                            ; preds = %15, %20, %29
   br label %switch.edge49
 
 .critedge:                                        ; preds = %10, %5
-  %36 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(14) @.str.98, i64 noundef 13) #18
+  %36 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(14) @.str.98, i64 noundef 13) #19
   %.not40 = icmp eq i32 %36, 0
   br i1 %.not40, label %37, label %.critedge48
 
@@ -3356,7 +3356,7 @@ switch.edge46:                                    ; preds = %37, %37, %37, %37, 
   br label %switch.edge49
 
 .critedge48:                                      ; preds = %37, %.critedge
-  %40 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str.99, i64 noundef 21) #18
+  %40 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str.99, i64 noundef 21) #19
   %.not42 = icmp eq i32 %40, 0
   br i1 %.not42, label %41, label %.critedge51.preheader
 
@@ -3395,7 +3395,7 @@ switch.edge46:                                    ; preds = %37, %37, %37, %37, 
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 208
-  %52 = tail call ptr @ft_hash_str_lookup(ptr noundef nonnull %0, ptr noundef nonnull %51) #17
+  %52 = tail call ptr @ft_hash_str_lookup(ptr noundef nonnull %0, ptr noundef nonnull %51) #18
   %53 = icmp eq ptr %52, null
   br i1 %53, label %bdf_get_property.exit.thread.i, label %54
 
@@ -3637,7 +3637,7 @@ define internal i32 @bdf_parse_glyphs_(ptr noundef %0, i64 noundef %1, i64 %2, p
   %11 = load ptr, ptr %10, align 8, !tbaa !153
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !25
-  %12 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.21, i64 noundef 7) #18
+  %12 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.21, i64 noundef 7) #19
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %.critedge
 
@@ -3672,7 +3672,7 @@ switch.edge:                                      ; preds = %13, %13, %13, %13, 
   %25 = add i64 %23, %24
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %27 = load ptr, ptr %26, align 8, !tbaa !155
-  %28 = call ptr @ft_mem_qrealloc(ptr noundef %11, i64 noundef 1, i64 noundef %23, i64 noundef %25, ptr noundef %27, ptr noundef nonnull %6) #17
+  %28 = call ptr @ft_mem_qrealloc(ptr noundef %11, i64 noundef 1, i64 noundef %23, i64 noundef %25, ptr noundef %27, ptr noundef nonnull %6) #18
   store ptr %28, ptr %26, align 8, !tbaa !155
   %29 = load i32, ptr %6, align 4, !tbaa !25
   %.not.i = icmp eq i32 %29, 0
@@ -3697,7 +3697,7 @@ bdf_add_comment_.exit:                            ; preds = %18, %21, %30
   br label %375
 
 .critedge:                                        ; preds = %13, %5
-  %37 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.100, i64 noundef 7) #18
+  %37 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.100, i64 noundef 7) #19
   %.not254 = icmp eq i32 %37, 0
   br i1 %.not254, label %38, label %.critedge298
 
@@ -3723,7 +3723,7 @@ switch.edge296:                                   ; preds = %38, %38, %38, %38, 
   %45 = load ptr, ptr %44, align 8, !tbaa !94
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %47 = load i64, ptr %46, align 8, !tbaa !49
-  tail call void @qsort(ptr noundef %45, i64 noundef %47, i64 noundef 56, ptr noundef nonnull @by_encoding) #17
+  tail call void @qsort(ptr noundef %45, i64 noundef %47, i64 noundef 56, ptr noundef nonnull @by_encoding) #18
   %48 = load i64, ptr %4, align 8, !tbaa !26
   %49 = and i64 %48, 4294967294
   store i64 %49, ptr %4, align 8, !tbaa !26
@@ -3731,7 +3731,7 @@ switch.edge296:                                   ; preds = %38, %38, %38, %38, 
   br label %thread-pre-split
 
 .critedge298:                                     ; preds = %38, %.critedge
-  %50 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.101, i64 noundef 7) #18
+  %50 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.101, i64 noundef 7) #19
   %.not256 = icmp eq i32 %50, 0
   br i1 %.not256, label %51, label %.critedge301
 
@@ -3749,7 +3749,7 @@ switch.edge296:                                   ; preds = %38, %38, %38, %38, 
 switch.edge299:                                   ; preds = %51, %51, %51, %51, %51
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %55 = load ptr, ptr %54, align 8, !tbaa !59
-  tail call void @ft_mem_free(ptr noundef %11, ptr noundef %55) #17
+  tail call void @ft_mem_free(ptr noundef %11, ptr noundef %55) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
   %56 = load i64, ptr %4, align 8, !tbaa !26
   %57 = and i64 %56, 4294963263
@@ -3772,7 +3772,7 @@ switch.edge299:                                   ; preds = %51, %51, %51, %51, 
   br i1 %or.cond302, label %thread-pre-split, label %65
 
 65:                                               ; preds = %60, %.critedge301
-  %66 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.102, i64 noundef 9) #18
+  %66 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.102, i64 noundef 9) #19
   %.not260 = icmp eq i32 %66, 0
   br i1 %.not260, label %67, label %.critedge305
 
@@ -3821,7 +3821,7 @@ switch.edge303:                                   ; preds = %67, %67, %67, %67, 
   br i1 %cond.i, label %.loopexit.i, label %bdf_strtok_.exit, !llvm.loop !157
 
 bdf_strtok_.exit:                                 ; preds = %.loopexit.i
-  %78 = call ptr @ft_mem_strdup(ptr noundef %11, ptr noundef nonnull %.2.i, ptr noundef nonnull %7) #17
+  %78 = call ptr @ft_mem_strdup(ptr noundef %11, ptr noundef nonnull %.2.i, ptr noundef nonnull %7) #18
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %78, ptr %79, align 8, !tbaa !59
   %80 = load i32, ptr %7, align 4, !tbaa !25
@@ -3835,7 +3835,7 @@ bdf_strtok_.exit:                                 ; preds = %.loopexit.i
   br label %thread-pre-split
 
 .critedge305:                                     ; preds = %67, %65
-  %84 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.103, i64 noundef 8) #18
+  %84 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.103, i64 noundef 8) #19
   %.not262 = icmp eq i32 %84, 0
   br i1 %.not262, label %85, label %.critedge308
 
@@ -4006,7 +4006,7 @@ bdf_strtok_.exit335:                              ; preds = %.loopexit.i331
   %153 = add i64 %148, 64
   %154 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %155 = load ptr, ptr %154, align 8, !tbaa !94
-  %156 = call ptr @ft_mem_realloc(ptr noundef %11, i64 noundef 56, i64 noundef %148, i64 noundef %153, ptr noundef %155, ptr noundef nonnull %7) #17
+  %156 = call ptr @ft_mem_realloc(ptr noundef %11, i64 noundef 56, i64 noundef %148, i64 noundef %153, ptr noundef %155, ptr noundef nonnull %7) #18
   store ptr %156, ptr %154, align 8, !tbaa !94
   %157 = load i32, ptr %7, align 4, !tbaa !25
   %.not289 = icmp eq i32 %157, 0
@@ -4057,7 +4057,7 @@ bdf_strtok_.exit335:                              ; preds = %.loopexit.i331
   %180 = add i64 %175, 4
   %181 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %182 = load ptr, ptr %181, align 8, !tbaa !173
-  %183 = call ptr @ft_mem_realloc(ptr noundef %11, i64 noundef 56, i64 noundef %175, i64 noundef %180, ptr noundef %182, ptr noundef nonnull %7) #17
+  %183 = call ptr @ft_mem_realloc(ptr noundef %11, i64 noundef 56, i64 noundef %175, i64 noundef %180, ptr noundef %182, ptr noundef nonnull %7) #18
   store ptr %183, ptr %181, align 8, !tbaa !173
   %184 = load i32, ptr %7, align 4, !tbaa !25
   %.not288 = icmp eq i32 %184, 0
@@ -4086,7 +4086,7 @@ bdf_strtok_.exit335:                              ; preds = %.loopexit.i331
 196:                                              ; preds = %170
   %197 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %198 = load ptr, ptr %197, align 8, !tbaa !59
-  tail call void @ft_mem_free(ptr noundef %11, ptr noundef %198) #17
+  tail call void @ft_mem_free(ptr noundef %11, ptr noundef %198) #18
   br label %199
 
 199:                                              ; preds = %188, %196, %161
@@ -4108,7 +4108,7 @@ bdf_strtok_.exit335:                              ; preds = %.loopexit.i331
 205:                                              ; preds = %.critedge308
   %206 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %207 = load ptr, ptr %206, align 8, !tbaa !182
-  %208 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.104, i64 noundef 6) #18
+  %208 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.104, i64 noundef 6) #19
   %.not265 = icmp eq i32 %208, 0
   br i1 %.not265, label %209, label %.critedge312
 
@@ -4164,7 +4164,7 @@ bdf_strtok_.exit341:                              ; preds = %.loopexit.i337
   br label %thread-pre-split
 
 .critedge312:                                     ; preds = %209, %205
-  %223 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.105, i64 noundef 6) #18
+  %223 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.105, i64 noundef 6) #19
   %.not267 = icmp eq i32 %223, 0
   br i1 %.not267, label %224, label %.critedge315
 
@@ -4226,7 +4226,7 @@ bdf_strtok_.exit347:                              ; preds = %.loopexit.i343
   %242 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %243 = load i64, ptr %242, align 8, !tbaa !166
   %244 = mul i64 %243, %241
-  %245 = tail call i64 @FT_MulDiv(i64 noundef %239, i64 noundef 72000, i64 noundef %244) #17
+  %245 = tail call i64 @FT_MulDiv(i64 noundef %239, i64 noundef 72000, i64 noundef %244) #18
   %246 = trunc i64 %245 to i16
   %247 = getelementptr inbounds nuw i8, ptr %207, i64 16
   store i16 %246, ptr %247, align 8, !tbaa !183
@@ -4466,7 +4466,7 @@ bdf_strtok_.exit371:                              ; preds = %.loopexit.i367
   %331 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %332 = load i64, ptr %331, align 8, !tbaa !166
   %333 = mul i64 %332, %330
-  %334 = tail call i64 @FT_MulDiv(i64 noundef %328, i64 noundef 72000, i64 noundef %333) #17
+  %334 = tail call i64 @FT_MulDiv(i64 noundef %328, i64 noundef 72000, i64 noundef %333) #18
   %335 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %336 = load i16, ptr %335, align 8, !tbaa !183
   %337 = trunc i64 %334 to i16
@@ -4484,7 +4484,7 @@ bdf_strtok_.exit371:                              ; preds = %.loopexit.i367
   br label %thread-pre-split
 
 .critedge318:                                     ; preds = %sub_1, %sub_0, %258, %.tail
-  %342 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.107, i64 noundef 6) #18
+  %342 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.107, i64 noundef 6) #19
   %.not272 = icmp eq i32 %342, 0
   br i1 %.not272, label %343, label %.thread372.sink.split
 
@@ -4533,7 +4533,7 @@ switch.edge319:                                   ; preds = %343, %343, %343, %3
   br i1 %.not275, label %thread-pre-split, label %367
 
 367:                                              ; preds = %364
-  %368 = call ptr @ft_mem_alloc(ptr noundef %11, i64 noundef %361, ptr noundef nonnull %7) #17
+  %368 = call ptr @ft_mem_alloc(ptr noundef %11, i64 noundef %361, ptr noundef nonnull %7) #18
   %369 = getelementptr inbounds nuw i8, ptr %207, i64 32
   store ptr %368, ptr %369, align 8, !tbaa !171
   %370 = load i32, ptr %7, align 4, !tbaa !25
@@ -4573,7 +4573,7 @@ thread-pre-split:                                 ; preds = %43, %switch.edge299
 380:                                              ; preds = %.thread372
   %381 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %382 = load ptr, ptr %381, align 8, !tbaa !59
-  call void @ft_mem_free(ptr noundef %11, ptr noundef %382) #17
+  call void @ft_mem_free(ptr noundef %11, ptr noundef %382) #18
   store ptr null, ptr %381, align 8, !tbaa !59
   %.pre406 = load i32, ptr %7, align 4, !tbaa !25
   br label %383
@@ -4597,7 +4597,7 @@ define internal fastcc i32 @bdf_add_property_(ptr noundef %0, ptr noundef %1, pt
   store i32 0, ptr %5, align 4, !tbaa !25
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %9 = load ptr, ptr %8, align 8, !tbaa !67
-  %10 = tail call ptr @ft_hash_str_lookup(ptr noundef %1, ptr noundef %9) #17
+  %10 = tail call ptr @ft_hash_str_lookup(ptr noundef %1, ptr noundef %9) #18
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %93, label %11
 
@@ -4617,7 +4617,7 @@ define internal fastcc i32 @bdf_add_property_(ptr noundef %0, ptr noundef %1, pt
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !37
-  tail call void @ft_mem_free(ptr noundef %7, ptr noundef %20) #17
+  tail call void @ft_mem_free(ptr noundef %7, ptr noundef %20) #18
   store ptr null, ptr %19, align 8, !tbaa !37
   %.not75 = icmp eq ptr %2, null
   br i1 %.not75, label %244, label %21
@@ -4628,7 +4628,7 @@ define internal fastcc i32 @bdf_add_property_(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not76, label %244, label %23
 
 23:                                               ; preds = %21
-  %24 = call ptr @ft_mem_strdup(ptr noundef %7, ptr noundef nonnull %2, ptr noundef nonnull %5) #17
+  %24 = call ptr @ft_mem_strdup(ptr noundef %7, ptr noundef nonnull %2, ptr noundef nonnull %5) #18
   store ptr %24, ptr %19, align 8, !tbaa !37
   %.pre98 = load i32, ptr %5, align 4, !tbaa !25
   br label %244
@@ -4737,7 +4737,7 @@ bdf_atoul_.exit:                                  ; preds = %.lr.ph.i77, %74, %6
 
 93:                                               ; preds = %3
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %95 = tail call ptr @ft_hash_str_lookup(ptr noundef %1, ptr noundef nonnull %94) #17
+  %95 = tail call ptr @ft_hash_str_lookup(ptr noundef %1, ptr noundef nonnull %94) #18
   %.not68 = icmp eq ptr %95, null
   br i1 %.not68, label %96, label %124
 
@@ -4745,7 +4745,7 @@ bdf_atoul_.exit:                                  ; preds = %.lr.ph.i77, %74, %6
   %97 = load ptr, ptr %6, align 8, !tbaa !153
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !25
-  %98 = tail call ptr @ft_hash_str_lookup(ptr noundef %1, ptr noundef nonnull %94) #17
+  %98 = tail call ptr @ft_hash_str_lookup(ptr noundef %1, ptr noundef nonnull %94) #18
   %.not.i80 = icmp eq ptr %98, null
   br i1 %.not.i80, label %99, label %122
 
@@ -4755,7 +4755,7 @@ bdf_atoul_.exit:                                  ; preds = %.lr.ph.i77, %74, %6
   %102 = add i64 %101, 1
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %104 = load ptr, ptr %103, align 8, !tbaa !175
-  %105 = call ptr @ft_mem_qrealloc(ptr noundef %97, i64 noundef 24, i64 noundef %101, i64 noundef %102, ptr noundef %104, ptr noundef nonnull %4) #17
+  %105 = call ptr @ft_mem_qrealloc(ptr noundef %97, i64 noundef 24, i64 noundef %101, i64 noundef %102, ptr noundef %104, ptr noundef nonnull %4) #18
   store ptr %105, ptr %103, align 8, !tbaa !175
   %106 = load i32, ptr %4, align 4, !tbaa !25
   %.not22.i = icmp eq i32 %106, 0
@@ -4764,7 +4764,7 @@ bdf_atoul_.exit:                                  ; preds = %.lr.ph.i77, %74, %6
 107:                                              ; preds = %99
   %108 = load i64, ptr %100, align 8, !tbaa !176
   %109 = getelementptr inbounds nuw %struct.bdf_property_t_, ptr %105, i64 %108
-  %110 = call ptr @ft_mem_strdup(ptr noundef %97, ptr noundef %1, ptr noundef nonnull %4) #17
+  %110 = call ptr @ft_mem_strdup(ptr noundef %97, ptr noundef %1, ptr noundef nonnull %4) #18
   store ptr %110, ptr %109, align 8, !tbaa !159
   %111 = load i32, ptr %4, align 4, !tbaa !25
   %.not23.i = icmp eq i32 %111, 0
@@ -4779,7 +4779,7 @@ bdf_atoul_.exit:                                  ; preds = %.lr.ph.i77, %74, %6
   store ptr null, ptr %115, align 8, !tbaa !37
   %116 = load i64, ptr %100, align 8, !tbaa !176
   %117 = add i64 %116, 82
-  %118 = call i32 @ft_hash_str_insert(ptr noundef %110, i64 noundef %117, ptr noundef nonnull %94, ptr noundef %97) #17
+  %118 = call i32 @ft_hash_str_insert(ptr noundef %110, i64 noundef %117, ptr noundef nonnull %94, ptr noundef %97) #18
   %.not24.i = icmp eq i32 %118, 0
   br i1 %.not24.i, label %119, label %bdf_create_property.exit.thread
 
@@ -4797,7 +4797,7 @@ bdf_create_property.exit.thread:                  ; preds = %112, %107, %99
 122:                                              ; preds = %119, %96
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i32 0, ptr %5, align 4, !tbaa !25
-  %123 = call ptr @ft_hash_str_lookup(ptr noundef %1, ptr noundef nonnull %94) #17
+  %123 = call ptr @ft_hash_str_lookup(ptr noundef %1, ptr noundef nonnull %94) #18
   br label %124
 
 124:                                              ; preds = %122, %93
@@ -4813,7 +4813,7 @@ bdf_create_property.exit.thread:                  ; preds = %112, %107, %99
   %131 = add i64 %126, 1
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %133 = load ptr, ptr %132, align 8, !tbaa !68
-  %134 = call ptr @ft_mem_qrealloc(ptr noundef %7, i64 noundef 24, i64 noundef %126, i64 noundef %131, ptr noundef %133, ptr noundef nonnull %5) #17
+  %134 = call ptr @ft_mem_qrealloc(ptr noundef %7, i64 noundef 24, i64 noundef %126, i64 noundef %131, ptr noundef %133, ptr noundef nonnull %5) #18
   store ptr %134, ptr %132, align 8, !tbaa !68
   %135 = load i32, ptr %5, align 4, !tbaa !25
   %.not70 = icmp eq i32 %135, 0
@@ -4875,7 +4875,7 @@ bdf_create_property.exit.thread:                  ; preds = %112, %107, %99
   br i1 %.not72, label %236, label %165
 
 165:                                              ; preds = %163
-  %166 = call ptr @ft_mem_strdup(ptr noundef %7, ptr noundef nonnull %2, ptr noundef nonnull %5) #17
+  %166 = call ptr @ft_mem_strdup(ptr noundef %7, ptr noundef nonnull %2, ptr noundef nonnull %5) #18
   store ptr %166, ptr %162, align 8, !tbaa !37
   %167 = load i32, ptr %5, align 4, !tbaa !25
   %.not73 = icmp eq i32 %167, 0
@@ -4991,7 +4991,7 @@ bdf_atoul_.exit96:                                ; preds = %.lr.ph.i91, %217, %
   %237 = phi ptr [ %.pre, %._crit_edge ], [ %154, %161 ], [ %154, %163 ], [ %154, %bdf_atoul_.exit96 ], [ %154, %bdf_atol_.exit89 ], [ %154, %149 ]
   %238 = load i64, ptr %125, align 8, !tbaa !197
   %239 = load ptr, ptr %8, align 8, !tbaa !67
-  %240 = call i32 @ft_hash_str_insert(ptr noundef %237, i64 noundef %238, ptr noundef %239, ptr noundef %7) #17
+  %240 = call i32 @ft_hash_str_insert(ptr noundef %237, i64 noundef %238, ptr noundef %239, ptr noundef %7) #18
   %.not74 = icmp eq i32 %240, 0
   br i1 %.not74, label %241, label %244
 
@@ -5322,35 +5322,35 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #16
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smax.i16(i16, i16) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smin.i16(i16, i16) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #16
+declare i64 @llvm.abs.i64(i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.abs.i16(i16, i1 immarg) #16
+declare i16 @llvm.abs.i16(i16, i1 immarg) #17
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5368,9 +5368,10 @@ attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #13 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind }
-attributes #18 = { nounwind willreturn memory(read) }
+attributes #16 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nounwind }
+attributes #19 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

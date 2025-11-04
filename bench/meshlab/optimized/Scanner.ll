@@ -174,7 +174,7 @@ _ZN14VrmlTranslator6Buffer5CloseEv.exit.i:        ; preds = %8, %5, %1
   br i1 %.not.i, label %_ZN14VrmlTranslator6BufferD2Ev.exit, label %12
 
 12:                                               ; preds = %_ZN14VrmlTranslator6Buffer5CloseEv.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %11) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %11) #21
   store ptr null, ptr %10, align 8
   br label %_ZN14VrmlTranslator6BufferD2Ev.exit
 
@@ -208,11 +208,11 @@ _ZN14VrmlTranslator6Buffer5CloseEv.exit.i.i:      ; preds = %8, %5, %1
   br i1 %.not.i.i, label %_ZN14VrmlTranslator10UTF8BufferD2Ev.exit, label %12
 
 12:                                               ; preds = %_ZN14VrmlTranslator6Buffer5CloseEv.exit.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %11) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %11) #21
   br label %_ZN14VrmlTranslator10UTF8BufferD2Ev.exit
 
 _ZN14VrmlTranslator10UTF8BufferD2Ev.exit:         ; preds = %_ZN14VrmlTranslator6Buffer5CloseEv.exit.i.i, %12
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }
 
@@ -337,7 +337,7 @@ define noalias noundef nonnull ptr @_ZN14VrmlTranslator6Buffer9GetStringEii(ptr 
   %6 = icmp slt i32 %4, 0
   %7 = shl nuw nsw i64 %5, 2
   %8 = select i1 %6, i64 -1, i64 %7
-  %9 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #21
+  %9 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #22
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
@@ -421,7 +421,7 @@ _ZN14VrmlTranslator6Buffer7CanSeekEv.exit:        ; preds = %2
   %19 = shl nsw i32 %14, 1
   store i32 %19, ptr %11, align 8
   %20 = sext i32 %19 to i64
-  %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #21
+  %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #22
   %22 = load ptr, ptr %.phi.trans.insert.i, align 8
   %23 = sext i32 %14 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr align 1 %22, i64 %23, i1 false)
@@ -429,7 +429,7 @@ _ZN14VrmlTranslator6Buffer7CanSeekEv.exit:        ; preds = %2
   br i1 %24, label %26, label %25
 
 25:                                               ; preds = %18
-  tail call void @_ZdaPv(ptr noundef nonnull %22) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %22) #21
   %.pre.i = load i32, ptr %12, align 8
   br label %26
 
@@ -471,10 +471,10 @@ _ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit: ; preds = %28
   br i1 %or.cond19, label %43, label %46
 
 43:                                               ; preds = %.critedge
-  %44 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %1) #22
-  %45 = tail call ptr @__cxa_allocate_exception(i64 8) #22
+  %44 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %1) #23
+  %45 = tail call ptr @__cxa_allocate_exception(i64 8) #23
   store ptr %3, ptr %45, align 16
-  call void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTIPc, ptr null) #23
+  call void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTIPc, ptr null) #24
   unreachable
 
 46:                                               ; preds = %.critedge
@@ -528,8 +528,8 @@ _ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit: ; preds = %28
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN14VrmlTranslator6BufferD0Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN14VrmlTranslator6BufferD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZN14VrmlTranslator6BufferD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }
 
@@ -592,7 +592,7 @@ _ZN14VrmlTranslator6Buffer7CanSeekEv.exit:        ; preds = %24
   %35 = shl nsw i32 %31, 1
   store i32 %35, ptr %29, align 8
   %36 = sext i32 %35 to i64
-  %37 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %36) #21
+  %37 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %36) #22
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = sext i32 %31 to i64
@@ -601,7 +601,7 @@ _ZN14VrmlTranslator6Buffer7CanSeekEv.exit:        ; preds = %24
   br i1 %41, label %43, label %42
 
 42:                                               ; preds = %34
-  tail call void @_ZdaPv(ptr noundef nonnull %39) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %39) #21
   %.pre.i = load i32, ptr %4, align 8
   br label %43
 
@@ -654,7 +654,7 @@ define noundef nonnull ptr @_Z18coco_string_createPKw(ptr noundef %0) local_unna
   br i1 %.not, label %.thread, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @wcslen(ptr noundef nonnull %0) #24
+  %3 = tail call i64 @wcslen(ptr noundef nonnull %0) #25
   %.fr = freeze i64 %3
   %4 = trunc i64 %.fr to i32
   %5 = shl i64 %.fr, 32
@@ -668,8 +668,8 @@ define noundef nonnull ptr @_Z18coco_string_createPKw(ptr noundef %0) local_unna
 .thread:                                          ; preds = %2, %1
   %.011 = phi i64 [ 0, %1 ], [ %8, %2 ]
   %9 = phi i64 [ 4, %1 ], [ %spec.select, %2 ]
-  %10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #21
-  %11 = tail call ptr @wcsncpy(ptr noundef nonnull %10, ptr noundef %0, i64 noundef %.011) #22
+  %10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #22
+  %11 = tail call ptr @wcsncpy(ptr noundef nonnull %10, ptr noundef %0, i64 noundef %.011) #23
   %12 = getelementptr inbounds i32, ptr %10, i64 %.011
   store i32 0, ptr %12, align 4
   ret ptr %10
@@ -693,11 +693,11 @@ define noundef nonnull ptr @_Z18coco_string_createPKwii(ptr noundef %0, i32 noun
   %6 = icmp slt i32 %spec.select, -1
   %7 = shl nuw nsw i64 %5, 2
   %8 = select i1 %6, i64 -1, i64 %7
-  %9 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #21
+  %9 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #22
   %10 = sext i32 %1 to i64
   %11 = getelementptr inbounds i32, ptr %0, i64 %10
   %12 = sext i32 %spec.select to i64
-  %13 = tail call ptr @wcsncpy(ptr noundef nonnull %9, ptr noundef %11, i64 noundef %12) #22
+  %13 = tail call ptr @wcsncpy(ptr noundef nonnull %9, ptr noundef %11, i64 noundef %12) #23
   %14 = getelementptr inbounds i32, ptr %9, i64 %12
   store i32 0, ptr %14, align 4
   ret ptr %9
@@ -709,12 +709,12 @@ define noalias noundef ptr @_Z24coco_string_create_upperPKw(ptr noundef readonly
   br i1 %.not, label %17, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @wcslen(ptr noundef nonnull %0) #24
+  %3 = tail call i64 @wcslen(ptr noundef nonnull %0) #25
   %4 = shl i64 %3, 32
   %sext = add i64 %4, 4294967296
   %5 = tail call i64 @llvm.smax.i64(i64 %sext, i64 -1)
   %6 = ashr i64 %5, 30
-  %7 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #21
+  %7 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #22
   %8 = and i64 %3, 2147483648
   %.not2628.not = icmp eq i64 %8, 0
   br i1 %.not2628.not, label %.lr.ph.preheader, label %._crit_edge
@@ -755,14 +755,14 @@ define noalias noundef ptr @_Z24coco_string_create_lowerPKw(ptr noundef readonly
   br i1 %.not, label %17, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @wcslen(ptr noundef nonnull %0) #24
+  %3 = tail call i64 @wcslen(ptr noundef nonnull %0) #25
   %4 = trunc i64 %3 to i32
   %5 = add i64 %3, 1
   %6 = and i64 %5, 4294967295
   %7 = icmp slt i32 %4, -1
   %8 = shl nuw nsw i64 %6, 2
   %9 = select i1 %7, i64 -1, i64 %8
-  %10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #21
+  %10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #22
   %.not2425.i = icmp slt i32 %4, 0
   br i1 %.not2425.i, label %_Z24coco_string_create_lowerPKwii.exit, label %.lr.ph.i
 
@@ -803,7 +803,7 @@ define noalias noundef ptr @_Z24coco_string_create_lowerPKwii(ptr noundef readon
   %7 = icmp slt i32 %2, -1
   %8 = shl nuw nsw i64 %6, 2
   %9 = select i1 %7, i64 -1, i64 %8
-  %10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #21
+  %10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #22
   %.not2425 = icmp slt i32 %2, 0
   br i1 %.not2425, label %._crit_edge, label %.lr.ph.preheader
 
@@ -843,7 +843,7 @@ define noundef nonnull ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %0, 
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i64 @wcslen(ptr noundef nonnull %0) #24
+  %4 = tail call i64 @wcslen(ptr noundef nonnull %0) #25
   %5 = trunc i64 %4 to i32
   br label %6
 
@@ -853,7 +853,7 @@ define noundef nonnull ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %0, 
   br i1 %.not20, label %10, label %7
 
 7:                                                ; preds = %6
-  %8 = tail call i64 @wcslen(ptr noundef nonnull %1) #24
+  %8 = tail call i64 @wcslen(ptr noundef nonnull %1) #25
   %9 = trunc i64 %8 to i32
   br label %10
 
@@ -865,11 +865,11 @@ define noundef nonnull ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %0, 
   %14 = icmp slt i32 %11, -1
   %15 = shl nsw i64 %13, 2
   %16 = select i1 %14, i64 -1, i64 %15
-  %17 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #21
+  %17 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #22
   br i1 %.not, label %20, label %18
 
 18:                                               ; preds = %10
-  %19 = tail call ptr @wcscpy(ptr noundef nonnull %17, ptr noundef nonnull %0) #22
+  %19 = tail call ptr @wcscpy(ptr noundef nonnull %17, ptr noundef nonnull %0) #23
   br label %20
 
 20:                                               ; preds = %18, %10
@@ -878,7 +878,7 @@ define noundef nonnull ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %0, 
 21:                                               ; preds = %20
   %22 = sext i32 %.016 to i64
   %23 = getelementptr inbounds i32, ptr %17, i64 %22
-  %24 = tail call ptr @wcscpy(ptr noundef nonnull %23, ptr noundef nonnull %1) #22
+  %24 = tail call ptr @wcscpy(ptr noundef nonnull %23, ptr noundef nonnull %1) #23
   br label %25
 
 25:                                               ; preds = %21, %20
@@ -897,7 +897,7 @@ define noundef nonnull ptr @_Z25coco_string_create_appendPKww(ptr noundef %0, i3
   br i1 %.not.i, label %_Z18coco_string_lengthPKw.exit.thread, label %_Z18coco_string_lengthPKw.exit
 
 _Z18coco_string_lengthPKw.exit:                   ; preds = %2
-  %3 = tail call i64 @wcslen(ptr noundef nonnull readonly %0) #24
+  %3 = tail call i64 @wcslen(ptr noundef nonnull readonly %0) #25
   %.fr = freeze i64 %3
   %4 = trunc i64 %.fr to i32
   %5 = shl i64 %.fr, 32
@@ -911,8 +911,8 @@ _Z18coco_string_lengthPKw.exit:                   ; preds = %2
 _Z18coco_string_lengthPKw.exit.thread:            ; preds = %_Z18coco_string_lengthPKw.exit, %2
   %.0.i12 = phi i64 [ 0, %2 ], [ %8, %_Z18coco_string_lengthPKw.exit ]
   %9 = phi i64 [ 8, %2 ], [ %spec.select, %_Z18coco_string_lengthPKw.exit ]
-  %10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #21
-  %11 = tail call ptr @wcsncpy(ptr noundef nonnull %10, ptr noundef %0, i64 noundef %.0.i12) #22
+  %10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #22
+  %11 = tail call ptr @wcsncpy(ptr noundef nonnull %10, ptr noundef %0, i64 noundef %.0.i12) #23
   %12 = getelementptr inbounds i32, ptr %10, i64 %.0.i12
   store i32 %1, ptr %12, align 4
   %13 = getelementptr i8, ptr %12, i64 4
@@ -926,7 +926,7 @@ define noundef i32 @_Z18coco_string_lengthPKw(ptr noundef readonly captures(addr
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @wcslen(ptr noundef nonnull %0) #24
+  %3 = tail call i64 @wcslen(ptr noundef nonnull %0) #25
   %4 = trunc i64 %3 to i32
   br label %5
 
@@ -942,7 +942,7 @@ define void @_Z18coco_string_deleteRPw(ptr noundef nonnull align 8 captures(none
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #21
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -955,9 +955,9 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define noundef zeroext i1 @_Z20coco_string_endswithPKwS0_(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #9 {
-  %3 = tail call i64 @wcslen(ptr noundef %0) #24
+  %3 = tail call i64 @wcslen(ptr noundef %0) #25
   %4 = trunc i64 %3 to i32
-  %5 = tail call i64 @wcslen(ptr noundef %1) #24
+  %5 = tail call i64 @wcslen(ptr noundef %1) #25
   %6 = trunc i64 %5 to i32
   %.not = icmp sgt i32 %6, %4
   br i1 %.not, label %15, label %7
@@ -970,7 +970,7 @@ define noundef zeroext i1 @_Z20coco_string_endswithPKwS0_(ptr noundef readonly %
   %10 = ashr exact i64 %sext8, 32
   %11 = sub nsw i64 0, %10
   %12 = getelementptr inbounds i32, ptr %9, i64 %11
-  %13 = tail call i32 @wcscmp(ptr noundef %12, ptr noundef %1) #24
+  %13 = tail call i32 @wcscmp(ptr noundef %12, ptr noundef %1) #25
   %14 = icmp eq i32 %13, 0
   br label %15
 
@@ -984,7 +984,7 @@ declare i32 @wcscmp(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define noundef i32 @_Z19coco_string_indexofPKww(ptr noundef %0, i32 noundef signext %1) local_unnamed_addr #9 {
-  %3 = tail call ptr @wcschr(ptr noundef %0, i32 noundef signext %1) #24
+  %3 = tail call ptr @wcschr(ptr noundef %0, i32 noundef signext %1) #25
   %.not = icmp eq ptr %3, null
   %4 = ptrtoint ptr %3 to i64
   %5 = ptrtoint ptr %0 to i64
@@ -1000,7 +1000,7 @@ declare ptr @wcschr(ptr noundef, i32 noundef signext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define noundef i32 @_Z23coco_string_lastindexofPKww(ptr noundef %0, i32 noundef signext %1) local_unnamed_addr #9 {
-  %3 = tail call ptr @wcsrchr(ptr noundef %0, i32 noundef signext %1) #24
+  %3 = tail call ptr @wcsrchr(ptr noundef %0, i32 noundef signext %1) #25
   %.not = icmp eq ptr %3, null
   %4 = ptrtoint ptr %3 to i64
   %5 = ptrtoint ptr %0 to i64
@@ -1025,13 +1025,13 @@ define void @_Z17coco_string_mergeRPwPKw(ptr noundef nonnull align 8 captures(no
   br i1 %.not.i, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i64 @wcslen(ptr noundef nonnull %4) #24
+  %6 = tail call i64 @wcslen(ptr noundef nonnull %4) #25
   %7 = trunc i64 %6 to i32
   br label %8
 
 8:                                                ; preds = %5, %3
   %.016.i = phi i32 [ %7, %5 ], [ 0, %3 ]
-  %9 = tail call i64 @wcslen(ptr noundef nonnull %1) #24
+  %9 = tail call i64 @wcslen(ptr noundef nonnull %1) #25
   %10 = trunc i64 %9 to i32
   %11 = add nsw i32 %.016.i, %10
   %12 = add nsw i32 %11, 1
@@ -1039,17 +1039,17 @@ define void @_Z17coco_string_mergeRPwPKw(ptr noundef nonnull align 8 captures(no
   %14 = icmp slt i32 %11, -1
   %15 = shl nsw i64 %13, 2
   %16 = select i1 %14, i64 -1, i64 %15
-  %17 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #21
+  %17 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #22
   br i1 %.not.i, label %_Z25coco_string_create_appendPKwS0_.exit, label %18
 
 18:                                               ; preds = %8
-  %19 = tail call ptr @wcscpy(ptr noundef nonnull %17, ptr noundef nonnull %4) #22
+  %19 = tail call ptr @wcscpy(ptr noundef nonnull %17, ptr noundef nonnull %4) #23
   br label %_Z25coco_string_create_appendPKwS0_.exit
 
 _Z25coco_string_create_appendPKwS0_.exit:         ; preds = %18, %8
   %20 = sext i32 %.016.i to i64
   %21 = getelementptr inbounds i32, ptr %17, i64 %20
-  %22 = tail call ptr @wcscpy(ptr noundef nonnull %21, ptr noundef nonnull %1) #22
+  %22 = tail call ptr @wcscpy(ptr noundef nonnull %21, ptr noundef nonnull %1) #23
   %23 = sext i32 %11 to i64
   %24 = getelementptr inbounds i32, ptr %17, i64 %23
   store i32 0, ptr %24, align 4
@@ -1058,7 +1058,7 @@ _Z25coco_string_create_appendPKwS0_.exit:         ; preds = %18, %8
   br i1 %26, label %28, label %27
 
 27:                                               ; preds = %_Z25coco_string_create_appendPKwS0_.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %25) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %25) #21
   br label %28
 
 28:                                               ; preds = %27, %_Z25coco_string_create_appendPKwS0_.exit
@@ -1071,14 +1071,14 @@ _Z25coco_string_create_appendPKwS0_.exit:         ; preds = %18, %8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define noundef zeroext i1 @_Z17coco_string_equalPKwS0_(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #9 {
-  %3 = tail call i32 @wcscmp(ptr noundef %0, ptr noundef %1) #24
+  %3 = tail call i32 @wcscmp(ptr noundef %0, ptr noundef %1) #25
   %4 = icmp eq i32 %3, 0
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define noundef i32 @_Z21coco_string_comparetoPKwS0_(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #9 {
-  %3 = tail call i32 @wcscmp(ptr noundef %0, ptr noundef %1) #24
+  %3 = tail call i32 @wcscmp(ptr noundef %0, ptr noundef %1) #25
   ret i32 %3
 }
 
@@ -1118,11 +1118,11 @@ define noalias noundef nonnull ptr @_Z18coco_string_createPKc(ptr noundef readon
   br i1 %.not, label %.thread.thread, label %.thread
 
 .thread.thread:                                   ; preds = %1
-  %2 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znam(i64 noundef 4) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znam(i64 noundef 4) #22
   br label %._crit_edge
 
 .thread:                                          ; preds = %1
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #25
   %.fr = freeze i64 %3
   %4 = trunc i64 %.fr to i32
   %5 = shl i64 %.fr, 32
@@ -1130,7 +1130,7 @@ define noalias noundef nonnull ptr @_Z18coco_string_createPKc(ptr noundef readon
   %6 = icmp slt i32 %4, -1
   %7 = ashr exact i64 %sext, 30
   %spec.select = select i1 %6, i64 -1, i64 %7
-  %8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select) #21
+  %8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select) #22
   %9 = icmp sgt i32 %4, 0
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1168,7 +1168,7 @@ define noalias noundef nonnull ptr @_Z23coco_string_create_charPKw(ptr noundef r
   br i1 %.not.i, label %_Z18coco_string_lengthPKw.exit, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @wcslen(ptr noundef nonnull readonly %0) #24
+  %3 = tail call i64 @wcslen(ptr noundef nonnull readonly %0) #25
   %4 = trunc i64 %3 to i32
   br label %_Z18coco_string_lengthPKw.exit
 
@@ -1176,7 +1176,7 @@ _Z18coco_string_lengthPKw.exit:                   ; preds = %1, %2
   %.0.i = phi i32 [ %4, %2 ], [ 0, %1 ]
   %5 = add nsw i32 %.0.i, 1
   %6 = sext i32 %5 to i64
-  %7 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #21
+  %7 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #22
   %8 = icmp sgt i32 %.0.i, 0
   br i1 %8, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1209,7 +1209,7 @@ define void @_Z18coco_string_deleteRPc(ptr noundef nonnull align 8 captures(none
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #21
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -1231,7 +1231,7 @@ define void @_ZN14VrmlTranslator5TokenD2Ev(ptr noundef nonnull align 8 captures(
   br i1 %4, label %_Z18coco_string_deleteRPw.exit, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #21
   br label %_Z18coco_string_deleteRPw.exit
 
 _Z18coco_string_deleteRPw.exit:                   ; preds = %1, %5
@@ -1289,7 +1289,7 @@ _ZN14VrmlTranslator6Buffer7CanSeekEv.exit:        ; preds = %3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %24, ptr %25, align 8
   %26 = zext nneg i32 %24 to i64
-  %27 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %26) #21
+  %27 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %26) #22
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %27, ptr %28, align 8
   %29 = icmp sgt i32 %23, 0
@@ -1406,7 +1406,7 @@ define void @_ZN14VrmlTranslator6BufferC2EPS0_(ptr noundef nonnull writeonly ali
 define void @_ZN14VrmlTranslator6BufferC2EPKhi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(49) initializes((0, 36), (40, 48)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator6BufferE, i64 16), ptr %0, align 8
   %4 = sext i32 %2 to i64
-  %5 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #21
+  %5 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #22
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %5, ptr %6, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr align 1 %1, i64 %4, i1 false)
@@ -1454,7 +1454,7 @@ _ZN14VrmlTranslator6Buffer5CloseEv.exit:          ; preds = %8, %5, %1
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %_ZN14VrmlTranslator6Buffer5CloseEv.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %11) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %11) #21
   store ptr null, ptr %10, align 8
   br label %13
 
@@ -1489,7 +1489,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN14VrmlTranslator6Buffer19ReadNe
   %9 = shl nsw i32 %5, 1
   store i32 %9, ptr %2, align 8
   %10 = sext i32 %9 to i64
-  %11 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %10) #21
+  %11 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %10) #22
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %5 to i64
@@ -1498,7 +1498,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN14VrmlTranslator6Buffer19ReadNe
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %8
-  tail call void @_ZdaPv(ptr noundef nonnull %13) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %13) #21
   %.pre = load i32, ptr %4, align 8
   br label %17
 
@@ -1549,20 +1549,20 @@ declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i6
 define void @_ZN14VrmlTranslator7ScannerC2EPKhi(ptr noundef nonnull align 8 dereferenceable(160) initializes((56, 80)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %4, align 8
-  %5 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #21
+  %5 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #22
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %5, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %5, i8 0, i64 1024, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i64 16), ptr %7, align 8
-  %8 = invoke noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #21
+  %8 = invoke noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #22
           to label %9 unwind label %16
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %8, ptr %10, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %8, i8 0, i64 1024, i1 false)
-  %11 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
+  %11 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
           to label %12 unwind label %18
 
 12:                                               ; preds = %9
@@ -1591,17 +1591,17 @@ define void @_ZN14VrmlTranslator7ScannerC2EPKhi(ptr noundef nonnull align 8 dere
 20:                                               ; preds = %12
   %21 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #21
   br label %22
 
 22:                                               ; preds = %20, %18
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %21, %20 ]
-  tail call void @_ZN14VrmlTranslator10KeywordMapD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #22
+  tail call void @_ZN14VrmlTranslator10KeywordMapD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #23
   br label %23
 
 23:                                               ; preds = %22, %16
   %.pn.pn = phi { ptr, i32 } [ %.pn, %22 ], [ %17, %16 ]
-  tail call void @_ZN14VrmlTranslator11StartStatesD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #22
+  tail call void @_ZN14VrmlTranslator11StartStatesD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #23
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -1620,7 +1620,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 85, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store i32 33, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %7, align 4
@@ -1634,7 +1634,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
 
 12:                                               ; preds = %.preheader67, %12
   %indvars.iv = phi i64 [ 36, %.preheader67 ], [ %indvars.iv.next, %12 ]
-  %13 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %13 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -1650,7 +1650,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   br i1 %exitcond.not, label %.preheader66, label %12, !llvm.loop !13
 
 .preheader65:                                     ; preds = %.preheader66
-  %20 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %20 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store i32 47, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 1, ptr %21, align 4
@@ -1664,7 +1664,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
 
 .preheader66:                                     ; preds = %12, %.preheader66
   %indvars.iv76 = phi i64 [ %indvars.iv.next77, %.preheader66 ], [ 40, %12 ]
-  %26 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %26 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   %27 = trunc nuw nsw i64 %indvars.iv76 to i32
   store i32 %27, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 4
@@ -1681,7 +1681,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
 
 33:                                               ; preds = %.preheader65, %33
   %indvars.iv80 = phi i64 [ 58, %.preheader65 ], [ %indvars.iv.next81, %33 ]
-  %34 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %34 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   %35 = trunc nuw nsw i64 %indvars.iv80 to i32
   store i32 %35, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 4
@@ -1698,7 +1698,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
 
 .preheader63:                                     ; preds = %33, %.preheader63
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %.preheader63 ], [ 87, %33 ]
-  %41 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %41 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   %42 = trunc nuw nsw i64 %indvars.iv84 to i32
   store i32 %42, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 4
@@ -1714,7 +1714,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   br i1 %exitcond87.not, label %.preheader62, label %.preheader63, !llvm.loop !16
 
 .preheader61:                                     ; preds = %.preheader62
-  %48 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %48 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store i32 124, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i32 1, ptr %49, align 4
@@ -1724,7 +1724,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   %53 = load ptr, ptr %52, align 8
   store ptr %53, ptr %50, align 8
   store ptr %48, ptr %52, align 8
-  %54 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %54 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store i32 126, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i32 1, ptr %55, align 4
@@ -1738,7 +1738,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
 
 .preheader62:                                     ; preds = %.preheader63, %.preheader62
   %indvars.iv88 = phi i64 [ %indvars.iv.next89, %.preheader62 ], [ 94, %.preheader63 ]
-  %60 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %60 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   %61 = trunc nuw nsw i64 %indvars.iv88 to i32
   store i32 %61, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 4
@@ -1755,7 +1755,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
 
 67:                                               ; preds = %.preheader61, %67
   %.973 = phi i32 [ 128, %.preheader61 ], [ %76, %67 ]
-  %68 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %68 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store i32 %.973, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store i32 1, ptr %69, align 4
@@ -1773,7 +1773,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
 
 .preheader58:                                     ; preds = %67, %.preheader58
   %indvars.iv93 = phi i64 [ %indvars.iv.next94, %.preheader58 ], [ 49, %67 ]
-  %77 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %77 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   %78 = trunc nuw nsw i64 %indvars.iv93 to i32
   store i32 %78, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 4
@@ -1789,7 +1789,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   br i1 %exitcond96.not, label %.preheader, label %.preheader58, !llvm.loop !19
 
 .preheader:                                       ; preds = %.preheader58
-  %84 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %84 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store i32 48, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   store i32 36, ptr %85, align 4
@@ -1799,7 +1799,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   %89 = load ptr, ptr %88, align 8
   store ptr %89, ptr %86, align 8
   store ptr %84, ptr %88, align 8
-  %90 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %90 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store i32 43, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
   store i32 37, ptr %91, align 4
@@ -1809,7 +1809,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   %95 = load ptr, ptr %94, align 8
   store ptr %95, ptr %92, align 8
   store ptr %90, ptr %94, align 8
-  %96 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %96 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store i32 45, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
   store i32 37, ptr %97, align 4
@@ -1819,7 +1819,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   %101 = load ptr, ptr %100, align 8
   store ptr %101, ptr %98, align 8
   store ptr %96, ptr %100, align 8
-  %102 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %102 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store i32 46, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
   store i32 51, ptr %103, align 4
@@ -1829,7 +1829,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   %107 = load ptr, ptr %106, align 8
   store ptr %107, ptr %104, align 8
   store ptr %102, ptr %106, align 8
-  %108 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %108 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store i32 34, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   store i32 16, ptr %109, align 4
@@ -1839,7 +1839,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   %113 = load ptr, ptr %112, align 8
   store ptr %113, ptr %110, align 8
   store ptr %108, ptr %112, align 8
-  %114 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %114 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store i32 86, ptr %114, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
   store i32 38, ptr %115, align 4
@@ -1849,7 +1849,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   %119 = load ptr, ptr %118, align 8
   store ptr %119, ptr %116, align 8
   store ptr %114, ptr %118, align 8
-  %120 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %120 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store i32 35, ptr %120, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
   store i32 45, ptr %121, align 4
@@ -1859,7 +1859,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   %125 = load ptr, ptr %124, align 8
   store ptr %125, ptr %122, align 8
   store ptr %120, ptr %124, align 8
-  %126 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %126 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store i32 91, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 46, ptr %127, align 4
@@ -1869,7 +1869,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   %131 = load ptr, ptr %130, align 8
   store ptr %131, ptr %128, align 8
   store ptr %126, ptr %130, align 8
-  %132 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %132 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store i32 93, ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 4
   store i32 47, ptr %133, align 4
@@ -1879,7 +1879,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   %137 = load ptr, ptr %136, align 8
   store ptr %137, ptr %134, align 8
   store ptr %132, ptr %136, align 8
-  %138 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %138 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store i32 123, ptr %138, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 4
   store i32 48, ptr %139, align 4
@@ -1889,7 +1889,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   %143 = load ptr, ptr %142, align 8
   store ptr %143, ptr %140, align 8
   store ptr %138, ptr %142, align 8
-  %144 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %144 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store i32 125, ptr %144, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 4
   store i32 49, ptr %145, align 4
@@ -1899,7 +1899,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   %149 = load ptr, ptr %148, align 8
   store ptr %149, ptr %146, align 8
   store ptr %144, ptr %148, align 8
-  %150 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %150 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store i32 44, ptr %150, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 4
   store i32 50, ptr %151, align 4
@@ -1909,7 +1909,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   %155 = load ptr, ptr %154, align 8
   store ptr %155, ptr %152, align 8
   store ptr %150, ptr %154, align 8
-  %156 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %156 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   store i32 65536, ptr %156, align 8
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 4
   store i32 -1, ptr %157, align 4
@@ -1992,10 +1992,10 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.73, i32 noundef 84)
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 128, ptr %162, align 8
-  %163 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znam(i64 noundef 512) #21
+  %163 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znam(i64 noundef 512) #22
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %163, ptr %164, align 8
-  %165 = tail call noalias dereferenceable_or_null(65544) ptr @malloc(i64 noundef 65544) #25
+  %165 = tail call noalias dereferenceable_or_null(65544) ptr @malloc(i64 noundef 65544) #26
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %165, ptr %166, align 8
   store ptr %165, ptr %0, align 8
@@ -2211,14 +2211,14 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit51:      ; preds = %247, %273, %278
   br i1 %or.cond, label %284, label %286
 
 284:                                              ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit51
-  %285 = tail call ptr @__cxa_allocate_exception(i64 8) #22
+  %285 = tail call ptr @__cxa_allocate_exception(i64 8) #23
   store ptr @.str.74, ptr %285, align 16
-  tail call void @__cxa_throw(ptr nonnull %285, ptr nonnull @_ZTIPKc, ptr null) #23
+  tail call void @__cxa_throw(ptr nonnull %285, ptr nonnull @_ZTIPKc, ptr null) #24
   unreachable
 
 286:                                              ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit51
   %287 = load ptr, ptr %174, align 8
-  %288 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
+  %288 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
   %289 = getelementptr inbounds nuw i8, ptr %287, i64 8
   %290 = load ptr, ptr %289, align 8
   %291 = getelementptr inbounds nuw i8, ptr %288, i64 8
@@ -2260,7 +2260,7 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit51:      ; preds = %247, %273, %278
   %314 = load ptr, ptr %287, align 8
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 8
   %316 = load ptr, ptr %315, align 8
-  tail call void %316(ptr noundef nonnull align 8 dereferenceable(49) %287) #22
+  tail call void %316(ptr noundef nonnull align 8 dereferenceable(49) %287) #23
   %317 = load i32, ptr %173, align 8
   %318 = icmp sgt i32 %317, 0
   br i1 %318, label %319, label %323
@@ -2346,7 +2346,7 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit55:      ; preds = %351, %346, %319, %_
   %364 = phi ptr [ %366, %.critedge.i.i ], [ %358, %357 ]
   %365 = phi ptr [ %369, %.critedge.i.i ], [ %362, %357 ]
   %366 = load ptr, ptr %365, align 8
-  tail call void @free(ptr noundef %364) #22
+  tail call void @free(ptr noundef %364) #23
   store ptr %366, ptr %0, align 8
   %367 = load ptr, ptr %359, align 8
   %368 = icmp ult ptr %367, %366
@@ -2361,7 +2361,7 @@ _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i: ; preds = %.crit
 
 _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.i: ; preds = %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i, %357
   %371 = phi ptr [ %.pre.i57, %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i ], [ %356, %357 ]
-  %372 = tail call noalias dereferenceable_or_null(65544) ptr @malloc(i64 noundef 65544) #25
+  %372 = tail call noalias dereferenceable_or_null(65544) ptr @malloc(i64 noundef 65544) #26
   store ptr %372, ptr %371, align 8
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 65536
   store ptr %373, ptr %168, align 8
@@ -2403,7 +2403,7 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMapD2Ev(ptr noundef nonnul
   %9 = load ptr, ptr %.0710, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(32) %.0710) #22
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(32) %.0710) #23
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
@@ -2418,7 +2418,7 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMapD2Ev(ptr noundef nonnul
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %12
-  tail call void @_ZdaPv(ptr noundef nonnull %13) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %13) #21
   br label %16
 
 16:                                               ; preds = %15, %12
@@ -2443,7 +2443,7 @@ define linkonce_odr void @_ZN14VrmlTranslator11StartStatesD2Ev(ptr noundef nonnu
   %.0710 = phi ptr [ %8, %.lr.ph ], [ %6, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.0710, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %.0710) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %.0710) #21
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
@@ -2458,7 +2458,7 @@ define linkonce_odr void @_ZN14VrmlTranslator11StartStatesD2Ev(ptr noundef nonnu
   br i1 %11, label %13, label %12
 
 12:                                               ; preds = %9
-  tail call void @_ZdaPv(ptr noundef nonnull %10) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %10) #21
   br label %13
 
 13:                                               ; preds = %12, %9
@@ -2486,7 +2486,7 @@ define linkonce_odr void @_ZN14VrmlTranslator11StartStatesD0Ev(ptr noundef nonnu
   %.0710.i = phi ptr [ %8, %.lr.ph.i ], [ %6, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %.0710.i) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %.0710.i) #21
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
 
@@ -2501,11 +2501,11 @@ define linkonce_odr void @_ZN14VrmlTranslator11StartStatesD0Ev(ptr noundef nonnu
   br i1 %11, label %_ZN14VrmlTranslator11StartStatesD2Ev.exit, label %12
 
 12:                                               ; preds = %9
-  tail call void @_ZdaPv(ptr noundef nonnull %10) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %10) #21
   br label %_ZN14VrmlTranslator11StartStatesD2Ev.exit
 
 _ZN14VrmlTranslator11StartStatesD2Ev.exit:        ; preds = %9, %12
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }
 
@@ -2530,7 +2530,7 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMapD0Ev(ptr noundef nonnul
   %9 = load ptr, ptr %.0710.i, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(32) %.0710.i) #22
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(32) %.0710.i) #23
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
 
@@ -2545,11 +2545,11 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMapD0Ev(ptr noundef nonnul
   br i1 %14, label %_ZN14VrmlTranslator10KeywordMapD2Ev.exit, label %15
 
 15:                                               ; preds = %12
-  tail call void @_ZdaPv(ptr noundef nonnull %13) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %13) #21
   br label %_ZN14VrmlTranslator10KeywordMapD2Ev.exit
 
 _ZN14VrmlTranslator10KeywordMapD2Ev.exit:         ; preds = %12, %15
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }
 
@@ -2558,13 +2558,13 @@ define void @_ZN14VrmlTranslator7ScannerC2EPKw(ptr noundef nonnull align 8 deref
   %3 = alloca [50 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %4, align 8
-  %5 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #21
+  %5 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #22
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %5, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %5, i8 0, i64 1024, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i64 16), ptr %7, align 8
-  %8 = invoke noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #21
+  %8 = invoke noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #22
           to label %9 unwind label %28
 
 9:                                                ; preds = %2
@@ -2575,7 +2575,7 @@ define void @_ZN14VrmlTranslator7ScannerC2EPKw(ptr noundef nonnull align 8 deref
   br i1 %.not.i.i, label %_Z18coco_string_lengthPKw.exit.i, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call i64 @wcslen(ptr noundef nonnull readonly %1) #24
+  %12 = tail call i64 @wcslen(ptr noundef nonnull readonly %1) #25
   %13 = trunc i64 %12 to i32
   br label %_Z18coco_string_lengthPKw.exit.i
 
@@ -2583,7 +2583,7 @@ _Z18coco_string_lengthPKw.exit.i:                 ; preds = %11, %9
   %.0.i.i = phi i32 [ %13, %11 ], [ 0, %9 ]
   %14 = add nsw i32 %.0.i.i, 1
   %15 = sext i32 %14 to i64
-  %16 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %15) #21
+  %16 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %15) #22
           to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %_Z18coco_string_lengthPKw.exit.i
@@ -2614,11 +2614,11 @@ _Z18coco_string_lengthPKw.exit.i:                 ; preds = %11, %9
   br i1 %25, label %_Z18coco_string_deleteRPc.exit, label %_Z18coco_string_deleteRPc.exit9
 
 _Z18coco_string_deleteRPc.exit:                   ; preds = %.loopexit
-  %26 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull %16) #22
-  tail call void @_ZdaPv(ptr noundef nonnull %16) #20
-  %27 = tail call ptr @__cxa_allocate_exception(i64 8) #22
+  %26 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull %16) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %16) #21
+  %27 = tail call ptr @__cxa_allocate_exception(i64 8) #23
   store ptr %3, ptr %27, align 16
-  invoke void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTIPc, ptr null) #23
+  invoke void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTIPc, ptr null) #24
           to label %41 unwind label %30
 
 28:                                               ; preds = %2
@@ -2632,8 +2632,8 @@ _Z18coco_string_deleteRPc.exit:                   ; preds = %.loopexit
   br label %39
 
 _Z18coco_string_deleteRPc.exit9:                  ; preds = %.loopexit
-  tail call void @_ZdaPv(ptr noundef nonnull %16) #20
-  %32 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %16) #21
+  %32 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
           to label %33 unwind label %30
 
 33:                                               ; preds = %_Z18coco_string_deleteRPc.exit9
@@ -2652,17 +2652,17 @@ _Z18coco_string_deleteRPc.exit9:                  ; preds = %.loopexit
 37:                                               ; preds = %33
   %38 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %32) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %32) #21
   br label %39
 
 39:                                               ; preds = %37, %30
   %.pn = phi { ptr, i32 } [ %31, %30 ], [ %38, %37 ]
-  call void @_ZN14VrmlTranslator10KeywordMapD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #22
+  call void @_ZN14VrmlTranslator10KeywordMapD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #23
   br label %40
 
 40:                                               ; preds = %39, %28
   %.pn.pn = phi { ptr, i32 } [ %.pn, %39 ], [ %29, %28 ]
-  call void @_ZN14VrmlTranslator11StartStatesD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #22
+  call void @_ZN14VrmlTranslator11StartStatesD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #23
   resume { ptr, i32 } %.pn.pn
 
 41:                                               ; preds = %_Z18coco_string_deleteRPc.exit
@@ -2676,20 +2676,20 @@ declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noun
 define void @_ZN14VrmlTranslator7ScannerC2EP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(160) initializes((56, 80)) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %3, align 8
-  %4 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #21
+  %4 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #22
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %4, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %4, i8 0, i64 1024, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i64 16), ptr %6, align 8
-  %7 = invoke noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #21
+  %7 = invoke noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #22
           to label %8 unwind label %15
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %7, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %7, i8 0, i64 1024, i1 false)
-  %10 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
+  %10 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
           to label %11 unwind label %17
 
 11:                                               ; preds = %8
@@ -2718,17 +2718,17 @@ define void @_ZN14VrmlTranslator7ScannerC2EP8_IO_FILE(ptr noundef nonnull align 
 19:                                               ; preds = %11
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %10) #21
   br label %21
 
 21:                                               ; preds = %19, %17
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %20, %19 ]
-  tail call void @_ZN14VrmlTranslator10KeywordMapD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #22
+  tail call void @_ZN14VrmlTranslator10KeywordMapD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #23
   br label %22
 
 22:                                               ; preds = %21, %15
   %.pn.pn = phi { ptr, i32 } [ %.pn, %21 ], [ %16, %15 ]
-  tail call void @_ZN14VrmlTranslator11StartStatesD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #22
+  tail call void @_ZN14VrmlTranslator11StartStatesD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -2742,7 +2742,7 @@ define void @_ZN14VrmlTranslator7ScannerD2Ev(ptr noundef nonnull align 8 capture
   %3 = phi ptr [ %5, %.lr.ph ], [ %2, %1 ]
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 65536
   %5 = load ptr, ptr %4, align 8
-  tail call void @free(ptr noundef nonnull %3) #22
+  tail call void @free(ptr noundef nonnull %3) #23
   store ptr %5, ptr %0, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
@@ -2754,7 +2754,7 @@ define void @_ZN14VrmlTranslator7ScannerD2Ev(ptr noundef nonnull align 8 capture
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %._crit_edge
-  tail call void @_ZdaPv(ptr noundef nonnull %7) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %7) #21
   br label %10
 
 10:                                               ; preds = %9, %._crit_edge
@@ -2767,7 +2767,7 @@ define void @_ZN14VrmlTranslator7ScannerD2Ev(ptr noundef nonnull align 8 capture
   %15 = load ptr, ptr %12, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(49) %12) #22
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(49) %12) #23
   br label %18
 
 18:                                               ; preds = %14, %10
@@ -2791,7 +2791,7 @@ define void @_ZN14VrmlTranslator7ScannerD2Ev(ptr noundef nonnull align 8 capture
   %27 = load ptr, ptr %.0710.i, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
-  tail call void %29(ptr noundef nonnull align 8 dereferenceable(32) %.0710.i) #22
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(32) %.0710.i) #23
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
 
@@ -2806,7 +2806,7 @@ define void @_ZN14VrmlTranslator7ScannerD2Ev(ptr noundef nonnull align 8 capture
   br i1 %32, label %_ZN14VrmlTranslator10KeywordMapD2Ev.exit, label %33
 
 33:                                               ; preds = %30
-  tail call void @_ZdaPv(ptr noundef nonnull %31) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %31) #21
   br label %_ZN14VrmlTranslator10KeywordMapD2Ev.exit
 
 _ZN14VrmlTranslator10KeywordMapD2Ev.exit:         ; preds = %30, %33
@@ -2827,7 +2827,7 @@ _ZN14VrmlTranslator10KeywordMapD2Ev.exit:         ; preds = %30, %33
   %.0710.i9 = phi ptr [ %41, %.lr.ph.i8 ], [ %39, %36 ]
   %40 = getelementptr inbounds nuw i8, ptr %.0710.i9, i64 8
   %41 = load ptr, ptr %40, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %.0710.i9) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %.0710.i9) #21
   %.not.i10 = icmp eq ptr %41, null
   br i1 %.not.i10, label %._crit_edge.i11, label %.lr.ph.i8, !llvm.loop !23
 
@@ -2842,7 +2842,7 @@ _ZN14VrmlTranslator10KeywordMapD2Ev.exit:         ; preds = %30, %33
   br i1 %44, label %_ZN14VrmlTranslator11StartStatesD2Ev.exit, label %45
 
 45:                                               ; preds = %42
-  tail call void @_ZdaPv(ptr noundef nonnull %43) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %43) #21
   br label %_ZN14VrmlTranslator11StartStatesD2Ev.exit
 
 _ZN14VrmlTranslator11StartStatesD2Ev.exit:        ; preds = %42, %45
@@ -2854,13 +2854,13 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
+  %4 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator10KeywordMap4ElemE, i64 16), ptr %4, align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_Z18coco_string_createPKw.exit.i, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i64 @wcslen(ptr noundef nonnull %1) #24
+  %6 = tail call i64 @wcslen(ptr noundef nonnull %1) #25
   %.fr.i.i = freeze i64 %6
   %7 = trunc i64 %.fr.i.i to i32
   %8 = shl i64 %.fr.i.i, 32
@@ -2874,11 +2874,11 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef n
 _Z18coco_string_createPKw.exit.i:                 ; preds = %5, %3
   %.011.i.i = phi i64 [ 0, %3 ], [ %11, %5 ]
   %12 = phi i64 [ 4, %3 ], [ %spec.select.i.i, %5 ]
-  %13 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %12) #21
+  %13 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %12) #22
           to label %14 unwind label %33
 
 14:                                               ; preds = %_Z18coco_string_createPKw.exit.i
-  %15 = tail call ptr @wcsncpy(ptr noundef nonnull %13, ptr noundef %1, i64 noundef %.011.i.i) #22
+  %15 = tail call ptr @wcsncpy(ptr noundef nonnull %13, ptr noundef %1, i64 noundef %.011.i.i) #23
   %16 = getelementptr inbounds i32, ptr %13, i64 %.011.i.i
   store i32 0, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2924,7 +2924,7 @@ _Z16coco_string_hashPKw.exit:                     ; preds = %14, %.preheader.i, 
 33:                                               ; preds = %_Z18coco_string_createPKw.exit.i
   %34 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #21
   resume { ptr, i32 } %34
 }
 
@@ -3035,7 +3035,7 @@ define noundef ptr @_ZN14VrmlTranslator7Scanner11CreateTokenEv(ptr noundef nonnu
   %14 = phi ptr [ %16, %.critedge.i ], [ %8, %7 ]
   %15 = phi ptr [ %19, %.critedge.i ], [ %12, %7 ]
   %16 = load ptr, ptr %15, align 8
-  tail call void @free(ptr noundef %14) #22
+  tail call void @free(ptr noundef %14) #23
   store ptr %16, ptr %0, align 8
   %17 = load ptr, ptr %9, align 8
   %18 = icmp ult ptr %17, %16
@@ -3050,7 +3050,7 @@ _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit: ; preds = %.crited
 
 _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit: ; preds = %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit, %7
   %21 = phi ptr [ %.pre, %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit ], [ %6, %7 ]
-  %22 = tail call noalias dereferenceable_or_null(65544) ptr @malloc(i64 noundef 65544) #25
+  %22 = tail call noalias dereferenceable_or_null(65544) ptr @malloc(i64 noundef 65544) #26
   store ptr %22, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 65536
   store ptr %23, ptr %5, align 8
@@ -3077,7 +3077,7 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMap4ElemD2Ev(ptr noundef n
   br i1 %4, label %_Z18coco_string_deleteRPw.exit, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #21
   br label %_Z18coco_string_deleteRPw.exit
 
 _Z18coco_string_deleteRPw.exit:                   ; preds = %1, %5
@@ -3094,11 +3094,11 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMap4ElemD0Ev(ptr noundef n
   br i1 %4, label %_ZN14VrmlTranslator10KeywordMap4ElemD2Ev.exit, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #21
   br label %_ZN14VrmlTranslator10KeywordMap4ElemD2Ev.exit
 
 _ZN14VrmlTranslator10KeywordMap4ElemD2Ev.exit:    ; preds = %1, %5
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }
 
@@ -3123,7 +3123,7 @@ define void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 cap
   %9 = icmp slt i32 %5, 0
   %10 = shl nsw i64 %8, 2
   %11 = select i1 %9, i64 -1, i64 %10
-  %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #21
+  %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #22
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %3 to i64
@@ -3133,7 +3133,7 @@ define void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 cap
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %6
-  tail call void @_ZdaPv(ptr noundef nonnull %14) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %14) #21
   %.pre4.pre = load i32, ptr %2, align 4
   br label %19
 
@@ -3487,7 +3487,7 @@ define void @_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv(ptr noundef nonnull 
   %8 = phi ptr [ %10, %.critedge ], [ %2, %1 ]
   %9 = phi ptr [ %13, %.critedge ], [ %6, %1 ]
   %10 = load ptr, ptr %9, align 8
-  tail call void @free(ptr noundef %8) #22
+  tail call void @free(ptr noundef %8) #23
   store ptr %10, ptr %0, align 8
   %11 = load ptr, ptr %3, align 8
   %12 = icmp ult ptr %11, %10
@@ -3497,7 +3497,7 @@ define void @_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv(ptr noundef nonnull 
   br i1 %or.cond, label %.critedge, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.critedge, %1
-  %15 = tail call noalias dereferenceable_or_null(65544) ptr @malloc(i64 noundef 65544) #25
+  %15 = tail call noalias dereferenceable_or_null(65544) ptr @malloc(i64 noundef 65544) #26
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
   store ptr %15, ptr %17, align 8
@@ -3531,9 +3531,9 @@ define void @_ZN14VrmlTranslator7Scanner9AppendValEPNS_5TokenE(ptr noundef nonnu
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = tail call ptr @__cxa_allocate_exception(i64 8) #22
+  %16 = tail call ptr @__cxa_allocate_exception(i64 8) #23
   store ptr @.str.75, ptr %16, align 16
-  tail call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTIPKc, ptr null) #23
+  tail call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTIPKc, ptr null) #24
   unreachable
 
 17:                                               ; preds = %13
@@ -3550,7 +3550,7 @@ define void @_ZN14VrmlTranslator7Scanner9AppendValEPNS_5TokenE(ptr noundef nonnu
   %24 = phi ptr [ %26, %.critedge.i ], [ %18, %17 ]
   %25 = phi ptr [ %29, %.critedge.i ], [ %22, %17 ]
   %26 = load ptr, ptr %25, align 8
-  tail call void @free(ptr noundef %24) #22
+  tail call void @free(ptr noundef %24) #23
   store ptr %26, ptr %0, align 8
   %27 = load ptr, ptr %19, align 8
   %28 = icmp ult ptr %27, %26
@@ -3565,7 +3565,7 @@ _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit: ; preds = %.crited
 
 _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit: ; preds = %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit, %17
   %31 = phi ptr [ %.pre, %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit ], [ %12, %17 ]
-  %32 = tail call noalias dereferenceable_or_null(65544) ptr @malloc(i64 noundef 65544) #25
+  %32 = tail call noalias dereferenceable_or_null(65544) ptr @malloc(i64 noundef 65544) #26
   store ptr %32, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 65536
   store ptr %33, ptr %11, align 8
@@ -3587,7 +3587,7 @@ _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit: ; preds = %_ZN14VrmlTransla
   %42 = load ptr, ptr %41, align 8
   %43 = load i32, ptr %3, align 4
   %44 = sext i32 %43 to i64
-  %45 = tail call ptr @wcsncpy(ptr noundef %40, ptr noundef %42, i64 noundef %44) #22
+  %45 = tail call ptr @wcsncpy(ptr noundef %40, ptr noundef %42, i64 noundef %44) #23
   %46 = load ptr, ptr %37, align 8
   %47 = load i32, ptr %3, align 4
   %48 = sext i32 %47 to i64
@@ -3717,7 +3717,7 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit.backedge: ; preds = %12, %39, %44
   %61 = phi ptr [ %63, %.critedge.i.i ], [ %55, %54 ]
   %62 = phi ptr [ %66, %.critedge.i.i ], [ %59, %54 ]
   %63 = load ptr, ptr %62, align 8
-  tail call void @free(ptr noundef %61) #22
+  tail call void @free(ptr noundef %61) #23
   store ptr %63, ptr %0, align 8
   %64 = load ptr, ptr %56, align 8
   %65 = icmp ult ptr %64, %63
@@ -3732,7 +3732,7 @@ _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i: ; preds = %.crit
 
 _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.i: ; preds = %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i, %54
   %68 = phi ptr [ %.pre.i230, %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i ], [ %53, %54 ]
-  %69 = tail call noalias dereferenceable_or_null(65544) ptr @malloc(i64 noundef 65544) #25
+  %69 = tail call noalias dereferenceable_or_null(65544) ptr @malloc(i64 noundef 65544) #26
   store ptr %69, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 65536
   store ptr %70, ptr %52, align 8
@@ -3994,7 +3994,7 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit:         ; preds = %_ZN14VrmlTranslator
   %136 = icmp slt i32 %132, 0
   %137 = shl nsw i64 %135, 2
   %138 = select i1 %136, i64 -1, i64 %137
-  %139 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %138) #21
+  %139 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %138) #22
   %140 = load ptr, ptr %112, align 8
   %141 = sext i32 %131 to i64
   %142 = shl nsw i64 %141, 2
@@ -4003,7 +4003,7 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit:         ; preds = %_ZN14VrmlTranslator
   br i1 %143, label %145, label %144
 
 144:                                              ; preds = %133
-  tail call void @_ZdaPv(ptr noundef nonnull %140) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %140) #21
   %.pre4.pre.i = load i32, ptr %96, align 4
   %.pre398.pre = load i32, ptr %2, align 8
   br label %145
@@ -4103,9 +4103,9 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit.backedge: ; preds = %155, %182, %187
   %196 = icmp slt i32 %spec.select.i, -1
   %197 = shl nuw nsw i64 %195, 2
   %198 = select i1 %196, i64 -1, i64 %197
-  %199 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %198) #21
+  %199 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %198) #22
   %200 = sext i32 %spec.select.i to i64
-  %201 = tail call ptr @wcsncpy(ptr noundef nonnull %199, ptr noundef %192, i64 noundef %200) #22
+  %201 = tail call ptr @wcsncpy(ptr noundef nonnull %199, ptr noundef %192, i64 noundef %200) #23
   %202 = getelementptr inbounds i32, ptr %199, i64 %200
   store i32 0, ptr %202, align 4
   %203 = load ptr, ptr %75, align 8
@@ -4144,7 +4144,7 @@ _Z16coco_string_hashPKw.exit.i:                   ; preds = %._crit_edge.loopexi
   %.011.i239 = phi ptr [ %.0.i240, %221 ], [ %.09.i236, %_Z16coco_string_hashPKw.exit.i ]
   %217 = getelementptr inbounds nuw i8, ptr %.011.i239, i64 8
   %218 = load ptr, ptr %217, align 8
-  %219 = tail call i32 @wcscmp(ptr noundef readonly %218, ptr noundef nonnull readonly %199) #24
+  %219 = tail call i32 @wcscmp(ptr noundef readonly %218, ptr noundef nonnull readonly %199) #25
   %220 = icmp eq i32 %219, 0
   br i1 %220, label %.critedge.i242, label %221
 
@@ -4162,7 +4162,7 @@ _Z16coco_string_hashPKw.exit.i:                   ; preds = %._crit_edge.loopexi
 _Z18coco_string_deleteRPw.exit:                   ; preds = %221, %_Z16coco_string_hashPKw.exit.i, %.critedge.i242
   %225 = phi i32 [ %224, %.critedge.i242 ], [ %204, %_Z16coco_string_hashPKw.exit.i ], [ %204, %221 ]
   store i32 %225, ptr %203, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %199) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %199) #21
   br label %669
 
 226:                                              ; preds = %_ZN14VrmlTranslator11StartStates5stateEi.exit, %521
@@ -4465,7 +4465,7 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit252:      ; preds = %_ZN14VrmlTranslator
   %322 = icmp slt i32 %318, 0
   %323 = shl nsw i64 %321, 2
   %324 = select i1 %322, i64 -1, i64 %323
-  %325 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %324) #21
+  %325 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %324) #22
   %326 = load ptr, ptr %100, align 8
   %327 = sext i32 %317 to i64
   %328 = shl nsw i64 %327, 2
@@ -4474,7 +4474,7 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit252:      ; preds = %_ZN14VrmlTranslator
   br i1 %329, label %331, label %330
 
 330:                                              ; preds = %319
-  tail call void @_ZdaPv(ptr noundef nonnull %326) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %326) #21
   %.pre4.pre.i244 = load i32, ptr %96, align 4
   %.pre396.pre = load i32, ptr %2, align 8
   br label %331
@@ -5236,7 +5236,7 @@ _Z18coco_string_deleteRPw.exit253:                ; preds = %545
   %556 = tail call noundef i32 @_ZN14VrmlTranslator10KeywordMap3getEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %553, ptr noundef nonnull %552, i32 noundef %555)
   %557 = load ptr, ptr %75, align 8
   store i32 %556, ptr %557, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %552) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %552) #21
   br label %669
 
 .sink.split435:                                   ; preds = %switch.early.test323, %376, %593, %582
@@ -5431,7 +5431,7 @@ _Z18coco_string_deleteRPw.exit254:                ; preds = %608
   %619 = tail call noundef i32 @_ZN14VrmlTranslator10KeywordMap3getEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %616, ptr noundef nonnull %615, i32 noundef %618)
   %620 = load ptr, ptr %75, align 8
   store i32 %619, ptr %620, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %615) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %615) #21
   br label %669
 
 621:                                              ; preds = %_ZN14VrmlTranslator11StartStates5stateEi.exit, %547
@@ -5488,7 +5488,7 @@ _Z18coco_string_deleteRPw.exit255:                ; preds = %631
   %642 = tail call noundef i32 @_ZN14VrmlTranslator10KeywordMap3getEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %639, ptr noundef nonnull %638, i32 noundef %641)
   %643 = load ptr, ptr %75, align 8
   store i32 %642, ptr %643, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %638) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %638) #21
   br label %669
 
 644:                                              ; preds = %_ZN14VrmlTranslator11StartStates5stateEi.exit, %610
@@ -5596,7 +5596,7 @@ _Z16coco_string_hashPKw.exit:                     ; preds = %3, %.preheader.i, %
   %.011 = phi ptr [ %.0, %20 ], [ %.09, %_Z16coco_string_hashPKw.exit ]
   %16 = getelementptr inbounds nuw i8, ptr %.011, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 @wcscmp(ptr noundef readonly %17, ptr noundef readonly %1) #24
+  %18 = tail call i32 @wcscmp(ptr noundef readonly %17, ptr noundef readonly %1) #25
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.critedge, label %20
 
@@ -5685,13 +5685,13 @@ define void @_ZN14VrmlTranslator7Scanner9ResetPeekEv(ptr noundef nonnull align 8
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #19
+declare i32 @llvm.abs.i32(i32, i1 immarg) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #19
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5713,13 +5713,14 @@ attributes #15 = { cold noreturn }
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #17 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { builtin nounwind }
-attributes #21 = { builtin allocsize(0) }
-attributes #22 = { nounwind }
-attributes #23 = { noreturn }
-attributes #24 = { nounwind willreturn memory(read) }
-attributes #25 = { nounwind allocsize(0) }
+attributes #19 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { builtin nounwind }
+attributes #22 = { builtin allocsize(0) }
+attributes #23 = { nounwind }
+attributes #24 = { noreturn }
+attributes #25 = { nounwind willreturn memory(read) }
+attributes #26 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

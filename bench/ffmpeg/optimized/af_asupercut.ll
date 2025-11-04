@@ -49,13 +49,13 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 448
-  tail call void @av_frame_free(ptr noundef nonnull %4) #10
+  tail call void @av_frame_free(ptr noundef nonnull %4) #11
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 1) i32 @process_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #1 {
-  %7 = tail call i32 @ff_filter_process_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #10
+  %7 = tail call i32 @ff_filter_process_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #11
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %10, label %9
 
@@ -87,27 +87,27 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %.not, label %16, label %14
 
 14:                                               ; preds = %2
-  %15 = tail call i32 @ff_filter_frame(ptr noundef %11, ptr noundef %1) #10
+  %15 = tail call i32 @ff_filter_frame(ptr noundef %11, ptr noundef %1) #11
   br label %37
 
 16:                                               ; preds = %2
-  %17 = tail call i32 @av_frame_is_writable(ptr noundef %1) #10
+  %17 = tail call i32 @av_frame_is_writable(ptr noundef %1) #11
   %.not22 = icmp eq i32 %17, 0
   br i1 %.not22, label %18, label %25
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %20 = load i32, ptr %19, align 8, !tbaa !37
-  %21 = tail call ptr @ff_get_audio_buffer(ptr noundef %11, i32 noundef %20) #10
+  %21 = tail call ptr @ff_get_audio_buffer(ptr noundef %11, i32 noundef %20) #11
   %.not23 = icmp eq ptr %21, null
   br i1 %.not23, label %22, label %23
 
 22:                                               ; preds = %18
-  call void @av_frame_free(ptr noundef nonnull %3) #10
+  call void @av_frame_free(ptr noundef nonnull %3) #11
   br label %37
 
 23:                                               ; preds = %18
-  %24 = tail call i32 @av_frame_copy_props(ptr noundef nonnull %21, ptr noundef nonnull %1) #10
+  %24 = tail call i32 @av_frame_copy_props(ptr noundef nonnull %21, ptr noundef nonnull %1) #11
   br label %25
 
 25:                                               ; preds = %16, %23
@@ -119,19 +119,19 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %28 = load ptr, ptr %27, align 8, !tbaa !46
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %30 = load i32, ptr %29, align 4, !tbaa !47
-  %31 = tail call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %6) #11
+  %31 = tail call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %6) #12
   %. = tail call i32 @llvm.smin.i32(i32 %30, i32 %31)
-  %32 = call i32 @ff_filter_execute(ptr noundef nonnull %6, ptr noundef %28, ptr noundef nonnull %4, ptr noundef null, i32 noundef %.) #10
+  %32 = call i32 @ff_filter_execute(ptr noundef nonnull %6, ptr noundef %28, ptr noundef nonnull %4, ptr noundef null, i32 noundef %.) #11
   %33 = load ptr, ptr %3, align 8, !tbaa !20
   %.not24 = icmp eq ptr %.0, %33
   br i1 %.not24, label %35, label %34
 
 34:                                               ; preds = %25
-  call void @av_frame_free(ptr noundef nonnull %3) #10
+  call void @av_frame_free(ptr noundef nonnull %3) #11
   br label %35
 
 35:                                               ; preds = %34, %25
-  %36 = call i32 @ff_filter_frame(ptr noundef %11, ptr noundef %.0) #10
+  %36 = call i32 @ff_filter_frame(ptr noundef %11, ptr noundef %.0) #11
   br label %37
 
 37:                                               ; preds = %35, %22, %14
@@ -163,7 +163,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef %0) #1 {
   br label %10
 
 10:                                               ; preds = %.sink.split, %1
-  %11 = tail call ptr @ff_get_audio_buffer(ptr noundef nonnull %0, i32 noundef 20) #10
+  %11 = tail call ptr @ff_get_audio_buffer(ptr noundef nonnull %0, i32 noundef 20) #11
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 448
   store ptr %11, ptr %12, align 8, !tbaa !49
   %.not = icmp eq ptr %11, null
@@ -483,7 +483,7 @@ define internal fastcc void @get_coeffs(ptr noundef readonly captures(none) %0) 
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !74
   %22 = load ptr, ptr %21, align 8, !tbaa !75
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(8) @.str.2) #11
+  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(8) @.str.2) #12
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %24, label %87
 
@@ -589,7 +589,7 @@ calc_q_factors.exit:                              ; preds = %36, %24
   br i1 %86, label %67, label %.loopexit, !llvm.loop !79
 
 87:                                               ; preds = %19
-  %88 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(10) @.str) #11
+  %88 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(10) @.str) #12
   %.not224 = icmp eq i32 %88, 0
   br i1 %.not224, label %89, label %153
 
@@ -696,7 +696,7 @@ calc_q_factors.exit235:                           ; preds = %101, %89
   br i1 %152, label %132, label %.loopexit, !llvm.loop !80
 
 153:                                              ; preds = %87
-  %154 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(11) @.str.4) #11
+  %154 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(11) @.str.4) #12
   %.not226 = icmp eq i32 %154, 0
   br i1 %.not226, label %155, label %233
 
@@ -805,7 +805,7 @@ calc_q_factors.exit235:                           ; preds = %101, %89
   br i1 %213, label %212, label %210, !llvm.loop !83
 
 233:                                              ; preds = %153
-  %234 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(11) @.str.6) #11
+  %234 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(11) @.str.6) #12
   %.not228 = icmp eq i32 %234, 0
   br i1 %.not228, label %235, label %.loopexit
 
@@ -916,28 +916,28 @@ calc_q_factors.exit235:                           ; preds = %101, %89
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.tan.f64(double) #6
+declare double @llvm.tan.f64(double) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sin.f64(double) #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.atan.f64(double) #6
+declare double @llvm.atan.f64(double) #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.cos.f64(double) #6
 
 declare ptr @av_default_item_name(ptr noundef) #2
@@ -945,13 +945,13 @@ declare ptr @av_default_item_name(ptr noundef) #2
 declare i32 @ff_filter_process_command(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #10
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -959,12 +959,13 @@ attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "st
 attributes #3 = { mustprogress nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
+attributes #6 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

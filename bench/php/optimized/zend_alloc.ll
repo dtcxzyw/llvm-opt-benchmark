@@ -75,7 +75,7 @@ define dso_local i64 @zend_mm_gc(ptr noundef captures(address) %0) local_unnamed
   br i1 %.not146, label %316, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call i64 %7() #40
+  %9 = tail call i64 %7() #41
   br label %316
 
 10:                                               ; preds = %.preheader170, %.loopexit
@@ -103,7 +103,7 @@ zend_mm_get_next_free_slot.exit:                  ; preds = %52, %.lr.ph
   br i1 %.not143, label %22, label %21, !prof !23
 
 21:                                               ; preds = %zend_mm_get_next_free_slot.exit
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 22:                                               ; preds = %zend_mm_get_next_free_slot.exit
@@ -171,7 +171,7 @@ zend_mm_get_next_free_slot.exit:                  ; preds = %52, %.lr.ph
   br i1 %.not7.i, label %zend_mm_get_next_free_slot.exit, label %63, !prof !23
 
 63:                                               ; preds = %52
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 ._crit_edge:                                      ; preds = %._crit_edge217
@@ -192,7 +192,7 @@ zend_mm_get_next_free_slot.exit:                  ; preds = %52, %.lr.ph
   br i1 %.not140, label %71, label %70, !prof !23
 
 70:                                               ; preds = %65
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 71:                                               ; preds = %65
@@ -255,7 +255,7 @@ zend_mm_get_next_free_slot.exit:                  ; preds = %52, %.lr.ph
   br i1 %.not7.i148, label %zend_mm_get_next_free_slot.exit149, label %110, !prof !23
 
 110:                                              ; preds = %99
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit149:               ; preds = %97, %99
@@ -305,7 +305,7 @@ zend_mm_get_next_free_slot.exit149:               ; preds = %97, %99
   br i1 %.not7.i151, label %zend_mm_get_next_free_slot.exit152, label %138, !prof !23
 
 138:                                              ; preds = %127
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit152:               ; preds = %123, %127, %112, %113
@@ -507,7 +507,7 @@ zend_mm_free_pages_ex.exit:                       ; preds = %zend_mm_bitset_rese
   br i1 %.not.i153, label %246, label %245, !prof !23
 
 245:                                              ; preds = %242
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 246:                                              ; preds = %242
@@ -519,7 +519,7 @@ zend_mm_free_pages_ex.exit:                       ; preds = %zend_mm_bitset_rese
   br i1 %.not40.i, label %252, label %251, !prof !23
 
 251:                                              ; preds = %246
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 252:                                              ; preds = %246
@@ -606,20 +606,20 @@ zend_mm_free_pages_ex.exit:                       ; preds = %zend_mm_bitset_rese
 288:                                              ; preds = %.thread167
   %289 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %290 = load ptr, ptr %289, align 8, !tbaa !45
-  tail call void %290(ptr noundef nonnull %.val, ptr noundef nonnull %.0121, i64 noundef 2097152) #40
+  tail call void %290(ptr noundef nonnull %.val, ptr noundef nonnull %.0121, i64 noundef 2097152) #41
   br label %zend_mm_delete_chunk.exit
 
 291:                                              ; preds = %.thread167
-  %292 = tail call i32 @munmap(ptr noundef nonnull %.0121, i64 noundef 2097152) #40
+  %292 = tail call i32 @munmap(ptr noundef nonnull %.0121, i64 noundef 2097152) #41
   %.not.i.i = icmp eq i32 %292, 0
   br i1 %.not.i.i, label %zend_mm_delete_chunk.exit, label %293
 
 293:                                              ; preds = %291
   %294 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %295 = tail call ptr @__errno_location() #42
+  %295 = tail call ptr @__errno_location() #43
   %296 = load i32, ptr %295, align 4, !tbaa !24
-  %297 = tail call ptr @strerror(i32 noundef %296) #40
-  %298 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %294, ptr noundef nonnull @.str.4, i32 noundef %296, ptr noundef %297) #43
+  %297 = tail call ptr @strerror(i32 noundef %296) #41
+  %298 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %294, ptr noundef nonnull @.str.4, i32 noundef %296, ptr noundef %297) #44
   br label %zend_mm_delete_chunk.exit
 
 299:                                              ; preds = %281
@@ -633,20 +633,20 @@ zend_mm_free_pages_ex.exit:                       ; preds = %zend_mm_bitset_rese
 302:                                              ; preds = %299
   %303 = getelementptr inbounds nuw i8, ptr %.val155, i64 8
   %304 = load ptr, ptr %303, align 8, !tbaa !45
-  tail call void %304(ptr noundef nonnull %.val155, ptr noundef nonnull %282, i64 noundef 2097152) #40
+  tail call void %304(ptr noundef nonnull %.val155, ptr noundef nonnull %282, i64 noundef 2097152) #41
   br label %zend_mm_chunk_free.exit159
 
 305:                                              ; preds = %299
-  %306 = tail call i32 @munmap(ptr noundef nonnull %282, i64 noundef 2097152) #40
+  %306 = tail call i32 @munmap(ptr noundef nonnull %282, i64 noundef 2097152) #41
   %.not.i.i158 = icmp eq i32 %306, 0
   br i1 %.not.i.i158, label %zend_mm_chunk_free.exit159, label %307
 
 307:                                              ; preds = %305
   %308 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %309 = tail call ptr @__errno_location() #42
+  %309 = tail call ptr @__errno_location() #43
   %310 = load i32, ptr %309, align 4, !tbaa !24
-  %311 = tail call ptr @strerror(i32 noundef %310) #40
-  %312 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %308, ptr noundef nonnull @.str.4, i32 noundef %310, ptr noundef %311) #43
+  %311 = tail call ptr @strerror(i32 noundef %310) #41
+  %312 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %308, ptr noundef nonnull @.str.4, i32 noundef %310, ptr noundef %311) #44
   br label %zend_mm_chunk_free.exit159
 
 zend_mm_chunk_free.exit159:                       ; preds = %302, %305, %307
@@ -670,8 +670,8 @@ zend_mm_delete_chunk.exit:                        ; preds = %._crit_edge202, %ze
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @zend_mm_panic() unnamed_addr #1 {
   %1 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str) #43
-  tail call void @abort() #44
+  %2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str) #44
+  tail call void @abort() #45
   unreachable
 }
 
@@ -740,7 +740,7 @@ define dso_local void @zend_mm_shutdown(ptr noundef %0, i1 noundef zeroext %1, i
 31:                                               ; preds = %27
   %32 = shl i64 %.0.i, 3
   %33 = inttoptr i64 %32 to ptr
-  tail call void @free(ptr noundef %33) #40
+  tail call void @free(ptr noundef %33) #41
   br label %34
 
 34:                                               ; preds = %31, %27
@@ -751,14 +751,14 @@ define dso_local void @zend_mm_shutdown(ptr noundef %0, i1 noundef zeroext %1, i
 tracked_free_all.exit:                            ; preds = %34, %10, %9
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %37 = load ptr, ptr %36, align 8, !tbaa !51
-  tail call void @zend_hash_clean(ptr noundef %37) #40
+  tail call void @zend_hash_clean(ptr noundef %37) #41
   br i1 %1, label %38, label %42
 
 38:                                               ; preds = %tracked_free_all.exit
   %39 = load ptr, ptr %36, align 8, !tbaa !51
-  tail call void @zend_hash_destroy(ptr noundef %39) #40
+  tail call void @zend_hash_destroy(ptr noundef %39) #41
   %40 = load ptr, ptr %36, align 8, !tbaa !51
-  tail call void @free(ptr noundef %40) #40
+  tail call void @free(ptr noundef %40) #41
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store ptr @__zend_free, ptr %41, align 8, !tbaa !60
   br label %42
@@ -776,7 +776,7 @@ tracked_free_all.exit:                            ; preds = %34, %10, %9
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %49 = load ptr, ptr %48, align 8, !tbaa !60
-  tail call void %49(ptr noundef nonnull %0) #40
+  tail call void %49(ptr noundef nonnull %0) #41
   br label %50
 
 50:                                               ; preds = %47, %44
@@ -784,7 +784,7 @@ tracked_free_all.exit:                            ; preds = %34, %10, %9
   br i1 %.not105, label %zend_mm_chunk_free.exit116, label %51
 
 51:                                               ; preds = %50
-  tail call void %46(i1 noundef zeroext %1, i1 noundef zeroext %2) #40
+  tail call void %46(i1 noundef zeroext %1, i1 noundef zeroext %2) #41
   br label %zend_mm_chunk_free.exit116
 
 52:                                               ; preds = %3
@@ -812,20 +812,20 @@ tracked_free_all.exit:                            ; preds = %34, %10, %9
 62:                                               ; preds = %56
   %63 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !45
-  tail call void %64(ptr noundef nonnull %.val, ptr noundef %59, i64 noundef %61) #40
+  tail call void %64(ptr noundef nonnull %.val, ptr noundef %59, i64 noundef %61) #41
   br label %zend_mm_chunk_free.exit
 
 65:                                               ; preds = %56
-  %66 = tail call i32 @munmap(ptr noundef %59, i64 noundef %61) #40
+  %66 = tail call i32 @munmap(ptr noundef %59, i64 noundef %61) #41
   %.not.i.i = icmp eq i32 %66, 0
   br i1 %.not.i.i, label %zend_mm_chunk_free.exit, label %67
 
 67:                                               ; preds = %65
   %68 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %69 = tail call ptr @__errno_location() #42
+  %69 = tail call ptr @__errno_location() #43
   %70 = load i32, ptr %69, align 4, !tbaa !24
-  %71 = tail call ptr @strerror(i32 noundef %70) #40
-  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.4, i32 noundef %70, ptr noundef %71) #43
+  %71 = tail call ptr @strerror(i32 noundef %70) #41
+  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.4, i32 noundef %70, ptr noundef %71) #44
   br label %zend_mm_chunk_free.exit
 
 zend_mm_chunk_free.exit:                          ; preds = %62, %65, %67
@@ -893,20 +893,20 @@ zend_mm_chunk_free.exit:                          ; preds = %62, %65, %67
 96:                                               ; preds = %92
   %97 = getelementptr inbounds nuw i8, ptr %.val106, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !45
-  tail call void %98(ptr noundef nonnull %.val106, ptr noundef nonnull %93, i64 noundef 2097152) #40
+  tail call void %98(ptr noundef nonnull %.val106, ptr noundef nonnull %93, i64 noundef 2097152) #41
   br label %zend_mm_chunk_free.exit113
 
 99:                                               ; preds = %92
-  %100 = tail call i32 @munmap(ptr noundef nonnull %93, i64 noundef 2097152) #40
+  %100 = tail call i32 @munmap(ptr noundef nonnull %93, i64 noundef 2097152) #41
   %.not.i.i112 = icmp eq i32 %100, 0
   br i1 %.not.i.i112, label %zend_mm_chunk_free.exit113, label %101
 
 101:                                              ; preds = %99
   %102 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %103 = tail call ptr @__errno_location() #42
+  %103 = tail call ptr @__errno_location() #43
   %104 = load i32, ptr %103, align 4, !tbaa !24
-  %105 = tail call ptr @strerror(i32 noundef %104) #40
-  %106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef nonnull @.str.4, i32 noundef %104, ptr noundef %105) #43
+  %105 = tail call ptr @strerror(i32 noundef %104) #41
+  %106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef nonnull @.str.4, i32 noundef %104, ptr noundef %105) #44
   br label %zend_mm_chunk_free.exit113
 
 zend_mm_chunk_free.exit113:                       ; preds = %96, %99, %101
@@ -928,20 +928,20 @@ zend_mm_chunk_free.exit113:                       ; preds = %96, %99, %101
 110:                                              ; preds = %._crit_edge141
   %111 = getelementptr inbounds nuw i8, ptr %.val107, i64 8
   %112 = load ptr, ptr %111, align 8, !tbaa !45
-  tail call void %112(ptr noundef nonnull %.val107, ptr noundef %108, i64 noundef 2097152) #40
+  tail call void %112(ptr noundef nonnull %.val107, ptr noundef %108, i64 noundef 2097152) #41
   br label %zend_mm_chunk_free.exit116
 
 113:                                              ; preds = %._crit_edge141
-  %114 = tail call i32 @munmap(ptr noundef %108, i64 noundef 2097152) #40
+  %114 = tail call i32 @munmap(ptr noundef %108, i64 noundef 2097152) #41
   %.not.i.i115 = icmp eq i32 %114, 0
   br i1 %.not.i.i115, label %zend_mm_chunk_free.exit116, label %115
 
 115:                                              ; preds = %113
   %116 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %117 = tail call ptr @__errno_location() #42
+  %117 = tail call ptr @__errno_location() #43
   %118 = load i32, ptr %117, align 4, !tbaa !24
-  %119 = tail call ptr @strerror(i32 noundef %118) #40
-  %120 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull @.str.4, i32 noundef %118, ptr noundef %119) #43
+  %119 = tail call ptr @strerror(i32 noundef %118) #41
+  %120 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull @.str.4, i32 noundef %118, ptr noundef %119) #44
   br label %zend_mm_chunk_free.exit116
 
 121:                                              ; preds = %88
@@ -984,20 +984,20 @@ zend_mm_chunk_free.exit113:                       ; preds = %96, %99, %101
 142:                                              ; preds = %.lr.ph167
   %143 = getelementptr inbounds nuw i8, ptr %.val108, i64 8
   %144 = load ptr, ptr %143, align 8, !tbaa !45
-  tail call void %144(ptr noundef nonnull %.val108, ptr noundef nonnull %139, i64 noundef 2097152) #40
+  tail call void %144(ptr noundef nonnull %.val108, ptr noundef nonnull %139, i64 noundef 2097152) #41
   br label %zend_mm_chunk_free.exit119
 
 145:                                              ; preds = %.lr.ph167
-  %146 = tail call i32 @munmap(ptr noundef nonnull %139, i64 noundef 2097152) #40
+  %146 = tail call i32 @munmap(ptr noundef nonnull %139, i64 noundef 2097152) #41
   %.not.i.i118 = icmp eq i32 %146, 0
   br i1 %.not.i.i118, label %zend_mm_chunk_free.exit119, label %147
 
 147:                                              ; preds = %145
   %148 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %149 = tail call ptr @__errno_location() #42
+  %149 = tail call ptr @__errno_location() #43
   %150 = load i32, ptr %149, align 4, !tbaa !24
-  %151 = tail call ptr @strerror(i32 noundef %150) #40
-  %152 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef nonnull @.str.4, i32 noundef %150, ptr noundef %151) #43
+  %151 = tail call ptr @strerror(i32 noundef %150) #41
+  %152 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef nonnull @.str.4, i32 noundef %150, ptr noundef %151) #44
   br label %zend_mm_chunk_free.exit119
 
 zend_mm_chunk_free.exit119:                       ; preds = %142, %145, %147
@@ -1067,7 +1067,7 @@ zend_mm_chunk_free.exit119:                       ; preds = %142, %145, %147
   store i64 1, ptr %179, align 16, !tbaa !32
   %180 = getelementptr inbounds nuw i8, ptr %162, i64 608
   store i32 1073741825, ptr %180, align 16, !tbaa !24
-  %181 = tail call i32 @getpid() #40
+  %181 = tail call i32 @getpid() #41
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %183 = load i32, ptr %182, align 16, !tbaa !70
   %.not103 = icmp eq i32 %183, %181
@@ -1078,7 +1078,7 @@ zend_mm_chunk_free.exit119:                       ; preds = %142, %145, %147
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %185, i8 0, i64 48, i1 false)
   %186 = load ptr, ptr @zend_random_bytes_insecure, align 8, !tbaa !71
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void %186(ptr noundef nonnull %185, ptr noundef nonnull %187, i64 noundef 8) #40
+  tail call void %186(ptr noundef nonnull %185, ptr noundef nonnull %187, i64 noundef 8) #41
   store i32 %181, ptr %182, align 16, !tbaa !70
   br label %zend_mm_chunk_free.exit116
 
@@ -1086,7 +1086,7 @@ zend_mm_chunk_free.exit119:                       ; preds = %142, %145, %147
   %189 = load ptr, ptr @zend_random_bytes_insecure, align 8, !tbaa !71
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void %189(ptr noundef nonnull %190, ptr noundef nonnull %191, i64 noundef 8) #40
+  tail call void %189(ptr noundef nonnull %190, ptr noundef nonnull %191, i64 noundef 8) #41
   br label %zend_mm_chunk_free.exit116
 
 zend_mm_chunk_free.exit116:                       ; preds = %115, %113, %110, %188, %184, %50, %51
@@ -1112,16 +1112,16 @@ define internal nonnull ptr @tracked_malloc(i64 noundef %0) #0 {
   br i1 %.not.i, label %13, label %tracked_check_limit.exit
 
 13:                                               ; preds = %10
-  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %3, ptr noundef nonnull @.str.5, i64 noundef %5, i64 noundef %0) #41
+  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %3, ptr noundef nonnull @.str.5, i64 noundef %5, i64 noundef %0) #42
   unreachable
 
 tracked_check_limit.exit:                         ; preds = %1, %10
-  %14 = tail call noalias ptr @malloc(i64 noundef %0) #45
+  %14 = tail call noalias ptr @malloc(i64 noundef %0) #46
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %15, label %16
 
 15:                                               ; preds = %tracked_check_limit.exit
-  tail call fastcc void @zend_out_of_memory() #41
+  tail call fastcc void @zend_out_of_memory() #42
   unreachable
 
 16:                                               ; preds = %tracked_check_limit.exit
@@ -1137,7 +1137,7 @@ tracked_check_limit.exit:                         ; preds = %1, %10
   store i32 4, ptr %22, align 8, !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %24 = load ptr, ptr %23, align 8, !tbaa !51
-  %25 = call ptr @zend_hash_index_add_new(ptr noundef %24, i64 noundef %18, ptr noundef nonnull %2) #40
+  %25 = call ptr @zend_hash_index_add_new(ptr noundef %24, i64 noundef %18, ptr noundef nonnull %2) #41
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %26 = load i64, ptr %6, align 16, !tbaa !61
   %27 = add i64 %26, %0
@@ -1154,7 +1154,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define dso_local void @__zend_free(ptr noundef captures(none) %0) #5 {
-  tail call void @free(ptr noundef %0) #40
+  tail call void @free(ptr noundef %0) #41
   ret void
 }
 
@@ -1166,20 +1166,20 @@ define internal fastcc void @zend_mm_chunk_free(ptr %.8.val, ptr noundef %0, i64
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !45
-  tail call void %5(ptr noundef nonnull %.8.val, ptr noundef %0, i64 noundef %1) #40
+  tail call void %5(ptr noundef nonnull %.8.val, ptr noundef %0, i64 noundef %1) #41
   br label %zend_mm_munmap.exit
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @munmap(ptr noundef %0, i64 noundef %1) #40
+  %7 = tail call i32 @munmap(ptr noundef %0, i64 noundef %1) #41
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %zend_mm_munmap.exit, label %8
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %10 = tail call ptr @__errno_location() #42
+  %10 = tail call ptr @__errno_location() #43
   %11 = load i32, ptr %10, align 4, !tbaa !24
-  %12 = tail call ptr @strerror(i32 noundef %11) #40
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.4, i32 noundef %11, ptr noundef %12) #43
+  %12 = tail call ptr @strerror(i32 noundef %11) #41
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.4, i32 noundef %11, ptr noundef %12) #44
   br label %zend_mm_munmap.exit
 
 zend_mm_munmap.exit:                              ; preds = %8, %6, %3
@@ -1258,7 +1258,7 @@ zend_mm_small_size_to_bin.exit:                   ; preds = %6, %10
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %42, !prof !23
 
 42:                                               ; preds = %32
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %32, %30
@@ -1314,7 +1314,7 @@ define dso_local void @_zend_mm_free(ptr noundef captures(address) %0, ptr nound
   br i1 %.not.i, label %18, label %17, !prof !23
 
 17:                                               ; preds = %8
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 18:                                               ; preds = %8
@@ -1355,7 +1355,7 @@ define dso_local void @_zend_mm_free(ptr noundef captures(address) %0, ptr nound
   br i1 %.not22.i, label %43, label %42, !prof !23
 
 42:                                               ; preds = %40
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 43:                                               ; preds = %40
@@ -1385,7 +1385,7 @@ define dso_local ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 nound
   br i1 %8, label %9, label %11, !prof !23
 
 9:                                                ; preds = %7
-  %10 = tail call noalias ptr @_zend_mm_alloc(ptr noundef %0, i64 noundef %2) #46
+  %10 = tail call noalias ptr @_zend_mm_alloc(ptr noundef %0, i64 noundef %2) #47
   br label %zend_mm_realloc_heap.exit
 
 11:                                               ; preds = %7
@@ -1406,7 +1406,7 @@ define dso_local ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 nound
   br i1 %.not.i, label %23, label %22, !prof !23
 
 22:                                               ; preds = %13
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 23:                                               ; preds = %13
@@ -1493,7 +1493,7 @@ zend_mm_small_size_to_bin.exit17:                 ; preds = %38, %42
   br i1 %.not7.i.i9, label %zend_mm_get_next_free_slot.exit.i10, label %74, !prof !23
 
 74:                                               ; preds = %64
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i10:              ; preds = %64, %62
@@ -1589,7 +1589,7 @@ zend_mm_small_size_to_bin.exit:                   ; preds = %95, %99
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %129, !prof !23
 
 129:                                              ; preds = %119
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %119, %117
@@ -1631,7 +1631,7 @@ zend_mm_alloc_small.exit:                         ; preds = %zend_mm_get_next_fr
   br i1 %.not154.i, label %149, label %148, !prof !23
 
 148:                                              ; preds = %146
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 149:                                              ; preds = %146
@@ -1950,7 +1950,7 @@ define dso_local ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noun
   br i1 %9, label %10, label %12, !prof !23
 
 10:                                               ; preds = %8
-  %11 = tail call noalias ptr @_zend_mm_alloc(ptr noundef %0, i64 noundef %2) #46
+  %11 = tail call noalias ptr @_zend_mm_alloc(ptr noundef %0, i64 noundef %2) #47
   br label %zend_mm_realloc_heap.exit
 
 12:                                               ; preds = %8
@@ -1971,7 +1971,7 @@ define dso_local ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noun
   br i1 %.not.i, label %24, label %23, !prof !23
 
 23:                                               ; preds = %14
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 24:                                               ; preds = %14
@@ -2058,7 +2058,7 @@ zend_mm_small_size_to_bin.exit17:                 ; preds = %39, %43
   br i1 %.not7.i.i9, label %zend_mm_get_next_free_slot.exit.i10, label %75, !prof !23
 
 75:                                               ; preds = %65
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i10:              ; preds = %65, %63
@@ -2155,7 +2155,7 @@ zend_mm_small_size_to_bin.exit:                   ; preds = %97, %101
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %131, !prof !23
 
 131:                                              ; preds = %121
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %121, %119
@@ -2198,7 +2198,7 @@ zend_mm_alloc_small.exit:                         ; preds = %zend_mm_get_next_fr
   br i1 %.not154.i, label %152, label %151, !prof !23
 
 151:                                              ; preds = %149
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 152:                                              ; preds = %149
@@ -2522,7 +2522,7 @@ define dso_local i64 @_zend_mm_block_size(ptr noundef readonly captures(address)
   %10 = lshr i64 %9, 3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %12 = load ptr, ptr %11, align 8, !tbaa !51
-  %13 = tail call ptr @zend_hash_index_find(ptr noundef %12, i64 noundef %10) #40
+  %13 = tail call ptr @zend_hash_index_find(ptr noundef %12, i64 noundef %10) #41
   %.not12.not = icmp eq ptr %13, null
   br i1 %.not12.not, label %zend_mm_size.exit, label %14
 
@@ -2555,7 +2555,7 @@ define dso_local i64 @_zend_mm_block_size(ptr noundef readonly captures(address)
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %24, %20
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_huge_block_size.exit.i:               ; preds = %.lr.ph.i.i
@@ -2575,7 +2575,7 @@ zend_mm_get_huge_block_size.exit.i:               ; preds = %.lr.ph.i.i
   br i1 %.not.i, label %37, label %36, !prof !23
 
 36:                                               ; preds = %28
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 37:                                               ; preds = %28
@@ -2632,7 +2632,7 @@ define dso_local noundef zeroext i1 @is_zend_ptr(ptr noundef %0) local_unnamed_a
   %10 = lshr i64 %9, 3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %12 = load ptr, ptr %11, align 8, !tbaa !51
-  %13 = tail call ptr @zend_hash_index_find(ptr noundef %12, i64 noundef %10) #40
+  %13 = tail call ptr @zend_hash_index_find(ptr noundef %12, i64 noundef %10) #41
   %.not32.not = icmp eq ptr %13, null
   br i1 %.not32.not, label %14, label %.loopexit
 
@@ -2699,7 +2699,7 @@ define dso_local noalias ptr @_emalloc_8() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 8) #40
+  %6 = tail call ptr %5(i64 noundef 8) #41
   br label %_emalloc_16.exit
 
 7:                                                ; preds = %0
@@ -2734,7 +2734,7 @@ define dso_local noalias ptr @_emalloc_8() local_unnamed_addr #0 {
   br i1 %.not7.i.i.i, label %zend_mm_get_next_free_slot.exit.i.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i.i:              ; preds = %17, %15
@@ -2760,7 +2760,7 @@ define dso_local noalias ptr @_emalloc_16() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 16) #40
+  %6 = tail call ptr %5(i64 noundef 16) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -2795,7 +2795,7 @@ define dso_local noalias ptr @_emalloc_16() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -2821,7 +2821,7 @@ define dso_local noalias ptr @_emalloc_24() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 24) #40
+  %6 = tail call ptr %5(i64 noundef 24) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -2856,7 +2856,7 @@ define dso_local noalias ptr @_emalloc_24() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -2882,7 +2882,7 @@ define dso_local noalias ptr @_emalloc_32() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 32) #40
+  %6 = tail call ptr %5(i64 noundef 32) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -2917,7 +2917,7 @@ define dso_local noalias ptr @_emalloc_32() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -2943,7 +2943,7 @@ define dso_local noalias ptr @_emalloc_40() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 40) #40
+  %6 = tail call ptr %5(i64 noundef 40) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -2978,7 +2978,7 @@ define dso_local noalias ptr @_emalloc_40() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -3004,7 +3004,7 @@ define dso_local noalias ptr @_emalloc_48() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 48) #40
+  %6 = tail call ptr %5(i64 noundef 48) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -3039,7 +3039,7 @@ define dso_local noalias ptr @_emalloc_48() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -3065,7 +3065,7 @@ define dso_local noalias ptr @_emalloc_56() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 56) #40
+  %6 = tail call ptr %5(i64 noundef 56) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -3100,7 +3100,7 @@ define dso_local noalias ptr @_emalloc_56() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -3126,7 +3126,7 @@ define dso_local noalias ptr @_emalloc_64() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 64) #40
+  %6 = tail call ptr %5(i64 noundef 64) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -3161,7 +3161,7 @@ define dso_local noalias ptr @_emalloc_64() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -3187,7 +3187,7 @@ define dso_local noalias ptr @_emalloc_80() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 80) #40
+  %6 = tail call ptr %5(i64 noundef 80) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -3222,7 +3222,7 @@ define dso_local noalias ptr @_emalloc_80() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -3248,7 +3248,7 @@ define dso_local noalias ptr @_emalloc_96() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 96) #40
+  %6 = tail call ptr %5(i64 noundef 96) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -3283,7 +3283,7 @@ define dso_local noalias ptr @_emalloc_96() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -3309,7 +3309,7 @@ define dso_local noalias ptr @_emalloc_112() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 112) #40
+  %6 = tail call ptr %5(i64 noundef 112) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -3344,7 +3344,7 @@ define dso_local noalias ptr @_emalloc_112() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -3370,7 +3370,7 @@ define dso_local noalias ptr @_emalloc_128() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 128) #40
+  %6 = tail call ptr %5(i64 noundef 128) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -3405,7 +3405,7 @@ define dso_local noalias ptr @_emalloc_128() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -3431,7 +3431,7 @@ define dso_local noalias ptr @_emalloc_160() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 160) #40
+  %6 = tail call ptr %5(i64 noundef 160) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -3466,7 +3466,7 @@ define dso_local noalias ptr @_emalloc_160() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -3492,7 +3492,7 @@ define dso_local noalias ptr @_emalloc_192() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 192) #40
+  %6 = tail call ptr %5(i64 noundef 192) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -3527,7 +3527,7 @@ define dso_local noalias ptr @_emalloc_192() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -3553,7 +3553,7 @@ define dso_local noalias ptr @_emalloc_224() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 224) #40
+  %6 = tail call ptr %5(i64 noundef 224) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -3588,7 +3588,7 @@ define dso_local noalias ptr @_emalloc_224() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -3614,7 +3614,7 @@ define dso_local noalias ptr @_emalloc_256() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 256) #40
+  %6 = tail call ptr %5(i64 noundef 256) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -3649,7 +3649,7 @@ define dso_local noalias ptr @_emalloc_256() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -3675,7 +3675,7 @@ define dso_local noalias ptr @_emalloc_320() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 320) #40
+  %6 = tail call ptr %5(i64 noundef 320) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -3710,7 +3710,7 @@ define dso_local noalias ptr @_emalloc_320() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -3736,7 +3736,7 @@ define dso_local noalias ptr @_emalloc_384() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 384) #40
+  %6 = tail call ptr %5(i64 noundef 384) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -3771,7 +3771,7 @@ define dso_local noalias ptr @_emalloc_384() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -3797,7 +3797,7 @@ define dso_local noalias ptr @_emalloc_448() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 448) #40
+  %6 = tail call ptr %5(i64 noundef 448) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -3832,7 +3832,7 @@ define dso_local noalias ptr @_emalloc_448() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -3858,7 +3858,7 @@ define dso_local noalias ptr @_emalloc_512() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 512) #40
+  %6 = tail call ptr %5(i64 noundef 512) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -3893,7 +3893,7 @@ define dso_local noalias ptr @_emalloc_512() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -3919,7 +3919,7 @@ define dso_local noalias ptr @_emalloc_640() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 640) #40
+  %6 = tail call ptr %5(i64 noundef 640) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -3954,7 +3954,7 @@ define dso_local noalias ptr @_emalloc_640() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -3980,7 +3980,7 @@ define dso_local noalias ptr @_emalloc_768() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 768) #40
+  %6 = tail call ptr %5(i64 noundef 768) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -4015,7 +4015,7 @@ define dso_local noalias ptr @_emalloc_768() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -4041,7 +4041,7 @@ define dso_local noalias ptr @_emalloc_896() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 896) #40
+  %6 = tail call ptr %5(i64 noundef 896) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -4076,7 +4076,7 @@ define dso_local noalias ptr @_emalloc_896() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -4102,7 +4102,7 @@ define dso_local noalias ptr @_emalloc_1024() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 1024) #40
+  %6 = tail call ptr %5(i64 noundef 1024) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -4137,7 +4137,7 @@ define dso_local noalias ptr @_emalloc_1024() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -4163,7 +4163,7 @@ define dso_local noalias ptr @_emalloc_1280() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 1280) #40
+  %6 = tail call ptr %5(i64 noundef 1280) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -4198,7 +4198,7 @@ define dso_local noalias ptr @_emalloc_1280() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -4224,7 +4224,7 @@ define dso_local noalias ptr @_emalloc_1536() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 1536) #40
+  %6 = tail call ptr %5(i64 noundef 1536) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -4259,7 +4259,7 @@ define dso_local noalias ptr @_emalloc_1536() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -4285,7 +4285,7 @@ define dso_local noalias ptr @_emalloc_1792() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 1792) #40
+  %6 = tail call ptr %5(i64 noundef 1792) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -4320,7 +4320,7 @@ define dso_local noalias ptr @_emalloc_1792() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -4346,7 +4346,7 @@ define dso_local noalias ptr @_emalloc_2048() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 2048) #40
+  %6 = tail call ptr %5(i64 noundef 2048) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -4381,7 +4381,7 @@ define dso_local noalias ptr @_emalloc_2048() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -4407,7 +4407,7 @@ define dso_local noalias ptr @_emalloc_2560() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 2560) #40
+  %6 = tail call ptr %5(i64 noundef 2560) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -4442,7 +4442,7 @@ define dso_local noalias ptr @_emalloc_2560() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -4468,7 +4468,7 @@ define dso_local noalias ptr @_emalloc_3072() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 16, !tbaa !50
-  %6 = tail call ptr %5(i64 noundef 3072) #40
+  %6 = tail call ptr %5(i64 noundef 3072) #41
   br label %zend_mm_alloc_small.exit
 
 7:                                                ; preds = %0
@@ -4503,7 +4503,7 @@ define dso_local noalias ptr @_emalloc_3072() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %26, !prof !23
 
 26:                                               ; preds = %17
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %17, %15
@@ -4529,7 +4529,7 @@ define dso_local noalias ptr @_emalloc_large(i64 noundef %0) local_unnamed_addr 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 16, !tbaa !50
-  %7 = tail call ptr %6(i64 noundef %0) #40
+  %7 = tail call ptr %6(i64 noundef %0) #41
   br label %20
 
 8:                                                ; preds = %1
@@ -4564,7 +4564,7 @@ define dso_local noalias ptr @_emalloc_huge(i64 noundef %0) local_unnamed_addr #
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 16, !tbaa !50
-  %7 = tail call ptr %6(i64 noundef %0) #40
+  %7 = tail call ptr %6(i64 noundef %0) #41
   br label %10
 
 8:                                                ; preds = %1
@@ -4587,7 +4587,7 @@ define internal fastcc nonnull ptr @zend_mm_alloc_huge(ptr noundef %0, i64 nound
   br i1 %8, label %9, label %10, !prof !29
 
 9:                                                ; preds = %2
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.10, i64 noundef %1, i64 noundef %3) #44
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.10, i64 noundef %1, i64 noundef %3) #45
   unreachable
 
 10:                                               ; preds = %2
@@ -4619,7 +4619,7 @@ define internal fastcc nonnull ptr @zend_mm_alloc_huge(ptr noundef %0, i64 nound
 
 27:                                               ; preds = %23
   %28 = load i64, ptr %11, align 8, !tbaa !74
-  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, i64 noundef %28, i64 noundef %1) #41
+  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, i64 noundef %28, i64 noundef %1) #42
   unreachable
 
 29:                                               ; preds = %19, %23, %10
@@ -4630,7 +4630,7 @@ define internal fastcc nonnull ptr @zend_mm_alloc_huge(ptr noundef %0, i64 nound
 
 31:                                               ; preds = %29
   %32 = load ptr, ptr %.val, align 8, !tbaa !78
-  %33 = tail call ptr %32(ptr noundef nonnull %.val, i64 noundef %7, i64 noundef 2097152) #40
+  %33 = tail call ptr %32(ptr noundef nonnull %.val, i64 noundef %7, i64 noundef 2097152) #41
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 2097151
   %35 = ptrtoint ptr %34 to i64
   %36 = and i64 %35, 2097151
@@ -4660,7 +4660,7 @@ zend_mm_chunk_alloc.exit:                         ; preds = %31, %39
 
 45:                                               ; preds = %44
   %46 = load ptr, ptr %.val61, align 8, !tbaa !78
-  %47 = tail call ptr %46(ptr noundef nonnull %.val61, i64 noundef %7, i64 noundef 2097152) #40
+  %47 = tail call ptr %46(ptr noundef nonnull %.val61, i64 noundef %7, i64 noundef 2097152) #41
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 2097151
   %49 = ptrtoint ptr %48 to i64
   %50 = and i64 %49, 2097151
@@ -4680,7 +4680,7 @@ zend_mm_chunk_alloc.exit64:                       ; preds = %45, %53
 
 55:                                               ; preds = %zend_mm_chunk_alloc.exit64, %42
   %56 = load i64, ptr %13, align 8, !tbaa !42
-  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, i64 noundef %56, i64 noundef %1) #41
+  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, i64 noundef %56, i64 noundef %1) #42
   unreachable
 
 57:                                               ; preds = %zend_mm_chunk_alloc.exit64, %zend_mm_chunk_alloc.exit
@@ -4716,7 +4716,7 @@ zend_mm_chunk_alloc.exit64:                       ; preds = %45, %53
   br i1 %.not7.i.i.i, label %zend_mm_get_next_free_slot.exit.i.i, label %76, !prof !23
 
 76:                                               ; preds = %67
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i.i:              ; preds = %67, %65
@@ -4765,7 +4765,7 @@ define dso_local void @_efree_8(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %25
 
 7:                                                ; preds = %1
@@ -4777,7 +4777,7 @@ define dso_local void @_efree_8(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4.i, label %_efree_16.exit, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 _efree_16.exit:                                   ; preds = %7
@@ -4813,7 +4813,7 @@ define dso_local void @_efree_16(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -4825,7 +4825,7 @@ define dso_local void @_efree_16(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -4861,7 +4861,7 @@ define dso_local void @_efree_24(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -4873,7 +4873,7 @@ define dso_local void @_efree_24(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -4909,7 +4909,7 @@ define dso_local void @_efree_32(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -4921,7 +4921,7 @@ define dso_local void @_efree_32(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -4957,7 +4957,7 @@ define dso_local void @_efree_40(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -4969,7 +4969,7 @@ define dso_local void @_efree_40(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -5005,7 +5005,7 @@ define dso_local void @_efree_48(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -5017,7 +5017,7 @@ define dso_local void @_efree_48(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -5053,7 +5053,7 @@ define dso_local void @_efree_56(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -5065,7 +5065,7 @@ define dso_local void @_efree_56(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -5101,7 +5101,7 @@ define dso_local void @_efree_64(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -5113,7 +5113,7 @@ define dso_local void @_efree_64(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -5149,7 +5149,7 @@ define dso_local void @_efree_80(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -5161,7 +5161,7 @@ define dso_local void @_efree_80(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -5197,7 +5197,7 @@ define dso_local void @_efree_96(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -5209,7 +5209,7 @@ define dso_local void @_efree_96(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -5245,7 +5245,7 @@ define dso_local void @_efree_112(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -5257,7 +5257,7 @@ define dso_local void @_efree_112(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -5293,7 +5293,7 @@ define dso_local void @_efree_128(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -5305,7 +5305,7 @@ define dso_local void @_efree_128(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -5341,7 +5341,7 @@ define dso_local void @_efree_160(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -5353,7 +5353,7 @@ define dso_local void @_efree_160(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -5389,7 +5389,7 @@ define dso_local void @_efree_192(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -5401,7 +5401,7 @@ define dso_local void @_efree_192(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -5437,7 +5437,7 @@ define dso_local void @_efree_224(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -5449,7 +5449,7 @@ define dso_local void @_efree_224(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -5485,7 +5485,7 @@ define dso_local void @_efree_256(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -5497,7 +5497,7 @@ define dso_local void @_efree_256(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -5533,7 +5533,7 @@ define dso_local void @_efree_320(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -5545,7 +5545,7 @@ define dso_local void @_efree_320(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -5581,7 +5581,7 @@ define dso_local void @_efree_384(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -5593,7 +5593,7 @@ define dso_local void @_efree_384(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -5629,7 +5629,7 @@ define dso_local void @_efree_448(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -5641,7 +5641,7 @@ define dso_local void @_efree_448(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -5677,7 +5677,7 @@ define dso_local void @_efree_512(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -5689,7 +5689,7 @@ define dso_local void @_efree_512(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -5725,7 +5725,7 @@ define dso_local void @_efree_640(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -5737,7 +5737,7 @@ define dso_local void @_efree_640(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -5773,7 +5773,7 @@ define dso_local void @_efree_768(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -5785,7 +5785,7 @@ define dso_local void @_efree_768(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -5821,7 +5821,7 @@ define dso_local void @_efree_896(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -5833,7 +5833,7 @@ define dso_local void @_efree_896(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -5869,7 +5869,7 @@ define dso_local void @_efree_1024(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -5881,7 +5881,7 @@ define dso_local void @_efree_1024(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -5917,7 +5917,7 @@ define dso_local void @_efree_1280(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -5929,7 +5929,7 @@ define dso_local void @_efree_1280(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -5965,7 +5965,7 @@ define dso_local void @_efree_1536(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -5977,7 +5977,7 @@ define dso_local void @_efree_1536(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -6013,7 +6013,7 @@ define dso_local void @_efree_1792(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -6025,7 +6025,7 @@ define dso_local void @_efree_1792(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -6061,7 +6061,7 @@ define dso_local void @_efree_2048(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -6073,7 +6073,7 @@ define dso_local void @_efree_2048(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -6109,7 +6109,7 @@ define dso_local void @_efree_2560(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -6121,7 +6121,7 @@ define dso_local void @_efree_2560(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -6157,7 +6157,7 @@ define dso_local void @_efree_3072(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %26
 
 7:                                                ; preds = %1
@@ -6169,7 +6169,7 @@ define dso_local void @_efree_3072(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %13, label %12, !prof !23
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 13:                                               ; preds = %7
@@ -6205,7 +6205,7 @@ define dso_local void @_efree_large(ptr noundef %0, i64 noundef %1) local_unname
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 376
   %7 = load ptr, ptr %6, align 8, !tbaa !60
-  tail call void %7(ptr noundef %0) #40
+  tail call void %7(ptr noundef %0) #41
   br label %34
 
 8:                                                ; preds = %2
@@ -6220,7 +6220,7 @@ define dso_local void @_efree_large(ptr noundef %0, i64 noundef %1) local_unname
   br i1 %.not16, label %16, label %17, !prof !29
 
 16:                                               ; preds = %8
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 17:                                               ; preds = %8
@@ -6259,7 +6259,7 @@ define dso_local void @_efree_huge(ptr noundef %0, i64 noundef %1) local_unnamed
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 376
   %7 = load ptr, ptr %6, align 8, !tbaa !60
-  tail call void %7(ptr noundef %0) #40
+  tail call void %7(ptr noundef %0) #41
   br label %9
 
 8:                                                ; preds = %2
@@ -6278,7 +6278,7 @@ define internal fastcc void @zend_mm_free_huge(ptr noundef captures(address) %0,
   br i1 %.not, label %6, label %5, !prof !23
 
 5:                                                ; preds = %2
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 6:                                                ; preds = %2
@@ -6339,7 +6339,7 @@ define internal fastcc void @zend_mm_free_huge(ptr noundef captures(address) %0,
   br i1 %.not.i.i, label %34, label %33, !prof !23
 
 33:                                               ; preds = %24
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 34:                                               ; preds = %24
@@ -6380,7 +6380,7 @@ define internal fastcc void @zend_mm_free_huge(ptr noundef captures(address) %0,
   br i1 %.not22.i.i, label %59, label %58, !prof !23
 
 58:                                               ; preds = %56
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 59:                                               ; preds = %56
@@ -6402,7 +6402,7 @@ define internal fastcc void @zend_mm_free_huge(ptr noundef captures(address) %0,
   br i1 %.not.i, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph27, %6
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_del_huge_block.exit:                      ; preds = %23, %35, %59
@@ -6414,20 +6414,20 @@ zend_mm_del_huge_block.exit:                      ; preds = %23, %35, %59
 68:                                               ; preds = %zend_mm_del_huge_block.exit
   %69 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !45
-  tail call void %70(ptr noundef nonnull %.val, ptr noundef %1, i64 noundef %19) #40
+  tail call void %70(ptr noundef nonnull %.val, ptr noundef %1, i64 noundef %19) #41
   br label %zend_mm_chunk_free.exit
 
 71:                                               ; preds = %zend_mm_del_huge_block.exit
-  %72 = tail call i32 @munmap(ptr noundef %1, i64 noundef %19) #40
+  %72 = tail call i32 @munmap(ptr noundef %1, i64 noundef %19) #41
   %.not.i.i10 = icmp eq i32 %72, 0
   br i1 %.not.i.i10, label %zend_mm_chunk_free.exit, label %73
 
 73:                                               ; preds = %71
   %74 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %75 = tail call ptr @__errno_location() #42
+  %75 = tail call ptr @__errno_location() #43
   %76 = load i32, ptr %75, align 4, !tbaa !24
-  %77 = tail call ptr @strerror(i32 noundef %76) #40
-  %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef nonnull @.str.4, i32 noundef %76, ptr noundef %77) #43
+  %77 = tail call ptr @strerror(i32 noundef %76) #41
+  %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef nonnull @.str.4, i32 noundef %76, ptr noundef %77) #44
   br label %zend_mm_chunk_free.exit
 
 zend_mm_chunk_free.exit:                          ; preds = %68, %71, %73
@@ -6452,7 +6452,7 @@ define dso_local noalias ptr @_emalloc(i64 noundef %0) local_unnamed_addr #10 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 16, !tbaa !50
-  %7 = tail call ptr %6(i64 noundef %0) #40
+  %7 = tail call ptr %6(i64 noundef %0) #41
   br label %zend_mm_alloc_heap.exit
 
 8:                                                ; preds = %1
@@ -6520,7 +6520,7 @@ zend_mm_small_size_to_bin.exit:                   ; preds = %12, %16
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %48, !prof !23
 
 48:                                               ; preds = %38
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %38, %36
@@ -6558,7 +6558,7 @@ define dso_local void @_efree(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  tail call void %6(ptr noundef %0) #40
+  tail call void %6(ptr noundef %0) #41
   br label %zend_mm_free_heap.exit
 
 7:                                                ; preds = %1
@@ -6588,7 +6588,7 @@ define dso_local void @_efree(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %23, label %22, !prof !23
 
 22:                                               ; preds = %13
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 23:                                               ; preds = %13
@@ -6629,7 +6629,7 @@ define dso_local void @_efree(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not22.i, label %48, label %47, !prof !23
 
 47:                                               ; preds = %45
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 48:                                               ; preds = %45
@@ -6657,7 +6657,7 @@ define dso_local ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_ad
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 384
   %7 = load ptr, ptr %6, align 16, !tbaa !79
-  %8 = tail call ptr %7(ptr noundef %0, i64 noundef %1) #40
+  %8 = tail call ptr %7(ptr noundef %0, i64 noundef %1) #41
   br label %zend_mm_realloc_heap.exit
 
 9:                                                ; preds = %2
@@ -6671,7 +6671,7 @@ define dso_local ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   br i1 %14, label %15, label %17, !prof !23
 
 15:                                               ; preds = %13
-  %16 = tail call noalias ptr @_zend_mm_alloc(ptr noundef nonnull %3, i64 noundef %1) #46
+  %16 = tail call noalias ptr @_zend_mm_alloc(ptr noundef nonnull %3, i64 noundef %1) #47
   br label %zend_mm_realloc_heap.exit
 
 17:                                               ; preds = %13
@@ -6692,7 +6692,7 @@ define dso_local ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   br i1 %.not.i, label %29, label %28, !prof !23
 
 28:                                               ; preds = %19
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 29:                                               ; preds = %19
@@ -6779,7 +6779,7 @@ zend_mm_small_size_to_bin.exit19:                 ; preds = %44, %48
   br i1 %.not7.i.i11, label %zend_mm_get_next_free_slot.exit.i12, label %80, !prof !23
 
 80:                                               ; preds = %70
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i12:              ; preds = %70, %68
@@ -6875,7 +6875,7 @@ zend_mm_small_size_to_bin.exit:                   ; preds = %101, %105
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %135, !prof !23
 
 135:                                              ; preds = %125
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %125, %123
@@ -6917,7 +6917,7 @@ zend_mm_alloc_small.exit:                         ; preds = %zend_mm_get_next_fr
   br i1 %.not154.i, label %155, label %154, !prof !23
 
 154:                                              ; preds = %152
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 155:                                              ; preds = %152
@@ -7234,7 +7234,7 @@ define dso_local ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2)
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 384
   %8 = load ptr, ptr %7, align 16, !tbaa !79
-  %9 = tail call ptr %8(ptr noundef %0, i64 noundef %1) #40
+  %9 = tail call ptr %8(ptr noundef %0, i64 noundef %1) #41
   br label %zend_mm_realloc_heap.exit
 
 10:                                               ; preds = %3
@@ -7248,7 +7248,7 @@ define dso_local ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   br i1 %15, label %16, label %18, !prof !23
 
 16:                                               ; preds = %14
-  %17 = tail call noalias ptr @_zend_mm_alloc(ptr noundef nonnull %4, i64 noundef %1) #46
+  %17 = tail call noalias ptr @_zend_mm_alloc(ptr noundef nonnull %4, i64 noundef %1) #47
   br label %zend_mm_realloc_heap.exit
 
 18:                                               ; preds = %14
@@ -7269,7 +7269,7 @@ define dso_local ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   br i1 %.not.i, label %30, label %29, !prof !23
 
 29:                                               ; preds = %20
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 30:                                               ; preds = %20
@@ -7356,7 +7356,7 @@ zend_mm_small_size_to_bin.exit19:                 ; preds = %45, %49
   br i1 %.not7.i.i11, label %zend_mm_get_next_free_slot.exit.i12, label %81, !prof !23
 
 81:                                               ; preds = %71
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i12:              ; preds = %71, %69
@@ -7453,7 +7453,7 @@ zend_mm_small_size_to_bin.exit:                   ; preds = %103, %107
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %137, !prof !23
 
 137:                                              ; preds = %127
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %127, %125
@@ -7496,7 +7496,7 @@ zend_mm_alloc_small.exit:                         ; preds = %zend_mm_get_next_fr
   br i1 %.not154.i, label %158, label %157, !prof !23
 
 157:                                              ; preds = %155
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 158:                                              ; preds = %155
@@ -7821,7 +7821,7 @@ define dso_local i64 @_zend_mem_block_size(ptr noundef %0) local_unnamed_addr #0
   %10 = lshr i64 %9, 3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %12 = load ptr, ptr %11, align 8, !tbaa !51
-  %13 = tail call ptr @zend_hash_index_find(ptr noundef %12, i64 noundef %10) #40
+  %13 = tail call ptr @zend_hash_index_find(ptr noundef %12, i64 noundef %10) #41
   %.not12.not.i = icmp eq ptr %13, null
   br i1 %.not12.not.i, label %_zend_mm_block_size.exit, label %14
 
@@ -7854,7 +7854,7 @@ define dso_local i64 @_zend_mem_block_size(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %24, %20
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_huge_block_size.exit.i.i:             ; preds = %.lr.ph.i.i.i
@@ -7874,7 +7874,7 @@ zend_mm_get_huge_block_size.exit.i.i:             ; preds = %.lr.ph.i.i.i
   br i1 %.not.i.i, label %37, label %36, !prof !23
 
 36:                                               ; preds = %28
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 37:                                               ; preds = %28
@@ -7906,43 +7906,43 @@ _zend_mm_block_size.exit:                         ; preds = %4, %8, %14, %zend_m
 ; Function Attrs: nounwind uwtable
 define dso_local noalias ptr @_safe_emalloc(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
 zend_safe_address.exit:
-  %3 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %0, i64 %1, i64 %2) #47, !srcloc !80
+  %3 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %0, i64 %1, i64 %2) #48, !srcloc !80
   %.0.i = extractvalue { i64, i64 } %3, 1
   %.not.i.not = icmp eq i64 %.0.i, 0
   br i1 %.not.i.not, label %zend_safe_address_guarded.exit, label %4, !prof !23
 
 4:                                                ; preds = %zend_safe_address.exit
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %0, i64 noundef %1, i64 noundef %2) #44
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %0, i64 noundef %1, i64 noundef %2) #45
   unreachable
 
 zend_safe_address_guarded.exit:                   ; preds = %zend_safe_address.exit
   %.013.i = extractvalue { i64, i64 } %3, 0
-  %5 = tail call noalias ptr @_emalloc(i64 noundef %.013.i) #48
+  %5 = tail call noalias ptr @_emalloc(i64 noundef %.013.i) #49
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @_safe_malloc(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
 zend_safe_address.exit:
-  %3 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %0, i64 %1, i64 %2) #47, !srcloc !80
+  %3 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %0, i64 %1, i64 %2) #48, !srcloc !80
   %.0.i = extractvalue { i64, i64 } %3, 1
   %.not.i.not = icmp eq i64 %.0.i, 0
   br i1 %.not.i.not, label %zend_safe_address_guarded.exit, label %4, !prof !23
 
 4:                                                ; preds = %zend_safe_address.exit
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %0, i64 noundef %1, i64 noundef %2) #44
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %0, i64 noundef %1, i64 noundef %2) #45
   unreachable
 
 zend_safe_address_guarded.exit:                   ; preds = %zend_safe_address.exit
   %.013.i = extractvalue { i64, i64 } %3, 0
-  %5 = tail call noalias ptr @malloc(i64 noundef %.013.i) #45
+  %5 = tail call noalias ptr @malloc(i64 noundef %.013.i) #46
   %6 = icmp ne ptr %5, null
   %.not.i3 = icmp eq i64 %.013.i, 0
   %7 = or i1 %.not.i3, %6
   br i1 %7, label %__zend_malloc.exit, label %8, !prof !23
 
 8:                                                ; preds = %zend_safe_address_guarded.exit
-  tail call fastcc void @zend_out_of_memory() #41
+  tail call fastcc void @zend_out_of_memory() #42
   unreachable
 
 __zend_malloc.exit:                               ; preds = %zend_safe_address_guarded.exit
@@ -7951,7 +7951,7 @@ __zend_malloc.exit:                               ; preds = %zend_safe_address_g
 
 ; Function Attrs: nofree nounwind allocsize(0) uwtable
 define dso_local noalias noundef ptr @__zend_malloc(i64 noundef %0) #11 {
-  %2 = tail call noalias ptr @malloc(i64 noundef %0) #45
+  %2 = tail call noalias ptr @malloc(i64 noundef %0) #46
   %3 = icmp ne ptr %2, null
   %.not = icmp eq i64 %0, 0
   %4 = or i1 %.not, %3
@@ -7961,50 +7961,50 @@ define dso_local noalias noundef ptr @__zend_malloc(i64 noundef %0) #11 {
   ret ptr %2
 
 6:                                                ; preds = %1
-  tail call fastcc void @zend_out_of_memory() #41
+  tail call fastcc void @zend_out_of_memory() #42
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @_safe_erealloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
 zend_safe_address.exit:
-  %4 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 %2, i64 %3) #47, !srcloc !80
+  %4 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 %2, i64 %3) #48, !srcloc !80
   %.0.i = extractvalue { i64, i64 } %4, 1
   %.not.i.not = icmp eq i64 %.0.i, 0
   br i1 %.not.i.not, label %zend_safe_address_guarded.exit, label %5, !prof !23
 
 5:                                                ; preds = %zend_safe_address.exit
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %1, i64 noundef %2, i64 noundef %3) #44
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %1, i64 noundef %2, i64 noundef %3) #45
   unreachable
 
 zend_safe_address_guarded.exit:                   ; preds = %zend_safe_address.exit
   %.013.i = extractvalue { i64, i64 } %4, 0
-  %6 = tail call ptr @_erealloc(ptr noundef %0, i64 noundef %.013.i) #46
+  %6 = tail call ptr @_erealloc(ptr noundef %0, i64 noundef %.013.i) #47
   ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @_safe_realloc(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
 zend_safe_address.exit:
-  %4 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 %2, i64 %3) #47, !srcloc !80
+  %4 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 %2, i64 %3) #48, !srcloc !80
   %.0.i = extractvalue { i64, i64 } %4, 1
   %.not.i.not = icmp eq i64 %.0.i, 0
   br i1 %.not.i.not, label %zend_safe_address_guarded.exit, label %5, !prof !23
 
 5:                                                ; preds = %zend_safe_address.exit
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %1, i64 noundef %2, i64 noundef %3) #44
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %1, i64 noundef %2, i64 noundef %3) #45
   unreachable
 
 zend_safe_address_guarded.exit:                   ; preds = %zend_safe_address.exit
   %.013.i = extractvalue { i64, i64 } %4, 0
-  %6 = tail call ptr @realloc(ptr noundef %0, i64 noundef %.013.i) #49
+  %6 = tail call ptr @realloc(ptr noundef %0, i64 noundef %.013.i) #50
   %7 = icmp ne ptr %6, null
   %.not.i3 = icmp eq i64 %.013.i, 0
   %8 = or i1 %.not.i3, %7
   br i1 %8, label %__zend_realloc.exit, label %9, !prof !23
 
 9:                                                ; preds = %zend_safe_address_guarded.exit
-  tail call fastcc void @zend_out_of_memory() #41
+  tail call fastcc void @zend_out_of_memory() #42
   unreachable
 
 __zend_realloc.exit:                              ; preds = %zend_safe_address_guarded.exit
@@ -8013,7 +8013,7 @@ __zend_realloc.exit:                              ; preds = %zend_safe_address_g
 
 ; Function Attrs: nounwind allocsize(1) uwtable
 define dso_local noalias noundef ptr @__zend_realloc(ptr noundef captures(none) %0, i64 noundef %1) #8 {
-  %3 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #49
+  %3 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #50
   %4 = icmp ne ptr %3, null
   %.not = icmp eq i64 %1, 0
   %5 = or i1 %.not, %4
@@ -8023,41 +8023,41 @@ define dso_local noalias noundef ptr @__zend_realloc(ptr noundef captures(none) 
   ret ptr %3
 
 7:                                                ; preds = %2
-  tail call fastcc void @zend_out_of_memory() #41
+  tail call fastcc void @zend_out_of_memory() #42
   unreachable
 }
 
 ; Function Attrs: nounwind allocsize(0,1) uwtable
 define dso_local noalias ptr @_ecalloc(i64 noundef %0, i64 noundef %1) local_unnamed_addr #12 {
-  %3 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %0, i64 %1) #47, !srcloc !81
+  %3 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %0, i64 %1) #48, !srcloc !81
   %.0.i = extractvalue { i64, i64 } %3, 1
   %.not.i.not = icmp eq i64 %.0.i, 0
   br i1 %.not.i.not, label %zend_safe_address_guarded.exit, label %4, !prof !23
 
 4:                                                ; preds = %2
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %0, i64 noundef %1, i64 noundef 0) #44
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %0, i64 noundef %1, i64 noundef 0) #45
   unreachable
 
 zend_safe_address_guarded.exit:                   ; preds = %2
   %.013.i = extractvalue { i64, i64 } %3, 0
-  %5 = tail call noalias ptr @_emalloc(i64 noundef %.013.i) #48
+  %5 = tail call noalias ptr @_emalloc(i64 noundef %.013.i) #49
   tail call void @llvm.memset.p0.i64(ptr align 1 %5, i8 0, i64 %.013.i, i1 false)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noalias ptr @_estrdup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #50
+  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #51
   %3 = add i64 %2, 1
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %6, !prof !29
 
 5:                                                ; preds = %1
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef %2) #44
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef %2) #45
   unreachable
 
 6:                                                ; preds = %1
-  %7 = tail call noalias ptr @_emalloc(i64 noundef %3) #48
+  %7 = tail call noalias ptr @_emalloc(i64 noundef %3) #49
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr nonnull align 1 %0, i64 %3, i1 false)
   ret ptr %7
 }
@@ -8078,11 +8078,11 @@ define dso_local noalias ptr @_estrndup(ptr noundef readonly captures(none) %0, 
   br i1 %4, label %5, label %6, !prof !29
 
 5:                                                ; preds = %2
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef %1) #44
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef %1) #45
   unreachable
 
 6:                                                ; preds = %2
-  %7 = tail call noalias ptr @_emalloc(i64 noundef %3) #48
+  %7 = tail call noalias ptr @_emalloc(i64 noundef %3) #49
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %0, i64 %1, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %1
   store i8 0, ptr %8, align 1, !tbaa !55
@@ -8096,16 +8096,16 @@ define dso_local noalias nonnull ptr @zend_strndup(ptr noundef readonly captures
   br i1 %4, label %5, label %6, !prof !29
 
 5:                                                ; preds = %2
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef %1) #44
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef %1) #45
   unreachable
 
 6:                                                ; preds = %2
-  %7 = tail call noalias ptr @malloc(i64 noundef %3) #45
+  %7 = tail call noalias ptr @malloc(i64 noundef %3) #46
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10, !prof !29
 
 9:                                                ; preds = %6
-  tail call fastcc void @zend_out_of_memory() #41
+  tail call fastcc void @zend_out_of_memory() #42
   unreachable
 
 10:                                               ; preds = %6
@@ -8128,8 +8128,8 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #16
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @zend_out_of_memory() unnamed_addr #1 {
   %1 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %2 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 14, i64 1, ptr %1) #51
-  tail call void @exit(i32 noundef 1) #52
+  %2 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 14, i64 1, ptr %1) #52
+  tail call void @exit(i32 noundef 1) #53
   unreachable
 }
 
@@ -8231,24 +8231,24 @@ define dso_local void @shutdown_memory_manager(i1 noundef zeroext %0, i1 noundef
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @start_memory_manager() local_unnamed_addr #0 {
-  %1 = tail call i64 @sysconf(i32 noundef 30) #40
+  %1 = tail call i64 @sysconf(i32 noundef 30) #41
   store i64 %1, ptr @_real_page_size, align 8, !tbaa !32
-  %2 = tail call ptr @getenv(ptr noundef nonnull @.str.13) #40
+  %2 = tail call ptr @getenv(ptr noundef nonnull @.str.13) #41
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %20, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #40
+  %4 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #41
   %.not21.i = icmp eq i64 %4, 0
   br i1 %.not21.i, label %5, label %20
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @getenv(ptr noundef nonnull @.str.14) #40
+  %6 = tail call ptr @getenv(ptr noundef nonnull @.str.14) #41
   %.not22.i = icmp eq ptr %6, null
   br i1 %.not22.i, label %10, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %6, ptr noundef null, i32 noundef 10) #40
+  %8 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %6, ptr noundef null, i32 noundef 10) #41
   %9 = icmp ne i64 %8, 0
   br label %10
 
@@ -8274,19 +8274,19 @@ define dso_local void @start_memory_manager() local_unnamed_addr #0 {
   store ptr @tracked_malloc, ptr %13, align 16, !tbaa !50
   store ptr @tracked_free, ptr %14, align 8, !tbaa !60
   store ptr @tracked_realloc, ptr %15, align 16, !tbaa !79
-  %18 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #45
+  %18 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #46
   %19 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 408
   store ptr %18, ptr %19, align 8, !tbaa !51
-  tail call void @_zend_hash_init(ptr noundef %18, i32 noundef 1024, ptr noundef null, i1 noundef zeroext true) #40
+  tail call void @_zend_hash_init(ptr noundef %18, i32 noundef 1024, ptr noundef null, i1 noundef zeroext true) #41
   br label %alloc_globals_ctor.exit
 
 20:                                               ; preds = %3, %0
-  %21 = tail call ptr @getenv(ptr noundef nonnull @.str.15) #40
+  %21 = tail call ptr @getenv(ptr noundef nonnull @.str.15) #41
   %.not23.i = icmp eq ptr %21, null
   br i1 %.not23.i, label %25, label %22
 
 22:                                               ; preds = %20
-  %23 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %21, ptr noundef null, i32 noundef 10) #40
+  %23 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %21, ptr noundef null, i32 noundef 10) #41
   %.not24.i = icmp eq i64 %23, 0
   br i1 %.not24.i, label %25, label %24
 
@@ -8488,7 +8488,7 @@ define internal fastcc ptr @zend_mm_init() unnamed_addr #0 {
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %5 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 22, i64 1, ptr %4) #51
+  %5 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 22, i64 1, ptr %4) #52
   br label %35
 
 6:                                                ; preds = %0
@@ -8534,7 +8534,7 @@ define internal fastcc ptr @zend_mm_init() unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   %27 = load ptr, ptr @zend_random_bytes_insecure, align 8, !tbaa !71
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  tail call void %27(ptr noundef nonnull %26, ptr noundef nonnull %28, i64 noundef 8) #40
+  tail call void %27(ptr noundef nonnull %26, ptr noundef nonnull %28, i64 noundef 8) #41
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 360
   store i64 9223372036854775807, ptr %29, align 8, !tbaa !74
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 368
@@ -8544,7 +8544,7 @@ define internal fastcc ptr @zend_mm_init() unnamed_addr #0 {
   store ptr null, ptr %31, align 8, !tbaa !44
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 376
   store ptr null, ptr %32, align 8, !tbaa !63
-  %33 = tail call i32 @getpid() #40
+  %33 = tail call i32 @getpid() #41
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 480
   store i32 %33, ptr %34, align 16, !tbaa !70
   br label %35
@@ -8562,13 +8562,13 @@ define dso_local ptr @zend_mm_startup_ex(ptr noundef readonly captures(none) %0,
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %1, ptr %5, align 8, !tbaa !82
   %6 = load ptr, ptr %0, align 8, !tbaa !83
-  %7 = call ptr %6(ptr noundef nonnull %4, i64 noundef 2097152, i64 noundef 2097152) #40
+  %7 = call ptr %6(ptr noundef nonnull %4, i64 noundef 2097152, i64 noundef 2097152) #41
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %12, !prof !29
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %11 = call i64 @fwrite(ptr nonnull @.str.2, i64 22, i64 1, ptr %10) #51
+  %11 = call i64 @fwrite(ptr nonnull @.str.2, i64 22, i64 1, ptr %10) #52
   br label %54
 
 12:                                               ; preds = %3
@@ -8614,7 +8614,7 @@ define dso_local ptr @zend_mm_startup_ex(ptr noundef readonly captures(none) %0,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   %33 = load ptr, ptr @zend_random_bytes_insecure, align 8, !tbaa !71
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  call void %33(ptr noundef nonnull %32, ptr noundef nonnull %34, i64 noundef 8) #40
+  call void %33(ptr noundef nonnull %32, ptr noundef nonnull %34, i64 noundef 8) #41
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 360
   store i64 9223372036854775807, ptr %35, align 8, !tbaa !74
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 368
@@ -8627,16 +8627,16 @@ define dso_local ptr @zend_mm_startup_ex(ptr noundef readonly captures(none) %0,
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %39, i8 0, i64 240, i1 false)
   %40 = add i64 %2, 40
-  %41 = call noalias ptr @_zend_mm_alloc(ptr noundef nonnull %13, i64 noundef %40) #46
+  %41 = call noalias ptr @_zend_mm_alloc(ptr noundef nonnull %13, i64 noundef %40) #47
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %42, label %47
 
 42:                                               ; preds = %12
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !84
-  call void %44(ptr noundef nonnull %4, ptr noundef nonnull %7, i64 noundef 2097152) #40
+  call void %44(ptr noundef nonnull %4, ptr noundef nonnull %7, i64 noundef 2097152) #41
   %45 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %46 = call i64 @fwrite(ptr nonnull @.str.2, i64 22, i64 1, ptr %45) #51
+  %46 = call i64 @fwrite(ptr nonnull @.str.2, i64 22, i64 1, ptr %45) #52
   br label %54
 
 47:                                               ; preds = %12
@@ -8653,7 +8653,7 @@ define dso_local ptr @zend_mm_startup_ex(ptr noundef readonly captures(none) %0,
 
 51:                                               ; preds = %48, %47
   store ptr %41, ptr %37, align 8, !tbaa !44
-  %52 = call i32 @getpid() #40
+  %52 = call i32 @getpid() #41
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 480
   store i32 %52, ptr %53, align 16, !tbaa !70
   br label %54
@@ -8669,25 +8669,25 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 
 ; Function Attrs: nounwind allocsize(0,1) uwtable
 define dso_local noalias noundef ptr @__zend_calloc(i64 noundef %0, i64 noundef %1) local_unnamed_addr #12 {
-  %3 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %0, i64 %1) #47, !srcloc !81
+  %3 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %0, i64 %1) #48, !srcloc !81
   %.0.i = extractvalue { i64, i64 } %3, 1
   %.not.i.not = icmp eq i64 %.0.i, 0
   %.013.i = extractvalue { i64, i64 } %3, 0
   br i1 %.not.i.not, label %zend_safe_address_guarded.exit, label %4, !prof !23
 
 4:                                                ; preds = %2
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %0, i64 noundef %1, i64 noundef 0) #44
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %0, i64 noundef %1, i64 noundef 0) #45
   unreachable
 
 zend_safe_address_guarded.exit:                   ; preds = %2
-  %5 = tail call noalias ptr @malloc(i64 noundef %.013.i) #45
+  %5 = tail call noalias ptr @malloc(i64 noundef %.013.i) #46
   %6 = icmp ne ptr %5, null
   %.not.i5 = icmp eq i64 %.013.i, 0
   %7 = or i1 %.not.i5, %6
   br i1 %7, label %__zend_malloc.exit, label %8, !prof !23
 
 8:                                                ; preds = %zend_safe_address_guarded.exit
-  tail call fastcc void @zend_out_of_memory() #41
+  tail call fastcc void @zend_out_of_memory() #42
   unreachable
 
 __zend_malloc.exit:                               ; preds = %zend_safe_address_guarded.exit
@@ -8700,7 +8700,7 @@ declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 no
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local noalias nonnull ptr @__zend_strdup(ptr noundef readonly captures(none) %0) local_unnamed_addr #25 {
-  %2 = tail call noalias ptr @strdup(ptr noundef %0) #40
+  %2 = tail call noalias ptr @strdup(ptr noundef %0) #41
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3, !prof !29
 
@@ -8708,7 +8708,7 @@ define dso_local noalias nonnull ptr @__zend_strdup(ptr noundef readonly capture
   ret ptr %2
 
 4:                                                ; preds = %1
-  tail call fastcc void @zend_out_of_memory() #41
+  tail call fastcc void @zend_out_of_memory() #42
   unreachable
 }
 
@@ -8718,7 +8718,7 @@ declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_a
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #27
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #28
 
 ; Function Attrs: nounwind
@@ -8749,7 +8749,7 @@ define internal fastcc ptr @zend_mm_alloc_large(ptr noundef %0, i64 noundef rang
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #28
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #31
 
 ; Function Attrs: noinline nounwind uwtable
 define internal fastcc ptr @zend_mm_realloc_huge(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3) unnamed_addr #30 {
@@ -8771,7 +8771,7 @@ define internal fastcc ptr @zend_mm_realloc_huge(ptr noundef %0, ptr noundef non
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %8, %4
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_huge_block_size.exit:                 ; preds = %.lr.ph.i
@@ -8825,20 +8825,20 @@ zend_mm_get_huge_block_size.exit:                 ; preds = %.lr.ph.i
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 %18
   %35 = sub i64 %11, %18
-  %36 = tail call i32 @munmap(ptr noundef nonnull %34, i64 noundef %35) #40
+  %36 = tail call i32 @munmap(ptr noundef nonnull %34, i64 noundef %35) #41
   %.not.i.i = icmp eq i32 %36, 0
   br i1 %.not.i.i, label %zend_mm_chunk_truncate.exit.thread, label %37
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %39 = tail call ptr @__errno_location() #42
+  %39 = tail call ptr @__errno_location() #43
   %40 = load i32, ptr %39, align 4, !tbaa !24
-  %41 = tail call ptr @strerror(i32 noundef %40) #40
-  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.4, i32 noundef %40, ptr noundef %41) #43
+  %41 = tail call ptr @strerror(i32 noundef %40) #41
+  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.4, i32 noundef %40, ptr noundef %41) #44
   br label %zend_mm_chunk_truncate.exit.thread
 
 zend_mm_chunk_truncate.exit:                      ; preds = %30
-  %43 = tail call zeroext i1 %32(ptr noundef nonnull %.val, ptr noundef nonnull %1, i64 noundef %11, i64 noundef %18) #40
+  %43 = tail call zeroext i1 %32(ptr noundef nonnull %.val, ptr noundef nonnull %1, i64 noundef %11, i64 noundef %18) #41
   br i1 %43, label %zend_mm_chunk_truncate.exit.zend_mm_chunk_truncate.exit.thread_crit_edge, label %zend_mm_chunk_truncate.exit.thread108
 
 zend_mm_chunk_truncate.exit.zend_mm_chunk_truncate.exit.thread_crit_edge: ; preds = %zend_mm_chunk_truncate.exit
@@ -8906,7 +8906,7 @@ zend_mm_chunk_truncate.exit.thread:               ; preds = %zend_mm_chunk_trunc
 
 74:                                               ; preds = %70
   %75 = load i64, ptr %58, align 8, !tbaa !74
-  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, i64 noundef %75, i64 noundef %2) #41
+  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, i64 noundef %75, i64 noundef %2) #42
   unreachable
 
 76:                                               ; preds = %66, %70, %56
@@ -8922,11 +8922,11 @@ zend_mm_chunk_truncate.exit.thread:               ; preds = %zend_mm_chunk_trunc
   br i1 %.not16.i, label %zend_mm_chunk_truncate.exit.thread108, label %81
 
 81:                                               ; preds = %78
-  %82 = tail call zeroext i1 %80(ptr noundef nonnull %.val81, ptr noundef nonnull %1, i64 noundef %11, i64 noundef %18) #40
+  %82 = tail call zeroext i1 %80(ptr noundef nonnull %.val81, ptr noundef nonnull %1, i64 noundef %11, i64 noundef %18) #41
   br i1 %82, label %84, label %zend_mm_chunk_truncate.exit.thread108
 
 zend_mm_chunk_extend.exit:                        ; preds = %76
-  %83 = tail call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef nonnull %1, i64 noundef %11, i64 noundef %18, i32 noundef 0) #40
+  %83 = tail call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef nonnull %1, i64 noundef %11, i64 noundef %18, i32 noundef 0) #41
   %.not139 = icmp eq ptr %83, inttoptr (i64 -1 to ptr)
   br i1 %.not139, label %zend_mm_chunk_truncate.exit.thread108, label %84
 
@@ -9043,7 +9043,7 @@ zend_mm_small_size_to_bin.exit:                   ; preds = %10, %14
   br i1 %.not7.i.i, label %zend_mm_get_next_free_slot.exit.i, label %44, !prof !23
 
 44:                                               ; preds = %34
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 zend_mm_get_next_free_slot.exit.i:                ; preds = %34, %32
@@ -9095,7 +9095,7 @@ zend_mm_alloc_heap.exit:                          ; preds = %45, %zend_mm_get_ne
   br i1 %.not.i, label %68, label %67, !prof !23
 
 67:                                               ; preds = %58
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 68:                                               ; preds = %58
@@ -9136,7 +9136,7 @@ zend_mm_alloc_heap.exit:                          ; preds = %45, %zend_mm_get_ne
   br i1 %.not22.i, label %93, label %92, !prof !23
 
 92:                                               ; preds = %90
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 93:                                               ; preds = %90
@@ -9159,31 +9159,31 @@ zend_mm_free_heap.exit:                           ; preds = %56, %57, %69, %93
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @zend_mm_safe_error(ptr noundef writeonly captures(none) initializes((304, 308)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #31 {
+define internal fastcc void @zend_mm_safe_error(ptr noundef writeonly captures(none) initializes((304, 308)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #32 {
   %5 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i32 1, ptr %6, align 16, !tbaa !75
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !87
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !87
-  %8 = call i32 @__sigsetjmp(ptr noundef nonnull %5, i32 noundef 0) #53
+  %8 = call i32 @__sigsetjmp(ptr noundef nonnull %5, i32 noundef 0) #54
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %4
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef %1, i64 noundef %2, i64 noundef %3) #44
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef %1, i64 noundef %2, i64 noundef %3) #45
   unreachable
 
 11:                                               ; preds = %4
   store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !87
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 0, ptr %6, align 16, !tbaa !75
-  call void @_zend_bailout(ptr noundef nonnull @.str.6, i32 noundef 424) #44
+  call void @_zend_bailout(ptr noundef nonnull @.str.6, i32 noundef 424) #45
   unreachable
 }
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #32
+declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #33
 
 ; Function Attrs: noreturn
 declare void @_zend_bailout(ptr noundef, i32 noundef) local_unnamed_addr #14
@@ -9447,7 +9447,7 @@ define internal fastcc ptr @zend_mm_alloc_pages(ptr noundef %0, i32 noundef %1) 
   %84 = load i64, ptr %62, align 8, !tbaa !74
   %85 = shl i32 %1, 12
   %86 = zext i32 %85 to i64
-  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, i64 noundef %84, i64 noundef %86) #41
+  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, i64 noundef %84, i64 noundef %86) #42
   unreachable
 
 .loopexit:                                        ; preds = %72, %79
@@ -9458,7 +9458,7 @@ define internal fastcc ptr @zend_mm_alloc_pages(ptr noundef %0, i32 noundef %1) 
 
 88:                                               ; preds = %.loopexit
   %89 = load ptr, ptr %.val, align 8, !tbaa !78
-  %90 = tail call ptr %89(ptr noundef nonnull %.val, i64 noundef 2097152, i64 noundef 2097152) #40
+  %90 = tail call ptr %89(ptr noundef nonnull %.val, i64 noundef 2097152, i64 noundef 2097152) #41
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 2097151
   %92 = ptrtoint ptr %91 to i64
   %93 = and i64 %92, 2097151
@@ -9488,7 +9488,7 @@ zend_mm_chunk_alloc.exit:                         ; preds = %88, %96
 
 102:                                              ; preds = %101
   %103 = load ptr, ptr %.val166, align 8, !tbaa !78
-  %104 = tail call ptr %103(ptr noundef nonnull %.val166, i64 noundef 2097152, i64 noundef 2097152) #40
+  %104 = tail call ptr %103(ptr noundef nonnull %.val166, i64 noundef 2097152, i64 noundef 2097152) #41
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 2097151
   %106 = ptrtoint ptr %105 to i64
   %107 = and i64 %106, 2097151
@@ -9510,7 +9510,7 @@ zend_mm_chunk_alloc.exit171:                      ; preds = %102, %110
   %113 = load i64, ptr %63, align 8, !tbaa !42
   %114 = shl i32 %1, 12
   %115 = zext i32 %114 to i64
-  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, i64 noundef %113, i64 noundef %115) #41
+  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, i64 noundef %113, i64 noundef %115) #42
   unreachable
 
 116:                                              ; preds = %zend_mm_chunk_alloc.exit, %zend_mm_chunk_alloc.exit171
@@ -9593,7 +9593,7 @@ zend_mm_chunk_alloc.exit171:                      ; preds = %102, %110
   br i1 %.not160, label %159, label %158, !prof !23
 
 158:                                              ; preds = %153
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 159:                                              ; preds = %153
@@ -9605,7 +9605,7 @@ zend_mm_chunk_alloc.exit171:                      ; preds = %102, %110
   br i1 %.not161, label %165, label %164, !prof !23
 
 164:                                              ; preds = %159
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 165:                                              ; preds = %159
@@ -9717,7 +9717,7 @@ zend_mm_bitset_set_range.exit:                    ; preds = %177, %._crit_edge22
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #28
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #31
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @zend_mm_chunk_alloc_int(i64 noundef %0) unnamed_addr #0 {
@@ -9736,16 +9736,16 @@ define internal fastcc ptr @zend_mm_chunk_alloc_int(i64 noundef %0) unnamed_addr
   br i1 %.b34, label %.sink.split, label %47
 
 9:                                                ; preds = %4
-  %10 = tail call i32 @munmap(ptr noundef nonnull %2, i64 noundef %0) #40
+  %10 = tail call i32 @munmap(ptr noundef nonnull %2, i64 noundef %0) #41
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %zend_mm_munmap.exit, label %11
 
 11:                                               ; preds = %9
   %12 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %13 = tail call ptr @__errno_location() #42
+  %13 = tail call ptr @__errno_location() #43
   %14 = load i32, ptr %13, align 4, !tbaa !24
-  %15 = tail call ptr @strerror(i32 noundef %14) #40
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.4, i32 noundef %14, ptr noundef %15) #43
+  %15 = tail call ptr @strerror(i32 noundef %14) #41
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.4, i32 noundef %14, ptr noundef %15) #44
   br label %zend_mm_munmap.exit
 
 zend_mm_munmap.exit:                              ; preds = %9, %11
@@ -9760,16 +9760,16 @@ zend_mm_munmap.exit:                              ; preds = %9, %11
 
 23:                                               ; preds = %zend_mm_munmap.exit
   %24 = sub nuw nsw i64 2097152, %22
-  %25 = tail call i32 @munmap(ptr noundef %20, i64 noundef %24) #40
+  %25 = tail call i32 @munmap(ptr noundef %20, i64 noundef %24) #41
   %.not.i35 = icmp eq i32 %25, 0
   br i1 %.not.i35, label %zend_mm_munmap.exit36, label %26
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %28 = tail call ptr @__errno_location() #42
+  %28 = tail call ptr @__errno_location() #43
   %29 = load i32, ptr %28, align 4, !tbaa !24
-  %30 = tail call ptr @strerror(i32 noundef %29) #40
-  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.4, i32 noundef %29, ptr noundef %30) #43
+  %30 = tail call ptr @strerror(i32 noundef %29) #41
+  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.4, i32 noundef %29, ptr noundef %30) #44
   br label %zend_mm_munmap.exit36
 
 zend_mm_munmap.exit36:                            ; preds = %23, %26
@@ -9786,16 +9786,16 @@ zend_mm_munmap.exit36:                            ; preds = %23, %26
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %.0, i64 %0
   %38 = sub nuw nsw i64 %.029, %34
-  %39 = tail call i32 @munmap(ptr noundef %37, i64 noundef %38) #40
+  %39 = tail call i32 @munmap(ptr noundef %37, i64 noundef %38) #41
   %.not.i37 = icmp eq i32 %39, 0
   br i1 %.not.i37, label %zend_mm_munmap.exit38, label %40
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %42 = tail call ptr @__errno_location() #42
+  %42 = tail call ptr @__errno_location() #43
   %43 = load i32, ptr %42, align 4, !tbaa !24
-  %44 = tail call ptr @strerror(i32 noundef %43) #40
-  %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.4, i32 noundef %43, ptr noundef %44) #43
+  %44 = tail call ptr @strerror(i32 noundef %43) #41
+  %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.4, i32 noundef %43, ptr noundef %44) #44
   br label %zend_mm_munmap.exit38
 
 zend_mm_munmap.exit38:                            ; preds = %40, %36, %33
@@ -9804,7 +9804,7 @@ zend_mm_munmap.exit38:                            ; preds = %40, %36, %33
 
 .sink.split:                                      ; preds = %zend_mm_munmap.exit38, %8
   %.0.sink = phi ptr [ %2, %8 ], [ %.0, %zend_mm_munmap.exit38 ]
-  %46 = tail call i32 @madvise(ptr noundef %.0.sink, i64 noundef %0, i32 noundef 14) #40
+  %46 = tail call i32 @madvise(ptr noundef %.0.sink, i64 noundef %0, i32 noundef 14) #41
   br label %47
 
 47:                                               ; preds = %.sink.split, %zend_mm_munmap.exit38, %8, %1
@@ -9820,31 +9820,31 @@ define internal fastcc ptr @zend_mm_mmap(i64 noundef %0) unnamed_addr #0 {
   br i1 %or.cond, label %3, label %.critedge
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @mmap(ptr noundef null, i64 noundef 2097152, i32 noundef 3, i32 noundef 262178, i32 noundef -1, i64 noundef 0) #40
+  %4 = tail call ptr @mmap(ptr noundef null, i64 noundef 2097152, i32 noundef 3, i32 noundef 262178, i32 noundef -1, i64 noundef 0) #41
   %.not = icmp eq ptr %4, inttoptr (i64 -1 to ptr)
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %3
   %6 = ptrtoint ptr %4 to i64
-  %7 = tail call i32 (i32, ...) @prctl(i32 noundef 1398164801, i32 noundef 0, i64 noundef %6, i64 noundef 2097152, i64 noundef ptrtoint (ptr @.str.8 to i64)) #40
+  %7 = tail call i32 (i32, ...) @prctl(i32 noundef 1398164801, i32 noundef 0, i64 noundef %6, i64 noundef 2097152, i64 noundef ptrtoint (ptr @.str.8 to i64)) #41
   br label %19
 
 .critedge:                                        ; preds = %3, %1
-  %8 = tail call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #40
+  %8 = tail call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #41
   %9 = icmp eq ptr %8, inttoptr (i64 -1 to ptr)
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %.critedge
   %11 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %12 = tail call ptr @__errno_location() #42
+  %12 = tail call ptr @__errno_location() #43
   %13 = load i32, ptr %12, align 4, !tbaa !24
-  %14 = tail call ptr @strerror(i32 noundef %13) #40
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.9, i32 noundef %13, ptr noundef %14) #43
+  %14 = tail call ptr @strerror(i32 noundef %13) #41
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.9, i32 noundef %13, ptr noundef %14) #44
   br label %19
 
 16:                                               ; preds = %.critedge
   %17 = ptrtoint ptr %8 to i64
-  %18 = tail call i32 (i32, ...) @prctl(i32 noundef 1398164801, i32 noundef 0, i64 noundef %17, i64 noundef %0, i64 noundef ptrtoint (ptr @.str.8 to i64)) #40
+  %18 = tail call i32 (i32, ...) @prctl(i32 noundef 1398164801, i32 noundef 0, i64 noundef %17, i64 noundef %0, i64 noundef ptrtoint (ptr @.str.8 to i64)) #41
   br label %19
 
 19:                                               ; preds = %5, %16, %10
@@ -9981,7 +9981,7 @@ zend_mm_bitset_reset_range.exit:                  ; preds = %10, %._crit_edge, %
   br i1 %.not.i, label %79, label %78, !prof !23
 
 78:                                               ; preds = %73
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 79:                                               ; preds = %73
@@ -9993,7 +9993,7 @@ zend_mm_bitset_reset_range.exit:                  ; preds = %10, %._crit_edge, %
   br i1 %.not40.i, label %85, label %84, !prof !23
 
 84:                                               ; preds = %79
-  tail call fastcc void @zend_mm_panic() #41
+  tail call fastcc void @zend_mm_panic() #42
   unreachable
 
 85:                                               ; preds = %79
@@ -10086,20 +10086,20 @@ zend_mm_bitset_reset_range.exit:                  ; preds = %10, %._crit_edge, %
 135:                                              ; preds = %.thread16
   %136 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %137 = load ptr, ptr %136, align 8, !tbaa !45
-  tail call void %137(ptr noundef nonnull %.val, ptr noundef nonnull %1, i64 noundef 2097152) #40
+  tail call void %137(ptr noundef nonnull %.val, ptr noundef nonnull %1, i64 noundef 2097152) #41
   br label %zend_mm_free_pages_ex.exit
 
 138:                                              ; preds = %.thread16
-  %139 = tail call i32 @munmap(ptr noundef nonnull %1, i64 noundef 2097152) #40
+  %139 = tail call i32 @munmap(ptr noundef nonnull %1, i64 noundef 2097152) #41
   %.not.i.i = icmp eq i32 %139, 0
   br i1 %.not.i.i, label %zend_mm_free_pages_ex.exit, label %140
 
 140:                                              ; preds = %138
   %141 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %142 = tail call ptr @__errno_location() #42
+  %142 = tail call ptr @__errno_location() #43
   %143 = load i32, ptr %142, align 4, !tbaa !24
-  %144 = tail call ptr @strerror(i32 noundef %143) #40
-  %145 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef nonnull @.str.4, i32 noundef %143, ptr noundef %144) #43
+  %144 = tail call ptr @strerror(i32 noundef %143) #41
+  %145 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef nonnull @.str.4, i32 noundef %143, ptr noundef %144) #44
   br label %zend_mm_free_pages_ex.exit
 
 146:                                              ; preds = %126
@@ -10114,20 +10114,20 @@ zend_mm_bitset_reset_range.exit:                  ; preds = %10, %._crit_edge, %
 150:                                              ; preds = %146
   %151 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
   %152 = load ptr, ptr %151, align 8, !tbaa !45
-  tail call void %152(ptr noundef nonnull %.val4, ptr noundef nonnull %127, i64 noundef 2097152) #40
+  tail call void %152(ptr noundef nonnull %.val4, ptr noundef nonnull %127, i64 noundef 2097152) #41
   br label %zend_mm_chunk_free.exit8
 
 153:                                              ; preds = %146
-  %154 = tail call i32 @munmap(ptr noundef nonnull %127, i64 noundef 2097152) #40
+  %154 = tail call i32 @munmap(ptr noundef nonnull %127, i64 noundef 2097152) #41
   %.not.i.i7 = icmp eq i32 %154, 0
   br i1 %.not.i.i7, label %zend_mm_chunk_free.exit8, label %155
 
 155:                                              ; preds = %153
   %156 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %157 = tail call ptr @__errno_location() #42
+  %157 = tail call ptr @__errno_location() #43
   %158 = load i32, ptr %157, align 4, !tbaa !24
-  %159 = tail call ptr @strerror(i32 noundef %158) #40
-  %160 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %156, ptr noundef nonnull @.str.4, i32 noundef %158, ptr noundef %159) #43
+  %159 = tail call ptr @strerror(i32 noundef %158) #41
+  %160 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %156, ptr noundef nonnull @.str.4, i32 noundef %158, ptr noundef %159) #44
   br label %zend_mm_chunk_free.exit8
 
 zend_mm_chunk_free.exit8:                         ; preds = %150, %153, %155
@@ -10139,12 +10139,12 @@ zend_mm_free_pages_ex.exit:                       ; preds = %zend_mm_chunk_free.
 }
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #33
+declare void @exit(i32 noundef) local_unnamed_addr #34
 
 declare ptr @zend_hash_index_add_new(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #34
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #35
 
 ; Function Attrs: nounwind uwtable
 define internal void @tracked_free(ptr noundef %0) #0 {
@@ -10157,7 +10157,7 @@ define internal void @tracked_free(ptr noundef %0) #0 {
   %5 = lshr i64 %4, 3
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %7 = load ptr, ptr %6, align 8, !tbaa !51
-  %8 = tail call ptr @zend_hash_index_find(ptr noundef %7, i64 noundef %5) #40
+  %8 = tail call ptr @zend_hash_index_find(ptr noundef %7, i64 noundef %5) #41
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
   %10 = load i64, ptr %8, align 8, !tbaa !55
@@ -10166,8 +10166,8 @@ define internal void @tracked_free(ptr noundef %0) #0 {
   %13 = sub i64 %12, %10
   store i64 %13, ptr %11, align 16, !tbaa !61
   %14 = load ptr, ptr %6, align 8, !tbaa !51
-  tail call void @zend_hash_del_bucket(ptr noundef %14, ptr noundef nonnull %8) #40
-  tail call void @free(ptr noundef nonnull %0) #40
+  tail call void @zend_hash_del_bucket(ptr noundef %14, ptr noundef nonnull %8) #41
+  tail call void @free(ptr noundef nonnull %0) #41
   br label %15
 
 15:                                               ; preds = %1, %2
@@ -10186,7 +10186,7 @@ define internal noundef ptr @tracked_realloc(ptr noundef %0, i64 noundef %1) #0 
   %7 = lshr i64 %6, 3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 408
   %9 = load ptr, ptr %8, align 8, !tbaa !51
-  %10 = tail call ptr @zend_hash_index_find(ptr noundef %9, i64 noundef %7) #40
+  %10 = tail call ptr @zend_hash_index_find(ptr noundef %9, i64 noundef %7) #41
   %11 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %11)
   %12 = load i64, ptr %10, align 8, !tbaa !55
@@ -10215,7 +10215,7 @@ define internal noundef ptr @tracked_realloc(ptr noundef %0, i64 noundef %1) #0 
   br i1 %.not.i, label %26, label %tracked_check_limit.exit
 
 26:                                               ; preds = %23
-  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.5, i64 noundef %18, i64 noundef %16) #41
+  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.5, i64 noundef %18, i64 noundef %16) #42
   unreachable
 
 tracked_check_limit.exit:                         ; preds = %23, %15, %13
@@ -10225,18 +10225,18 @@ tracked_check_limit.exit:                         ; preds = %23, %15, %13
 27:                                               ; preds = %tracked_check_limit.exit
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 408
   %29 = load ptr, ptr %28, align 8, !tbaa !51
-  tail call void @zend_hash_del_bucket(ptr noundef %29, ptr noundef nonnull %.020) #40
+  tail call void @zend_hash_del_bucket(ptr noundef %29, ptr noundef nonnull %.020) #41
   br label %30
 
 30:                                               ; preds = %27, %tracked_check_limit.exit
-  %31 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #49
+  %31 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #50
   %32 = icmp ne ptr %31, null
   %.not.i24 = icmp eq i64 %1, 0
   %33 = or i1 %.not.i24, %32
   br i1 %33, label %__zend_realloc.exit, label %34, !prof !23
 
 34:                                               ; preds = %30
-  tail call fastcc void @zend_out_of_memory() #41
+  tail call fastcc void @zend_out_of_memory() #42
   unreachable
 
 __zend_realloc.exit:                              ; preds = %30
@@ -10252,7 +10252,7 @@ __zend_realloc.exit:                              ; preds = %30
   store i32 4, ptr %40, align 8, !tbaa !55
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 408
   %42 = load ptr, ptr %41, align 8, !tbaa !51
-  %43 = call ptr @zend_hash_index_add_new(ptr noundef %42, i64 noundef %36, ptr noundef nonnull %3) #40
+  %43 = call ptr @zend_hash_index_add_new(ptr noundef %42, i64 noundef %36, ptr noundef nonnull %3) #41
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %44 = sub i64 %1, %.0
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -10265,33 +10265,33 @@ __zend_realloc.exit:                              ; preds = %30
 declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #35
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #36
 
 declare void @zend_hash_del_bucket(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #36
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #37
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #36
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #37
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #37
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #38
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #37
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #38
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #38
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #39
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #37
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #38
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #37
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #38
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #39
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #40
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -10321,32 +10321,33 @@ attributes #24 = { mustprogress nounwind willreturn allockind("realloc") allocsi
 attributes #25 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #26 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #27 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #28 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #29 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #30 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #32 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #33 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #34 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #35 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #36 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #37 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #38 = { nofree nounwind }
-attributes #39 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #40 = { nounwind }
-attributes #41 = { noreturn }
-attributes #42 = { nounwind willreturn memory(none) }
-attributes #43 = { cold nounwind }
-attributes #44 = { noreturn nounwind }
-attributes #45 = { nounwind allocsize(0) }
-attributes #46 = { allocsize(1) }
-attributes #47 = { nounwind memory(read) }
-attributes #48 = { allocsize(0) }
-attributes #49 = { nounwind allocsize(1) }
-attributes #50 = { nounwind willreturn memory(read) }
-attributes #51 = { cold }
-attributes #52 = { cold noreturn nounwind }
-attributes #53 = { nounwind returns_twice }
+attributes #31 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #32 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #33 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #34 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #35 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #36 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #37 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #38 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #39 = { nofree nounwind }
+attributes #40 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #41 = { nounwind }
+attributes #42 = { noreturn }
+attributes #43 = { nounwind willreturn memory(none) }
+attributes #44 = { cold nounwind }
+attributes #45 = { noreturn nounwind }
+attributes #46 = { nounwind allocsize(0) }
+attributes #47 = { allocsize(1) }
+attributes #48 = { nounwind memory(read) }
+attributes #49 = { allocsize(0) }
+attributes #50 = { nounwind allocsize(1) }
+attributes #51 = { nounwind willreturn memory(read) }
+attributes #52 = { cold }
+attributes #53 = { cold noreturn nounwind }
+attributes #54 = { nounwind returns_twice }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

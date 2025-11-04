@@ -44,13 +44,13 @@ define hidden range(i32 -4, 1) i32 @mbedtls_mpi_lt_mpi_ct(ptr noundef readonly c
   %12 = lshr i16 %11, 1
   %13 = and i16 %12, 1
   %14 = zext nneg i16 %13 to i64
-  %15 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %14) #16, !srcloc !11
+  %15 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %14) #17, !srcloc !11
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i16, ptr %16, align 8, !tbaa !10
   %18 = lshr i16 %17, 1
   %19 = and i16 %18, 1
   %20 = zext nneg i16 %19 to i64
-  %21 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %20) #16, !srcloc !11
+  %21 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %20) #17, !srcloc !11
   %22 = xor i64 %21, %15
   %23 = and i64 %22, %15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -67,7 +67,7 @@ define hidden range(i32 -4, 1) i32 @mbedtls_mpi_lt_mpi_ct(ptr noundef readonly c
   %32 = load ptr, ptr %31, align 8, !tbaa !13
   %33 = load i16, ptr %5, align 2, !tbaa !3
   %34 = zext i16 %33 to i64
-  %35 = tail call i64 @mbedtls_mpi_core_lt_ct(ptr noundef %29, ptr noundef %32, i64 noundef %34) #16
+  %35 = tail call i64 @mbedtls_mpi_core_lt_ct(ptr noundef %29, ptr noundef %32, i64 noundef %34) #17
   %36 = xor i64 %22, -1
   %37 = and i64 %35, %36
   %38 = or i64 %37, %23
@@ -100,7 +100,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_safe_cond_assign(ptr noundef ca
   br i1 %12, label %13, label %21
 
 13:                                               ; preds = %8
-  %14 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #17
+  %14 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #18
   %15 = icmp eq ptr %14, null
   br i1 %15, label %mbedtls_mpi_grow.exit, label %16
 
@@ -112,7 +112,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_safe_cond_assign(ptr noundef ca
 18:                                               ; preds = %16
   %19 = shl nuw nsw i64 %11, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr nonnull align 8 %17, i64 %19, i1 false)
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %17, i64 noundef %19) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %17, i64 noundef %19) #17
   br label %20
 
 20:                                               ; preds = %18, %16
@@ -122,7 +122,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_safe_cond_assign(ptr noundef ca
 
 21:                                               ; preds = %20, %8
   %22 = zext i8 %2 to i64
-  %23 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %22) #16, !srcloc !11
+  %23 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %22) #17, !srcloc !11
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load i16, ptr %24, align 8, !tbaa !10
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -133,7 +133,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_safe_cond_assign(ptr noundef ca
   %31 = add nsw i64 %30, 1
   %32 = and i64 %29, 4294967295
   %33 = and i64 %31, 4294967295
-  %34 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %23, i64 range(i64 0, 4294967296) %32, i64 range(i64 0, 4294967296) %33) #16, !srcloc !16
+  %34 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %23, i64 range(i64 0, 4294967296) %32, i64 range(i64 0, 4294967296) %33) #17, !srcloc !16
   %35 = extractvalue { i64, i64, i64 } %34, 2
   %36 = trunc i64 %35 to i16
   %37 = add i16 %36, -1
@@ -142,7 +142,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_safe_cond_assign(ptr noundef ca
   %39 = load ptr, ptr %1, align 8, !tbaa !12
   %40 = load i16, ptr %4, align 2, !tbaa !3
   %41 = zext i16 %40 to i64
-  tail call void @mbedtls_mpi_core_cond_assign(ptr noundef %38, ptr noundef %39, i64 noundef %41, i64 noundef %23) #16
+  tail call void @mbedtls_mpi_core_cond_assign(ptr noundef %38, ptr noundef %39, i64 noundef %41, i64 noundef %23) #17
   %42 = xor i64 %23, -1
   %43 = load i16, ptr %4, align 2, !tbaa !3
   %44 = load i16, ptr %9, align 2, !tbaa !3
@@ -183,7 +183,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_grow(ptr noundef captures(none)
   br i1 %8, label %9, label %18
 
 9:                                                ; preds = %4
-  %10 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 8) #17
+  %10 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 8) #18
   %11 = icmp eq ptr %10, null
   br i1 %11, label %18, label %12
 
@@ -195,7 +195,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_grow(ptr noundef captures(none)
 14:                                               ; preds = %12
   %15 = shl nuw nsw i64 %7, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr nonnull align 8 %13, i64 %15, i1 false)
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %13, i64 noundef %15) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %13, i64 noundef %15) #17
   br label %16
 
 16:                                               ; preds = %14, %12
@@ -218,7 +218,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_safe_cond_swap(ptr noundef capt
 
 5:                                                ; preds = %3
   %6 = zext i8 %2 to i64
-  %7 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %6) #16, !srcloc !11
+  %7 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %6) #17, !srcloc !11
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %9 = load i16, ptr %8, align 2, !tbaa !3
   %10 = zext i16 %9 to i64
@@ -233,7 +233,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_safe_cond_swap(ptr noundef capt
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %12
-  %18 = tail call noalias ptr @calloc(i64 noundef %10, i64 noundef 8) #17
+  %18 = tail call noalias ptr @calloc(i64 noundef %10, i64 noundef 8) #18
   %19 = icmp eq ptr %18, null
   br i1 %19, label %mbedtls_mpi_grow.exit, label %20
 
@@ -245,7 +245,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_safe_cond_swap(ptr noundef capt
 22:                                               ; preds = %20
   %23 = shl nuw nsw i64 %15, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr nonnull align 8 %21, i64 %23, i1 false)
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %21, i64 noundef %23) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %21, i64 noundef %23) #17
   br label %.thread
 
 .thread:                                          ; preds = %20, %22
@@ -266,7 +266,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_safe_cond_swap(ptr noundef capt
   br i1 %30, label %31, label %39
 
 31:                                               ; preds = %26
-  %32 = tail call noalias ptr @calloc(i64 noundef %.pre-phi44, i64 noundef 8) #17
+  %32 = tail call noalias ptr @calloc(i64 noundef %.pre-phi44, i64 noundef 8) #18
   %33 = icmp eq ptr %32, null
   br i1 %33, label %mbedtls_mpi_grow.exit, label %34
 
@@ -278,7 +278,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_safe_cond_swap(ptr noundef capt
 36:                                               ; preds = %34
   %37 = shl nuw nsw i64 %29, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr nonnull align 8 %35, i64 %37, i1 false)
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %35, i64 noundef %37) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %35, i64 noundef %37) #17
   br label %38
 
 38:                                               ; preds = %36, %34
@@ -297,7 +297,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_safe_cond_swap(ptr noundef capt
   %47 = add nsw i64 %46, 1
   %48 = and i64 %45, 4294967295
   %49 = and i64 %47, 4294967295
-  %50 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 range(i64 0, 4294967296) %48, i64 range(i64 0, 4294967296) %49) #16, !srcloc !16
+  %50 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 range(i64 0, 4294967296) %48, i64 range(i64 0, 4294967296) %49) #17, !srcloc !16
   %51 = extractvalue { i64, i64, i64 } %50, 2
   %52 = trunc i64 %51 to i16
   %53 = add i16 %52, -1
@@ -306,7 +306,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_safe_cond_swap(ptr noundef capt
   %55 = sext i16 %54 to i64
   %56 = add nsw i64 %55, 1
   %57 = and i64 %56, 4294967295
-  %58 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 range(i64 0, 4294967296) %49, i64 range(i64 0, 4294967296) %57) #16, !srcloc !16
+  %58 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 range(i64 0, 4294967296) %49, i64 range(i64 0, 4294967296) %57) #17, !srcloc !16
   %59 = extractvalue { i64, i64, i64 } %58, 2
   %60 = trunc i64 %59 to i16
   %61 = add i16 %60, -1
@@ -315,7 +315,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_safe_cond_swap(ptr noundef capt
   %63 = load ptr, ptr %1, align 8, !tbaa !12
   %64 = load i16, ptr %13, align 2, !tbaa !3
   %65 = zext i16 %64 to i64
-  tail call void @mbedtls_mpi_core_cond_swap(ptr noundef %62, ptr noundef %63, i64 noundef %65, i64 noundef %7) #16
+  tail call void @mbedtls_mpi_core_cond_swap(ptr noundef %62, ptr noundef %63, i64 noundef %65, i64 noundef %7) #17
   br label %mbedtls_mpi_grow.exit
 
 mbedtls_mpi_grow.exit:                            ; preds = %31, %24, %17, %5, %39, %3
@@ -350,7 +350,7 @@ define hidden void @mbedtls_mpi_free(ptr noundef captures(address_is_null) %0) l
   %7 = load i16, ptr %6, align 2, !tbaa !3
   %8 = zext i16 %7 to i64
   %9 = shl nuw nsw i64 %8, 3
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %4, i64 noundef %9) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %4, i64 noundef %9) #17
   br label %10
 
 10:                                               ; preds = %5, %3
@@ -390,7 +390,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_shrink(ptr noundef captures(non
   br i1 %9, label %10, label %mbedtls_mpi_grow.exit
 
 10:                                               ; preds = %8
-  %11 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 8) #17
+  %11 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 8) #18
   %12 = icmp eq ptr %11, null
   br i1 %12, label %mbedtls_mpi_grow.exit, label %13
 
@@ -402,7 +402,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_shrink(ptr noundef captures(non
 15:                                               ; preds = %13
   %16 = shl nuw nsw i64 %7, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %11, ptr nonnull align 8 %14, i64 %16, i1 false)
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %14, i64 noundef %16) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %14, i64 noundef %16) #17
   br label %mbedtls_mpi_grow.exit.sink.split
 
 .preheader:                                       ; preds = %4, %17
@@ -420,7 +420,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_shrink(ptr noundef captures(non
 
 21:                                               ; preds = %17, %.preheader
   %spec.select = tail call i64 @llvm.umax.i64(i64 %.0.in, i64 %1)
-  %22 = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef 8) #17
+  %22 = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef 8) #18
   %23 = icmp eq ptr %22, null
   br i1 %23, label %mbedtls_mpi_grow.exit, label %24
 
@@ -433,7 +433,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_shrink(ptr noundef captures(non
   %27 = shl nuw nsw i64 %spec.select, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr nonnull align 8 %25, i64 %27, i1 false)
   %28 = shl nuw nsw i64 %7, 3
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %25, i64 noundef %28) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %25, i64 noundef %28) #17
   br label %mbedtls_mpi_grow.exit.sink.split
 
 mbedtls_mpi_grow.exit.sink.split:                 ; preds = %24, %26, %13, %15
@@ -530,7 +530,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_copy(ptr noundef captures(addre
   %41 = phi i64 [ %26, %39 ], [ 1, %._crit_edge.thread ]
   %42 = phi ptr [ %30, %39 ], [ %36, %._crit_edge.thread ]
   %43 = phi i64 [ %32, %39 ], [ 0, %._crit_edge.thread ]
-  %44 = tail call noalias ptr @calloc(i64 noundef %41, i64 noundef 8) #17
+  %44 = tail call noalias ptr @calloc(i64 noundef %41, i64 noundef 8) #18
   %45 = icmp eq ptr %44, null
   br i1 %45, label %mbedtls_mpi_grow.exit, label %46
 
@@ -542,7 +542,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_copy(ptr noundef captures(addre
 48:                                               ; preds = %46
   %49 = shl nuw nsw i64 %43, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %44, ptr nonnull align 8 %47, i64 %49, i1 false)
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %47, i64 noundef %49) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %47, i64 noundef %49) #17
   br label %50
 
 50:                                               ; preds = %48, %46
@@ -603,7 +603,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_lset(ptr noundef captures(none)
   br label %15
 
 8:                                                ; preds = %2
-  %9 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #17
+  %9 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #18
   %10 = icmp eq ptr %9, null
   br i1 %10, label %mbedtls_mpi_grow.exit, label %11
 
@@ -613,7 +613,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_lset(ptr noundef captures(none)
   br i1 %.not.i, label %14, label %13
 
 13:                                               ; preds = %11
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %12, i64 noundef 0) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %12, i64 noundef 0) #17
   br label %14
 
 14:                                               ; preds = %13, %11
@@ -694,7 +694,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_set_bit(ptr noundef captures(no
   br i1 %.not25, label %mbedtls_mpi_grow.exit.thread, label %17
 
 17:                                               ; preds = %16
-  %18 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 8) #17
+  %18 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 8) #18
   %19 = icmp eq ptr %18, null
   br i1 %19, label %mbedtls_mpi_grow.exit, label %20
 
@@ -706,7 +706,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_set_bit(ptr noundef captures(no
 22:                                               ; preds = %20
   %23 = shl nuw nsw i64 %9, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr nonnull align 8 %21, i64 %23, i1 false)
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %21, i64 noundef %23) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %21, i64 noundef %23) #17
   br label %24
 
 24:                                               ; preds = %22, %20
@@ -777,7 +777,7 @@ define hidden i64 @mbedtls_mpi_bitlen(ptr noundef readonly captures(none) %0) lo
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %4 = load i16, ptr %3, align 2, !tbaa !3
   %5 = zext i16 %4 to i64
-  %6 = tail call i64 @mbedtls_mpi_core_bitlen(ptr noundef %2, i64 noundef %5) #16
+  %6 = tail call i64 @mbedtls_mpi_core_bitlen(ptr noundef %2, i64 noundef %5) #17
   ret i64 %6
 }
 
@@ -789,7 +789,7 @@ define hidden range(i64 0, 2305843009213693952) i64 @mbedtls_mpi_size(ptr nounde
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %4 = load i16, ptr %3, align 2, !tbaa !3
   %5 = zext i16 %4 to i64
-  %6 = tail call i64 @mbedtls_mpi_core_bitlen(ptr noundef %2, i64 noundef %5) #16
+  %6 = tail call i64 @mbedtls_mpi_core_bitlen(ptr noundef %2, i64 noundef %5) #17
   %7 = add i64 %6, 7
   %8 = lshr i64 %7, 3
   ret i64 %8
@@ -829,7 +829,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_string(ptr noundef capture
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i64
   %21 = shl nuw nsw i64 %20, 3
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %16, i64 noundef %21) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %16, i64 noundef %21) #17
   br label %22
 
 22:                                               ; preds = %17, %15
@@ -844,7 +844,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_string(ptr noundef capture
   %26 = icmp eq i8 %11, 45
   %spec.select.idx = zext i1 %26 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %2, i64 %spec.select.idx
-  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #18
+  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #19
   %28 = icmp eq i32 %1, 16
   br i1 %28, label %29, label %87
 
@@ -866,7 +866,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_string(ptr noundef capture
   br i1 %39, label %40, label %48
 
 40:                                               ; preds = %35
-  %41 = tail call noalias ptr @calloc(i64 noundef %33, i64 noundef 8) #17
+  %41 = tail call noalias ptr @calloc(i64 noundef %33, i64 noundef 8) #18
   %42 = icmp eq ptr %41, null
   br i1 %42, label %mbedtls_mpi_grow.exit, label %43
 
@@ -878,7 +878,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_string(ptr noundef capture
 45:                                               ; preds = %43
   %46 = shl nuw nsw i64 %38, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %41, ptr nonnull align 8 %44, i64 %46, i1 false)
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %44, i64 noundef %46) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %44, i64 noundef %46) #17
   br label %.thread
 
 .thread:                                          ; preds = %43, %45
@@ -899,7 +899,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_string(ptr noundef capture
   br label %mbedtls_mpi_lset.exit
 
 53:                                               ; preds = %48
-  %54 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #17
+  %54 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #18
   %55 = icmp eq ptr %54, null
   br i1 %55, label %mbedtls_mpi_grow.exit, label %56
 
@@ -909,7 +909,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_string(ptr noundef capture
   br i1 %.not.i.i, label %59, label %58
 
 58:                                               ; preds = %56
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %57, i64 noundef 0) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %57, i64 noundef 0) #17
   br label %59
 
 59:                                               ; preds = %58, %56
@@ -980,7 +980,7 @@ mbedtls_mpi_lset.exit:                            ; preds = %._crit_edge.i, %59
   br label %mbedtls_mpi_lset.exit74
 
 93:                                               ; preds = %87
-  %94 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #17
+  %94 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #18
   %95 = icmp eq ptr %94, null
   br i1 %95, label %mbedtls_mpi_grow.exit, label %96
 
@@ -990,7 +990,7 @@ mbedtls_mpi_lset.exit:                            ; preds = %._crit_edge.i, %59
   br i1 %.not.i.i73, label %99, label %98
 
 98:                                               ; preds = %96
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %97, i64 noundef 0) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %97, i64 noundef 0) #17
   br label %99
 
 99:                                               ; preds = %98, %96
@@ -1069,7 +1069,7 @@ mbedtls_mpi_lset.exit74:                          ; preds = %._crit_edge.i70, %9
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %129 = load i16, ptr %128, align 2, !tbaa !3
   %130 = zext i16 %129 to i64
-  %131 = call i64 @mbedtls_mpi_core_bitlen(ptr noundef %127, i64 noundef %130) #16
+  %131 = call i64 @mbedtls_mpi_core_bitlen(ptr noundef %127, i64 noundef %130) #17
   %.not65 = icmp eq i64 %131, 0
   br i1 %.not65, label %mbedtls_mpi_grow.exit, label %132
 
@@ -1088,7 +1088,7 @@ mbedtls_mpi_grow.exit:                            ; preds = %124, %122, %109, %.
   %136 = load i16, ptr %10, align 2, !tbaa !3
   %137 = zext i16 %136 to i64
   %138 = shl nuw nsw i64 %137, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %134, i64 noundef %138) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %134, i64 noundef %138) #17
   br label %mbedtls_mpi_free.exit
 
 mbedtls_mpi_free.exit:                            ; preds = %135, %mbedtls_mpi_grow.exit, %22, %13, %29, %3
@@ -1142,7 +1142,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_int(ptr noundef captures(ad
   br label %28
 
 21:                                               ; preds = %.critedge.thread
-  %22 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #17
+  %22 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #18
   %23 = icmp eq ptr %22, null
   br i1 %23, label %mbedtls_mpi_lset.exit, label %24
 
@@ -1152,7 +1152,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_int(ptr noundef captures(ad
   br i1 %.not.i.i, label %27, label %26
 
 26:                                               ; preds = %24
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %25, i64 noundef 0) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %25, i64 noundef 0) #17
   br label %27
 
 27:                                               ; preds = %26, %24
@@ -1183,7 +1183,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_int(ptr noundef captures(ad
   br i1 %.not29, label %49, label %40
 
 40:                                               ; preds = %36
-  %41 = tail call noalias ptr @calloc(i64 noundef %34, i64 noundef 8) #17
+  %41 = tail call noalias ptr @calloc(i64 noundef %34, i64 noundef 8) #18
   %42 = icmp eq ptr %41, null
   br i1 %42, label %mbedtls_mpi_lset.exit, label %43
 
@@ -1195,7 +1195,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_int(ptr noundef captures(ad
 45:                                               ; preds = %43
   %46 = shl nuw nsw i64 %39, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %41, ptr nonnull align 8 %44, i64 %46, i1 false)
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %44, i64 noundef %46) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %44, i64 noundef %46) #17
   br label %47
 
 47:                                               ; preds = %45, %43
@@ -1215,7 +1215,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_int(ptr noundef captures(ad
   %54 = zext i16 %53 to i64
   %55 = load ptr, ptr %1, align 8, !tbaa !12
   %56 = add i64 %2, -1
-  %57 = tail call i64 @mbedtls_mpi_core_mla(ptr noundef %52, i64 noundef %54, ptr noundef %55, i64 noundef %.01932, i64 noundef %56) #16
+  %57 = tail call i64 @mbedtls_mpi_core_mla(ptr noundef %52, i64 noundef %54, ptr noundef %55, i64 noundef %.01932, i64 noundef %56) #17
   br label %mbedtls_mpi_lset.exit
 
 mbedtls_mpi_lset.exit:                            ; preds = %40, %33, %28, %21, %51, %49
@@ -1260,7 +1260,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_write_string(ptr noundef readon
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %13 = load i16, ptr %12, align 2, !tbaa !3
   %14 = zext i16 %13 to i64
-  %15 = tail call i64 @mbedtls_mpi_core_bitlen(ptr noundef %11, i64 noundef %14) #16
+  %15 = tail call i64 @mbedtls_mpi_core_bitlen(ptr noundef %11, i64 noundef %14) #17
   %16 = icmp samesign ugt i32 %1, 3
   %17 = zext i1 %16 to i64
   %spec.select = lshr i64 %15, %17
@@ -1562,7 +1562,7 @@ mpi_write_hlp.exit.thread:                        ; preds = %.split.i, %mbedtls_
   %147 = load i16, ptr %27, align 2, !tbaa !3
   %148 = zext i16 %147 to i64
   %149 = shl nuw nsw i64 %148, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %145, i64 noundef %149) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %145, i64 noundef %149) #17
   br label %mbedtls_mpi_free.exit
 
 mbedtls_mpi_free.exit:                            ; preds = %146, %mpi_write_hlp.exit.thread, %5, %24
@@ -1586,7 +1586,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_file(ptr noundef captures(
   br i1 %8, label %43, label %9
 
 9:                                                ; preds = %6
-  %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #18
+  %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #19
   switch i64 %10, label %11 [
     i64 2482, label %43
     i64 0, label %.thread
@@ -1688,8 +1688,8 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_write_file(ptr noundef %0, ptr 
 10:                                               ; preds = %8
   %11 = icmp eq ptr %0, null
   %spec.store.select = select i1 %11, ptr @.str.1, ptr %0
-  %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #18
-  %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #18
+  %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #19
+  %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #19
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 %13
   store i8 13, ptr %14, align 1, !tbaa !24
   %15 = add i64 %13, 2
@@ -1748,7 +1748,7 @@ define hidden i32 @mbedtls_mpi_read_binary_le(ptr noundef captures(none) initial
   %13 = load i16, ptr %12, align 2, !tbaa !3
   %14 = zext i16 %13 to i64
   %15 = shl nuw nsw i64 %14, 3
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %.pre11, i64 noundef %15) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %.pre11, i64 noundef %15) #17
   br label %16
 
 16:                                               ; preds = %11, %10
@@ -1781,7 +1781,7 @@ define hidden i32 @mbedtls_mpi_read_binary_le(ptr noundef captures(none) initial
 
 29:                                               ; preds = %28
   %30 = shl nuw nsw i64 %22, 3
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %24, i64 noundef %30) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %24, i64 noundef %30) #17
   br label %mbedtls_mpi_free.exit12.i
 
 mbedtls_mpi_free.exit12.i:                        ; preds = %29, %28
@@ -1793,7 +1793,7 @@ mbedtls_mpi_free.exit12.i:                        ; preds = %29, %28
   br i1 %32, label %mbedtls_mpi_resize_clear.exit, label %33
 
 33:                                               ; preds = %mbedtls_mpi_free.exit12.i
-  %34 = tail call noalias ptr @calloc(i64 noundef range(i64 0, 2305843009213693953) %8, i64 noundef 8) #17
+  %34 = tail call noalias ptr @calloc(i64 noundef range(i64 0, 2305843009213693953) %8, i64 noundef 8) #18
   %35 = icmp eq ptr %34, null
   br i1 %35, label %mbedtls_mpi_resize_clear.exit, label %36
 
@@ -1808,7 +1808,7 @@ mbedtls_mpi_free.exit12.i:                        ; preds = %29, %28
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %41 = load i16, ptr %40, align 2, !tbaa !3
   %42 = zext i16 %41 to i64
-  %43 = tail call i32 @mbedtls_mpi_core_read_le(ptr noundef %39, i64 noundef %42, ptr noundef %1, i64 noundef %2) #16
+  %43 = tail call i32 @mbedtls_mpi_core_read_le(ptr noundef %39, i64 noundef %42, ptr noundef %1, i64 noundef %2) #17
   br label %mbedtls_mpi_resize_clear.exit
 
 mbedtls_mpi_resize_clear.exit:                    ; preds = %33, %mbedtls_mpi_free.exit12.i, %38
@@ -1838,7 +1838,7 @@ define hidden i32 @mbedtls_mpi_read_binary(ptr noundef captures(none) initialize
   %13 = load i16, ptr %12, align 2, !tbaa !3
   %14 = zext i16 %13 to i64
   %15 = shl nuw nsw i64 %14, 3
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %.pre11, i64 noundef %15) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %.pre11, i64 noundef %15) #17
   br label %16
 
 16:                                               ; preds = %11, %10
@@ -1871,7 +1871,7 @@ define hidden i32 @mbedtls_mpi_read_binary(ptr noundef captures(none) initialize
 
 29:                                               ; preds = %28
   %30 = shl nuw nsw i64 %22, 3
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %24, i64 noundef %30) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %24, i64 noundef %30) #17
   br label %mbedtls_mpi_free.exit12.i
 
 mbedtls_mpi_free.exit12.i:                        ; preds = %29, %28
@@ -1883,7 +1883,7 @@ mbedtls_mpi_free.exit12.i:                        ; preds = %29, %28
   br i1 %32, label %mbedtls_mpi_resize_clear.exit, label %33
 
 33:                                               ; preds = %mbedtls_mpi_free.exit12.i
-  %34 = tail call noalias ptr @calloc(i64 noundef range(i64 0, 2305843009213693953) %8, i64 noundef 8) #17
+  %34 = tail call noalias ptr @calloc(i64 noundef range(i64 0, 2305843009213693953) %8, i64 noundef 8) #18
   %35 = icmp eq ptr %34, null
   br i1 %35, label %mbedtls_mpi_resize_clear.exit, label %36
 
@@ -1898,7 +1898,7 @@ mbedtls_mpi_free.exit12.i:                        ; preds = %29, %28
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %41 = load i16, ptr %40, align 2, !tbaa !3
   %42 = zext i16 %41 to i64
-  %43 = tail call i32 @mbedtls_mpi_core_read_be(ptr noundef %39, i64 noundef %42, ptr noundef %1, i64 noundef %2) #16
+  %43 = tail call i32 @mbedtls_mpi_core_read_be(ptr noundef %39, i64 noundef %42, ptr noundef %1, i64 noundef %2) #17
   br label %mbedtls_mpi_resize_clear.exit
 
 mbedtls_mpi_resize_clear.exit:                    ; preds = %33, %mbedtls_mpi_free.exit12.i, %38
@@ -1914,7 +1914,7 @@ define hidden i32 @mbedtls_mpi_write_binary_le(ptr noundef readonly captures(non
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %6 = load i16, ptr %5, align 2, !tbaa !3
   %7 = zext i16 %6 to i64
-  %8 = tail call i32 @mbedtls_mpi_core_write_le(ptr noundef %4, i64 noundef %7, ptr noundef %1, i64 noundef %2) #16
+  %8 = tail call i32 @mbedtls_mpi_core_write_le(ptr noundef %4, i64 noundef %7, ptr noundef %1, i64 noundef %2) #17
   ret i32 %8
 }
 
@@ -1926,7 +1926,7 @@ define hidden i32 @mbedtls_mpi_write_binary(ptr noundef readonly captures(none) 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %6 = load i16, ptr %5, align 2, !tbaa !3
   %7 = zext i16 %6 to i64
-  %8 = tail call i32 @mbedtls_mpi_core_write_be(ptr noundef %4, i64 noundef %7, ptr noundef %1, i64 noundef %2) #16
+  %8 = tail call i32 @mbedtls_mpi_core_write_be(ptr noundef %4, i64 noundef %7, ptr noundef %1, i64 noundef %2) #17
   ret i32 %8
 }
 
@@ -1938,7 +1938,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_shift_l(ptr noundef captures(no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %5 = load i16, ptr %4, align 2, !tbaa !3
   %6 = zext i16 %5 to i64
-  %7 = tail call i64 @mbedtls_mpi_core_bitlen(ptr noundef %3, i64 noundef %6) #16
+  %7 = tail call i64 @mbedtls_mpi_core_bitlen(ptr noundef %3, i64 noundef %6) #17
   %8 = add i64 %7, %1
   %9 = load i16, ptr %4, align 2, !tbaa !3
   %10 = zext i16 %9 to i64
@@ -1960,7 +1960,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_shift_l(ptr noundef captures(no
   br i1 %21, label %22, label %mbedtls_mpi_grow.exit.thread
 
 22:                                               ; preds = %20
-  %23 = tail call noalias ptr @calloc(i64 noundef %18, i64 noundef 8) #17
+  %23 = tail call noalias ptr @calloc(i64 noundef %18, i64 noundef 8) #18
   %24 = icmp eq ptr %23, null
   br i1 %24, label %mbedtls_mpi_grow.exit, label %25
 
@@ -1972,7 +1972,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_shift_l(ptr noundef captures(no
 27:                                               ; preds = %25
   %28 = shl nuw nsw i64 %10, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 8 %26, i64 %28, i1 false)
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %26, i64 noundef %28) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %26, i64 noundef %28) #17
   br label %29
 
 29:                                               ; preds = %27, %25
@@ -1984,7 +1984,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_shift_l(ptr noundef captures(no
 mbedtls_mpi_grow.exit.thread:                     ; preds = %20, %29, %2
   %.pre-phi = phi i64 [ %10, %20 ], [ %18, %29 ], [ %10, %2 ]
   %31 = load ptr, ptr %0, align 8, !tbaa !12
-  tail call void @mbedtls_mpi_core_shift_l(ptr noundef %31, i64 noundef %.pre-phi, i64 noundef %1) #16
+  tail call void @mbedtls_mpi_core_shift_l(ptr noundef %31, i64 noundef %.pre-phi, i64 noundef %1) #17
   br label %mbedtls_mpi_grow.exit
 
 mbedtls_mpi_grow.exit:                            ; preds = %22, %13, %mbedtls_mpi_grow.exit.thread
@@ -2004,7 +2004,7 @@ define hidden noundef i32 @mbedtls_mpi_shift_r(ptr noundef readonly captures(non
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8, !tbaa !12
   %7 = zext i16 %4 to i64
-  tail call void @mbedtls_mpi_core_shift_r(ptr noundef %6, i64 noundef %7, i64 noundef %1) #16
+  tail call void @mbedtls_mpi_core_shift_r(ptr noundef %6, i64 noundef %7, i64 noundef %1) #17
   br label %8
 
 8:                                                ; preds = %5, %2
@@ -2383,7 +2383,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_abs(ptr noundef captures(ad
   br label %35
 
 26:                                               ; preds = %21
-  %27 = tail call noalias ptr @calloc(i64 noundef %.04174, i64 noundef 8) #17
+  %27 = tail call noalias ptr @calloc(i64 noundef %.04174, i64 noundef 8) #18
   %28 = icmp eq ptr %27, null
   br i1 %28, label %mbedtls_mpi_grow.exit, label %29
 
@@ -2395,7 +2395,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_abs(ptr noundef captures(ad
 31:                                               ; preds = %29
   %32 = shl nuw nsw i64 %24, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %27, ptr nonnull align 8 %30, i64 %32, i1 false)
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %30, i64 noundef %32) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %30, i64 noundef %32) #17
   br label %33
 
 33:                                               ; preds = %31, %29
@@ -2408,7 +2408,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_abs(ptr noundef captures(ad
 35:                                               ; preds = %._crit_edge, %33
   %36 = phi ptr [ %12, %._crit_edge ], [ %.pre86, %33 ]
   %37 = phi ptr [ %.pre, %._crit_edge ], [ %27, %33 ]
-  %38 = tail call i64 @mbedtls_mpi_core_add(ptr noundef %37, ptr noundef %37, ptr noundef %36, i64 noundef %.04174) #16
+  %38 = tail call i64 @mbedtls_mpi_core_add(ptr noundef %37, ptr noundef %37, ptr noundef %36, i64 noundef %.04174) #17
   %.not5975 = icmp eq i64 %38, 0
   br i1 %.not5975, label %mbedtls_mpi_grow.exit, label %.lr.ph79
 
@@ -2440,7 +2440,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_abs(ptr noundef captures(ad
   br label %56
 
 47:                                               ; preds = %45
-  %48 = tail call noalias ptr @calloc(i64 noundef %.pre91, i64 noundef 8) #17
+  %48 = tail call noalias ptr @calloc(i64 noundef %.pre91, i64 noundef 8) #18
   %49 = icmp eq ptr %48, null
   br i1 %49, label %mbedtls_mpi_grow.exit, label %50
 
@@ -2452,7 +2452,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_abs(ptr noundef captures(ad
 52:                                               ; preds = %50
   %53 = shl nuw nsw i64 %42, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %48, ptr nonnull align 8 %51, i64 %53, i1 false)
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %51, i64 noundef %53) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %51, i64 noundef %53) #17
   br label %54
 
 54:                                               ; preds = %52, %50
@@ -2543,7 +2543,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_sub_abs(ptr noundef captures(ad
   br label %39
 
 31:                                               ; preds = %26
-  %32 = tail call noalias ptr @calloc(i64 noundef %22, i64 noundef 8) #17
+  %32 = tail call noalias ptr @calloc(i64 noundef %22, i64 noundef 8) #18
   %33 = icmp eq ptr %32, null
   br i1 %33, label %mbedtls_mpi_grow.exit, label %34
 
@@ -2555,7 +2555,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_sub_abs(ptr noundef captures(ad
 36:                                               ; preds = %34
   %37 = shl nuw nsw i64 %29, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr nonnull align 8 %35, i64 %37, i1 false)
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %35, i64 noundef %37) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %35, i64 noundef %37) #17
   br label %38
 
 38:                                               ; preds = %36, %34
@@ -2608,7 +2608,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_sub_abs(ptr noundef captures(ad
   %59 = phi ptr [ %.pre61, %53 ], [ %.pre62, %49 ]
   %60 = load ptr, ptr %1, align 8, !tbaa !12
   %61 = load ptr, ptr %2, align 8, !tbaa !12
-  %62 = tail call i64 @mbedtls_mpi_core_sub(ptr noundef %59, ptr noundef %60, ptr noundef %61, i64 noundef %.0.lcssa79) #16
+  %62 = tail call i64 @mbedtls_mpi_core_sub(ptr noundef %59, ptr noundef %60, ptr noundef %61, i64 noundef %.0.lcssa79) #17
   %.not51 = icmp eq i64 %62, 0
   br i1 %.not51, label %70, label %63
 
@@ -2618,7 +2618,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_sub_abs(ptr noundef captures(ad
   %66 = load i16, ptr %27, align 2, !tbaa !3
   %67 = zext i16 %66 to i64
   %68 = sub nsw i64 %67, %.0.lcssa79
-  %69 = tail call i64 @mbedtls_mpi_core_sub_int(ptr noundef %65, ptr noundef %65, i64 noundef %62, i64 noundef %68) #16
+  %69 = tail call i64 @mbedtls_mpi_core_sub_int(ptr noundef %65, ptr noundef %65, i64 noundef %62, i64 noundef %68) #17
   %.not52 = icmp eq i64 %69, 0
   br i1 %.not52, label %70, label %mbedtls_mpi_grow.exit
 
@@ -2904,7 +2904,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_mpi(ptr noundef captures(ad
   br i1 %43, label %44, label %52
 
 44:                                               ; preds = %39
-  %45 = call noalias ptr @calloc(i64 noundef %37, i64 noundef 8) #17
+  %45 = call noalias ptr @calloc(i64 noundef %37, i64 noundef 8) #18
   %46 = icmp eq ptr %45, null
   br i1 %46, label %mbedtls_mpi_grow.exit, label %47
 
@@ -2916,7 +2916,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_mpi(ptr noundef captures(ad
 49:                                               ; preds = %47
   %50 = shl nuw nsw i64 %42, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %45, ptr nonnull align 8 %48, i64 %50, i1 false)
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %48, i64 noundef %50) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %48, i64 noundef %50) #17
   br label %.thread
 
 .thread:                                          ; preds = %47, %49
@@ -2937,7 +2937,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_mpi(ptr noundef captures(ad
   br label %64
 
 57:                                               ; preds = %52
-  %58 = call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #17
+  %58 = call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #18
   %59 = icmp eq ptr %58, null
   br i1 %59, label %mbedtls_mpi_grow.exit, label %60
 
@@ -2947,7 +2947,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_mpi(ptr noundef captures(ad
   br i1 %.not.i.i, label %63, label %62
 
 62:                                               ; preds = %60
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %61, i64 noundef 0) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %61, i64 noundef 0) #17
   br label %63
 
 63:                                               ; preds = %62, %60
@@ -2965,7 +2965,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_mpi(ptr noundef captures(ad
   store i16 1, ptr %68, align 8, !tbaa !10
   %69 = load ptr, ptr %.036.sroa.phi41, align 8, !tbaa !12
   %70 = load ptr, ptr %.035.sroa.phi51, align 8, !tbaa !12
-  call void @mbedtls_mpi_core_mul(ptr noundef nonnull %67, ptr noundef %69, i64 noundef %.033.lcssa, ptr noundef %70, i64 noundef %.032.lcssa) #16
+  call void @mbedtls_mpi_core_mul(ptr noundef nonnull %67, ptr noundef %69, i64 noundef %.033.lcssa, ptr noundef %70, i64 noundef %.032.lcssa) #17
   br i1 %.1, label %71, label %mbedtls_mpi_grow.exit.sink.split
 
 71:                                               ; preds = %64
@@ -2989,7 +2989,7 @@ mbedtls_mpi_grow.exit:                            ; preds = %mbedtls_mpi_grow.ex
   %77 = load i16, ptr %9, align 2, !tbaa !3
   %78 = zext i16 %77 to i64
   %79 = shl nuw nsw i64 %78, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %75, i64 noundef %79) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %75, i64 noundef %79) #17
   br label %mbedtls_mpi_free.exit
 
 mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_grow.exit, %76
@@ -3001,7 +3001,7 @@ mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_grow.ex
   %82 = load i16, ptr %7, align 2, !tbaa !3
   %83 = zext i16 %82 to i64
   %84 = shl nuw nsw i64 %83, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %80, i64 noundef %84) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %80, i64 noundef %84) #17
   br label %mbedtls_mpi_free.exit77
 
 mbedtls_mpi_free.exit77:                          ; preds = %mbedtls_mpi_free.exit, %81
@@ -3165,7 +3165,7 @@ mbedtls_mpi_cmp_abs.exit:                         ; preds = %62, %52
   br label %mbedtls_mpi_lset.exit.thread
 
 70:                                               ; preds = %64
-  %71 = call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #17
+  %71 = call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #18
   %72 = icmp eq ptr %71, null
   br i1 %72, label %mbedtls_mpi_lset.exit, label %73
 
@@ -3175,7 +3175,7 @@ mbedtls_mpi_cmp_abs.exit:                         ; preds = %62, %52
   br i1 %.not.i.i135, label %76, label %75
 
 75:                                               ; preds = %73
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %74, i64 noundef 0) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %74, i64 noundef 0) #17
   br label %76
 
 76:                                               ; preds = %75, %73
@@ -3222,7 +3222,7 @@ mbedtls_mpi_lset.exit.thread:                     ; preds = %._crit_edge.i134, %
   br i1 %91, label %mbedtls_mpi_lset.exit, label %92
 
 92:                                               ; preds = %87
-  %93 = call noalias ptr @calloc(i64 noundef %90, i64 noundef 8) #17
+  %93 = call noalias ptr @calloc(i64 noundef %90, i64 noundef 8) #18
   %94 = icmp eq ptr %93, null
   br i1 %94, label %mbedtls_mpi_lset.exit, label %._crit_edge.i137
 
@@ -3242,7 +3242,7 @@ mbedtls_mpi_lset.exit.thread:                     ; preds = %._crit_edge.i134, %
   %99 = load ptr, ptr %6, align 8, !tbaa !12
   %100 = load i16, ptr %28, align 2, !tbaa !3
   %101 = zext i16 %100 to i64
-  %102 = call i64 @mbedtls_mpi_core_bitlen(ptr noundef %99, i64 noundef %101) #16
+  %102 = call i64 @mbedtls_mpi_core_bitlen(ptr noundef %99, i64 noundef %101) #17
   %103 = and i64 %102, 63
   %.not112 = icmp eq i64 %103, 63
   br i1 %.not112, label %109, label %104
@@ -3301,7 +3301,7 @@ mbedtls_mpi_lset.exit.thread:                     ; preds = %._crit_edge.i134, %
 128:                                              ; preds = %126
   %129 = load ptr, ptr %6, align 8, !tbaa !12
   %130 = zext i16 %127 to i64
-  call void @mbedtls_mpi_core_shift_r(ptr noundef %129, i64 noundef %130, i64 noundef %116) #16
+  call void @mbedtls_mpi_core_shift_r(ptr noundef %129, i64 noundef %130, i64 noundef %116) #17
   br label %mbedtls_mpi_shift_r.exit
 
 mbedtls_mpi_shift_r.exit:                         ; preds = %126, %128
@@ -3501,7 +3501,7 @@ mbedtls_int_div_int.exit:                         ; preds = %140
 228:                                              ; preds = %226
   %229 = load ptr, ptr %5, align 8, !tbaa !12
   %230 = zext i16 %227 to i64
-  call void @mbedtls_mpi_core_shift_r(ptr noundef %229, i64 noundef %230, i64 noundef %.0) #16
+  call void @mbedtls_mpi_core_shift_r(ptr noundef %229, i64 noundef %230, i64 noundef %.0) #17
   br label %mbedtls_mpi_shift_r.exit146
 
 mbedtls_mpi_shift_r.exit146:                      ; preds = %226, %228
@@ -3534,7 +3534,7 @@ mbedtls_mpi_lset.exit:                            ; preds = %122, %210, %208, %2
   %243 = load i16, ptr %26, align 2, !tbaa !3
   %244 = zext i16 %243 to i64
   %245 = shl nuw nsw i64 %244, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %241, i64 noundef %245) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %241, i64 noundef %245) #17
   br label %mbedtls_mpi_free.exit
 
 mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_lset.exit, %242
@@ -3546,7 +3546,7 @@ mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_lset.ex
   %248 = load i16, ptr %28, align 2, !tbaa !3
   %249 = zext i16 %248 to i64
   %250 = shl nuw nsw i64 %249, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %246, i64 noundef %250) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %246, i64 noundef %250) #17
   br label %mbedtls_mpi_free.exit149
 
 mbedtls_mpi_free.exit149:                         ; preds = %mbedtls_mpi_free.exit, %247
@@ -3556,7 +3556,7 @@ mbedtls_mpi_free.exit149:                         ; preds = %mbedtls_mpi_free.ex
 251:                                              ; preds = %mbedtls_mpi_free.exit149
   %252 = shl nuw nsw i64 %239, 3
   %253 = and i64 %252, 524280
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %240, i64 noundef %253) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %240, i64 noundef %253) #17
   br label %mbedtls_mpi_free.exit151
 
 mbedtls_mpi_free.exit151:                         ; preds = %mbedtls_mpi_free.exit149, %251
@@ -3568,11 +3568,11 @@ mbedtls_mpi_free.exit151:                         ; preds = %mbedtls_mpi_free.ex
   %256 = load i16, ptr %32, align 2, !tbaa !3
   %257 = zext i16 %256 to i64
   %258 = shl nuw nsw i64 %257, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %254, i64 noundef %258) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %254, i64 noundef %258) #17
   br label %mbedtls_mpi_free.exit153
 
 mbedtls_mpi_free.exit153:                         ; preds = %mbedtls_mpi_free.exit151, %255
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 24) #16
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 24) #17
   br label %mbedtls_mpi_cmp_int.exit.thread
 
 mbedtls_mpi_cmp_int.exit.thread:                  ; preds = %19, %4, %81, %82, %mbedtls_mpi_cmp_int.exit, %mbedtls_mpi_free.exit153
@@ -3970,7 +3970,7 @@ mbedtls_mpi_cmp_int.exit101:                      ; preds = %29
 
 mbedtls_mpi_cmp_int.exit101.thread:               ; preds = %33, %25, %mbedtls_mpi_cmp_int.exit101
   %.pre-phi = phi i64 [ %28, %mbedtls_mpi_cmp_int.exit101 ], [ 0, %25 ], [ %28, %33 ]
-  %38 = tail call i64 @mbedtls_mpi_core_bitlen(ptr noundef %.pre, i64 noundef %.pre-phi) #16
+  %38 = tail call i64 @mbedtls_mpi_core_bitlen(ptr noundef %.pre, i64 noundef %.pre-phi) #17
   %39 = icmp ugt i64 %38, 8192
   br i1 %39, label %mbedtls_mpi_cmp_int.exit.thread, label %40
 
@@ -3978,7 +3978,7 @@ mbedtls_mpi_cmp_int.exit101.thread:               ; preds = %33, %25, %mbedtls_m
   %41 = load ptr, ptr %4, align 8, !tbaa !12
   %42 = load i16, ptr %8, align 2, !tbaa !3
   %43 = zext i16 %42 to i64
-  %44 = tail call i64 @mbedtls_mpi_core_bitlen(ptr noundef %41, i64 noundef %43) #16
+  %44 = tail call i64 @mbedtls_mpi_core_bitlen(ptr noundef %41, i64 noundef %43) #17
   %45 = icmp ugt i64 %44, 8192
   br i1 %45, label %mbedtls_mpi_cmp_int.exit.thread, label %46
 
@@ -3995,8 +3995,8 @@ mbedtls_mpi_cmp_int.exit101.thread:               ; preds = %33, %25, %mbedtls_m
   %52 = load i16, ptr %8, align 2, !tbaa !3
   %53 = zext i16 %52 to i64
   %54 = zext i16 %47 to i64
-  %55 = tail call i64 @mbedtls_mpi_core_exp_mod_working_limbs(i64 noundef %53, i64 noundef %54) #16
-  %56 = tail call noalias ptr @calloc(i64 noundef %55, i64 noundef 8) #17
+  %55 = tail call i64 @mbedtls_mpi_core_exp_mod_working_limbs(i64 noundef %53, i64 noundef %54) #17
+  %56 = tail call noalias ptr @calloc(i64 noundef %55, i64 noundef 8) #18
   %57 = icmp eq ptr %56, null
   br i1 %57, label %mbedtls_mpi_cmp_int.exit.thread, label %58
 
@@ -4016,17 +4016,17 @@ mbedtls_mpi_cmp_int.exit101.thread:               ; preds = %33, %25, %mbedtls_m
   br i1 %64, label %.thread, label %70
 
 65:                                               ; preds = %58
-  %66 = call i32 @mbedtls_mpi_core_get_mont_r2_unsafe(ptr noundef nonnull %7, ptr noundef nonnull %4) #16
+  %66 = call i32 @mbedtls_mpi_core_get_mont_r2_unsafe(ptr noundef nonnull %7, ptr noundef nonnull %4) #17
   %.not85 = icmp eq i32 %66, 0
   br i1 %.not85, label %75, label %.thread134
 
 .thread134:                                       ; preds = %65
   %67 = shl i64 %55, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %56, i64 noundef %67) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %56, i64 noundef %67) #17
   br label %135
 
 .thread:                                          ; preds = %62
-  %68 = call i32 @mbedtls_mpi_core_get_mont_r2_unsafe(ptr noundef nonnull %7, ptr noundef nonnull %4) #16
+  %68 = call i32 @mbedtls_mpi_core_get_mont_r2_unsafe(ptr noundef nonnull %7, ptr noundef nonnull %4) #17
   %.not85108 = icmp eq i32 %68, 0
   br i1 %.not85108, label %69, label %.thread110
 
@@ -4071,13 +4071,13 @@ mbedtls_mpi_cmp_int.exit101.thread:               ; preds = %33, %25, %mbedtls_m
 
 87:                                               ; preds = %83
   %88 = load ptr, ptr %4, align 8, !tbaa !12
-  %89 = call i64 @mbedtls_mpi_core_montmul_init(ptr noundef %88) #16
+  %89 = call i64 @mbedtls_mpi_core_montmul_init(ptr noundef %88) #17
   %90 = load ptr, ptr %0, align 8, !tbaa !12
   %91 = load ptr, ptr %4, align 8, !tbaa !12
   %92 = load i16, ptr %8, align 2, !tbaa !3
   %93 = zext i16 %92 to i64
   %94 = load ptr, ptr %7, align 8, !tbaa !12
-  call void @mbedtls_mpi_core_to_mont_rep(ptr noundef %90, ptr noundef %90, ptr noundef %91, i64 noundef %93, i64 noundef %89, ptr noundef %94, ptr noundef nonnull %56) #16
+  call void @mbedtls_mpi_core_to_mont_rep(ptr noundef %90, ptr noundef %90, ptr noundef %91, i64 noundef %93, i64 noundef %89, ptr noundef %94, ptr noundef nonnull %56) #17
   %95 = icmp eq i32 %3, 707406378
   %96 = load ptr, ptr %0, align 8, !tbaa !12
   %97 = load ptr, ptr %4, align 8, !tbaa !12
@@ -4090,11 +4090,11 @@ mbedtls_mpi_cmp_int.exit101.thread:               ; preds = %33, %25, %mbedtls_m
   br i1 %95, label %104, label %105
 
 104:                                              ; preds = %87
-  call void @mbedtls_mpi_core_exp_mod_unsafe(ptr noundef %96, ptr noundef %96, ptr noundef %97, i64 noundef %99, ptr noundef %100, i64 noundef %102, ptr noundef %103, ptr noundef nonnull %56) #16
+  call void @mbedtls_mpi_core_exp_mod_unsafe(ptr noundef %96, ptr noundef %96, ptr noundef %97, i64 noundef %99, ptr noundef %100, i64 noundef %102, ptr noundef %103, ptr noundef nonnull %56) #17
   br label %106
 
 105:                                              ; preds = %87
-  call void @mbedtls_mpi_core_exp_mod(ptr noundef %96, ptr noundef %96, ptr noundef %97, i64 noundef %99, ptr noundef %100, i64 noundef %102, ptr noundef %103, ptr noundef nonnull %56) #16
+  call void @mbedtls_mpi_core_exp_mod(ptr noundef %96, ptr noundef %96, ptr noundef %97, i64 noundef %99, ptr noundef %100, i64 noundef %102, ptr noundef %103, ptr noundef nonnull %56) #17
   br label %106
 
 106:                                              ; preds = %105, %104
@@ -4102,7 +4102,7 @@ mbedtls_mpi_cmp_int.exit101.thread:               ; preds = %33, %25, %mbedtls_m
   %108 = load ptr, ptr %4, align 8, !tbaa !12
   %109 = load i16, ptr %8, align 2, !tbaa !3
   %110 = zext i16 %109 to i64
-  call void @mbedtls_mpi_core_from_mont_rep(ptr noundef %107, ptr noundef %107, ptr noundef %108, i64 noundef %110, i64 noundef %89, ptr noundef nonnull %56) #16
+  call void @mbedtls_mpi_core_from_mont_rep(ptr noundef %107, ptr noundef %107, ptr noundef %108, i64 noundef %110, i64 noundef %89, ptr noundef nonnull %56) #17
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %112 = load i16, ptr %111, align 8, !tbaa !10
   %113 = icmp eq i16 %112, -1
@@ -4120,8 +4120,8 @@ mbedtls_mpi_cmp_int.exit101.thread:               ; preds = %33, %25, %mbedtls_m
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %121 = load i16, ptr %120, align 2, !tbaa !3
   %122 = zext i16 %121 to i64
-  %123 = call i64 @mbedtls_mpi_core_check_zero_ct(ptr noundef %119, i64 noundef %122) #16
-  %124 = call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %123, i64 range(i64 0, 4294967296) 0, i64 range(i64 0, 4294967296) 2) #16, !srcloc !16
+  %123 = call i64 @mbedtls_mpi_core_check_zero_ct(ptr noundef %119, i64 noundef %122) #17
+  %124 = call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %123, i64 range(i64 0, 4294967296) 0, i64 range(i64 0, 4294967296) 2) #17, !srcloc !16
   %125 = extractvalue { i64, i64, i64 } %124, 2
   %126 = trunc i64 %125 to i16
   %127 = add i16 %126, -1
@@ -4132,13 +4132,13 @@ mbedtls_mpi_cmp_int.exit101.thread:               ; preds = %33, %25, %mbedtls_m
 .thread110:                                       ; preds = %.thread, %70
   %.073.ph = phi i32 [ %68, %.thread ], [ %73, %70 ]
   %129 = shl i64 %55, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %56, i64 noundef %129) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %56, i64 noundef %129) #17
   br label %132
 
 130:                                              ; preds = %118, %106, %114, %83, %81, %75
   %.073 = phi i32 [ %76, %75 ], [ %82, %81 ], [ %86, %83 ], [ %128, %118 ], [ 0, %114 ], [ 0, %106 ]
   %131 = shl i64 %55, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %56, i64 noundef %131) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %56, i64 noundef %131) #17
   br i1 %61, label %135, label %132
 
 132:                                              ; preds = %.thread110, %130
@@ -4157,7 +4157,7 @@ mbedtls_mpi_cmp_int.exit101.thread:               ; preds = %33, %25, %mbedtls_m
   %138 = load i16, ptr %60, align 2, !tbaa !3
   %139 = zext i16 %138 to i64
   %140 = shl nuw nsw i64 %139, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %136, i64 noundef %140) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %136, i64 noundef %140) #17
   br label %mbedtls_mpi_free.exit
 
 mbedtls_mpi_free.exit:                            ; preds = %137, %135, %132
@@ -4328,7 +4328,7 @@ mbedtls_mpi_get_bit.exit:                         ; preds = %32, %mbedtls_mpi_ls
 
 mbedtls_mpi_lsb.exit41:                           ; preds = %64, %60
   %.08.i39 = phi i64 [ %63, %60 ], [ 0, %64 ]
-  call void @mbedtls_mpi_core_shift_r(ptr noundef nonnull %43, i64 noundef %42, i64 noundef %.08.i39) #16
+  call void @mbedtls_mpi_core_shift_r(ptr noundef nonnull %43, i64 noundef %42, i64 noundef %.08.i39) #17
   %66 = zext i16 %51 to i64
   %.not12.i43 = icmp eq i16 %51, 0
   br i1 %.not12.i43, label %.lr.ph.i52.preheader, label %.lr.ph.i44
@@ -4357,7 +4357,7 @@ mbedtls_mpi_lsb.exit41:                           ; preds = %64, %60
 
 mbedtls_mpi_lsb.exit49:                           ; preds = %75, %71
   %.08.i47 = phi i64 [ %74, %71 ], [ 0, %75 ]
-  call void @mbedtls_mpi_core_shift_r(ptr noundef nonnull %67, i64 noundef %66, i64 noundef %.08.i47) #16
+  call void @mbedtls_mpi_core_shift_r(ptr noundef nonnull %67, i64 noundef %66, i64 noundef %.08.i47) #17
   br label %.lr.ph.i52.preheader
 
 .lr.ph.i52.preheader:                             ; preds = %mbedtls_mpi_lsb.exit49, %mbedtls_mpi_lsb.exit41
@@ -4484,14 +4484,14 @@ mbedtls_mpi_shift_r.exit55.sink.split:            ; preds = %119, %116
   %.ph157 = phi i16 [ %51, %116 ], [ %120, %119 ]
   %121 = load ptr, ptr %.sink160, align 8, !tbaa !12
   %122 = zext i16 %.sink159 to i64
-  call void @mbedtls_mpi_core_shift_r(ptr noundef %121, i64 noundef %122, i64 noundef 1) #16
+  call void @mbedtls_mpi_core_shift_r(ptr noundef %121, i64 noundef %122, i64 noundef 1) #17
   br label %.lr.ph.i.i.outer, !llvm.loop !52
 
 mbedtls_mpi_cmp_int.exit.thread:                  ; preds = %.lr.ph51.i.i, %116, %56, %41
   %123 = phi i16 [ %26, %41 ], [ %50, %56 ], [ %50, %116 ], [ %50, %.lr.ph51.i.i ]
   %124 = load ptr, ptr %5, align 8, !tbaa !12
   %125 = zext i16 %123 to i64
-  %126 = call i64 @mbedtls_mpi_core_bitlen(ptr noundef %124, i64 noundef %125) #16
+  %126 = call i64 @mbedtls_mpi_core_bitlen(ptr noundef %124, i64 noundef %125) #17
   %127 = add i64 %126, %spec.select
   %128 = shl nuw nsw i64 %125, 6
   %129 = icmp ult i64 %128, %127
@@ -4511,7 +4511,7 @@ mbedtls_mpi_cmp_int.exit.thread:                  ; preds = %.lr.ph51.i.i, %116,
   br i1 %138, label %139, label %147
 
 139:                                              ; preds = %137
-  %140 = call noalias ptr @calloc(i64 noundef %135, i64 noundef 8) #17
+  %140 = call noalias ptr @calloc(i64 noundef %135, i64 noundef 8) #18
   %141 = icmp eq ptr %140, null
   br i1 %141, label %mbedtls_mpi_shift_l.exit.thread, label %142
 
@@ -4522,7 +4522,7 @@ mbedtls_mpi_cmp_int.exit.thread:                  ; preds = %.lr.ph51.i.i, %116,
 143:                                              ; preds = %142
   %144 = shl nuw nsw i64 %125, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %140, ptr nonnull align 8 %124, i64 %144, i1 false)
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %124, i64 noundef %144) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %124, i64 noundef %144) #17
   br label %145
 
 145:                                              ; preds = %143, %142
@@ -4534,7 +4534,7 @@ mbedtls_mpi_cmp_int.exit.thread:                  ; preds = %.lr.ph51.i.i, %116,
 147:                                              ; preds = %145, %137, %mbedtls_mpi_cmp_int.exit.thread
   %148 = phi ptr [ %124, %137 ], [ %140, %145 ], [ %124, %mbedtls_mpi_cmp_int.exit.thread ]
   %.pre-phi.i = phi i64 [ %125, %137 ], [ %135, %145 ], [ %125, %mbedtls_mpi_cmp_int.exit.thread ]
-  call void @mbedtls_mpi_core_shift_l(ptr noundef %148, i64 noundef %.pre-phi.i, i64 noundef %spec.select) #16
+  call void @mbedtls_mpi_core_shift_l(ptr noundef %148, i64 noundef %.pre-phi.i, i64 noundef %spec.select) #17
   br label %mbedtls_mpi_shift_l.exit.thread.sink.split
 
 mbedtls_mpi_shift_l.exit.thread.sink.split:       ; preds = %mbedtls_mpi_get_bit.exit, %mbedtls_mpi_lsb.exit, %147
@@ -4552,7 +4552,7 @@ mbedtls_mpi_shift_l.exit.thread:                  ; preds = %mbedtls_mpi_cmp_mpi
   %152 = load i16, ptr %7, align 2, !tbaa !3
   %153 = zext i16 %152 to i64
   %154 = shl nuw nsw i64 %153, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %150, i64 noundef %154) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %150, i64 noundef %154) #17
   br label %mbedtls_mpi_free.exit
 
 mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_shift_l.exit.thread, %151
@@ -4564,7 +4564,7 @@ mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_shift_l
   %157 = load i16, ptr %9, align 2, !tbaa !3
   %158 = zext i16 %157 to i64
   %159 = shl nuw nsw i64 %158, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %155, i64 noundef %159) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %155, i64 noundef %159) #17
   br label %mbedtls_mpi_free.exit62
 
 mbedtls_mpi_free.exit62:                          ; preds = %mbedtls_mpi_free.exit, %156
@@ -4597,7 +4597,7 @@ define hidden i32 @mbedtls_mpi_fill_random(ptr noundef captures(address_is_null)
   %17 = load i16, ptr %16, align 2, !tbaa !3
   %18 = zext i16 %17 to i64
   %19 = shl nuw nsw i64 %18, 3
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %14, i64 noundef %19) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %14, i64 noundef %19) #17
   br label %20
 
 20:                                               ; preds = %15, %13
@@ -4629,7 +4629,7 @@ define hidden i32 @mbedtls_mpi_fill_random(ptr noundef captures(address_is_null)
 
 33:                                               ; preds = %32
   %34 = shl nuw nsw i64 %26, 3
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %28, i64 noundef %34) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %28, i64 noundef %34) #17
   br label %mbedtls_mpi_free.exit12.i
 
 mbedtls_mpi_free.exit12.i:                        ; preds = %33, %32
@@ -4641,7 +4641,7 @@ mbedtls_mpi_free.exit12.i:                        ; preds = %33, %32
   br i1 %36, label %mbedtls_mpi_resize_clear.exit, label %37
 
 37:                                               ; preds = %mbedtls_mpi_free.exit12.i
-  %38 = tail call noalias ptr @calloc(i64 noundef range(i64 0, 2305843009213693953) %9, i64 noundef 8) #17
+  %38 = tail call noalias ptr @calloc(i64 noundef range(i64 0, 2305843009213693953) %9, i64 noundef 8) #18
   %39 = icmp eq ptr %38, null
   br i1 %39, label %mbedtls_mpi_resize_clear.exit, label %40
 
@@ -4656,7 +4656,7 @@ mbedtls_mpi_free.exit12.i:                        ; preds = %33, %32
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %45 = load i16, ptr %44, align 2, !tbaa !3
   %46 = zext i16 %45 to i64
-  %47 = tail call i32 @mbedtls_mpi_core_fill_random(ptr noundef %43, i64 noundef %46, i64 noundef %1, ptr noundef %2, ptr noundef %3) #16
+  %47 = tail call i32 @mbedtls_mpi_core_fill_random(ptr noundef %43, i64 noundef %46, i64 noundef %1, ptr noundef %2, ptr noundef %3) #17
   br label %mbedtls_mpi_resize_clear.exit
 
 mbedtls_mpi_resize_clear.exit:                    ; preds = %20, %11, %37, %mbedtls_mpi_free.exit12.i, %42
@@ -4754,7 +4754,7 @@ mbedtls_mpi_cmp_int.exit.thread17:                ; preds = %mbedtls_mpi_cmp_int
   %42 = load i16, ptr %41, align 2, !tbaa !3
   %43 = zext i16 %42 to i64
   %44 = shl nuw nsw i64 %43, 3
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %.pre21, i64 noundef %44) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %.pre21, i64 noundef %44) #17
   br label %45
 
 45:                                               ; preds = %40, %39
@@ -4787,7 +4787,7 @@ mbedtls_mpi_cmp_int.exit.thread17:                ; preds = %mbedtls_mpi_cmp_int
 
 58:                                               ; preds = %57
   %59 = shl nuw nsw i64 %51, 3
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %53, i64 noundef %59) #16
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %53, i64 noundef %59) #17
   br label %mbedtls_mpi_free.exit12.i
 
 mbedtls_mpi_free.exit12.i:                        ; preds = %58, %57
@@ -4799,7 +4799,7 @@ mbedtls_mpi_free.exit12.i:                        ; preds = %58, %57
   br i1 %61, label %mbedtls_mpi_resize_clear.exit, label %62
 
 62:                                               ; preds = %mbedtls_mpi_free.exit12.i
-  %63 = tail call noalias ptr @calloc(i64 noundef range(i64 0, 2305843009213693953) %38, i64 noundef 8) #17
+  %63 = tail call noalias ptr @calloc(i64 noundef range(i64 0, 2305843009213693953) %38, i64 noundef 8) #18
   %64 = icmp eq ptr %63, null
   br i1 %64, label %mbedtls_mpi_resize_clear.exit, label %65
 
@@ -4814,7 +4814,7 @@ mbedtls_mpi_free.exit12.i:                        ; preds = %58, %57
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %70 = load i16, ptr %69, align 2, !tbaa !3
   %71 = zext i16 %70 to i64
-  %72 = tail call i32 @mbedtls_mpi_core_random(ptr noundef %67, i64 noundef %1, ptr noundef %68, i64 noundef %71, ptr noundef %3, ptr noundef %4) #16
+  %72 = tail call i32 @mbedtls_mpi_core_random(ptr noundef %67, i64 noundef %1, ptr noundef %68, i64 noundef %71, ptr noundef %3, ptr noundef %4) #17
   br label %mbedtls_mpi_resize_clear.exit
 
 mbedtls_mpi_resize_clear.exit:                    ; preds = %31, %25, %27, %.lr.ph51.i.i, %62, %mbedtls_mpi_free.exit12.i, %66, %mbedtls_mpi_cmp_int.exit, %5
@@ -5074,7 +5074,7 @@ mbedtls_mpi_cmp_int.exit77.thread115:             ; preds = %73, %mbedtls_mpi_cm
   br i1 %.not.i, label %mbedtls_mpi_shift_r.exit, label %106
 
 106:                                              ; preds = %105
-  call void @mbedtls_mpi_core_shift_r(ptr noundef nonnull %93, i64 noundef %98, i64 noundef 1) #16
+  call void @mbedtls_mpi_core_shift_r(ptr noundef nonnull %93, i64 noundef %98, i64 noundef 1) #17
   br label %mbedtls_mpi_shift_r.exit
 
 mbedtls_mpi_shift_r.exit:                         ; preds = %105, %106
@@ -5109,7 +5109,7 @@ mbedtls_mpi_shift_r.exit:                         ; preds = %105, %106
 120:                                              ; preds = %118
   %121 = load ptr, ptr %7, align 8, !tbaa !12
   %122 = zext i16 %119 to i64
-  call void @mbedtls_mpi_core_shift_r(ptr noundef %121, i64 noundef %122, i64 noundef 1) #16
+  call void @mbedtls_mpi_core_shift_r(ptr noundef %121, i64 noundef %122, i64 noundef 1) #17
   br label %mbedtls_mpi_shift_r.exit79
 
 mbedtls_mpi_shift_r.exit79:                       ; preds = %118, %120
@@ -5120,7 +5120,7 @@ mbedtls_mpi_shift_r.exit79:                       ; preds = %118, %120
 124:                                              ; preds = %mbedtls_mpi_shift_r.exit79
   %125 = load ptr, ptr %8, align 8, !tbaa !12
   %126 = zext i16 %123 to i64
-  call void @mbedtls_mpi_core_shift_r(ptr noundef %125, i64 noundef %126, i64 noundef 1) #16
+  call void @mbedtls_mpi_core_shift_r(ptr noundef %125, i64 noundef %126, i64 noundef 1) #17
   br label %mbedtls_mpi_shift_r.exit81
 
 mbedtls_mpi_shift_r.exit81:                       ; preds = %mbedtls_mpi_shift_r.exit79, %124
@@ -5133,7 +5133,7 @@ mbedtls_mpi_shift_r.exit81:                       ; preds = %mbedtls_mpi_shift_r
   br i1 %.not.i82, label %mbedtls_mpi_shift_r.exit83, label %131
 
 131:                                              ; preds = %130
-  call void @mbedtls_mpi_core_shift_r(ptr noundef nonnull %99, i64 noundef %104, i64 noundef 1) #16
+  call void @mbedtls_mpi_core_shift_r(ptr noundef nonnull %99, i64 noundef %104, i64 noundef 1) #17
   br label %mbedtls_mpi_shift_r.exit83
 
 mbedtls_mpi_shift_r.exit83:                       ; preds = %130, %131
@@ -5168,7 +5168,7 @@ mbedtls_mpi_shift_r.exit83:                       ; preds = %130, %131
 145:                                              ; preds = %143
   %146 = load ptr, ptr %11, align 8, !tbaa !12
   %147 = zext i16 %144 to i64
-  call void @mbedtls_mpi_core_shift_r(ptr noundef %146, i64 noundef %147, i64 noundef 1) #16
+  call void @mbedtls_mpi_core_shift_r(ptr noundef %146, i64 noundef %147, i64 noundef 1) #17
   br label %mbedtls_mpi_shift_r.exit85
 
 mbedtls_mpi_shift_r.exit85:                       ; preds = %143, %145
@@ -5179,7 +5179,7 @@ mbedtls_mpi_shift_r.exit85:                       ; preds = %143, %145
 149:                                              ; preds = %mbedtls_mpi_shift_r.exit85
   %150 = load ptr, ptr %12, align 8, !tbaa !12
   %151 = zext i16 %148 to i64
-  call void @mbedtls_mpi_core_shift_r(ptr noundef %150, i64 noundef %151, i64 noundef 1) #16
+  call void @mbedtls_mpi_core_shift_r(ptr noundef %150, i64 noundef %151, i64 noundef 1) #17
   br label %mbedtls_mpi_shift_r.exit87
 
 mbedtls_mpi_shift_r.exit87:                       ; preds = %mbedtls_mpi_shift_r.exit85, %149
@@ -5262,7 +5262,7 @@ mbedtls_mpi_cmp_int.exit77.thread:                ; preds = %62, %167, %165, %16
   %183 = load i16, ptr %36, align 2, !tbaa !3
   %184 = zext i16 %183 to i64
   %185 = shl nuw nsw i64 %184, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %181, i64 noundef %185) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %181, i64 noundef %185) #17
   br label %mbedtls_mpi_free.exit
 
 mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_cmp_int.exit77.thread, %182
@@ -5274,7 +5274,7 @@ mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_cmp_int
   %188 = load i16, ptr %38, align 2, !tbaa !3
   %189 = zext i16 %188 to i64
   %190 = shl nuw nsw i64 %189, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %186, i64 noundef %190) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %186, i64 noundef %190) #17
   br label %mbedtls_mpi_free.exit90
 
 mbedtls_mpi_free.exit90:                          ; preds = %mbedtls_mpi_free.exit, %187
@@ -5286,7 +5286,7 @@ mbedtls_mpi_free.exit90:                          ; preds = %mbedtls_mpi_free.ex
   %193 = load i16, ptr %40, align 2, !tbaa !3
   %194 = zext i16 %193 to i64
   %195 = shl nuw nsw i64 %194, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %191, i64 noundef %195) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %191, i64 noundef %195) #17
   br label %mbedtls_mpi_free.exit92
 
 mbedtls_mpi_free.exit92:                          ; preds = %mbedtls_mpi_free.exit90, %192
@@ -5298,7 +5298,7 @@ mbedtls_mpi_free.exit92:                          ; preds = %mbedtls_mpi_free.ex
   %198 = load i16, ptr %42, align 2, !tbaa !3
   %199 = zext i16 %198 to i64
   %200 = shl nuw nsw i64 %199, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %196, i64 noundef %200) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %196, i64 noundef %200) #17
   br label %mbedtls_mpi_free.exit94
 
 mbedtls_mpi_free.exit94:                          ; preds = %mbedtls_mpi_free.exit92, %197
@@ -5310,7 +5310,7 @@ mbedtls_mpi_free.exit94:                          ; preds = %mbedtls_mpi_free.ex
   %203 = load i16, ptr %44, align 2, !tbaa !3
   %204 = zext i16 %203 to i64
   %205 = shl nuw nsw i64 %204, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %201, i64 noundef %205) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %201, i64 noundef %205) #17
   br label %mbedtls_mpi_free.exit96
 
 mbedtls_mpi_free.exit96:                          ; preds = %mbedtls_mpi_free.exit94, %202
@@ -5322,7 +5322,7 @@ mbedtls_mpi_free.exit96:                          ; preds = %mbedtls_mpi_free.ex
   %208 = load i16, ptr %46, align 2, !tbaa !3
   %209 = zext i16 %208 to i64
   %210 = shl nuw nsw i64 %209, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %206, i64 noundef %210) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %206, i64 noundef %210) #17
   br label %mbedtls_mpi_free.exit98
 
 mbedtls_mpi_free.exit98:                          ; preds = %mbedtls_mpi_free.exit96, %207
@@ -5334,7 +5334,7 @@ mbedtls_mpi_free.exit98:                          ; preds = %mbedtls_mpi_free.ex
   %213 = load i16, ptr %48, align 2, !tbaa !3
   %214 = zext i16 %213 to i64
   %215 = shl nuw nsw i64 %214, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %211, i64 noundef %215) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %211, i64 noundef %215) #17
   br label %mbedtls_mpi_free.exit100
 
 mbedtls_mpi_free.exit100:                         ; preds = %mbedtls_mpi_free.exit98, %212
@@ -5346,7 +5346,7 @@ mbedtls_mpi_free.exit100:                         ; preds = %mbedtls_mpi_free.ex
   %218 = load i16, ptr %50, align 2, !tbaa !3
   %219 = zext i16 %218 to i64
   %220 = shl nuw nsw i64 %219, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %216, i64 noundef %220) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %216, i64 noundef %220) #17
   br label %mbedtls_mpi_free.exit102
 
 mbedtls_mpi_free.exit102:                         ; preds = %mbedtls_mpi_free.exit100, %217
@@ -5358,7 +5358,7 @@ mbedtls_mpi_free.exit102:                         ; preds = %mbedtls_mpi_free.ex
   %223 = load i16, ptr %52, align 2, !tbaa !3
   %224 = zext i16 %223 to i64
   %225 = shl nuw nsw i64 %224, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %221, i64 noundef %225) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %221, i64 noundef %225) #17
   br label %mbedtls_mpi_cmp_int.exit.thread
 
 mbedtls_mpi_cmp_int.exit.thread:                  ; preds = %21, %.preheader.i.i, %222, %mbedtls_mpi_free.exit102, %28, %3, %mbedtls_mpi_cmp_int.exit
@@ -5734,7 +5734,7 @@ mbedtls_mpi_lsb.exit:                             ; preds = %36, %25, %32
 41:                                               ; preds = %39
   %42 = load ptr, ptr %8, align 8, !tbaa !12
   %43 = zext i16 %40 to i64
-  call void @mbedtls_mpi_core_shift_r(ptr noundef %42, i64 noundef %43, i64 noundef %.08.i) #16
+  call void @mbedtls_mpi_core_shift_r(ptr noundef %42, i64 noundef %43, i64 noundef %.08.i) #17
   br label %mbedtls_mpi_shift_r.exit
 
 mbedtls_mpi_shift_r.exit:                         ; preds = %39, %41
@@ -5769,7 +5769,7 @@ mbedtls_mpi_shift_r.exit:                         ; preds = %39, %41
 53:                                               ; preds = %52
   %54 = zext i16 %47 to i64
   %55 = shl nuw nsw i64 %54, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %46, i64 noundef %55) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %46, i64 noundef %55) #17
   br label %mbedtls_mpi_fill_random.exit.thread110
 
 56:                                               ; preds = %.critedge
@@ -5787,7 +5787,7 @@ mbedtls_mpi_shift_r.exit:                         ; preds = %39, %41
 
 61:                                               ; preds = %60
   %62 = shl nuw nsw i64 %57, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %46, i64 noundef %62) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %46, i64 noundef %62) #17
   br label %mbedtls_mpi_free.exit12.i.i
 
 mbedtls_mpi_free.exit12.i.i:                      ; preds = %61, %60
@@ -5795,7 +5795,7 @@ mbedtls_mpi_free.exit12.i.i:                      ; preds = %61, %60
   br i1 %63, label %mbedtls_mpi_fill_random.exit.thread.loopexit138, label %64
 
 64:                                               ; preds = %mbedtls_mpi_free.exit12.i.i
-  %65 = call noalias ptr @calloc(i64 noundef range(i64 0, 2305843009213693953) %49, i64 noundef 8) #17
+  %65 = call noalias ptr @calloc(i64 noundef range(i64 0, 2305843009213693953) %49, i64 noundef 8) #18
   %66 = icmp eq ptr %65, null
   br i1 %66, label %mbedtls_mpi_fill_random.exit.thread.loopexit138, label %mbedtls_mpi_fill_random.exit
 
@@ -5803,7 +5803,7 @@ mbedtls_mpi_fill_random.exit:                     ; preds = %64, %59
   %.pre-phi = phi i64 [ %49, %64 ], [ %57, %59 ]
   %67 = phi ptr [ %65, %64 ], [ %46, %59 ]
   %68 = phi i16 [ %48, %64 ], [ %47, %59 ]
-  %69 = call i32 @mbedtls_mpi_core_fill_random(ptr noundef %67, i64 noundef %.pre-phi, i64 noundef %50, ptr noundef %2, ptr noundef %3) #16
+  %69 = call i32 @mbedtls_mpi_core_fill_random(ptr noundef %67, i64 noundef %.pre-phi, i64 noundef %50, ptr noundef %2, ptr noundef %3) #17
   %.not34 = icmp eq i32 %69, 0
   br i1 %.not34, label %mbedtls_mpi_fill_random.exit.thread110, label %mbedtls_mpi_fill_random.exit.thread.loopexit138
 
@@ -5811,9 +5811,9 @@ mbedtls_mpi_fill_random.exit.thread110:           ; preds = %53, %52, %mbedtls_m
   %70 = phi ptr [ %67, %mbedtls_mpi_fill_random.exit ], [ null, %52 ], [ null, %53 ]
   %71 = phi i16 [ %68, %mbedtls_mpi_fill_random.exit ], [ 0, %52 ], [ 0, %53 ]
   %72 = zext i16 %71 to i64
-  %73 = call i64 @mbedtls_mpi_core_bitlen(ptr noundef %70, i64 noundef %72) #16
+  %73 = call i64 @mbedtls_mpi_core_bitlen(ptr noundef %70, i64 noundef %72) #17
   %74 = load ptr, ptr %7, align 8, !tbaa !12
-  %75 = call i64 @mbedtls_mpi_core_bitlen(ptr noundef %74, i64 noundef %27) #16
+  %75 = call i64 @mbedtls_mpi_core_bitlen(ptr noundef %74, i64 noundef %27) #17
   %76 = icmp ugt i64 %73, %75
   br i1 %76, label %77, label %86
 
@@ -6310,7 +6310,7 @@ mbedtls_mpi_fill_random.exit.thread:              ; preds = %mbedtls_mpi_cmp_int
   %268 = load i16, ptr %13, align 2, !tbaa !3
   %269 = zext i16 %268 to i64
   %270 = shl nuw nsw i64 %269, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %266, i64 noundef %270) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %266, i64 noundef %270) #17
   br label %mbedtls_mpi_free.exit
 
 mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_fill_random.exit.thread, %267
@@ -6322,7 +6322,7 @@ mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_fill_ra
   %273 = load i16, ptr %15, align 2, !tbaa !3
   %274 = zext i16 %273 to i64
   %275 = shl nuw nsw i64 %274, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %271, i64 noundef %275) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %271, i64 noundef %275) #17
   br label %mbedtls_mpi_free.exit101
 
 mbedtls_mpi_free.exit101:                         ; preds = %mbedtls_mpi_free.exit, %272
@@ -6334,7 +6334,7 @@ mbedtls_mpi_free.exit101:                         ; preds = %mbedtls_mpi_free.ex
   %278 = load i16, ptr %17, align 2, !tbaa !3
   %279 = zext i16 %278 to i64
   %280 = shl nuw nsw i64 %279, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %276, i64 noundef %280) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %276, i64 noundef %280) #17
   br label %mbedtls_mpi_free.exit103
 
 mbedtls_mpi_free.exit103:                         ; preds = %mbedtls_mpi_free.exit101, %277
@@ -6346,7 +6346,7 @@ mbedtls_mpi_free.exit103:                         ; preds = %mbedtls_mpi_free.ex
   %283 = load i16, ptr %19, align 2, !tbaa !3
   %284 = zext i16 %283 to i64
   %285 = shl nuw nsw i64 %284, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %281, i64 noundef %285) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %281, i64 noundef %285) #17
   br label %mbedtls_mpi_free.exit105
 
 mbedtls_mpi_free.exit105:                         ; preds = %mbedtls_mpi_free.exit103, %282
@@ -6358,7 +6358,7 @@ mbedtls_mpi_free.exit105:                         ; preds = %mbedtls_mpi_free.ex
   %288 = load i16, ptr %21, align 2, !tbaa !3
   %289 = zext i16 %288 to i64
   %290 = shl nuw nsw i64 %289, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %286, i64 noundef %290) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %286, i64 noundef %290) #17
   br label %mbedtls_mpi_free.exit107
 
 mbedtls_mpi_free.exit107:                         ; preds = %mbedtls_mpi_free.exit105, %287
@@ -6486,7 +6486,7 @@ define hidden i32 @mbedtls_mpi_gen_prime(ptr noundef %0, i64 noundef %1, i32 nou
 
 69:                                               ; preds = %67
   %70 = zext i16 %68 to i64
-  tail call void @mbedtls_mpi_core_shift_r(ptr noundef nonnull %62, i64 noundef %70, i64 noundef %59) #16
+  tail call void @mbedtls_mpi_core_shift_r(ptr noundef nonnull %62, i64 noundef %70, i64 noundef %59) #17
   %.pre125 = load ptr, ptr %0, align 8, !tbaa !12
   br label %mbedtls_mpi_shift_r.exit.us.us
 
@@ -6519,7 +6519,7 @@ mbedtls_mpi_shift_r.exit.us.us:                   ; preds = %69, %67
 
 83:                                               ; preds = %81
   %84 = zext i16 %82 to i64
-  tail call void @mbedtls_mpi_core_shift_r(ptr noundef nonnull %76, i64 noundef %84, i64 noundef %59) #16
+  tail call void @mbedtls_mpi_core_shift_r(ptr noundef nonnull %76, i64 noundef %84, i64 noundef %59) #17
   %.pre = load ptr, ptr %0, align 8, !tbaa !12
   br label %mbedtls_mpi_shift_r.exit.us
 
@@ -6651,7 +6651,7 @@ mbedtls_mpi_mod_int.exit.thread:                  ; preds = %mbedtls_mpi_shift_r
 134:                                              ; preds = %132
   %135 = load ptr, ptr %14, align 8, !tbaa !12
   %136 = zext i16 %133 to i64
-  call void @mbedtls_mpi_core_shift_r(ptr noundef %135, i64 noundef %136, i64 noundef 1) #16
+  call void @mbedtls_mpi_core_shift_r(ptr noundef %135, i64 noundef %136, i64 noundef 1) #17
   br label %mbedtls_mpi_shift_r.exit90
 
 mbedtls_mpi_shift_r.exit90:                       ; preds = %132, %134
@@ -6723,7 +6723,7 @@ mbedtls_mpi_shift_r.exit90:                       ; preds = %132, %134
   %160 = load i16, ptr %18, align 2, !tbaa !3
   %161 = zext i16 %160 to i64
   %162 = shl nuw nsw i64 %161, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %158, i64 noundef %162) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %158, i64 noundef %162) #17
   br label %mbedtls_mpi_free.exit
 
 mbedtls_mpi_free.exit:                            ; preds = %159, %.loopexit, %5
@@ -7020,7 +7020,7 @@ define hidden i32 @mbedtls_mpi_self_test(i32 noundef %0) local_unnamed_addr #0 {
   %107 = load i16, ptr %10, align 2, !tbaa !3
   %108 = zext i16 %107 to i64
   %109 = shl nuw nsw i64 %108, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %105, i64 noundef %109) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %105, i64 noundef %109) #17
   br label %mbedtls_mpi_free.exit
 
 mbedtls_mpi_free.exit:                            ; preds = %.loopexit.thread135, %106
@@ -7032,7 +7032,7 @@ mbedtls_mpi_free.exit:                            ; preds = %.loopexit.thread135
   %112 = load i16, ptr %12, align 2, !tbaa !3
   %113 = zext i16 %112 to i64
   %114 = shl nuw nsw i64 %113, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %110, i64 noundef %114) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %110, i64 noundef %114) #17
   br label %mbedtls_mpi_free.exit75
 
 mbedtls_mpi_free.exit75:                          ; preds = %mbedtls_mpi_free.exit, %111
@@ -7044,7 +7044,7 @@ mbedtls_mpi_free.exit75:                          ; preds = %mbedtls_mpi_free.ex
   %117 = load i16, ptr %14, align 2, !tbaa !3
   %118 = zext i16 %117 to i64
   %119 = shl nuw nsw i64 %118, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %115, i64 noundef %119) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %115, i64 noundef %119) #17
   br label %mbedtls_mpi_free.exit77
 
 mbedtls_mpi_free.exit77:                          ; preds = %mbedtls_mpi_free.exit75, %116
@@ -7059,7 +7059,7 @@ mbedtls_mpi_free.exit77:                          ; preds = %mbedtls_mpi_free.ex
   %122 = load i16, ptr %16, align 2, !tbaa !3
   %123 = zext i16 %122 to i64
   %124 = shl nuw nsw i64 %123, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %120, i64 noundef %124) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %120, i64 noundef %124) #17
   br label %mbedtls_mpi_free.exit79
 
 mbedtls_mpi_free.exit79:                          ; preds = %mbedtls_mpi_free.exit77, %121
@@ -7071,7 +7071,7 @@ mbedtls_mpi_free.exit79:                          ; preds = %mbedtls_mpi_free.ex
   %127 = load i16, ptr %18, align 2, !tbaa !3
   %128 = zext i16 %127 to i64
   %129 = shl nuw nsw i64 %128, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %125, i64 noundef %129) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %125, i64 noundef %129) #17
   br label %mbedtls_mpi_free.exit81
 
 mbedtls_mpi_free.exit81:                          ; preds = %mbedtls_mpi_free.exit79, %126
@@ -7083,7 +7083,7 @@ mbedtls_mpi_free.exit81:                          ; preds = %mbedtls_mpi_free.ex
   %132 = load i16, ptr %20, align 2, !tbaa !3
   %133 = zext i16 %132 to i64
   %134 = shl nuw nsw i64 %133, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %130, i64 noundef %134) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %130, i64 noundef %134) #17
   br label %mbedtls_mpi_free.exit83
 
 mbedtls_mpi_free.exit83:                          ; preds = %mbedtls_mpi_free.exit81, %131
@@ -7095,7 +7095,7 @@ mbedtls_mpi_free.exit83:                          ; preds = %mbedtls_mpi_free.ex
   %137 = load i16, ptr %22, align 2, !tbaa !3
   %138 = zext i16 %137 to i64
   %139 = shl nuw nsw i64 %138, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %135, i64 noundef %139) #16
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %135, i64 noundef %139) #17
   br label %mbedtls_mpi_free.exit85
 
 mbedtls_mpi_free.exit85:                          ; preds = %mbedtls_mpi_free.exit83, %136
@@ -7141,10 +7141,10 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i128 @llvm.umin.i128(i128, i128) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #14
 
 ; Function Attrs: nofree nounwind
@@ -7153,13 +7153,13 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #14
+declare i64 @llvm.abs.i64(i64, i1 immarg) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -7176,11 +7176,12 @@ attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nofree nounwind }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind allocsize(0,1) }
-attributes #18 = { nounwind willreturn memory(read) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nounwind }
+attributes #18 = { nounwind allocsize(0,1) }
+attributes #19 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

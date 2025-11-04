@@ -25,12 +25,12 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %16 = getelementptr inbounds i8, ptr %4, i64 -8
   %17 = getelementptr inbounds i8, ptr %7, i64 -8
   store i32 0, ptr %8, align 4, !tbaa !3
-  %18 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str) #7
+  %18 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str) #8
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %19, label %21
 
 19:                                               ; preds = %9
-  %20 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.1) #7
+  %20 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.1) #8
   %.not502 = icmp eq i32 %20, 0
   br i1 %.not502, label %.thread.sink.split, label %21
 
@@ -59,11 +59,11 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %28 = phi i32 [ %.pr, %27 ], [ %.sink, %.thread.sink.split ]
   %29 = sub nsw i32 0, %28
   store i32 %29, ptr %10, align 4, !tbaa !3
-  %30 = call i32 @xerbla_(ptr noundef nonnull @.str.2, ptr noundef nonnull %10, i32 noundef 7) #7
+  %30 = call i32 @xerbla_(ptr noundef nonnull @.str.2, ptr noundef nonnull %10, i32 noundef 7) #8
   br label %378
 
 31:                                               ; preds = %27
-  %32 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str) #7
+  %32 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str) #8
   store double 0.000000e+00, ptr %6, align 8, !tbaa !7
   %33 = load i32, ptr %1, align 4, !tbaa !3
   %34 = icmp eq i32 %33, 0
@@ -266,7 +266,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
 ._crit_edge556:                                   ; preds = %.lr.ph555, %.loopexit532
   %135 = sitofp i32 %33 to double
   %136 = fmul double %135, 2.000000e+00
-  %137 = tail call double @sqrt(double noundef %136) #7, !tbaa !3
+  %137 = tail call double @sqrt(double noundef %136) #8, !tbaa !3
   %138 = fdiv double 1.000000e+00, %137
   %139 = add i32 %13, 1
   %140 = sext i32 %13 to i64
@@ -470,13 +470,13 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %.pre-phi = phi i64 [ %.pre726, %._crit_edge581.._crit_edge586_crit_edge ], [ %221, %222 ]
   %230 = getelementptr double, ptr %17, i64 %.pre-phi
   %231 = getelementptr i8, ptr %230, i64 8
-  call void @dlassq_(ptr noundef nonnull %1, ptr noundef %231, ptr noundef nonnull @c__1, ptr noundef nonnull %11, ptr noundef nonnull %12) #7
+  call void @dlassq_(ptr noundef nonnull %1, ptr noundef %231, ptr noundef nonnull @c__1, ptr noundef nonnull %11, ptr noundef nonnull %12) #8
   %232 = load double, ptr %11, align 8, !tbaa !7
   %233 = load double, ptr %12, align 8, !tbaa !7
   %234 = load i32, ptr %1, align 4, !tbaa !3
   %235 = sitofp i32 %234 to double
   %236 = fdiv double %233, %235
-  %237 = call double @sqrt(double noundef %236) #7, !tbaa !3
+  %237 = call double @sqrt(double noundef %236) #8, !tbaa !3
   %238 = fmul double %232, %237
   %239 = fmul double %138, %218
   %240 = fcmp olt double %238, %239
@@ -540,7 +540,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
 
 280:                                              ; preds = %.lr.ph608
   %281 = fmul double %272, -2.000000e+00
-  %282 = call double @sqrt(double noundef %277) #7, !tbaa !3
+  %282 = call double @sqrt(double noundef %277) #8, !tbaa !3
   %283 = fadd double %264, %282
   %284 = fdiv double %281, %283
   %285 = fsub double %284, %255
@@ -678,12 +678,12 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
 
 343:                                              ; preds = %._crit_edge609, %._crit_edge586
   %.2 = phi double [ %218, %._crit_edge586 ], [ %.3.lcssa, %._crit_edge609 ]
-  %344 = call double @dlamch_(ptr noundef nonnull @.str.3) #7
+  %344 = call double @dlamch_(ptr noundef nonnull @.str.3) #8
   %345 = fdiv double 1.000000e+00, %344
-  %346 = call double @sqrt(double noundef %.2) #7, !tbaa !3
+  %346 = call double @sqrt(double noundef %.2) #8, !tbaa !3
   %347 = fdiv double 1.000000e+00, %346
-  %348 = call double @dlamch_(ptr noundef nonnull @.str.4) #7
-  %349 = call double @log(double noundef %348) #7, !tbaa !3
+  %348 = call double @dlamch_(ptr noundef nonnull @.str.4) #8
+  %349 = call double @log(double noundef %348) #8, !tbaa !3
   %350 = fdiv double 1.000000e+00, %349
   %351 = load i32, ptr %1, align 4, !tbaa !3
   %.not521612 = icmp slt i32 %351, 1
@@ -702,7 +702,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %355 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv720
   %356 = load double, ptr %355, align 8, !tbaa !7
   %357 = fmul double %347, %356
-  %358 = call double @log(double noundef %357) #7, !tbaa !3
+  %358 = call double @log(double noundef %357) #8, !tbaa !3
   %359 = fmul double %350, %358
   %360 = fptosi double %359 to i32
   %.not.i = icmp eq i32 %360, 0
@@ -768,7 +768,7 @@ declare i32 @xerbla_(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @sqrt(double noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
 declare void @dlassq_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -787,20 +787,21 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #5
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

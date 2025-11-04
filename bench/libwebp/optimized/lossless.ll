@@ -468,7 +468,7 @@ define hidden void @VP8LColorIndexInverseTransformAlpha(ptr noundef readonly cap
 
 36:                                               ; preds = %5
   %37 = load ptr, ptr @VP8LMapColor8b, align 8, !tbaa !23
-  tail call void %37(ptr noundef %3, ptr noundef %12, ptr noundef %4, i32 noundef %1, i32 noundef %2, i32 noundef %10) #12
+  tail call void %37(ptr noundef %3, ptr noundef %12, ptr noundef %4, i32 noundef %1, i32 noundef %2, i32 noundef %10) #13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us, %13, %36
@@ -492,7 +492,7 @@ define hidden void @VP8LInverseTransform(ptr noundef readonly captures(none) %0,
   %11 = load ptr, ptr @VP8LAddGreenToBlueAndRed, align 8, !tbaa !23
   %12 = sub nsw i32 %2, %1
   %13 = mul nsw i32 %8, %12
-  tail call void %11(ptr noundef %3, i32 noundef %13, ptr noundef %4) #12
+  tail call void %11(ptr noundef %3, i32 noundef %13, ptr noundef %4) #13
   br label %ColorSpaceInverseTransform_C.exit
 
 14:                                               ; preds = %5
@@ -613,7 +613,7 @@ PredictorAdd2_C.exit.us.i:                        ; preds = %PredictorAdd2_C.exi
   %82 = getelementptr inbounds i32, ptr %.16381.us.i, i64 %80
   %83 = getelementptr inbounds i32, ptr %82, i64 %50
   %84 = sub nsw i32 %spec.select.us.i, %.05779.us.i
-  tail call void %77(ptr noundef nonnull %81, ptr noundef nonnull %83, i32 noundef %84, ptr noundef nonnull %82) #12
+  tail call void %77(ptr noundef nonnull %81, ptr noundef nonnull %83, i32 noundef %84, ptr noundef nonnull %82) #13
   %85 = icmp slt i32 %79, %8
   br i1 %85, label %PredictorAdd2_C.exit.us.i, label %PredictorAdd2_C.exit._crit_edge.us.i, !llvm.loop !35
 
@@ -727,7 +727,7 @@ PredictorInverseTransform_C.exit:                 ; preds = %.lr.ph84.split.i, %
   %150 = trunc i32 %149 to i8
   store i8 %150, ptr %137, align 1, !tbaa !12
   %151 = load ptr, ptr @VP8LTransformColorInverse, align 8, !tbaa !23
-  call void %151(ptr noundef nonnull %6, ptr noundef %.154.i, i32 noundef %121, ptr noundef %.14653.i) #12
+  call void %151(ptr noundef nonnull %6, ptr noundef %.154.i, i32 noundef %121, ptr noundef %.14653.i) #13
   %152 = getelementptr inbounds i32, ptr %.154.i, i64 %138
   %153 = getelementptr inbounds i32, ptr %.14653.i, i64 %138
   %154 = icmp ult ptr %152, %143
@@ -752,7 +752,7 @@ PredictorInverseTransform_C.exit:                 ; preds = %.lr.ph84.split.i, %
   %163 = trunc i32 %162 to i8
   store i8 %163, ptr %137, align 1, !tbaa !12
   %164 = load ptr, ptr @VP8LTransformColorInverse, align 8, !tbaa !23
-  call void %164(ptr noundef nonnull %6, ptr noundef %.1.lcssa.i, i32 noundef %125, ptr noundef %.146.lcssa.i) #12
+  call void %164(ptr noundef nonnull %6, ptr noundef %.1.lcssa.i, i32 noundef %125, ptr noundef %.146.lcssa.i) #13
   %165 = getelementptr inbounds i32, ptr %.1.lcssa.i, i64 %140
   %166 = getelementptr inbounds i32, ptr %.146.lcssa.i, i64 %140
   br label %167
@@ -854,7 +854,7 @@ PredictorInverseTransform_C.exit:                 ; preds = %.lr.ph84.split.i, %
 
 217:                                              ; preds = %176
   %218 = load ptr, ptr @VP8LMapColor32b, align 8, !tbaa !23
-  tail call void %218(ptr noundef %188, ptr noundef %194, ptr noundef %4, i32 noundef %1, i32 noundef %2, i32 noundef %192) #12
+  tail call void %218(ptr noundef %188, ptr noundef %194, ptr noundef %4, i32 noundef %1, i32 noundef %2, i32 noundef %192) #13
   br label %ColorSpaceInverseTransform_C.exit
 
 ._crit_edge:                                      ; preds = %171
@@ -917,7 +917,7 @@ PredictorInverseTransform_C.exit:                 ; preds = %.lr.ph84.split.i, %
 
 244:                                              ; preds = %._crit_edge
   %245 = load ptr, ptr @VP8LMapColor32b, align 8, !tbaa !23
-  tail call void %245(ptr noundef %3, ptr noundef %221, ptr noundef %4, i32 noundef %1, i32 noundef %2, i32 noundef %8) #12
+  tail call void %245(ptr noundef %3, ptr noundef %221, ptr noundef %4, i32 noundef %1, i32 noundef %2, i32 noundef %8) #13
   br label %ColorSpaceInverseTransform_C.exit
 
 ColorSpaceInverseTransform_C.exit:                ; preds = %._crit_edge.us.i72, %._crit_edge.us.i, %167, %244, %222, %217, %195, %118, %PredictorInverseTransform_C.exit, %108, %10, %5
@@ -1115,24 +1115,24 @@ define hidden void @VP8LConvertFromBGRA(ptr noundef %0, i32 noundef %1, i32 noun
 
 5:                                                ; preds = %4
   %6 = load ptr, ptr @VP8LConvertBGRAToRGB, align 8, !tbaa !23
-  tail call void %6(ptr noundef %0, i32 noundef %1, ptr noundef %3) #12
+  tail call void %6(ptr noundef %0, i32 noundef %1, ptr noundef %3) #13
   br label %CopyOrSwap.exit
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr @VP8LConvertBGRAToRGBA, align 8, !tbaa !23
-  tail call void %8(ptr noundef %0, i32 noundef %1, ptr noundef %3) #12
+  tail call void %8(ptr noundef %0, i32 noundef %1, ptr noundef %3) #13
   br label %CopyOrSwap.exit
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr @VP8LConvertBGRAToRGBA, align 8, !tbaa !23
-  tail call void %10(ptr noundef %0, i32 noundef %1, ptr noundef %3) #12
+  tail call void %10(ptr noundef %0, i32 noundef %1, ptr noundef %3) #13
   %11 = load ptr, ptr @WebPApplyAlphaMultiply, align 8, !tbaa !23
-  tail call void %11(ptr noundef %3, i32 noundef 0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #12
+  tail call void %11(ptr noundef %3, i32 noundef 0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #13
   br label %CopyOrSwap.exit
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr @VP8LConvertBGRAToBGR, align 8, !tbaa !23
-  tail call void %13(ptr noundef %0, i32 noundef %1, ptr noundef %3) #12
+  tail call void %13(ptr noundef %0, i32 noundef %1, ptr noundef %3) #13
   br label %CopyOrSwap.exit
 
 14:                                               ; preds = %4
@@ -1146,7 +1146,7 @@ define hidden void @VP8LConvertFromBGRA(ptr noundef %0, i32 noundef %1, i32 noun
   %.idx.i41 = shl nsw i64 %17, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 4 %0, i64 %.idx.i41, i1 false), !alias.scope !51
   %18 = load ptr, ptr @WebPApplyAlphaMultiply, align 8, !tbaa !23
-  tail call void %18(ptr noundef %3, i32 noundef 0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #12
+  tail call void %18(ptr noundef %3, i32 noundef 0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #13
   br label %CopyOrSwap.exit
 
 19:                                               ; preds = %4
@@ -1191,24 +1191,24 @@ define hidden void @VP8LConvertFromBGRA(ptr noundef %0, i32 noundef %1, i32 noun
 
 CopyOrSwap.exit47:                                ; preds = %.lr.ph.i44, %28
   %37 = load ptr, ptr @WebPApplyAlphaMultiply, align 8, !tbaa !23
-  tail call void %37(ptr noundef %3, i32 noundef 1, i32 noundef %1, i32 noundef 1, i32 noundef 0) #12
+  tail call void %37(ptr noundef %3, i32 noundef 1, i32 noundef %1, i32 noundef 1, i32 noundef 0) #13
   br label %CopyOrSwap.exit
 
 38:                                               ; preds = %4
   %39 = load ptr, ptr @VP8LConvertBGRAToRGBA4444, align 8, !tbaa !23
-  tail call void %39(ptr noundef %0, i32 noundef %1, ptr noundef %3) #12
+  tail call void %39(ptr noundef %0, i32 noundef %1, ptr noundef %3) #13
   br label %CopyOrSwap.exit
 
 40:                                               ; preds = %4
   %41 = load ptr, ptr @VP8LConvertBGRAToRGBA4444, align 8, !tbaa !23
-  tail call void %41(ptr noundef %0, i32 noundef %1, ptr noundef %3) #12
+  tail call void %41(ptr noundef %0, i32 noundef %1, ptr noundef %3) #13
   %42 = load ptr, ptr @WebPApplyAlphaMultiply4444, align 8, !tbaa !23
-  tail call void %42(ptr noundef %3, i32 noundef %1, i32 noundef 1, i32 noundef 0) #12
+  tail call void %42(ptr noundef %3, i32 noundef %1, i32 noundef 1, i32 noundef 0) #13
   br label %CopyOrSwap.exit
 
 43:                                               ; preds = %4
   %44 = load ptr, ptr @VP8LConvertBGRAToRGB565, align 8, !tbaa !23
-  tail call void %44(ptr noundef %0, i32 noundef %1, ptr noundef %3) #12
+  tail call void %44(ptr noundef %0, i32 noundef %1, ptr noundef %3) #13
   br label %CopyOrSwap.exit
 
 CopyOrSwap.exit:                                  ; preds = %.lr.ph.i, %19, %4, %43, %40, %38, %CopyOrSwap.exit47, %16, %14, %12, %9, %7, %5
@@ -1217,7 +1217,7 @@ CopyOrSwap.exit:                                  ; preds = %.lr.ph.i, %19, %4, 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8LDspInit() local_unnamed_addr #2 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @VP8LDspInit.VP8LDspInit_body_lock) #12
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @VP8LDspInit.VP8LDspInit_body_lock) #13
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %14
 
@@ -1289,25 +1289,25 @@ define hidden void @VP8LDspInit() local_unnamed_addr #2 {
   br i1 %.not.i, label %VP8LDspInit_body.exit, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 %4(i32 noundef 0) #12
+  %7 = tail call i32 %4(i32 noundef 0) #13
   %.not1.i = icmp eq i32 %7, 0
   br i1 %.not1.i, label %VP8LDspInit_body.exit, label %8
 
 8:                                                ; preds = %6
-  tail call void @VP8LDspInitSSE2() #12
+  tail call void @VP8LDspInitSSE2() #13
   %9 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !23
-  %10 = tail call i32 %9(i32 noundef 3) #12
+  %10 = tail call i32 %9(i32 noundef 3) #13
   %.not2.i = icmp eq i32 %10, 0
   br i1 %.not2.i, label %VP8LDspInit_body.exit, label %11
 
 11:                                               ; preds = %8
-  tail call void @VP8LDspInitSSE41() #12
+  tail call void @VP8LDspInitSSE41() #13
   br label %VP8LDspInit_body.exit
 
 VP8LDspInit_body.exit:                            ; preds = %11, %8, %6, %5, %2
   %12 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !23
   store volatile ptr %12, ptr @VP8LDspInit.VP8LDspInit_body_last_cpuinfo_used, align 8, !tbaa !23
-  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @VP8LDspInit.VP8LDspInit_body_lock) #12
+  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @VP8LDspInit.VP8LDspInit_body_lock) #13
   br label %14
 
 14:                                               ; preds = %0, %VP8LDspInit_body.exit
@@ -1422,11 +1422,11 @@ define internal void @PredictorAdd2_C(ptr noundef readonly captures(none) %0, pt
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #5
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.bswap.i32(i32) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @VP8LPredictor0_C(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #7 {
+define internal noundef i32 @VP8LPredictor0_C(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #8 {
   ret i32 -16777216
 }
 
@@ -2123,21 +2123,21 @@ define internal void @MapAlpha_C(ptr noundef readonly captures(none) %0, ptr nou
   ret void
 }
 
-declare void @VP8LDspInitSSE2() local_unnamed_addr #8
+declare void @VP8LDspInitSSE2() local_unnamed_addr #9
 
-declare void @VP8LDspInitSSE41() local_unnamed_addr #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+declare void @VP8LDspInitSSE41() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #10
+declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2146,12 +2146,13 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
+attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

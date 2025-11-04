@@ -22,7 +22,7 @@ define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly ca
   %.059 = phi ptr [ %0, %3 ], [ %8, %4 ]
   %5 = load i8, ptr %.059, align 1
   %6 = sext i8 %5 to i32
-  %7 = tail call i32 @isspace(i32 noundef %6) #5
+  %7 = tail call i32 @isspace(i32 noundef %6) #6
   %.not = icmp eq i32 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %.059, i64 1
   br i1 %.not, label %9, label %4, !llvm.loop !6
@@ -168,7 +168,7 @@ define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly ca
   %.1101.i = phi i32 [ %.0100.i, %53 ], [ 1, %.lr.ph.i ], [ %.0100.i, %52 ]
   %.082.i = phi i64 [ 0, %53 ], [ %57, %.lr.ph.i ], [ 0, %52 ]
   %.3114177.i = sext i8 %.1112.in.i to i32
-  %59 = tail call i32 @isxdigit(i32 noundef %.3114177.i) #5
+  %59 = tail call i32 @isxdigit(i32 noundef %.3114177.i) #6
   %60 = icmp ne i32 %59, 0
   %61 = icmp eq i8 %.1112.in.i, 46
   %62 = or i1 %61, %60
@@ -246,7 +246,7 @@ define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly ca
   %87 = getelementptr inbounds nuw i8, ptr %.2160178.i, i64 1
   %88 = load i8, ptr %.2160178.i, align 1
   %.3114.i = sext i8 %88 to i32
-  %89 = tail call i32 @isxdigit(i32 noundef %.3114.i) #5
+  %89 = tail call i32 @isxdigit(i32 noundef %.3114.i) #6
   %90 = icmp ne i32 %89, 0
   %91 = icmp eq i8 %88, 46
   %92 = or i1 %91, %90
@@ -398,7 +398,7 @@ scanexp.exit.i:                                   ; preds = %.lr.ph.i.i, %111
   br i1 %131, label %132, label %134
 
 132:                                              ; preds = %130
-  %133 = tail call ptr @__errno() #6
+  %133 = tail call ptr @__errno() #7
   store i32 34, ptr %133, align 4
   br label %hexfloat.exit
 
@@ -413,7 +413,7 @@ scanexp.exit.i:                                   ; preds = %.lr.ph.i.i, %111
   br i1 %138, label %.lr.ph216.i, label %._crit_edge217.i
 
 139:                                              ; preds = %134
-  %140 = tail call ptr @__errno() #6
+  %140 = tail call ptr @__errno() #7
   store i32 34, ptr %140, align 4
   br label %hexfloat.exit
 
@@ -484,7 +484,7 @@ scalbnx.exit.i:                                   ; preds = %.lr.ph.split.i.i, %
   br i1 %166, label %169, label %167
 
 167:                                              ; preds = %scalbnx.exit.i
-  %168 = tail call ptr @__errno() #6
+  %168 = tail call ptr @__errno() #7
   store i32 34, ptr %168, align 4
   br label %169
 
@@ -808,7 +808,7 @@ ifallzero.exit79.i:                               ; preds = %243
   br i1 %or.cond155.i, label %.sink.split.i, label %261
 
 .sink.split.i:                                    ; preds = %257
-  %260 = tail call ptr @__errno() #6
+  %260 = tail call ptr @__errno() #7
   store i32 34, ptr %260, align 4
   br label %261
 
@@ -900,24 +900,25 @@ declare i32 @isspace(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @isxdigit(i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare x86_fp80 @llvm.fmuladd.f80(x86_fp80, x86_fp80, x86_fp80) #2
 
 declare ptr @__errno() local_unnamed_addr #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #4
+declare i64 @llvm.abs.i64(i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind willreturn memory(read) }
-attributes #6 = { nounwind }
+attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind willreturn memory(read) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

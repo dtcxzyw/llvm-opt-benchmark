@@ -52,7 +52,7 @@ define internal void @ft_sdf_done(ptr readnone captures(none) %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @ft_sdf_requester(ptr readnone captures(none) %0, ptr noundef %1) #2 {
-  %3 = tail call ptr @ft_service_list_lookup(ptr noundef nonnull @sdf_services, ptr noundef %1) #11
+  %3 = tail call ptr @ft_service_list_lookup(ptr noundef nonnull @sdf_services, ptr noundef %1) #12
   ret ptr %3
 }
 
@@ -90,7 +90,7 @@ define internal i32 @ft_sdf_render(ptr noundef readonly captures(none) %0, ptr n
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %24 = load ptr, ptr %23, align 8, !tbaa !44
-  tail call void @ft_mem_free(ptr noundef %10, ptr noundef %24) #11
+  tail call void @ft_mem_free(ptr noundef %10, ptr noundef %24) #12
   store ptr null, ptr %23, align 8, !tbaa !44
   %25 = load ptr, ptr %17, align 8, !tbaa !39
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -100,7 +100,7 @@ define internal i32 @ft_sdf_render(ptr noundef readonly captures(none) %0, ptr n
   br label %29
 
 29:                                               ; preds = %22, %16
-  %30 = tail call zeroext i8 @ft_glyphslot_preset_bitmap(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %3) #11
+  %30 = tail call zeroext i8 @ft_glyphslot_preset_bitmap(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %3) #12
   %.not76 = icmp eq i8 %30, 0
   br i1 %.not76, label %31, label %.thread.sink.split
 
@@ -132,7 +132,7 @@ define internal i32 @ft_sdf_render(ptr noundef readonly captures(none) %0, ptr n
   store i16 255, ptr %45, align 8, !tbaa !49
   %46 = sext i32 %43 to i64
   %47 = zext i32 %40 to i64
-  %48 = call ptr @ft_mem_realloc(ptr noundef %10, i64 noundef %46, i64 noundef 0, i64 noundef %47, ptr noundef null, ptr noundef nonnull %5) #11
+  %48 = call ptr @ft_mem_realloc(ptr noundef %10, i64 noundef %46, i64 noundef 0, i64 noundef %47, ptr noundef null, ptr noundef nonnull %5) #12
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store ptr %48, ptr %49, align 8, !tbaa !44
   %50 = load i32, ptr %5, align 4, !tbaa !21
@@ -181,7 +181,7 @@ define internal i32 @ft_sdf_render(ptr noundef readonly captures(none) %0, ptr n
   br i1 %or.cond, label %77, label %78
 
 77:                                               ; preds = %74
-  call void @FT_Outline_Translate(ptr noundef nonnull %7, i64 noundef %.071, i64 noundef %.0) #11
+  call void @FT_Outline_Translate(ptr noundef nonnull %7, i64 noundef %.071, i64 noundef %.0) #12
   br label %78
 
 78:                                               ; preds = %74, %77
@@ -209,14 +209,14 @@ define internal i32 @ft_sdf_render(ptr noundef readonly captures(none) %0, ptr n
   %93 = load ptr, ptr %92, align 8, !tbaa !65
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %95 = load ptr, ptr %94, align 8, !tbaa !66
-  %96 = call i32 %93(ptr noundef %95, ptr noundef nonnull %6) #11
+  %96 = call i32 %93(ptr noundef %95, ptr noundef nonnull %6) #12
   store i32 %96, ptr %5, align 4, !tbaa !21
   br i1 %or.cond, label %97, label %thread-pre-split
 
 97:                                               ; preds = %78
   %98 = sub nsw i64 0, %.071
   %99 = sub nsw i64 0, %.0
-  call void @FT_Outline_Translate(ptr noundef nonnull %7, i64 noundef %98, i64 noundef %99) #11
+  call void @FT_Outline_Translate(ptr noundef nonnull %7, i64 noundef %98, i64 noundef %99) #12
   %.pr.pre = load i32, ptr %5, align 4, !tbaa !21
   br label %thread-pre-split
 
@@ -247,7 +247,7 @@ thread-pre-split.thread:                          ; preds = %31, %33, %thread-pr
 107:                                              ; preds = %.thread
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %109 = load ptr, ptr %108, align 8, !tbaa !44
-  call void @ft_mem_free(ptr noundef %10, ptr noundef %109) #11
+  call void @ft_mem_free(ptr noundef %10, ptr noundef %109) #12
   store ptr null, ptr %108, align 8, !tbaa !44
   %110 = load ptr, ptr %102, align 8, !tbaa !39
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
@@ -279,7 +279,7 @@ define internal range(i32 0, 7) i32 @ft_sdf_transform(ptr noundef readonly captu
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  tail call void @FT_Outline_Transform(ptr noundef nonnull %11, ptr noundef nonnull %2) #11
+  tail call void @FT_Outline_Transform(ptr noundef nonnull %11, ptr noundef nonnull %2) #12
   br label %12
 
 12:                                               ; preds = %10, %9
@@ -291,7 +291,7 @@ define internal range(i32 0, 7) i32 @ft_sdf_transform(ptr noundef readonly captu
   %15 = load i64, ptr %3, align 8, !tbaa !52
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !53
-  tail call void @FT_Outline_Translate(ptr noundef nonnull %14, i64 noundef %15, i64 noundef %17) #11
+  tail call void @FT_Outline_Translate(ptr noundef nonnull %14, i64 noundef %15, i64 noundef %17) #12
   br label %18
 
 18:                                               ; preds = %4, %12, %13
@@ -311,7 +311,7 @@ define internal void @ft_sdf_get_cbox(ptr noundef readonly captures(none) %0, pt
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  tail call void @FT_Outline_Get_CBox(ptr noundef nonnull %10, ptr noundef nonnull %2) #11
+  tail call void @FT_Outline_Get_CBox(ptr noundef nonnull %10, ptr noundef nonnull %2) #12
   br label %11
 
 11:                                               ; preds = %9, %3
@@ -328,7 +328,7 @@ define internal i32 @ft_sdf_set_mode(ptr noundef readonly captures(none) %0, i64
   %9 = load ptr, ptr %8, align 8, !tbaa !72
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %11 = load ptr, ptr %10, align 8, !tbaa !66
-  %12 = tail call i32 %9(ptr noundef %11, i64 noundef %1, ptr noundef %2) #11
+  %12 = tail call i32 %9(ptr noundef %11, i64 noundef %1, ptr noundef %2) #12
   ret i32 %12
 }
 
@@ -342,7 +342,7 @@ define internal i32 @ft_bsdf_render(ptr noundef readonly captures(none) %0, ptr 
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 152
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @FT_Bitmap_Init(ptr noundef nonnull %6) #11
+  call void @FT_Bitmap_Init(ptr noundef nonnull %6) #12
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !22
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -381,7 +381,7 @@ define internal i32 @ft_bsdf_render(ptr noundef readonly captures(none) %0, ptr 
   br i1 %.not40, label %.thread.sink.split, label %28
 
 28:                                               ; preds = %22
-  call void @FT_Bitmap_New(ptr noundef nonnull %6) #11
+  call void @FT_Bitmap_New(ptr noundef nonnull %6) #12
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %30 = load i32, ptr %29, align 8, !tbaa !3
   %31 = load i32, ptr %8, align 8, !tbaa !45
@@ -401,7 +401,7 @@ define internal i32 @ft_bsdf_render(ptr noundef readonly captures(none) %0, ptr 
   store i16 255, ptr %40, align 8, !tbaa !49
   %41 = sext i32 %36 to i64
   %42 = zext i32 %33 to i64
-  %43 = call ptr @ft_mem_realloc(ptr noundef %10, i64 noundef %41, i64 noundef 0, i64 noundef %42, ptr noundef null, ptr noundef nonnull %5) #11
+  %43 = call ptr @ft_mem_realloc(ptr noundef %10, i64 noundef %41, i64 noundef 0, i64 noundef %42, ptr noundef null, ptr noundef nonnull %5) #12
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %43, ptr %44, align 8, !tbaa !44
   %45 = load i32, ptr %5, align 4, !tbaa !21
@@ -429,7 +429,7 @@ thread-pre-split:                                 ; preds = %28
   %57 = load ptr, ptr %56, align 8, !tbaa !65
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %59 = load ptr, ptr %58, align 8, !tbaa !66
-  %60 = call i32 %57(ptr noundef %59, ptr noundef nonnull %7) #11
+  %60 = call i32 %57(ptr noundef %59, ptr noundef nonnull %7) #12
   store i32 %60, ptr %5, align 4, !tbaa !21
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %thread-pre-split.thread, label %.thread
@@ -447,7 +447,7 @@ thread-pre-split.thread:                          ; preds = %17, %19, %thread-pr
 67:                                               ; preds = %thread-pre-split.thread
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %69 = load ptr, ptr %68, align 8, !tbaa !44
-  call void @ft_mem_free(ptr noundef %10, ptr noundef %69) #11
+  call void @ft_mem_free(ptr noundef %10, ptr noundef %69) #12
   br label %70
 
 70:                                               ; preds = %67, %thread-pre-split.thread
@@ -485,7 +485,7 @@ thread-pre-split.thread:                          ; preds = %17, %19, %thread-pr
   br i1 %.not45, label %87, label %86
 
 86:                                               ; preds = %.thread
-  call void @ft_mem_free(ptr noundef %10, ptr noundef nonnull %85) #11
+  call void @ft_mem_free(ptr noundef %10, ptr noundef nonnull %85) #12
   br label %87
 
 87:                                               ; preds = %.thread, %86, %70, %79
@@ -500,7 +500,7 @@ thread-pre-split.thread:                          ; preds = %17, %19, %thread-pr
 define internal i32 @bsdf_raster_new(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #2 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call ptr @ft_mem_alloc(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %3) #11
+  %4 = call ptr @ft_mem_alloc(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %3) #12
   %5 = load i32, ptr %3, align 4, !tbaa !21
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %7
@@ -571,7 +571,7 @@ define internal i32 @bsdf_raster_render(ptr noundef readonly captures(address_is
   %26 = shl nuw nsw i64 %25, 5
   %27 = load i32, ptr %13, align 8, !tbaa !45
   %28 = zext i32 %27 to i64
-  %29 = call ptr @ft_mem_qrealloc(ptr noundef nonnull %17, i64 noundef %26, i64 noundef 0, i64 noundef %28, ptr noundef null, ptr noundef nonnull %3) #11
+  %29 = call ptr @ft_mem_qrealloc(ptr noundef nonnull %17, i64 noundef %26, i64 noundef 0, i64 noundef %28, ptr noundef null, ptr noundef nonnull %3) #12
   store ptr %29, ptr %4, align 8, !tbaa !83
   %30 = load i32, ptr %3, align 4, !tbaa !21
   %.not33 = icmp eq i32 %30, 0
@@ -614,7 +614,7 @@ define internal i32 @bsdf_raster_render(ptr noundef readonly captures(address_is
   br i1 %.not37, label %.thread, label %46
 
 46:                                               ; preds = %44
-  call void @ft_mem_free(ptr noundef nonnull %17, ptr noundef nonnull %29) #11
+  call void @ft_mem_free(ptr noundef nonnull %17, ptr noundef nonnull %29) #12
   %.pre = load i32, ptr %3, align 4, !tbaa !21
   br label %.thread
 
@@ -628,7 +628,7 @@ define internal i32 @bsdf_raster_render(ptr noundef readonly captures(address_is
 ; Function Attrs: nounwind uwtable
 define internal void @bsdf_raster_done(ptr noundef %0) #2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !79
-  tail call void @ft_mem_free(ptr noundef %2, ptr noundef nonnull %0) #11
+  tail call void @ft_mem_free(ptr noundef %2, ptr noundef nonnull %0) #12
   ret void
 }
 
@@ -636,7 +636,7 @@ define internal void @bsdf_raster_done(ptr noundef %0) #2 {
 define internal i32 @sdf_raster_new(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #2 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call ptr @ft_mem_alloc(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %3) #11
+  %4 = call ptr @ft_mem_alloc(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %3) #12
   %5 = load i32, ptr %3, align 4, !tbaa !21
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %7
@@ -713,7 +713,7 @@ define internal i32 @sdf_raster_render(ptr noundef readonly captures(address_is_
   br i1 %.not47, label %sdf_outline_decompose.exit.thread, label %29
 
 29:                                               ; preds = %27
-  %30 = tail call i32 @FT_Outline_Get_Orientation(ptr noundef nonnull %9) #11
+  %30 = tail call i32 @FT_Outline_Get_Orientation(ptr noundef nonnull %9) #12
   %.sroa.04.0.insert.ext = zext i32 %30 to i64
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %32 = load i8, ptr %31, align 4, !tbaa !62
@@ -727,7 +727,7 @@ define internal i32 @sdf_raster_render(ptr noundef readonly captures(address_is_
   %.sroa.04.5.insert.insert = or disjoint i64 %.sroa.04.4.insert.insert, %.sroa.04.5.insert.shift
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !21
-  %35 = call ptr @ft_mem_qalloc(ptr noundef nonnull %28, i64 noundef 16, ptr noundef nonnull %3) #11
+  %35 = call ptr @ft_mem_qalloc(ptr noundef nonnull %28, i64 noundef 16, ptr noundef nonnull %3) #12
   %36 = load i32, ptr %3, align 4, !tbaa !21
   %.not.i = icmp eq i32 %36, 0
   br i1 %.not.i, label %sdf_outline_decompose.exit, label %sdf_shape_new.exit
@@ -742,7 +742,7 @@ sdf_outline_decompose.exit:                       ; preds = %29
   store ptr %28, ptr %35, align 8, !tbaa !99
   store ptr %35, ptr %4, align 8, !tbaa !102
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %38 = call i32 @FT_Outline_Decompose(ptr noundef nonnull %9, ptr noundef nonnull @sdf_decompose_funcs, ptr noundef nonnull %35) #11
+  %38 = call i32 @FT_Outline_Decompose(ptr noundef nonnull %9, ptr noundef nonnull @sdf_decompose_funcs, ptr noundef nonnull %35) #12
   %.not49 = icmp eq i32 %38, 0
   br i1 %.not49, label %39, label %sdf_outline_decompose.exit.thread
 
@@ -777,7 +777,7 @@ sdf_outline_decompose.exit.thread:                ; preds = %sdf_shape_new.exit,
 ; Function Attrs: nounwind uwtable
 define internal void @sdf_raster_done(ptr noundef %0) #2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !91
-  tail call void @ft_mem_free(ptr noundef %2, ptr noundef nonnull %0) #11
+  tail call void @ft_mem_free(ptr noundef %2, ptr noundef nonnull %0) #12
   ret void
 }
 
@@ -785,7 +785,7 @@ declare hidden ptr @ft_service_list_lookup(ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 13) i32 @sdf_property_set(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i8 zeroext %3) #4 {
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.5) #12
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.5) #13
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %12
 
@@ -801,7 +801,7 @@ define internal range(i32 0, 13) i32 @sdf_property_set(ptr noundef writeonly cap
   br label %32
 
 12:                                               ; preds = %4
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.6) #12
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.6) #13
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %19
 
@@ -814,7 +814,7 @@ define internal range(i32 0, 13) i32 @sdf_property_set(ptr noundef writeonly cap
   br label %32
 
 19:                                               ; preds = %12
-  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.7) #12
+  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.7) #13
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %26
 
@@ -827,7 +827,7 @@ define internal range(i32 0, 13) i32 @sdf_property_set(ptr noundef writeonly cap
   br label %32
 
 26:                                               ; preds = %19
-  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.8) #12
+  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.8) #13
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %32
 
@@ -844,7 +844,7 @@ define internal range(i32 0, 13) i32 @sdf_property_set(ptr noundef writeonly cap
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 13) i32 @sdf_property_get(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #4 {
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.5) #12
+  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.5) #13
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %9
 
@@ -854,7 +854,7 @@ define internal range(i32 0, 13) i32 @sdf_property_get(ptr noundef readonly capt
   br label %.sink.split
 
 9:                                                ; preds = %3
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.6) #12
+  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.6) #13
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
 
@@ -865,7 +865,7 @@ define internal range(i32 0, 13) i32 @sdf_property_get(ptr noundef readonly capt
   br label %.sink.split
 
 16:                                               ; preds = %9
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.7) #12
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.7) #13
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %23
 
@@ -876,7 +876,7 @@ define internal range(i32 0, 13) i32 @sdf_property_get(ptr noundef readonly capt
   br label %.sink.split
 
 23:                                               ; preds = %16
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.8) #12
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.8) #13
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %30
 
@@ -1397,7 +1397,7 @@ bsdf_is_edge.exit.thread49:                       ; preds = %17, %88, %71, %56, 
   %176 = add nsw i32 %175, %171
   %177 = sext i32 %176 to i64
   store i64 %177, ptr %8, align 8, !tbaa !53
-  %178 = call i32 @FT_Vector_NormLen(ptr noundef nonnull %2) #11
+  %178 = call i32 @FT_Vector_NormLen(ptr noundef nonnull %2) #12
   %179 = load i64, ptr %2, align 8, !tbaa !52
   %180 = icmp eq i64 %179, 0
   %181 = load i64, ptr %8, align 8
@@ -1418,7 +1418,7 @@ bsdf_is_edge.exit.thread49:                       ; preds = %17, %88, %71, %56, 
   %spec.select74.i = call i32 @llvm.umax.i32(i32 %188, i32 %189)
   %190 = zext nneg i32 %spec.select.i42 to i64
   %191 = zext nneg i32 %spec.select74.i to i64
-  %192 = call i64 @FT_DivFix(i64 noundef %190, i64 noundef %191) #11
+  %192 = call i64 @FT_DivFix(i64 noundef %190, i64 noundef %191) #12
   %193 = sdiv i64 %192, 2
   %194 = trunc i64 %193 to i32
   %195 = icmp slt i32 %132, %194
@@ -1436,7 +1436,7 @@ bsdf_is_edge.exit.thread49:                       ; preds = %17, %88, %71, %56, 
   %sh.diff78.i = lshr i64 %204, 15
   %tr.sh.diff79.i = trunc i64 %sh.diff78.i to i32
   %205 = and i32 %tr.sh.diff79.i, -2
-  %206 = call i32 @FT_SqrtFixed(i32 noundef %205) #11
+  %206 = call i32 @FT_SqrtFixed(i32 noundef %205) #12
   %207 = sub nsw i32 %198, %206
   br label %233
 
@@ -1469,7 +1469,7 @@ bsdf_is_edge.exit.thread49:                       ; preds = %17, %88, %71, %56, 
   %sh.diff.i = lshr i64 %229, 15
   %tr.sh.diff.i = trunc i64 %sh.diff.i to i32
   %230 = and i32 %tr.sh.diff.i, -2
-  %231 = call i32 @FT_SqrtFixed(i32 noundef %230) #11
+  %231 = call i32 @FT_SqrtFixed(i32 noundef %230) #12
   %232 = sub nsw i32 %231, %222
   br label %233
 
@@ -1505,7 +1505,7 @@ compute_edge_distance.exit:                       ; preds = %bsdf_is_edge.exit.t
   store i64 %.fca.0.load.i, ptr %251, align 8, !tbaa !90
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %252, i64 16
   store i64 %.fca.1.load.i, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !90
-  %253 = call i64 @FT_Vector_Length(ptr noundef nonnull %251) #11
+  %253 = call i64 @FT_Vector_Length(ptr noundef nonnull %251) #12
   %254 = trunc i64 %253 to i32
   store i32 %254, ptr %252, align 8, !tbaa !112
   %.pre = load i32, ptr %7, align 8, !tbaa !86
@@ -1614,7 +1614,7 @@ define internal fastcc range(i32 0, 7) i32 @edt8(ptr noundef nonnull readonly ca
   %39 = load i64, ptr %7, align 8, !tbaa !52
   %40 = add nsw i64 %39, 65536
   store i64 %40, ptr %7, align 8, !tbaa !52
-  %41 = call i64 @FT_Vector_Length(ptr noundef nonnull %7) #11
+  %41 = call i64 @FT_Vector_Length(ptr noundef nonnull %7) #12
   %42 = trunc i64 %41 to i32
   %43 = load i32, ptr %gep85.i, align 8, !tbaa !112
   %44 = icmp sgt i32 %43, %42
@@ -1653,7 +1653,7 @@ compare_neighbor.exit35.us.i:                     ; preds = %45, %37, %31
   %59 = load i64, ptr %22, align 8, !tbaa !53
   %60 = add nsw i64 %59, -65536
   store i64 %60, ptr %22, align 8, !tbaa !53
-  %61 = call i64 @FT_Vector_Length(ptr noundef nonnull %11) #11
+  %61 = call i64 @FT_Vector_Length(ptr noundef nonnull %11) #12
   %62 = trunc i64 %61 to i32
   %63 = load i32, ptr %gep83.i, align 8, !tbaa !112
   %64 = icmp sgt i32 %63, %62
@@ -1680,7 +1680,7 @@ compare_neighbor.exit.us.i:                       ; preds = %65, %55, %48
   %73 = load i64, ptr %23, align 8, !tbaa !53
   %74 = add nsw i64 %73, -65536
   store i64 %74, ptr %23, align 8, !tbaa !53
-  %75 = call i64 @FT_Vector_Length(ptr noundef nonnull %10) #11
+  %75 = call i64 @FT_Vector_Length(ptr noundef nonnull %10) #12
   %76 = trunc i64 %75 to i32
   %77 = load i32, ptr %gep83.i, align 8, !tbaa !112
   %78 = icmp sgt i32 %77, %76
@@ -1711,7 +1711,7 @@ compare_neighbor.exit32.us.i:                     ; preds = %79, %71, %compare_n
   %90 = load i64, ptr %24, align 8, !tbaa !53
   %91 = add nsw i64 %90, -65536
   store i64 %91, ptr %24, align 8, !tbaa !53
-  %92 = call i64 @FT_Vector_Length(ptr noundef nonnull %9) #11
+  %92 = call i64 @FT_Vector_Length(ptr noundef nonnull %9) #12
   %93 = trunc i64 %92 to i32
   %94 = load i32, ptr %gep83.i, align 8, !tbaa !112
   %95 = icmp sgt i32 %94, %93
@@ -1739,7 +1739,7 @@ compare_neighbor.exit33.us.i:                     ; preds = %96, %86, %compare_n
   %105 = load i64, ptr %8, align 8, !tbaa !52
   %106 = add nsw i64 %105, -65536
   store i64 %106, ptr %8, align 8, !tbaa !52
-  %107 = call i64 @FT_Vector_Length(ptr noundef nonnull %8) #11
+  %107 = call i64 @FT_Vector_Length(ptr noundef nonnull %8) #12
   %108 = trunc i64 %107 to i32
   %109 = load i32, ptr %gep83.i, align 8, !tbaa !112
   %110 = icmp sgt i32 %109, %108
@@ -1793,7 +1793,7 @@ compare_neighbor.exit34.us.i:                     ; preds = %111, %103, %compare
   %123 = load i64, ptr %7, align 8, !tbaa !52
   %124 = add nsw i64 %123, 65536
   store i64 %124, ptr %7, align 8, !tbaa !52
-  %125 = call i64 @FT_Vector_Length(ptr noundef nonnull %7) #11
+  %125 = call i64 @FT_Vector_Length(ptr noundef nonnull %7) #12
   %126 = trunc i64 %125 to i32
   %127 = load i32, ptr %gep.i, align 8, !tbaa !112
   %128 = icmp sgt i32 %127, %126
@@ -1868,7 +1868,7 @@ first_pass.exit:                                  ; preds = %._crit_edge40.us48.
   %154 = load i64, ptr %2, align 8, !tbaa !52
   %155 = add nsw i64 %154, 65536
   store i64 %155, ptr %2, align 8, !tbaa !52
-  %156 = call i64 @FT_Vector_Length(ptr noundef nonnull %2) #11
+  %156 = call i64 @FT_Vector_Length(ptr noundef nonnull %2) #12
   %157 = trunc i64 %156 to i32
   %158 = load i32, ptr %gep79.i, align 8, !tbaa !112
   %159 = icmp sgt i32 %158, %157
@@ -1907,7 +1907,7 @@ compare_neighbor.exit35.us.i30:                   ; preds = %160, %152, %.lr.ph3
   %174 = load i64, ptr %138, align 8, !tbaa !53
   %175 = add nsw i64 %174, 65536
   store i64 %175, ptr %138, align 8, !tbaa !53
-  %176 = call i64 @FT_Vector_Length(ptr noundef nonnull %6) #11
+  %176 = call i64 @FT_Vector_Length(ptr noundef nonnull %6) #12
   %177 = trunc i64 %176 to i32
   %178 = load i32, ptr %gep77.i, align 8, !tbaa !112
   %179 = icmp sgt i32 %178, %177
@@ -1934,7 +1934,7 @@ compare_neighbor.exit.us.i21:                     ; preds = %180, %170, %163
   %188 = load i64, ptr %139, align 8, !tbaa !53
   %189 = add nsw i64 %188, 65536
   store i64 %189, ptr %139, align 8, !tbaa !53
-  %190 = call i64 @FT_Vector_Length(ptr noundef nonnull %5) #11
+  %190 = call i64 @FT_Vector_Length(ptr noundef nonnull %5) #12
   %191 = trunc i64 %190 to i32
   %192 = load i32, ptr %gep77.i, align 8, !tbaa !112
   %193 = icmp sgt i32 %192, %191
@@ -1965,7 +1965,7 @@ compare_neighbor.exit32.us.i22:                   ; preds = %194, %186, %compare
   %205 = load i64, ptr %140, align 8, !tbaa !53
   %206 = add nsw i64 %205, 65536
   store i64 %206, ptr %140, align 8, !tbaa !53
-  %207 = call i64 @FT_Vector_Length(ptr noundef nonnull %4) #11
+  %207 = call i64 @FT_Vector_Length(ptr noundef nonnull %4) #12
   %208 = trunc i64 %207 to i32
   %209 = load i32, ptr %gep77.i, align 8, !tbaa !112
   %210 = icmp sgt i32 %209, %208
@@ -1993,7 +1993,7 @@ compare_neighbor.exit33.us.i23:                   ; preds = %211, %201, %compare
   %220 = load i64, ptr %3, align 8, !tbaa !52
   %221 = add nsw i64 %220, -65536
   store i64 %221, ptr %3, align 8, !tbaa !52
-  %222 = call i64 @FT_Vector_Length(ptr noundef nonnull %3) #11
+  %222 = call i64 @FT_Vector_Length(ptr noundef nonnull %3) #12
   %223 = trunc i64 %222 to i32
   %224 = load i32, ptr %gep77.i, align 8, !tbaa !112
   %225 = icmp sgt i32 %224, %223
@@ -2043,7 +2043,7 @@ compare_neighbor.exit34.us.i24:                   ; preds = %226, %218, %compare
   %240 = load i64, ptr %2, align 8, !tbaa !52
   %241 = add nsw i64 %240, 65536
   store i64 %241, ptr %2, align 8, !tbaa !52
-  %242 = call i64 @FT_Vector_Length(ptr noundef nonnull %2) #11
+  %242 = call i64 @FT_Vector_Length(ptr noundef nonnull %2) #12
   %243 = trunc i64 %242 to i32
   %244 = load i32, ptr %gep.i12, align 8, !tbaa !112
   %245 = icmp sgt i32 %244, %243
@@ -2130,7 +2130,7 @@ define internal fastcc range(i32 0, 7) i32 @finalize_sdf(ptr noundef nonnull rea
   %35 = sub nsw i32 0, %.038.us
   %36 = select i1 %34, i32 %.038.us, i32 %35
   %37 = sext i32 %36 to i64
-  %38 = tail call i64 @FT_DivFix(i64 noundef %37, i64 noundef %20) #11
+  %38 = tail call i64 @FT_DivFix(i64 noundef %37, i64 noundef %20) #12
   %39 = trunc i64 %38 to i32
   %40 = icmp slt i32 %39, 0
   %41 = tail call i32 @llvm.abs.i32(i32 %39, i1 true)
@@ -2212,14 +2212,14 @@ define internal fastcc i32 @sdf_generate_with_overlaps(i64 range(i64 0, 28147497
   %19 = load i32, ptr %3, align 8, !tbaa !45
   %20 = zext i32 %.0141.lcssa to i64
   %21 = mul nuw nsw i64 %20, 40
-  %22 = call ptr @ft_mem_alloc(ptr noundef nonnull %10, i64 noundef %21, ptr noundef nonnull %5) #11
+  %22 = call ptr @ft_mem_alloc(ptr noundef nonnull %10, i64 noundef %21, ptr noundef nonnull %5) #12
   %23 = load i32, ptr %5, align 4, !tbaa !21
   %.not156 = icmp eq i32 %23, 0
   br i1 %.not156, label %24, label %.thread
 
 24:                                               ; preds = %._crit_edge
   %25 = shl nuw nsw i64 %20, 2
-  %26 = call ptr @ft_mem_alloc(ptr noundef nonnull %10, i64 noundef %25, ptr noundef nonnull %5) #11
+  %26 = call ptr @ft_mem_alloc(ptr noundef nonnull %10, i64 noundef %25, ptr noundef nonnull %5) #12
   %27 = load i32, ptr %5, align 4, !tbaa !21
   %.not157 = icmp eq i32 %27, 0
   br i1 %.not157, label %.preheader170, label %.loopexit
@@ -2244,7 +2244,7 @@ define internal fastcc i32 @sdf_generate_with_overlaps(i64 range(i64 0, 28147497
   %.0146178 = phi ptr [ null, %.lr.ph181 ], [ %125, %130 ]
   %.1148180 = load ptr, ptr %.1148180.in, align 8, !tbaa !134
   %35 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %22, i64 %indvars.iv
-  call void @FT_Bitmap_Init(ptr noundef %35) #11
+  call void @FT_Bitmap_Init(ptr noundef %35) #12
   %36 = load i32, ptr %17, align 4, !tbaa !47
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 %36, ptr %37, align 4, !tbaa !47
@@ -2261,7 +2261,7 @@ define internal fastcc i32 @sdf_generate_with_overlaps(i64 range(i64 0, 28147497
   store i8 %43, ptr %44, align 2, !tbaa !48
   %45 = mul i32 %39, %38
   %46 = zext i32 %45 to i64
-  %47 = call ptr @ft_mem_alloc(ptr noundef nonnull %10, i64 noundef %46, ptr noundef nonnull %5) #11
+  %47 = call ptr @ft_mem_alloc(ptr noundef nonnull %10, i64 noundef %46, ptr noundef nonnull %5) #12
   %48 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %47, ptr %48, align 8, !tbaa !44
   %49 = load i32, ptr %5, align 4, !tbaa !21
@@ -2552,7 +2552,7 @@ get_contour_orientation.exit:                     ; preds = %.preheader.i, %50, 
   br i1 %.not161, label %.thread, label %.thread165
 
 .thread165:                                       ; preds = %get_contour_orientation.exit, %._crit_edge194.split.us.us.us.split.us.us, %._crit_edge194.split.us.us.us.split, %.loopexit
-  call void @ft_mem_free(ptr noundef nonnull %10, ptr noundef nonnull %26) #11
+  call void @ft_mem_free(ptr noundef nonnull %10, ptr noundef nonnull %26) #12
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %.thread165, %.loopexit
@@ -2572,14 +2572,14 @@ get_contour_orientation.exit:                     ; preds = %.preheader.i, %50, 
   %179 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %22, i64 %indvars.iv241
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %181 = load ptr, ptr %180, align 8, !tbaa !44
-  call void @ft_mem_free(ptr noundef nonnull %10, ptr noundef %181) #11
+  call void @ft_mem_free(ptr noundef nonnull %10, ptr noundef %181) #12
   store ptr null, ptr %180, align 8, !tbaa !44
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next242, %20
   br i1 %exitcond245.not, label %182, label %.preheader, !llvm.loop !152
 
 182:                                              ; preds = %.preheader
-  call void @ft_mem_free(ptr noundef nonnull %10, ptr noundef nonnull %22) #11
+  call void @ft_mem_free(ptr noundef nonnull %10, ptr noundef nonnull %22) #12
   br label %183
 
 183:                                              ; preds = %178, %182, %.thread
@@ -2657,7 +2657,7 @@ define internal fastcc i32 @sdf_generate_subdivision(i64 range(i64 0, 2814749767
 38:                                               ; preds = %.lr.ph125.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4, !tbaa !21
-  %39 = call ptr @ft_mem_qalloc(ptr noundef nonnull %21, i64 noundef 80, ptr noundef nonnull %16) #11
+  %39 = call ptr @ft_mem_qalloc(ptr noundef nonnull %21, i64 noundef 80, ptr noundef nonnull %16) #12
   %40 = load i32, ptr %16, align 4, !tbaa !21
   %.not8.i.i = icmp eq i32 %40, 0
   br i1 %.not8.i.i, label %.thread.i, label %sdf_edge_new.exit.i
@@ -2744,7 +2744,7 @@ sdf_edge_new.exit.i:                              ; preds = %38
 ._crit_edge126.i:                                 ; preds = %73, %33
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !21
-  %76 = call ptr @ft_mem_qalloc(ptr noundef nonnull %21, i64 noundef 32, ptr noundef nonnull %15) #11
+  %76 = call ptr @ft_mem_qalloc(ptr noundef nonnull %21, i64 noundef 32, ptr noundef nonnull %15) #12
   %77 = load i32, ptr %15, align 4, !tbaa !21
   %.not8.i73.i = icmp eq i32 %77, 0
   br i1 %.not8.i73.i, label %78, label %sdf_contour_new.exit.i
@@ -2772,7 +2772,7 @@ sdf_edge_done.exit.i.i:                           ; preds = %78, %sdf_edge_done.
   %.018.i.i = phi ptr [ %86, %sdf_edge_done.exit.i.i ], [ %84, %78 ]
   %85 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 72
   %86 = load ptr, ptr %85, align 8, !tbaa !146
-  call void @ft_mem_free(ptr noundef nonnull %21, ptr noundef nonnull %.018.i.i) #11
+  call void @ft_mem_free(ptr noundef nonnull %21, ptr noundef nonnull %.018.i.i) #12
   %.not16.i.i = icmp eq ptr %86, null
   br i1 %.not16.i.i, label %.loopexit.i, label %sdf_edge_done.exit.i.i, !llvm.loop !156
 
@@ -2782,7 +2782,7 @@ sdf_edge_done.exit.i.i:                           ; preds = %78, %sdf_edge_done.
   br label %split_sdf_shape.exit.thread
 
 .loopexit.i:                                      ; preds = %sdf_edge_done.exit.i.i, %78
-  call void @ft_mem_free(ptr noundef nonnull %21, ptr noundef nonnull %.051128.i) #11
+  call void @ft_mem_free(ptr noundef nonnull %21, ptr noundef nonnull %.051128.i) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.not66.i = icmp eq ptr %83, null
   br i1 %.not66.i, label %.loopexit, label %33
@@ -2812,7 +2812,7 @@ sdf_edge_done.exit.i.i:                           ; preds = %78, %sdf_edge_done.
   %96 = mul i32 %95, %94
   %97 = zext i32 %96 to i64
   %98 = mul nuw nsw i64 %97, 12
-  %99 = call ptr @ft_mem_alloc(ptr noundef nonnull %91, i64 noundef %98, ptr noundef nonnull %14) #11
+  %99 = call ptr @ft_mem_alloc(ptr noundef nonnull %91, i64 noundef %98, ptr noundef nonnull %14) #12
   %100 = load i32, ptr %14, align 4, !tbaa !21
   %.not161.i = icmp eq i32 %100, 0
   br i1 %.not161.i, label %101, label %sdf_generate_bounding_box.exit
@@ -2894,7 +2894,7 @@ sdf_edge_done.exit.i.i:                           ; preds = %78, %sdf_edge_done.
   %133 = mul nsw i32 %131, %132
   store i32 %133, ptr %126, align 4, !tbaa !159
   %134 = sext i32 %133 to i64
-  %135 = call i64 @FT_DivFix(i64 noundef %134, i64 noundef %120) #11
+  %135 = call i64 @FT_DivFix(i64 noundef %134, i64 noundef %120) #12
   %136 = trunc i64 %135 to i32
   %137 = icmp slt i32 %136, 0
   %138 = call i32 @llvm.abs.i32(i32 %136, i1 true)
@@ -2947,7 +2947,7 @@ sdf_edge_done.exit.i.i:                           ; preds = %78, %sdf_edge_done.
   %158 = sub i32 0, %157
   store i32 %158, ptr %150, align 4, !tbaa !159
   %159 = sext i32 %158 to i64
-  %160 = call i64 @FT_DivFix(i64 noundef %159, i64 noundef %120) #11
+  %160 = call i64 @FT_DivFix(i64 noundef %159, i64 noundef %120) #12
   %161 = trunc i64 %160 to i32
   %162 = icmp slt i32 %161, 0
   %163 = call i32 @llvm.abs.i32(i32 %161, i1 true)
@@ -3223,7 +3223,7 @@ get_control_box.exit.i:                           ; preds = %186, %.lr.ph.i12
   %311 = sub nsw i64 %308, %216
   %312 = shl nsw i64 %311, 10
   store i64 %312, ptr %109, align 8, !tbaa !53
-  %313 = call i64 @FT_Vector_Length(ptr noundef nonnull %8) #11
+  %313 = call i64 @FT_Vector_Length(ptr noundef nonnull %8) #12
   %314 = trunc i64 %313 to i32
   %315 = icmp sgt i32 %.1119159.i.i.us.us.i, %314
   br i1 %315, label %316, label %320
@@ -3314,7 +3314,7 @@ get_control_box.exit.i:                           ; preds = %186, %.lr.ph.i12
   %389 = ashr exact i64 %sext.i28.i.us.us.i, 32
   %sext130.i.i.us.us.i = shl i64 %388, 32
   %390 = ashr exact i64 %sext130.i.i.us.us.i, 32
-  %391 = call i64 @FT_DivFix(i64 noundef %389, i64 noundef %390) #11
+  %391 = call i64 @FT_DivFix(i64 noundef %389, i64 noundef %390) #12
   %392 = trunc i64 %391 to i32
   %393 = sub i32 %.0124157.i.i.us.us.i, %392
   %or.cond3.i29.i.us.us.i = icmp ult i32 %393, 65537
@@ -3396,8 +3396,8 @@ get_control_box.exit.i:                           ; preds = %186, %.lr.ph.i12
 450:                                              ; preds = %397
   store i64 %429, ptr %6, align 8, !tbaa !52
   store i64 %438, ptr %.sroa.7.0..sroa_idx.i36.i.i, align 8, !tbaa !53
-  %451 = call i32 @FT_Vector_NormLen(ptr noundef nonnull %7) #11
-  %452 = call i32 @FT_Vector_NormLen(ptr noundef nonnull %6) #11
+  %451 = call i32 @FT_Vector_NormLen(ptr noundef nonnull %7) #12
+  %452 = call i32 @FT_Vector_NormLen(ptr noundef nonnull %6) #12
   %453 = load i64, ptr %7, align 8, !tbaa !52
   %454 = load i64, ptr %.sroa.7.0..sroa_idx.i36.i.i, align 8, !tbaa !53
   %sext141.i.i.us.us.i = shl i64 %453, 32
@@ -3518,7 +3518,7 @@ get_min_distance_cubic.exit.i.us.us.i:            ; preds = %450, %397
   %531 = sub nsw i64 %528, %216
   %532 = shl nsw i64 %531, 10
   store i64 %532, ptr %111, align 8, !tbaa !53
-  %533 = call i64 @FT_Vector_Length(ptr noundef nonnull %11) #11
+  %533 = call i64 @FT_Vector_Length(ptr noundef nonnull %11) #12
   %534 = trunc i64 %533 to i32
   %535 = icmp sgt i32 %.187121.i.i.us.us.i, %534
   br i1 %535, label %536, label %539
@@ -3575,7 +3575,7 @@ get_min_distance_cubic.exit.i.us.us.i:            ; preds = %450, %397
   %578 = ashr exact i64 %sext.i18.i.us.us.i, 32
   %sext98.i.i.us.us.i = shl i64 %577, 32
   %579 = ashr exact i64 %sext98.i.i.us.us.i, 32
-  %580 = call i64 @FT_DivFix(i64 noundef %578, i64 noundef %579) #11
+  %580 = call i64 @FT_DivFix(i64 noundef %578, i64 noundef %579) #12
   %581 = trunc i64 %580 to i32
   %582 = sub i32 %.092119.i.i.us.us.i, %581
   %or.cond3.i19.i.us.us.i = icmp ult i32 %582, 65537
@@ -3642,8 +3642,8 @@ get_min_distance_cubic.exit.i.us.us.i:            ; preds = %450, %397
 624:                                              ; preds = %586
   store i64 %603, ptr %9, align 8, !tbaa !52
   store i64 %612, ptr %.sroa.7.0..sroa_idx.i.i.i, align 8, !tbaa !53
-  %625 = call i32 @FT_Vector_NormLen(ptr noundef nonnull %10) #11
-  %626 = call i32 @FT_Vector_NormLen(ptr noundef nonnull %9) #11
+  %625 = call i32 @FT_Vector_NormLen(ptr noundef nonnull %10) #12
+  %626 = call i32 @FT_Vector_NormLen(ptr noundef nonnull %9) #12
   %627 = load i64, ptr %10, align 8, !tbaa !52
   %628 = load i64, ptr %.sroa.7.0..sroa_idx.i.i.i, align 8, !tbaa !53
   %sext107.i.i.us.us.i = shl i64 %627, 32
@@ -3704,7 +3704,7 @@ get_min_distance_conic.exit.i.us.us.i:            ; preds = %624, %586
   %663 = ashr exact i64 %sext.i.i.us.us.i, 32
   %sext39.i.i.us.us.i = shl i64 %657, 32
   %664 = ashr exact i64 %sext39.i.i.us.us.i, 32
-  %665 = call i64 @FT_DivFix(i64 noundef %663, i64 noundef %664) #11
+  %665 = call i64 @FT_DivFix(i64 noundef %663, i64 noundef %664) #12
   %666 = trunc i64 %665 to i32
   %667 = call i32 @llvm.smax.i32(i32 %666, i32 0)
   %668 = call i32 @llvm.umin.i32(i32 %667, i32 65536)
@@ -3755,15 +3755,15 @@ get_min_distance_conic.exit.i.us.us.i:            ; preds = %624, %586
   %705 = trunc i64 %704 to i32
   %706 = icmp slt i32 %697, %705
   %707 = select i1 %706, i8 1, i8 -1
-  %708 = call i64 @FT_Vector_Length(ptr noundef nonnull %13) #11
+  %708 = call i64 @FT_Vector_Length(ptr noundef nonnull %13) #12
   %709 = trunc i64 %708 to i32
   %710 = add i32 %666, -1
   %or.cond3.i.i.us.us.i = icmp ult i32 %710, 65535
   br i1 %or.cond3.i.i.us.us.i, label %get_min_distance_line.exit.i.us.us.i, label %711
 
 711:                                              ; preds = %648
-  %712 = call i32 @FT_Vector_NormLen(ptr noundef nonnull %12) #11
-  %713 = call i32 @FT_Vector_NormLen(ptr noundef nonnull %13) #11
+  %712 = call i32 @FT_Vector_NormLen(ptr noundef nonnull %12) #12
+  %713 = call i32 @FT_Vector_NormLen(ptr noundef nonnull %13) #12
   %714 = load i64, ptr %12, align 8, !tbaa !52
   %715 = load i64, ptr %114, align 8, !tbaa !53
   %sext47.i.i.us.us.i = shl i64 %714, 32
@@ -3894,7 +3894,7 @@ get_min_distance_line.exit.i.us.us.i:             ; preds = %711, %648
 sdf_generate_bounding_box.exit:                   ; preds = %._crit_edge247.split.us256.i, %._crit_edge247.split.us.us.us.i, %92, %.preheader.i, %.lr.ph249.i, %.loopexit.sink.split.i
   %.0140.i = phi ptr [ %99, %92 ], [ %99, %.preheader.i ], [ %99, %.lr.ph249.i ], [ %.0140.ph.i, %.loopexit.sink.split.i ], [ %99, %._crit_edge247.split.us.us.us.i ], [ %99, %._crit_edge247.split.us256.i ]
   %.0135.i = phi ptr [ %91, %92 ], [ %91, %.preheader.i ], [ %91, %.lr.ph249.i ], [ %.0135.ph.i, %.loopexit.sink.split.i ], [ %91, %._crit_edge247.split.us.us.us.i ], [ %91, %._crit_edge247.split.us256.i ]
-  call void @ft_mem_free(ptr noundef %.0135.i, ptr noundef %.0140.i) #11
+  call void @ft_mem_free(ptr noundef %.0135.i, ptr noundef %.0140.i) #12
   %763 = load i32, ptr %14, align 4, !tbaa !21
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %split_sdf_shape.exit.thread
@@ -3934,12 +3934,12 @@ sdf_edge_done.exit.i:                             ; preds = %.lr.ph, %sdf_edge_d
   %.018.i = phi ptr [ %12, %sdf_edge_done.exit.i ], [ %10, %.lr.ph ]
   %11 = getelementptr inbounds nuw i8, ptr %.018.i, i64 72
   %12 = load ptr, ptr %11, align 8, !tbaa !146
-  tail call void @ft_mem_free(ptr noundef nonnull %4, ptr noundef nonnull %.018.i) #11
+  tail call void @ft_mem_free(ptr noundef nonnull %4, ptr noundef nonnull %.018.i) #12
   %.not16.i = icmp eq ptr %12, null
   br i1 %.not16.i, label %sdf_contour_done.exit, label %sdf_edge_done.exit.i, !llvm.loop !156
 
 sdf_contour_done.exit:                            ; preds = %sdf_edge_done.exit.i, %.lr.ph
-  tail call void @ft_mem_free(ptr noundef nonnull %4, ptr noundef nonnull %.017) #11
+  tail call void @ft_mem_free(ptr noundef nonnull %4, ptr noundef nonnull %.017) #12
   %.not15 = icmp eq ptr %8, null
   br i1 %.not15, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !170
 
@@ -3949,7 +3949,7 @@ sdf_contour_done.exit:                            ; preds = %sdf_edge_done.exit.
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %13 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %2, %.preheader ]
-  tail call void @ft_mem_free(ptr noundef nonnull %4, ptr noundef %13) #11
+  tail call void @ft_mem_free(ptr noundef nonnull %4, ptr noundef %13) #12
   store ptr null, ptr %0, align 8, !tbaa !102
   br label %14
 
@@ -3975,7 +3975,7 @@ define internal i32 @sdf_move_to(ptr noundef readonly captures(address_is_null) 
   br i1 %.not.i, label %sdf_contour_new.exit.thread, label %6
 
 6:                                                ; preds = %4
-  %7 = call ptr @ft_mem_qalloc(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull %3) #11
+  %7 = call ptr @ft_mem_qalloc(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull %3) #12
   %8 = load i32, ptr %3, align 4, !tbaa !21
   %.not8.i = icmp eq i32 %8, 0
   br i1 %.not8.i, label %9, label %sdf_contour_new.exit.thread
@@ -4031,7 +4031,7 @@ define internal i32 @sdf_line_to(ptr noundef readonly captures(address_is_null) 
   br i1 %.not.i, label %sdf_edge_new.exit.thread, label %18
 
 18:                                               ; preds = %17
-  %19 = call ptr @ft_mem_qalloc(ptr noundef nonnull %4, i64 noundef 80, ptr noundef nonnull %3) #11
+  %19 = call ptr @ft_mem_qalloc(ptr noundef nonnull %4, i64 noundef 80, ptr noundef nonnull %3) #12
   %20 = load i32, ptr %3, align 4, !tbaa !21
   %.not8.i = icmp eq i32 %20, 0
   br i1 %.not8.i, label %21, label %sdf_edge_new.exit.thread
@@ -4125,7 +4125,7 @@ define internal i32 @sdf_conic_to(ptr noundef readonly captures(address_is_null)
   br i1 %.not.i.i, label %sdf_edge_new.exit.thread.i, label %40
 
 40:                                               ; preds = %39
-  %41 = call ptr @ft_mem_qalloc(ptr noundef nonnull %6, i64 noundef 80, ptr noundef nonnull %5) #11
+  %41 = call ptr @ft_mem_qalloc(ptr noundef nonnull %6, i64 noundef 80, ptr noundef nonnull %5) #12
   %42 = load i32, ptr %5, align 4, !tbaa !21
   %.not8.i.i = icmp eq i32 %42, 0
   br i1 %.not8.i.i, label %43, label %sdf_edge_new.exit.thread.i
@@ -4157,7 +4157,7 @@ sdf_edge_new.exit.thread.i:                       ; preds = %40, %39
   br i1 %.not.i31, label %sdf_edge_new.exit.thread, label %50
 
 50:                                               ; preds = %49
-  %51 = call ptr @ft_mem_qalloc(ptr noundef nonnull %6, i64 noundef 80, ptr noundef nonnull %4) #11
+  %51 = call ptr @ft_mem_qalloc(ptr noundef nonnull %6, i64 noundef 80, ptr noundef nonnull %4) #12
   %52 = load i32, ptr %4, align 4, !tbaa !21
   %.not8.i = icmp eq i32 %52, 0
   br i1 %.not8.i, label %53, label %sdf_edge_new.exit.thread
@@ -4210,7 +4210,7 @@ define internal i32 @sdf_cubic_to(ptr noundef readonly captures(address_is_null)
   br i1 %.not.i, label %sdf_edge_new.exit.thread, label %13
 
 13:                                               ; preds = %9
-  %14 = call ptr @ft_mem_qalloc(ptr noundef nonnull %10, i64 noundef 80, ptr noundef nonnull %5) #11
+  %14 = call ptr @ft_mem_qalloc(ptr noundef nonnull %10, i64 noundef 80, ptr noundef nonnull %5) #12
   %15 = load i32, ptr %5, align 4, !tbaa !21
   %.not8.i = icmp eq i32 %15, 0
   br i1 %.not8.i, label %16, label %sdf_edge_new.exit.thread
@@ -4317,7 +4317,7 @@ define internal fastcc i32 @split_sdf_conic(ptr noundef nonnull %0, ptr noundef 
 53:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !21
-  %54 = call ptr @ft_mem_qalloc(ptr noundef nonnull %0, i64 noundef 80, ptr noundef nonnull %6) #11
+  %54 = call ptr @ft_mem_qalloc(ptr noundef nonnull %0, i64 noundef 80, ptr noundef nonnull %6) #12
   %55 = load i32, ptr %6, align 4, !tbaa !21
   %.not8.i = icmp eq i32 %55, 0
   br i1 %.not8.i, label %56, label %sdf_edge_new.exit
@@ -4331,7 +4331,7 @@ sdf_edge_new.exit:                                ; preds = %53
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !21
-  %57 = call ptr @ft_mem_qalloc(ptr noundef nonnull %0, i64 noundef 80, ptr noundef nonnull %5) #11
+  %57 = call ptr @ft_mem_qalloc(ptr noundef nonnull %0, i64 noundef 80, ptr noundef nonnull %5) #12
   %58 = load i32, ptr %5, align 4, !tbaa !21
   %.not8.i28 = icmp eq i32 %58, 0
   br i1 %.not8.i28, label %59, label %sdf_edge_new.exit29
@@ -4552,7 +4552,7 @@ define internal fastcc i32 @split_sdf_cubic(ptr noundef nonnull %0, ptr noundef 
 133:                                              ; preds = %49, %74
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !21
-  %134 = call ptr @ft_mem_qalloc(ptr noundef nonnull %0, i64 noundef 80, ptr noundef nonnull %6) #11
+  %134 = call ptr @ft_mem_qalloc(ptr noundef nonnull %0, i64 noundef 80, ptr noundef nonnull %6) #12
   %135 = load i32, ptr %6, align 4, !tbaa !21
   %.not8.i = icmp eq i32 %135, 0
   br i1 %.not8.i, label %136, label %sdf_edge_new.exit
@@ -4566,7 +4566,7 @@ sdf_edge_new.exit:                                ; preds = %133
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !21
-  %137 = call ptr @ft_mem_qalloc(ptr noundef nonnull %0, i64 noundef 80, ptr noundef nonnull %5) #11
+  %137 = call ptr @ft_mem_qalloc(ptr noundef nonnull %0, i64 noundef 80, ptr noundef nonnull %5) #12
   %138 = load i32, ptr %5, align 4, !tbaa !21
   %.not8.i40 = icmp eq i32 %138, 0
   br i1 %.not8.i40, label %139, label %sdf_edge_new.exit41
@@ -4613,29 +4613,29 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.umin.i8(i8, i8) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.umax.i8(i8, i8) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #10
@@ -4651,8 +4651,9 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

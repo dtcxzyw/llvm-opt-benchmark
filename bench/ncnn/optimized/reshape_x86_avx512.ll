@@ -28,7 +28,7 @@ declare void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4ncnn18Reshape_x86_avx512D0Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #1 comdat align 2 {
   tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) #6
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 232) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 232) #17
   ret void
 }
 
@@ -222,7 +222,7 @@ define hidden noundef i32 @_ZNK4ncnn18Reshape_x86_avx5127forwardERKNS_3MatERS1_R
   %100 = landingpad { ptr, i32 }
           catch ptr null
   %101 = extractvalue { ptr, i32 } %100, 0
-  call void @__clang_call_terminate(ptr %101) #17
+  call void @__clang_call_terminate(ptr %101) #18
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %87, %85, %93, %97, %98
@@ -261,7 +261,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %87, %85, %93, %97, 
   %116 = landingpad { ptr, i32 }
           catch ptr null
   %117 = extractvalue { ptr, i32 } %116, 0
-  call void @__clang_call_terminate(ptr %117) #17
+  call void @__clang_call_terminate(ptr %117) #18
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit303:                         ; preds = %103, %_ZN4ncnn3MatD2Ev.exit, %109, %113, %114
@@ -305,7 +305,7 @@ _ZN4ncnn3MatD2Ev.exit303:                         ; preds = %103, %_ZN4ncnn3MatD
   %133 = landingpad { ptr, i32 }
           catch ptr null
   %134 = extractvalue { ptr, i32 } %133, 0
-  call void @__clang_call_terminate(ptr %134) #17
+  call void @__clang_call_terminate(ptr %134) #18
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit304:                         ; preds = %120, %118, %126, %130, %131
@@ -348,7 +348,7 @@ _ZN4ncnn3MatD2Ev.exit304:                         ; preds = %120, %118, %126, %1
   %150 = landingpad { ptr, i32 }
           catch ptr null
   %151 = extractvalue { ptr, i32 } %150, 0
-  call void @__clang_call_terminate(ptr %151) #17
+  call void @__clang_call_terminate(ptr %151) #18
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit305:                         ; preds = %137, %135, %143, %147, %148
@@ -762,7 +762,7 @@ _ZNK4ncnn3Mat5emptyEv.exit312.thread:             ; preds = %329, %_ZNK4ncnn3Mat
   %366 = landingpad { ptr, i32 }
           catch ptr null
   %367 = extractvalue { ptr, i32 } %366, 0
-  call void @__clang_call_terminate(ptr %367) #17
+  call void @__clang_call_terminate(ptr %367) #18
   unreachable
 
 _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %364, %363, %359, %_ZNK4ncnn3Mat5emptyEv.exit312.thread, %353
@@ -809,7 +809,7 @@ _ZN4ncnn3MataSERKS0_.exit._crit_edge:             ; preds = %_ZN4ncnn3MataSERKS0
   %383 = landingpad { ptr, i32 }
           catch ptr null
   %384 = extractvalue { ptr, i32 } %383, 0
-  call void @__clang_call_terminate(ptr %384) #17
+  call void @__clang_call_terminate(ptr %384) #18
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit307:                         ; preds = %370, %368, %376, %380, %381
@@ -1308,7 +1308,7 @@ _ZNK4ncnn3Mat5emptyEv.exit314.thread:             ; preds = %593, %.thread383, %
   %640 = landingpad { ptr, i32 }
           catch ptr null
   %641 = extractvalue { ptr, i32 } %640, 0
-  call void @__clang_call_terminate(ptr %641) #17
+  call void @__clang_call_terminate(ptr %641) #18
   unreachable
 
 642:                                              ; preds = %638, %637, %633, %_ZNK4ncnn3Mat5emptyEv.exit314.thread, %627
@@ -1351,7 +1351,7 @@ _ZNK4ncnn3Mat5emptyEv.exit314.thread:             ; preds = %593, %.thread383, %
   %658 = landingpad { ptr, i32 }
           catch ptr null
   %659 = extractvalue { ptr, i32 } %658, 0
-  call void @__clang_call_terminate(ptr %659) #17
+  call void @__clang_call_terminate(ptr %659) #18
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit309:                         ; preds = %645, %643, %651, %655, %656
@@ -1788,7 +1788,7 @@ declare void @__kmpc_for_static_init_4(ptr, i32, i32, ptr, ptr, ptr, ptr, i32, i
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #6
-  tail call void @_ZSt9terminatev() #17
+  tail call void @_ZSt9terminatev() #18
   unreachable
 }
 
@@ -3272,11 +3272,11 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #14
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 attributes #0 = { nounwind "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #1 = { inlinehint mustprogress nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" "unsafe-fp-math"="true" }
@@ -3293,9 +3293,10 @@ attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(arg
 attributes #12 = { nobuiltin nounwind "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { builtin nounwind }
-attributes #17 = { noreturn nounwind }
+attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #17 = { builtin nounwind }
+attributes #18 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

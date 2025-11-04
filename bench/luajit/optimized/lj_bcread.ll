@@ -30,9 +30,9 @@ define hidden ptr @lj_bcread_proto(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %12, ptr %3, align 8, !tbaa !4
   %13 = load i8, ptr %9, align 1, !tbaa !19
   %14 = zext i8 %13 to i32
-  %15 = tail call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
-  %16 = tail call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
-  %17 = tail call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
+  %15 = tail call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
+  %16 = tail call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
+  %17 = tail call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
   %18 = add i32 %17, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %20 = load i32, ptr %19, align 4, !tbaa !20
@@ -41,13 +41,13 @@ define hidden ptr @lj_bcread_proto(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %22, label %27
 
 22:                                               ; preds = %1
-  %23 = tail call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
+  %23 = tail call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
   %.not94 = icmp eq i32 %23, 0
   br i1 %.not94, label %27, label %24
 
 24:                                               ; preds = %22
-  %25 = tail call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
-  %26 = tail call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
+  %25 = tail call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
+  %26 = tail call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
   br label %27
 
 27:                                               ; preds = %22, %24, %1
@@ -69,7 +69,7 @@ define hidden ptr @lj_bcread_proto(ptr noundef %0) local_unnamed_addr #0 {
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !21
   %42 = zext i32 %39 to i64
-  %43 = tail call ptr @lj_mem_newgco(ptr noundef %41, i64 noundef %42) #11
+  %43 = tail call ptr @lj_mem_newgco(ptr noundef %41, i64 noundef %42) #12
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 9
   store i8 7, ptr %44, align 1, !tbaa !22
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 10
@@ -195,7 +195,7 @@ bcread_uv.exit:                                   ; preds = %.preheader.i, %bcre
 101:                                              ; preds = %240, %.lr.ph.i105
   %.03.i = phi i32 [ 0, %.lr.ph.i105 ], [ %241, %240 ]
   %.0442.i = phi ptr [ %98, %.lr.ph.i105 ], [ %242, %240 ]
-  %102 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
+  %102 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
   %103 = icmp ugt i32 %102, 4
   br i1 %103, label %104, label %112
 
@@ -206,7 +206,7 @@ bcread_uv.exit:                                   ; preds = %.preheader.i, %bcre
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 %107
   store ptr %108, ptr %3, align 8, !tbaa !4
   %109 = load ptr, ptr %40, align 8, !tbaa !21
-  %110 = call ptr @lj_str_new(ptr noundef %109, ptr noundef %106, i64 noundef %107) #11
+  %110 = call ptr @lj_str_new(ptr noundef %109, ptr noundef %106, i64 noundef %107) #12
   %111 = ptrtoint ptr %110 to i64
   store i64 %111, ptr %.0442.i, align 8, !tbaa !45
   br label %240
@@ -218,8 +218,8 @@ bcread_uv.exit:                                   ; preds = %.preheader.i, %bcre
   ]
 
 113:                                              ; preds = %112
-  %114 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
-  %115 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
+  %114 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
+  %115 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
   %116 = load ptr, ptr %40, align 8, !tbaa !21
   %.not.i.i = icmp eq i32 %115, 0
   br i1 %.not.i.i, label %123, label %117
@@ -236,7 +236,7 @@ bcread_uv.exit:                                   ; preds = %.preheader.i, %bcre
 
 123:                                              ; preds = %119, %117, %113
   %124 = phi i32 [ %122, %119 ], [ 1, %117 ], [ 0, %113 ]
-  %125 = call ptr @lj_tab_new(ptr noundef %116, i32 noundef %114, i32 noundef %124) #11
+  %125 = call ptr @lj_tab_new(ptr noundef %116, i32 noundef %114, i32 noundef %124) #12
   %.not27.i.i = icmp eq i32 %114, 0
   br i1 %.not27.i.i, label %.loopexit30.i.i, label %126
 
@@ -249,7 +249,7 @@ bcread_uv.exit:                                   ; preds = %.preheader.i, %bcre
 130:                                              ; preds = %bcread_ktabk.exit.i.i, %126
   %.02332.i.i = phi ptr [ %129, %126 ], [ %155, %bcread_ktabk.exit.i.i ]
   %.02431.i.i = phi i32 [ 0, %126 ], [ %154, %bcread_ktabk.exit.i.i ]
-  %131 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
+  %131 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
   %132 = icmp ugt i32 %131, 4
   br i1 %132, label %133, label %142
 
@@ -260,7 +260,7 @@ bcread_uv.exit:                                   ; preds = %.preheader.i, %bcre
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 %136
   store ptr %137, ptr %3, align 8, !tbaa !4
   %138 = load ptr, ptr %40, align 8, !tbaa !21
-  %139 = call ptr @lj_str_new(ptr noundef %138, ptr noundef %135, i64 noundef %136) #11
+  %139 = call ptr @lj_str_new(ptr noundef %138, ptr noundef %135, i64 noundef %136) #12
   %140 = ptrtoint ptr %139 to i64
   %141 = or i64 %140, -703687441776640
   store i64 %141, ptr %.02332.i.i, align 8, !tbaa !19
@@ -273,15 +273,15 @@ bcread_uv.exit:                                   ; preds = %.preheader.i, %bcre
   ]
 
 143:                                              ; preds = %142
-  %144 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
+  %144 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
   %145 = sitofp i32 %144 to double
   store double %145, ptr %.02332.i.i, align 8, !tbaa !19
   br label %bcread_ktabk.exit.i.i
 
 146:                                              ; preds = %142
-  %147 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
+  %147 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
   store i32 %147, ptr %.02332.i.i, align 8, !tbaa !19
-  %148 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
+  %148 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
   %149 = getelementptr inbounds nuw i8, ptr %.02332.i.i, i64 4
   store i32 %148, ptr %149, align 4, !tbaa !19
   br label %bcread_ktabk.exit.i.i
@@ -305,7 +305,7 @@ bcread_ktabk.exit.i.i:                            ; preds = %150, %146, %143, %1
 .preheader.i.i:                                   ; preds = %.loopexit30.i.i, %bcread_ktabk.exit29.i.i
   %.033.i.i = phi i32 [ %203, %bcread_ktabk.exit29.i.i ], [ 0, %.loopexit30.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %156 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
+  %156 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
   %157 = icmp ugt i32 %156, 4
   br i1 %157, label %158, label %167
 
@@ -316,7 +316,7 @@ bcread_ktabk.exit.i.i:                            ; preds = %150, %146, %143, %1
   %162 = getelementptr inbounds nuw i8, ptr %160, i64 %161
   store ptr %162, ptr %3, align 8, !tbaa !4
   %163 = load ptr, ptr %40, align 8, !tbaa !21
-  %164 = call ptr @lj_str_new(ptr noundef %163, ptr noundef %160, i64 noundef %161) #11
+  %164 = call ptr @lj_str_new(ptr noundef %163, ptr noundef %160, i64 noundef %161) #12
   %165 = ptrtoint ptr %164 to i64
   %166 = or i64 %165, -703687441776640
   store i64 %166, ptr %2, align 8, !tbaa !19
@@ -329,15 +329,15 @@ bcread_ktabk.exit.i.i:                            ; preds = %150, %146, %143, %1
   ]
 
 168:                                              ; preds = %167
-  %169 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
+  %169 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
   %170 = sitofp i32 %169 to double
   store double %170, ptr %2, align 8, !tbaa !19
   br label %bcread_ktabk.exit28.i.i
 
 171:                                              ; preds = %167
-  %172 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
+  %172 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
   store i32 %172, ptr %2, align 8, !tbaa !19
-  %173 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
+  %173 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
   store i32 %173, ptr %100, align 4, !tbaa !19
   br label %bcread_ktabk.exit28.i.i
 
@@ -350,8 +350,8 @@ bcread_ktabk.exit.i.i:                            ; preds = %150, %146, %143, %1
 
 bcread_ktabk.exit28.i.i:                          ; preds = %174, %171, %168, %158
   %178 = load ptr, ptr %40, align 8, !tbaa !21
-  %179 = call ptr @lj_tab_set(ptr noundef %178, ptr noundef %125, ptr noundef nonnull %2) #11
-  %180 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
+  %179 = call ptr @lj_tab_set(ptr noundef %178, ptr noundef %125, ptr noundef nonnull %2) #12
+  %180 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
   %181 = icmp ugt i32 %180, 4
   br i1 %181, label %182, label %191
 
@@ -362,7 +362,7 @@ bcread_ktabk.exit28.i.i:                          ; preds = %174, %171, %168, %1
   %186 = getelementptr inbounds nuw i8, ptr %184, i64 %185
   store ptr %186, ptr %3, align 8, !tbaa !4
   %187 = load ptr, ptr %40, align 8, !tbaa !21
-  %188 = call ptr @lj_str_new(ptr noundef %187, ptr noundef %184, i64 noundef %185) #11
+  %188 = call ptr @lj_str_new(ptr noundef %187, ptr noundef %184, i64 noundef %185) #12
   %189 = ptrtoint ptr %188 to i64
   %190 = or i64 %189, -703687441776640
   store i64 %190, ptr %179, align 8, !tbaa !19
@@ -375,15 +375,15 @@ bcread_ktabk.exit28.i.i:                          ; preds = %174, %171, %168, %1
   ]
 
 192:                                              ; preds = %191
-  %193 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
+  %193 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
   %194 = sitofp i32 %193 to double
   store double %194, ptr %179, align 8, !tbaa !19
   br label %bcread_ktabk.exit29.i.i
 
 195:                                              ; preds = %191
-  %196 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
+  %196 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
   store i32 %196, ptr %179, align 8, !tbaa !19
-  %197 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
+  %197 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
   %198 = getelementptr inbounds nuw i8, ptr %179, i64 4
   store i32 %197, ptr %198, align 4, !tbaa !19
   br label %bcread_ktabk.exit29.i.i
@@ -411,7 +411,7 @@ bcread_ktab.exit.i:                               ; preds = %bcread_ktabk.exit29
   %207 = icmp eq i32 %102, 2
   %208 = load ptr, ptr %40, align 8, !tbaa !21
   %narrow.i.i = select i1 %206, i64 32, i64 24
-  %209 = call ptr @lj_mem_newgco(ptr noundef %208, i64 noundef %narrow.i.i) #11
+  %209 = call ptr @lj_mem_newgco(ptr noundef %208, i64 noundef %narrow.i.i) #12
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 9
   store i8 10, ptr %210, align 1, !tbaa !50
   %211 = select i1 %207, i16 11, i16 12
@@ -421,18 +421,18 @@ bcread_ktab.exit.i:                               ; preds = %bcread_ktabk.exit29
   %214 = getelementptr inbounds nuw i8, ptr %209, i64 16
   %215 = ptrtoint ptr %209 to i64
   store i64 %215, ptr %.0442.i, align 8, !tbaa !45
-  %216 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
+  %216 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
   store i32 %216, ptr %214, align 8, !tbaa !19
-  %217 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
+  %217 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
   %218 = getelementptr inbounds nuw i8, ptr %209, i64 20
   store i32 %217, ptr %218, align 4, !tbaa !19
   br i1 %206, label %219, label %240
 
 219:                                              ; preds = %205
-  %220 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
+  %220 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
   %221 = getelementptr inbounds nuw i8, ptr %209, i64 24
   store i32 %220, ptr %221, align 8, !tbaa !19
-  %222 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
+  %222 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
   %223 = getelementptr inbounds nuw i8, ptr %209, i64 28
   store i32 %222, ptr %223, align 4, !tbaa !19
   br label %240
@@ -519,7 +519,7 @@ bcread_uleb128_33.exit.i:                         ; preds = %254, %244
 
 263:                                              ; preds = %bcread_uleb128_33.exit.i
   store i32 %.010.i.i, ptr %.0132.i, align 8, !tbaa !19
-  %264 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
+  %264 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #12
   %265 = getelementptr inbounds nuw i8, ptr %.0132.i, i64 4
   store i32 %264, ptr %265, align 4, !tbaa !19
   br label %268
@@ -720,7 +720,7 @@ bcread_want.exit.i:                               ; preds = %24, %1
   br i1 %.not34.i, label %34, label %89
 
 34:                                               ; preds = %31
-  %35 = tail call i32 @lj_buf_ruleb128(ptr noundef nonnull %17) #11
+  %35 = tail call i32 @lj_buf_ruleb128(ptr noundef nonnull %17) #12
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i32 %35, ptr %36, align 4, !tbaa !20
   %.not35.i = icmp ult i32 %35, 16
@@ -756,7 +756,7 @@ bcread_want.exit.i:                               ; preds = %24, %1
   %55 = load i64, ptr %54, align 8, !tbaa !56
   %56 = ptrtoint ptr %53 to i64
   %57 = sub i64 %56, %55
-  %58 = tail call i32 @luaopen_ffi(ptr noundef nonnull %45) #11
+  %58 = tail call i32 @luaopen_ffi(ptr noundef nonnull %45) #12
   %59 = load i64, ptr %54, align 8, !tbaa !56
   %60 = inttoptr i64 %59 to ptr
   %61 = getelementptr inbounds i8, ptr %60, i64 %57
@@ -775,12 +775,12 @@ bcread_want.exit.i:                               ; preds = %24, %1
   %68 = load i8, ptr %67, align 1, !tbaa !19
   %69 = icmp eq i8 %68, 27
   %spec.select.i = select i1 %69, ptr @.str.1, ptr %67
-  %70 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i) #12
-  %71 = tail call ptr @lj_str_new(ptr noundef %65, ptr noundef nonnull %spec.select.i, i64 noundef %70) #11
+  %70 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i) #13
+  %71 = tail call ptr @lj_str_new(ptr noundef %65, ptr noundef nonnull %spec.select.i, i64 noundef %70) #12
   br label %bcread_header.exit
 
 72:                                               ; preds = %62
-  %73 = tail call i32 @lj_buf_ruleb128(ptr noundef nonnull %17) #11
+  %73 = tail call i32 @lj_buf_ruleb128(ptr noundef nonnull %17) #12
   %74 = load ptr, ptr %15, align 8, !tbaa !73
   %75 = load ptr, ptr %17, align 8, !tbaa !4
   %76 = ptrtoint ptr %74 to i64
@@ -801,7 +801,7 @@ bcread_need.exit.i:                               ; preds = %81, %72
   %84 = zext i32 %73 to i64
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 %84
   store ptr %85, ptr %17, align 8, !tbaa !4
-  %86 = tail call ptr @lj_str_new(ptr noundef %83, ptr noundef %82, i64 noundef %84) #11
+  %86 = tail call ptr @lj_str_new(ptr noundef %83, ptr noundef %82, i64 noundef %84) #12
   br label %bcread_header.exit
 
 bcread_header.exit:                               ; preds = %64, %bcread_need.exit.i
@@ -847,7 +847,7 @@ bcread_header.exit:                               ; preds = %64, %bcread_need.ex
   br label %bcread_want.exit
 
 bcread_want.exit:                                 ; preds = %100, %106
-  %107 = tail call i32 @lj_buf_ruleb128(ptr noundef nonnull %17) #11
+  %107 = tail call i32 @lj_buf_ruleb128(ptr noundef nonnull %17) #12
   %.not39 = icmp eq i32 %107, 0
   %.pre57 = load ptr, ptr %15, align 8, !tbaa !73
   %.pre58 = load ptr, ptr %17, align 8, !tbaa !4
@@ -899,7 +899,7 @@ bcread_need.exit:                                 ; preds = %108, %114
   br label %91
 
 130:                                              ; preds = %122
-  tail call void @lj_state_growstack1(ptr noundef nonnull %3) #11
+  tail call void @lj_state_growstack1(ptr noundef nonnull %3) #12
   br label %.backedge
 
 .loopexit:                                        ; preds = %bcread_want.exit, %98
@@ -961,8 +961,8 @@ define internal fastcc void @bcread_error(ptr %.8.val, ptr %.128.val, i32 nounde
   %6 = load ptr, ptr @lj_err_allmsg, align 8, !tbaa !86
   %7 = zext nneg i32 %0 to i64
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
-  %9 = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %.8.val, ptr noundef nonnull @.str.3, ptr noundef nonnull %.0, ptr noundef nonnull %8) #11
-  tail call void @lj_err_throw(ptr noundef %.8.val, i32 noundef 3) #13
+  %9 = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %.8.val, ptr noundef nonnull @.str.3, ptr noundef nonnull %.0, ptr noundef nonnull %8) #12
+  tail call void @lj_err_throw(ptr noundef %.8.val, i32 noundef 3) #14
   unreachable
 }
 
@@ -973,7 +973,7 @@ declare hidden i32 @lj_buf_ruleb128(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #4
 
 declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -981,22 +981,22 @@ declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare hidden ptr @lj_tab_new(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
 
 declare hidden ptr @lj_tab_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @luaopen_ffi(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare hidden ptr @lj_strfmt_pushf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare hidden void @lj_err_throw(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare hidden void @lj_err_throw(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc void @bcread_fill(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #7 {
+define internal fastcc void @bcread_fill(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #8 {
   %4 = alloca i64, align 8
   %5 = icmp ugt i32 %1, 2147483392
   br i1 %5, label %18, label %6
@@ -1067,7 +1067,7 @@ define internal fastcc void @bcread_fill(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %42, label %43, label %lj_buf_need.exit, !prof !60
 
 43:                                               ; preds = %37
-  %44 = call ptr @lj_buf_need2(ptr noundef nonnull %10, i32 noundef %1) #11
+  %44 = call ptr @lj_buf_need2(ptr noundef nonnull %10, i32 noundef %1) #12
   %.pre82 = load ptr, ptr %13, align 8, !tbaa !4
   br label %lj_buf_need.exit
 
@@ -1094,7 +1094,7 @@ lj_buf_need.exit:                                 ; preds = %37, %43
   %49 = load ptr, ptr %15, align 8, !tbaa !91
   %50 = load ptr, ptr %16, align 8, !tbaa !21
   %51 = load ptr, ptr %17, align 8, !tbaa !92
-  %52 = call ptr %49(ptr noundef %50, ptr noundef %51, ptr noundef nonnull %4) #11
+  %52 = call ptr %49(ptr noundef %50, ptr noundef %51, ptr noundef nonnull %4) #12
   %53 = icmp eq ptr %52, null
   %54 = load i64, ptr %4, align 8
   %55 = icmp eq i64 %54, 0
@@ -1120,7 +1120,7 @@ lj_buf_need.exit:                                 ; preds = %37, %43
 
 62:                                               ; preds = %59
   %63 = load ptr, ptr %16, align 8, !tbaa !21
-  call void @lj_err_mem(ptr noundef %63) #13
+  call void @lj_err_mem(ptr noundef %63) #14
   unreachable
 
 64:                                               ; preds = %59
@@ -1140,7 +1140,7 @@ lj_buf_need.exit:                                 ; preds = %37, %43
   br i1 %75, label %76, label %lj_buf_need.exit74, !prof !60
 
 76:                                               ; preds = %65
-  %77 = call ptr @lj_buf_need2(ptr noundef nonnull %10, i32 noundef %68) #11
+  %77 = call ptr @lj_buf_need2(ptr noundef nonnull %10, i32 noundef %68) #12
   %.pre83 = load i64, ptr %4, align 8, !tbaa !93
   br label %lj_buf_need.exit74
 
@@ -1185,39 +1185,40 @@ lj_buf_need.exit74:                               ; preds = %65, %76
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: noreturn
-declare hidden void @lj_err_mem(ptr noundef) local_unnamed_addr #6
+declare hidden void @lj_err_mem(ptr noundef) local_unnamed_addr #7
 
 declare hidden ptr @lj_buf_need2(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.bswap.i16(i16) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noinline noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { noreturn nounwind }
+attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -25,35 +25,35 @@ define internal void @lv_spinbox_constructor(ptr readnone captures(none) %0, ptr
   %9 = and i16 %5, -2048
   %10 = or disjoint i16 %9, 1029
   store i16 %10, ptr %4, align 8
-  tail call void @lv_textarea_set_one_line(ptr noundef %1, i1 noundef zeroext true) #7
-  tail call void @lv_textarea_set_cursor_click_pos(ptr noundef %1, i1 noundef zeroext true) #7
+  tail call void @lv_textarea_set_one_line(ptr noundef %1, i1 noundef zeroext true) #8
+  tail call void @lv_textarea_set_cursor_click_pos(ptr noundef %1, i1 noundef zeroext true) #8
   tail call fastcc void @lv_spinbox_updatevalue(ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @lv_spinbox_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @lv_obj_event_base(ptr noundef nonnull @lv_spinbox_class, ptr noundef %1) #7
+  %3 = tail call i32 @lv_obj_event_base(ptr noundef nonnull @lv_spinbox_class, ptr noundef %1) #8
   %.not = icmp eq i32 %3, 1
   br i1 %.not, label %4, label %lv_spinbox_increment.exit
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @lv_event_get_code(ptr noundef %1) #7
-  %6 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #7
+  %5 = tail call i32 @lv_event_get_code(ptr noundef %1) #8
+  %6 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #8
   switch i32 %5, label %lv_spinbox_increment.exit [
     i32 11, label %7
     i32 17, label %83
   ]
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @lv_indev_active() #7
-  %9 = tail call i32 @lv_indev_get_type(ptr noundef %8) #7
+  %8 = tail call ptr @lv_indev_active() #8
+  %9 = tail call i32 @lv_indev_get_type(ptr noundef %8) #8
   %10 = icmp eq i32 %9, 4
   br i1 %10, label %11, label %40
 
 11:                                               ; preds = %7
-  %12 = tail call ptr @lv_obj_get_group(ptr noundef %6) #7
-  %13 = tail call zeroext i1 @lv_group_get_editing(ptr noundef %12) #7
+  %12 = tail call ptr @lv_obj_get_group(ptr noundef %6) #8
+  %13 = tail call zeroext i1 @lv_group_get_editing(ptr noundef %12) #8
   br i1 %13, label %14, label %40
 
 14:                                               ; preds = %11
@@ -85,7 +85,7 @@ lv_spinbox_step_next.exit:                        ; preds = %25
 
 30:                                               ; preds = %25
   %31 = add nsw i8 %18, -2
-  %32 = tail call i64 @lv_pow(i64 noundef 10, i8 noundef signext %31) #7
+  %32 = tail call i64 @lv_pow(i64 noundef 10, i8 noundef signext %31) #8
   %33 = trunc i64 %32 to i32
   store i32 %33, ptr %23, align 4, !tbaa !19
   tail call void @lv_spinbox_step_prev(ptr noundef nonnull %6)
@@ -94,7 +94,7 @@ lv_spinbox_step_next.exit:                        ; preds = %25
 34:                                               ; preds = %20
   %35 = sext i32 %24 to i64
   %36 = add nsw i8 %18, -1
-  %37 = tail call i64 @lv_pow(i64 noundef 10, i8 noundef signext %36) #7
+  %37 = tail call i64 @lv_pow(i64 noundef 10, i8 noundef signext %36) #8
   %38 = icmp sgt i64 %37, %35
   br i1 %38, label %39, label %lv_spinbox_step_next.exit74
 
@@ -108,8 +108,8 @@ lv_spinbox_step_next.exit74:                      ; preds = %34
   br label %lv_spinbox_increment.exit
 
 40:                                               ; preds = %11, %7
-  %41 = tail call ptr @lv_textarea_get_text(ptr noundef %6) #7
-  %42 = tail call i64 @lv_strlen(ptr noundef %41) #7
+  %41 = tail call ptr @lv_textarea_get_text(ptr noundef %6) #8
+  %42 = tail call i64 @lv_strlen(ptr noundef %41) #8
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 116
   %44 = load i32, ptr %43, align 4, !tbaa !22
   %45 = zext i32 %44 to i64
@@ -119,7 +119,7 @@ lv_spinbox_step_next.exit74:                      ; preds = %34
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %40
-  tail call void @lv_textarea_cursor_left(ptr noundef nonnull %6) #7
+  tail call void @lv_textarea_cursor_left(ptr noundef nonnull %6) #8
   br label %62
 
 50:                                               ; preds = %40
@@ -129,7 +129,7 @@ lv_spinbox_step_next.exit74:                      ; preds = %34
 
 53:                                               ; preds = %50
   %54 = add i32 %44, -1
-  tail call void @lv_textarea_set_cursor_pos(ptr noundef nonnull %6, i32 noundef %54) #7
+  tail call void @lv_textarea_set_cursor_pos(ptr noundef nonnull %6, i32 noundef %54) #8
   br label %62
 
 55:                                               ; preds = %50
@@ -143,7 +143,7 @@ lv_spinbox_step_next.exit74:                      ; preds = %34
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %57
-  tail call void @lv_textarea_set_cursor_pos(ptr noundef nonnull %6, i32 noundef 1) #7
+  tail call void @lv_textarea_set_cursor_pos(ptr noundef nonnull %6, i32 noundef 1) #8
   br label %62
 
 62:                                               ; preds = %53, %61, %57, %55, %49
@@ -189,9 +189,9 @@ lv_spinbox_step_next.exit74:                      ; preds = %34
   br label %lv_spinbox_increment.exit
 
 83:                                               ; preds = %4
-  %84 = tail call ptr @lv_indev_active() #7
-  %85 = tail call i32 @lv_indev_get_type(ptr noundef %84) #7
-  %86 = tail call ptr @lv_event_get_param(ptr noundef %1) #7
+  %84 = tail call ptr @lv_indev_active() #8
+  %85 = tail call i32 @lv_indev_get_type(ptr noundef %84) #8
+  %86 = tail call ptr @lv_event_get_param(ptr noundef %1) #8
   %87 = load i32, ptr %86, align 4, !tbaa !26
   switch i32 %87, label %146 [
     i32 19, label %88
@@ -333,7 +333,7 @@ lv_spinbox_step_next.exit77:                      ; preds = %91
   br label %lv_spinbox_increment.exit
 
 146:                                              ; preds = %83
-  tail call void @lv_textarea_add_char(ptr noundef %6, i32 noundef %87) #7
+  tail call void @lv_textarea_add_char(ptr noundef %6, i32 noundef %87) #8
   br label %lv_spinbox_increment.exit
 
 lv_spinbox_increment.exit:                        ; preds = %145, %144, %123, %122, %14, %39, %lv_spinbox_step_next.exit74, %lv_spinbox_step_next.exit, %30, %82, %4, %100, %99, %146, %90, %lv_spinbox_step_next.exit77, %2
@@ -342,8 +342,8 @@ lv_spinbox_increment.exit:                        ; preds = %145, %144, %123, %1
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @lv_spinbox_create(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @lv_obj_class_create_obj(ptr noundef nonnull @lv_spinbox_class, ptr noundef %0) #7
-  tail call void @lv_obj_class_init_obj(ptr noundef %2) #7
+  %2 = tail call ptr @lv_obj_class_create_obj(ptr noundef nonnull @lv_spinbox_class, ptr noundef %0) #8
+  tail call void @lv_obj_class_init_obj(ptr noundef %2) #8
   ret ptr %2
 }
 
@@ -397,8 +397,8 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
   %.057 = phi ptr [ %12, %9 ], [ %2, %1 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = tail call i32 @llvm.abs.i32(i32 %8, i1 true)
-  %14 = call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %3, i64 noundef 14, ptr noundef nonnull @.str.1, i32 noundef %13) #7
-  %15 = call i64 @lv_strlen(ptr noundef nonnull %3) #7
+  %14 = call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %3, i64 noundef 14, ptr noundef nonnull @.str.1, i32 noundef %13) #8
+  %15 = call i64 @lv_strlen(ptr noundef nonnull %3) #8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %17 = load i16, ptr %16, align 8
   %18 = and i16 %17, 15
@@ -505,7 +505,7 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
   br i1 %exitcond101.not, label %.critedge2, label %.lr.ph83, !llvm.loop !29
 
 .critedge2:                                       ; preds = %47, %.lr.ph83, %41, %.critedge
-  call void @lv_textarea_set_text(ptr noundef %0, ptr noundef nonnull %2) #7
+  call void @lv_textarea_set_text(ptr noundef %0, ptr noundef nonnull %2) #8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %49 = load i32, ptr %48, align 4, !tbaa !19
   %50 = load i16, ptr %16, align 8
@@ -528,7 +528,7 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
   %58 = zext i1 %57 to i32
   %spec.select = add i32 %.0.lcssa, %.059.neg
   %59 = add i32 %spec.select, %58
-  call void @lv_textarea_set_cursor_pos(ptr noundef nonnull %0, i32 noundef %59) #7
+  call void @lv_textarea_set_cursor_pos(ptr noundef nonnull %0, i32 noundef %59) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
@@ -567,7 +567,7 @@ define void @lv_spinbox_set_digit_format(ptr noundef %0, i32 noundef %1, i32 nou
 
 6:                                                ; preds = %4
   %7 = trunc nuw nsw i32 %spec.store.select to i8
-  %8 = tail call i64 @lv_pow(i64 noundef 10, i8 noundef signext %7) #7
+  %8 = tail call i64 @lv_pow(i64 noundef 10, i8 noundef signext %7) #8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %10 = load i32, ptr %9, align 4, !tbaa !20
   %11 = sext i32 %10 to i64
@@ -672,7 +672,7 @@ define void @lv_spinbox_set_cursor_pos(ptr noundef %0, i32 noundef %1) local_unn
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load i32, ptr %6, align 8, !tbaa !21
   %8 = trunc i32 %1 to i8
-  %9 = tail call i64 @lv_pow(i64 noundef 10, i8 noundef signext %8) #7
+  %9 = tail call i64 @lv_pow(i64 noundef 10, i8 noundef signext %8) #8
   %10 = icmp eq i32 %1, 0
   br i1 %10, label %.sink.split, label %11
 
@@ -956,16 +956,16 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #6
+declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -974,8 +974,9 @@ attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

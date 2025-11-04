@@ -1197,7 +1197,7 @@ define hidden ptr @prefs_get_dissector_table(ptr noundef readonly captures(none)
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @prefs_init() local_unnamed_addr #1 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(504) @prefs, i8 noundef 0, i64 noundef 504, i1 noundef false) #25
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(504) @prefs, i8 noundef 0, i64 noundef 504, i1 noundef false) #26
   %1 = tail call ptr @wmem_epan_scope()
   %2 = tail call noalias ptr @wmem_tree_new(ptr noundef %1)
   store ptr %2, ptr @prefs_modules, align 8
@@ -1306,7 +1306,7 @@ define void @prefs_register_module_alias(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 604, ptr noundef nonnull @__func__.prefs_register_module_alias, ptr noundef nonnull @.str.2, ptr noundef %0) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 604, ptr noundef nonnull @__func__.prefs_register_module_alias, ptr noundef nonnull @.str.2, ptr noundef %0) #27
   unreachable
 
 5:                                                ; preds = %2
@@ -1322,12 +1322,12 @@ prefs_find_module_alias.exit:                     ; preds = %5
   br i1 %.not10, label %prefs_find_module_alias.exit.thread, label %11
 
 11:                                               ; preds = %prefs_find_module_alias.exit
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 616, ptr noundef nonnull @__func__.prefs_register_module_alias, ptr noundef nonnull @.str.3, ptr noundef %0) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 616, ptr noundef nonnull @__func__.prefs_register_module_alias, ptr noundef nonnull @.str.3, ptr noundef %0) #27
   unreachable
 
 prefs_find_module_alias.exit.thread:              ; preds = %5, %prefs_find_module_alias.exit
   %12 = tail call ptr @wmem_epan_scope()
-  %13 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %12, i64 noundef 16) #27
+  %13 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %12, i64 noundef 16) #28
   store ptr %0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %1, ptr %14, align 8
@@ -1365,7 +1365,7 @@ define ptr @prefs_register_protocol(i32 noundef %0, ptr noundef %1) local_unname
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %6
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 651, ptr noundef nonnull @__func__.prefs_register_protocol, ptr noundef nonnull @.str.4) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 651, ptr noundef nonnull @__func__.prefs_register_protocol, ptr noundef nonnull @.str.4) #27
   unreachable
 
 10:                                               ; preds = %6
@@ -1544,7 +1544,7 @@ free_col_info.exit:                               ; preds = %.lr.ph.i
 
 33:                                               ; preds = %32, %33
   %indvars.iv = phi i64 [ 0, %32 ], [ %indvars.iv.next, %33 ]
-  %34 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #28
+  %34 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #29
   %35 = load ptr, ptr @pre_init_prefs.col_fmt, align 8
   %36 = shl nuw i64 %indvars.iv, 1
   %37 = getelementptr ptr, ptr %35, i64 %36
@@ -1691,7 +1691,7 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
 
 34:                                               ; preds = %switch.early.test.i
   %35 = load ptr, ptr %13, align 8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %35, ptr noundef nonnull @.str.107, ptr noundef nonnull %24) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %35, ptr noundef nonnull @.str.107, ptr noundef nonnull %24) #27
   unreachable
 
 36:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.lr.ph.i
@@ -1849,7 +1849,7 @@ prefs_set_module_effect_flags.exit67:             ; preds = %prefs_register_subt
 .lr.ph.i330:                                      ; preds = %prefs_set_module_effect_flags.exit67, %119
   %.042.i = phi ptr [ %.0.i331, %119 ], [ %.040.i, %prefs_set_module_effect_flags.exit67 ]
   %103 = load ptr, ptr %.042.i, align 8
-  %104 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #28
+  %104 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #29
   %105 = load ptr, ptr %103, align 8
   %106 = tail call noalias ptr @g_strdup(ptr noundef %105)
   store ptr %106, ptr %104, align 8
@@ -2024,7 +2024,7 @@ switch.early.test.i94:                            ; preds = %.lr.ph.i87
 
 173:                                              ; preds = %switch.early.test.i94
   %174 = load ptr, ptr %phi.call.i79, align 8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %174, ptr noundef nonnull @.str.144, ptr noundef nonnull %163) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %174, ptr noundef nonnull @.str.144, ptr noundef nonnull %163) #27
   unreachable
 
 175:                                              ; preds = %switch.early.test.i94, %switch.early.test.i94, %switch.early.test.i94, %.lr.ph.i87
@@ -2093,7 +2093,7 @@ switch.early.test.i106:                           ; preds = %.lr.ph.i99
 
 203:                                              ; preds = %switch.early.test.i106
   %204 = load ptr, ptr %192, align 8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %204, ptr noundef nonnull @.str.150, ptr noundef nonnull %193) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %204, ptr noundef nonnull @.str.150, ptr noundef nonnull %193) #27
   unreachable
 
 205:                                              ; preds = %switch.early.test.i106, %switch.early.test.i106, %switch.early.test.i106, %.lr.ph.i99
@@ -2162,7 +2162,7 @@ switch.early.test.i118:                           ; preds = %.lr.ph.i111
 
 233:                                              ; preds = %switch.early.test.i118
   %234 = load ptr, ptr %222, align 8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %234, ptr noundef nonnull @.str.156, ptr noundef nonnull %223) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %234, ptr noundef nonnull @.str.156, ptr noundef nonnull %223) #27
   unreachable
 
 235:                                              ; preds = %switch.early.test.i118, %switch.early.test.i118, %switch.early.test.i118, %.lr.ph.i111
@@ -2345,7 +2345,7 @@ switch.early.test.i132:                           ; preds = %.lr.ph.i125
 
 321:                                              ; preds = %switch.early.test.i132
   %322 = load ptr, ptr %310, align 8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %322, ptr noundef nonnull @.str.181, ptr noundef nonnull %311) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %322, ptr noundef nonnull @.str.181, ptr noundef nonnull %311) #27
   unreachable
 
 323:                                              ; preds = %switch.early.test.i132, %switch.early.test.i132, %switch.early.test.i132, %.lr.ph.i125
@@ -2519,7 +2519,7 @@ switch.early.test.i146:                           ; preds = %.lr.ph.i139
 
 427:                                              ; preds = %switch.early.test.i146
   %428 = load ptr, ptr %416, align 8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %428, ptr noundef nonnull @.str.221, ptr noundef nonnull %417) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %428, ptr noundef nonnull @.str.221, ptr noundef nonnull %417) #27
   unreachable
 
 429:                                              ; preds = %switch.early.test.i146, %switch.early.test.i146, %switch.early.test.i146, %.lr.ph.i139
@@ -2586,7 +2586,7 @@ switch.early.test.i158:                           ; preds = %.lr.ph.i151
 
 457:                                              ; preds = %switch.early.test.i158
   %458 = load ptr, ptr %447, align 8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %458, ptr noundef nonnull @.str.228, ptr noundef nonnull %448) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %458, ptr noundef nonnull @.str.228, ptr noundef nonnull %448) #27
   unreachable
 
 459:                                              ; preds = %switch.early.test.i158, %switch.early.test.i158, %switch.early.test.i158, %.lr.ph.i151
@@ -2709,7 +2709,7 @@ switch.early.test.i173:                           ; preds = %.lr.ph.i166
 
 521:                                              ; preds = %switch.early.test.i173
   %522 = load ptr, ptr %510, align 8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %522, ptr noundef nonnull @.str.245, ptr noundef nonnull %511) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %522, ptr noundef nonnull @.str.245, ptr noundef nonnull %511) #27
   unreachable
 
 523:                                              ; preds = %switch.early.test.i173, %switch.early.test.i173, %switch.early.test.i173, %.lr.ph.i166
@@ -2884,7 +2884,7 @@ switch.early.test.i192:                           ; preds = %.lr.ph.i185
 
 602:                                              ; preds = %switch.early.test.i192
   %603 = load ptr, ptr %phi.call.i177, align 8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %603, ptr noundef nonnull @.str.265, ptr noundef nonnull %592) #26
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %603, ptr noundef nonnull @.str.265, ptr noundef nonnull %592) #27
   unreachable
 
 604:                                              ; preds = %switch.early.test.i192, %switch.early.test.i192, %switch.early.test.i192, %.lr.ph.i185
@@ -2984,7 +2984,7 @@ switch.early.test.i211:                           ; preds = %.lr.ph.i204
 
 639:                                              ; preds = %switch.early.test.i211
   %640 = load ptr, ptr %phi.call.i177, align 8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %640, ptr noundef nonnull @.str.267, ptr noundef nonnull %629) #26
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %640, ptr noundef nonnull @.str.267, ptr noundef nonnull %629) #27
   unreachable
 
 641:                                              ; preds = %switch.early.test.i211, %switch.early.test.i211, %switch.early.test.i211, %.lr.ph.i204
@@ -3084,7 +3084,7 @@ switch.early.test.i230:                           ; preds = %.lr.ph.i223
 
 676:                                              ; preds = %switch.early.test.i230
   %677 = load ptr, ptr %phi.call.i177, align 8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %677, ptr noundef nonnull @.str.269, ptr noundef nonnull %666) #26
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %677, ptr noundef nonnull @.str.269, ptr noundef nonnull %666) #27
   unreachable
 
 678:                                              ; preds = %switch.early.test.i230, %switch.early.test.i230, %switch.early.test.i230, %.lr.ph.i223
@@ -3257,7 +3257,7 @@ switch.early.test.i256:                           ; preds = %.lr.ph.i249
 
 748:                                              ; preds = %switch.early.test.i256
   %749 = load ptr, ptr %phi.call.i177, align 8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %749, ptr noundef nonnull @.str.281, ptr noundef nonnull %739) #26
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %749, ptr noundef nonnull @.str.281, ptr noundef nonnull %739) #27
   unreachable
 
 750:                                              ; preds = %switch.early.test.i256, %switch.early.test.i256, %switch.early.test.i256, %.lr.ph.i249
@@ -3314,7 +3314,7 @@ switch.early.test.i268:                           ; preds = %.lr.ph.i261
 
 770:                                              ; preds = %switch.early.test.i268
   %771 = load ptr, ptr %759, align 8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %771, ptr noundef nonnull @.str.283, ptr noundef nonnull %760) #26
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %771, ptr noundef nonnull @.str.283, ptr noundef nonnull %760) #27
   unreachable
 
 772:                                              ; preds = %switch.early.test.i268, %switch.early.test.i268, %switch.early.test.i268, %.lr.ph.i261
@@ -3411,7 +3411,7 @@ switch.early.test.i280:                           ; preds = %.lr.ph.i273
 
 819:                                              ; preds = %switch.early.test.i280
   %820 = load ptr, ptr %phi.call.i177, align 8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %820, ptr noundef nonnull @.str.301, ptr noundef nonnull %809) #26
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %820, ptr noundef nonnull @.str.301, ptr noundef nonnull %809) #27
   unreachable
 
 821:                                              ; preds = %switch.early.test.i280, %switch.early.test.i280, %switch.early.test.i280, %.lr.ph.i273
@@ -3853,7 +3853,7 @@ switch.early.test.i304:                           ; preds = %.lr.ph.i297
 
 1076:                                             ; preds = %switch.early.test.i304
   %1077 = load ptr, ptr %1065, align 8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %1077, ptr noundef nonnull @.str.428, ptr noundef nonnull %1066) #26
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %1077, ptr noundef nonnull @.str.428, ptr noundef nonnull %1066) #27
   unreachable
 
 1078:                                             ; preds = %switch.early.test.i304, %switch.early.test.i304, %switch.early.test.i304, %.lr.ph.i297
@@ -3960,7 +3960,7 @@ switch.early.test.i316:                           ; preds = %.lr.ph.i309
 
 1133:                                             ; preds = %switch.early.test.i316
   %1134 = load ptr, ptr %1122, align 8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %1134, ptr noundef nonnull @.str.455, ptr noundef nonnull %1123) #26
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %1134, ptr noundef nonnull @.str.455, ptr noundef nonnull %1123) #27
   unreachable
 
 1135:                                             ; preds = %switch.early.test.i316, %switch.early.test.i316, %switch.early.test.i316, %.lr.ph.i309
@@ -4038,7 +4038,7 @@ switch.early.test.i328:                           ; preds = %.lr.ph.i321
 
 1170:                                             ; preds = %switch.early.test.i328
   %1171 = load ptr, ptr %1159, align 8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %1171, ptr noundef nonnull @.str.467, ptr noundef nonnull %1160) #26
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %1171, ptr noundef nonnull @.str.467, ptr noundef nonnull %1160) #27
   unreachable
 
 1172:                                             ; preds = %switch.early.test.i328, %switch.early.test.i328, %switch.early.test.i328, %.lr.ph.i321
@@ -4096,7 +4096,7 @@ define hidden void @prefs_deregister_protocol(i32 noundef %0) local_unnamed_addr
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 663, ptr noundef nonnull @__func__.prefs_deregister_protocol, ptr noundef nonnull @.str.5) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 663, ptr noundef nonnull @__func__.prefs_deregister_protocol, ptr noundef nonnull @.str.5) #27
   unreachable
 
 6:                                                ; preds = %1
@@ -4200,7 +4200,7 @@ define ptr @prefs_register_protocol_subtree(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not30, label %.critedge, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.036, i32 noundef 47) #29
+  %13 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.036, i32 noundef 47) #30
   %.not31 = icmp eq ptr %13, null
   br i1 %.not31, label %16, label %14
 
@@ -4252,7 +4252,7 @@ prefs_register_subtree.exit:                      ; preds = %.split.i, %.split6.
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %28
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 723, ptr noundef nonnull @__func__.prefs_register_protocol_subtree, ptr noundef nonnull @.str.6) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 723, ptr noundef nonnull @__func__.prefs_register_protocol_subtree, ptr noundef nonnull @.str.6) #27
   unreachable
 
 32:                                               ; preds = %28
@@ -4289,7 +4289,7 @@ define ptr @prefs_register_protocol_obsolete(i32 noundef %0) local_unnamed_addr 
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %5
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 754, ptr noundef nonnull @__func__.prefs_register_protocol_obsolete, ptr noundef nonnull @.str.7) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 754, ptr noundef nonnull @__func__.prefs_register_protocol_obsolete, ptr noundef nonnull @.str.7) #27
   unreachable
 
 9:                                                ; preds = %5
@@ -4672,7 +4672,7 @@ define internal fastcc noundef ptr @register_preference(ptr noundef captures(add
 
 12:                                               ; preds = %5, %8
   %13 = phi ptr [ %11, %8 ], [ %7, %5 ]
-  %14 = tail call noalias dereferenceable_or_null(152) ptr @g_malloc(i64 noundef 152) #28
+  %14 = tail call noalias dereferenceable_or_null(152) ptr @g_malloc(i64 noundef 152) #29
   store ptr %1, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %2, ptr %15, align 8
@@ -4723,7 +4723,7 @@ switch.early.test:                                ; preds = %28
 
 34:                                               ; preds = %switch.early.test
   %35 = load ptr, ptr %0, align 8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1029, ptr noundef nonnull @__func__.register_preference, ptr noundef nonnull @.str.95, ptr noundef %35, ptr noundef %1) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1029, ptr noundef nonnull @__func__.register_preference, ptr noundef nonnull @.str.95, ptr noundef %35, ptr noundef %1) #27
   unreachable
 
 36:                                               ; preds = %switch.early.test, %switch.early.test, %28
@@ -4773,7 +4773,7 @@ prefs_find_preference.exit:                       ; preds = %40, %49
   br i1 %.not87, label %55, label %54
 
 54:                                               ; preds = %prefs_find_preference.exit
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1038, ptr noundef nonnull @__func__.register_preference, ptr noundef nonnull @.str.96, ptr noundef %1) #26
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1038, ptr noundef nonnull @__func__.register_preference, ptr noundef nonnull @.str.96, ptr noundef %1) #27
   unreachable
 
 55:                                               ; preds = %prefs_find_preference.exit.thread, %prefs_find_preference.exit
@@ -4787,8 +4787,8 @@ prefs_find_preference.exit:                       ; preds = %40, %49
   br i1 %.not89, label %66, label %59
 
 59:                                               ; preds = %57
-  %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #29
-  %61 = call i32 @strncmp(ptr noundef %1, ptr noundef nonnull %58, i64 noundef %60) #29
+  %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #30
+  %61 = call i32 @strncmp(ptr noundef %1, ptr noundef nonnull %58, i64 noundef %60) #30
   %.not90 = icmp eq i32 %61, 0
   br i1 %.not90, label %62, label %66
 
@@ -4801,7 +4801,7 @@ prefs_find_preference.exit:                       ; preds = %40, %49
   ]
 
 65:                                               ; preds = %62, %62
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1049, ptr noundef nonnull @__func__.register_preference, ptr noundef nonnull @.str.97, ptr noundef %1) #26
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1049, ptr noundef nonnull @__func__.register_preference, ptr noundef nonnull @.str.97, ptr noundef %1) #27
   unreachable
 
 66:                                               ; preds = %62, %59, %57, %55
@@ -4812,12 +4812,12 @@ prefs_find_preference.exit:                       ; preds = %40, %49
   br i1 %.not94, label %72, label %68
 
 68:                                               ; preds = %67
-  %69 = call i64 @g_utf8_strlen(ptr noundef nonnull %2, i64 noundef -1) #29
+  %69 = call i64 @g_utf8_strlen(ptr noundef nonnull %2, i64 noundef -1) #30
   %70 = icmp sgt i64 %69, 80
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %68
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1056, ptr noundef nonnull @__func__.register_preference, ptr noundef nonnull @.str.98, ptr noundef %13, ptr noundef %1, ptr noundef nonnull %2) #26
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1056, ptr noundef nonnull @__func__.register_preference, ptr noundef nonnull @.str.98, ptr noundef %13, ptr noundef %1, ptr noundef nonnull %2) #27
   unreachable
 
 72:                                               ; preds = %68, %67
@@ -4827,7 +4827,7 @@ prefs_find_preference.exit:                       ; preds = %40, %49
 
 74:                                               ; preds = %72
   %75 = load ptr, ptr %14, align 8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1060, ptr noundef nonnull @__func__.register_preference, ptr noundef nonnull @.str.99, ptr noundef %13, ptr noundef %75) #26
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1060, ptr noundef nonnull @__func__.register_preference, ptr noundef nonnull @.str.99, ptr noundef %13, ptr noundef %75) #27
   unreachable
 
 76:                                               ; preds = %72
@@ -4843,14 +4843,14 @@ prefs_find_preference.exit:                       ; preds = %40, %49
 80:                                               ; preds = %.lr.ph111, %86
   %81 = phi i8 [ %78, %.lr.ph111 ], [ %92, %86 ]
   %.0109 = phi ptr [ %77, %.lr.ph111 ], [ %91, %86 ]
-  %82 = call i32 @g_utf8_get_char(ptr noundef %.0109) #29
-  %83 = call i32 @g_unichar_isprint(i32 noundef %82) #30
+  %82 = call i32 @g_utf8_get_char(ptr noundef %.0109) #30
+  %83 = call i32 @g_unichar_isprint(i32 noundef %82) #31
   %.not99 = icmp eq i32 %83, 0
   br i1 %.not99, label %84, label %86
 
 84:                                               ; preds = %80
   %85 = load ptr, ptr %14, align 8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1065, ptr noundef nonnull @__func__.register_preference, ptr noundef nonnull @.str.100, ptr noundef %13, ptr noundef %85) #26
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1065, ptr noundef nonnull @__func__.register_preference, ptr noundef nonnull @.str.100, ptr noundef %13, ptr noundef %85) #27
   unreachable
 
 86:                                               ; preds = %80
@@ -4875,7 +4875,7 @@ prefs_find_preference.exit:                       ; preds = %40, %49
 
 96:                                               ; preds = %94
   %97 = load ptr, ptr %14, align 8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1072, ptr noundef nonnull @__func__.register_preference, ptr noundef nonnull @.str.101, ptr noundef %13, ptr noundef %97) #26
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1072, ptr noundef nonnull @__func__.register_preference, ptr noundef nonnull @.str.101, ptr noundef %13, ptr noundef %97) #27
   unreachable
 
 98:                                               ; preds = %94, %.loopexit
@@ -4951,7 +4951,7 @@ define i32 @prefs_set_bool_value(ptr noundef captures(address_is_null) %0, i1 no
   br i1 %20, label %prefs_get_effect_flags.exit, label %prefs_get_effect_flags.exit.sink.split
 
 21:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1275, ptr noundef nonnull @__func__.prefs_set_bool_value, ptr noundef nonnull @.str.8) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1275, ptr noundef nonnull @__func__.prefs_set_bool_value, ptr noundef nonnull @.str.8) #27
   unreachable
 
 prefs_get_effect_flags.exit.sink.split:           ; preds = %19, %13, %8
@@ -5010,7 +5010,7 @@ define void @prefs_invert_bool_value(ptr noundef captures(none) %0, i32 noundef 
   br label %17
 
 16:                                               ; preds = %2
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1296, ptr noundef nonnull @__func__.prefs_invert_bool_value, ptr noundef nonnull @.str.8) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1296, ptr noundef nonnull @__func__.prefs_invert_bool_value, ptr noundef nonnull @.str.8) #27
   unreachable
 
 17:                                               ; preds = %11, %7, %3
@@ -5039,7 +5039,7 @@ define zeroext i1 @prefs_get_bool_value(ptr noundef readonly captures(none) %0, 
   br label %11
 
 10:                                               ; preds = %2
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1312, ptr noundef nonnull @__func__.prefs_get_bool_value, ptr noundef nonnull @.str.8) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1312, ptr noundef nonnull @__func__.prefs_get_bool_value, ptr noundef nonnull @.str.8) #27
   unreachable
 
 11:                                               ; preds = %7, %5, %3
@@ -5107,7 +5107,7 @@ switch.early.test:                                ; preds = %.lr.ph
 
 27:                                               ; preds = %switch.early.test
   %28 = load ptr, ptr %0, align 8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %28, ptr noundef %1, ptr noundef nonnull %10) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1342, ptr noundef nonnull @__func__.prefs_register_enum_preference, ptr noundef nonnull @.str.9, ptr noundef %28, ptr noundef %1, ptr noundef nonnull %10) #27
   unreachable
 
 29:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %.lr.ph
@@ -5160,7 +5160,7 @@ define i32 @prefs_set_enum_value(ptr noundef captures(address_is_null) %0, i32 n
   br i1 %19, label %prefs_get_effect_flags.exit, label %prefs_get_effect_flags.exit.sink.split
 
 20:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1379, ptr noundef nonnull @__func__.prefs_set_enum_value, ptr noundef nonnull @.str.8) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1379, ptr noundef nonnull @__func__.prefs_set_enum_value, ptr noundef nonnull @.str.8) #27
   unreachable
 
 prefs_get_effect_flags.exit.sink.split:           ; preds = %18, %12, %7
@@ -5273,7 +5273,7 @@ find_val_for_string.exit:                         ; preds = %19, %3, %.preheader
   br i1 %45, label %prefs_set_enum_value.exit, label %prefs_get_effect_flags.exit.sink.split.i
 
 46:                                               ; preds = %find_val_for_string.exit
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1379, ptr noundef nonnull @__func__.prefs_set_enum_value, ptr noundef nonnull @.str.8) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1379, ptr noundef nonnull @__func__.prefs_set_enum_value, ptr noundef nonnull @.str.8) #27
   unreachable
 
 prefs_get_effect_flags.exit.sink.split.i:         ; preds = %44, %39, %34
@@ -5366,7 +5366,7 @@ define i32 @prefs_get_enum_value(ptr noundef readonly captures(none) %0, i32 nou
   br label %11
 
 10:                                               ; preds = %2
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1404, ptr noundef nonnull @__func__.prefs_get_enum_value, ptr noundef nonnull @.str.8) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1404, ptr noundef nonnull @__func__.prefs_get_enum_value, ptr noundef nonnull @.str.8) #27
   unreachable
 
 11:                                               ; preds = %7, %5, %3
@@ -5419,7 +5419,7 @@ define i32 @prefs_set_string_value(ptr noundef captures(address_is_null) %0, ptr
   br i1 %.not38, label %16, label %8
 
 8:                                                ; preds = %4
-  %9 = tail call i32 @strcmp(ptr noundef %6, ptr noundef %1) #29
+  %9 = tail call i32 @strcmp(ptr noundef %6, ptr noundef %1) #30
   %.not40 = icmp eq i32 %9, 0
   br i1 %.not40, label %51, label %10
 
@@ -5455,7 +5455,7 @@ prefs_get_effect_flags.exit:                      ; preds = %10, %12
   br i1 %.not35, label %30, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef %1) #29
+  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef %1) #30
   %.not37 = icmp eq i32 %23, 0
   br i1 %.not37, label %51, label %24
 
@@ -5492,7 +5492,7 @@ prefs_get_effect_flags.exit42:                    ; preds = %24, %26
   br i1 %.not, label %46, label %37
 
 37:                                               ; preds = %33
-  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef %1) #29
+  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef %1) #30
   %.not34 = icmp eq i32 %38, 0
   br i1 %.not34, label %51, label %39
 
@@ -5525,7 +5525,7 @@ prefs_get_effect_flags.exit44:                    ; preds = %39, %41
   br label %51
 
 50:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1527, ptr noundef nonnull @__func__.prefs_set_string_value, ptr noundef nonnull @.str.8) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1527, ptr noundef nonnull @__func__.prefs_set_string_value, ptr noundef nonnull @.str.8) #27
   unreachable
 
 51:                                               ; preds = %prefs_get_effect_flags.exit44, %37, %47, %46, %prefs_get_effect_flags.exit42, %22, %31, %30, %prefs_get_effect_flags.exit, %8, %17, %16
@@ -5558,7 +5558,7 @@ define ptr @prefs_get_string_value(ptr noundef readonly captures(none) %0, i32 n
   br label %11
 
 10:                                               ; preds = %2
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1545, ptr noundef nonnull @__func__.prefs_get_string_value, ptr noundef nonnull @.str.8) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1545, ptr noundef nonnull @__func__.prefs_get_string_value, ptr noundef nonnull @.str.8) #27
   unreachable
 
 11:                                               ; preds = %7, %5, %3
@@ -5793,7 +5793,7 @@ define noundef zeroext i1 @prefs_add_list_value(ptr noundef captures(none) %0, p
   br label %19
 
 18:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1702, ptr noundef nonnull @__func__.prefs_add_list_value, ptr noundef nonnull @.str.8) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1702, ptr noundef nonnull @__func__.prefs_add_list_value, ptr noundef nonnull @.str.8) #27
   unreachable
 
 19:                                               ; preds = %12, %8, %4
@@ -5825,7 +5825,7 @@ define ptr @prefs_get_list_value(ptr noundef readonly captures(none) %0, i32 nou
   br label %11
 
 10:                                               ; preds = %2
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1720, ptr noundef nonnull @__func__.prefs_get_list_value, ptr noundef nonnull @.str.8) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1720, ptr noundef nonnull @__func__.prefs_get_list_value, ptr noundef nonnull @.str.8) #27
   unreachable
 
 11:                                               ; preds = %7, %5, %3
@@ -5891,7 +5891,7 @@ define noundef zeroext i1 @prefs_set_range_value(ptr noundef captures(none) %0, 
   br label %35
 
 34:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1755, ptr noundef nonnull @__func__.prefs_set_range_value, ptr noundef nonnull @.str.8) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1755, ptr noundef nonnull @__func__.prefs_set_range_value, ptr noundef nonnull @.str.8) #27
   unreachable
 
 35:                                               ; preds = %22, %27, %13, %17, %4, %8
@@ -5924,7 +5924,7 @@ define ptr @prefs_get_range_value_real(ptr noundef readonly captures(none) %0, i
   br label %11
 
 10:                                               ; preds = %2
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1773, ptr noundef nonnull @__func__.prefs_get_range_value_real, ptr noundef nonnull @.str.8) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1773, ptr noundef nonnull @__func__.prefs_get_range_value_real, ptr noundef nonnull @.str.8) #27
   unreachable
 
 11:                                               ; preds = %7, %5, %3
@@ -6153,7 +6153,7 @@ define noundef zeroext i1 @prefs_set_color_value(ptr noundef captures(none) %0, 
   br label %42
 
 41:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1894, ptr noundef nonnull @__func__.prefs_set_color_value, ptr noundef nonnull @.str.8) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1894, ptr noundef nonnull @__func__.prefs_set_color_value, ptr noundef nonnull @.str.8) #27
   unreachable
 
 42:                                               ; preds = %35, %40, %22, %27, %10, %15
@@ -6183,7 +6183,7 @@ define ptr @prefs_get_color_value(ptr noundef readonly captures(ret: address, pr
   br label %11
 
 10:                                               ; preds = %2
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1912, ptr noundef nonnull @__func__.prefs_get_color_value, ptr noundef nonnull @.str.8) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1912, ptr noundef nonnull @__func__.prefs_get_color_value, ptr noundef nonnull @.str.8) #27
   unreachable
 
 11:                                               ; preds = %7, %5, %3
@@ -6426,7 +6426,7 @@ define void @prefs_set_effect_flags(ptr noundef captures(address_is_null) %0, i3
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 6592, ptr noundef nonnull @__func__.prefs_set_effect_flags, ptr noundef nonnull @.str.49, ptr noundef %6) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 6592, ptr noundef nonnull @__func__.prefs_set_effect_flags, ptr noundef nonnull @.str.49, ptr noundef %6) #27
   unreachable
 
 7:                                                ; preds = %3
@@ -6554,7 +6554,7 @@ define noundef i32 @pref_stash(ptr noundef captures(none) %0, ptr noundef readno
   br label %44
 
 43:                                               ; preds = %.split
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 2156, ptr noundef nonnull @__func__.pref_stash, ptr noundef nonnull @.str.8) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 2156, ptr noundef nonnull @__func__.pref_stash, ptr noundef nonnull @.str.8) #27
   unreachable
 
 44:                                               ; preds = %2, %39, %30, %23, %18, %13, %8, %.split
@@ -6748,7 +6748,7 @@ prefs_get_effect_flags.exit140:                   ; preds = %.lr.ph167.split
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %94 = load ptr, ptr %93, align 8
-  %95 = tail call i32 @strcmp(ptr noundef %92, ptr noundef %94) #29
+  %95 = tail call i32 @strcmp(ptr noundef %92, ptr noundef %94) #30
   %.not129 = icmp eq i32 %95, 0
   br i1 %.not129, label %.loopexit, label %96
 
@@ -7045,7 +7045,7 @@ prefs_get_effect_flags.exit148:                   ; preds = %257, %259
   br label %.loopexit
 
 267:                                              ; preds = %.split
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 2304, ptr noundef nonnull @__func__.pref_unstash, ptr noundef nonnull @.str.8) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 2304, ptr noundef nonnull @__func__.pref_unstash, ptr noundef nonnull @.str.8) #27
   unreachable
 
 .loopexit:                                        ; preds = %._crit_edge159, %87, %71, %.preheader, %59, %110, %180, %.loopexit151, %252, %prefs_get_effect_flags.exit148, %218, %prefs_get_effect_flags.exit146, %89, %prefs_get_effect_flags.exit142, %42, %prefs_get_effect_flags.exit138, %25, %prefs_get_effect_flags.exit136, %8, %prefs_get_effect_flags.exit, %2, %.split
@@ -7151,11 +7151,11 @@ define void @reset_stashed_pref(ptr noundef %0) local_unnamed_addr #1 {
 37:                                               ; preds = %.split
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %38, ptr noundef nonnull align 1 dereferenceable(6) %39, i64 noundef 6, i1 noundef false) #25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %38, ptr noundef nonnull align 1 dereferenceable(6) %39, i64 noundef 6, i1 noundef false) #26
   br label %41
 
 40:                                               ; preds = %.split
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 2359, ptr noundef nonnull @__func__.reset_stashed_pref, ptr noundef nonnull @.str.8) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 2359, ptr noundef nonnull @__func__.reset_stashed_pref, ptr noundef nonnull @.str.8) #27
   unreachable
 
 41:                                               ; preds = %33, %36, %1, %37, %25, %19, %15, %11, %7, %.split
@@ -7224,7 +7224,7 @@ define noundef i32 @pref_clean_stash(ptr noundef captures(none) %0, ptr noundef 
   br label %23
 
 22:                                               ; preds = %.split
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 2412, ptr noundef nonnull @__func__.pref_clean_stash, ptr noundef nonnull @.str.8) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 2412, ptr noundef nonnull @__func__.pref_clean_stash, ptr noundef nonnull @.str.8) #27
   unreachable
 
 23:                                               ; preds = %18, %21, %12, %15, %8, %11, %2, %.split
@@ -7521,7 +7521,7 @@ g_string_append_c_inline.exit31:                  ; preds = %43, %49
 
 .lr.ph:                                           ; preds = %g_string_append_c_inline.exit31, %69
   %.02535 = phi ptr [ %75, %69 ], [ %9, %g_string_append_c_inline.exit31 ]
-  %52 = tail call i32 @g_utf8_get_char(ptr noundef %.02535) #29
+  %52 = tail call i32 @g_utf8_get_char(ptr noundef %.02535) #30
   switch i32 %52, label %g_string_append_c_inline.exit32 [
     i32 92, label %53
     i32 34, label %53
@@ -7550,7 +7550,7 @@ g_string_append_c_inline.exit31:                  ; preds = %43, %49
   br label %g_string_append_c_inline.exit32
 
 g_string_append_c_inline.exit32:                  ; preds = %64, %58, %.lr.ph
-  %66 = tail call i32 @g_unichar_isprint(i32 noundef %52) #30
+  %66 = tail call i32 @g_unichar_isprint(i32 noundef %52) #31
   %.not29 = icmp eq i32 %66, 0
   br i1 %.not29, label %69, label %67
 
@@ -7807,7 +7807,7 @@ define void @prefs_read_module(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not26, label %17, label %15
 
 15:                                               ; preds = %.thread
-  %16 = tail call ptr @g_strerror(i32 noundef %14) #30
+  %16 = tail call ptr @g_strerror(i32 noundef %14) #31
   tail call void (ptr, ...) @report_warning(ptr noundef nonnull @.str.15, ptr noundef %.031, ptr noundef %16)
   br label %18
 
@@ -7820,13 +7820,13 @@ define void @prefs_read_module(ptr noundef %0) local_unnamed_addr #1 {
   br label %26
 
 20:                                               ; preds = %11
-  %21 = tail call ptr @__errno_location() #30
+  %21 = tail call ptr @__errno_location() #31
   %22 = load i32, ptr %21, align 4
   %.not25 = icmp eq i32 %22, 2
   br i1 %.not25, label %25, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call ptr @g_strerror(i32 noundef %22) #30
+  %24 = tail call ptr @g_strerror(i32 noundef %22) #31
   tail call void (ptr, ...) @report_warning(ptr noundef nonnull @.str.16, ptr noundef %12, ptr noundef %24)
   br label %26
 
@@ -7866,7 +7866,7 @@ define i32 @read_prefs_file(ptr noundef %0, ptr noundef %1, ptr noundef readonly
 11:                                               ; preds = %4
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 424), align 8
   call void @g_free(ptr noundef %12)
-  %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #29
+  %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #30
   %14 = add i64 %13, -1
   %15 = call noalias ptr @g_strndup(ptr noundef nonnull %6, i64 noundef %14)
   store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 424), align 8
@@ -8204,12 +8204,12 @@ getc_unlocked.exit96:                             ; preds = %37, %39
 164:                                              ; preds = %163, %162, %160, %158, %154, %150
   %165 = call ptr @g_string_free(ptr noundef %7, i32 noundef 1)
   %166 = call ptr @g_string_free(ptr noundef %8, i32 noundef 1)
-  %167 = call i32 @ferror(ptr noundef %1) #25
+  %167 = call i32 @ferror(ptr noundef %1) #26
   %.not94 = icmp eq i32 %167, 0
   br i1 %.not94, label %171, label %168
 
 168:                                              ; preds = %164
-  %169 = tail call ptr @__errno_location() #30
+  %169 = tail call ptr @__errno_location() #31
   %170 = load i32, ptr %169, align 4
   br label %171
 
@@ -8229,7 +8229,7 @@ define internal i32 @set_pref(ptr noundef %0, ptr noundef %1, ptr noundef readno
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %9 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(29) @.str.600) #29
+  %9 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(29) @.str.600) #30
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %14
 
@@ -8241,19 +8241,19 @@ define internal i32 @set_pref(ptr noundef %0, ptr noundef %1, ptr noundef readno
   br label %deprecated_heur_dissector_pref.exit.thread
 
 14:                                               ; preds = %4
-  %15 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(31) @.str.601) #29
+  %15 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(31) @.str.601) #30
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %14
-  %18 = tail call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(5) @.str.77) #29
+  %18 = tail call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(5) @.str.77) #30
   %19 = icmp eq i32 %18, 0
   %20 = zext i1 %19 to i8
   store i8 %20, ptr @set_pref.filter_enabled, align 1
   br label %deprecated_heur_dissector_pref.exit.thread
 
 21:                                               ; preds = %14
-  %22 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(28) @.str.602) #29
+  %22 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(28) @.str.602) #30
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %30
 
@@ -8269,7 +8269,7 @@ define internal i32 @set_pref(ptr noundef %0, ptr noundef %1, ptr noundef readno
   br label %deprecated_heur_dissector_pref.exit.thread
 
 30:                                               ; preds = %21
-  %31 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(26) @.str.603) #29
+  %31 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(26) @.str.603) #30
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %38
 
@@ -8287,12 +8287,12 @@ define internal i32 @set_pref(ptr noundef %0, ptr noundef %1, ptr noundef readno
   br label %deprecated_heur_dissector_pref.exit.thread
 
 38:                                               ; preds = %30
-  %39 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(13) @.str.605) #29
+  %39 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(13) @.str.605) #30
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %44, label %41
 
 41:                                               ; preds = %38
-  %42 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(21) @.str.606) #29
+  %42 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(21) @.str.606) #30
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %.preheader429
 
@@ -8322,7 +8322,7 @@ define internal i32 @set_pref(ptr noundef %0, ptr noundef %1, ptr noundef readno
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %70 ], [ 0, %41 ]
   %53 = getelementptr %struct.heur_pref_name, ptr @__const.deprecated_heur_dissector_pref.heur_prefs, i64 %indvars.iv.i
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call i32 @strcmp(ptr noundef readonly %0, ptr noundef %54) #29
+  %55 = tail call i32 @strcmp(ptr noundef readonly %0, ptr noundef %54) #30
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %70
 
@@ -8361,7 +8361,7 @@ deprecated_heur_dissector_pref.exit:              ; preds = %70, %71
   %indvars.iv.i390 = phi i64 [ %indvars.iv.next.i391, %71 ], [ 0, %70 ]
   %72 = getelementptr %struct.dissector_pref_name, ptr @__const.deprecated_enable_dissector_pref.dissector_prefs, i64 %indvars.iv.i390
   %73 = load ptr, ptr %72, align 16
-  %74 = tail call i32 @strcmp(ptr noundef readonly %0, ptr noundef %73) #29
+  %74 = tail call i32 @strcmp(ptr noundef readonly %0, ptr noundef %73) #30
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %76, label %71
 
@@ -8383,27 +8383,27 @@ deprecated_enable_dissector_pref.exit:            ; preds = %71
   br i1 %84, label %deprecated_heur_dissector_pref.exit.thread, label %85
 
 85:                                               ; preds = %deprecated_enable_dissector_pref.exit
-  %86 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(18) @.str.608) #29
+  %86 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(18) @.str.608) #30
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %.loopexit428, label %88
 
 88:                                               ; preds = %85
-  %89 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(25) @.str.609) #29
+  %89 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(25) @.str.609) #30
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %99, label %91
 
 91:                                               ; preds = %88
-  %92 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(30) @.str.610) #29
+  %92 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(30) @.str.610) #30
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %99, label %94
 
 94:                                               ; preds = %91
-  %95 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(33) @.str.611) #29
+  %95 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(33) @.str.611) #30
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %99, label %.preheader426.preheader
 
 .preheader426.preheader:                          ; preds = %94
-  %97 = tail call ptr @strchr(ptr noundef %0, i32 noundef 46) #29
+  %97 = tail call ptr @strchr(ptr noundef %0, i32 noundef 46) #30
   %98 = icmp eq ptr %97, null
   br i1 %98, label %.loopexit428, label %.lr.ph524
 
@@ -8445,12 +8445,12 @@ prefs_find_module_alias.exit.thread:              ; preds = %105, %prefs_find_mo
   br i1 %cond, label %.thread491, label %.thread494
 
 .thread491:                                       ; preds = %prefs_find_module_alias.exit.thread, %113
-  %118 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(8) @.str.612) #29
+  %118 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(8) @.str.612) #30
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %.loopexit428, label %120
 
 120:                                              ; preds = %.thread491
-  %121 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(10) @.str.613) #29
+  %121 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(10) @.str.613) #30
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %.loopexit428, label %.preheader426
 
@@ -8462,7 +8462,7 @@ prefs_find_module_alias.exit.thread:              ; preds = %105, %prefs_find_mo
 .preheader426:                                    ; preds = %120
   store i8 46, ptr %101, align 1
   %123 = getelementptr i8, ptr %101, i64 1
-  %124 = tail call ptr @strchr(ptr noundef %123, i32 noundef 46) #29
+  %124 = tail call ptr @strchr(ptr noundef %123, i32 noundef 46) #30
   %125 = icmp eq ptr %124, null
   br i1 %125, label %.loopexit428, label %.lr.ph524, !llvm.loop !33
 
@@ -8493,12 +8493,12 @@ prefs_find_module_alias.exit.thread:              ; preds = %105, %prefs_find_mo
 
 134:                                              ; preds = %129
   %135 = load ptr, ptr %.0342, align 8
-  %136 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(5) @.str.614) #29
+  %136 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(5) @.str.614) #30
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %138, label %174
 
 138:                                              ; preds = %134
-  %139 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(24) @.str.615) #29
+  %139 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(24) @.str.615) #30
   %140 = icmp eq i32 %139, 0
   br i1 %140, label %141, label %143
 
@@ -8507,7 +8507,7 @@ prefs_find_module_alias.exit.thread:              ; preds = %105, %prefs_find_mo
   br label %618
 
 143:                                              ; preds = %138
-  %144 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(21) @.str.617) #29
+  %144 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(21) @.str.617) #30
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %146, label %148
 
@@ -8516,7 +8516,7 @@ prefs_find_module_alias.exit.thread:              ; preds = %105, %prefs_find_mo
   br label %618
 
 148:                                              ; preds = %143
-  %149 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(9) @.str.619) #29
+  %149 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(9) @.str.619) #30
   %150 = icmp eq i32 %149, 0
   br i1 %150, label %151, label %161
 
@@ -8540,7 +8540,7 @@ prefs_find_module_alias.exit.thread:              ; preds = %105, %prefs_find_mo
   br label %618
 
 161:                                              ; preds = %148
-  %162 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(9) @.str.622) #29
+  %162 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(9) @.str.622) #30
   %163 = icmp eq i32 %162, 0
   br i1 %163, label %164, label %.thread410
 
@@ -8564,12 +8564,12 @@ prefs_find_module_alias.exit.thread:              ; preds = %105, %prefs_find_mo
   br label %618
 
 174:                                              ; preds = %134
-  %175 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(4) @.str.625) #29
+  %175 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(4) @.str.625) #30
   %176 = icmp eq i32 %175, 0
   br i1 %176, label %177, label %187
 
 177:                                              ; preds = %174
-  %178 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(21) @.str.626) #29
+  %178 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(21) @.str.626) #30
   %179 = icmp eq i32 %178, 0
   br i1 %179, label %180, label %182
 
@@ -8578,7 +8578,7 @@ prefs_find_module_alias.exit.thread:              ; preds = %105, %prefs_find_mo
   br label %618
 
 182:                                              ; preds = %177
-  %183 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(22) @.str.628) #29
+  %183 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(22) @.str.628) #30
   %184 = icmp eq i32 %183, 0
   br i1 %184, label %185, label %.thread410
 
@@ -8587,12 +8587,12 @@ prefs_find_module_alias.exit.thread:              ; preds = %105, %prefs_find_mo
   br label %618
 
 187:                                              ; preds = %174
-  %188 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(5) @.str.630) #29
+  %188 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(5) @.str.630) #30
   %189 = icmp eq i32 %188, 0
   br i1 %189, label %190, label %195
 
 190:                                              ; preds = %187
-  %191 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(15) @.str.631) #29
+  %191 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(15) @.str.631) #30
   %192 = icmp eq i32 %191, 0
   br i1 %192, label %193, label %.thread410
 
@@ -8601,12 +8601,12 @@ prefs_find_module_alias.exit.thread:              ; preds = %105, %prefs_find_mo
   br label %618
 
 195:                                              ; preds = %187
-  %196 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(9) @.str.633) #29
+  %196 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(9) @.str.633) #30
   %197 = icmp eq i32 %196, 0
   br i1 %197, label %198, label %203
 
 198:                                              ; preds = %195
-  %199 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(19) @.str.634) #29
+  %199 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(19) @.str.634) #30
   %200 = icmp eq i32 %199, 0
   br i1 %200, label %201, label %.thread410
 
@@ -8615,12 +8615,12 @@ prefs_find_module_alias.exit.thread:              ; preds = %105, %prefs_find_mo
   br label %618
 
 203:                                              ; preds = %195
-  %204 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(5) @.str.635) #29
+  %204 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(5) @.str.635) #30
   %205 = icmp eq i32 %204, 0
   br i1 %205, label %206, label %211
 
 206:                                              ; preds = %203
-  %207 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(14) @.str.636) #29
+  %207 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(14) @.str.636) #30
   %208 = icmp eq i32 %207, 0
   br i1 %208, label %209, label %.thread410
 
@@ -8629,12 +8629,12 @@ prefs_find_module_alias.exit.thread:              ; preds = %105, %prefs_find_mo
   br label %618
 
 211:                                              ; preds = %203
-  %212 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(7) @.str.638) #29
+  %212 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(7) @.str.638) #30
   %213 = icmp eq i32 %212, 0
   br i1 %213, label %214, label %219
 
 214:                                              ; preds = %211
-  %215 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(16) @.str.639) #29
+  %215 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(16) @.str.639) #30
   %216 = icmp eq i32 %215, 0
   br i1 %216, label %217, label %.thread410
 
@@ -8643,12 +8643,12 @@ prefs_find_module_alias.exit.thread:              ; preds = %105, %prefs_find_mo
   br label %618
 
 219:                                              ; preds = %211
-  %220 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(5) @.str.640) #29
+  %220 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(5) @.str.640) #30
   %221 = icmp eq i32 %220, 0
   br i1 %221, label %222, label %sub_0
 
 222:                                              ; preds = %219
-  %223 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(13) @.str.641) #29
+  %223 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(13) @.str.641) #30
   %224 = icmp eq i32 %223, 0
   br i1 %224, label %225, label %.thread410
 
@@ -8674,7 +8674,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %232, label %233, label %.tail.thread
 
 233:                                              ; preds = %.tail
-  %234 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(14) @.str.644) #29
+  %234 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(14) @.str.644) #30
   %235 = icmp eq i32 %234, 0
   br i1 %235, label %236, label %238
 
@@ -8683,7 +8683,7 @@ sub_1:                                            ; preds = %sub_0
   br label %618
 
 238:                                              ; preds = %233
-  %239 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(18) @.str.646) #29
+  %239 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(18) @.str.646) #30
   %240 = icmp eq i32 %239, 0
   br i1 %240, label %241, label %.thread410
 
@@ -8692,12 +8692,12 @@ sub_1:                                            ; preds = %sub_0
   br label %618
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
-  %243 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(5) @.str.648) #29
+  %243 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(5) @.str.648) #30
   %244 = icmp eq i32 %243, 0
   br i1 %244, label %245, label %255
 
 245:                                              ; preds = %.tail.thread
-  %246 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(24) @.str.649) #29
+  %246 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(24) @.str.649) #30
   %247 = icmp eq i32 %246, 0
   br i1 %247, label %248, label %250
 
@@ -8706,7 +8706,7 @@ sub_1:                                            ; preds = %sub_0
   br label %618
 
 250:                                              ; preds = %245
-  %251 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(10) @.str.650) #29
+  %251 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(10) @.str.650) #30
   %252 = icmp eq i32 %251, 0
   br i1 %252, label %253, label %.thread410
 
@@ -8715,12 +8715,12 @@ sub_1:                                            ; preds = %sub_0
   br label %618
 
 255:                                              ; preds = %.tail.thread
-  %256 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(4) @.str.652) #29
+  %256 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(4) @.str.652) #30
   %257 = icmp eq i32 %256, 0
   br i1 %257, label %258, label %sub_0416
 
 258:                                              ; preds = %255
-  %259 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(11) @.str.653) #29
+  %259 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(11) @.str.653) #30
   %260 = icmp eq i32 %259, 0
   br i1 %260, label %261, label %263
 
@@ -8729,7 +8729,7 @@ sub_1:                                            ; preds = %sub_0
   br label %618
 
 263:                                              ; preds = %258
-  %264 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(12) @.str.655) #29
+  %264 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(12) @.str.655) #30
   %265 = icmp eq i32 %264, 0
   br i1 %265, label %266, label %268
 
@@ -8738,7 +8738,7 @@ sub_1:                                            ; preds = %sub_0
   br label %618
 
 268:                                              ; preds = %263
-  %269 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(12) @.str.657) #29
+  %269 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(12) @.str.657) #30
   %270 = icmp eq i32 %269, 0
   br i1 %270, label %271, label %273
 
@@ -8747,7 +8747,7 @@ sub_1:                                            ; preds = %sub_0
   br label %618
 
 273:                                              ; preds = %268
-  %274 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(17) @.str.659) #29
+  %274 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(17) @.str.659) #30
   %275 = icmp eq i32 %274, 0
   br i1 %275, label %276, label %278
 
@@ -8756,7 +8756,7 @@ sub_1:                                            ; preds = %sub_0
   br label %618
 
 278:                                              ; preds = %273
-  %279 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(21) @.str.661) #29
+  %279 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(21) @.str.661) #30
   %280 = icmp eq i32 %279, 0
   br i1 %280, label %281, label %283
 
@@ -8765,7 +8765,7 @@ sub_1:                                            ; preds = %sub_0
   br label %618
 
 283:                                              ; preds = %278
-  %284 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(17) @.str.663) #29
+  %284 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(17) @.str.663) #30
   %285 = icmp eq i32 %284, 0
   br i1 %285, label %286, label %288
 
@@ -8774,7 +8774,7 @@ sub_1:                                            ; preds = %sub_0
   br label %618
 
 288:                                              ; preds = %283
-  %289 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(17) @.str.665) #29
+  %289 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(17) @.str.665) #30
   %290 = icmp eq i32 %289, 0
   br i1 %290, label %291, label %.thread410
 
@@ -8799,7 +8799,7 @@ sub_1417:                                         ; preds = %sub_0416
   br i1 %297, label %298, label %.tail415.thread
 
 298:                                              ; preds = %.tail415
-  %299 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(19) @.str.668) #29
+  %299 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(19) @.str.668) #30
   %300 = icmp eq i32 %299, 0
   br i1 %300, label %301, label %.thread410
 
@@ -8808,12 +8808,12 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 .tail415.thread:                                  ; preds = %sub_1417, %sub_0416, %.tail415
-  %303 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(6) @.str.670) #29
+  %303 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(6) @.str.670) #30
   %304 = icmp eq i32 %303, 0
   br i1 %304, label %305, label %310
 
 305:                                              ; preds = %.tail415.thread
-  %306 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(11) @.str.671) #29
+  %306 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(11) @.str.671) #30
   %307 = icmp eq i32 %306, 0
   br i1 %307, label %308, label %.thread410
 
@@ -8822,12 +8822,12 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 310:                                              ; preds = %.tail415.thread
-  %311 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(4) @.str.672) #29
+  %311 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(4) @.str.672) #30
   %312 = icmp eq i32 %311, 0
   br i1 %312, label %313, label %318
 
 313:                                              ; preds = %310
-  %314 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(12) @.str.673) #29
+  %314 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(12) @.str.673) #30
   %315 = icmp eq i32 %314, 0
   br i1 %315, label %316, label %.thread410
 
@@ -8836,12 +8836,12 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 318:                                              ; preds = %310
-  %319 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(5) @.str.675) #29
+  %319 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(5) @.str.675) #30
   %320 = icmp eq i32 %319, 0
   br i1 %320, label %321, label %331
 
 321:                                              ; preds = %318
-  %322 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(14) @.str.676) #29
+  %322 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(14) @.str.676) #30
   %323 = icmp eq i32 %322, 0
   br i1 %323, label %324, label %326
 
@@ -8850,7 +8850,7 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 326:                                              ; preds = %321
-  %327 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(16) @.str.678) #29
+  %327 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(16) @.str.678) #30
   %328 = icmp eq i32 %327, 0
   br i1 %328, label %329, label %.thread410
 
@@ -8859,12 +8859,12 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 331:                                              ; preds = %318
-  %332 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(4) @.str.680) #29
+  %332 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(4) @.str.680) #30
   %333 = icmp eq i32 %332, 0
   br i1 %333, label %334, label %339
 
 334:                                              ; preds = %331
-  %335 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(21) @.str.681) #29
+  %335 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(21) @.str.681) #30
   %336 = icmp eq i32 %335, 0
   br i1 %336, label %337, label %.thread410
 
@@ -8873,12 +8873,12 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 339:                                              ; preds = %331
-  %340 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(4) @.str.683) #29
+  %340 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(4) @.str.683) #30
   %341 = icmp eq i32 %340, 0
   br i1 %341, label %342, label %352
 
 342:                                              ; preds = %339
-  %343 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(8) @.str.684) #29
+  %343 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(8) @.str.684) #30
   %344 = icmp eq i32 %343, 0
   br i1 %344, label %345, label %347
 
@@ -8887,7 +8887,7 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 347:                                              ; preds = %342
-  %348 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(7) @.str.686) #29
+  %348 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(7) @.str.686) #30
   %349 = icmp eq i32 %348, 0
   br i1 %349, label %350, label %.thread410
 
@@ -8896,12 +8896,12 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 352:                                              ; preds = %339
-  %353 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(5) @.str.688) #29
+  %353 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(5) @.str.688) #30
   %354 = icmp eq i32 %353, 0
   br i1 %354, label %355, label %360
 
 355:                                              ; preds = %352
-  %356 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(20) @.str.689) #29
+  %356 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(20) @.str.689) #30
   %357 = icmp eq i32 %356, 0
   br i1 %357, label %358, label %.thread410
 
@@ -8910,12 +8910,12 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 360:                                              ; preds = %352
-  %361 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(4) @.str.691) #29
+  %361 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(4) @.str.691) #30
   %362 = icmp eq i32 %361, 0
   br i1 %362, label %363, label %383
 
 363:                                              ; preds = %360
-  %364 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(20) @.str.692) #29
+  %364 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(20) @.str.692) #30
   %365 = icmp eq i32 %364, 0
   br i1 %365, label %366, label %368
 
@@ -8924,7 +8924,7 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 368:                                              ; preds = %363
-  %369 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(29) @.str.693) #29
+  %369 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(29) @.str.693) #30
   %370 = icmp eq i32 %369, 0
   br i1 %370, label %371, label %373
 
@@ -8933,7 +8933,7 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 373:                                              ; preds = %368
-  %374 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(30) @.str.695) #29
+  %374 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(30) @.str.695) #30
   %375 = icmp eq i32 %374, 0
   br i1 %375, label %376, label %378
 
@@ -8942,7 +8942,7 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 378:                                              ; preds = %373
-  %379 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(40) @.str.697) #29
+  %379 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(40) @.str.697) #30
   %380 = icmp eq i32 %379, 0
   br i1 %380, label %381, label %.thread410
 
@@ -8951,12 +8951,12 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 383:                                              ; preds = %360
-  %384 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(4) @.str.699) #29
+  %384 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(4) @.str.699) #30
   %385 = icmp eq i32 %384, 0
   br i1 %385, label %386, label %391
 
 386:                                              ; preds = %383
-  %387 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(20) @.str.700) #29
+  %387 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(20) @.str.700) #30
   %388 = icmp eq i32 %387, 0
   br i1 %388, label %389, label %.thread410
 
@@ -8965,12 +8965,12 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 391:                                              ; preds = %383
-  %392 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(5) @.str.701) #29
+  %392 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(5) @.str.701) #30
   %393 = icmp eq i32 %392, 0
   br i1 %393, label %394, label %399
 
 394:                                              ; preds = %391
-  %395 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(15) @.str.702) #29
+  %395 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(15) @.str.702) #30
   %396 = icmp eq i32 %395, 0
   br i1 %396, label %397, label %.thread410
 
@@ -8979,12 +8979,12 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 399:                                              ; preds = %391
-  %400 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(5) @.str.704) #29
+  %400 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(5) @.str.704) #30
   %401 = icmp eq i32 %400, 0
   br i1 %401, label %402, label %412
 
 402:                                              ; preds = %399
-  %403 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(23) @.str.705) #29
+  %403 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(23) @.str.705) #30
   %404 = icmp eq i32 %403, 0
   br i1 %404, label %405, label %407
 
@@ -8993,7 +8993,7 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 407:                                              ; preds = %402
-  %408 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(20) @.str.707) #29
+  %408 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(20) @.str.707) #30
   %409 = icmp eq i32 %408, 0
   br i1 %409, label %410, label %.thread410
 
@@ -9002,7 +9002,7 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 412:                                              ; preds = %399
-  %413 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(5) @.str.709) #29
+  %413 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(5) @.str.709) #30
   %414 = icmp eq i32 %413, 0
   br i1 %414, label %415, label %428
 
@@ -9013,7 +9013,7 @@ sub_1417:                                         ; preds = %sub_0416
   br i1 %.not373, label %.thread410, label %418
 
 418:                                              ; preds = %415
-  %419 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(26) @.str.711) #29
+  %419 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(26) @.str.711) #30
   %420 = icmp eq i32 %419, 0
   br i1 %420, label %421, label %423
 
@@ -9023,7 +9023,7 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 423:                                              ; preds = %418
-  %424 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(25) @.str.712) #29
+  %424 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(25) @.str.712) #30
   %425 = icmp eq i32 %424, 0
   br i1 %425, label %426, label %.thread410
 
@@ -9033,12 +9033,12 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 428:                                              ; preds = %412
-  %429 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(5) @.str.713) #29
+  %429 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(5) @.str.713) #30
   %430 = icmp eq i32 %429, 0
   br i1 %430, label %431, label %446
 
 431:                                              ; preds = %428
-  %432 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(9) @.str.714) #29
+  %432 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(9) @.str.714) #30
   %433 = icmp eq i32 %432, 0
   br i1 %433, label %434, label %436
 
@@ -9047,7 +9047,7 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 436:                                              ; preds = %431
-  %437 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(9) @.str.637) #29
+  %437 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(9) @.str.637) #30
   %438 = icmp eq i32 %437, 0
   br i1 %438, label %439, label %441
 
@@ -9056,7 +9056,7 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 441:                                              ; preds = %436
-  %442 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(10) @.str.717) #29
+  %442 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(10) @.str.717) #30
   %443 = icmp eq i32 %442, 0
   br i1 %443, label %444, label %.thread410
 
@@ -9065,12 +9065,12 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 446:                                              ; preds = %428
-  %447 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(8) @.str.719) #29
+  %447 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(8) @.str.719) #30
   %448 = icmp eq i32 %447, 0
   br i1 %448, label %449, label %454
 
 449:                                              ; preds = %446
-  %450 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(18) @.str.720) #29
+  %450 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(18) @.str.720) #30
   %451 = icmp eq i32 %450, 0
   br i1 %451, label %452, label %.thread410
 
@@ -9079,43 +9079,43 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 454:                                              ; preds = %446
-  %455 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(4) @.str.722) #29
+  %455 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(4) @.str.722) #30
   %456 = icmp eq i32 %455, 0
   br i1 %456, label %457, label %540
 
 457:                                              ; preds = %454
-  %458 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(7) @.str.723) #29
+  %458 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(7) @.str.723) #30
   %459 = icmp eq i32 %458, 0
   br i1 %459, label %460, label %480
 
 460:                                              ; preds = %457
   %461 = call ptr @prefs_find_preference(ptr noundef %.0342, ptr noundef nonnull @.str.724)
-  %462 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(7) @.str.724) #29
+  %462 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(7) @.str.724) #30
   %463 = icmp eq i32 %462, 0
   br i1 %463, label %618, label %464
 
 464:                                              ; preds = %460
-  %465 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(18) @.str.725) #29
+  %465 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(18) @.str.725) #30
   %466 = icmp eq i32 %465, 0
   br i1 %466, label %618, label %467
 
 467:                                              ; preds = %464
-  %468 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(4) @.str.726) #29
+  %468 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(4) @.str.726) #30
   %469 = icmp eq i32 %468, 0
   br i1 %469, label %618, label %470
 
 470:                                              ; preds = %467
-  %471 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(9) @.str.727) #29
+  %471 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(9) @.str.727) #30
   %472 = icmp eq i32 %471, 0
   br i1 %472, label %618, label %473
 
 473:                                              ; preds = %470
-  %474 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(4) @.str.728) #29
+  %474 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(4) @.str.728) #30
   %475 = icmp eq i32 %474, 0
   br i1 %475, label %479, label %476
 
 476:                                              ; preds = %473
-  %477 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(9) @.str.729) #29
+  %477 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(9) @.str.729) #30
   %478 = icmp eq i32 %477, 0
   br i1 %478, label %479, label %618
 
@@ -9123,38 +9123,38 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 480:                                              ; preds = %457
-  %481 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(7) @.str.730) #29
+  %481 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(7) @.str.730) #30
   %482 = icmp eq i32 %481, 0
   br i1 %482, label %483, label %503
 
 483:                                              ; preds = %480
   %484 = call ptr @prefs_find_preference(ptr noundef %.0342, ptr noundef nonnull @.str.731)
-  %485 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(4) @.str.732) #29
+  %485 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(4) @.str.732) #30
   %486 = icmp eq i32 %485, 0
   br i1 %486, label %618, label %487
 
 487:                                              ; preds = %483
-  %488 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(4) @.str.733) #29
+  %488 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(4) @.str.733) #30
   %489 = icmp eq i32 %488, 0
   br i1 %489, label %618, label %490
 
 490:                                              ; preds = %487
-  %491 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(4) @.str.735) #29
+  %491 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(4) @.str.735) #30
   %492 = icmp eq i32 %491, 0
   br i1 %492, label %618, label %493
 
 493:                                              ; preds = %490
-  %494 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(4) @.str.736) #29
+  %494 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(4) @.str.736) #30
   %495 = icmp eq i32 %494, 0
   br i1 %495, label %618, label %496
 
 496:                                              ; preds = %493
-  %497 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(4) @.str.728) #29
+  %497 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(4) @.str.728) #30
   %498 = icmp eq i32 %497, 0
   br i1 %498, label %502, label %499
 
 499:                                              ; preds = %496
-  %500 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(9) @.str.729) #29
+  %500 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(9) @.str.729) #30
   %501 = icmp eq i32 %500, 0
   br i1 %501, label %502, label %618
 
@@ -9162,28 +9162,28 @@ sub_1417:                                         ; preds = %sub_0416
   br label %618
 
 503:                                              ; preds = %480
-  %504 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(8) @.str.737) #29
+  %504 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(8) @.str.737) #30
   %505 = icmp eq i32 %504, 0
   br i1 %505, label %506, label %.thread410
 
 506:                                              ; preds = %503
   %507 = call ptr @prefs_find_preference(ptr noundef %.0342, ptr noundef nonnull @.str.738)
-  %508 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(6) @.str.739) #29
+  %508 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(6) @.str.739) #30
   %509 = icmp eq i32 %508, 0
   br i1 %509, label %618, label %510
 
 510:                                              ; preds = %506
-  %511 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(11) @.str.740) #29
+  %511 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(11) @.str.740) #30
   %512 = icmp eq i32 %511, 0
   br i1 %512, label %618, label %513
 
 513:                                              ; preds = %510
-  %514 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(4) @.str.683) #29
+  %514 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(4) @.str.683) #30
   %515 = icmp eq i32 %514, 0
   br i1 %515, label %618, label %516
 
 516:                                              ; preds = %513
-  %517 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(11) @.str.741) #29
+  %517 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(11) @.str.741) #30
   %518 = icmp eq i32 %517, 0
   br i1 %518, label %618, label %sub_0421
 
@@ -9205,27 +9205,27 @@ sub_1422:                                         ; preds = %sub_0421
   br i1 %524, label %618, label %.tail420.thread
 
 .tail420.thread:                                  ; preds = %sub_1422, %sub_0421, %.tail420
-  %525 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(12) @.str.743) #29
+  %525 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(12) @.str.743) #30
   %526 = icmp eq i32 %525, 0
   br i1 %526, label %618, label %527
 
 527:                                              ; preds = %.tail420.thread
-  %528 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(5) @.str.745) #29
+  %528 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(5) @.str.745) #30
   %529 = icmp eq i32 %528, 0
   br i1 %529, label %618, label %530
 
 530:                                              ; preds = %527
-  %531 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(9) @.str.746) #29
+  %531 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(9) @.str.746) #30
   %532 = icmp eq i32 %531, 0
   br i1 %532, label %618, label %533
 
 533:                                              ; preds = %530
-  %534 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(4) @.str.728) #29
+  %534 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(4) @.str.728) #30
   %535 = icmp eq i32 %534, 0
   br i1 %535, label %539, label %536
 
 536:                                              ; preds = %533
-  %537 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(9) @.str.729) #29
+  %537 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(9) @.str.729) #30
   %538 = icmp eq i32 %537, 0
   br i1 %538, label %539, label %618
 
@@ -9233,12 +9233,12 @@ sub_1422:                                         ; preds = %sub_0421
   br label %618
 
 540:                                              ; preds = %454
-  %541 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(4) @.str.726) #29
+  %541 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(4) @.str.726) #30
   %542 = icmp eq i32 %541, 0
   br i1 %542, label %543, label %551
 
 543:                                              ; preds = %540
-  %544 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(15) @.str.747) #29
+  %544 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(15) @.str.747) #30
   %545 = icmp eq i32 %544, 0
   br i1 %545, label %546, label %.thread410
 
@@ -9254,12 +9254,12 @@ sub_1422:                                         ; preds = %sub_0421
   br label %618
 
 551:                                              ; preds = %540
-  %552 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(5) @.str.473) #29
+  %552 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(5) @.str.473) #30
   %553 = icmp eq i32 %552, 0
   br i1 %553, label %554, label %560
 
 554:                                              ; preds = %551
-  %555 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(16) @.str.382) #29
+  %555 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(16) @.str.382) #30
   %556 = icmp eq i32 %555, 0
   br i1 %556, label %557, label %.thread410
 
@@ -9269,12 +9269,12 @@ sub_1422:                                         ; preds = %sub_0421
   br label %618
 
 560:                                              ; preds = %551
-  %561 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(12) @.str.475) #29
+  %561 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(12) @.str.475) #30
   %562 = icmp eq i32 %561, 0
   br i1 %562, label %563, label %569
 
 563:                                              ; preds = %560
-  %564 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(27) @.str.449) #29
+  %564 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(27) @.str.449) #30
   %565 = icmp eq i32 %564, 0
   br i1 %565, label %566, label %.thread410
 
@@ -9284,27 +9284,27 @@ sub_1422:                                         ; preds = %sub_0421
   br label %618
 
 569:                                              ; preds = %560
-  %570 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(7) @.str.477) #29
+  %570 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(7) @.str.477) #30
   %571 = icmp eq i32 %570, 0
   br i1 %571, label %572, label %587
 
 572:                                              ; preds = %569
-  %573 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(10) @.str.749) #29
+  %573 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(10) @.str.749) #30
   %574 = icmp eq i32 %573, 0
   br i1 %574, label %584, label %575
 
 575:                                              ; preds = %572
-  %576 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(10) @.str.750) #29
+  %576 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(10) @.str.750) #30
   %577 = icmp eq i32 %576, 0
   br i1 %577, label %584, label %578
 
 578:                                              ; preds = %575
-  %579 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(10) @.str.751) #29
+  %579 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(10) @.str.751) #30
   %580 = icmp eq i32 %579, 0
   br i1 %580, label %584, label %581
 
 581:                                              ; preds = %578
-  %582 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(10) @.str.752) #29
+  %582 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(10) @.str.752) #30
   %583 = icmp eq i32 %582, 0
   br i1 %583, label %584, label %.thread410
 
@@ -9314,12 +9314,12 @@ sub_1422:                                         ; preds = %sub_0421
   br label %618
 
 587:                                              ; preds = %569
-  %588 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(8) @.str.398) #29
+  %588 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(8) @.str.398) #30
   %589 = icmp eq i32 %588, 0
   br i1 %589, label %590, label %608
 
 590:                                              ; preds = %587
-  %591 = call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(25) @.str.609) #29
+  %591 = call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(25) @.str.609) #30
   %592 = icmp eq i32 %591, 0
   br i1 %592, label %593, label %596
 
@@ -9329,7 +9329,7 @@ sub_1422:                                         ; preds = %sub_0421
   br label %618
 
 596:                                              ; preds = %590
-  %597 = call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(30) @.str.610) #29
+  %597 = call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(30) @.str.610) #30
   %598 = icmp eq i32 %597, 0
   br i1 %598, label %599, label %602
 
@@ -9339,7 +9339,7 @@ sub_1422:                                         ; preds = %sub_0421
   br label %618
 
 602:                                              ; preds = %596
-  %603 = call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(33) @.str.611) #29
+  %603 = call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(33) @.str.611) #30
   %604 = icmp eq i32 %603, 0
   br i1 %604, label %605, label %.thread410
 
@@ -9349,12 +9349,12 @@ sub_1422:                                         ; preds = %sub_0421
   br label %618
 
 608:                                              ; preds = %587
-  %609 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(7) @.str.86) #29
+  %609 = call i32 @strcmp(ptr noundef %135, ptr noundef nonnull dereferenceable(7) @.str.86) #30
   %610 = icmp eq i32 %609, 0
   br i1 %610, label %611, label %.thread410
 
 611:                                              ; preds = %608
-  %612 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(19) @.str.755) #29
+  %612 = call i32 @strcmp(ptr noundef %.0339, ptr noundef nonnull dereferenceable(19) @.str.755) #30
   %613 = icmp eq i32 %612, 0
   br i1 %613, label %614, label %.thread410
 
@@ -9375,7 +9375,7 @@ sub_1422:                                         ; preds = %sub_0421
 
 .thread410:                                       ; preds = %546, %415, %423, %608, %611, %602, %581, %563, %554, %543, %503, %449, %441, %407, %394, %386, %378, %355, %347, %334, %326, %313, %305, %298, %288, %250, %238, %222, %214, %206, %198, %190, %182, %161, %170, %157, %618
   %620 = load ptr, ptr %.0342, align 8
-  %621 = call i32 @strcmp(ptr noundef %620, ptr noundef nonnull dereferenceable(7) @.str.86) #29
+  %621 = call i32 @strcmp(ptr noundef %620, ptr noundef nonnull dereferenceable(7) @.str.86) #30
   %622 = icmp eq i32 %621, 0
   br i1 %622, label %623, label %628
 
@@ -9837,7 +9837,7 @@ init_prefs.exit:                                  ; preds = %0, %1
   br i1 %7, label %8, label %.thread29
 
 8:                                                ; preds = %4
-  %9 = tail call ptr @__errno_location() #30
+  %9 = tail call ptr @__errno_location() #31
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 2
   br i1 %11, label %12, label %.thread
@@ -9856,7 +9856,7 @@ init_prefs.exit:                                  ; preds = %0, %1
   br i1 %.not, label %..thread_crit_edge, label %.thread29
 
 ..thread_crit_edge:                               ; preds = %15
-  %.pre = tail call ptr @__errno_location() #30
+  %.pre = tail call ptr @__errno_location() #31
   %.pr = load i32, ptr %.pre, align 4
   br label %.thread
 
@@ -9871,7 +9871,7 @@ init_prefs.exit:                                  ; preds = %0, %1
 
 19:                                               ; preds = %.thread29
   %20 = load ptr, ptr @gpf_path, align 8
-  %21 = tail call ptr @g_strerror(i32 noundef %18) #30
+  %21 = tail call ptr @g_strerror(i32 noundef %18) #31
   tail call void (ptr, ...) @report_warning(ptr noundef nonnull @.str.18, ptr noundef %20, ptr noundef %21)
   br label %22
 
@@ -9888,7 +9888,7 @@ init_prefs.exit:                                  ; preds = %0, %1
 
 25:                                               ; preds = %.thread
   %26 = load ptr, ptr @gpf_path, align 8
-  %27 = tail call ptr @g_strerror(i32 noundef %24) #30
+  %27 = tail call ptr @g_strerror(i32 noundef %24) #31
   tail call void (ptr, ...) @report_warning(ptr noundef nonnull @.str.19, ptr noundef %26, ptr noundef %27)
   br label %28
 
@@ -9906,7 +9906,7 @@ init_prefs.exit:                                  ; preds = %0, %1
   br i1 %.not26, label %35, label %33
 
 33:                                               ; preds = %31
-  %34 = tail call ptr @g_strerror(i32 noundef %32) #30
+  %34 = tail call ptr @g_strerror(i32 noundef %32) #31
   tail call void (ptr, ...) @report_warning(ptr noundef nonnull @.str.15, ptr noundef %29, ptr noundef %34)
   br label %36
 
@@ -9919,13 +9919,13 @@ init_prefs.exit:                                  ; preds = %0, %1
   br label %44
 
 38:                                               ; preds = %28
-  %39 = tail call ptr @__errno_location() #30
+  %39 = tail call ptr @__errno_location() #31
   %40 = load i32, ptr %39, align 4
   %.not25 = icmp eq i32 %40, 2
   br i1 %.not25, label %43, label %41
 
 41:                                               ; preds = %38
-  %42 = tail call ptr @g_strerror(i32 noundef %40) #30
+  %42 = tail call ptr @g_strerror(i32 noundef %40) #31
   tail call void (ptr, ...) @report_warning(ptr noundef nonnull @.str.16, ptr noundef %29, ptr noundef %42)
   br label %44
 
@@ -9973,7 +9973,7 @@ define i32 @prefs_set_pref(ptr noundef %0, ptr noundef initializes((0, 8)) %1) l
   store i32 -1, ptr @mgcp_tcp_port_count, align 4
   store i32 -1, ptr @mgcp_udp_port_count, align 4
   store ptr null, ptr %1, align 8
-  %3 = tail call ptr @strchr(ptr noundef %0, i32 noundef 58) #29
+  %3 = tail call ptr @strchr(ptr noundef %0, i32 noundef 58) #30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %39, label %5
 
@@ -9994,7 +9994,7 @@ define i32 @prefs_set_pref(ptr noundef %0, ptr noundef initializes((0, 8)) %1) l
   br i1 %.not, label %13, label %7, !llvm.loop !38
 
 13:                                               ; preds = %7
-  %14 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(4) @.str.29) #29
+  %14 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(4) @.str.29) #30
   %.not17 = icmp eq i32 %14, 0
   br i1 %.not17, label %17, label %15
 
@@ -10003,7 +10003,7 @@ define i32 @prefs_set_pref(ptr noundef %0, ptr noundef initializes((0, 8)) %1) l
   br label %prefs_set_uat_pref.exit
 
 17:                                               ; preds = %13
-  %18 = tail call ptr @strchr(ptr noundef %.015, i32 noundef 58) #29
+  %18 = tail call ptr @strchr(ptr noundef %.015, i32 noundef 58) #30
   %19 = icmp eq ptr %18, null
   br i1 %19, label %prefs_set_uat_pref.exit, label %20
 
@@ -10079,7 +10079,7 @@ define i32 @prefs_get_uint_value(ptr noundef readonly captures(none) %0, i32 nou
   br label %11
 
 10:                                               ; preds = %2
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 5119, ptr noundef nonnull @__func__.prefs_get_uint_value, ptr noundef nonnull @.str.8) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 5119, ptr noundef nonnull @__func__.prefs_get_uint_value, ptr noundef nonnull @.str.8) #27
   unreachable
 
 11:                                               ; preds = %7, %5, %3
@@ -10110,7 +10110,7 @@ define ptr @prefs_get_password_value(ptr noundef readonly captures(none) %0, i32
   br label %prefs_get_string_value.exit
 
 10:                                               ; preds = %2
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1545, ptr noundef nonnull @__func__.prefs_get_string_value, ptr noundef nonnull @.str.8) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1545, ptr noundef nonnull @__func__.prefs_get_string_value, ptr noundef nonnull @.str.8) #27
   unreachable
 
 prefs_get_string_value.exit:                      ; preds = %3, %5, %7
@@ -10162,7 +10162,7 @@ define i32 @prefs_set_uint_value(ptr noundef captures(address_is_null) %0, i32 n
   br i1 %19, label %prefs_get_effect_flags.exit, label %prefs_get_effect_flags.exit.sink.split
 
 20:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 5156, ptr noundef nonnull @__func__.prefs_set_uint_value, ptr noundef nonnull @.str.8) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 5156, ptr noundef nonnull @__func__.prefs_set_uint_value, ptr noundef nonnull @.str.8) #27
   unreachable
 
 prefs_get_effect_flags.exit.sink.split:           ; preds = %18, %12, %7
@@ -10198,24 +10198,24 @@ define noundef zeroext i1 @prefs_is_capture_device_hidden(ptr noundef readonly c
 
 5:                                                ; preds = %1
   %6 = tail call noalias ptr @g_strdup(ptr noundef nonnull %2)
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
-  %8 = tail call ptr @strtok(ptr noundef %6, ptr noundef nonnull @.str.30) #25
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #30
+  %8 = tail call ptr @strtok(ptr noundef %6, ptr noundef nonnull @.str.30) #26
   %.not14 = icmp eq ptr %8, null
   br i1 %.not14, label %.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %14
   %.01115 = phi ptr [ %15, %14 ], [ %8, %5 ]
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01115) #29
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01115) #30
   %10 = icmp eq i64 %9, %7
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %.lr.ph
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %.01115) #29
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %.01115) #30
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.sink.split, label %14
 
 14:                                               ; preds = %.lr.ph, %11
-  %15 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.30) #25
+  %15 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.30) #26
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %.sink.split, label %.lr.ph, !llvm.loop !40
 
@@ -10242,24 +10242,24 @@ define noundef zeroext i1 @prefs_capture_device_monitor_mode(ptr noundef readonl
 
 5:                                                ; preds = %1
   %6 = tail call noalias ptr @g_strdup(ptr noundef nonnull %2)
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
-  %8 = tail call ptr @strtok(ptr noundef %6, ptr noundef nonnull @.str.30) #25
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #30
+  %8 = tail call ptr @strtok(ptr noundef %6, ptr noundef nonnull @.str.30) #26
   %.not14 = icmp eq ptr %8, null
   br i1 %.not14, label %.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %14
   %.01115 = phi ptr [ %15, %14 ], [ %8, %5 ]
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01115) #29
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01115) #30
   %10 = icmp eq i64 %9, %7
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %.lr.ph
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %.01115) #29
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %.01115) #30
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.sink.split, label %14
 
 14:                                               ; preds = %.lr.ph, %11
-  %15 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.30) #25
+  %15 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.30) #26
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %.sink.split, label %.lr.ph, !llvm.loop !41
 
@@ -10326,7 +10326,7 @@ define zeroext i1 @prefs_has_layout_pane_content(i32 noundef %0) local_unnamed_a
 
 ; Function Attrs: nofree norecurse nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable
 define signext range(i8 111, 109) i8 @string_to_name_resolve(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #15 {
-  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(9) %1, i8 noundef 0, i64 noundef 9, i1 noundef false) #25
+  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(9) %1, i8 noundef 0, i64 noundef 9, i1 noundef false) #26
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -10543,7 +10543,7 @@ prefs_find_preference.exit:                       ; preds = %6, %15
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %19, align 8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 6592, ptr noundef nonnull @__func__.prefs_set_effect_flags, ptr noundef nonnull @.str.49, ptr noundef %23) #26
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 6592, ptr noundef nonnull @__func__.prefs_set_effect_flags, ptr noundef nonnull @.str.49, ptr noundef %23) #27
   unreachable
 
 24:                                               ; preds = %20
@@ -10581,7 +10581,7 @@ define void @prefs_set_module_effect_flags(ptr noundef captures(address_is_null)
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 6618, ptr noundef nonnull @__func__.prefs_set_module_effect_flags, ptr noundef nonnull @.str.50, ptr noundef %6) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 6618, ptr noundef nonnull @__func__.prefs_set_module_effect_flags, ptr noundef nonnull @.str.50, ptr noundef %6) #27
   unreachable
 
 7:                                                ; preds = %3
@@ -11097,7 +11097,7 @@ init_prefs.exit:                                  ; preds = %1, %5
 
 10:                                               ; preds = %6
   store ptr %7, ptr %0, align 8
-  %11 = tail call ptr @__errno_location() #30
+  %11 = tail call ptr @__errno_location() #31
   %12 = load i32, ptr %11, align 4
   br label %56
 
@@ -11146,13 +11146,13 @@ init_prefs.exit:                                  ; preds = %1, %5
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %30
-  %35 = tail call ptr @__errno_location() #30
+  %35 = tail call ptr @__errno_location() #31
   %36 = load i32, ptr %35, align 4
   %.not25 = icmp eq i32 %36, 21
   br i1 %.not25, label %39, label %37
 
 37:                                               ; preds = %34
-  %38 = call ptr @g_strerror(i32 noundef %36) #30
+  %38 = call ptr @g_strerror(i32 noundef %36) #31
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 7204, ptr noundef nonnull @__func__.write_prefs, ptr noundef nonnull @.str.88, ptr noundef %31, ptr noundef %38)
   br label %39
 
@@ -11380,7 +11380,7 @@ define internal void @free_pref(ptr noundef %0, ptr readnone captures(none) %1) 
 
 25:                                               ; preds = %.split
   %26 = load ptr, ptr %0, align 8
-  %27 = tail call i32 @strcmp(ptr noundef %26, ptr noundef nonnull dereferenceable(8) @.str.91) #29
+  %27 = tail call i32 @strcmp(ptr noundef %26, ptr noundef nonnull dereferenceable(8) @.str.91) #30
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %31
 
@@ -11446,7 +11446,7 @@ define internal fastcc ptr @prefs_register_module_or_subtree(ptr noundef %0, ptr
 21:                                               ; preds = %8
   %22 = zext i1 %7 to i8
   %23 = tail call ptr @wmem_epan_scope()
-  %24 = tail call noalias dereferenceable_or_null(80) ptr @wmem_alloc(ptr noundef %23, i64 noundef 80) #27
+  %24 = tail call noalias dereferenceable_or_null(80) ptr @wmem_alloc(ptr noundef %23, i64 noundef 80) #28
   store ptr %1, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %2, ptr %25, align 8
@@ -11475,7 +11475,7 @@ define internal fastcc ptr @prefs_register_module_or_subtree(ptr noundef %0, ptr
   br i1 %.not55, label %37, label %36
 
 36:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 536, ptr noundef nonnull @__func__.prefs_register_module_or_subtree, ptr noundef nonnull @.str.92, ptr noundef nonnull %1) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 536, ptr noundef nonnull @__func__.prefs_register_module_or_subtree, ptr noundef nonnull @.str.92, ptr noundef nonnull %1) #27
   unreachable
 
 37:                                               ; preds = %34
@@ -11485,7 +11485,7 @@ define internal fastcc ptr @prefs_register_module_or_subtree(ptr noundef %0, ptr
   br i1 %.not56, label %41, label %40
 
 40:                                               ; preds = %37
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 552, ptr noundef nonnull @__func__.prefs_register_module_or_subtree, ptr noundef nonnull @.str.93, ptr noundef nonnull %1) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 552, ptr noundef nonnull @__func__.prefs_register_module_or_subtree, ptr noundef nonnull @.str.93, ptr noundef nonnull %1) #27
   unreachable
 
 41:                                               ; preds = %37
@@ -11497,7 +11497,7 @@ define internal fastcc ptr @prefs_register_module_or_subtree(ptr noundef %0, ptr
   br i1 %5, label %45, label %44
 
 44:                                               ; preds = %43
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 564, ptr noundef nonnull @__func__.prefs_register_module_or_subtree, ptr noundef nonnull @.str.94) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 564, ptr noundef nonnull @__func__.prefs_register_module_or_subtree, ptr noundef nonnull @.str.94) #27
   unreachable
 
 45:                                               ; preds = %43, %41
@@ -11571,7 +11571,7 @@ declare ptr @g_list_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @preference_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = tail call i32 @strcmp(ptr noundef %1, ptr noundef %3) #29
+  %4 = tail call i32 @strcmp(ptr noundef %1, ptr noundef %3) #30
   ret i32 %4
 }
 
@@ -11688,7 +11688,7 @@ define internal noundef i32 @column_hidden_set_cb(ptr noundef readonly captures(
   br i1 %.not.i, label %15, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef %1) #29
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef %1) #30
   %.not34.i = icmp eq i32 %9, 0
   br i1 %.not34.i, label %prefs_set_string_value.exit, label %10
 
@@ -11920,7 +11920,7 @@ define internal noundef i32 @column_hidden_fmt_set_cb(ptr noundef readonly captu
   br i1 %.not.i, label %15, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef %1) #29
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef %1) #30
   %.not34.i = icmp eq i32 %9, 0
   br i1 %.not34.i, label %prefs_set_string_value.exit, label %10
 
@@ -12223,7 +12223,7 @@ free_col_info.exit:                               ; preds = %.lr.ph.i, %1
 .lr.ph:                                           ; preds = %free_col_info.exit, %30
   %.042 = phi ptr [ %.0, %30 ], [ %.040, %free_col_info.exit ]
   %14 = load ptr, ptr %.042, align 8
-  %15 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #28
+  %15 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #29
   %16 = load ptr, ptr %14, align 8
   %17 = tail call noalias ptr @g_strdup(ptr noundef %16)
   store ptr %17, ptr %15, align 8
@@ -12541,7 +12541,7 @@ prefs_find_preference.exit70:                     ; preds = %75, %84, %87, %.thr
 98:                                               ; preds = %.lr.ph77, %114
   %.25276 = phi ptr [ %96, %.lr.ph77 ], [ %117, %114 ]
   %.05475 = phi i32 [ 1, %.lr.ph77 ], [ %122, %114 ]
-  %99 = call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #28
+  %99 = call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #29
   %100 = load ptr, ptr %.25276, align 8
   %101 = call noalias ptr @g_strdup(ptr noundef %100)
   store ptr %101, ptr %99, align 8
@@ -12826,7 +12826,7 @@ define internal noundef i32 @colorized_frame_set_cb(ptr noundef readonly capture
   br i1 %.not.i, label %14, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef %1) #29
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef %1) #30
   %.not34.i = icmp eq i32 %8, 0
   br i1 %.not34.i, label %prefs_set_string_value.exit, label %9
 
@@ -13010,7 +13010,7 @@ capture_column_free_cb.exit:                      ; preds = %6, %11
   %indvars.iv51 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next52, %24 ]
   %26 = getelementptr ptr, ptr @capture_cols, i64 %indvars.iv51
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 @strcmp(ptr noundef %23, ptr noundef %27) #29
+  %28 = tail call i32 @strcmp(ptr noundef %23, ptr noundef %27) #30
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %35, label %24
 
@@ -13095,7 +13095,7 @@ define internal zeroext i1 @capture_column_is_default_cb(ptr noundef readonly ca
   %.01526 = phi ptr [ %15, %13 ], [ %3, %1 ]
   %10 = load ptr, ptr %.01526, align 8
   %11 = load ptr, ptr %.01427, align 8
-  %12 = tail call i32 @strcmp(ptr noundef %10, ptr noundef %11) #29
+  %12 = tail call i32 @strcmp(ptr noundef %10, ptr noundef %11) #30
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %.thread17
 
@@ -13214,7 +13214,7 @@ define internal fastcc noundef zeroext i1 @prefs_is_column_visible(ptr noundef %
 
 4:                                                ; preds = %2
   %5 = tail call noalias ptr @g_strdup(ptr noundef nonnull %0)
-  %6 = tail call ptr @strtok(ptr noundef %5, ptr noundef nonnull @.str.30) #25
+  %6 = tail call ptr @strtok(ptr noundef %5, ptr noundef nonnull @.str.30) #26
   %.not1417 = icmp eq ptr %6, null
   br i1 %.not1417, label %.sink.split, label %.lr.ph
 
@@ -13222,7 +13222,7 @@ define internal fastcc noundef zeroext i1 @prefs_is_column_visible(ptr noundef %
   %.01118 = phi ptr [ %16, %15 ], [ %6, %4 ]
   %7 = tail call ptr @g_strchug(ptr noundef nonnull %.01118)
   %8 = tail call ptr @g_strchomp(ptr noundef %7)
-  %9 = call i64 @strtol(ptr noundef %8, ptr noundef nonnull %3, i32 noundef 10) #25
+  %9 = call i64 @strtol(ptr noundef %8, ptr noundef nonnull %3, i32 noundef 10) #26
   %10 = load ptr, ptr %3, align 8
   %11 = icmp eq ptr %10, %8
   br i1 %11, label %15, label %12
@@ -13236,7 +13236,7 @@ define internal fastcc noundef zeroext i1 @prefs_is_column_visible(ptr noundef %
   br i1 %or.cond, label %.sink.split, label %15
 
 15:                                               ; preds = %.lr.ph, %12
-  %16 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.30) #25
+  %16 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.30) #26
   %.not14 = icmp eq ptr %16, null
   br i1 %.not14, label %.sink.split, label %.lr.ph, !llvm.loop !62
 
@@ -13272,7 +13272,7 @@ define internal fastcc noundef zeroext i1 @prefs_is_column_fmt_visible(ptr nound
 
 4:                                                ; preds = %2
   %5 = tail call noalias ptr @g_strdup(ptr noundef nonnull %0)
-  %6 = tail call ptr @strtok(ptr noundef %5, ptr noundef nonnull @.str.30) #25
+  %6 = tail call ptr @strtok(ptr noundef %5, ptr noundef nonnull @.str.30) #26
   %.not2126 = icmp eq ptr %6, null
   br i1 %.not2126, label %.sink.split34, label %.lr.ph
 
@@ -13315,7 +13315,7 @@ define internal fastcc noundef zeroext i1 @prefs_is_column_fmt_visible(ptr nound
   br i1 %.not23, label %33, label %28
 
 28:                                               ; preds = %26
-  %29 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %24) #29
+  %29 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %24) #30
   %.not24 = icmp eq i32 %29, 0
   br i1 %.not24, label %30, label %.sink.split
 
@@ -13336,7 +13336,7 @@ define internal fastcc noundef zeroext i1 @prefs_is_column_fmt_visible(ptr nound
   br label %34
 
 34:                                               ; preds = %.sink.split, %13
-  %35 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.30) #25
+  %35 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.30) #26
   %.not21 = icmp eq ptr %35, null
   br i1 %.not21, label %.sink.split34, label %13, !llvm.loop !63
 
@@ -13628,7 +13628,7 @@ prefs_pref_type_name.exit:                        ; preds = %36, %.split.i, %42,
   %indvars.iv168 = phi i64 [ %indvars.iv.next169, %66 ], [ 0, %.loopexit149.preheader ]
   %67 = getelementptr %struct.port_pref_name, ptr @__const.deprecated_port_pref.port_prefs, i64 %indvars.iv168
   %68 = load ptr, ptr %67, align 16
-  %69 = call i32 @strcmp(ptr noundef %0, ptr noundef %68) #29
+  %69 = call i32 @strcmp(ptr noundef %0, ptr noundef %68) #30
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %66
 
@@ -13744,7 +13744,7 @@ thread-pre-split:                                 ; preds = %prefs_find_preferen
   %indvars.iv172 = phi i64 [ %indvars.iv.next173, %124 ], [ 0, %66 ]
   %125 = getelementptr %struct.port_pref_name, ptr @__const.deprecated_port_pref.port_range_prefs, i64 %indvars.iv172
   %126 = load ptr, ptr %125, align 16
-  %127 = call i32 @strcmp(ptr noundef %0, ptr noundef %126) #29
+  %127 = call i32 @strcmp(ptr noundef %0, ptr noundef %126) #30
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %129, label %124
 
@@ -13763,7 +13763,7 @@ thread-pre-split:                                 ; preds = %prefs_find_preferen
 
 136:                                              ; preds = %133
   %137 = call ptr @get_dissector_table_ui_name(ptr noundef %131)
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 5793, ptr noundef nonnull @__func__.deprecated_port_pref, ptr noundef nonnull @.str.1058, ptr noundef %131, ptr noundef %137) #26
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 5793, ptr noundef nonnull @__func__.deprecated_port_pref, ptr noundef nonnull @.str.1058, ptr noundef %131, ptr noundef %137) #27
   unreachable
 
 138:                                              ; preds = %133
@@ -13892,7 +13892,7 @@ prefs_find_preference.exit138:                    ; preds = %144, %153
   %indvars.iv176 = phi i64 [ %indvars.iv.next177, %201 ], [ 0, %124 ]
   %202 = getelementptr %struct.port_pref_name, ptr @__const.deprecated_port_pref.tpkt_subdissector_port_prefs, i64 %indvars.iv176
   %203 = load ptr, ptr %202, align 16
-  %204 = call i32 @strcmp(ptr noundef %0, ptr noundef %203) #29
+  %204 = call i32 @strcmp(ptr noundef %0, ptr noundef %203) #30
   %205 = icmp eq i32 %204, 0
   br i1 %205, label %206, label %201
 
@@ -13921,7 +13921,7 @@ prefs_find_preference.exit138:                    ; preds = %144, %153
   %indvars.iv180 = phi i64 [ %indvars.iv.next181, %.preheader145 ], [ 0, %201 ]
   %214 = getelementptr %struct.obsolete_pref_name, ptr @__const.deprecated_port_pref.obsolete_prefs, i64 %indvars.iv180
   %215 = load ptr, ptr %214, align 8
-  %216 = call i32 @strcmp(ptr noundef %0, ptr noundef %215) #29
+  %216 = call i32 @strcmp(ptr noundef %0, ptr noundef %215) #30
   %217 = icmp eq i32 %216, 0
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next181, 6
@@ -14182,19 +14182,19 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #22
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #23
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #23
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #24
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #25
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #22
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -14219,15 +14219,16 @@ attributes #18 = { mustprogress nofree norecurse nosync nounwind null_pointer_is
 attributes #19 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #23 = { nofree nounwind }
-attributes #24 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #25 = { nounwind }
-attributes #26 = { noreturn }
-attributes #27 = { allocsize(1) }
-attributes #28 = { allocsize(0) }
-attributes #29 = { nounwind willreturn memory(read) }
-attributes #30 = { nounwind willreturn memory(none) }
+attributes #22 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nofree nounwind }
+attributes #25 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #26 = { nounwind }
+attributes #27 = { noreturn }
+attributes #28 = { allocsize(1) }
+attributes #29 = { allocsize(0) }
+attributes #30 = { nounwind willreturn memory(read) }
+attributes #31 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

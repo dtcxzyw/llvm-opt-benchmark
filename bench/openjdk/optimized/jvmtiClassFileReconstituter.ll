@@ -158,19 +158,19 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   br label %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
 
 _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %2, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
-  %33 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN18constantPoolHandleaSERKS_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3) #12
-  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
-  %34 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 2056, i8 noundef zeroext 11, i32 noundef 0) #12
+  %33 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN18constantPoolHandleaSERKS_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3) #13
+  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
+  %34 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 2056, i8 noundef zeroext 11, i32 noundef 0) #13
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2056) %34, i8 0, i64 2056, i1 false)
   store ptr %34, ptr %35, align 8
-  %36 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 2056, i8 noundef zeroext 11, i32 noundef 0) #12
+  %36 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 2056, i8 noundef zeroext 11, i32 noundef 0) #13
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2056) %36, i8 0, i64 2056, i1 false)
   store ptr %36, ptr %37, align 8
   %38 = load ptr, ptr %4, align 8
   %39 = load ptr, ptr %35, align 8
-  %40 = call noundef i32 @_ZN12ConstantPool15hash_entries_toEPNS_10SymbolHashES1_(ptr noundef nonnull align 8 dereferenceable(68) %38, ptr noundef %39, ptr noundef nonnull %36) #12
+  %40 = call noundef i32 @_ZN12ConstantPool15hash_entries_toEPNS_10SymbolHashES1_(ptr noundef nonnull align 8 dereferenceable(68) %38, ptr noundef %39, ptr noundef nonnull %36) #13
   store i32 %40, ptr %0, align 8
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.sink.split, label %42
@@ -204,7 +204,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter17write_field_infosEv(ptr no
   %3 = alloca %class.JavaFieldStream, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
-  call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef %5) #12
+  call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef %5) #13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 200
@@ -278,7 +278,7 @@ _ZNK13InstanceKlass17java_fields_countEv.exit:    ; preds = %.lr.ph.i.i.i.i.i, %
   %53 = shl i64 %51, 1
   %54 = add i64 %53, 3
   %55 = and i64 %54, -1024
-  %56 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %45, i64 noundef %51, i64 noundef %55, i32 noundef 0) #12
+  %56 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %45, i64 noundef %51, i64 noundef %55, i32 noundef 0) #13
   store ptr %56, ptr %44, align 8
   store i64 %55, ptr %50, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 %48
@@ -370,10 +370,10 @@ _ZN15JavaFieldStreamC2EPK13InstanceKlass.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
 
 ._crit_edge:                                      ; preds = %264, %_ZN15FieldStreamBase4nextEv.exit, %_ZN15JavaFieldStreamC2EPK13InstanceKlass.exit
   %108 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %108) #12
+  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %108) #13
   %109 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %109) #12
-  call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #12
+  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %109) #13
+  call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #13
   ret void
 
 110:                                              ; preds = %.lr.ph, %_ZN15FieldStreamBase4nextEv.exit
@@ -390,7 +390,7 @@ _ZN15JavaFieldStreamC2EPK13InstanceKlass.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
 117:                                              ; preds = %110
   %118 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %118, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 74, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 74, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #14
   unreachable
 
 119:                                              ; preds = %110
@@ -435,7 +435,7 @@ _ZN15JavaFieldStreamC2EPK13InstanceKlass.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
   %144 = shl i64 %142, 1
   %145 = add i64 %144, 3
   %146 = and i64 %145, -1024
-  %147 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %137, i64 noundef %142, i64 noundef %146, i32 noundef 0) #12
+  %147 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %137, i64 noundef %142, i64 noundef %146, i32 noundef 0) #13
   store ptr %147, ptr %44, align 8
   store i64 %146, ptr %50, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 %140
@@ -475,7 +475,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit42: ; preds = %154, %155
   %164 = shl i64 %162, 1
   %165 = add i64 %164, 3
   %166 = and i64 %165, -1024
-  %167 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %157, i64 noundef %162, i64 noundef %166, i32 noundef 0) #12
+  %167 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %157, i64 noundef %162, i64 noundef %166, i32 noundef 0) #13
   store ptr %167, ptr %44, align 8
   store i64 %166, ptr %50, align 8
   %168 = getelementptr inbounds i8, ptr %167, i64 %160
@@ -515,7 +515,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit47: ; preds = %174, %175
   %184 = shl i64 %182, 1
   %185 = add i64 %184, 3
   %186 = and i64 %185, -1024
-  %187 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %177, i64 noundef %182, i64 noundef %186, i32 noundef 0) #12
+  %187 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %177, i64 noundef %182, i64 noundef %186, i32 noundef 0) #13
   store ptr %187, ptr %44, align 8
   store i64 %186, ptr %50, align 8
   %188 = getelementptr inbounds i8, ptr %187, i64 %180
@@ -566,7 +566,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit52: ; preds = %194, %195
   %207 = shl i64 %205, 1
   %208 = add i64 %207, 3
   %209 = and i64 %208, -1024
-  %210 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %200, i64 noundef %205, i64 noundef %209, i32 noundef 0) #12
+  %210 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %200, i64 noundef %205, i64 noundef %209, i32 noundef 0) #13
   store ptr %210, ptr %44, align 8
   store i64 %209, ptr %50, align 8
   %211 = getelementptr inbounds i8, ptr %210, i64 %203
@@ -610,7 +610,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit57: ; preds = %217, %218
   %228 = shl i64 %226, 1
   %229 = add i64 %228, 5
   %230 = and i64 %229, -1024
-  %231 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %221, i64 noundef %226, i64 noundef %230, i32 noundef 0) #12
+  %231 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %221, i64 noundef %226, i64 noundef %230, i32 noundef 0) #13
   store ptr %231, ptr %44, align 8
   store i64 %230, ptr %50, align 8
   %232 = getelementptr inbounds i8, ptr %231, i64 %224
@@ -649,7 +649,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %237, %238
   %247 = shl i64 %245, 1
   %248 = add i64 %247, 3
   %249 = and i64 %248, -1024
-  %250 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %240, i64 noundef %245, i64 noundef %249, i32 noundef 0) #12
+  %250 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %240, i64 noundef %245, i64 noundef %249, i32 noundef 0) #13
   store ptr %250, ptr %44, align 8
   store i64 %249, ptr %50, align 8
   %251 = getelementptr inbounds i8, ptr %250, i64 %243
@@ -730,7 +730,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter8write_u2Et(ptr noundef nonn
   %14 = shl i64 %12, 1
   %15 = add i64 %14, 3
   %16 = and i64 %15, -1024
-  %17 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %6, i64 noundef %12, i64 noundef %16, i32 noundef 0) #12
+  %17 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %6, i64 noundef %12, i64 noundef %16, i32 noundef 0) #13
   store ptr %17, ptr %5, align 8
   store i64 %16, ptr %11, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 %9
@@ -765,10 +765,10 @@ declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr nound
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN27JvmtiClassFileReconstituter26write_attribute_name_indexEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i32, align 4
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
   %5 = trunc i64 %4 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %6 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %1, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %3) #12
+  %6 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %1, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %3) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, label %7
@@ -780,7 +780,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter26write_attribute_name_index
   br i1 %10, label %11, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit
 
 11:                                               ; preds = %7
-  call void @_ZN24TempSymbolCleanupDelayer13delay_cleanupEP6Symbol(ptr noundef nonnull %6) #12
+  call void @_ZN24TempSymbolCleanupDelayer13delay_cleanupEP6Symbol(ptr noundef nonnull %6) #13
   br label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit
 
 _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %2, %7, %11
@@ -855,7 +855,7 @@ _ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit: ; pred
   %63 = shl i64 %61, 1
   %64 = add i64 %63, 3
   %65 = and i64 %64, -1024
-  %66 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %55, i64 noundef %61, i64 noundef %65, i32 noundef 0) #12
+  %66 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %55, i64 noundef %61, i64 noundef %65, i32 noundef 0) #13
   store ptr %66, ptr %54, align 8
   store i64 %65, ptr %60, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 %58
@@ -880,7 +880,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i: ; preds = %62, %_Z
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit
 
 _ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %72, %73
-  call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %6) #12
+  call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %6) #13
   ret void
 }
 
@@ -903,7 +903,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter8write_u4Ej(ptr noundef nonn
   %14 = shl i64 %12, 1
   %15 = add i64 %14, 5
   %16 = and i64 %15, -1024
-  %17 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %6, i64 noundef %12, i64 noundef %16, i32 noundef 0) #12
+  %17 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %6, i64 noundef %12, i64 noundef %16, i32 noundef 0) #13
   store ptr %17, ptr %5, align 8
   store i64 %16, ptr %11, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 %9
@@ -952,7 +952,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter25write_signature_attributeE
   %14 = shl i64 %12, 1
   %15 = add i64 %14, 5
   %16 = and i64 %15, -1024
-  %17 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %6, i64 noundef %12, i64 noundef %16, i32 noundef 0) #12
+  %17 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %6, i64 noundef %12, i64 noundef %16, i32 noundef 0) #13
   store ptr %17, ptr %5, align 8
   store i64 %16, ptr %11, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 %9
@@ -991,7 +991,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %23, %24
   %33 = shl i64 %31, 1
   %34 = add i64 %33, 3
   %35 = and i64 %34, -1024
-  %36 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %26, i64 noundef %31, i64 noundef %35, i32 noundef 0) #12
+  %36 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %26, i64 noundef %31, i64 noundef %35, i32 noundef 0) #13
   store ptr %36, ptr %5, align 8
   store i64 %35, ptr %11, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 %29
@@ -1023,10 +1023,10 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %43, %44
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN27JvmtiClassFileReconstituter27write_annotations_attributeEPKcS1_P5ArrayIhE(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
   %7 = trunc i64 %6 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %8 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %1, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %5) #12
+  %8 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %1, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, label %9
@@ -1038,7 +1038,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter27write_annotations_attribut
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %9
-  call void @_ZN24TempSymbolCleanupDelayer13delay_cleanupEP6Symbol(ptr noundef nonnull %8) #12
+  call void @_ZN24TempSymbolCleanupDelayer13delay_cleanupEP6Symbol(ptr noundef nonnull %8) #13
   br label %14
 
 14:                                               ; preds = %9, %13
@@ -1103,7 +1103,7 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %47, %14, %4, %_ZN30
   br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit, label %53
 
 53:                                               ; preds = %52
-  call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %8) #12
+  call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %8) #13
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit
 
 _ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %52, %53
@@ -1127,13 +1127,13 @@ define hidden void @_ZN27JvmtiClassFileReconstituter20write_code_attributeERK12m
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %11 = tail call noundef ptr @_ZNK11ConstMethod27compressed_linenumber_tableEv(ptr noundef nonnull align 8 dereferenceable(52) %6) #12
-  call void @_ZN30CompressedLineNumberReadStreamC1EPh(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef %11) #12
+  %11 = tail call noundef ptr @_ZNK11ConstMethod27compressed_linenumber_tableEv(ptr noundef nonnull align 8 dereferenceable(52) %6) #13
+  call void @_ZN30CompressedLineNumberReadStreamC1EPh(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef %11) #13
   br label %12
 
 12:                                               ; preds = %12, %10
   %.0.i = phi i16 [ 0, %10 ], [ %14, %12 ]
-  %13 = call noundef zeroext i1 @_ZN30CompressedLineNumberReadStream9read_pairEv(ptr noundef nonnull align 8 dereferenceable(20) %3) #12
+  %13 = call noundef zeroext i1 @_ZN30CompressedLineNumberReadStream9read_pairEv(ptr noundef nonnull align 8 dereferenceable(20) %3) #13
   %14 = add i16 %.0.i, 1
   br i1 %13, label %12, label %_ZN27JvmtiClassFileReconstituter25line_number_table_entriesERK12methodHandle.exit, !llvm.loop !10
 
@@ -1182,7 +1182,7 @@ _ZN27JvmtiClassFileReconstituter25line_number_table_entriesERK12methodHandle.exi
   br i1 %.not136, label %59, label %35
 
 35:                                               ; preds = %31
-  %36 = call noundef zeroext i16 @_ZNK11ConstMethod26localvariable_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %22) #12
+  %36 = call noundef zeroext i16 @_ZNK11ConstMethod26localvariable_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %22) #13
   %37 = zext i16 %36 to i32
   %.not79 = icmp eq i16 %36, 0
   br i1 %.not79, label %59, label %38
@@ -1191,7 +1191,7 @@ _ZN27JvmtiClassFileReconstituter25line_number_table_entriesERK12methodHandle.exi
   %39 = load ptr, ptr %1, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
-  %42 = call noundef ptr @_ZNK11ConstMethod25localvariable_table_startEv(ptr noundef nonnull align 8 dereferenceable(52) %41) #12
+  %42 = call noundef ptr @_ZNK11ConstMethod25localvariable_table_startEv(ptr noundef nonnull align 8 dereferenceable(52) %41) #13
   %wide.trip.count = zext i16 %36 to i64
   br label %43
 
@@ -1239,9 +1239,9 @@ _ZN27JvmtiClassFileReconstituter25line_number_table_entriesERK12methodHandle.exi
   br i1 %.not.i, label %_ZN14ExceptionTableC2EPK6Method.exit, label %66
 
 66:                                               ; preds = %59
-  %67 = call noundef ptr @_ZNK11ConstMethod21exception_table_startEv(ptr noundef nonnull align 8 dereferenceable(52) %62) #12
+  %67 = call noundef ptr @_ZNK11ConstMethod21exception_table_startEv(ptr noundef nonnull align 8 dereferenceable(52) %62) #13
   %68 = load ptr, ptr %61, align 8
-  %69 = call noundef zeroext i16 @_ZNK11ConstMethod22exception_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %68) #12
+  %69 = call noundef zeroext i16 @_ZNK11ConstMethod22exception_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %68) #13
   br label %_ZN14ExceptionTableC2EPK6Method.exit
 
 _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %59, %66
@@ -1273,7 +1273,7 @@ _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %59, %66
   %89 = shl i64 %87, 1
   %90 = add i64 %89, 5
   %91 = and i64 %90, -1024
-  %92 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %81, i64 noundef %87, i64 noundef %91, i32 noundef 0) #12
+  %92 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %81, i64 noundef %87, i64 noundef %91, i32 noundef 0) #13
   store ptr %92, ptr %80, align 8
   store i64 %91, ptr %86, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 %84
@@ -1318,7 +1318,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %99, %100
   %114 = shl i64 %112, 1
   %115 = add i64 %114, 3
   %116 = and i64 %115, -1024
-  %117 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %107, i64 noundef %112, i64 noundef %116, i32 noundef 0) #12
+  %117 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %107, i64 noundef %112, i64 noundef %116, i32 noundef 0) #13
   store ptr %117, ptr %80, align 8
   store i64 %116, ptr %86, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 %110
@@ -1363,7 +1363,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %124, %125
   %139 = shl i64 %137, 1
   %140 = add i64 %139, 3
   %141 = and i64 %140, -1024
-  %142 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %132, i64 noundef %137, i64 noundef %141, i32 noundef 0) #12
+  %142 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %132, i64 noundef %137, i64 noundef %141, i32 noundef 0) #13
   store ptr %142, ptr %80, align 8
   store i64 %141, ptr %86, align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 %135
@@ -1403,7 +1403,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit94: ; preds = %149, %150
   %159 = shl i64 %157, 1
   %160 = add i64 %159, 5
   %161 = and i64 %160, -1024
-  %162 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %152, i64 noundef %157, i64 noundef %161, i32 noundef 0) #12
+  %162 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %152, i64 noundef %157, i64 noundef %161, i32 noundef 0) #13
   store ptr %162, ptr %80, align 8
   store i64 %161, ptr %86, align 8
   %163 = getelementptr inbounds i8, ptr %162, i64 %155
@@ -1445,7 +1445,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit99: ; preds = %169, %170
   %181 = add nuw nsw i64 %171, 1
   %182 = add i64 %181, %180
   %183 = and i64 %182, -1024
-  %184 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %173, i64 noundef %178, i64 noundef %183, i32 noundef 0) #12
+  %184 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %173, i64 noundef %178, i64 noundef %183, i32 noundef 0) #13
   store ptr %184, ptr %80, align 8
   store i64 %183, ptr %86, align 8
   %185 = getelementptr inbounds i8, ptr %184, i64 %176
@@ -1470,7 +1470,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit: ; preds = %_ZN27Jvmt
   %196 = shl i64 %194, 1
   %197 = add i64 %196, 3
   %198 = and i64 %197, -1024
-  %199 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %189, i64 noundef %194, i64 noundef %198, i32 noundef 0) #12
+  %199 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %189, i64 noundef %194, i64 noundef %198, i32 noundef 0) #13
   store ptr %199, ptr %80, align 8
   store i64 %198, ptr %86, align 8
   %200 = getelementptr inbounds i8, ptr %199, i64 %192
@@ -1521,7 +1521,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit105: ; preds = %206, %207
   %218 = shl i64 %216, 1
   %219 = add i64 %218, 3
   %220 = and i64 %219, -1024
-  %221 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %211, i64 noundef %216, i64 noundef %220, i32 noundef 0) #12
+  %221 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %211, i64 noundef %216, i64 noundef %220, i32 noundef 0) #13
   store ptr %221, ptr %80, align 8
   store i64 %220, ptr %86, align 8
   %222 = getelementptr inbounds i8, ptr %221, i64 %214
@@ -1563,7 +1563,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit110: ; preds = %228, %229
   %240 = shl i64 %238, 1
   %241 = add i64 %240, 3
   %242 = and i64 %241, -1024
-  %243 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %233, i64 noundef %238, i64 noundef %242, i32 noundef 0) #12
+  %243 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %233, i64 noundef %238, i64 noundef %242, i32 noundef 0) #13
   store ptr %243, ptr %80, align 8
   store i64 %242, ptr %86, align 8
   %244 = getelementptr inbounds i8, ptr %243, i64 %236
@@ -1605,7 +1605,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit115: ; preds = %250, %251
   %262 = shl i64 %260, 1
   %263 = add i64 %262, 3
   %264 = and i64 %263, -1024
-  %265 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %255, i64 noundef %260, i64 noundef %264, i32 noundef 0) #12
+  %265 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %255, i64 noundef %260, i64 noundef %264, i32 noundef 0) #13
   store ptr %265, ptr %80, align 8
   store i64 %264, ptr %86, align 8
   %266 = getelementptr inbounds i8, ptr %265, i64 %258
@@ -1647,7 +1647,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit120: ; preds = %272, %273
   %284 = shl i64 %282, 1
   %285 = add i64 %284, 3
   %286 = and i64 %285, -1024
-  %287 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %277, i64 noundef %282, i64 noundef %286, i32 noundef 0) #12
+  %287 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %277, i64 noundef %282, i64 noundef %286, i32 noundef 0) #13
   store ptr %287, ptr %80, align 8
   store i64 %286, ptr %86, align 8
   %288 = getelementptr inbounds i8, ptr %287, i64 %280
@@ -1692,7 +1692,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit125: ; preds = %294, %295
   %304 = shl i64 %302, 1
   %305 = add i64 %304, 3
   %306 = and i64 %305, -1024
-  %307 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %297, i64 noundef %302, i64 noundef %306, i32 noundef 0) #12
+  %307 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %297, i64 noundef %302, i64 noundef %306, i32 noundef 0) #13
   store ptr %307, ptr %80, align 8
   store i64 %306, ptr %86, align 8
   %308 = getelementptr inbounds i8, ptr %307, i64 %300
@@ -1759,13 +1759,13 @@ define hidden noundef zeroext i16 @_ZN27JvmtiClassFileReconstituter25line_number
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noundef ptr @_ZNK11ConstMethod27compressed_linenumber_tableEv(ptr noundef nonnull align 8 dereferenceable(52) %6) #12
-  call void @_ZN30CompressedLineNumberReadStreamC1EPh(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef %7) #12
+  %7 = tail call noundef ptr @_ZNK11ConstMethod27compressed_linenumber_tableEv(ptr noundef nonnull align 8 dereferenceable(52) %6) #13
+  call void @_ZN30CompressedLineNumberReadStreamC1EPh(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef %7) #13
   br label %8
 
 8:                                                ; preds = %8, %2
   %.0 = phi i16 [ 0, %2 ], [ %10, %8 ]
-  %9 = call noundef zeroext i1 @_ZN30CompressedLineNumberReadStream9read_pairEv(ptr noundef nonnull align 8 dereferenceable(20) %3) #12
+  %9 = call noundef zeroext i1 @_ZN30CompressedLineNumberReadStream9read_pairEv(ptr noundef nonnull align 8 dereferenceable(20) %3) #13
   %10 = add i16 %.0, 1
   br i1 %9, label %8, label %11, !llvm.loop !10
 
@@ -1776,7 +1776,7 @@ define hidden noundef zeroext i16 @_ZN27JvmtiClassFileReconstituter25line_number
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN27JvmtiClassFileReconstituter14copy_bytecodesERK12methodHandlePh(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.BytecodeStream, align 8
-  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(16) %0) #12
+  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(16) %0) #13
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -2028,7 +2028,7 @@ _ZN5Bytes11put_Java_u2EPht.exit:                  ; preds = %.thread, %114, %.lr
 
 ._crit_edge:                                      ; preds = %_ZN5Bytes11put_Java_u2EPht.exit, %_ZN5Bytes11put_Java_u2EPht.exit.us, %2
   %159 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %159) #12
+  call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %159) #13
   ret void
 }
 
@@ -2052,7 +2052,7 @@ define hidden noundef ptr @_ZN27JvmtiClassFileReconstituter17writeable_addressEm
   %15 = add i64 %1, 1
   %16 = add i64 %15, %14
   %17 = and i64 %16, -1024
-  %18 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %6, i64 noundef %12, i64 noundef %17, i32 noundef 0) #12
+  %18 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %6, i64 noundef %12, i64 noundef %17, i32 noundef 0) #13
   store ptr %18, ptr %5, align 8
   store i64 %17, ptr %11, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 %9
@@ -2089,7 +2089,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter33write_line_number_table_at
   %19 = shl i64 %17, 1
   %20 = add i64 %19, 5
   %21 = and i64 %20, -1024
-  %22 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %11, i64 noundef %17, i64 noundef %21, i32 noundef 0) #12
+  %22 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %11, i64 noundef %17, i64 noundef %21, i32 noundef 0) #13
   store ptr %22, ptr %10, align 8
   store i64 %21, ptr %16, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 %14
@@ -2129,7 +2129,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %29, %30
   %39 = shl i64 %37, 1
   %40 = add i64 %39, 3
   %41 = and i64 %40, -1024
-  %42 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %32, i64 noundef %37, i64 noundef %41, i32 noundef 0) #12
+  %42 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %32, i64 noundef %37, i64 noundef %41, i32 noundef 0) #13
   store ptr %42, ptr %10, align 8
   store i64 %41, ptr %16, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 %35
@@ -2158,9 +2158,9 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %49, %50
   %51 = load ptr, ptr %1, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef ptr @_ZNK11ConstMethod27compressed_linenumber_tableEv(ptr noundef nonnull align 8 dereferenceable(52) %53) #12
-  call void @_ZN30CompressedLineNumberReadStreamC1EPh(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef %54) #12
-  %55 = call noundef zeroext i1 @_ZN30CompressedLineNumberReadStream9read_pairEv(ptr noundef nonnull align 8 dereferenceable(20) %4) #12
+  %54 = tail call noundef ptr @_ZNK11ConstMethod27compressed_linenumber_tableEv(ptr noundef nonnull align 8 dereferenceable(52) %53) #13
+  call void @_ZN30CompressedLineNumberReadStreamC1EPh(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef %54) #13
+  %55 = call noundef zeroext i1 @_ZN30CompressedLineNumberReadStream9read_pairEv(ptr noundef nonnull align 8 dereferenceable(20) %4) #13
   br i1 %55, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
@@ -2185,7 +2185,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %49, %50
   %69 = shl i64 %67, 1
   %70 = add i64 %69, 3
   %71 = and i64 %70, -1024
-  %72 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %62, i64 noundef %67, i64 noundef %71, i32 noundef 0) #12
+  %72 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %62, i64 noundef %67, i64 noundef %71, i32 noundef 0) #13
   store ptr %72, ptr %10, align 8
   store i64 %71, ptr %16, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 %65
@@ -2227,7 +2227,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit11: ; preds = %79, %80
   %91 = shl i64 %89, 1
   %92 = add i64 %91, 3
   %93 = and i64 %92, -1024
-  %94 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %84, i64 noundef %89, i64 noundef %93, i32 noundef 0) #12
+  %94 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %84, i64 noundef %89, i64 noundef %93, i32 noundef 0) #13
   store ptr %94, ptr %10, align 8
   store i64 %93, ptr %16, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 %87
@@ -2253,7 +2253,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i14: ; preds = %90, %
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit16
 
 _ZN27JvmtiClassFileReconstituter8write_u2Et.exit16: ; preds = %101, %102
-  %103 = call noundef zeroext i1 @_ZN30CompressedLineNumberReadStream9read_pairEv(ptr noundef nonnull align 8 dereferenceable(20) %4) #12
+  %103 = call noundef zeroext i1 @_ZN30CompressedLineNumberReadStream9read_pairEv(ptr noundef nonnull align 8 dereferenceable(20) %4) #13
   br i1 %103, label %58, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit16, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
@@ -2280,7 +2280,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter30write_stackmap_table_attri
   %15 = shl i64 %13, 1
   %16 = add i64 %15, 5
   %17 = and i64 %16, -1024
-  %18 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %7, i64 noundef %13, i64 noundef %17, i32 noundef 0) #12
+  %18 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %7, i64 noundef %13, i64 noundef %17, i32 noundef 0) #13
   store ptr %18, ptr %6, align 8
   store i64 %17, ptr %12, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 %10
@@ -2322,7 +2322,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %25, %26
   %37 = add nsw i64 %27, 1
   %38 = add i64 %37, %36
   %39 = and i64 %38, -1024
-  %40 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %29, i64 noundef %34, i64 noundef %39, i32 noundef 0) #12
+  %40 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %29, i64 noundef %34, i64 noundef %39, i32 noundef 0) #13
   store ptr %40, ptr %6, align 8
   store i64 %39, ptr %12, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 %32
@@ -2365,7 +2365,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter36write_local_variable_table
   %18 = shl i64 %16, 1
   %19 = add i64 %18, 5
   %20 = and i64 %19, -1024
-  %21 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %10, i64 noundef %16, i64 noundef %20, i32 noundef 0) #12
+  %21 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %10, i64 noundef %16, i64 noundef %20, i32 noundef 0) #13
   store ptr %21, ptr %9, align 8
   store i64 %20, ptr %15, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 %13
@@ -2405,7 +2405,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %28, %29
   %38 = shl i64 %36, 1
   %39 = add i64 %38, 3
   %40 = and i64 %39, -1024
-  %41 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %31, i64 noundef %36, i64 noundef %40, i32 noundef 0) #12
+  %41 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %31, i64 noundef %36, i64 noundef %40, i32 noundef 0) #13
   store ptr %41, ptr %9, align 8
   store i64 %40, ptr %15, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 %34
@@ -2434,11 +2434,11 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %48, %49
   %50 = load ptr, ptr %1, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = tail call noundef ptr @_ZNK11ConstMethod25localvariable_table_startEv(ptr noundef nonnull align 8 dereferenceable(52) %52) #12
+  %53 = tail call noundef ptr @_ZNK11ConstMethod25localvariable_table_startEv(ptr noundef nonnull align 8 dereferenceable(52) %52) #13
   %54 = load ptr, ptr %1, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call noundef zeroext i16 @_ZNK11ConstMethod26localvariable_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %56) #12
+  %57 = tail call noundef zeroext i16 @_ZNK11ConstMethod26localvariable_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %56) #13
   %.not = icmp eq i16 %57, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -2460,7 +2460,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %48, %49
   %67 = shl i64 %65, 1
   %68 = add i64 %67, 3
   %69 = and i64 %68, -1024
-  %70 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %60, i64 noundef %65, i64 noundef %69, i32 noundef 0) #12
+  %70 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %60, i64 noundef %65, i64 noundef %69, i32 noundef 0) #13
   store ptr %70, ptr %9, align 8
   store i64 %69, ptr %15, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 %63
@@ -2502,7 +2502,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit21: ; preds = %77, %78
   %89 = shl i64 %87, 1
   %90 = add i64 %89, 3
   %91 = and i64 %90, -1024
-  %92 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %82, i64 noundef %87, i64 noundef %91, i32 noundef 0) #12
+  %92 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %82, i64 noundef %87, i64 noundef %91, i32 noundef 0) #13
   store ptr %92, ptr %9, align 8
   store i64 %91, ptr %15, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 %85
@@ -2544,7 +2544,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit26: ; preds = %99, %100
   %111 = shl i64 %109, 1
   %112 = add i64 %111, 3
   %113 = and i64 %112, -1024
-  %114 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %104, i64 noundef %109, i64 noundef %113, i32 noundef 0) #12
+  %114 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %104, i64 noundef %109, i64 noundef %113, i32 noundef 0) #13
   store ptr %114, ptr %9, align 8
   store i64 %113, ptr %15, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 %107
@@ -2586,7 +2586,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit31: ; preds = %121, %122
   %133 = shl i64 %131, 1
   %134 = add i64 %133, 3
   %135 = and i64 %134, -1024
-  %136 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %126, i64 noundef %131, i64 noundef %135, i32 noundef 0) #12
+  %136 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %126, i64 noundef %131, i64 noundef %135, i32 noundef 0) #13
   store ptr %136, ptr %9, align 8
   store i64 %135, ptr %15, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 %129
@@ -2628,7 +2628,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit36: ; preds = %143, %144
   %155 = shl i64 %153, 1
   %156 = add i64 %155, 3
   %157 = and i64 %156, -1024
-  %158 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %148, i64 noundef %153, i64 noundef %157, i32 noundef 0) #12
+  %158 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %148, i64 noundef %153, i64 noundef %157, i32 noundef 0) #13
   store ptr %158, ptr %9, align 8
   store i64 %157, ptr %15, align 8
   %159 = getelementptr inbounds i8, ptr %158, i64 %151
@@ -2659,7 +2659,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit41: ; preds = %165, %166
   %169 = load ptr, ptr %1, align 8
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = load ptr, ptr %170, align 8
-  %172 = tail call noundef zeroext i16 @_ZNK11ConstMethod26localvariable_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %171) #12
+  %172 = tail call noundef zeroext i16 @_ZNK11ConstMethod26localvariable_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %171) #13
   %173 = zext i16 %172 to i32
   %174 = icmp samesign ult i32 %168, %173
   br i1 %174, label %.lr.ph, label %._crit_edge, !llvm.loop !16
@@ -2691,7 +2691,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter41write_local_variable_type_
   %18 = shl i64 %16, 1
   %19 = add i64 %18, 5
   %20 = and i64 %19, -1024
-  %21 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %10, i64 noundef %16, i64 noundef %20, i32 noundef 0) #12
+  %21 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %10, i64 noundef %16, i64 noundef %20, i32 noundef 0) #13
   store ptr %21, ptr %9, align 8
   store i64 %20, ptr %15, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 %13
@@ -2731,7 +2731,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %28, %29
   %38 = shl i64 %36, 1
   %39 = add i64 %38, 3
   %40 = and i64 %39, -1024
-  %41 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %31, i64 noundef %36, i64 noundef %40, i32 noundef 0) #12
+  %41 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %31, i64 noundef %36, i64 noundef %40, i32 noundef 0) #13
   store ptr %41, ptr %9, align 8
   store i64 %40, ptr %15, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 %34
@@ -2760,11 +2760,11 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %48, %49
   %50 = load ptr, ptr %1, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = tail call noundef ptr @_ZNK11ConstMethod25localvariable_table_startEv(ptr noundef nonnull align 8 dereferenceable(52) %52) #12
+  %53 = tail call noundef ptr @_ZNK11ConstMethod25localvariable_table_startEv(ptr noundef nonnull align 8 dereferenceable(52) %52) #13
   %54 = load ptr, ptr %1, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call noundef zeroext i16 @_ZNK11ConstMethod26localvariable_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %56) #12
+  %57 = tail call noundef zeroext i16 @_ZNK11ConstMethod26localvariable_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %56) #13
   %.not48 = icmp eq i16 %57, 0
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 
@@ -2792,7 +2792,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %48, %49
   %70 = shl i64 %68, 1
   %71 = add i64 %70, 3
   %72 = and i64 %71, -1024
-  %73 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %63, i64 noundef %68, i64 noundef %72, i32 noundef 0) #12
+  %73 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %63, i64 noundef %68, i64 noundef %72, i32 noundef 0) #13
   store ptr %73, ptr %9, align 8
   store i64 %72, ptr %15, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 %66
@@ -2834,7 +2834,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit24: ; preds = %80, %81
   %92 = shl i64 %90, 1
   %93 = add i64 %92, 3
   %94 = and i64 %93, -1024
-  %95 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %85, i64 noundef %90, i64 noundef %94, i32 noundef 0) #12
+  %95 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %85, i64 noundef %90, i64 noundef %94, i32 noundef 0) #13
   store ptr %95, ptr %9, align 8
   store i64 %94, ptr %15, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 %88
@@ -2876,7 +2876,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit29: ; preds = %102, %103
   %114 = shl i64 %112, 1
   %115 = add i64 %114, 3
   %116 = and i64 %115, -1024
-  %117 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %107, i64 noundef %112, i64 noundef %116, i32 noundef 0) #12
+  %117 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %107, i64 noundef %112, i64 noundef %116, i32 noundef 0) #13
   store ptr %117, ptr %9, align 8
   store i64 %116, ptr %15, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 %110
@@ -2917,7 +2917,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit34: ; preds = %124, %125
   %135 = shl i64 %133, 1
   %136 = add i64 %135, 3
   %137 = and i64 %136, -1024
-  %138 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %128, i64 noundef %133, i64 noundef %137, i32 noundef 0) #12
+  %138 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %128, i64 noundef %133, i64 noundef %137, i32 noundef 0) #13
   store ptr %138, ptr %9, align 8
   store i64 %137, ptr %15, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 %131
@@ -2959,7 +2959,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit39: ; preds = %145, %146
   %157 = shl i64 %155, 1
   %158 = add i64 %157, 3
   %159 = and i64 %158, -1024
-  %160 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %150, i64 noundef %155, i64 noundef %159, i32 noundef 0) #12
+  %160 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %150, i64 noundef %155, i64 noundef %159, i32 noundef 0) #13
   store ptr %160, ptr %9, align 8
   store i64 %159, ptr %15, align 8
   %161 = getelementptr inbounds i8, ptr %160, i64 %153
@@ -2990,7 +2990,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit44: ; preds = %168, %167, %.lr.p
   %171 = load ptr, ptr %1, align 8
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %173 = load ptr, ptr %172, align 8
-  %174 = tail call noundef zeroext i16 @_ZNK11ConstMethod26localvariable_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %173) #12
+  %174 = tail call noundef zeroext i16 @_ZNK11ConstMethod26localvariable_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %173) #13
   %175 = zext i16 %174 to i32
   %176 = icmp samesign ult i32 %170, %175
   br i1 %176, label %.lr.ph, label %._crit_edge, !llvm.loop !17
@@ -3001,8 +3001,8 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit44: ; preds = %168, %167, %.lr.p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN27JvmtiClassFileReconstituter26write_exceptions_attributeEP11ConstMethod(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
-  %3 = tail call noundef ptr @_ZNK11ConstMethod24checked_exceptions_startEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #12
-  %4 = tail call noundef zeroext i16 @_ZNK11ConstMethod25checked_exceptions_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #12
+  %3 = tail call noundef ptr @_ZNK11ConstMethod24checked_exceptions_startEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #13
+  %4 = tail call noundef zeroext i16 @_ZNK11ConstMethod25checked_exceptions_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #13
   %5 = zext i16 %4 to i32
   %6 = shl nuw nsw i32 %5, 1
   %7 = add nuw nsw i32 %6, 2
@@ -3024,7 +3024,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter26write_exceptions_attribute
   %19 = shl i64 %17, 1
   %20 = add i64 %19, 5
   %21 = and i64 %20, -1024
-  %22 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %11, i64 noundef %17, i64 noundef %21, i32 noundef 0) #12
+  %22 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %11, i64 noundef %17, i64 noundef %21, i32 noundef 0) #13
   store ptr %22, ptr %10, align 8
   store i64 %21, ptr %16, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 %14
@@ -3064,7 +3064,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %29, %30
   %39 = shl i64 %37, 1
   %40 = add i64 %39, 3
   %41 = and i64 %40, -1024
-  %42 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %32, i64 noundef %37, i64 noundef %41, i32 noundef 0) #12
+  %42 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %32, i64 noundef %37, i64 noundef %41, i32 noundef 0) #13
   store ptr %42, ptr %10, align 8
   store i64 %41, ptr %16, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 %35
@@ -3115,7 +3115,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %49, %50
   %61 = shl i64 %59, 1
   %62 = add i64 %61, 3
   %63 = and i64 %62, -1024
-  %64 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %54, i64 noundef %59, i64 noundef %63, i32 noundef 0) #12
+  %64 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %54, i64 noundef %59, i64 noundef %63, i32 noundef 0) #13
   store ptr %64, ptr %10, align 8
   store i64 %63, ptr %16, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 %57
@@ -3155,8 +3155,8 @@ declare noundef zeroext i16 @_ZNK11ConstMethod25checked_exceptions_lengthEv(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN27JvmtiClassFileReconstituter32write_method_parameter_attributeEPK11ConstMethod(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
-  %3 = tail call noundef ptr @_ZNK11ConstMethod23method_parameters_startEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #12
-  %4 = tail call noundef i32 @_ZNK11ConstMethod24method_parameters_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #12
+  %3 = tail call noundef ptr @_ZNK11ConstMethod23method_parameters_startEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #13
+  %4 = tail call noundef i32 @_ZNK11ConstMethod24method_parameters_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #13
   %5 = shl nsw i32 %4, 2
   %6 = or disjoint i32 %5, 1
   tail call void @_ZN27JvmtiClassFileReconstituter26write_attribute_name_indexEPKc(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull @.str.13)
@@ -3177,7 +3177,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter32write_method_parameter_att
   %18 = shl i64 %16, 1
   %19 = add i64 %18, 5
   %20 = and i64 %19, -1024
-  %21 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %10, i64 noundef %16, i64 noundef %20, i32 noundef 0) #12
+  %21 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %10, i64 noundef %16, i64 noundef %20, i32 noundef 0) #13
   store ptr %21, ptr %9, align 8
   store i64 %20, ptr %15, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 %13
@@ -3218,7 +3218,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %28, %29
   %39 = shl i64 %37, 1
   %40 = add i64 %39, 2
   %41 = and i64 %40, -1024
-  %42 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %32, i64 noundef %37, i64 noundef %41, i32 noundef 0) #12
+  %42 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %32, i64 noundef %37, i64 noundef %41, i32 noundef 0) #13
   store ptr %42, ptr %9, align 8
   store i64 %41, ptr %15, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 %35
@@ -3254,7 +3254,7 @@ _ZN27JvmtiClassFileReconstituter8write_u1Eh.exit: ; preds = %_ZN27JvmtiClassFile
   %57 = shl i64 %55, 1
   %58 = add i64 %57, 3
   %59 = and i64 %58, -1024
-  %60 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %50, i64 noundef %55, i64 noundef %59, i32 noundef 0) #12
+  %60 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %50, i64 noundef %55, i64 noundef %59, i32 noundef 0) #13
   store ptr %60, ptr %9, align 8
   store i64 %59, ptr %15, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 %53
@@ -3296,7 +3296,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %67, %68
   %79 = shl i64 %77, 1
   %80 = add i64 %79, 3
   %81 = and i64 %80, -1024
-  %82 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %72, i64 noundef %77, i64 noundef %81, i32 noundef 0) #12
+  %82 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %72, i64 noundef %77, i64 noundef %81, i32 noundef 0) #13
   store ptr %82, ptr %9, align 8
   store i64 %81, ptr %15, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 %75
@@ -3353,7 +3353,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter8write_u1Eh(ptr noundef nonn
   %14 = shl i64 %12, 1
   %15 = add i64 %14, 2
   %16 = and i64 %15, -1024
-  %17 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %6, i64 noundef %12, i64 noundef %16, i32 noundef 0) #12
+  %17 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %6, i64 noundef %12, i64 noundef %16, i32 noundef 0) #13
   store ptr %17, ptr %5, align 8
   store i64 %16, ptr %11, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 %9
@@ -3387,7 +3387,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter27write_source_file_attribut
   %13 = shl i64 %11, 1
   %14 = add i64 %13, 5
   %15 = and i64 %14, -1024
-  %16 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %5, i64 noundef %11, i64 noundef %15, i32 noundef 0) #12
+  %16 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %5, i64 noundef %11, i64 noundef %15, i32 noundef 0) #13
   store ptr %16, ptr %4, align 8
   store i64 %15, ptr %10, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 %8
@@ -3414,7 +3414,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i: ; preds = %12, %1
 _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %22, %23
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call noundef ptr @_ZNK13InstanceKlass16source_file_nameEv(ptr noundef nonnull align 8 dereferenceable(464) %25) #12
+  %26 = tail call noundef ptr @_ZNK13InstanceKlass16source_file_nameEv(ptr noundef nonnull align 8 dereferenceable(464) %25) #13
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %26 to i64
@@ -3483,7 +3483,7 @@ _ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit: ; pred
   %75 = shl i64 %73, 1
   %76 = add i64 %75, 3
   %77 = and i64 %76, -1024
-  %78 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %68, i64 noundef %73, i64 noundef %77, i32 noundef 0) #12
+  %78 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %68, i64 noundef %73, i64 noundef %77, i32 noundef 0) #13
   store ptr %78, ptr %4, align 8
   store i64 %77, ptr %10, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 %71
@@ -3520,7 +3520,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter38write_source_debug_extensi
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #14
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #15
   %7 = trunc i64 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8
@@ -3539,7 +3539,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter38write_source_debug_extensi
   %19 = shl i64 %17, 1
   %20 = add i64 %19, 5
   %21 = and i64 %20, -1024
-  %22 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %11, i64 noundef %17, i64 noundef %21, i32 noundef 0) #12
+  %22 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %11, i64 noundef %17, i64 noundef %21, i32 noundef 0) #13
   store ptr %22, ptr %10, align 8
   store i64 %21, ptr %16, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 %14
@@ -3593,7 +3593,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %29, %30
   %45 = shl i64 %43, 1
   %46 = add i64 %45, 2
   %47 = and i64 %46, -1024
-  %48 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %38, i64 noundef %43, i64 noundef %47, i32 noundef 0) #12
+  %48 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %38, i64 noundef %43, i64 noundef %47, i32 noundef 0) #13
   store ptr %48, ptr %10, align 8
   store i64 %47, ptr %16, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 %41
@@ -3659,7 +3659,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter27write_annotations_attribut
   %16 = shl i64 %14, 1
   %17 = add i64 %16, 5
   %18 = and i64 %17, -1024
-  %19 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %8, i64 noundef %14, i64 noundef %18, i32 noundef 0) #12
+  %19 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %8, i64 noundef %14, i64 noundef %18, i32 noundef 0) #13
   store ptr %19, ptr %7, align 8
   store i64 %18, ptr %13, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 %11
@@ -3701,7 +3701,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %26, %27
   %38 = add nuw nsw i64 %28, 1
   %39 = add i64 %38, %37
   %40 = and i64 %39, -1024
-  %41 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %30, i64 noundef %35, i64 noundef %40, i32 noundef 0) #12
+  %41 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %30, i64 noundef %35, i64 noundef %40, i32 noundef 0) #13
   store ptr %41, ptr %7, align 8
   store i64 %40, ptr %13, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 %33
@@ -3727,11 +3727,11 @@ define hidden void @_ZN27JvmtiClassFileReconstituter31write_bootstrapmethod_attr
   %5 = alloca %class.constantPoolHandle, align 8
   %6 = alloca %class.constantPoolHandle, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @_ZN18constantPoolHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  call void @_ZN18constantPoolHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
-  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #12
+  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
   call void @_ZN27JvmtiClassFileReconstituter26write_attribute_name_indexEPKc(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull @.str.17)
   %11 = icmp eq ptr %10, null
   br i1 %11, label %._crit_edge, label %12
@@ -3755,7 +3755,7 @@ _ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit: ; preds = %12
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.048 = phi i32 [ 2, %.lr.ph.preheader ], [ %32, %.lr.ph ]
-  call void @_ZN18constantPoolHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  call void @_ZN18constantPoolHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   %19 = load ptr, ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8
@@ -3767,7 +3767,7 @@ _ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit: ; preds = %12
   %26 = getelementptr i16, ptr %22, i64 %25
   %27 = getelementptr i8, ptr %26, i64 2
   %28 = load i16, ptr %27, align 2
-  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   %29 = add i32 %.048, 4
   %30 = zext i16 %28 to i32
   %31 = shl nuw nsw i32 %30, 1
@@ -3801,7 +3801,7 @@ _ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit: ; preds = %12
   %46 = shl i64 %44, 1
   %47 = add i64 %46, 5
   %48 = and i64 %47, -1024
-  %49 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %38, i64 noundef %44, i64 noundef %48, i32 noundef 0) #12
+  %49 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %38, i64 noundef %44, i64 noundef %48, i32 noundef 0) #13
   store ptr %49, ptr %37, align 8
   store i64 %48, ptr %43, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 %41
@@ -3841,7 +3841,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %55, %56
   %66 = shl i64 %64, 1
   %67 = add i64 %66, 3
   %68 = and i64 %67, -1024
-  %69 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %59, i64 noundef %64, i64 noundef %68, i32 noundef 0) #12
+  %69 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %59, i64 noundef %64, i64 noundef %68, i32 noundef 0) #13
   store ptr %69, ptr %37, align 8
   store i64 %68, ptr %43, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 %62
@@ -3875,7 +3875,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %76, %77
 
 .lr.ph53:                                         ; preds = %.lr.ph53.preheader, %._crit_edge51
   %indvars.iv57 = phi i64 [ 0, %.lr.ph53.preheader ], [ %indvars.iv.next58, %._crit_edge51 ]
-  call void @_ZN18constantPoolHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  call void @_ZN18constantPoolHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   %78 = load ptr, ptr %4, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %80 = load ptr, ptr %79, align 8
@@ -3886,8 +3886,8 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %76, %77
   %85 = sext i32 %84 to i64
   %86 = getelementptr inbounds i16, ptr %82, i64 %85
   %87 = load i16, ptr %86, align 2
-  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
-  call void @_ZN18constantPoolHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
+  call void @_ZN18constantPoolHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   %88 = load ptr, ptr %5, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %90 = load ptr, ptr %89, align 8
@@ -3898,7 +3898,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %76, %77
   %95 = getelementptr i16, ptr %91, i64 %94
   %96 = getelementptr i8, ptr %95, i64 2
   %97 = load i16, ptr %96, align 2
-  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
+  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   %98 = load ptr, ptr %35, align 8
   %99 = load ptr, ptr %37, align 8
   %100 = ptrtoint ptr %98 to i64
@@ -3913,7 +3913,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %76, %77
   %106 = shl i64 %104, 1
   %107 = add i64 %106, 3
   %108 = and i64 %107, -1024
-  %109 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %99, i64 noundef %104, i64 noundef %108, i32 noundef 0) #12
+  %109 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %99, i64 noundef %104, i64 noundef %108, i32 noundef 0) #13
   store ptr %109, ptr %37, align 8
   store i64 %108, ptr %43, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 %102
@@ -3953,7 +3953,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit36: ; preds = %116, %117
   %126 = shl i64 %124, 1
   %127 = add i64 %126, 3
   %128 = and i64 %127, -1024
-  %129 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %119, i64 noundef %124, i64 noundef %128, i32 noundef 0) #12
+  %129 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %119, i64 noundef %124, i64 noundef %128, i32 noundef 0) #13
   store ptr %129, ptr %37, align 8
   store i64 %128, ptr %43, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 %122
@@ -3985,7 +3985,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit41: ; preds = %136, %137
 
 .lr.ph50:                                         ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit41, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit46
   %.02449 = phi i32 [ %170, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit46 ], [ 0, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit41 ]
-  call void @_ZN18constantPoolHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  call void @_ZN18constantPoolHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   %139 = load ptr, ptr %6, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 32
   %141 = load ptr, ptr %140, align 8
@@ -3997,7 +3997,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit41: ; preds = %136, %137
   %147 = sext i32 %146 to i64
   %148 = getelementptr inbounds i16, ptr %142, i64 %147
   %149 = load i16, ptr %148, align 2
-  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #12
+  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   %150 = load ptr, ptr %35, align 8
   %151 = load ptr, ptr %37, align 8
   %152 = ptrtoint ptr %150 to i64
@@ -4012,7 +4012,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit41: ; preds = %136, %137
   %158 = shl i64 %156, 1
   %159 = add i64 %158, 3
   %160 = and i64 %159, -1024
-  %161 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %151, i64 noundef %156, i64 noundef %160, i32 noundef 0) #12
+  %161 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %151, i64 noundef %156, i64 noundef %160, i32 noundef 0) #13
   store ptr %161, ptr %37, align 8
   store i64 %160, ptr %43, align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 %154
@@ -4075,7 +4075,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter25write_nest_host_attributeE
   %17 = shl i64 %15, 1
   %18 = add i64 %17, 5
   %19 = and i64 %18, -1024
-  %20 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %9, i64 noundef %15, i64 noundef %19, i32 noundef 0) #12
+  %20 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %9, i64 noundef %15, i64 noundef %19, i32 noundef 0) #13
   store ptr %20, ptr %8, align 8
   store i64 %19, ptr %14, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 %12
@@ -4114,7 +4114,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %26, %27
   %36 = shl i64 %34, 1
   %37 = add i64 %36, 3
   %38 = and i64 %37, -1024
-  %39 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %29, i64 noundef %34, i64 noundef %38, i32 noundef 0) #12
+  %39 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %29, i64 noundef %34, i64 noundef %38, i32 noundef 0) #13
   store ptr %39, ptr %8, align 8
   store i64 %38, ptr %14, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 %32
@@ -4170,7 +4170,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter28write_nest_members_attribu
   %20 = shl i64 %18, 1
   %21 = add i64 %20, 5
   %22 = and i64 %21, -1024
-  %23 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %12, i64 noundef %18, i64 noundef %22, i32 noundef 0) #12
+  %23 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %12, i64 noundef %18, i64 noundef %22, i32 noundef 0) #13
   store ptr %23, ptr %11, align 8
   store i64 %22, ptr %17, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 %15
@@ -4211,7 +4211,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %30, %31
   %41 = shl i64 %39, 1
   %42 = add i64 %41, 3
   %43 = and i64 %42, -1024
-  %44 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %34, i64 noundef %39, i64 noundef %43, i32 noundef 0) #12
+  %44 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %34, i64 noundef %39, i64 noundef %43, i32 noundef 0) #13
   store ptr %44, ptr %11, align 8
   store i64 %43, ptr %17, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 %37
@@ -4263,7 +4263,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %51, %52
   %66 = shl i64 %64, 1
   %67 = add i64 %66, 3
   %68 = and i64 %67, -1024
-  %69 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %59, i64 noundef %64, i64 noundef %68, i32 noundef 0) #12
+  %69 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %59, i64 noundef %64, i64 noundef %68, i32 noundef 0) #13
   store ptr %69, ptr %11, align 8
   store i64 %68, ptr %17, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 %62
@@ -4324,7 +4324,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter36write_permitted_subclasses
   %20 = shl i64 %18, 1
   %21 = add i64 %20, 5
   %22 = and i64 %21, -1024
-  %23 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %12, i64 noundef %18, i64 noundef %22, i32 noundef 0) #12
+  %23 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %12, i64 noundef %18, i64 noundef %22, i32 noundef 0) #13
   store ptr %23, ptr %11, align 8
   store i64 %22, ptr %17, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 %15
@@ -4365,7 +4365,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %30, %31
   %41 = shl i64 %39, 1
   %42 = add i64 %41, 3
   %43 = and i64 %42, -1024
-  %44 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %34, i64 noundef %39, i64 noundef %43, i32 noundef 0) #12
+  %44 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %34, i64 noundef %39, i64 noundef %43, i32 noundef 0) #13
   store ptr %44, ptr %11, align 8
   store i64 %43, ptr %17, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 %37
@@ -4417,7 +4417,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %51, %52
   %66 = shl i64 %64, 1
   %67 = add i64 %66, 3
   %68 = and i64 %67, -1024
-  %69 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %59, i64 noundef %64, i64 noundef %68, i32 noundef 0) #12
+  %69 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %59, i64 noundef %64, i64 noundef %68, i32 noundef 0) #13
   store ptr %69, ptr %11, align 8
   store i64 %68, ptr %17, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 %62
@@ -4527,7 +4527,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter22write_record_attributeEv(p
   %41 = shl i64 %39, 1
   %42 = add i64 %41, 5
   %43 = and i64 %42, -1024
-  %44 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %33, i64 noundef %39, i64 noundef %43, i32 noundef 0) #12
+  %44 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %33, i64 noundef %39, i64 noundef %43, i32 noundef 0) #13
   store ptr %44, ptr %32, align 8
   store i64 %43, ptr %38, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 %36
@@ -4568,7 +4568,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %51, %52
   %62 = shl i64 %60, 1
   %63 = add i64 %62, 3
   %64 = and i64 %63, -1024
-  %65 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %55, i64 noundef %60, i64 noundef %64, i32 noundef 0) #12
+  %65 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %55, i64 noundef %60, i64 noundef %64, i32 noundef 0) #13
   store ptr %65, ptr %32, align 8
   store i64 %64, ptr %38, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 %58
@@ -4621,7 +4621,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %72, %73
   %88 = shl i64 %86, 1
   %89 = add i64 %88, 3
   %90 = and i64 %89, -1024
-  %91 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %81, i64 noundef %86, i64 noundef %90, i32 noundef 0) #12
+  %91 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %81, i64 noundef %86, i64 noundef %90, i32 noundef 0) #13
   store ptr %91, ptr %32, align 8
   store i64 %90, ptr %38, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 %84
@@ -4663,7 +4663,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit53: ; preds = %98, %99
   %110 = shl i64 %108, 1
   %111 = add i64 %110, 3
   %112 = and i64 %111, -1024
-  %113 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %103, i64 noundef %108, i64 noundef %112, i32 noundef 0) #12
+  %113 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %103, i64 noundef %108, i64 noundef %112, i32 noundef 0) #13
   store ptr %113, ptr %32, align 8
   store i64 %112, ptr %38, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 %106
@@ -4716,7 +4716,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit58: ; preds = %120, %121
   %140 = shl i64 %138, 1
   %141 = add i64 %140, 3
   %142 = and i64 %141, -1024
-  %143 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %133, i64 noundef %138, i64 noundef %142, i32 noundef 0) #12
+  %143 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %133, i64 noundef %138, i64 noundef %142, i32 noundef 0) #13
   store ptr %143, ptr %32, align 8
   store i64 %142, ptr %38, align 8
   %144 = getelementptr inbounds i8, ptr %143, i64 %136
@@ -4800,7 +4800,7 @@ _ZN20InnerClassesIteratorC2EPK13InstanceKlass.exit: ; preds = %2
 _ZN20InnerClassesIteratorC2EPK13InstanceKlass.exit.thread: ; preds = %2, %_ZN20InnerClassesIteratorC2EPK13InstanceKlass.exit
   %12 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %12, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 558, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #13
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 558, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #14
   unreachable
 
 13:                                               ; preds = %_ZN20InnerClassesIteratorC2EPK13InstanceKlass.exit
@@ -4827,7 +4827,7 @@ _ZN20InnerClassesIteratorC2EPK13InstanceKlass.exit.thread: ; preds = %2, %_ZN20I
   %30 = shl i64 %28, 1
   %31 = add i64 %30, 5
   %32 = and i64 %31, -1024
-  %33 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %22, i64 noundef %28, i64 noundef %32, i32 noundef 0) #12
+  %33 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %22, i64 noundef %28, i64 noundef %32, i32 noundef 0) #13
   store ptr %33, ptr %21, align 8
   store i64 %32, ptr %27, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 %25
@@ -4867,7 +4867,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %40, %41
   %50 = shl i64 %48, 1
   %51 = add i64 %50, 3
   %52 = and i64 %51, -1024
-  %53 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %43, i64 noundef %48, i64 noundef %52, i32 noundef 0) #12
+  %53 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %43, i64 noundef %48, i64 noundef %52, i32 noundef 0) #13
   store ptr %53, ptr %21, align 8
   store i64 %52, ptr %27, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 %46
@@ -4918,7 +4918,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %60, %61
   %74 = shl i64 %72, 1
   %75 = add i64 %74, 3
   %76 = and i64 %75, -1024
-  %77 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %67, i64 noundef %72, i64 noundef %76, i32 noundef 0) #12
+  %77 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %67, i64 noundef %72, i64 noundef %76, i32 noundef 0) #13
   store ptr %77, ptr %21, align 8
   store i64 %76, ptr %27, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 %70
@@ -4961,7 +4961,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit13: ; preds = %84, %85
   %97 = shl i64 %95, 1
   %98 = add i64 %97, 3
   %99 = and i64 %98, -1024
-  %100 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %90, i64 noundef %95, i64 noundef %99, i32 noundef 0) #12
+  %100 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %90, i64 noundef %95, i64 noundef %99, i32 noundef 0) #13
   store ptr %100, ptr %21, align 8
   store i64 %99, ptr %27, align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 %93
@@ -5003,7 +5003,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit18: ; preds = %107, %108
   %119 = shl i64 %117, 1
   %120 = add i64 %119, 3
   %121 = and i64 %120, -1024
-  %122 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %112, i64 noundef %117, i64 noundef %121, i32 noundef 0) #12
+  %122 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %112, i64 noundef %117, i64 noundef %121, i32 noundef 0) #13
   store ptr %122, ptr %21, align 8
   store i64 %121, ptr %27, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 %115
@@ -5045,7 +5045,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit23: ; preds = %129, %130
   %141 = shl i64 %139, 1
   %142 = add i64 %141, 3
   %143 = and i64 %142, -1024
-  %144 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %134, i64 noundef %139, i64 noundef %143, i32 noundef 0) #12
+  %144 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %134, i64 noundef %139, i64 noundef %143, i32 noundef 0) #13
   store ptr %144, ptr %21, align 8
   store i64 %143, ptr %27, align 8
   %145 = getelementptr inbounds i8, ptr %144, i64 %137
@@ -5100,7 +5100,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter25write_synthetic_attributeE
   %13 = shl i64 %11, 1
   %14 = add i64 %13, 5
   %15 = and i64 %14, -1024
-  %16 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %5, i64 noundef %11, i64 noundef %15, i32 noundef 0) #12
+  %16 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %5, i64 noundef %11, i64 noundef %15, i32 noundef 0) #13
   store ptr %16, ptr %4, align 8
   store i64 %15, ptr %10, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 %8
@@ -5146,7 +5146,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter17write_method_infoERK12meth
   br i1 %.not.i, label %_ZNK11ConstMethod23generic_signature_indexEv.exit, label %10
 
 10:                                               ; preds = %2
-  %11 = tail call noundef ptr @_ZNK11ConstMethod28generic_signature_index_addrEv(ptr noundef nonnull align 8 dereferenceable(52) %6) #12
+  %11 = tail call noundef ptr @_ZNK11ConstMethod28generic_signature_index_addrEv(ptr noundef nonnull align 8 dereferenceable(52) %6) #13
   %12 = load i16, ptr %11, align 2
   %.pre = load ptr, ptr %1, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
@@ -5164,7 +5164,7 @@ _ZNK11ConstMethod23generic_signature_indexEv.exit: ; preds = %2, %10
   br i1 %.not.i.i, label %_ZNK6Method11annotationsEv.exit, label %16
 
 16:                                               ; preds = %_ZNK11ConstMethod23generic_signature_indexEv.exit
-  %17 = tail call noundef ptr @_ZNK11ConstMethod23method_annotations_addrEv(ptr noundef nonnull align 8 dereferenceable(52) %14) #12
+  %17 = tail call noundef ptr @_ZNK11ConstMethod23method_annotations_addrEv(ptr noundef nonnull align 8 dereferenceable(52) %14) #13
   %18 = load ptr, ptr %17, align 8
   %.pre82 = load ptr, ptr %1, align 8
   %.phi.trans.insert83 = getelementptr inbounds nuw i8, ptr %.pre82, i64 8
@@ -5182,7 +5182,7 @@ _ZNK6Method11annotationsEv.exit:                  ; preds = %_ZNK11ConstMethod23
   br i1 %.not.i.i53, label %_ZNK6Method21parameter_annotationsEv.exit, label %23
 
 23:                                               ; preds = %_ZNK6Method11annotationsEv.exit
-  %24 = tail call noundef ptr @_ZNK11ConstMethod26parameter_annotations_addrEv(ptr noundef nonnull align 8 dereferenceable(52) %20) #12
+  %24 = tail call noundef ptr @_ZNK11ConstMethod26parameter_annotations_addrEv(ptr noundef nonnull align 8 dereferenceable(52) %20) #13
   %25 = load ptr, ptr %24, align 8
   %.pre87 = load ptr, ptr %1, align 8
   %.phi.trans.insert88 = getelementptr inbounds nuw i8, ptr %.pre87, i64 8
@@ -5200,7 +5200,7 @@ _ZNK6Method21parameter_annotationsEv.exit:        ; preds = %_ZNK6Method11annota
   br i1 %.not.i.i54, label %_ZNK6Method18annotation_defaultEv.exit, label %30
 
 30:                                               ; preds = %_ZNK6Method21parameter_annotationsEv.exit
-  %31 = tail call noundef ptr @_ZNK11ConstMethod24default_annotations_addrEv(ptr noundef nonnull align 8 dereferenceable(52) %27) #12
+  %31 = tail call noundef ptr @_ZNK11ConstMethod24default_annotations_addrEv(ptr noundef nonnull align 8 dereferenceable(52) %27) #13
   %32 = load ptr, ptr %31, align 8
   %.pre92 = load ptr, ptr %1, align 8
   %.phi.trans.insert93 = getelementptr inbounds nuw i8, ptr %.pre92, i64 8
@@ -5218,7 +5218,7 @@ _ZNK6Method18annotation_defaultEv.exit:           ; preds = %_ZNK6Method21parame
   br i1 %.not.i.i55, label %_ZNK6Method16type_annotationsEv.exit, label %37
 
 37:                                               ; preds = %_ZNK6Method18annotation_defaultEv.exit
-  %38 = tail call noundef ptr @_ZNK11ConstMethod21type_annotations_addrEv(ptr noundef nonnull align 8 dereferenceable(52) %34) #12
+  %38 = tail call noundef ptr @_ZNK11ConstMethod21type_annotations_addrEv(ptr noundef nonnull align 8 dereferenceable(52) %34) #13
   %39 = load ptr, ptr %38, align 8
   %.pre97 = load ptr, ptr %1, align 8
   %.phi.trans.insert98 = getelementptr inbounds nuw i8, ptr %.pre97, i64 8
@@ -5254,7 +5254,7 @@ _ZNK6Method16type_annotationsEv.exit:             ; preds = %_ZNK6Method18annota
   %57 = shl i64 %55, 1
   %58 = add i64 %57, 3
   %59 = and i64 %58, -1024
-  %60 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %49, i64 noundef %55, i64 noundef %59, i32 noundef 0) #12
+  %60 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %49, i64 noundef %55, i64 noundef %59, i32 noundef 0) #13
   store ptr %60, ptr %48, align 8
   store i64 %59, ptr %54, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 %52
@@ -5296,7 +5296,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %67, %68
   %79 = shl i64 %77, 1
   %80 = add i64 %79, 3
   %81 = and i64 %80, -1024
-  %82 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %72, i64 noundef %77, i64 noundef %81, i32 noundef 0) #12
+  %82 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %72, i64 noundef %77, i64 noundef %81, i32 noundef 0) #13
   store ptr %82, ptr %48, align 8
   store i64 %81, ptr %54, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 %75
@@ -5338,7 +5338,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit61: ; preds = %89, %90
   %101 = shl i64 %99, 1
   %102 = add i64 %101, 3
   %103 = and i64 %102, -1024
-  %104 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %94, i64 noundef %99, i64 noundef %103, i32 noundef 0) #12
+  %104 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %94, i64 noundef %99, i64 noundef %103, i32 noundef 0) #13
   store ptr %104, ptr %48, align 8
   store i64 %103, ptr %54, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 %97
@@ -5406,7 +5406,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit66: ; preds = %111, %112
   %134 = shl i64 %132, 1
   %135 = add i64 %134, 3
   %136 = and i64 %135, -1024
-  %137 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %127, i64 noundef %132, i64 noundef %136, i32 noundef 0) #12
+  %137 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %127, i64 noundef %132, i64 noundef %136, i32 noundef 0) #13
   store ptr %137, ptr %48, align 8
   store i64 %136, ptr %54, align 8
   %138 = getelementptr inbounds i8, ptr %137, i64 %130
@@ -5521,7 +5521,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter22write_class_attributesEv(p
 
 _ZN27JvmtiClassFileReconstituter30inner_classes_attribute_lengthEv.exit: ; preds = %1, %8
   %.sroa.1.0.i = phi i16 [ 0, %1 ], [ %13, %8 ]
-  %14 = tail call noundef ptr @_ZNK13InstanceKlass17generic_signatureEv(ptr noundef nonnull align 8 dereferenceable(464) %5) #12
+  %14 = tail call noundef ptr @_ZNK13InstanceKlass17generic_signatureEv(ptr noundef nonnull align 8 dereferenceable(464) %5) #13
   %15 = load ptr, ptr %4, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 200
   %17 = load ptr, ptr %16, align 8
@@ -5539,7 +5539,7 @@ _ZNK13InstanceKlass22class_type_annotationsEv.exit: ; preds = %_ZN27JvmtiClassFi
   %23 = phi ptr [ %21, %18 ], [ null, %_ZN27JvmtiClassFileReconstituter30inner_classes_attribute_lengthEv.exit ]
   %.not = icmp ne ptr %14, null
   %spec.select = zext i1 %.not to i16
-  %24 = tail call noundef ptr @_ZNK13InstanceKlass16source_file_nameEv(ptr noundef nonnull align 8 dereferenceable(464) %15) #12
+  %24 = tail call noundef ptr @_ZNK13InstanceKlass16source_file_nameEv(ptr noundef nonnull align 8 dereferenceable(464) %15) #13
   %.not28 = icmp eq ptr %24, null
   %25 = select i1 %.not, i16 2, i16 1
   %.1 = select i1 %.not28, i16 %spec.select, i16 %25
@@ -5556,12 +5556,12 @@ _ZNK13InstanceKlass22class_type_annotationsEv.exit: ; preds = %_ZN27JvmtiClassFi
   %.not32 = icmp ne ptr %23, null
   %33 = zext i1 %.not32 to i16
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @_ZN18constantPoolHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %34) #12
+  call void @_ZN18constantPoolHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %34) #13
   %35 = load ptr, ptr %2, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
   %.not33 = icmp ne ptr %37, null
-  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #12
+  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
   %38 = zext i1 %.not33 to i16
   %39 = load ptr, ptr %4, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 296
@@ -5607,7 +5607,7 @@ _ZNK13InstanceKlass22class_type_annotationsEv.exit: ; preds = %_ZN27JvmtiClassFi
   %64 = shl i64 %62, 1
   %65 = add i64 %64, 3
   %66 = and i64 %65, -1024
-  %67 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %56, i64 noundef %62, i64 noundef %66, i32 noundef 0) #12
+  %67 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %56, i64 noundef %62, i64 noundef %66, i32 noundef 0) #13
   store ptr %67, ptr %55, align 8
   store i64 %66, ptr %61, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 %59
@@ -5694,7 +5694,7 @@ _ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit: ; pred
 
 116:                                              ; preds = %_ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
   %117 = load ptr, ptr %4, align 8
-  %118 = call noundef ptr @_ZNK13InstanceKlass16source_file_nameEv(ptr noundef nonnull align 8 dereferenceable(464) %117) #12
+  %118 = call noundef ptr @_ZNK13InstanceKlass16source_file_nameEv(ptr noundef nonnull align 8 dereferenceable(464) %117) #13
   %.not38 = icmp eq ptr %118, null
   br i1 %.not38, label %120, label %119
 
@@ -5778,12 +5778,12 @@ _ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit: ; pred
   br label %151
 
 151:                                              ; preds = %150, %146
-  call void @_ZN18constantPoolHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %34) #12
+  call void @_ZN18constantPoolHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %34) #13
   %152 = load ptr, ptr %3, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 32
   %154 = load ptr, ptr %153, align 8
   %.not44 = icmp eq ptr %154, null
-  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br i1 %.not44, label %156, label %155
 
 155:                                              ; preds = %151
@@ -5810,7 +5810,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter18write_method_infosEv(ptr n
   %4 = alloca %class.methodHandle, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
-  call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef %6) #12
+  call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef %6) #13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 400
@@ -5861,7 +5861,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter18write_method_infosEv(ptr n
   %36 = shl i64 %34, 1
   %37 = add i64 %36, 3
   %38 = and i64 %37, -1024
-  %39 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %28, i64 noundef %34, i64 noundef %38, i32 noundef 0) #12
+  %39 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %28, i64 noundef %34, i64 noundef %38, i32 noundef 0) #13
   store ptr %39, ptr %27, align 8
   store i64 %38, ptr %33, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 %31
@@ -5901,7 +5901,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %46, %47
   br label %94
 
 52:                                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
-  %53 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %11, i32 noundef 4) #12
+  %53 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %11, i32 noundef 4) #13
   br i1 %12, label %.lr.ph53.preheader, label %_ZN13GrowableArrayIiED2Ev.exit
 
 .lr.ph53.preheader:                               ; preds = %52
@@ -5982,7 +5982,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
 
 _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %66, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
   call void @_ZN27JvmtiClassFileReconstituter17write_method_infoERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
   br i1 %exitcond72.not, label %_ZN13GrowableArrayIiED2Ev.exit, label %66, !llvm.loop !31
@@ -6033,13 +6033,13 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
 
 _ZN12methodHandleC2EP6ThreadP6Method.exit34:      ; preds = %94, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i30
   call void @_ZN27JvmtiClassFileReconstituter17write_method_infoERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
+  call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
   br i1 %exitcond62.not, label %_ZN13GrowableArrayIiED2Ev.exit, label %94, !llvm.loop !32
 
 _ZN13GrowableArrayIiED2Ev.exit:                   ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit34, %_ZN12methodHandleC2EP6ThreadP6Method.exit, %52, %.preheader46
-  call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #12
+  call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #13
   ret void
 }
 
@@ -6068,7 +6068,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter23write_class_file_formatEv(
   %16 = shl i64 %14, 1
   %17 = add i64 %16, 5
   %18 = and i64 %17, -1024
-  %19 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %8, i64 noundef %14, i64 noundef %18, i32 noundef 0) #12
+  %19 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %8, i64 noundef %14, i64 noundef %18, i32 noundef 0) #13
   store ptr %19, ptr %7, align 8
   store i64 %18, ptr %13, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 %11
@@ -6095,7 +6095,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i: ; preds = %15, %1
 _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %25, %26
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call noundef zeroext i16 @_ZNK13InstanceKlass13minor_versionEv(ptr noundef nonnull align 8 dereferenceable(464) %28) #12
+  %29 = tail call noundef zeroext i16 @_ZNK13InstanceKlass13minor_versionEv(ptr noundef nonnull align 8 dereferenceable(464) %28) #13
   %30 = load ptr, ptr %5, align 8
   %31 = load ptr, ptr %7, align 8
   %32 = ptrtoint ptr %30 to i64
@@ -6110,7 +6110,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %25, %26
   %38 = shl i64 %36, 1
   %39 = add i64 %38, 3
   %40 = and i64 %39, -1024
-  %41 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %31, i64 noundef %36, i64 noundef %40, i32 noundef 0) #12
+  %41 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %31, i64 noundef %36, i64 noundef %40, i32 noundef 0) #13
   store ptr %41, ptr %7, align 8
   store i64 %40, ptr %13, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 %34
@@ -6137,7 +6137,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i14: ; preds = %37, %
 
 _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %48, %49
   %50 = load ptr, ptr %27, align 8
-  %51 = tail call noundef zeroext i16 @_ZNK13InstanceKlass13major_versionEv(ptr noundef nonnull align 8 dereferenceable(464) %50) #12
+  %51 = tail call noundef zeroext i16 @_ZNK13InstanceKlass13major_versionEv(ptr noundef nonnull align 8 dereferenceable(464) %50) #13
   %52 = load ptr, ptr %5, align 8
   %53 = load ptr, ptr %7, align 8
   %54 = ptrtoint ptr %52 to i64
@@ -6152,7 +6152,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %48, %49
   %60 = shl i64 %58, 1
   %61 = add i64 %60, 3
   %62 = and i64 %61, -1024
-  %63 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %53, i64 noundef %58, i64 noundef %62, i32 noundef 0) #12
+  %63 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %53, i64 noundef %58, i64 noundef %62, i32 noundef 0) #13
   store ptr %63, ptr %7, align 8
   store i64 %62, ptr %13, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 %56
@@ -6179,7 +6179,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i18: ; preds = %59, %
 
 _ZN27JvmtiClassFileReconstituter8write_u2Et.exit20: ; preds = %70, %71
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @_ZN18constantPoolHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %72) #12
+  call void @_ZN18constantPoolHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %72) #13
   %73 = load ptr, ptr %3, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 60
   %75 = load i32, ptr %74, align 4
@@ -6198,7 +6198,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit20: ; preds = %70, %71
   %85 = shl i64 %83, 1
   %86 = add i64 %85, 3
   %87 = and i64 %86, -1024
-  %88 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %78, i64 noundef %83, i64 noundef %87, i32 noundef 0) #12
+  %88 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %78, i64 noundef %83, i64 noundef %87, i32 noundef 0) #13
   store ptr %88, ptr %7, align 8
   store i64 %87, ptr %13, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 %81
@@ -6224,7 +6224,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i23: ; preds = %84, %
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit25
 
 _ZN27JvmtiClassFileReconstituter8write_u2Et.exit25: ; preds = %95, %96
-  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   %97 = load i32, ptr %0, align 8
   %98 = sext i32 %97 to i64
   %99 = load ptr, ptr %5, align 8
@@ -6242,7 +6242,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit25: ; preds = %95, %96
   %108 = add nsw i64 %98, 1
   %109 = add i64 %108, %107
   %110 = and i64 %109, -1024
-  %111 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %100, i64 noundef %105, i64 noundef %110, i32 noundef 0) #12
+  %111 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %100, i64 noundef %105, i64 noundef %110, i32 noundef 0) #13
   store ptr %111, ptr %7, align 8
   store i64 %110, ptr %13, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 %103
@@ -6259,13 +6259,13 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit: ; preds = %_ZN27Jvmt
   br i1 %117, label %_ZN30JvmtiConstantPoolReconstituter16copy_cpool_bytesEPh.exit, label %118
 
 118:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit
-  call void @_ZN18constantPoolHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %72) #12
+  call void @_ZN18constantPoolHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %72) #13
   %119 = load ptr, ptr %2, align 8
   %120 = load i32, ptr %0, align 8
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %122 = load ptr, ptr %121, align 8
-  %123 = call noundef i32 @_ZN12ConstantPool16copy_cpool_bytesEiPNS_10SymbolHashEPh(ptr noundef nonnull align 8 dereferenceable(68) %119, i32 noundef %120, ptr noundef %122, ptr noundef nonnull %115) #12
-  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #12
+  %123 = call noundef i32 @_ZN12ConstantPool16copy_cpool_bytesEiPNS_10SymbolHashEPh(ptr noundef nonnull align 8 dereferenceable(68) %119, i32 noundef %120, ptr noundef %122, ptr noundef nonnull %115) #13
+  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
   %.pre = load ptr, ptr %5, align 8
   %.pre71 = load ptr, ptr %7, align 8
   %.pre72 = load i64, ptr %13, align 8
@@ -6292,7 +6292,7 @@ _ZN30JvmtiConstantPoolReconstituter16copy_cpool_bytesEPh.exit: ; preds = %_ZN27J
   %136 = shl i64 %124, 1
   %137 = add i64 %136, 3
   %138 = and i64 %137, -1024
-  %139 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %125, i64 noundef %124, i64 noundef %138, i32 noundef 0) #12
+  %139 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %125, i64 noundef %124, i64 noundef %138, i32 noundef 0) #13
   store ptr %139, ptr %7, align 8
   store i64 %138, ptr %13, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 %133
@@ -6389,7 +6389,7 @@ _ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit: 
   %199 = shl i64 %197, 1
   %200 = add i64 %199, 3
   %201 = and i64 %200, -1024
-  %202 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %192, i64 noundef %197, i64 noundef %201, i32 noundef 0) #12
+  %202 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %192, i64 noundef %197, i64 noundef %201, i32 noundef 0) #13
   store ptr %202, ptr %7, align 8
   store i64 %201, ptr %13, align 8
   %203 = getelementptr inbounds i8, ptr %202, i64 %195
@@ -6490,7 +6490,7 @@ _ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit39
   %264 = shl i64 %262, 1
   %265 = add i64 %264, 3
   %266 = and i64 %265, -1024
-  %267 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %257, i64 noundef %262, i64 noundef %266, i32 noundef 0) #12
+  %267 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %257, i64 noundef %262, i64 noundef %266, i32 noundef 0) #13
   store ptr %267, ptr %7, align 8
   store i64 %266, ptr %13, align 8
   %268 = getelementptr inbounds i8, ptr %267, i64 %260
@@ -6534,7 +6534,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit44: ; preds = %273, %274
   %288 = shl i64 %286, 1
   %289 = add i64 %288, 3
   %290 = and i64 %289, -1024
-  %291 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %281, i64 noundef %286, i64 noundef %290, i32 noundef 0) #12
+  %291 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %281, i64 noundef %286, i64 noundef %290, i32 noundef 0) #13
   store ptr %291, ptr %7, align 8
   store i64 %290, ptr %13, align 8
   %292 = getelementptr inbounds i8, ptr %291, i64 %284
@@ -6572,7 +6572,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit49: ; preds = %298, %299
 303:                                              ; preds = %.lr.ph, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit58
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit58 ]
   %304 = load ptr, ptr %301, align 8
-  call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef %304) #12
+  call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef %304) #13
   %305 = getelementptr inbounds nuw ptr, ptr %302, i64 %indvars.iv
   %306 = load ptr, ptr %305, align 8
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 24
@@ -6644,7 +6644,7 @@ _ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit53
   %356 = shl i64 %354, 1
   %357 = add i64 %356, 3
   %358 = and i64 %357, -1024
-  %359 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %349, i64 noundef %354, i64 noundef %358, i32 noundef 0) #12
+  %359 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %349, i64 noundef %354, i64 noundef %358, i32 noundef 0) #13
   store ptr %359, ptr %7, align 8
   store i64 %358, ptr %13, align 8
   %360 = getelementptr inbounds i8, ptr %359, i64 %352
@@ -6669,7 +6669,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i56: ; preds = %355, 
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit58
 
 _ZN27JvmtiClassFileReconstituter8write_u2Et.exit58: ; preds = %365, %366
-  call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #12
+  call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %303, !llvm.loop !33
@@ -6706,7 +6706,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter8write_u8Em(ptr noundef nonn
   %14 = shl i64 %12, 1
   %15 = add i64 %14, 9
   %16 = and i64 %15, -1024
-  %17 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %6, i64 noundef %12, i64 noundef %16, i32 noundef 0) #12
+  %17 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %6, i64 noundef %12, i64 noundef %16, i32 noundef 0) #13
   store ptr %17, ptr %5, align 8
   store i64 %16, ptr %11, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 %9
@@ -6760,7 +6760,7 @@ define linkonce_odr hidden noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef n
   br i1 %.not.i, label %17, label %_ZN9Bytecodes7code_atEPK6MethodPh.exit
 
 17:                                               ; preds = %7
-  %18 = tail call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef nonnull %9, ptr noundef nonnull %14) #12
+  %18 = tail call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef nonnull %9, ptr noundef nonnull %14) #13
   br label %_ZN9Bytecodes7code_atEPK6MethodPh.exit
 
 _ZN9Bytecodes7code_atEPK6MethodPh.exit:           ; preds = %7, %17
@@ -6788,7 +6788,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit:         ; preds = %_ZN9Bytecodes7code_
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr %8, align 8
-  %35 = tail call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef %34, ptr noundef nonnull %14) #12
+  %35 = tail call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef %34, ptr noundef nonnull %14) #13
   br label %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i
 
 _ZN9Bytecodes7code_atEPK6MethodPh.exit.i:         ; preds = %33, %30
@@ -6806,7 +6806,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.i.i:     ; preds = %_ZN9Bytecodes7code_
   br i1 %.not.i3.i, label %_ZN9Bytecodes9length_atEP6MethodPh.exit, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
 
 _ZN9Bytecodes9length_atEP6MethodPh.exit:          ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i
-  %43 = tail call noundef i32 @_ZN9Bytecodes17special_length_atENS_4CodeEPhS1_(i32 noundef %36, ptr noundef nonnull %14, ptr noundef null) #12
+  %43 = tail call noundef i32 @_ZN9Bytecodes17special_length_atENS_4CodeEPhS1_(i32 noundef %36, ptr noundef nonnull %14, ptr noundef null) #13
   %44 = icmp slt i32 %43, 1
   br i1 %44, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread22, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
 
@@ -6857,7 +6857,7 @@ define internal void @__cxx_global_var_init.33() #8 section ".text.startup" comd
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 162, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 162, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -6866,7 +6866,7 @@ define internal void @__cxx_global_var_init.33() #8 section ".text.startup" comd
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #12
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #13
   ret i64 %3
 }
 
@@ -6880,7 +6880,7 @@ define internal void @__cxx_global_var_init.34() #8 section ".text.startup" comd
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -6889,7 +6889,7 @@ define internal void @__cxx_global_var_init.34() #8 section ".text.startup" comd
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #12
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #13
   ret i64 %3
 }
 
@@ -6901,7 +6901,7 @@ define internal void @__cxx_global_var_init.35() #8 section ".text.startup" comd
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 107, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 107, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -6910,7 +6910,7 @@ define internal void @__cxx_global_var_init.35() #8 section ".text.startup" comd
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #12
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #13
   ret i64 %3
 }
 
@@ -6922,7 +6922,7 @@ define internal void @__cxx_global_var_init.36() #8 section ".text.startup" comd
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 80, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 80, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -6931,7 +6931,7 @@ define internal void @__cxx_global_var_init.36() #8 section ".text.startup" comd
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #12
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #13
   ret i64 %3
 }
 
@@ -6948,7 +6948,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP8Metadata13Gro
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %1, i32 noundef 8) #12
+  %8 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %1, i32 noundef 8) #13
   br label %_ZN13GrowableArrayIP8MetadataE8allocateEv.exit
 
 9:                                                ; preds = %2
@@ -6959,12 +6959,12 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP8Metadata13Gro
 11:                                               ; preds = %9
   %12 = lshr i64 %5, 1
   %13 = trunc i64 %12 to i8
-  %14 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %1, i32 noundef 8, i8 noundef zeroext %13) #12
+  %14 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %1, i32 noundef 8, i8 noundef zeroext %13) #13
   br label %_ZN13GrowableArrayIP8MetadataE8allocateEv.exit
 
 15:                                               ; preds = %9
   %16 = inttoptr i64 %5 to ptr
-  %17 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %1, i32 noundef 8, ptr noundef nonnull %16) #12
+  %17 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %1, i32 noundef 8, ptr noundef nonnull %16) #13
   br label %_ZN13GrowableArrayIP8MetadataE8allocateEv.exit
 
 _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
@@ -7027,7 +7027,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   br i1 %.not.i15, label %_ZN13GrowableArrayIP8MetadataE10deallocateEPS1_.exit, label %42
 
 42:                                               ; preds = %39
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #12
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #13
   br label %_ZN13GrowableArrayIP8MetadataE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP8MetadataE10deallocateEPS1_.exit: ; preds = %42, %39, %.preheader
@@ -7774,14 +7774,14 @@ declare noundef ptr @_ZNK11ConstMethod21type_annotations_addrEv(ptr noundef nonn
 
 declare noundef i32 @_ZN12ConstantPool16copy_cpool_bytesEiPNS_10SymbolHashEPh(ptr noundef nonnull align 8 dereferenceable(68), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #9
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.bswap.i16(i16) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #9
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.bswap.i32(i32) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #9
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.bswap.i64(i64) #10
 
 declare void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(42), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
@@ -7797,17 +7797,17 @@ declare void @_ZN24TempSymbolCleanupDelayer13delay_cleanupEP6Symbol(ptr noundef)
 
 declare void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #10
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -7819,11 +7819,12 @@ attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
+attributes #10 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @luaopen_bit(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @lj_lib_register(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @lj_lib_init_bit, ptr noundef nonnull @lj_lib_cf_bit) #5
+  tail call void @lj_lib_register(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @lj_lib_init_bit, ptr noundef nonnull @lj_lib_cf_bit) #6
   ret i32 1
 }
 
@@ -26,7 +26,7 @@ define internal noundef i32 @lj_ffh_bit_tobit(ptr noundef %0) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !8
   %5 = getelementptr inbounds i8, ptr %4, i64 -16
-  %6 = call i64 @lj_carith_check64(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #5
+  %6 = call i64 @lj_carith_check64(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #6
   %7 = trunc i64 %6 to i32
   %8 = sitofp i32 %7 to double
   store double %8, ptr %5, align 8, !tbaa !15
@@ -39,14 +39,14 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_bnot(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !4
-  %3 = call i64 @lj_carith_check64(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #5
+  %3 = call i64 @lj_carith_check64(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #6
   %4 = load i32, ptr %2, align 4, !tbaa !4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %17, label %5
 
 5:                                                ; preds = %1
   %6 = xor i64 %3, -1
-  %7 = call ptr @lj_mem_newgco(ptr noundef %0, i64 noundef 24) #5
+  %7 = call ptr @lj_mem_newgco(ptr noundef %0, i64 noundef 24) #6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 9
   store i8 10, ptr %8, align 1, !tbaa !16
   %9 = trunc i32 %4 to i16
@@ -73,14 +73,14 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_bswap(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !4
-  %3 = call i64 @lj_carith_check64(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #5
+  %3 = call i64 @lj_carith_check64(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #6
   %4 = load i32, ptr %2, align 4, !tbaa !4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %17, label %5
 
 5:                                                ; preds = %1
   %6 = call i64 @llvm.bswap.i64(i64 %3)
-  %7 = call ptr @lj_mem_newgco(ptr noundef %0, i64 noundef 24) #5
+  %7 = call ptr @lj_mem_newgco(ptr noundef %0, i64 noundef 24) #6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 9
   store i8 10, ptr %8, align 1, !tbaa !16
   %9 = trunc i32 %4 to i16
@@ -110,8 +110,8 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_lshift(ptr noundef %0) #0 {
   store i32 0, ptr %2, align 4, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !4
-  %4 = call i64 @lj_carith_check64(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #5
-  %5 = call i64 @lj_carith_check64(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %3) #5
+  %4 = call i64 @lj_carith_check64(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #6
+  %5 = call i64 @lj_carith_check64(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %3) #6
   %6 = trunc i64 %5 to i32
   %7 = load i32, ptr %2, align 4, !tbaa !4
   %.not = icmp eq i32 %7, 0
@@ -128,9 +128,9 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_lshift(ptr noundef %0) #0 {
   %16 = load i8, ptr %15, align 2, !tbaa !15
   %17 = zext i8 %16 to i32
   %18 = add nsw i32 %17, -67
-  %19 = call i64 @lj_carith_shift64(i64 noundef %4, i32 noundef %6, i32 noundef %18) #5
+  %19 = call i64 @lj_carith_shift64(i64 noundef %4, i32 noundef %6, i32 noundef %18) #6
   %20 = load i32, ptr %2, align 4, !tbaa !4
-  %21 = call ptr @lj_mem_newgco(ptr noundef %0, i64 noundef 24) #5
+  %21 = call ptr @lj_mem_newgco(ptr noundef %0, i64 noundef 24) #6
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 9
   store i8 10, ptr %22, align 1, !tbaa !16
   %23 = trunc i32 %20 to i16
@@ -174,7 +174,7 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_band(ptr noundef %0) #0 {
   %.026 = phi i32 [ 0, %1 ], [ %9, %8 ]
   %.024 = phi ptr [ %5, %1 ], [ %11, %8 ]
   %9 = add nuw nsw i32 %.026, 1
-  %10 = call i64 @lj_carith_check64(ptr noundef nonnull %0, i32 noundef %9, ptr noundef nonnull %2) #5
+  %10 = call i64 @lj_carith_check64(ptr noundef nonnull %0, i32 noundef %9, ptr noundef nonnull %2) #6
   %11 = getelementptr inbounds nuw i8, ptr %.024, i64 8
   %12 = icmp ult ptr %11, %7
   br i1 %12, label %8, label %13, !llvm.loop !22
@@ -211,7 +211,7 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_band(ptr noundef %0) #0 {
 .split.us:                                        ; preds = %15, %.split.us
   %.125.us = phi ptr [ %36, %.split.us ], [ %26, %15 ]
   %.0.us = phi i64 [ %35, %.split.us ], [ -1, %15 ]
-  call void @lj_cconv_ct_tv(ptr noundef nonnull %21, ptr noundef nonnull %25, ptr noundef nonnull %3, ptr noundef nonnull %.125.us, i32 noundef 0) #5
+  call void @lj_cconv_ct_tv(ptr noundef nonnull %21, ptr noundef nonnull %25, ptr noundef nonnull %3, ptr noundef nonnull %.125.us, i32 noundef 0) #6
   %34 = load i64, ptr %3, align 8, !tbaa !20
   %35 = and i64 %34, %.0.us
   %36 = getelementptr inbounds nuw i8, ptr %.125.us, i64 8
@@ -225,7 +225,7 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_band(ptr noundef %0) #0 {
 .split.split.us:                                  ; preds = %.split, %.split.split.us
   %.125.us32 = phi ptr [ %41, %.split.split.us ], [ %26, %.split ]
   %.0.us33 = phi i64 [ %40, %.split.split.us ], [ 0, %.split ]
-  call void @lj_cconv_ct_tv(ptr noundef nonnull %21, ptr noundef nonnull %25, ptr noundef nonnull %3, ptr noundef nonnull %.125.us32, i32 noundef 0) #5
+  call void @lj_cconv_ct_tv(ptr noundef nonnull %21, ptr noundef nonnull %25, ptr noundef nonnull %3, ptr noundef nonnull %.125.us32, i32 noundef 0) #6
   %39 = load i64, ptr %3, align 8, !tbaa !20
   %40 = or i64 %39, %.0.us33
   %41 = getelementptr inbounds nuw i8, ptr %.125.us32, i64 8
@@ -235,7 +235,7 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_band(ptr noundef %0) #0 {
 .split.split:                                     ; preds = %.split, %.split.split
   %.125 = phi ptr [ %45, %.split.split ], [ %26, %.split ]
   %.0 = phi i64 [ %44, %.split.split ], [ 0, %.split ]
-  call void @lj_cconv_ct_tv(ptr noundef nonnull %21, ptr noundef nonnull %25, ptr noundef nonnull %3, ptr noundef nonnull %.125, i32 noundef 0) #5
+  call void @lj_cconv_ct_tv(ptr noundef nonnull %21, ptr noundef nonnull %25, ptr noundef nonnull %3, ptr noundef nonnull %.125, i32 noundef 0) #6
   %43 = load i64, ptr %3, align 8, !tbaa !20
   %44 = xor i64 %43, %.0
   %45 = getelementptr inbounds nuw i8, ptr %.125, i64 8
@@ -245,7 +245,7 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_band(ptr noundef %0) #0 {
 .split31.us:                                      ; preds = %.split.split, %.split.split.us, %.split.us
   %.us-phi = phi i64 [ %35, %.split.us ], [ %40, %.split.split.us ], [ %44, %.split.split ]
   %47 = load i32, ptr %2, align 4, !tbaa !4
-  %48 = call ptr @lj_mem_newgco(ptr noundef nonnull %0, i64 noundef 24) #5
+  %48 = call ptr @lj_mem_newgco(ptr noundef nonnull %0, i64 noundef 24) #6
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 9
   store i8 10, ptr %49, align 1, !tbaa !16
   %50 = trunc i32 %47 to i16
@@ -275,7 +275,7 @@ define internal noundef i32 @lj_cf_bit_tohex(ptr noundef %0) #0 {
   store i32 0, ptr %2, align 4, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !4
-  %4 = call i64 @lj_carith_check64(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #5
+  %4 = call i64 @lj_carith_check64(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #6
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -291,7 +291,7 @@ define internal noundef i32 @lj_cf_bit_tohex(ptr noundef %0) #0 {
   br label %16
 
 13:                                               ; preds = %1
-  %14 = call i64 @lj_carith_check64(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull %3) #5
+  %14 = call i64 @lj_carith_check64(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull %3) #6
   %15 = trunc i64 %14 to i32
   br label %16
 
@@ -321,7 +321,7 @@ define internal noundef i32 @lj_cf_bit_tohex(ptr noundef %0) #0 {
   %33 = xor i64 %notmask, -1
   %34 = select i1 %30, i64 %33, i64 -1
   %.024 = and i64 %34, %4
-  %35 = call ptr @lj_strfmt_putfxint(ptr noundef nonnull %21, i32 noundef %29, i64 noundef %.024) #5
+  %35 = call ptr @lj_strfmt_putfxint(ptr noundef nonnull %21, i32 noundef %29, i64 noundef %.024) #6
   %36 = load ptr, ptr %8, align 8, !tbaa !21
   %37 = getelementptr inbounds i8, ptr %36, i64 -8
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
@@ -331,7 +331,7 @@ define internal noundef i32 @lj_cf_bit_tohex(ptr noundef %0) #0 {
   %42 = ptrtoint ptr %39 to i64
   %43 = sub i64 %41, %42
   %44 = and i64 %43, 4294967295
-  %45 = call ptr @lj_str_new(ptr noundef nonnull %0, ptr noundef %39, i64 noundef %44) #5
+  %45 = call ptr @lj_str_new(ptr noundef nonnull %0, ptr noundef %39, i64 noundef %44) #6
   %46 = ptrtoint ptr %45 to i64
   %47 = or i64 %46, -703687441776640
   store i64 %47, ptr %37, align 8, !tbaa !15
@@ -345,7 +345,7 @@ define internal noundef i32 @lj_cf_bit_tohex(ptr noundef %0) #0 {
   br i1 %.not27, label %56, label %54, !prof !52
 
 54:                                               ; preds = %16
-  %55 = call i32 @lj_gc_step(ptr noundef nonnull %0) #5
+  %55 = call i32 @lj_gc_step(ptr noundef nonnull %0) #6
   br label %56
 
 56:                                               ; preds = %54, %16
@@ -358,7 +358,7 @@ declare hidden i64 @lj_carith_check64(ptr noundef, i32 noundef, ptr noundef) loc
 
 declare hidden ptr @lj_mem_newgco(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #2
 
 declare hidden i64 @lj_carith_shift64(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -377,18 +377,19 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #4
+declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

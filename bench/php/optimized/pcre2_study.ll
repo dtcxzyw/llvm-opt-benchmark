@@ -538,7 +538,7 @@ define internal fastcc range(i32 0, 5) i32 @set_start_bits(ptr noundef %0, ptr n
 
 .thread:                                          ; preds = %.lr.ph517
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %50 = call i32 @_pcre2_ord2utf_8(i32 noundef %48, ptr noundef nonnull %14) #5
+  %50 = call i32 @_pcre2_ord2utf_8(i32 noundef %48, ptr noundef nonnull %14) #6
   %51 = load i8, ptr %14, align 1, !tbaa !17
   %52 = zext i8 %51 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -983,7 +983,7 @@ define internal fastcc range(i32 0, 5) i32 @set_start_bits(ptr noundef %0, ptr n
 
 290:                                              ; preds = %.preheader.i329
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %291 = call i32 @_pcre2_ord2utf_8(i32 noundef %.117.i, ptr noundef nonnull %13) #5
+  %291 = call i32 @_pcre2_ord2utf_8(i32 noundef %.117.i, ptr noundef nonnull %13) #6
   %292 = load i8, ptr %13, align 1, !tbaa !17
   %293 = and i8 %292, 7
   %294 = shl nuw i8 1, %293
@@ -1063,7 +1063,7 @@ define internal fastcc range(i32 0, 5) i32 @set_start_bits(ptr noundef %0, ptr n
 
 331:                                              ; preds = %.preheader.i346
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %332 = call i32 @_pcre2_ord2utf_8(i32 noundef %.117.i347, ptr noundef nonnull %12) #5
+  %332 = call i32 @_pcre2_ord2utf_8(i32 noundef %.117.i347, ptr noundef nonnull %12) #6
   %333 = load i8, ptr %12, align 1, !tbaa !17
   %334 = and i8 %333, 7
   %335 = shl nuw i8 1, %334
@@ -1143,7 +1143,7 @@ define internal fastcc range(i32 0, 5) i32 @set_start_bits(ptr noundef %0, ptr n
 
 372:                                              ; preds = %.preheader.i367
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %373 = call i32 @_pcre2_ord2utf_8(i32 noundef %.117.i368, ptr noundef nonnull %11) #5
+  %373 = call i32 @_pcre2_ord2utf_8(i32 noundef %.117.i368, ptr noundef nonnull %11) #6
   %374 = load i8, ptr %11, align 1, !tbaa !17
   %375 = and i8 %374, 7
   %376 = shl nuw i8 1, %375
@@ -1296,7 +1296,7 @@ define internal fastcc range(i32 0, 5) i32 @set_start_bits(ptr noundef %0, ptr n
 
 446:                                              ; preds = %.preheader.i388
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %447 = call i32 @_pcre2_ord2utf_8(i32 noundef %.117.i389, ptr noundef nonnull %10) #5
+  %447 = call i32 @_pcre2_ord2utf_8(i32 noundef %.117.i389, ptr noundef nonnull %10) #6
   %448 = load i8, ptr %10, align 1, !tbaa !17
   %449 = and i8 %448, 7
   %450 = shl nuw i8 1, %449
@@ -1376,7 +1376,7 @@ define internal fastcc range(i32 0, 5) i32 @set_start_bits(ptr noundef %0, ptr n
 
 487:                                              ; preds = %.preheader.i409
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %488 = call i32 @_pcre2_ord2utf_8(i32 noundef %.117.i410, ptr noundef nonnull %9) #5
+  %488 = call i32 @_pcre2_ord2utf_8(i32 noundef %.117.i410, ptr noundef nonnull %9) #6
   %489 = load i8, ptr %9, align 1, !tbaa !17
   %490 = and i8 %489, 7
   %491 = shl nuw i8 1, %490
@@ -1456,7 +1456,7 @@ define internal fastcc range(i32 0, 5) i32 @set_start_bits(ptr noundef %0, ptr n
 
 528:                                              ; preds = %.preheader.i430
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %529 = call i32 @_pcre2_ord2utf_8(i32 noundef %.117.i431, ptr noundef nonnull %8) #5
+  %529 = call i32 @_pcre2_ord2utf_8(i32 noundef %.117.i431, ptr noundef nonnull %8) #6
   %530 = load i8, ptr %8, align 1, !tbaa !17
   %531 = and i8 %530, 7
   %532 = shl nuw i8 1, %531
@@ -1608,13 +1608,13 @@ set_nottype_bits.exit381:                         ; preds = %497, %456, %538, %5
   br i1 %.not79.i, label %.loopexit.i, label %612
 
 612:                                              ; preds = %607
-  %613 = call i32 @_pcre2_ord2utf_8(i32 noundef %611, ptr noundef nonnull %7) #5
+  %613 = call i32 @_pcre2_ord2utf_8(i32 noundef %611, ptr noundef nonnull %7) #6
   %614 = load i8, ptr %7, align 1, !tbaa !17
   %615 = icmp ult i32 %.26487.i, %611
   br i1 %615, label %616, label %627
 
 616:                                              ; preds = %612
-  %617 = call i32 @_pcre2_ord2utf_8(i32 noundef %.26487.i, ptr noundef nonnull %6) #5
+  %617 = call i32 @_pcre2_ord2utf_8(i32 noundef %.26487.i, ptr noundef nonnull %6) #6
   %618 = load i8, ptr %6, align 1, !tbaa !17
   %.not8084.i = icmp ugt i8 %618, %614
   br i1 %.not8084.i, label %.loopexit.i, label %.lr.ph.i
@@ -1672,10 +1672,10 @@ set_nottype_bits.exit381:                         ; preds = %497, %456, %538, %5
   br i1 %.not78.i, label %644, label %.loopexit83.i
 
 644:                                              ; preds = %643
-  %645 = call i32 @_pcre2_ord2utf_8(i32 noundef %.264.lcssa.i, ptr noundef nonnull %6) #5
+  %645 = call i32 @_pcre2_ord2utf_8(i32 noundef %.264.lcssa.i, ptr noundef nonnull %6) #6
   %646 = icmp eq i32 %.06898.i, 0
   %.81.i = select i1 %646, i32 32767, i32 65535
-  %647 = call i32 @_pcre2_ord2utf_8(i32 noundef %.81.i, ptr noundef nonnull %7) #5
+  %647 = call i32 @_pcre2_ord2utf_8(i32 noundef %.81.i, ptr noundef nonnull %7) #6
   %648 = load i8, ptr %7, align 1, !tbaa !17
   %649 = load i8, ptr %6, align 1, !tbaa !17
   %.not7792.i = icmp ugt i8 %649, %648
@@ -2612,7 +2612,7 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %329, label %366, label %330
 
 330:                                              ; preds = %325, %.lr.ph619
-  %331 = call ptr @_pcre2_find_bracket_8(ptr noundef %2, i32 noundef %3, i32 noundef %324) #5
+  %331 = call ptr @_pcre2_find_bracket_8(ptr noundef %2, i32 noundef %3, i32 noundef %324) #6
   %332 = icmp eq ptr %331, null
   br i1 %332, label %.thread570, label %.preheader583
 
@@ -2729,7 +2729,7 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %392, label %393, label %.thread550
 
 393:                                              ; preds = %389
-  %394 = call ptr @_pcre2_find_bracket_8(ptr noundef %2, i32 noundef %3, i32 noundef %382) #5
+  %394 = call ptr @_pcre2_find_bracket_8(ptr noundef %2, i32 noundef %3, i32 noundef %382) #6
   %395 = icmp eq ptr %394, null
   br i1 %395, label %.thread570, label %.preheader585
 
@@ -2752,7 +2752,7 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not, label %411, label %408
 
 408:                                              ; preds = %407
-  %409 = call ptr @_pcre2_find_bracket_8(ptr noundef nonnull %404, i32 noundef %3, i32 noundef %382) #5
+  %409 = call ptr @_pcre2_find_bracket_8(ptr noundef nonnull %404, i32 noundef %3, i32 noundef %382) #6
   %410 = icmp eq ptr %409, null
   br i1 %410, label %411, label %.thread550
 
@@ -3192,7 +3192,7 @@ define internal fastcc nonnull ptr @set_table_bit(ptr noundef captures(none) %0,
 
 137:                                              ; preds = %120
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %138 = call i32 @_pcre2_ord2utf_8(i32 noundef %136, ptr noundef nonnull %6) #5
+  %138 = call i32 @_pcre2_ord2utf_8(i32 noundef %136, ptr noundef nonnull %6) #6
   %139 = load i8, ptr %6, align 1, !tbaa !17
   %140 = and i8 %139, 7
   %141 = shl nuw i8 1, %140
@@ -3253,24 +3253,25 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #4
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.ctpop.i8(i8) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -307,7 +307,7 @@ define void @_ZN5ImGui6TextExEPKcS1_i(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %16
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select101) #43
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select101) #44
   %21 = getelementptr inbounds nuw i8, ptr %spec.select101, i64 %20
   br label %22
 
@@ -402,7 +402,7 @@ define void @_ZN5ImGui6TextExEPKcS1_i(ptr noundef %0, ptr noundef %1, i32 nounde
   %68 = phi float [ %74, %.lr.ph.split.us ], [ 0.000000e+00, %.lr.ph ]
   %69 = ptrtoint ptr %.2157.us to i64
   %70 = sub i64 %33, %69
-  %71 = tail call noundef ptr @memchr(ptr noundef %.2157.us, i32 noundef 10, i64 noundef %70) #43
+  %71 = tail call noundef ptr @memchr(ptr noundef %.2157.us, i32 noundef 10, i64 noundef %70) #44
   %.not.us = icmp eq ptr %71, null
   %spec.select102.us = select i1 %.not.us, ptr %.1, ptr %71
   %72 = tail call <2 x float> @_ZN5ImGui12CalcTextSizeEPKcS1_bf(ptr noundef %.2157.us, ptr noundef nonnull %spec.select102.us, i1 noundef zeroext false, float noundef -1.000000e+00)
@@ -421,7 +421,7 @@ define void @_ZN5ImGui6TextExEPKcS1_i(ptr noundef %0, ptr noundef %1, i32 nounde
   %.090156 = phi i32 [ %84, %.lr.ph.split ], [ 0, %.lr.ph ]
   %80 = ptrtoint ptr %.2157 to i64
   %81 = sub i64 %33, %80
-  %82 = tail call noundef ptr @memchr(ptr noundef %.2157, i32 noundef 10, i64 noundef %81) #43
+  %82 = tail call noundef ptr @memchr(ptr noundef %.2157, i32 noundef 10, i64 noundef %81) #44
   %.not = icmp eq ptr %82, null
   %spec.select102 = select i1 %.not, ptr %.1, ptr %82
   %83 = getelementptr inbounds nuw i8, ptr %spec.select102, i64 1
@@ -472,7 +472,7 @@ define void @_ZN5ImGui6TextExEPKcS1_i(ptr noundef %0, ptr noundef %1, i32 nounde
 100:                                              ; preds = %98
   %101 = ptrtoint ptr %.3163 to i64
   %102 = sub i64 %33, %101
-  %103 = call noundef ptr @memchr(ptr noundef %.3163, i32 noundef 10, i64 noundef %102) #43
+  %103 = call noundef ptr @memchr(ptr noundef %.3163, i32 noundef 10, i64 noundef %102) #44
   %.not99 = icmp eq ptr %103, null
   %spec.select103 = select i1 %.not99, ptr %.1, ptr %103
   %104 = load float, ptr %6, align 4, !tbaa !159
@@ -516,7 +516,7 @@ define void @_ZN5ImGui6TextExEPKcS1_i(ptr noundef %0, ptr noundef %1, i32 nounde
   %.4164.us = phi ptr [ %126, %.lr.ph167.split.us ], [ %.3.lcssa, %.lr.ph167.split.us.preheader ]
   %120 = ptrtoint ptr %.4164.us to i64
   %121 = sub i64 %33, %120
-  %122 = call noundef ptr @memchr(ptr noundef %.4164.us, i32 noundef 10, i64 noundef %121) #43
+  %122 = call noundef ptr @memchr(ptr noundef %.4164.us, i32 noundef 10, i64 noundef %121) #44
   %.not100.us = icmp eq ptr %122, null
   %spec.select104.us = select i1 %.not100.us, ptr %.1, ptr %122
   %123 = call <2 x float> @_ZN5ImGui12CalcTextSizeEPKcS1_bf(ptr noundef %.4164.us, ptr noundef nonnull %spec.select104.us, i1 noundef zeroext false, float noundef -1.000000e+00)
@@ -534,7 +534,7 @@ define void @_ZN5ImGui6TextExEPKcS1_i(ptr noundef %0, ptr noundef %1, i32 nounde
   %.4164 = phi ptr [ %132, %.lr.ph167.split ], [ %.3.lcssa, %.lr.ph167 ]
   %129 = ptrtoint ptr %.4164 to i64
   %130 = sub i64 %33, %129
-  %131 = call noundef ptr @memchr(ptr noundef %.4164, i32 noundef 10, i64 noundef %130) #43
+  %131 = call noundef ptr @memchr(ptr noundef %.4164, i32 noundef 10, i64 noundef %130) #44
   %.not100 = icmp eq ptr %131, null
   %spec.select104 = select i1 %.not100, ptr %.1, ptr %131
   %132 = getelementptr inbounds nuw i8, ptr %spec.select104, i64 1
@@ -604,7 +604,7 @@ declare noundef float @_ZN5ImGui17GetTextLineHeightEv() local_unnamed_addr #2
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #4
 
 declare noundef zeroext i1 @_ZN5ImGui11IsClippedExERK6ImRectj(ptr noundef nonnull align 4 dereferenceable(16), i32 noundef) local_unnamed_addr #2
@@ -4800,7 +4800,7 @@ define void @_ZN5ImGui11ProgressBarEfRK6ImVec2PKc(float noundef %0, ptr noundef 
 
 43:                                               ; preds = %37
   %44 = fneg float %0
-  %45 = call float @fmodf(float noundef %44, float noundef 1.000000e+00) #44, !tbaa !177
+  %45 = call float @fmodf(float noundef %44, float noundef 1.000000e+00) #45, !tbaa !177
   %46 = call float @llvm.fmuladd.f32(float %45, float 0x3FF3333340000000, float 0xBFC99999A0000000)
   %47 = fadd float %46, 0x3FC99999A0000000
   %48 = fcmp olt float %47, 0.000000e+00
@@ -5116,7 +5116,7 @@ define noundef zeroext i1 @_ZN5ImGui8TextLinkEPKc(ptr noundef %0) local_unnamed_
   %56 = select i1 %53, float 0.000000e+00, float %55
   store float %56, ptr %10, align 4, !tbaa !191
   %57 = fadd float %.pre, 0x3F947AE140000000
-  %58 = call float @fmodf(float noundef %57, float noundef 1.000000e+00) #44, !tbaa !177
+  %58 = call float @fmodf(float noundef %57, float noundef 1.000000e+00) #45, !tbaa !177
   store float %58, ptr %8, align 4, !tbaa !191
   br label %59
 
@@ -7168,13 +7168,13 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit: ; preds = %_ZN16ImGuiListClipp
           to label %87 unwind label %.loopexit.split-lp
 
 87:                                               ; preds = %84, %80
-  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #44
+  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %89
 
 88:                                               ; preds = %.loopexit, %.loopexit.split-lp, %56, %71, %67
   %.pn.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %72, %71 ], [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #44
+  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn.pn.pn
 
@@ -8070,13 +8070,13 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit.i: ; preds = %_ZN16ImGuiListCli
           to label %89 unwind label %.loopexit.split-lp.i
 
 89:                                               ; preds = %86, %82
-  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #44
+  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN5ImGui5ComboEPKcPiPFS1_PviES3_ii.exit
 
 90:                                               ; preds = %73, %69, %58, %.loopexit.split-lp.i, %.loopexit.i
   %.pn.pn.pn.i = phi { ptr, i32 } [ %59, %58 ], [ %74, %73 ], [ %70, %69 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
-  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #44
+  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn.pn.pn.i
 
@@ -8094,7 +8094,7 @@ define noundef zeroext i1 @_ZN5ImGui5ComboEPKcPiS1_i(ptr noundef %0, ptr noundef
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.013 = phi i32 [ %9, %.lr.ph ], [ 0, %4 ]
   %.01012 = phi ptr [ %8, %.lr.ph ], [ %2, %4 ]
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01012) #43
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01012) #44
   %7 = getelementptr i8, ptr %.01012, i64 %6
   %8 = getelementptr i8, ptr %7, i64 1
   %9 = add nuw nsw i32 %.013, 1
@@ -8119,7 +8119,7 @@ define internal noundef ptr @_ZL24Items_SingleStringGetterPvi(ptr noundef readon
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.014 = phi ptr [ %7, %.lr.ph ], [ %0, %2 ]
   %.0913 = phi i32 [ %8, %.lr.ph ], [ 0, %2 ]
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.014) #43
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.014) #44
   %6 = getelementptr i8, ptr %.014, i64 %5
   %7 = getelementptr i8, ptr %6, i64 1
   %8 = add nuw nsw i32 %.0913, 1
@@ -8297,13 +8297,13 @@ _ZN5ImGui10EndListBoxEv.exit.i:                   ; preds = %.noexc.i
           to label %67 unwind label %.loopexit.split-lp.i
 
 67:                                               ; preds = %64, %_ZN5ImGui10EndListBoxEv.exit.i
-  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #44
+  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN5ImGui7ListBoxEPKcPiPFS1_PviES3_ii.exit
 
 68:                                               ; preds = %56, %52, %43, %.loopexit.split-lp.i, %.loopexit.i
   %.pn.pn.pn.i = phi { ptr, i32 } [ %44, %43 ], [ %57, %56 ], [ %53, %52 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
-  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #44
+  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn.pn.pn.i
@@ -8470,13 +8470,13 @@ _ZN5ImGui10EndListBoxEv.exit:                     ; preds = %.noexc
           to label %65 unwind label %.loopexit.split-lp
 
 65:                                               ; preds = %62, %_ZN5ImGui10EndListBoxEv.exit
-  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #44
+  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %67
 
 66:                                               ; preds = %.loopexit, %.loopexit.split-lp, %41, %54, %50
   %.pn.pn.pn = phi { ptr, i32 } [ %42, %41 ], [ %55, %54 ], [ %51, %50 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #44
+  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn.pn.pn
@@ -8701,13 +8701,13 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit.i: ; preds = %_ZN16ImGuiListCli
           to label %91 unwind label %.loopexit.split-lp.i
 
 91:                                               ; preds = %88, %84
-  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #44
+  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN5ImGui5ComboEPKcPiPFS1_PviES3_ii.exit
 
 92:                                               ; preds = %75, %71, %60, %.loopexit.split-lp.i, %.loopexit.i
   %.pn.pn.pn.i = phi { ptr, i32 } [ %61, %60 ], [ %76, %75 ], [ %72, %71 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
-  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #44
+  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %.pn.pn.pn.i
 
@@ -9327,7 +9327,7 @@ _Z32ImParseFormatSanitizeForScanningPKcPcm.exit:  ; preds = %58, %24, %_Z20ImPar
   %60 = add nsw i64 %9, -4
   %61 = icmp ult i64 %60, 6
   %62 = select i1 %61, ptr %2, ptr %8
-  %63 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.032, ptr noundef %.033, ptr noundef %62) #44
+  %63 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.032, ptr noundef %.033, ptr noundef %62) #45
   %64 = icmp slt i32 %63, 1
   br i1 %64, label %91, label %65
 
@@ -10538,7 +10538,7 @@ _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %68, %98, %97, %96, 
 124:                                              ; preds = %118
   %125 = sub nsw i32 0, %99
   %126 = sitofp i32 %125 to float
-  %127 = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %126) #44, !tbaa !177
+  %127 = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %126) #45, !tbaa !177
   br label %_ZL32GetMinimumStepAtDecimalPrecisioni.exit
 
 _ZL32GetMinimumStepAtDecimalPrecisioni.exit:      ; preds = %113, %120, %124
@@ -10736,7 +10736,7 @@ _Z22ImParseFormatPrecisionPKci.exit240:           ; preds = %173, %167, %196, %1
 
 205:                                              ; preds = %166, %_Z22ImParseFormatPrecisionPKci.exit240
   %206 = phi float [ %204, %_Z22ImParseFormatPrecisionPKci.exit240 ], [ 1.000000e+00, %166 ]
-  %207 = tail call noundef float @powf(float noundef 0x3FB99999A0000000, float noundef %206) #44, !tbaa !177
+  %207 = tail call noundef float @powf(float noundef 0x3FB99999A0000000, float noundef %206) #45, !tbaa !177
   %208 = tail call noundef float @_ZN5ImGui20ScaleRatioFromValueTIiifEEfiT_S1_S1_bff(i32 noundef %0, i32 noundef %165, i32 noundef %3, i32 noundef %4, i1 noundef zeroext true, float noundef %207, float noundef 0.000000e+00)
   %209 = getelementptr inbounds nuw i8, ptr %8, i64 9448
   %210 = load float, ptr %209, align 8, !tbaa !357
@@ -11098,7 +11098,7 @@ _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %68, %98, %97, %96, 
 124:                                              ; preds = %118
   %125 = sub nsw i32 0, %99
   %126 = sitofp i32 %125 to float
-  %127 = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %126) #44, !tbaa !177
+  %127 = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %126) #45, !tbaa !177
   br label %_ZL32GetMinimumStepAtDecimalPrecisioni.exit
 
 _ZL32GetMinimumStepAtDecimalPrecisioni.exit:      ; preds = %113, %120, %124
@@ -11288,7 +11288,7 @@ _Z22ImParseFormatPrecisionPKci.exit241:           ; preds = %169, %163, %192, %1
 
 201:                                              ; preds = %162, %_Z22ImParseFormatPrecisionPKci.exit241
   %202 = phi float [ %200, %_Z22ImParseFormatPrecisionPKci.exit241 ], [ 1.000000e+00, %162 ]
-  %203 = tail call noundef float @powf(float noundef 0x3FB99999A0000000, float noundef %202) #44, !tbaa !177
+  %203 = tail call noundef float @powf(float noundef 0x3FB99999A0000000, float noundef %202) #45, !tbaa !177
   br i1 %.not191, label %_ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit, label %204
 
 204:                                              ; preds = %201
@@ -11314,9 +11314,9 @@ _Z22ImParseFormatPrecisionPKci.exit241:           ; preds = %169, %163, %192, %1
 
 219:                                              ; preds = %217
   %220 = fdiv float %215, %211
-  %221 = tail call noundef float @logf(float noundef %220) #44, !tbaa !177
+  %221 = tail call noundef float @logf(float noundef %220) #45, !tbaa !177
   %222 = fdiv float %214, %211
-  %223 = tail call noundef float @logf(float noundef %222) #44, !tbaa !177
+  %223 = tail call noundef float @logf(float noundef %222) #45, !tbaa !177
   %224 = fdiv float %221, %223
   br label %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit
 
@@ -11346,7 +11346,7 @@ _ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit: ; preds = %204, %217, %
   %239 = fsub float 1.000000e+00, %229
   %240 = select i1 %208, float %239, float %229
   %241 = fdiv float %.084.i, %.085.i
-  %242 = tail call noundef float @powf(float noundef %241, float noundef %240) #44, !tbaa !177
+  %242 = tail call noundef float @powf(float noundef %241, float noundef %240) #45, !tbaa !177
   %243 = fmul float %.085.i, %242
   %244 = fptoui float %243 to i32
   br label %_ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit
@@ -11402,9 +11402,9 @@ _ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit: ; preds = %201, %233, %
 
 270:                                              ; preds = %268
   %271 = fdiv float %266, %262
-  %272 = tail call noundef float @logf(float noundef %271) #44, !tbaa !177
+  %272 = tail call noundef float @logf(float noundef %271) #45, !tbaa !177
   %273 = fdiv float %265, %262
-  %274 = tail call noundef float @logf(float noundef %273) #44, !tbaa !177
+  %274 = tail call noundef float @logf(float noundef %273) #45, !tbaa !177
   %275 = fdiv float %272, %274
   br label %276
 
@@ -11744,7 +11744,7 @@ _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %69, %99, %98, %97, 
 125:                                              ; preds = %119
   %126 = sub nsw i32 0, %100
   %127 = sitofp i32 %126 to float
-  %128 = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %127) #44, !tbaa !177
+  %128 = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %127) #45, !tbaa !177
   br label %_ZL32GetMinimumStepAtDecimalPrecisioni.exit
 
 _ZL32GetMinimumStepAtDecimalPrecisioni.exit:      ; preds = %114, %121, %125
@@ -11942,7 +11942,7 @@ _Z22ImParseFormatPrecisionPKci.exit240:           ; preds = %174, %168, %197, %1
 
 206:                                              ; preds = %167, %_Z22ImParseFormatPrecisionPKci.exit240
   %207 = phi float [ %205, %_Z22ImParseFormatPrecisionPKci.exit240 ], [ 1.000000e+00, %167 ]
-  %208 = tail call noundef float @powf(float noundef 0x3FB99999A0000000, float noundef %207) #44, !tbaa !177
+  %208 = tail call noundef float @powf(float noundef 0x3FB99999A0000000, float noundef %207) #45, !tbaa !177
   %209 = tail call noundef float @_ZN5ImGui20ScaleRatioFromValueTIxxdEEfiT_S1_S1_bff(i32 noundef %0, i64 noundef %166, i64 noundef %3, i64 noundef %4, i1 noundef zeroext true, float noundef %208, float noundef 0.000000e+00)
   %210 = getelementptr inbounds nuw i8, ptr %8, i64 9448
   %211 = load float, ptr %210, align 8, !tbaa !357
@@ -12308,7 +12308,7 @@ _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %69, %99, %98, %97, 
 125:                                              ; preds = %119
   %126 = sub nsw i32 0, %100
   %127 = sitofp i32 %126 to float
-  %128 = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %127) #44, !tbaa !177
+  %128 = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %127) #45, !tbaa !177
   br label %_ZL32GetMinimumStepAtDecimalPrecisioni.exit
 
 _ZL32GetMinimumStepAtDecimalPrecisioni.exit:      ; preds = %114, %121, %125
@@ -12498,7 +12498,7 @@ _Z22ImParseFormatPrecisionPKci.exit241:           ; preds = %170, %164, %193, %1
 
 202:                                              ; preds = %163, %_Z22ImParseFormatPrecisionPKci.exit241
   %203 = phi float [ %201, %_Z22ImParseFormatPrecisionPKci.exit241 ], [ 1.000000e+00, %163 ]
-  %204 = tail call noundef float @powf(float noundef 0x3FB99999A0000000, float noundef %203) #44, !tbaa !177
+  %204 = tail call noundef float @powf(float noundef 0x3FB99999A0000000, float noundef %203) #45, !tbaa !177
   br i1 %.not191, label %._ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit_crit_edge, label %205
 
 ._ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit_crit_edge: ; preds = %202
@@ -12529,9 +12529,9 @@ _Z22ImParseFormatPrecisionPKci.exit241:           ; preds = %170, %164, %193, %1
 
 221:                                              ; preds = %219
   %222 = fdiv double %217, %213
-  %223 = tail call noundef double @log(double noundef %222) #44, !tbaa !177
+  %223 = tail call noundef double @log(double noundef %222) #45, !tbaa !177
   %224 = fdiv double %216, %213
-  %225 = tail call noundef double @log(double noundef %224) #44, !tbaa !177
+  %225 = tail call noundef double @log(double noundef %224) #45, !tbaa !177
   %226 = fdiv double %223, %225
   %227 = fptrunc double %226 to float
   br label %_ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit
@@ -12563,7 +12563,7 @@ _ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit: ; preds = %205, %219, %
   %243 = select i1 %209, float %242, float %232
   %244 = fdiv double %.084.i, %.085.i
   %245 = fpext float %243 to double
-  %246 = tail call noundef double @pow(double noundef %244, double noundef %245) #44, !tbaa !177
+  %246 = tail call noundef double @pow(double noundef %244, double noundef %245) #45, !tbaa !177
   %247 = fmul double %.085.i, %246
   %248 = fptoui double %247 to i64
   br label %_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit
@@ -12626,9 +12626,9 @@ _ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit: ; preds = %._ZN5ImGui20
 
 276:                                              ; preds = %274
   %277 = fdiv double %272, %268
-  %278 = tail call noundef double @log(double noundef %277) #44, !tbaa !177
+  %278 = tail call noundef double @log(double noundef %277) #45, !tbaa !177
   %279 = fdiv double %271, %268
-  %280 = tail call noundef double @log(double noundef %279) #44, !tbaa !177
+  %280 = tail call noundef double @log(double noundef %279) #45, !tbaa !177
   %281 = fdiv double %278, %280
   %282 = fptrunc double %281 to float
   br label %283
@@ -12974,7 +12974,7 @@ _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %70, %100, %99, %98,
 126:                                              ; preds = %120
   %127 = sub nsw i32 0, %101
   %128 = sitofp i32 %127 to float
-  %129 = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %128) #44, !tbaa !177
+  %129 = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %128) #45, !tbaa !177
   br label %_ZL32GetMinimumStepAtDecimalPrecisioni.exit
 
 _ZL32GetMinimumStepAtDecimalPrecisioni.exit:      ; preds = %115, %122, %126
@@ -13173,7 +13173,7 @@ _Z22ImParseFormatPrecisionPKci.exit239:           ; preds = %175, %169, %198, %1
 
 207:                                              ; preds = %168, %_Z22ImParseFormatPrecisionPKci.exit239
   %208 = phi float [ %206, %_Z22ImParseFormatPrecisionPKci.exit239 ], [ 1.000000e+00, %168 ]
-  %209 = tail call noundef float @powf(float noundef 0x3FB99999A0000000, float noundef %208) #44, !tbaa !177
+  %209 = tail call noundef float @powf(float noundef 0x3FB99999A0000000, float noundef %208) #45, !tbaa !177
   %210 = tail call noundef float @_ZN5ImGui20ScaleRatioFromValueTIfffEEfiT_S1_S1_bff(i32 noundef %0, float noundef %167, float noundef %3, float noundef %4, i1 noundef zeroext true, float noundef %209, float noundef 0.000000e+00)
   %211 = getelementptr inbounds nuw i8, ptr %8, i64 9448
   %212 = load float, ptr %211, align 8, !tbaa !357
@@ -13537,7 +13537,7 @@ _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %72, %102, %101, %10
 128:                                              ; preds = %122
   %129 = sub nsw i32 0, %103
   %130 = sitofp i32 %129 to float
-  %131 = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %130) #44, !tbaa !177
+  %131 = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %130) #45, !tbaa !177
   br label %_ZL32GetMinimumStepAtDecimalPrecisioni.exit
 
 _ZL32GetMinimumStepAtDecimalPrecisioni.exit:      ; preds = %117, %124, %128
@@ -13737,7 +13737,7 @@ _Z22ImParseFormatPrecisionPKci.exit239:           ; preds = %178, %172, %201, %2
 
 210:                                              ; preds = %171, %_Z22ImParseFormatPrecisionPKci.exit239
   %211 = phi float [ %209, %_Z22ImParseFormatPrecisionPKci.exit239 ], [ 1.000000e+00, %171 ]
-  %212 = tail call noundef float @powf(float noundef 0x3FB99999A0000000, float noundef %211) #44, !tbaa !177
+  %212 = tail call noundef float @powf(float noundef 0x3FB99999A0000000, float noundef %211) #45, !tbaa !177
   %213 = tail call noundef float @_ZN5ImGui20ScaleRatioFromValueTIdddEEfiT_S1_S1_bff(i32 noundef %0, double noundef %170, double noundef %3, double noundef %4, i1 noundef zeroext true, float noundef %212, float noundef 0.000000e+00)
   %214 = getelementptr inbounds nuw i8, ptr %8, i64 9448
   %215 = load float, ptr %214, align 8, !tbaa !357
@@ -15108,7 +15108,7 @@ _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %50, %44, %73, %73, 
 
 82:                                               ; preds = %43, %_Z22ImParseFormatPrecisionPKci.exit
   %83 = phi float [ %81, %_Z22ImParseFormatPrecisionPKci.exit ], [ 1.000000e+00, %43 ]
-  %84 = tail call noundef float @powf(float noundef 0x3FB99999A0000000, float noundef %83) #44, !tbaa !177
+  %84 = tail call noundef float @powf(float noundef 0x3FB99999A0000000, float noundef %83) #45, !tbaa !177
   %85 = getelementptr inbounds nuw i8, ptr %10, i64 3232
   %86 = load float, ptr %85, align 4, !tbaa !365
   %87 = fmul float %86, 5.000000e-01
@@ -15699,7 +15699,7 @@ _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %51, %45, %74, %74, 
 
 83:                                               ; preds = %44, %_Z22ImParseFormatPrecisionPKci.exit
   %84 = phi float [ %82, %_Z22ImParseFormatPrecisionPKci.exit ], [ 1.000000e+00, %44 ]
-  %85 = tail call noundef float @powf(float noundef 0x3FB99999A0000000, float noundef %84) #44, !tbaa !177
+  %85 = tail call noundef float @powf(float noundef 0x3FB99999A0000000, float noundef %84) #45, !tbaa !177
   br label %86
 
 86:                                               ; preds = %83, %35
@@ -15768,9 +15768,9 @@ _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %51, %45, %74, %74, 
 
 124:                                              ; preds = %122
   %125 = fdiv float %120, %116
-  %126 = tail call noundef float @logf(float noundef %125) #44, !tbaa !177
+  %126 = tail call noundef float @logf(float noundef %125) #45, !tbaa !177
   %127 = fdiv float %119, %116
-  %128 = tail call noundef float @logf(float noundef %127) #44, !tbaa !177
+  %128 = tail call noundef float @logf(float noundef %127) #45, !tbaa !177
   %129 = fdiv float %126, %128
   br label %130
 
@@ -16069,9 +16069,9 @@ _ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit297.thread: ; preds = %25
 
 277:                                              ; preds = %275
   %278 = fdiv float %273, %269
-  %279 = tail call noundef float @logf(float noundef %278) #44, !tbaa !177
+  %279 = tail call noundef float @logf(float noundef %278) #45, !tbaa !177
   %280 = fdiv float %272, %269
-  %281 = tail call noundef float @logf(float noundef %280) #44, !tbaa !177
+  %281 = tail call noundef float @logf(float noundef %280) #45, !tbaa !177
   %282 = fdiv float %279, %281
   br label %283
 
@@ -16133,7 +16133,7 @@ _ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit297: ; preds = %283, %286
   %314 = fsub float 1.000000e+00, %302
   %315 = select i1 %313, float %314, float %302
   %316 = fdiv float %.084.i, %.085.i
-  %317 = tail call noundef float @powf(float noundef %316, float noundef %315) #44, !tbaa !177
+  %317 = tail call noundef float @powf(float noundef %316, float noundef %315) #45, !tbaa !177
   %318 = fmul float %.085.i, %317
   %319 = fptoui float %318 to i32
   br label %_ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit
@@ -16203,9 +16203,9 @@ _ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit.thread: ; preds = %328, 
 
 355:                                              ; preds = %353
   %356 = fdiv float %351, %347
-  %357 = tail call noundef float @logf(float noundef %356) #44, !tbaa !177
+  %357 = tail call noundef float @logf(float noundef %356) #45, !tbaa !177
   %358 = fdiv float %350, %347
-  %359 = tail call noundef float @logf(float noundef %358) #44, !tbaa !177
+  %359 = tail call noundef float @logf(float noundef %358) #45, !tbaa !177
   %360 = fdiv float %357, %359
   br label %361
 
@@ -16276,7 +16276,7 @@ _ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit307: ; preds = %_ZN5ImGui
   %395 = fsub float 1.000000e+00, %.2227343
   %396 = select i1 %394, float %395, float %.2227343
   %397 = fdiv float %.084.i312, %.085.i311
-  %398 = tail call noundef float @powf(float noundef %397, float noundef %396) #44, !tbaa !177
+  %398 = tail call noundef float @powf(float noundef %397, float noundef %396) #45, !tbaa !177
   %399 = fmul float %.085.i311, %398
   %400 = fptoui float %399 to i32
   br label %_ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit313
@@ -16369,9 +16369,9 @@ _ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit313.thread: ; preds = %40
 
 444:                                              ; preds = %442
   %445 = fdiv float %440, %436
-  %446 = tail call noundef float @logf(float noundef %445) #44, !tbaa !177
+  %446 = tail call noundef float @logf(float noundef %445) #45, !tbaa !177
   %447 = fdiv float %439, %436
-  %448 = tail call noundef float @logf(float noundef %447) #44, !tbaa !177
+  %448 = tail call noundef float @logf(float noundef %447) #45, !tbaa !177
   %449 = fdiv float %446, %448
   br label %450
 
@@ -16591,7 +16591,7 @@ _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %50, %44, %73, %73, 
 
 82:                                               ; preds = %43, %_Z22ImParseFormatPrecisionPKci.exit
   %83 = phi float [ %81, %_Z22ImParseFormatPrecisionPKci.exit ], [ 1.000000e+00, %43 ]
-  %84 = tail call noundef float @powf(float noundef 0x3FB99999A0000000, float noundef %83) #44, !tbaa !177
+  %84 = tail call noundef float @powf(float noundef 0x3FB99999A0000000, float noundef %83) #45, !tbaa !177
   %85 = getelementptr inbounds nuw i8, ptr %10, i64 3232
   %86 = load float, ptr %85, align 4, !tbaa !365
   %87 = fmul float %86, 5.000000e-01
@@ -17182,7 +17182,7 @@ _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %51, %45, %74, %74, 
 
 83:                                               ; preds = %44, %_Z22ImParseFormatPrecisionPKci.exit
   %84 = phi float [ %82, %_Z22ImParseFormatPrecisionPKci.exit ], [ 1.000000e+00, %44 ]
-  %85 = tail call noundef float @powf(float noundef 0x3FB99999A0000000, float noundef %84) #44, !tbaa !177
+  %85 = tail call noundef float @powf(float noundef 0x3FB99999A0000000, float noundef %84) #45, !tbaa !177
   %86 = fpext float %85 to double
   br label %87
 
@@ -17252,9 +17252,9 @@ _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %51, %45, %74, %74, 
 
 125:                                              ; preds = %123
   %126 = fdiv double %121, %117
-  %127 = tail call noundef double @log(double noundef %126) #44, !tbaa !177
+  %127 = tail call noundef double @log(double noundef %126) #45, !tbaa !177
   %128 = fdiv double %120, %117
-  %129 = tail call noundef double @log(double noundef %128) #44, !tbaa !177
+  %129 = tail call noundef double @log(double noundef %128) #45, !tbaa !177
   %130 = fdiv double %127, %129
   %131 = fptrunc double %130 to float
   br label %132
@@ -17555,9 +17555,9 @@ _ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit297.thread: ; preds = %26
 
 280:                                              ; preds = %278
   %281 = fdiv double %276, %272
-  %282 = tail call noundef double @log(double noundef %281) #44, !tbaa !177
+  %282 = tail call noundef double @log(double noundef %281) #45, !tbaa !177
   %283 = fdiv double %275, %272
-  %284 = tail call noundef double @log(double noundef %283) #44, !tbaa !177
+  %284 = tail call noundef double @log(double noundef %283) #45, !tbaa !177
   %285 = fdiv double %282, %284
   %286 = fptrunc double %285 to float
   br label %287
@@ -17622,7 +17622,7 @@ _ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit297: ; preds = %287, %290
   %320 = select i1 %318, float %319, float %307
   %321 = fdiv double %.084.i, %.085.i
   %322 = fpext float %320 to double
-  %323 = tail call noundef double @pow(double noundef %321, double noundef %322) #44, !tbaa !177
+  %323 = tail call noundef double @pow(double noundef %321, double noundef %322) #45, !tbaa !177
   %324 = fmul double %.085.i, %323
   %325 = fptoui double %324 to i64
   br label %_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit
@@ -17693,9 +17693,9 @@ _ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit.thread: ; preds = %334, 
 
 362:                                              ; preds = %360
   %363 = fdiv double %358, %354
-  %364 = tail call noundef double @log(double noundef %363) #44, !tbaa !177
+  %364 = tail call noundef double @log(double noundef %363) #45, !tbaa !177
   %365 = fdiv double %357, %354
-  %366 = tail call noundef double @log(double noundef %365) #44, !tbaa !177
+  %366 = tail call noundef double @log(double noundef %365) #45, !tbaa !177
   %367 = fdiv double %364, %366
   %368 = fptrunc double %367 to float
   br label %369
@@ -17769,7 +17769,7 @@ _ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit307: ; preds = %_ZN5ImGui
   %405 = select i1 %403, float %404, float %.2227343
   %406 = fdiv double %.084.i312, %.085.i311
   %407 = fpext float %405 to double
-  %408 = tail call noundef double @pow(double noundef %406, double noundef %407) #44, !tbaa !177
+  %408 = tail call noundef double @pow(double noundef %406, double noundef %407) #45, !tbaa !177
   %409 = fmul double %.085.i311, %408
   %410 = fptoui double %409 to i64
   br label %_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit313
@@ -17863,9 +17863,9 @@ _ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit313.thread: ; preds = %41
 
 455:                                              ; preds = %453
   %456 = fdiv double %451, %447
-  %457 = tail call noundef double @log(double noundef %456) #44, !tbaa !177
+  %457 = tail call noundef double @log(double noundef %456) #45, !tbaa !177
   %458 = fdiv double %450, %447
-  %459 = tail call noundef double @log(double noundef %458) #44, !tbaa !177
+  %459 = tail call noundef double @log(double noundef %458) #45, !tbaa !177
   %460 = fdiv double %457, %459
   %461 = fptrunc double %460 to float
   br label %462
@@ -18090,7 +18090,7 @@ _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %52, %46, %75, %75, 
 
 84:                                               ; preds = %45, %_Z22ImParseFormatPrecisionPKci.exit
   %85 = phi float [ %83, %_Z22ImParseFormatPrecisionPKci.exit ], [ 1.000000e+00, %45 ]
-  %86 = tail call noundef float @powf(float noundef 0x3FB99999A0000000, float noundef %85) #44, !tbaa !177
+  %86 = tail call noundef float @powf(float noundef 0x3FB99999A0000000, float noundef %85) #45, !tbaa !177
   %87 = getelementptr inbounds nuw i8, ptr %10, i64 3232
   %88 = load float, ptr %87, align 4, !tbaa !365
   %89 = fmul float %88, 5.000000e-01
@@ -18685,7 +18685,7 @@ _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %53, %47, %76, %76, 
 
 85:                                               ; preds = %46, %_Z22ImParseFormatPrecisionPKci.exit
   %86 = phi float [ %84, %_Z22ImParseFormatPrecisionPKci.exit ], [ 1.000000e+00, %46 ]
-  %87 = tail call noundef float @powf(float noundef 0x3FB99999A0000000, float noundef %86) #44, !tbaa !177
+  %87 = tail call noundef float @powf(float noundef 0x3FB99999A0000000, float noundef %86) #45, !tbaa !177
   %88 = getelementptr inbounds nuw i8, ptr %10, i64 3232
   %89 = load float, ptr %88, align 4, !tbaa !365
   %90 = fmul float %89, 5.000000e-01
@@ -20606,7 +20606,7 @@ _ZN5ImGui17GetInputTextStateEj.exit:              ; preds = %.critedge1186, %155
   br i1 %219, label %228, label %303
 
 228:                                              ; preds = %216
-  %229 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #43
+  %229 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #44
   %230 = trunc i64 %229 to i32
   store i8 0, ptr %217, align 1, !tbaa !377
   %231 = getelementptr inbounds nuw i8, ptr %161, i64 40
@@ -20800,7 +20800,7 @@ _ZN8ImVectorIcE6resizeEi.exit:                    ; preds = %_ZL27InputTextRecon
   %314 = getelementptr inbounds nuw i8, ptr %36, i64 9060
   %315 = load i32, ptr %314, align 4, !tbaa !396
   call void @_ZN5ImGui23InputTextDeactivateHookEj(i32 noundef %315)
-  %316 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #43
+  %316 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #44
   %317 = trunc i64 %316 to i32
   %318 = getelementptr inbounds nuw i8, ptr %36, i64 9096
   %319 = add nsw i32 %317, 1
@@ -20871,7 +20871,7 @@ _ZN8ImVectorIcE6resizeEi.exit1300:                ; preds = %._ZN8ImVectorIcE6re
 348:                                              ; preds = %344
   %sext = shl i64 %316, 32
   %349 = ashr exact i64 %sext, 32
-  %350 = call i32 @strncmp(ptr noundef nonnull %346, ptr noundef nonnull %2, i64 noundef %349) #43
+  %350 = call i32 @strncmp(ptr noundef nonnull %346, ptr noundef nonnull %2, i64 noundef %349) #44
   %.not1138 = icmp eq i32 %350, 0
   br i1 %.not1138, label %352, label %351
 
@@ -21162,7 +21162,7 @@ _ZN8ImVectorIcE6resizeEi.exit1304:                ; preds = %._ZN8ImVectorIcE6re
   br i1 %or.cond16, label %.thread1486, label %474
 
 .thread1486:                                      ; preds = %470
-  %471 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #43
+  %471 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #44
   %472 = trunc i64 %471 to i32
   %473 = getelementptr inbounds nuw i8, ptr %.010461680, i64 24
   store i32 %472, ptr %473, align 8, !tbaa !383
@@ -22281,7 +22281,7 @@ _ZN8ImVectorItE6resizeEi.exit:                    ; preds = %.loopexit1554, %740
   br i1 %.not1150, label %1111, label %1055
 
 1055:                                             ; preds = %1053
-  %1056 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1054) #43
+  %1056 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1054) #44
   %1057 = trunc i64 %1056 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
@@ -22335,7 +22335,7 @@ _ZN8ImVectorItE6resizeEi.exit:                    ; preds = %.loopexit1554, %740
           to label %1077 unwind label %1092
 
 1077:                                             ; preds = %1074
-  %1078 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #43
+  %1078 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #44
   %1079 = trunc i64 %1078 to i32
   %1080 = load i32, ptr %22, align 8, !tbaa !389
   %1081 = add nsw i32 %1080, %1079
@@ -22409,13 +22409,13 @@ _ZN8ImVectorItE6resizeEi.exit:                    ; preds = %.loopexit1554, %740
   br label %1110
 
 1109:                                             ; preds = %1105, %._crit_edge
-  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #44
+  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %1111
 
 1110:                                             ; preds = %1107, %1097, %1063
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %1097 ], [ %1064, %1063 ], [ %1108, %1107 ]
-  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #44
+  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -22500,7 +22500,7 @@ _ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEP
 1148:                                             ; preds = %1122
   %1149 = getelementptr inbounds nuw i8, ptr %.010461681, i64 64
   %1150 = load ptr, ptr %1149, align 8, !tbaa !397
-  %1151 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %1150) #43
+  %1151 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %1150) #44
   %.not1162 = icmp eq i32 %1151, 0
   br i1 %.not1162, label %.thread1722, label %1152
 
@@ -22747,7 +22747,7 @@ _ZN8ImVectorIcE6resizeEi.exit1313:                ; preds = %._ZN8ImVectorIcE6re
 1264:                                             ; preds = %1263
   %1265 = getelementptr inbounds nuw i8, ptr %.010461681, i64 32
   %1266 = load ptr, ptr %1265, align 8, !tbaa !413
-  %1267 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1266, ptr noundef nonnull dereferenceable(1) %2) #43
+  %1267 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1266, ptr noundef nonnull dereferenceable(1) %2) #44
   %.not1169 = icmp eq i32 %1267, 0
   br i1 %.not1169, label %.thread1715, label %1268
 
@@ -22784,7 +22784,7 @@ _ZN8ImVectorIcE6resizeEi.exit1313:                ; preds = %._ZN8ImVectorIcE6re
 1278:                                             ; preds = %1276
   %1279 = getelementptr inbounds nuw i8, ptr %36, i64 9176
   %1280 = load ptr, ptr %1279, align 8, !tbaa !464
-  %1281 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1280, ptr noundef nonnull dereferenceable(1) %2) #43
+  %1281 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1280, ptr noundef nonnull dereferenceable(1) %2) #44
   %.not1171 = icmp eq i32 %1281, 0
   br i1 %.not1171, label %1286, label %1282
 
@@ -23000,7 +23000,7 @@ _ZN8ImVectorIcE6resizeEi.exit1313:                ; preds = %._ZN8ImVectorIcE6re
   br i1 %or.cond144, label %1383, label %.thread1762
 
 .thread1509.thread:                               ; preds = %1379
-  %1381 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #43
+  %1381 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #44
   %1382 = getelementptr inbounds nuw i8, ptr %1, i64 %1381
   %or.cond1441739 = select i1 %.010601709, i1 true, i1 %.01065.in1707
   br i1 %or.cond1441739, label %._crit_edge1606, label %1755
@@ -23058,7 +23058,7 @@ _ZN8ImVectorIcE6resizeEi.exit1313:                ; preds = %._ZN8ImVectorIcE6re
 
 .preheader:                                       ; preds = %1410
   %1412 = ptrtoint ptr %1389 to i64
-  %1413 = call noundef ptr @memchr(ptr noundef %.0108517471755, i32 noundef 10, i64 noundef %.pre-phi) #43
+  %1413 = call noundef ptr @memchr(ptr noundef %.0108517471755, i32 noundef 10, i64 noundef %.pre-phi) #44
   %.not11751565 = icmp eq ptr %1413, null
   br i1 %.not11751565, label %.loopexit1550, label %.lr.ph1569
 
@@ -23079,7 +23079,7 @@ _ZN8ImVectorIcE6resizeEi.exit1313:                ; preds = %._ZN8ImVectorIcE6re
   %1418 = getelementptr inbounds nuw i8, ptr %1414, i64 1
   %1419 = ptrtoint ptr %1418 to i64
   %1420 = sub i64 %1412, %1419
-  %1421 = call noundef ptr @memchr(ptr noundef nonnull %1418, i32 noundef 10, i64 noundef %1420) #43
+  %1421 = call noundef ptr @memchr(ptr noundef nonnull %1418, i32 noundef 10, i64 noundef %1420) #44
   %.not1175 = icmp eq ptr %1421, null
   br i1 %.not1175, label %.loopexit1550, label %.lr.ph1569, !llvm.loop !467
 
@@ -23448,7 +23448,7 @@ _ZL21InputTextCalcTextSizeP12ImGuiContextPKcS2_PS2_P6ImVec2b.exit1344: ; preds =
 1607:                                             ; preds = %1604
   %1608 = ptrtoint ptr %.014671572 to i64
   %1609 = sub i64 %1598, %1608
-  %1610 = call noundef ptr @memchr(ptr noundef %.014671572, i32 noundef 10, i64 noundef %1609) #43
+  %1610 = call noundef ptr @memchr(ptr noundef %.014671572, i32 noundef 10, i64 noundef %1609) #44
   %.not1177 = icmp eq ptr %1610, null
   %1611 = getelementptr inbounds nuw i8, ptr %1610, i64 1
   %1612 = select i1 %.not1177, ptr %1584, ptr %1611
@@ -23660,7 +23660,7 @@ _ZNK6ImRect8OverlapsERKS_.exit.thread:            ; preds = %1660, %1679
   br i1 %or.cond1230, label %1712, label %1715
 
 1712:                                             ; preds = %1702
-  %1713 = call float @fmodf(float noundef %1707, float noundef 0x3FF3333340000000) #44, !tbaa !177
+  %1713 = call float @fmodf(float noundef %1707, float noundef 0x3FF3333340000000) #45, !tbaa !177
   %1714 = fcmp ole float %1713, 0x3FE99999A0000000
   br label %1715
 
@@ -23752,7 +23752,7 @@ _ZNK6ImRect8OverlapsERKS_.exit.thread:            ; preds = %1660, %1679
 .preheader1551:                                   ; preds = %.preheader1551.preheader, %.preheader1551
   %.011.i = phi ptr [ %1759, %.preheader1551 ], [ %.0108517491769, %.preheader1551.preheader ]
   %.010.i = phi i32 [ %1757, %.preheader1551 ], [ 0, %.preheader1551.preheader ]
-  %1756 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.011.i, i32 noundef 10) #43
+  %1756 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.011.i, i32 noundef 10) #44
   %1757 = add nuw nsw i32 %.010.i, 1
   %1758 = icmp eq ptr %1756, null
   %1759 = getelementptr inbounds nuw i8, ptr %1756, i64 1
@@ -23771,12 +23771,12 @@ _ZNK6ImRect8OverlapsERKS_.exit.thread:            ; preds = %1660, %1679
   br label %1777
 
 1768:                                             ; preds = %1760
-  %1769 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01085) #43
+  %1769 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01085) #44
   %1770 = getelementptr inbounds nuw i8, ptr %.01085, i64 %1769
   br label %1777
 
 .critedge1232:                                    ; preds = %.preheader1551
-  %1771 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.011.i) #43
+  %1771 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.011.i) #44
   %1772 = getelementptr inbounds nuw i8, ptr %.011.i, i64 %1771
   %1773 = uitofp nneg i32 %1757 to float
   %1774 = getelementptr inbounds nuw i8, ptr %36, i64 4272
@@ -24510,9 +24510,9 @@ define void @_ZN19ImGuiInputTextStateC2Ev(ptr noundef nonnull align 8 dereferenc
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #44
-  tail call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #44
-  tail call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #44
+  tail call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #45
+  tail call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #45
+  tail call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #45
   resume { ptr, i32 } %6
 }
 
@@ -24539,7 +24539,7 @@ define linkonce_odr void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 derefe
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #45
+  tail call void @__clang_call_terminate(ptr %8) #46
   unreachable
 }
 
@@ -24568,7 +24568,7 @@ _Z9IM_DELETEIN5ImStb17STB_TexteditStateEEvPT_.exit: ; preds = %1, %4
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #45
+  tail call void @__clang_call_terminate(ptr %10) #46
   unreachable
 
 _ZN8ImVectorIcED2Ev.exit:                         ; preds = %_Z9IM_DELETEIN5ImStb17STB_TexteditStateEEvPT_.exit, %7
@@ -24585,7 +24585,7 @@ _ZN8ImVectorIcED2Ev.exit:                         ; preds = %_Z9IM_DELETEIN5ImSt
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #45
+  tail call void @__clang_call_terminate(ptr %16) #46
   unreachable
 
 _ZN8ImVectorIcED2Ev.exit3:                        ; preds = %_ZN8ImVectorIcED2Ev.exit, %13
@@ -24602,7 +24602,7 @@ _ZN8ImVectorIcED2Ev.exit3:                        ; preds = %_ZN8ImVectorIcED2Ev
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #45
+  tail call void @__clang_call_terminate(ptr %22) #46
   unreachable
 
 _ZN8ImVectorIcED2Ev.exit5:                        ; preds = %_ZN8ImVectorIcED2Ev.exit3, %19
@@ -24612,14 +24612,14 @@ _ZN8ImVectorIcED2Ev.exit5:                        ; preds = %_ZN8ImVectorIcED2Ev
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #45
+  tail call void @__clang_call_terminate(ptr %25) #46
   unreachable
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #23 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #44
-  tail call void @_ZSt9terminatev() #45
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #45
+  tail call void @_ZSt9terminatev() #46
   unreachable
 }
 
@@ -26859,7 +26859,7 @@ define void @_ZN19ImGuiInputTextState13OnCharPressedEj(ptr noundef nonnull align
   %4 = call noundef ptr @_Z16ImTextCharToUtf8Pcj(ptr noundef nonnull %3, i32 noundef %1)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !378
-  %7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #43
+  %7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #44
   %8 = trunc i64 %7 to i32
   %9 = load i8, ptr %3, align 1, !tbaa !340
   %10 = icmp eq i8 %9, 10
@@ -27159,7 +27159,7 @@ define void @_ZN26ImGuiInputTextCallbackData11InsertCharsEiPKcS1_(ptr noundef no
   br label %16
 
 14:                                               ; preds = %6
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #43
+  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #44
   br label %16
 
 16:                                               ; preds = %14, %10
@@ -28994,11 +28994,11 @@ _ZL18ColorEditRestoreHSPKfPfS1_S1_.exit:          ; preds = %142, %139, %.crited
   br i1 %79, label %267, label %269
 
 267:                                              ; preds = %266
-  %268 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0211, ptr noundef nonnull @.str.60, ptr noundef nonnull %12, ptr noundef nonnull %150, ptr noundef nonnull %156, ptr noundef nonnull %162) #44
+  %268 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0211, ptr noundef nonnull @.str.60, ptr noundef nonnull %12, ptr noundef nonnull %150, ptr noundef nonnull %156, ptr noundef nonnull %162) #45
   br label %271
 
 269:                                              ; preds = %266
-  %270 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0211, ptr noundef nonnull @.str.61, ptr noundef nonnull %12, ptr noundef nonnull %150, ptr noundef nonnull %156) #44
+  %270 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0211, ptr noundef nonnull @.str.61, ptr noundef nonnull %12, ptr noundef nonnull %150, ptr noundef nonnull %156) #45
   br label %271
 
 271:                                              ; preds = %267, %269, %261
@@ -30401,7 +30401,7 @@ _ZN5ImGui15InvisibleButtonEPKcRK6ImVec2i.exit:    ; preds = %214, %239
   br i1 %258, label %265, label %259
 
 259:                                              ; preds = %255
-  %260 = call float @atan2f(float noundef %249, float noundef %248) #44, !tbaa !177
+  %260 = call float @atan2f(float noundef %249, float noundef %248) #45, !tbaa !177
   %261 = fdiv float %260, 0x400921FB60000000
   %262 = fmul float %261, 5.000000e-01
   %263 = fcmp olt float %262, 0.000000e+00
@@ -30415,8 +30415,8 @@ _ZN5ImGui15InvisibleButtonEPKcRK6ImVec2i.exit:    ; preds = %214, %239
   %266 = load float, ptr %30, align 4, !tbaa !191
   %267 = fmul float %266, -2.000000e+00
   %268 = fmul float %267, 0x400921FB60000000
-  %269 = call float @cosf(float noundef %268) #44, !tbaa !177
-  %270 = call float @sinf(float noundef %268) #44, !tbaa !177
+  %269 = call float @cosf(float noundef %268) #45, !tbaa !177
+  %270 = call float @sinf(float noundef %268) #45, !tbaa !177
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %271 = fneg float %270
   %272 = fmul float %245, %271
@@ -31255,8 +31255,8 @@ _ZL18ColorEditRestoreHSPKfPfS1_S1_.exit553:       ; preds = %619, %616, %.crited
   %676 = load float, ptr %30, align 4, !tbaa !191
   %677 = fmul float %676, 2.000000e+00
   %678 = fmul float %677, 0x400921FB60000000
-  %679 = call float @cosf(float noundef %678) #44, !tbaa !177
-  %680 = call float @sinf(float noundef %678) #44, !tbaa !177
+  %679 = call float @cosf(float noundef %678) #45, !tbaa !177
+  %680 = call float @sinf(float noundef %678) #45, !tbaa !177
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   %681 = load float, ptr %26, align 4, !tbaa !159
   %682 = fmul float %671, %679
@@ -31429,16 +31429,16 @@ _ZL18ColorEditRestoreHSPKfPfS1_S1_.exit553:       ; preds = %619, %616, %.crited
   store i32 0, ptr %673, align 8, !tbaa !538
   %782 = load i32, ptr %670, align 8, !tbaa !536
   %783 = load float, ptr %26, align 4, !tbaa !159
-  %784 = call float @cosf(float noundef %774) #44, !tbaa !177
+  %784 = call float @cosf(float noundef %774) #45, !tbaa !177
   %785 = call float @llvm.fmuladd.f32(float %784, float %151, float %783)
   %786 = load float, ptr %159, align 4, !tbaa !160
-  %787 = call float @sinf(float noundef %774) #44, !tbaa !177
+  %787 = call float @sinf(float noundef %774) #45, !tbaa !177
   %788 = call float @llvm.fmuladd.f32(float %787, float %151, float %786)
   %.sroa.0613.0.vec.insert = insertelement <2 x float> poison, float %785, i64 0
   %.sroa.0613.4.vec.insert = insertelement <2 x float> %.sroa.0613.0.vec.insert, float %788, i64 1
-  %789 = call float @cosf(float noundef %778) #44, !tbaa !177
+  %789 = call float @cosf(float noundef %778) #45, !tbaa !177
   %790 = call float @llvm.fmuladd.f32(float %789, float %151, float %783)
-  %791 = call float @sinf(float noundef %778) #44, !tbaa !177
+  %791 = call float @sinf(float noundef %778) #45, !tbaa !177
   %792 = call float @llvm.fmuladd.f32(float %791, float %151, float %786)
   %.sroa.0611.0.vec.insert = insertelement <2 x float> poison, float %790, i64 0
   %.sroa.0611.4.vec.insert = insertelement <2 x float> %.sroa.0611.0.vec.insert, float %792, i64 1
@@ -34052,7 +34052,7 @@ define noundef ptr @_ZN5ImGui22GetTypingSelectRequestEi(i32 noundef %0) local_un
   br label %52
 
 52:                                               ; preds = %41, %50, %1
-  %53 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #43
+  %53 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #44
   %54 = trunc i64 %53 to i32
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 2984
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 2992
@@ -35228,7 +35228,7 @@ _ZN24ImGuiMultiSelectTempDataD2Ev.exit:           ; preds = %40, %_ZN8ImVectorI2
 43:                                               ; preds = %32, %_ZNK8ImVectorI24ImGuiMultiSelectTempDataE14_grow_capacityEi.exit.i
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN24ImGuiMultiSelectTempDataD2Ev(ptr noundef nonnull align 8 dereferenceable(95) %4) #44
+  call void @_ZN24ImGuiMultiSelectTempDataD2Ev(ptr noundef nonnull align 8 dereferenceable(95) %4) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %44
 
@@ -35760,7 +35760,7 @@ define linkonce_odr void @_ZN24ImGuiMultiSelectTempDataD2Ev(ptr noundef nonnull 
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #45
+  tail call void @__clang_call_terminate(ptr %7) #46
   unreachable
 
 _ZN18ImGuiMultiSelectIOD2Ev.exit:                 ; preds = %1, %4
@@ -37838,13 +37838,13 @@ _ZN5ImGui10EndListBoxEv.exit.i:                   ; preds = %.noexc.i
           to label %66 unwind label %.loopexit.split-lp.i
 
 66:                                               ; preds = %63, %_ZN5ImGui10EndListBoxEv.exit.i
-  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #44
+  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN5ImGui7ListBoxEPKcPiPFS1_PviES3_ii.exit
 
 67:                                               ; preds = %55, %51, %42, %.loopexit.split-lp.i, %.loopexit.i
   %.pn.pn.pn.i = phi { ptr, i32 } [ %43, %42 ], [ %56, %55 ], [ %52, %51 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
-  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #44
+  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn.pn.i
@@ -39826,7 +39826,7 @@ declare noundef zeroext i1 @_ZN5ImGui12BeginPopupExEji(i32 noundef, i32 noundef)
 
 declare <2 x float> @_ZN5ImGui21GetContentRegionAvailEv() local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #4
 
 declare void @_ZN5ImGui17ClosePopupToLevelEib(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
@@ -43057,7 +43057,7 @@ _ZN5ImGui15TabItemCalcSizeEPKcb.exit:             ; preds = %_ZN5ImGui17TabBarFi
   %spec.select.i = tail call noundef i32 @llvm.usub.sat.i32(i32 %169, i32 1)
   %170 = getelementptr inbounds nuw i8, ptr %.0236, i64 32
   store i32 %spec.select.i, ptr %170, align 4, !tbaa !791
-  %171 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #43
+  %171 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #44
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 %171
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 1
   tail call void @_ZN15ImGuiTextBuffer6appendEPKcS1_(ptr noundef nonnull align 8 dereferenceable(16) %168, ptr noundef nonnull %1, ptr noundef nonnull %173)
@@ -45972,10 +45972,10 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIiifEEfiT_S1_S
 51:                                               ; preds = %49
   %52 = fneg float %35
   %53 = fdiv float %52, %5
-  %54 = tail call noundef float @logf(float noundef %53) #44, !tbaa !177
+  %54 = tail call noundef float @logf(float noundef %53) #45, !tbaa !177
   %55 = fneg float %23
   %56 = fdiv float %55, %5
-  %57 = tail call noundef float @logf(float noundef %56) #44, !tbaa !177
+  %57 = tail call noundef float @logf(float noundef %56) #45, !tbaa !177
   %58 = fdiv float %54, %57
   %59 = fsub float 1.000000e+00, %58
   %60 = fmul float %46, %59
@@ -45983,9 +45983,9 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIiifEEfiT_S1_S
 
 61:                                               ; preds = %49
   %62 = fdiv float %35, %5
-  %63 = tail call noundef float @logf(float noundef %62) #44, !tbaa !177
+  %63 = tail call noundef float @logf(float noundef %62) #45, !tbaa !177
   %64 = fdiv float %.047, %5
-  %65 = tail call noundef float @logf(float noundef %64) #44, !tbaa !177
+  %65 = tail call noundef float @logf(float noundef %64) #45, !tbaa !177
   %66 = fdiv float %63, %65
   %67 = fsub float 1.000000e+00, %47
   %68 = tail call float @llvm.fmuladd.f32(float %66, float %67, float %47)
@@ -45998,18 +45998,18 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIiifEEfiT_S1_S
 
 71:                                               ; preds = %69
   %72 = fdiv float %35, %.047
-  %73 = tail call noundef float @logf(float noundef %72) #44, !tbaa !177
+  %73 = tail call noundef float @logf(float noundef %72) #45, !tbaa !177
   %74 = fdiv float %23, %.047
-  %75 = tail call noundef float @logf(float noundef %74) #44, !tbaa !177
+  %75 = tail call noundef float @logf(float noundef %74) #45, !tbaa !177
   %76 = fdiv float %73, %75
   %77 = fsub float 1.000000e+00, %76
   br label %84
 
 78:                                               ; preds = %69
   %79 = fdiv float %35, %23
-  %80 = tail call noundef float @logf(float noundef %79) #44, !tbaa !177
+  %80 = tail call noundef float @logf(float noundef %79) #45, !tbaa !177
   %81 = fdiv float %.047, %23
-  %82 = tail call noundef float @logf(float noundef %81) #44, !tbaa !177
+  %82 = tail call noundef float @logf(float noundef %81) #45, !tbaa !177
   %83 = fdiv float %80, %82
   br label %84
 
@@ -46114,7 +46114,7 @@ define linkonce_odr noundef i32 @_ZN5ImGui20ScaleValueFromRatioTIiifEET_ifS1_S1_
   %54 = fdiv float %53, %5
   %55 = fdiv float %36, %46
   %56 = fsub float 1.000000e+00, %55
-  %57 = tail call noundef float @powf(float noundef %54, float noundef %56) #44, !tbaa !177
+  %57 = tail call noundef float @powf(float noundef %54, float noundef %56) #45, !tbaa !177
   %58 = fneg float %57
   %59 = fmul float %5, %58
   %60 = fptosi float %59 to i32
@@ -46125,7 +46125,7 @@ define linkonce_odr noundef i32 @_ZN5ImGui20ScaleValueFromRatioTIiifEET_ifS1_S1_
   %63 = fsub float %36, %47
   %64 = fsub float 1.000000e+00, %47
   %65 = fdiv float %63, %64
-  %66 = tail call noundef float @powf(float noundef %62, float noundef %65) #44, !tbaa !177
+  %66 = tail call noundef float @powf(float noundef %62, float noundef %65) #45, !tbaa !177
   %67 = fmul float %5, %66
   %68 = fptosi float %67 to i32
   br label %102
@@ -46138,14 +46138,14 @@ define linkonce_odr noundef i32 @_ZN5ImGui20ScaleValueFromRatioTIiifEET_ifS1_S1_
 71:                                               ; preds = %69
   %72 = fdiv float %.093, %.192
   %73 = fsub float 1.000000e+00, %36
-  %74 = tail call noundef float @powf(float noundef %72, float noundef %73) #44, !tbaa !177
+  %74 = tail call noundef float @powf(float noundef %72, float noundef %73) #45, !tbaa !177
   %75 = fmul float %.192, %74
   %76 = fptosi float %75 to i32
   br label %102
 
 77:                                               ; preds = %69
   %78 = fdiv float %.192, %.093
-  %79 = tail call noundef float @powf(float noundef %78, float noundef %36) #44, !tbaa !177
+  %79 = tail call noundef float @powf(float noundef %78, float noundef %36) #45, !tbaa !177
   %80 = fmul float %.093, %79
   %81 = fptosi float %80 to i32
   br label %102
@@ -46298,7 +46298,7 @@ _Z32ImParseFormatSanitizeForPrintingPKcPcm.exit:  ; preds = %41, %_Z20ImParseFor
   br i1 %45, label %43, label %47, !llvm.loop !846
 
 47:                                               ; preds = %43
-  %48 = call double @strtod(ptr noundef nonnull captures(none) %.0, ptr noundef null) #44
+  %48 = call double @strtod(ptr noundef nonnull captures(none) %.0, ptr noundef null) #45
   %49 = fptosi double %48 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -46433,7 +46433,7 @@ _Z32ImParseFormatSanitizeForPrintingPKcPcm.exit:  ; preds = %41, %_Z20ImParseFor
   br i1 %45, label %43, label %47, !llvm.loop !847
 
 47:                                               ; preds = %43
-  %48 = call double @strtod(ptr noundef nonnull captures(none) %.0, ptr noundef null) #44
+  %48 = call double @strtod(ptr noundef nonnull captures(none) %.0, ptr noundef null) #45
   %49 = fptoui double %48 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -46531,10 +46531,10 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIxxdEEfiT_S1_S
 57:                                               ; preds = %55
   %58 = fneg double %39
   %59 = fdiv double %58, %17
-  %60 = tail call noundef double @log(double noundef %59) #44, !tbaa !177
+  %60 = tail call noundef double @log(double noundef %59) #45, !tbaa !177
   %61 = fneg double %25
   %62 = fdiv double %61, %17
-  %63 = tail call noundef double @log(double noundef %62) #44, !tbaa !177
+  %63 = tail call noundef double @log(double noundef %62) #45, !tbaa !177
   %64 = fdiv double %60, %63
   %65 = fptrunc double %64 to float
   %66 = fsub float 1.000000e+00, %65
@@ -46543,9 +46543,9 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIxxdEEfiT_S1_S
 
 68:                                               ; preds = %55
   %69 = fdiv double %39, %17
-  %70 = tail call noundef double @log(double noundef %69) #44, !tbaa !177
+  %70 = tail call noundef double @log(double noundef %69) #45, !tbaa !177
   %71 = fdiv double %.047, %17
-  %72 = tail call noundef double @log(double noundef %71) #44, !tbaa !177
+  %72 = tail call noundef double @log(double noundef %71) #45, !tbaa !177
   %73 = fdiv double %70, %72
   %74 = fptrunc double %73 to float
   %75 = fsub float 1.000000e+00, %53
@@ -46559,9 +46559,9 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIxxdEEfiT_S1_S
 
 79:                                               ; preds = %77
   %80 = fdiv double %39, %.047
-  %81 = tail call noundef double @log(double noundef %80) #44, !tbaa !177
+  %81 = tail call noundef double @log(double noundef %80) #45, !tbaa !177
   %82 = fdiv double %25, %.047
-  %83 = tail call noundef double @log(double noundef %82) #44, !tbaa !177
+  %83 = tail call noundef double @log(double noundef %82) #45, !tbaa !177
   %84 = fdiv double %81, %83
   %85 = fptrunc double %84 to float
   %86 = fsub float 1.000000e+00, %85
@@ -46569,9 +46569,9 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIxxdEEfiT_S1_S
 
 87:                                               ; preds = %77
   %88 = fdiv double %39, %25
-  %89 = tail call noundef double @log(double noundef %88) #44, !tbaa !177
+  %89 = tail call noundef double @log(double noundef %88) #45, !tbaa !177
   %90 = fdiv double %.047, %25
-  %91 = tail call noundef double @log(double noundef %90) #44, !tbaa !177
+  %91 = tail call noundef double @log(double noundef %90) #45, !tbaa !177
   %92 = fdiv double %89, %91
   %93 = fptrunc double %92 to float
   br label %94
@@ -46685,7 +46685,7 @@ define linkonce_odr noundef i64 @_ZN5ImGui20ScaleValueFromRatioTIxxdEET_ifS1_S1_
   %61 = fdiv float %40, %52
   %62 = fsub float 1.000000e+00, %61
   %63 = fpext float %62 to double
-  %64 = tail call noundef double @pow(double noundef %60, double noundef %63) #44, !tbaa !177
+  %64 = tail call noundef double @pow(double noundef %60, double noundef %63) #45, !tbaa !177
   %65 = fneg double %16
   %66 = fmul double %64, %65
   %67 = fptosi double %66 to i64
@@ -46697,7 +46697,7 @@ define linkonce_odr noundef i64 @_ZN5ImGui20ScaleValueFromRatioTIxxdEET_ifS1_S1_
   %71 = fsub float 1.000000e+00, %53
   %72 = fdiv float %70, %71
   %73 = fpext float %72 to double
-  %74 = tail call noundef double @pow(double noundef %69, double noundef %73) #44, !tbaa !177
+  %74 = tail call noundef double @pow(double noundef %69, double noundef %73) #45, !tbaa !177
   %75 = fmul double %74, %16
   %76 = fptosi double %75 to i64
   br label %113
@@ -46711,7 +46711,7 @@ define linkonce_odr noundef i64 @_ZN5ImGui20ScaleValueFromRatioTIxxdEET_ifS1_S1_
   %80 = fdiv double %.091, %.190
   %81 = fsub float 1.000000e+00, %40
   %82 = fpext float %81 to double
-  %83 = tail call noundef double @pow(double noundef %80, double noundef %82) #44, !tbaa !177
+  %83 = tail call noundef double @pow(double noundef %80, double noundef %82) #45, !tbaa !177
   %84 = fmul double %.190, %83
   %85 = fptosi double %84 to i64
   br label %113
@@ -46719,7 +46719,7 @@ define linkonce_odr noundef i64 @_ZN5ImGui20ScaleValueFromRatioTIxxdEET_ifS1_S1_
 86:                                               ; preds = %77
   %87 = fdiv double %.190, %.091
   %88 = fpext float %40 to double
-  %89 = tail call noundef double @pow(double noundef %87, double noundef %88) #44, !tbaa !177
+  %89 = tail call noundef double @pow(double noundef %87, double noundef %88) #45, !tbaa !177
   %90 = fmul double %.091, %89
   %91 = fptosi double %90 to i64
   br label %113
@@ -46873,7 +46873,7 @@ _Z32ImParseFormatSanitizeForPrintingPKcPcm.exit:  ; preds = %41, %_Z20ImParseFor
   br i1 %45, label %43, label %47, !llvm.loop !848
 
 47:                                               ; preds = %43
-  %48 = call double @strtod(ptr noundef nonnull captures(none) %.0, ptr noundef null) #44
+  %48 = call double @strtod(ptr noundef nonnull captures(none) %.0, ptr noundef null) #45
   %49 = fptosi double %48 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -46884,7 +46884,7 @@ _Z22ImParseFormatFindStartPKc.exit.thread:        ; preds = %12, %3, %47
   ret i64 %.011
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
@@ -47008,7 +47008,7 @@ _Z32ImParseFormatSanitizeForPrintingPKcPcm.exit:  ; preds = %41, %_Z20ImParseFor
   br i1 %45, label %43, label %47, !llvm.loop !849
 
 47:                                               ; preds = %43
-  %48 = call double @strtod(ptr noundef nonnull captures(none) %.0, ptr noundef null) #44
+  %48 = call double @strtod(ptr noundef nonnull captures(none) %.0, ptr noundef null) #45
   %49 = fptoui double %48 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -47112,10 +47112,10 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIfffEEfiT_S1_S
 58:                                               ; preds = %56
   %59 = fneg float %14
   %60 = fdiv float %59, %5
-  %61 = tail call noundef float @logf(float noundef %60) #44, !tbaa !177
+  %61 = tail call noundef float @logf(float noundef %60) #45, !tbaa !177
   %62 = fneg float %.051
   %63 = fdiv float %62, %5
-  %64 = tail call noundef float @logf(float noundef %63) #44, !tbaa !177
+  %64 = tail call noundef float @logf(float noundef %63) #45, !tbaa !177
   %65 = fdiv float %61, %64
   %66 = fsub float 1.000000e+00, %65
   %67 = fmul float %53, %66
@@ -47123,9 +47123,9 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIfffEEfiT_S1_S
 
 68:                                               ; preds = %56
   %69 = fdiv float %14, %5
-  %70 = tail call noundef float @logf(float noundef %69) #44, !tbaa !177
+  %70 = tail call noundef float @logf(float noundef %69) #45, !tbaa !177
   %71 = fdiv float %.052, %5
-  %72 = tail call noundef float @logf(float noundef %71) #44, !tbaa !177
+  %72 = tail call noundef float @logf(float noundef %71) #45, !tbaa !177
   %73 = fdiv float %70, %72
   %74 = fsub float 1.000000e+00, %54
   %75 = tail call float @llvm.fmuladd.f32(float %73, float %74, float %54)
@@ -47138,18 +47138,18 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIfffEEfiT_S1_S
 
 78:                                               ; preds = %76
   %79 = fdiv float %14, %.052
-  %80 = tail call noundef float @logf(float noundef %79) #44, !tbaa !177
+  %80 = tail call noundef float @logf(float noundef %79) #45, !tbaa !177
   %81 = fdiv float %.051, %.052
-  %82 = tail call noundef float @logf(float noundef %81) #44, !tbaa !177
+  %82 = tail call noundef float @logf(float noundef %81) #45, !tbaa !177
   %83 = fdiv float %80, %82
   %84 = fsub float 1.000000e+00, %83
   br label %91
 
 85:                                               ; preds = %76
   %86 = fdiv float %14, %.051
-  %87 = tail call noundef float @logf(float noundef %86) #44, !tbaa !177
+  %87 = tail call noundef float @logf(float noundef %86) #45, !tbaa !177
   %88 = fdiv float %.052, %.051
-  %89 = tail call noundef float @logf(float noundef %88) #44, !tbaa !177
+  %89 = tail call noundef float @logf(float noundef %88) #45, !tbaa !177
   %90 = fdiv float %87, %89
   br label %91
 
@@ -47250,7 +47250,7 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleValueFromRatioTIfffEET_ifS1_S
   %52 = fdiv float %51, %5
   %53 = fdiv float %34, %44
   %54 = fsub float 1.000000e+00, %53
-  %55 = tail call noundef float @powf(float noundef %52, float noundef %54) #44, !tbaa !177
+  %55 = tail call noundef float @powf(float noundef %52, float noundef %54) #45, !tbaa !177
   %56 = fneg float %55
   %57 = fmul float %5, %56
   br label %91
@@ -47260,7 +47260,7 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleValueFromRatioTIfffEET_ifS1_S
   %60 = fsub float %34, %45
   %61 = fsub float 1.000000e+00, %45
   %62 = fdiv float %60, %61
-  %63 = tail call noundef float @powf(float noundef %59, float noundef %62) #44, !tbaa !177
+  %63 = tail call noundef float @powf(float noundef %59, float noundef %62) #45, !tbaa !177
   %64 = fmul float %5, %63
   br label %91
 
@@ -47272,13 +47272,13 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleValueFromRatioTIfffEET_ifS1_S
 67:                                               ; preds = %65
   %68 = fdiv float %.095, %.194
   %69 = fsub float 1.000000e+00, %34
-  %70 = tail call noundef float @powf(float noundef %68, float noundef %69) #44, !tbaa !177
+  %70 = tail call noundef float @powf(float noundef %68, float noundef %69) #45, !tbaa !177
   %71 = fmul float %.194, %70
   br label %91
 
 72:                                               ; preds = %65
   %73 = fdiv float %.194, %.095
-  %74 = tail call noundef float @powf(float noundef %73, float noundef %34) #44, !tbaa !177
+  %74 = tail call noundef float @powf(float noundef %73, float noundef %34) #45, !tbaa !177
   %75 = fmul float %.095, %74
   br label %91
 
@@ -47426,7 +47426,7 @@ _Z32ImParseFormatSanitizeForPrintingPKcPcm.exit:  ; preds = %41, %_Z20ImParseFor
   br i1 %46, label %44, label %48, !llvm.loop !850
 
 48:                                               ; preds = %44
-  %49 = call double @strtod(ptr noundef nonnull captures(none) %.0, ptr noundef null) #44
+  %49 = call double @strtod(ptr noundef nonnull captures(none) %.0, ptr noundef null) #45
   %50 = fptrunc double %49 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -47537,10 +47537,10 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIdddEEfiT_S1_S
 65:                                               ; preds = %63
   %66 = fneg double %14
   %67 = fdiv double %66, %18
-  %68 = tail call noundef double @log(double noundef %67) #44, !tbaa !177
+  %68 = tail call noundef double @log(double noundef %67) #45, !tbaa !177
   %69 = fneg double %.051
   %70 = fdiv double %69, %18
-  %71 = tail call noundef double @log(double noundef %70) #44, !tbaa !177
+  %71 = tail call noundef double @log(double noundef %70) #45, !tbaa !177
   %72 = fdiv double %68, %71
   %73 = fptrunc double %72 to float
   %74 = fsub float 1.000000e+00, %73
@@ -47549,9 +47549,9 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIdddEEfiT_S1_S
 
 76:                                               ; preds = %63
   %77 = fdiv double %14, %18
-  %78 = tail call noundef double @log(double noundef %77) #44, !tbaa !177
+  %78 = tail call noundef double @log(double noundef %77) #45, !tbaa !177
   %79 = fdiv double %.052, %18
-  %80 = tail call noundef double @log(double noundef %79) #44, !tbaa !177
+  %80 = tail call noundef double @log(double noundef %79) #45, !tbaa !177
   %81 = fdiv double %78, %80
   %82 = fptrunc double %81 to float
   %83 = fsub float 1.000000e+00, %61
@@ -47565,9 +47565,9 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIdddEEfiT_S1_S
 
 87:                                               ; preds = %85
   %88 = fdiv double %14, %.052
-  %89 = tail call noundef double @log(double noundef %88) #44, !tbaa !177
+  %89 = tail call noundef double @log(double noundef %88) #45, !tbaa !177
   %90 = fdiv double %.051, %.052
-  %91 = tail call noundef double @log(double noundef %90) #44, !tbaa !177
+  %91 = tail call noundef double @log(double noundef %90) #45, !tbaa !177
   %92 = fdiv double %89, %91
   %93 = fptrunc double %92 to float
   %94 = fsub float 1.000000e+00, %93
@@ -47575,9 +47575,9 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIdddEEfiT_S1_S
 
 95:                                               ; preds = %85
   %96 = fdiv double %14, %.051
-  %97 = tail call noundef double @log(double noundef %96) #44, !tbaa !177
+  %97 = tail call noundef double @log(double noundef %96) #45, !tbaa !177
   %98 = fdiv double %.052, %.051
-  %99 = tail call noundef double @log(double noundef %98) #44, !tbaa !177
+  %99 = tail call noundef double @log(double noundef %98) #45, !tbaa !177
   %100 = fdiv double %97, %99
   %101 = fptrunc double %100 to float
   br label %102
@@ -47688,7 +47688,7 @@ define linkonce_odr noundef double @_ZN5ImGui20ScaleValueFromRatioTIdddEET_ifS1_
   %60 = fdiv float %38, %51
   %61 = fsub float 1.000000e+00, %60
   %62 = fpext float %61 to double
-  %63 = tail call noundef double @pow(double noundef %59, double noundef %62) #44, !tbaa !177
+  %63 = tail call noundef double @pow(double noundef %59, double noundef %62) #45, !tbaa !177
   %64 = fneg double %15
   %65 = fmul double %63, %64
   br label %104
@@ -47699,7 +47699,7 @@ define linkonce_odr noundef double @_ZN5ImGui20ScaleValueFromRatioTIdddEET_ifS1_
   %69 = fsub float 1.000000e+00, %52
   %70 = fdiv float %68, %69
   %71 = fpext float %70 to double
-  %72 = tail call noundef double @pow(double noundef %67, double noundef %71) #44, !tbaa !177
+  %72 = tail call noundef double @pow(double noundef %67, double noundef %71) #45, !tbaa !177
   %73 = fmul double %72, %15
   br label %104
 
@@ -47712,14 +47712,14 @@ define linkonce_odr noundef double @_ZN5ImGui20ScaleValueFromRatioTIdddEET_ifS1_
   %77 = fdiv double %.094, %.193
   %78 = fsub float 1.000000e+00, %38
   %79 = fpext float %78 to double
-  %80 = tail call noundef double @pow(double noundef %77, double noundef %79) #44, !tbaa !177
+  %80 = tail call noundef double @pow(double noundef %77, double noundef %79) #45, !tbaa !177
   %81 = fmul double %.193, %80
   br label %104
 
 82:                                               ; preds = %74
   %83 = fdiv double %.193, %.094
   %84 = fpext float %38 to double
-  %85 = tail call noundef double @pow(double noundef %83, double noundef %84) #44, !tbaa !177
+  %85 = tail call noundef double @pow(double noundef %83, double noundef %84) #45, !tbaa !177
   %86 = fmul double %.094, %85
   br label %104
 
@@ -47868,7 +47868,7 @@ _Z32ImParseFormatSanitizeForPrintingPKcPcm.exit:  ; preds = %41, %_Z20ImParseFor
   br i1 %45, label %43, label %47, !llvm.loop !851
 
 47:                                               ; preds = %43
-  %48 = call double @strtod(ptr noundef nonnull captures(none) %.0, ptr noundef null) #44
+  %48 = call double @strtod(ptr noundef nonnull captures(none) %.0, ptr noundef null) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_Z22ImParseFormatFindStartPKc.exit.thread
@@ -47878,7 +47878,7 @@ _Z22ImParseFormatFindStartPKc.exit.thread:        ; preds = %12, %3, %47
   ret double %.012
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -47887,98 +47887,98 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #39
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #39
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #40
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #41
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.uadd.sat.i8(i8, i8) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.usub.sat.i8(i8, i8) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.uadd.sat.i16(i16, i16) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.usub.sat.i16(i16, i16) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.uadd.sat.i32(i32, i32) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.uadd.sat.i64(i64, i64) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.scmp.i32.i8(i8, i8) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i8(i8, i8) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.scmp.i32.i16(i16, i16) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i16(i16, i16) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64, i64) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #42
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #40
+declare i32 @llvm.abs.i32(i32, i1 immarg) #43
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #40
+declare i64 @llvm.abs.i64(i64, i1 immarg) #43
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -48014,12 +48014,13 @@ attributes #36 = { mustprogress nofree norecurse nosync nounwind memory(argmem: 
 attributes #37 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #38 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #39 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #40 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #40 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #41 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #42 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #43 = { nounwind willreturn memory(read) }
-attributes #44 = { nounwind }
-attributes #45 = { noreturn nounwind }
+attributes #43 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #44 = { nounwind willreturn memory(read) }
+attributes #45 = { nounwind }
+attributes #46 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -127,17 +127,17 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   store i64 1610612736, ptr %26, align 8, !tbaa !32
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr null, ptr %27, align 8, !tbaa !33
-  %28 = call i32 @av_channel_layout_compare(ptr noundef nonnull %14, ptr noundef nonnull %16) #11
+  %28 = call i32 @av_channel_layout_compare(ptr noundef nonnull %14, ptr noundef nonnull %16) #12
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %29, label %32
 
 29:                                               ; preds = %24
-  %30 = call i64 @av_channel_layout_subset(ptr noundef nonnull %13, i64 noundef 1610612736) #11
+  %30 = call i64 @av_channel_layout_subset(ptr noundef nonnull %13, i64 noundef 1610612736) #12
   %.not52 = icmp eq i64 %30, 0
   br i1 %.not52, label %31, label %32
 
 31:                                               ; preds = %29
-  call void @av_channel_layout_uninit(ptr noundef nonnull %14) #11
+  call void @av_channel_layout_uninit(ptr noundef nonnull %14) #12
   store i32 1, ptr %14, align 8, !tbaa !34
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 2, ptr %.sroa.22.0..sroa_idx, align 4, !tbaa !34
@@ -155,17 +155,17 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   store i64 1610612736, ptr %34, align 8, !tbaa !32
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr null, ptr %35, align 8, !tbaa !33
-  %36 = call i32 @av_channel_layout_compare(ptr noundef nonnull %13, ptr noundef nonnull %17) #11
+  %36 = call i32 @av_channel_layout_compare(ptr noundef nonnull %13, ptr noundef nonnull %17) #12
   %.not53 = icmp eq i32 %36, 0
   br i1 %.not53, label %37, label %40
 
 37:                                               ; preds = %32
-  %38 = call i64 @av_channel_layout_subset(ptr noundef nonnull %14, i64 noundef 1610612736) #11
+  %38 = call i64 @av_channel_layout_subset(ptr noundef nonnull %14, i64 noundef 1610612736) #12
   %.not54 = icmp eq i64 %38, 0
   br i1 %.not54, label %39, label %40
 
 39:                                               ; preds = %37
-  call void @av_channel_layout_uninit(ptr noundef nonnull %13) #11
+  call void @av_channel_layout_uninit(ptr noundef nonnull %13) #12
   store i32 1, ptr %13, align 8, !tbaa !34
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 2, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !34
@@ -183,7 +183,7 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   store i64 2164663779327, ptr %42, align 8, !tbaa !32
   %43 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr null, ptr %43, align 8, !tbaa !33
-  %44 = call i32 @av_channel_layout_compare(ptr noundef nonnull %13, ptr noundef nonnull %18) #11
+  %44 = call i32 @av_channel_layout_compare(ptr noundef nonnull %13, ptr noundef nonnull %18) #12
   %.not55 = icmp eq i32 %44, 0
   br i1 %.not55, label %45, label %53
 
@@ -195,23 +195,23 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   store i64 2164663779327, ptr %47, align 8, !tbaa !32
   %48 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr null, ptr %48, align 8, !tbaa !33
-  %49 = call i32 @av_channel_layout_compare(ptr noundef nonnull %14, ptr noundef nonnull %19) #11
+  %49 = call i32 @av_channel_layout_compare(ptr noundef nonnull %14, ptr noundef nonnull %19) #12
   %.not56 = icmp eq i32 %49, 0
   br i1 %.not56, label %53, label %50
 
 50:                                               ; preds = %45
-  %51 = call i32 @av_channel_layout_from_mask(ptr noundef nonnull %13, i64 noundef 511) #11
-  %52 = call i32 @av_channel_layout_describe(ptr noundef nonnull %13, ptr noundef nonnull %15, i64 noundef 128) #11
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %10, i32 noundef 24, ptr noundef nonnull @.str, ptr noundef nonnull %15) #11
+  %51 = call i32 @av_channel_layout_from_mask(ptr noundef nonnull %13, i64 noundef 511) #12
+  %52 = call i32 @av_channel_layout_describe(ptr noundef nonnull %13, ptr noundef nonnull %15, i64 noundef 128) #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %10, i32 noundef 24, ptr noundef nonnull @.str, ptr noundef nonnull %15) #12
   br label %53
 
 53:                                               ; preds = %50, %45, %40
-  %54 = call i32 @av_channel_layout_check(ptr noundef nonnull %13) #11
+  %54 = call i32 @av_channel_layout_check(ptr noundef nonnull %13) #12
   %.not57 = icmp eq i32 %54, 0
   br i1 %.not57, label %55, label %56
 
 55:                                               ; preds = %53
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %10, i32 noundef 16, ptr noundef nonnull @.str.1) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %10, i32 noundef 16, ptr noundef nonnull @.str.1) #12
   br label %.loopexit
 
 56:                                               ; preds = %53
@@ -220,17 +220,17 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br i1 %.not58, label %58, label %60
 
 58:                                               ; preds = %56
-  %59 = call i32 @av_channel_layout_describe(ptr noundef nonnull %13, ptr noundef nonnull %15, i64 noundef 128) #11
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %10, i32 noundef 16, ptr noundef nonnull @.str.2, ptr noundef nonnull %15) #11
+  %59 = call i32 @av_channel_layout_describe(ptr noundef nonnull %13, ptr noundef nonnull %15, i64 noundef 128) #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %10, i32 noundef 16, ptr noundef nonnull @.str.2, ptr noundef nonnull %15) #12
   br label %.loopexit
 
 60:                                               ; preds = %56
-  %61 = call i32 @av_channel_layout_check(ptr noundef nonnull %14) #11
+  %61 = call i32 @av_channel_layout_check(ptr noundef nonnull %14) #12
   %.not59 = icmp eq i32 %61, 0
   br i1 %.not59, label %62, label %63
 
 62:                                               ; preds = %60
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %10, i32 noundef 16, ptr noundef nonnull @.str.3) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %10, i32 noundef 16, ptr noundef nonnull @.str.3) #12
   br label %.loopexit
 
 63:                                               ; preds = %60
@@ -239,26 +239,26 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br i1 %.not60, label %65, label %67
 
 65:                                               ; preds = %63
-  %66 = call i32 @av_channel_layout_describe(ptr noundef nonnull %14, ptr noundef nonnull %15, i64 noundef 128) #11
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %10, i32 noundef 16, ptr noundef nonnull @.str.4, ptr noundef nonnull %15) #11
+  %66 = call i32 @av_channel_layout_describe(ptr noundef nonnull %14, ptr noundef nonnull %15, i64 noundef 128) #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %10, i32 noundef 16, ptr noundef nonnull @.str.4, ptr noundef nonnull %15) #12
   br label %.loopexit
 
 67:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2592) %12, i8 0, i64 2592, i1 false)
-  %68 = call i64 @av_channel_layout_subset(ptr noundef nonnull %13, i64 noundef -1) #11
-  %69 = call i64 @av_channel_layout_subset(ptr noundef nonnull %14, i64 noundef -1) #11
+  %68 = call i64 @av_channel_layout_subset(ptr noundef nonnull %13, i64 noundef -1) #12
+  %69 = call i64 @av_channel_layout_subset(ptr noundef nonnull %14, i64 noundef -1) #12
   br label %70
 
 70:                                               ; preds = %80, %67
   %indvars.iv.i = phi i64 [ 0, %67 ], [ %indvars.iv.next.i, %80 ]
   %71 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %72 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %13, i32 noundef %71) #11
+  %72 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %13, i32 noundef %71) #12
   %73 = icmp sgt i32 %72, -1
   br i1 %73, label %74, label %80
 
 74:                                               ; preds = %70
-  %75 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef %71) #11
+  %75 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef %71) #12
   %76 = icmp sgt i32 %75, -1
   br i1 %76, label %77, label %80
 
@@ -281,12 +281,12 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br i1 %.not.i, label %94, label %85
 
 85:                                               ; preds = %81
-  %86 = call i64 @av_channel_layout_subset(ptr noundef nonnull %14, i64 noundef 3) #11
+  %86 = call i64 @av_channel_layout_subset(ptr noundef nonnull %14, i64 noundef 3) #12
   %87 = icmp eq i64 %86, 3
   br i1 %87, label %.sink.split.i, label %93
 
 .sink.split.i:                                    ; preds = %85
-  %88 = call i64 @av_channel_layout_subset(ptr noundef nonnull %13, i64 noundef 3) #11
+  %88 = call i64 @av_channel_layout_subset(ptr noundef nonnull %13, i64 noundef 3) #12
   %.not163.i = icmp eq i64 %88, 0
   %89 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %90 = load double, ptr %89, align 16, !tbaa !24
@@ -301,8 +301,8 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br label %94
 
 93:                                               ; preds = %85
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 162) #11
-  call void @abort() #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 162) #12
+  call void @abort() #13
   unreachable
 
 94:                                               ; preds = %.sink.split.i, %81
@@ -311,7 +311,7 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br i1 %.not164.i, label %112, label %96
 
 96:                                               ; preds = %94
-  %97 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 2) #11
+  %97 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 2) #12
   %98 = icmp sgt i32 %97, -1
   br i1 %98, label %99, label %111
 
@@ -324,7 +324,7 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   %104 = load double, ptr %103, align 8, !tbaa !24
   %105 = fadd nsz double %104, 0x3FE6A09E667F3BCD
   store double %105, ptr %103, align 8, !tbaa !24
-  %106 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %13, i32 noundef 2) #11
+  %106 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %13, i32 noundef 2) #12
   %107 = icmp sgt i32 %106, -1
   br i1 %107, label %108, label %112
 
@@ -335,8 +335,8 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br label %112
 
 111:                                              ; preds = %96
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 171) #11
-  call void @abort() #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 171) #12
+  call void @abort() #13
   unreachable
 
 112:                                              ; preds = %108, %99, %94
@@ -345,7 +345,7 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br i1 %.not165.i, label %169, label %114
 
 114:                                              ; preds = %112
-  %115 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 4) #11
+  %115 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 4) #12
   %116 = icmp sgt i32 %115, -1
   br i1 %116, label %117, label %124
 
@@ -361,7 +361,7 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br label %169
 
 124:                                              ; preds = %114
-  %125 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 9) #11
+  %125 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 9) #12
   %126 = icmp sgt i32 %125, -1
   br i1 %126, label %127, label %134
 
@@ -377,7 +377,7 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br label %169
 
 134:                                              ; preds = %124
-  %135 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 0) #11
+  %135 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 0) #12
   %136 = icmp sgt i32 %135, -1
   br i1 %136, label %137, label %161
 
@@ -424,7 +424,7 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br label %169
 
 161:                                              ; preds = %134
-  %162 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 2) #11
+  %162 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 2) #12
   %163 = icmp sgt i32 %162, -1
   br i1 %163, label %164, label %168
 
@@ -436,8 +436,8 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br label %169
 
 168:                                              ; preds = %161
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 198) #11
-  call void @abort() #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 198) #12
+  call void @abort() #13
   unreachable
 
 169:                                              ; preds = %164, %154, %149, %143, %127, %117, %112
@@ -446,7 +446,7 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br i1 %.not167.i, label %244, label %171
 
 171:                                              ; preds = %169
-  %172 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 8) #11
+  %172 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 8) #12
   %173 = icmp sgt i32 %172, -1
   br i1 %173, label %174, label %181
 
@@ -462,12 +462,12 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br label %244
 
 181:                                              ; preds = %171
-  %182 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 9) #11
+  %182 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 9) #12
   %183 = icmp sgt i32 %182, -1
   br i1 %183, label %184, label %198
 
 184:                                              ; preds = %181
-  %185 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %13, i32 noundef 9) #11
+  %185 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %13, i32 noundef 9) #12
   %186 = icmp sgt i32 %185, -1
   %187 = getelementptr inbounds nuw i8, ptr %12, i64 1328
   %188 = load double, ptr %187, align 16, !tbaa !24
@@ -491,7 +491,7 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br label %244
 
 198:                                              ; preds = %181
-  %199 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 0) #11
+  %199 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 0) #12
   %200 = icmp sgt i32 %199, -1
   br i1 %200, label %201, label %233
 
@@ -549,7 +549,7 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br label %244
 
 233:                                              ; preds = %198
-  %234 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 2) #11
+  %234 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 2) #12
   %235 = icmp sgt i32 %234, -1
   br i1 %235, label %236, label %243
 
@@ -565,8 +565,8 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br label %244
 
 243:                                              ; preds = %233
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 231) #11
-  call void @abort() #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 231) #12
+  call void @abort() #13
   unreachable
 
 244:                                              ; preds = %236, %228, %216, %204, %194, %190, %174, %169
@@ -575,12 +575,12 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br i1 %.not168.i, label %319, label %246
 
 246:                                              ; preds = %244
-  %247 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 4) #11
+  %247 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 4) #12
   %248 = icmp sgt i32 %247, -1
   br i1 %248, label %249, label %263
 
 249:                                              ; preds = %246
-  %250 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %13, i32 noundef 4) #11
+  %250 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %13, i32 noundef 4) #12
   %251 = icmp sgt i32 %250, -1
   %252 = getelementptr inbounds nuw i8, ptr %12, i64 648
   %253 = load double, ptr %252, align 8, !tbaa !24
@@ -604,7 +604,7 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br label %319
 
 263:                                              ; preds = %246
-  %264 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 8) #11
+  %264 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 8) #12
   %265 = icmp sgt i32 %264, -1
   br i1 %265, label %266, label %273
 
@@ -620,7 +620,7 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br label %319
 
 273:                                              ; preds = %263
-  %274 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 0) #11
+  %274 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 0) #12
   %275 = icmp sgt i32 %274, -1
   br i1 %275, label %276, label %308
 
@@ -678,7 +678,7 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br label %319
 
 308:                                              ; preds = %273
-  %309 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 2) #11
+  %309 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 2) #12
   %310 = icmp sgt i32 %309, -1
   br i1 %310, label %311, label %318
 
@@ -694,8 +694,8 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br label %319
 
 318:                                              ; preds = %308
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 267) #11
-  call void @abort() #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 267) #12
+  call void @abort() #13
   unreachable
 
 319:                                              ; preds = %311, %303, %291, %279, %266, %259, %255, %244
@@ -704,18 +704,18 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br i1 %.not169.i, label %332, label %321
 
 321:                                              ; preds = %319
-  %322 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 0) #11
+  %322 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 0) #12
   %323 = icmp sgt i32 %322, -1
   br i1 %323, label %.sink.split205.i, label %324
 
 324:                                              ; preds = %321
-  %325 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 2) #11
+  %325 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 2) #12
   %326 = icmp sgt i32 %325, -1
   br i1 %326, label %.sink.split205.i, label %327
 
 327:                                              ; preds = %324
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 278) #11
-  call void @abort() #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 278) #12
+  call void @abort() #13
   unreachable
 
 .sink.split205.i:                                 ; preds = %324, %321
@@ -736,7 +736,7 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br i1 %.not170.i, label %377, label %334
 
 334:                                              ; preds = %332
-  %335 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 13) #11
+  %335 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 13) #12
   %336 = icmp sgt i32 %335, -1
   br i1 %336, label %337, label %349
 
@@ -749,7 +749,7 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   %342 = load double, ptr %341, align 16, !tbaa !24
   %343 = fadd nsz double %342, 0x3FE6A09E667F3BCD
   store double %343, ptr %341, align 16, !tbaa !24
-  %344 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %13, i32 noundef 13) #11
+  %344 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %13, i32 noundef 13) #12
   %345 = icmp sgt i32 %344, -1
   br i1 %345, label %346, label %377
 
@@ -760,12 +760,12 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br label %377
 
 349:                                              ; preds = %334
-  %350 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 0) #11
+  %350 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 0) #12
   %351 = icmp sgt i32 %350, -1
   br i1 %351, label %352, label %366
 
 352:                                              ; preds = %349
-  %353 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %13, i32 noundef 0) #11
+  %353 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %13, i32 noundef 0) #12
   %354 = icmp sgt i32 %353, -1
   %355 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %356 = load double, ptr %355, align 16, !tbaa !24
@@ -789,7 +789,7 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br label %377
 
 366:                                              ; preds = %349
-  %367 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 2) #11
+  %367 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 2) #12
   %368 = icmp sgt i32 %367, -1
   br i1 %368, label %369, label %376
 
@@ -805,8 +805,8 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br label %377
 
 376:                                              ; preds = %366
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 299) #11
-  call void @abort() #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 299) #12
+  call void @abort() #13
   unreachable
 
 377:                                              ; preds = %369, %362, %358, %346, %337, %332
@@ -818,7 +818,7 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br label %397
 
 379:                                              ; preds = %377
-  %380 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 2) #11
+  %380 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 2) #12
   %381 = icmp sgt i32 %380, -1
   br i1 %381, label %382, label %386
 
@@ -830,7 +830,7 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br label %.preheader94
 
 386:                                              ; preds = %379
-  %387 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 0) #11
+  %387 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef 0) #12
   %388 = icmp sgt i32 %387, -1
   br i1 %388, label %389, label %396
 
@@ -846,15 +846,15 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br label %.preheader94
 
 396:                                              ; preds = %386
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 310) #11
-  call void @abort() #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 310) #12
+  call void @abort() #13
   unreachable
 
 397:                                              ; preds = %.preheader94, %444
   %indvars.iv189.i = phi i64 [ %indvars.iv.next190.i, %444 ], [ 0, %.preheader94 ]
   %.0179.i = phi double [ %.1.i, %444 ], [ 0.000000e+00, %.preheader94 ]
   %398 = trunc nuw nsw i64 %indvars.iv189.i to i32
-  %399 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef %398) #11
+  %399 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef %398) #12
   %400 = icmp slt i32 %399, 0
   br i1 %400, label %444, label %.preheader172.i
 
@@ -870,7 +870,7 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   %indvars.iv = phi i64 [ %indvars.iv.next, %423 ], [ 0, %.preheader172.i ]
   %.0151176.us.i = phi double [ %.1152.us.i, %423 ], [ 0.000000e+00, %.preheader172.i ]
   %406 = trunc nuw nsw i64 %indvars.iv to i32
-  %407 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %13, i32 noundef %406) #11
+  %407 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %13, i32 noundef %406) #12
   %408 = icmp slt i32 %407, 0
   br i1 %408, label %423, label %409
 
@@ -879,12 +879,12 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br i1 %410, label %411, label %418
 
 411:                                              ; preds = %409
-  %412 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %13, i32 noundef %398) #11
+  %412 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %13, i32 noundef %398) #12
   %413 = icmp sgt i32 %412, -1
   br i1 %413, label %414, label %418
 
 414:                                              ; preds = %411
-  %415 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef %398) #11
+  %415 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %14, i32 noundef %398) #12
   %416 = icmp sgt i32 %415, -1
   %417 = uitofp i1 %416 to double
   br label %418
@@ -907,7 +907,7 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   %indvars.iv185.i = phi i64 [ %indvars.iv.next186.i, %441 ], [ 0, %.preheader172.i ]
   %.0151176.i = phi double [ %.1152.i, %441 ], [ 0.000000e+00, %.preheader172.i ]
   %424 = trunc nuw nsw i64 %indvars.iv185.i to i32
-  %425 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %13, i32 noundef %424) #11
+  %425 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %13, i32 noundef %424) #12
   %426 = icmp slt i32 %425, 0
   br i1 %426, label %441, label %427
 
@@ -1013,7 +1013,7 @@ build_matrix.exit:                                ; preds = %457, %445
   br i1 %exitcond80.not, label %.loopexit64, label %.preheader, !llvm.loop !42
 
 .loopexit64:                                      ; preds = %465, %build_matrix.exit
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %10, i32 noundef 48, ptr noundef nonnull @.str.5) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %10, i32 noundef 48, ptr noundef nonnull @.str.5) #12
   %466 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %467 = load i32, ptr %466, align 4, !tbaa !31
   %468 = icmp sgt i32 %467, 0
@@ -1026,9 +1026,9 @@ build_matrix.exit:                                ; preds = %457, %445
 470:                                              ; preds = %.lr.ph71, %._crit_edge
   %indvars.iv84 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next85, %._crit_edge ]
   %471 = trunc nuw nsw i64 %indvars.iv84 to i32
-  %472 = call i32 @av_channel_layout_channel_from_index(ptr noundef nonnull %14, i32 noundef %471) #11
-  %473 = call i32 @av_channel_name(ptr noundef nonnull %15, i64 noundef 128, i32 noundef %472) #11
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %10, i32 noundef 48, ptr noundef nonnull @.str.6, ptr noundef nonnull %15) #11
+  %472 = call i32 @av_channel_layout_channel_from_index(ptr noundef nonnull %14, i32 noundef %471) #12
+  %473 = call i32 @av_channel_name(ptr noundef nonnull %15, i64 noundef 128, i32 noundef %472) #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %10, i32 noundef 48, ptr noundef nonnull @.str.6, ptr noundef nonnull %15) #12
   %474 = load i32, ptr %469, align 4, !tbaa !31
   %475 = icmp sgt i32 %474, 0
   br i1 %475, label %.lr.ph, label %._crit_edge
@@ -1041,11 +1041,11 @@ build_matrix.exit:                                ; preds = %457, %445
 478:                                              ; preds = %.lr.ph, %478
   %indvars.iv81 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next82, %478 ]
   %479 = trunc nuw nsw i64 %indvars.iv81 to i32
-  %480 = call i32 @av_channel_layout_channel_from_index(ptr noundef nonnull %13, i32 noundef %479) #11
-  %481 = call i32 @av_channel_name(ptr noundef nonnull %15, i64 noundef 128, i32 noundef %480) #11
+  %480 = call i32 @av_channel_layout_channel_from_index(ptr noundef nonnull %13, i32 noundef %479) #12
+  %481 = call i32 @av_channel_name(ptr noundef nonnull %15, i64 noundef 128, i32 noundef %480) #12
   %482 = getelementptr double, ptr %477, i64 %indvars.iv81
   %483 = load double, ptr %482, align 8, !tbaa !24
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %10, i32 noundef 48, ptr noundef nonnull @.str.7, ptr noundef nonnull %15, double noundef %483) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %10, i32 noundef 48, ptr noundef nonnull @.str.7, ptr noundef nonnull %15, double noundef %483) #12
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %484 = load i32, ptr %469, align 4, !tbaa !31
   %485 = sext i32 %484 to i64
@@ -1053,7 +1053,7 @@ build_matrix.exit:                                ; preds = %457, %445
   br i1 %486, label %478, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %478, %470
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %10, i32 noundef 48, ptr noundef nonnull @.str.8) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %10, i32 noundef 48, ptr noundef nonnull @.str.8) #12
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %487 = load i32, ptr %466, align 4, !tbaa !31
   %488 = sext i32 %487 to i64
@@ -1062,8 +1062,8 @@ build_matrix.exit:                                ; preds = %457, %445
 
 .loopexit:                                        ; preds = %._crit_edge, %.loopexit64, %11, %65, %62, %58, %55
   %.049 = phi i32 [ %22, %11 ], [ -22, %65 ], [ -22, %62 ], [ -22, %58 ], [ -22, %55 ], [ 0, %.loopexit64 ], [ 0, %._crit_edge ]
-  call void @av_channel_layout_uninit(ptr noundef nonnull %13) #11
-  call void @av_channel_layout_uninit(ptr noundef nonnull %14) #11
+  call void @av_channel_layout_uninit(ptr noundef nonnull %13) #12
+  call void @av_channel_layout_uninit(ptr noundef nonnull %14) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -1073,7 +1073,7 @@ build_matrix.exit:                                ; preds = %457, %445
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @clean_layout(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 {
   %4 = alloca [128 x i8], align 16
-  %5 = tail call i32 @av_channel_layout_index_from_channel(ptr noundef %1, i32 noundef 2) #11
+  %5 = tail call i32 @av_channel_layout_index_from_channel(ptr noundef %1, i32 noundef 2) #12
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %13
 
@@ -1085,8 +1085,8 @@ define internal fastcc i32 @clean_layout(ptr noundef nonnull %0, ptr noundef %1,
 
 11:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %12 = call i32 @av_channel_layout_describe(ptr noundef nonnull %1, ptr noundef nonnull %4, i64 noundef 128) #11
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %2, i32 noundef 40, ptr noundef nonnull @.str.14, ptr noundef nonnull %4) #11
+  %12 = call i32 @av_channel_layout_describe(ptr noundef nonnull %1, ptr noundef nonnull %4, i64 noundef 128) #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %2, i32 noundef 40, ptr noundef nonnull @.str.14, ptr noundef nonnull %4) #12
   store i32 1, ptr %0, align 8, !tbaa !34
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !34
@@ -1098,7 +1098,7 @@ define internal fastcc i32 @clean_layout(ptr noundef nonnull %0, ptr noundef %1,
   br label %15
 
 13:                                               ; preds = %7, %3
-  %14 = tail call i32 @av_channel_layout_copy(ptr noundef nonnull %0, ptr noundef %1) #11
+  %14 = tail call i32 @av_channel_layout_copy(ptr noundef nonnull %0, ptr noundef %1) #12
   br label %15
 
 15:                                               ; preds = %13, %11
@@ -1160,36 +1160,36 @@ define internal fastcc range(i32 0, 2) i32 @sane_layout(ptr noundef nonnull %0) 
   br i1 %14, label %even.exit43.thread, label %10
 
 .thread:                                          ; preds = %10, %.preheader, %5
-  %15 = tail call i64 @av_channel_layout_subset(ptr noundef nonnull %0, i64 noundef 7) #11
+  %15 = tail call i64 @av_channel_layout_subset(ptr noundef nonnull %0, i64 noundef 7) #12
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %even.exit43.thread, label %16
 
 16:                                               ; preds = %.thread
-  %17 = tail call i64 @av_channel_layout_subset(ptr noundef nonnull %0, i64 noundef 3) #11
+  %17 = tail call i64 @av_channel_layout_subset(ptr noundef nonnull %0, i64 noundef 3) #12
   %18 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %17)
   %or.cond = icmp eq i64 %18, 1
   br i1 %or.cond, label %even.exit43.thread, label %even.exit.thread
 
 even.exit.thread:                                 ; preds = %16
-  %19 = tail call i64 @av_channel_layout_subset(ptr noundef nonnull %0, i64 noundef 1536) #11
+  %19 = tail call i64 @av_channel_layout_subset(ptr noundef nonnull %0, i64 noundef 1536) #12
   %20 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %19)
   %or.cond56 = icmp eq i64 %20, 1
   br i1 %or.cond56, label %even.exit43.thread, label %even.exit28.thread
 
 even.exit28.thread:                               ; preds = %even.exit.thread
-  %21 = tail call i64 @av_channel_layout_subset(ptr noundef nonnull %0, i64 noundef 48) #11
+  %21 = tail call i64 @av_channel_layout_subset(ptr noundef nonnull %0, i64 noundef 48) #12
   %22 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %21)
   %or.cond57 = icmp eq i64 %22, 1
   br i1 %or.cond57, label %even.exit43.thread, label %even.exit33.thread
 
 even.exit33.thread:                               ; preds = %even.exit28.thread
-  %23 = tail call i64 @av_channel_layout_subset(ptr noundef nonnull %0, i64 noundef 192) #11
+  %23 = tail call i64 @av_channel_layout_subset(ptr noundef nonnull %0, i64 noundef 192) #12
   %24 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %23)
   %or.cond58 = icmp eq i64 %24, 1
   br i1 %or.cond58, label %even.exit43.thread, label %even.exit38.thread
 
 even.exit38.thread:                               ; preds = %even.exit33.thread
-  %25 = tail call i64 @av_channel_layout_subset(ptr noundef nonnull %0, i64 noundef 20480) #11
+  %25 = tail call i64 @av_channel_layout_subset(ptr noundef nonnull %0, i64 noundef 20480) #12
   %.fr = freeze i64 %25
   %.not.i39 = icmp eq i64 %.fr, 0
   br i1 %.not.i39, label %even.exit43.thread, label %even.exit43
@@ -1248,7 +1248,7 @@ define range(i32 -2147483648, 1) i32 @swri_rematrix_init(ptr noundef initializes
   br i1 %.not, label %34, label %36
 
 34:                                               ; preds = %1
-  %35 = tail call fastcc i32 @auto_matrix(ptr noundef nonnull %0) #13
+  %35 = tail call fastcc i32 @auto_matrix(ptr noundef nonnull %0) #14
   %.not193 = icmp eq i32 %35, 0
   br i1 %.not193, label %36, label %.loopexit
 
@@ -1265,10 +1265,10 @@ define range(i32 -2147483648, 1) i32 @swri_rematrix_init(ptr noundef initializes
 39:                                               ; preds = %36
   %40 = mul nsw i32 %30, %28
   %41 = sext i32 %40 to i64
-  %42 = tail call noalias ptr @av_calloc(i64 noundef %41, i64 noundef 4) #11
+  %42 = tail call noalias ptr @av_calloc(i64 noundef %41, i64 noundef 4) #12
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 65384
   store ptr %42, ptr %43, align 8, !tbaa !52
-  %44 = tail call noalias ptr @av_mallocz(i64 noundef 4) #11
+  %44 = tail call noalias ptr @av_mallocz(i64 noundef 4) #12
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 65392
   store ptr %44, ptr %45, align 8, !tbaa !53
   %46 = load ptr, ptr %43, align 8, !tbaa !52
@@ -1354,7 +1354,7 @@ define range(i32 -2147483648, 1) i32 @swri_rematrix_init(ptr noundef initializes
   store i64 3, ptr %72, align 8, !tbaa !32
   %73 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr null, ptr %73, align 8, !tbaa !33
-  %74 = call i32 @av_channel_layout_compare(ptr noundef nonnull %70, ptr noundef nonnull %22) #11
+  %74 = call i32 @av_channel_layout_compare(ptr noundef nonnull %70, ptr noundef nonnull %22) #12
   %.not.i = icmp eq i32 %74, 0
   br i1 %.not.i, label %75, label %114
 
@@ -1367,7 +1367,7 @@ define range(i32 -2147483648, 1) i32 @swri_rematrix_init(ptr noundef initializes
   store i64 1551, ptr %78, align 8, !tbaa !32
   %79 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr null, ptr %79, align 8, !tbaa !33
-  %80 = call i32 @av_channel_layout_compare(ptr noundef nonnull %76, ptr noundef nonnull %23) #11
+  %80 = call i32 @av_channel_layout_compare(ptr noundef nonnull %76, ptr noundef nonnull %23) #12
   %.not24.i = icmp eq i32 %80, 0
   br i1 %.not24.i, label %86, label %81
 
@@ -1379,7 +1379,7 @@ define range(i32 -2147483648, 1) i32 @swri_rematrix_init(ptr noundef initializes
   store i64 63, ptr %83, align 8, !tbaa !32
   %84 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr null, ptr %84, align 8, !tbaa !33
-  %85 = call i32 @av_channel_layout_compare(ptr noundef nonnull %76, ptr noundef nonnull %24) #11
+  %85 = call i32 @av_channel_layout_compare(ptr noundef nonnull %76, ptr noundef nonnull %24) #12
   %.not25.i = icmp eq i32 %85, 0
   br i1 %.not25.i, label %86, label %114
 
@@ -1431,7 +1431,7 @@ define range(i32 -2147483648, 1) i32 @swri_rematrix_init(ptr noundef initializes
   store i64 3, ptr %116, align 8, !tbaa !32
   %117 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr null, ptr %117, align 8, !tbaa !33
-  %118 = call i32 @av_channel_layout_compare(ptr noundef nonnull %70, ptr noundef nonnull %25) #11
+  %118 = call i32 @av_channel_layout_compare(ptr noundef nonnull %70, ptr noundef nonnull %25) #12
   %.not26.i = icmp eq i32 %118, 0
   br i1 %.not26.i, label %119, label %161
 
@@ -1444,7 +1444,7 @@ define range(i32 -2147483648, 1) i32 @swri_rematrix_init(ptr noundef initializes
   store i64 1599, ptr %122, align 8, !tbaa !32
   %123 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr null, ptr %123, align 8, !tbaa !33
-  %124 = call i32 @av_channel_layout_compare(ptr noundef nonnull %120, ptr noundef nonnull %26) #11
+  %124 = call i32 @av_channel_layout_compare(ptr noundef nonnull %120, ptr noundef nonnull %26) #12
   %.not27.i = icmp eq i32 %124, 0
   br i1 %.not27.i, label %125, label %161
 
@@ -1530,7 +1530,7 @@ get_mix_any_func_s16.exit:                        ; preds = %110, %157, %161
   store i64 3, ptr %167, align 8, !tbaa !32
   %168 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr null, ptr %168, align 8, !tbaa !33
-  %169 = call i32 @av_channel_layout_compare(ptr noundef nonnull %165, ptr noundef nonnull %17) #11
+  %169 = call i32 @av_channel_layout_compare(ptr noundef nonnull %165, ptr noundef nonnull %17) #12
   %.not.i204 = icmp eq i32 %169, 0
   br i1 %.not.i204, label %170, label %209
 
@@ -1543,7 +1543,7 @@ get_mix_any_func_s16.exit:                        ; preds = %110, %157, %161
   store i64 1551, ptr %173, align 8, !tbaa !32
   %174 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr null, ptr %174, align 8, !tbaa !33
-  %175 = call i32 @av_channel_layout_compare(ptr noundef nonnull %171, ptr noundef nonnull %18) #11
+  %175 = call i32 @av_channel_layout_compare(ptr noundef nonnull %171, ptr noundef nonnull %18) #12
   %.not24.i208 = icmp eq i32 %175, 0
   br i1 %.not24.i208, label %181, label %176
 
@@ -1555,7 +1555,7 @@ get_mix_any_func_s16.exit:                        ; preds = %110, %157, %161
   store i64 63, ptr %178, align 8, !tbaa !32
   %179 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr null, ptr %179, align 8, !tbaa !33
-  %180 = call i32 @av_channel_layout_compare(ptr noundef nonnull %171, ptr noundef nonnull %19) #11
+  %180 = call i32 @av_channel_layout_compare(ptr noundef nonnull %171, ptr noundef nonnull %19) #12
   %.not25.i209 = icmp eq i32 %180, 0
   br i1 %.not25.i209, label %181, label %209
 
@@ -1607,7 +1607,7 @@ get_mix_any_func_s16.exit:                        ; preds = %110, %157, %161
   store i64 3, ptr %211, align 8, !tbaa !32
   %212 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr null, ptr %212, align 8, !tbaa !33
-  %213 = call i32 @av_channel_layout_compare(ptr noundef nonnull %165, ptr noundef nonnull %20) #11
+  %213 = call i32 @av_channel_layout_compare(ptr noundef nonnull %165, ptr noundef nonnull %20) #12
   %.not26.i205 = icmp eq i32 %213, 0
   br i1 %.not26.i205, label %214, label %256
 
@@ -1620,7 +1620,7 @@ get_mix_any_func_s16.exit:                        ; preds = %110, %157, %161
   store i64 1599, ptr %217, align 8, !tbaa !32
   %218 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr null, ptr %218, align 8, !tbaa !33
-  %219 = call i32 @av_channel_layout_compare(ptr noundef nonnull %215, ptr noundef nonnull %21) #11
+  %219 = call i32 @av_channel_layout_compare(ptr noundef nonnull %215, ptr noundef nonnull %21) #12
   %.not27.i207 = icmp eq i32 %219, 0
   br i1 %.not27.i207, label %220, label %256
 
@@ -1691,10 +1691,10 @@ get_mix_any_func_clip_s16.exit:                   ; preds = %205, %252, %256
 257:                                              ; preds = %36
   %258 = mul nsw i32 %30, %28
   %259 = sext i32 %258 to i64
-  %260 = tail call noalias ptr @av_calloc(i64 noundef %259, i64 noundef 4) #11
+  %260 = tail call noalias ptr @av_calloc(i64 noundef %259, i64 noundef 4) #12
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 65384
   store ptr %260, ptr %261, align 8, !tbaa !52
-  %262 = tail call noalias ptr @av_mallocz(i64 noundef 4) #11
+  %262 = tail call noalias ptr @av_mallocz(i64 noundef 4) #12
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 65392
   store ptr %262, ptr %263, align 8, !tbaa !53
   %264 = load ptr, ptr %261, align 8, !tbaa !52
@@ -1759,7 +1759,7 @@ get_mix_any_func_clip_s16.exit:                   ; preds = %205, %252, %256
   store i64 3, ptr %279, align 8, !tbaa !32
   %280 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr null, ptr %280, align 8, !tbaa !33
-  %281 = call i32 @av_channel_layout_compare(ptr noundef nonnull %277, ptr noundef nonnull %12) #11
+  %281 = call i32 @av_channel_layout_compare(ptr noundef nonnull %277, ptr noundef nonnull %12) #12
   %.not.i210 = icmp eq i32 %281, 0
   br i1 %.not.i210, label %282, label %321
 
@@ -1772,7 +1772,7 @@ get_mix_any_func_clip_s16.exit:                   ; preds = %205, %252, %256
   store i64 1551, ptr %285, align 8, !tbaa !32
   %286 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr null, ptr %286, align 8, !tbaa !33
-  %287 = call i32 @av_channel_layout_compare(ptr noundef nonnull %283, ptr noundef nonnull %13) #11
+  %287 = call i32 @av_channel_layout_compare(ptr noundef nonnull %283, ptr noundef nonnull %13) #12
   %.not24.i214 = icmp eq i32 %287, 0
   br i1 %.not24.i214, label %293, label %288
 
@@ -1784,7 +1784,7 @@ get_mix_any_func_clip_s16.exit:                   ; preds = %205, %252, %256
   store i64 63, ptr %290, align 8, !tbaa !32
   %291 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr null, ptr %291, align 8, !tbaa !33
-  %292 = call i32 @av_channel_layout_compare(ptr noundef nonnull %283, ptr noundef nonnull %14) #11
+  %292 = call i32 @av_channel_layout_compare(ptr noundef nonnull %283, ptr noundef nonnull %14) #12
   %.not25.i215 = icmp eq i32 %292, 0
   br i1 %.not25.i215, label %293, label %321
 
@@ -1836,7 +1836,7 @@ get_mix_any_func_clip_s16.exit:                   ; preds = %205, %252, %256
   store i64 3, ptr %323, align 8, !tbaa !32
   %324 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr null, ptr %324, align 8, !tbaa !33
-  %325 = call i32 @av_channel_layout_compare(ptr noundef nonnull %277, ptr noundef nonnull %15) #11
+  %325 = call i32 @av_channel_layout_compare(ptr noundef nonnull %277, ptr noundef nonnull %15) #12
   %.not26.i211 = icmp eq i32 %325, 0
   br i1 %.not26.i211, label %326, label %368
 
@@ -1849,7 +1849,7 @@ get_mix_any_func_clip_s16.exit:                   ; preds = %205, %252, %256
   store i64 1599, ptr %329, align 8, !tbaa !32
   %330 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr null, ptr %330, align 8, !tbaa !33
-  %331 = call i32 @av_channel_layout_compare(ptr noundef nonnull %327, ptr noundef nonnull %16) #11
+  %331 = call i32 @av_channel_layout_compare(ptr noundef nonnull %327, ptr noundef nonnull %16) #12
   %.not27.i213 = icmp eq i32 %331, 0
   br i1 %.not27.i213, label %332, label %368
 
@@ -1920,10 +1920,10 @@ get_mix_any_func_float.exit:                      ; preds = %317, %364, %368
 369:                                              ; preds = %36
   %370 = mul nsw i32 %30, %28
   %371 = sext i32 %370 to i64
-  %372 = tail call noalias ptr @av_calloc(i64 noundef %371, i64 noundef 8) #11
+  %372 = tail call noalias ptr @av_calloc(i64 noundef %371, i64 noundef 8) #12
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 65384
   store ptr %372, ptr %373, align 8, !tbaa !52
-  %374 = tail call noalias ptr @av_mallocz(i64 noundef 8) #11
+  %374 = tail call noalias ptr @av_mallocz(i64 noundef 8) #12
   %375 = getelementptr inbounds nuw i8, ptr %0, i64 65392
   store ptr %374, ptr %375, align 8, !tbaa !53
   %376 = load ptr, ptr %373, align 8, !tbaa !52
@@ -1987,7 +1987,7 @@ get_mix_any_func_float.exit:                      ; preds = %317, %364, %368
   store i64 3, ptr %390, align 8, !tbaa !32
   %391 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %391, align 8, !tbaa !33
-  %392 = call i32 @av_channel_layout_compare(ptr noundef nonnull %388, ptr noundef nonnull %7) #11
+  %392 = call i32 @av_channel_layout_compare(ptr noundef nonnull %388, ptr noundef nonnull %7) #12
   %.not.i216 = icmp eq i32 %392, 0
   br i1 %.not.i216, label %393, label %432
 
@@ -2000,7 +2000,7 @@ get_mix_any_func_float.exit:                      ; preds = %317, %364, %368
   store i64 1551, ptr %396, align 8, !tbaa !32
   %397 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr null, ptr %397, align 8, !tbaa !33
-  %398 = call i32 @av_channel_layout_compare(ptr noundef nonnull %394, ptr noundef nonnull %8) #11
+  %398 = call i32 @av_channel_layout_compare(ptr noundef nonnull %394, ptr noundef nonnull %8) #12
   %.not24.i220 = icmp eq i32 %398, 0
   br i1 %.not24.i220, label %404, label %399
 
@@ -2012,7 +2012,7 @@ get_mix_any_func_float.exit:                      ; preds = %317, %364, %368
   store i64 63, ptr %401, align 8, !tbaa !32
   %402 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr null, ptr %402, align 8, !tbaa !33
-  %403 = call i32 @av_channel_layout_compare(ptr noundef nonnull %394, ptr noundef nonnull %9) #11
+  %403 = call i32 @av_channel_layout_compare(ptr noundef nonnull %394, ptr noundef nonnull %9) #12
   %.not25.i221 = icmp eq i32 %403, 0
   br i1 %.not25.i221, label %404, label %432
 
@@ -2064,7 +2064,7 @@ get_mix_any_func_float.exit:                      ; preds = %317, %364, %368
   store i64 3, ptr %434, align 8, !tbaa !32
   %435 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr null, ptr %435, align 8, !tbaa !33
-  %436 = call i32 @av_channel_layout_compare(ptr noundef nonnull %388, ptr noundef nonnull %10) #11
+  %436 = call i32 @av_channel_layout_compare(ptr noundef nonnull %388, ptr noundef nonnull %10) #12
   %.not26.i217 = icmp eq i32 %436, 0
   br i1 %.not26.i217, label %437, label %479
 
@@ -2077,7 +2077,7 @@ get_mix_any_func_float.exit:                      ; preds = %317, %364, %368
   store i64 1599, ptr %440, align 8, !tbaa !32
   %441 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr null, ptr %441, align 8, !tbaa !33
-  %442 = call i32 @av_channel_layout_compare(ptr noundef nonnull %438, ptr noundef nonnull %11) #11
+  %442 = call i32 @av_channel_layout_compare(ptr noundef nonnull %438, ptr noundef nonnull %11) #12
   %.not27.i219 = icmp eq i32 %442, 0
   br i1 %.not27.i219, label %443, label %479
 
@@ -2146,7 +2146,7 @@ get_mix_any_func_double.exit:                     ; preds = %428, %475, %479
   br label %.thread
 
 480:                                              ; preds = %36
-  %481 = tail call noalias ptr @av_mallocz(i64 noundef 4) #11
+  %481 = tail call noalias ptr @av_mallocz(i64 noundef 4) #12
   %482 = getelementptr inbounds nuw i8, ptr %0, i64 65392
   store ptr %481, ptr %482, align 8, !tbaa !53
   %.not194 = icmp eq ptr %481, null
@@ -2155,7 +2155,7 @@ get_mix_any_func_double.exit:                     ; preds = %428, %475, %479
 483:                                              ; preds = %480
   %484 = mul nsw i32 %30, %28
   %485 = sext i32 %484 to i64
-  %486 = tail call noalias ptr @av_calloc(i64 noundef %485, i64 noundef 4) #11
+  %486 = tail call noalias ptr @av_calloc(i64 noundef %485, i64 noundef 4) #12
   %487 = getelementptr inbounds nuw i8, ptr %0, i64 65384
   store ptr %486, ptr %487, align 8, !tbaa !52
   %.not195 = icmp eq ptr %486, null
@@ -2173,7 +2173,7 @@ get_mix_any_func_double.exit:                     ; preds = %428, %475, %479
   br label %.preheader236
 
 492:                                              ; preds = %483
-  tail call void @av_freep(ptr noundef nonnull %482) #11
+  tail call void @av_freep(ptr noundef nonnull %482) #12
   br label %.loopexit
 
 .preheader236:                                    ; preds = %.preheader236.lr.ph, %._crit_edge
@@ -2229,7 +2229,7 @@ get_mix_any_func_double.exit:                     ; preds = %428, %475, %479
   store i64 3, ptr %510, align 8, !tbaa !32
   %511 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr null, ptr %511, align 8, !tbaa !33
-  %512 = call i32 @av_channel_layout_compare(ptr noundef nonnull %508, ptr noundef nonnull %2) #11
+  %512 = call i32 @av_channel_layout_compare(ptr noundef nonnull %508, ptr noundef nonnull %2) #12
   %.not.i222 = icmp eq i32 %512, 0
   br i1 %.not.i222, label %513, label %552
 
@@ -2242,7 +2242,7 @@ get_mix_any_func_double.exit:                     ; preds = %428, %475, %479
   store i64 1551, ptr %516, align 8, !tbaa !32
   %517 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %517, align 8, !tbaa !33
-  %518 = call i32 @av_channel_layout_compare(ptr noundef nonnull %514, ptr noundef nonnull %3) #11
+  %518 = call i32 @av_channel_layout_compare(ptr noundef nonnull %514, ptr noundef nonnull %3) #12
   %.not24.i226 = icmp eq i32 %518, 0
   br i1 %.not24.i226, label %524, label %519
 
@@ -2254,7 +2254,7 @@ get_mix_any_func_double.exit:                     ; preds = %428, %475, %479
   store i64 63, ptr %521, align 8, !tbaa !32
   %522 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %522, align 8, !tbaa !33
-  %523 = call i32 @av_channel_layout_compare(ptr noundef nonnull %514, ptr noundef nonnull %4) #11
+  %523 = call i32 @av_channel_layout_compare(ptr noundef nonnull %514, ptr noundef nonnull %4) #12
   %.not25.i227 = icmp eq i32 %523, 0
   br i1 %.not25.i227, label %524, label %552
 
@@ -2306,7 +2306,7 @@ get_mix_any_func_double.exit:                     ; preds = %428, %475, %479
   store i64 3, ptr %554, align 8, !tbaa !32
   %555 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %555, align 8, !tbaa !33
-  %556 = call i32 @av_channel_layout_compare(ptr noundef nonnull %508, ptr noundef nonnull %5) #11
+  %556 = call i32 @av_channel_layout_compare(ptr noundef nonnull %508, ptr noundef nonnull %5) #12
   %.not26.i223 = icmp eq i32 %556, 0
   br i1 %.not26.i223, label %557, label %599
 
@@ -2319,7 +2319,7 @@ get_mix_any_func_double.exit:                     ; preds = %428, %475, %479
   store i64 1599, ptr %560, align 8, !tbaa !32
   %561 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %561, align 8, !tbaa !33
-  %562 = call i32 @av_channel_layout_compare(ptr noundef nonnull %558, ptr noundef nonnull %6) #11
+  %562 = call i32 @av_channel_layout_compare(ptr noundef nonnull %558, ptr noundef nonnull %6) #12
   %.not27.i225 = icmp eq i32 %562, 0
   br i1 %.not27.i225, label %563, label %599
 
@@ -2388,8 +2388,8 @@ get_mix_any_func_s32.exit:                        ; preds = %548, %595, %599
   br label %.thread
 
 600:                                              ; preds = %36
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 552) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 552) #12
+  tail call void @abort() #13
   unreachable
 
 .thread:                                          ; preds = %get_mix_any_func_clip_s16.exit, %get_mix_any_func_s16.exit, %get_mix_any_func_float.exit, %get_mix_any_func_s32.exit, %get_mix_any_func_double.exit
@@ -2461,14 +2461,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @auto_matrix(ptr noundef in
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8, !tbaa !67
-  %10 = tail call i32 @av_get_packed_sample_fmt(i32 noundef %9) #11
+  %10 = tail call i32 @av_get_packed_sample_fmt(i32 noundef %9) #12
   %11 = icmp slt i32 %10, 3
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %14 = load i32, ptr %13, align 4, !tbaa !68
-  %15 = tail call i32 @av_get_packed_sample_fmt(i32 noundef %14) #11
+  %15 = tail call i32 @av_get_packed_sample_fmt(i32 noundef %14) #12
   %16 = icmp slt i32 %15, 3
   br i1 %16, label %18, label %17
 
@@ -2495,7 +2495,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @auto_matrix(ptr noundef in
   %33 = fpext nsz float %32 to double
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %35 = load i32, ptr %34, align 8, !tbaa !73
-  %36 = tail call i32 @swr_build_matrix2(ptr noundef nonnull %20, ptr noundef nonnull %21, double noundef %24, double noundef %27, double noundef %30, double noundef %.030, double noundef %33, ptr noundef nonnull %19, i64 noundef 64, i32 noundef %35, ptr noundef nonnull %0) #13
+  %36 = tail call i32 @swr_build_matrix2(ptr noundef nonnull %20, ptr noundef nonnull %21, double noundef %24, double noundef %27, double noundef %30, double noundef %.030, double noundef %33, ptr noundef nonnull %19, i64 noundef 64, i32 noundef %35, ptr noundef nonnull %0) #14
   %37 = icmp sgt i32 %36, -1
   br i1 %37, label %38, label %.loopexit
 
@@ -2539,10 +2539,10 @@ declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 declare noalias ptr @av_mallocz(i64 noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.lrint.i64.f32(float) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -2890,13 +2890,13 @@ declare void @abort() local_unnamed_addr #7
 ; Function Attrs: cold nounwind optsize uwtable
 define void @swri_rematrix_free(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 65384
-  tail call void @av_freep(ptr noundef nonnull %2) #11
+  tail call void @av_freep(ptr noundef nonnull %2) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 65392
-  tail call void @av_freep(ptr noundef nonnull %3) #11
+  tail call void @av_freep(ptr noundef nonnull %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 65408
-  tail call void @av_freep(ptr noundef nonnull %4) #11
+  tail call void @av_freep(ptr noundef nonnull %4) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 65400
-  tail call void @av_freep(ptr noundef nonnull %5) #11
+  tail call void @av_freep(ptr noundef nonnull %5) #12
   ret void
 }
 
@@ -2910,7 +2910,7 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 65384
   %10 = load ptr, ptr %9, align 8, !tbaa !52
-  tail call void %7(ptr noundef %1, ptr noundef %2, ptr noundef %10, i32 noundef %3) #11
+  tail call void %7(ptr noundef %1, ptr noundef %2, ptr noundef %10, i32 noundef %3) #12
   br label %.loopexit224
 
 11:                                               ; preds = %5
@@ -2950,8 +2950,8 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
   br i1 %32, label %34, label %33
 
 33:                                               ; preds = %27
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.11, i32 noundef 593) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.11, i32 noundef 593) #12
+  tail call void @abort() #13
   unreachable
 
 34:                                               ; preds = %23, %27
@@ -2969,8 +2969,8 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %38
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.11, i32 noundef 594) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.11, i32 noundef 594) #12
+  tail call void @abort() #13
   unreachable
 
 45:                                               ; preds = %38, %34
@@ -3019,7 +3019,7 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
   %69 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv276
   %70 = load ptr, ptr %69, align 8, !tbaa !96
   %71 = load i32, ptr %60, align 4, !tbaa !68
-  %72 = tail call i32 @av_get_bytes_per_sample(i32 noundef %71) #11
+  %72 = tail call i32 @av_get_bytes_per_sample(i32 noundef %71) #12
   %73 = mul nsw i32 %72, %3
   %74 = sext i32 %73 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %70, i8 0, i64 %74, i1 false)
@@ -3052,7 +3052,7 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
   %94 = trunc nuw nsw i64 %indvars.iv276 to i32
   %95 = mul nsw i32 %93, %94
   %96 = add nsw i32 %95, %78
-  tail call void %85(ptr noundef %89, ptr noundef %91, ptr noundef %92, i32 noundef %96, i32 noundef %.0200) #11
+  tail call void %85(ptr noundef %89, ptr noundef %91, ptr noundef %92, i32 noundef %96, i32 noundef %.0200) #12
   br label %97
 
 97:                                               ; preds = %87, %84
@@ -3071,7 +3071,7 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
   %108 = trunc nuw nsw i64 %indvars.iv276 to i32
   %109 = mul nsw i32 %107, %108
   %110 = add nsw i32 %109, %78
-  tail call void %99(ptr noundef %102, ptr noundef %105, ptr noundef %106, i32 noundef %110, i32 noundef %55) #11
+  tail call void %99(ptr noundef %102, ptr noundef %105, ptr noundef %106, i32 noundef %110, i32 noundef %55) #12
   br label %.loopexit
 
 111:                                              ; preds = %75
@@ -3122,7 +3122,7 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
   %145 = mul nsw i32 %143, %144
   %146 = add nsw i32 %145, %127
   %147 = add nsw i32 %145, %130
-  tail call void %131(ptr noundef %135, ptr noundef %138, ptr noundef %141, ptr noundef %142, i32 noundef %146, i32 noundef %147, i32 noundef %.0200) #11
+  tail call void %131(ptr noundef %135, ptr noundef %138, ptr noundef %141, ptr noundef %142, i32 noundef %146, i32 noundef %147, i32 noundef %.0200) #12
   br label %164
 
 148:                                              ; preds = %124
@@ -3141,7 +3141,7 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
   %161 = mul nsw i32 %159, %160
   %162 = add nsw i32 %161, %127
   %163 = add nsw i32 %161, %130
-  tail call void %149(ptr noundef %151, ptr noundef %154, ptr noundef %157, ptr noundef %158, i32 noundef %162, i32 noundef %163, i32 noundef %.0200) #11
+  tail call void %149(ptr noundef %151, ptr noundef %154, ptr noundef %157, ptr noundef %158, i32 noundef %162, i32 noundef %163, i32 noundef %.0200) #12
   br label %164
 
 164:                                              ; preds = %148, %133
@@ -3166,7 +3166,7 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
   %181 = mul nsw i32 %179, %180
   %182 = add nsw i32 %181, %127
   %183 = add nsw i32 %181, %130
-  tail call void %166(ptr noundef %169, ptr noundef %173, ptr noundef %177, ptr noundef %178, i32 noundef %182, i32 noundef %183, i32 noundef %55) #11
+  tail call void %166(ptr noundef %169, ptr noundef %173, ptr noundef %177, ptr noundef %178, i32 noundef %182, i32 noundef %183, i32 noundef %55) #12
   br label %.loopexit
 
 184:                                              ; preds = %64
@@ -3329,14 +3329,14 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
 
 declare i32 @av_get_bytes_per_sample(i32 noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #6
 
 declare i32 @av_channel_layout_index_from_channel(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 declare i32 @av_channel_layout_copy(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #6
 
 declare i32 @av_get_packed_sample_fmt(i32 noundef) local_unnamed_addr #4
@@ -4207,17 +4207,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #10
+declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -4225,14 +4225,15 @@ attributes #2 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no
 attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { cold }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

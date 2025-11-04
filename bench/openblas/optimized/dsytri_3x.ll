@@ -41,12 +41,12 @@ define void @dsytri_3x_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %26 = sext i32 %narrow689 to i64
   %27 = getelementptr inbounds double, ptr %6, i64 %26
   store i32 0, ptr %8, align 4, !tbaa !3
-  %28 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str) #5
+  %28 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str) #6
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %29, label %31
 
 29:                                               ; preds = %9
-  %30 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.1) #5
+  %30 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.1) #6
   %.not637 = icmp eq i32 %30, 0
   br i1 %.not637, label %.thread.sink.split, label %31
 
@@ -75,7 +75,7 @@ define void @dsytri_3x_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %38 = phi i32 [ %.pr, %37 ], [ %.sink, %.thread.sink.split ]
   %39 = sub nsw i32 0, %38
   store i32 %39, ptr %10, align 4, !tbaa !3
-  %40 = call i32 @xerbla_(ptr noundef nonnull @.str.2, ptr noundef nonnull %10, i32 noundef 9) #5
+  %40 = call i32 @xerbla_(ptr noundef nonnull @.str.2, ptr noundef nonnull %10, i32 noundef 9) #6
   br label %.loopexit
 
 41:                                               ; preds = %37
@@ -168,7 +168,7 @@ define void @dsytri_3x_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %78 = load i32, ptr %1, align 4, !tbaa !3
   %79 = load i32, ptr %7, align 4, !tbaa !3
   %80 = add nsw i32 %79, 2
-  %81 = tail call i32 @dtrtri_(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %8) #5
+  %81 = tail call i32 @dtrtri_(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %8) #6
   %82 = load i32, ptr %1, align 4, !tbaa !3
   br i1 %.not, label %369, label %83
 
@@ -650,7 +650,7 @@ thread-pre-split707:                              ; preds = %._crit_edge823, %.l
   %298 = mul i32 %297, %143
   %299 = sext i32 %298 to i64
   %300 = getelementptr inbounds double, ptr %19, i64 %299
-  call void @dtrmm_(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef nonnull %15, ptr noundef nonnull %15, ptr noundef nonnull @c_b10, ptr noundef %300, ptr noundef nonnull %3, ptr noundef %147, ptr noundef nonnull %10) #5
+  call void @dtrmm_(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef nonnull %15, ptr noundef nonnull %15, ptr noundef nonnull @c_b10, ptr noundef %300, ptr noundef nonnull %3, ptr noundef %147, ptr noundef nonnull %10) #6
   %301 = load i32, ptr %15, align 4, !tbaa !3
   %.not688806 = icmp slt i32 %301, 1
   %.pre = load i32, ptr %16, align 4, !tbaa !3
@@ -701,7 +701,7 @@ thread-pre-split707:                              ; preds = %._crit_edge823, %.l
   %319 = sext i32 %318 to i64
   %320 = getelementptr double, ptr %19, i64 %319
   %321 = getelementptr i8, ptr %320, i64 8
-  call void @dgemm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull %15, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull @c_b10, ptr noundef %321, ptr noundef nonnull %3, ptr noundef %6, ptr noundef nonnull %10, ptr noundef nonnull @c_b14, ptr noundef %147, ptr noundef nonnull %11) #5
+  call void @dgemm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull %15, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull @c_b10, ptr noundef %321, ptr noundef nonnull %3, ptr noundef %6, ptr noundef nonnull %10, ptr noundef nonnull @c_b14, ptr noundef %147, ptr noundef nonnull %11) #6
   %322 = load i32, ptr %15, align 4, !tbaa !3
   %.not691813 = icmp slt i32 %322, 1
   br i1 %.not691813, label %337, label %.lr.ph816
@@ -752,7 +752,7 @@ thread-pre-split707:                              ; preds = %._crit_edge823, %.l
   %340 = add i32 %338, 1
   %341 = add i32 %340, %339
   store i32 %341, ptr %10, align 4, !tbaa !3
-  call void @dtrmm_(ptr noundef nonnull @.str.1, ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef nonnull %16, ptr noundef nonnull %15, ptr noundef nonnull @c_b10, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %6, ptr noundef nonnull %10) #5
+  call void @dtrmm_(ptr noundef nonnull @.str.1, ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef nonnull %16, ptr noundef nonnull %15, ptr noundef nonnull @c_b10, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %6, ptr noundef nonnull %10) #6
   %342 = load i32, ptr %16, align 4, !tbaa !3
   store i32 %342, ptr %10, align 4, !tbaa !3
   %.not693824 = icmp slt i32 %342, 1
@@ -822,7 +822,7 @@ thread-pre-split707:                              ; preds = %._crit_edge823, %.l
   br i1 %358, label %359, label %360
 
 359:                                              ; preds = %357
-  call void @dsyswapr_(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %13, ptr noundef nonnull %14) #5
+  call void @dsyswapr_(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %13, ptr noundef nonnull %14) #6
   %.pre1169 = load i32, ptr %13, align 4, !tbaa !3
   %.pre1170 = load i32, ptr %14, align 4, !tbaa !3
   br label %360
@@ -834,7 +834,7 @@ thread-pre-split707:                              ; preds = %._crit_edge823, %.l
   br i1 %363, label %364, label %365
 
 364:                                              ; preds = %360
-  call void @dsyswapr_(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %14, ptr noundef nonnull %13) #5
+  call void @dsyswapr_(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %14, ptr noundef nonnull %13) #6
   %.pre1171 = load i32, ptr %13, align 4, !tbaa !3
   br label %365
 
@@ -1317,7 +1317,7 @@ thread-pre-split707:                              ; preds = %._crit_edge823, %.l
   %586 = mul i32 %585, %378
   %587 = sext i32 %586 to i64
   %588 = getelementptr inbounds double, ptr %19, i64 %587
-  call void @dtrmm_(ptr noundef nonnull @.str.1, ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef nonnull %15, ptr noundef nonnull %15, ptr noundef nonnull @c_b10, ptr noundef %588, ptr noundef nonnull %3, ptr noundef %382, ptr noundef nonnull %10) #5
+  call void @dtrmm_(ptr noundef nonnull @.str.1, ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef nonnull %15, ptr noundef nonnull %15, ptr noundef nonnull @c_b10, ptr noundef %588, ptr noundef nonnull %3, ptr noundef %382, ptr noundef nonnull %10) #6
   %589 = load i32, ptr %15, align 4, !tbaa !3
   %.not654910 = icmp slt i32 %589, 1
   %.pre1172 = load i32, ptr %16, align 4, !tbaa !3
@@ -1392,7 +1392,7 @@ thread-pre-split707:                              ; preds = %._crit_edge823, %.l
   %619 = add nsw i32 %616, %618
   %620 = sext i32 %619 to i64
   %621 = getelementptr inbounds double, ptr %19, i64 %620
-  call void @dgemm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull %15, ptr noundef nonnull %15, ptr noundef nonnull %10, ptr noundef nonnull @c_b10, ptr noundef %621, ptr noundef nonnull %3, ptr noundef %6, ptr noundef nonnull %11, ptr noundef nonnull @c_b14, ptr noundef %382, ptr noundef nonnull %12) #5
+  call void @dgemm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull %15, ptr noundef nonnull %15, ptr noundef nonnull %10, ptr noundef nonnull @c_b10, ptr noundef %621, ptr noundef nonnull %3, ptr noundef %6, ptr noundef nonnull %11, ptr noundef nonnull @c_b14, ptr noundef %382, ptr noundef nonnull %12) #6
   %622 = load i32, ptr %15, align 4, !tbaa !3
   %.not659923 = icmp slt i32 %622, 1
   %.pre1173 = load i32, ptr %16, align 4, !tbaa !3
@@ -1448,7 +1448,7 @@ thread-pre-split707:                              ; preds = %._crit_edge823, %.l
   %643 = mul i32 %642, %378
   %644 = sext i32 %643 to i64
   %645 = getelementptr inbounds double, ptr %19, i64 %644
-  call void @dtrmm_(ptr noundef nonnull @.str.1, ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef nonnull %10, ptr noundef nonnull %15, ptr noundef nonnull @c_b10, ptr noundef %645, ptr noundef nonnull %3, ptr noundef %6, ptr noundef nonnull %11) #5
+  call void @dtrmm_(ptr noundef nonnull @.str.1, ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef nonnull %10, ptr noundef nonnull %15, ptr noundef nonnull @c_b10, ptr noundef %645, ptr noundef nonnull %3, ptr noundef %6, ptr noundef nonnull %11) #6
   %646 = load i32, ptr %1, align 4, !tbaa !3
   %647 = load i32, ptr %16, align 4, !tbaa !3
   %648 = load i32, ptr %15, align 4, !tbaa !3
@@ -1571,7 +1571,7 @@ thread-pre-split707:                              ; preds = %._crit_edge823, %.l
   br i1 %682, label %683, label %684
 
 683:                                              ; preds = %681
-  call void @dsyswapr_(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %13, ptr noundef nonnull %14) #5
+  call void @dsyswapr_(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %13, ptr noundef nonnull %14) #6
   %.pre1174 = load i32, ptr %13, align 4, !tbaa !3
   %.pre1175 = load i32, ptr %14, align 4, !tbaa !3
   br label %684
@@ -1583,7 +1583,7 @@ thread-pre-split707:                              ; preds = %._crit_edge823, %.l
   br i1 %687, label %688, label %689
 
 688:                                              ; preds = %684
-  call void @dsyswapr_(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %14, ptr noundef nonnull %13) #5
+  call void @dsyswapr_(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %14, ptr noundef nonnull %13) #6
   %.pre1176 = load i32, ptr %13, align 4, !tbaa !3
   br label %689
 
@@ -1611,7 +1611,7 @@ declare i32 @xerbla_(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 
 declare i32 @dtrtri_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 declare void @dtrmm_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1629,15 +1629,16 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #4
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

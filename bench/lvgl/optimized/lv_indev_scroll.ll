@@ -36,16 +36,16 @@ define void @lv_indev_scroll_handler(ptr noundef %0) local_unnamed_addr #0 {
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %15, align 8, !tbaa !23
-  %23 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %22, i32 noundef 128) #5
+  %23 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %22, i32 noundef 128) #6
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  tail call void @lv_area_set(ptr noundef nonnull %25, i32 noundef -536870911, i32 noundef -536870911, i32 noundef 536870911, i32 noundef 536870911) #5
+  tail call void @lv_area_set(ptr noundef nonnull %25, i32 noundef -536870911, i32 noundef -536870911, i32 noundef 536870911, i32 noundef 536870911) #6
   br label %92
 
 26:                                               ; preds = %21
-  %27 = tail call i32 @lv_obj_get_scroll_snap_y(ptr noundef %22) #5
+  %27 = tail call i32 @lv_obj_get_scroll_snap_y(ptr noundef %22) #6
   switch i32 %27, label %56 [
     i32 1, label %28
     i32 2, label %37
@@ -78,7 +78,7 @@ define void @lv_indev_scroll_handler(ptr noundef %0) local_unnamed_addr #0 {
   %45 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %46 = getelementptr inbounds nuw i8, ptr %22, i64 44
   %47 = load i32, ptr %46, align 4, !tbaa !24
-  %48 = tail call i32 @lv_area_get_height(ptr noundef nonnull %45) #5
+  %48 = tail call i32 @lv_area_get_height(ptr noundef nonnull %45) #6
   %49 = sdiv i32 %48, 2
   %50 = add nsw i32 %49, %47
   %51 = add nsw i32 %50, 1
@@ -98,7 +98,7 @@ define void @lv_indev_scroll_handler(ptr noundef %0) local_unnamed_addr #0 {
   %.sink.i = phi i32 [ 536870911, %56 ], [ %55, %44 ], [ %43, %37 ], [ %36, %28 ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 196
   store i32 %.sink.i, ptr %59, align 4, !tbaa !31
-  %60 = tail call i32 @lv_obj_get_scroll_snap_x(ptr noundef %22) #5
+  %60 = tail call i32 @lv_obj_get_scroll_snap_x(ptr noundef %22) #6
   switch i32 %60, label %89 [
     i32 1, label %61
     i32 2, label %69
@@ -132,7 +132,7 @@ define void @lv_indev_scroll_handler(ptr noundef %0) local_unnamed_addr #0 {
 77:                                               ; preds = %58
   %78 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %79 = load i32, ptr %78, align 8, !tbaa !32
-  %80 = tail call i32 @lv_area_get_width(ptr noundef nonnull %78) #5
+  %80 = tail call i32 @lv_area_get_width(ptr noundef nonnull %78) #6
   %81 = sdiv i32 %80, 2
   %82 = add nsw i32 %81, %79
   %83 = add nsw i32 %82, 1
@@ -213,8 +213,8 @@ define void @lv_indev_scroll_handler(ptr noundef %0) local_unnamed_addr #0 {
 init_scroll_limits.exit:                          ; preds = %115, %119
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %121 = load ptr, ptr %120, align 8, !tbaa !36
-  tail call void @lv_obj_remove_state(ptr noundef %121, i16 noundef zeroext 32) #5
-  %122 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %19, i32 noundef 12, ptr noundef null) #5
+  tail call void @lv_obj_remove_state(ptr noundef %121, i16 noundef zeroext 32) #6
+  %122 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %19, i32 noundef 12, ptr noundef null) #6
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %124 = load i8, ptr %123, align 4
   %125 = and i8 %124, 2
@@ -230,15 +230,15 @@ init_scroll_limits.exit:                          ; preds = %115, %119
   %.070114 = phi i32 [ 256, %126 ], [ %140, %127 ]
   %.071113 = phi i32 [ 256, %126 ], [ %143, %127 ]
   %.072112 = phi ptr [ %.0, %126 ], [ %144, %127 ]
-  %128 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %.072112, i32 noundef 0, i8 noundef zeroext 110) #5
+  %128 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %.072112, i32 noundef 0, i8 noundef zeroext 110) #6
   %129 = ptrtoint ptr %128 to i64
   %130 = trunc i64 %129 to i16
   %131 = add i16 %.069115, %130
-  %132 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %.072112, i32 noundef 0, i8 noundef zeroext 108) #5
+  %132 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %.072112, i32 noundef 0, i8 noundef zeroext 108) #6
   %133 = ptrtoint ptr %132 to i64
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %133 to i32
   %134 = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %.sroa.0.0.extract.trunc.i.i, i32 1)
-  %135 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %.072112, i32 noundef 0, i8 noundef zeroext 109) #5
+  %135 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %.072112, i32 noundef 0, i8 noundef zeroext 109) #6
   %136 = ptrtoint ptr %135 to i64
   %.sroa.0.0.extract.trunc.i.i78 = trunc i64 %136 to i32
   %137 = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %.sroa.0.0.extract.trunc.i.i78, i32 1)
@@ -250,7 +250,7 @@ init_scroll_limits.exit:                          ; preds = %115, %119
   %141 = ashr exact i32 %sext117, 16
   %142 = mul nsw i32 %137, %141
   %143 = lshr i32 %142, 8
-  %144 = tail call ptr @lv_obj_get_parent(ptr noundef nonnull %.072112) #5
+  %144 = tail call ptr @lv_obj_get_parent(ptr noundef nonnull %.072112) #6
   %.not75 = icmp eq ptr %144, null
   br i1 %.not75, label %145, label %127, !llvm.loop !37
 
@@ -279,7 +279,7 @@ init_scroll_limits.exit:                          ; preds = %115, %119
   %158 = ashr exact i32 %sext, 16
   %sext76 = shl i32 %156, 16
   %159 = ashr exact i32 %sext76, 16
-  call void @lv_point_transform(ptr noundef nonnull %7, i32 noundef %157, i32 noundef %158, i32 noundef %159, ptr noundef nonnull %6, i1 noundef zeroext false) #5
+  call void @lv_point_transform(ptr noundef nonnull %7, i32 noundef %157, i32 noundef %158, i32 noundef %159, ptr noundef nonnull %6, i1 noundef zeroext false) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %160
 
@@ -291,14 +291,14 @@ init_scroll_limits.exit:                          ; preds = %115, %119
   br i1 %164, label %165, label %200
 
 165:                                              ; preds = %160
-  %166 = call i32 @lv_obj_get_scroll_right(ptr noundef nonnull %.0) #5
-  %167 = call i32 @lv_obj_get_scroll_left(ptr noundef nonnull %.0) #5
+  %166 = call i32 @lv_obj_get_scroll_right(ptr noundef nonnull %.0) #6
+  %167 = call i32 @lv_obj_get_scroll_left(ptr noundef nonnull %.0) #6
   %168 = load i32, ptr %7, align 8, !tbaa !3
   %169 = icmp eq i32 %168, 0
   br i1 %169, label %elastic_diff.exit, label %170
 
 170:                                              ; preds = %165
-  %171 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0, i32 noundef 32) #5
+  %171 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0, i32 noundef 32) #6
   br i1 %171, label %177, label %172
 
 172:                                              ; preds = %170
@@ -312,7 +312,7 @@ init_scroll_limits.exit:                          ; preds = %115, %119
   br label %elastic_diff.exit
 
 177:                                              ; preds = %170
-  %178 = call i32 @lv_obj_get_scroll_snap_x(ptr noundef nonnull %.0) #5
+  %178 = call i32 @lv_obj_get_scroll_snap_x(ptr noundef nonnull %.0) #6
   %179 = icmp eq i32 %178, 0
   br i1 %179, label %180, label %188
 
@@ -359,15 +359,15 @@ init_scroll_limits.exit:                          ; preds = %115, %119
   br label %elastic_diff.exit
 
 200:                                              ; preds = %160
-  %201 = call i32 @lv_obj_get_scroll_top(ptr noundef nonnull %.0) #5
-  %202 = call i32 @lv_obj_get_scroll_bottom(ptr noundef nonnull %.0) #5
+  %201 = call i32 @lv_obj_get_scroll_top(ptr noundef nonnull %.0) #6
+  %202 = call i32 @lv_obj_get_scroll_bottom(ptr noundef nonnull %.0) #6
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %204 = load i32, ptr %203, align 4, !tbaa !22
   %205 = icmp eq i32 %204, 0
   br i1 %205, label %elastic_diff.exit, label %206
 
 206:                                              ; preds = %200
-  %207 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0, i32 noundef 32) #5
+  %207 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0, i32 noundef 32) #6
   br i1 %207, label %213, label %208
 
 208:                                              ; preds = %206
@@ -381,7 +381,7 @@ init_scroll_limits.exit:                          ; preds = %115, %119
   br label %elastic_diff.exit
 
 213:                                              ; preds = %206
-  %214 = call i32 @lv_obj_get_scroll_snap_y(ptr noundef nonnull %.0) #5
+  %214 = call i32 @lv_obj_get_scroll_snap_y(ptr noundef nonnull %.0) #6
   %215 = icmp eq i32 %214, 0
   br i1 %215, label %216, label %224
 
@@ -430,7 +430,7 @@ init_scroll_limits.exit:                          ; preds = %115, %119
 elastic_diff.exit:                                ; preds = %235, %218, %216, %212, %208, %200, %199, %182, %180, %176, %172, %165
   %.099 = phi i32 [ 0, %165 ], [ 0, %172 ], [ %spec.select.i, %176 ], [ %187, %182 ], [ %.2.i, %199 ], [ %168, %180 ], [ 0, %200 ], [ 0, %208 ], [ 0, %212 ], [ 0, %216 ], [ 0, %218 ], [ 0, %235 ]
   %.098 = phi i32 [ 0, %165 ], [ 0, %172 ], [ 0, %176 ], [ 0, %182 ], [ 0, %199 ], [ 0, %180 ], [ 0, %200 ], [ 0, %208 ], [ %spec.select.i79, %212 ], [ %204, %216 ], [ %223, %218 ], [ %.2.i84, %235 ]
-  %236 = call i32 @lv_obj_get_scroll_dir(ptr noundef nonnull %.0) #5
+  %236 = call i32 @lv_obj_get_scroll_dir(ptr noundef nonnull %.0) #6
   %237 = and i32 %236, 1
   %238 = icmp eq i32 %237, 0
   %239 = icmp sgt i32 %.099, 0
@@ -489,7 +489,7 @@ elastic_diff.exit:                                ; preds = %235, %218, %216, %2
   %271 = icmp sgt i32 %.pre-phi.i, %270
   %272 = sub nsw i32 %270, %263
   %.4103 = select i1 %271, i32 %272, i32 %.3102
-  %273 = call i32 @lv_obj_scroll_by_raw(ptr noundef nonnull %.0, i32 noundef %.4103, i32 noundef %.4) #5
+  %273 = call i32 @lv_obj_scroll_by_raw(ptr noundef nonnull %.0, i32 noundef %.4103, i32 noundef %.4) #6
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %275 = load i8, ptr %274, align 4
   %276 = and i8 %275, 2
@@ -557,15 +557,15 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   %.0139180 = phi i32 [ 256, %25 ], [ %40, %26 ]
   %.0140179 = phi i32 [ 256, %25 ], [ %38, %26 ]
   %.0141178 = phi i16 [ 0, %25 ], [ %30, %26 ]
-  %27 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %.0138181, i32 noundef 0, i8 noundef zeroext 110) #5
+  %27 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %.0138181, i32 noundef 0, i8 noundef zeroext 110) #6
   %28 = ptrtoint ptr %27 to i64
   %29 = trunc i64 %28 to i16
   %30 = add i16 %.0141178, %29
-  %31 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %.0138181, i32 noundef 0, i8 noundef zeroext 108) #5
+  %31 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %.0138181, i32 noundef 0, i8 noundef zeroext 108) #6
   %32 = ptrtoint ptr %31 to i64
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %32 to i32
   %33 = call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %.sroa.0.0.extract.trunc.i.i, i32 1)
-  %34 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %.0138181, i32 noundef 0, i8 noundef zeroext 109) #5
+  %34 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %.0138181, i32 noundef 0, i8 noundef zeroext 109) #6
   %35 = ptrtoint ptr %34 to i64
   %.sroa.0.0.extract.trunc.i.i161 = trunc i64 %35 to i32
   %36 = call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %.sroa.0.0.extract.trunc.i.i161, i32 1)
@@ -573,7 +573,7 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   %38 = lshr i32 %37, 8
   %39 = mul nuw nsw i32 %36, %.0139180
   %40 = lshr i32 %39, 8
-  %41 = call ptr @lv_obj_get_parent(ptr noundef nonnull %.0138181) #5
+  %41 = call ptr @lv_obj_get_parent(ptr noundef nonnull %.0138181) #6
   %.not142 = icmp eq ptr %41, null
   br i1 %.not142, label %42, label %26, !llvm.loop !45
 
@@ -598,7 +598,7 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   %52 = udiv i32 65536, %spec.store.select
   %53 = udiv i32 65536, %spec.store.select16
   %54 = sext i16 %51 to i32
-  call void @lv_point_transform(ptr noundef nonnull %3, i32 noundef %54, i32 noundef %52, i32 noundef %53, ptr noundef nonnull %2, i1 noundef zeroext false) #5
+  call void @lv_point_transform(ptr noundef nonnull %3, i32 noundef %54, i32 noundef %52, i32 noundef %53, ptr noundef nonnull %2, i1 noundef zeroext false) #6
   %.pre = load i32, ptr %3, align 8, !tbaa !46
   %.pre198 = load i32, ptr %23, align 4, !tbaa !47
   br label %55
@@ -611,18 +611,18 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   %60 = icmp samesign ugt i32 %58, %59
   %.0136. = select i1 %60, i8 %.0136183, i8 1
   %..0134 = select i1 %60, i8 1, i8 %.0134184
-  %61 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0121185, i32 noundef 16) #5
+  %61 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0121185, i32 noundef 16) #6
   br i1 %61, label %70, label %62
 
 62:                                               ; preds = %55
-  %63 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0121185, i32 noundef 256) #5
+  %63 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0121185, i32 noundef 256) #6
   %64 = xor i1 %63, true
   %65 = trunc nuw i8 %..0134 to i1
   %or.cond5 = select i1 %64, i1 %65, i1 false
   br i1 %or.cond5, label %.thread, label %66
 
 66:                                               ; preds = %62
-  %67 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0121185, i32 noundef 512) #5
+  %67 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0121185, i32 noundef 512) #6
   %68 = xor i1 %67, true
   %69 = trunc nuw i8 %.0136. to i1
   %or.cond7 = select i1 %68, i1 %69, i1 false
@@ -631,7 +631,7 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
 70:                                               ; preds = %55
   %71 = trunc nuw i8 %.0136. to i1
   %72 = trunc nuw i8 %..0134 to i1
-  %73 = call i32 @lv_obj_get_scroll_dir(ptr noundef nonnull %.0121185) #5
+  %73 = call i32 @lv_obj_get_scroll_dir(ptr noundef nonnull %.0121185) #6
   %74 = and i32 %73, 1
   %75 = icmp ne i32 %74, 0
   %76 = and i32 %73, 2
@@ -643,13 +643,13 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   %80 = and i32 %73, 8
   %81 = icmp eq i32 %80, 0
   %.0128 = select i1 %81, i8 0, i8 %.0136.
-  %82 = call i32 @lv_obj_get_scroll_snap_x(ptr noundef nonnull %.0121185) #5
+  %82 = call i32 @lv_obj_get_scroll_snap_x(ptr noundef nonnull %.0121185) #6
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %89
 
 84:                                               ; preds = %70
-  %85 = call i32 @lv_obj_get_scroll_left(ptr noundef nonnull %.0121185) #5
-  %86 = call i32 @lv_obj_get_scroll_right(ptr noundef nonnull %.0121185) #5
+  %85 = call i32 @lv_obj_get_scroll_left(ptr noundef nonnull %.0121185) #6
+  %86 = call i32 @lv_obj_get_scroll_right(ptr noundef nonnull %.0121185) #6
   %87 = icmp sgt i32 %85, 0
   %88 = icmp sgt i32 %86, 0
   br label %94
@@ -669,13 +669,13 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
 94:                                               ; preds = %89, %84
   %.0120 = phi i1 [ %87, %84 ], [ %91, %89 ]
   %.0119 = phi i1 [ %88, %84 ], [ %93, %89 ]
-  %95 = call i32 @lv_obj_get_scroll_snap_y(ptr noundef nonnull %.0121185) #5
+  %95 = call i32 @lv_obj_get_scroll_snap_y(ptr noundef nonnull %.0121185) #6
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %102
 
 97:                                               ; preds = %94
-  %98 = call i32 @lv_obj_get_scroll_top(ptr noundef nonnull %.0121185) #5
-  %99 = call i32 @lv_obj_get_scroll_bottom(ptr noundef nonnull %.0121185) #5
+  %98 = call i32 @lv_obj_get_scroll_top(ptr noundef nonnull %.0121185) #6
+  %99 = call i32 @lv_obj_get_scroll_bottom(ptr noundef nonnull %.0121185) #6
   %100 = icmp sgt i32 %98, 0
   %101 = icmp sgt i32 %99, 0
   br label %107
@@ -771,13 +771,13 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   br label %.thread
 
 134:                                              ; preds = %125
-  %135 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0121185, i32 noundef 256) #5
+  %135 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0121185, i32 noundef 256) #6
   %136 = xor i1 %135, true
   %or.cond13 = select i1 %136, i1 %72, i1 false
   br i1 %or.cond13, label %.thread, label %137
 
 137:                                              ; preds = %134
-  %138 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0121185, i32 noundef 512) #5
+  %138 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0121185, i32 noundef 512) #6
   %139 = xor i1 %138, true
   %or.cond15 = select i1 %139, i1 %71, i1 false
   br i1 %or.cond15, label %.thread, label %140
@@ -792,7 +792,7 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
 140:                                              ; preds = %137, %66
   %.2116 = phi i16 [ %.0114186, %66 ], [ %.4118, %137 ]
   %.2 = phi ptr [ %.0187, %66 ], [ %.4, %137 ]
-  %141 = call ptr @lv_obj_get_parent(ptr noundef nonnull %.0121185) #5
+  %141 = call ptr @lv_obj_get_parent(ptr noundef nonnull %.0121185) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq ptr %141, null
@@ -863,7 +863,7 @@ define void @lv_indev_scroll_throw_handler(ptr noundef %0) local_unnamed_addr #0
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %16 = load i8, ptr %15, align 1, !tbaa !49
   %17 = zext i8 %16 to i32
-  %18 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %7, i32 noundef 64) #5
+  %18 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %7, i32 noundef 64) #6
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %14
@@ -874,8 +874,8 @@ define void @lv_indev_scroll_throw_handler(ptr noundef %0) local_unnamed_addr #0
   br label %22
 
 22:                                               ; preds = %19, %14
-  %23 = tail call i32 @lv_obj_get_scroll_snap_x(ptr noundef nonnull %7) #5
-  %24 = tail call i32 @lv_obj_get_scroll_snap_y(ptr noundef nonnull %7) #5
+  %23 = tail call i32 @lv_obj_get_scroll_snap_x(ptr noundef nonnull %7) #6
+  %24 = tail call i32 @lv_obj_get_scroll_snap_y(ptr noundef nonnull %7) #6
   %25 = load i16, ptr %10, align 4
   %26 = and i16 %25, 15
   switch i16 %26, label %172 [
@@ -896,14 +896,14 @@ define void @lv_indev_scroll_throw_handler(ptr noundef %0) local_unnamed_addr #0
   %34 = mul nsw i32 %32, %33
   %35 = sdiv i32 %34, 100
   store i32 %35, ptr %31, align 4, !tbaa !50
-  %36 = tail call i32 @lv_obj_get_scroll_bottom(ptr noundef nonnull %7) #5
-  %37 = tail call i32 @lv_obj_get_scroll_top(ptr noundef nonnull %7) #5
+  %36 = tail call i32 @lv_obj_get_scroll_bottom(ptr noundef nonnull %7) #6
+  %37 = tail call i32 @lv_obj_get_scroll_top(ptr noundef nonnull %7) #6
   %38 = load i32, ptr %31, align 4, !tbaa !50
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %elastic_diff.exit, label %40
 
 40:                                               ; preds = %30
-  %41 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %7, i32 noundef 32) #5
+  %41 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %7, i32 noundef 32) #6
   br i1 %41, label %47, label %42
 
 42:                                               ; preds = %40
@@ -917,7 +917,7 @@ define void @lv_indev_scroll_throw_handler(ptr noundef %0) local_unnamed_addr #0
   br label %elastic_diff.exit
 
 47:                                               ; preds = %40
-  %48 = tail call i32 @lv_obj_get_scroll_snap_y(ptr noundef nonnull %7) #5
+  %48 = tail call i32 @lv_obj_get_scroll_snap_y(ptr noundef nonnull %7) #6
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %58
 
@@ -966,7 +966,7 @@ define void @lv_indev_scroll_throw_handler(ptr noundef %0) local_unnamed_addr #0
 elastic_diff.exit:                                ; preds = %30, %42, %46, %50, %52, %69
   %.0.i = phi i32 [ 0, %30 ], [ 0, %42 ], [ %spec.select.i, %46 ], [ %57, %52 ], [ %.2.i, %69 ], [ %38, %50 ]
   store i32 %.0.i, ptr %31, align 4, !tbaa !50
-  %70 = tail call i32 @lv_obj_scroll_by_raw(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %.0.i) #5
+  %70 = tail call i32 @lv_obj_scroll_by_raw(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %.0.i) #6
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %72 = load i8, ptr %71, align 4
   %73 = and i8 %72, 2
@@ -1015,7 +1015,7 @@ lv_indev_scroll_throw_predict.exit:               ; preds = %79, %74
   %.1144 = select i1 %93, i32 %94, i32 %spec.select
   %95 = tail call fastcc i32 @find_snap_point_y(ptr noundef nonnull %7, i32 noundef -536870911, i32 noundef 536870911, i32 noundef %.1144)
   %96 = add nsw i32 %.1144, %95
-  tail call void @lv_obj_scroll_by(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %96, i1 noundef zeroext true) #5
+  tail call void @lv_obj_scroll_by(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %96, i1 noundef zeroext true) #6
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %98 = load i8, ptr %97, align 4
   %99 = and i8 %98, 2
@@ -1035,14 +1035,14 @@ lv_indev_scroll_throw_predict.exit:               ; preds = %79, %74
   %107 = mul nsw i32 %105, %106
   %108 = sdiv i32 %107, 100
   store i32 %108, ptr %101, align 8, !tbaa !51
-  %109 = tail call i32 @lv_obj_get_scroll_left(ptr noundef nonnull %7) #5
-  %110 = tail call i32 @lv_obj_get_scroll_right(ptr noundef nonnull %7) #5
+  %109 = tail call i32 @lv_obj_get_scroll_left(ptr noundef nonnull %7) #6
+  %110 = tail call i32 @lv_obj_get_scroll_right(ptr noundef nonnull %7) #6
   %111 = load i32, ptr %101, align 8, !tbaa !51
   %112 = icmp eq i32 %111, 0
   br i1 %112, label %elastic_diff.exit127, label %113
 
 113:                                              ; preds = %104
-  %114 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %7, i32 noundef 32) #5
+  %114 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %7, i32 noundef 32) #6
   br i1 %114, label %120, label %115
 
 115:                                              ; preds = %113
@@ -1056,7 +1056,7 @@ lv_indev_scroll_throw_predict.exit:               ; preds = %79, %74
   br label %elastic_diff.exit127
 
 120:                                              ; preds = %113
-  %121 = tail call i32 @lv_obj_get_scroll_snap_x(ptr noundef nonnull %7) #5
+  %121 = tail call i32 @lv_obj_get_scroll_snap_x(ptr noundef nonnull %7) #6
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %123, label %131
 
@@ -1105,7 +1105,7 @@ lv_indev_scroll_throw_predict.exit:               ; preds = %79, %74
 elastic_diff.exit127:                             ; preds = %104, %115, %119, %123, %125, %142
   %.0.i119 = phi i32 [ 0, %104 ], [ 0, %115 ], [ %spec.select.i118, %119 ], [ %130, %125 ], [ %.2.i123, %142 ], [ %111, %123 ]
   store i32 %.0.i119, ptr %101, align 8, !tbaa !51
-  %143 = tail call i32 @lv_obj_scroll_by_raw(ptr noundef nonnull %7, i32 noundef %.0.i119, i32 noundef 0) #5
+  %143 = tail call i32 @lv_obj_scroll_by_raw(ptr noundef nonnull %7, i32 noundef %.0.i119, i32 noundef 0) #6
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %145 = load i8, ptr %144, align 4
   %146 = and i8 %145, 2
@@ -1153,7 +1153,7 @@ lv_indev_scroll_throw_predict.exit136:            ; preds = %152, %147
   %.1 = select i1 %165, i32 %166, i32 %spec.select146
   %167 = tail call fastcc i32 @find_snap_point_x(ptr noundef nonnull %7, i32 noundef -536870911, i32 noundef 536870911, i32 noundef %.1)
   %168 = add nsw i32 %.1, %167
-  tail call void @lv_obj_scroll_by(ptr noundef nonnull %7, i32 noundef %168, i32 noundef 0, i1 noundef zeroext true) #5
+  tail call void @lv_obj_scroll_by(ptr noundef nonnull %7, i32 noundef %168, i32 noundef 0, i1 noundef zeroext true) #6
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %170 = load i8, ptr %169, align 4
   %171 = and i8 %170, 2
@@ -1177,8 +1177,8 @@ lv_indev_scroll_throw_predict.exit136:            ; preds = %152, %147
   br i1 %181, label %182, label %.critedge
 
 182:                                              ; preds = %180
-  %183 = tail call i32 @lv_obj_get_scroll_top(ptr noundef nonnull %7) #5
-  %184 = tail call i32 @lv_obj_get_scroll_bottom(ptr noundef nonnull %7) #5
+  %183 = tail call i32 @lv_obj_get_scroll_top(ptr noundef nonnull %7) #6
+  %184 = tail call i32 @lv_obj_get_scroll_bottom(ptr noundef nonnull %7) #6
   %185 = icmp sgt i32 %183, 0
   %186 = icmp sgt i32 %184, 0
   %or.cond = select i1 %185, i1 true, i1 %186
@@ -1189,7 +1189,7 @@ lv_indev_scroll_throw_predict.exit136:            ; preds = %152, %147
   br i1 %188, label %189, label %193
 
 189:                                              ; preds = %187
-  tail call void @lv_obj_scroll_by(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %183, i1 noundef zeroext true) #5
+  tail call void @lv_obj_scroll_by(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %183, i1 noundef zeroext true) #6
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %191 = load i8, ptr %190, align 4
   %192 = and i8 %191, 2
@@ -1202,7 +1202,7 @@ lv_indev_scroll_throw_predict.exit136:            ; preds = %152, %147
 
 195:                                              ; preds = %193
   %196 = sub nsw i32 0, %184
-  tail call void @lv_obj_scroll_by(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %196, i1 noundef zeroext true) #5
+  tail call void @lv_obj_scroll_by(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %196, i1 noundef zeroext true) #6
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %198 = load i8, ptr %197, align 4
   %199 = and i8 %198, 2
@@ -1214,8 +1214,8 @@ lv_indev_scroll_throw_predict.exit136:            ; preds = %152, %147
   br i1 %200, label %201, label %.critedge116
 
 201:                                              ; preds = %.critedge
-  %202 = tail call i32 @lv_obj_get_scroll_left(ptr noundef nonnull %7) #5
-  %203 = tail call i32 @lv_obj_get_scroll_right(ptr noundef nonnull %7) #5
+  %202 = tail call i32 @lv_obj_get_scroll_left(ptr noundef nonnull %7) #6
+  %203 = tail call i32 @lv_obj_get_scroll_right(ptr noundef nonnull %7) #6
   %204 = icmp sgt i32 %202, 0
   %205 = icmp sgt i32 %203, 0
   %or.cond8 = select i1 %204, i1 true, i1 %205
@@ -1226,7 +1226,7 @@ lv_indev_scroll_throw_predict.exit136:            ; preds = %152, %147
   br i1 %207, label %208, label %212
 
 208:                                              ; preds = %206
-  tail call void @lv_obj_scroll_by(ptr noundef nonnull %7, i32 noundef %202, i32 noundef 0, i1 noundef zeroext true) #5
+  tail call void @lv_obj_scroll_by(ptr noundef nonnull %7, i32 noundef %202, i32 noundef 0, i1 noundef zeroext true) #6
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %210 = load i8, ptr %209, align 4
   %211 = and i8 %210, 2
@@ -1239,7 +1239,7 @@ lv_indev_scroll_throw_predict.exit136:            ; preds = %152, %147
 
 214:                                              ; preds = %212
   %215 = sub nsw i32 0, %203
-  tail call void @lv_obj_scroll_by(ptr noundef nonnull %7, i32 noundef %215, i32 noundef 0, i1 noundef zeroext true) #5
+  tail call void @lv_obj_scroll_by(ptr noundef nonnull %7, i32 noundef %215, i32 noundef 0, i1 noundef zeroext true) #6
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %217 = load i8, ptr %216, align 4
   %218 = and i8 %217, 2
@@ -1247,7 +1247,7 @@ lv_indev_scroll_throw_predict.exit136:            ; preds = %152, %147
   br i1 %.not112, label %.critedge116, label %226
 
 .critedge116:                                     ; preds = %201, %212, %214, %208, %.critedge
-  %219 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %7, i32 noundef 14, ptr noundef nonnull %0) #5
+  %219 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %7, i32 noundef 14, ptr noundef nonnull %0) #6
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %221 = load i8, ptr %220, align 4
   %222 = and i8 %221, 2
@@ -1316,18 +1316,18 @@ define i32 @lv_indev_scroll_throw_predict(ptr noundef readonly captures(address_
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_y(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = tail call i32 @lv_obj_get_scroll_snap_y(ptr noundef %0) #5
+  %5 = tail call i32 @lv_obj_get_scroll_snap_y(ptr noundef %0) #6
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %60, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 16) #5
+  %8 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 16) #6
   %9 = ptrtoint ptr %8 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %9 to i32
-  %10 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 17) #5
+  %10 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 17) #6
   %11 = ptrtoint ptr %10 to i64
   %.sroa.0.0.extract.trunc.i52 = trunc i64 %11 to i32
-  %12 = tail call i32 @lv_obj_get_child_count(ptr noundef %0) #5
+  %12 = tail call i32 @lv_obj_get_child_count(ptr noundef %0) #6
   %.not55 = icmp eq i32 %12, 0
   br i1 %.not55, label %._crit_edge.thread, label %.lr.ph
 
@@ -1347,11 +1347,11 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
   %20 = load ptr, ptr %19, align 8, !tbaa !55
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !58
-  %23 = tail call zeroext i1 @lv_obj_has_flag_any(ptr noundef %22, i32 noundef 262145) #5
+  %23 = tail call zeroext i1 @lv_obj_has_flag_any(ptr noundef %22, i32 noundef 262145) #6
   br i1 %23, label %57, label %24
 
 24:                                               ; preds = %18
-  %25 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %22, i32 noundef 4096) #5
+  %25 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %22, i32 noundef 4096) #6
   br i1 %25, label %26, label %57
 
 26:                                               ; preds = %24
@@ -1379,12 +1379,12 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 44
   %40 = load i32, ptr %39, align 4, !tbaa !24
-  %41 = tail call i32 @lv_area_get_height(ptr noundef nonnull %38) #5
+  %41 = tail call i32 @lv_area_get_height(ptr noundef nonnull %38) #6
   %42 = sdiv i32 %41, 2
   %43 = add nsw i32 %42, %40
   %44 = load i32, ptr %15, align 4, !tbaa !24
   %45 = add nsw i32 %44, %.sroa.0.0.extract.trunc.i
-  %46 = tail call i32 @lv_area_get_height(ptr noundef nonnull %14) #5
+  %46 = tail call i32 @lv_area_get_height(ptr noundef nonnull %14) #6
   %47 = sub i32 %46, %16
   %48 = sdiv i32 %47, 2
   %49 = add nsw i32 %45, %48
@@ -1434,18 +1434,18 @@ declare void @lv_obj_scroll_by(ptr noundef, i32 noundef, i32 noundef, i1 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_x(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = tail call i32 @lv_obj_get_scroll_snap_x(ptr noundef %0) #5
+  %5 = tail call i32 @lv_obj_get_scroll_snap_x(ptr noundef %0) #6
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %58, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 18) #5
+  %8 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 18) #6
   %9 = ptrtoint ptr %8 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %9 to i32
-  %10 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 19) #5
+  %10 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 19) #6
   %11 = ptrtoint ptr %10 to i64
   %.sroa.0.0.extract.trunc.i52 = trunc i64 %11 to i32
-  %12 = tail call i32 @lv_obj_get_child_count(ptr noundef %0) #5
+  %12 = tail call i32 @lv_obj_get_child_count(ptr noundef %0) #6
   %.not55 = icmp eq i32 %12, 0
   br i1 %.not55, label %._crit_edge.thread, label %.lr.ph
 
@@ -1464,11 +1464,11 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
   %19 = load ptr, ptr %18, align 8, !tbaa !55
   %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !58
-  %22 = tail call zeroext i1 @lv_obj_has_flag_any(ptr noundef %21, i32 noundef 262145) #5
+  %22 = tail call zeroext i1 @lv_obj_has_flag_any(ptr noundef %21, i32 noundef 262145) #6
   br i1 %22, label %55, label %23
 
 23:                                               ; preds = %17
-  %24 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %21, i32 noundef 4096) #5
+  %24 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %21, i32 noundef 4096) #6
   br i1 %24, label %25, label %55
 
 25:                                               ; preds = %23
@@ -1495,12 +1495,12 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
 36:                                               ; preds = %25
   %37 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %38 = load i32, ptr %37, align 8, !tbaa !32
-  %39 = tail call i32 @lv_area_get_width(ptr noundef nonnull %37) #5
+  %39 = tail call i32 @lv_area_get_width(ptr noundef nonnull %37) #6
   %40 = sdiv i32 %39, 2
   %41 = add nsw i32 %40, %38
   %42 = load i32, ptr %14, align 8, !tbaa !32
   %43 = add nsw i32 %42, %.sroa.0.0.extract.trunc.i
-  %44 = tail call i32 @lv_area_get_width(ptr noundef nonnull %14) #5
+  %44 = tail call i32 @lv_area_get_width(ptr noundef nonnull %14) #6
   %45 = sub i32 %44, %15
   %46 = sdiv i32 %45, 2
   %47 = add nsw i32 %43, %46
@@ -1572,7 +1572,7 @@ define internal fastcc void @has_more_snap_points(ptr noundef nonnull %0, i32 no
   br i1 %5, label %6, label %42
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @lv_obj_get_scroll_snap_x(ptr noundef nonnull %0) #5
+  %7 = tail call i32 @lv_obj_get_scroll_snap_x(ptr noundef nonnull %0) #6
   switch i32 %7, label %33 [
     i32 3, label %8
     i32 1, label %21
@@ -1580,15 +1580,15 @@ define internal fastcc void @has_more_snap_points(ptr noundef nonnull %0, i32 no
   ]
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 18) #5
+  %9 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 18) #6
   %10 = ptrtoint ptr %9 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %10 to i32
-  %11 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 19) #5
+  %11 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 19) #6
   %12 = ptrtoint ptr %11 to i64
   %.sroa.0.0.extract.trunc.i50 = trunc i64 %12 to i32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i32, ptr %13, align 8, !tbaa !32
-  %15 = tail call i32 @lv_area_get_width(ptr noundef nonnull %13) #5
+  %15 = tail call i32 @lv_area_get_width(ptr noundef nonnull %13) #6
   %16 = add i32 %.sroa.0.0.extract.trunc.i50, %.sroa.0.0.extract.trunc.i
   %17 = sub i32 %15, %16
   %18 = sdiv i32 %17, 2
@@ -1599,7 +1599,7 @@ define internal fastcc void @has_more_snap_points(ptr noundef nonnull %0, i32 no
 21:                                               ; preds = %6
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load i32, ptr %22, align 8, !tbaa !32
-  %24 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 18) #5
+  %24 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 18) #6
   %25 = ptrtoint ptr %24 to i64
   %.sroa.0.0.extract.trunc.i51 = trunc i64 %25 to i32
   %26 = add nsw i32 %23, %.sroa.0.0.extract.trunc.i51
@@ -1608,7 +1608,7 @@ define internal fastcc void @has_more_snap_points(ptr noundef nonnull %0, i32 no
 27:                                               ; preds = %6
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = load i32, ptr %28, align 8, !tbaa !35
-  %30 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 19) #5
+  %30 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 19) #6
   %31 = ptrtoint ptr %30 to i64
   %.sroa.0.0.extract.trunc.i52 = trunc i64 %31 to i32
   %32 = sub nsw i32 %29, %.sroa.0.0.extract.trunc.i52
@@ -1632,7 +1632,7 @@ define internal fastcc void @has_more_snap_points(ptr noundef nonnull %0, i32 no
   br i1 %41, label %.sink.split, label %79
 
 42:                                               ; preds = %4
-  %43 = tail call i32 @lv_obj_get_scroll_snap_y(ptr noundef nonnull %0) #5
+  %43 = tail call i32 @lv_obj_get_scroll_snap_y(ptr noundef nonnull %0) #6
   switch i32 %43, label %70 [
     i32 3, label %44
     i32 1, label %58
@@ -1640,16 +1640,16 @@ define internal fastcc void @has_more_snap_points(ptr noundef nonnull %0, i32 no
   ]
 
 44:                                               ; preds = %42
-  %45 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 16) #5
+  %45 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 16) #6
   %46 = ptrtoint ptr %45 to i64
   %.sroa.0.0.extract.trunc.i53 = trunc i64 %46 to i32
-  %47 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 17) #5
+  %47 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 17) #6
   %48 = ptrtoint ptr %47 to i64
   %.sroa.0.0.extract.trunc.i54 = trunc i64 %48 to i32
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %51 = load i32, ptr %50, align 4, !tbaa !24
-  %52 = tail call i32 @lv_area_get_height(ptr noundef nonnull %49) #5
+  %52 = tail call i32 @lv_area_get_height(ptr noundef nonnull %49) #6
   %53 = add i32 %.sroa.0.0.extract.trunc.i54, %.sroa.0.0.extract.trunc.i53
   %54 = sub i32 %52, %53
   %55 = sdiv i32 %54, 2
@@ -1660,7 +1660,7 @@ define internal fastcc void @has_more_snap_points(ptr noundef nonnull %0, i32 no
 58:                                               ; preds = %42
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %60 = load i32, ptr %59, align 4, !tbaa !24
-  %61 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 16) #5
+  %61 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 16) #6
   %62 = ptrtoint ptr %61 to i64
   %.sroa.0.0.extract.trunc.i55 = trunc i64 %62 to i32
   %63 = add nsw i32 %60, %.sroa.0.0.extract.trunc.i55
@@ -1669,7 +1669,7 @@ define internal fastcc void @has_more_snap_points(ptr noundef nonnull %0, i32 no
 64:                                               ; preds = %42
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %66 = load i32, ptr %65, align 4, !tbaa !30
-  %67 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 17) #5
+  %67 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 17) #6
   %68 = ptrtoint ptr %67 to i64
   %.sroa.0.0.extract.trunc.i56 = trunc i64 %68 to i32
   %69 = sub nsw i32 %66, %.sroa.0.0.extract.trunc.i56
@@ -1718,27 +1718,28 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #4
+declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

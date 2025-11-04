@@ -87,7 +87,7 @@ define internal range(i32 -1094995529, 1) i32 @encode_init(ptr noundef initializ
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 21280
   store ptr %9, ptr %10, align 16, !tbaa !35
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 21296
-  tail call void @ff_fdctdsp_init(ptr noundef nonnull %11, ptr noundef %0) #11
+  tail call void @ff_fdctdsp_init(ptr noundef nonnull %11, ptr noundef %0) #12
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 21328
   %13 = load i32, ptr %12, align 16, !tbaa !36
   %14 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %13)
@@ -95,7 +95,7 @@ define internal range(i32 -1094995529, 1) i32 @encode_init(ptr noundef initializ
   br i1 %.not192, label %16, label %15
 
 15:                                               ; preds = %1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.25) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.25) #12
   br label %.loopexit227
 
 16:                                               ; preds = %1
@@ -107,7 +107,7 @@ define internal range(i32 -1094995529, 1) i32 @encode_init(ptr noundef initializ
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %22 = load i32, ptr %21, align 8, !tbaa !38
-  %23 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %22) #11
+  %23 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %22) #12
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i64, ptr %24, align 8, !tbaa !39
   %26 = and i64 %25, 128
@@ -131,13 +131,13 @@ define internal range(i32 -1094995529, 1) i32 @encode_init(ptr noundef initializ
   %.sink271 = phi i32 [ 4, %20 ], [ %., %27 ]
   %33 = phi ptr [ @.str.27, %20 ], [ %.str.27..str.28, %27 ]
   store i32 %.sink271, ptr %17, align 16, !tbaa !37
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.26, ptr noundef nonnull %33) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.26, ptr noundef nonnull %33) #12
   br label %34
 
 34:                                               ; preds = %.thread218, %16
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %36 = load i32, ptr %35, align 8, !tbaa !38
-  %37 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %36) #11
+  %37 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %36) #12
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load i64, ptr %38, align 8, !tbaa !39
   %40 = and i64 %39, 128
@@ -151,7 +151,7 @@ define internal range(i32 -1094995529, 1) i32 @encode_init(ptr noundef initializ
   br i1 %switch, label %45, label %.thread
 
 .thread:                                          ; preds = %41
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.29) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.29) #12
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 21368
   store i32 0, ptr %44, align 8, !tbaa !43
   br label %48
@@ -164,7 +164,7 @@ define internal range(i32 -1094995529, 1) i32 @encode_init(ptr noundef initializ
   br i1 %.not198, label %48, label %47
 
 47:                                               ; preds = %45
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.30) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.30) #12
   br label %.loopexit227
 
 48:                                               ; preds = %.thread, %45
@@ -267,12 +267,12 @@ define internal range(i32 -1094995529, 1) i32 @encode_init(ptr noundef initializ
   store ptr %114, ptr %116, align 8, !tbaa !60
   %117 = getelementptr inbounds nuw i8, ptr %3, i64 21376
   %118 = load ptr, ptr %117, align 16, !tbaa !61
-  %119 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %118) #12
+  %119 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %118) #13
   %.not200 = icmp eq i64 %119, 4
   br i1 %.not200, label %121, label %120
 
 120:                                              ; preds = %112
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.31) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.31) #12
   br label %.loopexit227
 
 121:                                              ; preds = %112
@@ -327,7 +327,7 @@ define internal range(i32 -1094995529, 1) i32 @encode_init(ptr noundef initializ
   br i1 %141, label %142, label %.preheader228.lr.ph
 
 142:                                              ; preds = %140
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.32) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.32) #12
   br label %.loopexit227
 
 .preheader228.lr.ph:                              ; preds = %138, %133, %140
@@ -377,7 +377,7 @@ define internal range(i32 -1094995529, 1) i32 @encode_init(ptr noundef initializ
   %166 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %167 = load i32, ptr %166, align 16, !tbaa !74
   %168 = sext i32 %93 to i64
-  %169 = tail call ptr @av_malloc_array(i64 noundef %168, i64 noundef 4) #11
+  %169 = tail call ptr @av_malloc_array(i64 noundef %168, i64 noundef 4) #12
   %170 = getelementptr inbounds nuw i8, ptr %3, i64 21408
   store ptr %169, ptr %170, align 16, !tbaa !75
   %.not205 = icmp eq ptr %169, null
@@ -387,7 +387,7 @@ define internal range(i32 -1094995529, 1) i32 @encode_init(ptr noundef initializ
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %173 = load i32, ptr %172, align 8, !tbaa !76
   %174 = sext i32 %173 to i64
-  %175 = tail call noalias ptr @av_calloc(i64 noundef %174, i64 noundef 17168) #11
+  %175 = tail call noalias ptr @av_calloc(i64 noundef %174, i64 noundef 17168) #12
   %176 = getelementptr inbounds nuw i8, ptr %3, i64 21416
   store ptr %175, ptr %176, align 8, !tbaa !77
   %.not206 = icmp eq ptr %175, null
@@ -410,7 +410,7 @@ define internal range(i32 -1094995529, 1) i32 @encode_init(ptr noundef initializ
   %183 = load i32, ptr %75, align 4, !tbaa !52
   %184 = add nsw i32 %183, 1
   %185 = sext i32 %184 to i64
-  %186 = tail call ptr @av_malloc_array(i64 noundef %185, i64 noundef 256) #11
+  %186 = tail call ptr @av_malloc_array(i64 noundef %185, i64 noundef 256) #12
   %187 = load ptr, ptr %176, align 8, !tbaa !77
   %188 = getelementptr inbounds nuw %struct.ProresThreadData, ptr %187, i64 %indvars.iv259
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 17152
@@ -450,7 +450,7 @@ define internal range(i32 -1094995529, 1) i32 @encode_init(ptr noundef initializ
   br label %200
 
 .thread221:                                       ; preds = %196
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.33) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.33) #12
   br label %.loopexit227
 
 200:                                              ; preds = %.preheader230, %200
@@ -562,9 +562,9 @@ define internal range(i32 -1094995529, 1) i32 @encode_init(ptr noundef initializ
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 688
   store i32 %268, ptr %269, align 8, !tbaa !91
   %270 = select i1 %.not, ptr @.str.36, ptr @.str.35
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.34, i32 noundef %268, i32 noundef %241, ptr noundef nonnull %270, i32 noundef %247) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.34, i32 noundef %268, i32 noundef %241, ptr noundef nonnull %270, i32 noundef %247) #12
   %271 = load i32, ptr %253, align 4, !tbaa !88
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.37, i32 noundef %271) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.37, i32 noundef %271) #12
   br label %.loopexit227
 
 .loopexit227:                                     ; preds = %182, %.thread221, %171, %._crit_edge, %263, %142, %120, %47, %15
@@ -598,7 +598,7 @@ define internal i32 @encode_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr %2, ptr %22, align 16, !tbaa !92
   %23 = add nsw i32 %13, 16384
   %24 = sext i32 %23 to i64
-  %25 = tail call i32 @ff_alloc_packet(ptr noundef %0, ptr noundef %1, i64 noundef %24) #11
+  %25 = tail call i32 @ff_alloc_packet(ptr noundef %0, ptr noundef %1, i64 noundef %24) #12
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %.loopexit, label %27
 
@@ -784,7 +784,7 @@ define internal i32 @encode_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2
 145:                                              ; preds = %124
   %146 = load ptr, ptr %110, align 8, !tbaa !104
   %147 = load i32, ptr %111, align 4, !tbaa !51
-  %148 = tail call i32 %146(ptr noundef %0, ptr noundef nonnull @find_quant_thread, ptr noundef null, ptr noundef null, i32 noundef %147) #11
+  %148 = tail call i32 %146(ptr noundef %0, ptr noundef nonnull @find_quant_thread, ptr noundef null, ptr noundef null, i32 noundef %147) #12
   %.not162 = icmp eq i32 %148, 0
   br i1 %.not162, label %149, label %.loopexit
 
@@ -888,12 +888,12 @@ define internal i32 @encode_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not165, label %200, label %201
 
 200:                                              ; preds = %188
-  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %0, ptr noundef nonnull @.str.42, i32 noundef %.2144410, i32 noundef %196, i32 noundef %.2140411) #11
+  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %0, ptr noundef nonnull @.str.42, i32 noundef %.2144410, i32 noundef %196, i32 noundef %.2140411) #12
   store i32 1, ptr %117, align 4, !tbaa !106
   br label %201
 
 201:                                              ; preds = %200, %188
-  %202 = tail call i32 @av_grow_packet(ptr noundef nonnull %1, i32 noundef %196) #11
+  %202 = tail call i32 @av_grow_packet(ptr noundef nonnull %1, i32 noundef %196) #12
   %203 = icmp sgt i32 %202, -1
   br i1 %203, label %.thread, label %.loopexit
 
@@ -1201,7 +1201,7 @@ define internal i32 @encode_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.0121.i = phi ptr [ %.0142.i, %340 ], [ %280, %.preheader.i197 ], [ %280, %.lr.ph.i193 ]
   %.0120.i = phi i64 [ %306, %340 ], [ 32, %.preheader.i197 ], [ 32, %.lr.ph.i193 ]
   %361 = load ptr, ptr %286, align 8, !tbaa !29
-  tail call void %361(ptr noundef nonnull %287, ptr noundef %.0121.i, i64 noundef %.0120.i, ptr noundef %.0115140.i) #11
+  tail call void %361(ptr noundef nonnull %287, ptr noundef %.0121.i, i64 noundef %.0120.i, ptr noundef %.0115140.i) #12
   %362 = getelementptr inbounds nuw i8, ptr %.0115140.i, i64 128
   %363 = load ptr, ptr %286, align 8, !tbaa !29
   br i1 %291, label %364, label %377
@@ -1212,40 +1212,40 @@ define internal i32 @encode_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2
 365:                                              ; preds = %364
   %.idx.i = shl nsw i64 %.0120.i, 3
   %366 = getelementptr inbounds i8, ptr %.0121.i, i64 %.idx.i
-  tail call void %363(ptr noundef nonnull %287, ptr noundef %366, i64 noundef %.0120.i, ptr noundef nonnull %362) #11
+  tail call void %363(ptr noundef nonnull %287, ptr noundef %366, i64 noundef %.0120.i, ptr noundef nonnull %362) #12
   %367 = getelementptr inbounds nuw i8, ptr %.0115140.i, i64 256
   br label %387
 
 368:                                              ; preds = %364
   %369 = getelementptr inbounds nuw i8, ptr %.0121.i, i64 16
-  tail call void %363(ptr noundef nonnull %287, ptr noundef nonnull %369, i64 noundef %.0120.i, ptr noundef nonnull %362) #11
+  tail call void %363(ptr noundef nonnull %287, ptr noundef nonnull %369, i64 noundef %.0120.i, ptr noundef nonnull %362) #12
   %370 = getelementptr inbounds nuw i8, ptr %.0115140.i, i64 256
   %371 = load ptr, ptr %286, align 8, !tbaa !29
   %.idx129.i = shl nsw i64 %.0120.i, 3
   %372 = getelementptr inbounds i8, ptr %.0121.i, i64 %.idx129.i
-  tail call void %371(ptr noundef nonnull %287, ptr noundef %372, i64 noundef %.0120.i, ptr noundef nonnull %370) #11
+  tail call void %371(ptr noundef nonnull %287, ptr noundef %372, i64 noundef %.0120.i, ptr noundef nonnull %370) #12
   %373 = getelementptr inbounds nuw i8, ptr %.0115140.i, i64 384
   %374 = load ptr, ptr %286, align 8, !tbaa !29
   %375 = getelementptr inbounds nuw i8, ptr %372, i64 16
-  tail call void %374(ptr noundef nonnull %287, ptr noundef nonnull %375, i64 noundef %.0120.i, ptr noundef nonnull %373) #11
+  tail call void %374(ptr noundef nonnull %287, ptr noundef nonnull %375, i64 noundef %.0120.i, ptr noundef nonnull %373) #12
   %376 = getelementptr inbounds nuw i8, ptr %.0115140.i, i64 512
   br label %387
 
 377:                                              ; preds = %.loopexit.i192
   %.idx127.i = shl nsw i64 %.0120.i, 3
   %378 = getelementptr inbounds i8, ptr %.0121.i, i64 %.idx127.i
-  tail call void %363(ptr noundef nonnull %287, ptr noundef %378, i64 noundef %.0120.i, ptr noundef nonnull %362) #11
+  tail call void %363(ptr noundef nonnull %287, ptr noundef %378, i64 noundef %.0120.i, ptr noundef nonnull %362) #12
   %379 = getelementptr inbounds nuw i8, ptr %.0115140.i, i64 256
   br i1 %301, label %380, label %387
 
 380:                                              ; preds = %377
   %381 = load ptr, ptr %286, align 8, !tbaa !29
   %382 = getelementptr inbounds nuw i8, ptr %.0121.i, i64 16
-  tail call void %381(ptr noundef nonnull %287, ptr noundef nonnull %382, i64 noundef %.0120.i, ptr noundef nonnull %379) #11
+  tail call void %381(ptr noundef nonnull %287, ptr noundef nonnull %382, i64 noundef %.0120.i, ptr noundef nonnull %379) #12
   %383 = getelementptr inbounds nuw i8, ptr %.0115140.i, i64 384
   %384 = load ptr, ptr %286, align 8, !tbaa !29
   %385 = getelementptr inbounds nuw i8, ptr %378, i64 16
-  tail call void %384(ptr noundef nonnull %287, ptr noundef nonnull %385, i64 noundef %.0120.i, ptr noundef nonnull %383) #11
+  tail call void %384(ptr noundef nonnull %287, ptr noundef nonnull %385, i64 noundef %.0120.i, ptr noundef nonnull %383) #12
   %386 = getelementptr inbounds nuw i8, ptr %.0115140.i, i64 512
   br label %387
 
@@ -1529,7 +1529,7 @@ get_alpha_data.exit:                              ; preds = %.lr.ph.i186, %.preh
   br label %put_bits.exit.i171
 
 477:                                              ; preds = %466
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #12
   br label %put_bits.exit.i171
 
 put_bits.exit.i171:                               ; preds = %477, %473, %464
@@ -1569,7 +1569,7 @@ put_bits.exit.i171:                               ; preds = %477, %473, %464
   br label %put_bits.exit10.i179
 
 499:                                              ; preds = %485
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #12
   br label %put_bits.exit10.i179
 
 put_bits.exit10.i179:                             ; preds = %499, %492, %482
@@ -1608,7 +1608,7 @@ put_bits.exit10.i179:                             ; preds = %499, %492, %482
   br label %put_bits.exit14.i174
 
 520:                                              ; preds = %506
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #12
   br label %put_bits.exit14.i174
 
 put_bits.exit14.i174:                             ; preds = %520, %513, %503
@@ -1646,7 +1646,7 @@ put_bits.exit14.i174:                             ; preds = %520, %513, %503
   br label %put_bits.exit18.i182
 
 540:                                              ; preds = %526
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #12
   br label %put_bits.exit18.i182
 
 put_bits.exit18.i182:                             ; preds = %540, %533, %523
@@ -1705,7 +1705,7 @@ encode_alpha_plane.exit.i:                        ; preds = %542
   br label %put_bits.exit.i
 
 565:                                              ; preds = %554
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #12
   br label %put_bits.exit.i
 
 put_bits.exit.i:                                  ; preds = %565, %561, %552
@@ -1746,7 +1746,7 @@ put_bits.exit.i:                                  ; preds = %565, %561, %552
   br label %put_bits.exit10.i
 
 588:                                              ; preds = %574
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #12
   br label %put_bits.exit10.i
 
 put_bits.exit10.i:                                ; preds = %588, %581, %571
@@ -1785,7 +1785,7 @@ put_bits.exit10.i:                                ; preds = %588, %581, %571
   br label %put_bits.exit14.i
 
 609:                                              ; preds = %595
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #12
   br label %put_bits.exit14.i
 
 put_bits.exit14.i:                                ; preds = %609, %602, %592
@@ -1820,7 +1820,7 @@ put_bits.exit14.i:                                ; preds = %609, %602, %592
   br label %put_bits.exit18.i
 
 628:                                              ; preds = %614
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #12
   br label %put_bits.exit18.i
 
 put_bits.exit18.i:                                ; preds = %628, %621, %611
@@ -1855,8 +1855,8 @@ put_alpha_run.exit:                               ; preds = %put_bits.exit10.i, 
   br i1 %639, label %641, label %640
 
 640:                                              ; preds = %635
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, i32 noundef 150) #11
-  tail call void @abort() #13
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, i32 noundef 150) #12
+  tail call void @abort() #14
   unreachable
 
 641:                                              ; preds = %635
@@ -2025,7 +2025,7 @@ define internal noundef i32 @encode_close(ptr noundef readonly captures(none) %0
   %9 = load ptr, ptr %4, align 8, !tbaa !77
   %10 = getelementptr inbounds nuw %struct.ProresThreadData, ptr %9, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 17152
-  tail call void @av_freep(ptr noundef nonnull %11) #11
+  tail call void @av_freep(ptr noundef nonnull %11) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %6, align 8, !tbaa !76
   %13 = sext i32 %12 to i64
@@ -2033,9 +2033,9 @@ define internal noundef i32 @encode_close(ptr noundef readonly captures(none) %0
   br i1 %14, label %.lr.ph, label %.loopexit, !llvm.loop !133
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %1
-  tail call void @av_freep(ptr noundef nonnull %4) #11
+  tail call void @av_freep(ptr noundef nonnull %4) #12
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 21408
-  tail call void @av_freep(ptr noundef nonnull %15) #11
+  tail call void @av_freep(ptr noundef nonnull %15) #12
   ret i32 0
 }
 
@@ -2071,7 +2071,7 @@ define internal void @prores_fdct(ptr noundef readonly captures(none) %0, ptr no
 
 11:                                               ; preds = %9
   %12 = load ptr, ptr %0, align 8, !tbaa !136
-  tail call void %12(ptr noundef nonnull %3) #11
+  tail call void %12(ptr noundef nonnull %3) #12
   ret void
 }
 
@@ -2381,7 +2381,7 @@ define internal noundef i32 @find_quant_thread(ptr noundef readonly captures(non
   %.0121.i = phi ptr [ %.0142.i, %133 ], [ %22, %.preheader.i51 ], [ %22, %.lr.ph.i47 ]
   %.0120.i = phi i64 [ %108, %133 ], [ 32, %.preheader.i51 ], [ 32, %.lr.ph.i47 ]
   %154 = load ptr, ptr %69, align 8, !tbaa !29
-  tail call void %154(ptr noundef nonnull %70, ptr noundef %.0121.i, i64 noundef %.0120.i, ptr noundef %.0115140.i) #11
+  tail call void %154(ptr noundef nonnull %70, ptr noundef %.0121.i, i64 noundef %.0120.i, ptr noundef %.0115140.i) #12
   %155 = getelementptr inbounds nuw i8, ptr %.0115140.i, i64 128
   %156 = load ptr, ptr %69, align 8, !tbaa !29
   br i1 %78, label %157, label %170
@@ -2392,40 +2392,40 @@ define internal noundef i32 @find_quant_thread(ptr noundef readonly captures(non
 158:                                              ; preds = %157
   %.idx.i = shl nsw i64 %.0120.i, 3
   %159 = getelementptr inbounds i8, ptr %.0121.i, i64 %.idx.i
-  tail call void %156(ptr noundef nonnull %70, ptr noundef %159, i64 noundef %.0120.i, ptr noundef nonnull %155) #11
+  tail call void %156(ptr noundef nonnull %70, ptr noundef %159, i64 noundef %.0120.i, ptr noundef nonnull %155) #12
   %160 = getelementptr inbounds nuw i8, ptr %.0115140.i, i64 256
   br label %180
 
 161:                                              ; preds = %157
   %162 = getelementptr inbounds nuw i8, ptr %.0121.i, i64 16
-  tail call void %156(ptr noundef nonnull %70, ptr noundef nonnull %162, i64 noundef %.0120.i, ptr noundef nonnull %155) #11
+  tail call void %156(ptr noundef nonnull %70, ptr noundef nonnull %162, i64 noundef %.0120.i, ptr noundef nonnull %155) #12
   %163 = getelementptr inbounds nuw i8, ptr %.0115140.i, i64 256
   %164 = load ptr, ptr %69, align 8, !tbaa !29
   %.idx129.i = shl nsw i64 %.0120.i, 3
   %165 = getelementptr inbounds i8, ptr %.0121.i, i64 %.idx129.i
-  tail call void %164(ptr noundef nonnull %70, ptr noundef %165, i64 noundef %.0120.i, ptr noundef nonnull %163) #11
+  tail call void %164(ptr noundef nonnull %70, ptr noundef %165, i64 noundef %.0120.i, ptr noundef nonnull %163) #12
   %166 = getelementptr inbounds nuw i8, ptr %.0115140.i, i64 384
   %167 = load ptr, ptr %69, align 8, !tbaa !29
   %168 = getelementptr inbounds nuw i8, ptr %165, i64 16
-  tail call void %167(ptr noundef nonnull %70, ptr noundef nonnull %168, i64 noundef %.0120.i, ptr noundef nonnull %166) #11
+  tail call void %167(ptr noundef nonnull %70, ptr noundef nonnull %168, i64 noundef %.0120.i, ptr noundef nonnull %166) #12
   %169 = getelementptr inbounds nuw i8, ptr %.0115140.i, i64 512
   br label %180
 
 170:                                              ; preds = %.loopexit.i46
   %.idx127.i = shl nsw i64 %.0120.i, 3
   %171 = getelementptr inbounds i8, ptr %.0121.i, i64 %.idx127.i
-  tail call void %156(ptr noundef nonnull %70, ptr noundef %171, i64 noundef %.0120.i, ptr noundef nonnull %155) #11
+  tail call void %156(ptr noundef nonnull %70, ptr noundef %171, i64 noundef %.0120.i, ptr noundef nonnull %155) #12
   %172 = getelementptr inbounds nuw i8, ptr %.0115140.i, i64 256
   br i1 %89, label %173, label %180
 
 173:                                              ; preds = %170
   %174 = load ptr, ptr %69, align 8, !tbaa !29
   %175 = getelementptr inbounds nuw i8, ptr %.0121.i, i64 16
-  tail call void %174(ptr noundef nonnull %70, ptr noundef nonnull %175, i64 noundef %.0120.i, ptr noundef nonnull %172) #11
+  tail call void %174(ptr noundef nonnull %70, ptr noundef nonnull %175, i64 noundef %.0120.i, ptr noundef nonnull %172) #12
   %176 = getelementptr inbounds nuw i8, ptr %.0115140.i, i64 384
   %177 = load ptr, ptr %69, align 8, !tbaa !29
   %178 = getelementptr inbounds nuw i8, ptr %171, i64 16
-  tail call void %177(ptr noundef nonnull %70, ptr noundef nonnull %178, i64 noundef %.0120.i, ptr noundef nonnull %176) #11
+  tail call void %177(ptr noundef nonnull %70, ptr noundef nonnull %178, i64 noundef %.0120.i, ptr noundef nonnull %176) #12
   %179 = getelementptr inbounds nuw i8, ptr %.0115140.i, i64 512
   br label %180
 
@@ -3546,7 +3546,7 @@ encode_dcs.exit:                                  ; preds = %.lr.ph.i, %6
   br label %put_sbits.exit.i
 
 89:                                               ; preds = %74
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #12
   br label %put_sbits.exit.i
 
 put_sbits.exit.i:                                 ; preds = %89, %81, %71
@@ -3645,7 +3645,7 @@ define internal fastcc void @encode_vlc_codeword(ptr noundef nonnull captures(no
   br label %43
 
 42:                                               ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #12
   br label %43
 
 43:                                               ; preds = %42, %37
@@ -3692,7 +3692,7 @@ put_bits.exit:                                    ; preds = %26, %43
   br label %68
 
 67:                                               ; preds = %50
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #12
   br label %68
 
 68:                                               ; preds = %67, %59
@@ -3745,7 +3745,7 @@ put_bits.exit35:                                  ; preds = %46, %68
   br label %92
 
 91:                                               ; preds = %77
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #12
   br label %92
 
 92:                                               ; preds = %91, %86
@@ -3796,7 +3796,7 @@ put_bits.exit39:                                  ; preds = %74, %92
   br label %put_bits.exit43
 
 118:                                              ; preds = %101
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #12
   br label %put_bits.exit43
 
 put_bits.exit43:                                  ; preds = %110, %118, %98
@@ -3845,7 +3845,7 @@ put_bits.exit43:                                  ; preds = %110, %118, %98
   br label %146
 
 145:                                              ; preds = %128
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #12
   br label %146
 
 146:                                              ; preds = %145, %137
@@ -3924,7 +3924,7 @@ define internal fastcc void @put_alpha_diff(ptr noundef nonnull captures(none) %
   br label %put_bits.exit
 
 44:                                               ; preds = %27
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #12
   br label %put_bits.exit
 
 put_bits.exit:                                    ; preds = %36, %44, %24
@@ -3966,7 +3966,7 @@ put_bits.exit:                                    ; preds = %36, %44, %24
   br label %69
 
 68:                                               ; preds = %51
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #12
   br label %69
 
 69:                                               ; preds = %68, %60
@@ -4013,7 +4013,7 @@ put_bits.exit32:                                  ; preds = %47, %69
   br label %put_bits.exit36
 
 92:                                               ; preds = %78
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #12
   br label %put_bits.exit36
 
 put_bits.exit36:                                  ; preds = %87, %92, %76
@@ -4057,7 +4057,7 @@ put_bits.exit36:                                  ; preds = %87, %92, %76
   br label %119
 
 118:                                              ; preds = %101
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #12
   br label %119
 
 119:                                              ; preds = %118, %110
@@ -4103,7 +4103,7 @@ put_bits.exit40:                                  ; preds = %97, %119
   br label %put_bits.exit44
 
 142:                                              ; preds = %125
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.43) #12
   br label %put_bits.exit44
 
 put_bits.exit44:                                  ; preds = %134, %142, %122
@@ -4129,25 +4129,25 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #10
+declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4160,10 +4160,11 @@ attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrit
 attributes #7 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { noreturn nounwind }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

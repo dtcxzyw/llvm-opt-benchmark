@@ -113,7 +113,7 @@ define ptr @dt_control_crawler_run() local_unnamed_addr #0 {
   %6 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %7 = tail call i32 (...) @dt_image_get_xmp_mode() #13
+  %7 = tail call i32 (...) @dt_image_get_xmp_mode() #14
   %.not = icmp eq i32 %7, 0
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %9 = and i32 %8, 256
@@ -121,50 +121,50 @@ define ptr @dt_control_crawler_run() local_unnamed_addr #0 {
   br i1 %.not112, label %11, label %10
 
 10:                                               ; preds = %0
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 122, ptr noundef nonnull @__FUNCTION__.dt_control_crawler_run, ptr noundef nonnull @.str.2) #13
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 122, ptr noundef nonnull @__FUNCTION__.dt_control_crawler_run, ptr noundef nonnull @.str.2) #14
   br label %11
 
 11:                                               ; preds = %10, %0
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !48
-  %13 = tail call ptr @dt_database_get(ptr noundef %12) #13
-  %14 = call i32 @sqlite3_prepare_v2(ptr noundef %13, ptr noundef nonnull @.str.2, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #13
+  %13 = tail call ptr @dt_database_get(ptr noundef %12) #14
+  %14 = call i32 @sqlite3_prepare_v2(ptr noundef %13, ptr noundef nonnull @.str.2, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #14
   %.not113 = icmp eq i32 %14, 0
   br i1 %.not113, label %21, label %15
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr @stderr, align 8, !tbaa !49
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !48
-  %18 = call ptr @dt_database_get(ptr noundef %17) #13
-  %19 = call ptr @sqlite3_errmsg(ptr noundef %18) #13
-  %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 122, ptr noundef nonnull @__FUNCTION__.dt_control_crawler_run, ptr noundef nonnull @.str.2, ptr noundef %19) #14
+  %18 = call ptr @dt_database_get(ptr noundef %17) #14
+  %19 = call ptr @sqlite3_errmsg(ptr noundef %18) #14
+  %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 122, ptr noundef nonnull @__FUNCTION__.dt_control_crawler_run, ptr noundef nonnull @.str.2, ptr noundef %19) #15
   br label %21
 
 21:                                               ; preds = %15, %11
   %22 = load ptr, ptr %3, align 8, !tbaa !51
-  %23 = call i32 @sqlite3_step(ptr noundef %22) #13
+  %23 = call i32 @sqlite3_step(ptr noundef %22) #14
   %24 = icmp eq i32 %23, 100
   br i1 %24, label %25, label %31
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %3, align 8, !tbaa !51
-  %27 = call i32 @sqlite3_column_int(ptr noundef %26, i32 noundef 0) #13
+  %27 = call i32 @sqlite3_column_int(ptr noundef %26, i32 noundef 0) #14
   %28 = load ptr, ptr %3, align 8, !tbaa !51
-  %29 = call i32 @sqlite3_finalize(ptr noundef %28) #13
+  %29 = call i32 @sqlite3_finalize(ptr noundef %28) #14
   %30 = sitofp i32 %27 to double
   br label %31
 
 31:                                               ; preds = %25, %21
   %.0102 = phi double [ %30, %25 ], [ 1.000000e+00, %21 ]
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !48
-  %33 = call ptr @dt_database_get(ptr noundef %32) #13
-  %34 = call i32 @sqlite3_prepare_v2(ptr noundef %33, ptr noundef nonnull @.str.4, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #13
+  %33 = call ptr @dt_database_get(ptr noundef %32) #14
+  %34 = call i32 @sqlite3_prepare_v2(ptr noundef %33, ptr noundef nonnull @.str.4, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #14
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !48
-  %36 = call ptr @dt_database_get(ptr noundef %35) #13
-  %37 = call i32 @sqlite3_prepare_v2(ptr noundef %36, ptr noundef nonnull @.str.5, i32 noundef -1, ptr noundef nonnull %4, ptr noundef null) #13
+  %36 = call ptr @dt_database_get(ptr noundef %35) #14
+  %37 = call i32 @sqlite3_prepare_v2(ptr noundef %36, ptr noundef nonnull @.str.5, i32 noundef -1, ptr noundef nonnull %4, ptr noundef null) #14
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !48
-  call void @dt_database_start_transaction(ptr noundef %38) #13
+  call void @dt_database_start_transaction(ptr noundef %38) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %39 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #13
+  %39 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #14
   %40 = load i64, ptr %2, align 8, !tbaa !53
   %41 = add nsw i64 %40, -1290608000
   %42 = sitofp i64 %41 to double
@@ -175,7 +175,7 @@ define ptr @dt_control_crawler_run() local_unnamed_addr #0 {
   %47 = fadd reassoc nsz arcp contract afn double %46, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %48 = load ptr, ptr %3, align 8, !tbaa !51
-  %49 = call i32 @sqlite3_step(ptr noundef %48) #13
+  %49 = call i32 @sqlite3_step(ptr noundef %48) #14
   %50 = icmp eq i32 %49, 100
   br i1 %50, label %.lr.ph140, label %._crit_edge
 
@@ -191,18 +191,18 @@ define ptr @dt_control_crawler_run() local_unnamed_addr #0 {
   %.0103138 = phi i32 [ 0, %.lr.ph140 ], [ %66, %168 ]
   %.0104137 = phi double [ %51, %.lr.ph140 ], [ %.1105, %168 ]
   %56 = load ptr, ptr %3, align 8, !tbaa !51
-  %57 = call i32 @sqlite3_column_int(ptr noundef %56, i32 noundef 0) #13
+  %57 = call i32 @sqlite3_column_int(ptr noundef %56, i32 noundef 0) #14
   %58 = load ptr, ptr %3, align 8, !tbaa !51
-  %59 = call i64 @sqlite3_column_int64(ptr noundef %58, i32 noundef 1) #13
+  %59 = call i64 @sqlite3_column_int64(ptr noundef %58, i32 noundef 1) #14
   %60 = load ptr, ptr %3, align 8, !tbaa !51
-  %61 = call i32 @sqlite3_column_int(ptr noundef %60, i32 noundef 2) #13
+  %61 = call i32 @sqlite3_column_int(ptr noundef %60, i32 noundef 2) #14
   %62 = load ptr, ptr %3, align 8, !tbaa !51
-  %63 = call ptr @sqlite3_column_text(ptr noundef %62, i32 noundef 3) #13
+  %63 = call ptr @sqlite3_column_text(ptr noundef %62, i32 noundef 3) #14
   %64 = load ptr, ptr %3, align 8, !tbaa !51
-  %65 = call i32 @sqlite3_column_int(ptr noundef %64, i32 noundef 4) #13
+  %65 = call i32 @sqlite3_column_int(ptr noundef %64, i32 noundef 4) #14
   %66 = add nuw nsw i32 %.0103138, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %67 = call i32 @gettimeofday(ptr noundef nonnull %1, ptr noundef null) #13
+  %67 = call i32 @gettimeofday(ptr noundef nonnull %1, ptr noundef null) #14
   %68 = load i64, ptr %1, align 8, !tbaa !53
   %69 = add nsw i64 %68, -1290608000
   %70 = sitofp i64 %69 to double
@@ -221,13 +221,13 @@ define ptr @dt_control_crawler_run() local_unnamed_addr #0 {
 80:                                               ; preds = %55
   %81 = uitofp nneg i32 %66 to double
   %82 = fmul reassoc nsz arcp contract afn double %81, %54
-  %83 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #13
-  call void @darktable_splash_screen_set_progress_percent(ptr noundef %83, double noundef %82, double noundef %75) #13
+  %83 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #14
+  call void @darktable_splash_screen_set_progress_percent(ptr noundef %83, double noundef %82, double noundef %75) #14
   br label %84
 
 84:                                               ; preds = %80, %55
   %.1105 = phi nsz double [ %74, %80 ], [ %.0104137, %55 ]
-  %85 = call i32 @g_file_test(ptr noundef %63, i32 noundef 16) #13
+  %85 = call i32 @g_file_test(ptr noundef %63, i32 noundef 16) #14
   %.not114 = icmp eq i32 %85, 0
   br i1 %.not114, label %86, label %90
 
@@ -238,7 +238,7 @@ define ptr @dt_control_crawler_run() local_unnamed_addr #0 {
   br i1 %.not115, label %168, label %89
 
 89:                                               ; preds = %86
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.7, ptr noundef %63, i32 noundef %57) #13
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.7, ptr noundef %63, i32 noundef %57) #14
   br label %168
 
 90:                                               ; preds = %84
@@ -247,9 +247,9 @@ define ptr @dt_control_crawler_run() local_unnamed_addr #0 {
 91:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %5, i8 0, i64 4096, i1 false)
-  %92 = call i64 @g_strlcpy(ptr noundef nonnull %5, ptr noundef %63, i64 noundef 4096) #13
-  call void @dt_image_path_append_version_no_db(i32 noundef %61, ptr noundef nonnull %5, i64 noundef 4096) #13
-  %93 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #15
+  %92 = call i64 @g_strlcpy(ptr noundef nonnull %5, ptr noundef %63, i64 noundef 4096) #14
+  call void @dt_image_path_append_version_no_db(i32 noundef %61, ptr noundef nonnull %5, i64 noundef 4096) #14
+  %93 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #16
   %94 = add i64 %93, -4092
   %95 = icmp ult i64 %94, -4096
   br i1 %95, label %.thread, label %96
@@ -269,10 +269,10 @@ define ptr @dt_control_crawler_run() local_unnamed_addr #0 {
   store i8 112, ptr %100, align 1, !tbaa !56
   %101 = getelementptr i8, ptr %97, i64 4
   store i8 0, ptr %101, align 1, !tbaa !56
-  %102 = call ptr @dt_util_normalize_path(ptr noundef nonnull %5) #13
+  %102 = call ptr @dt_util_normalize_path(ptr noundef nonnull %5) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %103 = call i32 @stat(ptr noundef %102, ptr noundef nonnull %6) #13
-  call void @g_free(ptr noundef %102) #13
+  %103 = call i32 @stat(ptr noundef %102, ptr noundef nonnull %6) #14
+  call void @g_free(ptr noundef %102) #14
   %.not116 = icmp eq i32 %103, 0
   br i1 %.not116, label %104, label %120
 
@@ -283,26 +283,26 @@ define ptr @dt_control_crawler_run() local_unnamed_addr #0 {
   br i1 %107, label %108, label %.thread127
 
 108:                                              ; preds = %104
-  %109 = call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #16
+  %109 = call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #17
   store i32 %57, ptr %109, align 8, !tbaa !60
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store i64 %106, ptr %110, align 8, !tbaa !62
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 16
   store i64 %59, ptr %111, align 8, !tbaa !63
-  %112 = call noalias ptr @g_strdup(ptr noundef %63) #13
+  %112 = call noalias ptr @g_strdup(ptr noundef %63) #14
   %113 = getelementptr inbounds nuw i8, ptr %109, i64 24
   store ptr %112, ptr %113, align 8, !tbaa !64
-  %114 = call noalias ptr @g_strdup(ptr noundef nonnull %5) #13
+  %114 = call noalias ptr @g_strdup(ptr noundef nonnull %5) #14
   %115 = getelementptr inbounds nuw i8, ptr %109, i64 32
   store ptr %114, ptr %115, align 8, !tbaa !65
-  %116 = call ptr @g_list_prepend(ptr noundef %.099139, ptr noundef nonnull %109) #13
+  %116 = call ptr @g_list_prepend(ptr noundef %.099139, ptr noundef nonnull %109) #14
   %117 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %118 = and i32 %117, 2
   %.not117 = icmp eq i32 %118, 0
   br i1 %.not117, label %.thread127, label %119
 
 119:                                              ; preds = %108
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.8, ptr noundef nonnull %5, i32 noundef %57) #13
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.8, ptr noundef nonnull %5, i32 noundef %57) #14
   br label %.thread127
 
 .thread127:                                       ; preds = %108, %119, %104
@@ -318,7 +318,7 @@ define ptr @dt_control_crawler_run() local_unnamed_addr #0 {
 
 121:                                              ; preds = %.thread127, %90
   %.2 = phi ptr [ %.099139, %90 ], [ %.4.ph, %.thread127 ]
-  %122 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #15
+  %122 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #16
   %123 = getelementptr inbounds nuw i8, ptr %63, i64 %122
   %.not142 = icmp eq i64 %122, 0
   br i1 %.not142, label %.critedge, label %.lr.ph
@@ -340,13 +340,13 @@ define ptr @dt_control_crawler_run() local_unnamed_addr #0 {
   %129 = ptrtoint ptr %63 to i64
   %130 = sub i64 %128, %129
   %131 = add i64 %130, 5
-  %132 = call noalias ptr @calloc(i64 noundef %131, i64 noundef 1) #17
+  %132 = call noalias ptr @calloc(i64 noundef %131, i64 noundef 1) #18
   %.not119 = icmp eq ptr %132, null
   br i1 %.not119, label %168, label %133
 
 133:                                              ; preds = %.critedge
   %134 = add i64 %130, 2
-  %135 = call i64 @g_strlcpy(ptr noundef nonnull %132, ptr noundef nonnull %63, i64 noundef %134) #13
+  %135 = call i64 @g_strlcpy(ptr noundef nonnull %132, ptr noundef nonnull %63, i64 noundef %134) #14
   %136 = getelementptr i8, ptr %132, i64 %130
   %137 = getelementptr i8, ptr %136, i64 1
   store i8 116, ptr %137, align 1, !tbaa !56
@@ -354,7 +354,7 @@ define ptr @dt_control_crawler_run() local_unnamed_addr #0 {
   store i8 120, ptr %138, align 1, !tbaa !56
   %139 = getelementptr i8, ptr %136, i64 3
   store i8 116, ptr %139, align 1, !tbaa !56
-  %140 = call i32 @g_file_test(ptr noundef nonnull %132, i32 noundef 16) #13
+  %140 = call i32 @g_file_test(ptr noundef nonnull %132, i32 noundef 16) #14
   %.not120 = icmp eq i32 %140, 0
   br i1 %.not120, label %141, label %145
 
@@ -362,7 +362,7 @@ define ptr @dt_control_crawler_run() local_unnamed_addr #0 {
   store i8 84, ptr %137, align 1, !tbaa !56
   store i8 88, ptr %138, align 1, !tbaa !56
   store i8 84, ptr %139, align 1, !tbaa !56
-  %142 = call i32 @g_file_test(ptr noundef nonnull %132, i32 noundef 16) #13
+  %142 = call i32 @g_file_test(ptr noundef nonnull %132, i32 noundef 16) #14
   %143 = icmp eq i32 %142, 0
   %144 = select i1 %143, i32 0, i32 4096
   br label %145
@@ -372,7 +372,7 @@ define ptr @dt_control_crawler_run() local_unnamed_addr #0 {
   store i8 119, ptr %137, align 1, !tbaa !56
   store i8 97, ptr %138, align 1, !tbaa !56
   store i8 118, ptr %139, align 1, !tbaa !56
-  %146 = call i32 @g_file_test(ptr noundef nonnull %132, i32 noundef 16) #13
+  %146 = call i32 @g_file_test(ptr noundef nonnull %132, i32 noundef 16) #14
   %.not121 = icmp eq i32 %146, 0
   br i1 %.not121, label %149, label %.thread129
 
@@ -386,7 +386,7 @@ define ptr @dt_control_crawler_run() local_unnamed_addr #0 {
   store i8 87, ptr %137, align 1, !tbaa !56
   store i8 65, ptr %138, align 1, !tbaa !56
   store i8 86, ptr %139, align 1, !tbaa !56
-  %150 = call i32 @g_file_test(ptr noundef nonnull %132, i32 noundef 16) #13
+  %150 = call i32 @g_file_test(ptr noundef nonnull %132, i32 noundef 16) #14
   %.fr = freeze i32 %150
   %151 = icmp eq i32 %.fr, 0
   %152 = and i32 %65, -12289
@@ -402,37 +402,37 @@ define ptr @dt_control_crawler_run() local_unnamed_addr #0 {
 
 156:                                              ; preds = %154
   %157 = load ptr, ptr %4, align 8, !tbaa !51
-  %158 = call i32 @sqlite3_bind_int(ptr noundef %157, i32 noundef 1, i32 noundef %155) #13
+  %158 = call i32 @sqlite3_bind_int(ptr noundef %157, i32 noundef 1, i32 noundef %155) #14
   %159 = load ptr, ptr %4, align 8, !tbaa !51
-  %160 = call i32 @sqlite3_bind_int(ptr noundef %159, i32 noundef 2, i32 noundef %57) #13
+  %160 = call i32 @sqlite3_bind_int(ptr noundef %159, i32 noundef 2, i32 noundef %57) #14
   %161 = load ptr, ptr %4, align 8, !tbaa !51
-  %162 = call i32 @sqlite3_step(ptr noundef %161) #13
+  %162 = call i32 @sqlite3_step(ptr noundef %161) #14
   %163 = load ptr, ptr %4, align 8, !tbaa !51
-  %164 = call i32 @sqlite3_reset(ptr noundef %163) #13
+  %164 = call i32 @sqlite3_reset(ptr noundef %163) #14
   %165 = load ptr, ptr %4, align 8, !tbaa !51
-  %166 = call i32 @sqlite3_clear_bindings(ptr noundef %165) #13
+  %166 = call i32 @sqlite3_clear_bindings(ptr noundef %165) #14
   br label %167
 
 167:                                              ; preds = %156, %154
-  call void @free(ptr noundef nonnull %132) #13
+  call void @free(ptr noundef nonnull %132) #14
   br label %168
 
 168:                                              ; preds = %120, %.thread, %.critedge, %167, %86, %89
   %.1100 = phi ptr [ %.099139, %120 ], [ %.099139, %89 ], [ %.099139, %86 ], [ %.2, %167 ], [ %.2, %.critedge ], [ %.099139, %.thread ]
   %169 = load ptr, ptr %3, align 8, !tbaa !51
-  %170 = call i32 @sqlite3_step(ptr noundef %169) #13
+  %170 = call i32 @sqlite3_step(ptr noundef %169) #14
   %171 = icmp eq i32 %170, 100
   br i1 %171, label %55, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %168, %31
   %.099.lcssa = phi ptr [ null, %31 ], [ %.1100, %168 ]
   %172 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !48
-  call void @dt_database_release_transaction(ptr noundef %172) #13
+  call void @dt_database_release_transaction(ptr noundef %172) #14
   %173 = load ptr, ptr %3, align 8, !tbaa !51
-  %174 = call i32 @sqlite3_finalize(ptr noundef %173) #13
+  %174 = call i32 @sqlite3_finalize(ptr noundef %173) #14
   %175 = load ptr, ptr %4, align 8, !tbaa !51
-  %176 = call i32 @sqlite3_finalize(ptr noundef %175) #13
-  %177 = call ptr @g_list_reverse(ptr noundef %.099.lcssa) #13
+  %176 = call i32 @sqlite3_finalize(ptr noundef %175) #14
+  %177 = call ptr @g_list_reverse(ptr noundef %.099.lcssa) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %177
@@ -513,22 +513,22 @@ declare ptr @g_list_reverse(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @_overwrite_button_clicked(ptr readnone captures(none) %0, ptr noundef initializes((32, 40)) %1) #0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !66
-  %4 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %3) #13
+  %4 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %3) #14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr null, ptr %5, align 8, !tbaa !71
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !72
-  %8 = tail call i64 @gtk_spinner_get_type() #18
-  %9 = tail call ptr @g_type_check_instance_cast(ptr noundef %7, i64 noundef %8) #13
-  tail call void @gtk_spinner_start(ptr noundef %9) #13
-  tail call void @gtk_tree_selection_selected_foreach(ptr noundef %4, ptr noundef nonnull @sync_db_to_xmp, ptr noundef nonnull %1) #13
+  %8 = tail call i64 @gtk_spinner_get_type() #19
+  %9 = tail call ptr @g_type_check_instance_cast(ptr noundef %7, i64 noundef %8) #14
+  tail call void @gtk_spinner_start(ptr noundef %9) #14
+  tail call void @gtk_tree_selection_selected_foreach(ptr noundef %4, ptr noundef nonnull @sync_db_to_xmp, ptr noundef nonnull %1) #14
   %10 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %10, align 8, !tbaa !73
   %.val8 = load ptr, ptr %5, align 8, !tbaa !71
   tail call fastcc void @_delete_selected_rows(ptr %.val, ptr %.val8)
   %11 = load ptr, ptr %6, align 8, !tbaa !72
-  %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %8) #13
-  tail call void @gtk_spinner_stop(ptr noundef %12) #13
+  %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %8) #14
+  tail call void @gtk_spinner_stop(ptr noundef %12) #14
   ret void
 }
 
@@ -555,95 +555,95 @@ define internal void @sync_db_to_xmp(ptr noundef %0, ptr noundef %1, ptr noundef
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %9, i32 noundef 0, ptr noundef nonnull %8, i32 noundef 2, ptr noundef nonnull %10, i32 noundef 6, ptr noundef nonnull %11, i32 noundef 5, ptr noundef nonnull %12, i32 noundef -1) #13
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %9, i32 noundef 0, ptr noundef nonnull %8, i32 noundef 2, ptr noundef nonnull %10, i32 noundef 6, ptr noundef nonnull %11, i32 noundef 5, ptr noundef nonnull %12, i32 noundef -1) #14
   %13 = load i32, ptr %8, align 8, !tbaa !60
-  %14 = call i32 @dt_image_write_sidecar_file(i32 noundef %13) #13
+  %14 = call i32 @dt_image_write_sidecar_file(i32 noundef %13) #14
   %15 = load ptr, ptr %10, align 8, !tbaa !65
   %16 = load i64, ptr %11, align 8, !tbaa !63
-  %17 = call ptr @g_file_new_for_path(ptr noundef %15) #13
-  %18 = call ptr @g_file_query_info(ptr noundef %17, ptr noundef nonnull @.str.46, i32 noundef 0, ptr noundef null, ptr noundef null) #13
+  %17 = call ptr @g_file_new_for_path(ptr noundef %15) #14
+  %18 = call ptr @g_file_query_info(ptr noundef %17, ptr noundef nonnull @.str.46, i32 noundef 0, ptr noundef null, ptr noundef null) #14
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %_set_modification_time.exit, label %19
 
 19:                                               ; preds = %4
-  call void @g_file_info_set_attribute_uint64(ptr noundef nonnull %18, ptr noundef nonnull @.str.47, i64 noundef %16) #13
-  %20 = call i32 @g_file_set_attributes_from_info(ptr noundef %17, ptr noundef nonnull %18, i32 noundef 0, ptr noundef null, ptr noundef null) #13
-  call void @g_object_unref(ptr noundef %17) #13
+  call void @g_file_info_set_attribute_uint64(ptr noundef nonnull %18, ptr noundef nonnull @.str.47, i64 noundef %16) #14
+  %20 = call i32 @g_file_set_attributes_from_info(ptr noundef %17, ptr noundef nonnull %18, i32 noundef 0, ptr noundef null, ptr noundef null) #14
+  call void @g_object_unref(ptr noundef %17) #14
   br label %_set_modification_time.exit
 
 _set_modification_time.exit:                      ; preds = %4, %19
   %.sink.i = phi ptr [ %18, %19 ], [ %17, %4 ]
-  call void @g_object_unref(ptr noundef %.sink.i) #13
+  call void @g_object_unref(ptr noundef %.sink.i) #14
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %43, label %21
 
 21:                                               ; preds = %_set_modification_time.exit
-  %22 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.43, i32 noundef 5) #13
+  %22 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.43, i32 noundef 5) #14
   %23 = load ptr, ptr %9, align 8, !tbaa !64
   %.not.i9 = icmp eq ptr %23, null
   %24 = select i1 %.not.i9, ptr @.str.48, ptr %23
-  %25 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %22, ptr noundef nonnull %24) #13
+  %25 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %22, ptr noundef nonnull %24) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !74
-  %28 = tail call i64 @gtk_tree_view_get_type() #18
-  %29 = call ptr @g_type_check_instance_cast(ptr noundef %27, i64 noundef %28) #13
-  %30 = call ptr @gtk_tree_view_get_model(ptr noundef %29) #13
-  %31 = tail call i64 @gtk_list_store_get_type() #18
-  %32 = call ptr @g_type_check_instance_cast(ptr noundef %30, i64 noundef %31) #13
-  call void @gtk_list_store_append(ptr noundef %32, ptr noundef nonnull %7) #13
-  %33 = call ptr @g_type_check_instance_cast(ptr noundef %30, i64 noundef %31) #13
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %33, ptr noundef nonnull %7, i32 noundef 0, ptr noundef %25, i32 noundef -1) #13
-  call void @g_free(ptr noundef %25) #13
+  %28 = tail call i64 @gtk_tree_view_get_type() #19
+  %29 = call ptr @g_type_check_instance_cast(ptr noundef %27, i64 noundef %28) #14
+  %30 = call ptr @gtk_tree_view_get_model(ptr noundef %29) #14
+  %31 = tail call i64 @gtk_list_store_get_type() #19
+  %32 = call ptr @g_type_check_instance_cast(ptr noundef %30, i64 noundef %31) #14
+  call void @gtk_list_store_append(ptr noundef %32, ptr noundef nonnull %7) #14
+  %33 = call ptr @g_type_check_instance_cast(ptr noundef %30, i64 noundef %31) #14
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %33, ptr noundef nonnull %7, i32 noundef 0, ptr noundef %25, i32 noundef -1) #14
+  call void @g_free(ptr noundef %25) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %34 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.44, i32 noundef 5) #13
+  %34 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.44, i32 noundef 5) #14
   %35 = load ptr, ptr %10, align 8, !tbaa !65
   %.not.i10 = icmp eq ptr %35, null
   %36 = select i1 %.not.i10, ptr @.str.48, ptr %35
-  %37 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %34, ptr noundef nonnull %36) #13
+  %37 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %34, ptr noundef nonnull %36) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %38 = load ptr, ptr %26, align 8, !tbaa !74
-  %39 = call ptr @g_type_check_instance_cast(ptr noundef %38, i64 noundef %28) #13
-  %40 = call ptr @gtk_tree_view_get_model(ptr noundef %39) #13
-  %41 = call ptr @g_type_check_instance_cast(ptr noundef %40, i64 noundef %31) #13
-  call void @gtk_list_store_append(ptr noundef %41, ptr noundef nonnull %6) #13
-  %42 = call ptr @g_type_check_instance_cast(ptr noundef %40, i64 noundef %31) #13
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %42, ptr noundef nonnull %6, i32 noundef 0, ptr noundef %37, i32 noundef -1) #13
-  call void @g_free(ptr noundef %37) #13
+  %39 = call ptr @g_type_check_instance_cast(ptr noundef %38, i64 noundef %28) #14
+  %40 = call ptr @gtk_tree_view_get_model(ptr noundef %39) #14
+  %41 = call ptr @g_type_check_instance_cast(ptr noundef %40, i64 noundef %31) #14
+  call void @gtk_list_store_append(ptr noundef %41, ptr noundef nonnull %6) #14
+  %42 = call ptr @g_type_check_instance_cast(ptr noundef %40, i64 noundef %31) #14
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %42, ptr noundef nonnull %6, i32 noundef 0, ptr noundef %37, i32 noundef -1) #14
+  call void @g_free(ptr noundef %37) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %60
 
 43:                                               ; preds = %_set_modification_time.exit
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %45 = call ptr @gtk_tree_row_reference_new(ptr noundef %0, ptr noundef %1) #13
+  %45 = call ptr @gtk_tree_row_reference_new(ptr noundef %0, ptr noundef %1) #14
   %46 = load ptr, ptr %44, align 8, !tbaa !75
-  %47 = call ptr @g_list_append(ptr noundef %46, ptr noundef %45) #13
+  %47 = call ptr @g_list_append(ptr noundef %46, ptr noundef %45) #14
   store ptr %47, ptr %44, align 8, !tbaa !75
-  %48 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.45, i32 noundef 5) #13
+  %48 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.45, i32 noundef 5) #14
   %49 = load ptr, ptr %9, align 8, !tbaa !64
   %.not.i11 = icmp eq ptr %49, null
   %50 = select i1 %.not.i11, ptr @.str.48, ptr %49
-  %51 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %48, ptr noundef nonnull %50) #13
+  %51 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %48, ptr noundef nonnull %50) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !74
-  %54 = tail call i64 @gtk_tree_view_get_type() #18
-  %55 = call ptr @g_type_check_instance_cast(ptr noundef %53, i64 noundef %54) #13
-  %56 = call ptr @gtk_tree_view_get_model(ptr noundef %55) #13
-  %57 = tail call i64 @gtk_list_store_get_type() #18
-  %58 = call ptr @g_type_check_instance_cast(ptr noundef %56, i64 noundef %57) #13
-  call void @gtk_list_store_append(ptr noundef %58, ptr noundef nonnull %5) #13
-  %59 = call ptr @g_type_check_instance_cast(ptr noundef %56, i64 noundef %57) #13
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %59, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %51, i32 noundef -1) #13
-  call void @g_free(ptr noundef %51) #13
+  %54 = tail call i64 @gtk_tree_view_get_type() #19
+  %55 = call ptr @g_type_check_instance_cast(ptr noundef %53, i64 noundef %54) #14
+  %56 = call ptr @gtk_tree_view_get_model(ptr noundef %55) #14
+  %57 = tail call i64 @gtk_list_store_get_type() #19
+  %58 = call ptr @g_type_check_instance_cast(ptr noundef %56, i64 noundef %57) #14
+  call void @gtk_list_store_append(ptr noundef %58, ptr noundef nonnull %5) #14
+  %59 = call ptr @g_type_check_instance_cast(ptr noundef %56, i64 noundef %57) #14
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %59, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %51, i32 noundef -1) #14
+  call void @g_free(ptr noundef %51) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %60
 
 60:                                               ; preds = %43, %21
   %61 = load ptr, ptr %9, align 8, !tbaa !64
-  call void @g_free(ptr noundef %61) #13
+  call void @g_free(ptr noundef %61) #14
   %62 = load ptr, ptr %10, align 8, !tbaa !65
-  call void @g_free(ptr noundef %62) #13
+  call void @g_free(ptr noundef %62) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
@@ -655,27 +655,27 @@ define internal fastcc void @_delete_selected_rows(ptr %.8.val, ptr %.32.val) un
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %11, %0
-  call void @g_list_foreach(ptr noundef %.32.val, ptr noundef nonnull @gtk_tree_row_reference_free, ptr noundef null) #13
-  call void @g_list_free(ptr noundef %.32.val) #13
+  call void @g_list_foreach(ptr noundef %.32.val, ptr noundef nonnull @gtk_tree_row_reference_free, ptr noundef null) #14
+  call void @g_list_free(ptr noundef %.32.val) #14
   ret void
 
 .lr.ph:                                           ; preds = %0, %11
   %.02 = phi ptr [ %13, %11 ], [ %.32.val, %0 ]
   %2 = load ptr, ptr %.02, align 8, !tbaa !76
-  %3 = call ptr @gtk_tree_row_reference_get_path(ptr noundef %2) #13
+  %3 = call ptr @gtk_tree_row_reference_get_path(ptr noundef %2) #14
   %.not14 = icmp eq ptr %3, null
   br i1 %.not14, label %11, label %4
 
 4:                                                ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %5 = call i32 @gtk_tree_model_get_iter(ptr noundef %.8.val, ptr noundef nonnull %1, ptr noundef nonnull %3) #13
+  %5 = call i32 @gtk_tree_model_get_iter(ptr noundef %.8.val, ptr noundef nonnull %1, ptr noundef nonnull %3) #14
   %.not15 = icmp eq i32 %5, 0
   br i1 %.not15, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i64 @gtk_list_store_get_type() #18
-  %8 = call ptr @g_type_check_instance_cast(ptr noundef %.8.val, i64 noundef %7) #13
-  %9 = call i32 @gtk_list_store_remove(ptr noundef %8, ptr noundef nonnull %1) #13
+  %7 = tail call i64 @gtk_list_store_get_type() #19
+  %8 = call ptr @g_type_check_instance_cast(ptr noundef %.8.val, i64 noundef %7) #14
+  %9 = call i32 @gtk_list_store_remove(ptr noundef %8, ptr noundef nonnull %1) #14
   br label %10
 
 10:                                               ; preds = %6, %4
@@ -701,169 +701,169 @@ define void @dt_control_crawler_show_image_list(ptr noundef %0) local_unnamed_ad
   br i1 %.not, label %167, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #16
-  %8 = tail call ptr @gtk_scrolled_window_new(ptr noundef null, ptr noundef null) #13
-  tail call void @gtk_widget_set_vexpand(ptr noundef %8, i32 noundef 1) #13
-  %9 = tail call ptr (i32, ...) @gtk_list_store_new(i32 noundef 9, i64 noundef 24, i64 noundef 64, i64 noundef 64, i64 noundef 64, i64 noundef 64, i64 noundef 24, i64 noundef 24, i64 noundef 64, i64 noundef 64) #13
-  %10 = tail call i64 @gtk_tree_model_get_type() #18
-  %11 = tail call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %10) #13
+  %7 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #17
+  %8 = tail call ptr @gtk_scrolled_window_new(ptr noundef null, ptr noundef null) #14
+  tail call void @gtk_widget_set_vexpand(ptr noundef %8, i32 noundef 1) #14
+  %9 = tail call ptr (i32, ...) @gtk_list_store_new(i32 noundef 9, i64 noundef 24, i64 noundef 64, i64 noundef 64, i64 noundef 64, i64 noundef 64, i64 noundef 24, i64 noundef 24, i64 noundef 64, i64 noundef 64) #14
+  %10 = tail call i64 @gtk_tree_model_get_type() #19
+  %11 = tail call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %10) #14
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %11, ptr %12, align 8, !tbaa !73
   br label %133
 
 13:                                               ; preds = %133
-  call void @g_list_free_full(ptr noundef nonnull %0, ptr noundef nonnull @g_free) #13
-  %14 = call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %10) #13
-  %15 = call ptr @gtk_tree_view_new_with_model(ptr noundef %14) #13
-  %16 = tail call i64 @gtk_tree_view_get_type() #18
-  %17 = call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %16) #13
-  %18 = call ptr @gtk_tree_view_get_selection(ptr noundef %17) #13
-  call void @gtk_tree_selection_set_mode(ptr noundef %18, i32 noundef 3) #13
-  %19 = call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %16) #13
+  call void @g_list_free_full(ptr noundef nonnull %0, ptr noundef nonnull @g_free) #14
+  %14 = call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %10) #14
+  %15 = call ptr @gtk_tree_view_new_with_model(ptr noundef %14) #14
+  %16 = tail call i64 @gtk_tree_view_get_type() #19
+  %17 = call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %16) #14
+  %18 = call ptr @gtk_tree_view_get_selection(ptr noundef %17) #14
+  call void @gtk_tree_selection_set_mode(ptr noundef %18, i32 noundef 3) #14
+  %19 = call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %16) #14
   store ptr %19, ptr %7, align 8, !tbaa !66
-  %20 = call ptr @gtk_cell_renderer_text_new() #13
-  %21 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 5) #13
-  %22 = call ptr (ptr, ptr, ...) @gtk_tree_view_column_new_with_attributes(ptr noundef %21, ptr noundef %20, ptr noundef nonnull @.str.13, i32 noundef 1, ptr noundef null) #13
-  %23 = call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %16) #13
-  %24 = call i32 @gtk_tree_view_append_column(ptr noundef %23, ptr noundef %22) #13
-  call void @gtk_tree_view_column_set_expand(ptr noundef %22, i32 noundef 1) #13
-  call void @gtk_tree_view_column_set_resizable(ptr noundef %22, i32 noundef 1) #13
+  %20 = call ptr @gtk_cell_renderer_text_new() #14
+  %21 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 5) #14
+  %22 = call ptr (ptr, ptr, ...) @gtk_tree_view_column_new_with_attributes(ptr noundef %21, ptr noundef %20, ptr noundef nonnull @.str.13, i32 noundef 1, ptr noundef null) #14
+  %23 = call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %16) #14
+  %24 = call i32 @gtk_tree_view_append_column(ptr noundef %23, ptr noundef %22) #14
+  call void @gtk_tree_view_column_set_expand(ptr noundef %22, i32 noundef 1) #14
+  call void @gtk_tree_view_column_set_resizable(ptr noundef %22, i32 noundef 1) #14
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !79
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 1424
   %27 = load double, ptr %26, align 8, !tbaa !80
   %28 = fmul reassoc nsz arcp contract afn double %27, 2.000000e+02
   %29 = fptosi double %28 to i32
-  call void @gtk_tree_view_column_set_min_width(ptr noundef %22, i32 noundef %29) #13
-  call void (ptr, ptr, ...) @g_object_set(ptr noundef %20, ptr noundef nonnull @.str.14, i32 noundef 2, ptr noundef null) #13
-  %30 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.15, i32 noundef 5) #13
-  %31 = call ptr @gtk_cell_renderer_text_new() #13
-  %32 = call ptr (ptr, ptr, ...) @gtk_tree_view_column_new_with_attributes(ptr noundef %30, ptr noundef %31, ptr noundef nonnull @.str.13, i32 noundef 3, ptr noundef null) #13
-  %33 = call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %16) #13
-  %34 = call i32 @gtk_tree_view_append_column(ptr noundef %33, ptr noundef %32) #13
-  %35 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.16, i32 noundef 5) #13
-  %36 = call ptr @gtk_cell_renderer_text_new() #13
-  %37 = call ptr (ptr, ptr, ...) @gtk_tree_view_column_new_with_attributes(ptr noundef %35, ptr noundef %36, ptr noundef nonnull @.str.13, i32 noundef 4, ptr noundef null) #13
-  %38 = call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %16) #13
-  %39 = call i32 @gtk_tree_view_append_column(ptr noundef %38, ptr noundef %37) #13
-  %40 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #13
-  %41 = call ptr @gtk_cell_renderer_text_new() #13
-  %42 = call ptr (ptr, ptr, ...) @gtk_tree_view_column_new_with_attributes(ptr noundef %40, ptr noundef %41, ptr noundef nonnull @.str.13, i32 noundef 7, ptr noundef null) #13
-  %43 = call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %16) #13
-  %44 = call i32 @gtk_tree_view_append_column(ptr noundef %43, ptr noundef %42) #13
-  %45 = call ptr @gtk_cell_renderer_text_new() #13
-  %46 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 5) #13
-  %47 = call ptr (ptr, ptr, ...) @gtk_tree_view_column_new_with_attributes(ptr noundef %46, ptr noundef %45, ptr noundef nonnull @.str.13, i32 noundef 8, ptr noundef null) #13
-  call void (ptr, ptr, ...) @g_object_set(ptr noundef %45, ptr noundef nonnull @.str.19, double noundef 1.000000e+00, ptr noundef null) #13
-  %48 = call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %16) #13
-  %49 = call i32 @gtk_tree_view_append_column(ptr noundef %48, ptr noundef %47) #13
-  %50 = tail call i64 @gtk_container_get_type() #18
-  %51 = call ptr @g_type_check_instance_cast(ptr noundef %8, i64 noundef %50) #13
-  call void @gtk_container_add(ptr noundef %51, ptr noundef %15) #13
-  %52 = tail call i64 @gtk_scrolled_window_get_type() #18
-  %53 = call ptr @g_type_check_instance_cast(ptr noundef %8, i64 noundef %52) #13
-  call void @gtk_scrolled_window_set_policy(ptr noundef %53, i32 noundef 2, i32 noundef 1) #13
+  call void @gtk_tree_view_column_set_min_width(ptr noundef %22, i32 noundef %29) #14
+  call void (ptr, ptr, ...) @g_object_set(ptr noundef %20, ptr noundef nonnull @.str.14, i32 noundef 2, ptr noundef null) #14
+  %30 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.15, i32 noundef 5) #14
+  %31 = call ptr @gtk_cell_renderer_text_new() #14
+  %32 = call ptr (ptr, ptr, ...) @gtk_tree_view_column_new_with_attributes(ptr noundef %30, ptr noundef %31, ptr noundef nonnull @.str.13, i32 noundef 3, ptr noundef null) #14
+  %33 = call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %16) #14
+  %34 = call i32 @gtk_tree_view_append_column(ptr noundef %33, ptr noundef %32) #14
+  %35 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.16, i32 noundef 5) #14
+  %36 = call ptr @gtk_cell_renderer_text_new() #14
+  %37 = call ptr (ptr, ptr, ...) @gtk_tree_view_column_new_with_attributes(ptr noundef %35, ptr noundef %36, ptr noundef nonnull @.str.13, i32 noundef 4, ptr noundef null) #14
+  %38 = call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %16) #14
+  %39 = call i32 @gtk_tree_view_append_column(ptr noundef %38, ptr noundef %37) #14
+  %40 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #14
+  %41 = call ptr @gtk_cell_renderer_text_new() #14
+  %42 = call ptr (ptr, ptr, ...) @gtk_tree_view_column_new_with_attributes(ptr noundef %40, ptr noundef %41, ptr noundef nonnull @.str.13, i32 noundef 7, ptr noundef null) #14
+  %43 = call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %16) #14
+  %44 = call i32 @gtk_tree_view_append_column(ptr noundef %43, ptr noundef %42) #14
+  %45 = call ptr @gtk_cell_renderer_text_new() #14
+  %46 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 5) #14
+  %47 = call ptr (ptr, ptr, ...) @gtk_tree_view_column_new_with_attributes(ptr noundef %46, ptr noundef %45, ptr noundef nonnull @.str.13, i32 noundef 8, ptr noundef null) #14
+  call void (ptr, ptr, ...) @g_object_set(ptr noundef %45, ptr noundef nonnull @.str.19, double noundef 1.000000e+00, ptr noundef null) #14
+  %48 = call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %16) #14
+  %49 = call i32 @gtk_tree_view_append_column(ptr noundef %48, ptr noundef %47) #14
+  %50 = tail call i64 @gtk_container_get_type() #19
+  %51 = call ptr @g_type_check_instance_cast(ptr noundef %8, i64 noundef %50) #14
+  call void @gtk_container_add(ptr noundef %51, ptr noundef %15) #14
+  %52 = tail call i64 @gtk_scrolled_window_get_type() #19
+  %53 = call ptr @g_type_check_instance_cast(ptr noundef %8, i64 noundef %52) #14
+  call void @gtk_scrolled_window_set_policy(ptr noundef %53, i32 noundef 2, i32 noundef 1) #14
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !79
   %55 = load ptr, ptr %54, align 8, !tbaa !85
-  %56 = call ptr @dt_ui_main_window(ptr noundef %55) #13
-  %57 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef 5) #13
-  %58 = tail call i64 @gtk_window_get_type() #18
-  %59 = call ptr @g_type_check_instance_cast(ptr noundef %56, i64 noundef %58) #13
-  %60 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef 5) #13
-  %61 = call ptr (ptr, ptr, i32, ptr, ...) @gtk_dialog_new_with_buttons(ptr noundef %57, ptr noundef %59, i32 noundef 3, ptr noundef %60, i32 noundef -7, ptr noundef null) #13
+  %56 = call ptr @dt_ui_main_window(ptr noundef %55) #14
+  %57 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef 5) #14
+  %58 = tail call i64 @gtk_window_get_type() #19
+  %59 = call ptr @g_type_check_instance_cast(ptr noundef %56, i64 noundef %58) #14
+  %60 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef 5) #14
+  %61 = call ptr (ptr, ptr, i32, ptr, ...) @gtk_dialog_new_with_buttons(ptr noundef %57, ptr noundef %59, i32 noundef 3, ptr noundef %60, i32 noundef -7, ptr noundef null) #14
   %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !79
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 1424
   %64 = load double, ptr %63, align 8, !tbaa !80
   %65 = fmul reassoc nsz arcp contract afn double %64, 4.000000e+02
   %66 = fptosi double %65 to i32
-  call void @gtk_widget_set_size_request(ptr noundef %61, i32 noundef -1, i32 noundef %66) #13
-  %67 = call ptr @g_type_check_instance_cast(ptr noundef %61, i64 noundef %58) #13
-  %68 = call ptr @g_type_check_instance_cast(ptr noundef %56, i64 noundef %58) #13
-  call void @gtk_window_set_transient_for(ptr noundef %67, ptr noundef %68) #13
-  %69 = tail call i64 @gtk_dialog_get_type() #18
-  %70 = call ptr @g_type_check_instance_cast(ptr noundef %61, i64 noundef %69) #13
-  %71 = call ptr @gtk_dialog_get_content_area(ptr noundef %70) #13
-  %72 = call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #13
-  %73 = call ptr @g_type_check_instance_cast(ptr noundef %71, i64 noundef %50) #13
-  call void @gtk_container_add(ptr noundef %73, ptr noundef %72) #13
-  %74 = call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #13
-  %75 = tail call i64 @gtk_box_get_type() #18
-  %76 = call ptr @g_type_check_instance_cast(ptr noundef %72, i64 noundef %75) #13
-  call void @gtk_box_pack_start(ptr noundef %76, ptr noundef %74, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
-  %77 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.22, i32 noundef 5) #13
-  %78 = call ptr @gtk_button_new_with_label(ptr noundef %77) #13
-  %79 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.23, i32 noundef 5) #13
-  %80 = call ptr @gtk_button_new_with_label(ptr noundef %79) #13
-  %81 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 5) #13
-  %82 = call ptr @gtk_button_new_with_label(ptr noundef %81) #13
-  %83 = call ptr @g_type_check_instance_cast(ptr noundef %74, i64 noundef %75) #13
-  call void @gtk_box_pack_start(ptr noundef %83, ptr noundef %78, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
-  %84 = call ptr @g_type_check_instance_cast(ptr noundef %74, i64 noundef %75) #13
-  call void @gtk_box_pack_start(ptr noundef %84, ptr noundef %80, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
-  %85 = call ptr @g_type_check_instance_cast(ptr noundef %74, i64 noundef %75) #13
-  call void @gtk_box_pack_start(ptr noundef %85, ptr noundef %82, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
-  %86 = call i64 @g_signal_connect_data(ptr noundef %78, ptr noundef nonnull @.str.25, ptr noundef nonnull @_select_all_callback, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0) #13
-  %87 = call i64 @g_signal_connect_data(ptr noundef %80, ptr noundef nonnull @.str.25, ptr noundef nonnull @_select_none_callback, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0) #13
-  %88 = call i64 @g_signal_connect_data(ptr noundef %82, ptr noundef nonnull @.str.25, ptr noundef nonnull @_select_invert_callback, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0) #13
-  %89 = call ptr @g_type_check_instance_cast(ptr noundef %72, i64 noundef %75) #13
-  call void @gtk_box_pack_start(ptr noundef %89, ptr noundef %8, i32 noundef 1, i32 noundef 1, i32 noundef 0) #13
-  %90 = call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #13
-  %91 = call ptr @g_type_check_instance_cast(ptr noundef %72, i64 noundef %75) #13
-  call void @gtk_box_pack_start(ptr noundef %91, ptr noundef %90, i32 noundef 0, i32 noundef 0, i32 noundef 1) #13
-  %92 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef 5) #13
-  %93 = call ptr @gtk_label_new_with_mnemonic(ptr noundef %92) #13
-  %94 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.27, i32 noundef 5) #13
-  %95 = call ptr @gtk_button_new_with_label(ptr noundef %94) #13
-  %96 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.28, i32 noundef 5) #13
-  %97 = call ptr @gtk_button_new_with_label(ptr noundef %96) #13
-  %98 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.29, i32 noundef 5) #13
-  %99 = call ptr @gtk_button_new_with_label(ptr noundef %98) #13
-  %100 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.30, i32 noundef 5) #13
-  %101 = call ptr @gtk_button_new_with_label(ptr noundef %100) #13
-  %102 = call ptr @g_type_check_instance_cast(ptr noundef %90, i64 noundef %75) #13
-  call void @gtk_box_pack_start(ptr noundef %102, ptr noundef %93, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
-  %103 = call ptr @g_type_check_instance_cast(ptr noundef %90, i64 noundef %75) #13
-  call void @gtk_box_pack_start(ptr noundef %103, ptr noundef %95, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
-  %104 = call ptr @g_type_check_instance_cast(ptr noundef %90, i64 noundef %75) #13
-  call void @gtk_box_pack_start(ptr noundef %104, ptr noundef %97, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
-  %105 = call ptr @g_type_check_instance_cast(ptr noundef %90, i64 noundef %75) #13
-  call void @gtk_box_pack_start(ptr noundef %105, ptr noundef %99, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
-  %106 = call ptr @g_type_check_instance_cast(ptr noundef %90, i64 noundef %75) #13
-  call void @gtk_box_pack_start(ptr noundef %106, ptr noundef %101, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
-  %107 = call i64 @g_signal_connect_data(ptr noundef %95, ptr noundef nonnull @.str.25, ptr noundef nonnull @_reload_button_clicked, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0) #13
-  %108 = call i64 @g_signal_connect_data(ptr noundef %97, ptr noundef nonnull @.str.25, ptr noundef nonnull @_overwrite_button_clicked, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0) #13
-  %109 = call i64 @g_signal_connect_data(ptr noundef %99, ptr noundef nonnull @.str.25, ptr noundef nonnull @_newest_button_clicked, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0) #13
-  %110 = call i64 @g_signal_connect_data(ptr noundef %101, ptr noundef nonnull @.str.25, ptr noundef nonnull @_oldest_button_clicked, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0) #13
-  %111 = call ptr @gtk_spinner_new() #13
+  call void @gtk_widget_set_size_request(ptr noundef %61, i32 noundef -1, i32 noundef %66) #14
+  %67 = call ptr @g_type_check_instance_cast(ptr noundef %61, i64 noundef %58) #14
+  %68 = call ptr @g_type_check_instance_cast(ptr noundef %56, i64 noundef %58) #14
+  call void @gtk_window_set_transient_for(ptr noundef %67, ptr noundef %68) #14
+  %69 = tail call i64 @gtk_dialog_get_type() #19
+  %70 = call ptr @g_type_check_instance_cast(ptr noundef %61, i64 noundef %69) #14
+  %71 = call ptr @gtk_dialog_get_content_area(ptr noundef %70) #14
+  %72 = call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #14
+  %73 = call ptr @g_type_check_instance_cast(ptr noundef %71, i64 noundef %50) #14
+  call void @gtk_container_add(ptr noundef %73, ptr noundef %72) #14
+  %74 = call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #14
+  %75 = tail call i64 @gtk_box_get_type() #19
+  %76 = call ptr @g_type_check_instance_cast(ptr noundef %72, i64 noundef %75) #14
+  call void @gtk_box_pack_start(ptr noundef %76, ptr noundef %74, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  %77 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.22, i32 noundef 5) #14
+  %78 = call ptr @gtk_button_new_with_label(ptr noundef %77) #14
+  %79 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.23, i32 noundef 5) #14
+  %80 = call ptr @gtk_button_new_with_label(ptr noundef %79) #14
+  %81 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 5) #14
+  %82 = call ptr @gtk_button_new_with_label(ptr noundef %81) #14
+  %83 = call ptr @g_type_check_instance_cast(ptr noundef %74, i64 noundef %75) #14
+  call void @gtk_box_pack_start(ptr noundef %83, ptr noundef %78, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  %84 = call ptr @g_type_check_instance_cast(ptr noundef %74, i64 noundef %75) #14
+  call void @gtk_box_pack_start(ptr noundef %84, ptr noundef %80, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  %85 = call ptr @g_type_check_instance_cast(ptr noundef %74, i64 noundef %75) #14
+  call void @gtk_box_pack_start(ptr noundef %85, ptr noundef %82, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  %86 = call i64 @g_signal_connect_data(ptr noundef %78, ptr noundef nonnull @.str.25, ptr noundef nonnull @_select_all_callback, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0) #14
+  %87 = call i64 @g_signal_connect_data(ptr noundef %80, ptr noundef nonnull @.str.25, ptr noundef nonnull @_select_none_callback, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0) #14
+  %88 = call i64 @g_signal_connect_data(ptr noundef %82, ptr noundef nonnull @.str.25, ptr noundef nonnull @_select_invert_callback, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0) #14
+  %89 = call ptr @g_type_check_instance_cast(ptr noundef %72, i64 noundef %75) #14
+  call void @gtk_box_pack_start(ptr noundef %89, ptr noundef %8, i32 noundef 1, i32 noundef 1, i32 noundef 0) #14
+  %90 = call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #14
+  %91 = call ptr @g_type_check_instance_cast(ptr noundef %72, i64 noundef %75) #14
+  call void @gtk_box_pack_start(ptr noundef %91, ptr noundef %90, i32 noundef 0, i32 noundef 0, i32 noundef 1) #14
+  %92 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef 5) #14
+  %93 = call ptr @gtk_label_new_with_mnemonic(ptr noundef %92) #14
+  %94 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.27, i32 noundef 5) #14
+  %95 = call ptr @gtk_button_new_with_label(ptr noundef %94) #14
+  %96 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.28, i32 noundef 5) #14
+  %97 = call ptr @gtk_button_new_with_label(ptr noundef %96) #14
+  %98 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.29, i32 noundef 5) #14
+  %99 = call ptr @gtk_button_new_with_label(ptr noundef %98) #14
+  %100 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.30, i32 noundef 5) #14
+  %101 = call ptr @gtk_button_new_with_label(ptr noundef %100) #14
+  %102 = call ptr @g_type_check_instance_cast(ptr noundef %90, i64 noundef %75) #14
+  call void @gtk_box_pack_start(ptr noundef %102, ptr noundef %93, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  %103 = call ptr @g_type_check_instance_cast(ptr noundef %90, i64 noundef %75) #14
+  call void @gtk_box_pack_start(ptr noundef %103, ptr noundef %95, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  %104 = call ptr @g_type_check_instance_cast(ptr noundef %90, i64 noundef %75) #14
+  call void @gtk_box_pack_start(ptr noundef %104, ptr noundef %97, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  %105 = call ptr @g_type_check_instance_cast(ptr noundef %90, i64 noundef %75) #14
+  call void @gtk_box_pack_start(ptr noundef %105, ptr noundef %99, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  %106 = call ptr @g_type_check_instance_cast(ptr noundef %90, i64 noundef %75) #14
+  call void @gtk_box_pack_start(ptr noundef %106, ptr noundef %101, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  %107 = call i64 @g_signal_connect_data(ptr noundef %95, ptr noundef nonnull @.str.25, ptr noundef nonnull @_reload_button_clicked, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0) #14
+  %108 = call i64 @g_signal_connect_data(ptr noundef %97, ptr noundef nonnull @.str.25, ptr noundef nonnull @_overwrite_button_clicked, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0) #14
+  %109 = call i64 @g_signal_connect_data(ptr noundef %99, ptr noundef nonnull @.str.25, ptr noundef nonnull @_newest_button_clicked, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0) #14
+  %110 = call i64 @g_signal_connect_data(ptr noundef %101, ptr noundef nonnull @.str.25, ptr noundef nonnull @_oldest_button_clicked, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0) #14
+  %111 = call ptr @gtk_spinner_new() #14
   %112 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %111, ptr %112, align 8, !tbaa !72
-  %113 = call ptr @g_type_check_instance_cast(ptr noundef %90, i64 noundef %75) #13
+  %113 = call ptr @g_type_check_instance_cast(ptr noundef %90, i64 noundef %75) #14
   %114 = load ptr, ptr %112, align 8, !tbaa !72
-  %115 = tail call i64 @gtk_widget_get_type() #18
-  %116 = call ptr @g_type_check_instance_cast(ptr noundef %114, i64 noundef %115) #13
-  call void @gtk_box_pack_start(ptr noundef %113, ptr noundef %116, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
-  %117 = call ptr @gtk_scrolled_window_new(ptr noundef null, ptr noundef null) #13
-  %118 = call ptr @gtk_tree_view_new() #13
+  %115 = tail call i64 @gtk_widget_get_type() #19
+  %116 = call ptr @g_type_check_instance_cast(ptr noundef %114, i64 noundef %115) #14
+  call void @gtk_box_pack_start(ptr noundef %113, ptr noundef %116, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  %117 = call ptr @gtk_scrolled_window_new(ptr noundef null, ptr noundef null) #14
+  %118 = call ptr @gtk_tree_view_new() #14
   %119 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %118, ptr %119, align 8, !tbaa !74
-  %120 = call ptr @g_type_check_instance_cast(ptr noundef %72, i64 noundef %75) #13
-  call void @gtk_box_pack_start(ptr noundef %120, ptr noundef %117, i32 noundef 1, i32 noundef 1, i32 noundef 0) #13
-  %121 = call ptr @g_type_check_instance_cast(ptr noundef %117, i64 noundef %50) #13
+  %120 = call ptr @g_type_check_instance_cast(ptr noundef %72, i64 noundef %75) #14
+  call void @gtk_box_pack_start(ptr noundef %120, ptr noundef %117, i32 noundef 1, i32 noundef 1, i32 noundef 0) #14
+  %121 = call ptr @g_type_check_instance_cast(ptr noundef %117, i64 noundef %50) #14
   %122 = load ptr, ptr %119, align 8, !tbaa !74
-  call void @gtk_container_add(ptr noundef %121, ptr noundef %122) #13
-  %123 = call ptr @g_type_check_instance_cast(ptr noundef %117, i64 noundef %52) #13
-  call void @gtk_scrolled_window_set_policy(ptr noundef %123, i32 noundef 2, i32 noundef 1) #13
+  call void @gtk_container_add(ptr noundef %121, ptr noundef %122) #14
+  %123 = call ptr @g_type_check_instance_cast(ptr noundef %117, i64 noundef %52) #14
+  call void @gtk_scrolled_window_set_policy(ptr noundef %123, i32 noundef 2, i32 noundef 1) #14
   %124 = load ptr, ptr %119, align 8, !tbaa !74
-  %125 = call ptr @g_type_check_instance_cast(ptr noundef %124, i64 noundef %16) #13
-  %126 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.31, i32 noundef 5) #13
-  %127 = call i32 (ptr, i32, ptr, ptr, ...) @gtk_tree_view_insert_column_with_attributes(ptr noundef %125, i32 noundef -1, ptr noundef %126, ptr noundef %20, ptr noundef nonnull @.str.32, i32 noundef 0, ptr noundef null) #13
-  %128 = call ptr (i32, ...) @gtk_list_store_new(i32 noundef 1, i64 noundef 64) #13
-  %129 = call ptr @g_type_check_instance_cast(ptr noundef %128, i64 noundef %10) #13
+  %125 = call ptr @g_type_check_instance_cast(ptr noundef %124, i64 noundef %16) #14
+  %126 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.31, i32 noundef 5) #14
+  %127 = call i32 (ptr, i32, ptr, ptr, ...) @gtk_tree_view_insert_column_with_attributes(ptr noundef %125, i32 noundef -1, ptr noundef %126, ptr noundef %20, ptr noundef nonnull @.str.32, i32 noundef 0, ptr noundef null) #14
+  %128 = call ptr (i32, ...) @gtk_list_store_new(i32 noundef 1, i64 noundef 64) #14
+  %129 = call ptr @g_type_check_instance_cast(ptr noundef %128, i64 noundef %10) #14
   %130 = load ptr, ptr %119, align 8, !tbaa !74
-  %131 = call ptr @g_type_check_instance_cast(ptr noundef %130, i64 noundef %16) #13
-  call void @gtk_tree_view_set_model(ptr noundef %131, ptr noundef %129) #13
-  call void @g_object_unref(ptr noundef %129) #13
-  call void @gtk_widget_show_all(ptr noundef %61) #13
-  %132 = call i64 @g_signal_connect_data(ptr noundef %61, ptr noundef nonnull @.str.33, ptr noundef nonnull @dt_control_crawler_response_callback, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0) #13
+  %131 = call ptr @g_type_check_instance_cast(ptr noundef %130, i64 noundef %16) #14
+  call void @gtk_tree_view_set_model(ptr noundef %131, ptr noundef %129) #14
+  call void @g_object_unref(ptr noundef %129) #14
+  call void @gtk_widget_show_all(ptr noundef %61) #14
+  %132 = call i64 @g_signal_connect_data(ptr noundef %61, ptr noundef nonnull @.str.33, ptr noundef nonnull @dt_control_crawler_response_callback, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0) #14
   br label %167
 
 133:                                              ; preds = %6, %133
@@ -874,11 +874,11 @@ define void @dt_control_crawler_show_image_list(ptr noundef %0) local_unnamed_ad
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 16
-  %136 = call ptr @localtime_r(ptr noundef nonnull %135, ptr noundef nonnull %5) #13
-  %137 = call i64 @strftime(ptr noundef nonnull %3, i64 noundef 64, ptr noundef nonnull @.str.9, ptr noundef %136) #13
+  %136 = call ptr @localtime_r(ptr noundef nonnull %135, ptr noundef nonnull %5) #14
+  %137 = call i64 @strftime(ptr noundef nonnull %3, i64 noundef 64, ptr noundef nonnull @.str.9, ptr noundef %136) #14
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 8
-  %139 = call ptr @localtime_r(ptr noundef nonnull %138, ptr noundef nonnull %5) #13
-  %140 = call i64 @strftime(ptr noundef nonnull %4, i64 noundef 64, ptr noundef nonnull @.str.9, ptr noundef %139) #13
+  %139 = call ptr @localtime_r(ptr noundef nonnull %138, ptr noundef nonnull %5) #14
+  %140 = call i64 @strftime(ptr noundef nonnull %4, i64 noundef 64, ptr noundef nonnull @.str.9, ptr noundef %139) #14
   %141 = load i64, ptr %135, align 8, !tbaa !63
   %142 = load i64, ptr %138, align 8, !tbaa !62
   %143 = sub nsw i64 %141, %142
@@ -893,9 +893,9 @@ define void @dt_control_crawler_show_image_list(ptr noundef %0) local_unnamed_ad
   %150 = sdiv i32 %145, 86400
   %.neg15.i = mul nsw i32 %150, -24
   %151 = add nsw i32 %.neg15.i, %148
-  %152 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.49, i32 noundef 5) #13
-  %153 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %152, i32 noundef %150, i32 noundef %151, i32 noundef %149, i32 noundef %147) #13
-  call void @gtk_list_store_append(ptr noundef %9, ptr noundef nonnull %2) #13
+  %152 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.49, i32 noundef 5) #14
+  %153 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %152, i32 noundef %150, i32 noundef %151, i32 noundef %149, i32 noundef %147) #14
+  call void @gtk_list_store_append(ptr noundef %9, ptr noundef nonnull %2) #14
   %154 = load i32, ptr %134, align 8, !tbaa !60
   %155 = getelementptr inbounds nuw i8, ptr %134, i64 24
   %156 = load ptr, ptr %155, align 8, !tbaa !64
@@ -905,14 +905,14 @@ define void @dt_control_crawler_show_image_list(ptr noundef %0) local_unnamed_ad
   %160 = load i64, ptr %135, align 8, !tbaa !63
   %161 = icmp sgt i64 %159, %160
   %.str.10..str.11 = select i1 %161, ptr @.str.10, ptr @.str.11
-  %162 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.10..str.11, i32 noundef 5) #13
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %9, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %154, i32 noundef 1, ptr noundef %156, i32 noundef 2, ptr noundef %158, i32 noundef 3, ptr noundef nonnull %4, i32 noundef 4, ptr noundef nonnull %3, i32 noundef 5, i64 noundef %159, i32 noundef 6, i64 noundef %160, i32 noundef 7, ptr noundef %162, i32 noundef 8, ptr noundef %153, i32 noundef -1) #13
+  %162 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.10..str.11, i32 noundef 5) #14
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %9, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %154, i32 noundef 1, ptr noundef %156, i32 noundef 2, ptr noundef %158, i32 noundef 3, ptr noundef nonnull %4, i32 noundef 4, ptr noundef nonnull %3, i32 noundef 5, i64 noundef %159, i32 noundef 6, i64 noundef %160, i32 noundef 7, ptr noundef %162, i32 noundef 8, ptr noundef %153, i32 noundef -1) #14
   %163 = load ptr, ptr %155, align 8, !tbaa !64
-  call void @g_free(ptr noundef %163) #13
+  call void @g_free(ptr noundef %163) #14
   %164 = load ptr, ptr %157, align 8, !tbaa !65
-  call void @g_free(ptr noundef %164) #13
+  call void @g_free(ptr noundef %164) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %155, i8 0, i64 16, i1 false)
-  call void @g_free(ptr noundef %153) #13
+  call void @g_free(ptr noundef %153) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1011,16 +1011,16 @@ declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind uwtable
 define internal void @_select_all_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !66
-  %4 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %3) #13
-  tail call void @gtk_tree_selection_select_all(ptr noundef %4) #13
+  %4 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %3) #14
+  tail call void @gtk_tree_selection_select_all(ptr noundef %4) #14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_select_none_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !66
-  %4 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %3) #13
-  tail call void @gtk_tree_selection_unselect_all(ptr noundef %4) #13
+  %4 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %3) #14
+  tail call void @gtk_tree_selection_unselect_all(ptr noundef %4) #14
   ret void
 }
 
@@ -1028,30 +1028,30 @@ define internal void @_select_none_callback(ptr readnone captures(none) %0, ptr 
 define internal void @_select_invert_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = load ptr, ptr %1, align 8, !tbaa !66
-  %5 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %4) #13
+  %5 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %4) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !73
-  %8 = call i32 @gtk_tree_model_get_iter_first(ptr noundef %7, ptr noundef nonnull %3) #13
+  %8 = call i32 @gtk_tree_model_get_iter_first(ptr noundef %7, ptr noundef nonnull %3) #14
   %.not8 = icmp eq i32 %8, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %12
-  %9 = call i32 @gtk_tree_selection_iter_is_selected(ptr noundef %5, ptr noundef nonnull %3) #13
+  %9 = call i32 @gtk_tree_selection_iter_is_selected(ptr noundef %5, ptr noundef nonnull %3) #14
   %.not7 = icmp eq i32 %9, 0
   br i1 %.not7, label %11, label %10
 
 10:                                               ; preds = %.lr.ph
-  call void @gtk_tree_selection_unselect_iter(ptr noundef %5, ptr noundef nonnull %3) #13
+  call void @gtk_tree_selection_unselect_iter(ptr noundef %5, ptr noundef nonnull %3) #14
   br label %12
 
 11:                                               ; preds = %.lr.ph
-  call void @gtk_tree_selection_select_iter(ptr noundef %5, ptr noundef nonnull %3) #13
+  call void @gtk_tree_selection_select_iter(ptr noundef %5, ptr noundef nonnull %3) #14
   br label %12
 
 12:                                               ; preds = %11, %10
   %13 = load ptr, ptr %6, align 8, !tbaa !73
-  %14 = call i32 @gtk_tree_model_iter_next(ptr noundef %13, ptr noundef nonnull %3) #13
+  %14 = call i32 @gtk_tree_model_iter_next(ptr noundef %13, ptr noundef nonnull %3) #14
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1065,66 +1065,66 @@ declare ptr @gtk_label_new_with_mnemonic(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @_reload_button_clicked(ptr readnone captures(none) %0, ptr noundef initializes((32, 40)) %1) #0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !66
-  %4 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %3) #13
+  %4 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %3) #14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr null, ptr %5, align 8, !tbaa !71
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !72
-  %8 = tail call i64 @gtk_spinner_get_type() #18
-  %9 = tail call ptr @g_type_check_instance_cast(ptr noundef %7, i64 noundef %8) #13
-  tail call void @gtk_spinner_start(ptr noundef %9) #13
-  tail call void @gtk_tree_selection_selected_foreach(ptr noundef %4, ptr noundef nonnull @sync_xmp_to_db, ptr noundef nonnull %1) #13
+  %8 = tail call i64 @gtk_spinner_get_type() #19
+  %9 = tail call ptr @g_type_check_instance_cast(ptr noundef %7, i64 noundef %8) #14
+  tail call void @gtk_spinner_start(ptr noundef %9) #14
+  tail call void @gtk_tree_selection_selected_foreach(ptr noundef %4, ptr noundef nonnull @sync_xmp_to_db, ptr noundef nonnull %1) #14
   %10 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %10, align 8, !tbaa !73
   %.val8 = load ptr, ptr %5, align 8, !tbaa !71
   tail call fastcc void @_delete_selected_rows(ptr %.val, ptr %.val8)
   %11 = load ptr, ptr %6, align 8, !tbaa !72
-  %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %8) #13
-  tail call void @gtk_spinner_stop(ptr noundef %12) #13
+  %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %8) #14
+  tail call void @gtk_spinner_stop(ptr noundef %12) #14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_newest_button_clicked(ptr readnone captures(none) %0, ptr noundef initializes((32, 40)) %1) #0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !66
-  %4 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %3) #13
+  %4 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %3) #14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr null, ptr %5, align 8, !tbaa !71
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !72
-  %8 = tail call i64 @gtk_spinner_get_type() #18
-  %9 = tail call ptr @g_type_check_instance_cast(ptr noundef %7, i64 noundef %8) #13
-  tail call void @gtk_spinner_start(ptr noundef %9) #13
-  tail call void @gtk_tree_selection_selected_foreach(ptr noundef %4, ptr noundef nonnull @sync_newest_to_oldest, ptr noundef nonnull %1) #13
+  %8 = tail call i64 @gtk_spinner_get_type() #19
+  %9 = tail call ptr @g_type_check_instance_cast(ptr noundef %7, i64 noundef %8) #14
+  tail call void @gtk_spinner_start(ptr noundef %9) #14
+  tail call void @gtk_tree_selection_selected_foreach(ptr noundef %4, ptr noundef nonnull @sync_newest_to_oldest, ptr noundef nonnull %1) #14
   %10 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %10, align 8, !tbaa !73
   %.val8 = load ptr, ptr %5, align 8, !tbaa !71
   tail call fastcc void @_delete_selected_rows(ptr %.val, ptr %.val8)
   %11 = load ptr, ptr %6, align 8, !tbaa !72
-  %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %8) #13
-  tail call void @gtk_spinner_stop(ptr noundef %12) #13
+  %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %8) #14
+  tail call void @gtk_spinner_stop(ptr noundef %12) #14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_oldest_button_clicked(ptr readnone captures(none) %0, ptr noundef initializes((32, 40)) %1) #0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !66
-  %4 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %3) #13
+  %4 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %3) #14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr null, ptr %5, align 8, !tbaa !71
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !72
-  %8 = tail call i64 @gtk_spinner_get_type() #18
-  %9 = tail call ptr @g_type_check_instance_cast(ptr noundef %7, i64 noundef %8) #13
-  tail call void @gtk_spinner_start(ptr noundef %9) #13
-  tail call void @gtk_tree_selection_selected_foreach(ptr noundef %4, ptr noundef nonnull @sync_oldest_to_newest, ptr noundef nonnull %1) #13
+  %8 = tail call i64 @gtk_spinner_get_type() #19
+  %9 = tail call ptr @g_type_check_instance_cast(ptr noundef %7, i64 noundef %8) #14
+  tail call void @gtk_spinner_start(ptr noundef %9) #14
+  tail call void @gtk_tree_selection_selected_foreach(ptr noundef %4, ptr noundef nonnull @sync_oldest_to_newest, ptr noundef nonnull %1) #14
   %10 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %10, align 8, !tbaa !73
   %.val8 = load ptr, ptr %5, align 8, !tbaa !71
   tail call fastcc void @_delete_selected_rows(ptr %.val, ptr %.val8)
   %11 = load ptr, ptr %6, align 8, !tbaa !72
-  %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %8) #13
-  tail call void @gtk_spinner_stop(ptr noundef %12) #13
+  %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %8) #14
+  tail call void @gtk_spinner_stop(ptr noundef %12) #14
   ret void
 }
 
@@ -1147,10 +1147,10 @@ declare void @gtk_widget_show_all(ptr noundef) local_unnamed_addr #1
 define internal void @dt_control_crawler_response_callback(ptr noundef %0, i32 %1, ptr noundef captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !73
-  %6 = tail call ptr @g_type_check_instance_cast(ptr noundef %5, i64 noundef 80) #13
-  tail call void @g_object_unref(ptr noundef %6) #13
-  tail call void @gtk_widget_destroy(ptr noundef %0) #13
-  tail call void @free(ptr noundef %2) #13
+  %6 = tail call ptr @g_type_check_instance_cast(ptr noundef %5, i64 noundef 80) #14
+  tail call void @g_object_unref(ptr noundef %6) #14
+  tail call void @gtk_widget_destroy(ptr noundef %0) #14
+  tail call void @free(ptr noundef %2) #14
   ret void
 }
 
@@ -1163,7 +1163,7 @@ define void @dt_set_backthumb_time(double noundef %0) local_unnamed_addr #11 {
 
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %6 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #13
+  %6 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %7 = load i64, ptr %3, align 8, !tbaa !53
   %8 = add nsw i64 %7, -1290608000
   %9 = sitofp i64 %8 to double
@@ -1179,7 +1179,7 @@ define void @dt_set_backthumb_time(double noundef %0) local_unnamed_addr #11 {
 16:                                               ; preds = %1
   %17 = load double, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3384), align 8, !tbaa !86
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %18 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #13
+  %18 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #14
   %19 = load i64, ptr %2, align 8, !tbaa !53
   %20 = add nsw i64 %19, -1290608000
   %21 = sitofp i64 %20 to double
@@ -1200,8 +1200,8 @@ define void @dt_set_backthumb_time(double noundef %0) local_unnamed_addr #11 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.maxnum.f64(double, double) #10
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #12
 
 ; Function Attrs: nounwind uwtable
 define void @dt_update_thumbs_thread(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
@@ -1216,23 +1216,23 @@ define void @dt_update_thumbs_thread(ptr noundef readnone captures(none) %0) loc
   %10 = alloca ptr, align 8
   %11 = alloca %struct.timeval, align 8
   %12 = alloca [4096 x i8], align 16
-  tail call void @dt_pthread_setname(ptr noundef nonnull @.str.34) #13
+  tail call void @dt_pthread_setname(ptr noundef nonnull @.str.34) #14
   %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %1
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.35) #13
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.35) #14
   br label %16
 
 16:                                               ; preds = %1, %15
-  %17 = tail call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull @.str.36) #13
+  %17 = tail call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull @.str.36) #14
   %18 = fpext reassoc nsz arcp contract afn float %17 to double
   store double %18, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3392), align 8, !tbaa !87
-  %19 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.37) #13
-  %20 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.38) #13
-  %21 = tail call i32 @dt_mipmap_cache_get_min_mip_from_pref(ptr noundef %20) #13
+  %19 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.37) #14
+  %20 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.38) #14
+  %21 = tail call i32 @dt_mipmap_cache_get_min_mip_from_pref(ptr noundef %20) #14
   store i32 %21, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3412), align 4, !tbaa !88
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3400), align 8, !tbaa !89
   %.not31 = icmp eq i32 %19, 0
@@ -1254,7 +1254,7 @@ define void @dt_update_thumbs_thread(ptr noundef readnone captures(none) %0) loc
   br i1 %.not32, label %282, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.39) #13
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.39) #14
   br label %282
 
 31:                                               ; preds = %22
@@ -1267,8 +1267,8 @@ define void @dt_update_thumbs_thread(ptr noundef readnone captures(none) %0) loc
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %12, i8 0, i64 4096, i1 false)
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !91
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 632
-  %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 4096, ptr noundef nonnull @.str.40, ptr noundef nonnull %34, i32 noundef %.02755) #13
-  %36 = call i32 @g_mkdir_with_parents(ptr noundef nonnull %12, i32 noundef 488) #13
+  %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 4096, ptr noundef nonnull @.str.40, ptr noundef nonnull %34, i32 noundef %.02755) #14
+  %36 = call i32 @g_mkdir_with_parents(ptr noundef nonnull %12, i32 noundef 488) #14
   %.not33 = icmp eq i32 %36, 0
   br i1 %.not33, label %41, label %37
 
@@ -1279,7 +1279,7 @@ define void @dt_update_thumbs_thread(ptr noundef readnone captures(none) %0) loc
   br i1 %.not34, label %43, label %40
 
 40:                                               ; preds = %37
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.41, ptr noundef nonnull %12) #13
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.41, ptr noundef nonnull %12) #14
   br label %43
 
 41:                                               ; preds = %32
@@ -1294,7 +1294,7 @@ define void @dt_update_thumbs_thread(ptr noundef readnone captures(none) %0) loc
 
 .critedge47:                                      ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %44 = call i32 @gettimeofday(ptr noundef nonnull %11, ptr noundef null) #13
+  %44 = call i32 @gettimeofday(ptr noundef nonnull %11, ptr noundef null) #14
   %45 = load i64, ptr %11, align 8, !tbaa !53
   %46 = add nsw i64 %45, -1290608000
   %47 = sitofp i64 %46 to double
@@ -1328,7 +1328,7 @@ define void @dt_update_thumbs_thread(ptr noundef readnone captures(none) %0) loc
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.057 = phi i32 [ %60, %.lr.ph ], [ 0, %.preheader ]
-  call void @g_usleep(i64 noundef 250000) #13
+  call void @g_usleep(i64 noundef 250000) #14
   %60 = add nuw nsw i32 %.057, 1
   %.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3404), align 4
   %61 = icmp samesign ult i32 %.057, 11
@@ -1343,14 +1343,14 @@ define void @dt_update_thumbs_thread(ptr noundef readnone captures(none) %0) loc
   br i1 %.not37, label %94, label %.thread
 
 .thread:                                          ; preds = %.preheader, %63
-  call void @dt_conf_set_bool(ptr noundef nonnull @.str.65, i32 noundef 0) #13
+  call void @dt_conf_set_bool(ptr noundef nonnull @.str.65, i32 noundef 0) #14
   %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %65 = and i32 %64, 1
   %.not.i = icmp eq i32 %65, 0
   br i1 %.not.i, label %67, label %66
 
 66:                                               ; preds = %.thread
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.66) #13
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.66) #14
   %.pre.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   br label %67
 
@@ -1362,32 +1362,32 @@ define void @dt_update_thumbs_thread(ptr noundef readnone captures(none) %0) loc
   br i1 %.not1.i, label %71, label %70
 
 70:                                               ; preds = %67
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 990, ptr noundef nonnull @__FUNCTION__._reinitialize_thumbs_database, ptr noundef nonnull @.str.67) #13
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 990, ptr noundef nonnull @__FUNCTION__._reinitialize_thumbs_database, ptr noundef nonnull @.str.67) #14
   br label %71
 
 71:                                               ; preds = %70, %67
   %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !48
-  %73 = call ptr @dt_database_get(ptr noundef %72) #13
-  %74 = call i32 @sqlite3_prepare_v2(ptr noundef %73, ptr noundef nonnull @.str.67, i32 noundef -1, ptr noundef nonnull %10, ptr noundef null) #13
+  %73 = call ptr @dt_database_get(ptr noundef %72) #14
+  %74 = call i32 @sqlite3_prepare_v2(ptr noundef %73, ptr noundef nonnull @.str.67, i32 noundef -1, ptr noundef nonnull %10, ptr noundef null) #14
   %.not2.i = icmp eq i32 %74, 0
   br i1 %.not2.i, label %_reinitialize_thumbs_database.exit, label %75
 
 75:                                               ; preds = %71
   %76 = load ptr, ptr @stderr, align 8, !tbaa !49
   %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !48
-  %78 = call ptr @dt_database_get(ptr noundef %77) #13
-  %79 = call ptr @sqlite3_errmsg(ptr noundef %78) #13
-  %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 990, ptr noundef nonnull @__FUNCTION__._reinitialize_thumbs_database, ptr noundef nonnull @.str.67, ptr noundef %79) #14
+  %78 = call ptr @dt_database_get(ptr noundef %77) #14
+  %79 = call ptr @sqlite3_errmsg(ptr noundef %78) #14
+  %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 990, ptr noundef nonnull @__FUNCTION__._reinitialize_thumbs_database, ptr noundef nonnull @.str.67, ptr noundef %79) #15
   br label %_reinitialize_thumbs_database.exit
 
 _reinitialize_thumbs_database.exit:               ; preds = %71, %75
   %81 = load ptr, ptr %10, align 8, !tbaa !51
-  %82 = call i32 @sqlite3_step(ptr noundef %81) #13
+  %82 = call i32 @sqlite3_step(ptr noundef %81) #14
   %83 = load ptr, ptr %10, align 8, !tbaa !51
-  %84 = call i32 @sqlite3_finalize(ptr noundef %83) #13
+  %84 = call i32 @sqlite3_finalize(ptr noundef %83) #14
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3400), align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %85 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #13
+  %85 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #14
   %86 = load i64, ptr %9, align 8, !tbaa !53
   %87 = add nsw i64 %86, -1290608000
   %88 = sitofp i64 %87 to double
@@ -1407,7 +1407,7 @@ _reinitialize_thumbs_database.exit:               ; preds = %71, %75
   br i1 %.not.i50, label %_lighttable_silent.exit.thread, label %96
 
 96:                                               ; preds = %94
-  %97 = call ptr @dt_view_manager_get_current_view(ptr noundef nonnull %95) #13
+  %97 = call ptr @dt_view_manager_get_current_view(ptr noundef nonnull %95) #14
   %.not6.i = icmp eq ptr %97, null
   br i1 %.not6.i, label %_lighttable_silent.exit.thread, label %98
 
@@ -1418,13 +1418,13 @@ _reinitialize_thumbs_database.exit:               ; preds = %71, %75
   br i1 %.not7.i, label %_lighttable_silent.exit.thread, label %101
 
 101:                                              ; preds = %98
-  %102 = call i32 %100(ptr noundef nonnull %97) #13
+  %102 = call i32 %100(ptr noundef nonnull %97) #14
   %103 = icmp eq i32 %102, 1
   br i1 %103, label %_lighttable_silent.exit, label %_lighttable_silent.exit.thread
 
 _lighttable_silent.exit:                          ; preds = %101
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %104 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #13
+  %104 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #14
   %105 = load i64, ptr %8, align 8, !tbaa !53
   %106 = add nsw i64 %105, -1290608000
   %107 = sitofp i64 %106 to double
@@ -1451,41 +1451,41 @@ _lighttable_silent.exit:                          ; preds = %101
   br i1 %.not.i51, label %122, label %121
 
 121:                                              ; preds = %118
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 947, ptr noundef nonnull @__FUNCTION__._update_all_thumbs, ptr noundef nonnull @.str.68) #13
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 947, ptr noundef nonnull @__FUNCTION__._update_all_thumbs, ptr noundef nonnull @.str.68) #14
   br label %122
 
 122:                                              ; preds = %121, %118
   %123 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !48
-  %124 = call ptr @dt_database_get(ptr noundef %123) #13
-  %125 = call i32 @sqlite3_prepare_v2(ptr noundef %124, ptr noundef nonnull @.str.68, i32 noundef -1, ptr noundef nonnull %6, ptr noundef null) #13
+  %124 = call ptr @dt_database_get(ptr noundef %123) #14
+  %125 = call i32 @sqlite3_prepare_v2(ptr noundef %124, ptr noundef nonnull @.str.68, i32 noundef -1, ptr noundef nonnull %6, ptr noundef null) #14
   %.not18.i = icmp eq i32 %125, 0
   br i1 %.not18.i, label %132, label %126
 
 126:                                              ; preds = %122
   %127 = load ptr, ptr @stderr, align 8, !tbaa !49
   %128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !48
-  %129 = call ptr @dt_database_get(ptr noundef %128) #13
-  %130 = call ptr @sqlite3_errmsg(ptr noundef %129) #13
-  %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %127, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 947, ptr noundef nonnull @__FUNCTION__._update_all_thumbs, ptr noundef nonnull @.str.68, ptr noundef %130) #14
+  %129 = call ptr @dt_database_get(ptr noundef %128) #14
+  %130 = call ptr @sqlite3_errmsg(ptr noundef %129) #14
+  %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %127, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 947, ptr noundef nonnull @__FUNCTION__._update_all_thumbs, ptr noundef nonnull @.str.68, ptr noundef %130) #15
   br label %132
 
 132:                                              ; preds = %126, %122
   %133 = load ptr, ptr %6, align 8, !tbaa !51
-  %134 = call i32 @sqlite3_bind_int(ptr noundef %133, i32 noundef 1, i32 noundef %115) #13
+  %134 = call i32 @sqlite3_bind_int(ptr noundef %133, i32 noundef 1, i32 noundef %115) #14
   %.not19.i = icmp eq i32 %134, 0
   br i1 %.not19.i, label %141, label %135
 
 135:                                              ; preds = %132
   %136 = load ptr, ptr @stderr, align 8, !tbaa !49
   %137 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !48
-  %138 = call ptr @dt_database_get(ptr noundef %137) #13
-  %139 = call ptr @sqlite3_errmsg(ptr noundef %138) #13
-  %140 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.1, i32 noundef 948, ptr noundef nonnull @__FUNCTION__._update_all_thumbs, ptr noundef %139) #14
+  %138 = call ptr @dt_database_get(ptr noundef %137) #14
+  %139 = call ptr @sqlite3_errmsg(ptr noundef %138) #14
+  %140 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.1, i32 noundef 948, ptr noundef nonnull @__FUNCTION__._update_all_thumbs, ptr noundef %139) #15
   br label %141
 
 141:                                              ; preds = %135, %132
   %142 = load ptr, ptr %6, align 8, !tbaa !51
-  %143 = call i32 @sqlite3_step(ptr noundef %142) #13
+  %143 = call i32 @sqlite3_step(ptr noundef %142) #14
   %144 = icmp ne i32 %143, 100
   %145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3404), align 4
   %.not.i36.i = icmp eq i32 %145, 0
@@ -1494,7 +1494,7 @@ _lighttable_silent.exit:                          ; preds = %101
 
 .critedge.thread.i:                               ; preds = %141
   %146 = load ptr, ptr %6, align 8, !tbaa !51
-  %147 = call i32 @sqlite3_finalize(ptr noundef %146) #13
+  %147 = call i32 @sqlite3_finalize(ptr noundef %146) #14
   br label %_update_all_thumbs.exit
 
 .lr.ph.i:                                         ; preds = %141, %235
@@ -1505,7 +1505,7 @@ _lighttable_silent.exit:                          ; preds = %101
   br i1 %.not.i.i.i, label %.critedge.i, label %149
 
 149:                                              ; preds = %.lr.ph.i
-  %150 = call ptr @dt_view_manager_get_current_view(ptr noundef nonnull %148) #13
+  %150 = call ptr @dt_view_manager_get_current_view(ptr noundef nonnull %148) #14
   %.not6.i.i.i = icmp eq ptr %150, null
   br i1 %.not6.i.i.i, label %.critedge.i, label %151
 
@@ -1516,13 +1516,13 @@ _lighttable_silent.exit:                          ; preds = %101
   br i1 %.not7.i.i.i, label %.critedge.i, label %154
 
 154:                                              ; preds = %151
-  %155 = call i32 %153(ptr noundef nonnull %150) #13
+  %155 = call i32 %153(ptr noundef nonnull %150) #14
   %156 = icmp eq i32 %155, 1
   br i1 %156, label %_lighttable_silent.exit.i.i, label %.critedge.i
 
 _lighttable_silent.exit.i.i:                      ; preds = %154
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %157 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #13
+  %157 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #14
   %158 = load i64, ptr %5, align 8, !tbaa !53
   %159 = add nsw i64 %158, -1290608000
   %160 = sitofp i64 %159 to double
@@ -1543,19 +1543,19 @@ _still_thumbing.exit.i:                           ; preds = %_lighttable_silent.
 
 170:                                              ; preds = %_still_thumbing.exit.i
   %171 = load ptr, ptr %6, align 8, !tbaa !51
-  %172 = call i32 @sqlite3_column_int(ptr noundef %171, i32 noundef 0) #13
+  %172 = call i32 @sqlite3_column_int(ptr noundef %171, i32 noundef 0) #14
   %173 = load ptr, ptr %6, align 8, !tbaa !51
-  %174 = call i64 @sqlite3_column_int64(ptr noundef %173, i32 noundef 1) #13
+  %174 = call i64 @sqlite3_column_int64(ptr noundef %173, i32 noundef 1) #14
   %175 = load ptr, ptr %6, align 8, !tbaa !51
-  %176 = call i64 @sqlite3_column_int64(ptr noundef %175, i32 noundef 2) #13
+  %176 = call i64 @sqlite3_column_int64(ptr noundef %175, i32 noundef 2) #14
   %177 = icmp sgt i64 %174, %176
   %178 = load ptr, ptr %6, align 8, !tbaa !51
   %..i = select i1 %177, i32 1, i32 2
-  %179 = call i64 @sqlite3_column_int64(ptr noundef %178, i32 noundef %..i) #13
+  %179 = call i64 @sqlite3_column_int64(ptr noundef %178, i32 noundef %..i) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %7, i8 0, i64 4096, i1 false)
-  call void @dt_image_full_path(i32 noundef %172, ptr noundef nonnull %7, i64 noundef 4096, ptr noundef null) #13
-  %180 = call i32 @dt_util_test_image_file(ptr noundef nonnull %7) #13
+  call void @dt_image_full_path(i32 noundef %172, ptr noundef nonnull %7, i64 noundef 4096, ptr noundef null) #14
+  %180 = call i32 @dt_util_test_image_file(ptr noundef nonnull %7) #14
   %.not24.i = icmp eq i32 %180, 0
   br i1 %.not24.i, label %230, label %.lr.ph.i.i
 
@@ -1570,83 +1570,83 @@ _still_thumbing.exit.i:                           ; preds = %_lighttable_silent.
   %.020.i.i = phi i32 [ %185, %.lr.ph.i.i ], [ %115, %170 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %183 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !91
-  call void @dt_mipmap_cache_get_with_caller(ptr noundef %183, ptr noundef nonnull %3, i32 noundef %172, i32 noundef %.020.i.i, i32 noundef 3, i8 noundef signext 114, ptr noundef nonnull @.str.1, i32 noundef 913) #13
+  call void @dt_mipmap_cache_get_with_caller(ptr noundef %183, ptr noundef nonnull %3, i32 noundef %172, i32 noundef %.020.i.i, i32 noundef 3, i8 noundef signext 114, ptr noundef nonnull @.str.1, i32 noundef 913) #14
   %184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !91
-  call void @dt_mipmap_cache_release_with_caller(ptr noundef %184, ptr noundef nonnull %3, ptr noundef nonnull @.str.1, i32 noundef 914) #13
+  call void @dt_mipmap_cache_release_with_caller(ptr noundef %184, ptr noundef nonnull %3, ptr noundef nonnull @.str.1, i32 noundef 914) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %185 = add i32 %.020.i.i, -1
   %.not.i26.i = icmp eq i32 %185, 0
   br i1 %.not.i26.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 186:                                              ; preds = %._crit_edge.i.i
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 923, ptr noundef nonnull @__FUNCTION__._update_img_thumbs, ptr noundef nonnull @.str.73) #13
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 923, ptr noundef nonnull @__FUNCTION__._update_img_thumbs, ptr noundef nonnull @.str.73) #14
   br label %187
 
 187:                                              ; preds = %186, %._crit_edge.i.i
   %188 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !48
-  %189 = call ptr @dt_database_get(ptr noundef %188) #13
-  %190 = call i32 @sqlite3_prepare_v2(ptr noundef %189, ptr noundef nonnull @.str.73, i32 noundef -1, ptr noundef nonnull %4, ptr noundef null) #13
+  %189 = call ptr @dt_database_get(ptr noundef %188) #14
+  %190 = call i32 @sqlite3_prepare_v2(ptr noundef %189, ptr noundef nonnull @.str.73, i32 noundef -1, ptr noundef nonnull %4, ptr noundef null) #14
   %.not15.i.i = icmp eq i32 %190, 0
   br i1 %.not15.i.i, label %197, label %191
 
 191:                                              ; preds = %187
   %192 = load ptr, ptr @stderr, align 8, !tbaa !49
   %193 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !48
-  %194 = call ptr @dt_database_get(ptr noundef %193) #13
-  %195 = call ptr @sqlite3_errmsg(ptr noundef %194) #13
-  %196 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %192, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 923, ptr noundef nonnull @__FUNCTION__._update_img_thumbs, ptr noundef nonnull @.str.73, ptr noundef %195) #14
+  %194 = call ptr @dt_database_get(ptr noundef %193) #14
+  %195 = call ptr @sqlite3_errmsg(ptr noundef %194) #14
+  %196 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %192, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 923, ptr noundef nonnull @__FUNCTION__._update_img_thumbs, ptr noundef nonnull @.str.73, ptr noundef %195) #15
   br label %197
 
 197:                                              ; preds = %191, %187
   %198 = load ptr, ptr %4, align 8, !tbaa !51
-  %199 = call i32 @sqlite3_bind_int(ptr noundef %198, i32 noundef 1, i32 noundef %172) #13
+  %199 = call i32 @sqlite3_bind_int(ptr noundef %198, i32 noundef 1, i32 noundef %172) #14
   %.not16.i.i = icmp eq i32 %199, 0
   br i1 %.not16.i.i, label %206, label %200
 
 200:                                              ; preds = %197
   %201 = load ptr, ptr @stderr, align 8, !tbaa !49
   %202 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !48
-  %203 = call ptr @dt_database_get(ptr noundef %202) #13
-  %204 = call ptr @sqlite3_errmsg(ptr noundef %203) #13
-  %205 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %201, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.1, i32 noundef 924, ptr noundef nonnull @__FUNCTION__._update_img_thumbs, ptr noundef %204) #14
+  %203 = call ptr @dt_database_get(ptr noundef %202) #14
+  %204 = call ptr @sqlite3_errmsg(ptr noundef %203) #14
+  %205 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %201, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.1, i32 noundef 924, ptr noundef nonnull @__FUNCTION__._update_img_thumbs, ptr noundef %204) #15
   br label %206
 
 206:                                              ; preds = %200, %197
   %207 = load ptr, ptr %4, align 8, !tbaa !51
-  %208 = call i32 @sqlite3_bind_int(ptr noundef %207, i32 noundef 2, i32 noundef %115) #13
+  %208 = call i32 @sqlite3_bind_int(ptr noundef %207, i32 noundef 2, i32 noundef %115) #14
   %.not17.i.i = icmp eq i32 %208, 0
   br i1 %.not17.i.i, label %215, label %209
 
 209:                                              ; preds = %206
   %210 = load ptr, ptr @stderr, align 8, !tbaa !49
   %211 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !48
-  %212 = call ptr @dt_database_get(ptr noundef %211) #13
-  %213 = call ptr @sqlite3_errmsg(ptr noundef %212) #13
-  %214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %210, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.1, i32 noundef 925, ptr noundef nonnull @__FUNCTION__._update_img_thumbs, ptr noundef %213) #14
+  %212 = call ptr @dt_database_get(ptr noundef %211) #14
+  %213 = call ptr @sqlite3_errmsg(ptr noundef %212) #14
+  %214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %210, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.1, i32 noundef 925, ptr noundef nonnull @__FUNCTION__._update_img_thumbs, ptr noundef %213) #15
   br label %215
 
 215:                                              ; preds = %209, %206
   %216 = load ptr, ptr %4, align 8, !tbaa !51
-  %217 = call i32 @sqlite3_bind_int64(ptr noundef %216, i32 noundef 3, i64 noundef %179) #13
+  %217 = call i32 @sqlite3_bind_int64(ptr noundef %216, i32 noundef 3, i64 noundef %179) #14
   %.not18.i.i = icmp eq i32 %217, 0
   br i1 %.not18.i.i, label %_update_img_thumbs.exit.i, label %218
 
 218:                                              ; preds = %215
   %219 = load ptr, ptr @stderr, align 8, !tbaa !49
   %220 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !48
-  %221 = call ptr @dt_database_get(ptr noundef %220) #13
-  %222 = call ptr @sqlite3_errmsg(ptr noundef %221) #13
-  %223 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %219, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.1, i32 noundef 926, ptr noundef nonnull @__FUNCTION__._update_img_thumbs, ptr noundef %222) #14
+  %221 = call ptr @dt_database_get(ptr noundef %220) #14
+  %222 = call ptr @sqlite3_errmsg(ptr noundef %221) #14
+  %223 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %219, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.1, i32 noundef 926, ptr noundef nonnull @__FUNCTION__._update_img_thumbs, ptr noundef %222) #15
   br label %_update_img_thumbs.exit.i
 
 _update_img_thumbs.exit.i:                        ; preds = %218, %215
   %224 = load ptr, ptr %4, align 8, !tbaa !51
-  %225 = call i32 @sqlite3_step(ptr noundef %224) #13
+  %225 = call i32 @sqlite3_step(ptr noundef %224) #14
   %226 = load ptr, ptr %4, align 8, !tbaa !51
-  %227 = call i32 @sqlite3_finalize(ptr noundef %226) #13
+  %227 = call i32 @sqlite3_finalize(ptr noundef %226) #14
   %228 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !91
-  call void @dt_mimap_cache_evict(ptr noundef %228, i32 noundef %172) #13
-  call void @dt_history_hash_set_mipmap(i32 noundef %172) #13
+  call void @dt_mimap_cache_evict(ptr noundef %228, i32 noundef %172) #14
+  call void @dt_history_hash_set_mipmap(i32 noundef %172) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %229 = add nsw i32 %.01638.i, 1
   br label %235
@@ -1659,7 +1659,7 @@ _update_img_thumbs.exit.i:                        ; preds = %218, %215
   br i1 %.not25.i, label %235, label %234
 
 234:                                              ; preds = %230
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.69, ptr noundef nonnull %7, i32 noundef %172) #13
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.69, ptr noundef nonnull %7, i32 noundef %172) #14
   br label %235
 
 235:                                              ; preds = %234, %230, %_update_img_thumbs.exit.i
@@ -1667,7 +1667,7 @@ _update_img_thumbs.exit.i:                        ; preds = %218, %215
   %.1.i = phi i32 [ %.039.i, %_update_img_thumbs.exit.i ], [ %231, %234 ], [ %231, %230 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %236 = load ptr, ptr %6, align 8, !tbaa !51
-  %237 = call i32 @sqlite3_step(ptr noundef %236) #13
+  %237 = call i32 @sqlite3_step(ptr noundef %236) #14
   %238 = icmp ne i32 %237, 100
   %239 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3404), align 4
   %.not.i.i = icmp eq i32 %239, 0
@@ -1678,7 +1678,7 @@ _update_img_thumbs.exit.i:                        ; preds = %218, %215
   %.016.lcssa.i = phi i32 [ %.01638.i, %_still_thumbing.exit.i ], [ %.117.i, %235 ], [ %.01638.i, %_lighttable_silent.exit.i.i ], [ %.01638.i, %154 ], [ %.01638.i, %151 ], [ %.01638.i, %149 ], [ %.01638.i, %.lr.ph.i ]
   %.0.lcssa.i = phi i32 [ %.039.i, %_still_thumbing.exit.i ], [ %.1.i, %235 ], [ %.039.i, %_lighttable_silent.exit.i.i ], [ %.039.i, %154 ], [ %.039.i, %151 ], [ %.039.i, %149 ], [ %.039.i, %.lr.ph.i ]
   %240 = load ptr, ptr %6, align 8, !tbaa !51
-  %241 = call i32 @sqlite3_finalize(ptr noundef %240) #13
+  %241 = call i32 @sqlite3_finalize(ptr noundef %240) #14
   %.not21.i = icmp eq i32 %.016.lcssa.i, 0
   br i1 %.not21.i, label %_update_all_thumbs.exit, label %242
 
@@ -1699,7 +1699,7 @@ _update_img_thumbs.exit.i:                        ; preds = %218, %215
   br i1 %.not.i.i28.i, label %_still_thumbing.exit32.thread.i, label %249
 
 249:                                              ; preds = %247
-  %250 = call ptr @dt_view_manager_get_current_view(ptr noundef nonnull %248) #13
+  %250 = call ptr @dt_view_manager_get_current_view(ptr noundef nonnull %248) #14
   %.not6.i.i29.i = icmp eq ptr %250, null
   br i1 %.not6.i.i29.i, label %_still_thumbing.exit32.thread.i, label %251
 
@@ -1710,13 +1710,13 @@ _update_img_thumbs.exit.i:                        ; preds = %218, %215
   br i1 %.not7.i.i30.i, label %_still_thumbing.exit32.thread.i, label %254
 
 254:                                              ; preds = %251
-  %255 = call i32 %253(ptr noundef nonnull %250) #13
+  %255 = call i32 %253(ptr noundef nonnull %250) #14
   %256 = icmp eq i32 %255, 1
   br i1 %256, label %_lighttable_silent.exit.i31.i, label %_still_thumbing.exit32.thread.i
 
 _lighttable_silent.exit.i31.i:                    ; preds = %254
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %257 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #13
+  %257 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #14
   %258 = load i64, ptr %2, align 8, !tbaa !53
   %259 = add nsw i64 %258, -1290608000
   %260 = sitofp i64 %259 to double
@@ -1741,7 +1741,7 @@ _still_thumbing.exit32.thread.i:                  ; preds = %_still_thumbing.exi
 
 270:                                              ; preds = %_still_thumbing.exit32.thread.i, %_still_thumbing.exit32.i
   %271 = phi ptr [ @.str.72, %_still_thumbing.exit32.thread.i ], [ @.str.71, %_still_thumbing.exit32.i ]
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.70, i32 noundef %115, i32 noundef %.016.lcssa.i, i32 noundef %.0.lcssa.i, ptr noundef nonnull %271) #13
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.70, i32 noundef %115, i32 noundef %.016.lcssa.i, i32 noundef %.0.lcssa.i, ptr noundef nonnull %271) #14
   br label %_update_all_thumbs.exit
 
 _update_all_thumbs.exit:                          ; preds = %.critedge.thread.i, %.critedge.i, %242, %270
@@ -1774,7 +1774,7 @@ _lighttable_silent.exit.thread:                   ; preds = %94, %96, %98, %101,
   br i1 %.not39, label %281, label %280
 
 280:                                              ; preds = %._crit_edge
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.42, i32 noundef %.028.lcssa) #13
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.42, i32 noundef %.028.lcssa) #14
   br label %281
 
 281:                                              ; preds = %280, %._crit_edge
@@ -1868,80 +1868,80 @@ define internal void @sync_xmp_to_db(ptr noundef %0, ptr noundef %1, ptr noundef
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %9, i32 noundef 0, ptr noundef nonnull %8, i32 noundef 2, ptr noundef nonnull %10, i32 noundef 6, ptr noundef nonnull %11, i32 noundef 5, ptr noundef nonnull %12, i32 noundef -1) #13
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %9, i32 noundef 0, ptr noundef nonnull %8, i32 noundef 2, ptr noundef nonnull %10, i32 noundef 6, ptr noundef nonnull %11, i32 noundef 5, ptr noundef nonnull %12, i32 noundef -1) #14
   %13 = load i32, ptr %8, align 8, !tbaa !60
   %14 = load i64, ptr %12, align 8, !tbaa !62
   call fastcc void @_db_update_timestamp(i32 noundef %13, i64 noundef %14)
   %15 = load i32, ptr %8, align 8, !tbaa !60
   %16 = load ptr, ptr %10, align 8, !tbaa !65
-  %17 = call i32 @dt_history_load_and_apply(i32 noundef %15, ptr noundef %16, i32 noundef 0) #13
+  %17 = call i32 @dt_history_load_and_apply(i32 noundef %15, ptr noundef %16, i32 noundef 0) #14
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %38, label %18
 
 18:                                               ; preds = %4
-  %19 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.50, i32 noundef 5) #13
+  %19 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.50, i32 noundef 5) #14
   %20 = load ptr, ptr %9, align 8, !tbaa !64
   %.not.i = icmp eq ptr %20, null
   %21 = select i1 %.not.i, ptr @.str.48, ptr %20
-  %22 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %19, ptr noundef nonnull %21) #13
+  %22 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %19, ptr noundef nonnull %21) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !74
-  %25 = tail call i64 @gtk_tree_view_get_type() #18
-  %26 = call ptr @g_type_check_instance_cast(ptr noundef %24, i64 noundef %25) #13
-  %27 = call ptr @gtk_tree_view_get_model(ptr noundef %26) #13
-  %28 = tail call i64 @gtk_list_store_get_type() #18
-  %29 = call ptr @g_type_check_instance_cast(ptr noundef %27, i64 noundef %28) #13
-  call void @gtk_list_store_append(ptr noundef %29, ptr noundef nonnull %7) #13
-  %30 = call ptr @g_type_check_instance_cast(ptr noundef %27, i64 noundef %28) #13
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %30, ptr noundef nonnull %7, i32 noundef 0, ptr noundef %22, i32 noundef -1) #13
-  call void @g_free(ptr noundef %22) #13
+  %25 = tail call i64 @gtk_tree_view_get_type() #19
+  %26 = call ptr @g_type_check_instance_cast(ptr noundef %24, i64 noundef %25) #14
+  %27 = call ptr @gtk_tree_view_get_model(ptr noundef %26) #14
+  %28 = tail call i64 @gtk_list_store_get_type() #19
+  %29 = call ptr @g_type_check_instance_cast(ptr noundef %27, i64 noundef %28) #14
+  call void @gtk_list_store_append(ptr noundef %29, ptr noundef nonnull %7) #14
+  %30 = call ptr @g_type_check_instance_cast(ptr noundef %27, i64 noundef %28) #14
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %30, ptr noundef nonnull %7, i32 noundef 0, ptr noundef %22, i32 noundef -1) #14
+  call void @g_free(ptr noundef %22) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %31 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 5) #13
-  %32 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %31, ptr noundef nonnull @.str.48) #13
+  %31 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 5) #14
+  %32 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %31, ptr noundef nonnull @.str.48) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %33 = load ptr, ptr %23, align 8, !tbaa !74
-  %34 = call ptr @g_type_check_instance_cast(ptr noundef %33, i64 noundef %25) #13
-  %35 = call ptr @gtk_tree_view_get_model(ptr noundef %34) #13
-  %36 = call ptr @g_type_check_instance_cast(ptr noundef %35, i64 noundef %28) #13
-  call void @gtk_list_store_append(ptr noundef %36, ptr noundef nonnull %6) #13
-  %37 = call ptr @g_type_check_instance_cast(ptr noundef %35, i64 noundef %28) #13
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %37, ptr noundef nonnull %6, i32 noundef 0, ptr noundef %32, i32 noundef -1) #13
-  call void @g_free(ptr noundef %32) #13
+  %34 = call ptr @g_type_check_instance_cast(ptr noundef %33, i64 noundef %25) #14
+  %35 = call ptr @gtk_tree_view_get_model(ptr noundef %34) #14
+  %36 = call ptr @g_type_check_instance_cast(ptr noundef %35, i64 noundef %28) #14
+  call void @gtk_list_store_append(ptr noundef %36, ptr noundef nonnull %6) #14
+  %37 = call ptr @g_type_check_instance_cast(ptr noundef %35, i64 noundef %28) #14
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %37, ptr noundef nonnull %6, i32 noundef 0, ptr noundef %32, i32 noundef -1) #14
+  call void @g_free(ptr noundef %32) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %55
 
 38:                                               ; preds = %4
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %40 = call ptr @gtk_tree_row_reference_new(ptr noundef %0, ptr noundef %1) #13
+  %40 = call ptr @gtk_tree_row_reference_new(ptr noundef %0, ptr noundef %1) #14
   %41 = load ptr, ptr %39, align 8, !tbaa !75
-  %42 = call ptr @g_list_append(ptr noundef %41, ptr noundef %40) #13
+  %42 = call ptr @g_list_append(ptr noundef %41, ptr noundef %40) #14
   store ptr %42, ptr %39, align 8, !tbaa !75
-  %43 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.52, i32 noundef 5) #13
+  %43 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.52, i32 noundef 5) #14
   %44 = load ptr, ptr %9, align 8, !tbaa !64
   %.not.i9 = icmp eq ptr %44, null
   %45 = select i1 %.not.i9, ptr @.str.48, ptr %44
-  %46 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %43, ptr noundef nonnull %45) #13
+  %46 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %43, ptr noundef nonnull %45) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !74
-  %49 = tail call i64 @gtk_tree_view_get_type() #18
-  %50 = call ptr @g_type_check_instance_cast(ptr noundef %48, i64 noundef %49) #13
-  %51 = call ptr @gtk_tree_view_get_model(ptr noundef %50) #13
-  %52 = tail call i64 @gtk_list_store_get_type() #18
-  %53 = call ptr @g_type_check_instance_cast(ptr noundef %51, i64 noundef %52) #13
-  call void @gtk_list_store_append(ptr noundef %53, ptr noundef nonnull %5) #13
-  %54 = call ptr @g_type_check_instance_cast(ptr noundef %51, i64 noundef %52) #13
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %54, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %46, i32 noundef -1) #13
-  call void @g_free(ptr noundef %46) #13
+  %49 = tail call i64 @gtk_tree_view_get_type() #19
+  %50 = call ptr @g_type_check_instance_cast(ptr noundef %48, i64 noundef %49) #14
+  %51 = call ptr @gtk_tree_view_get_model(ptr noundef %50) #14
+  %52 = tail call i64 @gtk_list_store_get_type() #19
+  %53 = call ptr @g_type_check_instance_cast(ptr noundef %51, i64 noundef %52) #14
+  call void @gtk_list_store_append(ptr noundef %53, ptr noundef nonnull %5) #14
+  %54 = call ptr @g_type_check_instance_cast(ptr noundef %51, i64 noundef %52) #14
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %54, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %46, i32 noundef -1) #14
+  call void @g_free(ptr noundef %46) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %55
 
 55:                                               ; preds = %38, %18
   %56 = load ptr, ptr %9, align 8, !tbaa !64
-  call void @g_free(ptr noundef %56) #13
+  call void @g_free(ptr noundef %56) #14
   %57 = load ptr, ptr %10, align 8, !tbaa !65
-  call void @g_free(ptr noundef %57) #13
+  call void @g_free(ptr noundef %57) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
@@ -1956,57 +1956,57 @@ define internal fastcc void @_db_update_timestamp(i32 noundef %0, i64 noundef %1
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %2
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 394, ptr noundef nonnull @__FUNCTION__._db_update_timestamp, ptr noundef nonnull @.str.53) #13
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 394, ptr noundef nonnull @__FUNCTION__._db_update_timestamp, ptr noundef nonnull @.str.53) #14
   br label %7
 
 7:                                                ; preds = %6, %2
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !48
-  %9 = tail call ptr @dt_database_get(ptr noundef %8) #13
-  %10 = call i32 @sqlite3_prepare_v2(ptr noundef %9, ptr noundef nonnull @.str.53, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #13
+  %9 = tail call ptr @dt_database_get(ptr noundef %8) #14
+  %10 = call i32 @sqlite3_prepare_v2(ptr noundef %9, ptr noundef nonnull @.str.53, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #14
   %.not5 = icmp eq i32 %10, 0
   br i1 %.not5, label %17, label %11
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr @stderr, align 8, !tbaa !49
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !48
-  %14 = call ptr @dt_database_get(ptr noundef %13) #13
-  %15 = call ptr @sqlite3_errmsg(ptr noundef %14) #13
-  %16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 394, ptr noundef nonnull @__FUNCTION__._db_update_timestamp, ptr noundef nonnull @.str.53, ptr noundef %15) #14
+  %14 = call ptr @dt_database_get(ptr noundef %13) #14
+  %15 = call ptr @sqlite3_errmsg(ptr noundef %14) #14
+  %16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 394, ptr noundef nonnull @__FUNCTION__._db_update_timestamp, ptr noundef nonnull @.str.53, ptr noundef %15) #15
   br label %17
 
 17:                                               ; preds = %11, %7
   %18 = load ptr, ptr %3, align 8, !tbaa !51
-  %19 = call i32 @sqlite3_bind_int(ptr noundef %18, i32 noundef 1, i32 noundef %0) #13
+  %19 = call i32 @sqlite3_bind_int(ptr noundef %18, i32 noundef 1, i32 noundef %0) #14
   %.not6 = icmp eq i32 %19, 0
   br i1 %.not6, label %26, label %20
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr @stderr, align 8, !tbaa !49
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !48
-  %23 = call ptr @dt_database_get(ptr noundef %22) #13
-  %24 = call ptr @sqlite3_errmsg(ptr noundef %23) #13
-  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__FUNCTION__._db_update_timestamp, ptr noundef %24) #14
+  %23 = call ptr @dt_database_get(ptr noundef %22) #14
+  %24 = call ptr @sqlite3_errmsg(ptr noundef %23) #14
+  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__FUNCTION__._db_update_timestamp, ptr noundef %24) #15
   br label %26
 
 26:                                               ; preds = %20, %17
   %27 = load ptr, ptr %3, align 8, !tbaa !51
-  %28 = call i32 @sqlite3_bind_int64(ptr noundef %27, i32 noundef 2, i64 noundef %1) #13
+  %28 = call i32 @sqlite3_bind_int64(ptr noundef %27, i32 noundef 2, i64 noundef %1) #14
   %.not7 = icmp eq i32 %28, 0
   br i1 %.not7, label %35, label %29
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr @stderr, align 8, !tbaa !49
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !48
-  %32 = call ptr @dt_database_get(ptr noundef %31) #13
-  %33 = call ptr @sqlite3_errmsg(ptr noundef %32) #13
-  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.1, i32 noundef 396, ptr noundef nonnull @__FUNCTION__._db_update_timestamp, ptr noundef %33) #14
+  %32 = call ptr @dt_database_get(ptr noundef %31) #14
+  %33 = call ptr @sqlite3_errmsg(ptr noundef %32) #14
+  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.1, i32 noundef 396, ptr noundef nonnull @__FUNCTION__._db_update_timestamp, ptr noundef %33) #15
   br label %35
 
 35:                                               ; preds = %29, %26
   %36 = load ptr, ptr %3, align 8, !tbaa !51
-  %37 = call i32 @sqlite3_step(ptr noundef %36) #13
+  %37 = call i32 @sqlite3_step(ptr noundef %36) #14
   %38 = load ptr, ptr %3, align 8, !tbaa !51
-  %39 = call i32 @sqlite3_finalize(ptr noundef %38) #13
+  %39 = call i32 @sqlite3_finalize(ptr noundef %38) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -2031,7 +2031,7 @@ define internal void @sync_newest_to_oldest(ptr noundef %0, ptr noundef %1, ptr 
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %13, i32 noundef 0, ptr noundef nonnull %12, i32 noundef 2, ptr noundef nonnull %14, i32 noundef 6, ptr noundef nonnull %15, i32 noundef 5, ptr noundef nonnull %16, i32 noundef -1) #13
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %13, i32 noundef 0, ptr noundef nonnull %12, i32 noundef 2, ptr noundef nonnull %14, i32 noundef 6, ptr noundef nonnull %15, i32 noundef 5, ptr noundef nonnull %16, i32 noundef -1) #14
   %17 = load i64, ptr %16, align 8, !tbaa !62
   %18 = load i64, ptr %15, align 8, !tbaa !63
   %19 = icmp sgt i64 %17, %18
@@ -2042,60 +2042,60 @@ define internal void @sync_newest_to_oldest(ptr noundef %0, ptr noundef %1, ptr 
   call fastcc void @_db_update_timestamp(i32 noundef %21, i64 noundef %17)
   %22 = load i32, ptr %12, align 8, !tbaa !60
   %23 = load ptr, ptr %14, align 8, !tbaa !65
-  %24 = call i32 @dt_history_load_and_apply(i32 noundef %22, ptr noundef %23, i32 noundef 0) #13
+  %24 = call i32 @dt_history_load_and_apply(i32 noundef %22, ptr noundef %23, i32 noundef 0) #14
   %.not21 = icmp eq i32 %24, 0
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %.not21, label %45, label %26
 
 26:                                               ; preds = %20
-  %27 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.55, i32 noundef 5) #13
+  %27 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.55, i32 noundef 5) #14
   %28 = load ptr, ptr %13, align 8, !tbaa !64
   %.not.i = icmp eq ptr %28, null
   %29 = select i1 %.not.i, ptr @.str.48, ptr %28
-  %30 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %27, ptr noundef nonnull %29) #13
+  %30 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %27, ptr noundef nonnull %29) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %31 = load ptr, ptr %25, align 8, !tbaa !74
-  %32 = tail call i64 @gtk_tree_view_get_type() #18
-  %33 = call ptr @g_type_check_instance_cast(ptr noundef %31, i64 noundef %32) #13
-  %34 = call ptr @gtk_tree_view_get_model(ptr noundef %33) #13
-  %35 = tail call i64 @gtk_list_store_get_type() #18
-  %36 = call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef %35) #13
-  call void @gtk_list_store_append(ptr noundef %36, ptr noundef nonnull %11) #13
-  %37 = call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef %35) #13
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %37, ptr noundef nonnull %11, i32 noundef 0, ptr noundef %30, i32 noundef -1) #13
-  call void @g_free(ptr noundef %30) #13
+  %32 = tail call i64 @gtk_tree_view_get_type() #19
+  %33 = call ptr @g_type_check_instance_cast(ptr noundef %31, i64 noundef %32) #14
+  %34 = call ptr @gtk_tree_view_get_model(ptr noundef %33) #14
+  %35 = tail call i64 @gtk_list_store_get_type() #19
+  %36 = call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef %35) #14
+  call void @gtk_list_store_append(ptr noundef %36, ptr noundef nonnull %11) #14
+  %37 = call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef %35) #14
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %37, ptr noundef nonnull %11, i32 noundef 0, ptr noundef %30, i32 noundef -1) #14
+  call void @g_free(ptr noundef %30) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %38 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 5) #13
-  %39 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %38, ptr noundef nonnull @.str.48) #13
+  %38 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 5) #14
+  %39 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %38, ptr noundef nonnull @.str.48) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %40 = load ptr, ptr %25, align 8, !tbaa !74
-  %41 = call ptr @g_type_check_instance_cast(ptr noundef %40, i64 noundef %32) #13
-  %42 = call ptr @gtk_tree_view_get_model(ptr noundef %41) #13
-  %43 = call ptr @g_type_check_instance_cast(ptr noundef %42, i64 noundef %35) #13
-  call void @gtk_list_store_append(ptr noundef %43, ptr noundef nonnull %10) #13
-  %44 = call ptr @g_type_check_instance_cast(ptr noundef %42, i64 noundef %35) #13
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %44, ptr noundef nonnull %10, i32 noundef 0, ptr noundef %39, i32 noundef -1) #13
-  call void @g_free(ptr noundef %39) #13
+  %41 = call ptr @g_type_check_instance_cast(ptr noundef %40, i64 noundef %32) #14
+  %42 = call ptr @gtk_tree_view_get_model(ptr noundef %41) #14
+  %43 = call ptr @g_type_check_instance_cast(ptr noundef %42, i64 noundef %35) #14
+  call void @gtk_list_store_append(ptr noundef %43, ptr noundef nonnull %10) #14
+  %44 = call ptr @g_type_check_instance_cast(ptr noundef %42, i64 noundef %35) #14
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %44, ptr noundef nonnull %10, i32 noundef 0, ptr noundef %39, i32 noundef -1) #14
+  call void @g_free(ptr noundef %39) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge
 
 45:                                               ; preds = %20
-  %46 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.56, i32 noundef 5) #13
+  %46 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.56, i32 noundef 5) #14
   %47 = load ptr, ptr %13, align 8, !tbaa !64
   %.not.i23 = icmp eq ptr %47, null
   %48 = select i1 %.not.i23, ptr @.str.48, ptr %47
-  %49 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %46, ptr noundef nonnull %48) #13
+  %49 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %46, ptr noundef nonnull %48) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %50 = load ptr, ptr %25, align 8, !tbaa !74
-  %51 = tail call i64 @gtk_tree_view_get_type() #18
-  %52 = call ptr @g_type_check_instance_cast(ptr noundef %50, i64 noundef %51) #13
-  %53 = call ptr @gtk_tree_view_get_model(ptr noundef %52) #13
-  %54 = tail call i64 @gtk_list_store_get_type() #18
-  %55 = call ptr @g_type_check_instance_cast(ptr noundef %53, i64 noundef %54) #13
-  call void @gtk_list_store_append(ptr noundef %55, ptr noundef nonnull %9) #13
-  %56 = call ptr @g_type_check_instance_cast(ptr noundef %53, i64 noundef %54) #13
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %56, ptr noundef nonnull %9, i32 noundef 0, ptr noundef %49, i32 noundef -1) #13
-  call void @g_free(ptr noundef %49) #13
+  %51 = tail call i64 @gtk_tree_view_get_type() #19
+  %52 = call ptr @g_type_check_instance_cast(ptr noundef %50, i64 noundef %51) #14
+  %53 = call ptr @gtk_tree_view_get_model(ptr noundef %52) #14
+  %54 = tail call i64 @gtk_list_store_get_type() #19
+  %55 = call ptr @g_type_check_instance_cast(ptr noundef %53, i64 noundef %54) #14
+  call void @gtk_list_store_append(ptr noundef %55, ptr noundef nonnull %9) #14
+  %56 = call ptr @g_type_check_instance_cast(ptr noundef %53, i64 noundef %54) #14
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %56, ptr noundef nonnull %9, i32 noundef 0, ptr noundef %49, i32 noundef -1) #14
+  call void @g_free(ptr noundef %49) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %116
 
@@ -2105,118 +2105,118 @@ define internal void @sync_newest_to_oldest(ptr noundef %0, ptr noundef %1, ptr 
 
 59:                                               ; preds = %57
   %60 = load i32, ptr %12, align 8, !tbaa !60
-  %61 = call i32 @dt_image_write_sidecar_file(i32 noundef %60) #13
+  %61 = call i32 @dt_image_write_sidecar_file(i32 noundef %60) #14
   %62 = load ptr, ptr %14, align 8, !tbaa !65
   %63 = load i64, ptr %15, align 8, !tbaa !63
-  %64 = call ptr @g_file_new_for_path(ptr noundef %62) #13
-  %65 = call ptr @g_file_query_info(ptr noundef %64, ptr noundef nonnull @.str.46, i32 noundef 0, ptr noundef null, ptr noundef null) #13
+  %64 = call ptr @g_file_new_for_path(ptr noundef %62) #14
+  %65 = call ptr @g_file_query_info(ptr noundef %64, ptr noundef nonnull @.str.46, i32 noundef 0, ptr noundef null, ptr noundef null) #14
   %.not.i24 = icmp eq ptr %65, null
   br i1 %.not.i24, label %_set_modification_time.exit, label %66
 
 66:                                               ; preds = %59
-  call void @g_file_info_set_attribute_uint64(ptr noundef nonnull %65, ptr noundef nonnull @.str.47, i64 noundef %63) #13
-  %67 = call i32 @g_file_set_attributes_from_info(ptr noundef %64, ptr noundef nonnull %65, i32 noundef 0, ptr noundef null, ptr noundef null) #13
-  call void @g_object_unref(ptr noundef %64) #13
+  call void @g_file_info_set_attribute_uint64(ptr noundef nonnull %65, ptr noundef nonnull @.str.47, i64 noundef %63) #14
+  %67 = call i32 @g_file_set_attributes_from_info(ptr noundef %64, ptr noundef nonnull %65, i32 noundef 0, ptr noundef null, ptr noundef null) #14
+  call void @g_object_unref(ptr noundef %64) #14
   br label %_set_modification_time.exit
 
 _set_modification_time.exit:                      ; preds = %59, %66
   %.sink.i = phi ptr [ %65, %66 ], [ %64, %59 ]
-  call void @g_object_unref(ptr noundef %.sink.i) #13
+  call void @g_object_unref(ptr noundef %.sink.i) #14
   %68 = load ptr, ptr %13, align 8, !tbaa !64
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.57, ptr noundef %68) #13
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.57, ptr noundef %68) #14
   %.not = icmp eq i32 %61, 0
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %.not, label %91, label %70
 
 70:                                               ; preds = %_set_modification_time.exit
-  %71 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.58, i32 noundef 5) #13
+  %71 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.58, i32 noundef 5) #14
   %72 = load ptr, ptr %13, align 8, !tbaa !64
   %.not.i25 = icmp eq ptr %72, null
   %73 = select i1 %.not.i25, ptr @.str.48, ptr %72
-  %74 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %71, ptr noundef nonnull %73) #13
+  %74 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %71, ptr noundef nonnull %73) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %75 = load ptr, ptr %69, align 8, !tbaa !74
-  %76 = tail call i64 @gtk_tree_view_get_type() #18
-  %77 = call ptr @g_type_check_instance_cast(ptr noundef %75, i64 noundef %76) #13
-  %78 = call ptr @gtk_tree_view_get_model(ptr noundef %77) #13
-  %79 = tail call i64 @gtk_list_store_get_type() #18
-  %80 = call ptr @g_type_check_instance_cast(ptr noundef %78, i64 noundef %79) #13
-  call void @gtk_list_store_append(ptr noundef %80, ptr noundef nonnull %8) #13
-  %81 = call ptr @g_type_check_instance_cast(ptr noundef %78, i64 noundef %79) #13
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %81, ptr noundef nonnull %8, i32 noundef 0, ptr noundef %74, i32 noundef -1) #13
-  call void @g_free(ptr noundef %74) #13
+  %76 = tail call i64 @gtk_tree_view_get_type() #19
+  %77 = call ptr @g_type_check_instance_cast(ptr noundef %75, i64 noundef %76) #14
+  %78 = call ptr @gtk_tree_view_get_model(ptr noundef %77) #14
+  %79 = tail call i64 @gtk_list_store_get_type() #19
+  %80 = call ptr @g_type_check_instance_cast(ptr noundef %78, i64 noundef %79) #14
+  call void @gtk_list_store_append(ptr noundef %80, ptr noundef nonnull %8) #14
+  %81 = call ptr @g_type_check_instance_cast(ptr noundef %78, i64 noundef %79) #14
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %81, ptr noundef nonnull %8, i32 noundef 0, ptr noundef %74, i32 noundef -1) #14
+  call void @g_free(ptr noundef %74) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %82 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.44, i32 noundef 5) #13
+  %82 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.44, i32 noundef 5) #14
   %83 = load ptr, ptr %14, align 8, !tbaa !65
   %.not.i26 = icmp eq ptr %83, null
   %84 = select i1 %.not.i26, ptr @.str.48, ptr %83
-  %85 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %82, ptr noundef nonnull %84) #13
+  %85 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %82, ptr noundef nonnull %84) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %86 = load ptr, ptr %69, align 8, !tbaa !74
-  %87 = call ptr @g_type_check_instance_cast(ptr noundef %86, i64 noundef %76) #13
-  %88 = call ptr @gtk_tree_view_get_model(ptr noundef %87) #13
-  %89 = call ptr @g_type_check_instance_cast(ptr noundef %88, i64 noundef %79) #13
-  call void @gtk_list_store_append(ptr noundef %89, ptr noundef nonnull %7) #13
-  %90 = call ptr @g_type_check_instance_cast(ptr noundef %88, i64 noundef %79) #13
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %90, ptr noundef nonnull %7, i32 noundef 0, ptr noundef %85, i32 noundef -1) #13
-  call void @g_free(ptr noundef %85) #13
+  %87 = call ptr @g_type_check_instance_cast(ptr noundef %86, i64 noundef %76) #14
+  %88 = call ptr @gtk_tree_view_get_model(ptr noundef %87) #14
+  %89 = call ptr @g_type_check_instance_cast(ptr noundef %88, i64 noundef %79) #14
+  call void @gtk_list_store_append(ptr noundef %89, ptr noundef nonnull %7) #14
+  %90 = call ptr @g_type_check_instance_cast(ptr noundef %88, i64 noundef %79) #14
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %90, ptr noundef nonnull %7, i32 noundef 0, ptr noundef %85, i32 noundef -1) #14
+  call void @g_free(ptr noundef %85) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
 91:                                               ; preds = %_set_modification_time.exit
-  %92 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.59, i32 noundef 5) #13
+  %92 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.59, i32 noundef 5) #14
   %93 = load ptr, ptr %13, align 8, !tbaa !64
   %.not.i27 = icmp eq ptr %93, null
   %94 = select i1 %.not.i27, ptr @.str.48, ptr %93
-  %95 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %92, ptr noundef nonnull %94) #13
+  %95 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %92, ptr noundef nonnull %94) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %96 = load ptr, ptr %69, align 8, !tbaa !74
-  %97 = tail call i64 @gtk_tree_view_get_type() #18
-  %98 = call ptr @g_type_check_instance_cast(ptr noundef %96, i64 noundef %97) #13
-  %99 = call ptr @gtk_tree_view_get_model(ptr noundef %98) #13
-  %100 = tail call i64 @gtk_list_store_get_type() #18
-  %101 = call ptr @g_type_check_instance_cast(ptr noundef %99, i64 noundef %100) #13
-  call void @gtk_list_store_append(ptr noundef %101, ptr noundef nonnull %6) #13
-  %102 = call ptr @g_type_check_instance_cast(ptr noundef %99, i64 noundef %100) #13
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %102, ptr noundef nonnull %6, i32 noundef 0, ptr noundef %95, i32 noundef -1) #13
-  call void @g_free(ptr noundef %95) #13
+  %97 = tail call i64 @gtk_tree_view_get_type() #19
+  %98 = call ptr @g_type_check_instance_cast(ptr noundef %96, i64 noundef %97) #14
+  %99 = call ptr @gtk_tree_view_get_model(ptr noundef %98) #14
+  %100 = tail call i64 @gtk_list_store_get_type() #19
+  %101 = call ptr @g_type_check_instance_cast(ptr noundef %99, i64 noundef %100) #14
+  call void @gtk_list_store_append(ptr noundef %101, ptr noundef nonnull %6) #14
+  %102 = call ptr @g_type_check_instance_cast(ptr noundef %99, i64 noundef %100) #14
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %102, ptr noundef nonnull %6, i32 noundef 0, ptr noundef %95, i32 noundef -1) #14
+  call void @g_free(ptr noundef %95) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %116
 
 103:                                              ; preds = %57
-  %104 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.60, i32 noundef 5) #13
+  %104 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.60, i32 noundef 5) #14
   %105 = load ptr, ptr %13, align 8, !tbaa !64
   %.not.i28 = icmp eq ptr %105, null
   %106 = select i1 %.not.i28, ptr @.str.48, ptr %105
-  %107 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %104, ptr noundef nonnull %106) #13
+  %107 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %104, ptr noundef nonnull %106) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %108 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %109 = load ptr, ptr %108, align 8, !tbaa !74
-  %110 = tail call i64 @gtk_tree_view_get_type() #18
-  %111 = call ptr @g_type_check_instance_cast(ptr noundef %109, i64 noundef %110) #13
-  %112 = call ptr @gtk_tree_view_get_model(ptr noundef %111) #13
-  %113 = tail call i64 @gtk_list_store_get_type() #18
-  %114 = call ptr @g_type_check_instance_cast(ptr noundef %112, i64 noundef %113) #13
-  call void @gtk_list_store_append(ptr noundef %114, ptr noundef nonnull %5) #13
-  %115 = call ptr @g_type_check_instance_cast(ptr noundef %112, i64 noundef %113) #13
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %115, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %107, i32 noundef -1) #13
-  call void @g_free(ptr noundef %107) #13
+  %110 = tail call i64 @gtk_tree_view_get_type() #19
+  %111 = call ptr @g_type_check_instance_cast(ptr noundef %109, i64 noundef %110) #14
+  %112 = call ptr @gtk_tree_view_get_model(ptr noundef %111) #14
+  %113 = tail call i64 @gtk_list_store_get_type() #19
+  %114 = call ptr @g_type_check_instance_cast(ptr noundef %112, i64 noundef %113) #14
+  call void @gtk_list_store_append(ptr noundef %114, ptr noundef nonnull %5) #14
+  %115 = call ptr @g_type_check_instance_cast(ptr noundef %112, i64 noundef %113) #14
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %115, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %107, i32 noundef -1) #14
+  call void @g_free(ptr noundef %107) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 116:                                              ; preds = %45, %91
   %117 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %118 = call ptr @gtk_tree_row_reference_new(ptr noundef %0, ptr noundef %1) #13
+  %118 = call ptr @gtk_tree_row_reference_new(ptr noundef %0, ptr noundef %1) #14
   %119 = load ptr, ptr %117, align 8, !tbaa !75
-  %120 = call ptr @g_list_append(ptr noundef %119, ptr noundef %118) #13
+  %120 = call ptr @g_list_append(ptr noundef %119, ptr noundef %118) #14
   store ptr %120, ptr %117, align 8, !tbaa !75
   br label %.critedge
 
 .critedge:                                        ; preds = %26, %70, %103, %116
   %121 = load ptr, ptr %13, align 8, !tbaa !64
-  call void @g_free(ptr noundef %121) #13
+  call void @g_free(ptr noundef %121) #14
   %122 = load ptr, ptr %14, align 8, !tbaa !65
-  call void @g_free(ptr noundef %122) #13
+  call void @g_free(ptr noundef %122) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 }
@@ -2237,7 +2237,7 @@ define internal void @sync_oldest_to_newest(ptr noundef %0, ptr noundef %1, ptr 
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %13, i32 noundef 0, ptr noundef nonnull %12, i32 noundef 2, ptr noundef nonnull %14, i32 noundef 6, ptr noundef nonnull %15, i32 noundef 5, ptr noundef nonnull %16, i32 noundef -1) #13
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %13, i32 noundef 0, ptr noundef nonnull %12, i32 noundef 2, ptr noundef nonnull %14, i32 noundef 6, ptr noundef nonnull %15, i32 noundef 5, ptr noundef nonnull %16, i32 noundef -1) #14
   %17 = load i64, ptr %16, align 8, !tbaa !62
   %18 = load i64, ptr %15, align 8, !tbaa !63
   %19 = icmp slt i64 %17, %18
@@ -2248,60 +2248,60 @@ define internal void @sync_oldest_to_newest(ptr noundef %0, ptr noundef %1, ptr 
   call fastcc void @_db_update_timestamp(i32 noundef %21, i64 noundef %17)
   %22 = load i32, ptr %12, align 8, !tbaa !60
   %23 = load ptr, ptr %14, align 8, !tbaa !65
-  %24 = call i32 @dt_history_load_and_apply(i32 noundef %22, ptr noundef %23, i32 noundef 0) #13
+  %24 = call i32 @dt_history_load_and_apply(i32 noundef %22, ptr noundef %23, i32 noundef 0) #14
   %.not21 = icmp eq i32 %24, 0
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %.not21, label %45, label %26
 
 26:                                               ; preds = %20
-  %27 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.61, i32 noundef 5) #13
+  %27 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.61, i32 noundef 5) #14
   %28 = load ptr, ptr %13, align 8, !tbaa !64
   %.not.i = icmp eq ptr %28, null
   %29 = select i1 %.not.i, ptr @.str.48, ptr %28
-  %30 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %27, ptr noundef nonnull %29) #13
+  %30 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %27, ptr noundef nonnull %29) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %31 = load ptr, ptr %25, align 8, !tbaa !74
-  %32 = tail call i64 @gtk_tree_view_get_type() #18
-  %33 = call ptr @g_type_check_instance_cast(ptr noundef %31, i64 noundef %32) #13
-  %34 = call ptr @gtk_tree_view_get_model(ptr noundef %33) #13
-  %35 = tail call i64 @gtk_list_store_get_type() #18
-  %36 = call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef %35) #13
-  call void @gtk_list_store_append(ptr noundef %36, ptr noundef nonnull %11) #13
-  %37 = call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef %35) #13
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %37, ptr noundef nonnull %11, i32 noundef 0, ptr noundef %30, i32 noundef -1) #13
-  call void @g_free(ptr noundef %30) #13
+  %32 = tail call i64 @gtk_tree_view_get_type() #19
+  %33 = call ptr @g_type_check_instance_cast(ptr noundef %31, i64 noundef %32) #14
+  %34 = call ptr @gtk_tree_view_get_model(ptr noundef %33) #14
+  %35 = tail call i64 @gtk_list_store_get_type() #19
+  %36 = call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef %35) #14
+  call void @gtk_list_store_append(ptr noundef %36, ptr noundef nonnull %11) #14
+  %37 = call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef %35) #14
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %37, ptr noundef nonnull %11, i32 noundef 0, ptr noundef %30, i32 noundef -1) #14
+  call void @g_free(ptr noundef %30) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %38 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 5) #13
-  %39 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %38, ptr noundef nonnull @.str.48) #13
+  %38 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 5) #14
+  %39 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %38, ptr noundef nonnull @.str.48) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %40 = load ptr, ptr %25, align 8, !tbaa !74
-  %41 = call ptr @g_type_check_instance_cast(ptr noundef %40, i64 noundef %32) #13
-  %42 = call ptr @gtk_tree_view_get_model(ptr noundef %41) #13
-  %43 = call ptr @g_type_check_instance_cast(ptr noundef %42, i64 noundef %35) #13
-  call void @gtk_list_store_append(ptr noundef %43, ptr noundef nonnull %10) #13
-  %44 = call ptr @g_type_check_instance_cast(ptr noundef %42, i64 noundef %35) #13
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %44, ptr noundef nonnull %10, i32 noundef 0, ptr noundef %39, i32 noundef -1) #13
-  call void @g_free(ptr noundef %39) #13
+  %41 = call ptr @g_type_check_instance_cast(ptr noundef %40, i64 noundef %32) #14
+  %42 = call ptr @gtk_tree_view_get_model(ptr noundef %41) #14
+  %43 = call ptr @g_type_check_instance_cast(ptr noundef %42, i64 noundef %35) #14
+  call void @gtk_list_store_append(ptr noundef %43, ptr noundef nonnull %10) #14
+  %44 = call ptr @g_type_check_instance_cast(ptr noundef %42, i64 noundef %35) #14
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %44, ptr noundef nonnull %10, i32 noundef 0, ptr noundef %39, i32 noundef -1) #14
+  call void @g_free(ptr noundef %39) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge
 
 45:                                               ; preds = %20
-  %46 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.62, i32 noundef 5) #13
+  %46 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.62, i32 noundef 5) #14
   %47 = load ptr, ptr %13, align 8, !tbaa !64
   %.not.i23 = icmp eq ptr %47, null
   %48 = select i1 %.not.i23, ptr @.str.48, ptr %47
-  %49 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %46, ptr noundef nonnull %48) #13
+  %49 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %46, ptr noundef nonnull %48) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %50 = load ptr, ptr %25, align 8, !tbaa !74
-  %51 = tail call i64 @gtk_tree_view_get_type() #18
-  %52 = call ptr @g_type_check_instance_cast(ptr noundef %50, i64 noundef %51) #13
-  %53 = call ptr @gtk_tree_view_get_model(ptr noundef %52) #13
-  %54 = tail call i64 @gtk_list_store_get_type() #18
-  %55 = call ptr @g_type_check_instance_cast(ptr noundef %53, i64 noundef %54) #13
-  call void @gtk_list_store_append(ptr noundef %55, ptr noundef nonnull %9) #13
-  %56 = call ptr @g_type_check_instance_cast(ptr noundef %53, i64 noundef %54) #13
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %56, ptr noundef nonnull %9, i32 noundef 0, ptr noundef %49, i32 noundef -1) #13
-  call void @g_free(ptr noundef %49) #13
+  %51 = tail call i64 @gtk_tree_view_get_type() #19
+  %52 = call ptr @g_type_check_instance_cast(ptr noundef %50, i64 noundef %51) #14
+  %53 = call ptr @gtk_tree_view_get_model(ptr noundef %52) #14
+  %54 = tail call i64 @gtk_list_store_get_type() #19
+  %55 = call ptr @g_type_check_instance_cast(ptr noundef %53, i64 noundef %54) #14
+  call void @gtk_list_store_append(ptr noundef %55, ptr noundef nonnull %9) #14
+  %56 = call ptr @g_type_check_instance_cast(ptr noundef %53, i64 noundef %54) #14
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %56, ptr noundef nonnull %9, i32 noundef 0, ptr noundef %49, i32 noundef -1) #14
+  call void @g_free(ptr noundef %49) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %115
 
@@ -2311,116 +2311,116 @@ define internal void @sync_oldest_to_newest(ptr noundef %0, ptr noundef %1, ptr 
 
 59:                                               ; preds = %57
   %60 = load i32, ptr %12, align 8, !tbaa !60
-  %61 = call i32 @dt_image_write_sidecar_file(i32 noundef %60) #13
+  %61 = call i32 @dt_image_write_sidecar_file(i32 noundef %60) #14
   %62 = load ptr, ptr %14, align 8, !tbaa !65
   %63 = load i64, ptr %15, align 8, !tbaa !63
-  %64 = call ptr @g_file_new_for_path(ptr noundef %62) #13
-  %65 = call ptr @g_file_query_info(ptr noundef %64, ptr noundef nonnull @.str.46, i32 noundef 0, ptr noundef null, ptr noundef null) #13
+  %64 = call ptr @g_file_new_for_path(ptr noundef %62) #14
+  %65 = call ptr @g_file_query_info(ptr noundef %64, ptr noundef nonnull @.str.46, i32 noundef 0, ptr noundef null, ptr noundef null) #14
   %.not.i24 = icmp eq ptr %65, null
   br i1 %.not.i24, label %_set_modification_time.exit, label %66
 
 66:                                               ; preds = %59
-  call void @g_file_info_set_attribute_uint64(ptr noundef nonnull %65, ptr noundef nonnull @.str.47, i64 noundef %63) #13
-  %67 = call i32 @g_file_set_attributes_from_info(ptr noundef %64, ptr noundef nonnull %65, i32 noundef 0, ptr noundef null, ptr noundef null) #13
-  call void @g_object_unref(ptr noundef %64) #13
+  call void @g_file_info_set_attribute_uint64(ptr noundef nonnull %65, ptr noundef nonnull @.str.47, i64 noundef %63) #14
+  %67 = call i32 @g_file_set_attributes_from_info(ptr noundef %64, ptr noundef nonnull %65, i32 noundef 0, ptr noundef null, ptr noundef null) #14
+  call void @g_object_unref(ptr noundef %64) #14
   br label %_set_modification_time.exit
 
 _set_modification_time.exit:                      ; preds = %59, %66
   %.sink.i = phi ptr [ %65, %66 ], [ %64, %59 ]
-  call void @g_object_unref(ptr noundef %.sink.i) #13
+  call void @g_object_unref(ptr noundef %.sink.i) #14
   %.not = icmp eq i32 %61, 0
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %.not, label %90, label %69
 
 69:                                               ; preds = %_set_modification_time.exit
-  %70 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.63, i32 noundef 5) #13
+  %70 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.63, i32 noundef 5) #14
   %71 = load ptr, ptr %13, align 8, !tbaa !64
   %.not.i25 = icmp eq ptr %71, null
   %72 = select i1 %.not.i25, ptr @.str.48, ptr %71
-  %73 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %70, ptr noundef nonnull %72) #13
+  %73 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %70, ptr noundef nonnull %72) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %74 = load ptr, ptr %68, align 8, !tbaa !74
-  %75 = tail call i64 @gtk_tree_view_get_type() #18
-  %76 = call ptr @g_type_check_instance_cast(ptr noundef %74, i64 noundef %75) #13
-  %77 = call ptr @gtk_tree_view_get_model(ptr noundef %76) #13
-  %78 = tail call i64 @gtk_list_store_get_type() #18
-  %79 = call ptr @g_type_check_instance_cast(ptr noundef %77, i64 noundef %78) #13
-  call void @gtk_list_store_append(ptr noundef %79, ptr noundef nonnull %8) #13
-  %80 = call ptr @g_type_check_instance_cast(ptr noundef %77, i64 noundef %78) #13
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %80, ptr noundef nonnull %8, i32 noundef 0, ptr noundef %73, i32 noundef -1) #13
-  call void @g_free(ptr noundef %73) #13
+  %75 = tail call i64 @gtk_tree_view_get_type() #19
+  %76 = call ptr @g_type_check_instance_cast(ptr noundef %74, i64 noundef %75) #14
+  %77 = call ptr @gtk_tree_view_get_model(ptr noundef %76) #14
+  %78 = tail call i64 @gtk_list_store_get_type() #19
+  %79 = call ptr @g_type_check_instance_cast(ptr noundef %77, i64 noundef %78) #14
+  call void @gtk_list_store_append(ptr noundef %79, ptr noundef nonnull %8) #14
+  %80 = call ptr @g_type_check_instance_cast(ptr noundef %77, i64 noundef %78) #14
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %80, ptr noundef nonnull %8, i32 noundef 0, ptr noundef %73, i32 noundef -1) #14
+  call void @g_free(ptr noundef %73) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %81 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.44, i32 noundef 5) #13
+  %81 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.44, i32 noundef 5) #14
   %82 = load ptr, ptr %14, align 8, !tbaa !65
   %.not.i26 = icmp eq ptr %82, null
   %83 = select i1 %.not.i26, ptr @.str.48, ptr %82
-  %84 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %81, ptr noundef nonnull %83) #13
+  %84 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %81, ptr noundef nonnull %83) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %85 = load ptr, ptr %68, align 8, !tbaa !74
-  %86 = call ptr @g_type_check_instance_cast(ptr noundef %85, i64 noundef %75) #13
-  %87 = call ptr @gtk_tree_view_get_model(ptr noundef %86) #13
-  %88 = call ptr @g_type_check_instance_cast(ptr noundef %87, i64 noundef %78) #13
-  call void @gtk_list_store_append(ptr noundef %88, ptr noundef nonnull %7) #13
-  %89 = call ptr @g_type_check_instance_cast(ptr noundef %87, i64 noundef %78) #13
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %89, ptr noundef nonnull %7, i32 noundef 0, ptr noundef %84, i32 noundef -1) #13
-  call void @g_free(ptr noundef %84) #13
+  %86 = call ptr @g_type_check_instance_cast(ptr noundef %85, i64 noundef %75) #14
+  %87 = call ptr @gtk_tree_view_get_model(ptr noundef %86) #14
+  %88 = call ptr @g_type_check_instance_cast(ptr noundef %87, i64 noundef %78) #14
+  call void @gtk_list_store_append(ptr noundef %88, ptr noundef nonnull %7) #14
+  %89 = call ptr @g_type_check_instance_cast(ptr noundef %87, i64 noundef %78) #14
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %89, ptr noundef nonnull %7, i32 noundef 0, ptr noundef %84, i32 noundef -1) #14
+  call void @g_free(ptr noundef %84) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
 90:                                               ; preds = %_set_modification_time.exit
-  %91 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.64, i32 noundef 5) #13
+  %91 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.64, i32 noundef 5) #14
   %92 = load ptr, ptr %13, align 8, !tbaa !64
   %.not.i27 = icmp eq ptr %92, null
   %93 = select i1 %.not.i27, ptr @.str.48, ptr %92
-  %94 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %91, ptr noundef nonnull %93) #13
+  %94 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %91, ptr noundef nonnull %93) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %95 = load ptr, ptr %68, align 8, !tbaa !74
-  %96 = tail call i64 @gtk_tree_view_get_type() #18
-  %97 = call ptr @g_type_check_instance_cast(ptr noundef %95, i64 noundef %96) #13
-  %98 = call ptr @gtk_tree_view_get_model(ptr noundef %97) #13
-  %99 = tail call i64 @gtk_list_store_get_type() #18
-  %100 = call ptr @g_type_check_instance_cast(ptr noundef %98, i64 noundef %99) #13
-  call void @gtk_list_store_append(ptr noundef %100, ptr noundef nonnull %6) #13
-  %101 = call ptr @g_type_check_instance_cast(ptr noundef %98, i64 noundef %99) #13
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %101, ptr noundef nonnull %6, i32 noundef 0, ptr noundef %94, i32 noundef -1) #13
-  call void @g_free(ptr noundef %94) #13
+  %96 = tail call i64 @gtk_tree_view_get_type() #19
+  %97 = call ptr @g_type_check_instance_cast(ptr noundef %95, i64 noundef %96) #14
+  %98 = call ptr @gtk_tree_view_get_model(ptr noundef %97) #14
+  %99 = tail call i64 @gtk_list_store_get_type() #19
+  %100 = call ptr @g_type_check_instance_cast(ptr noundef %98, i64 noundef %99) #14
+  call void @gtk_list_store_append(ptr noundef %100, ptr noundef nonnull %6) #14
+  %101 = call ptr @g_type_check_instance_cast(ptr noundef %98, i64 noundef %99) #14
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %101, ptr noundef nonnull %6, i32 noundef 0, ptr noundef %94, i32 noundef -1) #14
+  call void @g_free(ptr noundef %94) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %115
 
 102:                                              ; preds = %57
-  %103 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.60, i32 noundef 5) #13
+  %103 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.60, i32 noundef 5) #14
   %104 = load ptr, ptr %13, align 8, !tbaa !64
   %.not.i28 = icmp eq ptr %104, null
   %105 = select i1 %.not.i28, ptr @.str.48, ptr %104
-  %106 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %103, ptr noundef nonnull %105) #13
+  %106 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %103, ptr noundef nonnull %105) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %107 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %108 = load ptr, ptr %107, align 8, !tbaa !74
-  %109 = tail call i64 @gtk_tree_view_get_type() #18
-  %110 = call ptr @g_type_check_instance_cast(ptr noundef %108, i64 noundef %109) #13
-  %111 = call ptr @gtk_tree_view_get_model(ptr noundef %110) #13
-  %112 = tail call i64 @gtk_list_store_get_type() #18
-  %113 = call ptr @g_type_check_instance_cast(ptr noundef %111, i64 noundef %112) #13
-  call void @gtk_list_store_append(ptr noundef %113, ptr noundef nonnull %5) #13
-  %114 = call ptr @g_type_check_instance_cast(ptr noundef %111, i64 noundef %112) #13
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %114, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %106, i32 noundef -1) #13
-  call void @g_free(ptr noundef %106) #13
+  %109 = tail call i64 @gtk_tree_view_get_type() #19
+  %110 = call ptr @g_type_check_instance_cast(ptr noundef %108, i64 noundef %109) #14
+  %111 = call ptr @gtk_tree_view_get_model(ptr noundef %110) #14
+  %112 = tail call i64 @gtk_list_store_get_type() #19
+  %113 = call ptr @g_type_check_instance_cast(ptr noundef %111, i64 noundef %112) #14
+  call void @gtk_list_store_append(ptr noundef %113, ptr noundef nonnull %5) #14
+  %114 = call ptr @g_type_check_instance_cast(ptr noundef %111, i64 noundef %112) #14
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %114, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %106, i32 noundef -1) #14
+  call void @g_free(ptr noundef %106) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 115:                                              ; preds = %45, %90
   %116 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %117 = call ptr @gtk_tree_row_reference_new(ptr noundef %0, ptr noundef %1) #13
+  %117 = call ptr @gtk_tree_row_reference_new(ptr noundef %0, ptr noundef %1) #14
   %118 = load ptr, ptr %116, align 8, !tbaa !75
-  %119 = call ptr @g_list_append(ptr noundef %118, ptr noundef %117) #13
+  %119 = call ptr @g_list_append(ptr noundef %118, ptr noundef %117) #14
   store ptr %119, ptr %116, align 8, !tbaa !75
   br label %.critedge
 
 .critedge:                                        ; preds = %26, %69, %102, %115
   %120 = load ptr, ptr %13, align 8, !tbaa !64
-  call void @g_free(ptr noundef %120) #13
+  call void @g_free(ptr noundef %120) #14
   %121 = load ptr, ptr %14, align 8, !tbaa !65
-  call void @g_free(ptr noundef %121) #13
+  call void @g_free(ptr noundef %121) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 }
@@ -2444,10 +2444,10 @@ declare void @dt_mimap_cache_evict(ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @dt_history_hash_set_mipmap(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
@@ -2461,13 +2461,14 @@ attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nofree nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { cold nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { nounwind allocsize(0) }
-attributes #17 = { nounwind allocsize(0,1) }
-attributes #18 = { nounwind willreturn memory(none) }
+attributes #12 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind }
+attributes #15 = { cold nounwind }
+attributes #16 = { nounwind willreturn memory(read) }
+attributes #17 = { nounwind allocsize(0) }
+attributes #18 = { nounwind allocsize(0,1) }
+attributes #19 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

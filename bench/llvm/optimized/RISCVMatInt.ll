@@ -151,7 +151,7 @@ define dso_local void @_ZN4llvm11RISCVMatInt15generateInstSeqElRKNS_15MCSubtarge
 
 65:                                               ; preds = %62
   store i32 0, ptr %16, align 8, !tbaa !9
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %15, i64 noundef %55, i64 noundef 8) #11
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %15, i64 noundef %55, i64 noundef 8) #12
   br label %_ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i
 
 66:                                               ; preds = %62
@@ -193,7 +193,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit: ; preds = %.sink
   br i1 %79, label %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit, label %80
 
 80:                                               ; preds = %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit
-  call void @free(ptr noundef %78) #11
+  call void @free(ptr noundef %78) #12
   br label %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit, %80
@@ -283,7 +283,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit: ; preds = %_ZN4llvm1
 
 120:                                              ; preds = %117
   store i32 0, ptr %16, align 8, !tbaa !9
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %15, i64 noundef %110, i64 noundef 8) #11
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %15, i64 noundef %110, i64 noundef 8) #12
   br label %_ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i148
 
 121:                                              ; preds = %117
@@ -325,7 +325,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit153: ; preds = %.s
   br i1 %134, label %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit154, label %135
 
 135:                                              ; preds = %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit153
-  call void @free(ptr noundef %133) #11
+  call void @free(ptr noundef %133) #12
   br label %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit154
 
 _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit154: ; preds = %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit153, %135
@@ -423,7 +423,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit154: ; preds = %_ZN4ll
 
 179:                                              ; preds = %176
   store i32 0, ptr %16, align 8, !tbaa !9
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %15, i64 noundef %169, i64 noundef 8) #11
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %15, i64 noundef %169, i64 noundef 8) #12
   br label %_ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i164
 
 180:                                              ; preds = %176
@@ -465,7 +465,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit169: ; preds = %.s
   br i1 %193, label %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit170, label %194
 
 194:                                              ; preds = %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit169
-  call void @free(ptr noundef %192) #11
+  call void @free(ptr noundef %192) #12
   br label %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit170
 
 _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit170: ; preds = %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit169, %194
@@ -561,7 +561,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit170: ; preds = %_ZN4ll
 
 236:                                              ; preds = %233
   store i32 0, ptr %16, align 8, !tbaa !9
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %15, i64 noundef %226, i64 noundef 8) #11
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %15, i64 noundef %226, i64 noundef 8) #12
   br label %_ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i180
 
 237:                                              ; preds = %233
@@ -603,7 +603,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit185: ; preds = %.s
   br i1 %250, label %252, label %251
 
 251:                                              ; preds = %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit185
-  call void @free(ptr noundef %249) #11
+  call void @free(ptr noundef %249) #12
   br label %252
 
 252:                                              ; preds = %251, %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit185
@@ -709,7 +709,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit185: ; preds = %.s
 
 299:                                              ; preds = %296
   store i32 0, ptr %16, align 8, !tbaa !9
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %15, i64 noundef %289, i64 noundef 8) #11
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %15, i64 noundef %289, i64 noundef 8) #12
   br label %_ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i196
 
 300:                                              ; preds = %296
@@ -751,7 +751,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit201: ; preds = %.s
   br i1 %313, label %315, label %314
 
 314:                                              ; preds = %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit201
-  call void @free(ptr noundef %312) #11
+  call void @free(ptr noundef %312) #12
   br label %315
 
 315:                                              ; preds = %314, %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit201
@@ -847,7 +847,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit201: ; preds = %.s
 
 359:                                              ; preds = %356
   store i32 0, ptr %16, align 8, !tbaa !9
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %15, i64 noundef %349, i64 noundef 8) #11
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %15, i64 noundef %349, i64 noundef 8) #12
   br label %_ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i212
 
 360:                                              ; preds = %356
@@ -889,7 +889,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit217: ; preds = %.s
   br i1 %373, label %375, label %374
 
 374:                                              ; preds = %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit217
-  call void @free(ptr noundef %372) #11
+  call void @free(ptr noundef %372) #12
   br label %375
 
 375:                                              ; preds = %374, %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit217
@@ -1007,7 +1007,7 @@ _ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjiEEERS2_DpOT_
 
 430:                                              ; preds = %427
   store i32 0, ptr %16, align 8, !tbaa !9
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %15, i64 noundef %420, i64 noundef 8) #11
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %15, i64 noundef %420, i64 noundef 8) #12
   br label %_ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i227
 
 431:                                              ; preds = %427
@@ -1161,7 +1161,7 @@ _ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjiEEERS2_DpOT_
 
 504:                                              ; preds = %501
   store i32 0, ptr %16, align 8, !tbaa !9
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %15, i64 noundef %494, i64 noundef 8) #11
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %15, i64 noundef %494, i64 noundef 8) #12
   br label %_ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i245
 
 505:                                              ; preds = %501
@@ -1204,7 +1204,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit232: ; preds = %_Z
   br i1 %518, label %520, label %519
 
 519:                                              ; preds = %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit232
-  call void @free(ptr noundef %517) #11
+  call void @free(ptr noundef %517) #12
   br label %520
 
 520:                                              ; preds = %519, %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit232
@@ -1293,7 +1293,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit270: ; preds = %"_
   br i1 %561, label %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit271, label %562
 
 562:                                              ; preds = %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit270
-  call void @free(ptr noundef %.pre323) #11
+  call void @free(ptr noundef %.pre323) #12
   br label %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit271
 
 _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit271: ; preds = %"_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJNS_5RISCV3$_0ERjEEERS2_DpOT_.exit258", %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit270, %562
@@ -1664,7 +1664,7 @@ define internal fastcc void @_ZL27generateInstSeqLeadingZeroslRKN4llvm15MCSubtar
 47:                                               ; preds = %43
   store i32 0, ptr %19, align 8, !tbaa !9
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %48, i64 noundef %36, i64 noundef 8) #11
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %48, i64 noundef %36, i64 noundef 8) #12
   br label %_ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i
 
 49:                                               ; preds = %43
@@ -1772,7 +1772,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit: ; preds = %.sink
 93:                                               ; preds = %89
   store i32 0, ptr %19, align 8, !tbaa !9
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %94, i64 noundef %82, i64 noundef 8) #11
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %94, i64 noundef %82, i64 noundef 8) #12
   br label %_ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i42
 
 95:                                               ; preds = %89
@@ -1888,7 +1888,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit47: ; preds = %.si
 143:                                              ; preds = %139
   store i32 0, ptr %19, align 8, !tbaa !9
   %144 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %144, i64 noundef %132, i64 noundef 8) #11
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %144, i64 noundef %132, i64 noundef 8) #12
   br label %_ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i57
 
 145:                                              ; preds = %139
@@ -1930,7 +1930,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit62: ; preds = %.si
   br i1 %158, label %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit, label %159
 
 159:                                              ; preds = %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit62
-  call void @free(ptr noundef %157) #11
+  call void @free(ptr noundef %157) #12
   br label %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit62, %159
@@ -2005,7 +2005,7 @@ define dso_local void @_ZN4llvm11RISCVMatInt17generateMCInstSeqElRKNS_15MCSubtar
   br i1 %40, label %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit, label %41
 
 41:                                               ; preds = %._crit_edge
-  call void @free(ptr noundef %38) #11
+  call void @free(ptr noundef %38) #12
   br label %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit: ; preds = %._crit_edge, %41
@@ -2058,7 +2058,7 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit:            ; preds = %42
   br i1 %49, label %_ZN4llvm13MCInstBuilderD2Ev.exit, label %50
 
 50:                                               ; preds = %_ZN4llvm13MCInstBuilder6addImmEl.exit
-  call void @free(ptr noundef %48) #11
+  call void @free(ptr noundef %48) #12
   br label %_ZN4llvm13MCInstBuilderD2Ev.exit
 
 _ZN4llvm13MCInstBuilderD2Ev.exit:                 ; preds = %_ZN4llvm13MCInstBuilder6addImmEl.exit, %50
@@ -2085,7 +2085,7 @@ _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit46: ; preds = %42
   br i1 %52, label %_ZN4llvm13MCInstBuilderD2Ev.exit47, label %53
 
 53:                                               ; preds = %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit46
-  call void @free(ptr noundef %51) #11
+  call void @free(ptr noundef %51) #12
   br label %_ZN4llvm13MCInstBuilderD2Ev.exit47
 
 _ZN4llvm13MCInstBuilderD2Ev.exit47:               ; preds = %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit46, %53
@@ -2112,7 +2112,7 @@ _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit62: ; preds = %42, %42, %42,
   br i1 %55, label %_ZN4llvm13MCInstBuilderD2Ev.exit63, label %56
 
 56:                                               ; preds = %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit62
-  call void @free(ptr noundef %54) #11
+  call void @free(ptr noundef %54) #12
   br label %_ZN4llvm13MCInstBuilderD2Ev.exit63
 
 _ZN4llvm13MCInstBuilderD2Ev.exit63:               ; preds = %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit62, %56
@@ -2142,7 +2142,7 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit77:          ; preds = %42, %42, %42, %42, 
   br i1 %61, label %_ZN4llvm13MCInstBuilderD2Ev.exit78, label %62
 
 62:                                               ; preds = %_ZN4llvm13MCInstBuilder6addImmEl.exit77
-  call void @free(ptr noundef %60) #11
+  call void @free(ptr noundef %60) #12
   br label %_ZN4llvm13MCInstBuilderD2Ev.exit78
 
 _ZN4llvm13MCInstBuilderD2Ev.exit78:               ; preds = %_ZN4llvm13MCInstBuilder6addImmEl.exit77, %62
@@ -2255,7 +2255,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE28reserveForParamAndGetAddress
 
 _ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i: ; preds = %31
   %33 = zext i32 %29 to i64
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(112) %23, ptr noundef nonnull %25, i64 noundef %33, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(112) %23, ptr noundef nonnull %25, i64 noundef %33, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %28, align 8, !tbaa !9
   %.not.i.i.i.i = icmp eq i32 %.pre.i.i, 0
   br i1 %.not.i.i.i.i, label %.sink.split.i.i.i, label %_ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i._ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.thread.i_crit_edge.i
@@ -2409,7 +2409,7 @@ define dso_local noundef range(i32 0, -2147483648) i32 @_ZN4llvm11RISCVMatInt13g
   br i1 %30, label %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i, label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %28
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %0) #11
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %0) #12
   %.pr.i = load i32, ptr %22, align 8, !tbaa !34, !alias.scope !31
   %31 = icmp ult i32 %.pr.i, 65
   br i1 %31, label %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i, label %45
@@ -2439,11 +2439,11 @@ _ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i:       ; preds = %_ZN4llvm5APIntC2ERK
   br label %_ZNK4llvm5APInt4ashrEj.exit
 
 45:                                               ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i
-  call void @_ZN4llvm5APInt12ashrSlowCaseEj(ptr noundef nonnull align 8 dereferenceable(12) %7, i32 noundef %.029) #11
+  call void @_ZN4llvm5APInt12ashrSlowCaseEj(ptr noundef nonnull align 8 dereferenceable(12) %7, i32 noundef %.029) #12
   br label %_ZNK4llvm5APInt4ashrEj.exit
 
 _ZNK4llvm5APInt4ashrEj.exit:                      ; preds = %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i, %45
-  call void @_ZNK4llvm5APInt11sextOrTruncEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %6, ptr noundef nonnull align 8 dereferenceable(12) %7, i32 noundef %21) #11
+  call void @_ZNK4llvm5APInt11sextOrTruncEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %6, ptr noundef nonnull align 8 dereferenceable(12) %7, i32 noundef %21) #12
   %46 = load i32, ptr %22, align 8, !tbaa !34
   %47 = icmp ugt i32 %46, 64
   br i1 %47, label %48, label %_ZN4llvm5APIntD2Ev.exit
@@ -2454,7 +2454,7 @@ _ZNK4llvm5APInt4ashrEj.exit:                      ; preds = %_ZN4llvm5APInt15cle
   br i1 %50, label %_ZN4llvm5APIntD2Ev.exit, label %51
 
 51:                                               ; preds = %48
-  call void @_ZdaPv(ptr noundef nonnull %49) #12
+  call void @_ZdaPv(ptr noundef nonnull %49) #13
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APInt4ashrEj.exit, %48, %51
@@ -2555,7 +2555,7 @@ _ZL14getInstSeqCostRN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEEb.exit: ; pr
   br i1 %88, label %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit, label %89
 
 89:                                               ; preds = %_ZL14getInstSeqCostRN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEEb.exit
-  call void @free(ptr noundef %.val) #11
+  call void @free(ptr noundef %.val) #12
   br label %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit: ; preds = %_ZL14getInstSeqCostRN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEEb.exit, %89
@@ -2575,7 +2575,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit.thread:      ; preds = %_ZNK4llvm5APInt12ge
   br i1 %94, label %_ZN4llvm5APIntD2Ev.exit20, label %95
 
 95:                                               ; preds = %92
-  call void @_ZdaPv(ptr noundef nonnull %93) #12
+  call void @_ZdaPv(ptr noundef nonnull %93) #13
   br label %_ZN4llvm5APIntD2Ev.exit20
 
 _ZN4llvm5APIntD2Ev.exit20:                        ; preds = %54, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread, %92, %95
@@ -2601,7 +2601,7 @@ define internal fastcc void @"_ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt
   %7 = zext i32 %3 to i64
   %8 = add nuw nsw i64 %7, 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %9, i64 noundef %8, i64 noundef 8) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %9, i64 noundef %8, i64 noundef 8) #12
   %.pre.i = load i32, ptr %2, align 8, !tbaa !9
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt4InstELb1EE9push_backES2_.exit
 
@@ -2641,7 +2641,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZN4l
   %11 = zext i32 %7 to i64
   %12 = add nuw nsw i64 %11, 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 8) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 8) #12
   %.pre.i = load i32, ptr %6, align 8, !tbaa !9
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt4InstELb1EE9push_backES2_.exit
 
@@ -2679,7 +2679,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZN4l
   %11 = zext i32 %7 to i64
   %12 = add nuw nsw i64 %11, 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 8) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 8) #12
   %.pre.i = load i32, ptr %6, align 8, !tbaa !9
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt4InstELb1EE9push_backES2_.exit
 
@@ -2722,8 +2722,8 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #4
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt4InstELb1EE18growAndEmplaceBackIJNS_5RISCV3$_0ERlEEERS2_DpOT_"(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 %.0.val, i64 %.0.val1) unnamed_addr #0 align 2 {
@@ -2738,7 +2738,7 @@ define internal fastcc void @"_ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt
   %7 = zext i32 %3 to i64
   %8 = add nuw nsw i64 %7, 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %9, i64 noundef %8, i64 noundef 8) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %9, i64 noundef %8, i64 noundef 8) #12
   %.pre.i = load i32, ptr %2, align 8, !tbaa !9
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt4InstELb1EE9push_backES2_.exit
 
@@ -2770,7 +2770,7 @@ define internal fastcc void @"_ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt
   %7 = zext i32 %3 to i64
   %8 = add nuw nsw i64 %7, 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %9, i64 noundef %8, i64 noundef 8) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %9, i64 noundef %8, i64 noundef 8) #12
   %.pre.i = load i32, ptr %2, align 8, !tbaa !9
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt4InstELb1EE9push_backES2_.exit
 
@@ -2806,7 +2806,7 @@ define internal fastcc void @"_ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt
   %7 = zext i32 %3 to i64
   %8 = add nuw nsw i64 %7, 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %9, i64 noundef %8, i64 noundef 8) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %9, i64 noundef %8, i64 noundef 8) #12
   %.pre.i = load i32, ptr %2, align 8, !tbaa !9
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt4InstELb1EE9push_backES2_.exit
 
@@ -2841,7 +2841,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZN4l
   %11 = zext i32 %7 to i64
   %12 = add nuw nsw i64 %11, 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 8) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 8) #12
   %.pre.i = load i32, ptr %6, align 8, !tbaa !9
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt4InstELb1EE9push_backES2_.exit
 
@@ -2870,7 +2870,7 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE4gro
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, i64 noundef %1, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  %5 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, i64 noundef %1, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   %6 = load ptr, ptr %0, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !9
@@ -2929,7 +2929,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE18uninitialized_moveIPS1_S4_EE
   br i1 %28, label %_ZN4llvm6MCInstD2Ev.exit.i.i, label %29
 
 29:                                               ; preds = %.lr.ph.i.i
-  call void @free(ptr noundef %26) #11
+  call void @free(ptr noundef %26) #12
   br label %_ZN4llvm6MCInstD2Ev.exit.i.i
 
 _ZN4llvm6MCInstD2Ev.exit.i.i:                     ; preds = %29, %.lr.ph.i.i
@@ -2947,7 +2947,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE19moveElementsForGrowEPS1_.exi
   br i1 %32, label %_ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE21takeAllocationForGrowEPS1_m.exit, label %33
 
 33:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE19moveElementsForGrowEPS1_.exit
-  call void @free(ptr noundef %30) #11
+  call void @free(ptr noundef %30) #12
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE21takeAllocationForGrowEPS1_m.exit
 
 _ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE21takeAllocationForGrowEPS1_m.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE19moveElementsForGrowEPS1_.exit, %33
@@ -2979,7 +2979,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   br i1 %11, label %_ZN4llvm15SmallVectorImplINS_9MCOperandEE12assignRemoteEOS2_.exit, label %12
 
 12:                                               ; preds = %8
-  tail call void @free(ptr noundef %9) #11
+  tail call void @free(ptr noundef %9) #12
   %.pre = load ptr, ptr %1, align 8, !tbaa !3
   br label %_ZN4llvm15SmallVectorImplINS_9MCOperandEE12assignRemoteEOS2_.exit
 
@@ -3033,7 +3033,7 @@ _ZSt4moveIPN4llvm9MCOperandES2_ET0_T_S4_S3_.exit: ; preds = %28, %27
 34:                                               ; preds = %30
   store i32 0, ptr %24, align 8, !tbaa !9
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %35, i64 noundef %23, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %35, i64 noundef %23, i64 noundef 16) #12
   br label %_ZSt4moveIPN4llvm9MCOperandES2_ET0_T_S4_S3_.exit35
 
 36:                                               ; preds = %30
@@ -3074,22 +3074,22 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9MCOperandELb1EE18uninitialized_moveIPS1_S4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #10
+declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3098,12 +3098,13 @@ attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { builtin nounwind }
+attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #12 = { nounwind }
+attributes #13 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

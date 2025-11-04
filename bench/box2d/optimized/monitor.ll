@@ -89,7 +89,7 @@ define hidden void @_glfwInputMonitor(ptr noundef %0, i32 noundef %1, i32 nounde
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1920), align 8, !tbaa !94
   %12 = sext i32 %10 to i64
   %13 = shl nsw i64 %12, 3
-  %14 = tail call ptr @_glfw_realloc(ptr noundef %11, i64 noundef %13) #12
+  %14 = tail call ptr @_glfw_realloc(ptr noundef %11, i64 noundef %13) #13
   store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1920), align 8, !tbaa !94
   %15 = icmp eq i32 %2, 0
   br i1 %15, label %16, label %23
@@ -136,17 +136,17 @@ define hidden void @_glfwInputMonitor(ptr noundef %0, i32 noundef %1, i32 nounde
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 320), align 8, !tbaa !130
-  call void %35(ptr noundef nonnull %.034, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
+  call void %35(ptr noundef nonnull %.034, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 432), align 8, !tbaa !131
   %37 = load i32, ptr %4, align 4, !tbaa !132
   %38 = load i32, ptr %5, align 4, !tbaa !132
-  call void %36(ptr noundef nonnull %.034, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %37, i32 noundef %38, i32 noundef 0) #12
+  call void %36(ptr noundef nonnull %.034, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %37, i32 noundef %38, i32 noundef 0) #13
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 360), align 8, !tbaa !133
-  call void %39(ptr noundef nonnull %.034, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef null, ptr noundef null) #12
+  call void %39(ptr noundef nonnull %.034, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef null, ptr noundef null) #13
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 312), align 8, !tbaa !134
   %41 = load i32, ptr %6, align 4, !tbaa !132
   %42 = load i32, ptr %7, align 4, !tbaa !132
-  call void %40(ptr noundef nonnull %.034, i32 noundef %41, i32 noundef %42) #12
+  call void %40(ptr noundef nonnull %.034, i32 noundef %41, i32 noundef %42) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -187,7 +187,7 @@ define hidden void @_glfwInputMonitor(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %.not27, label %58, label %57
 
 57:                                               ; preds = %.loopexit
-  call void %56(ptr noundef %0, i32 noundef %1) #12
+  call void %56(ptr noundef %0, i32 noundef %1) #13
   br label %58
 
 58:                                               ; preds = %57, %.loopexit
@@ -214,31 +214,31 @@ define hidden void @_glfwFreeMonitor(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 208), align 8, !tbaa !136
-  tail call void %4(ptr noundef nonnull %0) #12
+  tail call void %4(ptr noundef nonnull %0) #13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8, !tbaa !137
-  tail call void @_glfw_free(ptr noundef %6) #12
+  tail call void @_glfw_free(ptr noundef %6) #13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %8 = load ptr, ptr %7, align 8, !tbaa !140
-  tail call void @_glfw_free(ptr noundef %8) #12
+  tail call void @_glfw_free(ptr noundef %8) #13
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %10 = load ptr, ptr %9, align 8, !tbaa !141
-  tail call void @_glfw_free(ptr noundef %10) #12
+  tail call void @_glfw_free(ptr noundef %10) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %12 = load ptr, ptr %11, align 8, !tbaa !137
-  tail call void @_glfw_free(ptr noundef %12) #12
+  tail call void @_glfw_free(ptr noundef %12) #13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %14 = load ptr, ptr %13, align 8, !tbaa !140
-  tail call void @_glfw_free(ptr noundef %14) #12
+  tail call void @_glfw_free(ptr noundef %14) #13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %16 = load ptr, ptr %15, align 8, !tbaa !141
-  tail call void @_glfw_free(ptr noundef %16) #12
+  tail call void @_glfw_free(ptr noundef %16) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %18 = load ptr, ptr %17, align 8, !tbaa !142
-  tail call void @_glfw_free(ptr noundef %18) #12
-  tail call void @_glfw_free(ptr noundef nonnull %0) #12
+  tail call void @_glfw_free(ptr noundef %18) #13
+  tail call void @_glfw_free(ptr noundef nonnull %0) #13
   br label %19
 
 19:                                               ; preds = %1, %3
@@ -254,12 +254,12 @@ define hidden void @_glfwInputMonitorWindow(ptr noundef writeonly captures(none)
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @_glfwAllocMonitor(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @_glfw_calloc(i64 noundef 1, i64 noundef 352) #12
+  %4 = tail call ptr @_glfw_calloc(i64 noundef 1, i64 noundef 352) #13
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store i32 %1, ptr %5, align 8, !tbaa !150
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 140
   store i32 %2, ptr %6, align 4, !tbaa !151
-  %7 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 127) #12
+  %7 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 127) #13
   ret ptr %4
 }
 
@@ -271,13 +271,13 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwFreeGammaArrays(ptr noundef captures(none) initializes((24, 32)) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !137
-  tail call void @_glfw_free(ptr noundef %2) #12
+  tail call void @_glfw_free(ptr noundef %2) #13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !140
-  tail call void @_glfw_free(ptr noundef %4) #12
+  tail call void @_glfw_free(ptr noundef %4) #13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !141
-  tail call void @_glfw_free(ptr noundef %6) #12
+  tail call void @_glfw_free(ptr noundef %6) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
@@ -287,12 +287,12 @@ declare void @_glfw_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwAllocGammaArrays(ptr noundef writeonly captures(none) initializes((0, 28)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = zext i32 %1 to i64
-  %4 = tail call ptr @_glfw_calloc(i64 noundef %3, i64 noundef 2) #12
+  %4 = tail call ptr @_glfw_calloc(i64 noundef %3, i64 noundef 2) #13
   store ptr %4, ptr %0, align 8, !tbaa !137
-  %5 = tail call ptr @_glfw_calloc(i64 noundef %3, i64 noundef 2) #12
+  %5 = tail call ptr @_glfw_calloc(i64 noundef %3, i64 noundef 2) #13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !140
-  %7 = tail call ptr @_glfw_calloc(i64 noundef %3, i64 noundef 2) #12
+  %7 = tail call ptr @_glfw_calloc(i64 noundef %3, i64 noundef 2) #13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %8, align 8, !tbaa !141
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -319,7 +319,7 @@ define hidden ptr @_glfwChooseVideoMode(ptr noundef %0, ptr noundef readonly cap
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 240), align 8, !tbaa !154
-  %8 = call ptr %7(ptr noundef nonnull %0, ptr noundef nonnull %3) #12
+  %8 = call ptr %7(ptr noundef nonnull %0, ptr noundef nonnull %3) #13
   %.not9.i = icmp eq ptr %8, null
   br i1 %.not9.i, label %refreshVideoModes.exit.thread, label %9
 
@@ -330,9 +330,9 @@ refreshVideoModes.exit.thread:                    ; preds = %6
 9:                                                ; preds = %6
   %10 = load i32, ptr %3, align 4, !tbaa !132
   %11 = sext i32 %10 to i64
-  call void @qsort(ptr noundef nonnull %8, i64 noundef %11, i64 noundef 24, ptr noundef nonnull @compareVideoModes) #12
+  call void @qsort(ptr noundef nonnull %8, i64 noundef %11, i64 noundef 24, ptr noundef nonnull @compareVideoModes) #13
   %12 = load ptr, ptr %4, align 8, !tbaa !142
-  call void @_glfw_free(ptr noundef %12) #12
+  call void @_glfw_free(ptr noundef %12) #13
   store ptr %8, ptr %4, align 8, !tbaa !142
   %13 = load i32, ptr %3, align 4, !tbaa !132
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -823,7 +823,7 @@ define ptr @glfwGetMonitors(ptr noundef writeonly captures(none) initializes((0,
   br i1 %.not, label %3, label %4
 
 3:                                                ; preds = %1
-  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #12
+  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #13
   br label %7
 
 4:                                                ; preds = %1
@@ -846,7 +846,7 @@ define ptr @glfwGetPrimaryMonitor() local_unnamed_addr #0 {
   br i1 %.not, label %2, label %3
 
 2:                                                ; preds = %0
-  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #12
+  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #13
   br label %8
 
 3:                                                ; preds = %0
@@ -887,12 +887,12 @@ define void @glfwGetMonitorPos(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br i1 %.not10, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #12
+  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #13
   br label %12
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 216), align 8, !tbaa !162
-  tail call void %11(ptr noundef %0, ptr noundef %1, ptr noundef %2) #12
+  tail call void %11(ptr noundef %0, ptr noundef %1, ptr noundef %2) #13
   br label %12
 
 12:                                               ; preds = %10, %9
@@ -938,12 +938,12 @@ define void @glfwGetMonitorWorkarea(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not20, label %15, label %16
 
 15:                                               ; preds = %13
-  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #12
+  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #13
   br label %18
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 232), align 8, !tbaa !163
-  tail call void %17(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #12
+  tail call void %17(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #13
   br label %18
 
 18:                                               ; preds = %16, %15
@@ -973,7 +973,7 @@ define void @glfwGetMonitorPhysicalSize(ptr noundef readonly captures(none) %0, 
   br i1 %.not14, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #12
+  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #13
   br label %18
 
 10:                                               ; preds = %7
@@ -1021,12 +1021,12 @@ define void @glfwGetMonitorContentScale(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not10, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #12
+  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #13
   br label %12
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 224), align 8, !tbaa !165
-  tail call void %11(ptr noundef %0, ptr noundef %1, ptr noundef %2) #12
+  tail call void %11(ptr noundef %0, ptr noundef %1, ptr noundef %2) #13
   br label %12
 
 12:                                               ; preds = %10, %9
@@ -1040,7 +1040,7 @@ define noundef ptr @glfwGetMonitorName(ptr noundef readnone captures(ret: addres
   br i1 %.not, label %3, label %4
 
 3:                                                ; preds = %1
-  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #12
+  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #13
   br label %4
 
 4:                                                ; preds = %1, %3
@@ -1055,7 +1055,7 @@ define void @glfwSetMonitorUserPointer(ptr noundef writeonly captures(none) %0, 
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #12
+  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #13
   br label %7
 
 5:                                                ; preds = %2
@@ -1074,7 +1074,7 @@ define ptr @glfwGetMonitorUserPointer(ptr noundef readonly captures(none) %0) lo
   br i1 %.not, label %3, label %4
 
 3:                                                ; preds = %1
-  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #12
+  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #13
   br label %7
 
 4:                                                ; preds = %1
@@ -1094,7 +1094,7 @@ define ptr @glfwSetMonitorCallback(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %3, label %4
 
 3:                                                ; preds = %1
-  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #12
+  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #13
   br label %6
 
 4:                                                ; preds = %1
@@ -1116,7 +1116,7 @@ define ptr @glfwGetVideoModes(ptr noundef %0, ptr noundef writeonly captures(non
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #12
+  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #13
   br label %21
 
 6:                                                ; preds = %2
@@ -1133,16 +1133,16 @@ define ptr @glfwGetVideoModes(ptr noundef %0, ptr noundef writeonly captures(non
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 240), align 8, !tbaa !154
-  %11 = call ptr %10(ptr noundef nonnull %0, ptr noundef nonnull %3) #12
+  %11 = call ptr %10(ptr noundef nonnull %0, ptr noundef nonnull %3) #13
   %.not9.i = icmp eq ptr %11, null
   br i1 %.not9.i, label %refreshVideoModes.exit, label %12
 
 12:                                               ; preds = %9
   %13 = load i32, ptr %3, align 4, !tbaa !132
   %14 = sext i32 %13 to i64
-  call void @qsort(ptr noundef nonnull %11, i64 noundef %14, i64 noundef 24, ptr noundef nonnull @compareVideoModes) #12
+  call void @qsort(ptr noundef nonnull %11, i64 noundef %14, i64 noundef 24, ptr noundef nonnull @compareVideoModes) #13
   %15 = load ptr, ptr %7, align 8, !tbaa !142
-  call void @_glfw_free(ptr noundef %15) #12
+  call void @_glfw_free(ptr noundef %15) #13
   store ptr %11, ptr %7, align 8, !tbaa !142
   %16 = load i32, ptr %3, align 4, !tbaa !132
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -1172,13 +1172,13 @@ define ptr @glfwGetVideoMode(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %3, label %4
 
 3:                                                ; preds = %1
-  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #12
+  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #13
   br label %8
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 248), align 8, !tbaa !167
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %7 = tail call i32 %5(ptr noundef %0, ptr noundef nonnull %6) #12
+  %7 = tail call i32 %5(ptr noundef %0, ptr noundef nonnull %6) #13
   %.not5 = icmp eq i32 %7, 0
   %. = select i1 %.not5, ptr null, ptr %6
   br label %8
@@ -1197,7 +1197,7 @@ define void @glfwSetGamma(ptr noundef %0, float noundef %1) local_unnamed_addr #
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #12
+  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #13
   br label %58
 
 6:                                                ; preds = %2
@@ -1208,22 +1208,22 @@ define void @glfwSetGamma(ptr noundef %0, float noundef %1) local_unnamed_addr #
 
 8:                                                ; preds = %6
   %9 = fpext float %1 to double
-  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65540, ptr noundef nonnull @.str, double noundef %9) #12
+  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65540, ptr noundef nonnull @.str, double noundef %9) #13
   br label %58
 
 glfwGetGammaRamp.exit:                            ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %11 = load ptr, ptr %10, align 8, !tbaa !137
-  tail call void @_glfw_free(ptr noundef %11) #12
+  tail call void @_glfw_free(ptr noundef %11) #13
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %13 = load ptr, ptr %12, align 8, !tbaa !140
-  tail call void @_glfw_free(ptr noundef %13) #12
+  tail call void @_glfw_free(ptr noundef %13) #13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %15 = load ptr, ptr %14, align 8, !tbaa !141
-  tail call void @_glfw_free(ptr noundef %15) #12
+  tail call void @_glfw_free(ptr noundef %15) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 256), align 8, !tbaa !168
-  %17 = tail call i32 %16(ptr noundef %0, ptr noundef nonnull %10) #12
+  %17 = tail call i32 %16(ptr noundef %0, ptr noundef nonnull %10) #13
   %.not6.i = icmp eq i32 %17, 0
   br i1 %.not6.i, label %58, label %18
 
@@ -1231,7 +1231,7 @@ glfwGetGammaRamp.exit:                            ; preds = %6
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %20 = load i32, ptr %19, align 8, !tbaa !152
   %21 = zext i32 %20 to i64
-  %22 = tail call ptr @_glfw_calloc(i64 noundef %21, i64 noundef 2) #12
+  %22 = tail call ptr @_glfw_calloc(i64 noundef %21, i64 noundef 2) #13
   %23 = load i32, ptr %19, align 8, !tbaa !152
   %.not33 = icmp eq i32 %23, 0
   br i1 %.not33, label %._crit_edge, label %.lr.ph
@@ -1248,7 +1248,7 @@ glfwGetGammaRamp.exit:                            ; preds = %6
   %29 = add i32 %26, -1
   %30 = uitofp i32 %29 to float
   %31 = fdiv float %28, %30
-  %32 = tail call float @powf(float noundef %31, float noundef %24) #12, !tbaa !132
+  %32 = tail call float @powf(float noundef %31, float noundef %24) #13, !tbaa !132
   %33 = fmul float %32, 6.553500e+04
   %34 = fadd float %33, 5.000000e-01
   %35 = tail call float @llvm.minnum.f32(float %34, float 6.553500e+04)
@@ -1275,7 +1275,7 @@ glfwGetGammaRamp.exit:                            ; preds = %6
   br i1 %.not.i31, label %45, label %46
 
 45:                                               ; preds = %._crit_edge
-  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #12
+  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #13
   br label %glfwSetGammaRamp.exit
 
 46:                                               ; preds = %._crit_edge
@@ -1283,7 +1283,7 @@ glfwGetGammaRamp.exit:                            ; preds = %6
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %46
-  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65540, ptr noundef nonnull @.str.1, i32 noundef 0) #12
+  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65540, ptr noundef nonnull @.str.1, i32 noundef 0) #13
   br label %glfwSetGammaRamp.exit
 
 49:                                               ; preds = %46
@@ -1295,17 +1295,17 @@ glfwGetGammaRamp.exit:                            ; preds = %6
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 256), align 8, !tbaa !168
-  %55 = tail call i32 %54(ptr noundef nonnull %0, ptr noundef nonnull %53) #12
+  %55 = tail call i32 %54(ptr noundef nonnull %0, ptr noundef nonnull %53) #13
   %.not9.i = icmp eq i32 %55, 0
   br i1 %.not9.i, label %glfwSetGammaRamp.exit, label %56
 
 56:                                               ; preds = %52, %49
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 264), align 8, !tbaa !172
-  call void %57(ptr noundef nonnull %0, ptr noundef nonnull %3) #12
+  call void %57(ptr noundef nonnull %0, ptr noundef nonnull %3) #13
   br label %glfwSetGammaRamp.exit
 
 glfwSetGammaRamp.exit:                            ; preds = %45, %48, %52, %56
-  call void @_glfw_free(ptr noundef %22) #12
+  call void @_glfw_free(ptr noundef %22) #13
   br label %58
 
 58:                                               ; preds = %glfwGetGammaRamp.exit, %glfwSetGammaRamp.exit, %8, %5
@@ -1320,22 +1320,22 @@ define ptr @glfwGetGammaRamp(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %3, label %4
 
 3:                                                ; preds = %1
-  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #12
+  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #13
   br label %13
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %6 = load ptr, ptr %5, align 8, !tbaa !137
-  tail call void @_glfw_free(ptr noundef %6) #12
+  tail call void @_glfw_free(ptr noundef %6) #13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %8 = load ptr, ptr %7, align 8, !tbaa !140
-  tail call void @_glfw_free(ptr noundef %8) #12
+  tail call void @_glfw_free(ptr noundef %8) #13
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %10 = load ptr, ptr %9, align 8, !tbaa !141
-  tail call void @_glfw_free(ptr noundef %10) #12
+  tail call void @_glfw_free(ptr noundef %10) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 256), align 8, !tbaa !168
-  %12 = tail call i32 %11(ptr noundef %0, ptr noundef nonnull %5) #12
+  %12 = tail call i32 %11(ptr noundef %0, ptr noundef nonnull %5) #13
   %.not6 = icmp eq i32 %12, 0
   %. = select i1 %.not6, ptr null, ptr %5
   br label %13
@@ -1348,8 +1348,8 @@ define ptr @glfwGetGammaRamp(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @powf(float noundef, float noundef) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.minnum.f32(float, float) #6
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #10
 
 ; Function Attrs: nounwind uwtable
 define void @glfwSetGammaRamp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1358,7 +1358,7 @@ define void @glfwSetGammaRamp(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #12
+  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #13
   br label %19
 
 5:                                                ; preds = %2
@@ -1368,7 +1368,7 @@ define void @glfwSetGammaRamp(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65540, ptr noundef nonnull @.str.1, i32 noundef 0) #12
+  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65540, ptr noundef nonnull @.str.1, i32 noundef 0) #13
   br label %19
 
 10:                                               ; preds = %5
@@ -1380,13 +1380,13 @@ define void @glfwSetGammaRamp(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 256), align 8, !tbaa !168
-  %16 = tail call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %14) #12
+  %16 = tail call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %14) #13
   %.not9 = icmp eq i32 %16, 0
   br i1 %.not9, label %19, label %17
 
 17:                                               ; preds = %13, %10
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 264), align 8, !tbaa !172
-  tail call void %18(ptr noundef nonnull %0, ptr noundef nonnull %1) #12
+  tail call void %18(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   br label %19
 
 19:                                               ; preds = %13, %17, %9, %4
@@ -1394,13 +1394,13 @@ define void @glfwSetGammaRamp(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1412,9 +1412,10 @@ attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind }
+attributes #10 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

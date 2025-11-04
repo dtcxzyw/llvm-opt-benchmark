@@ -86,7 +86,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @h265_metadata_init(ptr noundef %0) #0 {
-  %2 = tail call i32 @ff_cbs_bsf_generic_init(ptr noundef %0, ptr noundef nonnull @h265_metadata_type) #4
+  %2 = tail call i32 @ff_cbs_bsf_generic_init(ptr noundef %0, ptr noundef nonnull @h265_metadata_type) #5
   ret i32 %2
 }
 
@@ -127,7 +127,7 @@ define internal range(i32 -2147483648, 1) i32 @h265_metadata_update_fragment(ptr
   br i1 %22, label %23, label %.critedge
 
 23:                                               ; preds = %19
-  tail call void @ff_cbs_delete_unit(ptr noundef nonnull %2, i32 noundef 0) #4
+  tail call void @ff_cbs_delete_unit(ptr noundef nonnull %2, i32 noundef 0) #5
   br label %.critedge
 
 24:                                               ; preds = %14, %3
@@ -209,12 +209,12 @@ define internal range(i32 -2147483648, 1) i32 @h265_metadata_update_fragment(ptr
   store i8 %.067.lcssa, ptr %.sroa.3.0..sroa_idx, align 1, !tbaa !40
   %57 = getelementptr inbounds nuw i8, ptr %11, i64 83
   store i8 %.064.lcssa, ptr %57, align 1, !tbaa !41
-  %58 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %2, i32 noundef 0, i32 noundef 35, ptr noundef nonnull %56, ptr noundef null) #4
+  %58 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %2, i32 noundef 0, i32 noundef 35, ptr noundef nonnull %56, ptr noundef null) #5
   %59 = icmp sgt i32 %58, -1
   br i1 %59, label %.critedge, label %60
 
 60:                                               ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.60) #4
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.60) #5
   br label %h265_metadata_update_sps.exit.thread
 
 .critedge:                                        ; preds = %._crit_edge, %24, %25, %19, %23
@@ -379,12 +379,12 @@ define internal range(i32 -2147483648, 1) i32 @h265_metadata_update_fragment(ptr
   %.055.lcssa94.i = phi i32 [ %.156.i, %122 ], [ %.156.i, %135 ], [ %.156.i, %132 ], [ %.156.i, %._crit_edge.i ], [ 0, %._crit_edge.thread.i ]
   %.058.lcssa93.i = phi i32 [ %.159.i, %122 ], [ %.159.i, %135 ], [ %.159.i, %132 ], [ %.159.i, %._crit_edge.i ], [ 0, %._crit_edge.thread.i ]
   %.046.i = phi i64 [ %131, %122 ], [ %146, %135 ], [ 0, %132 ], [ 0, %._crit_edge.i ], [ 0, %._crit_edge.thread.i ]
-  %149 = tail call ptr @ff_h265_guess_level(ptr noundef %.0.lcssa98.i, i64 noundef %.046.i, i32 noundef %.047.lcssa97.i, i32 noundef %.058.lcssa93.i, i32 noundef 0, i32 noundef %.052.lcssa95.i, i32 noundef %.055.lcssa94.i, i32 noundef %.050.lcssa96.i) #4
+  %149 = tail call ptr @ff_h265_guess_level(ptr noundef %.0.lcssa98.i, i64 noundef %.046.i, i32 noundef %.047.lcssa97.i, i32 noundef %.058.lcssa93.i, i32 noundef 0, i32 noundef %.052.lcssa95.i, i32 noundef %.055.lcssa94.i, i32 noundef %.050.lcssa96.i) #5
   %.not64.i = icmp eq ptr %149, null
   br i1 %.not64.i, label %h265_metadata_guess_level.exit, label %150
 
 150:                                              ; preds = %147
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.61, ptr noundef nonnull %149) #4
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.61, ptr noundef nonnull %149) #5
   %151 = getelementptr inbounds nuw i8, ptr %149, i64 4
   %152 = load i8, ptr %151, align 4, !tbaa !64
   %153 = zext i8 %152 to i32
@@ -429,7 +429,7 @@ h265_metadata_guess_level.exit:                   ; preds = %150, %147, %64, %.c
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %173 = sext i32 %168 to i64
   %174 = sext i32 %171 to i64
-  %175 = call i32 @av_reduce(ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef %173, i64 noundef %174, i64 noundef 4294967295) #4
+  %175 = call i32 @av_reduce(ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef %173, i64 noundef %174, i64 noundef 4294967295) #5
   %176 = load i32, ptr %8, align 4, !tbaa !61
   %177 = getelementptr inbounds nuw i8, ptr %165, i64 65000
   store i32 %176, ptr %177, align 8, !tbaa !68
@@ -492,7 +492,7 @@ h265_metadata_guess_level.exit:                   ; preds = %150, %147, %64, %.c
   br i1 %.not14.i.i, label %204, label %.sink.split.i.i
 
 204:                                              ; preds = %201
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.62) #4
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.62) #5
   store i32 1, ptr %202, align 8, !tbaa !74
   br label %.sink.split.i.i
 
@@ -532,7 +532,7 @@ h265_metadata_update_vps.exit:                    ; preds = %.sink.split.i.i, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %221 = sext i32 %216 to i64
   %222 = sext i32 %219 to i64
-  %223 = call i32 @av_reduce(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %221, i64 noundef %222, i64 noundef 65535) #4
+  %223 = call i32 @av_reduce(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %221, i64 noundef %222, i64 noundef 65535) #5
   %224 = load i32, ptr %4, align 4, !tbaa !61
   %225 = load i32, ptr %5, align 4
   br label %226
@@ -775,7 +775,7 @@ h265_metadata_update_vps.exit:                    ; preds = %.sink.split.i.i, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %341 = sext i32 %336 to i64
   %342 = sext i32 %339 to i64
-  %343 = call i32 @av_reduce(ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef %341, i64 noundef %342, i64 noundef 4294967295) #4
+  %343 = call i32 @av_reduce(ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef %341, i64 noundef %342, i64 noundef 4294967295) #5
   %344 = load i32, ptr %6, align 4, !tbaa !61
   %345 = getelementptr inbounds nuw i8, ptr %213, i64 10992
   store i32 %344, ptr %345, align 4, !tbaa !100
@@ -834,7 +834,7 @@ h265_metadata_update_vps.exit:                    ; preds = %.sink.split.i.i, %1
   br i1 %376, label %377, label %378
 
 377:                                              ; preds = %372
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.68, i32 noundef %370, i32 noundef %375) #4
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.68, i32 noundef %370, i32 noundef %375) #5
   br label %h265_metadata_update_sps.exit.thread
 
 378:                                              ; preds = %372
@@ -875,7 +875,7 @@ h265_metadata_update_vps.exit:                    ; preds = %.sink.split.i.i, %1
   br i1 %.not.i.i, label %396, label %395
 
 395:                                              ; preds = %392, %389
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.69, i32 noundef %362, i32 noundef %364, i32 noundef %370, i32 noundef %375) #4
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.69, i32 noundef %362, i32 noundef %364, i32 noundef %370, i32 noundef %375) #5
   br label %h265_metadata_update_sps.exit.thread
 
 396:                                              ; preds = %392, %359
@@ -894,7 +894,7 @@ h265_metadata_update_vps.exit:                    ; preds = %.sink.split.i.i, %1
   br i1 %404, label %405, label %406
 
 405:                                              ; preds = %400
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.70, i32 noundef %398, i32 noundef %403) #4
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.70, i32 noundef %398, i32 noundef %403) #5
   br label %h265_metadata_update_sps.exit.thread
 
 406:                                              ; preds = %400
@@ -935,7 +935,7 @@ h265_metadata_update_vps.exit:                    ; preds = %.sink.split.i.i, %1
   br i1 %.not87.i.i, label %h265_metadata_deduce_crop.exit.i, label %423
 
 423:                                              ; preds = %420, %417
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.71, i32 noundef %366, i32 noundef %368, i32 noundef %398, i32 noundef %403) #4
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.71, i32 noundef %366, i32 noundef %368, i32 noundef %398, i32 noundef %403) #5
   br label %h265_metadata_update_sps.exit.thread
 
 h265_metadata_deduce_crop.exit.i:                 ; preds = %420, %396
@@ -972,7 +972,7 @@ h265_metadata_deduce_crop.exit.i:                 ; preds = %420, %396
   br i1 %.not134.i, label %441, label %440
 
 440:                                              ; preds = %437
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.64, i32 noundef %.0108.i) #4
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.64, i32 noundef %.0108.i) #5
   br label %h265_metadata_update_sps.exit.thread
 
 441:                                              ; preds = %437
@@ -996,7 +996,7 @@ h265_metadata_deduce_crop.exit.i:                 ; preds = %420, %396
   br i1 %.not135.i, label %453, label %452
 
 452:                                              ; preds = %449
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.65, i32 noundef %.0108.i) #4
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.65, i32 noundef %.0108.i) #5
   br label %h265_metadata_update_sps.exit.thread
 
 453:                                              ; preds = %449
@@ -1020,7 +1020,7 @@ h265_metadata_deduce_crop.exit.i:                 ; preds = %420, %396
   br i1 %.not136.i, label %465, label %464
 
 464:                                              ; preds = %461
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.66, i32 noundef %.0107.i) #4
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.66, i32 noundef %.0107.i) #5
   br label %h265_metadata_update_sps.exit.thread
 
 465:                                              ; preds = %461
@@ -1044,7 +1044,7 @@ h265_metadata_deduce_crop.exit.i:                 ; preds = %420, %396
   br i1 %.not137.i, label %477, label %476
 
 476:                                              ; preds = %473
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.67, i32 noundef %.0107.i) #4
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.67, i32 noundef %.0107.i) #5
   br label %h265_metadata_update_sps.exit.thread
 
 477:                                              ; preds = %473
@@ -1092,7 +1092,7 @@ h265_metadata_deduce_crop.exit.i:                 ; preds = %420, %396
   br i1 %.not14.i.i90, label %498, label %.sink.split.i.i88
 
 498:                                              ; preds = %495
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.62) #4
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.62) #5
   store i32 1, ptr %496, align 8, !tbaa !74
   br label %.sink.split.i.i88
 
@@ -1133,20 +1133,21 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #3
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #3 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

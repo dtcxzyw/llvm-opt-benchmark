@@ -72,7 +72,7 @@ define noundef nonnull ptr @Pa_GetVersionInfo() local_unnamed_addr #0 {
 define void @PaUtil_SetLastHostErrorInfo(i32 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   store i32 %0, ptr @lastHostErrorInfo_, align 8, !tbaa !3
   store i64 %1, ptr getelementptr inbounds nuw (i8, ptr @lastHostErrorInfo_, i64 8), align 8, !tbaa !11
-  %4 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @lastHostErrorText_, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 1024) #13
+  %4 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @lastHostErrorText_, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 1024) #14
   ret void
 }
 
@@ -96,7 +96,7 @@ define i32 @Pa_Initialize() local_unnamed_addr #3 {
 
 5:                                                ; preds = %4
   store i1 true, ptr @initializing_, align 4
-  tail call void @PaUtil_InitializeClock() #13
+  tail call void @PaUtil_InitializeClock() #14
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -111,7 +111,7 @@ CountHostApiInitializers.exit.i:                  ; preds = %6
   %indvars8.le = trunc i64 %indvars.iv.i.i to i32
   %sext.i = shl i64 %indvars.iv.i.i, 32
   %9 = ashr exact i64 %sext.i, 29
-  %10 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %9) #13
+  %10 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %9) #14
   store ptr %10, ptr @hostApis_, align 8, !tbaa !16
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %.loopexit.i, label %11
@@ -138,7 +138,7 @@ CountHostApiInitializers.exit.i:                  ; preds = %6
   store ptr null, ptr %15, align 8, !tbaa !18
   %16 = getelementptr inbounds nuw ptr, ptr @paHostApiInitializers, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8, !tbaa !13
-  %18 = tail call i32 %17(ptr noundef nonnull %15, i32 noundef %12) #13
+  %18 = tail call i32 %17(ptr noundef nonnull %15, i32 noundef %12) #14
   %.not30.i = icmp eq i32 %18, 0
   br i1 %.not30.i, label %19, label %.loopexit.i
 
@@ -242,7 +242,7 @@ CountHostApiInitializers.exit.i:                  ; preds = %6
   %61 = load ptr, ptr %60, align 8, !tbaa !18
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 48
   %63 = load ptr, ptr %62, align 8, !tbaa !29
-  tail call void %63(ptr noundef %61) #13
+  tail call void %63(ptr noundef %61) #14
   %64 = load i32, ptr @hostApisCount_, align 4, !tbaa !12
   %65 = icmp sgt i32 %64, 0
   br i1 %65, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !30
@@ -256,7 +256,7 @@ CountHostApiInitializers.exit.i:                  ; preds = %6
   br i1 %.not.i36.i, label %InitializeHostApis.exit, label %67
 
 67:                                               ; preds = %._crit_edge.i.i
-  tail call void @PaUtil_FreeMemory(ptr noundef nonnull %66) #13
+  tail call void @PaUtil_FreeMemory(ptr noundef nonnull %66) #14
   br label %InitializeHostApis.exit
 
 InitializeHostApis.exit:                          ; preds = %._crit_edge.i.i, %67
@@ -323,7 +323,7 @@ RemoveOpenStream.exit.i.thread.i:                 ; preds = %6, %.lr.ph.split.i
   %14 = load ptr, ptr %13, align 8, !tbaa !38
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !39
-  %17 = tail call i32 %16(ptr noundef nonnull %5) #13
+  %17 = tail call i32 %16(ptr noundef nonnull %5) #14
   switch i32 %17, label %Pa_CloseStream.exitthread-pre-split.i [
     i32 1, label %.thread.i.i
     i32 0, label %18
@@ -332,13 +332,13 @@ RemoveOpenStream.exit.i.thread.i:                 ; preds = %6, %.lr.ph.split.i
 18:                                               ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !41
-  %21 = tail call i32 %20(ptr noundef nonnull %5) #13
+  %21 = tail call i32 %20(ptr noundef nonnull %5) #14
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %.thread.i.i, label %Pa_CloseStream.exitthread-pre-split.i
 
 .thread.i.i:                                      ; preds = %18, %10
   %23 = load ptr, ptr %14, align 8, !tbaa !42
-  %24 = tail call i32 %23(ptr noundef nonnull %5) #13
+  %24 = tail call i32 %23(ptr noundef nonnull %5) #14
   br label %Pa_CloseStream.exitthread-pre-split.i
 
 Pa_CloseStream.exitthread-pre-split.i:            ; preds = %.thread.i.i, %18, %10
@@ -365,7 +365,7 @@ CloseOpenStreams.exit:                            ; preds = %Pa_CloseStream.exit
   %33 = load ptr, ptr %32, align 8, !tbaa !18
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %35 = load ptr, ptr %34, align 8, !tbaa !29
-  tail call void %35(ptr noundef %33) #13
+  tail call void %35(ptr noundef %33) #14
   %36 = load i32, ptr @hostApisCount_, align 4, !tbaa !12
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %.lr.ph.i3, label %._crit_edge.i, !llvm.loop !30
@@ -379,7 +379,7 @@ CloseOpenStreams.exit:                            ; preds = %Pa_CloseStream.exit
   br i1 %.not.i2, label %TerminateHostApis.exit, label %39
 
 39:                                               ; preds = %._crit_edge.i
-  tail call void @PaUtil_FreeMemory(ptr noundef nonnull %38) #13
+  tail call void @PaUtil_FreeMemory(ptr noundef nonnull %38) #14
   br label %TerminateHostApis.exit
 
 TerminateHostApis.exit:                           ; preds = %._crit_edge.i, %39
@@ -928,7 +928,7 @@ define i32 @Pa_IsFormatSupported(ptr noundef readonly captures(address_is_null) 
   %43 = load ptr, ptr %4, align 8, !tbaa !18
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 64
   %45 = load ptr, ptr %44, align 8, !tbaa !58
-  %46 = call i32 %45(ptr noundef %43, ptr noundef %.020, ptr noundef %.0, double noundef %2) #13
+  %46 = call i32 %45(ptr noundef %43, ptr noundef %.020, ptr noundef %.0, double noundef %2) #14
   br label %47
 
 47:                                               ; preds = %10, %3, %42
@@ -1373,7 +1373,7 @@ define i32 @Pa_OpenStream(ptr noundef %0, ptr noundef readonly captures(address_
   %50 = load ptr, ptr %9, align 8, !tbaa !18
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
   %52 = load ptr, ptr %51, align 8, !tbaa !61
-  %53 = call i32 %52(ptr noundef %50, ptr noundef nonnull %0, ptr noundef %.032, ptr noundef %.0, double noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #13
+  %53 = call i32 %52(ptr noundef %50, ptr noundef nonnull %0, ptr noundef %.032, ptr noundef %.0, double noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #14
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %59
 
@@ -1655,7 +1655,7 @@ RemoveOpenStream.exit:                            ; preds = %.lr.ph, %PaUtil_Val
   %20 = load ptr, ptr %19, align 8, !tbaa !38
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !39
-  %23 = tail call i32 %22(ptr noundef %0) #13
+  %23 = tail call i32 %22(ptr noundef %0) #14
   switch i32 %23, label %.thread18 [
     i32 1, label %.thread
     i32 0, label %24
@@ -1664,13 +1664,13 @@ RemoveOpenStream.exit:                            ; preds = %.lr.ph, %PaUtil_Val
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !41
-  %27 = tail call i32 %26(ptr noundef nonnull %0) #13
+  %27 = tail call i32 %26(ptr noundef nonnull %0) #14
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %.thread, label %.thread18
 
 .thread:                                          ; preds = %18, %24
   %29 = load ptr, ptr %20, align 8, !tbaa !42
-  %30 = tail call i32 %29(ptr noundef nonnull %0) #13
+  %30 = tail call i32 %29(ptr noundef nonnull %0) #14
   br label %.thread18
 
 .thread18:                                        ; preds = %18, %24, %.thread, %RemoveOpenStream.exit
@@ -1698,7 +1698,7 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %6
   %9 = load ptr, ptr %8, align 8, !tbaa !38
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !39
-  %12 = tail call i32 %11(ptr noundef nonnull %0) #13
+  %12 = tail call i32 %11(ptr noundef nonnull %0) #14
   %13 = icmp eq i32 %12, 0
   %spec.store.select = select i1 %13, i32 -9982, i32 %12
   %14 = icmp eq i32 %spec.store.select, 1
@@ -1734,7 +1734,7 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %5
   %8 = load ptr, ptr %7, align 8, !tbaa !38
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !39
-  %11 = tail call i32 %10(ptr noundef nonnull %0) #13
+  %11 = tail call i32 %10(ptr noundef nonnull %0) #14
   switch i32 %11, label %.fold.split [
     i32 0, label %PaUtil_ValidateStreamPointer.exit.thread
     i32 1, label %12
@@ -1744,7 +1744,7 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %5
   %13 = load ptr, ptr %7, align 8, !tbaa !38
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !67
-  %16 = tail call i32 %15(ptr noundef nonnull %0) #13
+  %16 = tail call i32 %15(ptr noundef nonnull %0) #14
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
 .fold.split:                                      ; preds = %PaUtil_ValidateStreamPointer.exit
@@ -1775,7 +1775,7 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %5
   %8 = load ptr, ptr %7, align 8, !tbaa !38
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !39
-  %11 = tail call i32 %10(ptr noundef nonnull %0) #13
+  %11 = tail call i32 %10(ptr noundef nonnull %0) #14
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %18
 
@@ -1783,7 +1783,7 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %5
   %14 = load ptr, ptr %7, align 8, !tbaa !38
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !68
-  %17 = tail call i32 %16(ptr noundef nonnull %0) #13
+  %17 = tail call i32 %16(ptr noundef nonnull %0) #14
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
 18:                                               ; preds = %PaUtil_ValidateStreamPointer.exit
@@ -1816,7 +1816,7 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %5
   %8 = load ptr, ptr %7, align 8, !tbaa !38
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !39
-  %11 = tail call i32 %10(ptr noundef nonnull %0) #13
+  %11 = tail call i32 %10(ptr noundef nonnull %0) #14
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %18
 
@@ -1824,7 +1824,7 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %5
   %14 = load ptr, ptr %7, align 8, !tbaa !38
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !41
-  %17 = tail call i32 %16(ptr noundef nonnull %0) #13
+  %17 = tail call i32 %16(ptr noundef nonnull %0) #14
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
 18:                                               ; preds = %PaUtil_ValidateStreamPointer.exit
@@ -1857,7 +1857,7 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %5
   %8 = load ptr, ptr %7, align 8, !tbaa !38
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !39
-  %11 = tail call i32 %10(ptr noundef nonnull %0) #13
+  %11 = tail call i32 %10(ptr noundef nonnull %0) #14
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
 PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %5, %3, %1, %PaUtil_ValidateStreamPointer.exit
@@ -1885,7 +1885,7 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %5
   %8 = load ptr, ptr %7, align 8, !tbaa !38
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !69
-  %11 = tail call i32 %10(ptr noundef nonnull %0) #13
+  %11 = tail call i32 %10(ptr noundef nonnull %0) #14
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
 PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %5, %3, %1, %PaUtil_ValidateStreamPointer.exit
@@ -1931,7 +1931,7 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %4
   %7 = load ptr, ptr %6, align 8, !tbaa !38
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8, !tbaa !70
-  %10 = tail call double %9(ptr noundef nonnull %0) #13
+  %10 = tail call double %9(ptr noundef nonnull %0) #14
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
 PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %4, %1, %PaUtil_ValidateStreamPointer.exit
@@ -1957,7 +1957,7 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %4
   %7 = load ptr, ptr %6, align 8, !tbaa !38
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8, !tbaa !71
-  %10 = tail call double %9(ptr noundef nonnull %0) #13
+  %10 = tail call double %9(ptr noundef nonnull %0) #14
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
 PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %4, %1, %PaUtil_ValidateStreamPointer.exit
@@ -1993,7 +1993,7 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %7
   %14 = load ptr, ptr %13, align 8, !tbaa !38
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !39
-  %17 = tail call i32 %16(ptr noundef nonnull %0) #13
+  %17 = tail call i32 %16(ptr noundef nonnull %0) #14
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %24
 
@@ -2001,7 +2001,7 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %7
   %20 = load ptr, ptr %13, align 8, !tbaa !38
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %22 = load ptr, ptr %21, align 8, !tbaa !72
-  %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2) #13
+  %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2) #14
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
 24:                                               ; preds = %12
@@ -2042,7 +2042,7 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %7
   %14 = load ptr, ptr %13, align 8, !tbaa !38
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !39
-  %17 = tail call i32 %16(ptr noundef nonnull %0) #13
+  %17 = tail call i32 %16(ptr noundef nonnull %0) #14
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %24
 
@@ -2050,7 +2050,7 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %7
   %20 = load ptr, ptr %13, align 8, !tbaa !38
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %22 = load ptr, ptr %21, align 8, !tbaa !73
-  %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2) #13
+  %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2) #14
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
 24:                                               ; preds = %12
@@ -2081,7 +2081,7 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %4
   %7 = load ptr, ptr %6, align 8, !tbaa !38
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %9 = load ptr, ptr %8, align 8, !tbaa !74
-  %10 = tail call i64 %9(ptr noundef nonnull %0) #13
+  %10 = tail call i64 %9(ptr noundef nonnull %0) #14
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
 PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %4, %1, %PaUtil_ValidateStreamPointer.exit
@@ -2107,7 +2107,7 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %4
   %7 = load ptr, ptr %6, align 8, !tbaa !38
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %9 = load ptr, ptr %8, align 8, !tbaa !75
-  %10 = tail call i64 %9(ptr noundef nonnull %0) #13
+  %10 = tail call i64 %9(ptr noundef nonnull %0) #14
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
 PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %4, %1, %PaUtil_ValidateStreamPointer.exit
@@ -2147,17 +2147,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #11
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
+declare void @llvm.assume(i1 noundef) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2170,9 +2170,10 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nounwind }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #14 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

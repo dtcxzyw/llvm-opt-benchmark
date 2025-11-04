@@ -28,7 +28,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer8writeNilEv(ptr noundef nonnull re
   %3 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 -64, ptr %2, align 1, !tbaa !15
-  %4 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %2, i64 noundef 1) #7
+  %4 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %2, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -40,7 +40,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEb(ptr noundef nonnull reado
   %5 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %4, ptr %3, align 1, !tbaa !15
-  %6 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %3, i64 noundef 1) #7
+  %6 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %3, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -72,7 +72,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEl(ptr noundef nonnull reado
   %18 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 %17, ptr %11, align 1, !tbaa !15
-  %19 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull %11, i64 noundef 1) #7
+  %19 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull %11, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %56
 
@@ -84,13 +84,13 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEl(ptr noundef nonnull reado
   %23 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 -48, ptr %10, align 1, !tbaa !15
-  %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull %10, i64 noundef 1) #7
+  %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull %10, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %25 = trunc nsw i64 %1 to i8
   %26 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 %25, ptr %9, align 1, !tbaa !15
-  %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull %9, i64 noundef 1) #7
+  %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull %9, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %56
 
@@ -102,7 +102,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEl(ptr noundef nonnull reado
   %31 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 -47, ptr %8, align 1, !tbaa !15
-  %32 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull %8, i64 noundef 1) #7
+  %32 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull %8, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %33 = trunc nsw i64 %1 to i16
   %34 = load ptr, ptr %0, align 8, !tbaa !14
@@ -113,7 +113,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEl(ptr noundef nonnull reado
   %rev.i.i.i.i.i.i = call i16 @llvm.bswap.i16(i16 %33)
   %spec.select.i.i.i = select i1 %.not.i.i.i, i16 %33, i16 %rev.i.i.i.i.i.i
   store i16 %spec.select.i.i.i, ptr %7, align 2, !tbaa !16
-  %37 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull %7, i64 noundef 2) #7
+  %37 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull %7, i64 noundef 2) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %56
 
@@ -125,7 +125,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEl(ptr noundef nonnull reado
 41:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 -46, ptr %6, align 1, !tbaa !15
-  %42 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull %6, i64 noundef 1) #7
+  %42 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull %6, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %43 = trunc nsw i64 %1 to i32
   %44 = load ptr, ptr %0, align 8, !tbaa !14
@@ -136,14 +136,14 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEl(ptr noundef nonnull reado
   %47 = call i32 @llvm.bswap.i32(i32 %43)
   %spec.select.i.i.i12 = select i1 %.not.i.i.i11, i32 %43, i32 %47
   store i32 %spec.select.i.i.i12, ptr %5, align 4, !tbaa !18
-  %48 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr noundef nonnull %5, i64 noundef 4) #7
+  %48 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr noundef nonnull %5, i64 noundef 4) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %56
 
 49:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 -45, ptr %4, align 1, !tbaa !15
-  %50 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull %4, i64 noundef 1) #7
+  %50 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull %4, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %51 = load ptr, ptr %0, align 8, !tbaa !14
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -153,7 +153,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEl(ptr noundef nonnull reado
   %54 = call i64 @llvm.bswap.i64(i64 %1)
   %spec.select.i.i.i14 = select i1 %.not.i.i.i13, i64 %1, i64 %54
   store i64 %spec.select.i.i.i14, ptr %3, align 8, !tbaa !20
-  %55 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %51, ptr noundef nonnull %3, i64 noundef 8) #7
+  %55 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %51, ptr noundef nonnull %3, i64 noundef 8) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %56
 
@@ -180,7 +180,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEm(ptr noundef nonnull reado
   %15 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 %14, ptr %11, align 1, !tbaa !15
-  %16 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull %11, i64 noundef 1) #7
+  %16 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull %11, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %53
 
@@ -192,13 +192,13 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEm(ptr noundef nonnull reado
   %20 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 -52, ptr %10, align 1, !tbaa !15
-  %21 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull %10, i64 noundef 1) #7
+  %21 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull %10, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %22 = trunc nuw i64 %1 to i8
   %23 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 %22, ptr %9, align 1, !tbaa !15
-  %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull %9, i64 noundef 1) #7
+  %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull %9, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %53
 
@@ -210,7 +210,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEm(ptr noundef nonnull reado
   %28 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 -51, ptr %8, align 1, !tbaa !15
-  %29 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull %8, i64 noundef 1) #7
+  %29 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull %8, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %30 = trunc nuw i64 %1 to i16
   %31 = load ptr, ptr %0, align 8, !tbaa !14
@@ -221,7 +221,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEm(ptr noundef nonnull reado
   %rev.i.i.i.i.i.i = call i16 @llvm.bswap.i16(i16 %30)
   %spec.select.i.i.i = select i1 %.not.i.i.i, i16 %30, i16 %rev.i.i.i.i.i.i
   store i16 %spec.select.i.i.i, ptr %7, align 2, !tbaa !16
-  %34 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull %7, i64 noundef 2) #7
+  %34 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull %7, i64 noundef 2) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %53
 
@@ -233,7 +233,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEm(ptr noundef nonnull reado
 38:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 -50, ptr %6, align 1, !tbaa !15
-  %39 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull %6, i64 noundef 1) #7
+  %39 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull %6, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %40 = trunc nuw i64 %1 to i32
   %41 = load ptr, ptr %0, align 8, !tbaa !14
@@ -244,14 +244,14 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEm(ptr noundef nonnull reado
   %44 = call i32 @llvm.bswap.i32(i32 %40)
   %spec.select.i.i.i10 = select i1 %.not.i.i.i9, i32 %40, i32 %44
   store i32 %spec.select.i.i.i10, ptr %5, align 4, !tbaa !18
-  %45 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull %5, i64 noundef 4) #7
+  %45 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull %5, i64 noundef 4) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %53
 
 46:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 -49, ptr %4, align 1, !tbaa !15
-  %47 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull %4, i64 noundef 1) #7
+  %47 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull %4, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %48 = load ptr, ptr %0, align 8, !tbaa !14
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -261,7 +261,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEm(ptr noundef nonnull reado
   %51 = call i64 @llvm.bswap.i64(i64 %1)
   %spec.select.i.i.i12 = select i1 %.not.i.i.i11, i64 %1, i64 %51
   store i64 %spec.select.i.i.i12, ptr %3, align 8, !tbaa !20
-  %52 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %48, ptr noundef nonnull %3, i64 noundef 8) #7
+  %52 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %48, ptr noundef nonnull %3, i64 noundef 8) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %53
 
@@ -285,7 +285,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEd(ptr noundef nonnull reado
 11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 -54, ptr %6, align 1, !tbaa !15
-  %12 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull %6, i64 noundef 1) #7
+  %12 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull %6, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %13 = fptrunc double %1 to float
   %14 = load ptr, ptr %0, align 8, !tbaa !14
@@ -297,14 +297,14 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEd(ptr noundef nonnull reado
   %18 = call i32 @llvm.bswap.i32(i32 %17)
   %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, i32 %17, i32 %18
   store i32 %spec.select.i.i.i.i, ptr %5, align 4, !tbaa !18
-  %19 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull %5, i64 noundef 4) #7
+  %19 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull %5, i64 noundef 4) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %28
 
 20:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 -53, ptr %4, align 1, !tbaa !15
-  %21 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull %4, i64 noundef 1) #7
+  %21 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull %4, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = load ptr, ptr %0, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -315,7 +315,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEd(ptr noundef nonnull reado
   %26 = call i64 @llvm.bswap.i64(i64 %25)
   %spec.select.i.i.i.i7 = select i1 %.not.i.i.i.i6, i64 %25, i64 %26
   store i64 %spec.select.i.i.i.i7, ptr %3, align 8, !tbaa !20
-  %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %3, i64 noundef 8) #7
+  %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %3, i64 noundef 8) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
 
@@ -323,7 +323,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEd(ptr noundef nonnull reado
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -344,7 +344,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeENS_9StringRefE(ptr noundef 
   %15 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 %14, ptr %10, align 1, !tbaa !15
-  %16 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull %10, i64 noundef 1) #7
+  %16 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull %10, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %45
 
@@ -360,13 +360,13 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeENS_9StringRefE(ptr noundef 
   %23 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 -39, ptr %9, align 1, !tbaa !15
-  %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull %9, i64 noundef 1) #7
+  %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull %9, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %25 = trunc nuw i64 %2 to i8
   %26 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 %25, ptr %8, align 1, !tbaa !15
-  %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull %8, i64 noundef 1) #7
+  %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull %8, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %45
 
@@ -379,7 +379,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeENS_9StringRefE(ptr noundef 
 32:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 -38, ptr %7, align 1, !tbaa !15
-  %33 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull %7, i64 noundef 1) #7
+  %33 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull %7, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %34 = trunc nuw i64 %2 to i16
   %35 = load ptr, ptr %0, align 8, !tbaa !14
@@ -389,14 +389,14 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeENS_9StringRefE(ptr noundef 
   %rev.i.i.i.i.i.i = call i16 @llvm.bswap.i16(i16 %34)
   %spec.select.i.i.i = select i1 %.not.i.i.i, i16 %34, i16 %rev.i.i.i.i.i.i
   store i16 %spec.select.i.i.i, ptr %6, align 2, !tbaa !16
-  %37 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull %6, i64 noundef 2) #7
+  %37 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull %6, i64 noundef 2) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %45
 
 38:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 -37, ptr %5, align 1, !tbaa !15
-  %39 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull %5, i64 noundef 1) #7
+  %39 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull %5, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %40 = trunc i64 %2 to i32
   %41 = load ptr, ptr %0, align 8, !tbaa !14
@@ -406,7 +406,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeENS_9StringRefE(ptr noundef 
   %43 = call i32 @llvm.bswap.i32(i32 %40)
   %spec.select.i.i.i10 = select i1 %.not.i.i.i9, i32 %40, i32 %43
   store i32 %spec.select.i.i.i10, ptr %4, align 4, !tbaa !18
-  %44 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull %4, i64 noundef 4) #7
+  %44 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull %4, i64 noundef 4) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %45
 
@@ -423,7 +423,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeENS_9StringRefE(ptr noundef 
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %45
-  %56 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef %1, i64 noundef %2) #7
+  %56 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef %1, i64 noundef %2) #8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 57:                                               ; preds = %45
@@ -461,13 +461,13 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeENS_15MemoryBufferRefE(ptr n
   %13 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 -60, ptr %8, align 1, !tbaa !15
-  %14 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull %8, i64 noundef 1) #7
+  %14 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull %8, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %15 = trunc nuw i64 %10 to i8
   %16 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 %15, ptr %7, align 1, !tbaa !15
-  %17 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull %7, i64 noundef 1) #7
+  %17 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull %7, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %35
 
@@ -480,7 +480,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeENS_15MemoryBufferRefE(ptr n
 22:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 -59, ptr %6, align 1, !tbaa !15
-  %23 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull %6, i64 noundef 1) #7
+  %23 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull %6, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %24 = trunc nuw i64 %10 to i16
   %25 = load ptr, ptr %0, align 8, !tbaa !14
@@ -490,14 +490,14 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeENS_15MemoryBufferRefE(ptr n
   %rev.i.i.i.i.i.i = call i16 @llvm.bswap.i16(i16 %24)
   %spec.select.i.i.i = select i1 %.not.i.i.i, i16 %24, i16 %rev.i.i.i.i.i.i
   store i16 %spec.select.i.i.i, ptr %5, align 2, !tbaa !16
-  %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull %5, i64 noundef 2) #7
+  %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull %5, i64 noundef 2) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %35
 
 28:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 -58, ptr %4, align 1, !tbaa !15
-  %29 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull %4, i64 noundef 1) #7
+  %29 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull %4, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %30 = trunc i64 %10 to i32
   %31 = load ptr, ptr %0, align 8, !tbaa !14
@@ -507,14 +507,14 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeENS_15MemoryBufferRefE(ptr n
   %33 = call i32 @llvm.bswap.i32(i32 %30)
   %spec.select.i.i.i7 = select i1 %.not.i.i.i6, i32 %30, i32 %33
   store i32 %spec.select.i.i.i7, ptr %3, align 4, !tbaa !18
-  %34 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull %3, i64 noundef 4) #7
+  %34 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull %3, i64 noundef 4) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %35
 
 35:                                               ; preds = %22, %28, %12
   %36 = load ptr, ptr %0, align 8, !tbaa !24
   %37 = load ptr, ptr %1, align 8, !tbaa !33
-  %38 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef %37, i64 noundef %10) #7
+  %38 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef %37, i64 noundef %10) #8
   ret void
 }
 
@@ -536,7 +536,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer14writeArraySizeEj(ptr noundef non
   %12 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 %11, ptr %7, align 1, !tbaa !15
-  %13 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull %7, i64 noundef 1) #7
+  %13 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull %7, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %31
 
@@ -548,7 +548,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer14writeArraySizeEj(ptr noundef non
 17:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 -36, ptr %6, align 1, !tbaa !15
-  %18 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull %6, i64 noundef 1) #7
+  %18 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull %6, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %19 = trunc nuw i32 %1 to i16
   %20 = load ptr, ptr %0, align 8, !tbaa !14
@@ -559,14 +559,14 @@ define dso_local void @_ZN4llvm7msgpack6Writer14writeArraySizeEj(ptr noundef non
   %rev.i.i.i.i.i.i = call i16 @llvm.bswap.i16(i16 %19)
   %spec.select.i.i.i = select i1 %.not.i.i.i, i16 %19, i16 %rev.i.i.i.i.i.i
   store i16 %spec.select.i.i.i, ptr %5, align 2, !tbaa !16
-  %23 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull %5, i64 noundef 2) #7
+  %23 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull %5, i64 noundef 2) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %31
 
 24:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 -35, ptr %4, align 1, !tbaa !15
-  %25 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull %4, i64 noundef 1) #7
+  %25 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull %4, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %26 = load ptr, ptr %0, align 8, !tbaa !14
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -576,7 +576,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer14writeArraySizeEj(ptr noundef non
   %29 = call i32 @llvm.bswap.i32(i32 %1)
   %spec.select.i.i.i6 = select i1 %.not.i.i.i5, i32 %1, i32 %29
   store i32 %spec.select.i.i.i6, ptr %3, align 4, !tbaa !18
-  %30 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull %3, i64 noundef 4) #7
+  %30 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull %3, i64 noundef 4) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %31
 
@@ -600,7 +600,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer12writeMapSizeEj(ptr noundef nonnu
   %12 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 %11, ptr %7, align 1, !tbaa !15
-  %13 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull %7, i64 noundef 1) #7
+  %13 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull %7, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %31
 
@@ -612,7 +612,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer12writeMapSizeEj(ptr noundef nonnu
 17:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 -34, ptr %6, align 1, !tbaa !15
-  %18 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull %6, i64 noundef 1) #7
+  %18 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull %6, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %19 = trunc nuw i32 %1 to i16
   %20 = load ptr, ptr %0, align 8, !tbaa !14
@@ -623,14 +623,14 @@ define dso_local void @_ZN4llvm7msgpack6Writer12writeMapSizeEj(ptr noundef nonnu
   %rev.i.i.i.i.i.i = call i16 @llvm.bswap.i16(i16 %19)
   %spec.select.i.i.i = select i1 %.not.i.i.i, i16 %19, i16 %rev.i.i.i.i.i.i
   store i16 %spec.select.i.i.i, ptr %5, align 2, !tbaa !16
-  %23 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull %5, i64 noundef 2) #7
+  %23 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull %5, i64 noundef 2) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %31
 
 24:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 -33, ptr %4, align 1, !tbaa !15
-  %25 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull %4, i64 noundef 1) #7
+  %25 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull %4, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %26 = load ptr, ptr %0, align 8, !tbaa !14
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -640,7 +640,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer12writeMapSizeEj(ptr noundef nonnu
   %29 = call i32 @llvm.bswap.i32(i32 %1)
   %spec.select.i.i.i6 = select i1 %.not.i.i.i5, i32 %1, i32 %29
   store i32 %spec.select.i.i.i6, ptr %3, align 4, !tbaa !18
-  %30 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull %3, i64 noundef 4) #7
+  %30 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull %3, i64 noundef 4) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %31
 
@@ -682,7 +682,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer8writeExtEaNS_15MemoryBufferRefE(p
   %22 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 -44, ptr %15, align 1, !tbaa !15
-  %23 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %15, i64 noundef 1) #7
+  %23 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %15, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %61
 
@@ -690,7 +690,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer8writeExtEaNS_15MemoryBufferRefE(p
   %25 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i8 -43, ptr %14, align 1, !tbaa !15
-  %26 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull %14, i64 noundef 1) #7
+  %26 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull %14, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %61
 
@@ -698,7 +698,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer8writeExtEaNS_15MemoryBufferRefE(p
   %28 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i8 -42, ptr %13, align 1, !tbaa !15
-  %29 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull %13, i64 noundef 1) #7
+  %29 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull %13, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %61
 
@@ -706,7 +706,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer8writeExtEaNS_15MemoryBufferRefE(p
   %31 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 -41, ptr %12, align 1, !tbaa !15
-  %32 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull %12, i64 noundef 1) #7
+  %32 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull %12, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %61
 
@@ -714,7 +714,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer8writeExtEaNS_15MemoryBufferRefE(p
   %34 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 -40, ptr %11, align 1, !tbaa !15
-  %35 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull %11, i64 noundef 1) #7
+  %35 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull %11, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %61
 
@@ -726,13 +726,13 @@ define dso_local void @_ZN4llvm7msgpack6Writer8writeExtEaNS_15MemoryBufferRefE(p
   %39 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 -57, ptr %10, align 1, !tbaa !15
-  %40 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull %10, i64 noundef 1) #7
+  %40 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull %10, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %41 = trunc nuw i64 %17 to i8
   %42 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 %41, ptr %9, align 1, !tbaa !15
-  %43 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %42, ptr noundef nonnull %9, i64 noundef 1) #7
+  %43 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %42, ptr noundef nonnull %9, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %61
 
@@ -745,7 +745,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer8writeExtEaNS_15MemoryBufferRefE(p
 48:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 -56, ptr %8, align 1, !tbaa !15
-  %49 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef nonnull %8, i64 noundef 1) #7
+  %49 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef nonnull %8, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %50 = trunc nuw i64 %17 to i16
   %51 = load ptr, ptr %0, align 8, !tbaa !14
@@ -755,14 +755,14 @@ define dso_local void @_ZN4llvm7msgpack6Writer8writeExtEaNS_15MemoryBufferRefE(p
   %rev.i.i.i.i.i.i = call i16 @llvm.bswap.i16(i16 %50)
   %spec.select.i.i.i = select i1 %.not.i.i.i, i16 %50, i16 %rev.i.i.i.i.i.i
   store i16 %spec.select.i.i.i, ptr %7, align 2, !tbaa !16
-  %53 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %51, ptr noundef nonnull %7, i64 noundef 2) #7
+  %53 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %51, ptr noundef nonnull %7, i64 noundef 2) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %61
 
 54:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 -55, ptr %6, align 1, !tbaa !15
-  %55 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef nonnull %6, i64 noundef 1) #7
+  %55 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef nonnull %6, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = trunc i64 %17 to i32
   %57 = load ptr, ptr %0, align 8, !tbaa !14
@@ -772,7 +772,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer8writeExtEaNS_15MemoryBufferRefE(p
   %59 = call i32 @llvm.bswap.i32(i32 %56)
   %spec.select.i.i.i9 = select i1 %.not.i.i.i8, i32 %56, i32 %59
   store i32 %spec.select.i.i.i9, ptr %5, align 4, !tbaa !18
-  %60 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %57, ptr noundef nonnull %5, i64 noundef 4) #7
+  %60 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %57, ptr noundef nonnull %5, i64 noundef 4) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %61
 
@@ -780,43 +780,44 @@ define dso_local void @_ZN4llvm7msgpack6Writer8writeExtEaNS_15MemoryBufferRefE(p
   %62 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %1, ptr %4, align 1, !tbaa !15
-  %63 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull %4, i64 noundef 1) #7
+  %63 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull %4, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %64 = load ptr, ptr %0, align 8, !tbaa !24
   %65 = load ptr, ptr %2, align 8, !tbaa !33
-  %66 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %64, ptr noundef %65, i64 noundef %17) #7
+  %66 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %64, ptr noundef %65, i64 noundef %17) #8
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #2
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #5
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind }
+attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

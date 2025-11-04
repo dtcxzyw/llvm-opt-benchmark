@@ -336,7 +336,7 @@ define internal range(i32 0, -2147483648) i32 @dissect_cp2179(ptr noundef %0, pt
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %16 = load ptr, ptr %15, align 8
   %17 = zext nneg i32 %5 to i64
-  %18 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef %17) #4
+  %18 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef %17) #5
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.outer.i, %13
@@ -541,7 +541,7 @@ classify_message_type.exit.i:                     ; preds = %94, %87, %84, %82, 
 
 108:                                              ; preds = %103
   %109 = tail call ptr @wmem_file_scope()
-  %110 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %109, i64 noundef 8) #4
+  %110 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %109, i64 noundef 8) #5
   %111 = tail call ptr @wmem_file_scope()
   %112 = tail call noalias ptr @wmem_list_new(ptr noundef %111)
   store ptr %112, ptr %110, align 8
@@ -570,7 +570,7 @@ switch.early.test.i:                              ; preds = %114
 
 119:                                              ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %114
   %120 = tail call ptr @wmem_file_scope()
-  %121 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %120, i64 noundef 24) #4
+  %121 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %120, i64 noundef 24) #5
   %122 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %.014, i32 noundef 0)
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 4
   store i16 %122, ptr %123, align 4
@@ -595,7 +595,7 @@ switch.early.test.i:                              ; preds = %114
   %137 = add nsw i16 %136, 1
   %138 = tail call ptr @wmem_file_scope()
   %139 = zext i16 %137 to i64
-  %140 = tail call noalias ptr @wmem_alloc(ptr noundef %138, i64 noundef %139) #4
+  %140 = tail call noalias ptr @wmem_alloc(ptr noundef %138, i64 noundef %139) #5
   %141 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store ptr %140, ptr %141, align 8
   %.not51.i.i = icmp eq i16 %137, 0
@@ -616,7 +616,7 @@ switch.early.test.i:                              ; preds = %114
 148:                                              ; preds = %119
   %149 = tail call ptr @wmem_file_scope()
   %150 = zext i16 %128 to i64
-  %151 = tail call noalias ptr @wmem_alloc(ptr noundef %149, i64 noundef %150) #4
+  %151 = tail call noalias ptr @wmem_alloc(ptr noundef %149, i64 noundef %150) #5
   %152 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store ptr %151, ptr %152, align 8
   %.not.i61.i = icmp eq i16 %128, 0
@@ -1270,20 +1270,21 @@ declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_a
 ; Function Attrs: null_pointer_is_valid
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #3
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #3
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { allocsize(1) }
+attributes #3 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

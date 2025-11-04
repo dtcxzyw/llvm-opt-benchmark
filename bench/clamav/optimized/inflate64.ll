@@ -20,7 +20,7 @@ define range(i32 -4, 1) i32 @inflate64Init2(ptr noundef writeonly captures(addre
   br i1 %3, label %25, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call noalias dereferenceable_or_null(9544) ptr @calloc(i64 noundef 1, i64 noundef 9544) #11
+  %5 = tail call noalias dereferenceable_or_null(9544) ptr @calloc(i64 noundef 1, i64 noundef 9544) #12
   %6 = icmp eq ptr %5, null
   br i1 %6, label %25, label %7
 
@@ -39,7 +39,7 @@ define range(i32 -4, 1) i32 @inflate64Init2(ptr noundef writeonly captures(addre
   br i1 %or.cond, label %14, label %15
 
 14:                                               ; preds = %7
-  tail call void @free(ptr noundef nonnull %5) #12
+  tail call void @free(ptr noundef nonnull %5) #13
   store ptr null, ptr %8, align 8, !tbaa !3
   br label %25
 
@@ -299,7 +299,7 @@ define range(i32 -5, 3) i32 @inflate64(ptr noundef captures(address_is_null) %0,
 99:                                               ; preds = %90
   %100 = shl nuw nsw i32 256, %93
   store i32 %100, ptr %58, align 4, !tbaa !18
-  %101 = tail call i64 @adler32(i64 noundef 0, ptr noundef null, i32 noundef 0) #12
+  %101 = tail call i64 @adler32(i64 noundef 0, ptr noundef null, i32 noundef 0) #13
   store i64 %101, ptr %34, align 8, !tbaa !33
   store i64 %101, ptr %35, align 8, !tbaa !17
   %102 = and i64 %.11610.lcssa, 8192
@@ -1678,7 +1678,7 @@ default.unreachable2261:                          ; preds = %132
 647:                                              ; preds = %._crit_edge
   %648 = sub nsw i64 0, %642
   %649 = getelementptr inbounds i8, ptr %.0683, i64 %648
-  %650 = tail call i64 @adler32(i64 noundef %.pre2211, ptr noundef nonnull %649, i32 noundef %641) #12
+  %650 = tail call i64 @adler32(i64 noundef %.pre2211, ptr noundef nonnull %649, i32 noundef %641) #13
   store i64 %650, ptr %34, align 8, !tbaa !33
   store i64 %650, ptr %35, align 8, !tbaa !17
   br label %651
@@ -1846,7 +1846,7 @@ default.unreachable2261:                          ; preds = %132
   %697 = load i32, ptr %696, align 8, !tbaa !14
   %698 = shl nuw i32 1, %697
   %699 = zext i32 %698 to i64
-  %700 = tail call ptr @cli_max_calloc(i64 noundef %699, i64 noundef 1) #12
+  %700 = tail call ptr @cli_max_calloc(i64 noundef %699, i64 noundef 1) #13
   store ptr %700, ptr %692, align 8, !tbaa !46
   %701 = icmp eq ptr %700, null
   br i1 %701, label %updatewindow.exit, label %702
@@ -1968,7 +1968,7 @@ updatewindow.exit.thread:                         ; preds = %.loopexit, %717, %7
   %773 = load ptr, ptr %9, align 8, !tbaa !22
   %774 = sub nsw i64 0, %763
   %775 = getelementptr inbounds i8, ptr %773, i64 %774
-  %776 = tail call i64 @adler32(i64 noundef %772, ptr noundef %775, i32 noundef %758) #12
+  %776 = tail call i64 @adler32(i64 noundef %772, ptr noundef %775, i32 noundef %758) #13
   store i64 %776, ptr %34, align 8, !tbaa !33
   store i64 %776, ptr %35, align 8, !tbaa !17
   br label %777
@@ -2463,13 +2463,13 @@ define range(i32 -2, 1) i32 @inflate64End(ptr noundef captures(address_is_null) 
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %7
-  tail call void @free(ptr noundef nonnull %9) #12
+  tail call void @free(ptr noundef nonnull %9) #13
   %.pre = load ptr, ptr %4, align 8, !tbaa !3
   br label %11
 
 11:                                               ; preds = %10, %7
   %12 = phi ptr [ %.pre, %10 ], [ %5, %7 ]
-  tail call void @free(ptr noundef %12) #12
+  tail call void @free(ptr noundef %12) #13
   store ptr null, ptr %4, align 8, !tbaa !3
   br label %13
 
@@ -2486,20 +2486,20 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #9
+declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { mustprogress nounwind willreturn memory(readwrite, argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2510,10 +2510,11 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nounwind allocsize(0,1) }
-attributes #12 = { nounwind }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nounwind allocsize(0,1) }
+attributes #13 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

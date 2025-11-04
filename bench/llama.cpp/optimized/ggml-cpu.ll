@@ -105,7 +105,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_Z39ggml_backend_cpu_get
   br i1 %2, label %3, label %8, !prof !4
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts) #25
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts) #26
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %5
 
@@ -114,8 +114,8 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_Z39ggml_backend_cpu_get
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EED2Ev, ptr nonnull @_ZZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts, ptr nonnull @__dso_handle) #25
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts) #25
+  %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EED2Ev, ptr nonnull @_ZZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts, ptr nonnull @__dso_handle) #26
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts) #26
   br label %8
 
 8:                                                ; preds = %6, %3, %0
@@ -124,7 +124,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_Z39ggml_backend_cpu_get
 9:                                                ; preds = %5
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts) #25
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts) #26
   resume { ptr, i32 } %10
 }
 
@@ -171,7 +171,7 @@ define internal fastcc void @"_ZZ39ggml_backend_cpu_get_extra_buffers_typevENK3$
   br i1 %15, label %16, label %_ZNKSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
 
 16:                                               ; preds = %10
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc unwind label %32
 
 .noexc:                                           ; preds = %16
@@ -187,7 +187,7 @@ _ZNKSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i:
   %.not.i.i.i.i = icmp ne i64 %21, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i)
   %22 = shl nuw nsw i64 %21, 3
-  %23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #27
+  %23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #28
           to label %.noexc4 unwind label %32
 
 .noexc4:                                          ; preds = %_ZNKSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -206,7 +206,7 @@ _ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exi
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %28
 
 28:                                               ; preds = %_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %14) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %14) #29
   br label %_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %28, %_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
@@ -247,7 +247,7 @@ _ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE9push_backEOS1_.exit: ; preds = 
   br i1 %43, label %44, label %_ZNKSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i6
 
 44:                                               ; preds = %38
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc12 unwind label %58
 
 .noexc12:                                         ; preds = %44
@@ -263,7 +263,7 @@ _ZNKSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i6
   %.not.i.i.i.i8 = icmp ne i64 %49, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i8)
   %50 = shl nuw nsw i64 %49, 3
-  %51 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #27
+  %51 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #28
           to label %.noexc13 unwind label %58
 
 .noexc13:                                         ; preds = %_ZNKSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i6
@@ -282,7 +282,7 @@ _ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exi
   br i1 %.not.i17.i.i.i10, label %_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11, label %56
 
 56:                                               ; preds = %_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i9
-  tail call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %42) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %42) #29
   br label %_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11
 
 _ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11: ; preds = %56, %_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i9
@@ -311,7 +311,7 @@ _ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE9push_backEOS1_.exit14: ; preds 
   %64 = ptrtoint ptr %63 to i64
   %65 = ptrtoint ptr %61 to i64
   %66 = sub i64 %64, %65
-  tail call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef %66) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef %66) #29
   br label %_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EED2Ev.exit: ; preds = %60, %62
@@ -332,7 +332,7 @@ define linkonce_odr void @_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EED2Ev(p
   %6 = ptrtoint ptr %5 to i64
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %6, %7
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef %8) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef %8) #29
   br label %_ZNSt12_Vector_baseIP24ggml_backend_buffer_typeSaIS1_EED2Ev.exit
 
 _ZNSt12_Vector_baseIP24ggml_backend_buffer_typeSaIS1_EED2Ev.exit: ; preds = %1, %3
@@ -355,8 +355,8 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #25
-  tail call void @_ZSt9terminatev() #29
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #26
+  tail call void @_ZSt9terminatev() #30
   unreachable
 }
 
@@ -377,11 +377,11 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull ptr @ggml_backend_cpu_init() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   tail call void @ggml_cpu_init()
-  %1 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
+  %1 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
   store i32 4, ptr %1, align 8, !tbaa !16
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
-  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #27
+  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #28
   store ptr @_ZZL21ggml_backend_cpu_guidvE4guid, ptr %3, align 16, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4, ptr noundef nonnull align 8 dereferenceable(104) @_ZL18ggml_backend_cpu_i, i64 104, i1 false), !tbaa.struct !26
@@ -402,7 +402,7 @@ ggml_backend_cpu_reg.exit:                        ; preds = %0
 9:                                                ; preds = %0, %ggml_backend_cpu_reg.exit
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 128) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 128) #29
   resume { ptr, i32 } %10
 }
 
@@ -434,12 +434,12 @@ define internal void @_ZL21ggml_backend_cpu_freeP12ggml_backend(ptr noundef %0) 
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %1
-  tail call void @_ZdaPv(ptr noundef nonnull %5) #28
+  tail call void @_ZdaPv(ptr noundef nonnull %5) #29
   br label %8
 
 8:                                                ; preds = %7, %1
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 48) #28
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 128) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 48) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 128) #29
   ret void
 }
 
@@ -448,7 +448,7 @@ define internal noalias noundef nonnull ptr @_ZL34ggml_backend_cpu_graph_plan_cr
   %3 = alloca %struct.ggml_cplan, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8, !tbaa !29
-  %6 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #27
+  %6 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = load i32, ptr %5, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -463,7 +463,7 @@ define internal noalias noundef nonnull ptr @_ZL34ggml_backend_cpu_graph_plan_cr
   br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %2
-  %13 = call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #27
+  %13 = call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #28
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %13, ptr %14, align 8, !tbaa !49
   br label %15
@@ -488,11 +488,11 @@ define internal void @_ZL32ggml_backend_cpu_graph_plan_freeP12ggml_backendPv(ptr
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
-  tail call void @_ZdaPv(ptr noundef nonnull %4) #28
+  tail call void @_ZdaPv(ptr noundef nonnull %4) #29
   br label %7
 
 7:                                                ; preds = %6, %2
-  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 128) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 128) #29
   ret void
 }
 
@@ -526,13 +526,13 @@ define internal noundef i32 @_ZL30ggml_backend_cpu_graph_computeP12ggml_backendP
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %15
-  call void @_ZdaPv(ptr noundef nonnull %14) #28
+  call void @_ZdaPv(ptr noundef nonnull %14) #29
   %.pre = load i64, ptr %3, align 8, !tbaa !55
   br label %18
 
 18:                                               ; preds = %17, %15
   %19 = phi i64 [ %.pre, %17 ], [ %11, %15 ]
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #27
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #28
   store ptr %20, ptr %13, align 8, !tbaa !30
   store i64 %19, ptr %9, align 8, !tbaa !54
   br label %._crit_edge
@@ -592,7 +592,7 @@ ggml_backend_is_cpu.exit:                         ; preds = %2
   br i1 %4, label %5, label %ggml_backend_is_cpu.exit.thread
 
 ggml_backend_is_cpu.exit.thread:                  ; preds = %2, %ggml_backend_is_cpu.exit
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.2, i32 noundef 228, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #26
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.2, i32 noundef 228, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #27
   unreachable
 
 5:                                                ; preds = %ggml_backend_is_cpu.exit
@@ -616,7 +616,7 @@ ggml_backend_is_cpu.exit:                         ; preds = %2
   br i1 %4, label %5, label %ggml_backend_is_cpu.exit.thread
 
 ggml_backend_is_cpu.exit.thread:                  ; preds = %2, %ggml_backend_is_cpu.exit
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.2, i32 noundef 235, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #26
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.2, i32 noundef 235, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #27
   unreachable
 
 5:                                                ; preds = %ggml_backend_is_cpu.exit
@@ -651,7 +651,7 @@ ggml_backend_is_cpu.exit:                         ; preds = %3
   br i1 %5, label %6, label %ggml_backend_is_cpu.exit.thread
 
 ggml_backend_is_cpu.exit.thread:                  ; preds = %3, %ggml_backend_is_cpu.exit
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.2, i32 noundef 247, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #26
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.2, i32 noundef 247, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #27
   unreachable
 
 6:                                                ; preds = %ggml_backend_is_cpu.exit
@@ -680,7 +680,7 @@ define internal noundef nonnull ptr @_ZL31ggml_backend_cpu_reg_get_deviceP16ggml
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.2, i32 noundef 474, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.5) #26
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.2, i32 noundef 474, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.5) #27
   unreachable
 
 5:                                                ; preds = %2
@@ -689,7 +689,7 @@ define internal noundef nonnull ptr @_ZL31ggml_backend_cpu_reg_get_deviceP16ggml
   br i1 %7, label %8, label %13, !prof !4
 
 8:                                                ; preds = %5
-  %9 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL31ggml_backend_cpu_reg_get_deviceP16ggml_backend_regmE3ctx) #25
+  %9 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL31ggml_backend_cpu_reg_get_deviceP16ggml_backend_regmE3ctx) #26
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %13, label %10
 
@@ -698,8 +698,8 @@ define internal noundef nonnull ptr @_ZL31ggml_backend_cpu_reg_get_deviceP16ggml
           to label %11 unwind label %20
 
 11:                                               ; preds = %10
-  %12 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN31ggml_backend_cpu_device_contextD2Ev, ptr nonnull @_ZZL31ggml_backend_cpu_reg_get_deviceP16ggml_backend_regmE3ctx, ptr nonnull @__dso_handle) #25
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL31ggml_backend_cpu_reg_get_deviceP16ggml_backend_regmE3ctx) #25
+  %12 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN31ggml_backend_cpu_device_contextD2Ev, ptr nonnull @_ZZL31ggml_backend_cpu_reg_get_deviceP16ggml_backend_regmE3ctx, ptr nonnull @__dso_handle) #26
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL31ggml_backend_cpu_reg_get_deviceP16ggml_backend_regmE3ctx) #26
   br label %13
 
 13:                                               ; preds = %11, %8, %5
@@ -708,7 +708,7 @@ define internal noundef nonnull ptr @_ZL31ggml_backend_cpu_reg_get_deviceP16ggml
   br i1 %15, label %16, label %19, !prof !4
 
 16:                                               ; preds = %13
-  %17 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL31ggml_backend_cpu_reg_get_deviceP16ggml_backend_regmE23ggml_backend_cpu_device) #25
+  %17 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL31ggml_backend_cpu_reg_get_deviceP16ggml_backend_regmE23ggml_backend_cpu_device) #26
   %.not3 = icmp eq i32 %17, 0
   br i1 %.not3, label %19, label %18
 
@@ -716,7 +716,7 @@ define internal noundef nonnull ptr @_ZL31ggml_backend_cpu_reg_get_deviceP16ggml
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) @_ZZL31ggml_backend_cpu_reg_get_deviceP16ggml_backend_regmE23ggml_backend_cpu_device, ptr noundef nonnull align 8 dereferenceable(120) @_ZL25ggml_backend_cpu_device_i, i64 120, i1 false), !tbaa.struct !59
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZZL31ggml_backend_cpu_reg_get_deviceP16ggml_backend_regmE23ggml_backend_cpu_device, i64 120), align 8, !tbaa !60
   store ptr @_ZZL31ggml_backend_cpu_reg_get_deviceP16ggml_backend_regmE3ctx, ptr getelementptr inbounds nuw (i8, ptr @_ZZL31ggml_backend_cpu_reg_get_deviceP16ggml_backend_regmE23ggml_backend_cpu_device, i64 128), align 8, !tbaa !64
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL31ggml_backend_cpu_reg_get_deviceP16ggml_backend_regmE23ggml_backend_cpu_device) #25
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL31ggml_backend_cpu_reg_get_deviceP16ggml_backend_regmE23ggml_backend_cpu_device) #26
   br label %19
 
 19:                                               ; preds = %18, %16, %13
@@ -725,53 +725,53 @@ define internal noundef nonnull ptr @_ZL31ggml_backend_cpu_reg_get_deviceP16ggml
 20:                                               ; preds = %10
   %21 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZL31ggml_backend_cpu_reg_get_deviceP16ggml_backend_regmE3ctx) #25
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZL31ggml_backend_cpu_reg_get_deviceP16ggml_backend_regmE3ctx) #26
   resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define internal noundef ptr @_ZL33ggml_backend_cpu_get_proc_addressP16ggml_backend_regPKc(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
-  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(27) @.str.10) #30
+  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(27) @.str.10) #31
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %29, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(33) @.str.11) #30
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(33) @.str.11) #31
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %29, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(26) @.str.12) #30
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(26) @.str.12) #31
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %29, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(32) @.str.13) #30
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(32) @.str.13) #31
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %29, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(27) @.str.14) #30
+  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(27) @.str.14) #31
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %29, label %17
 
 17:                                               ; preds = %14
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(25) @.str.15) #30
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(25) @.str.15) #31
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %29, label %20
 
 20:                                               ; preds = %17
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(20) @.str.16) #30
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(20) @.str.16) #31
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %29, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(21) @.str.17) #30
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(21) @.str.17) #31
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %29, label %26
 
 26:                                               ; preds = %23
-  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(32) @.str.18) #30
+  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(32) @.str.18) #31
   %28 = icmp eq i32 %27, 0
   %ggml_backend_cpu_set_threadpool. = select i1 %28, ptr @ggml_backend_cpu_set_threadpool, ptr null
   br label %29
@@ -808,7 +808,7 @@ define linkonce_odr void @_ZN31ggml_backend_cpu_device_contextC2Ev(ptr noundef n
   br i1 %8, label %9, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.thread
 
 9:                                                ; preds = %.lr.ph
-  %10 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 58) #30
+  %10 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 58) #31
   %.not21 = icmp eq ptr %10, null
   br i1 %.not21, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.thread, label %.preheader28
 
@@ -817,29 +817,29 @@ define linkonce_odr void @_ZN31ggml_backend_cpu_device_contextC2Ev(ptr noundef n
   %.015 = getelementptr inbounds nuw i8, ptr %.pn25, i64 1
   %11 = load i8, ptr %.015, align 1, !tbaa !69
   %12 = sext i8 %11 to i32
-  %13 = call i32 @isspace(i32 noundef %12) #30
+  %13 = call i32 @isspace(i32 noundef %12) #31
   %.not22 = icmp eq i32 %13, 0
   br i1 %.not22, label %.preheader, label %.preheader28, !llvm.loop !70
 
 .preheader:                                       ; preds = %.preheader28
-  %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.015) #25
+  %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.015) #26
   %15 = getelementptr i8, ptr %.015, i64 %14
   %16 = getelementptr i8, ptr %15, i64 -1
   %17 = load i8, ptr %16, align 1, !tbaa !69
   %18 = sext i8 %17 to i32
-  %19 = call i32 @isspace(i32 noundef %18) #30
+  %19 = call i32 @isspace(i32 noundef %18) #31
   %.not2331 = icmp eq i32 %19, 0
   br i1 %.not2331, label %._crit_edge, label %.lr.ph32
 
 .lr.ph32:                                         ; preds = %.preheader, %.lr.ph32
   %20 = phi ptr [ %23, %.lr.ph32 ], [ %16, %.preheader ]
   store i8 0, ptr %20, align 1, !tbaa !69
-  %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.015) #25
+  %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.015) #26
   %22 = getelementptr i8, ptr %.015, i64 %21
   %23 = getelementptr i8, ptr %22, i64 -1
   %24 = load i8, ptr %23, align 1, !tbaa !69
   %25 = sext i8 %24 to i32
-  %26 = call i32 @isspace(i32 noundef %25) #30
+  %26 = call i32 @isspace(i32 noundef %25) #31
   %.not23 = icmp eq i32 %26, 0
   br i1 %.not23, label %._crit_edge, label %.lr.ph32, !llvm.loop !72
 
@@ -860,7 +860,7 @@ define linkonce_odr void @_ZN31ggml_backend_cpu_device_contextC2Ev(ptr noundef n
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %29
   %33 = load i64, ptr %2, align 8, !tbaa !69
   %34 = add i64 %33, 1
-  call void @_ZdlPvm(ptr noundef %31, i64 noundef %34) #28
+  call void @_ZdlPvm(ptr noundef %31, i64 noundef %34) #29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.thread: ; preds = %9, %.lr.ph
@@ -890,7 +890,7 @@ define linkonce_odr void @_ZN31ggml_backend_cpu_device_contextD2Ev(ptr noundef n
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
   %5 = load i64, ptr %3, align 8, !tbaa !69
   %6 = add i64 %5, 1
-  tail call void @_ZdlPvm(ptr noundef %2, i64 noundef %6) #28
+  tail call void @_ZdlPvm(ptr noundef %2, i64 noundef %6) #29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -942,11 +942,11 @@ define internal void @_ZL33ggml_backend_cpu_device_get_propsP19ggml_backend_devi
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZL36ggml_backend_cpu_device_init_backendP19ggml_backend_devicePKc(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 personality ptr @__gxx_personality_v0 {
   tail call void @ggml_cpu_init()
-  %3 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
+  %3 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
   store i32 4, ptr %3, align 8, !tbaa !16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
-  %5 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #27
+  %5 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #28
   store ptr @_ZZL21ggml_backend_cpu_guidvE4guid, ptr %5, align 16, !tbaa !22
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, ptr noundef nonnull align 8 dereferenceable(104) @_ZL18ggml_backend_cpu_i, i64 104, i1 false), !tbaa.struct !26
@@ -960,7 +960,7 @@ ggml_backend_cpu_reg.exit.i:                      ; preds = %2
 8:                                                ; preds = %ggml_backend_cpu_reg.exit.i, %2
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 128) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 128) #29
   resume { ptr, i32 } %9
 
 ggml_backend_cpu_init.exit:                       ; preds = %ggml_backend_cpu_reg.exit.i
@@ -1004,7 +1004,7 @@ define internal noundef zeroext i1 @_ZL35ggml_backend_cpu_device_supports_opP19g
   br i1 %12, label %13, label %_Z39ggml_backend_cpu_get_extra_buffers_typev.exit, !prof !4
 
 13:                                               ; preds = %10
-  %14 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts) #25
+  %14 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts) #26
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %_Z39ggml_backend_cpu_get_extra_buffers_typev.exit, label %15
 
@@ -1013,14 +1013,14 @@ define internal noundef zeroext i1 @_ZL35ggml_backend_cpu_device_supports_opP19g
           to label %16 unwind label %18
 
 16:                                               ; preds = %15
-  %17 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EED2Ev, ptr nonnull @_ZZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts, ptr nonnull @__dso_handle) #25
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts) #25
+  %17 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EED2Ev, ptr nonnull @_ZZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts, ptr nonnull @__dso_handle) #26
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts) #26
   br label %_Z39ggml_backend_cpu_get_extra_buffers_typev.exit
 
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts) #25
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts) #26
   resume { ptr, i32 } %19
 
 _Z39ggml_backend_cpu_get_extra_buffers_typev.exit: ; preds = %10, %13, %16
@@ -1193,7 +1193,7 @@ define internal noundef zeroext i1 @_ZL37ggml_backend_cpu_device_supports_buftP1
   br i1 %6, label %7, label %_Z39ggml_backend_cpu_get_extra_buffers_typev.exit.i, !prof !4
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts) #25
+  %8 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts) #26
   %.not.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i, label %_Z39ggml_backend_cpu_get_extra_buffers_typev.exit.i, label %9
 
@@ -1202,14 +1202,14 @@ define internal noundef zeroext i1 @_ZL37ggml_backend_cpu_device_supports_buftP1
           to label %10 unwind label %12
 
 10:                                               ; preds = %9
-  %11 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EED2Ev, ptr nonnull @_ZZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts, ptr nonnull @__dso_handle) #25
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts) #25
+  %11 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EED2Ev, ptr nonnull @_ZZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts, ptr nonnull @__dso_handle) #26
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts) #26
   br label %_Z39ggml_backend_cpu_get_extra_buffers_typev.exit.i
 
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts) #25
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts) #26
   resume { ptr, i32 } %13
 
 _Z39ggml_backend_cpu_get_extra_buffers_typev.exit.i: ; preds = %10, %7, %4
@@ -1277,7 +1277,7 @@ define internal noundef ptr @_ZL46ggml_backend_cpu_device_get_extra_buffers_type
   br i1 %3, label %4, label %_Z39ggml_backend_cpu_get_extra_buffers_typev.exit, !prof !4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts) #25
+  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts) #26
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_Z39ggml_backend_cpu_get_extra_buffers_typev.exit, label %6
 
@@ -1286,14 +1286,14 @@ define internal noundef ptr @_ZL46ggml_backend_cpu_device_get_extra_buffers_type
           to label %7 unwind label %9
 
 7:                                                ; preds = %6
-  %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EED2Ev, ptr nonnull @_ZZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts, ptr nonnull @__dso_handle) #25
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts) #25
+  %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EED2Ev, ptr nonnull @_ZZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts, ptr nonnull @__dso_handle) #26
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts) #26
   br label %_Z39ggml_backend_cpu_get_extra_buffers_typev.exit
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts) #25
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts) #26
   resume { ptr, i32 } %10
 
 _Z39ggml_backend_cpu_get_extra_buffers_typev.exit: ; preds = %1, %4, %7
@@ -1308,7 +1308,7 @@ define internal noundef ptr @_ZL29ggml_backend_cpu_get_featuresP16ggml_backend_r
   br i1 %3, label %4, label %9, !prof !4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features) #25
+  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features) #26
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %9, label %6
 
@@ -1317,8 +1317,8 @@ define internal noundef ptr @_ZL29ggml_backend_cpu_get_featuresP16ggml_backend_r
           to label %7 unwind label %11
 
 7:                                                ; preds = %6
-  %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorI20ggml_backend_featureSaIS0_EED2Ev, ptr nonnull @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, ptr nonnull @__dso_handle) #25
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features) #25
+  %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorI20ggml_backend_featureSaIS0_EED2Ev, ptr nonnull @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, ptr nonnull @__dso_handle) #26
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features) #26
   br label %9
 
 9:                                                ; preds = %7, %4, %1
@@ -1328,7 +1328,7 @@ define internal noundef ptr @_ZL29ggml_backend_cpu_get_featuresP16ggml_backend_r
 11:                                               ; preds = %6
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features) #25
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features) #26
   resume { ptr, i32 } %12
 }
 
@@ -1374,7 +1374,7 @@ define internal fastcc void @"_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend
   br i1 %13, label %14, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
 
 14:                                               ; preds = %8
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %14
@@ -1390,7 +1390,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i: ; pr
   %.not.i.i.i.i = icmp ne i64 %19, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i)
   %20 = shl nuw nsw i64 %19, 4
-  %21 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #27
+  %21 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #28
           to label %.noexc28 unwind label %30
 
 .noexc28:                                         ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -1411,7 +1411,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, label %26
 
 26:                                               ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %12) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %12) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %26, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
@@ -1462,7 +1462,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit: ; preds = %6, %
   br i1 %44, label %45, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i30
 
 45:                                               ; preds = %39
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc36 unwind label %59
 
 .noexc36:                                         ; preds = %45
@@ -1478,7 +1478,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i30: ; 
   %.not.i.i.i.i32 = icmp ne i64 %50, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i32)
   %51 = shl nuw nsw i64 %50, 4
-  %52 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %51) #27
+  %52 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %51) #28
           to label %.noexc37 unwind label %59
 
 .noexc37:                                         ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i30
@@ -1499,7 +1499,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i34, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i35, label %57
 
 57:                                               ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i33
-  tail call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %43) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %43) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i35
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i35: ; preds = %57, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i33
@@ -1545,7 +1545,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit38: ; preds = %37
   br i1 %73, label %74, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i40
 
 74:                                               ; preds = %68
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc46 unwind label %88
 
 .noexc46:                                         ; preds = %74
@@ -1561,7 +1561,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i40: ; 
   %.not.i.i.i.i42 = icmp ne i64 %79, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i42)
   %80 = shl nuw nsw i64 %79, 4
-  %81 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %80) #27
+  %81 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %80) #28
           to label %.noexc47 unwind label %88
 
 .noexc47:                                         ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i40
@@ -1582,7 +1582,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i44, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i45, label %86
 
 86:                                               ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i43
-  tail call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %72) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %72) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i45
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i45: ; preds = %86, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i43
@@ -1628,7 +1628,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit48: ; preds = %66
   br i1 %102, label %103, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i50
 
 103:                                              ; preds = %97
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc56 unwind label %117
 
 .noexc56:                                         ; preds = %103
@@ -1644,7 +1644,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i50: ; 
   %.not.i.i.i.i52 = icmp ne i64 %108, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i52)
   %109 = shl nuw nsw i64 %108, 4
-  %110 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %109) #27
+  %110 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %109) #28
           to label %.noexc57 unwind label %117
 
 .noexc57:                                         ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i50
@@ -1665,7 +1665,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i54, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i55, label %115
 
 115:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i53
-  tail call void @_ZdlPvm(ptr noundef nonnull %98, i64 noundef %101) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %98, i64 noundef %101) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i55
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i55: ; preds = %115, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i53
@@ -1711,7 +1711,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit58: ; preds = %95
   br i1 %131, label %132, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i60
 
 132:                                              ; preds = %126
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc66 unwind label %146
 
 .noexc66:                                         ; preds = %132
@@ -1727,7 +1727,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i60: ; 
   %.not.i.i.i.i62 = icmp ne i64 %137, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i62)
   %138 = shl nuw nsw i64 %137, 4
-  %139 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %138) #27
+  %139 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %138) #28
           to label %.noexc67 unwind label %146
 
 .noexc67:                                         ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i60
@@ -1748,7 +1748,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i64, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i65, label %144
 
 144:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i63
-  tail call void @_ZdlPvm(ptr noundef nonnull %127, i64 noundef %130) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %127, i64 noundef %130) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i65
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i65: ; preds = %144, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i63
@@ -1794,7 +1794,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit68: ; preds = %12
   br i1 %160, label %161, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i70
 
 161:                                              ; preds = %155
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc76 unwind label %175
 
 .noexc76:                                         ; preds = %161
@@ -1810,7 +1810,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i70: ; 
   %.not.i.i.i.i72 = icmp ne i64 %166, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i72)
   %167 = shl nuw nsw i64 %166, 4
-  %168 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %167) #27
+  %168 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %167) #28
           to label %.noexc77 unwind label %175
 
 .noexc77:                                         ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i70
@@ -1831,7 +1831,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i74, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i75, label %173
 
 173:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i73
-  tail call void @_ZdlPvm(ptr noundef nonnull %156, i64 noundef %159) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %156, i64 noundef %159) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i75
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i75: ; preds = %173, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i73
@@ -1877,7 +1877,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit78: ; preds = %15
   br i1 %189, label %190, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i80
 
 190:                                              ; preds = %184
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc86 unwind label %204
 
 .noexc86:                                         ; preds = %190
@@ -1893,7 +1893,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i80: ; 
   %.not.i.i.i.i82 = icmp ne i64 %195, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i82)
   %196 = shl nuw nsw i64 %195, 4
-  %197 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %196) #27
+  %197 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %196) #28
           to label %.noexc87 unwind label %204
 
 .noexc87:                                         ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i80
@@ -1914,7 +1914,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i84, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i85, label %202
 
 202:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i83
-  tail call void @_ZdlPvm(ptr noundef nonnull %185, i64 noundef %188) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %185, i64 noundef %188) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i85
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i85: ; preds = %202, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i83
@@ -1960,7 +1960,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit88: ; preds = %18
   br i1 %218, label %219, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i90
 
 219:                                              ; preds = %213
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc96 unwind label %233
 
 .noexc96:                                         ; preds = %219
@@ -1976,7 +1976,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i90: ; 
   %.not.i.i.i.i92 = icmp ne i64 %224, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i92)
   %225 = shl nuw nsw i64 %224, 4
-  %226 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %225) #27
+  %226 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %225) #28
           to label %.noexc97 unwind label %233
 
 .noexc97:                                         ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i90
@@ -1997,7 +1997,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i94, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i95, label %231
 
 231:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i93
-  tail call void @_ZdlPvm(ptr noundef nonnull %214, i64 noundef %217) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %214, i64 noundef %217) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i95
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i95: ; preds = %231, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i93
@@ -2043,7 +2043,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit98: ; preds = %21
   br i1 %247, label %248, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i100
 
 248:                                              ; preds = %242
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc106 unwind label %262
 
 .noexc106:                                        ; preds = %248
@@ -2059,7 +2059,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i100: ;
   %.not.i.i.i.i102 = icmp ne i64 %253, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i102)
   %254 = shl nuw nsw i64 %253, 4
-  %255 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %254) #27
+  %255 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %254) #28
           to label %.noexc107 unwind label %262
 
 .noexc107:                                        ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i100
@@ -2080,7 +2080,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i104, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i105, label %260
 
 260:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i103
-  tail call void @_ZdlPvm(ptr noundef nonnull %243, i64 noundef %246) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %243, i64 noundef %246) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i105
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i105: ; preds = %260, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i103
@@ -2126,7 +2126,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit108: ; preds = %2
   br i1 %276, label %277, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i110
 
 277:                                              ; preds = %271
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc116 unwind label %291
 
 .noexc116:                                        ; preds = %277
@@ -2142,7 +2142,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i110: ;
   %.not.i.i.i.i112 = icmp ne i64 %282, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i112)
   %283 = shl nuw nsw i64 %282, 4
-  %284 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %283) #27
+  %284 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %283) #28
           to label %.noexc117 unwind label %291
 
 .noexc117:                                        ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i110
@@ -2163,7 +2163,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i114, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i115, label %289
 
 289:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i113
-  tail call void @_ZdlPvm(ptr noundef nonnull %272, i64 noundef %275) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %272, i64 noundef %275) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i115
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i115: ; preds = %289, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i113
@@ -2209,7 +2209,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit118: ; preds = %2
   br i1 %305, label %306, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i120
 
 306:                                              ; preds = %300
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc126 unwind label %320
 
 .noexc126:                                        ; preds = %306
@@ -2225,7 +2225,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i120: ;
   %.not.i.i.i.i122 = icmp ne i64 %311, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i122)
   %312 = shl nuw nsw i64 %311, 4
-  %313 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %312) #27
+  %313 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %312) #28
           to label %.noexc127 unwind label %320
 
 .noexc127:                                        ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i120
@@ -2246,7 +2246,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i124, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i125, label %318
 
 318:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i123
-  tail call void @_ZdlPvm(ptr noundef nonnull %301, i64 noundef %304) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %301, i64 noundef %304) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i125
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i125: ; preds = %318, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i123
@@ -2292,7 +2292,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit128: ; preds = %2
   br i1 %334, label %335, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i130
 
 335:                                              ; preds = %329
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc136 unwind label %349
 
 .noexc136:                                        ; preds = %335
@@ -2308,7 +2308,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i130: ;
   %.not.i.i.i.i132 = icmp ne i64 %340, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i132)
   %341 = shl nuw nsw i64 %340, 4
-  %342 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %341) #27
+  %342 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %341) #28
           to label %.noexc137 unwind label %349
 
 .noexc137:                                        ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i130
@@ -2329,7 +2329,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i134, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i135, label %347
 
 347:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i133
-  tail call void @_ZdlPvm(ptr noundef nonnull %330, i64 noundef %333) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %330, i64 noundef %333) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i135
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i135: ; preds = %347, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i133
@@ -2375,7 +2375,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit138: ; preds = %3
   br i1 %363, label %364, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i140
 
 364:                                              ; preds = %358
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc146 unwind label %378
 
 .noexc146:                                        ; preds = %364
@@ -2391,7 +2391,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i140: ;
   %.not.i.i.i.i142 = icmp ne i64 %369, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i142)
   %370 = shl nuw nsw i64 %369, 4
-  %371 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %370) #27
+  %371 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %370) #28
           to label %.noexc147 unwind label %378
 
 .noexc147:                                        ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i140
@@ -2412,7 +2412,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i144, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i145, label %376
 
 376:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i143
-  tail call void @_ZdlPvm(ptr noundef nonnull %359, i64 noundef %362) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %359, i64 noundef %362) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i145
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i145: ; preds = %376, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i143
@@ -2458,7 +2458,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit148: ; preds = %3
   br i1 %392, label %393, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i150
 
 393:                                              ; preds = %387
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc156 unwind label %407
 
 .noexc156:                                        ; preds = %393
@@ -2474,7 +2474,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i150: ;
   %.not.i.i.i.i152 = icmp ne i64 %398, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i152)
   %399 = shl nuw nsw i64 %398, 4
-  %400 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %399) #27
+  %400 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %399) #28
           to label %.noexc157 unwind label %407
 
 .noexc157:                                        ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i150
@@ -2495,7 +2495,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i154, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i155, label %405
 
 405:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i153
-  tail call void @_ZdlPvm(ptr noundef nonnull %388, i64 noundef %391) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %388, i64 noundef %391) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i155
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i155: ; preds = %405, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i153
@@ -2541,7 +2541,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit158: ; preds = %3
   br i1 %421, label %422, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i160
 
 422:                                              ; preds = %416
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc166 unwind label %436
 
 .noexc166:                                        ; preds = %422
@@ -2557,7 +2557,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i160: ;
   %.not.i.i.i.i162 = icmp ne i64 %427, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i162)
   %428 = shl nuw nsw i64 %427, 4
-  %429 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %428) #27
+  %429 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %428) #28
           to label %.noexc167 unwind label %436
 
 .noexc167:                                        ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i160
@@ -2578,7 +2578,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i164, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i165, label %434
 
 434:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i163
-  tail call void @_ZdlPvm(ptr noundef nonnull %417, i64 noundef %420) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %417, i64 noundef %420) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i165
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i165: ; preds = %434, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i163
@@ -2624,7 +2624,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit168: ; preds = %4
   br i1 %450, label %451, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i170
 
 451:                                              ; preds = %445
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc176 unwind label %465
 
 .noexc176:                                        ; preds = %451
@@ -2640,7 +2640,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i170: ;
   %.not.i.i.i.i172 = icmp ne i64 %456, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i172)
   %457 = shl nuw nsw i64 %456, 4
-  %458 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %457) #27
+  %458 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %457) #28
           to label %.noexc177 unwind label %465
 
 .noexc177:                                        ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i170
@@ -2661,7 +2661,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i174, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i175, label %463
 
 463:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i173
-  tail call void @_ZdlPvm(ptr noundef nonnull %446, i64 noundef %449) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %446, i64 noundef %449) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i175
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i175: ; preds = %463, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i173
@@ -2707,7 +2707,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit178: ; preds = %4
   br i1 %479, label %480, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i180
 
 480:                                              ; preds = %474
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc186 unwind label %494
 
 .noexc186:                                        ; preds = %480
@@ -2723,7 +2723,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i180: ;
   %.not.i.i.i.i182 = icmp ne i64 %485, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i182)
   %486 = shl nuw nsw i64 %485, 4
-  %487 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %486) #27
+  %487 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %486) #28
           to label %.noexc187 unwind label %494
 
 .noexc187:                                        ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i180
@@ -2744,7 +2744,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i184, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i185, label %492
 
 492:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i183
-  tail call void @_ZdlPvm(ptr noundef nonnull %475, i64 noundef %478) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %475, i64 noundef %478) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i185
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i185: ; preds = %492, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i183
@@ -2790,7 +2790,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit188: ; preds = %4
   br i1 %508, label %509, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i190
 
 509:                                              ; preds = %503
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc196 unwind label %523
 
 .noexc196:                                        ; preds = %509
@@ -2806,7 +2806,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i190: ;
   %.not.i.i.i.i192 = icmp ne i64 %514, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i192)
   %515 = shl nuw nsw i64 %514, 4
-  %516 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %515) #27
+  %516 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %515) #28
           to label %.noexc197 unwind label %523
 
 .noexc197:                                        ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i190
@@ -2827,7 +2827,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i194, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i195, label %521
 
 521:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i193
-  tail call void @_ZdlPvm(ptr noundef nonnull %504, i64 noundef %507) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %504, i64 noundef %507) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i195
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i195: ; preds = %521, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i193
@@ -2856,7 +2856,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit198: ; preds = %5
   br i1 %530, label %531, label %537, !prof !4
 
 531:                                              ; preds = %528
-  %532 = tail call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regENK3$_0clEvE7sve_cntB5cxx11") #25
+  %532 = tail call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regENK3$_0clEvE7sve_cntB5cxx11") #26
   %.not20 = icmp eq i32 %532, 0
   br i1 %.not20, label %537, label %533
 
@@ -2865,9 +2865,9 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit198: ; preds = %5
           to label %535 unwind label %563
 
 535:                                              ; preds = %533
-  tail call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 @"_ZZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regENK3$_0clEvE7sve_cntB5cxx11", i32 noundef %534) #25
-  %536 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @"_ZZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regENK3$_0clEvE7sve_cntB5cxx11", ptr nonnull @__dso_handle) #25
-  tail call void @__cxa_guard_release(ptr nonnull @"_ZGVZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regENK3$_0clEvE7sve_cntB5cxx11") #25
+  tail call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 @"_ZZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regENK3$_0clEvE7sve_cntB5cxx11", i32 noundef %534) #26
+  %536 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @"_ZZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regENK3$_0clEvE7sve_cntB5cxx11", ptr nonnull @__dso_handle) #26
+  tail call void @__cxa_guard_release(ptr nonnull @"_ZGVZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regENK3$_0clEvE7sve_cntB5cxx11") #26
   br label %537
 
 537:                                              ; preds = %535, %531, %528
@@ -2894,7 +2894,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit198: ; preds = %5
   br i1 %548, label %549, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i200
 
 549:                                              ; preds = %543
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc206 unwind label %565
 
 .noexc206:                                        ; preds = %549
@@ -2910,7 +2910,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i200: ;
   %.not.i.i.i.i202 = icmp ne i64 %554, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i202)
   %555 = shl nuw nsw i64 %554, 4
-  %556 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %555) #27
+  %556 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %555) #28
           to label %.noexc207 unwind label %565
 
 .noexc207:                                        ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i200
@@ -2931,7 +2931,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i204, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i205, label %561
 
 561:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i203
-  tail call void @_ZdlPvm(ptr noundef nonnull %544, i64 noundef %547) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %544, i64 noundef %547) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i205
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i205: ; preds = %561, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i203
@@ -2944,7 +2944,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_c
 563:                                              ; preds = %533
   %564 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regENK3$_0clEvE7sve_cntB5cxx11") #25
+  tail call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regENK3$_0clEvE7sve_cntB5cxx11") #26
   br label %817
 
 565:                                              ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i200, %549
@@ -2983,7 +2983,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit208: ; preds = %5
   br i1 %579, label %580, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i210
 
 580:                                              ; preds = %574
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc216 unwind label %594
 
 .noexc216:                                        ; preds = %580
@@ -2999,7 +2999,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i210: ;
   %.not.i.i.i.i212 = icmp ne i64 %585, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i212)
   %586 = shl nuw nsw i64 %585, 4
-  %587 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %586) #27
+  %587 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %586) #28
           to label %.noexc217 unwind label %594
 
 .noexc217:                                        ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i210
@@ -3020,7 +3020,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i214, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i215, label %592
 
 592:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i213
-  tail call void @_ZdlPvm(ptr noundef nonnull %575, i64 noundef %578) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %575, i64 noundef %578) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i215
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i215: ; preds = %592, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i213
@@ -3066,7 +3066,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit218: ; preds = %5
   br i1 %608, label %609, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i220
 
 609:                                              ; preds = %603
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc226 unwind label %623
 
 .noexc226:                                        ; preds = %609
@@ -3082,7 +3082,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i220: ;
   %.not.i.i.i.i222 = icmp ne i64 %614, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i222)
   %615 = shl nuw nsw i64 %614, 4
-  %616 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %615) #27
+  %616 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %615) #28
           to label %.noexc227 unwind label %623
 
 .noexc227:                                        ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i220
@@ -3103,7 +3103,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i224, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i225, label %621
 
 621:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i223
-  tail call void @_ZdlPvm(ptr noundef nonnull %604, i64 noundef %607) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %604, i64 noundef %607) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i225
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i225: ; preds = %621, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i223
@@ -3149,7 +3149,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit228: ; preds = %6
   br i1 %637, label %638, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i230
 
 638:                                              ; preds = %632
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc236 unwind label %652
 
 .noexc236:                                        ; preds = %638
@@ -3165,7 +3165,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i230: ;
   %.not.i.i.i.i232 = icmp ne i64 %643, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i232)
   %644 = shl nuw nsw i64 %643, 4
-  %645 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %644) #27
+  %645 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %644) #28
           to label %.noexc237 unwind label %652
 
 .noexc237:                                        ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i230
@@ -3186,7 +3186,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i234, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i235, label %650
 
 650:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i233
-  tail call void @_ZdlPvm(ptr noundef nonnull %633, i64 noundef %636) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %633, i64 noundef %636) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i235
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i235: ; preds = %650, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i233
@@ -3232,7 +3232,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit238: ; preds = %6
   br i1 %666, label %667, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i240
 
 667:                                              ; preds = %661
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc246 unwind label %681
 
 .noexc246:                                        ; preds = %667
@@ -3248,7 +3248,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i240: ;
   %.not.i.i.i.i242 = icmp ne i64 %672, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i242)
   %673 = shl nuw nsw i64 %672, 4
-  %674 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %673) #27
+  %674 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %673) #28
           to label %.noexc247 unwind label %681
 
 .noexc247:                                        ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i240
@@ -3269,7 +3269,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i244, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i245, label %679
 
 679:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i243
-  tail call void @_ZdlPvm(ptr noundef nonnull %662, i64 noundef %665) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %662, i64 noundef %665) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i245
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i245: ; preds = %679, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i243
@@ -3315,7 +3315,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit248: ; preds = %6
   br i1 %695, label %696, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i250
 
 696:                                              ; preds = %690
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc256 unwind label %710
 
 .noexc256:                                        ; preds = %696
@@ -3331,7 +3331,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i250: ;
   %.not.i.i.i.i252 = icmp ne i64 %701, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i252)
   %702 = shl nuw nsw i64 %701, 4
-  %703 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %702) #27
+  %703 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %702) #28
           to label %.noexc257 unwind label %710
 
 .noexc257:                                        ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i250
@@ -3352,7 +3352,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i254, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i255, label %708
 
 708:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i253
-  tail call void @_ZdlPvm(ptr noundef nonnull %691, i64 noundef %694) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %691, i64 noundef %694) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i255
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i255: ; preds = %708, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i253
@@ -3398,7 +3398,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit258: ; preds = %6
   br i1 %722, label %723, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i260
 
 723:                                              ; preds = %717
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc266 unwind label %737
 
 .noexc266:                                        ; preds = %723
@@ -3414,7 +3414,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i260: ;
   %.not.i.i.i.i262 = icmp ne i64 %728, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i262)
   %729 = shl nuw nsw i64 %728, 4
-  %730 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %729) #27
+  %730 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %729) #28
           to label %.noexc267 unwind label %737
 
 .noexc267:                                        ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i260
@@ -3435,7 +3435,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i264, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i265, label %735
 
 735:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i263
-  tail call void @_ZdlPvm(ptr noundef nonnull %718, i64 noundef %721) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %718, i64 noundef %721) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i265
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i265: ; preds = %735, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i263
@@ -3473,7 +3473,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit268: ; preds = %7
   br i1 %748, label %749, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i270
 
 749:                                              ; preds = %743
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc276 unwind label %811
 
 .noexc276:                                        ; preds = %749
@@ -3489,7 +3489,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i270: ;
   %.not.i.i.i.i272 = icmp ne i64 %754, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i272)
   %755 = shl nuw nsw i64 %754, 4
-  %756 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %755) #27
+  %756 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %755) #28
           to label %.noexc277 unwind label %811
 
 .noexc277:                                        ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i270
@@ -3510,7 +3510,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i274, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i275, label %761
 
 761:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i273
-  tail call void @_ZdlPvm(ptr noundef nonnull %744, i64 noundef %747) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %744, i64 noundef %747) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i275
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i275: ; preds = %761, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i273
@@ -3543,7 +3543,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit278: ; preds = %_
   br i1 %772, label %773, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i280
 
 773:                                              ; preds = %767
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc286 unwind label %813
 
 .noexc286:                                        ; preds = %773
@@ -3559,7 +3559,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i280: ;
   %.not.i.i.i.i282 = icmp ne i64 %778, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i282)
   %779 = shl nuw nsw i64 %778, 4
-  %780 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %779) #27
+  %780 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %779) #28
           to label %.noexc287 unwind label %813
 
 .noexc287:                                        ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i280
@@ -3580,7 +3580,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i284, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i285, label %785
 
 785:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i283
-  tail call void @_ZdlPvm(ptr noundef nonnull %768, i64 noundef %771) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %768, i64 noundef %771) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i285
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i285: ; preds = %785, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i283
@@ -3611,7 +3611,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit288: ; preds = %_
   br i1 %796, label %797, label %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i290
 
 797:                                              ; preds = %791
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #27
           to label %.noexc296 unwind label %815
 
 .noexc296:                                        ; preds = %797
@@ -3627,7 +3627,7 @@ _ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i290: ;
   %.not.i.i.i.i292 = icmp ne i64 %802, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i292)
   %803 = shl nuw nsw i64 %802, 4
-  %804 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %803) #27
+  %804 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %803) #28
           to label %.noexc297 unwind label %815
 
 .noexc297:                                        ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i290
@@ -3646,7 +3646,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br i1 %.not.i17.i.i.i294, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i295, label %809
 
 809:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i293
-  tail call void @_ZdlPvm(ptr noundef nonnull %792, i64 noundef %795) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %792, i64 noundef %795) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i295
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i295: ; preds = %809, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i293
@@ -3685,7 +3685,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit298: ; preds = %_
   %821 = ptrtoint ptr %820 to i64
   %822 = ptrtoint ptr %818 to i64
   %823 = sub i64 %821, %822
-  tail call void @_ZdlPvm(ptr noundef nonnull %818, i64 noundef %823) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %818, i64 noundef %823) #29
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EED2Ev.exit: ; preds = %817, %819
@@ -3704,7 +3704,7 @@ define linkonce_odr void @_ZNSt6vectorI20ggml_backend_featureSaIS0_EED2Ev(ptr no
   %6 = ptrtoint ptr %5 to i64
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %6, %7
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef %8) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef %8) #29
   br label %_ZNSt12_Vector_baseI20ggml_backend_featureSaIS0_EED2Ev.exit
 
 _ZNSt12_Vector_baseI20ggml_backend_featureSaIS0_EED2Ev.exit: ; preds = %1, %3
@@ -3860,7 +3860,7 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %44, %52
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  tail call void @__clang_call_terminate(ptr %57) #29
+  tail call void @__clang_call_terminate(ptr %57) #30
   unreachable
 }
 
@@ -3896,11 +3896,11 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #23
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #24
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #23
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #25
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #23
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #25
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #1 = { nofree nounwind }
@@ -3927,12 +3927,13 @@ attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessi
 attributes #22 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #24 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #25 = { nounwind }
-attributes #26 = { noreturn }
-attributes #27 = { builtin allocsize(0) }
-attributes #28 = { builtin nounwind }
-attributes #29 = { noreturn nounwind }
-attributes #30 = { nounwind willreturn memory(read) }
+attributes #25 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #26 = { nounwind }
+attributes #27 = { noreturn }
+attributes #28 = { builtin allocsize(0) }
+attributes #29 = { builtin nounwind }
+attributes #30 = { noreturn nounwind }
+attributes #31 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

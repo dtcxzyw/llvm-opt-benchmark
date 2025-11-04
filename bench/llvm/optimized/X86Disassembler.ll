@@ -45,10 +45,10 @@ $_ZN4llvm14MCDisassembler13setABIVersionEj = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @LLVMInitializeX86Disassembler() local_unnamed_addr #0 {
-  %1 = tail call noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm18getTheX86_32TargetEv() #13
+  %1 = tail call noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm18getTheX86_32TargetEv() #14
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr @_ZL21createX86DisassemblerRKN4llvm6TargetERKNS_15MCSubtargetInfoERNS_9MCContextE, ptr %2, align 8, !tbaa !3
-  %3 = tail call noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm18getTheX86_64TargetEv() #13
+  %3 = tail call noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm18getTheX86_64TargetEv() #14
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 128
   store ptr @_ZL21createX86DisassemblerRKN4llvm6TargetERKNS_15MCSubtargetInfoERNS_9MCContextE, ptr %4, align 8, !tbaa !3
   ret void
@@ -64,13 +64,13 @@ define internal noalias noundef nonnull ptr @_ZL21createX86DisassemblerRKN4llvm6
   br i1 %.not.i, label %_ZNSt10unique_ptrIKN4llvm11MCInstrInfoESt14default_deleteIS2_EED2Ev.exit7, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call noundef ptr %5() #13
+  %7 = tail call noundef ptr %5() #14
   %8 = ptrtoint ptr %7 to i64
   br label %_ZNSt10unique_ptrIKN4llvm11MCInstrInfoESt14default_deleteIS2_EED2Ev.exit7
 
 _ZNSt10unique_ptrIKN4llvm11MCInstrInfoESt14default_deleteIS2_EED2Ev.exit7: ; preds = %3, %6
   %.0.i = phi i64 [ %8, %6 ], [ 0, %3 ]
-  %9 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
+  %9 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %2, ptr %10, align 8, !tbaa !12
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -107,12 +107,12 @@ define internal void @_ZN12_GLOBAL__N_122X86GenericDisassemblerD2Ev(ptr noundef 
   br i1 %.not.i, label %_ZNSt10unique_ptrIKN4llvm11MCInstrInfoESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i: ; preds = %1
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 48) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 48) #16
   br label %_ZNSt10unique_ptrIKN4llvm11MCInstrInfoESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIKN4llvm11MCInstrInfoESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i
   store ptr null, ptr %2, align 8, !tbaa !18
-  tail call void @_ZN4llvm14MCDisassemblerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
+  tail call void @_ZN4llvm14MCDisassemblerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   ret void
 }
 
@@ -125,13 +125,13 @@ define internal void @_ZN12_GLOBAL__N_122X86GenericDisassemblerD0Ev(ptr noundef 
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_122X86GenericDisassemblerD2Ev.exit, label %_ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i.i: ; preds = %1
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 48) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 48) #16
   br label %_ZN12_GLOBAL__N_122X86GenericDisassemblerD2Ev.exit
 
 _ZN12_GLOBAL__N_122X86GenericDisassemblerD2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i.i
   store ptr null, ptr %2, align 8, !tbaa !18
-  tail call void @_ZN4llvm14MCDisassemblerD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #13
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #15
+  tail call void @_ZN4llvm14MCDisassemblerD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #16
   ret void
 }
 
@@ -2839,7 +2839,7 @@ tailrecurse.i:                                    ; preds = %309, %48
 58:                                               ; preds = %51
   %59 = zext i32 %56 to i64
   %60 = add nuw nsw i64 %59, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %60, i64 noundef 16) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %60, i64 noundef 16) #14
   %.pre.i.i.i.i = load i32, ptr %7, align 8, !tbaa !118
   br label %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit.i
 
@@ -2865,7 +2865,7 @@ _ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit.i: ; preds =
 69:                                               ; preds = %66
   %70 = zext i32 %67 to i64
   %71 = add nuw nsw i64 %70, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %71, i64 noundef 16) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %71, i64 noundef 16) #14
   %.pre.i.i.i52.i = load i32, ptr %7, align 8, !tbaa !118
   br label %.critedge.sink.split
 
@@ -2920,7 +2920,7 @@ switch.lookup:                                    ; preds = %75
 80:                                               ; preds = %switch.lookup
   %81 = zext i32 %78 to i64
   %82 = add nuw nsw i64 %81, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %82, i64 noundef 16) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %82, i64 noundef 16) #14
   %.pre.i.i.i55.i = load i32, ptr %7, align 8, !tbaa !118
   br label %.critedge.sink.split
 
@@ -3057,7 +3057,7 @@ switch.lookup:                                    ; preds = %75
 137:                                              ; preds = %132
   %138 = zext i32 %135 to i64
   %139 = add nuw nsw i64 %138, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %139, i64 noundef 16) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %139, i64 noundef 16) #14
   %.pre.i.i.i60.i = load i32, ptr %7, align 8, !tbaa !118
   br label %.critedge.sink.split
 
@@ -3073,7 +3073,7 @@ switch.lookup:                                    ; preds = %75
 145:                                              ; preds = %140
   %146 = zext i32 %143 to i64
   %147 = add nuw nsw i64 %146, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %147, i64 noundef 16) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %147, i64 noundef 16) #14
   %.pre.i.i79.i.i = load i32, ptr %7, align 8, !tbaa !118
   br label %.critedge.sink.split
 
@@ -3089,7 +3089,7 @@ switch.lookup:                                    ; preds = %75
 153:                                              ; preds = %148
   %154 = zext i32 %151 to i64
   %155 = add nuw nsw i64 %154, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %155, i64 noundef 16) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %155, i64 noundef 16) #14
   %.pre.i.i85.i.i = load i32, ptr %7, align 8, !tbaa !118
   br label %.critedge.sink.split
 
@@ -3103,7 +3103,7 @@ switch.lookup:                                    ; preds = %75
   %160 = load i8, ptr %42, align 4, !tbaa !75
   %161 = zext i8 %160 to i64
   %162 = load i64, ptr %39, align 8, !tbaa !108
-  %163 = tail call noundef zeroext i1 @_ZNK4llvm14MCDisassembler24tryAddingSymbolicOperandERNS_6MCInstElmbmmm(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %156, i64 noundef %157, i1 noundef zeroext %92, i64 noundef %159, i64 noundef %161, i64 noundef %162) #13
+  %163 = tail call noundef zeroext i1 @_ZNK4llvm14MCDisassembler24tryAddingSymbolicOperandERNS_6MCInstElmbmmm(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %156, i64 noundef %157, i1 noundef zeroext %92, i64 noundef %159, i64 noundef %161, i64 noundef %162) #14
   br i1 %163, label %176, label %164
 
 164:                                              ; preds = %.thread.i.i
@@ -3115,7 +3115,7 @@ switch.lookup:                                    ; preds = %75
 167:                                              ; preds = %164
   %168 = zext i32 %165 to i64
   %169 = add nuw nsw i64 %168, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %169, i64 noundef 16) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %169, i64 noundef 16) #14
   %.pre.i.i90.i.i = load i32, ptr %7, align 8, !tbaa !118
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit92.i.i
 
@@ -3150,7 +3150,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit92.i.i: ; preds = %167, %164
 185:                                              ; preds = %178
   %186 = zext i32 %183 to i64
   %187 = add nuw nsw i64 %186, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %187, i64 noundef 16) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %187, i64 noundef 16) #14
   %.pre.i.i96.i.i = load i32, ptr %7, align 8, !tbaa !118
   br label %.critedge.sink.split
 
@@ -3165,7 +3165,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit92.i.i: ; preds = %167, %164
 193:                                              ; preds = %188
   %194 = zext i32 %191 to i64
   %195 = add nuw nsw i64 %194, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %195, i64 noundef 16) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %195, i64 noundef 16) #14
   %.pre.i.i.i = load i32, ptr %7, align 8, !tbaa !118
   br label %.critedge.sink.split
 
@@ -3200,7 +3200,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit92.i.i: ; preds = %167, %164
 209:                                              ; preds = %206
   %210 = zext i32 %207 to i64
   %211 = add nuw nsw i64 %210, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %211, i64 noundef 16) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %211, i64 noundef 16) #14
   %.pre.i.i.i65.i = load i32, ptr %7, align 8, !tbaa !118
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i66.i
 
@@ -3226,7 +3226,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i66.i: ; preds = %209, %206
 223:                                              ; preds = %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i66.i
   %224 = zext i32 %217 to i64
   %225 = add nuw nsw i64 %224, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %225, i64 noundef 16) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %225, i64 noundef 16) #14
   %.pre.i.i20.i.i = load i32, ptr %7, align 8, !tbaa !118
   br label %_ZL17translateSrcIndexRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionE.exit.i
 
@@ -3266,7 +3266,7 @@ _ZL17translateSrcIndexRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionE
 238:                                              ; preds = %235
   %239 = zext i32 %236 to i64
   %240 = add nuw nsw i64 %239, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %240, i64 noundef 16) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %240, i64 noundef 16) #14
   %.pre.i.i.i70.i = load i32, ptr %7, align 8, !tbaa !118
   br label %.critedge.sink.split
 
@@ -3283,7 +3283,7 @@ _ZL17translateSrcIndexRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionE
 248:                                              ; preds = %241
   %249 = zext i32 %246 to i64
   %250 = add nuw nsw i64 %249, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %250, i64 noundef 16) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %250, i64 noundef 16) #14
   %.pre.i.i.i74.i = load i32, ptr %7, align 8, !tbaa !118
   br label %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit78.i
 
@@ -3302,7 +3302,7 @@ _ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit78.i: ; preds
 256:                                              ; preds = %252
   %257 = zext i32 %254 to i64
   %258 = add nuw nsw i64 %257, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %258, i64 noundef 16) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %258, i64 noundef 16) #14
   %.pre.i.i81.i = load i32, ptr %7, align 8, !tbaa !118
   br label %.critedge.sink.split
 
@@ -3354,7 +3354,7 @@ _ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread102.
 280:                                              ; preds = %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread102.i
   %281 = zext i32 %278 to i64
   %282 = add nuw nsw i64 %281, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %282, i64 noundef 16) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %282, i64 noundef 16) #14
   %.pre.i.i30 = load i32, ptr %7, align 8, !tbaa !118
   br label %.critedge.sink.split
 
@@ -3368,7 +3368,7 @@ _ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i: 
 286:                                              ; preds = %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i
   %287 = zext i32 %284 to i64
   %288 = add nuw nsw i64 %287, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %288, i64 noundef 16) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %288, i64 noundef 16) #14
   %.pre.i.i = load i32, ptr %7, align 8, !tbaa !118
   br label %.critedge.sink.split
 
@@ -3383,7 +3383,7 @@ _ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i: 
 294:                                              ; preds = %289
   %295 = zext i32 %292 to i64
   %296 = add nuw nsw i64 %295, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %296, i64 noundef 16) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %296, i64 noundef 16) #14
   %.pre.i.i.i90.i = load i32, ptr %7, align 8, !tbaa !118
   br label %_ZL19translateFPRegisterRN4llvm6MCInstEh.exit.i
 
@@ -3406,7 +3406,7 @@ _ZL19translateFPRegisterRN4llvm6MCInstEh.exit.i:  ; preds = %294, %289
 305:                                              ; preds = %298
   %306 = zext i32 %303 to i64
   %307 = add nuw nsw i64 %306, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %307, i64 noundef 16) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %307, i64 noundef 16) #14
   %.pre.i.i.i96.i = load i32, ptr %7, align 8, !tbaa !118
   br label %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit100.i
 
@@ -4816,7 +4816,7 @@ switch.lookup2133:                                ; preds = %16
   %55 = load i8, ptr %54, align 1, !tbaa !130
   %56 = zext i8 %55 to i64
   %57 = add i64 %46, %56
-  tail call void @_ZNK4llvm14MCDisassembler31tryAddingPcLoadReferenceCommentElm(ptr noundef nonnull align 8 dereferenceable(40) %2, i64 noundef %53, i64 noundef %57) #13
+  tail call void @_ZNK4llvm14MCDisassembler31tryAddingPcLoadReferenceCommentElm(ptr noundef nonnull align 8 dereferenceable(40) %2, i64 noundef %53, i64 noundef %57) #14
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 74
   %59 = load i8, ptr %58, align 2, !tbaa !73
   %60 = icmp eq i8 %59, 4
@@ -4869,7 +4869,7 @@ switch.lookup2137:                                ; preds = %64
   %82 = zext i32 %78 to i64
   %83 = add nuw nsw i64 %82, 1
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull %84, i64 noundef %83, i64 noundef 16) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull %84, i64 noundef %83, i64 noundef 16) #14
   %.pre.i.i = load i32, ptr %77, align 8, !tbaa !118
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -4892,7 +4892,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %67, %81
   %93 = zext i32 %90 to i64
   %94 = add nuw nsw i64 %93, 1
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull %95, i64 noundef %94, i64 noundef 16) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull %95, i64 noundef %94, i64 noundef 16) #14
   %.pre.i.i1762 = load i32, ptr %77, align 8, !tbaa !118
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit1764
 
@@ -4915,7 +4915,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit1764: ; preds = %_ZN4llvm6MCInst1
   %104 = zext i32 %101 to i64
   %105 = add nuw nsw i64 %104, 1
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull %106, i64 noundef %105, i64 noundef 16) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull %106, i64 noundef %105, i64 noundef 16) #14
   %.pre.i.i1766 = load i32, ptr %77, align 8, !tbaa !118
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit1768
 
@@ -4947,7 +4947,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit1768: ; preds = %_ZN4llvm6MCInst1
   %127 = zext i8 %126 to i64
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %129 = load i64, ptr %128, align 8, !tbaa !108
-  %130 = tail call noundef zeroext i1 @_ZNK4llvm14MCDisassembler24tryAddingSymbolicOperandERNS_6MCInstElmbmmm(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %122, i64 noundef %124, i1 noundef zeroext false, i64 noundef %127, i64 noundef %119, i64 noundef %129) #13
+  %130 = tail call noundef zeroext i1 @_ZNK4llvm14MCDisassembler24tryAddingSymbolicOperandERNS_6MCInstElmbmmm(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %122, i64 noundef %124, i1 noundef zeroext false, i64 noundef %127, i64 noundef %119, i64 noundef %129) #14
   %.pre = load i32, ptr %77, align 8, !tbaa !118
   br i1 %130, label %143, label %131
 
@@ -4960,7 +4960,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit1768: ; preds = %_ZN4llvm6MCInst1
   %134 = zext i32 %.pre to i64
   %135 = add nuw nsw i64 %134, 1
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull %136, i64 noundef %135, i64 noundef 16) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull %136, i64 noundef %135, i64 noundef 16) #14
   %.pre.i.i1770 = load i32, ptr %77, align 8, !tbaa !118
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit1772
 
@@ -4987,7 +4987,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit1772: ; preds = %131, %133
   %147 = zext i32 %144 to i64
   %148 = add nuw nsw i64 %147, 1
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull %149, i64 noundef %148, i64 noundef 16) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull %149, i64 noundef %148, i64 noundef 16) #14
   %.pre.i.i1774 = load i32, ptr %77, align 8, !tbaa !118
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit1776
 
@@ -5024,8 +5024,8 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.cttz.i8(i8, i1 immarg) #12
@@ -5043,9 +5043,10 @@ attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { builtin nounwind allocsize(0) }
-attributes #15 = { builtin nounwind }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { builtin nounwind allocsize(0) }
+attributes #16 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

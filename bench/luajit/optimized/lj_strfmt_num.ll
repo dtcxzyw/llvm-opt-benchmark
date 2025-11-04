@@ -92,7 +92,7 @@ define internal fastcc ptr @lj_strfmt_wfnum(ptr noundef %0, i32 noundef %1, doub
   br i1 %43, label %44, label %lj_buf_more.exit, !prof !12
 
 44:                                               ; preds = %34
-  %45 = tail call ptr @lj_buf_more2(ptr noundef nonnull %0, i32 noundef %35) #7
+  %45 = tail call ptr @lj_buf_more2(ptr noundef nonnull %0, i32 noundef %35) #8
   br label %lj_buf_more.exit
 
 lj_buf_more.exit:                                 ; preds = %44, %34, %31
@@ -280,7 +280,7 @@ lj_buf_more.exit:                                 ; preds = %44, %34, %31
   br i1 %141, label %142, label %lj_buf_more.exit624, !prof !12
 
 142:                                              ; preds = %132
-  %143 = tail call ptr @lj_buf_more2(ptr noundef nonnull %0, i32 noundef %133) #7
+  %143 = tail call ptr @lj_buf_more2(ptr noundef nonnull %0, i32 noundef %133) #8
   br label %lj_buf_more.exit624
 
 lj_buf_more.exit624:                              ; preds = %142, %132, %111
@@ -422,7 +422,7 @@ lj_buf_more.exit624:                              ; preds = %142, %132, %111
   store i8 %206, ptr %.11, align 1, !tbaa !14
   %208 = getelementptr inbounds nuw i8, ptr %.11, i64 2
   store i8 %spec.select615, ptr %207, align 1, !tbaa !14
-  %209 = tail call ptr @lj_strfmt_wint(ptr noundef nonnull %208, i32 noundef %spec.select616) #7
+  %209 = tail call ptr @lj_strfmt_wint(ptr noundef nonnull %208, i32 noundef %spec.select616) #8
   br label %1348
 
 210:                                              ; preds = %64
@@ -1602,7 +1602,7 @@ nd_add_m10e.exit684:                              ; preds = %653, %._crit_edge.i
   br i1 %850, label %851, label %lj_buf_more.exit626, !prof !12
 
 851:                                              ; preds = %840
-  %852 = tail call ptr @lj_buf_more2(ptr noundef nonnull %0, i32 noundef %842) #7
+  %852 = tail call ptr @lj_buf_more2(ptr noundef nonnull %0, i32 noundef %842) #8
   br label %lj_buf_more.exit626
 
 lj_buf_more.exit626:                              ; preds = %851, %840, %816
@@ -1683,7 +1683,7 @@ lj_buf_more.exit626:                              ; preds = %851, %840, %816
   %893 = zext i32 %.7524 to i64
   %894 = getelementptr inbounds nuw i32, ptr %7, i64 %893
   %895 = load i32, ptr %894, align 4, !tbaa !15
-  %896 = tail call ptr @lj_strfmt_wint(ptr noundef nonnull %892, i32 noundef %895) #7
+  %896 = tail call ptr @lj_strfmt_wint(ptr noundef nonnull %892, i32 noundef %895) #8
   %897 = load i8, ptr %892, align 1, !tbaa !14
   store i8 %897, ptr %.20, align 1, !tbaa !14
   br i1 %832, label %898, label %.loopexit895
@@ -1843,7 +1843,7 @@ lj_buf_more.exit626:                              ; preds = %851, %840, %816
 
 .thread848:                                       ; preds = %.loopexit895, %981
   %.26 = phi ptr [ %982, %981 ], [ %980, %.loopexit895 ]
-  %983 = tail call ptr @lj_strfmt_wint(ptr noundef nonnull %.26, i32 noundef %spec.select620) #7
+  %983 = tail call ptr @lj_strfmt_wint(ptr noundef nonnull %.26, i32 noundef %spec.select620) #8
   br label %.loopexit901
 
 984:                                              ; preds = %nd_mul2k.exit662
@@ -2161,7 +2161,7 @@ nd_add_m10e.exit713.thread:                       ; preds = %984, %1027, %.crite
   br i1 %1178, label %1179, label %lj_buf_more.exit628, !prof !12
 
 1179:                                             ; preds = %1168
-  %1180 = tail call ptr @lj_buf_more2(ptr noundef nonnull %0, i32 noundef %1170) #7
+  %1180 = tail call ptr @lj_buf_more2(ptr noundef nonnull %0, i32 noundef %1170) #8
   br label %lj_buf_more.exit628
 
 lj_buf_more.exit628:                              ; preds = %1179, %1168, %nd_add_m10e.exit713.thread
@@ -2237,7 +2237,7 @@ lj_buf_more.exit628:                              ; preds = %1179, %1168, %nd_ad
   %.19451 = phi i32 [ %.17449, %1200 ], [ %1202, %.preheader903 ], [ %1217, %.lr.ph971.preheader ]
   %.33 = phi ptr [ %.32, %1200 ], [ %.32, %.preheader903 ], [ %scevgep1094, %.lr.ph971.preheader ]
   %1218 = load i32, ptr %1146, align 4, !tbaa !15
-  %1219 = tail call ptr @lj_strfmt_wint(ptr noundef %.33, i32 noundef %1218) #7
+  %1219 = tail call ptr @lj_strfmt_wint(ptr noundef %.33, i32 noundef %1218) #8
   %.not585974 = icmp eq i32 %.9526869, 0
   br i1 %.not585974, label %._crit_edge, label %.lr.ph977
 
@@ -2493,7 +2493,7 @@ define hidden ptr @lj_strfmt_num(ptr noundef %0, ptr noundef readonly captures(n
   %7 = ptrtoint ptr %3 to i64
   %8 = sub i64 %6, %7
   %9 = and i64 %8, 4294967295
-  %10 = call ptr @lj_str_new(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %9) #7
+  %10 = call ptr @lj_str_new(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %9) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %10
 }
@@ -2516,32 +2516,33 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #4
+declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

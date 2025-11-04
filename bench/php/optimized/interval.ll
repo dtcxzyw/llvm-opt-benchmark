@@ -31,7 +31,7 @@ define hidden noundef ptr @timelib_diff(ptr noundef %0, ptr noundef %1) local_un
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %21 = load ptr, ptr %20, align 8, !tbaa !17
   %22 = load ptr, ptr %21, align 8, !tbaa !18
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %22) #8
+  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %22) #9
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %173
 
@@ -42,7 +42,7 @@ define hidden noundef ptr @timelib_diff(ptr noundef %0, ptr noundef %1) local_un
   store ptr %1, ptr %4, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %26 = tail call ptr @timelib_rel_time_ctor() #9
+  %26 = tail call ptr @timelib_rel_time_ctor() #10
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 68
   store i32 0, ptr %27, align 4, !tbaa !29
   call fastcc void @sort_old_to_new(ptr noundef %3, ptr noundef %4, ptr noundef %26)
@@ -141,7 +141,7 @@ define hidden noundef ptr @timelib_diff(ptr noundef %0, ptr noundef %1) local_un
   %99 = phi i32 [ %97, %86 ], [ %.pre.i, %25 ]
   %.not.i = icmp eq i32 %99, 0
   %100 = select i1 %.not.i, ptr %28, ptr %31
-  tail call void @timelib_do_rel_normalize(ptr noundef nonnull %100, ptr noundef nonnull %26) #9
+  tail call void @timelib_do_rel_normalize(ptr noundef nonnull %100, ptr noundef nonnull %26) #10
   %101 = getelementptr inbounds nuw i8, ptr %31, i64 80
   %102 = load i32, ptr %101, align 8, !tbaa !47
   switch i32 %102, label %.thread.i [
@@ -192,7 +192,7 @@ define hidden noundef ptr @timelib_diff(ptr noundef %0, ptr noundef %1) local_un
 
 128:                                              ; preds = %125
   %129 = load i64, ptr %81, align 8, !tbaa !46
-  %130 = call i32 @timelib_get_time_zone_offset_info(i64 noundef %129, ptr noundef nonnull %127, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef null) #9
+  %130 = call i32 @timelib_get_time_zone_offset_info(i64 noundef %129, ptr noundef nonnull %127, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef null) #10
   %.not49.i = icmp eq i32 %130, 0
   br i1 %.not49.i, label %timelib_diff_with_tzid.exit, label %131
 
@@ -241,7 +241,7 @@ define hidden noundef ptr @timelib_diff(ptr noundef %0, ptr noundef %1) local_un
   %157 = sub i64 %150, %156
   %158 = getelementptr inbounds nuw i8, ptr %28, i64 72
   %159 = load ptr, ptr %158, align 8, !tbaa !17
-  %160 = call i32 @timelib_get_time_zone_offset_info(i64 noundef %157, ptr noundef %159, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef null) #9
+  %160 = call i32 @timelib_get_time_zone_offset_info(i64 noundef %157, ptr noundef %159, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef null) #10
   %.not46.i = icmp eq i32 %160, 0
   br i1 %.not46.i, label %timelib_diff_with_tzid.exit, label %161
 
@@ -273,7 +273,7 @@ timelib_diff_with_tzid.exit:                      ; preds = %107, %110, %116, %1
   br label %247
 
 173:                                              ; preds = %16, %12, %2
-  %174 = tail call ptr @timelib_rel_time_ctor() #9
+  %174 = tail call ptr @timelib_rel_time_ctor() #10
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 68
   store i32 0, ptr %175, align 4, !tbaa !29
   call fastcc void @sort_old_to_new(ptr noundef %7, ptr noundef %8, ptr noundef %174)
@@ -369,7 +369,7 @@ timelib_diff_with_tzid.exit:                      ; preds = %107, %110, %116, %1
   %245 = load i32, ptr %175, align 4, !tbaa !29
   %.not19 = icmp eq i32 %245, 0
   %246 = select i1 %.not19, ptr %176, ptr %178
-  tail call void @timelib_do_rel_normalize(ptr noundef nonnull %246, ptr noundef nonnull %174) #9
+  tail call void @timelib_do_rel_normalize(ptr noundef nonnull %246, ptr noundef nonnull %174) #10
   br label %247
 
 247:                                              ; preds = %215, %timelib_diff_with_tzid.exit
@@ -404,7 +404,7 @@ define internal fastcc void @sort_old_to_new(ptr noundef nonnull captures(none) 
   %16 = getelementptr inbounds nuw i8, ptr %.pre, i64 72
   %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = load ptr, ptr %17, align 8, !tbaa !18
-  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %18) #8
+  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %18) #9
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %125
 
@@ -585,14 +585,14 @@ define internal fastcc void @sort_old_to_new(ptr noundef nonnull captures(none) 
 define hidden i32 @timelib_diff_days(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
-  %5 = tail call i32 @timelib_same_timezone(ptr noundef %0, ptr noundef %1) #9
+  %5 = tail call i32 @timelib_same_timezone(ptr noundef %0, ptr noundef %1) #10
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %43, label %6
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %7 = tail call i32 @timelib_time_compare(ptr noundef %0, ptr noundef %1) #9
+  %7 = tail call i32 @timelib_time_compare(ptr noundef %0, ptr noundef %1) #10
   %8 = icmp slt i32 %7, 0
   %. = select i1 %8, ptr %0, ptr %1
   %.26 = select i1 %8, ptr %1, ptr %0
@@ -608,7 +608,7 @@ define hidden i32 @timelib_diff_days(ptr noundef %0, ptr noundef %1) local_unnam
   %18 = getelementptr inbounds nuw i8, ptr %., i64 48
   %19 = load i64, ptr %18, align 8, !tbaa !43
   %20 = trunc i64 %19 to i32
-  call void @timelib_hmsf_to_decimal_hour(i32 noundef %11, i32 noundef %14, i32 noundef %17, i32 noundef %20, ptr noundef nonnull %3) #9
+  call void @timelib_hmsf_to_decimal_hour(i32 noundef %11, i32 noundef %14, i32 noundef %17, i32 noundef %20, ptr noundef nonnull %3) #10
   %21 = getelementptr inbounds nuw i8, ptr %.26, i64 24
   %22 = load i64, ptr %21, align 8, !tbaa !37
   %23 = trunc i64 %22 to i32
@@ -621,9 +621,9 @@ define hidden i32 @timelib_diff_days(ptr noundef %0, ptr noundef %1) local_unnam
   %30 = getelementptr inbounds nuw i8, ptr %.26, i64 48
   %31 = load i64, ptr %30, align 8, !tbaa !43
   %32 = trunc i64 %31 to i32
-  call void @timelib_hmsf_to_decimal_hour(i32 noundef %23, i32 noundef %26, i32 noundef %29, i32 noundef %32, ptr noundef nonnull %4) #9
-  %33 = call i64 @timelib_epoch_days_from_time(ptr noundef %0) #9
-  %34 = call i64 @timelib_epoch_days_from_time(ptr noundef %1) #9
+  call void @timelib_hmsf_to_decimal_hour(i32 noundef %23, i32 noundef %26, i32 noundef %29, i32 noundef %32, ptr noundef nonnull %4) #10
+  %33 = call i64 @timelib_epoch_days_from_time(ptr noundef %0) #10
+  %34 = call i64 @timelib_epoch_days_from_time(ptr noundef %1) #10
   %35 = sub i64 %33, %34
   %36 = call i64 @llvm.abs.i64(i64 %35, i1 false)
   %37 = trunc i64 %36 to i32
@@ -668,12 +668,12 @@ declare i64 @timelib_epoch_days_from_time(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #4
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @timelib_add(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @timelib_time_clone(ptr noundef %0) #9
+  %3 = tail call ptr @timelib_time_clone(ptr noundef %0) #10
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %5 = load i32, ptr %4, align 8, !tbaa !51
   %.not = icmp eq i32 %5, 0
@@ -737,8 +737,8 @@ define hidden ptr @timelib_add(ptr noundef %0, ptr noundef readonly captures(non
   store i32 1, ptr %42, align 4, !tbaa !60
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 220
   store i32 0, ptr %43, align 4, !tbaa !61
-  tail call void @timelib_update_ts(ptr noundef nonnull %3, ptr noundef null) #9
-  tail call void @timelib_update_from_sse(ptr noundef nonnull %3) #9
+  tail call void @timelib_update_ts(ptr noundef nonnull %3, ptr noundef null) #10
+  tail call void @timelib_update_from_sse(ptr noundef nonnull %3) #10
   store i32 0, ptr %42, align 4, !tbaa !60
   ret ptr %3
 }
@@ -746,10 +746,10 @@ define hidden ptr @timelib_add(ptr noundef %0, ptr noundef readonly captures(non
 declare ptr @timelib_time_clone(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @timelib_update_ts(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -757,7 +757,7 @@ declare void @timelib_update_from_sse(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @timelib_sub(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @timelib_time_clone(ptr noundef %0) #9
+  %3 = tail call ptr @timelib_time_clone(ptr noundef %0) #10
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %5 = load i32, ptr %4, align 4, !tbaa !29
   %.not = icmp eq i32 %5, 0
@@ -807,15 +807,15 @@ define hidden ptr @timelib_sub(ptr noundef %0, ptr noundef readonly captures(non
   store i32 1, ptr %34, align 4, !tbaa !60
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 220
   store i32 0, ptr %35, align 4, !tbaa !61
-  tail call void @timelib_update_ts(ptr noundef %3, ptr noundef null) #9
-  tail call void @timelib_update_from_sse(ptr noundef %3) #9
+  tail call void @timelib_update_ts(ptr noundef %3, ptr noundef null) #10
+  tail call void @timelib_update_from_sse(ptr noundef %3) #10
   store i32 0, ptr %34, align 4, !tbaa !60
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @timelib_add_wall(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @timelib_time_clone(ptr noundef %0) #9
+  %3 = tail call ptr @timelib_time_clone(ptr noundef %0) #10
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 212
   store i32 1, ptr %4, align 4, !tbaa !60
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 220
@@ -834,8 +834,8 @@ define hidden ptr @timelib_add_wall(ptr noundef %0, ptr noundef %1) local_unname
 11:                                               ; preds = %8, %2
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %12, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
-  tail call void @timelib_update_ts(ptr noundef nonnull %3, ptr noundef null) #9
-  tail call void @timelib_update_from_sse(ptr noundef nonnull %3) #9
+  tail call void @timelib_update_ts(ptr noundef nonnull %3, ptr noundef null) #10
+  tail call void @timelib_update_from_sse(ptr noundef nonnull %3) #10
   br label %78
 
 13:                                               ; preds = %8
@@ -868,7 +868,7 @@ define hidden ptr @timelib_add_wall(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %or.cond, label %29, label %28
 
 28:                                               ; preds = %27, %13
-  tail call void @timelib_update_ts(ptr noundef nonnull %3, ptr noundef null) #9
+  tail call void @timelib_update_ts(ptr noundef nonnull %3, ptr noundef null) #10
   br label %29
 
 29:                                               ; preds = %27, %28
@@ -884,17 +884,17 @@ define hidden ptr @timelib_add_wall(ptr noundef %0, ptr noundef %1) local_unname
   %37 = load i64, ptr %36, align 8, !tbaa !40
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %39 = load i64, ptr %38, align 8, !tbaa !42
-  %40 = tail call i64 @timelib_hms_to_seconds(i64 noundef %35, i64 noundef %37, i64 noundef %39) #9
+  %40 = tail call i64 @timelib_hms_to_seconds(i64 noundef %35, i64 noundef %37, i64 noundef %39) #10
   %41 = mul i64 %40, %spec.select
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %43 = load i64, ptr %42, align 8, !tbaa !46
   %44 = add i64 %43, %41
   store i64 %44, ptr %42, align 8, !tbaa !46
-  tail call void @timelib_update_from_sse(ptr noundef nonnull %3) #9
+  tail call void @timelib_update_from_sse(ptr noundef nonnull %3) #10
   br label %77
 
 45:                                               ; preds = %29
-  %46 = tail call ptr @timelib_rel_time_clone(ptr noundef nonnull %1) #9
+  %46 = tail call ptr @timelib_rel_time_clone(ptr noundef nonnull %1) #10
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %49 = load i64, ptr %47, align 8, !tbaa !48
@@ -936,26 +936,26 @@ do_range_limit.exit:                              ; preds = %do_range_limit.exit
   %64 = load i64, ptr %63, align 8, !tbaa !38
   %65 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %66 = load i64, ptr %65, align 8, !tbaa !40
-  %67 = tail call i64 @timelib_hms_to_seconds(i64 noundef %64, i64 noundef %66, i64 noundef %62) #9
+  %67 = tail call i64 @timelib_hms_to_seconds(i64 noundef %64, i64 noundef %66, i64 noundef %62) #10
   %68 = mul i64 %67, %spec.select
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %70 = load i64, ptr %69, align 8, !tbaa !46
   %71 = add i64 %70, %68
   store i64 %71, ptr %69, align 8, !tbaa !46
-  tail call void @timelib_update_from_sse(ptr noundef nonnull %3) #9
+  tail call void @timelib_update_from_sse(ptr noundef nonnull %3) #10
   %72 = load i64, ptr %47, align 8, !tbaa !44
   %73 = mul i64 %72, %spec.select
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %75 = load i64, ptr %74, align 8, !tbaa !43
   %76 = add i64 %75, %73
   store i64 %76, ptr %74, align 8, !tbaa !43
-  tail call void @timelib_do_normalize(ptr noundef nonnull %3) #9
-  tail call void @timelib_update_ts(ptr noundef nonnull %3, ptr noundef null) #9
-  tail call void @timelib_rel_time_dtor(ptr noundef nonnull %46) #9
+  tail call void @timelib_do_normalize(ptr noundef nonnull %3) #10
+  tail call void @timelib_update_ts(ptr noundef nonnull %3, ptr noundef null) #10
+  tail call void @timelib_rel_time_dtor(ptr noundef nonnull %46) #10
   br label %77
 
 77:                                               ; preds = %do_range_limit.exit, %33
-  tail call void @timelib_do_normalize(ptr noundef nonnull %3) #9
+  tail call void @timelib_do_normalize(ptr noundef nonnull %3) #10
   br label %78
 
 78:                                               ; preds = %77, %11
@@ -967,7 +967,7 @@ do_range_limit.exit:                              ; preds = %do_range_limit.exit
 82:                                               ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %84 = load ptr, ptr %83, align 8, !tbaa !17
-  tail call void @timelib_set_timezone(ptr noundef nonnull %3, ptr noundef %84) #9
+  tail call void @timelib_set_timezone(ptr noundef nonnull %3, ptr noundef %84) #10
   br label %85
 
 85:                                               ; preds = %82, %78
@@ -987,7 +987,7 @@ declare void @timelib_set_timezone(ptr noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @timelib_sub_wall(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @timelib_time_clone(ptr noundef %0) #9
+  %3 = tail call ptr @timelib_time_clone(ptr noundef %0) #10
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 212
   store i32 1, ptr %4, align 4, !tbaa !60
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 220
@@ -1006,8 +1006,8 @@ define hidden ptr @timelib_sub_wall(ptr noundef %0, ptr noundef %1) local_unname
 11:                                               ; preds = %8, %2
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %12, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
-  tail call void @timelib_update_ts(ptr noundef nonnull %3, ptr noundef null) #9
-  tail call void @timelib_update_from_sse(ptr noundef nonnull %3) #9
+  tail call void @timelib_update_ts(ptr noundef nonnull %3, ptr noundef null) #10
+  tail call void @timelib_update_from_sse(ptr noundef nonnull %3) #10
   br label %78
 
 13:                                               ; preds = %8
@@ -1043,7 +1043,7 @@ define hidden ptr @timelib_sub_wall(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %or.cond, label %29, label %28
 
 28:                                               ; preds = %27, %13
-  tail call void @timelib_update_ts(ptr noundef nonnull %3, ptr noundef null) #9
+  tail call void @timelib_update_ts(ptr noundef nonnull %3, ptr noundef null) #10
   br label %29
 
 29:                                               ; preds = %27, %28
@@ -1059,17 +1059,17 @@ define hidden ptr @timelib_sub_wall(ptr noundef %0, ptr noundef %1) local_unname
   %37 = load i64, ptr %36, align 8, !tbaa !40
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %39 = load i64, ptr %38, align 8, !tbaa !42
-  %40 = tail call i64 @timelib_hms_to_seconds(i64 noundef %35, i64 noundef %37, i64 noundef %39) #9
+  %40 = tail call i64 @timelib_hms_to_seconds(i64 noundef %35, i64 noundef %37, i64 noundef %39) #10
   %41 = mul i64 %40, %spec.select
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %43 = load i64, ptr %42, align 8, !tbaa !46
   %44 = sub i64 %43, %41
   store i64 %44, ptr %42, align 8, !tbaa !46
-  tail call void @timelib_update_from_sse(ptr noundef nonnull %3) #9
+  tail call void @timelib_update_from_sse(ptr noundef nonnull %3) #10
   br label %77
 
 45:                                               ; preds = %29
-  %46 = tail call ptr @timelib_rel_time_clone(ptr noundef nonnull %1) #9
+  %46 = tail call ptr @timelib_rel_time_clone(ptr noundef nonnull %1) #10
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %49 = load i64, ptr %47, align 8, !tbaa !48
@@ -1111,26 +1111,26 @@ do_range_limit.exit:                              ; preds = %do_range_limit.exit
   %64 = load i64, ptr %63, align 8, !tbaa !38
   %65 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %66 = load i64, ptr %65, align 8, !tbaa !40
-  %67 = tail call i64 @timelib_hms_to_seconds(i64 noundef %64, i64 noundef %66, i64 noundef %62) #9
+  %67 = tail call i64 @timelib_hms_to_seconds(i64 noundef %64, i64 noundef %66, i64 noundef %62) #10
   %68 = mul i64 %67, %spec.select
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %70 = load i64, ptr %69, align 8, !tbaa !46
   %71 = sub i64 %70, %68
   store i64 %71, ptr %69, align 8, !tbaa !46
-  tail call void @timelib_update_from_sse(ptr noundef nonnull %3) #9
+  tail call void @timelib_update_from_sse(ptr noundef nonnull %3) #10
   %72 = load i64, ptr %47, align 8, !tbaa !44
   %73 = mul i64 %72, %spec.select
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %75 = load i64, ptr %74, align 8, !tbaa !43
   %76 = sub i64 %75, %73
   store i64 %76, ptr %74, align 8, !tbaa !43
-  tail call void @timelib_do_normalize(ptr noundef nonnull %3) #9
-  tail call void @timelib_update_ts(ptr noundef nonnull %3, ptr noundef null) #9
-  tail call void @timelib_rel_time_dtor(ptr noundef nonnull %46) #9
+  tail call void @timelib_do_normalize(ptr noundef nonnull %3) #10
+  tail call void @timelib_update_ts(ptr noundef nonnull %3, ptr noundef null) #10
+  tail call void @timelib_rel_time_dtor(ptr noundef nonnull %46) #10
   br label %77
 
 77:                                               ; preds = %do_range_limit.exit, %33
-  tail call void @timelib_do_normalize(ptr noundef nonnull %3) #9
+  tail call void @timelib_do_normalize(ptr noundef nonnull %3) #10
   br label %78
 
 78:                                               ; preds = %77, %11
@@ -1142,7 +1142,7 @@ do_range_limit.exit:                              ; preds = %do_range_limit.exit
 82:                                               ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %84 = load ptr, ptr %83, align 8, !tbaa !17
-  tail call void @timelib_set_timezone(ptr noundef nonnull %3, ptr noundef %84) #9
+  tail call void @timelib_set_timezone(ptr noundef nonnull %3, ptr noundef %84) #10
   br label %85
 
 85:                                               ; preds = %82, %78
@@ -1153,21 +1153,22 @@ do_range_limit.exit:                              ; preds = %do_range_limit.exit
 declare i32 @timelib_get_time_zone_offset_info(i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { nounwind }
+attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

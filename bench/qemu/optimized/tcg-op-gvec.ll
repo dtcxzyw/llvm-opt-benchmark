@@ -356,18 +356,18 @@ simd_desc.exit:                                   ; preds = %check_size_align.ex
   %24 = or disjoint i32 %23, %22
   %25 = shl i32 %4, 10
   %26 = or disjoint i32 %24, %25
-  %27 = tail call ptr @tcg_constant_i32(i32 noundef %26) #10
-  %28 = tail call ptr @tcg_temp_ebb_new_ptr() #10
-  %29 = tail call ptr @tcg_temp_ebb_new_ptr() #10
+  %27 = tail call ptr @tcg_constant_i32(i32 noundef %26) #11
+  %28 = tail call ptr @tcg_temp_ebb_new_ptr() #11
+  %29 = tail call ptr @tcg_temp_ebb_new_ptr() #11
   %30 = load ptr, ptr @tcg_env, align 8
   %31 = zext i32 %0 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %28, ptr noundef %30, i64 noundef range(i64 0, 4294967296) %31) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %28, ptr noundef %30, i64 noundef range(i64 0, 4294967296) %31) #11
   %32 = load ptr, ptr @tcg_env, align 8
   %33 = zext i32 %1 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %29, ptr noundef %32, i64 noundef range(i64 0, 4294967296) %33) #10
-  tail call void %5(ptr noundef %28, ptr noundef %29, ptr noundef %27) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %28) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %29) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %29, ptr noundef %32, i64 noundef range(i64 0, 4294967296) %33) #11
+  tail call void %5(ptr noundef %28, ptr noundef %29, ptr noundef %27) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %28) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %29) #11
   ret void
 }
 
@@ -409,18 +409,18 @@ simd_desc.exit:                                   ; preds = %check_size_align.ex
   %25 = or disjoint i32 %24, %23
   %26 = shl i32 %5, 10
   %27 = or disjoint i32 %25, %26
-  %28 = tail call ptr @tcg_constant_i32(i32 noundef %27) #10
-  %29 = tail call ptr @tcg_temp_ebb_new_ptr() #10
-  %30 = tail call ptr @tcg_temp_ebb_new_ptr() #10
+  %28 = tail call ptr @tcg_constant_i32(i32 noundef %27) #11
+  %29 = tail call ptr @tcg_temp_ebb_new_ptr() #11
+  %30 = tail call ptr @tcg_temp_ebb_new_ptr() #11
   %31 = load ptr, ptr @tcg_env, align 8
   %32 = zext i32 %0 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %29, ptr noundef %31, i64 noundef range(i64 0, 4294967296) %32) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %29, ptr noundef %31, i64 noundef range(i64 0, 4294967296) %32) #11
   %33 = load ptr, ptr @tcg_env, align 8
   %34 = zext i32 %1 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %30, ptr noundef %33, i64 noundef range(i64 0, 4294967296) %34) #10
-  tail call void %6(ptr noundef %29, ptr noundef %30, ptr noundef %2, ptr noundef %28) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %29) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %30) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %30, ptr noundef %33, i64 noundef range(i64 0, 4294967296) %34) #11
+  tail call void %6(ptr noundef %29, ptr noundef %30, ptr noundef %2, ptr noundef %28) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %29) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %30) #11
   ret void
 }
 
@@ -456,23 +456,23 @@ simd_desc.exit:                                   ; preds = %check_size_align.ex
   %25 = or disjoint i32 %24, %23
   %26 = shl i32 %5, 10
   %27 = or disjoint i32 %25, %26
-  %28 = tail call ptr @tcg_constant_i32(i32 noundef %27) #10
-  %29 = tail call ptr @tcg_temp_ebb_new_ptr() #10
-  %30 = tail call ptr @tcg_temp_ebb_new_ptr() #10
-  %31 = tail call ptr @tcg_temp_ebb_new_ptr() #10
+  %28 = tail call ptr @tcg_constant_i32(i32 noundef %27) #11
+  %29 = tail call ptr @tcg_temp_ebb_new_ptr() #11
+  %30 = tail call ptr @tcg_temp_ebb_new_ptr() #11
+  %31 = tail call ptr @tcg_temp_ebb_new_ptr() #11
   %32 = load ptr, ptr @tcg_env, align 8
   %33 = zext i32 %0 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %29, ptr noundef %32, i64 noundef range(i64 0, 4294967296) %33) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %29, ptr noundef %32, i64 noundef range(i64 0, 4294967296) %33) #11
   %34 = load ptr, ptr @tcg_env, align 8
   %35 = zext i32 %1 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %30, ptr noundef %34, i64 noundef range(i64 0, 4294967296) %35) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %30, ptr noundef %34, i64 noundef range(i64 0, 4294967296) %35) #11
   %36 = load ptr, ptr @tcg_env, align 8
   %37 = zext i32 %2 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %31, ptr noundef %36, i64 noundef range(i64 0, 4294967296) %37) #10
-  tail call void %6(ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %28) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %29) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %30) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %31) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %31, ptr noundef %36, i64 noundef range(i64 0, 4294967296) %37) #11
+  tail call void %6(ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %28) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %29) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %30) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %31) #11
   ret void
 }
 
@@ -508,28 +508,28 @@ simd_desc.exit:                                   ; preds = %check_size_align.ex
   %26 = or disjoint i32 %25, %24
   %27 = shl i32 %6, 10
   %28 = or disjoint i32 %26, %27
-  %29 = tail call ptr @tcg_constant_i32(i32 noundef %28) #10
-  %30 = tail call ptr @tcg_temp_ebb_new_ptr() #10
-  %31 = tail call ptr @tcg_temp_ebb_new_ptr() #10
-  %32 = tail call ptr @tcg_temp_ebb_new_ptr() #10
-  %33 = tail call ptr @tcg_temp_ebb_new_ptr() #10
+  %29 = tail call ptr @tcg_constant_i32(i32 noundef %28) #11
+  %30 = tail call ptr @tcg_temp_ebb_new_ptr() #11
+  %31 = tail call ptr @tcg_temp_ebb_new_ptr() #11
+  %32 = tail call ptr @tcg_temp_ebb_new_ptr() #11
+  %33 = tail call ptr @tcg_temp_ebb_new_ptr() #11
   %34 = load ptr, ptr @tcg_env, align 8
   %35 = zext i32 %0 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %30, ptr noundef %34, i64 noundef range(i64 0, 4294967296) %35) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %30, ptr noundef %34, i64 noundef range(i64 0, 4294967296) %35) #11
   %36 = load ptr, ptr @tcg_env, align 8
   %37 = zext i32 %1 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %31, ptr noundef %36, i64 noundef range(i64 0, 4294967296) %37) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %31, ptr noundef %36, i64 noundef range(i64 0, 4294967296) %37) #11
   %38 = load ptr, ptr @tcg_env, align 8
   %39 = zext i32 %2 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %32, ptr noundef %38, i64 noundef range(i64 0, 4294967296) %39) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %32, ptr noundef %38, i64 noundef range(i64 0, 4294967296) %39) #11
   %40 = load ptr, ptr @tcg_env, align 8
   %41 = zext i32 %3 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %33, ptr noundef %40, i64 noundef range(i64 0, 4294967296) %41) #10
-  tail call void %7(ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %29) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %30) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %31) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %32) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %33) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %33, ptr noundef %40, i64 noundef range(i64 0, 4294967296) %41) #11
+  tail call void %7(ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %29) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %30) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %31) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %32) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %33) #11
   ret void
 }
 
@@ -565,33 +565,33 @@ simd_desc.exit:                                   ; preds = %check_size_align.ex
   %27 = or disjoint i32 %26, %25
   %28 = shl i32 %7, 10
   %29 = or disjoint i32 %27, %28
-  %30 = tail call ptr @tcg_constant_i32(i32 noundef %29) #10
-  %31 = tail call ptr @tcg_temp_ebb_new_ptr() #10
-  %32 = tail call ptr @tcg_temp_ebb_new_ptr() #10
-  %33 = tail call ptr @tcg_temp_ebb_new_ptr() #10
-  %34 = tail call ptr @tcg_temp_ebb_new_ptr() #10
-  %35 = tail call ptr @tcg_temp_ebb_new_ptr() #10
+  %30 = tail call ptr @tcg_constant_i32(i32 noundef %29) #11
+  %31 = tail call ptr @tcg_temp_ebb_new_ptr() #11
+  %32 = tail call ptr @tcg_temp_ebb_new_ptr() #11
+  %33 = tail call ptr @tcg_temp_ebb_new_ptr() #11
+  %34 = tail call ptr @tcg_temp_ebb_new_ptr() #11
+  %35 = tail call ptr @tcg_temp_ebb_new_ptr() #11
   %36 = load ptr, ptr @tcg_env, align 8
   %37 = zext i32 %0 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %31, ptr noundef %36, i64 noundef range(i64 0, 4294967296) %37) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %31, ptr noundef %36, i64 noundef range(i64 0, 4294967296) %37) #11
   %38 = load ptr, ptr @tcg_env, align 8
   %39 = zext i32 %1 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %32, ptr noundef %38, i64 noundef range(i64 0, 4294967296) %39) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %32, ptr noundef %38, i64 noundef range(i64 0, 4294967296) %39) #11
   %40 = load ptr, ptr @tcg_env, align 8
   %41 = zext i32 %2 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %33, ptr noundef %40, i64 noundef range(i64 0, 4294967296) %41) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %33, ptr noundef %40, i64 noundef range(i64 0, 4294967296) %41) #11
   %42 = load ptr, ptr @tcg_env, align 8
   %43 = zext i32 %3 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %34, ptr noundef %42, i64 noundef range(i64 0, 4294967296) %43) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %34, ptr noundef %42, i64 noundef range(i64 0, 4294967296) %43) #11
   %44 = load ptr, ptr @tcg_env, align 8
   %45 = zext i32 %4 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %35, ptr noundef %44, i64 noundef range(i64 0, 4294967296) %45) #10
-  tail call void %8(ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %30) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %31) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %32) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %33) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %34) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %35) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %35, ptr noundef %44, i64 noundef range(i64 0, 4294967296) %45) #11
+  tail call void %8(ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %30) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %31) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %32) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %33) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %34) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %35) #11
   ret void
 }
 
@@ -627,18 +627,18 @@ simd_desc.exit:                                   ; preds = %check_size_align.ex
   %25 = or disjoint i32 %24, %23
   %26 = shl i32 %5, 10
   %27 = or disjoint i32 %25, %26
-  %28 = tail call ptr @tcg_constant_i32(i32 noundef %27) #10
-  %29 = tail call ptr @tcg_temp_ebb_new_ptr() #10
-  %30 = tail call ptr @tcg_temp_ebb_new_ptr() #10
+  %28 = tail call ptr @tcg_constant_i32(i32 noundef %27) #11
+  %29 = tail call ptr @tcg_temp_ebb_new_ptr() #11
+  %30 = tail call ptr @tcg_temp_ebb_new_ptr() #11
   %31 = load ptr, ptr @tcg_env, align 8
   %32 = zext i32 %0 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %29, ptr noundef %31, i64 noundef range(i64 0, 4294967296) %32) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %29, ptr noundef %31, i64 noundef range(i64 0, 4294967296) %32) #11
   %33 = load ptr, ptr @tcg_env, align 8
   %34 = zext i32 %1 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %30, ptr noundef %33, i64 noundef range(i64 0, 4294967296) %34) #10
-  tail call void %6(ptr noundef %29, ptr noundef %30, ptr noundef %2, ptr noundef %28) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %29) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %30) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %30, ptr noundef %33, i64 noundef range(i64 0, 4294967296) %34) #11
+  tail call void %6(ptr noundef %29, ptr noundef %30, ptr noundef %2, ptr noundef %28) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %29) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %30) #11
   ret void
 }
 
@@ -674,23 +674,23 @@ simd_desc.exit:                                   ; preds = %check_size_align.ex
   %26 = or disjoint i32 %25, %24
   %27 = shl i32 %6, 10
   %28 = or disjoint i32 %26, %27
-  %29 = tail call ptr @tcg_constant_i32(i32 noundef %28) #10
-  %30 = tail call ptr @tcg_temp_ebb_new_ptr() #10
-  %31 = tail call ptr @tcg_temp_ebb_new_ptr() #10
-  %32 = tail call ptr @tcg_temp_ebb_new_ptr() #10
+  %29 = tail call ptr @tcg_constant_i32(i32 noundef %28) #11
+  %30 = tail call ptr @tcg_temp_ebb_new_ptr() #11
+  %31 = tail call ptr @tcg_temp_ebb_new_ptr() #11
+  %32 = tail call ptr @tcg_temp_ebb_new_ptr() #11
   %33 = load ptr, ptr @tcg_env, align 8
   %34 = zext i32 %0 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %30, ptr noundef %33, i64 noundef range(i64 0, 4294967296) %34) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %30, ptr noundef %33, i64 noundef range(i64 0, 4294967296) %34) #11
   %35 = load ptr, ptr @tcg_env, align 8
   %36 = zext i32 %1 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %31, ptr noundef %35, i64 noundef range(i64 0, 4294967296) %36) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %31, ptr noundef %35, i64 noundef range(i64 0, 4294967296) %36) #11
   %37 = load ptr, ptr @tcg_env, align 8
   %38 = zext i32 %2 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %32, ptr noundef %37, i64 noundef range(i64 0, 4294967296) %38) #10
-  tail call void %7(ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %3, ptr noundef %29) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %30) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %31) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %32) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %32, ptr noundef %37, i64 noundef range(i64 0, 4294967296) %38) #11
+  tail call void %7(ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %3, ptr noundef %29) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %30) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %31) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %32) #11
   ret void
 }
 
@@ -726,28 +726,28 @@ simd_desc.exit:                                   ; preds = %check_size_align.ex
   %27 = or disjoint i32 %26, %25
   %28 = shl i32 %7, 10
   %29 = or disjoint i32 %27, %28
-  %30 = tail call ptr @tcg_constant_i32(i32 noundef %29) #10
-  %31 = tail call ptr @tcg_temp_ebb_new_ptr() #10
-  %32 = tail call ptr @tcg_temp_ebb_new_ptr() #10
-  %33 = tail call ptr @tcg_temp_ebb_new_ptr() #10
-  %34 = tail call ptr @tcg_temp_ebb_new_ptr() #10
+  %30 = tail call ptr @tcg_constant_i32(i32 noundef %29) #11
+  %31 = tail call ptr @tcg_temp_ebb_new_ptr() #11
+  %32 = tail call ptr @tcg_temp_ebb_new_ptr() #11
+  %33 = tail call ptr @tcg_temp_ebb_new_ptr() #11
+  %34 = tail call ptr @tcg_temp_ebb_new_ptr() #11
   %35 = load ptr, ptr @tcg_env, align 8
   %36 = zext i32 %0 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %31, ptr noundef %35, i64 noundef range(i64 0, 4294967296) %36) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %31, ptr noundef %35, i64 noundef range(i64 0, 4294967296) %36) #11
   %37 = load ptr, ptr @tcg_env, align 8
   %38 = zext i32 %1 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %32, ptr noundef %37, i64 noundef range(i64 0, 4294967296) %38) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %32, ptr noundef %37, i64 noundef range(i64 0, 4294967296) %38) #11
   %39 = load ptr, ptr @tcg_env, align 8
   %40 = zext i32 %2 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %33, ptr noundef %39, i64 noundef range(i64 0, 4294967296) %40) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %33, ptr noundef %39, i64 noundef range(i64 0, 4294967296) %40) #11
   %41 = load ptr, ptr @tcg_env, align 8
   %42 = zext i32 %3 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %34, ptr noundef %41, i64 noundef range(i64 0, 4294967296) %42) #10
-  tail call void %8(ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %4, ptr noundef %30) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %31) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %32) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %33) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %34) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %34, ptr noundef %41, i64 noundef range(i64 0, 4294967296) %42) #11
+  tail call void %8(ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %4, ptr noundef %30) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %31) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %32) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %33) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %34) #11
   ret void
 }
 
@@ -783,33 +783,33 @@ simd_desc.exit:                                   ; preds = %check_size_align.ex
   %28 = or disjoint i32 %27, %26
   %29 = shl i32 %8, 10
   %30 = or disjoint i32 %28, %29
-  %31 = tail call ptr @tcg_constant_i32(i32 noundef %30) #10
-  %32 = tail call ptr @tcg_temp_ebb_new_ptr() #10
-  %33 = tail call ptr @tcg_temp_ebb_new_ptr() #10
-  %34 = tail call ptr @tcg_temp_ebb_new_ptr() #10
-  %35 = tail call ptr @tcg_temp_ebb_new_ptr() #10
-  %36 = tail call ptr @tcg_temp_ebb_new_ptr() #10
+  %31 = tail call ptr @tcg_constant_i32(i32 noundef %30) #11
+  %32 = tail call ptr @tcg_temp_ebb_new_ptr() #11
+  %33 = tail call ptr @tcg_temp_ebb_new_ptr() #11
+  %34 = tail call ptr @tcg_temp_ebb_new_ptr() #11
+  %35 = tail call ptr @tcg_temp_ebb_new_ptr() #11
+  %36 = tail call ptr @tcg_temp_ebb_new_ptr() #11
   %37 = load ptr, ptr @tcg_env, align 8
   %38 = zext i32 %0 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %32, ptr noundef %37, i64 noundef range(i64 0, 4294967296) %38) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %32, ptr noundef %37, i64 noundef range(i64 0, 4294967296) %38) #11
   %39 = load ptr, ptr @tcg_env, align 8
   %40 = zext i32 %1 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %33, ptr noundef %39, i64 noundef range(i64 0, 4294967296) %40) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %33, ptr noundef %39, i64 noundef range(i64 0, 4294967296) %40) #11
   %41 = load ptr, ptr @tcg_env, align 8
   %42 = zext i32 %2 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %34, ptr noundef %41, i64 noundef range(i64 0, 4294967296) %42) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %34, ptr noundef %41, i64 noundef range(i64 0, 4294967296) %42) #11
   %43 = load ptr, ptr @tcg_env, align 8
   %44 = zext i32 %3 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %35, ptr noundef %43, i64 noundef range(i64 0, 4294967296) %44) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %35, ptr noundef %43, i64 noundef range(i64 0, 4294967296) %44) #11
   %45 = load ptr, ptr @tcg_env, align 8
   %46 = zext i32 %4 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %36, ptr noundef %45, i64 noundef range(i64 0, 4294967296) %46) #10
-  tail call void %9(ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef %5, ptr noundef %31) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %32) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %33) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %34) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %35) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %36) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %36, ptr noundef %45, i64 noundef range(i64 0, 4294967296) %46) #11
+  tail call void %9(ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef %5, ptr noundef %31) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %32) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %33) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %34) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %35) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %36) #11
   ret void
 }
 
@@ -838,7 +838,7 @@ define dso_local i64 @dup_const(i32 noundef %0, i64 noundef %1) local_unnamed_ad
   br label %13
 
 12:                                               ; preds = %2
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @__func__.dup_const, ptr noundef null) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @__func__.dup_const, ptr noundef null) #12
   unreachable
 
 13:                                               ; preds = %2, %9, %6, %3
@@ -858,20 +858,20 @@ define dso_local void @tcg_gen_dup_i32(i32 noundef %0, ptr noundef %1, ptr nound
   ]
 
 4:                                                ; preds = %3
-  tail call void @tcg_gen_ext8u_i32(ptr noundef %1, ptr noundef %2) #10
-  tail call void @tcg_gen_muli_i32(ptr noundef %1, ptr noundef %1, i32 noundef 16843009) #10
+  tail call void @tcg_gen_ext8u_i32(ptr noundef %1, ptr noundef %2) #11
+  tail call void @tcg_gen_muli_i32(ptr noundef %1, ptr noundef %1, i32 noundef 16843009) #11
   br label %8
 
 5:                                                ; preds = %3
-  tail call void @tcg_gen_deposit_i32(ptr noundef %1, ptr noundef %2, ptr noundef %2, i32 noundef 16, i32 noundef 16) #10
+  tail call void @tcg_gen_deposit_i32(ptr noundef %1, ptr noundef %2, ptr noundef %2, i32 noundef 16, i32 noundef 16) #11
   br label %8
 
 6:                                                ; preds = %3
-  tail call void @tcg_gen_mov_i32(ptr noundef %1, ptr noundef %2) #10
+  tail call void @tcg_gen_mov_i32(ptr noundef %1, ptr noundef %2) #11
   br label %8
 
 7:                                                ; preds = %3
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 417, ptr noundef nonnull @__func__.tcg_gen_dup_i32, ptr noundef null) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 417, ptr noundef nonnull @__func__.tcg_gen_dup_i32, ptr noundef null) #12
   unreachable
 
 8:                                                ; preds = %6, %5, %4
@@ -896,25 +896,25 @@ define dso_local void @tcg_gen_dup_i64(i32 noundef %0, ptr noundef %1, ptr nound
   ]
 
 4:                                                ; preds = %3
-  tail call void @tcg_gen_ext8u_i64(ptr noundef %1, ptr noundef %2) #10
-  tail call void @tcg_gen_muli_i64(ptr noundef %1, ptr noundef %1, i64 noundef 72340172838076673) #10
+  tail call void @tcg_gen_ext8u_i64(ptr noundef %1, ptr noundef %2) #11
+  tail call void @tcg_gen_muli_i64(ptr noundef %1, ptr noundef %1, i64 noundef 72340172838076673) #11
   br label %9
 
 5:                                                ; preds = %3
-  tail call void @tcg_gen_ext16u_i64(ptr noundef %1, ptr noundef %2) #10
-  tail call void @tcg_gen_muli_i64(ptr noundef %1, ptr noundef %1, i64 noundef 281479271743489) #10
+  tail call void @tcg_gen_ext16u_i64(ptr noundef %1, ptr noundef %2) #11
+  tail call void @tcg_gen_muli_i64(ptr noundef %1, ptr noundef %1, i64 noundef 281479271743489) #11
   br label %9
 
 6:                                                ; preds = %3
-  tail call void @tcg_gen_deposit_i64(ptr noundef %1, ptr noundef %2, ptr noundef %2, i32 noundef 32, i32 noundef 32) #10
+  tail call void @tcg_gen_deposit_i64(ptr noundef %1, ptr noundef %2, ptr noundef %2, i32 noundef 32, i32 noundef 32) #11
   br label %9
 
 7:                                                ; preds = %3
-  tail call void @tcg_gen_mov_i64(ptr noundef %1, ptr noundef %2) #10
+  tail call void @tcg_gen_mov_i64(ptr noundef %1, ptr noundef %2) #11
   br label %9
 
 8:                                                ; preds = %3
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 439, ptr noundef nonnull @__func__.tcg_gen_dup_i64, ptr noundef null) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 439, ptr noundef nonnull @__func__.tcg_gen_dup_i64, ptr noundef null) #12
   unreachable
 
 9:                                                ; preds = %7, %6, %5, %4
@@ -1037,8 +1037,8 @@ check_size_impl.exit:                             ; preds = %.thread
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 46
   %61 = load i8, ptr %60, align 2, !range !4, !noundef !5
   %62 = trunc nuw i8 %61 to i1
-  %63 = tail call ptr @tcg_temp_new_i64() #10
-  %64 = tail call ptr @tcg_temp_new_i64() #10
+  %63 = tail call ptr @tcg_temp_new_i64() #11
+  %64 = tail call ptr @tcg_temp_new_i64() #11
   br i1 %62, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
@@ -1046,14 +1046,14 @@ check_size_impl.exit:                             ; preds = %.thread
   %65 = load ptr, ptr @tcg_env, align 8
   %66 = add i32 %.017.us.i, %1
   %67 = zext i32 %66 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %63, ptr noundef %65, i64 noundef %67) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %63, ptr noundef %65, i64 noundef %67) #11
   %68 = load ptr, ptr @tcg_env, align 8
   %69 = add i32 %.017.us.i, %0
   %70 = zext i32 %69 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %64, ptr noundef %68, i64 noundef %70) #10
-  tail call void %55(ptr noundef %64, ptr noundef %63) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %64, ptr noundef %68, i64 noundef %70) #11
+  tail call void %55(ptr noundef %64, ptr noundef %63) #11
   %71 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i64(ptr noundef %64, ptr noundef %71, i64 noundef %70) #10
+  tail call void @tcg_gen_st_i64(ptr noundef %64, ptr noundef %71, i64 noundef %70) #11
   %72 = add nuw nsw i32 %.017.us.i, 8
   %73 = icmp samesign ult i32 %72, %2
   br i1 %73, label %.lr.ph.split.us.i, label %expand_2_i64.exit, !llvm.loop !6
@@ -1063,19 +1063,19 @@ check_size_impl.exit:                             ; preds = %.thread
   %74 = load ptr, ptr @tcg_env, align 8
   %75 = add i32 %.017.i, %1
   %76 = zext i32 %75 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %63, ptr noundef %74, i64 noundef %76) #10
-  tail call void %55(ptr noundef %64, ptr noundef %63) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %63, ptr noundef %74, i64 noundef %76) #11
+  tail call void %55(ptr noundef %64, ptr noundef %63) #11
   %77 = load ptr, ptr @tcg_env, align 8
   %78 = add i32 %.017.i, %0
   %79 = zext i32 %78 to i64
-  tail call void @tcg_gen_st_i64(ptr noundef %64, ptr noundef %77, i64 noundef %79) #10
+  tail call void @tcg_gen_st_i64(ptr noundef %64, ptr noundef %77, i64 noundef %79) #11
   %80 = add nuw nsw i32 %.017.i, 8
   %81 = icmp samesign ult i32 %80, %2
   br i1 %81, label %.lr.ph.split.i, label %expand_2_i64.exit, !llvm.loop !6
 
 expand_2_i64.exit:                                ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i
-  tail call void @tcg_temp_free_i64(ptr noundef %63) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %64) #10
+  tail call void @tcg_temp_free_i64(ptr noundef %63) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %64) #11
   br label %116
 
 check_size_impl.exit.thread:                      ; preds = %check_size_impl.exit, %.thread
@@ -1097,8 +1097,8 @@ check_size_impl.exit89:                           ; preds = %check_size_impl.exi
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 46
   %89 = load i8, ptr %88, align 2, !range !4, !noundef !5
   %90 = trunc nuw i8 %89 to i1
-  %91 = tail call ptr @tcg_temp_new_i32() #10
-  %92 = tail call ptr @tcg_temp_new_i32() #10
+  %91 = tail call ptr @tcg_temp_new_i32() #11
+  %92 = tail call ptr @tcg_temp_new_i32() #11
   br i1 %90, label %.lr.ph.split.us.i94, label %.lr.ph.split.i92
 
 .lr.ph.split.us.i94:                              ; preds = %.lr.ph.i91, %.lr.ph.split.us.i94
@@ -1106,14 +1106,14 @@ check_size_impl.exit89:                           ; preds = %check_size_impl.exi
   %93 = load ptr, ptr @tcg_env, align 8
   %94 = add i32 %.017.us.i95, %1
   %95 = zext i32 %94 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %91, ptr noundef %93, i64 noundef %95) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %91, ptr noundef %93, i64 noundef %95) #11
   %96 = load ptr, ptr @tcg_env, align 8
   %97 = add i32 %.017.us.i95, %0
   %98 = zext i32 %97 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %92, ptr noundef %96, i64 noundef %98) #10
-  tail call void %83(ptr noundef %92, ptr noundef %91) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %92, ptr noundef %96, i64 noundef %98) #11
+  tail call void %83(ptr noundef %92, ptr noundef %91) #11
   %99 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i32(ptr noundef %92, ptr noundef %99, i64 noundef %98) #10
+  tail call void @tcg_gen_st_i32(ptr noundef %92, ptr noundef %99, i64 noundef %98) #11
   %100 = add nuw nsw i32 %.017.us.i95, 4
   %101 = icmp samesign ult i32 %100, %2
   br i1 %101, label %.lr.ph.split.us.i94, label %expand_2_i32.exit, !llvm.loop !8
@@ -1123,19 +1123,19 @@ check_size_impl.exit89:                           ; preds = %check_size_impl.exi
   %102 = load ptr, ptr @tcg_env, align 8
   %103 = add i32 %.017.i93, %1
   %104 = zext i32 %103 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %91, ptr noundef %102, i64 noundef %104) #10
-  tail call void %83(ptr noundef %92, ptr noundef %91) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %91, ptr noundef %102, i64 noundef %104) #11
+  tail call void %83(ptr noundef %92, ptr noundef %91) #11
   %105 = load ptr, ptr @tcg_env, align 8
   %106 = add i32 %.017.i93, %0
   %107 = zext i32 %106 to i64
-  tail call void @tcg_gen_st_i32(ptr noundef %92, ptr noundef %105, i64 noundef %107) #10
+  tail call void @tcg_gen_st_i32(ptr noundef %92, ptr noundef %105, i64 noundef %107) #11
   %108 = add nuw nsw i32 %.017.i93, 4
   %109 = icmp samesign ult i32 %108, %2
   br i1 %109, label %.lr.ph.split.i92, label %expand_2_i32.exit, !llvm.loop !8
 
 expand_2_i32.exit:                                ; preds = %.lr.ph.split.i92, %.lr.ph.split.us.i94
-  tail call void @tcg_temp_free_i32(ptr noundef %91) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %92) #10
+  tail call void @tcg_temp_free_i32(ptr noundef %91) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %92) #11
   br label %116
 
 check_size_impl.exit89.thread:                    ; preds = %check_size_impl.exit89, %check_size_impl.exit.thread
@@ -1145,7 +1145,7 @@ check_size_impl.exit89.thread:                    ; preds = %check_size_impl.exi
   br i1 %.not84, label %112, label %.thread99
 
 112:                                              ; preds = %check_size_impl.exit89.thread
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 1246, ptr noundef nonnull @__PRETTY_FUNCTION__.tcg_gen_gvec_2) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 1246, ptr noundef nonnull @__PRETTY_FUNCTION__.tcg_gen_gvec_2) #12
   unreachable
 
 .thread99:                                        ; preds = %check_size_impl.exit89.thread
@@ -1155,7 +1155,7 @@ check_size_impl.exit89.thread:                    ; preds = %check_size_impl.exi
   br label %121
 
 115:                                              ; preds = %18
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1253, ptr noundef nonnull @__func__.tcg_gen_gvec_2, ptr noundef null) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1253, ptr noundef nonnull @__func__.tcg_gen_gvec_2, ptr noundef null) #12
   unreachable
 
 116:                                              ; preds = %expand_2_i64.exit, %expand_2_i32.exit, %27, %48, %41
@@ -1196,7 +1196,7 @@ check_size_impl.exit:                             ; preds = %4
   br i1 %14, label %15, label %check_size_impl.exit.thread
 
 15:                                               ; preds = %check_size_impl.exit
-  %16 = tail call zeroext i1 @tcg_can_emit_vecop_list(ptr noundef %0, i32 noundef 5, i32 noundef %1) #10
+  %16 = tail call zeroext i1 @tcg_can_emit_vecop_list(ptr noundef %0, i32 noundef 5, i32 noundef %1) #11
   br i1 %16, label %17, label %check_size_impl.exit.thread
 
 17:                                               ; preds = %15
@@ -1211,7 +1211,7 @@ check_size_impl.exit:                             ; preds = %4
   br i1 %.not21, label %check_size_impl.exit.thread, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call zeroext i1 @tcg_can_emit_vecop_list(ptr noundef %0, i32 noundef 4, i32 noundef %1) #10
+  %23 = tail call zeroext i1 @tcg_can_emit_vecop_list(ptr noundef %0, i32 noundef 4, i32 noundef %1) #11
   br i1 %23, label %24, label %check_size_impl.exit.thread
 
 24:                                               ; preds = %22, %17
@@ -1226,7 +1226,7 @@ check_size_impl.exit:                             ; preds = %4
   br i1 %.not23, label %check_size_impl.exit.thread, label %29
 
 29:                                               ; preds = %26
-  %30 = tail call zeroext i1 @tcg_can_emit_vecop_list(ptr noundef %0, i32 noundef 3, i32 noundef %1) #10
+  %30 = tail call zeroext i1 @tcg_can_emit_vecop_list(ptr noundef %0, i32 noundef 3, i32 noundef %1) #11
   br i1 %30, label %59, label %check_size_impl.exit.thread
 
 check_size_impl.exit.thread:                      ; preds = %29, %26, %22, %19, %15, %check_size_impl.exit, %4
@@ -1249,7 +1249,7 @@ check_size_impl.exit28:                           ; preds = %check_size_impl.exi
   br i1 %40, label %41, label %check_size_impl.exit28.thread
 
 41:                                               ; preds = %check_size_impl.exit28
-  %42 = tail call zeroext i1 @tcg_can_emit_vecop_list(ptr noundef %0, i32 noundef 4, i32 noundef %1) #10
+  %42 = tail call zeroext i1 @tcg_can_emit_vecop_list(ptr noundef %0, i32 noundef 4, i32 noundef %1) #11
   br i1 %42, label %43, label %check_size_impl.exit28.thread
 
 43:                                               ; preds = %41
@@ -1264,7 +1264,7 @@ check_size_impl.exit28:                           ; preds = %check_size_impl.exi
   br i1 %.not26, label %check_size_impl.exit28.thread, label %48
 
 48:                                               ; preds = %45
-  %49 = tail call zeroext i1 @tcg_can_emit_vecop_list(ptr noundef %0, i32 noundef 3, i32 noundef %1) #10
+  %49 = tail call zeroext i1 @tcg_can_emit_vecop_list(ptr noundef %0, i32 noundef 3, i32 noundef %1) #11
   br i1 %49, label %59, label %check_size_impl.exit28.thread
 
 check_size_impl.exit28.thread:                    ; preds = %48, %45, %41, %check_size_impl.exit28, %check_size_impl.exit.thread
@@ -1284,7 +1284,7 @@ check_size_impl.exit30:                           ; preds = %check_size_impl.exi
   br i1 %56, label %57, label %check_size_impl.exit30.thread
 
 57:                                               ; preds = %check_size_impl.exit30
-  %58 = tail call zeroext i1 @tcg_can_emit_vecop_list(ptr noundef %0, i32 noundef 3, i32 noundef %1) #10
+  %58 = tail call zeroext i1 @tcg_can_emit_vecop_list(ptr noundef %0, i32 noundef 3, i32 noundef %1) #11
   br i1 %58, label %59, label %check_size_impl.exit30.thread
 
 check_size_impl.exit30.thread:                    ; preds = %57, %check_size_impl.exit30, %check_size_impl.exit28.thread
@@ -1305,19 +1305,19 @@ define internal fastcc void @expand_2_vec(i32 noundef range(i32 0, 256) %0, i32 
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.019.us = phi i32 [ %18, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %9 = tail call ptr @tcg_temp_new_vec(i32 noundef %5) #10
-  %10 = tail call ptr @tcg_temp_new_vec(i32 noundef %5) #10
+  %9 = tail call ptr @tcg_temp_new_vec(i32 noundef %5) #11
+  %10 = tail call ptr @tcg_temp_new_vec(i32 noundef %5) #11
   %11 = load ptr, ptr @tcg_env, align 8
   %12 = add i32 %.019.us, %2
   %13 = zext i32 %12 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %9, ptr noundef %11, i64 noundef %13) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %9, ptr noundef %11, i64 noundef %13) #11
   %14 = load ptr, ptr @tcg_env, align 8
   %15 = add i32 %.019.us, %1
   %16 = zext i32 %15 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %10, ptr noundef %14, i64 noundef %16) #10
-  tail call void %7(i32 noundef %0, ptr noundef %10, ptr noundef %9) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %10, ptr noundef %14, i64 noundef %16) #11
+  tail call void %7(i32 noundef %0, ptr noundef %10, ptr noundef %9) #11
   %17 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_vec(ptr noundef %10, ptr noundef %17, i64 noundef %16) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %10, ptr noundef %17, i64 noundef %16) #11
   %18 = add i32 %.019.us, %4
   %19 = icmp ult i32 %18, %3
   br i1 %19, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !9
@@ -1327,17 +1327,17 @@ define internal fastcc void @expand_2_vec(i32 noundef range(i32 0, 256) %0, i32 
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.019 = phi i32 [ %28, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %20 = tail call ptr @tcg_temp_new_vec(i32 noundef %5) #10
-  %21 = tail call ptr @tcg_temp_new_vec(i32 noundef %5) #10
+  %20 = tail call ptr @tcg_temp_new_vec(i32 noundef %5) #11
+  %21 = tail call ptr @tcg_temp_new_vec(i32 noundef %5) #11
   %22 = load ptr, ptr @tcg_env, align 8
   %23 = add i32 %.019, %2
   %24 = zext i32 %23 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %20, ptr noundef %22, i64 noundef %24) #10
-  tail call void %7(i32 noundef %0, ptr noundef %21, ptr noundef %20) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %20, ptr noundef %22, i64 noundef %24) #11
+  tail call void %7(i32 noundef %0, ptr noundef %21, ptr noundef %20) #11
   %25 = load ptr, ptr @tcg_env, align 8
   %26 = add i32 %.019, %1
   %27 = zext i32 %26 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %21, ptr noundef %25, i64 noundef %27) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %21, ptr noundef %25, i64 noundef %27) #11
   %28 = add i32 %.019, %4
   %29 = icmp ult i32 %28, %3
   br i1 %29, label %.lr.ph.split, label %._crit_edge, !llvm.loop !9
@@ -1452,8 +1452,8 @@ check_size_impl.exit:                             ; preds = %.thread
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 50
   %62 = load i8, ptr %61, align 2, !range !4, !noundef !5
   %63 = trunc nuw i8 %62 to i1
-  %64 = tail call ptr @tcg_temp_new_i64() #10
-  %65 = tail call ptr @tcg_temp_new_i64() #10
+  %64 = tail call ptr @tcg_temp_new_i64() #11
+  %65 = tail call ptr @tcg_temp_new_i64() #11
   br i1 %63, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
@@ -1461,14 +1461,14 @@ check_size_impl.exit:                             ; preds = %.thread
   %66 = load ptr, ptr @tcg_env, align 8
   %67 = add i32 %.018.us.i, %1
   %68 = zext i32 %67 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %64, ptr noundef %66, i64 noundef %68) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %64, ptr noundef %66, i64 noundef %68) #11
   %69 = load ptr, ptr @tcg_env, align 8
   %70 = add i32 %.018.us.i, %0
   %71 = zext i32 %70 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %65, ptr noundef %69, i64 noundef %71) #10
-  tail call void %56(ptr noundef %65, ptr noundef %64, i64 noundef %4) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %65, ptr noundef %69, i64 noundef %71) #11
+  tail call void %56(ptr noundef %65, ptr noundef %64, i64 noundef %4) #11
   %72 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i64(ptr noundef %65, ptr noundef %72, i64 noundef %71) #10
+  tail call void @tcg_gen_st_i64(ptr noundef %65, ptr noundef %72, i64 noundef %71) #11
   %73 = add nuw nsw i32 %.018.us.i, 8
   %74 = icmp samesign ult i32 %73, %2
   br i1 %74, label %.lr.ph.split.us.i, label %expand_2i_i64.exit, !llvm.loop !10
@@ -1478,19 +1478,19 @@ check_size_impl.exit:                             ; preds = %.thread
   %75 = load ptr, ptr @tcg_env, align 8
   %76 = add i32 %.018.i, %1
   %77 = zext i32 %76 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %64, ptr noundef %75, i64 noundef %77) #10
-  tail call void %56(ptr noundef %65, ptr noundef %64, i64 noundef %4) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %64, ptr noundef %75, i64 noundef %77) #11
+  tail call void %56(ptr noundef %65, ptr noundef %64, i64 noundef %4) #11
   %78 = load ptr, ptr @tcg_env, align 8
   %79 = add i32 %.018.i, %0
   %80 = zext i32 %79 to i64
-  tail call void @tcg_gen_st_i64(ptr noundef %65, ptr noundef %78, i64 noundef %80) #10
+  tail call void @tcg_gen_st_i64(ptr noundef %65, ptr noundef %78, i64 noundef %80) #11
   %81 = add nuw nsw i32 %.018.i, 8
   %82 = icmp samesign ult i32 %81, %2
   br i1 %82, label %.lr.ph.split.i, label %expand_2i_i64.exit, !llvm.loop !10
 
 expand_2i_i64.exit:                               ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i
-  tail call void @tcg_temp_free_i64(ptr noundef %64) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %65) #10
+  tail call void @tcg_temp_free_i64(ptr noundef %64) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %65) #11
   br label %122
 
 check_size_impl.exit.thread:                      ; preds = %check_size_impl.exit, %.thread
@@ -1513,8 +1513,8 @@ check_size_impl.exit102:                          ; preds = %check_size_impl.exi
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 50
   %91 = load i8, ptr %90, align 2, !range !4, !noundef !5
   %92 = trunc nuw i8 %91 to i1
-  %93 = tail call ptr @tcg_temp_new_i32() #10
-  %94 = tail call ptr @tcg_temp_new_i32() #10
+  %93 = tail call ptr @tcg_temp_new_i32() #11
+  %94 = tail call ptr @tcg_temp_new_i32() #11
   br i1 %92, label %.lr.ph.split.us.i107, label %.lr.ph.split.i105
 
 .lr.ph.split.us.i107:                             ; preds = %.lr.ph.i104, %.lr.ph.split.us.i107
@@ -1522,14 +1522,14 @@ check_size_impl.exit102:                          ; preds = %check_size_impl.exi
   %95 = load ptr, ptr @tcg_env, align 8
   %96 = add i32 %.018.us.i108, %1
   %97 = zext i32 %96 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %93, ptr noundef %95, i64 noundef %97) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %93, ptr noundef %95, i64 noundef %97) #11
   %98 = load ptr, ptr @tcg_env, align 8
   %99 = add i32 %.018.us.i108, %0
   %100 = zext i32 %99 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %94, ptr noundef %98, i64 noundef %100) #10
-  tail call void %84(ptr noundef %94, ptr noundef %93, i32 noundef %89) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %94, ptr noundef %98, i64 noundef %100) #11
+  tail call void %84(ptr noundef %94, ptr noundef %93, i32 noundef %89) #11
   %101 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i32(ptr noundef %94, ptr noundef %101, i64 noundef %100) #10
+  tail call void @tcg_gen_st_i32(ptr noundef %94, ptr noundef %101, i64 noundef %100) #11
   %102 = add nuw nsw i32 %.018.us.i108, 4
   %103 = icmp samesign ult i32 %102, %2
   br i1 %103, label %.lr.ph.split.us.i107, label %expand_2i_i32.exit, !llvm.loop !11
@@ -1539,19 +1539,19 @@ check_size_impl.exit102:                          ; preds = %check_size_impl.exi
   %104 = load ptr, ptr @tcg_env, align 8
   %105 = add i32 %.018.i106, %1
   %106 = zext i32 %105 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %93, ptr noundef %104, i64 noundef %106) #10
-  tail call void %84(ptr noundef %94, ptr noundef %93, i32 noundef %89) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %93, ptr noundef %104, i64 noundef %106) #11
+  tail call void %84(ptr noundef %94, ptr noundef %93, i32 noundef %89) #11
   %107 = load ptr, ptr @tcg_env, align 8
   %108 = add i32 %.018.i106, %0
   %109 = zext i32 %108 to i64
-  tail call void @tcg_gen_st_i32(ptr noundef %94, ptr noundef %107, i64 noundef %109) #10
+  tail call void @tcg_gen_st_i32(ptr noundef %94, ptr noundef %107, i64 noundef %109) #11
   %110 = add nuw nsw i32 %.018.i106, 4
   %111 = icmp samesign ult i32 %110, %2
   br i1 %111, label %.lr.ph.split.i105, label %expand_2i_i32.exit, !llvm.loop !11
 
 expand_2i_i32.exit:                               ; preds = %.lr.ph.split.i105, %.lr.ph.split.us.i107
-  tail call void @tcg_temp_free_i32(ptr noundef %93) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %94) #10
+  tail call void @tcg_temp_free_i32(ptr noundef %93) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %94) #11
   br label %122
 
 check_size_impl.exit102.thread:                   ; preds = %check_size_impl.exit102, %check_size_impl.exit.thread
@@ -1566,7 +1566,7 @@ check_size_impl.exit102.thread:                   ; preds = %check_size_impl.exi
   br label %.thread112
 
 116:                                              ; preds = %check_size_impl.exit102.thread
-  %117 = tail call ptr @tcg_constant_i64(i64 noundef %4) #10
+  %117 = tail call ptr @tcg_constant_i64(i64 noundef %4) #11
   %118 = trunc i64 %4 to i32
   %119 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %120 = load ptr, ptr %119, align 8
@@ -1574,7 +1574,7 @@ check_size_impl.exit102.thread:                   ; preds = %check_size_impl.exi
   br label %.thread112
 
 121:                                              ; preds = %19
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1322, ptr noundef nonnull @__func__.tcg_gen_gvec_2i, ptr noundef null) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1322, ptr noundef nonnull @__func__.tcg_gen_gvec_2i, ptr noundef null) #12
   unreachable
 
 122:                                              ; preds = %expand_2i_i64.exit, %expand_2i_i32.exit, %28, %49, %42
@@ -1604,19 +1604,19 @@ define internal fastcc void @expand_2i_vec(i32 noundef range(i32 0, 256) %0, i32
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.020.us = phi i32 [ %19, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %10 = tail call ptr @tcg_temp_new_vec(i32 noundef %5) #10
-  %11 = tail call ptr @tcg_temp_new_vec(i32 noundef %5) #10
+  %10 = tail call ptr @tcg_temp_new_vec(i32 noundef %5) #11
+  %11 = tail call ptr @tcg_temp_new_vec(i32 noundef %5) #11
   %12 = load ptr, ptr @tcg_env, align 8
   %13 = add i32 %.020.us, %2
   %14 = zext i32 %13 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %10, ptr noundef %12, i64 noundef %14) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %10, ptr noundef %12, i64 noundef %14) #11
   %15 = load ptr, ptr @tcg_env, align 8
   %16 = add i32 %.020.us, %1
   %17 = zext i32 %16 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %11, ptr noundef %15, i64 noundef %17) #10
-  tail call void %8(i32 noundef %0, ptr noundef %11, ptr noundef %10, i64 noundef %6) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %11, ptr noundef %15, i64 noundef %17) #11
+  tail call void %8(i32 noundef %0, ptr noundef %11, ptr noundef %10, i64 noundef %6) #11
   %18 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_vec(ptr noundef %11, ptr noundef %18, i64 noundef %17) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %11, ptr noundef %18, i64 noundef %17) #11
   %19 = add i32 %.020.us, %4
   %20 = icmp ult i32 %19, %3
   br i1 %20, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !12
@@ -1626,17 +1626,17 @@ define internal fastcc void @expand_2i_vec(i32 noundef range(i32 0, 256) %0, i32
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.020 = phi i32 [ %29, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %21 = tail call ptr @tcg_temp_new_vec(i32 noundef %5) #10
-  %22 = tail call ptr @tcg_temp_new_vec(i32 noundef %5) #10
+  %21 = tail call ptr @tcg_temp_new_vec(i32 noundef %5) #11
+  %22 = tail call ptr @tcg_temp_new_vec(i32 noundef %5) #11
   %23 = load ptr, ptr @tcg_env, align 8
   %24 = add i32 %.020, %2
   %25 = zext i32 %24 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %21, ptr noundef %23, i64 noundef %25) #10
-  tail call void %8(i32 noundef %0, ptr noundef %22, ptr noundef %21, i64 noundef %6) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %21, ptr noundef %23, i64 noundef %25) #11
+  tail call void %8(i32 noundef %0, ptr noundef %22, ptr noundef %21, i64 noundef %6) #11
   %26 = load ptr, ptr @tcg_env, align 8
   %27 = add i32 %.020, %1
   %28 = zext i32 %27 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %22, ptr noundef %26, i64 noundef %28) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %22, ptr noundef %26, i64 noundef %28) #11
   %29 = add i32 %.020, %4
   %30 = icmp ult i32 %29, %3
   br i1 %30, label %.lr.ph.split, label %._crit_edge, !llvm.loop !12
@@ -1686,10 +1686,10 @@ check_overlap_2.exit:                             ; preds = %check_size_align.ex
   br i1 %.not102, label %.thread, label %28
 
 28:                                               ; preds = %18
-  %29 = tail call ptr @tcg_temp_new_vec(i32 noundef %27) #10
+  %29 = tail call ptr @tcg_temp_new_vec(i32 noundef %27) #11
   %30 = load i8, ptr %21, align 4
   %31 = zext i8 %30 to i32
-  tail call void @tcg_gen_dup_i64_vec(i32 noundef %31, ptr noundef %29, ptr noundef %4) #10
+  tail call void @tcg_gen_dup_i64_vec(i32 noundef %31, ptr noundef %29, ptr noundef %4) #11
   switch i32 %27, label %60 [
     i32 5, label %32
     i32 4, label %46
@@ -1740,14 +1740,14 @@ check_overlap_2.exit:                             ; preds = %check_size_align.ex
   br label %61
 
 60:                                               ; preds = %28
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1381, ptr noundef nonnull @__func__.tcg_gen_gvec_2s, ptr noundef null) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1381, ptr noundef nonnull @__func__.tcg_gen_gvec_2s, ptr noundef null) #12
   unreachable
 
 61:                                               ; preds = %32, %53, %46
   %.196 = phi i32 [ %3, %32 ], [ %.095, %46 ], [ %3, %53 ]
   %.193 = phi i32 [ %2, %32 ], [ %.092, %46 ], [ %2, %53 ]
   %.1 = phi i32 [ %0, %32 ], [ %.0, %46 ], [ %0, %53 ]
-  tail call void @tcg_temp_free_vec(ptr noundef %29) #10
+  tail call void @tcg_temp_free_vec(ptr noundef %29) #11
   br label %96
 
 .thread:                                          ; preds = %check_overlap_2.exit, %18
@@ -1765,7 +1765,7 @@ check_size_impl.exit:                             ; preds = %.thread
   br i1 %66, label %67, label %check_size_impl.exit.thread
 
 67:                                               ; preds = %check_size_impl.exit
-  %68 = tail call ptr @tcg_temp_new_i64() #10
+  %68 = tail call ptr @tcg_temp_new_i64() #11
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %70 = load i8, ptr %69, align 4
   %71 = zext i8 %70 to i32
@@ -1775,7 +1775,7 @@ check_size_impl.exit:                             ; preds = %.thread
   %74 = trunc nuw i8 %73 to i1
   %75 = load ptr, ptr %5, align 8
   tail call fastcc void @expand_2s_i64(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %68, i1 noundef zeroext %74, ptr noundef %75)
-  tail call void @tcg_temp_free_i64(ptr noundef %68) #10
+  tail call void @tcg_temp_free_i64(ptr noundef %68) #11
   br label %96
 
 check_size_impl.exit.thread:                      ; preds = %check_size_impl.exit, %.thread
@@ -1794,8 +1794,8 @@ check_size_impl.exit108:                          ; preds = %check_size_impl.exi
   br i1 %81, label %82, label %check_size_impl.exit108.thread
 
 82:                                               ; preds = %check_size_impl.exit108
-  %83 = tail call ptr @tcg_temp_new_i32() #10
-  tail call void @tcg_gen_extrl_i64_i32(ptr noundef %83, ptr noundef %4) #10
+  %83 = tail call ptr @tcg_temp_new_i32() #11
+  tail call void @tcg_gen_extrl_i64_i32(ptr noundef %83, ptr noundef %4) #11
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %85 = load i8, ptr %84, align 4
   switch i8 %85, label %89 [
@@ -1805,20 +1805,20 @@ check_size_impl.exit108:                          ; preds = %check_size_impl.exi
   ]
 
 86:                                               ; preds = %82
-  tail call void @tcg_gen_ext8u_i32(ptr noundef %83, ptr noundef %83) #10
-  tail call void @tcg_gen_muli_i32(ptr noundef %83, ptr noundef %83, i32 noundef 16843009) #10
+  tail call void @tcg_gen_ext8u_i32(ptr noundef %83, ptr noundef %83) #11
+  tail call void @tcg_gen_muli_i32(ptr noundef %83, ptr noundef %83, i32 noundef 16843009) #11
   br label %tcg_gen_dup_i32.exit
 
 87:                                               ; preds = %82
-  tail call void @tcg_gen_deposit_i32(ptr noundef %83, ptr noundef %83, ptr noundef %83, i32 noundef 16, i32 noundef 16) #10
+  tail call void @tcg_gen_deposit_i32(ptr noundef %83, ptr noundef %83, ptr noundef %83, i32 noundef 16, i32 noundef 16) #11
   br label %tcg_gen_dup_i32.exit
 
 88:                                               ; preds = %82
-  tail call void @tcg_gen_mov_i32(ptr noundef %83, ptr noundef %83) #10
+  tail call void @tcg_gen_mov_i32(ptr noundef %83, ptr noundef %83) #11
   br label %tcg_gen_dup_i32.exit
 
 89:                                               ; preds = %82
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 417, ptr noundef nonnull @__func__.tcg_gen_dup_i32, ptr noundef null) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 417, ptr noundef nonnull @__func__.tcg_gen_dup_i32, ptr noundef null) #12
   unreachable
 
 tcg_gen_dup_i32.exit:                             ; preds = %86, %87, %88
@@ -1827,7 +1827,7 @@ tcg_gen_dup_i32.exit:                             ; preds = %86, %87, %88
   %92 = trunc nuw i8 %91 to i1
   %93 = load ptr, ptr %76, align 8
   tail call fastcc void @expand_2s_i32(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %83, i1 noundef zeroext %92, ptr noundef %93)
-  tail call void @tcg_temp_free_i32(ptr noundef %83) #10
+  tail call void @tcg_temp_free_i32(ptr noundef %83) #11
   br label %96
 
 check_size_impl.exit108.thread:                   ; preds = %check_size_impl.exit108, %check_size_impl.exit.thread
@@ -1867,17 +1867,17 @@ define internal fastcc void @expand_2s_vec(i32 noundef range(i32 0, 256) %0, i32
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.022.us = phi i32 [ %18, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %10 = tail call ptr @tcg_temp_new_vec(i32 noundef %5) #10
-  %11 = tail call ptr @tcg_temp_new_vec(i32 noundef %5) #10
+  %10 = tail call ptr @tcg_temp_new_vec(i32 noundef %5) #11
+  %11 = tail call ptr @tcg_temp_new_vec(i32 noundef %5) #11
   %12 = load ptr, ptr @tcg_env, align 8
   %13 = add i32 %.022.us, %2
   %14 = zext i32 %13 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %10, ptr noundef %12, i64 noundef %14) #10
-  tail call void %8(i32 noundef %0, ptr noundef %11, ptr noundef %6, ptr noundef %10) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %10, ptr noundef %12, i64 noundef %14) #11
+  tail call void %8(i32 noundef %0, ptr noundef %11, ptr noundef %6, ptr noundef %10) #11
   %15 = load ptr, ptr @tcg_env, align 8
   %16 = add i32 %.022.us, %1
   %17 = zext i32 %16 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %11, ptr noundef %15, i64 noundef %17) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %11, ptr noundef %15, i64 noundef %17) #11
   %18 = add i32 %.022.us, %4
   %19 = icmp ult i32 %18, %3
   br i1 %19, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !13
@@ -1887,17 +1887,17 @@ define internal fastcc void @expand_2s_vec(i32 noundef range(i32 0, 256) %0, i32
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.022 = phi i32 [ %28, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %20 = tail call ptr @tcg_temp_new_vec(i32 noundef %5) #10
-  %21 = tail call ptr @tcg_temp_new_vec(i32 noundef %5) #10
+  %20 = tail call ptr @tcg_temp_new_vec(i32 noundef %5) #11
+  %21 = tail call ptr @tcg_temp_new_vec(i32 noundef %5) #11
   %22 = load ptr, ptr @tcg_env, align 8
   %23 = add i32 %.022, %2
   %24 = zext i32 %23 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %20, ptr noundef %22, i64 noundef %24) #10
-  tail call void %8(i32 noundef %0, ptr noundef %21, ptr noundef %20, ptr noundef %6) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %20, ptr noundef %22, i64 noundef %24) #11
+  tail call void %8(i32 noundef %0, ptr noundef %21, ptr noundef %20, ptr noundef %6) #11
   %25 = load ptr, ptr @tcg_env, align 8
   %26 = add i32 %.022, %1
   %27 = zext i32 %26 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %21, ptr noundef %25, i64 noundef %27) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %21, ptr noundef %25, i64 noundef %27) #11
   %28 = add i32 %.022, %4
   %29 = icmp ult i32 %28, %3
   br i1 %29, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
@@ -1909,8 +1909,8 @@ declare ptr @tcg_temp_new_i64() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @expand_2s_i64(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef readonly captures(none) %5) unnamed_addr #1 {
-  %7 = tail call ptr @tcg_temp_new_i64() #10
-  %8 = tail call ptr @tcg_temp_new_i64() #10
+  %7 = tail call ptr @tcg_temp_new_i64() #11
+  %8 = tail call ptr @tcg_temp_new_i64() #11
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1922,12 +1922,12 @@ define internal fastcc void @expand_2s_i64(i32 noundef %0, i32 noundef %1, i32 n
   %9 = load ptr, ptr @tcg_env, align 8
   %10 = add i32 %.019.us, %1
   %11 = zext i32 %10 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %7, ptr noundef %9, i64 noundef %11) #10
-  tail call void %5(ptr noundef %8, ptr noundef %3, ptr noundef %7) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %7, ptr noundef %9, i64 noundef %11) #11
+  tail call void %5(ptr noundef %8, ptr noundef %3, ptr noundef %7) #11
   %12 = load ptr, ptr @tcg_env, align 8
   %13 = add i32 %.019.us, %0
   %14 = zext i32 %13 to i64
-  tail call void @tcg_gen_st_i64(ptr noundef %8, ptr noundef %12, i64 noundef %14) #10
+  tail call void @tcg_gen_st_i64(ptr noundef %8, ptr noundef %12, i64 noundef %14) #11
   %15 = add i32 %.019.us, 8
   %16 = icmp ult i32 %15, %2
   br i1 %16, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !14
@@ -1937,19 +1937,19 @@ define internal fastcc void @expand_2s_i64(i32 noundef %0, i32 noundef %1, i32 n
   %17 = load ptr, ptr @tcg_env, align 8
   %18 = add i32 %.019, %1
   %19 = zext i32 %18 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %7, ptr noundef %17, i64 noundef %19) #10
-  tail call void %5(ptr noundef %8, ptr noundef %7, ptr noundef %3) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %7, ptr noundef %17, i64 noundef %19) #11
+  tail call void %5(ptr noundef %8, ptr noundef %7, ptr noundef %3) #11
   %20 = load ptr, ptr @tcg_env, align 8
   %21 = add i32 %.019, %0
   %22 = zext i32 %21 to i64
-  tail call void @tcg_gen_st_i64(ptr noundef %8, ptr noundef %20, i64 noundef %22) #10
+  tail call void @tcg_gen_st_i64(ptr noundef %8, ptr noundef %20, i64 noundef %22) #11
   %23 = add i32 %.019, 8
   %24 = icmp ult i32 %23, %2
   br i1 %24, label %.lr.ph.split, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %6
-  tail call void @tcg_temp_free_i64(ptr noundef %7) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %8) #10
+  tail call void @tcg_temp_free_i64(ptr noundef %7) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %8) #11
   ret void
 }
 
@@ -1961,8 +1961,8 @@ declare void @tcg_gen_extrl_i64_i32(ptr noundef, ptr noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @expand_2s_i32(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef readonly captures(none) %5) unnamed_addr #1 {
-  %7 = tail call ptr @tcg_temp_new_i32() #10
-  %8 = tail call ptr @tcg_temp_new_i32() #10
+  %7 = tail call ptr @tcg_temp_new_i32() #11
+  %8 = tail call ptr @tcg_temp_new_i32() #11
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1974,12 +1974,12 @@ define internal fastcc void @expand_2s_i32(i32 noundef %0, i32 noundef %1, i32 n
   %9 = load ptr, ptr @tcg_env, align 8
   %10 = add i32 %.019.us, %1
   %11 = zext i32 %10 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %7, ptr noundef %9, i64 noundef %11) #10
-  tail call void %5(ptr noundef %8, ptr noundef %3, ptr noundef %7) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %7, ptr noundef %9, i64 noundef %11) #11
+  tail call void %5(ptr noundef %8, ptr noundef %3, ptr noundef %7) #11
   %12 = load ptr, ptr @tcg_env, align 8
   %13 = add i32 %.019.us, %0
   %14 = zext i32 %13 to i64
-  tail call void @tcg_gen_st_i32(ptr noundef %8, ptr noundef %12, i64 noundef %14) #10
+  tail call void @tcg_gen_st_i32(ptr noundef %8, ptr noundef %12, i64 noundef %14) #11
   %15 = add i32 %.019.us, 4
   %16 = icmp ult i32 %15, %2
   br i1 %16, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !15
@@ -1989,19 +1989,19 @@ define internal fastcc void @expand_2s_i32(i32 noundef %0, i32 noundef %1, i32 n
   %17 = load ptr, ptr @tcg_env, align 8
   %18 = add i32 %.019, %1
   %19 = zext i32 %18 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %7, ptr noundef %17, i64 noundef %19) #10
-  tail call void %5(ptr noundef %8, ptr noundef %7, ptr noundef %3) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %7, ptr noundef %17, i64 noundef %19) #11
+  tail call void %5(ptr noundef %8, ptr noundef %7, ptr noundef %3) #11
   %20 = load ptr, ptr @tcg_env, align 8
   %21 = add i32 %.019, %0
   %22 = zext i32 %21 to i64
-  tail call void @tcg_gen_st_i32(ptr noundef %8, ptr noundef %20, i64 noundef %22) #10
+  tail call void @tcg_gen_st_i32(ptr noundef %8, ptr noundef %20, i64 noundef %22) #11
   %23 = add i32 %.019, 4
   %24 = icmp ult i32 %23, %2
   br i1 %24, label %.lr.ph.split, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %6
-  tail call void @tcg_temp_free_i32(ptr noundef %7) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %8) #10
+  tail call void @tcg_temp_free_i32(ptr noundef %7) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %8) #11
   ret void
 }
 
@@ -2140,9 +2140,9 @@ check_size_impl.exit:                             ; preds = %.thread
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 46
   %72 = load i8, ptr %71, align 2, !range !4, !noundef !5
   %73 = trunc nuw i8 %72 to i1
-  %74 = tail call ptr @tcg_temp_new_i64() #10
-  %75 = tail call ptr @tcg_temp_new_i64() #10
-  %76 = tail call ptr @tcg_temp_new_i64() #10
+  %74 = tail call ptr @tcg_temp_new_i64() #11
+  %75 = tail call ptr @tcg_temp_new_i64() #11
+  %76 = tail call ptr @tcg_temp_new_i64() #11
   br i1 %73, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
@@ -2150,18 +2150,18 @@ check_size_impl.exit:                             ; preds = %.thread
   %77 = load ptr, ptr @tcg_env, align 8
   %78 = add i32 %.022.us.i, %1
   %79 = zext i32 %78 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %74, ptr noundef %77, i64 noundef %79) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %74, ptr noundef %77, i64 noundef %79) #11
   %80 = load ptr, ptr @tcg_env, align 8
   %81 = add i32 %.022.us.i, %2
   %82 = zext i32 %81 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %75, ptr noundef %80, i64 noundef %82) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %75, ptr noundef %80, i64 noundef %82) #11
   %83 = load ptr, ptr @tcg_env, align 8
   %84 = add i32 %.022.us.i, %0
   %85 = zext i32 %84 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %76, ptr noundef %83, i64 noundef %85) #10
-  tail call void %66(ptr noundef %76, ptr noundef %74, ptr noundef %75) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %76, ptr noundef %83, i64 noundef %85) #11
+  tail call void %66(ptr noundef %76, ptr noundef %74, ptr noundef %75) #11
   %86 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i64(ptr noundef %76, ptr noundef %86, i64 noundef %85) #10
+  tail call void @tcg_gen_st_i64(ptr noundef %76, ptr noundef %86, i64 noundef %85) #11
   %87 = add nuw nsw i32 %.022.us.i, 8
   %88 = icmp samesign ult i32 %87, %3
   br i1 %88, label %.lr.ph.split.us.i, label %expand_3_i64.exit, !llvm.loop !16
@@ -2171,24 +2171,24 @@ check_size_impl.exit:                             ; preds = %.thread
   %89 = load ptr, ptr @tcg_env, align 8
   %90 = add i32 %.022.i, %1
   %91 = zext i32 %90 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %74, ptr noundef %89, i64 noundef %91) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %74, ptr noundef %89, i64 noundef %91) #11
   %92 = load ptr, ptr @tcg_env, align 8
   %93 = add i32 %.022.i, %2
   %94 = zext i32 %93 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %75, ptr noundef %92, i64 noundef %94) #10
-  tail call void %66(ptr noundef %76, ptr noundef %74, ptr noundef %75) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %75, ptr noundef %92, i64 noundef %94) #11
+  tail call void %66(ptr noundef %76, ptr noundef %74, ptr noundef %75) #11
   %95 = load ptr, ptr @tcg_env, align 8
   %96 = add i32 %.022.i, %0
   %97 = zext i32 %96 to i64
-  tail call void @tcg_gen_st_i64(ptr noundef %76, ptr noundef %95, i64 noundef %97) #10
+  tail call void @tcg_gen_st_i64(ptr noundef %76, ptr noundef %95, i64 noundef %97) #11
   %98 = add nuw nsw i32 %.022.i, 8
   %99 = icmp samesign ult i32 %98, %3
   br i1 %99, label %.lr.ph.split.i, label %expand_3_i64.exit, !llvm.loop !16
 
 expand_3_i64.exit:                                ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i
-  tail call void @tcg_temp_free_i64(ptr noundef %76) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %75) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %74) #10
+  tail call void @tcg_temp_free_i64(ptr noundef %76) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %75) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %74) #11
   br label %141
 
 check_size_impl.exit.thread:                      ; preds = %check_size_impl.exit, %.thread
@@ -2210,9 +2210,9 @@ check_size_impl.exit99:                           ; preds = %check_size_impl.exi
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 46
   %107 = load i8, ptr %106, align 2, !range !4, !noundef !5
   %108 = trunc nuw i8 %107 to i1
-  %109 = tail call ptr @tcg_temp_new_i32() #10
-  %110 = tail call ptr @tcg_temp_new_i32() #10
-  %111 = tail call ptr @tcg_temp_new_i32() #10
+  %109 = tail call ptr @tcg_temp_new_i32() #11
+  %110 = tail call ptr @tcg_temp_new_i32() #11
+  %111 = tail call ptr @tcg_temp_new_i32() #11
   br i1 %108, label %.lr.ph.split.us.i104, label %.lr.ph.split.i102
 
 .lr.ph.split.us.i104:                             ; preds = %.lr.ph.i101, %.lr.ph.split.us.i104
@@ -2220,18 +2220,18 @@ check_size_impl.exit99:                           ; preds = %check_size_impl.exi
   %112 = load ptr, ptr @tcg_env, align 8
   %113 = add i32 %.022.us.i105, %1
   %114 = zext i32 %113 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %109, ptr noundef %112, i64 noundef %114) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %109, ptr noundef %112, i64 noundef %114) #11
   %115 = load ptr, ptr @tcg_env, align 8
   %116 = add i32 %.022.us.i105, %2
   %117 = zext i32 %116 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %110, ptr noundef %115, i64 noundef %117) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %110, ptr noundef %115, i64 noundef %117) #11
   %118 = load ptr, ptr @tcg_env, align 8
   %119 = add i32 %.022.us.i105, %0
   %120 = zext i32 %119 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %111, ptr noundef %118, i64 noundef %120) #10
-  tail call void %101(ptr noundef %111, ptr noundef %109, ptr noundef %110) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %111, ptr noundef %118, i64 noundef %120) #11
+  tail call void %101(ptr noundef %111, ptr noundef %109, ptr noundef %110) #11
   %121 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i32(ptr noundef %111, ptr noundef %121, i64 noundef %120) #10
+  tail call void @tcg_gen_st_i32(ptr noundef %111, ptr noundef %121, i64 noundef %120) #11
   %122 = add nuw nsw i32 %.022.us.i105, 4
   %123 = icmp samesign ult i32 %122, %3
   br i1 %123, label %.lr.ph.split.us.i104, label %expand_3_i32.exit, !llvm.loop !17
@@ -2241,24 +2241,24 @@ check_size_impl.exit99:                           ; preds = %check_size_impl.exi
   %124 = load ptr, ptr @tcg_env, align 8
   %125 = add i32 %.022.i103, %1
   %126 = zext i32 %125 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %109, ptr noundef %124, i64 noundef %126) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %109, ptr noundef %124, i64 noundef %126) #11
   %127 = load ptr, ptr @tcg_env, align 8
   %128 = add i32 %.022.i103, %2
   %129 = zext i32 %128 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %110, ptr noundef %127, i64 noundef %129) #10
-  tail call void %101(ptr noundef %111, ptr noundef %109, ptr noundef %110) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %110, ptr noundef %127, i64 noundef %129) #11
+  tail call void %101(ptr noundef %111, ptr noundef %109, ptr noundef %110) #11
   %130 = load ptr, ptr @tcg_env, align 8
   %131 = add i32 %.022.i103, %0
   %132 = zext i32 %131 to i64
-  tail call void @tcg_gen_st_i32(ptr noundef %111, ptr noundef %130, i64 noundef %132) #10
+  tail call void @tcg_gen_st_i32(ptr noundef %111, ptr noundef %130, i64 noundef %132) #11
   %133 = add nuw nsw i32 %.022.i103, 4
   %134 = icmp samesign ult i32 %133, %3
   br i1 %134, label %.lr.ph.split.i102, label %expand_3_i32.exit, !llvm.loop !17
 
 expand_3_i32.exit:                                ; preds = %.lr.ph.split.i102, %.lr.ph.split.us.i104
-  tail call void @tcg_temp_free_i32(ptr noundef %111) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %110) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %109) #10
+  tail call void @tcg_temp_free_i32(ptr noundef %111) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %110) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %109) #11
   br label %141
 
 check_size_impl.exit99.thread:                    ; preds = %check_size_impl.exit99, %check_size_impl.exit.thread
@@ -2268,7 +2268,7 @@ check_size_impl.exit99.thread:                    ; preds = %check_size_impl.exi
   br i1 %.not95, label %137, label %.thread109
 
 137:                                              ; preds = %check_size_impl.exit99.thread
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 1457, ptr noundef nonnull @__PRETTY_FUNCTION__.tcg_gen_gvec_3) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 1457, ptr noundef nonnull @__PRETTY_FUNCTION__.tcg_gen_gvec_3) #12
   unreachable
 
 .thread109:                                       ; preds = %check_size_impl.exit99.thread
@@ -2278,7 +2278,7 @@ check_size_impl.exit99.thread:                    ; preds = %check_size_impl.exi
   br label %146
 
 140:                                              ; preds = %28
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1465, ptr noundef nonnull @__func__.tcg_gen_gvec_3, ptr noundef null) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1465, ptr noundef nonnull @__func__.tcg_gen_gvec_3, ptr noundef null) #12
   unreachable
 
 141:                                              ; preds = %expand_3_i64.exit, %expand_3_i32.exit, %37, %59, %52
@@ -2308,24 +2308,24 @@ define internal fastcc void @expand_3_vec(i32 noundef range(i32 0, 256) %0, i32 
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.024.us = phi i32 [ %23, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %10 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
-  %11 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
-  %12 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
+  %10 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #11
+  %11 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #11
+  %12 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #11
   %13 = load ptr, ptr @tcg_env, align 8
   %14 = add i32 %.024.us, %2
   %15 = zext i32 %14 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %10, ptr noundef %13, i64 noundef %15) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %10, ptr noundef %13, i64 noundef %15) #11
   %16 = load ptr, ptr @tcg_env, align 8
   %17 = add i32 %.024.us, %3
   %18 = zext i32 %17 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %11, ptr noundef %16, i64 noundef %18) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %11, ptr noundef %16, i64 noundef %18) #11
   %19 = load ptr, ptr @tcg_env, align 8
   %20 = add i32 %.024.us, %1
   %21 = zext i32 %20 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %12, ptr noundef %19, i64 noundef %21) #10
-  tail call void %8(i32 noundef %0, ptr noundef %12, ptr noundef %10, ptr noundef %11) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %12, ptr noundef %19, i64 noundef %21) #11
+  tail call void %8(i32 noundef %0, ptr noundef %12, ptr noundef %10, ptr noundef %11) #11
   %22 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_vec(ptr noundef %12, ptr noundef %22, i64 noundef %21) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %12, ptr noundef %22, i64 noundef %21) #11
   %23 = add i32 %.024.us, %5
   %24 = icmp ult i32 %23, %4
   br i1 %24, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !18
@@ -2335,22 +2335,22 @@ define internal fastcc void @expand_3_vec(i32 noundef range(i32 0, 256) %0, i32 
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.024 = phi i32 [ %37, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %25 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
-  %26 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
-  %27 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
+  %25 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #11
+  %26 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #11
+  %27 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #11
   %28 = load ptr, ptr @tcg_env, align 8
   %29 = add i32 %.024, %2
   %30 = zext i32 %29 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %25, ptr noundef %28, i64 noundef %30) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %25, ptr noundef %28, i64 noundef %30) #11
   %31 = load ptr, ptr @tcg_env, align 8
   %32 = add i32 %.024, %3
   %33 = zext i32 %32 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %26, ptr noundef %31, i64 noundef %33) #10
-  tail call void %8(i32 noundef %0, ptr noundef %27, ptr noundef %25, ptr noundef %26) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %26, ptr noundef %31, i64 noundef %33) #11
+  tail call void %8(i32 noundef %0, ptr noundef %27, ptr noundef %25, ptr noundef %26) #11
   %34 = load ptr, ptr @tcg_env, align 8
   %35 = add i32 %.024, %1
   %36 = zext i32 %35 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %27, ptr noundef %34, i64 noundef %36) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %27, ptr noundef %34, i64 noundef %36) #11
   %37 = add i32 %.024, %5
   %38 = icmp ult i32 %37, %4
   br i1 %38, label %.lr.ph.split, label %._crit_edge, !llvm.loop !18
@@ -2501,9 +2501,9 @@ check_size_impl.exit:                             ; preds = %.thread
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 43
   %85 = load i8, ptr %84, align 1, !range !4, !noundef !5
   %86 = trunc nuw i8 %85 to i1
-  %87 = tail call ptr @tcg_temp_new_i64() #10
-  %88 = tail call ptr @tcg_temp_new_i64() #10
-  %89 = tail call ptr @tcg_temp_new_i64() #10
+  %87 = tail call ptr @tcg_temp_new_i64() #11
+  %88 = tail call ptr @tcg_temp_new_i64() #11
+  %89 = tail call ptr @tcg_temp_new_i64() #11
   br i1 %83, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
@@ -2514,20 +2514,20 @@ check_size_impl.exit:                             ; preds = %.thread
   %90 = load ptr, ptr @tcg_env, align 8
   %91 = add i32 %.027.us.us.i, %1
   %92 = zext i32 %91 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %87, ptr noundef %90, i64 noundef %92) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %87, ptr noundef %90, i64 noundef %92) #11
   %93 = load ptr, ptr @tcg_env, align 8
   %94 = add i32 %.027.us.us.i, %2
   %95 = zext i32 %94 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %88, ptr noundef %93, i64 noundef %95) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %88, ptr noundef %93, i64 noundef %95) #11
   %96 = load ptr, ptr @tcg_env, align 8
   %97 = add i32 %.027.us.us.i, %0
   %98 = zext i32 %97 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %89, ptr noundef %96, i64 noundef %98) #10
-  tail call void %76(ptr noundef %89, ptr noundef %87, ptr noundef %88, i64 noundef %5) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %89, ptr noundef %96, i64 noundef %98) #11
+  tail call void %76(ptr noundef %89, ptr noundef %87, ptr noundef %88, i64 noundef %5) #11
   %99 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i64(ptr noundef %89, ptr noundef %99, i64 noundef %98) #10
+  tail call void @tcg_gen_st_i64(ptr noundef %89, ptr noundef %99, i64 noundef %98) #11
   %100 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i64(ptr noundef %87, ptr noundef %100, i64 noundef %92) #10
+  tail call void @tcg_gen_st_i64(ptr noundef %87, ptr noundef %100, i64 noundef %92) #11
   %101 = add nuw nsw i32 %.027.us.us.i, 8
   %102 = icmp samesign ult i32 %101, %3
   br i1 %102, label %.lr.ph.split.us.split.us.i, label %expand_3i_i64.exit, !llvm.loop !19
@@ -2537,18 +2537,18 @@ check_size_impl.exit:                             ; preds = %.thread
   %103 = load ptr, ptr @tcg_env, align 8
   %104 = add i32 %.027.us.i, %1
   %105 = zext i32 %104 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %87, ptr noundef %103, i64 noundef %105) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %87, ptr noundef %103, i64 noundef %105) #11
   %106 = load ptr, ptr @tcg_env, align 8
   %107 = add i32 %.027.us.i, %2
   %108 = zext i32 %107 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %88, ptr noundef %106, i64 noundef %108) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %88, ptr noundef %106, i64 noundef %108) #11
   %109 = load ptr, ptr @tcg_env, align 8
   %110 = add i32 %.027.us.i, %0
   %111 = zext i32 %110 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %89, ptr noundef %109, i64 noundef %111) #10
-  tail call void %76(ptr noundef %89, ptr noundef %87, ptr noundef %88, i64 noundef %5) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %89, ptr noundef %109, i64 noundef %111) #11
+  tail call void %76(ptr noundef %89, ptr noundef %87, ptr noundef %88, i64 noundef %5) #11
   %112 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i64(ptr noundef %89, ptr noundef %112, i64 noundef %111) #10
+  tail call void @tcg_gen_st_i64(ptr noundef %89, ptr noundef %112, i64 noundef %111) #11
   %113 = add nuw nsw i32 %.027.us.i, 8
   %114 = icmp samesign ult i32 %113, %3
   br i1 %114, label %.lr.ph.split.us.split.i, label %expand_3i_i64.exit, !llvm.loop !19
@@ -2561,18 +2561,18 @@ check_size_impl.exit:                             ; preds = %.thread
   %115 = load ptr, ptr @tcg_env, align 8
   %116 = add i32 %.027.us28.i, %1
   %117 = zext i32 %116 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %87, ptr noundef %115, i64 noundef %117) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %87, ptr noundef %115, i64 noundef %117) #11
   %118 = load ptr, ptr @tcg_env, align 8
   %119 = add i32 %.027.us28.i, %2
   %120 = zext i32 %119 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %88, ptr noundef %118, i64 noundef %120) #10
-  tail call void %76(ptr noundef %89, ptr noundef %87, ptr noundef %88, i64 noundef %5) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %88, ptr noundef %118, i64 noundef %120) #11
+  tail call void %76(ptr noundef %89, ptr noundef %87, ptr noundef %88, i64 noundef %5) #11
   %121 = load ptr, ptr @tcg_env, align 8
   %122 = add i32 %.027.us28.i, %0
   %123 = zext i32 %122 to i64
-  tail call void @tcg_gen_st_i64(ptr noundef %89, ptr noundef %121, i64 noundef %123) #10
+  tail call void @tcg_gen_st_i64(ptr noundef %89, ptr noundef %121, i64 noundef %123) #11
   %124 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i64(ptr noundef %87, ptr noundef %124, i64 noundef %117) #10
+  tail call void @tcg_gen_st_i64(ptr noundef %87, ptr noundef %124, i64 noundef %117) #11
   %125 = add nuw nsw i32 %.027.us28.i, 8
   %126 = icmp samesign ult i32 %125, %3
   br i1 %126, label %.lr.ph.split.split.us.i, label %expand_3i_i64.exit, !llvm.loop !19
@@ -2582,24 +2582,24 @@ check_size_impl.exit:                             ; preds = %.thread
   %127 = load ptr, ptr @tcg_env, align 8
   %128 = add i32 %.027.i, %1
   %129 = zext i32 %128 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %87, ptr noundef %127, i64 noundef %129) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %87, ptr noundef %127, i64 noundef %129) #11
   %130 = load ptr, ptr @tcg_env, align 8
   %131 = add i32 %.027.i, %2
   %132 = zext i32 %131 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %88, ptr noundef %130, i64 noundef %132) #10
-  tail call void %76(ptr noundef %89, ptr noundef %87, ptr noundef %88, i64 noundef %5) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %88, ptr noundef %130, i64 noundef %132) #11
+  tail call void %76(ptr noundef %89, ptr noundef %87, ptr noundef %88, i64 noundef %5) #11
   %133 = load ptr, ptr @tcg_env, align 8
   %134 = add i32 %.027.i, %0
   %135 = zext i32 %134 to i64
-  tail call void @tcg_gen_st_i64(ptr noundef %89, ptr noundef %133, i64 noundef %135) #10
+  tail call void @tcg_gen_st_i64(ptr noundef %89, ptr noundef %133, i64 noundef %135) #11
   %136 = add nuw nsw i32 %.027.i, 8
   %137 = icmp samesign ult i32 %136, %3
   br i1 %137, label %.lr.ph.split.split.i, label %expand_3i_i64.exit, !llvm.loop !19
 
 expand_3i_i64.exit:                               ; preds = %.lr.ph.split.split.i, %.lr.ph.split.split.us.i, %.lr.ph.split.us.split.i, %.lr.ph.split.us.split.us.i
-  tail call void @tcg_temp_free_i64(ptr noundef %87) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %88) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %89) #10
+  tail call void @tcg_temp_free_i64(ptr noundef %87) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %88) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %89) #11
   br label %207
 
 check_size_impl.exit.thread:                      ; preds = %check_size_impl.exit, %.thread
@@ -2625,9 +2625,9 @@ check_size_impl.exit109:                          ; preds = %check_size_impl.exi
   %148 = getelementptr inbounds nuw i8, ptr %6, i64 43
   %149 = load i8, ptr %148, align 1, !range !4, !noundef !5
   %150 = trunc nuw i8 %149 to i1
-  %151 = tail call ptr @tcg_temp_new_i32() #10
-  %152 = tail call ptr @tcg_temp_new_i32() #10
-  %153 = tail call ptr @tcg_temp_new_i32() #10
+  %151 = tail call ptr @tcg_temp_new_i32() #11
+  %152 = tail call ptr @tcg_temp_new_i32() #11
+  %153 = tail call ptr @tcg_temp_new_i32() #11
   br i1 %147, label %.lr.ph.split.us.i117, label %.lr.ph.split.i112
 
 .lr.ph.split.us.i117:                             ; preds = %.lr.ph.i111
@@ -2638,20 +2638,20 @@ check_size_impl.exit109:                          ; preds = %check_size_impl.exi
   %154 = load ptr, ptr @tcg_env, align 8
   %155 = add i32 %.027.us.us.i121, %1
   %156 = zext i32 %155 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %151, ptr noundef %154, i64 noundef %156) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %151, ptr noundef %154, i64 noundef %156) #11
   %157 = load ptr, ptr @tcg_env, align 8
   %158 = add i32 %.027.us.us.i121, %2
   %159 = zext i32 %158 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %152, ptr noundef %157, i64 noundef %159) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %152, ptr noundef %157, i64 noundef %159) #11
   %160 = load ptr, ptr @tcg_env, align 8
   %161 = add i32 %.027.us.us.i121, %0
   %162 = zext i32 %161 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %153, ptr noundef %160, i64 noundef %162) #10
-  tail call void %139(ptr noundef %153, ptr noundef %151, ptr noundef %152, i32 noundef %144) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %153, ptr noundef %160, i64 noundef %162) #11
+  tail call void %139(ptr noundef %153, ptr noundef %151, ptr noundef %152, i32 noundef %144) #11
   %163 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i32(ptr noundef %153, ptr noundef %163, i64 noundef %162) #10
+  tail call void @tcg_gen_st_i32(ptr noundef %153, ptr noundef %163, i64 noundef %162) #11
   %164 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i32(ptr noundef %151, ptr noundef %164, i64 noundef %156) #10
+  tail call void @tcg_gen_st_i32(ptr noundef %151, ptr noundef %164, i64 noundef %156) #11
   %165 = add nuw nsw i32 %.027.us.us.i121, 4
   %166 = icmp samesign ult i32 %165, %3
   br i1 %166, label %.lr.ph.split.us.split.us.i120, label %expand_3i_i32.exit, !llvm.loop !20
@@ -2661,18 +2661,18 @@ check_size_impl.exit109:                          ; preds = %check_size_impl.exi
   %167 = load ptr, ptr @tcg_env, align 8
   %168 = add i32 %.027.us.i119, %1
   %169 = zext i32 %168 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %151, ptr noundef %167, i64 noundef %169) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %151, ptr noundef %167, i64 noundef %169) #11
   %170 = load ptr, ptr @tcg_env, align 8
   %171 = add i32 %.027.us.i119, %2
   %172 = zext i32 %171 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %152, ptr noundef %170, i64 noundef %172) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %152, ptr noundef %170, i64 noundef %172) #11
   %173 = load ptr, ptr @tcg_env, align 8
   %174 = add i32 %.027.us.i119, %0
   %175 = zext i32 %174 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %153, ptr noundef %173, i64 noundef %175) #10
-  tail call void %139(ptr noundef %153, ptr noundef %151, ptr noundef %152, i32 noundef %144) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %153, ptr noundef %173, i64 noundef %175) #11
+  tail call void %139(ptr noundef %153, ptr noundef %151, ptr noundef %152, i32 noundef %144) #11
   %176 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i32(ptr noundef %153, ptr noundef %176, i64 noundef %175) #10
+  tail call void @tcg_gen_st_i32(ptr noundef %153, ptr noundef %176, i64 noundef %175) #11
   %177 = add nuw nsw i32 %.027.us.i119, 4
   %178 = icmp samesign ult i32 %177, %3
   br i1 %178, label %.lr.ph.split.us.split.i118, label %expand_3i_i32.exit, !llvm.loop !20
@@ -2685,18 +2685,18 @@ check_size_impl.exit109:                          ; preds = %check_size_impl.exi
   %179 = load ptr, ptr @tcg_env, align 8
   %180 = add i32 %.027.us28.i116, %1
   %181 = zext i32 %180 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %151, ptr noundef %179, i64 noundef %181) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %151, ptr noundef %179, i64 noundef %181) #11
   %182 = load ptr, ptr @tcg_env, align 8
   %183 = add i32 %.027.us28.i116, %2
   %184 = zext i32 %183 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %152, ptr noundef %182, i64 noundef %184) #10
-  tail call void %139(ptr noundef %153, ptr noundef %151, ptr noundef %152, i32 noundef %144) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %152, ptr noundef %182, i64 noundef %184) #11
+  tail call void %139(ptr noundef %153, ptr noundef %151, ptr noundef %152, i32 noundef %144) #11
   %185 = load ptr, ptr @tcg_env, align 8
   %186 = add i32 %.027.us28.i116, %0
   %187 = zext i32 %186 to i64
-  tail call void @tcg_gen_st_i32(ptr noundef %153, ptr noundef %185, i64 noundef %187) #10
+  tail call void @tcg_gen_st_i32(ptr noundef %153, ptr noundef %185, i64 noundef %187) #11
   %188 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i32(ptr noundef %151, ptr noundef %188, i64 noundef %181) #10
+  tail call void @tcg_gen_st_i32(ptr noundef %151, ptr noundef %188, i64 noundef %181) #11
   %189 = add nuw nsw i32 %.027.us28.i116, 4
   %190 = icmp samesign ult i32 %189, %3
   br i1 %190, label %.lr.ph.split.split.us.i115, label %expand_3i_i32.exit, !llvm.loop !20
@@ -2706,24 +2706,24 @@ check_size_impl.exit109:                          ; preds = %check_size_impl.exi
   %191 = load ptr, ptr @tcg_env, align 8
   %192 = add i32 %.027.i114, %1
   %193 = zext i32 %192 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %151, ptr noundef %191, i64 noundef %193) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %151, ptr noundef %191, i64 noundef %193) #11
   %194 = load ptr, ptr @tcg_env, align 8
   %195 = add i32 %.027.i114, %2
   %196 = zext i32 %195 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %152, ptr noundef %194, i64 noundef %196) #10
-  tail call void %139(ptr noundef %153, ptr noundef %151, ptr noundef %152, i32 noundef %144) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %152, ptr noundef %194, i64 noundef %196) #11
+  tail call void %139(ptr noundef %153, ptr noundef %151, ptr noundef %152, i32 noundef %144) #11
   %197 = load ptr, ptr @tcg_env, align 8
   %198 = add i32 %.027.i114, %0
   %199 = zext i32 %198 to i64
-  tail call void @tcg_gen_st_i32(ptr noundef %153, ptr noundef %197, i64 noundef %199) #10
+  tail call void @tcg_gen_st_i32(ptr noundef %153, ptr noundef %197, i64 noundef %199) #11
   %200 = add nuw nsw i32 %.027.i114, 4
   %201 = icmp samesign ult i32 %200, %3
   br i1 %201, label %.lr.ph.split.split.i113, label %expand_3i_i32.exit, !llvm.loop !20
 
 expand_3i_i32.exit:                               ; preds = %.lr.ph.split.split.i113, %.lr.ph.split.split.us.i115, %.lr.ph.split.us.split.i118, %.lr.ph.split.us.split.us.i120
-  tail call void @tcg_temp_free_i32(ptr noundef %151) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %152) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %153) #10
+  tail call void @tcg_temp_free_i32(ptr noundef %151) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %152) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %153) #11
   br label %207
 
 check_size_impl.exit109.thread:                   ; preds = %check_size_impl.exit109, %check_size_impl.exit.thread
@@ -2733,7 +2733,7 @@ check_size_impl.exit109.thread:                   ; preds = %check_size_impl.exi
   br i1 %.not105, label %204, label %.thread125
 
 204:                                              ; preds = %check_size_impl.exit109.thread
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 1527, ptr noundef nonnull @__PRETTY_FUNCTION__.tcg_gen_gvec_3i) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 1527, ptr noundef nonnull @__PRETTY_FUNCTION__.tcg_gen_gvec_3i) #12
   unreachable
 
 .thread125:                                       ; preds = %check_size_impl.exit109.thread
@@ -2742,7 +2742,7 @@ check_size_impl.exit109.thread:                   ; preds = %check_size_impl.exi
   br label %212
 
 206:                                              ; preds = %29
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1534, ptr noundef nonnull @__func__.tcg_gen_gvec_3i, ptr noundef null) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1534, ptr noundef nonnull @__func__.tcg_gen_gvec_3i, ptr noundef null) #12
   unreachable
 
 207:                                              ; preds = %expand_3i_i64.exit, %expand_3i_i32.exit, %38, %66, %56
@@ -2775,50 +2775,50 @@ define internal fastcc void @expand_3i_vec(i32 noundef range(i32 0, 256) %0, i32
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
   %.029.us.us = phi i32 [ %26, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
-  %12 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
-  %13 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
-  %14 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
+  %12 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #11
+  %13 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #11
+  %14 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #11
   %15 = load ptr, ptr @tcg_env, align 8
   %16 = add i32 %.029.us.us, %2
   %17 = zext i32 %16 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %12, ptr noundef %15, i64 noundef %17) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %12, ptr noundef %15, i64 noundef %17) #11
   %18 = load ptr, ptr @tcg_env, align 8
   %19 = add i32 %.029.us.us, %3
   %20 = zext i32 %19 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %13, ptr noundef %18, i64 noundef %20) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %13, ptr noundef %18, i64 noundef %20) #11
   %21 = load ptr, ptr @tcg_env, align 8
   %22 = add i32 %.029.us.us, %1
   %23 = zext i32 %22 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %14, ptr noundef %21, i64 noundef %23) #10
-  tail call void %10(i32 noundef %0, ptr noundef %14, ptr noundef %12, ptr noundef %13, i64 noundef %7) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %14, ptr noundef %21, i64 noundef %23) #11
+  tail call void %10(i32 noundef %0, ptr noundef %14, ptr noundef %12, ptr noundef %13, i64 noundef %7) #11
   %24 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_vec(ptr noundef %14, ptr noundef %24, i64 noundef %23) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %14, ptr noundef %24, i64 noundef %23) #11
   %25 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_vec(ptr noundef %12, ptr noundef %25, i64 noundef %17) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %12, ptr noundef %25, i64 noundef %17) #11
   %26 = add i32 %.029.us.us, %5
   %27 = icmp ult i32 %26, %4
   br i1 %27, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !21
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
   %.029.us = phi i32 [ %41, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
-  %28 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
-  %29 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
-  %30 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
+  %28 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #11
+  %29 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #11
+  %30 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #11
   %31 = load ptr, ptr @tcg_env, align 8
   %32 = add i32 %.029.us, %2
   %33 = zext i32 %32 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %28, ptr noundef %31, i64 noundef %33) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %28, ptr noundef %31, i64 noundef %33) #11
   %34 = load ptr, ptr @tcg_env, align 8
   %35 = add i32 %.029.us, %3
   %36 = zext i32 %35 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %29, ptr noundef %34, i64 noundef %36) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %29, ptr noundef %34, i64 noundef %36) #11
   %37 = load ptr, ptr @tcg_env, align 8
   %38 = add i32 %.029.us, %1
   %39 = zext i32 %38 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %30, ptr noundef %37, i64 noundef %39) #10
-  tail call void %10(i32 noundef %0, ptr noundef %30, ptr noundef %28, ptr noundef %29, i64 noundef %7) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %30, ptr noundef %37, i64 noundef %39) #11
+  tail call void %10(i32 noundef %0, ptr noundef %30, ptr noundef %28, ptr noundef %29, i64 noundef %7) #11
   %40 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_vec(ptr noundef %30, ptr noundef %40, i64 noundef %39) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %30, ptr noundef %40, i64 noundef %39) #11
   %41 = add i32 %.029.us, %5
   %42 = icmp ult i32 %41, %4
   br i1 %42, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !21
@@ -2828,24 +2828,24 @@ define internal fastcc void @expand_3i_vec(i32 noundef range(i32 0, 256) %0, i32
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
   %.029.us30 = phi i32 [ %56, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  %43 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
-  %44 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
-  %45 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
+  %43 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #11
+  %44 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #11
+  %45 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #11
   %46 = load ptr, ptr @tcg_env, align 8
   %47 = add i32 %.029.us30, %2
   %48 = zext i32 %47 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %43, ptr noundef %46, i64 noundef %48) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %43, ptr noundef %46, i64 noundef %48) #11
   %49 = load ptr, ptr @tcg_env, align 8
   %50 = add i32 %.029.us30, %3
   %51 = zext i32 %50 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %44, ptr noundef %49, i64 noundef %51) #10
-  tail call void %10(i32 noundef %0, ptr noundef %45, ptr noundef %43, ptr noundef %44, i64 noundef %7) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %44, ptr noundef %49, i64 noundef %51) #11
+  tail call void %10(i32 noundef %0, ptr noundef %45, ptr noundef %43, ptr noundef %44, i64 noundef %7) #11
   %52 = load ptr, ptr @tcg_env, align 8
   %53 = add i32 %.029.us30, %1
   %54 = zext i32 %53 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %45, ptr noundef %52, i64 noundef %54) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %45, ptr noundef %52, i64 noundef %54) #11
   %55 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_vec(ptr noundef %43, ptr noundef %55, i64 noundef %48) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %43, ptr noundef %55, i64 noundef %48) #11
   %56 = add i32 %.029.us30, %5
   %57 = icmp ult i32 %56, %4
   br i1 %57, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !21
@@ -2855,22 +2855,22 @@ define internal fastcc void @expand_3i_vec(i32 noundef range(i32 0, 256) %0, i32
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   %.029 = phi i32 [ %70, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
-  %58 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
-  %59 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
-  %60 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
+  %58 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #11
+  %59 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #11
+  %60 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #11
   %61 = load ptr, ptr @tcg_env, align 8
   %62 = add i32 %.029, %2
   %63 = zext i32 %62 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %58, ptr noundef %61, i64 noundef %63) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %58, ptr noundef %61, i64 noundef %63) #11
   %64 = load ptr, ptr @tcg_env, align 8
   %65 = add i32 %.029, %3
   %66 = zext i32 %65 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %59, ptr noundef %64, i64 noundef %66) #10
-  tail call void %10(i32 noundef %0, ptr noundef %60, ptr noundef %58, ptr noundef %59, i64 noundef %7) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %59, ptr noundef %64, i64 noundef %66) #11
+  tail call void %10(i32 noundef %0, ptr noundef %60, ptr noundef %58, ptr noundef %59, i64 noundef %7) #11
   %67 = load ptr, ptr @tcg_env, align 8
   %68 = add i32 %.029, %1
   %69 = zext i32 %68 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %60, ptr noundef %67, i64 noundef %69) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %60, ptr noundef %67, i64 noundef %69) #11
   %70 = add i32 %.029, %5
   %71 = icmp ult i32 %70, %4
   br i1 %71, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !21
@@ -3048,10 +3048,10 @@ check_size_impl.exit:                             ; preds = %.thread
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 46
   %87 = load i8, ptr %86, align 2, !range !4, !noundef !5
   %88 = trunc nuw i8 %87 to i1
-  %89 = tail call ptr @tcg_temp_new_i64() #10
-  %90 = tail call ptr @tcg_temp_new_i64() #10
-  %91 = tail call ptr @tcg_temp_new_i64() #10
-  %92 = tail call ptr @tcg_temp_new_i64() #10
+  %89 = tail call ptr @tcg_temp_new_i64() #11
+  %90 = tail call ptr @tcg_temp_new_i64() #11
+  %91 = tail call ptr @tcg_temp_new_i64() #11
+  %92 = tail call ptr @tcg_temp_new_i64() #11
   br i1 %88, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
@@ -3059,22 +3059,22 @@ check_size_impl.exit:                             ; preds = %.thread
   %93 = load ptr, ptr @tcg_env, align 8
   %94 = add i32 %.027.us.i, %1
   %95 = zext i32 %94 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %90, ptr noundef %93, i64 noundef %95) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %90, ptr noundef %93, i64 noundef %95) #11
   %96 = load ptr, ptr @tcg_env, align 8
   %97 = add i32 %.027.us.i, %2
   %98 = zext i32 %97 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %91, ptr noundef %96, i64 noundef %98) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %91, ptr noundef %96, i64 noundef %98) #11
   %99 = load ptr, ptr @tcg_env, align 8
   %100 = add i32 %.027.us.i, %3
   %101 = zext i32 %100 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %92, ptr noundef %99, i64 noundef %101) #10
-  tail call void %81(ptr noundef %89, ptr noundef %90, ptr noundef %91, ptr noundef %92) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %92, ptr noundef %99, i64 noundef %101) #11
+  tail call void %81(ptr noundef %89, ptr noundef %90, ptr noundef %91, ptr noundef %92) #11
   %102 = load ptr, ptr @tcg_env, align 8
   %103 = add i32 %.027.us.i, %0
   %104 = zext i32 %103 to i64
-  tail call void @tcg_gen_st_i64(ptr noundef %89, ptr noundef %102, i64 noundef %104) #10
+  tail call void @tcg_gen_st_i64(ptr noundef %89, ptr noundef %102, i64 noundef %104) #11
   %105 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i64(ptr noundef %90, ptr noundef %105, i64 noundef %95) #10
+  tail call void @tcg_gen_st_i64(ptr noundef %90, ptr noundef %105, i64 noundef %95) #11
   %106 = add nuw nsw i32 %.027.us.i, 8
   %107 = icmp samesign ult i32 %106, %4
   br i1 %107, label %.lr.ph.split.us.i, label %expand_4_i64.exit, !llvm.loop !22
@@ -3084,29 +3084,29 @@ check_size_impl.exit:                             ; preds = %.thread
   %108 = load ptr, ptr @tcg_env, align 8
   %109 = add i32 %.027.i, %1
   %110 = zext i32 %109 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %90, ptr noundef %108, i64 noundef %110) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %90, ptr noundef %108, i64 noundef %110) #11
   %111 = load ptr, ptr @tcg_env, align 8
   %112 = add i32 %.027.i, %2
   %113 = zext i32 %112 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %91, ptr noundef %111, i64 noundef %113) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %91, ptr noundef %111, i64 noundef %113) #11
   %114 = load ptr, ptr @tcg_env, align 8
   %115 = add i32 %.027.i, %3
   %116 = zext i32 %115 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %92, ptr noundef %114, i64 noundef %116) #10
-  tail call void %81(ptr noundef %89, ptr noundef %90, ptr noundef %91, ptr noundef %92) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %92, ptr noundef %114, i64 noundef %116) #11
+  tail call void %81(ptr noundef %89, ptr noundef %90, ptr noundef %91, ptr noundef %92) #11
   %117 = load ptr, ptr @tcg_env, align 8
   %118 = add i32 %.027.i, %0
   %119 = zext i32 %118 to i64
-  tail call void @tcg_gen_st_i64(ptr noundef %89, ptr noundef %117, i64 noundef %119) #10
+  tail call void @tcg_gen_st_i64(ptr noundef %89, ptr noundef %117, i64 noundef %119) #11
   %120 = add nuw nsw i32 %.027.i, 8
   %121 = icmp samesign ult i32 %120, %4
   br i1 %121, label %.lr.ph.split.i, label %expand_4_i64.exit, !llvm.loop !22
 
 expand_4_i64.exit:                                ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i
-  tail call void @tcg_temp_free_i64(ptr noundef %92) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %91) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %90) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %89) #10
+  tail call void @tcg_temp_free_i64(ptr noundef %92) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %91) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %90) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %89) #11
   br label %170
 
 check_size_impl.exit.thread:                      ; preds = %check_size_impl.exit, %.thread
@@ -3128,10 +3128,10 @@ check_size_impl.exit110:                          ; preds = %check_size_impl.exi
   %128 = getelementptr inbounds nuw i8, ptr %6, i64 46
   %129 = load i8, ptr %128, align 2, !range !4, !noundef !5
   %130 = trunc nuw i8 %129 to i1
-  %131 = tail call ptr @tcg_temp_new_i32() #10
-  %132 = tail call ptr @tcg_temp_new_i32() #10
-  %133 = tail call ptr @tcg_temp_new_i32() #10
-  %134 = tail call ptr @tcg_temp_new_i32() #10
+  %131 = tail call ptr @tcg_temp_new_i32() #11
+  %132 = tail call ptr @tcg_temp_new_i32() #11
+  %133 = tail call ptr @tcg_temp_new_i32() #11
+  %134 = tail call ptr @tcg_temp_new_i32() #11
   br i1 %130, label %.lr.ph.split.us.i115, label %.lr.ph.split.i113
 
 .lr.ph.split.us.i115:                             ; preds = %.lr.ph.i112, %.lr.ph.split.us.i115
@@ -3139,22 +3139,22 @@ check_size_impl.exit110:                          ; preds = %check_size_impl.exi
   %135 = load ptr, ptr @tcg_env, align 8
   %136 = add i32 %.027.us.i116, %1
   %137 = zext i32 %136 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %132, ptr noundef %135, i64 noundef %137) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %132, ptr noundef %135, i64 noundef %137) #11
   %138 = load ptr, ptr @tcg_env, align 8
   %139 = add i32 %.027.us.i116, %2
   %140 = zext i32 %139 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %133, ptr noundef %138, i64 noundef %140) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %133, ptr noundef %138, i64 noundef %140) #11
   %141 = load ptr, ptr @tcg_env, align 8
   %142 = add i32 %.027.us.i116, %3
   %143 = zext i32 %142 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %134, ptr noundef %141, i64 noundef %143) #10
-  tail call void %123(ptr noundef %131, ptr noundef %132, ptr noundef %133, ptr noundef %134) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %134, ptr noundef %141, i64 noundef %143) #11
+  tail call void %123(ptr noundef %131, ptr noundef %132, ptr noundef %133, ptr noundef %134) #11
   %144 = load ptr, ptr @tcg_env, align 8
   %145 = add i32 %.027.us.i116, %0
   %146 = zext i32 %145 to i64
-  tail call void @tcg_gen_st_i32(ptr noundef %131, ptr noundef %144, i64 noundef %146) #10
+  tail call void @tcg_gen_st_i32(ptr noundef %131, ptr noundef %144, i64 noundef %146) #11
   %147 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i32(ptr noundef %132, ptr noundef %147, i64 noundef %137) #10
+  tail call void @tcg_gen_st_i32(ptr noundef %132, ptr noundef %147, i64 noundef %137) #11
   %148 = add nuw nsw i32 %.027.us.i116, 4
   %149 = icmp samesign ult i32 %148, %4
   br i1 %149, label %.lr.ph.split.us.i115, label %expand_4_i32.exit, !llvm.loop !23
@@ -3164,29 +3164,29 @@ check_size_impl.exit110:                          ; preds = %check_size_impl.exi
   %150 = load ptr, ptr @tcg_env, align 8
   %151 = add i32 %.027.i114, %1
   %152 = zext i32 %151 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %132, ptr noundef %150, i64 noundef %152) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %132, ptr noundef %150, i64 noundef %152) #11
   %153 = load ptr, ptr @tcg_env, align 8
   %154 = add i32 %.027.i114, %2
   %155 = zext i32 %154 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %133, ptr noundef %153, i64 noundef %155) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %133, ptr noundef %153, i64 noundef %155) #11
   %156 = load ptr, ptr @tcg_env, align 8
   %157 = add i32 %.027.i114, %3
   %158 = zext i32 %157 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %134, ptr noundef %156, i64 noundef %158) #10
-  tail call void %123(ptr noundef %131, ptr noundef %132, ptr noundef %133, ptr noundef %134) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %134, ptr noundef %156, i64 noundef %158) #11
+  tail call void %123(ptr noundef %131, ptr noundef %132, ptr noundef %133, ptr noundef %134) #11
   %159 = load ptr, ptr @tcg_env, align 8
   %160 = add i32 %.027.i114, %0
   %161 = zext i32 %160 to i64
-  tail call void @tcg_gen_st_i32(ptr noundef %131, ptr noundef %159, i64 noundef %161) #10
+  tail call void @tcg_gen_st_i32(ptr noundef %131, ptr noundef %159, i64 noundef %161) #11
   %162 = add nuw nsw i32 %.027.i114, 4
   %163 = icmp samesign ult i32 %162, %4
   br i1 %163, label %.lr.ph.split.i113, label %expand_4_i32.exit, !llvm.loop !23
 
 expand_4_i32.exit:                                ; preds = %.lr.ph.split.i113, %.lr.ph.split.us.i115
-  tail call void @tcg_temp_free_i32(ptr noundef %134) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %133) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %132) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %131) #10
+  tail call void @tcg_temp_free_i32(ptr noundef %134) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %133) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %132) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %131) #11
   br label %170
 
 check_size_impl.exit110.thread:                   ; preds = %check_size_impl.exit110, %check_size_impl.exit.thread
@@ -3196,7 +3196,7 @@ check_size_impl.exit110.thread:                   ; preds = %check_size_impl.exi
   br i1 %.not106, label %166, label %.thread120
 
 166:                                              ; preds = %check_size_impl.exit110.thread
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 1595, ptr noundef nonnull @__PRETTY_FUNCTION__.tcg_gen_gvec_4) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 1595, ptr noundef nonnull @__PRETTY_FUNCTION__.tcg_gen_gvec_4) #12
   unreachable
 
 .thread120:                                       ; preds = %check_size_impl.exit110.thread
@@ -3206,7 +3206,7 @@ check_size_impl.exit110.thread:                   ; preds = %check_size_impl.exi
   br label %175
 
 169:                                              ; preds = %42
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1603, ptr noundef nonnull @__func__.tcg_gen_gvec_4, ptr noundef null) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1603, ptr noundef nonnull @__func__.tcg_gen_gvec_4, ptr noundef null) #12
   unreachable
 
 170:                                              ; preds = %expand_4_i64.exit, %expand_4_i32.exit, %51, %74, %67
@@ -3236,29 +3236,29 @@ define internal fastcc void @expand_4_vec(i32 noundef range(i32 0, 256) %0, i32 
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.029.us = phi i32 [ %28, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %11 = tail call ptr @tcg_temp_new_vec(i32 noundef %7) #10
-  %12 = tail call ptr @tcg_temp_new_vec(i32 noundef %7) #10
-  %13 = tail call ptr @tcg_temp_new_vec(i32 noundef %7) #10
-  %14 = tail call ptr @tcg_temp_new_vec(i32 noundef %7) #10
+  %11 = tail call ptr @tcg_temp_new_vec(i32 noundef %7) #11
+  %12 = tail call ptr @tcg_temp_new_vec(i32 noundef %7) #11
+  %13 = tail call ptr @tcg_temp_new_vec(i32 noundef %7) #11
+  %14 = tail call ptr @tcg_temp_new_vec(i32 noundef %7) #11
   %15 = load ptr, ptr @tcg_env, align 8
   %16 = add i32 %.029.us, %2
   %17 = zext i32 %16 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %12, ptr noundef %15, i64 noundef %17) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %12, ptr noundef %15, i64 noundef %17) #11
   %18 = load ptr, ptr @tcg_env, align 8
   %19 = add i32 %.029.us, %3
   %20 = zext i32 %19 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %13, ptr noundef %18, i64 noundef %20) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %13, ptr noundef %18, i64 noundef %20) #11
   %21 = load ptr, ptr @tcg_env, align 8
   %22 = add i32 %.029.us, %4
   %23 = zext i32 %22 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %14, ptr noundef %21, i64 noundef %23) #10
-  tail call void %9(i32 noundef %0, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %14, ptr noundef %21, i64 noundef %23) #11
+  tail call void %9(i32 noundef %0, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14) #11
   %24 = load ptr, ptr @tcg_env, align 8
   %25 = add i32 %.029.us, %1
   %26 = zext i32 %25 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %11, ptr noundef %24, i64 noundef %26) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %11, ptr noundef %24, i64 noundef %26) #11
   %27 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_vec(ptr noundef %12, ptr noundef %27, i64 noundef %17) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %12, ptr noundef %27, i64 noundef %17) #11
   %28 = add i32 %.029.us, %6
   %29 = icmp ult i32 %28, %5
   br i1 %29, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !24
@@ -3268,27 +3268,27 @@ define internal fastcc void @expand_4_vec(i32 noundef range(i32 0, 256) %0, i32 
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.029 = phi i32 [ %46, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %30 = tail call ptr @tcg_temp_new_vec(i32 noundef %7) #10
-  %31 = tail call ptr @tcg_temp_new_vec(i32 noundef %7) #10
-  %32 = tail call ptr @tcg_temp_new_vec(i32 noundef %7) #10
-  %33 = tail call ptr @tcg_temp_new_vec(i32 noundef %7) #10
+  %30 = tail call ptr @tcg_temp_new_vec(i32 noundef %7) #11
+  %31 = tail call ptr @tcg_temp_new_vec(i32 noundef %7) #11
+  %32 = tail call ptr @tcg_temp_new_vec(i32 noundef %7) #11
+  %33 = tail call ptr @tcg_temp_new_vec(i32 noundef %7) #11
   %34 = load ptr, ptr @tcg_env, align 8
   %35 = add i32 %.029, %2
   %36 = zext i32 %35 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %31, ptr noundef %34, i64 noundef %36) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %31, ptr noundef %34, i64 noundef %36) #11
   %37 = load ptr, ptr @tcg_env, align 8
   %38 = add i32 %.029, %3
   %39 = zext i32 %38 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %32, ptr noundef %37, i64 noundef %39) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %32, ptr noundef %37, i64 noundef %39) #11
   %40 = load ptr, ptr @tcg_env, align 8
   %41 = add i32 %.029, %4
   %42 = zext i32 %41 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %33, ptr noundef %40, i64 noundef %42) #10
-  tail call void %9(i32 noundef %0, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %33, ptr noundef %40, i64 noundef %42) #11
+  tail call void %9(i32 noundef %0, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33) #11
   %43 = load ptr, ptr @tcg_env, align 8
   %44 = add i32 %.029, %1
   %45 = zext i32 %44 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %30, ptr noundef %43, i64 noundef %45) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %30, ptr noundef %43, i64 noundef %45) #11
   %46 = add i32 %.029, %6
   %47 = icmp ult i32 %46, %5
   br i1 %47, label %.lr.ph.split, label %._crit_edge, !llvm.loop !24
@@ -3454,10 +3454,10 @@ check_size_impl.exit:                             ; preds = %.thread
   br i1 %77, label %78, label %check_size_impl.exit.thread
 
 78:                                               ; preds = %check_size_impl.exit
-  %79 = tail call ptr @tcg_temp_new_i64() #10
-  %80 = tail call ptr @tcg_temp_new_i64() #10
-  %81 = tail call ptr @tcg_temp_new_i64() #10
-  %82 = tail call ptr @tcg_temp_new_i64() #10
+  %79 = tail call ptr @tcg_temp_new_i64() #11
+  %80 = tail call ptr @tcg_temp_new_i64() #11
+  %81 = tail call ptr @tcg_temp_new_i64() #11
+  %82 = tail call ptr @tcg_temp_new_i64() #11
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %78, %.lr.ph.i
@@ -3465,29 +3465,29 @@ check_size_impl.exit:                             ; preds = %.thread
   %83 = load ptr, ptr @tcg_env, align 8
   %84 = add i32 %.024.i, %1
   %85 = zext i32 %84 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %80, ptr noundef %83, i64 noundef %85) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %80, ptr noundef %83, i64 noundef %85) #11
   %86 = load ptr, ptr @tcg_env, align 8
   %87 = add i32 %.024.i, %2
   %88 = zext i32 %87 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %81, ptr noundef %86, i64 noundef %88) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %81, ptr noundef %86, i64 noundef %88) #11
   %89 = load ptr, ptr @tcg_env, align 8
   %90 = add i32 %.024.i, %3
   %91 = zext i32 %90 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %82, ptr noundef %89, i64 noundef %91) #10
-  tail call void %73(ptr noundef %79, ptr noundef %80, ptr noundef %81, ptr noundef %82, i64 noundef %6) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %82, ptr noundef %89, i64 noundef %91) #11
+  tail call void %73(ptr noundef %79, ptr noundef %80, ptr noundef %81, ptr noundef %82, i64 noundef %6) #11
   %92 = load ptr, ptr @tcg_env, align 8
   %93 = add i32 %.024.i, %0
   %94 = zext i32 %93 to i64
-  tail call void @tcg_gen_st_i64(ptr noundef %79, ptr noundef %92, i64 noundef %94) #10
+  tail call void @tcg_gen_st_i64(ptr noundef %79, ptr noundef %92, i64 noundef %94) #11
   %95 = add nuw nsw i32 %.024.i, 8
   %96 = icmp samesign ult i32 %95, %4
   br i1 %96, label %.lr.ph.i, label %expand_4i_i64.exit, !llvm.loop !25
 
 expand_4i_i64.exit:                               ; preds = %.lr.ph.i
-  tail call void @tcg_temp_free_i64(ptr noundef %82) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %81) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %80) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %79) #10
+  tail call void @tcg_temp_free_i64(ptr noundef %82) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %81) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %80) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %79) #11
   br label %128
 
 check_size_impl.exit.thread:                      ; preds = %check_size_impl.exit, %.thread
@@ -3507,10 +3507,10 @@ check_size_impl.exit110:                          ; preds = %check_size_impl.exi
 
 103:                                              ; preds = %check_size_impl.exit110
   %104 = trunc i64 %6 to i32
-  %105 = tail call ptr @tcg_temp_new_i32() #10
-  %106 = tail call ptr @tcg_temp_new_i32() #10
-  %107 = tail call ptr @tcg_temp_new_i32() #10
-  %108 = tail call ptr @tcg_temp_new_i32() #10
+  %105 = tail call ptr @tcg_temp_new_i32() #11
+  %106 = tail call ptr @tcg_temp_new_i32() #11
+  %107 = tail call ptr @tcg_temp_new_i32() #11
+  %108 = tail call ptr @tcg_temp_new_i32() #11
   br label %.lr.ph.i112
 
 .lr.ph.i112:                                      ; preds = %103, %.lr.ph.i112
@@ -3518,29 +3518,29 @@ check_size_impl.exit110:                          ; preds = %check_size_impl.exi
   %109 = load ptr, ptr @tcg_env, align 8
   %110 = add i32 %.024.i113, %1
   %111 = zext i32 %110 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %106, ptr noundef %109, i64 noundef %111) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %106, ptr noundef %109, i64 noundef %111) #11
   %112 = load ptr, ptr @tcg_env, align 8
   %113 = add i32 %.024.i113, %2
   %114 = zext i32 %113 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %107, ptr noundef %112, i64 noundef %114) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %107, ptr noundef %112, i64 noundef %114) #11
   %115 = load ptr, ptr @tcg_env, align 8
   %116 = add i32 %.024.i113, %3
   %117 = zext i32 %116 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %108, ptr noundef %115, i64 noundef %117) #10
-  tail call void %98(ptr noundef %105, ptr noundef %106, ptr noundef %107, ptr noundef %108, i32 noundef %104) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %108, ptr noundef %115, i64 noundef %117) #11
+  tail call void %98(ptr noundef %105, ptr noundef %106, ptr noundef %107, ptr noundef %108, i32 noundef %104) #11
   %118 = load ptr, ptr @tcg_env, align 8
   %119 = add i32 %.024.i113, %0
   %120 = zext i32 %119 to i64
-  tail call void @tcg_gen_st_i32(ptr noundef %105, ptr noundef %118, i64 noundef %120) #10
+  tail call void @tcg_gen_st_i32(ptr noundef %105, ptr noundef %118, i64 noundef %120) #11
   %121 = add nuw nsw i32 %.024.i113, 4
   %122 = icmp samesign ult i32 %121, %4
   br i1 %122, label %.lr.ph.i112, label %expand_4i_i32.exit, !llvm.loop !26
 
 expand_4i_i32.exit:                               ; preds = %.lr.ph.i112
-  tail call void @tcg_temp_free_i32(ptr noundef %108) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %107) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %106) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %105) #10
+  tail call void @tcg_temp_free_i32(ptr noundef %108) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %107) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %106) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %105) #11
   br label %128
 
 check_size_impl.exit110.thread:                   ; preds = %check_size_impl.exit110, %check_size_impl.exit.thread
@@ -3550,7 +3550,7 @@ check_size_impl.exit110.thread:                   ; preds = %check_size_impl.exi
   br i1 %.not106, label %125, label %.thread117
 
 125:                                              ; preds = %check_size_impl.exit110.thread
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 1664, ptr noundef nonnull @__PRETTY_FUNCTION__.tcg_gen_gvec_4i) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 1664, ptr noundef nonnull @__PRETTY_FUNCTION__.tcg_gen_gvec_4i) #12
   unreachable
 
 .thread117:                                       ; preds = %check_size_impl.exit110.thread
@@ -3559,7 +3559,7 @@ check_size_impl.exit110.thread:                   ; preds = %check_size_impl.exi
   br label %133
 
 127:                                              ; preds = %43
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1672, ptr noundef nonnull @__func__.tcg_gen_gvec_4i, ptr noundef null) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1672, ptr noundef nonnull @__func__.tcg_gen_gvec_4i, ptr noundef null) #12
   unreachable
 
 128:                                              ; preds = %expand_4i_i64.exit, %expand_4i_i32.exit, %52, %69, %65
@@ -3589,27 +3589,27 @@ define internal fastcc void @expand_4i_vec(i32 noundef range(i32 0, 256) %0, i32
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %.026 = phi i32 [ %27, %.lr.ph ], [ 0, %10 ]
-  %11 = tail call ptr @tcg_temp_new_vec(i32 noundef %7) #10
-  %12 = tail call ptr @tcg_temp_new_vec(i32 noundef %7) #10
-  %13 = tail call ptr @tcg_temp_new_vec(i32 noundef %7) #10
-  %14 = tail call ptr @tcg_temp_new_vec(i32 noundef %7) #10
+  %11 = tail call ptr @tcg_temp_new_vec(i32 noundef %7) #11
+  %12 = tail call ptr @tcg_temp_new_vec(i32 noundef %7) #11
+  %13 = tail call ptr @tcg_temp_new_vec(i32 noundef %7) #11
+  %14 = tail call ptr @tcg_temp_new_vec(i32 noundef %7) #11
   %15 = load ptr, ptr @tcg_env, align 8
   %16 = add i32 %.026, %2
   %17 = zext i32 %16 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %12, ptr noundef %15, i64 noundef %17) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %12, ptr noundef %15, i64 noundef %17) #11
   %18 = load ptr, ptr @tcg_env, align 8
   %19 = add i32 %.026, %3
   %20 = zext i32 %19 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %13, ptr noundef %18, i64 noundef %20) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %13, ptr noundef %18, i64 noundef %20) #11
   %21 = load ptr, ptr @tcg_env, align 8
   %22 = add i32 %.026, %4
   %23 = zext i32 %22 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %14, ptr noundef %21, i64 noundef %23) #10
-  tail call void %9(i32 noundef %0, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, i64 noundef %8) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %14, ptr noundef %21, i64 noundef %23) #11
+  tail call void %9(i32 noundef %0, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, i64 noundef %8) #11
   %24 = load ptr, ptr @tcg_env, align 8
   %25 = add i32 %.026, %1
   %26 = zext i32 %25 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %11, ptr noundef %24, i64 noundef %26) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %11, ptr noundef %24, i64 noundef %26) #11
   %27 = add i32 %.026, %6
   %28 = icmp ult i32 %27, %5
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !27
@@ -3650,7 +3650,7 @@ check_size_align.exit:                            ; preds = %5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vec_mov2(i32 %0, ptr noundef %1, ptr noundef %2) #1 {
-  tail call void @tcg_gen_mov_vec(ptr noundef %1, ptr noundef %2) #10
+  tail call void @tcg_gen_mov_vec(ptr noundef %1, ptr noundef %2) #11
   ret void
 }
 
@@ -3665,7 +3665,7 @@ define internal void @gen_helper_gvec_mov(ptr noundef %0, ptr noundef %1, ptr no
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_mov, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_mov, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -3701,11 +3701,11 @@ define internal fastcc void @do_dup(i32 noundef %0, i32 noundef %1, i32 noundef 
   br i1 %or.cond388, label %.lr.ph397, label %10
 
 tailrecurse._crit_edge:                           ; preds = %7
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str, i32 noundef 547, ptr noundef nonnull @__PRETTY_FUNCTION__.do_dup) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str, i32 noundef 547, ptr noundef nonnull @__PRETTY_FUNCTION__.do_dup) #12
   unreachable
 
 10:                                               ; preds = %.lr.ph.preheader
-  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 548, ptr noundef nonnull @__PRETTY_FUNCTION__.do_dup) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 548, ptr noundef nonnull @__PRETTY_FUNCTION__.do_dup) #12
   unreachable
 
 .lr.ph397:                                        ; preds = %.lr.ph.preheader, %tailrecurse
@@ -3780,22 +3780,22 @@ dup_const.exit:                                   ; preds = %19, %16, %13, %12
   br i1 %.not169, label %41, label %34
 
 34:                                               ; preds = %31
-  %35 = tail call ptr @tcg_temp_new_vec(i32 noundef %33) #10
+  %35 = tail call ptr @tcg_temp_new_vec(i32 noundef %33) #11
   br i1 %.not273389, label %37, label %36
 
 36:                                               ; preds = %34
-  tail call void @tcg_gen_dup_i32_vec(i32 noundef %.0149196, ptr noundef %35, ptr noundef nonnull %.tr219270392) #10
+  tail call void @tcg_gen_dup_i32_vec(i32 noundef %.0149196, ptr noundef %35, ptr noundef nonnull %.tr219270392) #11
   br label %40
 
 37:                                               ; preds = %34
   br i1 %11, label %39, label %38
 
 38:                                               ; preds = %37
-  tail call void @tcg_gen_dup_i64_vec(i32 noundef %.0149196, ptr noundef %35, ptr noundef nonnull %.tr220271391) #10
+  tail call void @tcg_gen_dup_i64_vec(i32 noundef %.0149196, ptr noundef %35, ptr noundef nonnull %.tr220271391) #11
   br label %40
 
 39:                                               ; preds = %37
-  tail call void @tcg_gen_dupi_vec(i32 noundef %.0149196, ptr noundef %35, i64 noundef %.0154192) #10
+  tail call void @tcg_gen_dupi_vec(i32 noundef %.0149196, ptr noundef %35, i64 noundef %.0154192) #11
   br label %40
 
 40:                                               ; preds = %38, %39, %36
@@ -3821,8 +3821,8 @@ check_size_impl.exit:                             ; preds = %41
   br i1 %.not171, label %check_size_impl.exit184, label %.split
 
 .split:                                           ; preds = %47
-  %48 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %48, ptr noundef nonnull %.tr219270392) #10
+  %48 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %48, ptr noundef nonnull %.tr219270392) #11
   tail call void @tcg_gen_dup_i64(i32 noundef %.0149196, ptr noundef %48, ptr noundef %48)
   br label %72
 
@@ -3831,21 +3831,21 @@ check_size_impl.exit184:                          ; preds = %47
   br i1 %49, label %51, label %.split156
 
 .split156:                                        ; preds = %check_size_impl.exit184
-  %50 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %50, ptr noundef nonnull %.tr219270392) #10
-  tail call void @tcg_gen_deposit_i64(ptr noundef %50, ptr noundef %50, ptr noundef %50, i32 noundef 32, i32 noundef 32) #10
+  %50 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %50, ptr noundef nonnull %.tr219270392) #11
+  tail call void @tcg_gen_deposit_i64(ptr noundef %50, ptr noundef %50, ptr noundef %50, i32 noundef 32, i32 noundef 32) #11
   br label %72
 
 51:                                               ; preds = %check_size_impl.exit184
-  %52 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  tail call void @tcg_gen_mov_i32(ptr noundef %52, ptr noundef nonnull %.tr219270392) #10
+  %52 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  tail call void @tcg_gen_mov_i32(ptr noundef %52, ptr noundef nonnull %.tr219270392) #11
   br label %65
 
 53:                                               ; preds = %46
   br i1 %11, label %56, label %54
 
 54:                                               ; preds = %53
-  %55 = tail call ptr @tcg_temp_ebb_new_i64() #10
+  %55 = tail call ptr @tcg_temp_ebb_new_i64() #11
   tail call void @tcg_gen_dup_i64(i32 noundef %.0149196, ptr noundef %55, ptr noundef nonnull %.tr220271391)
   br label %72
 
@@ -3859,12 +3859,12 @@ check_size_impl.exit184:                          ; preds = %47
   br i1 %or.cond222, label %62, label %check_size_impl.exit188.thread
 
 check_size_impl.exit188.thread:                   ; preds = %56
-  %61 = tail call ptr @tcg_constant_i64(i64 noundef %.0154192) #10
+  %61 = tail call ptr @tcg_constant_i64(i64 noundef %.0154192) #11
   br label %72
 
 62:                                               ; preds = %56
   %63 = trunc i64 %.0154192 to i32
-  %64 = tail call ptr @tcg_constant_i32(i32 noundef %63) #10
+  %64 = tail call ptr @tcg_constant_i32(i32 noundef %63) #11
   br label %65
 
 65:                                               ; preds = %62, %51
@@ -3877,13 +3877,13 @@ check_size_impl.exit188.thread:                   ; preds = %56
   %66 = load ptr, ptr @tcg_env, align 8
   %67 = add i32 %.0151263, %.tr216267395
   %68 = zext i32 %67 to i64
-  tail call void @tcg_gen_st_i32(ptr noundef nonnull %.0152, ptr noundef %66, i64 noundef %68) #10
+  tail call void @tcg_gen_st_i32(ptr noundef nonnull %.0152, ptr noundef %66, i64 noundef %68) #11
   %69 = add nuw nsw i32 %.0151263, 4
   %70 = icmp samesign ult i32 %69, %.0150194
   br i1 %70, label %.preheader, label %71, !llvm.loop !28
 
 71:                                               ; preds = %.preheader
-  tail call void @tcg_temp_free_i32(ptr noundef nonnull %.0152) #10
+  tail call void @tcg_temp_free_i32(ptr noundef nonnull %.0152) #11
   br label %178
 
 72:                                               ; preds = %54, %check_size_impl.exit188.thread, %.split156, %.split
@@ -3896,20 +3896,20 @@ check_size_impl.exit188.thread:                   ; preds = %56
   %73 = load ptr, ptr @tcg_env, align 8
   %74 = add i32 %.1262, %.tr216267395
   %75 = zext i32 %74 to i64
-  tail call void @tcg_gen_st_i64(ptr noundef nonnull %.0153.ph, ptr noundef %73, i64 noundef %75) #10
+  tail call void @tcg_gen_st_i64(ptr noundef nonnull %.0153.ph, ptr noundef %73, i64 noundef %75) #11
   %76 = add nuw nsw i32 %.1262, 8
   %77 = icmp samesign ult i32 %76, %.0150194
   br i1 %77, label %.preheader223, label %78, !llvm.loop !29
 
 78:                                               ; preds = %.preheader223
-  tail call void @tcg_temp_free_i64(ptr noundef nonnull %.0153.ph) #10
+  tail call void @tcg_temp_free_i64(ptr noundef nonnull %.0153.ph) #11
   br label %178
 
 check_size_impl.exit.thread:                      ; preds = %65, %41, %72, %check_size_impl.exit
-  %79 = tail call ptr @tcg_temp_ebb_new_ptr() #10
+  %79 = tail call ptr @tcg_temp_ebb_new_ptr() #11
   %80 = load ptr, ptr @tcg_env, align 8
   %81 = zext i32 %.tr216267395 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %79, ptr noundef %80, i64 noundef range(i64 0, 4294967296) %81) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %79, ptr noundef %80, i64 noundef range(i64 0, 4294967296) %81) #11
   %82 = icmp eq i32 %.0150194, %.tr218269393
   %83 = icmp eq i32 %.0149196, 0
   %or.cond9 = and i1 %83, %82
@@ -3917,7 +3917,7 @@ check_size_impl.exit.thread:                      ; preds = %65, %41, %72, %chec
 
 84:                                               ; preds = %check_size_impl.exit.thread
   %85 = zext i32 %.tr218269393 to i64
-  %86 = tail call ptr @tcg_constant_ptr_int(i64 noundef %85) #10
+  %86 = tail call ptr @tcg_constant_ptr_int(i64 noundef %85) #11
   br i1 %.not273389, label %87, label %106
 
 87:                                               ; preds = %84
@@ -3927,27 +3927,27 @@ check_size_impl.exit.thread:                      ; preds = %65, %41, %72, %chec
   br i1 %11, label %.thread211, label %.thread213
 
 .thread213:                                       ; preds = %87
-  %91 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  tail call void @tcg_gen_extrl_i64_i32(ptr noundef %91, ptr noundef nonnull %.tr220271391) #10
+  %91 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  tail call void @tcg_gen_extrl_i64_i32(ptr noundef %91, ptr noundef nonnull %.tr220271391) #11
   %92 = load ptr, ptr @helper_info_memset, align 8
   %93 = load ptr, ptr %88, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 %89
   %95 = ptrtoint ptr %91 to i64
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 %90
-  tail call void @tcg_gen_call3(ptr noundef %92, ptr noundef nonnull @helper_info_memset, ptr noundef %94, ptr noundef %94, ptr noundef %96, ptr noundef %97) #10
+  tail call void @tcg_gen_call3(ptr noundef %92, ptr noundef nonnull @helper_info_memset, ptr noundef %94, ptr noundef %94, ptr noundef %96, ptr noundef %97) #11
   br label %116
 
 .thread211:                                       ; preds = %87
   %98 = trunc i64 %.0154192 to i32
-  %99 = tail call ptr @tcg_constant_i32(i32 noundef %98) #10
+  %99 = tail call ptr @tcg_constant_i32(i32 noundef %98) #11
   %100 = load ptr, ptr @helper_info_memset, align 8
   %101 = load ptr, ptr %88, align 8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 %89
   %103 = ptrtoint ptr %99 to i64
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %101, i64 %90
-  tail call void @tcg_gen_call3(ptr noundef %100, ptr noundef nonnull @helper_info_memset, ptr noundef %102, ptr noundef %102, ptr noundef %104, ptr noundef %105) #10
+  tail call void @tcg_gen_call3(ptr noundef %100, ptr noundef nonnull @helper_info_memset, ptr noundef %102, ptr noundef %102, ptr noundef %104, ptr noundef %105) #11
   br label %117
 
 106:                                              ; preds = %84
@@ -3960,16 +3960,16 @@ check_size_impl.exit.thread:                      ; preds = %65, %41, %72, %chec
   %113 = getelementptr inbounds nuw i8, ptr %109, i64 %112
   %114 = ptrtoint ptr %86 to i64
   %115 = getelementptr inbounds nuw i8, ptr %109, i64 %114
-  tail call void @tcg_gen_call3(ptr noundef %107, ptr noundef nonnull @helper_info_memset, ptr noundef %111, ptr noundef %111, ptr noundef nonnull %113, ptr noundef %115) #10
+  tail call void @tcg_gen_call3(ptr noundef %107, ptr noundef nonnull @helper_info_memset, ptr noundef %111, ptr noundef %111, ptr noundef nonnull %113, ptr noundef %115) #11
   br i1 %11, label %117, label %116
 
 116:                                              ; preds = %.thread213, %106
   %.0215 = phi ptr [ %91, %.thread213 ], [ %.tr219270392, %106 ]
-  tail call void @tcg_temp_free_i32(ptr noundef %.0215) #10
+  tail call void @tcg_temp_free_i32(ptr noundef %.0215) #11
   br label %117
 
 117:                                              ; preds = %.thread211, %116, %106
-  tail call void @tcg_temp_free_ptr(ptr noundef %79) #10
+  tail call void @tcg_temp_free_ptr(ptr noundef %79) #11
   br label %.loopexit
 
 simd_desc.exit:                                   ; preds = %check_size_impl.exit.thread
@@ -3990,7 +3990,7 @@ simd_desc.exit:                                   ; preds = %check_size_impl.exi
   %130 = select i1 %126, i32 512, i32 %129
   %131 = and i32 %125, 255
   %132 = or disjoint i32 %130, %131
-  %133 = tail call ptr @tcg_constant_i32(i32 noundef %132) #10
+  %133 = tail call ptr @tcg_constant_i32(i32 noundef %132) #11
   %134 = icmp eq i32 %.0149196, 3
   br i1 %134, label %135, label %157
 
@@ -4007,11 +4007,11 @@ simd_desc.exit:                                   ; preds = %check_size_impl.exi
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 %142
   %144 = ptrtoint ptr %.tr220271391 to i64
   %145 = getelementptr inbounds nuw i8, ptr %139, i64 %144
-  tail call void @tcg_gen_call3(ptr noundef %137, ptr noundef nonnull @helper_info_gvec_dup64, ptr noundef null, ptr noundef %141, ptr noundef %143, ptr noundef nonnull %145) #10
+  tail call void @tcg_gen_call3(ptr noundef %137, ptr noundef nonnull @helper_info_gvec_dup64, ptr noundef null, ptr noundef %141, ptr noundef %143, ptr noundef nonnull %145) #11
   br label %177
 
 146:                                              ; preds = %135
-  %147 = tail call ptr @tcg_constant_i64(i64 noundef %.0154192) #10
+  %147 = tail call ptr @tcg_constant_i64(i64 noundef %.0154192) #11
   %148 = load ptr, ptr @helper_info_gvec_dup64, align 8
   %149 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %150 = load ptr, ptr %149, align 8
@@ -4021,7 +4021,7 @@ simd_desc.exit:                                   ; preds = %check_size_impl.exi
   %154 = getelementptr inbounds nuw i8, ptr %150, i64 %153
   %155 = ptrtoint ptr %147 to i64
   %156 = getelementptr inbounds nuw i8, ptr %150, i64 %155
-  tail call void @tcg_gen_call3(ptr noundef %148, ptr noundef nonnull @helper_info_gvec_dup64, ptr noundef null, ptr noundef %152, ptr noundef %154, ptr noundef %156) #10
+  tail call void @tcg_gen_call3(ptr noundef %148, ptr noundef nonnull @helper_info_gvec_dup64, ptr noundef null, ptr noundef %152, ptr noundef %154, ptr noundef %156) #11
   br label %177
 
 157:                                              ; preds = %simd_desc.exit
@@ -4031,20 +4031,20 @@ simd_desc.exit:                                   ; preds = %check_size_impl.exi
   %159 = zext nneg i32 %.0149196 to i64
   %160 = getelementptr inbounds nuw ptr, ptr @do_dup.fns, i64 %159
   %161 = load ptr, ptr %160, align 8
-  tail call void %161(ptr noundef %79, ptr noundef %133, ptr noundef nonnull %.tr219270392) #10
+  tail call void %161(ptr noundef %79, ptr noundef %133, ptr noundef nonnull %.tr219270392) #11
   br label %177
 
 162:                                              ; preds = %157
   br i1 %11, label %168, label %163
 
 163:                                              ; preds = %162
-  %164 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  tail call void @tcg_gen_extrl_i64_i32(ptr noundef %164, ptr noundef nonnull %.tr220271391) #10
+  %164 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  tail call void @tcg_gen_extrl_i64_i32(ptr noundef %164, ptr noundef nonnull %.tr220271391) #11
   %165 = zext nneg i32 %.0149196 to i64
   %166 = getelementptr inbounds nuw ptr, ptr @do_dup.fns, i64 %165
   %167 = load ptr, ptr %166, align 8
-  tail call void %167(ptr noundef %79, ptr noundef %133, ptr noundef %164) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %164) #10
+  tail call void %167(ptr noundef %79, ptr noundef %133, ptr noundef %164) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %164) #11
   br label %177
 
 168:                                              ; preds = %162
@@ -4054,15 +4054,15 @@ simd_desc.exit:                                   ; preds = %check_size_impl.exi
   %spec.select179 = select i1 %170, i64 %171, i64 %.0154192
   %.1155 = select i1 %83, i64 %169, i64 %spec.select179
   %172 = trunc i64 %.1155 to i32
-  %173 = tail call ptr @tcg_constant_i32(i32 noundef %172) #10
+  %173 = tail call ptr @tcg_constant_i32(i32 noundef %172) #11
   %174 = zext nneg i32 %.0149196 to i64
   %175 = getelementptr inbounds nuw ptr, ptr @do_dup.fns, i64 %174
   %176 = load ptr, ptr %175, align 8
-  tail call void %176(ptr noundef %79, ptr noundef %133, ptr noundef %173) #10
+  tail call void %176(ptr noundef %79, ptr noundef %133, ptr noundef %173) #11
   br label %177
 
 177:                                              ; preds = %158, %168, %163, %136, %146
-  tail call void @tcg_temp_free_ptr(ptr noundef %79) #10
+  tail call void @tcg_temp_free_ptr(ptr noundef %79) #11
   br label %.loopexit
 
 178:                                              ; preds = %78, %71
@@ -4120,10 +4120,10 @@ check_size_align.exit:
   br i1 %.not139, label %20, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call ptr @tcg_temp_new_vec(i32 noundef %15) #10
+  %17 = tail call ptr @tcg_temp_new_vec(i32 noundef %15) #11
   %18 = load ptr, ptr @tcg_env, align 8
   %19 = zext i32 %2 to i64
-  tail call void @tcg_gen_dup_mem_vec(i32 noundef %0, ptr noundef %17, ptr noundef %18, i64 noundef %19) #10
+  tail call void @tcg_gen_dup_mem_vec(i32 noundef %0, ptr noundef %17, ptr noundef %18, i64 noundef %19) #11
   tail call fastcc void @do_dup_store(i32 noundef %15, i32 noundef %1, i32 noundef %3, i32 noundef %4, ptr noundef %17)
   br label %142
 
@@ -4133,7 +4133,7 @@ check_size_align.exit:
   br i1 %.not140, label %29, label %22
 
 22:                                               ; preds = %20
-  %23 = tail call ptr @tcg_temp_ebb_new_i32() #10
+  %23 = tail call ptr @tcg_temp_ebb_new_i32() #11
   %24 = load ptr, ptr @tcg_env, align 8
   switch i32 %0, label %27 [
     i32 0, label %25
@@ -4141,28 +4141,28 @@ check_size_align.exit:
   ]
 
 25:                                               ; preds = %22
-  tail call void @tcg_gen_ld8u_i32(ptr noundef %23, ptr noundef %24, i64 noundef %21) #10
+  tail call void @tcg_gen_ld8u_i32(ptr noundef %23, ptr noundef %24, i64 noundef %21) #11
   br label %28
 
 26:                                               ; preds = %22
-  tail call void @tcg_gen_ld16u_i32(ptr noundef %23, ptr noundef %24, i64 noundef %21) #10
+  tail call void @tcg_gen_ld16u_i32(ptr noundef %23, ptr noundef %24, i64 noundef %21) #11
   br label %28
 
 27:                                               ; preds = %22
-  tail call void @tcg_gen_ld_i32(ptr noundef %23, ptr noundef %24, i64 noundef %21) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %23, ptr noundef %24, i64 noundef %21) #11
   br label %28
 
 28:                                               ; preds = %27, %26, %25
   tail call fastcc void @do_dup(i32 noundef %0, i32 noundef %1, i32 noundef %3, i32 noundef %4, ptr noundef %23, ptr noundef null, i64 noundef 0)
-  tail call void @tcg_temp_free_i32(ptr noundef %23) #10
+  tail call void @tcg_temp_free_i32(ptr noundef %23) #11
   br label %142
 
 29:                                               ; preds = %20
-  %30 = tail call ptr @tcg_temp_ebb_new_i64() #10
+  %30 = tail call ptr @tcg_temp_ebb_new_i64() #11
   %31 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_ld_i64(ptr noundef %30, ptr noundef %31, i64 noundef %21) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %30, ptr noundef %31, i64 noundef %21) #11
   tail call fastcc void @do_dup(i32 noundef 3, i32 noundef %1, i32 noundef %3, i32 noundef %4, ptr noundef null, ptr noundef %30, i64 noundef 0)
-  tail call void @tcg_temp_free_i64(ptr noundef %30) #10
+  tail call void @tcg_temp_free_i64(ptr noundef %30) #11
   br label %142
 
 32:                                               ; preds = %check_size_align.exit
@@ -4180,10 +4180,10 @@ check_size_align.exit:
   br i1 %.not138, label %49, label %37
 
 37:                                               ; preds = %33
-  %38 = tail call ptr @tcg_temp_new_vec(i32 noundef 4) #10
+  %38 = tail call ptr @tcg_temp_new_vec(i32 noundef 4) #11
   %39 = load ptr, ptr @tcg_env, align 8
   %40 = zext i32 %2 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %38, ptr noundef %39, i64 noundef %40) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %38, ptr noundef %39, i64 noundef %40) #11
   %41 = icmp eq i32 %2, %1
   %42 = select i1 %41, i32 16, i32 0
   %43 = icmp ult i32 %42, %3
@@ -4194,21 +4194,21 @@ check_size_align.exit:
   %44 = load ptr, ptr @tcg_env, align 8
   %45 = add i32 %.0126151, %1
   %46 = zext i32 %45 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %38, ptr noundef %44, i64 noundef %46) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %38, ptr noundef %44, i64 noundef %46) #11
   %47 = add i32 %.0126151, 16
   %48 = icmp ult i32 %47, %3
   br i1 %48, label %.lr.ph152, label %.loopexit, !llvm.loop !30
 
 49:                                               ; preds = %33
-  %50 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  %51 = tail call ptr @tcg_temp_ebb_new_i64() #10
+  %50 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  %51 = tail call ptr @tcg_temp_ebb_new_i64() #11
   %52 = load ptr, ptr @tcg_env, align 8
   %53 = zext i32 %2 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %50, ptr noundef %52, i64 noundef %53) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %50, ptr noundef %52, i64 noundef %53) #11
   %54 = load ptr, ptr @tcg_env, align 8
   %55 = add i32 %2, 8
   %56 = zext i32 %55 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %51, ptr noundef %54, i64 noundef %56) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %51, ptr noundef %54, i64 noundef %56) #11
   %57 = icmp eq i32 %2, %1
   %58 = select i1 %57, i32 16, i32 0
   %59 = icmp ult i32 %58, %3
@@ -4219,18 +4219,18 @@ check_size_align.exit:
   %60 = load ptr, ptr @tcg_env, align 8
   %61 = add i32 %.1127153, %1
   %62 = zext i32 %61 to i64
-  tail call void @tcg_gen_st_i64(ptr noundef %50, ptr noundef %60, i64 noundef %62) #10
+  tail call void @tcg_gen_st_i64(ptr noundef %50, ptr noundef %60, i64 noundef %62) #11
   %63 = load ptr, ptr @tcg_env, align 8
   %64 = add i32 %61, 8
   %65 = zext i32 %64 to i64
-  tail call void @tcg_gen_st_i64(ptr noundef %51, ptr noundef %63, i64 noundef %65) #10
+  tail call void @tcg_gen_st_i64(ptr noundef %51, ptr noundef %63, i64 noundef %65) #11
   %66 = add i32 %.1127153, 16
   %67 = icmp ult i32 %66, %3
   br i1 %67, label %.lr.ph154, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph154, %49
-  tail call void @tcg_temp_free_i64(ptr noundef %50) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %51) #10
+  tail call void @tcg_temp_free_i64(ptr noundef %50) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %51) #11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph152, %37, %._crit_edge
@@ -4255,10 +4255,10 @@ check_size_align.exit:
   br i1 %.not, label %90, label %78
 
 78:                                               ; preds = %72
-  %79 = tail call ptr @tcg_temp_new_vec(i32 noundef 5) #10
+  %79 = tail call ptr @tcg_temp_new_vec(i32 noundef 5) #11
   %80 = load ptr, ptr @tcg_env, align 8
   %81 = zext i32 %2 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %79, ptr noundef %80, i64 noundef %81) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %79, ptr noundef %80, i64 noundef %81) #11
   %82 = icmp eq i32 %2, %1
   %83 = select i1 %82, i32 32, i32 0
   %84 = icmp ult i32 %83, %3
@@ -4269,7 +4269,7 @@ check_size_align.exit:
   %85 = load ptr, ptr @tcg_env, align 8
   %86 = add i32 %.0128144, %1
   %87 = zext i32 %86 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %79, ptr noundef %85, i64 noundef %87) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %79, ptr noundef %85, i64 noundef %87) #11
   %88 = add nuw i32 %.0128144, 32
   %89 = icmp ult i32 %88, %3
   br i1 %89, label %.lr.ph, label %.loopexit142, !llvm.loop !32
@@ -4280,15 +4280,15 @@ check_size_align.exit:
   br i1 %.not137, label %111, label %92
 
 92:                                               ; preds = %90
-  %93 = tail call ptr @tcg_temp_new_vec(i32 noundef 4) #10
-  %94 = tail call ptr @tcg_temp_new_vec(i32 noundef 4) #10
+  %93 = tail call ptr @tcg_temp_new_vec(i32 noundef 4) #11
+  %94 = tail call ptr @tcg_temp_new_vec(i32 noundef 4) #11
   %95 = load ptr, ptr @tcg_env, align 8
   %96 = zext i32 %2 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %93, ptr noundef %95, i64 noundef %96) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %93, ptr noundef %95, i64 noundef %96) #11
   %97 = load ptr, ptr @tcg_env, align 8
   %98 = add i32 %2, 16
   %99 = zext i32 %98 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %94, ptr noundef %97, i64 noundef %99) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %94, ptr noundef %97, i64 noundef %99) #11
   %100 = icmp eq i32 %2, %1
   %101 = select i1 %100, i32 32, i32 0
   %102 = icmp ult i32 %101, %3
@@ -4299,11 +4299,11 @@ check_size_align.exit:
   %103 = load ptr, ptr @tcg_env, align 8
   %104 = add i32 %.1129145, %1
   %105 = zext i32 %104 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %93, ptr noundef %103, i64 noundef %105) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %93, ptr noundef %103, i64 noundef %105) #11
   %106 = load ptr, ptr @tcg_env, align 8
   %107 = add i32 %104, 16
   %108 = zext i32 %107 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %94, ptr noundef %106, i64 noundef %108) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %94, ptr noundef %106, i64 noundef %108) #11
   %109 = add nuw i32 %.1129145, 32
   %110 = icmp ult i32 %109, %3
   br i1 %110, label %.lr.ph146, label %.loopexit142, !llvm.loop !33
@@ -4315,7 +4315,7 @@ check_size_align.exit:
 
 112:                                              ; preds = %111, %112
   %indvars.iv = phi i64 [ 0, %111 ], [ %indvars.iv.next, %112 ]
-  %113 = tail call ptr @tcg_temp_ebb_new_i64() #10
+  %113 = tail call ptr @tcg_temp_ebb_new_i64() #11
   %114 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   store ptr %113, ptr %114, align 8
   %115 = load ptr, ptr @tcg_env, align 8
@@ -4323,7 +4323,7 @@ check_size_align.exit:
   %116 = shl i32 %indvars.iv.tr, 3
   %117 = add i32 %116, %2
   %118 = zext i32 %117 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %113, ptr noundef %115, i64 noundef %118) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %113, ptr noundef %115, i64 noundef %118) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %119, label %112, !llvm.loop !35
@@ -4348,7 +4348,7 @@ check_size_align.exit:
   %128 = shl i32 %indvars.iv157.tr, 3
   %129 = add i32 %123, %128
   %130 = zext i32 %129 to i64
-  tail call void @tcg_gen_st_i64(ptr noundef %126, ptr noundef %127, i64 noundef %130) #10
+  tail call void @tcg_gen_st_i64(ptr noundef %126, ptr noundef %127, i64 noundef %130) #11
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next158, 4
   br i1 %exitcond160.not, label %131, label %124, !llvm.loop !36
@@ -4365,7 +4365,7 @@ check_size_align.exit:
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %.preheader ], [ 0, %.preheader.preheader ]
   %134 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv161
   %135 = load ptr, ptr %134, align 8
-  tail call void @tcg_temp_free_i64(ptr noundef %135) #10
+  tail call void @tcg_temp_free_i64(ptr noundef %135) #11
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next162, 4
   br i1 %exitcond164.not, label %136, label %.preheader, !llvm.loop !38
@@ -4385,7 +4385,7 @@ check_size_align.exit:
   br label %142
 
 141:                                              ; preds = %32
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1828, ptr noundef nonnull @__func__.tcg_gen_gvec_dup_mem, ptr noundef null) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1828, ptr noundef nonnull @__func__.tcg_gen_gvec_dup_mem, ptr noundef null) #12
   unreachable
 
 142:                                              ; preds = %.loopexit142, %138, %.loopexit, %69, %16, %29, %28
@@ -4405,7 +4405,7 @@ define internal fastcc void @do_dup_store(i32 noundef range(i32 1, 6) %0, i32 no
 8:                                                ; preds = %5
   %9 = load ptr, ptr @tcg_env, align 8
   %10 = zext i32 %1 to i64
-  tail call void @tcg_gen_stl_vec(ptr noundef %4, ptr noundef %9, i64 noundef %10, i32 noundef 3) #10
+  tail call void @tcg_gen_stl_vec(ptr noundef %4, ptr noundef %9, i64 noundef %10, i32 noundef 3) #11
   br label %11
 
 11:                                               ; preds = %8, %5
@@ -4431,7 +4431,7 @@ define internal fastcc void @do_dup_store(i32 noundef range(i32 1, 6) %0, i32 no
   %15 = load ptr, ptr @tcg_env, align 8
   %16 = add i32 %.241, %1
   %17 = zext i32 %16 to i64
-  tail call void @tcg_gen_stl_vec(ptr noundef %4, ptr noundef %15, i64 noundef %17, i32 noundef 5) #10
+  tail call void @tcg_gen_stl_vec(ptr noundef %4, ptr noundef %15, i64 noundef %17, i32 noundef 5) #11
   %18 = add i32 %14, 32
   %.not34 = icmp ugt i32 %18, %2
   br i1 %.not34, label %.loopexit36, label %.lr.ph42, !llvm.loop !39
@@ -4448,7 +4448,7 @@ define internal fastcc void @do_dup_store(i32 noundef range(i32 1, 6) %0, i32 no
   %21 = load ptr, ptr @tcg_env, align 8
   %22 = add i32 %.344, %1
   %23 = zext i32 %22 to i64
-  tail call void @tcg_gen_stl_vec(ptr noundef %4, ptr noundef %21, i64 noundef %23, i32 noundef 4) #10
+  tail call void @tcg_gen_stl_vec(ptr noundef %4, ptr noundef %21, i64 noundef %23, i32 noundef 4) #11
   %24 = add i32 %20, 16
   %.not35 = icmp ugt i32 %24, %2
   br i1 %.not35, label %.loopexit, label %.lr.ph45, !llvm.loop !40
@@ -4458,13 +4458,13 @@ define internal fastcc void @do_dup_store(i32 noundef range(i32 1, 6) %0, i32 no
   %25 = load ptr, ptr @tcg_env, align 8
   %26 = add i32 %.439, %1
   %27 = zext i32 %26 to i64
-  tail call void @tcg_gen_stl_vec(ptr noundef %4, ptr noundef %25, i64 noundef %27, i32 noundef 3) #10
+  tail call void @tcg_gen_stl_vec(ptr noundef %4, ptr noundef %25, i64 noundef %27, i32 noundef 3) #11
   %28 = add i32 %.439, 8
   %29 = icmp ult i32 %28, %2
   br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !41
 
 30:                                               ; preds = %11
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 525, ptr noundef nonnull @__func__.do_dup_store, ptr noundef null) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 525, ptr noundef nonnull @__func__.do_dup_store, ptr noundef null) #12
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph45, %.preheader37, %.loopexit36
@@ -4540,49 +4540,49 @@ define internal void @gen_helper_gvec_not(ptr noundef %0, ptr noundef %1, ptr no
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_not, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_not, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_vec_add8_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
-  %4 = tail call ptr @tcg_constant_i64(i64 noundef -9187201950435737472) #10
+  %4 = tail call ptr @tcg_constant_i64(i64 noundef -9187201950435737472) #11
   tail call fastcc void @gen_addv_mask(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @gen_addv_mask(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
-  %5 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  %6 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  %7 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  tail call void @tcg_gen_andc_i64(ptr noundef %5, ptr noundef %1, ptr noundef %3) #10
-  tail call void @tcg_gen_andc_i64(ptr noundef %6, ptr noundef %2, ptr noundef %3) #10
-  tail call void @tcg_gen_xor_i64(ptr noundef %7, ptr noundef %1, ptr noundef %2) #10
-  tail call void @tcg_gen_add_i64(ptr noundef %0, ptr noundef %5, ptr noundef %6) #10
-  tail call void @tcg_gen_and_i64(ptr noundef %7, ptr noundef %7, ptr noundef %3) #10
-  tail call void @tcg_gen_xor_i64(ptr noundef %0, ptr noundef %0, ptr noundef %7) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %5) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %6) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %7) #10
+  %5 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  %6 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  %7 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  tail call void @tcg_gen_andc_i64(ptr noundef %5, ptr noundef %1, ptr noundef %3) #11
+  tail call void @tcg_gen_andc_i64(ptr noundef %6, ptr noundef %2, ptr noundef %3) #11
+  tail call void @tcg_gen_xor_i64(ptr noundef %7, ptr noundef %1, ptr noundef %2) #11
+  tail call void @tcg_gen_add_i64(ptr noundef %0, ptr noundef %5, ptr noundef %6) #11
+  tail call void @tcg_gen_and_i64(ptr noundef %7, ptr noundef %7, ptr noundef %3) #11
+  tail call void @tcg_gen_xor_i64(ptr noundef %0, ptr noundef %0, ptr noundef %7) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %5) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %6) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %7) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_vec_add8_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
-  %4 = tail call ptr @tcg_constant_i32(i32 noundef -2139062144) #10
-  %5 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  %6 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  %7 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  tail call void @tcg_gen_andc_i32(ptr noundef %5, ptr noundef %1, ptr noundef %4) #10
-  tail call void @tcg_gen_andc_i32(ptr noundef %6, ptr noundef %2, ptr noundef %4) #10
-  tail call void @tcg_gen_xor_i32(ptr noundef %7, ptr noundef %1, ptr noundef %2) #10
-  tail call void @tcg_gen_add_i32(ptr noundef %0, ptr noundef %5, ptr noundef %6) #10
-  tail call void @tcg_gen_and_i32(ptr noundef %7, ptr noundef %7, ptr noundef %4) #10
-  tail call void @tcg_gen_xor_i32(ptr noundef %0, ptr noundef %0, ptr noundef %7) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %5) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %6) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %7) #10
+  %4 = tail call ptr @tcg_constant_i32(i32 noundef -2139062144) #11
+  %5 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  %6 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  %7 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  tail call void @tcg_gen_andc_i32(ptr noundef %5, ptr noundef %1, ptr noundef %4) #11
+  tail call void @tcg_gen_andc_i32(ptr noundef %6, ptr noundef %2, ptr noundef %4) #11
+  tail call void @tcg_gen_xor_i32(ptr noundef %7, ptr noundef %1, ptr noundef %2) #11
+  tail call void @tcg_gen_add_i32(ptr noundef %0, ptr noundef %5, ptr noundef %6) #11
+  tail call void @tcg_gen_and_i32(ptr noundef %7, ptr noundef %7, ptr noundef %4) #11
+  tail call void @tcg_gen_xor_i32(ptr noundef %0, ptr noundef %0, ptr noundef %7) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %5) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %6) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %7) #11
   ret void
 }
 
@@ -4596,21 +4596,21 @@ declare void @tcg_gen_and_i32(ptr noundef, ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_vec_add16_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
-  %4 = tail call ptr @tcg_constant_i64(i64 noundef -9223231297218904064) #10
+  %4 = tail call ptr @tcg_constant_i64(i64 noundef -9223231297218904064) #11
   tail call fastcc void @gen_addv_mask(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_vec_add16_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
-  %4 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  %5 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  tail call void @tcg_gen_andi_i32(ptr noundef %4, ptr noundef %1, i32 noundef -65536) #10
-  tail call void @tcg_gen_add_i32(ptr noundef %5, ptr noundef %1, ptr noundef %2) #10
-  tail call void @tcg_gen_add_i32(ptr noundef %4, ptr noundef %4, ptr noundef %2) #10
-  tail call void @tcg_gen_deposit_i32(ptr noundef %0, ptr noundef %4, ptr noundef %5, i32 noundef 0, i32 noundef 16) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %4) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %5) #10
+  %4 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  %5 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  tail call void @tcg_gen_andi_i32(ptr noundef %4, ptr noundef %1, i32 noundef -65536) #11
+  tail call void @tcg_gen_add_i32(ptr noundef %5, ptr noundef %1, ptr noundef %2) #11
+  tail call void @tcg_gen_add_i32(ptr noundef %4, ptr noundef %4, ptr noundef %2) #11
+  tail call void @tcg_gen_deposit_i32(ptr noundef %0, ptr noundef %4, ptr noundef %5, i32 noundef 0, i32 noundef 16) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %4) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %5) #11
   ret void
 }
 
@@ -4618,14 +4618,14 @@ declare void @tcg_gen_andi_i32(ptr noundef, ptr noundef, i32 noundef) local_unna
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_vec_add32_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
-  %4 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  %5 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  tail call void @tcg_gen_andi_i64(ptr noundef %4, ptr noundef %1, i64 noundef -4294967296) #10
-  tail call void @tcg_gen_add_i64(ptr noundef %5, ptr noundef %1, ptr noundef %2) #10
-  tail call void @tcg_gen_add_i64(ptr noundef %4, ptr noundef %4, ptr noundef %2) #10
-  tail call void @tcg_gen_deposit_i64(ptr noundef %0, ptr noundef %4, ptr noundef %5, i32 noundef 0, i32 noundef 32) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %4) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %5) #10
+  %4 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  %5 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  tail call void @tcg_gen_andi_i64(ptr noundef %4, ptr noundef %1, i64 noundef -4294967296) #11
+  tail call void @tcg_gen_add_i64(ptr noundef %5, ptr noundef %1, ptr noundef %2) #11
+  tail call void @tcg_gen_add_i64(ptr noundef %4, ptr noundef %4, ptr noundef %2) #11
+  tail call void @tcg_gen_deposit_i64(ptr noundef %0, ptr noundef %4, ptr noundef %5, i32 noundef 0, i32 noundef 32) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %4) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %5) #11
   ret void
 }
 
@@ -4658,7 +4658,7 @@ define internal void @gen_helper_gvec_add8(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_add8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_add8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -4675,7 +4675,7 @@ define internal void @gen_helper_gvec_add16(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_add16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_add16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -4692,7 +4692,7 @@ define internal void @gen_helper_gvec_add32(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_add32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_add32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -4709,7 +4709,7 @@ define internal void @gen_helper_gvec_add64(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_add64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_add64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -4736,7 +4736,7 @@ define internal void @gen_helper_gvec_adds8(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_adds8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_adds8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -4753,7 +4753,7 @@ define internal void @gen_helper_gvec_adds16(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_adds16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_adds16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -4770,7 +4770,7 @@ define internal void @gen_helper_gvec_adds32(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_adds32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_adds32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -4787,13 +4787,13 @@ define internal void @gen_helper_gvec_adds64(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_adds64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_adds64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_gvec_addi(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
-  %7 = tail call ptr @tcg_constant_i64(i64 noundef %3) #10
+  %7 = tail call ptr @tcg_constant_i64(i64 noundef %3) #11
   %8 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %8)
   %9 = zext nneg i32 %0 to i64
@@ -4814,7 +4814,7 @@ define dso_local void @tcg_gen_gvec_subs(i32 noundef %0, i32 noundef %1, i32 nou
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_vec_sub8_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
-  %4 = tail call ptr @tcg_constant_i64(i64 noundef -9187201950435737472) #10
+  %4 = tail call ptr @tcg_constant_i64(i64 noundef -9187201950435737472) #11
   tail call fastcc void @gen_subv_mask(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4)
   ret void
 }
@@ -4834,13 +4834,13 @@ define internal void @gen_helper_gvec_subs8(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_subs8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_subs8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_vec_sub16_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
-  %4 = tail call ptr @tcg_constant_i64(i64 noundef -9223231297218904064) #10
+  %4 = tail call ptr @tcg_constant_i64(i64 noundef -9223231297218904064) #11
   tail call fastcc void @gen_subv_mask(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4)
   ret void
 }
@@ -4858,7 +4858,7 @@ define internal void @gen_helper_gvec_subs16(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_subs16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_subs16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -4877,7 +4877,7 @@ define internal void @gen_helper_gvec_subs32(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_subs32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_subs32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -4896,42 +4896,42 @@ define internal void @gen_helper_gvec_subs64(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_subs64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_subs64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @gen_subv_mask(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
-  %5 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  %6 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  %7 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  tail call void @tcg_gen_or_i64(ptr noundef %5, ptr noundef %1, ptr noundef %3) #10
-  tail call void @tcg_gen_andc_i64(ptr noundef %6, ptr noundef %2, ptr noundef %3) #10
-  tail call void @tcg_gen_eqv_i64(ptr noundef %7, ptr noundef %1, ptr noundef %2) #10
-  tail call void @tcg_gen_sub_i64(ptr noundef %0, ptr noundef %5, ptr noundef %6) #10
-  tail call void @tcg_gen_and_i64(ptr noundef %7, ptr noundef %7, ptr noundef %3) #10
-  tail call void @tcg_gen_xor_i64(ptr noundef %0, ptr noundef %0, ptr noundef %7) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %5) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %6) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %7) #10
+  %5 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  %6 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  %7 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  tail call void @tcg_gen_or_i64(ptr noundef %5, ptr noundef %1, ptr noundef %3) #11
+  tail call void @tcg_gen_andc_i64(ptr noundef %6, ptr noundef %2, ptr noundef %3) #11
+  tail call void @tcg_gen_eqv_i64(ptr noundef %7, ptr noundef %1, ptr noundef %2) #11
+  tail call void @tcg_gen_sub_i64(ptr noundef %0, ptr noundef %5, ptr noundef %6) #11
+  tail call void @tcg_gen_and_i64(ptr noundef %7, ptr noundef %7, ptr noundef %3) #11
+  tail call void @tcg_gen_xor_i64(ptr noundef %0, ptr noundef %0, ptr noundef %7) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %5) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %6) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %7) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_vec_sub8_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
-  %4 = tail call ptr @tcg_constant_i32(i32 noundef -2139062144) #10
-  %5 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  %6 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  %7 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  tail call void @tcg_gen_or_i32(ptr noundef %5, ptr noundef %1, ptr noundef %4) #10
-  tail call void @tcg_gen_andc_i32(ptr noundef %6, ptr noundef %2, ptr noundef %4) #10
-  tail call void @tcg_gen_eqv_i32(ptr noundef %7, ptr noundef %1, ptr noundef %2) #10
-  tail call void @tcg_gen_sub_i32(ptr noundef %0, ptr noundef %5, ptr noundef %6) #10
-  tail call void @tcg_gen_and_i32(ptr noundef %7, ptr noundef %7, ptr noundef %4) #10
-  tail call void @tcg_gen_xor_i32(ptr noundef %0, ptr noundef %0, ptr noundef %7) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %5) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %6) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %7) #10
+  %4 = tail call ptr @tcg_constant_i32(i32 noundef -2139062144) #11
+  %5 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  %6 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  %7 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  tail call void @tcg_gen_or_i32(ptr noundef %5, ptr noundef %1, ptr noundef %4) #11
+  tail call void @tcg_gen_andc_i32(ptr noundef %6, ptr noundef %2, ptr noundef %4) #11
+  tail call void @tcg_gen_eqv_i32(ptr noundef %7, ptr noundef %1, ptr noundef %2) #11
+  tail call void @tcg_gen_sub_i32(ptr noundef %0, ptr noundef %5, ptr noundef %6) #11
+  tail call void @tcg_gen_and_i32(ptr noundef %7, ptr noundef %7, ptr noundef %4) #11
+  tail call void @tcg_gen_xor_i32(ptr noundef %0, ptr noundef %0, ptr noundef %7) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %5) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %6) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %7) #11
   ret void
 }
 
@@ -4941,27 +4941,27 @@ declare void @tcg_gen_eqv_i32(ptr noundef, ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_vec_sub16_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
-  %4 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  %5 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  tail call void @tcg_gen_andi_i32(ptr noundef %4, ptr noundef %2, i32 noundef -65536) #10
-  tail call void @tcg_gen_sub_i32(ptr noundef %5, ptr noundef %1, ptr noundef %2) #10
-  tail call void @tcg_gen_sub_i32(ptr noundef %4, ptr noundef %1, ptr noundef %4) #10
-  tail call void @tcg_gen_deposit_i32(ptr noundef %0, ptr noundef %4, ptr noundef %5, i32 noundef 0, i32 noundef 16) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %4) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %5) #10
+  %4 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  %5 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  tail call void @tcg_gen_andi_i32(ptr noundef %4, ptr noundef %2, i32 noundef -65536) #11
+  tail call void @tcg_gen_sub_i32(ptr noundef %5, ptr noundef %1, ptr noundef %2) #11
+  tail call void @tcg_gen_sub_i32(ptr noundef %4, ptr noundef %1, ptr noundef %4) #11
+  tail call void @tcg_gen_deposit_i32(ptr noundef %0, ptr noundef %4, ptr noundef %5, i32 noundef 0, i32 noundef 16) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %4) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %5) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_vec_sub32_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
-  %4 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  %5 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  tail call void @tcg_gen_andi_i64(ptr noundef %4, ptr noundef %2, i64 noundef -4294967296) #10
-  tail call void @tcg_gen_sub_i64(ptr noundef %5, ptr noundef %1, ptr noundef %2) #10
-  tail call void @tcg_gen_sub_i64(ptr noundef %4, ptr noundef %1, ptr noundef %4) #10
-  tail call void @tcg_gen_deposit_i64(ptr noundef %0, ptr noundef %4, ptr noundef %5, i32 noundef 0, i32 noundef 32) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %4) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %5) #10
+  %4 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  %5 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  tail call void @tcg_gen_andi_i64(ptr noundef %4, ptr noundef %2, i64 noundef -4294967296) #11
+  tail call void @tcg_gen_sub_i64(ptr noundef %5, ptr noundef %1, ptr noundef %2) #11
+  tail call void @tcg_gen_sub_i64(ptr noundef %4, ptr noundef %1, ptr noundef %4) #11
+  tail call void @tcg_gen_deposit_i64(ptr noundef %0, ptr noundef %4, ptr noundef %5, i32 noundef 0, i32 noundef 32) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %4) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %5) #11
   ret void
 }
 
@@ -4988,7 +4988,7 @@ define internal void @gen_helper_gvec_sub8(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_sub8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_sub8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5005,7 +5005,7 @@ define internal void @gen_helper_gvec_sub16(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_sub16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_sub16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5022,7 +5022,7 @@ define internal void @gen_helper_gvec_sub32(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_sub32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_sub32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5039,7 +5039,7 @@ define internal void @gen_helper_gvec_sub64(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_sub64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_sub64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5068,7 +5068,7 @@ define internal void @gen_helper_gvec_mul8(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_mul8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_mul8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5085,7 +5085,7 @@ define internal void @gen_helper_gvec_mul16(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_mul16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_mul16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5104,7 +5104,7 @@ define internal void @gen_helper_gvec_mul32(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_mul32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_mul32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5123,7 +5123,7 @@ define internal void @gen_helper_gvec_mul64(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_mul64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_mul64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5150,7 +5150,7 @@ define internal void @gen_helper_gvec_muls8(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_muls8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_muls8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5167,7 +5167,7 @@ define internal void @gen_helper_gvec_muls16(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_muls16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_muls16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5184,7 +5184,7 @@ define internal void @gen_helper_gvec_muls32(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_muls32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_muls32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5201,13 +5201,13 @@ define internal void @gen_helper_gvec_muls64(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_muls64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_muls64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_gvec_muli(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
-  %7 = tail call ptr @tcg_constant_i64(i64 noundef %3) #10
+  %7 = tail call ptr @tcg_constant_i64(i64 noundef %3) #11
   %8 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %8)
   %9 = zext nneg i32 %0 to i64
@@ -5241,7 +5241,7 @@ define internal void @gen_helper_gvec_ssadd8(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ssadd8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ssadd8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5258,7 +5258,7 @@ define internal void @gen_helper_gvec_ssadd16(ptr noundef %0, ptr noundef %1, pt
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ssadd16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ssadd16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5275,7 +5275,7 @@ define internal void @gen_helper_gvec_ssadd32(ptr noundef %0, ptr noundef %1, pt
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ssadd32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ssadd32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5292,7 +5292,7 @@ define internal void @gen_helper_gvec_ssadd64(ptr noundef %0, ptr noundef %1, pt
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ssadd64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ssadd64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5321,7 +5321,7 @@ define internal void @gen_helper_gvec_sssub8(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_sssub8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_sssub8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5338,7 +5338,7 @@ define internal void @gen_helper_gvec_sssub16(ptr noundef %0, ptr noundef %1, pt
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_sssub16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_sssub16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5355,7 +5355,7 @@ define internal void @gen_helper_gvec_sssub32(ptr noundef %0, ptr noundef %1, pt
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_sssub32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_sssub32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5372,7 +5372,7 @@ define internal void @gen_helper_gvec_sssub64(ptr noundef %0, ptr noundef %1, pt
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_sssub64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_sssub64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5401,7 +5401,7 @@ define internal void @gen_helper_gvec_usadd8(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_usadd8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_usadd8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5418,15 +5418,15 @@ define internal void @gen_helper_gvec_usadd16(ptr noundef %0, ptr noundef %1, pt
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_usadd16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_usadd16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_gen_usadd_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
-  %4 = tail call ptr @tcg_constant_i32(i32 noundef -1) #10
-  tail call void @tcg_gen_add_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #10
-  tail call void @tcg_gen_movcond_i32(i32 noundef 10, ptr noundef %0, ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %0) #10
+  %4 = tail call ptr @tcg_constant_i32(i32 noundef -1) #11
+  tail call void @tcg_gen_add_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #11
+  tail call void @tcg_gen_movcond_i32(i32 noundef 10, ptr noundef %0, ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %0) #11
   ret void
 }
 
@@ -5443,15 +5443,15 @@ define internal void @gen_helper_gvec_usadd32(ptr noundef %0, ptr noundef %1, pt
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_usadd32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_usadd32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_gen_usadd_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
-  %4 = tail call ptr @tcg_constant_i64(i64 noundef -1) #10
-  tail call void @tcg_gen_add_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #10
-  tail call void @tcg_gen_movcond_i64(i32 noundef 10, ptr noundef %0, ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %0) #10
+  %4 = tail call ptr @tcg_constant_i64(i64 noundef -1) #11
+  tail call void @tcg_gen_add_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #11
+  tail call void @tcg_gen_movcond_i64(i32 noundef 10, ptr noundef %0, ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %0) #11
   ret void
 }
 
@@ -5468,7 +5468,7 @@ define internal void @gen_helper_gvec_usadd64(ptr noundef %0, ptr noundef %1, pt
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_usadd64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_usadd64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5497,7 +5497,7 @@ define internal void @gen_helper_gvec_ussub8(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ussub8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ussub8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5514,15 +5514,15 @@ define internal void @gen_helper_gvec_ussub16(ptr noundef %0, ptr noundef %1, pt
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ussub16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ussub16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_gen_ussub_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
-  %4 = tail call ptr @tcg_constant_i32(i32 noundef 0) #10
-  tail call void @tcg_gen_sub_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #10
-  tail call void @tcg_gen_movcond_i32(i32 noundef 10, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef %0) #10
+  %4 = tail call ptr @tcg_constant_i32(i32 noundef 0) #11
+  tail call void @tcg_gen_sub_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #11
+  tail call void @tcg_gen_movcond_i32(i32 noundef 10, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef %0) #11
   ret void
 }
 
@@ -5539,15 +5539,15 @@ define internal void @gen_helper_gvec_ussub32(ptr noundef %0, ptr noundef %1, pt
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ussub32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ussub32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_gen_ussub_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
-  %4 = tail call ptr @tcg_constant_i64(i64 noundef 0) #10
-  tail call void @tcg_gen_sub_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #10
-  tail call void @tcg_gen_movcond_i64(i32 noundef 10, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef %0) #10
+  %4 = tail call ptr @tcg_constant_i64(i64 noundef 0) #11
+  tail call void @tcg_gen_sub_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #11
+  tail call void @tcg_gen_movcond_i64(i32 noundef 10, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef %0) #11
   ret void
 }
 
@@ -5564,7 +5564,7 @@ define internal void @gen_helper_gvec_ussub64(ptr noundef %0, ptr noundef %1, pt
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ussub64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ussub64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5593,7 +5593,7 @@ define internal void @gen_helper_gvec_smin8(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_smin8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_smin8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5610,7 +5610,7 @@ define internal void @gen_helper_gvec_smin16(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_smin16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_smin16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5629,7 +5629,7 @@ define internal void @gen_helper_gvec_smin32(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_smin32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_smin32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5648,7 +5648,7 @@ define internal void @gen_helper_gvec_smin64(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_smin64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_smin64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5677,7 +5677,7 @@ define internal void @gen_helper_gvec_umin8(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_umin8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_umin8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5694,7 +5694,7 @@ define internal void @gen_helper_gvec_umin16(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_umin16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_umin16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5713,7 +5713,7 @@ define internal void @gen_helper_gvec_umin32(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_umin32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_umin32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5732,7 +5732,7 @@ define internal void @gen_helper_gvec_umin64(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_umin64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_umin64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5761,7 +5761,7 @@ define internal void @gen_helper_gvec_smax8(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_smax8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_smax8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5778,7 +5778,7 @@ define internal void @gen_helper_gvec_smax16(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_smax16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_smax16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5797,7 +5797,7 @@ define internal void @gen_helper_gvec_smax32(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_smax32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_smax32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5816,7 +5816,7 @@ define internal void @gen_helper_gvec_smax64(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_smax64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_smax64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5845,7 +5845,7 @@ define internal void @gen_helper_gvec_umax8(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_umax8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_umax8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5862,7 +5862,7 @@ define internal void @gen_helper_gvec_umax16(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_umax16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_umax16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5881,7 +5881,7 @@ define internal void @gen_helper_gvec_umax32(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_umax32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_umax32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -5900,48 +5900,48 @@ define internal void @gen_helper_gvec_umax64(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_umax64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_umax64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_vec_neg8_i64(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = tail call ptr @tcg_constant_i64(i64 noundef -9187201950435737472) #10
-  %4 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  %5 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  tail call void @tcg_gen_andc_i64(ptr noundef %5, ptr noundef %3, ptr noundef %1) #10
-  tail call void @tcg_gen_andc_i64(ptr noundef %4, ptr noundef %1, ptr noundef %3) #10
-  tail call void @tcg_gen_sub_i64(ptr noundef %0, ptr noundef %3, ptr noundef %4) #10
-  tail call void @tcg_gen_xor_i64(ptr noundef %0, ptr noundef %0, ptr noundef %5) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %4) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %5) #10
+  %3 = tail call ptr @tcg_constant_i64(i64 noundef -9187201950435737472) #11
+  %4 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  %5 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  tail call void @tcg_gen_andc_i64(ptr noundef %5, ptr noundef %3, ptr noundef %1) #11
+  tail call void @tcg_gen_andc_i64(ptr noundef %4, ptr noundef %1, ptr noundef %3) #11
+  tail call void @tcg_gen_sub_i64(ptr noundef %0, ptr noundef %3, ptr noundef %4) #11
+  tail call void @tcg_gen_xor_i64(ptr noundef %0, ptr noundef %0, ptr noundef %5) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %4) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %5) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_vec_neg16_i64(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = tail call ptr @tcg_constant_i64(i64 noundef -9223231297218904064) #10
-  %4 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  %5 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  tail call void @tcg_gen_andc_i64(ptr noundef %5, ptr noundef %3, ptr noundef %1) #10
-  tail call void @tcg_gen_andc_i64(ptr noundef %4, ptr noundef %1, ptr noundef %3) #10
-  tail call void @tcg_gen_sub_i64(ptr noundef %0, ptr noundef %3, ptr noundef %4) #10
-  tail call void @tcg_gen_xor_i64(ptr noundef %0, ptr noundef %0, ptr noundef %5) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %4) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %5) #10
+  %3 = tail call ptr @tcg_constant_i64(i64 noundef -9223231297218904064) #11
+  %4 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  %5 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  tail call void @tcg_gen_andc_i64(ptr noundef %5, ptr noundef %3, ptr noundef %1) #11
+  tail call void @tcg_gen_andc_i64(ptr noundef %4, ptr noundef %1, ptr noundef %3) #11
+  tail call void @tcg_gen_sub_i64(ptr noundef %0, ptr noundef %3, ptr noundef %4) #11
+  tail call void @tcg_gen_xor_i64(ptr noundef %0, ptr noundef %0, ptr noundef %5) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %4) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %5) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_vec_neg32_i64(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  %4 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  tail call void @tcg_gen_andi_i64(ptr noundef %3, ptr noundef %1, i64 noundef -4294967296) #10
-  tail call void @tcg_gen_neg_i64(ptr noundef %4, ptr noundef %1) #10
-  tail call void @tcg_gen_neg_i64(ptr noundef %3, ptr noundef %3) #10
-  tail call void @tcg_gen_deposit_i64(ptr noundef %0, ptr noundef %3, ptr noundef %4, i32 noundef 0, i32 noundef 32) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %3) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %4) #10
+  %3 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  %4 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  tail call void @tcg_gen_andi_i64(ptr noundef %3, ptr noundef %1, i64 noundef -4294967296) #11
+  tail call void @tcg_gen_neg_i64(ptr noundef %4, ptr noundef %1) #11
+  tail call void @tcg_gen_neg_i64(ptr noundef %3, ptr noundef %3) #11
+  tail call void @tcg_gen_deposit_i64(ptr noundef %0, ptr noundef %3, ptr noundef %4, i32 noundef 0, i32 noundef 32) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %3) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %4) #11
   ret void
 }
 
@@ -5970,7 +5970,7 @@ define internal void @gen_helper_gvec_neg8(ptr noundef %0, ptr noundef %1, ptr n
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_neg8, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_neg8, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -5985,7 +5985,7 @@ define internal void @gen_helper_gvec_neg16(ptr noundef %0, ptr noundef %1, ptr 
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_neg16, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_neg16, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -6002,7 +6002,7 @@ define internal void @gen_helper_gvec_neg32(ptr noundef %0, ptr noundef %1, ptr 
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_neg32, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_neg32, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -6017,7 +6017,7 @@ define internal void @gen_helper_gvec_neg64(ptr noundef %0, ptr noundef %1, ptr 
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_neg64, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_neg64, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -6033,14 +6033,14 @@ define dso_local void @tcg_gen_gvec_abs(i32 noundef %0, i32 noundef %1, i32 noun
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_gen_vec_abs8_i64(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  tail call void @tcg_gen_shri_i64(ptr noundef %3, ptr noundef %1, i64 noundef 7) #10
-  tail call void @tcg_gen_andi_i64(ptr noundef %3, ptr noundef %3, i64 noundef 72340172838076673) #10
-  tail call void @tcg_gen_muli_i64(ptr noundef %3, ptr noundef %3, i64 noundef 255) #10
-  tail call void @tcg_gen_xor_i64(ptr noundef %0, ptr noundef %1, ptr noundef %3) #10
-  tail call void @tcg_gen_andi_i64(ptr noundef %3, ptr noundef %3, i64 noundef 72340172838076673) #10
-  tail call void @tcg_gen_add_i64(ptr noundef %0, ptr noundef %0, ptr noundef %3) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %3) #10
+  %3 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  tail call void @tcg_gen_shri_i64(ptr noundef %3, ptr noundef %1, i64 noundef 7) #11
+  tail call void @tcg_gen_andi_i64(ptr noundef %3, ptr noundef %3, i64 noundef 72340172838076673) #11
+  tail call void @tcg_gen_muli_i64(ptr noundef %3, ptr noundef %3, i64 noundef 255) #11
+  tail call void @tcg_gen_xor_i64(ptr noundef %0, ptr noundef %1, ptr noundef %3) #11
+  tail call void @tcg_gen_andi_i64(ptr noundef %3, ptr noundef %3, i64 noundef 72340172838076673) #11
+  tail call void @tcg_gen_add_i64(ptr noundef %0, ptr noundef %0, ptr noundef %3) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %3) #11
   ret void
 }
 
@@ -6057,20 +6057,20 @@ define internal void @gen_helper_gvec_abs8(ptr noundef %0, ptr noundef %1, ptr n
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_abs8, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_abs8, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_gen_vec_abs16_i64(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  tail call void @tcg_gen_shri_i64(ptr noundef %3, ptr noundef %1, i64 noundef 15) #10
-  tail call void @tcg_gen_andi_i64(ptr noundef %3, ptr noundef %3, i64 noundef 281479271743489) #10
-  tail call void @tcg_gen_muli_i64(ptr noundef %3, ptr noundef %3, i64 noundef 65535) #10
-  tail call void @tcg_gen_xor_i64(ptr noundef %0, ptr noundef %1, ptr noundef %3) #10
-  tail call void @tcg_gen_andi_i64(ptr noundef %3, ptr noundef %3, i64 noundef 281479271743489) #10
-  tail call void @tcg_gen_add_i64(ptr noundef %0, ptr noundef %0, ptr noundef %3) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %3) #10
+  %3 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  tail call void @tcg_gen_shri_i64(ptr noundef %3, ptr noundef %1, i64 noundef 15) #11
+  tail call void @tcg_gen_andi_i64(ptr noundef %3, ptr noundef %3, i64 noundef 281479271743489) #11
+  tail call void @tcg_gen_muli_i64(ptr noundef %3, ptr noundef %3, i64 noundef 65535) #11
+  tail call void @tcg_gen_xor_i64(ptr noundef %0, ptr noundef %1, ptr noundef %3) #11
+  tail call void @tcg_gen_andi_i64(ptr noundef %3, ptr noundef %3, i64 noundef 281479271743489) #11
+  tail call void @tcg_gen_add_i64(ptr noundef %0, ptr noundef %0, ptr noundef %3) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %3) #11
   ret void
 }
 
@@ -6085,7 +6085,7 @@ define internal void @gen_helper_gvec_abs16(ptr noundef %0, ptr noundef %1, ptr 
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_abs16, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_abs16, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -6102,7 +6102,7 @@ define internal void @gen_helper_gvec_abs32(ptr noundef %0, ptr noundef %1, ptr 
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_abs32, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_abs32, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -6119,7 +6119,7 @@ define internal void @gen_helper_gvec_abs64(ptr noundef %0, ptr noundef %1, ptr 
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_abs64, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_abs64, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -6181,7 +6181,7 @@ define internal void @gen_helper_gvec_and(ptr noundef %0, ptr noundef %1, ptr no
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_and, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_and, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -6243,7 +6243,7 @@ define internal void @gen_helper_gvec_or(ptr noundef %0, ptr noundef %1, ptr nou
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_or, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_or, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -6291,7 +6291,7 @@ define internal void @gen_helper_gvec_xor(ptr noundef %0, ptr noundef %1, ptr no
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_xor, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_xor, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -6339,7 +6339,7 @@ define internal void @gen_helper_gvec_andc(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_andc, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_andc, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -6387,7 +6387,7 @@ define internal void @gen_helper_gvec_orc(ptr noundef %0, ptr noundef %1, ptr no
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_orc, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_orc, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -6425,7 +6425,7 @@ define internal void @gen_helper_gvec_nand(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_nand, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_nand, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -6463,7 +6463,7 @@ define internal void @gen_helper_gvec_nor(ptr noundef %0, ptr noundef %1, ptr no
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_nor, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_nor, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -6511,16 +6511,16 @@ define internal void @gen_helper_gvec_eqv(ptr noundef %0, ptr noundef %1, ptr no
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_eqv, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_eqv, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_gvec_ands(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
-  %7 = tail call ptr @tcg_temp_ebb_new_i64() #10
+  %7 = tail call ptr @tcg_temp_ebb_new_i64() #11
   tail call void @tcg_gen_dup_i64(i32 noundef %0, ptr noundef %7, ptr noundef %3)
   tail call void @tcg_gen_gvec_2s(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef %7, ptr noundef nonnull @gop_ands)
-  tail call void @tcg_temp_free_i64(ptr noundef %7) #10
+  tail call void @tcg_temp_free_i64(ptr noundef %7) #11
   ret void
 }
 
@@ -6549,22 +6549,22 @@ define dso_local void @tcg_gen_gvec_andi(i32 noundef %0, i32 noundef %1, i32 nou
   br label %dup_const.exit
 
 16:                                               ; preds = %6
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @__func__.dup_const, ptr noundef null) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @__func__.dup_const, ptr noundef null) #12
   unreachable
 
 dup_const.exit:                                   ; preds = %13, %10, %7, %6
   %17 = phi i64 [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %3, %6 ]
-  %18 = tail call ptr @tcg_constant_i64(i64 noundef %17) #10
+  %18 = tail call ptr @tcg_constant_i64(i64 noundef %17) #11
   tail call void @tcg_gen_gvec_2s(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef %18, ptr noundef nonnull @gop_ands)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_gvec_andcs(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
-  %7 = tail call ptr @tcg_temp_ebb_new_i64() #10
+  %7 = tail call ptr @tcg_temp_ebb_new_i64() #11
   tail call void @tcg_gen_dup_i64(i32 noundef %0, ptr noundef %7, ptr noundef %3)
   tail call void @tcg_gen_gvec_2s(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef %7, ptr noundef nonnull @tcg_gen_gvec_andcs.g)
-  tail call void @tcg_temp_free_i64(ptr noundef %7) #10
+  tail call void @tcg_temp_free_i64(ptr noundef %7) #11
   ret void
 }
 
@@ -6581,16 +6581,16 @@ define internal void @gen_helper_gvec_andcs(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_andcs, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_andcs, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_gvec_xors(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
-  %7 = tail call ptr @tcg_temp_ebb_new_i64() #10
+  %7 = tail call ptr @tcg_temp_ebb_new_i64() #11
   tail call void @tcg_gen_dup_i64(i32 noundef %0, ptr noundef %7, ptr noundef %3)
   tail call void @tcg_gen_gvec_2s(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef %7, ptr noundef nonnull @gop_xors)
-  tail call void @tcg_temp_free_i64(ptr noundef %7) #10
+  tail call void @tcg_temp_free_i64(ptr noundef %7) #11
   ret void
 }
 
@@ -6619,22 +6619,22 @@ define dso_local void @tcg_gen_gvec_xori(i32 noundef %0, i32 noundef %1, i32 nou
   br label %dup_const.exit
 
 16:                                               ; preds = %6
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @__func__.dup_const, ptr noundef null) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @__func__.dup_const, ptr noundef null) #12
   unreachable
 
 dup_const.exit:                                   ; preds = %13, %10, %7, %6
   %17 = phi i64 [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %3, %6 ]
-  %18 = tail call ptr @tcg_constant_i64(i64 noundef %17) #10
+  %18 = tail call ptr @tcg_constant_i64(i64 noundef %17) #11
   tail call void @tcg_gen_gvec_2s(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef %18, ptr noundef nonnull @gop_xors)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_gvec_ors(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
-  %7 = tail call ptr @tcg_temp_ebb_new_i64() #10
+  %7 = tail call ptr @tcg_temp_ebb_new_i64() #11
   tail call void @tcg_gen_dup_i64(i32 noundef %0, ptr noundef %7, ptr noundef %3)
   tail call void @tcg_gen_gvec_2s(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef %7, ptr noundef nonnull @gop_ors)
-  tail call void @tcg_temp_free_i64(ptr noundef %7) #10
+  tail call void @tcg_temp_free_i64(ptr noundef %7) #11
   ret void
 }
 
@@ -6663,12 +6663,12 @@ define dso_local void @tcg_gen_gvec_ori(i32 noundef %0, i32 noundef %1, i32 noun
   br label %dup_const.exit
 
 16:                                               ; preds = %6
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @__func__.dup_const, ptr noundef null) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @__func__.dup_const, ptr noundef null) #12
   unreachable
 
 dup_const.exit:                                   ; preds = %13, %10, %7, %6
   %17 = phi i64 [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %3, %6 ]
-  %18 = tail call ptr @tcg_constant_i64(i64 noundef %17) #10
+  %18 = tail call ptr @tcg_constant_i64(i64 noundef %17) #11
   tail call void @tcg_gen_gvec_2s(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef %18, ptr noundef nonnull @gop_ors)
   ret void
 }
@@ -6680,8 +6680,8 @@ define dso_local void @tcg_gen_vec_shl8i_i64(ptr noundef %0, ptr noundef %1, i64
   %6 = and i32 %5, 255
   %7 = zext nneg i32 %6 to i64
   %8 = mul nuw i64 %7, 72340172838076673
-  tail call void @tcg_gen_shli_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #10
-  tail call void @tcg_gen_andi_i64(ptr noundef %0, ptr noundef %0, i64 noundef %8) #10
+  tail call void @tcg_gen_shli_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #11
+  tail call void @tcg_gen_andi_i64(ptr noundef %0, ptr noundef %0, i64 noundef %8) #11
   ret void
 }
 
@@ -6694,8 +6694,8 @@ define dso_local void @tcg_gen_vec_shl16i_i64(ptr noundef %0, ptr noundef %1, i6
   %6 = and i32 %5, 65535
   %7 = zext nneg i32 %6 to i64
   %8 = mul nuw i64 %7, 281479271743489
-  tail call void @tcg_gen_shli_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #10
-  tail call void @tcg_gen_andi_i64(ptr noundef %0, ptr noundef %0, i64 noundef %8) #10
+  tail call void @tcg_gen_shli_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #11
+  tail call void @tcg_gen_andi_i64(ptr noundef %0, ptr noundef %0, i64 noundef %8) #11
   ret void
 }
 
@@ -6704,8 +6704,8 @@ define dso_local void @tcg_gen_vec_shl8i_i32(ptr noundef %0, ptr noundef %1, i32
   %4 = shl i32 255, %2
   %5 = and i32 %4, 255
   %6 = mul nuw i32 %5, 16843009
-  tail call void @tcg_gen_shli_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) #10
-  tail call void @tcg_gen_andi_i32(ptr noundef %0, ptr noundef %0, i32 noundef %6) #10
+  tail call void @tcg_gen_shli_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) #11
+  tail call void @tcg_gen_andi_i32(ptr noundef %0, ptr noundef %0, i32 noundef %6) #11
   ret void
 }
 
@@ -6716,8 +6716,8 @@ define dso_local void @tcg_gen_vec_shl16i_i32(ptr noundef %0, ptr noundef %1, i3
   %4 = shl i32 65535, %2
   %5 = and i32 %4, 65535
   %6 = mul nuw i32 %5, 65537
-  tail call void @tcg_gen_shli_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) #10
-  tail call void @tcg_gen_andi_i32(ptr noundef %0, ptr noundef %0, i32 noundef %6) #10
+  tail call void @tcg_gen_shli_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) #11
+  tail call void @tcg_gen_andi_i32(ptr noundef %0, ptr noundef %0, i32 noundef %6) #11
   ret void
 }
 
@@ -6785,7 +6785,7 @@ define internal void @gen_helper_gvec_shl8i(ptr noundef %0, ptr noundef %1, ptr 
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_shl8i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_shl8i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -6800,7 +6800,7 @@ define internal void @gen_helper_gvec_shl16i(ptr noundef %0, ptr noundef %1, ptr
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_shl16i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_shl16i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -6815,7 +6815,7 @@ define internal void @gen_helper_gvec_shl32i(ptr noundef %0, ptr noundef %1, ptr
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_shl32i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_shl32i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -6830,7 +6830,7 @@ define internal void @gen_helper_gvec_shl64i(ptr noundef %0, ptr noundef %1, ptr
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_shl64i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_shl64i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -6840,8 +6840,8 @@ define dso_local void @tcg_gen_vec_shr8i_i64(ptr noundef %0, ptr noundef %1, i64
   %5 = lshr i32 255, %4
   %6 = zext nneg i32 %5 to i64
   %7 = mul nuw i64 %6, 72340172838076673
-  tail call void @tcg_gen_shri_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #10
-  tail call void @tcg_gen_andi_i64(ptr noundef %0, ptr noundef %0, i64 noundef %7) #10
+  tail call void @tcg_gen_shri_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #11
+  tail call void @tcg_gen_andi_i64(ptr noundef %0, ptr noundef %0, i64 noundef %7) #11
   ret void
 }
 
@@ -6853,8 +6853,8 @@ define dso_local void @tcg_gen_vec_shr16i_i64(ptr noundef %0, ptr noundef %1, i6
   %5 = lshr i32 65535, %4
   %6 = zext nneg i32 %5 to i64
   %7 = mul nuw i64 %6, 281479271743489
-  tail call void @tcg_gen_shri_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #10
-  tail call void @tcg_gen_andi_i64(ptr noundef %0, ptr noundef %0, i64 noundef %7) #10
+  tail call void @tcg_gen_shri_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #11
+  tail call void @tcg_gen_andi_i64(ptr noundef %0, ptr noundef %0, i64 noundef %7) #11
   ret void
 }
 
@@ -6862,8 +6862,8 @@ define dso_local void @tcg_gen_vec_shr16i_i64(ptr noundef %0, ptr noundef %1, i6
 define dso_local void @tcg_gen_vec_shr8i_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = lshr i32 255, %2
   %5 = mul nuw i32 %4, 16843009
-  tail call void @tcg_gen_shri_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) #10
-  tail call void @tcg_gen_andi_i32(ptr noundef %0, ptr noundef %0, i32 noundef %5) #10
+  tail call void @tcg_gen_shri_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) #11
+  tail call void @tcg_gen_andi_i32(ptr noundef %0, ptr noundef %0, i32 noundef %5) #11
   ret void
 }
 
@@ -6873,8 +6873,8 @@ declare void @tcg_gen_shri_i32(ptr noundef, ptr noundef, i32 noundef) #2
 define dso_local void @tcg_gen_vec_shr16i_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = lshr i32 65535, %2
   %5 = mul nuw i32 %4, 65537
-  tail call void @tcg_gen_shri_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) #10
-  tail call void @tcg_gen_andi_i32(ptr noundef %0, ptr noundef %0, i32 noundef %5) #10
+  tail call void @tcg_gen_shri_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) #11
+  tail call void @tcg_gen_andi_i32(ptr noundef %0, ptr noundef %0, i32 noundef %5) #11
   ret void
 }
 
@@ -6942,7 +6942,7 @@ define internal void @gen_helper_gvec_shr8i(ptr noundef %0, ptr noundef %1, ptr 
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_shr8i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_shr8i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -6957,7 +6957,7 @@ define internal void @gen_helper_gvec_shr16i(ptr noundef %0, ptr noundef %1, ptr
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_shr16i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_shr16i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -6972,7 +6972,7 @@ define internal void @gen_helper_gvec_shr32i(ptr noundef %0, ptr noundef %1, ptr
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_shr32i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_shr32i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -6987,7 +6987,7 @@ define internal void @gen_helper_gvec_shr64i(ptr noundef %0, ptr noundef %1, ptr
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_shr64i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_shr64i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -7000,16 +7000,16 @@ define dso_local void @tcg_gen_vec_sar8i_i64(ptr noundef %0, ptr noundef %1, i64
   %8 = lshr i32 255, %4
   %9 = zext nneg i32 %8 to i64
   %10 = mul nuw i64 %9, 72340172838076673
-  %11 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  tail call void @tcg_gen_shri_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #10
-  tail call void @tcg_gen_andi_i64(ptr noundef %11, ptr noundef %0, i64 noundef %7) #10
+  %11 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  tail call void @tcg_gen_shri_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #11
+  tail call void @tcg_gen_andi_i64(ptr noundef %11, ptr noundef %0, i64 noundef %7) #11
   %12 = shl i32 2, %4
   %13 = add i32 %12, -2
   %14 = sext i32 %13 to i64
-  tail call void @tcg_gen_muli_i64(ptr noundef %11, ptr noundef %11, i64 noundef %14) #10
-  tail call void @tcg_gen_andi_i64(ptr noundef %0, ptr noundef %0, i64 noundef %10) #10
-  tail call void @tcg_gen_or_i64(ptr noundef %0, ptr noundef %0, ptr noundef %11) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %11) #10
+  tail call void @tcg_gen_muli_i64(ptr noundef %11, ptr noundef %11, i64 noundef %14) #11
+  tail call void @tcg_gen_andi_i64(ptr noundef %0, ptr noundef %0, i64 noundef %10) #11
+  tail call void @tcg_gen_or_i64(ptr noundef %0, ptr noundef %0, ptr noundef %11) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %11) #11
   ret void
 }
 
@@ -7022,16 +7022,16 @@ define dso_local void @tcg_gen_vec_sar16i_i64(ptr noundef %0, ptr noundef %1, i6
   %8 = lshr i32 65535, %4
   %9 = zext nneg i32 %8 to i64
   %10 = mul nuw i64 %9, 281479271743489
-  %11 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  tail call void @tcg_gen_shri_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #10
-  tail call void @tcg_gen_andi_i64(ptr noundef %11, ptr noundef %0, i64 noundef %7) #10
-  tail call void @tcg_gen_andi_i64(ptr noundef %0, ptr noundef %0, i64 noundef %10) #10
+  %11 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  tail call void @tcg_gen_shri_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #11
+  tail call void @tcg_gen_andi_i64(ptr noundef %11, ptr noundef %0, i64 noundef %7) #11
+  tail call void @tcg_gen_andi_i64(ptr noundef %0, ptr noundef %0, i64 noundef %10) #11
   %12 = shl i32 2, %4
   %13 = add i32 %12, -2
   %14 = sext i32 %13 to i64
-  tail call void @tcg_gen_muli_i64(ptr noundef %11, ptr noundef %11, i64 noundef %14) #10
-  tail call void @tcg_gen_or_i64(ptr noundef %0, ptr noundef %0, ptr noundef %11) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %11) #10
+  tail call void @tcg_gen_muli_i64(ptr noundef %11, ptr noundef %11, i64 noundef %14) #11
+  tail call void @tcg_gen_or_i64(ptr noundef %0, ptr noundef %0, ptr noundef %11) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %11) #11
   ret void
 }
 
@@ -7041,15 +7041,15 @@ define dso_local void @tcg_gen_vec_sar8i_i32(ptr noundef %0, ptr noundef %1, i32
   %5 = mul nuw i32 %4, 16843009
   %6 = lshr i32 255, %2
   %7 = mul nuw i32 %6, 16843009
-  %8 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  tail call void @tcg_gen_shri_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) #10
-  tail call void @tcg_gen_andi_i32(ptr noundef %8, ptr noundef %0, i32 noundef %5) #10
+  %8 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  tail call void @tcg_gen_shri_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) #11
+  tail call void @tcg_gen_andi_i32(ptr noundef %8, ptr noundef %0, i32 noundef %5) #11
   %9 = shl i32 2, %2
   %10 = add i32 %9, -2
-  tail call void @tcg_gen_muli_i32(ptr noundef %8, ptr noundef %8, i32 noundef %10) #10
-  tail call void @tcg_gen_andi_i32(ptr noundef %0, ptr noundef %0, i32 noundef %7) #10
-  tail call void @tcg_gen_or_i32(ptr noundef %0, ptr noundef %0, ptr noundef %8) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %8) #10
+  tail call void @tcg_gen_muli_i32(ptr noundef %8, ptr noundef %8, i32 noundef %10) #11
+  tail call void @tcg_gen_andi_i32(ptr noundef %0, ptr noundef %0, i32 noundef %7) #11
+  tail call void @tcg_gen_or_i32(ptr noundef %0, ptr noundef %0, ptr noundef %8) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %8) #11
   ret void
 }
 
@@ -7059,15 +7059,15 @@ define dso_local void @tcg_gen_vec_sar16i_i32(ptr noundef %0, ptr noundef %1, i3
   %5 = mul nuw i32 %4, 65537
   %6 = lshr i32 65535, %2
   %7 = mul nuw i32 %6, 65537
-  %8 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  tail call void @tcg_gen_shri_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) #10
-  tail call void @tcg_gen_andi_i32(ptr noundef %8, ptr noundef %0, i32 noundef %5) #10
-  tail call void @tcg_gen_andi_i32(ptr noundef %0, ptr noundef %0, i32 noundef %7) #10
+  %8 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  tail call void @tcg_gen_shri_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) #11
+  tail call void @tcg_gen_andi_i32(ptr noundef %8, ptr noundef %0, i32 noundef %5) #11
+  tail call void @tcg_gen_andi_i32(ptr noundef %0, ptr noundef %0, i32 noundef %7) #11
   %9 = shl i32 2, %2
   %10 = add i32 %9, -2
-  tail call void @tcg_gen_muli_i32(ptr noundef %8, ptr noundef %8, i32 noundef %10) #10
-  tail call void @tcg_gen_or_i32(ptr noundef %0, ptr noundef %0, ptr noundef %8) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %8) #10
+  tail call void @tcg_gen_muli_i32(ptr noundef %8, ptr noundef %8, i32 noundef %10) #11
+  tail call void @tcg_gen_or_i32(ptr noundef %0, ptr noundef %0, ptr noundef %8) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %8) #11
   ret void
 }
 
@@ -7135,7 +7135,7 @@ define internal void @gen_helper_gvec_sar8i(ptr noundef %0, ptr noundef %1, ptr 
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_sar8i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_sar8i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -7150,7 +7150,7 @@ define internal void @gen_helper_gvec_sar16i(ptr noundef %0, ptr noundef %1, ptr
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_sar16i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_sar16i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -7167,7 +7167,7 @@ define internal void @gen_helper_gvec_sar32i(ptr noundef %0, ptr noundef %1, ptr
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_sar32i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_sar32i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -7184,7 +7184,7 @@ define internal void @gen_helper_gvec_sar64i(ptr noundef %0, ptr noundef %1, ptr
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_sar64i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_sar64i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -7195,13 +7195,13 @@ define dso_local void @tcg_gen_vec_rotl8i_i64(ptr noundef %0, ptr noundef %1, i6
   %6 = and i32 %5, 255
   %7 = zext nneg i32 %6 to i64
   %8 = mul nuw i64 %7, 72340172838076673
-  tail call void @tcg_gen_shli_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #10
+  tail call void @tcg_gen_shli_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #11
   %9 = sub i64 8, %2
-  tail call void @tcg_gen_shri_i64(ptr noundef %1, ptr noundef %1, i64 noundef %9) #10
-  tail call void @tcg_gen_andi_i64(ptr noundef %0, ptr noundef %0, i64 noundef %8) #10
+  tail call void @tcg_gen_shri_i64(ptr noundef %1, ptr noundef %1, i64 noundef %9) #11
+  tail call void @tcg_gen_andi_i64(ptr noundef %0, ptr noundef %0, i64 noundef %8) #11
   %10 = xor i64 %8, -1
-  tail call void @tcg_gen_andi_i64(ptr noundef %1, ptr noundef %1, i64 noundef %10) #10
-  tail call void @tcg_gen_or_i64(ptr noundef %0, ptr noundef %0, ptr noundef %1) #10
+  tail call void @tcg_gen_andi_i64(ptr noundef %1, ptr noundef %1, i64 noundef %10) #11
+  tail call void @tcg_gen_or_i64(ptr noundef %0, ptr noundef %0, ptr noundef %1) #11
   ret void
 }
 
@@ -7212,13 +7212,13 @@ define dso_local void @tcg_gen_vec_rotl16i_i64(ptr noundef %0, ptr noundef %1, i
   %6 = and i32 %5, 65535
   %7 = zext nneg i32 %6 to i64
   %8 = mul nuw i64 %7, 281479271743489
-  tail call void @tcg_gen_shli_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #10
+  tail call void @tcg_gen_shli_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #11
   %9 = sub i64 16, %2
-  tail call void @tcg_gen_shri_i64(ptr noundef %1, ptr noundef %1, i64 noundef %9) #10
-  tail call void @tcg_gen_andi_i64(ptr noundef %0, ptr noundef %0, i64 noundef %8) #10
+  tail call void @tcg_gen_shri_i64(ptr noundef %1, ptr noundef %1, i64 noundef %9) #11
+  tail call void @tcg_gen_andi_i64(ptr noundef %0, ptr noundef %0, i64 noundef %8) #11
   %10 = xor i64 %8, -1
-  tail call void @tcg_gen_andi_i64(ptr noundef %1, ptr noundef %1, i64 noundef %10) #10
-  tail call void @tcg_gen_or_i64(ptr noundef %0, ptr noundef %0, ptr noundef %1) #10
+  tail call void @tcg_gen_andi_i64(ptr noundef %1, ptr noundef %1, i64 noundef %10) #11
+  tail call void @tcg_gen_or_i64(ptr noundef %0, ptr noundef %0, ptr noundef %1) #11
   ret void
 }
 
@@ -7286,7 +7286,7 @@ define internal void @gen_helper_gvec_rotl8i(ptr noundef %0, ptr noundef %1, ptr
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_rotl8i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_rotl8i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -7301,7 +7301,7 @@ define internal void @gen_helper_gvec_rotl16i(ptr noundef %0, ptr noundef %1, pt
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_rotl16i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_rotl16i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -7318,7 +7318,7 @@ define internal void @gen_helper_gvec_rotl32i(ptr noundef %0, ptr noundef %1, pt
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_rotl32i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_rotl32i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -7335,7 +7335,7 @@ define internal void @gen_helper_gvec_rotl64i(ptr noundef %0, ptr noundef %1, pt
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_rotl64i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_rotl64i, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -7458,18 +7458,18 @@ check_overlap_2.exit:                             ; preds = %check_size_align.ex
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv = phi i64 [ 0, %.lr.ph.i.preheader ], [ %indvars.iv.next, %.lr.ph.i ]
-  %25 = tail call ptr @tcg_temp_new_vec(i32 noundef 5) #10
-  %26 = tail call ptr @tcg_temp_new_vec(i32 noundef 5) #10
+  %25 = tail call ptr @tcg_temp_new_vec(i32 noundef 5) #11
+  %26 = tail call ptr @tcg_temp_new_vec(i32 noundef 5) #11
   %27 = load ptr, ptr @tcg_env, align 8
   %28 = trunc nuw i64 %indvars.iv to i32
   %29 = add i32 %2, %28
   %30 = zext i32 %29 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %25, ptr noundef %27, i64 noundef %30) #10
-  tail call void %23(i32 noundef range(i32 0, 4) %0, ptr noundef %26, ptr noundef %25, ptr noundef %3) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %25, ptr noundef %27, i64 noundef %30) #11
+  tail call void %23(i32 noundef range(i32 0, 4) %0, ptr noundef %26, ptr noundef %25, ptr noundef %3) #11
   %31 = load ptr, ptr @tcg_env, align 8
   %32 = add i32 %1, %28
   %33 = zext i32 %32 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %26, ptr noundef %31, i64 noundef %33) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %26, ptr noundef %31, i64 noundef %33) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
   %34 = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %34, label %.lr.ph.i, label %expand_2sh_vec.exit, !llvm.loop !42
@@ -7497,17 +7497,17 @@ expand_2sh_vec.exit:                              ; preds = %.lr.ph.i, %20
 
 .lr.ph.i157:                                      ; preds = %41, %.lr.ph.i157
   %.016.i158 = phi i32 [ %52, %.lr.ph.i157 ], [ 0, %41 ]
-  %44 = tail call ptr @tcg_temp_new_vec(i32 noundef 4) #10
-  %45 = tail call ptr @tcg_temp_new_vec(i32 noundef 4) #10
+  %44 = tail call ptr @tcg_temp_new_vec(i32 noundef 4) #11
+  %45 = tail call ptr @tcg_temp_new_vec(i32 noundef 4) #11
   %46 = load ptr, ptr @tcg_env, align 8
   %47 = add i32 %.016.i158, %.0133
   %48 = zext i32 %47 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %44, ptr noundef %46, i64 noundef %48) #10
-  tail call void %43(i32 noundef range(i32 0, 4) %0, ptr noundef %45, ptr noundef %44, ptr noundef %3) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %44, ptr noundef %46, i64 noundef %48) #11
+  tail call void %43(i32 noundef range(i32 0, 4) %0, ptr noundef %45, ptr noundef %44, ptr noundef %3) #11
   %49 = load ptr, ptr @tcg_env, align 8
   %50 = add i32 %.016.i158, %.0
   %51 = zext i32 %50 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %45, ptr noundef %49, i64 noundef %51) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %45, ptr noundef %49, i64 noundef %51) #11
   %52 = add i32 %.016.i158, 16
   %53 = icmp ult i32 %52, %.0135
   br i1 %53, label %.lr.ph.i157, label %expand_2sh_vec.exit159, !llvm.loop !42
@@ -7520,23 +7520,23 @@ expand_2sh_vec.exit:                              ; preds = %.lr.ph.i, %20
 
 .lr.ph.i161:                                      ; preds = %54, %.lr.ph.i161
   %.016.i162 = phi i32 [ %65, %.lr.ph.i161 ], [ 0, %54 ]
-  %57 = tail call ptr @tcg_temp_new_vec(i32 noundef 3) #10
-  %58 = tail call ptr @tcg_temp_new_vec(i32 noundef 3) #10
+  %57 = tail call ptr @tcg_temp_new_vec(i32 noundef 3) #11
+  %58 = tail call ptr @tcg_temp_new_vec(i32 noundef 3) #11
   %59 = load ptr, ptr @tcg_env, align 8
   %60 = add i32 %.016.i162, %2
   %61 = zext i32 %60 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %57, ptr noundef %59, i64 noundef %61) #10
-  tail call void %56(i32 noundef range(i32 0, 4) %0, ptr noundef %58, ptr noundef %57, ptr noundef %3) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %57, ptr noundef %59, i64 noundef %61) #11
+  tail call void %56(i32 noundef range(i32 0, 4) %0, ptr noundef %58, ptr noundef %57, ptr noundef %3) #11
   %62 = load ptr, ptr @tcg_env, align 8
   %63 = add i32 %.016.i162, %1
   %64 = zext i32 %63 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %58, ptr noundef %62, i64 noundef %64) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %58, ptr noundef %62, i64 noundef %64) #11
   %65 = add i32 %.016.i162, 8
   %66 = icmp ult i32 %65, %4
   br i1 %66, label %.lr.ph.i161, label %expand_2sh_vec.exit159, !llvm.loop !42
 
 67:                                               ; preds = %check_overlap_2.exit
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 3180, ptr noundef nonnull @__func__.do_gvec_shifts, ptr noundef null) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 3180, ptr noundef nonnull @__func__.do_gvec_shifts, ptr noundef null) #12
   unreachable
 
 68:                                               ; preds = %check_overlap_2.exit
@@ -7546,18 +7546,18 @@ expand_2sh_vec.exit:                              ; preds = %.lr.ph.i, %20
   br i1 %.not154, label %125, label %71
 
 71:                                               ; preds = %68
-  %72 = tail call ptr @tcg_temp_new_vec(i32 noundef %70) #10
+  %72 = tail call ptr @tcg_temp_new_vec(i32 noundef %70) #11
   br i1 %18, label %73, label %75
 
 73:                                               ; preds = %71
-  %74 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %74, ptr noundef %3) #10
-  tail call void @tcg_gen_dup_i64_vec(i32 noundef 3, ptr noundef %72, ptr noundef %74) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %74) #10
+  %74 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %74, ptr noundef %3) #11
+  tail call void @tcg_gen_dup_i64_vec(i32 noundef 3, ptr noundef %72, ptr noundef %74) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %74) #11
   br label %76
 
 75:                                               ; preds = %71
-  tail call void @tcg_gen_dup_i32_vec(i32 noundef %0, ptr noundef %72, ptr noundef %3) #10
+  tail call void @tcg_gen_dup_i32_vec(i32 noundef %0, ptr noundef %72, ptr noundef %3) #11
   br label %76
 
 76:                                               ; preds = %75, %73
@@ -7580,18 +7580,18 @@ expand_2sh_vec.exit:                              ; preds = %.lr.ph.i, %20
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %.lr.ph.split.i
   %indvars.iv195 = phi i64 [ 0, %.lr.ph.split.i.preheader ], [ %indvars.iv.next196, %.lr.ph.split.i ]
-  %82 = tail call ptr @tcg_temp_new_vec(i32 noundef 5) #10
-  %83 = tail call ptr @tcg_temp_new_vec(i32 noundef 5) #10
+  %82 = tail call ptr @tcg_temp_new_vec(i32 noundef 5) #11
+  %83 = tail call ptr @tcg_temp_new_vec(i32 noundef 5) #11
   %84 = load ptr, ptr @tcg_env, align 8
   %85 = trunc nuw i64 %indvars.iv195 to i32
   %86 = add i32 %2, %85
   %87 = zext i32 %86 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %82, ptr noundef %84, i64 noundef %87) #10
-  tail call void %80(i32 noundef range(i32 0, 256) %0, ptr noundef %83, ptr noundef %82, ptr noundef %72) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %82, ptr noundef %84, i64 noundef %87) #11
+  tail call void %80(i32 noundef range(i32 0, 256) %0, ptr noundef %83, ptr noundef %82, ptr noundef %72) #11
   %88 = load ptr, ptr @tcg_env, align 8
   %89 = add i32 %1, %85
   %90 = zext i32 %89 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %83, ptr noundef %88, i64 noundef %90) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %83, ptr noundef %88, i64 noundef %90) #11
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 32
   %91 = icmp samesign ult i64 %indvars.iv.next196, %81
   br i1 %91, label %.lr.ph.split.i, label %expand_2s_vec.exit, !llvm.loop !13
@@ -7619,17 +7619,17 @@ expand_2s_vec.exit:                               ; preds = %.lr.ph.split.i, %77
 
 .lr.ph.split.i168:                                ; preds = %98, %.lr.ph.split.i168
   %.022.i169 = phi i32 [ %109, %.lr.ph.split.i168 ], [ 0, %98 ]
-  %101 = tail call ptr @tcg_temp_new_vec(i32 noundef 4) #10
-  %102 = tail call ptr @tcg_temp_new_vec(i32 noundef 4) #10
+  %101 = tail call ptr @tcg_temp_new_vec(i32 noundef 4) #11
+  %102 = tail call ptr @tcg_temp_new_vec(i32 noundef 4) #11
   %103 = load ptr, ptr @tcg_env, align 8
   %104 = add i32 %.022.i169, %.1134
   %105 = zext i32 %104 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %101, ptr noundef %103, i64 noundef %105) #10
-  tail call void %100(i32 noundef range(i32 0, 256) %0, ptr noundef %102, ptr noundef %101, ptr noundef %72) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %101, ptr noundef %103, i64 noundef %105) #11
+  tail call void %100(i32 noundef range(i32 0, 256) %0, ptr noundef %102, ptr noundef %101, ptr noundef %72) #11
   %106 = load ptr, ptr @tcg_env, align 8
   %107 = add i32 %.022.i169, %.3
   %108 = zext i32 %107 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %102, ptr noundef %106, i64 noundef %108) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %102, ptr noundef %106, i64 noundef %108) #11
   %109 = add i32 %.022.i169, 16
   %110 = icmp ult i32 %109, %.3138
   br i1 %110, label %.lr.ph.split.i168, label %expand_2s_vec.exit170, !llvm.loop !13
@@ -7642,30 +7642,30 @@ expand_2s_vec.exit:                               ; preds = %.lr.ph.split.i, %77
 
 .lr.ph.split.i173:                                ; preds = %111, %.lr.ph.split.i173
   %.022.i174 = phi i32 [ %122, %.lr.ph.split.i173 ], [ 0, %111 ]
-  %114 = tail call ptr @tcg_temp_new_vec(i32 noundef 3) #10
-  %115 = tail call ptr @tcg_temp_new_vec(i32 noundef 3) #10
+  %114 = tail call ptr @tcg_temp_new_vec(i32 noundef 3) #11
+  %115 = tail call ptr @tcg_temp_new_vec(i32 noundef 3) #11
   %116 = load ptr, ptr @tcg_env, align 8
   %117 = add i32 %.022.i174, %2
   %118 = zext i32 %117 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %114, ptr noundef %116, i64 noundef %118) #10
-  tail call void %113(i32 noundef range(i32 0, 256) %0, ptr noundef %115, ptr noundef %114, ptr noundef %72) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %114, ptr noundef %116, i64 noundef %118) #11
+  tail call void %113(i32 noundef range(i32 0, 256) %0, ptr noundef %115, ptr noundef %114, ptr noundef %72) #11
   %119 = load ptr, ptr @tcg_env, align 8
   %120 = add i32 %.022.i174, %1
   %121 = zext i32 %120 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %115, ptr noundef %119, i64 noundef %121) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %115, ptr noundef %119, i64 noundef %121) #11
   %122 = add i32 %.022.i174, 8
   %123 = icmp ult i32 %122, %4
   br i1 %123, label %.lr.ph.split.i173, label %expand_2s_vec.exit170, !llvm.loop !13
 
 124:                                              ; preds = %76
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 3223, ptr noundef nonnull @__func__.do_gvec_shifts, ptr noundef null) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 3223, ptr noundef nonnull @__func__.do_gvec_shifts, ptr noundef null) #12
   unreachable
 
 expand_2s_vec.exit170:                            ; preds = %.lr.ph.split.i173, %.lr.ph.split.i168, %111, %98, %expand_2s_vec.exit
   %.4144 = phi i32 [ %5, %expand_2s_vec.exit ], [ %.3143, %98 ], [ %5, %111 ], [ %.3143, %.lr.ph.split.i168 ], [ %5, %.lr.ph.split.i173 ]
   %.4139 = phi i32 [ %4, %expand_2s_vec.exit ], [ 0, %98 ], [ 0, %111 ], [ %.3138, %.lr.ph.split.i168 ], [ %4, %.lr.ph.split.i173 ]
   %.4 = phi i32 [ %1, %expand_2s_vec.exit ], [ %.3, %98 ], [ %1, %111 ], [ %.3, %.lr.ph.split.i168 ], [ %1, %.lr.ph.split.i173 ]
-  tail call void @tcg_temp_free_vec(ptr noundef %72) #10
+  tail call void @tcg_temp_free_vec(ptr noundef %72) #11
   br label %expand_2sh_vec.exit159
 
 125:                                              ; preds = %68
@@ -7685,8 +7685,8 @@ check_size_impl.exit:                             ; preds = %127
 
 .lr.ph.i178:                                      ; preds = %check_size_impl.exit
   %132 = load ptr, ptr %6, align 8
-  %133 = tail call ptr @tcg_temp_new_i32() #10
-  %134 = tail call ptr @tcg_temp_new_i32() #10
+  %133 = tail call ptr @tcg_temp_new_i32() #11
+  %134 = tail call ptr @tcg_temp_new_i32() #11
   br label %.lr.ph.split.i179
 
 .lr.ph.split.i179:                                ; preds = %.lr.ph.split.i179, %.lr.ph.i178
@@ -7694,19 +7694,19 @@ check_size_impl.exit:                             ; preds = %127
   %135 = load ptr, ptr @tcg_env, align 8
   %136 = add i32 %.019.i, %2
   %137 = zext i32 %136 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %133, ptr noundef %135, i64 noundef %137) #10
-  tail call void %132(ptr noundef %134, ptr noundef %133, ptr noundef %3) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %133, ptr noundef %135, i64 noundef %137) #11
+  tail call void %132(ptr noundef %134, ptr noundef %133, ptr noundef %3) #11
   %138 = load ptr, ptr @tcg_env, align 8
   %139 = add i32 %.019.i, %1
   %140 = zext i32 %139 to i64
-  tail call void @tcg_gen_st_i32(ptr noundef %134, ptr noundef %138, i64 noundef %140) #10
+  tail call void @tcg_gen_st_i32(ptr noundef %134, ptr noundef %138, i64 noundef %140) #11
   %141 = add nuw nsw i32 %.019.i, 4
   %142 = icmp samesign ult i32 %141, %4
   br i1 %142, label %.lr.ph.split.i179, label %expand_2s_i32.exit, !llvm.loop !15
 
 expand_2s_i32.exit:                               ; preds = %.lr.ph.split.i179
-  tail call void @tcg_temp_free_i32(ptr noundef %133) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %134) #10
+  tail call void @tcg_temp_free_i32(ptr noundef %133) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %134) #11
   br label %expand_2sh_vec.exit159
 
 143:                                              ; preds = %125
@@ -7722,12 +7722,12 @@ check_size_impl.exit182:                          ; preds = %143
   br i1 %147, label %.lr.ph.i184, label %.thread
 
 .lr.ph.i184:                                      ; preds = %check_size_impl.exit182
-  %148 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %148, ptr noundef %3) #10
+  %148 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %148, ptr noundef %3) #11
   %149 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %150 = load ptr, ptr %149, align 8
-  %151 = tail call ptr @tcg_temp_new_i64() #10
-  %152 = tail call ptr @tcg_temp_new_i64() #10
+  %151 = tail call ptr @tcg_temp_new_i64() #11
+  %152 = tail call ptr @tcg_temp_new_i64() #11
   br label %.lr.ph.split.i185
 
 .lr.ph.split.i185:                                ; preds = %.lr.ph.split.i185, %.lr.ph.i184
@@ -7735,27 +7735,27 @@ check_size_impl.exit182:                          ; preds = %143
   %153 = load ptr, ptr @tcg_env, align 8
   %154 = add i32 %.019.i186, %2
   %155 = zext i32 %154 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %151, ptr noundef %153, i64 noundef %155) #10
-  tail call void %150(ptr noundef %152, ptr noundef %151, ptr noundef %148) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %151, ptr noundef %153, i64 noundef %155) #11
+  tail call void %150(ptr noundef %152, ptr noundef %151, ptr noundef %148) #11
   %156 = load ptr, ptr @tcg_env, align 8
   %157 = add i32 %.019.i186, %1
   %158 = zext i32 %157 to i64
-  tail call void @tcg_gen_st_i64(ptr noundef %152, ptr noundef %156, i64 noundef %158) #10
+  tail call void @tcg_gen_st_i64(ptr noundef %152, ptr noundef %156, i64 noundef %158) #11
   %159 = add nuw nsw i32 %.019.i186, 8
   %160 = icmp samesign ult i32 %159, %4
   br i1 %160, label %.lr.ph.split.i185, label %expand_2s_i64.exit, !llvm.loop !14
 
 expand_2s_i64.exit:                               ; preds = %.lr.ph.split.i185
-  tail call void @tcg_temp_free_i64(ptr noundef %151) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %152) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %148) #10
+  tail call void @tcg_temp_free_i64(ptr noundef %151) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %152) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %148) #11
   br label %expand_2sh_vec.exit159
 
 .thread:                                          ; preds = %127, %check_size_impl.exit, %check_size_impl.exit182, %143
-  %161 = tail call ptr @tcg_temp_ebb_new_ptr() #10
-  %162 = tail call ptr @tcg_temp_ebb_new_ptr() #10
-  %163 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  tail call void @tcg_gen_shli_i32(ptr noundef %163, ptr noundef %3, i32 noundef 10) #10
+  %161 = tail call ptr @tcg_temp_ebb_new_ptr() #11
+  %162 = tail call ptr @tcg_temp_ebb_new_ptr() #11
+  %163 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  tail call void @tcg_gen_shli_i32(ptr noundef %163, ptr noundef %3, i32 noundef 10) #11
   %164 = lshr i32 %4, 3
   %165 = lshr i32 %5, 3
   %166 = add nuw nsw i32 %165, 255
@@ -7766,21 +7766,21 @@ expand_2s_i64.exit:                               ; preds = %.lr.ph.split.i185
   %171 = select i1 %167, i32 512, i32 %170
   %172 = and i32 %166, 255
   %173 = or disjoint i32 %171, %172
-  tail call void @tcg_gen_ori_i32(ptr noundef %163, ptr noundef %163, i32 noundef %173) #10
+  tail call void @tcg_gen_ori_i32(ptr noundef %163, ptr noundef %163, i32 noundef %173) #11
   %174 = load ptr, ptr @tcg_env, align 8
   %175 = zext i32 %1 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %161, ptr noundef %174, i64 noundef range(i64 0, 4294967296) %175) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %161, ptr noundef %174, i64 noundef range(i64 0, 4294967296) %175) #11
   %176 = load ptr, ptr @tcg_env, align 8
   %177 = zext i32 %2 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %162, ptr noundef %176, i64 noundef range(i64 0, 4294967296) %177) #10
+  tail call void @tcg_gen_addi_i64(ptr noundef %162, ptr noundef %176, i64 noundef range(i64 0, 4294967296) %177) #11
   %178 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %179 = zext nneg i32 %0 to i64
   %180 = getelementptr inbounds nuw ptr, ptr %178, i64 %179
   %181 = load ptr, ptr %180, align 8
-  tail call void %181(ptr noundef %161, ptr noundef %162, ptr noundef %163) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %161) #10
-  tail call void @tcg_temp_free_ptr(ptr noundef %162) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %163) #10
+  tail call void %181(ptr noundef %161, ptr noundef %162, ptr noundef %163) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %161) #11
+  tail call void @tcg_temp_free_ptr(ptr noundef %162) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %163) #11
   br label %186
 
 expand_2sh_vec.exit159:                           ; preds = %.lr.ph.i161, %.lr.ph.i157, %expand_2sh_vec.exit, %41, %54, %expand_2s_vec.exit170, %expand_2s_i32.exit, %expand_2s_i64.exit
@@ -7850,15 +7850,15 @@ declare void @tcg_gen_rotlv_vec(i32 noundef, ptr noundef, ptr noundef, ptr nound
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_gvec_rotrs(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
-  %7 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  tail call void @tcg_gen_neg_i32(ptr noundef %7, ptr noundef %3) #10
+  %7 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  tail call void @tcg_gen_neg_i32(ptr noundef %7, ptr noundef %3) #11
   %8 = shl i32 8, %0
   %9 = add i32 %8, -1
-  tail call void @tcg_gen_andi_i32(ptr noundef %7, ptr noundef %7, i32 noundef %9) #10
+  tail call void @tcg_gen_andi_i32(ptr noundef %7, ptr noundef %7, i32 noundef %9) #11
   %10 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %10)
   tail call fastcc void @do_gvec_shifts(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %7, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @tcg_gen_gvec_rotls.g)
-  tail call void @tcg_temp_free_i32(ptr noundef %7) #10
+  tail call void @tcg_temp_free_i32(ptr noundef %7) #11
   ret void
 }
 
@@ -7874,14 +7874,14 @@ define dso_local void @tcg_gen_gvec_shlv(i32 noundef %0, i32 noundef %1, i32 nou
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_gen_shlv_mod_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
-  %5 = tail call ptr @tcg_temp_new_vec_matching(ptr noundef %1) #10
+  %5 = tail call ptr @tcg_temp_new_vec_matching(ptr noundef %1) #11
   %6 = shl i32 8, %0
   %7 = add i32 %6, -1
   %8 = sext i32 %7 to i64
-  %9 = tail call ptr @tcg_constant_vec_matching(ptr noundef %1, i32 noundef %0, i64 noundef %8) #10
-  tail call void @tcg_gen_and_vec(i32 noundef %0, ptr noundef %5, ptr noundef %3, ptr noundef %9) #10
-  tail call void @tcg_gen_shlv_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5) #10
-  tail call void @tcg_temp_free_vec(ptr noundef %5) #10
+  %9 = tail call ptr @tcg_constant_vec_matching(ptr noundef %1, i32 noundef %0, i64 noundef %8) #11
+  tail call void @tcg_gen_and_vec(i32 noundef %0, ptr noundef %5, ptr noundef %3, ptr noundef %9) #11
+  tail call void @tcg_gen_shlv_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5) #11
+  tail call void @tcg_temp_free_vec(ptr noundef %5) #11
   ret void
 }
 
@@ -7898,7 +7898,7 @@ define internal void @gen_helper_gvec_shl8v(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_shl8v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_shl8v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -7915,16 +7915,16 @@ define internal void @gen_helper_gvec_shl16v(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_shl16v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_shl16v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_gen_shl_mod_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
-  %4 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  tail call void @tcg_gen_andi_i32(ptr noundef %4, ptr noundef %2, i32 noundef 31) #10
-  tail call void @tcg_gen_shl_i32(ptr noundef %0, ptr noundef %1, ptr noundef %4) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %4) #10
+  %4 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  tail call void @tcg_gen_andi_i32(ptr noundef %4, ptr noundef %2, i32 noundef 31) #11
+  tail call void @tcg_gen_shl_i32(ptr noundef %0, ptr noundef %1, ptr noundef %4) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %4) #11
   ret void
 }
 
@@ -7941,16 +7941,16 @@ define internal void @gen_helper_gvec_shl32v(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_shl32v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_shl32v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_gen_shl_mod_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
-  %4 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  tail call void @tcg_gen_andi_i64(ptr noundef %4, ptr noundef %2, i64 noundef 63) #10
-  tail call void @tcg_gen_shl_i64(ptr noundef %0, ptr noundef %1, ptr noundef %4) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %4) #10
+  %4 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  tail call void @tcg_gen_andi_i64(ptr noundef %4, ptr noundef %2, i64 noundef 63) #11
+  tail call void @tcg_gen_shl_i64(ptr noundef %0, ptr noundef %1, ptr noundef %4) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %4) #11
   ret void
 }
 
@@ -7967,7 +7967,7 @@ define internal void @gen_helper_gvec_shl64v(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_shl64v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_shl64v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -7983,14 +7983,14 @@ define dso_local void @tcg_gen_gvec_shrv(i32 noundef %0, i32 noundef %1, i32 nou
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_gen_shrv_mod_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
-  %5 = tail call ptr @tcg_temp_new_vec_matching(ptr noundef %1) #10
+  %5 = tail call ptr @tcg_temp_new_vec_matching(ptr noundef %1) #11
   %6 = shl i32 8, %0
   %7 = add i32 %6, -1
   %8 = sext i32 %7 to i64
-  %9 = tail call ptr @tcg_constant_vec_matching(ptr noundef %1, i32 noundef %0, i64 noundef %8) #10
-  tail call void @tcg_gen_and_vec(i32 noundef %0, ptr noundef %5, ptr noundef %3, ptr noundef %9) #10
-  tail call void @tcg_gen_shrv_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5) #10
-  tail call void @tcg_temp_free_vec(ptr noundef %5) #10
+  %9 = tail call ptr @tcg_constant_vec_matching(ptr noundef %1, i32 noundef %0, i64 noundef %8) #11
+  tail call void @tcg_gen_and_vec(i32 noundef %0, ptr noundef %5, ptr noundef %3, ptr noundef %9) #11
+  tail call void @tcg_gen_shrv_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5) #11
+  tail call void @tcg_temp_free_vec(ptr noundef %5) #11
   ret void
 }
 
@@ -8007,7 +8007,7 @@ define internal void @gen_helper_gvec_shr8v(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_shr8v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_shr8v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8024,16 +8024,16 @@ define internal void @gen_helper_gvec_shr16v(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_shr16v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_shr16v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_gen_shr_mod_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
-  %4 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  tail call void @tcg_gen_andi_i32(ptr noundef %4, ptr noundef %2, i32 noundef 31) #10
-  tail call void @tcg_gen_shr_i32(ptr noundef %0, ptr noundef %1, ptr noundef %4) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %4) #10
+  %4 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  tail call void @tcg_gen_andi_i32(ptr noundef %4, ptr noundef %2, i32 noundef 31) #11
+  tail call void @tcg_gen_shr_i32(ptr noundef %0, ptr noundef %1, ptr noundef %4) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %4) #11
   ret void
 }
 
@@ -8050,16 +8050,16 @@ define internal void @gen_helper_gvec_shr32v(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_shr32v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_shr32v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_gen_shr_mod_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
-  %4 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  tail call void @tcg_gen_andi_i64(ptr noundef %4, ptr noundef %2, i64 noundef 63) #10
-  tail call void @tcg_gen_shr_i64(ptr noundef %0, ptr noundef %1, ptr noundef %4) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %4) #10
+  %4 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  tail call void @tcg_gen_andi_i64(ptr noundef %4, ptr noundef %2, i64 noundef 63) #11
+  tail call void @tcg_gen_shr_i64(ptr noundef %0, ptr noundef %1, ptr noundef %4) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %4) #11
   ret void
 }
 
@@ -8076,7 +8076,7 @@ define internal void @gen_helper_gvec_shr64v(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_shr64v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_shr64v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8092,14 +8092,14 @@ define dso_local void @tcg_gen_gvec_sarv(i32 noundef %0, i32 noundef %1, i32 nou
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_gen_sarv_mod_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
-  %5 = tail call ptr @tcg_temp_new_vec_matching(ptr noundef %1) #10
+  %5 = tail call ptr @tcg_temp_new_vec_matching(ptr noundef %1) #11
   %6 = shl i32 8, %0
   %7 = add i32 %6, -1
   %8 = sext i32 %7 to i64
-  %9 = tail call ptr @tcg_constant_vec_matching(ptr noundef %1, i32 noundef %0, i64 noundef %8) #10
-  tail call void @tcg_gen_and_vec(i32 noundef %0, ptr noundef %5, ptr noundef %3, ptr noundef %9) #10
-  tail call void @tcg_gen_sarv_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5) #10
-  tail call void @tcg_temp_free_vec(ptr noundef %5) #10
+  %9 = tail call ptr @tcg_constant_vec_matching(ptr noundef %1, i32 noundef %0, i64 noundef %8) #11
+  tail call void @tcg_gen_and_vec(i32 noundef %0, ptr noundef %5, ptr noundef %3, ptr noundef %9) #11
+  tail call void @tcg_gen_sarv_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5) #11
+  tail call void @tcg_temp_free_vec(ptr noundef %5) #11
   ret void
 }
 
@@ -8116,7 +8116,7 @@ define internal void @gen_helper_gvec_sar8v(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_sar8v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_sar8v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8133,16 +8133,16 @@ define internal void @gen_helper_gvec_sar16v(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_sar16v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_sar16v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_gen_sar_mod_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
-  %4 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  tail call void @tcg_gen_andi_i32(ptr noundef %4, ptr noundef %2, i32 noundef 31) #10
-  tail call void @tcg_gen_sar_i32(ptr noundef %0, ptr noundef %1, ptr noundef %4) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %4) #10
+  %4 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  tail call void @tcg_gen_andi_i32(ptr noundef %4, ptr noundef %2, i32 noundef 31) #11
+  tail call void @tcg_gen_sar_i32(ptr noundef %0, ptr noundef %1, ptr noundef %4) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %4) #11
   ret void
 }
 
@@ -8159,16 +8159,16 @@ define internal void @gen_helper_gvec_sar32v(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_sar32v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_sar32v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_gen_sar_mod_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
-  %4 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  tail call void @tcg_gen_andi_i64(ptr noundef %4, ptr noundef %2, i64 noundef 63) #10
-  tail call void @tcg_gen_sar_i64(ptr noundef %0, ptr noundef %1, ptr noundef %4) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %4) #10
+  %4 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  tail call void @tcg_gen_andi_i64(ptr noundef %4, ptr noundef %2, i64 noundef 63) #11
+  tail call void @tcg_gen_sar_i64(ptr noundef %0, ptr noundef %1, ptr noundef %4) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %4) #11
   ret void
 }
 
@@ -8185,7 +8185,7 @@ define internal void @gen_helper_gvec_sar64v(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_sar64v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_sar64v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8201,14 +8201,14 @@ define dso_local void @tcg_gen_gvec_rotlv(i32 noundef %0, i32 noundef %1, i32 no
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_gen_rotlv_mod_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
-  %5 = tail call ptr @tcg_temp_new_vec_matching(ptr noundef %1) #10
+  %5 = tail call ptr @tcg_temp_new_vec_matching(ptr noundef %1) #11
   %6 = shl i32 8, %0
   %7 = add i32 %6, -1
   %8 = sext i32 %7 to i64
-  %9 = tail call ptr @tcg_constant_vec_matching(ptr noundef %1, i32 noundef %0, i64 noundef %8) #10
-  tail call void @tcg_gen_and_vec(i32 noundef %0, ptr noundef %5, ptr noundef %3, ptr noundef %9) #10
-  tail call void @tcg_gen_rotlv_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5) #10
-  tail call void @tcg_temp_free_vec(ptr noundef %5) #10
+  %9 = tail call ptr @tcg_constant_vec_matching(ptr noundef %1, i32 noundef %0, i64 noundef %8) #11
+  tail call void @tcg_gen_and_vec(i32 noundef %0, ptr noundef %5, ptr noundef %3, ptr noundef %9) #11
+  tail call void @tcg_gen_rotlv_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5) #11
+  tail call void @tcg_temp_free_vec(ptr noundef %5) #11
   ret void
 }
 
@@ -8225,7 +8225,7 @@ define internal void @gen_helper_gvec_rotl8v(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_rotl8v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_rotl8v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8242,16 +8242,16 @@ define internal void @gen_helper_gvec_rotl16v(ptr noundef %0, ptr noundef %1, pt
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_rotl16v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_rotl16v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_gen_rotl_mod_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
-  %4 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  tail call void @tcg_gen_andi_i32(ptr noundef %4, ptr noundef %2, i32 noundef 31) #10
-  tail call void @tcg_gen_rotl_i32(ptr noundef %0, ptr noundef %1, ptr noundef %4) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %4) #10
+  %4 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  tail call void @tcg_gen_andi_i32(ptr noundef %4, ptr noundef %2, i32 noundef 31) #11
+  tail call void @tcg_gen_rotl_i32(ptr noundef %0, ptr noundef %1, ptr noundef %4) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %4) #11
   ret void
 }
 
@@ -8268,16 +8268,16 @@ define internal void @gen_helper_gvec_rotl32v(ptr noundef %0, ptr noundef %1, pt
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_rotl32v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_rotl32v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_gen_rotl_mod_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
-  %4 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  tail call void @tcg_gen_andi_i64(ptr noundef %4, ptr noundef %2, i64 noundef 63) #10
-  tail call void @tcg_gen_rotl_i64(ptr noundef %0, ptr noundef %1, ptr noundef %4) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %4) #10
+  %4 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  tail call void @tcg_gen_andi_i64(ptr noundef %4, ptr noundef %2, i64 noundef 63) #11
+  tail call void @tcg_gen_rotl_i64(ptr noundef %0, ptr noundef %1, ptr noundef %4) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %4) #11
   ret void
 }
 
@@ -8294,7 +8294,7 @@ define internal void @gen_helper_gvec_rotl64v(ptr noundef %0, ptr noundef %1, pt
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_rotl64v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_rotl64v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8310,14 +8310,14 @@ define dso_local void @tcg_gen_gvec_rotrv(i32 noundef %0, i32 noundef %1, i32 no
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_gen_rotrv_mod_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
-  %5 = tail call ptr @tcg_temp_new_vec_matching(ptr noundef %1) #10
+  %5 = tail call ptr @tcg_temp_new_vec_matching(ptr noundef %1) #11
   %6 = shl i32 8, %0
   %7 = add i32 %6, -1
   %8 = sext i32 %7 to i64
-  %9 = tail call ptr @tcg_constant_vec_matching(ptr noundef %1, i32 noundef %0, i64 noundef %8) #10
-  tail call void @tcg_gen_and_vec(i32 noundef %0, ptr noundef %5, ptr noundef %3, ptr noundef %9) #10
-  tail call void @tcg_gen_rotrv_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5) #10
-  tail call void @tcg_temp_free_vec(ptr noundef %5) #10
+  %9 = tail call ptr @tcg_constant_vec_matching(ptr noundef %1, i32 noundef %0, i64 noundef %8) #11
+  tail call void @tcg_gen_and_vec(i32 noundef %0, ptr noundef %5, ptr noundef %3, ptr noundef %9) #11
+  tail call void @tcg_gen_rotrv_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5) #11
+  tail call void @tcg_temp_free_vec(ptr noundef %5) #11
   ret void
 }
 
@@ -8334,7 +8334,7 @@ define internal void @gen_helper_gvec_rotr8v(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_rotr8v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_rotr8v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8351,16 +8351,16 @@ define internal void @gen_helper_gvec_rotr16v(ptr noundef %0, ptr noundef %1, pt
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_rotr16v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_rotr16v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_gen_rotr_mod_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
-  %4 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  tail call void @tcg_gen_andi_i32(ptr noundef %4, ptr noundef %2, i32 noundef 31) #10
-  tail call void @tcg_gen_rotr_i32(ptr noundef %0, ptr noundef %1, ptr noundef %4) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %4) #10
+  %4 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  tail call void @tcg_gen_andi_i32(ptr noundef %4, ptr noundef %2, i32 noundef 31) #11
+  tail call void @tcg_gen_rotr_i32(ptr noundef %0, ptr noundef %1, ptr noundef %4) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %4) #11
   ret void
 }
 
@@ -8377,16 +8377,16 @@ define internal void @gen_helper_gvec_rotr32v(ptr noundef %0, ptr noundef %1, pt
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_rotr32v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_rotr32v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_gen_rotr_mod_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
-  %4 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  tail call void @tcg_gen_andi_i64(ptr noundef %4, ptr noundef %2, i64 noundef 63) #10
-  tail call void @tcg_gen_rotr_i64(ptr noundef %0, ptr noundef %1, ptr noundef %4) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %4) #10
+  %4 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  tail call void @tcg_gen_andi_i64(ptr noundef %4, ptr noundef %2, i64 noundef 63) #11
+  tail call void @tcg_gen_rotr_i64(ptr noundef %0, ptr noundef %1, ptr noundef %4) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %4) #11
   ret void
 }
 
@@ -8403,7 +8403,7 @@ define internal void @gen_helper_gvec_rotr64v(ptr noundef %0, ptr noundef %1, pt
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_rotr64v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_rotr64v, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8516,8 +8516,8 @@ check_size_impl.exit:                             ; preds = %43
   br i1 %47, label %48, label %.thread
 
 48:                                               ; preds = %check_size_impl.exit
-  %49 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  %50 = tail call ptr @tcg_temp_ebb_new_i64() #10
+  %49 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  %50 = tail call ptr @tcg_temp_ebb_new_i64() #11
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %48, %.lr.ph.i
@@ -8525,23 +8525,23 @@ check_size_impl.exit:                             ; preds = %43
   %51 = load ptr, ptr @tcg_env, align 8
   %52 = add i32 %.017.i, %3
   %53 = zext i32 %52 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %49, ptr noundef %51, i64 noundef %53) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %49, ptr noundef %51, i64 noundef %53) #11
   %54 = load ptr, ptr @tcg_env, align 8
   %55 = add i32 %.017.i, %4
   %56 = zext i32 %55 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %50, ptr noundef %54, i64 noundef %56) #10
-  tail call void @tcg_gen_negsetcond_i64(i32 noundef range(i32 2, 0) %0, ptr noundef %49, ptr noundef %49, ptr noundef %50) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %50, ptr noundef %54, i64 noundef %56) #11
+  tail call void @tcg_gen_negsetcond_i64(i32 noundef range(i32 2, 0) %0, ptr noundef %49, ptr noundef %49, ptr noundef %50) #11
   %57 = load ptr, ptr @tcg_env, align 8
   %58 = add i32 %.017.i, %2
   %59 = zext i32 %58 to i64
-  tail call void @tcg_gen_st_i64(ptr noundef %49, ptr noundef %57, i64 noundef %59) #10
+  tail call void @tcg_gen_st_i64(ptr noundef %49, ptr noundef %57, i64 noundef %59) #11
   %60 = add nuw nsw i32 %.017.i, 8
   %61 = icmp samesign ult i32 %60, %5
   br i1 %61, label %.lr.ph.i, label %expand_cmp_i64.exit, !llvm.loop !43
 
 expand_cmp_i64.exit:                              ; preds = %.lr.ph.i
-  tail call void @tcg_temp_free_i64(ptr noundef %50) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %49) #10
+  tail call void @tcg_temp_free_i64(ptr noundef %50) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %49) #11
   br label %97
 
 62:                                               ; preds = %42
@@ -8558,8 +8558,8 @@ check_size_impl.exit106:                          ; preds = %62
   br i1 %67, label %68, label %.thread
 
 68:                                               ; preds = %check_size_impl.exit106
-  %69 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  %70 = tail call ptr @tcg_temp_ebb_new_i32() #10
+  %69 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  %70 = tail call ptr @tcg_temp_ebb_new_i32() #11
   br label %.lr.ph.i108
 
 .lr.ph.i108:                                      ; preds = %68, %.lr.ph.i108
@@ -8567,23 +8567,23 @@ check_size_impl.exit106:                          ; preds = %62
   %71 = load ptr, ptr @tcg_env, align 8
   %72 = add i32 %.017.i109, %3
   %73 = zext i32 %72 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %69, ptr noundef %71, i64 noundef %73) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %69, ptr noundef %71, i64 noundef %73) #11
   %74 = load ptr, ptr @tcg_env, align 8
   %75 = add i32 %.017.i109, %4
   %76 = zext i32 %75 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %70, ptr noundef %74, i64 noundef %76) #10
-  tail call void @tcg_gen_negsetcond_i32(i32 noundef range(i32 2, 0) %0, ptr noundef %69, ptr noundef %69, ptr noundef %70) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %70, ptr noundef %74, i64 noundef %76) #11
+  tail call void @tcg_gen_negsetcond_i32(i32 noundef range(i32 2, 0) %0, ptr noundef %69, ptr noundef %69, ptr noundef %70) #11
   %77 = load ptr, ptr @tcg_env, align 8
   %78 = add i32 %.017.i109, %2
   %79 = zext i32 %78 to i64
-  tail call void @tcg_gen_st_i32(ptr noundef %69, ptr noundef %77, i64 noundef %79) #10
+  tail call void @tcg_gen_st_i32(ptr noundef %69, ptr noundef %77, i64 noundef %79) #11
   %80 = add nuw nsw i32 %.017.i109, 4
   %81 = icmp samesign ult i32 %80, %5
   br i1 %81, label %.lr.ph.i108, label %expand_cmp_i32.exit, !llvm.loop !44
 
 expand_cmp_i32.exit:                              ; preds = %.lr.ph.i108
-  tail call void @tcg_temp_free_i32(ptr noundef %70) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %69) #10
+  tail call void @tcg_temp_free_i32(ptr noundef %70) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %69) #11
   br label %97
 
 .thread:                                          ; preds = %43, %check_size_impl.exit, %check_size_impl.exit106, %62
@@ -8604,7 +8604,7 @@ expand_cmp_i32.exit:                              ; preds = %.lr.ph.i108
   br i1 %.not102.not, label %.thread112, label %92
 
 92:                                               ; preds = %85
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 3824, ptr noundef nonnull @__PRETTY_FUNCTION__.tcg_gen_gvec_cmp) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 3824, ptr noundef nonnull @__PRETTY_FUNCTION__.tcg_gen_gvec_cmp) #12
   unreachable
 
 .thread112:                                       ; preds = %.thread, %85
@@ -8620,7 +8620,7 @@ expand_cmp_i32.exit:                              ; preds = %.lr.ph.i108
   br label %102
 
 96:                                               ; preds = %28
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 3832, ptr noundef nonnull @__func__.tcg_gen_gvec_cmp, ptr noundef null) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 3832, ptr noundef nonnull @__func__.tcg_gen_gvec_cmp, ptr noundef null) #12
   unreachable
 
 97:                                               ; preds = %expand_cmp_i64.exit, %expand_cmp_i32.exit, %31, %41, %40
@@ -8653,7 +8653,7 @@ define internal void @gen_helper_gvec_eq8(ptr noundef %0, ptr noundef %1, ptr no
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_eq8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_eq8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8670,7 +8670,7 @@ define internal void @gen_helper_gvec_eq16(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_eq16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_eq16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8687,7 +8687,7 @@ define internal void @gen_helper_gvec_eq32(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_eq32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_eq32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8704,7 +8704,7 @@ define internal void @gen_helper_gvec_eq64(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_eq64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_eq64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8721,7 +8721,7 @@ define internal void @gen_helper_gvec_ne8(ptr noundef %0, ptr noundef %1, ptr no
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ne8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ne8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8738,7 +8738,7 @@ define internal void @gen_helper_gvec_ne16(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ne16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ne16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8755,7 +8755,7 @@ define internal void @gen_helper_gvec_ne32(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ne32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ne32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8772,7 +8772,7 @@ define internal void @gen_helper_gvec_ne64(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ne64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ne64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8789,7 +8789,7 @@ define internal void @gen_helper_gvec_lt8(ptr noundef %0, ptr noundef %1, ptr no
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_lt8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_lt8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8806,7 +8806,7 @@ define internal void @gen_helper_gvec_lt16(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_lt16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_lt16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8823,7 +8823,7 @@ define internal void @gen_helper_gvec_lt32(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_lt32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_lt32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8840,7 +8840,7 @@ define internal void @gen_helper_gvec_lt64(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_lt64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_lt64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8857,7 +8857,7 @@ define internal void @gen_helper_gvec_le8(ptr noundef %0, ptr noundef %1, ptr no
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_le8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_le8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8874,7 +8874,7 @@ define internal void @gen_helper_gvec_le16(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_le16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_le16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8891,7 +8891,7 @@ define internal void @gen_helper_gvec_le32(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_le32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_le32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8908,7 +8908,7 @@ define internal void @gen_helper_gvec_le64(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_le64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_le64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8925,7 +8925,7 @@ define internal void @gen_helper_gvec_ltu8(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ltu8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ltu8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8942,7 +8942,7 @@ define internal void @gen_helper_gvec_ltu16(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ltu16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ltu16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8959,7 +8959,7 @@ define internal void @gen_helper_gvec_ltu32(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ltu32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ltu32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8976,7 +8976,7 @@ define internal void @gen_helper_gvec_ltu64(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ltu64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ltu64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -8993,7 +8993,7 @@ define internal void @gen_helper_gvec_leu8(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_leu8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_leu8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9010,7 +9010,7 @@ define internal void @gen_helper_gvec_leu16(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_leu16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_leu16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9027,7 +9027,7 @@ define internal void @gen_helper_gvec_leu32(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_leu32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_leu32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9044,7 +9044,7 @@ define internal void @gen_helper_gvec_leu64(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_leu64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_leu64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9058,22 +9058,22 @@ define internal fastcc void @expand_cmp_vec(i32 noundef %0, i32 noundef %1, i32 
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %.020 = phi i32 [ %21, %.lr.ph ], [ 0, %8 ]
-  %9 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
-  %10 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
-  %11 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
+  %9 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #11
+  %10 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #11
+  %11 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #11
   %12 = load ptr, ptr @tcg_env, align 8
   %13 = add i32 %.020, %2
   %14 = zext i32 %13 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %9, ptr noundef %12, i64 noundef %14) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %9, ptr noundef %12, i64 noundef %14) #11
   %15 = load ptr, ptr @tcg_env, align 8
   %16 = add i32 %.020, %3
   %17 = zext i32 %16 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %10, ptr noundef %15, i64 noundef %17) #10
-  tail call void @tcg_gen_cmp_vec(i32 noundef %7, i32 noundef %0, ptr noundef %11, ptr noundef %9, ptr noundef %10) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %10, ptr noundef %15, i64 noundef %17) #11
+  tail call void @tcg_gen_cmp_vec(i32 noundef %7, i32 noundef %0, ptr noundef %11, ptr noundef %9, ptr noundef %10) #11
   %18 = load ptr, ptr @tcg_env, align 8
   %19 = add i32 %.020, %1
   %20 = zext i32 %19 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %11, ptr noundef %18, i64 noundef %20) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %11, ptr noundef %18, i64 noundef %20) #11
   %21 = add i32 %.020, %5
   %22 = icmp ult i32 %21, %4
   br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !45
@@ -9118,8 +9118,8 @@ check_overlap_2.exit:                             ; preds = %check_size_align.ex
   br i1 %.not, label %68, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call ptr @tcg_temp_new_vec(i32 noundef %21) #10
-  tail call void @tcg_gen_dup_i64_vec(i32 noundef %1, ptr noundef %23, ptr noundef %4) #10
+  %23 = tail call ptr @tcg_temp_new_vec(i32 noundef %21) #11
+  tail call void @tcg_gen_dup_i64_vec(i32 noundef %1, ptr noundef %23, ptr noundef %4) #11
   switch i32 %21, label %67 [
     i32 5, label %24
     i32 4, label %41
@@ -9128,8 +9128,8 @@ check_overlap_2.exit:                             ; preds = %check_size_align.ex
 
 24:                                               ; preds = %22
   %25 = and i32 %5, -32
-  %26 = tail call ptr @tcg_temp_new_vec(i32 noundef 5) #10
-  %27 = tail call ptr @tcg_temp_new_vec(i32 noundef 5) #10
+  %26 = tail call ptr @tcg_temp_new_vec(i32 noundef 5) #11
+  %27 = tail call ptr @tcg_temp_new_vec(i32 noundef 5) #11
   %.not.i126 = icmp eq i32 %25, 0
   br i1 %.not.i126, label %expand_cmps_vec.exit, label %.lr.ph.i.preheader
 
@@ -9143,12 +9143,12 @@ check_overlap_2.exit:                             ; preds = %check_size_align.ex
   %30 = trunc nuw i64 %indvars.iv148 to i32
   %31 = add i32 %3, %30
   %32 = zext i32 %31 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %27, ptr noundef %29, i64 noundef %32) #10
-  tail call void @tcg_gen_cmp_vec(i32 noundef range(i32 2, 0) %0, i32 noundef %1, ptr noundef %26, ptr noundef %27, ptr noundef %23) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %27, ptr noundef %29, i64 noundef %32) #11
+  tail call void @tcg_gen_cmp_vec(i32 noundef range(i32 2, 0) %0, i32 noundef %1, ptr noundef %26, ptr noundef %27, ptr noundef %23) #11
   %33 = load ptr, ptr @tcg_env, align 8
   %34 = add i32 %2, %30
   %35 = zext i32 %34 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %26, ptr noundef %33, i64 noundef %35) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %26, ptr noundef %33, i64 noundef %35) #11
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 32
   %36 = icmp samesign ult i64 %indvars.iv.next149, %28
   br i1 %36, label %.lr.ph.i, label %expand_cmps_vec.exit, !llvm.loop !46
@@ -9166,8 +9166,8 @@ expand_cmps_vec.exit:                             ; preds = %.lr.ph.i, %24
   %.0111 = phi i32 [ %37, %expand_cmps_vec.exit ], [ %3, %22 ]
   %.0109 = phi i32 [ %38, %expand_cmps_vec.exit ], [ %2, %22 ]
   %42 = and i32 %.0112, -16
-  %43 = tail call ptr @tcg_temp_new_vec(i32 noundef 4) #10
-  %44 = tail call ptr @tcg_temp_new_vec(i32 noundef 4) #10
+  %43 = tail call ptr @tcg_temp_new_vec(i32 noundef 4) #11
+  %44 = tail call ptr @tcg_temp_new_vec(i32 noundef 4) #11
   %.not.i127 = icmp eq i32 %42, 0
   br i1 %.not.i127, label %expand_cmps_vec.exit130, label %.lr.ph.i128.preheader
 
@@ -9181,20 +9181,20 @@ expand_cmps_vec.exit:                             ; preds = %.lr.ph.i, %24
   %47 = trunc nuw i64 %indvars.iv151 to i32
   %48 = add i32 %.0111, %47
   %49 = zext i32 %48 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %44, ptr noundef %46, i64 noundef %49) #10
-  tail call void @tcg_gen_cmp_vec(i32 noundef range(i32 2, 0) %0, i32 noundef %1, ptr noundef %43, ptr noundef %44, ptr noundef %23) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %44, ptr noundef %46, i64 noundef %49) #11
+  tail call void @tcg_gen_cmp_vec(i32 noundef range(i32 2, 0) %0, i32 noundef %1, ptr noundef %43, ptr noundef %44, ptr noundef %23) #11
   %50 = load ptr, ptr @tcg_env, align 8
   %51 = add i32 %.0109, %47
   %52 = zext i32 %51 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %43, ptr noundef %50, i64 noundef %52) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %43, ptr noundef %50, i64 noundef %52) #11
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 16
   %53 = icmp samesign ult i64 %indvars.iv.next152, %45
   br i1 %53, label %.lr.ph.i128, label %expand_cmps_vec.exit130, !llvm.loop !46
 
 54:                                               ; preds = %22
   %55 = and i32 %5, -8
-  %56 = tail call ptr @tcg_temp_new_vec(i32 noundef 3) #10
-  %57 = tail call ptr @tcg_temp_new_vec(i32 noundef 3) #10
+  %56 = tail call ptr @tcg_temp_new_vec(i32 noundef 3) #11
+  %57 = tail call ptr @tcg_temp_new_vec(i32 noundef 3) #11
   %.not.i131 = icmp eq i32 %55, 0
   br i1 %.not.i131, label %expand_cmps_vec.exit130, label %.lr.ph.i132.preheader
 
@@ -9208,25 +9208,25 @@ expand_cmps_vec.exit:                             ; preds = %.lr.ph.i, %24
   %60 = trunc nuw i64 %indvars.iv to i32
   %61 = add i32 %3, %60
   %62 = zext i32 %61 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %57, ptr noundef %59, i64 noundef %62) #10
-  tail call void @tcg_gen_cmp_vec(i32 noundef range(i32 2, 0) %0, i32 noundef %1, ptr noundef %56, ptr noundef %57, ptr noundef %23) #10
+  tail call void @tcg_gen_ld_vec(ptr noundef %57, ptr noundef %59, i64 noundef %62) #11
+  tail call void @tcg_gen_cmp_vec(i32 noundef range(i32 2, 0) %0, i32 noundef %1, ptr noundef %56, ptr noundef %57, ptr noundef %23) #11
   %63 = load ptr, ptr @tcg_env, align 8
   %64 = add i32 %2, %60
   %65 = zext i32 %64 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %56, ptr noundef %63, i64 noundef %65) #10
+  tail call void @tcg_gen_st_vec(ptr noundef %56, ptr noundef %63, i64 noundef %65) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %66 = icmp samesign ult i64 %indvars.iv.next, %58
   br i1 %66, label %.lr.ph.i132, label %expand_cmps_vec.exit130, !llvm.loop !46
 
 67:                                               ; preds = %22
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 3936, ptr noundef nonnull @__func__.tcg_gen_gvec_cmps, ptr noundef null) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 3936, ptr noundef nonnull @__func__.tcg_gen_gvec_cmps, ptr noundef null) #12
   unreachable
 
 expand_cmps_vec.exit130:                          ; preds = %.lr.ph.i132, %.lr.ph.i128, %54, %41
   %.1116 = phi i32 [ %.0115, %41 ], [ %6, %54 ], [ %.0115, %.lr.ph.i128 ], [ %6, %.lr.ph.i132 ]
   %.1113 = phi i32 [ %.0112, %41 ], [ %5, %54 ], [ %.0112, %.lr.ph.i128 ], [ %5, %.lr.ph.i132 ]
   %.1 = phi i32 [ %.0109, %41 ], [ %2, %54 ], [ %.0109, %.lr.ph.i128 ], [ %2, %.lr.ph.i132 ]
-  tail call void @tcg_temp_free_vec(ptr noundef %23) #10
+  tail call void @tcg_temp_free_vec(ptr noundef %23) #11
   br label %116
 
 68:                                               ; preds = %19
@@ -9244,7 +9244,7 @@ check_size_impl.exit:                             ; preds = %69
   br i1 %73, label %74, label %.thread
 
 74:                                               ; preds = %check_size_impl.exit
-  %75 = tail call ptr @tcg_temp_ebb_new_i64() #10
+  %75 = tail call ptr @tcg_temp_ebb_new_i64() #11
   br label %76
 
 76:                                               ; preds = %74, %76
@@ -9252,18 +9252,18 @@ check_size_impl.exit:                             ; preds = %69
   %77 = load ptr, ptr @tcg_env, align 8
   %78 = add i32 %.0110144, %3
   %79 = zext i32 %78 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %75, ptr noundef %77, i64 noundef %79) #10
-  tail call void @tcg_gen_negsetcond_i64(i32 noundef %0, ptr noundef %75, ptr noundef %75, ptr noundef %4) #10
+  tail call void @tcg_gen_ld_i64(ptr noundef %75, ptr noundef %77, i64 noundef %79) #11
+  tail call void @tcg_gen_negsetcond_i64(i32 noundef %0, ptr noundef %75, ptr noundef %75, ptr noundef %4) #11
   %80 = load ptr, ptr @tcg_env, align 8
   %81 = add i32 %.0110144, %2
   %82 = zext i32 %81 to i64
-  tail call void @tcg_gen_st_i64(ptr noundef %75, ptr noundef %80, i64 noundef %82) #10
+  tail call void @tcg_gen_st_i64(ptr noundef %75, ptr noundef %80, i64 noundef %82) #11
   %83 = add nuw nsw i32 %.0110144, 8
   %84 = icmp samesign ult i32 %83, %5
   br i1 %84, label %76, label %85, !llvm.loop !47
 
 85:                                               ; preds = %76
-  tail call void @tcg_temp_free_i64(ptr noundef %75) #10
+  tail call void @tcg_temp_free_i64(ptr noundef %75) #11
   br label %116
 
 86:                                               ; preds = %68
@@ -9280,9 +9280,9 @@ check_size_impl.exit138:                          ; preds = %86
   br i1 %91, label %.lr.ph.preheader, label %.thread
 
 .lr.ph.preheader:                                 ; preds = %check_size_impl.exit138
-  %92 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  %93 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  tail call void @tcg_gen_extrl_i64_i32(ptr noundef %93, ptr noundef %4) #10
+  %92 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  %93 = tail call ptr @tcg_temp_ebb_new_i32() #11
+  tail call void @tcg_gen_extrl_i64_i32(ptr noundef %93, ptr noundef %4) #11
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -9290,19 +9290,19 @@ check_size_impl.exit138:                          ; preds = %86
   %94 = load ptr, ptr @tcg_env, align 8
   %95 = add i32 %.0108143, %3
   %96 = zext i32 %95 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %92, ptr noundef %94, i64 noundef %96) #10
-  tail call void @tcg_gen_negsetcond_i32(i32 noundef %0, ptr noundef %92, ptr noundef %92, ptr noundef %93) #10
+  tail call void @tcg_gen_ld_i32(ptr noundef %92, ptr noundef %94, i64 noundef %96) #11
+  tail call void @tcg_gen_negsetcond_i32(i32 noundef %0, ptr noundef %92, ptr noundef %92, ptr noundef %93) #11
   %97 = load ptr, ptr @tcg_env, align 8
   %98 = add i32 %.0108143, %2
   %99 = zext i32 %98 to i64
-  tail call void @tcg_gen_st_i32(ptr noundef %92, ptr noundef %97, i64 noundef %99) #10
+  tail call void @tcg_gen_st_i32(ptr noundef %92, ptr noundef %97, i64 noundef %99) #11
   %100 = add nuw nsw i32 %.0108143, 4
   %101 = icmp samesign ult i32 %100, %5
   br i1 %101, label %.lr.ph, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  tail call void @tcg_temp_free_i32(ptr noundef %92) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %93) #10
+  tail call void @tcg_temp_free_i32(ptr noundef %92) #11
+  tail call void @tcg_temp_free_i32(ptr noundef %93) #11
   br label %116
 
 .thread:                                          ; preds = %69, %check_size_impl.exit, %check_size_impl.exit138, %86
@@ -9321,7 +9321,7 @@ check_size_impl.exit138:                          ; preds = %86
   br i1 %.not125.not, label %111, label %110
 
 110:                                              ; preds = %105
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 3970, ptr noundef nonnull @__PRETTY_FUNCTION__.tcg_gen_gvec_cmps) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 3970, ptr noundef nonnull @__PRETTY_FUNCTION__.tcg_gen_gvec_cmps) #12
   unreachable
 
 111:                                              ; preds = %105, %.thread
@@ -9365,7 +9365,7 @@ define internal void @gen_helper_gvec_eqs8(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_eqs8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_eqs8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9382,7 +9382,7 @@ define internal void @gen_helper_gvec_eqs16(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_eqs16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_eqs16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9399,7 +9399,7 @@ define internal void @gen_helper_gvec_eqs32(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_eqs32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_eqs32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9416,7 +9416,7 @@ define internal void @gen_helper_gvec_eqs64(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_eqs64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_eqs64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9433,7 +9433,7 @@ define internal void @gen_helper_gvec_lts8(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_lts8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_lts8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9450,7 +9450,7 @@ define internal void @gen_helper_gvec_lts16(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_lts16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_lts16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9467,7 +9467,7 @@ define internal void @gen_helper_gvec_lts32(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_lts32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_lts32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9484,7 +9484,7 @@ define internal void @gen_helper_gvec_lts64(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_lts64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_lts64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9501,7 +9501,7 @@ define internal void @gen_helper_gvec_les8(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_les8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_les8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9518,7 +9518,7 @@ define internal void @gen_helper_gvec_les16(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_les16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_les16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9535,7 +9535,7 @@ define internal void @gen_helper_gvec_les32(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_les32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_les32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9552,7 +9552,7 @@ define internal void @gen_helper_gvec_les64(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_les64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_les64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9569,7 +9569,7 @@ define internal void @gen_helper_gvec_ltus8(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ltus8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ltus8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9586,7 +9586,7 @@ define internal void @gen_helper_gvec_ltus16(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ltus16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ltus16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9603,7 +9603,7 @@ define internal void @gen_helper_gvec_ltus32(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ltus32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ltus32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9620,7 +9620,7 @@ define internal void @gen_helper_gvec_ltus64(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ltus64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ltus64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9637,7 +9637,7 @@ define internal void @gen_helper_gvec_leus8(ptr noundef %0, ptr noundef %1, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_leus8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_leus8, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9654,7 +9654,7 @@ define internal void @gen_helper_gvec_leus16(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_leus16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_leus16, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9671,7 +9671,7 @@ define internal void @gen_helper_gvec_leus32(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_leus32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_leus32, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9688,7 +9688,7 @@ define internal void @gen_helper_gvec_leus64(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_leus64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_leus64, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9700,7 +9700,7 @@ declare void @tcg_gen_st_i32(ptr noundef, ptr noundef, i64 noundef) local_unname
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_gvec_cmpi(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
-  %8 = tail call ptr @tcg_constant_i64(i64 noundef %4) #10
+  %8 = tail call ptr @tcg_constant_i64(i64 noundef %4) #11
   tail call void @tcg_gen_gvec_cmps(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %8, i32 noundef %5, i32 noundef %6)
   ret void
 }
@@ -9713,11 +9713,11 @@ define dso_local void @tcg_gen_gvec_bitsel(i32 noundef %0, i32 noundef %1, i32 n
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_gen_bitsel_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
-  %5 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  tail call void @tcg_gen_and_i64(ptr noundef %5, ptr noundef %2, ptr noundef %1) #10
-  tail call void @tcg_gen_andc_i64(ptr noundef %0, ptr noundef %3, ptr noundef %1) #10
-  tail call void @tcg_gen_or_i64(ptr noundef %0, ptr noundef %0, ptr noundef %5) #10
-  tail call void @tcg_temp_free_i64(ptr noundef %5) #10
+  %5 = tail call ptr @tcg_temp_ebb_new_i64() #11
+  tail call void @tcg_gen_and_i64(ptr noundef %5, ptr noundef %2, ptr noundef %1) #11
+  tail call void @tcg_gen_andc_i64(ptr noundef %0, ptr noundef %3, ptr noundef %1) #11
+  tail call void @tcg_gen_or_i64(ptr noundef %0, ptr noundef %0, ptr noundef %5) #11
+  tail call void @tcg_temp_free_i64(ptr noundef %5) #11
   ret void
 }
 
@@ -9738,7 +9738,7 @@ define internal void @gen_helper_gvec_bitsel(ptr noundef %0, ptr noundef %1, ptr
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 %15
   %17 = ptrtoint ptr %4 to i64
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 %17
-  tail call void @tcg_gen_call5(ptr noundef %6, ptr noundef nonnull @helper_info_gvec_bitsel, ptr noundef null, ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef %16, ptr noundef %18) #10
+  tail call void @tcg_gen_call5(ptr noundef %6, ptr noundef nonnull @helper_info_gvec_bitsel, ptr noundef null, ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef %16, ptr noundef %18) #11
   ret void
 }
 
@@ -9746,7 +9746,7 @@ declare void @tcg_gen_addi_i64(ptr noundef, ptr noundef, i64 noundef) local_unna
 
 declare zeroext i1 @tcg_can_emit_vecop_list(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #7
 
 declare void @tcg_gen_mov_vec(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -9754,7 +9754,7 @@ declare void @tcg_gen_mov_vec(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @tcg_gen_call3(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #7
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #8
 
 declare void @tcg_gen_dup_i32_vec(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -9775,7 +9775,7 @@ define internal void @gen_helper_gvec_dup8(ptr noundef %0, ptr noundef %1, ptr n
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_dup8, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_dup8, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -9790,7 +9790,7 @@ define internal void @gen_helper_gvec_dup16(ptr noundef %0, ptr noundef %1, ptr 
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_dup16, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_dup16, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -9805,7 +9805,7 @@ define internal void @gen_helper_gvec_dup32(ptr noundef %0, ptr noundef %1, ptr 
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = ptrtoint ptr %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_dup32, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #10
+  tail call void @tcg_gen_call3(ptr noundef %4, ptr noundef nonnull @helper_info_gvec_dup32, ptr noundef null, ptr noundef %8, ptr noundef %10, ptr noundef %12) #11
   ret void
 }
 
@@ -9830,7 +9830,7 @@ define internal void @gen_helper_gvec_ands(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ands, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ands, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9847,7 +9847,7 @@ define internal void @gen_helper_gvec_xors(ptr noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_xors, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_xors, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9864,7 +9864,7 @@ define internal void @gen_helper_gvec_ors(ptr noundef %0, ptr noundef %1, ptr no
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %14 = ptrtoint ptr %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ors, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #10
+  tail call void @tcg_gen_call4(ptr noundef %5, ptr noundef nonnull @helper_info_gvec_ors, ptr noundef null, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #11
   ret void
 }
 
@@ -9885,13 +9885,13 @@ declare void @tcg_gen_cmp_vec(i32 noundef, i32 noundef, ptr noundef, ptr noundef
 declare void @tcg_gen_call5(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
+declare void @llvm.assume(i1 noundef) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #1 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
@@ -9900,11 +9900,12 @@ attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #4 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #5 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn nounwind }
+attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #11 = { nounwind }
+attributes #12 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

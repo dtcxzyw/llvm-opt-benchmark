@@ -1234,7 +1234,7 @@ define hidden void @_Z17hb_ot_layout_kernPK18hb_ot_shape_plan_tP9hb_font_tP11hb_
 16:                                               ; preds = %27, %25, %_ZNK2OT4kern5applyEPN3AAT22hb_aat_apply_context_tE.exit, %3
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3AAT22hb_aat_apply_context_tD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %4) #26
+  call void @_ZN3AAT22hb_aat_apply_context_tD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %4) #27
   resume { ptr, i32 } %17
 
 18:                                               ; preds = %15
@@ -1263,7 +1263,7 @@ _ZNK2OT4kern5applyEPN3AAT22hb_aat_apply_context_tE.exit: ; preds = %18, %25, %27
           to label %30 unwind label %16
 
 30:                                               ; preds = %_ZNK2OT4kern5applyEPN3AAT22hb_aat_apply_context_tE.exit, %15
-  call void @_ZN3AAT22hb_aat_apply_context_tD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %4) #26
+  call void @_ZN3AAT22hb_aat_apply_context_tD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %4) #27
   ret void
 }
 
@@ -1475,7 +1475,7 @@ _ZNK2OT4GDEF19get_glyph_class_defEv.exit:         ; preds = %2, %10
   br i1 %.not.i.i.i, label %46, label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 46:                                               ; preds = %28
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 6
   %48 = zext nneg i32 %38 to i64
   %49 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %47, i64 %48
@@ -1700,7 +1700,7 @@ _ZNK2OT4GDEF15get_attach_listEv.exit:             ; preds = %5, %13
   br i1 %.not.i.i, label %48, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_11AttachPointENS_7IntTypeItLj2EEELb1EEES4_EixEi.exit.i
 
 48:                                               ; preds = %39
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %49 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %50 = zext nneg i32 %35 to i64
   %51 = getelementptr inbounds nuw %"struct.OT::OffsetTo.252", ptr %49, i64 %50
@@ -3181,7 +3181,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %52, %45
   br i1 %.not.i.i.i, label %69, label %_ZNK2OT8GSUBGPOS15get_feature_tagEj.exit
 
 69:                                               ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %70 = getelementptr inbounds nuw i8, ptr %.0.i.i18, i64 2
   %71 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %70, i64 %indvars.iv
   br label %_ZNK2OT8GSUBGPOS15get_feature_tagEj.exit
@@ -3306,7 +3306,7 @@ _ZNK2OT8GSUBGPOS15get_script_listEv.exit.i:       ; preds = %26, %_ZL18get_gsubg
   br i1 %.not.i.i.i.i, label %45, label %_ZNK2OT8GSUBGPOS10get_scriptEj.exit
 
 45:                                               ; preds = %_ZNK2OT8GSUBGPOS15get_script_listEv.exit.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   %47 = zext nneg i32 %2 to i64
   %48 = getelementptr inbounds nuw %"struct.OT::Record.358", ptr %46, i64 %47
@@ -3472,7 +3472,7 @@ _ZNK2OT8GSUBGPOS15get_script_listEv.exit.i:       ; preds = %27, %_ZL18get_gsubg
   br i1 %.not.i.i.i.i, label %46, label %_ZNK2OT8GSUBGPOS10get_scriptEj.exit
 
 46:                                               ; preds = %_ZNK2OT8GSUBGPOS15get_script_listEv.exit.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   %48 = zext nneg i32 %2 to i64
   %49 = getelementptr inbounds nuw %"struct.OT::Record.358", ptr %47, i64 %48
@@ -3839,7 +3839,7 @@ _ZNK2OT8GSUBGPOS15get_script_listEv.exit.i:       ; preds = %26, %_ZL18get_gsubg
   br i1 %.not.i.i.i.i, label %45, label %_ZNK2OT8GSUBGPOS10get_scriptEj.exit
 
 45:                                               ; preds = %_ZNK2OT8GSUBGPOS15get_script_listEv.exit.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   %47 = zext nneg i32 %2 to i64
   %48 = getelementptr inbounds nuw %"struct.OT::Record.358", ptr %46, i64 %47
@@ -3882,7 +3882,7 @@ _ZNK2OT8GSUBGPOS10get_scriptEj.exit:              ; preds = %_ZNK2OT8GSUBGPOS15g
   br i1 %.not.i.i, label %75, label %_ZNK2OT7ArrayOfINS_6RecordINS_7LangSysEEENS_7IntTypeItLj2EEEEixEi.exit.i
 
 75:                                               ; preds = %66
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %76 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i.i, i64 4
   %77 = zext nneg i32 %3 to i64
   %78 = getelementptr inbounds nuw %"struct.OT::Record", ptr %76, i64 %77
@@ -3969,7 +3969,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %109, %102
   br i1 %.not.i.i.i, label %128, label %_ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i
 
 128:                                              ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %129 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 2
   %130 = zext nneg i32 %97 to i64
   %131 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %129, i64 %130
@@ -4083,7 +4083,7 @@ _ZNK2OT8GSUBGPOS15get_script_listEv.exit.i:       ; preds = %27, %_ZL18get_gsubg
   br i1 %.not.i.i.i.i, label %46, label %_ZNK2OT8GSUBGPOS10get_scriptEj.exit
 
 46:                                               ; preds = %_ZNK2OT8GSUBGPOS15get_script_listEv.exit.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   %48 = zext nneg i32 %2 to i64
   %49 = getelementptr inbounds nuw %"struct.OT::Record.358", ptr %47, i64 %48
@@ -4126,7 +4126,7 @@ _ZNK2OT8GSUBGPOS10get_scriptEj.exit:              ; preds = %_ZNK2OT8GSUBGPOS15g
   br i1 %.not.i.i, label %76, label %_ZNK2OT7ArrayOfINS_6RecordINS_7LangSysEEENS_7IntTypeItLj2EEEEixEi.exit.i
 
 76:                                               ; preds = %67
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %77 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i.i, i64 4
   %78 = zext nneg i32 %3 to i64
   %79 = getelementptr inbounds nuw %"struct.OT::Record", ptr %77, i64 %78
@@ -4285,7 +4285,7 @@ _ZNK2OT8GSUBGPOS15get_script_listEv.exit.i:       ; preds = %27, %_ZL18get_gsubg
   br i1 %.not.i.i.i.i, label %46, label %_ZNK2OT8GSUBGPOS10get_scriptEj.exit
 
 46:                                               ; preds = %_ZNK2OT8GSUBGPOS15get_script_listEv.exit.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   %48 = zext nneg i32 %2 to i64
   %49 = getelementptr inbounds nuw %"struct.OT::Record.358", ptr %47, i64 %48
@@ -4328,7 +4328,7 @@ _ZNK2OT8GSUBGPOS10get_scriptEj.exit:              ; preds = %_ZNK2OT8GSUBGPOS15g
   br i1 %.not.i.i, label %76, label %_ZNK2OT7ArrayOfINS_6RecordINS_7LangSysEEENS_7IntTypeItLj2EEEEixEi.exit.i
 
 76:                                               ; preds = %67
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %77 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i.i, i64 4
   %78 = zext nneg i32 %3 to i64
   %79 = getelementptr inbounds nuw %"struct.OT::Record", ptr %77, i64 %78
@@ -4467,7 +4467,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %126, %119
   br i1 %.not.i.i.i, label %143, label %_ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i
 
 143:                                              ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %144 = getelementptr inbounds nuw i8, ptr %.0.i.i24, i64 2
   %145 = zext nneg i32 %117 to i64
   %146 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %144, i64 %145
@@ -4579,7 +4579,7 @@ _ZNK2OT8GSUBGPOS15get_script_listEv.exit.i:       ; preds = %26, %_ZL18get_gsubg
   br i1 %.not.i.i.i.i, label %45, label %_ZNK2OT8GSUBGPOS10get_scriptEj.exit
 
 45:                                               ; preds = %_ZNK2OT8GSUBGPOS15get_script_listEv.exit.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   %47 = zext nneg i32 %2 to i64
   %48 = getelementptr inbounds nuw %"struct.OT::Record.358", ptr %46, i64 %47
@@ -4622,7 +4622,7 @@ _ZNK2OT8GSUBGPOS10get_scriptEj.exit:              ; preds = %_ZNK2OT8GSUBGPOS15g
   br i1 %.not.i.i, label %75, label %_ZNK2OT7ArrayOfINS_6RecordINS_7LangSysEEENS_7IntTypeItLj2EEEEixEi.exit.i
 
 75:                                               ; preds = %66
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %76 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i.i, i64 4
   %77 = zext nneg i32 %3 to i64
   %78 = getelementptr inbounds nuw %"struct.OT::Record", ptr %76, i64 %77
@@ -4683,7 +4683,7 @@ _ZNK2OT6Script12get_lang_sysEj.exit:              ; preds = %61, %_ZNK2OT7ArrayO
   br i1 %.not.i.i23, label %109, label %_ZNK2OT7LangSys17get_feature_indexEj.exit
 
 109:                                              ; preds = %102
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %110 = getelementptr inbounds nuw %"struct.OT::Index", ptr %98, i64 %indvars.iv
   br label %_ZNK2OT7LangSys17get_feature_indexEj.exit
 
@@ -4735,7 +4735,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %126, %119
   br i1 %.not.i.i.i, label %143, label %_ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i
 
 143:                                              ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %144 = getelementptr inbounds nuw i8, ptr %.0.i.i26, i64 2
   %145 = zext nneg i32 %117 to i64
   %146 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %144, i64 %145
@@ -5053,7 +5053,7 @@ _ZNK2OT8GSUBGPOS15get_script_listEv.exit.i:       ; preds = %45, %.lr.ph43
   br i1 %.not.i.i.i.i, label %64, label %67
 
 64:                                               ; preds = %_ZNK2OT8GSUBGPOS15get_script_listEv.exit.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i20, i64 2
   %66 = getelementptr inbounds nuw %"struct.OT::Record.358", ptr %65, i64 %indvars.iv
   br label %67
@@ -5092,7 +5092,7 @@ _ZNK2OT8GSUBGPOS15get_script_listEv.exit.i:       ; preds = %45, %.lr.ph43
 
 80:                                               ; preds = %.loopexit.split-lp, %.loopexit37
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit37 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZN29hb_collect_features_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(252) %7) #26
+  call void @_ZN29hb_collect_features_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(252) %7) #27
   resume { ptr, i32 } %lpad.phi
 
 .lr.ph:                                           ; preds = %.preheader, %_ZNK2OT8GSUBGPOS17find_script_indexEjPj.exit.thread
@@ -5218,7 +5218,7 @@ _ZNK2OT8GSUBGPOS15get_script_listEv.exit.i28:     ; preds = %139, %_ZNK2OT8GSUBG
   br i1 %.not.i.i.i.i30, label %158, label %161
 
 158:                                              ; preds = %_ZNK2OT8GSUBGPOS15get_script_listEv.exit.i28
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %159 = getelementptr inbounds nuw i8, ptr %.0.i.i29, i64 2
   %160 = getelementptr inbounds nuw %"struct.OT::Record.358", ptr %159, i64 %112
   br label %161
@@ -5248,11 +5248,11 @@ _ZNK2OT8GSUBGPOS17find_script_indexEjPj.exit.thread: ; preds = %138, %_ZNK2OT8GS
 
 .loopexit:                                        ; preds = %_ZNK2OT8GSUBGPOS17find_script_indexEjPj.exit.thread, %79, %.preheader, %_ZNK2OT8GSUBGPOS16get_script_countEv.exit
   %175 = getelementptr inbounds nuw i8, ptr %7, i64 168
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %175) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %175) #27
   %176 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %176) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %176) #27
   %177 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %177) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %177) #27
   ret void
 }
 
@@ -5350,9 +5350,9 @@ define linkonce_odr hidden void @_ZN29hb_collect_features_context_tC2EP9hb_face_
 46:                                               ; preds = %18
   %47 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %35) #26
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %28) #26
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %20) #26
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %35) #27
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %28) #27
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %20) #27
   resume { ptr, i32 } %47
 }
 
@@ -5423,7 +5423,7 @@ define internal fastcc void @_ZL23script_collect_featuresP29hb_collect_features_
   br i1 %.not.i.i, label %39, label %_ZNK2OT6Script12get_lang_sysEj.exit
 
 39:                                               ; preds = %32
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %40 = getelementptr inbounds nuw %"struct.OT::Record", ptr %31, i64 %indvars.iv
   br label %_ZNK2OT6Script12get_lang_sysEj.exit
 
@@ -5523,7 +5523,7 @@ _ZNK2OT6Script19find_lang_sys_indexEjPj.exit:     ; preds = %85
   br i1 %.not.i.i23, label %95, label %_ZNK2OT7ArrayOfINS_6RecordINS_7LangSysEEENS_7IntTypeItLj2EEEEixEi.exit.i24
 
 95:                                               ; preds = %94
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %96 = getelementptr inbounds nuw %"struct.OT::Record", ptr %8, i64 %62
   br label %_ZNK2OT7ArrayOfINS_6RecordINS_7LangSysEEENS_7IntTypeItLj2EEEEixEi.exit.i24
 
@@ -5563,11 +5563,11 @@ _ZNK2OT6Script19find_lang_sys_indexEjPj.exit.thread: ; preds = %88, %52, %_ZNK2O
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN29hb_collect_features_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #26
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #27
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #26
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #27
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #26
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #27
   ret void
 }
 
@@ -5643,7 +5643,7 @@ _ZNK2OT8GSUBGPOS15get_script_listEv.exit.i:       ; preds = %27, %_ZL18get_gsubg
   br i1 %.not.i.i.i.i, label %46, label %_ZNK2OT8GSUBGPOS10get_scriptEj.exit
 
 46:                                               ; preds = %_ZNK2OT8GSUBGPOS15get_script_listEv.exit.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   %48 = zext nneg i32 %2 to i64
   %49 = getelementptr inbounds nuw %"struct.OT::Record.358", ptr %47, i64 %48
@@ -5686,7 +5686,7 @@ _ZNK2OT8GSUBGPOS10get_scriptEj.exit:              ; preds = %_ZNK2OT8GSUBGPOS15g
   br i1 %.not.i.i, label %76, label %_ZNK2OT7ArrayOfINS_6RecordINS_7LangSysEEENS_7IntTypeItLj2EEEEixEi.exit.i
 
 76:                                               ; preds = %67
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %77 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i.i, i64 4
   %78 = zext nneg i32 %3 to i64
   %79 = getelementptr inbounds nuw %"struct.OT::Record", ptr %77, i64 %78
@@ -5789,7 +5789,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %121, %114
   br i1 %.not.i.i.i, label %138, label %_ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i
 
 138:                                              ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %139 = getelementptr inbounds nuw i8, ptr %.0.i.i19, i64 2
   %140 = zext i16 %rev.i.i.i.i.i to i64
   %141 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %139, i64 %140
@@ -5859,7 +5859,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb1EE5allocEj
   %.0.i = select i1 %.not.i27, i32 0, i32 %narrow.i
   %18 = zext nneg i32 %.0.i to i64
   %19 = shl nuw nsw i64 12, %18
-  %20 = tail call noalias ptr @malloc(i64 noundef %19) #27
+  %20 = tail call noalias ptr @malloc(i64 noundef %19) #28
   %.not26 = icmp eq ptr %20, null
   br i1 %.not26, label %21, label %23
 
@@ -5935,7 +5935,7 @@ _ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit:       ; preds = %_ZL9hb_memsetPvij.e
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %48, %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit
-  tail call void @free(ptr noundef %30) #26
+  tail call void @free(ptr noundef %30) #27
   br label %49
 
 49:                                               ; preds = %7, %2, %._crit_edge, %21
@@ -6066,7 +6066,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %49, %41
   br i1 %.not.i.i.i.i, label %66, label %70
 
 66:                                               ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %67 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   %68 = zext nneg i32 %42 to i64
   %69 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %67, i64 %68
@@ -6133,7 +6133,7 @@ _ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit: ; preds = %.noexc,
 
 99:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %9) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %9) #27
   resume { ptr, i32 } %lpad.phi
 
 ._crit_edge:                                      ; preds = %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit, %33
@@ -6141,7 +6141,7 @@ _ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit: ; preds = %.noexc,
           to label %100 unwind label %.loopexit.split-lp
 
 100:                                              ; preds = %._crit_edge
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %9) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %9) #27
   ret void
 }
 
@@ -6372,7 +6372,7 @@ _ZN2OT27hb_collect_glyphs_context_tC2EP9hb_face_tP8hb_set_tS4_S4_S4_j.exit: ; pr
   br i1 %.not.i.i.i, label %69, label %_ZNK2OT6Layout4GSUB10get_lookupEj.exit
 
 69:                                               ; preds = %50
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !31
   %70 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
   %71 = zext nneg i32 %2 to i64
   %72 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %70, i64 %71
@@ -6427,7 +6427,7 @@ _ZNK2OT6Layout4GSUB10get_lookupEj.exit:           ; preds = %69, %50, %36
   br i1 %.not.i.i.i.i.i, label %106, label %108
 
 106:                                              ; preds = %99
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %107 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %98, i64 %indvars.iv.i.i.i
   br label %108
 
@@ -6477,7 +6477,7 @@ _ZNK2OT6Layout4GSUB10get_lookupEj.exit:           ; preds = %69, %50, %36
   %121 = landingpad { ptr, i32 }
           catch ptr null
   %122 = extractvalue { ptr, i32 } %121, 0
-  call void @__clang_call_terminate(ptr %122) #28
+  call void @__clang_call_terminate(ptr %122) #29
   unreachable
 
 _ZN2OT27hb_collect_glyphs_context_tD2Ev.exit:     ; preds = %.loopexit.split-lp
@@ -6532,7 +6532,7 @@ _ZN2OT27hb_collect_glyphs_context_tD2Ev.exit:     ; preds = %.loopexit.split-lp
   br i1 %.not.i.i.i22, label %159, label %_ZNK2OT6Layout4GPOS10get_lookupEj.exit
 
 159:                                              ; preds = %140
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !31
   %160 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i21, i64 2
   %161 = zext nneg i32 %2 to i64
   %162 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %160, i64 %161
@@ -6586,7 +6586,7 @@ _ZNK2OT6Layout4GPOS10get_lookupEj.exit:           ; preds = %159, %140, %126
   br i1 %.not.i.i.i.i.i28, label %196, label %198
 
 196:                                              ; preds = %189
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %197 = getelementptr inbounds nuw %"struct.OT::OffsetTo.630", ptr %188, i64 %indvars.iv.i.i.i27
   br label %198
 
@@ -6620,7 +6620,7 @@ _ZNK2OT6Layout9GSUB_impl11SubstLookup14collect_glyphsEPNS_27hb_collect_glyphs_co
   %211 = landingpad { ptr, i32 }
           catch ptr null
   %212 = extractvalue { ptr, i32 } %211, 0
-  call void @__clang_call_terminate(ptr %212) #28
+  call void @__clang_call_terminate(ptr %212) #29
   unreachable
 
 _ZN2OT27hb_collect_glyphs_context_tD2Ev.exit34:   ; preds = %_ZNK2OT6Layout9GSUB_impl11SubstLookup14collect_glyphsEPNS_27hb_collect_glyphs_context_tE.exit
@@ -6802,7 +6802,7 @@ _ZNK2OT8GSUBGPOS22get_feature_variationsEv.exit:  ; preds = %23, %26
   br i1 %.not.i.i, label %68, label %_ZNK2OT7ArrayOfINS_22FeatureVariationRecordENS_7IntTypeIjLj4EEEEixEi.exit.i
 
 68:                                               ; preds = %_ZNK2OT8GSUBGPOS22get_feature_variationsEv.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %69 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %70 = zext i32 %2 to i64
   %71 = getelementptr inbounds nuw %"struct.OT::FeatureVariationRecord", ptr %69, i64 %70
@@ -6935,7 +6935,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %145, %_ZNK2OT17Feat
   br i1 %.not.i.i.i.i, label %164, label %_ZNK2OT8GSUBGPOS11get_featureEj.exit
 
 164:                                              ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %165 = getelementptr inbounds nuw i8, ptr %.0.i.i11, i64 2
   %166 = zext nneg i32 %1 to i64
   %167 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %165, i64 %166
@@ -7056,7 +7056,7 @@ define hidden range(i32 0, 2) i32 @hb_ot_layout_lookup_would_substitute(ptr noun
   br i1 %.not.i.i.i, label %51, label %_ZNK2OT6Layout4GSUB10get_lookupEj.exit
 
 51:                                               ; preds = %32
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !31
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
   %53 = zext nneg i32 %1 to i64
   %54 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %52, i64 %53
@@ -7150,7 +7150,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT8GSUBGPOS13accelerator_tINS_6Layo
   br i1 %.not.i.i.i, label %42, label %_ZNK2OT6Layout4GSUB10get_lookupEj.exit
 
 42:                                               ; preds = %23
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !31
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
   %44 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %43, i64 %6
   %45 = load i8, ptr %44, align 1
@@ -7181,7 +7181,7 @@ _ZNK2OT6Layout4GSUB10get_lookupEj.exit:           ; preds = %.lr.ph, %23, %42
   br i1 %61, label %.loopexit, label %62
 
 62:                                               ; preds = %56
-  tail call void @free(ptr noundef nonnull %55) #26
+  tail call void @free(ptr noundef nonnull %55) #27
   %63 = load ptr, ptr %5, align 8
   %64 = getelementptr inbounds nuw %struct.hb_atomic_ptr_t.813, ptr %63, i64 %6
   %65 = load atomic i64, ptr %64 acquire, align 8
@@ -7275,7 +7275,7 @@ _ZNK2OT33hb_ot_layout_lookup_accelerator_t8may_haveEj.exit: ; preds = %16
   br i1 %.not.i.i.i.i, label %54, label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit.i.i
 
 54:                                               ; preds = %47
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %55 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %46, i64 %indvars.iv.i.i
   br label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit.i.i
 
@@ -7523,7 +7523,7 @@ define hidden void @hb_ot_layout_lookup_substitute_closure(ptr noundef %0, i32 n
   br i1 %.not.i.i.i, label %71, label %_ZNK2OT6Layout4GSUB10get_lookupEj.exit
 
 71:                                               ; preds = %52
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !31
   %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
   %73 = zext nneg i32 %1 to i64
   %74 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %72, i64 %73
@@ -7593,7 +7593,7 @@ _ZN2OT20hb_closure_context_t19should_visit_lookupEj.exit.i: ; preds = %_ZNK2OT6L
   br i1 %.not.i.i.i.i.i, label %114, label %116
 
 114:                                              ; preds = %107
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %115 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %106, i64 %indvars.iv.i.i.i
   br label %116
 
@@ -7649,7 +7649,7 @@ _ZNK2OT6Layout9GSUB_impl11SubstLookup7closureEPNS_20hb_closure_context_tEj.exit:
   %.046.i.i.i.i = phi i32 [ %136, %.lr.ph.i.i.i.i ], [ %131, %.lr.ph.preheader.i.i.i.i ]
   %.0.i.i.i.i16 = getelementptr inbounds i8, ptr %.pn7.i.i.i.i, i64 -72
   %136 = add i32 %.046.i.i.i.i, -1
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i.i16) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i.i16) #27
   %.not.i.i.i.i17 = icmp eq i32 %136, 0
   br i1 %.not.i.i.i.i17, label %_ZN11hb_vector_tI8hb_set_tLb0EE13shrink_vectorEj.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !38
 
@@ -7657,19 +7657,19 @@ _ZN11hb_vector_tI8hb_set_tLb0EE13shrink_vectorEj.exit.i.i.i: ; preds = %.lr.ph.i
   store i32 0, ptr %130, align 4
   %137 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %138 = load ptr, ptr %137, align 8
-  call void @free(ptr noundef %138) #26
+  call void @free(ptr noundef %138) #27
   br label %_ZN2OT20hb_closure_context_tD2Ev.exit
 
 139:                                              ; preds = %_ZNK2OT6Layout9GSUB_impl11SubstLookup7closureEPNS_20hb_closure_context_tEj.exit
   %140 = landingpad { ptr, i32 }
           catch ptr null
   %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #28
+  call void @__clang_call_terminate(ptr %141) #29
   unreachable
 
 _ZN2OT20hb_closure_context_tD2Ev.exit:            ; preds = %127, %_ZN11hb_vector_tI8hb_set_tLb0EE13shrink_vectorEj.exit.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %.ptr.ptr.i) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %.ptr.ptr.i) #27
   invoke void @_ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EE4finiEv(ptr noundef nonnull align 8 dereferenceable(48) %5)
           to label %_ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EED2Ev.exit unwind label %142
 
@@ -7677,7 +7677,7 @@ _ZN2OT20hb_closure_context_tD2Ev.exit:            ; preds = %127, %_ZN11hb_vecto
   %143 = landingpad { ptr, i32 }
           catch ptr null
   %144 = extractvalue { ptr, i32 } %143, 0
-  call void @__clang_call_terminate(ptr %144) #28
+  call void @__clang_call_terminate(ptr %144) #29
   unreachable
 
 _ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EED2Ev.exit: ; preds = %_ZN2OT20hb_closure_context_tD2Ev.exit
@@ -7693,8 +7693,8 @@ _ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EED2Ev.exit: ; preds = %_ZN2OT
           to label %.noexc.i.i unwind label %152
 
 .noexc.i.i:                                       ; preds = %146
-  %149 = call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %147) #26
-  call void @free(ptr noundef nonnull %147) #26
+  %149 = call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %147) #27
+  call void @free(ptr noundef nonnull %147) #27
   store atomic i64 0, ptr %8 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
 
@@ -7704,14 +7704,14 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i: ; preds = %.noexc.i.
   br i1 %.not.i.i.i19, label %_ZN8hb_map_tD2Ev.exit, label %151
 
 151:                                              ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
-  call void @free(ptr noundef nonnull %150) #26
+  call void @free(ptr noundef nonnull %150) #27
   br label %_ZN8hb_map_tD2Ev.exit
 
 152:                                              ; preds = %146
   %153 = landingpad { ptr, i32 }
           catch ptr null
   %154 = extractvalue { ptr, i32 } %153, 0
-  call void @__clang_call_terminate(ptr %154) #28
+  call void @__clang_call_terminate(ptr %154) #29
   unreachable
 
 _ZN8hb_map_tD2Ev.exit:                            ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i, %151
@@ -7729,7 +7729,7 @@ _ZN8hb_map_tD2Ev.exit:                            ; preds = %_ZL14hb_object_fini
 
 155:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZN2OT20hb_closure_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %6) #26
+  call void @_ZN2OT20hb_closure_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %6) #27
   invoke void @_ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EE4finiEv(ptr noundef nonnull align 8 dereferenceable(48) %5)
           to label %_ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EED2Ev.exit20 unwind label %156
 
@@ -7737,11 +7737,11 @@ _ZN8hb_map_tD2Ev.exit:                            ; preds = %_ZL14hb_object_fini
   %157 = landingpad { ptr, i32 }
           catch ptr null
   %158 = extractvalue { ptr, i32 } %157, 0
-  call void @__clang_call_terminate(ptr %158) #28
+  call void @__clang_call_terminate(ptr %158) #29
   unreachable
 
 _ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EED2Ev.exit20: ; preds = %155
-  call void @_ZN8hb_map_tD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #26
+  call void @_ZN8hb_map_tD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #27
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -7774,7 +7774,7 @@ define linkonce_odr hidden void @_ZN2OT20hb_closure_context_tD2Ev(ptr noundef no
   %.046.i.i.i = phi i32 [ %12, %.lr.ph.i.i.i ], [ %7, %.lr.ph.preheader.i.i.i ]
   %.0.i.i.i = getelementptr inbounds i8, ptr %.pn7.i.i.i, i64 -72
   %12 = add i32 %.046.i.i.i, -1
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i) #26
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i) #27
   %.not.i.i.i = icmp eq i32 %12, 0
   br i1 %.not.i.i.i, label %_ZN11hb_vector_tI8hb_set_tLb0EE13shrink_vectorEj.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !38
 
@@ -7782,20 +7782,20 @@ _ZN11hb_vector_tI8hb_set_tLb0EE13shrink_vectorEj.exit.i.i: ; preds = %.lr.ph.i.i
   store i32 0, ptr %6, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = load ptr, ptr %13, align 8
-  tail call void @free(ptr noundef %14) #26
+  tail call void @free(ptr noundef %14) #27
   br label %_ZN11hb_vector_tI8hb_set_tLb0EED2Ev.exit
 
 _ZN11hb_vector_tI8hb_set_tLb0EED2Ev.exit:         ; preds = %2, %_ZN11hb_vector_tI8hb_set_tLb0EE13shrink_vectorEj.exit.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %.ptr1 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %.ptr1) #26
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %.ptr1) #27
   ret void
 
 15:                                               ; preds = %1
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #28
+  tail call void @__clang_call_terminate(ptr %17) #29
   unreachable
 }
 
@@ -7814,8 +7814,8 @@ define linkonce_odr hidden void @_ZN8hb_map_tD2Ev(ptr noundef nonnull align 8 de
           to label %.noexc.i unwind label %11
 
 .noexc.i:                                         ; preds = %4
-  %7 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %5) #26
-  tail call void @free(ptr noundef nonnull %5) #26
+  %7 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %5) #27
+  tail call void @free(ptr noundef nonnull %5) #27
   store atomic i64 0, ptr %2 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i
 
@@ -7826,7 +7826,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i: ; preds = %.noexc.i, %
   br i1 %.not.i.i, label %_ZN12hb_hashmap_tIjjLb1EED2Ev.exit, label %10
 
 10:                                               ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i
-  tail call void @free(ptr noundef nonnull %9) #26
+  tail call void @free(ptr noundef nonnull %9) #27
   store ptr null, ptr %8, align 8
   br label %_ZN12hb_hashmap_tIjjLb1EED2Ev.exit
 
@@ -7834,7 +7834,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i: ; preds = %.noexc.i, %
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #28
+  tail call void @__clang_call_terminate(ptr %13) #29
   unreachable
 
 _ZN12hb_hashmap_tIjjLb1EED2Ev.exit:               ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i, %10
@@ -8144,7 +8144,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE14get_populationEv.exit: ; preds 
   br i1 %.not.i.i.i33, label %133, label %_ZNK2OT6Layout4GSUB10get_lookupEj.exit
 
 133:                                              ; preds = %116
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !31
   %134 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i32, i64 2
   %135 = zext nneg i32 %109 to i64
   %136 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %134, i64 %135
@@ -8213,7 +8213,7 @@ _ZN2OT20hb_closure_context_t19should_visit_lookupEj.exit.i: ; preds = %_ZNK2OT6L
   br i1 %.not.i.i.i.i.i, label %175, label %177
 
 175:                                              ; preds = %168
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %176 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %167, i64 %indvars.iv.i.i.i37
   br label %177
 
@@ -8370,7 +8370,7 @@ _ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit: ; preds = %.noexc4
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit123, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit126, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit128, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit132, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit134, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp135, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN2OT20hb_closure_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %10) #26
+  call void @_ZN2OT20hb_closure_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %10) #27
   invoke void @_ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EE4finiEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
           to label %_ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EED2Ev.exit116 unwind label %363
 
@@ -8397,7 +8397,7 @@ _ZNK2OT8GSUBGPOS16get_lookup_countEv.exit:        ; preds = %.preheader, %_ZNK2O
   br i1 %236, label %_ZNK2OT6Layout4GSUB10get_lookupEj.exit49, label %_ZNK2OT8GSUBGPOS16get_lookup_countEv.exit.thread
 
 _ZNK2OT6Layout4GSUB10get_lookupEj.exit49:         ; preds = %_ZNK2OT8GSUBGPOS16get_lookup_countEv.exit
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !31
   %237 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 2
   %238 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %237, i64 %indvars.iv
   %239 = load i8, ptr %238, align 1
@@ -8462,7 +8462,7 @@ _ZN2OT20hb_closure_context_t19should_visit_lookupEj.exit.i50: ; preds = %_ZNK2OT
   br i1 %.not.i.i.i.i.i55, label %278, label %280
 
 278:                                              ; preds = %271
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %279 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %270, i64 %indvars.iv.i.i.i54
   br label %280
 
@@ -8660,7 +8660,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE14get_populationEv.exit110: ; pre
   %.046.i.i.i.i = phi i32 [ %344, %.lr.ph.i.i.i.i ], [ %339, %.lr.ph.preheader.i.i.i.i ]
   %.0.i.i.i.i112 = getelementptr inbounds i8, ptr %.pn7.i.i.i.i, i64 -72
   %344 = add i32 %.046.i.i.i.i, -1
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i.i112) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i.i112) #27
   %.not.i.i.i.i113 = icmp eq i32 %344, 0
   br i1 %.not.i.i.i.i113, label %_ZN11hb_vector_tI8hb_set_tLb0EE13shrink_vectorEj.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !38
 
@@ -8668,19 +8668,19 @@ _ZN11hb_vector_tI8hb_set_tLb0EE13shrink_vectorEj.exit.i.i.i: ; preds = %.lr.ph.i
   store i32 0, ptr %338, align 4
   %345 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %346 = load ptr, ptr %345, align 8
-  call void @free(ptr noundef %346) #26
+  call void @free(ptr noundef %346) #27
   br label %_ZN2OT20hb_closure_context_tD2Ev.exit
 
 347:                                              ; preds = %.critedge
   %348 = landingpad { ptr, i32 }
           catch ptr null
   %349 = extractvalue { ptr, i32 } %348, 0
-  call void @__clang_call_terminate(ptr %349) #28
+  call void @__clang_call_terminate(ptr %349) #29
   unreachable
 
 _ZN2OT20hb_closure_context_tD2Ev.exit:            ; preds = %335, %_ZN11hb_vector_tI8hb_set_tLb0EE13shrink_vectorEj.exit.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %.ptr.ptr.i) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %.ptr.ptr.i) #27
   invoke void @_ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EE4finiEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
           to label %_ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EED2Ev.exit unwind label %350
 
@@ -8688,7 +8688,7 @@ _ZN2OT20hb_closure_context_tD2Ev.exit:            ; preds = %335, %_ZN11hb_vecto
   %351 = landingpad { ptr, i32 }
           catch ptr null
   %352 = extractvalue { ptr, i32 } %351, 0
-  call void @__clang_call_terminate(ptr %352) #28
+  call void @__clang_call_terminate(ptr %352) #29
   unreachable
 
 _ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EED2Ev.exit: ; preds = %_ZN2OT20hb_closure_context_tD2Ev.exit
@@ -8704,8 +8704,8 @@ _ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EED2Ev.exit: ; preds = %_ZN2OT
           to label %.noexc.i.i unwind label %360
 
 .noexc.i.i:                                       ; preds = %354
-  %357 = call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %355) #26
-  call void @free(ptr noundef nonnull %355) #26
+  %357 = call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %355) #27
+  call void @free(ptr noundef nonnull %355) #27
   store atomic i64 0, ptr %13 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
 
@@ -8715,14 +8715,14 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i: ; preds = %.noexc.i.
   br i1 %.not.i.i.i115, label %_ZN8hb_map_tD2Ev.exit, label %359
 
 359:                                              ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
-  call void @free(ptr noundef nonnull %358) #26
+  call void @free(ptr noundef nonnull %358) #27
   br label %_ZN8hb_map_tD2Ev.exit
 
 360:                                              ; preds = %354
   %361 = landingpad { ptr, i32 }
           catch ptr null
   %362 = extractvalue { ptr, i32 } %361, 0
-  call void @__clang_call_terminate(ptr %362) #28
+  call void @__clang_call_terminate(ptr %362) #29
   unreachable
 
 _ZN8hb_map_tD2Ev.exit:                            ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i, %359
@@ -8732,11 +8732,11 @@ _ZN8hb_map_tD2Ev.exit:                            ; preds = %_ZL14hb_object_fini
   %364 = landingpad { ptr, i32 }
           catch ptr null
   %365 = extractvalue { ptr, i32 } %364, 0
-  call void @__clang_call_terminate(ptr %365) #28
+  call void @__clang_call_terminate(ptr %365) #29
   unreachable
 
 _ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EED2Ev.exit116: ; preds = %.loopexit.split-lp
-  call void @_ZN8hb_map_tD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #26
+  call void @_ZN8hb_map_tD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #27
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -8970,7 +8970,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %50, %43
   br i1 %.not.i.i.i, label %67, label %_ZNK2OT8GSUBGPOS15get_feature_tagEj.exit
 
 67:                                               ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %68 = getelementptr inbounds nuw i8, ptr %.0.i.i57, i64 2
   %69 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %68, i64 %indvars.iv
   br label %_ZNK2OT8GSUBGPOS15get_feature_tagEj.exit
@@ -9033,7 +9033,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i60:    ; preds = %95, %88
   br i1 %.not.i.i.i.i62, label %112, label %_ZNK2OT8GSUBGPOS11get_featureEj.exit
 
 112:                                              ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i60
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %113 = getelementptr inbounds nuw i8, ptr %.0.i.i61, i64 2
   %114 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %113, i64 %indvars.iv
   br label %_ZNK2OT8GSUBGPOS11get_featureEj.exit
@@ -9270,7 +9270,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %29, %22
   br i1 %.not.i.i.i, label %48, label %_ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i
 
 48:                                               ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   %50 = zext nneg i32 %2 to i64
   %51 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %49, i64 %50
@@ -9330,7 +9330,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i84:    ; preds = %68, %_ZNK2OT8GSUBGP
   br i1 %.not.i.i.i.i, label %87, label %_ZNK2OT8GSUBGPOS11get_featureEj.exit
 
 87:                                               ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i84
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %88 = getelementptr inbounds nuw i8, ptr %.0.i.i85, i64 2
   %89 = zext nneg i32 %2 to i64
   %90 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %88, i64 %89
@@ -9610,7 +9610,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %26, %_ZL18get_gsubg
   br i1 %.not.i.i.i.i, label %45, label %_ZNK2OT8GSUBGPOS11get_featureEj.exit
 
 45:                                               ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   %47 = zext nneg i32 %2 to i64
   %48 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %46, i64 %47
@@ -9682,7 +9682,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i9:     ; preds = %78, %71
   br i1 %.not.i.i.i, label %97, label %_ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i
 
 97:                                               ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i9
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %98 = getelementptr inbounds nuw i8, ptr %.0.i.i10, i64 2
   %99 = zext nneg i32 %2 to i64
   %100 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %98, i64 %99
@@ -9941,7 +9941,7 @@ define linkonce_odr hidden void @_ZNK11hb_ot_map_t5applyI9GSUBProxyEEvRKT_PK18hb
   br i1 %.not.i.i.i.i, label %88, label %_ZNK2OT6Layout4GSUB10get_lookupEj.exit.i
 
 88:                                               ; preds = %69
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !31
   %89 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   %90 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %89, i64 %52
   %91 = load i8, ptr %90, align 1
@@ -9971,7 +9971,7 @@ _ZNK2OT6Layout4GSUB10get_lookupEj.exit.i:         ; preds = %88, %69, %.lr.ph.i
   %109 = mul nuw nsw i32 %108, 56
   %110 = add nuw nsw i32 %109, 32
   %111 = zext nneg i32 %110 to i64
-  %112 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %111) #29
+  %112 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %111) #30
   %.not.i71 = icmp eq ptr %112, null
   br i1 %.not.i71, label %.noexc.thread, label %113
 
@@ -10013,7 +10013,7 @@ _ZNK2OT6Layout4GSUB10get_lookupEj.exit.i:         ; preds = %88, %69, %.lr.ph.i
   br i1 %.not.i.i.i.i.i74, label %130, label %132
 
 130:                                              ; preds = %123
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %131 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %122, i64 %indvars.iv.i.i.i
   br label %132
 
@@ -10107,7 +10107,7 @@ _ZNK2OT6Layout9GSUB_impl11SubstLookup8dispatchINS_33hb_accelerate_subtables_cont
   br i1 %174, label %_ZNK2OT8GSUBGPOS13accelerator_tINS_6Layout4GSUBEE9get_accelEj.exit, label %175
 
 175:                                              ; preds = %.noexc
-  call void @free(ptr noundef nonnull %112) #26
+  call void @free(ptr noundef nonnull %112) #27
   %176 = load ptr, ptr %51, align 8
   %177 = getelementptr inbounds nuw %struct.hb_atomic_ptr_t.813, ptr %176, i64 %52
   %178 = load atomic i64, ptr %177 acquire, align 8
@@ -10136,7 +10136,7 @@ _ZNK2OT6Layout9GSUB_impl11SubstLookup8dispatchINS_33hb_accelerate_subtables_cont
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit88, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp89, %.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN2OT21hb_ot_apply_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %7) #26
+  call void @_ZN2OT21hb_ot_apply_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %7) #27
   resume { ptr, i32 } %lpad.phi
 
 _ZNK2OT8GSUBGPOS13accelerator_tINS_6Layout4GSUBEE9get_accelEj.exit: ; preds = %.noexc, %.loopexit.split.loop.exit17.i
@@ -10248,7 +10248,7 @@ _ZNK24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES_IS0_ImLj0E
   br i1 %.not.i.i.i, label %252, label %_ZNK2OT6Layout4GSUB10get_lookupEj.exit
 
 252:                                              ; preds = %233
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !31
   %253 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
   %254 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %253, i64 %52
   %255 = load i8, ptr %254, align 1
@@ -10397,7 +10397,7 @@ _ZNK11hb_buffer_t6digestEv.exit:                  ; preds = %.lr.ph.i7.i.i.i, %2
 ._crit_edge104:                                   ; preds = %325, %5
   %329 = getelementptr inbounds nuw i8, ptr %7, i64 264
   %330 = load ptr, ptr %329, align 8
-  call void @free(ptr noundef %330) #26
+  call void @free(ptr noundef %330) #27
   %331 = getelementptr inbounds nuw i8, ptr %7, i64 216
   %332 = load ptr, ptr %331, align 8
   %.not.i.i = icmp eq ptr %332, null
@@ -10411,7 +10411,7 @@ _ZNK11hb_buffer_t6digestEv.exit:                  ; preds = %.lr.ph.i7.i.i.i, %2
   %335 = landingpad { ptr, i32 }
           catch ptr null
   %336 = extractvalue { ptr, i32 } %335, 0
-  call void @__clang_call_terminate(ptr %336) #28
+  call void @__clang_call_terminate(ptr %336) #29
   unreachable
 
 _ZN2OT21hb_ot_apply_context_tD2Ev.exit:           ; preds = %333, %._crit_edge104
@@ -10610,7 +10610,7 @@ define linkonce_odr hidden void @_ZNK11hb_ot_map_t5applyI9GPOSProxyEEvRKT_PK18hb
   br i1 %.not.i.i.i.i, label %109, label %_ZNK2OT6Layout4GPOS10get_lookupEj.exit.i
 
 109:                                              ; preds = %90
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !31
   %110 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   %111 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %110, i64 %73
   %112 = load i8, ptr %111, align 1
@@ -10640,7 +10640,7 @@ _ZNK2OT6Layout4GPOS10get_lookupEj.exit.i:         ; preds = %109, %90, %.lr.ph.i
   %130 = mul nuw nsw i32 %129, 56
   %131 = add nuw nsw i32 %130, 32
   %132 = zext nneg i32 %131 to i64
-  %133 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %132) #29
+  %133 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %132) #30
   %.not.i75 = icmp eq ptr %133, null
   br i1 %.not.i75, label %.noexc.thread, label %134
 
@@ -10682,7 +10682,7 @@ _ZNK2OT6Layout4GPOS10get_lookupEj.exit.i:         ; preds = %109, %90, %.lr.ph.i
   br i1 %.not.i.i.i.i.i78, label %151, label %153
 
 151:                                              ; preds = %144
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %152 = getelementptr inbounds nuw %"struct.OT::OffsetTo.630", ptr %143, i64 %indvars.iv.i.i.i
   br label %153
 
@@ -10776,7 +10776,7 @@ _ZNK2OT6Layout9GPOS_impl9PosLookup8dispatchINS_33hb_accelerate_subtables_context
   br i1 %195, label %_ZNK2OT8GSUBGPOS13accelerator_tINS_6Layout4GPOSEE9get_accelEj.exit, label %196
 
 196:                                              ; preds = %.noexc
-  call void @free(ptr noundef nonnull %133) #26
+  call void @free(ptr noundef nonnull %133) #27
   %197 = load ptr, ptr %72, align 8
   %198 = getelementptr inbounds nuw %struct.hb_atomic_ptr_t.813, ptr %197, i64 %73
   %199 = load atomic i64, ptr %198 acquire, align 8
@@ -10805,7 +10805,7 @@ _ZNK2OT6Layout9GPOS_impl9PosLookup8dispatchINS_33hb_accelerate_subtables_context
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit92, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp93, %.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN2OT21hb_ot_apply_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %7) #26
+  call void @_ZN2OT21hb_ot_apply_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %7) #27
   resume { ptr, i32 } %lpad.phi
 
 _ZNK2OT8GSUBGPOS13accelerator_tINS_6Layout4GPOSEE9get_accelEj.exit: ; preds = %.noexc, %.loopexit.split.loop.exit17.i
@@ -10917,7 +10917,7 @@ _ZNK24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES_IS0_ImLj0E
   br i1 %.not.i.i.i, label %273, label %_ZNK2OT6Layout4GPOS10get_lookupEj.exit
 
 273:                                              ; preds = %254
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !31
   %274 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
   %275 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %274, i64 %73
   %276 = load i8, ptr %275, align 1
@@ -11154,7 +11154,7 @@ _ZNK11hb_buffer_t6digestEv.exit:                  ; preds = %.lr.ph.i7.i.i.i, %3
 ._crit_edge108:                                   ; preds = %401, %5
   %405 = getelementptr inbounds nuw i8, ptr %7, i64 264
   %406 = load ptr, ptr %405, align 8
-  call void @free(ptr noundef %406) #26
+  call void @free(ptr noundef %406) #27
   %407 = getelementptr inbounds nuw i8, ptr %7, i64 216
   %408 = load ptr, ptr %407, align 8
   %.not.i.i74 = icmp eq ptr %408, null
@@ -11168,7 +11168,7 @@ _ZNK11hb_buffer_t6digestEv.exit:                  ; preds = %.lr.ph.i7.i.i.i, %3
   %411 = landingpad { ptr, i32 }
           catch ptr null
   %412 = extractvalue { ptr, i32 } %411, 0
-  call void @__clang_call_terminate(ptr %412) #28
+  call void @__clang_call_terminate(ptr %412) #29
   unreachable
 
 _ZN2OT21hb_ot_apply_context_tD2Ev.exit:           ; preds = %409, %._crit_edge108
@@ -11315,7 +11315,7 @@ _ZNK2OT6Lookup9get_propsEv.exit:                  ; preds = %19, %29
   br i1 %93, label %_ZNK2OT6Layout9GSUB_impl11SubstLookup12get_subtableEj.exit.i, label %94
 
 94:                                               ; preds = %89
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 6
   br label %_ZNK2OT6Layout9GSUB_impl11SubstLookup12get_subtableEj.exit.i
 
@@ -12233,7 +12233,7 @@ define hidden noundef i32 @hb_ot_layout_lookup_get_glyph_alternates(ptr noundef 
   br i1 %.not.i.i.i, label %46, label %_ZNK2OT6Layout4GSUB10get_lookupEj.exit
 
 46:                                               ; preds = %27
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !31
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
   %48 = zext nneg i32 %1 to i64
   %49 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %47, i64 %48
@@ -12317,7 +12317,7 @@ define hidden i32 @hb_ot_layout_lookup_get_optical_bound(ptr noundef %0, i32 nou
   br i1 %.not.i.i.i, label %42, label %_ZNK2OT6Layout4GPOS10get_lookupEj.exit
 
 42:                                               ; preds = %23
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !31
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
   %44 = zext nneg i32 %1 to i64
   %45 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %43, i64 %44
@@ -12381,7 +12381,7 @@ _ZNK2OT6Layout9GPOS_impl17PosLookupSubTable8dispatchI29hb_position_single_dispat
   br i1 %.not.i.i.i.i2, label %83, label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GPOS_impl17PosLookupSubTableEEERKT_j.exit.i.i
 
 83:                                               ; preds = %76
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %84 = getelementptr inbounds nuw %"struct.OT::OffsetTo.630", ptr %75, i64 %indvars.iv.i.i
   br label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GPOS_impl17PosLookupSubTableEEERKT_j.exit.i.i
 
@@ -13720,7 +13720,7 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit167
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit167 ], [ %lpad.loopexit168, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp169, %.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN2OT21hb_ot_apply_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %6) #26
+  call void @_ZN2OT21hb_ot_apply_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %6) #27
   resume { ptr, i32 } %lpad.phi
 
 97:                                               ; preds = %88
@@ -14121,7 +14121,7 @@ _ZL14_hb_cmp_methodIN3AAT15hb_glyph_pair_tEKNS0_8KernPairEJEEiPKvS5_DpT1_.exit.i
 321:                                              ; preds = %._crit_edge
   %322 = getelementptr inbounds nuw i8, ptr %6, i64 264
   %323 = load ptr, ptr %322, align 8
-  call void @free(ptr noundef %323) #26
+  call void @free(ptr noundef %323) #27
   %324 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %325 = load ptr, ptr %324, align 8
   %.not.i.i = icmp eq ptr %325, null
@@ -14135,7 +14135,7 @@ _ZL14_hb_cmp_methodIN3AAT15hb_glyph_pair_tEKNS0_8KernPairEJEEiPKvS5_DpT1_.exit.i
   %328 = landingpad { ptr, i32 }
           catch ptr null
   %329 = extractvalue { ptr, i32 } %328, 0
-  call void @__clang_call_terminate(ptr %329) #28
+  call void @__clang_call_terminate(ptr %329) #29
   unreachable
 
 _ZN2OT21hb_ot_apply_context_tD2Ev.exit:           ; preds = %326, %321, %5
@@ -14230,7 +14230,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit.i: ; preds = %40, %30
 
 common.resume:                                    ; preds = %233, %44
   %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %234, %233 ]
-  tail call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %20) #26
+  tail call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %20) #27
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %5
@@ -14371,7 +14371,7 @@ _ZNK2OT4GDEF13get_var_storeEv.exit:               ; preds = %84, %70, %_ZNK16hb_
   %147 = or disjoint i32 %143, %146
   %148 = shl nuw nsw i32 %147, 2
   %149 = zext nneg i32 %148 to i64
-  %150 = tail call noalias ptr @malloc(i64 noundef %149) #27
+  %150 = tail call noalias ptr @malloc(i64 noundef %149) #28
   %.not.i9 = icmp ne ptr %150, null
   %151 = icmp ne i32 %147, 0
   %or.cond.i = and i1 %.not.i9, %151
@@ -14551,7 +14551,7 @@ _ZN24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES_IS0_ImLj0EE
 define linkonce_odr hidden void @_ZN2OT21hb_ot_apply_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
-  tail call void @free(ptr noundef %3) #26
+  tail call void @free(ptr noundef %3) #27
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -14571,7 +14571,7 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit.i: ; preds = %6
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #28
+  tail call void @__clang_call_terminate(ptr %10) #29
   unreachable
 
 _ZN21hb_sanitize_context_tD2Ev.exit:              ; preds = %1, %_ZN21hb_sanitize_context_t14end_processingEv.exit.i
@@ -14602,19 +14602,19 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %4
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #28
+  tail call void @__clang_call_terminate(ptr %9) #29
   unreachable
 }
 
 declare ptr @hb_blob_reference(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare { i32, i1 } @llvm.umul.with.overflow.i32(i32, i32) #9
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #26
-  tail call void @_ZSt9terminatev() #28
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #27
+  tail call void @_ZSt9terminatev() #29
   unreachable
 }
 
@@ -14641,7 +14641,7 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18GDEF_accele
   br i1 %.not.i, label %.split.loop.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call noalias dereferenceable_or_null(536) ptr @calloc(i64 noundef 1, i64 noundef 536) #29
+  %7 = tail call noalias dereferenceable_or_null(536) ptr @calloc(i64 noundef 1, i64 noundef 536) #30
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %.thread, label %8
 
@@ -14678,18 +14678,18 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18GDEF_accele
   store i32 0, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %23 = load ptr, ptr %22, align 8
-  tail call void @free(ptr noundef %23) #26
+  tail call void @free(ptr noundef %23) #27
   br label %_ZN16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_E7destroyEPS1_.exit.i
 
 24:                                               ; preds = %15
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #28
+  tail call void @__clang_call_terminate(ptr %26) #29
   unreachable
 
 _ZN16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_E7destroyEPS1_.exit.i: ; preds = %20, %17
-  tail call void @free(ptr noundef nonnull %7) #26
+  tail call void @free(ptr noundef nonnull %7) #27
   br label %_ZN16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_E10do_destroyEPS1_.exit
 
 _ZN16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_E10do_destroyEPS1_.exit: ; preds = %.thread, %14, %_ZN16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_E7destroyEPS1_.exit.i
@@ -14773,7 +14773,7 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit.i: ; preds = %19
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #28
+  call void @__clang_call_terminate(ptr %22) #29
   unreachable
 
 23:                                               ; preds = %17, %_ZN21hb_sanitize_context_t14end_processingEv.exit.i
@@ -14805,7 +14805,7 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit.i: ; preds = %19
 33:                                               ; preds = %.noexc6, %14, %5
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %3) #26
+  call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %3) #27
   br label %83
 
 35:                                               ; preds = %26, %30
@@ -14889,7 +14889,7 @@ _ZNK2OT13MarkGlyphSets16collect_coverageI24hb_set_digest_combiner_tI28hb_set_dig
   store i32 0, ptr %86, align 4
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %88 = load ptr, ptr %87, align 8
-  call void @free(ptr noundef %88) #26
+  call void @free(ptr noundef %88) #27
   br label %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EED2Ev.exit
 
 _ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EED2Ev.exit: ; preds = %83, %85
@@ -16980,7 +16980,7 @@ define linkonce_odr hidden void @_ZNK2OT20MarkGlyphSetsFormat116collect_coverage
   %49 = load ptr, ptr %13, align 8
   %50 = zext nneg i32 %45 to i64
   %51 = mul nuw nsw i64 %50, 24
-  %52 = tail call ptr @realloc(ptr noundef %49, i64 noundef %51) #30
+  %52 = tail call ptr @realloc(ptr noundef %49, i64 noundef %51) #31
   %.not42.i.i.i = icmp eq ptr %52, null
   br i1 %.not42.i.i.i, label %53, label %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.i.i
 
@@ -17438,7 +17438,7 @@ _ZNK2OT4GDEF19get_mark_glyph_setsEv.exit.i:       ; preds = %58, %44, %30
   br i1 %.not.i.i.i.i5, label %86, label %_ZNK2OT20MarkGlyphSetsFormat16coversEjj.exit.i.i
 
 86:                                               ; preds = %77
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %87 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %88 = getelementptr inbounds nuw %"struct.OT::OffsetTo.229", ptr %87, i64 %8
   br label %_ZNK2OT20MarkGlyphSetsFormat16coversEjj.exit.i.i
@@ -17832,7 +17832,7 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit170, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp171, %.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN2OT21hb_ot_apply_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %6) #26
+  call void @_ZN2OT21hb_ot_apply_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %6) #27
   resume { ptr, i32 } %lpad.phi
 
 97:                                               ; preds = %88
@@ -18275,7 +18275,7 @@ _ZNK3AAT19KerxSubTableFormat2IN2OT20KernOTSubTableHeaderEE13accelerator_t11get_k
 380:                                              ; preds = %._crit_edge
   %381 = getelementptr inbounds nuw i8, ptr %6, i64 264
   %382 = load ptr, ptr %381, align 8
-  call void @free(ptr noundef %382) #26
+  call void @free(ptr noundef %382) #27
   %383 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %384 = load ptr, ptr %383, align 8
   %.not.i.i153 = icmp eq ptr %384, null
@@ -18289,7 +18289,7 @@ _ZNK3AAT19KerxSubTableFormat2IN2OT20KernOTSubTableHeaderEE13accelerator_t11get_k
   %387 = landingpad { ptr, i32 }
           catch ptr null
   %388 = extractvalue { ptr, i32 } %387, 0
-  call void @__clang_call_terminate(ptr %388) #28
+  call void @__clang_call_terminate(ptr %388) #29
   unreachable
 
 _ZN2OT21hb_ot_apply_context_tD2Ev.exit:           ; preds = %385, %380, %5
@@ -19066,7 +19066,7 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit167
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit167 ], [ %lpad.loopexit168, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp169, %.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN2OT21hb_ot_apply_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %6) #26
+  call void @_ZN2OT21hb_ot_apply_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %6) #27
   resume { ptr, i32 } %lpad.phi
 
 97:                                               ; preds = %88
@@ -19467,7 +19467,7 @@ _ZL14_hb_cmp_methodIN3AAT15hb_glyph_pair_tEKNS0_8KernPairEJEEiPKvS5_DpT1_.exit.i
 321:                                              ; preds = %._crit_edge
   %322 = getelementptr inbounds nuw i8, ptr %6, i64 264
   %323 = load ptr, ptr %322, align 8
-  call void @free(ptr noundef %323) #26
+  call void @free(ptr noundef %323) #27
   %324 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %325 = load ptr, ptr %324, align 8
   %.not.i.i = icmp eq ptr %325, null
@@ -19481,7 +19481,7 @@ _ZL14_hb_cmp_methodIN3AAT15hb_glyph_pair_tEKNS0_8KernPairEJEEiPKvS5_DpT1_.exit.i
   %328 = landingpad { ptr, i32 }
           catch ptr null
   %329 = extractvalue { ptr, i32 } %328, 0
-  call void @__clang_call_terminate(ptr %329) #28
+  call void @__clang_call_terminate(ptr %329) #29
   unreachable
 
 _ZN2OT21hb_ot_apply_context_tD2Ev.exit:           ; preds = %326, %321, %5
@@ -20573,7 +20573,7 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableF
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit170, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp171, %.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN2OT21hb_ot_apply_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %6) #26
+  call void @_ZN2OT21hb_ot_apply_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %6) #27
   resume { ptr, i32 } %lpad.phi
 
 97:                                               ; preds = %88
@@ -21016,7 +21016,7 @@ _ZNK3AAT19KerxSubTableFormat2IN2OT21KernAATSubTableHeaderEE13accelerator_t11get_
 380:                                              ; preds = %._crit_edge
   %381 = getelementptr inbounds nuw i8, ptr %6, i64 264
   %382 = load ptr, ptr %381, align 8
-  call void @free(ptr noundef %382) #26
+  call void @free(ptr noundef %382) #27
   %383 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %384 = load ptr, ptr %383, align 8
   %.not.i.i153 = icmp eq ptr %384, null
@@ -21030,7 +21030,7 @@ _ZNK3AAT19KerxSubTableFormat2IN2OT21KernAATSubTableHeaderEE13accelerator_t11get_
   %387 = landingpad { ptr, i32 }
           catch ptr null
   %388 = extractvalue { ptr, i32 } %387, 0
-  call void @__clang_call_terminate(ptr %388) #28
+  call void @__clang_call_terminate(ptr %388) #29
   unreachable
 
 _ZN2OT21hb_ot_apply_context_tD2Ev.exit:           ; preds = %385, %380, %5
@@ -21214,7 +21214,7 @@ define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tINS_19KernSubTableFor
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit171, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp172, %.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN2OT21hb_ot_apply_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %6) #26
+  call void @_ZN2OT21hb_ot_apply_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %6) #27
   resume { ptr, i32 } %lpad.phi
 
 97:                                               ; preds = %88
@@ -21590,7 +21590,7 @@ _ZNK2OT19KernSubTableFormat3INS_21KernAATSubTableHeaderEE11get_kerningEjj.exit: 
 315:                                              ; preds = %._crit_edge
   %316 = getelementptr inbounds nuw i8, ptr %6, i64 264
   %317 = load ptr, ptr %316, align 8
-  call void @free(ptr noundef %317) #26
+  call void @free(ptr noundef %317) #27
   %318 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %319 = load ptr, ptr %318, align 8
   %.not.i.i = icmp eq ptr %319, null
@@ -21604,7 +21604,7 @@ _ZNK2OT19KernSubTableFormat3INS_21KernAATSubTableHeaderEE11get_kerningEjj.exit: 
   %322 = landingpad { ptr, i32 }
           catch ptr null
   %323 = extractvalue { ptr, i32 } %322, 0
-  call void @__clang_call_terminate(ptr %323) #28
+  call void @__clang_call_terminate(ptr %323) #29
   unreachable
 
 _ZN2OT21hb_ot_apply_context_tD2Ev.exit:           ; preds = %320, %315, %5
@@ -21657,7 +21657,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT8ClassDef13collect_classI8
   br i1 %.not.i.i, label %30, label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit.i
 
 30:                                               ; preds = %23
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %31 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %19, i64 %indvars.iv.i
   br label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit.i
 
@@ -22019,7 +22019,7 @@ _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_e
   %64 = load ptr, ptr %27, align 8
   %65 = shl nuw i32 %.01538.i.i, 3
   %66 = zext i32 %65 to i64
-  %67 = tail call ptr @realloc(ptr noundef %64, i64 noundef %66) #30
+  %67 = tail call ptr @realloc(ptr noundef %64, i64 noundef %66) #31
   %.not42.i.i = icmp eq ptr %67, null
   br i1 %.not42.i.i, label %68, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.i
 
@@ -22158,13 +22158,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11hb_vector_tI13hb_bit_page_tL
   br i1 %.not.i25.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i: ; preds = %19
-  tail call void @free(ptr noundef %21) #26
+  tail call void @free(ptr noundef %21) #27
   br label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i: ; preds = %19
   %22 = zext nneg i32 %.01538.i to i64
   %23 = mul nuw nsw i64 %22, 72
-  %24 = tail call ptr @realloc(ptr noundef %21, i64 noundef %23) #30
+  %24 = tail call ptr @realloc(ptr noundef %21, i64 noundef %23) #31
   %.not42.i = icmp eq ptr %24, null
   br i1 %.not42.i, label %25, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit
 
@@ -22778,7 +22778,7 @@ _ZN12hb_bit_set_t26allocate_compact_workspaceER11hb_vector_tIjLb0EE.exit: ; pred
   br i1 %.not19.i.i.i.i.not, label %_ZN11hb_vector_tIjLb0EED2Ev.exit, label %20
 
 20:                                               ; preds = %18
-  tail call void @free(ptr noundef %.sroa.18.1) #26
+  tail call void @free(ptr noundef %.sroa.18.1) #27
   br label %_ZN11hb_vector_tIjLb0EED2Ev.exit
 
 _ZN11hb_vector_tIjLb0EED2Ev.exit:                 ; preds = %18, %20
@@ -23066,7 +23066,7 @@ _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_e
   %123 = load ptr, ptr %122, align 8
   %124 = shl nuw i32 %.01538.i.i, 3
   %125 = zext i32 %124 to i64
-  %126 = tail call ptr @realloc(ptr noundef %123, i64 noundef %125) #30
+  %126 = tail call ptr @realloc(ptr noundef %123, i64 noundef %125) #31
   %.not42.i.i = icmp eq ptr %126, null
   br i1 %.not42.i.i, label %127, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.i
 
@@ -23124,7 +23124,7 @@ _ZN12hb_bit_set_t6resizeEjbb.exit:                ; preds = %.noexc27, %_ZN12hb_
 
 142:                                              ; preds = %_ZN12hb_bit_set_t6resizeEjbb.exit.thread, %_ZN12hb_bit_set_t6resizeEjbb.exit
   %.sroa.18.17075 = phi ptr [ null, %_ZN12hb_bit_set_t6resizeEjbb.exit.thread ], [ %.sroa.18.1, %_ZN12hb_bit_set_t6resizeEjbb.exit ]
-  tail call void @free(ptr noundef %.sroa.18.17075) #26
+  tail call void @free(ptr noundef %.sroa.18.17075) #27
   br label %_ZN11hb_vector_tIjLb0EED2Ev.exit29
 
 _ZN11hb_vector_tIjLb0EED2Ev.exit29:               ; preds = %142, %_ZN12hb_bit_set_t6resizeEjbb.exit, %3
@@ -23169,7 +23169,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT12LigCaretList14get_lig_caretsEP9
   br i1 %.not.i, label %32, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_8LigGlyphENS_7IntTypeItLj2EEELb1EEES4_EixEi.exit
 
 32:                                               ; preds = %23
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %34 = zext nneg i32 %19 to i64
   %35 = getelementptr inbounds nuw %"struct.OT::OffsetTo.257", ptr %33, i64 %34
@@ -23794,7 +23794,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEi
   %91 = load i32, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %93 = load ptr, ptr %92, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %95 = zext nneg i32 %73 to i64
   %96 = getelementptr inbounds nuw %"struct.OT::OffsetTo.220", ptr %94, i64 %95
@@ -23988,7 +23988,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEi
   %91 = load i32, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %93 = load ptr, ptr %92, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %95 = zext nneg i32 %73 to i64
   %96 = getelementptr inbounds nuw %"struct.OT::OffsetTo.220", ptr %94, i64 %95
@@ -24057,7 +24057,7 @@ _ZNK2OT13HintingDevice11get_y_deltaEP9hb_font_t.exit: ; preds = %59, %_ZNK2OT13H
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.floor.f32(float) #9
 
 ; Function Attrs: mustprogress uwtable
@@ -24380,7 +24380,7 @@ _ZNK2OT13VarRegionAxis8evaluateEi.exit.thread:    ; preds = %71, %51, %37, %_ZNK
   ret float %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #9
 
 ; Function Attrs: mustprogress uwtable
@@ -24457,7 +24457,7 @@ _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit: ; preds = %.lr.ph
 
 28:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #27
   resume { ptr, i32 } %lpad.phi
 
 29:                                               ; preds = %.preheader, %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit17
@@ -24506,7 +24506,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %.thread
 
 _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i.thread: ; preds = %38, %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i
   %.0.i.i1545 = phi ptr [ @_hb_NullPool, %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i ], [ %.0.i.i.i.i, %38 ]
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i1545, i64 2
   %61 = zext nneg i32 %.011 to i64
   %62 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %60, i64 %61
@@ -24631,7 +24631,7 @@ _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit17: ; preds = %127, %.t
   br label %29, !llvm.loop !118
 
 129:                                              ; preds = %.thread, %38
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #27
   br label %130
 
 130:                                              ; preds = %129, %6
@@ -24895,7 +24895,7 @@ define internal fastcc void @_ZL24langsys_collect_featuresP29hb_collect_features
   br i1 %.not.i.i, label %83, label %_ZNK2OT7LangSys17get_feature_indexEj.exit
 
 83:                                               ; preds = %76
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %84 = getelementptr inbounds nuw %"struct.OT::Index", ptr %70, i64 %indvars.iv
   br label %_ZNK2OT7LangSys17get_feature_indexEj.exit
 
@@ -25792,7 +25792,7 @@ _ZNK13hb_bit_page_t7get_minEv.exit.thread:        ; preds = %116
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #9
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN23hb_bit_set_invertible_t3delEj(ptr noundef nonnull align 8 dereferenceable(49) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
@@ -26561,8 +26561,8 @@ define linkonce_odr hidden void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED
           to label %.noexc unwind label %24
 
 .noexc:                                           ; preds = %4
-  %7 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %5) #26
-  tail call void @free(ptr noundef nonnull %5) #26
+  %7 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %5) #27
+  tail call void @free(ptr noundef nonnull %5) #27
   store atomic i64 0, ptr %2 monotonic, align 8
   br label %_ZL14hb_object_finiI14hb_sparseset_tI23hb_bit_set_invertible_tEEvPT_.exit.i
 
@@ -26577,7 +26577,7 @@ _ZL14hb_object_finiI14hb_sparseset_tI23hb_bit_set_invertible_tEEvPT_.exit.i: ; p
   store i32 0, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
-  tail call void @free(ptr noundef %13) #26
+  tail call void @free(ptr noundef %13) #27
   br label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE4finiEv.exit.i.i.i
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE4finiEv.exit.i.i.i: ; preds = %10, %_ZL14hb_object_finiI14hb_sparseset_tI23hb_bit_set_invertible_tEEvPT_.exit.i
@@ -26596,7 +26596,7 @@ _ZN11hb_vector_tI13hb_bit_page_tLb0EED2Ev.exit.i.i: ; preds = %_ZN11hb_vector_tI
   store i32 0, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8
-  tail call void @free(ptr noundef %18) #26
+  tail call void @free(ptr noundef %18) #27
   %.pre = load i32, ptr %8, align 8
   %19 = icmp eq i32 %.pre, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
@@ -26607,7 +26607,7 @@ _ZN11hb_vector_tI13hb_bit_page_tLb0EED2Ev.exit.i.i: ; preds = %_ZN11hb_vector_tI
   store i32 0, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
-  tail call void @free(ptr noundef %23) #26
+  tail call void @free(ptr noundef %23) #27
   br label %_ZN23hb_bit_set_invertible_tD2Ev.exit
 
 _ZN23hb_bit_set_invertible_tD2Ev.exit:            ; preds = %_ZN11hb_vector_tI13hb_bit_page_tLb0EED2Ev.exit.i.i.thread, %_ZN11hb_vector_tI13hb_bit_page_tLb0EED2Ev.exit.i.i, %20
@@ -26618,7 +26618,7 @@ _ZN23hb_bit_set_invertible_tD2Ev.exit:            ; preds = %_ZN11hb_vector_tI13
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #28
+  tail call void @__clang_call_terminate(ptr %26) #29
   unreachable
 }
 
@@ -26638,7 +26638,7 @@ define linkonce_odr hidden void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t1
   store i32 0, ptr %3, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  tail call void @free(ptr noundef %9) #26
+  tail call void @free(ptr noundef %9) #27
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit: ; preds = %5, %7
@@ -26646,7 +26646,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit:
   br label %28
 
 10:                                               ; preds = %2
-  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #26
+  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #27
   %12 = load i32, ptr %3, align 4
   %.not510 = icmp eq i32 %12, 0
   br i1 %.not510, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph
@@ -26666,7 +26666,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   %.sroa.2.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..0.i.i.sroa_idx, align 8
   store i32 %15, ptr %3, align 4, !noalias !138
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #26
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #27
   %.not.i7 = icmp eq ptr %.sroa.2.0.copyload, null
   br i1 %.not.i7, label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, label %20
 
@@ -26675,7 +26675,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, %20
-  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #26
+  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #27
   %22 = load i32, ptr %3, align 4
   %.not5 = icmp eq i32 %22, 0
   br i1 %.not5, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, !llvm.loop !141
@@ -26689,12 +26689,12 @@ _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_v
   store i32 0, ptr %3, align 4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
-  tail call void @free(ptr noundef %26) #26
+  tail call void @free(ptr noundef %26) #27
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9: ; preds = %._crit_edge, %24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #26
+  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #27
   br label %28
 
 28:                                               ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit
@@ -26764,7 +26764,7 @@ define linkonce_odr hidden void @_ZN2OT6Layout9GSUB_impl11SubstLookup21dispatch_
   br i1 %.not.i.i.i, label %40, label %_ZNK2OT6Layout4GSUB10get_lookupEj.exit
 
 40:                                               ; preds = %21
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !31
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
   %42 = zext nneg i32 %1 to i64
   %43 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %41, i64 %42
@@ -26818,7 +26818,7 @@ _ZNK2OT6Layout4GSUB10get_lookupEj.exit:           ; preds = %2, %21, %40
   br i1 %.not.i.i.i.i3, label %77, label %79
 
 77:                                               ; preds = %70
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %78 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %69, i64 %indvars.iv.i.i
   br label %79
 
@@ -27242,7 +27242,7 @@ define linkonce_odr hidden void @_ZNK2OT6Layout9GSUB_impl20SingleSubstFormat1_3I
   br i1 %48, label %57, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i: ; preds = %42
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i6, i64 4
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
@@ -27273,7 +27273,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i: ; preds = %57
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %69 = getelementptr inbounds nuw i8, ptr %.0.i.i6, i64 4
   %.pre9.i.i = load i8, ptr %43, align 1
   %.pre11.i.i = load i8, ptr %45, align 1
@@ -27289,7 +27289,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br i1 %70, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i, label %78
 
 78:                                               ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i: ; preds = %78, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.thread.i.i
@@ -27346,7 +27346,7 @@ _ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNKS2_9GSUB_im
 
 _ZN9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNKS2_9GSUB_impl20SingleSubstFormat1_3INS2_10SmallTypesEE14collect_glyphsEPNS1_27hb_collect_glyphs_context_tEEUljE_L24hb_function_sortedness_t0ELPv0EEjEdeEv.exit.i.thread.us.i: ; preds = %.lr.ph.i, %_ZN9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNKS2_9GSUB_impl20SingleSubstFormat1_3INS2_10SmallTypesEE14collect_glyphsEPNS1_27hb_collect_glyphs_context_tEEUljE_L24hb_function_sortedness_t0ELPv0EEjEdeEv.exit.i.thread.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNKS2_9GSUB_impl20SingleSubstFormat1_3INS2_10SmallTypesEE14collect_glyphsEPNS1_27hb_collect_glyphs_context_tEEUljE_L24hb_function_sortedness_t0ELPv0EEjEdeEv.exit.i.thread.us.i ], [ %110, %.lr.ph.i ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %111 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %109, i64 %indvars.iv.i
   %112 = load i8, ptr %111, align 1
   %113 = zext i8 %112 to i32
@@ -27391,7 +27391,7 @@ _ZN9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNKS2_9GSUB_imp
   br i1 %.not.i.i.i.us.i, label %137, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.us.i
 
 137:                                              ; preds = %_ZN9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNKS2_9GSUB_impl20SingleSubstFormat1_3INS2_10SmallTypesEE14collect_glyphsEPNS1_27hb_collect_glyphs_context_tEEUljE_L24hb_function_sortedness_t0ELPv0EEjEdeEv.exit.i.us.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.us.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.us.i: ; preds = %137, %_ZN9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNKS2_9GSUB_impl20SingleSubstFormat1_3INS2_10SmallTypesEE14collect_glyphsEPNS1_27hb_collect_glyphs_context_tEEUljE_L24hb_function_sortedness_t0ELPv0EEjEdeEv.exit.i.us.i
@@ -27849,7 +27849,7 @@ define linkonce_odr hidden void @_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev
   br i1 %.not.i.i, label %22, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i
 
 22:                                               ; preds = %7
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %24 = zext nneg i32 %14 to i64
   %25 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %23, i64 %24
@@ -27999,7 +27999,7 @@ define linkonce_odr hidden void @_ZNK2OT6Layout9GSUB_impl20SingleSubstFormat2_4I
   br i1 %42, label %51, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i: ; preds = %36
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !147, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !147, !srcloc !11
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i4, i64 4
   %44 = load i8, ptr %43, align 1, !noalias !147
   %45 = zext i8 %44 to i32
@@ -28030,7 +28030,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i: ; preds = %51
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !147, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !147, !srcloc !11
   %63 = getelementptr inbounds nuw i8, ptr %.0.i.i4, i64 4
   %.pre9.i.i.i = load i8, ptr %37, align 1, !noalias !147
   %.pre11.i.i.i = load i8, ptr %39, align 1, !noalias !147
@@ -28046,7 +28046,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br i1 %64, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i, label %72
 
 72:                                               ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !147, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !147, !srcloc !11
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i: ; preds = %72, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.thread.i.i.i
@@ -28116,7 +28116,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   %.sroa.28.023.us.i = phi i32 [ %119, %"_ZN9hb_iter_tI13hb_map_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_11HBGlyphID16EEERK3$_6L24hb_function_sortedness_t0ELPv0EERS9_EdeEv.exit.thread.i.thread.us.i" ], [ %.sroa.2.8.insert.ext.i.i.i.i.i, %.lr.ph.i ]
   %.sroa.2411.022.us.i = phi ptr [ %120, %"_ZN9hb_iter_tI13hb_map_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_11HBGlyphID16EEERK3$_6L24hb_function_sortedness_t0ELPv0EERS9_EdeEv.exit.thread.i.thread.us.i" ], [ %90, %.lr.ph.i ]
   %.sroa.9.021.us.i = phi i32 [ %118, %"_ZN9hb_iter_tI13hb_map_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_11HBGlyphID16EEERK3$_6L24hb_function_sortedness_t0ELPv0EERS9_EdeEv.exit.thread.i.thread.us.i" ], [ %.sroa.8.0.i, %.lr.ph.i ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %111 = load i8, ptr %.sroa.2411.022.us.i, align 1
   %112 = zext i8 %111 to i32
   %113 = shl nuw nsw i32 %112, 8
@@ -28163,7 +28163,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   br i1 %.not.i.i.i.us.i, label %142, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.us.i
 
 142:                                              ; preds = %"_ZN9hb_iter_tI13hb_map_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_11HBGlyphID16EEERK3$_6L24hb_function_sortedness_t0ELPv0EERS9_EdeEv.exit.thread.i.us.i"
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %143 = zext nneg i32 %.sroa.9.021.us26.i to i64
   %144 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %110, i64 %143
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.us.i
@@ -28301,7 +28301,7 @@ define linkonce_odr hidden void @_ZNK2OT6Layout9GSUB_impl22MultipleSubstFormat1_
   br i1 %42, label %51, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i: ; preds = %36
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !151, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !151, !srcloc !11
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i10, i64 4
   %44 = load i8, ptr %43, align 1, !noalias !151
   %45 = zext i8 %44 to i32
@@ -28332,7 +28332,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i: ; preds = %51
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !151, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !151, !srcloc !11
   %63 = getelementptr inbounds nuw i8, ptr %.0.i.i10, i64 4
   %.pre9.i.i.i = load i8, ptr %37, align 1, !noalias !151
   %.pre11.i.i.i = load i8, ptr %39, align 1, !noalias !151
@@ -28348,7 +28348,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br i1 %64, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i, label %72
 
 72:                                               ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !151, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !151, !srcloc !11
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i: ; preds = %72, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.thread.i.i.i
@@ -28421,7 +28421,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.pre
   br i1 %cond.i.i.i.i.i.i, label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS3_9GSUB_impl8SequenceINS3_10SmallTypesEEENS2_7IntTypeItLj2EEELb1EEEEERK3$_6L24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_39PKNS9_22MultipleSubstFormat1_2ISB_EEELSM_0ELSN_0EERKSC_EdeEv.exit.i.i", label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS3_9GSUB_impl8SequenceINS3_10SmallTypesEEENS2_7IntTypeItLj2EEELb1EEEEERK3$_6L24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_39PKNS9_22MultipleSubstFormat1_2ISB_EEELSM_0ELSN_0EERKSC_EdeEv.exit.thread.i.i"
 
 "_ZN9hb_iter_tI13hb_map_iter_tIS0_I13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS3_9GSUB_impl8SequenceINS3_10SmallTypesEEENS2_7IntTypeItLj2EEELb1EEEEERK3$_6L24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_39PKNS9_22MultipleSubstFormat1_2ISB_EEELSM_0ELSN_0EERKSC_EdeEv.exit.i.i": ; preds = %109
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   br label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS3_9GSUB_impl8SequenceINS3_10SmallTypesEEENS2_7IntTypeItLj2EEELb1EEEEERK3$_6L24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_39PKNS9_22MultipleSubstFormat1_2ISB_EEELSM_0ELSN_0EERKSC_EdeEv.exit.thread.i.i"
 
 "_ZN9hb_iter_tI13hb_map_iter_tIS0_I13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS3_9GSUB_impl8SequenceINS3_10SmallTypesEEENS2_7IntTypeItLj2EEELb1EEEEERK3$_6L24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_39PKNS9_22MultipleSubstFormat1_2ISB_EEELSM_0ELSN_0EERKSC_EdeEv.exit.thread.i.i": ; preds = %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS3_9GSUB_impl8SequenceINS3_10SmallTypesEEENS2_7IntTypeItLj2EEELb1EEEEERK3$_6L24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_39PKNS9_22MultipleSubstFormat1_2ISB_EEELSM_0ELSN_0EERKSC_EdeEv.exit.i.i", %109
@@ -28467,7 +28467,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.pre
   br i1 %.not.i.i.i.i, label %136, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i14
 
 136:                                              ; preds = %129
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %137 = zext nneg i32 %.sroa.9.022.i to i64
   %138 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %108, i64 %137
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i14
@@ -28868,7 +28868,7 @@ define linkonce_odr hidden void @_ZNK2OT6Layout9GSUB_impl23AlternateSubstFormat1
   br i1 %42, label %51, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i: ; preds = %36
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !157, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !157, !srcloc !11
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i10, i64 4
   %44 = load i8, ptr %43, align 1, !noalias !157
   %45 = zext i8 %44 to i32
@@ -28899,7 +28899,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i: ; preds = %51
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !157, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !157, !srcloc !11
   %63 = getelementptr inbounds nuw i8, ptr %.0.i.i10, i64 4
   %.pre9.i.i.i = load i8, ptr %37, align 1, !noalias !157
   %.pre11.i.i.i = load i8, ptr %39, align 1, !noalias !157
@@ -28915,7 +28915,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br i1 %64, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i, label %72
 
 72:                                               ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !157, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !157, !srcloc !11
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i: ; preds = %72, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.thread.i.i.i
@@ -28988,7 +28988,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.pre
   br i1 %cond.i.i.i.i.i.i, label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS3_9GSUB_impl12AlternateSetINS3_10SmallTypesEEENS2_7IntTypeItLj2EEELb1EEEEERK3$_6L24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_39PKNS9_23AlternateSubstFormat1_2ISB_EEELSM_0ELSN_0EERKSC_EdeEv.exit.i.i", label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS3_9GSUB_impl12AlternateSetINS3_10SmallTypesEEENS2_7IntTypeItLj2EEELb1EEEEERK3$_6L24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_39PKNS9_23AlternateSubstFormat1_2ISB_EEELSM_0ELSN_0EERKSC_EdeEv.exit.thread.i.i"
 
 "_ZN9hb_iter_tI13hb_map_iter_tIS0_I13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS3_9GSUB_impl12AlternateSetINS3_10SmallTypesEEENS2_7IntTypeItLj2EEELb1EEEEERK3$_6L24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_39PKNS9_23AlternateSubstFormat1_2ISB_EEELSM_0ELSN_0EERKSC_EdeEv.exit.i.i": ; preds = %109
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   br label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS3_9GSUB_impl12AlternateSetINS3_10SmallTypesEEENS2_7IntTypeItLj2EEELb1EEEEERK3$_6L24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_39PKNS9_23AlternateSubstFormat1_2ISB_EEELSM_0ELSN_0EERKSC_EdeEv.exit.thread.i.i"
 
 "_ZN9hb_iter_tI13hb_map_iter_tIS0_I13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS3_9GSUB_impl12AlternateSetINS3_10SmallTypesEEENS2_7IntTypeItLj2EEELb1EEEEERK3$_6L24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_39PKNS9_23AlternateSubstFormat1_2ISB_EEELSM_0ELSN_0EERKSC_EdeEv.exit.thread.i.i": ; preds = %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS3_9GSUB_impl12AlternateSetINS3_10SmallTypesEEENS2_7IntTypeItLj2EEELb1EEEEERK3$_6L24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_39PKNS9_23AlternateSubstFormat1_2ISB_EEELSM_0ELSN_0EERKSC_EdeEv.exit.i.i", %109
@@ -29034,7 +29034,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.pre
   br i1 %.not.i.i.i.i, label %136, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i14
 
 136:                                              ; preds = %129
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %137 = zext nneg i32 %.sroa.9.022.i to i64
   %138 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %108, i64 %137
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i14
@@ -29171,7 +29171,7 @@ define linkonce_odr hidden void @_ZNK2OT6Layout9GSUB_impl22LigatureSubstFormat1_
   br i1 %42, label %51, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i: ; preds = %36
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !161, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !161, !srcloc !11
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i10, i64 4
   %44 = load i8, ptr %43, align 1, !noalias !161
   %45 = zext i8 %44 to i32
@@ -29202,7 +29202,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i: ; preds = %51
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !161, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !161, !srcloc !11
   %63 = getelementptr inbounds nuw i8, ptr %.0.i.i10, i64 4
   %.pre9.i.i.i = load i8, ptr %37, align 1, !noalias !161
   %.pre11.i.i.i = load i8, ptr %39, align 1, !noalias !161
@@ -29218,7 +29218,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br i1 %64, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i, label %72
 
 72:                                               ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !161, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !161, !srcloc !11
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i: ; preds = %72, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.thread.i.i.i
@@ -29291,7 +29291,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.pre
   br i1 %cond.i.i.i.i.i.i, label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS3_9GSUB_impl11LigatureSetINS3_10SmallTypesEEENS2_7IntTypeItLj2EEELb1EEEEERK3$_6L24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_39PKNS9_22LigatureSubstFormat1_2ISB_EEELSM_0ELSN_0EERKSC_EdeEv.exit.i.i", label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS3_9GSUB_impl11LigatureSetINS3_10SmallTypesEEENS2_7IntTypeItLj2EEELb1EEEEERK3$_6L24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_39PKNS9_22LigatureSubstFormat1_2ISB_EEELSM_0ELSN_0EERKSC_EdeEv.exit.thread.i.i"
 
 "_ZN9hb_iter_tI13hb_map_iter_tIS0_I13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS3_9GSUB_impl11LigatureSetINS3_10SmallTypesEEENS2_7IntTypeItLj2EEELb1EEEEERK3$_6L24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_39PKNS9_22LigatureSubstFormat1_2ISB_EEELSM_0ELSN_0EERKSC_EdeEv.exit.i.i": ; preds = %109
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   br label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS3_9GSUB_impl11LigatureSetINS3_10SmallTypesEEENS2_7IntTypeItLj2EEELb1EEEEERK3$_6L24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_39PKNS9_22LigatureSubstFormat1_2ISB_EEELSM_0ELSN_0EERKSC_EdeEv.exit.thread.i.i"
 
 "_ZN9hb_iter_tI13hb_map_iter_tIS0_I13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS3_9GSUB_impl11LigatureSetINS3_10SmallTypesEEENS2_7IntTypeItLj2EEELb1EEEEERK3$_6L24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_39PKNS9_22LigatureSubstFormat1_2ISB_EEELSM_0ELSN_0EERKSC_EdeEv.exit.thread.i.i": ; preds = %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS3_9GSUB_impl11LigatureSetINS3_10SmallTypesEEENS2_7IntTypeItLj2EEELb1EEEEERK3$_6L24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_39PKNS9_22LigatureSubstFormat1_2ISB_EEELSM_0ELSN_0EERKSC_EdeEv.exit.i.i", %109
@@ -29747,7 +29747,7 @@ _ZN23hb_bit_set_invertible_t3addEj.exit.i.i:      ; preds = %320, %344, %341, %3
   br i1 %.not.i.i.i2.i, label %365, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i14
 
 365:                                              ; preds = %358
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %366 = zext nneg i32 %.sroa.9.046.i to i64
   %367 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %108, i64 %366
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i14
@@ -31586,7 +31586,7 @@ _ZNR9hb_iter_tI10hb_array_tIKN2OT7IntTypeItLj2EEEERS4_EppEv.exit.i.i.i.i.i.i: ; 
   br i1 %.not.i.i.i75, label %186, label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit.i.i
 
 186:                                              ; preds = %179
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %187 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %69, i64 %indvars.iv.i.i
   br label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit.i.i
 
@@ -31869,7 +31869,7 @@ _ZNR9hb_iter_tI10hb_array_tIKN2OT7IntTypeItLj2EEEERS4_EppEv.exit.i.i.i22.i.i.i: 
   br i1 %.not.i.i.i90, label %338, label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit.i.i91
 
 338:                                              ; preds = %331
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %339 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %75, i64 %indvars.iv.i.i89
   br label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit.i.i91
 
@@ -32152,7 +32152,7 @@ _ZNR9hb_iter_tI10hb_array_tIKN2OT7IntTypeItLj2EEEERS4_EppEv.exit.i.i.i30.i.i.i: 
   br i1 %.not.i.i.i110, label %490, label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit.i.i111
 
 490:                                              ; preds = %483
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %491 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %81, i64 %indvars.iv.i.i109
   br label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit.i.i111
 
@@ -32694,7 +32694,7 @@ define linkonce_odr hidden void @_ZNK2OT19ChainContextFormat314collect_glyphsEPN
   br i1 %18, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit, label %19
 
 19:                                               ; preds = %2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 4
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit
 
@@ -32944,7 +32944,7 @@ define linkonce_odr hidden void @_ZNK2OT6Layout9GSUB_impl30ReverseChainSingleSub
   br i1 %.not.i, label %36, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit
 
 36:                                               ; preds = %29
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.250", ptr %26, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit
 
@@ -33013,7 +33013,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EE
   br i1 %.not.i20, label %76, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit22
 
 76:                                               ; preds = %69
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %77 = getelementptr inbounds nuw %"struct.OT::OffsetTo.250", ptr %66, i64 %indvars.iv35
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit22
 
@@ -33467,7 +33467,7 @@ define linkonce_odr hidden void @_ZNK2OT6Layout9GPOS_impl16PairPosFormat1_3INS0_
   br i1 %.not.i, label %38, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl7PairSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit
 
 38:                                               ; preds = %31
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %39 = getelementptr inbounds nuw %"struct.OT::OffsetTo.616", ptr %26, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl7PairSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit
 
@@ -33520,7 +33520,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl7PairSetINS2_10SmallTypesEEENS_
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: mustprogress uwtable
@@ -33644,7 +33644,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT17ClassDefFormat1_3INS_6La
   br i1 %.not.i, label %23, label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit
 
 23:                                               ; preds = %16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %24 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %11, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit
 
@@ -34385,7 +34385,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GSUB_impl22Ligatur
   br i1 %.not.i, label %28, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11LigatureSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit
 
 28:                                               ; preds = %19
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %30 = zext nneg i32 %17 to i64
   %31 = getelementptr inbounds nuw %"struct.OT::OffsetTo.449", ptr %29, i64 %30
@@ -34471,7 +34471,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11LigatureSetINS2_10SmallTypesE
   br i1 %81, label %82, label %_ZNK2OT15HeadlessArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i.i.i.i.i.i.i.i
 
 82:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !184
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !184
   %83 = getelementptr %"struct.OT::HBGlyphID16", ptr %59, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i.i
   br label %_ZNK2OT15HeadlessArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i.i.i.i.i.i.i.i
 
@@ -34527,7 +34527,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT16ContextFormat1_4INS_6Lay
   br i1 %.not.i, label %26, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
 
 26:                                               ; preds = %2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %28 = zext nneg i32 %18 to i64
   %29 = getelementptr inbounds nuw %"struct.OT::OffsetTo.452", ptr %27, i64 %28
@@ -34654,7 +34654,7 @@ _ZNK2OT7RuleSetINS_6Layout10SmallTypesEE11would_applyEPNS_24hb_would_apply_conte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZN2OTL11match_glyphER15hb_glyph_info_tjPKv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr readnone captures(none) %2) #16 {
+define internal noundef zeroext i1 @_ZN2OTL11match_glyphER15hb_glyph_info_tjPKv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr readnone captures(none) %2) #17 {
   %4 = load i32, ptr %0, align 4
   %5 = icmp eq i32 %4, %1
   ret i1 %5
@@ -34711,7 +34711,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT16ContextFormat2_5INS_6Lay
   br i1 %.not.i.i.i, label %41, label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 41:                                               ; preds = %23
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 6
   %43 = zext nneg i32 %33 to i64
   %44 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %42, i64 %43
@@ -34819,7 +34819,7 @@ _ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %2, %_ZNK2OT17ClassD
   br i1 %.not.i, label %106, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
 
 106:                                              ; preds = %_ZNK2OT8ClassDef9get_classEj.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %108 = zext nneg i32 %.0.i to i64
   %109 = getelementptr inbounds nuw %"struct.OT::OffsetTo.452", ptr %107, i64 %108
@@ -34940,7 +34940,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItL
   br i1 %.not.i.i.i.i, label %184, label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i.i
 
 184:                                              ; preds = %170
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %185 = zext nneg i32 %177 to i64
   %186 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %131, i64 %185
   br label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i.i
@@ -35082,7 +35082,7 @@ define internal noundef zeroext i1 @_ZN2OTL11match_classER15hb_glyph_info_tjPKv(
   br i1 %.not.i.i.i, label %29, label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 29:                                               ; preds = %11
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %31 = zext nneg i32 %21 to i64
   %32 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %30, i64 %31
@@ -35232,7 +35232,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT21ChainContextFormat1_4INS
   br i1 %.not.i, label %26, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
 
 26:                                               ; preds = %2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %28 = zext nneg i32 %18 to i64
   %29 = getelementptr inbounds nuw %"struct.OT::OffsetTo.456", ptr %27, i64 %28
@@ -35412,7 +35412,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT21ChainContextFormat2_5INS
   br i1 %.not.i.i.i, label %41, label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 41:                                               ; preds = %23
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i8, i64 6
   %43 = zext nneg i32 %33 to i64
   %44 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %42, i64 %43
@@ -35520,7 +35520,7 @@ _ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %2, %_ZNK2OT17ClassD
   br i1 %.not.i, label %106, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
 
 106:                                              ; preds = %_ZNK2OT8ClassDef9get_classEj.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %108 = zext nneg i32 %.0.i to i64
   %109 = getelementptr inbounds nuw %"struct.OT::OffsetTo.456", ptr %107, i64 %108
@@ -35670,7 +35670,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntT
   br i1 %.not.i.i.i.i, label %209, label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i.i
 
 209:                                              ; preds = %195
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %210 = zext nneg i32 %202 to i64
   %211 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %132, i64 %210
   br label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i.i
@@ -35838,7 +35838,7 @@ _ZNK2OT4GDEF25get_mark_attach_class_defEv.exit:   ; preds = %2, %10
   br i1 %.not.i.i.i, label %46, label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 46:                                               ; preds = %28
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 6
   %48 = zext nneg i32 %38 to i64
   %49 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %47, i64 %48
@@ -36031,7 +36031,7 @@ _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9del_rangeEjj.exit: ; preds = %_ZN
   %40 = load ptr, ptr %39, align 8
   %41 = zext nneg i32 %35 to i64
   %42 = mul nuw nsw i64 %41, 72
-  %43 = tail call ptr @realloc(ptr noundef %40, i64 noundef %42) #30
+  %43 = tail call ptr @realloc(ptr noundef %40, i64 noundef %42) #31
   %.not42.i.i.i.i.i = icmp eq ptr %43, null
   br i1 %.not42.i.i.i.i.i, label %44, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.i.i.i.i
 
@@ -36089,7 +36089,7 @@ _ZN12hb_bit_set_t5clearEv.exit.thread.i.i:        ; preds = %_ZN11hb_vector_tI13
 _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE5clearEv.exit: ; preds = %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9del_rangeEjj.exit, %_ZN12hb_bit_set_t5clearEv.exit.thread.i.i, %57
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @_ZN11hb_vector_tI8hb_set_tLb0EE3popEv(ptr dead_on_unwind nonnull writable sret(%struct.hb_set_t) align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %59)
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #27
   %60 = load i32, ptr %59, align 8
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %62, label %_ZN11hb_vector_tI8hb_set_tLb0EE5resetEv.exit
@@ -36522,7 +36522,7 @@ _ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EE3setIS3_EEbRKjOT_b.exit: ; p
   %175 = landingpad { ptr, i32 }
           catch ptr null
   %176 = extractvalue { ptr, i32 } %175, 0
-  call void @__clang_call_terminate(ptr %176) #28
+  call void @__clang_call_terminate(ptr %176) #29
   unreachable
 
 _ZN2hb10unique_ptrI8hb_set_tED2Ev.exit:           ; preds = %_ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EE3setIS3_EEbRKjOT_b.exit
@@ -36540,7 +36540,7 @@ _ZN2hb10unique_ptrI8hb_set_tED2Ev.exit:           ; preds = %_ZN12hb_hashmap_tIj
   %181 = landingpad { ptr, i32 }
           catch ptr null
   %182 = extractvalue { ptr, i32 } %181, 0
-  call void @__clang_call_terminate(ptr %182) #28
+  call void @__clang_call_terminate(ptr %182) #29
   unreachable
 
 _ZN2hb10unique_ptrI8hb_set_tED2Ev.exit62:         ; preds = %177
@@ -36652,7 +36652,7 @@ _ZNK12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EE3getERKj.exit: ; preds = %.
   %238 = load ptr, ptr %237, align 8
   %239 = zext nneg i32 %233 to i64
   %240 = mul nuw nsw i64 %239, 72
-  %241 = call ptr @realloc(ptr noundef %238, i64 noundef %240) #30
+  %241 = call ptr @realloc(ptr noundef %238, i64 noundef %240) #31
   %.not42.i.i.i.i.i = icmp eq ptr %241, null
   br i1 %.not42.i.i.i.i.i, label %242, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.i.i.i.i
 
@@ -37199,7 +37199,7 @@ _ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EE9prime_forEj.exit: ; preds =
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  tail call void @__clang_call_terminate(ptr %51) #28
+  tail call void @__clang_call_terminate(ptr %51) #29
   unreachable
 
 _ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EE6item_tD2Ev.exit: ; preds = %46
@@ -37209,7 +37209,7 @@ _ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EE6item_tD2Ev.exit: ; preds = 
   br i1 %exitcond.not, label %._crit_edge50, label %.lr.ph49.split, !llvm.loop !192
 
 ._crit_edge50:                                    ; preds = %_ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EE6item_tD2Ev.exit, %_ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EE9prime_forEj.exit
-  tail call void @free(ptr noundef %27) #26
+  tail call void @free(ptr noundef %27) #27
   br label %52
 
 52:                                               ; preds = %7, %2, %._crit_edge50, %21
@@ -37364,7 +37364,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIjN2hb10unique_p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK23hb_bit_set_invertible_t9is_subsetERKS_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(49) %1) local_unnamed_addr #0 comdat align 2 {
@@ -37776,7 +37776,7 @@ _ZNK13hb_bit_page_t8is_emptyEv.exit.thread42:     ; preds = %44, %48, %.lr.ph.i.
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #9
 
 ; Function Attrs: mustprogress uwtable
@@ -37883,7 +37883,7 @@ _ZN12hb_bit_set_t6resizeEjbb.exit148.thread:      ; preds = %.thread.i.i.i.i, %_
   br i1 %.not.i.i, label %_ZN11hb_vector_tIjLb0EED2Ev.exit, label %21
 
 21:                                               ; preds = %20
-  call void @free(ptr noundef %.sroa.18.0) #26
+  call void @free(ptr noundef %.sroa.18.0) #27
   br label %_ZN11hb_vector_tIjLb0EED2Ev.exit
 
 _ZN11hb_vector_tIjLb0EED2Ev.exit:                 ; preds = %20, %21
@@ -38268,7 +38268,7 @@ _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_e
   %179 = load ptr, ptr %178, align 8
   %180 = shl nuw i32 %.01538.i.i, 3
   %181 = zext i32 %180 to i64
-  %182 = tail call ptr @realloc(ptr noundef %179, i64 noundef %181) #30
+  %182 = tail call ptr @realloc(ptr noundef %179, i64 noundef %181) #31
   %.not42.i.i = icmp eq ptr %182, null
   br i1 %.not42.i.i, label %183, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.i
 
@@ -38582,7 +38582,7 @@ _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_e
   %352 = load ptr, ptr %351, align 8
   %353 = shl nuw i32 %.01538.i.i161, 3
   %354 = zext i32 %353 to i64
-  %355 = call ptr @realloc(ptr noundef %352, i64 noundef %354) #30
+  %355 = call ptr @realloc(ptr noundef %352, i64 noundef %354) #31
   %.not42.i.i164 = icmp eq ptr %355, null
   br i1 %.not42.i.i164, label %356, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.i165
 
@@ -38641,7 +38641,7 @@ _ZN12hb_bit_set_t6resizeEjbb.exit148:             ; preds = %_ZN12hb_bit_set_t7c
 
 371:                                              ; preds = %_ZN12hb_bit_set_t6resizeEjbb.exit148.thread, %_ZN12hb_bit_set_t6resizeEjbb.exit148
   %.sroa.18.1221 = phi ptr [ null, %_ZN12hb_bit_set_t6resizeEjbb.exit148.thread ], [ %.sroa.18.0, %_ZN12hb_bit_set_t6resizeEjbb.exit148 ]
-  call void @free(ptr noundef %.sroa.18.1221) #26
+  call void @free(ptr noundef %.sroa.18.1221) #27
   br label %_ZN11hb_vector_tIjLb0EED2Ev.exit150
 
 _ZN11hb_vector_tIjLb0EED2Ev.exit150:              ; preds = %371, %_ZN12hb_bit_set_t6resizeEjbb.exit148, %5
@@ -38649,7 +38649,7 @@ _ZN11hb_vector_tIjLb0EED2Ev.exit150:              ; preds = %371, %_ZN12hb_bit_s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @"_ZN12hb_bit_set_t3op_I4$_18EE16hb_vector_size_tIyLj64EERKS3_S5_"(ptr dead_on_unwind noalias writable writeonly sret(%struct.hb_vector_size_t) align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) #17 align 2 {
+define internal void @"_ZN12hb_bit_set_t3op_I4$_18EE16hb_vector_size_tIyLj64EERKS3_S5_"(ptr dead_on_unwind noalias writable writeonly sret(%struct.hb_vector_size_t) align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) #18 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !200)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !203)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !206)
@@ -38673,7 +38673,7 @@ define internal void @"_ZN12hb_bit_set_t3op_I4$_18EE16hb_vector_size_tIyLj64EERK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @"_ZN12hb_bit_set_t3op_I4$_17EE16hb_vector_size_tIyLj64EERKS3_S5_"(ptr dead_on_unwind noalias writable writeonly sret(%struct.hb_vector_size_t) align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) #17 align 2 {
+define internal void @"_ZN12hb_bit_set_t3op_I4$_17EE16hb_vector_size_tIyLj64EERKS3_S5_"(ptr dead_on_unwind noalias writable writeonly sret(%struct.hb_vector_size_t) align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) #18 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !211)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !214)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !217)
@@ -38697,7 +38697,7 @@ define internal void @"_ZN12hb_bit_set_t3op_I4$_17EE16hb_vector_size_tIyLj64EERK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @"_ZN12hb_bit_set_t3op_I4$_19EE16hb_vector_size_tIyLj64EERKS3_S5_"(ptr dead_on_unwind noalias writable writeonly sret(%struct.hb_vector_size_t) align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) #17 align 2 {
+define internal void @"_ZN12hb_bit_set_t3op_I4$_19EE16hb_vector_size_tIyLj64EERKS3_S5_"(ptr dead_on_unwind noalias writable writeonly sret(%struct.hb_vector_size_t) align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) #18 align 2 {
   %4 = alloca %struct.hb_vector_size_t, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !222)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -38740,7 +38740,7 @@ _ZNK16hb_vector_size_tIyLj64EEcoEv.exit.i:        ; preds = %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @"_ZN12hb_bit_set_t3op_I4$_25EE16hb_vector_size_tIyLj64EERKS3_S5_"(ptr dead_on_unwind noalias writable writeonly sret(%struct.hb_vector_size_t) align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) #17 align 2 {
+define internal void @"_ZN12hb_bit_set_t3op_I4$_25EE16hb_vector_size_tIyLj64EERKS3_S5_"(ptr dead_on_unwind noalias writable writeonly sret(%struct.hb_vector_size_t) align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) #18 align 2 {
   %4 = alloca %struct.hb_vector_size_t, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !241)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -38833,7 +38833,7 @@ define linkonce_odr hidden void @_ZN2OT6Layout9GSUB_impl11SubstLookup27closure_g
   br i1 %.not.i.i.i, label %44, label %_ZNK2OT6Layout4GSUB10get_lookupEj.exit
 
 44:                                               ; preds = %25
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !31
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
   %46 = zext nneg i32 %1 to i64
   %47 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %45, i64 %46
@@ -38898,7 +38898,7 @@ _ZNK2OT6Layout4GSUB10get_lookupEj.exit:           ; preds = %5, %25, %44
   br i1 %.not.i.i.i.i7, label %84, label %86
 
 84:                                               ; preds = %77
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %85 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %76, i64 %indvars.iv.i.i
   br label %86
 
@@ -38963,7 +38963,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Lookup8dispatchINS_6Layou
   br i1 %.not.i.i, label %26, label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit
 
 26:                                               ; preds = %19
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %27 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %18, i64 %indvars.iv
   br label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit
 
@@ -39605,7 +39605,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE14get_populationEv.exit: ; preds 
 
 144:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #27
   resume { ptr, i32 } %lpad.phi
 
 145:                                              ; preds = %143, %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE14get_populationEv.exit
@@ -39670,7 +39670,7 @@ _ZorI13hb_map_iter_tIN23hb_bit_set_invertible_t6iter_tEZNK2OT6Layout9GSUB_impl20
   br label %161
 
 161:                                              ; preds = %_ZorI13hb_map_iter_tIN23hb_bit_set_invertible_t6iter_tEZNK2OT6Layout9GSUB_impl20SingleSubstFormat1_3INS4_10SmallTypesEE7closureEPNS3_20hb_closure_context_tEEUljE_L24hb_function_sortedness_t0ELPv0EE9hb_sink_tIR8hb_set_tETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSK_6item_tEEE5valueEvE4typeELSD_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISK_Efp_EEEOSK_OSP_.exit, %142, %143
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #27
   br label %_ZNK2OT6Layout6Common8Coverage14get_populationEv.exit.thread58
 
 _ZNK2OT6Layout6Common8Coverage14get_populationEv.exit.thread58: ; preds = %2, %_ZNK2OT6Layout6Common8Coverage14get_populationEv.exit, %161
@@ -39713,7 +39713,7 @@ define linkonce_odr hidden void @_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10
   br i1 %.not.i, label %25, label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit
 
 25:                                               ; preds = %18
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %26 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %12, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit
 
@@ -39828,7 +39828,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit: ; preds = %_ZNK12hb_
   br i1 %.not.i7, label %86, label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit9
 
 86:                                               ; preds = %79
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %87 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %12, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit9
 
@@ -40483,7 +40483,7 @@ _ZNK13hb_bit_page_t7get_maxEv.exit.thread:        ; preds = %120, %_ZNK13hb_bit_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #9
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN23hb_bit_set_invertible_t6iter_tC2ERKS_b(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(49) %1, i1 noundef zeroext %2) unnamed_addr #0 comdat align 2 {
@@ -40913,7 +40913,7 @@ _ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit: ; preds = %111, %1
   br i1 %136, label %145, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i: ; preds = %130
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !268, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !268, !srcloc !11
   %137 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %138 = load i8, ptr %137, align 1, !noalias !268
   %139 = zext i8 %138 to i32
@@ -40944,7 +40944,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i: ; preds = %145
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !268, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !268, !srcloc !11
   %157 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %.pre9.i.i.i = load i8, ptr %131, align 1, !noalias !268
   %.pre11.i.i.i = load i8, ptr %133, align 1, !noalias !268
@@ -40960,7 +40960,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br i1 %158, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i, label %166
 
 166:                                              ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !268, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !268, !srcloc !11
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i: ; preds = %166, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.thread.i.i.i
@@ -41081,7 +41081,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph
   br i1 %cond.i.i.i, label %21, label %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_11HBGlyphID16EEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSJ_0EERSA_EdeEv.exit.i"
 
 21:                                               ; preds = %18
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   br label %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_11HBGlyphID16EEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSJ_0EERSA_EdeEv.exit.i"
 
 "_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_11HBGlyphID16EEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSJ_0EERSA_EdeEv.exit.i": ; preds = %21, %18
@@ -41121,7 +41121,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph
   br i1 %.not.i.i.i.i, label %41, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i
 
 41:                                               ; preds = %34
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %42 = zext nneg i32 %29 to i64
   %43 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %4, i64 %42
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i
@@ -41201,7 +41201,7 @@ _ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.i: ; preds = %61, %52, %81,
   br i1 %cond.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_11HBGlyphID16EEE9hb_pair_tIjRS8_EEdeEv.exit.i.i.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %95
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %96 = zext nneg i32 %84 to i64
   %97 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %4, i64 %96
   %98 = load i8, ptr %97, align 1
@@ -41370,7 +41370,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i: ; preds 
   br i1 %28, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i, label %39
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i: ; preds = %26
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %30 = zext nneg i32 %14 to i64
   %31 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %29, i64 %30
@@ -41555,7 +41555,7 @@ define linkonce_odr hidden void @_ZNK2OT6Layout9GSUB_impl22MultipleSubstFormat1_
   br i1 %29, label %38, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i: ; preds = %23
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !281, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !281, !srcloc !11
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %31 = load i8, ptr %30, align 1, !noalias !281
   %32 = zext i8 %31 to i32
@@ -41586,7 +41586,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i: ; preds = %38
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !281, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !281, !srcloc !11
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %.pre9.i.i.i = load i8, ptr %24, align 1, !noalias !281
   %.pre11.i.i.i = load i8, ptr %26, align 1, !noalias !281
@@ -41602,7 +41602,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br i1 %51, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i, label %59
 
 59:                                               ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !281, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !281, !srcloc !11
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i: ; preds = %59, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.thread.i.i.i
@@ -41688,7 +41688,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   br i1 %103, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS2_9GSUB_impl8SequenceINS2_10SmallTypesEEENS1_7IntTypeItLj2EEELb1EEEEE9hb_pair_tIjRSF_EEdeEv.exit.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i: ; preds = %109
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %110 = zext nneg i32 %.sroa.10.096 to i64
   %111 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %104, i64 %110
   %112 = load i8, ptr %111, align 1
@@ -41814,7 +41814,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK11hb_vect
   br i1 %.not.i.i.i, label %174, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 174:                                              ; preds = %167
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %175 = zext nneg i32 %.sroa.10.096 to i64
   %176 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %104, i64 %175
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
@@ -41936,7 +41936,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.l
   br i1 %cond.i.i.i.i.i.i, label %238, label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl8SequenceINS4_10SmallTypesEEENS3_7IntTypeItLj2EEELb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EE12hb_partial_tILj2EPK4$_39PKNSA_22MultipleSubstFormat1_2ISC_EEELSV_0ELSQ_0EERKSD_EdeEv.exit.i.i"
 
 238:                                              ; preds = %235
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   br label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl8SequenceINS4_10SmallTypesEEENS3_7IntTypeItLj2EEELb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EE12hb_partial_tILj2EPK4$_39PKNSA_22MultipleSubstFormat1_2ISC_EEELSV_0ELSQ_0EERKSD_EdeEv.exit.i.i"
 
 "_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl8SequenceINS4_10SmallTypesEEENS3_7IntTypeItLj2EEELb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EE12hb_partial_tILj2EPK4$_39PKNSA_22MultipleSubstFormat1_2ISC_EEELSV_0ELSQ_0EERKSD_EdeEv.exit.i.i": ; preds = %238, %235
@@ -41988,7 +41988,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.l
   br i1 %.not.i.i.i.i.i, label %266, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
 
 266:                                              ; preds = %259
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %267 = zext nneg i32 %255 to i64
   %268 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %227, i64 %267
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
@@ -42068,7 +42068,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i4.
   br i1 %cond.i.i.i.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS2_9GSUB_impl8SequenceINS2_10SmallTypesEEENS1_7IntTypeItLj2EEELb1EEEEE9hb_pair_tIjRSF_EEdeEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %320
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %321 = zext nneg i32 %309 to i64
   %322 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %227, i64 %321
   %323 = load i8, ptr %322, align 1
@@ -42233,7 +42233,7 @@ define linkonce_odr hidden void @_ZNK2OT6Layout9GSUB_impl23AlternateSubstFormat1
   br i1 %29, label %38, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i: ; preds = %23
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !286, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !286, !srcloc !11
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %31 = load i8, ptr %30, align 1, !noalias !286
   %32 = zext i8 %31 to i32
@@ -42264,7 +42264,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i: ; preds = %38
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !286, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !286, !srcloc !11
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %.pre9.i.i.i = load i8, ptr %24, align 1, !noalias !286
   %.pre11.i.i.i = load i8, ptr %26, align 1, !noalias !286
@@ -42280,7 +42280,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br i1 %51, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i, label %59
 
 59:                                               ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !286, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !286, !srcloc !11
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i: ; preds = %59, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.thread.i.i.i
@@ -42366,7 +42366,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   br i1 %103, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS2_9GSUB_impl12AlternateSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEELb1EEEEE9hb_pair_tIjRSF_EEdeEv.exit.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i: ; preds = %109
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %110 = zext nneg i32 %.sroa.10.096 to i64
   %111 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %104, i64 %110
   %112 = load i8, ptr %111, align 1
@@ -42492,7 +42492,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK11hb_vect
   br i1 %.not.i.i.i, label %174, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 174:                                              ; preds = %167
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %175 = zext nneg i32 %.sroa.10.096 to i64
   %176 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %104, i64 %175
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
@@ -42614,7 +42614,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.l
   br i1 %cond.i.i.i.i.i.i, label %238, label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl12AlternateSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEELb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EE12hb_partial_tILj2EPK4$_39PKNSA_23AlternateSubstFormat1_2ISC_EEELSV_0ELSQ_0EERKSD_EdeEv.exit.i.i"
 
 238:                                              ; preds = %235
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   br label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl12AlternateSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEELb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EE12hb_partial_tILj2EPK4$_39PKNSA_23AlternateSubstFormat1_2ISC_EEELSV_0ELSQ_0EERKSD_EdeEv.exit.i.i"
 
 "_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl12AlternateSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEELb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EE12hb_partial_tILj2EPK4$_39PKNSA_23AlternateSubstFormat1_2ISC_EEELSV_0ELSQ_0EERKSD_EdeEv.exit.i.i": ; preds = %238, %235
@@ -42666,7 +42666,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.l
   br i1 %.not.i.i.i.i.i, label %266, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
 
 266:                                              ; preds = %259
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %267 = zext nneg i32 %255 to i64
   %268 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %227, i64 %267
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
@@ -42746,7 +42746,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i4.
   br i1 %cond.i.i.i.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS2_9GSUB_impl12AlternateSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEELb1EEEEE9hb_pair_tIjRSF_EEdeEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %320
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %321 = zext nneg i32 %309 to i64
   %322 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %227, i64 %321
   %323 = load i8, ptr %322, align 1
@@ -42911,7 +42911,7 @@ define linkonce_odr hidden void @_ZNK2OT6Layout9GSUB_impl22LigatureSubstFormat1_
   br i1 %29, label %38, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i: ; preds = %23
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !291, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !291, !srcloc !11
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %31 = load i8, ptr %30, align 1, !noalias !291
   %32 = zext i8 %31 to i32
@@ -42942,7 +42942,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i: ; preds = %38
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !291, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !291, !srcloc !11
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %.pre9.i.i.i = load i8, ptr %24, align 1, !noalias !291
   %.pre11.i.i.i = load i8, ptr %26, align 1, !noalias !291
@@ -42958,7 +42958,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br i1 %51, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i, label %59
 
 59:                                               ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !291, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !291, !srcloc !11
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i: ; preds = %59, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.thread.i.i.i
@@ -43044,7 +43044,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   br i1 %103, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS2_9GSUB_impl11LigatureSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEELb1EEEEE9hb_pair_tIjRSF_EEdeEv.exit.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i: ; preds = %109
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %110 = zext nneg i32 %.sroa.10.0109 to i64
   %111 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %104, i64 %110
   %112 = load i8, ptr %111, align 1
@@ -43170,7 +43170,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK11hb_vect
   br i1 %.not.i.i.i, label %174, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 174:                                              ; preds = %167
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %175 = zext nneg i32 %.sroa.10.0109 to i64
   %176 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %104, i64 %175
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
@@ -43298,7 +43298,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.l
   br i1 %cond.i.i.i.i.i.i, label %243, label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl11LigatureSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEELb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EE12hb_partial_tILj2EPK4$_39PKNSA_22LigatureSubstFormat1_2ISC_EEELSV_0ELSQ_0EERKSD_EdeEv.exit.i.i"
 
 243:                                              ; preds = %240
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   br label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl11LigatureSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEELb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EE12hb_partial_tILj2EPK4$_39PKNSA_22LigatureSubstFormat1_2ISC_EEELSV_0ELSQ_0EERKSD_EdeEv.exit.i.i"
 
 "_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl11LigatureSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEELb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EE12hb_partial_tILj2EPK4$_39PKNSA_22LigatureSubstFormat1_2ISC_EEELSV_0ELSQ_0EERKSD_EdeEv.exit.i.i": ; preds = %243, %240
@@ -43687,7 +43687,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i.i.i:       ; preds = %_ZNK11hb_vector_tIN
   br i1 %.not.i.i.i.i.i, label %448, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
 
 448:                                              ; preds = %441
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %449 = zext nneg i32 %436 to i64
   %450 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %227, i64 %449
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
@@ -43767,7 +43767,7 @@ _ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.i.i: ; preds = %488, %468, 
   br i1 %cond.i.i.i.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS2_9GSUB_impl11LigatureSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEELb1EEEEE9hb_pair_tIjRSF_EEdeEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %502
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %503 = zext nneg i32 %491 to i64
   %504 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %227, i64 %503
   %505 = load i8, ptr %504, align 1
@@ -44012,7 +44012,7 @@ _ZNK2OT6Layout6Common8Coverage13intersect_setIR8hb_set_tTnPN12hb_enable_ifIXsr13
   br i1 %80, label %89, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i: ; preds = %74
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !298, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !298, !srcloc !11
   %81 = getelementptr inbounds nuw i8, ptr %.0.i.i13, i64 4
   %82 = load i8, ptr %81, align 1, !noalias !298
   %83 = zext i8 %82 to i32
@@ -44043,7 +44043,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i: ; preds = %89
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !298, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !298, !srcloc !11
   %101 = getelementptr inbounds nuw i8, ptr %.0.i.i13, i64 4
   %.pre9.i.i.i = load i8, ptr %75, align 1, !noalias !298
   %.pre11.i.i.i = load i8, ptr %77, align 1, !noalias !298
@@ -44059,7 +44059,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br i1 %102, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i, label %110
 
 110:                                              ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !298, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !298, !srcloc !11
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i: ; preds = %110, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.thread.i.i.i
@@ -44120,7 +44120,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   br i1 %137, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEE9hb_pair_tIjjEEdeEv.exit.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i: ; preds = %139
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %140 = zext nneg i32 %.sroa.1056.093 to i64
   %141 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %138, i64 %140
   %142 = load i8, ptr %141, align 1
@@ -44260,7 +44260,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK11h
   br i1 %.not.i.i.i25, label %216, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 216:                                              ; preds = %209
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %217 = zext nneg i32 %.sroa.1056.093 to i64
   %218 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %138, i64 %217
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
@@ -44373,7 +44373,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.pre
   br i1 %268, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i, label %"_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEEZNKS2_16ContextFormat1_4INS3_10SmallTypesEE7closureEPNS2_20hb_closure_context_tEEUljE_RK3$_5LPv0EE9hb_pair_tIjjEEdeEv.exit.i.i.i.i"
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %271
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %272 = zext nneg i32 %.sroa.15.060.i to i64
   %273 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %269, i64 %272
   %274 = load i8, ptr %273, align 1
@@ -44398,7 +44398,7 @@ _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.e
 
 287:                                              ; preds = %"_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEEZNKS2_16ContextFormat1_4INS3_10SmallTypesEE7closureEPNS2_20hb_closure_context_tEEUljE_RK3$_5LPv0EE9hb_pair_tIjjEEdeEv.exit.i.i.i.i"
   %.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i = zext nneg i32 %.sroa.4726.063.i to i64
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %288 = getelementptr inbounds nuw %"struct.OT::OffsetTo.452", ptr %270, i64 %.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i
   br label %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEEZNKS3_16ContextFormat1_4INS4_10SmallTypesEE7closureEPNS3_20hb_closure_context_tEEUljE_RK3$_5LPv0EEZNKSD_7closureESF_EUl9hb_pair_tIjjEE_L24hb_function_sortedness_t0ELSK_0EESM_IjRKNS3_7RuleSetISC_EEEEdeEv.exit.i.i"
 
@@ -44436,7 +44436,7 @@ _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.e
   br i1 %.not.i.i.i2.i, label %308, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i22
 
 308:                                              ; preds = %301
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %309 = zext nneg i32 %.sroa.15.060.i to i64
   %310 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %269, i64 %309
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i22
@@ -44519,7 +44519,7 @@ _ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.i: ; preds = %348, %328, %3
   br i1 %268, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i8.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEE9hb_pair_tIjjEEdeEv.exit.i.i.i.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i8.i.i: ; preds = %.lr.ph.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %359 = zext nneg i32 %.sroa.15.343.i to i64
   %360 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %269, i64 %359
   %361 = load i8, ptr %360, align 1
@@ -44659,7 +44659,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_
   br i1 %.not.i.i.i.i.i, label %434, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
 
 434:                                              ; preds = %427
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %435 = zext nneg i32 %.sroa.15.343.i to i64
   %436 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %269, i64 %435
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
@@ -44766,7 +44766,7 @@ _ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.i.i: ; preds = %474, %454, 
 
 487:                                              ; preds = %"_ZorI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEEZNKS3_16ContextFormat1_4INS4_10SmallTypesEE7closureEPNS3_20hb_closure_context_tEEUljE_RK3$_5LPv0EEZNKSD_7closureESF_EUl9hb_pair_tIjjEE_L24hb_function_sortedness_t0ELSK_0EE10hb_apply_tIZNKSD_7closureESF_EUlRKSM_IjRKNS3_7RuleSetISC_EEEE_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS12_6item_tEEE5valueEvE4typeELSK_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS12_Efp_EEEOS12_OS17_.exit"
   call void @_ZN11hb_vector_tI8hb_set_tLb0EE3popEv(ptr dead_on_unwind nonnull writable sret(%struct.hb_set_t) align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #27
   br label %_ZN2OT20hb_closure_context_t19pop_cur_done_glyphsEv.exit
 
 _ZN2OT20hb_closure_context_t19pop_cur_done_glyphsEv.exit: ; preds = %"_ZorI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEEZNKS3_16ContextFormat1_4INS4_10SmallTypesEE7closureEPNS3_20hb_closure_context_tEEUljE_RK3$_5LPv0EEZNKSD_7closureESF_EUl9hb_pair_tIjjEE_L24hb_function_sortedness_t0ELSK_0EE10hb_apply_tIZNKSD_7closureESF_EUlRKSM_IjRKNS3_7RuleSetISC_EEEE_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS12_6item_tEEE5valueEvE4typeELSK_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS12_Efp_EEEOS12_OS17_.exit", %487
@@ -44778,7 +44778,7 @@ _ZN2OT20hb_closure_context_t19pop_cur_done_glyphsEv.exit: ; preds = %"_ZorI13hb_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @_ZN2OTL16intersects_glyphEPK8hb_set_tjPKvPv(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #18 {
+define internal noundef zeroext i1 @_ZN2OTL16intersects_glyphEPK8hb_set_tjPKvPv(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #19 {
   %5 = lshr i32 %1, 9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load atomic i32, ptr %6 monotonic, align 4
@@ -45007,7 +45007,7 @@ _ZN11hb_vector_tI8hb_set_tLb0EE5allocEjb.exit.thread: ; preds = %23, %13, %9, %_
   %.046.i = phi i32 [ %52, %.lr.ph.i15 ], [ %47, %.lr.ph.preheader.i ]
   %.0.i16 = getelementptr inbounds i8, ptr %.pn7.i, i64 -72
   %52 = add i32 %.046.i, -1
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %.0.i16) #26
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %.0.i16) #27
   %.not.i17 = icmp eq i32 %52, 0
   br i1 %.not.i17, label %_ZN11hb_vector_tI8hb_set_tLb0EE11grow_vectorIS0_TnPN12hb_enable_ifIXntsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit, label %.lr.ph.i15, !llvm.loop !38
 
@@ -45028,7 +45028,7 @@ define linkonce_odr hidden noundef ptr @_ZN11hb_vector_tI8hb_set_tLb0EE14realloc
 3:                                                ; preds = %2
   %4 = zext i32 %1 to i64
   %5 = mul nuw nsw i64 %4, 72
-  %6 = tail call noalias ptr @malloc(i64 noundef %5) #27
+  %6 = tail call noalias ptr @malloc(i64 noundef %5) #28
   %.not16 = icmp eq ptr %6, null
   br i1 %.not16, label %56, label %.preheader
 
@@ -45115,7 +45115,7 @@ define linkonce_odr hidden noundef ptr @_ZN11hb_vector_tI8hb_set_tLb0EE14realloc
 _ZN8hb_set_taSEOS_.exit:                          ; preds = %10, %23
   %49 = phi ptr [ %18, %10 ], [ %.pre, %23 ]
   %50 = getelementptr inbounds nuw %struct.hb_set_t, ptr %49, i64 %indvars.iv
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %50) #26
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %50) #27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %7, align 4
   %52 = zext i32 %51 to i64
@@ -45126,7 +45126,7 @@ _ZN8hb_set_taSEOS_.exit:                          ; preds = %10, %23
   %.013.ph = phi ptr [ null, %2 ], [ %6, %.preheader ], [ %6, %_ZN8hb_set_taSEOS_.exit ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = load ptr, ptr %54, align 8
-  tail call void @free(ptr noundef %55) #26
+  tail call void @free(ptr noundef %55) #27
   br label %56
 
 56:                                               ; preds = %.sink.split, %3
@@ -45320,8 +45320,8 @@ define internal fastcc void @_ZN2OTL31context_closure_recurse_lookupsINS_7IntTyp
 52:                                               ; preds = %.invoke, %258, %253, %230, %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit61, %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit, %146, %138
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %13) #26
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %13) #27
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #27
   resume { ptr, i32 } %53
 
 54:                                               ; preds = %43
@@ -45454,7 +45454,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i:     ; preds = %_ZNK11hb_vector_tIN
   %119 = load ptr, ptr %33, align 8
   %120 = zext nneg i32 %115 to i64
   %121 = mul nuw nsw i64 %120, 72
-  %122 = call ptr @realloc(ptr noundef %119, i64 noundef %121) #30
+  %122 = call ptr @realloc(ptr noundef %119, i64 noundef %121) #31
   %.not42.i.i.i.i.i = icmp eq ptr %122, null
   br i1 %.not42.i.i.i.i.i, label %123, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.i.i.i.i
 
@@ -45749,7 +45749,7 @@ _ZN2OT20hb_closure_context_t7recurseEjP8hb_set_tjj.exit: ; preds = %.noexc65, %2
           to label %.noexc66 unwind label %52
 
 .noexc66:                                         ; preds = %258
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #27
   br label %_ZN2OT20hb_closure_context_t19pop_cur_done_glyphsEv.exit
 
 _ZN2OT20hb_closure_context_t19pop_cur_done_glyphsEv.exit: ; preds = %_ZN2OT20hb_closure_context_t7recurseEjP8hb_set_tjj.exit, %.noexc66
@@ -45762,8 +45762,8 @@ _ZN2OT20hb_closure_context_t19pop_cur_done_glyphsEv.exit: ; preds = %_ZN2OT20hb_
   br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !308
 
 ._crit_edge:                                      ; preds = %188, %259, %10
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %13) #26
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %13) #27
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #27
   ret void
 }
 
@@ -45823,13 +45823,13 @@ define linkonce_odr hidden void @_ZN12hb_bit_set_t3setERKS_b(ptr noundef nonnull
   br i1 %.not.i25.i.i62, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i.i71, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i63
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i.i71: ; preds = %26
-  tail call void @free(ptr noundef %28) #26
+  tail call void @free(ptr noundef %28) #27
   br label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.i65
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i63: ; preds = %26
   %29 = zext nneg i32 %.01538.i.i61 to i64
   %30 = mul nuw nsw i64 %29, 72
-  %31 = tail call ptr @realloc(ptr noundef %28, i64 noundef %30) #30
+  %31 = tail call ptr @realloc(ptr noundef %28, i64 noundef %30) #31
   %.not42.i.i64 = icmp eq ptr %31, null
   br i1 %.not42.i.i64, label %32, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.i65
 
@@ -45915,13 +45915,13 @@ _ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.i65: ; preds = %_ZN11hb_vect
   br i1 %.not.i25.i.i42, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i50, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i43
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i50: ; preds = %59
-  tail call void @free(ptr noundef %61) #26
+  tail call void @free(ptr noundef %61) #27
   br label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.i45
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i43: ; preds = %59
   %62 = shl nuw i32 %.01538.i.i41, 3
   %63 = zext i32 %62 to i64
-  %64 = tail call ptr @realloc(ptr noundef %61, i64 noundef %63) #30
+  %64 = tail call ptr @realloc(ptr noundef %61, i64 noundef %63) #31
   %.not42.i.i44 = icmp eq ptr %64, null
   br i1 %.not42.i.i44, label %65, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.i45
 
@@ -46011,13 +46011,13 @@ _ZN11hb_vector_tI13hb_bit_page_tLb0EE6resizeEibb.exit76.thread.thread83: ; preds
   br i1 %.not.i25.i.i25, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i.i31, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i26
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i.i31: ; preds = %88
-  tail call void @free(ptr noundef %90) #26
+  tail call void @free(ptr noundef %90) #27
   br label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.i28
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i26: ; preds = %88
   %91 = zext nneg i32 %.01538.i.i to i64
   %92 = mul nuw nsw i64 %91, 72
-  %93 = tail call ptr @realloc(ptr noundef %90, i64 noundef %92) #30
+  %93 = tail call ptr @realloc(ptr noundef %90, i64 noundef %92) #31
   %.not42.i.i27 = icmp eq ptr %93, null
   br i1 %.not42.i.i27, label %94, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.i28
 
@@ -46092,13 +46092,13 @@ _ZN12hb_bit_set_t6resizeEjbb.exit:                ; preds = %_ZN11hb_vector_tI13
   br i1 %.not.i25.i.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i: ; preds = %115
-  tail call void @free(ptr noundef %117) #26
+  tail call void @free(ptr noundef %117) #27
   br label %125
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i: ; preds = %115
   %118 = shl nuw i32 %111, 3
   %119 = zext i32 %118 to i64
-  %120 = tail call ptr @realloc(ptr noundef %117, i64 noundef %119) #30
+  %120 = tail call ptr @realloc(ptr noundef %117, i64 noundef %119) #31
   %.not42.i.i = icmp eq ptr %120, null
   br i1 %.not42.i.i, label %121, label %125
 
@@ -46190,13 +46190,13 @@ _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEaSERKS2_.exit: ; preds = %132,
   br i1 %.not.i25.i.i15, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i.i: ; preds = %149
-  tail call void @free(ptr noundef %151) #26
+  tail call void @free(ptr noundef %151) #27
   br label %159
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i: ; preds = %149
   %152 = zext nneg i32 %145 to i64
   %153 = mul nuw nsw i64 %152, 72
-  %154 = tail call ptr @realloc(ptr noundef %151, i64 noundef %153) #30
+  %154 = tail call ptr @realloc(ptr noundef %151, i64 noundef %153) #31
   %.not42.i.i16 = icmp eq ptr %154, null
   br i1 %.not42.i.i16, label %155, label %159
 
@@ -46295,7 +46295,7 @@ define linkonce_odr hidden void @_ZN11hb_vector_tI8hb_set_tLb0EE3popEv(ptr dead_
 18:                                               ; preds = %5
   %19 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #26
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #27
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %2
@@ -46374,7 +46374,7 @@ _ZN8hb_set_tC2EOS_.exit:                          ; preds = %20, %35
   %63 = add i32 %62, -1
   %64 = zext i32 %63 to i64
   %65 = getelementptr inbounds nuw %struct.hb_set_t, ptr %61, i64 %64
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %65) #26
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %65) #27
   %66 = load i32, ptr %3, align 4
   %67 = add i32 %66, -1
   store i32 %67, ptr %3, align 4
@@ -47179,7 +47179,7 @@ _ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE16intersects_classEPK8hb_set_
           to label %.noexc30 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc30:                                         ; preds = %391
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #27
   br label %392
 
 392:                                              ; preds = %.noexc30, %"_ZorI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tIKN2OT8OffsetToINS5_7RuleSetINS5_6Layout10SmallTypesEEENS5_7IntTypeItLj2EEELb1EEEEEZNKS5_16ContextFormat2_5IS9_E7closureEPNS5_20hb_closure_context_tEEUljE_RK3$_5LPv0EE10hb_apply_tIZNKSI_7closureESK_EUl9hb_pair_tIjRSE_EE_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSY_6item_tEEE5valueEvE4typeELSP_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISY_Efp_EEEOSY_OS13_.exit"
@@ -47191,7 +47191,7 @@ _ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE16intersects_classEPK8hb_set_
   %394 = landingpad { ptr, i32 }
           catch ptr null
   %395 = extractvalue { ptr, i32 } %394, 0
-  call void @__clang_call_terminate(ptr %395) #28
+  call void @__clang_call_terminate(ptr %395) #29
   unreachable
 
 _ZN12hb_hashmap_tIj8hb_set_tLb0EED2Ev.exit:       ; preds = %392
@@ -47207,8 +47207,8 @@ _ZN12hb_hashmap_tIj8hb_set_tLb0EED2Ev.exit:       ; preds = %392
           to label %.noexc.i.i unwind label %403
 
 .noexc.i.i:                                       ; preds = %397
-  %400 = call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %398) #26
-  call void @free(ptr noundef nonnull %398) #26
+  %400 = call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %398) #27
+  call void @free(ptr noundef nonnull %398) #27
   store atomic i64 0, ptr %91 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
 
@@ -47218,14 +47218,14 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i: ; preds = %.noexc.i.
   br i1 %.not.i.i.i32, label %_ZNK2OT6Layout6Common8Coverage10intersectsEPK8hb_set_t.exit.thread, label %402
 
 402:                                              ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
-  call void @free(ptr noundef nonnull %401) #26
+  call void @free(ptr noundef nonnull %401) #27
   br label %_ZNK2OT6Layout6Common8Coverage10intersectsEPK8hb_set_t.exit.thread
 
 403:                                              ; preds = %397
   %404 = landingpad { ptr, i32 }
           catch ptr null
   %405 = extractvalue { ptr, i32 } %404, 0
-  call void @__clang_call_terminate(ptr %405) #28
+  call void @__clang_call_terminate(ptr %405) #29
   unreachable
 
 _ZNK2OT6Layout6Common8Coverage10intersectsEPK8hb_set_t.exit.thread: ; preds = %402, %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i, %2, %33, %_ZN2OT20hb_closure_context_t22push_cur_active_glyphsEv.exit, %_ZNK2OT6Layout6Common8Coverage10intersectsEPK8hb_set_t.exit
@@ -47280,11 +47280,11 @@ _ZNK2OT6Layout6Common8Coverage10intersectsEPK8hb_set_t.exit.thread: ; preds = %4
   %407 = landingpad { ptr, i32 }
           catch ptr null
   %408 = extractvalue { ptr, i32 } %407, 0
-  call void @__clang_call_terminate(ptr %408) #28
+  call void @__clang_call_terminate(ptr %408) #29
   unreachable
 
 _ZN12hb_hashmap_tIj8hb_set_tLb0EED2Ev.exit33:     ; preds = %.loopexit.split-lp
-  call void @_ZN8hb_map_tD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #26
+  call void @_ZN8hb_map_tD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #27
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -47499,7 +47499,7 @@ _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE6union_ERKS1_.exit: ; preds = %_ZN
           to label %_ZN12hb_hashmap_tIj8hb_set_tLb0EE3setIS0_EEbRKjOT_b.exit unwind label %60
 
 _ZN12hb_hashmap_tIj8hb_set_tLb0EE3setIS0_EEbRKjOT_b.exit: ; preds = %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE6union_ERKS1_.exit
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #27
   br label %59
 
 59:                                               ; preds = %_ZN12hb_hashmap_tIj8hb_set_tLb0EE3setIS0_EEbRKjOT_b.exit, %38
@@ -47508,7 +47508,7 @@ _ZN12hb_hashmap_tIj8hb_set_tLb0EE3setIS0_EEbRKjOT_b.exit: ; preds = %_ZN14hb_spa
 60:                                               ; preds = %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE6union_ERKS1_.exit, %_ZNK2OT8ClassDef24intersected_class_glyphsEPK8hb_set_tjPS1_.exit, %55, %54
   %61 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #27
   resume { ptr, i32 } %61
 }
 
@@ -48825,7 +48825,7 @@ define linkonce_odr hidden void @_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTyp
   br i1 %.not.i, label %66, label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit
 
 66:                                               ; preds = %59
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %67 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %16, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit
 
@@ -49830,7 +49830,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIj8hb_set_tLb0EE
   %.0.i = select i1 %.not.i38, i32 0, i32 %narrow.i
   %18 = zext nneg i32 %.0.i to i64
   %19 = shl nuw nsw i64 80, %18
-  %20 = tail call noalias ptr @malloc(i64 noundef %19) #27
+  %20 = tail call noalias ptr @malloc(i64 noundef %19) #28
   %.not36 = icmp eq ptr %20, null
   br i1 %.not36, label %21, label %.lr.ph.preheader
 
@@ -49920,13 +49920,13 @@ _ZN12hb_hashmap_tIj8hb_set_tLb0EE9prime_forEj.exit: ; preds = %._crit_edge, %41
 
 55:                                               ; preds = %51, %.lr.ph49.split
   %56 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %56) #26
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %56) #27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge50, label %.lr.ph49.split, !llvm.loop !333
 
 ._crit_edge50:                                    ; preds = %55, %_ZN12hb_hashmap_tIj8hb_set_tLb0EE9prime_forEj.exit
-  tail call void @free(ptr noundef %37) #26
+  tail call void @free(ptr noundef %37) #27
   br label %57
 
 57:                                               ; preds = %7, %2, %._crit_edge50, %21
@@ -50163,8 +50163,8 @@ define linkonce_odr hidden void @_ZN12hb_hashmap_tIj8hb_set_tLb0EE4finiEv(ptr no
   %5 = inttoptr i64 %3 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(56) %5)
-  %7 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %5) #26
-  tail call void @free(ptr noundef nonnull %5) #26
+  %7 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %5) #27
+  tail call void @free(ptr noundef nonnull %5) #27
   store atomic i64 0, ptr %2 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIj8hb_set_tLb0EEEvPT_.exit
 
@@ -50190,7 +50190,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIj8hb_set_tLb0EEEvPT_.exit: ; preds = %1, %4
   %14 = load ptr, ptr %8, align 8
   %15 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, hb_set_t>::item_t", ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %16) #26
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %16) #27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !335
@@ -50201,7 +50201,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIj8hb_set_tLb0EEEvPT_.exit: ; preds = %1, %4
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %10
   %17 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %9, %10 ]
-  tail call void @free(ptr noundef %17) #26
+  tail call void @free(ptr noundef %17) #27
   store ptr null, ptr %8, align 8
   br label %18
 
@@ -50407,7 +50407,7 @@ _ZN2OTL22context_closure_lookupINS_7IntTypeItLj2EEEEEvPNS_20hb_closure_context_t
 
 117:                                              ; preds = %_ZN2OTL22context_closure_lookupINS_7IntTypeItLj2EEEEEvPNS_20hb_closure_context_tEjPKT_jPKNS_12LookupRecordEjRNS_27ContextClosureLookupContextE.exit
   call void @_ZN11hb_vector_tI8hb_set_tLb0EE3popEv(ptr dead_on_unwind nonnull writable sret(%struct.hb_set_t) align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %27)
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #27
   br label %_ZN2OT20hb_closure_context_t19pop_cur_done_glyphsEv.exit
 
 _ZN2OT20hb_closure_context_t19pop_cur_done_glyphsEv.exit: ; preds = %_ZN2OTL22context_closure_lookupINS_7IntTypeItLj2EEEEEvPNS_20hb_closure_context_tEjPKT_jPKNS_12LookupRecordEjRNS_27ContextClosureLookupContextE.exit, %117
@@ -50577,7 +50577,7 @@ _ZNK2OT6Layout6Common8Coverage13intersect_setIR8hb_set_tTnPN12hb_enable_ifIXsr13
   br i1 %80, label %89, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i: ; preds = %74
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !336, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !336, !srcloc !11
   %81 = getelementptr inbounds nuw i8, ptr %.0.i.i13, i64 4
   %82 = load i8, ptr %81, align 1, !noalias !336
   %83 = zext i8 %82 to i32
@@ -50608,7 +50608,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i: ; preds = %89
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !336, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !336, !srcloc !11
   %101 = getelementptr inbounds nuw i8, ptr %.0.i.i13, i64 4
   %.pre9.i.i.i = load i8, ptr %75, align 1, !noalias !336
   %.pre11.i.i.i = load i8, ptr %77, align 1, !noalias !336
@@ -50624,7 +50624,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br i1 %102, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i, label %110
 
 110:                                              ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !336, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !336, !srcloc !11
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i: ; preds = %110, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.thread.i.i.i
@@ -50685,7 +50685,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   br i1 %137, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEE9hb_pair_tIjjEEdeEv.exit.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i: ; preds = %139
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %140 = zext nneg i32 %.sroa.1056.093 to i64
   %141 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %138, i64 %140
   %142 = load i8, ptr %141, align 1
@@ -50825,7 +50825,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK11h
   br i1 %.not.i.i.i25, label %216, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 216:                                              ; preds = %209
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %217 = zext nneg i32 %.sroa.1056.093 to i64
   %218 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %138, i64 %217
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
@@ -50938,7 +50938,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.pre
   br i1 %268, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i, label %"_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEEZNKS2_21ChainContextFormat1_4INS3_10SmallTypesEE7closureEPNS2_20hb_closure_context_tEEUljE_RK3$_5LPv0EE9hb_pair_tIjjEEdeEv.exit.i.i.i.i"
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %271
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %272 = zext nneg i32 %.sroa.15.060.i to i64
   %273 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %269, i64 %272
   %274 = load i8, ptr %273, align 1
@@ -50963,7 +50963,7 @@ _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.e
 
 287:                                              ; preds = %"_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEEZNKS2_21ChainContextFormat1_4INS3_10SmallTypesEE7closureEPNS2_20hb_closure_context_tEEUljE_RK3$_5LPv0EE9hb_pair_tIjjEEdeEv.exit.i.i.i.i"
   %.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i = zext nneg i32 %.sroa.4726.063.i to i64
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %288 = getelementptr inbounds nuw %"struct.OT::OffsetTo.456", ptr %270, i64 %.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i
   br label %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEEZNKS3_21ChainContextFormat1_4INS4_10SmallTypesEE7closureEPNS3_20hb_closure_context_tEEUljE_RK3$_5LPv0EEZNKSD_7closureESF_EUl9hb_pair_tIjjEE_L24hb_function_sortedness_t0ELSK_0EESM_IjRKNS3_12ChainRuleSetISC_EEEEdeEv.exit.i.i"
 
@@ -51001,7 +51001,7 @@ _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.e
   br i1 %.not.i.i.i2.i, label %308, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i22
 
 308:                                              ; preds = %301
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %309 = zext nneg i32 %.sroa.15.060.i to i64
   %310 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %269, i64 %309
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i22
@@ -51084,7 +51084,7 @@ _ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.i: ; preds = %348, %328, %3
   br i1 %268, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i8.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEE9hb_pair_tIjjEEdeEv.exit.i.i.i.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i8.i.i: ; preds = %.lr.ph.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %359 = zext nneg i32 %.sroa.15.343.i to i64
   %360 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %269, i64 %359
   %361 = load i8, ptr %360, align 1
@@ -51224,7 +51224,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_
   br i1 %.not.i.i.i.i.i, label %434, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
 
 434:                                              ; preds = %427
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %435 = zext nneg i32 %.sroa.15.343.i to i64
   %436 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %269, i64 %435
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
@@ -51331,7 +51331,7 @@ _ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.i.i: ; preds = %474, %454, 
 
 487:                                              ; preds = %"_ZorI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEEZNKS3_21ChainContextFormat1_4INS4_10SmallTypesEE7closureEPNS3_20hb_closure_context_tEEUljE_RK3$_5LPv0EEZNKSD_7closureESF_EUl9hb_pair_tIjjEE_L24hb_function_sortedness_t0ELSK_0EE10hb_apply_tIZNKSD_7closureESF_EUlRKSM_IjRKNS3_12ChainRuleSetISC_EEEE_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS12_6item_tEEE5valueEvE4typeELSK_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS12_Efp_EEEOS12_OS17_.exit"
   call void @_ZN11hb_vector_tI8hb_set_tLb0EE3popEv(ptr dead_on_unwind nonnull writable sret(%struct.hb_set_t) align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #27
   br label %_ZN2OT20hb_closure_context_t19pop_cur_done_glyphsEv.exit
 
 _ZN2OT20hb_closure_context_t19pop_cur_done_glyphsEv.exit: ; preds = %"_ZorI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEEZNKS3_21ChainContextFormat1_4INS4_10SmallTypesEE7closureEPNS3_20hb_closure_context_tEEUljE_RK3$_5LPv0EEZNKSD_7closureESF_EUl9hb_pair_tIjjEE_L24hb_function_sortedness_t0ELSK_0EE10hb_apply_tIZNKSD_7closureESF_EUlRKSM_IjRKNS3_12ChainRuleSetISC_EEEE_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS12_6item_tEEE5valueEvE4typeELSK_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS12_Efp_EEEOS12_OS17_.exit", %487
@@ -52397,7 +52397,7 @@ _ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE16intersects_classEPK8hb_set_
           to label %.noexc41 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc41:                                         ; preds = %422
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #27
   br label %423
 
 423:                                              ; preds = %.noexc41, %"_ZorI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tIKN2OT8OffsetToINS5_12ChainRuleSetINS5_6Layout10SmallTypesEEENS5_7IntTypeItLj2EEELb1EEEEEZNKS5_21ChainContextFormat2_5IS9_E7closureEPNS5_20hb_closure_context_tEEUljE_RK3$_5LPv0EE10hb_apply_tIZNKSI_7closureESK_EUl9hb_pair_tIjRSE_EE_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSY_6item_tEEE5valueEvE4typeELSP_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISY_Efp_EEEOSY_OS13_.exit"
@@ -52409,7 +52409,7 @@ _ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE16intersects_classEPK8hb_set_
   %425 = landingpad { ptr, i32 }
           catch ptr null
   %426 = extractvalue { ptr, i32 } %425, 0
-  call void @__clang_call_terminate(ptr %426) #28
+  call void @__clang_call_terminate(ptr %426) #29
   unreachable
 
 _ZN12hb_hashmap_tIj8hb_set_tLb0EED2Ev.exit:       ; preds = %423, %_ZN8hb_map_tD2Ev.exit
@@ -52428,8 +52428,8 @@ _ZN12hb_hashmap_tIj8hb_set_tLb0EED2Ev.exit:       ; preds = %423, %_ZN8hb_map_tD
           to label %.noexc.i.i unwind label %438
 
 .noexc.i.i:                                       ; preds = %431
-  %434 = call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %432) #26
-  call void @free(ptr noundef nonnull %432) #26
+  %434 = call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %432) #27
+  call void @free(ptr noundef nonnull %432) #27
   store atomic i64 0, ptr %429 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
 
@@ -52440,7 +52440,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i: ; preds = %.noexc.i.
   br i1 %.not.i.i.i43, label %_ZN8hb_map_tD2Ev.exit, label %437
 
 437:                                              ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
-  call void @free(ptr noundef nonnull %436) #26
+  call void @free(ptr noundef nonnull %436) #27
   store ptr null, ptr %435, align 8
   br label %_ZN8hb_map_tD2Ev.exit
 
@@ -52448,7 +52448,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i: ; preds = %.noexc.i.
   %439 = landingpad { ptr, i32 }
           catch ptr null
   %440 = extractvalue { ptr, i32 } %439, 0
-  call void @__clang_call_terminate(ptr %440) #28
+  call void @__clang_call_terminate(ptr %440) #29
   unreachable
 
 _ZN8hb_map_tD2Ev.exit:                            ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i, %437
@@ -52513,13 +52513,13 @@ _ZNK2OT6Layout6Common8Coverage10intersectsEPK8hb_set_t.exit.thread: ; preds = %_
   %447 = landingpad { ptr, i32 }
           catch ptr null
   %448 = extractvalue { ptr, i32 } %447, 0
-  call void @__clang_call_terminate(ptr %448) #28
+  call void @__clang_call_terminate(ptr %448) #29
   unreachable
 
 _ZN12hb_hashmap_tIj8hb_set_tLb0EED2Ev.exit44:     ; preds = %.loopexit.split-lp, %_ZN12hb_hashmap_tIj8hb_set_tLb0EED2Ev.exit44
   %449 = phi ptr [ %450, %_ZN12hb_hashmap_tIj8hb_set_tLb0EED2Ev.exit44 ], [ %122, %.loopexit.split-lp ]
   %450 = getelementptr inbounds i8, ptr %449, i64 -48
-  call void @_ZN8hb_map_tD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %450) #26
+  call void @_ZN8hb_map_tD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %450) #27
   %451 = icmp eq ptr %450, %11
   br i1 %451, label %452, label %_ZN12hb_hashmap_tIj8hb_set_tLb0EED2Ev.exit44
 
@@ -52549,7 +52549,7 @@ define linkonce_odr hidden void @_ZNK2OT19ChainContextFormat37closureEPNS_20hb_c
   br i1 %19, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit, label %20
 
 20:                                               ; preds = %2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 4
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit
 
@@ -52635,7 +52635,7 @@ _ZN2OT20hb_closure_context_t22push_cur_active_glyphsEv.exit: ; preds = %49, %50
   br i1 %73, label %_ZNK2OT19ChainContextFormat312get_coverageEv.exit, label %74
 
 74:                                               ; preds = %59
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %75 = getelementptr inbounds nuw i8, ptr %67, i64 4
   br label %_ZNK2OT19ChainContextFormat312get_coverageEv.exit
 
@@ -52895,7 +52895,7 @@ _ZN2OTL28chain_context_closure_lookupINS_7IntTypeItLj2EEEEEvPNS_20hb_closure_con
 
 227:                                              ; preds = %_ZN2OTL28chain_context_closure_lookupINS_7IntTypeItLj2EEEEEvPNS_20hb_closure_context_tEjPKT_jS7_jS7_jPKNS_12LookupRecordEjRNS_32ChainContextClosureLookupContextE.exit
   call void @_ZN11hb_vector_tI8hb_set_tLb0EE3popEv(ptr dead_on_unwind nonnull writable sret(%struct.hb_set_t) align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %44)
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #26
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #27
   br label %_ZN2OT20hb_closure_context_t19pop_cur_done_glyphsEv.exit
 
 _ZN2OT20hb_closure_context_t19pop_cur_done_glyphsEv.exit: ; preds = %_ZN2OTL28chain_context_closure_lookupINS_7IntTypeItLj2EEEEEvPNS_20hb_closure_context_tEjPKT_jS7_jS7_jPKNS_12LookupRecordEjRNS_32ChainContextClosureLookupContextE.exit, %227
@@ -52976,7 +52976,7 @@ define linkonce_odr hidden void @_ZNK2OT6Layout9GSUB_impl30ReverseChainSingleSub
   br i1 %56, label %65, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i: ; preds = %50
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !354, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !354, !srcloc !11
   %57 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %58 = load i8, ptr %57, align 1, !noalias !354
   %59 = zext i8 %58 to i32
@@ -53007,7 +53007,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i: ; preds = %65
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !354, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !354, !srcloc !11
   %77 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %.pre9.i.i.i = load i8, ptr %51, align 1, !noalias !354
   %.pre11.i.i.i = load i8, ptr %53, align 1, !noalias !354
@@ -53023,7 +53023,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br i1 %78, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i, label %86
 
 86:                                               ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !noalias !354, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !noalias !354, !srcloc !11
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit7.i.i.i: ; preds = %86, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.i.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit4.thread.i.i.i
@@ -53170,7 +53170,7 @@ _ZNK2OT6Layout6Common8Coverage10intersectsEPK8hb_set_t.exit: ; preds = %2
   br i1 %.not.i, label %47, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit
 
 47:                                               ; preds = %40
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %48 = getelementptr inbounds nuw %"struct.OT::OffsetTo.250", ptr %39, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit
 
@@ -53240,7 +53240,7 @@ _ZNK2OT6Layout6Common8Coverage10intersectsEPK8hb_set_t.exit20: ; preds = %_ZNK2O
   br i1 %.not.i21, label %84, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit23
 
 84:                                               ; preds = %77
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %85 = getelementptr inbounds nuw %"struct.OT::OffsetTo.250", ptr %76, i64 %indvars.iv45
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit23
 
@@ -53290,7 +53290,7 @@ _ZNK2OT6Layout6Common8Coverage10intersectsEPK8hb_set_t.exit.thread: ; preds = %_
 declare ptr @hb_buffer_get_glyph_positions(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN2OT6LayoutL28propagate_attachment_offsetsEP19hb_glyph_position_tjj14hb_direction_tj(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #19 {
+define internal fastcc void @_ZN2OT6LayoutL28propagate_attachment_offsetsEP19hb_glyph_position_tjj14hb_direction_tj(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #20 {
   %6 = zext i32 %2 to i64
   %7 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %0, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -53433,7 +53433,7 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18GSUB_accele
   br i1 %.not.i, label %.split.loop.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #29
+  %7 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #30
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %.thread, label %8
 
@@ -53469,7 +53469,7 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18GSUB_accele
   %21 = getelementptr inbounds nuw %struct.hb_atomic_ptr_t.813, ptr %20, i64 %indvars.iv.i.i.i.i
   %22 = load atomic i64, ptr %21 acquire, align 8
   %23 = inttoptr i64 %22 to ptr
-  tail call void @free(ptr noundef %23) #26
+  tail call void @free(ptr noundef %23) #27
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %24 = load i32, ptr %16, align 8
   %25 = zext i32 %24 to i64
@@ -53479,7 +53479,7 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18GSUB_accele
 ._crit_edge.i.i.i.i:                              ; preds = %19, %15
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %28 = load ptr, ptr %27, align 8
-  tail call void @free(ptr noundef %28) #26
+  tail call void @free(ptr noundef %28) #27
   %29 = load ptr, ptr %7, align 8
   invoke void @hb_blob_destroy(ptr noundef %29)
           to label %_ZN16hb_lazy_loader_tIN2OT18GSUB_accelerator_tE21hb_face_lazy_loader_tIS1_Lj25EE9hb_face_tLj25ES1_E7destroyEPS1_.exit.i unwind label %30
@@ -53488,11 +53488,11 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18GSUB_accele
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #28
+  tail call void @__clang_call_terminate(ptr %32) #29
   unreachable
 
 _ZN16hb_lazy_loader_tIN2OT18GSUB_accelerator_tE21hb_face_lazy_loader_tIS1_Lj25EE9hb_face_tLj25ES1_E7destroyEPS1_.exit.i: ; preds = %._crit_edge.i.i.i.i
-  tail call void @free(ptr noundef nonnull %7) #26
+  tail call void @free(ptr noundef nonnull %7) #27
   br label %_ZN16hb_lazy_loader_tIN2OT18GSUB_accelerator_tE21hb_face_lazy_loader_tIS1_Lj25EE9hb_face_tLj25ES1_E10do_destroyEPS1_.exit
 
 _ZN16hb_lazy_loader_tIN2OT18GSUB_accelerator_tE21hb_face_lazy_loader_tIS1_Lj25EE9hb_face_tLj25ES1_E10do_destroyEPS1_.exit: ; preds = %.thread, %14, %_ZN16hb_lazy_loader_tIN2OT18GSUB_accelerator_tE21hb_face_lazy_loader_tIS1_Lj25EE9hb_face_tLj25ES1_E7destroyEPS1_.exit.i
@@ -53543,7 +53543,7 @@ define linkonce_odr hidden void @_ZN2OT8GSUBGPOS13accelerator_tINS_6Layout4GSUBE
 14:                                               ; preds = %52, %.noexc4, %11, %2, %53
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %3) #26
+  call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %3) #27
   resume { ptr, i32 } %15
 
 16:                                               ; preds = %.noexc4
@@ -53593,7 +53593,7 @@ _ZNK2OT8GSUBGPOS16get_lookup_countEv.exit:        ; preds = %29, %16
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0.i, ptr %48, align 8
   %49 = zext nneg i32 %.0.i to i64
-  %50 = call noalias ptr @calloc(i64 noundef %49, i64 noundef 8) #29
+  %50 = call noalias ptr @calloc(i64 noundef %49, i64 noundef 8) #30
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %50, ptr %51, align 8
   %.not = icmp eq ptr %50, null
@@ -53626,7 +53626,7 @@ _ZNK2OT8GSUBGPOS16get_lookup_countEv.exit:        ; preds = %29, %16
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #28
+  call void @__clang_call_terminate(ptr %61) #29
   unreachable
 
 _ZN21hb_sanitize_context_tD2Ev.exit:              ; preds = %58, %56
@@ -55141,7 +55141,7 @@ _ZN21hb_sanitize_context_t8dispatchIN2OT8OffsetToINS1_6Layout9GSUB_impl19SubstLo
   br i1 %124, label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit, label %125
 
 125:                                              ; preds = %120
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   br label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit
 
 _ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit: ; preds = %120, %125
@@ -55193,7 +55193,7 @@ _ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.e
   br i1 %.not.i.i45, label %158, label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit48
 
 158:                                              ; preds = %.lr.ph70
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %159 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %3, i64 %indvars.iv75
   br label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit48
 
@@ -60301,7 +60301,7 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18GPOS_accele
   br i1 %.not.i, label %.split.loop.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #29
+  %7 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #30
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %.thread, label %8
 
@@ -60337,7 +60337,7 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18GPOS_accele
   %21 = getelementptr inbounds nuw %struct.hb_atomic_ptr_t.813, ptr %20, i64 %indvars.iv.i.i.i.i
   %22 = load atomic i64, ptr %21 acquire, align 8
   %23 = inttoptr i64 %22 to ptr
-  tail call void @free(ptr noundef %23) #26
+  tail call void @free(ptr noundef %23) #27
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %24 = load i32, ptr %16, align 8
   %25 = zext i32 %24 to i64
@@ -60347,7 +60347,7 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18GPOS_accele
 ._crit_edge.i.i.i.i:                              ; preds = %19, %15
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %28 = load ptr, ptr %27, align 8
-  tail call void @free(ptr noundef %28) #26
+  tail call void @free(ptr noundef %28) #27
   %29 = load ptr, ptr %7, align 8
   invoke void @hb_blob_destroy(ptr noundef %29)
           to label %_ZN16hb_lazy_loader_tIN2OT18GPOS_accelerator_tE21hb_face_lazy_loader_tIS1_Lj26EE9hb_face_tLj26ES1_E7destroyEPS1_.exit.i unwind label %30
@@ -60356,11 +60356,11 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18GPOS_accele
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #28
+  tail call void @__clang_call_terminate(ptr %32) #29
   unreachable
 
 _ZN16hb_lazy_loader_tIN2OT18GPOS_accelerator_tE21hb_face_lazy_loader_tIS1_Lj26EE9hb_face_tLj26ES1_E7destroyEPS1_.exit.i: ; preds = %._crit_edge.i.i.i.i
-  tail call void @free(ptr noundef nonnull %7) #26
+  tail call void @free(ptr noundef nonnull %7) #27
   br label %_ZN16hb_lazy_loader_tIN2OT18GPOS_accelerator_tE21hb_face_lazy_loader_tIS1_Lj26EE9hb_face_tLj26ES1_E10do_destroyEPS1_.exit
 
 _ZN16hb_lazy_loader_tIN2OT18GPOS_accelerator_tE21hb_face_lazy_loader_tIS1_Lj26EE9hb_face_tLj26ES1_E10do_destroyEPS1_.exit: ; preds = %.thread, %14, %_ZN16hb_lazy_loader_tIN2OT18GPOS_accelerator_tE21hb_face_lazy_loader_tIS1_Lj26EE9hb_face_tLj26ES1_E7destroyEPS1_.exit.i
@@ -60411,7 +60411,7 @@ define linkonce_odr hidden void @_ZN2OT8GSUBGPOS13accelerator_tINS_6Layout4GPOSE
 14:                                               ; preds = %52, %.noexc4, %11, %2, %53
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %3) #26
+  call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %3) #27
   resume { ptr, i32 } %15
 
 16:                                               ; preds = %.noexc4
@@ -60461,7 +60461,7 @@ _ZNK2OT8GSUBGPOS16get_lookup_countEv.exit:        ; preds = %29, %16
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0.i, ptr %48, align 8
   %49 = zext nneg i32 %.0.i to i64
-  %50 = call noalias ptr @calloc(i64 noundef %49, i64 noundef 8) #29
+  %50 = call noalias ptr @calloc(i64 noundef %49, i64 noundef 8) #30
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %50, ptr %51, align 8
   %.not = icmp eq ptr %50, null
@@ -60494,7 +60494,7 @@ _ZNK2OT8GSUBGPOS16get_lookup_countEv.exit:        ; preds = %29, %16
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #28
+  call void @__clang_call_terminate(ptr %61) #29
   unreachable
 
 _ZN21hb_sanitize_context_tD2Ev.exit:              ; preds = %58, %56
@@ -61167,7 +61167,7 @@ _ZN21hb_sanitize_context_t8dispatchIN2OT8OffsetToINS1_6Layout9GPOS_impl17PosLook
   br i1 %124, label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GPOS_impl17PosLookupSubTableEEERKT_j.exit, label %125
 
 125:                                              ; preds = %120
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   br label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GPOS_impl17PosLookupSubTableEEERKT_j.exit
 
 _ZNK2OT6Lookup12get_subtableINS_6Layout9GPOS_impl17PosLookupSubTableEEERKT_j.exit: ; preds = %120, %125
@@ -61219,7 +61219,7 @@ _ZNK2OT6Lookup12get_subtableINS_6Layout9GPOS_impl17PosLookupSubTableEEERKT_j.exi
   br i1 %.not.i.i45, label %158, label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GPOS_impl17PosLookupSubTableEEERKT_j.exit48
 
 158:                                              ; preds = %.lr.ph70
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %159 = getelementptr inbounds nuw %"struct.OT::OffsetTo.630", ptr %3, i64 %indvars.iv75
   br label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GPOS_impl17PosLookupSubTableEEERKT_j.exit48
 
@@ -66365,7 +66365,7 @@ _ZNK2OT13SortedArrayOfINS_3TagENS_7IntTypeItLj2EEEE5bfindIjEEbRKT_Pj14hb_not_fou
   br i1 %.not.i.i.i, label %84, label %_ZNK2OT10BaseScript14get_base_coordEi.exit
 
 84:                                               ; preds = %_ZNK2OT13SortedArrayOfINS_3TagENS_7IntTypeItLj2EEEE5bfindIjEEbRKT_Pj14hb_not_found_tj.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %85 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %86 = getelementptr inbounds nuw %"struct.OT::OffsetTo.833", ptr %85, i64 %44
   br label %_ZNK2OT10BaseScript14get_base_coordEi.exit
@@ -66696,7 +66696,7 @@ define linkonce_odr hidden noundef ptr @_ZN2OT33hb_ot_layout_lookup_accelerator_
   %11 = mul nuw nsw i32 %10, 56
   %12 = add nuw nsw i32 %11, 32
   %13 = zext nneg i32 %12 to i64
-  %14 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %13) #29
+  %14 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %13) #30
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %.loopexit, label %15
 
@@ -66738,7 +66738,7 @@ define linkonce_odr hidden noundef ptr @_ZN2OT33hb_ot_layout_lookup_accelerator_
   br i1 %.not.i.i.i.i, label %36, label %38
 
 36:                                               ; preds = %29
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %28, i64 %indvars.iv.i.i
   br label %38
 
@@ -67307,7 +67307,7 @@ define linkonce_odr hidden void @_ZNK2OT12ChainContext8dispatchINS_33hb_accelera
   br i1 %61, label %_ZN2OT33hb_accelerate_subtables_context_t8dispatchINS_19ChainContextFormat3EEE10hb_empty_tRKT_.exit, label %62
 
 62:                                               ; preds = %34
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %63 = getelementptr inbounds nuw i8, ptr %55, i64 4
   br label %_ZN2OT33hb_accelerate_subtables_context_t8dispatchINS_19ChainContextFormat3EEE10hb_empty_tRKT_.exit
 
@@ -67719,7 +67719,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GSUB_impl20SingleS
   br i1 %46, label %.thread, label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit
 
 .thread:                                          ; preds = %34, %38
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %48 = zext nneg i32 %23 to i64
   %49 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %47, i64 %48
@@ -67846,7 +67846,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   br i1 %.not.i.i, label %34, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl8SequenceINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i
 
 34:                                               ; preds = %25
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %36 = zext nneg i32 %23 to i64
   %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.443", ptr %35, i64 %36
@@ -67913,7 +67913,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   br i1 %.not.i.i.i, label %34, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl8SequenceINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i.i
 
 34:                                               ; preds = %25
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %36 = zext nneg i32 %23 to i64
   %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.443", ptr %35, i64 %36
@@ -68254,8 +68254,8 @@ _ZN2OT21hb_ot_apply_context_t26output_glyph_for_componentEjj.exit: ; preds = %12
   %.1 = phi ptr [ %184, %183 ], [ %.05779, %181 ]
   %186 = ptrtoint ptr %.1 to i64
   %187 = sub i64 %.neg, %186
-  %188 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.1, i64 noundef %187, ptr noundef nonnull @.str.38, i32 noundef %.080) #26
-  %189 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #31
+  %188 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.1, i64 noundef %187, ptr noundef nonnull @.str.38, i32 noundef %.080) #27
+  %189 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #32
   %190 = getelementptr inbounds i8, ptr %.1, i64 %189
   %191 = add nuw i32 %.080, 1
   %192 = load ptr, ptr %11, align 8
@@ -68278,10 +68278,10 @@ _ZN2OT21hb_ot_apply_context_t26output_glyph_for_componentEjj.exit: ; preds = %12
 declare void @_ZN11hb_buffer_t12delete_glyphEv(ptr noundef nonnull align 8 dereferenceable(220)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #20
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #21
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_context_t8apply_toINS_6Layout9GSUB_impl23AlternateSubstFormat1_2INS2_10SmallTypesEEEEEbPKvPNS_21hb_ot_apply_context_tE(ptr noundef %0, ptr noundef %1) #0 comdat align 2 {
@@ -68323,7 +68323,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   br i1 %.not.i.i, label %34, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl12AlternateSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i
 
 34:                                               ; preds = %25
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %36 = zext nneg i32 %23 to i64
   %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.446", ptr %35, i64 %36
@@ -68390,7 +68390,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   br i1 %.not.i.i.i, label %34, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl12AlternateSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i.i
 
 34:                                               ; preds = %25
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %36 = zext nneg i32 %23 to i64
   %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.446", ptr %35, i64 %36
@@ -68506,7 +68506,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GSUB_impl12Alterna
   br i1 %.not.i, label %61, label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit
 
 61:                                               ; preds = %54
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %63 = zext nneg i32 %41 to i64
   %64 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %62, i64 %63
@@ -68594,7 +68594,7 @@ _ZN2OT21hb_ot_apply_context_t13replace_glyphEj.exit: ; preds = %_ZNK2OT7ArrayOfI
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_context_t8apply_toINS_6Layout9GSUB_impl22LigatureSubstFormat1_2INS2_10SmallTypesEEEEEbPKvPNS_21hb_ot_apply_context_tE(ptr noundef %0, ptr noundef %1) #0 comdat align 2 {
@@ -68636,7 +68636,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   br i1 %.not.i.i, label %34, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11LigatureSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i
 
 34:                                               ; preds = %25
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %36 = zext nneg i32 %23 to i64
   %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.449", ptr %35, i64 %36
@@ -68703,7 +68703,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   br i1 %.not.i.i.i, label %34, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11LigatureSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i.i
 
 34:                                               ; preds = %25
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %36 = zext nneg i32 %23 to i64
   %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.449", ptr %35, i64 %36
@@ -69310,7 +69310,7 @@ _ZN2OT21hb_ot_apply_context_t13replace_glyphEj.exit: ; preds = %26, %.lr.ph.i.i.
   br label %_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit
 
 _ZNK2OT15HeadlessArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit: ; preds = %2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !184
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !184
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %74 = icmp samesign ugt i32 %12, 64
   br i1 %74, label %_ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit260.thread, label %75
@@ -69793,8 +69793,8 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit2
   %.1 = phi ptr [ %315, %314 ], [ %.0175335, %310 ]
   %318 = ptrtoint ptr %.1 to i64
   %319 = sub i64 %.neg, %318
-  %320 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.1, i64 noundef %319, ptr noundef nonnull @.str.38, i32 noundef %317) #26
-  %321 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #31
+  %320 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.1, i64 noundef %319, ptr noundef nonnull @.str.38, i32 noundef %317) #27
+  %321 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #32
   %322 = getelementptr inbounds i8, ptr %.1, i64 %321
   %indvars.iv.next353 = add nuw nsw i64 %indvars.iv352, 1
   %exitcond356.not = icmp eq i64 %indvars.iv.next353, %wide.trip.count355
@@ -70396,7 +70396,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   br i1 %.not.i.i, label %35, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit.i
 
 35:                                               ; preds = %26
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %37 = zext nneg i32 %24 to i64
   %38 = getelementptr inbounds nuw %"struct.OT::OffsetTo.452", ptr %36, i64 %37
@@ -70467,7 +70467,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   br i1 %.not.i.i.i, label %35, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit.i.i
 
 35:                                               ; preds = %26
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %37 = zext nneg i32 %24 to i64
   %38 = getelementptr inbounds nuw %"struct.OT::OffsetTo.452", ptr %36, i64 %37
@@ -72221,7 +72221,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT16ContextFormat2_5INS_6Lay
   br i1 %.not.i.i.i, label %77, label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 77:                                               ; preds = %59
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %78 = getelementptr inbounds nuw i8, ptr %.0.i.i14, i64 6
   %79 = zext nneg i32 %69 to i64
   %80 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %78, i64 %79
@@ -72329,7 +72329,7 @@ _ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %_ZNK2OT17ClassDefFo
   br i1 %.not.i, label %142, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
 
 142:                                              ; preds = %_ZNK2OT8ClassDef9get_classEj.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %144 = zext nneg i32 %.013 to i64
   %145 = getelementptr inbounds nuw %"struct.OT::OffsetTo.452", ptr %143, i64 %144
@@ -72404,7 +72404,7 @@ define internal noundef zeroext i1 @_ZN2OTL18match_class_cachedER15hb_glyph_info
   br i1 %.not.i.i.i, label %35, label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 35:                                               ; preds = %17
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %37 = zext nneg i32 %27 to i64
   %38 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %36, i64 %37
@@ -73126,7 +73126,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   br i1 %.not.i.i, label %35, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit.i
 
 35:                                               ; preds = %26
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %37 = zext nneg i32 %24 to i64
   %38 = getelementptr inbounds nuw %"struct.OT::OffsetTo.456", ptr %36, i64 %37
@@ -73197,7 +73197,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   br i1 %.not.i.i.i, label %35, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit.i.i
 
 35:                                               ; preds = %26
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %37 = zext nneg i32 %24 to i64
   %38 = getelementptr inbounds nuw %"struct.OT::OffsetTo.456", ptr %36, i64 %37
@@ -75371,7 +75371,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT21ChainContextFormat2_5INS
   br i1 %.not.i.i.i, label %107, label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 107:                                              ; preds = %89
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %108 = getelementptr inbounds nuw i8, ptr %.0.i.i21, i64 6
   %109 = zext nneg i32 %99 to i64
   %110 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %108, i64 %109
@@ -75479,7 +75479,7 @@ _ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %_ZNK2OT17ClassDefFo
   br i1 %.not.i, label %172, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
 
 172:                                              ; preds = %_ZNK2OT8ClassDef9get_classEj.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %174 = zext nneg i32 %.019 to i64
   %175 = getelementptr inbounds nuw %"struct.OT::OffsetTo.456", ptr %173, i64 %174
@@ -75555,7 +75555,7 @@ define internal noundef zeroext i1 @_ZN2OTL19match_class_cached1ER15hb_glyph_inf
   br i1 %.not.i.i.i, label %36, label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 36:                                               ; preds = %18
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %38 = zext nneg i32 %28 to i64
   %39 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %37, i64 %38
@@ -75721,7 +75721,7 @@ define internal noundef zeroext i1 @_ZN2OTL19match_class_cached2ER15hb_glyph_inf
   br i1 %.not.i.i.i, label %36, label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 36:                                               ; preds = %18
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %38 = zext nneg i32 %28 to i64
   %39 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %37, i64 %38
@@ -75878,7 +75878,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT19ChainContextFormat35appl
   br i1 %19, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit, label %20
 
 20:                                               ; preds = %2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 4
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit
 
@@ -77473,7 +77473,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit2
   br i1 %.not.i226, label %327, label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit
 
 327:                                              ; preds = %320
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %328 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %329 = zext nneg i32 %26 to i64
   %330 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %328, i64 %329
@@ -77662,13 +77662,13 @@ _ZN21hb_sanitize_context_t15reference_tableIN2OT4kernEEEP9hb_blob_tPK9hb_face_tj
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #28
+  call void @__clang_call_terminate(ptr %21) #29
   unreachable
 
 22:                                               ; preds = %.noexc2.i.i, %14
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %2) #26
+  call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %2) #27
   resume { ptr, i32 } %23
 
 _ZNK17hb_data_wrapper_tI9hb_face_tLj23EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4kernELj23ELb1EEEEPT_v.exit: ; preds = %_ZN21hb_sanitize_context_t15reference_tableIN2OT4kernEEEP9hb_blob_tPK9hb_face_tj.exit.i.i, %18
@@ -79048,8 +79048,8 @@ define linkonce_odr hidden void @_ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEE
   %5 = inttoptr i64 %3 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(56) %5)
-  %7 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %5) #26
-  tail call void @free(ptr noundef nonnull %5) #26
+  %7 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %5) #27
+  tail call void @free(ptr noundef nonnull %5) #27
   store atomic i64 0, ptr %2 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EEEvPT_.exit
 
@@ -79083,7 +79083,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EEEvPT_.exit:
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #28
+  tail call void @__clang_call_terminate(ptr %20) #29
   unreachable
 
 _ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EE6item_tD2Ev.exit: ; preds = %.lr.ph
@@ -79098,7 +79098,7 @@ _ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EE6item_tD2Ev.exit: ; preds = 
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %10
   %21 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %9, %10 ]
-  tail call void @free(ptr noundef %21) #26
+  tail call void @free(ptr noundef %21) #27
   store ptr null, ptr %8, align 8
   br label %22
 
@@ -79162,7 +79162,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT6Layout9GSUB_impl11SubstLoo
   br i1 %.not.i.i.i, label %40, label %_ZNK2OT6Layout4GSUB10get_lookupEj.exit
 
 40:                                               ; preds = %21
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !31
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
   %42 = zext nneg i32 %1 to i64
   %43 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %41, i64 %42
@@ -79452,7 +79452,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT6Layout9GPOS_impl9PosLookup
   br i1 %.not.i.i.i, label %40, label %_ZNK2OT6Layout4GPOS10get_lookupEj.exit
 
 40:                                               ; preds = %21
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !31
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
   %42 = zext nneg i32 %1 to i64
   %43 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %41, i64 %42
@@ -79752,7 +79752,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT8GSUBGPOS13accelerator_tINS_6Layo
   br i1 %.not.i.i.i, label %42, label %_ZNK2OT6Layout4GPOS10get_lookupEj.exit
 
 42:                                               ; preds = %23
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !31
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
   %44 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %43, i64 %6
   %45 = load i8, ptr %44, align 1
@@ -79783,7 +79783,7 @@ _ZNK2OT6Layout4GPOS10get_lookupEj.exit:           ; preds = %.lr.ph, %23, %42
   br i1 %61, label %.loopexit, label %62
 
 62:                                               ; preds = %56
-  tail call void @free(ptr noundef nonnull %55) #26
+  tail call void @free(ptr noundef nonnull %55) #27
   %63 = load ptr, ptr %5, align 8
   %64 = getelementptr inbounds nuw %struct.hb_atomic_ptr_t.813, ptr %63, i64 %6
   %65 = load atomic i64, ptr %64 acquire, align 8
@@ -79814,7 +79814,7 @@ define linkonce_odr hidden noundef ptr @_ZN2OT33hb_ot_layout_lookup_accelerator_
   %11 = mul nuw nsw i32 %10, 56
   %12 = add nuw nsw i32 %11, 32
   %13 = zext nneg i32 %12 to i64
-  %14 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %13) #29
+  %14 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %13) #30
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %.loopexit, label %15
 
@@ -79856,7 +79856,7 @@ define linkonce_odr hidden noundef ptr @_ZN2OT33hb_ot_layout_lookup_accelerator_
   br i1 %.not.i.i.i.i, label %36, label %38
 
 36:                                               ; preds = %29
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.630", ptr %28, i64 %indvars.iv.i.i
   br label %38
 
@@ -81244,7 +81244,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.
   br i1 %.not.i87, label %149, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl7PairSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit
 
 149:                                              ; preds = %.critedge82
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %151 = zext nneg i32 %23 to i64
   %152 = getelementptr inbounds nuw %"struct.OT::OffsetTo.616", ptr %150, i64 %151
@@ -81823,7 +81823,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.
   br i1 %.not.i.i.i, label %181, label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 181:                                              ; preds = %163
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %182 = getelementptr inbounds nuw i8, ptr %.0.i.i162, i64 6
   %183 = zext nneg i32 %173 to i64
   %184 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %182, i64 %183
@@ -82007,7 +82007,7 @@ _ZNK2OT8ClassDef9get_classEj.exit.thread:         ; preds = %.critedge157, %_ZNK
   br i1 %.not.i.i.i187, label %290, label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i188
 
 290:                                              ; preds = %272
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %291 = getelementptr inbounds nuw i8, ptr %.0.i.i171, i64 6
   %292 = zext nneg i32 %282 to i64
   %293 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %291, i64 %292
@@ -82399,7 +82399,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GPOS_impl17Cursive
   br i1 %.not.i, label %36, label %_ZNK2OT7ArrayOfINS_6Layout9GPOS_impl15EntryExitRecordENS_7IntTypeItLj2EEEEixEi.exit
 
 36:                                               ; preds = %2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %38 = zext nneg i32 %28 to i64
   %39 = getelementptr inbounds nuw %"struct.OT::Layout::GPOS_impl::EntryExitRecord", ptr %37, i64 %38
@@ -82792,7 +82792,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.
   br i1 %.not.i229, label %251, label %_ZNK2OT7ArrayOfINS_6Layout9GPOS_impl15EntryExitRecordENS_7IntTypeItLj2EEEEixEi.exit231
 
 251:                                              ; preds = %.critedge219
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %253 = zext nneg i32 %244 to i64
   %254 = getelementptr inbounds nuw %"struct.OT::Layout::GPOS_impl::EntryExitRecord", ptr %252, i64 %253
@@ -83317,7 +83317,7 @@ _ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit:    ; preds = %306, %330, %200, %2
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN2OT6Layout9GPOS_implL28reverse_cursive_minor_offsetEP19hb_glyph_position_tj14hb_direction_tj(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #19 {
+define internal fastcc void @_ZN2OT6Layout9GPOS_implL28reverse_cursive_minor_offsetEP19hb_glyph_position_tj14hb_direction_tj(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #20 {
   %5 = zext i32 %1 to i64
   %6 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -84383,7 +84383,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GPOS_impl9MarkArra
   br i1 %.not.i, label %22, label %_ZNK2OT7ArrayOfINS_6Layout9GPOS_impl10MarkRecordENS_7IntTypeItLj2EEEEixEi.exit
 
 22:                                               ; preds = %7
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %24 = zext nneg i32 %2 to i64
   %25 = getelementptr inbounds nuw %"struct.OT::Layout::GPOS_impl::MarkRecord", ptr %23, i64 %24
@@ -85196,7 +85196,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.
   br i1 %.not.i148, label %251, label %_ZNK2OT16List16OfOffsetToINS_6Layout9GPOS_impl12AnchorMatrixENS_7IntTypeItLj2EEEEixEi.exit
 
 251:                                              ; preds = %232
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !31
   %252 = getelementptr inbounds nuw i8, ptr %.0.i.i147, i64 2
   %253 = zext nneg i32 %183 to i64
   %254 = getelementptr inbounds nuw %"struct.OT::OffsetTo.622", ptr %252, i64 %253
@@ -86535,13 +86535,13 @@ _ZN21hb_sanitize_context_t15reference_tableIN2OT4BASEEEEP9hb_blob_tPK9hb_face_tj
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #28
+  call void @__clang_call_terminate(ptr %21) #29
   unreachable
 
 22:                                               ; preds = %.noexc2.i.i, %14
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %2) #26
+  call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %2) #27
   resume { ptr, i32 } %23
 
 _ZNK17hb_data_wrapper_tI9hb_face_tLj27EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4BASEELj27ELb1EEEEPT_v.exit: ; preds = %_ZN21hb_sanitize_context_t15reference_tableIN2OT4BASEEEEP9hb_blob_tPK9hb_face_tj.exit.i.i, %18
@@ -88062,7 +88062,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT6Lookup8dispatchINS_6Layout9GSUB_
   br i1 %.not.i.i, label %30, label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit
 
 30:                                               ; preds = %23
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %31 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %22, i64 %indvars.iv
   br label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit
 
@@ -88280,7 +88280,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT6Layout9GSUB_impl11SingleSubst8di
   br i1 %.not.i.i.i.i, label %75, label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit.i.i.i
 
 75:                                               ; preds = %66
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %77 = zext nneg i32 %60 to i64
   %78 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %76, i64 %77
@@ -88339,7 +88339,7 @@ define linkonce_odr hidden noundef i32 @_ZN34hb_get_glyph_alternates_dispatch_t9
   br i1 %.not.i.i, label %31, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl12AlternateSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i
 
 31:                                               ; preds = %6
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !11
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %33 = zext nneg i32 %23 to i64
   %34 = getelementptr inbounds nuw %"struct.OT::OffsetTo.446", ptr %32, i64 %33
@@ -88455,7 +88455,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GPOS_impl16SingleP
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 264
   %29 = load ptr, ptr %28, align 8
-  call void @free(ptr noundef %29) #26
+  call void @free(ptr noundef %29) #27
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 216
   %31 = load ptr, ptr %30, align 8
   %.not.i.i = icmp eq ptr %31, null
@@ -88469,13 +88469,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GPOS_impl16SingleP
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #28
+  call void @__clang_call_terminate(ptr %35) #29
   unreachable
 
 36:                                               ; preds = %22
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2OT21hb_ot_apply_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %8) #26
+  call void @_ZN2OT21hb_ot_apply_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %8) #27
   resume { ptr, i32 } %37
 
 _ZN2OT21hb_ot_apply_context_tD2Ev.exit:           ; preds = %32, %27, %6
@@ -88538,7 +88538,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GPOS_impl16SingleP
 47:                                               ; preds = %31
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 264
   %49 = load ptr, ptr %48, align 8
-  call void @free(ptr noundef %49) #26
+  call void @free(ptr noundef %49) #27
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 216
   %51 = load ptr, ptr %50, align 8
   %.not.i.i = icmp eq ptr %51, null
@@ -88552,13 +88552,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GPOS_impl16SingleP
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #28
+  call void @__clang_call_terminate(ptr %55) #29
   unreachable
 
 56:                                               ; preds = %31
   %57 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2OT21hb_ot_apply_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %8) #26
+  call void @_ZN2OT21hb_ot_apply_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %8) #27
   resume { ptr, i32 } %57
 
 _ZN2OT21hb_ot_apply_context_tD2Ev.exit:           ; preds = %52, %47, %22, %6
@@ -88566,47 +88566,47 @@ _ZN2OT21hb_ot_apply_context_tD2Ev.exit:           ; preds = %52, %47, %22, %6
   ret i1 %.0
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #22
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #23
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #22
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #23
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #22
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #23
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #22
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #23
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #22
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #23
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #22
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #23
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #22
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #22
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #22
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.bswap.i16(i16) #23
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.bswap.i32(i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #24
+declare void @llvm.experimental.noalias.scope.decl(metadata) #25
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr captures(none)) local_unnamed_addr #25
+declare i64 @wcslen(ptr captures(none)) local_unnamed_addr #26
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #22
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.umax.i8(i8, i8) #23
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -88617,29 +88617,30 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(write, ar
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { cold nofree noreturn }
 attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #25 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #26 = { nounwind }
-attributes #27 = { nounwind allocsize(0) }
-attributes #28 = { noreturn nounwind }
-attributes #29 = { nounwind allocsize(0,1) }
-attributes #30 = { nounwind allocsize(1) }
-attributes #31 = { nounwind willreturn memory(read) }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #26 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #27 = { nounwind }
+attributes #28 = { nounwind allocsize(0) }
+attributes #29 = { noreturn nounwind }
+attributes #30 = { nounwind allocsize(0,1) }
+attributes #31 = { nounwind allocsize(1) }
+attributes #32 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -54,7 +54,7 @@ define range(i32 0, 2) i32 @j2d_mlib_ImageConvKernelConvert(ptr noundef captures
 ._crit_edge279:                                   ; preds = %.lr.ph278
   %21 = fcmp ogt double %.1227, %.1225
   %22 = select i1 %21, double %.1227, double %.1225
-  %23 = tail call i32 @mlib_ilogb(double noundef %22) #4
+  %23 = tail call i32 @mlib_ilogb(double noundef %22) #5
   %24 = sub nsw i32 30, %23
   br label %36
 
@@ -73,9 +73,9 @@ define range(i32 0, 2) i32 @j2d_mlib_ImageConvKernelConvert(ptr noundef captures
   br i1 %exitcond334.not, label %._crit_edge286, label %.lr.ph285, !llvm.loop !8
 
 ._crit_edge286:                                   ; preds = %.lr.ph285
-  %31 = tail call i32 @mlib_ilogb(double noundef %30) #4
+  %31 = tail call i32 @mlib_ilogb(double noundef %30) #5
   %32 = add nsw i32 %31, 1
-  %33 = tail call i32 @mlib_ilogb(double noundef %28) #4
+  %33 = tail call i32 @mlib_ilogb(double noundef %28) #5
   %34 = tail call i32 @llvm.smax.i32(i32 %33, i32 %32)
   %35 = sub nsw i32 31, %34
   br label %36
@@ -88,7 +88,7 @@ define range(i32 0, 2) i32 @j2d_mlib_ImageConvKernelConvert(ptr noundef captures
 38:                                               ; preds = %36
   %39 = tail call i32 @llvm.umin.i32(i32 %.0208, i32 31)
   store i32 %39, ptr %1, align 4
-  %40 = tail call i32 @mlib_ImageConvVersion(i32 noundef %3, i32 noundef %4, i32 noundef %39, i32 noundef %5) #4
+  %40 = tail call i32 @mlib_ImageConvVersion(i32 noundef %3, i32 noundef %4, i32 noundef %39, i32 noundef %5) #5
   switch i32 %40, label %51 [
     i32 0, label %.lr.ph291.preheader
     i32 3, label %.lr.ph294.preheader
@@ -252,7 +252,7 @@ select.unfold.loopexit:                           ; preds = %74
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %93 = tail call i32 @mlib_ilogb(double noundef %92) #4
+  %93 = tail call i32 @mlib_ilogb(double noundef %92) #5
   %94 = icmp sgt i32 %93, 29
   br i1 %94, label %.loopexit, label %95
 
@@ -306,31 +306,32 @@ select.unfold.loopexit:                           ; preds = %74
 
 declare i32 @mlib_ilogb(double noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #2
 
 declare i32 @mlib_ImageConvVersion(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #2
+declare i32 @llvm.abs.i32(i32, i1 immarg) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #3
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #3
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #3
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #2 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -16,7 +16,7 @@ define range(i32 0, 2) i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = tail call i32 @cuddSifting(ptr noundef %0, i32 noundef %1, i32 noundef %2) #9
+  %6 = tail call i32 @cuddSifting(ptr noundef %0, i32 noundef %1, i32 noundef %2) #10
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %482, label %7
 
@@ -37,7 +37,7 @@ define range(i32 0, 2) i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %
   %16 = mul nsw i32 %14, %15
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 2
-  %19 = tail call noalias ptr @malloc(i64 noundef %18) #10
+  %19 = tail call noalias ptr @malloc(i64 noundef %18) #11
   store ptr %19, ptr @storedd, align 8, !tbaa !25
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %23
@@ -56,7 +56,7 @@ define range(i32 0, 2) i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %26, label %29, label %.preheader158.preheader
 
 .preheader158.preheader:                          ; preds = %23
-  %27 = tail call ptr @st__init_table(ptr noundef nonnull @array_compare, ptr noundef nonnull @array_hash) #9
+  %27 = tail call ptr @st__init_table(ptr noundef nonnull @array_compare, ptr noundef nonnull @array_hash) #10
   store ptr %27, ptr @computed, align 8, !tbaa !27
   %28 = icmp eq ptr %27, null
   br i1 %28, label %36, label %.preheader
@@ -64,7 +64,7 @@ define range(i32 0, 2) i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %
 29:                                               ; preds = %23
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %30, align 8, !tbaa !26
-  tail call void @free(ptr noundef nonnull %19) #9
+  tail call void @free(ptr noundef nonnull %19) #10
   store ptr null, ptr @storedd, align 8, !tbaa !25
   br label %482
 
@@ -90,7 +90,7 @@ define range(i32 0, 2) i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not134, label %40, label %39
 
 39:                                               ; preds = %36
-  tail call void @free(ptr noundef nonnull %38) #9
+  tail call void @free(ptr noundef nonnull %38) #10
   store ptr null, ptr @storedd, align 8, !tbaa !25
   br label %40
 
@@ -100,7 +100,7 @@ define range(i32 0, 2) i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not135, label %482, label %42
 
 42:                                               ; preds = %40
-  tail call void @free(ptr noundef nonnull %41) #9
+  tail call void @free(ptr noundef nonnull %41) #10
   store ptr null, ptr @repeat, align 8, !tbaa !25
   br label %482
 
@@ -123,7 +123,7 @@ define range(i32 0, 2) i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %
   %51 = sext i32 %31 to i64
   %52 = getelementptr inbounds i32, ptr %.pre, i64 %51
   store i32 %50, ptr %52, align 4, !tbaa !3
-  %53 = tail call i32 @st__insert(ptr noundef nonnull %27, ptr noundef %.pre, ptr noundef null) #9
+  %53 = tail call i32 @st__insert(ptr noundef nonnull %27, ptr noundef %.pre, ptr noundef null) #10
   %54 = icmp eq i32 %53, -10000
   br i1 %54, label %55, label %63
 
@@ -133,7 +133,7 @@ define range(i32 0, 2) i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not132, label %58, label %57
 
 57:                                               ; preds = %55
-  tail call void @free(ptr noundef nonnull %56) #9
+  tail call void @free(ptr noundef nonnull %56) #10
   store ptr null, ptr @storedd, align 8, !tbaa !25
   br label %58
 
@@ -143,13 +143,13 @@ define range(i32 0, 2) i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not133, label %61, label %60
 
 60:                                               ; preds = %58
-  tail call void @free(ptr noundef nonnull %59) #9
+  tail call void @free(ptr noundef nonnull %59) #10
   store ptr null, ptr @repeat, align 8, !tbaa !25
   br label %61
 
 61:                                               ; preds = %58, %60
   %62 = load ptr, ptr @computed, align 8, !tbaa !27
-  tail call void @st__free_table(ptr noundef %62) #9
+  tail call void @st__free_table(ptr noundef %62) #10
   br label %482
 
 63:                                               ; preds = %._crit_edge
@@ -189,7 +189,7 @@ define range(i32 0, 2) i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %
 ._crit_edge192:                                   ; preds = %73, %63
   %79 = sext i32 %67 to i64
   %80 = shl nsw i64 %79, 2
-  %81 = tail call noalias ptr @malloc(i64 noundef %80) #10
+  %81 = tail call noalias ptr @malloc(i64 noundef %80) #11
   %82 = icmp eq ptr %81, null
   br i1 %82, label %122, label %.preheader26.i
 
@@ -221,7 +221,7 @@ define range(i32 0, 2) i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 91:                                               ; preds = %91, %.preheader.i
   %92 = load i32, ptr @numvars, align 4, !tbaa !3
-  %93 = tail call i64 @Cudd_Random() #9
+  %93 = tail call i64 @Cudd_Random() #10
   %94 = sext i32 %92 to i64
   %95 = srem i64 %93, %94
   %96 = shl nsw i64 %95, 2
@@ -264,7 +264,7 @@ define range(i32 0, 2) i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 make_random.exit:                                 ; preds = %._crit_edge.i, %.preheader26.i
   %120 = phi i32 [ %83, %.preheader26.i ], [ %116, %._crit_edge.i ]
-  tail call void @free(ptr noundef %81) #9
+  tail call void @free(ptr noundef %81) #10
   %121 = icmp sgt i32 %120, 1
   br i1 %121, label %.lr.ph196, label %find_best.exit
 
@@ -276,15 +276,15 @@ make_random.exit:                                 ; preds = %._crit_edge.i, %.pr
   br i1 %.not104, label %126, label %125
 
 125:                                              ; preds = %122
-  tail call void @free(ptr noundef nonnull %124) #9
+  tail call void @free(ptr noundef nonnull %124) #10
   store ptr null, ptr @storedd, align 8, !tbaa !25
   br label %126
 
 126:                                              ; preds = %122, %125
-  tail call void @free(ptr noundef nonnull %64) #9
+  tail call void @free(ptr noundef nonnull %64) #10
   store ptr null, ptr @repeat, align 8, !tbaa !25
   %127 = load ptr, ptr @computed, align 8, !tbaa !27
-  tail call void @st__free_table(ptr noundef %127) #9
+  tail call void @st__free_table(ptr noundef %127) #10
   br label %482
 
 .lr.ph196:                                        ; preds = %make_random.exit, %178
@@ -300,7 +300,7 @@ make_random.exit:                                 ; preds = %._crit_edge.i, %.pr
   br i1 %.not127, label %133, label %132
 
 132:                                              ; preds = %130
-  call void @free(ptr noundef nonnull %131) #9
+  call void @free(ptr noundef nonnull %131) #10
   store ptr null, ptr @storedd, align 8, !tbaa !25
   br label %133
 
@@ -310,13 +310,13 @@ make_random.exit:                                 ; preds = %._crit_edge.i, %.pr
   br i1 %.not128, label %136, label %135
 
 135:                                              ; preds = %133
-  call void @free(ptr noundef nonnull %134) #9
+  call void @free(ptr noundef nonnull %134) #10
   store ptr null, ptr @repeat, align 8, !tbaa !25
   br label %136
 
 136:                                              ; preds = %133, %135
   %137 = load ptr, ptr @computed, align 8, !tbaa !27
-  call void @st__free_table(ptr noundef %137) #9
+  call void @st__free_table(ptr noundef %137) #10
   br label %482
 
 138:                                              ; preds = %.lr.ph196
@@ -327,7 +327,7 @@ make_random.exit:                                 ; preds = %._crit_edge.i, %.pr
   %143 = mul nsw i32 %142, %128
   %144 = sext i32 %143 to i64
   %145 = getelementptr inbounds i32, ptr %140, i64 %144
-  %146 = call i32 @st__lookup_int(ptr noundef %139, ptr noundef %145, ptr noundef nonnull %4) #9
+  %146 = call i32 @st__lookup_int(ptr noundef %139, ptr noundef %145, ptr noundef nonnull %4) #10
   %.not129 = icmp eq i32 %146, 0
   br i1 %.not129, label %154, label %147
 
@@ -350,7 +350,7 @@ make_random.exit:                                 ; preds = %._crit_edge.i, %.pr
   %160 = sext i32 %159 to i64
   %161 = getelementptr inbounds i32, ptr %156, i64 %160
   %162 = inttoptr i64 %indvars.iv249 to ptr
-  %163 = call i32 @st__insert(ptr noundef %155, ptr noundef %161, ptr noundef nonnull %162) #9
+  %163 = call i32 @st__insert(ptr noundef %155, ptr noundef %161, ptr noundef nonnull %162) #10
   %164 = icmp eq i32 %163, -10000
   br i1 %164, label %165, label %173
 
@@ -360,7 +360,7 @@ make_random.exit:                                 ; preds = %._crit_edge.i, %.pr
   br i1 %.not130, label %168, label %167
 
 167:                                              ; preds = %165
-  call void @free(ptr noundef nonnull %166) #9
+  call void @free(ptr noundef nonnull %166) #10
   store ptr null, ptr @storedd, align 8, !tbaa !25
   br label %168
 
@@ -370,13 +370,13 @@ make_random.exit:                                 ; preds = %._crit_edge.i, %.pr
   br i1 %.not131, label %171, label %170
 
 170:                                              ; preds = %168
-  call void @free(ptr noundef nonnull %169) #9
+  call void @free(ptr noundef nonnull %169) #10
   store ptr null, ptr @repeat, align 8, !tbaa !25
   br label %171
 
 171:                                              ; preds = %168, %170
   %172 = load ptr, ptr @computed, align 8, !tbaa !27
-  call void @st__free_table(ptr noundef %172) #9
+  call void @st__free_table(ptr noundef %172) #10
   br label %482
 
 173:                                              ; preds = %154
@@ -423,19 +423,19 @@ find_best.exit:                                   ; preds = %178, %make_random.e
   %193 = load i32, ptr %190, align 8, !tbaa !40
   %194 = sext i32 %193 to i64
   %195 = shl nsw i64 %194, 2
-  %196 = call noalias ptr @malloc(i64 noundef %195) #10
+  %196 = call noalias ptr @malloc(i64 noundef %195) #11
   %197 = icmp eq ptr %196, null
   br i1 %197, label %PMX.exit.thread, label %198
 
 198:                                              ; preds = %191
-  %199 = call noalias ptr @malloc(i64 noundef %195) #10
+  %199 = call noalias ptr @malloc(i64 noundef %195) #11
   %200 = icmp eq ptr %199, null
   br i1 %200, label %PMX.exit.thread.sink.split, label %201
 
 201:                                              ; preds = %198
   %202 = sext i32 %192 to i64
   %203 = shl nsw i64 %202, 3
-  %204 = call noalias ptr @malloc(i64 noundef %203) #10
+  %204 = call noalias ptr @malloc(i64 noundef %203) #11
   %205 = icmp eq ptr %204, null
   br i1 %205, label %PMX.exit.thread.critedge, label %206
 
@@ -477,7 +477,7 @@ find_best.exit:                                   ; preds = %178, %make_random.e
   %224 = getelementptr double, ptr %204, i64 %209
   %225 = getelementptr i8, ptr %224, i64 -8
   %226 = load double, ptr %225, align 8, !tbaa !41
-  %227 = call i64 @Cudd_Random() #9
+  %227 = call i64 @Cudd_Random() #10
   %228 = sitofp i64 %227 to double
   %229 = fmul double %226, %228
   %230 = fdiv double %229, 0x41DFFFFFEA400000
@@ -515,7 +515,7 @@ find_best.exit:                                   ; preds = %178, %make_random.e
   %241 = getelementptr double, ptr %204, i64 %240
   %242 = getelementptr i8, ptr %241, i64 -8
   %243 = load double, ptr %242, align 8, !tbaa !41
-  %244 = call i64 @Cudd_Random() #9
+  %244 = call i64 @Cudd_Random() #10
   %245 = sitofp i64 %244 to double
   %246 = fmul double %243, %245
   %247 = fdiv double %246, 0x41DFFFFFEA400000
@@ -549,16 +549,16 @@ find_best.exit:                                   ; preds = %178, %make_random.e
   br i1 %255, label %238, label %256, !llvm.loop !45
 
 256:                                              ; preds = %._crit_edge41.i.i
-  call void @free(ptr noundef nonnull %204) #9
+  call void @free(ptr noundef nonnull %204) #10
   %257 = load i32, ptr @numvars, align 4, !tbaa !3
-  %258 = call i64 @Cudd_Random() #9
+  %258 = call i64 @Cudd_Random() #10
   %259 = sext i32 %257 to i64
   %260 = srem i64 %258, %259
   br label %261
 
 261:                                              ; preds = %261, %256
   %262 = load i32, ptr @numvars, align 4, !tbaa !3
-  %263 = call i64 @Cudd_Random() #9
+  %263 = call i64 @Cudd_Random() #10
   %264 = sext i32 %262 to i64
   %265 = srem i64 %263, %264
   %266 = icmp eq i64 %260, %265
@@ -671,17 +671,17 @@ find_best.exit:                                   ; preds = %178, %make_random.e
   br i1 %.not71.i, label %.lr.ph211.preheader, label %.preheader.i138, !llvm.loop !50
 
 .lr.ph211.preheader:                              ; preds = %325
-  call void @free(ptr noundef nonnull %196) #9
-  call void @free(ptr noundef nonnull %199) #9
+  call void @free(ptr noundef nonnull %196) #10
+  call void @free(ptr noundef nonnull %199) #10
   br label %.lr.ph211
 
 PMX.exit.thread.critedge:                         ; preds = %201
-  call void @free(ptr noundef nonnull %196) #9
+  call void @free(ptr noundef nonnull %196) #10
   br label %PMX.exit.thread.sink.split
 
 PMX.exit.thread.sink.split:                       ; preds = %198, %PMX.exit.thread.critedge
   %.lcssa341.sink = phi ptr [ %199, %PMX.exit.thread.critedge ], [ %196, %198 ]
-  call void @free(ptr noundef nonnull %.lcssa341.sink) #9
+  call void @free(ptr noundef nonnull %.lcssa341.sink) #10
   br label %PMX.exit.thread
 
 PMX.exit.thread:                                  ; preds = %191, %PMX.exit.thread.sink.split
@@ -692,7 +692,7 @@ PMX.exit.thread:                                  ; preds = %191, %PMX.exit.thre
   br i1 %.not110, label %336, label %335
 
 335:                                              ; preds = %PMX.exit.thread
-  call void @free(ptr noundef nonnull %334) #9
+  call void @free(ptr noundef nonnull %334) #10
   store ptr null, ptr @storedd, align 8, !tbaa !25
   br label %336
 
@@ -702,13 +702,13 @@ PMX.exit.thread:                                  ; preds = %191, %PMX.exit.thre
   br i1 %.not111, label %339, label %338
 
 338:                                              ; preds = %336
-  call void @free(ptr noundef nonnull %337) #9
+  call void @free(ptr noundef nonnull %337) #10
   store ptr null, ptr @repeat, align 8, !tbaa !25
   br label %339
 
 339:                                              ; preds = %336, %338
   %340 = load ptr, ptr @computed, align 8, !tbaa !27
-  call void @st__free_table(ptr noundef %340) #9
+  call void @st__free_table(ptr noundef %340) #10
   br label %482
 
 .lr.ph211:                                        ; preds = %.lr.ph211.preheader, %468
@@ -723,7 +723,7 @@ PMX.exit.thread:                                  ; preds = %191, %PMX.exit.thre
   br i1 %.not114, label %345, label %344
 
 344:                                              ; preds = %342
-  call void @free(ptr noundef nonnull %343) #9
+  call void @free(ptr noundef nonnull %343) #10
   store ptr null, ptr @storedd, align 8, !tbaa !25
   br label %345
 
@@ -733,13 +733,13 @@ PMX.exit.thread:                                  ; preds = %191, %PMX.exit.thre
   br i1 %.not115, label %348, label %347
 
 347:                                              ; preds = %345
-  call void @free(ptr noundef nonnull %346) #9
+  call void @free(ptr noundef nonnull %346) #10
   store ptr null, ptr @repeat, align 8, !tbaa !25
   br label %348
 
 348:                                              ; preds = %345, %347
   %349 = load ptr, ptr @computed, align 8, !tbaa !27
-  call void @st__free_table(ptr noundef %349) #9
+  call void @st__free_table(ptr noundef %349) #10
   br label %482
 
 350:                                              ; preds = %.lr.ph211
@@ -822,7 +822,7 @@ largest.exit:                                     ; preds = %376, %.preheader.i1
   %389 = load ptr, ptr @computed, align 8, !tbaa !27
   %390 = sext i32 %382 to i64
   %391 = getelementptr inbounds i32, ptr %.pre259, i64 %390
-  %392 = call i32 @st__lookup_int(ptr noundef %389, ptr noundef %391, ptr noundef nonnull %4) #9
+  %392 = call i32 @st__lookup_int(ptr noundef %389, ptr noundef %391, ptr noundef nonnull %4) #10
   %.not116 = icmp eq i32 %392, 0
   br i1 %.not116, label %393, label %401
 
@@ -832,7 +832,7 @@ largest.exit:                                     ; preds = %376, %.preheader.i1
   br i1 %.not117, label %396, label %395
 
 395:                                              ; preds = %393
-  call void @free(ptr noundef nonnull %394) #9
+  call void @free(ptr noundef nonnull %394) #10
   store ptr null, ptr @storedd, align 8, !tbaa !25
   br label %396
 
@@ -842,13 +842,13 @@ largest.exit:                                     ; preds = %376, %.preheader.i1
   br i1 %.not118, label %399, label %398
 
 398:                                              ; preds = %396
-  call void @free(ptr noundef nonnull %397) #9
+  call void @free(ptr noundef nonnull %397) #10
   store ptr null, ptr @repeat, align 8, !tbaa !25
   br label %399
 
 399:                                              ; preds = %396, %398
   %400 = load ptr, ptr @computed, align 8, !tbaa !27
-  call void @st__free_table(ptr noundef %400) #9
+  call void @st__free_table(ptr noundef %400) #10
   br label %482
 
 401:                                              ; preds = %388
@@ -876,7 +876,7 @@ largest.exit:                                     ; preds = %376, %.preheader.i1
   %419 = getelementptr inbounds i32, ptr %414, i64 %418
   store ptr %419, ptr %5, align 8, !tbaa !25
   %420 = load ptr, ptr @computed, align 8, !tbaa !27
-  %421 = call i32 @st__delete(ptr noundef %420, ptr noundef nonnull %5, ptr noundef null) #9
+  %421 = call i32 @st__delete(ptr noundef %420, ptr noundef nonnull %5, ptr noundef null) #10
   %.not119.not = icmp eq i32 %421, 0
   br i1 %.not119.not, label %422, label %.critedge
 
@@ -886,7 +886,7 @@ largest.exit:                                     ; preds = %376, %.preheader.i1
   br i1 %.not120, label %425, label %424
 
 424:                                              ; preds = %422
-  call void @free(ptr noundef nonnull %423) #9
+  call void @free(ptr noundef nonnull %423) #10
   store ptr null, ptr @storedd, align 8, !tbaa !25
   br label %425
 
@@ -896,13 +896,13 @@ largest.exit:                                     ; preds = %376, %.preheader.i1
   br i1 %.not121, label %428, label %427
 
 427:                                              ; preds = %425
-  call void @free(ptr noundef nonnull %426) #9
+  call void @free(ptr noundef nonnull %426) #10
   store ptr null, ptr @repeat, align 8, !tbaa !25
   br label %428
 
 428:                                              ; preds = %425, %427
   %429 = load ptr, ptr @computed, align 8, !tbaa !27
-  call void @st__free_table(ptr noundef %429) #9
+  call void @st__free_table(ptr noundef %429) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %482
 
@@ -947,7 +947,7 @@ largest.exit:                                     ; preds = %376, %.preheader.i1
   %.pre-phi270 = phi i64 [ %.pre269, %.._crit_edge205_crit_edge ], [ %435, %436 ]
   %438 = load ptr, ptr @computed, align 8, !tbaa !27
   %439 = getelementptr inbounds i32, ptr %.pre261, i64 %.pre-phi270
-  %440 = call i32 @st__lookup_int(ptr noundef %438, ptr noundef %439, ptr noundef nonnull %4) #9
+  %440 = call i32 @st__lookup_int(ptr noundef %438, ptr noundef %439, ptr noundef nonnull %4) #10
   %.not123 = icmp eq i32 %440, 0
   br i1 %.not123, label %441, label %.sink.split
 
@@ -962,7 +962,7 @@ largest.exit:                                     ; preds = %376, %.preheader.i1
   %449 = getelementptr inbounds i32, ptr %443, i64 %448
   %450 = sext i32 %444 to i64
   %451 = inttoptr i64 %450 to ptr
-  %452 = call i32 @st__insert(ptr noundef %442, ptr noundef %449, ptr noundef %451) #9
+  %452 = call i32 @st__insert(ptr noundef %442, ptr noundef %449, ptr noundef %451) #10
   %453 = icmp eq i32 %452, -10000
   br i1 %453, label %454, label %.sink.split
 
@@ -972,7 +972,7 @@ largest.exit:                                     ; preds = %376, %.preheader.i1
   br i1 %.not124, label %457, label %456
 
 456:                                              ; preds = %454
-  call void @free(ptr noundef nonnull %455) #9
+  call void @free(ptr noundef nonnull %455) #10
   store ptr null, ptr @storedd, align 8, !tbaa !25
   br label %457
 
@@ -982,13 +982,13 @@ largest.exit:                                     ; preds = %376, %.preheader.i1
   br i1 %.not125, label %460, label %459
 
 459:                                              ; preds = %457
-  call void @free(ptr noundef nonnull %458) #9
+  call void @free(ptr noundef nonnull %458) #10
   store ptr null, ptr @repeat, align 8, !tbaa !25
   br label %460
 
 460:                                              ; preds = %457, %459
   %461 = load ptr, ptr @computed, align 8, !tbaa !27
-  call void @st__free_table(ptr noundef %461) #9
+  call void @st__free_table(ptr noundef %461) #10
   br label %482
 
 .sink.split:                                      ; preds = %441, %._crit_edge205
@@ -1017,7 +1017,7 @@ largest.exit:                                     ; preds = %376, %.preheader.i1
 ._crit_edge216:                                   ; preds = %._crit_edge212, %188
   %474 = call fastcc i32 @find_best()
   %475 = load ptr, ptr @computed, align 8, !tbaa !27
-  call void @st__free_table(ptr noundef %475) #9
+  call void @st__free_table(ptr noundef %475) #10
   store ptr null, ptr @computed, align 8, !tbaa !27
   %476 = call fastcc i32 @build_dd(ptr noundef %0, i32 noundef %474, i32 noundef %1, i32 noundef %2)
   %477 = load ptr, ptr @storedd, align 8, !tbaa !25
@@ -1025,7 +1025,7 @@ largest.exit:                                     ; preds = %376, %.preheader.i1
   br i1 %.not107, label %479, label %478
 
 478:                                              ; preds = %._crit_edge216
-  call void @free(ptr noundef nonnull %477) #9
+  call void @free(ptr noundef nonnull %477) #10
   store ptr null, ptr @storedd, align 8, !tbaa !25
   br label %479
 
@@ -1035,7 +1035,7 @@ largest.exit:                                     ; preds = %376, %.preheader.i1
   br i1 %.not108, label %482, label %481
 
 481:                                              ; preds = %479
-  call void @free(ptr noundef nonnull %480) #9
+  call void @free(ptr noundef nonnull %480) #10
   store ptr null, ptr @repeat, align 8, !tbaa !25
   br label %482
 
@@ -1134,7 +1134,7 @@ define internal fastcc range(i32 0, 2) i32 @build_dd(ptr noundef %0, i32 noundef
   %11 = mul nsw i32 %10, %1
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i32, ptr %8, i64 %12
-  %14 = call i32 @st__lookup_int(ptr noundef nonnull %6, ptr noundef %13, ptr noundef nonnull %5) #9
+  %14 = call i32 @st__lookup_int(ptr noundef nonnull %6, ptr noundef %13, ptr noundef nonnull %5) #10
   %.not34 = icmp eq i32 %14, 0
   br i1 %.not34, label %27, label %15
 
@@ -1189,19 +1189,19 @@ define internal fastcc range(i32 0, 2) i32 @build_dd(ptr noundef %0, i32 noundef
   %53 = getelementptr inbounds i32, ptr %51, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !3
   %55 = add nsw i32 %.02939, %2
-  %56 = call i32 @cuddNextLow(ptr noundef %0, i32 noundef %54) #9
+  %56 = call i32 @cuddNextLow(ptr noundef %0, i32 noundef %54) #10
   %.not13.i = icmp slt i32 %56, %55
   br i1 %.not13.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %42, %59
   %.01115.i = phi i32 [ %60, %59 ], [ %56, %42 ]
   %.01214.i = phi i32 [ %.01115.i, %59 ], [ %54, %42 ]
-  %57 = call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %.01115.i, i32 noundef %.01214.i) #9
+  %57 = call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %.01115.i, i32 noundef %.01214.i) #10
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %sift_up.exit, label %59
 
 59:                                               ; preds = %.lr.ph.i
-  %60 = call i32 @cuddNextLow(ptr noundef %0, i32 noundef %.01115.i) #9
+  %60 = call i32 @cuddNextLow(ptr noundef %0, i32 noundef %.01115.i) #10
   %.not.i = icmp slt i32 %60, %55
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !60
 
@@ -1213,7 +1213,7 @@ define internal fastcc range(i32 0, 2) i32 @build_dd(ptr noundef %0, i32 noundef
   br i1 %64, label %._crit_edge, label %38
 
 ._crit_edge:                                      ; preds = %38, %.loopexit, %27
-  %65 = call i32 @cuddSifting(ptr noundef %0, i32 noundef %2, i32 noundef %3) #9
+  %65 = call i32 @cuddSifting(ptr noundef %0, i32 noundef %2, i32 noundef %3) #10
   %.not36 = icmp eq i32 %65, 0
   br i1 %.not36, label %sift_up.exit, label %.preheader
 
@@ -1330,20 +1330,20 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #6
+declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1351,11 +1351,12 @@ attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,unini
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind allocsize(0) }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

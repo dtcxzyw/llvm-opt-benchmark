@@ -181,11 +181,11 @@ define void @png_set_filler(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   br label %25
 
 23:                                               ; preds = %17
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str) #8
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str) #9
   br label %36
 
 24:                                               ; preds = %12
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #8
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #9
   br label %36
 
 25:                                               ; preds = %15, %21, %9
@@ -257,11 +257,11 @@ define void @png_set_add_alpha(ptr noalias noundef %0, i32 noundef %1, i32 nound
   br label %25
 
 23:                                               ; preds = %17
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str) #8
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str) #9
   br label %png_set_filler.exit
 
 24:                                               ; preds = %12
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #8
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #9
   br label %png_set_filler.exit
 
 25:                                               ; preds = %21, %15, %9
@@ -989,7 +989,7 @@ define void @png_set_user_transform_info(ptr noalias noundef %0, ptr noundef %1,
   br i1 %.not9, label %15, label %14
 
 14:                                               ; preds = %10
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #8
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #9
   br label %21
 
 15:                                               ; preds = %10, %6
@@ -1052,16 +1052,16 @@ define zeroext i8 @png_get_current_pass_number(ptr noalias noundef readonly capt
   ret i8 %.0
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1071,8 +1071,9 @@ attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

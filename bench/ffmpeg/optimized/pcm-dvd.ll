@@ -38,7 +38,7 @@ define internal i32 @pcm_dvd_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %4
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #6
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #7
   br label %154
 
 13:                                               ; preds = %4
@@ -74,7 +74,7 @@ define internal i32 @pcm_dvd_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %37 = zext i8 %36 to i32
   %38 = load i8, ptr %22, align 1, !tbaa !32
   %39 = zext i8 %38 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.4, i32 noundef %35, i32 noundef %37, i32 noundef %39) #6
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.4, i32 noundef %35, i32 noundef %37, i32 noundef %39) #7
   br label %40
 
 40:                                               ; preds = %33, %29
@@ -110,8 +110,8 @@ define internal i32 @pcm_dvd_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %narrow.i = add nuw nsw i8 %62, 1
   %63 = zext nneg i8 %narrow.i to i32
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  tail call void @av_channel_layout_uninit(ptr noundef nonnull %64) #6
-  tail call void @av_channel_layout_default(ptr noundef nonnull %64, i32 noundef %63) #6
+  tail call void @av_channel_layout_uninit(ptr noundef nonnull %64) #7
+  tail call void @av_channel_layout_default(ptr noundef nonnull %64, i32 noundef %63) #7
   %65 = load i32, ptr %60, align 8, !tbaa !39
   %66 = mul nsw i32 %65, %63
   %67 = load i32, ptr %47, align 8, !tbaa !35
@@ -173,7 +173,7 @@ define internal i32 @pcm_dvd_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   br label %96
 
 pcm_dvd_parse_header.exit:                        ; preds = %40
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.5, i32 noundef 28) #6
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.5, i32 noundef 28) #7
   br label %154
 
 96:                                               ; preds = %94, %13
@@ -189,7 +189,7 @@ pcm_dvd_parse_header.exit:                        ; preds = %40
   br i1 %.not93, label %104, label %102
 
 102:                                              ; preds = %99
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.3, i32 noundef %98, i32 noundef %101) #6
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.3, i32 noundef %98, i32 noundef %101) #7
   %103 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 0, ptr %103, align 4, !tbaa !34
   br label %104
@@ -209,7 +209,7 @@ pcm_dvd_parse_header.exit:                        ; preds = %40
   %115 = mul nsw i32 %114, %112
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i32 %115, ptr %116, align 8, !tbaa !44
-  %117 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #6
+  %117 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #7
   %118 = icmp slt i32 %117, 0
   br i1 %118, label %154, label %119
 
@@ -306,8 +306,8 @@ define internal fastcc ptr @pcm_dvd_decode_samples(ptr noundef readonly captures
   br i1 %10, label %bytestream2_init.exit, label %11
 
 11:                                               ; preds = %4
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 141) #6
-  tail call void @abort() #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 141) #7
+  tail call void @abort() #8
   unreachable
 
 bytestream2_init.exit:                            ; preds = %4
@@ -619,13 +619,13 @@ declare void @av_channel_layout_default(ptr noundef, i32 noundef) local_unnamed_
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #5
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #5
 
 attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -633,9 +633,10 @@ attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros
 attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
-attributes #7 = { noreturn nounwind }
+attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

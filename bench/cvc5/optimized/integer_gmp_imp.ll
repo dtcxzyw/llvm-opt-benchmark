@@ -32,18 +32,18 @@ define hidden void @_ZN4cvc58internal7IntegerC2EPKcj(ptr noundef nonnull align 8
 
 5:                                                ; preds = %3
   tail call void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %6 = tail call ptr @__cxa_allocate_exception(i64 16) #16
+  %6 = tail call ptr @__cxa_allocate_exception(i64 16) #17
   invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str)
           to label %7 unwind label %8
 
 7:                                                ; preds = %5
-  tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #17
+  tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #18
   unreachable
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %6) #16
+  tail call void @__cxa_free_exception(ptr nonnull %6) #17
   resume { ptr, i32 } %9
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_EC2EPKci.exit: ; preds = %3
@@ -59,18 +59,18 @@ define hidden void @_ZN4cvc58internal7IntegerC2ERKNSt7__cxx1112basic_stringIcSt1
 
 6:                                                ; preds = %3
   tail call void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %7 = tail call ptr @__cxa_allocate_exception(i64 16) #16
+  %7 = tail call ptr @__cxa_allocate_exception(i64 16) #17
   invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str)
           to label %8 unwind label %9
 
 8:                                                ; preds = %6
-  tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #17
+  tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #18
   unreachable
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %7) #16
+  tail call void @__cxa_free_exception(ptr nonnull %7) #17
   resume { ptr, i32 } %10
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_EC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit: ; preds = %3
@@ -92,7 +92,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
-  %3 = tail call i32 @__gmpz_cmp(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #18
+  %3 = tail call i32 @__gmpz_cmp(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #19
   %4 = icmp eq i32 %3, 0
   ret i1 %4
 }
@@ -101,7 +101,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef
 define hidden void @_ZNK4cvc58internal7IntegerngEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.__gmp_expr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
   %.not.i.i.i.i.i = icmp eq ptr %3, %1
   br i1 %.not.i.i.i.i.i, label %_ZN10__gmp_exprIA1_12__mpz_structS1_EC2I16__gmp_unary_exprIS2_17__gmp_unary_minusEEERKS_IS1_T_E.exit, label %4
 
@@ -125,7 +125,7 @@ _ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit: ; preds =
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #19
+  call void @__clang_call_terminate(ptr %10) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit
@@ -142,7 +142,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7I
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #19
+  call void @__clang_call_terminate(ptr %15) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2:  ; preds = %11
@@ -154,35 +154,35 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal7IntegerneERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
-  %3 = tail call i32 @__gmpz_cmp(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #18
+  %3 = tail call i32 @__gmpz_cmp(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #19
   %4 = icmp ne i32 %3, 0
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal7IntegerltERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
-  %3 = tail call i32 @__gmpz_cmp(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #18
+  %3 = tail call i32 @__gmpz_cmp(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #19
   %4 = icmp slt i32 %3, 0
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal7IntegerleERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
-  %3 = tail call i32 @__gmpz_cmp(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  %3 = tail call i32 @__gmpz_cmp(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   %4 = icmp sgt i32 %3, -1
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal7IntegergtERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
-  %3 = tail call i32 @__gmpz_cmp(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  %3 = tail call i32 @__gmpz_cmp(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   %4 = icmp slt i32 %3, 0
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal7IntegergeERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
-  %3 = tail call i32 @__gmpz_cmp(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #18
+  %3 = tail call i32 @__gmpz_cmp(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #19
   %4 = icmp sgt i32 %3, -1
   ret i1 %4
 }
@@ -191,7 +191,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal7IntegergeERKS1_(ptr noundef
 define hidden void @_ZNK4cvc58internal7IntegerplERKS1_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.__gmp_expr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   call void @__gmpz_add(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %1, ptr noundef nonnull %2)
   invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit unwind label %8
@@ -204,7 +204,7 @@ _ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit: ; preds =
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #19
+  call void @__clang_call_terminate(ptr %7) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit
@@ -221,7 +221,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7I
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #19
+  call void @__clang_call_terminate(ptr %12) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit3:  ; preds = %8
@@ -239,7 +239,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal
 define hidden void @_ZNK4cvc58internal7IntegermiERKS1_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.__gmp_expr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   call void @__gmpz_sub(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %1, ptr noundef nonnull %2)
   invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit unwind label %8
@@ -252,7 +252,7 @@ _ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit: ; preds =
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #19
+  call void @__clang_call_terminate(ptr %7) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit
@@ -269,7 +269,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7I
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #19
+  call void @__clang_call_terminate(ptr %12) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit3:  ; preds = %8
@@ -287,7 +287,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal
 define hidden void @_ZNK4cvc58internal7IntegermlERKS1_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.__gmp_expr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   call void @__gmpz_mul(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %1, ptr noundef nonnull %2)
   invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit unwind label %8
@@ -300,7 +300,7 @@ _ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit: ; preds =
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #19
+  call void @__clang_call_terminate(ptr %7) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit
@@ -317,7 +317,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7I
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #19
+  call void @__clang_call_terminate(ptr %12) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit3:  ; preds = %8
@@ -335,7 +335,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal
 define hidden void @_ZNK4cvc58internal7Integer9bitwiseOrERKS1_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.__gmp_expr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   invoke void @__gmpz_ior(ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef nonnull %2)
           to label %5 unwind label %9
 
@@ -351,7 +351,7 @@ _ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit: ; preds =
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #19
+  call void @__clang_call_terminate(ptr %8) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit
@@ -368,7 +368,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7I
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #19
+  call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit3:  ; preds = %9
@@ -382,7 +382,7 @@ declare void @__gmpz_ior(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 define hidden void @_ZNK4cvc58internal7Integer10bitwiseAndERKS1_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.__gmp_expr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   invoke void @__gmpz_and(ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef nonnull %2)
           to label %5 unwind label %9
 
@@ -398,7 +398,7 @@ _ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit: ; preds =
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #19
+  call void @__clang_call_terminate(ptr %8) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit
@@ -415,7 +415,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7I
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #19
+  call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit3:  ; preds = %9
@@ -429,7 +429,7 @@ declare void @__gmpz_and(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 define hidden void @_ZNK4cvc58internal7Integer10bitwiseXorERKS1_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.__gmp_expr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   invoke void @__gmpz_xor(ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef nonnull %2)
           to label %5 unwind label %9
 
@@ -445,7 +445,7 @@ _ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit: ; preds =
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #19
+  call void @__clang_call_terminate(ptr %8) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit
@@ -462,7 +462,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7I
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #19
+  call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit3:  ; preds = %9
@@ -476,7 +476,7 @@ declare void @__gmpz_xor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 define hidden void @_ZNK4cvc58internal7Integer10bitwiseNotEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.__gmp_expr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
   invoke void @__gmpz_com(ptr noundef nonnull %3, ptr noundef nonnull %1)
           to label %4 unwind label %8
 
@@ -492,7 +492,7 @@ _ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit: ; preds =
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #19
+  call void @__clang_call_terminate(ptr %7) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit
@@ -509,7 +509,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7I
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #19
+  call void @__clang_call_terminate(ptr %12) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2:  ; preds = %8
@@ -523,7 +523,7 @@ declare void @__gmpz_com(ptr noundef, ptr noundef) local_unnamed_addr #2
 define hidden void @_ZNK4cvc58internal7Integer14multiplyByPow2Ej(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.__gmp_expr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   %5 = zext i32 %2 to i64
   invoke void @__gmpz_mul_2exp(ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef %5)
           to label %6 unwind label %10
@@ -540,7 +540,7 @@ _ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit: ; preds =
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #19
+  call void @__clang_call_terminate(ptr %9) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit
@@ -557,7 +557,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7I
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #19
+  call void @__clang_call_terminate(ptr %14) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit3:  ; preds = %10
@@ -602,7 +602,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal7Integer8isBitSetEj(ptr noun
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #19
+  call void @__clang_call_terminate(ptr %8) #20
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %2
@@ -617,9 +617,9 @@ define hidden void @_ZNK4cvc58internal7Integer15extractBitRangeEjj(ptr dead_on_u
   %6 = alloca %class.__gmp_expr, align 8
   %7 = add i32 %3, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %6) #17
   %8 = zext i32 %7 to i64
   invoke void @__gmpz_fdiv_r_2exp(ptr noundef nonnull %5, ptr noundef nonnull %1, i64 noundef %8)
           to label %9 unwind label %18
@@ -641,7 +641,7 @@ _ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit: ; preds =
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #19
+  call void @__clang_call_terminate(ptr %14) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit
@@ -653,7 +653,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7I
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #19
+  call void @__clang_call_terminate(ptr %17) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit6:  ; preds = %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit
@@ -670,7 +670,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit6:  ; preds = %_ZN10__gmp_exprIA1_
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #19
+  call void @__clang_call_terminate(ptr %22) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit7:  ; preds = %18
@@ -682,7 +682,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit7:  ; preds = %18
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #19
+  call void @__clang_call_terminate(ptr %25) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit8:  ; preds = %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit7
@@ -739,7 +739,7 @@ _ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit: ; preds =
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #19
+  call void @__clang_call_terminate(ptr %14) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit
@@ -760,7 +760,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7I
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #19
+  call void @__clang_call_terminate(ptr %20) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit11: ; preds = %17
@@ -789,7 +789,7 @@ declare void @__gmpz_fdiv_q_2exp(ptr noundef, ptr noundef, i64 noundef) local_un
 define hidden void @_ZNK4cvc58internal7Integer19floorDivideQuotientERKS1_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.__gmp_expr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   invoke void @__gmpz_fdiv_q(ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef nonnull %2)
           to label %5 unwind label %9
 
@@ -805,7 +805,7 @@ _ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit: ; preds =
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #19
+  call void @__clang_call_terminate(ptr %8) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit
@@ -822,7 +822,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7I
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #19
+  call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit3:  ; preds = %9
@@ -836,7 +836,7 @@ declare void @__gmpz_fdiv_q(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 define hidden void @_ZNK4cvc58internal7Integer20floorDivideRemainderERKS1_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.__gmp_expr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   invoke void @__gmpz_fdiv_r(ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef nonnull %2)
           to label %5 unwind label %9
 
@@ -852,7 +852,7 @@ _ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit: ; preds =
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #19
+  call void @__clang_call_terminate(ptr %8) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit
@@ -869,7 +869,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7I
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #19
+  call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit3:  ; preds = %9
@@ -891,7 +891,7 @@ declare void @__gmpz_fdiv_qr(ptr noundef, ptr noundef, ptr noundef, ptr noundef)
 define hidden void @_ZNK4cvc58internal7Integer21ceilingDivideQuotientERKS1_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.__gmp_expr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   invoke void @__gmpz_cdiv_q(ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef nonnull %2)
           to label %5 unwind label %9
 
@@ -907,7 +907,7 @@ _ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit: ; preds =
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #19
+  call void @__clang_call_terminate(ptr %8) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit
@@ -924,7 +924,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7I
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #19
+  call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit3:  ; preds = %9
@@ -938,7 +938,7 @@ declare void @__gmpz_cdiv_q(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 define hidden void @_ZNK4cvc58internal7Integer22ceilingDivideRemainderERKS1_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.__gmp_expr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   invoke void @__gmpz_cdiv_r(ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef nonnull %2)
           to label %5 unwind label %9
 
@@ -954,7 +954,7 @@ _ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit: ; preds =
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #19
+  call void @__clang_call_terminate(ptr %8) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit
@@ -971,7 +971,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7I
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #19
+  call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit3:  ; preds = %9
@@ -1004,7 +1004,7 @@ _ZN4cvc58internal7IntegerpLERKS1_.exit:           ; preds = %9
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #19
+  call void @__clang_call_terminate(ptr %12) #20
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit16:             ; preds = %_ZN4cvc58internal7IntegerpLERKS1_.exit
@@ -1022,7 +1022,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit16:             ; preds = %_ZN4cvc58internal7I
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #19
+  call void @__clang_call_terminate(ptr %17) #20
   unreachable
 
 18:                                               ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit16, %4
@@ -1052,9 +1052,9 @@ define hidden noundef range(i32 -1, 2) i32 @_ZNK4cvc58internal7Integer3sgnEv(ptr
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK4cvc58internal7Integer23euclidianDivideQuotientERKS1_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cvc5::internal::Integer", align 8
-  tail call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
+  tail call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   invoke void @_ZN4cvc58internal7Integer11euclidianQRERS1_S2_RKS1_S4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %5 unwind label %9
 
@@ -1066,7 +1066,7 @@ define hidden void @_ZNK4cvc58internal7Integer23euclidianDivideQuotientERKS1_(pt
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #19
+  call void @__clang_call_terminate(ptr %8) #20
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %5
@@ -1083,7 +1083,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %5
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #19
+  call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit6:              ; preds = %9
@@ -1095,7 +1095,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit6:              ; preds = %9
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #19
+  call void @__clang_call_terminate(ptr %16) #20
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit7:              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit6
@@ -1106,8 +1106,8 @@ _ZN4cvc58internal7IntegerD2Ev.exit7:              ; preds = %_ZN4cvc58internal7I
 define hidden void @_ZNK4cvc58internal7Integer24euclidianDivideRemainderERKS1_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cvc5::internal::Integer", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
   invoke void @_ZN4cvc58internal7Integer11euclidianQRERS1_S2_RKS1_S4_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %10 unwind label %5
 
@@ -1121,7 +1121,7 @@ define hidden void @_ZNK4cvc58internal7Integer24euclidianDivideRemainderERKS1_(p
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #19
+  call void @__clang_call_terminate(ptr %9) #20
   unreachable
 
 10:                                               ; preds = %3
@@ -1132,7 +1132,7 @@ define hidden void @_ZNK4cvc58internal7Integer24euclidianDivideRemainderERKS1_(p
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #19
+  call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit6:              ; preds = %10
@@ -1147,7 +1147,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %5
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #19
+  call void @__clang_call_terminate(ptr %16) #20
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit7:              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
@@ -1159,7 +1159,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit7:              ; preds = %_ZN4cvc58internal7I
 define hidden void @_ZNK4cvc58internal7Integer13exactQuotientERKS1_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.__gmp_expr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   invoke void @__gmpz_divexact(ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef nonnull %2)
           to label %5 unwind label %9
 
@@ -1175,7 +1175,7 @@ _ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit: ; preds =
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #19
+  call void @__clang_call_terminate(ptr %8) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit
@@ -1192,7 +1192,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7I
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #19
+  call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit3:  ; preds = %9
@@ -1206,7 +1206,7 @@ declare void @__gmpz_divexact(ptr noundef, ptr noundef, ptr noundef) local_unnam
 define hidden void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.__gmp_expr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   %5 = zext i32 %2 to i64
   invoke void @__gmpz_fdiv_r_2exp(ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef %5)
           to label %6 unwind label %10
@@ -1223,7 +1223,7 @@ _ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit: ; preds =
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #19
+  call void @__clang_call_terminate(ptr %9) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit
@@ -1240,7 +1240,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7I
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #19
+  call void @__clang_call_terminate(ptr %14) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit3:  ; preds = %10
@@ -1252,7 +1252,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit3:  ; preds = %10
 define hidden void @_ZNK4cvc58internal7Integer9divByPow2Ej(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.__gmp_expr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   %5 = zext i32 %2 to i64
   invoke void @__gmpz_fdiv_q_2exp(ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef %5)
           to label %6 unwind label %10
@@ -1269,7 +1269,7 @@ _ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit: ; preds =
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #19
+  call void @__clang_call_terminate(ptr %9) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit
@@ -1286,7 +1286,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7I
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #19
+  call void @__clang_call_terminate(ptr %14) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit3:  ; preds = %10
@@ -1304,7 +1304,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal7Integer16strictlyPositiveEv
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal7Integer5isOneEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
-  %2 = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %0, i64 noundef 1) #18
+  %2 = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %0, i64 noundef 1) #19
   %3 = icmp eq i32 %2, 0
   ret i1 %3
 }
@@ -1314,7 +1314,7 @@ declare i32 @__gmpz_cmp_ui(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal7Integer13isNegativeOneEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
-  %2 = tail call i32 @__gmpz_cmp_si(ptr noundef nonnull %0, i64 noundef -1) #18
+  %2 = tail call i32 @__gmpz_cmp_si(ptr noundef nonnull %0, i64 noundef -1) #19
   %3 = icmp eq i32 %2, 0
   ret i1 %3
 }
@@ -1326,7 +1326,7 @@ declare i32 @__gmpz_cmp_si(ptr noundef, i64 noundef) local_unnamed_addr #5
 define hidden void @_ZNK4cvc58internal7Integer3powEj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.__gmp_expr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   %5 = zext i32 %2 to i64
   invoke void @__gmpz_pow_ui(ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef %5)
           to label %6 unwind label %10
@@ -1343,7 +1343,7 @@ _ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit: ; preds =
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #19
+  call void @__clang_call_terminate(ptr %9) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit
@@ -1360,7 +1360,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7I
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #19
+  call void @__clang_call_terminate(ptr %14) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit3:  ; preds = %10
@@ -1374,7 +1374,7 @@ declare void @__gmpz_pow_ui(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 define hidden void @_ZNK4cvc58internal7Integer3gcdERKS1_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.__gmp_expr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   invoke void @__gmpz_gcd(ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef nonnull %2)
           to label %5 unwind label %9
 
@@ -1390,7 +1390,7 @@ _ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit: ; preds =
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #19
+  call void @__clang_call_terminate(ptr %8) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit
@@ -1407,7 +1407,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7I
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #19
+  call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit3:  ; preds = %9
@@ -1421,7 +1421,7 @@ declare void @__gmpz_gcd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 define hidden void @_ZNK4cvc58internal7Integer3lcmERKS1_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.__gmp_expr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   invoke void @__gmpz_lcm(ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef nonnull %2)
           to label %5 unwind label %9
 
@@ -1437,7 +1437,7 @@ _ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit: ; preds =
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #19
+  call void @__clang_call_terminate(ptr %8) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit
@@ -1454,7 +1454,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7I
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #19
+  call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit3:  ; preds = %9
@@ -1468,7 +1468,7 @@ declare void @__gmpz_lcm(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 define hidden void @_ZNK4cvc58internal7Integer6modAddERKS1_S3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.__gmp_expr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   invoke void @__gmpz_add(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef nonnull %2)
           to label %6 unwind label %11
 
@@ -1488,7 +1488,7 @@ _ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit: ; preds =
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #19
+  call void @__clang_call_terminate(ptr %10) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit
@@ -1505,7 +1505,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7I
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #19
+  call void @__clang_call_terminate(ptr %15) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit4:  ; preds = %11
@@ -1521,7 +1521,7 @@ declare void @__gmpz_mod(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 define hidden void @_ZNK4cvc58internal7Integer11modMultiplyERKS1_S3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.__gmp_expr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   invoke void @__gmpz_mul(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef nonnull %2)
           to label %6 unwind label %11
 
@@ -1541,7 +1541,7 @@ _ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit: ; preds =
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #19
+  call void @__clang_call_terminate(ptr %10) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit
@@ -1558,7 +1558,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %_ZN4cvc58internal7I
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #19
+  call void @__clang_call_terminate(ptr %15) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit4:  ; preds = %11
@@ -1572,7 +1572,7 @@ declare void @__gmpz_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 define hidden void @_ZNK4cvc58internal7Integer10modInverseERKS1_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.__gmp_expr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   %5 = invoke i32 @__gmpz_invert(ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef nonnull %2)
           to label %6 unwind label %12
 
@@ -1601,7 +1601,7 @@ _ZN4cvc58internal7IntegerC2Ei.exit:               ; preds = %8
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #19
+  call void @__clang_call_terminate(ptr %16) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %12
@@ -1620,7 +1620,7 @@ _ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit: ; preds =
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #19
+  call void @__clang_call_terminate(ptr %20) #20
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit3:  ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit
@@ -1632,7 +1632,7 @@ declare i32 @__gmpz_invert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal7Integer7dividesERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
-  %3 = tail call i32 @__gmpz_divisible_p(ptr noundef nonnull %1, ptr noundef nonnull %0) #18
+  %3 = tail call i32 @__gmpz_divisible_p(ptr noundef nonnull %1, ptr noundef nonnull %0) #19
   %4 = icmp ne i32 %3, 0
   ret i1 %4
 }
@@ -1679,14 +1679,14 @@ define linkonce_odr hidden void @_ZNK10__gmp_exprIA1_12__mpz_structS1_E7get_strB
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %3
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.1) #17
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.1) #18
           to label %.noexc unwind label %31
 
 .noexc:                                           ; preds = %10
   unreachable
 
 11:                                               ; preds = %3
-  %12 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #16
+  %12 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %12, ptr %5, align 8, !tbaa !18
   %13 = icmp ugt i64 %12, 15
@@ -1727,9 +1727,9 @@ define linkonce_odr hidden void @_ZNK10__gmp_exprIA1_12__mpz_structS1_E7get_strB
   store i8 0, ptr %24, align 1, !tbaa !22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @__gmp_get_memory_functions(ptr noundef null, ptr noundef null, ptr noundef nonnull %4) #16
+  call void @__gmp_get_memory_functions(ptr noundef null, ptr noundef null, ptr noundef nonnull %4) #17
   %25 = load ptr, ptr %4, align 8, !tbaa !24
-  %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #18
+  %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #19
   %27 = add i64 %26, 1
   invoke void %25(ptr noundef nonnull %7, i64 noundef %27)
           to label %_ZN19__gmp_alloc_cstringD2Ev.exit unwind label %28
@@ -1738,7 +1738,7 @@ define linkonce_odr hidden void @_ZNK10__gmp_exprIA1_12__mpz_structS1_E7get_strB
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #19
+  call void @__clang_call_terminate(ptr %30) #20
   unreachable
 
 _ZN19__gmp_alloc_cstringD2Ev.exit:                ; preds = %20
@@ -1749,14 +1749,14 @@ _ZN19__gmp_alloc_cstringD2Ev.exit:                ; preds = %20
 31:                                               ; preds = %.noexc.i, %10
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN19__gmp_alloc_cstringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #16
+  call void @_ZN19__gmp_alloc_cstringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal7Integer13fitsSignedIntEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
-  %2 = tail call i32 @__gmpz_fits_sint_p(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  %2 = tail call i32 @__gmpz_fits_sint_p(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   %3 = icmp ne i32 %2, 0
   ret i1 %3
 }
@@ -1787,7 +1787,7 @@ _ZNK10__gmp_exprIA1_12__mpz_structS1_E11fits_uint_pEv.exit: ; preds = %1, %4, %.
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef i32 @_ZNK4cvc58internal7Integer12getSignedIntEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
-  %2 = tail call noundef i64 @__gmpz_get_si(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  %2 = tail call noundef i64 @__gmpz_get_si(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   %3 = trunc i64 %2 to i32
   ret i32 %3
 }
@@ -1807,7 +1807,7 @@ define hidden noundef i32 @_ZNK4cvc58internal7Integer14getUnsignedIntEv(ptr noun
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef i64 @_ZNK4cvc58internal7Integer7getLongEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
-  %2 = tail call noundef i64 @__gmpz_get_si(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  %2 = tail call noundef i64 @__gmpz_get_si(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   ret i64 %2
 }
 
@@ -1825,7 +1825,7 @@ define hidden noundef i64 @_ZNK4cvc58internal7Integer15getUnsignedLongEv(ptr nou
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef i64 @_ZNK4cvc58internal7Integer11getSigned64Ev(ptr noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
-  %2 = tail call noundef i64 @__gmpz_get_si(ptr noundef nonnull readonly align 8 dereferenceable(16) %0) #18
+  %2 = tail call noundef i64 @__gmpz_get_si(ptr noundef nonnull readonly align 8 dereferenceable(16) %0) #19
   ret i64 %2
 }
 
@@ -1874,7 +1874,7 @@ _ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit: ; preds = %__gmpz_getlimbn.ex
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal7Integer7testBitEj(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = zext i32 %1 to i64
-  %4 = tail call i32 @__gmpz_tstbit(ptr noundef nonnull %0, i64 noundef %3) #18
+  %4 = tail call i32 @__gmpz_tstbit(ptr noundef nonnull %0, i64 noundef %3) #19
   %5 = icmp ne i32 %4, 0
   ret i1 %5
 }
@@ -1893,12 +1893,12 @@ __gmpz_popcount.exit:                             ; preds = %1
   %4 = zext nneg i32 %3 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !17
-  %7 = tail call i64 @__gmpn_popcount(ptr noundef %6, i64 noundef %4) #18
+  %7 = tail call i64 @__gmpn_popcount(ptr noundef %6, i64 noundef %4) #19
   %8 = icmp eq i64 %7, 1
   br i1 %8, label %9, label %_ZleIA1_12__mpz_structS1_EbRK10__gmp_exprIT_T0_Ei.exit.thread
 
 9:                                                ; preds = %__gmpz_popcount.exit
-  %10 = tail call i64 @__gmpz_scan1(ptr noundef nonnull %0, i64 noundef 0) #18
+  %10 = tail call i64 @__gmpz_scan1(ptr noundef nonnull %0, i64 noundef 0) #19
   %11 = trunc i64 %10 to i32
   %12 = add i32 %11, 1
   br label %_ZleIA1_12__mpz_structS1_EbRK10__gmp_exprIT_T0_Ei.exit.thread
@@ -1919,7 +1919,7 @@ define hidden noundef i64 @_ZNK4cvc58internal7Integer6lengthEv(ptr noundef nonnu
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call i64 @__gmpz_sizeinbase(ptr noundef nonnull %0, i32 noundef 2) #18
+  %6 = tail call i64 @__gmpz_sizeinbase(ptr noundef nonnull %0, i32 noundef 2) #19
   br label %7
 
 7:                                                ; preds = %1, %5
@@ -1932,7 +1932,7 @@ declare i64 @__gmpz_sizeinbase(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal7Integer15isProbablePrimeEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
-  %2 = tail call i32 @__gmpz_probab_prime_p(ptr noundef nonnull %0, i32 noundef 30) #18
+  %2 = tail call i32 @__gmpz_probab_prime_p(ptr noundef nonnull %0, i32 noundef 30) #19
   %3 = icmp sgt i32 %2, 0
   ret i1 %3
 }
@@ -1950,7 +1950,7 @@ declare void @__gmpz_gcdext(ptr noundef, ptr noundef, ptr noundef, ptr noundef, 
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7Integer3minERKS1_S3_(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
-  %3 = tail call i32 @__gmpz_cmp(ptr noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 dereferenceable(16) %0) #18
+  %3 = tail call i32 @__gmpz_cmp(ptr noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 dereferenceable(16) %0) #19
   %4 = icmp slt i32 %3, 0
   %5 = select i1 %4, ptr %1, ptr %0
   ret ptr %5
@@ -1958,7 +1958,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7Integer3maxERKS1_S3_(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
-  %3 = tail call i32 @__gmpz_cmp(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) #18
+  %3 = tail call i32 @__gmpz_cmp(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) #19
   %4 = icmp slt i32 %3, 0
   %5 = select i1 %4, ptr %1, ptr %0
   ret ptr %5
@@ -1982,8 +1982,8 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
-  tail call void @_ZSt9terminatev() #19
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
+  tail call void @_ZSt9terminatev() #20
   unreachable
 }
 
@@ -2007,10 +2007,10 @@ declare ptr @__gmpz_get_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 define linkonce_odr hidden void @_ZN19__gmp_alloc_cstringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @__gmp_get_memory_functions(ptr noundef null, ptr noundef null, ptr noundef nonnull %2) #16
+  call void @__gmp_get_memory_functions(ptr noundef null, ptr noundef null, ptr noundef nonnull %2) #17
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = load ptr, ptr %0, align 8, !tbaa !19
-  %5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #18
+  %5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #19
   %6 = add i64 %5, 1
   invoke void %3(ptr noundef nonnull %4, i64 noundef %6)
           to label %7 unwind label %8
@@ -2023,7 +2023,7 @@ define linkonce_odr hidden void @_ZN19__gmp_alloc_cstringD2Ev(ptr noundef nonnul
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #19
+  call void @__clang_call_terminate(ptr %10) #20
   unreachable
 }
 
@@ -2061,11 +2061,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #15
+declare i32 @llvm.abs.i32(i32, i1 immarg) #16
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2082,11 +2082,12 @@ attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-si
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nounwind }
-attributes #17 = { noreturn }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { noreturn nounwind }
+attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nounwind }
+attributes #18 = { noreturn }
+attributes #19 = { nounwind willreturn memory(read) }
+attributes #20 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

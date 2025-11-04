@@ -46,14 +46,14 @@ define noundef ptr @dt_gpx_new(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !6
-  %3 = call ptr @g_mapped_file_new(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %2) #11
+  %3 = call ptr @g_mapped_file_new(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %2) #12
   %4 = load ptr, ptr %2, align 8, !tbaa !6
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %.thread
 
 5:                                                ; preds = %1
-  %6 = call ptr @g_mapped_file_get_contents(ptr noundef %3) #11
-  %7 = call i64 @g_mapped_file_get_length(ptr noundef %3) #11
+  %6 = call ptr @g_mapped_file_get_contents(ptr noundef %3) #12
+  %7 = call i64 @g_mapped_file_get_length(ptr noundef %3) #12
   %8 = trunc i64 %7 to i32
   %9 = icmp eq ptr %6, null
   %10 = icmp slt i32 %8, 10
@@ -61,7 +61,7 @@ define noundef ptr @dt_gpx_new(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %37, label %11
 
 11:                                               ; preds = %5
-  %12 = call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #12
+  %12 = call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #13
   %13 = load i8, ptr %6, align 1, !tbaa !11
   %14 = icmp eq i8 %13, -17
   br i1 %14, label %15, label %23
@@ -81,25 +81,25 @@ define noundef ptr @dt_gpx_new(ptr noundef %0) local_unnamed_addr #0 {
 
 23:                                               ; preds = %19, %15, %11
   %.027 = phi i32 [ 0, %15 ], [ 0, %11 ], [ %spec.select, %19 ]
-  %24 = call ptr @g_markup_parse_context_new(ptr noundef nonnull @_gpx_parser, i32 noundef 0, ptr noundef %12, ptr noundef null) #11
+  %24 = call ptr @g_markup_parse_context_new(ptr noundef nonnull @_gpx_parser, i32 noundef 0, ptr noundef %12, ptr noundef null) #12
   %25 = zext nneg i32 %.027 to i64
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 %25
   %27 = sub nuw nsw i32 %8, %.027
   %28 = zext nneg i32 %27 to i64
-  %29 = call i32 @g_markup_parse_context_parse(ptr noundef %24, ptr noundef nonnull %26, i64 noundef %28, ptr noundef nonnull %2) #11
+  %29 = call i32 @g_markup_parse_context_parse(ptr noundef %24, ptr noundef nonnull %26, i64 noundef %28, ptr noundef nonnull %2) #12
   %30 = load ptr, ptr %2, align 8, !tbaa !6
   %.not34 = icmp eq ptr %30, null
   br i1 %.not34, label %31, label %.thread
 
 31:                                               ; preds = %23
-  call void @g_markup_parse_context_free(ptr noundef %24) #11
-  call void @g_mapped_file_unref(ptr noundef %3) #11
+  call void @g_markup_parse_context_free(ptr noundef %24) #12
+  call void @g_mapped_file_unref(ptr noundef %3) #12
   %32 = load ptr, ptr %12, align 8, !tbaa !12
-  %33 = call ptr @g_list_sort(ptr noundef %32, ptr noundef nonnull @_sort_track) #11
+  %33 = call ptr @g_list_sort(ptr noundef %32, ptr noundef nonnull @_sort_track) #12
   store ptr %33, ptr %12, align 8, !tbaa !12
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !18
-  %36 = call ptr @g_list_sort(ptr noundef %35, ptr noundef nonnull @_sort_segment) #11
+  %36 = call ptr @g_list_sort(ptr noundef %35, ptr noundef nonnull @_sort_segment) #12
   store ptr %36, ptr %34, align 8, !tbaa !18
   br label %47
 
@@ -114,28 +114,28 @@ define noundef ptr @dt_gpx_new(ptr noundef %0) local_unnamed_addr #0 {
   %38 = phi ptr [ %.pr, %37 ], [ %30, %23 ], [ %4, %1 ]
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !19
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str, ptr noundef %40) #11
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str, ptr noundef %40) #12
   %41 = load ptr, ptr %2, align 8, !tbaa !6
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !19
-  call void (ptr, ...) @dt_control_log(ptr noundef nonnull @.str.1, ptr noundef %43) #11
+  call void (ptr, ...) @dt_control_log(ptr noundef nonnull @.str.1, ptr noundef %43) #12
   %44 = load ptr, ptr %2, align 8, !tbaa !6
-  call void @g_error_free(ptr noundef %44) #11
+  call void @g_error_free(ptr noundef %44) #12
   %.not36 = icmp eq ptr %.02843, null
   br i1 %.not36, label %.thread45, label %45
 
 45:                                               ; preds = %.thread
-  call void @g_markup_parse_context_free(ptr noundef nonnull %.02843) #11
+  call void @g_markup_parse_context_free(ptr noundef nonnull %.02843) #12
   br label %.thread45
 
 .thread45:                                        ; preds = %37, %45, %.thread
   %.0294249 = phi ptr [ %.02941, %45 ], [ %.02941, %.thread ], [ null, %37 ]
-  call void @g_free(ptr noundef %.0294249) #11
+  call void @g_free(ptr noundef %.0294249) #12
   %.not37 = icmp eq ptr %3, null
   br i1 %.not37, label %47, label %46
 
 46:                                               ; preds = %.thread45
-  call void @g_mapped_file_unref(ptr noundef nonnull %3) #11
+  call void @g_mapped_file_unref(ptr noundef nonnull %3) #12
   br label %47
 
 47:                                               ; preds = %.thread45, %46, %31
@@ -169,7 +169,7 @@ define internal i32 @_sort_track(ptr noundef readonly captures(none) %0, ptr nou
   %4 = load ptr, ptr %3, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !21
-  %7 = tail call i32 @g_date_time_compare(ptr noundef %4, ptr noundef %6) #11
+  %7 = tail call i32 @g_date_time_compare(ptr noundef %4, ptr noundef %6) #12
   ret i32 %7
 }
 
@@ -179,7 +179,7 @@ define internal i32 @_sort_segment(ptr noundef readonly captures(none) %0, ptr n
   %4 = load ptr, ptr %3, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !25
-  %7 = tail call i32 @g_date_time_compare(ptr noundef %4, ptr noundef %6) #11
+  %7 = tail call i32 @g_date_time_compare(ptr noundef %4, ptr noundef %6) #12
   ret i32 %7
 }
 
@@ -195,8 +195,8 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 define void @_track_seg_free(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !27
-  tail call void @g_free(ptr noundef %3) #11
-  tail call void @g_free(ptr noundef %0) #11
+  tail call void @g_free(ptr noundef %3) #12
+  tail call void @g_free(ptr noundef %0) #12
   ret void
 }
 
@@ -204,8 +204,8 @@ define void @_track_seg_free(ptr noundef %0) #0 {
 define void @_track_pts_free(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !21
-  tail call void @g_date_time_unref(ptr noundef %3) #11
-  tail call void @g_free(ptr noundef %0) #11
+  tail call void @g_date_time_unref(ptr noundef %3) #12
+  tail call void @g_free(ptr noundef %0) #12
   ret void
 }
 
@@ -217,7 +217,7 @@ define void @dt_gpx_destroy(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %2, label %3, !prof !28
 
 2:                                                ; preds = %1
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 145, ptr noundef nonnull @__func__.dt_gpx_destroy, ptr noundef nonnull @.str.3) #13
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 145, ptr noundef nonnull @__func__.dt_gpx_destroy, ptr noundef nonnull @.str.3) #14
   unreachable
 
 3:                                                ; preds = %1
@@ -226,7 +226,7 @@ define void @dt_gpx_destroy(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not10, label %6, label %5
 
 5:                                                ; preds = %3
-  tail call void @g_list_free_full(ptr noundef nonnull %4, ptr noundef nonnull @_track_pts_free) #11
+  tail call void @g_list_free_full(ptr noundef nonnull %4, ptr noundef nonnull @_track_pts_free) #12
   br label %6
 
 6:                                                ; preds = %5, %3
@@ -236,11 +236,11 @@ define void @dt_gpx_destroy(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not11, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void @g_list_free_full(ptr noundef nonnull %8, ptr noundef nonnull @_track_seg_free) #11
+  tail call void @g_list_free_full(ptr noundef nonnull %8, ptr noundef nonnull @_track_seg_free) #12
   br label %10
 
 10:                                               ; preds = %9, %6
-  tail call void @g_free(ptr noundef nonnull %0) #11
+  tail call void @g_free(ptr noundef nonnull %0) #12
   ret void
 }
 
@@ -255,7 +255,7 @@ define range(i32 0, 2) i32 @dt_gpx_get_location(ptr noundef readonly captures(ad
   br i1 %.not, label %4, label %5, !prof !28
 
 4:                                                ; preds = %3
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 155, ptr noundef nonnull @__func__.dt_gpx_get_location, ptr noundef nonnull @.str.3) #13
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 155, ptr noundef nonnull @__func__.dt_gpx_get_location, ptr noundef nonnull @.str.3) #14
   unreachable
 
 5:                                                ; preds = %3
@@ -284,7 +284,7 @@ define range(i32 0, 2) i32 @dt_gpx_get_location(ptr noundef readonly captures(ad
   %13 = load ptr, ptr %.084114, align 8, !tbaa !31
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !21
-  %16 = tail call i32 @g_date_time_compare(ptr noundef %1, ptr noundef %15) #11
+  %16 = tail call i32 @g_date_time_compare(ptr noundef %1, ptr noundef %15) #12
   %17 = getelementptr inbounds nuw i8, ptr %.084114, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !29
   %19 = icmp eq ptr %18, null
@@ -307,7 +307,7 @@ define range(i32 0, 2) i32 @dt_gpx_get_location(ptr noundef readonly captures(ad
   %29 = load ptr, ptr %18, align 8, !tbaa !31
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !21
-  %32 = tail call i32 @g_date_time_compare(ptr noundef %1, ptr noundef %31) #11
+  %32 = tail call i32 @g_date_time_compare(ptr noundef %1, ptr noundef %31) #12
   %33 = load ptr, ptr %17, align 8, !tbaa !29
   %34 = icmp eq ptr %33, null
   %35 = icmp sgt i32 %32, 0
@@ -319,9 +319,9 @@ define range(i32 0, 2) i32 @dt_gpx_get_location(ptr noundef readonly captures(ad
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !21
   %40 = load ptr, ptr %37, align 8, !tbaa !21
-  %41 = tail call i64 @g_date_time_difference(ptr noundef %39, ptr noundef %40) #11
+  %41 = tail call i64 @g_date_time_difference(ptr noundef %39, ptr noundef %40) #12
   %42 = load ptr, ptr %37, align 8, !tbaa !21
-  %43 = tail call i64 @g_date_time_difference(ptr noundef %1, ptr noundef %42) #11
+  %43 = tail call i64 @g_date_time_difference(ptr noundef %1, ptr noundef %42) #12
   %44 = icmp eq i64 %41, 0
   %45 = icmp eq i64 %43, 0
   %or.cond7 = select i1 %44, i1 true, i1 %45
@@ -464,7 +464,7 @@ declare i32 @g_date_time_compare(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i64 @g_date_time_difference(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -601,7 +601,7 @@ define ptr @dt_gpx_get_trkpts(ptr noundef readonly captures(address_is_null) %0,
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !18
-  %7 = tail call ptr @g_list_nth(ptr noundef %6, i32 noundef %1) #11
+  %7 = tail call ptr @g_list_nth(ptr noundef %6, i32 noundef %1) #12
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.loopexit, label %8
 
@@ -610,7 +610,7 @@ define ptr @dt_gpx_get_trkpts(ptr noundef readonly captures(address_is_null) %0,
   %10 = load ptr, ptr %0, align 8, !tbaa !12
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !40
-  %13 = tail call ptr @g_list_find(ptr noundef %10, ptr noundef %12) #11
+  %13 = tail call ptr @g_list_find(ptr noundef %10, ptr noundef %12) #12
   %.not37 = icmp eq ptr %13, null
   br i1 %.not37, label %.loopexit, label %.preheader
 
@@ -624,7 +624,7 @@ define ptr @dt_gpx_get_trkpts(ptr noundef readonly captures(address_is_null) %0,
   br i1 %.not39, label %17, label %.loopexit
 
 17:                                               ; preds = %.preheader
-  %18 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #12
+  %18 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #13
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %20 = load double, ptr %19, align 8, !tbaa !35
   %21 = fptrunc reassoc nsz arcp contract afn double %20 to float
@@ -633,7 +633,7 @@ define ptr @dt_gpx_get_trkpts(ptr noundef readonly captures(address_is_null) %0,
   %23 = fptrunc reassoc nsz arcp contract afn double %22 to float
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store float %23, ptr %24, align 4, !tbaa !45
-  %25 = tail call ptr @g_list_prepend(ptr noundef %.02845, ptr noundef nonnull %18) #11
+  %25 = tail call ptr @g_list_prepend(ptr noundef %.02845, ptr noundef nonnull %18) #12
   %26 = getelementptr inbounds nuw i8, ptr %.03144, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !29
   %.not38 = icmp eq ptr %27, null
@@ -650,17 +650,17 @@ declare ptr @g_list_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @g_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sin.f64(double) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.cos.f64(double) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.atan2.f64(double, double) #4
+declare double @llvm.atan2.f64(double, double) #8
 
 ; Function Attrs: nounwind uwtable
 define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef %5) #0 {
@@ -669,7 +669,7 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
   br i1 %.not, label %9, label %8, !prof !46
 
 8:                                                ; preds = %6
-  tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gpx_parser_start_element, ptr noundef nonnull @.str.4) #11
+  tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gpx_parser_start_element, ptr noundef nonnull @.str.4) #12
   br label %.critedge
 
 9:                                                ; preds = %6
@@ -679,7 +679,7 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.5) #14
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.5) #15
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %.critedge
 
@@ -688,7 +688,7 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
   br label %.critedge
 
 17:                                               ; preds = %9
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.6) #14
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.6) #15
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %73
 
@@ -699,12 +699,12 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
   br i1 %.not63, label %27, label %23
 
 23:                                               ; preds = %20
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.7) #11
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.7) #12
   %24 = load ptr, ptr %21, align 8, !tbaa !48
-  tail call void @g_free(ptr noundef %24) #11
-  %25 = tail call i32 @g_markup_error_quark() #11
-  %26 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #11
-  tail call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef nonnull %5, i32 noundef %25, i32 noundef 2, ptr noundef %26) #11
+  tail call void @g_free(ptr noundef %24) #12
+  %25 = tail call i32 @g_markup_error_quark() #12
+  %26 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #12
+  tail call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef nonnull %5, i32 noundef %25, i32 noundef 2, ptr noundef %26) #12
   br label %.critedge
 
 27:                                               ; preds = %20
@@ -715,7 +715,7 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
   br i1 %.not64, label %68, label %30
 
 30:                                               ; preds = %27
-  %31 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #12
+  %31 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #13
   store ptr %31, ptr %21, align 8, !tbaa !48
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %33 = load i32, ptr %32, align 4, !tbaa !51
@@ -735,7 +735,7 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
   %39 = phi ptr [ %62, %58 ], [ %37, %30 ]
   %.05770 = phi ptr [ %61, %58 ], [ %3, %30 ]
   %.05869 = phi ptr [ %60, %58 ], [ %2, %30 ]
-  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(4) @.str.8) #14
+  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(4) @.str.8) #15
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %48
 
@@ -746,13 +746,13 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
   br i1 %.not66, label %48, label %45
 
 45:                                               ; preds = %42
-  %46 = tail call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %43, ptr noundef null) #11
+  %46 = tail call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %43, ptr noundef null) #12
   %47 = load ptr, ptr %21, align 8, !tbaa !48
   store double %46, ptr %47, align 8, !tbaa !32
   br label %58
 
 48:                                               ; preds = %42, %.lr.ph
-  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(4) @.str.9) #14
+  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(4) @.str.9) #15
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %58
 
@@ -763,7 +763,7 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
   br i1 %.not67, label %58, label %54
 
 54:                                               ; preds = %51
-  %55 = tail call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %52, ptr noundef null) #11
+  %55 = tail call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %52, ptr noundef null) #12
   %56 = load ptr, ptr %21, align 8, !tbaa !48
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store double %55, ptr %57, align 8, !tbaa !35
@@ -789,16 +789,16 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
   br i1 %67, label %._crit_edge.thread, label %71
 
 ._crit_edge.thread:                               ; preds = %30, %64, %._crit_edge
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.10) #11
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.10) #12
   store i32 1, ptr %28, align 4, !tbaa !49
   tail call fastcc void @_gpx_parse_error(ptr noundef nonnull %5)
   br label %.critedge
 
 68:                                               ; preds = %27
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.11) #11
-  %69 = tail call i32 @g_markup_error_quark() #11
-  %70 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #11
-  tail call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef nonnull %5, i32 noundef %69, i32 noundef 2, ptr noundef %70) #11
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.11) #12
+  %69 = tail call i32 @g_markup_error_quark() #12
+  %70 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #12
+  tail call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef nonnull %5, i32 noundef %69, i32 noundef 2, ptr noundef %70) #12
   br label %.critedge
 
 71:                                               ; preds = %64
@@ -807,7 +807,7 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
   br label %.critedge
 
 73:                                               ; preds = %17
-  %74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.12) #14
+  %74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.12) #15
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %76, label %81
 
@@ -823,7 +823,7 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
   br label %.critedge
 
 81:                                               ; preds = %73
-  %82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.13) #14
+  %82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.13) #15
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %89
 
@@ -839,7 +839,7 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
   br label %.critedge
 
 89:                                               ; preds = %81
-  %90 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.14) #14
+  %90 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.14) #15
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %92, label %94
 
@@ -849,12 +849,12 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
   br label %.critedge
 
 94:                                               ; preds = %89
-  %95 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.15) #14
+  %95 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.15) #15
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %.critedge
 
 97:                                               ; preds = %94
-  %98 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #12
+  %98 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #13
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %100 = load ptr, ptr %99, align 8, !tbaa !53
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 24
@@ -865,15 +865,15 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
   store ptr null, ptr %99, align 8, !tbaa !53
   %104 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %105 = load ptr, ptr %104, align 8, !tbaa !18
-  %106 = tail call ptr @g_list_prepend(ptr noundef %105, ptr noundef nonnull %98) #11
+  %106 = tail call ptr @g_list_prepend(ptr noundef %105, ptr noundef nonnull %98) #12
   store ptr %106, ptr %104, align 8, !tbaa !18
   br label %.critedge
 
 107:                                              ; preds = %84, %76
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.16, ptr noundef nonnull %1) #11
-  %108 = tail call i32 @g_markup_error_quark() #11
-  %109 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #11
-  tail call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef nonnull %5, i32 noundef %108, i32 noundef 2, ptr noundef %109) #11
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.16, ptr noundef nonnull %1) #12
+  %108 = tail call i32 @g_markup_error_quark() #12
+  %109 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #12
+  tail call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef nonnull %5, i32 noundef %108, i32 noundef 2, ptr noundef %109) #12
   br label %.critedge
 
 .critedge:                                        ; preds = %23, %107, %71, %87, %94, %97, %92, %79, %13, %16, %68, %._crit_edge.thread, %8
@@ -887,7 +887,7 @@ define internal void @_gpx_parser_end_element(ptr readnone captures(none) %0, pt
   br i1 %.not, label %7, label %6, !prof !46
 
 6:                                                ; preds = %4
-  tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gpx_parser_end_element, ptr noundef nonnull @.str.4) #11
+  tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gpx_parser_end_element, ptr noundef nonnull @.str.4) #12
   br label %40
 
 7:                                                ; preds = %4
@@ -897,7 +897,7 @@ define internal void @_gpx_parser_end_element(ptr readnone captures(none) %0, pt
   br i1 %10, label %11, label %40
 
 11:                                               ; preds = %7
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.5) #14
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.5) #15
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %15
 
@@ -906,7 +906,7 @@ define internal void @_gpx_parser_end_element(ptr readnone captures(none) %0, pt
   br label %38
 
 15:                                               ; preds = %11
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.6) #14
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.6) #15
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %31
 
@@ -920,14 +920,14 @@ define internal void @_gpx_parser_end_element(ptr readnone captures(none) %0, pt
   %22 = load ptr, ptr %2, align 8, !tbaa !12
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !48
-  %25 = tail call ptr @g_list_prepend(ptr noundef %22, ptr noundef %24) #11
+  %25 = tail call ptr @g_list_prepend(ptr noundef %22, ptr noundef %24) #12
   store ptr %25, ptr %2, align 8, !tbaa !12
   br label %29
 
 26:                                               ; preds = %18
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !48
-  tail call void @g_free(ptr noundef %28) #11
+  tail call void @g_free(ptr noundef %28) #12
   br label %29
 
 29:                                               ; preds = %26, %21
@@ -936,7 +936,7 @@ define internal void @_gpx_parser_end_element(ptr readnone captures(none) %0, pt
   br label %38
 
 31:                                               ; preds = %15
-  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.15) #14
+  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.15) #15
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %38
 
@@ -963,7 +963,7 @@ define internal void @_gpx_parser_text(ptr readnone captures(none) %0, ptr nound
   br i1 %.not, label %8, label %7, !prof !46
 
 7:                                                ; preds = %5
-  tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gpx_parser_text, ptr noundef nonnull @.str.4) #11
+  tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gpx_parser_text, ptr noundef nonnull @.str.4) #12
   br label %53
 
 8:                                                ; preds = %5
@@ -979,11 +979,11 @@ define internal void @_gpx_parser_text(ptr readnone captures(none) %0, ptr nound
   br i1 %.not35, label %16, label %15
 
 15:                                               ; preds = %12
-  tail call void @g_free(ptr noundef nonnull %14) #11
+  tail call void @g_free(ptr noundef nonnull %14) #12
   br label %16
 
 16:                                               ; preds = %15, %12
-  %17 = tail call noalias ptr @g_strdup(ptr noundef %1) #11
+  %17 = tail call noalias ptr @g_strdup(ptr noundef %1) #12
   store ptr %17, ptr %13, align 8, !tbaa !53
   br label %18
 
@@ -1001,7 +1001,7 @@ define internal void @_gpx_parser_text(ptr readnone captures(none) %0, ptr nound
   ]
 
 23:                                               ; preds = %21
-  %24 = tail call ptr @g_date_time_new_from_iso8601(ptr noundef %1, ptr noundef null) #11
+  %24 = tail call ptr @g_date_time_new_from_iso8601(ptr noundef %1, ptr noundef null) #12
   %25 = load ptr, ptr %19, align 8, !tbaa !48
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %24, ptr %26, align 8, !tbaa !21
@@ -1011,10 +1011,10 @@ define internal void @_gpx_parser_text(ptr readnone captures(none) %0, ptr nound
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 1, ptr %28, align 4, !tbaa !49
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.18, ptr noundef %1) #11
-  %29 = tail call i32 @g_markup_error_quark() #11
-  %30 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #11
-  tail call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef nonnull %4, i32 noundef %29, i32 noundef 2, ptr noundef %30) #11
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.18, ptr noundef %1) #12
+  %29 = tail call i32 @g_markup_error_quark() #12
+  %30 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #12
+  tail call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef nonnull %4, i32 noundef %29, i32 noundef 2, ptr noundef %30) #12
   br label %53
 
 31:                                               ; preds = %23
@@ -1024,10 +1024,10 @@ define internal void @_gpx_parser_text(ptr readnone captures(none) %0, ptr nound
   br i1 %.not38, label %34, label %37
 
 34:                                               ; preds = %31
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.19) #11
-  %35 = tail call i32 @g_markup_error_quark() #11
-  %36 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #11
-  tail call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef nonnull %4, i32 noundef %35, i32 noundef 2, ptr noundef %36) #11
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.19) #12
+  %35 = tail call i32 @g_markup_error_quark() #12
+  %36 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #12
+  tail call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef nonnull %4, i32 noundef %35, i32 noundef 2, ptr noundef %36) #12
   br label %53
 
 37:                                               ; preds = %31
@@ -1057,7 +1057,7 @@ define internal void @_gpx_parser_text(ptr readnone captures(none) %0, ptr nound
   br label %53
 
 49:                                               ; preds = %21
-  %50 = tail call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef %1, ptr noundef null) #11
+  %50 = tail call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef %1, ptr noundef null) #12
   %51 = load ptr, ptr %19, align 8, !tbaa !48
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store double %50, ptr %52, align 8, !tbaa !37
@@ -1070,13 +1070,13 @@ define internal void @_gpx_parser_text(ptr readnone captures(none) %0, ptr nound
 declare void @g_return_if_fail_warning(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_gpx_parse_error(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call i32 @g_markup_error_quark() #11
-  %3 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #11
-  tail call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef %0, i32 noundef %2, i32 noundef 2, ptr noundef %3) #11
+  %2 = tail call i32 @g_markup_error_quark() #12
+  %3 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #12
+  tail call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef %0, i32 noundef %2, i32 noundef 2, ptr noundef %3) #12
   ret void
 }
 
@@ -1087,33 +1087,34 @@ declare void @g_set_error(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ..
 declare i32 @g_markup_error_quark() local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
+declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 declare ptr @g_date_time_new_from_iso8601(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #2 = { allocsize(0) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #3 = { noreturn "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #9 = { nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind allocsize(0) }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #10 = { nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind allocsize(0) }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

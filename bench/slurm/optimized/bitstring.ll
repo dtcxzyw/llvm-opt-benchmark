@@ -336,14 +336,14 @@ define dso_local noundef ptr @bit_alloc(i64 noundef %0) #0 {
   br i1 %3, label %4, label %_cache_pop.exit.thread
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @cache_mutex) #17
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @cache_mutex) #18
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__errno_location() #18
+  %7 = tail call ptr @__errno_location() #19
   store i32 %5, ptr %7, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str, ptr noundef nonnull @__func__._cache_pop) #19
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str, ptr noundef nonnull @__func__._cache_pop) #20
   unreachable
 
 8:                                                ; preds = %4
@@ -352,22 +352,22 @@ define dso_local noundef ptr @bit_alloc(i64 noundef %0) #0 {
   br i1 %.not8.i, label %10, label %.thread
 
 10:                                               ; preds = %8
-  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @cache_mutex) #17
+  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @cache_mutex) #18
   %.not9.i = icmp eq i32 %11, 0
   br i1 %.not9.i, label %_cache_pop.exit.thread, label %14
 
 .thread:                                          ; preds = %8
   %12 = load ptr, ptr %9, align 8
   store ptr %12, ptr @cached_bitstr, align 8
-  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @cache_mutex) #17
+  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @cache_mutex) #18
   %.not9.i14 = icmp eq i32 %13, 0
   br i1 %.not9.i14, label %17, label %14
 
 14:                                               ; preds = %.thread, %10
   %15 = phi i32 [ %13, %.thread ], [ %11, %10 ]
-  %16 = tail call ptr @__errno_location() #18
+  %16 = tail call ptr @__errno_location() #19
   store i32 %15, ptr %16, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__._cache_pop) #19
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__._cache_pop) #20
   unreachable
 
 17:                                               ; preds = %.thread
@@ -382,7 +382,7 @@ _cache_pop.exit.thread:                           ; preds = %10, %1
   %22 = add i64 %0, 63
   %23 = lshr i64 %22, 6
   %24 = add nuw nsw i64 %23, 2
-  %25 = tail call ptr @slurm_xcalloc(i64 noundef %24, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 312, ptr noundef nonnull @__func__.bit_alloc) #17
+  %25 = tail call ptr @slurm_xcalloc(i64 noundef %24, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 312, ptr noundef nonnull @__func__.bit_alloc) #18
   br label %26
 
 26:                                               ; preds = %_cache_pop.exit.thread, %17
@@ -1282,7 +1282,7 @@ define dso_local noundef ptr @bit_fmt(ptr noundef returned captures(ret: address
   br i1 %.not39, label %.critedge, label %.preheader, !llvm.loop !26
 
 .critedge:                                        ; preds = %.preheader, %26
-  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
+  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %35 = trunc i64 %34 to i32
   %36 = icmp eq i64 %.2, %.03545
   %sext41 = shl i64 %34, 32
@@ -1293,11 +1293,11 @@ define dso_local noundef ptr @bit_fmt(ptr noundef returned captures(ret: address
   br i1 %36, label %41, label %43
 
 41:                                               ; preds = %.critedge
-  %42 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %38, i64 noundef %40, ptr noundef nonnull @.str.5, ptr noundef %.0.ph47, i64 noundef %.03545) #17
+  %42 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %38, i64 noundef %40, ptr noundef nonnull @.str.5, ptr noundef %.0.ph47, i64 noundef %.03545) #18
   br label %45
 
 43:                                               ; preds = %.critedge
-  %44 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %38, i64 noundef %40, ptr noundef nonnull @.str.6, ptr noundef %.0.ph47, i64 noundef %.03545, i64 noundef %.2) #17
+  %44 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %38, i64 noundef %40, ptr noundef nonnull @.str.6, ptr noundef %.0.ph47, i64 noundef %.03545, i64 noundef %.2) #18
   br label %45
 
 45:                                               ; preds = %43, %41
@@ -1306,7 +1306,7 @@ define dso_local noundef ptr @bit_fmt(ptr noundef returned captures(ret: address
   br i1 %46, label %47, label %.outer
 
 47:                                               ; preds = %45
-  %48 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8) #17
+  %48 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8) #18
   br label %.outer
 
 .outer:                                           ; preds = %..outer_crit_edge, %45, %47
@@ -1386,11 +1386,11 @@ define dso_local ptr @bit_fmt_full(ptr noundef readonly captures(none) %0) #0 {
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %.critedge
-  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.5, ptr noundef %.0.ph32, i64 noundef %.02330) #17
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.5, ptr noundef %.0.ph32, i64 noundef %.02330) #18
   br label %.outer
 
 36:                                               ; preds = %.critedge
-  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.6, ptr noundef %.0.ph32, i64 noundef %.02330, i64 noundef %.2) #17
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.6, ptr noundef %.0.ph32, i64 noundef %.02330, i64 noundef %.2) #18
   br label %.outer
 
 .outer:                                           ; preds = %35, %36, %18
@@ -1428,7 +1428,7 @@ define dso_local range(i32 -1, 1) i32 @bit_unfmt(ptr noundef captures(none) %0, 
 
 10:                                               ; preds = %7
   %11 = tail call i32 @inx2bitstr(ptr noundef %0, ptr noundef nonnull %8)
-  call void @slurm_xfree(ptr noundef nonnull %3) #17
+  call void @slurm_xfree(ptr noundef nonnull %3) #18
   br label %12
 
 12:                                               ; preds = %7, %2, %4, %10
@@ -1446,19 +1446,19 @@ define dso_local ptr @bitfmt2int(ptr noundef %0) #0 {
   br i1 %3, label %69, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @xstrchr(ptr noundef nonnull %0, i32 noundef 58) #17
+  %5 = tail call ptr @xstrchr(ptr noundef nonnull %0, i32 noundef 58) #18
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %33
 
 6:                                                ; preds = %4
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %8 = trunc i64 %7 to i32
   %9 = add i32 %8, 1
   %10 = shl nsw i32 %9, 1
   %11 = or disjoint i32 %10, 1
   %12 = sext i32 %11 to i64
   %13 = shl nsw i64 %12, 2
-  %14 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %13, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 1547, ptr noundef nonnull @__func__.bitfmt2int) #17
+  %14 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %13, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 1547, ptr noundef nonnull @__func__.bitfmt2int) #18
   %15 = icmp ult i32 %8, 2147483647
   br i1 %15, label %.lr.ph79.preheader, label %.loopexit
 
@@ -1517,7 +1517,7 @@ define dso_local ptr @bitfmt2int(ptr noundef %0) #0 {
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph79, !llvm.loop !29
 
 33:                                               ; preds = %4
-  %34 = call i64 @strtol(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 10) #17
+  %34 = call i64 @strtol(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 10) #18
   %35 = trunc i64 %34 to i32
   %36 = load ptr, ptr %2, align 8
   %37 = load i8, ptr %36, align 1
@@ -1526,7 +1526,7 @@ define dso_local ptr @bitfmt2int(ptr noundef %0) #0 {
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 1
-  %40 = call i64 @strtol(ptr noundef nonnull %39, ptr noundef nonnull %2, i32 noundef 10) #17
+  %40 = call i64 @strtol(ptr noundef nonnull %39, ptr noundef nonnull %2, i32 noundef 10) #18
   %41 = trunc i64 %40 to i32
   %42 = load ptr, ptr %2, align 8
   %43 = load i8, ptr %42, align 1
@@ -1535,7 +1535,7 @@ define dso_local ptr @bitfmt2int(ptr noundef %0) #0 {
 
 44:                                               ; preds = %38
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 1
-  %46 = call i64 @strtol(ptr noundef nonnull %45, ptr noundef nonnull %2, i32 noundef 10) #17
+  %46 = call i64 @strtol(ptr noundef nonnull %45, ptr noundef nonnull %2, i32 noundef 10) #18
   %47 = trunc i64 %46 to i32
   %48 = load ptr, ptr %2, align 8
   %49 = load i8, ptr %48, align 1
@@ -1555,7 +1555,7 @@ define dso_local ptr @bitfmt2int(ptr noundef %0) #0 {
   %57 = add i32 %56, 3
   %58 = sext i32 %57 to i64
   %59 = shl nsw i64 %58, 2
-  %60 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %59, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 1584, ptr noundef nonnull @__func__.bitfmt2int) #17
+  %60 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %59, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 1584, ptr noundef nonnull @__func__.bitfmt2int) #18
   %61 = icmp slt i32 %35, %41
   br i1 %61, label %.lr.ph, label %.loopexit
 
@@ -1609,7 +1609,7 @@ define dso_local range(i32 -1, 1) i32 @bit_unfmt_hexmask(ptr noundef captures(ad
   br i1 %or.cond, label %5, label %.loopexit
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %sext = shl i64 %6, 32
@@ -1646,7 +1646,7 @@ define dso_local range(i32 -1, 1) i32 @bit_unfmt_hexmask(ptr noundef captures(ad
   br label %bit_nclear.exit
 
 bit_nclear.exit:                                  ; preds = %.critedge.i, %5, %.critedge2.i
-  %23 = tail call i32 @xstrncmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.9, i64 noundef 2) #17
+  %23 = tail call i32 @xstrncmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.9, i64 noundef 2) #18
   %24 = icmp eq i32 %23, 0
   %spec.select.idx = select i1 %24, i64 2, i64 0
   %spec.select = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.idx
@@ -1654,7 +1654,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %5, %.
   br i1 %.not84.not, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %bit_nclear.exit
-  %25 = tail call ptr @__ctype_b_loc() #18
+  %25 = tail call ptr @__ctype_b_loc() #19
   br label %26
 
 26:                                               ; preds = %.lr.ph, %.backedge
@@ -1680,7 +1680,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %5, %.
   br label %42
 
 38:                                               ; preds = %34
-  %39 = tail call ptr @__ctype_toupper_loc() #18
+  %39 = tail call ptr @__ctype_toupper_loc() #19
   %.pn = load ptr, ptr %39, align 8
   %.062.in = getelementptr inbounds i32, ptr %.pn, i64 %28
   %.062 = load i32, ptr %.062.in, align 4
@@ -2264,14 +2264,14 @@ define dso_local noundef ptr @bit_copy(ptr noundef readonly captures(none) %0) #
   br i1 %7, label %8, label %_cache_pop.exit.thread.i
 
 8:                                                ; preds = %1
-  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @cache_mutex) #17
+  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @cache_mutex) #18
   %.not.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i, label %12, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call ptr @__errno_location() #18
+  %11 = tail call ptr @__errno_location() #19
   store i32 %9, ptr %11, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str, ptr noundef nonnull @__func__._cache_pop) #19
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str, ptr noundef nonnull @__func__._cache_pop) #20
   unreachable
 
 12:                                               ; preds = %8
@@ -2280,28 +2280,28 @@ define dso_local noundef ptr @bit_copy(ptr noundef readonly captures(none) %0) #
   br i1 %.not8.i.i, label %14, label %.thread.i
 
 14:                                               ; preds = %12
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @cache_mutex) #17
+  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @cache_mutex) #18
   %.not9.i.i = icmp eq i32 %15, 0
   br i1 %.not9.i.i, label %_cache_pop.exit.thread.i, label %18
 
 .thread.i:                                        ; preds = %12
   %16 = load ptr, ptr %13, align 8
   store ptr %16, ptr @cached_bitstr, align 8
-  %17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @cache_mutex) #17
+  %17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @cache_mutex) #18
   %.not9.i11.i = icmp eq i32 %17, 0
   br i1 %.not9.i11.i, label %bit_alloc_nz.exit, label %18
 
 18:                                               ; preds = %.thread.i, %14
   %19 = phi i32 [ %17, %.thread.i ], [ %15, %14 ]
-  %20 = tail call ptr @__errno_location() #18
+  %20 = tail call ptr @__errno_location() #19
   store i32 %19, ptr %20, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__._cache_pop) #19
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__._cache_pop) #20
   unreachable
 
 _cache_pop.exit.thread.i:                         ; preds = %14, %1
   %21 = lshr i64 %5, 6
   %22 = add nuw nsw i64 %21, 2
-  %23 = tail call ptr @slurm_xcalloc(i64 noundef %22, i64 noundef 8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 330, ptr noundef nonnull @__func__.bit_alloc_nz) #17
+  %23 = tail call ptr @slurm_xcalloc(i64 noundef %22, i64 noundef 8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 330, ptr noundef nonnull @__func__.bit_alloc_nz) #18
   br label %bit_alloc_nz.exit
 
 bit_alloc_nz.exit:                                ; preds = %.thread.i, %_cache_pop.exit.thread.i
@@ -2662,14 +2662,14 @@ define dso_local range(i64 -9223372036854775808, 9223372036854775807) i64 @bit_g
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bit_cache_init(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @cache_mutex) #17
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @cache_mutex) #18
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @__errno_location() #18
+  %4 = tail call ptr @__errno_location() #19
   store i32 %2, ptr %4, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.bit_cache_init) #19
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.bit_cache_init) #20
   unreachable
 
 5:                                                ; preds = %1
@@ -2678,19 +2678,19 @@ define dso_local void @bit_cache_init(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.bit_cache_init) #19
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.bit_cache_init) #20
   unreachable
 
 8:                                                ; preds = %5
   store i64 %0, ptr @cached_bitstr_len, align 8
-  %9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @cache_mutex) #17
+  %9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @cache_mutex) #18
   %.not7 = icmp eq i32 %9, 0
   br i1 %.not7, label %12, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call ptr @__errno_location() #18
+  %11 = tail call ptr @__errno_location() #19
   store i32 %9, ptr %11, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.bit_cache_init) #19
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.bit_cache_init) #20
   unreachable
 
 12:                                               ; preds = %8
@@ -2714,15 +2714,15 @@ define dso_local void @bit_cache_fini() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @cache_mutex) #17
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @cache_mutex) #18
   %.not.i7 = icmp eq i32 %2, 0
   br i1 %.not.i7, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %11, %0
   %.lcssa = phi i32 [ %2, %0 ], [ %12, %11 ]
-  %3 = tail call ptr @__errno_location() #18
+  %3 = tail call ptr @__errno_location() #19
   store i32 %.lcssa, ptr %3, align 4
-  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str, ptr noundef nonnull @__func__._cache_pop) #19
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str, ptr noundef nonnull @__func__._cache_pop) #20
   unreachable
 
 .lr.ph:                                           ; preds = %0, %11
@@ -2731,28 +2731,28 @@ define dso_local void @bit_cache_fini() local_unnamed_addr #0 {
   br i1 %.not8.i, label %5, label %.thread
 
 5:                                                ; preds = %.lr.ph
-  %6 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @cache_mutex) #17
+  %6 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @cache_mutex) #18
   %.not9.i = icmp eq i32 %6, 0
   br i1 %.not9.i, label %13, label %.loopexit
 
 .thread:                                          ; preds = %.lr.ph
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr @cached_bitstr, align 8
-  %8 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @cache_mutex) #17
+  %8 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @cache_mutex) #18
   %.not9.i1 = icmp eq i32 %8, 0
   br i1 %.not9.i1, label %11, label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %5
   %9 = phi i32 [ %6, %5 ], [ %8, %.thread ]
-  %10 = tail call ptr @__errno_location() #18
+  %10 = tail call ptr @__errno_location() #19
   store i32 %9, ptr %10, align 4
-  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__._cache_pop) #19
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__._cache_pop) #20
   unreachable
 
 11:                                               ; preds = %.thread
   store ptr %4, ptr %1, align 8
-  call void @slurm_xfree(ptr noundef nonnull %1) #17
-  %12 = call i32 @pthread_mutex_lock(ptr noundef nonnull @cache_mutex) #17
+  call void @slurm_xfree(ptr noundef nonnull %1) #18
+  %12 = call i32 @pthread_mutex_lock(ptr noundef nonnull @cache_mutex) #18
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %.lr.ph, label %._crit_edge, !llvm.loop !44
 
@@ -2773,7 +2773,7 @@ define dso_local ptr @slurm_bit_realloc(ptr noundef %0, i64 noundef %1) local_un
   %3 = add i64 %1, 63
   %4 = lshr i64 %3, 6
   %5 = add nuw nsw i64 %4, 2
-  %6 = tail call ptr @slurm_xrecalloc(ptr noundef %0, i64 noundef %5, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 349, ptr noundef nonnull @__func__.slurm_bit_realloc) #17
+  %6 = tail call ptr @slurm_xrecalloc(ptr noundef %0, i64 noundef %5, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 349, ptr noundef nonnull @__func__.slurm_bit_realloc) #18
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %1, ptr %8, align 8
@@ -2795,28 +2795,28 @@ define dso_local void @slurm_bit_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %7, label %8, label %17
 
 8:                                                ; preds = %1
-  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @cache_mutex) #17
+  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @cache_mutex) #18
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %12, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call ptr @__errno_location() #18
+  %11 = tail call ptr @__errno_location() #19
   store i32 %9, ptr %11, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str, ptr noundef nonnull @__func__._cache_push) #19
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str, ptr noundef nonnull @__func__._cache_push) #20
   unreachable
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr @cached_bitstr, align 8
   store ptr %13, ptr %3, align 8
   store ptr %3, ptr @cached_bitstr, align 8
-  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @cache_mutex) #17
+  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @cache_mutex) #18
   %.not6.i = icmp eq i32 %14, 0
   br i1 %.not6.i, label %_cache_push.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call ptr @__errno_location() #18
+  %16 = tail call ptr @__errno_location() #19
   store i32 %14, ptr %16, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__._cache_push) #19
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__._cache_push) #20
   unreachable
 
 _cache_push.exit:                                 ; preds = %12
@@ -2824,7 +2824,7 @@ _cache_push.exit:                                 ; preds = %12
   br label %18
 
 17:                                               ; preds = %1
-  tail call void @slurm_xfree(ptr noundef nonnull %0) #17
+  tail call void @slurm_xfree(ptr noundef nonnull %0) #18
   br label %18
 
 18:                                               ; preds = %17, %_cache_push.exit
@@ -3011,8 +3011,8 @@ define dso_local void @bit_or_not(ptr noundef captures(none) %0, ptr noundef rea
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #10
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #12
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local i64 @bit_nth_set(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
@@ -3302,10 +3302,10 @@ bit_nclear.exit:                                  ; preds = %4, %._crit_edge.i, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #13
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #8
 
@@ -3380,12 +3380,12 @@ define dso_local ptr @bit_fmt_range(ptr noundef readonly captures(none) %0, i32 
   br i1 %38, label %40, label %41
 
 40:                                               ; preds = %.critedge
-  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull @.str.5, ptr noundef %.0.ph43, i64 noundef %39) #17
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull @.str.5, ptr noundef %.0.ph43, i64 noundef %39) #18
   br label %.outer
 
 41:                                               ; preds = %.critedge
   %42 = sub nsw i64 %.2, %10
-  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull @.str.6, ptr noundef %.0.ph43, i64 noundef %39, i64 noundef %42) #17
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull @.str.6, ptr noundef %.0.ph43, i64 noundef %39, i64 noundef %42) #18
   br label %.outer
 
 .outer:                                           ; preds = %40, %41, %22
@@ -3550,7 +3550,7 @@ bit_nset.exit:                                    ; preds = %.critedge2.i26, %60
 declare ptr @xstrchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #14
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @bitstr2inx(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -3558,7 +3558,7 @@ define dso_local ptr @bitstr2inx(ptr noundef readonly captures(address_is_null) 
   br i1 %.not, label %2, label %4
 
 2:                                                ; preds = %1
-  %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 1627, ptr noundef nonnull @__func__.bitstr2inx) #17
+  %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 1627, ptr noundef nonnull @__func__.bitstr2inx) #18
   store i32 -1, ptr %3, align 4
   br label %43
 
@@ -3567,7 +3567,7 @@ define dso_local ptr @bitstr2inx(ptr noundef readonly captures(address_is_null) 
   %6 = load i64, ptr %5, align 8
   %7 = shl i64 %6, 2
   %8 = add i64 %7, 8
-  %9 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 1635, ptr noundef nonnull @__func__.bitstr2inx) #17
+  %9 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 1635, ptr noundef nonnull @__func__.bitstr2inx) #18
   %10 = load i64, ptr %5, align 8
   %11 = icmp sgt i64 %10, 0
   br i1 %11, label %.lr.ph, label %.outer._crit_edge
@@ -3716,14 +3716,14 @@ bit_fls.exit:                                     ; preds = %10, %17, %.outer.i.
   br i1 %.not, label %31, label %33
 
 31:                                               ; preds = %30
-  %32 = tail call ptr @xstrdup(ptr noundef nonnull @.str.10) #17
+  %32 = tail call ptr @xstrdup(ptr noundef nonnull @.str.10) #18
   br label %.loopexit83
 
 33:                                               ; preds = %30
   %34 = add nsw i64 %.062, 3
   %35 = sdiv i64 %34, 4
   %36 = add nsw i64 %35, 3
-  %37 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %36, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 1679, ptr noundef nonnull @__func__._bit_fmt_hexmask) #17
+  %37 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %36, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 1679, ptr noundef nonnull @__func__._bit_fmt_hexmask) #18
   store i8 48, ptr %37, align 1
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
   store i8 120, ptr %38, align 1
@@ -4020,16 +4020,16 @@ bit_nset.exit:                                    ; preds = %.critedge.i22, %bit
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #17
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4043,15 +4043,16 @@ attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind }
-attributes #18 = { nounwind willreturn memory(none) }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { nounwind willreturn memory(read) }
+attributes #12 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nounwind }
+attributes #19 = { nounwind willreturn memory(none) }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 

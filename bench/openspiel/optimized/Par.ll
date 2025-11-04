@@ -107,12 +107,12 @@ define range(i32 -1, 2) i32 @Par(ptr noundef readonly captures(none) %0, ptr nou
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 19
   store i8 0, ptr %15, align 1
   %16 = load i32, ptr %4, align 16
-  %17 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %16) #13
-  %18 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %5) #13
+  %17 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %16) #14
+  %18 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %5) #14
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 208
   %20 = load i32, ptr %19, align 16
-  %21 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %20) #13
-  %22 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %5) #13
+  %21 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %20) #14
+  %22 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %5) #14
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i8 78, ptr %23, align 1
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 33
@@ -171,10 +171,10 @@ define range(i32 -1, 2) i32 @Par(ptr noundef readonly captures(none) %0, ptr nou
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds [4 x i8], ptr @__const.Par.seats, i64 %49
-  %51 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %50) #13
+  %51 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %50) #14
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %53 = load i32, ptr %52, align 4
-  %54 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %53) #13
+  %54 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %53) #14
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 12
   %56 = load i32, ptr %55, align 4
   %57 = sext i32 %56 to i64
@@ -186,8 +186,8 @@ define range(i32 -1, 2) i32 @Par(ptr noundef readonly captures(none) %0, ptr nou
   store i8 %62, ptr %6, align 1
   store i8 120, ptr %33, align 1
   store i8 0, ptr %34, align 1
-  %63 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %6) #13
-  %64 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %5) #13
+  %63 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %6) #14
+  %64 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %5) #14
   %65 = load i32, ptr %40, align 4
   %66 = add nsw i32 %65, -1
   %67 = zext i32 %66 to i64
@@ -213,7 +213,7 @@ define range(i32 -1, 2) i32 @Par(ptr noundef readonly captures(none) %0, ptr nou
   %75 = load i32, ptr %74, align 4
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds [4 x i8], ptr @__const.Par.seats, i64 %76
-  %78 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %77) #13
+  %78 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %77) #14
   %79 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %80 = load i32, ptr %79, align 4
   %81 = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -262,7 +262,7 @@ switch.lookup91:                                  ; preds = %86
 
 _Z18CalcMultiContractsii.exit:                    ; preds = %86, %switch.lookup91, %84, %switch.lookup, %72, %88, %89
   %.0.i = phi i32 [ %..i, %89 ], [ %switch.select14.i, %88 ], [ %83, %72 ], [ %switch.load, %switch.lookup ], [ 5, %84 ], [ %switch.load93, %switch.lookup91 ], [ 4, %86 ]
-  %93 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.0.i) #13
+  %93 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.0.i) #14
   %94 = getelementptr inbounds nuw i8, ptr %73, i64 12
   %95 = load i32, ptr %94, align 4
   %96 = sext i32 %95 to i64
@@ -273,8 +273,8 @@ _Z18CalcMultiContractsii.exit:                    ; preds = %86, %switch.lookup9
   %101 = load i8, ptr %100, align 1
   store i8 %101, ptr %6, align 1
   store i8 0, ptr %33, align 1
-  %102 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %6) #13
-  %103 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %5) #13
+  %102 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %6) #14
+  %103 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %5) #14
   %104 = load i32, ptr %40, align 4
   %105 = add nsw i32 %104, -1
   %106 = zext i32 %105 to i64
@@ -2074,32 +2074,32 @@ define i32 @DealerParBin(ptr noundef %0, ptr noundef writeonly captures(none) %1
   %.sink133 = phi i32 [ 4, %62 ], [ 3, %61 ], [ 2, %60 ], [ 1, %59 ], [ 0, %50 ]
   %64 = getelementptr inbounds nuw i8, ptr %55, i64 12
   store i32 %.sink133, ptr %64, align 4
-  %65 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @.str.1) #14
+  %65 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @.str.1) #15
   %.not95 = icmp eq ptr %65, null
   br i1 %.not95, label %66, label %.sink.split135
 
 66:                                               ; preds = %63
-  %67 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @.str.2) #14
+  %67 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @.str.2) #15
   %.not96 = icmp eq ptr %67, null
   br i1 %.not96, label %68, label %.sink.split135
 
 68:                                               ; preds = %66
-  %69 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @.str.3) #14
+  %69 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @.str.3) #15
   %.not97 = icmp eq ptr %69, null
   br i1 %.not97, label %70, label %.sink.split135
 
 70:                                               ; preds = %68
-  %71 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @.str.4) #14
+  %71 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @.str.4) #15
   %.not98 = icmp eq ptr %71, null
   br i1 %.not98, label %72, label %.sink.split135
 
 72:                                               ; preds = %70
-  %73 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @.str.5) #14
+  %73 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @.str.5) #15
   %.not99 = icmp eq ptr %73, null
   br i1 %.not99, label %74, label %.sink.split135
 
 74:                                               ; preds = %72
-  %75 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @.str.6) #14
+  %75 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @.str.6) #15
   %.not100 = icmp eq ptr %75, null
   br i1 %.not100, label %77, label %.sink.split135
 
@@ -2126,7 +2126,7 @@ define i32 @DealerParBin(ptr noundef %0, ptr noundef writeonly captures(none) %1
   br label %95
 
 85:                                               ; preds = %77
-  %86 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %51, i32 noundef 43) #14
+  %86 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %51, i32 noundef 43) #15
   %.not101 = icmp eq ptr %86, null
   br i1 %.not101, label %93, label %87
 
@@ -2197,7 +2197,7 @@ define range(i32 -1, 2) i32 @SidesPar(ptr noundef readonly captures(none) %0, pt
   %18 = getelementptr inbounds nuw %struct.contractType, ptr %15, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 4
-  %21 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %20) #13
+  %21 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %20) #14
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = icmp ult i32 %23, 5
@@ -2275,7 +2275,7 @@ switch.lookup:                                    ; preds = %16
   br i1 %28, label %40, label %42
 
 40:                                               ; preds = %39
-  %41 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %27) #13
+  %41 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %27) #14
   br label %.sink.split112
 
 42:                                               ; preds = %39
@@ -2285,11 +2285,11 @@ switch.lookup:                                    ; preds = %16
   br i1 %45, label %46, label %49
 
 46:                                               ; preds = %42
-  %47 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %44) #13
+  %47 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %44) #14
   br label %.sink.split112
 
 .sink.split112:                                   ; preds = %46, %40
-  %48 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %5) #13
+  %48 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %5) #14
   br label %49
 
 49:                                               ; preds = %.sink.split112, %42
@@ -2311,7 +2311,7 @@ switch.lookup:                                    ; preds = %16
 define range(i32 -1, 2) i32 @ConvertToDealerTextFormat(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca [20 x i8], align 16
   %4 = load i32, ptr %0, align 4
-  %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %4) #13
+  %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %4) #14
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, 0
@@ -2385,8 +2385,8 @@ define range(i32 -1, 2) i32 @ConvertToDealerTextFormat(ptr noundef readonly capt
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %3, i8 0, i64 10, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %24 = load i32, ptr %23, align 4
-  %25 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %24) #13
-  %26 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %3) #13
+  %25 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %24) #14
+  %26 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %3) #14
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %28 = load i32, ptr %27, align 4
   %29 = icmp ult i32 %28, 5
@@ -2425,8 +2425,8 @@ switch.lookup:                                    ; preds = %22
   %.sink86.in = phi ptr [ %13, %33 ], [ %35, %38 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %3, i8 0, i64 10, i1 false)
   %.sink86 = load i32, ptr %.sink86.in, align 4
-  %39 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.sink86) #13
-  %40 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %3) #13
+  %39 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.sink86) #14
+  %40 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %3) #14
   br label %41
 
 41:                                               ; preds = %.sink.split, %34
@@ -2468,7 +2468,7 @@ define range(i32 -1, 2) i32 @ConvertToSidesTextFormat(ptr noundef readonly captu
   %15 = getelementptr inbounds nuw [128 x i8], ptr %1, i64 %indvars.iv177
   %16 = getelementptr inbounds nuw %struct.parResultsMaster, ptr %0, i64 %indvars.iv177
   %17 = load i32, ptr %16, align 4
-  %18 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %17) #13
+  %18 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %17) #14
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp sgt i32 %20, 0
@@ -2542,8 +2542,8 @@ define range(i32 -1, 2) i32 @ConvertToSidesTextFormat(ptr noundef readonly captu
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %3, i8 0, i64 10, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %37 = load i32, ptr %36, align 4
-  %38 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %37) #13
-  %39 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %3) #13
+  %38 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %37) #14
+  %39 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %3) #14
   %40 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %41 = load i32, ptr %40, align 4
   switch i32 %41, label %.loopexit154 [
@@ -2611,8 +2611,8 @@ define range(i32 -1, 2) i32 @ConvertToSidesTextFormat(ptr noundef readonly captu
   %.sink.in = phi ptr [ %26, %50 ], [ %52, %55 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %3, i8 0, i64 10, i1 false)
   %.sink = load i32, ptr %.sink.in, align 4
-  %56 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.sink) #13
-  %57 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %3) #13
+  %56 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.sink) #14
+  %57 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %3) #14
   br label %58
 
 58:                                               ; preds = %.sink.split, %51
@@ -2712,11 +2712,11 @@ declare i64 @strlen(ptr captures(none)) local_unnamed_addr #11
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2731,8 +2731,9 @@ attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

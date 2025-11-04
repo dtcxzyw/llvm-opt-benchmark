@@ -54,30 +54,30 @@ define hidden zeroext i1 @SDL_SYS_HapticInit() local_unnamed_addr #0 {
 3:                                                ; preds = %0, %3
   %.06 = phi i32 [ 0, %0 ], [ %4, %3 ]
   %4 = add nuw nsw i32 %.06, 1
-  %5 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %2, i64 noundef 4096, ptr noundef nonnull %1, i32 noundef %.06) #13
+  %5 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %2, i64 noundef 4096, ptr noundef nonnull %1, i32 noundef %.06) #14
   call fastcc void @MaybeAddDevice(ptr noundef %2)
   %exitcond.not = icmp eq i32 %4, 32
   br i1 %exitcond.not, label %6, label %3, !llvm.loop !3
 
 6:                                                ; preds = %3
-  %7 = call zeroext i1 @SDL_UDEV_Init() #13
+  %7 = call zeroext i1 @SDL_UDEV_Init() #14
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %6
-  %9 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str) #13
+  %9 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str) #14
   br label %16
 
 10:                                               ; preds = %6
-  %11 = call zeroext i1 @SDL_UDEV_AddCallback(ptr noundef nonnull @haptic_udev_callback) #13
+  %11 = call zeroext i1 @SDL_UDEV_AddCallback(ptr noundef nonnull @haptic_udev_callback) #14
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %10
-  call void @SDL_UDEV_Quit() #13
-  %13 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #13
+  call void @SDL_UDEV_Quit() #14
+  %13 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #14
   br label %16
 
 14:                                               ; preds = %10
-  %15 = call zeroext i1 @SDL_UDEV_Scan() #13
+  %15 = call zeroext i1 @SDL_UDEV_Scan() #14
   br label %16
 
 16:                                               ; preds = %14, %12, %8
@@ -96,12 +96,12 @@ declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local
 define internal fastcc void @MaybeAddDevice(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %3 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %0, i32 noundef 524290, i32 noundef 0) #13
+  %3 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %0, i32 noundef 524290, i32 noundef 0) #14
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %39, label %5
 
 5:                                                ; preds = %1
-  %6 = call i32 @fstat(i32 noundef %3, ptr noundef nonnull %2) #13
+  %6 = call i32 @fstat(i32 noundef %3, ptr noundef nonnull %2) #14
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.preheader, label %9
 
@@ -116,7 +116,7 @@ define internal fastcc void @MaybeAddDevice(ptr noundef nonnull %0) unnamed_addr
   br label %13
 
 9:                                                ; preds = %5
-  %10 = tail call i32 @close(i32 noundef %3) #13
+  %10 = tail call i32 @close(i32 noundef %3) #14
   br label %39
 
 11:                                               ; preds = %13
@@ -133,31 +133,31 @@ define internal fastcc void @MaybeAddDevice(ptr noundef nonnull %0) unnamed_addr
   br i1 %16, label %17, label %11
 
 17:                                               ; preds = %13
-  %18 = tail call i32 @close(i32 noundef %3) #13
+  %18 = tail call i32 @close(i32 noundef %3) #14
   br label %39
 
 ._crit_edge:                                      ; preds = %11, %.preheader
   %19 = tail call fastcc i32 @EV_IsHaptic(i32 noundef %3)
-  %20 = tail call i32 @close(i32 noundef %3) #13
+  %20 = tail call i32 @close(i32 noundef %3) #14
   %.not28 = icmp eq i32 %19, 0
   br i1 %.not28, label %39, label %21
 
 21:                                               ; preds = %._crit_edge
-  %22 = tail call noalias dereferenceable_or_null(40) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 40) #14
+  %22 = tail call noalias dereferenceable_or_null(40) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 40) #15
   %.not29 = icmp eq ptr %22, null
   br i1 %.not29, label %39, label %23
 
 23:                                               ; preds = %21
-  %24 = tail call i32 @SDL_GetNextObjectID() #13
+  %24 = tail call i32 @SDL_GetNextObjectID() #14
   store i32 %24, ptr %22, align 8
-  %25 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %0) #13
+  %25 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %0) #14
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %25, ptr %26, align 8
   %.not30 = icmp eq ptr %25, null
   br i1 %.not30, label %27, label %28
 
 27:                                               ; preds = %23
-  tail call void @SDL_free_REAL(ptr noundef nonnull %22) #13
+  tail call void @SDL_free_REAL(ptr noundef nonnull %22) #14
   br label %39
 
 28:                                               ; preds = %23
@@ -222,14 +222,14 @@ define internal void @haptic_udev_callback(i32 noundef %0, i32 noundef %1, ptr n
 .lr.ph.i.preheader:                               ; preds = %7
   %8 = getelementptr inbounds nuw i8, ptr %.01722.i, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @SDL_strcmp_REAL(ptr noundef nonnull %2, ptr noundef %9) #13
+  %10 = tail call i32 @SDL_strcmp_REAL(ptr noundef nonnull %2, ptr noundef %9) #14
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %20, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %.017.i, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @SDL_strcmp_REAL(ptr noundef nonnull %2, ptr noundef %13) #13
+  %14 = tail call i32 @SDL_strcmp_REAL(ptr noundef nonnull %2, ptr noundef %13) #14
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %.lr.ph, !llvm.loop !6
 
@@ -263,8 +263,8 @@ define internal void @haptic_udev_callback(i32 noundef %0, i32 noundef %1, ptr n
   %30 = add nsw i32 %29, -1
   store i32 %30, ptr @numhaptics, align 4
   %31 = load ptr, ptr %24, align 8
-  tail call void @SDL_free_REAL(ptr noundef %31) #13
-  tail call void @SDL_free_REAL(ptr noundef nonnull %.01725.i.lcssa817) #13
+  tail call void @SDL_free_REAL(ptr noundef %31) #14
+  tail call void @SDL_free_REAL(ptr noundef nonnull %.01725.i.lcssa817) #14
   br label %MaybeRemoveDevice.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -354,12 +354,12 @@ HapticByDevIndex.exit:                            ; preds = %.lr.ph.i, %.prehead
 7:                                                ; preds = %HapticByDevIndex.exit
   %8 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 (ptr, i32, ...) @open(ptr noundef %9, i32 noundef 524288, i32 noundef 0) #13
+  %10 = tail call i32 (ptr, i32, ...) @open(ptr noundef %9, i32 noundef 524288, i32 noundef 0) #14
   %11 = icmp sgt i32 %10, -1
   br i1 %11, label %12, label %HapticByDevIndex.exit.thread
 
 12:                                               ; preds = %7
-  %13 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %10, i64 noundef 2155889926, ptr noundef nonnull @SDL_SYS_HapticNameFromFD.namebuf) #13
+  %13 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %10, i64 noundef 2155889926, ptr noundef nonnull @SDL_SYS_HapticNameFromFD.namebuf) #14
   %14 = icmp slt i32 %13, 1
   br i1 %14, label %15, label %17
 
@@ -369,7 +369,7 @@ HapticByDevIndex.exit:                            ; preds = %.lr.ph.i, %.prehead
 
 17:                                               ; preds = %15, %12
   %.1 = phi ptr [ @SDL_SYS_HapticNameFromFD.namebuf, %12 ], [ %16, %15 ]
-  %18 = tail call i32 @close(i32 noundef %10) #13
+  %18 = tail call i32 @close(i32 noundef %10) #14
   br label %HapticByDevIndex.exit.thread
 
 HapticByDevIndex.exit.thread:                     ; preds = %1, %7, %17, %HapticByDevIndex.exit
@@ -398,16 +398,16 @@ define hidden zeroext i1 @SDL_SYS_HapticOpen(ptr noundef %0) local_unnamed_addr 
 HapticByInstanceID.exit:                          ; preds = %.lr.ph.i
   %6 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 (ptr, i32, ...) @open(ptr noundef %7, i32 noundef 524290, i32 noundef 0) #13
+  %8 = tail call i32 (ptr, i32, ...) @open(ptr noundef %7, i32 noundef 524290, i32 noundef 0) #14
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %HapticByInstanceID.exit
   %11 = load ptr, ptr %6, align 8
-  %12 = tail call ptr @__errno_location() #15
+  %12 = tail call ptr @__errno_location() #16
   %13 = load i32, ptr %12, align 4
-  %14 = tail call ptr @strerror(i32 noundef %13) #13
-  %15 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef %11, ptr noundef %14) #13
+  %14 = tail call ptr @strerror(i32 noundef %13) #14
+  %15 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef %11, ptr noundef %14) #14
   br label %24
 
 16:                                               ; preds = %HapticByInstanceID.exit
@@ -416,7 +416,7 @@ HapticByInstanceID.exit:                          ; preds = %.lr.ph.i
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr %6, align 8
-  %20 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef %19) #13
+  %20 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef %19) #14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -436,7 +436,7 @@ declare ptr @__errno_location() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @SDL_SYS_HapticOpenFromFD(ptr noundef initializes((40, 48)) %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #0 {
-  %3 = tail call noalias dereferenceable_or_null(16) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 16) #14
+  %3 = tail call noalias dereferenceable_or_null(16) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 16) #15
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %3, ptr %4, align 8
   %.not = icmp eq ptr %3, null
@@ -450,15 +450,15 @@ define internal fastcc noundef zeroext i1 @SDL_SYS_HapticOpenFromFD(ptr noundef 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 2, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 2147763588, ptr noundef nonnull %9) #13
+  %10 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 2147763588, ptr noundef nonnull %9) #14
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %5
-  %13 = tail call ptr @__errno_location() #15
+  %13 = tail call ptr @__errno_location() #16
   %14 = load i32, ptr %13, align 4
-  %15 = tail call ptr @strerror(i32 noundef %14) #13
-  %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.12, ptr noundef %15) #13
+  %15 = tail call ptr @strerror(i32 noundef %14) #14
+  %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.12, ptr noundef %15) #14
   br label %28
 
 17:                                               ; preds = %5
@@ -467,7 +467,7 @@ define internal fastcc noundef zeroext i1 @SDL_SYS_HapticOpenFromFD(ptr noundef 
   store i32 %18, ptr %19, align 4
   %20 = sext i32 %18 to i64
   %21 = mul nsw i64 %20, 80
-  %22 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %21) #13
+  %22 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %21) #14
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %23, align 8
   %.not23 = icmp eq ptr %22, null
@@ -481,13 +481,13 @@ define internal fastcc noundef zeroext i1 @SDL_SYS_HapticOpenFromFD(ptr noundef 
   br label %32
 
 28:                                               ; preds = %17, %2, %12
-  %29 = tail call i32 @close(i32 noundef %1) #13
+  %29 = tail call i32 @close(i32 noundef %1) #14
   %30 = load ptr, ptr %4, align 8
   %.not24 = icmp eq ptr %30, null
   br i1 %.not24, label %32, label %31
 
 31:                                               ; preds = %28
-  tail call void @SDL_free_REAL(ptr noundef nonnull %30) #13
+  tail call void @SDL_free_REAL(ptr noundef nonnull %30) #14
   store ptr null, ptr %4, align 8
   br label %32
 
@@ -510,26 +510,26 @@ define hidden i32 @SDL_SYS_HapticMouse() local_unnamed_addr #0 {
   %.01020 = phi i32 [ %19, %18 ], [ 0, %0 ]
   %2 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call i32 (ptr, i32, ...) @open(ptr noundef %3, i32 noundef 524290, i32 noundef 0) #13
+  %4 = call i32 (ptr, i32, ...) @open(ptr noundef %3, i32 noundef 524290, i32 noundef 0) #14
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %14
 
 6:                                                ; preds = %.lr.ph
   %7 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call ptr @__errno_location() #15
+  %9 = tail call ptr @__errno_location() #16
   %10 = load i32, ptr %9, align 4
-  %11 = call ptr @strerror(i32 noundef %10) #13
-  %12 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef %8, ptr noundef %11) #13
+  %11 = call ptr @strerror(i32 noundef %10) #14
+  %12 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef %8, ptr noundef %11) #14
   %13 = zext i1 %12 to i32
   br label %.loopexit
 
 14:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %15 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %4, i64 noundef 2168472865, ptr noundef nonnull %1) #13
+  %15 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %4, i64 noundef 2168472865, ptr noundef nonnull %1) #14
   %16 = icmp sgt i32 %15, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %17 = call i32 @close(i32 noundef %4) #13
+  %17 = call i32 @close(i32 noundef %4) #14
   br i1 %16, label %.loopexit, label %18
 
 18:                                               ; preds = %14
@@ -546,7 +546,7 @@ define hidden i32 @SDL_SYS_HapticMouse() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SYS_JoystickIsHaptic(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  tail call void @SDL_AssertJoysticksLocked() #13
+  tail call void @SDL_AssertJoysticksLocked() #14
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, @SDL_LINUX_JoystickDriver
@@ -571,15 +571,15 @@ declare void @SDL_AssertJoysticksLocked() local_unnamed_addr #2
 define internal fastcc range(i32 0, 262144) i32 @EV_IsHaptic(i32 noundef %0) unnamed_addr #0 {
   %2 = alloca [16 x i64], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %3 = call i32 (i32, i64, ...) @ioctl(i32 noundef %0, i64 noundef 2155889973, ptr noundef nonnull %2) #13
+  %3 = call i32 (i32, i64, ...) @ioctl(i32 noundef %0, i64 noundef 2155889973, ptr noundef nonnull %2) #14
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @__errno_location() #15
+  %6 = tail call ptr @__errno_location() #16
   %7 = load i32, ptr %6, align 4
-  %8 = call ptr @strerror(i32 noundef %7) #13
-  %9 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.13, ptr noundef %8) #13
+  %8 = call ptr @strerror(i32 noundef %7) #14
+  %9 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.13, ptr noundef %8) #14
   br label %36
 
 10:                                               ; preds = %1
@@ -629,7 +629,7 @@ define internal fastcc range(i32 0, 262144) i32 @EV_IsHaptic(i32 noundef %0) unn
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SYS_JoystickSameHaptic(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  tail call void @SDL_AssertJoysticksLocked() #13
+  tail call void @SDL_AssertJoysticksLocked() #14
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, @SDL_LINUX_JoystickDriver
@@ -644,7 +644,7 @@ define hidden zeroext i1 @SDL_SYS_JoystickSameHaptic(ptr noundef readonly captur
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @SDL_strcmp_REAL(ptr noundef %9, ptr noundef %13) #13
+  %14 = tail call i32 @SDL_strcmp_REAL(ptr noundef %9, ptr noundef %13) #14
   %15 = icmp eq i32 %14, 0
   br label %16
 
@@ -657,7 +657,7 @@ declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SYS_HapticOpenFromJoystick(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  tail call void @SDL_AssertJoysticksLocked() #13
+  tail call void @SDL_AssertJoysticksLocked() #14
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, @SDL_LINUX_JoystickDriver
@@ -679,7 +679,7 @@ define hidden zeroext i1 @SDL_SYS_HapticOpenFromJoystick(ptr noundef %0, ptr nou
   %9 = load ptr, ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 @SDL_strcmp_REAL(ptr noundef %8, ptr noundef %11) #13
+  %12 = tail call i32 @SDL_strcmp_REAL(ptr noundef %8, ptr noundef %11) #14
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %16
 
@@ -699,7 +699,7 @@ define hidden zeroext i1 @SDL_SYS_HapticOpenFromJoystick(ptr noundef %0, ptr nou
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 (ptr, i32, ...) @open(ptr noundef %21, i32 noundef 524290, i32 noundef 0) #13
+  %22 = tail call i32 (ptr, i32, ...) @open(ptr noundef %21, i32 noundef 524290, i32 noundef 0) #14
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %32
 
@@ -707,10 +707,10 @@ define hidden zeroext i1 @SDL_SYS_HapticOpenFromJoystick(ptr noundef %0, ptr nou
   %25 = load ptr, ptr %18, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call ptr @__errno_location() #15
+  %28 = tail call ptr @__errno_location() #16
   %29 = load i32, ptr %28, align 4
-  %30 = tail call ptr @strerror(i32 noundef %29) #13
-  %31 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef %27, ptr noundef %30) #13
+  %30 = tail call ptr @strerror(i32 noundef %29) #14
+  %31 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef %27, ptr noundef %30) #14
   br label %47
 
 32:                                               ; preds = %.loopexit
@@ -721,17 +721,17 @@ define hidden zeroext i1 @SDL_SYS_HapticOpenFromJoystick(ptr noundef %0, ptr nou
   %35 = load ptr, ptr %18, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef %37) #13
+  %38 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef %37) #14
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %38, ptr %41, align 8
-  %42 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %22, i64 noundef 2155889926, ptr noundef nonnull @SDL_SYS_HapticNameFromFD.namebuf) #13
+  %42 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %22, i64 noundef 2155889926, ptr noundef nonnull @SDL_SYS_HapticNameFromFD.namebuf) #14
   %43 = icmp slt i32 %42, 1
   br i1 %43, label %47, label %44
 
 44:                                               ; preds = %34
-  %45 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull @SDL_SYS_HapticNameFromFD.namebuf) #13
+  %45 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull @SDL_SYS_HapticNameFromFD.namebuf) #14
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %45, ptr %46, align 8
   br label %47
@@ -751,19 +751,19 @@ define hidden void @SDL_SYS_HapticClose(ptr noundef captures(none) initializes((
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  tail call void @SDL_free_REAL(ptr noundef %6) #13
+  tail call void @SDL_free_REAL(ptr noundef %6) #14
   store ptr null, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %7, align 8
   %8 = load ptr, ptr %2, align 8
   %9 = load i32, ptr %8, align 8
-  %10 = tail call i32 @close(i32 noundef %9) #13
+  %10 = tail call i32 @close(i32 noundef %9) #14
   %11 = load ptr, ptr %2, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  tail call void @SDL_free_REAL(ptr noundef %13) #13
+  tail call void @SDL_free_REAL(ptr noundef %13) #14
   %14 = load ptr, ptr %2, align 8
-  tail call void @SDL_free_REAL(ptr noundef %14) #13
+  tail call void @SDL_free_REAL(ptr noundef %14) #14
   br label %15
 
 15:                                               ; preds = %4, %1
@@ -788,14 +788,14 @@ define hidden void @SDL_SYS_HapticQuit() local_unnamed_addr #0 {
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.06, i64 8
   %5 = load ptr, ptr %4, align 8
-  tail call void @SDL_free_REAL(ptr noundef %5) #13
-  tail call void @SDL_free_REAL(ptr noundef nonnull %.06) #13
+  tail call void @SDL_free_REAL(ptr noundef %5) #14
+  tail call void @SDL_free_REAL(ptr noundef nonnull %.06) #14
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
-  tail call void @SDL_UDEV_DelCallback(ptr noundef nonnull @haptic_udev_callback) #13
-  tail call void @SDL_UDEV_Quit() #13
+  tail call void @SDL_UDEV_DelCallback(ptr noundef nonnull @haptic_udev_callback) #14
+  tail call void @SDL_UDEV_Quit() #14
   store i32 0, ptr @numhaptics, align 4
   store ptr null, ptr @SDL_hapticlist, align 8
   store ptr null, ptr @SDL_hapticlist_tail, align 8
@@ -806,7 +806,7 @@ declare void @SDL_UDEV_DelCallback(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_SYS_HapticNewEffect(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((72, 80)) %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noalias dereferenceable_or_null(48) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 48) #14
+  %4 = tail call noalias dereferenceable_or_null(48) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 48) #15
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %4, ptr %5, align 8
   %.not = icmp eq ptr %4, null
@@ -822,20 +822,20 @@ define hidden noundef zeroext i1 @SDL_SYS_HapticNewEffect(ptr noundef readonly c
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 8
-  %13 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %12, i64 noundef 1076905344, ptr noundef nonnull %4) #13
+  %13 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %12, i64 noundef 1076905344, ptr noundef nonnull %4) #14
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %15, label %22
 
 15:                                               ; preds = %8
-  %16 = tail call ptr @__errno_location() #15
+  %16 = tail call ptr @__errno_location() #16
   %17 = load i32, ptr %16, align 4
-  %18 = tail call ptr @strerror(i32 noundef %17) #13
-  %19 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3, ptr noundef %18) #13
+  %18 = tail call ptr @strerror(i32 noundef %17) #14
+  %19 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3, ptr noundef %18) #14
   br label %20
 
 20:                                               ; preds = %6, %15
   %21 = load ptr, ptr %5, align 8
-  tail call void @SDL_free_REAL(ptr noundef %21) #13
+  tail call void @SDL_free_REAL(ptr noundef %21) #14
   store ptr null, ptr %5, align 8
   br label %22
 
@@ -1223,7 +1223,7 @@ switch.lookup231:                                 ; preds = %.split214
   br label %235
 
 233:                                              ; preds = %2, %.split
-  %234 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.14) #13
+  %234 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.14) #14
   br label %235
 
 235:                                              ; preds = %12, %76, %119, %176, %215, %172, %115, %48, %8, %233
@@ -1251,15 +1251,15 @@ define hidden zeroext i1 @SDL_SYS_HapticUpdateEffect(ptr noundef readonly captur
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 8
-  %15 = call i32 (i32, i64, ...) @ioctl(i32 noundef %14, i64 noundef 1076905344, ptr noundef nonnull %4) #13
+  %15 = call i32 (i32, i64, ...) @ioctl(i32 noundef %14, i64 noundef 1076905344, ptr noundef nonnull %4) #14
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %6
-  %18 = tail call ptr @__errno_location() #15
+  %18 = tail call ptr @__errno_location() #16
   %19 = load i32, ptr %18, align 4
-  %20 = call ptr @strerror(i32 noundef %19) #13
-  %21 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef %20) #13
+  %20 = call ptr @strerror(i32 noundef %19) #14
+  %21 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef %20) #14
   br label %24
 
 22:                                               ; preds = %6
@@ -1291,15 +1291,15 @@ define hidden zeroext i1 @SDL_SYS_HapticRunEffect(ptr noundef readonly captures(
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %14, align 8
-  %16 = call i64 @write(i32 noundef %15, ptr noundef nonnull %4, i64 noundef 24) #13
+  %16 = call i64 @write(i32 noundef %15, ptr noundef nonnull %4, i64 noundef 24) #14
   %17 = icmp slt i64 %16, 0
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %3
-  %19 = tail call ptr @__errno_location() #15
+  %19 = tail call ptr @__errno_location() #16
   %20 = load i32, ptr %19, align 4
-  %21 = tail call ptr @strerror(i32 noundef %20) #13
-  %22 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5, ptr noundef %21) #13
+  %21 = tail call ptr @strerror(i32 noundef %20) #14
+  %22 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5, ptr noundef %21) #14
   br label %23
 
 23:                                               ; preds = %3, %18
@@ -1328,15 +1328,15 @@ define hidden zeroext i1 @SDL_SYS_HapticStopEffect(ptr noundef readonly captures
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
-  %14 = call i64 @write(i32 noundef %13, ptr noundef nonnull %3, i64 noundef 24) #13
+  %14 = call i64 @write(i32 noundef %13, ptr noundef nonnull %3, i64 noundef 24) #14
   %15 = icmp slt i64 %14, 0
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %2
-  %17 = tail call ptr @__errno_location() #15
+  %17 = tail call ptr @__errno_location() #16
   %18 = load i32, ptr %17, align 4
-  %19 = tail call ptr @strerror(i32 noundef %18) #13
-  %20 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.6, ptr noundef %19) #13
+  %19 = tail call ptr @strerror(i32 noundef %18) #14
+  %20 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.6, ptr noundef %19) #14
   br label %21
 
 21:                                               ; preds = %2, %16
@@ -1355,27 +1355,27 @@ define hidden void @SDL_SYS_HapticDestroyEffect(ptr noundef readonly captures(no
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %9 = load i16, ptr %8, align 2
   %10 = sext i16 %9 to i32
-  %11 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %5, i64 noundef 1074021761, i32 noundef %10) #13
+  %11 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %5, i64 noundef 1074021761, i32 noundef %10) #14
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %2
-  %14 = tail call ptr @__errno_location() #15
+  %14 = tail call ptr @__errno_location() #16
   %15 = load i32, ptr %14, align 4
-  %16 = tail call ptr @strerror(i32 noundef %15) #13
-  %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.7, ptr noundef %16) #13
+  %16 = tail call ptr @strerror(i32 noundef %15) #14
+  %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.7, ptr noundef %16) #14
   br label %18
 
 18:                                               ; preds = %13, %2
   %19 = load ptr, ptr %6, align 8
-  tail call void @SDL_free_REAL(ptr noundef %19) #13
+  tail call void @SDL_free_REAL(ptr noundef %19) #14
   store ptr null, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @SDL_SYS_HapticGetEffectStatus(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #13
+  %3 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #14
   ret i32 -1
 }
 
@@ -1396,15 +1396,15 @@ define hidden zeroext i1 @SDL_SYS_HapticSetGain(ptr noundef readonly captures(no
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
-  %14 = call i64 @write(i32 noundef %13, ptr noundef nonnull %3, i64 noundef 24) #13
+  %14 = call i64 @write(i32 noundef %13, ptr noundef nonnull %3, i64 noundef 24) #14
   %15 = icmp slt i64 %14, 0
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %2
-  %17 = tail call ptr @__errno_location() #15
+  %17 = tail call ptr @__errno_location() #16
   %18 = load i32, ptr %17, align 4
-  %19 = tail call ptr @strerror(i32 noundef %18) #13
-  %20 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.9, ptr noundef %19) #13
+  %19 = tail call ptr @strerror(i32 noundef %18) #14
+  %20 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.9, ptr noundef %19) #14
   br label %21
 
 21:                                               ; preds = %2, %16
@@ -1430,15 +1430,15 @@ define hidden zeroext i1 @SDL_SYS_HapticSetAutocenter(ptr noundef readonly captu
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
-  %14 = call i64 @write(i32 noundef %13, ptr noundef nonnull %3, i64 noundef 24) #13
+  %14 = call i64 @write(i32 noundef %13, ptr noundef nonnull %3, i64 noundef 24) #14
   %15 = icmp slt i64 %14, 0
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %2
-  %17 = tail call ptr @__errno_location() #15
+  %17 = tail call ptr @__errno_location() #16
   %18 = load i32, ptr %17, align 4
-  %19 = tail call ptr @strerror(i32 noundef %18) #13
-  %20 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.10, ptr noundef %19) #13
+  %19 = tail call ptr @strerror(i32 noundef %18) #14
+  %20 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.10, ptr noundef %19) #14
   br label %21
 
 21:                                               ; preds = %2, %16
@@ -1449,13 +1449,13 @@ define hidden zeroext i1 @SDL_SYS_HapticSetAutocenter(ptr noundef readonly captu
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SYS_HapticPause(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #13
+  %2 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #14
   ret i1 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SYS_HapticResume(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #13
+  %2 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #14
   ret i1 %2
 }
 
@@ -1494,15 +1494,15 @@ define hidden noundef zeroext i1 @SDL_SYS_HapticStopAll(ptr noundef readonly cap
   store i32 0, ptr %9, align 4
   %20 = load ptr, ptr %10, align 8
   %21 = load i32, ptr %20, align 8
-  %22 = call i64 @write(i32 noundef %21, ptr noundef nonnull %2, i64 noundef 24) #13
+  %22 = call i64 @write(i32 noundef %21, ptr noundef nonnull %2, i64 noundef 24) #14
   %23 = icmp slt i64 %22, 0
   br i1 %23, label %24, label %SDL_SYS_HapticStopEffect.exit
 
 24:                                               ; preds = %17
-  %25 = tail call ptr @__errno_location() #15
+  %25 = tail call ptr @__errno_location() #16
   %26 = load i32, ptr %25, align 4
-  %27 = tail call ptr @strerror(i32 noundef %26) #13
-  %28 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.6, ptr noundef %27) #13
+  %27 = tail call ptr @strerror(i32 noundef %26) #14
+  %28 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.6, ptr noundef %27) #14
   br label %SDL_SYS_HapticStopEffect.exit
 
 SDL_SYS_HapticStopEffect.exit:                    ; preds = %17, %24
@@ -1586,7 +1586,7 @@ define internal fastcc zeroext i1 @SDL_SYS_ToDirection(ptr noundef nonnull write
 30:                                               ; preds = %27
   %31 = sitofp i32 %22 to float
   %32 = sitofp i32 %23 to float
-  %33 = tail call float @SDL_atan2f_REAL(float noundef %31, float noundef %32) #13
+  %33 = tail call float @SDL_atan2f_REAL(float noundef %31, float noundef %32) #14
   %34 = fpext float %33 to double
   %35 = fmul double %34, 1.800000e+04
   %36 = fdiv double %35, 0x400921FB54442D18
@@ -1604,7 +1604,7 @@ define internal fastcc zeroext i1 @SDL_SYS_ToDirection(ptr noundef nonnull write
   br label %46
 
 44:                                               ; preds = %2
-  %45 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.15) #13
+  %45 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.15) #14
   br label %46
 
 46:                                               ; preds = %4, %11, %43, %28, %30, %24, %44
@@ -1620,25 +1620,25 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #12
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.ctpop.i16(i16) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.cttz.i16(i16, i1 immarg) #12
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smax.i16(i16, i16) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1653,10 +1653,11 @@ attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #9 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind allocsize(0,1) }
-attributes #15 = { nounwind willreturn memory(none) }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind allocsize(0,1) }
+attributes #16 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

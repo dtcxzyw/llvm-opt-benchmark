@@ -116,7 +116,7 @@ define i64 @ff_me_search_esa(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   %21 = tail call i32 @llvm.smin.i32(i32 %18, i32 %20)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %23 = load ptr, ptr %22, align 8, !tbaa !14
-  %24 = tail call i64 %23(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %1, i32 noundef %2) #4
+  %24 = tail call i64 %23(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %1, i32 noundef %2) #5
   %.not = icmp eq i64 %24, 0
   br i1 %.not, label %.loopexit, label %.preheader69
 
@@ -138,7 +138,7 @@ define i64 @ff_me_search_esa(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   %.172 = phi i64 [ %.075, %.preheader ], [ %.2, %31 ]
   %.05471 = phi i32 [ %., %.preheader ], [ %32, %31 ]
   %27 = load ptr, ptr %22, align 8, !tbaa !14
-  %28 = tail call i64 %27(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %.05471, i32 noundef %.05574) #4
+  %28 = tail call i64 %27(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %.05471, i32 noundef %.05574) #5
   %29 = icmp ult i64 %28, %.172
   br i1 %29, label %30, label %31
 
@@ -188,7 +188,7 @@ define i64 @ff_me_search_tss(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   store i32 %2, ptr %22, align 4, !tbaa !26
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %24 = load ptr, ptr %23, align 8, !tbaa !14
-  %25 = tail call i64 %24(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %1, i32 noundef %2) #4
+  %25 = tail call i64 %24(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %1, i32 noundef %2) #5
   %.not = icmp eq i64 %25, 0
   br i1 %.not, label %.loopexit, label %.preheader.preheader
 
@@ -232,7 +232,7 @@ define i64 @ff_me_search_tss(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 
 42:                                               ; preds = %36
   %43 = load ptr, ptr %23, align 8, !tbaa !14
-  %44 = tail call i64 %43(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %35, i32 noundef %41) #4
+  %44 = tail call i64 %43(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %35, i32 noundef %41) #5
   %45 = icmp ult i64 %44, %.1106
   br i1 %45, label %46, label %47
 
@@ -282,7 +282,7 @@ define i64 @ff_me_search_tdls(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   store i32 %2, ptr %22, align 4, !tbaa !26
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %24 = load ptr, ptr %23, align 8, !tbaa !14
-  %25 = tail call i64 %24(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %1, i32 noundef %2) #4
+  %25 = tail call i64 %24(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %1, i32 noundef %2) #5
   %.not = icmp eq i64 %25, 0
   br i1 %.not, label %.loopexit, label %.preheader.preheader
 
@@ -327,7 +327,7 @@ define i64 @ff_me_search_tdls(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 
 42:                                               ; preds = %36
   %43 = load ptr, ptr %23, align 8, !tbaa !14
-  %44 = tail call i64 %43(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %35, i32 noundef %41) #4
+  %44 = tail call i64 %43(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %35, i32 noundef %41) #5
   %45 = icmp ult i64 %44, %.188110
   br i1 %45, label %46, label %47
 
@@ -389,7 +389,7 @@ define i64 @ff_me_search_ntss(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   store i32 %2, ptr %22, align 4, !tbaa !26
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %24 = load ptr, ptr %23, align 8, !tbaa !14
-  %25 = tail call i64 %24(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %1, i32 noundef %2) #4
+  %25 = tail call i64 %24(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %1, i32 noundef %2) #5
   %.not = icmp eq i64 %25, 0
   br i1 %.not, label %.loopexit, label %.preheader217.preheader
 
@@ -434,7 +434,7 @@ define i64 @ff_me_search_ntss(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 
 42:                                               ; preds = %36
   %43 = load ptr, ptr %23, align 8, !tbaa !14
-  %44 = tail call i64 %43(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %35, i32 noundef %41) #4
+  %44 = tail call i64 %43(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %35, i32 noundef %41) #5
   %45 = icmp ult i64 %44, %.1169220
   br i1 %45, label %46, label %47
 
@@ -476,7 +476,7 @@ define i64 @ff_me_search_ntss(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 
 58:                                               ; preds = %53
   %59 = load ptr, ptr %23, align 8, !tbaa !14
-  %60 = tail call i64 %59(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %52, i32 noundef %57) #4
+  %60 = tail call i64 %59(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %52, i32 noundef %57) #5
   %61 = icmp ult i64 %60, %.4222
   br i1 %61, label %62, label %63
 
@@ -538,7 +538,7 @@ define i64 @ff_me_search_ntss(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 
 88:                                               ; preds = %83
   %89 = load ptr, ptr %23, align 8, !tbaa !14
-  %90 = tail call i64 %89(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %82, i32 noundef %87) #4
+  %90 = tail call i64 %89(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %82, i32 noundef %87) #5
   %91 = icmp ult i64 %90, %.6224
   br i1 %91, label %92, label %93
 
@@ -589,7 +589,7 @@ define i64 @ff_me_search_fss(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   store i32 %2, ptr %22, align 4, !tbaa !26
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %24 = load ptr, ptr %23, align 8, !tbaa !14
-  %25 = tail call i64 %24(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %1, i32 noundef %2) #4
+  %25 = tail call i64 %24(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %1, i32 noundef %2) #5
   %.not = icmp eq i64 %25, 0
   br i1 %.not, label %.loopexit, label %.preheader.preheader
 
@@ -630,7 +630,7 @@ define i64 @ff_me_search_fss(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 
 40:                                               ; preds = %34
   %41 = load ptr, ptr %23, align 8, !tbaa !14
-  %42 = tail call i64 %41(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %33, i32 noundef %39) #4
+  %42 = tail call i64 %41(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %33, i32 noundef %39) #5
   %43 = icmp ult i64 %42, %.185106
   br i1 %43, label %44, label %45
 
@@ -689,7 +689,7 @@ define i64 @ff_me_search_ds(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   %21 = tail call i32 @llvm.smin.i32(i32 %18, i32 %20)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %23 = load ptr, ptr %22, align 8, !tbaa !14
-  %24 = tail call i64 %23(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %1, i32 noundef %2) #4
+  %24 = tail call i64 %23(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %1, i32 noundef %2) #5
   %.not = icmp eq i64 %24, 0
   br i1 %.not, label %.loopexit, label %.critedge.preheader
 
@@ -728,7 +728,7 @@ define i64 @ff_me_search_ds(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
 
 38:                                               ; preds = %33
   %39 = load ptr, ptr %22, align 8, !tbaa !14
-  %40 = tail call i64 %39(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %32, i32 noundef %37) #4
+  %40 = tail call i64 %39(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %32, i32 noundef %37) #5
   %41 = icmp ult i64 %40, %.1104138
   br i1 %41, label %42, label %43
 
@@ -780,7 +780,7 @@ define i64 @ff_me_search_ds(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
 
 57:                                               ; preds = %52
   %58 = load ptr, ptr %22, align 8, !tbaa !14
-  %59 = tail call i64 %58(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %51, i32 noundef %56) #4
+  %59 = tail call i64 %58(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %51, i32 noundef %56) #5
   %60 = icmp ult i64 %59, %.3140
   br i1 %60, label %61, label %62
 
@@ -822,7 +822,7 @@ define i64 @ff_me_search_hexbs(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
   %21 = tail call i32 @llvm.smin.i32(i32 %18, i32 %20)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %23 = load ptr, ptr %22, align 8, !tbaa !14
-  %24 = tail call i64 %23(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %1, i32 noundef %2) #4
+  %24 = tail call i64 %23(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %1, i32 noundef %2) #5
   %.not = icmp eq i64 %24, 0
   br i1 %.not, label %.loopexit, label %.critedge.preheader
 
@@ -861,7 +861,7 @@ define i64 @ff_me_search_hexbs(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
 
 38:                                               ; preds = %33
   %39 = load ptr, ptr %22, align 8, !tbaa !14
-  %40 = tail call i64 %39(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %32, i32 noundef %37) #4
+  %40 = tail call i64 %39(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %32, i32 noundef %37) #5
   %41 = icmp ult i64 %40, %.1101136
   br i1 %41, label %42, label %43
 
@@ -913,7 +913,7 @@ define i64 @ff_me_search_hexbs(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
 
 57:                                               ; preds = %52
   %58 = load ptr, ptr %22, align 8, !tbaa !14
-  %59 = tail call i64 %58(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %51, i32 noundef %56) #4
+  %59 = tail call i64 %58(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %51, i32 noundef %56) #5
   %60 = icmp ult i64 %59, %.3138
   br i1 %60, label %61, label %62
 
@@ -974,7 +974,7 @@ define i64 @ff_me_search_epzs(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %32 = load ptr, ptr %31, align 8, !tbaa !14
-  %33 = tail call i64 %32(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %25, i32 noundef %29) #4
+  %33 = tail call i64 %32(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %25, i32 noundef %29) #5
   %.not197 = icmp eq i64 %33, -1
   br i1 %.not197, label %40, label %34
 
@@ -1035,7 +1035,7 @@ define i64 @ff_me_search_epzs(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 
 60:                                               ; preds = %56
   %61 = load ptr, ptr %44, align 8, !tbaa !14
-  %62 = tail call i64 %61(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %55, i32 noundef %59) #4
+  %62 = tail call i64 %61(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %55, i32 noundef %59) #5
   %63 = icmp ult i64 %62, %.1172219
   br i1 %63, label %64, label %69
 
@@ -1085,7 +1085,7 @@ define i64 @ff_me_search_epzs(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 
 83:                                               ; preds = %79
   %84 = load ptr, ptr %50, align 8, !tbaa !14
-  %85 = tail call i64 %84(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %78, i32 noundef %82) #4
+  %85 = tail call i64 %84(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %78, i32 noundef %82) #5
   %86 = icmp ult i64 %85, %.3221
   br i1 %86, label %87, label %92
 
@@ -1136,7 +1136,7 @@ define i64 @ff_me_search_epzs(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 
 108:                                              ; preds = %103
   %109 = load ptr, ptr %74, align 8, !tbaa !14
-  %110 = tail call i64 %109(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %102, i32 noundef %107) #4
+  %110 = tail call i64 %109(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %102, i32 noundef %107) #5
   %111 = icmp ult i64 %110, %.6225
   br i1 %111, label %112, label %113
 
@@ -1211,7 +1211,7 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %32 = load ptr, ptr %31, align 8, !tbaa !14
-  %33 = tail call i64 %32(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %25, i32 noundef %29) #4
+  %33 = tail call i64 %32(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %25, i32 noundef %29) #5
   %.not413 = icmp eq i64 %33, -1
   br i1 %.not413, label %40, label %34
 
@@ -1259,7 +1259,7 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 
 54:                                               ; preds = %50
   %55 = load ptr, ptr %44, align 8, !tbaa !14
-  %56 = tail call i64 %55(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %49, i32 noundef %53) #4
+  %56 = tail call i64 %55(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %49, i32 noundef %53) #5
   %57 = icmp ult i64 %56, %.1361483
   br i1 %57, label %58, label %63
 
@@ -1310,7 +1310,7 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 
 74:                                               ; preds = %72
   %75 = load ptr, ptr %71, align 8, !tbaa !14
-  %76 = tail call i64 %75(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %73, i32 noundef %69) #4
+  %76 = tail call i64 %75(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %73, i32 noundef %69) #5
   %77 = icmp ult i64 %76, %.3363486
   br i1 %77, label %78, label %79
 
@@ -1331,7 +1331,7 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 
 81:                                               ; preds = %79
   %82 = load ptr, ptr %71, align 8, !tbaa !14
-  %83 = tail call i64 %82(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %80, i32 noundef %69) #4
+  %83 = tail call i64 %82(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %80, i32 noundef %69) #5
   %84 = icmp ult i64 %83, %.4
   br i1 %84, label %85, label %86
 
@@ -1358,7 +1358,7 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 
 92:                                               ; preds = %90
   %93 = load ptr, ptr %71, align 8, !tbaa !14
-  %94 = tail call i64 %93(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %67, i32 noundef %91) #4
+  %94 = tail call i64 %93(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %67, i32 noundef %91) #5
   %95 = icmp ult i64 %94, %.5
   br i1 %95, label %96, label %97
 
@@ -1377,7 +1377,7 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 
 99:                                               ; preds = %97
   %100 = load ptr, ptr %71, align 8, !tbaa !14
-  %101 = tail call i64 %100(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %67, i32 noundef %98) #4
+  %101 = tail call i64 %100(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %67, i32 noundef %98) #5
   %102 = icmp ult i64 %101, %.6.ph
   br i1 %102, label %103, label %104
 
@@ -1438,7 +1438,7 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 
 119:                                              ; preds = %.lr.ph496.split
   %120 = load ptr, ptr %115, align 8, !tbaa !14
-  %121 = tail call i64 %120(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %.0494, i32 noundef %.0356501) #4
+  %121 = tail call i64 %120(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %.0494, i32 noundef %.0356501) #5
   %122 = icmp ult i64 %121, %.9493
   br i1 %122, label %123, label %124
 
@@ -1518,7 +1518,7 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 
 144:                                              ; preds = %138
   %145 = load ptr, ptr %130, align 8, !tbaa !14
-  %146 = tail call i64 %145(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %137, i32 noundef %143) #4
+  %146 = tail call i64 %145(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %137, i32 noundef %143) #5
   %147 = icmp ult i64 %146, %.12507
   br i1 %147, label %148, label %149
 
@@ -1570,7 +1570,7 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 
 166:                                              ; preds = %161
   %167 = load ptr, ptr %131, align 8, !tbaa !14
-  %168 = tail call i64 %167(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %160, i32 noundef %165) #4
+  %168 = tail call i64 %167(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %160, i32 noundef %165) #5
   %169 = icmp ult i64 %168, %.15513
   br i1 %169, label %170, label %171
 
@@ -1622,7 +1622,7 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 
 185:                                              ; preds = %180
   %186 = load ptr, ptr %131, align 8, !tbaa !14
-  %187 = tail call i64 %186(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %179, i32 noundef %184) #4
+  %187 = tail call i64 %186(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %179, i32 noundef %184) #5
   %188 = icmp ult i64 %187, %.17515
   br i1 %188, label %189, label %190
 
@@ -1644,17 +1644,18 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #3
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #3
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

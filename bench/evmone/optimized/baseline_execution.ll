@@ -134,21 +134,21 @@ define void @_ZN6evmone8baseline7executeERNS_2VMERK19evmc_host_interfaceP17evmc_
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !16
   %14 = sext i32 %13 to i64
-  %15 = tail call noundef nonnull align 8 dereferenceable(544) ptr @_ZN6evmone2VM19get_execution_stateEm(ptr noundef nonnull align 8 dereferenceable(96) %1, i64 noundef %14) #21
+  %15 = tail call noundef nonnull align 8 dereferenceable(544) ptr @_ZN6evmone2VM19get_execution_stateEm(ptr noundef nonnull align 8 dereferenceable(96) %1, i64 noundef %14) #22
   %.sroa.0.0.copyload.i55 = load i64, ptr %6, align 8, !tbaa !3
   %.sroa.2.0..sroa_idx.i56 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload.i57 = load ptr, ptr %.sroa.2.0..sroa_idx.i56, align 8, !tbaa !7
   store i64 %.sroa.0.0.copyload.i55, ptr %8, align 8
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.sroa.2.0.copyload.i57, ptr %16, align 8
-  tail call void @_ZN6evmone14ExecutionState5resetERK12evmc_message13evmc_revisionRK19evmc_host_interfaceP17evmc_host_contextSt17basic_string_viewIhN4evmc11byte_traitsIhEEE(ptr noundef nonnull align 8 dereferenceable(544) %15, ptr noundef nonnull align 8 dereferenceable(184) %5, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef %3, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %8) #21
+  tail call void @_ZN6evmone14ExecutionState5resetERK12evmc_message13evmc_revisionRK19evmc_host_interfaceP17evmc_host_contextSt17basic_string_viewIhN4evmc11byte_traitsIhEEE(ptr noundef nonnull align 8 dereferenceable(544) %15, ptr noundef nonnull align 8 dereferenceable(184) %5, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef %3, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %8) #22
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 504
   store ptr %6, ptr %17, align 8, !tbaa !17
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %19 = load i32, ptr %18, align 8, !tbaa !18
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %21 = load i8, ptr %20, align 8, !tbaa !65
-  %22 = tail call noundef nonnull align 2 dereferenceable(512) ptr @_ZN6evmone8baseline23get_baseline_cost_tableE13evmc_revisionh(i32 noundef %19, i8 noundef zeroext %21) #21
+  %22 = tail call noundef nonnull align 2 dereferenceable(512) ptr @_ZN6evmone8baseline23get_baseline_cost_tableE13evmc_revisionh(i32 noundef %19, i8 noundef zeroext %21) #22
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %24 = load ptr, ptr %23, align 8, !tbaa !78
   %.not = icmp eq ptr %24, null
@@ -165,14 +165,14 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i, %25
   %29 = load ptr, ptr %.tr.i, align 8, !tbaa !82
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
-  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %.tr.i, i32 noundef %26, ptr noundef nonnull align 8 dereferenceable(184) %28, i64 %.sroa.0.0.copyload.i, ptr %.sroa.2.0.copyload.i) #21
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %.tr.i, i32 noundef %26, ptr noundef nonnull align 8 dereferenceable(184) %28, i64 %.sroa.0.0.copyload.i, ptr %.sroa.2.0.copyload.i) #22
   %32 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !78
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %_ZN6evmone6Tracer22notify_execution_startE13evmc_revisionRK12evmc_messageSt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit, label %tailrecurse.i
 
 _ZN6evmone6Tracer22notify_execution_startE13evmc_revisionRK12evmc_messageSt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit: ; preds = %tailrecurse.i
-  %34 = tail call fastcc noundef i64 @_ZN6evmone8baseline12_GLOBAL__N_18dispatchILb1EEElRKSt5arrayIsLm256EERNS_14ExecutionStateElPKhPNS_6TracerE(ptr noundef nonnull align 2 dereferenceable(512) %22, ptr noundef nonnull align 8 dereferenceable(544) %15, i64 noundef %11, ptr noundef %.sroa.2.0.copyload.i, ptr noundef %24) #21
+  %34 = tail call fastcc noundef i64 @_ZN6evmone8baseline12_GLOBAL__N_18dispatchILb1EEElRKSt5arrayIsLm256EERNS_14ExecutionStateElPKhPNS_6TracerE(ptr noundef nonnull align 2 dereferenceable(512) %22, ptr noundef nonnull align 8 dereferenceable(544) %15, i64 noundef %11, ptr noundef %.sroa.2.0.copyload.i, ptr noundef %24) #22
   br label %43
 
 35:                                               ; preds = %7
@@ -182,11 +182,11 @@ _ZN6evmone6Tracer22notify_execution_startE13evmc_revisionRK12evmc_messageSt17bas
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %35
-  %40 = tail call fastcc noundef i64 @_ZN6evmone8baseline12_GLOBAL__N_114dispatch_cgotoERKSt5arrayIsLm256EERNS_14ExecutionStateElPKh(ptr noundef nonnull align 2 dereferenceable(512) %22, ptr noundef nonnull align 8 dereferenceable(544) %15, i64 noundef %11, ptr noundef %.sroa.2.0.copyload.i) #21
+  %40 = tail call fastcc noundef i64 @_ZN6evmone8baseline12_GLOBAL__N_114dispatch_cgotoERKSt5arrayIsLm256EERNS_14ExecutionStateElPKh(ptr noundef nonnull align 2 dereferenceable(512) %22, ptr noundef nonnull align 8 dereferenceable(544) %15, i64 noundef %11, ptr noundef %.sroa.2.0.copyload.i) #22
   br label %43
 
 41:                                               ; preds = %35
-  %42 = tail call fastcc noundef i64 @_ZN6evmone8baseline12_GLOBAL__N_18dispatchILb0EEElRKSt5arrayIsLm256EERNS_14ExecutionStateElPKhPNS_6TracerE(ptr noundef nonnull align 2 dereferenceable(512) %22, ptr noundef nonnull align 8 dereferenceable(544) %15, i64 noundef %11, ptr noundef %.sroa.2.0.copyload.i) #21
+  %42 = tail call fastcc noundef i64 @_ZN6evmone8baseline12_GLOBAL__N_18dispatchILb0EEElRKSt5arrayIsLm256EERNS_14ExecutionStateElPKhPNS_6TracerE(ptr noundef nonnull align 2 dereferenceable(512) %22, ptr noundef nonnull align 8 dereferenceable(544) %15, i64 noundef %11, ptr noundef %.sroa.2.0.copyload.i) #22
   br label %43
 
 43:                                               ; preds = %39, %41, %_ZN6evmone6Tracer22notify_execution_startE13evmc_revisionRK12evmc_messageSt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit
@@ -222,7 +222,7 @@ _ZN6evmone6Tracer22notify_execution_startE13evmc_revisionRK12evmc_messageSt17bas
   br i1 %.not.i60, label %65, label %59
 
 59:                                               ; preds = %54
-  %60 = tail call noalias ptr @malloc(i64 noundef %58) #22
+  %60 = tail call noalias ptr @malloc(i64 noundef %58) #23
   %.not13.i = icmp eq ptr %60, null
   br i1 %.not13.i, label %64, label %.thread.i
 
@@ -265,7 +265,7 @@ _ZN6evmone6Tracer22notify_execution_startE13evmc_revisionRK12evmc_messageSt17bas
   %75 = load ptr, ptr %72, align 8, !tbaa !7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !119)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 72, i1 false), !alias.scope !119
-  %76 = tail call noalias ptr @malloc(i64 noundef %70) #22
+  %76 = tail call noalias ptr @malloc(i64 noundef %70) #23
   %.not13.i62 = icmp eq ptr %76, null
   br i1 %.not13.i62, label %81, label %.thread.i63
 
@@ -300,7 +300,7 @@ tailrecurse.i65:                                  ; preds = %_ZL16evmc_make_resu
   %85 = load ptr, ptr %.tr.i66, align 8, !tbaa !82
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %87 = load ptr, ptr %86, align 8
-  tail call void %87(ptr noundef nonnull align 8 dereferenceable(16) %.tr.i66, ptr noundef nonnull align 8 dereferenceable(72) %0) #21
+  tail call void %87(ptr noundef nonnull align 8 dereferenceable(16) %.tr.i66, ptr noundef nonnull align 8 dereferenceable(72) %0) #22
   %88 = getelementptr inbounds nuw i8, ptr %.tr.i66, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !78
   %.not.i67 = icmp eq ptr %89, null
@@ -356,7 +356,7 @@ define linkonce_odr hidden void @_ZN6evmone14ExecutionState5resetERK12evmc_messa
 25:                                               ; preds = %20
   %26 = load i64, ptr %23, align 8, !tbaa !17
   %27 = add i64 %26, 1
-  tail call void @_ZdlPvm(ptr noundef %22, i64 noundef %27) #21
+  tail call void @_ZdlPvm(ptr noundef %22, i64 noundef %27) #22
   br label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIhN4evmc11byte_traitsIhEESaIhEEELb0ELb0EED2Ev.exit
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIhN4evmc11byte_traitsIhEESaIhEEELb0ELb0EED2Ev.exit: ; preds = %6, %20, %25
@@ -379,7 +379,7 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIhN4evmc11byte_traitsIhEESaIhEEEL
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %31, %.lr.ph.i.i.i.i.i.i.i.i
   %.06.i.i.i.i.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i.i.i.i.i ], [ %34, %31 ]
   %35 = load ptr, ptr %.06.i.i.i.i.i.i.i.i, align 8, !tbaa !132
-  tail call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i.i.i.i.i, i64 noundef 64) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i.i.i.i.i, i64 noundef 64) #22
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt10_HashtableIN4evmc7bytes32ESt4pairIKS1_N6evmone19TransactionInitcodeEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !133
 
@@ -398,7 +398,7 @@ _ZNSt10_HashtableIN4evmc7bytes32ESt4pairIKS1_N6evmone19TransactionInitcodeEESaIS
 43:                                               ; preds = %_ZNSt10_HashtableIN4evmc7bytes32ESt4pairIKS1_N6evmone19TransactionInitcodeEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i.i.i.i
   %44 = load i64, ptr %37, align 8, !tbaa !136
   %45 = shl i64 %44, 3
-  tail call void @_ZdlPvm(ptr noundef %40, i64 noundef %45) #21
+  tail call void @_ZdlPvm(ptr noundef %40, i64 noundef %45) #22
   br label %_ZNSt8optionalISt13unordered_mapIN4evmc7bytes32EN6evmone19TransactionInitcodeESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEEE5resetEv.exit
 
 _ZNSt8optionalISt13unordered_mapIN4evmc7bytes32EN6evmone19TransactionInitcodeESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEEE5resetEv.exit: ; preds = %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIhN4evmc11byte_traitsIhEESaIhEEELb0ELb0EED2Ev.exit, %_ZNSt10_HashtableIN4evmc7bytes32ESt4pairIKS1_N6evmone19TransactionInitcodeEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i.i.i.i, %43
@@ -671,7 +671,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i, %160
   %167 = load ptr, ptr %.tr.i, align 8, !tbaa !82
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 24
   %169 = load ptr, ptr %168, align 8
-  call void %169(ptr noundef nonnull align 8 dereferenceable(16) %.tr.i, i32 noundef %161, ptr noundef nonnull %166, i32 noundef %165, i64 noundef %.04429, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  call void %169(ptr noundef nonnull align 8 dereferenceable(16) %.tr.i, i32 noundef %161, ptr noundef nonnull %166, i32 noundef %165, i64 noundef %.04429, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %170 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 8
   %171 = load ptr, ptr %170, align 8, !tbaa !78
   %.not.i2987 = icmp eq ptr %171, null
@@ -853,7 +853,7 @@ _ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14Execu
   ]
 
 173:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_STOP", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !139
+  call void asm sideeffect "# OP_STOP", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !139
   %174 = icmp slt i64 %.04429, 0
   br i1 %174, label %175, label %177
 
@@ -869,7 +869,7 @@ _ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14Execu
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
 
 179:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_ADD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !140
+  call void asm sideeffect "# OP_ADD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !140
   %.not.i2989 = icmp ugt ptr %.sroa.345.0, %102
   br i1 %.not.i2989, label %180, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE1EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -921,7 +921,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE1EEENS1_8PositionERKSt5arra
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 203:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_MUL", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !148
+  call void asm sideeffect "# OP_MUL", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !148
   %.not.i2992 = icmp ugt ptr %.sroa.345.0, %102
   br i1 %.not.i2992, label %204, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE2EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -941,7 +941,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE2EEENS1_8PositionERKSt5arra
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
   %209 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
   %210 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %57) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %57) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !149)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, i8 0, i64 32, i1 false), !tbaa !3, !alias.scope !149
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -8
@@ -1034,12 +1034,12 @@ _ZN4intxplENS_4uintILj128EEES1_.exit.i.i.i:       ; preds = %237
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE2EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %._crit_edge.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %210, ptr noundef nonnull align 8 dereferenceable(32) %57, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %57) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %57) #22
   %248 = getelementptr inbounds nuw i8, ptr %.sroa.01022.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 249:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SUB", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !159
+  call void asm sideeffect "# OP_SUB", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !159
   %.not.i2995 = icmp ugt ptr %.sroa.345.0, %102
   br i1 %.not.i2995, label %250, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE3EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -1091,7 +1091,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE3EEENS1_8PositionERKSt5arra
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 273:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DIV", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !166
+  call void asm sideeffect "# OP_DIV", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !166
   %.not.i2999 = icmp ugt ptr %.sroa.345.0, %102
   br i1 %.not.i2999, label %274, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE4EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -1111,7 +1111,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE4EEENS1_8PositionERKSt5arra
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
   %279 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -64
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %55) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %55) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %55, i8 0, i64 32, i1 false)
   br label %280
 
@@ -1134,11 +1134,11 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %280
 
 289:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i
   %290 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
-  call void @llvm.lifetime.start.p0(ptr nonnull %54) #21, !noalias !168
-  call void @_ZN4intx7udivremILj256ELj256EEENS_10div_resultINS_4uintIXT_EEENS2_IXT0_EEEEERKS3_RKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %54, ptr noundef nonnull align 8 dereferenceable(32) %290, ptr noundef nonnull align 8 dereferenceable(32) %279) #21, !noalias !168
+  call void @llvm.lifetime.start.p0(ptr nonnull %54) #22, !noalias !168
+  call void @_ZN4intx7udivremILj256ELj256EEENS_10div_resultINS_4uintIXT_EEENS2_IXT0_EEEEERKS3_RKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %54, ptr noundef nonnull align 8 dereferenceable(32) %290, ptr noundef nonnull align 8 dereferenceable(32) %279) #22, !noalias !168
   %.sroa.0.0.copyload3.i = load i64, ptr %54, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx4.i, i64 24, i1 false), !tbaa.struct !171
-  call void @llvm.lifetime.end.p0(ptr nonnull %54) #21, !noalias !168
+  call void @llvm.lifetime.end.p0(ptr nonnull %54) #22, !noalias !168
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE4EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 291:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i
@@ -1150,14 +1150,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE4EEENS1_8PositionERKSt5arra
   store i64 %.sroa.0.0.i, ptr %279, align 32
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i, i64 24, i1 false), !tbaa.struct !171
-  call void @llvm.lifetime.end.p0(ptr nonnull %55) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %55) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i)
   %292 = getelementptr inbounds nuw i8, ptr %.sroa.01022.0, i64 1
   %293 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 294:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SDIV", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !172
+  call void asm sideeffect "# OP_SDIV", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !172
   %.not.i3002 = icmp ugt ptr %.sroa.345.0, %102
   br i1 %.not.i3002, label %295, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE5EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -1177,7 +1177,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE5EEENS1_8PositionERKSt5arra
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
   %300 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -64
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i3005)
-  call void @llvm.lifetime.start.p0(ptr nonnull %52) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %52) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, i8 0, i64 32, i1 false)
   br label %301
 
@@ -1196,12 +1196,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE5EEENS1_8PositionERKSt5arra
 
 _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3009:     ; preds = %301
   %309 = icmp eq i64 %307, 0
-  call void @llvm.lifetime.start.p0(ptr nonnull %53) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %53) #22
   br i1 %309, label %312, label %310
 
 310:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3009
   %311 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
-  call void @_ZN4intx7sdivremILj256EEENS_10div_resultINS_4uintIXT_EEES3_EERKS3_S6_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %53, ptr noundef nonnull align 8 dereferenceable(32) %311, ptr noundef nonnull align 8 dereferenceable(32) %300) #21
+  call void @_ZN4intx7sdivremILj256EEENS_10div_resultINS_4uintIXT_EEES3_EERKS3_S6_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %53, ptr noundef nonnull align 8 dereferenceable(32) %311, ptr noundef nonnull align 8 dereferenceable(32) %300) #22
   %.sroa.0.0.copyload.i = load i64, ptr %53, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i3005, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i3010, i64 24, i1 false), !tbaa.struct !171
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE5EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
@@ -1215,15 +1215,15 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE5EEENS1_8PositionERKSt5arra
   store i64 %.sroa.0.0.i3011, ptr %300, align 32
   %.sroa.5.0..sroa_idx4.i3012 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx4.i3012, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i3005, i64 24, i1 false), !tbaa.struct !171
-  call void @llvm.lifetime.end.p0(ptr nonnull %53) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %52) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %53) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %52) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i3005)
   %313 = getelementptr inbounds nuw i8, ptr %.sroa.01022.0, i64 1
   %314 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 315:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_MOD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !173
+  call void asm sideeffect "# OP_MOD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !173
   %.not.i3013 = icmp ugt ptr %.sroa.345.0, %102
   br i1 %.not.i3013, label %316, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE6EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -1243,7 +1243,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE6EEENS1_8PositionERKSt5arra
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
   %321 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -64
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i3016)
-  call void @llvm.lifetime.start.p0(ptr nonnull %51) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %51) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 32, i1 false)
   br label %322
 
@@ -1266,11 +1266,11 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3020:     ; preds = %322
 
 331:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3020
   %332 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
-  call void @llvm.lifetime.start.p0(ptr nonnull %50) #21, !noalias !174
-  call void @_ZN4intx7udivremILj256ELj256EEENS_10div_resultINS_4uintIXT_EEENS2_IXT0_EEEEERKS3_RKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %50, ptr noundef nonnull align 8 dereferenceable(32) %332, ptr noundef nonnull align 8 dereferenceable(32) %321) #21, !noalias !174
+  call void @llvm.lifetime.start.p0(ptr nonnull %50) #22, !noalias !174
+  call void @_ZN4intx7udivremILj256ELj256EEENS_10div_resultINS_4uintIXT_EEENS2_IXT0_EEEEERKS3_RKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %50, ptr noundef nonnull align 8 dereferenceable(32) %332, ptr noundef nonnull align 8 dereferenceable(32) %321) #22, !noalias !174
   %.sroa.0.0.copyload3.i3021 = load i64, ptr %153, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i3016, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx4.i3022, i64 24, i1 false), !tbaa.struct !171
-  call void @llvm.lifetime.end.p0(ptr nonnull %50) #21, !noalias !174
+  call void @llvm.lifetime.end.p0(ptr nonnull %50) #22, !noalias !174
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE6EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 333:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3020
@@ -1282,14 +1282,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE6EEENS1_8PositionERKSt5arra
   store i64 %.sroa.0.0.i3023, ptr %321, align 32
   %.sroa.5.0..sroa_idx.i3024 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i3024, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i3016, i64 24, i1 false), !tbaa.struct !171
-  call void @llvm.lifetime.end.p0(ptr nonnull %51) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %51) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i3016)
   %334 = getelementptr inbounds nuw i8, ptr %.sroa.01022.0, i64 1
   %335 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 336:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SMOD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !177
+  call void asm sideeffect "# OP_SMOD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !177
   %.not.i3025 = icmp ugt ptr %.sroa.345.0, %102
   br i1 %.not.i3025, label %337, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE7EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -1309,7 +1309,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE7EEENS1_8PositionERKSt5arra
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
   %342 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -64
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i3028)
-  call void @llvm.lifetime.start.p0(ptr nonnull %48) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %48) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 0, i64 32, i1 false)
   br label %343
 
@@ -1328,12 +1328,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE7EEENS1_8PositionERKSt5arra
 
 _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3032:     ; preds = %343
   %351 = icmp eq i64 %349, 0
-  call void @llvm.lifetime.start.p0(ptr nonnull %49) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %49) #22
   br i1 %351, label %354, label %352
 
 352:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3032
   %353 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
-  call void @_ZN4intx7sdivremILj256EEENS_10div_resultINS_4uintIXT_EEES3_EERKS3_S6_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %49, ptr noundef nonnull align 8 dereferenceable(32) %353, ptr noundef nonnull align 8 dereferenceable(32) %342) #21
+  call void @_ZN4intx7sdivremILj256EEENS_10div_resultINS_4uintIXT_EEES3_EERKS3_S6_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %49, ptr noundef nonnull align 8 dereferenceable(32) %353, ptr noundef nonnull align 8 dereferenceable(32) %342) #22
   %.sroa.0.0.copyload.i3033 = load i64, ptr %152, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i3028, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i3034, i64 24, i1 false), !tbaa.struct !171
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE7EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
@@ -1347,15 +1347,15 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE7EEENS1_8PositionERKSt5arra
   store i64 %.sroa.0.0.i3035, ptr %342, align 32
   %.sroa.5.0..sroa_idx4.i3036 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx4.i3036, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i3028, i64 24, i1 false), !tbaa.struct !171
-  call void @llvm.lifetime.end.p0(ptr nonnull %49) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %48) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %49) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %48) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i3028)
   %355 = getelementptr inbounds nuw i8, ptr %.sroa.01022.0, i64 1
   %356 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 357:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_ADDMOD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !178
+  call void asm sideeffect "# OP_ADDMOD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !178
   %.not.i3037 = icmp ugt ptr %.sroa.345.0, %67
   br i1 %.not.i3037, label %358, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE8EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -1374,8 +1374,8 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE8EEENS1_8PositionERKSt5arra
 362:                                              ; preds = %358
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
   %363 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -96
-  call void @llvm.lifetime.start.p0(ptr nonnull %46) #21
-  call void @llvm.lifetime.start.p0(ptr nonnull %47) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %46) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %47) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 32, i1 false)
   br label %364
 
@@ -1399,7 +1399,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3043:     ; preds = %364
 373:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3043
   %374 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -64
   %375 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
-  call void @_ZN4intx6addmodERKNS_4uintILj256EEES3_S3_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::uint") align 8 %46, ptr noundef nonnull align 8 dereferenceable(32) %375, ptr noundef nonnull align 8 dereferenceable(32) %374, ptr noundef nonnull align 8 dereferenceable(32) %363) #21
+  call void @_ZN4intx6addmodERKNS_4uintILj256EEES3_S3_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::uint") align 8 %46, ptr noundef nonnull align 8 dereferenceable(32) %375, ptr noundef nonnull align 8 dereferenceable(32) %374, ptr noundef nonnull align 8 dereferenceable(32) %363) #22
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE8EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 376:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3043
@@ -1408,14 +1408,14 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3043:     ; preds = %364
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE8EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %376, %373
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %363, ptr noundef nonnull align 8 dereferenceable(32) %46, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %47) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %46) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %47) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %46) #22
   %377 = getelementptr inbounds nuw i8, ptr %.sroa.01022.0, i64 1
   %378 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -64
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 379:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_MULMOD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !179
+  call void asm sideeffect "# OP_MULMOD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !179
   %.not.i3044 = icmp ugt ptr %.sroa.345.0, %67
   br i1 %.not.i3044, label %380, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE9EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -1435,7 +1435,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE9EEENS1_8PositionERKSt5arra
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
   %385 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -96
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i3049)
-  call void @llvm.lifetime.start.p0(ptr nonnull %45) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %45) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 0, i64 32, i1 false)
   br label %386
 
@@ -1459,8 +1459,8 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3053:     ; preds = %386
   br i1 %396, label %428, label %397
 
 397:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3053
-  call void @llvm.lifetime.start.p0(ptr nonnull %43) #21, !noalias !180
-  call void @llvm.lifetime.start.p0(ptr nonnull %44) #21, !noalias !180
+  call void @llvm.lifetime.start.p0(ptr nonnull %43) #22, !noalias !180
+  call void @llvm.lifetime.start.p0(ptr nonnull %44) #22, !noalias !180
   call void @llvm.experimental.noalias.scope.decl(metadata !183)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %44, i8 0, i64 64, i1 false), !tbaa !3, !alias.scope !183, !noalias !180
   br label %.preheader.i.i.i3054
@@ -1530,11 +1530,11 @@ _ZN4intxplENS_4uintILj128EEES1_.exit.i.i.i3061:   ; preds = %417
   br i1 %exitcond.not.i.i.i3064, label %401, label %404, !llvm.loop !191
 
 _ZN4intx6mulmodERKNS_4uintILj256EEES3_S3_.exit.i: ; preds = %401
-  call void @_ZN4intx7udivremILj512ELj256EEENS_10div_resultINS_4uintIXT_EEENS2_IXT0_EEEEERKS3_RKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result.111") align 8 %43, ptr noundef nonnull align 8 dereferenceable(64) %44, ptr noundef nonnull align 8 dereferenceable(32) %385) #21, !noalias !180
+  call void @_ZN4intx7udivremILj512ELj256EEENS_10div_resultINS_4uintIXT_EEENS2_IXT0_EEEEERKS3_RKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result.111") align 8 %43, ptr noundef nonnull align 8 dereferenceable(64) %44, ptr noundef nonnull align 8 dereferenceable(32) %385) #22, !noalias !180
   %.sroa.0.0.copyload5.i = load i64, ptr %151, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i3049, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx6.i, i64 24, i1 false), !tbaa.struct !171
-  call void @llvm.lifetime.end.p0(ptr nonnull %44) #21, !noalias !180
-  call void @llvm.lifetime.end.p0(ptr nonnull %43) #21, !noalias !180
+  call void @llvm.lifetime.end.p0(ptr nonnull %44) #22, !noalias !180
+  call void @llvm.lifetime.end.p0(ptr nonnull %43) #22, !noalias !180
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE9EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 428:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3053
@@ -1546,13 +1546,13 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE9EEENS1_8PositionERKSt5arra
   store i64 %.sroa.0.0.i3065, ptr %385, align 32
   %.sroa.5.0..sroa_idx.i3066 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i3066, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i3049, i64 24, i1 false), !tbaa.struct !171
-  call void @llvm.lifetime.end.p0(ptr nonnull %45) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %45) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i3049)
   %429 = getelementptr inbounds nuw i8, ptr %.sroa.01022.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 430:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_EXP", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !192
+  call void asm sideeffect "# OP_EXP", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !192
   %.not.i3067 = icmp ugt ptr %.sroa.345.0, %102
   br i1 %.not.i3067, label %431, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE10EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, !prof !80
 
@@ -1621,15 +1621,15 @@ _ZN4intx23count_significant_bytesILj256EEEjRKNS_4uintIXT_EEE.exit.i: ; preds = %
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %_ZN4intx23count_significant_bytesILj256EEEjRKNS_4uintIXT_EEE.exit.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %42) #21
-  call void @_ZN4intx3expILj256EEENS_4uintIXT_EEES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::uint") align 8 %42, ptr noundef nonnull byval(%"struct.intx::uint") align 8 %436, ptr noundef nonnull byval(%"struct.intx::uint") align 8 %437) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %42) #22
+  call void @_ZN4intx3expILj256EEENS_4uintIXT_EEES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::uint") align 8 %42, ptr noundef nonnull byval(%"struct.intx::uint") align 8 %436, ptr noundef nonnull byval(%"struct.intx::uint") align 8 %437) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %437, ptr noundef nonnull align 8 dereferenceable(32) %42, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %42) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %42) #22
   %465 = getelementptr inbounds nuw i8, ptr %.sroa.01022.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 466:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SIGNEXTEND", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !194
+  call void asm sideeffect "# OP_SIGNEXTEND", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !194
   %.not.i3074 = icmp ugt ptr %.sroa.345.0, %102
   br i1 %.not.i3074, label %467, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE11EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -1708,7 +1708,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE11EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 510:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_LT", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !196
+  call void asm sideeffect "# OP_LT", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !196
   %.not.i3077 = icmp ugt ptr %.sroa.345.0, %102
   br i1 %.not.i3077, label %511, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE16EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -1773,7 +1773,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE16EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 548:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_GT", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !197
+  call void asm sideeffect "# OP_GT", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !197
   %.not.i3084 = icmp ugt ptr %.sroa.345.0, %102
   br i1 %.not.i3084, label %549, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE17EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -1838,7 +1838,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE17EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 586:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SLT", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !198
+  call void asm sideeffect "# OP_SLT", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !198
   %.not.i3093 = icmp ugt ptr %.sroa.345.0, %102
   br i1 %.not.i3093, label %587, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE18EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -1915,7 +1915,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE18EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 627:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SGT", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !199
+  call void asm sideeffect "# OP_SGT", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !199
   %.not.i3098 = icmp ugt ptr %.sroa.345.0, %102
   br i1 %.not.i3098, label %628, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE19EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -1992,7 +1992,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE19EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 668:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_EQ", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !200
+  call void asm sideeffect "# OP_EQ", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !200
   %.not.i3109 = icmp ugt ptr %.sroa.345.0, %102
   br i1 %.not.i3109, label %669, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE20EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -2037,7 +2037,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE20EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 687:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_ISZERO", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !201
+  call void asm sideeffect "# OP_ISZERO", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !201
   %.not.i3117 = icmp ugt ptr %.sroa.345.0, %62
   br i1 %.not.i3117, label %688, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE21EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -2056,7 +2056,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE21EEENS1_8PositionERKSt5arr
 692:                                              ; preds = %688
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
   %693 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
-  call void @llvm.lifetime.start.p0(ptr nonnull %41) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %41) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, i8 0, i64 32, i1 false)
   br label %694
 
@@ -2079,12 +2079,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE21EEENS1_8PositionERKSt5arr
   store i64 %703, ptr %693, align 32
   %.sroa.4.0..sroa_idx.i3124 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx.i3124, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %41) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %41) #22
   %704 = getelementptr inbounds nuw i8, ptr %.sroa.01022.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 705:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_AND", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !202
+  call void asm sideeffect "# OP_AND", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !202
   %.not.i3125 = icmp ugt ptr %.sroa.345.0, %102
   br i1 %.not.i3125, label %706, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE22EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -2104,7 +2104,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE22EEENS1_8PositionERKSt5arr
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
   %711 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
   %712 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %40) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %40) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !203)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 0, i64 32, i1 false), !tbaa !3, !alias.scope !203
   br label %713
@@ -2124,12 +2124,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE22EEENS1_8PositionERKSt5arr
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE22EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %713
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %712, ptr noundef nonnull align 8 dereferenceable(32) %40, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %40) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %40) #22
   %721 = getelementptr inbounds nuw i8, ptr %.sroa.01022.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 722:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_OR", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !207
+  call void asm sideeffect "# OP_OR", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !207
   %.not.i3130 = icmp ugt ptr %.sroa.345.0, %102
   br i1 %.not.i3130, label %723, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE23EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -2149,7 +2149,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE23EEENS1_8PositionERKSt5arr
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
   %728 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
   %729 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %39) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %39) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !208)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 32, i1 false), !tbaa !3, !alias.scope !208
   br label %730
@@ -2169,12 +2169,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE23EEENS1_8PositionERKSt5arr
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE23EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %730
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %729, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %39) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %39) #22
   %738 = getelementptr inbounds nuw i8, ptr %.sroa.01022.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 739:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_XOR", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !212
+  call void asm sideeffect "# OP_XOR", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !212
   %.not.i3135 = icmp ugt ptr %.sroa.345.0, %102
   br i1 %.not.i3135, label %740, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE24EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -2194,7 +2194,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE24EEENS1_8PositionERKSt5arr
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
   %745 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
   %746 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %38) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %38) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !213)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 32, i1 false), !tbaa !3, !alias.scope !213
   br label %747
@@ -2214,12 +2214,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE24EEENS1_8PositionERKSt5arr
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE24EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %747
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %746, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %38) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %38) #22
   %755 = getelementptr inbounds nuw i8, ptr %.sroa.01022.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 756:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_NOT", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !217
+  call void asm sideeffect "# OP_NOT", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !217
   %.not.i3140 = icmp ugt ptr %.sroa.345.0, %62
   br i1 %.not.i3140, label %757, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE25EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -2237,7 +2237,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE25EEENS1_8PositionERKSt5arr
 
 761:                                              ; preds = %757
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %37) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %37) #22
   %762 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
   call void @llvm.experimental.noalias.scope.decl(metadata !218)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 32, i1 false), !tbaa !3, !alias.scope !218
@@ -2256,12 +2256,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE25EEENS1_8PositionERKSt5arr
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE25EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %763
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %762, ptr noundef nonnull align 8 dereferenceable(32) %37, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %37) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %37) #22
   %769 = getelementptr inbounds nuw i8, ptr %.sroa.01022.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 770:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_BYTE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !222
+  call void asm sideeffect "# OP_BYTE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !222
   %.not.i3144 = icmp ugt ptr %.sroa.345.0, %102
   br i1 %.not.i3144, label %771, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE26EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -2325,7 +2325,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE26EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 807:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SHL", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !223
+  call void asm sideeffect "# OP_SHL", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !223
   %.val = load i16, ptr %150, align 2, !tbaa !224
   %808 = icmp slt i16 %.val, 0
   br i1 %808, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE27EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %809, !prof !141
@@ -2468,7 +2468,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE27EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 884:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SHR", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !232
+  call void asm sideeffect "# OP_SHR", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !232
   %.val2941 = load i16, ptr %149, align 2, !tbaa !224
   %885 = icmp slt i16 %.val2941, 0
   br i1 %885, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE28EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %886, !prof !141
@@ -2611,7 +2611,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE28EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 961:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SAR", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !240
+  call void asm sideeffect "# OP_SAR", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !240
   %.val2942 = load i16, ptr %148, align 2, !tbaa !224
   %962 = icmp slt i16 %.val2942, 0
   br i1 %962, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE29EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %963, !prof !141
@@ -2635,13 +2635,13 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE29EEENS1_8PositionERKSt5arr
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE29EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %964
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  call void @_ZN6evmone5instr4core3sarENS_8StackTopE(ptr %.sroa.345.0) #21
+  call void @_ZN6evmone5instr4core3sarENS_8StackTopE(ptr %.sroa.345.0) #22
   %969 = getelementptr inbounds nuw i8, ptr %.sroa.01022.0, i64 1
   %970 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 971:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CLZ", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !241
+  call void asm sideeffect "# OP_CLZ", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !241
   %.val2943 = load i16, ptr %147, align 2, !tbaa !224
   %972 = icmp slt i16 %.val2943, 0
   br i1 %972, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE30EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %973, !prof !141
@@ -2706,7 +2706,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE30EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 998:                                              ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_KECCAK256", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !242
+  call void asm sideeffect "# OP_KECCAK256", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !242
   %.not.i3180 = icmp ugt ptr %.sroa.345.0, %102
   br i1 %.not.i3180, label %999, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE32EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -2724,7 +2724,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE32EEENS1_8PositionERKSt5arr
 
 1003:                                             ; preds = %999
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %1004 = call { i32, i64 } @_ZN6evmone5instr4core9keccak256ENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %1000, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %1004 = call { i32, i64 } @_ZN6evmone5instr4core9keccak256ENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %1000, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %1005 = extractvalue { i32, i64 } %1004, 0
   %1006 = extractvalue { i32, i64 } %1004, 1
   %.not.i2930 = icmp eq i32 %1005, 0
@@ -2741,7 +2741,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE32EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1010:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_ADDRESS", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !243
+  call void asm sideeffect "# OP_ADDRESS", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !243
   %1011 = icmp eq ptr %.sroa.345.0, %89
   br i1 %1011, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE48EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1012, !prof !141
 
@@ -2782,7 +2782,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE48EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1024:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_BALANCE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !244
+  call void asm sideeffect "# OP_BALANCE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !244
   %.val2944 = load i16, ptr %146, align 2, !tbaa !224
   %1025 = icmp slt i16 %.val2944, 0
   br i1 %1025, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE49EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, label %1026, !prof !141
@@ -2807,7 +2807,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE49EEE16evmc_st
 1032:                                             ; preds = %1027
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
   %1033 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
-  call void @llvm.lifetime.start.p0(ptr nonnull %34) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %34) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !245)
   %1034 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -16
   %1035 = load i64, ptr %1034, align 16, !tbaa !3, !noalias !248
@@ -2831,7 +2831,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE49EEE16evmc_st
   %1046 = getelementptr inbounds nuw i8, ptr %1045, i64 96
   %1047 = load ptr, ptr %1046, align 8, !tbaa !254
   %1048 = load ptr, ptr %118, align 8, !tbaa !256
-  %1049 = call noundef i32 %1047(ptr noundef %1048, ptr noundef nonnull align 1 dereferenceable(20) %34) #21
+  %1049 = call noundef i32 %1047(ptr noundef %1048, ptr noundef nonnull align 1 dereferenceable(20) %34) #22
   %1050 = icmp eq i32 %1049, 0
   br i1 %1050, label %1051, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE49EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
@@ -2841,7 +2841,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE49EEE16evmc_st
   br i1 %1053, label %1054, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE49EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 1054:                                             ; preds = %1051
-  call void @llvm.lifetime.end.p0(ptr nonnull %34) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %34) #22
   %1055 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 3, ptr %1055, align 8, !tbaa !100
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
@@ -2853,7 +2853,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE49EEENS1_8PositionERKSt5arr
   %1058 = load ptr, ptr %1057, align 8, !tbaa !260, !noalias !257
   %1059 = load ptr, ptr %118, align 8, !tbaa !256, !noalias !257
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i), !noalias !257
-  call void %1058(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i, ptr noundef %1059, ptr noundef nonnull align 1 dereferenceable(20) %34) #21, !noalias !257
+  call void %1058(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i, ptr noundef %1059, ptr noundef nonnull align 1 dereferenceable(20) %34) #22, !noalias !257
   %.sroa.0.sroa.0.0.copyload.i = load i64, ptr %.sroa.0.i.i, align 8
   %.sroa.0.sroa.4.0.copyload.i = load i64, ptr %.sroa.0.sroa.4.0..sroa.0.i.sroa_idx.i, align 8
   %.sroa.0.sroa.5.0.copyload.i = load i64, ptr %.sroa.0.sroa.5.0..sroa.0.i.sroa_idx.i, align 8
@@ -2868,12 +2868,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE49EEENS1_8PositionERKSt5arr
   store i64 %1062, ptr %1034, align 16
   %.sroa.10.0..sroa_idx.i3190 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -8
   store i64 %1063, ptr %.sroa.10.0..sroa_idx.i3190, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %34) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %34) #22
   %1064 = getelementptr inbounds nuw i8, ptr %.sroa.01022.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1065:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_ORIGIN", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !261
+  call void asm sideeffect "# OP_ORIGIN", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !261
   %1066 = icmp eq ptr %.sroa.345.0, %89
   br i1 %1066, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE50EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1067, !prof !141
 
@@ -2896,14 +2896,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE50EEENS1_8PositionERKSt5arr
   br i1 %1073, label %1074, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE50EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, !prof !141
 
 1074:                                             ; preds = %1071
-  call void @llvm.lifetime.start.p0(ptr nonnull %33) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %33) #22
   %1075 = load ptr, ptr %117, align 8, !tbaa !253, !noalias !263
   %1076 = getelementptr inbounds nuw i8, ptr %1075, i64 72
   %1077 = load ptr, ptr %1076, align 8, !tbaa !266, !noalias !263
   %1078 = load ptr, ptr %118, align 8, !tbaa !256, !noalias !263
-  call void %1077(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %33, ptr noundef %1078) #21
+  call void %1077(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %33, ptr noundef %1078) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %125, ptr noundef nonnull align 8 dereferenceable(256) %33, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %33) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %33) #22
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE50EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE50EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %1074, %1071
@@ -2926,7 +2926,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE50EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1085:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CALLER", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !270
+  call void asm sideeffect "# OP_CALLER", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !270
   %1086 = icmp eq ptr %.sroa.345.0, %89
   br i1 %1086, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE51EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1087, !prof !141
 
@@ -2967,7 +2967,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE51EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1099:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CALLVALUE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !271
+  call void asm sideeffect "# OP_CALLVALUE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !271
   %1100 = icmp eq ptr %.sroa.345.0, %89
   br i1 %1100, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE52EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1101, !prof !141
 
@@ -3010,7 +3010,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE52EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1113:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CALLDATALOAD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !272
+  call void asm sideeffect "# OP_CALLDATALOAD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !272
   %.not.i3219 = icmp ugt ptr %.sroa.345.0, %62
   br i1 %.not.i3219, label %1114, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE53EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -3105,7 +3105,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE53EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1152:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CALLDATASIZE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !275
+  call void asm sideeffect "# OP_CALLDATASIZE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !275
   %1153 = icmp eq ptr %.sroa.345.0, %89
   br i1 %1153, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE54EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1154, !prof !141
 
@@ -3134,7 +3134,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE54EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1163:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CALLDATACOPY", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !276
+  call void asm sideeffect "# OP_CALLDATACOPY", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !276
   %.not.i3232 = icmp ugt ptr %.sroa.345.0, %67
   br i1 %.not.i3232, label %1164, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE55EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -3152,7 +3152,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE55EEENS1_8PositionERKSt5arr
 
 1168:                                             ; preds = %1164
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %1169 = call { i32, i64 } @_ZN6evmone5instr4core12calldatacopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %1165, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %1169 = call { i32, i64 } @_ZN6evmone5instr4core12calldatacopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %1165, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %1170 = extractvalue { i32, i64 } %1169, 0
   %1171 = extractvalue { i32, i64 } %1169, 1
   %.not.i2924 = icmp eq i32 %1170, 0
@@ -3169,7 +3169,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE55EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1175:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CODESIZE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !277
+  call void asm sideeffect "# OP_CODESIZE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !277
   %1176 = icmp eq ptr %.sroa.345.0, %89
   br i1 %1176, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE56EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1177, !prof !141
 
@@ -3196,7 +3196,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE56EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1184:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CODECOPY", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !278
+  call void asm sideeffect "# OP_CODECOPY", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !278
   %.not.i3238 = icmp ugt ptr %.sroa.345.0, %67
   br i1 %.not.i3238, label %1185, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE57EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -3214,7 +3214,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE57EEENS1_8PositionERKSt5arr
 
 1189:                                             ; preds = %1185
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %1190 = call { i32, i64 } @_ZN6evmone5instr4core8codecopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %1186, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %1190 = call { i32, i64 } @_ZN6evmone5instr4core8codecopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %1186, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %1191 = extractvalue { i32, i64 } %1190, 0
   %1192 = extractvalue { i32, i64 } %1190, 1
   %.not.i2921 = icmp eq i32 %1191, 0
@@ -3231,7 +3231,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE57EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1196:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_GASPRICE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !279
+  call void asm sideeffect "# OP_GASPRICE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !279
   %1197 = icmp eq ptr %.sroa.345.0, %89
   br i1 %1197, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE58EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1198, !prof !141
 
@@ -3254,14 +3254,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE58EEENS1_8PositionERKSt5arr
   br i1 %1204, label %1205, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE58EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, !prof !141
 
 1205:                                             ; preds = %1202
-  call void @llvm.lifetime.start.p0(ptr nonnull %31) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %31) #22
   %1206 = load ptr, ptr %117, align 8, !tbaa !253, !noalias !280
   %1207 = getelementptr inbounds nuw i8, ptr %1206, i64 72
   %1208 = load ptr, ptr %1207, align 8, !tbaa !266, !noalias !280
   %1209 = load ptr, ptr %118, align 8, !tbaa !256, !noalias !280
-  call void %1208(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %31, ptr noundef %1209) #21
+  call void %1208(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %31, ptr noundef %1209) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %125, ptr noundef nonnull align 8 dereferenceable(256) %31, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %31) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %31) #22
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE58EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE58EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %1205, %1202
@@ -3285,7 +3285,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE58EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1216:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_EXTCODESIZE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !283
+  call void asm sideeffect "# OP_EXTCODESIZE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !283
   %.val2945 = load i16, ptr %144, align 2, !tbaa !224
   %1217 = icmp slt i16 %.val2945, 0
   br i1 %1217, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE59EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, label %1218, !prof !141
@@ -3310,7 +3310,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE59EEE16evmc_st
 1224:                                             ; preds = %1219
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
   %1225 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
-  call void @llvm.lifetime.start.p0(ptr nonnull %30) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %30) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !284)
   %1226 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -16
   %1227 = load i64, ptr %1226, align 16, !tbaa !3, !noalias !287
@@ -3334,7 +3334,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE59EEE16evmc_st
   %1238 = getelementptr inbounds nuw i8, ptr %1237, i64 96
   %1239 = load ptr, ptr %1238, align 8, !tbaa !254
   %1240 = load ptr, ptr %118, align 8, !tbaa !256
-  %1241 = call noundef i32 %1239(ptr noundef %1240, ptr noundef nonnull align 1 dereferenceable(20) %30) #21
+  %1241 = call noundef i32 %1239(ptr noundef %1240, ptr noundef nonnull align 1 dereferenceable(20) %30) #22
   %1242 = icmp eq i32 %1241, 0
   br i1 %1242, label %1243, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE59EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
@@ -3344,7 +3344,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE59EEE16evmc_st
   br i1 %1245, label %1246, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE59EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 1246:                                             ; preds = %1243
-  call void @llvm.lifetime.end.p0(ptr nonnull %30) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %30) #22
   %1247 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 3, ptr %1247, align 8, !tbaa !100
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
@@ -3355,15 +3355,15 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE59EEENS1_8PositionERKSt5arr
   %1249 = getelementptr inbounds nuw i8, ptr %1248, i64 32
   %1250 = load ptr, ptr %1249, align 8, !tbaa !292
   %1251 = load ptr, ptr %118, align 8, !tbaa !256
-  %1252 = call noundef i64 %1250(ptr noundef %1251, ptr noundef nonnull align 1 dereferenceable(20) %30) #21
+  %1252 = call noundef i64 %1250(ptr noundef %1251, ptr noundef nonnull align 1 dereferenceable(20) %30) #22
   store i64 %1252, ptr %1225, align 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1229, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %30) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %30) #22
   %1253 = getelementptr inbounds nuw i8, ptr %.sroa.01022.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1254:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_EXTCODECOPY", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !293
+  call void asm sideeffect "# OP_EXTCODECOPY", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !293
   %.val2946 = load i16, ptr %143, align 2, !tbaa !224
   %1255 = icmp slt i16 %.val2946, 0
   br i1 %1255, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE60EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1256, !prof !141
@@ -3387,7 +3387,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE60EEENS1_8PositionERKSt5arr
 
 1262:                                             ; preds = %1257
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %1263 = call { i32, i64 } @_ZN6evmone5instr4core11extcodecopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %1259, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %1263 = call { i32, i64 } @_ZN6evmone5instr4core11extcodecopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %1259, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %1264 = extractvalue { i32, i64 } %1263, 0
   %1265 = extractvalue { i32, i64 } %1263, 1
   %.not.i2915 = icmp eq i32 %1264, 0
@@ -3404,7 +3404,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE60EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1269:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_RETURNDATASIZE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !294
+  call void asm sideeffect "# OP_RETURNDATASIZE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !294
   %.val2947 = load i16, ptr %142, align 2, !tbaa !224
   %1270 = icmp slt i16 %.val2947, 0
   br i1 %1270, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE61EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1271, !prof !141
@@ -3437,7 +3437,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE61EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1281:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_RETURNDATACOPY", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !295
+  call void asm sideeffect "# OP_RETURNDATACOPY", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !295
   %.val2948 = load i16, ptr %141, align 2, !tbaa !224
   %1282 = icmp slt i16 %.val2948, 0
   br i1 %1282, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE62EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1283, !prof !141
@@ -3461,7 +3461,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE62EEENS1_8PositionERKSt5arr
 
 1289:                                             ; preds = %1284
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %1290 = call { i32, i64 } @_ZN6evmone5instr4core14returndatacopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %1286, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %1290 = call { i32, i64 } @_ZN6evmone5instr4core14returndatacopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %1286, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %1291 = extractvalue { i32, i64 } %1290, 0
   %1292 = extractvalue { i32, i64 } %1290, 1
   %.not.i2912 = icmp eq i32 %1291, 0
@@ -3478,7 +3478,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE62EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1296:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_EXTCODEHASH", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !296
+  call void asm sideeffect "# OP_EXTCODEHASH", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !296
   %.val2949 = load i16, ptr %139, align 2, !tbaa !224
   %1297 = icmp slt i16 %.val2949, 0
   br i1 %1297, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE63EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, label %1298, !prof !141
@@ -3503,7 +3503,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE63EEE16evmc_st
 1304:                                             ; preds = %1299
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
   %1305 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
-  call void @llvm.lifetime.start.p0(ptr nonnull %29) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %29) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !297)
   %1306 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -16
   %1307 = load i64, ptr %1306, align 16, !tbaa !3, !noalias !300
@@ -3527,7 +3527,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE63EEE16evmc_st
   %1318 = getelementptr inbounds nuw i8, ptr %1317, i64 96
   %1319 = load ptr, ptr %1318, align 8, !tbaa !254
   %1320 = load ptr, ptr %118, align 8, !tbaa !256
-  %1321 = call noundef i32 %1319(ptr noundef %1320, ptr noundef nonnull align 1 dereferenceable(20) %29) #21
+  %1321 = call noundef i32 %1319(ptr noundef %1320, ptr noundef nonnull align 1 dereferenceable(20) %29) #22
   %1322 = icmp eq i32 %1321, 0
   br i1 %1322, label %1323, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE63EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
@@ -3537,7 +3537,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE63EEE16evmc_st
   br i1 %1325, label %1326, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE63EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 1326:                                             ; preds = %1323
-  call void @llvm.lifetime.end.p0(ptr nonnull %29) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %29) #22
   %1327 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 3, ptr %1327, align 8, !tbaa !100
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
@@ -3549,7 +3549,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE63EEENS1_8PositionERKSt5arr
   %1330 = load ptr, ptr %1329, align 8, !tbaa !308, !noalias !305
   %1331 = load ptr, ptr %118, align 8, !tbaa !256, !noalias !305
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i3277), !noalias !305
-  call void %1330(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i3277, ptr noundef %1331, ptr noundef nonnull align 1 dereferenceable(20) %29) #21, !noalias !305
+  call void %1330(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i3277, ptr noundef %1331, ptr noundef nonnull align 1 dereferenceable(20) %29) #22, !noalias !305
   %.sroa.0.sroa.0.0.copyload.i3283 = load i64, ptr %.sroa.0.i.i3277, align 8
   %.sroa.0.sroa.4.0.copyload.i3285 = load i64, ptr %.sroa.0.sroa.4.0..sroa.0.i.sroa_idx.i3284, align 8
   %.sroa.0.sroa.5.0.copyload.i3287 = load i64, ptr %.sroa.0.sroa.5.0..sroa.0.i.sroa_idx.i3286, align 8
@@ -3564,12 +3564,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE63EEENS1_8PositionERKSt5arr
   store i64 %1334, ptr %1306, align 16
   %.sroa.10.0..sroa_idx.i3290 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -8
   store i64 %1335, ptr %.sroa.10.0..sroa_idx.i3290, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %29) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %29) #22
   %1336 = getelementptr inbounds nuw i8, ptr %.sroa.01022.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1337:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_BLOCKHASH", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !309
+  call void asm sideeffect "# OP_BLOCKHASH", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !309
   %.not.i3295 = icmp ugt ptr %.sroa.345.0, %62
   br i1 %.not.i3295, label %1338, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE64EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -3593,14 +3593,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE64EEENS1_8PositionERKSt5arr
   br i1 %1345, label %1346, label %_ZN6evmone14ExecutionState14get_tx_contextEv.exit.i, !prof !141
 
 1346:                                             ; preds = %1342
-  call void @llvm.lifetime.start.p0(ptr nonnull %28) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %28) #22
   %1347 = load ptr, ptr %117, align 8, !tbaa !253, !noalias !310
   %1348 = getelementptr inbounds nuw i8, ptr %1347, i64 72
   %1349 = load ptr, ptr %1348, align 8, !tbaa !266, !noalias !310
   %1350 = load ptr, ptr %118, align 8, !tbaa !256, !noalias !310
-  call void %1349(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %28, ptr noundef %1350) #21
+  call void %1349(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %28, ptr noundef %1350) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %125, ptr noundef nonnull align 8 dereferenceable(256) %28, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %28) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %28) #22
   br label %_ZN6evmone14ExecutionState14get_tx_contextEv.exit.i
 
 _ZN6evmone14ExecutionState14get_tx_contextEv.exit.i: ; preds = %1346, %1342
@@ -3641,7 +3641,7 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i3300:     ; preds = %1360, %_ZN6evmone14
   %1372 = load ptr, ptr %1371, align 8, !tbaa !317, !noalias !314
   %1373 = load ptr, ptr %118, align 8, !tbaa !256, !noalias !314
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i3298), !noalias !314
-  call void %1372(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i3298, ptr noundef %1373, i64 noundef %1353) #21, !noalias !314
+  call void %1372(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i3298, ptr noundef %1373, i64 noundef %1353) #22, !noalias !314
   %.sroa.020.0.copyload.i = load i64, ptr %.sroa.0.i.i3298, align 8
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa.0.i.sroa_idx.i, align 8
   %.sroa.623.0.copyload.i = load i64, ptr %.sroa.623.0..sroa.0.i.sroa_idx.i, align 8
@@ -3667,7 +3667,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE64EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1379:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_COINBASE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !318
+  call void asm sideeffect "# OP_COINBASE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !318
   %1380 = icmp eq ptr %.sroa.345.0, %89
   br i1 %1380, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE65EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1381, !prof !141
 
@@ -3690,14 +3690,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE65EEENS1_8PositionERKSt5arr
   br i1 %1387, label %1388, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE65EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, !prof !141
 
 1388:                                             ; preds = %1385
-  call void @llvm.lifetime.start.p0(ptr nonnull %27) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %27) #22
   %1389 = load ptr, ptr %117, align 8, !tbaa !253, !noalias !319
   %1390 = getelementptr inbounds nuw i8, ptr %1389, i64 72
   %1391 = load ptr, ptr %1390, align 8, !tbaa !266, !noalias !319
   %1392 = load ptr, ptr %118, align 8, !tbaa !256, !noalias !319
-  call void %1391(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %27, ptr noundef %1392) #21
+  call void %1391(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %27, ptr noundef %1392) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %125, ptr noundef nonnull align 8 dereferenceable(256) %27, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %27) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %27) #22
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE65EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE65EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %1388, %1385
@@ -3720,7 +3720,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE65EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1399:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_TIMESTAMP", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !322
+  call void asm sideeffect "# OP_TIMESTAMP", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !322
   %1400 = icmp eq ptr %.sroa.345.0, %89
   br i1 %1400, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE66EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1401, !prof !141
 
@@ -3743,14 +3743,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE66EEENS1_8PositionERKSt5arr
   br i1 %1407, label %1408, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE66EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, !prof !141
 
 1408:                                             ; preds = %1405
-  call void @llvm.lifetime.start.p0(ptr nonnull %26) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %26) #22
   %1409 = load ptr, ptr %117, align 8, !tbaa !253, !noalias !323
   %1410 = getelementptr inbounds nuw i8, ptr %1409, i64 72
   %1411 = load ptr, ptr %1410, align 8, !tbaa !266, !noalias !323
   %1412 = load ptr, ptr %118, align 8, !tbaa !256, !noalias !323
-  call void %1411(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %26, ptr noundef %1412) #21
+  call void %1411(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %26, ptr noundef %1412) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %125, ptr noundef nonnull align 8 dereferenceable(256) %26, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %26) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %26) #22
   %.pre.i3321 = load i64, ptr %124, align 8, !tbaa !326
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE66EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
@@ -3764,7 +3764,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE66EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1416:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_NUMBER", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !327
+  call void asm sideeffect "# OP_NUMBER", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !327
   %1417 = icmp eq ptr %.sroa.345.0, %89
   br i1 %1417, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE67EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1418, !prof !141
 
@@ -3787,14 +3787,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE67EEENS1_8PositionERKSt5arr
   br i1 %1424, label %1425, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE67EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, !prof !141
 
 1425:                                             ; preds = %1422
-  call void @llvm.lifetime.start.p0(ptr nonnull %25) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %25) #22
   %1426 = load ptr, ptr %117, align 8, !tbaa !253, !noalias !328
   %1427 = getelementptr inbounds nuw i8, ptr %1426, i64 72
   %1428 = load ptr, ptr %1427, align 8, !tbaa !266, !noalias !328
   %1429 = load ptr, ptr %118, align 8, !tbaa !256, !noalias !328
-  call void %1428(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %25, ptr noundef %1429) #21
+  call void %1428(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %25, ptr noundef %1429) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %125, ptr noundef nonnull align 8 dereferenceable(256) %25, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %25) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %25) #22
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE67EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE67EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %1425, %1422
@@ -3807,7 +3807,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE67EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1433:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PREVRANDAO", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !331
+  call void asm sideeffect "# OP_PREVRANDAO", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !331
   %1434 = icmp eq ptr %.sroa.345.0, %89
   br i1 %1434, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE68EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1435, !prof !141
 
@@ -3830,14 +3830,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE68EEENS1_8PositionERKSt5arr
   br i1 %1441, label %1442, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE68EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, !prof !141
 
 1442:                                             ; preds = %1439
-  call void @llvm.lifetime.start.p0(ptr nonnull %24) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %24) #22
   %1443 = load ptr, ptr %117, align 8, !tbaa !253, !noalias !332
   %1444 = getelementptr inbounds nuw i8, ptr %1443, i64 72
   %1445 = load ptr, ptr %1444, align 8, !tbaa !266, !noalias !332
   %1446 = load ptr, ptr %118, align 8, !tbaa !256, !noalias !332
-  call void %1445(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %24, ptr noundef %1446) #21
+  call void %1445(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %24, ptr noundef %1446) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %125, ptr noundef nonnull align 8 dereferenceable(256) %24, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %24) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %24) #22
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE68EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE68EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %1442, %1439
@@ -3861,7 +3861,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE68EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1453:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_GASLIMIT", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !335
+  call void asm sideeffect "# OP_GASLIMIT", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !335
   %1454 = icmp eq ptr %.sroa.345.0, %89
   br i1 %1454, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE69EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1455, !prof !141
 
@@ -3884,14 +3884,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE69EEENS1_8PositionERKSt5arr
   br i1 %1461, label %1462, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE69EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, !prof !141
 
 1462:                                             ; preds = %1459
-  call void @llvm.lifetime.start.p0(ptr nonnull %23) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %23) #22
   %1463 = load ptr, ptr %117, align 8, !tbaa !253, !noalias !336
   %1464 = getelementptr inbounds nuw i8, ptr %1463, i64 72
   %1465 = load ptr, ptr %1464, align 8, !tbaa !266, !noalias !336
   %1466 = load ptr, ptr %118, align 8, !tbaa !256, !noalias !336
-  call void %1465(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %23, ptr noundef %1466) #21
+  call void %1465(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %23, ptr noundef %1466) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %125, ptr noundef nonnull align 8 dereferenceable(256) %23, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %23) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %23) #22
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE69EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE69EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %1462, %1459
@@ -3904,7 +3904,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE69EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1470:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CHAINID", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !340
+  call void asm sideeffect "# OP_CHAINID", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !340
   %.val2950 = load i16, ptr %133, align 2, !tbaa !224
   %1471 = icmp slt i16 %.val2950, 0
   br i1 %1471, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE70EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1472, !prof !141
@@ -3933,14 +3933,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE70EEENS1_8PositionERKSt5arr
   br i1 %1481, label %1482, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE70EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, !prof !141
 
 1482:                                             ; preds = %1479
-  call void @llvm.lifetime.start.p0(ptr nonnull %22) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %22) #22
   %1483 = load ptr, ptr %117, align 8, !tbaa !253, !noalias !341
   %1484 = getelementptr inbounds nuw i8, ptr %1483, i64 72
   %1485 = load ptr, ptr %1484, align 8, !tbaa !266, !noalias !341
   %1486 = load ptr, ptr %118, align 8, !tbaa !256, !noalias !341
-  call void %1485(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %22, ptr noundef %1486) #21
+  call void %1485(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %22, ptr noundef %1486) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %125, ptr noundef nonnull align 8 dereferenceable(256) %22, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %22) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %22) #22
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE70EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE70EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %1482, %1479
@@ -3964,7 +3964,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE70EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1493:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SELFBALANCE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !344
+  call void asm sideeffect "# OP_SELFBALANCE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !344
   %.val2951 = load i16, ptr %132, align 2, !tbaa !224
   %1494 = icmp slt i16 %.val2951, 0
   br i1 %1494, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE71EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1495, !prof !141
@@ -3988,7 +3988,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE71EEENS1_8PositionERKSt5arr
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE71EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %1497
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %21) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %21) #22
   %1502 = load ptr, ptr %116, align 8, !tbaa !81
   %1503 = getelementptr inbounds nuw i8, ptr %1502, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %21, ptr noundef nonnull align 8 dereferenceable(20) %1503, i64 20, i1 false)
@@ -3997,7 +3997,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE71EEENS1_8PositionERKSt5arr
   %1506 = load ptr, ptr %1505, align 8, !tbaa !260, !noalias !345
   %1507 = load ptr, ptr %118, align 8, !tbaa !256, !noalias !345
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i3358), !noalias !345
-  call void %1506(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i3358, ptr noundef %1507, ptr noundef nonnull align 1 dereferenceable(20) %21) #21, !noalias !345
+  call void %1506(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i3358, ptr noundef %1507, ptr noundef nonnull align 1 dereferenceable(20) %21) #22, !noalias !345
   %.sroa.02.sroa.0.0.copyload.i = load i64, ptr %.sroa.0.i.i3358, align 8
   %.sroa.02.sroa.4.0.copyload.i = load i64, ptr %.sroa.02.sroa.4.0..sroa.0.i.sroa_idx.i, align 8
   %.sroa.02.sroa.5.0.copyload.i = load i64, ptr %.sroa.02.sroa.5.0..sroa.0.i.sroa_idx.i, align 8
@@ -4014,13 +4014,13 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE71EEENS1_8PositionERKSt5arr
   store i64 %1510, ptr %.sroa.8.0..sroa_idx.i3360, align 16
   %.sroa.10.0..sroa_idx.i3361 = getelementptr inbounds nuw i8, ptr %.sroa.345.0, i64 24
   store i64 %1511, ptr %.sroa.10.0..sroa_idx.i3361, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %21) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %21) #22
   %1512 = getelementptr inbounds nuw i8, ptr %.sroa.01022.0, i64 1
   %1513 = getelementptr inbounds nuw i8, ptr %.sroa.345.0, i64 32
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1514:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_BASEFEE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !348
+  call void asm sideeffect "# OP_BASEFEE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !348
   %.val2952 = load i16, ptr %130, align 2, !tbaa !224
   %1515 = icmp slt i16 %.val2952, 0
   br i1 %1515, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE72EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1516, !prof !141
@@ -4049,14 +4049,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE72EEENS1_8PositionERKSt5arr
   br i1 %1525, label %1526, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE72EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, !prof !141
 
 1526:                                             ; preds = %1523
-  call void @llvm.lifetime.start.p0(ptr nonnull %20) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %20) #22
   %1527 = load ptr, ptr %117, align 8, !tbaa !253, !noalias !349
   %1528 = getelementptr inbounds nuw i8, ptr %1527, i64 72
   %1529 = load ptr, ptr %1528, align 8, !tbaa !266, !noalias !349
   %1530 = load ptr, ptr %118, align 8, !tbaa !256, !noalias !349
-  call void %1529(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %20, ptr noundef %1530) #21
+  call void %1529(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %20, ptr noundef %1530) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %125, ptr noundef nonnull align 8 dereferenceable(256) %20, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %20) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %20) #22
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE72EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE72EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %1526, %1523
@@ -4080,7 +4080,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE72EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1537:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_BLOBHASH", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !352
+  call void asm sideeffect "# OP_BLOBHASH", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !352
   %.val2953 = load i16, ptr %127, align 2, !tbaa !224
   %1538 = icmp slt i16 %.val2953, 0
   br i1 %1538, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE73EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1539, !prof !141
@@ -4110,14 +4110,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE73EEENS1_8PositionERKSt5arr
   br i1 %1548, label %1549, label %_ZN6evmone14ExecutionState14get_tx_contextEv.exit.i3378, !prof !141
 
 1549:                                             ; preds = %1545
-  call void @llvm.lifetime.start.p0(ptr nonnull %19) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %19) #22
   %1550 = load ptr, ptr %117, align 8, !tbaa !253, !noalias !353
   %1551 = getelementptr inbounds nuw i8, ptr %1550, i64 72
   %1552 = load ptr, ptr %1551, align 8, !tbaa !266, !noalias !353
   %1553 = load ptr, ptr %118, align 8, !tbaa !256, !noalias !353
-  call void %1552(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %19, ptr noundef %1553) #21
+  call void %1552(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %19, ptr noundef %1553) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %125, ptr noundef nonnull align 8 dereferenceable(256) %19, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %19) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %19) #22
   br label %_ZN6evmone14ExecutionState14get_tx_contextEv.exit.i3378
 
 _ZN6evmone14ExecutionState14get_tx_contextEv.exit.i3378: ; preds = %1549, %1545
@@ -4179,7 +4179,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE73EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1580:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_BLOBBASEFEE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !358
+  call void asm sideeffect "# OP_BLOBBASEFEE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !358
   %.val2954 = load i16, ptr %123, align 2, !tbaa !224
   %1581 = icmp slt i16 %.val2954, 0
   br i1 %1581, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE74EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1582, !prof !141
@@ -4208,14 +4208,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE74EEENS1_8PositionERKSt5arr
   br i1 %1591, label %1592, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE74EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, !prof !141
 
 1592:                                             ; preds = %1589
-  call void @llvm.lifetime.start.p0(ptr nonnull %18) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %18) #22
   %1593 = load ptr, ptr %117, align 8, !tbaa !253, !noalias !359
   %1594 = getelementptr inbounds nuw i8, ptr %1593, i64 72
   %1595 = load ptr, ptr %1594, align 8, !tbaa !266, !noalias !359
   %1596 = load ptr, ptr %118, align 8, !tbaa !256, !noalias !359
-  call void %1595(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %18, ptr noundef %1596) #21
+  call void %1595(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %18, ptr noundef %1596) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %125, ptr noundef nonnull align 8 dereferenceable(256) %18, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %18) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %18) #22
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE74EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE74EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %1592, %1589
@@ -4239,7 +4239,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE74EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1603:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_POP", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !362
+  call void asm sideeffect "# OP_POP", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !362
   %.not.i3396 = icmp ugt ptr %.sroa.345.0, %62
   br i1 %.not.i3396, label %1604, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE80EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -4262,7 +4262,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE80EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1610:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_MLOAD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !363
+  call void asm sideeffect "# OP_MLOAD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !363
   %.not.i3399 = icmp ugt ptr %.sroa.345.0, %62
   br i1 %.not.i3399, label %1611, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE81EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, !prof !80
 
@@ -4304,7 +4304,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE81EEE16evmc_st
   br i1 %1631, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE81EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i: ; preds = %1628
-  %1632 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1612, ptr noundef nonnull align 8 dereferenceable(24) %122, i64 noundef %1629) #21
+  %1632 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1612, ptr noundef nonnull align 8 dereferenceable(24) %122, i64 noundef %1629) #22
   %1633 = icmp sgt i64 %1632, -1
   br i1 %1633, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i._ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE81EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit_crit_edge, label %1634
 
@@ -4342,7 +4342,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE81EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1644:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_MSTORE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !367
+  call void asm sideeffect "# OP_MSTORE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !367
   %.not.i3407 = icmp ugt ptr %.sroa.345.0, %102
   br i1 %.not.i3407, label %1645, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE82EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, !prof !80
 
@@ -4385,7 +4385,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE82EEE16evmc_st
   br i1 %1666, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i3415, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE82EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i3415: ; preds = %1663
-  %1667 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1646, ptr noundef nonnull align 8 dereferenceable(24) %122, i64 noundef %1664) #21
+  %1667 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1646, ptr noundef nonnull align 8 dereferenceable(24) %122, i64 noundef %1664) #22
   %1668 = icmp sgt i64 %1667, -1
   br i1 %1668, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i3415._ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE82EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit_crit_edge, label %1669
 
@@ -4426,7 +4426,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE82EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1689:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_MSTORE8", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !368
+  call void asm sideeffect "# OP_MSTORE8", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !368
   %.not.i3417 = icmp ugt ptr %.sroa.345.0, %102
   br i1 %.not.i3417, label %1690, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE83EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, !prof !80
 
@@ -4469,7 +4469,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE83EEE16evmc_st
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i3426: ; preds = %1708
   %1710 = add nuw nsw i64 %1706, 1
-  %1711 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1691, ptr noundef nonnull align 8 dereferenceable(24) %122, i64 noundef %1710) #21
+  %1711 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1691, ptr noundef nonnull align 8 dereferenceable(24) %122, i64 noundef %1710) #22
   %1712 = icmp sgt i64 %1711, -1
   br i1 %1712, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i3426._ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE83EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit_crit_edge, label %1713
 
@@ -4495,7 +4495,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE83EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1721:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SLOAD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !369
+  call void asm sideeffect "# OP_SLOAD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !369
   %.val2955 = load i16, ptr %121, align 2, !tbaa !224
   %1722 = icmp slt i16 %.val2955, 0
   br i1 %1722, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE84EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, label %1723, !prof !141
@@ -4519,7 +4519,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE84EEE16evmc_st
 
 1729:                                             ; preds = %1724
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %1730 = call { i32, i64 } @_ZN6evmone5instr4core5sloadENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %1726, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %1730 = call { i32, i64 } @_ZN6evmone5instr4core5sloadENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %1726, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %1731 = extractvalue { i32, i64 } %1730, 0
   %1732 = extractvalue { i32, i64 } %1730, 1
   %.not.i2897 = icmp eq i32 %1731, 0
@@ -4535,7 +4535,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE84EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1736:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SSTORE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !370
+  call void asm sideeffect "# OP_SSTORE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !370
   %.not.i3431 = icmp ugt ptr %.sroa.345.0, %102
   %1737 = icmp slt i64 %.04429, 0
   %..i3432 = select i1 %1737, i32 3, i32 0, !prof !141
@@ -4550,7 +4550,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE85EEENS1_8PositionERKSt5arr
 
 1739:                                             ; preds = %1736
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %1740 = call { i32, i64 } @_ZN6evmone5instr4core6sstoreENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %.04429, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %1740 = call { i32, i64 } @_ZN6evmone5instr4core6sstoreENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %.04429, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %1741 = extractvalue { i32, i64 } %1740, 0
   %1742 = extractvalue { i32, i64 } %1740, 1
   %.not.i2894 = icmp eq i32 %1741, 0
@@ -4567,7 +4567,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE85EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1746:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_JUMP", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !371
+  call void asm sideeffect "# OP_JUMP", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !371
   %.not.i3434 = icmp ugt ptr %.sroa.345.0, %62
   br i1 %.not.i3434, label %1747, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE86EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -4629,7 +4629,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE86EEENS1_8PositionERKSt5arr
   br i1 %.not1987, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1775:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_JUMPI", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !377
+  call void asm sideeffect "# OP_JUMPI", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !377
   %.not.i3440 = icmp ugt ptr %.sroa.345.0, %102
   br i1 %.not.i3440, label %1776, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE87EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, !prof !80
 
@@ -4648,7 +4648,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE87EEE16evmc_st
 1780:                                             ; preds = %1776
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
   %1781 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %17) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %17) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false)
   br label %1782
 
@@ -4668,7 +4668,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE87EEE16evmc_st
 _ZNK4intx4uintILj256EEcvbEv.exit.i:               ; preds = %1782
   %1790 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
   %.not.i3446 = icmp eq i64 %1788, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %17) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %17) #22
   br i1 %.not.i3446, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE87EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread6084, label %1791
 
 1791:                                             ; preds = %_ZNK4intx4uintILj256EEcvbEv.exit.i
@@ -4719,7 +4719,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE87EEENS1_8PositionERKSt5arr
   br i1 %.not1986, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1815:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PC", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !378
+  call void asm sideeffect "# OP_PC", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !378
   %1816 = icmp eq ptr %.sroa.345.0, %89
   br i1 %1816, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE88EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1817, !prof !141
 
@@ -4750,7 +4750,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE88EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1826:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_MSIZE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !379
+  call void asm sideeffect "# OP_MSIZE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !379
   %1827 = icmp eq ptr %.sroa.345.0, %89
   br i1 %1827, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE89EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1828, !prof !141
 
@@ -4777,7 +4777,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE89EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1835:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_GAS", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !380
+  call void asm sideeffect "# OP_GAS", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !380
   %1836 = icmp eq ptr %.sroa.345.0, %89
   br i1 %1836, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE90EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1837, !prof !141
 
@@ -4803,7 +4803,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE90EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1843:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_JUMPDEST", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !381
+  call void asm sideeffect "# OP_JUMPDEST", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !381
   %1844 = add nsw i64 %.04429, -1
   %1845 = icmp slt i64 %.04429, 1
   br i1 %1845, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE91EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE91EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
@@ -4819,7 +4819,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE91EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1848:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_TLOAD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !382
+  call void asm sideeffect "# OP_TLOAD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !382
   %.val2956 = load i16, ptr %119, align 2, !tbaa !224
   %1849 = icmp slt i16 %.val2956, 0
   br i1 %1849, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE92EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1850, !prof !141
@@ -4844,7 +4844,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE92EEENS1_8PositionERKSt5arr
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE92EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %1851
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
   %1856 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
-  call void @llvm.lifetime.start.p0(ptr nonnull %15) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %15) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !383)
   %1857 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -8
   %1858 = load i64, ptr %1857, align 8, !tbaa !3, !noalias !386
@@ -4861,7 +4861,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE92EEENS1_8PositionERKSt5arr
   store i64 %1862, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !383
   store i64 %1865, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !383
   store i64 %1867, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !alias.scope !383
-  call void @llvm.lifetime.start.p0(ptr nonnull %16) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %16) #22
   %1868 = load ptr, ptr %116, align 8, !tbaa !81
   %1869 = getelementptr inbounds nuw i8, ptr %1868, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(20) %1869, i64 20, i1 false)
@@ -4870,13 +4870,13 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE92EEENS1_8PositionERKSt5arr
   %1872 = load ptr, ptr %1871, align 8, !tbaa !394, !noalias !391
   %1873 = load ptr, ptr %118, align 8, !tbaa !256, !noalias !391
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i3468), !noalias !391
-  call void %1872(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i3468, ptr noundef %1873, ptr noundef nonnull align 1 dereferenceable(20) %16, ptr noundef nonnull align 1 dereferenceable(32) %15) #21, !noalias !391
+  call void %1872(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i3468, ptr noundef %1873, ptr noundef nonnull align 1 dereferenceable(20) %16, ptr noundef nonnull align 1 dereferenceable(32) %15) #22, !noalias !391
   %.sroa.012.0.copyload.i = load i64, ptr %.sroa.0.i.i3468, align 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa.0.i.sroa_idx.i, align 8
   %.sroa.5.0.copyload.i3470 = load i64, ptr %.sroa.5.0..sroa.0.i.sroa_idx.i3469, align 8
   %.sroa.613.0.copyload.i = load i64, ptr %.sroa.613.0..sroa.0.i.sroa_idx.i, align 8, !tbaa !17
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i3468), !noalias !391
-  call void @llvm.lifetime.end.p0(ptr nonnull %16) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %16) #22
   %1874 = call noundef i64 @llvm.bswap.i64(i64 %.sroa.613.0.copyload.i)
   %1875 = call noundef i64 @llvm.bswap.i64(i64 %.sroa.5.0.copyload.i3470)
   %1876 = call noundef i64 @llvm.bswap.i64(i64 %.sroa.4.0.copyload.i)
@@ -4885,12 +4885,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE92EEENS1_8PositionERKSt5arr
   store i64 %1875, ptr %1863, align 8
   store i64 %1876, ptr %1860, align 16
   store i64 %1877, ptr %1857, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %15) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %15) #22
   %1878 = getelementptr inbounds nuw i8, ptr %.sroa.01022.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1879:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_TSTORE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !395
+  call void asm sideeffect "# OP_TSTORE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !395
   %.val2957 = load i16, ptr %115, align 2, !tbaa !224
   %1880 = icmp slt i16 %.val2957, 0
   br i1 %1880, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE93EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1881, !prof !141
@@ -4927,7 +4927,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE93EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE93EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %1887
-  call void @llvm.lifetime.start.p0(ptr nonnull %12) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %12) #22
   %1893 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
   call void @llvm.experimental.noalias.scope.decl(metadata !397)
   %1894 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -8
@@ -4945,7 +4945,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE93EEENS1_8PositionERKSt5arr
   store i64 %1899, ptr %.sroa.4.0..sroa_idx.i.i.i3479, align 8, !alias.scope !397
   store i64 %1902, ptr %.sroa.5.0..sroa_idx.i.i.i3480, align 8, !alias.scope !397
   store i64 %1904, ptr %.sroa.6.0..sroa_idx.i.i.i3481, align 8, !alias.scope !397
-  call void @llvm.lifetime.start.p0(ptr nonnull %13) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %13) #22
   %1905 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -64
   call void @llvm.experimental.noalias.scope.decl(metadata !405)
   %1906 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -40
@@ -4963,22 +4963,22 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE93EEENS1_8PositionERKSt5arr
   store i64 %1911, ptr %.sroa.4.0..sroa_idx.i.i3.i, align 8, !alias.scope !405
   store i64 %1914, ptr %.sroa.5.0..sroa_idx.i.i4.i, align 8, !alias.scope !405
   store i64 %1916, ptr %.sroa.6.0..sroa_idx.i.i5.i, align 8, !alias.scope !405
-  call void @llvm.lifetime.start.p0(ptr nonnull %14) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %14) #22
   %1917 = getelementptr inbounds nuw i8, ptr %1888, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull align 8 dereferenceable(20) %1917, i64 20, i1 false)
   %1918 = load ptr, ptr %117, align 8, !tbaa !253
   %1919 = getelementptr inbounds nuw i8, ptr %1918, i64 120
   %1920 = load ptr, ptr %1919, align 8, !tbaa !413
   %1921 = load ptr, ptr %118, align 8, !tbaa !256
-  call void %1920(ptr noundef %1921, ptr noundef nonnull align 1 dereferenceable(20) %14, ptr noundef nonnull align 1 dereferenceable(32) %12, ptr noundef nonnull align 1 dereferenceable(32) %13) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %14) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %13) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %12) #21
+  call void %1920(ptr noundef %1921, ptr noundef nonnull align 1 dereferenceable(20) %14, ptr noundef nonnull align 1 dereferenceable(32) %12, ptr noundef nonnull align 1 dereferenceable(32) %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12) #22
   %1922 = getelementptr inbounds nuw i8, ptr %.sroa.01022.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1923:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_MCOPY", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !414
+  call void asm sideeffect "# OP_MCOPY", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !414
   %.val2958 = load i16, ptr %114, align 2, !tbaa !224
   %1924 = icmp slt i16 %.val2958, 0
   br i1 %1924, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE94EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1925, !prof !141
@@ -5002,7 +5002,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE94EEENS1_8PositionERKSt5arr
 
 1931:                                             ; preds = %1926
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %1932 = call { i32, i64 } @_ZN6evmone5instr4core5mcopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %1928, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %1932 = call { i32, i64 } @_ZN6evmone5instr4core5mcopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %1928, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %1933 = extractvalue { i32, i64 } %1932, 0
   %1934 = extractvalue { i32, i64 } %1932, 1
   %.not.i2885 = icmp eq i32 %1933, 0
@@ -5019,7 +5019,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE94EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1938:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH0", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !415
+  call void asm sideeffect "# OP_PUSH0", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !415
   %.val2959 = load i16, ptr %113, align 2, !tbaa !224
   %1939 = icmp slt i16 %.val2959, 0
   br i1 %1939, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE95EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1940, !prof !141
@@ -5049,7 +5049,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE95EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1949:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH1", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !416
+  call void asm sideeffect "# OP_PUSH1", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !416
   %1950 = icmp eq ptr %.sroa.345.0, %89
   br i1 %1950, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE96EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1951, !prof !141
 
@@ -5077,7 +5077,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE96EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1960:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH2", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !417
+  call void asm sideeffect "# OP_PUSH2", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !417
   %1961 = icmp eq ptr %.sroa.345.0, %89
   br i1 %1961, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE97EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1962, !prof !141
 
@@ -5106,7 +5106,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE97EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1972:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH3", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !418
+  call void asm sideeffect "# OP_PUSH3", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !418
   %1973 = icmp eq ptr %.sroa.345.0, %89
   br i1 %1973, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE98EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1974, !prof !141
 
@@ -5136,7 +5136,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE98EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1985:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH4", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !419
+  call void asm sideeffect "# OP_PUSH4", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !419
   %1986 = icmp eq ptr %.sroa.345.0, %89
   br i1 %1986, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE99EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1987, !prof !141
 
@@ -5165,7 +5165,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE99EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1997:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH5", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !420
+  call void asm sideeffect "# OP_PUSH5", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !420
   %1998 = icmp eq ptr %.sroa.345.0, %89
   br i1 %1998, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE100EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1999, !prof !141
 
@@ -5194,7 +5194,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE100EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2009:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH6", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !421
+  call void asm sideeffect "# OP_PUSH6", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !421
   %2010 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2010, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE101EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2011, !prof !141
 
@@ -5223,7 +5223,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE101EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2021:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH7", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !422
+  call void asm sideeffect "# OP_PUSH7", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !422
   %2022 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2022, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE102EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2023, !prof !141
 
@@ -5252,7 +5252,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE102EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2033:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH8", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !423
+  call void asm sideeffect "# OP_PUSH8", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !423
   %2034 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2034, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE103EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2035, !prof !141
 
@@ -5280,7 +5280,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE103EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2044:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH9", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !424
+  call void asm sideeffect "# OP_PUSH9", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !424
   %2045 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2045, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE104EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2046, !prof !141
 
@@ -5313,7 +5313,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE104EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2059:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH10", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !425
+  call void asm sideeffect "# OP_PUSH10", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !425
   %2060 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2060, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE105EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2061, !prof !141
 
@@ -5347,7 +5347,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE105EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2075:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH11", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !426
+  call void asm sideeffect "# OP_PUSH11", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !426
   %2076 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2076, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE106EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2077, !prof !141
 
@@ -5382,7 +5382,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE106EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2092:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH12", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !427
+  call void asm sideeffect "# OP_PUSH12", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !427
   %2093 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2093, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE107EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2094, !prof !141
 
@@ -5416,7 +5416,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE107EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2108:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH13", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !428
+  call void asm sideeffect "# OP_PUSH13", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !428
   %2109 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2109, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE108EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2110, !prof !141
 
@@ -5450,7 +5450,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE108EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2124:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH14", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !429
+  call void asm sideeffect "# OP_PUSH14", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !429
   %2125 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2125, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE109EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2126, !prof !141
 
@@ -5484,7 +5484,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE109EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2140:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH15", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !430
+  call void asm sideeffect "# OP_PUSH15", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !430
   %2141 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2141, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE110EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2142, !prof !141
 
@@ -5518,7 +5518,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE110EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2154:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH16", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !431
+  call void asm sideeffect "# OP_PUSH16", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !431
   %2155 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2155, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE111EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2156, !prof !141
 
@@ -5556,7 +5556,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE111EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2169:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH17", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !433
+  call void asm sideeffect "# OP_PUSH17", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !433
   %2170 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2170, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE112EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2171, !prof !141
 
@@ -5599,7 +5599,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE112EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2188:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH18", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !435
+  call void asm sideeffect "# OP_PUSH18", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !435
   %2189 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2189, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE113EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2190, !prof !141
 
@@ -5643,7 +5643,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE113EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2208:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH19", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !437
+  call void asm sideeffect "# OP_PUSH19", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !437
   %2209 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2209, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE114EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2210, !prof !141
 
@@ -5688,7 +5688,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE114EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2229:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH20", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !439
+  call void asm sideeffect "# OP_PUSH20", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !439
   %2230 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2230, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE115EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2231, !prof !141
 
@@ -5732,7 +5732,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE115EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2249:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH21", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !441
+  call void asm sideeffect "# OP_PUSH21", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !441
   %2250 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2250, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE116EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2251, !prof !141
 
@@ -5776,7 +5776,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE116EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2269:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH22", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !443
+  call void asm sideeffect "# OP_PUSH22", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !443
   %2270 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2270, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE117EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2271, !prof !141
 
@@ -5820,7 +5820,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE117EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2289:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH23", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !445
+  call void asm sideeffect "# OP_PUSH23", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !445
   %2290 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2290, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE118EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2291, !prof !141
 
@@ -5864,7 +5864,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE118EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2307:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH24", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !447
+  call void asm sideeffect "# OP_PUSH24", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !447
   %2308 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2308, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE119EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2309, !prof !141
 
@@ -5904,7 +5904,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE119EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2323:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH25", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !449
+  call void asm sideeffect "# OP_PUSH25", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !449
   %2324 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2324, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE120EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2325, !prof !141
 
@@ -5949,7 +5949,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE120EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2343:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH26", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !451
+  call void asm sideeffect "# OP_PUSH26", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !451
   %2344 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2344, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE121EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2345, !prof !141
 
@@ -5995,7 +5995,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE121EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2364:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH27", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !453
+  call void asm sideeffect "# OP_PUSH27", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !453
   %2365 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2365, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE122EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2366, !prof !141
 
@@ -6042,7 +6042,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE122EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2386:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH28", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !455
+  call void asm sideeffect "# OP_PUSH28", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !455
   %2387 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2387, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE123EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2388, !prof !141
 
@@ -6088,7 +6088,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE123EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2407:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH29", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !457
+  call void asm sideeffect "# OP_PUSH29", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !457
   %2408 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2408, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE124EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2409, !prof !141
 
@@ -6134,7 +6134,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE124EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2428:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH30", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !459
+  call void asm sideeffect "# OP_PUSH30", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !459
   %2429 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2429, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE125EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2430, !prof !141
 
@@ -6180,7 +6180,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE125EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2449:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH31", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !461
+  call void asm sideeffect "# OP_PUSH31", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !461
   %2450 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2450, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE126EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2451, !prof !141
 
@@ -6226,7 +6226,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE126EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2468:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH32", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !463
+  call void asm sideeffect "# OP_PUSH32", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !463
   %2469 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2469, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE127EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2470, !prof !141
 
@@ -6266,7 +6266,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE127EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2484:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP1", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !465
+  call void asm sideeffect "# OP_DUP1", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !465
   %2485 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2485, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE128EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2486, !prof !141
 
@@ -6295,7 +6295,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE128EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2494:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP2", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !466
+  call void asm sideeffect "# OP_DUP2", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !466
   %2495 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2495, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE129EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2496, !prof !141
 
@@ -6324,7 +6324,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE129EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2504:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP3", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !467
+  call void asm sideeffect "# OP_DUP3", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !467
   %2505 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2505, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE130EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2506, !prof !141
 
@@ -6353,7 +6353,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE130EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2514:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP4", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !468
+  call void asm sideeffect "# OP_DUP4", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !468
   %2515 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2515, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE131EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2516, !prof !141
 
@@ -6382,7 +6382,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE131EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2524:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP5", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !469
+  call void asm sideeffect "# OP_DUP5", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !469
   %2525 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2525, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE132EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2526, !prof !141
 
@@ -6411,7 +6411,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE132EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2534:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP6", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !470
+  call void asm sideeffect "# OP_DUP6", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !470
   %2535 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2535, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE133EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2536, !prof !141
 
@@ -6440,7 +6440,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE133EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2544:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP7", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !471
+  call void asm sideeffect "# OP_DUP7", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !471
   %2545 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2545, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE134EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2546, !prof !141
 
@@ -6469,7 +6469,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE134EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2554:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP8", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !472
+  call void asm sideeffect "# OP_DUP8", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !472
   %2555 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2555, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE135EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2556, !prof !141
 
@@ -6498,7 +6498,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE135EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2564:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP9", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !473
+  call void asm sideeffect "# OP_DUP9", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !473
   %2565 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2565, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE136EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2566, !prof !141
 
@@ -6527,7 +6527,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE136EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2574:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP10", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !474
+  call void asm sideeffect "# OP_DUP10", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !474
   %2575 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2575, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE137EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2576, !prof !141
 
@@ -6556,7 +6556,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE137EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2584:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP11", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !475
+  call void asm sideeffect "# OP_DUP11", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !475
   %2585 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2585, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE138EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2586, !prof !141
 
@@ -6585,7 +6585,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE138EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2594:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP12", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !476
+  call void asm sideeffect "# OP_DUP12", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !476
   %2595 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2595, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE139EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2596, !prof !141
 
@@ -6614,7 +6614,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE139EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2604:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP13", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !477
+  call void asm sideeffect "# OP_DUP13", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !477
   %2605 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2605, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE140EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2606, !prof !141
 
@@ -6643,7 +6643,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE140EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2614:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP14", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !478
+  call void asm sideeffect "# OP_DUP14", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !478
   %2615 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2615, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE141EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2616, !prof !141
 
@@ -6672,7 +6672,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE141EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2624:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP15", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !479
+  call void asm sideeffect "# OP_DUP15", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !479
   %2625 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2625, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE142EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2626, !prof !141
 
@@ -6701,7 +6701,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE142EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2634:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP16", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !480
+  call void asm sideeffect "# OP_DUP16", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !480
   %2635 = icmp eq ptr %.sroa.345.0, %89
   br i1 %2635, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE143EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2636, !prof !141
 
@@ -6730,7 +6730,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE143EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2644:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP1", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !481
+  call void asm sideeffect "# OP_SWAP1", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !481
   %.not.i3641 = icmp ugt ptr %.sroa.345.0, %102
   br i1 %.not.i3641, label %2645, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE144EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -6769,7 +6769,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE144EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2662:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP2", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !482
+  call void asm sideeffect "# OP_SWAP2", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !482
   %.not.i3644 = icmp ugt ptr %.sroa.345.0, %67
   br i1 %.not.i3644, label %2663, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE145EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -6808,7 +6808,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE145EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2680:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP3", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !483
+  call void asm sideeffect "# OP_SWAP3", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !483
   %.not.i3647 = icmp ugt ptr %.sroa.345.0, %72
   br i1 %.not.i3647, label %2681, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE146EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -6847,7 +6847,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE146EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2698:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP4", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !484
+  call void asm sideeffect "# OP_SWAP4", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !484
   %.not.i3650 = icmp ugt ptr %.sroa.345.0, %82
   br i1 %.not.i3650, label %2699, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE147EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -6886,7 +6886,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE147EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2716:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP5", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !485
+  call void asm sideeffect "# OP_SWAP5", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !485
   %.not.i3653 = icmp ugt ptr %.sroa.345.0, %69
   br i1 %.not.i3653, label %2717, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE148EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -6925,7 +6925,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE148EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2734:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP6", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !486
+  call void asm sideeffect "# OP_SWAP6", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !486
   %.not.i3656 = icmp ugt ptr %.sroa.345.0, %79
   br i1 %.not.i3656, label %2735, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE149EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -6964,7 +6964,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE149EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2752:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP7", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !487
+  call void asm sideeffect "# OP_SWAP7", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !487
   %.not.i3659 = icmp ugt ptr %.sroa.345.0, %112
   br i1 %.not.i3659, label %2753, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE150EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -7003,7 +7003,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE150EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2770:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP8", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !488
+  call void asm sideeffect "# OP_SWAP8", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !488
   %.not.i3662 = icmp ugt ptr %.sroa.345.0, %111
   br i1 %.not.i3662, label %2771, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE151EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -7042,7 +7042,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE151EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2788:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP9", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !489
+  call void asm sideeffect "# OP_SWAP9", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !489
   %.not.i3665 = icmp ugt ptr %.sroa.345.0, %110
   br i1 %.not.i3665, label %2789, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE152EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -7081,7 +7081,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE152EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2806:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP10", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !490
+  call void asm sideeffect "# OP_SWAP10", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !490
   %.not.i3668 = icmp ugt ptr %.sroa.345.0, %109
   br i1 %.not.i3668, label %2807, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE153EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -7120,7 +7120,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE153EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2824:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP11", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !491
+  call void asm sideeffect "# OP_SWAP11", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !491
   %.not.i3671 = icmp ugt ptr %.sroa.345.0, %108
   br i1 %.not.i3671, label %2825, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE154EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -7159,7 +7159,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE154EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2842:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP12", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !492
+  call void asm sideeffect "# OP_SWAP12", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !492
   %.not.i3674 = icmp ugt ptr %.sroa.345.0, %107
   br i1 %.not.i3674, label %2843, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE155EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -7198,7 +7198,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE155EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2860:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP13", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !493
+  call void asm sideeffect "# OP_SWAP13", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !493
   %.not.i3677 = icmp ugt ptr %.sroa.345.0, %106
   br i1 %.not.i3677, label %2861, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE156EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -7237,7 +7237,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE156EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2878:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP14", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !494
+  call void asm sideeffect "# OP_SWAP14", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !494
   %.not.i3680 = icmp ugt ptr %.sroa.345.0, %105
   br i1 %.not.i3680, label %2879, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE157EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -7276,7 +7276,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE157EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2896:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP15", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !495
+  call void asm sideeffect "# OP_SWAP15", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !495
   %.not.i3683 = icmp ugt ptr %.sroa.345.0, %104
   br i1 %.not.i3683, label %2897, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE158EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -7315,7 +7315,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE158EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2914:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP16", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !496
+  call void asm sideeffect "# OP_SWAP16", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !496
   %.not.i3686 = icmp ugt ptr %.sroa.345.0, %103
   br i1 %.not.i3686, label %2915, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE159EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -7354,7 +7354,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE159EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2932:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_LOG0", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !497
+  call void asm sideeffect "# OP_LOG0", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !497
   %.not.i3689 = icmp ugt ptr %.sroa.345.0, %102
   br i1 %.not.i3689, label %2933, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE160EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -7372,7 +7372,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE160EEENS1_8PositionERKSt5ar
 
 2937:                                             ; preds = %2933
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %2938 = call { i32, i64 } @_ZN6evmone5instr4core3logILm0EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %2934, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %2938 = call { i32, i64 } @_ZN6evmone5instr4core3logILm0EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %2934, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %2939 = extractvalue { i32, i64 } %2938, 0
   %2940 = extractvalue { i32, i64 } %2938, 1
   %.not.i2882 = icmp eq i32 %2939, 0
@@ -7389,7 +7389,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE160EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2944:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_LOG1", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !498
+  call void asm sideeffect "# OP_LOG1", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !498
   %.not.i3692 = icmp ugt ptr %.sroa.345.0, %67
   br i1 %.not.i3692, label %2945, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE161EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -7407,7 +7407,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE161EEENS1_8PositionERKSt5ar
 
 2949:                                             ; preds = %2945
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %2950 = call { i32, i64 } @_ZN6evmone5instr4core3logILm1EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %2946, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %2950 = call { i32, i64 } @_ZN6evmone5instr4core3logILm1EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %2946, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %2951 = extractvalue { i32, i64 } %2950, 0
   %2952 = extractvalue { i32, i64 } %2950, 1
   %.not.i2879 = icmp eq i32 %2951, 0
@@ -7424,7 +7424,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE161EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2956:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_LOG2", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !499
+  call void asm sideeffect "# OP_LOG2", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !499
   %.not.i3695 = icmp ugt ptr %.sroa.345.0, %72
   br i1 %.not.i3695, label %2957, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE162EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -7442,7 +7442,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE162EEENS1_8PositionERKSt5ar
 
 2961:                                             ; preds = %2957
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %2962 = call { i32, i64 } @_ZN6evmone5instr4core3logILm2EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %2958, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %2962 = call { i32, i64 } @_ZN6evmone5instr4core3logILm2EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %2958, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %2963 = extractvalue { i32, i64 } %2962, 0
   %2964 = extractvalue { i32, i64 } %2962, 1
   %.not.i2876 = icmp eq i32 %2963, 0
@@ -7459,7 +7459,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE162EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2968:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_LOG3", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !500
+  call void asm sideeffect "# OP_LOG3", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !500
   %.not.i3698 = icmp ugt ptr %.sroa.345.0, %82
   br i1 %.not.i3698, label %2969, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE163EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -7477,7 +7477,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE163EEENS1_8PositionERKSt5ar
 
 2973:                                             ; preds = %2969
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %2974 = call { i32, i64 } @_ZN6evmone5instr4core3logILm3EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %2970, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %2974 = call { i32, i64 } @_ZN6evmone5instr4core3logILm3EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %2970, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %2975 = extractvalue { i32, i64 } %2974, 0
   %2976 = extractvalue { i32, i64 } %2974, 1
   %.not.i2873 = icmp eq i32 %2975, 0
@@ -7494,7 +7494,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE163EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2980:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_LOG4", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !501
+  call void asm sideeffect "# OP_LOG4", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !501
   %.not.i3701 = icmp ugt ptr %.sroa.345.0, %69
   br i1 %.not.i3701, label %2981, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE164EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -7512,7 +7512,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE164EEENS1_8PositionERKSt5ar
 
 2985:                                             ; preds = %2981
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %2986 = call { i32, i64 } @_ZN6evmone5instr4core3logILm4EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %2982, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %2986 = call { i32, i64 } @_ZN6evmone5instr4core3logILm4EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %2982, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %2987 = extractvalue { i32, i64 } %2986, 0
   %2988 = extractvalue { i32, i64 } %2986, 1
   %.not.i2870 = icmp eq i32 %2987, 0
@@ -7529,7 +7529,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE164EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2992:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DATALOAD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !502
+  call void asm sideeffect "# OP_DATALOAD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !502
   %.val2960 = load i16, ptr %101, align 2, !tbaa !224
   %2993 = icmp slt i16 %.val2960, 0
   br i1 %2993, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE208EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2994, !prof !141
@@ -7562,7 +7562,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE208EEENS1_8PositionERKSt5ar
   br i1 %3005, label %3006, label %_ZNK6evmone8baseline12CodeAnalysis8eof_dataEv.exit.i
 
 3006:                                             ; preds = %3000
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i64 noundef %3004, i64 noundef %.sroa.0.0.copyload.i.i3707) #23
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i64 noundef %3004, i64 noundef %.sroa.0.0.copyload.i.i3707) #24
   unreachable
 
 _ZNK6evmone8baseline12CodeAnalysis8eof_dataEv.exit.i: ; preds = %3000
@@ -7642,7 +7642,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE208EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3037:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DATALOADN", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !507
+  call void asm sideeffect "# OP_DATALOADN", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !507
   %.val2961 = load i16, ptr %100, align 2, !tbaa !224
   %3038 = icmp slt i16 %.val2961, 0
   br i1 %3038, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE209EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3039, !prof !141
@@ -7675,7 +7675,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE209EEENS1_8PositionERKSt5ar
   br i1 %3051, label %3052, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE209EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 3052:                                             ; preds = %3046
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i64 noundef %3050, i64 noundef %.sroa.0.0.copyload.i.i3724) #23
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i64 noundef %3050, i64 noundef %.sroa.0.0.copyload.i.i3724) #24
   unreachable
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE209EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %3046
@@ -7714,7 +7714,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE209EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3069:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DATASIZE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !511
+  call void asm sideeffect "# OP_DATASIZE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !511
   %.val2962 = load i16, ptr %99, align 2, !tbaa !224
   %3070 = icmp slt i16 %.val2962, 0
   br i1 %3070, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE210EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3071, !prof !141
@@ -7747,7 +7747,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE210EEENS1_8PositionERKSt5ar
   br i1 %3083, label %3084, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE210EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 3084:                                             ; preds = %3078
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i64 noundef %3082, i64 noundef %.sroa.0.0.copyload.i.i3739) #23
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i64 noundef %3082, i64 noundef %.sroa.0.0.copyload.i.i3739) #24
   unreachable
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE210EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %3078
@@ -7760,7 +7760,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE210EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3088:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DATACOPY", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !512
+  call void asm sideeffect "# OP_DATACOPY", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !512
   %.val2963 = load i16, ptr %98, align 2, !tbaa !224
   %3089 = icmp slt i16 %.val2963, 0
   br i1 %3089, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE211EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3090, !prof !141
@@ -7784,7 +7784,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE211EEENS1_8PositionERKSt5ar
 
 3096:                                             ; preds = %3091
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %3097 = call { i32, i64 } @_ZN6evmone5instr4core8datacopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %3093, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3097 = call { i32, i64 } @_ZN6evmone5instr4core8datacopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %3093, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3098 = extractvalue { i32, i64 } %3097, 0
   %3099 = extractvalue { i32, i64 } %3097, 1
   %.not.i2867 = icmp eq i32 %3098, 0
@@ -7801,7 +7801,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE211EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3103:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_RJUMP", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !513
+  call void asm sideeffect "# OP_RJUMP", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !513
   %.val2964 = load i16, ptr %97, align 2, !tbaa !224
   %3104 = icmp slt i16 %.val2964, 0
   br i1 %3104, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE224EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3105, !prof !141
@@ -7835,7 +7835,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE224EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3121:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_RJUMPI", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !514
+  call void asm sideeffect "# OP_RJUMPI", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !514
   %.val2965 = load i16, ptr %96, align 2, !tbaa !224
   %3122 = icmp slt i16 %.val2965, 0
   br i1 %3122, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE225EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3123, !prof !141
@@ -7859,10 +7859,10 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE225EEENS1_8PositionERKSt5ar
 
 3129:                                             ; preds = %3124
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %10) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %10) #22
   %3130 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 32 dereferenceable(32) %3130, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.start.p0(ptr nonnull %9) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %9) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   br label %3131
 
@@ -7881,7 +7881,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE225EEENS1_8PositionERKSt5ar
 
 _ZNK4intx4uintILj256EEcvbEv.exit.i3752:           ; preds = %3131
   %.not.i3753 = icmp eq i64 %3137, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %9) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %9) #22
   br i1 %.not.i3753, label %3151, label %3139
 
 3139:                                             ; preds = %_ZNK4intx4uintILj256EEcvbEv.exit.i3752
@@ -7904,11 +7904,11 @@ _ZNK4intx4uintILj256EEcvbEv.exit.i3752:           ; preds = %3131
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE225EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %3151, %3139
   %3153 = phi ptr [ %3150, %3139 ], [ %3152, %3151 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %10) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %10) #22
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3154:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_RJUMPV", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !515
+  call void asm sideeffect "# OP_RJUMPV", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !515
   %.val2966 = load i16, ptr %95, align 2, !tbaa !224
   %3155 = icmp slt i16 %.val2966, 0
   br i1 %3155, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE226EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, label %3156, !prof !141
@@ -7982,7 +7982,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE226EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
 
 3192:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CALLF", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !517
+  call void asm sideeffect "# OP_CALLF", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !517
   %.val2967 = load i16, ptr %94, align 2, !tbaa !224
   %3193 = icmp slt i16 %.val2967, 0
   br i1 %3193, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE227EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3194, !prof !141
@@ -8002,12 +8002,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE227EEENS1_8PositionERKSt5ar
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE227EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %3194
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %3199 = call noundef ptr @_ZN6evmone5instr4core5callfENS_8StackTopERNS_14ExecutionStateEPKh(ptr %.sroa.345.0, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull %.sroa.01022.0) #21
+  %3199 = call noundef ptr @_ZN6evmone5instr4core5callfENS_8StackTopERNS_14ExecutionStateEPKh(ptr %.sroa.345.0, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull %.sroa.01022.0) #22
   %.not1901 = icmp eq ptr %3199, null
   br i1 %.not1901, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3200:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_RETF", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !518
+  call void asm sideeffect "# OP_RETF", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !518
   %.val2968 = load i16, ptr %92, align 2, !tbaa !224
   %3201 = icmp slt i16 %.val2968, 0
   br i1 %3201, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE228EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3202, !prof !141
@@ -8035,7 +8035,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE228EEENS1_8PositionERKSt5ar
   br i1 %.not1900, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3210:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_JUMPF", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !521
+  call void asm sideeffect "# OP_JUMPF", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !521
   %.val2969 = load i16, ptr %90, align 2, !tbaa !224
   %3211 = icmp slt i16 %.val2969, 0
   br i1 %3211, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE229EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, label %3212, !prof !141
@@ -8108,7 +8108,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE229EEENS1_8PositionERKSt5ar
   br i1 %.not1899, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3257:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUPN", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !524
+  call void asm sideeffect "# OP_DUPN", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !524
   %.val2970 = load i16, ptr %88, align 2, !tbaa !224
   %3258 = icmp slt i16 %.val2970, 0
   br i1 %3258, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE230EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3259, !prof !141
@@ -8143,7 +8143,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE230EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3273:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAPN", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !525
+  call void asm sideeffect "# OP_SWAPN", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !525
   %.val2971 = load i16, ptr %87, align 2, !tbaa !224
   %3274 = icmp slt i16 %.val2971, 0
   br i1 %3274, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE231EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3275, !prof !141
@@ -8178,7 +8178,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE231EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3287:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_EXCHANGE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !526
+  call void asm sideeffect "# OP_EXCHANGE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !526
   %.val2972 = load i16, ptr %86, align 2, !tbaa !224
   %3288 = icmp slt i16 %.val2972, 0
   br i1 %3288, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE232EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3289, !prof !141
@@ -8219,7 +8219,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE232EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3307:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_EOFCREATE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !527
+  call void asm sideeffect "# OP_EOFCREATE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !527
   %.val2973 = load i16, ptr %84, align 2, !tbaa !224
   %3308 = icmp slt i16 %.val2973, 0
   br i1 %3308, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE236EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3309, !prof !141
@@ -8246,7 +8246,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE236EEENS1_8PositionERKSt5ar
   store ptr %.sroa.01022.0, ptr %59, align 8
   store ptr %.sroa.345.0, ptr %85, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %3316 = call { i32, i64 } @_ZN6evmone5instr4core15create_eof_implILNS_6OpcodeE236EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateERPKh(ptr %.sroa.345.0, i64 noundef %3312, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(8) %59) #21, !callees !528
+  %3316 = call { i32, i64 } @_ZN6evmone5instr4core15create_eof_implILNS_6OpcodeE236EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateERPKh(ptr %.sroa.345.0, i64 noundef %3312, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(8) %59) #22, !callees !528
   %3317 = extractvalue { i32, i64 } %3316, 0
   %3318 = extractvalue { i32, i64 } %3316, 1
   %.not.i2938 = icmp eq i32 %3317, 0
@@ -8266,7 +8266,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE236EEENS1_8PositionERKSt5ar
   br i1 %.not1895, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3322:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_TXCREATE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !532
+  call void asm sideeffect "# OP_TXCREATE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !532
   %.val2974 = load i16, ptr %81, align 2, !tbaa !224
   %3323 = icmp slt i16 %.val2974, 0
   br i1 %3323, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE237EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3324, !prof !141
@@ -8293,7 +8293,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE237EEENS1_8PositionERKSt5ar
   store ptr %.sroa.01022.0, ptr %60, align 8
   store ptr %.sroa.345.0, ptr %83, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %3331 = call { i32, i64 } @_ZN6evmone5instr4core15create_eof_implILNS_6OpcodeE237EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateERPKh(ptr %.sroa.345.0, i64 noundef %3327, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(8) %60) #21, !callees !528
+  %3331 = call { i32, i64 } @_ZN6evmone5instr4core15create_eof_implILNS_6OpcodeE237EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateERPKh(ptr %.sroa.345.0, i64 noundef %3327, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(8) %60) #22, !callees !528
   %3332 = extractvalue { i32, i64 } %3331, 0
   %3333 = extractvalue { i32, i64 } %3331, 1
   %.not.i2936 = icmp eq i32 %3332, 0
@@ -8313,7 +8313,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE237EEENS1_8PositionERKSt5ar
   br i1 %.not1894, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3337:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_RETURNCODE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !533
+  call void asm sideeffect "# OP_RETURNCODE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !533
   %3338 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %.val2975 = load i16, ptr %3338, align 2, !tbaa !224
   %3339 = icmp slt i16 %.val2975, 0
@@ -8338,7 +8338,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE238EEE16evmc_s
 
 3346:                                             ; preds = %3341
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %3347 = call { i32, i64 } @_ZN6evmone5instr4core10returncodeENS_8StackTopElRNS_14ExecutionStateEPKh(ptr nonnull %.sroa.345.0, i64 noundef %3343, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull %.sroa.01022.0) #21
+  %3347 = call { i32, i64 } @_ZN6evmone5instr4core10returncodeENS_8StackTopElRNS_14ExecutionStateEPKh(ptr nonnull %.sroa.345.0, i64 noundef %3343, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull %.sroa.01022.0) #22
   %3348 = extractvalue { i32, i64 } %3347, 0
   %3349 = extractvalue { i32, i64 } %3347, 1
   %3350 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -8346,7 +8346,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE238EEE16evmc_s
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
 
 3351:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CREATE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !534
+  call void asm sideeffect "# OP_CREATE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !534
   %.not.i3789 = icmp ugt ptr %.sroa.345.0, %67
   br i1 %.not.i3789, label %3352, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE240EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -8364,7 +8364,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE240EEENS1_8PositionERKSt5ar
 
 3356:                                             ; preds = %3352
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %3357 = call { i32, i64 } @_ZN6evmone5instr4core11create_implILNS_6OpcodeE240EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %3353, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3357 = call { i32, i64 } @_ZN6evmone5instr4core11create_implILNS_6OpcodeE240EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %3353, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3358 = extractvalue { i32, i64 } %3357, 0
   %3359 = extractvalue { i32, i64 } %3357, 1
   %.not.i2864 = icmp eq i32 %3358, 0
@@ -8381,7 +8381,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE240EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3363:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CALL", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !535
+  call void asm sideeffect "# OP_CALL", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !535
   %.val2976 = load i16, ptr %80, align 2, !tbaa !224
   %3364 = icmp slt i16 %.val2976, 0
   br i1 %3364, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE241EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3365, !prof !141
@@ -8405,7 +8405,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE241EEENS1_8PositionERKSt5ar
 
 3371:                                             ; preds = %3366
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %3372 = call { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE241EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %3368, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3372 = call { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE241EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %3368, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3373 = extractvalue { i32, i64 } %3372, 0
   %3374 = extractvalue { i32, i64 } %3372, 1
   %.not.i2861 = icmp eq i32 %3373, 0
@@ -8422,7 +8422,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE241EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3378:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CALLCODE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !536
+  call void asm sideeffect "# OP_CALLCODE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !536
   %.val2977 = load i16, ptr %78, align 2, !tbaa !224
   %3379 = icmp slt i16 %.val2977, 0
   br i1 %3379, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE242EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3380, !prof !141
@@ -8446,7 +8446,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE242EEENS1_8PositionERKSt5ar
 
 3386:                                             ; preds = %3381
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %3387 = call { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE242EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %3383, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3387 = call { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE242EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %3383, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3388 = extractvalue { i32, i64 } %3387, 0
   %3389 = extractvalue { i32, i64 } %3387, 1
   %.not.i2858 = icmp eq i32 %3388, 0
@@ -8463,7 +8463,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE242EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3393:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_RETURN", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !537
+  call void asm sideeffect "# OP_RETURN", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !537
   %.not.i3798 = icmp ugt ptr %.sroa.345.0, %102
   %3394 = icmp slt i64 %.04429, 0
   %..i3799 = select i1 %3394, i32 3, i32 0, !prof !141
@@ -8479,7 +8479,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE242EEENS1_8PositionERKSt5ar
 3397:                                             ; preds = %3393
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
   %3398 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %8) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %8) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   br label %3399
 
@@ -8499,7 +8499,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE242EEENS1_8PositionERKSt5ar
 _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i.i:       ; preds = %3399
   %3407 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
   %3408 = icmp eq i64 %3405, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %8) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %8) #22
   br i1 %3408, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread13.i, label %3409
 
 3409:                                             ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i.i
@@ -8543,7 +8543,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i.i:       ; preds = %3399
   br i1 %3436, label %3437, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.i
 
 3437:                                             ; preds = %3433
-  %3438 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %.04429, ptr noundef nonnull align 8 dereferenceable(24) %122, i64 noundef %3434) #21
+  %3438 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %.04429, ptr noundef nonnull align 8 dereferenceable(24) %122, i64 noundef %3434) #22
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.i
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.i: ; preds = %3437, %3433
@@ -8573,7 +8573,7 @@ _ZN6evmone5instr4core11return_implIL16evmc_status_code0EEENS_10TermResultENS_8St
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
 
 3446:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DELEGATECALL", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !538
+  call void asm sideeffect "# OP_DELEGATECALL", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !538
   %.val2978 = load i16, ptr %77, align 2, !tbaa !224
   %3447 = icmp slt i16 %.val2978, 0
   br i1 %3447, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE244EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3448, !prof !141
@@ -8597,7 +8597,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE244EEENS1_8PositionERKSt5ar
 
 3454:                                             ; preds = %3449
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %3455 = call { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE244EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %3451, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3455 = call { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE244EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %3451, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3456 = extractvalue { i32, i64 } %3455, 0
   %3457 = extractvalue { i32, i64 } %3455, 1
   %.not.i2855 = icmp eq i32 %3456, 0
@@ -8614,7 +8614,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE244EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3461:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CREATE2", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !539
+  call void asm sideeffect "# OP_CREATE2", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !539
   %.val2979 = load i16, ptr %76, align 2, !tbaa !224
   %3462 = icmp slt i16 %.val2979, 0
   br i1 %3462, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE245EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3463, !prof !141
@@ -8638,7 +8638,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE245EEENS1_8PositionERKSt5ar
 
 3469:                                             ; preds = %3464
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %3470 = call { i32, i64 } @_ZN6evmone5instr4core11create_implILNS_6OpcodeE245EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %3466, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3470 = call { i32, i64 } @_ZN6evmone5instr4core11create_implILNS_6OpcodeE245EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %3466, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3471 = extractvalue { i32, i64 } %3470, 0
   %3472 = extractvalue { i32, i64 } %3470, 1
   %.not.i2852 = icmp eq i32 %3471, 0
@@ -8655,7 +8655,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE245EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3476:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_RETURNDATALOAD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !540
+  call void asm sideeffect "# OP_RETURNDATALOAD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !540
   %.val2980 = load i16, ptr %73, align 2, !tbaa !224
   %3477 = icmp slt i16 %.val2980, 0
   br i1 %3477, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE247EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3478, !prof !141
@@ -8753,7 +8753,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE247EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3515:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_EXTCALL", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !544
+  call void asm sideeffect "# OP_EXTCALL", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !544
   %.val2981 = load i16, ptr %71, align 2, !tbaa !224
   %3516 = icmp slt i16 %.val2981, 0
   br i1 %3516, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE248EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3517, !prof !141
@@ -8777,7 +8777,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE248EEENS1_8PositionERKSt5ar
 
 3523:                                             ; preds = %3518
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %3524 = call { i32, i64 } @_ZN6evmone5instr4core12extcall_implILNS_6OpcodeE248EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %3520, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3524 = call { i32, i64 } @_ZN6evmone5instr4core12extcall_implILNS_6OpcodeE248EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %3520, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3525 = extractvalue { i32, i64 } %3524, 0
   %3526 = extractvalue { i32, i64 } %3524, 1
   %.not.i2849 = icmp eq i32 %3525, 0
@@ -8794,7 +8794,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE248EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3530:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_EXTDELEGATECALL", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !545
+  call void asm sideeffect "# OP_EXTDELEGATECALL", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !545
   %.val2982 = load i16, ptr %70, align 2, !tbaa !224
   %3531 = icmp slt i16 %.val2982, 0
   br i1 %3531, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE249EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3532, !prof !141
@@ -8818,7 +8818,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE249EEENS1_8PositionERKSt5ar
 
 3538:                                             ; preds = %3533
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %3539 = call { i32, i64 } @_ZN6evmone5instr4core12extcall_implILNS_6OpcodeE249EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %3535, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3539 = call { i32, i64 } @_ZN6evmone5instr4core12extcall_implILNS_6OpcodeE249EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %3535, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3540 = extractvalue { i32, i64 } %3539, 0
   %3541 = extractvalue { i32, i64 } %3539, 1
   %.not.i2846 = icmp eq i32 %3540, 0
@@ -8835,7 +8835,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE249EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3545:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_STATICCALL", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !546
+  call void asm sideeffect "# OP_STATICCALL", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !546
   %.val2983 = load i16, ptr %68, align 2, !tbaa !224
   %3546 = icmp slt i16 %.val2983, 0
   br i1 %3546, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE250EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3547, !prof !141
@@ -8859,7 +8859,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE250EEENS1_8PositionERKSt5ar
 
 3553:                                             ; preds = %3548
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %3554 = call { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE250EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %3550, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3554 = call { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE250EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %3550, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3555 = extractvalue { i32, i64 } %3554, 0
   %3556 = extractvalue { i32, i64 } %3554, 1
   %.not.i2843 = icmp eq i32 %3555, 0
@@ -8876,7 +8876,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE250EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3560:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_EXTSTATICCALL", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !547
+  call void asm sideeffect "# OP_EXTSTATICCALL", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !547
   %.val2984 = load i16, ptr %66, align 2, !tbaa !224
   %3561 = icmp slt i16 %.val2984, 0
   br i1 %3561, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE251EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3562, !prof !141
@@ -8900,7 +8900,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE251EEENS1_8PositionERKSt5ar
 
 3568:                                             ; preds = %3563
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %3569 = call { i32, i64 } @_ZN6evmone5instr4core12extcall_implILNS_6OpcodeE251EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %3565, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3569 = call { i32, i64 } @_ZN6evmone5instr4core12extcall_implILNS_6OpcodeE251EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.345.0, i64 noundef %3565, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3570 = extractvalue { i32, i64 } %3569, 0
   %3571 = extractvalue { i32, i64 } %3569, 1
   %.not.i2842 = icmp eq i32 %3570, 0
@@ -8917,7 +8917,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE251EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3575:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_REVERT", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !548
+  call void asm sideeffect "# OP_REVERT", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !548
   %3576 = getelementptr inbounds nuw i8, ptr %0, i64 506
   %.val2985 = load i16, ptr %3576, align 2, !tbaa !224
   %3577 = icmp slt i16 %.val2985, 0
@@ -8943,7 +8943,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE253EEE16evmc_s
 3584:                                             ; preds = %3579
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
   %3585 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   br label %3586
 
@@ -8963,7 +8963,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE253EEE16evmc_s
 _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i.i3856:   ; preds = %3586
   %3594 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -32
   %3595 = icmp eq i64 %3592, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6) #22
   br i1 %3595, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread13.i3865, label %3596
 
 3596:                                             ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i.i3856
@@ -9007,7 +9007,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i.i3856:   ; preds = %3586
   br i1 %3623, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.i3863, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread13.i3865
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.i3863: ; preds = %3620
-  %3624 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %3581, ptr noundef nonnull align 8 dereferenceable(24) %122, i64 noundef %3621) #21
+  %3624 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %3581, ptr noundef nonnull align 8 dereferenceable(24) %122, i64 noundef %3621) #22
   %3625 = icmp sgt i64 %3624, -1
   br i1 %3625, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread13.i3865, label %_ZN6evmone5instr4core11return_implIL16evmc_status_code2EEENS_10TermResultENS_8StackTopElRNS_14ExecutionStateE.exit
 
@@ -9033,7 +9033,7 @@ _ZN6evmone5instr4core11return_implIL16evmc_status_code2EEENS_10TermResultENS_8St
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
 
 3632:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_INVALID", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !549
+  call void asm sideeffect "# OP_INVALID", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !549
   %3633 = icmp slt i64 %.04429, 0
   br i1 %3633, label %3634, label %3636
 
@@ -9049,7 +9049,7 @@ _ZN6evmone5instr4core11return_implIL16evmc_status_code2EEENS_10TermResultENS_8St
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
 
 3638:                                             ; preds = %_ZN6evmone6Tracer24notify_instruction_startEjPN4intx4uintILj256EEEilRKNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SELFDESTRUCT", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !550
+  call void asm sideeffect "# OP_SELFDESTRUCT", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !550
   %3639 = getelementptr inbounds nuw i8, ptr %0, i64 510
   %.val2986 = load i16, ptr %3639, align 2, !tbaa !224
   %3640 = icmp slt i16 %.val2986, 0
@@ -9074,7 +9074,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE255EEE16evmc_s
 
 3647:                                             ; preds = %3642
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.345.0, i64 32) ]
-  %3648 = call { i32, i64 } @_ZN6evmone5instr4core12selfdestructENS_8StackTopElRNS_14ExecutionStateE(ptr nonnull %.sroa.345.0, i64 noundef %3644, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3648 = call { i32, i64 } @_ZN6evmone5instr4core12selfdestructENS_8StackTopElRNS_14ExecutionStateE(ptr nonnull %.sroa.345.0, i64 noundef %3644, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3649 = extractvalue { i32, i64 } %3648, 0
   %3650 = extractvalue { i32, i64 } %3648, 1
   %3651 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -9321,7 +9321,7 @@ define internal fastcc noundef i64 @_ZN6evmone8baseline12_GLOBAL__N_114dispatch_
   br label %.backedge
 
 150:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_STOP", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !551
+  call void asm sideeffect "# OP_STOP", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !551
   %151 = icmp slt i64 %.0, 0
   br i1 %151, label %152, label %154
 
@@ -9337,7 +9337,7 @@ define internal fastcc noundef i64 @_ZN6evmone8baseline12_GLOBAL__N_114dispatch_
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 156:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_ADD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !552
+  call void asm sideeffect "# OP_ADD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !552
   %.not.i2472 = icmp ugt ptr %.sroa.512.0, %72
   br i1 %.not.i2472, label %157, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE1EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -9395,7 +9395,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE1EEENS1_8PositionERKSt5arra
   br label %.backedge
 
 181:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_MUL", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !558
+  call void asm sideeffect "# OP_MUL", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !558
   %.not.i2475 = icmp ugt ptr %.sroa.512.0, %72
   br i1 %.not.i2475, label %182, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE2EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -9415,7 +9415,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE2EEENS1_8PositionERKSt5arra
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
   %187 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -32
   %188 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %54) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %54) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !559)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 0, i64 32, i1 false), !tbaa !3, !alias.scope !559
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -8
@@ -9508,12 +9508,12 @@ _ZN4intxplENS_4uintILj128EEES1_.exit.i.i.i:       ; preds = %215
 
 226:                                              ; preds = %._crit_edge.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %188, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %54) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %54) #22
   %227 = getelementptr inbounds nuw i8, ptr %.pn.in.in, i64 1
   br label %.backedge.backedge
 
 228:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_SUB", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !565
+  call void asm sideeffect "# OP_SUB", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !565
   %.not.i2478 = icmp ugt ptr %.sroa.512.0, %72
   br i1 %.not.i2478, label %229, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE3EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -9565,7 +9565,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE3EEENS1_8PositionERKSt5arra
   br label %.backedge.backedge
 
 253:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_DIV", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !571
+  call void asm sideeffect "# OP_DIV", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !571
   %.not.i2482 = icmp ugt ptr %.sroa.512.0, %72
   br i1 %.not.i2482, label %254, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE4EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -9585,7 +9585,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE4EEENS1_8PositionERKSt5arra
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
   %259 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -64
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %52) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %52) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, i8 0, i64 32, i1 false)
   br label %260
 
@@ -9608,11 +9608,11 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %260
 
 269:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i
   %270 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -32
-  call void @llvm.lifetime.start.p0(ptr nonnull %51) #21, !noalias !572
-  call void @_ZN4intx7udivremILj256ELj256EEENS_10div_resultINS_4uintIXT_EEENS2_IXT0_EEEEERKS3_RKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %51, ptr noundef nonnull align 8 dereferenceable(32) %270, ptr noundef nonnull align 8 dereferenceable(32) %259) #21, !noalias !572
+  call void @llvm.lifetime.start.p0(ptr nonnull %51) #22, !noalias !572
+  call void @_ZN4intx7udivremILj256ELj256EEENS_10div_resultINS_4uintIXT_EEENS2_IXT0_EEEEERKS3_RKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %51, ptr noundef nonnull align 8 dereferenceable(32) %270, ptr noundef nonnull align 8 dereferenceable(32) %259) #22, !noalias !572
   %.sroa.0.0.copyload3.i = load i64, ptr %51, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx4.i, i64 24, i1 false), !tbaa.struct !171
-  call void @llvm.lifetime.end.p0(ptr nonnull %51) #21, !noalias !572
+  call void @llvm.lifetime.end.p0(ptr nonnull %51) #22, !noalias !572
   br label %272
 
 271:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i
@@ -9624,14 +9624,14 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %260
   store i64 %.sroa.0.0.i, ptr %259, align 32
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i, i64 24, i1 false), !tbaa.struct !171
-  call void @llvm.lifetime.end.p0(ptr nonnull %52) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %52) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i)
   %273 = getelementptr inbounds nuw i8, ptr %.pn.in.in, i64 1
   %274 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -32
   br label %.backedge.backedge
 
 275:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_SDIV", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !575
+  call void asm sideeffect "# OP_SDIV", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !575
   %.not.i2485 = icmp ugt ptr %.sroa.512.0, %72
   br i1 %.not.i2485, label %276, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE5EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -9651,7 +9651,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE5EEENS1_8PositionERKSt5arra
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
   %281 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -64
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i2488)
-  call void @llvm.lifetime.start.p0(ptr nonnull %49) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %49) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 32, i1 false)
   br label %282
 
@@ -9670,12 +9670,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE5EEENS1_8PositionERKSt5arra
 
 _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i2492:     ; preds = %282
   %290 = icmp eq i64 %288, 0
-  call void @llvm.lifetime.start.p0(ptr nonnull %50) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %50) #22
   br i1 %290, label %293, label %291
 
 291:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i2492
   %292 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -32
-  call void @_ZN4intx7sdivremILj256EEENS_10div_resultINS_4uintIXT_EEES3_EERKS3_S6_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %50, ptr noundef nonnull align 8 dereferenceable(32) %292, ptr noundef nonnull align 8 dereferenceable(32) %281) #21
+  call void @_ZN4intx7sdivremILj256EEENS_10div_resultINS_4uintIXT_EEES3_EERKS3_S6_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %50, ptr noundef nonnull align 8 dereferenceable(32) %292, ptr noundef nonnull align 8 dereferenceable(32) %281) #22
   %.sroa.0.0.copyload.i = load i64, ptr %50, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i2488, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i2493, i64 24, i1 false), !tbaa.struct !171
   br label %294
@@ -9689,15 +9689,15 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i2492:     ; preds = %282
   store i64 %.sroa.0.0.i2494, ptr %281, align 32
   %.sroa.5.0..sroa_idx4.i2495 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx4.i2495, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i2488, i64 24, i1 false), !tbaa.struct !171
-  call void @llvm.lifetime.end.p0(ptr nonnull %50) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %49) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %50) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %49) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i2488)
   %295 = getelementptr inbounds nuw i8, ptr %.pn.in.in, i64 1
   %296 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -32
   br label %.backedge.backedge
 
 297:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_MOD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !576
+  call void asm sideeffect "# OP_MOD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !576
   %.not.i2496 = icmp ugt ptr %.sroa.512.0, %72
   br i1 %.not.i2496, label %298, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE6EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -9717,7 +9717,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE6EEENS1_8PositionERKSt5arra
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
   %303 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -64
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i2499)
-  call void @llvm.lifetime.start.p0(ptr nonnull %48) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %48) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 0, i64 32, i1 false)
   br label %304
 
@@ -9740,11 +9740,11 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i2503:     ; preds = %304
 
 313:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i2503
   %314 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -32
-  call void @llvm.lifetime.start.p0(ptr nonnull %47) #21, !noalias !577
-  call void @_ZN4intx7udivremILj256ELj256EEENS_10div_resultINS_4uintIXT_EEENS2_IXT0_EEEEERKS3_RKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %47, ptr noundef nonnull align 8 dereferenceable(32) %314, ptr noundef nonnull align 8 dereferenceable(32) %303) #21, !noalias !577
+  call void @llvm.lifetime.start.p0(ptr nonnull %47) #22, !noalias !577
+  call void @_ZN4intx7udivremILj256ELj256EEENS_10div_resultINS_4uintIXT_EEENS2_IXT0_EEEEERKS3_RKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %47, ptr noundef nonnull align 8 dereferenceable(32) %314, ptr noundef nonnull align 8 dereferenceable(32) %303) #22, !noalias !577
   %.sroa.0.0.copyload3.i2504 = load i64, ptr %148, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i2499, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx4.i2505, i64 24, i1 false), !tbaa.struct !171
-  call void @llvm.lifetime.end.p0(ptr nonnull %47) #21, !noalias !577
+  call void @llvm.lifetime.end.p0(ptr nonnull %47) #22, !noalias !577
   br label %316
 
 315:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i2503
@@ -9756,14 +9756,14 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i2503:     ; preds = %304
   store i64 %.sroa.0.0.i2506, ptr %303, align 32
   %.sroa.5.0..sroa_idx.i2507 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i2507, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i2499, i64 24, i1 false), !tbaa.struct !171
-  call void @llvm.lifetime.end.p0(ptr nonnull %48) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %48) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i2499)
   %317 = getelementptr inbounds nuw i8, ptr %.pn.in.in, i64 1
   %318 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -32
   br label %.backedge.backedge
 
 319:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_SMOD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !580
+  call void asm sideeffect "# OP_SMOD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !580
   %.not.i2508 = icmp ugt ptr %.sroa.512.0, %72
   br i1 %.not.i2508, label %320, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE7EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -9783,7 +9783,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE7EEENS1_8PositionERKSt5arra
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
   %325 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -64
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i2511)
-  call void @llvm.lifetime.start.p0(ptr nonnull %45) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %45) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 0, i64 32, i1 false)
   br label %326
 
@@ -9802,12 +9802,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE7EEENS1_8PositionERKSt5arra
 
 _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i2515:     ; preds = %326
   %334 = icmp eq i64 %332, 0
-  call void @llvm.lifetime.start.p0(ptr nonnull %46) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %46) #22
   br i1 %334, label %337, label %335
 
 335:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i2515
   %336 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -32
-  call void @_ZN4intx7sdivremILj256EEENS_10div_resultINS_4uintIXT_EEES3_EERKS3_S6_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %46, ptr noundef nonnull align 8 dereferenceable(32) %336, ptr noundef nonnull align 8 dereferenceable(32) %325) #21
+  call void @_ZN4intx7sdivremILj256EEENS_10div_resultINS_4uintIXT_EEES3_EERKS3_S6_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %46, ptr noundef nonnull align 8 dereferenceable(32) %336, ptr noundef nonnull align 8 dereferenceable(32) %325) #22
   %.sroa.0.0.copyload.i2516 = load i64, ptr %147, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i2511, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i2517, i64 24, i1 false), !tbaa.struct !171
   br label %338
@@ -9821,15 +9821,15 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i2515:     ; preds = %326
   store i64 %.sroa.0.0.i2518, ptr %325, align 32
   %.sroa.5.0..sroa_idx4.i2519 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx4.i2519, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i2511, i64 24, i1 false), !tbaa.struct !171
-  call void @llvm.lifetime.end.p0(ptr nonnull %46) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %45) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %46) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %45) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i2511)
   %339 = getelementptr inbounds nuw i8, ptr %.pn.in.in, i64 1
   %340 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -32
   br label %.backedge.backedge
 
 341:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_ADDMOD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !581
+  call void asm sideeffect "# OP_ADDMOD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !581
   %.not.i2520 = icmp ugt ptr %.sroa.512.0, %66
   br i1 %.not.i2520, label %342, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE8EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -9848,8 +9848,8 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE8EEENS1_8PositionERKSt5arra
 346:                                              ; preds = %342
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
   %347 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -96
-  call void @llvm.lifetime.start.p0(ptr nonnull %43) #21
-  call void @llvm.lifetime.start.p0(ptr nonnull %44) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %43) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %44) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, i8 0, i64 32, i1 false)
   br label %348
 
@@ -9873,7 +9873,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i2526:     ; preds = %348
 357:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i2526
   %358 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -64
   %359 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -32
-  call void @_ZN4intx6addmodERKNS_4uintILj256EEES3_S3_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::uint") align 8 %43, ptr noundef nonnull align 8 dereferenceable(32) %359, ptr noundef nonnull align 8 dereferenceable(32) %358, ptr noundef nonnull align 8 dereferenceable(32) %347) #21
+  call void @_ZN4intx6addmodERKNS_4uintILj256EEES3_S3_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::uint") align 8 %43, ptr noundef nonnull align 8 dereferenceable(32) %359, ptr noundef nonnull align 8 dereferenceable(32) %358, ptr noundef nonnull align 8 dereferenceable(32) %347) #22
   br label %361
 
 360:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i2526
@@ -9882,14 +9882,14 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i2526:     ; preds = %348
 
 361:                                              ; preds = %357, %360
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %347, ptr noundef nonnull align 8 dereferenceable(32) %43, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %44) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %43) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %44) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %43) #22
   %362 = getelementptr inbounds nuw i8, ptr %.pn.in.in, i64 1
   %363 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -64
   br label %.backedge.backedge
 
 364:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_MULMOD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !582
+  call void asm sideeffect "# OP_MULMOD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !582
   %.not.i2527 = icmp ugt ptr %.sroa.512.0, %66
   br i1 %.not.i2527, label %365, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE9EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -9909,7 +9909,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE9EEENS1_8PositionERKSt5arra
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
   %370 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -96
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i2532)
-  call void @llvm.lifetime.start.p0(ptr nonnull %42) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %42) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 0, i64 32, i1 false)
   br label %371
 
@@ -9933,8 +9933,8 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i2536:     ; preds = %371
   br i1 %381, label %413, label %382
 
 382:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i2536
-  call void @llvm.lifetime.start.p0(ptr nonnull %40) #21, !noalias !583
-  call void @llvm.lifetime.start.p0(ptr nonnull %41) #21, !noalias !583
+  call void @llvm.lifetime.start.p0(ptr nonnull %40) #22, !noalias !583
+  call void @llvm.lifetime.start.p0(ptr nonnull %41) #22, !noalias !583
   call void @llvm.experimental.noalias.scope.decl(metadata !586)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %41, i8 0, i64 64, i1 false), !tbaa !3, !alias.scope !586, !noalias !583
   br label %.preheader.i.i.i2537
@@ -10004,11 +10004,11 @@ _ZN4intxplENS_4uintILj128EEES1_.exit.i.i.i2544:   ; preds = %402
   br i1 %exitcond.not.i.i.i2547, label %386, label %389, !llvm.loop !191
 
 _ZN4intx6mulmodERKNS_4uintILj256EEES3_S3_.exit.i: ; preds = %386
-  call void @_ZN4intx7udivremILj512ELj256EEENS_10div_resultINS_4uintIXT_EEENS2_IXT0_EEEEERKS3_RKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result.111") align 8 %40, ptr noundef nonnull align 8 dereferenceable(64) %41, ptr noundef nonnull align 8 dereferenceable(32) %370) #21, !noalias !583
+  call void @_ZN4intx7udivremILj512ELj256EEENS_10div_resultINS_4uintIXT_EEENS2_IXT0_EEEEERKS3_RKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result.111") align 8 %40, ptr noundef nonnull align 8 dereferenceable(64) %41, ptr noundef nonnull align 8 dereferenceable(32) %370) #22, !noalias !583
   %.sroa.0.0.copyload5.i = load i64, ptr %146, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i2532, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx6.i, i64 24, i1 false), !tbaa.struct !171
-  call void @llvm.lifetime.end.p0(ptr nonnull %41) #21, !noalias !583
-  call void @llvm.lifetime.end.p0(ptr nonnull %40) #21, !noalias !583
+  call void @llvm.lifetime.end.p0(ptr nonnull %41) #22, !noalias !583
+  call void @llvm.lifetime.end.p0(ptr nonnull %40) #22, !noalias !583
   br label %414
 
 413:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i2536
@@ -10020,13 +10020,13 @@ _ZN4intx6mulmodERKNS_4uintILj256EEES3_S3_.exit.i: ; preds = %386
   store i64 %.sroa.0.0.i2548, ptr %370, align 32
   %.sroa.5.0..sroa_idx.i2549 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i2549, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i2532, i64 24, i1 false), !tbaa.struct !171
-  call void @llvm.lifetime.end.p0(ptr nonnull %42) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %42) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i2532)
   %415 = getelementptr inbounds nuw i8, ptr %.pn.in.in, i64 1
   br label %.backedge.backedge
 
 416:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_EXP", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !593
+  call void asm sideeffect "# OP_EXP", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !593
   %.not.i2550 = icmp ugt ptr %.sroa.512.0, %72
   br i1 %.not.i2550, label %417, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE10EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, !prof !80
 
@@ -10095,15 +10095,15 @@ _ZN4intx23count_significant_bytesILj256EEEjRKNS_4uintIXT_EEE.exit.i: ; preds = %
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 451:                                              ; preds = %_ZN4intx23count_significant_bytesILj256EEEjRKNS_4uintIXT_EEE.exit.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %39) #21
-  call void @_ZN4intx3expILj256EEENS_4uintIXT_EEES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::uint") align 8 %39, ptr noundef nonnull byval(%"struct.intx::uint") align 8 %422, ptr noundef nonnull byval(%"struct.intx::uint") align 8 %423) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %39) #22
+  call void @_ZN4intx3expILj256EEENS_4uintIXT_EEES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::uint") align 8 %39, ptr noundef nonnull byval(%"struct.intx::uint") align 8 %422, ptr noundef nonnull byval(%"struct.intx::uint") align 8 %423) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %423, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %39) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %39) #22
   %452 = getelementptr inbounds nuw i8, ptr %.pn.in.in, i64 1
   br label %.backedge.backedge
 
 453:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_SIGNEXTEND", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !594
+  call void asm sideeffect "# OP_SIGNEXTEND", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !594
   %.not.i2557 = icmp ugt ptr %.sroa.512.0, %72
   br i1 %.not.i2557, label %454, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE11EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -10182,7 +10182,7 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i:         ; preds = %467, %458
   br label %.backedge.backedge
 
 497:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_LT", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !595
+  call void asm sideeffect "# OP_LT", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !595
   %.not.i2560 = icmp ugt ptr %.sroa.512.0, %72
   br i1 %.not.i2560, label %498, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE16EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -10247,7 +10247,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE16EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 536:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_GT", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !596
+  call void asm sideeffect "# OP_GT", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !596
   %.not.i2567 = icmp ugt ptr %.sroa.512.0, %72
   br i1 %.not.i2567, label %537, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE17EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -10312,7 +10312,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE17EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 575:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_SLT", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !597
+  call void asm sideeffect "# OP_SLT", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !597
   %.not.i2576 = icmp ugt ptr %.sroa.512.0, %72
   br i1 %.not.i2576, label %576, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE18EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -10389,7 +10389,7 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i.i:       ; preds = %597, %589
   br label %.backedge.backedge
 
 617:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_SGT", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !598
+  call void asm sideeffect "# OP_SGT", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !598
   %.not.i2581 = icmp ugt ptr %.sroa.512.0, %72
   br i1 %.not.i2581, label %618, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE19EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -10466,7 +10466,7 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i.i2587:   ; preds = %639, %631
   br label %.backedge.backedge
 
 659:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_EQ", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !599
+  call void asm sideeffect "# OP_EQ", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !599
   %.not.i2592 = icmp ugt ptr %.sroa.512.0, %72
   br i1 %.not.i2592, label %660, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE20EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -10511,7 +10511,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE20EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 679:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_ISZERO", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !600
+  call void asm sideeffect "# OP_ISZERO", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !600
   %.not.i2600 = icmp ugt ptr %.sroa.512.0, %59
   br i1 %.not.i2600, label %680, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE21EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -10530,7 +10530,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE21EEENS1_8PositionERKSt5arr
 684:                                              ; preds = %680
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
   %685 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -32
-  call void @llvm.lifetime.start.p0(ptr nonnull %38) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %38) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 32, i1 false)
   br label %686
 
@@ -10553,12 +10553,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE21EEENS1_8PositionERKSt5arr
   store i64 %696, ptr %685, align 32
   %.sroa.4.0..sroa_idx.i2607 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx.i2607, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %38) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %38) #22
   %697 = getelementptr inbounds nuw i8, ptr %.pn.in.in, i64 1
   br label %.backedge.backedge
 
 698:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_AND", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !601
+  call void asm sideeffect "# OP_AND", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !601
   %.not.i2608 = icmp ugt ptr %.sroa.512.0, %72
   br i1 %.not.i2608, label %699, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE22EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -10578,7 +10578,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE22EEENS1_8PositionERKSt5arr
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
   %704 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -32
   %705 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %37) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %37) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !602)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 32, i1 false), !tbaa !3, !alias.scope !602
   br label %706
@@ -10598,12 +10598,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE22EEENS1_8PositionERKSt5arr
 
 714:                                              ; preds = %706
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %705, ptr noundef nonnull align 8 dereferenceable(32) %37, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %37) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %37) #22
   %715 = getelementptr inbounds nuw i8, ptr %.pn.in.in, i64 1
   br label %.backedge.backedge
 
 716:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_OR", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !605
+  call void asm sideeffect "# OP_OR", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !605
   %.not.i2613 = icmp ugt ptr %.sroa.512.0, %72
   br i1 %.not.i2613, label %717, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE23EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -10623,7 +10623,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE23EEENS1_8PositionERKSt5arr
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
   %722 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -32
   %723 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %36) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %36) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !606)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 32, i1 false), !tbaa !3, !alias.scope !606
   br label %724
@@ -10643,12 +10643,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE23EEENS1_8PositionERKSt5arr
 
 732:                                              ; preds = %724
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %723, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %36) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %36) #22
   %733 = getelementptr inbounds nuw i8, ptr %.pn.in.in, i64 1
   br label %.backedge.backedge
 
 734:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_XOR", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !609
+  call void asm sideeffect "# OP_XOR", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !609
   %.not.i2618 = icmp ugt ptr %.sroa.512.0, %72
   br i1 %.not.i2618, label %735, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE24EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -10668,7 +10668,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE24EEENS1_8PositionERKSt5arr
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
   %740 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -32
   %741 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %35) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %35) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !610)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 0, i64 32, i1 false), !tbaa !3, !alias.scope !610
   br label %742
@@ -10688,12 +10688,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE24EEENS1_8PositionERKSt5arr
 
 750:                                              ; preds = %742
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %741, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %35) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %35) #22
   %751 = getelementptr inbounds nuw i8, ptr %.pn.in.in, i64 1
   br label %.backedge.backedge
 
 752:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_NOT", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !613
+  call void asm sideeffect "# OP_NOT", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !613
   %.not.i2623 = icmp ugt ptr %.sroa.512.0, %59
   br i1 %.not.i2623, label %753, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE25EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -10711,7 +10711,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE25EEENS1_8PositionERKSt5arr
 
 757:                                              ; preds = %753
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %34) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %34) #22
   %758 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -32
   call void @llvm.experimental.noalias.scope.decl(metadata !614)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, i8 0, i64 32, i1 false), !tbaa !3, !alias.scope !614
@@ -10730,12 +10730,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE25EEENS1_8PositionERKSt5arr
 
 765:                                              ; preds = %759
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %758, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %34) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %34) #22
   %766 = getelementptr inbounds nuw i8, ptr %.pn.in.in, i64 1
   br label %.backedge.backedge
 
 767:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_BYTE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !617
+  call void asm sideeffect "# OP_BYTE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !617
   %.not.i2627 = icmp ugt ptr %.sroa.512.0, %72
   br i1 %.not.i2627, label %768, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE26EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -10799,7 +10799,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE26EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 805:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_SHL", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !618
+  call void asm sideeffect "# OP_SHL", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !618
   %.val = load i16, ptr %145, align 2, !tbaa !224
   %806 = icmp slt i16 %.val, 0
   br i1 %806, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE27EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %807, !prof !141
@@ -10942,7 +10942,7 @@ _ZN4intxlsENS_4uintILj128EEEm.exit30.i.i.i:       ; preds = %850, %832
   br label %.backedge.backedge
 
 883:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_SHR", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !625
+  call void asm sideeffect "# OP_SHR", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !625
   %.val2425 = load i16, ptr %144, align 2, !tbaa !224
   %884 = icmp slt i16 %.val2425, 0
   br i1 %884, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE28EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %885, !prof !141
@@ -11085,7 +11085,7 @@ _ZN4intxrsENS_4uintILj128EEEm.exit30.i.i.i:       ; preds = %928, %911
   br label %.backedge.backedge
 
 961:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_SAR", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !632
+  call void asm sideeffect "# OP_SAR", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !632
   %.val2426 = load i16, ptr %143, align 2, !tbaa !224
   %962 = icmp slt i16 %.val2426, 0
   br i1 %962, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE29EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %963, !prof !141
@@ -11109,13 +11109,13 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE29EEENS1_8PositionERKSt5arr
 
 969:                                              ; preds = %964
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  call void @_ZN6evmone5instr4core3sarENS_8StackTopE(ptr %.sroa.512.0) #21
+  call void @_ZN6evmone5instr4core3sarENS_8StackTopE(ptr %.sroa.512.0) #22
   %970 = getelementptr inbounds nuw i8, ptr %.pn.in.in, i64 1
   %971 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -32
   br label %.backedge.backedge
 
 972:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_CLZ", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !633
+  call void asm sideeffect "# OP_CLZ", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !633
   %.val2427 = load i16, ptr %142, align 2, !tbaa !224
   %973 = icmp slt i16 %.val2427, 0
   br i1 %973, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE30EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %974, !prof !141
@@ -11180,7 +11180,7 @@ _ZN4intx23count_significant_wordsILj256EEEjRKNS_4uintIXT_EEE.exit.i.i2661: ; pre
   br label %.backedge.backedge
 
 999:                                              ; preds = %.backedge
-  call void asm sideeffect "# OP_KECCAK256", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !634
+  call void asm sideeffect "# OP_KECCAK256", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !634
   %.not.i2663 = icmp ugt ptr %.sroa.512.0, %72
   br i1 %.not.i2663, label %1000, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE32EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -11198,7 +11198,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE32EEENS1_8PositionERKSt5arr
 
 1004:                                             ; preds = %1000
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %1005 = call { i32, i64 } @_ZN6evmone5instr4core9keccak256ENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %1001, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %1005 = call { i32, i64 } @_ZN6evmone5instr4core9keccak256ENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %1001, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %1006 = extractvalue { i32, i64 } %1005, 0
   %1007 = extractvalue { i32, i64 } %1005, 1
   %.not.i2414 = icmp eq i32 %1006, 0
@@ -11215,7 +11215,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE32EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1012:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_ADDRESS", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !635
+  call void asm sideeffect "# OP_ADDRESS", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !635
   %1013 = icmp eq ptr %.sroa.512.0, %63
   br i1 %1013, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE48EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1014, !prof !141
 
@@ -11256,7 +11256,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE48EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1027:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_BALANCE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !636
+  call void asm sideeffect "# OP_BALANCE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !636
   %.val2428 = load i16, ptr %125, align 2, !tbaa !224
   %1028 = icmp slt i16 %.val2428, 0
   br i1 %1028, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE49EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, label %1029, !prof !141
@@ -11281,7 +11281,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE49EEE16evmc_st
 1035:                                             ; preds = %1030
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
   %1036 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -32
-  call void @llvm.lifetime.start.p0(ptr nonnull %31) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %31) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !637)
   %1037 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -16
   %1038 = load i64, ptr %1037, align 16, !tbaa !3, !noalias !640
@@ -11305,7 +11305,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE49EEE16evmc_st
   %1049 = getelementptr inbounds nuw i8, ptr %1048, i64 96
   %1050 = load ptr, ptr %1049, align 8, !tbaa !254
   %1051 = load ptr, ptr %89, align 8, !tbaa !256
-  %1052 = call noundef i32 %1050(ptr noundef %1051, ptr noundef nonnull align 1 dereferenceable(20) %31) #21
+  %1052 = call noundef i32 %1050(ptr noundef %1051, ptr noundef nonnull align 1 dereferenceable(20) %31) #22
   %1053 = icmp eq i32 %1052, 0
   br i1 %1053, label %1054, label %1059
 
@@ -11315,7 +11315,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE49EEE16evmc_st
   br i1 %1056, label %1057, label %1059
 
 1057:                                             ; preds = %1054
-  call void @llvm.lifetime.end.p0(ptr nonnull %31) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %31) #22
   %1058 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 3, ptr %1058, align 8, !tbaa !100
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
@@ -11327,7 +11327,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE49EEE16evmc_st
   %1062 = load ptr, ptr %1061, align 8, !tbaa !260, !noalias !645
   %1063 = load ptr, ptr %89, align 8, !tbaa !256, !noalias !645
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i), !noalias !645
-  call void %1062(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i, ptr noundef %1063, ptr noundef nonnull align 1 dereferenceable(20) %31) #21, !noalias !645
+  call void %1062(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i, ptr noundef %1063, ptr noundef nonnull align 1 dereferenceable(20) %31) #22, !noalias !645
   %.sroa.0.sroa.0.0.copyload.i = load i64, ptr %.sroa.0.i.i, align 8
   %.sroa.0.sroa.4.0.copyload.i = load i64, ptr %.sroa.0.sroa.4.0..sroa.0.i.sroa_idx.i, align 8
   %.sroa.0.sroa.5.0.copyload.i = load i64, ptr %.sroa.0.sroa.5.0..sroa.0.i.sroa_idx.i, align 8
@@ -11342,12 +11342,12 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE49EEE16evmc_st
   store i64 %1066, ptr %1037, align 16
   %.sroa.10.0..sroa_idx.i2673 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -8
   store i64 %1067, ptr %.sroa.10.0..sroa_idx.i2673, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %31) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %31) #22
   %1068 = getelementptr inbounds nuw i8, ptr %.pn.in.in, i64 1
   br label %.backedge.backedge
 
 1069:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_ORIGIN", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !648
+  call void asm sideeffect "# OP_ORIGIN", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !648
   %1070 = icmp eq ptr %.sroa.512.0, %63
   br i1 %1070, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE50EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1071, !prof !141
 
@@ -11370,14 +11370,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE50EEENS1_8PositionERKSt5arr
   br i1 %1077, label %1078, label %1083, !prof !141
 
 1078:                                             ; preds = %1075
-  call void @llvm.lifetime.start.p0(ptr nonnull %30) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %30) #22
   %1079 = load ptr, ptr %88, align 8, !tbaa !253, !noalias !649
   %1080 = getelementptr inbounds nuw i8, ptr %1079, i64 72
   %1081 = load ptr, ptr %1080, align 8, !tbaa !266, !noalias !649
   %1082 = load ptr, ptr %89, align 8, !tbaa !256, !noalias !649
-  call void %1081(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %30, ptr noundef %1082) #21
+  call void %1081(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %30, ptr noundef %1082) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %102, ptr noundef nonnull align 8 dereferenceable(256) %30, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %30) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %30) #22
   br label %1083
 
 1083:                                             ; preds = %1075, %1078
@@ -11400,7 +11400,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE50EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1090:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_CALLER", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !652
+  call void asm sideeffect "# OP_CALLER", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !652
   %1091 = icmp eq ptr %.sroa.512.0, %63
   br i1 %1091, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE51EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1092, !prof !141
 
@@ -11441,7 +11441,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE51EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1105:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_CALLVALUE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !653
+  call void asm sideeffect "# OP_CALLVALUE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !653
   %1106 = icmp eq ptr %.sroa.512.0, %63
   br i1 %1106, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE52EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1107, !prof !141
 
@@ -11484,7 +11484,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE52EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1120:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_CALLDATALOAD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !654
+  call void asm sideeffect "# OP_CALLDATALOAD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !654
   %.not.i2702 = icmp ugt ptr %.sroa.512.0, %59
   br i1 %.not.i2702, label %1121, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE53EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -11579,7 +11579,7 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i2705:     ; preds = %1136, %1125
   br label %.backedge.backedge
 
 1160:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_CALLDATASIZE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !655
+  call void asm sideeffect "# OP_CALLDATASIZE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !655
   %1161 = icmp eq ptr %.sroa.512.0, %63
   br i1 %1161, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE54EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1162, !prof !141
 
@@ -11608,7 +11608,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE54EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1172:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_CALLDATACOPY", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !656
+  call void asm sideeffect "# OP_CALLDATACOPY", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !656
   %.not.i2715 = icmp ugt ptr %.sroa.512.0, %66
   br i1 %.not.i2715, label %1173, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE55EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -11626,7 +11626,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE55EEENS1_8PositionERKSt5arr
 
 1177:                                             ; preds = %1173
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %1178 = call { i32, i64 } @_ZN6evmone5instr4core12calldatacopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %1174, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %1178 = call { i32, i64 } @_ZN6evmone5instr4core12calldatacopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %1174, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %1179 = extractvalue { i32, i64 } %1178, 0
   %1180 = extractvalue { i32, i64 } %1178, 1
   %.not.i2408 = icmp eq i32 %1179, 0
@@ -11643,7 +11643,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE55EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1185:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_CODESIZE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !657
+  call void asm sideeffect "# OP_CODESIZE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !657
   %1186 = icmp eq ptr %.sroa.512.0, %63
   br i1 %1186, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE56EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1187, !prof !141
 
@@ -11670,7 +11670,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE56EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1195:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_CODECOPY", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !658
+  call void asm sideeffect "# OP_CODECOPY", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !658
   %.not.i2721 = icmp ugt ptr %.sroa.512.0, %66
   br i1 %.not.i2721, label %1196, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE57EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -11688,7 +11688,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE57EEENS1_8PositionERKSt5arr
 
 1200:                                             ; preds = %1196
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %1201 = call { i32, i64 } @_ZN6evmone5instr4core8codecopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %1197, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %1201 = call { i32, i64 } @_ZN6evmone5instr4core8codecopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %1197, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %1202 = extractvalue { i32, i64 } %1201, 0
   %1203 = extractvalue { i32, i64 } %1201, 1
   %.not.i2405 = icmp eq i32 %1202, 0
@@ -11705,7 +11705,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE57EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1208:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_GASPRICE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !659
+  call void asm sideeffect "# OP_GASPRICE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !659
   %1209 = icmp eq ptr %.sroa.512.0, %63
   br i1 %1209, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE58EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1210, !prof !141
 
@@ -11728,14 +11728,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE58EEENS1_8PositionERKSt5arr
   br i1 %1216, label %1217, label %1222, !prof !141
 
 1217:                                             ; preds = %1214
-  call void @llvm.lifetime.start.p0(ptr nonnull %28) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %28) #22
   %1218 = load ptr, ptr %88, align 8, !tbaa !253, !noalias !660
   %1219 = getelementptr inbounds nuw i8, ptr %1218, i64 72
   %1220 = load ptr, ptr %1219, align 8, !tbaa !266, !noalias !660
   %1221 = load ptr, ptr %89, align 8, !tbaa !256, !noalias !660
-  call void %1220(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %28, ptr noundef %1221) #21
+  call void %1220(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %28, ptr noundef %1221) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %102, ptr noundef nonnull align 8 dereferenceable(256) %28, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %28) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %28) #22
   br label %1222
 
 1222:                                             ; preds = %1214, %1217
@@ -11759,7 +11759,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE58EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1229:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_EXTCODESIZE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !663
+  call void asm sideeffect "# OP_EXTCODESIZE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !663
   %.val2429 = load i16, ptr %122, align 2, !tbaa !224
   %1230 = icmp slt i16 %.val2429, 0
   br i1 %1230, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE59EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, label %1231, !prof !141
@@ -11784,7 +11784,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE59EEE16evmc_st
 1237:                                             ; preds = %1232
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
   %1238 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -32
-  call void @llvm.lifetime.start.p0(ptr nonnull %27) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %27) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !664)
   %1239 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -16
   %1240 = load i64, ptr %1239, align 16, !tbaa !3, !noalias !667
@@ -11808,7 +11808,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE59EEE16evmc_st
   %1251 = getelementptr inbounds nuw i8, ptr %1250, i64 96
   %1252 = load ptr, ptr %1251, align 8, !tbaa !254
   %1253 = load ptr, ptr %89, align 8, !tbaa !256
-  %1254 = call noundef i32 %1252(ptr noundef %1253, ptr noundef nonnull align 1 dereferenceable(20) %27) #21
+  %1254 = call noundef i32 %1252(ptr noundef %1253, ptr noundef nonnull align 1 dereferenceable(20) %27) #22
   %1255 = icmp eq i32 %1254, 0
   br i1 %1255, label %1256, label %1261
 
@@ -11818,7 +11818,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE59EEE16evmc_st
   br i1 %1258, label %1259, label %1261
 
 1259:                                             ; preds = %1256
-  call void @llvm.lifetime.end.p0(ptr nonnull %27) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %27) #22
   %1260 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 3, ptr %1260, align 8, !tbaa !100
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
@@ -11829,15 +11829,15 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE59EEE16evmc_st
   %1263 = getelementptr inbounds nuw i8, ptr %1262, i64 32
   %1264 = load ptr, ptr %1263, align 8, !tbaa !292
   %1265 = load ptr, ptr %89, align 8, !tbaa !256
-  %1266 = call noundef i64 %1264(ptr noundef %1265, ptr noundef nonnull align 1 dereferenceable(20) %27) #21
+  %1266 = call noundef i64 %1264(ptr noundef %1265, ptr noundef nonnull align 1 dereferenceable(20) %27) #22
   store i64 %1266, ptr %1238, align 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1242, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %27) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %27) #22
   %1267 = getelementptr inbounds nuw i8, ptr %.pn.in.in, i64 1
   br label %.backedge.backedge
 
 1268:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_EXTCODECOPY", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !672
+  call void asm sideeffect "# OP_EXTCODECOPY", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !672
   %.val2430 = load i16, ptr %121, align 2, !tbaa !224
   %1269 = icmp slt i16 %.val2430, 0
   br i1 %1269, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE60EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1270, !prof !141
@@ -11861,7 +11861,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE60EEENS1_8PositionERKSt5arr
 
 1276:                                             ; preds = %1271
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %1277 = call { i32, i64 } @_ZN6evmone5instr4core11extcodecopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %1273, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %1277 = call { i32, i64 } @_ZN6evmone5instr4core11extcodecopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %1273, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %1278 = extractvalue { i32, i64 } %1277, 0
   %1279 = extractvalue { i32, i64 } %1277, 1
   %.not.i2399 = icmp eq i32 %1278, 0
@@ -11878,7 +11878,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE60EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1284:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_RETURNDATASIZE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !673
+  call void asm sideeffect "# OP_RETURNDATASIZE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !673
   %.val2431 = load i16, ptr %119, align 2, !tbaa !224
   %1285 = icmp slt i16 %.val2431, 0
   br i1 %1285, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE61EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1286, !prof !141
@@ -11911,7 +11911,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE61EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1297:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_RETURNDATACOPY", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !674
+  call void asm sideeffect "# OP_RETURNDATACOPY", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !674
   %.val2432 = load i16, ptr %118, align 2, !tbaa !224
   %1298 = icmp slt i16 %.val2432, 0
   br i1 %1298, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE62EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1299, !prof !141
@@ -11935,7 +11935,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE62EEENS1_8PositionERKSt5arr
 
 1305:                                             ; preds = %1300
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %1306 = call { i32, i64 } @_ZN6evmone5instr4core14returndatacopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %1302, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %1306 = call { i32, i64 } @_ZN6evmone5instr4core14returndatacopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %1302, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %1307 = extractvalue { i32, i64 } %1306, 0
   %1308 = extractvalue { i32, i64 } %1306, 1
   %.not.i2396 = icmp eq i32 %1307, 0
@@ -11952,7 +11952,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE62EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1313:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_EXTCODEHASH", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !675
+  call void asm sideeffect "# OP_EXTCODEHASH", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !675
   %.val2433 = load i16, ptr %116, align 2, !tbaa !224
   %1314 = icmp slt i16 %.val2433, 0
   br i1 %1314, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE63EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, label %1315, !prof !141
@@ -11977,7 +11977,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE63EEE16evmc_st
 1321:                                             ; preds = %1316
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
   %1322 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -32
-  call void @llvm.lifetime.start.p0(ptr nonnull %26) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %26) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !676)
   %1323 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -16
   %1324 = load i64, ptr %1323, align 16, !tbaa !3, !noalias !679
@@ -12001,7 +12001,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE63EEE16evmc_st
   %1335 = getelementptr inbounds nuw i8, ptr %1334, i64 96
   %1336 = load ptr, ptr %1335, align 8, !tbaa !254
   %1337 = load ptr, ptr %89, align 8, !tbaa !256
-  %1338 = call noundef i32 %1336(ptr noundef %1337, ptr noundef nonnull align 1 dereferenceable(20) %26) #21
+  %1338 = call noundef i32 %1336(ptr noundef %1337, ptr noundef nonnull align 1 dereferenceable(20) %26) #22
   %1339 = icmp eq i32 %1338, 0
   br i1 %1339, label %1340, label %1345
 
@@ -12011,7 +12011,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE63EEE16evmc_st
   br i1 %1342, label %1343, label %1345
 
 1343:                                             ; preds = %1340
-  call void @llvm.lifetime.end.p0(ptr nonnull %26) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %26) #22
   %1344 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 3, ptr %1344, align 8, !tbaa !100
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
@@ -12023,7 +12023,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE63EEE16evmc_st
   %1348 = load ptr, ptr %1347, align 8, !tbaa !308, !noalias !684
   %1349 = load ptr, ptr %89, align 8, !tbaa !256, !noalias !684
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i2760), !noalias !684
-  call void %1348(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i2760, ptr noundef %1349, ptr noundef nonnull align 1 dereferenceable(20) %26) #21, !noalias !684
+  call void %1348(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i2760, ptr noundef %1349, ptr noundef nonnull align 1 dereferenceable(20) %26) #22, !noalias !684
   %.sroa.0.sroa.0.0.copyload.i2766 = load i64, ptr %.sroa.0.i.i2760, align 8
   %.sroa.0.sroa.4.0.copyload.i2768 = load i64, ptr %.sroa.0.sroa.4.0..sroa.0.i.sroa_idx.i2767, align 8
   %.sroa.0.sroa.5.0.copyload.i2770 = load i64, ptr %.sroa.0.sroa.5.0..sroa.0.i.sroa_idx.i2769, align 8
@@ -12038,12 +12038,12 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE63EEE16evmc_st
   store i64 %1352, ptr %1323, align 16
   %.sroa.10.0..sroa_idx.i2773 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -8
   store i64 %1353, ptr %.sroa.10.0..sroa_idx.i2773, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %26) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %26) #22
   %1354 = getelementptr inbounds nuw i8, ptr %.pn.in.in, i64 1
   br label %.backedge.backedge
 
 1355:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_BLOCKHASH", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !687
+  call void asm sideeffect "# OP_BLOCKHASH", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !687
   %.not.i2778 = icmp ugt ptr %.sroa.512.0, %59
   br i1 %.not.i2778, label %1356, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE64EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -12067,14 +12067,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE64EEENS1_8PositionERKSt5arr
   br i1 %1363, label %1364, label %_ZN6evmone14ExecutionState14get_tx_contextEv.exit.i, !prof !141
 
 1364:                                             ; preds = %1360
-  call void @llvm.lifetime.start.p0(ptr nonnull %25) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %25) #22
   %1365 = load ptr, ptr %88, align 8, !tbaa !253, !noalias !688
   %1366 = getelementptr inbounds nuw i8, ptr %1365, i64 72
   %1367 = load ptr, ptr %1366, align 8, !tbaa !266, !noalias !688
   %1368 = load ptr, ptr %89, align 8, !tbaa !256, !noalias !688
-  call void %1367(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %25, ptr noundef %1368) #21
+  call void %1367(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %25, ptr noundef %1368) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %102, ptr noundef nonnull align 8 dereferenceable(256) %25, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %25) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %25) #22
   br label %_ZN6evmone14ExecutionState14get_tx_contextEv.exit.i
 
 _ZN6evmone14ExecutionState14get_tx_contextEv.exit.i: ; preds = %1364, %1360
@@ -12115,7 +12115,7 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i2783:     ; preds = %1378, %_ZN6evmone14
   %1390 = load ptr, ptr %1389, align 8, !tbaa !317, !noalias !691
   %1391 = load ptr, ptr %89, align 8, !tbaa !256, !noalias !691
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i2781), !noalias !691
-  call void %1390(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i2781, ptr noundef %1391, i64 noundef %1371) #21, !noalias !691
+  call void %1390(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i2781, ptr noundef %1391, i64 noundef %1371) #22, !noalias !691
   %.sroa.020.0.copyload.i = load i64, ptr %.sroa.0.i.i2781, align 8
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa.0.i.sroa_idx.i, align 8
   %.sroa.623.0.copyload.i = load i64, ptr %.sroa.623.0..sroa.0.i.sroa_idx.i, align 8
@@ -12141,7 +12141,7 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i2783:     ; preds = %1378, %_ZN6evmone14
   br label %.backedge.backedge
 
 1398:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_COINBASE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !694
+  call void asm sideeffect "# OP_COINBASE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !694
   %1399 = icmp eq ptr %.sroa.512.0, %63
   br i1 %1399, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE65EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1400, !prof !141
 
@@ -12164,14 +12164,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE65EEENS1_8PositionERKSt5arr
   br i1 %1406, label %1407, label %1412, !prof !141
 
 1407:                                             ; preds = %1404
-  call void @llvm.lifetime.start.p0(ptr nonnull %24) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %24) #22
   %1408 = load ptr, ptr %88, align 8, !tbaa !253, !noalias !695
   %1409 = getelementptr inbounds nuw i8, ptr %1408, i64 72
   %1410 = load ptr, ptr %1409, align 8, !tbaa !266, !noalias !695
   %1411 = load ptr, ptr %89, align 8, !tbaa !256, !noalias !695
-  call void %1410(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %24, ptr noundef %1411) #21
+  call void %1410(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %24, ptr noundef %1411) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %102, ptr noundef nonnull align 8 dereferenceable(256) %24, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %24) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %24) #22
   br label %1412
 
 1412:                                             ; preds = %1404, %1407
@@ -12194,7 +12194,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE65EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1419:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_TIMESTAMP", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !698
+  call void asm sideeffect "# OP_TIMESTAMP", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !698
   %1420 = icmp eq ptr %.sroa.512.0, %63
   br i1 %1420, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE66EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1421, !prof !141
 
@@ -12217,14 +12217,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE66EEENS1_8PositionERKSt5arr
   br i1 %1427, label %1428, label %1433, !prof !141
 
 1428:                                             ; preds = %1425
-  call void @llvm.lifetime.start.p0(ptr nonnull %23) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %23) #22
   %1429 = load ptr, ptr %88, align 8, !tbaa !253, !noalias !699
   %1430 = getelementptr inbounds nuw i8, ptr %1429, i64 72
   %1431 = load ptr, ptr %1430, align 8, !tbaa !266, !noalias !699
   %1432 = load ptr, ptr %89, align 8, !tbaa !256, !noalias !699
-  call void %1431(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %23, ptr noundef %1432) #21
+  call void %1431(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %23, ptr noundef %1432) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %102, ptr noundef nonnull align 8 dereferenceable(256) %23, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %23) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %23) #22
   %.pre.i2804 = load i64, ptr %101, align 8, !tbaa !326
   br label %1433
 
@@ -12238,7 +12238,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE66EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1437:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_NUMBER", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !702
+  call void asm sideeffect "# OP_NUMBER", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !702
   %1438 = icmp eq ptr %.sroa.512.0, %63
   br i1 %1438, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE67EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1439, !prof !141
 
@@ -12261,14 +12261,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE67EEENS1_8PositionERKSt5arr
   br i1 %1445, label %1446, label %1451, !prof !141
 
 1446:                                             ; preds = %1443
-  call void @llvm.lifetime.start.p0(ptr nonnull %22) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %22) #22
   %1447 = load ptr, ptr %88, align 8, !tbaa !253, !noalias !703
   %1448 = getelementptr inbounds nuw i8, ptr %1447, i64 72
   %1449 = load ptr, ptr %1448, align 8, !tbaa !266, !noalias !703
   %1450 = load ptr, ptr %89, align 8, !tbaa !256, !noalias !703
-  call void %1449(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %22, ptr noundef %1450) #21
+  call void %1449(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %22, ptr noundef %1450) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %102, ptr noundef nonnull align 8 dereferenceable(256) %22, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %22) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %22) #22
   br label %1451
 
 1451:                                             ; preds = %1443, %1446
@@ -12281,7 +12281,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE67EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1455:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PREVRANDAO", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !706
+  call void asm sideeffect "# OP_PREVRANDAO", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !706
   %1456 = icmp eq ptr %.sroa.512.0, %63
   br i1 %1456, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE68EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1457, !prof !141
 
@@ -12304,14 +12304,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE68EEENS1_8PositionERKSt5arr
   br i1 %1463, label %1464, label %1469, !prof !141
 
 1464:                                             ; preds = %1461
-  call void @llvm.lifetime.start.p0(ptr nonnull %21) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %21) #22
   %1465 = load ptr, ptr %88, align 8, !tbaa !253, !noalias !707
   %1466 = getelementptr inbounds nuw i8, ptr %1465, i64 72
   %1467 = load ptr, ptr %1466, align 8, !tbaa !266, !noalias !707
   %1468 = load ptr, ptr %89, align 8, !tbaa !256, !noalias !707
-  call void %1467(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %21, ptr noundef %1468) #21
+  call void %1467(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %21, ptr noundef %1468) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %102, ptr noundef nonnull align 8 dereferenceable(256) %21, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %21) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %21) #22
   br label %1469
 
 1469:                                             ; preds = %1461, %1464
@@ -12335,7 +12335,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE68EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1476:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_GASLIMIT", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !710
+  call void asm sideeffect "# OP_GASLIMIT", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !710
   %1477 = icmp eq ptr %.sroa.512.0, %63
   br i1 %1477, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE69EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1478, !prof !141
 
@@ -12358,14 +12358,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE69EEENS1_8PositionERKSt5arr
   br i1 %1484, label %1485, label %1490, !prof !141
 
 1485:                                             ; preds = %1482
-  call void @llvm.lifetime.start.p0(ptr nonnull %20) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %20) #22
   %1486 = load ptr, ptr %88, align 8, !tbaa !253, !noalias !711
   %1487 = getelementptr inbounds nuw i8, ptr %1486, i64 72
   %1488 = load ptr, ptr %1487, align 8, !tbaa !266, !noalias !711
   %1489 = load ptr, ptr %89, align 8, !tbaa !256, !noalias !711
-  call void %1488(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %20, ptr noundef %1489) #21
+  call void %1488(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %20, ptr noundef %1489) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %102, ptr noundef nonnull align 8 dereferenceable(256) %20, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %20) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %20) #22
   br label %1490
 
 1490:                                             ; preds = %1482, %1485
@@ -12378,7 +12378,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE69EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1494:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_CHAINID", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !714
+  call void asm sideeffect "# OP_CHAINID", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !714
   %.val2434 = load i16, ptr %110, align 2, !tbaa !224
   %1495 = icmp slt i16 %.val2434, 0
   br i1 %1495, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE70EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1496, !prof !141
@@ -12407,14 +12407,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE70EEENS1_8PositionERKSt5arr
   br i1 %1505, label %1506, label %1511, !prof !141
 
 1506:                                             ; preds = %1503
-  call void @llvm.lifetime.start.p0(ptr nonnull %19) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %19) #22
   %1507 = load ptr, ptr %88, align 8, !tbaa !253, !noalias !715
   %1508 = getelementptr inbounds nuw i8, ptr %1507, i64 72
   %1509 = load ptr, ptr %1508, align 8, !tbaa !266, !noalias !715
   %1510 = load ptr, ptr %89, align 8, !tbaa !256, !noalias !715
-  call void %1509(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %19, ptr noundef %1510) #21
+  call void %1509(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %19, ptr noundef %1510) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %102, ptr noundef nonnull align 8 dereferenceable(256) %19, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %19) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %19) #22
   br label %1511
 
 1511:                                             ; preds = %1503, %1506
@@ -12438,7 +12438,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE70EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1518:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_SELFBALANCE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !718
+  call void asm sideeffect "# OP_SELFBALANCE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !718
   %.val2435 = load i16, ptr %109, align 2, !tbaa !224
   %1519 = icmp slt i16 %.val2435, 0
   br i1 %1519, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE71EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1520, !prof !141
@@ -12462,7 +12462,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE71EEENS1_8PositionERKSt5arr
 
 1527:                                             ; preds = %1522
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %18) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %18) #22
   %1528 = load ptr, ptr %87, align 8, !tbaa !81
   %1529 = getelementptr inbounds nuw i8, ptr %1528, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %18, ptr noundef nonnull align 8 dereferenceable(20) %1529, i64 20, i1 false)
@@ -12471,7 +12471,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE71EEENS1_8PositionERKSt5arr
   %1532 = load ptr, ptr %1531, align 8, !tbaa !260, !noalias !719
   %1533 = load ptr, ptr %89, align 8, !tbaa !256, !noalias !719
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i2841), !noalias !719
-  call void %1532(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i2841, ptr noundef %1533, ptr noundef nonnull align 1 dereferenceable(20) %18) #21, !noalias !719
+  call void %1532(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i2841, ptr noundef %1533, ptr noundef nonnull align 1 dereferenceable(20) %18) #22, !noalias !719
   %.sroa.02.sroa.0.0.copyload.i = load i64, ptr %.sroa.0.i.i2841, align 8
   %.sroa.02.sroa.4.0.copyload.i = load i64, ptr %.sroa.02.sroa.4.0..sroa.0.i.sroa_idx.i, align 8
   %.sroa.02.sroa.5.0.copyload.i = load i64, ptr %.sroa.02.sroa.5.0..sroa.0.i.sroa_idx.i, align 8
@@ -12488,13 +12488,13 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE71EEENS1_8PositionERKSt5arr
   store i64 %1536, ptr %.sroa.8.0..sroa_idx.i2843, align 16
   %.sroa.10.0..sroa_idx.i2844 = getelementptr inbounds nuw i8, ptr %.sroa.512.0, i64 24
   store i64 %1537, ptr %.sroa.10.0..sroa_idx.i2844, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %18) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %18) #22
   %1538 = getelementptr inbounds nuw i8, ptr %.pn.in.in, i64 1
   %1539 = getelementptr inbounds nuw i8, ptr %.sroa.512.0, i64 32
   br label %.backedge.backedge
 
 1540:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_BASEFEE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !722
+  call void asm sideeffect "# OP_BASEFEE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !722
   %.val2436 = load i16, ptr %107, align 2, !tbaa !224
   %1541 = icmp slt i16 %.val2436, 0
   br i1 %1541, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE72EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1542, !prof !141
@@ -12523,14 +12523,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE72EEENS1_8PositionERKSt5arr
   br i1 %1551, label %1552, label %1557, !prof !141
 
 1552:                                             ; preds = %1549
-  call void @llvm.lifetime.start.p0(ptr nonnull %17) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %17) #22
   %1553 = load ptr, ptr %88, align 8, !tbaa !253, !noalias !723
   %1554 = getelementptr inbounds nuw i8, ptr %1553, i64 72
   %1555 = load ptr, ptr %1554, align 8, !tbaa !266, !noalias !723
   %1556 = load ptr, ptr %89, align 8, !tbaa !256, !noalias !723
-  call void %1555(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %17, ptr noundef %1556) #21
+  call void %1555(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %17, ptr noundef %1556) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %102, ptr noundef nonnull align 8 dereferenceable(256) %17, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %17) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %17) #22
   br label %1557
 
 1557:                                             ; preds = %1549, %1552
@@ -12554,7 +12554,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE72EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1564:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_BLOBHASH", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !726
+  call void asm sideeffect "# OP_BLOBHASH", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !726
   %.val2437 = load i16, ptr %104, align 2, !tbaa !224
   %1565 = icmp slt i16 %.val2437, 0
   br i1 %1565, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE73EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1566, !prof !141
@@ -12584,14 +12584,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE73EEENS1_8PositionERKSt5arr
   br i1 %1575, label %1576, label %_ZN6evmone14ExecutionState14get_tx_contextEv.exit.i2861, !prof !141
 
 1576:                                             ; preds = %1572
-  call void @llvm.lifetime.start.p0(ptr nonnull %16) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %16) #22
   %1577 = load ptr, ptr %88, align 8, !tbaa !253, !noalias !727
   %1578 = getelementptr inbounds nuw i8, ptr %1577, i64 72
   %1579 = load ptr, ptr %1578, align 8, !tbaa !266, !noalias !727
   %1580 = load ptr, ptr %89, align 8, !tbaa !256, !noalias !727
-  call void %1579(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %16, ptr noundef %1580) #21
+  call void %1579(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %16, ptr noundef %1580) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %102, ptr noundef nonnull align 8 dereferenceable(256) %16, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %16) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %16) #22
   br label %_ZN6evmone14ExecutionState14get_tx_contextEv.exit.i2861
 
 _ZN6evmone14ExecutionState14get_tx_contextEv.exit.i2861: ; preds = %1576, %1572
@@ -12653,7 +12653,7 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i2862:     ; preds = %1587, %_ZN6evmone14
   br label %.backedge.backedge
 
 1608:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_BLOBBASEFEE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !730
+  call void asm sideeffect "# OP_BLOBBASEFEE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !730
   %.val2438 = load i16, ptr %100, align 2, !tbaa !224
   %1609 = icmp slt i16 %.val2438, 0
   br i1 %1609, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE74EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1610, !prof !141
@@ -12682,14 +12682,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE74EEENS1_8PositionERKSt5arr
   br i1 %1619, label %1620, label %1625, !prof !141
 
 1620:                                             ; preds = %1617
-  call void @llvm.lifetime.start.p0(ptr nonnull %15) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %15) #22
   %1621 = load ptr, ptr %88, align 8, !tbaa !253, !noalias !731
   %1622 = getelementptr inbounds nuw i8, ptr %1621, i64 72
   %1623 = load ptr, ptr %1622, align 8, !tbaa !266, !noalias !731
   %1624 = load ptr, ptr %89, align 8, !tbaa !256, !noalias !731
-  call void %1623(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %15, ptr noundef %1624) #21
+  call void %1623(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %15, ptr noundef %1624) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %102, ptr noundef nonnull align 8 dereferenceable(256) %15, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %15) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %15) #22
   br label %1625
 
 1625:                                             ; preds = %1617, %1620
@@ -12713,7 +12713,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE74EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1632:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_POP", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !734
+  call void asm sideeffect "# OP_POP", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !734
   %.not.i2879 = icmp ugt ptr %.sroa.512.0, %59
   br i1 %.not.i2879, label %1633, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE80EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -12736,7 +12736,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE80EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1640:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_MLOAD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !735
+  call void asm sideeffect "# OP_MLOAD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !735
   %.not.i2882 = icmp ugt ptr %.sroa.512.0, %59
   br i1 %.not.i2882, label %1641, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE81EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, !prof !80
 
@@ -12778,7 +12778,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE81EEE16evmc_st
   br i1 %1661, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i.thread
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i: ; preds = %1658
-  %1662 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1642, ptr noundef nonnull align 8 dereferenceable(24) %93, i64 noundef %1659) #21
+  %1662 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1642, ptr noundef nonnull align 8 dereferenceable(24) %93, i64 noundef %1659) #22
   %1663 = icmp sgt i64 %1662, -1
   br i1 %1663, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i._ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i.thread_crit_edge, label %1664
 
@@ -12816,7 +12816,7 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i.thread: ; 
   br label %.backedge.backedge
 
 1674:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_MSTORE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !739
+  call void asm sideeffect "# OP_MSTORE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !739
   %.not.i2890 = icmp ugt ptr %.sroa.512.0, %72
   br i1 %.not.i2890, label %1675, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE82EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, !prof !80
 
@@ -12859,7 +12859,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE82EEE16evmc_st
   br i1 %1696, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i2898, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i2898.thread
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i2898: ; preds = %1693
-  %1697 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1676, ptr noundef nonnull align 8 dereferenceable(24) %93, i64 noundef %1694) #21
+  %1697 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1676, ptr noundef nonnull align 8 dereferenceable(24) %93, i64 noundef %1694) #22
   %1698 = icmp sgt i64 %1697, -1
   br i1 %1698, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i2898._ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i2898.thread_crit_edge, label %1699
 
@@ -12900,7 +12900,7 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i2898.thread
   br label %.backedge.backedge
 
 1719:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_MSTORE8", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !740
+  call void asm sideeffect "# OP_MSTORE8", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !740
   %.not.i2900 = icmp ugt ptr %.sroa.512.0, %72
   br i1 %.not.i2900, label %1720, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE83EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, !prof !80
 
@@ -12943,7 +12943,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE83EEE16evmc_st
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i2909: ; preds = %1738
   %1740 = add nuw nsw i64 %1736, 1
-  %1741 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1721, ptr noundef nonnull align 8 dereferenceable(24) %93, i64 noundef %1740) #21
+  %1741 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1721, ptr noundef nonnull align 8 dereferenceable(24) %93, i64 noundef %1740) #22
   %1742 = icmp sgt i64 %1741, -1
   br i1 %1742, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i2909._ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i2909.thread_crit_edge, label %1743
 
@@ -12969,7 +12969,7 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i2909.thread
   br label %.backedge.backedge
 
 1751:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_SLOAD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !741
+  call void asm sideeffect "# OP_SLOAD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !741
   %.val2439 = load i16, ptr %92, align 2, !tbaa !224
   %1752 = icmp slt i16 %.val2439, 0
   br i1 %1752, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE84EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, label %1753, !prof !141
@@ -12993,7 +12993,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE84EEE16evmc_st
 
 1759:                                             ; preds = %1754
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %1760 = call { i32, i64 } @_ZN6evmone5instr4core5sloadENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %1756, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %1760 = call { i32, i64 } @_ZN6evmone5instr4core5sloadENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %1756, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %1761 = extractvalue { i32, i64 } %1760, 0
   %1762 = extractvalue { i32, i64 } %1760, 1
   %.not.i2381 = icmp eq i32 %1761, 0
@@ -13009,7 +13009,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE84EEE16evmc_st
   br label %.backedge.backedge
 
 1767:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_SSTORE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !742
+  call void asm sideeffect "# OP_SSTORE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !742
   %.not.i2914 = icmp ugt ptr %.sroa.512.0, %72
   %1768 = icmp slt i64 %.0, 0
   %..i2915 = select i1 %1768, i32 3, i32 0, !prof !141
@@ -13024,7 +13024,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE85EEENS1_8PositionERKSt5arr
 
 1770:                                             ; preds = %1767
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %1771 = call { i32, i64 } @_ZN6evmone5instr4core6sstoreENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %.0, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %1771 = call { i32, i64 } @_ZN6evmone5instr4core6sstoreENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %.0, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %1772 = extractvalue { i32, i64 } %1771, 0
   %1773 = extractvalue { i32, i64 } %1771, 1
   %.not.i2378 = icmp eq i32 %1772, 0
@@ -13041,7 +13041,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE85EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1778:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_JUMP", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !743
+  call void asm sideeffect "# OP_JUMP", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !743
   %.not.i2917 = icmp ugt ptr %.sroa.512.0, %59
   br i1 %.not.i2917, label %1779, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE86EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -13106,7 +13106,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE86EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1809:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_JUMPI", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !744
+  call void asm sideeffect "# OP_JUMPI", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !744
   %.not.i2923 = icmp ugt ptr %.sroa.512.0, %72
   br i1 %.not.i2923, label %1810, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE87EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, !prof !80
 
@@ -13125,7 +13125,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE87EEE16evmc_st
 1814:                                             ; preds = %1810
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
   %1815 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %14) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %14) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
   br label %1816
 
@@ -13145,7 +13145,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE87EEE16evmc_st
 _ZNK4intx4uintILj256EEcvbEv.exit.i:               ; preds = %1816
   %1824 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -32
   %.not.i2929 = icmp eq i64 %1822, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %14) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %14) #22
   br i1 %.not.i2929, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE87EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread4939, label %1825
 
 1825:                                             ; preds = %_ZNK4intx4uintILj256EEcvbEv.exit.i
@@ -13196,7 +13196,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE87EEENS1_8PositionERKSt5arr
   br i1 %1849, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, label %.backedge.backedge
 
 1850:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PC", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !745
+  call void asm sideeffect "# OP_PC", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !745
   %1851 = icmp eq ptr %.sroa.512.0, %63
   br i1 %1851, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE88EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1852, !prof !141
 
@@ -13228,7 +13228,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE88EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1863:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_MSIZE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !746
+  call void asm sideeffect "# OP_MSIZE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !746
   %1864 = icmp eq ptr %.sroa.512.0, %63
   br i1 %1864, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE89EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1865, !prof !141
 
@@ -13255,7 +13255,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE89EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1873:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_GAS", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !747
+  call void asm sideeffect "# OP_GAS", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !747
   %1874 = icmp eq ptr %.sroa.512.0, %63
   br i1 %1874, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE90EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1875, !prof !141
 
@@ -13281,7 +13281,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE90EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1882:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_JUMPDEST", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !748
+  call void asm sideeffect "# OP_JUMPDEST", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !748
   %1883 = add nsw i64 %.0, -1
   %1884 = icmp slt i64 %.0, 1
   br i1 %1884, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE91EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1886
@@ -13297,7 +13297,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE91EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1888:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_TLOAD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !749
+  call void asm sideeffect "# OP_TLOAD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !749
   %.val2440 = load i16, ptr %90, align 2, !tbaa !224
   %1889 = icmp slt i16 %.val2440, 0
   br i1 %1889, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE92EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1890, !prof !141
@@ -13322,7 +13322,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE92EEENS1_8PositionERKSt5arr
 1896:                                             ; preds = %1891
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
   %1897 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -32
-  call void @llvm.lifetime.start.p0(ptr nonnull %12) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %12) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !750)
   %1898 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -8
   %1899 = load i64, ptr %1898, align 8, !tbaa !3, !noalias !753
@@ -13339,7 +13339,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE92EEENS1_8PositionERKSt5arr
   store i64 %1903, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !750
   store i64 %1906, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !750
   store i64 %1908, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !alias.scope !750
-  call void @llvm.lifetime.start.p0(ptr nonnull %13) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %13) #22
   %1909 = load ptr, ptr %87, align 8, !tbaa !81
   %1910 = getelementptr inbounds nuw i8, ptr %1909, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(20) %1910, i64 20, i1 false)
@@ -13348,13 +13348,13 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE92EEENS1_8PositionERKSt5arr
   %1913 = load ptr, ptr %1912, align 8, !tbaa !394, !noalias !758
   %1914 = load ptr, ptr %89, align 8, !tbaa !256, !noalias !758
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i2951), !noalias !758
-  call void %1913(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i2951, ptr noundef %1914, ptr noundef nonnull align 1 dereferenceable(20) %13, ptr noundef nonnull align 1 dereferenceable(32) %12) #21, !noalias !758
+  call void %1913(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i2951, ptr noundef %1914, ptr noundef nonnull align 1 dereferenceable(20) %13, ptr noundef nonnull align 1 dereferenceable(32) %12) #22, !noalias !758
   %.sroa.012.0.copyload.i = load i64, ptr %.sroa.0.i.i2951, align 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa.0.i.sroa_idx.i, align 8
   %.sroa.5.0.copyload.i2953 = load i64, ptr %.sroa.5.0..sroa.0.i.sroa_idx.i2952, align 8
   %.sroa.613.0.copyload.i = load i64, ptr %.sroa.613.0..sroa.0.i.sroa_idx.i, align 8, !tbaa !17
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i2951), !noalias !758
-  call void @llvm.lifetime.end.p0(ptr nonnull %13) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %13) #22
   %1915 = call noundef i64 @llvm.bswap.i64(i64 %.sroa.613.0.copyload.i)
   %1916 = call noundef i64 @llvm.bswap.i64(i64 %.sroa.5.0.copyload.i2953)
   %1917 = call noundef i64 @llvm.bswap.i64(i64 %.sroa.4.0.copyload.i)
@@ -13363,12 +13363,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE92EEENS1_8PositionERKSt5arr
   store i64 %1916, ptr %1904, align 8
   store i64 %1917, ptr %1901, align 16
   store i64 %1918, ptr %1898, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %12) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %12) #22
   %1919 = getelementptr inbounds nuw i8, ptr %.pn.in.in, i64 1
   br label %.backedge.backedge
 
 1920:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_TSTORE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !761
+  call void asm sideeffect "# OP_TSTORE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !761
   %.val2441 = load i16, ptr %86, align 2, !tbaa !224
   %1921 = icmp slt i16 %.val2441, 0
   br i1 %1921, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE93EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1922, !prof !141
@@ -13405,7 +13405,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE93EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 1934:                                             ; preds = %1928
-  call void @llvm.lifetime.start.p0(ptr nonnull %9) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %9) #22
   %1935 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -32
   call void @llvm.experimental.noalias.scope.decl(metadata !762)
   %1936 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -8
@@ -13423,7 +13423,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE93EEENS1_8PositionERKSt5arr
   store i64 %1941, ptr %.sroa.4.0..sroa_idx.i.i.i2962, align 8, !alias.scope !762
   store i64 %1944, ptr %.sroa.5.0..sroa_idx.i.i.i2963, align 8, !alias.scope !762
   store i64 %1946, ptr %.sroa.6.0..sroa_idx.i.i.i2964, align 8, !alias.scope !762
-  call void @llvm.lifetime.start.p0(ptr nonnull %10) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %10) #22
   %1947 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -64
   call void @llvm.experimental.noalias.scope.decl(metadata !770)
   %1948 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -40
@@ -13441,22 +13441,22 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE93EEENS1_8PositionERKSt5arr
   store i64 %1953, ptr %.sroa.4.0..sroa_idx.i.i3.i, align 8, !alias.scope !770
   store i64 %1956, ptr %.sroa.5.0..sroa_idx.i.i4.i, align 8, !alias.scope !770
   store i64 %1958, ptr %.sroa.6.0..sroa_idx.i.i5.i, align 8, !alias.scope !770
-  call void @llvm.lifetime.start.p0(ptr nonnull %11) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %11) #22
   %1959 = getelementptr inbounds nuw i8, ptr %1929, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(20) %1959, i64 20, i1 false)
   %1960 = load ptr, ptr %88, align 8, !tbaa !253
   %1961 = getelementptr inbounds nuw i8, ptr %1960, i64 120
   %1962 = load ptr, ptr %1961, align 8, !tbaa !413
   %1963 = load ptr, ptr %89, align 8, !tbaa !256
-  call void %1962(ptr noundef %1963, ptr noundef nonnull align 1 dereferenceable(20) %11, ptr noundef nonnull align 1 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(32) %10) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %11) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %10) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %9) #21
+  call void %1962(ptr noundef %1963, ptr noundef nonnull align 1 dereferenceable(20) %11, ptr noundef nonnull align 1 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(32) %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9) #22
   %1964 = getelementptr inbounds nuw i8, ptr %.pn.in.in, i64 1
   br label %.backedge.backedge
 
 1965:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_MCOPY", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !778
+  call void asm sideeffect "# OP_MCOPY", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !778
   %.val2442 = load i16, ptr %85, align 2, !tbaa !224
   %1966 = icmp slt i16 %.val2442, 0
   br i1 %1966, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE94EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1967, !prof !141
@@ -13480,7 +13480,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE94EEENS1_8PositionERKSt5arr
 
 1973:                                             ; preds = %1968
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %1974 = call { i32, i64 } @_ZN6evmone5instr4core5mcopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %1970, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %1974 = call { i32, i64 } @_ZN6evmone5instr4core5mcopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %1970, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %1975 = extractvalue { i32, i64 } %1974, 0
   %1976 = extractvalue { i32, i64 } %1974, 1
   %.not.i2369 = icmp eq i32 %1975, 0
@@ -13497,7 +13497,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE94EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1981:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH0", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !779
+  call void asm sideeffect "# OP_PUSH0", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !779
   %.val2443 = load i16, ptr %84, align 2, !tbaa !224
   %1982 = icmp slt i16 %.val2443, 0
   br i1 %1982, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE95EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1983, !prof !141
@@ -13527,7 +13527,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE95EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 1993:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH1", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !780
+  call void asm sideeffect "# OP_PUSH1", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !780
   %1994 = icmp eq ptr %.sroa.512.0, %63
   br i1 %1994, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE96EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1995, !prof !141
 
@@ -13555,7 +13555,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE96EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 2005:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH2", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !781
+  call void asm sideeffect "# OP_PUSH2", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !781
   %2006 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2006, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE97EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2007, !prof !141
 
@@ -13584,7 +13584,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE97EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 2018:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH3", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !782
+  call void asm sideeffect "# OP_PUSH3", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !782
   %2019 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2019, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE98EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2020, !prof !141
 
@@ -13614,7 +13614,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE98EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 2032:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH4", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !783
+  call void asm sideeffect "# OP_PUSH4", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !783
   %2033 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2033, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE99EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2034, !prof !141
 
@@ -13643,7 +13643,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE99EEENS1_8PositionERKSt5arr
   br label %.backedge.backedge
 
 2045:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH5", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !784
+  call void asm sideeffect "# OP_PUSH5", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !784
   %2046 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2046, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE100EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2047, !prof !141
 
@@ -13672,7 +13672,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE100EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2058:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH6", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !785
+  call void asm sideeffect "# OP_PUSH6", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !785
   %2059 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2059, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE101EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2060, !prof !141
 
@@ -13701,7 +13701,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE101EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2071:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH7", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !786
+  call void asm sideeffect "# OP_PUSH7", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !786
   %2072 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2072, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE102EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2073, !prof !141
 
@@ -13730,7 +13730,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE102EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2084:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH8", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !787
+  call void asm sideeffect "# OP_PUSH8", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !787
   %2085 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2085, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE103EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2086, !prof !141
 
@@ -13758,7 +13758,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE103EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2096:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH9", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !788
+  call void asm sideeffect "# OP_PUSH9", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !788
   %2097 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2097, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE104EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2098, !prof !141
 
@@ -13791,7 +13791,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE104EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2112:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH10", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !789
+  call void asm sideeffect "# OP_PUSH10", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !789
   %2113 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2113, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE105EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2114, !prof !141
 
@@ -13825,7 +13825,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE105EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2129:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH11", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !790
+  call void asm sideeffect "# OP_PUSH11", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !790
   %2130 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2130, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE106EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2131, !prof !141
 
@@ -13860,7 +13860,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE106EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2147:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH12", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !791
+  call void asm sideeffect "# OP_PUSH12", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !791
   %2148 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2148, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE107EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2149, !prof !141
 
@@ -13894,7 +13894,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE107EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2164:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH13", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !792
+  call void asm sideeffect "# OP_PUSH13", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !792
   %2165 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2165, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE108EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2166, !prof !141
 
@@ -13928,7 +13928,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE108EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2181:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH14", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !793
+  call void asm sideeffect "# OP_PUSH14", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !793
   %2182 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2182, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE109EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2183, !prof !141
 
@@ -13962,7 +13962,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE109EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2198:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH15", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !794
+  call void asm sideeffect "# OP_PUSH15", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !794
   %2199 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2199, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE110EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2200, !prof !141
 
@@ -13996,7 +13996,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE110EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2213:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH16", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !795
+  call void asm sideeffect "# OP_PUSH16", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !795
   %2214 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2214, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE111EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2215, !prof !141
 
@@ -14034,7 +14034,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE111EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2229:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH17", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !796
+  call void asm sideeffect "# OP_PUSH17", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !796
   %2230 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2230, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE112EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2231, !prof !141
 
@@ -14077,7 +14077,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE112EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2249:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH18", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !797
+  call void asm sideeffect "# OP_PUSH18", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !797
   %2250 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2250, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE113EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2251, !prof !141
 
@@ -14121,7 +14121,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE113EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2270:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH19", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !798
+  call void asm sideeffect "# OP_PUSH19", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !798
   %2271 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2271, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE114EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2272, !prof !141
 
@@ -14166,7 +14166,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE114EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2292:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH20", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !799
+  call void asm sideeffect "# OP_PUSH20", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !799
   %2293 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2293, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE115EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2294, !prof !141
 
@@ -14210,7 +14210,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE115EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2313:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH21", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !800
+  call void asm sideeffect "# OP_PUSH21", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !800
   %2314 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2314, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE116EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2315, !prof !141
 
@@ -14254,7 +14254,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE116EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2334:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH22", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !801
+  call void asm sideeffect "# OP_PUSH22", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !801
   %2335 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2335, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE117EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2336, !prof !141
 
@@ -14298,7 +14298,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE117EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2355:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH23", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !802
+  call void asm sideeffect "# OP_PUSH23", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !802
   %2356 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2356, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE118EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2357, !prof !141
 
@@ -14342,7 +14342,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE118EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2374:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH24", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !803
+  call void asm sideeffect "# OP_PUSH24", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !803
   %2375 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2375, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE119EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2376, !prof !141
 
@@ -14382,7 +14382,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE119EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2391:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH25", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !804
+  call void asm sideeffect "# OP_PUSH25", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !804
   %2392 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2392, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE120EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2393, !prof !141
 
@@ -14427,7 +14427,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE120EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2412:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH26", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !805
+  call void asm sideeffect "# OP_PUSH26", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !805
   %2413 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2413, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE121EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2414, !prof !141
 
@@ -14473,7 +14473,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE121EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2434:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH27", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !806
+  call void asm sideeffect "# OP_PUSH27", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !806
   %2435 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2435, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE122EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2436, !prof !141
 
@@ -14520,7 +14520,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE122EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2457:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH28", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !807
+  call void asm sideeffect "# OP_PUSH28", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !807
   %2458 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2458, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE123EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2459, !prof !141
 
@@ -14566,7 +14566,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE123EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2479:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH29", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !808
+  call void asm sideeffect "# OP_PUSH29", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !808
   %2480 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2480, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE124EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2481, !prof !141
 
@@ -14612,7 +14612,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE124EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2501:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH30", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !809
+  call void asm sideeffect "# OP_PUSH30", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !809
   %2502 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2502, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE125EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2503, !prof !141
 
@@ -14658,7 +14658,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE125EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2523:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH31", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !810
+  call void asm sideeffect "# OP_PUSH31", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !810
   %2524 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2524, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE126EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2525, !prof !141
 
@@ -14704,7 +14704,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE126EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2543:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_PUSH32", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !811
+  call void asm sideeffect "# OP_PUSH32", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !811
   %2544 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2544, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE127EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2545, !prof !141
 
@@ -14744,7 +14744,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE127EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2560:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_DUP1", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !812
+  call void asm sideeffect "# OP_DUP1", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !812
   %2561 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2561, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE128EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2562, !prof !141
 
@@ -14773,7 +14773,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE128EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2571:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_DUP2", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !813
+  call void asm sideeffect "# OP_DUP2", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !813
   %2572 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2572, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE129EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2573, !prof !141
 
@@ -14802,7 +14802,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE129EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2582:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_DUP3", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !814
+  call void asm sideeffect "# OP_DUP3", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !814
   %2583 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2583, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE130EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2584, !prof !141
 
@@ -14831,7 +14831,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE130EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2593:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_DUP4", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !815
+  call void asm sideeffect "# OP_DUP4", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !815
   %2594 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2594, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE131EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2595, !prof !141
 
@@ -14860,7 +14860,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE131EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2604:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_DUP5", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !816
+  call void asm sideeffect "# OP_DUP5", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !816
   %2605 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2605, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE132EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2606, !prof !141
 
@@ -14889,7 +14889,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE132EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2615:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_DUP6", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !817
+  call void asm sideeffect "# OP_DUP6", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !817
   %2616 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2616, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE133EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2617, !prof !141
 
@@ -14918,7 +14918,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE133EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2626:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_DUP7", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !818
+  call void asm sideeffect "# OP_DUP7", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !818
   %2627 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2627, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE134EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2628, !prof !141
 
@@ -14947,7 +14947,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE134EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2637:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_DUP8", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !819
+  call void asm sideeffect "# OP_DUP8", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !819
   %2638 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2638, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE135EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2639, !prof !141
 
@@ -14976,7 +14976,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE135EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2648:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_DUP9", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !820
+  call void asm sideeffect "# OP_DUP9", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !820
   %2649 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2649, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE136EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2650, !prof !141
 
@@ -15005,7 +15005,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE136EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2659:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_DUP10", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !821
+  call void asm sideeffect "# OP_DUP10", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !821
   %2660 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2660, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE137EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2661, !prof !141
 
@@ -15034,7 +15034,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE137EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2670:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_DUP11", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !822
+  call void asm sideeffect "# OP_DUP11", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !822
   %2671 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2671, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE138EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2672, !prof !141
 
@@ -15063,7 +15063,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE138EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2681:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_DUP12", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !823
+  call void asm sideeffect "# OP_DUP12", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !823
   %2682 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2682, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE139EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2683, !prof !141
 
@@ -15092,7 +15092,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE139EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2692:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_DUP13", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !824
+  call void asm sideeffect "# OP_DUP13", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !824
   %2693 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2693, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE140EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2694, !prof !141
 
@@ -15121,7 +15121,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE140EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2703:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_DUP14", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !825
+  call void asm sideeffect "# OP_DUP14", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !825
   %2704 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2704, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE141EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2705, !prof !141
 
@@ -15150,7 +15150,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE141EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2714:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_DUP15", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !826
+  call void asm sideeffect "# OP_DUP15", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !826
   %2715 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2715, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE142EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2716, !prof !141
 
@@ -15179,7 +15179,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE142EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2725:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_DUP16", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !827
+  call void asm sideeffect "# OP_DUP16", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !827
   %2726 = icmp eq ptr %.sroa.512.0, %63
   br i1 %2726, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE143EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2727, !prof !141
 
@@ -15208,7 +15208,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE143EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2736:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_SWAP1", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !828
+  call void asm sideeffect "# OP_SWAP1", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !828
   %.not.i3124 = icmp ugt ptr %.sroa.512.0, %72
   br i1 %.not.i3124, label %2737, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE144EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -15247,7 +15247,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE144EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2755:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_SWAP2", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !829
+  call void asm sideeffect "# OP_SWAP2", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !829
   %.not.i3127 = icmp ugt ptr %.sroa.512.0, %66
   br i1 %.not.i3127, label %2756, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE145EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -15286,7 +15286,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE145EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2774:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_SWAP3", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !830
+  call void asm sideeffect "# OP_SWAP3", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !830
   %.not.i3130 = icmp ugt ptr %.sroa.512.0, %71
   br i1 %.not.i3130, label %2775, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE146EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -15325,7 +15325,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE146EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2793:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_SWAP4", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !831
+  call void asm sideeffect "# OP_SWAP4", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !831
   %.not.i3133 = icmp ugt ptr %.sroa.512.0, %70
   br i1 %.not.i3133, label %2794, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE147EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -15364,7 +15364,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE147EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2812:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_SWAP5", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !832
+  call void asm sideeffect "# OP_SWAP5", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !832
   %.not.i3136 = icmp ugt ptr %.sroa.512.0, %69
   br i1 %.not.i3136, label %2813, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE148EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -15403,7 +15403,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE148EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2831:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_SWAP6", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !833
+  call void asm sideeffect "# OP_SWAP6", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !833
   %.not.i3139 = icmp ugt ptr %.sroa.512.0, %83
   br i1 %.not.i3139, label %2832, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE149EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -15442,7 +15442,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE149EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2850:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_SWAP7", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !834
+  call void asm sideeffect "# OP_SWAP7", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !834
   %.not.i3142 = icmp ugt ptr %.sroa.512.0, %82
   br i1 %.not.i3142, label %2851, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE150EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -15481,7 +15481,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE150EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2869:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_SWAP8", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !835
+  call void asm sideeffect "# OP_SWAP8", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !835
   %.not.i3145 = icmp ugt ptr %.sroa.512.0, %81
   br i1 %.not.i3145, label %2870, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE151EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -15520,7 +15520,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE151EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2888:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_SWAP9", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !836
+  call void asm sideeffect "# OP_SWAP9", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !836
   %.not.i3148 = icmp ugt ptr %.sroa.512.0, %80
   br i1 %.not.i3148, label %2889, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE152EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -15559,7 +15559,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE152EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2907:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_SWAP10", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !837
+  call void asm sideeffect "# OP_SWAP10", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !837
   %.not.i3151 = icmp ugt ptr %.sroa.512.0, %79
   br i1 %.not.i3151, label %2908, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE153EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -15598,7 +15598,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE153EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2926:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_SWAP11", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !838
+  call void asm sideeffect "# OP_SWAP11", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !838
   %.not.i3154 = icmp ugt ptr %.sroa.512.0, %78
   br i1 %.not.i3154, label %2927, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE154EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -15637,7 +15637,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE154EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2945:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_SWAP12", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !839
+  call void asm sideeffect "# OP_SWAP12", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !839
   %.not.i3157 = icmp ugt ptr %.sroa.512.0, %77
   br i1 %.not.i3157, label %2946, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE155EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -15676,7 +15676,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE155EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2964:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_SWAP13", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !840
+  call void asm sideeffect "# OP_SWAP13", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !840
   %.not.i3160 = icmp ugt ptr %.sroa.512.0, %76
   br i1 %.not.i3160, label %2965, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE156EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -15715,7 +15715,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE156EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 2983:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_SWAP14", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !841
+  call void asm sideeffect "# OP_SWAP14", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !841
   %.not.i3163 = icmp ugt ptr %.sroa.512.0, %75
   br i1 %.not.i3163, label %2984, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE157EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -15754,7 +15754,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE157EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3002:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_SWAP15", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !842
+  call void asm sideeffect "# OP_SWAP15", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !842
   %.not.i3166 = icmp ugt ptr %.sroa.512.0, %74
   br i1 %.not.i3166, label %3003, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE158EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -15793,7 +15793,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE158EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3021:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_SWAP16", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !843
+  call void asm sideeffect "# OP_SWAP16", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !843
   %.not.i3169 = icmp ugt ptr %.sroa.512.0, %73
   br i1 %.not.i3169, label %3022, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE159EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -15832,7 +15832,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE159EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3040:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_LOG0", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !844
+  call void asm sideeffect "# OP_LOG0", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !844
   %.not.i3172 = icmp ugt ptr %.sroa.512.0, %72
   br i1 %.not.i3172, label %3041, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE160EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -15850,7 +15850,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE160EEENS1_8PositionERKSt5ar
 
 3045:                                             ; preds = %3041
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %3046 = call { i32, i64 } @_ZN6evmone5instr4core3logILm0EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3042, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3046 = call { i32, i64 } @_ZN6evmone5instr4core3logILm0EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3042, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3047 = extractvalue { i32, i64 } %3046, 0
   %3048 = extractvalue { i32, i64 } %3046, 1
   %.not.i2366 = icmp eq i32 %3047, 0
@@ -15867,7 +15867,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE160EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3053:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_LOG1", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !845
+  call void asm sideeffect "# OP_LOG1", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !845
   %.not.i3175 = icmp ugt ptr %.sroa.512.0, %66
   br i1 %.not.i3175, label %3054, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE161EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -15885,7 +15885,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE161EEENS1_8PositionERKSt5ar
 
 3058:                                             ; preds = %3054
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %3059 = call { i32, i64 } @_ZN6evmone5instr4core3logILm1EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3055, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3059 = call { i32, i64 } @_ZN6evmone5instr4core3logILm1EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3055, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3060 = extractvalue { i32, i64 } %3059, 0
   %3061 = extractvalue { i32, i64 } %3059, 1
   %.not.i2363 = icmp eq i32 %3060, 0
@@ -15902,7 +15902,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE161EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3066:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_LOG2", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !846
+  call void asm sideeffect "# OP_LOG2", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !846
   %.not.i3178 = icmp ugt ptr %.sroa.512.0, %71
   br i1 %.not.i3178, label %3067, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE162EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -15920,7 +15920,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE162EEENS1_8PositionERKSt5ar
 
 3071:                                             ; preds = %3067
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %3072 = call { i32, i64 } @_ZN6evmone5instr4core3logILm2EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3068, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3072 = call { i32, i64 } @_ZN6evmone5instr4core3logILm2EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3068, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3073 = extractvalue { i32, i64 } %3072, 0
   %3074 = extractvalue { i32, i64 } %3072, 1
   %.not.i2360 = icmp eq i32 %3073, 0
@@ -15937,7 +15937,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE162EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3079:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_LOG3", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !847
+  call void asm sideeffect "# OP_LOG3", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !847
   %.not.i3181 = icmp ugt ptr %.sroa.512.0, %70
   br i1 %.not.i3181, label %3080, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE163EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -15955,7 +15955,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE163EEENS1_8PositionERKSt5ar
 
 3084:                                             ; preds = %3080
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %3085 = call { i32, i64 } @_ZN6evmone5instr4core3logILm3EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3081, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3085 = call { i32, i64 } @_ZN6evmone5instr4core3logILm3EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3081, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3086 = extractvalue { i32, i64 } %3085, 0
   %3087 = extractvalue { i32, i64 } %3085, 1
   %.not.i2357 = icmp eq i32 %3086, 0
@@ -15972,7 +15972,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE163EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3092:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_LOG4", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !848
+  call void asm sideeffect "# OP_LOG4", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !848
   %.not.i3184 = icmp ugt ptr %.sroa.512.0, %69
   br i1 %.not.i3184, label %3093, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE164EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -15990,7 +15990,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE164EEENS1_8PositionERKSt5ar
 
 3097:                                             ; preds = %3093
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %3098 = call { i32, i64 } @_ZN6evmone5instr4core3logILm4EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3094, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3098 = call { i32, i64 } @_ZN6evmone5instr4core3logILm4EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3094, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3099 = extractvalue { i32, i64 } %3098, 0
   %3100 = extractvalue { i32, i64 } %3098, 1
   %.not.i2354 = icmp eq i32 %3099, 0
@@ -16007,7 +16007,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE164EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3105:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_DATALOAD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !849
+  call void asm sideeffect "# OP_DATALOAD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !849
   %.val2444 = load i16, ptr %60, align 2, !tbaa !224
   %3106 = icmp slt i16 %.val2444, 0
   br i1 %3106, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE208EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3107, !prof !141
@@ -16040,7 +16040,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE208EEENS1_8PositionERKSt5ar
   br i1 %3118, label %3119, label %_ZNK6evmone8baseline12CodeAnalysis8eof_dataEv.exit.i
 
 3119:                                             ; preds = %3113
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i64 noundef %3117, i64 noundef %.sroa.0.0.copyload.i.i3190) #23
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i64 noundef %3117, i64 noundef %.sroa.0.0.copyload.i.i3190) #24
   unreachable
 
 _ZNK6evmone8baseline12CodeAnalysis8eof_dataEv.exit.i: ; preds = %3113
@@ -16120,7 +16120,7 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i3193:     ; preds = %3129, %_ZNK6evmone8
   br label %.backedge.backedge
 
 3151:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_DATALOADN", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !853
+  call void asm sideeffect "# OP_DATALOADN", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !853
   %.val2445 = load i16, ptr %62, align 2, !tbaa !224
   %3152 = icmp slt i16 %.val2445, 0
   br i1 %3152, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE209EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3153, !prof !141
@@ -16153,7 +16153,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE209EEENS1_8PositionERKSt5ar
   br i1 %3165, label %3166, label %3167
 
 3166:                                             ; preds = %3160
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i64 noundef %3164, i64 noundef %.sroa.0.0.copyload.i.i3207) #23
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i64 noundef %3164, i64 noundef %.sroa.0.0.copyload.i.i3207) #24
   unreachable
 
 3167:                                             ; preds = %3160
@@ -16192,7 +16192,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE209EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3184:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_DATASIZE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !857
+  call void asm sideeffect "# OP_DATASIZE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !857
   %.val2446 = load i16, ptr %64, align 2, !tbaa !224
   %3185 = icmp slt i16 %.val2446, 0
   br i1 %3185, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE210EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3186, !prof !141
@@ -16225,7 +16225,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE210EEENS1_8PositionERKSt5ar
   br i1 %3198, label %3199, label %3200
 
 3199:                                             ; preds = %3193
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i64 noundef %3197, i64 noundef %.sroa.0.0.copyload.i.i3222) #23
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i64 noundef %3197, i64 noundef %.sroa.0.0.copyload.i.i3222) #24
   unreachable
 
 3200:                                             ; preds = %3193
@@ -16238,7 +16238,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE210EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3204:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_DATACOPY", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !858
+  call void asm sideeffect "# OP_DATACOPY", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !858
   %.val2447 = load i16, ptr %65, align 2, !tbaa !224
   %3205 = icmp slt i16 %.val2447, 0
   br i1 %3205, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE211EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3206, !prof !141
@@ -16262,7 +16262,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE211EEENS1_8PositionERKSt5ar
 
 3212:                                             ; preds = %3207
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %3213 = call { i32, i64 } @_ZN6evmone5instr4core8datacopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3209, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3213 = call { i32, i64 } @_ZN6evmone5instr4core8datacopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3209, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3214 = extractvalue { i32, i64 } %3213, 0
   %3215 = extractvalue { i32, i64 } %3213, 1
   %.not.i2351 = icmp eq i32 %3214, 0
@@ -16279,7 +16279,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE211EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3220:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_RJUMP", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !859
+  call void asm sideeffect "# OP_RJUMP", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !859
   %.val2448 = load i16, ptr %67, align 2, !tbaa !224
   %3221 = icmp slt i16 %.val2448, 0
   br i1 %3221, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE224EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3222, !prof !141
@@ -16313,7 +16313,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE224EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3239:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_RJUMPI", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !860
+  call void asm sideeffect "# OP_RJUMPI", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !860
   %.val2449 = load i16, ptr %68, align 2, !tbaa !224
   %3240 = icmp slt i16 %.val2449, 0
   br i1 %3240, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE225EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3241, !prof !141
@@ -16337,10 +16337,10 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE225EEENS1_8PositionERKSt5ar
 
 3247:                                             ; preds = %3242
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7) #22
   %3248 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 32 dereferenceable(32) %3248, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.start.p0(ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   br label %3249
 
@@ -16359,7 +16359,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE225EEENS1_8PositionERKSt5ar
 
 _ZNK4intx4uintILj256EEcvbEv.exit.i3235:           ; preds = %3249
   %.not.i3236 = icmp eq i64 %3255, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6) #22
   br i1 %.not.i3236, label %3269, label %3257
 
 3257:                                             ; preds = %_ZNK4intx4uintILj256EEcvbEv.exit.i3235
@@ -16382,11 +16382,11 @@ _ZNK4intx4uintILj256EEcvbEv.exit.i3235:           ; preds = %3249
 
 3271:                                             ; preds = %3257, %3269
   %3272 = phi ptr [ %3268, %3257 ], [ %3270, %3269 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7) #22
   br label %.backedge.backedge
 
 3273:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_RJUMPV", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !861
+  call void asm sideeffect "# OP_RJUMPV", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !861
   %.val2450 = load i16, ptr %94, align 2, !tbaa !224
   %3274 = icmp slt i16 %.val2450, 0
   br i1 %3274, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE226EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, label %3275, !prof !141
@@ -16454,7 +16454,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE226EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 3311:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_CALLF", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !862
+  call void asm sideeffect "# OP_CALLF", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !862
   %.val2451 = load i16, ptr %95, align 2, !tbaa !224
   %3312 = icmp slt i16 %.val2451, 0
   br i1 %3312, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE227EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3313, !prof !141
@@ -16474,12 +16474,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE227EEENS1_8PositionERKSt5ar
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE227EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %3313
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %3318 = call noundef ptr @_ZN6evmone5instr4core5callfENS_8StackTopERNS_14ExecutionStateEPKh(ptr %.sroa.512.0, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull %.pn.in.in) #21
+  %3318 = call noundef ptr @_ZN6evmone5instr4core5callfENS_8StackTopERNS_14ExecutionStateEPKh(ptr %.sroa.512.0, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull %.pn.in.in) #22
   %3319 = icmp eq ptr %3318, null
   br i1 %3319, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, label %.backedge.backedge
 
 3320:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_RETF", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !863
+  call void asm sideeffect "# OP_RETF", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !863
   %.val2452 = load i16, ptr %96, align 2, !tbaa !224
   %3321 = icmp slt i16 %.val2452, 0
   br i1 %3321, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE228EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3322, !prof !141
@@ -16507,7 +16507,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE228EEENS1_8PositionERKSt5ar
   br i1 %3330, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, label %.backedge.backedge
 
 3331:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_JUMPF", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !864
+  call void asm sideeffect "# OP_JUMPF", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !864
   %.val2453 = load i16, ptr %98, align 2, !tbaa !224
   %3332 = icmp slt i16 %.val2453, 0
   br i1 %3332, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE229EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, label %3333, !prof !141
@@ -16583,7 +16583,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE229EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3380:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_DUPN", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !865
+  call void asm sideeffect "# OP_DUPN", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !865
   %.val2454 = load i16, ptr %99, align 2, !tbaa !224
   %3381 = icmp slt i16 %.val2454, 0
   br i1 %3381, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE230EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3382, !prof !141
@@ -16618,7 +16618,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE230EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3397:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_SWAPN", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !866
+  call void asm sideeffect "# OP_SWAPN", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !866
   %.val2455 = load i16, ptr %126, align 2, !tbaa !224
   %3398 = icmp slt i16 %.val2455, 0
   br i1 %3398, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE231EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3399, !prof !141
@@ -16653,7 +16653,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE231EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3412:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_EXCHANGE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !867
+  call void asm sideeffect "# OP_EXCHANGE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !867
   %.val2456 = load i16, ptr %127, align 2, !tbaa !224
   %3413 = icmp slt i16 %.val2456, 0
   br i1 %3413, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE232EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3414, !prof !141
@@ -16694,7 +16694,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE232EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3433:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_EOFCREATE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !868
+  call void asm sideeffect "# OP_EOFCREATE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !868
   %.val2457 = load i16, ptr %128, align 2, !tbaa !224
   %3434 = icmp slt i16 %.val2457, 0
   br i1 %3434, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE236EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3435, !prof !141
@@ -16721,7 +16721,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE236EEENS1_8PositionERKSt5ar
   store ptr %.pn.in.in, ptr %56, align 8
   store ptr %.sroa.512.0, ptr %129, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %3442 = call { i32, i64 } @_ZN6evmone5instr4core15create_eof_implILNS_6OpcodeE236EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateERPKh(ptr %.sroa.512.0, i64 noundef %3438, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(8) %56) #21, !callees !528
+  %3442 = call { i32, i64 } @_ZN6evmone5instr4core15create_eof_implILNS_6OpcodeE236EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateERPKh(ptr %.sroa.512.0, i64 noundef %3438, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(8) %56) #22, !callees !528
   %3443 = extractvalue { i32, i64 } %3442, 0
   %3444 = extractvalue { i32, i64 } %3442, 1
   %.not.i2422 = icmp eq i32 %3443, 0
@@ -16744,7 +16744,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE236EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3450:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_TXCREATE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !869
+  call void asm sideeffect "# OP_TXCREATE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !869
   %.val2458 = load i16, ptr %130, align 2, !tbaa !224
   %3451 = icmp slt i16 %.val2458, 0
   br i1 %3451, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE237EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3452, !prof !141
@@ -16771,7 +16771,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE237EEENS1_8PositionERKSt5ar
   store ptr %.pn.in.in, ptr %57, align 8
   store ptr %.sroa.512.0, ptr %131, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %3459 = call { i32, i64 } @_ZN6evmone5instr4core15create_eof_implILNS_6OpcodeE237EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateERPKh(ptr %.sroa.512.0, i64 noundef %3455, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(8) %57) #21, !callees !528
+  %3459 = call { i32, i64 } @_ZN6evmone5instr4core15create_eof_implILNS_6OpcodeE237EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateERPKh(ptr %.sroa.512.0, i64 noundef %3455, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(8) %57) #22, !callees !528
   %3460 = extractvalue { i32, i64 } %3459, 0
   %3461 = extractvalue { i32, i64 } %3459, 1
   %.not.i2420 = icmp eq i32 %3460, 0
@@ -16794,7 +16794,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE237EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3467:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_RETURNCODE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !870
+  call void asm sideeffect "# OP_RETURNCODE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !870
   %3468 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %.val2459 = load i16, ptr %3468, align 2, !tbaa !224
   %3469 = icmp slt i16 %.val2459, 0
@@ -16819,7 +16819,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE238EEE16evmc_s
 
 3476:                                             ; preds = %3471
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %3477 = call { i32, i64 } @_ZN6evmone5instr4core10returncodeENS_8StackTopElRNS_14ExecutionStateEPKh(ptr nonnull %.sroa.512.0, i64 noundef %3473, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull %.pn.in.in) #21
+  %3477 = call { i32, i64 } @_ZN6evmone5instr4core10returncodeENS_8StackTopElRNS_14ExecutionStateEPKh(ptr nonnull %.sroa.512.0, i64 noundef %3473, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull %.pn.in.in) #22
   %3478 = extractvalue { i32, i64 } %3477, 0
   %3479 = extractvalue { i32, i64 } %3477, 1
   %3480 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -16827,7 +16827,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE238EEE16evmc_s
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 3481:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_CREATE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !871
+  call void asm sideeffect "# OP_CREATE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !871
   %.not.i3272 = icmp ugt ptr %.sroa.512.0, %66
   br i1 %.not.i3272, label %3482, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE240EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -16845,7 +16845,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE240EEENS1_8PositionERKSt5ar
 
 3486:                                             ; preds = %3482
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %3487 = call { i32, i64 } @_ZN6evmone5instr4core11create_implILNS_6OpcodeE240EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3483, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3487 = call { i32, i64 } @_ZN6evmone5instr4core11create_implILNS_6OpcodeE240EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3483, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3488 = extractvalue { i32, i64 } %3487, 0
   %3489 = extractvalue { i32, i64 } %3487, 1
   %.not.i2348 = icmp eq i32 %3488, 0
@@ -16862,7 +16862,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE240EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3494:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_CALL", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !872
+  call void asm sideeffect "# OP_CALL", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !872
   %.val2460 = load i16, ptr %132, align 2, !tbaa !224
   %3495 = icmp slt i16 %.val2460, 0
   br i1 %3495, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE241EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3496, !prof !141
@@ -16886,7 +16886,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE241EEENS1_8PositionERKSt5ar
 
 3502:                                             ; preds = %3497
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %3503 = call { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE241EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3499, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3503 = call { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE241EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3499, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3504 = extractvalue { i32, i64 } %3503, 0
   %3505 = extractvalue { i32, i64 } %3503, 1
   %.not.i2345 = icmp eq i32 %3504, 0
@@ -16903,7 +16903,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE241EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3510:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_CALLCODE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !873
+  call void asm sideeffect "# OP_CALLCODE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !873
   %.val2461 = load i16, ptr %133, align 2, !tbaa !224
   %3511 = icmp slt i16 %.val2461, 0
   br i1 %3511, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE242EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3512, !prof !141
@@ -16927,7 +16927,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE242EEENS1_8PositionERKSt5ar
 
 3518:                                             ; preds = %3513
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %3519 = call { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE242EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3515, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3519 = call { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE242EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3515, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3520 = extractvalue { i32, i64 } %3519, 0
   %3521 = extractvalue { i32, i64 } %3519, 1
   %.not.i2342 = icmp eq i32 %3520, 0
@@ -16944,7 +16944,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE242EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3526:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_RETURN", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !874
+  call void asm sideeffect "# OP_RETURN", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !874
   %.not.i3281 = icmp ugt ptr %.sroa.512.0, %72
   %3527 = icmp slt i64 %.0, 0
   %..i3282 = select i1 %3527, i32 3, i32 0, !prof !141
@@ -16959,7 +16959,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE242EEENS1_8PositionERKSt5ar
 
 3530:                                             ; preds = %3526
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %3531 = call { i32, i64 } @_ZN6evmone5instr4core11return_implIL16evmc_status_code0EEENS_10TermResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %.0, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3531 = call { i32, i64 } @_ZN6evmone5instr4core11return_implIL16evmc_status_code0EEENS_10TermResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %.0, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3532 = extractvalue { i32, i64 } %3531, 0
   %3533 = extractvalue { i32, i64 } %3531, 1
   %3534 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -16967,7 +16967,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE242EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 3535:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_DELEGATECALL", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !875
+  call void asm sideeffect "# OP_DELEGATECALL", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !875
   %.val2462 = load i16, ptr %134, align 2, !tbaa !224
   %3536 = icmp slt i16 %.val2462, 0
   br i1 %3536, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE244EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3537, !prof !141
@@ -16991,7 +16991,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE244EEENS1_8PositionERKSt5ar
 
 3543:                                             ; preds = %3538
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %3544 = call { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE244EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3540, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3544 = call { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE244EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3540, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3545 = extractvalue { i32, i64 } %3544, 0
   %3546 = extractvalue { i32, i64 } %3544, 1
   %.not.i2339 = icmp eq i32 %3545, 0
@@ -17008,7 +17008,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE244EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3551:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_CREATE2", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !876
+  call void asm sideeffect "# OP_CREATE2", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !876
   %.val2463 = load i16, ptr %135, align 2, !tbaa !224
   %3552 = icmp slt i16 %.val2463, 0
   br i1 %3552, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE245EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3553, !prof !141
@@ -17032,7 +17032,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE245EEENS1_8PositionERKSt5ar
 
 3559:                                             ; preds = %3554
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %3560 = call { i32, i64 } @_ZN6evmone5instr4core11create_implILNS_6OpcodeE245EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3556, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3560 = call { i32, i64 } @_ZN6evmone5instr4core11create_implILNS_6OpcodeE245EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3556, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3561 = extractvalue { i32, i64 } %3560, 0
   %3562 = extractvalue { i32, i64 } %3560, 1
   %.not.i2336 = icmp eq i32 %3561, 0
@@ -17049,7 +17049,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE245EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3567:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_RETURNDATALOAD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !877
+  call void asm sideeffect "# OP_RETURNDATALOAD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !877
   %.val2464 = load i16, ptr %136, align 2, !tbaa !224
   %3568 = icmp slt i16 %.val2464, 0
   br i1 %3568, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE247EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3569, !prof !141
@@ -17147,7 +17147,7 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i3293:     ; preds = %3584, %3575
   br label %.backedge.backedge
 
 3607:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_EXTCALL", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !881
+  call void asm sideeffect "# OP_EXTCALL", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !881
   %.val2465 = load i16, ptr %138, align 2, !tbaa !224
   %3608 = icmp slt i16 %.val2465, 0
   br i1 %3608, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE248EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3609, !prof !141
@@ -17171,7 +17171,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE248EEENS1_8PositionERKSt5ar
 
 3615:                                             ; preds = %3610
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %3616 = call { i32, i64 } @_ZN6evmone5instr4core12extcall_implILNS_6OpcodeE248EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3612, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3616 = call { i32, i64 } @_ZN6evmone5instr4core12extcall_implILNS_6OpcodeE248EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3612, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3617 = extractvalue { i32, i64 } %3616, 0
   %3618 = extractvalue { i32, i64 } %3616, 1
   %.not.i2333 = icmp eq i32 %3617, 0
@@ -17188,7 +17188,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE248EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3623:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_EXTDELEGATECALL", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !882
+  call void asm sideeffect "# OP_EXTDELEGATECALL", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !882
   %.val2466 = load i16, ptr %139, align 2, !tbaa !224
   %3624 = icmp slt i16 %.val2466, 0
   br i1 %3624, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE249EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3625, !prof !141
@@ -17212,7 +17212,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE249EEENS1_8PositionERKSt5ar
 
 3631:                                             ; preds = %3626
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %3632 = call { i32, i64 } @_ZN6evmone5instr4core12extcall_implILNS_6OpcodeE249EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3628, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3632 = call { i32, i64 } @_ZN6evmone5instr4core12extcall_implILNS_6OpcodeE249EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3628, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3633 = extractvalue { i32, i64 } %3632, 0
   %3634 = extractvalue { i32, i64 } %3632, 1
   %.not.i2330 = icmp eq i32 %3633, 0
@@ -17229,7 +17229,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE249EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3639:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_STATICCALL", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !883
+  call void asm sideeffect "# OP_STATICCALL", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !883
   %.val2467 = load i16, ptr %140, align 2, !tbaa !224
   %3640 = icmp slt i16 %.val2467, 0
   br i1 %3640, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE250EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3641, !prof !141
@@ -17253,7 +17253,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE250EEENS1_8PositionERKSt5ar
 
 3647:                                             ; preds = %3642
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %3648 = call { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE250EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3644, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3648 = call { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE250EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3644, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3649 = extractvalue { i32, i64 } %3648, 0
   %3650 = extractvalue { i32, i64 } %3648, 1
   %.not.i2327 = icmp eq i32 %3649, 0
@@ -17270,7 +17270,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE250EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3655:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_EXTSTATICCALL", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !884
+  call void asm sideeffect "# OP_EXTSTATICCALL", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !884
   %.val2468 = load i16, ptr %141, align 2, !tbaa !224
   %3656 = icmp slt i16 %.val2468, 0
   br i1 %3656, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE251EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3657, !prof !141
@@ -17294,7 +17294,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE251EEENS1_8PositionERKSt5ar
 
 3663:                                             ; preds = %3658
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %3664 = call { i32, i64 } @_ZN6evmone5instr4core12extcall_implILNS_6OpcodeE251EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3660, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3664 = call { i32, i64 } @_ZN6evmone5instr4core12extcall_implILNS_6OpcodeE251EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.512.0, i64 noundef %3660, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3665 = extractvalue { i32, i64 } %3664, 0
   %3666 = extractvalue { i32, i64 } %3664, 1
   %.not.i2326 = icmp eq i32 %3665, 0
@@ -17311,7 +17311,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE251EEENS1_8PositionERKSt5ar
   br label %.backedge.backedge
 
 3671:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_REVERT", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !885
+  call void asm sideeffect "# OP_REVERT", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !885
   %3672 = getelementptr inbounds nuw i8, ptr %0, i64 506
   %.val2469 = load i16, ptr %3672, align 2, !tbaa !224
   %3673 = icmp slt i16 %.val2469, 0
@@ -17336,7 +17336,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE253EEE16evmc_s
 
 3680:                                             ; preds = %3675
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %3681 = call { i32, i64 } @_ZN6evmone5instr4core11return_implIL16evmc_status_code2EEENS_10TermResultENS_8StackTopElRNS_14ExecutionStateE(ptr nonnull %.sroa.512.0, i64 noundef %3677, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3681 = call { i32, i64 } @_ZN6evmone5instr4core11return_implIL16evmc_status_code2EEENS_10TermResultENS_8StackTopElRNS_14ExecutionStateE(ptr nonnull %.sroa.512.0, i64 noundef %3677, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3682 = extractvalue { i32, i64 } %3681, 0
   %3683 = extractvalue { i32, i64 } %3681, 1
   %3684 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -17344,7 +17344,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE253EEE16evmc_s
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 3685:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_INVALID", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !886
+  call void asm sideeffect "# OP_INVALID", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !886
   %3686 = icmp slt i64 %.0, 0
   br i1 %3686, label %3687, label %3689
 
@@ -17360,7 +17360,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE253EEE16evmc_s
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 3691:                                             ; preds = %.backedge
-  call void asm sideeffect "# OP_SELFDESTRUCT", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !887
+  call void asm sideeffect "# OP_SELFDESTRUCT", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !887
   %3692 = getelementptr inbounds nuw i8, ptr %0, i64 510
   %.val2470 = load i16, ptr %3692, align 2, !tbaa !224
   %3693 = icmp slt i16 %.val2470, 0
@@ -17385,7 +17385,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE255EEE16evmc_s
 
 3700:                                             ; preds = %3695
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.512.0, i64 32) ]
-  %3701 = call { i32, i64 } @_ZN6evmone5instr4core12selfdestructENS_8StackTopElRNS_14ExecutionStateE(ptr nonnull %.sroa.512.0, i64 noundef %3697, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3701 = call { i32, i64 } @_ZN6evmone5instr4core12selfdestructENS_8StackTopElRNS_14ExecutionStateE(ptr nonnull %.sroa.512.0, i64 noundef %3697, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3702 = extractvalue { i32, i64 } %3701, 0
   %3703 = extractvalue { i32, i64 } %3701, 1
   %3704 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -17822,7 +17822,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arra
   ]
 
 153:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_STOP", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !139
+  call void asm sideeffect "# OP_STOP", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !139
   %154 = icmp slt i64 %.0556, 0
   br i1 %154, label %155, label %157
 
@@ -17838,7 +17838,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arra
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
 
 159:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_ADD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !140
+  call void asm sideeffect "# OP_ADD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !140
   %.not.i2978 = icmp ugt ptr %.sroa.344.0, %98
   br i1 %.not.i2978, label %160, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE1EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -17890,7 +17890,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE1EEENS1_8PositionERKSt5arra
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 183:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_MUL", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !148
+  call void asm sideeffect "# OP_MUL", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !148
   %.not.i2981 = icmp ugt ptr %.sroa.344.0, %98
   br i1 %.not.i2981, label %184, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE2EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -17910,7 +17910,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE2EEENS1_8PositionERKSt5arra
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
   %189 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
   %190 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %56) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %56) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !894)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, i8 0, i64 32, i1 false), !tbaa !3, !alias.scope !894
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -8
@@ -18003,12 +18003,12 @@ _ZN4intxplENS_4uintILj128EEES1_.exit.i.i.i:       ; preds = %217
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE2EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %._crit_edge.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %190, ptr noundef nonnull align 8 dereferenceable(32) %56, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %56) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %56) #22
   %228 = getelementptr inbounds nuw i8, ptr %.sroa.01019.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 229:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SUB", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !159
+  call void asm sideeffect "# OP_SUB", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !159
   %.not.i2984 = icmp ugt ptr %.sroa.344.0, %98
   br i1 %.not.i2984, label %230, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE3EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -18060,7 +18060,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE3EEENS1_8PositionERKSt5arra
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 253:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DIV", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !166
+  call void asm sideeffect "# OP_DIV", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !166
   %.not.i2988 = icmp ugt ptr %.sroa.344.0, %98
   br i1 %.not.i2988, label %254, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE4EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -18080,7 +18080,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE4EEENS1_8PositionERKSt5arra
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
   %259 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -64
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %54) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %54) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 0, i64 32, i1 false)
   br label %260
 
@@ -18103,11 +18103,11 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %260
 
 269:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i
   %270 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
-  call void @llvm.lifetime.start.p0(ptr nonnull %53) #21, !noalias !905
-  call void @_ZN4intx7udivremILj256ELj256EEENS_10div_resultINS_4uintIXT_EEENS2_IXT0_EEEEERKS3_RKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %53, ptr noundef nonnull align 8 dereferenceable(32) %270, ptr noundef nonnull align 8 dereferenceable(32) %259) #21, !noalias !905
+  call void @llvm.lifetime.start.p0(ptr nonnull %53) #22, !noalias !905
+  call void @_ZN4intx7udivremILj256ELj256EEENS_10div_resultINS_4uintIXT_EEENS2_IXT0_EEEEERKS3_RKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %53, ptr noundef nonnull align 8 dereferenceable(32) %270, ptr noundef nonnull align 8 dereferenceable(32) %259) #22, !noalias !905
   %.sroa.0.0.copyload3.i = load i64, ptr %53, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx4.i, i64 24, i1 false), !tbaa.struct !171
-  call void @llvm.lifetime.end.p0(ptr nonnull %53) #21, !noalias !905
+  call void @llvm.lifetime.end.p0(ptr nonnull %53) #22, !noalias !905
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE4EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 271:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i
@@ -18119,14 +18119,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE4EEENS1_8PositionERKSt5arra
   store i64 %.sroa.0.0.i, ptr %259, align 32
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i, i64 24, i1 false), !tbaa.struct !171
-  call void @llvm.lifetime.end.p0(ptr nonnull %54) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %54) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i)
   %272 = getelementptr inbounds nuw i8, ptr %.sroa.01019.0, i64 1
   %273 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 274:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SDIV", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !172
+  call void asm sideeffect "# OP_SDIV", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !172
   %.not.i2991 = icmp ugt ptr %.sroa.344.0, %98
   br i1 %.not.i2991, label %275, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE5EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -18146,7 +18146,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE5EEENS1_8PositionERKSt5arra
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
   %280 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -64
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i2994)
-  call void @llvm.lifetime.start.p0(ptr nonnull %51) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %51) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 32, i1 false)
   br label %281
 
@@ -18165,12 +18165,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE5EEENS1_8PositionERKSt5arra
 
 _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i2998:     ; preds = %281
   %289 = icmp eq i64 %287, 0
-  call void @llvm.lifetime.start.p0(ptr nonnull %52) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %52) #22
   br i1 %289, label %292, label %290
 
 290:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i2998
   %291 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
-  call void @_ZN4intx7sdivremILj256EEENS_10div_resultINS_4uintIXT_EEES3_EERKS3_S6_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %52, ptr noundef nonnull align 8 dereferenceable(32) %291, ptr noundef nonnull align 8 dereferenceable(32) %280) #21
+  call void @_ZN4intx7sdivremILj256EEENS_10div_resultINS_4uintIXT_EEES3_EERKS3_S6_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %52, ptr noundef nonnull align 8 dereferenceable(32) %291, ptr noundef nonnull align 8 dereferenceable(32) %280) #22
   %.sroa.0.0.copyload.i = load i64, ptr %52, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i2994, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i2999, i64 24, i1 false), !tbaa.struct !171
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE5EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
@@ -18184,15 +18184,15 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE5EEENS1_8PositionERKSt5arra
   store i64 %.sroa.0.0.i3000, ptr %280, align 32
   %.sroa.5.0..sroa_idx4.i3001 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx4.i3001, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i2994, i64 24, i1 false), !tbaa.struct !171
-  call void @llvm.lifetime.end.p0(ptr nonnull %52) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %51) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %52) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %51) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i2994)
   %293 = getelementptr inbounds nuw i8, ptr %.sroa.01019.0, i64 1
   %294 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 295:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_MOD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !173
+  call void asm sideeffect "# OP_MOD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !173
   %.not.i3002 = icmp ugt ptr %.sroa.344.0, %98
   br i1 %.not.i3002, label %296, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE6EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -18212,7 +18212,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE6EEENS1_8PositionERKSt5arra
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
   %301 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -64
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i3005)
-  call void @llvm.lifetime.start.p0(ptr nonnull %50) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %50) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, i8 0, i64 32, i1 false)
   br label %302
 
@@ -18235,11 +18235,11 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3009:     ; preds = %302
 
 311:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3009
   %312 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
-  call void @llvm.lifetime.start.p0(ptr nonnull %49) #21, !noalias !908
-  call void @_ZN4intx7udivremILj256ELj256EEENS_10div_resultINS_4uintIXT_EEENS2_IXT0_EEEEERKS3_RKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %49, ptr noundef nonnull align 8 dereferenceable(32) %312, ptr noundef nonnull align 8 dereferenceable(32) %301) #21, !noalias !908
+  call void @llvm.lifetime.start.p0(ptr nonnull %49) #22, !noalias !908
+  call void @_ZN4intx7udivremILj256ELj256EEENS_10div_resultINS_4uintIXT_EEENS2_IXT0_EEEEERKS3_RKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %49, ptr noundef nonnull align 8 dereferenceable(32) %312, ptr noundef nonnull align 8 dereferenceable(32) %301) #22, !noalias !908
   %.sroa.0.0.copyload3.i3010 = load i64, ptr %150, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i3005, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx4.i3011, i64 24, i1 false), !tbaa.struct !171
-  call void @llvm.lifetime.end.p0(ptr nonnull %49) #21, !noalias !908
+  call void @llvm.lifetime.end.p0(ptr nonnull %49) #22, !noalias !908
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE6EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 313:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3009
@@ -18251,14 +18251,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE6EEENS1_8PositionERKSt5arra
   store i64 %.sroa.0.0.i3012, ptr %301, align 32
   %.sroa.5.0..sroa_idx.i3013 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i3013, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i3005, i64 24, i1 false), !tbaa.struct !171
-  call void @llvm.lifetime.end.p0(ptr nonnull %50) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %50) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i3005)
   %314 = getelementptr inbounds nuw i8, ptr %.sroa.01019.0, i64 1
   %315 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 316:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SMOD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !177
+  call void asm sideeffect "# OP_SMOD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !177
   %.not.i3014 = icmp ugt ptr %.sroa.344.0, %98
   br i1 %.not.i3014, label %317, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE7EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -18278,7 +18278,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE7EEENS1_8PositionERKSt5arra
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
   %322 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -64
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i3017)
-  call void @llvm.lifetime.start.p0(ptr nonnull %47) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %47) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 32, i1 false)
   br label %323
 
@@ -18297,12 +18297,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE7EEENS1_8PositionERKSt5arra
 
 _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3021:     ; preds = %323
   %331 = icmp eq i64 %329, 0
-  call void @llvm.lifetime.start.p0(ptr nonnull %48) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %48) #22
   br i1 %331, label %334, label %332
 
 332:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3021
   %333 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
-  call void @_ZN4intx7sdivremILj256EEENS_10div_resultINS_4uintIXT_EEES3_EERKS3_S6_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %48, ptr noundef nonnull align 8 dereferenceable(32) %333, ptr noundef nonnull align 8 dereferenceable(32) %322) #21
+  call void @_ZN4intx7sdivremILj256EEENS_10div_resultINS_4uintIXT_EEES3_EERKS3_S6_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %48, ptr noundef nonnull align 8 dereferenceable(32) %333, ptr noundef nonnull align 8 dereferenceable(32) %322) #22
   %.sroa.0.0.copyload.i3022 = load i64, ptr %149, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i3017, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i3023, i64 24, i1 false), !tbaa.struct !171
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE7EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
@@ -18316,15 +18316,15 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE7EEENS1_8PositionERKSt5arra
   store i64 %.sroa.0.0.i3024, ptr %322, align 32
   %.sroa.5.0..sroa_idx4.i3025 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx4.i3025, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i3017, i64 24, i1 false), !tbaa.struct !171
-  call void @llvm.lifetime.end.p0(ptr nonnull %48) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %47) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %48) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %47) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i3017)
   %335 = getelementptr inbounds nuw i8, ptr %.sroa.01019.0, i64 1
   %336 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 337:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_ADDMOD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !178
+  call void asm sideeffect "# OP_ADDMOD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !178
   %.not.i3026 = icmp ugt ptr %.sroa.344.0, %63
   br i1 %.not.i3026, label %338, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE8EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -18343,8 +18343,8 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE8EEENS1_8PositionERKSt5arra
 342:                                              ; preds = %338
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
   %343 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -96
-  call void @llvm.lifetime.start.p0(ptr nonnull %45) #21
-  call void @llvm.lifetime.start.p0(ptr nonnull %46) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %45) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %46) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 32, i1 false)
   br label %344
 
@@ -18368,7 +18368,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3032:     ; preds = %344
 353:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3032
   %354 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -64
   %355 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
-  call void @_ZN4intx6addmodERKNS_4uintILj256EEES3_S3_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::uint") align 8 %45, ptr noundef nonnull align 8 dereferenceable(32) %355, ptr noundef nonnull align 8 dereferenceable(32) %354, ptr noundef nonnull align 8 dereferenceable(32) %343) #21
+  call void @_ZN4intx6addmodERKNS_4uintILj256EEES3_S3_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::uint") align 8 %45, ptr noundef nonnull align 8 dereferenceable(32) %355, ptr noundef nonnull align 8 dereferenceable(32) %354, ptr noundef nonnull align 8 dereferenceable(32) %343) #22
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE8EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 356:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3032
@@ -18377,14 +18377,14 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3032:     ; preds = %344
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE8EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %356, %353
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %343, ptr noundef nonnull align 8 dereferenceable(32) %45, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %46) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %45) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %46) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %45) #22
   %357 = getelementptr inbounds nuw i8, ptr %.sroa.01019.0, i64 1
   %358 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -64
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 359:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_MULMOD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !179
+  call void asm sideeffect "# OP_MULMOD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !179
   %.not.i3033 = icmp ugt ptr %.sroa.344.0, %63
   br i1 %.not.i3033, label %360, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE9EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -18404,7 +18404,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE9EEENS1_8PositionERKSt5arra
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
   %365 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -96
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i3038)
-  call void @llvm.lifetime.start.p0(ptr nonnull %44) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %44) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, i8 0, i64 32, i1 false)
   br label %366
 
@@ -18428,8 +18428,8 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3042:     ; preds = %366
   br i1 %376, label %408, label %377
 
 377:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3042
-  call void @llvm.lifetime.start.p0(ptr nonnull %42) #21, !noalias !911
-  call void @llvm.lifetime.start.p0(ptr nonnull %43) #21, !noalias !911
+  call void @llvm.lifetime.start.p0(ptr nonnull %42) #22, !noalias !911
+  call void @llvm.lifetime.start.p0(ptr nonnull %43) #22, !noalias !911
   call void @llvm.experimental.noalias.scope.decl(metadata !914)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %43, i8 0, i64 64, i1 false), !tbaa !3, !alias.scope !914, !noalias !911
   br label %.preheader.i.i.i3043
@@ -18499,11 +18499,11 @@ _ZN4intxplENS_4uintILj128EEES1_.exit.i.i.i3050:   ; preds = %397
   br i1 %exitcond.not.i.i.i3053, label %381, label %384, !llvm.loop !191
 
 _ZN4intx6mulmodERKNS_4uintILj256EEES3_S3_.exit.i: ; preds = %381
-  call void @_ZN4intx7udivremILj512ELj256EEENS_10div_resultINS_4uintIXT_EEENS2_IXT0_EEEEERKS3_RKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result.111") align 8 %42, ptr noundef nonnull align 8 dereferenceable(64) %43, ptr noundef nonnull align 8 dereferenceable(32) %365) #21, !noalias !911
+  call void @_ZN4intx7udivremILj512ELj256EEENS_10div_resultINS_4uintIXT_EEENS2_IXT0_EEEEERKS3_RKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result.111") align 8 %42, ptr noundef nonnull align 8 dereferenceable(64) %43, ptr noundef nonnull align 8 dereferenceable(32) %365) #22, !noalias !911
   %.sroa.0.0.copyload5.i = load i64, ptr %148, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i3038, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx6.i, i64 24, i1 false), !tbaa.struct !171
-  call void @llvm.lifetime.end.p0(ptr nonnull %43) #21, !noalias !911
-  call void @llvm.lifetime.end.p0(ptr nonnull %42) #21, !noalias !911
+  call void @llvm.lifetime.end.p0(ptr nonnull %43) #22, !noalias !911
+  call void @llvm.lifetime.end.p0(ptr nonnull %42) #22, !noalias !911
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE9EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 408:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i3042
@@ -18515,13 +18515,13 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE9EEENS1_8PositionERKSt5arra
   store i64 %.sroa.0.0.i3054, ptr %365, align 32
   %.sroa.5.0..sroa_idx.i3055 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i3055, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i3038, i64 24, i1 false), !tbaa.struct !171
-  call void @llvm.lifetime.end.p0(ptr nonnull %44) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %44) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i3038)
   %409 = getelementptr inbounds nuw i8, ptr %.sroa.01019.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 410:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_EXP", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !192
+  call void asm sideeffect "# OP_EXP", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !192
   %.not.i3056 = icmp ugt ptr %.sroa.344.0, %98
   br i1 %.not.i3056, label %411, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE10EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, !prof !80
 
@@ -18590,15 +18590,15 @@ _ZN4intx23count_significant_bytesILj256EEEjRKNS_4uintIXT_EEE.exit.i: ; preds = %
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %_ZN4intx23count_significant_bytesILj256EEEjRKNS_4uintIXT_EEE.exit.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %41) #21
-  call void @_ZN4intx3expILj256EEENS_4uintIXT_EEES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::uint") align 8 %41, ptr noundef nonnull byval(%"struct.intx::uint") align 8 %416, ptr noundef nonnull byval(%"struct.intx::uint") align 8 %417) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %41) #22
+  call void @_ZN4intx3expILj256EEENS_4uintIXT_EEES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::uint") align 8 %41, ptr noundef nonnull byval(%"struct.intx::uint") align 8 %416, ptr noundef nonnull byval(%"struct.intx::uint") align 8 %417) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %417, ptr noundef nonnull align 8 dereferenceable(32) %41, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %41) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %41) #22
   %445 = getelementptr inbounds nuw i8, ptr %.sroa.01019.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 446:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SIGNEXTEND", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !194
+  call void asm sideeffect "# OP_SIGNEXTEND", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !194
   %.not.i3063 = icmp ugt ptr %.sroa.344.0, %98
   br i1 %.not.i3063, label %447, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE11EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -18677,7 +18677,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE11EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 490:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_LT", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !196
+  call void asm sideeffect "# OP_LT", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !196
   %.not.i3066 = icmp ugt ptr %.sroa.344.0, %98
   br i1 %.not.i3066, label %491, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE16EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -18742,7 +18742,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE16EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 528:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_GT", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !197
+  call void asm sideeffect "# OP_GT", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !197
   %.not.i3073 = icmp ugt ptr %.sroa.344.0, %98
   br i1 %.not.i3073, label %529, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE17EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -18807,7 +18807,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE17EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 566:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SLT", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !198
+  call void asm sideeffect "# OP_SLT", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !198
   %.not.i3082 = icmp ugt ptr %.sroa.344.0, %98
   br i1 %.not.i3082, label %567, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE18EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -18884,7 +18884,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE18EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 607:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SGT", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !199
+  call void asm sideeffect "# OP_SGT", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !199
   %.not.i3087 = icmp ugt ptr %.sroa.344.0, %98
   br i1 %.not.i3087, label %608, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE19EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -18961,7 +18961,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE19EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 648:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_EQ", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !200
+  call void asm sideeffect "# OP_EQ", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !200
   %.not.i3098 = icmp ugt ptr %.sroa.344.0, %98
   br i1 %.not.i3098, label %649, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE20EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -19006,7 +19006,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE20EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 667:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_ISZERO", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !201
+  call void asm sideeffect "# OP_ISZERO", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !201
   %.not.i3106 = icmp ugt ptr %.sroa.344.0, %61
   br i1 %.not.i3106, label %668, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE21EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -19025,7 +19025,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE21EEENS1_8PositionERKSt5arr
 672:                                              ; preds = %668
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
   %673 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
-  call void @llvm.lifetime.start.p0(ptr nonnull %40) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %40) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 0, i64 32, i1 false)
   br label %674
 
@@ -19048,12 +19048,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE21EEENS1_8PositionERKSt5arr
   store i64 %683, ptr %673, align 32
   %.sroa.4.0..sroa_idx.i3113 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx.i3113, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %40) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %40) #22
   %684 = getelementptr inbounds nuw i8, ptr %.sroa.01019.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 685:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_AND", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !202
+  call void asm sideeffect "# OP_AND", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !202
   %.not.i3114 = icmp ugt ptr %.sroa.344.0, %98
   br i1 %.not.i3114, label %686, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE22EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -19073,7 +19073,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE22EEENS1_8PositionERKSt5arr
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
   %691 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
   %692 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %39) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %39) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !921)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 32, i1 false), !tbaa !3, !alias.scope !921
   br label %693
@@ -19093,12 +19093,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE22EEENS1_8PositionERKSt5arr
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE22EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %693
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %692, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %39) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %39) #22
   %701 = getelementptr inbounds nuw i8, ptr %.sroa.01019.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 702:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_OR", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !207
+  call void asm sideeffect "# OP_OR", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !207
   %.not.i3119 = icmp ugt ptr %.sroa.344.0, %98
   br i1 %.not.i3119, label %703, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE23EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -19118,7 +19118,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE23EEENS1_8PositionERKSt5arr
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
   %708 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
   %709 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %38) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %38) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !924)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 32, i1 false), !tbaa !3, !alias.scope !924
   br label %710
@@ -19138,12 +19138,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE23EEENS1_8PositionERKSt5arr
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE23EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %710
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %709, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %38) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %38) #22
   %718 = getelementptr inbounds nuw i8, ptr %.sroa.01019.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 719:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_XOR", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !212
+  call void asm sideeffect "# OP_XOR", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !212
   %.not.i3124 = icmp ugt ptr %.sroa.344.0, %98
   br i1 %.not.i3124, label %720, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE24EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -19163,7 +19163,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE24EEENS1_8PositionERKSt5arr
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
   %725 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
   %726 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %37) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %37) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !927)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 32, i1 false), !tbaa !3, !alias.scope !927
   br label %727
@@ -19183,12 +19183,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE24EEENS1_8PositionERKSt5arr
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE24EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %727
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %726, ptr noundef nonnull align 8 dereferenceable(32) %37, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %37) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %37) #22
   %735 = getelementptr inbounds nuw i8, ptr %.sroa.01019.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 736:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_NOT", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !217
+  call void asm sideeffect "# OP_NOT", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !217
   %.not.i3129 = icmp ugt ptr %.sroa.344.0, %61
   br i1 %.not.i3129, label %737, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE25EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -19206,7 +19206,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE25EEENS1_8PositionERKSt5arr
 
 741:                                              ; preds = %737
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %36) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %36) #22
   %742 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
   call void @llvm.experimental.noalias.scope.decl(metadata !930)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 32, i1 false), !tbaa !3, !alias.scope !930
@@ -19225,12 +19225,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE25EEENS1_8PositionERKSt5arr
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE25EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %743
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %742, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %36) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %36) #22
   %749 = getelementptr inbounds nuw i8, ptr %.sroa.01019.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 750:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_BYTE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !222
+  call void asm sideeffect "# OP_BYTE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !222
   %.not.i3133 = icmp ugt ptr %.sroa.344.0, %98
   br i1 %.not.i3133, label %751, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE26EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -19294,7 +19294,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE26EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 787:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SHL", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !223
+  call void asm sideeffect "# OP_SHL", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !223
   %.val = load i16, ptr %147, align 2, !tbaa !224
   %788 = icmp slt i16 %.val, 0
   br i1 %788, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE27EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %789, !prof !141
@@ -19437,7 +19437,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE27EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 864:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SHR", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !232
+  call void asm sideeffect "# OP_SHR", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !232
   %.val2931 = load i16, ptr %146, align 2, !tbaa !224
   %865 = icmp slt i16 %.val2931, 0
   br i1 %865, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE28EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %866, !prof !141
@@ -19580,7 +19580,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE28EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 941:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SAR", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !240
+  call void asm sideeffect "# OP_SAR", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !240
   %.val2932 = load i16, ptr %145, align 2, !tbaa !224
   %942 = icmp slt i16 %.val2932, 0
   br i1 %942, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE29EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %943, !prof !141
@@ -19604,13 +19604,13 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE29EEENS1_8PositionERKSt5arr
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE29EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %944
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  call void @_ZN6evmone5instr4core3sarENS_8StackTopE(ptr %.sroa.344.0) #21
+  call void @_ZN6evmone5instr4core3sarENS_8StackTopE(ptr %.sroa.344.0) #22
   %949 = getelementptr inbounds nuw i8, ptr %.sroa.01019.0, i64 1
   %950 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 951:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CLZ", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !241
+  call void asm sideeffect "# OP_CLZ", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !241
   %.val2933 = load i16, ptr %144, align 2, !tbaa !224
   %952 = icmp slt i16 %.val2933, 0
   br i1 %952, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE30EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %953, !prof !141
@@ -19675,7 +19675,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE30EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 978:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_KECCAK256", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !242
+  call void asm sideeffect "# OP_KECCAK256", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !242
   %.not.i3169 = icmp ugt ptr %.sroa.344.0, %98
   br i1 %.not.i3169, label %979, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE32EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -19693,7 +19693,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE32EEENS1_8PositionERKSt5arr
 
 983:                                              ; preds = %979
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %984 = call { i32, i64 } @_ZN6evmone5instr4core9keccak256ENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %980, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %984 = call { i32, i64 } @_ZN6evmone5instr4core9keccak256ENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %980, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %985 = extractvalue { i32, i64 } %984, 0
   %986 = extractvalue { i32, i64 } %984, 1
   %.not.i2920 = icmp eq i32 %985, 0
@@ -19710,7 +19710,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE32EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 990:                                              ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_ADDRESS", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !243
+  call void asm sideeffect "# OP_ADDRESS", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !243
   %991 = icmp eq ptr %.sroa.344.0, %85
   br i1 %991, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE48EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %992, !prof !141
 
@@ -19751,7 +19751,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE48EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1004:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_BALANCE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !244
+  call void asm sideeffect "# OP_BALANCE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !244
   %.val2934 = load i16, ptr %143, align 2, !tbaa !224
   %1005 = icmp slt i16 %.val2934, 0
   br i1 %1005, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE49EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, label %1006, !prof !141
@@ -19776,7 +19776,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE49EEE16evmc_st
 1012:                                             ; preds = %1007
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
   %1013 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
-  call void @llvm.lifetime.start.p0(ptr nonnull %33) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %33) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !945)
   %1014 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -16
   %1015 = load i64, ptr %1014, align 16, !tbaa !3, !noalias !948
@@ -19800,7 +19800,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE49EEE16evmc_st
   %1026 = getelementptr inbounds nuw i8, ptr %1025, i64 96
   %1027 = load ptr, ptr %1026, align 8, !tbaa !254
   %1028 = load ptr, ptr %114, align 8, !tbaa !256
-  %1029 = call noundef i32 %1027(ptr noundef %1028, ptr noundef nonnull align 1 dereferenceable(20) %33) #21
+  %1029 = call noundef i32 %1027(ptr noundef %1028, ptr noundef nonnull align 1 dereferenceable(20) %33) #22
   %1030 = icmp eq i32 %1029, 0
   br i1 %1030, label %1031, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE49EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
@@ -19810,7 +19810,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE49EEE16evmc_st
   br i1 %1033, label %1034, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE49EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 1034:                                             ; preds = %1031
-  call void @llvm.lifetime.end.p0(ptr nonnull %33) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %33) #22
   %1035 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 3, ptr %1035, align 8, !tbaa !100
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
@@ -19822,7 +19822,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE49EEENS1_8PositionERKSt5arr
   %1038 = load ptr, ptr %1037, align 8, !tbaa !260, !noalias !953
   %1039 = load ptr, ptr %114, align 8, !tbaa !256, !noalias !953
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i), !noalias !953
-  call void %1038(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i, ptr noundef %1039, ptr noundef nonnull align 1 dereferenceable(20) %33) #21, !noalias !953
+  call void %1038(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i, ptr noundef %1039, ptr noundef nonnull align 1 dereferenceable(20) %33) #22, !noalias !953
   %.sroa.0.sroa.0.0.copyload.i = load i64, ptr %.sroa.0.i.i, align 8
   %.sroa.0.sroa.4.0.copyload.i = load i64, ptr %.sroa.0.sroa.4.0..sroa.0.i.sroa_idx.i, align 8
   %.sroa.0.sroa.5.0.copyload.i = load i64, ptr %.sroa.0.sroa.5.0..sroa.0.i.sroa_idx.i, align 8
@@ -19837,12 +19837,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE49EEENS1_8PositionERKSt5arr
   store i64 %1042, ptr %1014, align 16
   %.sroa.10.0..sroa_idx.i3179 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -8
   store i64 %1043, ptr %.sroa.10.0..sroa_idx.i3179, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %33) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %33) #22
   %1044 = getelementptr inbounds nuw i8, ptr %.sroa.01019.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1045:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_ORIGIN", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !261
+  call void asm sideeffect "# OP_ORIGIN", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !261
   %1046 = icmp eq ptr %.sroa.344.0, %85
   br i1 %1046, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE50EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1047, !prof !141
 
@@ -19865,14 +19865,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE50EEENS1_8PositionERKSt5arr
   br i1 %1053, label %1054, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE50EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, !prof !141
 
 1054:                                             ; preds = %1051
-  call void @llvm.lifetime.start.p0(ptr nonnull %32) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %32) #22
   %1055 = load ptr, ptr %113, align 8, !tbaa !253, !noalias !956
   %1056 = getelementptr inbounds nuw i8, ptr %1055, i64 72
   %1057 = load ptr, ptr %1056, align 8, !tbaa !266, !noalias !956
   %1058 = load ptr, ptr %114, align 8, !tbaa !256, !noalias !956
-  call void %1057(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %32, ptr noundef %1058) #21
+  call void %1057(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %32, ptr noundef %1058) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %121, ptr noundef nonnull align 8 dereferenceable(256) %32, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %32) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %32) #22
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE50EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE50EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %1054, %1051
@@ -19895,7 +19895,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE50EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1065:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CALLER", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !270
+  call void asm sideeffect "# OP_CALLER", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !270
   %1066 = icmp eq ptr %.sroa.344.0, %85
   br i1 %1066, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE51EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1067, !prof !141
 
@@ -19936,7 +19936,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE51EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1079:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CALLVALUE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !271
+  call void asm sideeffect "# OP_CALLVALUE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !271
   %1080 = icmp eq ptr %.sroa.344.0, %85
   br i1 %1080, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE52EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1081, !prof !141
 
@@ -19979,7 +19979,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE52EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1093:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CALLDATALOAD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !272
+  call void asm sideeffect "# OP_CALLDATALOAD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !272
   %.not.i3208 = icmp ugt ptr %.sroa.344.0, %61
   br i1 %.not.i3208, label %1094, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE53EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -20074,7 +20074,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE53EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1132:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CALLDATASIZE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !275
+  call void asm sideeffect "# OP_CALLDATASIZE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !275
   %1133 = icmp eq ptr %.sroa.344.0, %85
   br i1 %1133, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE54EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1134, !prof !141
 
@@ -20103,7 +20103,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE54EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1143:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CALLDATACOPY", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !276
+  call void asm sideeffect "# OP_CALLDATACOPY", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !276
   %.not.i3221 = icmp ugt ptr %.sroa.344.0, %63
   br i1 %.not.i3221, label %1144, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE55EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -20121,7 +20121,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE55EEENS1_8PositionERKSt5arr
 
 1148:                                             ; preds = %1144
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %1149 = call { i32, i64 } @_ZN6evmone5instr4core12calldatacopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %1145, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %1149 = call { i32, i64 } @_ZN6evmone5instr4core12calldatacopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %1145, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %1150 = extractvalue { i32, i64 } %1149, 0
   %1151 = extractvalue { i32, i64 } %1149, 1
   %.not.i2914 = icmp eq i32 %1150, 0
@@ -20138,7 +20138,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE55EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1155:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CODESIZE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !277
+  call void asm sideeffect "# OP_CODESIZE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !277
   %1156 = icmp eq ptr %.sroa.344.0, %85
   br i1 %1156, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE56EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1157, !prof !141
 
@@ -20165,7 +20165,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE56EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1164:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CODECOPY", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !278
+  call void asm sideeffect "# OP_CODECOPY", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !278
   %.not.i3227 = icmp ugt ptr %.sroa.344.0, %63
   br i1 %.not.i3227, label %1165, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE57EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -20183,7 +20183,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE57EEENS1_8PositionERKSt5arr
 
 1169:                                             ; preds = %1165
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %1170 = call { i32, i64 } @_ZN6evmone5instr4core8codecopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %1166, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %1170 = call { i32, i64 } @_ZN6evmone5instr4core8codecopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %1166, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %1171 = extractvalue { i32, i64 } %1170, 0
   %1172 = extractvalue { i32, i64 } %1170, 1
   %.not.i2911 = icmp eq i32 %1171, 0
@@ -20200,7 +20200,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE57EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1176:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_GASPRICE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !279
+  call void asm sideeffect "# OP_GASPRICE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !279
   %1177 = icmp eq ptr %.sroa.344.0, %85
   br i1 %1177, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE58EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1178, !prof !141
 
@@ -20223,14 +20223,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE58EEENS1_8PositionERKSt5arr
   br i1 %1184, label %1185, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE58EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, !prof !141
 
 1185:                                             ; preds = %1182
-  call void @llvm.lifetime.start.p0(ptr nonnull %30) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %30) #22
   %1186 = load ptr, ptr %113, align 8, !tbaa !253, !noalias !959
   %1187 = getelementptr inbounds nuw i8, ptr %1186, i64 72
   %1188 = load ptr, ptr %1187, align 8, !tbaa !266, !noalias !959
   %1189 = load ptr, ptr %114, align 8, !tbaa !256, !noalias !959
-  call void %1188(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %30, ptr noundef %1189) #21
+  call void %1188(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %30, ptr noundef %1189) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %121, ptr noundef nonnull align 8 dereferenceable(256) %30, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %30) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %30) #22
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE58EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE58EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %1185, %1182
@@ -20254,7 +20254,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE58EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1196:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_EXTCODESIZE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !283
+  call void asm sideeffect "# OP_EXTCODESIZE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !283
   %.val2935 = load i16, ptr %140, align 2, !tbaa !224
   %1197 = icmp slt i16 %.val2935, 0
   br i1 %1197, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE59EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, label %1198, !prof !141
@@ -20279,7 +20279,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE59EEE16evmc_st
 1204:                                             ; preds = %1199
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
   %1205 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
-  call void @llvm.lifetime.start.p0(ptr nonnull %29) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %29) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !962)
   %1206 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -16
   %1207 = load i64, ptr %1206, align 16, !tbaa !3, !noalias !965
@@ -20303,7 +20303,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE59EEE16evmc_st
   %1218 = getelementptr inbounds nuw i8, ptr %1217, i64 96
   %1219 = load ptr, ptr %1218, align 8, !tbaa !254
   %1220 = load ptr, ptr %114, align 8, !tbaa !256
-  %1221 = call noundef i32 %1219(ptr noundef %1220, ptr noundef nonnull align 1 dereferenceable(20) %29) #21
+  %1221 = call noundef i32 %1219(ptr noundef %1220, ptr noundef nonnull align 1 dereferenceable(20) %29) #22
   %1222 = icmp eq i32 %1221, 0
   br i1 %1222, label %1223, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE59EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
@@ -20313,7 +20313,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE59EEE16evmc_st
   br i1 %1225, label %1226, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE59EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 1226:                                             ; preds = %1223
-  call void @llvm.lifetime.end.p0(ptr nonnull %29) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %29) #22
   %1227 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 3, ptr %1227, align 8, !tbaa !100
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
@@ -20324,15 +20324,15 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE59EEENS1_8PositionERKSt5arr
   %1229 = getelementptr inbounds nuw i8, ptr %1228, i64 32
   %1230 = load ptr, ptr %1229, align 8, !tbaa !292
   %1231 = load ptr, ptr %114, align 8, !tbaa !256
-  %1232 = call noundef i64 %1230(ptr noundef %1231, ptr noundef nonnull align 1 dereferenceable(20) %29) #21
+  %1232 = call noundef i64 %1230(ptr noundef %1231, ptr noundef nonnull align 1 dereferenceable(20) %29) #22
   store i64 %1232, ptr %1205, align 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1209, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %29) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %29) #22
   %1233 = getelementptr inbounds nuw i8, ptr %.sroa.01019.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1234:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_EXTCODECOPY", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !293
+  call void asm sideeffect "# OP_EXTCODECOPY", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !293
   %.val2936 = load i16, ptr %139, align 2, !tbaa !224
   %1235 = icmp slt i16 %.val2936, 0
   br i1 %1235, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE60EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1236, !prof !141
@@ -20356,7 +20356,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE60EEENS1_8PositionERKSt5arr
 
 1242:                                             ; preds = %1237
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %1243 = call { i32, i64 } @_ZN6evmone5instr4core11extcodecopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %1239, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %1243 = call { i32, i64 } @_ZN6evmone5instr4core11extcodecopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %1239, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %1244 = extractvalue { i32, i64 } %1243, 0
   %1245 = extractvalue { i32, i64 } %1243, 1
   %.not.i2905 = icmp eq i32 %1244, 0
@@ -20373,7 +20373,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE60EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1249:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_RETURNDATASIZE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !294
+  call void asm sideeffect "# OP_RETURNDATASIZE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !294
   %.val2937 = load i16, ptr %138, align 2, !tbaa !224
   %1250 = icmp slt i16 %.val2937, 0
   br i1 %1250, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE61EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1251, !prof !141
@@ -20406,7 +20406,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE61EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1261:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_RETURNDATACOPY", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !295
+  call void asm sideeffect "# OP_RETURNDATACOPY", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !295
   %.val2938 = load i16, ptr %137, align 2, !tbaa !224
   %1262 = icmp slt i16 %.val2938, 0
   br i1 %1262, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE62EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1263, !prof !141
@@ -20430,7 +20430,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE62EEENS1_8PositionERKSt5arr
 
 1269:                                             ; preds = %1264
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %1270 = call { i32, i64 } @_ZN6evmone5instr4core14returndatacopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %1266, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %1270 = call { i32, i64 } @_ZN6evmone5instr4core14returndatacopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %1266, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %1271 = extractvalue { i32, i64 } %1270, 0
   %1272 = extractvalue { i32, i64 } %1270, 1
   %.not.i2902 = icmp eq i32 %1271, 0
@@ -20447,7 +20447,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE62EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1276:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_EXTCODEHASH", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !296
+  call void asm sideeffect "# OP_EXTCODEHASH", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !296
   %.val2939 = load i16, ptr %135, align 2, !tbaa !224
   %1277 = icmp slt i16 %.val2939, 0
   br i1 %1277, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE63EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, label %1278, !prof !141
@@ -20472,7 +20472,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE63EEE16evmc_st
 1284:                                             ; preds = %1279
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
   %1285 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
-  call void @llvm.lifetime.start.p0(ptr nonnull %28) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %28) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !970)
   %1286 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -16
   %1287 = load i64, ptr %1286, align 16, !tbaa !3, !noalias !973
@@ -20496,7 +20496,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE63EEE16evmc_st
   %1298 = getelementptr inbounds nuw i8, ptr %1297, i64 96
   %1299 = load ptr, ptr %1298, align 8, !tbaa !254
   %1300 = load ptr, ptr %114, align 8, !tbaa !256
-  %1301 = call noundef i32 %1299(ptr noundef %1300, ptr noundef nonnull align 1 dereferenceable(20) %28) #21
+  %1301 = call noundef i32 %1299(ptr noundef %1300, ptr noundef nonnull align 1 dereferenceable(20) %28) #22
   %1302 = icmp eq i32 %1301, 0
   br i1 %1302, label %1303, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE63EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
@@ -20506,7 +20506,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE63EEE16evmc_st
   br i1 %1305, label %1306, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE63EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 1306:                                             ; preds = %1303
-  call void @llvm.lifetime.end.p0(ptr nonnull %28) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %28) #22
   %1307 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 3, ptr %1307, align 8, !tbaa !100
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
@@ -20518,7 +20518,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE63EEENS1_8PositionERKSt5arr
   %1310 = load ptr, ptr %1309, align 8, !tbaa !308, !noalias !978
   %1311 = load ptr, ptr %114, align 8, !tbaa !256, !noalias !978
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i3266), !noalias !978
-  call void %1310(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i3266, ptr noundef %1311, ptr noundef nonnull align 1 dereferenceable(20) %28) #21, !noalias !978
+  call void %1310(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i3266, ptr noundef %1311, ptr noundef nonnull align 1 dereferenceable(20) %28) #22, !noalias !978
   %.sroa.0.sroa.0.0.copyload.i3272 = load i64, ptr %.sroa.0.i.i3266, align 8
   %.sroa.0.sroa.4.0.copyload.i3274 = load i64, ptr %.sroa.0.sroa.4.0..sroa.0.i.sroa_idx.i3273, align 8
   %.sroa.0.sroa.5.0.copyload.i3276 = load i64, ptr %.sroa.0.sroa.5.0..sroa.0.i.sroa_idx.i3275, align 8
@@ -20533,12 +20533,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE63EEENS1_8PositionERKSt5arr
   store i64 %1314, ptr %1286, align 16
   %.sroa.10.0..sroa_idx.i3279 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -8
   store i64 %1315, ptr %.sroa.10.0..sroa_idx.i3279, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %28) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %28) #22
   %1316 = getelementptr inbounds nuw i8, ptr %.sroa.01019.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1317:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_BLOCKHASH", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !309
+  call void asm sideeffect "# OP_BLOCKHASH", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !309
   %.not.i3284 = icmp ugt ptr %.sroa.344.0, %61
   br i1 %.not.i3284, label %1318, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE64EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -20562,14 +20562,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE64EEENS1_8PositionERKSt5arr
   br i1 %1325, label %1326, label %_ZN6evmone14ExecutionState14get_tx_contextEv.exit.i, !prof !141
 
 1326:                                             ; preds = %1322
-  call void @llvm.lifetime.start.p0(ptr nonnull %27) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %27) #22
   %1327 = load ptr, ptr %113, align 8, !tbaa !253, !noalias !981
   %1328 = getelementptr inbounds nuw i8, ptr %1327, i64 72
   %1329 = load ptr, ptr %1328, align 8, !tbaa !266, !noalias !981
   %1330 = load ptr, ptr %114, align 8, !tbaa !256, !noalias !981
-  call void %1329(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %27, ptr noundef %1330) #21
+  call void %1329(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %27, ptr noundef %1330) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %121, ptr noundef nonnull align 8 dereferenceable(256) %27, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %27) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %27) #22
   br label %_ZN6evmone14ExecutionState14get_tx_contextEv.exit.i
 
 _ZN6evmone14ExecutionState14get_tx_contextEv.exit.i: ; preds = %1326, %1322
@@ -20610,7 +20610,7 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i3289:     ; preds = %1340, %_ZN6evmone14
   %1352 = load ptr, ptr %1351, align 8, !tbaa !317, !noalias !984
   %1353 = load ptr, ptr %114, align 8, !tbaa !256, !noalias !984
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i3287), !noalias !984
-  call void %1352(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i3287, ptr noundef %1353, i64 noundef %1333) #21, !noalias !984
+  call void %1352(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i3287, ptr noundef %1353, i64 noundef %1333) #22, !noalias !984
   %.sroa.020.0.copyload.i = load i64, ptr %.sroa.0.i.i3287, align 8
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa.0.i.sroa_idx.i, align 8
   %.sroa.623.0.copyload.i = load i64, ptr %.sroa.623.0..sroa.0.i.sroa_idx.i, align 8
@@ -20636,7 +20636,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE64EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1359:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_COINBASE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !318
+  call void asm sideeffect "# OP_COINBASE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !318
   %1360 = icmp eq ptr %.sroa.344.0, %85
   br i1 %1360, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE65EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1361, !prof !141
 
@@ -20659,14 +20659,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE65EEENS1_8PositionERKSt5arr
   br i1 %1367, label %1368, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE65EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, !prof !141
 
 1368:                                             ; preds = %1365
-  call void @llvm.lifetime.start.p0(ptr nonnull %26) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %26) #22
   %1369 = load ptr, ptr %113, align 8, !tbaa !253, !noalias !987
   %1370 = getelementptr inbounds nuw i8, ptr %1369, i64 72
   %1371 = load ptr, ptr %1370, align 8, !tbaa !266, !noalias !987
   %1372 = load ptr, ptr %114, align 8, !tbaa !256, !noalias !987
-  call void %1371(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %26, ptr noundef %1372) #21
+  call void %1371(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %26, ptr noundef %1372) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %121, ptr noundef nonnull align 8 dereferenceable(256) %26, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %26) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %26) #22
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE65EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE65EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %1368, %1365
@@ -20689,7 +20689,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE65EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1379:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_TIMESTAMP", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !322
+  call void asm sideeffect "# OP_TIMESTAMP", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !322
   %1380 = icmp eq ptr %.sroa.344.0, %85
   br i1 %1380, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE66EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1381, !prof !141
 
@@ -20712,14 +20712,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE66EEENS1_8PositionERKSt5arr
   br i1 %1387, label %1388, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE66EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, !prof !141
 
 1388:                                             ; preds = %1385
-  call void @llvm.lifetime.start.p0(ptr nonnull %25) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %25) #22
   %1389 = load ptr, ptr %113, align 8, !tbaa !253, !noalias !990
   %1390 = getelementptr inbounds nuw i8, ptr %1389, i64 72
   %1391 = load ptr, ptr %1390, align 8, !tbaa !266, !noalias !990
   %1392 = load ptr, ptr %114, align 8, !tbaa !256, !noalias !990
-  call void %1391(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %25, ptr noundef %1392) #21
+  call void %1391(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %25, ptr noundef %1392) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %121, ptr noundef nonnull align 8 dereferenceable(256) %25, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %25) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %25) #22
   %.pre.i3310 = load i64, ptr %120, align 8, !tbaa !326
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE66EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
@@ -20733,7 +20733,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE66EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1396:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_NUMBER", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !327
+  call void asm sideeffect "# OP_NUMBER", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !327
   %1397 = icmp eq ptr %.sroa.344.0, %85
   br i1 %1397, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE67EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1398, !prof !141
 
@@ -20756,14 +20756,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE67EEENS1_8PositionERKSt5arr
   br i1 %1404, label %1405, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE67EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, !prof !141
 
 1405:                                             ; preds = %1402
-  call void @llvm.lifetime.start.p0(ptr nonnull %24) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %24) #22
   %1406 = load ptr, ptr %113, align 8, !tbaa !253, !noalias !993
   %1407 = getelementptr inbounds nuw i8, ptr %1406, i64 72
   %1408 = load ptr, ptr %1407, align 8, !tbaa !266, !noalias !993
   %1409 = load ptr, ptr %114, align 8, !tbaa !256, !noalias !993
-  call void %1408(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %24, ptr noundef %1409) #21
+  call void %1408(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %24, ptr noundef %1409) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %121, ptr noundef nonnull align 8 dereferenceable(256) %24, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %24) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %24) #22
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE67EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE67EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %1405, %1402
@@ -20776,7 +20776,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE67EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1413:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PREVRANDAO", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !331
+  call void asm sideeffect "# OP_PREVRANDAO", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !331
   %1414 = icmp eq ptr %.sroa.344.0, %85
   br i1 %1414, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE68EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1415, !prof !141
 
@@ -20799,14 +20799,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE68EEENS1_8PositionERKSt5arr
   br i1 %1421, label %1422, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE68EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, !prof !141
 
 1422:                                             ; preds = %1419
-  call void @llvm.lifetime.start.p0(ptr nonnull %23) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %23) #22
   %1423 = load ptr, ptr %113, align 8, !tbaa !253, !noalias !996
   %1424 = getelementptr inbounds nuw i8, ptr %1423, i64 72
   %1425 = load ptr, ptr %1424, align 8, !tbaa !266, !noalias !996
   %1426 = load ptr, ptr %114, align 8, !tbaa !256, !noalias !996
-  call void %1425(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %23, ptr noundef %1426) #21
+  call void %1425(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %23, ptr noundef %1426) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %121, ptr noundef nonnull align 8 dereferenceable(256) %23, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %23) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %23) #22
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE68EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE68EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %1422, %1419
@@ -20830,7 +20830,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE68EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1433:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_GASLIMIT", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !335
+  call void asm sideeffect "# OP_GASLIMIT", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !335
   %1434 = icmp eq ptr %.sroa.344.0, %85
   br i1 %1434, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE69EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1435, !prof !141
 
@@ -20853,14 +20853,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE69EEENS1_8PositionERKSt5arr
   br i1 %1441, label %1442, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE69EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, !prof !141
 
 1442:                                             ; preds = %1439
-  call void @llvm.lifetime.start.p0(ptr nonnull %22) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %22) #22
   %1443 = load ptr, ptr %113, align 8, !tbaa !253, !noalias !999
   %1444 = getelementptr inbounds nuw i8, ptr %1443, i64 72
   %1445 = load ptr, ptr %1444, align 8, !tbaa !266, !noalias !999
   %1446 = load ptr, ptr %114, align 8, !tbaa !256, !noalias !999
-  call void %1445(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %22, ptr noundef %1446) #21
+  call void %1445(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %22, ptr noundef %1446) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %121, ptr noundef nonnull align 8 dereferenceable(256) %22, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %22) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %22) #22
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE69EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE69EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %1442, %1439
@@ -20873,7 +20873,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE69EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1450:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CHAINID", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !340
+  call void asm sideeffect "# OP_CHAINID", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !340
   %.val2940 = load i16, ptr %129, align 2, !tbaa !224
   %1451 = icmp slt i16 %.val2940, 0
   br i1 %1451, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE70EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1452, !prof !141
@@ -20902,14 +20902,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE70EEENS1_8PositionERKSt5arr
   br i1 %1461, label %1462, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE70EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, !prof !141
 
 1462:                                             ; preds = %1459
-  call void @llvm.lifetime.start.p0(ptr nonnull %21) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %21) #22
   %1463 = load ptr, ptr %113, align 8, !tbaa !253, !noalias !1002
   %1464 = getelementptr inbounds nuw i8, ptr %1463, i64 72
   %1465 = load ptr, ptr %1464, align 8, !tbaa !266, !noalias !1002
   %1466 = load ptr, ptr %114, align 8, !tbaa !256, !noalias !1002
-  call void %1465(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %21, ptr noundef %1466) #21
+  call void %1465(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %21, ptr noundef %1466) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %121, ptr noundef nonnull align 8 dereferenceable(256) %21, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %21) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %21) #22
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE70EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE70EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %1462, %1459
@@ -20933,7 +20933,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE70EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1473:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SELFBALANCE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !344
+  call void asm sideeffect "# OP_SELFBALANCE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !344
   %.val2941 = load i16, ptr %128, align 2, !tbaa !224
   %1474 = icmp slt i16 %.val2941, 0
   br i1 %1474, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE71EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1475, !prof !141
@@ -20957,7 +20957,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE71EEENS1_8PositionERKSt5arr
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE71EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %1477
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %20) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %20) #22
   %1482 = load ptr, ptr %112, align 8, !tbaa !81
   %1483 = getelementptr inbounds nuw i8, ptr %1482, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %20, ptr noundef nonnull align 8 dereferenceable(20) %1483, i64 20, i1 false)
@@ -20966,7 +20966,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE71EEENS1_8PositionERKSt5arr
   %1486 = load ptr, ptr %1485, align 8, !tbaa !260, !noalias !1005
   %1487 = load ptr, ptr %114, align 8, !tbaa !256, !noalias !1005
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i3347), !noalias !1005
-  call void %1486(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i3347, ptr noundef %1487, ptr noundef nonnull align 1 dereferenceable(20) %20) #21, !noalias !1005
+  call void %1486(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i3347, ptr noundef %1487, ptr noundef nonnull align 1 dereferenceable(20) %20) #22, !noalias !1005
   %.sroa.02.sroa.0.0.copyload.i = load i64, ptr %.sroa.0.i.i3347, align 8
   %.sroa.02.sroa.4.0.copyload.i = load i64, ptr %.sroa.02.sroa.4.0..sroa.0.i.sroa_idx.i, align 8
   %.sroa.02.sroa.5.0.copyload.i = load i64, ptr %.sroa.02.sroa.5.0..sroa.0.i.sroa_idx.i, align 8
@@ -20983,13 +20983,13 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE71EEENS1_8PositionERKSt5arr
   store i64 %1490, ptr %.sroa.8.0..sroa_idx.i3349, align 16
   %.sroa.10.0..sroa_idx.i3350 = getelementptr inbounds nuw i8, ptr %.sroa.344.0, i64 24
   store i64 %1491, ptr %.sroa.10.0..sroa_idx.i3350, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %20) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %20) #22
   %1492 = getelementptr inbounds nuw i8, ptr %.sroa.01019.0, i64 1
   %1493 = getelementptr inbounds nuw i8, ptr %.sroa.344.0, i64 32
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1494:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_BASEFEE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !348
+  call void asm sideeffect "# OP_BASEFEE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !348
   %.val2942 = load i16, ptr %126, align 2, !tbaa !224
   %1495 = icmp slt i16 %.val2942, 0
   br i1 %1495, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE72EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1496, !prof !141
@@ -21018,14 +21018,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE72EEENS1_8PositionERKSt5arr
   br i1 %1505, label %1506, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE72EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, !prof !141
 
 1506:                                             ; preds = %1503
-  call void @llvm.lifetime.start.p0(ptr nonnull %19) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %19) #22
   %1507 = load ptr, ptr %113, align 8, !tbaa !253, !noalias !1008
   %1508 = getelementptr inbounds nuw i8, ptr %1507, i64 72
   %1509 = load ptr, ptr %1508, align 8, !tbaa !266, !noalias !1008
   %1510 = load ptr, ptr %114, align 8, !tbaa !256, !noalias !1008
-  call void %1509(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %19, ptr noundef %1510) #21
+  call void %1509(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %19, ptr noundef %1510) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %121, ptr noundef nonnull align 8 dereferenceable(256) %19, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %19) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %19) #22
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE72EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE72EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %1506, %1503
@@ -21049,7 +21049,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE72EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1517:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_BLOBHASH", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !352
+  call void asm sideeffect "# OP_BLOBHASH", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !352
   %.val2943 = load i16, ptr %123, align 2, !tbaa !224
   %1518 = icmp slt i16 %.val2943, 0
   br i1 %1518, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE73EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1519, !prof !141
@@ -21079,14 +21079,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE73EEENS1_8PositionERKSt5arr
   br i1 %1528, label %1529, label %_ZN6evmone14ExecutionState14get_tx_contextEv.exit.i3367, !prof !141
 
 1529:                                             ; preds = %1525
-  call void @llvm.lifetime.start.p0(ptr nonnull %18) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %18) #22
   %1530 = load ptr, ptr %113, align 8, !tbaa !253, !noalias !1011
   %1531 = getelementptr inbounds nuw i8, ptr %1530, i64 72
   %1532 = load ptr, ptr %1531, align 8, !tbaa !266, !noalias !1011
   %1533 = load ptr, ptr %114, align 8, !tbaa !256, !noalias !1011
-  call void %1532(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %18, ptr noundef %1533) #21
+  call void %1532(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %18, ptr noundef %1533) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %121, ptr noundef nonnull align 8 dereferenceable(256) %18, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %18) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %18) #22
   br label %_ZN6evmone14ExecutionState14get_tx_contextEv.exit.i3367
 
 _ZN6evmone14ExecutionState14get_tx_contextEv.exit.i3367: ; preds = %1529, %1525
@@ -21148,7 +21148,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE73EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1560:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_BLOBBASEFEE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !358
+  call void asm sideeffect "# OP_BLOBBASEFEE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !358
   %.val2944 = load i16, ptr %119, align 2, !tbaa !224
   %1561 = icmp slt i16 %.val2944, 0
   br i1 %1561, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE74EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1562, !prof !141
@@ -21177,14 +21177,14 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE74EEENS1_8PositionERKSt5arr
   br i1 %1571, label %1572, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE74EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, !prof !141
 
 1572:                                             ; preds = %1569
-  call void @llvm.lifetime.start.p0(ptr nonnull %17) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %17) #22
   %1573 = load ptr, ptr %113, align 8, !tbaa !253, !noalias !1014
   %1574 = getelementptr inbounds nuw i8, ptr %1573, i64 72
   %1575 = load ptr, ptr %1574, align 8, !tbaa !266, !noalias !1014
   %1576 = load ptr, ptr %114, align 8, !tbaa !256, !noalias !1014
-  call void %1575(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %17, ptr noundef %1576) #21
+  call void %1575(ptr dead_on_unwind nonnull writable sret(%struct.evmc_tx_context) align 8 %17, ptr noundef %1576) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %121, ptr noundef nonnull align 8 dereferenceable(256) %17, i64 256, i1 false), !tbaa.struct !267
-  call void @llvm.lifetime.end.p0(ptr nonnull %17) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %17) #22
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE74EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE74EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %1572, %1569
@@ -21208,7 +21208,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE74EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1583:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_POP", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !362
+  call void asm sideeffect "# OP_POP", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !362
   %.not.i3385 = icmp ugt ptr %.sroa.344.0, %61
   br i1 %.not.i3385, label %1584, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE80EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -21231,7 +21231,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE80EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1590:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_MLOAD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !363
+  call void asm sideeffect "# OP_MLOAD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !363
   %.not.i3388 = icmp ugt ptr %.sroa.344.0, %61
   br i1 %.not.i3388, label %1591, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE81EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, !prof !80
 
@@ -21273,7 +21273,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE81EEE16evmc_st
   br i1 %1611, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE81EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i: ; preds = %1608
-  %1612 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1592, ptr noundef nonnull align 8 dereferenceable(24) %118, i64 noundef %1609) #21
+  %1612 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1592, ptr noundef nonnull align 8 dereferenceable(24) %118, i64 noundef %1609) #22
   %1613 = icmp sgt i64 %1612, -1
   br i1 %1613, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i._ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE81EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit_crit_edge, label %1614
 
@@ -21311,7 +21311,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE81EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1624:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_MSTORE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !367
+  call void asm sideeffect "# OP_MSTORE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !367
   %.not.i3396 = icmp ugt ptr %.sroa.344.0, %98
   br i1 %.not.i3396, label %1625, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE82EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, !prof !80
 
@@ -21354,7 +21354,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE82EEE16evmc_st
   br i1 %1646, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i3404, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE82EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i3404: ; preds = %1643
-  %1647 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1626, ptr noundef nonnull align 8 dereferenceable(24) %118, i64 noundef %1644) #21
+  %1647 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1626, ptr noundef nonnull align 8 dereferenceable(24) %118, i64 noundef %1644) #22
   %1648 = icmp sgt i64 %1647, -1
   br i1 %1648, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i3404._ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE82EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit_crit_edge, label %1649
 
@@ -21395,7 +21395,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE82EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1669:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_MSTORE8", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !368
+  call void asm sideeffect "# OP_MSTORE8", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !368
   %.not.i3406 = icmp ugt ptr %.sroa.344.0, %98
   br i1 %.not.i3406, label %1670, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE83EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, !prof !80
 
@@ -21438,7 +21438,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE83EEE16evmc_st
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i3415: ; preds = %1688
   %1690 = add nuw nsw i64 %1686, 1
-  %1691 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1671, ptr noundef nonnull align 8 dereferenceable(24) %118, i64 noundef %1690) #21
+  %1691 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1671, ptr noundef nonnull align 8 dereferenceable(24) %118, i64 noundef %1690) #22
   %1692 = icmp sgt i64 %1691, -1
   br i1 %1692, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEEm.exit.i3415._ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE83EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit_crit_edge, label %1693
 
@@ -21464,7 +21464,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE83EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1701:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SLOAD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !369
+  call void asm sideeffect "# OP_SLOAD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !369
   %.val2945 = load i16, ptr %117, align 2, !tbaa !224
   %1702 = icmp slt i16 %.val2945, 0
   br i1 %1702, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE84EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, label %1703, !prof !141
@@ -21488,7 +21488,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE84EEE16evmc_st
 
 1709:                                             ; preds = %1704
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %1710 = call { i32, i64 } @_ZN6evmone5instr4core5sloadENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %1706, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %1710 = call { i32, i64 } @_ZN6evmone5instr4core5sloadENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %1706, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %1711 = extractvalue { i32, i64 } %1710, 0
   %1712 = extractvalue { i32, i64 } %1710, 1
   %.not.i2887 = icmp eq i32 %1711, 0
@@ -21504,7 +21504,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE84EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1716:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SSTORE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !370
+  call void asm sideeffect "# OP_SSTORE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !370
   %.not.i3420 = icmp ugt ptr %.sroa.344.0, %98
   %1717 = icmp slt i64 %.0556, 0
   %..i3421 = select i1 %1717, i32 3, i32 0, !prof !141
@@ -21519,7 +21519,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE85EEENS1_8PositionERKSt5arr
 
 1719:                                             ; preds = %1716
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %1720 = call { i32, i64 } @_ZN6evmone5instr4core6sstoreENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %.0556, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %1720 = call { i32, i64 } @_ZN6evmone5instr4core6sstoreENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %.0556, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %1721 = extractvalue { i32, i64 } %1720, 0
   %1722 = extractvalue { i32, i64 } %1720, 1
   %.not.i2884 = icmp eq i32 %1721, 0
@@ -21536,7 +21536,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE85EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1726:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_JUMP", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !371
+  call void asm sideeffect "# OP_JUMP", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !371
   %.not.i3423 = icmp ugt ptr %.sroa.344.0, %61
   br i1 %.not.i3423, label %1727, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE86EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -21598,7 +21598,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE86EEENS1_8PositionERKSt5arr
   br i1 %.not1977, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1755:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_JUMPI", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !377
+  call void asm sideeffect "# OP_JUMPI", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !377
   %.not.i3429 = icmp ugt ptr %.sroa.344.0, %98
   br i1 %.not.i3429, label %1756, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE87EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, !prof !80
 
@@ -21617,7 +21617,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE87EEE16evmc_st
 1760:                                             ; preds = %1756
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
   %1761 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %16) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %16) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false)
   br label %1762
 
@@ -21637,7 +21637,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE87EEE16evmc_st
 _ZNK4intx4uintILj256EEcvbEv.exit.i:               ; preds = %1762
   %1770 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
   %.not.i3435 = icmp eq i64 %1768, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %16) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %16) #22
   br i1 %.not.i3435, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE87EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread2211, label %1771
 
 1771:                                             ; preds = %_ZNK4intx4uintILj256EEcvbEv.exit.i
@@ -21688,7 +21688,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE87EEENS1_8PositionERKSt5arr
   br i1 %.not1976, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1795:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PC", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !378
+  call void asm sideeffect "# OP_PC", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !378
   %1796 = icmp eq ptr %.sroa.344.0, %85
   br i1 %1796, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE88EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1797, !prof !141
 
@@ -21720,7 +21720,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE88EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1807:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_MSIZE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !379
+  call void asm sideeffect "# OP_MSIZE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !379
   %1808 = icmp eq ptr %.sroa.344.0, %85
   br i1 %1808, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE89EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1809, !prof !141
 
@@ -21747,7 +21747,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE89EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1816:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_GAS", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !380
+  call void asm sideeffect "# OP_GAS", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !380
   %1817 = icmp eq ptr %.sroa.344.0, %85
   br i1 %1817, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE90EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1818, !prof !141
 
@@ -21773,7 +21773,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE90EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1824:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_JUMPDEST", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !381
+  call void asm sideeffect "# OP_JUMPDEST", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !381
   %1825 = add nsw i64 %.0556, -1
   %1826 = icmp slt i64 %.0556, 1
   br i1 %1826, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE91EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE91EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
@@ -21789,7 +21789,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE91EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1829:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_TLOAD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !382
+  call void asm sideeffect "# OP_TLOAD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !382
   %.val2946 = load i16, ptr %115, align 2, !tbaa !224
   %1830 = icmp slt i16 %.val2946, 0
   br i1 %1830, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE92EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1831, !prof !141
@@ -21814,7 +21814,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE92EEENS1_8PositionERKSt5arr
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE92EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %1832
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
   %1837 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
-  call void @llvm.lifetime.start.p0(ptr nonnull %14) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %14) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !1020)
   %1838 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -8
   %1839 = load i64, ptr %1838, align 8, !tbaa !3, !noalias !1023
@@ -21831,7 +21831,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE92EEENS1_8PositionERKSt5arr
   store i64 %1843, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !1020
   store i64 %1846, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !1020
   store i64 %1848, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !alias.scope !1020
-  call void @llvm.lifetime.start.p0(ptr nonnull %15) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %15) #22
   %1849 = load ptr, ptr %112, align 8, !tbaa !81
   %1850 = getelementptr inbounds nuw i8, ptr %1849, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(20) %1850, i64 20, i1 false)
@@ -21840,13 +21840,13 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE92EEENS1_8PositionERKSt5arr
   %1853 = load ptr, ptr %1852, align 8, !tbaa !394, !noalias !1028
   %1854 = load ptr, ptr %114, align 8, !tbaa !256, !noalias !1028
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i3457), !noalias !1028
-  call void %1853(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i3457, ptr noundef %1854, ptr noundef nonnull align 1 dereferenceable(20) %15, ptr noundef nonnull align 1 dereferenceable(32) %14) #21, !noalias !1028
+  call void %1853(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i.i3457, ptr noundef %1854, ptr noundef nonnull align 1 dereferenceable(20) %15, ptr noundef nonnull align 1 dereferenceable(32) %14) #22, !noalias !1028
   %.sroa.012.0.copyload.i = load i64, ptr %.sroa.0.i.i3457, align 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa.0.i.sroa_idx.i, align 8
   %.sroa.5.0.copyload.i3459 = load i64, ptr %.sroa.5.0..sroa.0.i.sroa_idx.i3458, align 8
   %.sroa.613.0.copyload.i = load i64, ptr %.sroa.613.0..sroa.0.i.sroa_idx.i, align 8, !tbaa !17
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i3457), !noalias !1028
-  call void @llvm.lifetime.end.p0(ptr nonnull %15) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %15) #22
   %1855 = call noundef i64 @llvm.bswap.i64(i64 %.sroa.613.0.copyload.i)
   %1856 = call noundef i64 @llvm.bswap.i64(i64 %.sroa.5.0.copyload.i3459)
   %1857 = call noundef i64 @llvm.bswap.i64(i64 %.sroa.4.0.copyload.i)
@@ -21855,12 +21855,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE92EEENS1_8PositionERKSt5arr
   store i64 %1856, ptr %1844, align 8
   store i64 %1857, ptr %1841, align 16
   store i64 %1858, ptr %1838, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %14) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %14) #22
   %1859 = getelementptr inbounds nuw i8, ptr %.sroa.01019.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1860:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_TSTORE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !395
+  call void asm sideeffect "# OP_TSTORE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !395
   %.val2947 = load i16, ptr %111, align 2, !tbaa !224
   %1861 = icmp slt i16 %.val2947, 0
   br i1 %1861, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE93EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1862, !prof !141
@@ -21897,7 +21897,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE93EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE93EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %1868
-  call void @llvm.lifetime.start.p0(ptr nonnull %11) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %11) #22
   %1874 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
   call void @llvm.experimental.noalias.scope.decl(metadata !1031)
   %1875 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -8
@@ -21915,7 +21915,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE93EEENS1_8PositionERKSt5arr
   store i64 %1880, ptr %.sroa.4.0..sroa_idx.i.i.i3468, align 8, !alias.scope !1031
   store i64 %1883, ptr %.sroa.5.0..sroa_idx.i.i.i3469, align 8, !alias.scope !1031
   store i64 %1885, ptr %.sroa.6.0..sroa_idx.i.i.i3470, align 8, !alias.scope !1031
-  call void @llvm.lifetime.start.p0(ptr nonnull %12) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %12) #22
   %1886 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -64
   call void @llvm.experimental.noalias.scope.decl(metadata !1039)
   %1887 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -40
@@ -21933,22 +21933,22 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE93EEENS1_8PositionERKSt5arr
   store i64 %1892, ptr %.sroa.4.0..sroa_idx.i.i3.i, align 8, !alias.scope !1039
   store i64 %1895, ptr %.sroa.5.0..sroa_idx.i.i4.i, align 8, !alias.scope !1039
   store i64 %1897, ptr %.sroa.6.0..sroa_idx.i.i5.i, align 8, !alias.scope !1039
-  call void @llvm.lifetime.start.p0(ptr nonnull %13) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %13) #22
   %1898 = getelementptr inbounds nuw i8, ptr %1869, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(20) %1898, i64 20, i1 false)
   %1899 = load ptr, ptr %113, align 8, !tbaa !253
   %1900 = getelementptr inbounds nuw i8, ptr %1899, i64 120
   %1901 = load ptr, ptr %1900, align 8, !tbaa !413
   %1902 = load ptr, ptr %114, align 8, !tbaa !256
-  call void %1901(ptr noundef %1902, ptr noundef nonnull align 1 dereferenceable(20) %13, ptr noundef nonnull align 1 dereferenceable(32) %11, ptr noundef nonnull align 1 dereferenceable(32) %12) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %13) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %12) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %11) #21
+  call void %1901(ptr noundef %1902, ptr noundef nonnull align 1 dereferenceable(20) %13, ptr noundef nonnull align 1 dereferenceable(32) %11, ptr noundef nonnull align 1 dereferenceable(32) %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11) #22
   %1903 = getelementptr inbounds nuw i8, ptr %.sroa.01019.0, i64 1
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1904:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_MCOPY", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !414
+  call void asm sideeffect "# OP_MCOPY", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !414
   %.val2948 = load i16, ptr %110, align 2, !tbaa !224
   %1905 = icmp slt i16 %.val2948, 0
   br i1 %1905, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE94EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1906, !prof !141
@@ -21972,7 +21972,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE94EEENS1_8PositionERKSt5arr
 
 1912:                                             ; preds = %1907
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %1913 = call { i32, i64 } @_ZN6evmone5instr4core5mcopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %1909, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %1913 = call { i32, i64 } @_ZN6evmone5instr4core5mcopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %1909, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %1914 = extractvalue { i32, i64 } %1913, 0
   %1915 = extractvalue { i32, i64 } %1913, 1
   %.not.i2875 = icmp eq i32 %1914, 0
@@ -21989,7 +21989,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE94EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1919:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH0", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !415
+  call void asm sideeffect "# OP_PUSH0", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !415
   %.val2949 = load i16, ptr %109, align 2, !tbaa !224
   %1920 = icmp slt i16 %.val2949, 0
   br i1 %1920, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE95EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1921, !prof !141
@@ -22019,7 +22019,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE95EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1930:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH1", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !416
+  call void asm sideeffect "# OP_PUSH1", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !416
   %1931 = icmp eq ptr %.sroa.344.0, %85
   br i1 %1931, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE96EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1932, !prof !141
 
@@ -22047,7 +22047,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE96EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1941:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH2", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !417
+  call void asm sideeffect "# OP_PUSH2", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !417
   %1942 = icmp eq ptr %.sroa.344.0, %85
   br i1 %1942, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE97EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1943, !prof !141
 
@@ -22076,7 +22076,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE97EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1953:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH3", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !418
+  call void asm sideeffect "# OP_PUSH3", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !418
   %1954 = icmp eq ptr %.sroa.344.0, %85
   br i1 %1954, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE98EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1955, !prof !141
 
@@ -22106,7 +22106,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE98EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1966:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH4", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !419
+  call void asm sideeffect "# OP_PUSH4", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !419
   %1967 = icmp eq ptr %.sroa.344.0, %85
   br i1 %1967, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE99EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1968, !prof !141
 
@@ -22135,7 +22135,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE99EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1978:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH5", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !420
+  call void asm sideeffect "# OP_PUSH5", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !420
   %1979 = icmp eq ptr %.sroa.344.0, %85
   br i1 %1979, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE100EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1980, !prof !141
 
@@ -22164,7 +22164,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE100EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 1990:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH6", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !421
+  call void asm sideeffect "# OP_PUSH6", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !421
   %1991 = icmp eq ptr %.sroa.344.0, %85
   br i1 %1991, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE101EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %1992, !prof !141
 
@@ -22193,7 +22193,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE101EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2002:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH7", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !422
+  call void asm sideeffect "# OP_PUSH7", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !422
   %2003 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2003, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE102EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2004, !prof !141
 
@@ -22222,7 +22222,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE102EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2014:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH8", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !423
+  call void asm sideeffect "# OP_PUSH8", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !423
   %2015 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2015, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE103EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2016, !prof !141
 
@@ -22250,7 +22250,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE103EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2025:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH9", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !424
+  call void asm sideeffect "# OP_PUSH9", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !424
   %2026 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2026, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE104EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2027, !prof !141
 
@@ -22283,7 +22283,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE104EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2040:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH10", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !425
+  call void asm sideeffect "# OP_PUSH10", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !425
   %2041 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2041, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE105EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2042, !prof !141
 
@@ -22317,7 +22317,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE105EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2056:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH11", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !426
+  call void asm sideeffect "# OP_PUSH11", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !426
   %2057 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2057, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE106EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2058, !prof !141
 
@@ -22352,7 +22352,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE106EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2073:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH12", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !427
+  call void asm sideeffect "# OP_PUSH12", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !427
   %2074 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2074, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE107EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2075, !prof !141
 
@@ -22386,7 +22386,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE107EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2089:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH13", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !428
+  call void asm sideeffect "# OP_PUSH13", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !428
   %2090 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2090, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE108EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2091, !prof !141
 
@@ -22420,7 +22420,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE108EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2105:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH14", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !429
+  call void asm sideeffect "# OP_PUSH14", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !429
   %2106 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2106, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE109EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2107, !prof !141
 
@@ -22454,7 +22454,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE109EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2121:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH15", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !430
+  call void asm sideeffect "# OP_PUSH15", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !430
   %2122 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2122, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE110EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2123, !prof !141
 
@@ -22488,7 +22488,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE110EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2135:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH16", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !431
+  call void asm sideeffect "# OP_PUSH16", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !431
   %2136 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2136, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE111EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2137, !prof !141
 
@@ -22526,7 +22526,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE111EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2150:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH17", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !433
+  call void asm sideeffect "# OP_PUSH17", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !433
   %2151 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2151, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE112EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2152, !prof !141
 
@@ -22569,7 +22569,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE112EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2169:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH18", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !435
+  call void asm sideeffect "# OP_PUSH18", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !435
   %2170 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2170, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE113EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2171, !prof !141
 
@@ -22613,7 +22613,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE113EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2189:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH19", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !437
+  call void asm sideeffect "# OP_PUSH19", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !437
   %2190 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2190, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE114EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2191, !prof !141
 
@@ -22658,7 +22658,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE114EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2210:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH20", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !439
+  call void asm sideeffect "# OP_PUSH20", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !439
   %2211 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2211, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE115EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2212, !prof !141
 
@@ -22702,7 +22702,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE115EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2230:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH21", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !441
+  call void asm sideeffect "# OP_PUSH21", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !441
   %2231 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2231, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE116EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2232, !prof !141
 
@@ -22746,7 +22746,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE116EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2250:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH22", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !443
+  call void asm sideeffect "# OP_PUSH22", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !443
   %2251 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2251, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE117EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2252, !prof !141
 
@@ -22790,7 +22790,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE117EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2270:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH23", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !445
+  call void asm sideeffect "# OP_PUSH23", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !445
   %2271 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2271, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE118EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2272, !prof !141
 
@@ -22834,7 +22834,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE118EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2288:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH24", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !447
+  call void asm sideeffect "# OP_PUSH24", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !447
   %2289 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2289, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE119EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2290, !prof !141
 
@@ -22874,7 +22874,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE119EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2304:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH25", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !449
+  call void asm sideeffect "# OP_PUSH25", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !449
   %2305 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2305, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE120EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2306, !prof !141
 
@@ -22919,7 +22919,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE120EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2324:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH26", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !451
+  call void asm sideeffect "# OP_PUSH26", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !451
   %2325 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2325, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE121EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2326, !prof !141
 
@@ -22965,7 +22965,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE121EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2345:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH27", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !453
+  call void asm sideeffect "# OP_PUSH27", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !453
   %2346 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2346, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE122EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2347, !prof !141
 
@@ -23012,7 +23012,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE122EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2367:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH28", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !455
+  call void asm sideeffect "# OP_PUSH28", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !455
   %2368 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2368, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE123EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2369, !prof !141
 
@@ -23058,7 +23058,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE123EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2388:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH29", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !457
+  call void asm sideeffect "# OP_PUSH29", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !457
   %2389 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2389, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE124EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2390, !prof !141
 
@@ -23104,7 +23104,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE124EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2409:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH30", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !459
+  call void asm sideeffect "# OP_PUSH30", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !459
   %2410 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2410, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE125EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2411, !prof !141
 
@@ -23150,7 +23150,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE125EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2430:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH31", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !461
+  call void asm sideeffect "# OP_PUSH31", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !461
   %2431 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2431, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE126EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2432, !prof !141
 
@@ -23196,7 +23196,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE126EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2449:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_PUSH32", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !463
+  call void asm sideeffect "# OP_PUSH32", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !463
   %2450 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2450, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE127EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2451, !prof !141
 
@@ -23236,7 +23236,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE127EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2465:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP1", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !465
+  call void asm sideeffect "# OP_DUP1", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !465
   %2466 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2466, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE128EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2467, !prof !141
 
@@ -23265,7 +23265,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE128EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2475:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP2", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !466
+  call void asm sideeffect "# OP_DUP2", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !466
   %2476 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2476, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE129EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2477, !prof !141
 
@@ -23294,7 +23294,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE129EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2485:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP3", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !467
+  call void asm sideeffect "# OP_DUP3", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !467
   %2486 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2486, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE130EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2487, !prof !141
 
@@ -23323,7 +23323,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE130EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2495:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP4", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !468
+  call void asm sideeffect "# OP_DUP4", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !468
   %2496 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2496, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE131EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2497, !prof !141
 
@@ -23352,7 +23352,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE131EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2505:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP5", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !469
+  call void asm sideeffect "# OP_DUP5", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !469
   %2506 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2506, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE132EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2507, !prof !141
 
@@ -23381,7 +23381,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE132EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2515:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP6", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !470
+  call void asm sideeffect "# OP_DUP6", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !470
   %2516 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2516, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE133EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2517, !prof !141
 
@@ -23410,7 +23410,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE133EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2525:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP7", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !471
+  call void asm sideeffect "# OP_DUP7", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !471
   %2526 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2526, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE134EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2527, !prof !141
 
@@ -23439,7 +23439,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE134EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2535:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP8", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !472
+  call void asm sideeffect "# OP_DUP8", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !472
   %2536 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2536, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE135EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2537, !prof !141
 
@@ -23468,7 +23468,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE135EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2545:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP9", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !473
+  call void asm sideeffect "# OP_DUP9", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !473
   %2546 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2546, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE136EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2547, !prof !141
 
@@ -23497,7 +23497,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE136EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2555:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP10", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !474
+  call void asm sideeffect "# OP_DUP10", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !474
   %2556 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2556, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE137EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2557, !prof !141
 
@@ -23526,7 +23526,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE137EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2565:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP11", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !475
+  call void asm sideeffect "# OP_DUP11", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !475
   %2566 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2566, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE138EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2567, !prof !141
 
@@ -23555,7 +23555,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE138EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2575:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP12", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !476
+  call void asm sideeffect "# OP_DUP12", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !476
   %2576 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2576, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE139EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2577, !prof !141
 
@@ -23584,7 +23584,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE139EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2585:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP13", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !477
+  call void asm sideeffect "# OP_DUP13", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !477
   %2586 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2586, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE140EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2587, !prof !141
 
@@ -23613,7 +23613,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE140EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2595:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP14", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !478
+  call void asm sideeffect "# OP_DUP14", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !478
   %2596 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2596, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE141EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2597, !prof !141
 
@@ -23642,7 +23642,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE141EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2605:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP15", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !479
+  call void asm sideeffect "# OP_DUP15", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !479
   %2606 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2606, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE142EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2607, !prof !141
 
@@ -23671,7 +23671,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE142EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2615:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUP16", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !480
+  call void asm sideeffect "# OP_DUP16", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !480
   %2616 = icmp eq ptr %.sroa.344.0, %85
   br i1 %2616, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE143EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2617, !prof !141
 
@@ -23700,7 +23700,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE143EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2625:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP1", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !481
+  call void asm sideeffect "# OP_SWAP1", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !481
   %.not.i3630 = icmp ugt ptr %.sroa.344.0, %98
   br i1 %.not.i3630, label %2626, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE144EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -23739,7 +23739,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE144EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2643:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP2", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !482
+  call void asm sideeffect "# OP_SWAP2", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !482
   %.not.i3633 = icmp ugt ptr %.sroa.344.0, %63
   br i1 %.not.i3633, label %2644, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE145EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -23778,7 +23778,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE145EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2661:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP3", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !483
+  call void asm sideeffect "# OP_SWAP3", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !483
   %.not.i3636 = icmp ugt ptr %.sroa.344.0, %68
   br i1 %.not.i3636, label %2662, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE146EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -23817,7 +23817,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE146EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2679:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP4", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !484
+  call void asm sideeffect "# OP_SWAP4", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !484
   %.not.i3639 = icmp ugt ptr %.sroa.344.0, %78
   br i1 %.not.i3639, label %2680, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE147EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -23856,7 +23856,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE147EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2697:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP5", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !485
+  call void asm sideeffect "# OP_SWAP5", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !485
   %.not.i3642 = icmp ugt ptr %.sroa.344.0, %65
   br i1 %.not.i3642, label %2698, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE148EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -23895,7 +23895,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE148EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2715:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP6", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !486
+  call void asm sideeffect "# OP_SWAP6", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !486
   %.not.i3645 = icmp ugt ptr %.sroa.344.0, %75
   br i1 %.not.i3645, label %2716, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE149EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -23934,7 +23934,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE149EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2733:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP7", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !487
+  call void asm sideeffect "# OP_SWAP7", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !487
   %.not.i3648 = icmp ugt ptr %.sroa.344.0, %108
   br i1 %.not.i3648, label %2734, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE150EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -23973,7 +23973,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE150EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2751:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP8", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !488
+  call void asm sideeffect "# OP_SWAP8", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !488
   %.not.i3651 = icmp ugt ptr %.sroa.344.0, %107
   br i1 %.not.i3651, label %2752, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE151EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -24012,7 +24012,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE151EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2769:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP9", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !489
+  call void asm sideeffect "# OP_SWAP9", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !489
   %.not.i3654 = icmp ugt ptr %.sroa.344.0, %106
   br i1 %.not.i3654, label %2770, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE152EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -24051,7 +24051,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE152EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2787:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP10", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !490
+  call void asm sideeffect "# OP_SWAP10", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !490
   %.not.i3657 = icmp ugt ptr %.sroa.344.0, %105
   br i1 %.not.i3657, label %2788, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE153EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -24090,7 +24090,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE153EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2805:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP11", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !491
+  call void asm sideeffect "# OP_SWAP11", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !491
   %.not.i3660 = icmp ugt ptr %.sroa.344.0, %104
   br i1 %.not.i3660, label %2806, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE154EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -24129,7 +24129,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE154EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2823:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP12", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !492
+  call void asm sideeffect "# OP_SWAP12", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !492
   %.not.i3663 = icmp ugt ptr %.sroa.344.0, %103
   br i1 %.not.i3663, label %2824, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE155EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -24168,7 +24168,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE155EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2841:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP13", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !493
+  call void asm sideeffect "# OP_SWAP13", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !493
   %.not.i3666 = icmp ugt ptr %.sroa.344.0, %102
   br i1 %.not.i3666, label %2842, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE156EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -24207,7 +24207,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE156EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2859:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP14", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !494
+  call void asm sideeffect "# OP_SWAP14", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !494
   %.not.i3669 = icmp ugt ptr %.sroa.344.0, %101
   br i1 %.not.i3669, label %2860, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE157EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -24246,7 +24246,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE157EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2877:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP15", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !495
+  call void asm sideeffect "# OP_SWAP15", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !495
   %.not.i3672 = icmp ugt ptr %.sroa.344.0, %100
   br i1 %.not.i3672, label %2878, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE158EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -24285,7 +24285,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE158EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2895:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAP16", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !496
+  call void asm sideeffect "# OP_SWAP16", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !496
   %.not.i3675 = icmp ugt ptr %.sroa.344.0, %99
   br i1 %.not.i3675, label %2896, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE159EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -24324,7 +24324,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE159EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2913:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_LOG0", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !497
+  call void asm sideeffect "# OP_LOG0", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !497
   %.not.i3678 = icmp ugt ptr %.sroa.344.0, %98
   br i1 %.not.i3678, label %2914, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE160EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -24342,7 +24342,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE160EEENS1_8PositionERKSt5ar
 
 2918:                                             ; preds = %2914
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %2919 = call { i32, i64 } @_ZN6evmone5instr4core3logILm0EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %2915, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %2919 = call { i32, i64 } @_ZN6evmone5instr4core3logILm0EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %2915, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %2920 = extractvalue { i32, i64 } %2919, 0
   %2921 = extractvalue { i32, i64 } %2919, 1
   %.not.i2872 = icmp eq i32 %2920, 0
@@ -24359,7 +24359,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE160EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2925:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_LOG1", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !498
+  call void asm sideeffect "# OP_LOG1", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !498
   %.not.i3681 = icmp ugt ptr %.sroa.344.0, %63
   br i1 %.not.i3681, label %2926, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE161EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -24377,7 +24377,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE161EEENS1_8PositionERKSt5ar
 
 2930:                                             ; preds = %2926
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %2931 = call { i32, i64 } @_ZN6evmone5instr4core3logILm1EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %2927, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %2931 = call { i32, i64 } @_ZN6evmone5instr4core3logILm1EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %2927, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %2932 = extractvalue { i32, i64 } %2931, 0
   %2933 = extractvalue { i32, i64 } %2931, 1
   %.not.i2869 = icmp eq i32 %2932, 0
@@ -24394,7 +24394,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE161EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2937:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_LOG2", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !499
+  call void asm sideeffect "# OP_LOG2", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !499
   %.not.i3684 = icmp ugt ptr %.sroa.344.0, %68
   br i1 %.not.i3684, label %2938, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE162EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -24412,7 +24412,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE162EEENS1_8PositionERKSt5ar
 
 2942:                                             ; preds = %2938
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %2943 = call { i32, i64 } @_ZN6evmone5instr4core3logILm2EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %2939, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %2943 = call { i32, i64 } @_ZN6evmone5instr4core3logILm2EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %2939, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %2944 = extractvalue { i32, i64 } %2943, 0
   %2945 = extractvalue { i32, i64 } %2943, 1
   %.not.i2866 = icmp eq i32 %2944, 0
@@ -24429,7 +24429,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE162EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2949:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_LOG3", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !500
+  call void asm sideeffect "# OP_LOG3", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !500
   %.not.i3687 = icmp ugt ptr %.sroa.344.0, %78
   br i1 %.not.i3687, label %2950, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE163EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -24447,7 +24447,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE163EEENS1_8PositionERKSt5ar
 
 2954:                                             ; preds = %2950
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %2955 = call { i32, i64 } @_ZN6evmone5instr4core3logILm3EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %2951, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %2955 = call { i32, i64 } @_ZN6evmone5instr4core3logILm3EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %2951, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %2956 = extractvalue { i32, i64 } %2955, 0
   %2957 = extractvalue { i32, i64 } %2955, 1
   %.not.i2863 = icmp eq i32 %2956, 0
@@ -24464,7 +24464,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE163EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2961:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_LOG4", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !501
+  call void asm sideeffect "# OP_LOG4", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !501
   %.not.i3690 = icmp ugt ptr %.sroa.344.0, %65
   br i1 %.not.i3690, label %2962, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE164EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -24482,7 +24482,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE164EEENS1_8PositionERKSt5ar
 
 2966:                                             ; preds = %2962
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %2967 = call { i32, i64 } @_ZN6evmone5instr4core3logILm4EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %2963, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %2967 = call { i32, i64 } @_ZN6evmone5instr4core3logILm4EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %2963, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %2968 = extractvalue { i32, i64 } %2967, 0
   %2969 = extractvalue { i32, i64 } %2967, 1
   %.not.i2860 = icmp eq i32 %2968, 0
@@ -24499,7 +24499,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE164EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 2973:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DATALOAD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !502
+  call void asm sideeffect "# OP_DATALOAD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !502
   %.val2950 = load i16, ptr %97, align 2, !tbaa !224
   %2974 = icmp slt i16 %.val2950, 0
   br i1 %2974, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE208EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %2975, !prof !141
@@ -24532,7 +24532,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE208EEENS1_8PositionERKSt5ar
   br i1 %2986, label %2987, label %_ZNK6evmone8baseline12CodeAnalysis8eof_dataEv.exit.i
 
 2987:                                             ; preds = %2981
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i64 noundef %2985, i64 noundef %.sroa.0.0.copyload.i.i3696) #23
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i64 noundef %2985, i64 noundef %.sroa.0.0.copyload.i.i3696) #24
   unreachable
 
 _ZNK6evmone8baseline12CodeAnalysis8eof_dataEv.exit.i: ; preds = %2981
@@ -24612,7 +24612,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE208EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3018:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DATALOADN", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !507
+  call void asm sideeffect "# OP_DATALOADN", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !507
   %.val2951 = load i16, ptr %96, align 2, !tbaa !224
   %3019 = icmp slt i16 %.val2951, 0
   br i1 %3019, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE209EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3020, !prof !141
@@ -24645,7 +24645,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE209EEENS1_8PositionERKSt5ar
   br i1 %3032, label %3033, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE209EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 3033:                                             ; preds = %3027
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i64 noundef %3031, i64 noundef %.sroa.0.0.copyload.i.i3713) #23
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i64 noundef %3031, i64 noundef %.sroa.0.0.copyload.i.i3713) #24
   unreachable
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE209EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %3027
@@ -24684,7 +24684,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE209EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3050:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DATASIZE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !511
+  call void asm sideeffect "# OP_DATASIZE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !511
   %.val2952 = load i16, ptr %95, align 2, !tbaa !224
   %3051 = icmp slt i16 %.val2952, 0
   br i1 %3051, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE210EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3052, !prof !141
@@ -24717,7 +24717,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE210EEENS1_8PositionERKSt5ar
   br i1 %3064, label %3065, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE210EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 3065:                                             ; preds = %3059
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i64 noundef %3063, i64 noundef %.sroa.0.0.copyload.i.i3728) #23
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i64 noundef %3063, i64 noundef %.sroa.0.0.copyload.i.i3728) #24
   unreachable
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE210EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %3059
@@ -24730,7 +24730,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE210EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3069:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DATACOPY", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !512
+  call void asm sideeffect "# OP_DATACOPY", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !512
   %.val2953 = load i16, ptr %94, align 2, !tbaa !224
   %3070 = icmp slt i16 %.val2953, 0
   br i1 %3070, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE211EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3071, !prof !141
@@ -24754,7 +24754,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE211EEENS1_8PositionERKSt5ar
 
 3077:                                             ; preds = %3072
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %3078 = call { i32, i64 } @_ZN6evmone5instr4core8datacopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %3074, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3078 = call { i32, i64 } @_ZN6evmone5instr4core8datacopyENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %3074, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3079 = extractvalue { i32, i64 } %3078, 0
   %3080 = extractvalue { i32, i64 } %3078, 1
   %.not.i2857 = icmp eq i32 %3079, 0
@@ -24771,7 +24771,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE211EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3084:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_RJUMP", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !513
+  call void asm sideeffect "# OP_RJUMP", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !513
   %.val2954 = load i16, ptr %93, align 2, !tbaa !224
   %3085 = icmp slt i16 %.val2954, 0
   br i1 %3085, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE224EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3086, !prof !141
@@ -24805,7 +24805,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE224EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3102:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_RJUMPI", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !514
+  call void asm sideeffect "# OP_RJUMPI", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !514
   %.val2955 = load i16, ptr %92, align 2, !tbaa !224
   %3103 = icmp slt i16 %.val2955, 0
   br i1 %3103, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE225EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3104, !prof !141
@@ -24829,10 +24829,10 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE225EEENS1_8PositionERKSt5ar
 
 3110:                                             ; preds = %3105
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %9) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %9) #22
   %3111 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 32 dereferenceable(32) %3111, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.start.p0(ptr nonnull %8) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %8) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   br label %3112
 
@@ -24851,7 +24851,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE225EEENS1_8PositionERKSt5ar
 
 _ZNK4intx4uintILj256EEcvbEv.exit.i3741:           ; preds = %3112
   %.not.i3742 = icmp eq i64 %3118, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %8) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %8) #22
   br i1 %.not.i3742, label %3132, label %3120
 
 3120:                                             ; preds = %_ZNK4intx4uintILj256EEcvbEv.exit.i3741
@@ -24874,11 +24874,11 @@ _ZNK4intx4uintILj256EEcvbEv.exit.i3741:           ; preds = %3112
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE225EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %3132, %3120
   %3134 = phi ptr [ %3131, %3120 ], [ %3133, %3132 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %9) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %9) #22
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3135:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_RJUMPV", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !515
+  call void asm sideeffect "# OP_RJUMPV", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !515
   %.val2956 = load i16, ptr %91, align 2, !tbaa !224
   %3136 = icmp slt i16 %.val2956, 0
   br i1 %3136, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE226EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, label %3137, !prof !141
@@ -24952,7 +24952,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE226EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
 
 3173:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CALLF", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !517
+  call void asm sideeffect "# OP_CALLF", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !517
   %.val2957 = load i16, ptr %90, align 2, !tbaa !224
   %3174 = icmp slt i16 %.val2957, 0
   br i1 %3174, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE227EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3175, !prof !141
@@ -24972,12 +24972,12 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE227EEENS1_8PositionERKSt5ar
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE227EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %3175
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %3180 = call noundef ptr @_ZN6evmone5instr4core5callfENS_8StackTopERNS_14ExecutionStateEPKh(ptr %.sroa.344.0, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull %.sroa.01019.0) #21
+  %3180 = call noundef ptr @_ZN6evmone5instr4core5callfENS_8StackTopERNS_14ExecutionStateEPKh(ptr %.sroa.344.0, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull %.sroa.01019.0) #22
   %.not1891 = icmp eq ptr %3180, null
   br i1 %.not1891, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3181:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_RETF", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !518
+  call void asm sideeffect "# OP_RETF", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !518
   %.val2958 = load i16, ptr %88, align 2, !tbaa !224
   %3182 = icmp slt i16 %.val2958, 0
   br i1 %3182, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE228EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3183, !prof !141
@@ -25005,7 +25005,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE228EEENS1_8PositionERKSt5ar
   br i1 %.not1890, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3191:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_JUMPF", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !521
+  call void asm sideeffect "# OP_JUMPF", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !521
   %.val2959 = load i16, ptr %86, align 2, !tbaa !224
   %3192 = icmp slt i16 %.val2959, 0
   br i1 %3192, label %_ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE229EEE16evmc_status_codeRKSt5arrayIsLm256EERlPKN4intx4uintILj256EEESE_.exit, label %3193, !prof !141
@@ -25078,7 +25078,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE229EEENS1_8PositionERKSt5ar
   br i1 %.not1889, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3238:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DUPN", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !524
+  call void asm sideeffect "# OP_DUPN", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !524
   %.val2960 = load i16, ptr %84, align 2, !tbaa !224
   %3239 = icmp slt i16 %.val2960, 0
   br i1 %3239, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE230EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3240, !prof !141
@@ -25113,7 +25113,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE230EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3254:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SWAPN", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !525
+  call void asm sideeffect "# OP_SWAPN", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !525
   %.val2961 = load i16, ptr %83, align 2, !tbaa !224
   %3255 = icmp slt i16 %.val2961, 0
   br i1 %3255, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE231EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3256, !prof !141
@@ -25148,7 +25148,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE231EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3268:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_EXCHANGE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !526
+  call void asm sideeffect "# OP_EXCHANGE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !526
   %.val2962 = load i16, ptr %82, align 2, !tbaa !224
   %3269 = icmp slt i16 %.val2962, 0
   br i1 %3269, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE232EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3270, !prof !141
@@ -25189,7 +25189,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE232EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3288:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_EOFCREATE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !527
+  call void asm sideeffect "# OP_EOFCREATE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !527
   %.val2963 = load i16, ptr %80, align 2, !tbaa !224
   %3289 = icmp slt i16 %.val2963, 0
   br i1 %3289, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE236EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3290, !prof !141
@@ -25216,7 +25216,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE236EEENS1_8PositionERKSt5ar
   store ptr %.sroa.01019.0, ptr %58, align 8
   store ptr %.sroa.344.0, ptr %81, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %3297 = call { i32, i64 } @_ZN6evmone5instr4core15create_eof_implILNS_6OpcodeE236EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateERPKh(ptr %.sroa.344.0, i64 noundef %3293, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(8) %58) #21, !callees !528
+  %3297 = call { i32, i64 } @_ZN6evmone5instr4core15create_eof_implILNS_6OpcodeE236EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateERPKh(ptr %.sroa.344.0, i64 noundef %3293, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(8) %58) #22, !callees !528
   %3298 = extractvalue { i32, i64 } %3297, 0
   %3299 = extractvalue { i32, i64 } %3297, 1
   %.not.i2928 = icmp eq i32 %3298, 0
@@ -25236,7 +25236,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE236EEENS1_8PositionERKSt5ar
   br i1 %.not1885, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3303:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_TXCREATE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !532
+  call void asm sideeffect "# OP_TXCREATE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !532
   %.val2964 = load i16, ptr %77, align 2, !tbaa !224
   %3304 = icmp slt i16 %.val2964, 0
   br i1 %3304, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE237EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3305, !prof !141
@@ -25263,7 +25263,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE237EEENS1_8PositionERKSt5ar
   store ptr %.sroa.01019.0, ptr %59, align 8
   store ptr %.sroa.344.0, ptr %79, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %3312 = call { i32, i64 } @_ZN6evmone5instr4core15create_eof_implILNS_6OpcodeE237EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateERPKh(ptr %.sroa.344.0, i64 noundef %3308, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(8) %59) #21, !callees !528
+  %3312 = call { i32, i64 } @_ZN6evmone5instr4core15create_eof_implILNS_6OpcodeE237EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateERPKh(ptr %.sroa.344.0, i64 noundef %3308, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(8) %59) #22, !callees !528
   %3313 = extractvalue { i32, i64 } %3312, 0
   %3314 = extractvalue { i32, i64 } %3312, 1
   %.not.i2926 = icmp eq i32 %3313, 0
@@ -25283,7 +25283,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE237EEENS1_8PositionERKSt5ar
   br i1 %.not1884, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3318:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_RETURNCODE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !533
+  call void asm sideeffect "# OP_RETURNCODE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !533
   %3319 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %.val2965 = load i16, ptr %3319, align 2, !tbaa !224
   %3320 = icmp slt i16 %.val2965, 0
@@ -25308,7 +25308,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE238EEE16evmc_s
 
 3327:                                             ; preds = %3322
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %3328 = call { i32, i64 } @_ZN6evmone5instr4core10returncodeENS_8StackTopElRNS_14ExecutionStateEPKh(ptr nonnull %.sroa.344.0, i64 noundef %3324, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull %.sroa.01019.0) #21
+  %3328 = call { i32, i64 } @_ZN6evmone5instr4core10returncodeENS_8StackTopElRNS_14ExecutionStateEPKh(ptr nonnull %.sroa.344.0, i64 noundef %3324, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull %.sroa.01019.0) #22
   %3329 = extractvalue { i32, i64 } %3328, 0
   %3330 = extractvalue { i32, i64 } %3328, 1
   %3331 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -25316,7 +25316,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE238EEE16evmc_s
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
 
 3332:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CREATE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !534
+  call void asm sideeffect "# OP_CREATE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !534
   %.not.i3778 = icmp ugt ptr %.sroa.344.0, %63
   br i1 %.not.i3778, label %3333, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE240EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, !prof !80
 
@@ -25334,7 +25334,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE240EEENS1_8PositionERKSt5ar
 
 3337:                                             ; preds = %3333
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %3338 = call { i32, i64 } @_ZN6evmone5instr4core11create_implILNS_6OpcodeE240EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %3334, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3338 = call { i32, i64 } @_ZN6evmone5instr4core11create_implILNS_6OpcodeE240EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %3334, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3339 = extractvalue { i32, i64 } %3338, 0
   %3340 = extractvalue { i32, i64 } %3338, 1
   %.not.i2854 = icmp eq i32 %3339, 0
@@ -25351,7 +25351,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE240EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3344:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CALL", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !535
+  call void asm sideeffect "# OP_CALL", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !535
   %.val2966 = load i16, ptr %76, align 2, !tbaa !224
   %3345 = icmp slt i16 %.val2966, 0
   br i1 %3345, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE241EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3346, !prof !141
@@ -25375,7 +25375,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE241EEENS1_8PositionERKSt5ar
 
 3352:                                             ; preds = %3347
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %3353 = call { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE241EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %3349, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3353 = call { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE241EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %3349, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3354 = extractvalue { i32, i64 } %3353, 0
   %3355 = extractvalue { i32, i64 } %3353, 1
   %.not.i2851 = icmp eq i32 %3354, 0
@@ -25392,7 +25392,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE241EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3359:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CALLCODE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !536
+  call void asm sideeffect "# OP_CALLCODE", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !536
   %.val2967 = load i16, ptr %74, align 2, !tbaa !224
   %3360 = icmp slt i16 %.val2967, 0
   br i1 %3360, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE242EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3361, !prof !141
@@ -25416,7 +25416,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE242EEENS1_8PositionERKSt5ar
 
 3367:                                             ; preds = %3362
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %3368 = call { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE242EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %3364, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3368 = call { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE242EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %3364, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3369 = extractvalue { i32, i64 } %3368, 0
   %3370 = extractvalue { i32, i64 } %3368, 1
   %.not.i2848 = icmp eq i32 %3369, 0
@@ -25433,7 +25433,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE242EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3374:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_RETURN", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !537
+  call void asm sideeffect "# OP_RETURN", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !537
   %.not.i3787 = icmp ugt ptr %.sroa.344.0, %98
   %3375 = icmp slt i64 %.0556, 0
   %..i3788 = select i1 %3375, i32 3, i32 0, !prof !141
@@ -25449,7 +25449,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE242EEENS1_8PositionERKSt5ar
 3378:                                             ; preds = %3374
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
   %3379 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   br label %3380
 
@@ -25469,7 +25469,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE242EEENS1_8PositionERKSt5ar
 _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i.i:       ; preds = %3380
   %3388 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
   %3389 = icmp eq i64 %3386, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7) #22
   br i1 %3389, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread13.i, label %3390
 
 3390:                                             ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i.i
@@ -25513,7 +25513,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i.i:       ; preds = %3380
   br i1 %3417, label %3418, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.i
 
 3418:                                             ; preds = %3414
-  %3419 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %.0556, ptr noundef nonnull align 8 dereferenceable(24) %118, i64 noundef %3415) #21
+  %3419 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %.0556, ptr noundef nonnull align 8 dereferenceable(24) %118, i64 noundef %3415) #22
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.i
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.i: ; preds = %3418, %3414
@@ -25543,7 +25543,7 @@ _ZN6evmone5instr4core11return_implIL16evmc_status_code0EEENS_10TermResultENS_8St
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
 
 3427:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_DELEGATECALL", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !538
+  call void asm sideeffect "# OP_DELEGATECALL", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !538
   %.val2968 = load i16, ptr %73, align 2, !tbaa !224
   %3428 = icmp slt i16 %.val2968, 0
   br i1 %3428, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE244EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3429, !prof !141
@@ -25567,7 +25567,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE244EEENS1_8PositionERKSt5ar
 
 3435:                                             ; preds = %3430
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %3436 = call { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE244EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %3432, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3436 = call { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE244EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %3432, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3437 = extractvalue { i32, i64 } %3436, 0
   %3438 = extractvalue { i32, i64 } %3436, 1
   %.not.i2845 = icmp eq i32 %3437, 0
@@ -25584,7 +25584,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE244EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3442:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_CREATE2", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !539
+  call void asm sideeffect "# OP_CREATE2", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !539
   %.val2969 = load i16, ptr %72, align 2, !tbaa !224
   %3443 = icmp slt i16 %.val2969, 0
   br i1 %3443, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE245EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3444, !prof !141
@@ -25608,7 +25608,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE245EEENS1_8PositionERKSt5ar
 
 3450:                                             ; preds = %3445
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %3451 = call { i32, i64 } @_ZN6evmone5instr4core11create_implILNS_6OpcodeE245EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %3447, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3451 = call { i32, i64 } @_ZN6evmone5instr4core11create_implILNS_6OpcodeE245EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %3447, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3452 = extractvalue { i32, i64 } %3451, 0
   %3453 = extractvalue { i32, i64 } %3451, 1
   %.not.i2842 = icmp eq i32 %3452, 0
@@ -25625,7 +25625,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE245EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3457:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_RETURNDATALOAD", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !540
+  call void asm sideeffect "# OP_RETURNDATALOAD", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !540
   %.val2970 = load i16, ptr %69, align 2, !tbaa !224
   %3458 = icmp slt i16 %.val2970, 0
   br i1 %3458, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE247EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3459, !prof !141
@@ -25723,7 +25723,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE247EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3496:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_EXTCALL", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !544
+  call void asm sideeffect "# OP_EXTCALL", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !544
   %.val2971 = load i16, ptr %67, align 2, !tbaa !224
   %3497 = icmp slt i16 %.val2971, 0
   br i1 %3497, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE248EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3498, !prof !141
@@ -25747,7 +25747,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE248EEENS1_8PositionERKSt5ar
 
 3504:                                             ; preds = %3499
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %3505 = call { i32, i64 } @_ZN6evmone5instr4core12extcall_implILNS_6OpcodeE248EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %3501, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3505 = call { i32, i64 } @_ZN6evmone5instr4core12extcall_implILNS_6OpcodeE248EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %3501, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3506 = extractvalue { i32, i64 } %3505, 0
   %3507 = extractvalue { i32, i64 } %3505, 1
   %.not.i2839 = icmp eq i32 %3506, 0
@@ -25764,7 +25764,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE248EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3511:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_EXTDELEGATECALL", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !545
+  call void asm sideeffect "# OP_EXTDELEGATECALL", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !545
   %.val2972 = load i16, ptr %66, align 2, !tbaa !224
   %3512 = icmp slt i16 %.val2972, 0
   br i1 %3512, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE249EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3513, !prof !141
@@ -25788,7 +25788,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE249EEENS1_8PositionERKSt5ar
 
 3519:                                             ; preds = %3514
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %3520 = call { i32, i64 } @_ZN6evmone5instr4core12extcall_implILNS_6OpcodeE249EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %3516, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3520 = call { i32, i64 } @_ZN6evmone5instr4core12extcall_implILNS_6OpcodeE249EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %3516, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3521 = extractvalue { i32, i64 } %3520, 0
   %3522 = extractvalue { i32, i64 } %3520, 1
   %.not.i2836 = icmp eq i32 %3521, 0
@@ -25805,7 +25805,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE249EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3526:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_STATICCALL", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !546
+  call void asm sideeffect "# OP_STATICCALL", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !546
   %.val2973 = load i16, ptr %64, align 2, !tbaa !224
   %3527 = icmp slt i16 %.val2973, 0
   br i1 %3527, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE250EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3528, !prof !141
@@ -25829,7 +25829,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE250EEENS1_8PositionERKSt5ar
 
 3534:                                             ; preds = %3529
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %3535 = call { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE250EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %3531, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3535 = call { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE250EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %3531, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3536 = extractvalue { i32, i64 } %3535, 0
   %3537 = extractvalue { i32, i64 } %3535, 1
   %.not.i2833 = icmp eq i32 %3536, 0
@@ -25846,7 +25846,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE250EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3541:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_EXTSTATICCALL", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !547
+  call void asm sideeffect "# OP_EXTSTATICCALL", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !547
   %.val2974 = load i16, ptr %62, align 2, !tbaa !224
   %3542 = icmp slt i16 %.val2974, 0
   br i1 %3542, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE251EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread, label %3543, !prof !141
@@ -25870,7 +25870,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE251EEENS1_8PositionERKSt5ar
 
 3549:                                             ; preds = %3544
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %3550 = call { i32, i64 } @_ZN6evmone5instr4core12extcall_implILNS_6OpcodeE251EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %3546, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3550 = call { i32, i64 } @_ZN6evmone5instr4core12extcall_implILNS_6OpcodeE251EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %.sroa.344.0, i64 noundef %3546, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3551 = extractvalue { i32, i64 } %3550, 0
   %3552 = extractvalue { i32, i64 } %3550, 1
   %.not.i2832 = icmp eq i32 %3551, 0
@@ -25887,7 +25887,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE251EEENS1_8PositionERKSt5ar
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge
 
 3556:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_REVERT", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !548
+  call void asm sideeffect "# OP_REVERT", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !548
   %3557 = getelementptr inbounds nuw i8, ptr %0, i64 506
   %.val2975 = load i16, ptr %3557, align 2, !tbaa !224
   %3558 = icmp slt i16 %.val2975, 0
@@ -25913,7 +25913,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE253EEE16evmc_s
 3565:                                             ; preds = %3560
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
   %3566 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   br label %3567
 
@@ -25933,7 +25933,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE253EEE16evmc_s
 _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i.i3845:   ; preds = %3567
   %3575 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -32
   %3576 = icmp eq i64 %3573, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5) #22
   br i1 %3576, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread13.i3854, label %3577
 
 3577:                                             ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i.i3845
@@ -25977,7 +25977,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i.i3845:   ; preds = %3567
   br i1 %3604, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.i3852, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread13.i3854
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.i3852: ; preds = %3601
-  %3605 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %3562, ptr noundef nonnull align 8 dereferenceable(24) %118, i64 noundef %3602) #21
+  %3605 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %3562, ptr noundef nonnull align 8 dereferenceable(24) %118, i64 noundef %3602) #22
   %3606 = icmp sgt i64 %3605, -1
   br i1 %3606, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread13.i3854, label %_ZN6evmone5instr4core11return_implIL16evmc_status_code2EEENS_10TermResultENS_8StackTopElRNS_14ExecutionStateE.exit
 
@@ -26003,7 +26003,7 @@ _ZN6evmone5instr4core11return_implIL16evmc_status_code2EEENS_10TermResultENS_8St
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
 
 3613:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_INVALID", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !549
+  call void asm sideeffect "# OP_INVALID", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !549
   %3614 = icmp slt i64 %.0556, 0
   br i1 %3614, label %3615, label %3617
 
@@ -26019,7 +26019,7 @@ _ZN6evmone5instr4core11return_implIL16evmc_status_code2EEENS_10TermResultENS_8St
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE10EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
 
 3619:                                             ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
-  call void asm sideeffect "# OP_SELFDESTRUCT", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !550
+  call void asm sideeffect "# OP_SELFDESTRUCT", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !550
   %3620 = getelementptr inbounds nuw i8, ptr %0, i64 510
   %.val2976 = load i16, ptr %3620, align 2, !tbaa !224
   %3621 = icmp slt i16 %.val2976, 0
@@ -26044,7 +26044,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE255EEE16evmc_s
 
 3628:                                             ; preds = %3623
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.344.0, i64 32) ]
-  %3629 = call { i32, i64 } @_ZN6evmone5instr4core12selfdestructENS_8StackTopElRNS_14ExecutionStateE(ptr nonnull %.sroa.344.0, i64 noundef %3625, ptr noundef nonnull align 8 dereferenceable(544) %1) #21
+  %3629 = call { i32, i64 } @_ZN6evmone5instr4core12selfdestructENS_8StackTopElRNS_14ExecutionStateE(ptr nonnull %.sroa.344.0, i64 noundef %3625, ptr noundef nonnull align 8 dereferenceable(544) %1) #22
   %3630 = extractvalue { i32, i64 } %3629, 0
   %3631 = extractvalue { i32, i64 } %3629, 1
   %3632 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -26075,7 +26075,7 @@ define hidden void @_ZN6evmone8baseline7executeEP7evmc_vmPK19evmc_host_interface
   br i1 %or.cond, label %14, label %.critedge
 
 14:                                               ; preds = %8
-  %15 = tail call noundef zeroext i1 @_ZN6evmone16is_eof_containerESt17basic_string_viewIhN4evmc11byte_traitsIhEEE(i64 %7, ptr %6) #21
+  %15 = tail call noundef zeroext i1 @_ZN6evmone16is_eof_containerESt17basic_string_viewIhN4evmc11byte_traitsIhEEE(i64 %7, ptr %6) #22
   br i1 %15, label %16, label %.critedge
 
 16:                                               ; preds = %14
@@ -26088,7 +26088,7 @@ define hidden void @_ZN6evmone8baseline7executeEP7evmc_vmPK19evmc_host_interface
   %21 = load i32, ptr %5, align 8, !tbaa !1058
   %22 = icmp ne i32 %21, 5
   %23 = zext i1 %22 to i8
-  %24 = tail call noundef i32 @_ZN6evmone12validate_eofE13evmc_revisionNS_13ContainerKindESt17basic_string_viewIhN4evmc11byte_traitsIhEEE(i32 noundef %4, i8 noundef zeroext %23, i64 %7, ptr %6) #21
+  %24 = tail call noundef i32 @_ZN6evmone12validate_eofE13evmc_revisionNS_13ContainerKindESt17basic_string_viewIhN4evmc11byte_traitsIhEEE(i32 noundef %4, i8 noundef zeroext %23, i64 %7, ptr %6) #22
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %.critedge, label %25
 
@@ -26100,16 +26100,16 @@ define hidden void @_ZN6evmone8baseline7executeEP7evmc_vmPK19evmc_host_interface
   br label %61
 
 .critedge:                                        ; preds = %20, %16, %14, %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %9) #21
-  call void @_ZN6evmone8baseline7analyzeESt17basic_string_viewIhN4evmc11byte_traitsIhEEEb(ptr dead_on_unwind nonnull writable sret(%"class.evmone::baseline::CodeAnalysis") align 8 %9, i64 %7, ptr %6, i1 noundef zeroext %10) #21
-  call void @_ZN6evmone8baseline7executeERNS_2VMERK19evmc_host_interfaceP17evmc_host_context13evmc_revisionRK12evmc_messageRKNS0_12CodeAnalysisE(ptr dead_on_unwind writable sret(%struct.evmc_result) align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(184) %5, ptr noundef nonnull align 8 dereferenceable(168) %9) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %9) #22
+  call void @_ZN6evmone8baseline7analyzeESt17basic_string_viewIhN4evmc11byte_traitsIhEEEb(ptr dead_on_unwind nonnull writable sret(%"class.evmone::baseline::CodeAnalysis") align 8 %9, i64 %7, ptr %6, i1 noundef zeroext %10) #22
+  call void @_ZN6evmone8baseline7executeERNS_2VMERK19evmc_host_interfaceP17evmc_host_context13evmc_revisionRK12evmc_messageRKNS0_12CodeAnalysisE(ptr dead_on_unwind writable sret(%struct.evmc_result) align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(184) %5, ptr noundef nonnull align 8 dereferenceable(168) %9) #22
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %28 = load ptr, ptr %27, align 8, !tbaa !7
   %.not.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %.critedge
-  call void @_ZdaPv(ptr noundef nonnull %28) #24
+  call void @_ZdaPv(ptr noundef nonnull %28) #25
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i, %.critedge
@@ -26125,7 +26125,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %_ZNKSt14def
   %34 = ptrtoint ptr %33 to i64
   %35 = ptrtoint ptr %30 to i64
   %36 = sub i64 %34, %35
-  call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef %36) #21
+  call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef %36) #22
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i
 
 _ZNSt6vectorIjSaIjEED2Ev.exit.i.i:                ; preds = %31, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.i
@@ -26140,7 +26140,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i.i:                ; preds = %31, %_ZNSt10unique_
   %42 = ptrtoint ptr %41 to i64
   %43 = ptrtoint ptr %38 to i64
   %44 = sub i64 %42, %43
-  call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %44) #21
+  call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %44) #22
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit2.i.i
 
 _ZNSt6vectorIjSaIjEED2Ev.exit2.i.i:               ; preds = %39, %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i
@@ -26155,7 +26155,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit2.i.i:               ; preds = %39, %_ZNSt6vectorIj
   %50 = ptrtoint ptr %49 to i64
   %51 = ptrtoint ptr %46 to i64
   %52 = sub i64 %50, %51
-  call void @_ZdlPvm(ptr noundef nonnull %46, i64 noundef %52) #21
+  call void @_ZdlPvm(ptr noundef nonnull %46, i64 noundef %52) #22
   br label %_ZNSt6vectorItSaItEED2Ev.exit.i.i
 
 _ZNSt6vectorItSaItEED2Ev.exit.i.i:                ; preds = %47, %_ZNSt6vectorIjSaIjEED2Ev.exit2.i.i
@@ -26170,11 +26170,11 @@ _ZNSt6vectorItSaItEED2Ev.exit.i.i:                ; preds = %47, %_ZNSt6vectorIj
   %58 = ptrtoint ptr %57 to i64
   %59 = ptrtoint ptr %54 to i64
   %60 = sub i64 %58, %59
-  call void @_ZdlPvm(ptr noundef nonnull %54, i64 noundef %60) #21
+  call void @_ZdlPvm(ptr noundef nonnull %54, i64 noundef %60) #22
   br label %_ZN6evmone8baseline12CodeAnalysisD2Ev.exit
 
 _ZN6evmone8baseline12CodeAnalysisD2Ev.exit:       ; preds = %_ZNSt6vectorItSaItEED2Ev.exit.i.i, %55
-  call void @llvm.lifetime.end.p0(ptr nonnull %9) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %9) #22
   br label %61
 
 61:                                               ; preds = %25, %_ZN6evmone8baseline12CodeAnalysisD2Ev.exit
@@ -26217,11 +26217,11 @@ define linkonce_odr void @_ZNSt6vectorIPKhSaIS1_EE13_M_assign_auxIPKS1_EEvT_S7_S
   br i1 %15, label %16, label %_ZNSt12_Vector_baseIPKhSaIS1_EE11_M_allocateEm.exit.i
 
 16:                                               ; preds = %14
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #23
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #24
   unreachable
 
 _ZNSt12_Vector_baseIPKhSaIS1_EE11_M_allocateEm.exit.i: ; preds = %14
-  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #22
+  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #23
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIPKhSaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.exit, label %18
 
@@ -26240,7 +26240,7 @@ _ZNSt6vectorIPKhSaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.exit: ; preds =
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %20 to i64
   %25 = sub i64 %23, %24
-  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %25) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %25) #22
   br label %_ZNSt12_Vector_baseIPKhSaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIPKhSaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIPKhSaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.exit, %21
@@ -26316,10 +26316,10 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #9
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.usub.with.overflow.i64(i64, i64) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -26329,7 +26329,7 @@ define linkonce_odr hidden void @_ZN4intx7udivremILj256ELj256EEENS_10div_resultI
   %5 = alloca %"struct.intx::internal::normalized_div_args", align 8
   %6 = alloca %"struct.intx::uint", align 8
   %7 = alloca %"struct.intx::uint", align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %5, i8 0, i64 72, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 76
@@ -26498,7 +26498,7 @@ _ZN4intx8internal9normalizeILj256ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEER
 
 79:                                               ; preds = %78
   %80 = load i64, ptr %5, align 8, !tbaa !3
-  %81 = call noundef i64 @_ZN4intx8internal11udivrem_by1EPmim(ptr noundef nonnull %8, i32 noundef %74, i64 noundef %80) #21
+  %81 = call noundef i64 @_ZN4intx8internal11udivrem_by1EPmim(ptr noundef nonnull %8, i32 noundef %74, i64 noundef %80) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 32, i1 false), !tbaa !3
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %83 = load i32, ptr %32, align 8, !tbaa !1073
@@ -26515,7 +26515,7 @@ _ZN4intx8internal9normalizeILj256ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEER
   %90 = load i64, ptr %89, align 8, !tbaa !3
   %91 = icmp samesign ugt i32 %74, 2
   tail call void @llvm.assume(i1 %91)
-  %92 = tail call noundef i64 @_ZN4intx15reciprocal_3by2ENS_4uintILj128EEE(i64 %88, i64 %90) #21
+  %92 = tail call noundef i64 @_ZN4intx15reciprocal_3by2ENS_4uintILj128EEE(i64 %88, i64 %90) #22
   %93 = zext nneg i32 %74 to i64
   %94 = getelementptr i64, ptr %8, i64 %93
   %95 = getelementptr i8, ptr %94, i64 -16
@@ -26532,14 +26532,14 @@ _ZN4intx8internal9normalizeILj256ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEER
   %.sroa.4.0.i = phi i64 [ %98, %87 ], [ %.sroa.4.0.copyload.i, %101 ]
   %.sroa.0.0.i = phi i64 [ %96, %87 ], [ %.sroa.0.0.copyload.i, %101 ]
   %.0.i26 = phi ptr [ %99, %87 ], [ %105, %101 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4) #22
   %102 = load i64, ptr %.0.i26, align 8, !tbaa !3
-  call void @_ZN4intx12udivrem_3by2EmmmNS_4uintILj128EEEm(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result.102") align 8 %4, i64 noundef %.sroa.4.0.i, i64 noundef %.sroa.0.0.i, i64 noundef %102, i64 %88, i64 %90, i64 noundef %92) #21
+  call void @_ZN4intx12udivrem_3by2EmmmNS_4uintILj128EEEm(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result.102") align 8 %4, i64 noundef %.sroa.4.0.i, i64 noundef %.sroa.0.0.i, i64 noundef %102, i64 %88, i64 %90, i64 noundef %92) #22
   %103 = load i64, ptr %4, align 8, !tbaa !3
   store i64 %103, ptr %.0.i26, align 8, !tbaa !3
   %.sroa.0.0.copyload.i = load i64, ptr %100, align 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4) #22
   %104 = icmp eq ptr %.0.i26, %8
   %105 = getelementptr inbounds i8, ptr %.0.i26, i64 -8
   br i1 %104, label %_ZN4intx8internal11udivrem_by2EPmiNS_4uintILj128EEE.exit, label %101, !llvm.loop !1080
@@ -26580,10 +26580,10 @@ _ZN4intxrsITkSt8integraljEENS_4uintILj128EEES2_T_.exit: ; preds = %110, %117, %1
   br label %_ZN4intx4uintILj256EEC2ILj128EEERKNS0_IXT_EEEQltTL0__T_.exit
 
 123:                                              ; preds = %78
-  call void @llvm.lifetime.start.p0(ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !tbaa !3
-  call void @_ZN4intx8internal13udivrem_knuthEPmS1_iPKmi(ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %74, ptr noundef nonnull %5, i32 noundef %storemerge51.i.lcssa34) #21
-  call void @llvm.lifetime.start.p0(ptr nonnull %7) #21
+  call void @_ZN4intx8internal13udivrem_knuthEPmS1_iPKmi(ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %74, ptr noundef nonnull %5, i32 noundef %storemerge51.i.lcssa34) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false), !tbaa !3
   %124 = load i32, ptr %18, align 8, !tbaa !1081
   %125 = add i32 %124, -1
@@ -26619,8 +26619,8 @@ _ZN4intxrsITkSt8integraljEENS_4uintILj128EEES2_T_.exit: ; preds = %110, %117, %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !158
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %7) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6) #22
   br label %_ZN4intx4uintILj256EEC2ILj128EEERKNS0_IXT_EEEQltTL0__T_.exit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
@@ -26639,7 +26639,7 @@ _ZN4intxrsITkSt8integraljEENS_4uintILj128EEES2_T_.exit: ; preds = %110, %117, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !1082
 
 _ZN4intx4uintILj256EEC2ILj128EEERKNS0_IXT_EEEQltTL0__T_.exit: ; preds = %_ZN4intxrsITkSt8integraljEENS_4uintILj128EEES2_T_.exit, %._crit_edge, %79, %76
-  call void @llvm.lifetime.end.p0(ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5) #22
   ret void
 }
 
@@ -26779,7 +26779,7 @@ define linkonce_odr hidden void @_ZN4intx8internal13udivrem_knuthEPmS1_iPKmi(ptr
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr inbounds nuw i64, ptr %3, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !3
-  %16 = tail call noundef i64 @_ZN4intx15reciprocal_3by2ENS_4uintILj128EEE(i64 %11, i64 %15) #21
+  %16 = tail call noundef i64 @_ZN4intx15reciprocal_3by2ENS_4uintILj128EEE(i64 %11, i64 %15) #22
   %17 = xor i32 %4, -1
   %18 = add nsw i32 %2, %17
   %19 = icmp sgt i32 %18, -1
@@ -26844,12 +26844,12 @@ _ZN4intx8internal6submulEPmPKmS3_im.exit:         ; preds = %32
 
 51:                                               ; preds = %22
   %52 = load i64, ptr %26, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(ptr nonnull %6) #21
-  call void @_ZN4intx12udivrem_3by2EmmmNS_4uintILj128EEEm(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result.102") align 8 %6, i64 noundef %23, i64 noundef %25, i64 noundef %52, i64 %11, i64 %15, i64 noundef %16) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6) #22
+  call void @_ZN4intx12udivrem_3by2EmmmNS_4uintILj128EEEm(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result.102") align 8 %6, i64 noundef %23, i64 noundef %25, i64 noundef %52, i64 %11, i64 %15, i64 noundef %16) #22
   %53 = load i64, ptr %6, align 8, !tbaa !3
   %.sroa.0.0.copyload = load i64, ptr %20, align 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6) #22
   %54 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %55 = zext i64 %53 to i128
   br label %56
@@ -26930,7 +26930,7 @@ _ZN4intx8internal3addEPmPKmS3_i.exit:             ; preds = %.preheader
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #10
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN4intx15reciprocal_3by2ENS_4uintILj128EEE(i64 %0, i64 %1) local_unnamed_addr #0 comdat {
@@ -27252,11 +27252,11 @@ define linkonce_odr hidden void @_ZN4intx7sdivremILj256EEENS_10div_resultINS_4ui
   %21 = alloca %"struct.intx::uint", align 8
   %22 = alloca %"struct.intx::uint", align 8
   %23 = alloca %"struct.intx::div_result", align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %16) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %16) #22
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %24, align 8, !tbaa !3, !alias.scope !1109
-  call void @llvm.lifetime.start.p0(ptr nonnull %17) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %17) #22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1112)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false), !tbaa !3, !alias.scope !1112
   br label %25
@@ -27275,7 +27275,7 @@ define linkonce_odr hidden void @_ZN4intx7sdivremILj256EEENS_10div_resultINS_4ui
   br i1 %exitcond.not.i, label %_ZN4intxanERKNS_4uintILj256EEES3_.exit, label %25, !llvm.loop !206
 
 _ZN4intxanERKNS_4uintILj256EEES3_.exit:           ; preds = %25
-  call void @llvm.lifetime.start.p0(ptr nonnull %18) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %18) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false)
   br label %33
 
@@ -27293,9 +27293,9 @@ _ZN4intxanERKNS_4uintILj256EEES3_.exit:           ; preds = %25
   br i1 %exitcond.not.i11, label %_ZN4intxeqERKNS_4uintILj256EEES3_.exit, label %33, !llvm.loop !167
 
 _ZN4intxeqERKNS_4uintILj256EEES3_.exit:           ; preds = %33
-  call void @llvm.lifetime.end.p0(ptr nonnull %18) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %17) #21
-  call void @llvm.lifetime.start.p0(ptr nonnull %19) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %18) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %17) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %19) #22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1115)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false), !tbaa !3, !alias.scope !1115
   br label %41
@@ -27314,7 +27314,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit:           ; preds = %33
   br i1 %exitcond.not.i13, label %_ZN4intxanERKNS_4uintILj256EEES3_.exit14, label %41, !llvm.loop !206
 
 _ZN4intxanERKNS_4uintILj256EEES3_.exit14:         ; preds = %41
-  call void @llvm.lifetime.start.p0(ptr nonnull %20) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %20) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
   br label %49
 
@@ -27334,13 +27334,13 @@ _ZN4intxanERKNS_4uintILj256EEES3_.exit14:         ; preds = %41
 _ZN4intxeqERKNS_4uintILj256EEES3_.exit18:         ; preds = %49
   %57 = icmp eq i64 %39, 0
   %58 = icmp eq i64 %55, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %20) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %19) #21
-  call void @llvm.lifetime.start.p0(ptr nonnull %21) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %20) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %19) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %21) #22
   br i1 %57, label %82, label %59
 
 59:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit18
-  call void @llvm.lifetime.start.p0(ptr nonnull %14) #21, !noalias !1118
+  call void @llvm.lifetime.start.p0(ptr nonnull %14) #22, !noalias !1118
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1121)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false), !tbaa !3, !alias.scope !1121, !noalias !1118
   br label %60
@@ -27357,7 +27357,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit18:         ; preds = %49
   br i1 %exitcond.not.i.i, label %_ZNK4intx4uintILj256EEcoEv.exit.i, label %60, !llvm.loop !221
 
 _ZNK4intx4uintILj256EEcoEv.exit.i:                ; preds = %60
-  call void @llvm.lifetime.start.p0(ptr nonnull %15) #21, !noalias !1118
+  call void @llvm.lifetime.start.p0(ptr nonnull %15) #22, !noalias !1118
   %66 = getelementptr inbounds nuw i8, ptr %15, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, i8 0, i64 24, i1 false), !noalias !1118
   store i64 1, ptr %15, align 8, !tbaa !3, !noalias !1118
@@ -27389,8 +27389,8 @@ _ZNK4intx4uintILj256EEcoEv.exit.i:                ; preds = %60
 _ZNK4intx4uintILj256EEngEv.exit:                  ; preds = %67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1118
-  call void @llvm.lifetime.end.p0(ptr nonnull %15) #21, !noalias !1118
-  call void @llvm.lifetime.end.p0(ptr nonnull %14) #21, !noalias !1118
+  call void @llvm.lifetime.end.p0(ptr nonnull %15) #22, !noalias !1118
+  call void @llvm.lifetime.end.p0(ptr nonnull %14) #22, !noalias !1118
   br label %83
 
 82:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit18
@@ -27398,11 +27398,11 @@ _ZNK4intx4uintILj256EEngEv.exit:                  ; preds = %67
   br label %83
 
 83:                                               ; preds = %82, %_ZNK4intx4uintILj256EEngEv.exit
-  call void @llvm.lifetime.start.p0(ptr nonnull %22) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %22) #22
   br i1 %58, label %107, label %84
 
 84:                                               ; preds = %83
-  call void @llvm.lifetime.start.p0(ptr nonnull %11) #21, !noalias !1131
+  call void @llvm.lifetime.start.p0(ptr nonnull %11) #22, !noalias !1131
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1134)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !tbaa !3, !alias.scope !1134, !noalias !1131
   br label %85
@@ -27419,7 +27419,7 @@ _ZNK4intx4uintILj256EEngEv.exit:                  ; preds = %67
   br i1 %exitcond.not.i.i20, label %_ZNK4intx4uintILj256EEcoEv.exit.i21, label %85, !llvm.loop !221
 
 _ZNK4intx4uintILj256EEcoEv.exit.i21:              ; preds = %85
-  call void @llvm.lifetime.start.p0(ptr nonnull %12) #21, !noalias !1131
+  call void @llvm.lifetime.start.p0(ptr nonnull %12) #22, !noalias !1131
   %91 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %91, i8 0, i64 24, i1 false), !noalias !1131
   store i64 1, ptr %12, align 8, !tbaa !3, !noalias !1131
@@ -27451,8 +27451,8 @@ _ZNK4intx4uintILj256EEcoEv.exit.i21:              ; preds = %85
 _ZNK4intx4uintILj256EEngEv.exit25:                ; preds = %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1131
-  call void @llvm.lifetime.end.p0(ptr nonnull %12) #21, !noalias !1131
-  call void @llvm.lifetime.end.p0(ptr nonnull %11) #21, !noalias !1131
+  call void @llvm.lifetime.end.p0(ptr nonnull %12) #22, !noalias !1131
+  call void @llvm.lifetime.end.p0(ptr nonnull %11) #22, !noalias !1131
   br label %108
 
 107:                                              ; preds = %83
@@ -27461,12 +27461,12 @@ _ZNK4intx4uintILj256EEngEv.exit25:                ; preds = %92
 
 108:                                              ; preds = %107, %_ZNK4intx4uintILj256EEngEv.exit25
   %109 = xor i1 %57, %58
-  call void @llvm.lifetime.start.p0(ptr nonnull %23) #21
-  call void @_ZN4intx7udivremILj256ELj256EEENS_10div_resultINS_4uintIXT_EEENS2_IXT0_EEEEERKS3_RKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %22) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %23) #22
+  call void @_ZN4intx7udivremILj256ELj256EEENS_10div_resultINS_4uintIXT_EEENS2_IXT0_EEEEERKS3_RKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result") align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %22) #22
   br i1 %109, label %110, label %133
 
 110:                                              ; preds = %108
-  call void @llvm.lifetime.start.p0(ptr nonnull %8) #21, !noalias !1144
+  call void @llvm.lifetime.start.p0(ptr nonnull %8) #22, !noalias !1144
   call void @llvm.experimental.noalias.scope.decl(metadata !1147)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !tbaa !3, !alias.scope !1147, !noalias !1144
   br label %111
@@ -27483,7 +27483,7 @@ _ZNK4intx4uintILj256EEngEv.exit25:                ; preds = %92
   br i1 %exitcond.not.i.i27, label %_ZNK4intx4uintILj256EEcoEv.exit.i28, label %111, !llvm.loop !221
 
 _ZNK4intx4uintILj256EEcoEv.exit.i28:              ; preds = %111
-  call void @llvm.lifetime.start.p0(ptr nonnull %9) #21, !noalias !1144
+  call void @llvm.lifetime.start.p0(ptr nonnull %9) #22, !noalias !1144
   %117 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %117, i8 0, i64 24, i1 false), !noalias !1144
   store i64 1, ptr %9, align 8, !tbaa !3, !noalias !1144
@@ -27515,8 +27515,8 @@ _ZNK4intx4uintILj256EEcoEv.exit.i28:              ; preds = %111
 _ZNK4intx4uintILj256EEngEv.exit32:                ; preds = %118
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1144
-  call void @llvm.lifetime.end.p0(ptr nonnull %9) #21, !noalias !1144
-  call void @llvm.lifetime.end.p0(ptr nonnull %8) #21, !noalias !1144
+  call void @llvm.lifetime.end.p0(ptr nonnull %9) #22, !noalias !1144
+  call void @llvm.lifetime.end.p0(ptr nonnull %8) #22, !noalias !1144
   br label %134
 
 133:                                              ; preds = %108
@@ -27529,7 +27529,7 @@ _ZNK4intx4uintILj256EEngEv.exit32:                ; preds = %118
   br i1 %57, label %160, label %137
 
 137:                                              ; preds = %134
-  call void @llvm.lifetime.start.p0(ptr nonnull %5) #21, !noalias !1157
+  call void @llvm.lifetime.start.p0(ptr nonnull %5) #22, !noalias !1157
   call void @llvm.experimental.noalias.scope.decl(metadata !1160)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !tbaa !3, !alias.scope !1160, !noalias !1157
   br label %138
@@ -27546,7 +27546,7 @@ _ZNK4intx4uintILj256EEngEv.exit32:                ; preds = %118
   br i1 %exitcond.not.i.i34, label %_ZNK4intx4uintILj256EEcoEv.exit.i35, label %138, !llvm.loop !221
 
 _ZNK4intx4uintILj256EEcoEv.exit.i35:              ; preds = %138
-  call void @llvm.lifetime.start.p0(ptr nonnull %6) #21, !noalias !1157
+  call void @llvm.lifetime.start.p0(ptr nonnull %6) #22, !noalias !1157
   %144 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %144, i8 0, i64 24, i1 false), !noalias !1157
   store i64 1, ptr %6, align 8, !tbaa !3, !noalias !1157
@@ -27578,8 +27578,8 @@ _ZNK4intx4uintILj256EEcoEv.exit.i35:              ; preds = %138
 _ZNK4intx4uintILj256EEngEv.exit39:                ; preds = %145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1157
-  call void @llvm.lifetime.end.p0(ptr nonnull %6) #21, !noalias !1157
-  call void @llvm.lifetime.end.p0(ptr nonnull %5) #21, !noalias !1157
+  call void @llvm.lifetime.end.p0(ptr nonnull %6) #22, !noalias !1157
+  call void @llvm.lifetime.end.p0(ptr nonnull %5) #22, !noalias !1157
   br label %161
 
 160:                                              ; preds = %134
@@ -27587,10 +27587,10 @@ _ZNK4intx4uintILj256EEngEv.exit39:                ; preds = %145
   br label %161
 
 161:                                              ; preds = %160, %_ZNK4intx4uintILj256EEngEv.exit39
-  call void @llvm.lifetime.end.p0(ptr nonnull %23) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %22) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %21) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %16) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %23) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %22) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %21) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %16) #22
   ret void
 }
 
@@ -27619,7 +27619,7 @@ define linkonce_odr hidden void @_ZN4intx6addmodERKNS_4uintILj256EEES3_S3_(ptr d
   br i1 %or.cond49, label %85, label %20
 
 20:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(ptr nonnull %10) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %10) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !158
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   br label %21
@@ -27653,7 +27653,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit: ; 
   br label %37
 
 37:                                               ; preds = %36, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit
-  call void @llvm.lifetime.start.p0(ptr nonnull %11) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %11) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !158
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   br label %38
@@ -27741,8 +27741,8 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit30: 
   %or.cond = select i1 %.not, i1 %82, i1 false
   %. = select i1 %or.cond, ptr %7, ptr %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %., i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %11) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %10) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10) #22
   br label %104
 
 85:                                               ; preds = %4
@@ -27771,17 +27771,17 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit30: 
   br i1 %exitcond.not.i33, label %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit34, label %86, !llvm.loop !147
 
 _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit34: ; preds = %86
-  call void @llvm.lifetime.start.p0(ptr nonnull %12) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %12) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %101 = zext i1 %98 to i64
   %102 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i64 %101, ptr %102, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(ptr nonnull %13) #21
-  call void @_ZN4intx7udivremILj320ELj256EEENS_10div_resultINS_4uintIXT_EEENS2_IXT0_EEEEERKS3_RKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result.107") align 8 %13, ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(32) %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %13) #22
+  call void @_ZN4intx7udivremILj320ELj256EEENS_10div_resultINS_4uintIXT_EEENS2_IXT0_EEEEERKS3_RKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result.107") align 8 %13, ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   %103 = getelementptr inbounds nuw i8, ptr %13, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %103, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %13) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %12) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12) #22
   br label %104
 
 104:                                              ; preds = %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit34, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit30
@@ -27795,7 +27795,7 @@ define linkonce_odr hidden void @_ZN4intx7udivremILj320ELj256EEENS_10div_resultI
   %5 = alloca %"struct.intx::internal::normalized_div_args.108", align 8
   %6 = alloca %"struct.intx::uint.90", align 8
   %7 = alloca %"struct.intx::uint", align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(92) %5, i8 0, i64 80, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 84
@@ -27964,7 +27964,7 @@ _ZN4intx8internal9normalizeILj320ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEER
 
 79:                                               ; preds = %78
   %80 = load i64, ptr %5, align 8, !tbaa !3
-  %81 = call noundef i64 @_ZN4intx8internal11udivrem_by1EPmim(ptr noundef nonnull %8, i32 noundef %74, i64 noundef %80) #21
+  %81 = call noundef i64 @_ZN4intx8internal11udivrem_by1EPmim(ptr noundef nonnull %8, i32 noundef %74, i64 noundef %80) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 40, i1 false), !tbaa !3
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %83 = load i32, ptr %32, align 8, !tbaa !1190
@@ -27981,7 +27981,7 @@ _ZN4intx8internal9normalizeILj320ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEER
   %90 = load i64, ptr %89, align 8, !tbaa !3
   %91 = icmp samesign ugt i32 %74, 2
   tail call void @llvm.assume(i1 %91)
-  %92 = tail call noundef i64 @_ZN4intx15reciprocal_3by2ENS_4uintILj128EEE(i64 %88, i64 %90) #21
+  %92 = tail call noundef i64 @_ZN4intx15reciprocal_3by2ENS_4uintILj128EEE(i64 %88, i64 %90) #22
   %93 = zext nneg i32 %74 to i64
   %94 = getelementptr i64, ptr %8, i64 %93
   %95 = getelementptr i8, ptr %94, i64 -16
@@ -27998,14 +27998,14 @@ _ZN4intx8internal9normalizeILj320ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEER
   %.sroa.4.0.i = phi i64 [ %98, %87 ], [ %.sroa.4.0.copyload.i, %101 ]
   %.sroa.0.0.i = phi i64 [ %96, %87 ], [ %.sroa.0.0.copyload.i, %101 ]
   %.0.i26 = phi ptr [ %99, %87 ], [ %105, %101 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4) #22
   %102 = load i64, ptr %.0.i26, align 8, !tbaa !3
-  call void @_ZN4intx12udivrem_3by2EmmmNS_4uintILj128EEEm(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result.102") align 8 %4, i64 noundef %.sroa.4.0.i, i64 noundef %.sroa.0.0.i, i64 noundef %102, i64 %88, i64 %90, i64 noundef %92) #21
+  call void @_ZN4intx12udivrem_3by2EmmmNS_4uintILj128EEEm(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result.102") align 8 %4, i64 noundef %.sroa.4.0.i, i64 noundef %.sroa.0.0.i, i64 noundef %102, i64 %88, i64 %90, i64 noundef %92) #22
   %103 = load i64, ptr %4, align 8, !tbaa !3
   store i64 %103, ptr %.0.i26, align 8, !tbaa !3
   %.sroa.0.0.copyload.i = load i64, ptr %100, align 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4) #22
   %104 = icmp eq ptr %.0.i26, %8
   %105 = getelementptr inbounds i8, ptr %.0.i26, i64 -8
   br i1 %104, label %_ZN4intx8internal11udivrem_by2EPmiNS_4uintILj128EEE.exit, label %101, !llvm.loop !1080
@@ -28046,10 +28046,10 @@ _ZN4intxrsITkSt8integraljEENS_4uintILj128EEES2_T_.exit: ; preds = %110, %117, %1
   br label %_ZN4intx4uintILj256EEC2ILj128EEERKNS0_IXT_EEEQltTL0__T_.exit
 
 123:                                              ; preds = %78
-  call void @llvm.lifetime.start.p0(ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false), !tbaa !3
-  call void @_ZN4intx8internal13udivrem_knuthEPmS1_iPKmi(ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %74, ptr noundef nonnull %5, i32 noundef %storemerge51.i.lcssa34) #21
-  call void @llvm.lifetime.start.p0(ptr nonnull %7) #21
+  call void @_ZN4intx8internal13udivrem_knuthEPmS1_iPKmi(ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %74, ptr noundef nonnull %5, i32 noundef %storemerge51.i.lcssa34) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false), !tbaa !3
   %124 = load i32, ptr %18, align 8, !tbaa !1196
   %125 = add i32 %124, -1
@@ -28085,8 +28085,8 @@ _ZN4intxrsITkSt8integraljEENS_4uintILj128EEES2_T_.exit: ; preds = %110, %117, %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !1079
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %7) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6) #22
   br label %_ZN4intx4uintILj256EEC2ILj128EEERKNS0_IXT_EEEQltTL0__T_.exit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
@@ -28105,7 +28105,7 @@ _ZN4intxrsITkSt8integraljEENS_4uintILj128EEES2_T_.exit: ; preds = %110, %117, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !1197
 
 _ZN4intx4uintILj256EEC2ILj128EEERKNS0_IXT_EEEQltTL0__T_.exit: ; preds = %_ZN4intxrsITkSt8integraljEENS_4uintILj128EEES2_T_.exit, %._crit_edge, %79, %76
-  call void @llvm.lifetime.end.p0(ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5) #22
   ret void
 }
 
@@ -28116,7 +28116,7 @@ define linkonce_odr hidden void @_ZN4intx7udivremILj512ELj256EEENS_10div_resultI
   %5 = alloca %"struct.intx::internal::normalized_div_args.113", align 8
   %6 = alloca %"struct.intx::uint.112", align 8
   %7 = alloca %"struct.intx::uint", align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(116) %5, i8 0, i64 104, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 108
@@ -28285,7 +28285,7 @@ _ZN4intx8internal9normalizeILj512ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEER
 
 79:                                               ; preds = %78
   %80 = load i64, ptr %5, align 8, !tbaa !3
-  %81 = call noundef i64 @_ZN4intx8internal11udivrem_by1EPmim(ptr noundef nonnull %8, i32 noundef %74, i64 noundef %80) #21
+  %81 = call noundef i64 @_ZN4intx8internal11udivrem_by1EPmim(ptr noundef nonnull %8, i32 noundef %74, i64 noundef %80) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(72) %8, i64 64, i1 false), !tbaa !3
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %83 = load i32, ptr %32, align 8, !tbaa !1203
@@ -28302,7 +28302,7 @@ _ZN4intx8internal9normalizeILj512ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEER
   %90 = load i64, ptr %89, align 8, !tbaa !3
   %91 = icmp samesign ugt i32 %74, 2
   tail call void @llvm.assume(i1 %91)
-  %92 = tail call noundef i64 @_ZN4intx15reciprocal_3by2ENS_4uintILj128EEE(i64 %88, i64 %90) #21
+  %92 = tail call noundef i64 @_ZN4intx15reciprocal_3by2ENS_4uintILj128EEE(i64 %88, i64 %90) #22
   %93 = zext nneg i32 %74 to i64
   %94 = getelementptr i64, ptr %8, i64 %93
   %95 = getelementptr i8, ptr %94, i64 -16
@@ -28319,14 +28319,14 @@ _ZN4intx8internal9normalizeILj512ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEER
   %.sroa.4.0.i = phi i64 [ %98, %87 ], [ %.sroa.4.0.copyload.i, %101 ]
   %.sroa.0.0.i = phi i64 [ %96, %87 ], [ %.sroa.0.0.copyload.i, %101 ]
   %.0.i26 = phi ptr [ %99, %87 ], [ %105, %101 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4) #22
   %102 = load i64, ptr %.0.i26, align 8, !tbaa !3
-  call void @_ZN4intx12udivrem_3by2EmmmNS_4uintILj128EEEm(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result.102") align 8 %4, i64 noundef %.sroa.4.0.i, i64 noundef %.sroa.0.0.i, i64 noundef %102, i64 %88, i64 %90, i64 noundef %92) #21
+  call void @_ZN4intx12udivrem_3by2EmmmNS_4uintILj128EEEm(ptr dead_on_unwind nonnull writable sret(%"struct.intx::div_result.102") align 8 %4, i64 noundef %.sroa.4.0.i, i64 noundef %.sroa.0.0.i, i64 noundef %102, i64 %88, i64 %90, i64 noundef %92) #22
   %103 = load i64, ptr %4, align 8, !tbaa !3
   store i64 %103, ptr %.0.i26, align 8, !tbaa !3
   %.sroa.0.0.copyload.i = load i64, ptr %100, align 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4) #22
   %104 = icmp eq ptr %.0.i26, %8
   %105 = getelementptr inbounds i8, ptr %.0.i26, i64 -8
   br i1 %104, label %_ZN4intx8internal11udivrem_by2EPmiNS_4uintILj128EEE.exit, label %101, !llvm.loop !1080
@@ -28367,10 +28367,10 @@ _ZN4intxrsITkSt8integraljEENS_4uintILj128EEES2_T_.exit: ; preds = %110, %117, %1
   br label %_ZN4intx4uintILj256EEC2ILj128EEERKNS0_IXT_EEEQltTL0__T_.exit
 
 123:                                              ; preds = %78
-  call void @llvm.lifetime.start.p0(ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false), !tbaa !3
-  call void @_ZN4intx8internal13udivrem_knuthEPmS1_iPKmi(ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %74, ptr noundef nonnull %5, i32 noundef %storemerge51.i.lcssa34) #21
-  call void @llvm.lifetime.start.p0(ptr nonnull %7) #21
+  call void @_ZN4intx8internal13udivrem_knuthEPmS1_iPKmi(ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %74, ptr noundef nonnull %5, i32 noundef %storemerge51.i.lcssa34) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false), !tbaa !3
   %124 = load i32, ptr %18, align 8, !tbaa !1209
   %125 = add i32 %124, -1
@@ -28406,8 +28406,8 @@ _ZN4intxrsITkSt8integraljEENS_4uintILj128EEES2_T_.exit: ; preds = %110, %117, %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false), !tbaa.struct !1210
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %7) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6) #22
   br label %_ZN4intx4uintILj256EEC2ILj128EEERKNS0_IXT_EEEQltTL0__T_.exit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
@@ -28426,7 +28426,7 @@ _ZN4intxrsITkSt8integraljEENS_4uintILj128EEES2_T_.exit: ; preds = %110, %117, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !1211
 
 _ZN4intx4uintILj256EEC2ILj128EEERKNS0_IXT_EEEQltTL0__T_.exit: ; preds = %_ZN4intxrsITkSt8integraljEENS_4uintILj128EEES2_T_.exit, %._crit_edge, %79, %76
-  call void @llvm.lifetime.end.p0(ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5) #22
   ret void
 }
 
@@ -28445,11 +28445,11 @@ define linkonce_odr hidden void @_ZN4intx3expILj256EEENS_4uintIXT_EEES2_S2_(ptr 
   %10 = alloca %"struct.intx::uint", align 8
   %11 = alloca %"struct.intx::uint", align 8
   %12 = alloca %"struct.intx::uint", align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7) #22
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   store i64 1, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(ptr nonnull %8) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %8) #22
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   store i64 2, ptr %8, align 8, !tbaa !3
@@ -28470,7 +28470,7 @@ define linkonce_odr hidden void @_ZN4intx3expILj256EEENS_4uintIXT_EEES2_S2_(ptr 
 
 _ZN4intxeqERKNS_4uintILj256EEES3_.exit:           ; preds = %15
   %23 = icmp eq i64 %21, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %8) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %8) #22
   br i1 %23, label %30, label %.preheader
 
 .preheader:                                       ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit
@@ -28557,7 +28557,7 @@ _ZN4intxlsENS_4uintILj128EEEm.exit37.i:           ; preds = %42
   %59 = phi i64 [ %.promoted49, %.preheader ], [ %.sroa.11.0.i, %_ZN4intx4uintILj256EErSES1_.exit ]
   %60 = phi i64 [ %.promoted48, %.preheader ], [ %.sroa.9.0.i, %_ZN4intx4uintILj256EErSES1_.exit ]
   %61 = phi i64 [ %.promoted, %.preheader ], [ %.sroa.0.0.i, %_ZN4intx4uintILj256EErSES1_.exit ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %9) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %9) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   br label %62
 
@@ -28576,12 +28576,12 @@ _ZN4intxlsENS_4uintILj128EEEm.exit37.i:           ; preds = %42
 
 _ZN4intxeqERKNS_4uintILj256EEES3_.exit7:          ; preds = %62
   %70 = icmp eq i64 %68, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %9) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %9) #22
   br i1 %70, label %175, label %71
 
 71:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit7
-  call void @llvm.lifetime.start.p0(ptr nonnull %10) #21
-  call void @llvm.lifetime.start.p0(ptr nonnull %11) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   store i64 1, ptr %11, align 8, !tbaa !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1218)
@@ -28602,7 +28602,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit7:          ; preds = %62
   br i1 %exitcond.not.i8, label %_ZN4intxanERKNS_4uintILj256EEES3_.exit, label %72, !llvm.loop !206
 
 _ZN4intxanERKNS_4uintILj256EEES3_.exit:           ; preds = %72
-  call void @llvm.lifetime.start.p0(ptr nonnull %12) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %12) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   br label %80
 
@@ -28621,14 +28621,14 @@ _ZN4intxanERKNS_4uintILj256EEES3_.exit:           ; preds = %72
 
 _ZN4intxeqERKNS_4uintILj256EEES3_.exit12:         ; preds = %80
   %88 = icmp eq i64 %86, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %12) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %11) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %10) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10) #22
   %.pre.i.i16.pre = load i64, ptr %.phi.trans.insert.i.i, align 8, !noalias !1221
   br i1 %88, label %127, label %89
 
 89:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit12
-  call void @llvm.lifetime.start.p0(ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6) #22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1224)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !tbaa !3, !alias.scope !1224
   br label %.preheader.i.i
@@ -28719,11 +28719,11 @@ _ZN4intxplENS_4uintILj128EEES1_.exit.i.i:         ; preds = %116
 
 _ZN4intx4uintILj256EEmLERKS1_.exit:               ; preds = %._crit_edge.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6) #22
   br label %127
 
 127:                                              ; preds = %_ZN4intx4uintILj256EEmLERKS1_.exit, %_ZN4intxeqERKNS_4uintILj256EEES3_.exit12
-  call void @llvm.lifetime.start.p0(ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5) #22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1221)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !tbaa !3, !alias.scope !1221
   br label %.preheader.i.i17
@@ -28814,7 +28814,7 @@ _ZN4intxplENS_4uintILj128EEES1_.exit.i.i31:       ; preds = %154
 
 _ZN4intx4uintILj256EEmLERKS1_.exit41:             ; preds = %._crit_edge.i.i37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5) #22
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, i8 0, i64 24, i1 false)
   br label %166
@@ -28857,12 +28857,12 @@ _ZN4intx4uintILj256EErSES1_.exit:                 ; preds = %165, %_ZN4intxrsENS
   br label %_ZN4intxlsERKNS_4uintILj256EEES3_.exit
 
 _ZN4intxlsERKNS_4uintILj256EEES3_.exit:           ; preds = %37, %41, %_ZN4intxlsENS_4uintILj128EEEm.exit30.i, %_ZN4intxlsENS_4uintILj128EEEm.exit37.i, %175
-  call void @llvm.lifetime.end.p0(ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7) #22
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6evmone5instr4core3sarENS_8StackTopE(ptr %0) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden void @_ZN6evmone5instr4core3sarENS_8StackTopE(ptr %0) local_unnamed_addr #12 comdat {
   %2 = alloca %"struct.intx::uint", align 8
   %3 = alloca %"struct.intx::uint", align 8
   %4 = alloca %"struct.intx::uint", align 8
@@ -28873,8 +28873,8 @@ define linkonce_odr hidden void @_ZN6evmone5instr4core3sarENS_8StackTopE(ptr %0)
   %9 = getelementptr inbounds i8, ptr %0, i64 -40
   %10 = load i64, ptr %9, align 8, !tbaa !3
   %11 = icmp slt i64 %10, 0
-  call void @llvm.lifetime.start.p0(ptr nonnull %2) #21
-  call void @llvm.lifetime.start.p0(ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3) #22
   br i1 %11, label %12, label %19
 
 12:                                               ; preds = %1
@@ -28899,7 +28899,7 @@ define linkonce_odr hidden void @_ZN6evmone5instr4core3sarENS_8StackTopE(ptr %0)
   br label %_ZNK4intx4uintILj256EEcoEv.exit
 
 _ZNK4intx4uintILj256EEcoEv.exit:                  ; preds = %13, %19
-  call void @llvm.lifetime.end.p0(ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3) #22
   %20 = getelementptr inbounds i8, ptr %0, i64 -16
   %21 = load i64, ptr %20, align 8, !tbaa !3
   %22 = getelementptr inbounds i8, ptr %0, i64 -8
@@ -28933,8 +28933,8 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit:           ; preds = %_ZNK4intx4uintILj25
 
 39:                                               ; preds = %_ZN4intxltERKNS_4uintILj256EEES3_.exit, %36
   %40 = phi i64 [ %38, %36 ], [ 0, %_ZN4intxltERKNS_4uintILj256EEES3_.exit ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %4) #21
-  call void @llvm.lifetime.start.p0(ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5) #22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1240)
   br label %42
 
@@ -29059,7 +29059,7 @@ _ZN4intxrsENS_4uintILj128EEEm.exit37.i:           ; preds = %106, %99
   br label %_ZN4intxrsERKNS_4uintILj256EEES3_.exit
 
 _ZN4intxrsERKNS_4uintILj256EEES3_.exit:           ; preds = %_ZN4intxrsENS_4uintILj128EEEm.exit37.i, %_ZN4intxrsENS_4uintILj128EEEm.exit30.i, %51, %47
-  call void @llvm.lifetime.start.p0(ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6) #22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1246)
   %111 = icmp ugt i64 %40, 255
   br i1 %111, label %112, label %113, !prof !141
@@ -29182,19 +29182,19 @@ _ZN4intxlsERKNS_4uintILj256EEEm.exit:             ; preds = %112, %_ZN4intxlsENS
 
 _ZN4intxorERKNS_4uintILj256EEES3_.exit:           ; preds = %174
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(ptr nonnull %6) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %5) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %4) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %2) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2) #22
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core9keccak256ENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core9keccak256ENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #12 comdat {
   %4 = alloca %"struct.intx::uint", align 8
   %5 = alloca %union.ethash_hash256, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   br label %7
 
@@ -29215,7 +29215,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %7
   %15 = getelementptr inbounds i8, ptr %0, i64 -32
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = icmp eq i64 %13, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4) #22
   br i1 %17, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread30, label %18
 
 18:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i
@@ -29260,7 +29260,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %7
   br i1 %46, label %47, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 47:                                               ; preds = %42
-  %48 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %43) #21
+  %48 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %43) #22
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit: ; preds = %42, %47
@@ -29284,15 +29284,15 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread30: 
   br i1 %.not, label %.split13, label %.split
 
 .split13:                                         ; preds = %56
-  call void @llvm.lifetime.start.p0(ptr nonnull %5) #21
-  call void @ethash_keccak256(ptr dead_on_unwind nonnull writable sret(%union.ethash_hash256) align 8 %5, ptr noundef null, i64 noundef 0) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5) #22
+  call void @ethash_keccak256(ptr dead_on_unwind nonnull writable sret(%union.ethash_hash256) align 8 %5, ptr noundef null, i64 noundef 0) #22
   br label %59
 
 .split:                                           ; preds = %56
   %57 = load ptr, ptr %16, align 8, !tbaa !7
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 %50
-  call void @llvm.lifetime.start.p0(ptr nonnull %5) #21
-  call void @ethash_keccak256(ptr dead_on_unwind nonnull writable sret(%union.ethash_hash256) align 8 %5, ptr noundef nonnull %58, i64 noundef %51) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5) #22
+  call void @ethash_keccak256(ptr dead_on_unwind nonnull writable sret(%union.ethash_hash256) align 8 %5, ptr noundef nonnull %58, i64 noundef %51) #22
   br label %59
 
 59:                                               ; preds = %.split13, %.split
@@ -29314,7 +29314,7 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread30: 
   store i64 %62, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 -40
   store i64 %63, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5) #22
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %30, %39, %18, %27, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %59, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread30
@@ -29326,7 +29326,7 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; 
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2) local_unnamed_addr #12 comdat {
+define linkonce_odr hidden noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2) local_unnamed_addr #13 comdat {
   %4 = add i64 %2, 31
   %5 = lshr i64 %4, 5
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -29362,14 +29362,14 @@ define linkonce_odr hidden noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i
   %storemerge.i = select i1 %24, i64 %26, i64 %23
   store i64 %storemerge.i, ptr %19, align 8, !tbaa !1252
   store ptr null, ptr %1, align 8, !tbaa !7
-  %27 = tail call ptr @realloc(ptr noundef %.pre9.i, i64 noundef %storemerge.i) #25
+  %27 = tail call ptr @realloc(ptr noundef %.pre9.i, i64 noundef %storemerge.i) #26
   %28 = load ptr, ptr %1, align 8, !tbaa !7
   store ptr %27, ptr %1, align 8, !tbaa !7
   %.not.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIA_hN6evmone6Memory11FreeDeleterEE5resetIPhvEEvT_.exit.i.i, label %29
 
 29:                                               ; preds = %22
-  tail call void @free(ptr noundef nonnull %28) #21
+  tail call void @free(ptr noundef nonnull %28) #22
   %.pr.i.i = load ptr, ptr %1, align 8, !tbaa !7
   br label %_ZNSt10unique_ptrIA_hN6evmone6Memory11FreeDeleterEE5resetIPhvEEvT_.exit.i.i
 
@@ -29383,7 +29383,7 @@ _ZNSt10unique_ptrIA_hN6evmone6Memory11FreeDeleterEE5resetIPhvEEvT_.exit.i._ZN6ev
   br label %_ZN6evmone6Memory4growEm.exit
 
 31:                                               ; preds = %_ZNSt10unique_ptrIA_hN6evmone6Memory11FreeDeleterEE5resetIPhvEEvT_.exit.i.i
-  tail call void @_ZN6evmone6Memory20handle_out_of_memoryEv() #26
+  tail call void @_ZN6evmone6Memory20handle_out_of_memoryEv() #27
   unreachable
 
 _ZN6evmone6Memory4growEm.exit:                    ; preds = %16, %_ZNSt10unique_ptrIA_hN6evmone6Memory11FreeDeleterEE5resetIPhvEEvT_.exit.i._ZN6evmone6Memory17allocate_capacityEv.exit_crit_edge.i
@@ -29400,31 +29400,31 @@ _ZN6evmone6Memory4growEm.exit:                    ; preds = %16, %_ZNSt10unique_
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: cold mustprogress noreturn nounwind optsize uwtable
-define linkonce_odr hidden void @_ZN6evmone6Memory20handle_out_of_memoryEv() local_unnamed_addr #14 comdat align 2 {
-  tail call void @_ZSt9terminatev() #23
+define linkonce_odr hidden void @_ZN6evmone6Memory20handle_out_of_memoryEv() local_unnamed_addr #15 comdat align 2 {
+  tail call void @_ZSt9terminatev() #24
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @_ZSt9terminatev() local_unnamed_addr #16
+declare void @_ZSt9terminatev() local_unnamed_addr #17
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #10
 
 ; Function Attrs: nounwind
 declare void @ethash_keccak256(ptr dead_on_unwind writable sret(%union.ethash_hash256) align 8, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core12calldatacopyENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core12calldatacopyENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #12 comdat {
   %4 = alloca %"struct.intx::uint", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 -96
-  call void @llvm.lifetime.start.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   br label %6
 
@@ -29446,7 +29446,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %6
   %15 = getelementptr inbounds i8, ptr %0, i64 -64
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = icmp eq i64 %12, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4) #22
   br i1 %17, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread41, label %18
 
 18:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i
@@ -29491,7 +29491,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %6
   br i1 %46, label %47, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 47:                                               ; preds = %42
-  %48 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %43) #21
+  %48 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %43) #22
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit: ; preds = %42, %47
@@ -29582,10 +29582,10 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core8codecopyENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core8codecopyENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #12 comdat {
   %4 = alloca %"struct.intx::uint", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 -96
-  call void @llvm.lifetime.start.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   br label %6
 
@@ -29607,7 +29607,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %6
   %15 = getelementptr inbounds i8, ptr %0, i64 -64
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = icmp eq i64 %12, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4) #22
   br i1 %17, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread42, label %18
 
 18:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i
@@ -29652,7 +29652,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %6
   br i1 %46, label %47, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 47:                                               ; preds = %42
-  %48 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %43) #21
+  %48 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %43) #22
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit: ; preds = %42, %47
@@ -29741,10 +29741,10 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core11extcodecopyENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core11extcodecopyENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #12 comdat {
   %4 = alloca %"struct.intx::uint", align 8
   %5 = alloca %"struct.evmc::address", align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5) #22
   %6 = getelementptr inbounds i8, ptr %0, i64 -32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1254)
   %7 = getelementptr inbounds i8, ptr %0, i64 -16
@@ -29763,7 +29763,7 @@ define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core11extcodecopyENS_8
   %.sroa.6.12..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i64 %14, ptr %.sroa.6.12..sroa_idx.i.i, align 4, !alias.scope !1254
   %15 = getelementptr inbounds i8, ptr %0, i64 -128
-  call void @llvm.lifetime.start.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   br label %16
 
@@ -29785,7 +29785,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %16
   %25 = getelementptr inbounds i8, ptr %0, i64 -96
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = icmp eq i64 %22, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4) #22
   br i1 %27, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread39, label %28
 
 28:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i
@@ -29830,7 +29830,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %16
   br i1 %56, label %57, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 57:                                               ; preds = %52
-  %58 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 noundef %53) #21
+  %58 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 noundef %53) #22
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit: ; preds = %52, %57
@@ -29861,7 +29861,7 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread39: 
   %73 = load ptr, ptr %72, align 8, !tbaa !254
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %75 = load ptr, ptr %74, align 8, !tbaa !256
-  %76 = call noundef i32 %73(ptr noundef %75, ptr noundef nonnull align 1 dereferenceable(20) %5) #21
+  %76 = call noundef i32 %73(ptr noundef %75, ptr noundef nonnull align 1 dereferenceable(20) %5) #22
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %78, label %81
 
@@ -29917,7 +29917,7 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit:           ; preds = %82, %89
   %109 = load ptr, ptr %108, align 8, !tbaa !1262
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %111 = load ptr, ptr %110, align 8, !tbaa !256
-  %112 = call noundef i64 %109(ptr noundef %111, ptr noundef nonnull align 1 dereferenceable(20) %5, i64 noundef %102, ptr noundef nonnull %105, i64 noundef %60) #21
+  %112 = call noundef i64 %109(ptr noundef %111, ptr noundef nonnull align 1 dereferenceable(20) %5, i64 noundef %102, ptr noundef nonnull %105, i64 noundef %60) #22
   %.not27 = icmp eq i64 %60, %112
   br i1 %.not27, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread, label %113
 
@@ -29932,17 +29932,17 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit:           ; preds = %82, %89
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %40, %49, %28, %37, %81, %113, %101, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread39, %78
   %.sroa.0.0 = phi i32 [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread39 ], [ 3, %78 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 0, %101 ], [ 0, %113 ], [ 0, %81 ], [ 3, %37 ], [ 3, %28 ], [ 3, %49 ], [ 3, %40 ]
   %.sroa.5.0 = phi i64 [ %63, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread39 ], [ %79, %78 ], [ %.1, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.0, %101 ], [ %.0, %113 ], [ %.0, %81 ], [ %1, %37 ], [ %1, %28 ], [ %1, %49 ], [ %1, %40 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5) #22
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
   ret { i32, i64 } %.fca.1.insert
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core14returndatacopyENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core14returndatacopyENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #12 comdat {
   %4 = alloca %"struct.intx::uint", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 -96
-  call void @llvm.lifetime.start.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   br label %6
 
@@ -29964,7 +29964,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %6
   %15 = getelementptr inbounds i8, ptr %0, i64 -64
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = icmp eq i64 %12, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4) #22
   br i1 %17, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread76, label %18
 
 18:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i
@@ -30009,7 +30009,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %6
   br i1 %46, label %47, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 47:                                               ; preds = %42
-  %48 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %43) #21
+  %48 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %43) #22
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit: ; preds = %42, %47
@@ -30025,7 +30025,7 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread76: 
   %.sroa.0.0.copyload = load i64, ptr %52, align 8, !tbaa !3
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 112
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !7
-  %53 = tail call noundef zeroext i1 @_ZN6evmone16is_eof_containerESt17basic_string_viewIhN4evmc11byte_traitsIhEEE(i64 %.sroa.0.0.copyload, ptr %.sroa.2.0.copyload) #21
+  %53 = tail call noundef zeroext i1 @_ZN6evmone16is_eof_containerESt17basic_string_viewIhN4evmc11byte_traitsIhEEE(i64 %.sroa.0.0.copyload, ptr %.sroa.2.0.copyload) #22
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %56 = load i64, ptr %55, align 8, !tbaa !103
@@ -30159,7 +30159,7 @@ declare { i32, i64 } @_ZN6evmone5instr4core5sloadENS_8StackTopElRNS_14ExecutionS
 declare { i32, i64 } @_ZN6evmone5instr4core6sstoreENS_8StackTopElRNS_14ExecutionStateE(ptr, i64 noundef, ptr noundef nonnull align 8 dereferenceable(544)) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core5mcopyENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core5mcopyENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #12 comdat {
   %4 = alloca %"struct.intx::uint", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 -32
   %6 = getelementptr inbounds i8, ptr %0, i64 -64
@@ -30192,7 +30192,7 @@ _ZSt3maxIN4intx4uintILj256EEEERKT_S5_S5_.exit:    ; preds = %3, %20
   %.sroa.6.0.i.i = phi i64 [ %26, %20 ], [ %16, %3 ]
   %.sroa.020.0.i.i = phi i64 [ %21, %20 ], [ %10, %3 ]
   %.sroa.622.0.i.i = phi i64 [ %23, %20 ], [ %12, %3 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   br label %27
 
@@ -30221,7 +30221,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %27
   %43 = icmp ult i128 %38, %42
   %..i = select i1 %43, ptr %6, ptr %5
   %44 = icmp eq i64 %33, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4) #22
   br i1 %44, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread24, label %45
 
 45:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i
@@ -30266,7 +30266,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %27
   br i1 %73, label %74, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 74:                                               ; preds = %69
-  %75 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %70) #21
+  %75 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %70) #22
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit: ; preds = %69, %74
@@ -30305,14 +30305,14 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; 
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #10
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core3logILm0EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core3logILm0EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #12 comdat {
   %4 = alloca %"struct.intx::uint", align 8
   %5 = alloca %"struct.evmc::address", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -30325,7 +30325,7 @@ define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core3logILm0EEENS_6Res
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   br label %13
 
@@ -30346,7 +30346,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %13
   %21 = getelementptr inbounds i8, ptr %0, i64 -32
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = icmp eq i64 %19, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4) #22
   br i1 %23, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread36, label %24
 
 24:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i
@@ -30391,7 +30391,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %13
   br i1 %52, label %53, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 53:                                               ; preds = %48
-  %54 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 noundef %49) #21
+  %54 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 noundef %49) #22
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit: ; preds = %48, %53
@@ -30413,7 +30413,7 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread36: 
   %61 = load ptr, ptr %22, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 %60
   %63 = select i1 %.not22, ptr null, ptr %62
-  call void @llvm.lifetime.start.p0(ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5) #22
   %64 = load ptr, ptr %6, align 8, !tbaa !81
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(20) %65, i64 20, i1 false)
@@ -30423,8 +30423,8 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread36: 
   %69 = load ptr, ptr %68, align 8, !tbaa !1263
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %71 = load ptr, ptr %70, align 8, !tbaa !256
-  call void %69(ptr noundef %71, ptr noundef nonnull align 1 dereferenceable(20) %5, ptr noundef %63, i64 noundef %56, ptr noundef null, i64 noundef 0) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %5) #21
+  call void %69(ptr noundef %71, ptr noundef nonnull align 1 dereferenceable(20) %5, ptr noundef %63, i64 noundef %56, ptr noundef null, i64 noundef 0) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5) #22
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %36, %45, %24, %33, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread36, %.preheader, %3
@@ -30436,7 +30436,7 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core3logILm1EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core3logILm1EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #12 comdat {
   %4 = alloca %"struct.intx::uint", align 8
   %5 = alloca %"struct.std::array.117", align 8
   %6 = alloca %"struct.evmc::address", align 8
@@ -30450,7 +30450,7 @@ define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core3logILm1EEENS_6Res
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds i8, ptr %0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   br label %14
 
@@ -30471,7 +30471,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %14
   %22 = getelementptr inbounds i8, ptr %0, i64 -32
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = icmp eq i64 %20, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4) #22
   br i1 %24, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35, label %25
 
 25:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i
@@ -30516,7 +30516,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %14
   br i1 %53, label %54, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 54:                                               ; preds = %49
-  %55 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %50) #21
+  %55 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %50) #22
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit: ; preds = %49, %54
@@ -30534,7 +30534,7 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35: 
 
 61:                                               ; preds = %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35
   %62 = load i64, ptr %22, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5) #22
   %63 = getelementptr inbounds i8, ptr %0, i64 -96
   %64 = getelementptr inbounds i8, ptr %0, i64 -72
   %65 = load i64, ptr %64, align 8, !tbaa !3, !noalias !1264
@@ -30558,7 +30558,7 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35: 
   %75 = load ptr, ptr %23, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 %62
   %77 = select i1 %.not22, ptr null, ptr %76
-  call void @llvm.lifetime.start.p0(ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6) #22
   %78 = load ptr, ptr %7, align 8, !tbaa !81
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(20) %79, i64 20, i1 false)
@@ -30568,9 +30568,9 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35: 
   %83 = load ptr, ptr %82, align 8, !tbaa !1263
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %85 = load ptr, ptr %84, align 8, !tbaa !256
-  call void %83(ptr noundef %85, ptr noundef nonnull align 1 dereferenceable(20) %6, ptr noundef %77, i64 noundef %57, ptr noundef nonnull %5, i64 noundef 1) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %6) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %5) #21
+  call void %83(ptr noundef %85, ptr noundef nonnull align 1 dereferenceable(20) %6, ptr noundef %77, i64 noundef %57, ptr noundef nonnull %5, i64 noundef 1) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5) #22
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %37, %46, %25, %34, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35, %61, %3
@@ -30582,7 +30582,7 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core3logILm2EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core3logILm2EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #12 comdat {
   %4 = alloca %"struct.intx::uint", align 8
   %5 = alloca %"struct.std::array.118", align 1
   %6 = alloca %"struct.evmc::address", align 8
@@ -30596,7 +30596,7 @@ define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core3logILm2EEENS_6Res
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds i8, ptr %0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   br label %14
 
@@ -30617,7 +30617,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %14
   %22 = getelementptr inbounds i8, ptr %0, i64 -32
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = icmp eq i64 %20, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4) #22
   br i1 %24, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35, label %25
 
 25:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i
@@ -30662,7 +30662,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %14
   br i1 %53, label %54, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 54:                                               ; preds = %49
-  %55 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %50) #21
+  %55 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %50) #22
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit: ; preds = %49, %54
@@ -30680,7 +30680,7 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35: 
   br i1 %61, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread, label %_ZNSt5arrayIN4evmc7bytes32ELm2EEC2Ev.exit.preheader
 
 _ZNSt5arrayIN4evmc7bytes32ELm2EEC2Ev.exit.preheader: ; preds = %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35
-  call void @llvm.lifetime.start.p0(ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   br label %_ZNSt5arrayIN4evmc7bytes32ELm2EEC2Ev.exit
 
@@ -30689,7 +30689,7 @@ _ZNSt5arrayIN4evmc7bytes32ELm2EEC2Ev.exit.preheader: ; preds = %_ZN6evmone12chec
   %63 = load ptr, ptr %23, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 %57
   %65 = select i1 %.not22, ptr null, ptr %64
-  call void @llvm.lifetime.start.p0(ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6) #22
   %66 = load ptr, ptr %7, align 8, !tbaa !81
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(20) %67, i64 20, i1 false)
@@ -30699,9 +30699,9 @@ _ZNSt5arrayIN4evmc7bytes32ELm2EEC2Ev.exit.preheader: ; preds = %_ZN6evmone12chec
   %71 = load ptr, ptr %70, align 8, !tbaa !1263
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %73 = load ptr, ptr %72, align 8, !tbaa !256
-  call void %71(ptr noundef %73, ptr noundef nonnull align 1 dereferenceable(20) %6, ptr noundef %65, i64 noundef %58, ptr noundef nonnull %5, i64 noundef 2) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %6) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %5) #21
+  call void %71(ptr noundef %73, ptr noundef nonnull align 1 dereferenceable(20) %6, ptr noundef %65, i64 noundef %58, ptr noundef nonnull %5, i64 noundef 2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5) #22
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
 _ZNSt5arrayIN4evmc7bytes32ELm2EEC2Ev.exit:        ; preds = %_ZNSt5arrayIN4evmc7bytes32ELm2EEC2Ev.exit.preheader, %_ZNSt5arrayIN4evmc7bytes32ELm2EEC2Ev.exit
@@ -30740,7 +30740,7 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core3logILm3EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core3logILm3EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #12 comdat {
   %4 = alloca %"struct.intx::uint", align 8
   %5 = alloca %"struct.std::array.119", align 1
   %6 = alloca %"struct.evmc::address", align 8
@@ -30754,7 +30754,7 @@ define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core3logILm3EEENS_6Res
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds i8, ptr %0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   br label %14
 
@@ -30775,7 +30775,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %14
   %22 = getelementptr inbounds i8, ptr %0, i64 -32
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = icmp eq i64 %20, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4) #22
   br i1 %24, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35, label %25
 
 25:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i
@@ -30820,7 +30820,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %14
   br i1 %53, label %54, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 54:                                               ; preds = %49
-  %55 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %50) #21
+  %55 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %50) #22
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit: ; preds = %49, %54
@@ -30838,7 +30838,7 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35: 
   br i1 %61, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread, label %_ZNSt5arrayIN4evmc7bytes32ELm3EEC2Ev.exit.preheader
 
 _ZNSt5arrayIN4evmc7bytes32ELm3EEC2Ev.exit.preheader: ; preds = %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35
-  call void @llvm.lifetime.start.p0(ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(96) %5, i8 0, i64 96, i1 false)
   br label %_ZNSt5arrayIN4evmc7bytes32ELm3EEC2Ev.exit
 
@@ -30847,7 +30847,7 @@ _ZNSt5arrayIN4evmc7bytes32ELm3EEC2Ev.exit.preheader: ; preds = %_ZN6evmone12chec
   %63 = load ptr, ptr %23, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 %57
   %65 = select i1 %.not22, ptr null, ptr %64
-  call void @llvm.lifetime.start.p0(ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6) #22
   %66 = load ptr, ptr %7, align 8, !tbaa !81
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(20) %67, i64 20, i1 false)
@@ -30857,9 +30857,9 @@ _ZNSt5arrayIN4evmc7bytes32ELm3EEC2Ev.exit.preheader: ; preds = %_ZN6evmone12chec
   %71 = load ptr, ptr %70, align 8, !tbaa !1263
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %73 = load ptr, ptr %72, align 8, !tbaa !256
-  call void %71(ptr noundef %73, ptr noundef nonnull align 1 dereferenceable(20) %6, ptr noundef %65, i64 noundef %58, ptr noundef nonnull %5, i64 noundef 3) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %6) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %5) #21
+  call void %71(ptr noundef %73, ptr noundef nonnull align 1 dereferenceable(20) %6, ptr noundef %65, i64 noundef %58, ptr noundef nonnull %5, i64 noundef 3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5) #22
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
 _ZNSt5arrayIN4evmc7bytes32ELm3EEC2Ev.exit:        ; preds = %_ZNSt5arrayIN4evmc7bytes32ELm3EEC2Ev.exit.preheader, %_ZNSt5arrayIN4evmc7bytes32ELm3EEC2Ev.exit
@@ -30898,7 +30898,7 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core3logILm4EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core3logILm4EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #12 comdat {
   %4 = alloca %"struct.intx::uint", align 8
   %5 = alloca %"struct.std::array.120", align 1
   %6 = alloca %"struct.evmc::address", align 8
@@ -30912,7 +30912,7 @@ define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core3logILm4EEENS_6Res
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds i8, ptr %0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   br label %14
 
@@ -30933,7 +30933,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %14
   %22 = getelementptr inbounds i8, ptr %0, i64 -32
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = icmp eq i64 %20, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4) #22
   br i1 %24, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35, label %25
 
 25:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i
@@ -30978,7 +30978,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %14
   br i1 %53, label %54, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 54:                                               ; preds = %49
-  %55 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %50) #21
+  %55 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %50) #22
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit: ; preds = %49, %54
@@ -30996,7 +30996,7 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35: 
   br i1 %61, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread, label %_ZNSt5arrayIN4evmc7bytes32ELm4EEC2Ev.exit.preheader
 
 _ZNSt5arrayIN4evmc7bytes32ELm4EEC2Ev.exit.preheader: ; preds = %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35
-  call void @llvm.lifetime.start.p0(ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %5, i8 0, i64 128, i1 false)
   br label %_ZNSt5arrayIN4evmc7bytes32ELm4EEC2Ev.exit
 
@@ -31005,7 +31005,7 @@ _ZNSt5arrayIN4evmc7bytes32ELm4EEC2Ev.exit.preheader: ; preds = %_ZN6evmone12chec
   %63 = load ptr, ptr %23, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 %57
   %65 = select i1 %.not22, ptr null, ptr %64
-  call void @llvm.lifetime.start.p0(ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6) #22
   %66 = load ptr, ptr %7, align 8, !tbaa !81
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(20) %67, i64 20, i1 false)
@@ -31015,9 +31015,9 @@ _ZNSt5arrayIN4evmc7bytes32ELm4EEC2Ev.exit.preheader: ; preds = %_ZN6evmone12chec
   %71 = load ptr, ptr %70, align 8, !tbaa !1263
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %73 = load ptr, ptr %72, align 8, !tbaa !256
-  call void %71(ptr noundef %73, ptr noundef nonnull align 1 dereferenceable(20) %6, ptr noundef %65, i64 noundef %58, ptr noundef nonnull %5, i64 noundef 4) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %6) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %5) #21
+  call void %71(ptr noundef %73, ptr noundef nonnull align 1 dereferenceable(20) %6, ptr noundef %65, i64 noundef %58, ptr noundef nonnull %5, i64 noundef 4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5) #22
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
 _ZNSt5arrayIN4evmc7bytes32ELm4EEC2Ev.exit:        ; preds = %_ZNSt5arrayIN4evmc7bytes32ELm4EEC2Ev.exit.preheader, %_ZNSt5arrayIN4evmc7bytes32ELm4EEC2Ev.exit
@@ -31059,7 +31059,7 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; 
 declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core8datacopyENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core8datacopyENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #12 comdat {
   %4 = alloca %"struct.intx::uint", align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 504
   %6 = load ptr, ptr %5, align 8, !tbaa !17
@@ -31071,14 +31071,14 @@ define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core8datacopyENS_8Stac
   br i1 %10, label %11, label %_ZNK6evmone8baseline12CodeAnalysis8eof_dataEv.exit
 
 11:                                               ; preds = %3
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i64 noundef %9, i64 noundef %.sroa.0.0.copyload.i) #23
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i64 noundef %9, i64 noundef %.sroa.0.0.copyload.i) #24
   unreachable
 
 _ZNK6evmone8baseline12CodeAnalysis8eof_dataEv.exit: ; preds = %3
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !7
   %12 = getelementptr inbounds i8, ptr %0, i64 -96
-  call void @llvm.lifetime.start.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   br label %13
 
@@ -31102,7 +31102,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %13
   %24 = getelementptr inbounds i8, ptr %0, i64 -64
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = icmp eq i64 %19, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4) #22
   br i1 %26, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread42, label %27
 
 27:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i
@@ -31147,7 +31147,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %13
   br i1 %55, label %56, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 56:                                               ; preds = %51
-  %57 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %52) #21
+  %57 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %52) #22
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit: ; preds = %51, %56
@@ -31232,7 +31232,7 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN6evmone5instr4core5callfENS_8StackTopERNS_14ExecutionStateEPKh(ptr %0, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef %2) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden noundef ptr @_ZN6evmone5instr4core5callfENS_8StackTopERNS_14ExecutionStateEPKh(ptr %0, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef %2) local_unnamed_addr #12 comdat {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %6 = load i8, ptr %4, align 1, !tbaa !17
@@ -31308,14 +31308,14 @@ define linkonce_odr hidden noundef ptr @_ZN6evmone5instr4core5callfENS_8StackTop
   br i1 %55, label %56, label %_ZNKSt6vectorIPKhSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
 
 56:                                               ; preds = %54
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.174) #23
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.174) #24
   unreachable
 
 _ZNKSt6vectorIPKhSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %54
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %44, i64 1)
   %57 = add nuw nsw i64 %.sroa.speculated.i.i.i.i, %44
   %58 = shl nuw nsw i64 %57, 3
-  %59 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %58) #22
+  %59 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %58) #23
   %60 = getelementptr inbounds i8, ptr %59, i64 %43
   store ptr %49, ptr %60, align 8, !tbaa !7
   %61 = icmp sgt i64 %43, 0
@@ -31334,7 +31334,7 @@ _ZNSt6vectorIPKhSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %62
   %65 = load ptr, ptr %50, align 8, !tbaa !1065
   %66 = ptrtoint ptr %65 to i64
   %67 = sub i64 %66, %42
-  tail call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %67) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %67) #22
   br label %_ZNSt6vectorIPKhSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPKhSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %64, %_ZNSt6vectorIPKhSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
@@ -31371,11 +31371,11 @@ declare { i32, i64 } @_ZN6evmone5instr4core15create_eof_implILNS_6OpcodeE236EEEN
 declare { i32, i64 } @_ZN6evmone5instr4core15create_eof_implILNS_6OpcodeE237EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateERPKh(ptr, i64 noundef, ptr noundef nonnull align 8 dereferenceable(544), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core10returncodeENS_8StackTopElRNS_14ExecutionStateEPKh(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2, ptr noundef %3) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core10returncodeENS_8StackTopElRNS_14ExecutionStateEPKh(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2, ptr noundef %3) local_unnamed_addr #12 comdat {
   %5 = alloca %"struct.intx::uint", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   br label %8
 
@@ -31396,7 +31396,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %8
   %16 = getelementptr inbounds i8, ptr %0, i64 -32
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = icmp eq i64 %14, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5) #22
   br i1 %18, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread23, label %19
 
 19:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i
@@ -31441,7 +31441,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %8
   br i1 %47, label %48, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 48:                                               ; preds = %43
-  %49 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %44) #21
+  %49 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %44) #22
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit: ; preds = %43, %48
@@ -31454,7 +31454,7 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread23: 
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %52 = load i8, ptr %51, align 1, !tbaa !17
   %53 = zext i8 %52 to i64
-  call void @llvm.lifetime.start.p0(ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6) #22
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 504
   %55 = load ptr, ptr %54, align 8, !tbaa !17
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 104
@@ -31468,7 +31468,7 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread23: 
   br i1 %62, label %63, label %_ZNK6evmone10EOF1Header13get_containerESt17basic_string_viewIhN4evmc11byte_traitsIhEEEm.exit
 
 63:                                               ; preds = %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread23
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i64 noundef %61, i64 noundef %.sroa.0.0.copyload) #23
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i64 noundef %61, i64 noundef %.sroa.0.0.copyload) #24
   unreachable
 
 _ZNK6evmone10EOF1Header13get_containerESt17basic_string_viewIhN4evmc11byte_traitsIhEEEm.exit: ; preds = %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread23
@@ -31489,7 +31489,7 @@ _ZNK6evmone10EOF1Header13get_containerESt17basic_string_viewIhN4evmc11byte_trait
 
 _ZNSt7__cxx1112basic_stringIhN4evmc11byte_traitsIhEESaIhEE9_M_createERmm.exit.i.i.i.i.i.i: ; preds = %_ZNK6evmone10EOF1Header13get_containerESt17basic_string_viewIhN4evmc11byte_traitsIhEEEm.exit
   %73 = add nuw nsw i64 %.sroa.speculated.i.i, 1
-  %74 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %73) #22
+  %74 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %73) #23
   store ptr %74, ptr %6, align 8, !tbaa !102
   store i64 %.sroa.speculated.i.i, ptr %71, align 8, !tbaa !17
   br label %._crit_edge.i.i.i.i.i.i
@@ -31520,7 +31520,7 @@ _ZNSt7__cxx1112basic_stringIhN4evmc11byte_traitsIhEESaIhEEC2ISt17basic_string_vi
   %81 = load ptr, ptr %17, align 8, !tbaa !7
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 %80
   %83 = load i64, ptr %7, align 8, !tbaa !3
-  %84 = call noundef zeroext i1 @_ZN6evmone19append_data_sectionERNSt7__cxx1112basic_stringIhN4evmc11byte_traitsIhEESaIhEEESt17basic_string_viewIhS4_E(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 %83, ptr %82) #21
+  %84 = call noundef zeroext i1 @_ZN6evmone19append_data_sectionERNSt7__cxx1112basic_stringIhN4evmc11byte_traitsIhEESaIhEEESt17basic_string_viewIhS4_E(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 %83, ptr %82) #22
   br i1 %84, label %85, label %_ZNSt8optionalINSt7__cxx1112basic_stringIhN4evmc11byte_traitsIhEESaIhEEEEaSIS6_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS7_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIS6_ESB_IS6_NSt5decayISE_E4typeEEEEESt16is_constructibleIS6_JSE_EESt13is_assignableIRS6_SE_EEERS7_E4typeEOSE_.exit
 
 85:                                               ; preds = %_ZNSt7__cxx1112basic_stringIhN4evmc11byte_traitsIhEESaIhEEC2ISt17basic_string_viewIhS3_EvEERKT_RKS4_.exit
@@ -31640,11 +31640,11 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIhN4evmc11byte_traitsIhEESaIhEEEEaSIS6_E
 128:                                              ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIhN4evmc11byte_traitsIhEESaIhEEEEaSIS6_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS7_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIS6_ESB_IS6_NSt5decayISE_E4typeEEEEESt16is_constructibleIS6_JSE_EESt13is_assignableIRS6_SE_EEERS7_E4typeEOSE_.exit
   %129 = load i64, ptr %71, align 8, !tbaa !17
   %130 = add i64 %129, 1
-  call void @_ZdlPvm(ptr noundef %126, i64 noundef %130) #21
+  call void @_ZdlPvm(ptr noundef %126, i64 noundef %130) #22
   br label %_ZNSt7__cxx1112basic_stringIhN4evmc11byte_traitsIhEESaIhEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIhN4evmc11byte_traitsIhEESaIhEED2Ev.exit: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIhN4evmc11byte_traitsIhEESaIhEEEEaSIS6_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS7_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIS6_ESB_IS6_NSt5decayISE_E4typeEEEEESt16is_constructibleIS6_JSE_EESt13is_assignableIRS6_SE_EEERS7_E4typeEOSE_.exit, %128
-  call void @llvm.lifetime.end.p0(ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6) #22
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %31, %40, %19, %28, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZNSt7__cxx1112basic_stringIhN4evmc11byte_traitsIhEESaIhEED2Ev.exit
@@ -31667,10 +31667,10 @@ declare { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE241EEENS_6Resu
 declare { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE242EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr, i64 noundef, ptr noundef nonnull align 8 dereferenceable(544)) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core11return_implIL16evmc_status_code0EEENS_10TermResultENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core11return_implIL16evmc_status_code0EEENS_10TermResultENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #12 comdat {
   %4 = alloca %"struct.intx::uint", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   br label %6
 
@@ -31691,7 +31691,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %6
   %14 = getelementptr inbounds i8, ptr %0, i64 -32
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = icmp eq i64 %12, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4) #22
   br i1 %16, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread13, label %17
 
 17:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i
@@ -31736,7 +31736,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %6
   br i1 %45, label %46, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 46:                                               ; preds = %41
-  %47 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %42) #21
+  %47 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %42) #22
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit: ; preds = %41, %46
@@ -31785,10 +31785,10 @@ declare { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6OpcodeE250EEENS_6Resu
 declare { i32, i64 } @_ZN6evmone5instr4core12extcall_implILNS_6OpcodeE251EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE(ptr, i64 noundef, ptr noundef nonnull align 8 dereferenceable(544)) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core11return_implIL16evmc_status_code2EEENS_10TermResultENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core11return_implIL16evmc_status_code2EEENS_10TermResultENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #12 comdat {
   %4 = alloca %"struct.intx::uint", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 -64
-  call void @llvm.lifetime.start.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   br label %6
 
@@ -31809,7 +31809,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %6
   %14 = getelementptr inbounds i8, ptr %0, i64 -32
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = icmp eq i64 %12, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4) #22
   br i1 %16, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread13, label %17
 
 17:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i
@@ -31854,7 +31854,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %6
   br i1 %45, label %46, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 46:                                               ; preds = %41
-  %47 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %42) #21
+  %47 = tail call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %42) #22
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit: ; preds = %41, %46
@@ -31885,7 +31885,7 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core12selfdestructENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core12selfdestructENS_8StackTopElRNS_14ExecutionStateE(ptr %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(544) %2) local_unnamed_addr #12 comdat {
   %.sroa.0.i = alloca [32 x i8], align 8
   %4 = alloca %"struct.evmc::address", align 4
   %5 = alloca %"struct.evmc::address", align 8
@@ -31899,7 +31899,7 @@ define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core12selfdestructENS_
   br i1 %.not, label %12, label %80
 
 12:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4) #22
   %13 = getelementptr inbounds i8, ptr %0, i64 -32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1293)
   %14 = getelementptr inbounds i8, ptr %0, i64 -16
@@ -31929,7 +31929,7 @@ define linkonce_odr hidden { i32, i64 } @_ZN6evmone5instr4core12selfdestructENS_
   %29 = load ptr, ptr %28, align 8, !tbaa !254
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %31 = load ptr, ptr %30, align 8, !tbaa !256
-  %32 = call noundef i32 %29(ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(20) %4) #21
+  %32 = call noundef i32 %29(ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(20) %4) #22
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %thread-pre-split
 
@@ -31951,7 +31951,7 @@ thread-pre-split:                                 ; preds = %25, %34
 
 40:                                               ; preds = %37
   %41 = icmp eq i32 %38, 2
-  call void @llvm.lifetime.start.p0(ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5) #22
   br i1 %41, label %.sink.split, label %42
 
 42:                                               ; preds = %40
@@ -31965,7 +31965,7 @@ thread-pre-split:                                 ; preds = %25, %34
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %50 = load ptr, ptr %49, align 8, !tbaa !256, !noalias !1301
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i), !noalias !1301
-  call void %48(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i, ptr noundef %50, ptr noundef nonnull align 1 dereferenceable(20) %5) #21, !noalias !1301
+  call void %48(ptr dead_on_unwind nonnull writable sret(%struct.evmc_bytes32) align 1 %.sroa.0.i, ptr noundef %50, ptr noundef nonnull align 1 dereferenceable(20) %5) #22, !noalias !1301
   %.sroa.024.0.copyload = load i64, ptr %.sroa.0.i, align 8
   %.sroa.5.0..sroa.0.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa.0.i.sroa_idx, align 8
@@ -31983,11 +31983,11 @@ thread-pre-split:                                 ; preds = %25, %34
 
 _ZNK4evmc7bytes32cvbEv.exit:                      ; preds = %42
   %.not28 = icmp eq i64 %.sroa.7.0.copyload, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5) #22
   br i1 %.not28, label %64, label %54
 
 .sink.split:                                      ; preds = %40, %42
-  call void @llvm.lifetime.end.p0(ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5) #22
   br label %54
 
 54:                                               ; preds = %.sink.split, %_ZNK4evmc7bytes32cvbEv.exit
@@ -31996,7 +31996,7 @@ _ZNK4evmc7bytes32cvbEv.exit:                      ; preds = %42
   %57 = load ptr, ptr %56, align 8, !tbaa !1304
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %59 = load ptr, ptr %58, align 8, !tbaa !256
-  %60 = call noundef zeroext i1 %57(ptr noundef %59, ptr noundef nonnull align 1 dereferenceable(20) %4) #21
+  %60 = call noundef zeroext i1 %57(ptr noundef %59, ptr noundef nonnull align 1 dereferenceable(20) %4) #22
   br i1 %60, label %64, label %61
 
 61:                                               ; preds = %54
@@ -32006,7 +32006,7 @@ _ZNK4evmc7bytes32cvbEv.exit:                      ; preds = %42
 
 64:                                               ; preds = %_ZNK4evmc7bytes32cvbEv.exit, %61, %54, %37
   %.1 = phi i64 [ %.0, %54 ], [ %62, %61 ], [ %.0, %_ZNK4evmc7bytes32cvbEv.exit ], [ %.0, %37 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6) #22
   %65 = load ptr, ptr %7, align 8, !tbaa !81
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(20) %66, i64 20, i1 false)
@@ -32016,8 +32016,8 @@ _ZNK4evmc7bytes32cvbEv.exit:                      ; preds = %42
   %70 = load ptr, ptr %69, align 8, !tbaa !1305
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %72 = load ptr, ptr %71, align 8, !tbaa !256
-  %73 = call noundef zeroext i1 %70(ptr noundef %72, ptr noundef nonnull align 1 dereferenceable(20) %6, ptr noundef nonnull align 1 dereferenceable(20) %4) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %6) #21
+  %73 = call noundef zeroext i1 %70(ptr noundef %72, ptr noundef nonnull align 1 dereferenceable(20) %6, ptr noundef nonnull align 1 dereferenceable(20) %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6) #22
   %74 = load i32, ptr %22, align 8
   %75 = icmp slt i32 %74, 9
   %or.cond = select i1 %73, i1 %75, i1 false
@@ -32032,7 +32032,7 @@ _ZNK4evmc7bytes32cvbEv.exit:                      ; preds = %42
 79:                                               ; preds = %64, %76, %61, %34
   %.sroa.0.1 = phi i32 [ 3, %34 ], [ 3, %61 ], [ 0, %76 ], [ 0, %64 ]
   %.sroa.5.1 = phi i64 [ %35, %34 ], [ %62, %61 ], [ %.1, %76 ], [ %.1, %64 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4) #22
   br label %80
 
 80:                                               ; preds = %3, %79
@@ -32044,13 +32044,13 @@ _ZNK4evmc7bytes32cvbEv.exit:                      ; preds = %42
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #17
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @_ZL23evmc_free_result_memoryPK11evmc_result(ptr noundef readonly captures(none) %0) #18 {
+define internal void @_ZL23evmc_free_result_memoryPK11evmc_result(ptr noundef readonly captures(none) %0) #19 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !107
-  tail call void @free(ptr noundef %3) #21
+  tail call void @free(ptr noundef %3) #22
   ret void
 }
 
@@ -32058,19 +32058,19 @@ define internal void @_ZL23evmc_free_result_memoryPK11evmc_result(ptr noundef re
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #19
+declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #20
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #21
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #20
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #21
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #20
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #21
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #20
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #21
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -32082,23 +32082,24 @@ attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-
 attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #12 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #14 = { cold mustprogress noreturn nounwind optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #15 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #16 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #17 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #18 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { nounwind }
-attributes #22 = { nounwind allocsize(0) }
-attributes #23 = { noreturn nounwind }
-attributes #24 = { builtin nounwind }
-attributes #25 = { nounwind allocsize(1) }
-attributes #26 = { cold noreturn nounwind }
+attributes #10 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #13 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #14 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #15 = { cold mustprogress noreturn nounwind optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #16 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #17 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #18 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #19 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #21 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nounwind }
+attributes #23 = { nounwind allocsize(0) }
+attributes #24 = { noreturn nounwind }
+attributes #25 = { builtin nounwind }
+attributes #26 = { nounwind allocsize(1) }
+attributes #27 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

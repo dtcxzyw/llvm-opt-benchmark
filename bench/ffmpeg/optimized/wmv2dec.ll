@@ -95,39 +95,39 @@ define internal fastcc void @wmv2_add_block(ptr noundef %0, ptr noundef %1, ptr 
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4848
   %17 = load ptr, ptr %16, align 16, !tbaa !53
   %18 = sext i32 %3 to i64
-  tail call void %17(ptr noundef %2, i64 noundef %18, ptr noundef %1) #7
+  tail call void %17(ptr noundef %2, i64 noundef %18, ptr noundef %1) #8
   br label %38
 
 19:                                               ; preds = %11
   %20 = sext i32 %3 to i64
-  tail call void @ff_simple_idct84_add(ptr noundef %2, i64 noundef %20, ptr noundef %1) #7
+  tail call void @ff_simple_idct84_add(ptr noundef %2, i64 noundef %20, ptr noundef %1) #8
   %21 = shl nsw i32 %3, 2
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds i8, ptr %2, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 5776
   %25 = getelementptr inbounds nuw [64 x i16], ptr %24, i64 %7
-  tail call void @ff_simple_idct84_add(ptr noundef %23, i64 noundef %20, ptr noundef nonnull %25) #7
+  tail call void @ff_simple_idct84_add(ptr noundef %23, i64 noundef %20, ptr noundef nonnull %25) #8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %27 = load ptr, ptr %26, align 8, !tbaa !62
-  tail call void %27(ptr noundef nonnull %25) #7
+  tail call void %27(ptr noundef nonnull %25) #8
   br label %38
 
 28:                                               ; preds = %11
   %29 = sext i32 %3 to i64
-  tail call void @ff_simple_idct48_add(ptr noundef %2, i64 noundef %29, ptr noundef %1) #7
+  tail call void @ff_simple_idct48_add(ptr noundef %2, i64 noundef %29, ptr noundef %1) #8
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 5776
   %32 = getelementptr inbounds nuw [64 x i16], ptr %31, i64 %7
-  tail call void @ff_simple_idct48_add(ptr noundef nonnull %30, i64 noundef %29, ptr noundef nonnull %32) #7
+  tail call void @ff_simple_idct48_add(ptr noundef nonnull %30, i64 noundef %29, ptr noundef nonnull %32) #8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %34 = load ptr, ptr %33, align 8, !tbaa !62
-  tail call void %34(ptr noundef nonnull %32) #7
+  tail call void %34(ptr noundef nonnull %32) #8
   br label %38
 
 35:                                               ; preds = %11
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %37 = load ptr, ptr %36, align 8, !tbaa !36
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %37, i32 noundef 16, ptr noundef nonnull @.str.5) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %37, i32 noundef 16, ptr noundef nonnull @.str.5) #8
   br label %38
 
 38:                                               ; preds = %15, %19, %28, %35, %5
@@ -175,7 +175,7 @@ define range(i32 -1094995529, 101) i32 @ff_wmv2_decode_picture_header(ptr nounde
   store i32 %32, ptr %3, align 8, !tbaa !63
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %34 = load ptr, ptr %33, align 8, !tbaa !36
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %34, i32 noundef 48, ptr noundef nonnull @.str, i32 noundef %30) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %34, i32 noundef 48, ptr noundef nonnull @.str, i32 noundef %30) #8
   %.pre = load i32, ptr %3, align 8, !tbaa !63
   %.pre39 = load i32, ptr %10, align 8, !tbaa !66
   %.pre40 = load ptr, ptr %2, align 8, !tbaa !64
@@ -512,7 +512,7 @@ decode012.exit117:                                ; preds = %decode012.exit, %10
   %168 = load i32, ptr %167, align 8, !tbaa !79
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 4832
   %170 = load i32, ptr %169, align 16, !tbaa !76
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %156, i32 noundef 48, ptr noundef nonnull @.str.1, i32 noundef %162, i32 noundef %164, i32 noundef %166, i32 noundef %168, i32 noundef %170, i32 noundef %.sink211) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %156, i32 noundef 48, ptr noundef nonnull @.str.1, i32 noundef %162, i32 noundef %164, i32 noundef %166, i32 noundef %168, i32 noundef %170, i32 noundef %.sink211) #8
   br label %.thread
 
 171:                                              ; preds = %1
@@ -1179,7 +1179,7 @@ decode012.exit135:                                ; preds = %498, %511
   %569 = load i32, ptr %568, align 8, !tbaa !106
   %570 = getelementptr inbounds nuw i8, ptr %0, i64 5708
   %571 = load i32, ptr %570, align 4, !tbaa !107
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %559, i32 noundef 48, ptr noundef nonnull @.str.2, i32 noundef %565, i32 noundef %567, i32 noundef %540, i32 noundef %552, i32 noundef %.sink171220, i32 noundef %408, i32 noundef %435, i32 noundef %569, i32 noundef %571, i32 noundef %417, i32 noundef 0) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %559, i32 noundef 48, ptr noundef nonnull @.str.2, i32 noundef %565, i32 noundef %567, i32 noundef %540, i32 noundef %552, i32 noundef %.sink171220, i32 noundef %408, i32 noundef %435, i32 noundef %569, i32 noundef %571, i32 noundef %417, i32 noundef 0) #8
   br label %.thread
 
 .thread:                                          ; preds = %529, %563, %152, %160
@@ -1208,7 +1208,7 @@ decode012.exit135:                                ; preds = %498, %511
   %589 = load i32, ptr %588, align 4, !tbaa !112
   %590 = getelementptr inbounds nuw i8, ptr %0, i64 4104
   %591 = load i32, ptr %590, align 8, !tbaa !113
-  %592 = tail call i32 @ff_intrax8_decode_picture(ptr noundef nonnull %577, ptr noundef %579, ptr noundef nonnull %580, ptr noundef nonnull %581, ptr noundef nonnull %582, i32 noundef %585, i32 noundef %587, i32 noundef %589, i32 noundef %591) #7
+  %592 = tail call i32 @ff_intrax8_decode_picture(ptr noundef nonnull %577, ptr noundef %579, ptr noundef nonnull %580, ptr noundef nonnull %581, ptr noundef nonnull %582, i32 noundef %585, i32 noundef %587, i32 noundef %589, i32 noundef %591) #8
   %593 = getelementptr inbounds nuw i8, ptr %0, i64 4336
   %594 = load i32, ptr %581, align 4, !tbaa !114
   %595 = ashr i32 %594, 1
@@ -1216,7 +1216,7 @@ decode012.exit135:                                ; preds = %498, %511
   %597 = load i32, ptr %582, align 8, !tbaa !115
   %598 = ashr i32 %597, 1
   %599 = add nsw i32 %598, -1
-  tail call void @ff_er_add_slice(ptr noundef nonnull %593, i32 noundef 0, i32 noundef 0, i32 noundef %596, i32 noundef %599, i32 noundef 112) #7
+  tail call void @ff_er_add_slice(ptr noundef nonnull %593, i32 noundef 0, i32 noundef 0, i32 noundef %596, i32 noundef %599, i32 noundef 112) #8
   br label %parse_mb_skip.exit.thread
 
 parse_mb_skip.exit.thread:                        ; preds = %314, %266, %._crit_edge154.i, %226, %526, %.thread, %120, %576
@@ -1282,14 +1282,14 @@ define internal i32 @wmv2_decode_init(ptr noundef %0) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4848
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store ptr %4, ptr %5, align 8, !tbaa !117
-  %6 = tail call i32 @ff_msmpeg4_decode_init(ptr noundef %0) #7
+  %6 = tail call i32 @ff_msmpeg4_decode_init(ptr noundef %0) #8
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %116, label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 4304
   store ptr @wmv2_decode_mb, ptr %9, align 8, !tbaa !118
-  tail call void @ff_wmv2_common_init(ptr noundef nonnull %3) #7
+  tail call void @ff_wmv2_common_init(ptr noundef nonnull %3) #8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   %11 = load ptr, ptr %10, align 8, !tbaa !36
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 80
@@ -1410,7 +1410,7 @@ define internal i32 @wmv2_decode_init(ptr noundef %0) #4 {
   br i1 %.not.i, label %decode_ext_header.exit, label %107
 
 107:                                              ; preds = %99
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %11, i32 noundef 48, ptr noundef nonnull @.str.8, i32 noundef %21, i32 noundef %24, i32 noundef %32, i32 noundef %52, i32 noundef %64, i32 noundef %76, i32 noundef %88, i32 noundef %97, i32 noundef %40, i32 noundef %97) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %11, i32 noundef 48, ptr noundef nonnull @.str.8, i32 noundef %21, i32 noundef %24, i32 noundef %32, i32 noundef %52, i32 noundef %64, i32 noundef %76, i32 noundef %88, i32 noundef %97, i32 noundef %40, i32 noundef %97) #8
   br label %decode_ext_header.exit
 
 decode_ext_header.exit:                           ; preds = %8, %15, %99, %107
@@ -1421,7 +1421,7 @@ decode_ext_header.exit:                           ; preds = %8, %15, %99, %107
   %112 = load i32, ptr %111, align 4, !tbaa !87
   %113 = getelementptr inbounds nuw i8, ptr %3, i64 544
   %114 = load i32, ptr %113, align 8, !tbaa !71
-  %115 = tail call i32 @ff_intrax8_common_init(ptr noundef nonnull %0, ptr noundef nonnull %108, ptr noundef %110, i32 noundef %112, i32 noundef %114) #7
+  %115 = tail call i32 @ff_intrax8_common_init(ptr noundef nonnull %0, ptr noundef nonnull %108, ptr noundef %110, i32 noundef %112, i32 noundef %114) #8
   br label %116
 
 116:                                              ; preds = %1, %decode_ext_header.exit
@@ -1436,8 +1436,8 @@ define internal i32 @wmv2_decode_end(ptr noundef %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !116
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4944
-  tail call void @ff_intrax8_common_end(ptr noundef nonnull %4) #7
-  %5 = tail call i32 @ff_mpv_decode_close(ptr noundef %0) #7
+  tail call void @ff_intrax8_common_end(ptr noundef nonnull %4) #8
+  %5 = tail call i32 @ff_mpv_decode_close(ptr noundef %0) #8
   ret i32 %5
 }
 
@@ -1671,7 +1671,7 @@ get_vlc2.exit126:                                 ; preds = %117, %138
   br i1 %164, label %165, label %170
 
 165:                                              ; preds = %160
-  %166 = call i32 @ff_msmpeg4_coded_block_pred(ptr noundef %0, i32 noundef %.1110161, ptr noundef nonnull %3) #7
+  %166 = call i32 @ff_msmpeg4_coded_block_pred(ptr noundef %0, i32 noundef %.1110161, ptr noundef nonnull %3) #8
   %167 = xor i32 %166, %163
   %168 = trunc i32 %167 to i8
   %169 = load ptr, ptr %3, align 8, !tbaa !131
@@ -1866,7 +1866,7 @@ wmv2_pred_motion.exit:                            ; preds = %234, %235, %.crited
   %272 = load ptr, ptr %271, align 8, !tbaa !137
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 4288
   %274 = load ptr, ptr %273, align 8, !tbaa !124
-  call void %272(ptr noundef %274) #7
+  call void %272(ptr noundef %274) #8
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 4832
   %276 = load i32, ptr %275, align 8, !tbaa !138
   %.not118 = icmp eq i32 %276, 0
@@ -1968,7 +1968,7 @@ decode012.exit:                                   ; preds = %277, %295
   br label %338
 
 338:                                              ; preds = %.sink.split, %316, %wmv2_pred_motion.exit
-  call void @ff_msmpeg4_decode_motion(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
+  call void @ff_msmpeg4_decode_motion(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %339 = load i32, ptr %4, align 4, !tbaa !52
   %340 = load i32, ptr %5, align 4, !tbaa !52
   %341 = or i32 %340, %339
@@ -2130,7 +2130,7 @@ decode012.exit44.i:                               ; preds = %418
   %440 = zext i1 %439 to i32
   %spec.select.i3.i42.i = add i32 %spec.select.i.i41.i, %440
   store i32 %spec.select.i3.i42.i, ptr %371, align 8, !tbaa !63
-  %441 = call i32 @ff_msmpeg4_decode_block(ptr noundef nonnull %0, ptr noundef %379, i32 noundef range(i32 -2147483648, 6) %417, i32 noundef 1, ptr noundef nonnull %420) #7
+  %441 = call i32 @ff_msmpeg4_decode_block(ptr noundef nonnull %0, ptr noundef %379, i32 noundef range(i32 -2147483648, 6) %417, i32 noundef 1, ptr noundef nonnull %420) #8
   %442 = icmp slt i32 %441, 0
   br i1 %442, label %wmv2_decode_inter_block.exit.thread, label %443
 
@@ -2144,12 +2144,12 @@ decode012.exit44.i:                               ; preds = %418
 
 decode012.exit44.thread.i:                        ; preds = %443, %418
   %448 = getelementptr inbounds nuw [64 x i16], ptr %375, i64 %indvars.iv173
-  %449 = call i32 @ff_msmpeg4_decode_block(ptr noundef nonnull %0, ptr noundef nonnull %448, i32 noundef range(i32 -2147483648, 6) %417, i32 noundef 1, ptr noundef nonnull %420) #7
+  %449 = call i32 @ff_msmpeg4_decode_block(ptr noundef nonnull %0, ptr noundef nonnull %448, i32 noundef range(i32 -2147483648, 6) %417, i32 noundef 1, ptr noundef nonnull %420) #8
   %450 = icmp slt i32 %449, 0
   br i1 %450, label %wmv2_decode_inter_block.exit.thread, label %wmv2_decode_inter_block.exit.thread152.sink.split
 
 wmv2_decode_inter_block.exit:                     ; preds = %414
-  %451 = call i32 @ff_msmpeg4_decode_block(ptr noundef nonnull %0, ptr noundef %379, i32 noundef range(i32 -2147483648, 6) %417, i32 noundef 1, ptr noundef nonnull %377) #7
+  %451 = call i32 @ff_msmpeg4_decode_block(ptr noundef nonnull %0, ptr noundef %379, i32 noundef range(i32 -2147483648, 6) %417, i32 noundef 1, ptr noundef nonnull %377) #8
   %452 = icmp slt i32 %451, 0
   br i1 %452, label %wmv2_decode_inter_block.exit.thread, label %wmv2_decode_inter_block.exit.thread152
 
@@ -2171,7 +2171,7 @@ wmv2_decode_inter_block.exit.thread:              ; preds = %decode012.exit44.th
   %456 = load i32, ptr %191, align 4, !tbaa !114
   %457 = getelementptr inbounds nuw i8, ptr %0, i64 3352
   %458 = load i32, ptr %457, align 8, !tbaa !115
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %455, i32 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %456, i32 noundef %458, i32 noundef %417) #7
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %455, i32 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %456, i32 noundef %458, i32 noundef %417) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
@@ -2281,7 +2281,7 @@ decode012.exit148:                                ; preds = %505, %517
   %534 = load ptr, ptr %533, align 8, !tbaa !137
   %535 = getelementptr inbounds nuw i8, ptr %0, i64 4288
   %536 = load ptr, ptr %535, align 8, !tbaa !124
-  call void %534(ptr noundef %536) #7
+  call void %534(ptr noundef %536) #8
   br label %537
 
 537:                                              ; preds = %532, %553
@@ -2292,7 +2292,7 @@ decode012.exit148:                                ; preds = %505, %517
   %541 = lshr i32 %.0111, %540
   %542 = and i32 %541, 1
   %543 = trunc nuw nsw i64 %indvars.iv to i32
-  %544 = call i32 @ff_msmpeg4_decode_block(ptr noundef %0, ptr noundef %538, i32 noundef %543, i32 noundef %542, ptr noundef null) #7
+  %544 = call i32 @ff_msmpeg4_decode_block(ptr noundef %0, ptr noundef %538, i32 noundef %543, i32 noundef %542, ptr noundef null) #8
   %545 = icmp slt i32 %544, 0
   br i1 %545, label %546, label %553
 
@@ -2303,7 +2303,7 @@ decode012.exit148:                                ; preds = %505, %517
   %550 = load i32, ptr %549, align 4, !tbaa !114
   %551 = getelementptr inbounds nuw i8, ptr %0, i64 3352
   %552 = load i32, ptr %551, align 8, !tbaa !115
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %548, i32 noundef 16, ptr noundef nonnull @.str.7, i32 noundef %550, i32 noundef %552, i32 noundef %543) #7
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %548, i32 noundef 16, ptr noundef nonnull @.str.7, i32 noundef %550, i32 noundef %552, i32 noundef %543) #8
   br label %.loopexit
 
 553:                                              ; preds = %537
@@ -2337,22 +2337,22 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #6
+declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2361,8 +2361,9 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

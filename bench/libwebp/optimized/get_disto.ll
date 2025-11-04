@@ -35,12 +35,12 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly cap
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %7 = call i32 @WebPPictureInitInternal(ptr noundef nonnull %3, i32 noundef 528) #13
+  %7 = call i32 @WebPPictureInitInternal(ptr noundef nonnull %3, i32 noundef 528) #14
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %2
-  %9 = call i32 @WebPPictureInitInternal(ptr noundef nonnull %4, i32 noundef 528) #13
+  %9 = call i32 @WebPPictureInitInternal(ptr noundef nonnull %4, i32 noundef 528) #14
   %.not92 = icmp eq i32 %9, 0
   br i1 %.not92, label %11, label %.preheader
 
@@ -50,7 +50,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly cap
 
 11:                                               ; preds = %8, %2
   %12 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %13 = call i64 @fwrite(ptr nonnull @.str, i64 20, i64 1, ptr %12) #14
+  %13 = call i64 @fwrite(ptr nonnull @.str, i64 20, i64 1, ptr %12) #15
   br label %166
 
 .lr.ph:                                           ; preds = %.preheader, %48
@@ -67,27 +67,27 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly cap
   %14 = sext i32 %.079127 to i64
   %15 = getelementptr inbounds ptr, ptr %1, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !9
-  %17 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(6) @.str.1) #15
+  %17 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(6) @.str.1) #16
   %.not100 = icmp eq i32 %17, 0
   br i1 %.not100, label %48, label %18
 
 18:                                               ; preds = %.lr.ph
-  %19 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(6) @.str.2) #15
+  %19 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(6) @.str.2) #16
   %.not101 = icmp eq i32 %19, 0
   br i1 %.not101, label %48, label %20
 
 20:                                               ; preds = %18
-  %21 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(7) @.str.3) #15
+  %21 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(7) @.str.3) #16
   %.not102 = icmp eq i32 %21, 0
   br i1 %.not102, label %48, label %22
 
 22:                                               ; preds = %20
-  %23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(7) @.str.4) #15
+  %23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(7) @.str.4) #16
   %.not103 = icmp eq i32 %23, 0
   br i1 %.not103, label %48, label %24
 
 24:                                               ; preds = %22
-  %25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(6) @.str.5) #15
+  %25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(6) @.str.5) #16
   %.not104 = icmp eq i32 %25, 0
   br i1 %.not104, label %48, label %sub_0
 
@@ -127,7 +127,7 @@ sub_1113:                                         ; preds = %.tail, %sub_1
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.8, ptr noundef nonnull %16) #16
+  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.8, ptr noundef nonnull %16) #17
   br label %165
 
 43:                                               ; preds = %37
@@ -173,7 +173,7 @@ sub_1113:                                         ; preds = %.tail, %sub_1
 .thread181:                                       ; preds = %.preheader, %56
   %.083.lcssa179184 = phi i32 [ %.2, %56 ], [ 1, %.preheader ]
   %57 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %58 = call i64 @fwrite(ptr nonnull @.str.9, i64 26, i64 1, ptr %57) #14
+  %58 = call i64 @fwrite(ptr nonnull @.str.9, i64 26, i64 1, ptr %57) #15
   br label %59
 
 59:                                               ; preds = %.thread181, %56
@@ -193,18 +193,18 @@ sub_1113:                                         ; preds = %.tail, %sub_1
   br i1 %52, label %66, label %67
 
 66:                                               ; preds = %65
-  call void @WebPBlendAlpha(ptr noundef nonnull %3, i32 noundef 0) #13
-  call void @WebPBlendAlpha(ptr noundef nonnull %4, i32 noundef 0) #13
+  call void @WebPBlendAlpha(ptr noundef nonnull %3, i32 noundef 0) #14
+  call void @WebPBlendAlpha(ptr noundef nonnull %4, i32 noundef 0) #14
   br label %67
 
 67:                                               ; preds = %66, %65
-  %68 = call i32 @WebPPictureDistortion(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %.182, ptr noundef nonnull %5) #13
+  %68 = call i32 @WebPPictureDistortion(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %.182, ptr noundef nonnull %5) #14
   %.not94 = icmp eq i32 %68, 0
   br i1 %.not94, label %69, label %72
 
 69:                                               ; preds = %67
   %70 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %71 = call i64 @fwrite(ptr nonnull @.str.10, i64 38, i64 1, ptr %70) #14
+  %71 = call i64 @fwrite(ptr nonnull @.str.10, i64 38, i64 1, ptr %70) #15
   br label %165
 
 72:                                               ; preds = %67
@@ -248,7 +248,7 @@ sub_1113:                                         ; preds = %.tail, %sub_1
 
 103:                                              ; preds = %100
   %104 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %105 = call i64 @fwrite(ptr nonnull @.str.12, i64 73, i64 1, ptr %104) #14
+  %105 = call i64 @fwrite(ptr nonnull @.str.12, i64 73, i64 1, ptr %104) #15
   br label %.thread108
 
 106:                                              ; preds = %100
@@ -257,7 +257,7 @@ sub_1113:                                         ; preds = %.tail, %sub_1
   br i1 %.not97, label %155, label %108
 
 108:                                              ; preds = %106
-  %109 = call i64 @fwrite(ptr nonnull @.str.13, i64 29, i64 1, ptr %107) #14
+  %109 = call i64 @fwrite(ptr nonnull @.str.13, i64 29, i64 1, ptr %107) #15
   %.not189 = icmp eq i32 %.182, 0
   %110 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %111 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -283,12 +283,12 @@ sub_1113:                                         ; preds = %.tail, %sub_1
 
 126:                                              ; preds = %.split.us
   %127 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %128 = call i64 @fwrite(ptr nonnull @.str.14, i64 26, i64 1, ptr %127) #14
+  %128 = call i64 @fwrite(ptr nonnull @.str.14, i64 26, i64 1, ptr %127) #15
   br label %129
 
 129:                                              ; preds = %126, %.split.us
   %130 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %130, ptr noundef nonnull @.str.15, i32 noundef %124) #16
+  %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %130, ptr noundef nonnull @.str.15, i32 noundef %124) #17
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next155, 3
   br i1 %exitcond157.not, label %.split145.us, label %.split.us, !llvm.loop !24
@@ -307,7 +307,7 @@ sub_1113:                                         ; preds = %.tail, %sub_1
   %141 = load i32, ptr %94, align 4, !tbaa !20
   %142 = call fastcc i32 @DiffScaleChannel(ptr noundef %133, i32 noundef %135, ptr noundef %137, i32 noundef %139, i32 noundef %140, i32 noundef %141, i32 noundef %.174)
   %143 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %144 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.15, i32 noundef %142) #16
+  %144 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.15, i32 noundef %142) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split145.us, label %.thread, !llvm.loop !24
@@ -327,25 +327,25 @@ sub_1113:                                         ; preds = %.tail, %sub_1
   %150 = load i32, ptr %94, align 4, !tbaa !20
   %151 = load i32, ptr %111, align 8, !tbaa !23
   %152 = shl nsw i32 %151, 2
-  %153 = call i64 @WebPEncodeLosslessBGRA(ptr noundef %148, i32 noundef %149, i32 noundef %150, i32 noundef %152, ptr noundef nonnull %6) #13
+  %153 = call i64 @WebPEncodeLosslessBGRA(ptr noundef %148, i32 noundef %149, i32 noundef %150, i32 noundef %152, ptr noundef nonnull %6) #14
   %154 = icmp eq i64 %153, 0
   br i1 %154, label %157, label %160
 
 155:                                              ; preds = %106
-  %156 = call i64 @fwrite(ptr nonnull @.str.17, i64 52, i64 1, ptr %107) #14
+  %156 = call i64 @fwrite(ptr nonnull @.str.17, i64 52, i64 1, ptr %107) #15
   br label %.thread108
 
 157:                                              ; preds = %147
   %158 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %159 = call i64 @fwrite(ptr nonnull @.str.18, i64 32, i64 1, ptr %158) #14
+  %159 = call i64 @fwrite(ptr nonnull @.str.18, i64 32, i64 1, ptr %158) #15
   br label %.thread108
 
 160:                                              ; preds = %147
   %161 = load ptr, ptr %6, align 8, !tbaa !9
-  %162 = call i32 @ImgIoUtilWriteFile(ptr noundef nonnull %.1, ptr noundef %161, i64 noundef %153) #13
+  %162 = call i32 @ImgIoUtilWriteFile(ptr noundef nonnull %.1, ptr noundef %161, i64 noundef %153) #14
   %.not99 = icmp eq i32 %162, 0
   %163 = load ptr, ptr %6, align 8, !tbaa !9
-  call void @WebPFree(ptr noundef %163) #13
+  call void @WebPFree(ptr noundef %163) #14
   br i1 %.not99, label %.thread108, label %164
 
 .thread108:                                       ; preds = %103, %157, %155, %160
@@ -359,8 +359,8 @@ sub_1113:                                         ; preds = %.tail, %sub_1
 
 165:                                              ; preds = %72, %164, %.thread108, %60, %69, %59, %40
   %.184 = phi i32 [ %.083125, %40 ], [ %.083.lcssa179185, %59 ], [ %.2, %60 ], [ %.2, %69 ], [ %.3.ph, %.thread108 ], [ 0, %164 ], [ 0, %72 ]
-  call void @WebPPictureFree(ptr noundef nonnull %3) #13
-  call void @WebPPictureFree(ptr noundef nonnull %4) #13
+  call void @WebPPictureFree(ptr noundef nonnull %3) #14
+  call void @WebPPictureFree(ptr noundef nonnull %4) #14
   br label %166
 
 166:                                              ; preds = %165, %11
@@ -380,8 +380,8 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 ; Function Attrs: cold nounwind uwtable
 define internal fastcc void @Help() unnamed_addr #3 {
   %1 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %2 = tail call ptr @WebPGetEnabledInputFileFormats() #13
-  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.19, ptr noundef %2) #16
+  %2 = tail call ptr @WebPGetEnabledInputFileFormats() #14
+  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.19, ptr noundef %2) #17
   ret void
 }
 
@@ -393,7 +393,7 @@ define internal fastcc i64 @ReadPicture(ptr noundef nonnull %0, ptr noundef nonn
   store ptr null, ptr %3, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !25
-  %5 = call i32 @ImgIoUtilReadFile(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #13
+  %5 = call i32 @ImgIoUtilReadFile(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #14
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %17, label %6
 
@@ -401,24 +401,24 @@ define internal fastcc i64 @ReadPicture(ptr noundef nonnull %0, ptr noundef nonn
   store i32 1, ptr %1, align 8, !tbaa !21
   %7 = load ptr, ptr %3, align 8, !tbaa !9
   %8 = load i64, ptr %4, align 8, !tbaa !25
-  %9 = call ptr @WebPGuessImageReader(ptr noundef %7, i64 noundef %8) #13
+  %9 = call ptr @WebPGuessImageReader(ptr noundef %7, i64 noundef %8) #14
   %10 = load ptr, ptr %3, align 8, !tbaa !9
   %11 = load i64, ptr %4, align 8, !tbaa !25
-  %12 = call i32 %9(ptr noundef %10, i64 noundef %11, ptr noundef nonnull %1, i32 noundef 1, ptr noundef null) #13
+  %12 = call i32 %9(ptr noundef %10, i64 noundef %11, ptr noundef nonnull %1, i32 noundef 1, ptr noundef null) #14
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %6
   %15 = load ptr, ptr %3, align 8, !tbaa !9
-  call void @free(ptr noundef %15) #13
+  call void @free(ptr noundef %15) #14
   %16 = load i64, ptr %4, align 8
   br label %21
 
 17:                                               ; preds = %6, %2
   %18 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %19 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.20, ptr noundef nonnull %0) #16
+  %19 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.20, ptr noundef nonnull %0) #17
   %20 = load ptr, ptr %3, align 8, !tbaa !9
-  call void @free(ptr noundef %20) #13
+  call void @free(ptr noundef %20) #14
   br label %21
 
 21:                                               ; preds = %14, %17
@@ -440,7 +440,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noun
   %8 = shl nsw i32 %4, 1
   %9 = mul nsw i32 %8, %5
   %10 = sext i32 %9 to i64
-  %11 = tail call noalias ptr @malloc(i64 noundef %10) #17
+  %11 = tail call noalias ptr @malloc(i64 noundef %10) #18
   %12 = mul nsw i32 %5, %4
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %11, i64 %13
@@ -682,7 +682,7 @@ SSIMGetClipped.exit.us:                           ; preds = %98, %._crit_edge91.
 
 ._crit_edge93:                                    ; preds = %._crit_edge.us95, %.preheader81, %.preheader79
   %.069.lcssa = phi i32 [ 0, %.preheader79 ], [ 0, %.preheader81 ], [ %.2.us, %._crit_edge.us95 ]
-  tail call void @free(ptr noundef %11) #13
+  tail call void @free(ptr noundef %11) #14
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %RescalePlane.exit, label %129
 
@@ -933,35 +933,35 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #9
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #11
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -973,14 +973,15 @@ attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nofree nounwind }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { cold }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { cold nounwind }
-attributes #17 = { nounwind allocsize(0) }
+attributes #10 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nofree nounwind }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { cold }
+attributes #16 = { nounwind willreturn memory(read) }
+attributes #17 = { cold nounwind }
+attributes #18 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

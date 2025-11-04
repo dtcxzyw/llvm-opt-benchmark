@@ -94,15 +94,15 @@ define i32 @ff_aac_decode_init_fixed(ptr noundef initializes((348, 352)) %0) loc
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %28 = load i32, ptr %27, align 8, !tbaa !57
   %29 = and i32 %28, 8388608
-  %30 = tail call ptr @avpriv_alloc_fixed_dsp(i32 noundef %29) #14
+  %30 = tail call ptr @avpriv_alloc_fixed_dsp(i32 noundef %29) #15
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 9536
   store ptr %30, ptr %31, align 16, !tbaa !58
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %35, label %32
 
 32:                                               ; preds = %1
-  %33 = tail call i32 @pthread_once(ptr noundef nonnull @ff_aac_decode_init_fixed.init_fixed_once, ptr noundef nonnull @init_tables_fixed_fn) #14
-  %34 = tail call i32 @ff_aac_decode_init(ptr noundef nonnull %0) #14
+  %33 = tail call i32 @pthread_once(ptr noundef nonnull @ff_aac_decode_init_fixed.init_fixed_once, ptr noundef nonnull @init_tables_fixed_fn) #15
+  %34 = tail call i32 @ff_aac_decode_init(ptr noundef nonnull %0) #15
   br label %35
 
 35:                                               ; preds = %1, %32
@@ -116,13 +116,13 @@ declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nounwind uwtable
 define internal void @init_tables_fixed_fn() #2 {
-  tail call void @ff_cbrt_tableinit_fixed() #14
-  tail call void @ff_kbd_window_init_fixed(ptr noundef nonnull @aac_kbd_long_1024_fixed, float noundef 4.000000e+00, i32 noundef 1024) #14
-  tail call void @ff_kbd_window_init_fixed(ptr noundef nonnull @aac_kbd_short_128_fixed, float noundef 6.000000e+00, i32 noundef 128) #14
-  tail call void @ff_kbd_window_init_fixed(ptr noundef nonnull @aac_kbd_long_960_fixed, float noundef 4.000000e+00, i32 noundef 960) #14
-  tail call void @ff_kbd_window_init_fixed(ptr noundef nonnull @aac_kbd_short_120_fixed, float noundef 6.000000e+00, i32 noundef 120) #14
-  tail call void @ff_aac_sbr_init_fixed() #14
-  tail call fastcc void @init_sine_windows_fixed() #15
+  tail call void @ff_cbrt_tableinit_fixed() #15
+  tail call void @ff_kbd_window_init_fixed(ptr noundef nonnull @aac_kbd_long_1024_fixed, float noundef 4.000000e+00, i32 noundef 1024) #15
+  tail call void @ff_kbd_window_init_fixed(ptr noundef nonnull @aac_kbd_short_128_fixed, float noundef 6.000000e+00, i32 noundef 128) #15
+  tail call void @ff_kbd_window_init_fixed(ptr noundef nonnull @aac_kbd_long_960_fixed, float noundef 4.000000e+00, i32 noundef 960) #15
+  tail call void @ff_kbd_window_init_fixed(ptr noundef nonnull @aac_kbd_short_120_fixed, float noundef 6.000000e+00, i32 noundef 120) #15
+  tail call void @ff_aac_sbr_init_fixed() #15
+  tail call fastcc void @init_sine_windows_fixed() #16
   ret void
 }
 
@@ -304,7 +304,7 @@ define internal void @apply_mid_side_stereo_fixed(ptr noundef readonly captures(
   %61 = load i16, ptr %48, align 2, !tbaa !76
   %62 = zext i16 %61 to i32
   %63 = sub nsw i32 %62, %56
-  tail call void %52(ptr noundef %58, ptr noundef %60, i32 noundef %63) #14
+  tail call void %52(ptr noundef %58, ptr noundef %60, i32 noundef %63) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %64 = load i8, ptr %19, align 1, !tbaa !58
   %65 = zext i8 %64 to i64
@@ -534,7 +534,7 @@ subband_scale.exit.loopexit57.us.us:              ; preds = %105
 subband_scale.exit:                               ; preds = %.lr.ph.split, %subband_scale.exit
   %.058 = phi i32 [ %119, %subband_scale.exit ], [ 0, %.lr.ph.split ]
   %118 = load ptr, ptr %16, align 8, !tbaa !83
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %118, i32 noundef 16, ptr noundef nonnull @.str) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %118, i32 noundef 16, ptr noundef nonnull @.str) #15
   %119 = add nuw nsw i32 %.058, 1
   %120 = load i8, ptr %20, align 1, !tbaa !58
   %121 = zext i8 %120 to i32
@@ -906,7 +906,7 @@ define internal void @apply_ltp_fixed(ptr noundef %0, ptr noundef captures(none)
   %46 = load ptr, ptr %45, align 16, !tbaa !58
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !107
-  tail call void %48(ptr noundef %9, ptr noundef %9, ptr noundef nonnull %44, i32 noundef 1024) #14
+  tail call void %48(ptr noundef %9, ptr noundef %9, ptr noundef nonnull %44, i32 noundef 1024) #15
   br label %56
 
 49:                                               ; preds = %._crit_edge
@@ -917,7 +917,7 @@ define internal void @apply_ltp_fixed(ptr noundef %0, ptr noundef captures(none)
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !107
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 1792
-  tail call void %54(ptr noundef nonnull %55, ptr noundef nonnull %55, ptr noundef nonnull %50, i32 noundef 128) #14
+  tail call void %54(ptr noundef nonnull %55, ptr noundef nonnull %55, ptr noundef nonnull %50, i32 noundef 128) #15
   br label %56
 
 56:                                               ; preds = %49, %43
@@ -931,12 +931,12 @@ define internal void @apply_ltp_fixed(ptr noundef %0, ptr noundef captures(none)
 
 62:                                               ; preds = %56
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 4096
-  tail call void %61(ptr noundef nonnull %63, ptr noundef nonnull %63, ptr noundef nonnull %38, i32 noundef 1024) #14
+  tail call void %61(ptr noundef nonnull %63, ptr noundef nonnull %63, ptr noundef nonnull %38, i32 noundef 1024) #15
   br label %windowing_and_mdct_ltp_fixed.exit
 
 64:                                               ; preds = %56
   %65 = getelementptr inbounds nuw i8, ptr %9, i64 5888
-  tail call void %61(ptr noundef nonnull %65, ptr noundef nonnull %65, ptr noundef nonnull %39, i32 noundef 128) #14
+  tail call void %61(ptr noundef nonnull %65, ptr noundef nonnull %65, ptr noundef nonnull %39, i32 noundef 128) #15
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 6400
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1792) %66, i8 0, i64 1792, i1 false)
   br label %windowing_and_mdct_ltp_fixed.exit
@@ -946,7 +946,7 @@ windowing_and_mdct_ltp_fixed.exit:                ; preds = %62, %64
   %68 = load ptr, ptr %67, align 8, !tbaa !109
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 9456
   %70 = load ptr, ptr %69, align 16, !tbaa !110
-  tail call void %68(ptr noundef %70, ptr noundef nonnull %30, ptr noundef nonnull %9, i64 noundef 4) #14
+  tail call void %68(ptr noundef %70, ptr noundef nonnull %30, ptr noundef nonnull %9, i64 noundef 4) #15
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 992
   %72 = load i32, ptr %71, align 16, !tbaa !111
   %.not46 = icmp eq i32 %72, 0
@@ -1038,7 +1038,7 @@ define internal void @update_ltp_fixed(ptr noundef %0, ptr noundef %1) #4 {
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4784
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8624
   %20 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @sine_128_fixed, i64 256), ptr getelementptr inbounds nuw (i8, ptr @aac_kbd_short_128_fixed, i64 256)
-  tail call void %16(ptr noundef nonnull %17, ptr noundef nonnull %19, ptr noundef nonnull %20, i32 noundef 64) #14
+  tail call void %16(ptr noundef nonnull %17, ptr noundef nonnull %19, ptr noundef nonnull %20, i32 noundef 64) #15
   br label %21
 
 21:                                               ; preds = %10, %21
@@ -1075,7 +1075,7 @@ define internal void @update_ltp_fixed(ptr noundef %0, ptr noundef %1) #4 {
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 7312
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8624
   %46 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @sine_128_fixed, i64 256), ptr getelementptr inbounds nuw (i8, ptr @aac_kbd_short_128_fixed, i64 256)
-  tail call void %43(ptr noundef nonnull %44, ptr noundef nonnull %45, ptr noundef nonnull %46, i32 noundef 64) #14
+  tail call void %43(ptr noundef nonnull %44, ptr noundef nonnull %45, ptr noundef nonnull %46, i32 noundef 64) #15
   br label %47
 
 47:                                               ; preds = %36, %47
@@ -1107,7 +1107,7 @@ define internal void @update_ltp_fixed(ptr noundef %0, ptr noundef %1) #4 {
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 4784
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 6832
   %69 = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @sine_1024_fixed, i64 2048), ptr getelementptr inbounds nuw (i8, ptr @aac_kbd_long_1024_fixed, i64 2048)
-  tail call void %66(ptr noundef nonnull %3, ptr noundef nonnull %68, ptr noundef nonnull %69, i32 noundef 512) #14
+  tail call void %66(ptr noundef nonnull %3, ptr noundef nonnull %68, ptr noundef nonnull %69, i32 noundef 512) #15
   br label %70
 
 70:                                               ; preds = %62, %70
@@ -3007,7 +3007,7 @@ define internal void @imdct_and_windowing_fixed(ptr noundef %0, ptr noundef %1) 
   %23 = load ptr, ptr %20, align 16, !tbaa !139
   %24 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   %25 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  tail call void %22(ptr noundef %23, ptr noundef nonnull %24, ptr noundef nonnull %25, i64 noundef 4) #14
+  tail call void %22(ptr noundef %23, ptr noundef nonnull %24, ptr noundef nonnull %25, i64 noundef 4) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 128
   %26 = icmp samesign ult i64 %indvars.iv, 896
   br i1 %26, label %21, label %.loopexit, !llvm.loop !140
@@ -3017,7 +3017,7 @@ define internal void @imdct_and_windowing_fixed(ptr noundef %0, ptr noundef %1) 
   %29 = load ptr, ptr %28, align 16, !tbaa !141
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 9448
   %31 = load ptr, ptr %30, align 8, !tbaa !142
-  tail call void %29(ptr noundef %31, ptr noundef nonnull %14, ptr noundef nonnull %3, i64 noundef 4) #14
+  tail call void %29(ptr noundef %31, ptr noundef nonnull %14, ptr noundef nonnull %3, i64 noundef 4) #15
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %27
@@ -3038,7 +3038,7 @@ define internal void @imdct_and_windowing_fixed(ptr noundef %0, ptr noundef %1) 
   %38 = load ptr, ptr %37, align 16, !tbaa !58
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !143
-  tail call void %40(ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %14, ptr noundef nonnull %12, i32 noundef 512) #14
+  tail call void %40(ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %14, ptr noundef nonnull %12, i32 noundef 512) #15
   br label %78
 
 41:                                               ; preds = %34, %.loopexit
@@ -3051,7 +3051,7 @@ define internal void @imdct_and_windowing_fixed(ptr noundef %0, ptr noundef %1) 
   %47 = load ptr, ptr %46, align 8, !tbaa !143
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 1792
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 15504
-  tail call void %47(ptr noundef nonnull %48, ptr noundef nonnull %49, ptr noundef nonnull %14, ptr noundef nonnull %13, i32 noundef 64) #14
+  tail call void %47(ptr noundef nonnull %48, ptr noundef nonnull %49, ptr noundef nonnull %14, ptr noundef nonnull %13, i32 noundef 64) #15
   br i1 %43, label %50, label %75
 
 50:                                               ; preds = %41
@@ -3061,27 +3061,27 @@ define internal void @imdct_and_windowing_fixed(ptr noundef %0, ptr noundef %1) 
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 2304
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 5040
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 5296
-  tail call void %53(ptr noundef nonnull %54, ptr noundef nonnull %55, ptr noundef nonnull %56, ptr noundef nonnull %9, i32 noundef 64) #14
+  tail call void %53(ptr noundef nonnull %54, ptr noundef nonnull %55, ptr noundef nonnull %56, ptr noundef nonnull %9, i32 noundef 64) #15
   %57 = load ptr, ptr %44, align 16, !tbaa !58
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !143
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 2816
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 5552
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 5808
-  tail call void %59(ptr noundef nonnull %60, ptr noundef nonnull %61, ptr noundef nonnull %62, ptr noundef nonnull %9, i32 noundef 64) #14
+  tail call void %59(ptr noundef nonnull %60, ptr noundef nonnull %61, ptr noundef nonnull %62, ptr noundef nonnull %9, i32 noundef 64) #15
   %63 = load ptr, ptr %44, align 16, !tbaa !58
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !143
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 3328
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 6064
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 6320
-  tail call void %65(ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %68, ptr noundef nonnull %9, i32 noundef 64) #14
+  tail call void %65(ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %68, ptr noundef nonnull %9, i32 noundef 64) #15
   %69 = load ptr, ptr %44, align 16, !tbaa !58
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !143
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 6576
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 6832
-  tail call void %71(ptr noundef nonnull %15, ptr noundef nonnull %72, ptr noundef nonnull %73, ptr noundef nonnull %9, i32 noundef 64) #14
+  tail call void %71(ptr noundef nonnull %15, ptr noundef nonnull %72, ptr noundef nonnull %73, ptr noundef nonnull %9, i32 noundef 64) #15
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 3840
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %74, ptr noundef nonnull align 4 dereferenceable(256) %15, i64 256, i1 false)
   br label %78
@@ -3109,21 +3109,21 @@ define internal void @imdct_and_windowing_fixed(ptr noundef %0, ptr noundef %1) 
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 13968
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 7088
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 7344
-  tail call void %85(ptr noundef nonnull %86, ptr noundef nonnull %87, ptr noundef nonnull %88, ptr noundef nonnull %9, i32 noundef 64) #14
+  tail call void %85(ptr noundef nonnull %86, ptr noundef nonnull %87, ptr noundef nonnull %88, ptr noundef nonnull %9, i32 noundef 64) #15
   %89 = load ptr, ptr %82, align 16, !tbaa !58
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !143
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 14480
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 7600
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 7856
-  tail call void %91(ptr noundef nonnull %92, ptr noundef nonnull %93, ptr noundef nonnull %94, ptr noundef nonnull %9, i32 noundef 64) #14
+  tail call void %91(ptr noundef nonnull %92, ptr noundef nonnull %93, ptr noundef nonnull %94, ptr noundef nonnull %9, i32 noundef 64) #15
   %95 = load ptr, ptr %82, align 16, !tbaa !58
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load ptr, ptr %96, align 8, !tbaa !143
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 14992
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 8112
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 8368
-  tail call void %97(ptr noundef nonnull %98, ptr noundef nonnull %99, ptr noundef nonnull %100, ptr noundef nonnull %9, i32 noundef 64) #14
+  tail call void %97(ptr noundef nonnull %98, ptr noundef nonnull %99, ptr noundef nonnull %100, ptr noundef nonnull %9, i32 noundef 64) #15
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 15504
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 8624
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %101, ptr noundef nonnull align 4 dereferenceable(256) %102, i64 256, i1 false)
@@ -3180,7 +3180,7 @@ define internal void @imdct_and_windowing_768_fixed(ptr noundef %0, ptr noundef 
   %24 = mul nuw nsw i64 %indvars.iv, 96
   %25 = getelementptr inbounds nuw i32, ptr %14, i64 %24
   %26 = getelementptr inbounds nuw i32, ptr %3, i64 %24
-  tail call void %22(ptr noundef %23, ptr noundef nonnull %25, ptr noundef nonnull %26, i64 noundef 4) #14
+  tail call void %22(ptr noundef %23, ptr noundef nonnull %25, ptr noundef nonnull %26, i64 noundef 4) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !146
@@ -3190,7 +3190,7 @@ define internal void @imdct_and_windowing_768_fixed(ptr noundef %0, ptr noundef 
   %29 = load ptr, ptr %28, align 16, !tbaa !147
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 9432
   %31 = load ptr, ptr %30, align 8, !tbaa !148
-  tail call void %29(ptr noundef %31, ptr noundef nonnull %14, ptr noundef nonnull %3, i64 noundef 4) #14
+  tail call void %29(ptr noundef %31, ptr noundef nonnull %14, ptr noundef nonnull %3, i64 noundef 4) #15
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %27
@@ -3211,7 +3211,7 @@ define internal void @imdct_and_windowing_768_fixed(ptr noundef %0, ptr noundef 
   %38 = load ptr, ptr %37, align 16, !tbaa !58
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !143
-  tail call void %40(ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %14, ptr noundef nonnull %12, i32 noundef 384) #14
+  tail call void %40(ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %14, ptr noundef nonnull %12, i32 noundef 384) #15
   br label %78
 
 41:                                               ; preds = %34, %.loopexit
@@ -3224,7 +3224,7 @@ define internal void @imdct_and_windowing_768_fixed(ptr noundef %0, ptr noundef 
   %47 = load ptr, ptr %46, align 8, !tbaa !143
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 1344
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 15056
-  tail call void %47(ptr noundef nonnull %48, ptr noundef nonnull %49, ptr noundef nonnull %14, ptr noundef nonnull %13, i32 noundef 48) #14
+  tail call void %47(ptr noundef nonnull %48, ptr noundef nonnull %49, ptr noundef nonnull %14, ptr noundef nonnull %13, i32 noundef 48) #15
   br i1 %43, label %50, label %75
 
 50:                                               ; preds = %41
@@ -3234,27 +3234,27 @@ define internal void @imdct_and_windowing_768_fixed(ptr noundef %0, ptr noundef 
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 1728
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 4976
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 5168
-  tail call void %53(ptr noundef nonnull %54, ptr noundef nonnull %55, ptr noundef nonnull %56, ptr noundef nonnull %9, i32 noundef 48) #14
+  tail call void %53(ptr noundef nonnull %54, ptr noundef nonnull %55, ptr noundef nonnull %56, ptr noundef nonnull %9, i32 noundef 48) #15
   %57 = load ptr, ptr %44, align 16, !tbaa !58
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !143
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 2112
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 5360
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 5552
-  tail call void %59(ptr noundef nonnull %60, ptr noundef nonnull %61, ptr noundef nonnull %62, ptr noundef nonnull %9, i32 noundef 48) #14
+  tail call void %59(ptr noundef nonnull %60, ptr noundef nonnull %61, ptr noundef nonnull %62, ptr noundef nonnull %9, i32 noundef 48) #15
   %63 = load ptr, ptr %44, align 16, !tbaa !58
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !143
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 2496
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 5744
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 5936
-  tail call void %65(ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %68, ptr noundef nonnull %9, i32 noundef 48) #14
+  tail call void %65(ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %68, ptr noundef nonnull %9, i32 noundef 48) #15
   %69 = load ptr, ptr %44, align 16, !tbaa !58
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !143
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 6128
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 6320
-  tail call void %71(ptr noundef nonnull %15, ptr noundef nonnull %72, ptr noundef nonnull %73, ptr noundef nonnull %9, i32 noundef 48) #14
+  tail call void %71(ptr noundef nonnull %15, ptr noundef nonnull %72, ptr noundef nonnull %73, ptr noundef nonnull %9, i32 noundef 48) #15
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 2880
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(192) %74, ptr noundef nonnull align 4 dereferenceable(192) %15, i64 192, i1 false)
   br label %78
@@ -3282,21 +3282,21 @@ define internal void @imdct_and_windowing_768_fixed(ptr noundef %0, ptr noundef 
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 13904
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 6512
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 6704
-  tail call void %85(ptr noundef nonnull %86, ptr noundef nonnull %87, ptr noundef nonnull %88, ptr noundef nonnull %9, i32 noundef 48) #14
+  tail call void %85(ptr noundef nonnull %86, ptr noundef nonnull %87, ptr noundef nonnull %88, ptr noundef nonnull %9, i32 noundef 48) #15
   %89 = load ptr, ptr %82, align 16, !tbaa !58
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !143
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 14288
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 6896
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 7088
-  tail call void %91(ptr noundef nonnull %92, ptr noundef nonnull %93, ptr noundef nonnull %94, ptr noundef nonnull %9, i32 noundef 48) #14
+  tail call void %91(ptr noundef nonnull %92, ptr noundef nonnull %93, ptr noundef nonnull %94, ptr noundef nonnull %9, i32 noundef 48) #15
   %95 = load ptr, ptr %82, align 16, !tbaa !58
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load ptr, ptr %96, align 8, !tbaa !143
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 14672
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 7280
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 7472
-  tail call void %97(ptr noundef nonnull %98, ptr noundef nonnull %99, ptr noundef nonnull %100, ptr noundef nonnull %9, i32 noundef 48) #14
+  tail call void %97(ptr noundef nonnull %98, ptr noundef nonnull %99, ptr noundef nonnull %100, ptr noundef nonnull %9, i32 noundef 48) #15
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 15056
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 7664
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(192) %101, ptr noundef nonnull align 4 dereferenceable(192) %102, i64 192, i1 false)
@@ -3354,7 +3354,7 @@ define internal void @imdct_and_windowing_960_fixed(ptr noundef %0, ptr noundef 
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %.idx100 = shl nuw nsw i64 %indvars.iv, 9
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx100
-  tail call void %22(ptr noundef %23, ptr noundef nonnull %24, ptr noundef nonnull %25, i64 noundef 4) #14
+  tail call void %22(ptr noundef %23, ptr noundef nonnull %24, ptr noundef nonnull %25, i64 noundef 4) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !151
@@ -3364,7 +3364,7 @@ define internal void @imdct_and_windowing_960_fixed(ptr noundef %0, ptr noundef 
   %28 = load ptr, ptr %27, align 8, !tbaa !152
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 9440
   %30 = load ptr, ptr %29, align 16, !tbaa !153
-  tail call void %28(ptr noundef %30, ptr noundef nonnull %14, ptr noundef nonnull %3, i64 noundef 4) #14
+  tail call void %28(ptr noundef %30, ptr noundef nonnull %14, ptr noundef nonnull %3, i64 noundef 4) #15
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %26
@@ -3385,7 +3385,7 @@ define internal void @imdct_and_windowing_960_fixed(ptr noundef %0, ptr noundef 
   %37 = load ptr, ptr %36, align 16, !tbaa !58
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !143
-  tail call void %39(ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %14, ptr noundef nonnull %12, i32 noundef 480) #14
+  tail call void %39(ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %14, ptr noundef nonnull %12, i32 noundef 480) #15
   br label %77
 
 40:                                               ; preds = %33, %.loopexit
@@ -3398,7 +3398,7 @@ define internal void @imdct_and_windowing_960_fixed(ptr noundef %0, ptr noundef 
   %46 = load ptr, ptr %45, align 8, !tbaa !143
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 1680
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 15392
-  tail call void %46(ptr noundef nonnull %47, ptr noundef nonnull %48, ptr noundef nonnull %14, ptr noundef nonnull %13, i32 noundef 60) #14
+  tail call void %46(ptr noundef nonnull %47, ptr noundef nonnull %48, ptr noundef nonnull %14, ptr noundef nonnull %13, i32 noundef 60) #15
   br i1 %42, label %49, label %74
 
 49:                                               ; preds = %40
@@ -3408,27 +3408,27 @@ define internal void @imdct_and_windowing_960_fixed(ptr noundef %0, ptr noundef 
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 2160
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 5024
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 5264
-  tail call void %52(ptr noundef nonnull %53, ptr noundef nonnull %54, ptr noundef nonnull %55, ptr noundef nonnull %9, i32 noundef 60) #14
+  tail call void %52(ptr noundef nonnull %53, ptr noundef nonnull %54, ptr noundef nonnull %55, ptr noundef nonnull %9, i32 noundef 60) #15
   %56 = load ptr, ptr %43, align 16, !tbaa !58
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !143
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 2640
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 5504
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 5744
-  tail call void %58(ptr noundef nonnull %59, ptr noundef nonnull %60, ptr noundef nonnull %61, ptr noundef nonnull %9, i32 noundef 60) #14
+  tail call void %58(ptr noundef nonnull %59, ptr noundef nonnull %60, ptr noundef nonnull %61, ptr noundef nonnull %9, i32 noundef 60) #15
   %62 = load ptr, ptr %43, align 16, !tbaa !58
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !143
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 3120
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 5984
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 6224
-  tail call void %64(ptr noundef nonnull %65, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %9, i32 noundef 60) #14
+  tail call void %64(ptr noundef nonnull %65, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %9, i32 noundef 60) #15
   %68 = load ptr, ptr %43, align 16, !tbaa !58
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !143
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 6464
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 6704
-  tail call void %70(ptr noundef nonnull %15, ptr noundef nonnull %71, ptr noundef nonnull %72, ptr noundef nonnull %9, i32 noundef 60) #14
+  tail call void %70(ptr noundef nonnull %15, ptr noundef nonnull %71, ptr noundef nonnull %72, ptr noundef nonnull %9, i32 noundef 60) #15
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 3600
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(240) %73, ptr noundef nonnull align 4 dereferenceable(240) %15, i64 240, i1 false)
   br label %77
@@ -3456,21 +3456,21 @@ define internal void @imdct_and_windowing_960_fixed(ptr noundef %0, ptr noundef 
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 13952
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 6944
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 7184
-  tail call void %84(ptr noundef nonnull %85, ptr noundef nonnull %86, ptr noundef nonnull %87, ptr noundef nonnull %9, i32 noundef 60) #14
+  tail call void %84(ptr noundef nonnull %85, ptr noundef nonnull %86, ptr noundef nonnull %87, ptr noundef nonnull %9, i32 noundef 60) #15
   %88 = load ptr, ptr %81, align 16, !tbaa !58
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !143
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 14432
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 7424
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 7664
-  tail call void %90(ptr noundef nonnull %91, ptr noundef nonnull %92, ptr noundef nonnull %93, ptr noundef nonnull %9, i32 noundef 60) #14
+  tail call void %90(ptr noundef nonnull %91, ptr noundef nonnull %92, ptr noundef nonnull %93, ptr noundef nonnull %9, i32 noundef 60) #15
   %94 = load ptr, ptr %81, align 16, !tbaa !58
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load ptr, ptr %95, align 8, !tbaa !143
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 14912
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 7904
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 8144
-  tail call void %96(ptr noundef nonnull %97, ptr noundef nonnull %98, ptr noundef nonnull %99, ptr noundef nonnull %9, i32 noundef 60) #14
+  tail call void %96(ptr noundef nonnull %97, ptr noundef nonnull %98, ptr noundef nonnull %99, ptr noundef nonnull %9, i32 noundef 60) #15
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 15392
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8384
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(240) %100, ptr noundef nonnull align 4 dereferenceable(240) %101, i64 240, i1 false)
@@ -3504,7 +3504,7 @@ define internal void @imdct_and_windowing_ld_fixed(ptr noundef %0, ptr noundef %
   %9 = load ptr, ptr %8, align 8, !tbaa !154
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 9424
   %11 = load ptr, ptr %10, align 16, !tbaa !155
-  tail call void %9(ptr noundef %11, ptr noundef nonnull %7, ptr noundef nonnull %3, i64 noundef 4) #14
+  tail call void %9(ptr noundef %11, ptr noundef nonnull %7, ptr noundef nonnull %3, i64 noundef 4) #15
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %13 = load i8, ptr %12, align 1, !tbaa !58
   %.not = icmp eq i8 %13, 0
@@ -3518,7 +3518,7 @@ define internal void @imdct_and_windowing_ld_fixed(ptr noundef %0, ptr noundef %
   %18 = load ptr, ptr %17, align 8, !tbaa !143
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 768
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 14480
-  tail call void %18(ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %7, ptr noundef nonnull @sine_128_fixed, i32 noundef 64) #14
+  tail call void %18(ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %7, ptr noundef nonnull @sine_128_fixed, i32 noundef 64) #15
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 1280
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 5040
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(768) %21, ptr noundef nonnull align 4 dereferenceable(768) %22, i64 768, i1 false)
@@ -3529,7 +3529,7 @@ define internal void @imdct_and_windowing_ld_fixed(ptr noundef %0, ptr noundef %
   %25 = load ptr, ptr %24, align 16, !tbaa !58
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !143
-  tail call void %27(ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @sine_512_fixed, i32 noundef 256) #14
+  tail call void %27(ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @sine_512_fixed, i32 noundef 256) #15
   br label %28
 
 28:                                               ; preds = %23, %14
@@ -3590,7 +3590,7 @@ define internal void @imdct_and_windowing_eld_fixed(ptr noundef %0, ptr noundef 
   %37 = load ptr, ptr %36, align 16, !tbaa !158
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 9416
   %39 = load ptr, ptr %38, align 8, !tbaa !159
-  tail call void %37(ptr noundef %39, ptr noundef nonnull %32, ptr noundef nonnull %3, i64 noundef 4) #14
+  tail call void %37(ptr noundef %39, ptr noundef nonnull %32, ptr noundef nonnull %3, i64 noundef 4) #15
   br label %45
 
 40:                                               ; preds = %30
@@ -3598,7 +3598,7 @@ define internal void @imdct_and_windowing_eld_fixed(ptr noundef %0, ptr noundef 
   %42 = load ptr, ptr %41, align 8, !tbaa !154
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 9424
   %44 = load ptr, ptr %43, align 16, !tbaa !155
-  tail call void %42(ptr noundef %44, ptr noundef nonnull %32, ptr noundef nonnull %3, i64 noundef 4) #14
+  tail call void %42(ptr noundef %44, ptr noundef nonnull %32, ptr noundef nonnull %3, i64 noundef 4) #15
   br label %45
 
 45:                                               ; preds = %40, %35
@@ -3862,7 +3862,7 @@ define internal void @apply_dependent_coupling_fixed(ptr noundef readonly captur
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !83
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %13, i32 noundef 16, ptr noundef nonnull @.str.1) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %13, i32 noundef 16, ptr noundef nonnull @.str.1) #15
   br label %.loopexit85
 
 14:                                               ; preds = %4
@@ -4357,7 +4357,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_spectrum_and_dequant_fixed
   %70 = load ptr, ptr %24, align 16, !tbaa !58
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 40
   %72 = load ptr, ptr %71, align 8, !tbaa !180
-  %73 = tail call i32 %72(ptr noundef %.1463663, ptr noundef %.1463663, i32 noundef %53) #14
+  %73 = tail call i32 %72(ptr noundef %.1463663, ptr noundef %.1463663, i32 noundef %53) #15
   %74 = ashr i32 %73, 1
   %75 = icmp ult i32 %74, 255
   br i1 %75, label %76, label %84
@@ -4487,8 +4487,8 @@ fixed_sqrt.exit:                                  ; preds = %140
   br i1 %157, label %.lr.ph.i, label %._crit_edge.i
 
 158:                                              ; preds = %fixed_sqrt.exit
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 96) #14
-  tail call void @abort() #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 96) #15
+  tail call void @abort() #17
   unreachable
 
 .lr.ph.i:                                         ; preds = %.preheader61.i, %.lr.ph.i
@@ -5222,7 +5222,7 @@ noise_scale.exit:                                 ; preds = %203, %194, %174, %.
 .critedge:                                        ; preds = %541
   %592 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %593 = load ptr, ptr %592, align 8, !tbaa !83
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %593, i32 noundef 16, ptr noundef nonnull @.str.2) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %593, i32 noundef 16, ptr noundef nonnull @.str.2) #15
   br label %.loopexit596
 
 ._crit_edge677:                                   ; preds = %.critedge.thread, %.preheader619
@@ -5433,7 +5433,7 @@ vector_pow43.exit.us:                             ; preds = %680, %664
   br i1 %695, label %697, label %696
 
 696:                                              ; preds = %694
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %682, i32 noundef 16, ptr noundef nonnull @.str) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %682, i32 noundef 16, ptr noundef nonnull @.str) #15
   br label %subband_scale.exit.us
 
 697:                                              ; preds = %694
@@ -5687,7 +5687,7 @@ define internal i32 @decode_cce_fixed(ptr noundef %0, ptr noundef %1, ptr nounde
   %119 = add i32 %110, 2
   %120 = tail call i32 @llvm.umin.i32(i32 %93, i32 %119)
   store i32 %120, ptr %5, align 8, !tbaa !189
-  %121 = tail call i32 @ff_aac_decode_ics(ptr noundef %0, ptr noundef nonnull %87, ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0) #14
+  %121 = tail call i32 @ff_aac_decode_ics(ptr noundef %0, ptr noundef nonnull %87, ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0) #15
   %.not112 = icmp eq i32 %121, 0
   br i1 %.not112, label %.preheader135, label %.critedge
 
@@ -6224,47 +6224,47 @@ sine_window_init_fixed.exit28:                    ; preds = %sine_window_init_fi
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sin.f32(float) #10
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sin.f32(float) #12
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #10
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.floor.f64(double) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #13
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #13
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #13
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #13
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.bswap.i32(i32) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #13
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #13
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smin.i16(i16, i16) #13
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #13
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.smin.i16(i16, i16) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #13
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.umin.i8(i8, i8) #14
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.umax.i8(i8, i8) #14
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6278,11 +6278,12 @@ attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #9 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nounwind }
-attributes #15 = { cold }
-attributes #16 = { noreturn nounwind }
+attributes #12 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { cold }
+attributes #17 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

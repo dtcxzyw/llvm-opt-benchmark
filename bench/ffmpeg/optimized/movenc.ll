@@ -611,7 +611,7 @@ define i32 @ff_mov_write_packet(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %or.cond.i, label %67, label %70
 
 67:                                               ; preds = %58
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.38, i64 noundef %64, i64 noundef %63, i32 noundef %17) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.38, i64 noundef %64, i64 noundef %63, i32 noundef %17) #17
   %68 = add nsw i64 %spec.select.i, 1
   store i64 %68, ptr %62, align 8, !tbaa !71
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -627,7 +627,7 @@ define i32 @ff_mov_write_packet(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 check_pkt.exit.thread:                            ; preds = %70
   %74 = load i32, ptr %16, align 4, !tbaa !32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.39, i64 noundef %73, i32 noundef %74) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.39, i64 noundef %73, i32 noundef %74) #17
   br label %.thread
 
 check_pkt.exit:                                   ; preds = %70
@@ -643,7 +643,7 @@ check_pkt.exit:                                   ; preds = %70
   br i1 %.not496, label %80, label %79
 
 79:                                               ; preds = %77
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str) #17
   br label %.thread
 
 80:                                               ; preds = %77, %check_pkt.exit
@@ -700,7 +700,7 @@ check_pkt.exit:                                   ; preds = %70
   br i1 %.not503, label %111, label %120
 
 111:                                              ; preds = %108
-  %112 = tail call i32 @avio_open_dyn_buf(ptr noundef nonnull %109) #16
+  %112 = tail call i32 @avio_open_dyn_buf(ptr noundef nonnull %109) #17
   %113 = icmp slt i32 %112, 0
   br i1 %113, label %.thread, label %120
 
@@ -711,7 +711,7 @@ check_pkt.exit:                                   ; preds = %70
   br i1 %.not500, label %117, label %120
 
 117:                                              ; preds = %114
-  %118 = tail call i32 @avio_open_dyn_buf(ptr noundef nonnull %115) #16
+  %118 = tail call i32 @avio_open_dyn_buf(ptr noundef nonnull %115) #17
   %119 = icmp slt i32 %118, 0
   br i1 %119, label %.thread, label %120
 
@@ -763,7 +763,7 @@ check_pkt.exit:                                   ; preds = %70
   br i1 %142, label %.thread559, label %143
 
 143:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.1) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.1) #17
   br label %.thread
 
 144:                                              ; preds = %121, %121
@@ -790,7 +790,7 @@ check_pkt.exit:                                   ; preds = %70
   br i1 %155, label %.thread557.thread, label %.thread559
 
 .thread557.thread:                                ; preds = %.preheader, %.thread557
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #17
   br label %.thread
 
 .thread559:                                       ; preds = %._crit_edge, %148, %.thread557
@@ -834,7 +834,7 @@ check_pkt.exit:                                   ; preds = %70
   store i32 %161, ptr %156, align 8, !tbaa !94
   %168 = add nuw nsw i32 %161, 64
   %169 = zext nneg i32 %168 to i64
-  %170 = tail call noalias ptr @av_malloc(i64 noundef %169) #16
+  %170 = tail call noalias ptr @av_malloc(i64 noundef %169) #17
   %171 = getelementptr inbounds nuw i8, ptr %.0428, i64 128
   store ptr %170, ptr %171, align 8, !tbaa !97
   %.not506 = icmp eq ptr %170, null
@@ -896,7 +896,7 @@ check_pkt.exit:                                   ; preds = %70
   store i32 %15, ptr %156, align 8, !tbaa !94
   %187 = add nsw i32 %15, 64
   %188 = sext i32 %187 to i64
-  %189 = tail call noalias ptr @av_malloc(i64 noundef %188) #16
+  %189 = tail call noalias ptr @av_malloc(i64 noundef %188) #17
   %190 = getelementptr inbounds nuw i8, ptr %.0428, i64 128
   store ptr %189, ptr %190, align 8, !tbaa !97
   %.not508 = icmp eq ptr %189, null
@@ -940,11 +940,11 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
   br i1 %.not509, label %213, label %214
 
 213:                                              ; preds = %208
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3) #17
   br label %.thread
 
 214:                                              ; preds = %208
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.4) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.4) #17
   %.pre = load i32, ptr %122, align 4, !tbaa !84
   br label %215
 
@@ -1007,14 +1007,14 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
 235:                                              ; preds = %231
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %237 = load ptr, ptr %236, align 8, !tbaa !87
-  %238 = call i32 @ff_nal_parse_units_buf(ptr noundef %237, ptr noundef nonnull %9, ptr noundef nonnull %6) #16
+  %238 = call i32 @ff_nal_parse_units_buf(ptr noundef %237, ptr noundef nonnull %9, ptr noundef nonnull %6) #17
   %239 = icmp slt i32 %238, 0
   br i1 %239, label %.thread, label %240
 
 240:                                              ; preds = %235
   %241 = load ptr, ptr %9, align 8, !tbaa !31
   %242 = load i32, ptr %6, align 4, !tbaa !30
-  call void @avio_write(ptr noundef %.0425, ptr noundef %241, i32 noundef %242) #16
+  call void @avio_write(ptr noundef %.0425, ptr noundef %241, i32 noundef %242) #17
   br label %.thread568
 
 243:                                              ; preds = %231, %227
@@ -1026,14 +1026,14 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
   br i1 %.not511, label %251, label %248
 
 248:                                              ; preds = %243
-  %249 = tail call i32 @ff_mov_cenc_avc_parse_nal_units(ptr noundef nonnull %244, ptr noundef %.0425, ptr noundef %247, i32 noundef %15) #16
+  %249 = tail call i32 @ff_mov_cenc_avc_parse_nal_units(ptr noundef nonnull %244, ptr noundef %.0425, ptr noundef %247, i32 noundef %15) #17
   store i32 %249, ptr %6, align 4, !tbaa !30
   %250 = icmp slt i32 %249, 0
   br i1 %250, label %.thread591, label %.thread568
 
 251:                                              ; preds = %243
   %252 = load i32, ptr %14, align 8, !tbaa !25
-  %253 = tail call i32 @ff_nal_parse_units(ptr noundef %.0425, ptr noundef %247, i32 noundef %252) #16
+  %253 = tail call i32 @ff_nal_parse_units(ptr noundef %.0425, ptr noundef %247, i32 noundef %252) #17
   store i32 %253, ptr %6, align 4, !tbaa !30
   br label %.thread568
 
@@ -1084,14 +1084,14 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
 288:                                              ; preds = %284
   %289 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %290 = load ptr, ptr %289, align 8, !tbaa !87
-  %291 = call i32 @ff_hevc_annexb2mp4_buf(ptr noundef %290, ptr noundef nonnull %9, ptr noundef nonnull %6, i32 noundef %280, ptr noundef null) #16
+  %291 = call i32 @ff_hevc_annexb2mp4_buf(ptr noundef %290, ptr noundef nonnull %9, ptr noundef nonnull %6, i32 noundef %280, ptr noundef null) #17
   %292 = icmp slt i32 %291, 0
   br i1 %292, label %.thread, label %293
 
 293:                                              ; preds = %288
   %294 = load ptr, ptr %9, align 8, !tbaa !31
   %295 = load i32, ptr %6, align 4, !tbaa !30
-  call void @avio_write(ptr noundef %.0425, ptr noundef %294, i32 noundef %295) #16
+  call void @avio_write(ptr noundef %.0425, ptr noundef %294, i32 noundef %295) #17
   br label %.thread568
 
 296:                                              ; preds = %284, %276
@@ -1103,14 +1103,14 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
   br i1 %.not518, label %304, label %301
 
 301:                                              ; preds = %296
-  %302 = tail call i32 @ff_mov_cenc_avc_parse_nal_units(ptr noundef nonnull %297, ptr noundef %.0425, ptr noundef %300, i32 noundef %15) #16
+  %302 = tail call i32 @ff_mov_cenc_avc_parse_nal_units(ptr noundef nonnull %297, ptr noundef %.0425, ptr noundef %300, i32 noundef %15) #17
   store i32 %302, ptr %6, align 4, !tbaa !30
   %303 = icmp slt i32 %302, 0
   br i1 %303, label %.thread591, label %.thread568
 
 304:                                              ; preds = %296
   %305 = load i32, ptr %14, align 8, !tbaa !25
-  %306 = tail call i32 @ff_hevc_annexb2mp4(ptr noundef %.0425, ptr noundef %300, i32 noundef %305, i32 noundef %280, ptr noundef null) #16
+  %306 = tail call i32 @ff_hevc_annexb2mp4(ptr noundef %.0425, ptr noundef %300, i32 noundef %305, i32 noundef %280, ptr noundef null) #17
   store i32 %306, ptr %6, align 4, !tbaa !30
   br label %.thread568
 
@@ -1157,21 +1157,21 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
 337:                                              ; preds = %333
   %338 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %339 = load ptr, ptr %338, align 8, !tbaa !87
-  %340 = call i32 @ff_vvc_annexb2mp4_buf(ptr noundef %339, ptr noundef nonnull %9, ptr noundef nonnull %6, i32 noundef 0, ptr noundef null) #16
+  %340 = call i32 @ff_vvc_annexb2mp4_buf(ptr noundef %339, ptr noundef nonnull %9, ptr noundef nonnull %6, i32 noundef 0, ptr noundef null) #17
   %341 = icmp slt i32 %340, 0
   br i1 %341, label %.thread, label %342
 
 342:                                              ; preds = %337
   %343 = load ptr, ptr %9, align 8, !tbaa !31
   %344 = load i32, ptr %6, align 4, !tbaa !30
-  call void @avio_write(ptr noundef %.0425, ptr noundef %343, i32 noundef %344) #16
+  call void @avio_write(ptr noundef %.0425, ptr noundef %343, i32 noundef %344) #17
   br label %.thread568
 
 345:                                              ; preds = %333, %329
   %346 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %347 = load ptr, ptr %346, align 8, !tbaa !87
   %348 = load i32, ptr %14, align 8, !tbaa !25
-  %349 = tail call i32 @ff_vvc_annexb2mp4(ptr noundef %.0425, ptr noundef %347, i32 noundef %348, i32 noundef 0, ptr noundef null) #16
+  %349 = tail call i32 @ff_vvc_annexb2mp4(ptr noundef %.0425, ptr noundef %347, i32 noundef %348, i32 noundef 0, ptr noundef null) #17
   store i32 %349, ptr %6, align 4, !tbaa !30
   br label %.thread568
 
@@ -1196,21 +1196,21 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
 361:                                              ; preds = %357
   %362 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %363 = load ptr, ptr %362, align 8, !tbaa !87
-  %364 = call i32 @ff_av1_filter_obus_buf(ptr noundef %363, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %7) #16
+  %364 = call i32 @ff_av1_filter_obus_buf(ptr noundef %363, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %7) #17
   %365 = icmp slt i32 %364, 0
   br i1 %365, label %.thread, label %366
 
 366:                                              ; preds = %361
   %367 = load ptr, ptr %9, align 8, !tbaa !31
   %368 = load i32, ptr %6, align 4, !tbaa !30
-  call void @avio_write(ptr noundef %.0425, ptr noundef %367, i32 noundef %368) #16
+  call void @avio_write(ptr noundef %.0425, ptr noundef %367, i32 noundef %368) #17
   br label %.thread568
 
 369:                                              ; preds = %357, %353
   %370 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %371 = load ptr, ptr %370, align 8, !tbaa !87
   %372 = load i32, ptr %14, align 8, !tbaa !25
-  %373 = tail call i32 @ff_av1_filter_obus(ptr noundef %.0425, ptr noundef %371, i32 noundef %372) #16
+  %373 = tail call i32 @ff_av1_filter_obus(ptr noundef %.0425, ptr noundef %371, i32 noundef %372) #17
   store i32 %373, ptr %6, align 4, !tbaa !30
   %374 = load i32, ptr %.0428, align 8, !tbaa !104
   %375 = icmp eq i32 %374, 256
@@ -1238,7 +1238,7 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
   br i1 %.not.i545, label %386, label %390
 
 386:                                              ; preds = %383
-  %387 = tail call noalias ptr @av_mallocz(i64 noundef 24) #16
+  %387 = tail call noalias ptr @av_mallocz(i64 noundef 24) #17
   store ptr %387, ptr %384, align 8, !tbaa !107
   %.not111.i = icmp eq ptr %387, null
   br i1 %.not111.i, label %handle_eac3.exit.thread, label %388
@@ -1255,7 +1255,7 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
   br i1 %.not112.i, label %393, label %395
 
 393:                                              ; preds = %390
-  %394 = tail call ptr @av_packet_alloc() #16
+  %394 = tail call ptr @av_packet_alloc() #17
   store ptr %394, ptr %391, align 8, !tbaa !110
   %.not113.i = icmp eq ptr %394, null
   br i1 %.not113.i, label %handle_eac3.exit.thread, label %395
@@ -1265,7 +1265,7 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
   %397 = load ptr, ptr %396, align 8, !tbaa !87
   %398 = load i32, ptr %14, align 8, !tbaa !25
   %399 = sext i32 %398 to i64
-  %400 = call i32 @avpriv_ac3_parse_header(ptr noundef nonnull %5, ptr noundef %397, i64 noundef %399) #16
+  %400 = call i32 @avpriv_ac3_parse_header(ptr noundef nonnull %5, ptr noundef %397, i64 noundef %399) #17
   %401 = icmp slt i32 %400, 0
   br i1 %401, label %402, label %409
 
@@ -1281,7 +1281,7 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
 406:                                              ; preds = %404
   %407 = getelementptr inbounds nuw i8, ptr %11, i64 160
   %408 = load ptr, ptr %407, align 8, !tbaa !111
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %408, i32 noundef 24, ptr noundef nonnull @.str.40) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %408, i32 noundef 24, ptr noundef nonnull @.str.40) #17
   br label %handle_eac3.exit
 
 409:                                              ; preds = %395
@@ -1345,7 +1345,7 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
 447:                                              ; preds = %445
   %448 = getelementptr inbounds nuw i8, ptr %11, i64 160
   %449 = load ptr, ptr %448, align 8, !tbaa !111
-  call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %449, ptr noundef nonnull @.str.41) #16
+  call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %449, ptr noundef nonnull @.str.41) #17
   br label %handle_eac3.exit
 
 450:                                              ; preds = %445
@@ -1371,7 +1371,7 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
 460:                                              ; preds = %457
   %461 = getelementptr inbounds nuw i8, ptr %11, i64 160
   %462 = load ptr, ptr %461, align 8, !tbaa !111
-  call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %462, ptr noundef nonnull @.str.42) #16
+  call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %462, ptr noundef nonnull @.str.42) #17
   br label %handle_eac3.exit
 
 463:                                              ; preds = %457, %454, %452
@@ -1424,7 +1424,7 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
   %495 = getelementptr inbounds nuw i8, ptr %492, i64 %494
   %496 = sub nsw i32 %493, %.089152.i
   %497 = sext i32 %496 to i64
-  %498 = call i32 @avpriv_ac3_parse_header(ptr noundef nonnull %5, ptr noundef %495, i64 noundef %497) #16
+  %498 = call i32 @avpriv_ac3_parse_header(ptr noundef nonnull %5, ptr noundef %495, i64 noundef %497) #17
   %499 = icmp slt i32 %498, 0
   br i1 %499, label %handle_eac3.exit, label %500
 
@@ -1574,7 +1574,7 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
   br i1 %581, label %591, label %595
 
 591:                                              ; preds = %589
-  %592 = call i32 @av_packet_ref(ptr noundef %590, ptr noundef nonnull %1) #16
+  %592 = call i32 @av_packet_ref(ptr noundef %590, ptr noundef nonnull %1) #17
   %.not125.i = icmp eq i32 %592, 0
   br i1 %.not125.i, label %593, label %handle_eac3.exit
 
@@ -1585,7 +1585,7 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
 
 595:                                              ; preds = %589
   %596 = load i32, ptr %14, align 8, !tbaa !25
-  %597 = call i32 @av_grow_packet(ptr noundef %590, i32 noundef %596) #16
+  %597 = call i32 @av_grow_packet(ptr noundef %590, i32 noundef %596) #17
   %598 = icmp slt i32 %597, 0
   br i1 %598, label %handle_eac3.exit, label %599
 
@@ -1617,9 +1617,9 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
   br i1 %.not126.i, label %620, label %handle_eac3.exit
 
 620:                                              ; preds = %599
-  call void @av_packet_unref(ptr noundef nonnull %1) #16
+  call void @av_packet_unref(ptr noundef nonnull %1) #17
   %621 = load ptr, ptr %391, align 8, !tbaa !110
-  call void @av_packet_move_ref(ptr noundef nonnull %1, ptr noundef %621) #16
+  call void @av_packet_move_ref(ptr noundef nonnull %1, ptr noundef %621) #17
   store i8 0, ptr %579, align 1, !tbaa !137
   %622 = load i32, ptr %14, align 8, !tbaa !25
   br label %handle_eac3.exit
@@ -1631,7 +1631,7 @@ handle_eac3.exit.thread:                          ; preds = %386, %393
 handle_eac3.exit:                                 ; preds = %491, %500, %402, %404, %406, %431, %437, %447, %460, %583, %585, %591, %593, %595, %599, %620
   %.092.i = phi i32 [ -12, %402 ], [ 0, %406 ], [ %584, %583 ], [ %597, %595 ], [ %597, %599 ], [ %622, %620 ], [ %592, %591 ], [ 0, %593 ], [ -1163346256, %447 ], [ -1163346256, %460 ], [ -1094995529, %404 ], [ -22, %431 ], [ -22, %437 ], [ -1094995529, %585 ], [ -22, %500 ], [ %498, %491 ]
   %623 = load ptr, ptr %5, align 8, !tbaa !105
-  call void @av_free(ptr noundef %623) #16
+  call void @av_free(ptr noundef %623) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 %.092.i, ptr %6, align 4, !tbaa !30
   %624 = icmp slt i32 %.092.i, 0
@@ -1643,7 +1643,7 @@ handle_eac3.exit:                                 ; preds = %491, %500, %402, %4
 
 626:                                              ; preds = %625
   %627 = load ptr, ptr %396, align 8, !tbaa !87
-  call void @avio_write(ptr noundef %.0425, ptr noundef %627, i32 noundef %.092.i) #16
+  call void @avio_write(ptr noundef %.0425, ptr noundef %627, i32 noundef %.092.i) #17
   br label %.thread568
 
 628:                                              ; preds = %215
@@ -1660,8 +1660,8 @@ handle_eac3.exit:                                 ; preds = %491, %500, %402, %4
 
 ._crit_edge621:                                   ; preds = %645, %628
   %634 = phi i32 [ 8, %628 ], [ %646, %645 ]
-  tail call void @avio_wb32(ptr noundef %.0425, i32 noundef %634) #16
-  tail call void @avio_wl32(ptr noundef %.0425, i32 noundef 1952539747) #16
+  tail call void @avio_wb32(ptr noundef %.0425, i32 noundef %634) #17
+  tail call void @avio_wl32(ptr noundef %.0425, i32 noundef 1952539747) #17
   %635 = load i32, ptr %14, align 8, !tbaa !25
   %636 = icmp sgt i32 %635, 0
   br i1 %636, label %.lr.ph624, label %.thread568
@@ -1702,13 +1702,13 @@ handle_eac3.exit:                                 ; preds = %491, %500, %402, %4
   %655 = getelementptr inbounds nuw i8, ptr %651, i64 1
   %656 = load i8, ptr %655, align 1, !tbaa !88
   %657 = zext i8 %656 to i32
-  tail call void @avio_w8(ptr noundef %.0425, i32 noundef %657) #16
+  tail call void @avio_w8(ptr noundef %.0425, i32 noundef %657) #17
   %658 = load ptr, ptr %637, align 8, !tbaa !87
   %659 = getelementptr inbounds nuw i8, ptr %658, i64 %indvars.iv628
   %660 = getelementptr inbounds nuw i8, ptr %659, i64 2
   %661 = load i8, ptr %660, align 1, !tbaa !88
   %662 = zext i8 %661 to i32
-  tail call void @avio_w8(ptr noundef %.0425, i32 noundef %662) #16
+  tail call void @avio_w8(ptr noundef %.0425, i32 noundef %662) #17
   %.pre634 = load i32, ptr %14, align 8, !tbaa !25
   br label %663
 
@@ -1755,7 +1755,7 @@ handle_eac3.exit:                                 ; preds = %491, %500, %402, %4
   %683 = zext nneg i8 %narrow515 to i32
   %684 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %685 = load ptr, ptr %684, align 8, !tbaa !87
-  %686 = tail call i32 @ff_mov_cenc_avc_write_nal_units(ptr noundef nonnull %0, ptr noundef nonnull %669, i32 noundef %683, ptr noundef %.0425, ptr noundef %685, i32 noundef %15) #16
+  %686 = tail call i32 @ff_mov_cenc_avc_write_nal_units(ptr noundef nonnull %0, ptr noundef nonnull %669, i32 noundef %683, ptr noundef %.0425, ptr noundef %685, i32 noundef %15) #17
   br label %715
 
 687:                                              ; preds = %.thread580.thread
@@ -1777,7 +1777,7 @@ handle_eac3.exit:                                 ; preds = %491, %500, %402, %4
   %698 = zext nneg i8 %narrow to i32
   %699 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %700 = load ptr, ptr %699, align 8, !tbaa !87
-  %701 = tail call i32 @ff_mov_cenc_avc_write_nal_units(ptr noundef nonnull %0, ptr noundef nonnull %667, i32 noundef %698, ptr noundef %.0425, ptr noundef %700, i32 noundef %15) #16
+  %701 = tail call i32 @ff_mov_cenc_avc_write_nal_units(ptr noundef nonnull %0, ptr noundef nonnull %667, i32 noundef %698, ptr noundef %.0425, ptr noundef %700, i32 noundef %15) #17
   br label %715
 
 .thread605:                                       ; preds = %.thread602, %688, %687
@@ -1795,12 +1795,12 @@ handle_eac3.exit:                                 ; preds = %491, %500, %402, %4
   br i1 %706, label %708, label %707
 
 707:                                              ; preds = %.thread587
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 6828) #16
-  tail call void @abort() #17
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 6828) #17
+  tail call void @abort() #18
   unreachable
 
 708:                                              ; preds = %.thread587
-  %709 = tail call i32 @ff_mov_cenc_av1_write_obus(ptr noundef nonnull %0, ptr noundef nonnull %704, ptr noundef %.0425, ptr noundef nonnull %1) #16
+  %709 = tail call i32 @ff_mov_cenc_av1_write_obus(ptr noundef nonnull %0, ptr noundef nonnull %704, ptr noundef %.0425, ptr noundef nonnull %1) #17
   %710 = icmp sgt i32 %709, 0
   br i1 %710, label %.thread588, label %715
 
@@ -1812,7 +1812,7 @@ handle_eac3.exit:                                 ; preds = %491, %500, %402, %4
   %711 = phi ptr [ %703, %.thread605 ], [ %669, %.thread608 ]
   %712 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %713 = load ptr, ptr %712, align 8, !tbaa !87
-  %714 = tail call i32 @ff_mov_cenc_write_packet(ptr noundef nonnull %711, ptr noundef %.0425, ptr noundef %713, i32 noundef %15) #16
+  %714 = tail call i32 @ff_mov_cenc_write_packet(ptr noundef nonnull %711, ptr noundef %.0425, ptr noundef %713, i32 noundef %15) #17
   br label %715
 
 715:                                              ; preds = %692, %.thread605.thread, %708, %677
@@ -1823,7 +1823,7 @@ handle_eac3.exit:                                 ; preds = %491, %500, %402, %4
 716:                                              ; preds = %.thread580.thread.thread, %.thread602, %.thread580.thread
   %717 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %718 = load ptr, ptr %717, align 8, !tbaa !87
-  tail call void @avio_write(ptr noundef %.0425, ptr noundef %718, i32 noundef %15) #16
+  tail call void @avio_write(ptr noundef %.0425, ptr noundef %718, i32 noundef %15) #17
   br label %.thread568
 
 .thread568:                                       ; preds = %663, %._crit_edge621, %301, %293, %304, %.thread588, %369, %376, %382, %366, %715, %716, %626, %342, %345, %240, %248, %251
@@ -1839,7 +1839,7 @@ handle_eac3.exit:                                 ; preds = %491, %500, %402, %4
   %724 = getelementptr inbounds nuw i8, ptr %.0428, i64 136
   %725 = load ptr, ptr %724, align 8, !tbaa !64
   %726 = zext i32 %723 to i64
-  %727 = call ptr @av_realloc_array(ptr noundef %725, i64 noundef %726, i64 noundef 64) #16
+  %727 = call ptr @av_realloc_array(ptr noundef %725, i64 noundef %726, i64 noundef 64) #17
   %.not520 = icmp eq ptr %727, null
   br i1 %.not520, label %.thread591, label %.thread594
 
@@ -1849,7 +1849,7 @@ handle_eac3.exit:                                 ; preds = %491, %500, %402, %4
   br label %728
 
 728:                                              ; preds = %.thread594, %.thread568
-  %729 = call i64 @avio_seek(ptr noundef %.0425, i64 noundef 0, i32 noundef 1) #16
+  %729 = call i64 @avio_seek(ptr noundef %.0425, i64 noundef 0, i32 noundef 1) #17
   %730 = load i32, ptr %6, align 4, !tbaa !30
   %731 = sext i32 %730 to i64
   %732 = sub nsw i64 %729, %731
@@ -1990,7 +1990,7 @@ handle_eac3.exit:                                 ; preds = %491, %500, %402, %4
 
 800:                                              ; preds = %797
   %801 = load i32, ptr %16, align 4, !tbaa !32
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.9, i32 noundef %801, i64 noundef %743) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.9, i32 noundef %801, i64 noundef %743) #17
   %.pre636 = load i64, ptr %62, align 8, !tbaa !71
   %.pre637 = load i64, ptr %786, align 8, !tbaa !68
   %.pre638 = load i64, ptr %75, align 8, !tbaa !73
@@ -2011,7 +2011,7 @@ handle_eac3.exit:                                 ; preds = %491, %500, %402, %4
   br i1 %811, label %.thread711, label %813
 
 .thread711:                                       ; preds = %802
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.10) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.10) #17
   %812 = load i64, ptr %62, align 8, !tbaa !71
   store i64 %812, ptr %75, align 8, !tbaa !73
   br label %818
@@ -2085,7 +2085,7 @@ handle_eac3.exit:                                 ; preds = %491, %500, %402, %4
 855:                                              ; preds = %844
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4, !tbaa !30
-  %856 = call ptr @avpriv_find_start_code(ptr noundef %846, ptr noundef nonnull %849, ptr noundef nonnull %4) #16
+  %856 = call ptr @avpriv_find_start_code(ptr noundef %846, ptr noundef nonnull %849, ptr noundef nonnull %4) #17
   %857 = load i32, ptr %4, align 4, !tbaa !30
   %858 = and i32 %857, -256
   %.not82.i = icmp eq i32 %858, 256
@@ -2112,7 +2112,7 @@ handle_eac3.exit:                                 ; preds = %491, %500, %402, %4
 867:                                              ; preds = %862
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -1, ptr %3, align 4, !tbaa !30
-  %868 = call ptr @avpriv_find_start_code(ptr noundef nonnull %863, ptr noundef nonnull %849, ptr noundef nonnull %3) #16
+  %868 = call ptr @avpriv_find_start_code(ptr noundef nonnull %863, ptr noundef nonnull %849, ptr noundef nonnull %3) #17
   %869 = load i32, ptr %3, align 4, !tbaa !30
   %870 = and i32 %869, -256
   %.not83.i = icmp eq i32 %870, 256
@@ -2417,7 +2417,7 @@ mov_parse_vc1_frame.exit:                         ; preds = %mov_parse_vc1_frame
   br label %1009
 
 1009:                                             ; preds = %999, %mov_parse_vc1_frame.exit
-  %1010 = call ptr @av_packet_get_side_data(ptr noundef nonnull %1, i32 noundef 27, ptr noundef nonnull %8) #16
+  %1010 = call ptr @av_packet_get_side_data(ptr noundef nonnull %1, i32 noundef 27, ptr noundef nonnull %8) #17
   %1011 = icmp ne ptr %1010, null
   %1012 = load i64, ptr %8, align 8
   %1013 = icmp eq i64 %1012, 16
@@ -2470,7 +2470,7 @@ mov_parse_vc1_frame.exit:                         ; preds = %mov_parse_vc1_frame
   %1043 = sext i32 %1042 to i64
   %1044 = getelementptr inbounds i8, ptr %1041, i64 %1043
   %1045 = select i1 %.not539, ptr null, ptr %1044
-  %1046 = call i32 @ff_mov_add_hinted_packet(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %1034, i32 noundef %1023, ptr noundef %1045, i32 noundef %1028) #16
+  %1046 = call i32 @ff_mov_add_hinted_packet(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %1034, i32 noundef %1023, ptr noundef %1045, i32 noundef %1028) #17
   br label %.thread591
 
 .thread591:                                       ; preds = %.thread605, %722, %301, %248, %186, %167, %625, %1040, %1036, %1021, %715
@@ -2482,7 +2482,7 @@ mov_parse_vc1_frame.exit:                         ; preds = %mov_parse_vc1_frame
   br i1 %.not540, label %.thread, label %1050
 
 1050:                                             ; preds = %.thread591
-  call void @av_free(ptr noundef %1049) #16
+  call void @av_free(ptr noundef %1049) #17
   br label %.thread
 
 .thread:                                          ; preds = %288, %117, %111, %105, %handle_eac3.exit.thread, %143, %check_pkt.exit.thread, %.thread591, %1050, %handle_eac3.exit, %361, %337, %235, %213, %.thread557.thread, %79
@@ -2512,7 +2512,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_flush_fragment_interle
   br i1 %.not22, label %8, label %11
 
 8:                                                ; preds = %5
-  %9 = tail call i32 @avio_open_dyn_buf(ptr noundef nonnull %6) #16
+  %9 = tail call i32 @avio_open_dyn_buf(ptr noundef nonnull %6) #17
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %31, label %._crit_edge3
 
@@ -2522,13 +2522,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_flush_fragment_interle
 
 11:                                               ; preds = %._crit_edge3, %5
   %12 = phi ptr [ %.pre, %._crit_edge3 ], [ %4, %5 ]
-  %13 = call i32 @avio_get_dyn_buf(ptr noundef %12, ptr noundef nonnull %2) #16
+  %13 = call i32 @avio_get_dyn_buf(ptr noundef %12, ptr noundef nonnull %2) #17
   %14 = load ptr, ptr %6, align 8, !tbaa !82
-  %15 = call i64 @avio_seek(ptr noundef %14, i64 noundef 0, i32 noundef 1) #16
+  %15 = call i64 @avio_seek(ptr noundef %14, i64 noundef 0, i32 noundef 1) #17
   %16 = load ptr, ptr %6, align 8, !tbaa !82
   %17 = load ptr, ptr %2, align 8, !tbaa !31
-  call void @avio_write(ptr noundef %16, ptr noundef %17, i32 noundef %13) #16
-  call void @ffio_free_dyn_buf(ptr noundef nonnull %3) #16
+  call void @avio_write(ptr noundef %16, ptr noundef %17, i32 noundef %13) #17
+  call void @ffio_free_dyn_buf(ptr noundef nonnull %3) #17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %19 = load i32, ptr %18, align 4, !tbaa !80
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2851,13 +2851,13 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
   %.03547.i323 = phi i32 [ %.2.i, %141 ], [ 0, %.lr.ph50.i ]
   %.03448.i322 = phi i32 [ %.1.i, %141 ], [ 0, %.lr.ph50.i ]
   %.03349.i321 = phi ptr [ %145, %141 ], [ %96, %.lr.ph50.i ]
-  %98 = call i32 @strncmp(ptr noundef nonnull dereferenceable(9) @.str.160, ptr noundef nonnull dereferenceable(1) %.03349.i321, i64 noundef 8) #18
+  %98 = call i32 @strncmp(ptr noundef nonnull dereferenceable(9) @.str.160, ptr noundef nonnull dereferenceable(1) %.03349.i321, i64 noundef 8) #19
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %100, label %134
 
 100:                                              ; preds = %.lr.ph324
   %101 = getelementptr inbounds nuw i8, ptr %.03349.i321, i64 8
-  %102 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %101, ptr noundef nonnull @.str.161, ptr noundef nonnull %11, ptr noundef nonnull %54, ptr noundef nonnull %55, ptr noundef nonnull %56, ptr noundef nonnull %57, ptr noundef nonnull %58, ptr noundef nonnull %59, ptr noundef nonnull %60, ptr noundef nonnull %61, ptr noundef nonnull %62, ptr noundef nonnull %63, ptr noundef nonnull %64, ptr noundef nonnull %65, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %68) #16
+  %102 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %101, ptr noundef nonnull @.str.161, ptr noundef nonnull %11, ptr noundef nonnull %54, ptr noundef nonnull %55, ptr noundef nonnull %56, ptr noundef nonnull %57, ptr noundef nonnull %58, ptr noundef nonnull %59, ptr noundef nonnull %60, ptr noundef nonnull %61, ptr noundef nonnull %62, ptr noundef nonnull %63, ptr noundef nonnull %64, ptr noundef nonnull %65, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %68) #17
   %103 = icmp sgt i32 %102, 0
   br i1 %103, label %.lr.ph.preheader.i, label %.loopexit.i
 
@@ -2907,13 +2907,13 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !179
 
 134:                                              ; preds = %.lr.ph324
-  %135 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.162, ptr noundef nonnull dereferenceable(1) %.03349.i321, i64 noundef 5) #18
+  %135 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.162, ptr noundef nonnull dereferenceable(1) %.03349.i321, i64 noundef 5) #19
   %.not39.i = icmp eq i32 %135, 0
   br i1 %.not39.i, label %136, label %.loopexit.i
 
 136:                                              ; preds = %134
   %137 = getelementptr inbounds nuw i8, ptr %.03349.i321, i64 5
-  %138 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %137, ptr noundef nonnull @.str.163, ptr noundef nonnull %9, ptr noundef nonnull %10) #16
+  %138 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %137, ptr noundef nonnull @.str.163, ptr noundef nonnull %9, ptr noundef nonnull %10) #17
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %136, %134, %100
@@ -2925,9 +2925,9 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
   br i1 %or.cond.i, label %.critedge.thread.i, label %141
 
 141:                                              ; preds = %.loopexit.i
-  %142 = call i64 @strcspn(ptr noundef nonnull %.03349.i321, ptr noundef nonnull @.str.164) #18
+  %142 = call i64 @strcspn(ptr noundef nonnull %.03349.i321, ptr noundef nonnull @.str.164) #19
   %143 = getelementptr inbounds nuw i8, ptr %.03349.i321, i64 %142
-  %144 = call i64 @strspn(ptr noundef nonnull %143, ptr noundef nonnull @.str.164) #18
+  %144 = call i64 @strspn(ptr noundef nonnull %143, ptr noundef nonnull @.str.164) #19
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 %144
   %146 = load i8, ptr %145, align 1, !tbaa !88
   %.not38.i = icmp eq i8 %146, 0
@@ -2938,7 +2938,7 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
   br i1 %147, label %.critedge.thread61.i, label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %.loopexit.i, %.critedge.i
-  %148 = call noalias ptr @av_malloc(i64 noundef 128) #16
+  %148 = call noalias ptr @av_malloc(i64 noundef 128) #17
   %149 = getelementptr inbounds nuw i8, ptr %83, i64 128
   store ptr %148, ptr %149, align 8, !tbaa !97
   %.not41.i = icmp eq ptr %148, null
@@ -3012,7 +3012,7 @@ mov_create_dvd_sub_decoder_specific_info.exit:    ; preds = %.critedge.thread.i,
   store i32 %89, ptr %171, align 8, !tbaa !94
   %172 = add nsw i32 %89, 64
   %173 = sext i32 %172 to i64
-  %174 = call noalias ptr @av_malloc(i64 noundef %173) #16
+  %174 = call noalias ptr @av_malloc(i64 noundef %173) #17
   %175 = getelementptr inbounds nuw i8, ptr %83, i64 128
   store ptr %174, ptr %175, align 8, !tbaa !97
   %.not213 = icmp eq ptr %174, null
@@ -3050,7 +3050,7 @@ mov_create_dvd_sub_decoder_specific_info.exit:    ; preds = %.critedge.thread.i,
   store i32 1, ptr %69, align 4, !tbaa !185
   store i64 4, ptr %70, align 8, !tbaa !88
   store ptr null, ptr %71, align 8, !tbaa !186
-  %193 = call i32 @av_channel_layout_compare(ptr noundef nonnull %192, ptr noundef nonnull %12) #16
+  %193 = call i32 @av_channel_layout_compare(ptr noundef nonnull %192, ptr noundef nonnull %12) #17
   %.not215 = icmp eq i32 %193, 0
   %.pre357 = load i32, ptr %21, align 8, !tbaa !172
   %194 = icmp sgt i32 %.pre357, 0
@@ -3094,7 +3094,7 @@ mov_create_dvd_sub_decoder_specific_info.exit:    ; preds = %.critedge.thread.i,
   store i32 1, ptr %72, align 4, !tbaa !185
   store i64 4, ptr %73, align 8, !tbaa !88
   store ptr null, ptr %74, align 8, !tbaa !186
-  %217 = call i32 @av_channel_layout_compare(ptr noundef nonnull %216, ptr noundef nonnull %13) #16
+  %217 = call i32 @av_channel_layout_compare(ptr noundef nonnull %216, ptr noundef nonnull %13) #17
   %.not217 = icmp eq i32 %217, 0
   br i1 %.not217, label %218, label %219
 
@@ -3116,7 +3116,7 @@ mov_create_dvd_sub_decoder_specific_info.exit:    ; preds = %.critedge.thread.i,
   store i32 1, ptr %75, align 4, !tbaa !185
   store i64 4, ptr %76, align 8, !tbaa !88
   store ptr null, ptr %77, align 8, !tbaa !186
-  %227 = call i32 @av_channel_layout_compare(ptr noundef nonnull %226, ptr noundef nonnull %14) #16
+  %227 = call i32 @av_channel_layout_compare(ptr noundef nonnull %226, ptr noundef nonnull %14) #17
   %.not218 = icmp eq i32 %227, 0
   br i1 %.not218, label %238, label %228
 
@@ -3151,7 +3151,7 @@ mov_create_dvd_sub_decoder_specific_info.exit:    ; preds = %.critedge.thread.i,
   store i32 1, ptr %78, align 4, !tbaa !185
   store i64 4, ptr %79, align 8, !tbaa !88
   store ptr null, ptr %80, align 8, !tbaa !186
-  %245 = call i32 @av_channel_layout_compare(ptr noundef nonnull %244, ptr noundef nonnull %15) #16
+  %245 = call i32 @av_channel_layout_compare(ptr noundef nonnull %244, ptr noundef nonnull %15) #17
   %.not220 = icmp eq i32 %245, 0
   br i1 %.not220, label %246, label %257
 
@@ -3214,7 +3214,7 @@ mov_create_dvd_sub_decoder_specific_info.exit:    ; preds = %.critedge.thread.i,
   br i1 %.not225, label %280, label %272
 
 272:                                              ; preds = %269
-  %273 = call i64 @avio_seek(ptr noundef %18, i64 noundef 0, i32 noundef 1) #16
+  %273 = call i64 @avio_seek(ptr noundef %18, i64 noundef 0, i32 noundef 1) #17
   %274 = getelementptr inbounds nuw i8, ptr %20, i64 136
   store i64 %273, ptr %274, align 8, !tbaa !194
   %275 = load i32, ptr %270, align 8, !tbaa !193
@@ -3223,7 +3223,7 @@ mov_create_dvd_sub_decoder_specific_info.exit:    ; preds = %.critedge.thread.i,
 
 277:                                              ; preds = %272
   %278 = zext nneg i32 %275 to i64
-  %279 = call i64 @avio_skip(ptr noundef %18, i64 noundef %278) #16
+  %279 = call i64 @avio_skip(ptr noundef %18, i64 noundef %278) #17
   br label %280
 
 280:                                              ; preds = %272, %277, %269
@@ -3261,12 +3261,12 @@ mov_create_dvd_sub_decoder_specific_info.exit:    ; preds = %.critedge.thread.i,
   br i1 %.not232, label %315, label %296
 
 296:                                              ; preds = %293
-  call void @avio_wb32(ptr noundef %18, i32 noundef 8) #16
+  call void @avio_wb32(ptr noundef %18, i32 noundef 8) #17
   %297 = load i32, ptr %23, align 8, !tbaa !76
   %298 = icmp eq i32 %297, 2
   %299 = select i1 %298, i32 1701079415, i32 1701147238
-  call void @avio_wl32(ptr noundef %18, i32 noundef %299) #16
-  %300 = call i64 @avio_seek(ptr noundef %18, i64 noundef 0, i32 noundef 1) #16
+  call void @avio_wl32(ptr noundef %18, i32 noundef %299) #17
+  %300 = call i64 @avio_seek(ptr noundef %18, i64 noundef 0, i32 noundef 1) #17
   %301 = getelementptr inbounds nuw i8, ptr %20, i64 40
   store i64 %300, ptr %301, align 8, !tbaa !197
   br label %315
@@ -3282,27 +3282,27 @@ mov_create_dvd_sub_decoder_specific_info.exit:    ; preds = %.critedge.thread.i,
   br i1 %.not228, label %309, label %306
 
 306:                                              ; preds = %304
-  %307 = call i64 @avio_seek(ptr noundef %18, i64 noundef 0, i32 noundef 1) #16
+  %307 = call i64 @avio_seek(ptr noundef %18, i64 noundef 0, i32 noundef 1) #17
   %308 = getelementptr inbounds nuw i8, ptr %20, i64 136
   store i64 %307, ptr %308, align 8, !tbaa !194
   br label %309
 
 309:                                              ; preds = %306, %304
-  call void @avio_wb32(ptr noundef %18, i32 noundef 8) #16
+  call void @avio_wb32(ptr noundef %18, i32 noundef 8) #17
   %310 = load i32, ptr %23, align 8, !tbaa !76
   %311 = icmp eq i32 %310, 2
   %312 = select i1 %311, i32 1701079415, i32 1701147238
-  call void @avio_wl32(ptr noundef %18, i32 noundef %312) #16
-  %313 = call i64 @avio_seek(ptr noundef %18, i64 noundef 0, i32 noundef 1) #16
+  call void @avio_wl32(ptr noundef %18, i32 noundef %312) #17
+  %313 = call i64 @avio_seek(ptr noundef %18, i64 noundef 0, i32 noundef 1) #17
   %314 = getelementptr inbounds nuw i8, ptr %20, i64 40
   store i64 %313, ptr %314, align 8, !tbaa !197
-  call void @avio_wb32(ptr noundef %18, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %18, i32 noundef 1952539757) #16
+  call void @avio_wb32(ptr noundef %18, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %18, i32 noundef 1952539757) #17
   br label %315
 
 315:                                              ; preds = %302, %309, %293, %296
   %316 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %317 = call i32 @ff_parse_creation_time_metadata(ptr noundef %0, ptr noundef nonnull %316, i32 noundef 1) #16
+  %317 = call i32 @ff_parse_creation_time_metadata(ptr noundef %0, ptr noundef nonnull %316, i32 noundef 1) #17
   %318 = load i64, ptr %316, align 8, !tbaa !198
   %.not233 = icmp eq i64 %318, 0
   br i1 %.not233, label %321, label %319
@@ -3364,7 +3364,7 @@ rtp_hinting_needed.exit259:                       ; preds = %332, %is_cover_imag
 
 343:                                              ; preds = %rtp_hinting_needed.exit259
   %344 = trunc nuw nsw i64 %indvars.iv351 to i32
-  %345 = call i32 @ff_mov_init_hinting(ptr noundef %0, i32 noundef %.1174333, i32 noundef %344) #16
+  %345 = call i32 @ff_mov_init_hinting(ptr noundef %0, i32 noundef %.1174333, i32 noundef %344) #17
   %346 = icmp slt i32 %345, 0
   br i1 %346, label %.thread275, label %347
 
@@ -3389,7 +3389,7 @@ rtp_hinting_needed.exit259.thread:                ; preds = %is_cover_image.exit
 352:                                              ; preds = %.loopexit310
   %353 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %354 = load ptr, ptr %353, align 8, !tbaa !201
-  %355 = call ptr @av_dict_get(ptr noundef %354, ptr noundef nonnull @.str.159, ptr noundef null, i32 noundef 0) #16
+  %355 = call ptr @av_dict_get(ptr noundef %354, ptr noundef nonnull @.str.159, ptr noundef null, i32 noundef 0) #17
   %356 = load i32, ptr %21, align 8, !tbaa !172
   %357 = icmp sgt i32 %356, 0
   br i1 %357, label %.lr.ph339, label %.loopexit
@@ -3420,7 +3420,7 @@ rtp_hinting_needed.exit259.thread:                ; preds = %is_cover_image.exit
 370:                                              ; preds = %369
   %371 = getelementptr inbounds nuw i8, ptr %364, i64 80
   %372 = load ptr, ptr %371, align 8, !tbaa !202
-  %373 = call ptr @av_dict_get(ptr noundef %372, ptr noundef nonnull @.str.159, ptr noundef null, i32 noundef 0) #16
+  %373 = call ptr @av_dict_get(ptr noundef %372, ptr noundef nonnull @.str.159, ptr noundef null, i32 noundef 0) #17
   %.not240 = icmp eq ptr %373, null
   br i1 %.not240, label %.thread291.sink.split, label %.thread277
 
@@ -3430,7 +3430,7 @@ rtp_hinting_needed.exit259.thread:                ; preds = %is_cover_image.exit
   %375 = load ptr, ptr %374, align 8, !tbaa !203
   %376 = getelementptr i8, ptr %364, i64 88
   %.val = load i64, ptr %376, align 8
-  %377 = call i32 @av_timecode_init_from_string(ptr noundef nonnull %16, i64 %.val, ptr noundef %375, ptr noundef %0) #16
+  %377 = call i32 @av_timecode_init_from_string(ptr noundef nonnull %16, i64 %.val, ptr noundef %375, ptr noundef %0) #17
   %378 = icmp slt i32 %377, 0
   br i1 %378, label %.thread291.sink.split, label %379
 
@@ -3476,7 +3476,7 @@ rtp_hinting_needed.exit259.thread:                ; preds = %is_cover_image.exit
 404:                                              ; preds = %400, %379
   %405 = getelementptr inbounds nuw i8, ptr %384, i64 96
   store ptr %387, ptr %405, align 8, !tbaa !99
-  %406 = call ptr @avcodec_parameters_alloc() #16
+  %406 = call ptr @avcodec_parameters_alloc() #17
   %407 = getelementptr inbounds nuw i8, ptr %384, i64 104
   store ptr %406, ptr %407, align 8, !tbaa !46
   %.not41.i261 = icmp eq ptr %406, null
@@ -3507,7 +3507,7 @@ mov_create_timecode_track.exit:                   ; preds = %404
   %.sroa.2.0.insert.ext.i = zext i32 %417 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, 1
-  %418 = call i64 @av_rescale_q(i64 noundef %415, i64 %.sroa.01.0.insert.insert.i.i, i64 %.sroa.0.0.insert.insert.i) #19
+  %418 = call i64 @av_rescale_q(i64 noundef %415, i64 %.sroa.01.0.insert.insert.i.i, i64 %.sroa.0.0.insert.insert.i) #20
   %419 = getelementptr inbounds nuw i8, ptr %389, i64 16
   store i64 %418, ptr %419, align 8, !tbaa !71
   %420 = getelementptr inbounds nuw i8, ptr %389, i64 8
@@ -3517,7 +3517,7 @@ mov_create_timecode_track.exit:                   ; preds = %404
   %422 = call i32 @llvm.bswap.i32(i32 %.val250)
   store i32 %422, ptr %8, align 4, !tbaa !88
   %423 = call i32 @ff_mov_write_packet(ptr noundef nonnull %0, ptr noundef %389)
-  call void @av_packet_unref(ptr noundef %389) #16
+  call void @av_packet_unref(ptr noundef %389) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %424 = icmp slt i32 %423, 0
   br i1 %424, label %.thread301, label %425
@@ -3545,21 +3545,21 @@ mov_create_timecode_track.exit:                   ; preds = %404
   br i1 %429, label %360, label %.loopexit, !llvm.loop !213
 
 .loopexit:                                        ; preds = %.thread291, %352, %.loopexit310
-  call void @avio_flush(ptr noundef %18) #16
+  call void @avio_flush(ptr noundef %18) #17
   %430 = load i32, ptr %31, align 8, !tbaa !75
   %431 = and i32 %430, 64
   %.not242 = icmp eq i32 %431, 0
   br i1 %.not242, label %595, label %432
 
 432:                                              ; preds = %.loopexit
-  %433 = call i64 @avio_seek(ptr noundef %18, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %18, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %18, i32 noundef 1684632949) #16
-  call void @avio_write(ptr noundef %18, ptr noundef nonnull @mov_write_isml_manifest.uuid, i32 noundef 16) #16
-  call void @avio_wb32(ptr noundef %18, i32 noundef 0) #16
-  %434 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.206) #16
-  %435 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.207) #16
-  %436 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.208) #16
+  %433 = call i64 @avio_seek(ptr noundef %18, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %18, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %18, i32 noundef 1684632949) #17
+  call void @avio_write(ptr noundef %18, ptr noundef nonnull @mov_write_isml_manifest.uuid, i32 noundef 16) #17
+  call void @avio_wb32(ptr noundef %18, i32 noundef 0) #17
+  %434 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.206) #17
+  %435 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.207) #17
+  %436 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.208) #17
   %437 = getelementptr inbounds nuw i8, ptr %20, i64 160
   %438 = load ptr, ptr %437, align 8, !tbaa !111
   %439 = getelementptr inbounds nuw i8, ptr %438, i64 128
@@ -3569,13 +3569,13 @@ mov_create_timecode_track.exit:                   ; preds = %404
   br i1 %.not.i263, label %442, label %444
 
 442:                                              ; preds = %432
-  %443 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.210) #16
+  %443 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.210) #17
   br label %444
 
 444:                                              ; preds = %442, %432
-  %445 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.211) #16
-  %446 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.212) #16
-  %447 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.213) #16
+  %445 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.211) #17
+  %446 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.212) #17
+  %447 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.213) #17
   call fastcc void @mov_setup_track_ids(ptr noundef nonnull %20)
   %448 = getelementptr inbounds nuw i8, ptr %20, i64 28
   %449 = load i32, ptr %448, align 4, !tbaa !102
@@ -3600,7 +3600,7 @@ mov_create_timecode_track.exit:                   ; preds = %404
   %459 = load ptr, ptr %458, align 8, !tbaa !99
   %460 = getelementptr inbounds nuw i8, ptr %459, i64 80
   %461 = load ptr, ptr %460, align 8, !tbaa !202
-  %462 = call ptr @av_dict_get(ptr noundef %461, ptr noundef nonnull @.str.214, ptr noundef null, i32 noundef 0) #16
+  %462 = call ptr @av_dict_get(ptr noundef %461, ptr noundef nonnull @.str.214, ptr noundef null, i32 noundef 0) #17
   %463 = getelementptr inbounds nuw i8, ptr %454, i64 104
   %464 = load ptr, ptr %463, align 8, !tbaa !46
   %465 = load i32, ptr %464, align 8, !tbaa !177
@@ -3617,24 +3617,24 @@ is_cover_image.exit.i268:                         ; preds = %452
 
 468:                                              ; preds = %is_cover_image.exit.i268, %452
   %.090.i = phi ptr [ @.str.215, %is_cover_image.exit.i268 ], [ @.str.216, %452 ]
-  %469 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.217, ptr noundef nonnull %.090.i, i32 noundef %.fca.1.extract.i) #16
-  %470 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.218, i32 noundef %.fca.1.extract.i) #16
-  %471 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.219, i32 noundef %457) #16
+  %469 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.217, ptr noundef nonnull %.090.i, i32 noundef %.fca.1.extract.i) #17
+  %470 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.218, i32 noundef %.fca.1.extract.i) #17
+  %471 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.219, i32 noundef %457) #17
   %.not97.i = icmp eq ptr %462, null
   br i1 %.not97.i, label %.critedge.i267, label %472
 
 472:                                              ; preds = %468
   %473 = getelementptr inbounds nuw i8, ptr %462, i64 8
   %474 = load ptr, ptr %473, align 8, !tbaa !203
-  %475 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.220, ptr noundef %474) #16
-  %476 = call i64 @av_strlcat(ptr noundef nonnull %5, ptr noundef nonnull %.090.i, i64 noundef 32) #16
+  %475 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.220, ptr noundef %474) #17
+  %476 = call i64 @av_strlcat(ptr noundef nonnull %5, ptr noundef nonnull %.090.i, i64 noundef 32) #17
   %477 = load ptr, ptr %473, align 8, !tbaa !203
-  %478 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.222, ptr noundef %477) #16
+  %478 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.222, ptr noundef %477) #17
   br label %481
 
 .critedge.i267:                                   ; preds = %468
-  %479 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.220, ptr noundef nonnull @.str.221) #16
-  %480 = call i64 @av_strlcat(ptr noundef nonnull %5, ptr noundef nonnull %.090.i, i64 noundef 32) #16
+  %479 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.220, ptr noundef nonnull @.str.221) #17
+  %480 = call i64 @av_strlcat(ptr noundef nonnull %5, ptr noundef nonnull %.090.i, i64 noundef 32) #17
   br label %481
 
 481:                                              ; preds = %.critedge.i267, %472
@@ -3651,11 +3651,11 @@ is_cover_image.exit.i268:                         ; preds = %452
 
 .sink.split.i:                                    ; preds = %485, %481
   %.str.224.sink.i = phi ptr [ @.str.223, %481 ], [ @.str.224, %485 ]
-  %487 = call i64 @av_strlcat(ptr noundef nonnull %5, ptr noundef nonnull %.str.224.sink.i, i64 noundef 32) #16
+  %487 = call i64 @av_strlcat(ptr noundef nonnull %5, ptr noundef nonnull %.str.224.sink.i, i64 noundef 32) #17
   br label %488
 
 488:                                              ; preds = %.sink.split.i, %485
-  %489 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.225, ptr noundef nonnull %5) #16
+  %489 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.225, ptr noundef nonnull %5) #17
   %490 = load ptr, ptr %463, align 8, !tbaa !46
   %491 = load i32, ptr %490, align 8, !tbaa !177
   %492 = icmp eq i32 %491, 0
@@ -3677,7 +3677,7 @@ is_cover_image.exit.i268:                         ; preds = %452
   store i32 %498, ptr %7, align 4, !tbaa !30
   %499 = getelementptr inbounds nuw i8, ptr %490, i64 16
   %500 = load ptr, ptr %499, align 8, !tbaa !98
-  %501 = call i32 @ff_avc_write_annexb_extradata(ptr noundef %500, ptr noundef nonnull %6, ptr noundef nonnull %7) #16
+  %501 = call i32 @ff_avc_write_annexb_extradata(ptr noundef %500, ptr noundef nonnull %6, ptr noundef nonnull %7) #17
   %.not101.i = icmp eq i32 %501, 0
   br i1 %.not101.i, label %502, label %515
 
@@ -3697,21 +3697,21 @@ is_cover_image.exit.i268:                         ; preds = %452
   %510 = load i32, ptr %7, align 4, !tbaa !30
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %511 = call i32 @llvm.umin.i32(i32 %510, i32 74)
-  %512 = call ptr @ff_data_to_hex(ptr noundef nonnull %4, ptr noundef %509, i32 noundef %511, i32 noundef 0) #16
-  %513 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.226, ptr noundef nonnull %4) #16
+  %512 = call ptr @ff_data_to_hex(ptr noundef nonnull %4, ptr noundef %509, i32 noundef %511, i32 noundef 0) #17
+  %513 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.226, ptr noundef nonnull %4) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %514 = load ptr, ptr %6, align 8, !tbaa !31
-  call void @av_free(ptr noundef %514) #16
+  call void @av_free(ptr noundef %514) #17
   br label %515
 
 515:                                              ; preds = %508, %496
-  %516 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.227, ptr noundef nonnull @.str.228) #16
+  %516 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.227, ptr noundef nonnull @.str.228) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %527
 
 517:                                              ; preds = %495
-  %518 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.227, ptr noundef nonnull @.str.229) #16
+  %518 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.227, ptr noundef nonnull @.str.229) #17
   %519 = load ptr, ptr %463, align 8, !tbaa !46
   %520 = getelementptr inbounds nuw i8, ptr %519, i64 16
   %521 = load ptr, ptr %520, align 8, !tbaa !98
@@ -3719,8 +3719,8 @@ is_cover_image.exit.i268:                         ; preds = %452
   %523 = load i32, ptr %522, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %524 = call i32 @llvm.umin.i32(i32 %523, i32 74)
-  %525 = call ptr @ff_data_to_hex(ptr noundef nonnull %3, ptr noundef %521, i32 noundef %524, i32 noundef 0) #16
-  %526 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.226, ptr noundef nonnull %3) #16
+  %525 = call ptr @ff_data_to_hex(ptr noundef nonnull %3, ptr noundef %521, i32 noundef %524, i32 noundef 0) #17
+  %526 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.226, ptr noundef nonnull %3) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %527
 
@@ -3728,19 +3728,19 @@ is_cover_image.exit.i268:                         ; preds = %452
   %528 = load ptr, ptr %463, align 8, !tbaa !46
   %529 = getelementptr inbounds nuw i8, ptr %528, i64 72
   %530 = load i32, ptr %529, align 8, !tbaa !181
-  %531 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.230, i32 noundef %530) #16
+  %531 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.230, i32 noundef %530) #17
   %532 = load ptr, ptr %463, align 8, !tbaa !46
   %533 = getelementptr inbounds nuw i8, ptr %532, i64 76
   %534 = load i32, ptr %533, align 4, !tbaa !183
-  %535 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.231, i32 noundef %534) #16
+  %535 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.231, i32 noundef %534) #17
   %536 = load ptr, ptr %463, align 8, !tbaa !46
   %537 = getelementptr inbounds nuw i8, ptr %536, i64 72
   %538 = load i32, ptr %537, align 8, !tbaa !181
-  %539 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.232, i32 noundef %538) #16
+  %539 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.232, i32 noundef %538) #17
   %540 = load ptr, ptr %463, align 8, !tbaa !46
   %541 = getelementptr inbounds nuw i8, ptr %540, i64 76
   %542 = load i32, ptr %541, align 4, !tbaa !183
-  %543 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.233, i32 noundef %542) #16
+  %543 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.233, i32 noundef %542) #17
   br label %582
 
 544:                                              ; preds = %488
@@ -3760,7 +3760,7 @@ is_cover_image.exit.i268:                         ; preds = %452
 
 .sink.split5.i:                                   ; preds = %545, %544
   %.str.237.sink.i = phi ptr [ %switch.select7.i, %545 ], [ @.str.237, %544 ]
-  %548 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.227, ptr noundef nonnull %.str.237.sink.i) #16
+  %548 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.227, ptr noundef nonnull %.str.237.sink.i) #17
   %.pre360 = load ptr, ptr %463, align 8, !tbaa !46
   br label %549
 
@@ -3772,18 +3772,18 @@ is_cover_image.exit.i268:                         ; preds = %452
   %554 = load i32, ptr %553, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %555 = call i32 @llvm.umin.i32(i32 %554, i32 74)
-  %556 = call ptr @ff_data_to_hex(ptr noundef nonnull %2, ptr noundef %552, i32 noundef %555, i32 noundef 0) #16
-  %557 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.226, ptr noundef nonnull %2) #16
+  %556 = call ptr @ff_data_to_hex(ptr noundef nonnull %2, ptr noundef %552, i32 noundef %555, i32 noundef 0) #17
+  %557 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.226, ptr noundef nonnull %2) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %558 = load ptr, ptr %463, align 8, !tbaa !46
   %559 = getelementptr inbounds nuw i8, ptr %558, i64 4
   %560 = load i32, ptr %559, align 4, !tbaa !84
-  %561 = call i32 @ff_codec_get_tag(ptr noundef nonnull @ff_codec_wav_tags, i32 noundef %560) #16
-  %562 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.238, i32 noundef %561) #16
+  %561 = call i32 @ff_codec_get_tag(ptr noundef nonnull @ff_codec_wav_tags, i32 noundef %560) #17
+  %562 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.238, i32 noundef %561) #17
   %563 = load ptr, ptr %463, align 8, !tbaa !46
   %564 = getelementptr inbounds nuw i8, ptr %563, i64 132
   %565 = load i32, ptr %564, align 4, !tbaa !187
-  %566 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.239, i32 noundef %565) #16
+  %566 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.239, i32 noundef %565) #17
   %567 = getelementptr inbounds nuw i8, ptr %454, i64 88
   %568 = load i32, ptr %567, align 8, !tbaa !96
   %569 = icmp eq i32 %568, 1718444393
@@ -3797,18 +3797,18 @@ is_cover_image.exit.i268:                         ; preds = %452
 
 574:                                              ; preds = %570, %549
   %575 = phi i32 [ %573, %570 ], [ 0, %549 ]
-  %576 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.240, i32 noundef %575) #16
-  %577 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.241, i32 noundef 16) #16
+  %576 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.240, i32 noundef %575) #17
+  %577 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.241, i32 noundef 16) #17
   %578 = load ptr, ptr %463, align 8, !tbaa !46
   %579 = getelementptr inbounds nuw i8, ptr %578, i64 156
   %580 = load i32, ptr %579, align 4, !tbaa !218
   %.not100.i = icmp eq i32 %580, 0
   %spec.select.i = select i1 %.not100.i, i32 4, i32 %580
-  %581 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.242, i32 noundef %spec.select.i) #16
+  %581 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.242, i32 noundef %spec.select.i) #17
   br label %582
 
 582:                                              ; preds = %574, %527
-  %583 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.243, ptr noundef nonnull %.090.i) #16
+  %583 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.243, ptr noundef nonnull %.090.i) #17
   br label %.thread.i
 
 .thread.i:                                        ; preds = %582, %is_cover_image.exit.i268, %452
@@ -3820,15 +3820,15 @@ is_cover_image.exit.i268:                         ; preds = %452
   br i1 %586, label %452, label %mov_write_isml_manifest.exit, !llvm.loop !219
 
 mov_write_isml_manifest.exit:                     ; preds = %.thread.i, %444
-  %587 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.244) #16
-  %588 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.245) #16
-  %589 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.246) #16
-  %590 = call i64 @avio_seek(ptr noundef %18, i64 noundef 0, i32 noundef 1) #16
-  %591 = call i64 @avio_seek(ptr noundef %18, i64 noundef %433, i32 noundef 0) #16
+  %587 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.244) #17
+  %588 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.245) #17
+  %589 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %18, ptr noundef nonnull @.str.246) #17
+  %590 = call i64 @avio_seek(ptr noundef %18, i64 noundef 0, i32 noundef 1) #17
+  %591 = call i64 @avio_seek(ptr noundef %18, i64 noundef %433, i32 noundef 0) #17
   %592 = sub nsw i64 %590, %433
   %593 = trunc i64 %592 to i32
-  call void @avio_wb32(ptr noundef %18, i32 noundef %593) #16
-  %594 = call i64 @avio_seek(ptr noundef %18, i64 noundef %590, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %18, i32 noundef %593) #17
+  %594 = call i64 @avio_seek(ptr noundef %18, i64 noundef %590, i32 noundef 0) #17
   %.pre361 = load i32, ptr %31, align 8, !tbaa !75
   br label %595
 
@@ -3852,7 +3852,7 @@ mov_write_isml_manifest.exit:                     ; preds = %.thread.i, %444
   br i1 %.not245, label %.thread275, label %605
 
 605:                                              ; preds = %601
-  %606 = call i64 @avio_seek(ptr noundef %18, i64 noundef 0, i32 noundef 1) #16
+  %606 = call i64 @avio_seek(ptr noundef %18, i64 noundef 0, i32 noundef 1) #17
   %607 = getelementptr inbounds nuw i8, ptr %20, i64 136
   store i64 %606, ptr %607, align 8, !tbaa !194
   br label %.thread275
@@ -3895,47 +3895,47 @@ define internal i32 @mov_write_packet(ptr noundef %0, ptr noundef %1) #0 {
 23:                                               ; preds = %10
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !24
-  %26 = tail call i64 @avio_seek(ptr noundef %25, i64 noundef 0, i32 noundef 1) #16
+  %26 = tail call i64 @avio_seek(ptr noundef %25, i64 noundef 0, i32 noundef 1) #17
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %28 = load i32, ptr %27, align 8, !tbaa !221
   %29 = icmp eq i32 %28, 1
   br i1 %29, label %mov_write_emsg_tag.exit, label %30
 
 30:                                               ; preds = %23
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.583, ptr noundef nonnull @.str.8, i32 noundef 7149) #16
-  tail call void @abort() #17
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.583, ptr noundef nonnull @.str.8, i32 noundef 7149) #17
+  tail call void @abort() #18
   unreachable
 
 mov_write_emsg_tag.exit:                          ; preds = %23
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !73
   %33 = load i64, ptr %27, align 8
-  %34 = tail call i64 @av_rescale_q(i64 noundef %32, i64 %33, i64 4294967296000001) #19
-  tail call void @avio_write_marker(ptr noundef %25, i64 noundef %34, i32 noundef 2) #16
-  tail call void @avio_wb32(ptr noundef %25, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %25, i32 noundef 1735617893) #16
-  tail call void @avio_w8(ptr noundef %25, i32 noundef 1) #16
-  tail call void @avio_wb24(ptr noundef %25, i32 noundef 0) #16
+  %34 = tail call i64 @av_rescale_q(i64 noundef %32, i64 %33, i64 4294967296000001) #20
+  tail call void @avio_write_marker(ptr noundef %25, i64 noundef %34, i32 noundef 2) #17
+  tail call void @avio_wb32(ptr noundef %25, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %25, i32 noundef 1735617893) #17
+  tail call void @avio_w8(ptr noundef %25, i32 noundef 1) #17
+  tail call void @avio_wb24(ptr noundef %25, i32 noundef 0) #17
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 36
   %36 = load i32, ptr %35, align 4, !tbaa !222
-  tail call void @avio_wb32(ptr noundef %25, i32 noundef %36) #16
+  tail call void @avio_wb32(ptr noundef %25, i32 noundef %36) #17
   %37 = load i64, ptr %31, align 8, !tbaa !73
-  tail call void @avio_wb64(ptr noundef %25, i64 noundef %37) #16
-  tail call void @avio_wb32(ptr noundef %25, i32 noundef -1) #16
-  tail call void @avio_wb32(ptr noundef %25, i32 noundef 0) #16
-  tail call void @avio_write(ptr noundef %25, ptr noundef nonnull @.str.582, i32 noundef 29) #16
-  tail call void @avio_write(ptr noundef %25, ptr noundef nonnull @.str.292, i32 noundef 1) #16
+  tail call void @avio_wb64(ptr noundef %25, i64 noundef %37) #17
+  tail call void @avio_wb32(ptr noundef %25, i32 noundef -1) #17
+  tail call void @avio_wb32(ptr noundef %25, i32 noundef 0) #17
+  tail call void @avio_write(ptr noundef %25, ptr noundef nonnull @.str.582, i32 noundef 29) #17
+  tail call void @avio_write(ptr noundef %25, ptr noundef nonnull @.str.292, i32 noundef 1) #17
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !87
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %41 = load i32, ptr %40, align 8, !tbaa !25
-  tail call void @avio_write(ptr noundef %25, ptr noundef %39, i32 noundef %41) #16
-  %42 = tail call i64 @avio_seek(ptr noundef %25, i64 noundef 0, i32 noundef 1) #16
-  %43 = tail call i64 @avio_seek(ptr noundef %25, i64 noundef %26, i32 noundef 0) #16
+  tail call void @avio_write(ptr noundef %25, ptr noundef %39, i32 noundef %41) #17
+  %42 = tail call i64 @avio_seek(ptr noundef %25, i64 noundef 0, i32 noundef 1) #17
+  %43 = tail call i64 @avio_seek(ptr noundef %25, i64 noundef %26, i32 noundef 0) #17
   %44 = sub nsw i64 %42, %26
   %45 = trunc i64 %44 to i32
-  tail call void @avio_wb32(ptr noundef %25, i32 noundef %45) #16
-  %46 = tail call i64 @avio_seek(ptr noundef %25, i64 noundef %42, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %25, i32 noundef %45) #17
+  %46 = tail call i64 @avio_seek(ptr noundef %25, i64 noundef %42, i32 noundef 0) #17
   br label %.thread127
 
 47:                                               ; preds = %10
@@ -3956,7 +3956,7 @@ mov_write_emsg_tag.exit:                          ; preds = %23
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %49, i64 1592
   %58 = load ptr, ptr %57, align 8, !tbaa !225
-  %59 = tail call i32 @ff_iamf_write_parameter_blocks(ptr noundef nonnull %51, ptr noundef %58, ptr noundef nonnull %1, ptr noundef nonnull %0) #16
+  %59 = tail call i32 @ff_iamf_write_parameter_blocks(ptr noundef nonnull %51, ptr noundef %58, ptr noundef nonnull %1, ptr noundef nonnull %0) #17
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %mov_build_iamf_packet.exit.thread, label %._crit_edge.i
 
@@ -3976,7 +3976,7 @@ mov_write_emsg_tag.exit:                          ; preds = %23
   %65 = load ptr, ptr %64, align 8, !tbaa !225
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 12
   %67 = load i32, ptr %66, align 4, !tbaa !226
-  %68 = tail call i32 @ff_iamf_write_audio_frame(ptr noundef %63, ptr noundef %65, i32 noundef %67, ptr noundef nonnull %1) #16
+  %68 = tail call i32 @ff_iamf_write_audio_frame(ptr noundef %63, ptr noundef %65, i32 noundef %67, ptr noundef nonnull %1) #17
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %mov_build_iamf_packet.exit.thread, label %70
 
@@ -3989,7 +3989,7 @@ mov_write_emsg_tag.exit:                          ; preds = %23
 
 74:                                               ; preds = %70
   %75 = load ptr, ptr %64, align 8, !tbaa !225
-  %76 = call i32 @avio_close_dyn_buf(ptr noundef %75, ptr noundef nonnull %4) #16
+  %76 = call i32 @avio_close_dyn_buf(ptr noundef %75, ptr noundef nonnull %4) #17
   store ptr null, ptr %64, align 8, !tbaa !225
   %.not38.i = icmp eq i32 %76, 0
   br i1 %.not38.i, label %77, label %84
@@ -4002,27 +4002,27 @@ mov_write_emsg_tag.exit:                          ; preds = %23
 
 80:                                               ; preds = %77
   %81 = load i32, ptr %13, align 4, !tbaa !32
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.585, i32 noundef %81) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.585, i32 noundef %81) #17
   br label %82
 
 82:                                               ; preds = %80, %77
   %.0.i = phi i32 [ -1094995529, %80 ], [ 0, %77 ]
   %83 = load ptr, ptr %4, align 8, !tbaa !31
-  call void @av_free(ptr noundef %83) #16
+  call void @av_free(ptr noundef %83) #17
   br label %mov_build_iamf_packet.exit
 
 84:                                               ; preds = %74
-  call void @av_buffer_unref(ptr noundef nonnull %1) #16
+  call void @av_buffer_unref(ptr noundef nonnull %1) #17
   %85 = load ptr, ptr %4, align 8, !tbaa !31
   %86 = sext i32 %76 to i64
-  %87 = call ptr @av_buffer_create(ptr noundef %85, i64 noundef %86, ptr noundef null, ptr noundef null, i32 noundef 0) #16
+  %87 = call ptr @av_buffer_create(ptr noundef %85, i64 noundef %86, ptr noundef null, ptr noundef null, i32 noundef 0) #17
   store ptr %87, ptr %1, align 8, !tbaa !228
   %.not40.i = icmp eq ptr %87, null
   %88 = load ptr, ptr %4, align 8, !tbaa !31
   br i1 %.not40.i, label %89, label %90
 
 89:                                               ; preds = %84
-  call void @av_free(ptr noundef %88) #16
+  call void @av_free(ptr noundef %88) #17
   br label %mov_build_iamf_packet.exit.thread
 
 90:                                               ; preds = %84
@@ -4032,7 +4032,7 @@ mov_write_emsg_tag.exit:                          ; preds = %23
   store i32 %76, ptr %92, align 8, !tbaa !25
   %93 = load i32, ptr %53, align 8, !tbaa !224
   store i32 %93, ptr %13, align 4, !tbaa !32
-  %94 = call i32 @avio_open_dyn_buf(ptr noundef nonnull %64) #16
+  %94 = call i32 @avio_open_dyn_buf(ptr noundef nonnull %64) #17
   br label %mov_build_iamf_packet.exit
 
 mov_build_iamf_packet.exit.thread:                ; preds = %89, %56, %61, %70
@@ -4056,7 +4056,7 @@ mov_build_iamf_packet.exit:                       ; preds = %82, %90
   %100 = load ptr, ptr %99, align 8, !tbaa !99
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %102 = load i32, ptr %101, align 8, !tbaa !229
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.566, i32 noundef %102) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.566, i32 noundef %102) #17
   br label %.thread127
 
 .thread:                                          ; preds = %mov_build_iamf_packet.exit, %47
@@ -4083,13 +4083,13 @@ is_cover_image.exit:                              ; preds = %.thread
 
 113:                                              ; preds = %111
   %114 = load i32, ptr %13, align 4, !tbaa !32
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.567, i32 noundef %114) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.567, i32 noundef %114) #17
   br label %.thread127
 
 115:                                              ; preds = %107
   %116 = getelementptr inbounds nuw i8, ptr %49, i64 288
   %117 = load ptr, ptr %116, align 8, !tbaa !230
-  %118 = call i32 @av_packet_ref(ptr noundef %117, ptr noundef nonnull %1) #16
+  %118 = call i32 @av_packet_ref(ptr noundef %117, ptr noundef nonnull %1) #17
   %. = call i32 @llvm.smin.i32(i32 %118, i32 0)
   br label %.thread127
 
@@ -4165,7 +4165,7 @@ is_cover_image.exit.thread:                       ; preds = %.thread, %is_cover_
   %159 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %159, ptr %158, align 4, !tbaa !32
   %160 = call fastcc i32 @mov_write_single_packet(ptr noundef %0, ptr noundef %152)
-  call void @av_packet_unref(ptr noundef %152) #16
+  call void @av_packet_unref(ptr noundef %152) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %161 = icmp slt i32 %160, 0
   br i1 %161, label %.thread127, label %162
@@ -4196,12 +4196,12 @@ is_cover_image.exit.thread:                       ; preds = %.thread, %is_cover_
   br i1 %173, label %174, label %175
 
 174:                                              ; preds = %170
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.568) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.568) #17
   br label %.thread127
 
 175:                                              ; preds = %170
   %176 = getelementptr inbounds nuw i8, ptr %49, i64 1560
-  %177 = call i32 @avpriv_packet_list_put(ptr noundef nonnull %176, ptr noundef nonnull %1, ptr noundef null, i32 noundef 0) #16
+  %177 = call i32 @avpriv_packet_list_put(ptr noundef nonnull %176, ptr noundef nonnull %1, ptr noundef null, i32 noundef 0) #17
   %.112 = call i32 @llvm.smin.i32(i32 %177, i32 0)
   br label %.thread127
 
@@ -4237,7 +4237,7 @@ is_cover_image.exit.thread:                       ; preds = %.thread, %is_cover_
   %197 = lshr i64 %196, 3
   %198 = trunc i64 %197 to i32
   %199 = and i32 %198, -2
-  %200 = call i32 @ff_reshuffle_raw_rgb(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %183, i32 noundef %199) #16
+  %200 = call i32 @ff_reshuffle_raw_rgb(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %183, i32 noundef %199) #17
   %201 = icmp sgt i32 %200, -1
   br i1 %201, label %._crit_edge143, label %.thread127
 
@@ -4261,7 +4261,7 @@ is_cover_image.exit.thread:                       ; preds = %.thread, %is_cover_
 
 210:                                              ; preds = %207
   %211 = getelementptr inbounds nuw i8, ptr %49, i64 520
-  %212 = call i32 @ff_get_packet_palette(ptr noundef %0, ptr noundef %1, i32 noundef %.086, ptr noundef nonnull %211) #16
+  %212 = call i32 @ff_get_packet_palette(ptr noundef %0, ptr noundef %1, i32 noundef %.086, ptr noundef nonnull %211) #17
   %213 = icmp slt i32 %212, 0
   br i1 %213, label %243, label %214
 
@@ -4289,7 +4289,7 @@ is_cover_image.exit.thread:                       ; preds = %.thread, %is_cover_
 
 223:                                              ; preds = %222, %222
   %224 = load ptr, ptr %5, align 8, !tbaa !220
-  %225 = call i32 @av_packet_make_writable(ptr noundef %224) #16
+  %225 = call i32 @av_packet_make_writable(ptr noundef %224) #17
   %226 = icmp slt i32 %225, 0
   br i1 %226, label %243, label %.preheader
 
@@ -4333,7 +4333,7 @@ is_cover_image.exit.thread:                       ; preds = %.thread, %is_cover_
 
 244:                                              ; preds = %.thread122, %243
   %.085125 = phi i32 [ %242, %.thread122 ], [ %.085, %243 ]
-  call void @av_packet_free(ptr noundef nonnull %5) #16
+  call void @av_packet_free(ptr noundef nonnull %5) #17
   br label %.thread127
 
 245:                                              ; preds = %.loopexit, %181, %178
@@ -4381,11 +4381,11 @@ define internal i32 @mov_write_trailer(ptr noundef %0) #0 {
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 120
   store i32 %21, ptr %22, align 8, !tbaa !94
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 128
-  tail call void @av_freep(ptr noundef nonnull %23) #16
+  tail call void @av_freep(ptr noundef nonnull %23) #17
   %24 = load i32, ptr %22, align 8, !tbaa !94
   %25 = add nsw i32 %24, 64
   %26 = sext i32 %25 to i64
-  %27 = tail call noalias ptr @av_malloc(i64 noundef %26) #16
+  %27 = tail call noalias ptr @av_malloc(i64 noundef %26) #17
   store ptr %27, ptr %23, align 8, !tbaa !97
   %.not182.not = icmp eq ptr %27, null
   br i1 %.not182.not, label %.critedge, label %28
@@ -4461,7 +4461,7 @@ define internal i32 @mov_write_trailer(ptr noundef %0) #0 {
   %69 = trunc nuw nsw i64 %indvars.iv204 to i32
   store i32 %69, ptr %68, align 4, !tbaa !32
   %70 = call fastcc i32 @mov_write_single_packet(ptr noundef %0, ptr noundef %62)
-  call void @av_packet_unref(ptr noundef %62) #16
+  call void @av_packet_unref(ptr noundef %62) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i32 1, ptr %55, align 8, !tbaa !151
   %.pre = load i32, ptr %41, align 4, !tbaa !102
@@ -4528,7 +4528,7 @@ define internal i32 @mov_write_trailer(ptr noundef %0) #0 {
 
 102:                                              ; preds = %100
   %103 = call fastcc i32 @mov_flush_fragment(ptr noundef %0, i32 noundef 1)
-  %104 = call i64 @avio_seek(ptr noundef %8, i64 noundef 0, i32 noundef 1) #16
+  %104 = call i64 @avio_seek(ptr noundef %8, i64 noundef 0, i32 noundef 1) #17
   %105 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %106 = load i64, ptr %105, align 8, !tbaa !197
   %107 = add i64 %104, -8
@@ -4551,7 +4551,7 @@ define internal i32 @mov_write_trailer(ptr noundef %0) #0 {
   store i64 0, ptr %116, align 8, !tbaa !240
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 136
   %118 = load ptr, ptr %117, align 8, !tbaa !64
-  call void @av_free(ptr noundef %118) #16
+  call void @av_free(ptr noundef %118) #17
   %119 = getelementptr inbounds nuw i8, ptr %115, i64 144
   %120 = load ptr, ptr %119, align 8, !tbaa !241
   store ptr %120, ptr %117, align 8, !tbaa !64
@@ -4576,7 +4576,7 @@ define internal i32 @mov_write_trailer(ptr noundef %0) #0 {
   br label %130
 
 130:                                              ; preds = %._crit_edge199, %100
-  %131 = call i64 @avio_seek(ptr noundef %8, i64 noundef 0, i32 noundef 1) #16
+  %131 = call i64 @avio_seek(ptr noundef %8, i64 noundef 0, i32 noundef 1) #17
   %132 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %133 = load i64, ptr %132, align 8, !tbaa !169
   %134 = add i64 %133, 8
@@ -4586,28 +4586,28 @@ define internal i32 @mov_write_trailer(ptr noundef %0) #0 {
   br i1 %135, label %138, label %146
 
 138:                                              ; preds = %130
-  %139 = call i64 @avio_seek(ptr noundef %8, i64 noundef %137, i32 noundef 0) #16
+  %139 = call i64 @avio_seek(ptr noundef %8, i64 noundef %137, i32 noundef 0) #17
   %140 = load i64, ptr %132, align 8, !tbaa !169
   %141 = trunc i64 %140 to i32
   %142 = add i32 %141, 8
-  call void @avio_wb32(ptr noundef %8, i32 noundef %142) #16
+  call void @avio_wb32(ptr noundef %8, i32 noundef %142) #17
   %143 = load i32, ptr %97, align 8, !tbaa !75
   %144 = and i32 %143, 16777216
   %.not179 = icmp eq i32 %144, 0
   br i1 %.not179, label %151, label %145
 
 145:                                              ; preds = %138
-  call void @avio_wl32(ptr noundef %8, i32 noundef 1952539757) #16
+  call void @avio_wl32(ptr noundef %8, i32 noundef 1952539757) #17
   br label %151
 
 146:                                              ; preds = %130
   %147 = add nsw i64 %137, -8
-  %148 = call i64 @avio_seek(ptr noundef %8, i64 noundef %147, i32 noundef 0) #16
-  call void @avio_wb32(ptr noundef %8, i32 noundef 1) #16
-  call void @avio_wl32(ptr noundef %8, i32 noundef 1952539757) #16
+  %148 = call i64 @avio_seek(ptr noundef %8, i64 noundef %147, i32 noundef 0) #17
+  call void @avio_wb32(ptr noundef %8, i32 noundef 1) #17
+  call void @avio_wl32(ptr noundef %8, i32 noundef 1952539757) #17
   %149 = load i64, ptr %132, align 8, !tbaa !169
   %150 = add i64 %149, 16
-  call void @avio_wb64(ptr noundef %8, i64 noundef %150) #16
+  call void @avio_wb64(ptr noundef %8, i64 noundef %150) #17
   br label %151
 
 151:                                              ; preds = %138, %145, %146
@@ -4623,14 +4623,14 @@ define internal i32 @mov_write_trailer(ptr noundef %0) #0 {
 
 158:                                              ; preds = %151, %155
   %159 = phi i64 [ %157, %155 ], [ %131, %151 ]
-  %160 = call i64 @avio_seek(ptr noundef %8, i64 noundef %159, i32 noundef 0) #16
+  %160 = call i64 @avio_seek(ptr noundef %8, i64 noundef %159, i32 noundef 0) #17
   %161 = load i32, ptr %97, align 8, !tbaa !75
   %162 = and i32 %161, 128
   %.not180 = icmp eq i32 %162, 0
   br i1 %.not180, label %172, label %163
 
 163:                                              ; preds = %158
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 32, ptr noundef nonnull @.str.586) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 32, ptr noundef nonnull @.str.586) #17
   %164 = call fastcc i32 @shift_data(ptr noundef %0)
   %165 = icmp slt i32 %164, 0
   br i1 %165, label %.critedge, label %166
@@ -4638,7 +4638,7 @@ define internal i32 @mov_write_trailer(ptr noundef %0) #0 {
 166:                                              ; preds = %163
   %167 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %168 = load i64, ptr %167, align 8, !tbaa !194
-  %169 = call i64 @avio_seek(ptr noundef %8, i64 noundef %168, i32 noundef 0) #16
+  %169 = call i64 @avio_seek(ptr noundef %8, i64 noundef %168, i32 noundef 0) #17
   %170 = call fastcc i32 @mov_write_moov_tag(ptr noundef %8, ptr noundef nonnull %6, ptr noundef %0)
   %171 = icmp slt i32 %170, 0
   br i1 %171, label %.critedge, label %291
@@ -4656,7 +4656,7 @@ define internal i32 @mov_write_trailer(ptr noundef %0) #0 {
 178:                                              ; preds = %177
   %179 = load i32, ptr %152, align 8, !tbaa !193
   %180 = sext i32 %179 to i64
-  %181 = call i64 @avio_seek(ptr noundef %8, i64 noundef 0, i32 noundef 1) #16
+  %181 = call i64 @avio_seek(ptr noundef %8, i64 noundef 0, i32 noundef 1) #17
   %182 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %183 = load i64, ptr %182, align 8, !tbaa !194
   %.neg = sub i64 %183, %181
@@ -4666,16 +4666,16 @@ define internal i32 @mov_write_trailer(ptr noundef %0) #0 {
 
 186:                                              ; preds = %178
   %187 = sub nsw i64 8, %184
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.587, i64 noundef %187) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.587, i64 noundef %187) #17
   br label %.critedge
 
 188:                                              ; preds = %178
   %189 = trunc i64 %184 to i32
-  call void @avio_wb32(ptr noundef %8, i32 noundef %189) #16
-  call void @avio_wl32(ptr noundef %8, i32 noundef 1701147238) #16
+  call void @avio_wb32(ptr noundef %8, i32 noundef %189) #17
+  call void @avio_wl32(ptr noundef %8, i32 noundef 1701147238) #17
   %190 = add nsw i64 %184, -8
-  call void @ffio_fill(ptr noundef %8, i32 noundef 0, i64 noundef %190) #16
-  %191 = call i64 @avio_seek(ptr noundef %8, i64 noundef %131, i32 noundef 0) #16
+  call void @ffio_fill(ptr noundef %8, i32 noundef 0, i64 noundef %190) #17
+  %191 = call i64 @avio_seek(ptr noundef %8, i64 noundef %131, i32 noundef 0) #17
   br label %291
 
 192:                                              ; preds = %172
@@ -4729,18 +4729,18 @@ mov_auto_flush_fragment.exit:                     ; preds = %193, %199, %203
   br i1 %.not176, label %222, label %214
 
 214:                                              ; preds = %._crit_edge202
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.588) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.588) #17
   %215 = call fastcc i32 @shift_data(ptr noundef nonnull %0)
   %216 = icmp sgt i32 %215, -1
   br i1 %216, label %.thread186, label %.critedge
 
 .thread186:                                       ; preds = %214
-  %217 = call i64 @avio_seek(ptr noundef %8, i64 noundef 0, i32 noundef 1) #16
+  %217 = call i64 @avio_seek(ptr noundef %8, i64 noundef 0, i32 noundef 1) #17
   %218 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %219 = load i64, ptr %218, align 8, !tbaa !194
-  %220 = call i64 @avio_seek(ptr noundef %8, i64 noundef %219, i32 noundef 0) #16
+  %220 = call i64 @avio_seek(ptr noundef %8, i64 noundef %219, i32 noundef 0) #17
   call fastcc void @mov_write_sidx_tags(ptr noundef %8, ptr noundef nonnull %6, i32 noundef -1, i32 noundef 0)
-  %221 = call i64 @avio_seek(ptr noundef %8, i64 noundef %217, i32 noundef 0) #16
+  %221 = call i64 @avio_seek(ptr noundef %8, i64 noundef %217, i32 noundef 0) #17
   %.pre213 = load i32, ptr %97, align 8, !tbaa !75
   br label %222
 
@@ -4753,10 +4753,10 @@ mov_auto_flush_fragment.exit:                     ; preds = %193, %199, %203
 
 225:                                              ; preds = %222
   %226 = load ptr, ptr %7, align 8, !tbaa !24
-  call void @avio_write_marker(ptr noundef %226, i64 noundef -9223372036854775808, i32 noundef 4) #16
+  call void @avio_write_marker(ptr noundef %226, i64 noundef -9223372036854775808, i32 noundef 4) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %227 = call i32 @avio_open_dyn_buf(ptr noundef nonnull %2) #16
+  %227 = call i32 @avio_open_dyn_buf(ptr noundef nonnull %2) #17
   %228 = icmp slt i32 %227, 0
   br i1 %228, label %mov_write_mfra_tag.exit.thread, label %229
 
@@ -4767,9 +4767,9 @@ mov_write_mfra_tag.exit.thread:                   ; preds = %225
 
 229:                                              ; preds = %225
   %230 = load ptr, ptr %2, align 8, !tbaa !83
-  call void @avio_wb32(ptr noundef %230, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %230, i32 noundef 0) #17
   %231 = load ptr, ptr %2, align 8, !tbaa !83
-  call void @avio_wl32(ptr noundef %231, i32 noundef 1634887277) #16
+  call void @avio_wl32(ptr noundef %231, i32 noundef 1634887277) #17
   %232 = load i32, ptr %97, align 8, !tbaa !75
   %233 = and i32 %232, 64
   %.not.i183 = icmp eq i32 %233, 0
@@ -4796,17 +4796,17 @@ mov_write_mfra_tag.exit.thread:                   ; preds = %225
 
 243:                                              ; preds = %237
   %244 = load ptr, ptr %2, align 8, !tbaa !83
-  %245 = call i64 @avio_seek(ptr noundef %244, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %244, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %244, i32 noundef 1634887284) #16
-  call void @avio_w8(ptr noundef %244, i32 noundef 1) #16
-  call void @avio_wb24(ptr noundef %244, i32 noundef 0) #16
+  %245 = call i64 @avio_seek(ptr noundef %244, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %244, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %244, i32 noundef 1634887284) #17
+  call void @avio_w8(ptr noundef %244, i32 noundef 1) #17
+  call void @avio_wb24(ptr noundef %244, i32 noundef 0) #17
   %246 = getelementptr inbounds nuw i8, ptr %240, i64 84
   %247 = load i32, ptr %246, align 4, !tbaa !215
-  call void @avio_wb32(ptr noundef %244, i32 noundef %247) #16
-  call void @avio_wb32(ptr noundef %244, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %244, i32 noundef %247) #17
+  call void @avio_wb32(ptr noundef %244, i32 noundef 0) #17
   %248 = load i32, ptr %241, align 8, !tbaa !246
-  call void @avio_wb32(ptr noundef %244, i32 noundef %248) #16
+  call void @avio_wb32(ptr noundef %244, i32 noundef %248) #17
   %249 = load i32, ptr %241, align 8, !tbaa !246
   %250 = icmp sgt i32 %249, 0
   br i1 %250, label %.lr.ph.i.i, label %mov_write_tfra_tag.exit.i
@@ -4822,16 +4822,16 @@ mov_write_mfra_tag.exit.thread:                   ; preds = %225
   %255 = getelementptr inbounds nuw %struct.MOVFragmentInfo, ptr %254, i64 %indvars.iv.i.i
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 8
   %257 = load i64, ptr %256, align 8, !tbaa !248
-  call void @avio_wb64(ptr noundef %244, i64 noundef %257) #16
+  call void @avio_wb64(ptr noundef %244, i64 noundef %257) #17
   %258 = load ptr, ptr %251, align 8, !tbaa !247
   %259 = getelementptr inbounds nuw %struct.MOVFragmentInfo, ptr %258, i64 %indvars.iv.i.i
   %260 = load i64, ptr %259, align 8, !tbaa !250
   %261 = load i64, ptr %252, align 8, !tbaa !240
   %262 = add nsw i64 %261, %260
-  call void @avio_wb64(ptr noundef %244, i64 noundef %262) #16
-  call void @avio_w8(ptr noundef %244, i32 noundef 1) #16
-  call void @avio_w8(ptr noundef %244, i32 noundef 1) #16
-  call void @avio_w8(ptr noundef %244, i32 noundef 1) #16
+  call void @avio_wb64(ptr noundef %244, i64 noundef %262) #17
+  call void @avio_w8(ptr noundef %244, i32 noundef 1) #17
+  call void @avio_w8(ptr noundef %244, i32 noundef 1) #17
+  call void @avio_w8(ptr noundef %244, i32 noundef 1) #17
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %263 = load i32, ptr %241, align 8, !tbaa !246
   %264 = sext i32 %263 to i64
@@ -4839,12 +4839,12 @@ mov_write_mfra_tag.exit.thread:                   ; preds = %225
   br i1 %265, label %253, label %mov_write_tfra_tag.exit.i, !llvm.loop !251
 
 mov_write_tfra_tag.exit.i:                        ; preds = %253, %243
-  %266 = call i64 @avio_seek(ptr noundef %244, i64 noundef 0, i32 noundef 1) #16
-  %267 = call i64 @avio_seek(ptr noundef %244, i64 noundef %245, i32 noundef 0) #16
+  %266 = call i64 @avio_seek(ptr noundef %244, i64 noundef 0, i32 noundef 1) #17
+  %267 = call i64 @avio_seek(ptr noundef %244, i64 noundef %245, i32 noundef 0) #17
   %268 = sub nsw i64 %266, %245
   %269 = trunc i64 %268 to i32
-  call void @avio_wb32(ptr noundef %244, i32 noundef %269) #16
-  %270 = call i64 @avio_seek(ptr noundef %244, i64 noundef %266, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %244, i32 noundef %269) #17
+  %270 = call i64 @avio_seek(ptr noundef %244, i64 noundef %266, i32 noundef 0) #17
   %.pre.i = load i32, ptr %41, align 4, !tbaa !102
   br label %271
 
@@ -4857,30 +4857,30 @@ mov_write_tfra_tag.exit.i:                        ; preds = %253, %243
 
 ._crit_edge.i:                                    ; preds = %271, %.preheader.i
   %275 = load ptr, ptr %2, align 8, !tbaa !83
-  call void @avio_wb32(ptr noundef %275, i32 noundef 16) #16
+  call void @avio_wb32(ptr noundef %275, i32 noundef 16) #17
   %276 = load ptr, ptr %2, align 8, !tbaa !83
-  call void @avio_wl32(ptr noundef %276, i32 noundef 1869768301) #16
+  call void @avio_wl32(ptr noundef %276, i32 noundef 1869768301) #17
   %277 = load ptr, ptr %2, align 8, !tbaa !83
-  call void @avio_wb32(ptr noundef %277, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %277, i32 noundef 0) #17
   %278 = load ptr, ptr %2, align 8, !tbaa !83
-  %279 = call i64 @avio_seek(ptr noundef %278, i64 noundef 0, i32 noundef 1) #16
+  %279 = call i64 @avio_seek(ptr noundef %278, i64 noundef 0, i32 noundef 1) #17
   %280 = trunc i64 %279 to i32
   %281 = add i32 %280, 4
-  call void @avio_wb32(ptr noundef %278, i32 noundef %281) #16
+  call void @avio_wb32(ptr noundef %278, i32 noundef %281) #17
   br label %mov_write_mfra_tag.exit
 
 mov_write_mfra_tag.exit:                          ; preds = %229, %._crit_edge.i
   %282 = load ptr, ptr %2, align 8, !tbaa !83
-  %283 = call i64 @avio_seek(ptr noundef %282, i64 noundef 0, i32 noundef 1) #16
-  %284 = call i64 @avio_seek(ptr noundef %282, i64 noundef 0, i32 noundef 0) #16
+  %283 = call i64 @avio_seek(ptr noundef %282, i64 noundef 0, i32 noundef 1) #17
+  %284 = call i64 @avio_seek(ptr noundef %282, i64 noundef 0, i32 noundef 0) #17
   %285 = trunc i64 %283 to i32
-  call void @avio_wb32(ptr noundef %282, i32 noundef %285) #16
-  %286 = call i64 @avio_seek(ptr noundef %282, i64 noundef %283, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %282, i32 noundef %285) #17
+  %286 = call i64 @avio_seek(ptr noundef %282, i64 noundef %283, i32 noundef 0) #17
   %287 = load ptr, ptr %2, align 8, !tbaa !83
-  %288 = call i32 @avio_get_dyn_buf(ptr noundef %287, ptr noundef nonnull %3) #16
+  %288 = call i32 @avio_get_dyn_buf(ptr noundef %287, ptr noundef nonnull %3) #17
   %289 = load ptr, ptr %3, align 8, !tbaa !31
-  call void @avio_write(ptr noundef %8, ptr noundef %289, i32 noundef %288) #16
-  call void @ffio_free_dyn_buf(ptr noundef nonnull %2) #16
+  call void @avio_write(ptr noundef %8, ptr noundef %289, i32 noundef %288) #17
+  call void @ffio_free_dyn_buf(ptr noundef nonnull %2) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %290 = icmp slt i32 %285, 0
@@ -4913,42 +4913,42 @@ define internal i32 @mov_init(ptr noundef %0) #0 {
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !255
   %14 = load ptr, ptr %13, align 8, !tbaa !256
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.13, ptr noundef nonnull dereferenceable(1) %14) #18
+  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.13, ptr noundef nonnull dereferenceable(1) %14) #19
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %.sink.split, label %16
 
 16:                                               ; preds = %1
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.21, ptr noundef nonnull dereferenceable(1) %14) #18
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.21, ptr noundef nonnull dereferenceable(1) %14) #19
   %.not432 = icmp eq i32 %17, 0
   br i1 %.not432, label %.sink.split, label %18
 
 18:                                               ; preds = %16
-  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.11, ptr noundef nonnull dereferenceable(1) %14) #18
+  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.11, ptr noundef nonnull dereferenceable(1) %14) #19
   %.not433 = icmp eq i32 %19, 0
   br i1 %.not433, label %.sink.split, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.18, ptr noundef nonnull dereferenceable(1) %14) #18
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.18, ptr noundef nonnull dereferenceable(1) %14) #19
   %.not434 = icmp eq i32 %21, 0
   br i1 %.not434, label %.sink.split, label %22
 
 22:                                               ; preds = %20
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.23, ptr noundef nonnull dereferenceable(1) %14) #18
+  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.23, ptr noundef nonnull dereferenceable(1) %14) #19
   %.not435 = icmp eq i32 %23, 0
   br i1 %.not435, label %.sink.split, label %24
 
 24:                                               ; preds = %22
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.27, ptr noundef nonnull dereferenceable(1) %14) #18
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.27, ptr noundef nonnull dereferenceable(1) %14) #19
   %.not436 = icmp eq i32 %25, 0
   br i1 %.not436, label %.sink.split, label %26
 
 26:                                               ; preds = %24
-  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.31, ptr noundef nonnull dereferenceable(1) %14) #18
+  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.31, ptr noundef nonnull dereferenceable(1) %14) #19
   %.not437 = icmp eq i32 %27, 0
   br i1 %.not437, label %.sink.split, label %28
 
 28:                                               ; preds = %26
-  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.35, ptr noundef nonnull dereferenceable(1) %14) #18
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.35, ptr noundef nonnull dereferenceable(1) %14) #19
   %.not438 = icmp eq i32 %29, 0
   br i1 %.not438, label %.sink.split, label %30
 
@@ -5033,7 +5033,7 @@ define internal i32 @mov_init(ptr noundef %0) #0 {
   br i1 %.not447, label %75, label %72
 
 72:                                               ; preds = %68
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.592) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.592) #17
   %73 = load i32, ptr %69, align 8, !tbaa !214
   %74 = and i32 %73, -2097153
   store i32 %74, ptr %69, align 8, !tbaa !214
@@ -5047,7 +5047,7 @@ define internal i32 @mov_init(ptr noundef %0) #0 {
   br i1 %or.cond515.not, label %78, label %81
 
 78:                                               ; preds = %75
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.593) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.593) #17
   %79 = load i32, ptr %33, align 8, !tbaa !75
   %80 = and i32 %79, -2097153
   store i32 %80, ptr %33, align 8, !tbaa !75
@@ -5099,7 +5099,7 @@ define internal i32 @mov_init(ptr noundef %0) #0 {
   br i1 %.not455, label %.thread, label %99
 
 99:                                               ; preds = %98
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.594) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.594) #17
   %.pr.pre = load i32, ptr %87, align 8, !tbaa !149
   %.pre805.pre.pre = load i32, ptr %33, align 8, !tbaa !75
   br label %100
@@ -5146,7 +5146,7 @@ define internal i32 @mov_init(ptr noundef %0) #0 {
   br i1 %or.cond967, label %116, label %115
 
 115:                                              ; preds = %110
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.595) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.595) #17
   br label %mov_init_iamf_track.exit.thread
 
 116:                                              ; preds = %110
@@ -5175,7 +5175,7 @@ define internal i32 @mov_init(ptr noundef %0) #0 {
   br i1 %129, label %130, label %.thread544
 
 130:                                              ; preds = %127, %124, %122
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.596) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.596) #17
   br label %mov_init_iamf_track.exit.thread
 
 131:                                              ; preds = %116
@@ -5190,7 +5190,7 @@ define internal i32 @mov_init(ptr noundef %0) #0 {
   br i1 %136, label %137, label %138
 
 137:                                              ; preds = %133
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.597) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.597) #17
   br label %mov_init_iamf_track.exit.thread
 
 138:                                              ; preds = %133
@@ -5215,7 +5215,7 @@ define internal i32 @mov_init(ptr noundef %0) #0 {
   br i1 %.not466, label %.thread545, label %152
 
 152:                                              ; preds = %146
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.598) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.598) #17
   br label %mov_init_iamf_track.exit.thread
 
 153:                                              ; preds = %138
@@ -5232,7 +5232,7 @@ define internal i32 @mov_init(ptr noundef %0) #0 {
   %154 = phi ptr [ %.pre808, %..thread545_crit_edge ], [ %150, %146 ]
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 44
   %156 = load i32, ptr %155, align 4, !tbaa !234
-  %157 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %156) #16
+  %157 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %156) #17
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %159 = load i8, ptr %158, align 8, !tbaa !262
   %.not467 = icmp eq i8 %159, 1
@@ -5244,7 +5244,7 @@ define internal i32 @mov_init(ptr noundef %0) #0 {
   br label %.critedge
 
 160:                                              ; preds = %.thread545
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.599) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.599) #17
   br label %mov_init_iamf_track.exit.thread
 
 .critedge:                                        ; preds = %.thread545..critedge_crit_edge, %153
@@ -5330,7 +5330,7 @@ define internal i32 @mov_init(ptr noundef %0) #0 {
 
 192:                                              ; preds = %184
   %193 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.600, i32 noundef %193) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.600, i32 noundef %193) #17
   br label %mov_init_iamf_track.exit.thread
 
 194:                                              ; preds = %175, %191, %._crit_edge
@@ -5467,7 +5467,7 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
 251:                                              ; preds = %247, %250
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %253 = load ptr, ptr %252, align 8, !tbaa !201
-  %254 = tail call ptr @av_dict_get(ptr noundef %253, ptr noundef nonnull @.str.159, ptr noundef null, i32 noundef 0) #16
+  %254 = tail call ptr @av_dict_get(ptr noundef %253, ptr noundef nonnull @.str.159, ptr noundef null, i32 noundef 0) #17
   %255 = load i32, ptr %170, align 4, !tbaa !33
   %.not699 = icmp eq i32 %255, 0
   br i1 %.not699, label %._crit_edge685.thread, label %.lr.ph684
@@ -5495,7 +5495,7 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
 267:                                              ; preds = %266
   %268 = getelementptr inbounds nuw i8, ptr %261, i64 80
   %269 = load ptr, ptr %268, align 8, !tbaa !202
-  %270 = call ptr @av_dict_get(ptr noundef %269, ptr noundef nonnull @.str.159, ptr noundef null, i32 noundef 0) #16
+  %270 = call ptr @av_dict_get(ptr noundef %269, ptr noundef nonnull @.str.159, ptr noundef null, i32 noundef 0) #17
   %.not508 = icmp eq ptr %270, null
   br i1 %.not508, label %281, label %271
 
@@ -5506,7 +5506,7 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
   %273 = load ptr, ptr %272, align 8, !tbaa !203
   %274 = getelementptr i8, ptr %261, i64 88
   %.val = load i64, ptr %274, align 8
-  %275 = call i32 @av_timecode_init_from_string(ptr noundef nonnull %4, i64 %.val, ptr noundef %273, ptr noundef nonnull %0) #16
+  %275 = call i32 @av_timecode_init_from_string(ptr noundef nonnull %4, i64 %.val, ptr noundef %273, ptr noundef nonnull %0) #17
   %276 = icmp sgt i32 %275, -1
   br i1 %276, label %277, label %280
 
@@ -5561,7 +5561,7 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
   br i1 %300, label %301, label %302
 
 301:                                              ; preds = %290
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.601) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.601) #17
   store i32 0, ptr %285, align 8, !tbaa !174
   %.pre811 = load i32, ptr %170, align 4, !tbaa !33
   br label %302
@@ -5585,7 +5585,7 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
   %310 = phi i32 [ %240, %247 ], [ %240, %250 ], [ %309, %.loopexit595 ]
   %311 = add nsw i32 %310, 1
   %312 = sext i32 %311 to i64
-  %313 = call noalias ptr @av_calloc(i64 noundef %312, i64 noundef 1600) #16
+  %313 = call noalias ptr @av_calloc(i64 noundef %312, i64 noundef 1600) #17
   %314 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %313, ptr %314, align 8, !tbaa !40
   %.not472 = icmp eq ptr %313, null
@@ -5598,12 +5598,12 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
   br i1 %.not473, label %333, label %318
 
 318:                                              ; preds = %315
-  %319 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %317, ptr noundef nonnull dereferenceable(5) @.str.602) #18
+  %319 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %317, ptr noundef nonnull dereferenceable(5) @.str.602) #19
   %.not474 = icmp eq i32 %319, 0
   br i1 %.not474, label %333, label %320
 
 320:                                              ; preds = %318
-  %321 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %317, ptr noundef nonnull dereferenceable(13) @.str.603) #18
+  %321 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %317, ptr noundef nonnull dereferenceable(13) @.str.603) #19
   %322 = icmp eq i32 %321, 0
   br i1 %322, label %323, label %332
 
@@ -5616,7 +5616,7 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
   br i1 %.not475, label %328, label %327
 
 327:                                              ; preds = %323
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.604, i32 noundef %326, i32 noundef 16) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.604, i32 noundef %326, i32 noundef 16) #17
   br label %mov_init_iamf_track.exit.thread
 
 328:                                              ; preds = %323
@@ -5626,11 +5626,11 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
   br i1 %.not476, label %333, label %331
 
 331:                                              ; preds = %328
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.605, i32 noundef %330, i32 noundef 16) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.605, i32 noundef %330, i32 noundef 16) #17
   br label %mov_init_iamf_track.exit.thread
 
 332:                                              ; preds = %320
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.606, ptr noundef nonnull %317) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.606, ptr noundef nonnull %317) #17
   br label %mov_init_iamf_track.exit.thread
 
 333:                                              ; preds = %328, %318, %315
@@ -5679,11 +5679,11 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
   br i1 %or.cond6.i, label %352, label %353
 
 352:                                              ; preds = %349
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.622) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.622) #17
   br label %mov_init_iamf_track.exit.thread
 
 353:                                              ; preds = %349
-  %354 = call noalias ptr @av_mallocz(i64 noundef 64) #16
+  %354 = call noalias ptr @av_mallocz(i64 noundef 64) #17
   %.not.i523 = icmp eq ptr %354, null
   br i1 %.not.i523, label %mov_init_iamf_track.exit.thread, label %.preheader122.i
 
@@ -5737,19 +5737,19 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
   br i1 %exitcond159.not.i, label %._crit_edge135.i, label %367, !llvm.loop !285
 
 373:                                              ; preds = %357
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.381, ptr noundef nonnull @.str.8, i32 noundef 7668) #16
-  call void @abort() #17
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.381, ptr noundef nonnull @.str.8, i32 noundef 7668) #17
+  call void @abort() #18
   unreachable
 
 ._crit_edge135.i:                                 ; preds = %367, %.preheader121.i
   %.290.lcssa.i = phi i32 [ %.088139.i, %.preheader121.i ], [ %372, %367 ]
   %.283.lcssa.i = phi i32 [ %.081141.i, %.preheader121.i ], [ %.283..i, %367 ]
-  %374 = call i32 @ff_iamf_add_audio_element(ptr noundef nonnull %354, ptr noundef nonnull %360, ptr noundef nonnull %0) #16
+  %374 = call i32 @ff_iamf_add_audio_element(ptr noundef nonnull %354, ptr noundef nonnull %360, ptr noundef nonnull %0) #17
   %375 = icmp sgt i32 %374, -1
   br i1 %375, label %378, label %mov_init_iamf_track.exit.thread
 
 .thread109.i:                                     ; preds = %357
-  %376 = call i32 @ff_iamf_add_mix_presentation(ptr noundef nonnull %354, ptr noundef nonnull %360, ptr noundef nonnull %0) #16
+  %376 = call i32 @ff_iamf_add_mix_presentation(ptr noundef nonnull %354, ptr noundef nonnull %360, ptr noundef nonnull %0) #17
   %377 = icmp sgt i32 %376, -1
   br i1 %377, label %378, label %mov_init_iamf_track.exit.thread
 
@@ -5825,7 +5825,7 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
 
 mov_init_iamf_track.exit:                         ; preds = %.loopexit.i, %.thread.i
   %405 = getelementptr inbounds nuw i8, ptr %385, i64 1592
-  %406 = call i32 @avio_open_dyn_buf(ptr noundef nonnull %405) #16
+  %406 = call i32 @avio_open_dyn_buf(ptr noundef nonnull %405) #17
   %..i = call i32 @llvm.smin.i32(i32 %406, i32 0)
   %407 = icmp slt i32 %406, 0
   br i1 %407, label %mov_init_iamf_track.exit.thread, label %.preheader591
@@ -5892,7 +5892,7 @@ mov_init_iamf_track.exit:                         ; preds = %.loopexit.i, %.thre
   %436 = load ptr, ptr %435, align 8, !tbaa !37
   %437 = getelementptr inbounds nuw i8, ptr %434, i64 80
   %438 = load ptr, ptr %437, align 8, !tbaa !202
-  %439 = call ptr @av_dict_get(ptr noundef %438, ptr noundef nonnull @.str.214, ptr noundef null, i32 noundef 0) #16
+  %439 = call ptr @av_dict_get(ptr noundef %438, ptr noundef nonnull @.str.214, ptr noundef null, i32 noundef 0) #17
   %.not477 = icmp eq ptr %436, null
   br i1 %.not477, label %990, label %440
 
@@ -5924,7 +5924,7 @@ mov_init_iamf_track.exit:                         ; preds = %.loopexit.i, %.thre
   %453 = load i32, ptr %11, align 8, !tbaa !76
   %454 = icmp ne i32 %453, 2
   %455 = zext i1 %454 to i32
-  %456 = call i32 @ff_mov_iso639_to_lang(ptr noundef %452, i32 noundef %455) #16
+  %456 = call i32 @ff_mov_iso639_to_lang(ptr noundef %452, i32 noundef %455) #17
   %457 = getelementptr inbounds nuw i8, ptr %436, i64 80
   %458 = icmp slt i32 %456, 0
   %spec.select520 = select i1 %458, i32 32767, i32 %456
@@ -5952,7 +5952,7 @@ is_cover_image.exit.i525:                         ; preds = %462
   %468 = load ptr, ptr %467, align 8, !tbaa !46
   %469 = getelementptr inbounds nuw i8, ptr %468, i64 4
   %470 = load i32, ptr %469, align 4, !tbaa !84
-  %471 = call i32 @ff_codec_get_tag(ptr noundef nonnull @codec_cover_image_tags, i32 noundef %470) #16
+  %471 = call i32 @ff_codec_get_tag(ptr noundef nonnull @codec_cover_image_tags, i32 noundef %470) #17
   br label %742
 
 is_cover_image.exit.thread.i527:                  ; preds = %is_cover_image.exit.i525, %462
@@ -5961,24 +5961,24 @@ is_cover_image.exit.thread.i527:                  ; preds = %is_cover_image.exit
 
 473:                                              ; preds = %is_cover_image.exit.thread.i527
   %474 = load ptr, ptr %412, align 8, !tbaa !290
-  %475 = call i32 @av_match_ext(ptr noundef %474, ptr noundef nonnull @.str.623) #16
+  %475 = call i32 @av_match_ext(ptr noundef %474, ptr noundef nonnull @.str.623) #17
   %.not13.i = icmp eq i32 %475, 0
   br i1 %.not13.i, label %476, label %thread-pre-split.i
 
 476:                                              ; preds = %473
   %477 = load ptr, ptr %412, align 8, !tbaa !290
-  %478 = call i32 @av_match_ext(ptr noundef %477, ptr noundef nonnull @.str.624) #16
+  %478 = call i32 @av_match_ext(ptr noundef %477, ptr noundef nonnull @.str.624) #17
   %.not14.i = icmp eq i32 %478, 0
   br i1 %.not14.i, label %479, label %thread-pre-split.i
 
 479:                                              ; preds = %476
   %480 = load ptr, ptr %412, align 8, !tbaa !290
-  %481 = call i32 @av_match_ext(ptr noundef %480, ptr noundef nonnull @.str.625) #16
+  %481 = call i32 @av_match_ext(ptr noundef %480, ptr noundef nonnull @.str.625) #17
   %.not15.i = icmp eq i32 %481, 0
   br i1 %.not15.i, label %482, label %thread-pre-split.i
 
 482:                                              ; preds = %479
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.626) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.626) #17
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %482, %479, %476, %473
@@ -6018,7 +6018,7 @@ thread-pre-split.i:                               ; preds = %482, %479, %476, %4
   ]
 
 498:                                              ; preds = %495
-  %499 = call i32 @av_get_bits_per_sample(i32 noundef %497) #16
+  %499 = call i32 @av_get_bits_per_sample(i32 noundef %497) #17
   %.not54.i.i = icmp eq i32 %499, 0
   br i1 %.not54.i.i, label %742, label %._crit_edge.i.i
 
@@ -6088,7 +6088,7 @@ thread-pre-split.i:                               ; preds = %482, %479, %476, %4
   br label %.thread560
 
 528:                                              ; preds = %517
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.629) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.629) #17
   br label %.thread564
 
 529:                                              ; preds = %500
@@ -6129,7 +6129,7 @@ thread-pre-split.i:                               ; preds = %482, %479, %476, %4
 split.i.i.i:                                      ; preds = %539, %._crit_edge.i.i.i
   %546 = phi i32 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %543, %539 ]
   %.1.i.i.i = phi i32 [ %.2.i.i.i, %._crit_edge.i.i.i ], [ %531, %539 ]
-  %547 = call i32 @avpriv_pix_fmt_find(i32 noundef 2, i32 noundef %546) #16
+  %547 = call i32 @avpriv_pix_fmt_find(i32 noundef 2, i32 noundef %546) #17
   %548 = icmp eq i32 %.1.i.i.i, 544694642
   br i1 %548, label %549, label %742
 
@@ -6149,8 +6149,8 @@ switch.early.test.i.i.i:                          ; preds = %549
   ]
 
 553:                                              ; preds = %switch.early.test.i.i.i
-  %554 = call ptr @av_get_pix_fmt_name(i32 noundef %.fr.i.i.i) #16
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.630, ptr noundef %554) #16
+  %554 = call ptr @av_get_pix_fmt_name(i32 noundef %.fr.i.i.i) #17
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.630, ptr noundef %554) #17
   br label %.thread560
 
 555:                                              ; preds = %500
@@ -6585,7 +6585,7 @@ defined_frame_rate.exit.i69.i.i:                  ; preds = %629, %623
   ]
 
 693:                                              ; preds = %691
-  %694 = call i32 @ff_codec_get_tag(ptr noundef nonnull @ff_codec_movvideo_tags, i32 noundef %503) #16
+  %694 = call i32 @ff_codec_get_tag(ptr noundef nonnull @ff_codec_movvideo_tags, i32 noundef %503) #17
   %.not57.i.i = icmp eq i32 %694, 0
   br i1 %.not57.i.i, label %695, label %.thread560
 
@@ -6593,16 +6593,16 @@ defined_frame_rate.exit.i69.i.i:                  ; preds = %629, %623
   %696 = load ptr, ptr %487, align 8, !tbaa !46
   %697 = getelementptr inbounds nuw i8, ptr %696, i64 4
   %698 = load i32, ptr %697, align 4, !tbaa !84
-  %699 = call i32 @ff_codec_get_tag(ptr noundef nonnull @ff_codec_bmp_tags, i32 noundef %698) #16
+  %699 = call i32 @ff_codec_get_tag(ptr noundef nonnull @ff_codec_bmp_tags, i32 noundef %698) #17
   %.not58.i.i = icmp eq i32 %699, 0
   br i1 %.not58.i.i, label %.thread564, label %700
 
 700:                                              ; preds = %695
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.627) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.627) #17
   br label %.thread560
 
 701:                                              ; preds = %691
-  %702 = call i32 @ff_codec_get_tag(ptr noundef nonnull @ff_codec_movaudio_tags, i32 noundef %503) #16
+  %702 = call i32 @ff_codec_get_tag(ptr noundef nonnull @ff_codec_movaudio_tags, i32 noundef %503) #17
   %.not55.i.i = icmp eq i32 %702, 0
   br i1 %.not55.i.i, label %703, label %.thread560
 
@@ -6610,7 +6610,7 @@ defined_frame_rate.exit.i69.i.i:                  ; preds = %629, %623
   %704 = load ptr, ptr %487, align 8, !tbaa !46
   %705 = getelementptr inbounds nuw i8, ptr %704, i64 4
   %706 = load i32, ptr %705, align 4, !tbaa !84
-  %707 = call i32 @ff_codec_get_tag(ptr noundef nonnull @ff_codec_wav_tags, i32 noundef %706) #16
+  %707 = call i32 @ff_codec_get_tag(ptr noundef nonnull @ff_codec_wav_tags, i32 noundef %706) #17
   %.not56.i.i = icmp eq i32 %707, 0
   br i1 %.not56.i.i, label %.thread564, label %708
 
@@ -6618,11 +6618,11 @@ defined_frame_rate.exit.i69.i.i:                  ; preds = %629, %623
   %709 = and i32 %707, 65535
   %710 = or disjoint i32 %709, 1836253184
   %711 = call i32 @llvm.bswap.i32(i32 %710)
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.628) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.628) #17
   br label %.thread560
 
 712:                                              ; preds = %691
-  %713 = call i32 @ff_codec_get_tag(ptr noundef nonnull @ff_codec_movsubtitle_tags, i32 noundef %503) #16
+  %713 = call i32 @ff_codec_get_tag(ptr noundef nonnull @ff_codec_movsubtitle_tags, i32 noundef %503) #17
   br label %742
 
 714:                                              ; preds = %483
@@ -6654,8 +6654,8 @@ defined_frame_rate.exit.i69.i.i:                  ; preds = %629, %623
   %.01424.i.i = phi ptr [ %736, %735 ], [ %725, %.preheader.i.i ]
   %727 = getelementptr inbounds nuw i8, ptr %.01424.i.i, i64 4
   %728 = load i32, ptr %727, align 4, !tbaa !303
-  %729 = call i32 @ff_toupper4(i32 noundef %728) #16
-  %730 = call i32 @ff_toupper4(i32 noundef %721) #16
+  %729 = call i32 @ff_toupper4(i32 noundef %728) #17
+  %730 = call i32 @ff_toupper4(i32 noundef %721) #17
   %731 = icmp eq i32 %729, %730
   br i1 %731, label %732, label %735
 
@@ -6703,8 +6703,8 @@ defined_frame_rate.exit.i69.i.i:                  ; preds = %629, %623
   %744 = load ptr, ptr %743, align 8, !tbaa !176
   %745 = getelementptr inbounds nuw i8, ptr %744, i64 4
   %746 = load i32, ptr %745, align 4, !tbaa !84
-  %747 = call ptr @avcodec_get_name(i32 noundef %746) #16
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.607, ptr noundef %747, i32 noundef %.5392692767) #16
+  %747 = call ptr @avcodec_get_name(i32 noundef %746) #17
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.607, ptr noundef %747, i32 noundef %.5392692767) #17
   br label %mov_init_iamf_track.exit.thread
 
 .thread557:                                       ; preds = %451, %.thread560, %742
@@ -6754,7 +6754,7 @@ defined_frame_rate.exit.i69.i.i:                  ; preds = %629, %623
   ]
 
 764:                                              ; preds = %761, %758
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.608) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.608) #17
   br label %mov_init_iamf_track.exit.thread
 
 765:                                              ; preds = %761, %761
@@ -6780,7 +6780,7 @@ defined_frame_rate.exit.i69.i.i:                  ; preds = %629, %623
   br i1 %or.cond587, label %783, label %775
 
 775:                                              ; preds = %771
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.609) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.609) #17
   %.pre815 = load ptr, ptr %754, align 8, !tbaa !176
   br label %783
 
@@ -6812,7 +6812,7 @@ defined_frame_rate.exit.i69.i.i:                  ; preds = %629, %623
   br i1 %or.cond1053, label %split, label %789
 
 split:                                            ; preds = %783
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.610, i32 noundef %786, i32 noundef %.pre819) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.610, i32 noundef %786, i32 noundef %.pre819) #17
   br label %mov_init_iamf_track.exit.thread
 
 789:                                              ; preds = %783
@@ -6827,7 +6827,7 @@ split:                                            ; preds = %783
   br i1 %795, label %796, label %.thread879
 
 796:                                              ; preds = %792
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.611) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.611) #17
   %.pr568.pre = load i32, ptr %436, align 8, !tbaa !104
   %797 = icmp eq i32 %.pr568.pre, 2
   br i1 %797, label %.thread879, label %.thread569
@@ -6891,8 +6891,8 @@ split:                                            ; preds = %783
   br i1 %.not496, label %is_cover_image.exit, label %823
 
 823:                                              ; preds = %822
-  %824 = call ptr @avcodec_get_name(i32 noundef 167) #16
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.612, ptr noundef %824) #16
+  %824 = call ptr @avcodec_get_name(i32 noundef 167) #17
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.612, ptr noundef %824) #17
   br label %mov_init_iamf_track.exit.thread
 
 825:                                              ; preds = %.thread569
@@ -6902,12 +6902,12 @@ split:                                            ; preds = %783
   ]
 
 826:                                              ; preds = %825
-  %827 = call ptr @avcodec_get_name(i32 noundef 225) #16
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.613, ptr noundef %827) #16
+  %827 = call ptr @avcodec_get_name(i32 noundef 225) #17
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.613, ptr noundef %827) #17
   br label %mov_init_iamf_track.exit.thread
 
 828:                                              ; preds = %.thread569
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.614) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.614) #17
   br label %mov_init_iamf_track.exit.thread
 
 is_cover_image.exit:                              ; preds = %.thread569, %822, %825, %825
@@ -6917,7 +6917,7 @@ is_cover_image.exit:                              ; preds = %.thread569, %822, %
   br i1 %.not588, label %831, label %953
 
 831:                                              ; preds = %is_cover_image.exit
-  %832 = call ptr @av_packet_alloc() #16
+  %832 = call ptr @av_packet_alloc() #17
   %833 = getelementptr inbounds nuw i8, ptr %436, i64 288
   store ptr %832, ptr %833, align 8, !tbaa !230
   %.not500 = icmp eq ptr %832, null
@@ -6936,7 +6936,7 @@ is_cover_image.exit:                              ; preds = %.thread569, %822, %
 840:                                              ; preds = %834
   %841 = getelementptr inbounds nuw i8, ptr %755, i64 4
   %842 = load i32, ptr %841, align 4, !tbaa !84
-  %843 = call i32 @av_get_bits_per_sample(i32 noundef %842) #16
+  %843 = call i32 @av_get_bits_per_sample(i32 noundef %842) #17
   %.not486 = icmp eq i32 %843, 0
   br i1 %.not486, label %844, label %._crit_edge812
 
@@ -6946,7 +6946,7 @@ is_cover_image.exit:                              ; preds = %.thread569, %822, %
 
 844:                                              ; preds = %840
   %845 = trunc nuw nsw i64 %indvars.iv799 to i32
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.615, i32 noundef %845) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.615, i32 noundef %845) #17
   %846 = getelementptr inbounds nuw i8, ptr %436, i64 156
   store i32 1, ptr %846, align 4, !tbaa !307
   %.pre814 = load ptr, ptr %754, align 8, !tbaa !176
@@ -6970,7 +6970,7 @@ is_cover_image.exit:                              ; preds = %.thread569, %822, %
 
 854:                                              ; preds = %851
   %855 = trunc nuw nsw i64 %indvars.iv799 to i32
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.616, i32 noundef %855) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.616, i32 noundef %855) #17
   br label %mov_init_iamf_track.exit.thread
 
 856:                                              ; preds = %851
@@ -6991,7 +6991,7 @@ is_cover_image.exit:                              ; preds = %.thread569, %822, %
   br label %874
 
 865:                                              ; preds = %859
-  %866 = call i32 @av_get_bits_per_sample(i32 noundef %850) #16
+  %866 = call i32 @av_get_bits_per_sample(i32 noundef %850) #17
   %867 = ashr i32 %866, 3
   %868 = load ptr, ptr %754, align 8, !tbaa !176
   %869 = getelementptr inbounds nuw i8, ptr %868, i64 132
@@ -7043,14 +7043,14 @@ is_cover_image.exit:                              ; preds = %.thread569, %822, %
   %895 = trunc nuw nsw i64 %indvars.iv799 to i32
   %896 = getelementptr inbounds nuw i8, ptr %884, i64 152
   %897 = load i32, ptr %896, align 8, !tbaa !217
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.617, i32 noundef %895, i32 noundef %897) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.617, i32 noundef %895, i32 noundef %897) #17
   br label %mov_init_iamf_track.exit.thread
 
 898:                                              ; preds = %891
   %899 = getelementptr inbounds nuw i8, ptr %884, i64 152
   %900 = load i32, ptr %899, align 8, !tbaa !217
   %901 = trunc nuw nsw i64 %indvars.iv799 to i32
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.618, i32 noundef %901, i32 noundef %900) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.618, i32 noundef %901, i32 noundef %900) #17
   br label %902
 
 902:                                              ; preds = %898, %888, %882, %880
@@ -7070,8 +7070,8 @@ is_cover_image.exit:                              ; preds = %.thread569, %822, %
   br i1 %.not489, label %911, label %909
 
 909:                                              ; preds = %907
-  %910 = call ptr @avcodec_get_name(i32 noundef %906) #16
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.612, ptr noundef %910) #16
+  %910 = call ptr @avcodec_get_name(i32 noundef %906) #17
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.612, ptr noundef %910) #17
   br label %mov_init_iamf_track.exit.thread
 
 911:                                              ; preds = %907
@@ -7084,8 +7084,8 @@ is_cover_image.exit:                              ; preds = %.thread569, %822, %
   br i1 %915, label %916, label %953
 
 916:                                              ; preds = %913
-  %917 = call ptr @avcodec_get_name(i32 noundef 86060) #16
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.619, ptr noundef %917, i32 noundef -2) #16
+  %917 = call ptr @avcodec_get_name(i32 noundef 86060) #17
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.619, ptr noundef %917, i32 noundef -2) #17
   br label %mov_init_iamf_track.exit.thread
 
 918:                                              ; preds = %.thread557
@@ -7130,7 +7130,7 @@ ff_is_ttml_stream_paragraph_based.exit:           ; preds = %930
   br i1 %or.cond.not, label %939, label %940
 
 939:                                              ; preds = %ff_is_ttml_stream_paragraph_based.exit
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.620) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.620) #17
   br label %mov_init_iamf_track.exit.thread
 
 940:                                              ; preds = %ff_is_ttml_stream_paragraph_based.exit.thread, %ff_is_ttml_stream_paragraph_based.exit
@@ -7150,7 +7150,7 @@ ff_is_ttml_stream_paragraph_based.exit:           ; preds = %930
   br i1 %948, label %949, label %953
 
 949:                                              ; preds = %946
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.621) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.621) #17
   br label %mov_init_iamf_track.exit.thread
 
 950:                                              ; preds = %.thread557
@@ -7201,7 +7201,7 @@ ff_is_ttml_stream_paragraph_based.exit:           ; preds = %930
 970:                                              ; preds = %968, %966, %960
   %971 = getelementptr inbounds nuw i8, ptr %436, i64 12
   %972 = load i32, ptr %971, align 4, !tbaa !209
-  call void @avpriv_set_pts_info(ptr noundef nonnull %434, i32 noundef 64, i32 noundef 1, i32 noundef %972) #16
+  call void @avpriv_set_pts_info(ptr noundef nonnull %434, i32 noundef 64, i32 noundef 1, i32 noundef %972) #17
   %973 = load i32, ptr %416, align 8, !tbaa !281
   %974 = icmp eq i32 %973, 1
   br i1 %974, label %975, label %990
@@ -7228,7 +7228,7 @@ ff_is_ttml_stream_paragraph_based.exit:           ; preds = %930
   %986 = phi i32 [ 1, %975 ], [ %984, %982 ], [ 1, %975 ], [ 1, %975 ]
   %987 = load i32, ptr %418, align 8, !tbaa !214
   %988 = and i32 %987, 1024
-  %989 = call i32 @ff_mov_cenc_init(ptr noundef nonnull %976, ptr noundef %977, i32 noundef %986, i32 noundef %981, i32 noundef %988) #16
+  %989 = call i32 @ff_mov_cenc_init(ptr noundef nonnull %976, ptr noundef %977, i32 noundef %986, i32 noundef %981, i32 noundef %988) #17
   %.not504 = icmp eq i32 %989, 0
   br i1 %.not504, label %990, label %mov_init_iamf_track.exit.thread
 
@@ -7401,7 +7401,7 @@ define internal void @mov_free(ptr noundef readonly captures(none) %0) #0 {
   %18 = sext i32 %16 to i64
   %19 = getelementptr inbounds %struct.MOVTrack, ptr %9, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 104
-  tail call void @avcodec_parameters_free(ptr noundef nonnull %20) #16
+  tail call void @avcodec_parameters_free(ptr noundef nonnull %20) #17
   br label %21
 
 21:                                               ; preds = %17, %14
@@ -7415,9 +7415,9 @@ define internal void @mov_free(ptr noundef readonly captures(none) %0) #0 {
   br label %27
 
 ._crit_edge53:                                    ; preds = %57, %21
-  tail call void @av_freep(ptr noundef nonnull %8) #16
+  tail call void @av_freep(ptr noundef nonnull %8) #17
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  tail call void @ffio_free_dyn_buf(ptr noundef nonnull %26) #16
+  tail call void @ffio_free_dyn_buf(ptr noundef nonnull %26) #17
   br label %62
 
 27:                                               ; preds = %.lr.ph52, %57
@@ -7432,7 +7432,7 @@ define internal void @mov_free(ptr noundef readonly captures(none) %0) #0 {
   ]
 
 32:                                               ; preds = %27
-  tail call void @ff_mov_close_hinting(ptr noundef nonnull %29) #16
+  tail call void @ff_mov_close_hinting(ptr noundef nonnull %29) #17
   br label %37
 
 33:                                               ; preds = %27
@@ -7442,26 +7442,26 @@ define internal void @mov_free(ptr noundef readonly captures(none) %0) #0 {
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 104
-  tail call void @av_freep(ptr noundef nonnull %36) #16
+  tail call void @av_freep(ptr noundef nonnull %36) #17
   br label %37
 
 37:                                               ; preds = %27, %33, %35, %32
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 136
-  tail call void @av_freep(ptr noundef nonnull %38) #16
+  tail call void @av_freep(ptr noundef nonnull %38) #17
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 144
-  tail call void @av_freep(ptr noundef nonnull %39) #16
+  tail call void @av_freep(ptr noundef nonnull %39) #17
   %40 = getelementptr inbounds nuw i8, ptr %29, i64 328
-  tail call void @av_freep(ptr noundef nonnull %40) #16
+  tail call void @av_freep(ptr noundef nonnull %40) #17
   %41 = getelementptr inbounds nuw i8, ptr %29, i64 288
-  tail call void @av_packet_free(ptr noundef nonnull %41) #16
+  tail call void @av_packet_free(ptr noundef nonnull %41) #17
   %42 = getelementptr inbounds nuw i8, ptr %29, i64 368
   %43 = load ptr, ptr %42, align 8, !tbaa !107
   %.not46 = icmp eq ptr %43, null
   br i1 %.not46, label %45, label %44
 
 44:                                               ; preds = %37
-  tail call void @av_packet_free(ptr noundef nonnull %43) #16
-  tail call void @av_freep(ptr noundef nonnull %42) #16
+  tail call void @av_packet_free(ptr noundef nonnull %43) #17
+  tail call void @av_freep(ptr noundef nonnull %42) #17
   br label %45
 
 45:                                               ; preds = %44, %37
@@ -7472,29 +7472,29 @@ define internal void @mov_free(ptr noundef readonly captures(none) %0) #0 {
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %29, i64 128
-  tail call void @av_freep(ptr noundef nonnull %49) #16
+  tail call void @av_freep(ptr noundef nonnull %49) #17
   br label %50
 
 50:                                               ; preds = %48, %45
   %51 = getelementptr inbounds nuw i8, ptr %29, i64 376
-  tail call void @ff_mov_cenc_free(ptr noundef nonnull %51) #16
+  tail call void @ff_mov_cenc_free(ptr noundef nonnull %51) #17
   %52 = getelementptr inbounds nuw i8, ptr %29, i64 296
-  tail call void @ffio_free_dyn_buf(ptr noundef nonnull %52) #16
+  tail call void @ffio_free_dyn_buf(ptr noundef nonnull %52) #17
   %53 = getelementptr inbounds nuw i8, ptr %29, i64 1592
-  tail call void @ffio_free_dyn_buf(ptr noundef nonnull %53) #16
+  tail call void @ffio_free_dyn_buf(ptr noundef nonnull %53) #17
   %54 = getelementptr inbounds nuw i8, ptr %29, i64 1576
   %55 = load ptr, ptr %54, align 8, !tbaa !223
   %.not48 = icmp eq ptr %55, null
   br i1 %.not48, label %57, label %56
 
 56:                                               ; preds = %50
-  tail call void @ff_iamf_uninit_context(ptr noundef nonnull %55) #16
+  tail call void @ff_iamf_uninit_context(ptr noundef nonnull %55) #17
   br label %57
 
 57:                                               ; preds = %56, %50
-  tail call void @av_freep(ptr noundef nonnull %54) #16
+  tail call void @av_freep(ptr noundef nonnull %54) #17
   %58 = getelementptr inbounds nuw i8, ptr %29, i64 1560
-  tail call void @avpriv_packet_list_free(ptr noundef nonnull %58) #16
+  tail call void @avpriv_packet_list_free(ptr noundef nonnull %58) #17
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %59 = load i32, ptr %22, align 4, !tbaa !102
   %60 = sext i32 %59 to i64
@@ -7532,7 +7532,7 @@ define internal i32 @mov_check_bitstream(ptr readnone captures(none) %0, ptr nou
 
 .sink.split:                                      ; preds = %3, %12
   %.str.633.sink = phi ptr [ @.str.632, %12 ], [ @.str.633, %3 ]
-  %18 = tail call i32 @ff_stream_add_bitstream_filter(ptr noundef nonnull %1, ptr noundef nonnull %.str.633.sink, ptr noundef null) #16
+  %18 = tail call i32 @ff_stream_add_bitstream_filter(ptr noundef nonnull %1, ptr noundef nonnull %.str.633.sink, ptr noundef null) #17
   br label %19
 
 19:                                               ; preds = %.sink.split, %3, %8, %12
@@ -7588,7 +7588,7 @@ define internal range(i32 -2147483648, 1) i32 @avif_write_trailer(ptr noundef %0
   tail call fastcc void @mov_write_meta_tag(ptr noundef %6, ptr noundef nonnull %8, ptr noundef nonnull %0)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %31 = load ptr, ptr %7, align 8, !tbaa !4
-  %32 = call i32 @ffio_open_null_buf(ptr noundef nonnull %2) #16
+  %32 = call i32 @ffio_open_null_buf(ptr noundef nonnull %2) #17
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %get_moov_size.exit, label %34
 
@@ -7600,7 +7600,7 @@ define internal range(i32 -2147483648, 1) i32 @avif_write_trailer(ptr noundef %0
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %2, align 8, !tbaa !83
-  %40 = call i32 @ffio_close_null_buf(ptr noundef %39) #16
+  %40 = call i32 @ffio_close_null_buf(ptr noundef %39) #17
   br label %get_moov_size.exit
 
 get_moov_size.exit:                               ; preds = %29, %34, %38
@@ -7624,7 +7624,7 @@ get_moov_size.exit:                               ; preds = %29, %34, %38
 
 48:                                               ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
-  %49 = call i64 @avio_seek(ptr noundef %6, i64 noundef 0, i32 noundef 1) #16
+  %49 = call i64 @avio_seek(ptr noundef %6, i64 noundef 0, i32 noundef 1) #17
   %50 = add i64 %45, %49
   %51 = load ptr, ptr %46, align 8, !tbaa !40
   %52 = getelementptr inbounds nuw %struct.MOVTrack, ptr %51, i64 %indvars.iv
@@ -7644,11 +7644,11 @@ get_moov_size.exit:                               ; preds = %29, %34, %38
 60:                                               ; preds = %57, %._crit_edge
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %62 = load ptr, ptr %61, align 8, !tbaa !82
-  %63 = call i32 @avio_get_dyn_buf(ptr noundef %62, ptr noundef nonnull %4) #16
+  %63 = call i32 @avio_get_dyn_buf(ptr noundef %62, ptr noundef nonnull %4) #17
   %64 = add nsw i32 %63, 8
-  call void @avio_wb32(ptr noundef %6, i32 noundef %64) #16
-  call void @avio_wl32(ptr noundef %6, i32 noundef 1952539757) #16
-  %65 = call i64 @avio_seek(ptr noundef %6, i64 noundef 0, i32 noundef 1) #16
+  call void @avio_wb32(ptr noundef %6, i32 noundef %64) #17
+  call void @avio_wl32(ptr noundef %6, i32 noundef 1952539757) #17
+  %65 = call i64 @avio_seek(ptr noundef %6, i64 noundef 0, i32 noundef 1) #17
   store i64 %65, ptr %3, align 16, !tbaa !319
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 288
   %67 = load i32, ptr %66, align 8, !tbaa !30
@@ -7657,8 +7657,8 @@ get_moov_size.exit:                               ; preds = %29, %34, %38
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %69, ptr %70, align 8, !tbaa !319
   %71 = load ptr, ptr %4, align 8, !tbaa !31
-  call void @avio_write(ptr noundef %6, ptr noundef %71, i32 noundef %63) #16
-  %72 = call i64 @avio_seek(ptr noundef %6, i64 noundef 0, i32 noundef 1) #16
+  call void @avio_write(ptr noundef %6, ptr noundef %71, i32 noundef %63) #17
+  %72 = call i64 @avio_seek(ptr noundef %6, i64 noundef 0, i32 noundef 1) #17
   %73 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %74 = load i32, ptr %73, align 8, !tbaa !172
   %.not5861 = icmp sgt i32 %74, 0
@@ -7676,15 +7676,15 @@ get_moov_size.exit:                               ; preds = %29, %34, %38
   br i1 %.not57, label %79, label %.thread
 
 .thread:                                          ; preds = %76
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.639) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.639) #17
   br label %87
 
 79:                                               ; preds = %76
   %80 = getelementptr inbounds nuw i64, ptr %75, i64 %indvars.iv67
   %81 = load i64, ptr %80, align 8, !tbaa !319
-  %82 = call i64 @avio_seek(ptr noundef %6, i64 noundef %81, i32 noundef 0) #16
+  %82 = call i64 @avio_seek(ptr noundef %6, i64 noundef %81, i32 noundef 0) #17
   %83 = trunc nuw i64 %78 to i32
-  call void @avio_wb32(ptr noundef %6, i32 noundef %83) #16
+  call void @avio_wb32(ptr noundef %6, i32 noundef %83) #17
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %84 = load i32, ptr %73, align 8, !tbaa !172
   %85 = sext i32 %84 to i64
@@ -7692,7 +7692,7 @@ get_moov_size.exit:                               ; preds = %29, %34, %38
   br i1 %.not58, label %76, label %._crit_edge65, !llvm.loop !320
 
 ._crit_edge65:                                    ; preds = %79, %60
-  %86 = call i64 @avio_seek(ptr noundef %6, i64 noundef %72, i32 noundef 0) #16
+  %86 = call i64 @avio_seek(ptr noundef %6, i64 noundef %72, i32 noundef 0) #17
   br label %87
 
 87:                                               ; preds = %.thread, %1, %57, %._crit_edge65
@@ -7736,7 +7736,7 @@ declare i32 @av_channel_layout_compare(ptr noundef, ptr noundef) local_unnamed_a
 define internal fastcc range(i32 -22, 1) i32 @mov_write_identification(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !4
-  %5 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
+  %5 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %7 = load i32, ptr %6, align 8, !tbaa !264
   %.not155.i = icmp eq i32 %7, 0
@@ -7788,8 +7788,8 @@ define internal fastcc range(i32 -22, 1) i32 @mov_write_identification(ptr nound
   %.090.lcssa.i = phi i32 [ 0, %._crit_edge.i ], [ %.191.i, %._crit_edge149.loopexit.i ]
   %.087.lcssa.i = phi i1 [ true, %._crit_edge.i ], [ %21, %._crit_edge149.loopexit.i ]
   %.0.lcssa.i = phi i32 [ 0, %._crit_edge.i ], [ %.1.i, %._crit_edge149.loopexit.i ]
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1887007846) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1887007846) #17
   %.val.i = load ptr, ptr %3, align 8, !tbaa !4
   tail call fastcc void @mov_write_ftyp_tag_internal(ptr noundef %0, ptr %.val.i, i32 noundef %.0.lcssa.i, i32 noundef %.090.lcssa.i, i32 noundef 1)
   %.val135.i = load ptr, ptr %3, align 8, !tbaa !4
@@ -7853,7 +7853,7 @@ is_cover_image.exit.thread.i:                     ; preds = %is_cover_image.exit
   %47 = load ptr, ptr %46, align 8, !tbaa !322
   %48 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %49 = load i32, ptr %48, align 8, !tbaa !323
-  %50 = tail call ptr @av_packet_side_data_get(ptr noundef %47, i32 noundef %49, i32 noundef 29) #16
+  %50 = tail call ptr @av_packet_side_data_get(ptr noundef %47, i32 noundef %49, i32 noundef 29) #17
   %.not128.i = icmp eq ptr %50, null
   br i1 %.not128.i, label %52, label %51
 
@@ -7890,7 +7890,7 @@ is_cover_image.exit.thread.i:                     ; preds = %is_cover_image.exit
   %66 = load ptr, ptr %65, align 8, !tbaa !176
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 44
   %68 = load i32, ptr %67, align 4, !tbaa !234
-  %69 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %68) #16
+  %69 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %68) #17
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !325
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 296
@@ -7899,14 +7899,14 @@ is_cover_image.exit.thread.i:                     ; preds = %is_cover_image.exit
   br i1 %.not121.i, label %75, label %74
 
 74:                                               ; preds = %61
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1718187617) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 828797805) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 946828137) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1718187617) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 828797805) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 946828137) #17
   br label %75
 
 75:                                               ; preds = %74, %61
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 828795245) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1717660013) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 828795245) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1717660013) #17
   %76 = and i32 %71, -3
   %or.cond.i = icmp eq i32 %76, 8
   br i1 %or.cond.i, label %77, label %thread-pre-split.i
@@ -7934,7 +7934,7 @@ is_cover_image.exit.thread.i:                     ; preds = %is_cover_image.exit
   br i1 %.not111.i, label %89, label %88
 
 88:                                               ; preds = %84
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1667657059) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1667657059) #17
   %.pre160.i = load i32, ptr %85, align 8, !tbaa !75
   br label %89
 
@@ -7945,21 +7945,21 @@ is_cover_image.exit.thread.i:                     ; preds = %is_cover_image.exit
   br i1 %or.cond130.i, label %92, label %93
 
 92:                                               ; preds = %89
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 913273705) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 913273705) #17
   br label %93
 
 93:                                               ; preds = %92, %89
   br i1 %.087.lcssa.i, label %95, label %94
 
 94:                                               ; preds = %93
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 825259617) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 825259617) #17
   br label %95
 
 95:                                               ; preds = %94, %93
   br i1 %.094.lcssa.i, label %97, label %96
 
 96:                                               ; preds = %95
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 830038628) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 830038628) #17
   br label %97
 
 97:                                               ; preds = %96, %95
@@ -7973,7 +7973,7 @@ is_cover_image.exit.thread.i:                     ; preds = %is_cover_image.exit
   br i1 %.not108.i, label %103, label %102
 
 102:                                              ; preds = %98
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 913273705) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 913273705) #17
   %.pre161.i = load i32, ptr %99, align 8, !tbaa !75
   br label %103
 
@@ -7990,7 +7990,7 @@ is_cover_image.exit.thread.i:                     ; preds = %is_cover_image.exit
 
 .sink.split.i:                                    ; preds = %106, %103, %97
   %.sink.i = phi i32 [ 1718444393, %97 ], [ 896496489, %103 ], [ 879719273, %106 ]
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef %.sink.i) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef %.sink.i) #17
   br label %108
 
 108:                                              ; preds = %.sink.split.i, %106, %97
@@ -8009,17 +8009,17 @@ is_cover_image.exit.thread.i:                     ; preds = %is_cover_image.exit
   br i1 %or.cond131.i, label %116, label %115
 
 115:                                              ; preds = %112
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1836020585) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1836020585) #17
   br label %116
 
 116:                                              ; preds = %115, %112
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 846164841) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 846164841) #17
   %.not120.i = icmp eq i32 %.0.lcssa.i, 0
   br i1 %.not120.i, label %thread-pre-split.i, label %thread-pre-split.sink.split.i
 
 thread-pre-split.sink.split.i:                    ; preds = %116, %83, %80, %.split.i
   %.sink165.i = phi i32 [ 1110524237, %83 ], [ 1717987696, %.split.i ], [ 1093747021, %80 ], [ 828601953, %116 ]
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef %.sink165.i) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef %.sink165.i) #17
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %thread-pre-split.sink.split.i, %116, %108, %75
@@ -8032,7 +8032,7 @@ thread-pre-split.i:                               ; preds = %thread-pre-split.si
   br i1 %119, label %120, label %121
 
 120:                                              ; preds = %117
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 825520237) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 825520237) #17
   br label %121
 
 121:                                              ; preds = %120, %117
@@ -8043,23 +8043,23 @@ thread-pre-split.i:                               ; preds = %thread-pre-split.si
   br i1 %or.cond132.not.i, label %125, label %126
 
 125:                                              ; preds = %121
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1752392036) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1752392036) #17
   br label %126
 
 126:                                              ; preds = %125, %121
   br i1 %.0102.lcssa.i, label %mov_write_ftyp_tag.exit, label %127
 
 127:                                              ; preds = %126
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 862218593) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 862218593) #17
   br label %mov_write_ftyp_tag.exit
 
 mov_write_ftyp_tag.exit:                          ; preds = %126, %127
-  %128 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %129 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %5, i32 noundef 0) #16
+  %128 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %129 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %5, i32 noundef 0) #17
   %130 = sub nsw i64 %128, %5
   %131 = trunc i64 %130 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %131) #16
-  %132 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %128, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %131) #17
+  %132 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %128, i32 noundef 0) #17
   %133 = load i32, ptr %24, align 8, !tbaa !76
   %134 = icmp eq i32 %133, 8
   br i1 %134, label %.preheader, label %mov_write_uuidprof_tag.exit
@@ -8130,7 +8130,7 @@ is_cover_image.exit.thread:                       ; preds = %139, %is_cover_imag
   br i1 %159, label %._crit_edge.thread, label %160
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 16, ptr noundef nonnull @.str.165) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 16, ptr noundef nonnull @.str.165) #17
   br label %mov_write_uuidprof_tag.exit
 
 160:                                              ; preds = %._crit_edge
@@ -8163,7 +8163,7 @@ is_cover_image.exit.thread:                       ; preds = %139, %is_cover_imag
 181:                                              ; preds = %174
   %182 = sitofp i64 %180 to double
   %183 = fmul nsz double %182, 0x3EF0000000000000
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %1, i32 noundef 16, ptr noundef nonnull @.str.196, double noundef %183) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %1, i32 noundef 16, ptr noundef nonnull @.str.196, double noundef %183) #17
   br label %mov_write_uuidprof_tag.exit
 
 .thread:                                          ; preds = %160, %174
@@ -8180,58 +8180,58 @@ is_cover_image.exit.thread:                       ; preds = %139, %is_cover_imag
   %..i = tail call i64 @llvm.smin.i64(i64 %187, i64 %192)
   %193 = trunc i64 %..i to i32
   %194 = trunc i64 %190 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 148) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1684632949) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1179603536) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 567431118) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef -1148688036) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef -87439552) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 3) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 20) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1179799622) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 44) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1179799617) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 2) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1630826605) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 527) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %194) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %194) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %171) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 148) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1684632949) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1179603536) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 567431118) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef -1148688036) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef -87439552) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 3) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 20) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1179799622) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 44) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1179799617) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 2) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1630826605) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 527) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %194) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %194) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %171) #17
   %195 = getelementptr inbounds nuw i8, ptr %169, i64 132
   %196 = load i32, ptr %195, align 4, !tbaa !187
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %196) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 52) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1179799638) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 1) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %196) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 52) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1179799638) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 1) #17
   %197 = getelementptr inbounds nuw i8, ptr %165, i64 4
   %198 = load i32, ptr %197, align 4, !tbaa !84
   %199 = icmp eq i32 %198, 27
   %.78.i = select i1 %199, i32 828601953, i32 1983148141
   %.79.i = select i1 %199, i32 333, i32 0
   %.80.i = select i1 %199, i32 21, i32 259
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef %.78.i) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef %.79.i) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef %.80.i) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %193) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %193) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef %.78.i) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef %.79.i) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef %.80.i) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %193) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %193) #17
   %200 = trunc nuw nsw i64 %184 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %200) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %200) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %200) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %200) #17
   %201 = getelementptr inbounds nuw i8, ptr %165, i64 72
   %202 = load i32, ptr %201, align 8, !tbaa !181
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef %202) #16
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef %202) #17
   %203 = getelementptr inbounds nuw i8, ptr %165, i64 76
   %204 = load i32, ptr %203, align 4, !tbaa !183
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef %204) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 65537) #16
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef %204) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 65537) #17
   br label %mov_write_uuidprof_tag.exit
 
 mov_write_uuidprof_tag.exit:                      ; preds = %.thread, %181, %mov_write_ftyp_tag.exit, %._crit_edge.thread
@@ -8262,7 +8262,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_create_chapter_track(p
   %15 = load i32, ptr %14, align 8, !tbaa !212
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %15, ptr %16, align 4, !tbaa !209
-  %17 = tail call ptr @avcodec_parameters_alloc() #16
+  %17 = tail call ptr @avcodec_parameters_alloc() #17
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 104
   store ptr %17, ptr %18, align 8, !tbaa !46
   %.not = icmp eq ptr %17, null
@@ -8270,7 +8270,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_create_chapter_track(p
 
 19:                                               ; preds = %2
   store i32 3, ptr %17, align 8, !tbaa !177
-  %20 = tail call i32 @ff_alloc_extradata(ptr noundef nonnull %17, i32 noundef 43) #16
+  %20 = tail call i32 @ff_alloc_extradata(ptr noundef nonnull %17, i32 noundef 43) #17
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %75, label %22
 
@@ -8310,29 +8310,29 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_create_chapter_track(p
   %.sroa.22.0.insert.ext = zext i32 %43 to i64
   %.sroa.22.0.insert.shift = shl nuw i64 %.sroa.22.0.insert.ext, 32
   %.sroa.01.0.insert.insert = or disjoint i64 %.sroa.22.0.insert.shift, 1
-  %45 = tail call i64 @av_rescale_q(i64 noundef %41, i64 %44, i64 %.sroa.01.0.insert.insert) #19
+  %45 = tail call i64 @av_rescale_q(i64 noundef %41, i64 %44, i64 %.sroa.01.0.insert.insert) #20
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %47 = load i64, ptr %46, align 8, !tbaa !338
-  %48 = tail call i64 @av_rescale_q(i64 noundef %47, i64 %44, i64 %.sroa.01.0.insert.insert) #19
+  %48 = tail call i64 @av_rescale_q(i64 noundef %47, i64 %44, i64 %.sroa.01.0.insert.insert) #20
   store i64 %48, ptr %31, align 8, !tbaa !71
   store i64 %48, ptr %32, align 8, !tbaa !73
   %49 = sub nsw i64 %45, %48
   store i64 %49, ptr %33, align 8, !tbaa !74
   %50 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %51 = load ptr, ptr %50, align 8, !tbaa !339
-  %52 = tail call ptr @av_dict_get(ptr noundef %51, ptr noundef nonnull @.str.205, ptr noundef null, i32 noundef 0) #16
+  %52 = tail call ptr @av_dict_get(ptr noundef %51, ptr noundef nonnull @.str.205, ptr noundef null, i32 noundef 0) #17
   %.not63 = icmp eq ptr %52, null
   br i1 %.not63, label %70, label %53
 
 53:                                               ; preds = %36
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !203
-  %56 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #18
+  %56 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #19
   %57 = trunc i64 %56 to i32
   %58 = add nsw i32 %57, 14
   store i32 %58, ptr %34, align 8, !tbaa !25
   %59 = sext i32 %58 to i64
-  %60 = tail call noalias ptr @av_malloc(i64 noundef %59) #16
+  %60 = tail call noalias ptr @av_malloc(i64 noundef %59) #17
   store ptr %60, ptr %35, align 8, !tbaa !87
   %.not64 = icmp eq ptr %60, null
   br i1 %.not64, label %.sink.split, label %61
@@ -8350,7 +8350,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_create_chapter_track(p
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %68, ptr noundef nonnull align 1 dereferenceable(12) @mov_create_chapter_track.encd, i64 12, i1 false)
   %69 = tail call i32 @ff_mov_write_packet(ptr noundef nonnull %0, ptr noundef nonnull %10)
-  tail call void @av_freep(ptr noundef nonnull %35) #16
+  tail call void @av_freep(ptr noundef nonnull %35) #17
   br label %70
 
 70:                                               ; preds = %61, %36
@@ -8367,7 +8367,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_create_chapter_track(p
 .sink.split:                                      ; preds = %53, %._crit_edge
   %.sink = phi ptr [ %74, %._crit_edge ], [ %10, %53 ]
   %.0.ph = phi i32 [ 0, %._crit_edge ], [ -12, %53 ]
-  tail call void @av_packet_unref(ptr noundef %.sink) #16
+  tail call void @av_packet_unref(ptr noundef %.sink) #17
   br label %75
 
 75:                                               ; preds = %.sink.split, %19, %2
@@ -8408,9 +8408,9 @@ define internal fastcc i32 @mov_write_moov_tag(ptr noundef %0, ptr noundef %1, p
   %26 = alloca i64, align 8
   %27 = alloca i64, align 8
   %28 = alloca i64, align 8
-  %29 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1987014509) #16
+  %29 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1987014509) #17
   tail call fastcc void @mov_setup_track_ids(ptr noundef %1)
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %31 = load i32, ptr %30, align 4, !tbaa !102
@@ -8607,7 +8607,7 @@ build_chunks.exit:                                ; preds = %84, %58, %50, %47, 
   %125 = load ptr, ptr %124, align 8, !tbaa !322
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 40
   %127 = load i32, ptr %126, align 8, !tbaa !323
-  %128 = tail call ptr @av_packet_side_data_get(ptr noundef %125, i32 noundef %127, i32 noundef 9) #16
+  %128 = tail call ptr @av_packet_side_data_get(ptr noundef %125, i32 noundef %127, i32 noundef 9) #17
   %.not135 = icmp eq ptr %128, null
   br i1 %.not135, label %148, label %129
 
@@ -8680,7 +8680,7 @@ build_chunks.exit:                                ; preds = %84, %58, %50, %47, 
   %171 = getelementptr inbounds nuw i8, ptr %161, i64 12
   %172 = load i32, ptr %171, align 4, !tbaa !209
   %173 = zext i32 %172 to i64
-  %174 = tail call i64 @av_rescale(i64 noundef %167, i64 noundef %170, i64 noundef %173) #19
+  %174 = tail call i64 @av_rescale(i64 noundef %167, i64 noundef %170, i64 noundef %173) #20
   %175 = getelementptr inbounds nuw i8, ptr %153, i64 24
   store i64 %174, ptr %175, align 8, !tbaa !70
   br label %176
@@ -8734,7 +8734,7 @@ build_chunks.exit:                                ; preds = %84, %58, %50, %47, 
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 12
   %200 = load i32, ptr %199, align 4, !tbaa !209
   %201 = zext i32 %200 to i64
-  %202 = tail call i64 @av_rescale_rnd(i64 noundef %194, i64 noundef %196, i64 noundef %201, i32 noundef 3) #19
+  %202 = tail call i64 @av_rescale_rnd(i64 noundef %194, i64 noundef %196, i64 noundef %201, i32 noundef 3) #20
   %spec.select.i = tail call i64 @llvm.smax.i64(i64 %.06474.i, i64 %202)
   %203 = getelementptr inbounds nuw i8, ptr %198, i64 84
   %204 = load i32, ptr %203, align 4, !tbaa !215
@@ -8767,26 +8767,26 @@ build_chunks.exit:                                ; preds = %84, %58, %50, %47, 
   %214 = icmp sgt i64 %spec.select72.i, 2147483646
   %..i.i = zext i1 %214 to i32
   %215 = select i1 %214, i32 120, i32 108
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %215) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1684567661) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %..i.i) #16
-  tail call void @avio_wb24(ptr noundef %0, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %215) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1684567661) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %..i.i) #17
+  tail call void @avio_wb24(ptr noundef %0, i32 noundef 0) #17
   %216 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %217 = load i64, ptr %216, align 8, !tbaa !198
   br i1 %214, label %218, label %220
 
 218:                                              ; preds = %._crit_edge.i
-  tail call void @avio_wb64(ptr noundef %0, i64 noundef %217) #16
+  tail call void @avio_wb64(ptr noundef %0, i64 noundef %217) #17
   %219 = load i64, ptr %216, align 8, !tbaa !198
-  tail call void @avio_wb64(ptr noundef %0, i64 noundef %219) #16
+  tail call void @avio_wb64(ptr noundef %0, i64 noundef %219) #17
   br label %224
 
 220:                                              ; preds = %._crit_edge.i
   %221 = trunc i64 %217 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %221) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %221) #17
   %222 = load i64, ptr %216, align 8, !tbaa !198
   %223 = trunc i64 %222 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %223) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %223) #17
   br label %224
 
 224:                                              ; preds = %220, %218
@@ -8808,39 +8808,39 @@ build_chunks.exit:                                ; preds = %84, %58, %50, %47, 
 
 236:                                              ; preds = %231, %224
   %.062.i = phi i32 [ %226, %224 ], [ %235, %231 ]
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.062.i) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.062.i) #17
   br i1 %214, label %237, label %238
 
 237:                                              ; preds = %236
-  tail call void @avio_wb64(ptr noundef %0, i64 noundef %spec.select72.i) #16
+  tail call void @avio_wb64(ptr noundef %0, i64 noundef %spec.select72.i) #17
   br label %mov_write_mvhd_tag.exit
 
 238:                                              ; preds = %236
   %239 = trunc nuw nsw i64 %spec.select72.i to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %239) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %239) #17
   br label %mov_write_mvhd_tag.exit
 
 mov_write_mvhd_tag.exit:                          ; preds = %237, %238
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 65536) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 256) #16
-  tail call void @ffio_fill(ptr noundef %0, i32 noundef 0, i64 noundef 10) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 65536) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 65536) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 1073741824) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 65536) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 256) #17
+  tail call void @ffio_fill(ptr noundef %0, i32 noundef 0, i64 noundef 10) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 65536) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 65536) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 1073741824) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   %240 = select i1 %.not.i139, i32 %.0.lcssa.i, i32 2
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %240) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %240) #17
   %241 = load i32, ptr %227, align 8, !tbaa !76
   switch i32 %241, label %242 [
     i32 2, label %289
@@ -8854,7 +8854,7 @@ mov_write_mvhd_tag.exit:                          ; preds = %237, %238
   br i1 %.not131, label %245, label %289
 
 245:                                              ; preds = %242
-  %246 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
+  %246 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
   %247 = load i32, ptr %30, align 4, !tbaa !102
   %248 = icmp sgt i32 %247, 0
   br i1 %248, label %.lr.ph.i146, label %._crit_edge.i144
@@ -8912,10 +8912,10 @@ mov_write_mvhd_tag.exit:                          ; preds = %237, %238
   %273 = load i32, ptr %272, align 8, !tbaa !353
   %274 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %275 = load i32, ptr %274, align 4, !tbaa !354
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1935961961) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 16) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1935961961) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 16) #17
   br label %276
 
 276:                                              ; preds = %276, %._crit_edge.i144
@@ -8923,7 +8923,7 @@ mov_write_mvhd_tag.exit:                          ; preds = %237, %238
   %277 = mul nuw nsw i32 %.08.i.i, 7
   %278 = lshr i32 7, %277
   %279 = or disjoint i32 %278, 128
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %279) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %279) #17
   %280 = add nsw i32 %.08.i.i, -1
   %281 = icmp samesign ugt i32 %.08.i.i, 1
   br i1 %281, label %276, label %mov_write_iods_tag.exit, !llvm.loop !355
@@ -8933,19 +8933,19 @@ mov_write_iods_tag.exit:                          ; preds = %276
   %.0.i = select i1 %282, i32 %.034.lcssa.i, i32 %275
   %283 = icmp slt i32 %273, 0
   %spec.select.i145 = select i1 %283, i32 %.035.lcssa.i, i32 %273
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 7) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 79) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 255) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 255) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %spec.select.i145) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %.0.i) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 255) #16
-  %284 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %285 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %246, i32 noundef 0) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 7) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 79) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 255) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 255) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %spec.select.i145) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %.0.i) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 255) #17
+  %284 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %285 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %246, i32 noundef 0) #17
   %286 = sub nsw i64 %284, %246
   %287 = trunc i64 %286 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %287) #16
-  %288 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %284, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %287) #17
+  %288 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %284, i32 noundef 0) #17
   br label %289
 
 289:                                              ; preds = %mov_write_mvhd_tag.exit, %mov_write_mvhd_tag.exit, %mov_write_iods_tag.exit, %242
@@ -8997,7 +8997,7 @@ mov_write_iods_tag.exit:                          ; preds = %276
 
 319:                                              ; preds = %312, %316
   %320 = phi ptr [ %318, %316 ], [ null, %312 ]
-  %321 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
+  %321 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
   %322 = load i32, ptr %303, align 4, !tbaa !63
   %323 = getelementptr inbounds nuw i8, ptr %302, i64 56
   %324 = load i64, ptr %323, align 8, !tbaa !243
@@ -9012,8 +9012,8 @@ mov_write_iods_tag.exit:                          ; preds = %276
   br label %328
 
 328:                                              ; preds = %327, %319
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 1801548404) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 1801548404) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call fastcc void @get_pts_range(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %302, ptr noundef %25, ptr noundef %26)
@@ -9030,7 +9030,7 @@ mov_write_iods_tag.exit:                          ; preds = %276
   %335 = getelementptr inbounds nuw i8, ptr %302, i64 12
   %336 = load i32, ptr %335, align 4, !tbaa !209
   %337 = zext i32 %336 to i64
-  %338 = call i64 @av_rescale_rnd(i64 noundef %332, i64 noundef %334, i64 noundef %337, i32 noundef 3) #19
+  %338 = call i64 @av_rescale_rnd(i64 noundef %332, i64 noundef %334, i64 noundef %337, i32 noundef 3) #20
   %339 = load i32, ptr %227, align 8, !tbaa !76
   %340 = icmp eq i32 %339, 256
   br i1 %340, label %341, label %346
@@ -9074,7 +9074,7 @@ mov_write_iods_tag.exit:                          ; preds = %276
   %357 = load ptr, ptr %356, align 8, !tbaa !322
   %358 = getelementptr inbounds nuw i8, ptr %355, i64 40
   %359 = load i32, ptr %358, align 8, !tbaa !323
-  %360 = call ptr @av_packet_side_data_get(ptr noundef %357, i32 noundef %359, i32 noundef 5) #16
+  %360 = call ptr @av_packet_side_data_get(ptr noundef %357, i32 noundef %359, i32 noundef 5) #17
   %.not114.i.i = icmp eq ptr %360, null
   br i1 %.not114.i.i, label %367, label %361
 
@@ -9102,33 +9102,33 @@ mov_write_iods_tag.exit:                          ; preds = %276
   %or.cond130.not.i.i = select i1 %372, i1 true, i1 %373
   %..i.i156 = select i1 %or.cond130.not.i.i, i32 104, i32 92
   %.141.i.i = zext i1 %or.cond130.not.i.i to i32
-  call void @avio_wb32(ptr noundef %0, i32 noundef %..i.i156) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 1684564852) #16
-  call void @avio_w8(ptr noundef %0, i32 noundef %.141.i.i) #16
-  call void @avio_wb24(ptr noundef %0, i32 noundef %spec.select.i.i) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %..i.i156) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 1684564852) #17
+  call void @avio_w8(ptr noundef %0, i32 noundef %.141.i.i) #17
+  call void @avio_wb24(ptr noundef %0, i32 noundef %spec.select.i.i) #17
   %374 = getelementptr inbounds nuw i8, ptr %302, i64 16
   %375 = load i64, ptr %374, align 8, !tbaa !341
   br i1 %or.cond130.not.i.i, label %376, label %378
 
 376:                                              ; preds = %367
-  call void @avio_wb64(ptr noundef %0, i64 noundef %375) #16
+  call void @avio_wb64(ptr noundef %0, i64 noundef %375) #17
   %377 = load i64, ptr %374, align 8, !tbaa !341
-  call void @avio_wb64(ptr noundef %0, i64 noundef %377) #16
+  call void @avio_wb64(ptr noundef %0, i64 noundef %377) #17
   br label %382
 
 378:                                              ; preds = %367
   %379 = trunc i64 %375 to i32
-  call void @avio_wb32(ptr noundef %0, i32 noundef %379) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %379) #17
   %380 = load i64, ptr %374, align 8, !tbaa !341
   %381 = trunc i64 %380 to i32
-  call void @avio_wb32(ptr noundef %0, i32 noundef %381) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %381) #17
   br label %382
 
 382:                                              ; preds = %378, %376
   %383 = getelementptr inbounds nuw i8, ptr %302, i64 84
   %384 = load i32, ptr %383, align 4, !tbaa !215
-  call void @avio_wb32(ptr noundef %0, i32 noundef %384) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %384) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   %385 = load i32, ptr %303, align 4, !tbaa !63
   %.not117.i.i = icmp eq i32 %385, 0
   br i1 %.not117.i.i, label %386, label %395
@@ -9142,48 +9142,48 @@ mov_write_iods_tag.exit:                          ; preds = %276
   br i1 %or.cond130.not.i.i, label %390, label %391
 
 390:                                              ; preds = %389
-  call void @avio_wb64(ptr noundef %0, i64 noundef -1) #16
+  call void @avio_wb64(ptr noundef %0, i64 noundef -1) #17
   br label %399
 
 391:                                              ; preds = %389
-  call void @avio_wb32(ptr noundef %0, i32 noundef -1) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef -1) #17
   br label %399
 
 392:                                              ; preds = %386
   br i1 %or.cond130.not.i.i, label %393, label %394
 
 393:                                              ; preds = %392
-  call void @avio_wb64(ptr noundef %0, i64 noundef 0) #16
+  call void @avio_wb64(ptr noundef %0, i64 noundef 0) #17
   br label %399
 
 394:                                              ; preds = %392
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   br label %399
 
 395:                                              ; preds = %382
   br i1 %or.cond130.not.i.i, label %396, label %397
 
 396:                                              ; preds = %395
-  call void @avio_wb64(ptr noundef %0, i64 noundef %.097.i.i) #16
+  call void @avio_wb64(ptr noundef %0, i64 noundef %.097.i.i) #17
   br label %399
 
 397:                                              ; preds = %395
   %398 = trunc i64 %.097.i.i to i32
-  call void @avio_wb32(ptr noundef %0, i32 noundef %398) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %398) #17
   br label %399
 
 399:                                              ; preds = %397, %396, %394, %393, %391, %390
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wb16(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wb16(ptr noundef %0, i32 noundef %.0101.i.i) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wb16(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wb16(ptr noundef %0, i32 noundef %.0101.i.i) #17
   %400 = getelementptr inbounds nuw i8, ptr %302, i64 104
   %401 = load ptr, ptr %400, align 8, !tbaa !46
   %402 = load i32, ptr %401, align 8, !tbaa !177
   %403 = icmp eq i32 %402, 1
   %.142.i.i = select i1 %403, i32 256, i32 0
-  call void @avio_wb16(ptr noundef %0, i32 noundef %.142.i.i) #16
-  call void @avio_wb16(ptr noundef %0, i32 noundef 0) #16
+  call void @avio_wb16(ptr noundef %0, i32 noundef %.142.i.i) #17
+  call void @avio_wb16(ptr noundef %0, i32 noundef 0) #17
   %.not119.i.i = icmp eq ptr %.099.i.i, null
   br i1 %.not119.i.i, label %406, label %.preheader.i.i
 
@@ -9191,21 +9191,21 @@ mov_write_iods_tag.exit:                          ; preds = %276
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader.i.i ], [ 0, %399 ]
   %404 = getelementptr inbounds nuw i32, ptr %.099.i.i, i64 %indvars.iv.i.i
   %405 = load i32, ptr %404, align 4, !tbaa !30
-  call void @avio_wb32(ptr noundef %0, i32 noundef %405) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %405) #17
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 9
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !357
 
 406:                                              ; preds = %399
-  call void @avio_wb32(ptr noundef %0, i32 noundef 65536) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 65536) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 1073741824) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef 65536) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 65536) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 1073741824) #17
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i, %406
@@ -9244,7 +9244,7 @@ mov_write_iods_tag.exit:                          ; preds = %276
   %425 = getelementptr inbounds nuw i8, ptr %320, i64 76
   %426 = load i32, ptr %425, align 4, !tbaa !359
   %427 = sext i32 %426 to i64
-  %428 = call i64 @av_rescale(i64 noundef %420, i64 noundef %424, i64 noundef %427) #19
+  %428 = call i64 @av_rescale(i64 noundef %420, i64 noundef %424, i64 noundef %427) #20
   %.not120.i.i = icmp eq i64 %428, 0
   br i1 %.not120.i.i, label %436, label %429
 
@@ -9265,13 +9265,13 @@ mov_write_iods_tag.exit:                          ; preds = %276
 
 438:                                              ; preds = %436
   %439 = load ptr, ptr %297, align 8, !tbaa !111
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %439, i32 noundef 24, ptr noundef nonnull @.str.255) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %439, i32 noundef 24, ptr noundef nonnull @.str.255) #17
   br label %.thread128.i.i
 
 .thread128.i.i:                                   ; preds = %438, %436, %429
   %.1.i.i = phi i64 [ 0, %438 ], [ %.0.i.i, %436 ], [ %428, %429 ]
   %440 = trunc i64 %.1.i.i to i32
-  call void @avio_wb32(ptr noundef %0, i32 noundef %440) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %440) #17
   %441 = getelementptr inbounds nuw i8, ptr %302, i64 160
   %442 = load i32, ptr %441, align 8, !tbaa !182
   %443 = icmp sgt i32 %442, 65535
@@ -9279,7 +9279,7 @@ mov_write_iods_tag.exit:                          ; preds = %276
 
 444:                                              ; preds = %.thread128.i.i
   %445 = load ptr, ptr %297, align 8, !tbaa !111
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %445, i32 noundef 24, ptr noundef nonnull @.str.256) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %445, i32 noundef 24, ptr noundef nonnull @.str.256) #17
   br label %mov_write_tkhd_tag.exit.i
 
 446:                                              ; preds = %.thread128.i.i
@@ -9287,12 +9287,12 @@ mov_write_iods_tag.exit:                          ; preds = %276
   br label %mov_write_tkhd_tag.exit.i
 
 448:                                              ; preds = %407, %.loopexit.i.i
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   br label %mov_write_tkhd_tag.exit.i
 
 mov_write_tkhd_tag.exit.i:                        ; preds = %448, %446, %444
   %.sink140.i.i = phi i32 [ 0, %444 ], [ %447, %446 ], [ 0, %448 ]
-  call void @avio_wb32(ptr noundef %0, i32 noundef %.sink140.i.i) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %.sink140.i.i) #17
   %449 = getelementptr inbounds nuw i8, ptr %302, i64 176
   %450 = load i64, ptr %449, align 8, !tbaa !68
   %.not62.i = icmp eq i64 %450, -9223372036854775808
@@ -9334,7 +9334,7 @@ mov_write_tkhd_tag.exit.i:                        ; preds = %448, %446, %444
 
 467:                                              ; preds = %464, %461, %456
   %468 = load ptr, ptr %297, align 8, !tbaa !111
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %468, i32 noundef 24, ptr noundef nonnull @.str.253) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %468, i32 noundef 24, ptr noundef nonnull @.str.253) #17
   br label %469
 
 469:                                              ; preds = %467, %464, %453, %mov_write_tkhd_tag.exit.i
@@ -9353,20 +9353,20 @@ mov_write_tkhd_tag.exit.i:                        ; preds = %448, %446, %444
   br i1 %.not68.i, label %mov_mdhd_mvhd_tkhd_version.exit.thread.i.i.i, label %475
 
 475:                                              ; preds = %472
-  call void @avio_wb32(ptr noundef %0, i32 noundef 20) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 1717924468) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 12) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef 20) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 1717924468) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 12) #17
   %476 = load i32, ptr %473, align 4, !tbaa !316
-  call void @avio_wl32(ptr noundef %0, i32 noundef %476) #16
+  call void @avio_wl32(ptr noundef %0, i32 noundef %476) #17
   %477 = getelementptr inbounds nuw i8, ptr %302, i64 168
   %478 = load i32, ptr %477, align 8, !tbaa !317
-  call void @avio_wb32(ptr noundef %0, i32 noundef %478) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %478) #17
   br label %mov_mdhd_mvhd_tkhd_version.exit.thread.i.i.i
 
 mov_mdhd_mvhd_tkhd_version.exit.thread.i.i.i:     ; preds = %475, %472
-  %479 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 1634296941) #16
+  %479 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 1634296941) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call fastcc void @get_pts_range(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %302, ptr noundef %23, ptr noundef %24)
@@ -9381,30 +9381,30 @@ mov_mdhd_mvhd_tkhd_version.exit.thread.i.i.i:     ; preds = %475, %472
   %or.cond.i.i.not.i = select i1 %484, i1 true, i1 %485
   %.sink.i.i.i = select i1 %or.cond.i.i.not.i, i32 44, i32 32
   %.0.i46.i.i.i = zext i1 %or.cond.i.i.not.i to i32
-  call void @avio_wb32(ptr noundef %0, i32 noundef %.sink.i.i.i) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 1684563053) #16
-  call void @avio_w8(ptr noundef %0, i32 noundef %.0.i46.i.i.i) #16
-  call void @avio_wb24(ptr noundef %0, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %.sink.i.i.i) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 1684563053) #17
+  call void @avio_w8(ptr noundef %0, i32 noundef %.0.i46.i.i.i) #17
+  call void @avio_wb24(ptr noundef %0, i32 noundef 0) #17
   %486 = load i64, ptr %374, align 8, !tbaa !341
   br i1 %or.cond.i.i.not.i, label %487, label %489
 
 487:                                              ; preds = %mov_mdhd_mvhd_tkhd_version.exit.thread.i.i.i
-  call void @avio_wb64(ptr noundef %0, i64 noundef %486) #16
+  call void @avio_wb64(ptr noundef %0, i64 noundef %486) #17
   %488 = load i64, ptr %374, align 8, !tbaa !341
-  call void @avio_wb64(ptr noundef %0, i64 noundef %488) #16
+  call void @avio_wb64(ptr noundef %0, i64 noundef %488) #17
   br label %493
 
 489:                                              ; preds = %mov_mdhd_mvhd_tkhd_version.exit.thread.i.i.i
   %490 = trunc i64 %486 to i32
-  call void @avio_wb32(ptr noundef %0, i32 noundef %490) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %490) #17
   %491 = load i64, ptr %374, align 8, !tbaa !341
   %492 = trunc i64 %491 to i32
-  call void @avio_wb32(ptr noundef %0, i32 noundef %492) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %492) #17
   br label %493
 
 493:                                              ; preds = %489, %487
   %494 = load i32, ptr %335, align 4, !tbaa !209
-  call void @avio_wb32(ptr noundef %0, i32 noundef %494) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %494) #17
   %495 = load i32, ptr %303, align 4, !tbaa !63
   %.not41.i.i.i = icmp eq i32 %495, 0
   br i1 %.not41.i.i.i, label %496, label %505
@@ -9418,41 +9418,41 @@ mov_mdhd_mvhd_tkhd_version.exit.thread.i.i.i:     ; preds = %475, %472
   br i1 %or.cond.i.i.not.i, label %500, label %501
 
 500:                                              ; preds = %499
-  call void @avio_wb64(ptr noundef %0, i64 noundef -1) #16
+  call void @avio_wb64(ptr noundef %0, i64 noundef -1) #17
   br label %509
 
 501:                                              ; preds = %499
-  call void @avio_wb32(ptr noundef %0, i32 noundef -1) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef -1) #17
   br label %509
 
 502:                                              ; preds = %496
   br i1 %or.cond.i.i.not.i, label %503, label %504
 
 503:                                              ; preds = %502
-  call void @avio_wb64(ptr noundef %0, i64 noundef 0) #16
+  call void @avio_wb64(ptr noundef %0, i64 noundef 0) #17
   br label %509
 
 504:                                              ; preds = %502
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   br label %509
 
 505:                                              ; preds = %493
   br i1 %or.cond.i.i.not.i, label %506, label %507
 
 506:                                              ; preds = %505
-  call void @avio_wb64(ptr noundef %0, i64 noundef %482) #16
+  call void @avio_wb64(ptr noundef %0, i64 noundef %482) #17
   br label %509
 
 507:                                              ; preds = %505
   %508 = trunc i64 %482 to i32
-  call void @avio_wb32(ptr noundef %0, i32 noundef %508) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %508) #17
   br label %509
 
 509:                                              ; preds = %507, %506, %504, %503, %501, %500
   %510 = getelementptr inbounds nuw i8, ptr %302, i64 80
   %511 = load i32, ptr %510, align 8, !tbaa !189
-  call void @avio_wb16(ptr noundef %0, i32 noundef %511) #16
-  call void @avio_wb16(ptr noundef %0, i32 noundef 0) #16
+  call void @avio_wb16(ptr noundef %0, i32 noundef %511) #17
+  call void @avio_wb16(ptr noundef %0, i32 noundef 0) #17
   br i1 %or.cond.i.i.not.i, label %512, label %mov_write_mdhd_tag.exit.i.i
 
 512:                                              ; preds = %509
@@ -9461,14 +9461,14 @@ mov_mdhd_mvhd_tkhd_version.exit.thread.i.i.i:     ; preds = %475, %472
   br i1 %514, label %515, label %mov_write_mdhd_tag.exit.i.i
 
 515:                                              ; preds = %512
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.264) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.264) #17
   br label %mov_write_mdhd_tag.exit.i.i
 
 mov_write_mdhd_tag.exit.i.i:                      ; preds = %515, %512, %509
   call fastcc void @mov_write_hdlr_tag(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %302)
-  %516 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 1718511981) #16
+  %516 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 1718511981) #17
   %517 = load ptr, ptr %400, align 8, !tbaa !46
   %518 = load i32, ptr %517, align 8, !tbaa !177
   switch i32 %518, label %527 [
@@ -9478,18 +9478,18 @@ mov_write_mdhd_tag.exit.i.i:                      ; preds = %515, %512, %509
   ]
 
 519:                                              ; preds = %mov_write_mdhd_tag.exit.i.i
-  call void @avio_wb32(ptr noundef %0, i32 noundef 20) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 1684565366) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 1) #16
-  call void @avio_wb64(ptr noundef %0, i64 noundef 0) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef 20) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 1684565366) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 1) #17
+  call void @avio_wb64(ptr noundef %0, i64 noundef 0) #17
   br label %536
 
 520:                                              ; preds = %mov_write_mdhd_tag.exit.i.i
-  call void @avio_wb32(ptr noundef %0, i32 noundef 16) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 1684565363) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wb16(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wb16(ptr noundef %0, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef 16) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 1684565363) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wb16(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wb16(ptr noundef %0, i32 noundef 0) #17
   br label %536
 
 521:                                              ; preds = %mov_write_mdhd_tag.exit.i.i
@@ -9507,15 +9507,15 @@ mov_write_mdhd_tag.exit.i.i:                      ; preds = %515, %512, %509
   br label %536
 
 525:                                              ; preds = %521
-  call void @avio_wb32(ptr noundef %0, i32 noundef 12) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 1684567155) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef 12) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 1684567155) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   br label %536
 
 526:                                              ; preds = %521
-  call void @avio_wb32(ptr noundef %0, i32 noundef 12) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 1684565358) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef 12) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 1684565358) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   br label %536
 
 527:                                              ; preds = %mov_write_mdhd_tag.exit.i.i
@@ -9528,14 +9528,14 @@ mov_write_mdhd_tag.exit.i.i:                      ; preds = %515, %512, %509
   ]
 
 530:                                              ; preds = %527
-  call void @avio_wb32(ptr noundef %0, i32 noundef 28) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 1684565352) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wb16(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wb16(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef 28) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 1684565352) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wb16(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wb16(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   br label %536
 
 531:                                              ; preds = %527
@@ -9544,9 +9544,9 @@ mov_write_mdhd_tag.exit.i.i:                      ; preds = %515, %512, %509
   br i1 %.not.i.i73.i, label %534, label %533
 
 533:                                              ; preds = %531
-  call void @avio_wb32(ptr noundef %0, i32 noundef 12) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 1684565358) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef 12) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 1684565358) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   br label %536
 
 534:                                              ; preds = %531
@@ -9567,43 +9567,43 @@ mov_write_mdhd_tag.exit.i.i:                      ; preds = %515, %512, %509
   br label %540
 
 540:                                              ; preds = %539, %536
-  %541 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 1718511972) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 28) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 1717924452) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 12) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 543978101) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 1) #16
-  %542 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %543 = call i64 @avio_seek(ptr noundef %0, i64 noundef %541, i32 noundef 0) #16
+  %541 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 1718511972) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 28) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 1717924452) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 12) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 543978101) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 1) #17
+  %542 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %543 = call i64 @avio_seek(ptr noundef %0, i64 noundef %541, i32 noundef 0) #17
   %544 = sub nsw i64 %542, %541
   %545 = trunc i64 %544 to i32
-  call void @avio_wb32(ptr noundef %0, i32 noundef %545) #16
-  %546 = call i64 @avio_seek(ptr noundef %0, i64 noundef %542, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %545) #17
+  %546 = call i64 @avio_seek(ptr noundef %0, i64 noundef %542, i32 noundef 0) #17
   %547 = call fastcc i32 @mov_write_stbl_tag(ptr noundef %2, ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull %302)
   %548 = icmp slt i32 %547, 0
   br i1 %548, label %mov_write_trak_tag.exit.thread, label %mov_write_minf_tag.exit.i.i
 
 mov_write_minf_tag.exit.i.i:                      ; preds = %540
-  %549 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %550 = call i64 @avio_seek(ptr noundef %0, i64 noundef %516, i32 noundef 0) #16
+  %549 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %550 = call i64 @avio_seek(ptr noundef %0, i64 noundef %516, i32 noundef 0) #17
   %551 = sub nsw i64 %549, %516
   %552 = trunc i64 %551 to i32
-  call void @avio_wb32(ptr noundef %0, i32 noundef %552) #16
-  %553 = call i64 @avio_seek(ptr noundef %0, i64 noundef %549, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %552) #17
+  %553 = call i64 @avio_seek(ptr noundef %0, i64 noundef %549, i32 noundef 0) #17
   %554 = icmp slt i32 %552, 0
   br i1 %554, label %mov_write_trak_tag.exit.thread, label %mov_write_mdia_tag.exit.i
 
 mov_write_mdia_tag.exit.i:                        ; preds = %mov_write_minf_tag.exit.i.i
-  %555 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %556 = call i64 @avio_seek(ptr noundef %0, i64 noundef %479, i32 noundef 0) #16
+  %555 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %556 = call i64 @avio_seek(ptr noundef %0, i64 noundef %479, i32 noundef 0) #17
   %557 = sub nsw i64 %555, %479
   %558 = trunc i64 %557 to i32
-  call void @avio_wb32(ptr noundef %0, i32 noundef %558) #16
-  %559 = call i64 @avio_seek(ptr noundef %0, i64 noundef %555, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %558) #17
+  %559 = call i64 @avio_seek(ptr noundef %0, i64 noundef %555, i32 noundef 0) #17
   %560 = icmp slt i32 %558, 0
   br i1 %560, label %mov_write_trak_tag.exit.thread, label %561
 
@@ -9613,19 +9613,19 @@ mov_write_mdia_tag.exit.i:                        ; preds = %mov_write_minf_tag.
   br i1 %563, label %564, label %565
 
 564:                                              ; preds = %561
-  call void @avio_wb32(ptr noundef %0, i32 noundef 52) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 1684632949) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 1414353749) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 567431118) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef -1148688036) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef -87439552) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 28) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 1413764173) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 65554) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 10) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 1438908416) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef 52) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 1684632949) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 1414353749) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 567431118) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef -1148688036) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef -87439552) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 28) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 1413764173) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 65554) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 10) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 1438908416) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   br label %565
 
 565:                                              ; preds = %564, %561
@@ -9644,21 +9644,21 @@ mov_write_mdia_tag.exit.i:                        ; preds = %mov_write_minf_tag.
   %574 = load ptr, ptr %573, align 8, !tbaa !35
   %575 = getelementptr inbounds nuw i8, ptr %302, i64 220
   %576 = load i32, ptr %575, align 4, !tbaa !208
-  %577 = call i32 @ff_sdp_write_media(ptr noundef nonnull %22, i32 noundef 1000, ptr noundef %574, i32 noundef %576, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef %571) #16
+  %577 = call i32 @ff_sdp_write_media(ptr noundef nonnull %22, i32 noundef 1000, ptr noundef %574, i32 noundef %576, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef %571) #17
   %578 = load i32, ptr %383, align 4, !tbaa !215
-  %579 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %22, i64 noundef 1000, ptr noundef nonnull @.str.454, i32 noundef %578) #16
-  %580 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #18
+  %579 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %22, i64 noundef 1000, ptr noundef nonnull @.str.454, i32 noundef %578) #17
+  %580 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #19
   %581 = trunc i64 %580 to i32
   %582 = add nsw i32 %581, 24
-  call void @avio_wb32(ptr noundef %0, i32 noundef %582) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 1635017845) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %582) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 1635017845) #17
   %583 = add nsw i32 %581, 16
-  call void @avio_wb32(ptr noundef %0, i32 noundef %583) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 1769238120) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %583) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 1769238120) #17
   %584 = add nsw i32 %581, 8
-  call void @avio_wb32(ptr noundef %0, i32 noundef %584) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 544236659) #16
-  call void @avio_write(ptr noundef %0, ptr noundef nonnull %22, i32 noundef %581) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %584) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 544236659) #17
+  call void @avio_write(ptr noundef %0, ptr noundef nonnull %22, i32 noundef %581) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %585
 
@@ -9718,7 +9718,7 @@ mov_write_mdia_tag.exit.i:                        ; preds = %mov_write_minf_tag.
   br i1 %.not112.i.i, label %mov_write_trak_tag.exit, label %608
 
 608:                                              ; preds = %607, %.thread.i
-  %609 = call i32 @avio_open_dyn_buf(ptr noundef nonnull %20) #16
+  %609 = call i32 @avio_open_dyn_buf(ptr noundef nonnull %20) #17
   %610 = icmp slt i32 %609, 0
   br i1 %610, label %mov_write_trak_tag.exit, label %611
 
@@ -9730,10 +9730,10 @@ mov_write_mdia_tag.exit.i:                        ; preds = %mov_write_minf_tag.
 
 614:                                              ; preds = %611
   %615 = load ptr, ptr %20, align 8, !tbaa !83
-  %616 = call i64 @avio_seek(ptr noundef %615, i64 noundef 0, i32 noundef 1) #16
+  %616 = call i64 @avio_seek(ptr noundef %615, i64 noundef 0, i32 noundef 1) #17
   %617 = getelementptr inbounds nuw i8, ptr %320, i64 80
   %618 = load ptr, ptr %617, align 8, !tbaa !202
-  %619 = call ptr @av_dict_get(ptr noundef %618, ptr noundef nonnull @.str.205, ptr noundef null, i32 noundef 0) #16
+  %619 = call ptr @av_dict_get(ptr noundef %618, ptr noundef nonnull @.str.205, ptr noundef null, i32 noundef 0) #17
   %.not.i.i76.i = icmp eq ptr %619, null
   br i1 %.not.i.i76.i, label %mov_write_track_metadata.exit.i.i, label %620
 
@@ -9783,18 +9783,18 @@ mov_write_mdia_tag.exit.i:                        ; preds = %mov_write_minf_tag.
   br i1 %.not.i.i.i79.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !362
 
 .loopexit.i.i.i:                                  ; preds = %639, %.lr.ph.i.i.i.i, %633
-  call void @avio_wb32(ptr noundef %615, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %615, i32 noundef 1701667182) #16
+  call void @avio_wb32(ptr noundef %615, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %615, i32 noundef 1701667182) #17
   %640 = load ptr, ptr %621, align 8, !tbaa !203
-  %641 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %640) #18
+  %641 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %640) #19
   %642 = trunc i64 %641 to i32
-  call void @avio_write(ptr noundef %615, ptr noundef nonnull %640, i32 noundef %642) #16
-  %643 = call i64 @avio_seek(ptr noundef %615, i64 noundef 0, i32 noundef 1) #16
-  %644 = call i64 @avio_seek(ptr noundef %615, i64 noundef %616, i32 noundef 0) #16
+  call void @avio_write(ptr noundef %615, ptr noundef nonnull %640, i32 noundef %642) #17
+  %643 = call i64 @avio_seek(ptr noundef %615, i64 noundef 0, i32 noundef 1) #17
+  %644 = call i64 @avio_seek(ptr noundef %615, i64 noundef %616, i32 noundef 0) #17
   %645 = sub nsw i64 %643, %616
   %646 = trunc i64 %645 to i32
-  call void @avio_wb32(ptr noundef %615, i32 noundef %646) #16
-  %647 = call i64 @avio_seek(ptr noundef %615, i64 noundef %643, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %615, i32 noundef %646) #17
+  %647 = call i64 @avio_seek(ptr noundef %615, i64 noundef %643, i32 noundef 0) #17
   br label %mov_write_track_metadata.exit.i.i
 
 mov_write_track_metadata.exit.i.i:                ; preds = %.loopexit.i.i.i, %620, %614, %611
@@ -9835,15 +9835,15 @@ mov_write_track_metadata.exit.i.i:                ; preds = %.loopexit.i.i.i, %6
   %661 = getelementptr inbounds nuw %struct.MP4TrackKindValueMapping, ptr %.sroa.47.0.copyload.i.i.i, i64 %indvars.iv.i.i.i
   %.sroa.43.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %661, i64 8
   %.sroa.43.0.copyload.i.i.i = load ptr, ptr %.sroa.43.0..sroa_idx.i.i.i, align 8, !tbaa !31
-  %662 = call i64 @avio_seek(ptr noundef %.pre26.i.i, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %.pre26.i.i, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %.pre26.i.i, i32 noundef 1684957547) #16
-  call void @avio_w8(ptr noundef %.pre26.i.i, i32 noundef 0) #16
-  call void @avio_wb24(ptr noundef %.pre26.i.i, i32 noundef 0) #16
-  %663 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %654) #18
+  %662 = call i64 @avio_seek(ptr noundef %.pre26.i.i, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %.pre26.i.i, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %.pre26.i.i, i32 noundef 1684957547) #17
+  call void @avio_w8(ptr noundef %.pre26.i.i, i32 noundef 0) #17
+  call void @avio_wb24(ptr noundef %.pre26.i.i, i32 noundef 0) #17
+  %663 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %654) #19
   %664 = trunc i64 %663 to i32
-  call void @avio_write(ptr noundef %.pre26.i.i, ptr noundef nonnull %654, i32 noundef %664) #16
-  call void @avio_w8(ptr noundef %.pre26.i.i, i32 noundef 0) #16
+  call void @avio_write(ptr noundef %.pre26.i.i, ptr noundef nonnull %654, i32 noundef %664) #17
+  call void @avio_w8(ptr noundef %.pre26.i.i, i32 noundef 0) #17
   %.not.i.i19.i.i = icmp eq ptr %.sroa.43.0.copyload.i.i.i, null
   br i1 %.not.i.i19.i.i, label %mov_write_track_kind.exit.i.i.i, label %665
 
@@ -9853,19 +9853,19 @@ mov_write_track_metadata.exit.i.i:                ; preds = %.loopexit.i.i.i, %6
   br i1 %.not16.i.i.i.i, label %mov_write_track_kind.exit.i.i.i, label %667
 
 667:                                              ; preds = %665
-  %668 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.43.0.copyload.i.i.i) #18
+  %668 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.43.0.copyload.i.i.i) #19
   %669 = trunc i64 %668 to i32
-  call void @avio_write(ptr noundef %.pre26.i.i, ptr noundef nonnull %.sroa.43.0.copyload.i.i.i, i32 noundef %669) #16
+  call void @avio_write(ptr noundef %.pre26.i.i, ptr noundef nonnull %.sroa.43.0.copyload.i.i.i, i32 noundef %669) #17
   br label %mov_write_track_kind.exit.i.i.i
 
 mov_write_track_kind.exit.i.i.i:                  ; preds = %667, %665, %660
-  call void @avio_w8(ptr noundef %.pre26.i.i, i32 noundef 0) #16
-  %670 = call i64 @avio_seek(ptr noundef %.pre26.i.i, i64 noundef 0, i32 noundef 1) #16
-  %671 = call i64 @avio_seek(ptr noundef %.pre26.i.i, i64 noundef %662, i32 noundef 0) #16
+  call void @avio_w8(ptr noundef %.pre26.i.i, i32 noundef 0) #17
+  %670 = call i64 @avio_seek(ptr noundef %.pre26.i.i, i64 noundef 0, i32 noundef 1) #17
+  %671 = call i64 @avio_seek(ptr noundef %.pre26.i.i, i64 noundef %662, i32 noundef 0) #17
   %672 = sub nsw i64 %670, %662
   %673 = trunc i64 %672 to i32
-  call void @avio_wb32(ptr noundef %.pre26.i.i, i32 noundef %673) #16
-  %674 = call i64 @avio_seek(ptr noundef %.pre26.i.i, i64 noundef %670, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %.pre26.i.i, i32 noundef %673) #17
+  %674 = call i64 @avio_seek(ptr noundef %.pre26.i.i, i64 noundef %670, i32 noundef 0) #17
   %675 = icmp slt i32 %673, 0
   br i1 %675, label %mov_write_trak_tag.exit, label %676
 
@@ -9889,20 +9889,20 @@ mov_write_track_kinds.exit.thread.loopexit.i.i:   ; preds = %._crit_edge.i.i.i
 
 mov_write_track_kinds.exit.thread.i.i:            ; preds = %mov_write_track_kinds.exit.thread.loopexit.i.i, %650, %mov_write_track_metadata.exit.i.i
   %681 = phi ptr [ %.pre.i77.i, %mov_write_track_kinds.exit.thread.loopexit.i.i ], [ %.pre26.i.i, %650 ], [ %.pre26.i.i, %mov_write_track_metadata.exit.i.i ]
-  %682 = call i32 @avio_get_dyn_buf(ptr noundef %681, ptr noundef nonnull %21) #16
+  %682 = call i32 @avio_get_dyn_buf(ptr noundef %681, ptr noundef nonnull %21) #17
   %683 = icmp sgt i32 %682, 0
   br i1 %683, label %684, label %687
 
 684:                                              ; preds = %mov_write_track_kinds.exit.thread.i.i
   %685 = add nuw nsw i32 %682, 8
-  call void @avio_wb32(ptr noundef %0, i32 noundef %685) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 1635017845) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %685) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 1635017845) #17
   %686 = load ptr, ptr %21, align 8, !tbaa !31
-  call void @avio_write(ptr noundef %0, ptr noundef %686, i32 noundef %682) #16
+  call void @avio_write(ptr noundef %0, ptr noundef %686, i32 noundef %682) #17
   br label %687
 
 687:                                              ; preds = %684, %mov_write_track_kinds.exit.thread.i.i
-  call void @ffio_free_dyn_buf(ptr noundef nonnull %20) #16
+  call void @ffio_free_dyn_buf(ptr noundef nonnull %20) #17
   br label %mov_write_trak_tag.exit
 
 mov_write_trak_tag.exit:                          ; preds = %mov_write_track_kind.exit.i.i.i, %607, %608, %687
@@ -9912,12 +9912,12 @@ mov_write_trak_tag.exit:                          ; preds = %mov_write_track_kin
   %sext.i = shl i64 %324, 32
   %688 = ashr exact i64 %sext.i, 32
   store i64 %688, ptr %323, align 8, !tbaa !243
-  %689 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %690 = call i64 @avio_seek(ptr noundef %0, i64 noundef %321, i32 noundef 0) #16
+  %689 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %690 = call i64 @avio_seek(ptr noundef %0, i64 noundef %321, i32 noundef 0) #17
   %691 = sub nsw i64 %689, %321
   %692 = trunc i64 %691 to i32
-  call void @avio_wb32(ptr noundef %0, i32 noundef %692) #16
-  %693 = call i64 @avio_seek(ptr noundef %0, i64 noundef %689, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %692) #17
+  %693 = call i64 @avio_seek(ptr noundef %0, i64 noundef %689, i32 noundef 0) #17
   %694 = icmp sgt i32 %692, -1
   br i1 %694, label %mov_write_trak_tag.exit._crit_edge, label %mov_write_trak_tag.exit.thread
 
@@ -9939,9 +9939,9 @@ mov_write_trak_tag.exit._crit_edge:               ; preds = %mov_write_trak_tag.
   br i1 %.not132, label %719, label %701
 
 701:                                              ; preds = %._crit_edge193
-  %702 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 2019915373) #16
+  %702 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 2019915373) #17
   %703 = load i32, ptr %30, align 4, !tbaa !102
   %704 = icmp sgt i32 %703, 0
   br i1 %704, label %.lr.ph.i161, label %mov_write_mvex_tag.exit
@@ -9954,16 +9954,16 @@ mov_write_trak_tag.exit._crit_edge:               ; preds = %mov_write_trak_tag.
   %indvars.iv.i162 = phi i64 [ 0, %.lr.ph.i161 ], [ %indvars.iv.next.i163, %706 ]
   %707 = load ptr, ptr %705, align 8, !tbaa !40
   %708 = getelementptr inbounds nuw %struct.MOVTrack, ptr %707, i64 %indvars.iv.i162
-  call void @avio_wb32(ptr noundef %0, i32 noundef 32) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 2019914356) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef 32) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 2019914356) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   %709 = getelementptr inbounds nuw i8, ptr %708, i64 84
   %710 = load i32, ptr %709, align 4, !tbaa !215
-  call void @avio_wb32(ptr noundef %0, i32 noundef %710) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %710) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   %indvars.iv.next.i163 = add nuw nsw i64 %indvars.iv.i162, 1
   %711 = load i32, ptr %30, align 4, !tbaa !102
   %712 = sext i32 %711 to i64
@@ -9971,12 +9971,12 @@ mov_write_trak_tag.exit._crit_edge:               ; preds = %mov_write_trak_tag.
   br i1 %713, label %706, label %mov_write_mvex_tag.exit, !llvm.loop !372
 
 mov_write_mvex_tag.exit:                          ; preds = %706, %701
-  %714 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %715 = call i64 @avio_seek(ptr noundef %0, i64 noundef %702, i32 noundef 0) #16
+  %714 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %715 = call i64 @avio_seek(ptr noundef %0, i64 noundef %702, i32 noundef 0) #17
   %716 = sub nsw i64 %714, %702
   %717 = trunc i64 %716 to i32
-  call void @avio_wb32(ptr noundef %0, i32 noundef %717) #16
-  %718 = call i64 @avio_seek(ptr noundef %0, i64 noundef %714, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %717) #17
+  %718 = call i64 @avio_seek(ptr noundef %0, i64 noundef %714, i32 noundef 0) #17
   br label %719
 
 719:                                              ; preds = %mov_write_mvex_tag.exit, %._crit_edge193
@@ -9989,27 +9989,27 @@ mov_write_mvex_tag.exit:                          ; preds = %706, %701
 721:                                              ; preds = %719
   %722 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %723 = load ptr, ptr %722, align 8, !tbaa !201
-  %724 = call ptr @av_dict_get(ptr noundef %723, ptr noundef nonnull @.str.205, ptr noundef null, i32 noundef 0) #16
+  %724 = call ptr @av_dict_get(ptr noundef %723, ptr noundef nonnull @.str.205, ptr noundef null, i32 noundef 0) #17
   %.not.i164 = icmp eq ptr %724, null
   br i1 %.not.i164, label %mov_write_uuidusmt_tag.exit, label %725
 
 725:                                              ; preds = %721
-  %726 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 1684632949) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 1414353749) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 567431118) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef -1148688036) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef -87439552) #16
-  %727 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 1413764173) #16
-  call void @avio_wb16(ptr noundef %0, i32 noundef 4) #16
-  call void @avio_wb16(ptr noundef %0, i32 noundef 12) #16
-  call void @avio_wb32(ptr noundef %0, i32 noundef 11) #16
-  call void @avio_wb16(ptr noundef %0, i32 noundef 21956) #16
-  call void @avio_wb16(ptr noundef %0, i32 noundef 0) #16
-  call void @avio_wb16(ptr noundef %0, i32 noundef 540) #16
+  %726 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 1684632949) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 1414353749) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 567431118) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef -1148688036) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef -87439552) #17
+  %727 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 1413764173) #17
+  call void @avio_wb16(ptr noundef %0, i32 noundef 4) #17
+  call void @avio_wb16(ptr noundef %0, i32 noundef 12) #17
+  call void @avio_wb32(ptr noundef %0, i32 noundef 11) #17
+  call void @avio_wb16(ptr noundef %0, i32 noundef 21956) #17
+  call void @avio_wb16(ptr noundef %0, i32 noundef 0) #17
+  call void @avio_wb16(ptr noundef %0, i32 noundef 540) #17
   %728 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %729 = load i32, ptr %728, align 8, !tbaa !214
   %730 = and i32 %729, 1024
@@ -10025,24 +10025,24 @@ mov_write_mvex_tag.exit:                          ; preds = %706, %701
   %734 = load ptr, ptr %733, align 8, !tbaa !203
   call fastcc void @mov_write_psp_udta_tag(ptr noundef %0, ptr noundef %734, ptr noundef nonnull @.str.464, i32 noundef 1)
   call fastcc void @mov_write_psp_udta_tag(ptr noundef %0, ptr noundef nonnull @.str.465, ptr noundef nonnull @.str.221, i32 noundef 3)
-  %735 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %736 = call i64 @avio_seek(ptr noundef %0, i64 noundef %727, i32 noundef 0) #16
+  %735 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %736 = call i64 @avio_seek(ptr noundef %0, i64 noundef %727, i32 noundef 0) #17
   %737 = sub nsw i64 %735, %727
   %738 = trunc i64 %737 to i32
-  call void @avio_wb32(ptr noundef %0, i32 noundef %738) #16
-  %739 = call i64 @avio_seek(ptr noundef %0, i64 noundef %735, i32 noundef 0) #16
-  %740 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %741 = call i64 @avio_seek(ptr noundef %0, i64 noundef %726, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %738) #17
+  %739 = call i64 @avio_seek(ptr noundef %0, i64 noundef %735, i32 noundef 0) #17
+  %740 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %741 = call i64 @avio_seek(ptr noundef %0, i64 noundef %726, i32 noundef 0) #17
   %742 = sub nsw i64 %740, %726
   %743 = trunc i64 %742 to i32
-  call void @avio_wb32(ptr noundef %0, i32 noundef %743) #16
-  %744 = call i64 @avio_seek(ptr noundef %0, i64 noundef %740, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %743) #17
+  %744 = call i64 @avio_seek(ptr noundef %0, i64 noundef %740, i32 noundef 0) #17
   br label %mov_write_uuidusmt_tag.exit
 
 745:                                              ; preds = %719
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %746 = call i32 @avio_open_dyn_buf(ptr noundef nonnull %18) #16
+  %746 = call i32 @avio_open_dyn_buf(ptr noundef nonnull %18) #17
   %747 = icmp slt i32 %746, 0
   br i1 %747, label %mov_write_udta_tag.exit, label %748
 
@@ -10297,24 +10297,24 @@ mov_write_string_metadata.exit83.i:               ; preds = %860, %mov_write_str
   %865 = load ptr, ptr %18, align 8, !tbaa !83
   %866 = getelementptr i8, ptr %2, i64 192
   %.val.i173 = load ptr, ptr %866, align 8, !tbaa !201
-  %867 = call ptr @av_dict_get(ptr noundef %.val.i173, ptr noundef nonnull @.str.500, ptr noundef null, i32 noundef 0) #16
+  %867 = call ptr @av_dict_get(ptr noundef %.val.i173, ptr noundef nonnull @.str.500, ptr noundef null, i32 noundef 0) #17
   %.not.i84.i = icmp eq ptr %867, null
   br i1 %.not.i84.i, label %mov_write_raw_metadata_tag.exit.i, label %868
 
 868:                                              ; preds = %mov_write_string_metadata.exit83.i
   %869 = getelementptr inbounds nuw i8, ptr %867, i64 8
   %870 = load ptr, ptr %869, align 8, !tbaa !203
-  %871 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %870) #18
+  %871 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %870) #19
   %872 = trunc i64 %871 to i32
   %873 = icmp sgt i32 %872, 0
   br i1 %873, label %874, label %mov_write_raw_metadata_tag.exit.i
 
 874:                                              ; preds = %868
   %875 = add nuw nsw i32 %872, 8
-  call void @avio_wb32(ptr noundef %865, i32 noundef %875) #16
-  call void @avio_wl32(ptr noundef %865, i32 noundef 1599098200) #16
+  call void @avio_wb32(ptr noundef %865, i32 noundef %875) #17
+  call void @avio_wl32(ptr noundef %865, i32 noundef 1599098200) #17
   %876 = load ptr, ptr %869, align 8, !tbaa !203
-  call void @avio_write(ptr noundef %865, ptr noundef %876, i32 noundef %872) #16
+  call void @avio_write(ptr noundef %865, ptr noundef %876, i32 noundef %872) #17
   br label %mov_write_raw_metadata_tag.exit.i
 
 877:                                              ; preds = %763, %761
@@ -10338,14 +10338,14 @@ mov_write_raw_metadata_tag.exit.i:                ; preds = %877, %874, %868, %m
 
 885:                                              ; preds = %882
   %886 = load ptr, ptr %18, align 8, !tbaa !83
-  %887 = call i64 @avio_seek(ptr noundef %886, i64 noundef 0, i32 noundef 1) #16
+  %887 = call i64 @avio_seek(ptr noundef %886, i64 noundef 0, i32 noundef 1) #17
   %888 = load i32, ptr %880, align 8, !tbaa !173
   %spec.select.i.i168 = call i32 @llvm.umin.i32(i32 %888, i32 255)
-  call void @avio_wb32(ptr noundef %886, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %886, i32 noundef 1819306083) #16
-  call void @avio_wb32(ptr noundef %886, i32 noundef 16777216) #16
-  call void @avio_wb32(ptr noundef %886, i32 noundef 0) #16
-  call void @avio_w8(ptr noundef %886, i32 noundef %spec.select.i.i168) #16
+  call void @avio_wb32(ptr noundef %886, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %886, i32 noundef 1819306083) #17
+  call void @avio_wb32(ptr noundef %886, i32 noundef 16777216) #17
+  call void @avio_wb32(ptr noundef %886, i32 noundef 0) #17
+  call void @avio_w8(ptr noundef %886, i32 noundef %spec.select.i.i168) #17
   %.not33.i.i = icmp eq i32 %888, 0
   br i1 %.not33.i.i, label %mov_write_chpl_tag.exit.i, label %.lr.ph.i.i
 
@@ -10363,27 +10363,27 @@ mov_write_raw_metadata_tag.exit.i:                ; preds = %877, %874, %868, %m
   %895 = load i64, ptr %894, align 8, !tbaa !338
   %896 = getelementptr inbounds nuw i8, ptr %893, i64 8
   %897 = load i64, ptr %896, align 8
-  %898 = call i64 @av_rescale_q(i64 noundef %895, i64 %897, i64 42949672960000001) #19
-  call void @avio_wb64(ptr noundef %886, i64 noundef %898) #16
+  %898 = call i64 @av_rescale_q(i64 noundef %895, i64 %897, i64 42949672960000001) #20
+  call void @avio_wb64(ptr noundef %886, i64 noundef %898) #17
   %899 = getelementptr inbounds nuw i8, ptr %893, i64 32
   %900 = load ptr, ptr %899, align 8, !tbaa !339
-  %901 = call ptr @av_dict_get(ptr noundef %900, ptr noundef nonnull @.str.205, ptr noundef null, i32 noundef 0) #16
+  %901 = call ptr @av_dict_get(ptr noundef %900, ptr noundef nonnull @.str.205, ptr noundef null, i32 noundef 0) #17
   %.not.i86.i = icmp eq ptr %901, null
   br i1 %.not.i86.i, label %907, label %902
 
 902:                                              ; preds = %890
   %903 = getelementptr inbounds nuw i8, ptr %901, i64 8
   %904 = load ptr, ptr %903, align 8, !tbaa !203
-  %905 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %904) #18
+  %905 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %904) #19
   %spec.select3031.i.i = call i64 @llvm.umin.i64(i64 %905, i64 255)
   %spec.select30.i.i = trunc nuw nsw i64 %spec.select3031.i.i to i32
-  call void @avio_w8(ptr noundef %886, i32 noundef %spec.select30.i.i) #16
+  call void @avio_w8(ptr noundef %886, i32 noundef %spec.select30.i.i) #17
   %906 = load ptr, ptr %903, align 8, !tbaa !203
-  call void @avio_write(ptr noundef %886, ptr noundef %906, i32 noundef %spec.select30.i.i) #16
+  call void @avio_write(ptr noundef %886, ptr noundef %906, i32 noundef %spec.select30.i.i) #17
   br label %908
 
 907:                                              ; preds = %890
-  call void @avio_w8(ptr noundef %886, i32 noundef 0) #16
+  call void @avio_w8(ptr noundef %886, i32 noundef 0) #17
   br label %908
 
 908:                                              ; preds = %907, %902
@@ -10392,30 +10392,30 @@ mov_write_raw_metadata_tag.exit.i:                ; preds = %877, %874, %868, %m
   br i1 %exitcond.not.i.i171, label %mov_write_chpl_tag.exit.i, label %890, !llvm.loop !373
 
 mov_write_chpl_tag.exit.i:                        ; preds = %908, %885
-  %909 = call i64 @avio_seek(ptr noundef %886, i64 noundef 0, i32 noundef 1) #16
-  %910 = call i64 @avio_seek(ptr noundef %886, i64 noundef %887, i32 noundef 0) #16
+  %909 = call i64 @avio_seek(ptr noundef %886, i64 noundef 0, i32 noundef 1) #17
+  %910 = call i64 @avio_seek(ptr noundef %886, i64 noundef %887, i32 noundef 0) #17
   %911 = sub nsw i64 %909, %887
   %912 = trunc i64 %911 to i32
-  call void @avio_wb32(ptr noundef %886, i32 noundef %912) #16
-  %913 = call i64 @avio_seek(ptr noundef %886, i64 noundef %909, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %886, i32 noundef %912) #17
+  %913 = call i64 @avio_seek(ptr noundef %886, i64 noundef %909, i32 noundef 0) #17
   br label %914
 
 914:                                              ; preds = %mov_write_chpl_tag.exit.i, %882, %mov_write_raw_metadata_tag.exit.i
   %915 = load ptr, ptr %18, align 8, !tbaa !83
-  %916 = call i32 @avio_get_dyn_buf(ptr noundef %915, ptr noundef nonnull %19) #16
+  %916 = call i32 @avio_get_dyn_buf(ptr noundef %915, ptr noundef nonnull %19) #17
   %917 = icmp sgt i32 %916, 0
   br i1 %917, label %918, label %921
 
 918:                                              ; preds = %914
   %919 = add nuw nsw i32 %916, 8
-  call void @avio_wb32(ptr noundef %0, i32 noundef %919) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 1635017845) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %919) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 1635017845) #17
   %920 = load ptr, ptr %19, align 8, !tbaa !31
-  call void @avio_write(ptr noundef %0, ptr noundef %920, i32 noundef %916) #16
+  call void @avio_write(ptr noundef %0, ptr noundef %920, i32 noundef %916) #17
   br label %921
 
 921:                                              ; preds = %918, %914
-  call void @ffio_free_dyn_buf(ptr noundef nonnull %18) #16
+  call void @ffio_free_dyn_buf(ptr noundef nonnull %18) #17
   br label %mov_write_udta_tag.exit
 
 mov_write_udta_tag.exit:                          ; preds = %745, %921
@@ -10453,12 +10453,12 @@ mov_write_uuidusmt_tag.exit:                      ; preds = %732, %721, %719, %m
   br i1 %936, label %926, label %._crit_edge196, !llvm.loop !374
 
 ._crit_edge196:                                   ; preds = %926, %mov_write_uuidusmt_tag.exit
-  %937 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %938 = call i64 @avio_seek(ptr noundef %0, i64 noundef %29, i32 noundef 0) #16
+  %937 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %938 = call i64 @avio_seek(ptr noundef %0, i64 noundef %29, i32 noundef 0) #17
   %939 = sub nsw i64 %937, %29
   %940 = trunc i64 %939 to i32
-  call void @avio_wb32(ptr noundef %0, i32 noundef %940) #16
-  %941 = call i64 @avio_seek(ptr noundef %0, i64 noundef %937, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %940) #17
+  %941 = call i64 @avio_seek(ptr noundef %0, i64 noundef %937, i32 noundef 0) #17
   br label %mov_write_trak_tag.exit.thread
 
 mov_write_trak_tag.exit.thread:                   ; preds = %mov_write_minf_tag.exit.i.i, %540, %mov_write_mdia_tag.exit.i, %mov_write_trak_tag.exit, %._crit_edge196
@@ -10488,13 +10488,13 @@ define internal fastcc void @mov_write_ftyp_tag_internal(ptr noundef %0, ptr rea
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #18
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #19
   %9 = icmp ugt i64 %8, 3
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
   %11 = load i32, ptr %6, align 1
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef %11) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef %11) #17
   br label %48
 
 12:                                               ; preds = %7, %4
@@ -10508,7 +10508,7 @@ define internal fastcc void @mov_write_ftyp_tag_internal(ptr noundef %0, ptr rea
 15:                                               ; preds = %12
   %.not51 = icmp eq i32 %1, 0
   %16 = select i1 %.not51, i32 879781683, i32 913336115
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef %16) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef %16) #17
   %17 = select i1 %.not51, i32 512, i32 256
   br label %48
 
@@ -10517,7 +10517,7 @@ define internal fastcc void @mov_write_ftyp_tag_internal(ptr noundef %0, ptr rea
   %20 = load i32, ptr %19, align 8, !tbaa !315
   %.not50 = icmp eq i32 %20, 0
   %21 = select i1 %.not50, i32 1718187617, i32 1936291425
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef %21) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef %21) #17
   br label %48
 
 22:                                               ; preds = %12
@@ -10528,7 +10528,7 @@ define internal fastcc void @mov_write_ftyp_tag_internal(ptr noundef %0, ptr rea
 24:                                               ; preds = %22
   %.not49 = icmp eq i32 %1, 0
   %25 = select i1 %.not49, i32 1630693171, i32 1647470387
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef %25) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef %25) #17
   %26 = select i1 %.not49, i32 65536, i32 131072
   br label %48
 
@@ -10539,7 +10539,7 @@ define internal fastcc void @mov_write_ftyp_tag_internal(ptr noundef %0, ptr rea
   ]
 
 28:                                               ; preds = %27
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1447973709) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1447973709) #17
   br label %48
 
 29:                                               ; preds = %27
@@ -10550,7 +10550,7 @@ define internal fastcc void @mov_write_ftyp_tag_internal(ptr noundef %0, ptr rea
   br i1 %or.cond.not, label %33, label %.thread
 
 33:                                               ; preds = %29
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 913273705) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 913273705) #17
   br label %48
 
 .thread:                                          ; preds = %29
@@ -10559,7 +10559,7 @@ define internal fastcc void @mov_write_ftyp_tag_internal(ptr noundef %0, ptr rea
   br i1 %.not46, label %36, label %35
 
 35:                                               ; preds = %.thread
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 896496489) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 896496489) #17
   br label %48
 
 36:                                               ; preds = %.thread
@@ -10568,7 +10568,7 @@ define internal fastcc void @mov_write_ftyp_tag_internal(ptr noundef %0, ptr rea
   br i1 %.not47, label %.thread1, label %38
 
 38:                                               ; preds = %36
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 879719273) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 879719273) #17
   br label %48
 
 .thread1:                                         ; preds = %27, %36
@@ -10586,25 +10586,25 @@ define internal fastcc void @mov_write_ftyp_tag_internal(ptr noundef %0, ptr rea
   ]
 
 42:                                               ; preds = %.split
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1836020585) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1836020585) #17
   br label %48
 
 43:                                               ; preds = %.split
   %.not48 = icmp eq i32 %2, 0
   %44 = select i1 %.not48, i32 541144141, i32 542520397
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef %44) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef %44) #17
   br label %48
 
 45:                                               ; preds = %.split
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1819112297) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1819112297) #17
   br label %48
 
 46:                                               ; preds = %.split
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 544617574) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 544617574) #17
   br label %48
 
 47:                                               ; preds = %.thread1, %.split
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 538997873) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 538997873) #17
   br label %48
 
 48:                                               ; preds = %15, %24, %33, %38, %43, %46, %47, %45, %42, %35, %28, %18, %10
@@ -10613,7 +10613,7 @@ define internal fastcc void @mov_write_ftyp_tag_internal(ptr noundef %0, ptr rea
   br i1 %.not52, label %50, label %49
 
 49:                                               ; preds = %48
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.0) #17
   br label %50
 
 50:                                               ; preds = %49, %48
@@ -10815,7 +10815,7 @@ define internal fastcc { i64, i32 } @calculate_mpeg4_bit_rates(ptr noundef reado
   %8 = load ptr, ptr %7, align 8, !tbaa !322
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %10 = load i32, ptr %9, align 8, !tbaa !323
-  %11 = tail call ptr @av_packet_side_data_get(ptr noundef %8, i32 noundef %10, i32 noundef 10) #16
+  %11 = tail call ptr @av_packet_side_data_get(ptr noundef %8, i32 noundef %10, i32 noundef 10) #17
   %.not44 = icmp eq ptr %11, null
   br i1 %.not44, label %.thread, label %12
 
@@ -10981,7 +10981,7 @@ declare i64 @av_rescale(i64 noundef, i64 noundef, i64 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mov_write_pssh_tag(ptr noundef %0, ptr %.16.val.32.val, i32 %.16.val.40.val) unnamed_addr #0 {
-  %2 = tail call ptr @av_packet_side_data_get(ptr noundef %.16.val.32.val, i32 noundef %.16.val.40.val, i32 noundef 24) #16
+  %2 = tail call ptr @av_packet_side_data_get(ptr noundef %.16.val.32.val, i32 noundef %.16.val.40.val, i32 noundef 24) #17
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %57, label %3
 
@@ -10989,12 +10989,12 @@ define internal fastcc void @mov_write_pssh_tag(ptr noundef %0, ptr %.16.val.32.
   %4 = load ptr, ptr %2, align 8, !tbaa !347
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !345
-  %7 = tail call ptr @av_encryption_init_info_get_side_data(ptr noundef %4, i64 noundef %6) #16
+  %7 = tail call ptr @av_encryption_init_info_get_side_data(ptr noundef %4, i64 noundef %6) #17
   %.not467 = icmp eq ptr %7, null
   br i1 %.not467, label %._crit_edge12, label %.lr.ph11
 
 ._crit_edge12:                                    ; preds = %54, %3
-  tail call void @av_encryption_init_info_free(ptr noundef %7) #16
+  tail call void @av_encryption_init_info_free(ptr noundef %7) #17
   br label %57
 
 .lr.ph11:                                         ; preds = %3, %54
@@ -11011,11 +11011,11 @@ define internal fastcc void @mov_write_pssh_tag(ptr noundef %0, ptr %.16.val.32.
   br i1 %.not48, label %54, label %13
 
 13:                                               ; preds = %10, %.lr.ph11
-  %14 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1752396656) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 1) #16
-  tail call void @avio_wb24(ptr noundef %0, i32 noundef 0) #16
+  %14 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1752396656) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 1) #17
+  tail call void @avio_wb24(ptr noundef %0, i32 noundef 0) #17
   %15 = getelementptr inbounds nuw i8, ptr %.0448, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !391
   %.not13 = icmp eq i32 %16, 0
@@ -11024,7 +11024,7 @@ define internal fastcc void @mov_write_pssh_tag(ptr noundef %0, ptr %.16.val.32.
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   %17 = getelementptr inbounds nuw i8, ptr %.0448, i64 24
   %18 = load i32, ptr %17, align 8, !tbaa !390
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %18) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %18) #17
   %19 = load i32, ptr %17, align 8, !tbaa !390
   %.not14 = icmp eq i32 %19, 0
   br i1 %.not14, label %._crit_edge6, label %.preheader.lr.ph
@@ -11042,7 +11042,7 @@ define internal fastcc void @mov_write_pssh_tag(ptr noundef %0, ptr %.16.val.32.
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv
   %25 = load i8, ptr %24, align 1, !tbaa !88
   %26 = zext i8 %25 to i32
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %26) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %26) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr %15, align 8, !tbaa !391
   %28 = zext i32 %27 to i64
@@ -11058,17 +11058,17 @@ define internal fastcc void @mov_write_pssh_tag(ptr noundef %0, ptr %.16.val.32.
 
 ._crit_edge6:                                     ; preds = %._crit_edge4, %.preheader.lr.ph, %._crit_edge
   %32 = load i32, ptr %8, align 8, !tbaa !386
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %32) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %32) #17
   %33 = getelementptr inbounds nuw i8, ptr %.0448, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !395
   %35 = load i32, ptr %8, align 8, !tbaa !386
-  tail call void @avio_write(ptr noundef %0, ptr noundef %34, i32 noundef %35) #16
-  %36 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %37 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %14, i32 noundef 0) #16
+  tail call void @avio_write(ptr noundef %0, ptr noundef %34, i32 noundef %35) #17
+  %36 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %37 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %14, i32 noundef 0) #17
   %38 = sub nsw i64 %36, %14
   %39 = trunc i64 %38 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %39) #16
-  %40 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %36, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %39) #17
+  %40 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %36, i32 noundef 0) #17
   br label %54
 
 ._crit_edge4.loopexit:                            ; preds = %.lr.ph3
@@ -11091,7 +11091,7 @@ define internal fastcc void @mov_write_pssh_tag(ptr noundef %0, ptr %.16.val.32.
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv19
   %49 = load i8, ptr %48, align 1, !tbaa !88
   %50 = zext i8 %49 to i32
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %50) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %50) #17
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %51 = load i32, ptr %20, align 4, !tbaa !392
   %52 = zext i32 %51 to i64
@@ -11154,10 +11154,10 @@ common.ret:                                       ; preds = %41, %44, %11
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %27 = load i32, ptr %26, align 4, !tbaa !209
   %28 = zext i32 %27 to i64
-  %29 = tail call i64 @av_rescale(i64 noundef %18, i64 noundef %21, i64 noundef %28) #19
+  %29 = tail call i64 @av_rescale(i64 noundef %18, i64 noundef %21, i64 noundef %28) #20
   store i64 %29, ptr %2, align 8, !tbaa !319
   %30 = load i64, ptr %3, align 8, !tbaa !319
-  %31 = tail call i64 @av_rescale(i64 noundef %30, i64 noundef %21, i64 noundef %28) #19
+  %31 = tail call i64 @av_rescale(i64 noundef %30, i64 noundef %21, i64 noundef %28) #20
   br label %common.ret
 
 32:                                               ; preds = %8, %4
@@ -11209,7 +11209,7 @@ define internal fastcc void @mov_write_edts_tag(ptr noundef %0, ptr noundef read
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %13 = load i32, ptr %12, align 4, !tbaa !209
   %14 = zext i32 %13 to i64
-  %15 = tail call i64 @av_rescale_rnd(i64 noundef %8, i64 noundef %11, i64 noundef %14, i32 noundef 3) #19
+  %15 = tail call i64 @av_rescale_rnd(i64 noundef %8, i64 noundef %11, i64 noundef %14, i32 noundef 3) #20
   %16 = icmp sgt i64 %15, 2147483646
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %18 = load i64, ptr %17, align 8, !tbaa !155
@@ -11238,7 +11238,7 @@ define internal fastcc void @mov_write_edts_tag(ptr noundef %0, ptr noundef read
   %32 = load ptr, ptr %31, align 8, !tbaa !111
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 84
   %34 = load i32, ptr %33, align 4, !tbaa !215
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %32, i32 noundef 48, ptr noundef nonnull @.str.257, i64 noundef %27, i32 noundef %29, i64 noundef %20, i64 noundef %18, i32 noundef %34) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %32, i32 noundef 48, ptr noundef nonnull @.str.257, i64 noundef %27, i32 noundef %29, i64 noundef %20, i64 noundef %18, i32 noundef %34) #17
   %35 = load ptr, ptr %24, align 8, !tbaa !64
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !65
@@ -11257,7 +11257,7 @@ define internal fastcc void @mov_write_edts_tag(ptr noundef %0, ptr noundef read
   %.077 = phi i64 [ %40, %._crit_edge ], [ %18, %3 ], [ %18, %23 ]
   %.076 = phi i64 [ %37, %._crit_edge ], [ %20, %3 ], [ %20, %23 ]
   %42 = add nsw i64 %.076, %.077
-  %43 = tail call i64 @av_rescale_rnd(i64 noundef %42, i64 noundef %.pre-phi, i64 noundef %.pre-phi92, i32 noundef 2) #19
+  %43 = tail call i64 @av_rescale_rnd(i64 noundef %42, i64 noundef %.pre-phi, i64 noundef %.pre-phi92, i32 noundef 2) #20
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !76
   %46 = icmp eq i32 %45, 256
@@ -11283,32 +11283,32 @@ define internal fastcc void @mov_write_edts_tag(ptr noundef %0, ptr noundef read
   %59 = zext i1 %57 to i32
   %60 = shl nuw nsw i32 %56, %59
   %61 = add nuw nsw i32 %60, 24
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %61) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1937007717) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %61) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1937007717) #17
   %62 = add nuw nsw i32 %60, 16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %62) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1953721445) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %55) #16
-  tail call void @avio_wb24(ptr noundef %0, i32 noundef %.0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %58) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %62) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1953721445) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %55) #17
+  tail call void @avio_wb24(ptr noundef %0, i32 noundef %.0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %58) #17
   br i1 %57, label %63, label %68
 
 63:                                               ; preds = %52
   br i1 %54, label %64, label %65
 
 64:                                               ; preds = %63
-  tail call void @avio_wb64(ptr noundef %0, i64 noundef %.078) #16
-  tail call void @avio_wb64(ptr noundef %0, i64 noundef -1) #16
+  tail call void @avio_wb64(ptr noundef %0, i64 noundef %.078) #17
+  tail call void @avio_wb64(ptr noundef %0, i64 noundef -1) #17
   br label %67
 
 65:                                               ; preds = %63
   %66 = trunc nuw nsw i64 %.078 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %66) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef -1) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %66) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef -1) #17
   br label %67
 
 67:                                               ; preds = %65, %64
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 65536) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 65536) #17
   br label %96
 
 68:                                               ; preds = %52
@@ -11321,13 +11321,13 @@ define internal fastcc void @mov_write_edts_tag(ptr noundef %0, ptr noundef read
   %72 = sext i32 %71 to i64
   %73 = load i32, ptr %12, align 4, !tbaa !209
   %74 = zext i32 %73 to i64
-  %75 = tail call i64 @av_rescale_rnd(i64 noundef %.076, i64 noundef %72, i64 noundef %74, i32 noundef 2) #19
+  %75 = tail call i64 @av_rescale_rnd(i64 noundef %.076, i64 noundef %72, i64 noundef %74, i32 noundef 2) #20
   %76 = icmp slt i64 %75, 1
   br i1 %76, label %78, label %77
 
 77:                                               ; preds = %70
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.260, ptr noundef nonnull @.str.8, i32 noundef 4027) #16
-  tail call void @abort() #17
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.260, ptr noundef nonnull @.str.8, i32 noundef 4027) #17
+  tail call void @abort() #18
   unreachable
 
 78:                                               ; preds = %70
@@ -11350,7 +11350,7 @@ define internal fastcc void @mov_write_edts_tag(ptr noundef %0, ptr noundef read
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 152
   %91 = load i32, ptr %90, align 8, !tbaa !217
   %92 = sext i32 %91 to i64
-  %93 = tail call i64 @av_rescale(i64 noundef %80, i64 noundef 48000, i64 noundef %92) #19
+  %93 = tail call i64 @av_rescale(i64 noundef %80, i64 noundef 48000, i64 noundef %92) #20
   br label %94
 
 94:                                               ; preds = %89, %83, %78
@@ -11369,19 +11369,19 @@ define internal fastcc void @mov_write_edts_tag(ptr noundef %0, ptr noundef read
   br i1 %54, label %100, label %101
 
 100:                                              ; preds = %96
-  tail call void @avio_wb64(ptr noundef %0, i64 noundef %spec.select) #16
-  tail call void @avio_wb64(ptr noundef %0, i64 noundef %.2) #16
+  tail call void @avio_wb64(ptr noundef %0, i64 noundef %spec.select) #17
+  tail call void @avio_wb64(ptr noundef %0, i64 noundef %.2) #17
   br label %104
 
 101:                                              ; preds = %96
   %102 = trunc i64 %spec.select to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %102) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %102) #17
   %103 = trunc i64 %.2 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %103) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %103) #17
   br label %104
 
 104:                                              ; preds = %101, %100
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 65536) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 65536) #17
   ret void
 }
 
@@ -11398,49 +11398,49 @@ define internal fastcc void @mov_write_tapt_tag(ptr noundef %0, ptr noundef read
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 84
   %12 = load i32, ptr %11, align 4, !tbaa !403
   %13 = sext i32 %12 to i64
-  %14 = tail call i64 @av_rescale(i64 noundef %7, i64 noundef %10, i64 noundef %13) #19
+  %14 = tail call i64 @av_rescale(i64 noundef %7, i64 noundef %10, i64 noundef %13) #20
   %15 = trunc i64 %14 to i32
-  %16 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1953522036) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 20) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1717922915) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  %16 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1953522036) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 20) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1717922915) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   %17 = shl i32 %15, 16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %17) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %17) #17
   %18 = load ptr, ptr %3, align 8, !tbaa !46
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 76
   %20 = load i32, ptr %19, align 4, !tbaa !183
   %21 = shl i32 %20, 16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %21) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 20) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1718579824) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %17) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %21) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 20) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1718579824) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %17) #17
   %22 = load ptr, ptr %3, align 8, !tbaa !46
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 76
   %24 = load i32, ptr %23, align 4, !tbaa !183
   %25 = shl i32 %24, 16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %25) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 20) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1718578789) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %25) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 20) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1718578789) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   %26 = load ptr, ptr %3, align 8, !tbaa !46
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 72
   %28 = load i32, ptr %27, align 8, !tbaa !181
   %29 = shl i32 %28, 16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %29) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %29) #17
   %30 = load ptr, ptr %3, align 8, !tbaa !46
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 76
   %32 = load i32, ptr %31, align 4, !tbaa !183
   %33 = shl i32 %32, 16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %33) #16
-  %34 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %35 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %16, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %33) #17
+  %34 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %35 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %16, i32 noundef 0) #17
   %36 = sub nsw i64 %34, %16
   %37 = trunc i64 %36 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %37) #16
-  %38 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %34, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %37) #17
+  %38 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %34, i32 noundef 0) #17
   ret void
 }
 
@@ -11449,7 +11449,7 @@ define internal fastcc void @mov_write_hdlr_tag(ptr noundef %0, ptr noundef %1, 
   %4 = alloca [32 x i8], align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !4
-  %7 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
+  %7 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %utf8len.exit, label %8
 
@@ -11517,8 +11517,8 @@ define internal fastcc void @mov_write_hdlr_tag(ptr noundef %0, ptr noundef %1, 
 
 34:                                               ; preds = %29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  %35 = call ptr @av_fourcc_make_string(ptr noundef nonnull %4, i32 noundef %31) #16
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.290, ptr noundef %35) #16
+  %35 = call ptr @av_fourcc_make_string(ptr noundef nonnull %4, i32 noundef %31) #17
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.290, ptr noundef %35) #17
   br label %36
 
 36:                                               ; preds = %29, %27, %28, %26, %25, %22, %8, %15, %33, %34, %32, %17
@@ -11532,7 +11532,7 @@ define internal fastcc void @mov_write_hdlr_tag(ptr noundef %0, ptr noundef %1, 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 80
   %41 = load ptr, ptr %40, align 8, !tbaa !202
-  %42 = call ptr @av_dict_get(ptr noundef %41, ptr noundef nonnull @.str.291, ptr noundef null, i32 noundef 0) #16
+  %42 = call ptr @av_dict_get(ptr noundef %41, ptr noundef nonnull @.str.291, ptr noundef null, i32 noundef 0) #17
   %.not61 = icmp eq ptr %42, null
   br i1 %.not61, label %utf8len.exit, label %43
 
@@ -11589,16 +11589,16 @@ utf8len.exit:                                     ; preds = %.lr.ph.i, %62, %56,
   %64 = load i32, ptr %63, align 4, !tbaa !404
   %.not63 = icmp eq i32 %64, 0
   %spec.select = select i1 %.not63, ptr %.047, ptr @.str.292
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1919706216) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_write(ptr noundef %1, ptr noundef nonnull %.0, i32 noundef 4) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1919706216) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_write(ptr noundef %1, ptr noundef nonnull %.0, i32 noundef 4) #17
   %65 = load i32, ptr %.048, align 1
-  call void @avio_wl32(ptr noundef %1, i32 noundef %65) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #18
+  call void @avio_wl32(ptr noundef %1, i32 noundef %65) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #19
   br i1 %.not, label %.critedge, label %67
 
 67:                                               ; preds = %utf8len.exit
@@ -11608,32 +11608,32 @@ utf8len.exit:                                     ; preds = %.lr.ph.i, %62, %56,
   br i1 %69, label %71, label %.thread
 
 71:                                               ; preds = %67
-  call void @avio_w8(ptr noundef %1, i32 noundef %70) #16
+  call void @avio_w8(ptr noundef %1, i32 noundef %70) #17
   br label %.thread
 
 .thread:                                          ; preds = %67, %71
-  call void @avio_write(ptr noundef %1, ptr noundef nonnull %spec.select, i32 noundef %70) #16
+  call void @avio_write(ptr noundef %1, ptr noundef nonnull %spec.select, i32 noundef %70) #17
   %72 = load i32, ptr %2, align 8, !tbaa !104
   %.not64 = icmp eq i32 %72, 2
   br i1 %.not64, label %75, label %73
 
 73:                                               ; preds = %.thread
-  call void @avio_w8(ptr noundef %1, i32 noundef 0) #16
+  call void @avio_w8(ptr noundef %1, i32 noundef 0) #17
   br label %75
 
 .critedge:                                        ; preds = %utf8len.exit
   %74 = trunc i64 %66 to i32
-  call void @avio_w8(ptr noundef %1, i32 noundef %74) #16
-  call void @avio_write(ptr noundef %1, ptr noundef nonnull %spec.select, i32 noundef %74) #16
+  call void @avio_w8(ptr noundef %1, i32 noundef %74) #17
+  call void @avio_write(ptr noundef %1, ptr noundef nonnull %spec.select, i32 noundef %74) #17
   br label %75
 
 75:                                               ; preds = %.critedge, %73, %.thread
-  %76 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %77 = call i64 @avio_seek(ptr noundef %1, i64 noundef %7, i32 noundef 0) #16
+  %76 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %77 = call i64 @avio_seek(ptr noundef %1, i64 noundef %7, i32 noundef 0) #17
   %78 = sub nsw i64 %76, %7
   %79 = trunc i64 %78 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %79) #16
-  %80 = call i64 @avio_seek(ptr noundef %1, i64 noundef %76, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %79) #17
+  %80 = call i64 @avio_seek(ptr noundef %1, i64 noundef %76, i32 noundef 0) #17
   ret void
 }
 
@@ -11641,36 +11641,36 @@ declare ptr @av_fourcc_make_string(ptr noundef, i32 noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mov_write_gmhd_tag(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
-  %3 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1684565351) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 24) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1852403047) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 64) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 32768) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 32768) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 32768) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #16
+  %3 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1684565351) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 24) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1852403047) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 64) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 32768) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 32768) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 32768) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #17
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %5 = load i32, ptr %4, align 8, !tbaa !96
   %.not = icmp eq i32 %5, 942683747
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %2
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 44) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1954047348) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 16384) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 44) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1954047348) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 16384) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #17
   br label %7
 
 7:                                                ; preds = %6, %2
@@ -11684,57 +11684,57 @@ define internal fastcc void @mov_write_gmhd_tag(ptr noundef %0, ptr noundef read
   ]
 
 12:                                               ; preds = %7
-  %13 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1684237684) #16
-  %14 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1768776564) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 12) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 65535) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 65535) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 65535) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 13) #16
-  tail call void @avio_write(ptr noundef %0, ptr noundef nonnull @.str.300, i32 noundef 13) #16
-  %15 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %16 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %14, i32 noundef 0) #16
+  %13 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1684237684) #17
+  %14 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1768776564) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 12) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 65535) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 65535) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 65535) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 13) #17
+  tail call void @avio_write(ptr noundef %0, ptr noundef nonnull @.str.300, i32 noundef 13) #17
+  %15 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %16 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %14, i32 noundef 0) #17
   %17 = sub nsw i64 %15, %14
   %18 = trunc i64 %17 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %18) #16
-  %19 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %15, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %18) #17
+  %19 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %15, i32 noundef 0) #17
   br label %.sink.split
 
 20:                                               ; preds = %7
-  %21 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1684893799) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  %21 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1684893799) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   br label %.sink.split
 
 .sink.split:                                      ; preds = %12, %20
   %.sink45 = phi i64 [ %21, %20 ], [ %13, %12 ]
-  %22 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %23 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %.sink45, i32 noundef 0) #16
+  %22 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %23 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %.sink45, i32 noundef 0) #17
   %24 = sub nsw i64 %22, %.sink45
   %25 = trunc i64 %24 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %25) #16
-  %26 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %22, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %25) #17
+  %26 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %22, i32 noundef 0) #17
   br label %27
 
 27:                                               ; preds = %.sink.split, %7
-  %28 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %29 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %3, i32 noundef 0) #16
+  %28 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %29 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %3, i32 noundef 0) #17
   %30 = sub nsw i64 %28, %3
   %31 = trunc i64 %30 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %31) #16
-  %32 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %28, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %31) #17
+  %32 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %28, i32 noundef 0) #17
   ret void
 }
 
@@ -11747,14 +11747,14 @@ define internal fastcc i32 @mov_write_stbl_tag(ptr noundef %0, ptr noundef %1, p
   %9 = alloca %struct.AVChannelLayout, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  %12 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1818391667) #16
-  %13 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1685288051) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 1) #16
+  %12 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1818391667) #17
+  %13 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1685288051) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 1) #17
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %15 = load ptr, ptr %14, align 8, !tbaa !46
   %16 = load i32, ptr %15, align 8, !tbaa !177
@@ -11769,7 +11769,7 @@ define internal fastcc i32 @mov_write_stbl_tag(ptr noundef %0, ptr noundef %1, p
   br label %mov_write_audio_tag.exit.i
 
 19:                                               ; preds = %4
-  %20 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
+  %20 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %22 = load i32, ptr %21, align 8, !tbaa !96
   %23 = load i32, ptr %3, align 8, !tbaa !104
@@ -11841,43 +11841,43 @@ mov_get_lpcm_flags.exit.i.i:                      ; preds = %mov_pcm_le_gt16.exi
   %41 = phi i1 [ true, %mov_pcm_le_gt16.exit.thread.i.i ], [ false, %19 ], [ false, %._crit_edge.i.i ], [ false, %mov_get_lpcm_flags.exit.thread.i.i ], [ false, %37 ]
   %.0189.i.i = phi i32 [ 1, %mov_pcm_le_gt16.exit.thread.i.i ], [ 0, %19 ], [ 2, %._crit_edge.i.i ], [ 2, %mov_get_lpcm_flags.exit.thread.i.i ], [ 0, %37 ]
   %.0187.i.i = phi i32 [ %22, %mov_pcm_le_gt16.exit.thread.i.i ], [ %22, %19 ], [ %22, %._crit_edge.i.i ], [ 1835233388, %mov_get_lpcm_flags.exit.thread.i.i ], [ %22, %37 ]
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %43 = load i32, ptr %42, align 8, !tbaa !281
   %.not207.i.i = icmp eq i32 %43, 0
   %.0187..i.i = select i1 %.not207.i.i, i32 %.0187.i.i, i32 1633906277
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef %.0187..i.i) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 1) #16
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef %.0189.i.i) #16
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef %.0187..i.i) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 1) #17
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef %.0189.i.i) #17
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   br i1 %40, label %44, label %99
 
 44:                                               ; preds = %mov_get_lpcm_flags.exit.i.i
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 3) #16
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 16) #16
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 65534) #16
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 65536) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 72) #16
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 3) #17
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 16) #17
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 65534) #17
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 65536) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 72) #17
   %45 = load ptr, ptr %14, align 8, !tbaa !46
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 152
   %47 = load i32, ptr %46, align 8, !tbaa !217
   %48 = sitofp i32 %47 to double
   %49 = bitcast double %48 to i64
-  tail call void @avio_wb64(ptr noundef %1, i64 noundef %49) #16
+  tail call void @avio_wb64(ptr noundef %1, i64 noundef %49) #17
   %50 = load ptr, ptr %14, align 8, !tbaa !46
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 132
   %52 = load i32, ptr %51, align 4, !tbaa !187
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %52) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 2130706432) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %52) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 2130706432) #17
   %53 = load ptr, ptr %14, align 8, !tbaa !46
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4, !tbaa !84
-  %56 = tail call i32 @av_get_bits_per_sample(i32 noundef %55) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %56) #16
+  %56 = tail call i32 @av_get_bits_per_sample(i32 noundef %55) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %56) #17
   %57 = load ptr, ptr %14, align 8, !tbaa !46
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = load i32, ptr %58, align 4, !tbaa !84
@@ -11893,11 +11893,11 @@ switch.lookup:                                    ; preds = %44
 
 mov_get_lpcm_flags.exit217.i.i:                   ; preds = %44, %switch.lookup
   %.0.i216.i.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %44 ]
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %.0.i216.i.i) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %.0.i216.i.i) #17
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %63 = load i64, ptr %62, align 8, !tbaa !93
   %64 = trunc i64 %63 to i32
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %64) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %64) #17
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 156
   %66 = load i32, ptr %65, align 4, !tbaa !307
   %.not.i.i.i = icmp eq i32 %66, 0
@@ -11940,8 +11940,8 @@ mov_get_lpcm_flags.exit217.i.i:                   ; preds = %44, %switch.lookup
   br i1 %88, label %90, label %89
 
 89:                                               ; preds = %83
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.400, ptr noundef nonnull @.str.8, i32 noundef 1231) #16
-  tail call void @abort() #17
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.400, ptr noundef nonnull @.str.8, i32 noundef 1231) #17
+  tail call void @abort() #18
   unreachable
 
 90:                                               ; preds = %83
@@ -11949,8 +11949,8 @@ mov_get_lpcm_flags.exit217.i.i:                   ; preds = %44, %switch.lookup
   br i1 %91, label %get_cluster_duration.exit.i.i.i, label %92
 
 92:                                               ; preds = %90
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.401, ptr noundef nonnull @.str.8, i32 noundef 1232) #16
-  tail call void @abort() #17
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.401, ptr noundef nonnull @.str.8, i32 noundef 1232) #17
+  tail call void @abort() #18
   unreachable
 
 get_cluster_duration.exit.i.i.i:                  ; preds = %90
@@ -11971,7 +11971,7 @@ get_cluster_duration.exit.i.i.i:                  ; preds = %90
 
 get_samples_per_packet.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %94, %get_cluster_duration.exit.i.i.i, %67, %mov_get_lpcm_flags.exit217.i.i
   %.0.i218.i.i = phi i32 [ 1, %mov_get_lpcm_flags.exit217.i.i ], [ 0, %67 ], [ %93, %get_cluster_duration.exit.i.i.i ], [ %93, %94 ], [ 0, %.lr.ph.i.i.i ]
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %.0.i218.i.i) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %.0.i218.i.i) #17
   br label %154
 
 99:                                               ; preds = %mov_get_lpcm_flags.exit.i.i
@@ -11983,7 +11983,7 @@ get_samples_per_packet.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %94, 
   %103 = load ptr, ptr %14, align 8, !tbaa !46
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 132
   %105 = load i32, ptr %104, align 4, !tbaa !187
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef %105) #16
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef %105) #17
   %106 = load ptr, ptr %14, align 8, !tbaa !46
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
   %108 = load i32, ptr %107, align 4, !tbaa !84
@@ -12003,7 +12003,7 @@ get_samples_per_packet.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %94, 
 
 113:                                              ; preds = %112, %109, %102, %102
   %.sink.i.i = phi i32 [ %111, %109 ], [ 16, %112 ], [ 8, %102 ], [ 8, %102 ]
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef %.sink.i.i) #16
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef %.sink.i.i) #17
   %114 = getelementptr inbounds nuw i8, ptr %3, i64 156
   %115 = load i32, ptr %114, align 4, !tbaa !307
   %.not208.i.i = icmp eq i32 %115, 0
@@ -12023,7 +12023,7 @@ get_samples_per_packet.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %94, 
 
 124:                                              ; preds = %120, %117
   %125 = phi i32 [ %123, %120 ], [ 0, %117 ]
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef %125) #16
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef %125) #17
   %126 = load ptr, ptr %14, align 8, !tbaa !46
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   %128 = load i32, ptr %127, align 4, !tbaa !84
@@ -12039,19 +12039,19 @@ get_samples_per_packet.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %94, 
 
 132:                                              ; preds = %129, %124
   %.sink274.i.i = phi i32 [ %131, %129 ], [ 16, %124 ]
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef %.sink274.i.i) #16
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef %.sink274.i.i) #17
   br label %133
 
 133:                                              ; preds = %132, %113
   %.sink275.i.i = phi i32 [ 0, %132 ], [ %116, %113 ]
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef %.sink275.i.i) #16
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #16
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef %.sink275.i.i) #17
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #17
   %134 = load i32, ptr %21, align 8, !tbaa !96
   %135 = icmp eq i32 %134, 1718444393
   br i1 %135, label %136, label %137
 
 136:                                              ; preds = %133
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #16
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #17
   br label %149
 
 137:                                              ; preds = %133
@@ -12064,13 +12064,13 @@ get_samples_per_packet.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %94, 
   ]
 
 141:                                              ; preds = %137
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 48000) #16
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 48000) #17
   br label %149
 
 142:                                              ; preds = %137
   %143 = getelementptr inbounds nuw i8, ptr %138, i64 152
   %144 = load i32, ptr %143, align 8, !tbaa !217
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %144) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %144) #17
   br label %149
 
 145:                                              ; preds = %137
@@ -12078,7 +12078,7 @@ get_samples_per_packet.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %94, 
   %147 = load i32, ptr %146, align 8, !tbaa !217
   %148 = icmp slt i32 %147, 65536
   %spec.select214.i.i = select i1 %148, i32 %147, i32 0
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef %spec.select214.i.i) #16
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef %spec.select214.i.i) #17
   br label %149
 
 149:                                              ; preds = %145, %142, %141, %136
@@ -12089,7 +12089,7 @@ get_samples_per_packet.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %94, 
   br i1 %.not209.i.i, label %154, label %153
 
 153:                                              ; preds = %149
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #16
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #17
   br label %154
 
 154:                                              ; preds = %153, %149, %get_samples_per_packet.exit.i.i
@@ -12114,7 +12114,7 @@ get_samples_per_packet.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %94, 
 
 mov_pcm_le_gt16.exit219.thread.i.i:               ; preds = %155, %160
   %.sink276.i.i = phi i32 [ %162, %160 ], [ 1, %155 ]
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %.sink276.i.i) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %.sink276.i.i) #17
   %163 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %164 = load i64, ptr %163, align 8, !tbaa !93
   %165 = load ptr, ptr %14, align 8, !tbaa !46
@@ -12123,11 +12123,11 @@ mov_pcm_le_gt16.exit219.thread.i.i:               ; preds = %155, %160
   %168 = sext i32 %167 to i64
   %169 = sdiv i64 %164, %168
   %170 = trunc i64 %169 to i32
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %170) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %170) #17
   %171 = load i64, ptr %163, align 8, !tbaa !93
   %172 = trunc i64 %171 to i32
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %172) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 2) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %172) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 2) #17
   br label %173
 
 173:                                              ; preds = %mov_pcm_le_gt16.exit219.thread.i.i, %154
@@ -12165,9 +12165,9 @@ mov_pcm_be_gt16.exit222.i.i:                      ; preds = %176, %176, %176, %1
   br i1 %41, label %180, label %mov_pcm_be_gt16.exit222.thread.i.i
 
 180:                                              ; preds = %mov_pcm_be_gt16.exit222.i.i, %mov_pcm_le_gt16.exit221.i.i, %176, %176, %176, %176, %176, %176, %176, %176
-  %181 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1702257015) #16
+  %181 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1702257015) #17
   %182 = load ptr, ptr %14, align 8, !tbaa !46
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 4
   %184 = load i32, ptr %183, align 4, !tbaa !84
@@ -12175,10 +12175,10 @@ mov_pcm_be_gt16.exit222.i.i:                      ; preds = %176, %176, %176, %1
   br i1 %.not.i223.i.i, label %.thread.i.i.i, label %185
 
 185:                                              ; preds = %180
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 12) #16
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1634562662) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 12) #17
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1634562662) #17
   %186 = load i32, ptr %21, align 8, !tbaa !96
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef %186) #16
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef %186) #17
   %.pre.i.i.i = load ptr, ptr %14, align 8, !tbaa !46
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 4
   %.pre49.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4, !tbaa !84
@@ -12202,22 +12202,22 @@ mov_pcm_be_gt16.exit222.i.i:                      ; preds = %176, %176, %176, %1
   ]
 
 187:                                              ; preds = %185
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 12) #16
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1630826605) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 12) #17
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1630826605) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   %188 = tail call fastcc i32 @mov_write_esds_tag(ptr noundef %1, ptr noundef nonnull readonly %3)
   br label %mov_write_wave_tag.exit.i.i
 
 mov_pcm_le_gt16.exit.thread.i.i.i:                ; preds = %185, %185, %185, %185
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 10) #16
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1633971813) #16
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 1) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 10) #17
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1633971813) #17
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 1) #17
   br label %mov_write_wave_tag.exit.i.i
 
 mov_pcm_be_gt16.exit.thread.i.i.i:                ; preds = %185, %185, %185, %185
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 10) #16
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1633971813) #16
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 10) #17
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1633971813) #17
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #17
   br label %mov_write_wave_tag.exit.i.i
 
 189:                                              ; preds = %185
@@ -12242,14 +12242,14 @@ mov_pcm_be_gt16.exit.thread.i.i.i:                ; preds = %185, %185, %185, %1
   %198 = load ptr, ptr %197, align 8, !tbaa !98
   %199 = getelementptr inbounds nuw i8, ptr %196, i64 24
   %200 = load i32, ptr %199, align 8, !tbaa !95
-  tail call void @avio_write(ptr noundef %1, ptr noundef %198, i32 noundef %200) #16
+  tail call void @avio_write(ptr noundef %1, ptr noundef %198, i32 noundef %200) #17
   br label %mov_write_wave_tag.exit.i.i
 
 201:                                              ; preds = %185, %185
-  %202 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  %202 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   %203 = load i32, ptr %21, align 8, !tbaa !96
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef %203) #16
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef %203) #17
   %204 = load i32, ptr %21, align 8, !tbaa !96
   %205 = lshr i32 %204, 16
   %206 = trunc nuw i32 %205 to i16
@@ -12258,28 +12258,28 @@ mov_pcm_be_gt16.exit.thread.i.i.i:                ; preds = %185, %185, %185, %1
   %209 = load ptr, ptr %14, align 8, !tbaa !46
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
   store i32 %208, ptr %210, align 8, !tbaa !211
-  %211 = tail call i32 @ff_put_wav_header(ptr noundef %0, ptr noundef %1, ptr noundef %209, i32 noundef 0) #16
+  %211 = tail call i32 @ff_put_wav_header(ptr noundef %0, ptr noundef %1, ptr noundef %209, i32 noundef 0) #17
   %212 = icmp slt i32 %211, 0
   br i1 %212, label %mov_write_wave_tag.exit.i.i, label %213
 
 213:                                              ; preds = %201
-  %214 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %215 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %202, i32 noundef 0) #16
+  %214 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %215 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %202, i32 noundef 0) #17
   %216 = sub nsw i64 %214, %202
   %217 = trunc i64 %216 to i32
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %217) #16
-  %218 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %214, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %217) #17
+  %218 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %214, i32 noundef 0) #17
   br label %mov_write_wave_tag.exit.i.i
 
 mov_write_wave_tag.exit.i.i:                      ; preds = %213, %201, %.thread.i.i.i, %193, %190, %189, %mov_pcm_be_gt16.exit.thread.i.i.i, %mov_pcm_le_gt16.exit.thread.i.i.i, %187, %185
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 8) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  %219 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %220 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %181, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 8) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  %219 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %220 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %181, i32 noundef 0) #17
   %221 = sub nsw i64 %219, %181
   %222 = trunc i64 %221 to i32
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %222) #16
-  %223 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %219, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %222) #17
+  %223 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %219, i32 noundef 0) #17
   br label %291
 
 mov_pcm_be_gt16.exit222.thread.i.i:               ; preds = %mov_pcm_be_gt16.exit222.i.i, %mov_pcm_le_gt16.exit221.i.i, %176, %173
@@ -12297,38 +12297,38 @@ mov_pcm_be_gt16.exit222.thread.i.i:               ; preds = %mov_pcm_be_gt16.exi
   %228 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %229 = load ptr, ptr %228, align 8, !tbaa !111
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %230 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
+  %230 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !31
-  %231 = call i32 @avio_open_dyn_buf(ptr noundef nonnull %10) #16
+  %231 = call i32 @avio_open_dyn_buf(ptr noundef nonnull %10) #17
   %232 = icmp slt i32 %231, 0
   br i1 %232, label %mov_write_iacb_tag.exit.i.i, label %233
 
 233:                                              ; preds = %227
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1650680169) #16
-  call void @avio_w8(ptr noundef %1, i32 noundef 1) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1650680169) #17
+  call void @avio_w8(ptr noundef %1, i32 noundef 1) #17
   %234 = getelementptr inbounds nuw i8, ptr %3, i64 1576
   %235 = load ptr, ptr %234, align 8, !tbaa !223
   %236 = load ptr, ptr %10, align 8, !tbaa !83
-  %237 = call i32 @ff_iamf_write_descriptors(ptr noundef %235, ptr noundef %236, ptr noundef %229) #16
+  %237 = call i32 @ff_iamf_write_descriptors(ptr noundef %235, ptr noundef %236, ptr noundef %229) #17
   %238 = icmp slt i32 %237, 0
   br i1 %238, label %mov_write_iacb_tag.exit.i.i, label %239
 
 239:                                              ; preds = %233
   %240 = load ptr, ptr %10, align 8, !tbaa !83
-  %241 = call i32 @avio_close_dyn_buf(ptr noundef %240, ptr noundef nonnull %11) #16
-  call void @ffio_write_leb(ptr noundef %1, i32 noundef %241) #16
+  %241 = call i32 @avio_close_dyn_buf(ptr noundef %240, ptr noundef nonnull %11) #17
+  call void @ffio_write_leb(ptr noundef %1, i32 noundef %241) #17
   %242 = load ptr, ptr %11, align 8, !tbaa !31
-  call void @avio_write(ptr noundef %1, ptr noundef %242, i32 noundef %241) #16
+  call void @avio_write(ptr noundef %1, ptr noundef %242, i32 noundef %241) #17
   %243 = load ptr, ptr %11, align 8, !tbaa !31
-  call void @av_free(ptr noundef %243) #16
-  %244 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %245 = call i64 @avio_seek(ptr noundef %1, i64 noundef %230, i32 noundef 0) #16
+  call void @av_free(ptr noundef %243) #17
+  %244 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %245 = call i64 @avio_seek(ptr noundef %1, i64 noundef %230, i32 noundef 0) #17
   %246 = sub nsw i64 %244, %230
   %247 = trunc i64 %246 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %247) #16
-  %248 = call i64 @avio_seek(ptr noundef %1, i64 noundef %244, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %247) #17
+  %248 = call i64 @avio_seek(ptr noundef %1, i64 noundef %244, i32 noundef 0) #17
   br label %mov_write_iacb_tag.exit.i.i
 
 mov_write_iacb_tag.exit.i.i:                      ; preds = %239, %233, %227
@@ -12373,7 +12373,7 @@ mov_write_iacb_tag.exit.i.i:                      ; preds = %239, %233, %227
   %262 = load ptr, ptr %261, align 8, !tbaa !98
   %263 = getelementptr inbounds nuw i8, ptr %250, i64 24
   %264 = load i32, ptr %263, align 8, !tbaa !95
-  tail call void @avio_write(ptr noundef %1, ptr noundef %262, i32 noundef %264) #16
+  tail call void @avio_write(ptr noundef %1, ptr noundef %262, i32 noundef %264) #17
   %265 = load ptr, ptr %14, align 8, !tbaa !46
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 24
   %267 = load i32, ptr %266, align 8, !tbaa !95
@@ -12447,7 +12447,7 @@ mov_write_iacb_tag.exit.i.i:                      ; preds = %239, %233, %227
   %301 = load ptr, ptr %300, align 8, !tbaa !99
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 80
   %303 = load ptr, ptr %302, align 8, !tbaa !202
-  %304 = call ptr @av_dict_get(ptr noundef %303, ptr noundef nonnull @.str.424, ptr noundef null, i32 noundef 0) #16
+  %304 = call ptr @av_dict_get(ptr noundef %303, ptr noundef nonnull @.str.424, ptr noundef null, i32 noundef 0) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %.not.i225.i.i = icmp eq ptr %304, null
@@ -12460,7 +12460,7 @@ mov_write_SA3D_tag.exit.thread.i.i:               ; preds = %299
 305:                                              ; preds = %299
   %306 = getelementptr inbounds nuw i8, ptr %304, i64 8
   %307 = load ptr, ptr %306, align 8, !tbaa !203
-  %308 = call i32 @av_channel_layout_from_string(ptr noundef nonnull %9, ptr noundef %307) #16
+  %308 = call i32 @av_channel_layout_from_string(ptr noundef nonnull %9, ptr noundef %307) #17
   %309 = icmp slt i32 %308, 0
   br i1 %309, label %310, label %315
 
@@ -12470,12 +12470,12 @@ mov_write_SA3D_tag.exit.thread.i.i:               ; preds = %299
 
 312:                                              ; preds = %331, %329, %323, %315, %310
   %313 = load ptr, ptr %306, align 8, !tbaa !203
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.425, ptr noundef %313) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.425, ptr noundef %313) #17
   br label %314
 
 314:                                              ; preds = %312, %310
   %.0.i226.i.i = phi i32 [ 0, %312 ], [ %308, %310 ]
-  call void @av_channel_layout_uninit(ptr noundef nonnull %9) #16
+  call void @av_channel_layout_uninit(ptr noundef nonnull %9) #17
   br label %mov_write_SA3D_tag.exit.i.i
 
 315:                                              ; preds = %305
@@ -12490,7 +12490,7 @@ mov_write_SA3D_tag.exit.thread.i.i:               ; preds = %299
   br i1 %.not46.i.i.i, label %323, label %312
 
 323:                                              ; preds = %315
-  %324 = call i32 @av_channel_layout_ambisonic_order(ptr noundef nonnull %9) #16
+  %324 = call i32 @av_channel_layout_ambisonic_order(ptr noundef nonnull %9) #17
   %325 = icmp slt i32 %324, 0
   br i1 %325, label %312, label %326
 
@@ -12507,24 +12507,24 @@ mov_write_SA3D_tag.exit.thread.i.i:               ; preds = %299
   br i1 %.not47.i.i.i, label %331, label %312
 
 331:                                              ; preds = %329
-  %332 = call i64 @av_channel_layout_subset(ptr noundef nonnull %9, i64 noundef 3) #16
+  %332 = call i64 @av_channel_layout_subset(ptr noundef nonnull %9, i64 noundef 3) #17
   %.not48.i.i.i = icmp eq i64 %332, 3
   br i1 %.not48.i.i.i, label %333, label %312
 
 333:                                              ; preds = %331, %326
   %334 = phi i32 [ 128, %331 ], [ 0, %326 ]
   %335 = load ptr, ptr %306, align 8, !tbaa !203
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.426, ptr noundef %335) #16
-  %336 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1144209747) #16
-  call void @avio_w8(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_w8(ptr noundef %1, i32 noundef %334) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef %324) #16
-  call void @avio_w8(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_w8(ptr noundef %1, i32 noundef 0) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.426, ptr noundef %335) #17
+  %336 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1144209747) #17
+  call void @avio_w8(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_w8(ptr noundef %1, i32 noundef %334) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef %324) #17
+  call void @avio_w8(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_w8(ptr noundef %1, i32 noundef 0) #17
   %337 = load i32, ptr %321, align 4, !tbaa !185
-  call void @avio_wb32(ptr noundef %1, i32 noundef %337) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %337) #17
   %338 = icmp sgt i32 %327, 0
   br i1 %338, label %.lr.ph.i227.i.i, label %.preheader.i.i.i
 
@@ -12536,31 +12536,31 @@ mov_write_SA3D_tag.exit.thread.i.i:               ; preds = %299
 
 .lr.ph.i227.i.i:                                  ; preds = %333, %.lr.ph.i227.i.i
   %.04050.i.i.i = phi i32 [ %343, %.lr.ph.i227.i.i ], [ 0, %333 ]
-  %341 = call i32 @av_channel_layout_channel_from_index(ptr noundef nonnull %9, i32 noundef %.04050.i.i.i) #16
+  %341 = call i32 @av_channel_layout_channel_from_index(ptr noundef nonnull %9, i32 noundef %.04050.i.i.i) #17
   %342 = add nsw i32 %341, -1024
-  call void @avio_wb32(ptr noundef %1, i32 noundef %342) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %342) #17
   %343 = add nuw nsw i32 %.04050.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %343, %327
   br i1 %exitcond.not.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i227.i.i, !llvm.loop !407
 
 .lr.ph52.i.i.i:                                   ; preds = %.preheader.i.i.i, %.lr.ph52.i.i.i
   %.151.i.i.i = phi i32 [ %346, %.lr.ph52.i.i.i ], [ %.040.lcssa.i.i.i, %.preheader.i.i.i ]
-  %344 = call i32 @av_channel_layout_channel_from_index(ptr noundef nonnull %9, i32 noundef %.151.i.i.i) #16
+  %344 = call i32 @av_channel_layout_channel_from_index(ptr noundef nonnull %9, i32 noundef %.151.i.i.i) #17
   %345 = add nsw i32 %344, %327
-  call void @avio_wb32(ptr noundef %1, i32 noundef %345) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %345) #17
   %346 = add nuw nsw i32 %.151.i.i.i, 1
   %347 = load i32, ptr %321, align 4, !tbaa !185
   %348 = icmp slt i32 %346, %347
   br i1 %348, label %.lr.ph52.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !408
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph52.i.i.i, %.preheader.i.i.i
-  call void @av_channel_layout_uninit(ptr noundef nonnull %9) #16
-  %349 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %350 = call i64 @avio_seek(ptr noundef %1, i64 noundef %336, i32 noundef 0) #16
+  call void @av_channel_layout_uninit(ptr noundef nonnull %9) #17
+  %349 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %350 = call i64 @avio_seek(ptr noundef %1, i64 noundef %336, i32 noundef 0) #17
   %351 = sub nsw i64 %349, %336
   %352 = trunc i64 %351 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %352) #16
-  %353 = call i64 @avio_seek(ptr noundef %1, i64 noundef %349, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %352) #17
+  %353 = call i64 @avio_seek(ptr noundef %1, i64 noundef %349, i32 noundef 0) #17
   br label %mov_write_SA3D_tag.exit.i.i
 
 mov_write_SA3D_tag.exit.i.i:                      ; preds = %._crit_edge.i.i.i, %314
@@ -12588,7 +12588,7 @@ thread-pre-split.i.i:                             ; preds = %mov_write_SA3D_tag.
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %363 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
+  %363 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
   %364 = getelementptr inbounds nuw i8, ptr %3, i64 116
   %365 = load i32, ptr %364, align 4, !tbaa !190
   %.not.i228.i.i = icmp eq i32 %365, 0
@@ -12596,7 +12596,7 @@ thread-pre-split.i.i:                             ; preds = %mov_write_SA3D_tag.
 
 366:                                              ; preds = %362
   %367 = load ptr, ptr %14, align 8, !tbaa !46
-  %368 = call i32 @ff_mov_get_channel_layout_tag(ptr noundef %367, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #16
+  %368 = call i32 @ff_mov_get_channel_layout_tag(ptr noundef %367, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #17
   %369 = icmp slt i32 %368, 0
   br i1 %369, label %370, label %373
 
@@ -12605,7 +12605,7 @@ thread-pre-split.i.i:                             ; preds = %mov_write_SA3D_tag.
   br i1 %371, label %372, label %mov_write_chan_tag.exit.thread.i.i
 
 372:                                              ; preds = %370
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.427) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.427) #17
   br label %mov_write_chan_tag.exit.thread246.i.i
 
 373:                                              ; preds = %366
@@ -12627,12 +12627,12 @@ thread-pre-split.i.i:                             ; preds = %mov_write_SA3D_tag.
   br i1 %.not31.i.i.i, label %382, label %381
 
 381:                                              ; preds = %379
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.428, ptr noundef nonnull @.str.8, i32 noundef 1005) #16
-  call void @abort() #17
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.428, ptr noundef nonnull @.str.8, i32 noundef 1005) #17
+  call void @abort() #18
   unreachable
 
 382:                                              ; preds = %379
-  %383 = call noalias ptr @av_malloc(i64 noundef 4) #16
+  %383 = call noalias ptr @av_malloc(i64 noundef 4) #17
   store ptr %383, ptr %8, align 8, !tbaa !409
   %.not32.i.i.i = icmp eq ptr %383, null
   br i1 %.not32.i.i.i, label %mov_write_chan_tag.exit.thread.i.i, label %.thread.i232.i.i
@@ -12651,15 +12651,15 @@ thread-pre-split.i.i:                             ; preds = %mov_write_SA3D_tag.
 
 thread-pre-split.thread.i.i.i:                    ; preds = %384, %375, %373
   %388 = phi i32 [ %387, %384 ], [ 0, %375 ], [ 0, %373 ]
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1851877475) #16
-  call void @avio_w8(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wb24(ptr noundef %1, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1851877475) #17
+  call void @avio_w8(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wb24(ptr noundef %1, i32 noundef 0) #17
   %389 = load i32, ptr %6, align 4, !tbaa !30
-  call void @avio_wb32(ptr noundef %1, i32 noundef %389) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %389) #17
   %390 = load i32, ptr %7, align 4, !tbaa !30
-  call void @avio_wb32(ptr noundef %1, i32 noundef %390) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef %388) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %390) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef %388) #17
   %391 = icmp sgt i32 %388, 0
   br i1 %391, label %.lr.ph.preheader.i.i.i, label %mov_write_chan_tag.exit.i.i
 
@@ -12672,11 +12672,11 @@ thread-pre-split.thread.i.i.i:                    ; preds = %384, %375, %373
   %392 = load ptr, ptr %8, align 8, !tbaa !409
   %393 = getelementptr inbounds nuw i32, ptr %392, i64 %indvars.iv.i.i.i
   %394 = load i32, ptr %393, align 4, !tbaa !30
-  call void @avio_wb32(ptr noundef %1, i32 noundef %394) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %394) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 0) #17
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i231.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i231.i.i, label %mov_write_chan_tag.exit.i.i, label %.lr.ph.i230.i.i, !llvm.loop !411
@@ -12696,13 +12696,13 @@ mov_write_chan_tag.exit.thread246.i.i:            ; preds = %372, %362
 
 mov_write_chan_tag.exit.i.i:                      ; preds = %.lr.ph.i230.i.i, %thread-pre-split.thread.i.i.i
   %395 = load ptr, ptr %8, align 8, !tbaa !409
-  call void @av_free(ptr noundef %395) #16
-  %396 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %397 = call i64 @avio_seek(ptr noundef %1, i64 noundef %363, i32 noundef 0) #16
+  call void @av_free(ptr noundef %395) #17
+  %396 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %397 = call i64 @avio_seek(ptr noundef %1, i64 noundef %363, i32 noundef 0) #17
   %398 = sub nsw i64 %396, %363
   %399 = trunc i64 %398 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %399) #16
-  %400 = call i64 @avio_seek(ptr noundef %1, i64 noundef %396, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %399) #17
+  %400 = call i64 @avio_seek(ptr noundef %1, i64 noundef %396, i32 noundef 0) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -12717,7 +12717,7 @@ mov_write_chan_tag.exit.i.i:                      ; preds = %.lr.ph.i230.i.i, %t
 404:                                              ; preds = %402
   %405 = getelementptr inbounds nuw i8, ptr %2, i64 224
   %406 = load ptr, ptr %405, align 8, !tbaa !412
-  %407 = call i32 @ff_mov_cenc_write_sinf_tag(ptr noundef nonnull %3, ptr noundef %1, ptr noundef %406) #16
+  %407 = call i32 @ff_mov_cenc_write_sinf_tag(ptr noundef nonnull %3, ptr noundef %1, ptr noundef %406) #17
   %408 = icmp slt i32 %407, 0
   br i1 %408, label %mov_write_stsd_tag.exit.thread, label %409
 
@@ -12733,26 +12733,26 @@ mov_write_chan_tag.exit.i.i:                      ; preds = %.lr.ph.i230.i.i, %t
   br i1 %414, label %mov_write_stsd_tag.exit.thread, label %415
 
 415:                                              ; preds = %412, %409
-  %416 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %417 = call i64 @avio_seek(ptr noundef %1, i64 noundef %20, i32 noundef 0) #16
+  %416 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %417 = call i64 @avio_seek(ptr noundef %1, i64 noundef %20, i32 noundef 0) #17
   %418 = sub nsw i64 %416, %20
   %419 = trunc i64 %418 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %419) #16
-  %420 = call i64 @avio_seek(ptr noundef %1, i64 noundef %416, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %419) #17
+  %420 = call i64 @avio_seek(ptr noundef %1, i64 noundef %416, i32 noundef 0) #17
   br label %mov_write_audio_tag.exit.i
 
 421:                                              ; preds = %4
   %422 = getelementptr i8, ptr %0, i64 24
   %.val.i = load ptr, ptr %422, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %423 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  %423 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   %424 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %425 = load i32, ptr %424, align 8, !tbaa !96
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef %425) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 1) #16
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef %425) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 1) #17
   %426 = load ptr, ptr %14, align 8, !tbaa !46
   %427 = getelementptr inbounds nuw i8, ptr %426, i64 4
   %428 = load i32, ptr %427, align 4, !tbaa !84
@@ -12774,21 +12774,21 @@ mov_write_chan_tag.exit.i.i:                      ; preds = %.lr.ph.i230.i.i, %t
   ]
 
 434:                                              ; preds = %431
-  %435 = tail call i32 @avio_put_str(ptr noundef %1, ptr noundef nonnull @.str.430) #16
-  tail call void @avio_w8(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_w8(ptr noundef %1, i32 noundef 0) #16
+  %435 = tail call i32 @avio_put_str(ptr noundef %1, ptr noundef nonnull @.str.430) #17
+  tail call void @avio_w8(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_w8(ptr noundef %1, i32 noundef 0) #17
   br label %450
 
 436:                                              ; preds = %431
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %437 = call ptr @av_fourcc_make_string(ptr noundef nonnull %5, i32 noundef %433) #16
+  %437 = call ptr @av_fourcc_make_string(ptr noundef nonnull %5, i32 noundef %433) #17
   %438 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %439 = load ptr, ptr %438, align 8, !tbaa !99
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 8
   %441 = load i32, ptr %440, align 8, !tbaa !229
   %442 = getelementptr inbounds nuw i8, ptr %3, i64 84
   %443 = load i32, ptr %442, align 4, !tbaa !215
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.431, ptr noundef %437, i32 noundef %441, i32 noundef %443) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.431, ptr noundef %437, i32 noundef %441, i32 noundef %443) #17
   br label %mov_write_subtitle_tag.exit.i
 
 444:                                              ; preds = %421
@@ -12800,7 +12800,7 @@ mov_write_chan_tag.exit.i.i:                      ; preds = %.lr.ph.i230.i.i, %t
 447:                                              ; preds = %444
   %448 = getelementptr inbounds nuw i8, ptr %426, i64 16
   %449 = load ptr, ptr %448, align 8, !tbaa !98
-  tail call void @avio_write(ptr noundef %1, ptr noundef %449, i32 noundef %446) #16
+  tail call void @avio_write(ptr noundef %1, ptr noundef %449, i32 noundef %446) #17
   br label %450
 
 450:                                              ; preds = %447, %444, %434, %431, %429
@@ -12815,12 +12815,12 @@ mov_write_chan_tag.exit.i.i:                      ; preds = %.lr.ph.i230.i.i, %t
   br i1 %455, label %mov_write_subtitle_tag.exit.i, label %456
 
 456:                                              ; preds = %453, %450
-  %457 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %458 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %423, i32 noundef 0) #16
+  %457 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %458 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %423, i32 noundef 0) #17
   %459 = sub nsw i64 %457, %423
   %460 = trunc i64 %459 to i32
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %460) #16
-  %461 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %457, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %460) #17
+  %461 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %457, i32 noundef 0) #17
   br label %mov_write_subtitle_tag.exit.i
 
 mov_write_subtitle_tag.exit.i:                    ; preds = %456, %453, %436
@@ -12838,32 +12838,32 @@ mov_write_subtitle_tag.exit.i:                    ; preds = %456, %453, %436
   ]
 
 465:                                              ; preds = %462
-  %466 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef 544240754) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 1) #16
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 1) #16
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 1) #16
+  %466 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef 544240754) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 1) #17
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 1) #17
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 1) #17
   %467 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %468 = load i32, ptr %467, align 8, !tbaa !413
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %468) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 12) #16
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1936550260) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %468) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 12) #17
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1936550260) #17
   %469 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %470 = load i32, ptr %469, align 4, !tbaa !209
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %470) #16
-  %471 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %472 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %466, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %470) #17
+  %471 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %472 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %466, i32 noundef 0) #17
   %473 = sub nsw i64 %471, %466
   %474 = trunc i64 %473 to i32
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %474) #16
-  %475 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %471, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %474) #17
+  %475 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %471, i32 noundef 0) #17
   br label %mov_write_audio_tag.exit.i
 
 476:                                              ; preds = %462
-  %477 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
+  %477 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
   %478 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %479 = load ptr, ptr %478, align 8, !tbaa !99
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 88
@@ -12878,7 +12878,7 @@ mov_write_subtitle_tag.exit.i:                    ; preds = %456, %453, %436
   br i1 %.not42.i.i, label %485, label %486
 
 485:                                              ; preds = %482, %476
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.434) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.434) #17
   br label %mov_write_stsd_tag.exit.thread
 
 486:                                              ; preds = %482
@@ -12892,7 +12892,7 @@ mov_write_subtitle_tag.exit.i:                    ; preds = %456, %453, %436
   br i1 %492, label %493, label %494
 
 493:                                              ; preds = %486
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.435, i32 noundef %491) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.435, i32 noundef %491) #17
   br label %mov_write_stsd_tag.exit.thread
 
 494:                                              ; preds = %486
@@ -12901,25 +12901,25 @@ mov_write_subtitle_tag.exit.i:                    ; preds = %456, %453, %436
   %497 = zext i32 %496 to i64
   %498 = sext i32 %484 to i64
   %499 = sext i32 %481 to i64
-  %500 = tail call i64 @av_rescale(i64 noundef %497, i64 noundef %498, i64 noundef %499) #19
+  %500 = tail call i64 @av_rescale(i64 noundef %497, i64 noundef %498, i64 noundef %499) #20
   %501 = trunc i64 %500 to i32
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1684237684) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1684237684) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   %502 = getelementptr inbounds nuw i8, ptr %3, i64 76
   %503 = load i32, ptr %502, align 4, !tbaa !210
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %503) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %503) #17
   %504 = load i32, ptr %495, align 4, !tbaa !209
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %504) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %501) #16
-  tail call void @avio_w8(ptr noundef %1, i32 noundef %491) #16
-  tail call void @avio_w8(ptr noundef %1, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %504) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %501) #17
+  tail call void @avio_w8(ptr noundef %1, i32 noundef %491) #17
+  tail call void @avio_w8(ptr noundef %1, i32 noundef 0) #17
   %505 = load ptr, ptr %478, align 8, !tbaa !99
   %506 = getelementptr inbounds nuw i8, ptr %505, i64 80
   %507 = load ptr, ptr %506, align 8, !tbaa !202
-  %508 = tail call ptr @av_dict_get(ptr noundef %507, ptr noundef nonnull @.str.436, ptr noundef null, i32 noundef 0) #16
+  %508 = tail call ptr @av_dict_get(ptr noundef %507, ptr noundef nonnull @.str.436, ptr noundef null, i32 noundef 0) #17
   %.not43.i.i = icmp eq ptr %508, null
   br i1 %.not43.i.i, label %utf8len.exit.i.i, label %509
 
@@ -12974,60 +12974,60 @@ mov_write_subtitle_tag.exit.i:                    ; preds = %456, %453, %436
   br i1 %.not45.i.i, label %utf8len.exit.i.i, label %530
 
 530:                                              ; preds = %.loopexit.i.i
-  %531 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %511) #18
-  %532 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
+  %531 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %511) #19
+  %532 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
   %533 = icmp ugt i64 %531, 65534
   br i1 %533, label %534, label %535
 
 534:                                              ; preds = %530
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.437, i64 noundef %531) #16
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.437, i64 noundef %531) #17
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #17
   br label %mov_write_source_reference_tag.exit.i.i
 
 535:                                              ; preds = %530
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1701667182) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1701667182) #17
   %536 = trunc nuw nsw i64 %531 to i32
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef %536) #16
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef %536) #17
   %537 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %538 = load i32, ptr %537, align 8, !tbaa !189
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef %538) #16
-  tail call void @avio_write(ptr noundef %1, ptr noundef nonnull %511, i32 noundef %536) #16
-  %539 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %540 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %532, i32 noundef 0) #16
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef %538) #17
+  tail call void @avio_write(ptr noundef %1, ptr noundef nonnull %511, i32 noundef %536) #17
+  %539 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %540 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %532, i32 noundef 0) #17
   %541 = sub nsw i64 %539, %532
   %542 = trunc i64 %541 to i32
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %542) #16
-  %543 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %539, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %542) #17
+  %543 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %539, i32 noundef 0) #17
   br label %mov_write_source_reference_tag.exit.i.i
 
 utf8len.exit.i.i:                                 ; preds = %.loopexit.i.i, %509, %494
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #16
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #17
   br label %mov_write_source_reference_tag.exit.i.i
 
 mov_write_source_reference_tag.exit.i.i:          ; preds = %utf8len.exit.i.i, %535, %534
-  %544 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %545 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %477, i32 noundef 0) #16
+  %544 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %545 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %477, i32 noundef 0) #17
   %546 = sub nsw i64 %544, %477
   %547 = trunc i64 %546 to i32
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %547) #16
-  %548 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %544, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %547) #17
+  %548 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %544, i32 noundef 0) #17
   br label %mov_write_audio_tag.exit.i
 
 549:                                              ; preds = %462
-  %550 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1684893799) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  %551 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %552 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %550, i32 noundef 0) #16
+  %550 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1684893799) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  %551 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %552 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %550, i32 noundef 0) #17
   %553 = sub nsw i64 %551, %550
   %554 = trunc i64 %553 to i32
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %554) #16
-  %555 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %551, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %554) #17
+  %555 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %551, i32 noundef 0) #17
   br label %mov_write_audio_tag.exit.i
 
 mov_write_audio_tag.exit.i:                       ; preds = %549, %mov_write_source_reference_tag.exit.i.i, %465, %mov_write_subtitle_tag.exit.i, %415, %17
@@ -13036,12 +13036,12 @@ mov_write_audio_tag.exit.i:                       ; preds = %549, %mov_write_sou
   br i1 %556, label %mov_write_stsd_tag.exit.thread, label %mov_write_stsd_tag.exit
 
 mov_write_stsd_tag.exit:                          ; preds = %462, %mov_write_audio_tag.exit.i
-  %557 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %558 = call i64 @avio_seek(ptr noundef %1, i64 noundef %13, i32 noundef 0) #16
+  %557 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %558 = call i64 @avio_seek(ptr noundef %1, i64 noundef %13, i32 noundef 0) #17
   %559 = sub nsw i64 %557, %13
   %560 = trunc i64 %559 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %560) #16
-  %561 = call i64 @avio_seek(ptr noundef %1, i64 noundef %557, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %560) #17
+  %561 = call i64 @avio_seek(ptr noundef %1, i64 noundef %557, i32 noundef 0) #17
   %562 = icmp slt i32 %560, 0
   br i1 %562, label %mov_write_stsd_tag.exit.thread, label %563
 
@@ -13058,7 +13058,7 @@ mov_write_stsd_tag.exit:                          ; preds = %462, %mov_write_aud
   br i1 %.not.i, label %570, label %577
 
 570:                                              ; preds = %567
-  %571 = call noalias ptr @av_malloc(i64 noundef 8) #16
+  %571 = call noalias ptr @av_malloc(i64 noundef 8) #17
   %.not58.i = icmp eq ptr %571, null
   br i1 %.not58.i, label %mov_write_stts_tag.exit, label %572
 
@@ -13079,7 +13079,7 @@ mov_write_stsd_tag.exit:                          ; preds = %462, %mov_write_aud
 
 580:                                              ; preds = %577
   %581 = sext i32 %579 to i64
-  %582 = call ptr @av_malloc_array(i64 noundef %581, i64 noundef 8) #16
+  %582 = call ptr @av_malloc_array(i64 noundef %581, i64 noundef 8) #17
   %.not60.i = icmp eq ptr %582, null
   br i1 %.not60.i, label %mov_write_stts_tag.exit, label %583
 
@@ -13112,7 +13112,7 @@ mov_write_stsd_tag.exit:                          ; preds = %462, %mov_write_aud
   %596 = getelementptr inbounds nuw i8, ptr %590, i64 152
   %597 = load i32, ptr %596, align 8, !tbaa !217
   %598 = sext i32 %597 to i64
-  %599 = call i64 @av_rescale(i64 noundef %595, i64 noundef 48000, i64 noundef %598) #19
+  %599 = call i64 @av_rescale(i64 noundef %595, i64 noundef 48000, i64 noundef %598) #20
   %600 = trunc i64 %599 to i32
   br label %601
 
@@ -13160,10 +13160,10 @@ mov_write_stsd_tag.exit:                          ; preds = %462, %mov_write_aud
   %.051.i = phi i32 [ 1, %572 ], [ 0, %583 ], [ %620, %._crit_edge.loopexit.i ], [ 0, %577 ]
   %621 = shl i32 %.051.i, 3
   %622 = add i32 %621, 16
-  call void @avio_wb32(ptr noundef %1, i32 noundef %622) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1937011827) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef %.051.i) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %622) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1937011827) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef %.051.i) #17
   %.not69.i = icmp eq i32 %.051.i, 0
   br i1 %.not69.i, label %._crit_edge68.i, label %.lr.ph67.preheader.i
 
@@ -13175,16 +13175,16 @@ mov_write_stsd_tag.exit:                          ; preds = %462, %mov_write_aud
   %indvars.iv.i = phi i64 [ 0, %.lr.ph67.preheader.i ], [ %indvars.iv.next.i, %.lr.ph67.i ]
   %623 = getelementptr inbounds nuw %struct.MOVStts, ptr %.053.i, i64 %indvars.iv.i
   %624 = load i32, ptr %623, align 4, !tbaa !414
-  call void @avio_wb32(ptr noundef %1, i32 noundef %624) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %624) #17
   %625 = getelementptr inbounds nuw i8, ptr %623, i64 4
   %626 = load i32, ptr %625, align 4, !tbaa !416
-  call void @avio_wb32(ptr noundef %1, i32 noundef %626) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %626) #17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge68.i, label %.lr.ph67.i, !llvm.loop !418
 
 ._crit_edge68.i:                                  ; preds = %.lr.ph67.i, %._crit_edge.i
-  call void @av_free(ptr noundef %.053.i) #16
+  call void @av_free(ptr noundef %.053.i) #17
   br label %mov_write_stts_tag.exit
 
 mov_write_stts_tag.exit:                          ; preds = %570, %580, %._crit_edge68.i
@@ -13244,10 +13244,10 @@ mov_write_stts_tag.exit:                          ; preds = %570, %580, %._crit_
   br i1 %.not57, label %.thread, label %655
 
 655:                                              ; preds = %652
-  %656 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1886676083) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  %656 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1886676083) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   %657 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %658 = load i32, ptr %657, align 4, !tbaa !63
   %659 = icmp sgt i32 %658, 0
@@ -13269,7 +13269,7 @@ mov_write_stts_tag.exit:                          ; preds = %570, %580, %._crit_
   %.not19.i = icmp eq i32 %667, 0
   %.017.i = select i1 %.not19.i, i32 16, i32 32
   %668 = or disjoint i32 %.017.i, %spec.select.i
-  call void @avio_w8(ptr noundef %1, i32 noundef %668) #16
+  call void @avio_w8(ptr noundef %1, i32 noundef %668) #17
   %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i66, 1
   %669 = load i32, ptr %657, align 4, !tbaa !63
   %670 = sext i32 %669 to i64
@@ -13277,12 +13277,12 @@ mov_write_stts_tag.exit:                          ; preds = %570, %580, %._crit_
   br i1 %671, label %661, label %mov_write_sdtp_tag.exit, !llvm.loop !419
 
 mov_write_sdtp_tag.exit:                          ; preds = %661, %655
-  %672 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %673 = call i64 @avio_seek(ptr noundef %1, i64 noundef %656, i32 noundef 0) #16
+  %672 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %673 = call i64 @avio_seek(ptr noundef %1, i64 noundef %656, i32 noundef 0) #17
   %674 = sub nsw i64 %672, %656
   %675 = trunc i64 %674 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %675) #16
-  %676 = call i64 @avio_seek(ptr noundef %1, i64 noundef %672, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %675) #17
+  %676 = call i64 @avio_seek(ptr noundef %1, i64 noundef %672, i32 noundef 0) #17
   br label %.thread
 
 .thread:                                          ; preds = %637, %mov_write_sdtp_tag.exit, %652, %649
@@ -13325,7 +13325,7 @@ mov_write_sdtp_tag.exit:                          ; preds = %661, %655
   %.val = load ptr, ptr %696, align 8, !tbaa !4
   %697 = add nsw i32 %694, 1
   %698 = sext i32 %697 to i64
-  %699 = call ptr @av_malloc_array(i64 noundef %698, i64 noundef 8) #16
+  %699 = call ptr @av_malloc_array(i64 noundef %698, i64 noundef 8) #17
   %.not.i68 = icmp eq ptr %699, null
   br i1 %.not.i68, label %mov_write_stsd_tag.exit.thread, label %700
 
@@ -13387,15 +13387,15 @@ mov_write_sdtp_tag.exit:                          ; preds = %661, %655
   %.045.lcssa.i = phi i32 [ 1, %700 ], [ %725, %._crit_edge.loopexit.i75 ]
   %726 = shl i32 %.045.lcssa.i, 3
   %727 = add i32 %726, 16
-  call void @avio_wb32(ptr noundef %1, i32 noundef %727) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1937011811) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %727) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1937011811) #17
   %728 = getelementptr inbounds nuw i8, ptr %.val, i64 64
   %729 = load i32, ptr %728, align 8, !tbaa !75
   %730 = lshr i32 %729, 19
   %.lobit.i = and i32 %730, 1
-  call void @avio_w8(ptr noundef %1, i32 noundef %.lobit.i) #16
-  call void @avio_wb24(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef %.045.lcssa.i) #16
+  call void @avio_w8(ptr noundef %1, i32 noundef %.lobit.i) #17
+  call void @avio_wb24(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef %.045.lcssa.i) #17
   %.not7.i = icmp eq i32 %.045.lcssa.i, 0
   br i1 %.not7.i, label %mov_write_ctts_tag.exit, label %.lr.ph5.preheader.i
 
@@ -13407,29 +13407,29 @@ mov_write_sdtp_tag.exit:                          ; preds = %661, %655
   %indvars.iv9.i = phi i64 [ 0, %.lr.ph5.preheader.i ], [ %indvars.iv.next10.i, %.lr.ph5.i ]
   %731 = getelementptr inbounds nuw %struct.MOVCtts, ptr %699, i64 %indvars.iv9.i
   %732 = load i32, ptr %731, align 4, !tbaa !420
-  call void @avio_wb32(ptr noundef %1, i32 noundef %732) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %732) #17
   %733 = getelementptr inbounds nuw i8, ptr %731, i64 4
   %734 = load i32, ptr %733, align 4, !tbaa !422
-  call void @avio_wb32(ptr noundef %1, i32 noundef %734) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %734) #17
   %indvars.iv.next10.i = add nuw nsw i64 %indvars.iv9.i, 1
   %exitcond13.not.i = icmp eq i64 %indvars.iv.next10.i, %wide.trip.count12.i
   br i1 %exitcond13.not.i, label %mov_write_ctts_tag.exit, label %.lr.ph5.i, !llvm.loop !424
 
 mov_write_ctts_tag.exit:                          ; preds = %.lr.ph5.i, %._crit_edge.i69
-  call void @av_free(ptr noundef nonnull %699) #16
+  call void @av_free(ptr noundef nonnull %699) #17
   %735 = icmp slt i32 %727, 0
   br i1 %735, label %mov_write_stsd_tag.exit.thread, label %736
 
 736:                                              ; preds = %mov_write_ctts_tag.exit, %692, %688, %684
-  %737 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1668510835) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  %738 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
+  %737 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1668510835) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  %738 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
   %739 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %740 = load i64, ptr %739, align 8, !tbaa !243
   %741 = trunc i64 %740 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %741) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %741) #17
   %742 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %743 = load i32, ptr %742, align 4, !tbaa !63
   %744 = icmp sgt i32 %743, 0
@@ -13459,13 +13459,13 @@ mov_write_ctts_tag.exit:                          ; preds = %.lr.ph5.i, %._crit_
   br i1 %.not37.i, label %765, label %755
 
 755:                                              ; preds = %752
-  call void @avio_wb32(ptr noundef %1, i32 noundef %754) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %754) #17
   %756 = load ptr, ptr %745, align 8, !tbaa !64
   %757 = getelementptr inbounds nuw %struct.MOVIentry, ptr %756, i64 %indvars.iv.i79
   %758 = getelementptr inbounds nuw i8, ptr %757, i64 28
   %759 = load i32, ptr %758, align 4, !tbaa !142
-  call void @avio_wb32(ptr noundef %1, i32 noundef %759) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 1) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %759) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 1) #17
   %760 = load ptr, ptr %745, align 8, !tbaa !64
   %761 = getelementptr inbounds nuw %struct.MOVIentry, ptr %760, i64 %indvars.iv.i79
   %762 = getelementptr inbounds nuw i8, ptr %761, i64 28
@@ -13486,20 +13486,20 @@ mov_write_ctts_tag.exit:                          ; preds = %.lr.ph5.i, %._crit_
 
 mov_write_stsc_tag.exit:                          ; preds = %765, %736
   %.0.lcssa.i = phi i32 [ 0, %736 ], [ %.1.i, %765 ]
-  %770 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %771 = call i64 @avio_seek(ptr noundef %1, i64 noundef %738, i32 noundef 0) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef %.0.lcssa.i) #16
-  %772 = call i64 @avio_seek(ptr noundef %1, i64 noundef %770, i32 noundef 0) #16
-  %773 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %774 = call i64 @avio_seek(ptr noundef %1, i64 noundef %737, i32 noundef 0) #16
+  %770 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %771 = call i64 @avio_seek(ptr noundef %1, i64 noundef %738, i32 noundef 0) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef %.0.lcssa.i) #17
+  %772 = call i64 @avio_seek(ptr noundef %1, i64 noundef %770, i32 noundef 0) #17
+  %773 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %774 = call i64 @avio_seek(ptr noundef %1, i64 noundef %737, i32 noundef 0) #17
   %775 = sub nsw i64 %773, %737
   %776 = trunc i64 %775 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %776) #16
-  %777 = call i64 @avio_seek(ptr noundef %1, i64 noundef %773, i32 noundef 0) #16
-  %778 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 2054386803) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %776) #17
+  %777 = call i64 @avio_seek(ptr noundef %1, i64 noundef %773, i32 noundef 0) #17
+  %778 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 2054386803) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   %779 = load i32, ptr %742, align 4, !tbaa !63
   %780 = icmp sgt i32 %779, 0
   br i1 %780, label %.lr.ph.i85, label %._crit_edge.i82
@@ -13550,13 +13550,13 @@ mov_write_stsc_tag.exit:                          ; preds = %765, %736
   %798 = load i32, ptr %797, align 4, !tbaa !145
   %799 = udiv i32 %796, %798
   %800 = call i32 @llvm.smax.i32(i32 %799, i32 1)
-  call void @avio_wb32(ptr noundef %1, i32 noundef %800) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef %.048.lcssa.i) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %800) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef %.048.lcssa.i) #17
   br label %mov_write_stsz_tag.exit
 
 801:                                              ; preds = %._crit_edge.i82
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef %.048.lcssa.i) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef %.048.lcssa.i) #17
   %802 = load i32, ptr %742, align 4, !tbaa !63
   %803 = icmp sgt i32 %802, 0
   br i1 %803, label %.preheader.lr.ph.i, label %mov_write_stsz_tag.exit
@@ -13584,7 +13584,7 @@ mov_write_stsc_tag.exit:                          ; preds = %765, %736
   %813 = getelementptr inbounds nuw i8, ptr %812, i64 24
   %814 = load i32, ptr %813, align 8, !tbaa !144
   %815 = udiv i32 %814, %810
-  call void @avio_wb32(ptr noundef %1, i32 noundef %815) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %815) #17
   %816 = add nuw nsw i32 %.04963.i, 1
   %817 = load ptr, ptr %804, align 8, !tbaa !64
   %818 = getelementptr inbounds nuw %struct.MOVIentry, ptr %817, i64 %indvars.iv69.i
@@ -13606,12 +13606,12 @@ mov_write_stsc_tag.exit:                          ; preds = %765, %736
   br i1 %825, label %.preheader.i, label %mov_write_stsz_tag.exit, !llvm.loop !428
 
 mov_write_stsz_tag.exit:                          ; preds = %._crit_edge65.i, %792, %801
-  %826 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %827 = call i64 @avio_seek(ptr noundef %1, i64 noundef %778, i32 noundef 0) #16
+  %826 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %827 = call i64 @avio_seek(ptr noundef %1, i64 noundef %778, i32 noundef 0) #17
   %828 = sub nsw i64 %826, %778
   %829 = trunc i64 %828 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %829) #16
-  %830 = call i64 @avio_seek(ptr noundef %1, i64 noundef %826, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %829) #17
+  %830 = call i64 @avio_seek(ptr noundef %1, i64 noundef %826, i32 noundef 0) #17
   %831 = load i32, ptr %742, align 4, !tbaa !63
   %832 = icmp sgt i32 %831, 0
   br i1 %832, label %833, label %844
@@ -13634,14 +13634,14 @@ mov_write_stsz_tag.exit:                          ; preds = %._crit_edge65.i, %7
 
 co64_required.exit.i:                             ; preds = %844, %833
   %.not.i92 = phi i1 [ true, %844 ], [ false, %833 ]
-  %845 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  %845 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   %spec.select = select i1 %.not.i92, i32 1868788851, i32 875982691
-  call void @avio_wl32(ptr noundef %1, i32 noundef %spec.select) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  call void @avio_wl32(ptr noundef %1, i32 noundef %spec.select) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   %846 = load i64, ptr %739, align 8, !tbaa !243
   %847 = trunc i64 %846 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %847) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %847) #17
   %848 = load i32, ptr %742, align 4, !tbaa !63
   %849 = icmp sgt i32 %848, 0
   br i1 %849, label %.lr.ph.i94, label %mov_write_stco_tag.exit
@@ -13666,7 +13666,7 @@ co64_required.exit.i:                             ; preds = %844, %833
   %859 = load i64, ptr %851, align 8, !tbaa !240
   %860 = add i64 %859, %858
   %861 = trunc i64 %860 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %861) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %861) #17
   %.pre32.i = load i32, ptr %742, align 4, !tbaa !63
   br label %862
 
@@ -13691,7 +13691,7 @@ co64_required.exit.i:                             ; preds = %844, %833
   %872 = load i64, ptr %868, align 8, !tbaa !141
   %873 = load i64, ptr %851, align 8, !tbaa !240
   %874 = add i64 %873, %872
-  call void @avio_wb64(ptr noundef %1, i64 noundef %874) #16
+  call void @avio_wb64(ptr noundef %1, i64 noundef %874) #17
   %.pre.i96 = load i32, ptr %742, align 4, !tbaa !63
   br label %875
 
@@ -13703,12 +13703,12 @@ co64_required.exit.i:                             ; preds = %844, %833
   br i1 %878, label %.lr.ph.split.i, label %mov_write_stco_tag.exit, !llvm.loop !429
 
 mov_write_stco_tag.exit:                          ; preds = %875, %862, %co64_required.exit.i
-  %879 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %880 = call i64 @avio_seek(ptr noundef %1, i64 noundef %845, i32 noundef 0) #16
+  %879 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %880 = call i64 @avio_seek(ptr noundef %1, i64 noundef %845, i32 noundef 0) #17
   %881 = sub nsw i64 %879, %845
   %882 = trunc i64 %881 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %882) #16
-  %883 = call i64 @avio_seek(ptr noundef %1, i64 noundef %879, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %882) #17
+  %883 = call i64 @avio_seek(ptr noundef %1, i64 noundef %879, i32 noundef 0) #17
   %884 = getelementptr inbounds nuw i8, ptr %3, i64 376
   %885 = load ptr, ptr %884, align 8, !tbaa !103
   %.not61 = icmp eq ptr %885, null
@@ -13722,7 +13722,7 @@ mov_write_stco_tag.exit:                          ; preds = %875, %862, %co64_re
   br i1 %.not62, label %890, label %891
 
 890:                                              ; preds = %886
-  call void @ff_mov_cenc_write_stbl_atoms(ptr noundef nonnull %884, ptr noundef %1, i64 noundef 0) #16
+  call void @ff_mov_cenc_write_stbl_atoms(ptr noundef nonnull %884, ptr noundef %1, i64 noundef 0) #17
   br label %891
 
 891:                                              ; preds = %890, %886, %mov_write_stco_tag.exit
@@ -13735,7 +13735,7 @@ mov_write_stco_tag.exit:                          ; preds = %875, %862, %co64_re
   ]
 
 895:                                              ; preds = %891, %891
-  %896 = call i64 @av_rescale_q(i64 noundef 80, i64 4294967296001, i64 206158430208001) #19
+  %896 = call i64 @av_rescale_q(i64 noundef 80, i64 4294967296001, i64 206158430208001) #20
   %897 = trunc i64 %896 to i32
   %898 = load i32, ptr %742, align 4, !tbaa !63
   %.not.i98 = icmp eq i32 %898, 0
@@ -13743,7 +13743,7 @@ mov_write_stco_tag.exit:                          ; preds = %875, %862, %co64_re
 
 899:                                              ; preds = %895
   %900 = sext i32 %898 to i64
-  %901 = call ptr @av_malloc_array(i64 noundef %900, i64 noundef 12) #16
+  %901 = call ptr @av_malloc_array(i64 noundef %900, i64 noundef 12) #17
   %.not107.i = icmp eq ptr %901, null
   br i1 %.not107.i, label %mov_preroll_write_stbl_atoms.exit, label %902
 
@@ -13762,8 +13762,8 @@ mov_write_stco_tag.exit:                          ; preds = %875, %862, %co64_re
   br i1 %907, label %.preheader.i104, label %.critedge.sink.split.i
 
 908:                                              ; preds = %902
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.448, ptr noundef nonnull @.str.8, i32 noundef 3162) #16
-  call void @abort() #17
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.448, ptr noundef nonnull @.str.8, i32 noundef 3162) #17
+  call void @abort() #18
   unreachable
 
 .preheader.i104:                                  ; preds = %.preheader121.i, %937
@@ -13860,12 +13860,12 @@ mov_write_stco_tag.exit:                          ; preds = %875, %862, %co64_re
   %.4119.i = phi i32 [ 1, %.thread.i ], [ %.194.i, %._crit_edge.i109 ]
   %949 = shl nsw i32 %.4119.i, 1
   %950 = add nsw i32 %949, 24
-  call void @avio_wb32(ptr noundef %1, i32 noundef %950) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1685088115) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 16777216) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1819045746) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 2) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef %.4119.i) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %950) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1685088115) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 16777216) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1819045746) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 2) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef %.4119.i) #17
   %.not109128.i = icmp slt i32 %.3120.i, 0
   br i1 %.not109128.i, label %._crit_edge136.critedge.i, label %.lr.ph.preheader.i99
 
@@ -13887,7 +13887,7 @@ mov_write_stco_tag.exit:                          ; preds = %875, %862, %co64_re
   %957 = load i16, ptr %956, align 4, !tbaa !431
   %958 = sext i16 %957 to i32
   %959 = sub nsw i32 0, %958
-  call void @avio_wb16(ptr noundef %1, i32 noundef %959) #16
+  call void @avio_wb16(ptr noundef %1, i32 noundef %959) #17
   br label %960
 
 960:                                              ; preds = %955, %.lr.ph.i101
@@ -13898,21 +13898,21 @@ mov_write_stco_tag.exit:                          ; preds = %875, %862, %co64_re
 ._crit_edge131.i:                                 ; preds = %960
   %961 = shl nsw i32 %948, 3
   %962 = add nsw i32 %961, 20
-  call void @avio_wb32(ptr noundef %1, i32 noundef %962) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1885823603) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1819045746) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef %948) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %962) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1885823603) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1819045746) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef %948) #17
   br label %.lr.ph135.i
 
 .lr.ph135.i:                                      ; preds = %.lr.ph135.i, %._crit_edge131.i
   %indvars.iv139.i = phi i64 [ 0, %._crit_edge131.i ], [ %indvars.iv.next140.i, %.lr.ph135.i ]
   %963 = getelementptr inbounds nuw %struct.sgpd_entry, ptr %901, i64 %indvars.iv139.i
   %964 = load i32, ptr %963, align 4, !tbaa !433
-  call void @avio_wb32(ptr noundef %1, i32 noundef %964) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %964) #17
   %965 = getelementptr inbounds nuw i8, ptr %963, i64 8
   %966 = load i32, ptr %965, align 4, !tbaa !434
-  call void @avio_wb32(ptr noundef %1, i32 noundef %966) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %966) #17
   %indvars.iv.next140.i = add nuw nsw i64 %indvars.iv139.i, 1
   %exitcond143.not.i = icmp eq i64 %indvars.iv.next140.i, %wide.trip.count.i100
   br i1 %exitcond143.not.i, label %.critedge.sink.split.i, label %.lr.ph135.i, !llvm.loop !437
@@ -13920,24 +13920,24 @@ mov_write_stco_tag.exit:                          ; preds = %875, %862, %co64_re
 ._crit_edge136.critedge.i:                        ; preds = %947
   %967 = shl nsw i32 %948, 3
   %968 = add nsw i32 %967, 20
-  call void @avio_wb32(ptr noundef %1, i32 noundef %968) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1885823603) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1819045746) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef %948) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %968) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1885823603) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1819045746) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef %948) #17
   br label %.critedge.sink.split.i
 
 .critedge.sink.split.i:                           ; preds = %.lr.ph135.i, %._crit_edge136.critedge.i, %._crit_edge.i109, %.preheader121.i
-  call void @av_free(ptr noundef nonnull %901) #16
+  call void @av_free(ptr noundef nonnull %901) #17
   br label %mov_preroll_write_stbl_atoms.exit
 
 mov_preroll_write_stbl_atoms.exit:                ; preds = %915, %.critedge.sink.split.i, %899, %895, %891
-  %969 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %970 = call i64 @avio_seek(ptr noundef %1, i64 noundef %12, i32 noundef 0) #16
+  %969 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %970 = call i64 @avio_seek(ptr noundef %1, i64 noundef %12, i32 noundef 0) #17
   %971 = sub nsw i64 %969, %12
   %972 = trunc i64 %971 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %972) #16
-  %973 = call i64 @avio_seek(ptr noundef %1, i64 noundef %969, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %972) #17
+  %973 = call i64 @avio_seek(ptr noundef %1, i64 noundef %969, i32 noundef 0) #17
   br label %mov_write_stsd_tag.exit.thread
 
 mov_write_stsd_tag.exit.thread:                   ; preds = %695, %281, %291, %mov_write_SA3D_tag.exit.i.i, %mov_write_chan_tag.exit.i.i, %404, %412, %mov_write_chan_tag.exit.thread.i.i, %493, %485, %mov_write_audio_tag.exit.i, %mov_write_ctts_tag.exit, %mov_write_stsd_tag.exit, %mov_preroll_write_stbl_atoms.exit
@@ -13947,16 +13947,16 @@ mov_write_stsd_tag.exit.thread:                   ; preds = %695, %281, %291, %m
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mov_write_stss_tag(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #0 {
-  %4 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  %4 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   %5 = icmp eq i32 %2, 1
   %6 = select i1 %5, i32 1936946291, i32 1936749683
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef %6) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  %7 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef %6) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  %7 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !63
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %9) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %9) #17
   %10 = load i32, ptr %8, align 4, !tbaa !63
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph, label %._crit_edge
@@ -13980,7 +13980,7 @@ define internal fastcc void @mov_write_stss_tag(ptr noundef %0, ptr noundef read
 
 20:                                               ; preds = %13
   %21 = trunc nuw nsw i64 %.pre33 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %21) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %21) #17
   %22 = add nsw i32 %.02529, 1
   %.pre = load i32, ptr %8, align 4, !tbaa !63
   br label %._crit_edge32
@@ -13994,16 +13994,16 @@ define internal fastcc void @mov_write_stss_tag(ptr noundef %0, ptr noundef read
 
 ._crit_edge:                                      ; preds = %._crit_edge32, %3
   %.025.lcssa = phi i32 [ 0, %3 ], [ %.1, %._crit_edge32 ]
-  %26 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %27 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %7, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.025.lcssa) #16
-  %28 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %26, i32 noundef 0) #16
-  %29 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %30 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %4, i32 noundef 0) #16
+  %26 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %27 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %7, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.025.lcssa) #17
+  %28 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %26, i32 noundef 0) #17
+  %29 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %30 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %4, i32 noundef 0) #17
   %31 = sub nsw i64 %29, %4
   %32 = trunc i64 %31 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %32) #16
-  %33 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %29, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %32) #17
+  %33 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %29, i32 noundef 0) #17
   ret void
 }
 
@@ -14014,7 +14014,7 @@ define internal fastcc noundef i32 @mov_write_video_tag(ptr noundef %0, ptr noun
   %5 = alloca %struct.AVRational, align 4
   %6 = alloca [24 x i8], align 16
   %7 = alloca [32 x i8], align 16
-  %8 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
+  %8 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 104
@@ -14045,7 +14045,7 @@ define internal fastcc noundef i32 @mov_write_video_tag(ptr noundef %0, ptr noun
 
 switch.edge:                                      ; preds = %13, %13, %13, %13, %13, %4, %4, %4, %4, %.thread400
   %16 = phi i1 [ true, %13 ], [ false, %.thread400 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ]
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %18 = load i32, ptr %17, align 8, !tbaa !281
   %.not = icmp eq i32 %18, 0
@@ -14058,19 +14058,19 @@ switch.edge:                                      ; preds = %13, %13, %13, %13, 
 
 22:                                               ; preds = %switch.edge, %19
   %.sink = phi i32 [ %21, %19 ], [ 1986227813, %switch.edge ]
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef %.sink) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 1) #16
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef %.sink) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 1) #17
   %. = select i1 %16, i32 2, i32 0
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef %.) #16
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #16
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef %.) #17
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 0) #17
   %23 = load i32, ptr %3, align 8, !tbaa !104
   %24 = icmp eq i32 %23, 2
   br i1 %24, label %25, label %32
 
 25:                                               ; preds = %22
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1347241542) #16
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1347241542) #17
   %26 = load ptr, ptr %9, align 8, !tbaa !46
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !84
@@ -14079,31 +14079,31 @@ switch.edge:                                      ; preds = %13, %13, %13, %13, 
   br i1 %or.cond, label %30, label %31
 
 30:                                               ; preds = %25
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 1024) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 1024) #17
   br label %33
 
 31:                                               ; preds = %25
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 512) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 512) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 512) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 512) #17
   br label %33
 
 32:                                               ; preds = %22
-  tail call void @ffio_fill(ptr noundef %1, i32 noundef 0, i64 noundef 12) #16
+  tail call void @ffio_fill(ptr noundef %1, i32 noundef 0, i64 noundef 12) #17
   br label %33
 
 33:                                               ; preds = %30, %31, %32
   %34 = load ptr, ptr %9, align 8, !tbaa !46
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 72
   %36 = load i32, ptr %35, align 8, !tbaa !181
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef %36) #16
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef %36) #17
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %38 = load i32, ptr %37, align 8, !tbaa !182
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef %38) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 4718592) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 4718592) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef 1) #16
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef %38) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 4718592) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 4718592) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef 1) #17
   %39 = load ptr, ptr %9, align 8, !tbaa !46
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 72
   %41 = load i32, ptr %40, align 8, !tbaa !181
@@ -14148,7 +14148,7 @@ switch.edge:                                      ; preds = %13, %13, %13, %13, 
   %59 = load ptr, ptr %58, align 8, !tbaa !99
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 80
   %61 = load ptr, ptr %60, align 8, !tbaa !202
-  %62 = tail call ptr @av_dict_get(ptr noundef %61, ptr noundef nonnull @.str.317, ptr noundef null, i32 noundef 0) #16
+  %62 = tail call ptr @av_dict_get(ptr noundef %61, ptr noundef nonnull @.str.317, ptr noundef null, i32 noundef 0) #17
   %.not.i = icmp eq ptr %62, null
   br i1 %.not.i, label %._crit_edge.i, label %63
 
@@ -14159,7 +14159,7 @@ switch.edge:                                      ; preds = %13, %13, %13, %13, 
 63:                                               ; preds = %57
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !203
-  %66 = call i64 @av_strlcpy(ptr noundef nonnull %7, ptr noundef %65, i64 noundef 32) #16
+  %66 = call i64 @av_strlcpy(ptr noundef nonnull %7, ptr noundef %65, i64 noundef 32) #17
   br label %find_compressor.exit
 
 67:                                               ; preds = %._crit_edge.i, %54
@@ -14192,7 +14192,7 @@ switch.edge:                                      ; preds = %13, %13, %13, %13, 
 
 defined_frame_rate.exit.i:                        ; preds = %78, %72
   %.0.i.i = phi i32 [ %83, %78 ], [ 0, %72 ]
-  %84 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %7, i64 noundef 32, ptr noundef nonnull @.str.318) #16
+  %84 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %7, i64 noundef 32, ptr noundef nonnull @.str.318) #17
   %85 = load ptr, ptr %9, align 8, !tbaa !46
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 44
   %87 = load i32, ptr %86, align 4, !tbaa !234
@@ -14208,22 +14208,22 @@ defined_frame_rate.exit.i:                        ; preds = %78, %72
 
 93:                                               ; preds = %89, %defined_frame_rate.exit.i
   %.str.320.sink.i = phi ptr [ @.str.319, %defined_frame_rate.exit.i ], [ %.str.320..str.321.i, %89 ]
-  %94 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %7, i64 noundef 32, ptr noundef nonnull %.str.320.sink.i) #16
+  %94 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %7, i64 noundef 32, ptr noundef nonnull %.str.320.sink.i) #17
   %95 = load ptr, ptr %9, align 8, !tbaa !46
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 76
   %97 = load i32, ptr %96, align 4, !tbaa !183
   %98 = select i1 %75, i32 105, i32 112
-  %99 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %7, i64 noundef 32, ptr noundef nonnull @.str.322, i32 noundef %97, i32 noundef %98) #16
+  %99 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %7, i64 noundef 32, ptr noundef nonnull @.str.322, i32 noundef %97, i32 noundef %98) #17
   %100 = zext i1 %75 to i32
   %101 = shl i32 %.0.i.i, %100
-  %102 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %7, i64 noundef 32, ptr noundef nonnull @.str.323, i32 noundef %101) #16
+  %102 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %7, i64 noundef 32, ptr noundef nonnull @.str.323, i32 noundef %101) #17
   br label %find_compressor.exit
 
 find_compressor.exit:                             ; preds = %63, %67, %93
-  %103 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #18
+  %103 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #19
   %104 = trunc i64 %103 to i32
-  call void @avio_w8(ptr noundef %1, i32 noundef %104) #16
-  call void @avio_write(ptr noundef %1, ptr noundef nonnull %7, i32 noundef 31) #16
+  call void @avio_w8(ptr noundef %1, i32 noundef %104) #17
+  call void @avio_write(ptr noundef %1, ptr noundef nonnull %7, i32 noundef 31) #17
   %105 = load i32, ptr %3, align 8, !tbaa !104
   %106 = icmp eq i32 %105, 2
   br i1 %106, label %107, label %120
@@ -14253,7 +14253,7 @@ find_compressor.exit:                             ; preds = %63, %67, %93
 
 120:                                              ; preds = %111, %find_compressor.exit, %107, %107, %114
   %.sink453 = phi i32 [ %119, %114 ], [ 24, %107 ], [ 24, %107 ], [ 24, %find_compressor.exit ], [ 24, %111 ]
-  call void @avio_wb16(ptr noundef %1, i32 noundef %.sink453) #16
+  call void @avio_wb16(ptr noundef %1, i32 noundef %.sink453) #17
   %121 = load i32, ptr %3, align 8, !tbaa !104
   %122 = icmp eq i32 %121, 2
   br i1 %122, label %123, label %147
@@ -14266,9 +14266,9 @@ find_compressor.exit:                             ; preds = %63, %67, %93
   br i1 %127, label %128, label %147
 
 128:                                              ; preds = %123
-  call void @avio_wb16(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wb16(ptr noundef %1, i32 noundef 32768) #16
+  call void @avio_wb16(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wb16(ptr noundef %1, i32 noundef 32768) #17
   %129 = load ptr, ptr %9, align 8, !tbaa !46
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 56
   %131 = load i32, ptr %130, align 8, !tbaa !233
@@ -14278,7 +14278,7 @@ find_compressor.exit:                             ; preds = %63, %67, %93
 132:                                              ; preds = %128
   %133 = shl nuw nsw i32 1, %131
   %134 = add nsw i32 %133, -1
-  call void @avio_wb16(ptr noundef %1, i32 noundef %134) #16
+  call void @avio_wb16(ptr noundef %1, i32 noundef %134) #17
   %135 = getelementptr inbounds nuw i8, ptr %3, i64 520
   %wide.trip.count = zext nneg i32 %133 to i64
   br label %136
@@ -14291,20 +14291,20 @@ find_compressor.exit:                             ; preds = %63, %67, %93
   %140 = and i32 %139, 255
   %141 = lshr i32 %138, 8
   %142 = and i32 %138, 255
-  call void @avio_wb16(ptr noundef %1, i32 noundef 0) #16
+  call void @avio_wb16(ptr noundef %1, i32 noundef 0) #17
   %143 = mul nuw nsw i32 %140, 257
-  call void @avio_wb16(ptr noundef %1, i32 noundef %143) #16
+  call void @avio_wb16(ptr noundef %1, i32 noundef %143) #17
   %144 = and i32 %141, 255
   %145 = mul nuw nsw i32 %144, 257
-  call void @avio_wb16(ptr noundef %1, i32 noundef %145) #16
+  call void @avio_wb16(ptr noundef %1, i32 noundef %145) #17
   %146 = mul nuw nsw i32 %142, 257
-  call void @avio_wb16(ptr noundef %1, i32 noundef %146) #16
+  call void @avio_wb16(ptr noundef %1, i32 noundef %146) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %136, !llvm.loop !439
 
 147:                                              ; preds = %123, %120
-  call void @avio_wb16(ptr noundef %1, i32 noundef 65535) #16
+  call void @avio_wb16(ptr noundef %1, i32 noundef 65535) #17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %136, %147
@@ -14340,12 +14340,12 @@ find_compressor.exit:                             ; preds = %63, %67, %93
   ]
 
 157:                                              ; preds = %153
-  call void @avio_wb32(ptr noundef %1, i32 noundef 15) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 859189860) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1347241542) #16
-  call void @avio_w8(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_w8(ptr noundef %1, i32 noundef 10) #16
-  call void @avio_w8(ptr noundef %1, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef 15) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 859189860) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1347241542) #17
+  call void @avio_w8(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_w8(ptr noundef %1, i32 noundef 10) #17
+  call void @avio_w8(ptr noundef %1, i32 noundef 0) #17
   br label %mov_write_avid_tag.exit
 
 158:                                              ; preds = %153, %153
@@ -14353,8 +14353,8 @@ find_compressor.exit:                             ; preds = %63, %67, %93
   %160 = load ptr, ptr %159, align 8, !tbaa !98
   %161 = getelementptr inbounds nuw i8, ptr %154, i64 24
   %162 = load i32, ptr %161, align 8, !tbaa !95
-  call void @avio_write(ptr noundef %1, ptr noundef %160, i32 noundef %162) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  call void @avio_write(ptr noundef %1, ptr noundef %160, i32 noundef %162) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   br label %mov_write_avid_tag.exit
 
 163:                                              ; preds = %153
@@ -14404,52 +14404,52 @@ ff_dnxhd_check_header_prefix.exit.thread68.i:     ; preds = %182, %172, %172
   %192 = getelementptr inbounds nuw i8, ptr %167, i64 40
   %193 = load i32, ptr %192, align 1, !tbaa !88
   %194 = call i32 @llvm.bswap.i32(i32 %193)
-  call void @avio_wb32(ptr noundef %1, i32 noundef 24) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1380729665) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1380729665) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 825241648) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef 24) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1380729665) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1380729665) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 825241648) #17
   %195 = load ptr, ptr %9, align 8, !tbaa !46
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 100
   %197 = load i32, ptr %196, align 4, !tbaa !440
   %switch.i = icmp ult i32 %197, 2
   %..i = select i1 %switch.i, i32 1, i32 2
-  call void @avio_wb32(ptr noundef %1, i32 noundef %..i) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %..i) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   %198 = load i32, ptr %148, align 8, !tbaa !96
   %199 = icmp eq i32 %198, 1751406145
   br i1 %199, label %201, label %202
 
 ff_dnxhd_check_header_prefix.exit.thread.i:       ; preds = %182
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str.326) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str.326) #17
   br label %mov_write_avid_tag.exit
 
 200:                                              ; preds = %168, %163
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str.327) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str.327) #17
   br label %mov_write_avid_tag.exit
 
 201:                                              ; preds = %ff_dnxhd_check_header_prefix.exit.thread68.i
-  call void @avio_wb32(ptr noundef %1, i32 noundef 32) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1380467777) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 825241648) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef %194) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef 32) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1380467777) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 825241648) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef %194) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   br label %mov_write_avid_tag.exit
 
 202:                                              ; preds = %ff_dnxhd_check_header_prefix.exit.thread68.i
-  call void @avio_wb32(ptr noundef %1, i32 noundef 24) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1196576833) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1196576833) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 825241648) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 120) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1397051969) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1397051969) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 825241648) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef %194) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef 24) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1196576833) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1196576833) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 825241648) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 120) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1397051969) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1397051969) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 825241648) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef %194) #17
   %203 = load ptr, ptr %9, align 8, !tbaa !46
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 80
   %205 = load i32, ptr %204, align 8, !tbaa !402
@@ -14469,7 +14469,7 @@ ff_dnxhd_check_header_prefix.exit.thread.i:       ; preds = %182
 
 214:                                              ; preds = %211, %207, %202
   %.0.i = phi i32 [ %213, %211 ], [ %165, %207 ], [ %165, %202 ]
-  call void @avio_wb32(ptr noundef %1, i32 noundef %.0.i) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %.0.i) #17
   %.not64.i = icmp eq i8 %191, 0
   %215 = load ptr, ptr %9, align 8, !tbaa !46
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 76
@@ -14478,15 +14478,15 @@ ff_dnxhd_check_header_prefix.exit.thread.i:       ; preds = %182
 
 218:                                              ; preds = %214
   %219 = sdiv i32 %217, 2
-  call void @avio_wb32(ptr noundef %1, i32 noundef %219) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 2) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %219) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 2) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   br label %225
 
 220:                                              ; preds = %214
-  call void @avio_wb32(ptr noundef %1, i32 noundef %217) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %217) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   %221 = load ptr, ptr %9, align 8, !tbaa !46
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 76
   %223 = load i32, ptr %222, align 4, !tbaa !183
@@ -14496,16 +14496,16 @@ ff_dnxhd_check_header_prefix.exit.thread.i:       ; preds = %182
 
 225:                                              ; preds = %220, %218
   %.sink79.i = phi i32 [ 4, %218 ], [ %.80.i, %220 ]
-  call void @avio_wb32(ptr noundef %1, i32 noundef %.sink79.i) #16
-  call void @ffio_fill(ptr noundef %1, i32 noundef 0, i64 noundef 80) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %.sink79.i) #17
+  call void @ffio_fill(ptr noundef %1, i32 noundef 0, i64 noundef 80) #17
   br label %mov_write_avid_tag.exit
 
 226:                                              ; preds = %153
   %227 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %228 = load ptr, ptr %227, align 8, !tbaa !111
-  %229 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1130591848) #16
+  %229 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1130591848) #17
   %230 = load i32, ptr %148, align 8, !tbaa !96
   %231 = icmp eq i32 %230, 828601960
   %232 = getelementptr inbounds nuw i8, ptr %3, i64 128
@@ -14513,13 +14513,13 @@ ff_dnxhd_check_header_prefix.exit.thread.i:       ; preds = %182
   %234 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %235 = load i32, ptr %234, align 8, !tbaa !94
   %..i372 = zext i1 %231 to i32
-  %236 = call i32 @ff_isom_write_hvcc(ptr noundef %1, ptr noundef %233, i32 noundef %235, i32 noundef %..i372, ptr noundef %228) #16
-  %237 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %238 = call i64 @avio_seek(ptr noundef %1, i64 noundef %229, i32 noundef 0) #16
+  %236 = call i32 @ff_isom_write_hvcc(ptr noundef %1, ptr noundef %233, i32 noundef %235, i32 noundef %..i372, ptr noundef %228) #17
+  %237 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %238 = call i64 @avio_seek(ptr noundef %1, i64 noundef %229, i32 noundef 0) #17
   %239 = sub nsw i64 %237, %229
   %240 = trunc i64 %239 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %240) #16
-  %241 = call i64 @avio_seek(ptr noundef %1, i64 noundef %237, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %240) #17
+  %241 = call i64 @avio_seek(ptr noundef %1, i64 noundef %237, i32 noundef 0) #17
   %242 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %243 = load ptr, ptr %242, align 8, !tbaa !99
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 64
@@ -14530,43 +14530,43 @@ ff_dnxhd_check_header_prefix.exit.thread.i:       ; preds = %182
 
 247:                                              ; preds = %226
   %248 = load ptr, ptr %227, align 8, !tbaa !111
-  %249 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1131833452) #16
+  %249 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1131833452) #17
   %250 = load i32, ptr %148, align 8, !tbaa !96
   %251 = icmp eq i32 %250, 828601960
   %252 = load ptr, ptr %232, align 8, !tbaa !97
   %253 = load i32, ptr %234, align 8, !tbaa !94
   %..i373 = zext i1 %251 to i32
-  %254 = call i32 @ff_isom_write_lhvc(ptr noundef %1, ptr noundef %252, i32 noundef %253, i32 noundef %..i373, ptr noundef %248) #16
+  %254 = call i32 @ff_isom_write_lhvc(ptr noundef %1, ptr noundef %252, i32 noundef %253, i32 noundef %..i373, ptr noundef %248) #17
   %255 = icmp slt i32 %254, 0
   br i1 %255, label %mov_write_lhvc_tag.exit.thread, label %mov_write_lhvc_tag.exit
 
 mov_write_lhvc_tag.exit.thread:                   ; preds = %247
-  %256 = call i64 @avio_seek(ptr noundef %1, i64 noundef %249, i32 noundef 0) #16
+  %256 = call i64 @avio_seek(ptr noundef %1, i64 noundef %249, i32 noundef 0) #17
   br label %263
 
 mov_write_lhvc_tag.exit:                          ; preds = %247
-  %257 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %258 = call i64 @avio_seek(ptr noundef %1, i64 noundef %249, i32 noundef 0) #16
+  %257 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %258 = call i64 @avio_seek(ptr noundef %1, i64 noundef %249, i32 noundef 0) #17
   %259 = sub nsw i64 %257, %249
   %260 = trunc i64 %259 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %260) #16
-  %261 = call i64 @avio_seek(ptr noundef %1, i64 noundef %257, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %260) #17
+  %261 = call i64 @avio_seek(ptr noundef %1, i64 noundef %257, i32 noundef 0) #17
   %262 = icmp slt i32 %260, 0
   br i1 %262, label %263, label %mov_write_avid_tag.exit
 
 263:                                              ; preds = %mov_write_lhvc_tag.exit.thread, %mov_write_lhvc_tag.exit
   %264 = load ptr, ptr %227, align 8, !tbaa !111
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %264, i32 noundef 24, ptr noundef nonnull @.str.311) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %264, i32 noundef 24, ptr noundef nonnull @.str.311) #17
   br label %mov_write_avid_tag.exit
 
 265:                                              ; preds = %153
-  %266 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1130591862) #16
-  call void @avio_w8(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wb24(ptr noundef %1, i32 noundef 0) #16
+  %266 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1130591862) #17
+  call void @avio_w8(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wb24(ptr noundef %1, i32 noundef 0) #17
   %267 = load i32, ptr %148, align 8, !tbaa !96
   %268 = icmp eq i32 %267, 828601974
   %269 = getelementptr inbounds nuw i8, ptr %3, i64 128
@@ -14574,13 +14574,13 @@ mov_write_lhvc_tag.exit:                          ; preds = %247
   %271 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %272 = load i32, ptr %271, align 8, !tbaa !94
   %..i374 = zext i1 %268 to i32
-  %273 = call i32 @ff_isom_write_vvcc(ptr noundef %1, ptr noundef %270, i32 noundef %272, i32 noundef %..i374) #16
-  %274 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %275 = call i64 @avio_seek(ptr noundef %1, i64 noundef %266, i32 noundef 0) #16
+  %273 = call i32 @ff_isom_write_vvcc(ptr noundef %1, ptr noundef %270, i32 noundef %272, i32 noundef %..i374) #17
+  %274 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %275 = call i64 @avio_seek(ptr noundef %1, i64 noundef %266, i32 noundef 0) #17
   %276 = sub nsw i64 %274, %266
   %277 = trunc i64 %276 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %277) #16
-  %278 = call i64 @avio_seek(ptr noundef %1, i64 noundef %274, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %277) #17
+  %278 = call i64 @avio_seek(ptr noundef %1, i64 noundef %274, i32 noundef 0) #17
   br label %mov_write_avid_tag.exit
 
 279:                                              ; preds = %153
@@ -14612,9 +14612,9 @@ mov_write_lhvc_tag.exit:                          ; preds = %247
   br label %mov_write_avid_tag.exit
 
 284:                                              ; preds = %153
-  %285 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1130591845) #16
+  %285 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1130591845) #17
   %286 = load i32, ptr %148, align 8, !tbaa !96
   %287 = icmp eq i32 %286, 828601957
   %288 = getelementptr inbounds nuw i8, ptr %3, i64 128
@@ -14622,39 +14622,39 @@ mov_write_lhvc_tag.exit:                          ; preds = %247
   %290 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %291 = load i32, ptr %290, align 8, !tbaa !94
   %..i375 = zext i1 %287 to i32
-  %292 = call i32 @ff_isom_write_evcc(ptr noundef %1, ptr noundef %289, i32 noundef %291, i32 noundef %..i375) #16
-  %293 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %294 = call i64 @avio_seek(ptr noundef %1, i64 noundef %285, i32 noundef 0) #16
+  %292 = call i32 @ff_isom_write_evcc(ptr noundef %1, ptr noundef %289, i32 noundef %291, i32 noundef %..i375) #17
+  %293 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %294 = call i64 @avio_seek(ptr noundef %1, i64 noundef %285, i32 noundef 0) #17
   %295 = sub nsw i64 %293, %285
   %296 = trunc i64 %295 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %296) #16
-  %297 = call i64 @avio_seek(ptr noundef %1, i64 noundef %293, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %296) #17
+  %297 = call i64 @avio_seek(ptr noundef %1, i64 noundef %293, i32 noundef 0) #17
   br label %mov_write_avid_tag.exit
 
 298:                                              ; preds = %153
   %299 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %300 = load ptr, ptr %299, align 8, !tbaa !111
-  %301 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1130590326) #16
+  %301 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1130590326) #17
   %302 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %303 = load ptr, ptr %302, align 8, !tbaa !97
   %304 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %305 = load i32, ptr %304, align 8, !tbaa !94
   %306 = load ptr, ptr %9, align 8, !tbaa !46
-  %307 = call i32 @ff_isom_write_vpcc(ptr noundef %300, ptr noundef %1, ptr noundef %303, i32 noundef %305, ptr noundef %306) #16
-  %308 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %309 = call i64 @avio_seek(ptr noundef %1, i64 noundef %301, i32 noundef 0) #16
+  %307 = call i32 @ff_isom_write_vpcc(ptr noundef %300, ptr noundef %1, ptr noundef %303, i32 noundef %305, ptr noundef %306) #17
+  %308 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %309 = call i64 @avio_seek(ptr noundef %1, i64 noundef %301, i32 noundef 0) #17
   %310 = sub nsw i64 %308, %301
   %311 = trunc i64 %310 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %311) #16
-  %312 = call i64 @avio_seek(ptr noundef %1, i64 noundef %308, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %311) #17
+  %312 = call i64 @avio_seek(ptr noundef %1, i64 noundef %308, i32 noundef 0) #17
   br label %mov_write_avid_tag.exit
 
 313:                                              ; preds = %153
-  %314 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1127315041) #16
+  %314 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1127315041) #17
   %315 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %316 = load ptr, ptr %315, align 8, !tbaa !97
   %317 = getelementptr inbounds nuw i8, ptr %3, i64 120
@@ -14662,13 +14662,13 @@ mov_write_lhvc_tag.exit:                          ; preds = %247
   %319 = load i32, ptr %3, align 8, !tbaa !104
   %320 = icmp ne i32 %319, 256
   %321 = zext i1 %320 to i32
-  %322 = call i32 @ff_isom_write_av1c(ptr noundef %1, ptr noundef %316, i32 noundef %318, i32 noundef %321) #16
-  %323 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %324 = call i64 @avio_seek(ptr noundef %1, i64 noundef %314, i32 noundef 0) #16
+  %322 = call i32 @ff_isom_write_av1c(ptr noundef %1, ptr noundef %316, i32 noundef %318, i32 noundef %321) #17
+  %323 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %324 = call i64 @avio_seek(ptr noundef %1, i64 noundef %314, i32 noundef 0) #17
   %325 = sub nsw i64 %323, %314
   %326 = trunc i64 %325 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %326) #16
-  %327 = call i64 @avio_seek(ptr noundef %1, i64 noundef %323, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %326) #17
+  %327 = call i64 @avio_seek(ptr noundef %1, i64 noundef %323, i32 noundef 0) #17
   br label %mov_write_avid_tag.exit
 
 328:                                              ; preds = %153
@@ -14728,9 +14728,9 @@ mov_write_avid_tag.exit:                          ; preds = %153, %153, %225, %2
   %353 = getelementptr inbounds nuw i16, ptr @fiel_data, i64 %352
   %354 = load i16, ptr %353, align 2, !tbaa !89
   %355 = zext i16 %354 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef 10) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1818585446) #16
-  call void @avio_wb16(ptr noundef %1, i32 noundef %355) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef 10) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1818585446) #17
+  call void @avio_wb16(ptr noundef %1, i32 noundef %355) #17
   br label %mov_write_fiel_tag.exit
 
 mov_write_fiel_tag.exit:                          ; preds = %351, %347, %mov_write_avid_tag.exit, %mov_write_avid_tag.exit, %mov_write_avid_tag.exit
@@ -14756,12 +14756,12 @@ mov_write_fiel_tag.exit:                          ; preds = %351, %347, %mov_wri
   %368 = load ptr, ptr %9, align 8, !tbaa !46
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 108
   %370 = load i32, ptr %369, align 4, !tbaa !442
-  %371 = call nsz double @av_csp_approximate_trc_gamma(i32 noundef %370) #16
+  %371 = call nsz double @av_csp_approximate_trc_gamma(i32 noundef %370) #17
   br label %372
 
 372:                                              ; preds = %367, %362
   %.0.i377 = phi nsz double [ %371, %367 ], [ %365, %362 ]
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.349, double noundef %.0.i377) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.349, double noundef %.0.i377) #17
   %373 = fcmp nsz ogt double %.0.i377, 0x3EB0C6F7A0B5ED8D
   br i1 %373, label %374, label %382
 
@@ -14769,30 +14769,30 @@ mov_write_fiel_tag.exit:                          ; preds = %351, %347, %mov_wri
   %375 = fmul nsz double %.0.i377, 6.553600e+04
   %376 = call i64 @llvm.lrint.i64.f64(double %375)
   %377 = trunc i64 %376 to i32
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.350, i32 noundef %377) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.350, i32 noundef %377) #17
   %378 = load i32, ptr %3, align 8, !tbaa !104
   %379 = icmp eq i32 %378, 2
   br i1 %379, label %381, label %380
 
 380:                                              ; preds = %374
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.351, ptr noundef nonnull @.str.8, i32 noundef 2447) #16
-  call void @abort() #17
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.351, ptr noundef nonnull @.str.8, i32 noundef 2447) #17
+  call void @abort() #18
   unreachable
 
 381:                                              ; preds = %374
-  call void @avio_wb32(ptr noundef %1, i32 noundef 12) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1634558311) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef %377) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef 12) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1634558311) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef %377) #17
   br label %mov_write_gama_tag.exit
 
 382:                                              ; preds = %372
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.353) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.353) #17
   br label %mov_write_gama_tag.exit
 
 383:                                              ; preds = %359
   %384 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %385 = load ptr, ptr %384, align 8, !tbaa !111
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %385, i32 noundef 24, ptr noundef nonnull @.str.312) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %385, i32 noundef 24, ptr noundef nonnull @.str.312) #17
   br label %mov_write_gama_tag.exit
 
 mov_write_gama_tag.exit:                          ; preds = %382, %381, %383, %mov_write_fiel_tag.exit
@@ -14837,7 +14837,7 @@ mov_write_gama_tag.exit:                          ; preds = %382, %381, %383, %m
   %405 = load ptr, ptr %404, align 8, !tbaa !322
   %406 = getelementptr inbounds nuw i8, ptr %403, i64 40
   %407 = load i32, ptr %406, align 8, !tbaa !323
-  %408 = call ptr @av_packet_side_data_get(ptr noundef %405, i32 noundef %407, i32 noundef 28) #16
+  %408 = call ptr @av_packet_side_data_get(ptr noundef %405, i32 noundef %407, i32 noundef 28) #17
   %.not340 = icmp eq ptr %408, null
   br i1 %.not340, label %422, label %409
 
@@ -14860,7 +14860,7 @@ mov_write_gama_tag.exit:                          ; preds = %382, %381, %383, %m
 419:                                              ; preds = %416
   %420 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %421 = load ptr, ptr %420, align 8, !tbaa !111
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %421, i32 noundef 24, ptr noundef nonnull @.str.313) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %421, i32 noundef 24, ptr noundef nonnull @.str.313) #17
   br label %422
 
 422:                                              ; preds = %399, %409, %416, %419
@@ -14878,19 +14878,19 @@ mov_write_gama_tag.exit:                          ; preds = %382, %381, %383, %m
   %.val.val.val = load ptr, ptr %427, align 8, !tbaa !322
   %428 = getelementptr i8, ptr %.val.val, i64 40
   %.val.val.val359 = load i32, ptr %428, align 8, !tbaa !323
-  %429 = call ptr @av_packet_side_data_get(ptr noundef %.val.val.val, i32 noundef %.val.val.val359, i32 noundef 22) #16
+  %429 = call ptr @av_packet_side_data_get(ptr noundef %.val.val.val, i32 noundef %.val.val.val359, i32 noundef 22) #17
   %.not.i378 = icmp eq ptr %429, null
   br i1 %.not.i378, label %mov_write_clli_tag.exit, label %430
 
 430:                                              ; preds = %424
   %431 = load ptr, ptr %429, align 8, !tbaa !347
-  call void @avio_wb32(ptr noundef %1, i32 noundef 12) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1768713315) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef 12) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1768713315) #17
   %432 = load i32, ptr %431, align 4, !tbaa !445
-  call void @avio_wb16(ptr noundef %1, i32 noundef %432) #16
+  call void @avio_wb16(ptr noundef %1, i32 noundef %432) #17
   %433 = getelementptr inbounds nuw i8, ptr %431, i64 4
   %434 = load i32, ptr %433, align 4, !tbaa !447
-  call void @avio_wb16(ptr noundef %1, i32 noundef %434) #16
+  call void @avio_wb16(ptr noundef %1, i32 noundef %434) #17
   br label %mov_write_clli_tag.exit
 
 mov_write_clli_tag.exit:                          ; preds = %424, %430
@@ -14901,7 +14901,7 @@ mov_write_clli_tag.exit:                          ; preds = %424, %430
   %.val360.val.val = load ptr, ptr %436, align 8, !tbaa !322
   %437 = getelementptr i8, ptr %.val360.val, i64 40
   %.val360.val.val361 = load i32, ptr %437, align 8, !tbaa !323
-  %438 = call ptr @av_packet_side_data_get(ptr noundef %.val360.val.val, i32 noundef %.val360.val.val361, i32 noundef 20) #16
+  %438 = call ptr @av_packet_side_data_get(ptr noundef %.val360.val.val, i32 noundef %.val360.val.val361, i32 noundef 20) #17
   %.not.i380 = icmp eq ptr %438, null
   br i1 %.not.i380, label %mov_write_mdcv_tag.exit, label %439
 
@@ -14923,87 +14923,87 @@ mov_write_clli_tag.exit:                          ; preds = %424, %430
   br i1 %.not33.i, label %mov_write_mdcv_tag.exit, label %447
 
 447:                                              ; preds = %444
-  call void @avio_wb32(ptr noundef %1, i32 noundef 32) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1986225261) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef 32) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1986225261) #17
   %448 = getelementptr inbounds nuw i8, ptr %440, i64 16
   %449 = load i64, ptr %448, align 4
   %sext.i.i = shl i64 %449, 32
   %450 = ashr exact i64 %sext.i.i, 32
   %451 = ashr i64 %449, 32
-  %452 = call i64 @av_rescale(i64 noundef %450, i64 noundef 50000, i64 noundef %451) #19
+  %452 = call i64 @av_rescale(i64 noundef %450, i64 noundef 50000, i64 noundef %451) #20
   %453 = trunc i64 %452 to i32
-  call void @avio_wb16(ptr noundef %1, i32 noundef %453) #16
+  call void @avio_wb16(ptr noundef %1, i32 noundef %453) #17
   %454 = getelementptr inbounds nuw i8, ptr %440, i64 24
   %455 = load i64, ptr %454, align 4
   %sext.i34.i = shl i64 %455, 32
   %456 = ashr exact i64 %sext.i34.i, 32
   %457 = ashr i64 %455, 32
-  %458 = call i64 @av_rescale(i64 noundef %456, i64 noundef 50000, i64 noundef %457) #19
+  %458 = call i64 @av_rescale(i64 noundef %456, i64 noundef 50000, i64 noundef %457) #20
   %459 = trunc i64 %458 to i32
-  call void @avio_wb16(ptr noundef %1, i32 noundef %459) #16
+  call void @avio_wb16(ptr noundef %1, i32 noundef %459) #17
   %460 = getelementptr inbounds nuw i8, ptr %440, i64 32
   %461 = load i64, ptr %460, align 4
   %sext.i35.i = shl i64 %461, 32
   %462 = ashr exact i64 %sext.i35.i, 32
   %463 = ashr i64 %461, 32
-  %464 = call i64 @av_rescale(i64 noundef %462, i64 noundef 50000, i64 noundef %463) #19
+  %464 = call i64 @av_rescale(i64 noundef %462, i64 noundef 50000, i64 noundef %463) #20
   %465 = trunc i64 %464 to i32
-  call void @avio_wb16(ptr noundef %1, i32 noundef %465) #16
+  call void @avio_wb16(ptr noundef %1, i32 noundef %465) #17
   %466 = getelementptr inbounds nuw i8, ptr %440, i64 40
   %467 = load i64, ptr %466, align 4
   %sext.i36.i = shl i64 %467, 32
   %468 = ashr exact i64 %sext.i36.i, 32
   %469 = ashr i64 %467, 32
-  %470 = call i64 @av_rescale(i64 noundef %468, i64 noundef 50000, i64 noundef %469) #19
+  %470 = call i64 @av_rescale(i64 noundef %468, i64 noundef 50000, i64 noundef %469) #20
   %471 = trunc i64 %470 to i32
-  call void @avio_wb16(ptr noundef %1, i32 noundef %471) #16
+  call void @avio_wb16(ptr noundef %1, i32 noundef %471) #17
   %472 = load i64, ptr %440, align 4
   %sext.i37.i = shl i64 %472, 32
   %473 = ashr exact i64 %sext.i37.i, 32
   %474 = ashr i64 %472, 32
-  %475 = call i64 @av_rescale(i64 noundef %473, i64 noundef 50000, i64 noundef %474) #19
+  %475 = call i64 @av_rescale(i64 noundef %473, i64 noundef 50000, i64 noundef %474) #20
   %476 = trunc i64 %475 to i32
-  call void @avio_wb16(ptr noundef %1, i32 noundef %476) #16
+  call void @avio_wb16(ptr noundef %1, i32 noundef %476) #17
   %477 = getelementptr inbounds nuw i8, ptr %440, i64 8
   %478 = load i64, ptr %477, align 4
   %sext.i38.i = shl i64 %478, 32
   %479 = ashr exact i64 %sext.i38.i, 32
   %480 = ashr i64 %478, 32
-  %481 = call i64 @av_rescale(i64 noundef %479, i64 noundef 50000, i64 noundef %480) #19
+  %481 = call i64 @av_rescale(i64 noundef %479, i64 noundef 50000, i64 noundef %480) #20
   %482 = trunc i64 %481 to i32
-  call void @avio_wb16(ptr noundef %1, i32 noundef %482) #16
+  call void @avio_wb16(ptr noundef %1, i32 noundef %482) #17
   %483 = getelementptr inbounds nuw i8, ptr %440, i64 48
   %484 = load i64, ptr %483, align 4
   %sext.i39.i = shl i64 %484, 32
   %485 = ashr exact i64 %sext.i39.i, 32
   %486 = ashr i64 %484, 32
-  %487 = call i64 @av_rescale(i64 noundef %485, i64 noundef 50000, i64 noundef %486) #19
+  %487 = call i64 @av_rescale(i64 noundef %485, i64 noundef 50000, i64 noundef %486) #20
   %488 = trunc i64 %487 to i32
-  call void @avio_wb16(ptr noundef %1, i32 noundef %488) #16
+  call void @avio_wb16(ptr noundef %1, i32 noundef %488) #17
   %489 = getelementptr inbounds nuw i8, ptr %440, i64 56
   %490 = load i64, ptr %489, align 4
   %sext.i40.i = shl i64 %490, 32
   %491 = ashr exact i64 %sext.i40.i, 32
   %492 = ashr i64 %490, 32
-  %493 = call i64 @av_rescale(i64 noundef %491, i64 noundef 50000, i64 noundef %492) #19
+  %493 = call i64 @av_rescale(i64 noundef %491, i64 noundef 50000, i64 noundef %492) #20
   %494 = trunc i64 %493 to i32
-  call void @avio_wb16(ptr noundef %1, i32 noundef %494) #16
+  call void @avio_wb16(ptr noundef %1, i32 noundef %494) #17
   %495 = getelementptr inbounds nuw i8, ptr %440, i64 72
   %496 = load i64, ptr %495, align 4
   %sext.i41.i = shl i64 %496, 32
   %497 = ashr exact i64 %sext.i41.i, 32
   %498 = ashr i64 %496, 32
-  %499 = call i64 @av_rescale(i64 noundef %497, i64 noundef 10000, i64 noundef %498) #19
+  %499 = call i64 @av_rescale(i64 noundef %497, i64 noundef 10000, i64 noundef %498) #20
   %500 = trunc i64 %499 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %500) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %500) #17
   %501 = getelementptr inbounds nuw i8, ptr %440, i64 64
   %502 = load i64, ptr %501, align 4
   %sext.i42.i = shl i64 %502, 32
   %503 = ashr exact i64 %sext.i42.i, 32
   %504 = ashr i64 %502, 32
-  %505 = call i64 @av_rescale(i64 noundef %503, i64 noundef 10000, i64 noundef %504) #19
+  %505 = call i64 @av_rescale(i64 noundef %503, i64 noundef 10000, i64 noundef %504) #20
   %506 = trunc i64 %505 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %506) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %506) #17
   br label %mov_write_mdcv_tag.exit
 
 mov_write_mdcv_tag.exit:                          ; preds = %mov_write_clli_tag.exit, %439, %441, %444, %447
@@ -15014,7 +15014,7 @@ mov_write_mdcv_tag.exit:                          ; preds = %mov_write_clli_tag.
   %.val362.val.val = load ptr, ptr %508, align 8, !tbaa !322
   %509 = getelementptr i8, ptr %.val362.val, i64 40
   %.val362.val.val363 = load i32, ptr %509, align 8, !tbaa !323
-  %510 = call ptr @av_packet_side_data_get(ptr noundef %.val362.val.val, i32 noundef %.val362.val.val363, i32 noundef 35) #16
+  %510 = call ptr @av_packet_side_data_get(ptr noundef %.val362.val.val, i32 noundef %.val362.val.val363, i32 noundef 35) #17
   %.not.i381 = icmp eq ptr %510, null
   br i1 %.not.i381, label %mov_write_amve_tag.exit, label %511
 
@@ -15029,31 +15029,31 @@ mov_write_mdcv_tag.exit:                          ; preds = %mov_write_clli_tag.
   br i1 %.not17.i, label %mov_write_amve_tag.exit, label %515
 
 515:                                              ; preds = %513
-  call void @avio_wb32(ptr noundef %1, i32 noundef 16) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1702260065) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef 16) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1702260065) #17
   %516 = load i64, ptr %512, align 4
   %sext.i.i382 = shl i64 %516, 32
   %517 = ashr exact i64 %sext.i.i382, 32
   %518 = ashr i64 %516, 32
-  %519 = call i64 @av_rescale(i64 noundef %517, i64 noundef 10000, i64 noundef %518) #19
+  %519 = call i64 @av_rescale(i64 noundef %517, i64 noundef 10000, i64 noundef %518) #20
   %520 = trunc i64 %519 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %520) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %520) #17
   %521 = getelementptr inbounds nuw i8, ptr %512, i64 8
   %522 = load i64, ptr %521, align 4
   %sext.i18.i = shl i64 %522, 32
   %523 = ashr exact i64 %sext.i18.i, 32
   %524 = ashr i64 %522, 32
-  %525 = call i64 @av_rescale(i64 noundef %523, i64 noundef 50000, i64 noundef %524) #19
+  %525 = call i64 @av_rescale(i64 noundef %523, i64 noundef 50000, i64 noundef %524) #20
   %526 = trunc i64 %525 to i32
-  call void @avio_wb16(ptr noundef %1, i32 noundef %526) #16
+  call void @avio_wb16(ptr noundef %1, i32 noundef %526) #17
   %527 = getelementptr inbounds nuw i8, ptr %512, i64 16
   %528 = load i64, ptr %527, align 4
   %sext.i19.i = shl i64 %528, 32
   %529 = ashr exact i64 %sext.i19.i, 32
   %530 = ashr i64 %528, 32
-  %531 = call i64 @av_rescale(i64 noundef %529, i64 noundef 50000, i64 noundef %530) #19
+  %531 = call i64 @av_rescale(i64 noundef %529, i64 noundef 50000, i64 noundef %530) #20
   %532 = trunc i64 %531 to i32
-  call void @avio_wb16(ptr noundef %1, i32 noundef %532) #16
+  call void @avio_wb16(ptr noundef %1, i32 noundef %532) #17
   br label %mov_write_amve_tag.exit
 
 mov_write_amve_tag.exit:                          ; preds = %515, %513, %511, %mov_write_mdcv_tag.exit
@@ -15077,7 +15077,7 @@ mov_write_amve_tag.exit:                          ; preds = %515, %513, %511, %m
   %545 = load ptr, ptr %544, align 8, !tbaa !322
   %546 = getelementptr inbounds nuw i8, ptr %543, i64 40
   %547 = load i32, ptr %546, align 8, !tbaa !323
-  %548 = call ptr @av_packet_side_data_get(ptr noundef %545, i32 noundef %547, i32 noundef 6) #16
+  %548 = call ptr @av_packet_side_data_get(ptr noundef %545, i32 noundef %547, i32 noundef 6) #17
   %549 = load ptr, ptr %425, align 8, !tbaa !99
   %550 = getelementptr inbounds nuw i8, ptr %549, i64 16
   %551 = load ptr, ptr %550, align 8, !tbaa !176
@@ -15085,7 +15085,7 @@ mov_write_amve_tag.exit:                          ; preds = %515, %513, %511, %m
   %553 = load ptr, ptr %552, align 8, !tbaa !322
   %554 = getelementptr inbounds nuw i8, ptr %551, i64 40
   %555 = load i32, ptr %554, align 8, !tbaa !323
-  %556 = call ptr @av_packet_side_data_get(ptr noundef %553, i32 noundef %555, i32 noundef 21) #16
+  %556 = call ptr @av_packet_side_data_get(ptr noundef %553, i32 noundef %555, i32 noundef 21) #17
   %.not341 = icmp eq ptr %548, null
   br i1 %.not341, label %mov_write_st3d_tag.exit, label %557
 
@@ -15097,7 +15097,7 @@ mov_write_amve_tag.exit:                          ; preds = %515, %513, %511, %m
   br i1 %.not.i384, label %562, label %561
 
 561:                                              ; preds = %557
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.363, i32 noundef %560) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.363, i32 noundef %560) #17
   br label %mov_write_st3d_tag.exit
 
 562:                                              ; preds = %557
@@ -15106,18 +15106,18 @@ mov_write_amve_tag.exit:                          ; preds = %515, %513, %511, %m
   br i1 %564, label %switch.lookup, label %565
 
 565:                                              ; preds = %562
-  %566 = call ptr @av_stereo3d_type_name(i32 noundef %563) #16
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.364, ptr noundef %566) #16
+  %566 = call ptr @av_stereo3d_type_name(i32 noundef %563) #17
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.364, ptr noundef %566) #17
   br label %mov_write_st3d_tag.exit
 
 switch.lookup:                                    ; preds = %562
   %567 = zext nneg i32 %563 to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.mov_write_video_tag, i64 %567
   %switch.load = load i32, ptr %switch.gep, align 4
-  call void @avio_wb32(ptr noundef %1, i32 noundef 13) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1681093747) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_w8(ptr noundef %1, i32 noundef %switch.load) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef 13) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1681093747) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_w8(ptr noundef %1, i32 noundef %switch.load) #17
   br label %mov_write_st3d_tag.exit
 
 mov_write_st3d_tag.exit:                          ; preds = %switch.lookup, %565, %561, %540
@@ -15132,7 +15132,7 @@ mov_write_st3d_tag.exit:                          ; preds = %switch.lookup, %565
   br i1 %switch.i386, label %573, label %572
 
 572:                                              ; preds = %568
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %569, i32 noundef 24, ptr noundef nonnull @.str.367, i32 noundef %571) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %569, i32 noundef 24, ptr noundef nonnull @.str.367, i32 noundef %571) #17
   br label %mov_write_sv3d_tag.exitthread-pre-split
 
 573:                                              ; preds = %568
@@ -15141,35 +15141,35 @@ mov_write_st3d_tag.exit:                          ; preds = %switch.lookup, %565
   %576 = and i32 %575, 1024
   %.not.i388 = icmp eq i32 %576, 0
   %577 = select i1 %.not.i388, ptr @.str.210, ptr @.str.366
-  %578 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1681094259) #16
-  %579 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1684567667) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  %580 = call i32 @avio_put_str(ptr noundef %1, ptr noundef nonnull %577) #16
-  %581 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %582 = call i64 @avio_seek(ptr noundef %1, i64 noundef %579, i32 noundef 0) #16
+  %578 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1681094259) #17
+  %579 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1684567667) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  %580 = call i32 @avio_put_str(ptr noundef %1, ptr noundef nonnull %577) #17
+  %581 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %582 = call i64 @avio_seek(ptr noundef %1, i64 noundef %579, i32 noundef 0) #17
   %583 = sub nsw i64 %581, %579
   %584 = trunc i64 %583 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %584) #16
-  %585 = call i64 @avio_seek(ptr noundef %1, i64 noundef %581, i32 noundef 0) #16
-  %586 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1785688688) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 24) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1684566640) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %584) #17
+  %585 = call i64 @avio_seek(ptr noundef %1, i64 noundef %581, i32 noundef 0) #17
+  %586 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1785688688) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 24) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1684566640) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   %587 = getelementptr inbounds nuw i8, ptr %570, i64 4
   %588 = load i32, ptr %587, align 4, !tbaa !458
-  call void @avio_wb32(ptr noundef %1, i32 noundef %588) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %588) #17
   %589 = getelementptr inbounds nuw i8, ptr %570, i64 8
   %590 = load i32, ptr %589, align 4, !tbaa !459
-  call void @avio_wb32(ptr noundef %1, i32 noundef %590) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %590) #17
   %591 = getelementptr inbounds nuw i8, ptr %570, i64 12
   %592 = load i32, ptr %591, align 4, !tbaa !460
-  call void @avio_wb32(ptr noundef %1, i32 noundef %592) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %592) #17
   %593 = load i32, ptr %570, align 4, !tbaa !456
   switch i32 %593, label %604 [
     i32 0, label %594
@@ -15178,47 +15178,47 @@ mov_write_st3d_tag.exit:                          ; preds = %switch.lookup, %565
   ]
 
 594:                                              ; preds = %573, %573
-  call void @avio_wb32(ptr noundef %1, i32 noundef 28) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1769304421) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef 28) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1769304421) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   %595 = getelementptr inbounds nuw i8, ptr %570, i64 20
   %596 = load i32, ptr %595, align 4, !tbaa !461
-  call void @avio_wb32(ptr noundef %1, i32 noundef %596) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %596) #17
   %597 = getelementptr inbounds nuw i8, ptr %570, i64 28
   %598 = load i32, ptr %597, align 4, !tbaa !462
-  call void @avio_wb32(ptr noundef %1, i32 noundef %598) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %598) #17
   %599 = getelementptr inbounds nuw i8, ptr %570, i64 16
   %600 = load i32, ptr %599, align 4, !tbaa !463
   br label %.sink.split.i
 
 601:                                              ; preds = %573
-  call void @avio_wb32(ptr noundef %1, i32 noundef 20) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1886216803) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef 20) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1886216803) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %601, %594
   %.sink57.i = phi i32 [ 0, %601 ], [ %600, %594 ]
   %.sink.i = phi i64 [ 32, %601 ], [ 24, %594 ]
-  call void @avio_wb32(ptr noundef %1, i32 noundef %.sink57.i) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %.sink57.i) #17
   %602 = getelementptr inbounds nuw i8, ptr %570, i64 %.sink.i
   %603 = load i32, ptr %602, align 4, !tbaa !30
-  call void @avio_wb32(ptr noundef %1, i32 noundef %603) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %603) #17
   br label %604
 
 604:                                              ; preds = %.sink.split.i, %573
-  %605 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %606 = call i64 @avio_seek(ptr noundef %1, i64 noundef %586, i32 noundef 0) #16
+  %605 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %606 = call i64 @avio_seek(ptr noundef %1, i64 noundef %586, i32 noundef 0) #17
   %607 = sub nsw i64 %605, %586
   %608 = trunc i64 %607 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %608) #16
-  %609 = call i64 @avio_seek(ptr noundef %1, i64 noundef %605, i32 noundef 0) #16
-  %610 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %611 = call i64 @avio_seek(ptr noundef %1, i64 noundef %578, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %608) #17
+  %609 = call i64 @avio_seek(ptr noundef %1, i64 noundef %605, i32 noundef 0) #17
+  %610 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %611 = call i64 @avio_seek(ptr noundef %1, i64 noundef %578, i32 noundef 0) #17
   %612 = sub nsw i64 %610, %578
   %613 = trunc i64 %612 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %613) #16
-  %614 = call i64 @avio_seek(ptr noundef %1, i64 noundef %610, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %613) #17
+  %614 = call i64 @avio_seek(ptr noundef %1, i64 noundef %610, i32 noundef 0) #17
   br label %mov_write_sv3d_tag.exitthread-pre-split
 
 mov_write_sv3d_tag.exitthread-pre-split:          ; preds = %534, %mov_write_st3d_tag.exit, %572, %604
@@ -15249,7 +15249,7 @@ mov_write_sv3d_tag.exit:                          ; preds = %422, %mov_write_sv3
   %628 = load ptr, ptr %627, align 8, !tbaa !322
   %629 = getelementptr inbounds nuw i8, ptr %626, i64 40
   %630 = load i32, ptr %629, align 8, !tbaa !323
-  %631 = call ptr @av_packet_side_data_get(ptr noundef %628, i32 noundef %630, i32 noundef 6) #16
+  %631 = call ptr @av_packet_side_data_get(ptr noundef %628, i32 noundef %630, i32 noundef 6) #17
   %.not343 = icmp eq ptr %631, null
   br i1 %.not343, label %634, label %632
 
@@ -15266,7 +15266,7 @@ mov_write_sv3d_tag.exit:                          ; preds = %422, %mov_write_sv3
   %639 = load ptr, ptr %638, align 8, !tbaa !322
   %640 = getelementptr inbounds nuw i8, ptr %637, i64 40
   %641 = load i32, ptr %640, align 8, !tbaa !323
-  %642 = call ptr @av_packet_side_data_get(ptr noundef %639, i32 noundef %641, i32 noundef 21) #16
+  %642 = call ptr @av_packet_side_data_get(ptr noundef %639, i32 noundef %641, i32 noundef 21) #17
   %.not344 = icmp eq ptr %642, null
   br i1 %.not344, label %.thread410, label %643
 
@@ -15295,7 +15295,7 @@ mov_write_sv3d_tag.exit:                          ; preds = %422, %mov_write_sv3
   ]
 
 650:                                              ; preds = %648
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.374, i32 noundef %649) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.374, i32 noundef %649) #17
   br label %651
 
 651:                                              ; preds = %650, %648, %648, %648, %648, %647
@@ -15341,7 +15341,7 @@ mov_write_sv3d_tag.exit:                          ; preds = %422, %mov_write_sv3
   br i1 %.not44.i, label %672, label %.thread.i
 
 672:                                              ; preds = %669, %.thread417
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.375) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.375) #17
   br label %674
 
 .thread.i:                                        ; preds = %669, %666, %662, %658, %654
@@ -15360,17 +15360,17 @@ mov_write_sv3d_tag.exit:                          ; preds = %422, %mov_write_sv3
   %678 = phi i1 [ true, %.thread.i ], [ false, %674 ]
   %679 = phi i1 [ %673, %.thread.i ], [ true, %674 ]
   %.03247.i = phi ptr [ %.0307, %.thread.i ], [ null, %674 ]
-  %680 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1970824566) #16
+  %680 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1970824566) #17
   br i1 %679, label %681, label %686
 
 681:                                              ; preds = %676
-  call void @avio_wb32(ptr noundef %1, i32 noundef 24) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1785688688) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 16) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1768583792) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef 24) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1785688688) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 16) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1768583792) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   %682 = load i32, ptr %.031.i421, align 4, !tbaa !456
   %683 = icmp ult i32 %682, 6
   %switch.maskindex = trunc i32 %682 to i8
@@ -15380,27 +15380,27 @@ mov_write_sv3d_tag.exit:                          ; preds = %422, %mov_write_sv3
   br i1 %or.cond458, label %switch.lookup455, label %684
 
 684:                                              ; preds = %681
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.381, ptr noundef nonnull @.str.8, i32 noundef 2273) #16
-  call void @abort() #17
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.381, ptr noundef nonnull @.str.8, i32 noundef 2273) #17
+  call void @abort() #18
   unreachable
 
 switch.lookup455:                                 ; preds = %681
   %685 = zext nneg i32 %682 to i64
   %switch.gep456 = getelementptr inbounds nuw i32, ptr @switch.table.mov_write_video_tag.65, i64 %685
   %switch.load457 = load i32, ptr %switch.gep456, align 4
-  call void @avio_wl32(ptr noundef %1, i32 noundef %switch.load457) #16
+  call void @avio_wl32(ptr noundef %1, i32 noundef %switch.load457) #17
   br label %686
 
 686:                                              ; preds = %switch.lookup455, %676
   br i1 %678, label %687, label %722
 
 687:                                              ; preds = %686
-  %688 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1936030053) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 13) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1769108595) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  %688 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1936030053) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 13) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1769108595) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   %689 = getelementptr inbounds nuw i8, ptr %.03247.i, i64 8
   %690 = load i32, ptr %689, align 4, !tbaa !464
   %691 = icmp ult i32 %690, 3
@@ -15419,18 +15419,18 @@ switch.lookup459:                                 ; preds = %687
   %696 = shl i32 %695, 3
   %697 = and i32 %696, 8
   %698 = or disjoint i32 %697, %.0.i.i391
-  call void @avio_w8(ptr noundef %1, i32 noundef %698) #16
+  call void @avio_w8(ptr noundef %1, i32 noundef %698) #17
   %699 = getelementptr inbounds nuw i8, ptr %.03247.i, i64 12
   %700 = load i32, ptr %699, align 4, !tbaa !465
   %.not.i.i392 = icmp eq i32 %700, 0
   br i1 %.not.i.i392, label %703, label %701
 
 701:                                              ; preds = %693
-  call void @avio_wb32(ptr noundef %1, i32 noundef 13) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1869768040) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef 13) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1869768040) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   %702 = load i32, ptr %699, align 4, !tbaa !465
-  call void @avio_w8(ptr noundef %1, i32 noundef %702) #16
+  call void @avio_w8(ptr noundef %1, i32 noundef %702) #17
   br label %703
 
 703:                                              ; preds = %701, %693
@@ -15440,13 +15440,13 @@ switch.lookup459:                                 ; preds = %687
   br i1 %.not37.i.i, label %708, label %706
 
 706:                                              ; preds = %703
-  call void @avio_wb32(ptr noundef %1, i32 noundef 24) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1936548195) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 16) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1852402786) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef 24) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1936548195) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 16) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1852402786) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   %707 = load i32, ptr %704, align 4, !tbaa !466
-  call void @avio_wb32(ptr noundef %1, i32 noundef %707) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %707) #17
   br label %708
 
 708:                                              ; preds = %706, %703
@@ -15456,36 +15456,36 @@ switch.lookup459:                                 ; preds = %687
   br i1 %.not38.i.i, label %mov_write_eyes_tag.exit.i, label %711
 
 711:                                              ; preds = %708
-  call void @avio_wb32(ptr noundef %1, i32 noundef 24) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 2036755811) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 16) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1784963428) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef 24) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 2036755811) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 16) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1784963428) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   %712 = load i64, ptr %709, align 4
   %sext.i.i.i = shl i64 %712, 32
   %713 = ashr exact i64 %sext.i.i.i, 32
   %714 = ashr i64 %712, 32
-  %715 = call i64 @av_rescale(i64 noundef %713, i64 noundef 10000, i64 noundef %714) #19
+  %715 = call i64 @av_rescale(i64 noundef %713, i64 noundef 10000, i64 noundef %714) #20
   %716 = trunc i64 %715 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %716) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %716) #17
   br label %mov_write_eyes_tag.exit.i
 
 mov_write_eyes_tag.exit.i:                        ; preds = %711, %708
-  %717 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %718 = call i64 @avio_seek(ptr noundef %1, i64 noundef %688, i32 noundef 0) #16
+  %717 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %718 = call i64 @avio_seek(ptr noundef %1, i64 noundef %688, i32 noundef 0) #17
   %719 = sub nsw i64 %717, %688
   %720 = trunc i64 %719 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %720) #16
-  %721 = call i64 @avio_seek(ptr noundef %1, i64 noundef %717, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %720) #17
+  %721 = call i64 @avio_seek(ptr noundef %1, i64 noundef %717, i32 noundef 0) #17
   br label %722
 
 722:                                              ; preds = %mov_write_eyes_tag.exit.i, %686
-  %723 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %724 = call i64 @avio_seek(ptr noundef %1, i64 noundef %680, i32 noundef 0) #16
+  %723 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %724 = call i64 @avio_seek(ptr noundef %1, i64 noundef %680, i32 noundef 0) #17
   %725 = sub nsw i64 %723, %680
   %726 = trunc i64 %725 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %726) #16
-  %727 = call i64 @avio_seek(ptr noundef %1, i64 noundef %723, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %726) #17
+  %727 = call i64 @avio_seek(ptr noundef %1, i64 noundef %723, i32 noundef 0) #17
   br i1 %677, label %728, label %mov_write_hfov_tag.exit
 
 mov_write_vexu_tag.exit:                          ; preds = %674
@@ -15498,15 +15498,15 @@ mov_write_vexu_tag.exit:                          ; preds = %674
   br i1 %.not.i393, label %mov_write_hfov_tag.exit, label %731
 
 731:                                              ; preds = %728
-  call void @avio_wb32(ptr noundef %1, i32 noundef 12) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1987012200) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef 12) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1987012200) #17
   %732 = load i64, ptr %729, align 4
   %sext.i.i394 = shl i64 %732, 32
   %733 = ashr exact i64 %sext.i.i394, 32
   %734 = ashr i64 %732, 32
-  %735 = call i64 @av_rescale(i64 noundef %733, i64 noundef 1000, i64 noundef %734) #19
+  %735 = call i64 @av_rescale(i64 noundef %733, i64 noundef 1000, i64 noundef %734) #20
   %736 = trunc i64 %735 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %736) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %736) #17
   br label %mov_write_hfov_tag.exit
 
 mov_write_hfov_tag.exit:                          ; preds = %643, %.thread410, %731, %728, %722, %mov_write_vexu_tag.exit, %mov_write_sv3d_tag.exit, %616
@@ -15523,7 +15523,7 @@ mov_write_hfov_tag.exit:                          ; preds = %643, %.thread410, %
   %745 = load ptr, ptr %744, align 8, !tbaa !322
   %746 = getelementptr inbounds nuw i8, ptr %743, i64 40
   %747 = load i32, ptr %746, align 8, !tbaa !323
-  %748 = call ptr @av_packet_side_data_get(ptr noundef %745, i32 noundef %747, i32 noundef 29) #16
+  %748 = call ptr @av_packet_side_data_get(ptr noundef %745, i32 noundef %747, i32 noundef 29) #17
   %.not345 = icmp eq ptr %748, null
   br i1 %.not345, label %.critedge356, label %749
 
@@ -15538,21 +15538,21 @@ mov_write_hfov_tag.exit:                          ; preds = %643, %.thread410, %
 755:                                              ; preds = %749
   %756 = load ptr, ptr %748, align 8, !tbaa !347
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @avio_wb32(ptr noundef %1, i32 noundef 32) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef 32) #17
   %757 = getelementptr inbounds nuw i8, ptr %756, i64 2
   %758 = load i8, ptr %757, align 1, !tbaa !469
   %759 = icmp ugt i8 %758, 10
   %760 = icmp samesign ugt i8 %758, 7
   %..i395 = select i1 %760, i32 1131837028, i32 1130591844
   %.sink.i396 = select i1 %759, i32 1131902564, i32 %..i395
-  call void @avio_wl32(ptr noundef %1, i32 noundef %.sink.i396) #16
-  call void @ff_isom_put_dvcc_dvvc(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %756) #16
-  call void @avio_write(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 24) #16
+  call void @avio_wl32(ptr noundef %1, i32 noundef %.sink.i396) #17
+  call void @ff_isom_put_dvcc_dvvc(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %756) #17
+  call void @avio_write(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 24) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge356
 
 761:                                              ; preds = %749
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %751, i32 noundef 24, ptr noundef nonnull @.str.314) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %751, i32 noundef 24, ptr noundef nonnull @.str.314) #17
   br label %.critedge356
 
 .critedge356:                                     ; preds = %755, %761, %739, %mov_write_hfov_tag.exit
@@ -15573,13 +15573,13 @@ mov_write_hfov_tag.exit:                          ; preds = %643, %.thread410, %
   %769 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %770 = sext i32 %767 to i64
   %771 = sext i32 %764 to i64
-  %772 = call i32 @av_reduce(ptr noundef nonnull %5, ptr noundef nonnull %769, i64 noundef %770, i64 noundef %771, i64 noundef 2147483647) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 16) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1886609776) #16
+  %772 = call i32 @av_reduce(ptr noundef nonnull %5, ptr noundef nonnull %769, i64 noundef %770, i64 noundef %771, i64 noundef 2147483647) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 16) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1886609776) #17
   %773 = load i32, ptr %5, align 4, !tbaa !471
-  call void @avio_wb32(ptr noundef %1, i32 noundef %773) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %773) #17
   %774 = load i32, ptr %769, align 4, !tbaa !472
-  call void @avio_wb32(ptr noundef %1, i32 noundef %774) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %774) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %775
 
@@ -15592,7 +15592,7 @@ mov_write_hfov_tag.exit:                          ; preds = %643, %.thread410, %
   %781 = load ptr, ptr %780, align 8, !tbaa !322
   %782 = getelementptr inbounds nuw i8, ptr %779, i64 40
   %783 = load i32, ptr %782, align 8, !tbaa !323
-  %784 = call ptr @av_packet_side_data_get(ptr noundef %781, i32 noundef %783, i32 noundef 36) #16
+  %784 = call ptr @av_packet_side_data_get(ptr noundef %781, i32 noundef %783, i32 noundef 36) #17
   %.not348 = icmp eq ptr %784, null
   br i1 %.not348, label %817, label %785
 
@@ -15631,7 +15631,7 @@ mov_write_hfov_tag.exit:                          ; preds = %643, %.thread410, %
   br i1 %.not350, label %811, label %.critedge358
 
 .critedge358:                                     ; preds = %805, %789
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.315) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.315) #17
   br label %.critedge
 
 811:                                              ; preds = %805
@@ -15665,7 +15665,7 @@ mov_write_hfov_tag.exit:                          ; preds = %643, %.thread410, %
 822:                                              ; preds = %820
   %823 = getelementptr inbounds nuw i8, ptr %2, i64 224
   %824 = load ptr, ptr %823, align 8, !tbaa !412
-  %825 = call i32 @ff_mov_cenc_write_sinf_tag(ptr noundef nonnull %3, ptr noundef %1, ptr noundef %824) #16
+  %825 = call i32 @ff_mov_cenc_write_sinf_tag(ptr noundef nonnull %3, ptr noundef %1, ptr noundef %824) #17
   br label %826
 
 826:                                              ; preds = %822, %820
@@ -15683,7 +15683,7 @@ mov_write_hfov_tag.exit:                          ; preds = %643, %.thread410, %
   br i1 %.not353, label %834, label %833
 
 833:                                              ; preds = %832
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   br label %834
 
 834:                                              ; preds = %833, %832
@@ -15692,18 +15692,18 @@ mov_write_hfov_tag.exit:                          ; preds = %643, %.thread410, %
   br i1 %836, label %837, label %859
 
 837:                                              ; preds = %834
-  %838 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1953719139) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_w8(ptr noundef %1, i32 noundef 124) #16
-  call void @avio_wb24(ptr noundef %1, i32 noundef 0) #16
-  %839 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %840 = call i64 @avio_seek(ptr noundef %1, i64 noundef %838, i32 noundef 0) #16
+  %838 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1953719139) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_w8(ptr noundef %1, i32 noundef 124) #17
+  call void @avio_wb24(ptr noundef %1, i32 noundef 0) #17
+  %839 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %840 = call i64 @avio_seek(ptr noundef %1, i64 noundef %838, i32 noundef 0) #17
   %841 = sub nsw i64 %839, %838
   %842 = trunc i64 %841 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %842) #16
-  %843 = call i64 @avio_seek(ptr noundef %1, i64 noundef %839, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %842) #17
+  %843 = call i64 @avio_seek(ptr noundef %1, i64 noundef %839, i32 noundef 0) #17
   %844 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %845 = load i32, ptr %844, align 8, !tbaa !172
   %846 = icmp sgt i32 %845, 0
@@ -15717,26 +15717,26 @@ mov_write_hfov_tag.exit:                          ; preds = %643, %.thread410, %
   br i1 %851, label %852, label %859
 
 852:                                              ; preds = %847
-  %853 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1769502049) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_write(ptr noundef %1, ptr noundef nonnull @.str.397, i32 noundef 44) #16
-  %854 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %855 = call i64 @avio_seek(ptr noundef %1, i64 noundef %853, i32 noundef 0) #16
+  %853 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1769502049) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_write(ptr noundef %1, ptr noundef nonnull @.str.397, i32 noundef 44) #17
+  %854 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %855 = call i64 @avio_seek(ptr noundef %1, i64 noundef %853, i32 noundef 0) #17
   %856 = sub nsw i64 %854, %853
   %857 = trunc i64 %856 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %857) #16
-  %858 = call i64 @avio_seek(ptr noundef %1, i64 noundef %854, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %857) #17
+  %858 = call i64 @avio_seek(ptr noundef %1, i64 noundef %854, i32 noundef 0) #17
   br label %859
 
 859:                                              ; preds = %837, %847, %852, %834
-  %860 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %861 = call i64 @avio_seek(ptr noundef %1, i64 noundef %8, i32 noundef 0) #16
+  %860 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %861 = call i64 @avio_seek(ptr noundef %1, i64 noundef %8, i32 noundef 0) #17
   %862 = sub nsw i64 %860, %8
   %863 = trunc i64 %862 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %863) #16
-  %864 = call i64 @avio_seek(ptr noundef %1, i64 noundef %860, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %863) #17
+  %864 = call i64 @avio_seek(ptr noundef %1, i64 noundef %860, i32 noundef 0) #17
   br label %.critedge
 
 .critedge:                                        ; preds = %128, %829, %.critedge358, %859
@@ -15748,17 +15748,17 @@ mov_write_hfov_tag.exit:                          ; preds = %643, %.thread410, %
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @mov_write_esds_tag(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call fastcc { i64, i32 } @calculate_mpeg4_bit_rates(ptr noundef %1)
-  %4 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
+  %4 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !94
   %.not = icmp eq i32 %6, 0
   %7 = add nsw i32 %6, 5
   %spec.select = select i1 %.not, i32 0, i32 %7
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1935962981) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1935962981) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   %8 = add nsw i32 %spec.select, 27
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 3) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 3) #17
   br label %9
 
 9:                                                ; preds = %9, %2
@@ -15766,20 +15766,20 @@ define internal fastcc noundef i32 @mov_write_esds_tag(ptr noundef %0, ptr nound
   %10 = mul nuw nsw i32 %.08.i, 7
   %11 = lshr i32 %8, %10
   %12 = or i32 %11, 128
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %12) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %12) #17
   %13 = add nsw i32 %.08.i, -1
   %14 = icmp samesign ugt i32 %.08.i, 1
   br i1 %14, label %9, label %put_descr.exit, !llvm.loop !355
 
 put_descr.exit:                                   ; preds = %9
   %15 = and i32 %8, 127
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %15) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %15) #17
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %17 = load i32, ptr %16, align 4, !tbaa !215
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef %17) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 0) #16
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef %17) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 0) #17
   %18 = add nsw i32 %spec.select, 13
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 4) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 4) #17
   br label %19
 
 19:                                               ; preds = %19, %put_descr.exit
@@ -15787,7 +15787,7 @@ put_descr.exit:                                   ; preds = %9
   %20 = mul nuw nsw i32 %.08.i41, 7
   %21 = lshr i32 %18, %20
   %22 = or i32 %21, 128
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %22) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %22) #17
   %23 = add nsw i32 %.08.i41, -1
   %24 = icmp samesign ugt i32 %.08.i41, 1
   br i1 %24, label %19, label %put_descr.exit42, !llvm.loop !355
@@ -15796,7 +15796,7 @@ put_descr.exit42:                                 ; preds = %19
   %.fca.0.extract = extractvalue { i64, i32 } %3, 0
   %.fca.1.extract = extractvalue { i64, i32 } %3, 1
   %25 = and i32 %18, 127
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %25) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %25) #17
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %27 = load ptr, ptr %26, align 8, !tbaa !46
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
@@ -15812,12 +15812,12 @@ put_descr.exit42:                                 ; preds = %19
   br i1 %34, label %37, label %35
 
 35:                                               ; preds = %put_descr.exit42, %31
-  %36 = tail call i32 @ff_codec_get_tag(ptr noundef nonnull @ff_mp4_obj_type, i32 noundef %29) #16
+  %36 = tail call i32 @ff_codec_get_tag(ptr noundef nonnull @ff_mp4_obj_type, i32 noundef %29) #17
   br label %37
 
 37:                                               ; preds = %31, %35
   %.sink = phi i32 [ %36, %35 ], [ 107, %31 ]
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %.sink) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %.sink) #17
   %38 = load ptr, ptr %26, align 8, !tbaa !46
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !84
@@ -15832,19 +15832,19 @@ put_descr.exit42:                                 ; preds = %19
 
 45:                                               ; preds = %42, %37
   %.sink47 = phi i32 [ 225, %37 ], [ %., %42 ]
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %.sink47) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %.sink47) #17
   %.sroa.03.0.extract.trunc = trunc i64 %.fca.0.extract to i32
-  tail call void @avio_wb24(ptr noundef %0, i32 noundef %.sroa.03.0.extract.trunc) #16
+  tail call void @avio_wb24(ptr noundef %0, i32 noundef %.sroa.03.0.extract.trunc) #17
   %.sroa.03.4.extract.shift = lshr i64 %.fca.0.extract, 32
   %.sroa.03.4.extract.trunc = trunc nuw i64 %.sroa.03.4.extract.shift to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.sroa.03.4.extract.trunc) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.fca.1.extract) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.sroa.03.4.extract.trunc) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.fca.1.extract) #17
   %46 = load i32, ptr %5, align 8, !tbaa !94
   %.not40 = icmp eq i32 %46, 0
   br i1 %.not40, label %58, label %47
 
 47:                                               ; preds = %45
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 5) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 5) #17
   br label %48
 
 48:                                               ; preds = %48, %47
@@ -15852,22 +15852,22 @@ put_descr.exit42:                                 ; preds = %19
   %49 = mul nuw nsw i32 %.08.i43, 7
   %50 = lshr i32 %46, %49
   %51 = or i32 %50, 128
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %51) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %51) #17
   %52 = add nsw i32 %.08.i43, -1
   %53 = icmp samesign ugt i32 %.08.i43, 1
   br i1 %53, label %48, label %put_descr.exit44, !llvm.loop !355
 
 put_descr.exit44:                                 ; preds = %48
   %54 = and i32 %46, 127
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %54) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %54) #17
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %56 = load ptr, ptr %55, align 8, !tbaa !97
   %57 = load i32, ptr %5, align 8, !tbaa !94
-  tail call void @avio_write(ptr noundef %0, ptr noundef %56, i32 noundef %57) #16
+  tail call void @avio_write(ptr noundef %0, ptr noundef %56, i32 noundef %57) #17
   br label %58
 
 58:                                               ; preds = %put_descr.exit44, %45
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 6) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 6) #17
   br label %59
 
 59:                                               ; preds = %59, %58
@@ -15875,51 +15875,51 @@ put_descr.exit44:                                 ; preds = %48
   %60 = mul nuw nsw i32 %.08.i45, 7
   %61 = lshr i32 1, %60
   %62 = or disjoint i32 %61, 128
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %62) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %62) #17
   %63 = add nsw i32 %.08.i45, -1
   %64 = icmp samesign ugt i32 %.08.i45, 1
   br i1 %64, label %59, label %put_descr.exit46, !llvm.loop !355
 
 put_descr.exit46:                                 ; preds = %59
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 1) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 2) #16
-  %65 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %66 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %4, i32 noundef 0) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 1) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 2) #17
+  %65 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %66 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %4, i32 noundef 0) #17
   %67 = sub nsw i64 %65, %4
   %68 = trunc i64 %67 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %68) #16
-  %69 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %65, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %68) #17
+  %69 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %65, i32 noundef 0) #17
   ret i32 %68
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mov_write_avcc_tag(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
-  %3 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1130591841) #16
+  %3 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1130591841) #17
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %5 = load ptr, ptr %4, align 8, !tbaa !97
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %7 = load i32, ptr %6, align 8, !tbaa !94
-  %8 = tail call i32 @ff_isom_write_avcc(ptr noundef %0, ptr noundef %5, i32 noundef %7) #16
-  %9 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %10 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %3, i32 noundef 0) #16
+  %8 = tail call i32 @ff_isom_write_avcc(ptr noundef %0, ptr noundef %5, i32 noundef %7) #17
+  %9 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %10 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %3, i32 noundef 0) #17
   %11 = sub nsw i64 %9, %3
   %12 = trunc i64 %11 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %12) #16
-  %13 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %9, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %12) #17
+  %13 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %9, i32 noundef 0) #17
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mov_write_uuid_tag_ipod(ptr noundef %0) unnamed_addr #0 {
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 28) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1684632949) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 1801994482) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 1596215237) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef -1170627301) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef -821877773) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 28) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1684632949) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 1801994482) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 1596215237) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef -1170627301) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef -821877773) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   ret void
 }
 
@@ -15948,7 +15948,7 @@ define internal fastcc void @mov_write_dvc1_tag(ptr noundef %0, ptr noundef read
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %2
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str.341) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str.341) #17
   %.pre.i = load i32, ptr %8, align 8, !tbaa !94
   br label %22
 
@@ -15958,7 +15958,7 @@ define internal fastcc void @mov_write_dvc1_tag(ptr noundef %0, ptr noundef read
   %.047.i = phi i32 [ 1, %21 ], [ %15, %2 ]
   %24 = add nsw i32 %23, 64
   %25 = sext i32 %24 to i64
-  %26 = tail call noalias ptr @av_mallocz(i64 noundef %25) #16
+  %26 = tail call noalias ptr @av_mallocz(i64 noundef %25) #17
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %mov_write_dvc1_structs.exit.thread, label %27
 
@@ -15973,7 +15973,7 @@ define internal fastcc void @mov_write_dvc1_tag(ptr noundef %0, ptr noundef read
 33:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -1, ptr %3, align 4, !tbaa !30
-  %34 = call ptr @avpriv_find_start_code(ptr noundef %28, ptr noundef %11, ptr noundef nonnull %3) #16
+  %34 = call ptr @avpriv_find_start_code(ptr noundef %28, ptr noundef %11, ptr noundef nonnull %3) #17
   %35 = load i32, ptr %3, align 4, !tbaa !30
   %36 = and i32 %35, -256
   %.not224.i = icmp eq i32 %36, 256
@@ -16001,7 +16001,7 @@ define internal fastcc void @mov_write_dvc1_tag(ptr noundef %0, ptr noundef read
 44:                                               ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4, !tbaa !30
-  %45 = call ptr @avpriv_find_start_code(ptr noundef nonnull %40, ptr noundef nonnull %11, ptr noundef nonnull %4) #16
+  %45 = call ptr @avpriv_find_start_code(ptr noundef nonnull %40, ptr noundef nonnull %11, ptr noundef nonnull %4) #17
   %46 = load i32, ptr %4, align 4, !tbaa !30
   %47 = and i32 %46, -256
   %.not225.i = icmp eq i32 %47, 256
@@ -16203,19 +16203,19 @@ put_bits.exit82.i:                                ; preds = %.thread.i, %._crit_
   br i1 %exitcond246.not.i, label %145, label %.lr.ph.i.i, !llvm.loop !476
 
 mov_write_dvc1_structs.exit.thread11:             ; preds = %88, %33, %27, %._crit_edge.i
-  call void @av_free(ptr noundef nonnull %26) #16
+  call void @av_free(ptr noundef nonnull %26) #17
   br label %mov_write_dvc1_structs.exit.thread
 
 145:                                              ; preds = %.lr.ph.i.i
-  call void @av_free(ptr noundef nonnull %26) #16
+  call void @av_free(ptr noundef nonnull %26) #17
   %146 = load i32, ptr %8, align 8, !tbaa !94
   %147 = add i32 %146, 15
-  call void @avio_wb32(ptr noundef %0, i32 noundef %147) #16
-  call void @avio_wl32(ptr noundef %0, i32 noundef 828601956) #16
-  call void @avio_write(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 7) #16
+  call void @avio_wb32(ptr noundef %0, i32 noundef %147) #17
+  call void @avio_wl32(ptr noundef %0, i32 noundef 828601956) #17
+  call void @avio_write(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 7) #17
   %148 = load ptr, ptr %6, align 8, !tbaa !97
   %149 = load i32, ptr %8, align 8, !tbaa !94
-  call void @avio_write(ptr noundef %0, ptr noundef %148, i32 noundef %149) #16
+  call void @avio_write(ptr noundef %0, ptr noundef %148, i32 noundef %149) #17
   br label %mov_write_dvc1_structs.exit.thread
 
 mov_write_dvc1_structs.exit.thread:               ; preds = %22, %mov_write_dvc1_structs.exit.thread11, %145
@@ -16225,8 +16225,8 @@ mov_write_dvc1_structs.exit.thread:               ; preds = %22, %mov_write_dvc1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mov_write_dpxe_tag(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 12) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1165520964) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 12) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1165520964) #17
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8, !tbaa !46
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -16250,15 +16250,15 @@ define internal fastcc void @mov_write_dpxe_tag(ptr noundef %0, ptr noundef read
 
 16:                                               ; preds = %2, %8, %12
   %.sink = phi i32 [ %15, %12 ], [ 1, %8 ], [ 1, %2 ]
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.sink) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.sink) #17
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mov_write_av3c_tag(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
-  %3 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1664317025) #16
+  %3 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1664317025) #17
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %5 = load ptr, ptr %4, align 8, !tbaa !97
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -16272,23 +16272,23 @@ define internal fastcc void @mov_write_av3c_tag(ptr noundef %0, ptr noundef read
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %9
-  tail call void @avio_write(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %7) #16
+  tail call void @avio_write(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %7) #17
   br label %mov_write_av3c.exit
 
 13:                                               ; preds = %9
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 1) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef %7) #16
-  tail call void @avio_write(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %7) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 252) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 1) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef %7) #17
+  tail call void @avio_write(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %7) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 252) #17
   br label %mov_write_av3c.exit
 
 mov_write_av3c.exit:                              ; preds = %2, %12, %13
-  %14 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %15 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %3, i32 noundef 0) #16
+  %14 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %15 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %3, i32 noundef 0) #17
   %16 = sub nsw i64 %14, %3
   %17 = trunc i64 %16 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %17) #16
-  %18 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %14, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %17) #17
+  %18 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %14, i32 noundef 0) #17
   ret void
 }
 
@@ -16297,12 +16297,12 @@ define internal fastcc range(i32 -2147483640, -2147483648) i32 @mov_write_glbl_t
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %4 = load i32, ptr %3, align 8, !tbaa !94
   %5 = add nsw i32 %4, 8
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %5) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1818389607) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %5) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1818389607) #17
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %7 = load ptr, ptr %6, align 8, !tbaa !97
   %8 = load i32, ptr %3, align 8, !tbaa !94
-  tail call void @avio_write(ptr noundef %0, ptr noundef %7, i32 noundef %8) #16
+  tail call void @avio_write(ptr noundef %0, ptr noundef %7, i32 noundef %8) #17
   %9 = load i32, ptr %3, align 8, !tbaa !94
   %10 = add nsw i32 %9, 8
   ret i32 %10
@@ -16310,7 +16310,7 @@ define internal fastcc range(i32 -2147483640, -2147483648) i32 @mov_write_glbl_t
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mov_write_colr_tag(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
-  %4 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
+  %4 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %23, label %5
 
@@ -16323,12 +16323,12 @@ define internal fastcc void @mov_write_colr_tag(ptr noundef %0, ptr noundef read
   %11 = load ptr, ptr %10, align 8, !tbaa !322
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8, !tbaa !323
-  %14 = tail call ptr @av_packet_side_data_get(ptr noundef %11, i32 noundef %13, i32 noundef 28) #16
+  %14 = tail call ptr @av_packet_side_data_get(ptr noundef %11, i32 noundef %13, i32 noundef 28) #17
   %.not41 = icmp eq ptr %14, null
   br i1 %.not41, label %.thread, label %15
 
 .thread:                                          ; preds = %5
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 32, ptr noundef nonnull @.str.356) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 32, ptr noundef nonnull @.str.356) #17
   br label %23
 
 15:                                               ; preds = %5
@@ -16336,13 +16336,13 @@ define internal fastcc void @mov_write_colr_tag(ptr noundef %0, ptr noundef read
   %17 = load i64, ptr %16, align 8, !tbaa !345
   %18 = trunc i64 %17 to i32
   %19 = add i32 %18, 12
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %19) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1919709027) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1718579824) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %19) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1919709027) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1718579824) #17
   %20 = load ptr, ptr %14, align 8, !tbaa !347
   %21 = load i64, ptr %16, align 8, !tbaa !345
   %22 = trunc i64 %21 to i32
-  tail call void @avio_write(ptr noundef %0, ptr noundef %20, i32 noundef %22) #16
+  tail call void @avio_write(ptr noundef %0, ptr noundef %20, i32 noundef %22) #17
   br label %52
 
 23:                                               ; preds = %.thread, %3
@@ -16354,32 +16354,32 @@ define internal fastcc void @mov_write_colr_tag(ptr noundef %0, ptr noundef read
   ]
 
 25:                                               ; preds = %23
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.357, ptr noundef nonnull @.str.8, i32 noundef 2484) #16
-  tail call void @abort() #17
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.357, ptr noundef nonnull @.str.8, i32 noundef 2484) #17
+  tail call void @abort() #18
   unreachable
 
 26:                                               ; preds = %23, %23, %23
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1919709027) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1919709027) #17
   %27 = load i32, ptr %1, align 8, !tbaa !104
   %switch.selectcmp.case1 = icmp eq i32 %27, 1
   %switch.selectcmp.case2 = icmp eq i32 %27, 256
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
   %28 = select i1 %switch.selectcmp, i32 2020369262, i32 1668047726
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef %28) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef %28) #17
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %30 = load ptr, ptr %29, align 8, !tbaa !46
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 104
   %32 = load i32, ptr %31, align 8, !tbaa !443
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef %32) #16
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef %32) #17
   %33 = load ptr, ptr %29, align 8, !tbaa !46
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 108
   %35 = load i32, ptr %34, align 4, !tbaa !442
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef %35) #16
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef %35) #17
   %36 = load ptr, ptr %29, align 8, !tbaa !46
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 112
   %38 = load i32, ptr %37, align 8, !tbaa !444
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef %38) #16
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef %38) #17
   %39 = load i32, ptr %1, align 8, !tbaa !104
   switch i32 %39, label %46 [
     i32 1, label %40
@@ -16392,16 +16392,16 @@ define internal fastcc void @mov_write_colr_tag(ptr noundef %0, ptr noundef read
   %43 = load i32, ptr %42, align 4, !tbaa !440
   %44 = icmp eq i32 %43, 2
   %45 = select i1 %44, i32 128, i32 0
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %45) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %45) #17
   br label %46
 
 46:                                               ; preds = %26, %40
-  %47 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %48 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %4, i32 noundef 0) #16
+  %47 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %48 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %4, i32 noundef 0) #17
   %49 = sub nsw i64 %47, %4
   %50 = trunc i64 %49 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %50) #16
-  %51 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %47, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %50) #17
+  %51 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %47, i32 noundef 0) #17
   br label %52
 
 52:                                               ; preds = %15, %46
@@ -16418,7 +16418,7 @@ define internal fastcc void @mov_write_clap_tag(ptr noundef %0, i32 %.104.val.72
   %.sroa.06.0.insert.insert = or disjoint i64 %.sroa.06.0.insert.ext, 8589934592
   %.sroa.04.0.insert.ext = zext i32 %3 to i64
   %.sroa.04.0.insert.insert = or disjoint i64 %.sroa.04.0.insert.ext, 4294967296
-  %10 = tail call i64 @av_sub_q(i64 %.sroa.06.0.insert.insert, i64 %.sroa.04.0.insert.insert) #19
+  %10 = tail call i64 @av_sub_q(i64 %.sroa.06.0.insert.insert, i64 %.sroa.04.0.insert.insert) #20
   %.sroa.08.0.extract.trunc = trunc i64 %10 to i32
   %.sroa.49.0.extract.shift = lshr i64 %10, 32
   %.sroa.49.0.extract.trunc = trunc nuw i64 %.sroa.49.0.extract.shift to i32
@@ -16426,22 +16426,22 @@ define internal fastcc void @mov_write_clap_tag(ptr noundef %0, i32 %.104.val.72
   %.sroa.01.0.insert.insert = or disjoint i64 %.sroa.01.0.insert.ext, 8589934592
   %.sroa.0.0.insert.ext = zext i32 %1 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0.insert.ext, 4294967296
-  %11 = tail call i64 @av_sub_q(i64 %.sroa.01.0.insert.insert, i64 %.sroa.0.0.insert.insert) #19
+  %11 = tail call i64 @av_sub_q(i64 %.sroa.01.0.insert.insert, i64 %.sroa.0.0.insert.insert) #20
   %.sroa.03.0.extract.trunc = trunc i64 %11 to i32
   %.sroa.4.0.extract.shift = lshr i64 %11, 32
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 40) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1885432931) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %7) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %9) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 1) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 40) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1885432931) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %7) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %9) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 1) #17
   %12 = sub nsw i32 0, %.sroa.08.0.extract.trunc
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %12) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.sroa.49.0.extract.trunc) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %12) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.sroa.49.0.extract.trunc) #17
   %13 = sub nsw i32 0, %.sroa.03.0.extract.trunc
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %13) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.sroa.4.0.extract.trunc) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %13) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.sroa.4.0.extract.trunc) #17
   ret void
 }
 
@@ -16449,7 +16449,7 @@ declare i32 @ff_mov_cenc_write_sinf_tag(ptr noundef, ptr noundef, ptr noundef) l
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @mov_write_btrt_tag(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
-  %3 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
+  %3 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
   %4 = tail call fastcc { i64, i32 } @calculate_mpeg4_bit_rates(ptr noundef %1)
   %.fca.0.extract = extractvalue { i64, i32 } %4, 0
   %.fca.1.extract = extractvalue { i64, i32 } %4, 1
@@ -16463,17 +16463,17 @@ define internal fastcc noundef i32 @mov_write_btrt_tag(ptr noundef %0, ptr nound
 8:                                                ; preds = %2
   %.sroa.06.4.extract.shift = lshr i64 %.fca.0.extract, 32
   %.sroa.06.4.extract.trunc = trunc nuw i64 %.sroa.06.4.extract.shift to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1953657954) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.sroa.06.0.extract.trunc8) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.sroa.06.4.extract.trunc) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.fca.1.extract) #16
-  %9 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %10 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %3, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1953657954) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.sroa.06.0.extract.trunc8) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.sroa.06.4.extract.trunc) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.fca.1.extract) #17
+  %9 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %10 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %3, i32 noundef 0) #17
   %11 = sub nsw i64 %9, %3
   %12 = trunc i64 %11 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %12) #16
-  %13 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %9, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %12) #17
+  %13 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %9, i32 noundef 0) #17
   br label %14
 
 14:                                               ; preds = %2, %8
@@ -16499,7 +16499,7 @@ declare i32 @ff_isom_write_av1c(ptr noundef, ptr noundef, i32 noundef, i32 nound
 
 declare double @av_csp_approximate_trc_gamma(i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.lrint.i64.f64(double) #11
 
 declare ptr @av_stereo3d_type_name(i32 noundef) local_unnamed_addr #1
@@ -16517,16 +16517,16 @@ declare i32 @av_get_bits_per_sample(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mov_write_amr_tag(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 17) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 17) #17
   %3 = load i32, ptr %1, align 8, !tbaa !104
   %4 = icmp eq i32 %3, 2
   %. = select i1 %4, i32 1919770995, i32 1919770980
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef %.) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1347241542) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 33279) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 1) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef %.) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1347241542) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 33279) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 1) #17
   ret void
 }
 
@@ -16544,7 +16544,7 @@ define internal fastcc range(i32 -22, 12) i32 @mov_write_ac3_tag(ptr noundef %0,
   br i1 %.not21, label %7, label %8
 
 7:                                                ; preds = %4, %2
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.408) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.408) #17
   br label %53
 
 8:                                                ; preds = %4
@@ -16556,7 +16556,7 @@ define internal fastcc range(i32 -22, 12) i32 @mov_write_ac3_tag(ptr noundef %0,
 
 13:                                               ; preds = %8
   %14 = zext i8 %11 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.409, i32 noundef %14) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.409, i32 noundef %14) #17
   br label %53
 
 15:                                               ; preds = %8
@@ -16569,12 +16569,12 @@ define internal fastcc range(i32 -22, 12) i32 @mov_write_ac3_tag(ptr noundef %0,
   %20 = getelementptr inbounds nuw i8, ptr %.368.val, i64 10
   %21 = load i16, ptr %20, align 2, !tbaa !112
   %22 = zext i16 %21 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.410, i32 noundef %22) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.410, i32 noundef %22) #17
   br label %53
 
 put_bits.exit25:                                  ; preds = %15
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 11) #16
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef 862151012) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 11) #17
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef 862151012) #17
   %23 = load i8, ptr %16, align 4, !tbaa !108
   %24 = sext i8 %23 to i32
   %25 = load i8, ptr %9, align 2, !tbaa !125
@@ -16616,7 +16616,7 @@ put_bits.exit25:                                  ; preds = %15
   br i1 %exitcond.not, label %flush_put_bits.exit, label %49, !llvm.loop !476
 
 flush_put_bits.exit:                              ; preds = %49
-  call void @avio_write(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 3) #16
+  call void @avio_write(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 3) #17
   br label %53
 
 53:                                               ; preds = %flush_put_bits.exit, %19, %13, %7
@@ -16631,7 +16631,7 @@ define internal fastcc i32 @mov_write_eac3_tag(ptr noundef %0, ptr noundef %1, p
   br i1 %.not, label %3, label %4
 
 3:                                                ; preds = %2
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.412) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.412) #17
   br label %241
 
 4:                                                ; preds = %2
@@ -16643,7 +16643,7 @@ define internal fastcc i32 @mov_write_eac3_tag(ptr noundef %0, ptr noundef %1, p
   %10 = lshr i32 %9, 3
   %11 = add nuw nsw i32 %10, 2
   %12 = zext nneg i32 %11 to i64
-  %13 = tail call noalias ptr @av_malloc(i64 noundef %12) #16
+  %13 = tail call noalias ptr @av_malloc(i64 noundef %12) #17
   %.not40 = icmp eq ptr %13, null
   br i1 %.not40, label %241, label %put_bits.exit47
 
@@ -16693,7 +16693,7 @@ put_bits.exit47:                                  ; preds = %4
   br label %put_bits.exit51
 
 43:                                               ; preds = %32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.342) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.342) #17
   br label %put_bits.exit51
 
 put_bits.exit51:                                  ; preds = %36, %43, %29
@@ -16729,7 +16729,7 @@ put_bits.exit51:                                  ; preds = %36, %43, %29
   br label %put_bits.exit55
 
 63:                                               ; preds = %52
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.342) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.342) #17
   br label %put_bits.exit55
 
 put_bits.exit55:                                  ; preds = %56, %63, %49
@@ -16758,7 +16758,7 @@ put_bits.exit55:                                  ; preds = %56, %63, %49
   br label %put_bits.exit59
 
 76:                                               ; preds = %68
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.342) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.342) #17
   br label %put_bits.exit59
 
 put_bits.exit59:                                  ; preds = %72, %76, %66
@@ -16787,7 +16787,7 @@ put_bits.exit59:                                  ; preds = %72, %76, %66
   br label %put_bits.exit63
 
 89:                                               ; preds = %81
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.342) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.342) #17
   br label %put_bits.exit63
 
 put_bits.exit63:                                  ; preds = %85, %89, %79
@@ -16823,7 +16823,7 @@ put_bits.exit63:                                  ; preds = %85, %89, %79
   br label %put_bits.exit67
 
 109:                                              ; preds = %98
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.342) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.342) #17
   br label %put_bits.exit67
 
 put_bits.exit67:                                  ; preds = %102, %109, %95
@@ -16859,7 +16859,7 @@ put_bits.exit67:                                  ; preds = %102, %109, %95
   br label %put_bits.exit71
 
 129:                                              ; preds = %118
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.342) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.342) #17
   br label %put_bits.exit71
 
 put_bits.exit71:                                  ; preds = %122, %129, %115
@@ -16895,7 +16895,7 @@ put_bits.exit71:                                  ; preds = %122, %129, %115
   br label %put_bits.exit75
 
 149:                                              ; preds = %138
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.342) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.342) #17
   br label %put_bits.exit75
 
 put_bits.exit75:                                  ; preds = %142, %149, %135
@@ -16924,7 +16924,7 @@ put_bits.exit75:                                  ; preds = %142, %149, %135
   br label %put_bits.exit79
 
 162:                                              ; preds = %154
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.342) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.342) #17
   br label %put_bits.exit79
 
 put_bits.exit79:                                  ; preds = %158, %162, %152
@@ -16961,7 +16961,7 @@ put_bits.exit79:                                  ; preds = %158, %162, %152
   br label %184
 
 183:                                              ; preds = %172
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.342) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.342) #17
   br label %184
 
 184:                                              ; preds = %183, %176
@@ -17000,7 +17000,7 @@ put_bits.exit83:                                  ; preds = %168, %184
   br label %put_bits.exit87
 
 199:                                              ; preds = %191
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.342) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.342) #17
   br label %put_bits.exit87
 
 200:                                              ; preds = %put_bits.exit83
@@ -17032,7 +17032,7 @@ put_bits.exit83:                                  ; preds = %168, %184
   br label %put_bits.exit87
 
 219:                                              ; preds = %208
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.342) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.342) #17
   br label %put_bits.exit87
 
 put_bits.exit87:                                  ; preds = %212, %219, %195, %199, %205, %189
@@ -17062,8 +17062,8 @@ put_bits.exit87:                                  ; preds = %212, %219, %195, %1
   br i1 %227, label %229, label %228
 
 228:                                              ; preds = %226
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.343, ptr noundef nonnull @.str.344, i32 noundef 150) #16
-  tail call void @abort() #17
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.343, ptr noundef nonnull @.str.344, i32 noundef 150) #17
+  tail call void @abort() #18
   unreachable
 
 229:                                              ; preds = %226
@@ -17083,10 +17083,10 @@ flush_put_bits.exit:                              ; preds = %229, %223
   %238 = sub i64 %236, %237
   %239 = trunc i64 %238 to i32
   %240 = add nsw i32 %239, 8
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %240) #16
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef 862152036) #16
-  tail call void @avio_write(ptr noundef %1, ptr noundef nonnull %13, i32 noundef %239) #16
-  tail call void @av_free(ptr noundef nonnull %13) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %240) #17
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef 862152036) #17
+  tail call void @avio_write(ptr noundef %1, ptr noundef nonnull %13, i32 noundef %239) #17
+  tail call void @av_free(ptr noundef nonnull %13) #17
   br label %241
 
 241:                                              ; preds = %4, %flush_put_bits.exit, %3
@@ -17096,24 +17096,24 @@ flush_put_bits.exit:                              ; preds = %229, %223
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @mov_write_wfex_tag(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
-  %4 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef 2019911287) #16
+  %4 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef 2019911287) #17
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %6 = load ptr, ptr %5, align 8, !tbaa !99
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !176
-  %9 = tail call i32 @ff_put_wav_header(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef 1) #16
+  %9 = tail call i32 @ff_put_wav_header(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef 1) #17
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %17, label %11
 
 11:                                               ; preds = %3
-  %12 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %13 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %4, i32 noundef 0) #16
+  %12 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %13 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %4, i32 noundef 0) #17
   %14 = sub nsw i64 %12, %4
   %15 = trunc i64 %14 to i32
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %15) #16
-  %16 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %12, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %15) #17
+  %16 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %12, i32 noundef 0) #17
   br label %17
 
 17:                                               ; preds = %3, %11
@@ -17123,11 +17123,11 @@ define internal fastcc i32 @mov_write_wfex_tag(ptr noundef %0, ptr noundef %1, p
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @mov_write_dfla_tag(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
-  %3 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1632396900) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb24(ptr noundef %0, i32 noundef 0) #16
+  %3 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1632396900) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb24(ptr noundef %0, i32 noundef 0) #17
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %5 = load ptr, ptr %4, align 8, !tbaa !46
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -17136,23 +17136,23 @@ define internal fastcc noundef i32 @mov_write_dfla_tag(ptr noundef %0, ptr nound
   br i1 %.not, label %8, label %22
 
 8:                                                ; preds = %2
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 128) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 128) #17
   %9 = load ptr, ptr %4, align 8, !tbaa !46
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i32, ptr %10, align 8, !tbaa !95
-  tail call void @avio_wb24(ptr noundef %0, i32 noundef %11) #16
+  tail call void @avio_wb24(ptr noundef %0, i32 noundef %11) #17
   %12 = load ptr, ptr %4, align 8, !tbaa !46
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !98
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %16 = load i32, ptr %15, align 8, !tbaa !95
-  tail call void @avio_write(ptr noundef %0, ptr noundef %14, i32 noundef %16) #16
-  %17 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %18 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %3, i32 noundef 0) #16
+  tail call void @avio_write(ptr noundef %0, ptr noundef %14, i32 noundef %16) #17
+  %17 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %18 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %3, i32 noundef 0) #17
   %19 = sub nsw i64 %17, %3
   %20 = trunc i64 %19 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %20) #16
-  %21 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %17, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %20) #17
+  %21 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %17, i32 noundef 0) #17
   br label %22
 
 22:                                               ; preds = %2, %8
@@ -17162,10 +17162,10 @@ define internal fastcc noundef i32 @mov_write_dfla_tag(ptr noundef %0, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @mov_write_dops_tag(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
-  %4 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1936740196) #16
-  tail call void @avio_w8(ptr noundef %1, i32 noundef 0) #16
+  %4 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1936740196) #17
+  tail call void @avio_w8(ptr noundef %1, i32 noundef 0) #17
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load ptr, ptr %5, align 8, !tbaa !46
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -17174,7 +17174,7 @@ define internal fastcc noundef i32 @mov_write_dops_tag(ptr noundef %0, ptr nound
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.417) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.417) #17
   br label %55
 
 11:                                               ; preds = %3
@@ -17186,28 +17186,28 @@ define internal fastcc noundef i32 @mov_write_dops_tag(ptr noundef %0, ptr nound
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 18
   %18 = load i8, ptr %17, align 1, !tbaa !88
   %19 = zext i8 %18 to i32
-  tail call void @avio_w8(ptr noundef %1, i32 noundef %16) #16
+  tail call void @avio_w8(ptr noundef %1, i32 noundef %16) #17
   %20 = load ptr, ptr %5, align 8, !tbaa !46
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !98
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 10
   %24 = load i16, ptr %23, align 1, !tbaa !88
   %25 = zext i16 %24 to i32
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef %25) #16
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef %25) #17
   %26 = load ptr, ptr %5, align 8, !tbaa !46
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !98
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %30 = load i32, ptr %29, align 1, !tbaa !88
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %30) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %30) #17
   %31 = load ptr, ptr %5, align 8, !tbaa !46
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !98
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i16, ptr %34, align 1, !tbaa !88
   %36 = zext i16 %35 to i32
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef %36) #16
-  tail call void @avio_w8(ptr noundef %1, i32 noundef %19) #16
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef %36) #17
+  tail call void @avio_w8(ptr noundef %1, i32 noundef %19) #17
   %.not = icmp eq i8 %18, 0
   br i1 %.not, label %49, label %37
 
@@ -17220,7 +17220,7 @@ define internal fastcc noundef i32 @mov_write_dops_tag(ptr noundef %0, ptr nound
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %37
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.417) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.417) #17
   br label %55
 
 44:                                               ; preds = %37
@@ -17228,16 +17228,16 @@ define internal fastcc noundef i32 @mov_write_dops_tag(ptr noundef %0, ptr nound
   %46 = load ptr, ptr %45, align 8, !tbaa !98
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 19
   %48 = add nuw nsw i32 %16, 2
-  tail call void @avio_write(ptr noundef %1, ptr noundef nonnull %47, i32 noundef %48) #16
+  tail call void @avio_write(ptr noundef %1, ptr noundef nonnull %47, i32 noundef %48) #17
   br label %49
 
 49:                                               ; preds = %44, %11
-  %50 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %51 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %4, i32 noundef 0) #16
+  %50 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %51 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %4, i32 noundef 0) #17
   %52 = sub nsw i64 %50, %4
   %53 = trunc i64 %52 to i32
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %53) #16
-  %54 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %50, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %53) #17
+  %54 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %50, i32 noundef 0) #17
   br label %55
 
 55:                                               ; preds = %49, %43, %10
@@ -17247,16 +17247,16 @@ define internal fastcc noundef i32 @mov_write_dops_tag(ptr noundef %0, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @mov_write_dmlp_tag(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
-  %4 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1886154084) #16
+  %4 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1886154084) #17
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !94
   %7 = icmp slt i32 %6, 20
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.419) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.419) #17
   br label %37
 
 9:                                                ; preds = %3
@@ -17282,21 +17282,21 @@ define internal fastcc noundef i32 @mov_write_dmlp_tag(ptr noundef %0, ptr nound
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %24 = load i32, ptr %23, align 1, !tbaa !88
   %25 = tail call i32 @llvm.bswap.i32(i32 %24)
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %25) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %25) #17
   %26 = load ptr, ptr %10, align 8, !tbaa !97
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 18
   %28 = load i16, ptr %27, align 1, !tbaa !88
   %29 = tail call i16 @llvm.bswap.i16(i16 %28)
   %30 = zext i16 %29 to i32
   %31 = shl nuw nsw i32 %30, 1
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef %31) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  %32 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %33 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %4, i32 noundef 0) #16
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef %31) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  %32 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %33 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %4, i32 noundef 0) #17
   %34 = sub nsw i64 %32, %4
   %35 = trunc i64 %34 to i32
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %35) #16
-  %36 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %32, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %35) #17
+  %36 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %32, i32 noundef 0) #17
   br label %37
 
 37:                                               ; preds = %19, %9, %22, %8
@@ -17309,7 +17309,7 @@ define internal fastcc i32 @mov_write_chnl_tag(ptr noundef %0, ptr noundef %1, p
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca [128 x i8], align 16
-  %7 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
+  %7 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !30
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -17317,7 +17317,7 @@ define internal fastcc i32 @mov_write_chnl_tag(ptr noundef %0, ptr noundef %1, p
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %9 = load ptr, ptr %8, align 8, !tbaa !46
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  %11 = call i32 @ff_mov_get_channel_config_from_layout(ptr noundef nonnull %10, ptr noundef nonnull %4) #16
+  %11 = call i32 @ff_mov_get_channel_config_from_layout(ptr noundef nonnull %10, ptr noundef nonnull %4) #17
   %12 = icmp eq i32 %11, 0
   %13 = load i32, ptr %4, align 4
   %14 = icmp ne i32 %13, 0
@@ -17329,56 +17329,56 @@ define internal fastcc i32 @mov_write_chnl_tag(ptr noundef %0, ptr noundef %1, p
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 132
   %17 = load i32, ptr %16, align 4, !tbaa !185
   %18 = sext i32 %17 to i64
-  %19 = call noalias ptr @av_malloc(i64 noundef %18) #16
+  %19 = call noalias ptr @av_malloc(i64 noundef %18) #17
   store ptr %19, ptr %5, align 8, !tbaa !31
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %39, label %20
 
 20:                                               ; preds = %15
   %21 = load i32, ptr %16, align 4, !tbaa !185
-  %22 = call i32 @ff_mov_get_channel_positions_from_layout(ptr noundef nonnull %10, ptr noundef nonnull %19, i32 noundef %21) #16
+  %22 = call i32 @ff_mov_get_channel_positions_from_layout(ptr noundef nonnull %10, ptr noundef nonnull %19, i32 noundef %21) #17
   %.not24 = icmp eq i32 %22, 0
   br i1 %.not24, label %25, label %23
 
 23:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %6, i8 0, i64 128, i1 false)
-  call void @av_freep(ptr noundef nonnull %5) #16
-  %24 = call i32 @av_channel_layout_describe(ptr noundef nonnull %10, ptr noundef nonnull %6, i64 noundef 128) #16
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.420, ptr noundef nonnull %6) #16
+  call void @av_freep(ptr noundef nonnull %5) #17
+  %24 = call i32 @av_channel_layout_describe(ptr noundef nonnull %10, ptr noundef nonnull %6, i64 noundef 128) #17
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.420, ptr noundef nonnull %6) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %39
 
 25:                                               ; preds = %20, %3
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %1, i32 noundef 1819175011) #16
-  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  call void @avio_w8(ptr noundef %1, i32 noundef 1) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %1, i32 noundef 1819175011) #17
+  call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  call void @avio_w8(ptr noundef %1, i32 noundef 1) #17
   %26 = load i32, ptr %4, align 4, !tbaa !30
-  call void @avio_w8(ptr noundef %1, i32 noundef %26) #16
+  call void @avio_w8(ptr noundef %1, i32 noundef %26) #17
   %27 = load i32, ptr %4, align 4, !tbaa !30
   %.not25 = icmp eq i32 %27, 0
   br i1 %.not25, label %29, label %28
 
 28:                                               ; preds = %25
-  call void @avio_wb64(ptr noundef %1, i64 noundef 0) #16
+  call void @avio_wb64(ptr noundef %1, i64 noundef 0) #17
   br label %33
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr %5, align 8, !tbaa !31
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 132
   %32 = load i32, ptr %31, align 4, !tbaa !185
-  call void @avio_write(ptr noundef %1, ptr noundef %30, i32 noundef %32) #16
-  call void @av_freep(ptr noundef nonnull %5) #16
+  call void @avio_write(ptr noundef %1, ptr noundef %30, i32 noundef %32) #17
+  call void @av_freep(ptr noundef nonnull %5) #17
   br label %33
 
 33:                                               ; preds = %29, %28
-  %34 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %35 = call i64 @avio_seek(ptr noundef %1, i64 noundef %7, i32 noundef 0) #16
+  %34 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %35 = call i64 @avio_seek(ptr noundef %1, i64 noundef %7, i32 noundef 0) #17
   %36 = sub nsw i64 %34, %7
   %37 = trunc i64 %36 to i32
-  call void @avio_wb32(ptr noundef %1, i32 noundef %37) #16
-  %38 = call i64 @avio_seek(ptr noundef %1, i64 noundef %34, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %1, i32 noundef %37) #17
+  %38 = call i64 @avio_seek(ptr noundef %1, i64 noundef %34, i32 noundef 0) #17
   br label %39
 
 39:                                               ; preds = %15, %33, %23
@@ -17390,10 +17390,10 @@ define internal fastcc i32 @mov_write_chnl_tag(ptr noundef %0, ptr noundef %1, p
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @mov_write_pcmc_tag(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
-  %3 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1131242352) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  %3 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1131242352) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %5 = load ptr, ptr %4, align 8, !tbaa !46
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -17412,7 +17412,7 @@ define internal fastcc noundef i32 @mov_write_pcmc_tag(ptr noundef %0, ptr nound
 
 11:                                               ; preds = %2, %2, %2, %2, %8
   %12 = phi i32 [ 1, %2 ], [ %10, %8 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ]
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %12) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %12) #17
   %13 = load ptr, ptr %4, align 8, !tbaa !46
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 60
   %15 = load i32, ptr %14, align 4, !tbaa !406
@@ -17422,24 +17422,24 @@ define internal fastcc noundef i32 @mov_write_pcmc_tag(ptr noundef %0, ptr nound
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !84
-  %19 = tail call i32 @av_get_exact_bits_per_sample(i32 noundef %18) #16
+  %19 = tail call i32 @av_get_exact_bits_per_sample(i32 noundef %18) #17
   %.not20 = icmp eq i32 %19, 0
   br i1 %.not20, label %20, label %.thread
 
 20:                                               ; preds = %16
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.423, ptr noundef nonnull @.str.8, i32 noundef 1337) #16
-  tail call void @abort() #17
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.423, ptr noundef nonnull @.str.8, i32 noundef 1337) #17
+  tail call void @abort() #18
   unreachable
 
 .thread:                                          ; preds = %11, %16
   %.03 = phi i32 [ %19, %16 ], [ %15, %11 ]
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %.03) #16
-  %21 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %22 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %3, i32 noundef 0) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %.03) #17
+  %21 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %22 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %3, i32 noundef 0) #17
   %23 = sub nsw i64 %21, %3
   %24 = trunc i64 %23 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %24) #16
-  %25 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %21, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %24) #17
+  %25 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %21, i32 noundef 0) #17
   ret i32 %24
 }
 
@@ -17486,8 +17486,8 @@ define internal fastcc range(i32 0, -2147483648) i32 @get_cluster_duration(ptr n
   br i1 %28, label %30, label %29
 
 29:                                               ; preds = %21
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.400, ptr noundef nonnull @.str.8, i32 noundef 1231) #16
-  tail call void @abort() #17
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.400, ptr noundef nonnull @.str.8, i32 noundef 1231) #17
+  tail call void @abort() #18
   unreachable
 
 30:                                               ; preds = %21
@@ -17495,8 +17495,8 @@ define internal fastcc range(i32 0, -2147483648) i32 @get_cluster_duration(ptr n
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %30
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.401, ptr noundef nonnull @.str.8, i32 noundef 1232) #16
-  tail call void @abort() #17
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.401, ptr noundef nonnull @.str.8, i32 noundef 1232) #17
+  tail call void @abort() #18
   unreachable
 
 33:                                               ; preds = %30
@@ -17594,8 +17594,8 @@ utf8len.exit.loopexit:                            ; preds = %21
 
 utf8len.exit:                                     ; preds = %utf8len.exit.loopexit, %4
   %.4.i = phi i32 [ 12, %4 ], [ %25, %utf8len.exit.loopexit ]
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef %.4.i) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %3) #16
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef %.4.i) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %3) #17
   %26 = load i8, ptr %2, align 1, !tbaa !88
   %27 = and i8 %26, 31
   %28 = zext nneg i8 %27 to i32
@@ -17611,8 +17611,8 @@ utf8len.exit:                                     ; preds = %utf8len.exit.loopex
   %38 = and i8 %37, 31
   %39 = zext nneg i8 %38 to i32
   %40 = or disjoint i32 %35, %39
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef %40) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 1) #16
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef %40) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 1) #17
   %41 = load i8, ptr %1, align 1, !tbaa !88
   %.not39.i = icmp eq i8 %41, 0
   br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph.i10
@@ -17655,13 +17655,13 @@ utf8len.exit:                                     ; preds = %utf8len.exit.loopex
   %58 = shl i32 %.023.i, 1
   %59 = add i32 %58, -1
   %60 = and i32 %59, %.126.i
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef %60) #16
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef %60) #17
   %61 = load i8, ptr %.230.i, align 1, !tbaa !88
   %.not.i16 = icmp eq i8 %61, 0
   br i1 %.not.i16, label %._crit_edge.i, label %.lr.ph.i10, !llvm.loop !479
 
 ._crit_edge.i:                                    ; preds = %57, %utf8len.exit
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #16
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #17
   br label %ascii_to_wc.exit
 
 ascii_to_wc.exit:                                 ; preds = %.lr.ph.i, %14, %.lr.ph.i10, %50, %._crit_edge.i
@@ -17670,10 +17670,10 @@ ascii_to_wc.exit:                                 ; preds = %.lr.ph.i, %14, %.lr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mov_write_3gp_udta_tag(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
+  %5 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %7 = load ptr, ptr %6, align 8, !tbaa !201
-  %8 = tail call ptr @av_dict_get(ptr noundef %7, ptr noundef %3, ptr noundef null, i32 noundef 0) #16
+  %8 = tail call ptr @av_dict_get(ptr noundef %7, ptr noundef %3, ptr noundef null, i32 noundef 0) #17
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %utf8len.exit, label %9
 
@@ -17723,53 +17723,53 @@ define internal fastcc void @mov_write_3gp_udta_tag(ptr noundef %0, ptr noundef 
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !362
 
 .loopexit:                                        ; preds = %28, %.lr.ph.i, %22
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   %29 = load i32, ptr %2, align 1
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef %29) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.479) #18
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef %29) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.479) #19
   %.not25 = icmp eq i32 %30, 0
   br i1 %.not25, label %31, label %35
 
 31:                                               ; preds = %.loopexit
   %32 = load ptr, ptr %10, align 8, !tbaa !203
-  %33 = tail call i64 @strtol(ptr noundef nonnull captures(none) %32, ptr noundef null, i32 noundef 10) #16
+  %33 = tail call i64 @strtol(ptr noundef nonnull captures(none) %32, ptr noundef null, i32 noundef 10) #17
   %34 = trunc i64 %33 to i32
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef %34) #16
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef %34) #17
   br label %49
 
 35:                                               ; preds = %.loopexit
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 5575) #16
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 5575) #17
   %36 = load ptr, ptr %10, align 8, !tbaa !203
-  %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #18
+  %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #19
   %38 = trunc i64 %37 to i32
   %39 = add i32 %38, 1
-  tail call void @avio_write(ptr noundef %0, ptr noundef nonnull %36, i32 noundef %39) #16
-  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.475) #18
+  tail call void @avio_write(ptr noundef %0, ptr noundef nonnull %36, i32 noundef %39) #17
+  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.475) #19
   %.not26 = icmp eq i32 %40, 0
   br i1 %.not26, label %41, label %49
 
 41:                                               ; preds = %35
   %42 = load ptr, ptr %6, align 8, !tbaa !201
-  %43 = tail call ptr @av_dict_get(ptr noundef %42, ptr noundef nonnull @.str.501, ptr noundef null, i32 noundef 0) #16
+  %43 = tail call ptr @av_dict_get(ptr noundef %42, ptr noundef nonnull @.str.501, ptr noundef null, i32 noundef 0) #17
   %.not27 = icmp eq ptr %43, null
   br i1 %.not27, label %49, label %44
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !203
-  %47 = tail call i64 @strtol(ptr noundef nonnull captures(none) %46, ptr noundef null, i32 noundef 10) #16
+  %47 = tail call i64 @strtol(ptr noundef nonnull captures(none) %46, ptr noundef null, i32 noundef 10) #17
   %48 = trunc i64 %47 to i32
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %48) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %48) #17
   br label %49
 
 49:                                               ; preds = %35, %41, %44, %31
-  %50 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %51 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %5, i32 noundef 0) #16
+  %50 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %51 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %5, i32 noundef 0) #17
   %52 = sub nsw i64 %50, %5
   %53 = trunc i64 %52 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %53) #16
-  %54 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %50, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %53) #17
+  %54 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %50, i32 noundef 0) #17
   br label %utf8len.exit
 
 utf8len.exit:                                     ; preds = %9, %4, %49
@@ -17781,7 +17781,7 @@ define internal fastcc void @mov_write_loci_tag(ptr noundef %0, ptr noundef %1) 
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %5 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
+  %5 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
   %6 = call fastcc ptr @get_metadata_lang(ptr noundef %0, ptr noundef nonnull @.str.496, ptr noundef %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %6, null
@@ -17790,27 +17790,27 @@ define internal fastcc void @mov_write_loci_tag(ptr noundef %0, ptr noundef %1) 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !203
-  %10 = call nsz double @strtod(ptr noundef %9, ptr noundef nonnull %4) #16
+  %10 = call nsz double @strtod(ptr noundef %9, ptr noundef nonnull %4) #17
   %11 = load ptr, ptr %4, align 8, !tbaa !31
   %12 = icmp eq ptr %11, %9
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %7
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.503) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.503) #17
   br label %40
 
 14:                                               ; preds = %7
-  %15 = call nsz double @strtod(ptr noundef %11, ptr noundef nonnull %4) #16
+  %15 = call nsz double @strtod(ptr noundef %11, ptr noundef nonnull %4) #17
   %16 = load ptr, ptr %4, align 8, !tbaa !31
   %17 = icmp eq ptr %16, %11
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %14
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.503) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.503) #17
   br label %40
 
 19:                                               ; preds = %14
-  %20 = call nsz double @strtod(ptr noundef %16, ptr noundef nonnull %4) #16
+  %20 = call nsz double @strtod(ptr noundef %16, ptr noundef nonnull %4) #17
   %21 = load ptr, ptr %4, align 8, !tbaa !31
   %22 = load i8, ptr %21, align 1, !tbaa !88
   %23 = icmp eq i8 %22, 47
@@ -17822,27 +17822,27 @@ define internal fastcc void @mov_write_loci_tag(ptr noundef %0, ptr noundef %1) 
   %28 = fptosi double %27 to i32
   %29 = fmul nsz double %20, 6.553600e+04
   %30 = fptosi double %29 to i32
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1768124268) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1768124268) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   %31 = load i32, ptr %3, align 4, !tbaa !30
-  tail call void @avio_wb16(ptr noundef %1, i32 noundef %31) #16
-  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #18
+  tail call void @avio_wb16(ptr noundef %1, i32 noundef %31) #17
+  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #19
   %33 = trunc i64 %32 to i32
   %34 = add i32 %33, 1
-  tail call void @avio_write(ptr noundef %1, ptr noundef nonnull %spec.select, i32 noundef %34) #16
-  tail call void @avio_w8(ptr noundef %1, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %28) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %26) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %30) #16
-  tail call void @avio_write(ptr noundef %1, ptr noundef nonnull @.str.502, i32 noundef 6) #16
-  tail call void @avio_w8(ptr noundef %1, i32 noundef 0) #16
-  %35 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %36 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %5, i32 noundef 0) #16
+  tail call void @avio_write(ptr noundef %1, ptr noundef nonnull %spec.select, i32 noundef %34) #17
+  tail call void @avio_w8(ptr noundef %1, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %28) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %26) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %30) #17
+  tail call void @avio_write(ptr noundef %1, ptr noundef nonnull @.str.502, i32 noundef 6) #17
+  tail call void @avio_w8(ptr noundef %1, i32 noundef 0) #17
+  %35 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
+  %36 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %5, i32 noundef 0) #17
   %37 = sub nsw i64 %35, %5
   %38 = trunc i64 %37 to i32
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %38) #16
-  %39 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %35, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %38) #17
+  %39 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef %35, i32 noundef 0) #17
   br label %40
 
 40:                                               ; preds = %2, %19, %18, %13
@@ -17871,10 +17871,10 @@ define internal fastcc void @mov_write_meta_tag(ptr noundef %0, ptr noundef capt
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
   %21 = alloca i32, align 4
-  %22 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1635018093) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  %22 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1635018093) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %24 = load i32, ptr %23, align 8, !tbaa !75
   %25 = and i32 %24, 131072
@@ -17882,24 +17882,24 @@ define internal fastcc void @mov_write_meta_tag(ptr noundef %0, ptr noundef capt
   br i1 %.not, label %67, label %26
 
 26:                                               ; preds = %3
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 33) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1919706216) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1635017837) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 0) #16
-  %27 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1937335659) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  %28 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 33) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1919706216) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1635017837) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 0) #17
+  %27 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1937335659) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  %28 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %30 = load ptr, ptr %29, align 8, !tbaa !201
-  %31 = tail call ptr @av_dict_iterate(ptr noundef %30, ptr noundef null) #16
+  %31 = tail call ptr @av_dict_iterate(ptr noundef %30, ptr noundef null) #17
   %.not1.i = icmp eq ptr %31, null
   br i1 %.not1.i, label %mov_write_mdta_keys_tag.exit, label %.lr.ph.i
 
@@ -17907,64 +17907,64 @@ define internal fastcc void @mov_write_meta_tag(ptr noundef %0, ptr noundef capt
   %32 = phi ptr [ %40, %.lr.ph.i ], [ %31, %26 ]
   %.0242.i = phi i32 [ %38, %.lr.ph.i ], [ 0, %26 ]
   %33 = load ptr, ptr %32, align 8, !tbaa !480
-  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #18
+  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #19
   %35 = trunc i64 %34 to i32
   %36 = add i32 %35, 8
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %36) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1635017837) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %36) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1635017837) #17
   %37 = load ptr, ptr %32, align 8, !tbaa !480
-  tail call void @avio_write(ptr noundef %0, ptr noundef %37, i32 noundef %35) #16
+  tail call void @avio_write(ptr noundef %0, ptr noundef %37, i32 noundef %35) #17
   %38 = add nuw nsw i32 %.0242.i, 1
   %39 = load ptr, ptr %29, align 8, !tbaa !201
-  %40 = tail call ptr @av_dict_iterate(ptr noundef %39, ptr noundef nonnull %32) #16
+  %40 = tail call ptr @av_dict_iterate(ptr noundef %39, ptr noundef nonnull %32) #17
   %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %mov_write_mdta_keys_tag.exit, label %.lr.ph.i, !llvm.loop !481
 
 mov_write_mdta_keys_tag.exit:                     ; preds = %.lr.ph.i, %26
   %.024.lcssa.i = phi i32 [ 0, %26 ], [ %38, %.lr.ph.i ]
-  %41 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %42 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %28, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.024.lcssa.i) #16
-  %43 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %41, i32 noundef 0) #16
-  %44 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %45 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %27, i32 noundef 0) #16
+  %41 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %42 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %28, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.024.lcssa.i) #17
+  %43 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %41, i32 noundef 0) #17
+  %44 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %45 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %27, i32 noundef 0) #17
   %46 = sub nsw i64 %44, %27
   %47 = trunc i64 %46 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %47) #16
-  %48 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %44, i32 noundef 0) #16
-  %49 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1953721449) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %47) #17
+  %48 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %44, i32 noundef 0) #17
+  %49 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1953721449) #17
   %50 = load ptr, ptr %29, align 8, !tbaa !201
-  %51 = tail call ptr @av_dict_iterate(ptr noundef %50, ptr noundef null) #16
+  %51 = tail call ptr @av_dict_iterate(ptr noundef %50, ptr noundef null) #17
   %.not1.i40 = icmp eq ptr %51, null
   br i1 %.not1.i40, label %mov_write_mdta_ilst_tag.exit, label %.lr.ph.i41
 
 .lr.ph.i41:                                       ; preds = %mov_write_mdta_keys_tag.exit, %.lr.ph.i41
   %52 = phi ptr [ %66, %.lr.ph.i41 ], [ %51, %mov_write_mdta_keys_tag.exit ]
   %.0152.i = phi i32 [ %64, %.lr.ph.i41 ], [ 1, %mov_write_mdta_keys_tag.exit ]
-  %53 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.0152.i) #16
+  %53 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.0152.i) #17
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !203
-  %56 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #18
+  %56 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #19
   %57 = trunc i64 %56 to i32
   %58 = add i32 %57, 16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %58) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1635017060) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_write(ptr noundef %0, ptr noundef nonnull %55, i32 noundef %57) #16
-  %59 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %60 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %53, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %58) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1635017060) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_write(ptr noundef %0, ptr noundef nonnull %55, i32 noundef %57) #17
+  %59 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %60 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %53, i32 noundef 0) #17
   %61 = sub nsw i64 %59, %53
   %62 = trunc i64 %61 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %62) #16
-  %63 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %59, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %62) #17
+  %63 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %59, i32 noundef 0) #17
   %64 = add nuw nsw i32 %.0152.i, 1
   %65 = load ptr, ptr %29, align 8, !tbaa !201
-  %66 = tail call ptr @av_dict_iterate(ptr noundef %65, ptr noundef nonnull %52) #16
+  %66 = tail call ptr @av_dict_iterate(ptr noundef %65, ptr noundef nonnull %52) #17
   %.not.i42 = icmp eq ptr %66, null
   br i1 %.not.i42, label %mov_write_mdta_ilst_tag.exit, label %.lr.ph.i41, !llvm.loop !482
 
@@ -17978,26 +17978,26 @@ mov_write_mdta_keys_tag.exit:                     ; preds = %.lr.ph.i, %26
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %73 = load ptr, ptr %72, align 8, !tbaa !40
   tail call fastcc void @mov_write_hdlr_tag(ptr noundef %2, ptr noundef %0, ptr noundef %73)
-  %74 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1836345712) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 1) #16
-  %75 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %76 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %74, i32 noundef 0) #16
+  %74 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1836345712) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 1) #17
+  %75 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %76 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %74, i32 noundef 0) #17
   %77 = sub nsw i64 %75, %74
   %78 = trunc i64 %77 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %78) #16
-  %79 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %75, i32 noundef 0) #16
-  %80 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1668246633) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 68) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %78) #17
+  %79 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %75, i32 noundef 0) #17
+  %80 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1668246633) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 68) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 0) #17
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %82 = load i32, ptr %81, align 8, !tbaa !172
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef %82) #16
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef %82) #17
   %83 = load i32, ptr %81, align 8, !tbaa !172
   %84 = icmp sgt i32 %83, 0
   br i1 %84, label %.lr.ph.i43, label %mov_write_iloc_tag.exit
@@ -18011,105 +18011,105 @@ mov_write_mdta_keys_tag.exit:                     ; preds = %.lr.ph.i, %26
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i43 ], [ %indvars.iv.next.i, %87 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %88 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef %88) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 1) #16
-  %89 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef %88) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 1) #17
+  %89 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
   %90 = getelementptr inbounds nuw i64, ptr %85, i64 %indvars.iv.i
   store i64 %89, ptr %90, align 8, !tbaa !319
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   %91 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv.i
   %92 = load i32, ptr %91, align 4, !tbaa !30
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %92) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %92) #17
   %93 = load i32, ptr %81, align 8, !tbaa !172
   %94 = sext i32 %93 to i64
   %95 = icmp slt i64 %indvars.iv.next.i, %94
   br i1 %95, label %87, label %mov_write_iloc_tag.exit, !llvm.loop !483
 
 mov_write_iloc_tag.exit:                          ; preds = %87, %71
-  %96 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %97 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %80, i32 noundef 0) #16
+  %96 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %97 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %80, i32 noundef 0) #17
   %98 = sub nsw i64 %96, %80
   %99 = trunc i64 %98 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %99) #16
-  %100 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %96, i32 noundef 0) #16
-  %101 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1718511977) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %99) #17
+  %100 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %96, i32 noundef 0) #17
+  %101 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1718511977) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   %102 = load i32, ptr %81, align 8, !tbaa !172
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef %102) #16
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef %102) #17
   %103 = load i32, ptr %81, align 8, !tbaa !172
   %104 = icmp sgt i32 %103, 0
   br i1 %104, label %.lr.ph.i44, label %mov_write_iinf_tag.exit
 
 .lr.ph.i44:                                       ; preds = %mov_write_iloc_tag.exit, %.lr.ph.i44
   %.01.i = phi i32 [ %106, %.lr.ph.i44 ], [ 0, %mov_write_iloc_tag.exit ]
-  %105 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1701211753) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 2) #16
-  tail call void @avio_wb24(ptr noundef %0, i32 noundef 0) #16
+  %105 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1701211753) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 2) #17
+  tail call void @avio_wb24(ptr noundef %0, i32 noundef 0) #17
   %106 = add nuw nsw i32 %.01.i, 1
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef %106) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_write(ptr noundef %0, ptr noundef nonnull @.str.176, i32 noundef 4) #16
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef %106) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_write(ptr noundef %0, ptr noundef nonnull @.str.176, i32 noundef 4) #17
   %.not.i45 = icmp eq i32 %.01.i, 0
   %107 = select i1 %.not.i45, ptr @.str.514, ptr @.str.515
-  tail call void @avio_write(ptr noundef %0, ptr noundef nonnull %107, i32 noundef 6) #16
-  %108 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %109 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %105, i32 noundef 0) #16
+  tail call void @avio_write(ptr noundef %0, ptr noundef nonnull %107, i32 noundef 6) #17
+  %108 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %109 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %105, i32 noundef 0) #17
   %110 = sub nsw i64 %108, %105
   %111 = trunc i64 %110 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %111) #16
-  %112 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %108, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %111) #17
+  %112 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %108, i32 noundef 0) #17
   %113 = load i32, ptr %81, align 8, !tbaa !172
   %114 = icmp slt i32 %106, %113
   br i1 %114, label %.lr.ph.i44, label %mov_write_iinf_tag.exit, !llvm.loop !484
 
 mov_write_iinf_tag.exit:                          ; preds = %.lr.ph.i44, %mov_write_iloc_tag.exit
-  %115 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %116 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %101, i32 noundef 0) #16
+  %115 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %116 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %101, i32 noundef 0) #17
   %117 = sub nsw i64 %115, %101
   %118 = trunc i64 %117 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %118) #16
-  %119 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %115, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %118) #17
+  %119 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %115, i32 noundef 0) #17
   %120 = load i32, ptr %81, align 8, !tbaa !172
   %121 = icmp sgt i32 %120, 1
   br i1 %121, label %122, label %135
 
 122:                                              ; preds = %mov_write_iinf_tag.exit
-  %123 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1717924457) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  %124 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1819833697) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 2) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 1) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 1) #16
-  %125 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %126 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %124, i32 noundef 0) #16
+  %123 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1717924457) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  %124 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1819833697) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 2) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 1) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 1) #17
+  %125 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %126 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %124, i32 noundef 0) #17
   %127 = sub nsw i64 %125, %124
   %128 = trunc i64 %127 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %128) #16
-  %129 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %125, i32 noundef 0) #16
-  %130 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %131 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %123, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %128) #17
+  %129 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %125, i32 noundef 0) #17
+  %130 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %131 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %123, i32 noundef 0) #17
   %132 = sub nsw i64 %130, %123
   %133 = trunc i64 %132 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %133) #16
-  %134 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %130, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %133) #17
+  %134 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %130, i32 noundef 0) #17
   br label %135
 
 135:                                              ; preds = %122, %mov_write_iinf_tag.exit
-  %136 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1886548073) #16
-  %137 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1868787817) #16
+  %136 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1886548073) #17
+  %137 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1868787817) #17
   %138 = load i32, ptr %81, align 8, !tbaa !172
   %139 = icmp sgt i32 %138, 0
   br i1 %139, label %.lr.ph.i.i, label %mov_write_ipco_tag.exit.i
@@ -18120,10 +18120,10 @@ mov_write_iinf_tag.exit:                          ; preds = %.lr.ph.i44, %mov_wr
 
 141:                                              ; preds = %211, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %211 ]
-  %142 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1701868393) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  %142 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1701868393) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   %143 = load ptr, ptr %140, align 8, !tbaa !34
   %144 = getelementptr inbounds nuw ptr, ptr %143, i64 %indvars.iv.i.i
   %145 = load ptr, ptr %144, align 8, !tbaa !35
@@ -18131,7 +18131,7 @@ mov_write_iinf_tag.exit:                          ; preds = %.lr.ph.i44, %mov_wr
   %147 = load ptr, ptr %146, align 8, !tbaa !176
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 72
   %149 = load i32, ptr %148, align 8, !tbaa !181
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %149) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %149) #17
   %150 = load ptr, ptr %140, align 8, !tbaa !34
   %151 = getelementptr inbounds nuw ptr, ptr %150, i64 %indvars.iv.i.i
   %152 = load ptr, ptr %151, align 8, !tbaa !35
@@ -18139,14 +18139,14 @@ mov_write_iinf_tag.exit:                          ; preds = %.lr.ph.i44, %mov_wr
   %154 = load ptr, ptr %153, align 8, !tbaa !176
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 76
   %156 = load i32, ptr %155, align 4, !tbaa !183
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %156) #16
-  %157 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %158 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %142, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %156) #17
+  %157 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %158 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %142, i32 noundef 0) #17
   %159 = sub nsw i64 %157, %142
   %160 = trunc i64 %159 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %160) #16
-  %161 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %157, i32 noundef 0) #16
-  %162 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %160) #17
+  %161 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %157, i32 noundef 0) #17
+  %162 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
   %163 = load ptr, ptr %140, align 8, !tbaa !34
   %164 = getelementptr inbounds nuw ptr, ptr %163, i64 %indvars.iv.i.i
   %165 = load ptr, ptr %164, align 8, !tbaa !35
@@ -18154,14 +18154,14 @@ mov_write_iinf_tag.exit:                          ; preds = %.lr.ph.i44, %mov_wr
   %167 = load ptr, ptr %166, align 8, !tbaa !176
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 44
   %169 = load i32, ptr %168, align 4, !tbaa !234
-  %170 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %169) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1769498992) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  %170 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %169) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1769498992) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %172 = load i8, ptr %171, align 8, !tbaa !262
   %173 = zext i8 %172 to i32
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %173) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %173) #17
   %174 = load i8, ptr %171, align 8, !tbaa !262
   %.not.i.i.i = icmp eq i8 %174, 0
   br i1 %.not.i.i.i, label %mov_write_pixi_tag.exit.i.i, label %.lr.ph.i.i.i
@@ -18171,7 +18171,7 @@ mov_write_iinf_tag.exit:                          ; preds = %.lr.ph.i44, %mov_wr
   %175 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %170, i64 %indvars.iv.i.i.i
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 40
   %177 = load i32, ptr %176, align 4, !tbaa !325
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %177) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %177) #17
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %178 = load i8, ptr %171, align 8, !tbaa !262
   %179 = zext i8 %178 to i64
@@ -18179,17 +18179,17 @@ mov_write_iinf_tag.exit:                          ; preds = %.lr.ph.i44, %mov_wr
   br i1 %180, label %.lr.ph.i.i.i, label %mov_write_pixi_tag.exit.i.i, !llvm.loop !485
 
 mov_write_pixi_tag.exit.i.i:                      ; preds = %.lr.ph.i.i.i, %141
-  %181 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %182 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %162, i32 noundef 0) #16
+  %181 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %182 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %162, i32 noundef 0) #17
   %183 = sub nsw i64 %181, %162
   %184 = trunc i64 %183 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %184) #16
-  %185 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %181, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %184) #17
+  %185 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %181, i32 noundef 0) #17
   %186 = load ptr, ptr %72, align 8, !tbaa !40
   %187 = getelementptr inbounds nuw %struct.MOVTrack, ptr %186, i64 %indvars.iv.i.i
-  %188 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1127315041) #16
+  %188 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1127315041) #17
   %189 = getelementptr inbounds nuw i8, ptr %187, i64 128
   %190 = load ptr, ptr %189, align 8, !tbaa !97
   %191 = getelementptr inbounds nuw i8, ptr %187, i64 120
@@ -18197,13 +18197,13 @@ mov_write_pixi_tag.exit.i.i:                      ; preds = %.lr.ph.i.i.i, %141
   %193 = load i32, ptr %187, align 8, !tbaa !104
   %194 = icmp ne i32 %193, 256
   %195 = zext i1 %194 to i32
-  %196 = tail call i32 @ff_isom_write_av1c(ptr noundef %0, ptr noundef %190, i32 noundef %192, i32 noundef %195) #16
-  %197 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %198 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %188, i32 noundef 0) #16
+  %196 = tail call i32 @ff_isom_write_av1c(ptr noundef %0, ptr noundef %190, i32 noundef %192, i32 noundef %195) #17
+  %197 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %198 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %188, i32 noundef 0) #17
   %199 = sub nsw i64 %197, %188
   %200 = trunc i64 %199 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %200) #16
-  %201 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %197, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %200) #17
+  %201 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %197, i32 noundef 0) #17
   %.not.i.i = icmp eq i64 %indvars.iv.i.i, 0
   br i1 %.not.i.i, label %202, label %204
 
@@ -18213,17 +18213,17 @@ mov_write_pixi_tag.exit.i.i:                      ; preds = %.lr.ph.i.i.i, %141
   br label %211
 
 204:                                              ; preds = %mov_write_pixi_tag.exit.i.i
-  %205 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1131967841) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_write(ptr noundef %0, ptr noundef nonnull @.str.397, i32 noundef 44) #16
-  %206 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %207 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %205, i32 noundef 0) #16
+  %205 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1131967841) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_write(ptr noundef %0, ptr noundef nonnull @.str.397, i32 noundef 44) #17
+  %206 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %207 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %205, i32 noundef 0) #17
   %208 = sub nsw i64 %206, %205
   %209 = trunc i64 %208 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %209) #16
-  %210 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %206, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %209) #17
+  %210 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %206, i32 noundef 0) #17
   br label %211
 
 211:                                              ; preds = %204, %202
@@ -18234,18 +18234,18 @@ mov_write_pixi_tag.exit.i.i:                      ; preds = %.lr.ph.i.i.i, %141
   br i1 %214, label %141, label %mov_write_ipco_tag.exit.i, !llvm.loop !486
 
 mov_write_ipco_tag.exit.i:                        ; preds = %211, %135
-  %215 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %216 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %137, i32 noundef 0) #16
+  %215 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %216 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %137, i32 noundef 0) #17
   %217 = sub nsw i64 %215, %137
   %218 = trunc i64 %217 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %218) #16
-  %219 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %215, i32 noundef 0) #16
-  %220 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1634562153) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %218) #17
+  %219 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %215, i32 noundef 0) #17
+  %220 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1634562153) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   %221 = load i32, ptr %81, align 8, !tbaa !172
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %221) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %221) #17
   %222 = load i32, ptr %81, align 8, !tbaa !172
   %223 = icmp sgt i32 %222, 0
   br i1 %223, label %.lr.ph.i10.i, label %mov_write_iprp_tag.exit
@@ -18254,43 +18254,43 @@ mov_write_ipco_tag.exit.i:                        ; preds = %211, %135
   %.02.i.i = phi i32 [ %229, %.lr.ph.i10.i ], [ 1, %mov_write_ipco_tag.exit.i ]
   %.0211.i.i = phi i32 [ %224, %.lr.ph.i10.i ], [ 0, %mov_write_ipco_tag.exit.i ]
   %224 = add nuw nsw i32 %.0211.i.i, 1
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef %224) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 4) #16
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef %224) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 4) #17
   %225 = add nuw nsw i32 %.02.i.i, 1
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %.02.i.i) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %.02.i.i) #17
   %226 = add nuw nsw i32 %.02.i.i, 2
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %225) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %225) #17
   %227 = add nuw nsw i32 %.02.i.i, 3
   %228 = or i32 %226, 128
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %228) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %228) #17
   %229 = add nuw nsw i32 %.02.i.i, 4
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %227) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %227) #17
   %230 = load i32, ptr %81, align 8, !tbaa !172
   %231 = icmp slt i32 %224, %230
   br i1 %231, label %.lr.ph.i10.i, label %mov_write_iprp_tag.exit, !llvm.loop !487
 
 mov_write_iprp_tag.exit:                          ; preds = %.lr.ph.i10.i, %mov_write_ipco_tag.exit.i
-  %232 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %233 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %220, i32 noundef 0) #16
+  %232 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %233 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %220, i32 noundef 0) #17
   %234 = sub nsw i64 %232, %220
   %235 = trunc i64 %234 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %235) #16
-  %236 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %232, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %235) #17
+  %236 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %232, i32 noundef 0) #17
   br label %mov_write_mdta_ilst_tag.exit
 
 237:                                              ; preds = %67
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 33) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1919706216) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1919509613) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1819308129) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 0) #16
-  %238 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1953721449) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 33) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1919706216) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1919509613) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1819308129) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 0) #17
+  %238 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1953721449) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %239 = call fastcc ptr @get_metadata_lang(ptr noundef readonly %2, ptr noundef nonnull @.str.205, ptr noundef %21)
   %.not.i.i46 = icmp eq ptr %239, null
@@ -18610,9 +18610,9 @@ is_cover_image.exit.i.i:                          ; preds = %358
   br i1 %.not25.i.i, label %373, label %375
 
 373:                                              ; preds = %372
-  %374 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1920364387) #16
+  %374 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1920364387) #17
   %.pre.i.i = load ptr, ptr %367, align 8, !tbaa !230
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 32
   %.pre6.i.i = load i32, ptr %.phi.trans.insert.i.i, align 8, !tbaa !25
@@ -18622,18 +18622,18 @@ is_cover_image.exit.i.i:                          ; preds = %358
   %376 = phi i32 [ %370, %372 ], [ %.pre6.i.i, %373 ]
   %.2.i.i = phi i64 [ %.04.i.i, %372 ], [ %374, %373 ]
   %377 = add nsw i32 %376, 16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %377) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1635017060) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %377) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1635017060) #17
   %378 = getelementptr inbounds nuw i8, ptr %361, i64 88
   %379 = load i32, ptr %378, align 8, !tbaa !96
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %379) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %379) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   %380 = load ptr, ptr %367, align 8, !tbaa !230
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 24
   %382 = load ptr, ptr %381, align 8, !tbaa !87
   %383 = getelementptr inbounds nuw i8, ptr %380, i64 32
   %384 = load i32, ptr %383, align 8, !tbaa !25
-  tail call void @avio_write(ptr noundef %0, ptr noundef %382, i32 noundef %384) #16
+  tail call void @avio_write(ptr noundef %0, ptr noundef %382, i32 noundef %384) #17
   %.pre7.i.i = load i32, ptr %354, align 8, !tbaa !172
   br label %is_cover_image.exit.thread.i.i
 
@@ -18646,12 +18646,12 @@ is_cover_image.exit.thread.i.i:                   ; preds = %375, %366, %is_cove
   br i1 %387, label %358, label %._crit_edge.i.i, !llvm.loop !488
 
 388:                                              ; preds = %._crit_edge.i.i
-  %389 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %390 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %.1.i.i, i32 noundef 0) #16
+  %389 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %390 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %.1.i.i, i32 noundef 0) #17
   %391 = sub nsw i64 %389, %.1.i.i
   %392 = trunc i64 %391 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %392) #16
-  %393 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %389, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %392) #17
+  %393 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %389, i32 noundef 0) #17
   br label %mov_write_covr.exit.i
 
 mov_write_covr.exit.i:                            ; preds = %388, %._crit_edge.i.i, %mov_write_string_metadata.exit118.i
@@ -18661,42 +18661,42 @@ mov_write_covr.exit.i:                            ; preds = %388, %._crit_edge.i
   %.val66.i = load ptr, ptr %394, align 8, !tbaa !201
   tail call fastcc void @mov_write_trkn_tag(ptr noundef %0, ptr %.val66.i, i32 noundef 1)
   %.val67.i = load ptr, ptr %394, align 8, !tbaa !201
-  %395 = tail call ptr @av_dict_get(ptr noundef %.val67.i, ptr noundef nonnull @.str.563, ptr noundef null, i32 noundef 0) #16
+  %395 = tail call ptr @av_dict_get(ptr noundef %.val67.i, ptr noundef nonnull @.str.563, ptr noundef null, i32 noundef 0) #17
   %.not.i120.i = icmp eq ptr %395, null
   br i1 %.not.i120.i, label %mov_write_mdta_ilst_tag.exit, label %396
 
 396:                                              ; preds = %mov_write_covr.exit.i
   %397 = getelementptr inbounds nuw i8, ptr %395, i64 8
   %398 = load ptr, ptr %397, align 8, !tbaa !203
-  %399 = tail call i64 @strtol(ptr noundef nonnull captures(none) %398, ptr noundef null, i32 noundef 10) #16
+  %399 = tail call i64 @strtol(ptr noundef nonnull captures(none) %398, ptr noundef null, i32 noundef 10) #17
   %400 = trunc i64 %399 to i32
   %.not16.i.i = icmp eq i32 %400, 0
   br i1 %.not16.i.i, label %mov_write_mdta_ilst_tag.exit, label %401
 
 401:                                              ; preds = %396
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 26) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1869639028) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 18) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1635017060) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 21) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef %400) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 26) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1869639028) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 18) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1635017060) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 21) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef %400) #17
   br label %mov_write_mdta_ilst_tag.exit
 
 mov_write_mdta_ilst_tag.exit:                     ; preds = %.lr.ph.i41, %401, %396, %mov_write_covr.exit.i, %mov_write_mdta_keys_tag.exit, %mov_write_iprp_tag.exit
   %.sink80 = phi i64 [ %136, %mov_write_iprp_tag.exit ], [ %49, %mov_write_mdta_keys_tag.exit ], [ %238, %mov_write_covr.exit.i ], [ %238, %396 ], [ %238, %401 ], [ %49, %.lr.ph.i41 ]
-  %402 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %403 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %.sink80, i32 noundef 0) #16
+  %402 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %403 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %.sink80, i32 noundef 0) #17
   %404 = sub nsw i64 %402, %.sink80
   %405 = trunc i64 %404 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %405) #16
-  %406 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %402, i32 noundef 0) #16
-  %407 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %408 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %22, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %405) #17
+  %406 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %402, i32 noundef 0) #17
+  %407 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %408 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %22, i32 noundef 0) #17
   %409 = sub nsw i64 %407, %22
   %410 = trunc i64 %409 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %410) #16
-  %411 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %407, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %410) #17
+  %411 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %407, i32 noundef 0) #17
   ret void
 }
 
@@ -18713,16 +18713,16 @@ define internal fastcc ptr @get_metadata_lang(ptr noundef readonly captures(none
   store i32 0, ptr %2, align 4, !tbaa !30
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8, !tbaa !201
-  %7 = tail call ptr @av_dict_get(ptr noundef %6, ptr noundef %1, ptr noundef null, i32 noundef 0) #16
+  %7 = tail call ptr @av_dict_get(ptr noundef %6, ptr noundef %1, ptr noundef null, i32 noundef 0) #17
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.loopexit, label %8
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %7, align 8, !tbaa !480
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #18
-  %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 16, ptr noundef nonnull @.str.505, ptr noundef %1) #16
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #19
+  %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 16, ptr noundef nonnull @.str.505, ptr noundef %1) #17
   %12 = load ptr, ptr %5, align 8, !tbaa !201
-  %13 = call ptr @av_dict_get(ptr noundef %12, ptr noundef nonnull %4, ptr noundef null, i32 noundef 2) #16
+  %13 = call ptr @av_dict_get(ptr noundef %12, ptr noundef nonnull %4, ptr noundef null, i32 noundef 2) #17
   %.not2325 = icmp eq ptr %13, null
   br i1 %.not2325, label %.loopexit, label %.lr.ph
 
@@ -18735,7 +18735,7 @@ define internal fastcc ptr @get_metadata_lang(ptr noundef readonly captures(none
 17:                                               ; preds = %.lr.ph, %35
   %18 = phi ptr [ %13, %.lr.ph ], [ %37, %35 ]
   %19 = load ptr, ptr %18, align 8, !tbaa !480
-  %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #18
+  %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #19
   %21 = trunc i64 %20 to i32
   %22 = icmp eq i32 %15, %21
   br i1 %22, label %23, label %35
@@ -18744,7 +18744,7 @@ define internal fastcc ptr @get_metadata_lang(ptr noundef readonly captures(none
   %24 = load ptr, ptr %16, align 8, !tbaa !203
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !203
-  %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %26) #18
+  %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %26) #19
   %.not24 = icmp eq i32 %27, 0
   br i1 %.not24, label %28, label %35
 
@@ -18753,7 +18753,7 @@ define internal fastcc ptr @get_metadata_lang(ptr noundef readonly captures(none
   %sext = add i64 %29, -12884901888
   %30 = ashr exact i64 %sext, 32
   %31 = getelementptr inbounds i8, ptr %19, i64 %30
-  %32 = call i32 @ff_mov_iso639_to_lang(ptr noundef nonnull %31, i32 noundef 1) #16
+  %32 = call i32 @ff_mov_iso639_to_lang(ptr noundef nonnull %31, i32 noundef 1) #17
   %33 = icmp sgt i32 %32, -1
   br i1 %33, label %34, label %35
 
@@ -18763,7 +18763,7 @@ define internal fastcc ptr @get_metadata_lang(ptr noundef readonly captures(none
 
 35:                                               ; preds = %28, %23, %17
   %36 = load ptr, ptr %5, align 8, !tbaa !201
-  %37 = call ptr @av_dict_get(ptr noundef %36, ptr noundef nonnull %4, ptr noundef nonnull %18, i32 noundef 2) #16
+  %37 = call ptr @av_dict_get(ptr noundef %36, ptr noundef nonnull %4, ptr noundef nonnull %18, i32 noundef 2) #17
   %.not23 = icmp eq ptr %37, null
   br i1 %.not23, label %.loopexit, label %17, !llvm.loop !489
 
@@ -18791,45 +18791,45 @@ define internal fastcc noundef i32 @mov_write_string_tag(ptr noundef %0, ptr nou
   br i1 %.not13, label %24, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  %9 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   %10 = load i32, ptr %1, align 1
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef %10) #16
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef %10) #17
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #19
   %.not.i = icmp eq i32 %4, 0
   %12 = trunc i64 %11 to i32
   br i1 %.not.i, label %15, label %13
 
 13:                                               ; preds = %8
   %14 = add i32 %12, 16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %14) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1635017060) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %14) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1635017060) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   br label %mov_write_string_data_tag.exit
 
 15:                                               ; preds = %8
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef %12) #16
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef %12) #17
   %.not23.i = icmp eq i32 %3, 0
   br i1 %.not23.i, label %16, label %18
 
 16:                                               ; preds = %15
-  %17 = tail call i32 @ff_mov_iso639_to_lang(ptr noundef nonnull @.str.221, i32 noundef 1) #16
+  %17 = tail call i32 @ff_mov_iso639_to_lang(ptr noundef nonnull @.str.221, i32 noundef 1) #17
   br label %18
 
 18:                                               ; preds = %16, %15
   %.021.i = phi i32 [ %3, %15 ], [ %17, %16 ]
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef %.021.i) #16
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef %.021.i) #17
   br label %mov_write_string_data_tag.exit
 
 mov_write_string_data_tag.exit:                   ; preds = %13, %18
-  tail call void @avio_write(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %12) #16
-  %19 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %20 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %9, i32 noundef 0) #16
+  tail call void @avio_write(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %12) #17
+  %19 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %20 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %9, i32 noundef 0) #17
   %21 = sub nsw i64 %19, %9
   %22 = trunc i64 %21 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %22) #16
-  %23 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %19, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %22) #17
+  %23 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %19, i32 noundef 0) #17
   br label %24
 
 24:                                               ; preds = %mov_write_string_data_tag.exit, %6, %5
@@ -18849,33 +18849,33 @@ define internal fastcc void @mov_write_int8_metadata(ptr noundef readonly captur
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %10 = load ptr, ptr %9, align 8, !tbaa !201
-  %11 = tail call ptr @av_dict_get(ptr noundef %10, ptr noundef %3, ptr noundef null, i32 noundef 0) #16
+  %11 = tail call ptr @av_dict_get(ptr noundef %10, ptr noundef %3, ptr noundef null, i32 noundef 0) #17
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %23, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !203
-  %15 = tail call i64 @strtol(ptr noundef nonnull captures(none) %14, ptr noundef null, i32 noundef 10) #16
+  %15 = tail call i64 @strtol(ptr noundef nonnull captures(none) %14, ptr noundef null, i32 noundef 10) #17
   %16 = trunc i64 %15 to i32
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %6) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %6) #17
   %17 = load i32, ptr %2, align 1
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef %17) #16
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef %17) #17
   %18 = or disjoint i32 %4, 16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %18) #16
-  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1635017060) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 21) #16
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %18) #17
+  tail call void @avio_wl32(ptr noundef %1, i32 noundef 1635017060) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 21) #17
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
   %19 = icmp eq i32 %4, 4
   %20 = and i32 %16, 255
   br i1 %19, label %21, label %22
 
 21:                                               ; preds = %12
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %20) #16
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %20) #17
   br label %23
 
 22:                                               ; preds = %12
-  tail call void @avio_w8(ptr noundef %1, i32 noundef %20) #16
+  tail call void @avio_w8(ptr noundef %1, i32 noundef %20) #17
   br label %23
 
 23:                                               ; preds = %5, %21, %22, %8
@@ -18886,43 +18886,43 @@ define internal fastcc void @mov_write_int8_metadata(ptr noundef readonly captur
 define internal fastcc void @mov_write_trkn_tag(ptr noundef %0, ptr %.192.val, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   %3 = select i1 %.not, ptr @.str.501, ptr @.str.560
-  %4 = tail call ptr @av_dict_get(ptr noundef %.192.val, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #16
+  %4 = tail call ptr @av_dict_get(ptr noundef %.192.val, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #17
   %.not25 = icmp eq ptr %4, null
   br i1 %.not25, label %.thread, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !203
-  %8 = tail call i64 @strtol(ptr noundef nonnull captures(none) %7, ptr noundef null, i32 noundef 10) #16
+  %8 = tail call i64 @strtol(ptr noundef nonnull captures(none) %7, ptr noundef null, i32 noundef 10) #17
   %9 = trunc i64 %8 to i32
   %.not26 = icmp eq i32 %9, 0
   br i1 %.not26, label %.thread, label %10
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %6, align 8, !tbaa !203
-  %12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 47) #18
+  %12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 47) #19
   %.not27 = icmp eq ptr %12, null
   br i1 %.not27, label %17, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %15 = tail call i64 @strtol(ptr noundef nonnull captures(none) %14, ptr noundef null, i32 noundef 10) #16
+  %15 = tail call i64 @strtol(ptr noundef nonnull captures(none) %14, ptr noundef null, i32 noundef 10) #17
   %16 = trunc i64 %15 to i32
   br label %17
 
 17:                                               ; preds = %13, %10
   %.021 = phi i32 [ %16, %13 ], [ 0, %10 ]
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 32) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 32) #17
   %18 = select i1 %.not, i32 1852535412, i32 1802725732
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef %18) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 24) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1635017060) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef %9) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef %.021) #16
-  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #16
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef %18) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 24) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1635017060) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef %9) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef %.021) #17
+  tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #17
   br label %.thread
 
 .thread:                                          ; preds = %2, %17, %5
@@ -18988,13 +18988,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_flush_fragment(ptr nou
 
 30:                                               ; preds = %25
   %31 = trunc nuw nsw i64 %indvars.iv to i32
-  %32 = call ptr @ff_interleaved_peek(ptr noundef nonnull %0, i32 noundef %31) #16
+  %32 = call ptr @ff_interleaved_peek(ptr noundef nonnull %0, i32 noundef %31) #17
   %.not245 = icmp eq ptr %32, null
   br i1 %.not245, label %50, label %33
 
 33:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %34 = call i32 @ff_get_muxer_ts_offset(ptr noundef nonnull %0, i32 noundef %31, ptr noundef nonnull %5) #16
+  %34 = call i32 @ff_get_muxer_ts_offset(ptr noundef nonnull %0, i32 noundef %31, ptr noundef nonnull %5) #17
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %36 = load i64, ptr %35, align 8, !tbaa !73
   %37 = load i64, ptr %5, align 8, !tbaa !319
@@ -19063,7 +19063,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_flush_fragment(ptr nou
   br i1 %.not243, label %79, label %80
 
 79:                                               ; preds = %63
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.569) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.569) #17
   store i32 1, ptr %24, align 4, !tbaa !492
   br label %80
 
@@ -19084,7 +19084,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_flush_fragment(ptr nou
 87:                                               ; preds = %._crit_edge
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %89 = load ptr, ptr %88, align 8, !tbaa !24
-  %90 = call i64 @avio_seek(ptr noundef %89, i64 noundef 0, i32 noundef 1) #16
+  %90 = call i64 @avio_seek(ptr noundef %89, i64 noundef 0, i32 noundef 1) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %91 = load i32, ptr %20, align 4, !tbaa !102
   %92 = icmp sgt i32 %91, 0
@@ -19131,7 +19131,7 @@ is_cover_image.exit.thread:                       ; preds = %is_cover_image.exit
 is_cover_image.exit.thread.thread:                ; preds = %104, %87, %is_cover_image.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %108 = load ptr, ptr %8, align 8, !tbaa !4
-  %109 = call i32 @ffio_open_null_buf(ptr noundef nonnull %4) #16
+  %109 = call i32 @ffio_open_null_buf(ptr noundef nonnull %4) #17
   %110 = icmp slt i32 %109, 0
   br i1 %110, label %get_moov_size.exit, label %111
 
@@ -19143,7 +19143,7 @@ is_cover_image.exit.thread.thread:                ; preds = %104, %87, %is_cover
 
 115:                                              ; preds = %111
   %116 = load ptr, ptr %4, align 8, !tbaa !83
-  %117 = call i32 @ffio_close_null_buf(ptr noundef %116) #16
+  %117 = call i32 @ffio_close_null_buf(ptr noundef %116) #17
   br label %get_moov_size.exit
 
 get_moov_size.exit:                               ; preds = %is_cover_image.exit.thread.thread, %111, %115
@@ -19173,7 +19173,7 @@ get_moov_size.exit:                               ; preds = %is_cover_image.exit
 
 ._crit_edge303:                                   ; preds = %125, %get_moov_size.exit
   %128 = load ptr, ptr %88, align 8, !tbaa !24
-  call void @avio_write_marker(ptr noundef %128, i64 noundef -9223372036854775808, i32 noundef 0) #16
+  call void @avio_write_marker(ptr noundef %128, i64 noundef -9223372036854775808, i32 noundef 0) #17
   %129 = load i32, ptr %10, align 8, !tbaa !75
   %130 = and i32 %129, 8192
   %.not221 = icmp eq i32 %130, 0
@@ -19203,30 +19203,30 @@ get_moov_size.exit:                               ; preds = %is_cover_image.exit
 
 143:                                              ; preds = %141
   %144 = load ptr, ptr %88, align 8, !tbaa !24
-  %145 = call i64 @avio_seek(ptr noundef %144, i64 noundef 0, i32 noundef 1) #16
+  %145 = call i64 @avio_seek(ptr noundef %144, i64 noundef 0, i32 noundef 1) #17
   %146 = getelementptr inbounds nuw i8, ptr %9, i64 136
   store i64 %145, ptr %146, align 8, !tbaa !194
   br label %147
 
 147:                                              ; preds = %143, %141
   %148 = load ptr, ptr %88, align 8, !tbaa !24
-  call void @avio_write_marker(ptr noundef %148, i64 noundef -9223372036854775808, i32 noundef 5) #16
+  call void @avio_write_marker(ptr noundef %148, i64 noundef -9223372036854775808, i32 noundef 5) #17
   store i32 1, ptr %85, align 4, !tbaa !77
   br label %176
 
 149:                                              ; preds = %138
   %150 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %151 = load ptr, ptr %150, align 8, !tbaa !82
-  %152 = call i32 @avio_get_dyn_buf(ptr noundef %151, ptr noundef nonnull %6) #16
+  %152 = call i32 @avio_get_dyn_buf(ptr noundef %151, ptr noundef nonnull %6) #17
   %153 = load ptr, ptr %88, align 8, !tbaa !24
   %154 = add nsw i32 %152, 8
-  call void @avio_wb32(ptr noundef %153, i32 noundef %154) #16
+  call void @avio_wb32(ptr noundef %153, i32 noundef %154) #17
   %155 = load ptr, ptr %88, align 8, !tbaa !24
-  call void @avio_wl32(ptr noundef %155, i32 noundef 1952539757) #16
+  call void @avio_wl32(ptr noundef %155, i32 noundef 1952539757) #17
   %156 = load ptr, ptr %88, align 8, !tbaa !24
   %157 = load ptr, ptr %6, align 8, !tbaa !31
-  call void @avio_write(ptr noundef %156, ptr noundef %157, i32 noundef %152) #16
-  call void @ffio_free_dyn_buf(ptr noundef nonnull %150) #16
+  call void @avio_write(ptr noundef %156, ptr noundef %157, i32 noundef %152) #17
+  call void @ffio_free_dyn_buf(ptr noundef nonnull %150) #17
   %158 = load i32, ptr %10, align 8, !tbaa !75
   %159 = and i32 %158, 16384
   %.not223 = icmp eq i32 %159, 0
@@ -19234,7 +19234,7 @@ get_moov_size.exit:                               ; preds = %is_cover_image.exit
 
 160:                                              ; preds = %149
   %161 = load ptr, ptr %88, align 8, !tbaa !24
-  %162 = call i64 @avio_seek(ptr noundef %161, i64 noundef 0, i32 noundef 1) #16
+  %162 = call i64 @avio_seek(ptr noundef %161, i64 noundef 0, i32 noundef 1) #17
   %163 = getelementptr inbounds nuw i8, ptr %9, i64 136
   store i64 %162, ptr %163, align 8, !tbaa !194
   br label %164
@@ -19264,7 +19264,7 @@ get_moov_size.exit:                               ; preds = %is_cover_image.exit
 
 ._crit_edge307:                                   ; preds = %169, %164
   %175 = load ptr, ptr %88, align 8, !tbaa !24
-  call void @avio_write_marker(ptr noundef %175, i64 noundef -9223372036854775808, i32 noundef 5) #16
+  call void @avio_write_marker(ptr noundef %175, i64 noundef -9223372036854775808, i32 noundef 5) #17
   br label %176
 
 176:                                              ; preds = %134, %is_cover_image.exit.thread, %._crit_edge307, %147
@@ -19309,7 +19309,7 @@ get_moov_size.exit:                               ; preds = %is_cover_image.exit
   br i1 %.not226, label %.loopexit, label %193
 
 193:                                              ; preds = %._crit_edge270
-  %194 = call i64 @avio_seek(ptr noundef nonnull %192, i64 noundef 0, i32 noundef 1) #16
+  %194 = call i64 @avio_seek(ptr noundef nonnull %192, i64 noundef 0, i32 noundef 1) #17
   %.pre = load i32, ptr %20, align 4, !tbaa !102
   br label %195
 
@@ -19389,7 +19389,7 @@ get_moov_size.exit:                               ; preds = %is_cover_image.exit
   br i1 %.not241, label %232, label %229
 
 229:                                              ; preds = %226
-  %230 = call i64 @avio_seek(ptr noundef nonnull %228, i64 noundef 0, i32 noundef 1) #16
+  %230 = call i64 @avio_seek(ptr noundef nonnull %228, i64 noundef 0, i32 noundef 1) #17
   %231 = add nsw i64 %230, %.1189274
   %.pre335.pre = load i32, ptr %20, align 4, !tbaa !102
   br label %232
@@ -19438,7 +19438,7 @@ get_moov_size.exit:                               ; preds = %is_cover_image.exit
   %251 = getelementptr inbounds nuw i8, ptr %246, i64 12
   %252 = load i32, ptr %251, align 4, !tbaa !209
   %253 = zext i32 %252 to i64
-  %254 = call i64 @av_rescale(i64 noundef %250, i64 noundef 1000000, i64 noundef %253) #19
+  %254 = call i64 @av_rescale(i64 noundef %250, i64 noundef 1000000, i64 noundef %253) #20
   br i1 %.0198.lcssa, label %255, label %259
 
 255:                                              ; preds = %240
@@ -19451,7 +19451,7 @@ get_moov_size.exit:                               ; preds = %is_cover_image.exit
   %260 = phi i32 [ %258, %255 ], [ %.0200.lcssa, %240 ]
   %.not229 = icmp eq i32 %260, 0
   %261 = select i1 %.not229, i32 2, i32 1
-  call void @avio_write_marker(ptr noundef %242, i64 noundef %254, i32 noundef %261) #16
+  call void @avio_write_marker(ptr noundef %242, i64 noundef %254, i32 noundef %261) #17
   %262 = load i32, ptr %20, align 4, !tbaa !102
   %263 = icmp sgt i32 %262, 0
   br i1 %263, label %.lr.ph289, label %._crit_edge290
@@ -19486,7 +19486,7 @@ get_moov_size.exit:                               ; preds = %is_cover_image.exit
 .thread:                                          ; preds = %275
   %278 = getelementptr inbounds nuw i8, ptr %272, i64 296
   %279 = load ptr, ptr %278, align 8, !tbaa !81
-  %280 = call i64 @avio_seek(ptr noundef %279, i64 noundef 0, i32 noundef 1) #16
+  %280 = call i64 @avio_seek(ptr noundef %279, i64 noundef 0, i32 noundef 1) #17
   %281 = trunc nuw nsw i64 %indvars.iv321 to i32
   br label %283
 
@@ -19498,10 +19498,10 @@ get_moov_size.exit:                               ; preds = %is_cover_image.exit
   %.0256 = phi i32 [ %281, %.thread ], [ -1, %282 ]
   %.6194254 = phi i64 [ %280, %.thread ], [ %.4192284, %282 ]
   %284 = load ptr, ptr %241, align 8, !tbaa !24
-  call void @avio_write_marker(ptr noundef %284, i64 noundef -9223372036854775808, i32 noundef 5) #16
+  call void @avio_write_marker(ptr noundef %284, i64 noundef -9223372036854775808, i32 noundef 5) #17
   %285 = load ptr, ptr %241, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %286 = call i32 @ffio_open_null_buf(ptr noundef nonnull %3) #16
+  %286 = call i32 @ffio_open_null_buf(ptr noundef nonnull %3) #17
   %287 = icmp slt i32 %286, 0
   br i1 %287, label %mov_write_moof_tag.exit, label %288
 
@@ -19509,7 +19509,7 @@ get_moov_size.exit:                               ; preds = %is_cover_image.exit
   %289 = load ptr, ptr %3, align 8, !tbaa !83
   call fastcc void @mov_write_moof_tag_internal(ptr noundef %289, ptr noundef nonnull %9, i32 noundef %.0256, i32 noundef 0)
   %290 = load ptr, ptr %3, align 8, !tbaa !83
-  %291 = call i32 @ffio_close_null_buf(ptr noundef %290) #16
+  %291 = call i32 @ffio_close_null_buf(ptr noundef %290) #17
   %292 = load i32, ptr %10, align 8, !tbaa !75
   %293 = and i32 %292, 2115584
   %or.cond.i = icmp eq i32 %293, 2048
@@ -19529,7 +19529,7 @@ get_moov_size.exit:                               ; preds = %is_cover_image.exit
   br i1 %or.cond43.i, label %301, label %mov_write_prft_tag.exit.i
 
 301:                                              ; preds = %298
-  %302 = call i64 @avio_seek(ptr noundef %285, i64 noundef 0, i32 noundef 1) #16
+  %302 = call i64 @avio_seek(ptr noundef %285, i64 noundef 0, i32 noundef 1) #17
   %303 = icmp sgt i32 %.0256, 0
   br i1 %303, label %mov_write_prft_tag.exit.i, label %304
 
@@ -19542,7 +19542,7 @@ get_moov_size.exit:                               ; preds = %is_cover_image.exit
 
 308:                                              ; preds = %304
   %309 = load ptr, ptr %265, align 8, !tbaa !111
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %309, i32 noundef 24, ptr noundef nonnull @.str.579) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %309, i32 noundef 24, ptr noundef nonnull @.str.579) #17
   br label %mov_write_prft_tag.exit.i
 
 310:                                              ; preds = %304
@@ -19555,7 +19555,7 @@ get_moov_size.exit:                               ; preds = %is_cover_image.exit
 
 316:                                              ; preds = %310
   %317 = load ptr, ptr %265, align 8, !tbaa !111
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %317, i32 noundef 24, ptr noundef nonnull @.str.580) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %317, i32 noundef 24, ptr noundef nonnull @.str.580) #17
   br label %mov_write_prft_tag.exit.i
 
 318:                                              ; preds = %310
@@ -19576,15 +19576,15 @@ get_moov_size.exit:                               ; preds = %is_cover_image.exit
   %324 = srem i64 %.fr.i.i, 1000
   %325 = add i64 %.fr.i.i, 2208988800000000
   %326 = sub i64 %325, %324
-  %327 = call i64 @ff_get_formatted_ntp_time(i64 noundef %326) #16
+  %327 = call i64 @ff_get_formatted_ntp_time(i64 noundef %326) #17
   %328 = load ptr, ptr %311, align 8, !tbaa !64
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 56
   %330 = load i32, ptr %329, align 8, !tbaa !501
   br label %344
 
 331:                                              ; preds = %320
-  %332 = call i64 @ff_ntp_time() #16
-  %333 = call i64 @ff_get_formatted_ntp_time(i64 noundef %332) #16
+  %332 = call i64 @ff_ntp_time() #17
+  %333 = call i64 @ff_get_formatted_ntp_time(i64 noundef %332) #17
   br label %344
 
 334:                                              ; preds = %318
@@ -19592,37 +19592,37 @@ get_moov_size.exit:                               ; preds = %is_cover_image.exit
   %336 = load ptr, ptr %335, align 8, !tbaa !99
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 32
   %338 = load i64, ptr %337, align 8
-  %339 = call i64 @av_rescale_q(i64 noundef %314, i64 %338, i64 4294967296000001) #19
+  %339 = call i64 @av_rescale_q(i64 noundef %314, i64 %338, i64 4294967296000001) #20
   %340 = add i64 %339, 2208988800000000
-  %341 = call i64 @ff_get_formatted_ntp_time(i64 noundef %340) #16
+  %341 = call i64 @ff_get_formatted_ntp_time(i64 noundef %340) #17
   br label %344
 
 342:                                              ; preds = %318
   %343 = load ptr, ptr %265, align 8, !tbaa !111
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %343, i32 noundef 24, ptr noundef nonnull @.str.581, i32 noundef %319) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %343, i32 noundef 24, ptr noundef nonnull @.str.581, i32 noundef %319) #17
   br label %mov_write_prft_tag.exit.i
 
 344:                                              ; preds = %334, %331, %323
   %.031.i.i = phi i32 [ %330, %323 ], [ 24, %331 ], [ 24, %334 ]
   %.030.i.i = phi i64 [ %327, %323 ], [ %333, %331 ], [ %341, %334 ]
-  call void @avio_wb32(ptr noundef %285, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %285, i32 noundef 1952871024) #16
-  call void @avio_w8(ptr noundef %285, i32 noundef 1) #16
-  call void @avio_wb24(ptr noundef %285, i32 noundef %.031.i.i) #16
+  call void @avio_wb32(ptr noundef %285, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %285, i32 noundef 1952871024) #17
+  call void @avio_w8(ptr noundef %285, i32 noundef 1) #17
+  call void @avio_wb24(ptr noundef %285, i32 noundef %.031.i.i) #17
   %345 = getelementptr inbounds nuw i8, ptr %305, i64 84
   %346 = load i32, ptr %345, align 4, !tbaa !215
-  call void @avio_wb32(ptr noundef %285, i32 noundef %346) #16
-  call void @avio_wb64(ptr noundef %285, i64 noundef %.030.i.i) #16
+  call void @avio_wb32(ptr noundef %285, i32 noundef %346) #17
+  call void @avio_wb64(ptr noundef %285, i64 noundef %.030.i.i) #17
   %347 = load ptr, ptr %311, align 8, !tbaa !64
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 16
   %349 = load i64, ptr %348, align 8, !tbaa !146
-  call void @avio_wb64(ptr noundef %285, i64 noundef %349) #16
-  %350 = call i64 @avio_seek(ptr noundef %285, i64 noundef 0, i32 noundef 1) #16
-  %351 = call i64 @avio_seek(ptr noundef %285, i64 noundef %302, i32 noundef 0) #16
+  call void @avio_wb64(ptr noundef %285, i64 noundef %349) #17
+  %350 = call i64 @avio_seek(ptr noundef %285, i64 noundef 0, i32 noundef 1) #17
+  %351 = call i64 @avio_seek(ptr noundef %285, i64 noundef %302, i32 noundef 0) #17
   %352 = sub nsw i64 %350, %302
   %353 = trunc i64 %352 to i32
-  call void @avio_wb32(ptr noundef %285, i32 noundef %353) #16
-  %354 = call i64 @avio_seek(ptr noundef %285, i64 noundef %350, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %285, i32 noundef %353) #17
+  %354 = call i64 @avio_seek(ptr noundef %285, i64 noundef %350, i32 noundef 0) #17
   br label %mov_write_prft_tag.exit.i
 
 mov_write_prft_tag.exit.i:                        ; preds = %344, %342, %316, %308, %301, %298
@@ -19678,7 +19678,7 @@ mov_write_prft_tag.exit.i:                        ; preds = %344, %342, %316, %3
   %381 = add nsw i32 %376, 65
   %382 = getelementptr inbounds nuw i8, ptr %370, i64 328
   %383 = zext i32 %381 to i64
-  %384 = call i32 @av_reallocp_array(ptr noundef nonnull %382, i64 noundef %383, i64 noundef 40) #16
+  %384 = call i32 @av_reallocp_array(ptr noundef nonnull %382, i64 noundef %383, i64 noundef 40) #17
   %.not48.i.i = icmp eq i32 %384, 0
   br i1 %.not48.i.i, label %385, label %mov_write_moof_tag.exit
 
@@ -19694,7 +19694,7 @@ mov_write_prft_tag.exit.i:                        ; preds = %344, %342, %316, %3
   %390 = sext i32 %387 to i64
   %391 = getelementptr %struct.MOVFragmentInfo, ptr %389, i64 %390
   %392 = getelementptr i8, ptr %391, i64 -40
-  %393 = call i64 @avio_seek(ptr noundef %285, i64 noundef 0, i32 noundef 1) #16
+  %393 = call i64 @avio_seek(ptr noundef %285, i64 noundef 0, i32 noundef 1) #17
   store i64 %393, ptr %392, align 8, !tbaa !250
   %394 = getelementptr i8, ptr %391, i64 -8
   store i32 %362, ptr %394, align 8, !tbaa !503
@@ -19724,7 +19724,7 @@ mov_write_prft_tag.exit.i:                        ; preds = %344, %342, %316, %3
 410:                                              ; preds = %409, %386
   %411 = getelementptr i8, ptr %391, i64 -16
   store i64 0, ptr %411, align 8, !tbaa !505
-  %412 = call i64 @avio_seek(ptr noundef %285, i64 noundef 0, i32 noundef 1) #16
+  %412 = call i64 @avio_seek(ptr noundef %285, i64 noundef 0, i32 noundef 1) #17
   %413 = load i32, ptr %266, align 8, !tbaa !261
   %414 = icmp sgt i32 %413, 0
   br i1 %414, label %.lr.ph.i.i.i, label %mov_write_tfrf_tags.exit.i.i
@@ -19746,16 +19746,16 @@ mov_write_prft_tag.exit.i:                        ; preds = %344, %342, %316, %3
   %422 = getelementptr inbounds nuw %struct.MOVFragmentInfo, ptr %420, i64 %421
   %423 = getelementptr inbounds nuw i8, ptr %422, i64 24
   %424 = load i64, ptr %423, align 8, !tbaa !505
-  %425 = call i64 @avio_seek(ptr noundef %285, i64 noundef %424, i32 noundef 0) #16
+  %425 = call i64 @avio_seek(ptr noundef %285, i64 noundef %424, i32 noundef 0) #17
   %indvars.iv.next.tr.i.i.i = trunc i64 %indvars.iv.next.i.i.i to i32
   %426 = shl i32 %indvars.iv.next.tr.i.i.i, 4
   %427 = add i32 %426, 29
-  call void @avio_wb32(ptr noundef %285, i32 noundef %427) #16
-  call void @avio_wl32(ptr noundef %285, i32 noundef 1684632949) #16
-  call void @avio_write(ptr noundef %285, ptr noundef nonnull @mov_write_tfrf_tag.uuid, i32 noundef 16) #16
-  call void @avio_w8(ptr noundef %285, i32 noundef 1) #16
-  call void @avio_wb24(ptr noundef %285, i32 noundef 0) #16
-  call void @avio_w8(ptr noundef %285, i32 noundef %indvars.iv.next.tr.i.i.i) #16
+  call void @avio_wb32(ptr noundef %285, i32 noundef %427) #17
+  call void @avio_wl32(ptr noundef %285, i32 noundef 1684632949) #17
+  call void @avio_write(ptr noundef %285, ptr noundef nonnull @mov_write_tfrf_tag.uuid, i32 noundef 16) #17
+  call void @avio_w8(ptr noundef %285, i32 noundef 1) #17
+  call void @avio_wb24(ptr noundef %285, i32 noundef 0) #17
+  call void @avio_w8(ptr noundef %285, i32 noundef %indvars.iv.next.tr.i.i.i) #17
   %428 = add i32 %reass.sub.i.i.i, -1
   %429 = zext nneg i32 %428 to i64
   br label %430
@@ -19767,12 +19767,12 @@ mov_write_prft_tag.exit.i:                        ; preds = %344, %342, %316, %3
   %433 = getelementptr inbounds nuw %struct.MOVFragmentInfo, ptr %432, i64 %431
   %434 = getelementptr inbounds nuw i8, ptr %433, i64 8
   %435 = load i64, ptr %434, align 8, !tbaa !248
-  call void @avio_wb64(ptr noundef %285, i64 noundef %435) #16
+  call void @avio_wb64(ptr noundef %285, i64 noundef %435) #17
   %436 = load ptr, ptr %388, align 8, !tbaa !247
   %437 = getelementptr inbounds nuw %struct.MOVFragmentInfo, ptr %436, i64 %431
   %438 = getelementptr inbounds nuw i8, ptr %437, i64 16
   %439 = load i64, ptr %438, align 8, !tbaa !504
-  call void @avio_wb64(ptr noundef %285, i64 noundef %439) #16
+  call void @avio_wb64(ptr noundef %285, i64 noundef %439) #17
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.i.i.i.i, %indvars.iv.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %430, !llvm.loop !506
@@ -19786,11 +19786,11 @@ mov_write_prft_tag.exit.i:                        ; preds = %344, %342, %316, %3
 443:                                              ; preds = %._crit_edge.i.i.i.i
   %444 = sub nsw i32 %440, %indvars.iv.next.tr.i.i.i
   %445 = shl nsw i32 %444, 4
-  call void @avio_wb32(ptr noundef %285, i32 noundef %445) #16
-  call void @avio_wl32(ptr noundef %285, i32 noundef 1701147238) #16
+  call void @avio_wb32(ptr noundef %285, i32 noundef %445) #17
+  call void @avio_wl32(ptr noundef %285, i32 noundef 1701147238) #17
   %446 = add nsw i32 %445, -8
   %447 = sext i32 %446 to i64
-  call void @ffio_fill(ptr noundef %285, i32 noundef 0, i64 noundef %447) #16
+  call void @ffio_fill(ptr noundef %285, i32 noundef 0, i64 noundef %447) #17
   %.pre.i.i.i = load i32, ptr %266, align 8, !tbaa !261
   br label %mov_write_tfrf_tag.exit.i.i.i
 
@@ -19801,7 +19801,7 @@ mov_write_tfrf_tag.exit.i.i.i:                    ; preds = %443, %._crit_edge.i
   br i1 %450, label %.lr.ph.i.i.i, label %mov_write_tfrf_tags.exit.i.i, !llvm.loop !507
 
 mov_write_tfrf_tags.exit.i.i:                     ; preds = %mov_write_tfrf_tag.exit.i.i.i, %410
-  %451 = call i64 @avio_seek(ptr noundef %285, i64 noundef %412, i32 noundef 0) #16
+  %451 = call i64 @avio_seek(ptr noundef %285, i64 noundef %412, i32 noundef 0) #17
   %.pre54.i.i = load i32, ptr %20, align 4, !tbaa !102
   br label %452
 
@@ -19923,11 +19923,11 @@ mov_write_moof_tag.exit:                          ; preds = %380, %283, %mov_pru
   %508 = load ptr, ptr %241, align 8, !tbaa !24
   %509 = trunc i64 %.6194254 to i32
   %510 = add i32 %509, 8
-  call void @avio_wb32(ptr noundef %508, i32 noundef %510) #16
+  call void @avio_wb32(ptr noundef %508, i32 noundef %510) #17
   %511 = load ptr, ptr %241, align 8, !tbaa !24
-  call void @avio_wl32(ptr noundef %511, i32 noundef 1952539757) #16
+  call void @avio_wl32(ptr noundef %511, i32 noundef 1952539757) #17
   %512 = load ptr, ptr %241, align 8, !tbaa !24
-  %513 = call i64 @avio_seek(ptr noundef %512, i64 noundef 0, i32 noundef 1) #16
+  %513 = call i64 @avio_seek(ptr noundef %512, i64 noundef 0, i32 noundef 1) #17
   %.pre336 = load ptr, ptr %243, align 8, !tbaa !40
   br label %514
 
@@ -19948,7 +19948,7 @@ mov_write_moof_tag.exit:                          ; preds = %380, %283, %mov_pru
   br i1 %.not234, label %531, label %521
 
 521:                                              ; preds = %518
-  %522 = call i32 @avio_close_dyn_buf(ptr noundef nonnull %520, ptr noundef nonnull %7) #16
+  %522 = call i32 @avio_close_dyn_buf(ptr noundef nonnull %520, ptr noundef nonnull %7) #17
   store ptr null, ptr %519, align 8, !tbaa !81
   br label %527
 
@@ -19958,7 +19958,7 @@ mov_write_moof_tag.exit:                          ; preds = %380, %283, %mov_pru
   br i1 %.not235, label %531, label %525
 
 525:                                              ; preds = %523
-  %526 = call i32 @avio_close_dyn_buf(ptr noundef nonnull %524, ptr noundef nonnull %7) #16
+  %526 = call i32 @avio_close_dyn_buf(ptr noundef nonnull %524, ptr noundef nonnull %7) #17
   store ptr null, ptr %268, align 8, !tbaa !82
   br label %527
 
@@ -19966,9 +19966,9 @@ mov_write_moof_tag.exit:                          ; preds = %380, %283, %mov_pru
   %.0179 = phi i32 [ %526, %525 ], [ %522, %521 ]
   %528 = load ptr, ptr %241, align 8, !tbaa !24
   %529 = load ptr, ptr %7, align 8, !tbaa !31
-  call void @avio_write(ptr noundef %528, ptr noundef %529, i32 noundef %.0179) #16
+  call void @avio_write(ptr noundef %528, ptr noundef %529, i32 noundef %.0179) #17
   %530 = load ptr, ptr %7, align 8, !tbaa !31
-  call void @av_free(ptr noundef %530) #16
+  call void @av_free(ptr noundef %530) #17
   br label %531
 
 531:                                              ; preds = %523, %518, %275, %527
@@ -19985,7 +19985,7 @@ mov_write_moof_tag.exit:                          ; preds = %380, %283, %mov_pru
   %535 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i64 0, ptr %535, align 8, !tbaa !169
   %536 = load ptr, ptr %241, align 8, !tbaa !24
-  call void @avio_write_marker(ptr noundef %536, i64 noundef -9223372036854775808, i32 noundef 5) #16
+  call void @avio_write_marker(ptr noundef %536, i64 noundef -9223372036854775808, i32 noundef 5) #17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %186, %._crit_edge279, %._crit_edge270, %13, %2, %._crit_edge290, %176
@@ -20064,7 +20064,7 @@ define internal fastcc i32 @mov_write_single_packet(ptr noundef %0, ptr noundef 
   br i1 %or.cond.i, label %50, label %53
 
 50:                                               ; preds = %41
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.38, i64 noundef %47, i64 noundef %46, i32 noundef %9) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.38, i64 noundef %47, i64 noundef %46, i32 noundef %9) #17
   %51 = add nsw i64 %spec.select.i, 1
   store i64 %51, ptr %45, align 8, !tbaa !71
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -20080,7 +20080,7 @@ define internal fastcc i32 @mov_write_single_packet(ptr noundef %0, ptr noundef 
 
 check_pkt.exit.thread:                            ; preds = %53
   %57 = load i32, ptr %8, align 4, !tbaa !32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.39, i64 noundef %56, i32 noundef %57) #16
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.39, i64 noundef %56, i32 noundef %57) #17
   br label %204
 
 check_pkt.exit:                                   ; preds = %53
@@ -20153,7 +20153,7 @@ check_pkt.exit:                                   ; preds = %53
 
 87:                                               ; preds = %83, %83, %83, %83
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %88 = call ptr @av_packet_get_side_data(ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull %3) #16
+  %88 = call ptr @av_packet_get_side_data(ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull %3) #17
   %89 = icmp ne ptr %88, null
   %90 = load i64, ptr %3, align 8
   %91 = icmp ne i64 %90, 0
@@ -20176,14 +20176,14 @@ check_pkt.exit:                                   ; preds = %53
 
 99:                                               ; preds = %96, %92
   %100 = add i64 %90, 64
-  %101 = call noalias ptr @av_mallocz(i64 noundef %100) #16
+  %101 = call noalias ptr @av_mallocz(i64 noundef %100) #17
   %.not107.not = icmp eq ptr %101, null
   br i1 %.not107.not, label %.critedge, label %102
 
 102:                                              ; preds = %99
   %103 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %104 = load ptr, ptr %103, align 8, !tbaa !98
-  call void @av_free(ptr noundef %104) #16
+  call void @av_free(ptr noundef %104) #17
   store ptr %101, ptr %103, align 8, !tbaa !98
   %105 = load i64, ptr %3, align 8, !tbaa !319
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr nonnull align 1 %88, i64 %105, i1 false)
@@ -20267,7 +20267,7 @@ check_pkt.exit:                                   ; preds = %53
   %145 = load ptr, ptr %144, align 8, !tbaa !35
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 32
   %147 = load i64, ptr %146, align 8
-  %148 = call i64 @av_rescale_q(i64 noundef %141, i64 %147, i64 4294967296000001) #19
+  %148 = call i64 @av_rescale_q(i64 noundef %141, i64 %147, i64 4294967296000001) #20
   br label %149
 
 149:                                              ; preds = %135, %130, %128
@@ -20438,7 +20438,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_write_squashed_packets
 26:                                               ; preds = %16
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 1560
   %28 = load ptr, ptr %27, align 8, !tbaa !513
-  %29 = tail call i32 @ff_mov_generate_squashed_ttml_packet(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %19) #16
+  %29 = tail call i32 @ff_mov_generate_squashed_ttml_packet(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %19) #17
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %.loopexit37.sink.split, label %31
 
@@ -20453,7 +20453,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_write_squashed_packets
   br i1 %35, label %mov_write_squashed_packet.exit.thread35, label %mov_write_squashed_packet.exit
 
 mov_write_squashed_packet.exit.thread35:          ; preds = %32
-  tail call void @av_packet_unref(ptr noundef nonnull %19) #16
+  tail call void @av_packet_unref(ptr noundef nonnull %19) #17
   br label %55
 
 mov_write_squashed_packet.exit:                   ; preds = %31, %32
@@ -20465,13 +20465,13 @@ mov_write_squashed_packet.exit:                   ; preds = %31, %32
   %40 = getelementptr inbounds nuw i8, ptr %19, i64 36
   store i32 %39, ptr %40, align 4, !tbaa !32
   %41 = tail call fastcc i32 @mov_write_single_packet(ptr noundef nonnull %0, ptr noundef %19)
-  tail call void @av_packet_unref(ptr noundef %19) #16
+  tail call void @av_packet_unref(ptr noundef %19) #17
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %.loopexit37, label %55
 
 .loopexit37.sink.split:                           ; preds = %26, %16
   %.018.i27.ph = phi i32 [ -22, %16 ], [ %29, %26 ]
-  tail call void @av_packet_unref(ptr noundef %19) #16
+  tail call void @av_packet_unref(ptr noundef %19) #17
   br label %.loopexit37
 
 .loopexit37:                                      ; preds = %mov_write_squashed_packet.exit, %.loopexit37.sink.split
@@ -20481,15 +20481,15 @@ mov_write_squashed_packet.exit:                   ; preds = %31, %32
   %45 = load ptr, ptr %44, align 8, !tbaa !176
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4, !tbaa !84
-  %48 = tail call ptr @avcodec_get_name(i32 noundef %47) #16
+  %48 = tail call ptr @avcodec_get_name(i32 noundef %47) #17
   %49 = load ptr, ptr %20, align 8, !tbaa !99
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i32, ptr %50, align 8, !tbaa !229
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 84
   %53 = load i32, ptr %52, align 4, !tbaa !215
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %2, i8 0, i64 64, i1 false)
-  %54 = call i32 @av_strerror(i32 noundef range(i32 -2147483648, 0) %.018.i27, ptr noundef nonnull %2, i64 noundef 64) #16
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.570, ptr noundef %48, i32 noundef %51, i32 noundef %53, ptr noundef nonnull %2) #16
+  %54 = call i32 @av_strerror(i32 noundef range(i32 -2147483648, 0) %.018.i27, ptr noundef nonnull %2, i64 noundef 64) #17
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.570, ptr noundef %48, i32 noundef %51, i32 noundef %53, ptr noundef nonnull %2) #17
   br label %.loopexit
 
 55:                                               ; preds = %mov_write_squashed_packet.exit.thread35, %mov_write_squashed_packet.exit, %13, %8
@@ -20585,7 +20585,7 @@ define internal fastcc void @mov_finish_fragment(ptr noundef readonly captures(n
   %35 = load i32, ptr %34, align 8, !tbaa !242
   %36 = add nsw i32 %35, %5
   %37 = sext i32 %36 to i64
-  %38 = tail call i32 @av_reallocp_array(ptr noundef nonnull %33, i64 noundef %37, i64 noundef 64) #16
+  %38 = tail call i32 @av_reallocp_array(ptr noundef nonnull %33, i64 noundef %37, i64 noundef 64) #17
   %.not35 = icmp eq i32 %38, 0
   br i1 %.not35, label %39, label %55
 
@@ -20632,17 +20632,17 @@ declare i32 @av_reallocp_array(ptr noundef, i64 noundef, i64 noundef) local_unna
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mov_write_moof_tag_internal(ptr noundef %0, ptr noundef captures(none) initializes((120, 124)) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1718579053) #16
+  %5 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1718579053) #17
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 1, ptr %6, align 8, !tbaa !517
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 16) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1684563565) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 16) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1684563565) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %8 = load i32, ptr %7, align 8, !tbaa !79
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %8) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %8) #17
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %10 = load i32, ptr %9, align 4, !tbaa !102
   %11 = icmp sgt i32 %10, 0
@@ -20697,10 +20697,10 @@ define internal fastcc void @mov_write_moof_tag_internal(ptr noundef %0, ptr nou
   br label %37
 
 37:                                               ; preds = %31, %28, %25
-  %38 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1717662324) #16
-  %39 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
+  %38 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1717662324) #17
+  %39 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
   %40 = load i32, ptr %23, align 4, !tbaa !63
   %.not.i.i = icmp eq i32 %40, 0
   %..i.i = select i1 %.not.i.i, i32 65561, i32 57
@@ -20720,19 +20720,19 @@ define internal fastcc void @mov_write_moof_tag_internal(ptr noundef %0, ptr nou
   %49 = icmp eq i32 %48, 64
   %50 = and i32 %.2.i.i, 196640
   %.4.i.i = select i1 %49, i32 %50, i32 %.3.i.i
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1684563572) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wb24(ptr noundef %0, i32 noundef %.4.i.i) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1684563572) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wb24(ptr noundef %0, i32 noundef %.4.i.i) #17
   %51 = getelementptr inbounds nuw i8, ptr %21, i64 84
   %52 = load i32, ptr %51, align 4, !tbaa !215
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %52) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %52) #17
   %53 = and i32 %.4.i.i, 1
   %.not50.i.i = icmp eq i32 %53, 0
   br i1 %.not50.i.i, label %55, label %54
 
 54:                                               ; preds = %37
-  tail call void @avio_wb64(ptr noundef %0, i64 noundef %5) #16
+  tail call void @avio_wb64(ptr noundef %0, i64 noundef %5) #17
   br label %55
 
 55:                                               ; preds = %54, %37
@@ -20741,7 +20741,7 @@ define internal fastcc void @mov_write_moof_tag_internal(ptr noundef %0, ptr nou
   br i1 %.not51.i.i, label %58, label %57
 
 57:                                               ; preds = %55
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 1) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 1) #17
   br label %58
 
 58:                                               ; preds = %57, %55
@@ -20785,8 +20785,8 @@ define internal fastcc void @mov_write_moof_tag_internal(ptr noundef %0, ptr nou
   br i1 %80, label %82, label %81
 
 81:                                               ; preds = %75
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.400, ptr noundef nonnull @.str.8, i32 noundef 1231) #16
-  tail call void @abort() #17
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.400, ptr noundef nonnull @.str.8, i32 noundef 1231) #17
+  tail call void @abort() #18
   unreachable
 
 82:                                               ; preds = %75
@@ -20794,8 +20794,8 @@ define internal fastcc void @mov_write_moof_tag_internal(ptr noundef %0, ptr nou
   br i1 %83, label %85, label %84
 
 84:                                               ; preds = %82
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.401, ptr noundef nonnull @.str.8, i32 noundef 1232) #16
-  tail call void @abort() #17
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.401, ptr noundef nonnull @.str.8, i32 noundef 1232) #17
+  tail call void @abort() #18
   unreachable
 
 85:                                               ; preds = %82
@@ -20807,7 +20807,7 @@ get_cluster_duration.exit.i.i:                    ; preds = %85, %60
   %87 = zext nneg i32 %.014.i.i.i to i64
   %88 = getelementptr inbounds nuw i8, ptr %21, i64 256
   store i64 %87, ptr %88, align 8, !tbaa !518
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.014.i.i.i) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.014.i.i.i) #17
   br label %89
 
 89:                                               ; preds = %get_cluster_duration.exit.i.i, %58
@@ -20831,7 +20831,7 @@ get_cluster_duration.exit.i.i:                    ; preds = %85, %60
   %99 = phi i32 [ %97, %93 ], [ 1, %91 ]
   %100 = getelementptr inbounds nuw i8, ptr %21, i64 268
   store i32 %99, ptr %100, align 4, !tbaa !519
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %99) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %99) #17
   br label %103
 
 101:                                              ; preds = %89
@@ -20869,26 +20869,26 @@ get_cluster_duration.exit.i.i:                    ; preds = %85, %60
   %119 = select i1 %118, i32 16842752, i32 33554432
   %120 = getelementptr inbounds nuw i8, ptr %21, i64 264
   store i32 %119, ptr %120, align 8, !tbaa !520
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %119) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %119) #17
   br label %mov_write_tfhd_tag.exit.i
 
 mov_write_tfhd_tag.exit.i:                        ; preds = %117, %103
-  %121 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %122 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %39, i32 noundef 0) #16
+  %121 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %122 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %39, i32 noundef 0) #17
   %123 = sub nsw i64 %121, %39
   %124 = trunc i64 %123 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %124) #16
-  %125 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %121, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %124) #17
+  %125 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %121, i32 noundef 0) #17
   %126 = load i32, ptr %15, align 8, !tbaa !76
   %.not.i = icmp eq i32 %126, 64
   br i1 %.not.i, label %141, label %127
 
 127:                                              ; preds = %mov_write_tfhd_tag.exit.i
-  %128 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1952736884) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 1) #16
-  tail call void @avio_wb24(ptr noundef %0, i32 noundef 0) #16
+  %128 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1952736884) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 1) #17
+  tail call void @avio_wb24(ptr noundef %0, i32 noundef 0) #17
   %129 = getelementptr inbounds nuw i8, ptr %21, i64 136
   %130 = load ptr, ptr %129, align 8, !tbaa !64
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
@@ -20896,13 +20896,13 @@ mov_write_tfhd_tag.exit.i:                        ; preds = %117, %103
   %133 = getelementptr inbounds nuw i8, ptr %21, i64 176
   %134 = load i64, ptr %133, align 8, !tbaa !68
   %135 = sub nsw i64 %132, %134
-  tail call void @avio_wb64(ptr noundef %0, i64 noundef %135) #16
-  %136 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %137 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %128, i32 noundef 0) #16
+  tail call void @avio_wb64(ptr noundef %0, i64 noundef %135) #17
+  %136 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %137 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %128, i32 noundef 0) #17
   %138 = sub nsw i64 %136, %128
   %139 = trunc i64 %138 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %139) #16
-  %140 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %136, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %139) #17
+  %140 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %136, i32 noundef 0) #17
   br label %141
 
 141:                                              ; preds = %127, %mov_write_tfhd_tag.exit.i
@@ -20953,12 +20953,12 @@ mov_write_tfhd_tag.exit.i:                        ; preds = %117, %103
   br i1 %163, label %164, label %208
 
 164:                                              ; preds = %._crit_edge.i
-  %165 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1684632949) #16
-  tail call void @avio_write(ptr noundef %0, ptr noundef nonnull @mov_write_tfxd_tag.uuid, i32 noundef 16) #16
-  tail call void @avio_w8(ptr noundef %0, i32 noundef 1) #16
-  tail call void @avio_wb24(ptr noundef %0, i32 noundef 0) #16
+  %165 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1684632949) #17
+  tail call void @avio_write(ptr noundef %0, ptr noundef nonnull @mov_write_tfxd_tag.uuid, i32 noundef 16) #17
+  tail call void @avio_w8(ptr noundef %0, i32 noundef 1) #17
+  tail call void @avio_wb24(ptr noundef %0, i32 noundef 0) #17
   %166 = getelementptr inbounds nuw i8, ptr %21, i64 136
   %167 = load ptr, ptr %166, align 8, !tbaa !64
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
@@ -20967,7 +20967,7 @@ mov_write_tfhd_tag.exit.i:                        ; preds = %117, %103
   %171 = load i32, ptr %170, align 8, !tbaa !153
   %172 = sext i32 %171 to i64
   %173 = add nsw i64 %169, %172
-  tail call void @avio_wb64(ptr noundef %0, i64 noundef %173) #16
+  tail call void @avio_wb64(ptr noundef %0, i64 noundef %173) #17
   %174 = getelementptr inbounds nuw i8, ptr %21, i64 192
   %175 = load i64, ptr %174, align 8, !tbaa !148
   %176 = load ptr, ptr %166, align 8, !tbaa !64
@@ -20978,13 +20978,13 @@ mov_write_tfhd_tag.exit.i:                        ; preds = %117, %103
   %181 = sext i32 %180 to i64
   %182 = add i64 %178, %181
   %183 = sub i64 %175, %182
-  tail call void @avio_wb64(ptr noundef %0, i64 noundef %183) #16
-  %184 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %185 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %165, i32 noundef 0) #16
+  tail call void @avio_wb64(ptr noundef %0, i64 noundef %183) #17
+  %184 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %185 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %165, i32 noundef 0) #17
   %186 = sub nsw i64 %184, %165
   %187 = trunc i64 %186 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %187) #16
-  %188 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %184, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %187) #17
+  %188 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %184, i32 noundef 0) #17
   %189 = load i32, ptr %16, align 8, !tbaa !261
   %.not58.i = icmp eq i32 %189, 0
   br i1 %.not58.i, label %208, label %190
@@ -21008,16 +21008,16 @@ mov_write_tfhd_tag.exit.i:                        ; preds = %117, %103
   br i1 %.not59.i, label %203, label %205
 
 203:                                              ; preds = %196
-  %204 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
+  %204 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
   store i64 %204, ptr %201, align 8, !tbaa !505
   br label %205
 
 205:                                              ; preds = %203, %196, %190
   %206 = add nsw i32 %191, 29
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %206) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1701147238) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %206) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1701147238) #17
   %207 = sext i32 %192 to i64
-  tail call void @ffio_fill(ptr noundef %0, i32 noundef 0, i64 noundef %207) #16
+  tail call void @ffio_fill(ptr noundef %0, i32 noundef 0, i64 noundef %207) #17
   br label %208
 
 208:                                              ; preds = %205, %164, %._crit_edge.i
@@ -21032,16 +21032,16 @@ mov_write_tfhd_tag.exit.i:                        ; preds = %117, %103
   br i1 %.not61.i, label %mov_write_traf_tag.exit, label %213
 
 213:                                              ; preds = %210
-  tail call void @ff_mov_cenc_write_stbl_atoms(ptr noundef nonnull %26, ptr noundef %0, i64 noundef %5) #16
+  tail call void @ff_mov_cenc_write_stbl_atoms(ptr noundef nonnull %26, ptr noundef %0, i64 noundef %5) #17
   br label %mov_write_traf_tag.exit
 
 mov_write_traf_tag.exit:                          ; preds = %208, %210, %213
-  %214 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %215 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %38, i32 noundef 0) #16
+  %214 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %215 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %38, i32 noundef 0) #17
   %216 = sub nsw i64 %214, %38
   %217 = trunc i64 %216 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %217) #16
-  %218 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %214, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %217) #17
+  %218 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %214, i32 noundef 0) #17
   %.pre = load i32, ptr %9, align 4, !tbaa !102
   br label %219
 
@@ -21053,12 +21053,12 @@ mov_write_traf_tag.exit:                          ; preds = %208, %210, %213
   br i1 %222, label %18, label %._crit_edge, !llvm.loop !522
 
 ._crit_edge:                                      ; preds = %219, %4
-  %223 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %224 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %5, i32 noundef 0) #16
+  %223 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %224 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %5, i32 noundef 0) #17
   %225 = sub nsw i64 %223, %5
   %226 = trunc i64 %225 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %226) #16
-  %227 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %223, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %226) #17
+  %227 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %223, i32 noundef 0) #17
   ret void
 }
 
@@ -21079,7 +21079,7 @@ define internal fastcc void @mov_write_sidx_tags(ptr noundef %0, ptr noundef rea
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %11
-  %14 = call i32 @ffio_open_null_buf(ptr noundef nonnull %5) #16
+  %14 = call i32 @ffio_open_null_buf(ptr noundef nonnull %5) #17
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %.thread, label %17
 
@@ -21111,7 +21111,7 @@ define internal fastcc void @mov_write_sidx_tags(ptr noundef %0, ptr noundef rea
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %5, align 8, !tbaa !83
-  %29 = call i64 @avio_seek(ptr noundef %28, i64 noundef 0, i32 noundef 1) #16
+  %29 = call i64 @avio_seek(ptr noundef %28, i64 noundef 0, i32 noundef 1) #17
   %30 = load i32, ptr %24, align 4, !tbaa !63
   %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %51, label %31
@@ -21169,21 +21169,21 @@ define internal fastcc void @mov_write_sidx_tags(ptr noundef %0, ptr noundef rea
   %.071.i = phi i64 [ undef, %61 ], [ undef, %55 ], [ %spec.select84.i, %31 ]
   %.069.i = phi i32 [ undef, %61 ], [ undef, %55 ], [ %49, %31 ]
   %.0.i = phi i32 [ %53, %61 ], [ %53, %55 ], [ 1, %31 ]
-  call void @avio_wb32(ptr noundef %28, i32 noundef 0) #16
-  call void @avio_wl32(ptr noundef %28, i32 noundef 2019846515) #16
-  call void @avio_w8(ptr noundef %28, i32 noundef 1) #16
-  call void @avio_wb24(ptr noundef %28, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %28, i32 noundef 0) #17
+  call void @avio_wl32(ptr noundef %28, i32 noundef 2019846515) #17
+  call void @avio_w8(ptr noundef %28, i32 noundef 1) #17
+  call void @avio_wb24(ptr noundef %28, i32 noundef 0) #17
   %68 = getelementptr inbounds nuw i8, ptr %22, i64 84
   %69 = load i32, ptr %68, align 4, !tbaa !215
-  call void @avio_wb32(ptr noundef %28, i32 noundef %69) #16
+  call void @avio_wb32(ptr noundef %28, i32 noundef %69) #17
   %70 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %71 = load i32, ptr %70, align 4, !tbaa !209
-  call void @avio_wb32(ptr noundef %28, i32 noundef %71) #16
-  call void @avio_wb64(ptr noundef %28, i64 noundef %.074.i) #16
-  %72 = call i64 @avio_seek(ptr noundef %28, i64 noundef 0, i32 noundef 1) #16
-  call void @avio_wb64(ptr noundef %28, i64 noundef 0) #16
-  call void @avio_wb16(ptr noundef %28, i32 noundef 0) #16
-  call void @avio_wb16(ptr noundef %28, i32 noundef %.0.i) #16
+  call void @avio_wb32(ptr noundef %28, i32 noundef %71) #17
+  call void @avio_wb64(ptr noundef %28, i64 noundef %.074.i) #17
+  %72 = call i64 @avio_seek(ptr noundef %28, i64 noundef 0, i32 noundef 1) #17
+  call void @avio_wb64(ptr noundef %28, i64 noundef 0) #17
+  call void @avio_wb16(ptr noundef %28, i32 noundef 0) #17
+  call void @avio_wb16(ptr noundef %28, i32 noundef %.0.i) #17
   %73 = getelementptr inbounds nuw i8, ptr %22, i64 328
   %wide.trip.count.i = zext nneg i32 %.0.i to i64
   br label %74
@@ -21215,7 +21215,7 @@ define internal fastcc void @mov_write_sidx_tags(ptr noundef %0, ptr noundef rea
   br i1 %.not83.i, label %88, label %87
 
 87:                                               ; preds = %78
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.578) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.578) #17
   %.pre.i = load ptr, ptr %73, align 8, !tbaa !247
   br label %88
 
@@ -21233,29 +21233,29 @@ define internal fastcc void @mov_write_sidx_tags(ptr noundef %0, ptr noundef rea
   %.273.i = phi i64 [ %.17289.i, %74 ], [ %92, %88 ]
   %.2.i = phi i32 [ %.190.i, %74 ], [ 1, %88 ]
   %96 = and i32 %.176.i, 2147483647
-  call void @avio_wb32(ptr noundef %28, i32 noundef %96) #16
+  call void @avio_wb32(ptr noundef %28, i32 noundef %96) #17
   %97 = trunc i64 %.273.i to i32
-  call void @avio_wb32(ptr noundef %28, i32 noundef %97) #16
+  call void @avio_wb32(ptr noundef %28, i32 noundef %97) #17
   %98 = shl i32 %.2.i, 31
-  call void @avio_wb32(ptr noundef %28, i32 noundef %98) #16
+  call void @avio_wb32(ptr noundef %28, i32 noundef %98) #17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %74, !llvm.loop !523
 
 ._crit_edge.i:                                    ; preds = %95
-  %99 = call i64 @avio_seek(ptr noundef %28, i64 noundef 0, i32 noundef 1) #16
+  %99 = call i64 @avio_seek(ptr noundef %28, i64 noundef 0, i32 noundef 1) #17
   %100 = sext i32 %.131 to i64
   %101 = add nsw i64 %29, %100
   %102 = sub i64 %101, %99
-  %103 = call i64 @avio_seek(ptr noundef %28, i64 noundef %72, i32 noundef 0) #16
-  call void @avio_wb64(ptr noundef %28, i64 noundef %102) #16
-  %104 = call i64 @avio_seek(ptr noundef %28, i64 noundef %99, i32 noundef 0) #16
-  %105 = call i64 @avio_seek(ptr noundef %28, i64 noundef 0, i32 noundef 1) #16
-  %106 = call i64 @avio_seek(ptr noundef %28, i64 noundef %29, i32 noundef 0) #16
+  %103 = call i64 @avio_seek(ptr noundef %28, i64 noundef %72, i32 noundef 0) #17
+  call void @avio_wb64(ptr noundef %28, i64 noundef %102) #17
+  %104 = call i64 @avio_seek(ptr noundef %28, i64 noundef %99, i32 noundef 0) #17
+  %105 = call i64 @avio_seek(ptr noundef %28, i64 noundef 0, i32 noundef 1) #17
+  %106 = call i64 @avio_seek(ptr noundef %28, i64 noundef %29, i32 noundef 0) #17
   %107 = sub nsw i64 %105, %29
   %108 = trunc i64 %107 to i32
-  call void @avio_wb32(ptr noundef %28, i32 noundef %108) #16
-  %109 = call i64 @avio_seek(ptr noundef %28, i64 noundef %105, i32 noundef 0) #16
+  call void @avio_wb32(ptr noundef %28, i32 noundef %108) #17
+  %109 = call i64 @avio_seek(ptr noundef %28, i64 noundef %105, i32 noundef 0) #17
   br label %mov_write_sidx_tag.exit
 
 mov_write_sidx_tag.exit:                          ; preds = %51, %._crit_edge.i
@@ -21277,7 +21277,7 @@ mov_write_sidx_tag.exit:                          ; preds = %51, %._crit_edge.i
 
 115:                                              ; preds = %._crit_edge
   %116 = load ptr, ptr %5, align 8, !tbaa !83
-  %117 = call i32 @ffio_close_null_buf(ptr noundef %116) #16
+  %117 = call i32 @ffio_close_null_buf(ptr noundef %116) #17
   br label %11, !llvm.loop !525
 
 .thread:                                          ; preds = %._crit_edge, %13
@@ -21287,7 +21287,7 @@ mov_write_sidx_tag.exit:                          ; preds = %51, %._crit_edge.i
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
-  %7 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
+  %7 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
   %8 = icmp slt i32 %4, %5
   br i1 %8, label %.lr.ph, label %._crit_edge.thread
 
@@ -21377,16 +21377,16 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
   %52 = shl i32 %.fr, 11
   %53 = and i32 %52, 2048
   %spec.select97 = or i32 %53, %.4.fr
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #16
-  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1853190772) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
+  tail call void @avio_wl32(ptr noundef %0, i32 noundef 1853190772) #17
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %55 = load i32, ptr %54, align 8, !tbaa !75
   %56 = lshr i32 %55, 19
   %.lobit = and i32 %56, 1
-  tail call void @avio_w8(ptr noundef %0, i32 noundef %.lobit) #16
-  tail call void @avio_wb24(ptr noundef %0, i32 noundef %spec.select97) #16
+  tail call void @avio_w8(ptr noundef %0, i32 noundef %.lobit) #17
+  tail call void @avio_wb24(ptr noundef %0, i32 noundef %spec.select97) #17
   %57 = sub nsw i32 %5, %4
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %57) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %57) #17
   %58 = load i32, ptr %54, align 8, !tbaa !75
   %59 = and i32 %58, 1280
   %or.cond = icmp eq i32 %59, 256
@@ -21415,7 +21415,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
 
 76:                                               ; preds = %60, %63
   %.sink161 = phi i32 [ %75, %63 ], [ 0, %60 ]
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.sink161) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %.sink161) #17
   %77 = and i32 %.4.fr, 4
   %.not87 = icmp eq i32 %77, 0
   br i1 %.not87, label %86, label %78
@@ -21430,7 +21430,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
   %84 = and i32 %.val99, 1
   %.not.i102 = icmp eq i32 %84, 0
   %85 = select i1 %.not.i102, i32 16842752, i32 33554432
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %85) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %85) #17
   br label %86
 
 86:                                               ; preds = %78, %76
@@ -21456,7 +21456,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
 93:                                               ; preds = %.lr.ph108.split.us
   %94 = trunc nsw i64 %indvars.iv145 to i32
   %95 = tail call fastcc i32 @get_cluster_duration(ptr noundef %2, i32 noundef %94)
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %95) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %95) #17
   br label %96
 
 96:                                               ; preds = %93, %.lr.ph108.split.us
@@ -21467,7 +21467,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
   %99 = getelementptr inbounds %struct.MOVIentry, ptr %98, i64 %indvars.iv145
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %101 = load i32, ptr %100, align 8, !tbaa !144
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %101) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %101) #17
   br label %102
 
 102:                                              ; preds = %97, %96
@@ -21478,7 +21478,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
   %105 = getelementptr inbounds %struct.MOVIentry, ptr %104, i64 %indvars.iv145
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 40
   %107 = load i32, ptr %106, align 8, !tbaa !153
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %107) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %107) #17
   br label %108
 
 108:                                              ; preds = %103, %102
@@ -21505,7 +21505,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
   %112 = and i32 %.val100.us.us.us, 1
   %.not.i103.us.us.us = icmp eq i32 %112, 0
   %113 = select i1 %.not.i103.us.us.us, i32 16842752, i32 33554432
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %113) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %113) #17
   %indvars.iv.next141 = add nsw i64 %indvars.iv140, 1
   %lftr.wideiv143 = trunc i64 %indvars.iv.next141 to i32
   %exitcond144.not = icmp eq i32 %5, %lftr.wideiv143
@@ -21515,7 +21515,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
   %indvars.iv135 = phi i64 [ %indvars.iv.next136, %.lr.ph108.split.split.us.split.us.split ], [ %92, %.lr.ph108.split.split.us.split.us ]
   %114 = trunc nsw i64 %indvars.iv135 to i32
   %115 = tail call fastcc i32 @get_cluster_duration(ptr noundef nonnull %2, i32 noundef %114)
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %115) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %115) #17
   %116 = load ptr, ptr %89, align 8, !tbaa !64
   %117 = getelementptr inbounds %struct.MOVIentry, ptr %116, i64 %indvars.iv135
   %118 = getelementptr i8, ptr %117, i64 44
@@ -21523,7 +21523,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
   %119 = and i32 %.val100.us.us, 1
   %.not.i103.us.us = icmp eq i32 %119, 0
   %120 = select i1 %.not.i103.us.us, i32 16842752, i32 33554432
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %120) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %120) #17
   %indvars.iv.next136 = add nsw i64 %indvars.iv135, 1
   %lftr.wideiv138 = trunc i64 %indvars.iv.next136 to i32
   %exitcond139.not = icmp eq i32 %5, %lftr.wideiv138
@@ -21541,12 +21541,12 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
   %124 = and i32 %.val100.us.us112, 1
   %.not.i103.us.us113 = icmp eq i32 %124, 0
   %125 = select i1 %.not.i103.us.us113, i32 16842752, i32 33554432
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %125) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %125) #17
   %126 = load ptr, ptr %89, align 8, !tbaa !64
   %127 = getelementptr inbounds %struct.MOVIentry, ptr %126, i64 %indvars.iv130
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 40
   %129 = load i32, ptr %128, align 8, !tbaa !153
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %129) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %129) #17
   %indvars.iv.next131 = add nsw i64 %indvars.iv130, 1
   %lftr.wideiv133 = trunc i64 %indvars.iv.next131 to i32
   %exitcond134.not = icmp eq i32 %5, %lftr.wideiv133
@@ -21556,7 +21556,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %.lr.ph108.split.split.us.split.split ], [ %92, %.lr.ph108.split.split.us.split ]
   %130 = trunc nsw i64 %indvars.iv125 to i32
   %131 = tail call fastcc i32 @get_cluster_duration(ptr noundef nonnull %2, i32 noundef %130)
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %131) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %131) #17
   %132 = load ptr, ptr %89, align 8, !tbaa !64
   %133 = getelementptr inbounds %struct.MOVIentry, ptr %132, i64 %indvars.iv125
   %134 = getelementptr i8, ptr %133, i64 44
@@ -21564,12 +21564,12 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
   %135 = and i32 %.val100.us, 1
   %.not.i103.us = icmp eq i32 %135, 0
   %136 = select i1 %.not.i103.us, i32 16842752, i32 33554432
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %136) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %136) #17
   %137 = load ptr, ptr %89, align 8, !tbaa !64
   %138 = getelementptr inbounds %struct.MOVIentry, ptr %137, i64 %indvars.iv125
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 40
   %140 = load i32, ptr %139, align 8, !tbaa !153
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %140) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %140) #17
   %indvars.iv.next126 = add nsw i64 %indvars.iv125, 1
   %lftr.wideiv128 = trunc i64 %indvars.iv.next126 to i32
   %exitcond129.not = icmp eq i32 %5, %lftr.wideiv128
@@ -21582,7 +21582,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
 141:                                              ; preds = %.lr.ph108.split.split
   %142 = trunc nsw i64 %indvars.iv120 to i32
   %143 = tail call fastcc i32 @get_cluster_duration(ptr noundef nonnull %2, i32 noundef %142)
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %143) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %143) #17
   br label %144
 
 144:                                              ; preds = %141, %.lr.ph108.split.split
@@ -21590,7 +21590,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
   %146 = getelementptr inbounds %struct.MOVIentry, ptr %145, i64 %indvars.iv120
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %148 = load i32, ptr %147, align 8, !tbaa !144
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %148) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %148) #17
   %149 = load ptr, ptr %89, align 8, !tbaa !64
   %150 = getelementptr inbounds %struct.MOVIentry, ptr %149, i64 %indvars.iv120
   %151 = getelementptr i8, ptr %150, i64 44
@@ -21598,7 +21598,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
   %152 = and i32 %.val100, 1
   %.not.i103 = icmp eq i32 %152, 0
   %153 = select i1 %.not.i103, i32 16842752, i32 33554432
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %153) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %153) #17
   br i1 %.not91, label %159, label %154
 
 154:                                              ; preds = %144
@@ -21606,7 +21606,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
   %156 = getelementptr inbounds %struct.MOVIentry, ptr %155, i64 %indvars.iv120
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 40
   %158 = load i32, ptr %157, align 8, !tbaa !153
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %158) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %158) #17
   br label %159
 
 159:                                              ; preds = %144, %154
@@ -21618,12 +21618,12 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
 ._crit_edge109:                                   ; preds = %159, %.lr.ph108.split.split.us.split.split, %.lr.ph108.split.split.us.split.split.us, %.lr.ph108.split.split.us.split.us.split, %.lr.ph108.split.split.us.split.us.split.us, %108, %86
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 0, ptr %160, align 8, !tbaa !517
-  %161 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #16
-  %162 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %7, i32 noundef 0) #16
+  %161 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
+  %162 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %7, i32 noundef 0) #17
   %163 = sub nsw i64 %161, %7
   %164 = trunc i64 %163 to i32
-  tail call void @avio_wb32(ptr noundef %0, i32 noundef %164) #16
-  %165 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %161, i32 noundef 0) #16
+  tail call void @avio_wb32(ptr noundef %0, i32 noundef %164) #17
+  %165 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %161, i32 noundef 0) #17
   ret void
 }
 
@@ -21657,7 +21657,7 @@ define internal fastcc i32 @shift_data(ptr noundef %0) unnamed_addr #0 {
 
 10:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %11 = call i32 @ffio_open_null_buf(ptr noundef nonnull %4) #16
+  %11 = call i32 @ffio_open_null_buf(ptr noundef nonnull %4) #17
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %get_sidx_size.exit.thread.i, label %get_sidx_size.exit.i
 
@@ -21669,7 +21669,7 @@ get_sidx_size.exit.i:                             ; preds = %10
   %13 = load ptr, ptr %4, align 8, !tbaa !83
   call fastcc void @mov_write_sidx_tags(ptr noundef %13, ptr noundef nonnull readonly %6, i32 noundef -1, i32 noundef 0)
   %14 = load ptr, ptr %4, align 8, !tbaa !83
-  %15 = call i32 @ffio_close_null_buf(ptr noundef %14) #16
+  %15 = call i32 @ffio_close_null_buf(ptr noundef %14) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %compute_sidx_size.exit.thread, label %.preheader.i
@@ -21700,7 +21700,7 @@ get_sidx_size.exit.i:                             ; preds = %10
 
 28:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %29 = call i32 @ffio_open_null_buf(ptr noundef nonnull %3) #16
+  %29 = call i32 @ffio_open_null_buf(ptr noundef nonnull %3) #17
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %get_moov_size.exit.thread.i, label %31
 
@@ -21717,7 +21717,7 @@ get_moov_size.exit.thread.i:                      ; preds = %31, %28
 
 get_moov_size.exit.i:                             ; preds = %31
   %35 = load ptr, ptr %3, align 8, !tbaa !83
-  %36 = call i32 @ffio_close_null_buf(ptr noundef %35) #16
+  %36 = call i32 @ffio_close_null_buf(ptr noundef %35) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %compute_sidx_size.exit.thread, label %.preheader34.i
@@ -21749,7 +21749,7 @@ get_moov_size.exit.i:                             ; preds = %31
 ._crit_edge.i:                                    ; preds = %44, %.preheader34.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %49 = load ptr, ptr %5, align 8, !tbaa !4
-  %50 = call i32 @ffio_open_null_buf(ptr noundef nonnull %2) #16
+  %50 = call i32 @ffio_open_null_buf(ptr noundef nonnull %2) #17
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %get_moov_size.exit29.thread.i, label %52
 
@@ -21766,7 +21766,7 @@ get_moov_size.exit29.thread.i:                    ; preds = %52, %._crit_edge.i
 
 get_moov_size.exit29.i:                           ; preds = %52
   %56 = load ptr, ptr %2, align 8, !tbaa !83
-  %57 = call i32 @ffio_close_null_buf(ptr noundef %56) #16
+  %57 = call i32 @ffio_close_null_buf(ptr noundef %56) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %58 = icmp slt i32 %57, 0
   %.not.i = icmp eq i32 %57, %36
@@ -21804,7 +21804,7 @@ compute_sidx_size.exit.thread19:                  ; preds = %23, %65, %.preheade
   %.0921 = phi i32 [ %57, %compute_sidx_size.exit ], [ %57, %.preheader.i10 ], [ %15, %.preheader.i ], [ %57, %65 ], [ %15, %23 ]
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %71 = load i64, ptr %70, align 8, !tbaa !194
-  %72 = call i32 @ff_format_shift_data(ptr noundef nonnull %0, i64 noundef %71, i32 noundef %.0921) #16
+  %72 = call i32 @ff_format_shift_data(ptr noundef nonnull %0, i64 noundef %71, i32 noundef %.0921) #17
   br label %compute_sidx_size.exit.thread
 
 compute_sidx_size.exit.thread:                    ; preds = %get_moov_size.exit29.thread.i, %get_moov_size.exit.thread.i, %get_moov_size.exit.i, %get_sidx_size.exit.i, %get_sidx_size.exit.thread.i, %compute_sidx_size.exit, %compute_sidx_size.exit.thread19
@@ -21850,49 +21850,49 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #14
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.smax.i8(i8, i8) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -21906,15 +21906,16 @@ attributes #7 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-
 attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #16 = { nounwind }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { nounwind willreturn memory(none) }
+attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #17 = { nounwind }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { nounwind willreturn memory(read) }
+attributes #20 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

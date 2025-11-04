@@ -77,7 +77,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @png_create_read_struct(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = tail call noalias ptr @png_create_png_struct(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null, ptr noundef null, ptr noundef null) #12
+  %5 = tail call noalias ptr @png_create_png_struct(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null, ptr noundef null, ptr noundef null) #13
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %png_create_read_struct_2.exit, label %6
 
@@ -90,7 +90,7 @@ define noalias ptr @png_create_read_struct(ptr noundef %0, ptr noundef %1, ptr n
   %10 = load i32, ptr %9, align 8, !tbaa !23
   %11 = or i32 %10, 1048576
   store i32 %11, ptr %9, align 8, !tbaa !23
-  tail call void @png_set_read_fn(ptr noundef nonnull %5, ptr noundef null, ptr noundef null) #12
+  tail call void @png_set_read_fn(ptr noundef nonnull %5, ptr noundef null, ptr noundef null) #13
   br label %png_create_read_struct_2.exit
 
 png_create_read_struct_2.exit:                    ; preds = %4, %6
@@ -99,7 +99,7 @@ png_create_read_struct_2.exit:                    ; preds = %4, %6
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @png_create_read_struct_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
-  %8 = tail call noalias ptr @png_create_png_struct(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #12
+  %8 = tail call noalias ptr @png_create_png_struct(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #13
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %15, label %9
 
@@ -112,7 +112,7 @@ define noalias ptr @png_create_read_struct_2(ptr noundef %0, ptr noundef %1, ptr
   %13 = load i32, ptr %12, align 8, !tbaa !23
   %14 = or i32 %13, 1048576
   store i32 %14, ptr %12, align 8, !tbaa !23
-  tail call void @png_set_read_fn(ptr noundef nonnull %8, ptr noundef null, ptr noundef null) #12
+  tail call void @png_set_read_fn(ptr noundef nonnull %8, ptr noundef null, ptr noundef null) #13
   br label %15
 
 15:                                               ; preds = %9, %7
@@ -131,8 +131,8 @@ define void @png_read_info(ptr noalias noundef %0, ptr noalias noundef %1) local
   br i1 %or.cond, label %.thread54, label %5
 
 5:                                                ; preds = %2
-  tail call void @png_read_sig(ptr noundef nonnull %0, ptr noundef nonnull %1) #12
-  %6 = tail call i32 @png_read_chunk_header(ptr noundef nonnull %0) #12
+  tail call void @png_read_sig(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
+  %6 = tail call i32 @png_read_chunk_header(ptr noundef nonnull %0) #13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %8 = load i32, ptr %7, align 8, !tbaa !24
   %9 = icmp eq i32 %8, 1229209940
@@ -151,7 +151,7 @@ define void @png_read_info(ptr noalias noundef %0, ptr noalias noundef %1) local
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %._crit_edge
-  tail call void @png_chunk_error(ptr noundef nonnull %0, ptr noundef nonnull @.str) #13
+  tail call void @png_chunk_error(ptr noundef nonnull %0, ptr noundef nonnull @.str) #14
   unreachable
 
 16:                                               ; preds = %._crit_edge
@@ -164,7 +164,7 @@ define void @png_read_info(ptr noalias noundef %0, ptr noalias noundef %1) local
   br i1 %or.cond50, label %22, label %23
 
 22:                                               ; preds = %16
-  tail call void @png_chunk_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #13
+  tail call void @png_chunk_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #14
   unreachable
 
 23:                                               ; preds = %16
@@ -173,7 +173,7 @@ define void @png_read_info(ptr noalias noundef %0, ptr noalias noundef %1) local
   br i1 %.not47, label %38, label %25
 
 25:                                               ; preds = %23
-  tail call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #12
+  tail call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #13
   %.pre = load i32, ptr %11, align 4, !tbaa !3
   br label %38
 
@@ -197,28 +197,28 @@ define void @png_read_info(ptr noalias noundef %0, ptr noalias noundef %1) local
   ]
 
 34:                                               ; preds = %33
-  %35 = tail call i32 @png_handle_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %28) #12
+  %35 = tail call i32 @png_handle_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %28) #13
   br label %52
 
 36:                                               ; preds = %33
-  %37 = tail call i32 @png_handle_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %28) #12
+  %37 = tail call i32 @png_handle_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %28) #13
   br label %52
 
 38:                                               ; preds = %25, %23
   %39 = phi i32 [ %.pre, %25 ], [ %12, %23 ]
   %40 = or i32 %39, 4
   store i32 %40, ptr %11, align 4, !tbaa !3
-  %41 = tail call i32 @png_chunk_unknown_handling(ptr noundef nonnull %0, i32 noundef 1229209940) #12
+  %41 = tail call i32 @png_chunk_unknown_handling(ptr noundef nonnull %0, i32 noundef 1229209940) #13
   %.not48 = icmp eq i32 %41, 0
   br i1 %.not48, label %.thread54.sink.split, label %49
 
 .thread51:                                        ; preds = %33
-  %42 = tail call i32 @png_chunk_unknown_handling(ptr noundef nonnull %0, i32 noundef %27) #12
+  %42 = tail call i32 @png_chunk_unknown_handling(ptr noundef nonnull %0, i32 noundef %27) #13
   %.not4852 = icmp eq i32 %42, 0
   br i1 %.not4852, label %.thread53, label %43
 
 43:                                               ; preds = %.thread51
-  %44 = tail call i32 @png_handle_unknown(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %28, i32 noundef %42) #12
+  %44 = tail call i32 @png_handle_unknown(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %28, i32 noundef %42) #13
   %45 = icmp eq i32 %27, 1347179589
   br i1 %45, label %46, label %52
 
@@ -229,15 +229,15 @@ define void @png_read_info(ptr noalias noundef %0, ptr noalias noundef %1) local
   br label %52
 
 49:                                               ; preds = %38
-  %50 = tail call i32 @png_handle_unknown(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.lcssa58, i32 noundef %41) #12
+  %50 = tail call i32 @png_handle_unknown(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.lcssa58, i32 noundef %41) #13
   br label %.thread54.sink.split
 
 .thread53:                                        ; preds = %.thread51
-  %51 = tail call i32 @png_handle_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %28) #12
+  %51 = tail call i32 @png_handle_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %28) #13
   br label %52
 
 52:                                               ; preds = %43, %34, %.thread53, %46, %36
-  %53 = tail call i32 @png_read_chunk_header(ptr noundef nonnull %0) #12
+  %53 = tail call i32 @png_read_chunk_header(ptr noundef nonnull %0) #13
   %54 = load i32, ptr %7, align 8, !tbaa !24
   %55 = icmp eq i32 %54, 1229209940
   br i1 %55, label %._crit_edge, label %26
@@ -280,12 +280,12 @@ define void @png_read_update_info(ptr noalias noundef %0, ptr noalias noundef %1
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %3
-  tail call void @png_read_start_row(ptr noundef nonnull %0) #12
-  tail call void @png_read_transform_info(ptr noundef nonnull %0, ptr noundef %1) #12
+  tail call void @png_read_start_row(ptr noundef nonnull %0) #13
+  tail call void @png_read_transform_info(ptr noundef nonnull %0, ptr noundef %1) #13
   br label %10
 
 9:                                                ; preds = %3
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #12
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #13
   br label %10
 
 10:                                               ; preds = %8, %9, %2
@@ -311,11 +311,11 @@ define void @png_start_read_image(ptr noalias noundef %0) local_unnamed_addr #0 
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  tail call void @png_read_start_row(ptr noundef nonnull %0) #12
+  tail call void @png_read_start_row(ptr noundef nonnull %0) #13
   br label %9
 
 8:                                                ; preds = %2
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #12
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #13
   br label %9
 
 9:                                                ; preds = %7, %8, %1
@@ -337,7 +337,7 @@ define void @png_read_row(ptr noalias noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %6
-  tail call void @png_read_start_row(ptr noundef nonnull %0) #12
+  tail call void @png_read_start_row(ptr noundef nonnull %0) #13
   br label %12
 
 12:                                               ; preds = %11, %6
@@ -417,11 +417,11 @@ define void @png_read_row(ptr noalias noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not120, label %56, label %55
 
 55:                                               ; preds = %54
-  tail call void @png_combine_row(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 1) #12
+  tail call void @png_combine_row(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 1) #13
   br label %56
 
 56:                                               ; preds = %55, %54
-  tail call void @png_read_finish_row(ptr noundef nonnull %0) #12
+  tail call void @png_read_finish_row(ptr noundef nonnull %0) #13
   br label %236
 
 57:                                               ; preds = %49
@@ -440,11 +440,11 @@ define void @png_read_row(ptr noalias noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not118, label %65, label %64
 
 64:                                               ; preds = %63
-  tail call void @png_combine_row(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 1) #12
+  tail call void @png_combine_row(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 1) #13
   br label %65
 
 65:                                               ; preds = %64, %63
-  tail call void @png_read_finish_row(ptr noundef nonnull %0) #12
+  tail call void @png_read_finish_row(ptr noundef nonnull %0) #13
   br label %236
 
 66:                                               ; preds = %49
@@ -460,11 +460,11 @@ define void @png_read_row(ptr noalias noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %or.cond, label %71, label %70
 
 70:                                               ; preds = %68
-  tail call void @png_combine_row(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 1) #12
+  tail call void @png_combine_row(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 1) #13
   br label %71
 
 71:                                               ; preds = %70, %68
-  tail call void @png_read_finish_row(ptr noundef nonnull %0) #12
+  tail call void @png_read_finish_row(ptr noundef nonnull %0) #13
   br label %236
 
 72:                                               ; preds = %49
@@ -483,11 +483,11 @@ define void @png_read_row(ptr noalias noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not113, label %80, label %79
 
 79:                                               ; preds = %78
-  tail call void @png_combine_row(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 1) #12
+  tail call void @png_combine_row(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 1) #13
   br label %80
 
 80:                                               ; preds = %79, %78
-  tail call void @png_read_finish_row(ptr noundef nonnull %0) #12
+  tail call void @png_read_finish_row(ptr noundef nonnull %0) #13
   br label %236
 
 81:                                               ; preds = %49
@@ -503,11 +503,11 @@ define void @png_read_row(ptr noalias noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %or.cond132, label %86, label %85
 
 85:                                               ; preds = %83
-  tail call void @png_combine_row(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 1) #12
+  tail call void @png_combine_row(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 1) #13
   br label %86
 
 86:                                               ; preds = %85, %83
-  tail call void @png_read_finish_row(ptr noundef nonnull %0) #12
+  tail call void @png_read_finish_row(ptr noundef nonnull %0) #13
   br label %236
 
 87:                                               ; preds = %49
@@ -526,11 +526,11 @@ define void @png_read_row(ptr noalias noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not108, label %95, label %94
 
 94:                                               ; preds = %93
-  tail call void @png_combine_row(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 1) #12
+  tail call void @png_combine_row(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 1) #13
   br label %95
 
 95:                                               ; preds = %94, %93
-  tail call void @png_read_finish_row(ptr noundef nonnull %0) #12
+  tail call void @png_read_finish_row(ptr noundef nonnull %0) #13
   br label %236
 
 96:                                               ; preds = %49
@@ -539,7 +539,7 @@ define void @png_read_row(ptr noalias noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %98, label %99, label %100
 
 99:                                               ; preds = %96
-  tail call void @png_read_finish_row(ptr noundef nonnull %0) #12
+  tail call void @png_read_finish_row(ptr noundef nonnull %0) #13
   br label %236
 
 100:                                              ; preds = %52, %59, %66, %74, %81, %89, %96, %45, %38
@@ -550,7 +550,7 @@ define void @png_read_row(ptr noalias noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %104, label %105, label %106
 
 105:                                              ; preds = %100
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #13
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #14
   unreachable
 
 106:                                              ; preds = %100
@@ -560,7 +560,7 @@ define void @png_read_row(ptr noalias noundef %0, ptr noundef %1, ptr noundef %2
   %109 = load ptr, ptr %107, align 8, !tbaa !43
   %110 = load i64, ptr %40, align 8, !tbaa !37
   %111 = add i64 %110, 1
-  tail call void @png_read_IDAT_data(ptr noundef nonnull %0, ptr noundef %109, i64 noundef %111) #12
+  tail call void @png_read_IDAT_data(ptr noundef nonnull %0, ptr noundef %109, i64 noundef %111) #13
   %112 = load ptr, ptr %107, align 8, !tbaa !43
   %113 = load i8, ptr %112, align 1, !tbaa !44
   %114 = zext i8 %113 to i32
@@ -576,14 +576,14 @@ define void @png_read_row(ptr noalias noundef %0, ptr noundef %1, ptr noundef %2
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %120 = load ptr, ptr %119, align 8, !tbaa !45
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 1
-  call void @png_read_filter_row(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %118, ptr noundef nonnull %121, i32 noundef %114) #12
+  call void @png_read_filter_row(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %118, ptr noundef nonnull %121, i32 noundef %114) #13
   %.pre = load ptr, ptr %107, align 8, !tbaa !43
   %.pre135 = load i64, ptr %40, align 8, !tbaa !37
   %.pre136 = add i64 %.pre135, 1
   br label %123
 
 122:                                              ; preds = %115
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #13
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
   unreachable
 
 123:                                              ; preds = %117, %106
@@ -721,7 +721,7 @@ png_do_read_intrapixel.exit:                      ; preds = %.lr.ph.i.lver.orig,
   br i1 %193, label %194, label %195
 
 194:                                              ; preds = %190, %png_do_read_intrapixel.exit
-  call void @png_do_read_transformations(ptr noundef nonnull %0, ptr noundef nonnull %4) #12
+  call void @png_do_read_transformations(ptr noundef nonnull %0, ptr noundef nonnull %4) #13
   br label %195
 
 195:                                              ; preds = %194, %190
@@ -739,7 +739,7 @@ png_do_read_intrapixel.exit:                      ; preds = %.lr.ph.i.lver.orig,
   br i1 %203, label %204, label %207
 
 204:                                              ; preds = %200
-  call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #13
+  call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #14
   unreachable
 
 205:                                              ; preds = %195
@@ -747,7 +747,7 @@ png_do_read_intrapixel.exit:                      ; preds = %.lr.ph.i.lver.orig,
   br i1 %.not124, label %207, label %206
 
 206:                                              ; preds = %205
-  call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #13
+  call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #14
   unreachable
 
 207:                                              ; preds = %205, %200
@@ -771,7 +771,7 @@ png_do_read_intrapixel.exit:                      ; preds = %.lr.ph.i.lver.orig,
   %217 = zext nneg i8 %214 to i32
   %218 = load ptr, ptr %107, align 8, !tbaa !43
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 1
-  call void @png_do_read_interlace(ptr noundef nonnull %4, ptr noundef nonnull %219, i32 noundef %217, i32 noundef %210) #12
+  call void @png_do_read_interlace(ptr noundef nonnull %4, ptr noundef nonnull %219, i32 noundef %217, i32 noundef %210) #13
   br label %220
 
 220:                                              ; preds = %216, %212
@@ -779,7 +779,7 @@ png_do_read_intrapixel.exit:                      ; preds = %.lr.ph.i.lver.orig,
   br i1 %.not129, label %222, label %221
 
 221:                                              ; preds = %220
-  call void @png_combine_row(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 1) #12
+  call void @png_combine_row(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 1) #13
   br label %222
 
 222:                                              ; preds = %221, %220
@@ -787,7 +787,7 @@ png_do_read_intrapixel.exit:                      ; preds = %.lr.ph.i.lver.orig,
   br i1 %.not130, label %228, label %223
 
 223:                                              ; preds = %222
-  call void @png_combine_row(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 0) #12
+  call void @png_combine_row(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 0) #13
   br label %228
 
 224:                                              ; preds = %209, %207
@@ -795,7 +795,7 @@ png_do_read_intrapixel.exit:                      ; preds = %.lr.ph.i.lver.orig,
   br i1 %.not127, label %226, label %225
 
 225:                                              ; preds = %224
-  call void @png_combine_row(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef -1) #12
+  call void @png_combine_row(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef -1) #13
   br label %226
 
 226:                                              ; preds = %225, %224
@@ -803,11 +803,11 @@ png_do_read_intrapixel.exit:                      ; preds = %.lr.ph.i.lver.orig,
   br i1 %.not128, label %228, label %227
 
 227:                                              ; preds = %226
-  call void @png_combine_row(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef -1) #12
+  call void @png_combine_row(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef -1) #13
   br label %228
 
 228:                                              ; preds = %226, %227, %222, %223
-  call void @png_read_finish_row(ptr noundef nonnull %0) #12
+  call void @png_read_finish_row(ptr noundef nonnull %0) #13
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %230 = load ptr, ptr %229, align 8, !tbaa !54
   %.not131 = icmp eq ptr %230, null
@@ -818,7 +818,7 @@ png_do_read_intrapixel.exit:                      ; preds = %.lr.ph.i.lver.orig,
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 621
   %234 = load i8, ptr %233, align 1, !tbaa !41
   %235 = zext i8 %234 to i32
-  call void %230(ptr noundef nonnull %0, i32 noundef %232, i32 noundef %235) #12
+  call void %230(ptr noundef nonnull %0, i32 noundef %232, i32 noundef %235) #13
   br label %236
 
 236:                                              ; preds = %228, %231, %3, %99, %95, %86, %80, %71, %65, %56
@@ -921,18 +921,18 @@ define void @png_read_image(ptr noalias noundef %0, ptr noundef readonly capture
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %4
-  %10 = tail call i32 @png_set_interlace_handling(ptr noundef nonnull %0) #12
+  %10 = tail call i32 @png_set_interlace_handling(ptr noundef nonnull %0) #13
   %11 = load i32, ptr %5, align 8, !tbaa !23, !alias.scope !59
   %12 = and i32 %11, 64
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %9
-  tail call void @png_read_start_row(ptr noundef nonnull %0) #12
+  tail call void @png_read_start_row(ptr noundef nonnull %0) #13
   br label %png_start_read_image.exit
 
 15:                                               ; preds = %9
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #12
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #13
   br label %png_start_read_image.exit
 
 16:                                               ; preds = %4
@@ -949,7 +949,7 @@ define void @png_read_image(ptr noalias noundef %0, ptr noundef readonly capture
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %19
-  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #12
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #13
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %26 = load i32, ptr %25, align 8, !tbaa !62
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 516
@@ -957,7 +957,7 @@ define void @png_read_image(ptr noalias noundef %0, ptr noundef readonly capture
   br label %28
 
 28:                                               ; preds = %24, %19, %16
-  %29 = tail call i32 @png_set_interlace_handling(ptr noundef nonnull %0) #12
+  %29 = tail call i32 @png_set_interlace_handling(ptr noundef nonnull %0) #13
   br label %png_start_read_image.exit
 
 png_start_read_image.exit:                        ; preds = %15, %14, %28
@@ -1002,12 +1002,12 @@ define void @png_read_end(ptr noalias noundef %0, ptr noalias noundef %1) local_
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @png_chunk_unknown_handling(ptr noundef nonnull %0, i32 noundef 1229209940) #12
+  %5 = tail call i32 @png_chunk_unknown_handling(ptr noundef nonnull %0, i32 noundef 1229209940) #13
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %4
-  tail call void @png_read_finish_IDAT(ptr noundef nonnull %0) #12
+  tail call void @png_read_finish_IDAT(ptr noundef nonnull %0) #13
   br label %8
 
 8:                                                ; preds = %7, %4
@@ -1026,7 +1026,7 @@ define void @png_read_end(ptr noalias noundef %0, ptr noalias noundef %1) local_
   br i1 %.not, label %19, label %18
 
 18:                                               ; preds = %12
-  tail call void @png_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #12
+  tail call void @png_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #13
   br label %19
 
 19:                                               ; preds = %18, %12, %8
@@ -1037,7 +1037,7 @@ define void @png_read_end(ptr noalias noundef %0, ptr noalias noundef %1) local_
   br i1 %22, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %19, %35
-  %24 = tail call i32 @png_read_chunk_header(ptr noundef nonnull %0) #12
+  %24 = tail call i32 @png_read_chunk_header(ptr noundef nonnull %0) #13
   %25 = load i32, ptr %20, align 8, !tbaa !24
   %cond.us = icmp eq i32 %25, 1229209940
   br i1 %cond.us, label %33, label %26
@@ -1052,15 +1052,15 @@ define void @png_read_end(ptr noalias noundef %0, ptr noalias noundef %1) local_
   ]
 
 29:                                               ; preds = %26
-  %30 = tail call i32 @png_handle_chunk(ptr noundef nonnull %0, ptr noundef null, i32 noundef %24) #12
+  %30 = tail call i32 @png_handle_chunk(ptr noundef nonnull %0, ptr noundef null, i32 noundef %24) #13
   br label %35
 
 31:                                               ; preds = %26
-  %32 = tail call i32 @png_handle_chunk(ptr noundef nonnull %0, ptr noundef null, i32 noundef %24) #12
+  %32 = tail call i32 @png_handle_chunk(ptr noundef nonnull %0, ptr noundef null, i32 noundef %24) #13
   br label %35
 
 33:                                               ; preds = %26, %.split.us
-  %34 = tail call i32 @png_crc_finish(ptr noundef nonnull %0, i32 noundef %24) #12
+  %34 = tail call i32 @png_crc_finish(ptr noundef nonnull %0, i32 noundef %24) #13
   br label %35
 
 35:                                               ; preds = %33, %31, %29
@@ -1070,7 +1070,7 @@ define void @png_read_end(ptr noalias noundef %0, ptr noalias noundef %1) local_
   br i1 %38, label %.split.us, label %.loopexit, !llvm.loop !67
 
 .split:                                           ; preds = %19, %78
-  %39 = tail call i32 @png_read_chunk_header(ptr noundef nonnull %0) #12
+  %39 = tail call i32 @png_read_chunk_header(ptr noundef nonnull %0) #13
   %40 = load i32, ptr %20, align 8, !tbaa !24
   %cond = icmp eq i32 %40, 1229209940
   br i1 %cond, label %48, label %41
@@ -1085,21 +1085,21 @@ define void @png_read_end(ptr noalias noundef %0, ptr noalias noundef %1) local_
   ]
 
 44:                                               ; preds = %41
-  %45 = tail call i32 @png_handle_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %39) #12
+  %45 = tail call i32 @png_handle_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %39) #13
   br label %78
 
 46:                                               ; preds = %41
-  %47 = tail call i32 @png_handle_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %39) #12
+  %47 = tail call i32 @png_handle_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %39) #13
   br label %78
 
 48:                                               ; preds = %.split
-  %49 = tail call i32 @png_chunk_unknown_handling(ptr noundef nonnull %0, i32 noundef %40) #12
+  %49 = tail call i32 @png_chunk_unknown_handling(ptr noundef nonnull %0, i32 noundef %40) #13
   %.not49 = icmp eq i32 %49, 0
   %.not50 = icmp eq i32 %39, 0
   br i1 %.not49, label %66, label %51
 
 .thread61:                                        ; preds = %41
-  %50 = tail call i32 @png_chunk_unknown_handling(ptr noundef nonnull %0, i32 noundef %40) #12
+  %50 = tail call i32 @png_chunk_unknown_handling(ptr noundef nonnull %0, i32 noundef %40) #13
   %.not4962 = icmp eq i32 %50, 0
   br i1 %.not4962, label %76, label %60
 
@@ -1119,15 +1119,15 @@ define void @png_read_end(ptr noalias noundef %0, ptr noalias noundef %1) local_
   br i1 %.not55, label %.thread, label %58
 
 58:                                               ; preds = %55, %52
-  tail call void @png_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #12
+  tail call void @png_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #13
   br label %.thread
 
 .thread:                                          ; preds = %55, %58
-  %59 = tail call i32 @png_handle_unknown(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %39, i32 noundef %49) #12
+  %59 = tail call i32 @png_handle_unknown(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %39, i32 noundef %49) #13
   br label %78
 
 60:                                               ; preds = %.thread61
-  %61 = tail call i32 @png_handle_unknown(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %39, i32 noundef %50) #12
+  %61 = tail call i32 @png_handle_unknown(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %39, i32 noundef %50) #13
   %62 = icmp eq i32 %40, 1347179589
   br i1 %62, label %63, label %78
 
@@ -1153,15 +1153,15 @@ define void @png_read_end(ptr noalias noundef %0, ptr noalias noundef %1) local_
   br i1 %.not52, label %74, label %73
 
 73:                                               ; preds = %70, %67
-  tail call void @png_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.12) #12
+  tail call void @png_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.12) #13
   br label %74
 
 74:                                               ; preds = %73, %70
-  %75 = tail call i32 @png_crc_finish(ptr noundef nonnull %0, i32 noundef %39) #12
+  %75 = tail call i32 @png_crc_finish(ptr noundef nonnull %0, i32 noundef %39) #13
   br label %78
 
 76:                                               ; preds = %.thread61
-  %77 = tail call i32 @png_handle_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %39) #12
+  %77 = tail call i32 @png_handle_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %39) #13
   br label %78
 
 78:                                               ; preds = %.thread, %46, %63, %60, %76, %74, %44
@@ -1191,29 +1191,29 @@ define void @png_destroy_read_struct(ptr noundef captures(address_is_null) %0, p
   br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %4
-  tail call void @png_destroy_info_struct(ptr noundef nonnull %5, ptr noundef %2) #12
-  tail call void @png_destroy_info_struct(ptr noundef nonnull %5, ptr noundef %1) #12
+  tail call void @png_destroy_info_struct(ptr noundef nonnull %5, ptr noundef %2) #13
+  tail call void @png_destroy_info_struct(ptr noundef nonnull %5, ptr noundef %1) #13
   store ptr null, ptr %0, align 8, !tbaa !68
-  tail call void @png_destroy_gamma_table(ptr noundef nonnull %5) #12
+  tail call void @png_destroy_gamma_table(ptr noundef nonnull %5) #13
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 1080
   %9 = load ptr, ptr %8, align 8, !tbaa !70, !alias.scope !71
-  tail call void @png_free(ptr noundef nonnull %5, ptr noundef %9) #12
+  tail call void @png_free(ptr noundef nonnull %5, ptr noundef %9) #13
   store ptr null, ptr %8, align 8, !tbaa !70, !alias.scope !71
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 1200
   %11 = load ptr, ptr %10, align 8, !tbaa !74, !alias.scope !71
-  tail call void @png_free(ptr noundef nonnull %5, ptr noundef %11) #12
+  tail call void @png_free(ptr noundef nonnull %5, ptr noundef %11) #13
   store ptr null, ptr %10, align 8, !tbaa !74, !alias.scope !71
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 1176
   %13 = load ptr, ptr %12, align 8, !tbaa !75, !alias.scope !71
-  tail call void @png_free(ptr noundef nonnull %5, ptr noundef %13) #12
+  tail call void @png_free(ptr noundef nonnull %5, ptr noundef %13) #13
   store ptr null, ptr %12, align 8, !tbaa !75, !alias.scope !71
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 944
   %15 = load ptr, ptr %14, align 8, !tbaa !76, !alias.scope !71
-  tail call void @png_free(ptr noundef nonnull %5, ptr noundef %15) #12
+  tail call void @png_free(ptr noundef nonnull %5, ptr noundef %15) #13
   store ptr null, ptr %14, align 8, !tbaa !76, !alias.scope !71
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 952
   %17 = load ptr, ptr %16, align 8, !tbaa !77, !alias.scope !71
-  tail call void @png_free(ptr noundef nonnull %5, ptr noundef %17) #12
+  tail call void @png_free(ptr noundef nonnull %5, ptr noundef %17) #13
   store ptr null, ptr %16, align 8, !tbaa !77, !alias.scope !71
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 996
   %19 = load i32, ptr %18, align 4, !tbaa !78, !alias.scope !71
@@ -1224,7 +1224,7 @@ define void @png_destroy_read_struct(ptr noundef captures(address_is_null) %0, p
 21:                                               ; preds = %7
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 600
   %23 = load ptr, ptr %22, align 8, !tbaa !79, !alias.scope !71
-  tail call void @png_zfree(ptr noundef nonnull %5, ptr noundef %23) #12
+  tail call void @png_zfree(ptr noundef nonnull %5, ptr noundef %23) #13
   store ptr null, ptr %22, align 8, !tbaa !79, !alias.scope !71
   %.pre.i = load i32, ptr %18, align 4, !tbaa !78, !alias.scope !71
   br label %24
@@ -1240,7 +1240,7 @@ define void @png_destroy_read_struct(ptr noundef captures(address_is_null) %0, p
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 800
   %30 = load ptr, ptr %29, align 8, !tbaa !80, !alias.scope !71
-  tail call void @png_free(ptr noundef nonnull %5, ptr noundef %30) #12
+  tail call void @png_free(ptr noundef nonnull %5, ptr noundef %30) #13
   store ptr null, ptr %29, align 8, !tbaa !80, !alias.scope !71
   %.pre40.i = load i32, ptr %18, align 4, !tbaa !78, !alias.scope !71
   br label %png_read_destroy.exit
@@ -1250,24 +1250,24 @@ png_read_destroy.exit:                            ; preds = %24, %28
   %32 = and i32 %31, -8193
   store i32 %32, ptr %18, align 4, !tbaa !78, !alias.scope !71
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 320
-  %34 = tail call i32 @inflateEnd(ptr noundef nonnull %33) #12
+  %34 = tail call i32 @inflateEnd(ptr noundef nonnull %33) #13
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 872
   %36 = load ptr, ptr %35, align 8, !tbaa !81, !alias.scope !71
-  tail call void @png_free(ptr noundef nonnull %5, ptr noundef %36) #12
+  tail call void @png_free(ptr noundef nonnull %5, ptr noundef %36) #13
   store ptr null, ptr %35, align 8, !tbaa !81, !alias.scope !71
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 1144
   %38 = load ptr, ptr %37, align 8, !tbaa !82, !alias.scope !71
-  tail call void @png_free(ptr noundef nonnull %5, ptr noundef %38) #12
+  tail call void @png_free(ptr noundef nonnull %5, ptr noundef %38) #13
   store ptr null, ptr %37, align 8, !tbaa !82, !alias.scope !71
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 1024
   %40 = load ptr, ptr %39, align 8, !tbaa !83, !alias.scope !71
-  tail call void @png_free(ptr noundef nonnull %5, ptr noundef %40) #12
+  tail call void @png_free(ptr noundef nonnull %5, ptr noundef %40) #13
   store ptr null, ptr %39, align 8, !tbaa !83, !alias.scope !71
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 1040
   %42 = load ptr, ptr %41, align 8, !tbaa !84, !alias.scope !71
-  tail call void @png_free(ptr noundef nonnull %5, ptr noundef %42) #12
+  tail call void @png_free(ptr noundef nonnull %5, ptr noundef %42) #13
   store ptr null, ptr %41, align 8, !tbaa !84, !alias.scope !71
-  tail call void @png_destroy_png_struct(ptr noundef nonnull %5) #12
+  tail call void @png_destroy_png_struct(ptr noundef nonnull %5) #13
   br label %.thread
 
 .thread:                                          ; preds = %3, %4, %png_read_destroy.exit
@@ -1307,7 +1307,7 @@ define void @png_read_png(ptr noalias noundef %0, ptr noalias noundef %1, i32 no
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %7
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #13
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #14
   unreachable
 
 12:                                               ; preds = %7
@@ -1316,7 +1316,7 @@ define void @png_read_png(ptr noalias noundef %0, ptr noalias noundef %1, i32 no
   br i1 %.not, label %15, label %14
 
 14:                                               ; preds = %12
-  tail call void @png_set_scale_16(ptr noundef nonnull %0) #12
+  tail call void @png_set_scale_16(ptr noundef nonnull %0) #13
   br label %15
 
 15:                                               ; preds = %14, %12
@@ -1325,7 +1325,7 @@ define void @png_read_png(ptr noalias noundef %0, ptr noalias noundef %1, i32 no
   br i1 %.not65, label %18, label %17
 
 17:                                               ; preds = %15
-  tail call void @png_set_strip_16(ptr noundef nonnull %0) #12
+  tail call void @png_set_strip_16(ptr noundef nonnull %0) #13
   br label %18
 
 18:                                               ; preds = %17, %15
@@ -1334,7 +1334,7 @@ define void @png_read_png(ptr noalias noundef %0, ptr noalias noundef %1, i32 no
   br i1 %.not66, label %21, label %20
 
 20:                                               ; preds = %18
-  tail call void @png_set_strip_alpha(ptr noundef nonnull %0) #12
+  tail call void @png_set_strip_alpha(ptr noundef nonnull %0) #13
   br label %21
 
 21:                                               ; preds = %20, %18
@@ -1343,7 +1343,7 @@ define void @png_read_png(ptr noalias noundef %0, ptr noalias noundef %1, i32 no
   br i1 %.not67, label %24, label %23
 
 23:                                               ; preds = %21
-  tail call void @png_set_packing(ptr noundef nonnull %0) #12
+  tail call void @png_set_packing(ptr noundef nonnull %0) #13
   br label %24
 
 24:                                               ; preds = %23, %21
@@ -1352,7 +1352,7 @@ define void @png_read_png(ptr noalias noundef %0, ptr noalias noundef %1, i32 no
   br i1 %.not68, label %27, label %26
 
 26:                                               ; preds = %24
-  tail call void @png_set_packswap(ptr noundef nonnull %0) #12
+  tail call void @png_set_packswap(ptr noundef nonnull %0) #13
   br label %27
 
 27:                                               ; preds = %26, %24
@@ -1361,7 +1361,7 @@ define void @png_read_png(ptr noalias noundef %0, ptr noalias noundef %1, i32 no
   br i1 %.not69, label %30, label %29
 
 29:                                               ; preds = %27
-  tail call void @png_set_expand(ptr noundef nonnull %0) #12
+  tail call void @png_set_expand(ptr noundef nonnull %0) #13
   br label %30
 
 30:                                               ; preds = %29, %27
@@ -1370,7 +1370,7 @@ define void @png_read_png(ptr noalias noundef %0, ptr noalias noundef %1, i32 no
   br i1 %.not70, label %33, label %32
 
 32:                                               ; preds = %30
-  tail call void @png_set_invert_mono(ptr noundef nonnull %0) #12
+  tail call void @png_set_invert_mono(ptr noundef nonnull %0) #13
   br label %33
 
 33:                                               ; preds = %32, %30
@@ -1387,7 +1387,7 @@ define void @png_read_png(ptr noalias noundef %0, ptr noalias noundef %1, i32 no
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  tail call void @png_set_shift(ptr noundef nonnull %0, ptr noundef nonnull %40) #12
+  tail call void @png_set_shift(ptr noundef nonnull %0, ptr noundef nonnull %40) #13
   br label %41
 
 41:                                               ; preds = %35, %39, %33
@@ -1396,7 +1396,7 @@ define void @png_read_png(ptr noalias noundef %0, ptr noalias noundef %1, i32 no
   br i1 %.not73, label %44, label %43
 
 43:                                               ; preds = %41
-  tail call void @png_set_bgr(ptr noundef nonnull %0) #12
+  tail call void @png_set_bgr(ptr noundef nonnull %0) #13
   br label %44
 
 44:                                               ; preds = %43, %41
@@ -1405,7 +1405,7 @@ define void @png_read_png(ptr noalias noundef %0, ptr noalias noundef %1, i32 no
   br i1 %.not74, label %47, label %46
 
 46:                                               ; preds = %44
-  tail call void @png_set_swap_alpha(ptr noundef nonnull %0) #12
+  tail call void @png_set_swap_alpha(ptr noundef nonnull %0) #13
   br label %47
 
 47:                                               ; preds = %46, %44
@@ -1414,7 +1414,7 @@ define void @png_read_png(ptr noalias noundef %0, ptr noalias noundef %1, i32 no
   br i1 %.not75, label %50, label %49
 
 49:                                               ; preds = %47
-  tail call void @png_set_swap(ptr noundef nonnull %0) #12
+  tail call void @png_set_swap(ptr noundef nonnull %0) #13
   br label %50
 
 50:                                               ; preds = %49, %47
@@ -1423,7 +1423,7 @@ define void @png_read_png(ptr noalias noundef %0, ptr noalias noundef %1, i32 no
   br i1 %.not76, label %53, label %52
 
 52:                                               ; preds = %50
-  tail call void @png_set_invert_alpha(ptr noundef nonnull %0) #12
+  tail call void @png_set_invert_alpha(ptr noundef nonnull %0) #13
   br label %53
 
 53:                                               ; preds = %52, %50
@@ -1432,7 +1432,7 @@ define void @png_read_png(ptr noalias noundef %0, ptr noalias noundef %1, i32 no
   br i1 %.not77, label %56, label %55
 
 55:                                               ; preds = %53
-  tail call void @png_set_gray_to_rgb(ptr noundef nonnull %0) #12
+  tail call void @png_set_gray_to_rgb(ptr noundef nonnull %0) #13
   br label %56
 
 56:                                               ; preds = %55, %53
@@ -1441,11 +1441,11 @@ define void @png_read_png(ptr noalias noundef %0, ptr noalias noundef %1, i32 no
   br i1 %.not78, label %59, label %58
 
 58:                                               ; preds = %56
-  tail call void @png_set_expand_16(ptr noundef nonnull %0) #12
+  tail call void @png_set_expand_16(ptr noundef nonnull %0) #13
   br label %59
 
 59:                                               ; preds = %56, %58
-  %60 = tail call i32 @png_set_interlace_handling(ptr noundef nonnull %0) #12
+  %60 = tail call i32 @png_set_interlace_handling(ptr noundef nonnull %0) #13
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %62 = load i32, ptr %61, align 8, !tbaa !23, !alias.scope !94, !noalias !97
   %63 = and i32 %62, 64
@@ -1453,16 +1453,16 @@ define void @png_read_png(ptr noalias noundef %0, ptr noalias noundef %1, i32 no
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %59
-  tail call void @png_read_start_row(ptr noundef nonnull %0) #12, !noalias !97
-  tail call void @png_read_transform_info(ptr noundef nonnull %0, ptr noundef nonnull %1) #12
+  tail call void @png_read_start_row(ptr noundef nonnull %0) #13, !noalias !97
+  tail call void @png_read_transform_info(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   br label %png_read_update_info.exit
 
 66:                                               ; preds = %59
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #12, !noalias !97
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #13, !noalias !97
   br label %png_read_update_info.exit
 
 png_read_update_info.exit:                        ; preds = %65, %66
-  tail call void @png_free_data(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 64, i32 noundef 0) #12
+  tail call void @png_free_data(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 64, i32 noundef 0) #13
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %68 = load ptr, ptr %67, align 8, !tbaa !99
   %69 = icmp eq ptr %68, null
@@ -1472,7 +1472,7 @@ png_read_update_info.exit:                        ; preds = %65, %66
   %71 = load i32, ptr %8, align 4, !tbaa !85
   %72 = zext i32 %71 to i64
   %73 = shl nuw nsw i64 %72, 3
-  %74 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef %73) #12
+  %74 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef %73) #13
   store ptr %74, ptr %67, align 8, !tbaa !99
   %75 = load i32, ptr %8, align 4, !tbaa !85
   %.not83 = icmp eq i32 %75, 0
@@ -1499,7 +1499,7 @@ png_read_update_info.exit:                        ; preds = %65, %66
 85:                                               ; preds = %.lr.ph82, %85
   %indvars.iv = phi i64 [ 0, %.lr.ph82 ], [ %indvars.iv.next, %85 ]
   %86 = load i64, ptr %84, align 8, !tbaa !101
-  %87 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef %86) #12
+  %87 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef %86) #13
   %88 = load ptr, ptr %67, align 8, !tbaa !99
   %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv
   store ptr %87, ptr %89, align 8, !tbaa !55
@@ -1580,15 +1580,15 @@ define i32 @png_image_begin_read_from_stdio(ptr noundef %0, ptr noundef %1) loca
   %12 = load ptr, ptr %11, align 8, !tbaa !107
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 264
   store ptr %1, ptr %13, align 8, !tbaa !110
-  %14 = tail call i32 @png_safe_execute(ptr noundef nonnull %0, ptr noundef nonnull @png_image_read_header, ptr noundef nonnull %0) #12
+  %14 = tail call i32 @png_safe_execute(ptr noundef nonnull %0, ptr noundef nonnull @png_image_read_header, ptr noundef nonnull %0) #13
   br label %.critedge
 
 15:                                               ; preds = %7
-  %16 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #12
+  %16 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #13
   br label %.critedge
 
 17:                                               ; preds = %3
-  %18 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #12
+  %18 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #13
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %2, %17, %15, %10
@@ -1606,7 +1606,7 @@ define internal fastcc i32 @png_image_read_init(ptr noundef nonnull %0) unnamed_
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %7 = tail call noalias ptr @png_create_png_struct(ptr noundef nonnull @.str.26, ptr noundef nonnull %0, ptr noundef nonnull @png_safe_error, ptr noundef nonnull @png_safe_warning, ptr noundef null, ptr noundef null, ptr noundef null) #12
+  %7 = tail call noalias ptr @png_create_png_struct(ptr noundef nonnull @.str.26, ptr noundef nonnull %0, ptr noundef nonnull @png_safe_error, ptr noundef nonnull @png_safe_warning, ptr noundef null, ptr noundef null, ptr noundef null) #13
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %png_create_read_struct.exit.thread, label %9
 
@@ -1625,24 +1625,24 @@ png_create_read_struct.exit.thread:               ; preds = %6
   %13 = load i32, ptr %12, align 8, !tbaa !23
   %14 = or i32 %13, 1048576
   store i32 %14, ptr %12, align 8, !tbaa !23
-  tail call void @png_set_read_fn(ptr noundef nonnull %7, ptr noundef null, ptr noundef null) #12
+  tail call void @png_set_read_fn(ptr noundef nonnull %7, ptr noundef null, ptr noundef null) #13
   store ptr %7, ptr %2, align 8, !tbaa !68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 104, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %15, align 8, !tbaa !103
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %16 = tail call noalias ptr @png_create_info_struct(ptr noundef nonnull %7) #12
+  %16 = tail call noalias ptr @png_create_info_struct(ptr noundef nonnull %7) #13
   store ptr %16, ptr %3, align 8, !tbaa !111
   %.not19 = icmp eq ptr %16, null
   br i1 %.not19, label %.critedge, label %17
 
 17:                                               ; preds = %9
-  %18 = tail call noalias ptr @png_malloc_warn(ptr noundef nonnull %7, i64 noundef 48) #12
+  %18 = tail call noalias ptr @png_malloc_warn(ptr noundef nonnull %7, i64 noundef 48) #13
   %.not20 = icmp eq ptr %18, null
   br i1 %.not20, label %.thread, label %19
 
 .thread:                                          ; preds = %17
-  call void @png_destroy_info_struct(ptr noundef nonnull %7, ptr noundef nonnull %3) #12
+  call void @png_destroy_info_struct(ptr noundef nonnull %7, ptr noundef nonnull %3) #13
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %9
@@ -1661,7 +1661,7 @@ png_create_read_struct.exit.thread:               ; preds = %6
   br label %24
 
 22:                                               ; preds = %png_create_read_struct.exit.thread, %.critedge
-  %23 = call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.27) #12
+  %23 = call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.27) #13
   br label %24
 
 24:                                               ; preds = %19, %22
@@ -1670,7 +1670,7 @@ png_create_read_struct.exit.thread:               ; preds = %6
   br label %27
 
 25:                                               ; preds = %1
-  %26 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.28) #12
+  %26 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.28) #13
   br label %27
 
 27:                                               ; preds = %25, %24
@@ -1686,7 +1686,7 @@ define internal noundef i32 @png_image_read_header(ptr noundef captures(none) in
   %3 = load ptr, ptr %2, align 8, !tbaa !107
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !112
-  tail call void @png_set_benign_errors(ptr noundef %3, i32 noundef 1) #12
+  tail call void @png_set_benign_errors(ptr noundef %3, i32 noundef 1) #13
   tail call void @png_read_info(ptr noundef %3, ptr noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 508
   %7 = load i32, ptr %6, align 4, !tbaa !42
@@ -1918,14 +1918,14 @@ define i32 @png_image_begin_read_from_file(ptr noundef %0, ptr noundef readonly 
   %17 = load i8, ptr %16, align 8
   %18 = or i8 %17, 2
   store i8 %18, ptr %16, align 8
-  %19 = tail call i32 @png_safe_execute(ptr noundef nonnull %0, ptr noundef nonnull @png_image_read_header, ptr noundef nonnull %0) #12
+  %19 = tail call i32 @png_safe_execute(ptr noundef nonnull %0, ptr noundef nonnull @png_image_read_header, ptr noundef nonnull %0) #13
   br label %.critedge
 
 20:                                               ; preds = %8
-  %21 = tail call ptr @__errno_location() #14
+  %21 = tail call ptr @__errno_location() #15
   %22 = load i32, ptr %21, align 4, !tbaa !134
-  %23 = tail call ptr @strerror(i32 noundef %22) #12
-  %24 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef %23) #12
+  %23 = tail call ptr @strerror(i32 noundef %22) #13
+  %24 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef %23) #13
   br label %.critedge
 
 25:                                               ; preds = %10
@@ -1933,11 +1933,11 @@ define i32 @png_image_begin_read_from_file(ptr noundef %0, ptr noundef readonly 
   br label %.critedge
 
 27:                                               ; preds = %7
-  %28 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #12
+  %28 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #13
   br label %.critedge
 
 29:                                               ; preds = %3
-  %30 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.18) #12
+  %30 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.18) #13
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %12, %2, %25, %29, %27
@@ -1990,15 +1990,15 @@ define i32 @png_image_begin_read_from_memory(ptr noundef %0, ptr noundef %1, i64
   store ptr %0, ptr %18, align 8, !tbaa !110
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 256
   store ptr @png_image_memory_read, ptr %19, align 8, !tbaa !137
-  %20 = tail call i32 @png_safe_execute(ptr noundef nonnull %0, ptr noundef nonnull @png_image_read_header, ptr noundef nonnull %0) #12
+  %20 = tail call i32 @png_safe_execute(ptr noundef nonnull %0, ptr noundef nonnull @png_image_read_header, ptr noundef nonnull %0) #13
   br label %.critedge
 
 21:                                               ; preds = %8
-  %22 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #12
+  %22 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #13
   br label %.critedge
 
 23:                                               ; preds = %4
-  %24 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.20) #12
+  %24 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.20) #13
   br label %.critedge
 
 .critedge:                                        ; preds = %11, %3, %23, %21, %13
@@ -2041,11 +2041,11 @@ define internal void @png_image_memory_read(ptr noundef %0, ptr noundef writeonl
   br label %18
 
 17:                                               ; preds = %9
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.29) #13
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.29) #14
   unreachable
 
 .critedge:                                        ; preds = %7, %4
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.30) #13
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.30) #14
   unreachable
 
 18:                                               ; preds = %14, %3
@@ -2135,44 +2135,44 @@ define i32 @png_image_finish_read(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not52, label %53, label %47
 
 47:                                               ; preds = %41
-  %48 = call i32 @png_safe_execute(ptr noundef nonnull %0, ptr noundef nonnull @png_image_read_colormap, ptr noundef nonnull %6) #12
+  %48 = call i32 @png_safe_execute(ptr noundef nonnull %0, ptr noundef nonnull @png_image_read_colormap, ptr noundef nonnull %6) #13
   %.not58 = icmp eq i32 %48, 0
   br i1 %.not58, label %55, label %49
 
 49:                                               ; preds = %47
-  %50 = call i32 @png_safe_execute(ptr noundef nonnull %0, ptr noundef nonnull @png_image_read_colormapped, ptr noundef nonnull %6) #12
+  %50 = call i32 @png_safe_execute(ptr noundef nonnull %0, ptr noundef nonnull @png_image_read_colormapped, ptr noundef nonnull %6) #13
   %51 = icmp ne i32 %50, 0
   %52 = zext i1 %51 to i32
   br label %55
 
 53:                                               ; preds = %41
-  %54 = call i32 @png_safe_execute(ptr noundef nonnull %0, ptr noundef nonnull @png_image_read_direct, ptr noundef nonnull %6) #12
+  %54 = call i32 @png_safe_execute(ptr noundef nonnull %0, ptr noundef nonnull @png_image_read_direct, ptr noundef nonnull %6) #13
   br label %55
 
 55:                                               ; preds = %47, %49, %53
   %.0 = phi i32 [ %54, %53 ], [ 0, %47 ], [ %52, %49 ]
-  call void @png_image_free(ptr noundef nonnull %0) #12
+  call void @png_image_free(ptr noundef nonnull %0) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
 56:                                               ; preds = %.thread61
-  %57 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.21) #12
+  %57 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.21) #13
   br label %.critedge
 
 58:                                               ; preds = %.thread, %30
-  %59 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.22) #12
+  %59 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.22) #13
   br label %.critedge
 
 60:                                               ; preds = %21
-  %61 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.23) #12
+  %61 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.23) #13
   br label %.critedge
 
 62:                                               ; preds = %11
-  %63 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.24) #12
+  %63 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.24) #13
   br label %.critedge
 
 64:                                               ; preds = %7
-  %65 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #12
+  %65 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #13
   br label %.critedge
 
 .critedge:                                        ; preds = %5, %62, %60, %58, %56, %55, %64
@@ -2227,7 +2227,7 @@ define internal noundef i32 @png_image_read_colormap(ptr noundef captures(none) 
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %23
-  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.31) #13
+  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.31) #14
   unreachable
 
 28:                                               ; preds = %23
@@ -2294,7 +2294,7 @@ define internal noundef i32 @png_image_read_colormap(ptr noundef captures(none) 
   br i1 %59, label %60, label %61
 
 60:                                               ; preds = %54
-  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.32) #13
+  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.32) #14
   unreachable
 
 61:                                               ; preds = %54
@@ -2348,7 +2348,7 @@ define internal noundef i32 @png_image_read_colormap(ptr noundef captures(none) 
   br i1 %82, label %83, label %make_ga_colormap.exit.thread.thread574
 
 83:                                               ; preds = %80
-  tail call void @png_set_packing(ptr noundef nonnull %8) #12
+  tail call void @png_set_packing(ptr noundef nonnull %8) #13
   br label %make_ga_colormap.exit.thread.thread574thread-pre-split
 
 84:                                               ; preds = %52
@@ -2358,7 +2358,7 @@ define internal noundef i32 @png_image_read_colormap(ptr noundef captures(none) 
   br i1 %87, label %88, label %.preheader
 
 88:                                               ; preds = %84
-  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.33) #13
+  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.33) #14
   unreachable
 
 .preheader:                                       ; preds = %84, %.preheader
@@ -2420,7 +2420,7 @@ make_gray_colormap.exit:                          ; preds = %.preheader
   store i16 %115, ptr %118, align 2, !tbaa !156
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i16 %115, ptr %119, align 2, !tbaa !157
-  call void @png_set_background_fixed(ptr noundef nonnull %8, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 0, i32 noundef 0) #12
+  call void @png_set_background_fixed(ptr noundef nonnull %8, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 0, i32 noundef 0) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %make_ga_colormap.exit.thread.thread
 
@@ -2445,7 +2445,7 @@ make_gray_colormap.exit:                          ; preds = %.preheader
   br i1 %128, label %129, label %.preheader586
 
 129:                                              ; preds = %125
-  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.34) #13
+  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.34) #14
   unreachable
 
 .preheader586:                                    ; preds = %125, %.preheader586
@@ -2504,7 +2504,7 @@ make_gray_colormap.exit:                          ; preds = %.preheader
   br i1 %150, label %151, label %.preheader583
 
 151:                                              ; preds = %147
-  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.35) #13
+  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.35) #14
   unreachable
 
 .preheader583:                                    ; preds = %147, %.preheader583
@@ -2548,7 +2548,7 @@ make_gray_colormap.exit468:                       ; preds = %.preheader583
   store i16 %170, ptr %173, align 2, !tbaa !156
   %174 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i16 %170, ptr %174, align 2, !tbaa !157
-  call void @png_set_background_fixed(ptr noundef nonnull %8, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 0, i32 noundef 0) #12
+  call void @png_set_background_fixed(ptr noundef nonnull %8, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 0, i32 noundef 0) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %make_ga_colormap.exit.thread.thread
 
@@ -2559,7 +2559,7 @@ make_gray_colormap.exit468:                       ; preds = %.preheader583
   br i1 %178, label %179, label %.preheader584
 
 179:                                              ; preds = %175
-  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.36) #13
+  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.36) #14
   unreachable
 
 .preheader584:                                    ; preds = %175, %.preheader584
@@ -2680,7 +2680,7 @@ make_gray_colormap.exit468:                       ; preds = %.preheader583
   br i1 %260, label %261, label %347
 
 261:                                              ; preds = %258
-  tail call void @png_set_rgb_to_gray_fixed(ptr noundef nonnull %8, i32 noundef 1, i32 noundef -1, i32 noundef -1) #12
+  tail call void @png_set_rgb_to_gray_fixed(ptr noundef nonnull %8, i32 noundef 1, i32 noundef -1, i32 noundef -1) #13
   %262 = load i8, ptr %13, align 1, !tbaa !25
   %263 = icmp eq i8 %262, 6
   br i1 %263, label %268, label %264
@@ -2706,7 +2706,7 @@ make_gray_colormap.exit468:                       ; preds = %.preheader583
   br i1 %272, label %273, label %.preheader589
 
 273:                                              ; preds = %269
-  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.37) #13
+  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.37) #14
   unreachable
 
 .preheader589:                                    ; preds = %269, %.preheader589
@@ -2747,14 +2747,14 @@ make_gray_colormap.exit468:                       ; preds = %.preheader583
   br i1 %exitcond28.not.i480, label %make_ga_colormap.exit, label %.preheader.i474, !llvm.loop !160
 
 285:                                              ; preds = %268, %264
-  %286 = tail call i32 @png_resolve_file_gamma(ptr noundef nonnull %8) #12
+  %286 = tail call i32 @png_resolve_file_gamma(ptr noundef nonnull %8) #13
   %287 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %288 = load i32, ptr %287, align 4, !tbaa !133
   %289 = icmp ult i32 %288, 256
   br i1 %289, label %290, label %291
 
 290:                                              ; preds = %285
-  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.38) #13
+  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.38) #14
   unreachable
 
 291:                                              ; preds = %285
@@ -2783,7 +2783,7 @@ png_gamma_not_sRGB.exit:                          ; preds = %294, %298
   %299 = mul nuw nsw i32 %286, 11
   %300 = add nuw nsw i32 %299, 2
   %301 = udiv i32 %300, 5
-  %302 = tail call i32 @png_gamma_significant(i32 noundef %301) #12
+  %302 = tail call i32 @png_gamma_significant(i32 noundef %301) #13
   %.not441 = icmp eq i32 %302, 0
   br i1 %.not441, label %png_gamma_not_sRGB.exit.thread.preheader, label %.preheader587
 
@@ -2830,7 +2830,7 @@ make_gray_file_colormap.exit:                     ; preds = %.preheader587, %png
 
 318:                                              ; preds = %313, %312
   %.0401 = phi i32 [ %317, %313 ], [ %.0405, %312 ]
-  %319 = tail call zeroext i16 @png_gamma_16bit_correct(i32 noundef %.0401, i32 noundef %286) #12
+  %319 = tail call zeroext i16 @png_gamma_16bit_correct(i32 noundef %.0401, i32 noundef %286) #13
   %320 = zext i16 %319 to i32
   %321 = mul nuw nsw i32 %320, 255
   %322 = add nuw nsw i32 %321, 32895
@@ -2872,7 +2872,7 @@ make_gray_file_colormap.exit:                     ; preds = %.preheader587, %png
   store i16 %342, ptr %345, align 2, !tbaa !156
   %346 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i16 %342, ptr %346, align 2, !tbaa !157
-  call void @png_set_background_fixed(ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 0, i32 noundef 0) #12
+  call void @png_set_background_fixed(ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 0, i32 noundef 0) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %make_ga_colormap.exit
 
@@ -2898,7 +2898,7 @@ make_gray_file_colormap.exit:                     ; preds = %.preheader587, %png
   br i1 %357, label %358, label %.preheader14.i
 
 358:                                              ; preds = %354
-  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.39) #13
+  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.39) #14
   unreachable
 
 .preheader14.i:                                   ; preds = %354, %367
@@ -2980,7 +2980,7 @@ make_rgb_colormap.exit:                           ; preds = %367
   br i1 %389, label %390, label %.preheader14.i489
 
 390:                                              ; preds = %383
-  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.40) #13
+  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.40) #14
   unreachable
 
 .preheader14.i489:                                ; preds = %383, %399
@@ -3277,7 +3277,7 @@ decode_gamma.exit526.thread:                      ; preds = %.preheader590, %dec
   %594 = trunc nuw i32 %.0407 to i16
   %595 = getelementptr inbounds nuw i8, ptr %5, i64 6
   store i16 %594, ptr %595, align 2, !tbaa !154
-  call void @png_set_background_fixed(ptr noundef %8, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 0, i32 noundef 0) #12
+  call void @png_set_background_fixed(ptr noundef %8, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 0, i32 noundef 0) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %make_ga_colormap.exit.thread.thread
 
@@ -3288,7 +3288,7 @@ decode_gamma.exit526.thread:                      ; preds = %.preheader590, %dec
   br i1 %599, label %600, label %.preheader14.i506
 
 600:                                              ; preds = %596
-  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.41) #13
+  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.41) #14
   unreachable
 
 .preheader14.i506:                                ; preds = %596, %609
@@ -3361,7 +3361,7 @@ decode_gamma.exit526.thread:                      ; preds = %.preheader590, %dec
   br label %.lr.ph
 
 632:                                              ; preds = %617
-  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.42) #13
+  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.42) #14
   unreachable
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %761
@@ -3553,11 +3553,11 @@ png_colormap_compose.exit521:                     ; preds = %683, %689
   br i1 %763, label %764, label %make_ga_colormap.exit.thread.thread574
 
 764:                                              ; preds = %._crit_edge
-  tail call void @png_set_packing(ptr noundef nonnull %8) #12
+  tail call void @png_set_packing(ptr noundef nonnull %8) #13
   br label %make_ga_colormap.exit.thread.thread574thread-pre-split
 
 765:                                              ; preds = %50
-  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.43) #13
+  tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.43) #14
   unreachable
 
 make_ga_colormap.exit:                            ; preds = %379, %.split623.us, %283, %122, %341
@@ -3577,7 +3577,7 @@ make_ga_colormap.exit:                            ; preds = %379, %.split623.us,
   br i1 %771, label %772, label %make_ga_colormap.exit.thread
 
 772:                                              ; preds = %768
-  call void @png_set_tRNS_to_alpha(ptr noundef nonnull %8) #12
+  call void @png_set_tRNS_to_alpha(ptr noundef nonnull %8) #13
   br label %make_ga_colormap.exit.thread
 
 make_ga_colormap.exit.thread:                     ; preds = %308, %772, %768, %make_ga_colormap.exit
@@ -3594,7 +3594,7 @@ make_ga_colormap.exit.thread.thread:              ; preds = %609, %139, %256, %1
   %.1396558571 = phi i32 [ %.1396558, %make_ga_colormap.exit.thread ], [ 256, %169 ], [ 256, %114 ], [ 256, %make_gray_colormap.exit ], [ 256, %588 ], [ 231, %256 ], [ 231, %139 ], [ 256, %609 ]
   %.1384560569 = phi i32 [ %.1384560, %make_ga_colormap.exit.thread ], [ 0, %169 ], [ 0, %114 ], [ 0, %make_gray_colormap.exit ], [ 3, %588 ], [ 1, %256 ], [ 1, %139 ], [ 3, %609 ]
   %.0382561567 = phi i32 [ %.0382561, %make_ga_colormap.exit.thread ], [ 256, %169 ], [ 256, %114 ], [ 256, %make_gray_colormap.exit ], [ %394, %588 ], [ %210, %256 ], [ %136, %139 ], [ %604, %609 ]
-  call void @png_set_alpha_mode_fixed(ptr noundef %8, i32 noundef 0, i32 noundef 220000) #12
+  call void @png_set_alpha_mode_fixed(ptr noundef %8, i32 noundef 0, i32 noundef 220000) #13
   br label %make_ga_colormap.exit.thread.thread574thread-pre-split
 
 make_ga_colormap.exit.thread.thread574thread-pre-split: ; preds = %make_ga_colormap.exit.thread, %make_ga_colormap.exit.thread.thread, %764, %83
@@ -3613,11 +3613,11 @@ make_ga_colormap.exit.thread.thread574:           ; preds = %make_ga_colormap.ex
   br i1 %774, label %775, label %777
 
 775:                                              ; preds = %make_ga_colormap.exit.thread.thread574
-  call void @png_set_scale_16(ptr noundef nonnull %8) #12
+  call void @png_set_scale_16(ptr noundef nonnull %8) #13
   br label %777
 
 776:                                              ; preds = %make_ga_colormap.exit.thread
-  call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.44) #13
+  call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.44) #14
   unreachable
 
 777:                                              ; preds = %make_ga_colormap.exit.thread.thread574, %775
@@ -3631,7 +3631,7 @@ make_ga_colormap.exit.thread.thread574:           ; preds = %make_ga_colormap.ex
   br i1 %782, label %783, label %784
 
 783:                                              ; preds = %779, %777
-  call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.45) #13
+  call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.45) #14
   unreachable
 
 784:                                              ; preds = %779
@@ -3670,7 +3670,7 @@ default.unreachable:                              ; preds = %784
   unreachable
 
 792:                                              ; preds = %791, %790, %787, %786, %785
-  call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.47) #13
+  call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.47) #14
   unreachable
 
 793:                                              ; preds = %791, %790, %787, %786, %785
@@ -3686,15 +3686,15 @@ define internal i32 @png_image_read_colormapped(ptr noundef %0) #0 {
   %4 = load ptr, ptr %3, align 8, !tbaa !107
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !112
-  tail call void @png_set_keep_unknown_chunks(ptr noundef %4, i32 noundef 1, ptr noundef null, i32 noundef -1) #12
-  tail call void @png_set_keep_unknown_chunks(ptr noundef %4, i32 noundef 0, ptr noundef nonnull @png_image_skip_unused_chunks.chunks_to_process, i32 noundef 7) #12
+  tail call void @png_set_keep_unknown_chunks(ptr noundef %4, i32 noundef 1, ptr noundef null, i32 noundef -1) #13
+  tail call void @png_set_keep_unknown_chunks(ptr noundef %4, i32 noundef 0, ptr noundef nonnull @png_image_skip_unused_chunks.chunks_to_process, i32 noundef 7) #13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8, !tbaa !175
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %1
-  %11 = tail call i32 @png_set_interlace_handling(ptr noundef %4) #12
+  %11 = tail call i32 @png_set_interlace_handling(ptr noundef %4) #13
   br label %12
 
 12:                                               ; preds = %10, %1
@@ -3710,12 +3710,12 @@ define internal i32 @png_image_read_colormapped(ptr noundef %0) #0 {
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %13
-  tail call void @png_read_start_row(ptr noundef nonnull %4) #12, !noalias !179
-  tail call void @png_read_transform_info(ptr noundef nonnull %4, ptr noundef %6) #12
+  tail call void @png_read_start_row(ptr noundef nonnull %4) #13, !noalias !179
+  tail call void @png_read_transform_info(ptr noundef nonnull %4, ptr noundef %6) #13
   br label %png_read_update_info.exit
 
 19:                                               ; preds = %13
-  tail call void @png_app_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.3) #12, !noalias !179
+  tail call void @png_app_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.3) #13, !noalias !179
   br label %png_read_update_info.exit
 
 png_read_update_info.exit:                        ; preds = %12, %18, %19
@@ -3815,7 +3815,7 @@ png_read_update_info.exit:                        ; preds = %12, %18, %19
   br i1 %75, label %77, label %76
 
 76:                                               ; preds = %21, %png_read_update_info.exit, %60, %64, %68, %72, %44, %48, %52, %56, %28, %32, %36, %40, %24
-  tail call void @png_error(ptr noundef %4, ptr noundef nonnull @.str.52) #13
+  tail call void @png_error(ptr noundef %4, ptr noundef nonnull @.str.52) #14
   unreachable
 
 77:                                               ; preds = %72, %56, %40, %24
@@ -3857,13 +3857,13 @@ png_read_update_info.exit:                        ; preds = %12, %18, %19
   br i1 %99, label %.loopexit68, label %.lr.ph72.split
 
 100:                                              ; preds = %92
-  %101 = tail call i64 @png_get_rowbytes(ptr noundef %4, ptr noundef nonnull %6) #12
-  %102 = tail call noalias ptr @png_malloc(ptr noundef %4, i64 noundef %101) #12
+  %101 = tail call i64 @png_get_rowbytes(ptr noundef %4, ptr noundef nonnull %6) #13
+  %102 = tail call noalias ptr @png_malloc(ptr noundef %4, i64 noundef %101) #13
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %102, ptr %103, align 8, !tbaa !186
-  %104 = tail call i32 @png_safe_execute(ptr noundef nonnull %2, ptr noundef nonnull @png_image_read_and_map, ptr noundef nonnull %0) #12
+  %104 = tail call i32 @png_safe_execute(ptr noundef nonnull %2, ptr noundef nonnull @png_image_read_and_map, ptr noundef nonnull %0) #13
   store ptr null, ptr %103, align 8, !tbaa !186
-  tail call void @png_free(ptr noundef %4, ptr noundef %102) #12
+  tail call void @png_free(ptr noundef %4, ptr noundef %102) #13
   br label %.loopexit68
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph72.split
@@ -3912,7 +3912,7 @@ define internal i32 @png_image_read_direct(ptr noundef %0) #0 {
   %10 = load i32, ptr %9, align 4, !tbaa !119
   %11 = and i32 %10, 4
   %.not.not = icmp eq i32 %11, 0
-  tail call void @png_set_expand(ptr noundef %6) #12
+  tail call void @png_set_expand(ptr noundef %6) #13
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 623
   %13 = load i8, ptr %12, align 1, !tbaa !25, !alias.scope !190
   %14 = and i8 %13, 2
@@ -3951,13 +3951,13 @@ png_image_format.exit:                            ; preds = %16, %18
   br i1 %.not191, label %31, label %30
 
 30:                                               ; preds = %28
-  tail call void @png_set_gray_to_rgb(ptr noundef nonnull %6) #12
+  tail call void @png_set_gray_to_rgb(ptr noundef nonnull %6) #13
   br label %33
 
 31:                                               ; preds = %28
   %32 = and i32 %spec.select14.i, 1
   %.not192 = icmp eq i32 %32, 0
-  tail call void @png_set_rgb_to_gray_fixed(ptr noundef nonnull %6, i32 noundef 1, i32 noundef -1, i32 noundef -1) #12
+  tail call void @png_set_rgb_to_gray_fixed(ptr noundef nonnull %6, i32 noundef 1, i32 noundef -1, i32 noundef -1) #13
   br label %33
 
 33:                                               ; preds = %31, %30
@@ -3984,7 +3984,7 @@ png_image_format.exit:                            ; preds = %16, %18
 
 43:                                               ; preds = %37, %42
   %.0188 = phi i32 [ -1, %42 ], [ 100000, %37 ]
-  tail call void @png_set_alpha_mode_fixed(ptr noundef nonnull %6, i32 noundef 0, i32 noundef %.0188) #12
+  tail call void @png_set_alpha_mode_fixed(ptr noundef nonnull %6, i32 noundef 0, i32 noundef %.0188) #13
   %44 = and i32 %spec.select14.i, 1
   %.not194.not = icmp eq i32 %44, 0
   %.1180 = select i1 %.not.not, i32 0, i32 %44
@@ -3997,14 +3997,14 @@ png_image_format.exit:                            ; preds = %16, %18
 
 47:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %48 = tail call i32 @png_resolve_file_gamma(ptr noundef nonnull %6) #12
-  %49 = call i32 @png_muldiv(ptr noundef nonnull %2, i32 noundef %.0178, i32 noundef %48, i32 noundef 100000) #12
+  %48 = tail call i32 @png_resolve_file_gamma(ptr noundef nonnull %6) #13
+  %49 = call i32 @png_muldiv(ptr noundef nonnull %2, i32 noundef %.0178, i32 noundef %48, i32 noundef 100000) #13
   %.not197 = icmp eq i32 %49, 0
   br i1 %.not197, label %54, label %50
 
 50:                                               ; preds = %47
   %51 = load i32, ptr %2, align 4, !tbaa !134
-  %52 = call i32 @png_gamma_significant(i32 noundef %51) #12
+  %52 = call i32 @png_gamma_significant(i32 noundef %51) #13
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %56, label %54
 
@@ -4031,11 +4031,11 @@ png_image_format.exit:                            ; preds = %16, %18
   br i1 %.not.not, label %61, label %60
 
 60:                                               ; preds = %59
-  call void @png_set_expand_16(ptr noundef nonnull %6) #12
+  call void @png_set_expand_16(ptr noundef nonnull %6) #13
   br label %62
 
 61:                                               ; preds = %59
-  call void @png_set_scale_16(ptr noundef nonnull %6) #12
+  call void @png_set_scale_16(ptr noundef nonnull %6) #13
   br label %62
 
 62:                                               ; preds = %61, %60
@@ -4059,7 +4059,7 @@ png_image_format.exit:                            ; preds = %16, %18
   br i1 %.not.not, label %70, label %69
 
 69:                                               ; preds = %68
-  call void @png_set_strip_alpha(ptr noundef nonnull %6) #12
+  call void @png_set_strip_alpha(ptr noundef nonnull %6) #13
   br label %89
 
 70:                                               ; preds = %68
@@ -4087,7 +4087,7 @@ png_image_format.exit:                            ; preds = %16, %18
   store i16 %83, ptr %84, align 2, !tbaa !154
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i16 %79, ptr %85, align 2, !tbaa !157
-  call void @png_set_background_fixed(ptr noundef nonnull %6, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 0, i32 noundef 0) #12
+  call void @png_set_background_fixed(ptr noundef nonnull %6, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 0, i32 noundef 0) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %89
 
@@ -4099,7 +4099,7 @@ png_image_format.exit:                            ; preds = %16, %18
   %.lobit = lshr exact i32 %87, 5
   %.0186 = xor i32 %.lobit, 1
   %.5167 = select i1 %.not201, i32 %.2164, i32 %88
-  call void @png_set_add_alpha(ptr noundef nonnull %6, i32 noundef %.223, i32 noundef %.0186) #12
+  call void @png_set_add_alpha(ptr noundef nonnull %6, i32 noundef %.223, i32 noundef %.0186) #13
   br label %89
 
 89:                                               ; preds = %70, %67, %73, %69, %86
@@ -4115,7 +4115,7 @@ png_image_format.exit:                            ; preds = %16, %18
   %.3165 = phi i32 [ %91, %89 ], [ %.2164, %64 ]
   %.5 = phi i32 [ %.6, %89 ], [ %.3159, %64 ]
   %.0154 = phi i1 [ %90, %89 ], [ true, %64 ]
-  call void @png_set_alpha_mode_fixed(ptr noundef nonnull %6, i32 noundef %.5184, i32 noundef %.0178) #12
+  call void @png_set_alpha_mode_fixed(ptr noundef nonnull %6, i32 noundef %.5184, i32 noundef %.0178) #13
   %93 = and i32 %.3165, 16
   %.not204 = icmp eq i32 %93, 0
   br i1 %.not204, label %101, label %94
@@ -4126,7 +4126,7 @@ png_image_format.exit:                            ; preds = %16, %18
   br i1 %.not205, label %97, label %96
 
 96:                                               ; preds = %94
-  call void @png_set_bgr(ptr noundef nonnull %6) #12
+  call void @png_set_bgr(ptr noundef nonnull %6) #13
   br label %99
 
 97:                                               ; preds = %94
@@ -4155,7 +4155,7 @@ png_image_format.exit:                            ; preds = %16, %18
   br i1 %.not208, label %109, label %106
 
 106:                                              ; preds = %105
-  call void @png_set_swap_alpha(ptr noundef nonnull %6) #12
+  call void @png_set_swap_alpha(ptr noundef nonnull %6) #13
   br label %109
 
 107:                                              ; preds = %103
@@ -4173,7 +4173,7 @@ png_image_format.exit:                            ; preds = %16, %18
   br i1 %.not.not, label %113, label %112
 
 112:                                              ; preds = %111
-  call void @png_set_swap(ptr noundef nonnull %6) #12
+  call void @png_set_swap(ptr noundef nonnull %6) #13
   br label %113
 
 113:                                              ; preds = %112, %111
@@ -4181,18 +4181,18 @@ png_image_format.exit:                            ; preds = %16, %18
   br i1 %.not209, label %115, label %114
 
 114:                                              ; preds = %113
-  call void @png_error(ptr noundef nonnull %6, ptr noundef nonnull @.str.54) #13
+  call void @png_error(ptr noundef nonnull %6, ptr noundef nonnull @.str.54) #14
   unreachable
 
 115:                                              ; preds = %113
-  call void @png_set_keep_unknown_chunks(ptr noundef nonnull %6, i32 noundef 1, ptr noundef null, i32 noundef -1) #12
-  call void @png_set_keep_unknown_chunks(ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull @png_image_skip_unused_chunks.chunks_to_process, i32 noundef 7) #12
+  call void @png_set_keep_unknown_chunks(ptr noundef nonnull %6, i32 noundef 1, ptr noundef null, i32 noundef -1) #13
+  call void @png_set_keep_unknown_chunks(ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull @png_image_skip_unused_chunks.chunks_to_process, i32 noundef 7) #13
   %116 = icmp ne i32 %.5, 2
   %or.cond = and i1 %.0154, %116
   br i1 %or.cond, label %117, label %119
 
 117:                                              ; preds = %115
-  %118 = call i32 @png_set_interlace_handling(ptr noundef nonnull %6) #12
+  %118 = call i32 @png_set_interlace_handling(ptr noundef nonnull %6) #13
   br label %119
 
 119:                                              ; preds = %115, %117
@@ -4204,12 +4204,12 @@ png_image_format.exit:                            ; preds = %16, %18
   br i1 %123, label %124, label %125
 
 124:                                              ; preds = %119
-  call void @png_read_start_row(ptr noundef nonnull %6) #12, !noalias !196
-  call void @png_read_transform_info(ptr noundef nonnull %6, ptr noundef %8) #12
+  call void @png_read_start_row(ptr noundef nonnull %6) #13, !noalias !196
+  call void @png_read_transform_info(ptr noundef nonnull %6, ptr noundef %8) #13
   br label %png_read_update_info.exit
 
 125:                                              ; preds = %119
-  call void @png_app_error(ptr noundef nonnull %6, ptr noundef nonnull @.str.3) #12, !noalias !196
+  call void @png_app_error(ptr noundef nonnull %6, ptr noundef nonnull @.str.3) #13, !noalias !196
   br label %png_read_update_info.exit
 
 png_read_update_info.exit:                        ; preds = %124, %125
@@ -4236,7 +4236,7 @@ png_read_update_info.exit:                        ; preds = %124, %125
   br i1 %.0154, label %136, label %135
 
 135:                                              ; preds = %134
-  call void @png_error(ptr noundef nonnull %6, ptr noundef nonnull @.str.55) #13
+  call void @png_error(ptr noundef nonnull %6, ptr noundef nonnull @.str.55) #14
   unreachable
 
 136:                                              ; preds = %131, %134, %130
@@ -4279,7 +4279,7 @@ png_read_update_info.exit:                        ; preds = %124, %125
   br i1 %116, label %157, label %156
 
 156:                                              ; preds = %151, %155
-  call void @png_error(ptr noundef nonnull %6, ptr noundef nonnull @.str.56) #13
+  call void @png_error(ptr noundef nonnull %6, ptr noundef nonnull @.str.56) #14
   unreachable
 
 157:                                              ; preds = %151, %155, %149
@@ -4288,7 +4288,7 @@ png_read_update_info.exit:                        ; preds = %124, %125
   br i1 %.not219, label %159, label %158
 
 158:                                              ; preds = %157
-  call void @png_error(ptr noundef nonnull %6, ptr noundef nonnull @.str.57) #13
+  call void @png_error(ptr noundef nonnull %6, ptr noundef nonnull @.str.57) #14
   unreachable
 
 159:                                              ; preds = %157
@@ -4362,13 +4362,13 @@ png_read_update_info.exit:                        ; preds = %124, %125
 
 .loopexit235.sink.split:                          ; preds = %175
   %png_image_read_composite.mux = select i1 %.0154, ptr @png_image_read_background, ptr @png_image_read_composite
-  %188 = call i64 @png_get_rowbytes(ptr noundef nonnull %6, ptr noundef nonnull %8) #12
-  %189 = call noalias ptr @png_malloc(ptr noundef nonnull %6, i64 noundef %188) #12
+  %188 = call i64 @png_get_rowbytes(ptr noundef nonnull %6, ptr noundef nonnull %8) #13
+  %189 = call noalias ptr @png_malloc(ptr noundef nonnull %6, i64 noundef %188) #13
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %189, ptr %190, align 8, !tbaa !186
-  %191 = call i32 @png_safe_execute(ptr noundef nonnull %4, ptr noundef nonnull %png_image_read_composite.mux, ptr noundef nonnull %0) #12
+  %191 = call i32 @png_safe_execute(ptr noundef nonnull %4, ptr noundef nonnull %png_image_read_composite.mux, ptr noundef nonnull %0) #13
   store ptr null, ptr %190, align 8, !tbaa !186
-  call void @png_free(ptr noundef nonnull %6, ptr noundef %189) #12
+  call void @png_free(ptr noundef nonnull %6, ptr noundef %189) #13
   br label %.loopexit235
 
 .loopexit235:                                     ; preds = %.loopexit, %.loopexit235.sink.split, %.lr.ph239, %.preheader
@@ -4423,7 +4423,7 @@ define internal fastcc void @png_create_colormap_entry(ptr noundef captures(none
 23:                                               ; preds = %20
   %24 = load ptr, ptr %8, align 8, !tbaa !106
   %25 = load ptr, ptr %24, align 8, !tbaa !107
-  tail call void @png_error(ptr noundef %25, ptr noundef nonnull @.str.48) #13
+  tail call void @png_error(ptr noundef %25, ptr noundef nonnull @.str.48) #14
   unreachable
 
 26:                                               ; preds = %20
@@ -4439,16 +4439,16 @@ define internal fastcc void @png_create_colormap_entry(ptr noundef captures(none
 32:                                               ; preds = %28
   %33 = load ptr, ptr %8, align 8, !tbaa !106
   %34 = load ptr, ptr %33, align 8, !tbaa !107
-  %35 = tail call i32 @png_resolve_file_gamma(ptr noundef %34) #12
+  %35 = tail call i32 @png_resolve_file_gamma(ptr noundef %34) #13
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %32
-  tail call void @png_error(ptr noundef %34, ptr noundef nonnull @.str.50) #13
+  tail call void @png_error(ptr noundef %34, ptr noundef nonnull @.str.50) #14
   unreachable
 
 38:                                               ; preds = %32
-  %39 = tail call i32 @png_gamma_significant(i32 noundef %35) #12
+  %39 = tail call i32 @png_gamma_significant(i32 noundef %35) #13
   %.not.i = icmp eq i32 %39, 0
   br i1 %.not.i, label %set_file_encoding.exit.thread, label %40
 
@@ -4461,13 +4461,13 @@ png_gamma_not_sRGB.exit.i:                        ; preds = %40
   %42 = mul nuw nsw i32 %35, 11
   %43 = add nuw nsw i32 %42, 2
   %44 = udiv i32 %43, 5
-  %45 = tail call i32 @png_gamma_significant(i32 noundef %44) #12
+  %45 = tail call i32 @png_gamma_significant(i32 noundef %44) #13
   %.not10.i = icmp eq i32 %45, 0
   br i1 %.not10.i, label %set_file_encoding.exit.thread189, label %46
 
 46:                                               ; preds = %png_gamma_not_sRGB.exit.i
   store i32 3, ptr %29, align 8, !tbaa !200
-  %47 = tail call i32 @png_reciprocal(i32 noundef %35) #12
+  %47 = tail call i32 @png_reciprocal(i32 noundef %35) #13
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %47, ptr %48, align 4, !tbaa !201
   %.pre = load i32, ptr %29, align 8, !tbaa !200
@@ -4494,13 +4494,13 @@ set_file_encoding.exit:                           ; preds = %28, %46, %26
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %51 = load i32, ptr %50, align 4, !tbaa !201
   %52 = mul i32 %2, 257
-  %53 = tail call zeroext i16 @png_gamma_16bit_correct(i32 noundef %52, i32 noundef %51) #12
+  %53 = tail call zeroext i16 @png_gamma_16bit_correct(i32 noundef %52, i32 noundef %51) #13
   %54 = zext i16 %53 to i32
   %55 = mul i32 %3, 257
-  %56 = tail call zeroext i16 @png_gamma_16bit_correct(i32 noundef %55, i32 noundef %51) #12
+  %56 = tail call zeroext i16 @png_gamma_16bit_correct(i32 noundef %55, i32 noundef %51) #13
   %57 = zext i16 %56 to i32
   %58 = mul i32 %4, 257
-  %59 = tail call zeroext i16 @png_gamma_16bit_correct(i32 noundef %58, i32 noundef %51) #12
+  %59 = tail call zeroext i16 @png_gamma_16bit_correct(i32 noundef %58, i32 noundef %51) #13
   %60 = zext i16 %59 to i32
   %or.cond = or i1 %12, %21
   br i1 %or.cond, label %61, label %63
@@ -4695,7 +4695,7 @@ set_file_encoding.exit:                           ; preds = %28, %46, %26
 211:                                              ; preds = %.thread178
   %212 = load ptr, ptr %8, align 8, !tbaa !106
   %213 = load ptr, ptr %212, align 8, !tbaa !107
-  tail call void @png_error(ptr noundef %213, ptr noundef nonnull @.str.49) #13
+  tail call void @png_error(ptr noundef %213, ptr noundef nonnull @.str.49) #14
   unreachable
 
 214:                                              ; preds = %.thread178
@@ -4885,16 +4885,16 @@ define internal fastcc range(i32 0, 16842496) i32 @decode_gamma(ptr noundef capt
   %10 = load ptr, ptr %0, align 8, !tbaa !138
   %11 = load ptr, ptr %10, align 8, !tbaa !106
   %12 = load ptr, ptr %11, align 8, !tbaa !107
-  %13 = tail call i32 @png_resolve_file_gamma(ptr noundef %12) #12
+  %13 = tail call i32 @png_resolve_file_gamma(ptr noundef %12) #13
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %9
-  tail call void @png_error(ptr noundef %12, ptr noundef nonnull @.str.50) #13
+  tail call void @png_error(ptr noundef %12, ptr noundef nonnull @.str.50) #14
   unreachable
 
 16:                                               ; preds = %9
-  %17 = tail call i32 @png_gamma_significant(i32 noundef %13) #12
+  %17 = tail call i32 @png_gamma_significant(i32 noundef %13) #13
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %.thread.thread17, label %18
 
@@ -4907,13 +4907,13 @@ png_gamma_not_sRGB.exit.i:                        ; preds = %18
   %20 = mul nuw nsw i32 %13, 11
   %21 = add nuw nsw i32 %20, 2
   %22 = udiv i32 %21, 5
-  %23 = tail call i32 @png_gamma_significant(i32 noundef %22) #12
+  %23 = tail call i32 @png_gamma_significant(i32 noundef %22) #13
   %.not10.i = icmp eq i32 %23, 0
   br i1 %.not10.i, label %.thread.thread, label %24
 
 24:                                               ; preds = %png_gamma_not_sRGB.exit.i
   store i32 3, ptr %6, align 8, !tbaa !200
-  %25 = tail call i32 @png_reciprocal(i32 noundef %13) #12
+  %25 = tail call i32 @png_reciprocal(i32 noundef %13) #13
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %25, ptr %26, align 4, !tbaa !201
   %.pre = load i32, ptr %6, align 8, !tbaa !200
@@ -4940,7 +4940,7 @@ png_gamma_not_sRGB.exit.i:                        ; preds = %18
   %28 = mul nuw nsw i32 %1, 257
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %30 = load i32, ptr %29, align 4, !tbaa !201
-  %31 = tail call zeroext i16 @png_gamma_16bit_correct(i32 noundef %28, i32 noundef %30) #12
+  %31 = tail call zeroext i16 @png_gamma_16bit_correct(i32 noundef %28, i32 noundef %30) #13
   %32 = zext i16 %31 to i32
   br label %44
 
@@ -4959,7 +4959,7 @@ png_gamma_not_sRGB.exit.i:                        ; preds = %18
   %41 = load ptr, ptr %0, align 8, !tbaa !138
   %42 = load ptr, ptr %41, align 8, !tbaa !106
   %43 = load ptr, ptr %42, align 8, !tbaa !107
-  tail call void @png_error(ptr noundef %43, ptr noundef nonnull @.str.51) #13
+  tail call void @png_error(ptr noundef %43, ptr noundef nonnull @.str.51) #14
   unreachable
 
 44:                                               ; preds = %38, %33, %27, %.thread
@@ -4985,7 +4985,7 @@ define internal noundef i32 @png_image_read_and_map(ptr noundef readonly capture
   br label %9
 
 8:                                                ; preds = %1
-  tail call void @png_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.53) #13
+  tail call void @png_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.53) #14
   unreachable
 
 9:                                                ; preds = %1, %7
@@ -5345,7 +5345,7 @@ define internal noundef i32 @png_image_read_composite(ptr noundef readonly captu
   br label %9
 
 8:                                                ; preds = %1
-  tail call void @png_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.53) #13
+  tail call void @png_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.53) #14
   unreachable
 
 9:                                                ; preds = %1, %7
@@ -5536,7 +5536,7 @@ define internal noundef i32 @png_image_read_background(ptr noundef readonly capt
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %1
-  tail call void @png_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.58) #13
+  tail call void @png_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.58) #14
   unreachable
 
 16:                                               ; preds = %1
@@ -5545,16 +5545,16 @@ define internal noundef i32 @png_image_read_background(ptr noundef readonly capt
   br i1 %.not, label %19, label %18
 
 18:                                               ; preds = %16
-  tail call void @png_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.59) #13
+  tail call void @png_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.59) #14
   unreachable
 
 19:                                               ; preds = %16
-  %20 = tail call zeroext i8 @png_get_channels(ptr noundef nonnull %4, ptr noundef %6) #12
+  %20 = tail call zeroext i8 @png_get_channels(ptr noundef nonnull %4, ptr noundef %6) #13
   %.not197 = icmp eq i8 %20, 2
   br i1 %.not197, label %22, label %21
 
 21:                                               ; preds = %19
-  tail call void @png_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.60) #13
+  tail call void @png_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.60) #14
   unreachable
 
 22:                                               ; preds = %19
@@ -5568,7 +5568,7 @@ define internal noundef i32 @png_image_read_background(ptr noundef readonly capt
   br i1 %or.cond.not, label %27, label %28
 
 27:                                               ; preds = %22
-  tail call void @png_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.61) #13
+  tail call void @png_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.61) #14
   unreachable
 
 28:                                               ; preds = %22
@@ -5583,7 +5583,7 @@ define internal noundef i32 @png_image_read_background(ptr noundef readonly capt
   br label %33
 
 32:                                               ; preds = %28
-  tail call void @png_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.53) #13
+  tail call void @png_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.53) #14
   unreachable
 
 33:                                               ; preds = %28, %31
@@ -6066,7 +6066,7 @@ define internal noundef i32 @png_image_read_background(ptr noundef readonly capt
   br i1 %exitcond.not, label %.loopexit211, label %.split, !llvm.loop !217
 
 320:                                              ; preds = %33
-  tail call void @png_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.62) #13
+  tail call void @png_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.62) #14
   unreachable
 
 .loopexit211:                                     ; preds = %.loopexit212, %.loopexit212.us, %.loopexit
@@ -6081,22 +6081,22 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #10
+declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare { i32, i1 } @llvm.umul.with.overflow.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6109,11 +6109,12 @@ attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind willreturn memory(none) }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

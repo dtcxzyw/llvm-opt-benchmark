@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8EncDspCostInit() local_unnamed_addr #0 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @VP8EncDspCostInit.VP8EncDspCostInit_body_lock) #6
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @VP8EncDspCostInit.VP8EncDspCostInit_body_lock) #7
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %11
 
@@ -35,18 +35,18 @@ define hidden void @VP8EncDspCostInit() local_unnamed_addr #0 {
   br i1 %.not.i, label %VP8EncDspCostInit_body.exit, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 %4(i32 noundef 0) #6
+  %7 = tail call i32 %4(i32 noundef 0) #7
   %.not1.i = icmp eq i32 %7, 0
   br i1 %.not1.i, label %VP8EncDspCostInit_body.exit, label %8
 
 8:                                                ; preds = %6
-  tail call void @VP8EncDspCostInitSSE2() #6
+  tail call void @VP8EncDspCostInitSSE2() #7
   br label %VP8EncDspCostInit_body.exit
 
 VP8EncDspCostInit_body.exit:                      ; preds = %8, %6, %5, %2
   %9 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !3
   store volatile ptr %9, ptr @VP8EncDspCostInit.VP8EncDspCostInit_body_last_cpuinfo_used, align 8, !tbaa !3
-  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @VP8EncDspCostInit.VP8EncDspCostInit_body_lock) #6
+  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @VP8EncDspCostInit.VP8EncDspCostInit_body_lock) #7
   br label %11
 
 11:                                               ; preds = %0, %VP8EncDspCostInit_body.exit
@@ -214,8 +214,8 @@ declare void @VP8EncDspCostInitSSE2() local_unnamed_addr #4
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.abs.i16(i16, i1 immarg) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #5
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umin.i16(i16, i16) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -223,7 +223,8 @@ attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem:
 attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

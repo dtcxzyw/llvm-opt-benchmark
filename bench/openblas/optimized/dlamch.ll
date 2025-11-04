@@ -156,7 +156,7 @@ dpow_ui.exit40:                                   ; preds = %.lr.ph.i32, %27, %2
   br label %49
 
 49:                                               ; preds = %dpow_ui.exit40, %46, %1
-  %50 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str) #8
+  %50 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str) #9
   %.not16 = icmp eq i32 %50, 0
   br i1 %.not16, label %53, label %51
 
@@ -165,7 +165,7 @@ dpow_ui.exit40:                                   ; preds = %.lr.ph.i32, %27, %2
   br label %88
 
 53:                                               ; preds = %49
-  %54 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.1) #8
+  %54 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.1) #9
   %.not17 = icmp eq i32 %54, 0
   br i1 %.not17, label %57, label %55
 
@@ -174,7 +174,7 @@ dpow_ui.exit40:                                   ; preds = %.lr.ph.i32, %27, %2
   br label %88
 
 57:                                               ; preds = %53
-  %58 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.2) #8
+  %58 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.2) #9
   %.not18 = icmp eq i32 %58, 0
   br i1 %.not18, label %61, label %59
 
@@ -183,7 +183,7 @@ dpow_ui.exit40:                                   ; preds = %.lr.ph.i32, %27, %2
   br label %88
 
 61:                                               ; preds = %57
-  %62 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.3) #8
+  %62 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.3) #9
   %.not19 = icmp eq i32 %62, 0
   br i1 %.not19, label %65, label %63
 
@@ -192,7 +192,7 @@ dpow_ui.exit40:                                   ; preds = %.lr.ph.i32, %27, %2
   br label %88
 
 65:                                               ; preds = %61
-  %66 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.4) #8
+  %66 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.4) #9
   %.not20 = icmp eq i32 %66, 0
   br i1 %.not20, label %69, label %67
 
@@ -201,7 +201,7 @@ dpow_ui.exit40:                                   ; preds = %.lr.ph.i32, %27, %2
   br label %88
 
 69:                                               ; preds = %65
-  %70 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.5) #8
+  %70 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.5) #9
   %.not21 = icmp eq i32 %70, 0
   br i1 %.not21, label %73, label %71
 
@@ -210,7 +210,7 @@ dpow_ui.exit40:                                   ; preds = %.lr.ph.i32, %27, %2
   br label %88
 
 73:                                               ; preds = %69
-  %74 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.6) #8
+  %74 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.6) #9
   %.not22 = icmp eq i32 %74, 0
   br i1 %.not22, label %77, label %75
 
@@ -219,7 +219,7 @@ dpow_ui.exit40:                                   ; preds = %.lr.ph.i32, %27, %2
   br label %88
 
 77:                                               ; preds = %73
-  %78 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.7) #8
+  %78 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.7) #9
   %.not23 = icmp eq i32 %78, 0
   br i1 %.not23, label %81, label %79
 
@@ -228,7 +228,7 @@ dpow_ui.exit40:                                   ; preds = %.lr.ph.i32, %27, %2
   br label %88
 
 81:                                               ; preds = %77
-  %82 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.8) #8
+  %82 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.8) #9
   %.not24 = icmp eq i32 %82, 0
   br i1 %.not24, label %85, label %83
 
@@ -237,7 +237,7 @@ dpow_ui.exit40:                                   ; preds = %.lr.ph.i32, %27, %2
   br label %88
 
 85:                                               ; preds = %81
-  %86 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.9) #8
+  %86 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.9) #9
   %.not25 = icmp eq i32 %86, 0
   %87 = load double, ptr @dlamch_.rmax, align 8
   %spec.select = select i1 %.not25, double undef, double %87
@@ -1146,11 +1146,11 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #7
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
@@ -1160,7 +1160,8 @@ attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -823,7 +823,7 @@ thread-pre-split:                                 ; preds = %273, %283, %284, %2
   %370 = phi i64 [ %356, %351 ], [ %350, %345 ]
   %371 = phi i32 [ %352, %351 ], [ %346, %345 ]
   %372 = and i64 %370, 34359738360
-  %373 = tail call ptr @PyMem_Malloc(i64 noundef %372) #11
+  %373 = tail call ptr @PyMem_Malloc(i64 noundef %372) #12
   %374 = icmp eq ptr %373, null
   br i1 %374, label %s2b.exit.thread, label %375
 
@@ -992,7 +992,7 @@ Bfree.exit643:                                    ; preds = %Bfree.exit643.backe
   %463 = phi i64 [ %449, %444 ], [ %443, %438 ]
   %464 = phi i32 [ %445, %444 ], [ %439, %438 ]
   %465 = and i64 %463, 34359738360
-  %466 = tail call ptr @PyMem_Malloc(i64 noundef %465) #11
+  %466 = tail call ptr @PyMem_Malloc(i64 noundef %465) #12
   %467 = icmp eq ptr %466, null
   br i1 %467, label %s2b.exit.thread, label %468
 
@@ -1052,7 +1052,7 @@ Bfree.exit643:                                    ; preds = %Bfree.exit643.backe
   br label %504
 
 501:                                              ; preds = %491
-  %502 = tail call ptr @PyMem_Malloc(i64 noundef 40) #11
+  %502 = tail call ptr @PyMem_Malloc(i64 noundef 40) #12
   %503 = icmp eq ptr %502, null
   br i1 %503, label %s2b.exit.thread, label %504
 
@@ -1130,7 +1130,7 @@ Bfree.exit643:                                    ; preds = %Bfree.exit643.backe
   br i1 %539, label %540, label %541
 
 540:                                              ; preds = %536
-  tail call void @PyMem_Free(ptr noundef nonnull %.118.i) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.118.i) #12
   br label %Bfree.exit.i
 
 541:                                              ; preds = %536
@@ -1168,7 +1168,7 @@ pow5mult.exit.thread659:                          ; preds = %524, %pow5mult.exit
   br i1 %556, label %557, label %558
 
 557:                                              ; preds = %pow5mult.exit.thread659
-  tail call void @PyMem_Free(ptr noundef nonnull %479) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %479) #12
   br label %Bfree.exit
 
 558:                                              ; preds = %pow5mult.exit.thread659
@@ -1244,7 +1244,7 @@ Bfree.exit:                                       ; preds = %557, %558
   br i1 %593, label %594, label %595
 
 594:                                              ; preds = %590
-  tail call void @PyMem_Free(ptr noundef nonnull %.118.i597) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.118.i597) #12
   br label %Bfree.exit.i600
 
 595:                                              ; preds = %590
@@ -1945,7 +1945,7 @@ ratio.exit:                                       ; preds = %817, %828, %840
   br i1 %937, label %938, label %939
 
 938:                                              ; preds = %934
-  tail call void @PyMem_Free(ptr noundef nonnull %.6411) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.6411) #12
   br label %Bfree.exit637
 
 939:                                              ; preds = %934
@@ -1971,7 +1971,7 @@ Bfree.exit637:                                    ; preds = %938, %939
   br i1 %950, label %951, label %952
 
 951:                                              ; preds = %947
-  tail call void @PyMem_Free(ptr noundef nonnull %.5403) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.5403) #12
   br label %Bfree.exit639
 
 952:                                              ; preds = %947
@@ -1993,7 +1993,7 @@ Bfree.exit639:                                    ; preds = %952, %951, %Bfree.e
   br i1 %962, label %963, label %964
 
 963:                                              ; preds = %Bfree.exit639
-  tail call void @PyMem_Free(ptr noundef nonnull %.6392) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.6392) #12
   br label %Bfree.exit641
 
 964:                                              ; preds = %Bfree.exit639
@@ -2015,7 +2015,7 @@ Bfree.exit641:                                    ; preds = %964, %963
   br i1 %974, label %975, label %976
 
 975:                                              ; preds = %Bfree.exit641
-  tail call void @PyMem_Free(ptr noundef nonnull %618) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %618) #12
   br label %Bfree.exit643.backedge
 
 Bfree.exit643.backedge:                           ; preds = %975, %976
@@ -2069,7 +2069,7 @@ s2b.exit.thread:                                  ; preds = %.lr.ph49.i, %.lr.ph
   %.3401 = phi ptr [ %.5403, %986 ], [ %.5403, %678 ], [ null, %369 ], [ null, %Bfree.exit.i600 ], [ %.024.i, %Bfree.exit.i ], [ null, %574 ], [ %.024.i, %520 ], [ %.024.i, %501 ], [ null, %462 ], [ %.024.i, %Bfree.exit ], [ %.5403, %617 ], [ %.5403, %614 ], [ null, %609 ], [ null, %pow5mult.exit604 ], [ %.024.i, %569 ], [ %.024.i, %pow5mult.exit ], [ %.024.i, %472 ], [ null, %.lr.ph57.i ], [ null, %.lr.ph49.i ]
   %.3389 = phi ptr [ %.6392, %986 ], [ %.6392, %678 ], [ null, %369 ], [ %.5391, %Bfree.exit.i600 ], [ null, %Bfree.exit.i ], [ %.5391, %574 ], [ null, %520 ], [ null, %501 ], [ null, %462 ], [ %.0.i590661, %Bfree.exit ], [ %.6392, %617 ], [ null, %614 ], [ %.5391, %609 ], [ %.5391, %pow5mult.exit604 ], [ %.5391, %569 ], [ null, %pow5mult.exit ], [ null, %472 ], [ null, %.lr.ph57.i ], [ null, %.lr.ph49.i ]
   %.3 = phi ptr [ %.5, %986 ], [ null, %678 ], [ null, %369 ], [ null, %Bfree.exit.i600 ], [ null, %Bfree.exit.i ], [ null, %472 ], [ null, %pow5mult.exit ], [ null, %569 ], [ null, %pow5mult.exit604 ], [ null, %609 ], [ null, %614 ], [ null, %617 ], [ null, %Bfree.exit ], [ null, %462 ], [ null, %501 ], [ null, %520 ], [ null, %574 ], [ null, %.lr.ph57.i ], [ null, %.lr.ph49.i ]
-  %995 = tail call ptr @__errno_location() #12
+  %995 = tail call ptr @__errno_location() #13
   store i32 12, ptr %995, align 4, !tbaa !124
   br label %1003
 
@@ -2088,7 +2088,7 @@ s2b.exit.thread:                                  ; preds = %.lr.ph49.i, %.lr.ph
   %.1395 = phi ptr [ null, %205 ], [ null, %._crit_edge880 ], [ %.027.i, %891 ]
   %.1387 = phi ptr [ null, %205 ], [ null, %._crit_edge880 ], [ %.6392, %891 ]
   %.1385 = phi ptr [ null, %205 ], [ null, %._crit_edge880 ], [ %618, %891 ]
-  %998 = tail call ptr @__errno_location() #12
+  %998 = tail call ptr @__errno_location() #13
   store i32 34, ptr %998, align 4, !tbaa !124
   %999 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 2146435072, ptr %999, align 4, !tbaa !4
@@ -2115,7 +2115,7 @@ s2b.exit.thread:                                  ; preds = %.lr.ph49.i, %.lr.ph
   br i1 %1007, label %1008, label %1009
 
 1008:                                             ; preds = %1004
-  tail call void @PyMem_Free(ptr noundef nonnull %.7412) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.7412) #12
   br label %Bfree.exit645
 
 1009:                                             ; preds = %1004
@@ -2142,7 +2142,7 @@ Bfree.exit645:                                    ; preds = %1003, %1008, %1009
   br i1 %1021, label %1022, label %1023
 
 1022:                                             ; preds = %1018
-  tail call void @PyMem_Free(ptr noundef nonnull %.6404) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.6404) #12
   br label %Bfree.exit647
 
 1023:                                             ; preds = %1018
@@ -2169,7 +2169,7 @@ Bfree.exit647:                                    ; preds = %Bfree.exit645, %102
   br i1 %1035, label %1036, label %1037
 
 1036:                                             ; preds = %1032
-  tail call void @PyMem_Free(ptr noundef nonnull %.7393) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.7393) #12
   br label %Bfree.exit649
 
 1037:                                             ; preds = %1032
@@ -2196,7 +2196,7 @@ Bfree.exit649:                                    ; preds = %Bfree.exit647, %103
   br i1 %1049, label %1050, label %1051
 
 1050:                                             ; preds = %1046
-  tail call void @PyMem_Free(ptr noundef nonnull %.3397) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.3397) #12
   br label %Bfree.exit651
 
 1051:                                             ; preds = %1046
@@ -2223,7 +2223,7 @@ Bfree.exit651:                                    ; preds = %Bfree.exit649, %105
   br i1 %1063, label %1064, label %1065
 
 1064:                                             ; preds = %1060
-  tail call void @PyMem_Free(ptr noundef nonnull %.7) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.7) #12
   br label %Bfree.exit653
 
 1065:                                             ; preds = %1060
@@ -2247,7 +2247,7 @@ Bfree.exit653:                                    ; preds = %58, %57, %63, %62, 
   ret double %.0381685692703708713
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
@@ -2310,7 +2310,7 @@ define internal fastcc ptr @Balloc(i32 noundef %0) unnamed_addr #0 {
   %39 = phi i64 [ %25, %20 ], [ %19, %14 ]
   %40 = phi i32 [ %21, %20 ], [ %15, %14 ]
   %41 = and i64 %39, 34359738360
-  %42 = tail call ptr @PyMem_Malloc(i64 noundef %41) #11
+  %42 = tail call ptr @PyMem_Malloc(i64 noundef %41) #12
   %43 = icmp eq ptr %42, null
   br i1 %43, label %51, label %44
 
@@ -2371,7 +2371,7 @@ define internal fastcc ptr @sd2b(ptr noundef nonnull readonly captures(none) %0,
   br label %25
 
 22:                                               ; preds = %12
-  %23 = tail call ptr @PyMem_Malloc(i64 noundef 40) #11
+  %23 = tail call ptr @PyMem_Malloc(i64 noundef 40) #12
   %24 = icmp eq ptr %23, null
   br i1 %24, label %Balloc.exit.thread, label %25
 
@@ -2534,7 +2534,7 @@ define internal fastcc ptr @pow5mult(ptr noundef %0, i32 noundef range(i32 1, -2
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %25
-  tail call void @PyMem_Free(ptr noundef nonnull %.118) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.118) #12
   br label %Bfree.exit
 
 30:                                               ; preds = %25
@@ -2618,7 +2618,7 @@ define internal fastcc ptr @mult(ptr noundef readonly captures(address) %0, ptr 
   br label %37
 
 34:                                               ; preds = %24
-  %35 = tail call ptr @PyMem_Malloc(i64 noundef 32) #11
+  %35 = tail call ptr @PyMem_Malloc(i64 noundef 32) #12
   %36 = icmp eq ptr %35, null
   br i1 %36, label %Balloc.exit.thread, label %37
 
@@ -2713,7 +2713,7 @@ define internal fastcc ptr @mult(ptr noundef readonly captures(address) %0, ptr 
   %95 = phi i64 [ %81, %76 ], [ %75, %70 ]
   %96 = phi i32 [ %77, %76 ], [ %71, %70 ]
   %97 = and i64 %95, 34359738360
-  %98 = tail call ptr @PyMem_Malloc(i64 noundef %97) #11
+  %98 = tail call ptr @PyMem_Malloc(i64 noundef %97) #12
   %99 = icmp eq ptr %98, null
   br i1 %99, label %Balloc.exit.thread, label %100
 
@@ -2918,7 +2918,7 @@ define internal fastcc ptr @lshift(ptr noundef %0, i32 noundef range(i32 1, -214
   %57 = phi i64 [ %43, %38 ], [ %37, %32 ]
   %58 = phi i32 [ %39, %38 ], [ %33, %32 ]
   %59 = and i64 %57, 34359738360
-  %60 = tail call ptr @PyMem_Malloc(i64 noundef %59) #11
+  %60 = tail call ptr @PyMem_Malloc(i64 noundef %59) #12
   %61 = icmp eq ptr %60, null
   br i1 %61, label %66, label %62
 
@@ -2937,7 +2937,7 @@ define internal fastcc ptr @lshift(ptr noundef %0, i32 noundef range(i32 1, -214
   br i1 %68, label %69, label %70
 
 69:                                               ; preds = %66
-  tail call void @PyMem_Free(ptr noundef nonnull %0) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %0) #12
   br label %Bfree.exit
 
 70:                                               ; preds = %66
@@ -3024,7 +3024,7 @@ define internal fastcc ptr @lshift(ptr noundef %0, i32 noundef range(i32 1, -214
   br i1 %108, label %109, label %110
 
 109:                                              ; preds = %.loopexit
-  tail call void @PyMem_Free(ptr noundef nonnull %0) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %0) #12
   br label %Bfree.exit
 
 110:                                              ; preds = %.loopexit
@@ -3112,7 +3112,7 @@ cmp.exit:                                         ; preds = %22
   br label %44
 
 41:                                               ; preds = %31
-  %42 = tail call ptr @PyMem_Malloc(i64 noundef 32) #11
+  %42 = tail call ptr @PyMem_Malloc(i64 noundef 32) #12
   %43 = icmp eq ptr %42, null
   br i1 %43, label %Balloc.exit.thread, label %44
 
@@ -3197,7 +3197,7 @@ cmp.exit:                                         ; preds = %22
   %92 = phi i64 [ %78, %73 ], [ %72, %67 ]
   %93 = phi i32 [ %74, %73 ], [ %68, %67 ]
   %94 = and i64 %92, 34359738360
-  %95 = tail call ptr @PyMem_Malloc(i64 noundef %94) #11
+  %95 = tail call ptr @PyMem_Malloc(i64 noundef %94) #12
   %96 = icmp eq ptr %95, null
   br i1 %96, label %Balloc.exit.thread, label %97
 
@@ -3355,7 +3355,7 @@ define internal fastcc range(i32 -1, 1) i32 @bigcomp(ptr noundef nonnull capture
   br label %49
 
 46:                                               ; preds = %36
-  %47 = tail call ptr @PyMem_Malloc(i64 noundef 40) #11
+  %47 = tail call ptr @PyMem_Malloc(i64 noundef 40) #12
   %48 = icmp eq ptr %47, null
   br i1 %48, label %52, label %49
 
@@ -3374,7 +3374,7 @@ define internal fastcc range(i32 -1, 1) i32 @bigcomp(ptr noundef nonnull capture
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %52
-  tail call void @PyMem_Free(ptr noundef nonnull %19) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %19) #12
   br label %Bfree.exit
 
 57:                                               ; preds = %52
@@ -3449,7 +3449,7 @@ define internal fastcc range(i32 -1, 1) i32 @bigcomp(ptr noundef nonnull capture
   br i1 %95, label %96, label %97
 
 96:                                               ; preds = %92
-  tail call void @PyMem_Free(ptr noundef nonnull %.118.i) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.118.i) #12
   br label %Bfree.exit.i
 
 97:                                               ; preds = %92
@@ -3485,7 +3485,7 @@ pow5mult.exit.thread:                             ; preds = %Bfree.exit.i, %72, 
   br i1 %111, label %112, label %113
 
 112:                                              ; preds = %pow5mult.exit.thread
-  tail call void @PyMem_Free(ptr noundef nonnull %19) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %19) #12
   br label %Bfree.exit
 
 113:                                              ; preds = %pow5mult.exit.thread
@@ -3550,7 +3550,7 @@ pow5mult.exit.thread:                             ; preds = %Bfree.exit.i, %72, 
   br i1 %148, label %149, label %150
 
 149:                                              ; preds = %143
-  tail call void @PyMem_Free(ptr noundef nonnull %.118.i101) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.118.i101) #12
   br label %Bfree.exit.i104
 
 150:                                              ; preds = %143
@@ -3582,7 +3582,7 @@ pow5mult.exit108.thread:                          ; preds = %Bfree.exit.i104, %1
   br i1 %163, label %164, label %165
 
 164:                                              ; preds = %pow5mult.exit108.thread
-  tail call void @PyMem_Free(ptr noundef nonnull %.024.i.i) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.024.i.i) #12
   br label %Bfree.exit
 
 165:                                              ; preds = %pow5mult.exit108.thread
@@ -3655,7 +3655,7 @@ pow5mult.exit.thread130:                          ; preds = %159, %133, %79, %12
   br i1 %200, label %201, label %202
 
 201:                                              ; preds = %197
-  tail call void @PyMem_Free(ptr noundef nonnull %.068) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.068) #12
   br label %Bfree.exit
 
 202:                                              ; preds = %197
@@ -3688,7 +3688,7 @@ pow5mult.exit.thread130:                          ; preds = %159, %133, %79, %12
   br i1 %219, label %220, label %221
 
 220:                                              ; preds = %216
-  tail call void @PyMem_Free(ptr noundef nonnull %.1) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.1) #12
   br label %Bfree.exit
 
 221:                                              ; preds = %216
@@ -3765,7 +3765,7 @@ cmp.exit:                                         ; preds = %229
   br i1 %256, label %257, label %258
 
 257:                                              ; preds = %253
-  tail call void @PyMem_Free(ptr noundef nonnull %.169) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.169) #12
   br label %Bfree.exit
 
 258:                                              ; preds = %253
@@ -3824,7 +3824,7 @@ cmp.exit:                                         ; preds = %229
   br i1 %290, label %291, label %292
 
 291:                                              ; preds = %.thread
-  tail call void @PyMem_Free(ptr noundef nonnull %.2141) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.2141) #12
   br label %Bfree.exit123
 
 292:                                              ; preds = %.thread
@@ -3850,7 +3850,7 @@ Bfree.exit123:                                    ; preds = %291, %292
   br i1 %303, label %304, label %305
 
 304:                                              ; preds = %300
-  tail call void @PyMem_Free(ptr noundef nonnull %.169) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.169) #12
   br label %Bfree.exit125
 
 305:                                              ; preds = %300
@@ -3915,7 +3915,7 @@ define hidden void @_Py_dg_freedtoa(ptr noundef initializes((4, 12)) %0) local_u
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %1
-  tail call void @PyMem_Free(ptr noundef nonnull %2) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %2) #12
   br label %Bfree.exit
 
 9:                                                ; preds = %1
@@ -3992,7 +3992,7 @@ define hidden noundef ptr @_Py_dg_dtoa(double noundef %0, i32 noundef %1, i32 no
   br label %34
 
 31:                                               ; preds = %21
-  %32 = tail call ptr @PyMem_Malloc(i64 noundef 32) #11
+  %32 = tail call ptr @PyMem_Malloc(i64 noundef 32) #12
   %33 = icmp eq ptr %32, null
   br i1 %33, label %nrv_alloc.exit, label %34
 
@@ -4061,7 +4061,7 @@ rv_alloc.exit.i:                                  ; preds = %34, %19
   br label %61
 
 58:                                               ; preds = %48
-  %59 = tail call ptr @PyMem_Malloc(i64 noundef 32) #11
+  %59 = tail call ptr @PyMem_Malloc(i64 noundef 32) #12
   %60 = icmp eq ptr %59, null
   br i1 %60, label %nrv_alloc.exit, label %61
 
@@ -4142,7 +4142,7 @@ rv_alloc.exit.i639:                               ; preds = %61, %46
   br label %94
 
 91:                                               ; preds = %81
-  %92 = tail call ptr @PyMem_Malloc(i64 noundef 32) #11
+  %92 = tail call ptr @PyMem_Malloc(i64 noundef 32) #12
   %93 = icmp eq ptr %92, null
   br i1 %93, label %nrv_alloc.exit, label %94
 
@@ -4207,7 +4207,7 @@ rv_alloc.exit.i654:                               ; preds = %94, %79
   br label %125
 
 122:                                              ; preds = %112
-  %123 = tail call ptr @PyMem_Malloc(i64 noundef 40) #11
+  %123 = tail call ptr @PyMem_Malloc(i64 noundef 40) #12
   %124 = icmp eq ptr %123, null
   br i1 %124, label %nrv_alloc.exit, label %125
 
@@ -4651,7 +4651,7 @@ default.unreachable:                              ; preds = %267
   %315 = phi i64 [ %301, %296 ], [ %295, %290 ]
   %316 = phi i32 [ %297, %296 ], [ %291, %290 ]
   %317 = and i64 %315, 34359738360
-  %318 = tail call ptr @PyMem_Malloc(i64 noundef %317) #11
+  %318 = tail call ptr @PyMem_Malloc(i64 noundef %317) #12
   %319 = icmp eq ptr %318, null
   br i1 %319, label %Bfree.exit737.thread, label %320
 
@@ -5100,7 +5100,7 @@ rv_alloc.exit:                                    ; preds = %288, %320
   br label %542
 
 539:                                              ; preds = %529
-  %540 = tail call ptr @PyMem_Malloc(i64 noundef 40) #11
+  %540 = tail call ptr @PyMem_Malloc(i64 noundef 40) #12
   %541 = icmp eq ptr %540, null
   br i1 %541, label %Bfree.exit737, label %542
 
@@ -5162,7 +5162,7 @@ i2b.exit:                                         ; preds = %527, %542
   br i1 %566, label %567, label %568
 
 567:                                              ; preds = %562
-  tail call void @PyMem_Free(ptr noundef nonnull %.024.i.i) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.024.i.i) #12
   br label %Bfree.exit
 
 568:                                              ; preds = %562
@@ -5218,7 +5218,7 @@ Bfree.exit:                                       ; preds = %567, %568
   br label %601
 
 598:                                              ; preds = %588
-  %599 = tail call ptr @PyMem_Malloc(i64 noundef 40) #11
+  %599 = tail call ptr @PyMem_Malloc(i64 noundef 40) #12
   %600 = icmp eq ptr %599, null
   br i1 %600, label %Bfree.exit735, label %601
 
@@ -5571,7 +5571,7 @@ cmp.exit707:                                      ; preds = %765, %743, %746, %7
   br i1 %769, label %770, label %771
 
 770:                                              ; preds = %cmp.exit707
-  tail call void @PyMem_Free(ptr noundef nonnull %741) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %741) #12
   br label %Bfree.exit709
 
 771:                                              ; preds = %cmp.exit707
@@ -5897,7 +5897,7 @@ cmp.exit723.thread876:                            ; preds = %894, %cmp.exit723.t
   br i1 %915, label %916, label %917
 
 916:                                              ; preds = %.thread878
-  tail call void @PyMem_Free(ptr noundef nonnull %.7410897) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.7410897) #12
   br label %Bfree.exit725
 
 917:                                              ; preds = %.thread878
@@ -5934,7 +5934,7 @@ Bfree.exit725:                                    ; preds = %.loopexit971, %916,
   br i1 %929, label %930, label %931
 
 930:                                              ; preds = %926
-  tail call void @PyMem_Free(ptr noundef nonnull %.1429894) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.1429894) #12
   br label %Bfree.exit727
 
 931:                                              ; preds = %926
@@ -5956,7 +5956,7 @@ Bfree.exit727:                                    ; preds = %925, %930, %931
   br i1 %941, label %942, label %943
 
 942:                                              ; preds = %Bfree.exit727
-  tail call void @PyMem_Free(ptr noundef nonnull %.10421896) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.10421896) #12
   br label %.critedge
 
 943:                                              ; preds = %Bfree.exit727
@@ -5985,7 +5985,7 @@ Bfree.exit727:                                    ; preds = %925, %930, %931
   br i1 %954, label %955, label %956
 
 955:                                              ; preds = %951
-  tail call void @PyMem_Free(ptr noundef nonnull %.3439) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.3439) #12
   br label %Bfree.exit731
 
 956:                                              ; preds = %951
@@ -6022,7 +6022,7 @@ d2b.exit.thread915:                               ; preds = %845, %850, %853, %8
   br i1 %968, label %969, label %970
 
 969:                                              ; preds = %d2b.exit.thread915
-  tail call void @PyMem_Free(ptr noundef nonnull %.0403925) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.0403925) #12
   br label %Bfree.exit733
 
 970:                                              ; preds = %d2b.exit.thread915
@@ -6050,7 +6050,7 @@ Bfree.exit733:                                    ; preds = %970, %969
   br i1 %981, label %982, label %983
 
 982:                                              ; preds = %978
-  tail call void @PyMem_Free(ptr noundef nonnull %.0428923) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.0428923) #12
   br label %Bfree.exit735
 
 983:                                              ; preds = %978
@@ -6080,7 +6080,7 @@ Bfree.exit735.thread943:                          ; preds = %Bfree.exit, %Bfree.
   br i1 %993, label %994, label %995
 
 994:                                              ; preds = %Bfree.exit735.thread943
-  tail call void @PyMem_Free(ptr noundef nonnull %.0411910935949) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.0411910935949) #12
   br label %Bfree.exit737
 
 995:                                              ; preds = %Bfree.exit735.thread943
@@ -6109,7 +6109,7 @@ Bfree.exit737.thread:                             ; preds = %rv_alloc.exit, %314
   br i1 %1005, label %1006, label %1007
 
 1006:                                             ; preds = %Bfree.exit737.thread
-  tail call void @PyMem_Free(ptr noundef nonnull %.0436908936941956) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.0436908936941956) #12
   br label %Bfree.exit739
 
 1007:                                             ; preds = %Bfree.exit737.thread
@@ -6141,7 +6141,7 @@ Bfree.exit739:                                    ; preds = %1007, %1006, %Bfree
   br i1 %1021, label %1022, label %1023
 
 1022:                                             ; preds = %1015
-  tail call void @PyMem_Free(ptr noundef nonnull %1016) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %1016) #12
   br label %nrv_alloc.exit
 
 1023:                                             ; preds = %1015
@@ -6296,7 +6296,7 @@ define internal fastcc ptr @multadd(ptr noundef %0, i32 noundef %1, i32 noundef 
   %63 = phi i64 [ %49, %44 ], [ %43, %38 ]
   %64 = phi i32 [ %45, %44 ], [ %39, %38 ]
   %65 = and i64 %63, 34359738360
-  %66 = tail call ptr @PyMem_Malloc(i64 noundef %65) #11
+  %66 = tail call ptr @PyMem_Malloc(i64 noundef %65) #12
   %67 = icmp eq ptr %66, null
   br i1 %67, label %72, label %68
 
@@ -6315,7 +6315,7 @@ define internal fastcc ptr @multadd(ptr noundef %0, i32 noundef %1, i32 noundef 
   br i1 %74, label %75, label %76
 
 75:                                               ; preds = %72
-  tail call void @PyMem_Free(ptr noundef nonnull %0) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %0) #12
   br label %Bfree.exit
 
 76:                                               ; preds = %72
@@ -6347,7 +6347,7 @@ define internal fastcc ptr @multadd(ptr noundef %0, i32 noundef %1, i32 noundef 
   br i1 %93, label %94, label %95
 
 94:                                               ; preds = %84
-  tail call void @PyMem_Free(ptr noundef nonnull %0) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %0) #12
   br label %Bfree.exit38
 
 95:                                               ; preds = %84
@@ -6589,7 +6589,7 @@ define hidden void @_PyDtoa_Init(ptr dead_on_unwind noalias writable sret(%struc
   br label %25
 
 22:                                               ; preds = %12
-  %23 = tail call ptr @PyMem_Malloc(i64 noundef 40) #11
+  %23 = tail call ptr @PyMem_Malloc(i64 noundef 40) #12
   %24 = icmp eq ptr %23, null
   br i1 %24, label %28, label %25
 
@@ -6602,7 +6602,7 @@ define hidden void @_PyDtoa_Init(ptr dead_on_unwind noalias writable sret(%struc
   br label %29
 
 28:                                               ; preds = %22
-  tail call void @PyStatus_NoMemory(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8 %0) #11
+  tail call void @PyStatus_NoMemory(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8 %0) #12
   br label %40
 
 29:                                               ; preds = %25, %10
@@ -6624,7 +6624,7 @@ define hidden void @_PyDtoa_Init(ptr dead_on_unwind noalias writable sret(%struc
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %33
-  tail call void @PyStatus_NoMemory(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8 %0) #11
+  tail call void @PyStatus_NoMemory(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8 %0) #12
   br label %40
 
 37:                                               ; preds = %33
@@ -6635,7 +6635,7 @@ define hidden void @_PyDtoa_Init(ptr dead_on_unwind noalias writable sret(%struc
   br i1 %exitcond, label %.critedge, label %33, !llvm.loop !151
 
 .critedge:                                        ; preds = %37
-  tail call void @PyStatus_Ok(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8 %0) #11
+  tail call void @PyStatus_Ok(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8 %0) #12
   br label %40
 
 40:                                               ; preds = %36, %.critedge, %28
@@ -6670,7 +6670,7 @@ define hidden void @_PyDtoa_Fini(ptr noundef captures(none) %0) local_unnamed_ad
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %8
-  tail call void @PyMem_Free(ptr noundef nonnull %7) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %7) #12
   br label %Bfree.exit
 
 13:                                               ; preds = %8
@@ -6694,50 +6694,51 @@ Bfree.exit:                                       ; preds = %5, %12, %13
 declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #1
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #8
 
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

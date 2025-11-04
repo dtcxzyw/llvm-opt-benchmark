@@ -121,13 +121,13 @@ define range(i32 0, 2) i32 @BrotliEncoderSetParameter(ptr noundef captures(none)
 
 ; Function Attrs: nounwind uwtable
 define ptr @BrotliEncoderCreateInstance(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
-  %4 = tail call ptr @BrotliBootstrapAlloc(i64 noundef 6976, ptr noundef %0, ptr noundef %1, ptr noundef %2) #18
+  %4 = tail call ptr @BrotliBootstrapAlloc(i64 noundef 6976, ptr noundef %0, ptr noundef %1, ptr noundef %2) #19
   %5 = icmp eq ptr %4, null
   br i1 %5, label %32, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 1400
-  tail call void @BrotliInitMemoryManager(ptr noundef nonnull %7, ptr noundef %0, ptr noundef %1, ptr noundef %2) #18
+  tail call void @BrotliInitMemoryManager(ptr noundef nonnull %7, ptr noundef %0, ptr noundef %1, ptr noundef %2) #19
   store i32 0, ptr %4, align 8, !tbaa !45
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 0, ptr %8, align 4, !tbaa !46
@@ -138,7 +138,7 @@ define ptr @BrotliEncoderCreateInstance(ptr noundef %0, ptr noundef %1, ptr noun
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  tail call void @BrotliInitSharedEncoderDictionary(ptr noundef nonnull %12) #18
+  tail call void @BrotliInitSharedEncoderDictionary(ptr noundef nonnull %12) #19
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 0, ptr %13, align 8, !tbaa !49
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 60
@@ -196,15 +196,15 @@ define void @BrotliEncoderDestroyInstance(ptr noundef %0) local_unnamed_addr #1 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1400
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   %5 = load ptr, ptr %4, align 8, !tbaa !60
-  tail call void @BrotliFree(ptr noundef nonnull %3, ptr noundef %5) #18
+  tail call void @BrotliFree(ptr noundef nonnull %3, ptr noundef %5) #19
   store ptr null, ptr %4, align 8, !tbaa !60
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %7 = load ptr, ptr %6, align 8, !tbaa !61
-  tail call void @BrotliFree(ptr noundef nonnull %3, ptr noundef %7) #18
+  tail call void @BrotliFree(ptr noundef nonnull %3, ptr noundef %7) #19
   store ptr null, ptr %6, align 8, !tbaa !61
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   %9 = load ptr, ptr %8, align 8, !tbaa !62
-  tail call void @BrotliFree(ptr noundef nonnull %3, ptr noundef %9) #18
+  tail call void @BrotliFree(ptr noundef nonnull %3, ptr noundef %9) #19
   store ptr null, ptr %8, align 8, !tbaa !62
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   %11 = load ptr, ptr %10, align 8, !tbaa !63
@@ -212,7 +212,7 @@ define void @BrotliEncoderDestroyInstance(ptr noundef %0) local_unnamed_addr #1 
   br i1 %.not.i.i, label %13, label %12
 
 12:                                               ; preds = %2
-  tail call void @BrotliFree(ptr noundef nonnull %3, ptr noundef nonnull %11) #18
+  tail call void @BrotliFree(ptr noundef nonnull %3, ptr noundef nonnull %11) #19
   store ptr null, ptr %10, align 8, !tbaa !63
   br label %13
 
@@ -223,7 +223,7 @@ define void @BrotliEncoderDestroyInstance(ptr noundef %0) local_unnamed_addr #1 
   br i1 %.not19.i.i, label %17, label %16
 
 16:                                               ; preds = %13
-  tail call void @BrotliFree(ptr noundef nonnull %3, ptr noundef nonnull %15) #18
+  tail call void @BrotliFree(ptr noundef nonnull %3, ptr noundef nonnull %15) #19
   store ptr null, ptr %14, align 8, !tbaa !63
   br label %17
 
@@ -234,7 +234,7 @@ define void @BrotliEncoderDestroyInstance(ptr noundef %0) local_unnamed_addr #1 
   br i1 %.not20.i.i, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void @BrotliFree(ptr noundef nonnull %3, ptr noundef nonnull %19) #18
+  tail call void @BrotliFree(ptr noundef nonnull %3, ptr noundef nonnull %19) #19
   store ptr null, ptr %18, align 8, !tbaa !63
   br label %21
 
@@ -245,34 +245,34 @@ define void @BrotliEncoderDestroyInstance(ptr noundef %0) local_unnamed_addr #1 
   br i1 %.not21.i.i, label %BrotliEncoderCleanupState.exit, label %24
 
 24:                                               ; preds = %21
-  tail call void @BrotliFree(ptr noundef nonnull %3, ptr noundef nonnull %23) #18
+  tail call void @BrotliFree(ptr noundef nonnull %3, ptr noundef nonnull %23) #19
   store ptr null, ptr %22, align 8, !tbaa !63
   br label %BrotliEncoderCleanupState.exit
 
 BrotliEncoderCleanupState.exit:                   ; preds = %21, %24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 6864
   %26 = load ptr, ptr %25, align 8, !tbaa !64
-  tail call void @BrotliFree(ptr noundef nonnull %3, ptr noundef %26) #18
+  tail call void @BrotliFree(ptr noundef nonnull %3, ptr noundef %26) #19
   store ptr null, ptr %25, align 8, !tbaa !64
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 6880
   %28 = load ptr, ptr %27, align 8, !tbaa !65
-  tail call void @BrotliFree(ptr noundef nonnull %3, ptr noundef %28) #18
+  tail call void @BrotliFree(ptr noundef nonnull %3, ptr noundef %28) #19
   store ptr null, ptr %27, align 8, !tbaa !65
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 6888
   %30 = load ptr, ptr %29, align 8, !tbaa !66
-  tail call void @BrotliFree(ptr noundef nonnull %3, ptr noundef %30) #18
+  tail call void @BrotliFree(ptr noundef nonnull %3, ptr noundef %30) #19
   store ptr null, ptr %29, align 8, !tbaa !66
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 6896
   %32 = load ptr, ptr %31, align 8, !tbaa !67
-  tail call void @BrotliFree(ptr noundef nonnull %3, ptr noundef %32) #18
+  tail call void @BrotliFree(ptr noundef nonnull %3, ptr noundef %32) #19
   store ptr null, ptr %31, align 8, !tbaa !67
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 6904
   %34 = load ptr, ptr %33, align 8, !tbaa !68
-  tail call void @BrotliFree(ptr noundef nonnull %3, ptr noundef %34) #18
+  tail call void @BrotliFree(ptr noundef nonnull %3, ptr noundef %34) #19
   store ptr null, ptr %33, align 8, !tbaa !68
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @BrotliCleanupSharedEncoderDictionary(ptr noundef nonnull %3, ptr noundef nonnull %35) #18
-  tail call void @BrotliBootstrapFree(ptr noundef nonnull %0, ptr noundef nonnull %3) #18
+  tail call void @BrotliCleanupSharedEncoderDictionary(ptr noundef nonnull %3, ptr noundef nonnull %35) #19
+  tail call void @BrotliBootstrapFree(ptr noundef nonnull %0, ptr noundef nonnull %3) #19
   br label %36
 
 36:                                               ; preds = %1, %BrotliEncoderCleanupState.exit
@@ -332,13 +332,13 @@ BrotliEncoderMaxCompressedSize.exit.thread:       ; preds = %7
   br label %BrotliEncoderCreateInstance.exit.thread
 
 25:                                               ; preds = %BrotliEncoderMaxCompressedSize.exit.thread
-  %26 = tail call ptr @BrotliBootstrapAlloc(i64 noundef 6976, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %26 = tail call ptr @BrotliBootstrapAlloc(i64 noundef 6976, ptr noundef null, ptr noundef null, ptr noundef null) #19
   %27 = icmp eq ptr %26, null
   br i1 %27, label %BrotliEncoderCreateInstance.exit.thread, label %BrotliEncoderSetParameter.exit60
 
 BrotliEncoderSetParameter.exit60:                 ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 1400
-  tail call void @BrotliInitMemoryManager(ptr noundef nonnull %28, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  tail call void @BrotliInitMemoryManager(ptr noundef nonnull %28, ptr noundef null, ptr noundef null, ptr noundef null) #19
   store i32 0, ptr %26, align 8, !tbaa !45
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 36
   store i32 0, ptr %29, align 4, !tbaa !46
@@ -349,7 +349,7 @@ BrotliEncoderSetParameter.exit60:                 ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %32, i8 0, i64 24, i1 false)
-  tail call void @BrotliInitSharedEncoderDictionary(ptr noundef nonnull %33) #18
+  tail call void @BrotliInitSharedEncoderDictionary(ptr noundef nonnull %33) #19
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 56
   store i32 0, ptr %34, align 8, !tbaa !49
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 60
@@ -655,7 +655,7 @@ ChooseDistanceParams.exit.i:                      ; preds = %63, %59, %ComputeLg
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %66 = load i32, ptr %65, align 4, !tbaa !46
-  tail call void @BrotliInitDistanceParams(ptr noundef nonnull %64, i32 noundef %.0.i45.i, i32 noundef %.015.i.i, i32 noundef %66) #18
+  tail call void @BrotliInitDistanceParams(ptr noundef nonnull %64, i32 noundef %.0.i45.i, i32 noundef %.015.i.i, i32 noundef %66) #19
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %68 = load i64, ptr %67, align 8, !tbaa !44
   %.not44.i = icmp eq i64 %68, 0
@@ -756,7 +756,7 @@ EncodeWindowBits.exit.i:                          ; preds = %103, %100, %97, %96
   ]
 
 112:                                              ; preds = %111
-  %113 = tail call ptr @BrotliAllocate(ptr noundef nonnull %9, i64 noundef 8144) #18
+  %113 = tail call ptr @BrotliAllocate(ptr noundef nonnull %9, i64 noundef 8144) #19
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 6880
   store ptr %113, ptr %114, align 8, !tbaa !65
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 768
@@ -770,7 +770,7 @@ EncodeWindowBits.exit.i:                          ; preds = %103, %100, %97, %96
   br label %122
 
 119:                                              ; preds = %111
-  %120 = tail call ptr @BrotliAllocate(ptr noundef nonnull %9, i64 noundef 7624) #18
+  %120 = tail call ptr @BrotliAllocate(ptr noundef nonnull %9, i64 noundef 7624) #19
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 6888
   store ptr %120, ptr %121, align 8, !tbaa !66
   br label %122
@@ -1194,9 +1194,9 @@ WriteMetadataHeader.exit.i:                       ; preds = %249, %238
   br label %.thread139.i
 
 .thread.i121:                                     ; preds = %349
-  %355 = tail call ptr @BrotliAllocate(ptr noundef nonnull %9, i64 noundef 524288) #18
+  %355 = tail call ptr @BrotliAllocate(ptr noundef nonnull %9, i64 noundef 524288) #19
   store ptr %355, ptr %350, align 8, !tbaa !67
-  %356 = tail call ptr @BrotliAllocate(ptr noundef nonnull %9, i64 noundef 131072) #18
+  %356 = tail call ptr @BrotliAllocate(ptr noundef nonnull %9, i64 noundef 131072) #19
   %357 = getelementptr inbounds nuw i8, ptr %0, i64 6904
   store ptr %356, ptr %357, align 8, !tbaa !68
   %.pr.i122 = load ptr, ptr %350, align 8, !tbaa !67
@@ -1209,8 +1209,8 @@ WriteMetadataHeader.exit.i:                       ; preds = %249, %238
 
 .thread141.i:                                     ; preds = %358, %.thread.i121
   %359 = shl nuw nsw i64 %347, 2
-  %360 = tail call ptr @BrotliAllocate(ptr noundef nonnull %9, i64 noundef %359) #18
-  %361 = tail call ptr @BrotliAllocate(ptr noundef nonnull %9, i64 noundef %347) #18
+  %360 = tail call ptr @BrotliAllocate(ptr noundef nonnull %9, i64 noundef %359) #19
+  %361 = tail call ptr @BrotliAllocate(ptr noundef nonnull %9, i64 noundef %347) #19
   br label %.thread139.i
 
 .thread139.i:                                     ; preds = %.thread141.i, %358, %.thread.i121, %._crit_edge.i, %340
@@ -1386,9 +1386,9 @@ InjectBytePaddingBlock.exit.i.i119:               ; preds = %402, %397, %394
   br i1 %453, label %455, label %GetBrotliStorage.exit.i
 
 455:                                              ; preds = %451
-  call void @BrotliFree(ptr noundef nonnull %9, ptr noundef %454) #18
+  call void @BrotliFree(ptr noundef nonnull %9, ptr noundef %454) #19
   store ptr null, ptr %.phi.trans.insert.i.i, align 8, !tbaa !60
-  %456 = call ptr @BrotliAllocate(ptr noundef nonnull %9, i64 noundef %443) #18
+  %456 = call ptr @BrotliAllocate(ptr noundef nonnull %9, i64 noundef %443) #19
   store ptr %456, ptr %.phi.trans.insert.i.i, align 8, !tbaa !60
   store i64 %443, ptr %371, align 8, !tbaa !118
   br label %GetBrotliStorage.exit.i
@@ -1435,10 +1435,10 @@ HashTableSize.exit.i.i:                           ; preds = %466
 475:                                              ; preds = %472
   store i64 %.025.i.i, ptr %372, align 8, !tbaa !120
   %476 = load ptr, ptr %.phi.trans.insert.i129.i, align 8, !tbaa !64
-  call void @BrotliFree(ptr noundef nonnull %9, ptr noundef %476) #18
+  call void @BrotliFree(ptr noundef nonnull %9, ptr noundef %476) #19
   store ptr null, ptr %.phi.trans.insert.i129.i, align 8, !tbaa !64
   %477 = shl i64 %.025.i.i, 2
-  %478 = call ptr @BrotliAllocate(ptr noundef nonnull %9, i64 noundef %477) #18
+  %478 = call ptr @BrotliAllocate(ptr noundef nonnull %9, i64 noundef %477) #19
   store ptr %478, ptr %.phi.trans.insert.i129.i, align 8, !tbaa !64
   br label %GetHashTable.exit.i
 
@@ -1453,12 +1453,12 @@ GetHashTable.exit.i:                              ; preds = %475, %._crit_edge.i
 
 483:                                              ; preds = %GetHashTable.exit.i
   %484 = load ptr, ptr %375, align 8, !tbaa !65
-  call void @BrotliCompressFragmentFast(ptr noundef %484, ptr noundef %482, i64 noundef %438, i32 noundef %441, ptr noundef %.0.i131.i, i64 noundef %.025.i.i, ptr noundef nonnull %8, ptr noundef nonnull %.0111.i) #18
+  call void @BrotliCompressFragmentFast(ptr noundef %484, ptr noundef %482, i64 noundef %438, i32 noundef %441, ptr noundef %.0.i131.i, i64 noundef %.025.i.i, ptr noundef nonnull %8, ptr noundef nonnull %.0111.i) #19
   br label %487
 
 485:                                              ; preds = %GetHashTable.exit.i
   %486 = load ptr, ptr %374, align 8, !tbaa !66
-  call void @BrotliCompressFragmentTwoPass(ptr noundef %486, ptr noundef %482, i64 noundef %438, i32 noundef %441, ptr noundef %.0110.i, ptr noundef %.0114.i, ptr noundef %.0.i131.i, i64 noundef %.025.i.i, ptr noundef nonnull %8, ptr noundef nonnull %.0111.i) #18
+  call void @BrotliCompressFragmentTwoPass(ptr noundef %486, ptr noundef %482, i64 noundef %438, i32 noundef %441, ptr noundef %.0110.i, ptr noundef %.0114.i, ptr noundef %.0.i131.i, i64 noundef %.025.i.i, ptr noundef nonnull %8, ptr noundef nonnull %.0111.i) #19
   br label %487
 
 487:                                              ; preds = %485, %483
@@ -1526,8 +1526,8 @@ SetTotalOut.exit.i:                               ; preds = %506, %505, %498
   br label %.backedge.i114
 
 .thread158.i:                                     ; preds = %434, %432, %414, %.thread156.i
-  call void @BrotliFree(ptr noundef nonnull %9, ptr noundef %.0109.i) #18
-  call void @BrotliFree(ptr noundef nonnull %9, ptr noundef %.0113.i) #18
+  call void @BrotliFree(ptr noundef nonnull %9, ptr noundef %.0109.i) #19
+  call void @BrotliFree(ptr noundef nonnull %9, ptr noundef %.0113.i) #19
   %514 = load i32, ptr %310, align 4, !tbaa !57
   %515 = icmp eq i32 %514, 1
   br i1 %515, label %516, label %ProcessMetadata.exit
@@ -1582,7 +1582,7 @@ CheckFlushComplete.exit.thread195:                ; preds = %CheckFlushComplete.
   %539 = add nuw nsw i64 %529, 2
   %540 = and i64 %539, 4294967295
   %541 = add nuw nsw i64 %540, 7
-  %542 = tail call ptr @BrotliAllocate(ptr noundef nonnull %9, i64 noundef %541) #18
+  %542 = tail call ptr @BrotliAllocate(ptr noundef nonnull %9, i64 noundef %541) #19
   %543 = load ptr, ptr %326, align 8, !tbaa !62
   %.not.i11.i = icmp eq ptr %543, null
   br i1 %.not.i11.i, label %550, label %544
@@ -1594,7 +1594,7 @@ CheckFlushComplete.exit.thread195:                ; preds = %CheckFlushComplete.
   %548 = add nuw nsw i64 %547, 7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %542, ptr noundef nonnull align 1 dereferenceable(1) %543, i64 %548, i1 false)
   %549 = load ptr, ptr %326, align 8, !tbaa !62
-  tail call void @BrotliFree(ptr noundef nonnull %9, ptr noundef %549) #18
+  tail call void @BrotliFree(ptr noundef nonnull %9, ptr noundef %549) #19
   br label %550
 
 550:                                              ; preds = %544, %537
@@ -1637,7 +1637,7 @@ RingBufferInitBuffer.exit.i:                      ; preds = %555
   %568 = add i32 %565, 2
   %569 = zext i32 %568 to i64
   %570 = add nuw nsw i64 %569, 7
-  %571 = tail call ptr @BrotliAllocate(ptr noundef nonnull %9, i64 noundef %570) #18
+  %571 = tail call ptr @BrotliAllocate(ptr noundef nonnull %9, i64 noundef %570) #19
   %572 = load ptr, ptr %326, align 8, !tbaa !62
   %.not.i12.i = icmp eq ptr %572, null
   br i1 %.not.i12.i, label %579, label %573
@@ -1649,7 +1649,7 @@ RingBufferInitBuffer.exit.i:                      ; preds = %555
   %577 = add nuw nsw i64 %576, 7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %571, ptr noundef nonnull align 1 dereferenceable(1) %572, i64 %577, i1 false)
   %578 = load ptr, ptr %326, align 8, !tbaa !62
-  tail call void @BrotliFree(ptr noundef nonnull %9, ptr noundef %578) #18
+  tail call void @BrotliFree(ptr noundef nonnull %9, ptr noundef %578) #19
   br label %579
 
 579:                                              ; preds = %573, %567
@@ -2163,9 +2163,9 @@ WrapPosition.exit:                                ; preds = %5, %22
   br i1 %.not245, label %77, label %.thread
 
 77:                                               ; preds = %74
-  %78 = tail call ptr @BrotliAllocate(ptr noundef nonnull %29, i64 noundef 524288) #18
+  %78 = tail call ptr @BrotliAllocate(ptr noundef nonnull %29, i64 noundef 524288) #19
   store ptr %78, ptr %75, align 8, !tbaa !67
-  %79 = tail call ptr @BrotliAllocate(ptr noundef nonnull %29, i64 noundef 131072) #18
+  %79 = tail call ptr @BrotliAllocate(ptr noundef nonnull %29, i64 noundef 131072) #19
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 6904
   store ptr %79, ptr %80, align 8, !tbaa !68
   br label %.thread
@@ -2187,9 +2187,9 @@ WrapPosition.exit:                                ; preds = %5, %22
   br i1 %89, label %92, label %GetBrotliStorage.exit
 
 92:                                               ; preds = %.thread
-  tail call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %91) #18
+  tail call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %91) #19
   store ptr null, ptr %90, align 8, !tbaa !60
-  %93 = tail call ptr @BrotliAllocate(ptr noundef nonnull %29, i64 noundef %86) #18
+  %93 = tail call ptr @BrotliAllocate(ptr noundef nonnull %29, i64 noundef %86) #19
   store ptr %93, ptr %90, align 8, !tbaa !60
   store i64 %86, ptr %87, align 8, !tbaa !118
   br label %GetBrotliStorage.exit
@@ -2245,10 +2245,10 @@ HashTableSize.exit.i:                             ; preds = %106
   store i64 %.025.i363, ptr %115, align 8, !tbaa !120
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 6864
   %120 = load ptr, ptr %119, align 8, !tbaa !64
-  tail call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %120) #18
+  tail call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %120) #19
   store ptr null, ptr %119, align 8, !tbaa !64
   %121 = shl i64 %.025.i363, 2
-  %122 = tail call ptr @BrotliAllocate(ptr noundef nonnull %29, i64 noundef %121) #18
+  %122 = tail call ptr @BrotliAllocate(ptr noundef nonnull %29, i64 noundef %121) #19
   store ptr %122, ptr %119, align 8, !tbaa !64
   br label %GetHashTable.exit
 
@@ -2266,7 +2266,7 @@ GetHashTable.exit:                                ; preds = %112, %._crit_edge.i
 129:                                              ; preds = %GetHashTable.exit
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 6880
   %131 = load ptr, ptr %130, align 8, !tbaa !65
-  call void @BrotliCompressFragmentFast(ptr noundef %131, ptr noundef %128, i64 noundef %103, i32 noundef %1, ptr noundef %.0.i367, i64 noundef %.025.i363, ptr noundef nonnull %14, ptr noundef nonnull %94) #18
+  call void @BrotliCompressFragmentFast(ptr noundef %131, ptr noundef %128, i64 noundef %103, i32 noundef %1, ptr noundef %.0.i367, i64 noundef %.025.i363, ptr noundef nonnull %14, ptr noundef nonnull %94) #19
   br label %WrapPosition.exit.i
 
 132:                                              ; preds = %GetHashTable.exit
@@ -2276,7 +2276,7 @@ GetHashTable.exit:                                ; preds = %112, %._crit_edge.i
   %136 = load ptr, ptr %135, align 8, !tbaa !67
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 6904
   %138 = load ptr, ptr %137, align 8, !tbaa !68
-  call void @BrotliCompressFragmentTwoPass(ptr noundef %134, ptr noundef %128, i64 noundef %103, i32 noundef %1, ptr noundef %136, ptr noundef %138, ptr noundef %.0.i367, i64 noundef %.025.i363, ptr noundef nonnull %14, ptr noundef nonnull %94) #18
+  call void @BrotliCompressFragmentTwoPass(ptr noundef %134, ptr noundef %128, i64 noundef %103, i32 noundef %1, ptr noundef %136, ptr noundef %138, ptr noundef %.0.i367, i64 noundef %.025.i363, ptr noundef nonnull %14, ptr noundef nonnull %94) #19
   br label %WrapPosition.exit.i
 
 WrapPosition.exit.i:                              ; preds = %132, %129
@@ -2319,7 +2319,7 @@ WrapPosition.exit.i:                              ; preds = %132, %129
 
 162:                                              ; preds = %157
   %163 = shl i64 %161, 4
-  %164 = tail call ptr @BrotliAllocate(ptr noundef nonnull %29, i64 noundef %163) #18
+  %164 = tail call ptr @BrotliAllocate(ptr noundef nonnull %29, i64 noundef %163) #19
   br label %165
 
 165:                                              ; preds = %157, %162
@@ -2334,7 +2334,7 @@ WrapPosition.exit.i:                              ; preds = %132, %129
   %171 = shl i64 %170, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %166, ptr nonnull align 4 %168, i64 %171, i1 false)
   %172 = load ptr, ptr %167, align 8, !tbaa !61
-  tail call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %172) #18
+  tail call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %172) #19
   br label %173
 
 173:                                              ; preds = %169, %165
@@ -2669,7 +2669,7 @@ HasherSize.exit.i:                                ; preds = %323, %HashMemAllocI
   br i1 %333, label %337, label %334
 
 334:                                              ; preds = %330
-  %335 = tail call ptr @BrotliAllocate(ptr noundef nonnull %29, i64 noundef %332) #18
+  %335 = tail call ptr @BrotliAllocate(ptr noundef nonnull %29, i64 noundef %332) #19
   %336 = getelementptr inbounds nuw ptr, ptr %175, i64 %.0.i462
   store ptr %335, ptr %336, align 8, !tbaa !63
   br label %337
@@ -4564,7 +4564,7 @@ WrapPosition.exit388:                             ; preds = %InitOrStitchToPrevi
   %1510 = load i64, ptr %16, align 8, !tbaa !54
   %1511 = sub i64 %1510, %1498
   %1512 = zext i32 %.0.i387 to i64
-  %1513 = tail call i32 @BrotliIsMostlyUTF8(ptr noundef %33, i64 noundef range(i64 0, 4294967296) %1512, i64 noundef range(i64 0, 4294967296) %176, i64 noundef %1511, double noundef 7.500000e-01) #18
+  %1513 = tail call i32 @BrotliIsMostlyUTF8(ptr noundef %33, i64 noundef range(i64 0, 4294967296) %1512, i64 noundef range(i64 0, 4294967296) %176, i64 noundef %1511, double noundef 7.500000e-01) #19
   %.not.i390 = icmp eq i32 %1513, 0
   br i1 %.not.i390, label %ChooseContextMode.exit, label %1514
 
@@ -4609,15 +4609,15 @@ ChooseContextMode.exit:                           ; preds = %1509, %1514
   ]
 
 1537:                                             ; preds = %1524
-  tail call void @BrotliCreateZopfliBackwardReferences(ptr noundef nonnull %29, i64 noundef %1527, i64 noundef %1529, ptr noundef %33, i64 noundef %176, ptr noundef nonnull %1517, ptr noundef nonnull %0, ptr noundef nonnull %175, ptr noundef nonnull %1530, ptr noundef nonnull %1531, ptr noundef %1535, ptr noundef nonnull %148, ptr noundef nonnull %1536) #18
+  tail call void @BrotliCreateZopfliBackwardReferences(ptr noundef nonnull %29, i64 noundef %1527, i64 noundef %1529, ptr noundef %33, i64 noundef %176, ptr noundef nonnull %1517, ptr noundef nonnull %0, ptr noundef nonnull %175, ptr noundef nonnull %1530, ptr noundef nonnull %1531, ptr noundef %1535, ptr noundef nonnull %148, ptr noundef nonnull %1536) #19
   br label %1540
 
 1538:                                             ; preds = %1524
-  tail call void @BrotliCreateHqZopfliBackwardReferences(ptr noundef nonnull %29, i64 noundef %1527, i64 noundef %1529, ptr noundef %33, i64 noundef %176, ptr noundef nonnull %1517, ptr noundef nonnull %0, ptr noundef nonnull %175, ptr noundef nonnull %1530, ptr noundef nonnull %1531, ptr noundef %1535, ptr noundef nonnull %148, ptr noundef nonnull %1536) #18
+  tail call void @BrotliCreateHqZopfliBackwardReferences(ptr noundef nonnull %29, i64 noundef %1527, i64 noundef %1529, ptr noundef %33, i64 noundef %176, ptr noundef nonnull %1517, ptr noundef nonnull %0, ptr noundef nonnull %175, ptr noundef nonnull %1530, ptr noundef nonnull %1531, ptr noundef %1535, ptr noundef nonnull %148, ptr noundef nonnull %1536) #19
   br label %1540
 
 1539:                                             ; preds = %1524
-  tail call void @BrotliCreateBackwardReferences(i64 noundef %1527, i64 noundef %1529, ptr noundef %33, i64 noundef %176, ptr noundef nonnull %1517, ptr noundef nonnull %0, ptr noundef nonnull %175, ptr noundef nonnull %1530, ptr noundef nonnull %1531, ptr noundef %1535, ptr noundef nonnull %148, ptr noundef nonnull %1536) #18
+  tail call void @BrotliCreateBackwardReferences(i64 noundef %1527, i64 noundef %1529, ptr noundef %33, i64 noundef %176, ptr noundef nonnull %1517, ptr noundef nonnull %0, ptr noundef nonnull %175, ptr noundef nonnull %1530, ptr noundef nonnull %1531, ptr noundef %1535, ptr noundef nonnull %148, ptr noundef nonnull %1536) #19
   br label %1540
 
 1540:                                             ; preds = %1538, %1539, %1537
@@ -4793,9 +4793,9 @@ GetInsertLengthCode.exit:                         ; preds = %1593, %1597, %1611,
   br i1 %1644, label %1647, label %GetBrotliStorage.exit394
 
 1647:                                             ; preds = %1638
-  tail call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %1646) #18
+  tail call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %1646) #19
   store ptr null, ptr %1645, align 8, !tbaa !60
-  %1648 = tail call ptr @BrotliAllocate(ptr noundef nonnull %29, i64 noundef %1641) #18
+  %1648 = tail call ptr @BrotliAllocate(ptr noundef nonnull %29, i64 noundef %1641) #19
   store ptr %1648, ptr %1645, align 8, !tbaa !60
   store i64 %1641, ptr %1642, align 8, !tbaa !118
   br label %GetBrotliStorage.exit394
@@ -4926,7 +4926,7 @@ WrapPosition.exit.i395:                           ; preds = %1675, %GetBrotliSto
   br label %FastLog2.exit24.i.i
 
 1725:                                             ; preds = %.preheader.i.i
-  %1726 = tail call double @log2(double noundef %1720) #18, !tbaa !59
+  %1726 = tail call double @log2(double noundef %1720) #19, !tbaa !59
   br label %FastLog2.exit24.i.i
 
 FastLog2.exit24.i.i:                              ; preds = %1725, %1722
@@ -4947,7 +4947,7 @@ FastLog2.exit24.i.i:                              ; preds = %1725, %1722
   br label %FastLog2.exit.i.i
 
 1737:                                             ; preds = %FastLog2.exit24.i.i
-  %1738 = tail call double @log2(double noundef %1732) #18, !tbaa !59
+  %1738 = tail call double @log2(double noundef %1732) #19, !tbaa !59
   br label %FastLog2.exit.i.i
 
 FastLog2.exit.i.i:                                ; preds = %1737, %1734
@@ -4974,7 +4974,7 @@ FastLog2.exit.i.i:                                ; preds = %1737, %1734
   br label %FastLog2.exit26.i.i
 
 1751:                                             ; preds = %1745
-  %1752 = tail call double @log2(double noundef %1746) #18, !tbaa !59
+  %1752 = tail call double @log2(double noundef %1746) #19, !tbaa !59
   br label %FastLog2.exit26.i.i
 
 FastLog2.exit26.i.i:                              ; preds = %1751, %1748
@@ -4999,7 +4999,7 @@ ShannonEntropy.exit.i.i.ShouldCompress.exit.i_crit_edge: ; preds = %ShannonEntro
 1756:                                             ; preds = %ShannonEntropy.exit.i.i, %1694
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1672, ptr noundef nonnull readonly align 4 dereferenceable(16) %1671, i64 16, i1 false)
   %1757 = zext i32 %.0.i.i396 to i64
-  call void @BrotliStoreUncompressedMetaBlock(i32 noundef range(i32 0, 2) %1, ptr noundef %33, i64 noundef %1757, i64 noundef range(i64 0, 4294967296) %176, i64 noundef range(i64 0, 4294967296) %1661, ptr noundef nonnull %15, ptr noundef nonnull %1649) #18
+  call void @BrotliStoreUncompressedMetaBlock(i32 noundef range(i32 0, 2) %1, ptr noundef %33, i64 noundef %1757, i64 noundef range(i64 0, 4294967296) %176, i64 noundef range(i64 0, 4294967296) %1661, ptr noundef nonnull %15, ptr noundef nonnull %1649) #19
   br label %WriteMetaBlockInternal.exit
 
 ShouldCompress.exit.i:                            ; preds = %ShannonEntropy.exit.i.i.ShouldCompress.exit.i_crit_edge, %1700, %1696
@@ -5012,7 +5012,7 @@ ShouldCompress.exit.i:                            ; preds = %ShannonEntropy.exit
 
 1763:                                             ; preds = %ShouldCompress.exit.i
   %1764 = zext i32 %.0.i.i396 to i64
-  call void @BrotliStoreMetaBlockFast(ptr noundef nonnull %29, ptr noundef %33, i64 noundef %1764, i64 noundef range(i64 0, 4294967296) %1661, i64 noundef range(i64 0, 4294967296) %176, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull %0, ptr noundef %1670, i64 noundef %1668, ptr noundef nonnull %15, ptr noundef nonnull %1649) #18
+  call void @BrotliStoreMetaBlockFast(ptr noundef nonnull %29, ptr noundef %33, i64 noundef %1764, i64 noundef range(i64 0, 4294967296) %1661, i64 noundef range(i64 0, 4294967296) %176, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull %0, ptr noundef %1670, i64 noundef %1668, ptr noundef nonnull %15, ptr noundef nonnull %1649) #19
   br label %1806
 
 1765:                                             ; preds = %ShouldCompress.exit.i
@@ -5021,16 +5021,16 @@ ShouldCompress.exit.i:                            ; preds = %ShannonEntropy.exit
 
 1767:                                             ; preds = %1765
   %1768 = zext i32 %.0.i.i396 to i64
-  call void @BrotliStoreMetaBlockTrivial(ptr noundef nonnull %29, ptr noundef %33, i64 noundef %1768, i64 noundef range(i64 0, 4294967296) %1661, i64 noundef range(i64 0, 4294967296) %176, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull %0, ptr noundef %1670, i64 noundef %1668, ptr noundef nonnull %15, ptr noundef nonnull %1649) #18
+  call void @BrotliStoreMetaBlockTrivial(ptr noundef nonnull %29, ptr noundef %33, i64 noundef %1768, i64 noundef range(i64 0, 4294967296) %1661, i64 noundef range(i64 0, 4294967296) %176, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull %0, ptr noundef %1670, i64 noundef %1668, ptr noundef nonnull %15, ptr noundef nonnull %1649) #19
   br label %1806
 
 1769:                                             ; preds = %1765
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @BrotliInitBlockSplit(ptr noundef nonnull %8) #18
+  call void @BrotliInitBlockSplit(ptr noundef nonnull %8) #19
   %1770 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  call void @BrotliInitBlockSplit(ptr noundef nonnull %1770) #18
+  call void @BrotliInitBlockSplit(ptr noundef nonnull %1770) #19
   %1771 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  call void @BrotliInitBlockSplit(ptr noundef nonnull %1771) #18
+  call void @BrotliInitBlockSplit(ptr noundef nonnull %1771) #19
   %1772 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %1773 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %1774 = getelementptr inbounds nuw i8, ptr %8, i64 176
@@ -5056,13 +5056,13 @@ ShouldCompress.exit.i:                            ; preds = %ShannonEntropy.exit
   br label %1788
 
 1782:                                             ; preds = %1779
-  %1783 = call ptr @BrotliAllocate(ptr noundef nonnull %29, i64 noundef 1792) #18
+  %1783 = call ptr @BrotliAllocate(ptr noundef nonnull %29, i64 noundef 1792) #19
   %1784 = zext i32 %.0.i.i396 to i64
   %1785 = load i32, ptr %30, align 4, !tbaa !47
   %1786 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1787 = load i64, ptr %1786, align 8, !tbaa !137
   call fastcc void @DecideOverLiteralContextModeling(ptr noundef %33, i64 noundef %1784, i64 noundef range(i64 0, 4294967296) %1661, i64 noundef range(i64 0, 4294967296) %176, i32 noundef %1785, i64 noundef %1787, ptr noundef %9, ptr noundef %10, ptr noundef %1783)
-  call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %1783) #18
+  call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %1783) #19
   %.pre.i398 = load i64, ptr %9, align 8, !tbaa !69
   %.pre117.i = load ptr, ptr %10, align 8, !tbaa !590
   br label %1788
@@ -5071,14 +5071,14 @@ ShouldCompress.exit.i:                            ; preds = %ShannonEntropy.exit
   %.pre-phi.i = phi i64 [ %.pre118.i, %._crit_edge.i397 ], [ %1784, %1782 ]
   %1789 = phi ptr [ null, %._crit_edge.i397 ], [ %.pre117.i, %1782 ]
   %1790 = phi i64 [ 1, %._crit_edge.i397 ], [ %.pre.i398, %1782 ]
-  call void @BrotliBuildMetaBlockGreedy(ptr noundef nonnull %29, ptr noundef %33, i64 noundef %.pre-phi.i, i64 noundef range(i64 0, 4294967296) %176, i8 noundef zeroext %1663, i8 noundef zeroext %1665, ptr noundef nonnull %1517, i64 noundef %1790, ptr noundef %1789, ptr noundef %1670, i64 noundef %1668, ptr noundef nonnull %8) #18
+  call void @BrotliBuildMetaBlockGreedy(ptr noundef nonnull %29, ptr noundef %33, i64 noundef %.pre-phi.i, i64 noundef range(i64 0, 4294967296) %176, i8 noundef zeroext %1663, i8 noundef zeroext %1665, ptr noundef nonnull %1517, i64 noundef %1790, ptr noundef %1789, ptr noundef %1670, i64 noundef %1668, ptr noundef nonnull %8) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %1793
 
 1791:                                             ; preds = %1769
   %1792 = zext i32 %.0.i.i396 to i64
-  call void @BrotliBuildMetaBlock(ptr noundef nonnull %29, ptr noundef %33, i64 noundef %1792, i64 noundef range(i64 0, 4294967296) %176, ptr noundef nonnull %7, i8 noundef zeroext %1663, i8 noundef zeroext %1665, ptr noundef %1670, i64 noundef %1668, i32 noundef range(i32 2, 4) %.0.i389, ptr noundef nonnull %8) #18
+  call void @BrotliBuildMetaBlock(ptr noundef nonnull %29, ptr noundef %33, i64 noundef %1792, i64 noundef range(i64 0, 4294967296) %176, ptr noundef nonnull %7, i8 noundef zeroext %1663, i8 noundef zeroext %1665, ptr noundef %1670, i64 noundef %1668, i32 noundef range(i32 2, 4) %.0.i389, ptr noundef nonnull %8) #19
   br label %1793
 
 1793:                                             ; preds = %1791, %1788
@@ -5089,29 +5089,29 @@ ShouldCompress.exit.i:                            ; preds = %ShannonEntropy.exit
 1796:                                             ; preds = %1793
   %1797 = getelementptr inbounds nuw i8, ptr %7, i64 68
   %1798 = load i32, ptr %1797, align 4, !tbaa !52
-  call void @BrotliOptimizeHistograms(i32 noundef %1798, ptr noundef nonnull %8) #18
+  call void @BrotliOptimizeHistograms(i32 noundef %1798, ptr noundef nonnull %8) #19
   br label %1799
 
 1799:                                             ; preds = %1796, %1793
   %1800 = zext i32 %.0.i.i396 to i64
-  call void @BrotliStoreMetaBlock(ptr noundef nonnull %29, ptr noundef %33, i64 noundef %1800, i64 noundef range(i64 0, 4294967296) %1661, i64 noundef range(i64 0, 4294967296) %176, i8 noundef zeroext %1663, i8 noundef zeroext %1665, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull %7, i32 noundef range(i32 2, 4) %.0.i389, ptr noundef %1670, i64 noundef %1668, ptr noundef nonnull %8, ptr noundef nonnull %15, ptr noundef nonnull %1649) #18
-  call void @BrotliDestroyBlockSplit(ptr noundef nonnull %29, ptr noundef nonnull %8) #18
-  call void @BrotliDestroyBlockSplit(ptr noundef nonnull %29, ptr noundef nonnull %1770) #18
-  call void @BrotliDestroyBlockSplit(ptr noundef nonnull %29, ptr noundef nonnull %1771) #18
+  call void @BrotliStoreMetaBlock(ptr noundef nonnull %29, ptr noundef %33, i64 noundef %1800, i64 noundef range(i64 0, 4294967296) %1661, i64 noundef range(i64 0, 4294967296) %176, i8 noundef zeroext %1663, i8 noundef zeroext %1665, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull %7, i32 noundef range(i32 2, 4) %.0.i389, ptr noundef %1670, i64 noundef %1668, ptr noundef nonnull %8, ptr noundef nonnull %15, ptr noundef nonnull %1649) #19
+  call void @BrotliDestroyBlockSplit(ptr noundef nonnull %29, ptr noundef nonnull %8) #19
+  call void @BrotliDestroyBlockSplit(ptr noundef nonnull %29, ptr noundef nonnull %1770) #19
+  call void @BrotliDestroyBlockSplit(ptr noundef nonnull %29, ptr noundef nonnull %1771) #19
   %1801 = load ptr, ptr %1772, align 8, !tbaa !592
-  call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %1801) #18
+  call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %1801) #19
   store ptr null, ptr %1772, align 8, !tbaa !592
   %1802 = load ptr, ptr %1773, align 8, !tbaa !598
-  call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %1802) #18
+  call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %1802) #19
   store ptr null, ptr %1773, align 8, !tbaa !598
   %1803 = load ptr, ptr %1774, align 8, !tbaa !599
-  call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %1803) #18
+  call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %1803) #19
   store ptr null, ptr %1774, align 8, !tbaa !599
   %1804 = load ptr, ptr %1775, align 8, !tbaa !600
-  call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %1804) #18
+  call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %1804) #19
   store ptr null, ptr %1775, align 8, !tbaa !600
   %1805 = load ptr, ptr %1776, align 8, !tbaa !601
-  call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %1805) #18
+  call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %1805) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %1806
 
@@ -5129,7 +5129,7 @@ ShouldCompress.exit.i:                            ; preds = %ShannonEntropy.exit
   %1812 = and i64 %1760, 255
   store i64 %1812, ptr %15, align 8, !tbaa !69
   %1813 = zext i32 %.0.i.i396 to i64
-  call void @BrotliStoreUncompressedMetaBlock(i32 noundef range(i32 0, 2) %1, ptr noundef %33, i64 noundef %1813, i64 noundef range(i64 0, 4294967296) %176, i64 noundef range(i64 0, 4294967296) %1661, ptr noundef nonnull %15, ptr noundef nonnull %1649) #18
+  call void @BrotliStoreUncompressedMetaBlock(i32 noundef range(i32 0, 2) %1, ptr noundef %33, i64 noundef %1813, i64 noundef range(i64 0, 4294967296) %176, i64 noundef range(i64 0, 4294967296) %1661, ptr noundef nonnull %15, ptr noundef nonnull %1649) #19
   br label %WriteMetaBlockInternal.exit
 
 WriteMetaBlockInternal.exit:                      ; preds = %1683, %1756, %1806, %1811
@@ -5282,20 +5282,20 @@ define ptr @BrotliEncoderPrepareDictionary(i32 noundef %0, i64 noundef %1, ptr n
   br i1 %8, label %9, label %18
 
 9:                                                ; preds = %7
-  %10 = tail call ptr @BrotliCreateManagedDictionary(ptr noundef %4, ptr noundef %5, ptr noundef %6) #18
+  %10 = tail call ptr @BrotliCreateManagedDictionary(ptr noundef %4, ptr noundef %5, ptr noundef %6) #19
   %11 = icmp eq ptr %10, null
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %14 = tail call ptr @CreatePreparedDictionary(ptr noundef nonnull %13, ptr noundef %2, i64 noundef %1) #18
+  %14 = tail call ptr @CreatePreparedDictionary(ptr noundef nonnull %13, ptr noundef %2, i64 noundef %1) #19
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %14, ptr %15, align 8, !tbaa !602
   %16 = icmp eq ptr %14, null
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %12
-  tail call void @BrotliDestroyManagedDictionary(ptr noundef nonnull %10) #18
+  tail call void @BrotliDestroyManagedDictionary(ptr noundef nonnull %10) #19
   br label %18
 
 18:                                               ; preds = %12, %9, %7, %17
@@ -5334,19 +5334,19 @@ define void @BrotliEncoderDestroyPreparedDictionary(ptr noundef %0) local_unname
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @DestroyPreparedDictionary(ptr noundef nonnull %11, ptr noundef nonnull %6) #18
+  tail call void @DestroyPreparedDictionary(ptr noundef nonnull %11, ptr noundef nonnull %6) #19
   br label %15
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @BrotliCleanupSharedEncoderDictionary(ptr noundef nonnull %13, ptr noundef nonnull %6) #18
+  tail call void @BrotliCleanupSharedEncoderDictionary(ptr noundef nonnull %13, ptr noundef nonnull %6) #19
   %14 = load ptr, ptr %5, align 8, !tbaa !602
-  tail call void @BrotliFree(ptr noundef nonnull %13, ptr noundef %14) #18
+  tail call void @BrotliFree(ptr noundef nonnull %13, ptr noundef %14) #19
   br label %15
 
 15:                                               ; preds = %8, %10, %12, %4
   store ptr null, ptr %5, align 8, !tbaa !602
-  tail call void @BrotliDestroyManagedDictionary(ptr noundef nonnull %0) #18
+  tail call void @BrotliDestroyManagedDictionary(ptr noundef nonnull %0) #19
   br label %16
 
 16:                                               ; preds = %2, %1, %15
@@ -5382,7 +5382,7 @@ define range(i32 0, 2) i32 @BrotliEncoderAttachPreparedDictionary(ptr noundef %0
 
 10:                                               ; preds = %9, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %12 = tail call i32 @AttachPreparedDictionary(ptr noundef nonnull %11, ptr noundef nonnull %.042) #18
+  %12 = tail call i32 @AttachPreparedDictionary(ptr noundef nonnull %11, ptr noundef nonnull %.042) #19
   %.not50.not = icmp eq i32 %12, 0
   br i1 %.not50.not, label %.critedge, label %73
 
@@ -5473,7 +5473,7 @@ define range(i32 0, 2) i32 @BrotliEncoderAttachPreparedDictionary(ptr noundef %0
   %.051 = phi i64 [ 0, %.lr.ph ], [ %63, %62 ]
   %67 = getelementptr inbounds nuw ptr, ptr %61, i64 %.051
   %68 = load ptr, ptr %67, align 8, !tbaa !612
-  %69 = tail call i32 @AttachPreparedDictionary(ptr noundef nonnull %60, ptr noundef %68) #18
+  %69 = tail call i32 @AttachPreparedDictionary(ptr noundef nonnull %60, ptr noundef %68) #19
   %.not49 = icmp eq i32 %69, 0
   br i1 %.not49, label %.critedge, label %62
 
@@ -5517,7 +5517,7 @@ SanitizeParams.exit:
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  call void @BrotliInitSharedEncoderDictionary(ptr noundef nonnull %8) #18
+  call void @BrotliInitSharedEncoderDictionary(ptr noundef nonnull %8) #19
   %9 = icmp slt i32 %1, 25
   %10 = call i32 @llvm.smax.i32(i32 %0, i32 0)
   %11 = call i32 @llvm.umin.i32(i32 %10, i32 11)
@@ -7501,7 +7501,7 @@ define internal fastcc void @DecideOverLiteralContextModeling(ptr noundef readon
   br label %FastLog2.exit64.i
 
 63:                                               ; preds = %.preheader.i
-  %64 = tail call double @log2(double noundef %58) #18, !tbaa !59
+  %64 = tail call double @log2(double noundef %58) #19, !tbaa !59
   br label %FastLog2.exit64.i
 
 FastLog2.exit64.i:                                ; preds = %63, %60
@@ -7522,7 +7522,7 @@ FastLog2.exit64.i:                                ; preds = %63, %60
   br label %FastLog2.exit.i
 
 75:                                               ; preds = %FastLog2.exit64.i
-  %76 = tail call double @log2(double noundef %70) #18, !tbaa !59
+  %76 = tail call double @log2(double noundef %70) #19, !tbaa !59
   br label %FastLog2.exit.i
 
 FastLog2.exit.i:                                  ; preds = %75, %72
@@ -7547,7 +7547,7 @@ FastLog2.exit.i:                                  ; preds = %75, %72
   br label %FastLog2.exit66.i
 
 87:                                               ; preds = %81
-  %88 = tail call double @log2(double noundef %82) #18, !tbaa !59
+  %88 = tail call double @log2(double noundef %82) #19, !tbaa !59
   br label %FastLog2.exit66.i
 
 FastLog2.exit66.i:                                ; preds = %87, %84
@@ -7585,7 +7585,7 @@ ShannonEntropy.exit62.i:                          ; preds = %FastLog2.exit66.i, 
   br label %FastLog2.exit70.i
 
 101:                                              ; preds = %92
-  %102 = tail call double @log2(double noundef %96) #18, !tbaa !59
+  %102 = tail call double @log2(double noundef %96) #19, !tbaa !59
   br label %FastLog2.exit70.i
 
 FastLog2.exit70.i:                                ; preds = %101, %98
@@ -7606,7 +7606,7 @@ FastLog2.exit70.i:                                ; preds = %101, %98
   br label %FastLog2.exit68.i
 
 113:                                              ; preds = %FastLog2.exit70.i
-  %114 = tail call double @log2(double noundef %108) #18, !tbaa !59
+  %114 = tail call double @log2(double noundef %108) #19, !tbaa !59
   br label %FastLog2.exit68.i
 
 FastLog2.exit68.i:                                ; preds = %113, %110
@@ -7631,7 +7631,7 @@ FastLog2.exit68.i:                                ; preds = %113, %110
   br label %FastLog2.exit72.i
 
 125:                                              ; preds = %119
-  %126 = tail call double @log2(double noundef %120) #18, !tbaa !59
+  %126 = tail call double @log2(double noundef %120) #19, !tbaa !59
   br label %FastLog2.exit72.i
 
 FastLog2.exit72.i:                                ; preds = %125, %122
@@ -7756,7 +7756,7 @@ ShouldUseComplexStaticContextMap.exit:            ; preds = %135
   br label %FastLog2.exit.i52
 
 179:                                              ; preds = %170
-  %180 = tail call double @log2(double noundef %174) #18, !tbaa !59
+  %180 = tail call double @log2(double noundef %174) #19, !tbaa !59
   br label %FastLog2.exit.i52
 
 FastLog2.exit.i52:                                ; preds = %179, %176
@@ -7784,7 +7784,7 @@ FastLog2.exit.i52:                                ; preds = %179, %176
   br label %FastLog2.exit51.i
 
 192:                                              ; preds = %.preheader.i44
-  %193 = tail call double @log2(double noundef %187) #18, !tbaa !59
+  %193 = tail call double @log2(double noundef %187) #19, !tbaa !59
   br label %FastLog2.exit51.i
 
 FastLog2.exit51.i:                                ; preds = %192, %189
@@ -7809,7 +7809,7 @@ FastLog2.exit51.i:                                ; preds = %192, %189
   br label %FastLog2.exit49.i
 
 203:                                              ; preds = %197
-  %204 = tail call double @log2(double noundef %198) #18, !tbaa !59
+  %204 = tail call double @log2(double noundef %198) #19, !tbaa !59
   br label %FastLog2.exit49.i
 
 FastLog2.exit49.i:                                ; preds = %203, %200
@@ -7835,7 +7835,7 @@ ShannonEntropy.exit46.i:                          ; preds = %FastLog2.exit49.i, 
   br label %FastLog2.exit53.i
 
 215:                                              ; preds = %206
-  %216 = tail call double @log2(double noundef %210) #18, !tbaa !59
+  %216 = tail call double @log2(double noundef %210) #19, !tbaa !59
   br label %FastLog2.exit53.i
 
 FastLog2.exit53.i:                                ; preds = %215, %212
@@ -7863,7 +7863,7 @@ FastLog2.exit53.i:                                ; preds = %215, %212
   br label %FastLog2.exit57.i
 
 229:                                              ; preds = %219
-  %230 = tail call double @log2(double noundef %224) #18, !tbaa !59
+  %230 = tail call double @log2(double noundef %224) #19, !tbaa !59
   br label %FastLog2.exit57.i
 
 FastLog2.exit57.i:                                ; preds = %229, %226
@@ -7887,7 +7887,7 @@ FastLog2.exit57.i:                                ; preds = %229, %226
   br label %FastLog2.exit55.i
 
 240:                                              ; preds = %234
-  %241 = tail call double @log2(double noundef %235) #18, !tbaa !59
+  %241 = tail call double @log2(double noundef %235) #19, !tbaa !59
   br label %FastLog2.exit55.i
 
 FastLog2.exit55.i:                                ; preds = %240, %237
@@ -7914,7 +7914,7 @@ ShannonEntropy.exit40.i:                          ; preds = %FastLog2.exit55.i, 
   br label %FastLog2.exit59.i
 
 252:                                              ; preds = %243
-  %253 = tail call double @log2(double noundef %247) #18, !tbaa !59
+  %253 = tail call double @log2(double noundef %247) #19, !tbaa !59
   br label %FastLog2.exit59.i
 
 FastLog2.exit59.i:                                ; preds = %252, %249
@@ -7942,7 +7942,7 @@ FastLog2.exit59.i:                                ; preds = %252, %249
   br label %FastLog2.exit63.i
 
 265:                                              ; preds = %256
-  %266 = tail call double @log2(double noundef %260) #18, !tbaa !59
+  %266 = tail call double @log2(double noundef %260) #19, !tbaa !59
   br label %FastLog2.exit63.i
 
 FastLog2.exit63.i:                                ; preds = %265, %262
@@ -7967,7 +7967,7 @@ FastLog2.exit63.i:                                ; preds = %265, %262
   br label %FastLog2.exit61.i
 
 277:                                              ; preds = %271
-  %278 = tail call double @log2(double noundef %272) #18, !tbaa !59
+  %278 = tail call double @log2(double noundef %272) #19, !tbaa !59
   br label %FastLog2.exit61.i
 
 FastLog2.exit61.i:                                ; preds = %277, %274
@@ -8000,7 +8000,7 @@ ShannonEntropy.exit34.i:                          ; preds = %FastLog2.exit61.i, 
   br label %FastLog2.exit65.i
 
 291:                                              ; preds = %282
-  %292 = tail call double @log2(double noundef %286) #18, !tbaa !59
+  %292 = tail call double @log2(double noundef %286) #19, !tbaa !59
   br label %FastLog2.exit65.i
 
 FastLog2.exit65.i:                                ; preds = %291, %288
@@ -8029,7 +8029,7 @@ FastLog2.exit65.i:                                ; preds = %291, %288
   br label %FastLog2.exit69.i
 
 305:                                              ; preds = %295
-  %306 = tail call double @log2(double noundef %300) #18, !tbaa !59
+  %306 = tail call double @log2(double noundef %300) #19, !tbaa !59
   br label %FastLog2.exit69.i
 
 FastLog2.exit69.i:                                ; preds = %305, %302
@@ -8053,7 +8053,7 @@ FastLog2.exit69.i:                                ; preds = %305, %302
   br label %FastLog2.exit67.i
 
 316:                                              ; preds = %310
-  %317 = tail call double @log2(double noundef %311) #18, !tbaa !59
+  %317 = tail call double @log2(double noundef %311) #19, !tbaa !59
   br label %FastLog2.exit67.i
 
 FastLog2.exit67.i:                                ; preds = %316, %313
@@ -8127,11 +8127,11 @@ declare hidden void @BrotliOptimizeHistograms(i32 noundef, ptr noundef) local_un
 
 declare hidden void @BrotliStoreMetaBlock(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i8 noundef zeroext, i8 noundef zeroext, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #8
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log2(double noundef) local_unnamed_addr #14
+declare double @log2(double noundef) local_unnamed_addr #15
 
 declare hidden void @BrotliInitBlockSplit(ptr noundef) local_unnamed_addr #2
 
@@ -8140,34 +8140,34 @@ declare hidden void @BrotliDestroyBlockSplit(ptr noundef, ptr noundef) local_unn
 declare hidden void @BrotliInitSharedEncoderDictionary(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #17
+declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8183,11 +8183,12 @@ attributes #10 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uw
 attributes #11 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree norecurse nosync nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #18 = { nounwind }
+attributes #14 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #19 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

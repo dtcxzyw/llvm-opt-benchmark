@@ -32,14 +32,14 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef %0) #1 
   %2 = load ptr, ptr %0, align 8, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !19
-  %5 = tail call i32 @ff_yadif_config_output_common(ptr noundef nonnull %0) #7
+  %5 = tail call i32 @ff_yadif_config_output_common(ptr noundef nonnull %0) #8
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %17, label %.sink.split
 
 .sink.split:                                      ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %8 = load i32, ptr %7, align 4, !tbaa !29
-  %9 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %8) #7
+  %9 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %8) #8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr %9, ptr %10, align 8, !tbaa !30
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -122,9 +122,9 @@ define internal void @filter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   store i32 %.031, ptr %9, align 4, !tbaa !56
   store i32 %.0, ptr %10, align 8, !tbaa !57
   store i32 %.03234, ptr %8, align 8, !tbaa !58
-  %39 = call i32 @ff_filter_get_nb_threads(ptr noundef %0) #8
+  %39 = call i32 @ff_filter_get_nb_threads(ptr noundef %0) #9
   %..0 = call i32 @llvm.smin.i32(i32 %.0, i32 %39)
-  %40 = call i32 @ff_filter_execute(ptr noundef %0, ptr noundef nonnull @filter_slice, ptr noundef nonnull %5, ptr noundef null, i32 noundef %..0) #7
+  %40 = call i32 @ff_filter_execute(ptr noundef %0, ptr noundef nonnull @filter_slice, ptr noundef nonnull %5, ptr noundef null, i32 noundef %..0) #8
   %41 = add nuw nsw i32 %.03234, 1
   %42 = load ptr, ptr %14, align 8, !tbaa !30
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -1463,7 +1463,7 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
   %94 = select i1 %93, i32 %14, i32 %39
   %95 = load i32, ptr %40, align 8, !tbaa !44
   %96 = xor i32 %95, %45
-  tail call void %82(ptr noundef nonnull %83, ptr noundef nonnull %84, ptr noundef nonnull %85, ptr noundef nonnull %86, i32 noundef %88, i32 noundef %92, i32 noundef %94, i32 noundef %96, i32 noundef %81) #7
+  tail call void %82(ptr noundef nonnull %83, ptr noundef nonnull %84, ptr noundef nonnull %85, ptr noundef nonnull %86, i32 noundef %88, i32 noundef %92, i32 noundef %94, i32 noundef %96, i32 noundef %81) #8
   %97 = load ptr, ptr %41, align 8, !tbaa !40
   %98 = load i32, ptr %38, align 4, !tbaa !56
   %99 = load i32, ptr %22, align 8, !tbaa !57
@@ -1473,7 +1473,7 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
   %103 = load i32, ptr %32, align 4, !tbaa !43
   %104 = load i32, ptr %40, align 8, !tbaa !44
   %105 = xor i32 %104, %103
-  tail call void %97(ptr noundef %73, ptr noundef %56, ptr noundef %60, ptr noundef %64, i32 noundef %98, i32 noundef %102, i32 noundef %94, i32 noundef %105, i32 noundef %81) #7
+  tail call void %97(ptr noundef %73, ptr noundef %56, ptr noundef %60, ptr noundef %64, i32 noundef %98, i32 noundef %102, i32 noundef %94, i32 noundef %105, i32 noundef %81) #8
   br label %124
 
 106:                                              ; preds = %44
@@ -1522,19 +1522,19 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #6
+declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
 
 attributes #0 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1543,9 +1543,10 @@ attributes #2 = { nofree norecurse nosync nounwind memory(read, argmem: readwrit
 attributes #3 = { mustprogress nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

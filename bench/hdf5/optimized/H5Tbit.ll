@@ -297,27 +297,27 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   br label %H5T__bit_set.exit
 
 47:                                               ; preds = %10
-  %48 = call ptr @H5WB_wrap(ptr noundef nonnull %5, i64 noundef 512) #7
+  %48 = call ptr @H5WB_wrap(ptr noundef nonnull %5, i64 noundef 512) #8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %47
   %51 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !16
   %52 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !16
-  %53 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__bit_shift, i32 noundef 190, i64 noundef %51, i64 noundef %52, ptr noundef nonnull @.str.1) #7
+  %53 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__bit_shift, i32 noundef 190, i64 noundef %51, i64 noundef %52, ptr noundef nonnull @.str.1) #8
   br label %H5T__bit_set.exit
 
 54:                                               ; preds = %47
   %55 = lshr i64 %3, 3
   %56 = add nuw nsw i64 %55, 1
-  %57 = call ptr @H5WB_actual(ptr noundef nonnull %48, i64 noundef %56) #7
+  %57 = call ptr @H5WB_actual(ptr noundef nonnull %48, i64 noundef %56) #8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %54
   %60 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !16
   %61 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !16
-  %62 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__bit_shift, i32 noundef 194, i64 noundef %60, i64 noundef %61, ptr noundef nonnull @.str.2) #7
+  %62 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__bit_shift, i32 noundef 194, i64 noundef %60, i64 noundef %61, ptr noundef nonnull @.str.2) #8
   br label %153
 
 63:                                               ; preds = %54
@@ -476,14 +476,14 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
 
 153:                                              ; preds = %._crit_edge.thread.sink.split.i90, %._crit_edge.i86, %108, %._crit_edge.thread.sink.split.i74, %._crit_edge.i70, %65, %59
   %.4.ph = phi i32 [ 0, %._crit_edge.thread.sink.split.i90 ], [ 0, %._crit_edge.i86 ], [ 0, %108 ], [ 0, %._crit_edge.thread.sink.split.i74 ], [ 0, %._crit_edge.i70 ], [ 0, %65 ], [ -1, %59 ]
-  %154 = call i32 @H5WB_unwrap(ptr noundef nonnull %48) #7
+  %154 = call i32 @H5WB_unwrap(ptr noundef nonnull %48) #8
   %155 = icmp slt i32 %154, 0
   br i1 %155, label %156, label %H5T__bit_set.exit
 
 156:                                              ; preds = %153
   %157 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !16
   %158 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !16
-  %159 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__bit_shift, i32 noundef 218, i64 noundef %157, i64 noundef %158, ptr noundef nonnull @.str.3) #7
+  %159 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__bit_shift, i32 noundef 218, i64 noundef %157, i64 noundef %158, ptr noundef nonnull @.str.3) #8
   br label %H5T__bit_set.exit
 
 H5T__bit_set.exit:                                ; preds = %50, %._crit_edge.thread.sink.split.i, %._crit_edge.i, %12, %4, %156, %153
@@ -1235,23 +1235,24 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #5
+declare i64 @llvm.abs.i64(i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind }
+attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

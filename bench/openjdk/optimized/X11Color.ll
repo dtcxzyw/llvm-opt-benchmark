@@ -105,7 +105,7 @@ define hidden range(i32 0, 256) i32 @awt_color_matchGS(i32 noundef %0, i32 nound
   ret i32 %26
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -265,7 +265,7 @@ define hidden void @cleanup_graphics_config_data(ptr noundef captures(none) %0) 
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %3) #14
+  tail call void @free(ptr noundef nonnull %3) #15
   store ptr null, ptr %2, align 8
   br label %5
 
@@ -282,7 +282,7 @@ define hidden void @cleanup_graphics_config_data(ptr noundef captures(none) %0) 
   br i1 %.not23, label %12, label %11
 
 11:                                               ; preds = %8
-  tail call void @free(ptr noundef nonnull %10) #14
+  tail call void @free(ptr noundef nonnull %10) #15
   %.pre = load ptr, ptr %6, align 8
   br label %12
 
@@ -294,7 +294,7 @@ define hidden void @cleanup_graphics_config_data(ptr noundef captures(none) %0) 
   br i1 %.not24, label %17, label %16
 
 16:                                               ; preds = %12
-  tail call void @free(ptr noundef nonnull %15) #14
+  tail call void @free(ptr noundef nonnull %15) #15
   %.pre28 = load ptr, ptr %6, align 8
   br label %17
 
@@ -306,7 +306,7 @@ define hidden void @cleanup_graphics_config_data(ptr noundef captures(none) %0) 
   br i1 %.not25, label %22, label %21
 
 21:                                               ; preds = %17
-  tail call void @free(ptr noundef nonnull %20) #14
+  tail call void @free(ptr noundef nonnull %20) #15
   %.pre29 = load ptr, ptr %6, align 8
   br label %22
 
@@ -317,7 +317,7 @@ define hidden void @cleanup_graphics_config_data(ptr noundef captures(none) %0) 
   br i1 %.not26, label %26, label %25
 
 25:                                               ; preds = %22
-  tail call void @free(ptr noundef nonnull %24) #14
+  tail call void @free(ptr noundef nonnull %24) #15
   %.pre30 = load ptr, ptr %6, align 8
   br label %26
 
@@ -329,13 +329,13 @@ define hidden void @cleanup_graphics_config_data(ptr noundef captures(none) %0) 
   br i1 %.not27, label %31, label %30
 
 30:                                               ; preds = %26
-  tail call void @free(ptr noundef nonnull %29) #14
+  tail call void @free(ptr noundef nonnull %29) #15
   %.pre31 = load ptr, ptr %6, align 8
   br label %31
 
 31:                                               ; preds = %30, %26
   %32 = phi ptr [ %.pre31, %30 ], [ %27, %26 ]
-  tail call void @free(ptr noundef %32) #14
+  tail call void @free(ptr noundef %32) #15
   store ptr null, ptr %6, align 8
   br label %33
 
@@ -357,9 +357,9 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   %8 = alloca [256 x i32], align 16
   %9 = alloca i32, align 4
   tail call void @cleanup_graphics_config_data(ptr noundef %0)
-  tail call void @make_uns_ordered_dither_array(ptr noundef nonnull @img_oda_alpha, i32 noundef 256) #14
-  %10 = tail call ptr @getenv(ptr noundef nonnull @.str) #14
-  %11 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #14
+  tail call void @make_uns_ordered_dither_array(ptr noundef nonnull @img_oda_alpha, i32 noundef 256) #15
+  %10 = tail call ptr @getenv(ptr noundef nonnull @.str) #15
+  %11 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #15
   %12 = icmp eq ptr %10, null
   %13 = icmp ne ptr %11, null
   %or.cond = or i1 %12, %13
@@ -372,14 +372,14 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   %19 = load i32, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %19, ptr %20, align 8
-  %21 = tail call noalias dereferenceable_or_null(560) ptr @calloc(i64 noundef 1, i64 noundef 560) #15
+  %21 = tail call noalias dereferenceable_or_null(560) ptr @calloc(i64 noundef 1, i64 noundef 560) #16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %21, ptr %22, align 8
   %23 = icmp eq ptr %21, null
   br i1 %23, label %.loopexit, label %24
 
 24:                                               ; preds = %1
-  %25 = call ptr @XListPixmapFormats(ptr noundef %14, ptr noundef nonnull %9) #14
+  %25 = call ptr @XListPixmapFormats(ptr noundef %14, ptr noundef nonnull %9) #15
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %36, label %.preheader432
 
@@ -411,7 +411,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   br label %.loopexit433
 
 .loopexit433:                                     ; preds = %28, %.preheader432, %32
-  %35 = call i32 @XFree(ptr noundef nonnull %25) #14
+  %35 = call i32 @XFree(ptr noundef nonnull %25) #15
   br label %36
 
 36:                                               ; preds = %.loopexit433, %24
@@ -633,7 +633,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   br i1 %152, label %.loopexit.sink.split, label %153
 
 153:                                              ; preds = %149
-  %154 = call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #15
+  %154 = call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #16
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %154, ptr %155, align 8
   %156 = icmp eq ptr %154, null
@@ -659,13 +659,13 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
 
 ._crit_edge461:                                   ; preds = %.lr.ph460, %157
   %161 = zext nneg i32 %. to i64
-  %162 = call noalias ptr @calloc(i64 noundef %161, i64 noundef 4) #15
+  %162 = call noalias ptr @calloc(i64 noundef %161, i64 noundef 4) #16
   store ptr %162, ptr %154, align 8
   %163 = icmp eq ptr %162, null
   br i1 %163, label %.loopexit.sink.split, label %164
 
 164:                                              ; preds = %._crit_edge461
-  %165 = call i32 @XQueryColors(ptr noundef %14, i64 noundef %16, ptr noundef nonnull %4, i32 noundef %151) #14
+  %165 = call i32 @XQueryColors(ptr noundef %14, i64 noundef %16, ptr noundef nonnull %4, i32 noundef %151) #15
   %166 = load i32, ptr %20, align 8
   %167 = icmp sgt i32 %166, 0
   br i1 %167, label %.lr.ph464, label %.preheader430.preheader
@@ -727,7 +727,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   %.9 = lshr i32 %.9.in466, 1
   %199 = zext nneg i32 %.0380465 to i64
   %200 = getelementptr inbounds nuw i64, ptr %2, i64 %199
-  %201 = call i32 @XAllocColorCells(ptr noundef %14, i64 noundef %16, i32 noundef 0, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %200, i32 noundef %.9) #14
+  %201 = call i32 @XAllocColorCells(ptr noundef %14, i64 noundef %16, i32 noundef 0, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %200, i32 noundef %.9) #15
   %.not409 = icmp eq i32 %201, 0
   %202 = select i1 %.not409, i32 0, i32 %.9
   %spec.select410 = add nuw nsw i32 %202, %.0380465
@@ -748,7 +748,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   br i1 %exitcond543.not, label %._crit_edge469, label %.lr.ph468, !llvm.loop !20
 
 ._crit_edge469:                                   ; preds = %.lr.ph468, %.preheader429
-  %209 = call i32 @XFreeColors(ptr noundef %14, i64 noundef %16, ptr noundef nonnull %2, i32 noundef %spec.select410, i64 noundef 0) #14
+  %209 = call i32 @XFreeColors(ptr noundef %14, i64 noundef %16, ptr noundef nonnull %2, i32 noundef %spec.select410, i64 noundef 0) #15
   %210 = load i32, ptr %20, align 8
   %211 = icmp sgt i32 %210, 0
   br i1 %211, label %.lr.ph472, label %._crit_edge473
@@ -820,7 +820,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   br i1 %.not400, label %.loopexit428, label %.lr.ph475, !llvm.loop !23
 
 .loopexit428:                                     ; preds = %._crit_edge476, %242
-  %250 = call noalias dereferenceable_or_null(256) ptr @calloc(i64 noundef 256, i64 noundef 1) #15
+  %250 = call noalias dereferenceable_or_null(256) ptr @calloc(i64 noundef 256, i64 noundef 1) #16
   %251 = load ptr, ptr %155, align 8
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 32
   store ptr %250, ptr %252, align 8
@@ -1027,10 +1027,10 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   br i1 %or.cond9, label %340, label %.preheader423
 
 340:                                              ; preds = %338
-  %341 = call ptr @getenv(ptr noundef nonnull @.str.2) #14
+  %341 = call ptr @getenv(ptr noundef nonnull @.str.2) #15
   %.not401 = icmp eq ptr %341, null
   %342 = select i1 %.not401, ptr @.str.3, ptr %341
-  %343 = call double @atof(ptr noundef nonnull %342) #16
+  %343 = call double @atof(ptr noundef nonnull %342) #17
   %344 = fcmp olt double %343, 1.000000e-02
   %.0 = select i1 %344, double 1.000000e+00, double %343
   br label %345
@@ -1040,7 +1040,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   %346 = trunc nuw nsw i64 %indvars.iv559 to i32
   %347 = uitofp nneg i32 %346 to double
   %348 = fdiv double %347, 2.550000e+02
-  %349 = call double @pow(double noundef %348, double noundef %.0) #14
+  %349 = call double @pow(double noundef %348, double noundef %.0) #15
   %350 = fmul double %349, 2.550000e+02
   %351 = fptosi double %350 to i32
   %352 = trunc i32 %351 to i8
@@ -1125,12 +1125,12 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   br i1 %391, label %402, label %392
 
 392:                                              ; preds = %390
-  %393 = call ptr @getenv(ptr noundef nonnull @.str.4) #14
+  %393 = call ptr @getenv(ptr noundef nonnull @.str.4) #15
   %.not402 = icmp eq ptr %393, null
   br i1 %.not402, label %.thread416, label %394
 
 394:                                              ; preds = %392
-  %395 = call i32 @atoi(ptr noundef nonnull %393) #16
+  %395 = call i32 @atoi(ptr noundef nonnull %393) #17
   %.fr = freeze i32 %395
   %396 = icmp slt i32 %.fr, 1
   br i1 %396, label %.thread416, label %397
@@ -1150,12 +1150,12 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
 402:                                              ; preds = %390, %397
   %.pn = phi i32 [ %.3379, %397 ], [ 256, %390 ]
   %.0376 = sub i32 %.pn, %.1373
-  %403 = call ptr @getenv(ptr noundef nonnull @.str.5) #14
+  %403 = call ptr @getenv(ptr noundef nonnull @.str.5) #15
   %.not403 = icmp eq ptr %403, null
   br i1 %.not403, label %.thread419, label %404
 
 404:                                              ; preds = %402
-  %405 = call i32 @atoi(ptr noundef nonnull %403) #16
+  %405 = call i32 @atoi(ptr noundef nonnull %403) #17
   %406 = icmp eq i32 %405, 0
   br i1 %406, label %.thread419, label %407
 
@@ -1171,7 +1171,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
 
 411:                                              ; preds = %407, %.thread419
   %.1371 = phi i32 [ 32, %.thread419 ], [ %405, %407 ]
-  %412 = call noalias dereferenceable_or_null(32768) ptr @calloc(i64 noundef 32768, i64 noundef 1) #15
+  %412 = call noalias dereferenceable_or_null(32768) ptr @calloc(i64 noundef 32768, i64 noundef 1) #16
   %413 = getelementptr inbounds nuw i8, ptr %370, i64 40
   store ptr %412, ptr %413, align 8
   %414 = load ptr, ptr %155, align 8
@@ -1181,7 +1181,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   br i1 %417, label %.loopexit.sink.split, label %418
 
 418:                                              ; preds = %411
-  call void @img_makePalette(i32 noundef %.0376, i32 noundef %.1371, i32 noundef 32, float noundef 5.000000e+01, float noundef 2.500000e+02, i32 noundef %.1375, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %416) #14
+  call void @img_makePalette(i32 noundef %.0376, i32 noundef %.1371, i32 noundef 32, float noundef 5.000000e+01, float noundef 2.500000e+02, i32 noundef %.1375, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %416) #15
   %419 = icmp sgt i32 %.0376, 0
   br i1 %419, label %.lr.ph515.preheader, label %.preheader421.preheader
 
@@ -1237,16 +1237,16 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 64
   store ptr @std_img_oda_blue, ptr %446, align 8
   %447 = load ptr, ptr %155, align 8
-  call void @make_dither_arrays(i32 noundef %.0376, ptr noundef %447) #14
+  call void @make_dither_arrays(i32 noundef %.0376, ptr noundef %447) #15
   store i32 1, ptr @std_odas_computed, align 4
   %448 = load ptr, ptr %155, align 8
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 8
   store i32 0, ptr %449, align 8
-  %450 = call noalias ptr @calloc(i64 noundef %161, i64 noundef 1) #15
+  %450 = call noalias ptr @calloc(i64 noundef %161, i64 noundef 1) #16
   %451 = load ptr, ptr %155, align 8
   %452 = getelementptr inbounds nuw i8, ptr %451, i64 24
   store ptr %450, ptr %452, align 8
-  %453 = call noalias ptr @calloc(i64 noundef %161, i64 noundef 4) #15
+  %453 = call noalias ptr @calloc(i64 noundef %161, i64 noundef 4) #16
   %454 = load ptr, ptr %155, align 8
   %455 = getelementptr inbounds nuw i8, ptr %454, i64 16
   store ptr %453, ptr %455, align 8
@@ -1365,7 +1365,7 @@ define internal fastcc i32 @alloc_col(ptr noundef %0, i64 noundef %1, i32 nounde
   %23 = trunc nuw i32 %22 to i16
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i16 %23, ptr %24, align 4
-  %25 = call i32 @XAllocColor(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %8) #14
+  %25 = call i32 @XAllocColor(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %8) #15
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %103, label %26
 
@@ -1386,7 +1386,7 @@ define internal fastcc i32 @alloc_col(ptr noundef %0, i64 noundef %1, i32 nounde
   %35 = getelementptr inbounds nuw %struct.ColorEntry, ptr %34, i64 %30
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 3
   store i8 2, ptr %36, align 1
-  %37 = call i32 @XFreeColors(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %8, i32 noundef 1, i64 noundef 0) #14
+  %37 = call i32 @XFreeColors(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %8, i32 noundef 1, i64 noundef 0) #15
   br label %105
 
 thread-pre-split:                                 ; preds = %26, %29
@@ -1394,7 +1394,7 @@ thread-pre-split:                                 ; preds = %26, %29
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %thread-pre-split
-  %40 = call i32 @XFreeColors(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %8, i32 noundef 1, i64 noundef 0) #14
+  %40 = call i32 @XFreeColors(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %8, i32 noundef 1, i64 noundef 0) #15
   %41 = call i32 @awt_color_match(i32 noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %6)
   br label %105
 
@@ -1499,7 +1499,7 @@ define hidden ptr @getColorSpace(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
+  %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
   %7 = icmp eq ptr %6, null
   br i1 %7, label %19, label %8
 
@@ -1507,7 +1507,7 @@ define hidden ptr @getColorSpace(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 904
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #14
+  %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #15
   %13 = icmp eq ptr %12, null
   br i1 %13, label %19, label %14
 
@@ -1515,7 +1515,7 @@ define hidden ptr @getColorSpace(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 912
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call ptr (ptr, ptr, ptr, ...) %17(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %12, i32 noundef %1) #14
+  %18 = tail call ptr (ptr, ptr, ptr, ...) %17(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %12, i32 noundef %1) #15
   br label %19
 
 19:                                               ; preds = %8, %2, %14
@@ -1531,7 +1531,7 @@ define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr noundef readonly cap
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef nonnull %0, i32 noundef 16) #14
+  %9 = tail call i32 %8(ptr noundef nonnull %0, i32 noundef 16) #15
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %386, label %11
 
@@ -1552,7 +1552,7 @@ define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr noundef readonly cap
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call ptr %20(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #14
+  %21 = tail call ptr %20(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #15
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %28
 
@@ -1560,7 +1560,7 @@ define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr noundef readonly cap
   %24 = load ptr, ptr %0, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 160
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call ptr %26(ptr noundef nonnull %0, ptr noundef null) #14
+  %27 = tail call ptr %26(ptr noundef nonnull %0, ptr noundef null) #15
   br label %386
 
 28:                                               ; preds = %17
@@ -1573,7 +1573,7 @@ define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr noundef readonly cap
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 264
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call ptr %34(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #14
+  %35 = tail call ptr %34(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #15
   %36 = icmp eq ptr %35, null
   %37 = load ptr, ptr %0, align 8
   br i1 %36, label %38, label %42
@@ -1581,7 +1581,7 @@ define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr noundef readonly cap
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 160
   %40 = load ptr, ptr %39, align 8
-  %41 = tail call ptr %40(ptr noundef nonnull %0, ptr noundef null) #14
+  %41 = tail call ptr %40(ptr noundef nonnull %0, ptr noundef null) #15
   br label %386
 
 42:                                               ; preds = %32
@@ -1595,13 +1595,13 @@ define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr noundef readonly cap
   %50 = load i64, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %52 = load i64, ptr %51, align 8
-  %53 = tail call ptr (ptr, ptr, ptr, ...) %44(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %35, i32 noundef %46, i64 noundef %48, i64 noundef %50, i64 noundef %52, i32 noundef 0) #14
+  %53 = tail call ptr (ptr, ptr, ptr, ...) %44(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %35, i32 noundef %46, i64 noundef %48, i64 noundef %50, i64 noundef %52, i32 noundef 0) #15
   br label %122
 
 54:                                               ; preds = %28
   %55 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call ptr %56(ptr noundef nonnull %0, ptr noundef nonnull @.str.12) #14
+  %57 = tail call ptr %56(ptr noundef nonnull %0, ptr noundef nonnull @.str.12) #15
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %64
 
@@ -1609,7 +1609,7 @@ define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr noundef readonly cap
   %60 = load ptr, ptr %0, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 160
   %62 = load ptr, ptr %61, align 8
-  %63 = tail call ptr %62(ptr noundef nonnull %0, ptr noundef null) #14
+  %63 = tail call ptr %62(ptr noundef nonnull %0, ptr noundef null) #15
   br label %386
 
 64:                                               ; preds = %54
@@ -1622,7 +1622,7 @@ define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr noundef readonly cap
   br i1 %67, label %71, label %110
 
 71:                                               ; preds = %64
-  %72 = tail call ptr %70(ptr noundef nonnull %0, ptr noundef nonnull %57, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #14
+  %72 = tail call ptr %70(ptr noundef nonnull %0, ptr noundef nonnull %57, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #15
   %73 = icmp eq ptr %72, null
   %74 = load ptr, ptr %0, align 8
   br i1 %73, label %75, label %79
@@ -1630,7 +1630,7 @@ define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr noundef readonly cap
 75:                                               ; preds = %71
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 160
   %77 = load ptr, ptr %76, align 8
-  %78 = tail call ptr %77(ptr noundef nonnull %0, ptr noundef null) #14
+  %78 = tail call ptr %77(ptr noundef nonnull %0, ptr noundef null) #15
   br label %386
 
 79:                                               ; preds = %71
@@ -1663,11 +1663,11 @@ define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr noundef readonly cap
   %106 = load i16, ptr %105, align 4
   %107 = zext nneg i16 %106 to i32
   %108 = shl i32 %104, %107
-  %109 = tail call ptr (ptr, ptr, ptr, ...) %81(ptr noundef nonnull %0, ptr noundef nonnull %57, ptr noundef nonnull %72, i32 noundef %87, i32 noundef %94, i32 noundef %101, i32 noundef %108, i32 noundef 1) #14
+  %109 = tail call ptr (ptr, ptr, ptr, ...) %81(ptr noundef nonnull %0, ptr noundef nonnull %57, ptr noundef nonnull %72, i32 noundef %87, i32 noundef %94, i32 noundef %101, i32 noundef %108, i32 noundef 1) #15
   br label %122
 
 110:                                              ; preds = %64
-  %111 = tail call ptr %70(ptr noundef nonnull %0, ptr noundef nonnull %57, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #14
+  %111 = tail call ptr %70(ptr noundef nonnull %0, ptr noundef nonnull %57, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #15
   %112 = icmp eq ptr %111, null
   %113 = load ptr, ptr %0, align 8
   br i1 %112, label %114, label %118
@@ -1675,13 +1675,13 @@ define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr noundef readonly cap
 114:                                              ; preds = %110
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 160
   %116 = load ptr, ptr %115, align 8
-  %117 = tail call ptr %116(ptr noundef nonnull %0, ptr noundef null) #14
+  %117 = tail call ptr %116(ptr noundef nonnull %0, ptr noundef null) #15
   br label %386
 
 118:                                              ; preds = %110
   %119 = getelementptr inbounds nuw i8, ptr %113, i64 912
   %120 = load ptr, ptr %119, align 8
-  %121 = tail call ptr (ptr, ptr, ptr, ...) %120(ptr noundef nonnull %0, ptr noundef nonnull %57, ptr noundef nonnull %111) #14
+  %121 = tail call ptr (ptr, ptr, ptr, ...) %120(ptr noundef nonnull %0, ptr noundef nonnull %57, ptr noundef nonnull %111) #15
   br label %122
 
 122:                                              ; preds = %79, %118, %42
@@ -1693,7 +1693,7 @@ define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr noundef readonly cap
   %125 = load ptr, ptr %0, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 160
   %127 = load ptr, ptr %126, align 8
-  %128 = tail call ptr %127(ptr noundef nonnull %0, ptr noundef null) #14
+  %128 = tail call ptr %127(ptr noundef nonnull %0, ptr noundef null) #15
   br label %386
 
 129:                                              ; preds = %11
@@ -1706,7 +1706,7 @@ define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr noundef readonly cap
   %134 = load ptr, ptr %0, align 8
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 48
   %136 = load ptr, ptr %135, align 8
-  %137 = tail call ptr %136(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
+  %137 = tail call ptr %136(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
   %138 = icmp eq ptr %137, null
   br i1 %138, label %getColorSpace.exit.thread, label %139
 
@@ -1714,7 +1714,7 @@ define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr noundef readonly cap
   %140 = load ptr, ptr %0, align 8
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 904
   %142 = load ptr, ptr %141, align 8
-  %143 = tail call ptr %142(ptr noundef nonnull %0, ptr noundef nonnull %137, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #14
+  %143 = tail call ptr %142(ptr noundef nonnull %0, ptr noundef nonnull %137, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #15
   %144 = icmp eq ptr %143, null
   br i1 %144, label %getColorSpace.exit.thread, label %getColorSpace.exit
 
@@ -1722,7 +1722,7 @@ getColorSpace.exit:                               ; preds = %139
   %145 = load ptr, ptr %0, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 912
   %147 = load ptr, ptr %146, align 8
-  %148 = tail call ptr (ptr, ptr, ptr, ...) %147(ptr noundef nonnull %0, ptr noundef nonnull %137, ptr noundef nonnull %143, i32 noundef 1003) #14
+  %148 = tail call ptr (ptr, ptr, ptr, ...) %147(ptr noundef nonnull %0, ptr noundef nonnull %137, ptr noundef nonnull %143, i32 noundef 1003) #15
   %149 = icmp eq ptr %148, null
   br i1 %149, label %getColorSpace.exit.thread, label %154
 
@@ -1730,7 +1730,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   %150 = load ptr, ptr %0, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 160
   %152 = load ptr, ptr %151, align 8
-  %153 = tail call ptr %152(ptr noundef nonnull %0, ptr noundef null) #14
+  %153 = tail call ptr %152(ptr noundef nonnull %0, ptr noundef null) #15
   br label %386
 
 154:                                              ; preds = %getColorSpace.exit
@@ -1738,7 +1738,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   %155 = load ptr, ptr %0, align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 1432
   %157 = load ptr, ptr %156, align 8
-  %158 = tail call ptr %157(ptr noundef nonnull %0, i32 noundef 1) #14
+  %158 = tail call ptr %157(ptr noundef nonnull %0, i32 noundef 1) #15
   %159 = icmp eq ptr %158, null
   %160 = load ptr, ptr %0, align 8
   br i1 %159, label %161, label %165
@@ -1746,17 +1746,17 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
 161:                                              ; preds = %154
   %162 = getelementptr inbounds nuw i8, ptr %160, i64 160
   %163 = load ptr, ptr %162, align 8
-  %164 = tail call ptr %163(ptr noundef nonnull %0, ptr noundef null) #14
+  %164 = tail call ptr %163(ptr noundef nonnull %0, ptr noundef null) #15
   br label %386
 
 165:                                              ; preds = %154
   %166 = getelementptr inbounds nuw i8, ptr %160, i64 1688
   %167 = load ptr, ptr %166, align 8
-  call void %167(ptr noundef nonnull %0, ptr noundef nonnull %158, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3) #14
+  call void %167(ptr noundef nonnull %0, ptr noundef nonnull %158, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3) #15
   %168 = load ptr, ptr %0, align 8
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 48
   %170 = load ptr, ptr %169, align 8
-  %171 = call ptr %170(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #14
+  %171 = call ptr %170(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #15
   %172 = icmp eq ptr %171, null
   %173 = load ptr, ptr %0, align 8
   br i1 %172, label %174, label %178
@@ -1764,13 +1764,13 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
 174:                                              ; preds = %165
   %175 = getelementptr inbounds nuw i8, ptr %173, i64 160
   %176 = load ptr, ptr %175, align 8
-  %177 = call ptr %176(ptr noundef nonnull %0, ptr noundef null) #14
+  %177 = call ptr %176(ptr noundef nonnull %0, ptr noundef null) #15
   br label %386
 
 178:                                              ; preds = %165
   %179 = getelementptr inbounds nuw i8, ptr %173, i64 264
   %180 = load ptr, ptr %179, align 8
-  %181 = call ptr %180(ptr noundef nonnull %0, ptr noundef nonnull %171, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.18) #14
+  %181 = call ptr %180(ptr noundef nonnull %0, ptr noundef nonnull %171, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.18) #15
   %182 = icmp eq ptr %181, null
   %183 = load ptr, ptr %0, align 8
   br i1 %182, label %184, label %188
@@ -1778,13 +1778,13 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
 184:                                              ; preds = %178
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 160
   %186 = load ptr, ptr %185, align 8
-  %187 = call ptr %186(ptr noundef nonnull %0, ptr noundef null) #14
+  %187 = call ptr %186(ptr noundef nonnull %0, ptr noundef null) #15
   br label %386
 
 188:                                              ; preds = %178
   %189 = getelementptr inbounds nuw i8, ptr %183, i64 224
   %190 = load ptr, ptr %189, align 8
-  %191 = call ptr (ptr, ptr, ptr, ...) %190(ptr noundef nonnull %0, ptr noundef nonnull %171, ptr noundef nonnull %181, ptr noundef nonnull %148, ptr noundef nonnull %158, i32 noundef 0, i32 noundef 0, i64 noundef 1, i64 noundef 0) #14
+  %191 = call ptr (ptr, ptr, ptr, ...) %190(ptr noundef nonnull %0, ptr noundef nonnull %171, ptr noundef nonnull %181, ptr noundef nonnull %148, ptr noundef nonnull %158, i32 noundef 0, i32 noundef 0, i64 noundef 1, i64 noundef 0) #15
   %192 = icmp eq ptr %191, null
   br i1 %192, label %193, label %381
 
@@ -1792,7 +1792,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   %194 = load ptr, ptr %0, align 8
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 160
   %196 = load ptr, ptr %195, align 8
-  %197 = call ptr %196(ptr noundef nonnull %0, ptr noundef null) #14
+  %197 = call ptr %196(ptr noundef nonnull %0, ptr noundef null) #15
   br label %386
 
 .thread:                                          ; preds = %11, %14, %129
@@ -1890,7 +1890,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
 
 249:                                              ; preds = %243
   store i32 1, ptr %246, align 8
-  %250 = tail call noalias dereferenceable_or_null(256) ptr @calloc(i64 noundef 256, i64 noundef 1) #15
+  %250 = tail call noalias dereferenceable_or_null(256) ptr @calloc(i64 noundef 256, i64 noundef 1) #16
   %251 = load ptr, ptr %201, align 8
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 32
   store ptr %250, ptr %252, align 8
@@ -1904,7 +1904,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   %258 = load ptr, ptr %0, align 8
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 160
   %260 = load ptr, ptr %259, align 8
-  %261 = tail call ptr %260(ptr noundef nonnull %0, ptr noundef null) #14
+  %261 = tail call ptr %260(ptr noundef nonnull %0, ptr noundef null) #15
   br label %386
 
 .preheader267:                                    ; preds = %249, %281
@@ -2050,7 +2050,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
 329:                                              ; preds = %324
   %330 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %331 = load i32, ptr %330, align 8
-  call void @initInverseGrayLut(ptr noundef nonnull %4, i32 noundef %331, ptr noundef nonnull %325) #14
+  call void @initInverseGrayLut(ptr noundef nonnull %4, i32 noundef %331, ptr noundef nonnull %325) #15
   br label %332
 
 332:                                              ; preds = %324, %329, %.loopexit
@@ -2062,7 +2062,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   %334 = load ptr, ptr %0, align 8
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 1408
   %336 = load ptr, ptr %335, align 8
-  %337 = call ptr %336(ptr noundef nonnull %0, i32 noundef 512) #14
+  %337 = call ptr %336(ptr noundef nonnull %0, i32 noundef 512) #15
   %338 = icmp eq ptr %337, null
   %339 = load ptr, ptr %0, align 8
   br i1 %338, label %340, label %344
@@ -2070,14 +2070,14 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
 340:                                              ; preds = %333
   %341 = getelementptr inbounds nuw i8, ptr %339, i64 160
   %342 = load ptr, ptr %341, align 8
-  %343 = call ptr %342(ptr noundef nonnull %0, ptr noundef null) #14
+  %343 = call ptr %342(ptr noundef nonnull %0, ptr noundef null) #15
   br label %386
 
 344:                                              ; preds = %333
   %345 = getelementptr inbounds nuw i8, ptr %339, i64 1664
   %346 = load ptr, ptr %345, align 8
-  call void %346(ptr noundef nonnull %0, ptr noundef nonnull %337, i32 noundef 0, i32 noundef 512, ptr noundef nonnull %5) #14
-  %347 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %337) #14
+  call void %346(ptr noundef nonnull %0, ptr noundef nonnull %337, i32 noundef 0, i32 noundef 512, ptr noundef nonnull %5) #15
+  %347 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %337) #15
   %348 = icmp eq ptr %347, null
   br i1 %348, label %349, label %354
 
@@ -2085,7 +2085,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   %350 = load ptr, ptr %0, align 8
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 160
   %352 = load ptr, ptr %351, align 8
-  %353 = call ptr %352(ptr noundef nonnull %0, ptr noundef null) #14
+  %353 = call ptr %352(ptr noundef nonnull %0, ptr noundef null) #15
   br label %386
 
 354:                                              ; preds = %344, %332
@@ -2093,7 +2093,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   %355 = load ptr, ptr %0, align 8
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 1432
   %357 = load ptr, ptr %356, align 8
-  %358 = call ptr %357(ptr noundef nonnull %0, i32 noundef %.) #14
+  %358 = call ptr %357(ptr noundef nonnull %0, i32 noundef %.) #15
   %359 = icmp eq ptr %358, null
   %360 = load ptr, ptr %0, align 8
   br i1 %359, label %361, label %365
@@ -2101,23 +2101,23 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
 361:                                              ; preds = %354
   %362 = getelementptr inbounds nuw i8, ptr %360, i64 160
   %363 = load ptr, ptr %362, align 8
-  %364 = call ptr %363(ptr noundef nonnull %0, ptr noundef null) #14
+  %364 = call ptr %363(ptr noundef nonnull %0, ptr noundef null) #15
   br label %386
 
 365:                                              ; preds = %354
   %366 = getelementptr inbounds nuw i8, ptr %360, i64 1688
   %367 = load ptr, ptr %366, align 8
-  call void %367(ptr noundef nonnull %0, ptr noundef nonnull %358, i32 noundef 0, i32 noundef %., ptr noundef nonnull %4) #14
+  call void %367(ptr noundef nonnull %0, ptr noundef nonnull %358, i32 noundef 0, i32 noundef %., ptr noundef nonnull %4) #15
   %368 = load i32, ptr %198, align 4
   %369 = icmp eq i32 %368, 8
   br i1 %369, label %370, label %372
 
 370:                                              ; preds = %365
-  %371 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 8, i32 noundef 256, ptr noundef nonnull %358, i32 noundef 0, i64 noundef 0, ptr noundef %.0233) #14
+  %371 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 8, i32 noundef 256, ptr noundef nonnull %358, i32 noundef 0, i64 noundef 0, ptr noundef %.0233) #15
   br label %374
 
 372:                                              ; preds = %365
-  %373 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 12, i32 noundef 4096, ptr noundef nonnull %358, i32 noundef 0, i64 noundef 1, ptr noundef %.0233) #14
+  %373 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 12, i32 noundef 4096, ptr noundef nonnull %358, i32 noundef 0, i64 noundef 1, ptr noundef %.0233) #15
   br label %374
 
 374:                                              ; preds = %372, %370
@@ -2129,7 +2129,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   %377 = load ptr, ptr %0, align 8
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 160
   %379 = load ptr, ptr %378, align 8
-  %380 = call ptr %379(ptr noundef nonnull %0, ptr noundef null) #14
+  %380 = call ptr %379(ptr noundef nonnull %0, ptr noundef null) #15
   br label %386
 
 381:                                              ; preds = %188, %374, %122
@@ -2137,7 +2137,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   %382 = load ptr, ptr %0, align 8
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 160
   %384 = load ptr, ptr %383, align 8
-  %385 = call ptr %384(ptr noundef nonnull %0, ptr noundef nonnull %.1235) #14
+  %385 = call ptr %384(ptr noundef nonnull %0, ptr noundef nonnull %.1235) #15
   br label %386
 
 386:                                              ; preds = %2, %381, %376, %361, %349, %340, %257, %193, %184, %174, %161, %getColorSpace.exit.thread, %124, %114, %75, %59, %38, %23
@@ -2215,12 +2215,12 @@ define hidden range(i32 0, 2) i32 @awtCreateX11Colormap(ptr noundef captures(non
   br i1 %.not, label %.thread, label %28
 
 28:                                               ; preds = %22
-  %29 = call i32 @XGetWindowProperty(ptr noundef nonnull %11, i64 noundef %24, i64 noundef 27, i64 noundef 0, i64 noundef 1, i32 noundef 0, i64 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #14
+  %29 = call i32 @XGetWindowProperty(ptr noundef nonnull %11, i64 noundef %24, i64 noundef 27, i64 noundef 0, i64 noundef 1, i32 noundef 0, i64 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
   %30 = load ptr, ptr @awt_display, align 8
   %31 = load i64, ptr %5, align 8
   %32 = lshr i64 %31, 2
   %33 = add nuw nsw i64 %32, 1
-  %34 = call i32 @XGetWindowProperty(ptr noundef %30, i64 noundef %24, i64 noundef 27, i64 noundef 0, i64 noundef %33, i32 noundef 0, i64 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #14
+  %34 = call i32 @XGetWindowProperty(ptr noundef %30, i64 noundef %24, i64 noundef 27, i64 noundef 0, i64 noundef %33, i32 noundef 0, i64 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
   %35 = load i64, ptr %4, align 8
   %36 = udiv i64 %35, 20
   %.not1925 = icmp ult i64 %35, 20
@@ -2261,7 +2261,7 @@ define hidden range(i32 0, 2) i32 @awtCreateX11Colormap(ptr noundef captures(non
 .thread:                                          ; preds = %.thread.loopexit, %22, %47
   %49 = load ptr, ptr @awt_display, align 8
   %50 = load ptr, ptr %7, align 8
-  %51 = call i64 @XCreateColormap(ptr noundef %49, i64 noundef %24, ptr noundef %50, i32 noundef 0) #14
+  %51 = call i64 @XCreateColormap(ptr noundef %49, i64 noundef %24, ptr noundef %50, i32 noundef 0) #15
   br label %52
 
 52:                                               ; preds = %47, %.thread, %19
@@ -2275,7 +2275,7 @@ define hidden range(i32 0, 2) i32 @awtCreateX11Colormap(ptr noundef captures(non
 55:                                               ; preds = %52
   %56 = load ptr, ptr @awt_display, align 8
   %57 = load i64, ptr %53, align 8
-  %58 = call i32 @XFreeColormap(ptr noundef %56, i64 noundef %57) #14
+  %58 = call i32 @XFreeColormap(ptr noundef %56, i64 noundef %57) #15
   store i64 0, ptr %53, align 8
   br label %59
 
@@ -2300,7 +2300,7 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr noundef captures(
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1824
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call zeroext i8 %8(ptr noundef nonnull %0) #14
+  %9 = tail call zeroext i8 %8(ptr noundef nonnull %0) #15
   %.not92 = icmp eq i8 %9, 0
   br i1 %.not92, label %14, label %10
 
@@ -2308,7 +2308,7 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr noundef captures(
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull %0) #14
+  tail call void %13(ptr noundef nonnull %0) #15
   br label %14
 
 14:                                               ; preds = %10, %5
@@ -2317,11 +2317,11 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr noundef captures(
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr @tkClass, align 8
   %19 = load ptr, ptr @awtLockMID, align 8
-  tail call void (ptr, ptr, ptr, ...) %17(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %19) #14
+  tail call void (ptr, ptr, ptr, ...) %17(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %19) #15
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1824
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call zeroext i8 %22(ptr noundef nonnull %0) #14
+  %23 = tail call zeroext i8 %22(ptr noundef nonnull %0) #15
   %.not93 = icmp eq i8 %23, 0
   br i1 %.not93, label %28, label %24
 
@@ -2329,7 +2329,7 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr noundef captures(
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 136
   %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull %0) #14
+  tail call void %27(ptr noundef nonnull %0) #15
   br label %28
 
 28:                                               ; preds = %24, %14, %3
@@ -2350,11 +2350,11 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr noundef captures(
   br i1 %.not, label %70, label %36
 
 36:                                               ; preds = %35
-  tail call void (...) @awt_output_flush() #14
+  tail call void (...) @awt_output_flush() #15
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 120
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call ptr %39(ptr noundef nonnull %0) #14
+  %40 = tail call ptr %39(ptr noundef nonnull %0) #15
   %.not94 = icmp eq ptr %40, null
   br i1 %.not94, label %45, label %41
 
@@ -2362,7 +2362,7 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr noundef captures(
   %42 = load ptr, ptr %0, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 136
   %44 = load ptr, ptr %43, align 8
-  tail call void %44(ptr noundef nonnull %0) #14
+  tail call void %44(ptr noundef nonnull %0) #15
   br label %45
 
 45:                                               ; preds = %41, %36
@@ -2371,11 +2371,11 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr noundef captures(
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr @tkClass, align 8
   %50 = load ptr, ptr @awtUnlockMID, align 8
-  tail call void (ptr, ptr, ptr, ...) %48(ptr noundef nonnull %0, ptr noundef %49, ptr noundef %50) #14
+  tail call void (ptr, ptr, ptr, ...) %48(ptr noundef nonnull %0, ptr noundef %49, ptr noundef %50) #15
   %51 = load ptr, ptr %0, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 1824
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call zeroext i8 %53(ptr noundef nonnull %0) #14
+  %54 = tail call zeroext i8 %53(ptr noundef nonnull %0) #15
   %.not95 = icmp eq i8 %54, 0
   br i1 %.not95, label %59, label %55
 
@@ -2383,7 +2383,7 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr noundef captures(
   %56 = load ptr, ptr %0, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 136
   %58 = load ptr, ptr %57, align 8
-  tail call void %58(ptr noundef nonnull %0) #14
+  tail call void %58(ptr noundef nonnull %0) #15
   br label %59
 
 59:                                               ; preds = %55, %45
@@ -2393,14 +2393,14 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr noundef captures(
   %61 = load ptr, ptr %0, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 104
   %63 = load ptr, ptr %62, align 8
-  %64 = tail call i32 %63(ptr noundef nonnull %0, ptr noundef nonnull %40) #14
+  %64 = tail call i32 %63(ptr noundef nonnull %0, ptr noundef nonnull %40) #15
   br label %65
 
 65:                                               ; preds = %59, %60
   %66 = load ptr, ptr %0, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 1824
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call zeroext i8 %68(ptr noundef nonnull %0) #14
+  %69 = tail call zeroext i8 %68(ptr noundef nonnull %0) #15
   %.not96 = icmp eq i8 %69, 0
   br i1 %.not96, label %70, label %185
 
@@ -2408,7 +2408,7 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr noundef captures(
   %71 = load ptr, ptr %0, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 48
   %73 = load ptr, ptr %72, align 8
-  %74 = tail call ptr %73(ptr noundef %0, ptr noundef nonnull @.str.23) #14
+  %74 = tail call ptr %73(ptr noundef %0, ptr noundef nonnull @.str.23) #15
   %75 = icmp eq ptr %74, null
   br i1 %75, label %185, label %76
 
@@ -2419,7 +2419,7 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr noundef captures(
   %78 = load ptr, ptr %0, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 1824
   %80 = load ptr, ptr %79, align 8
-  %81 = tail call zeroext i8 %80(ptr noundef nonnull %0) #14
+  %81 = tail call zeroext i8 %80(ptr noundef nonnull %0) #15
   %.not97 = icmp eq i8 %81, 0
   br i1 %.not97, label %86, label %82
 
@@ -2427,7 +2427,7 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr noundef captures(
   %83 = load ptr, ptr %0, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 136
   %85 = load ptr, ptr %84, align 8
-  tail call void %85(ptr noundef nonnull %0) #14
+  tail call void %85(ptr noundef nonnull %0) #15
   br label %86
 
 86:                                               ; preds = %82, %77
@@ -2436,11 +2436,11 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr noundef captures(
   %89 = load ptr, ptr %88, align 8
   %90 = load ptr, ptr @tkClass, align 8
   %91 = load ptr, ptr @awtLockMID, align 8
-  tail call void (ptr, ptr, ptr, ...) %89(ptr noundef nonnull %0, ptr noundef %90, ptr noundef %91) #14
+  tail call void (ptr, ptr, ptr, ...) %89(ptr noundef nonnull %0, ptr noundef %90, ptr noundef %91) #15
   %92 = load ptr, ptr %0, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 1824
   %94 = load ptr, ptr %93, align 8
-  %95 = tail call zeroext i8 %94(ptr noundef nonnull %0) #14
+  %95 = tail call zeroext i8 %94(ptr noundef nonnull %0) #15
   %.not98 = icmp eq i8 %95, 0
   br i1 %.not98, label %100, label %96
 
@@ -2448,14 +2448,14 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr noundef captures(
   %97 = load ptr, ptr %0, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 136
   %99 = load ptr, ptr %98, align 8
-  tail call void %99(ptr noundef nonnull %0) #14
+  tail call void %99(ptr noundef nonnull %0) #15
   br label %100
 
 100:                                              ; preds = %96, %86, %76
   %101 = load ptr, ptr %0, align 8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 1152
   %103 = load ptr, ptr %102, align 8
-  %104 = tail call ptr %103(ptr noundef nonnull %0, ptr noundef nonnull %74, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25) #14
+  %104 = tail call ptr %103(ptr noundef nonnull %0, ptr noundef nonnull %74, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25) #15
   %105 = icmp eq ptr %104, null
   br i1 %105, label %106, label %136
 
@@ -2463,11 +2463,11 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr noundef captures(
   br i1 %.not, label %185, label %107
 
 107:                                              ; preds = %106
-  tail call void (...) @awt_output_flush() #14
+  tail call void (...) @awt_output_flush() #15
   %108 = load ptr, ptr %0, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 120
   %110 = load ptr, ptr %109, align 8
-  %111 = tail call ptr %110(ptr noundef nonnull %0) #14
+  %111 = tail call ptr %110(ptr noundef nonnull %0) #15
   %.not101 = icmp eq ptr %111, null
   br i1 %.not101, label %116, label %112
 
@@ -2475,7 +2475,7 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr noundef captures(
   %113 = load ptr, ptr %0, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 136
   %115 = load ptr, ptr %114, align 8
-  tail call void %115(ptr noundef nonnull %0) #14
+  tail call void %115(ptr noundef nonnull %0) #15
   br label %116
 
 116:                                              ; preds = %112, %107
@@ -2484,11 +2484,11 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr noundef captures(
   %119 = load ptr, ptr %118, align 8
   %120 = load ptr, ptr @tkClass, align 8
   %121 = load ptr, ptr @awtUnlockMID, align 8
-  tail call void (ptr, ptr, ptr, ...) %119(ptr noundef nonnull %0, ptr noundef %120, ptr noundef %121) #14
+  tail call void (ptr, ptr, ptr, ...) %119(ptr noundef nonnull %0, ptr noundef %120, ptr noundef %121) #15
   %122 = load ptr, ptr %0, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 1824
   %124 = load ptr, ptr %123, align 8
-  %125 = tail call zeroext i8 %124(ptr noundef nonnull %0) #14
+  %125 = tail call zeroext i8 %124(ptr noundef nonnull %0) #15
   %.not102 = icmp eq i8 %125, 0
   br i1 %.not102, label %130, label %126
 
@@ -2496,7 +2496,7 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr noundef captures(
   %127 = load ptr, ptr %0, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 136
   %129 = load ptr, ptr %128, align 8
-  tail call void %129(ptr noundef nonnull %0) #14
+  tail call void %129(ptr noundef nonnull %0) #15
   br label %130
 
 130:                                              ; preds = %126, %116
@@ -2506,18 +2506,18 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr noundef captures(
   %132 = load ptr, ptr %0, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 104
   %134 = load ptr, ptr %133, align 8
-  %135 = tail call i32 %134(ptr noundef nonnull %0, ptr noundef nonnull %111) #14
+  %135 = tail call i32 %134(ptr noundef nonnull %0, ptr noundef nonnull %111) #15
   br label %185
 
 136:                                              ; preds = %100
   %137 = load ptr, ptr %0, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 1160
   %139 = load ptr, ptr %138, align 8
-  %140 = tail call ptr %139(ptr noundef nonnull %0, ptr noundef nonnull %74, ptr noundef nonnull %104) #14
+  %140 = tail call ptr %139(ptr noundef nonnull %0, ptr noundef nonnull %74, ptr noundef nonnull %104) #15
   %141 = load ptr, ptr %0, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 1624
   %143 = load ptr, ptr %142, align 8
-  call void %143(ptr noundef nonnull %0, ptr noundef %140, i32 noundef 0, i32 noundef 26, ptr noundef nonnull %4) #14
+  call void %143(ptr noundef nonnull %0, ptr noundef %140, i32 noundef 0, i32 noundef 26, ptr noundef nonnull %4) #15
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %145
 
@@ -2541,11 +2541,11 @@ awt_allocate_systemrgbcolors.exit:                ; preds = %145, %28, %31
   br i1 %.not, label %185, label %156
 
 156:                                              ; preds = %awt_allocate_systemrgbcolors.exit
-  call void (...) @awt_output_flush() #14
+  call void (...) @awt_output_flush() #15
   %157 = load ptr, ptr %0, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 120
   %159 = load ptr, ptr %158, align 8
-  %160 = call ptr %159(ptr noundef %0) #14
+  %160 = call ptr %159(ptr noundef %0) #15
   %.not99 = icmp eq ptr %160, null
   br i1 %.not99, label %165, label %161
 
@@ -2553,7 +2553,7 @@ awt_allocate_systemrgbcolors.exit:                ; preds = %145, %28, %31
   %162 = load ptr, ptr %0, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 136
   %164 = load ptr, ptr %163, align 8
-  call void %164(ptr noundef nonnull %0) #14
+  call void %164(ptr noundef nonnull %0) #15
   br label %165
 
 165:                                              ; preds = %161, %156
@@ -2562,11 +2562,11 @@ awt_allocate_systemrgbcolors.exit:                ; preds = %145, %28, %31
   %168 = load ptr, ptr %167, align 8
   %169 = load ptr, ptr @tkClass, align 8
   %170 = load ptr, ptr @awtUnlockMID, align 8
-  call void (ptr, ptr, ptr, ...) %168(ptr noundef nonnull %0, ptr noundef %169, ptr noundef %170) #14
+  call void (ptr, ptr, ptr, ...) %168(ptr noundef nonnull %0, ptr noundef %169, ptr noundef %170) #15
   %171 = load ptr, ptr %0, align 8
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 1824
   %173 = load ptr, ptr %172, align 8
-  %174 = call zeroext i8 %173(ptr noundef nonnull %0) #14
+  %174 = call zeroext i8 %173(ptr noundef nonnull %0) #15
   %.not100 = icmp eq i8 %174, 0
   br i1 %.not100, label %179, label %175
 
@@ -2574,7 +2574,7 @@ awt_allocate_systemrgbcolors.exit:                ; preds = %145, %28, %31
   %176 = load ptr, ptr %0, align 8
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 136
   %178 = load ptr, ptr %177, align 8
-  call void %178(ptr noundef nonnull %0) #14
+  call void %178(ptr noundef nonnull %0) #15
   br label %179
 
 179:                                              ; preds = %175, %165
@@ -2584,7 +2584,7 @@ awt_allocate_systemrgbcolors.exit:                ; preds = %145, %28, %31
   %181 = load ptr, ptr %0, align 8
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 104
   %183 = load ptr, ptr %182, align 8
-  %184 = call i32 %183(ptr noundef nonnull %0, ptr noundef nonnull %160) #14
+  %184 = call i32 %183(ptr noundef nonnull %0, ptr noundef nonnull %160) #15
   br label %185
 
 185:                                              ; preds = %179, %180, %106, %131, %130, %70, %65, %awt_allocate_systemrgbcolors.exit
@@ -2595,23 +2595,23 @@ declare void @awt_output_flush(...) local_unnamed_addr #7
 
 declare i32 @XAllocColor(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #13
+declare i32 @llvm.abs.i32(i32, i1 immarg) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2623,10 +2623,11 @@ attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroe
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind allocsize(0,1) }
-attributes #16 = { nounwind willreturn memory(read) }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind allocsize(0,1) }
+attributes #17 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

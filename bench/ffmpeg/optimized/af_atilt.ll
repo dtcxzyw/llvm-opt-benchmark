@@ -35,13 +35,13 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1008
-  tail call void @av_frame_free(ptr noundef nonnull %4) #8
+  tail call void @av_frame_free(ptr noundef nonnull %4) #9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 1) i32 @process_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #1 {
-  %7 = tail call i32 @ff_filter_process_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #8
+  %7 = tail call i32 @ff_filter_process_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #9
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %get_coeffs.exit, label %9
 
@@ -141,23 +141,23 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %10 = load ptr, ptr %9, align 8, !tbaa !48
   %11 = load ptr, ptr %10, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %12 = tail call i32 @av_frame_is_writable(ptr noundef %1) #8
+  %12 = tail call i32 @av_frame_is_writable(ptr noundef %1) #9
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %20
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %15 = load i32, ptr %14, align 8, !tbaa !49
-  %16 = tail call ptr @ff_get_audio_buffer(ptr noundef %11, i32 noundef %15) #8
+  %16 = tail call ptr @ff_get_audio_buffer(ptr noundef %11, i32 noundef %15) #9
   %.not20 = icmp eq ptr %16, null
   br i1 %.not20, label %17, label %18
 
 17:                                               ; preds = %13
-  call void @av_frame_free(ptr noundef nonnull %3) #8
+  call void @av_frame_free(ptr noundef nonnull %3) #9
   br label %32
 
 18:                                               ; preds = %13
-  %19 = tail call i32 @av_frame_copy_props(ptr noundef nonnull %16, ptr noundef nonnull %1) #8
+  %19 = tail call i32 @av_frame_copy_props(ptr noundef nonnull %16, ptr noundef nonnull %1) #9
   br label %20
 
 20:                                               ; preds = %2, %18
@@ -169,19 +169,19 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %23 = load ptr, ptr %22, align 8, !tbaa !58
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %25 = load i32, ptr %24, align 4, !tbaa !59
-  %26 = tail call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %6) #9
+  %26 = tail call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %6) #10
   %. = tail call i32 @llvm.smin.i32(i32 %25, i32 %26)
-  %27 = call i32 @ff_filter_execute(ptr noundef nonnull %6, ptr noundef %23, ptr noundef nonnull %4, ptr noundef null, i32 noundef %.) #8
+  %27 = call i32 @ff_filter_execute(ptr noundef nonnull %6, ptr noundef %23, ptr noundef nonnull %4, ptr noundef null, i32 noundef %.) #9
   %28 = load ptr, ptr %3, align 8, !tbaa !46
   %.not21 = icmp eq ptr %.0, %28
   br i1 %.not21, label %30, label %29
 
 29:                                               ; preds = %20
-  call void @av_frame_free(ptr noundef nonnull %3) #8
+  call void @av_frame_free(ptr noundef nonnull %3) #9
   br label %30
 
 30:                                               ; preds = %29, %20
-  %31 = call i32 @ff_filter_frame(ptr noundef %11, ptr noundef %.0) #8
+  %31 = call i32 @ff_filter_frame(ptr noundef %11, ptr noundef %.0) #9
   br label %32
 
 32:                                               ; preds = %30, %17
@@ -213,7 +213,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef %0) #1 {
   br label %10
 
 10:                                               ; preds = %.sink.split, %1
-  %11 = tail call ptr @ff_get_audio_buffer(ptr noundef nonnull %0, i32 noundef 60) #8
+  %11 = tail call ptr @ff_get_audio_buffer(ptr noundef nonnull %0, i32 noundef 60) #9
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 1008
   store ptr %11, ptr %12, align 8, !tbaa !61
   %.not = icmp eq ptr %11, null
@@ -573,41 +573,42 @@ define internal noundef i32 @filter_channels_dblp(ptr noundef readonly captures(
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.pow.f64(double, double) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.tan.f64(double) #5
+declare double @llvm.tan.f64(double) #6
 
 declare ptr @av_default_item_name(ptr noundef) #2
 
 declare i32 @ff_filter_process_command(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #7
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #8
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
+attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

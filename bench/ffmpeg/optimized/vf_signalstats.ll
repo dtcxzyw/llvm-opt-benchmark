@@ -138,21 +138,21 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  tail call void @av_frame_free(ptr noundef nonnull %4) #12
+  tail call void @av_frame_free(ptr noundef nonnull %4) #13
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  tail call void @av_frame_free(ptr noundef nonnull %5) #12
+  tail call void @av_frame_free(ptr noundef nonnull %5) #13
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 136
-  tail call void @av_frame_free(ptr noundef nonnull %6) #12
+  tail call void @av_frame_free(ptr noundef nonnull %6) #13
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  tail call void @av_freep(ptr noundef nonnull %7) #12
+  tail call void @av_freep(ptr noundef nonnull %7) #13
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  tail call void @av_freep(ptr noundef nonnull %8) #12
+  tail call void @av_freep(ptr noundef nonnull %8) #13
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  tail call void @av_freep(ptr noundef nonnull %9) #12
+  tail call void @av_freep(ptr noundef nonnull %9) #13
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  tail call void @av_freep(ptr noundef nonnull %10) #12
+  tail call void @av_freep(ptr noundef nonnull %10) #13
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  tail call void @av_freep(ptr noundef nonnull %11) #12
+  tail call void @av_freep(ptr noundef nonnull %11) #13
   ret void
 }
 
@@ -208,7 +208,7 @@ define internal i32 @filter_frame(ptr noundef %0, ptr noundef %1) #2 {
   br i1 %.not, label %37, label %39
 
 37:                                               ; preds = %2
-  %38 = tail call ptr @av_frame_clone(ptr noundef %1) #12
+  %38 = tail call ptr @av_frame_clone(ptr noundef %1) #13
   store ptr %38, ptr %35, align 8, !tbaa !51
   br label %39
 
@@ -220,32 +220,32 @@ define internal i32 @filter_frame(ptr noundef %0, ptr noundef %1) #2 {
   br i1 %.not439, label %50, label %43
 
 43:                                               ; preds = %39
-  %44 = tail call ptr @av_frame_clone(ptr noundef %1) #12
+  %44 = tail call ptr @av_frame_clone(ptr noundef %1) #13
   store ptr %44, ptr %4, align 8, !tbaa !27
   %.not440 = icmp eq ptr %44, null
   br i1 %.not440, label %45, label %46
 
 45:                                               ; preds = %43
-  call void @av_frame_free(ptr noundef nonnull %3) #12
+  call void @av_frame_free(ptr noundef nonnull %3) #13
   br label %680
 
 46:                                               ; preds = %43
-  %47 = call i32 @ff_inlink_make_frame_writable(ptr noundef nonnull %0, ptr noundef nonnull %4) #12
+  %47 = call i32 @ff_inlink_make_frame_writable(ptr noundef nonnull %0, ptr noundef nonnull %4) #13
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %46
-  call void @av_frame_free(ptr noundef nonnull %4) #12
-  call void @av_frame_free(ptr noundef nonnull %3) #12
+  call void @av_frame_free(ptr noundef nonnull %4) #13
+  call void @av_frame_free(ptr noundef nonnull %3) #13
   br label %680
 
 50:                                               ; preds = %46, %39
   %51 = select i1 %32, ptr @compute_sat_hue_metrics16, ptr @compute_sat_hue_metrics8
   %52 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %53 = load i32, ptr %52, align 8, !tbaa !52
-  %54 = call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %12) #13
+  %54 = call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %12) #14
   %. = call i32 @llvm.smin.i32(i32 %53, i32 %54)
-  %55 = call i32 @ff_filter_execute(ptr noundef nonnull %12, ptr noundef nonnull %51, ptr noundef nonnull %8, ptr noundef null, i32 noundef %.) #12
+  %55 = call i32 @ff_filter_execute(ptr noundef nonnull %12, ptr noundef nonnull %51, ptr noundef nonnull %8, ptr noundef null, i32 noundef %.) #13
   %56 = load ptr, ptr %18, align 8, !tbaa !40
   %57 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %58 = load i32, ptr %57, align 8, !tbaa !53
@@ -740,7 +740,7 @@ define internal i32 @filter_frame(ptr noundef %0, ptr noundef %1) #2 {
   %353 = load ptr, ptr %gep, align 8, !tbaa !75
   %354 = load ptr, ptr %333, align 8, !tbaa !73
   %355 = load i32, ptr %334, align 8, !tbaa !74
-  %356 = call i32 @ff_filter_execute(ptr noundef nonnull %12, ptr noundef %353, ptr noundef nonnull %9, ptr noundef %354, i32 noundef %355) #12
+  %356 = call i32 @ff_filter_execute(ptr noundef nonnull %12, ptr noundef %353, ptr noundef nonnull %9, ptr noundef %354, i32 noundef %355) #13
   %357 = load i32, ptr %334, align 8, !tbaa !74
   %358 = icmp sgt i32 %357, 0
   br i1 %358, label %.lr.ph562, label %361
@@ -1016,122 +1016,122 @@ define internal i32 @filter_frame(ptr noundef %0, ptr noundef %1) #2 {
   br i1 %exitcond660.not, label %478, label %468, !llvm.loop !81
 
 478:                                              ; preds = %468
-  call void @av_frame_free(ptr noundef nonnull %35) #12
+  call void @av_frame_free(ptr noundef nonnull %35) #13
   %479 = load ptr, ptr %3, align 8, !tbaa !27
-  %480 = call ptr @av_frame_clone(ptr noundef %479) #12
+  %480 = call ptr @av_frame_clone(ptr noundef %479) #13
   store ptr %480, ptr %35, align 8, !tbaa !51
   %481 = load ptr, ptr %4, align 8, !tbaa !27
   %482 = getelementptr inbounds nuw i8, ptr %481, i64 312
-  %483 = call i32 @av_dict_set_int(ptr noundef nonnull %482, ptr noundef nonnull @.str.3, i64 noundef %.0353.lcssa, i32 noundef 0) #12
+  %483 = call i32 @av_dict_set_int(ptr noundef nonnull %482, ptr noundef nonnull @.str.3, i64 noundef %.0353.lcssa, i32 noundef 0) #13
   %484 = load ptr, ptr %4, align 8, !tbaa !27
   %485 = getelementptr inbounds nuw i8, ptr %484, i64 312
-  %486 = call i32 @av_dict_set_int(ptr noundef nonnull %485, ptr noundef nonnull @.str.4, i64 noundef %.0371.lcssa, i32 noundef 0) #12
+  %486 = call i32 @av_dict_set_int(ptr noundef nonnull %485, ptr noundef nonnull @.str.4, i64 noundef %.0371.lcssa, i32 noundef 0) #13
   %487 = load i32, ptr %369, align 4, !tbaa !78
   %488 = sitofp i32 %487 to double
   %489 = fdiv nsz double %.0410.lcssa, %488
-  %490 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.5, double noundef %489) #12
+  %490 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.5, double noundef %489) #13
   %491 = load ptr, ptr %4, align 8, !tbaa !27
   %492 = getelementptr inbounds nuw i8, ptr %491, i64 312
-  %493 = call i32 @av_dict_set(ptr noundef nonnull %492, ptr noundef nonnull @.str.6, ptr noundef nonnull %5, i32 noundef 0) #12
+  %493 = call i32 @av_dict_set(ptr noundef nonnull %492, ptr noundef nonnull @.str.6, ptr noundef nonnull %5, i32 noundef 0) #13
   %494 = load ptr, ptr %4, align 8, !tbaa !27
   %495 = getelementptr inbounds nuw i8, ptr %494, i64 312
-  %496 = call i32 @av_dict_set_int(ptr noundef nonnull %495, ptr noundef nonnull @.str.7, i64 noundef %.0420.lcssa, i32 noundef 0) #12
+  %496 = call i32 @av_dict_set_int(ptr noundef nonnull %495, ptr noundef nonnull @.str.7, i64 noundef %.0420.lcssa, i32 noundef 0) #13
   %497 = load ptr, ptr %4, align 8, !tbaa !27
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 312
-  %499 = call i32 @av_dict_set_int(ptr noundef nonnull %498, ptr noundef nonnull @.str.8, i64 noundef %.0363.lcssa, i32 noundef 0) #12
+  %499 = call i32 @av_dict_set_int(ptr noundef nonnull %498, ptr noundef nonnull @.str.8, i64 noundef %.0363.lcssa, i32 noundef 0) #13
   %500 = load ptr, ptr %4, align 8, !tbaa !27
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 312
-  %502 = call i32 @av_dict_set_int(ptr noundef nonnull %501, ptr noundef nonnull @.str.9, i64 noundef %.0357.lcssa, i32 noundef 0) #12
+  %502 = call i32 @av_dict_set_int(ptr noundef nonnull %501, ptr noundef nonnull @.str.9, i64 noundef %.0357.lcssa, i32 noundef 0) #13
   %503 = load ptr, ptr %4, align 8, !tbaa !27
   %504 = getelementptr inbounds nuw i8, ptr %503, i64 312
-  %505 = call i32 @av_dict_set_int(ptr noundef nonnull %504, ptr noundef nonnull @.str.10, i64 noundef %.0373.lcssa, i32 noundef 0) #12
+  %505 = call i32 @av_dict_set_int(ptr noundef nonnull %504, ptr noundef nonnull @.str.10, i64 noundef %.0373.lcssa, i32 noundef 0) #13
   %506 = load i32, ptr %381, align 8, !tbaa !79
   %507 = sitofp i32 %506 to double
   %508 = fdiv nsz double %.0409.lcssa, %507
-  %509 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.5, double noundef %508) #12
+  %509 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.5, double noundef %508) #13
   %510 = load ptr, ptr %4, align 8, !tbaa !27
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 312
-  %512 = call i32 @av_dict_set(ptr noundef nonnull %511, ptr noundef nonnull @.str.11, ptr noundef nonnull %5, i32 noundef 0) #12
+  %512 = call i32 @av_dict_set(ptr noundef nonnull %511, ptr noundef nonnull @.str.11, ptr noundef nonnull %5, i32 noundef 0) #13
   %513 = load ptr, ptr %4, align 8, !tbaa !27
   %514 = getelementptr inbounds nuw i8, ptr %513, i64 312
-  %515 = call i32 @av_dict_set_int(ptr noundef nonnull %514, ptr noundef nonnull @.str.12, i64 noundef %.0422.lcssa, i32 noundef 0) #12
+  %515 = call i32 @av_dict_set_int(ptr noundef nonnull %514, ptr noundef nonnull @.str.12, i64 noundef %.0422.lcssa, i32 noundef 0) #13
   %516 = load ptr, ptr %4, align 8, !tbaa !27
   %517 = getelementptr inbounds nuw i8, ptr %516, i64 312
-  %518 = call i32 @av_dict_set_int(ptr noundef nonnull %517, ptr noundef nonnull @.str.13, i64 noundef %.0367.lcssa, i32 noundef 0) #12
+  %518 = call i32 @av_dict_set_int(ptr noundef nonnull %517, ptr noundef nonnull @.str.13, i64 noundef %.0367.lcssa, i32 noundef 0) #13
   %519 = load ptr, ptr %4, align 8, !tbaa !27
   %520 = getelementptr inbounds nuw i8, ptr %519, i64 312
-  %521 = call i32 @av_dict_set_int(ptr noundef nonnull %520, ptr noundef nonnull @.str.14, i64 noundef %.0361.lcssa, i32 noundef 0) #12
+  %521 = call i32 @av_dict_set_int(ptr noundef nonnull %520, ptr noundef nonnull @.str.14, i64 noundef %.0361.lcssa, i32 noundef 0) #13
   %522 = load ptr, ptr %4, align 8, !tbaa !27
   %523 = getelementptr inbounds nuw i8, ptr %522, i64 312
-  %524 = call i32 @av_dict_set_int(ptr noundef nonnull %523, ptr noundef nonnull @.str.15, i64 noundef %.0375.lcssa, i32 noundef 0) #12
+  %524 = call i32 @av_dict_set_int(ptr noundef nonnull %523, ptr noundef nonnull @.str.15, i64 noundef %.0375.lcssa, i32 noundef 0) #13
   %525 = load i32, ptr %381, align 8, !tbaa !79
   %526 = sitofp i32 %525 to double
   %527 = fdiv nsz double %.0408.lcssa, %526
-  %528 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.5, double noundef %527) #12
+  %528 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.5, double noundef %527) #13
   %529 = load ptr, ptr %4, align 8, !tbaa !27
   %530 = getelementptr inbounds nuw i8, ptr %529, i64 312
-  %531 = call i32 @av_dict_set(ptr noundef nonnull %530, ptr noundef nonnull @.str.16, ptr noundef nonnull %5, i32 noundef 0) #12
+  %531 = call i32 @av_dict_set(ptr noundef nonnull %530, ptr noundef nonnull @.str.16, ptr noundef nonnull %5, i32 noundef 0) #13
   %532 = load ptr, ptr %4, align 8, !tbaa !27
   %533 = getelementptr inbounds nuw i8, ptr %532, i64 312
-  %534 = call i32 @av_dict_set_int(ptr noundef nonnull %533, ptr noundef nonnull @.str.17, i64 noundef %.0424.lcssa, i32 noundef 0) #12
+  %534 = call i32 @av_dict_set_int(ptr noundef nonnull %533, ptr noundef nonnull @.str.17, i64 noundef %.0424.lcssa, i32 noundef 0) #13
   %535 = load ptr, ptr %4, align 8, !tbaa !27
   %536 = getelementptr inbounds nuw i8, ptr %535, i64 312
-  %537 = call i32 @av_dict_set_int(ptr noundef nonnull %536, ptr noundef nonnull @.str.18, i64 noundef %.0369.lcssa, i32 noundef 0) #12
+  %537 = call i32 @av_dict_set_int(ptr noundef nonnull %536, ptr noundef nonnull @.str.18, i64 noundef %.0369.lcssa, i32 noundef 0) #13
   %538 = load ptr, ptr %4, align 8, !tbaa !27
   %539 = getelementptr inbounds nuw i8, ptr %538, i64 312
-  %540 = call i32 @av_dict_set_int(ptr noundef nonnull %539, ptr noundef nonnull @.str.19, i64 noundef %.0426.lcssa, i32 noundef 0) #12
+  %540 = call i32 @av_dict_set_int(ptr noundef nonnull %539, ptr noundef nonnull @.str.19, i64 noundef %.0426.lcssa, i32 noundef 0) #13
   %541 = load ptr, ptr %4, align 8, !tbaa !27
   %542 = getelementptr inbounds nuw i8, ptr %541, i64 312
-  %543 = call i32 @av_dict_set_int(ptr noundef nonnull %542, ptr noundef nonnull @.str.20, i64 noundef %.0430.lcssa, i32 noundef 0) #12
+  %543 = call i32 @av_dict_set_int(ptr noundef nonnull %542, ptr noundef nonnull @.str.20, i64 noundef %.0430.lcssa, i32 noundef 0) #13
   %544 = load i32, ptr %381, align 8, !tbaa !79
   %545 = sitofp i32 %544 to double
   %546 = fdiv nsz double %.0407.lcssa, %545
-  %547 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.5, double noundef %546) #12
+  %547 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.5, double noundef %546) #13
   %548 = load ptr, ptr %4, align 8, !tbaa !27
   %549 = getelementptr inbounds nuw i8, ptr %548, i64 312
-  %550 = call i32 @av_dict_set(ptr noundef nonnull %549, ptr noundef nonnull @.str.21, ptr noundef nonnull %5, i32 noundef 0) #12
+  %550 = call i32 @av_dict_set(ptr noundef nonnull %549, ptr noundef nonnull @.str.21, ptr noundef nonnull %5, i32 noundef 0) #13
   %551 = load ptr, ptr %4, align 8, !tbaa !27
   %552 = getelementptr inbounds nuw i8, ptr %551, i64 312
-  %553 = call i32 @av_dict_set_int(ptr noundef nonnull %552, ptr noundef nonnull @.str.22, i64 noundef %.0428.lcssa, i32 noundef 0) #12
+  %553 = call i32 @av_dict_set_int(ptr noundef nonnull %552, ptr noundef nonnull @.str.22, i64 noundef %.0428.lcssa, i32 noundef 0) #13
   %554 = load ptr, ptr %4, align 8, !tbaa !27
   %555 = getelementptr inbounds nuw i8, ptr %554, i64 312
-  %556 = call i32 @av_dict_set_int(ptr noundef nonnull %555, ptr noundef nonnull @.str.23, i64 noundef %.0432.lcssa, i32 noundef 0) #12
+  %556 = call i32 @av_dict_set_int(ptr noundef nonnull %555, ptr noundef nonnull @.str.23, i64 noundef %.0432.lcssa, i32 noundef 0) #13
   %557 = load ptr, ptr %4, align 8, !tbaa !27
   %558 = getelementptr inbounds nuw i8, ptr %557, i64 312
   %559 = sext i32 %.1414 to i64
-  %560 = call i32 @av_dict_set_int(ptr noundef nonnull %558, ptr noundef nonnull @.str.24, i64 noundef %559, i32 noundef 0) #12
+  %560 = call i32 @av_dict_set_int(ptr noundef nonnull %558, ptr noundef nonnull @.str.24, i64 noundef %559, i32 noundef 0) #13
   %561 = sitofp i64 %473 to double
   %562 = load i32, ptr %381, align 8, !tbaa !79
   %563 = sitofp i32 %562 to double
   %564 = fdiv nsz double %561, %563
-  %565 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.5, double noundef %564) #12
+  %565 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.5, double noundef %564) #13
   %566 = load ptr, ptr %4, align 8, !tbaa !27
   %567 = getelementptr inbounds nuw i8, ptr %566, i64 312
-  %568 = call i32 @av_dict_set(ptr noundef nonnull %567, ptr noundef nonnull @.str.25, ptr noundef nonnull %5, i32 noundef 0) #12
+  %568 = call i32 @av_dict_set(ptr noundef nonnull %567, ptr noundef nonnull @.str.25, ptr noundef nonnull %5, i32 noundef 0) #13
   %569 = sitofp i64 %.2403 to double
   %570 = load i32, ptr %369, align 4, !tbaa !78
   %571 = sitofp i32 %570 to double
   %572 = fdiv nsz double %569, %571
-  %573 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.5, double noundef %572) #12
+  %573 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.5, double noundef %572) #13
   %574 = load ptr, ptr %4, align 8, !tbaa !27
   %575 = getelementptr inbounds nuw i8, ptr %574, i64 312
-  %576 = call i32 @av_dict_set(ptr noundef nonnull %575, ptr noundef nonnull @.str.26, ptr noundef nonnull %5, i32 noundef 0) #12
+  %576 = call i32 @av_dict_set(ptr noundef nonnull %575, ptr noundef nonnull @.str.26, ptr noundef nonnull %5, i32 noundef 0) #13
   %577 = sitofp i64 %.2398 to double
   %578 = load i32, ptr %381, align 8, !tbaa !79
   %579 = sitofp i32 %578 to double
   %580 = fdiv nsz double %577, %579
-  %581 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.5, double noundef %580) #12
+  %581 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.5, double noundef %580) #13
   %582 = load ptr, ptr %4, align 8, !tbaa !27
   %583 = getelementptr inbounds nuw i8, ptr %582, i64 312
-  %584 = call i32 @av_dict_set(ptr noundef nonnull %583, ptr noundef nonnull @.str.27, ptr noundef nonnull %5, i32 noundef 0) #12
+  %584 = call i32 @av_dict_set(ptr noundef nonnull %583, ptr noundef nonnull @.str.27, ptr noundef nonnull %5, i32 noundef 0) #13
   %585 = sitofp i64 %.2393 to double
   %586 = load i32, ptr %381, align 8, !tbaa !79
   %587 = sitofp i32 %586 to double
   %588 = fdiv nsz double %585, %587
-  %589 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.5, double noundef %588) #12
+  %589 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.5, double noundef %588) #13
   %590 = load ptr, ptr %4, align 8, !tbaa !27
   %591 = getelementptr inbounds nuw i8, ptr %590, i64 312
-  %592 = call i32 @av_dict_set(ptr noundef nonnull %591, ptr noundef nonnull @.str.28, ptr noundef nonnull %5, i32 noundef 0) #12
+  %592 = call i32 @av_dict_set(ptr noundef nonnull %591, ptr noundef nonnull @.str.28, ptr noundef nonnull %5, i32 noundef 0) #13
   %593 = load ptr, ptr %4, align 8, !tbaa !27
   %594 = getelementptr inbounds nuw i8, ptr %593, i64 312
   %595 = zext i16 %.2388 to i32
@@ -1151,7 +1151,7 @@ define internal i32 @filter_frame(ptr noundef %0, ptr noundef %1) #2 {
   %609 = add nuw nsw i32 %608, %607
   %610 = and i32 %609, 63
   %611 = zext nneg i32 %610 to i64
-  %612 = call i32 @av_dict_set_int(ptr noundef nonnull %594, ptr noundef nonnull @.str.29, i64 noundef %611, i32 noundef 0) #12
+  %612 = call i32 @av_dict_set_int(ptr noundef nonnull %594, ptr noundef nonnull @.str.29, i64 noundef %611, i32 noundef 0) #13
   %613 = load ptr, ptr %4, align 8, !tbaa !27
   %614 = getelementptr inbounds nuw i8, ptr %613, i64 312
   %615 = zext i16 %.2383 to i32
@@ -1171,7 +1171,7 @@ define internal i32 @filter_frame(ptr noundef %0, ptr noundef %1) #2 {
   %629 = add nuw nsw i32 %628, %627
   %630 = and i32 %629, 63
   %631 = zext nneg i32 %630 to i64
-  %632 = call i32 @av_dict_set_int(ptr noundef nonnull %614, ptr noundef nonnull @.str.30, i64 noundef %631, i32 noundef 0) #12
+  %632 = call i32 @av_dict_set_int(ptr noundef nonnull %614, ptr noundef nonnull @.str.30, i64 noundef %631, i32 noundef 0) #13
   %633 = load ptr, ptr %4, align 8, !tbaa !27
   %634 = getelementptr inbounds nuw i8, ptr %633, i64 312
   %635 = zext i16 %.2379 to i32
@@ -1191,7 +1191,7 @@ define internal i32 @filter_frame(ptr noundef %0, ptr noundef %1) #2 {
   %649 = add nuw nsw i32 %648, %647
   %650 = and i32 %649, 63
   %651 = zext nneg i32 %650 to i64
-  %652 = call i32 @av_dict_set_int(ptr noundef nonnull %634, ptr noundef nonnull @.str.31, i64 noundef %651, i32 noundef 0) #12
+  %652 = call i32 @av_dict_set_int(ptr noundef nonnull %634, ptr noundef nonnull @.str.31, i64 noundef %651, i32 noundef 0) #13
   br label %653
 
 653:                                              ; preds = %478, %672
@@ -1211,13 +1211,13 @@ define internal i32 @filter_frame(ptr noundef %0, ptr noundef %1) #2 {
   %662 = load i32, ptr %369, align 4, !tbaa !78
   %663 = sitofp i32 %662 to double
   %664 = fdiv nsz double %661, %663
-  %665 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.5, double noundef %664) #12
+  %665 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.5, double noundef %664) #13
   %666 = getelementptr inbounds nuw %struct.anon, ptr @filters_def, i64 %indvars.iv661
   %667 = load ptr, ptr %666, align 8, !tbaa !82
-  %668 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 128, ptr noundef nonnull @.str.32, ptr noundef %667) #12
+  %668 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 128, ptr noundef nonnull @.str.32, ptr noundef %667) #13
   %669 = load ptr, ptr %4, align 8, !tbaa !27
   %670 = getelementptr inbounds nuw i8, ptr %669, i64 312
-  %671 = call i32 @av_dict_set(ptr noundef nonnull %670, ptr noundef nonnull %10, ptr noundef nonnull %5, i32 noundef 0) #12
+  %671 = call i32 @av_dict_set(ptr noundef nonnull %670, ptr noundef nonnull %10, ptr noundef nonnull %5, i32 noundef 0) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %672
 
@@ -1233,13 +1233,13 @@ define internal i32 @filter_frame(ptr noundef %0, ptr noundef %1) #2 {
   br i1 %.not441, label %677, label %676
 
 676:                                              ; preds = %673
-  call void @av_frame_free(ptr noundef nonnull %3) #12
+  call void @av_frame_free(ptr noundef nonnull %3) #13
   %.pre672 = load ptr, ptr %4, align 8, !tbaa !27
   br label %677
 
 677:                                              ; preds = %676, %673
   %678 = phi ptr [ %.pre672, %676 ], [ %675, %673 ]
-  %679 = call i32 @ff_filter_frame(ptr noundef %17, ptr noundef %678) #12
+  %679 = call i32 @ff_filter_frame(ptr noundef %17, ptr noundef %678) #13
   br label %680
 
 680:                                              ; preds = %677, %49, %45
@@ -1350,7 +1350,7 @@ define internal noundef i32 @compute_sat_hue_metrics16(ptr noundef readonly capt
   %69 = sitofp i32 %68 to float
   %70 = sub nsw i32 %67, %10
   %71 = sitofp i32 %70 to float
-  %72 = tail call nsz float @hypotf(float noundef %69, float noundef %71) #14
+  %72 = tail call nsz float @hypotf(float noundef %69, float noundef %71) #15
   %73 = fptoui float %72 to i16
   %74 = getelementptr inbounds nuw i16, ptr %.06066.us, i64 %indvars.iv
   store i16 %73, ptr %74, align 2, !tbaa !62
@@ -1460,7 +1460,7 @@ define internal noundef i32 @compute_sat_hue_metrics8(ptr noundef readonly captu
   %62 = sitofp i32 %61 to float
   %63 = add nsw i32 %60, -128
   %64 = sitofp i32 %63 to float
-  %65 = tail call nsz float @hypotf(float noundef %62, float noundef %64) #14
+  %65 = tail call nsz float @hypotf(float noundef %62, float noundef %64) #15
   %66 = fptoui float %65 to i8
   %67 = getelementptr inbounds nuw i8, ptr %.05561, i64 %indvars.iv
   store i8 %66, ptr %67, align 1, !tbaa !25
@@ -1499,29 +1499,29 @@ declare i32 @ff_filter_get_nb_threads(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.lrint.i64.f64(double) #7
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.lrint.i64.f64(double) #8
 
 declare i32 @av_dict_set_int(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 declare i32 @av_dict_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare float @hypotf(float noundef, float noundef) local_unnamed_addr #9
+declare float @hypotf(float noundef, float noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.atan2.f32(float, float) #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #7
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.floor.f32(float) #7
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.floor.f32(float) #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal i32 @filter8_tout(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #5 {
@@ -3186,7 +3186,7 @@ define internal range(i32 -12, 1) i32 @config_output(ptr noundef captures(none) 
   %9 = load ptr, ptr %8, align 8, !tbaa !38
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %11 = load i32, ptr %10, align 4, !tbaa !116
-  %12 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %11) #12
+  %12 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %11) #13
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 9
   %14 = load i8, ptr %13, align 1, !tbaa !117
   %15 = zext i8 %14 to i32
@@ -3205,22 +3205,22 @@ define internal range(i32 -12, 1) i32 @config_output(ptr noundef captures(none) 
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store i32 %24, ptr %25, align 8, !tbaa !53
   %26 = sext i32 %24 to i64
-  %27 = tail call ptr @av_malloc_array(i64 noundef %26, i64 noundef 4) #12
+  %27 = tail call ptr @av_malloc_array(i64 noundef %26, i64 noundef 4) #13
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store ptr %27, ptr %28, align 8, !tbaa !40
   %29 = load i32, ptr %25, align 8, !tbaa !53
   %30 = sext i32 %29 to i64
-  %31 = tail call ptr @av_malloc_array(i64 noundef %30, i64 noundef 4) #12
+  %31 = tail call ptr @av_malloc_array(i64 noundef %30, i64 noundef 4) #13
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store ptr %31, ptr %32, align 8, !tbaa !41
   %33 = load i32, ptr %25, align 8, !tbaa !53
   %34 = sext i32 %33 to i64
-  %35 = tail call ptr @av_malloc_array(i64 noundef %34, i64 noundef 4) #12
+  %35 = tail call ptr @av_malloc_array(i64 noundef %34, i64 noundef 4) #13
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store ptr %35, ptr %36, align 8, !tbaa !42
   %37 = load i32, ptr %25, align 8, !tbaa !53
   %38 = sext i32 %37 to i64
-  %39 = tail call ptr @av_malloc_array(i64 noundef %38, i64 noundef 4) #12
+  %39 = tail call ptr @av_malloc_array(i64 noundef %38, i64 noundef 4) #13
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store ptr %39, ptr %40, align 8, !tbaa !43
   %41 = load ptr, ptr %28, align 8, !tbaa !40
@@ -3266,13 +3266,13 @@ define internal range(i32 -12, 1) i32 @config_output(ptr noundef captures(none) 
   %65 = mul nsw i32 %60, %55
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 %65, ptr %66, align 8, !tbaa !79
-  %67 = tail call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %4) #13
+  %67 = tail call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %4) #14
   %. = tail call i32 @llvm.smin.i32(i32 %51, i32 %67)
   %spec.select84 = tail call i32 @llvm.smax.i32(i32 %., i32 1)
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i32 %spec.select84, ptr %68, align 8, !tbaa !74
   %69 = zext nneg i32 %spec.select84 to i64
-  %70 = tail call ptr @av_malloc_array(i64 noundef %69, i64 noundef 4) #12
+  %70 = tail call ptr @av_malloc_array(i64 noundef %69, i64 noundef 4) #13
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr %70, ptr %71, align 8, !tbaa !73
   %.not76 = icmp eq ptr %70, null
@@ -3283,7 +3283,7 @@ define internal range(i32 -12, 1) i32 @config_output(ptr noundef captures(none) 
   %74 = load i32, ptr %47, align 8, !tbaa !56
   %75 = load i32, ptr %50, align 4, !tbaa !55
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %76 = tail call ptr @av_frame_alloc() #12
+  %76 = tail call ptr @av_frame_alloc() #13
   store ptr %76, ptr %3, align 8, !tbaa !27
   %.not.i = icmp eq ptr %76, null
   br i1 %.not.i, label %alloc_frame.exit, label %77
@@ -3297,12 +3297,12 @@ define internal range(i32 -12, 1) i32 @config_output(ptr noundef captures(none) 
   store i32 %74, ptr %81, align 8, !tbaa !95
   %82 = getelementptr inbounds nuw i8, ptr %76, i64 108
   store i32 %75, ptr %82, align 4, !tbaa !89
-  %83 = tail call i32 @av_frame_get_buffer(ptr noundef nonnull %76, i32 noundef 0) #12
+  %83 = tail call i32 @av_frame_get_buffer(ptr noundef nonnull %76, i32 noundef 0) #13
   %84 = icmp slt i32 %83, 0
   br i1 %84, label %85, label %alloc_frame.exit
 
 85:                                               ; preds = %77
-  call void @av_frame_free(ptr noundef nonnull %3) #12
+  call void @av_frame_free(ptr noundef nonnull %3) #13
   br label %alloc_frame.exit
 
 alloc_frame.exit:                                 ; preds = %72, %77, %85
@@ -3313,7 +3313,7 @@ alloc_frame.exit:                                 ; preds = %72, %77, %85
   %87 = load i32, ptr %47, align 8, !tbaa !56
   %88 = load i32, ptr %50, align 4, !tbaa !55
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %89 = call ptr @av_frame_alloc() #12
+  %89 = call ptr @av_frame_alloc() #13
   store ptr %89, ptr %2, align 8, !tbaa !27
   %.not.i81 = icmp eq ptr %89, null
   br i1 %.not.i81, label %alloc_frame.exit83, label %90
@@ -3325,12 +3325,12 @@ alloc_frame.exit:                                 ; preds = %72, %77, %85
   store i32 %87, ptr %92, align 8, !tbaa !95
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 108
   store i32 %88, ptr %93, align 4, !tbaa !89
-  %94 = call i32 @av_frame_get_buffer(ptr noundef nonnull %89, i32 noundef 0) #12
+  %94 = call i32 @av_frame_get_buffer(ptr noundef nonnull %89, i32 noundef 0) #13
   %95 = icmp slt i32 %94, 0
   br i1 %95, label %96, label %alloc_frame.exit83
 
 96:                                               ; preds = %90
-  call void @av_frame_free(ptr noundef nonnull %2) #12
+  call void @av_frame_free(ptr noundef nonnull %2) #13
   br label %alloc_frame.exit83
 
 alloc_frame.exit83:                               ; preds = %alloc_frame.exit, %90, %96
@@ -3363,16 +3363,16 @@ declare ptr @av_default_item_name(ptr noundef) #4
 declare void @av_freep(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #12
 
 attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3382,13 +3382,14 @@ attributes #4 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "st
 attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind willreturn memory(read) }
-attributes #14 = { nounwind willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
+attributes #15 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

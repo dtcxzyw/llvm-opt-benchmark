@@ -57,8 +57,8 @@ define range(i32 -1094995529, 2) i32 @ff_jpeg2000_decode_htj2k(ptr noundef reado
   br i1 %or.cond, label %29, label %28
 
 28:                                               ; preds = %8
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1230) #9
-  tail call void @abort() #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1230) #10
+  tail call void @abort() #11
   unreachable
 
 29:                                               ; preds = %8
@@ -67,8 +67,8 @@ define range(i32 -1094995529, 2) i32 @ff_jpeg2000_decode_htj2k(ptr noundef reado
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 1231) #9
-  tail call void @abort() #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 1231) #10
+  tail call void @abort() #11
   unreachable
 
 33:                                               ; preds = %29
@@ -76,8 +76,8 @@ define range(i32 -1094995529, 2) i32 @ff_jpeg2000_decode_htj2k(ptr noundef reado
   br i1 %.not471, label %34, label %35
 
 34:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 1232) #9
-  tail call void @abort() #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 1232) #10
+  tail call void @abort() #11
   unreachable
 
 35:                                               ; preds = %33
@@ -110,8 +110,8 @@ define range(i32 -1094995529, 2) i32 @ff_jpeg2000_decode_htj2k(ptr noundef reado
   br i1 %55, label %57, label %56
 
 56:                                               ; preds = %49
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 1242) #9
-  tail call void @abort() #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 1242) #10
+  tail call void @abort() #11
   unreachable
 
 57:                                               ; preds = %49
@@ -132,7 +132,7 @@ define range(i32 -1094995529, 2) i32 @ff_jpeg2000_decode_htj2k(ptr noundef reado
 68:                                               ; preds = %62
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !23
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %70, i32 noundef 16, ptr noundef nonnull @.str.6) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %70, i32 noundef 16, ptr noundef nonnull @.str.6) #10
   br label %1688
 
 71:                                               ; preds = %62
@@ -178,7 +178,7 @@ define range(i32 -1094995529, 2) i32 @ff_jpeg2000_decode_htj2k(ptr noundef reado
 104:                                              ; preds = %101, %71
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %106 = load ptr, ptr %105, align 8, !tbaa !23
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %106, i32 noundef 16, ptr noundef nonnull @.str.7, i32 noundef %99) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %106, i32 noundef 16, ptr noundef nonnull @.str.7, i32 noundef %99) #10
   br label %.loopexit
 
 .lr.ph.i:                                         ; preds = %101
@@ -261,9 +261,9 @@ jpeg2000_bitbuf_refill_forward.exit:              ; preds = %123
   store i8 0, ptr %152, align 1, !tbaa !48
   %153 = mul nuw nsw i32 %25, %24
   %154 = zext nneg i32 %153 to i64
-  %155 = tail call noalias ptr @av_calloc(i64 noundef %154, i64 noundef 4) #9
+  %155 = tail call noalias ptr @av_calloc(i64 noundef %154, i64 noundef 4) #10
   store ptr %155, ptr %20, align 8, !tbaa !4
-  %156 = tail call noalias ptr @av_calloc(i64 noundef %154, i64 noundef 1) #9
+  %156 = tail call noalias ptr @av_calloc(i64 noundef %154, i64 noundef 1) #10
   store ptr %156, ptr %21, align 8, !tbaa !9
   %157 = icmp ne ptr %155, null
   %158 = icmp ne ptr %156, null
@@ -312,11 +312,11 @@ jpeg2000_decode_ht_cleanup_segment.exit.thread:   ; preds = %159
   %.neg = shl nsw i32 %165, 2
   %172 = mul nsw i32 %.neg, %168
   %173 = zext nneg i32 %172 to i64
-  %174 = tail call noalias ptr @av_calloc(i64 noundef %173, i64 noundef 1) #9
+  %174 = tail call noalias ptr @av_calloc(i64 noundef %173, i64 noundef 1) #10
   store ptr %174, ptr %14, align 8, !tbaa !9
-  %175 = tail call noalias ptr @av_calloc(i64 noundef %173, i64 noundef 1) #9
+  %175 = tail call noalias ptr @av_calloc(i64 noundef %173, i64 noundef 1) #10
   store ptr %175, ptr %15, align 8, !tbaa !9
-  %176 = tail call noalias ptr @av_calloc(i64 noundef %173, i64 noundef 4) #9
+  %176 = tail call noalias ptr @av_calloc(i64 noundef %173, i64 noundef 4) #10
   store ptr %176, ptr %16, align 8, !tbaa !4
   %177 = icmp ne ptr %174, null
   %178 = icmp ne ptr %175, null
@@ -2936,9 +2936,9 @@ recover_mag_sgn.exit205:                          ; preds = %1632
 jpeg2000_decode_ht_cleanup_segment.exit:          ; preds = %jpeg2000_bitbuf_get_bits_lsb.exit180.cont, %1548, %1236, %._crit_edge651.us, %.preheader502.lr.ph, %.preheader503, %171, %797
   %1646 = phi i1 [ true, %171 ], [ true, %797 ], [ false, %.preheader503 ], [ false, %.preheader502.lr.ph ], [ false, %._crit_edge651.us ], [ true, %1236 ], [ true, %1548 ], [ true, %jpeg2000_bitbuf_get_bits_lsb.exit180.cont ]
   %.0685.i = phi i32 [ -12, %171 ], [ -1094995529, %797 ], [ 1, %.preheader503 ], [ 1, %.preheader502.lr.ph ], [ 1, %._crit_edge651.us ], [ -1094995529, %1236 ], [ -1094995529, %1548 ], [ -1094995529, %jpeg2000_bitbuf_get_bits_lsb.exit180.cont ]
-  call void @av_freep(ptr noundef nonnull %14) #9
-  call void @av_freep(ptr noundef nonnull %15) #9
-  call void @av_freep(ptr noundef nonnull %16) #9
+  call void @av_freep(ptr noundef nonnull %14) #10
+  call void @av_freep(ptr noundef nonnull %15) #10
+  call void @av_freep(ptr noundef nonnull %16) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -2953,7 +2953,7 @@ jpeg2000_decode_ht_cleanup_segment.exit:          ; preds = %jpeg2000_bitbuf_get
   %.0.i456 = phi i32 [ -1094995529, %jpeg2000_decode_ht_cleanup_segment.exit.thread ], [ %.0685.i, %jpeg2000_decode_ht_cleanup_segment.exit ]
   %1648 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1649 = load ptr, ptr %1648, align 8, !tbaa !23
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1649, i32 noundef 16, ptr noundef nonnull @.str.8) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1649, i32 noundef 16, ptr noundef nonnull @.str.8) #10
   br label %.loopexit
 
 1650:                                             ; preds = %jpeg2000_decode_ht_cleanup_segment.exit
@@ -3055,8 +3055,8 @@ jpeg2000_decode_ht_cleanup_segment.exit:          ; preds = %jpeg2000_bitbuf_get
 
 .loopexit:                                        ; preds = %._crit_edge659.split.us663, %._crit_edge659.split.us.us.us, %.preheader.lr.ph, %.thread457, %jpeg2000_bitbuf_refill_forward.exit, %1647, %104
   %.0123 = phi i32 [ -1094995529, %104 ], [ %.0.i456, %1647 ], [ -12, %jpeg2000_bitbuf_refill_forward.exit ], [ %.0685.i, %.thread457 ], [ %.0685.i, %.preheader.lr.ph ], [ %.0685.i, %._crit_edge659.split.us.us.us ], [ %.0685.i, %._crit_edge659.split.us663 ]
-  call void @av_freep(ptr noundef nonnull %20) #9
-  call void @av_freep(ptr noundef nonnull %21) #9
+  call void @av_freep(ptr noundef nonnull %20) #10
+  call void @av_freep(ptr noundef nonnull %21) #10
   br label %1688
 
 1688:                                             ; preds = %57, %35, %.loopexit, %68
@@ -4074,8 +4074,8 @@ define internal fastcc void @jpeg2000_decode_sig_emb(ptr noundef nonnull capture
   br i1 %29, label %jpeg2000_decode_ctx_vlc.exit, label %30
 
 30:                                               ; preds = %26
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.2, i32 noundef 318) #9
-  tail call void @abort() #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.2, i32 noundef 318) #10
+  tail call void @abort() #11
   unreachable
 
 jpeg2000_decode_ctx_vlc.exit:                     ; preds = %.thread1, %26
@@ -4538,26 +4538,26 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.usub.sat.i8(i8, i8) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4567,9 +4567,10 @@ attributes #4 = { nofree noinline norecurse nosync nounwind memory(argmem: readw
 attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
+attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

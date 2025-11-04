@@ -361,7 +361,7 @@ define dso_local i32 @align_to(i32 noundef %0, i32 noundef %1) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define dso_local void @codegen(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   store ptr %1, ptr @output_file, align 8, !tbaa !7
-  %3 = tail call ptr @get_input_files() #13
+  %3 = tail call ptr @get_input_files() #14
   %4 = load ptr, ptr %3, align 8, !tbaa !12
   %.not23 = icmp eq ptr %4, null
   br i1 %.not23, label %._crit_edge, label %.lr.ph
@@ -782,7 +782,7 @@ define dso_local void @codegen(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %.085115.i = phi i32 [ %.186.i, %.lr.ph.i18 ], [ 0, %188 ]
   %213 = getelementptr inbounds nuw i8, ptr %.082117.i, i64 16
   %214 = load ptr, ptr %213, align 8, !tbaa !28
-  %215 = tail call zeroext i1 @is_flonum(ptr noundef %214) #13
+  %215 = tail call zeroext i1 @is_flonum(ptr noundef %214) #14
   %not..i = xor i1 %215, true
   %216 = zext i1 %not..i to i32
   %.186.i = add nuw nsw i32 %.085115.i, %216
@@ -803,7 +803,7 @@ define dso_local void @codegen(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %221 = load ptr, ptr %220, align 8, !tbaa !63
   tail call fastcc void @gen_stmt(ptr noundef %221)
   %222 = load ptr, ptr %176, align 8, !tbaa !43
-  %223 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %222, ptr noundef nonnull dereferenceable(5) @.str.40) #14
+  %223 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %222, ptr noundef nonnull dereferenceable(5) @.str.40) #15
   %224 = icmp eq i32 %223, 0
   br i1 %224, label %317, label %318
 
@@ -845,7 +845,7 @@ define dso_local void @codegen(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %store_fp.exit.i
 
 239:                                              ; preds = %236
-  tail call void (ptr, ...) @error(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef 1444) #15
+  tail call void (ptr, ...) @error(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef 1444) #16
   unreachable
 
 store_fp.exit.i:                                  ; preds = %238, %236
@@ -919,7 +919,7 @@ store_gp.exit.i:                                  ; preds = %252, %switch.lookup
   br label %store_fp.exit95.i
 
 269:                                              ; preds = %266
-  tail call void (ptr, ...) @error(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef 1444) #15
+  tail call void (ptr, ...) @error(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef 1444) #16
   unreachable
 
 store_fp.exit95.i:                                ; preds = %268, %266
@@ -979,7 +979,7 @@ switch.lookup39:                                  ; preds = %.split.i99.i
   br label %store_fp.exit104.i
 
 294:                                              ; preds = %289
-  tail call void (ptr, ...) @error(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef 1444) #15
+  tail call void (ptr, ...) @error(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef 1444) #16
   unreachable
 
 store_fp.exit104.i:                               ; preds = %293, %289
@@ -1081,7 +1081,7 @@ define internal void @println(ptr noundef readonly captures(none) %0, ...) unnam
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @output_file, align 8, !tbaa !7
-  %4 = call i32 @vfprintf(ptr noundef %3, ptr noundef %0, ptr noundef nonnull %2) #13
+  %4 = call i32 @vfprintf(ptr noundef %3, ptr noundef %0, ptr noundef nonnull %2) #14
   call void @llvm.va_end.p0(ptr nonnull %2)
   %5 = load ptr, ptr @output_file, align 8, !tbaa !7
   %fputc = call i32 @fputc(i32 10, ptr %5)
@@ -1227,7 +1227,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %cmp_zero.exit
 
 23:                                               ; preds = %11
-  %24 = tail call zeroext i1 @is_integer(ptr noundef nonnull %18) #13
+  %24 = tail call zeroext i1 @is_integer(ptr noundef nonnull %18) #14
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %23
@@ -1307,7 +1307,7 @@ cmp_zero.exit:                                    ; preds = %20, %21, %22, %25, 
   br label %cmp_zero.exit89
 
 53:                                               ; preds = %45
-  %54 = tail call zeroext i1 @is_integer(ptr noundef nonnull %48) #13
+  %54 = tail call zeroext i1 @is_integer(ptr noundef nonnull %48) #14
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %53
@@ -1388,7 +1388,7 @@ cmp_zero.exit89:                                  ; preds = %50, %51, %52, %55, 
   br label %cmp_zero.exit91
 
 89:                                               ; preds = %73
-  %90 = tail call zeroext i1 @is_integer(ptr noundef nonnull %84) #13
+  %90 = tail call zeroext i1 @is_integer(ptr noundef nonnull %84) #14
   br i1 %90, label %91, label %95
 
 91:                                               ; preds = %89
@@ -1576,7 +1576,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %134
 170:                                              ; preds = %tailrecurse
   %171 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %172 = load ptr, ptr %171, align 8, !tbaa !79
-  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %172, ptr noundef nonnull @.str.95) #15
+  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %172, ptr noundef nonnull @.str.95) #16
   unreachable
 }
 
@@ -1901,7 +1901,7 @@ common.ret438:                                    ; preds = %199, %getTypeId.exi
   br label %cmp_zero.exit.i
 
 141:                                              ; preds = %136
-  %142 = tail call zeroext i1 @is_integer(ptr noundef nonnull %132) #13
+  %142 = tail call zeroext i1 @is_integer(ptr noundef nonnull %132) #14
   br i1 %142, label %143, label %147
 
 143:                                              ; preds = %141
@@ -2077,7 +2077,7 @@ getTypeId.exit10.i:                               ; preds = %195, %194, %193, %1
   br label %cmp_zero.exit
 
 222:                                              ; preds = %210
-  %223 = tail call zeroext i1 @is_integer(ptr noundef nonnull %217) #13
+  %223 = tail call zeroext i1 @is_integer(ptr noundef nonnull %217) #14
   br i1 %223, label %224, label %228
 
 224:                                              ; preds = %222
@@ -2132,7 +2132,7 @@ cmp_zero.exit:                                    ; preds = %219, %220, %221, %2
   br label %cmp_zero.exit213
 
 243:                                              ; preds = %233
-  %244 = tail call zeroext i1 @is_integer(ptr noundef nonnull %238) #13
+  %244 = tail call zeroext i1 @is_integer(ptr noundef nonnull %238) #14
   br i1 %244, label %245, label %249
 
 245:                                              ; preds = %243
@@ -2189,7 +2189,7 @@ cmp_zero.exit213:                                 ; preds = %240, %241, %242, %2
   br label %cmp_zero.exit215
 
 265:                                              ; preds = %253
-  %266 = tail call zeroext i1 @is_integer(ptr noundef nonnull %260) #13
+  %266 = tail call zeroext i1 @is_integer(ptr noundef nonnull %260) #14
   br i1 %266, label %267, label %271
 
 267:                                              ; preds = %265
@@ -2232,7 +2232,7 @@ cmp_zero.exit215:                                 ; preds = %262, %263, %264, %2
   br label %cmp_zero.exit217
 
 281:                                              ; preds = %cmp_zero.exit215
-  %282 = tail call zeroext i1 @is_integer(ptr noundef nonnull %276) #13
+  %282 = tail call zeroext i1 @is_integer(ptr noundef nonnull %276) #14
   br i1 %282, label %283, label %287
 
 283:                                              ; preds = %281
@@ -2286,7 +2286,7 @@ cmp_zero.exit217:                                 ; preds = %278, %279, %280, %2
   br label %cmp_zero.exit219
 
 300:                                              ; preds = %288
-  %301 = tail call zeroext i1 @is_integer(ptr noundef nonnull %295) #13
+  %301 = tail call zeroext i1 @is_integer(ptr noundef nonnull %295) #14
   br i1 %301, label %302, label %306
 
 302:                                              ; preds = %300
@@ -2329,7 +2329,7 @@ cmp_zero.exit219:                                 ; preds = %297, %298, %299, %3
   br label %cmp_zero.exit221
 
 316:                                              ; preds = %cmp_zero.exit219
-  %317 = tail call zeroext i1 @is_integer(ptr noundef nonnull %311) #13
+  %317 = tail call zeroext i1 @is_integer(ptr noundef nonnull %311) #14
   br i1 %317, label %318, label %322
 
 318:                                              ; preds = %316
@@ -2364,7 +2364,7 @@ cmp_zero.exit221:                                 ; preds = %313, %314, %315, %3
   %330 = load ptr, ptr %329, align 16, !tbaa !116
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 8
   %332 = load ptr, ptr %331, align 8, !tbaa !43
-  %333 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %332, ptr noundef nonnull dereferenceable(7) @.str.137) #14
+  %333 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %332, ptr noundef nonnull dereferenceable(7) @.str.137) #15
   %.not = icmp eq i32 %333, 0
   br i1 %.not, label %334, label %337
 
@@ -2814,7 +2814,7 @@ push_args.exit:                                   ; preds = %406, %410, %416
   br i1 %556, label %switch.lookup, label %557
 
 557:                                              ; preds = %.split.i, %526
-  tail call void (ptr, ...) @error(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef 66) #15
+  tail call void (ptr, ...) @error(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef 66) #16
   unreachable
 
 switch.lookup:                                    ; preds = %.split.i
@@ -2864,7 +2864,7 @@ switch.lookup:                                    ; preds = %.split.i
   br i1 %579, label %switch.lookup391, label %580
 
 580:                                              ; preds = %.split.i226, %560
-  tail call void (ptr, ...) @error(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef 76) #15
+  tail call void (ptr, ...) @error(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef 76) #16
   unreachable
 
 switch.lookup391:                                 ; preds = %.split.i226
@@ -2968,7 +2968,7 @@ switch.lookup391:                                 ; preds = %.split.i226
 
 614:                                              ; preds = %589
   %615 = load ptr, ptr %583, align 8, !tbaa !79
-  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %615, ptr noundef nonnull @.str.172) #15
+  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %615, ptr noundef nonnull @.str.172) #16
   unreachable
 
 616:                                              ; preds = %582
@@ -3026,7 +3026,7 @@ switch.lookup394:                                 ; preds = %624
 
 629:                                              ; preds = %616
   %630 = load ptr, ptr %583, align 8, !tbaa !79
-  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %630, ptr noundef nonnull @.str.172) #15
+  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %630, ptr noundef nonnull @.str.172) #16
   unreachable
 
 631:                                              ; preds = %582
@@ -3203,7 +3203,7 @@ switch.lookup394:                                 ; preds = %624
 
 699:                                              ; preds = %648
   %700 = load ptr, ptr %583, align 8, !tbaa !79
-  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %700, ptr noundef nonnull @.str.172) #15
+  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %700, ptr noundef nonnull @.str.172) #16
   unreachable
 }
 
@@ -3490,7 +3490,7 @@ common.ret69:                                     ; preds = %47, %48, %77, %76, 
 .loopexit:                                        ; preds = %tailrecurse, %71, %67
   %82 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %83 = load ptr, ptr %82, align 8, !tbaa !79
-  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %83, ptr noundef nonnull @.str.209) #15
+  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %83, ptr noundef nonnull @.str.209) #16
   unreachable
 }
 
@@ -3823,22 +3823,22 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3852,11 +3852,12 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nofree nounwind }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
-attributes #15 = { noreturn nounwind }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nofree nounwind }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

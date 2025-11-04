@@ -64,12 +64,12 @@ define dso_local void @ikcp_log(ptr noundef %0, i32 noundef %1, ptr noundef read
 
 14:                                               ; preds = %10
   call void @llvm.va_start.p0(ptr nonnull %5)
-  %15 = call i32 @vsprintf(ptr noundef nonnull %4, ptr noundef %2, ptr noundef nonnull %5) #15
+  %15 = call i32 @vsprintf(ptr noundef nonnull %4, ptr noundef %2, ptr noundef nonnull %5) #16
   call void @llvm.va_end.p0(ptr nonnull %5)
   %16 = load ptr, ptr %11, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %18 = load ptr, ptr %17, align 8, !tbaa !16
-  call void %16(ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef %18) #15
+  call void %16(ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef %18) #16
   br label %19
 
 19:                                               ; preds = %3, %10, %14
@@ -99,11 +99,11 @@ define dso_local ptr @ikcp_create(i32 noundef %0, ptr noundef %1) local_unnamed_
   br i1 %.not.i, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call ptr %3(i64 noundef 272) #15
+  %5 = tail call ptr %3(i64 noundef 272) #16
   br label %ikcp_malloc.exit
 
 6:                                                ; preds = %2
-  %7 = tail call noalias dereferenceable_or_null(272) ptr @malloc(i64 noundef 272) #16
+  %7 = tail call noalias dereferenceable_or_null(272) ptr @malloc(i64 noundef 272) #17
   br label %ikcp_malloc.exit
 
 ikcp_malloc.exit:                                 ; preds = %4, %6
@@ -144,11 +144,11 @@ ikcp_malloc.exit:                                 ; preds = %4, %6
   br i1 %.not.i70, label %26, label %24
 
 24:                                               ; preds = %9
-  %25 = tail call ptr %23(i64 noundef 4272) #15
+  %25 = tail call ptr %23(i64 noundef 4272) #16
   br label %ikcp_malloc.exit72
 
 26:                                               ; preds = %9
-  %27 = tail call noalias dereferenceable_or_null(4272) ptr @malloc(i64 noundef 4272) #16
+  %27 = tail call noalias dereferenceable_or_null(4272) ptr @malloc(i64 noundef 4272) #17
   br label %ikcp_malloc.exit72
 
 ikcp_malloc.exit72:                               ; preds = %24, %26
@@ -164,11 +164,11 @@ ikcp_malloc.exit72:                               ; preds = %24, %26
   br i1 %.not.i73, label %33, label %32
 
 32:                                               ; preds = %30
-  tail call void %31(ptr noundef nonnull %.0.i) #15
+  tail call void %31(ptr noundef nonnull %.0.i) #16
   br label %ikcp_free.exit
 
 33:                                               ; preds = %30
-  tail call void @free(ptr noundef nonnull %.0.i) #15
+  tail call void @free(ptr noundef nonnull %.0.i) #16
   br label %ikcp_free.exit
 
 34:                                               ; preds = %ikcp_malloc.exit72
@@ -259,7 +259,7 @@ ikcp_segment_delete.exit.us:                      ; preds = %.lr.ph, %ikcp_segme
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %7, ptr %9, align 8, !tbaa !57
   store ptr %8, ptr %7, align 8, !tbaa !58
-  tail call void @free(ptr noundef nonnull %5) #15
+  tail call void @free(ptr noundef nonnull %5) #16
   %10 = load ptr, ptr %2, align 8, !tbaa !34
   %.not59.us = icmp eq ptr %2, %10
   br i1 %.not59.us, label %.preheader76.thread, label %ikcp_segment_delete.exit.us, !llvm.loop !59
@@ -294,7 +294,7 @@ ikcp_segment_delete.exit66.us:                    ; preds = %ikcp_segment_delete
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %20, ptr %22, align 8, !tbaa !57
   store ptr %21, ptr %20, align 8, !tbaa !58
-  tail call void @free(ptr noundef nonnull %18) #15
+  tail call void @free(ptr noundef nonnull %18) #16
   %23 = load ptr, ptr %16, align 8, !tbaa !36
   %.not60.us = icmp eq ptr %16, %23
   br i1 %.not60.us, label %.preheader75, label %ikcp_segment_delete.exit66.us, !llvm.loop !61
@@ -314,12 +314,12 @@ ikcp_segment_delete.exit66.us:                    ; preds = %ikcp_segment_delete
   br i1 %.not.i.i, label %31, label %30
 
 30:                                               ; preds = %.lr.ph.split
-  tail call void %24(ptr noundef nonnull %25) #15
+  tail call void %24(ptr noundef nonnull %25) #16
   %.pre = load ptr, ptr @ikcp_free_hook, align 8, !tbaa !4
   br label %ikcp_segment_delete.exit
 
 31:                                               ; preds = %.lr.ph.split
-  tail call void @free(ptr noundef nonnull %25) #15
+  tail call void @free(ptr noundef nonnull %25) #16
   br label %ikcp_segment_delete.exit
 
 ikcp_segment_delete.exit:                         ; preds = %30, %31
@@ -348,7 +348,7 @@ ikcp_segment_delete.exit68.us:                    ; preds = %.lr.ph82, %ikcp_seg
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %39, ptr %41, align 8, !tbaa !57
   store ptr %40, ptr %39, align 8, !tbaa !58
-  tail call void @free(ptr noundef nonnull %37) #15
+  tail call void @free(ptr noundef nonnull %37) #16
   %42 = load ptr, ptr %34, align 8, !tbaa !30
   %.not61.us = icmp eq ptr %34, %42
   br i1 %.not61.us, label %.preheader.thread, label %ikcp_segment_delete.exit68.us, !llvm.loop !64
@@ -368,12 +368,12 @@ ikcp_segment_delete.exit68.us:                    ; preds = %.lr.ph82, %ikcp_seg
   br i1 %.not.i.i65, label %50, label %49
 
 49:                                               ; preds = %.lr.ph80.split
-  tail call void %43(ptr noundef nonnull %44) #15
+  tail call void %43(ptr noundef nonnull %44) #16
   %.pre90 = load ptr, ptr @ikcp_free_hook, align 8, !tbaa !4
   br label %ikcp_segment_delete.exit66
 
 50:                                               ; preds = %.lr.ph80.split
-  tail call void @free(ptr noundef nonnull %44) #15
+  tail call void @free(ptr noundef nonnull %44) #16
   br label %ikcp_segment_delete.exit66
 
 ikcp_segment_delete.exit66:                       ; preds = %49, %50
@@ -413,7 +413,7 @@ ikcp_segment_delete.exit70.us:                    ; preds = %ikcp_segment_delete
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %62, ptr %64, align 8, !tbaa !57
   store ptr %63, ptr %62, align 8, !tbaa !58
-  tail call void @free(ptr noundef nonnull %60) #15
+  tail call void @free(ptr noundef nonnull %60) #16
   %65 = load ptr, ptr %58, align 8, !tbaa !32
   %.not62.us = icmp eq ptr %58, %65
   br i1 %.not62.us, label %._crit_edge, label %ikcp_segment_delete.exit70.us, !llvm.loop !66
@@ -433,12 +433,12 @@ ikcp_segment_delete.exit70.us:                    ; preds = %ikcp_segment_delete
   br i1 %.not.i.i67, label %73, label %72
 
 72:                                               ; preds = %.lr.ph82.split
-  tail call void %66(ptr noundef nonnull %67) #15
+  tail call void %66(ptr noundef nonnull %67) #16
   %.pre92 = load ptr, ptr @ikcp_free_hook, align 8, !tbaa !4
   br label %ikcp_segment_delete.exit68
 
 73:                                               ; preds = %.lr.ph82.split
-  tail call void @free(ptr noundef nonnull %67) #15
+  tail call void @free(ptr noundef nonnull %67) #16
   br label %ikcp_segment_delete.exit68
 
 ikcp_segment_delete.exit68:                       ; preds = %72, %73
@@ -463,12 +463,12 @@ ikcp_segment_delete.exit68:                       ; preds = %72, %73
   br i1 %.not.i.i69, label %83, label %82
 
 82:                                               ; preds = %.lr.ph84.split
-  tail call void %76(ptr noundef nonnull %77) #15
+  tail call void %76(ptr noundef nonnull %77) #16
   %.pre94 = load ptr, ptr @ikcp_free_hook, align 8, !tbaa !4
   br label %ikcp_segment_delete.exit70
 
 83:                                               ; preds = %.lr.ph84.split
-  tail call void @free(ptr noundef nonnull %77) #15
+  tail call void @free(ptr noundef nonnull %77) #16
   br label %ikcp_segment_delete.exit70
 
 ikcp_segment_delete.exit70:                       ; preds = %82, %83
@@ -490,7 +490,7 @@ ikcp_segment_delete.exit70:                       ; preds = %82, %83
   br i1 %.not.i, label %ikcp_free.exit.thread, label %89
 
 89:                                               ; preds = %88
-  tail call void %.pre97.pre98(ptr noundef nonnull %87) #15
+  tail call void %.pre97.pre98(ptr noundef nonnull %87) #16
   %.pre97.pre = load ptr, ptr @ikcp_free_hook, align 8, !tbaa !4
   br label %ikcp_free.exit
 
@@ -502,7 +502,7 @@ ikcp_free.exit:                                   ; preds = %89, %._crit_edge
   br i1 %.not64, label %ikcp_free.exit72, label %94
 
 ikcp_free.exit.thread:                            ; preds = %88
-  tail call void @free(ptr noundef nonnull %87) #15
+  tail call void @free(ptr noundef nonnull %87) #16
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %93 = load ptr, ptr %92, align 8, !tbaa !69
   %.not64140 = icmp eq ptr %93, null
@@ -513,14 +513,14 @@ ikcp_free.exit.thread:                            ; preds = %88
   br i1 %.not.i71, label %.thread, label %95
 
 95:                                               ; preds = %94
-  tail call void %.pre97(ptr noundef nonnull %91) #15
+  tail call void %.pre97(ptr noundef nonnull %91) #16
   %.pre96 = load ptr, ptr @ikcp_free_hook, align 8, !tbaa !4
   br label %ikcp_free.exit72
 
 .thread:                                          ; preds = %ikcp_free.exit.thread, %94
   %96 = phi ptr [ %90, %94 ], [ %92, %ikcp_free.exit.thread ]
   %97 = phi ptr [ %91, %94 ], [ %93, %ikcp_free.exit.thread ]
-  tail call void @free(ptr noundef nonnull %97) #15
+  tail call void @free(ptr noundef nonnull %97) #16
   br label %ikcp_free.exit72
 
 ikcp_free.exit72:                                 ; preds = %ikcp_free.exit.thread, %.thread, %95, %ikcp_free.exit
@@ -536,11 +536,11 @@ ikcp_free.exit72:                                 ; preds = %ikcp_free.exit.thre
   br i1 %.not.i73, label %103, label %102
 
 102:                                              ; preds = %ikcp_free.exit72
-  tail call void %99(ptr noundef nonnull %0) #15
+  tail call void %99(ptr noundef nonnull %0) #16
   br label %ikcp_free.exit74
 
 103:                                              ; preds = %ikcp_free.exit72
-  tail call void @free(ptr noundef nonnull %0) #15
+  tail call void @free(ptr noundef nonnull %0) #16
   br label %ikcp_free.exit74
 
 ikcp_free.exit74:                                 ; preds = %103, %102, %1
@@ -680,11 +680,11 @@ ikcp_canlog.exit.thread.us:                       ; preds = %57, %ikcp_canlog.ex
   br i1 %.not.i.i.us, label %67, label %66
 
 66:                                               ; preds = %ikcp_canlog.exit.thread.us
-  tail call void %65(ptr noundef nonnull %.075.us) #15
+  tail call void %65(ptr noundef nonnull %.075.us) #16
   br label %ikcp_segment_delete.exit.us
 
 67:                                               ; preds = %ikcp_canlog.exit.thread.us
-  tail call void @free(ptr noundef nonnull %.075.us) #15
+  tail call void @free(ptr noundef nonnull %.075.us) #16
   br label %ikcp_segment_delete.exit.us
 
 ikcp_segment_delete.exit.us:                      ; preds = %67, %66
@@ -907,11 +907,11 @@ define dso_local i32 @ikcp_send(ptr noundef %0, ptr noundef readonly captures(ad
   br i1 %.not.i.i, label %29, label %27
 
 27:                                               ; preds = %20
-  %28 = tail call ptr %26(i64 noundef range(i64 -2147483576, 34359738361) %25) #15
+  %28 = tail call ptr %26(i64 noundef range(i64 -2147483576, 34359738361) %25) #16
   br label %ikcp_segment_new.exit
 
 29:                                               ; preds = %20
-  %30 = tail call noalias ptr @malloc(i64 noundef range(i64 -2147483576, 34359738361) %25) #16
+  %30 = tail call noalias ptr @malloc(i64 noundef range(i64 -2147483576, 34359738361) %25) #17
   br label %ikcp_segment_new.exit
 
 ikcp_segment_new.exit:                            ; preds = %27, %29
@@ -965,11 +965,11 @@ ikcp_segment_new.exit:                            ; preds = %27, %29
   br i1 %.not.i.i159, label %56, label %55
 
 55:                                               ; preds = %44
-  tail call void %54(ptr noundef nonnull %14) #15
+  tail call void %54(ptr noundef nonnull %14) #16
   br label %ikcp_segment_delete.exit
 
 56:                                               ; preds = %44
-  tail call void @free(ptr noundef nonnull %14) #15
+  tail call void @free(ptr noundef nonnull %14) #16
   br label %ikcp_segment_delete.exit
 
 ikcp_segment_delete.exit:                         ; preds = %56, %55, %12, %8
@@ -1025,7 +1025,7 @@ ikcp_segment_new.exit162.us:                      ; preds = %.lr.ph, %84
   %..5129.us = tail call i32 @llvm.smin.i32(i32 %.5129167.us, i32 %60)
   %76 = sext i32 %..5129.us to i64
   %77 = add nsw i64 %76, 72
-  %78 = tail call noalias ptr @malloc(i64 noundef range(i64 -2147483576, 34359738361) %77) #16
+  %78 = tail call noalias ptr @malloc(i64 noundef range(i64 -2147483576, 34359738361) %77) #17
   %.not155.us = icmp eq ptr %78, null
   br i1 %.not155.us, label %.critedge, label %79
 
@@ -1081,12 +1081,12 @@ ikcp_segment_new.exit162.us:                      ; preds = %.lr.ph, %84
   br i1 %.not.i.i160, label %106, label %104
 
 104:                                              ; preds = %.lr.ph.split
-  %105 = tail call ptr %100(i64 noundef range(i64 -2147483576, 34359738361) %103) #15
+  %105 = tail call ptr %100(i64 noundef range(i64 -2147483576, 34359738361) %103) #16
   %.pre = load ptr, ptr @ikcp_malloc_hook, align 8, !tbaa !4
   br label %ikcp_segment_new.exit162
 
 106:                                              ; preds = %.lr.ph.split
-  %107 = tail call noalias ptr @malloc(i64 noundef range(i64 -2147483576, 34359738361) %103) #16
+  %107 = tail call noalias ptr @malloc(i64 noundef range(i64 -2147483576, 34359738361) %103) #17
   br label %ikcp_segment_new.exit162
 
 ikcp_segment_new.exit162:                         ; preds = %104, %106
@@ -1160,11 +1160,11 @@ define dso_local void @ikcp_parse_data(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %.not.i.i, label %17, label %16
 
 16:                                               ; preds = %14
-  tail call void %15(ptr noundef nonnull %1) #15
+  tail call void %15(ptr noundef nonnull %1) #16
   br label %ikcp_segment_delete.exit
 
 17:                                               ; preds = %14
-  tail call void @free(ptr noundef nonnull %1) #15
+  tail call void @free(ptr noundef nonnull %1) #16
   br label %ikcp_segment_delete.exit
 
 18:                                               ; preds = %2
@@ -1211,11 +1211,11 @@ define dso_local void @ikcp_parse_data(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %.not.i.i66, label %38, label %37
 
 37:                                               ; preds = %.thread.thread
-  tail call void %36(ptr noundef %1) #15
+  tail call void %36(ptr noundef %1) #16
   br label %ikcp_segment_delete.exit67
 
 38:                                               ; preds = %.thread.thread
-  tail call void @free(ptr noundef %1) #15
+  tail call void @free(ptr noundef %1) #16
   br label %ikcp_segment_delete.exit67
 
 ikcp_segment_delete.exit67:                       ; preds = %38, %37, %.thread
@@ -1396,11 +1396,11 @@ ikcp_canlog.exit.thread:                          ; preds = %3, %12, %ikcp_canlo
   br i1 %.not.i.i.i, label %73, label %72
 
 72:                                               ; preds = %67
-  tail call void %71(ptr noundef nonnull %.01720.i) #15
+  tail call void %71(ptr noundef nonnull %.01720.i) #16
   br label %74
 
 73:                                               ; preds = %67
-  tail call void @free(ptr noundef nonnull %.01720.i) #15
+  tail call void @free(ptr noundef nonnull %.01720.i) #16
   br label %74
 
 74:                                               ; preds = %73, %72
@@ -1512,11 +1512,11 @@ ikcp_update_ack.exit:                             ; preds = %86, %88
   br i1 %.not.i.i.i148, label %128, label %127
 
 127:                                              ; preds = %122
-  tail call void %126(ptr noundef nonnull %.0.i146) #15
+  tail call void %126(ptr noundef nonnull %.0.i146) #16
   br label %ikcp_segment_delete.exit.i
 
 128:                                              ; preds = %122
-  tail call void @free(ptr noundef nonnull %.0.i146) #15
+  tail call void @free(ptr noundef nonnull %.0.i146) #16
   br label %ikcp_segment_delete.exit.i
 
 ikcp_segment_delete.exit.i:                       ; preds = %128, %127
@@ -1626,11 +1626,11 @@ ikcp_canlog.exit157.thread:                       ; preds = %155, %160, %ikcp_ca
   br i1 %.not.i.i, label %181, label %179
 
 179:                                              ; preds = %175
-  %180 = tail call ptr %178(i64 noundef range(i64 -2147483576, 34359738361) %177) #15
+  %180 = tail call ptr %178(i64 noundef range(i64 -2147483576, 34359738361) %177) #16
   br label %ikcp_malloc.exit.i
 
 181:                                              ; preds = %175
-  %182 = tail call noalias ptr @malloc(i64 noundef range(i64 -2147483576, 34359738361) %177) #16
+  %182 = tail call noalias ptr @malloc(i64 noundef range(i64 -2147483576, 34359738361) %177) #17
   br label %ikcp_malloc.exit.i
 
 ikcp_malloc.exit.i:                               ; preds = %181, %179
@@ -1639,7 +1639,7 @@ ikcp_malloc.exit.i:                               ; preds = %181, %179
   br i1 %183, label %184, label %185
 
 184:                                              ; preds = %ikcp_malloc.exit.i
-  tail call void @abort() #17
+  tail call void @abort() #18
   unreachable
 
 185:                                              ; preds = %ikcp_malloc.exit.i
@@ -1679,11 +1679,11 @@ ikcp_malloc.exit.i:                               ; preds = %181, %179
   br i1 %.not.i34.i, label %204, label %203
 
 203:                                              ; preds = %._crit_edge.i
-  tail call void %202(ptr noundef nonnull %186) #15
+  tail call void %202(ptr noundef nonnull %186) #16
   br label %ikcp_free.exit.i
 
 204:                                              ; preds = %._crit_edge.i
-  tail call void @free(ptr noundef nonnull %186) #15
+  tail call void @free(ptr noundef nonnull %186) #16
   br label %ikcp_free.exit.i
 
 ikcp_free.exit.i:                                 ; preds = %204, %203, %185
@@ -1717,11 +1717,11 @@ ikcp_ack_push.exit:                               ; preds = %._crit_edge39.i, %i
   br i1 %.not.i.i160, label %221, label %219
 
 219:                                              ; preds = %216
-  %220 = tail call ptr %218(i64 noundef range(i64 -2147483576, 34359738361) %217) #15
+  %220 = tail call ptr %218(i64 noundef range(i64 -2147483576, 34359738361) %217) #16
   br label %ikcp_segment_new.exit
 
 221:                                              ; preds = %216
-  %222 = tail call noalias ptr @malloc(i64 noundef range(i64 -2147483576, 34359738361) %217) #16
+  %222 = tail call noalias ptr @malloc(i64 noundef range(i64 -2147483576, 34359738361) %217) #17
   br label %ikcp_segment_new.exit
 
 ikcp_segment_new.exit:                            ; preds = %219, %221
@@ -1993,7 +1993,7 @@ ikcp_canlog.exit.thread.i:                        ; preds = %38, %ikcp_canlog.ex
 41:                                               ; preds = %ikcp_canlog.exit.thread.i
   %42 = load ptr, ptr %22, align 8, !tbaa !71
   %43 = load ptr, ptr %23, align 8, !tbaa !16
-  %44 = tail call i32 %42(ptr noundef %5, i32 noundef %29, ptr noundef nonnull %0, ptr noundef %43) #15
+  %44 = tail call i32 %42(ptr noundef %5, i32 noundef %29, ptr noundef nonnull %0, ptr noundef %43) #16
   br label %ikcp_output.exit
 
 ikcp_output.exit:                                 ; preds = %41, %ikcp_canlog.exit.thread.i, %26
@@ -2123,7 +2123,7 @@ ikcp_canlog.exit.thread.i244:                     ; preds = %104, %ikcp_canlog.e
   %109 = load ptr, ptr %108, align 8, !tbaa !71
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %111 = load ptr, ptr %110, align 8, !tbaa !16
-  %112 = tail call i32 %109(ptr noundef %5, i32 noundef %92, ptr noundef nonnull %0, ptr noundef %111) #15
+  %112 = tail call i32 %109(ptr noundef %5, i32 noundef %92, ptr noundef nonnull %0, ptr noundef %111) #16
   br label %ikcp_output.exit246
 
 ikcp_output.exit246:                              ; preds = %107, %ikcp_canlog.exit.thread.i244, %88
@@ -2194,7 +2194,7 @@ ikcp_canlog.exit.thread.i249:                     ; preds = %141, %ikcp_canlog.e
   %146 = load ptr, ptr %145, align 8, !tbaa !71
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %148 = load ptr, ptr %147, align 8, !tbaa !16
-  %149 = tail call i32 %146(ptr noundef %5, i32 noundef %129, ptr noundef nonnull %0, ptr noundef %148) #15
+  %149 = tail call i32 %146(ptr noundef %5, i32 noundef %129, ptr noundef nonnull %0, ptr noundef %148) #16
   br label %ikcp_output.exit251
 
 ikcp_output.exit251:                              ; preds = %144, %ikcp_canlog.exit.thread.i249, %125
@@ -2489,7 +2489,7 @@ ikcp_canlog.exit.thread.i254:                     ; preds = %304, %ikcp_canlog.e
 307:                                              ; preds = %ikcp_canlog.exit.thread.i254
   %308 = load ptr, ptr %233, align 8, !tbaa !71
   %309 = load ptr, ptr %234, align 8, !tbaa !16
-  %310 = tail call i32 %308(ptr noundef %5, i32 noundef %292, ptr noundef nonnull %0, ptr noundef %309) #15
+  %310 = tail call i32 %308(ptr noundef %5, i32 noundef %292, ptr noundef nonnull %0, ptr noundef %309) #16
   br label %ikcp_output.exit256
 
 ikcp_output.exit256:                              ; preds = %307, %ikcp_canlog.exit.thread.i254, %285
@@ -2596,7 +2596,7 @@ ikcp_output.exit261:                              ; preds = %359, %ikcp_canlog.e
   %362 = load ptr, ptr %361, align 8, !tbaa !71
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %364 = load ptr, ptr %363, align 8, !tbaa !16
-  %365 = tail call i32 %362(ptr noundef %5, i32 noundef %350, ptr noundef nonnull %0, ptr noundef %364) #15
+  %365 = tail call i32 %362(ptr noundef %5, i32 noundef %350, ptr noundef nonnull %0, ptr noundef %364) #16
   br label %366
 
 366:                                              ; preds = %ikcp_output.exit261, %._crit_edge312
@@ -2764,11 +2764,11 @@ define dso_local range(i32 -2, 1) i32 @ikcp_setmtu(ptr noundef captures(none) %0
   br i1 %.not.i, label %11, label %9
 
 9:                                                ; preds = %4
-  %10 = tail call ptr %8(i64 noundef range(i64 -2147483576, 34359738361) %7) #15
+  %10 = tail call ptr %8(i64 noundef range(i64 -2147483576, 34359738361) %7) #16
   br label %ikcp_malloc.exit
 
 11:                                               ; preds = %4
-  %12 = tail call noalias ptr @malloc(i64 noundef range(i64 -2147483576, 34359738361) %7) #16
+  %12 = tail call noalias ptr @malloc(i64 noundef range(i64 -2147483576, 34359738361) %7) #17
   br label %ikcp_malloc.exit
 
 ikcp_malloc.exit:                                 ; preds = %9, %11
@@ -2789,11 +2789,11 @@ ikcp_malloc.exit:                                 ; preds = %9, %11
   br i1 %.not.i14, label %22, label %21
 
 21:                                               ; preds = %14
-  tail call void %20(ptr noundef %19) #15
+  tail call void %20(ptr noundef %19) #16
   br label %ikcp_free.exit
 
 22:                                               ; preds = %14
-  tail call void @free(ptr noundef %19) #15
+  tail call void @free(ptr noundef %19) #16
   br label %ikcp_free.exit
 
 ikcp_free.exit:                                   ; preds = %21, %22
@@ -2920,25 +2920,25 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #13
+declare i32 @llvm.abs.i32(i32, i1 immarg) #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2954,11 +2954,12 @@ attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,unini
 attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind allocsize(0) }
-attributes #17 = { noreturn nounwind }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nounwind }
+attributes #17 = { nounwind allocsize(0) }
+attributes #18 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

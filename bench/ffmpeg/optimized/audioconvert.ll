@@ -11,8 +11,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @swri_audio_convert_alloc(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = tail call i32 @av_get_packed_sample_fmt(i32 noundef %0) #8
-  %7 = tail call i32 @av_get_packed_sample_fmt(i32 noundef %1) #8
+  %6 = tail call i32 @av_get_packed_sample_fmt(i32 noundef %0) #9
+  %7 = tail call i32 @av_get_packed_sample_fmt(i32 noundef %1) #9
   %8 = mul nsw i32 %7, 12
   %9 = add nsw i32 %8, %6
   %10 = sext i32 %9 to i64
@@ -22,7 +22,7 @@ define noalias ptr @swri_audio_convert_alloc(i32 noundef %0, i32 noundef %1, i32
   br i1 %.not, label %36, label %13
 
 13:                                               ; preds = %5
-  %14 = tail call noalias ptr @av_mallocz(i64 noundef 48) #8
+  %14 = tail call noalias ptr @av_mallocz(i64 noundef 48) #9
   %.not32 = icmp eq ptr %14, null
   br i1 %.not32, label %36, label %15
 
@@ -31,8 +31,8 @@ define noalias ptr @swri_audio_convert_alloc(i32 noundef %0, i32 noundef %1, i32
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @av_get_planar_sample_fmt(i32 noundef %1) #8
-  %19 = tail call i32 @av_get_planar_sample_fmt(i32 noundef %0) #8
+  %18 = tail call i32 @av_get_planar_sample_fmt(i32 noundef %1) #9
+  %19 = tail call i32 @av_get_planar_sample_fmt(i32 noundef %0) #9
   br label %20
 
 20:                                               ; preds = %17, %15
@@ -60,7 +60,7 @@ define noalias ptr @swri_audio_convert_alloc(i32 noundef %0, i32 noundef %1, i32
   br i1 %or.cond3, label %36, label %28
 
 28:                                               ; preds = %25
-  %29 = tail call i32 @av_get_bytes_per_sample(i32 noundef %.029) #8
+  %29 = tail call i32 @av_get_bytes_per_sample(i32 noundef %.029) #9
   %30 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %29)
   %31 = icmp eq i32 %30, 1
   br i1 %31, label %.split, label %36
@@ -132,7 +132,7 @@ define internal void @cpy8(ptr noundef readonly captures(none) %0, ptr noundef r
 
 ; Function Attrs: nounwind uwtable
 define void @swri_audio_convert_free(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @av_freep(ptr noundef %0) #8
+  tail call void @av_freep(ptr noundef %0) #9
   ret void
 }
 
@@ -156,8 +156,8 @@ define noundef i32 @swri_audio_convert(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %4
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 202) #8
-  tail call void @abort() #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 202) #9
+  tail call void @abort() #10
   unreachable
 
 16:                                               ; preds = %4
@@ -283,13 +283,13 @@ define noundef i32 @swri_audio_convert(ptr noundef %0, ptr noundef %1, ptr nound
 68:                                               ; preds = %.lr.ph122, %66
   %69 = phi i32 [ %67, %66 ], [ 1, %.lr.ph122 ]
   %70 = mul nsw i32 %69, %54
-  tail call void %62(ptr noundef nonnull %63, ptr noundef %64, i32 noundef %70) #8
+  tail call void %62(ptr noundef nonnull %63, ptr noundef %64, i32 noundef %70) #9
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count136
   br i1 %exitcond137.not, label %.loopexit111, label %.lr.ph122, !llvm.loop !26
 
 71:                                               ; preds = %56
-  tail call void %47(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %54) #8
+  tail call void %47(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %54) #9
   br label %.loopexit111
 
 .loopexit111:                                     ; preds = %68, %60, %71, %53
@@ -367,7 +367,7 @@ define noundef i32 @swri_audio_convert(ptr noundef %0, ptr noundef %1, ptr nound
   %114 = mul nsw i32 %106, %.088
   %115 = sext i32 %114 to i64
   %116 = getelementptr inbounds i8, ptr %107, i64 %115
-  tail call void %112(ptr noundef nonnull %113, ptr noundef %116, i32 noundef %106, i32 noundef %11, ptr noundef nonnull %111) #8
+  tail call void %112(ptr noundef nonnull %113, ptr noundef %116, i32 noundef %106, i32 noundef %11, ptr noundef nonnull %111) #9
   %.pre143 = load i32, ptr %0, align 8, !tbaa !8
   br label %117
 
@@ -3093,31 +3093,31 @@ define internal void @conv_AV_SAMPLE_FMT_S64_to_AV_SAMPLE_FMT_S64(ptr noundef wr
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.lrint.i64.f32(float) #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.llrint.i64.f32(float) #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.lrint.i64.f64(double) #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.llrint.i64.f64(double) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3125,11 +3125,12 @@ attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "st
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn nounwind }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -60,12 +60,12 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %sw.bb
-  %call = tail call i32 @fwide(ptr noundef %pContext, i32 noundef -1) #14
+  %call = tail call i32 @fwide(ptr noundef %pContext, i32 noundef -1) #15
   %call.lobit = lshr i32 %call, 31
   br label %return
 
 if.else:                                          ; preds = %sw.bb
-  %call2 = tail call i32 @fwide(ptr noundef %pContext, i32 noundef 1) #14
+  %call2 = tail call i32 @fwide(ptr noundef %pContext, i32 noundef 1) #15
   %cmp3 = icmp sgt i32 %call2, 0
   %cond4 = zext i1 %cmp3 to i32
   br label %return
@@ -79,11 +79,11 @@ sw.bb8:                                           ; preds = %entry
   br label %return
 
 sw.bb10:                                          ; preds = %entry
-  %call11 = tail call i32 @feof(ptr noundef %pContext) #14
+  %call11 = tail call i32 @feof(ptr noundef %pContext) #15
   br label %return
 
 sw.bb12:                                          ; preds = %entry
-  %call13 = tail call i32 @ferror(ptr noundef %pContext) #14
+  %call13 = tail call i32 @ferror(ptr noundef %pContext) #15
   br label %return
 
 return:                                           ; preds = %entry, %sw.bb12, %sw.bb10, %sw.bb8, %sw.bb6, %if.else, %if.then
@@ -378,7 +378,7 @@ if.end56:                                         ; preds = %while.body
   %idxprom57 = ashr exact i64 %sext, 32
   %arrayidx58 = getelementptr inbounds i8, ptr %buffer, i64 %idxprom57
   store i8 0, ptr %arrayidx58, align 1
-  %call = call double @strtod(ptr noundef nonnull captures(none) %buffer, ptr noundef null) #14
+  %call = call double @strtod(ptr noundef nonnull captures(none) %buffer, ptr noundef null) #15
   br label %return
 
 return:                                           ; preds = %if.end56, %for.end
@@ -386,7 +386,7 @@ return:                                           ; preds = %if.end56, %for.end
   ret double %retval.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
@@ -4589,7 +4589,7 @@ if.end56.i:                                       ; preds = %while.body.i
   %idxprom57.i = ashr exact i64 %sext.i, 32
   %arrayidx58.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idxprom57.i
   store i8 0, ptr %arrayidx58.i, align 1
-  %call.i = call double @strtod(ptr noundef nonnull captures(none) %buffer.i, ptr noundef null) #14
+  %call.i = call double @strtod(ptr noundef nonnull captures(none) %buffer.i, ptr noundef null) #15
   br label %_ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit
 
 _ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit: ; preds = %for.end.i, %if.end56.i
@@ -5980,7 +5980,7 @@ if.end56.i:                                       ; preds = %while.body.i
   %idxprom57.i = ashr exact i64 %sext.i, 32
   %arrayidx58.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idxprom57.i
   store i8 0, ptr %arrayidx58.i, align 1
-  %call.i = call double @strtod(ptr noundef nonnull captures(none) %buffer.i, ptr noundef null) #14
+  %call.i = call double @strtod(ptr noundef nonnull captures(none) %buffer.i, ptr noundef null) #15
   br label %_ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit
 
 _ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit: ; preds = %for.end.i, %if.end56.i
@@ -7339,7 +7339,7 @@ if.end56.i:                                       ; preds = %while.body.i
   %idxprom57.i = ashr exact i64 %sext.i, 32
   %arrayidx58.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idxprom57.i
   store i8 0, ptr %arrayidx58.i, align 1
-  %call.i = call double @strtod(ptr noundef nonnull captures(none) %buffer.i, ptr noundef null) #14
+  %call.i = call double @strtod(ptr noundef nonnull captures(none) %buffer.i, ptr noundef null) #15
   br label %_ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit
 
 _ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit: ; preds = %for.end.i, %if.end56.i
@@ -7368,20 +7368,20 @@ return:                                           ; preds = %41, %if.else256, %i
   ret double %retval.0
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #12
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -7389,15 +7389,16 @@ attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true
 attributes #3 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -56,7 +56,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   %20 = add nsw i32 %.1452.ph, 1
   %21 = load ptr, ptr %6, align 8
   %22 = zext i8 %15 to i32
-  call void %21(ptr noundef %0, i32 noundef %22) #5
+  call void %21(ptr noundef %0, i32 noundef %22) #6
   br label %.backedge.outer.backedge
 
 .backedge.outer.backedge:                         ; preds = %19, %533, %.loopexit44, %.backedge.loopexit
@@ -319,7 +319,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   %136 = phi ptr [ %130, %127 ], [ %133, %132 ]
   %137 = load double, ptr %136, align 8
   %138 = zext nneg i8 %spec.store.select12 to i32
-  %139 = call i32 @__dtoa_engine(double noundef %137, ptr noundef nonnull %4, i32 noundef %138, i32 noundef %.0429) #5
+  %139 = call i32 @__dtoa_engine(double noundef %137, ptr noundef nonnull %4, i32 noundef %138, i32 noundef %.0429) #6
   %140 = trunc i32 %139 to i8
   %141 = load i32, ptr %4, align 4
   %142 = load i8, ptr %12, align 4
@@ -361,7 +361,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
 .preheader54:                                     ; preds = %155, %.preheader54
   %.3487 = phi i32 [ %160, %.preheader54 ], [ %156, %155 ]
   %159 = load ptr, ptr %6, align 8
-  call void %159(ptr noundef %0, i32 noundef 32) #5
+  call void %159(ptr noundef %0, i32 noundef 32) #6
   %160 = add nsw i32 %.3487, -1
   %.not584 = icmp eq i32 %160, 0
   br i1 %.not584, label %.loopexit55.loopexit, label %.preheader54, !llvm.loop !8
@@ -379,7 +379,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
 163:                                              ; preds = %.loopexit55
   %164 = add nsw i32 %.3454, 1
   %165 = load ptr, ptr %6, align 8
-  call void %165(ptr noundef %0, i32 noundef %.0435) #5
+  call void %165(ptr noundef %0, i32 noundef %.0435) #6
   br label %166
 
 166:                                              ; preds = %163, %.loopexit55
@@ -406,7 +406,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   %174 = add nsw i32 %.545683, 1
   %175 = load ptr, ptr %6, align 8
   %176 = zext i8 %spec.select593 to i32
-  call void %175(ptr noundef %0, i32 noundef %176) #5
+  call void %175(ptr noundef %0, i32 noundef %176) #6
   %177 = getelementptr inbounds nuw i8, ptr %.042884, i64 1
   %178 = load i8, ptr %177, align 1
   %.not587 = icmp eq i8 %178, 0
@@ -490,7 +490,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
 .preheader51:                                     ; preds = %201, %.preheader51
   %.7491 = phi i32 [ %216, %.preheader51 ], [ %210, %201 ]
   %215 = load ptr, ptr %6, align 8
-  call void %215(ptr noundef %0, i32 noundef 32) #5
+  call void %215(ptr noundef %0, i32 noundef 32) #6
   %216 = add nsw i32 %.7491, -1
   %.old32.not = icmp eq i32 %216, 0
   br i1 %.old32.not, label %.loopexit52.loopexit, label %.preheader51
@@ -508,7 +508,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
 219:                                              ; preds = %.loopexit52
   %220 = add nsw i32 %.7458, 1
   %221 = load ptr, ptr %6, align 8
-  call void %221(ptr noundef %0, i32 noundef %.0435) #5
+  call void %221(ptr noundef %0, i32 noundef %.0435) #6
   br label %222
 
 222:                                              ; preds = %219, %.loopexit52
@@ -522,7 +522,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
 .preheader49:                                     ; preds = %222, %.preheader49
   %.9493 = phi i32 [ %227, %.preheader49 ], [ %.6490, %222 ]
   %226 = load ptr, ptr %6, align 8
-  call void %226(ptr noundef %0, i32 noundef 48) #5
+  call void %226(ptr noundef %0, i32 noundef 48) #6
   %227 = add nsw i32 %.9493, -1
   %.old35.not = icmp eq i32 %227, 0
   br i1 %.old35.not, label %.loopexit50.loopexit, label %.preheader49
@@ -550,7 +550,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
 233:                                              ; preds = %231
   %234 = add nsw i32 %.12463, 1
   %235 = load ptr, ptr %6, align 8
-  call void %235(ptr noundef %0, i32 noundef 46) #5
+  call void %235(ptr noundef %0, i32 noundef 46) #6
   br label %236
 
 236:                                              ; preds = %233, %231
@@ -577,7 +577,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   %247 = add nsw i32 %.13464, 1
   %248 = load ptr, ptr %6, align 8
   %249 = sext i8 %.0426 to i32
-  call void %248(ptr noundef %0, i32 noundef %249) #5
+  call void %248(ptr noundef %0, i32 noundef %249) #6
   br label %231
 
 250:                                              ; preds = %244
@@ -607,7 +607,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   %262 = add nsw i32 %.13464, 1
   %263 = load ptr, ptr %6, align 8
   %264 = sext i8 %.1427 to i32
-  call void %263(ptr noundef %0, i32 noundef %264) #5
+  call void %263(ptr noundef %0, i32 noundef %264) #6
   %265 = and i32 %202, 16
   %266 = icmp ne i32 %265, 0
   %267 = icmp eq i32 %.3439, 0
@@ -617,7 +617,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
 268:                                              ; preds = %261
   %269 = add nsw i32 %.13464, 2
   %270 = load ptr, ptr %6, align 8
-  call void %270(ptr noundef nonnull %0, i32 noundef 46) #5
+  call void %270(ptr noundef nonnull %0, i32 noundef 46) #6
   br label %.loopexit44
 
 271:                                              ; preds = %.loopexit50
@@ -634,14 +634,14 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
 276:                                              ; preds = %273, %271
   %277 = load ptr, ptr %6, align 8
   %278 = sext i8 %272 to i32
-  call void %277(ptr noundef %0, i32 noundef %278) #5
+  call void %277(ptr noundef %0, i32 noundef %278) #6
   %279 = icmp sgt i32 %.4480.fr, 0
   br i1 %279, label %280, label %296
 
 280:                                              ; preds = %276
   %281 = add nsw i32 %.10461, 2
   %282 = load ptr, ptr %6, align 8
-  call void %282(ptr noundef nonnull %0, i32 noundef 46) #5
+  call void %282(ptr noundef nonnull %0, i32 noundef 46) #6
   br label %283
 
 283:                                              ; preds = %280, %292
@@ -661,7 +661,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
 
 292:                                              ; preds = %283, %287
   %293 = phi i32 [ %291, %287 ], [ 48, %283 ]
-  call void %285(ptr noundef nonnull %0, i32 noundef %293) #5
+  call void %285(ptr noundef nonnull %0, i32 noundef %293) #6
   %294 = add i8 %.042597, 1
   %295 = zext i8 %294 to i32
   %.not577 = icmp samesign ult i32 %.4480.fr, %295
@@ -676,7 +676,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
 299:                                              ; preds = %296
   %300 = add nsw i32 %.10461, 2
   %301 = load ptr, ptr %6, align 8
-  call void %301(ptr noundef nonnull %0, i32 noundef 46) #5
+  call void %301(ptr noundef nonnull %0, i32 noundef 46) #6
   br label %.loopexit47
 
 .loopexit47:                                      ; preds = %292, %296, %299
@@ -685,7 +685,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   %303 = and i32 %202, 8192
   %.not578 = icmp eq i32 %303, 0
   %304 = select i1 %.not578, i32 101, i32 69
-  call void %302(ptr noundef nonnull %0, i32 noundef %304) #5
+  call void %302(ptr noundef nonnull %0, i32 noundef %304) #6
   %305 = icmp slt i32 %141, 0
   br i1 %305, label %311, label %306
 
@@ -708,9 +708,9 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   %.4434 = phi i32 [ 45, %311 ], [ 43, %308 ], [ 43, %306 ]
   %314 = add nsw i32 %.15466, 2
   %315 = load ptr, ptr %6, align 8
-  call void %315(ptr noundef nonnull %0, i32 noundef %.4434) #5
+  call void %315(ptr noundef nonnull %0, i32 noundef %.4434) #6
   %316 = zext nneg i32 %.0440 to i64
-  %317 = call ptr @__ultoa_invert(i64 noundef %316, ptr noundef nonnull %4, i32 noundef 10) #5
+  %317 = call ptr @__ultoa_invert(i64 noundef %316, ptr noundef nonnull %4, i32 noundef 10) #6
   %318 = ptrtoint ptr %317 to i64
   %319 = sub i64 %318, %9
   %or.cond17 = icmp samesign ult i32 %.0440, 10
@@ -719,7 +719,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
 320:                                              ; preds = %313
   %321 = add nsw i32 %.15466, 3
   %322 = load ptr, ptr %6, align 8
-  call void %322(ptr noundef nonnull %0, i32 noundef 48) #5
+  call void %322(ptr noundef nonnull %0, i32 noundef 48) #6
   br label %323
 
 323:                                              ; preds = %320, %313
@@ -742,7 +742,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   %330 = getelementptr inbounds nuw i8, ptr %4, i64 %329
   %331 = load i8, ptr %330, align 1
   %332 = sext i8 %331 to i32
-  call void %327(ptr noundef nonnull %0, i32 noundef %332) #5
+  call void %327(ptr noundef nonnull %0, i32 noundef %332) #6
   %indvars.iv.next164 = add nsw i64 %indvars.iv163, -1
   %333 = and i64 %indvars.iv.next164, 255
   %.not580 = icmp eq i64 %333, 0
@@ -829,7 +829,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   %.1980 = phi i32 [ %374, %.lr.ph ], [ %.1452.ph, %369 ]
   %374 = add nsw i32 %.1980, 1
   %375 = load ptr, ptr %6, align 8
-  call void %375(ptr noundef %0, i32 noundef 32) #5
+  call void %375(ptr noundef %0, i32 noundef 32) #6
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %376 = icmp ult i64 %.0474, %indvars.iv.next
   br i1 %376, label %.lr.ph, label %.loopexit57, !llvm.loop !13
@@ -840,7 +840,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   %377 = trunc i64 %.0474 to i32
   %378 = add i32 %.18, %377
   %379 = load ptr, ptr %10, align 8
-  %380 = call i32 %379(ptr noundef %0, ptr noundef nonnull %.0475, i32 noundef %377) #5
+  %380 = call i32 %379(ptr noundef %0, ptr noundef nonnull %.0475, i32 noundef %377) #6
   %381 = call i64 @llvm.usub.sat.i64(i64 %.pre-phi173, i64 %.0474)
   %382 = trunc nuw nsw i64 %381 to i32
   br label %.loopexit44
@@ -965,7 +965,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
 
 446:                                              ; preds = %437
   %.1424 = call i64 @llvm.abs.i64(i64 %.0423, i1 true)
-  %447 = call ptr @__ultoa_invert(i64 noundef %.1424, ptr noundef nonnull %4, i32 noundef 10) #5
+  %447 = call ptr @__ultoa_invert(i64 noundef %.1424, ptr noundef nonnull %4, i32 noundef 10) #6
   %448 = ptrtoint ptr %447 to i64
   %449 = sub i64 %448, %9
   %450 = trunc i64 %449 to i8
@@ -1149,10 +1149,10 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
 
 533:                                              ; preds = %506
   %534 = load ptr, ptr %6, align 8
-  call void %534(ptr noundef %0, i32 noundef 37) #5
+  call void %534(ptr noundef %0, i32 noundef 37) #6
   %535 = add nsw i32 %.1452.ph, 2
   %536 = load ptr, ptr %6, align 8
-  call void %536(ptr noundef %0, i32 noundef %451) #5
+  call void %536(ptr noundef %0, i32 noundef %451) #6
   br label %.backedge.outer.backedge
 
 .loopexit:                                        ; preds = %506
@@ -1172,7 +1172,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   br i1 %or.cond29, label %548, label %543
 
 543:                                              ; preds = %538
-  %544 = call ptr @__ultoa_invert(i64 noundef %.0421, ptr noundef nonnull %4, i32 noundef %.0422) #5
+  %544 = call ptr @__ultoa_invert(i64 noundef %.0421, ptr noundef nonnull %4, i32 noundef %.0422) #6
   %545 = ptrtoint ptr %544 to i64
   %546 = sub i64 %545, %9
   %547 = trunc i64 %546 to i8
@@ -1287,7 +1287,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   %.4473103 = phi i8 [ %593, %.lr.ph105 ], [ %.3472, %588 ]
   %591 = add nsw i32 %.21104, 1
   %592 = load ptr, ptr %6, align 8
-  call void %592(ptr noundef %0, i32 noundef 32) #5
+  call void %592(ptr noundef %0, i32 noundef 32) #6
   %593 = add i8 %.4473103, 1
   %594 = zext i8 %593 to i32
   %595 = icmp samesign ugt i32 %.2486102835219, %594
@@ -1307,7 +1307,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
 600:                                              ; preds = %.loopexit45
   %601 = add nsw i32 %.20, 1
   %602 = load ptr, ptr %6, align 8
-  call void %602(ptr noundef %0, i32 noundef 48) #5
+  call void %602(ptr noundef %0, i32 noundef 48) #6
   %603 = and i32 %.pre-phi171, 16384
   %.not563 = icmp eq i32 %603, 0
   br i1 %.not563, label %618, label %604
@@ -1318,7 +1318,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   %607 = and i32 %.pre-phi171, 8192
   %.not564 = icmp eq i32 %607, 0
   %608 = select i1 %.not564, i32 120, i32 88
-  call void %606(ptr noundef nonnull %0, i32 noundef %608) #5
+  call void %606(ptr noundef nonnull %0, i32 noundef %608) #6
   br label %618
 
 609:                                              ; preds = %.loopexit45
@@ -1335,7 +1335,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   %615 = load ptr, ptr %6, align 8
   %616 = select i1 %.not561, i32 32, i32 43
   %617 = select i1 %.not562, i32 %616, i32 45
-  call void %615(ptr noundef %0, i32 noundef %617) #5
+  call void %615(ptr noundef %0, i32 noundef %617) #6
   br label %618
 
 618:                                              ; preds = %609, %611, %600, %604
@@ -1361,7 +1361,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
 .lr.ph110:                                        ; preds = %618, %.lr.ph110
   %.7483108 = phi i32 [ %625, %.lr.ph110 ], [ %.5481, %618 ]
   %624 = load ptr, ptr %6, align 8
-  call void %624(ptr noundef %0, i32 noundef 48) #5
+  call void %624(ptr noundef %0, i32 noundef 48) #6
   %625 = add nsw i32 %.7483108, -1
   %626 = icmp samesign ugt i32 %625, %619
   br i1 %626, label %.lr.ph110, label %.preheader.loopexit, !llvm.loop !15
@@ -1375,7 +1375,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   %630 = getelementptr inbounds nuw i8, ptr %4, i64 %629
   %631 = load i8, ptr %630, align 1
   %632 = sext i8 %631 to i32
-  call void %628(ptr noundef %0, i32 noundef %632) #5
+  call void %628(ptr noundef %0, i32 noundef %632) #6
   %.not565.wide = icmp eq i64 %629, 0
   br i1 %.not565.wide, label %.loopexit44, label %.lr.ph115, !llvm.loop !16
 
@@ -1389,7 +1389,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
 .lr.ph120:                                        ; preds = %.loopexit44, %.lr.ph120
   %.12496118 = phi i32 [ %634, %.lr.ph120 ], [ %.5489, %.loopexit44 ]
   %633 = load ptr, ptr %6, align 8
-  call void %633(ptr noundef %0, i32 noundef 32) #5
+  call void %633(ptr noundef %0, i32 noundef 32) #6
   %634 = add nsw i32 %.12496118, -1
   %.not588 = icmp eq i32 %634, 0
   br i1 %.not588, label %.backedge.loopexit, label %.lr.ph120, !llvm.loop !17
@@ -1429,24 +1429,25 @@ declare void @llvm.va_end.p0(ptr) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_copy.p0(ptr, ptr) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #4
+declare i64 @llvm.abs.i64(i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

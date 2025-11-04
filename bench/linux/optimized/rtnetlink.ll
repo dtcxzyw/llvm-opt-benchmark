@@ -280,7 +280,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_rtnl_offload
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @rtnl_lock() #0 align 16 {
-  tail call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #18
+  tail call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #19
   ret void
 }
 
@@ -289,7 +289,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @rtnl_lock_killable() #0 align 16 {
-  %1 = tail call i32 @mutex_lock_killable(ptr noundef nonnull @rtnl_mutex) #18
+  %1 = tail call i32 @mutex_lock_killable(ptr noundef nonnull @rtnl_mutex) #19
   ret i32 %1
 }
 
@@ -322,21 +322,21 @@ define dso_local void @__rtnl_unlock() local_unnamed_addr #0 align 16 {
   br i1 %3, label %5, label %4, !prof !5
 
 4:                                                ; preds = %0
-  tail call void asm sideeffect "926: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 926b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 926) #18, !srcloc !6
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 136, i32 2305, i64 12) #18, !srcloc !7
-  tail call void asm sideeffect "927: nop\0A\09.pushsection .discard.instr_end\0A\09.long 927b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 927) #18, !srcloc !8
+  tail call void asm sideeffect "926: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 926b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 926) #19, !srcloc !6
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 136, i32 2305, i64 12) #19, !srcloc !7
+  tail call void asm sideeffect "927: nop\0A\09.pushsection .discard.instr_end\0A\09.long 927b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 927) #19, !srcloc !8
   br label %5
 
 5:                                                ; preds = %4, %0
-  tail call void @mutex_unlock(ptr noundef nonnull @rtnl_mutex) #18
+  tail call void @mutex_unlock(ptr noundef nonnull @rtnl_mutex) #19
   %6 = icmp eq ptr %1, null
   br i1 %6, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %5, %.preheader
   %7 = phi ptr [ %8, %.preheader ], [ %1, %5 ]
   %8 = load ptr, ptr %7, align 8
-  tail call void @kfree_skb_reason(ptr noundef nonnull %7, i32 noundef 2) #18
-  %9 = tail call i32 @__SCT__cond_resched() #18
+  tail call void @kfree_skb_reason(ptr noundef nonnull %7, i32 noundef 2) #19
+  %9 = tail call i32 @__SCT__cond_resched() #19
   %10 = icmp eq ptr %8, null
   br i1 %10, label %.loopexit, label %.preheader, !llvm.loop !9
 
@@ -349,7 +349,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @rtnl_unlock() #0 align 16 {
-  tail call void @netdev_run_todo() #18
+  tail call void @netdev_run_todo() #19
   ret void
 }
 
@@ -358,7 +358,7 @@ declare dso_local void @netdev_run_todo() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @rtnl_trylock() #0 align 16 {
-  %1 = tail call i32 @mutex_trylock(ptr noundef nonnull @rtnl_mutex) #18
+  %1 = tail call i32 @mutex_trylock(ptr noundef nonnull @rtnl_mutex) #19
   ret i32 %1
 }
 
@@ -367,7 +367,7 @@ declare dso_local i32 @mutex_trylock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 0, 2) i32 @rtnl_is_locked() #0 align 16 {
-  %1 = tail call zeroext i1 @mutex_is_locked(ptr noundef nonnull @rtnl_mutex) #18
+  %1 = tail call zeroext i1 @mutex_is_locked(ptr noundef nonnull @rtnl_mutex) #19
   %2 = zext i1 %1 to i32
   ret i32 %2
 }
@@ -377,7 +377,7 @@ declare dso_local zeroext i1 @mutex_is_locked(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @refcount_dec_and_rtnl_lock(ptr noundef %0) #0 align 16 {
-  %2 = tail call zeroext i1 @refcount_dec_and_mutex_lock(ptr noundef %0, ptr noundef nonnull @rtnl_mutex) #18
+  %2 = tail call zeroext i1 @refcount_dec_and_mutex_lock(ptr noundef %0, ptr noundef nonnull @rtnl_mutex) #19
   ret i1 %2
 }
 
@@ -396,8 +396,8 @@ define internal fastcc noundef range(i32 -105, 1) i32 @rtnl_register_internal(pt
   br i1 %7, label %8, label %9, !prof !13
 
 8:                                                ; preds = %6
-  tail call void asm sideeffect "939: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 939b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 939) #18, !srcloc !14
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 222, i32 0, i64 12) #18, !srcloc !15
+  tail call void asm sideeffect "939: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 939b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 939) #19, !srcloc !14
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 222, i32 0, i64 12) #19, !srcloc !15
   unreachable
 
 9:                                                ; preds = %6
@@ -406,12 +406,12 @@ define internal fastcc noundef range(i32 -105, 1) i32 @rtnl_register_internal(pt
   br i1 %11, label %12, label %13, !prof !13
 
 12:                                               ; preds = %9
-  tail call void asm sideeffect "932: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 932b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 932) #18, !srcloc !16
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 193, i32 0, i64 12) #18, !srcloc !17
+  tail call void asm sideeffect "932: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 932b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 932) #19, !srcloc !16
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 193, i32 0, i64 12) #19, !srcloc !17
   unreachable
 
 13:                                               ; preds = %9
-  tail call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #18
+  tail call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #19
   %14 = zext nneg i32 %1 to i64
   %15 = getelementptr ptr, ptr @rtnl_msg_handlers, i64 %14
   %16 = load ptr, ptr %15, align 8
@@ -420,12 +420,12 @@ define internal fastcc noundef range(i32 -105, 1) i32 @rtnl_register_internal(pt
 
 18:                                               ; preds = %13
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
-  %20 = tail call noalias noundef align 8 dereferenceable_or_null(864) ptr @kmalloc_trace(ptr noundef %19, i32 noundef 3520, i64 noundef 864) #19
+  %20 = tail call noalias noundef align 8 dereferenceable_or_null(864) ptr @kmalloc_trace(ptr noundef %19, i32 noundef 3520, i64 noundef 864) #20
   %21 = icmp eq ptr %20, null
   br i1 %21, label %76, label %22
 
 22:                                               ; preds = %18
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !18
   store volatile ptr %20, ptr %15, align 8
   br label %23
 
@@ -438,13 +438,13 @@ define internal fastcc noundef range(i32 -105, 1) i32 @rtnl_register_internal(pt
   br i1 %28, label %32, label %29
 
 29:                                               ; preds = %23
-  %30 = tail call dereferenceable_or_null(48) ptr @kmemdup(ptr noundef nonnull %27, i64 noundef 48, i32 noundef 3264) #20
+  %30 = tail call dereferenceable_or_null(48) ptr @kmemdup(ptr noundef nonnull %27, i64 noundef 48, i32 noundef 3264) #21
   %31 = icmp eq ptr %30, null
   br i1 %31, label %76, label %36
 
 32:                                               ; preds = %23
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
-  %34 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %33, i32 noundef 3520, i64 noundef 48) #19
+  %34 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %33, i32 noundef 3520, i64 noundef 48) #20
   %35 = icmp eq ptr %34, null
   br i1 %35, label %76, label %36
 
@@ -458,9 +458,9 @@ define internal fastcc noundef range(i32 -105, 1) i32 @rtnl_register_internal(pt
   br i1 %42, label %43, label %44, !prof !13
 
 43:                                               ; preds = %36
-  tail call void asm sideeffect "943: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 943b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 943) #18, !srcloc !19
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 247, i32 2305, i64 12) #18, !srcloc !20
-  tail call void asm sideeffect "944: nop\0A\09.pushsection .discard.instr_end\0A\09.long 944b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 944) #18, !srcloc !21
+  tail call void asm sideeffect "943: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 943b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 943) #19, !srcloc !19
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 247, i32 2305, i64 12) #19, !srcloc !20
+  tail call void asm sideeffect "944: nop\0A\09.pushsection .discard.instr_end\0A\09.long 944b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 944) #19, !srcloc !21
   br label %44
 
 44:                                               ; preds = %43, %36
@@ -476,9 +476,9 @@ define internal fastcc noundef range(i32 -105, 1) i32 @rtnl_register_internal(pt
   br i1 %50, label %51, label %52, !prof !13
 
 51:                                               ; preds = %46
-  tail call void asm sideeffect "945: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 945b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 945) #18, !srcloc !22
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 250, i32 2305, i64 12) #18, !srcloc !23
-  tail call void asm sideeffect "946: nop\0A\09.pushsection .discard.instr_end\0A\09.long 946b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 946) #18, !srcloc !24
+  tail call void asm sideeffect "945: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 945b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 945) #19, !srcloc !22
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 250, i32 2305, i64 12) #19, !srcloc !23
+  tail call void asm sideeffect "946: nop\0A\09.pushsection .discard.instr_end\0A\09.long 946b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 946) #19, !srcloc !24
   br label %52
 
 52:                                               ; preds = %51, %46
@@ -498,9 +498,9 @@ define internal fastcc noundef range(i32 -105, 1) i32 @rtnl_register_internal(pt
   br i1 %60, label %61, label %62, !prof !13
 
 61:                                               ; preds = %55
-  tail call void asm sideeffect "947: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 947b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 947) #18, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 253, i32 2305, i64 12) #18, !srcloc !26
-  tail call void asm sideeffect "948: nop\0A\09.pushsection .discard.instr_end\0A\09.long 948b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 948) #18, !srcloc !27
+  tail call void asm sideeffect "947: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 947b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 947) #19, !srcloc !25
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 253, i32 2305, i64 12) #19, !srcloc !26
+  tail call void asm sideeffect "948: nop\0A\09.pushsection .discard.instr_end\0A\09.long 948b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 948) #19, !srcloc !27
   br label %62
 
 62:                                               ; preds = %61, %55
@@ -516,9 +516,9 @@ define internal fastcc noundef range(i32 -105, 1) i32 @rtnl_register_internal(pt
   br i1 %68, label %69, label %70, !prof !13
 
 69:                                               ; preds = %63
-  tail call void asm sideeffect "949: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 949b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 949) #18, !srcloc !28
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 258, i32 2305, i64 12) #18, !srcloc !29
-  tail call void asm sideeffect "950: nop\0A\09.pushsection .discard.instr_end\0A\09.long 950b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 950) #18, !srcloc !30
+  tail call void asm sideeffect "949: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 949b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 949) #19, !srcloc !28
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 258, i32 2305, i64 12) #19, !srcloc !29
+  tail call void asm sideeffect "950: nop\0A\09.pushsection .discard.instr_end\0A\09.long 950b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 950) #19, !srcloc !30
   br label %70
 
 70:                                               ; preds = %69, %63
@@ -526,18 +526,18 @@ define internal fastcc noundef range(i32 -105, 1) i32 @rtnl_register_internal(pt
   %72 = load i32, ptr %71, align 8
   %73 = or i32 %72, %5
   store i32 %73, ptr %71, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !31
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !31
   store volatile ptr %37, ptr %26, align 8
   br i1 %28, label %76, label %74
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  tail call void @kvfree_call_rcu(ptr noundef nonnull %75, ptr noundef nonnull %27) #18
+  tail call void @kvfree_call_rcu(ptr noundef nonnull %75, ptr noundef nonnull %27) #19
   br label %76
 
 76:                                               ; preds = %74, %70, %32, %29, %18
   %77 = phi i32 [ 0, %74 ], [ 0, %70 ], [ -105, %29 ], [ -105, %32 ], [ -105, %18 ]
-  tail call void @netdev_run_todo() #18
+  tail call void @netdev_run_todo() #19
   ret i32 %77
 }
 
@@ -548,7 +548,7 @@ define dso_local void @rtnl_register(i32 noundef %0, i32 noundef %1, ptr noundef
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, i32 noundef %0, i32 noundef %1) #21
+  %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, i32 noundef %0, i32 noundef %1) #22
   br label %10
 
 10:                                               ; preds = %8, %5
@@ -564,8 +564,8 @@ define dso_local noundef range(i32 -2, 1) i32 @rtnl_unregister(i32 noundef %0, i
   br i1 %3, label %4, label %5, !prof !13
 
 4:                                                ; preds = %2
-  tail call void asm sideeffect "956: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 956b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 956) #18, !srcloc !32
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 335, i32 0, i64 12) #18, !srcloc !33
+  tail call void asm sideeffect "956: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 956b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 956) #19, !srcloc !32
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 335, i32 0, i64 12) #19, !srcloc !33
   unreachable
 
 5:                                                ; preds = %2
@@ -574,12 +574,12 @@ define dso_local noundef range(i32 -2, 1) i32 @rtnl_unregister(i32 noundef %0, i
   br i1 %7, label %8, label %9, !prof !13
 
 8:                                                ; preds = %5
-  tail call void asm sideeffect "932: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 932b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 932) #18, !srcloc !16
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 193, i32 0, i64 12) #18, !srcloc !17
+  tail call void asm sideeffect "932: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 932b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 932) #19, !srcloc !16
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 193, i32 0, i64 12) #19, !srcloc !17
   unreachable
 
 9:                                                ; preds = %5
-  tail call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #18
+  tail call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #19
   %10 = zext nneg i32 %0 to i64
   %11 = getelementptr ptr, ptr @rtnl_msg_handlers, i64 %10
   %12 = load ptr, ptr %11, align 8
@@ -587,7 +587,7 @@ define dso_local noundef range(i32 -2, 1) i32 @rtnl_unregister(i32 noundef %0, i
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %9
-  tail call void @netdev_run_todo() #18
+  tail call void @netdev_run_todo() #19
   br label %22
 
 15:                                               ; preds = %9
@@ -595,13 +595,13 @@ define dso_local noundef range(i32 -2, 1) i32 @rtnl_unregister(i32 noundef %0, i
   %17 = getelementptr ptr, ptr %12, i64 %16
   %18 = load ptr, ptr %17, align 8
   store volatile ptr null, ptr %17, align 8
-  tail call void @netdev_run_todo() #18
+  tail call void @netdev_run_todo() #19
   %19 = icmp eq ptr %18, null
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  tail call void @kvfree_call_rcu(ptr noundef nonnull %21, ptr noundef nonnull %18) #18
+  tail call void @kvfree_call_rcu(ptr noundef nonnull %21, ptr noundef nonnull %18) #19
   br label %22
 
 22:                                               ; preds = %20, %15, %14
@@ -618,12 +618,12 @@ define dso_local void @rtnl_unregister_all(i32 noundef %0) #0 align 16 {
   br i1 %2, label %3, label %4, !prof !13
 
 3:                                                ; preds = %1
-  tail call void asm sideeffect "962: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 962b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 962) #18, !srcloc !34
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 367, i32 0, i64 12) #18, !srcloc !35
+  tail call void asm sideeffect "962: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 962b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 962) #19, !srcloc !34
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 367, i32 0, i64 12) #19, !srcloc !35
   unreachable
 
 4:                                                ; preds = %1
-  tail call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #18
+  tail call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #19
   %5 = zext nneg i32 %0 to i64
   %6 = getelementptr ptr, ptr @rtnl_msg_handlers, i64 %5
   %7 = load ptr, ptr %6, align 8
@@ -632,7 +632,7 @@ define dso_local void @rtnl_unregister_all(i32 noundef %0) #0 align 16 {
   br i1 %8, label %9, label %.preheader
 
 9:                                                ; preds = %4
-  tail call void @netdev_run_todo() #18
+  tail call void @netdev_run_todo() #19
   br label %20
 
 .preheader:                                       ; preds = %4, %16
@@ -645,7 +645,7 @@ define dso_local void @rtnl_unregister_all(i32 noundef %0) #0 align 16 {
 
 14:                                               ; preds = %.preheader
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  tail call void @kvfree_call_rcu(ptr noundef nonnull %15, ptr noundef nonnull %12) #18
+  tail call void @kvfree_call_rcu(ptr noundef nonnull %15, ptr noundef nonnull %12) #19
   br label %16
 
 16:                                               ; preds = %14, %.preheader
@@ -654,9 +654,9 @@ define dso_local void @rtnl_unregister_all(i32 noundef %0) #0 align 16 {
   br i1 %18, label %19, label %.preheader, !llvm.loop !36
 
 19:                                               ; preds = %16
-  tail call void @netdev_run_todo() #18
-  tail call void @synchronize_net() #18
-  tail call void @kfree(ptr noundef nonnull %7) #18
+  tail call void @netdev_run_todo() #19
+  tail call void @synchronize_net() #19
+  tail call void @kfree(ptr noundef nonnull %7) #19
   br label %20
 
 20:                                               ; preds = %19, %9
@@ -684,7 +684,7 @@ define dso_local noundef range(i32 -17, 1) i32 @__rtnl_link_register(ptr noundef
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @strcmp(ptr noundef %10, ptr noundef %3) #18
+  %11 = tail call i32 @strcmp(ptr noundef %10, ptr noundef %3) #19
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %4, !llvm.loop !37
 
@@ -745,13 +745,13 @@ define dso_local noundef range(i32 -22, 1) i32 @rtnl_link_register(ptr noundef %
   br i1 %8, label %9, label %10, !prof !13
 
 9:                                                ; preds = %5, %1
-  tail call void asm sideeffect "972: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 972b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 972) #18, !srcloc !38
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 440, i32 2305, i64 12) #18, !srcloc !39
-  tail call void asm sideeffect "973: nop\0A\09.pushsection .discard.instr_end\0A\09.long 973b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 973) #18, !srcloc !40
+  tail call void asm sideeffect "972: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 972b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 972) #19, !srcloc !38
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 440, i32 2305, i64 12) #19, !srcloc !39
+  tail call void asm sideeffect "973: nop\0A\09.pushsection .discard.instr_end\0A\09.long 973b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 973) #19, !srcloc !40
   br label %41
 
 10:                                               ; preds = %5
-  tail call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #18
+  tail call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #19
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   br label %13
@@ -765,7 +765,7 @@ define dso_local noundef range(i32 -22, 1) i32 @rtnl_link_register(ptr noundef %
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 @strcmp(ptr noundef %19, ptr noundef %12) #18
+  %20 = tail call i32 @strcmp(ptr noundef %19, ptr noundef %12) #19
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %13, !llvm.loop !37
 
@@ -806,7 +806,7 @@ define dso_local noundef range(i32 -22, 1) i32 @rtnl_link_register(ptr noundef %
 
 39:                                               ; preds = %36, %22
   %40 = phi i32 [ 0, %36 ], [ -17, %22 ]
-  tail call void @netdev_run_todo() #18
+  tail call void @netdev_run_todo() #19
   br label %41
 
 41:                                               ; preds = %39, %9
@@ -846,7 +846,7 @@ define dso_local void @__rtnl_link_unregister(ptr noundef captures(address) %0) 
 17:                                               ; preds = %.preheader
   %18 = getelementptr i8, ptr %13, i64 -360
   %19 = load ptr, ptr %7, align 8
-  call void %19(ptr noundef %18, ptr noundef nonnull %2) #18
+  call void %19(ptr noundef %18, ptr noundef nonnull %2) #19
   br label %20
 
 20:                                               ; preds = %17, %.preheader
@@ -855,7 +855,7 @@ define dso_local void @__rtnl_link_unregister(ptr noundef captures(address) %0) 
   br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !41
 
 .loopexit:                                        ; preds = %20, %8
-  call void @unregister_netdevice_many(ptr noundef nonnull %2) #18
+  call void @unregister_netdevice_many(ptr noundef nonnull %2) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = load ptr, ptr %9, align 8
   %24 = icmp eq ptr %23, @net_namespace_list
@@ -877,10 +877,10 @@ define dso_local void @__rtnl_link_unregister(ptr noundef captures(address) %0) 
 define dso_local void @rtnl_link_unregister(ptr noundef captures(address) %0) #0 align 16 {
   %2 = alloca %struct.list_head, align 8
   %3 = alloca %struct.wait_queue_entry, align 8
-  tail call void @down_write(ptr noundef nonnull @pernet_ops_rwsem) #18
+  tail call void @down_write(ptr noundef nonnull @pernet_ops_rwsem) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #22, !srcloc !43
+  %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #23, !srcloc !43
   %6 = inttoptr i64 %5 to ptr
   store i64 0, ptr %3, align 8
   store ptr %6, ptr %4, align 8
@@ -890,11 +890,11 @@ define dso_local void @rtnl_link_unregister(ptr noundef captures(address) %0) #0
   store ptr %8, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %8, ptr %9, align 8
-  call void @add_wait_queue(ptr noundef nonnull @netdev_unregistering_wq, ptr noundef nonnull %3) #18
+  call void @add_wait_queue(ptr noundef nonnull @netdev_unregistering_wq, ptr noundef nonnull %3) #19
   br label %10
 
 10:                                               ; preds = %.loopexit8, %1
-  call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #18
+  call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #19
   br label %11
 
 11:                                               ; preds = %15, %10
@@ -917,30 +917,30 @@ define dso_local void @rtnl_link_unregister(ptr noundef captures(address) %0) #0
   br i1 %22, label %24, label %23, !prof !5
 
 23:                                               ; preds = %19
-  call void asm sideeffect "926: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 926b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 926) #18, !srcloc !6
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 136, i32 2305, i64 12) #18, !srcloc !7
-  call void asm sideeffect "927: nop\0A\09.pushsection .discard.instr_end\0A\09.long 927b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 927) #18, !srcloc !8
+  call void asm sideeffect "926: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 926b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 926) #19, !srcloc !6
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 136, i32 2305, i64 12) #19, !srcloc !7
+  call void asm sideeffect "927: nop\0A\09.pushsection .discard.instr_end\0A\09.long 927b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 927) #19, !srcloc !8
   br label %24
 
 24:                                               ; preds = %23, %19
-  call void @mutex_unlock(ptr noundef nonnull @rtnl_mutex) #18
+  call void @mutex_unlock(ptr noundef nonnull @rtnl_mutex) #19
   %25 = icmp eq ptr %20, null
   br i1 %25, label %.loopexit8, label %.preheader7
 
 .preheader7:                                      ; preds = %24, %.preheader7
   %26 = phi ptr [ %27, %.preheader7 ], [ %20, %24 ]
   %27 = load ptr, ptr %26, align 8
-  call void @kfree_skb_reason(ptr noundef nonnull %26, i32 noundef 2) #18
-  %28 = call i32 @__SCT__cond_resched() #18
+  call void @kfree_skb_reason(ptr noundef nonnull %26, i32 noundef 2) #19
+  %28 = call i32 @__SCT__cond_resched() #19
   %29 = icmp eq ptr %27, null
   br i1 %29, label %.loopexit8, label %.preheader7, !llvm.loop !9
 
 .loopexit8:                                       ; preds = %.preheader7, %24
-  %30 = call i64 @wait_woken(ptr noundef nonnull %3, i32 noundef 2, i64 noundef 9223372036854775807) #18
+  %30 = call i64 @wait_woken(ptr noundef nonnull %3, i32 noundef 2, i64 noundef 9223372036854775807) #19
   br label %10, !llvm.loop !45
 
 31:                                               ; preds = %11
-  call void @remove_wait_queue(ptr noundef nonnull @netdev_unregistering_wq, ptr noundef nonnull %3) #18
+  call void @remove_wait_queue(ptr noundef nonnull @netdev_unregistering_wq, ptr noundef nonnull %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %32 = load ptr, ptr @net_namespace_list, align 8
   %33 = icmp eq ptr %32, @net_namespace_list
@@ -971,7 +971,7 @@ define dso_local void @rtnl_link_unregister(ptr noundef captures(address) %0) #0
 46:                                               ; preds = %.preheader
   %47 = getelementptr i8, ptr %42, i64 -360
   %48 = load ptr, ptr %36, align 8
-  call void %48(ptr noundef %47, ptr noundef nonnull %2) #18
+  call void %48(ptr noundef %47, ptr noundef nonnull %2) #19
   br label %49
 
 49:                                               ; preds = %46, %.preheader
@@ -980,7 +980,7 @@ define dso_local void @rtnl_link_unregister(ptr noundef captures(address) %0) #0
   br i1 %51, label %.loopexit, label %.preheader, !llvm.loop !41
 
 .loopexit:                                        ; preds = %49, %37
-  call void @unregister_netdevice_many(ptr noundef nonnull %2) #18
+  call void @unregister_netdevice_many(ptr noundef nonnull %2) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %52 = load ptr, ptr %38, align 8
   %53 = icmp eq ptr %52, @net_namespace_list
@@ -995,8 +995,8 @@ define dso_local void @rtnl_link_unregister(ptr noundef captures(address) %0) #0
   store volatile ptr %56, ptr %55, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %0, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %54, align 8
-  call void @netdev_run_todo() #18
-  call void @up_write(ptr noundef nonnull @pernet_ops_rwsem) #18
+  call void @netdev_run_todo() #19
+  call void @up_write(ptr noundef nonnull @pernet_ops_rwsem) #19
   ret void
 }
 
@@ -1008,21 +1008,21 @@ declare dso_local void @up_write(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @rtnl_af_register(ptr noundef initializes((0, 16)) %0) #0 align 16 {
-  tail call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #18
+  tail call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #19
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rtnl_af_ops, i64 8), align 8
   store ptr @rtnl_af_ops, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !46
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !46
   store volatile ptr %0, ptr %2, align 8
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @rtnl_af_ops, i64 8), align 8
-  tail call void @netdev_run_todo() #18
+  tail call void @netdev_run_todo() #19
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @rtnl_af_unregister(ptr noundef captures(none) %0) #0 align 16 {
-  tail call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #18
+  tail call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -1030,8 +1030,8 @@ define dso_local void @rtnl_af_unregister(ptr noundef captures(none) %0) #0 alig
   store ptr %3, ptr %5, align 8
   store volatile ptr %4, ptr %3, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %2, align 8
-  tail call void @netdev_run_todo() #18
-  tail call void @synchronize_rcu() #18
+  tail call void @netdev_run_todo() #19
+  tail call void @synchronize_rcu() #19
   ret void
 }
 
@@ -1042,7 +1042,7 @@ declare dso_local void @synchronize_rcu() local_unnamed_addr #1
 define dso_local i32 @rtnetlink_send(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %7 = load ptr, ptr %6, align 16
-  %8 = tail call i32 @nlmsg_notify(ptr noundef %7, ptr noundef %0, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 3264) #18
+  %8 = tail call i32 @nlmsg_notify(ptr noundef %7, ptr noundef %0, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 3264) #19
   ret i32 %8
 }
 
@@ -1053,7 +1053,7 @@ declare dso_local i32 @nlmsg_notify(ptr noundef, ptr noundef, i32 noundef, i32 n
 define dso_local range(i32 -2147483648, 1) i32 @rtnl_unicast(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %5 = load ptr, ptr %4, align 16
-  %6 = tail call i32 @netlink_unicast(ptr noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 64) #18
+  %6 = tail call i32 @netlink_unicast(ptr noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 64) #19
   %7 = tail call i32 @llvm.smin.i32(i32 %6, i32 0)
   ret i32 %7
 }
@@ -1075,7 +1075,7 @@ define dso_local void @rtnl_notify(ptr noundef %0, ptr noundef readonly captures
 
 16:                                               ; preds = %10, %6
   %17 = phi i32 [ %15, %10 ], [ 0, %6 ]
-  %18 = tail call i32 @nlmsg_notify(ptr noundef %8, ptr noundef %0, i32 noundef %2, i32 noundef %3, i32 noundef %17, i32 noundef %5) #18
+  %18 = tail call i32 @nlmsg_notify(ptr noundef %8, ptr noundef %0, i32 noundef %2, i32 noundef %3, i32 noundef %17, i32 noundef %5) #19
   ret void
 }
 
@@ -1083,7 +1083,7 @@ define dso_local void @rtnl_notify(ptr noundef %0, ptr noundef readonly captures
 define dso_local void @rtnl_set_sk_err(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %5 = load ptr, ptr %4, align 16
-  %6 = tail call i32 @netlink_set_err(ptr noundef %5, i32 noundef 0, i32 noundef %1, i32 noundef %2) #18
+  %6 = tail call i32 @netlink_set_err(ptr noundef %5, i32 noundef 0, i32 noundef %1, i32 noundef %2) #19
   ret void
 }
 
@@ -1105,7 +1105,7 @@ define dso_local i32 @rtnetlink_put_metrics(ptr noundef %0, ptr noundef readonly
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = getelementptr i8, ptr %9, i64 %12
-  %14 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 8, i32 noundef 0, ptr noundef null) #18
+  %14 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 8, i32 noundef 0, ptr noundef null) #19
   %15 = icmp slt i32 %14, 0
   %16 = icmp eq ptr %13, null
   %17 = select i1 %15, i1 true, i1 %16
@@ -1129,7 +1129,7 @@ define dso_local i32 @rtnetlink_put_metrics(ptr noundef %0, ptr noundef readonly
 25:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !47
-  %26 = call ptr @tcp_ca_get_name_by_key(i32 noundef %21, ptr noundef nonnull %5) #18
+  %26 = call ptr @tcp_ca_get_name_by_key(i32 noundef %21, ptr noundef nonnull %5) #19
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.thread6, label %28
 
@@ -1138,10 +1138,10 @@ define dso_local i32 @rtnetlink_put_metrics(ptr noundef %0, ptr noundef readonly
   br label %.thread9
 
 28:                                               ; preds = %25
-  %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #18
+  %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #19
   %30 = trunc i64 %29 to i32
   %31 = add i32 %30, 1
-  %32 = call i32 @nla_put(ptr noundef %0, i32 noundef 16, i32 noundef %31, ptr noundef nonnull %26) #18
+  %32 = call i32 @nla_put(ptr noundef %0, i32 noundef 16, i32 noundef %31, ptr noundef nonnull %26) #19
   %33 = icmp eq i32 %32, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %33, label %.thread8, label %.loopexit
@@ -1154,7 +1154,7 @@ define dso_local i32 @rtnetlink_put_metrics(ptr noundef %0, ptr noundef readonly
 37:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %35, ptr %4, align 4
-  %38 = call i32 @nla_put(ptr noundef %0, i32 noundef 12, i32 noundef 4, ptr noundef nonnull %4) #18
+  %38 = call i32 @nla_put(ptr noundef %0, i32 noundef 12, i32 noundef 4, ptr noundef nonnull %4) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread8, label %.loopexit
@@ -1163,7 +1163,7 @@ define dso_local i32 @rtnetlink_put_metrics(ptr noundef %0, ptr noundef readonly
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %21, ptr %3, align 4
   %41 = add i32 %24, 1
-  %42 = call i32 @nla_put(ptr noundef %0, i32 noundef %41, i32 noundef 4, ptr noundef nonnull %3) #18
+  %42 = call i32 @nla_put(ptr noundef %0, i32 noundef %41, i32 noundef 4, ptr noundef nonnull %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %.thread8, label %.loopexit
@@ -1189,9 +1189,9 @@ define dso_local i32 @rtnetlink_put_metrics(ptr noundef %0, ptr noundef readonly
   br i1 %53, label %54, label %55, !prof !13
 
 54:                                               ; preds = %50
-  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
-  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
+  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
+  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
   %.pre10 = load ptr, ptr %51, align 8
   br label %55
 
@@ -1201,7 +1201,7 @@ define dso_local i32 @rtnetlink_put_metrics(ptr noundef %0, ptr noundef readonly
   %58 = ptrtoint ptr %56 to i64
   %59 = sub i64 %57, %58
   %60 = trunc i64 %59 to i32
-  call void @skb_trim(ptr noundef %0, i32 noundef %60) #18
+  call void @skb_trim(ptr noundef %0, i32 noundef %60) #19
   br label %82
 
 61:                                               ; preds = %48
@@ -1225,9 +1225,9 @@ define dso_local i32 @rtnetlink_put_metrics(ptr noundef %0, ptr noundef readonly
   br i1 %74, label %75, label %76, !prof !13
 
 75:                                               ; preds = %.loopexit
-  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
-  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
+  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
+  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
   %.pre = load ptr, ptr %72, align 8
   br label %76
 
@@ -1237,7 +1237,7 @@ define dso_local i32 @rtnetlink_put_metrics(ptr noundef %0, ptr noundef readonly
   %79 = ptrtoint ptr %77 to i64
   %80 = sub i64 %78, %79
   %81 = trunc i64 %80 to i32
-  call void @skb_trim(ptr noundef %0, i32 noundef %81) #18
+  call void @skb_trim(ptr noundef %0, i32 noundef %81) #19
   br label %82
 
 82:                                               ; preds = %76, %61, %55, %7, %2
@@ -1253,10 +1253,10 @@ declare dso_local ptr @tcp_ca_get_name_by_key(i32 noundef, ptr noundef) local_un
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc i32 @nla_put_string(ptr noundef %0, i32 noundef range(i32 6, 58) %1, ptr noundef %2) unnamed_addr #6 align 16 {
-  %4 = tail call i64 @strlen(ptr noundef %2) #18
+  %4 = tail call i64 @strlen(ptr noundef %2) #19
   %5 = trunc i64 %4 to i32
   %6 = add i32 %5, 1
-  %7 = tail call i32 @nla_put(ptr noundef %0, i32 noundef %1, i32 noundef %6, ptr noundef %2) #18
+  %7 = tail call i32 @nla_put(ptr noundef %0, i32 noundef %1, i32 noundef %6, ptr noundef %2) #19
   ret i32 %7
 }
 
@@ -1268,9 +1268,9 @@ define internal fastcc void @nla_nest_cancel(ptr noundef %0, ptr noundef nonnull
   br i1 %5, label %6, label %7, !prof !13
 
 6:                                                ; preds = %2
-  tail call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
-  tail call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
+  tail call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
+  tail call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
   %.pre = load ptr, ptr %3, align 8
   br label %7
 
@@ -1280,7 +1280,7 @@ define internal fastcc void @nla_nest_cancel(ptr noundef %0, ptr noundef nonnull
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = trunc i64 %11 to i32
-  tail call void @skb_trim(ptr noundef %0, i32 noundef %12) #18
+  tail call void @skb_trim(ptr noundef %0, i32 noundef %12) #19
   ret void
 }
 
@@ -1302,7 +1302,7 @@ define dso_local i32 @rtnl_put_cacheinfo(ptr noundef %0, ptr noundef %1, i32 nou
   %13 = load i64, ptr %12, align 8
   %14 = sub i64 %11, %13
   %15 = tail call i64 @llvm.smax.i64(i64 %14, i64 0)
-  %16 = tail call i64 @jiffies_to_clock_t(i64 noundef %15) #18
+  %16 = tail call i64 @jiffies_to_clock_t(i64 noundef %15) #19
   %17 = trunc i64 %16 to i32
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %17, ptr %18, align 4
@@ -1324,7 +1324,7 @@ define dso_local i32 @rtnl_put_cacheinfo(ptr noundef %0, ptr noundef %1, i32 nou
 
 29:                                               ; preds = %27
   %30 = tail call i64 @llvm.abs.i64(i64 %3, i1 false)
-  %31 = tail call i64 @jiffies_to_clock_t(i64 noundef %30) #18
+  %31 = tail call i64 @jiffies_to_clock_t(i64 noundef %30) #19
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 2147483647)
   %33 = icmp sgt i64 %3, 0
   %34 = sub nsw i64 0, %32
@@ -1335,7 +1335,7 @@ define dso_local i32 @rtnl_put_cacheinfo(ptr noundef %0, ptr noundef %1, i32 nou
   br label %38
 
 38:                                               ; preds = %29, %27
-  %39 = call i32 @nla_put(ptr noundef %0, i32 noundef 12, i32 noundef 32, ptr noundef nonnull %6) #18
+  %39 = call i32 @nla_put(ptr noundef %0, i32 noundef 12, i32 noundef 32, ptr noundef nonnull %6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %39
 }
@@ -1350,19 +1350,19 @@ declare dso_local i32 @nla_put(ptr noundef, i32 noundef, i32 noundef, ptr nounde
 define dso_local ptr @rtnl_get_net_ns_capable(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call ptr @get_net_ns_by_id(ptr noundef %4, i32 noundef %1) #18
+  %5 = tail call ptr @get_net_ns_by_id(ptr noundef %4, i32 noundef %1) #19
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %9 = load ptr, ptr %8, align 16
-  %10 = tail call zeroext i1 @sk_ns_capable(ptr noundef %0, ptr noundef %9, i32 noundef 12) #18
+  %10 = tail call zeroext i1 @sk_ns_capable(ptr noundef %0, ptr noundef %9, i32 noundef 12) #19
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 140
-  %13 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 -1, ptr nonnull elementtype(i32) %12) #18, !srcloc !52
+  %13 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 -1, ptr nonnull elementtype(i32) %12) #19, !srcloc !52
   %14 = icmp eq i32 %13, 1
   br i1 %14, label %18, label %15
 
@@ -1371,12 +1371,12 @@ define dso_local ptr @rtnl_get_net_ns_capable(ptr noundef %0, i32 noundef %1) #0
   br i1 %16, label %.thread, label %17, !prof !5
 
 17:                                               ; preds = %15
-  tail call void @refcount_warn_saturate(ptr noundef nonnull %12, i32 noundef 3) #18
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %12, i32 noundef 3) #19
   br label %.thread
 
 18:                                               ; preds = %11
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !53
-  tail call void @__put_net(ptr noundef nonnull %5) #18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !53
+  tail call void @__put_net(ptr noundef nonnull %5) #19
   br label %.thread
 
 .thread:                                          ; preds = %15, %17, %18, %7, %2
@@ -1398,7 +1398,7 @@ define dso_local i32 @rtnl_nla_parse_ifinfomsg(ptr noundef %0, ptr noundef %1, p
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %3
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_nla_parse_ifinfomsg.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_nla_parse_ifinfomsg.__msg) #19
   %8 = icmp eq ptr %2, null
   br i1 %8, label %19, label %9
 
@@ -1416,7 +1416,7 @@ define dso_local i32 @rtnl_nla_parse_ifinfomsg(ptr noundef %0, ptr noundef %1, p
   %15 = zext i16 %14 to i32
   %16 = add nsw i32 %15, -16
   %17 = getelementptr i8, ptr %1, i64 20
-  %18 = tail call i32 @__nla_parse(ptr noundef %0, i32 noundef 65, ptr noundef %17, i32 noundef %16, ptr noundef nonnull @ifla_policy, i32 noundef 0, ptr noundef %2) #18
+  %18 = tail call i32 @__nla_parse(ptr noundef %0, i32 noundef 65, ptr noundef %17, i32 noundef %16, ptr noundef nonnull @ifla_policy, i32 noundef 0, ptr noundef %2) #19
   br label %19
 
 19:                                               ; preds = %12, %9, %7
@@ -1437,7 +1437,7 @@ define dso_local ptr @rtnl_link_get_net(ptr noundef %0, ptr noundef readonly cap
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %4, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = tail call ptr @get_net_ns_by_pid(i32 noundef %8) #18
+  %9 = tail call ptr @get_net_ns_by_pid(i32 noundef %8) #19
   br label %28
 
 10:                                               ; preds = %2
@@ -1449,17 +1449,17 @@ define dso_local ptr @rtnl_link_get_net(ptr noundef %0, ptr noundef readonly cap
 14:                                               ; preds = %10
   %15 = getelementptr i8, ptr %12, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = tail call ptr @get_net_ns_by_fd(i32 noundef %16) #18
+  %17 = tail call ptr @get_net_ns_by_fd(i32 noundef %16) #19
   br label %28
 
 18:                                               ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %20 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %19, i32 1, ptr nonnull elementtype(i32) %19) #18, !srcloc !54
+  %20 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %19, i32 1, ptr nonnull elementtype(i32) %19) #19, !srcloc !54
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %23, !prof !13
 
 22:                                               ; preds = %18
-  tail call void @refcount_warn_saturate(ptr noundef nonnull %19, i32 noundef 2) #18
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %19, i32 noundef 2) #19
   br label %28
 
 23:                                               ; preds = %18
@@ -1469,7 +1469,7 @@ define dso_local ptr @rtnl_link_get_net(ptr noundef %0, ptr noundef readonly cap
   br i1 %26, label %28, label %27, !prof !5
 
 27:                                               ; preds = %23
-  tail call void @refcount_warn_saturate(ptr noundef nonnull %19, i32 noundef 1) #18
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %19, i32 noundef 1) #19
   br label %28
 
 28:                                               ; preds = %27, %23, %22, %14, %6
@@ -1502,8 +1502,8 @@ define dso_local noundef range(i32 -95, 1) i32 @rtnl_delete_link(ptr noundef %0,
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %9
-  call void %11(ptr noundef %0, ptr noundef nonnull %4) #18
-  call void @unregister_netdevice_many_notify(ptr noundef nonnull %4, i32 noundef %1, ptr noundef %2) #18
+  call void %11(ptr noundef %0, ptr noundef nonnull %4) #19
+  call void @unregister_netdevice_many_notify(ptr noundef nonnull %4, i32 noundef %1, ptr noundef %2) #19
   br label %14
 
 14:                                               ; preds = %13, %9, %3
@@ -1552,7 +1552,7 @@ define dso_local range(i32 -2147483648, 1) i32 @rtnl_configure_link(ptr noundef 
 
 27:                                               ; preds = %.thread, %16
   %28 = phi i32 [ %26, %.thread ], [ %10, %16 ]
-  %29 = tail call i32 @__dev_change_flags(ptr noundef %0, i32 noundef %28, ptr noundef null) #18
+  %29 = tail call i32 @__dev_change_flags(ptr noundef %0, i32 noundef %28, ptr noundef null) #19
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %41, label %31
 
@@ -1573,7 +1573,7 @@ define dso_local range(i32 -2147483648, 1) i32 @rtnl_configure_link(ptr noundef 
 
 39:                                               ; preds = %38, %35
   %40 = phi i32 [ %37, %35 ], [ -1, %38 ]
-  tail call void @__dev_notify_flags(ptr noundef %0, i32 noundef %6, i32 noundef %40, i32 noundef %2, ptr noundef %3) #18
+  tail call void @__dev_notify_flags(ptr noundef %0, i32 noundef %6, i32 noundef %40, i32 noundef %2, ptr noundef %3) #19
   br label %41
 
 41:                                               ; preds = %39, %27
@@ -1606,7 +1606,7 @@ define dso_local ptr @rtnl_create_link(ptr noundef %0, ptr noundef %1, i8 nounde
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %13
-  %18 = tail call i32 %15() #18
+  %18 = tail call i32 %15() #19
   br label %19
 
 19:                                               ; preds = %17, %13, %10
@@ -1628,7 +1628,7 @@ define dso_local ptr @rtnl_create_link(ptr noundef %0, ptr noundef %1, i8 nounde
   br i1 %30, label %33, label %31
 
 31:                                               ; preds = %27
-  %32 = tail call i32 %29() #18
+  %32 = tail call i32 %29() #19
   br label %33
 
 33:                                               ; preds = %31, %27, %24
@@ -1638,7 +1638,7 @@ define dso_local ptr @rtnl_create_link(ptr noundef %0, ptr noundef %1, i8 nounde
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %33
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_create_link.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_create_link.__msg) #19
   %38 = icmp eq ptr %5, null
   br i1 %38, label %208, label %39
 
@@ -1652,7 +1652,7 @@ define dso_local ptr @rtnl_create_link(ptr noundef %0, ptr noundef %1, i8 nounde
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %40
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_create_link.__msg.2) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_create_link.__msg.2) #19
   %44 = icmp eq ptr %5, null
   br i1 %44, label %208, label %45
 
@@ -1667,7 +1667,7 @@ define dso_local ptr @rtnl_create_link(ptr noundef %0, ptr noundef %1, i8 nounde
   br i1 %49, label %53, label %50
 
 50:                                               ; preds = %46
-  %51 = tail call ptr %48(ptr noundef %4, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %20, i32 noundef %34) #18
+  %51 = tail call ptr %48(ptr noundef %4, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %20, i32 noundef %34) #19
   %52 = icmp ugt ptr %51, inttoptr (i64 -4096 to ptr)
   br i1 %52, label %208, label %60
 
@@ -1677,7 +1677,7 @@ define dso_local ptr @rtnl_create_link(ptr noundef %0, ptr noundef %1, i8 nounde
   %56 = trunc i64 %55 to i32
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %58 = load ptr, ptr %57, align 8
-  %59 = tail call ptr @alloc_netdev_mqs(i32 noundef %56, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %58, i32 noundef %20, i32 noundef %34) #18
+  %59 = tail call ptr @alloc_netdev_mqs(i32 noundef %56, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %58, i32 noundef %20, i32 noundef %34) #19
   br label %60
 
 60:                                               ; preds = %53, %50
@@ -1691,14 +1691,14 @@ define dso_local ptr @rtnl_create_link(ptr noundef %0, ptr noundef %1, i8 nounde
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %63
-  tail call void @free_netdev(ptr noundef nonnull %61) #18
+  tail call void @free_netdev(ptr noundef nonnull %61) #19
   %67 = sext i32 %64 to i64
   %68 = inttoptr i64 %67 to ptr
   br label %208
 
 69:                                               ; preds = %63
   %70 = getelementptr inbounds nuw i8, ptr %61, i64 272
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !55
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !55
   store volatile ptr %0, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %61, i64 2104
   store ptr %3, ptr %71, align 8
@@ -1712,7 +1712,7 @@ define dso_local ptr @rtnl_create_link(ptr noundef %0, ptr noundef %1, i8 nounde
 76:                                               ; preds = %69
   %77 = getelementptr i8, ptr %74, i64 4
   %78 = load i32, ptr %77, align 4
-  %79 = tail call i32 @dev_validate_mtu(ptr noundef nonnull %61, i32 noundef %78, ptr noundef %5) #18
+  %79 = tail call i32 @dev_validate_mtu(ptr noundef nonnull %61, i32 noundef %78, ptr noundef %5) #19
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %.thread, label %82
 
@@ -1722,7 +1722,7 @@ define dso_local ptr @rtnl_create_link(ptr noundef %0, ptr noundef %1, i8 nounde
   br label %85
 
 82:                                               ; preds = %76
-  tail call void @free_netdev(ptr noundef nonnull %61) #18
+  tail call void @free_netdev(ptr noundef nonnull %61) #19
   %83 = sext i32 %79 to i64
   %84 = inttoptr i64 %83 to ptr
   br label %208
@@ -1738,7 +1738,7 @@ define dso_local ptr @rtnl_create_link(ptr noundef %0, ptr noundef %1, i8 nounde
   %91 = load i16, ptr %87, align 2
   %92 = add i16 %91, -4
   %93 = zext i16 %92 to i64
-  tail call void @dev_addr_mod(ptr noundef nonnull %61, i32 noundef 0, ptr noundef %90, i64 noundef %93) #18
+  tail call void @dev_addr_mod(ptr noundef nonnull %61, i32 noundef 0, ptr noundef %90, i64 noundef %93) #19
   %94 = getelementptr inbounds nuw i8, ptr %61, i64 812
   store i8 3, ptr %94, align 4
   br label %95
@@ -1829,10 +1829,10 @@ define dso_local ptr @rtnl_create_link(ptr noundef %0, ptr noundef %1, i8 nounde
   br i1 %145, label %set_operstate.exit, label %146
 
 146:                                              ; preds = %143
-  tail call void @_raw_write_lock(ptr noundef nonnull @dev_base_lock) #18
+  tail call void @_raw_write_lock(ptr noundef nonnull @dev_base_lock) #19
   store i8 %144, ptr %120, align 8
-  tail call void @_raw_write_unlock(ptr noundef nonnull @dev_base_lock) #18
-  tail call void @netdev_state_change(ptr noundef nonnull %61) #18
+  tail call void @_raw_write_unlock(ptr noundef nonnull @dev_base_lock) #19
+  tail call void @netdev_state_change(ptr noundef nonnull %61) #19
   br label %set_operstate.exit
 
 set_operstate.exit:                               ; preds = %146, %143, %123, %122, %117, %113
@@ -1857,7 +1857,7 @@ set_operstate.exit:                               ; preds = %146, %143, %123, %1
 158:                                              ; preds = %154
   %159 = getelementptr i8, ptr %156, i64 4
   %160 = load i32, ptr %159, align 4
-  tail call void @dev_set_group(ptr noundef nonnull %61, i32 noundef %160) #18
+  tail call void @dev_set_group(ptr noundef nonnull %61, i32 noundef %160) #19
   br label %161
 
 161:                                              ; preds = %158, %154
@@ -1992,7 +1992,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @validate_linkmsg(ptr nound
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %29
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @validate_linkmsg.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @validate_linkmsg.__msg) #19
   %36 = icmp eq ptr %2, null
   br i1 %36, label %.thread16, label %.thread16.sink.split
 
@@ -2016,7 +2016,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @validate_linkmsg(ptr nound
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %45, %41
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @validate_linkmsg.__msg.11) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @validate_linkmsg.__msg.11) #19
   %51 = icmp eq ptr %2, null
   br i1 %51, label %.thread16, label %.thread16.sink.split
 
@@ -2033,7 +2033,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @validate_linkmsg(ptr nound
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %56
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @validate_linkmsg.__msg.12) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @validate_linkmsg.__msg.12) #19
   %61 = icmp eq ptr %2, null
   br i1 %61, label %.thread16, label %.thread16.sink.split
 
@@ -2052,7 +2052,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @validate_linkmsg(ptr nound
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %66
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @validate_linkmsg.__msg.13) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @validate_linkmsg.__msg.13) #19
   %73 = icmp eq ptr %2, null
   br i1 %73, label %.thread16, label %.thread16.sink.split
 
@@ -2069,7 +2069,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @validate_linkmsg(ptr nound
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %78
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @validate_linkmsg.__msg.14) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @validate_linkmsg.__msg.14) #19
   %83 = icmp eq ptr %2, null
   br i1 %83, label %.thread16, label %.thread16.sink.split
 
@@ -2105,19 +2105,19 @@ define internal fastcc range(i32 -2147483648, 1) i32 @validate_linkmsg(ptr nound
   %101 = load i16, ptr %100, align 2
   %102 = and i16 %101, 16383
   %103 = zext nneg i16 %102 to i32
-  %104 = tail call zeroext i1 @mutex_is_locked(ptr noundef nonnull @rtnl_mutex) #18
+  %104 = tail call zeroext i1 @mutex_is_locked(ptr noundef nonnull @rtnl_mutex) #19
   %105 = load i1, ptr @rtnl_af_lookup.__already_done, align 1
   %106 = select i1 %104, i1 true, i1 %105
   br i1 %106, label %.preheader, label %107, !prof !5
 
 107:                                              ; preds = %99
   store i1 true, ptr @rtnl_af_lookup.__already_done, align 1
-  tail call void asm sideeffect "977: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 977b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 977) #18, !srcloc !56
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 582) #18
-  tail call void asm sideeffect "978: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 978b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 978) #18, !srcloc !57
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 582, i32 2313, i64 12) #18, !srcloc !58
-  tail call void asm sideeffect "979: nop\0A\09.pushsection .discard.instr_end\0A\09.long 979b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 979) #18, !srcloc !59
-  tail call void asm sideeffect "980: nop\0A\09.pushsection .discard.instr_end\0A\09.long 980b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 980) #18, !srcloc !60
+  tail call void asm sideeffect "977: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 977b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 977) #19, !srcloc !56
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 582) #19
+  tail call void asm sideeffect "978: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 978b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 978) #19, !srcloc !57
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 582, i32 2313, i64 12) #19, !srcloc !58
+  tail call void asm sideeffect "979: nop\0A\09.pushsection .discard.instr_end\0A\09.long 979b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 979) #19, !srcloc !59
+  tail call void asm sideeffect "980: nop\0A\09.pushsection .discard.instr_end\0A\09.long 980b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 980) #19, !srcloc !60
   br label %.preheader
 
 .preheader:                                       ; preds = %107, %99
@@ -2152,7 +2152,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @validate_linkmsg(ptr nound
   br i1 %125, label %129, label %126
 
 126:                                              ; preds = %122
-  %127 = tail call i32 %124(ptr noundef %0, ptr noundef %94, ptr noundef %2) #18
+  %127 = tail call i32 %124(ptr noundef %0, ptr noundef %94, ptr noundef %2) #19
   %128 = icmp slt i32 %127, 0
   br i1 %128, label %.thread16, label %129
 
@@ -2237,10 +2237,10 @@ define internal fastcc void @set_operstate(ptr noundef %0, i8 noundef zeroext %1
   br i1 %28, label %.thread, label %29
 
 29:                                               ; preds = %26
-  tail call void @_raw_write_lock(ptr noundef nonnull @dev_base_lock) #18
+  tail call void @_raw_write_lock(ptr noundef nonnull @dev_base_lock) #19
   store i8 %27, ptr %3, align 8
-  tail call void @_raw_write_unlock(ptr noundef nonnull @dev_base_lock) #18
-  tail call void @netdev_state_change(ptr noundef %0) #18
+  tail call void @_raw_write_unlock(ptr noundef nonnull @dev_base_lock) #19
+  tail call void @netdev_state_change(ptr noundef %0) #19
   br label %.thread
 
 .thread:                                          ; preds = %5, %6, %2, %29, %26
@@ -2258,7 +2258,7 @@ define dso_local ptr @rtmsg_ifinfo_build_skb(i32 noundef %0, ptr noundef %1, i32
   %13 = trunc i64 %12 to i32
   %14 = add i32 %13, 19
   %15 = and i32 %14, -4
-  %16 = tail call ptr @__alloc_skb(i32 noundef %15, i32 noundef %4, i32 noundef 0, i32 noundef -1) #18
+  %16 = tail call ptr @__alloc_skb(i32 noundef %15, i32 noundef %4, i32 noundef 0, i32 noundef -1) #19
   %17 = icmp eq ptr %16, null
   br i1 %17, label %37, label %18
 
@@ -2291,20 +2291,20 @@ define dso_local ptr @rtmsg_ifinfo_build_skb(i32 noundef %0, ptr noundef %1, i32
   br i1 %34, label %35, label %36, !prof !13
 
 35:                                               ; preds = %33
-  tail call void asm sideeffect "1026: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1026b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1026) #18, !srcloc !64
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4086, i32 2305, i64 12) #18, !srcloc !65
-  tail call void asm sideeffect "1027: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1027b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1027) #18, !srcloc !66
+  tail call void asm sideeffect "1026: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1026b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1026) #19, !srcloc !64
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4086, i32 2305, i64 12) #19, !srcloc !65
+  tail call void asm sideeffect "1027: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1027b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1027) #19, !srcloc !66
   br label %36
 
 36:                                               ; preds = %35, %33
-  tail call void @kfree_skb_reason(ptr noundef nonnull %16, i32 noundef 2) #18
+  tail call void @kfree_skb_reason(ptr noundef nonnull %16, i32 noundef 2) #19
   br label %37
 
 37:                                               ; preds = %36, %9
   %38 = phi i32 [ -105, %9 ], [ %31, %36 ]
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 272
   %40 = load ptr, ptr %39, align 16
-  %41 = tail call i32 @netlink_set_err(ptr noundef %40, i32 noundef 0, i32 noundef 1, i32 noundef %38) #18
+  %41 = tail call i32 @netlink_set_err(ptr noundef %40, i32 noundef 0, i32 noundef 1, i32 noundef %38) #19
   br label %42
 
 42:                                               ; preds = %37, %.thread4
@@ -2335,7 +2335,7 @@ define internal fastcc i64 @if_nlmsg_size(ptr noundef %0, i32 noundef %1) unname
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %13
-  %18 = tail call i32 %15(ptr noundef nonnull %4) #18
+  %18 = tail call i32 %15(ptr noundef nonnull %4) #19
   br label %19
 
 19:                                               ; preds = %17, %13, %9
@@ -2378,7 +2378,7 @@ define internal fastcc i64 @if_nlmsg_size(ptr noundef %0, i32 noundef %1) unname
   br i1 %47, label %65, label %48
 
 48:                                               ; preds = %44
-  %49 = tail call i32 %46(ptr noundef nonnull %37) #18
+  %49 = tail call i32 %46(ptr noundef nonnull %37) #19
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %65, label %51
 
@@ -2396,7 +2396,7 @@ define internal fastcc i64 @if_nlmsg_size(ptr noundef %0, i32 noundef %1) unname
   br i1 %59, label %65, label %60
 
 60:                                               ; preds = %56
-  %61 = tail call i32 %58(ptr noundef %52) #18
+  %61 = tail call i32 %58(ptr noundef %52) #19
   %62 = sext i32 %61 to i64
   %63 = mul nsw i64 %62, 116
   %64 = add nsw i64 %63, 124
@@ -2412,7 +2412,7 @@ define internal fastcc i64 @if_nlmsg_size(ptr noundef %0, i32 noundef %1) unname
 70:                                               ; preds = %65
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %72 = load ptr, ptr %71, align 8
-  %73 = tail call i64 @strlen(ptr noundef %72) #18
+  %73 = tail call i64 @strlen(ptr noundef %72) #19
   %74 = shl i64 %73, 32
   %75 = and i64 %74, -17179869184
   %76 = add i64 %75, 68719476736
@@ -2423,7 +2423,7 @@ define internal fastcc i64 @if_nlmsg_size(ptr noundef %0, i32 noundef %1) unname
   br i1 %80, label %85, label %81
 
 81:                                               ; preds = %70
-  %82 = tail call i64 %79(ptr noundef %0) #18
+  %82 = tail call i64 %79(ptr noundef %0) #19
   %83 = add nsw i64 %77, 8
   %84 = add i64 %83, %82
   br label %85
@@ -2436,7 +2436,7 @@ define internal fastcc i64 @if_nlmsg_size(ptr noundef %0, i32 noundef %1) unname
   br i1 %89, label %97, label %90
 
 90:                                               ; preds = %85
-  %91 = tail call i64 %88(ptr noundef %0) #18
+  %91 = tail call i64 %88(ptr noundef %0) #19
   %92 = shl i64 %91, 32
   %93 = add i64 %92, 30064771072
   %94 = ashr exact i64 %93, 32
@@ -2446,8 +2446,8 @@ define internal fastcc i64 @if_nlmsg_size(ptr noundef %0, i32 noundef %1) unname
 
 97:                                               ; preds = %90, %85
   %98 = phi i64 [ %96, %90 ], [ %86, %85 ]
-  tail call void @__rcu_read_lock() #18
-  %99 = tail call ptr @netdev_master_upper_dev_get_rcu(ptr noundef %0) #18
+  tail call void @__rcu_read_lock() #19
+  %99 = tail call ptr @netdev_master_upper_dev_get_rcu(ptr noundef %0) #19
   %100 = icmp eq ptr %99, null
   br i1 %100, label %112, label %101
 
@@ -2464,19 +2464,19 @@ define internal fastcc i64 @if_nlmsg_size(ptr noundef %0, i32 noundef %1) unname
   br i1 %108, label %112, label %109
 
 109:                                              ; preds = %105
-  %110 = tail call i64 %107(ptr noundef nonnull %99, ptr noundef %0) #18
+  %110 = tail call i64 %107(ptr noundef nonnull %99, ptr noundef %0) #19
   %111 = add i64 %110, 8
   br label %112
 
 112:                                              ; preds = %109, %105, %101, %97
   %113 = phi i64 [ %111, %109 ], [ 0, %105 ], [ 0, %101 ], [ 0, %97 ]
-  tail call void @__rcu_read_unlock() #18
+  tail call void @__rcu_read_unlock() #19
   %114 = add i64 %113, %98
   br label %115
 
 115:                                              ; preds = %112, %65
   %116 = phi i64 [ %114, %112 ], [ 0, %65 ]
-  tail call void @__rcu_read_lock() #18
+  tail call void @__rcu_read_lock() #19
   %117 = load volatile ptr, ptr @rtnl_af_ops, align 8
   %118 = icmp eq ptr %117, @rtnl_af_ops
   br i1 %118, label %.loopexit, label %.preheader
@@ -2490,7 +2490,7 @@ define internal fastcc i64 @if_nlmsg_size(ptr noundef %0, i32 noundef %1) unname
   br i1 %123, label %128, label %124
 
 124:                                              ; preds = %.preheader
-  %125 = tail call i64 %122(ptr noundef %0, i32 noundef %1) #18
+  %125 = tail call i64 %122(ptr noundef %0, i32 noundef %1) #19
   %126 = add i64 %120, 8
   %127 = add i64 %126, %125
   br label %128
@@ -2503,10 +2503,10 @@ define internal fastcc i64 @if_nlmsg_size(ptr noundef %0, i32 noundef %1) unname
 
 .loopexit:                                        ; preds = %128, %115
   %132 = phi i64 [ 8, %115 ], [ %129, %128 ]
-  tail call void @__rcu_read_unlock() #18
+  tail call void @__rcu_read_unlock() #19
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1260
   %134 = load i32, ptr %133, align 4
-  tail call void @__rcu_read_lock() #18
+  tail call void @__rcu_read_lock() #19
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
@@ -2527,7 +2527,7 @@ define internal fastcc i64 @if_nlmsg_size(ptr noundef %0, i32 noundef %1) unname
   %148 = and i32 %147, 12
   %149 = icmp eq i32 %134, 0
   %150 = select i1 %149, i64 8, i64 20
-  tail call void @__rcu_read_unlock() #18
+  tail call void @__rcu_read_unlock() #19
   %151 = icmp eq i32 %139, 0
   %152 = mul i32 %139, 132
   %153 = add i32 %152, 4
@@ -2572,19 +2572,19 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %38 = alloca i8, align 1
   %39 = alloca i32, align 4
   %40 = alloca i32, align 4
-  %41 = tail call zeroext i1 @mutex_is_locked(ptr noundef nonnull @rtnl_mutex) #18
+  %41 = tail call zeroext i1 @mutex_is_locked(ptr noundef nonnull @rtnl_mutex) #19
   %42 = load i1, ptr @rtnl_fill_ifinfo.__already_done, align 1
   %43 = select i1 %41, i1 true, i1 %42
   br i1 %43, label %45, label %44, !prof !5
 
 44:                                               ; preds = %14
   store i1 true, ptr @rtnl_fill_ifinfo.__already_done, align 1
-  tail call void asm sideeffect "1001: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1001b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1001) #18, !srcloc !69
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 1818) #18
-  tail call void asm sideeffect "1002: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1002b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1002) #18, !srcloc !70
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1818, i32 2313, i64 12) #18, !srcloc !71
-  tail call void asm sideeffect "1003: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1003b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1003) #18, !srcloc !72
-  tail call void asm sideeffect "1004: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1004b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1004) #18, !srcloc !73
+  tail call void asm sideeffect "1001: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1001b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1001) #19, !srcloc !69
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 1818) #19
+  tail call void asm sideeffect "1002: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1002b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1002) #19, !srcloc !70
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1818, i32 2313, i64 12) #19, !srcloc !71
+  tail call void asm sideeffect "1003: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1003b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1003) #19, !srcloc !72
+  tail call void asm sideeffect "1004: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1004b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1004) #19, !srcloc !73
   br label %45
 
 45:                                               ; preds = %44, %14
@@ -2603,7 +2603,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   br i1 %55, label %.critedge.thread, label %.critedge, !prof !13
 
 .critedge:                                        ; preds = %49
-  %56 = tail call ptr @__nlmsg_put(ptr noundef %0, i32 noundef %4, i32 noundef %5, i32 noundef %3, i32 noundef 16, i32 noundef %7) #18
+  %56 = tail call ptr @__nlmsg_put(ptr noundef %0, i32 noundef %4, i32 noundef %5, i32 noundef %3, i32 noundef 16, i32 noundef %7) #19
   %57 = icmp eq ptr %56, null
   br i1 %57, label %.critedge.thread, label %58
 
@@ -2620,7 +2620,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %65 = load i32, ptr %64, align 8
   %66 = getelementptr i8, ptr %56, i64 20
   store i32 %65, ptr %66, align 4
-  %67 = tail call i32 @dev_get_flags(ptr noundef %1) #18
+  %67 = tail call i32 @dev_get_flags(ptr noundef %1) #19
   %68 = getelementptr i8, ptr %56, i64 24
   store i32 %67, ptr %68, align 4
   %69 = getelementptr i8, ptr %56, i64 28
@@ -2631,7 +2631,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
 71:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store i32 %12, ptr %40, align 4
-  %72 = call i32 @nla_put(ptr noundef %0, i32 noundef 46, i32 noundef 4, ptr noundef nonnull %40) #18
+  %72 = call i32 @nla_put(ptr noundef %0, i32 noundef 46, i32 noundef 4, ptr noundef nonnull %40) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %74, label %346
@@ -2640,10 +2640,10 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 1064
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 296
-  %78 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #18
+  %78 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #19
   %79 = trunc i64 %78 to i32
   %80 = add i32 %79, 1
-  %81 = call i32 @nla_put(ptr noundef %0, i32 noundef 3, i32 noundef %80, ptr noundef nonnull %77) #18
+  %81 = call i32 @nla_put(ptr noundef %0, i32 noundef 3, i32 noundef %80, ptr noundef nonnull %77) #19
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %346
 
@@ -2652,7 +2652,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %85 = load i32, ptr %84, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store i32 %85, ptr %39, align 4
-  %86 = call i32 @nla_put(ptr noundef %0, i32 noundef 13, i32 noundef 4, ptr noundef nonnull %39) #18
+  %86 = call i32 @nla_put(ptr noundef %0, i32 noundef 13, i32 noundef 4, ptr noundef nonnull %39) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %346
@@ -2673,7 +2673,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %97 = phi i8 [ %95, %93 ], [ 2, %88 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store i8 %97, ptr %38, align 1
-  %98 = call i32 @nla_put(ptr noundef %0, i32 noundef 16, i32 noundef 1, ptr noundef nonnull %38) #18
+  %98 = call i32 @nla_put(ptr noundef %0, i32 noundef 16, i32 noundef 1, ptr noundef nonnull %38) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %100, label %346
@@ -2683,7 +2683,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %102 = load i8, ptr %101, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store i8 %102, ptr %37, align 1
-  %103 = call i32 @nla_put(ptr noundef %0, i32 noundef 17, i32 noundef 1, ptr noundef nonnull %37) #18
+  %103 = call i32 @nla_put(ptr noundef %0, i32 noundef 17, i32 noundef 1, ptr noundef nonnull %37) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %346
@@ -2693,7 +2693,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %107 = load i32, ptr %106, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i32 %107, ptr %36, align 4
-  %108 = call i32 @nla_put(ptr noundef %0, i32 noundef 4, i32 noundef 4, ptr noundef nonnull %36) #18
+  %108 = call i32 @nla_put(ptr noundef %0, i32 noundef 4, i32 noundef 4, ptr noundef nonnull %36) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %110, label %346
@@ -2703,7 +2703,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %112 = load i32, ptr %111, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i32 %112, ptr %35, align 4
-  %113 = call i32 @nla_put(ptr noundef %0, i32 noundef 50, i32 noundef 4, ptr noundef nonnull %35) #18
+  %113 = call i32 @nla_put(ptr noundef %0, i32 noundef 50, i32 noundef 4, ptr noundef nonnull %35) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %115, label %346
@@ -2713,7 +2713,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %117 = load i32, ptr %116, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i32 %117, ptr %34, align 4
-  %118 = call i32 @nla_put(ptr noundef %0, i32 noundef 51, i32 noundef 4, ptr noundef nonnull %34) #18
+  %118 = call i32 @nla_put(ptr noundef %0, i32 noundef 51, i32 noundef 4, ptr noundef nonnull %34) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %120, label %346
@@ -2723,7 +2723,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %122 = load i32, ptr %121, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i32 %122, ptr %33, align 4
-  %123 = call i32 @nla_put(ptr noundef %0, i32 noundef 27, i32 noundef 4, ptr noundef nonnull %33) #18
+  %123 = call i32 @nla_put(ptr noundef %0, i32 noundef 27, i32 noundef 4, ptr noundef nonnull %33) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %125, label %346
@@ -2733,7 +2733,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %127 = load i32, ptr %126, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i32 %127, ptr %32, align 4
-  %128 = call i32 @nla_put(ptr noundef %0, i32 noundef 30, i32 noundef 4, ptr noundef nonnull %32) #18
+  %128 = call i32 @nla_put(ptr noundef %0, i32 noundef 30, i32 noundef 4, ptr noundef nonnull %32) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %130, label %346
@@ -2743,7 +2743,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %132 = load i32, ptr %131, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i32 %132, ptr %31, align 4
-  %133 = call i32 @nla_put(ptr noundef %0, i32 noundef 61, i32 noundef 4, ptr noundef nonnull %31) #18
+  %133 = call i32 @nla_put(ptr noundef %0, i32 noundef 61, i32 noundef 4, ptr noundef nonnull %31) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %135, label %346
@@ -2753,7 +2753,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %137 = load i32, ptr %136, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i32 %137, ptr %30, align 4
-  %138 = call i32 @nla_put(ptr noundef %0, i32 noundef 31, i32 noundef 4, ptr noundef nonnull %30) #18
+  %138 = call i32 @nla_put(ptr noundef %0, i32 noundef 31, i32 noundef 4, ptr noundef nonnull %30) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %139 = icmp eq i32 %138, 0
   br i1 %139, label %140, label %346
@@ -2764,7 +2764,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %143 = zext i16 %142 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 %143, ptr %29, align 4
-  %144 = call i32 @nla_put(ptr noundef %0, i32 noundef 40, i32 noundef 4, ptr noundef nonnull %29) #18
+  %144 = call i32 @nla_put(ptr noundef %0, i32 noundef 40, i32 noundef 4, ptr noundef nonnull %29) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %146, label %346
@@ -2774,7 +2774,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %148 = load i32, ptr %147, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i32 %148, ptr %28, align 4
-  %149 = call i32 @nla_put(ptr noundef %0, i32 noundef 41, i32 noundef 4, ptr noundef nonnull %28) #18
+  %149 = call i32 @nla_put(ptr noundef %0, i32 noundef 41, i32 noundef 4, ptr noundef nonnull %28) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %150 = icmp eq i32 %149, 0
   br i1 %150, label %151, label %346
@@ -2784,7 +2784,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %153 = load i32, ptr %152, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i32 %153, ptr %27, align 4
-  %154 = call i32 @nla_put(ptr noundef %0, i32 noundef 58, i32 noundef 4, ptr noundef nonnull %27) #18
+  %154 = call i32 @nla_put(ptr noundef %0, i32 noundef 58, i32 noundef 4, ptr noundef nonnull %27) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %155 = icmp eq i32 %154, 0
   br i1 %155, label %156, label %346
@@ -2794,7 +2794,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %158 = load i32, ptr %157, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i32 %158, ptr %26, align 4
-  %159 = call i32 @nla_put(ptr noundef %0, i32 noundef 63, i32 noundef 4, ptr noundef nonnull %26) #18
+  %159 = call i32 @nla_put(ptr noundef %0, i32 noundef 63, i32 noundef 4, ptr noundef nonnull %26) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %160 = icmp eq i32 %159, 0
   br i1 %160, label %161, label %346
@@ -2804,7 +2804,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %163 = load i32, ptr %162, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 %163, ptr %25, align 4
-  %164 = call i32 @nla_put(ptr noundef %0, i32 noundef 64, i32 noundef 4, ptr noundef nonnull %25) #18
+  %164 = call i32 @nla_put(ptr noundef %0, i32 noundef 64, i32 noundef 4, ptr noundef nonnull %25) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %165 = icmp eq i32 %164, 0
   br i1 %165, label %166, label %346
@@ -2814,7 +2814,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %168 = load i32, ptr %167, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i32 %168, ptr %24, align 4
-  %169 = call i32 @nla_put(ptr noundef %0, i32 noundef 59, i32 noundef 4, ptr noundef nonnull %24) #18
+  %169 = call i32 @nla_put(ptr noundef %0, i32 noundef 59, i32 noundef 4, ptr noundef nonnull %24) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %170 = icmp eq i32 %169, 0
   br i1 %170, label %171, label %346
@@ -2825,7 +2825,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %174 = zext i16 %173 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 %174, ptr %23, align 4
-  %175 = call i32 @nla_put(ptr noundef %0, i32 noundef 60, i32 noundef 4, ptr noundef nonnull %23) #18
+  %175 = call i32 @nla_put(ptr noundef %0, i32 noundef 60, i32 noundef 4, ptr noundef nonnull %23) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %176 = icmp eq i32 %175, 0
   br i1 %176, label %177, label %346
@@ -2835,7 +2835,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %179 = load i32, ptr %178, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i32 %179, ptr %22, align 4
-  %180 = call i32 @nla_put(ptr noundef %0, i32 noundef 32, i32 noundef 4, ptr noundef nonnull %22) #18
+  %180 = call i32 @nla_put(ptr noundef %0, i32 noundef 32, i32 noundef 4, ptr noundef nonnull %22) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %181 = icmp eq i32 %180, 0
   br i1 %181, label %182, label %346
@@ -2852,7 +2852,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %189 = zext i1 %188 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i8 %189, ptr %21, align 1
-  %190 = call i32 @nla_put(ptr noundef %0, i32 noundef 33, i32 noundef 1, ptr noundef nonnull %21) #18
+  %190 = call i32 @nla_put(ptr noundef %0, i32 noundef 33, i32 noundef 1, ptr noundef nonnull %21) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %191 = icmp eq i32 %190, 0
   br i1 %191, label %192, label %346
@@ -2882,7 +2882,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %208 = add i32 %207, %205
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 %208, ptr %20, align 4
-  %209 = call i32 @nla_put(ptr noundef %0, i32 noundef 35, i32 noundef 4, ptr noundef nonnull %20) #18
+  %209 = call i32 @nla_put(ptr noundef %0, i32 noundef 35, i32 noundef 4, ptr noundef nonnull %20) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %210 = icmp eq i32 %209, 0
   br i1 %210, label %211, label %346
@@ -2891,7 +2891,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %212 = load volatile i32, ptr %204, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %212, ptr %19, align 4
-  %213 = call i32 @nla_put(ptr noundef %0, i32 noundef 47, i32 noundef 4, ptr noundef nonnull %19) #18
+  %213 = call i32 @nla_put(ptr noundef %0, i32 noundef 47, i32 noundef 4, ptr noundef nonnull %19) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %214 = icmp eq i32 %213, 0
   br i1 %214, label %215, label %346
@@ -2900,7 +2900,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %216 = load volatile i32, ptr %206, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 %216, ptr %18, align 4
-  %217 = call i32 @nla_put(ptr noundef %0, i32 noundef 48, i32 noundef 4, ptr noundef nonnull %18) #18
+  %217 = call i32 @nla_put(ptr noundef %0, i32 noundef 48, i32 noundef 4, ptr noundef nonnull %18) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %218 = icmp eq i32 %217, 0
   br i1 %218, label %219, label %346
@@ -2917,7 +2917,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
 224:                                              ; preds = %222
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %9, ptr %17, align 4
-  %225 = call i32 @nla_put(ptr noundef %0, i32 noundef 44, i32 noundef 4, ptr noundef nonnull %17) #18
+  %225 = call i32 @nla_put(ptr noundef %0, i32 noundef 44, i32 noundef 4, ptr noundef nonnull %17) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %226 = icmp eq i32 %225, 0
   br i1 %226, label %227, label %346
@@ -2937,7 +2937,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %235 = zext i8 %232 to i32
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 968
   %237 = load ptr, ptr %236, align 8
-  %238 = call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef %235, ptr noundef %237) #18
+  %238 = call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef %235, ptr noundef %237) #19
   %239 = icmp eq i32 %238, 0
   br i1 %239, label %240, label %346
 
@@ -2945,7 +2945,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %241 = load i8, ptr %231, align 1
   %242 = zext i8 %241 to i32
   %243 = getelementptr inbounds nuw i8, ptr %1, i64 1000
-  %244 = call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef %242, ptr noundef nonnull %243) #18
+  %244 = call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef %242, ptr noundef nonnull %243) #19
   %245 = icmp eq i32 %244, 0
   br i1 %245, label %246, label %346
 
@@ -3012,7 +3012,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %282 = load i32, ptr %10, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %282, ptr %16, align 4
-  %283 = call i32 @nla_put(ptr noundef %0, i32 noundef 45, i32 noundef 4, ptr noundef nonnull %16) #18
+  %283 = call i32 @nla_put(ptr noundef %0, i32 noundef 45, i32 noundef 4, ptr noundef nonnull %16) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %284 = icmp slt i32 %283, 0
   br i1 %284, label %346, label %285
@@ -3024,7 +3024,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
 287:                                              ; preds = %285
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %11, ptr %15, align 4
-  %288 = call i32 @nla_put(ptr noundef %0, i32 noundef 49, i32 noundef 4, ptr noundef nonnull %15) #18
+  %288 = call i32 @nla_put(ptr noundef %0, i32 noundef 49, i32 noundef 4, ptr noundef nonnull %15) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %289 = icmp slt i32 %288, 0
   br i1 %289, label %346, label %290
@@ -3033,22 +3033,22 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %291 = getelementptr inbounds nuw i8, ptr %1, i64 780
   %292 = load i8, ptr %231, align 1
   %293 = zext i8 %292 to i64
-  %294 = call ptr @memchr_inv(ptr noundef nonnull %291, i32 noundef 0, i64 noundef %293) #18
+  %294 = call ptr @memchr_inv(ptr noundef nonnull %291, i32 noundef 0, i64 noundef %293) #19
   %295 = icmp eq ptr %294, null
   br i1 %295, label %301, label %296
 
 296:                                              ; preds = %290
   %297 = load i8, ptr %231, align 1
   %298 = zext i8 %297 to i32
-  %299 = call i32 @nla_put(ptr noundef %0, i32 noundef 54, i32 noundef %298, ptr noundef nonnull %291) #18
+  %299 = call i32 @nla_put(ptr noundef %0, i32 noundef 54, i32 noundef %298, ptr noundef nonnull %291) #19
   %300 = icmp eq i32 %299, 0
   br i1 %300, label %301, label %346
 
 301:                                              ; preds = %296, %290
-  call void @__rcu_read_lock() #18
+  call void @__rcu_read_lock() #19
   %302 = call fastcc i32 @rtnl_fill_link_af(ptr noundef %0, ptr noundef %1, i32 noundef %8)
   %303 = icmp eq i32 %302, 0
-  call void @__rcu_read_unlock() #18
+  call void @__rcu_read_unlock() #19
   br i1 %303, label %304, label %346
 
 304:                                              ; preds = %301
@@ -3125,9 +3125,9 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   br i1 %349, label %350, label %351, !prof !13
 
 350:                                              ; preds = %346
-  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
-  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
+  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
+  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
   %.pre = load ptr, ptr %347, align 8
   br label %351
 
@@ -3137,7 +3137,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr nound
   %354 = ptrtoint ptr %352 to i64
   %355 = sub i64 %353, %354
   %356 = trunc i64 %355 to i32
-  call void @skb_trim(ptr noundef %0, i32 noundef %356) #18
+  call void @skb_trim(ptr noundef %0, i32 noundef %356) #19
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %45, %49, %351, %336, %.critedge
@@ -3164,7 +3164,7 @@ define dso_local void @rtmsg_ifinfo_send(ptr noundef %0, ptr noundef readonly ca
 
 17:                                               ; preds = %11, %5
   %18 = phi i32 [ %16, %11 ], [ 0, %5 ]
-  %19 = tail call i32 @nlmsg_notify(ptr noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %18, i32 noundef %2) #18
+  %19 = tail call i32 @nlmsg_notify(ptr noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %18, i32 noundef %2) #19
   ret void
 }
 
@@ -3198,7 +3198,7 @@ define dso_local void @rtmsg_ifinfo(i32 noundef %0, ptr noundef %1, i32 noundef 
 
 25:                                               ; preds = %19, %13
   %26 = phi i32 [ %24, %19 ], [ 0, %13 ]
-  %27 = tail call i32 @nlmsg_notify(ptr noundef %17, ptr noundef nonnull %11, i32 noundef %4, i32 noundef 1, i32 noundef %26, i32 noundef %3) #18
+  %27 = tail call i32 @nlmsg_notify(ptr noundef %17, ptr noundef nonnull %11, i32 noundef %4, i32 noundef 1, i32 noundef %26, i32 noundef %3) #19
   br label %28
 
 28:                                               ; preds = %25, %10, %6
@@ -3222,7 +3222,7 @@ define dso_local void @rtmsg_ifinfo_newnet(i32 noundef %0, ptr noundef %1, i32 n
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 272
   %17 = load ptr, ptr %16, align 16
-  %18 = tail call i32 @nlmsg_notify(ptr noundef %17, ptr noundef nonnull %11, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef %3) #18
+  %18 = tail call i32 @nlmsg_notify(ptr noundef %17, ptr noundef nonnull %11, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef %3) #19
   br label %19
 
 19:                                               ; preds = %13, %10, %6
@@ -3240,7 +3240,7 @@ define dso_local i32 @ndo_dflt_fdb_add(ptr noundef readonly captures(none) %0, p
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %6
-  tail call void (ptr, ptr, ...) @netdev_info(ptr noundef %2, ptr noundef nonnull @.str.3) #21
+  tail call void (ptr, ptr, ...) @netdev_info(ptr noundef %2, ptr noundef nonnull @.str.3) #22
   br label %45
 
 14:                                               ; preds = %6
@@ -3250,7 +3250,7 @@ define dso_local i32 @ndo_dflt_fdb_add(ptr noundef readonly captures(none) %0, p
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %14
-  tail call void (ptr, ptr, ...) @netdev_info(ptr noundef %2, ptr noundef nonnull @.str.4) #21
+  tail call void (ptr, ptr, ...) @netdev_info(ptr noundef %2, ptr noundef nonnull @.str.4) #22
   br label %45
 
 19:                                               ; preds = %14
@@ -3258,7 +3258,7 @@ define dso_local i32 @ndo_dflt_fdb_add(ptr noundef readonly captures(none) %0, p
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %19
-  tail call void (ptr, ptr, ...) @netdev_info(ptr noundef %2, ptr noundef nonnull @.str.5) #21
+  tail call void (ptr, ptr, ...) @netdev_info(ptr noundef %2, ptr noundef nonnull @.str.5) #22
   br label %45
 
 22:                                               ; preds = %19
@@ -3278,11 +3278,11 @@ define dso_local i32 @ndo_dflt_fdb_add(ptr noundef readonly captures(none) %0, p
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %26, %22
-  %35 = tail call i32 @dev_uc_add_excl(ptr noundef %2, ptr noundef %3) #18
+  %35 = tail call i32 @dev_uc_add_excl(ptr noundef %2, ptr noundef %3) #19
   br label %38
 
 36:                                               ; preds = %26
-  %37 = tail call i32 @dev_mc_add_excl(ptr noundef %2, ptr noundef %3) #18
+  %37 = tail call i32 @dev_mc_add_excl(ptr noundef %2, ptr noundef %3) #19
   br label %38
 
 38:                                               ; preds = %36, %34
@@ -3319,7 +3319,7 @@ define dso_local i32 @ndo_dflt_fdb_del(ptr noundef readonly captures(none) %0, p
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %5
-  tail call void (ptr, ptr, ...) @netdev_info(ptr noundef %2, ptr noundef nonnull @.str.3) #21
+  tail call void (ptr, ptr, ...) @netdev_info(ptr noundef %2, ptr noundef nonnull @.str.3) #22
   br label %27
 
 11:                                               ; preds = %5
@@ -3339,11 +3339,11 @@ define dso_local i32 @ndo_dflt_fdb_del(ptr noundef readonly captures(none) %0, p
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %15, %11
-  %24 = tail call i32 @dev_uc_del(ptr noundef %2, ptr noundef %3) #18
+  %24 = tail call i32 @dev_uc_del(ptr noundef %2, ptr noundef %3) #19
   br label %27
 
 25:                                               ; preds = %15
-  %26 = tail call i32 @dev_mc_del(ptr noundef %2, ptr noundef %3) #18
+  %26 = tail call i32 @dev_mc_del(ptr noundef %2, ptr noundef %3) #19
   br label %27
 
 27:                                               ; preds = %25, %23, %10
@@ -3365,11 +3365,11 @@ define dso_local noundef range(i32 -90, 1) i32 @ndo_dflt_fdb_dump(ptr noundef %0
   br i1 %8, label %9, label %62
 
 9:                                                ; preds = %5
-  %10 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !75
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !76
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !77
+  %10 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !75
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #19, !srcloc !76
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !77
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 824
-  tail call void @_raw_spin_lock(ptr noundef nonnull %11) #18
+  tail call void @_raw_spin_lock(ptr noundef nonnull %11) #19
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 832
   %13 = load ptr, ptr %1, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 52
@@ -3463,7 +3463,7 @@ define dso_local noundef range(i32 -90, 1) i32 @ndo_dflt_fdb_dump(ptr noundef %0
 
 .loopexit:                                        ; preds = %30, %56, %52, %.loopexit10
   %61 = phi i32 [ 0, %.loopexit10 ], [ 0, %56 ], [ %54, %52 ], [ %32, %30 ]
-  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %11) #18
+  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %11) #19
   br label %62
 
 62:                                               ; preds = %.loopexit, %5
@@ -3502,7 +3502,7 @@ define dso_local i32 @ndo_dflt_bridge_getlink(ptr noundef %0, i32 noundef %1, i3
 
 34:                                               ; preds = %31, %10
   %35 = phi i8 [ %33, %31 ], [ 2, %10 ]
-  %36 = tail call ptr @netdev_master_upper_dev_get(ptr noundef %3) #18
+  %36 = tail call ptr @netdev_master_upper_dev_get(ptr noundef %3) #19
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 0
@@ -3518,7 +3518,7 @@ define dso_local i32 @ndo_dflt_bridge_getlink(ptr noundef %0, i32 noundef %1, i3
   br i1 %46, label %.critedge.thread, label %.critedge, !prof !13
 
 .critedge:                                        ; preds = %40
-  %47 = tail call ptr @__nlmsg_put(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 16, i32 noundef 16, i32 noundef %7) #18
+  %47 = tail call ptr @__nlmsg_put(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 16, i32 noundef 16, i32 noundef %7) #19
   %48 = icmp eq ptr %47, null
   br i1 %48, label %.critedge.thread, label %49
 
@@ -3535,16 +3535,16 @@ define dso_local i32 @ndo_dflt_bridge_getlink(ptr noundef %0, i32 noundef %1, i3
   %56 = load i32, ptr %55, align 8
   %57 = getelementptr i8, ptr %47, i64 20
   store i32 %56, ptr %57, align 4
-  %58 = tail call i32 @dev_get_flags(ptr noundef %3) #18
+  %58 = tail call i32 @dev_get_flags(ptr noundef %3) #19
   %59 = getelementptr i8, ptr %47, i64 24
   store i32 %58, ptr %59, align 4
   %60 = getelementptr i8, ptr %47, i64 28
   store i32 0, ptr %60, align 4
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 296
-  %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %61) #18
+  %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %61) #19
   %63 = trunc i64 %62 to i32
   %64 = add i32 %63, 1
-  %65 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 3, i32 noundef %64, ptr noundef nonnull %61) #18
+  %65 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 3, i32 noundef %64, ptr noundef nonnull %61) #19
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %249
 
@@ -3553,7 +3553,7 @@ define dso_local i32 @ndo_dflt_bridge_getlink(ptr noundef %0, i32 noundef %1, i3
   %69 = load i32, ptr %68, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i32 %69, ptr %26, align 4
-  %70 = call i32 @nla_put(ptr noundef %0, i32 noundef 4, i32 noundef 4, ptr noundef nonnull %26) #18
+  %70 = call i32 @nla_put(ptr noundef %0, i32 noundef 4, i32 noundef 4, ptr noundef nonnull %26) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %249
@@ -3561,7 +3561,7 @@ define dso_local i32 @ndo_dflt_bridge_getlink(ptr noundef %0, i32 noundef %1, i3
 72:                                               ; preds = %67
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i8 %35, ptr %25, align 1
-  %73 = call i32 @nla_put(ptr noundef %0, i32 noundef 16, i32 noundef 1, ptr noundef nonnull %25) #18
+  %73 = call i32 @nla_put(ptr noundef %0, i32 noundef 16, i32 noundef 1, ptr noundef nonnull %25) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %75, label %249
@@ -3575,7 +3575,7 @@ define dso_local i32 @ndo_dflt_bridge_getlink(ptr noundef %0, i32 noundef %1, i3
   %79 = load i32, ptr %78, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i32 %79, ptr %24, align 4
-  %80 = call i32 @nla_put(ptr noundef %0, i32 noundef 10, i32 noundef 4, ptr noundef nonnull %24) #18
+  %80 = call i32 @nla_put(ptr noundef %0, i32 noundef 10, i32 noundef 4, ptr noundef nonnull %24) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %82, label %249
@@ -3590,21 +3590,21 @@ define dso_local i32 @ndo_dflt_bridge_getlink(ptr noundef %0, i32 noundef %1, i3
   %87 = zext i8 %84 to i32
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 968
   %89 = load ptr, ptr %88, align 8
-  %90 = call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef %87, ptr noundef %89) #18
+  %90 = call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef %87, ptr noundef %89) #19
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %92, label %249
 
 92:                                               ; preds = %86, %82
   %93 = load i32, ptr %55, align 8
-  %94 = call i32 @dev_get_iflink(ptr noundef %3) #18
+  %94 = call i32 @dev_get_iflink(ptr noundef %3) #19
   %95 = icmp eq i32 %93, %94
   br i1 %95, label %100, label %96
 
 96:                                               ; preds = %92
-  %97 = call i32 @dev_get_iflink(ptr noundef %3) #18
+  %97 = call i32 @dev_get_iflink(ptr noundef %3) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 %97, ptr %23, align 4
-  %98 = call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef 4, ptr noundef nonnull %23) #18
+  %98 = call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef 4, ptr noundef nonnull %23) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %100, label %249
@@ -3615,7 +3615,7 @@ define dso_local i32 @ndo_dflt_bridge_getlink(ptr noundef %0, i32 noundef %1, i3
   %103 = load i32, ptr %43, align 8
   %104 = zext i32 %103 to i64
   %105 = getelementptr i8, ptr %102, i64 %104
-  %106 = call i32 @nla_put(ptr noundef %0, i32 noundef 26, i32 noundef 0, ptr noundef null) #18
+  %106 = call i32 @nla_put(ptr noundef %0, i32 noundef 26, i32 noundef 0, ptr noundef null) #19
   %107 = icmp slt i32 %106, 0
   %108 = icmp eq ptr %105, null
   %109 = select i1 %107, i1 true, i1 %108
@@ -3624,7 +3624,7 @@ define dso_local i32 @ndo_dflt_bridge_getlink(ptr noundef %0, i32 noundef %1, i3
 110:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i16 2, ptr %22, align 2
-  %111 = call i32 @nla_put(ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %22) #18
+  %111 = call i32 @nla_put(ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %22) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %112 = icmp eq i32 %111, 0
   br i1 %112, label %113, label %246
@@ -3636,7 +3636,7 @@ define dso_local i32 @ndo_dflt_bridge_getlink(ptr noundef %0, i32 noundef %1, i3
 115:                                              ; preds = %113
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i16 %4, ptr %21, align 2
-  %116 = call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %21) #18
+  %116 = call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %21) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %117 = icmp eq i32 %116, 0
   br i1 %117, label %118, label %246
@@ -3646,7 +3646,7 @@ define dso_local i32 @ndo_dflt_bridge_getlink(ptr noundef %0, i32 noundef %1, i3
   br i1 %119, label %123, label %120
 
 120:                                              ; preds = %118
-  %121 = call i32 %9(ptr noundef %0, ptr noundef %3, i32 noundef %8) #18
+  %121 = call i32 %9(ptr noundef %0, ptr noundef %3, i32 noundef %8) #19
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %123, label %246
 
@@ -3664,7 +3664,7 @@ define dso_local i32 @ndo_dflt_bridge_getlink(ptr noundef %0, i32 noundef %1, i3
   %133 = load i32, ptr %43, align 8
   %134 = zext i32 %133 to i64
   %135 = getelementptr i8, ptr %132, i64 %134
-  %136 = call i32 @nla_put(ptr noundef %0, i32 noundef 32780, i32 noundef 0, ptr noundef null) #18
+  %136 = call i32 @nla_put(ptr noundef %0, i32 noundef 32780, i32 noundef 0, ptr noundef null) #19
   %137 = icmp slt i32 %136, 0
   %138 = icmp eq ptr %135, null
   %139 = select i1 %137, i1 true, i1 %138
@@ -3680,7 +3680,7 @@ define dso_local i32 @ndo_dflt_bridge_getlink(ptr noundef %0, i32 noundef %1, i3
   %145 = and i8 %144, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i8 %145, ptr %20, align 1
-  %146 = call i32 @nla_put(ptr noundef %0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull %20) #18
+  %146 = call i32 @nla_put(ptr noundef %0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull %20) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %147 = icmp eq i32 %146, 0
   br i1 %147, label %148, label %246
@@ -3696,7 +3696,7 @@ define dso_local i32 @ndo_dflt_bridge_getlink(ptr noundef %0, i32 noundef %1, i3
   %154 = and i8 %153, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i8 %154, ptr %19, align 1
-  %155 = call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef 1, ptr noundef nonnull %19) #18
+  %155 = call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef 1, ptr noundef nonnull %19) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %157, label %246
@@ -3712,7 +3712,7 @@ define dso_local i32 @ndo_dflt_bridge_getlink(ptr noundef %0, i32 noundef %1, i3
   %163 = and i8 %162, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i8 %163, ptr %18, align 1
-  %164 = call i32 @nla_put(ptr noundef %0, i32 noundef 7, i32 noundef 1, ptr noundef nonnull %18) #18
+  %164 = call i32 @nla_put(ptr noundef %0, i32 noundef 7, i32 noundef 1, ptr noundef nonnull %18) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %165 = icmp eq i32 %164, 0
   br i1 %165, label %166, label %246
@@ -3728,7 +3728,7 @@ define dso_local i32 @ndo_dflt_bridge_getlink(ptr noundef %0, i32 noundef %1, i3
   %172 = and i8 %171, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i8 %172, ptr %17, align 1
-  %173 = call i32 @nla_put(ptr noundef %0, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %17) #18
+  %173 = call i32 @nla_put(ptr noundef %0, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %17) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %174 = icmp eq i32 %173, 0
   br i1 %174, label %175, label %246
@@ -3744,7 +3744,7 @@ define dso_local i32 @ndo_dflt_bridge_getlink(ptr noundef %0, i32 noundef %1, i3
   %181 = and i8 %180, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i8 %181, ptr %16, align 1
-  %182 = call i32 @nla_put(ptr noundef %0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull %16) #18
+  %182 = call i32 @nla_put(ptr noundef %0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull %16) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %183 = icmp eq i32 %182, 0
   br i1 %183, label %184, label %246
@@ -3760,7 +3760,7 @@ define dso_local i32 @ndo_dflt_bridge_getlink(ptr noundef %0, i32 noundef %1, i3
   %190 = and i8 %189, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 %190, ptr %15, align 1
-  %191 = call i32 @nla_put(ptr noundef %0, i32 noundef 11, i32 noundef 1, ptr noundef nonnull %15) #18
+  %191 = call i32 @nla_put(ptr noundef %0, i32 noundef 11, i32 noundef 1, ptr noundef nonnull %15) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %192 = icmp eq i32 %191, 0
   br i1 %192, label %193, label %246
@@ -3776,7 +3776,7 @@ define dso_local i32 @ndo_dflt_bridge_getlink(ptr noundef %0, i32 noundef %1, i3
   %199 = and i8 %198, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i8 %199, ptr %14, align 1
-  %200 = call i32 @nla_put(ptr noundef %0, i32 noundef 9, i32 noundef 1, ptr noundef nonnull %14) #18
+  %200 = call i32 @nla_put(ptr noundef %0, i32 noundef 9, i32 noundef 1, ptr noundef nonnull %14) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %201 = icmp eq i32 %200, 0
   br i1 %201, label %202, label %246
@@ -3792,7 +3792,7 @@ define dso_local i32 @ndo_dflt_bridge_getlink(ptr noundef %0, i32 noundef %1, i3
   %208 = and i8 %207, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i8 %208, ptr %13, align 1
-  %209 = call i32 @nla_put(ptr noundef %0, i32 noundef 10, i32 noundef 1, ptr noundef nonnull %13) #18
+  %209 = call i32 @nla_put(ptr noundef %0, i32 noundef 10, i32 noundef 1, ptr noundef nonnull %13) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %210 = icmp eq i32 %209, 0
   br i1 %210, label %211, label %246
@@ -3808,7 +3808,7 @@ define dso_local i32 @ndo_dflt_bridge_getlink(ptr noundef %0, i32 noundef %1, i3
   %217 = and i8 %216, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 %217, ptr %12, align 1
-  %218 = call i32 @nla_put(ptr noundef %0, i32 noundef 27, i32 noundef 1, ptr noundef nonnull %12) #18
+  %218 = call i32 @nla_put(ptr noundef %0, i32 noundef 27, i32 noundef 1, ptr noundef nonnull %12) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %219 = icmp eq i32 %218, 0
   br i1 %219, label %220, label %246
@@ -3824,7 +3824,7 @@ define dso_local i32 @ndo_dflt_bridge_getlink(ptr noundef %0, i32 noundef %1, i3
   %226 = and i8 %225, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 %226, ptr %11, align 1
-  %227 = call i32 @nla_put(ptr noundef %0, i32 noundef 30, i32 noundef 1, ptr noundef nonnull %11) #18
+  %227 = call i32 @nla_put(ptr noundef %0, i32 noundef 30, i32 noundef 1, ptr noundef nonnull %11) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %228 = icmp eq i32 %227, 0
   br i1 %228, label %229, label %246
@@ -3864,9 +3864,9 @@ define dso_local i32 @ndo_dflt_bridge_getlink(ptr noundef %0, i32 noundef %1, i3
   br i1 %253, label %254, label %255, !prof !13
 
 254:                                              ; preds = %249
-  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
-  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
+  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
+  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
   %.pre = load ptr, ptr %251, align 8
   br label %255
 
@@ -3876,7 +3876,7 @@ define dso_local i32 @ndo_dflt_bridge_getlink(ptr noundef %0, i32 noundef %1, i3
   %258 = ptrtoint ptr %256 to i64
   %259 = sub i64 %257, %258
   %260 = trunc i64 %259 to i32
-  call void @skb_trim(ptr noundef %0, i32 noundef %260) #18
+  call void @skb_trim(ptr noundef %0, i32 noundef %260) #19
   %261 = icmp eq i32 %250, 0
   %262 = select i1 %261, i32 -90, i32 %250
   br label %.critedge.thread
@@ -3909,19 +3909,19 @@ define dso_local void @rtnl_offload_xstats_notify(ptr noundef %0) #0 align 16 {
   store i32 0, ptr %3, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  %8 = tail call zeroext i1 @mutex_is_locked(ptr noundef nonnull @rtnl_mutex) #18
+  %8 = tail call zeroext i1 @mutex_is_locked(ptr noundef nonnull @rtnl_mutex) #19
   %9 = load i1, ptr @rtnl_offload_xstats_notify.__already_done, align 1
   %10 = select i1 %8, i1 true, i1 %9
   br i1 %10, label %12, label %11, !prof !5
 
 11:                                               ; preds = %1
   store i1 true, ptr @rtnl_offload_xstats_notify.__already_done, align 1
-  tail call void asm sideeffect "1048: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1048b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1048) #18, !srcloc !79
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 6063) #18
-  tail call void asm sideeffect "1049: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1049b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1049) #18, !srcloc !80
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 6063, i32 2313, i64 12) #18, !srcloc !81
-  tail call void asm sideeffect "1050: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1050b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1050) #18, !srcloc !82
-  tail call void asm sideeffect "1051: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1051b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1051) #18, !srcloc !83
+  tail call void asm sideeffect "1048: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1048b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1048) #19, !srcloc !79
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 6063) #19
+  tail call void asm sideeffect "1049: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1049b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1049) #19, !srcloc !80
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 6063, i32 2313, i64 12) #19, !srcloc !81
+  tail call void asm sideeffect "1050: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1050b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1050) #19, !srcloc !82
+  tail call void asm sideeffect "1051: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1051b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1051) #19, !srcloc !83
   br label %12
 
 12:                                               ; preds = %11, %1
@@ -3932,7 +3932,7 @@ define dso_local void @rtnl_offload_xstats_notify(ptr noundef %0) #0 align 16 {
   %15 = trunc i64 %14 to i32
   %16 = add i32 %15, 19
   %17 = and i32 %16, -4
-  %18 = tail call ptr @__alloc_skb(i32 noundef %17, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #18
+  %18 = tail call ptr @__alloc_skb(i32 noundef %17, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #19
   %19 = icmp eq ptr %18, null
   br i1 %19, label %28, label %20
 
@@ -3942,20 +3942,20 @@ define dso_local void @rtnl_offload_xstats_notify(ptr noundef %0) #0 align 16 {
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %20
-  call void @kfree_skb_reason(ptr noundef nonnull %18, i32 noundef 2) #18
+  call void @kfree_skb_reason(ptr noundef nonnull %18, i32 noundef 2) #19
   br label %28
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 272
   %26 = load ptr, ptr %25, align 16
-  %27 = call i32 @nlmsg_notify(ptr noundef %26, ptr noundef nonnull %18, i32 noundef 0, i32 noundef 36, i32 noundef 0, i32 noundef 3264) #18
+  %27 = call i32 @nlmsg_notify(ptr noundef %26, ptr noundef nonnull %18, i32 noundef 0, i32 noundef 36, i32 noundef 0, i32 noundef 3264) #19
   br label %33
 
 28:                                               ; preds = %23, %12
   %29 = phi i32 [ %21, %23 ], [ -105, %12 ]
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 272
   %31 = load ptr, ptr %30, align 16
-  %32 = call i32 @netlink_set_err(ptr noundef %31, i32 noundef 0, i32 noundef 36, i32 noundef %29) #18
+  %32 = call i32 @netlink_set_err(ptr noundef %31, i32 noundef 0, i32 noundef 36, i32 noundef %29) #19
   br label %33
 
 33:                                               ; preds = %28, %24
@@ -3990,7 +3990,7 @@ define internal fastcc i64 @if_nlmsg_stats_size(ptr noundef %0, i32 %.0.val, i32
   br i1 %14, label %23, label %15
 
 15:                                               ; preds = %11
-  %16 = tail call i64 %13(ptr noundef %0, i32 noundef 2) #18
+  %16 = tail call i64 %13(ptr noundef %0, i32 noundef 2) #19
   %17 = shl i64 %16, 32
   %18 = add i64 %17, 30064771072
   %19 = ashr exact i64 %18, 32
@@ -4006,7 +4006,7 @@ define internal fastcc i64 @if_nlmsg_stats_size(ptr noundef %0, i32 %.0.val, i32
   br i1 %26, label %.thread, label %27
 
 27:                                               ; preds = %23
-  %28 = tail call ptr @netdev_master_upper_dev_get(ptr noundef %0) #18
+  %28 = tail call ptr @netdev_master_upper_dev_get(ptr noundef %0) #19
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.thread, label %30
 
@@ -4023,7 +4023,7 @@ define internal fastcc i64 @if_nlmsg_stats_size(ptr noundef %0, i32 %.0.val, i32
   br i1 %37, label %.thread, label %38
 
 38:                                               ; preds = %34
-  %39 = tail call i64 %36(ptr noundef %0, i32 noundef 3) #18
+  %39 = tail call i64 %36(ptr noundef %0, i32 noundef 3) #19
   %40 = shl i64 %39, 32
   %41 = add i64 %40, 30064771072
   %42 = ashr exact i64 %41, 32
@@ -4062,7 +4062,7 @@ define internal fastcc i64 @if_nlmsg_stats_size(ptr noundef %0, i32 %.0.val, i32
   br i1 %63, label %67, label %64
 
 64:                                               ; preds = %60
-  %65 = tail call zeroext i1 %58(ptr noundef %0, i32 noundef 1) #18
+  %65 = tail call zeroext i1 %58(ptr noundef %0, i32 noundef 1) #19
   %66 = select i1 %65, i32 204, i32 4
   br label %67
 
@@ -4077,7 +4077,7 @@ define internal fastcc i64 @if_nlmsg_stats_size(ptr noundef %0, i32 %.0.val, i32
   br i1 %74, label %79, label %75
 
 75:                                               ; preds = %67
-  %76 = tail call zeroext i1 @netdev_offload_xstats_enabled(ptr noundef %0, i32 noundef 1) #18
+  %76 = tail call zeroext i1 @netdev_offload_xstats_enabled(ptr noundef %0, i32 noundef 1) #19
   %77 = select i1 %76, i32 76, i32 4
   %78 = add nuw nsw i32 %77, %72
   br label %79
@@ -4099,7 +4099,7 @@ define internal fastcc i64 @if_nlmsg_stats_size(ptr noundef %0, i32 %.0.val, i32
 
 90:                                               ; preds = %86
   %91 = add i64 %87, 4
-  tail call void @__rcu_read_lock() #18
+  tail call void @__rcu_read_lock() #19
   %92 = load volatile ptr, ptr @rtnl_af_ops, align 8
   %93 = icmp eq ptr %92, @rtnl_af_ops
   br i1 %93, label %.loopexit, label %.preheader
@@ -4113,7 +4113,7 @@ define internal fastcc i64 @if_nlmsg_stats_size(ptr noundef %0, i32 %.0.val, i32
   br i1 %98, label %107, label %99
 
 99:                                               ; preds = %.preheader
-  %100 = tail call i64 %97(ptr noundef %0) #18
+  %100 = tail call i64 %97(ptr noundef %0) #19
   %101 = shl i64 %100, 32
   %102 = add i64 %101, 30064771072
   %103 = ashr exact i64 %102, 32
@@ -4130,7 +4130,7 @@ define internal fastcc i64 @if_nlmsg_stats_size(ptr noundef %0, i32 %.0.val, i32
 
 .loopexit:                                        ; preds = %107, %90
   %111 = phi i64 [ %91, %90 ], [ %108, %107 ]
-  tail call void @__rcu_read_unlock() #18
+  tail call void @__rcu_read_unlock() #19
   br label %112
 
 112:                                              ; preds = %.loopexit, %86
@@ -4146,19 +4146,19 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   %13 = alloca i8, align 1
   %14 = load i32, ptr %5, align 4
   %15 = load i32, ptr %7, align 4
-  %16 = tail call zeroext i1 @mutex_is_locked(ptr noundef nonnull @rtnl_mutex) #18
+  %16 = tail call zeroext i1 @mutex_is_locked(ptr noundef nonnull @rtnl_mutex) #19
   %17 = load i1, ptr @rtnl_fill_statsinfo.__already_done, align 1
   %18 = select i1 %16, i1 true, i1 %17
   br i1 %18, label %20, label %19, !prof !5
 
 19:                                               ; preds = %9
   store i1 true, ptr @rtnl_fill_statsinfo.__already_done, align 1
-  tail call void asm sideeffect "1036: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1036b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1036) #18, !srcloc !85
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 5609) #18
-  tail call void asm sideeffect "1037: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1037b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1037) #18, !srcloc !86
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5609, i32 2313, i64 12) #18, !srcloc !87
-  tail call void asm sideeffect "1038: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1038b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1038) #18, !srcloc !88
-  tail call void asm sideeffect "1039: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1039b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1039) #18, !srcloc !89
+  tail call void asm sideeffect "1036: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1036b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1036) #19, !srcloc !85
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 5609) #19
+  tail call void asm sideeffect "1037: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1037b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1037) #19, !srcloc !86
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5609, i32 2313, i64 12) #19, !srcloc !87
+  tail call void asm sideeffect "1038: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1038b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1038) #19, !srcloc !88
+  tail call void asm sideeffect "1039: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1039b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1039) #19, !srcloc !89
   br label %20
 
 20:                                               ; preds = %19, %9
@@ -4177,7 +4177,7 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   br i1 %30, label %.critedge.thread, label %.critedge, !prof !13
 
 .critedge:                                        ; preds = %24
-  %31 = tail call ptr @__nlmsg_put(ptr noundef %0, i32 noundef %2, i32 noundef %3, i32 noundef 92, i32 noundef 12, i32 noundef %4) #18
+  %31 = tail call ptr @__nlmsg_put(ptr noundef %0, i32 noundef %2, i32 noundef %3, i32 noundef 92, i32 noundef 12, i32 noundef %4) #19
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.critedge.thread, label %33
 
@@ -4202,13 +4202,13 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   br i1 %45, label %46, label %52
 
 46:                                               ; preds = %33
-  %47 = tail call ptr @nla_reserve_64bit(ptr noundef %0, i32 noundef 1, i32 noundef 200, i32 noundef 0) #18
+  %47 = tail call ptr @nla_reserve_64bit(ptr noundef %0, i32 noundef 1, i32 noundef 200, i32 noundef 0) #19
   %48 = icmp eq ptr %47, null
   br i1 %48, label %.thread, label %49
 
 49:                                               ; preds = %46
   %50 = getelementptr i8, ptr %47, i64 4
-  %51 = tail call ptr @dev_get_stats(ptr noundef %1, ptr noundef %50) #18
+  %51 = tail call ptr @dev_get_stats(ptr noundef %1, ptr noundef %50) #19
   br label %52
 
 52:                                               ; preds = %49, %33
@@ -4242,7 +4242,7 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   %68 = load i32, ptr %27, align 8
   %69 = zext i32 %68 to i64
   %70 = getelementptr i8, ptr %67, i64 %69
-  %71 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef 0, ptr noundef null) #18
+  %71 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef 0, ptr noundef null) #19
   %72 = icmp slt i32 %71, 0
   %73 = icmp eq ptr %70, null
   %74 = select i1 %72, i1 true, i1 %73
@@ -4251,7 +4251,7 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
 75:                                               ; preds = %65
   %76 = load ptr, ptr %62, align 8
   %77 = load i32, ptr %6, align 4
-  %78 = tail call i32 %76(ptr noundef %0, ptr noundef %1, ptr noundef %7, i32 noundef %77) #18
+  %78 = tail call i32 %76(ptr noundef %0, ptr noundef %1, ptr noundef %7, i32 noundef %77) #19
   %79 = load ptr, ptr %66, align 8
   %80 = load i32, ptr %27, align 8
   %81 = zext i32 %80 to i64
@@ -4281,7 +4281,7 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   ]
 
 93:                                               ; preds = %91, %91
-  %94 = tail call ptr @netdev_master_upper_dev_get(ptr noundef %1) #18
+  %94 = tail call ptr @netdev_master_upper_dev_get(ptr noundef %1) #19
   %95 = icmp eq ptr %94, null
   br i1 %95, label %.thread31, label %96
 
@@ -4304,7 +4304,7 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   %107 = load i32, ptr %27, align 8
   %108 = zext i32 %107 to i64
   %109 = getelementptr i8, ptr %106, i64 %108
-  %110 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 3, i32 noundef 0, ptr noundef null) #18
+  %110 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 3, i32 noundef 0, ptr noundef null) #19
   %111 = icmp slt i32 %110, 0
   %112 = icmp eq ptr %109, null
   %113 = select i1 %111, i1 true, i1 %112
@@ -4313,7 +4313,7 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
 114:                                              ; preds = %104
   %115 = load ptr, ptr %101, align 8
   %116 = load i32, ptr %6, align 4
-  %117 = tail call i32 %115(ptr noundef %0, ptr noundef %1, ptr noundef %7, i32 noundef %116) #18
+  %117 = tail call i32 %115(ptr noundef %0, ptr noundef %1, ptr noundef %7, i32 noundef %116) #19
   %118 = load ptr, ptr %105, align 8
   %119 = load i32, ptr %27, align 8
   %120 = zext i32 %119 to i64
@@ -4351,7 +4351,7 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   %137 = load i32, ptr %27, align 8
   %138 = zext i32 %137 to i64
   %139 = getelementptr i8, ptr %136, i64 %138
-  %140 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 4, i32 noundef 0, ptr noundef null) #18
+  %140 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 4, i32 noundef 0, ptr noundef null) #19
   %141 = icmp slt i32 %140, 0
   %142 = icmp eq ptr %139, null
   %143 = select i1 %141, i1 true, i1 %142
@@ -4384,11 +4384,11 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   br i1 %161, label %.thread35, label %162
 
 162:                                              ; preds = %158
-  %163 = tail call zeroext i1 %156(ptr noundef %1, i32 noundef 1) #18
+  %163 = tail call zeroext i1 %156(ptr noundef %1, i32 noundef 1) #19
   br i1 %163, label %164, label %.thread35
 
 164:                                              ; preds = %162
-  %165 = tail call ptr @nla_reserve_64bit(ptr noundef %0, i32 noundef 1, i32 noundef 200, i32 noundef 0) #18
+  %165 = tail call ptr @nla_reserve_64bit(ptr noundef %0, i32 noundef 1, i32 noundef 200, i32 noundef 0) #19
   %166 = icmp eq ptr %165, null
   br i1 %166, label %.thread45, label %167
 
@@ -4398,7 +4398,7 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   %169 = load ptr, ptr %151, align 8
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 176
   %171 = load ptr, ptr %170, align 8
-  %172 = tail call i32 %171(i32 noundef 1, ptr noundef %1, ptr noundef %168) #18
+  %172 = tail call i32 %171(i32 noundef 1, ptr noundef %1, ptr noundef %168) #19
   switch i32 %172, label %.thread45 [
     i32 0, label %173
     i32 -61, label %.thread35
@@ -4420,12 +4420,12 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   store i32 2, ptr %7, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i8 0, ptr %13, align 1, !annotation !47
-  %181 = tail call zeroext i1 @netdev_offload_xstats_enabled(ptr noundef %1, i32 noundef 1) #18
+  %181 = tail call zeroext i1 @netdev_offload_xstats_enabled(ptr noundef %1, i32 noundef 1) #19
   %182 = zext i1 %181 to i8
   br i1 %181, label %183, label %187
 
 183:                                              ; preds = %180
-  %184 = call i32 @netdev_offload_xstats_get(ptr noundef %1, i32 noundef 1, ptr noundef null, ptr noundef nonnull %13, ptr noundef %8) #18
+  %184 = call i32 @netdev_offload_xstats_get(ptr noundef %1, i32 noundef 1, ptr noundef null, ptr noundef nonnull %13, ptr noundef %8) #19
   %185 = icmp eq i32 %184, 0
   br i1 %185, label %._crit_edge, label %186
 
@@ -4444,7 +4444,7 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   %190 = load i32, ptr %27, align 8
   %191 = zext i32 %190 to i64
   %192 = getelementptr i8, ptr %189, i64 %191
-  %193 = call i32 @nla_put(ptr noundef %0, i32 noundef 32770, i32 noundef 0, ptr noundef null) #18
+  %193 = call i32 @nla_put(ptr noundef %0, i32 noundef 32770, i32 noundef 0, ptr noundef null) #19
   %194 = icmp slt i32 %193, 0
   %195 = icmp eq ptr %192, null
   %196 = select i1 %194, i1 true, i1 %195
@@ -4455,7 +4455,7 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   %199 = load i32, ptr %27, align 8
   %200 = zext i32 %199 to i64
   %201 = getelementptr i8, ptr %198, i64 %200
-  %202 = call i32 @nla_put(ptr noundef %0, i32 noundef 32771, i32 noundef 0, ptr noundef null) #18
+  %202 = call i32 @nla_put(ptr noundef %0, i32 noundef 32771, i32 noundef 0, ptr noundef null) #19
   %203 = icmp slt i32 %202, 0
   %204 = icmp eq ptr %201, null
   %205 = select i1 %203, i1 true, i1 %204
@@ -4464,7 +4464,7 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
 206:                                              ; preds = %197
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 %182, ptr %12, align 1
-  %207 = call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %12) #18
+  %207 = call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %12) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %208 = icmp eq i32 %207, 0
   br i1 %208, label %209, label %212
@@ -4472,7 +4472,7 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
 209:                                              ; preds = %206
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 %188, ptr %11, align 1
-  %210 = call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %11) #18
+  %210 = call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %11) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %211 = icmp eq i32 %210, 0
   br i1 %211, label %234, label %212
@@ -4484,9 +4484,9 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   br i1 %215, label %216, label %217, !prof !13
 
 216:                                              ; preds = %212
-  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
-  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
+  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
+  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
   %.pre57 = load ptr, ptr %213, align 8
   br label %217
 
@@ -4496,7 +4496,7 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   %220 = ptrtoint ptr %218 to i64
   %221 = sub i64 %219, %220
   %222 = trunc i64 %221 to i32
-  call void @skb_trim(ptr noundef %0, i32 noundef %222) #18
+  call void @skb_trim(ptr noundef %0, i32 noundef %222) #19
   br label %223
 
 223:                                              ; preds = %217, %197
@@ -4506,9 +4506,9 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   br i1 %226, label %227, label %228, !prof !13
 
 227:                                              ; preds = %223
-  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
-  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
+  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
+  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
   %.pre58 = load ptr, ptr %224, align 8
   br label %228
 
@@ -4518,7 +4518,7 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   %231 = ptrtoint ptr %229 to i64
   %232 = sub i64 %230, %231
   %233 = trunc i64 %232 to i32
-  call void @skb_trim(ptr noundef %0, i32 noundef %233) #18
+  call void @skb_trim(ptr noundef %0, i32 noundef %233) #19
   br label %.thread56
 
 234:                                              ; preds = %209
@@ -4554,23 +4554,23 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
 
 258:                                              ; preds = %251
   store i32 3, ptr %7, align 4
-  %259 = call zeroext i1 @netdev_offload_xstats_enabled(ptr noundef %1, i32 noundef 1) #18
+  %259 = call zeroext i1 @netdev_offload_xstats_enabled(ptr noundef %1, i32 noundef 1) #19
   br i1 %259, label %260, label %270
 
 260:                                              ; preds = %258
-  %261 = call ptr @nla_reserve_64bit(ptr noundef %0, i32 noundef 3, i32 noundef 72, i32 noundef 0) #18
+  %261 = call ptr @nla_reserve_64bit(ptr noundef %0, i32 noundef 3, i32 noundef 72, i32 noundef 0) #19
   %262 = icmp eq ptr %261, null
   br i1 %262, label %.thread56, label %263
 
 263:                                              ; preds = %260
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 0, ptr %10, align 1, !annotation !47
-  %264 = call zeroext i1 @netdev_offload_xstats_enabled(ptr noundef %1, i32 noundef 1) #18
+  %264 = call zeroext i1 @netdev_offload_xstats_enabled(ptr noundef %1, i32 noundef 1) #19
   br i1 %264, label %265, label %.thread40
 
 265:                                              ; preds = %263
   %266 = getelementptr i8, ptr %261, i64 4
-  %267 = call i32 @netdev_offload_xstats_get(ptr noundef %1, i32 noundef 1, ptr noundef %266, ptr noundef nonnull %10, ptr noundef %8) #18
+  %267 = call i32 @netdev_offload_xstats_get(ptr noundef %1, i32 noundef 1, ptr noundef %266, ptr noundef nonnull %10, ptr noundef %8) #19
   %268 = icmp eq i32 %267, 0
   br i1 %268, label %.thread40, label %269
 
@@ -4622,9 +4622,9 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   br i1 %289, label %290, label %.thread46, !prof !13
 
 290:                                              ; preds = %.thread44
-  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
-  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
+  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
+  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
   %.pre59 = load ptr, ptr %287, align 8
   br label %.thread46
 
@@ -4634,7 +4634,7 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   %293 = ptrtoint ptr %291 to i64
   %294 = sub i64 %292, %293
   %295 = trunc i64 %294 to i32
-  call void @skb_trim(ptr noundef %0, i32 noundef %295) #18
+  call void @skb_trim(ptr noundef %0, i32 noundef %295) #19
   br label %306
 
 296:                                              ; preds = %.thread39, %.thread45
@@ -4676,14 +4676,14 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   %315 = load i32, ptr %27, align 8
   %316 = zext i32 %315 to i64
   %317 = getelementptr i8, ptr %314, i64 %316
-  %318 = call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef 0, ptr noundef null) #18
+  %318 = call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef 0, ptr noundef null) #19
   %319 = icmp slt i32 %318, 0
   %320 = icmp eq ptr %317, null
   %321 = select i1 %319, i1 true, i1 %320
   br i1 %321, label %.thread, label %322
 
 322:                                              ; preds = %312
-  call void @__rcu_read_lock() #18
+  call void @__rcu_read_lock() #19
   %323 = load volatile ptr, ptr @rtnl_af_ops, align 8
   %324 = icmp eq ptr %323, @rtnl_af_ops
   br i1 %324, label %.loopexit, label %325
@@ -4706,19 +4706,19 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   %336 = load i32, ptr %27, align 8
   %337 = zext i32 %336 to i64
   %338 = getelementptr i8, ptr %335, i64 %337
-  %339 = call i32 @nla_put(ptr noundef %0, i32 noundef %334, i32 noundef 0, ptr noundef null) #18
+  %339 = call i32 @nla_put(ptr noundef %0, i32 noundef %334, i32 noundef 0, ptr noundef null) #19
   %340 = icmp slt i32 %339, 0
   %341 = icmp eq ptr %338, null
   %342 = select i1 %340, i1 true, i1 %341
   br i1 %342, label %343, label %344
 
 343:                                              ; preds = %332
-  call void @__rcu_read_unlock() #18
+  call void @__rcu_read_unlock() #19
   br label %.thread
 
 344:                                              ; preds = %332
   %345 = load ptr, ptr %329, align 8
-  %346 = call i32 %345(ptr noundef %0, ptr noundef %1) #18
+  %346 = call i32 %345(ptr noundef %0, ptr noundef %1) #19
   %347 = icmp eq i32 %346, -61
   br i1 %347, label %348, label %358
 
@@ -4728,9 +4728,9 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   br i1 %350, label %351, label %352, !prof !13
 
 351:                                              ; preds = %348
-  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
-  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
+  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
+  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
   %.pre60 = load ptr, ptr %326, align 8
   br label %352
 
@@ -4740,7 +4740,7 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   %355 = ptrtoint ptr %353 to i64
   %356 = sub i64 %354, %355
   %357 = trunc i64 %356 to i32
-  call void @skb_trim(ptr noundef %0, i32 noundef %357) #18
+  call void @skb_trim(ptr noundef %0, i32 noundef %357) #19
   br label %361
 
 358:                                              ; preds = %344
@@ -4752,7 +4752,7 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   br label %361
 
 360:                                              ; preds = %358
-  call void @__rcu_read_unlock() #18
+  call void @__rcu_read_unlock() #19
   br label %.thread
 
 361:                                              ; preds = %._crit_edge62, %352
@@ -4773,7 +4773,7 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   br i1 %371, label %.loopexit, label %327, !llvm.loop !91
 
 .loopexit:                                        ; preds = %369, %322
-  call void @__rcu_read_unlock() #18
+  call void @__rcu_read_unlock() #19
   %372 = load ptr, ptr %313, align 8
   %373 = load i32, ptr %27, align 8
   %374 = zext i32 %373 to i64
@@ -4816,9 +4816,9 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   br i1 %398, label %399, label %400, !prof !13
 
 399:                                              ; preds = %395
-  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
-  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
+  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
+  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
   %.pre61 = load ptr, ptr %396, align 8
   br label %400
 
@@ -4828,7 +4828,7 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   %403 = ptrtoint ptr %401 to i64
   %404 = sub i64 %402, %403
   %405 = trunc i64 %404 to i32
-  call void @skb_trim(ptr noundef %0, i32 noundef %405) #18
+  call void @skb_trim(ptr noundef %0, i32 noundef %405) #19
   br label %.critedge.thread
 
 406:                                              ; preds = %392
@@ -4851,16 +4851,16 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @rtnetlink_init() local_unnamed_addr #8 section ".init.text" align 16 {
-  %1 = tail call i32 @register_pernet_subsys(ptr noundef nonnull @rtnetlink_net_ops) #18
+  %1 = tail call i32 @register_pernet_subsys(ptr noundef nonnull @rtnetlink_net_ops) #19
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %4, label %3
 
 3:                                                ; preds = %0
-  tail call void (ptr, ...) @panic(ptr noundef nonnull @.str.7) #23
+  tail call void (ptr, ...) @panic(ptr noundef nonnull @.str.7) #24
   unreachable
 
 4:                                                ; preds = %0
-  %5 = tail call i32 @register_netdevice_notifier(ptr noundef nonnull @rtnetlink_dev_notifier) #18
+  %5 = tail call i32 @register_netdevice_notifier(ptr noundef nonnull @rtnetlink_dev_notifier) #19
   tail call void @rtnl_register(i32 noundef 0, i32 noundef 18, ptr noundef nonnull @rtnl_getlink, ptr noundef nonnull @rtnl_dump_ifinfo, i32 noundef 0)
   tail call void @rtnl_register(i32 noundef 0, i32 noundef 19, ptr noundef nonnull @rtnl_setlink, ptr noundef null, i32 noundef 0)
   tail call void @rtnl_register(i32 noundef 0, i32 noundef 16, ptr noundef nonnull @rtnl_newlink, ptr noundef null, i32 noundef 0)
@@ -4907,7 +4907,7 @@ define internal i32 @rtnl_getlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %3
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_getlink_req.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_getlink_req.__msg) #19
   %13 = icmp eq ptr %2, null
   br i1 %13, label %.thread, label %14
 
@@ -4917,7 +4917,7 @@ define internal i32 @rtnl_getlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 15:                                               ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(528) %5, i8 0, i64 528, i1 false), !annotation !47
-  %16 = tail call zeroext i1 @netlink_strict_get_check(ptr noundef %0) #18
+  %16 = tail call zeroext i1 @netlink_strict_get_check(ptr noundef %0) #19
   br i1 %16, label %27, label %17
 
 17:                                               ; preds = %15
@@ -4926,7 +4926,7 @@ define internal i32 @rtnl_getlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %17
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #19
   %21 = icmp eq ptr %2, null
   br i1 %21, label %.thread, label %22
 
@@ -4937,7 +4937,7 @@ define internal i32 @rtnl_getlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
 23:                                               ; preds = %17
   %24 = getelementptr i8, ptr %1, i64 32
   %25 = add i32 %18, -32
-  %26 = call i32 @__nla_parse(ptr noundef nonnull %5, i32 noundef 65, ptr noundef %24, i32 noundef %25, ptr noundef nonnull @ifla_policy, i32 noundef 0, ptr noundef %2) #18
+  %26 = call i32 @__nla_parse(ptr noundef nonnull %5, i32 noundef 65, ptr noundef %24, i32 noundef %25, ptr noundef nonnull @ifla_policy, i32 noundef 0, ptr noundef %2) #19
   br label %61
 
 27:                                               ; preds = %15
@@ -4965,7 +4965,7 @@ define internal i32 @rtnl_getlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %42, label %46, label %43
 
 43:                                               ; preds = %39, %35, %31, %27
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_getlink_req.__msg.15) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_getlink_req.__msg.15) #19
   %44 = icmp eq ptr %2, null
   br i1 %44, label %.thread, label %45
 
@@ -4995,7 +4995,7 @@ define internal i32 @rtnl_getlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   ]
 
 55:                                               ; preds = %53
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_getlink_req.__msg.16) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_getlink_req.__msg.16) #19
   %56 = icmp eq ptr %2, null
   br i1 %56, label %.thread, label %57
 
@@ -5024,7 +5024,7 @@ define internal i32 @rtnl_getlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %.thread18
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_ensure_unique_netns.__msg) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_ensure_unique_netns.__msg) #19
   %72 = icmp eq ptr %2, null
   br i1 %72, label %.thread, label %73
 
@@ -5045,19 +5045,19 @@ define internal i32 @rtnl_getlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %84 = load ptr, ptr %83, align 8
-  %85 = call ptr @get_net_ns_by_id(ptr noundef %84, i32 noundef %80) #18
+  %85 = call ptr @get_net_ns_by_id(ptr noundef %84, i32 noundef %80) #19
   %86 = icmp eq ptr %85, null
   br i1 %86, label %.thread24, label %87
 
 87:                                               ; preds = %78
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 80
   %89 = load ptr, ptr %88, align 16
-  %90 = call zeroext i1 @sk_ns_capable(ptr noundef %82, ptr noundef %89, i32 noundef 12) #18
+  %90 = call zeroext i1 @sk_ns_capable(ptr noundef %82, ptr noundef %89, i32 noundef 12) #19
   br i1 %90, label %99, label %91
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %85, i64 140
-  %93 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %92, i32 -1, ptr nonnull elementtype(i32) %92) #18, !srcloc !52
+  %93 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %92, i32 -1, ptr nonnull elementtype(i32) %92) #19, !srcloc !52
   %94 = icmp eq i32 %93, 1
   br i1 %94, label %98, label %95
 
@@ -5066,12 +5066,12 @@ define internal i32 @rtnl_getlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %96, label %.thread24, label %97, !prof !5
 
 97:                                               ; preds = %95
-  call void @refcount_warn_saturate(ptr noundef nonnull %92, i32 noundef 3) #18
+  call void @refcount_warn_saturate(ptr noundef nonnull %92, i32 noundef 3) #19
   br label %.thread24
 
 98:                                               ; preds = %91
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !53
-  call void @__put_net(ptr noundef nonnull %85) #18
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !53
+  call void @__put_net(ptr noundef nonnull %85) #19
   br label %.thread24
 
 99:                                               ; preds = %87
@@ -5105,7 +5105,7 @@ define internal i32 @rtnl_getlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %113
-  %119 = call ptr @__dev_get_by_index(ptr noundef %105, i32 noundef %116) #18
+  %119 = call ptr @__dev_get_by_index(ptr noundef %105, i32 noundef %116) #19
   br label %140
 
 120:                                              ; preds = %113
@@ -5125,7 +5125,7 @@ define internal i32 @rtnl_getlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %129, label %132, label %130
 
 130:                                              ; preds = %128
-  %131 = call i64 @nla_strscpy(ptr noundef nonnull %4, ptr noundef nonnull %122, i64 noundef 16) #18
+  %131 = call i64 @nla_strscpy(ptr noundef nonnull %4, ptr noundef nonnull %122, i64 noundef 16) #19
   br label %136
 
 132:                                              ; preds = %128
@@ -5133,11 +5133,11 @@ define internal i32 @rtnl_getlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %133, label %138, label %134
 
 134:                                              ; preds = %132
-  %135 = call i64 @nla_strscpy(ptr noundef nonnull %4, ptr noundef nonnull %125, i64 noundef 128) #18
+  %135 = call i64 @nla_strscpy(ptr noundef nonnull %4, ptr noundef nonnull %125, i64 noundef 128) #19
   br label %136
 
 136:                                              ; preds = %134, %130
-  %137 = call ptr @__dev_get_by_name(ptr noundef %105, ptr noundef nonnull %4) #18
+  %137 = call ptr @__dev_get_by_name(ptr noundef %105, ptr noundef nonnull %4) #19
   br label %138
 
 138:                                              ; preds = %136, %132
@@ -5155,12 +5155,12 @@ define internal i32 @rtnl_getlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %145 = trunc i64 %144 to i32
   %146 = add i32 %145, 19
   %147 = and i32 %146, -4
-  %148 = call ptr @netlink_alloc_large_skb(i32 noundef %147, i32 noundef 0) #18
+  %148 = call ptr @netlink_alloc_large_skb(i32 noundef %147, i32 noundef 0) #19
   %149 = icmp eq ptr %148, null
   br i1 %149, label %167, label %150
 
 150:                                              ; preds = %143
-  call void @linkwatch_sync_dev(ptr noundef nonnull %141) #18
+  call void @linkwatch_sync_dev(ptr noundef nonnull %141) #19
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %152 = load i32, ptr %151, align 4
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5174,20 +5174,20 @@ define internal i32 @rtnl_getlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %158, label %159, label %160, !prof !13
 
 159:                                              ; preds = %157
-  call void asm sideeffect "1014: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1014b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1014) #18, !srcloc !93
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 3867, i32 2305, i64 12) #18, !srcloc !94
-  call void asm sideeffect "1015: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1015b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1015) #18, !srcloc !95
+  call void asm sideeffect "1014: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1014b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1014) #19, !srcloc !93
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 3867, i32 2305, i64 12) #19, !srcloc !94
+  call void asm sideeffect "1015: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1015b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1015) #19, !srcloc !95
   br label %160
 
 160:                                              ; preds = %159, %157
-  call void @kfree_skb_reason(ptr noundef nonnull %148, i32 noundef 2) #18
+  call void @kfree_skb_reason(ptr noundef nonnull %148, i32 noundef 2) #19
   br label %167
 
 161:                                              ; preds = %150
   %162 = load i32, ptr %151, align 4
   %163 = getelementptr inbounds nuw i8, ptr %9, i64 272
   %164 = load ptr, ptr %163, align 16
-  %165 = call i32 @netlink_unicast(ptr noundef %164, ptr noundef nonnull %148, i32 noundef %162, i32 noundef 64) #18
+  %165 = call i32 @netlink_unicast(ptr noundef %164, ptr noundef nonnull %148, i32 noundef %162, i32 noundef 64) #19
   %166 = call i32 @llvm.smin.i32(i32 %165, i32 0)
   br label %167
 
@@ -5198,7 +5198,7 @@ define internal i32 @rtnl_getlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 170:                                              ; preds = %167
   %171 = getelementptr inbounds nuw i8, ptr %105, i64 140
-  %172 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %171, i32 -1, ptr nonnull elementtype(i32) %171) #18, !srcloc !52
+  %172 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %171, i32 -1, ptr nonnull elementtype(i32) %171) #19, !srcloc !52
   %173 = icmp eq i32 %172, 1
   br i1 %173, label %177, label %174
 
@@ -5207,12 +5207,12 @@ define internal i32 @rtnl_getlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %175, label %.thread, label %176, !prof !5
 
 176:                                              ; preds = %174
-  call void @refcount_warn_saturate(ptr noundef nonnull %171, i32 noundef 3) #18
+  call void @refcount_warn_saturate(ptr noundef nonnull %171, i32 noundef 3) #19
   br label %.thread
 
 177:                                              ; preds = %170
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !53
-  call void @__put_net(ptr noundef %105) #18
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !53
+  call void @__put_net(ptr noundef %105) #19
   br label %.thread
 
 .thread:                                          ; preds = %174, %176, %71, %73, %20, %22, %55, %57, %43, %45, %12, %14, %177, %167, %.thread24, %61
@@ -5253,7 +5253,7 @@ define internal i32 @rtnl_dump_ifinfo(ptr noundef %0, ptr noundef captures(none)
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %24
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_dump_ifinfo_req.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_dump_ifinfo_req.__msg) #19
   %27 = icmp eq ptr %7, null
   br i1 %27, label %.thread, label %.thread.sink.split
 
@@ -5282,7 +5282,7 @@ define internal i32 @rtnl_dump_ifinfo(ptr noundef %0, ptr noundef captures(none)
   br i1 %43, label %46, label %44
 
 44:                                               ; preds = %40, %36, %32, %28
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_dump_ifinfo_req.__msg.19) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_dump_ifinfo_req.__msg.19) #19
   %45 = icmp eq ptr %7, null
   br i1 %45, label %.thread, label %.thread.sink.split
 
@@ -5293,7 +5293,7 @@ define internal i32 @rtnl_dump_ifinfo(ptr noundef %0, ptr noundef captures(none)
   br i1 %49, label %52, label %50
 
 50:                                               ; preds = %46
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_dump_ifinfo_req.__msg.20) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_dump_ifinfo_req.__msg.20) #19
   %51 = icmp eq ptr %7, null
   br i1 %51, label %.thread, label %.thread.sink.split
 
@@ -5310,7 +5310,7 @@ define internal i32 @rtnl_dump_ifinfo(ptr noundef %0, ptr noundef captures(none)
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %54
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #19
   %61 = icmp eq ptr %7, null
   br i1 %61, label %.thread, label %.thread.sink.split
 
@@ -5322,7 +5322,7 @@ define internal i32 @rtnl_dump_ifinfo(ptr noundef %0, ptr noundef captures(none)
   %67 = getelementptr i8, ptr %63, i64 %66
   %68 = add i32 %23, -16
   %69 = sub i32 %68, %65
-  %70 = call i32 @__nla_parse(ptr noundef nonnull %5, i32 noundef 65, ptr noundef %67, i32 noundef %69, ptr noundef nonnull @ifla_policy, i32 noundef 0, ptr noundef %7) #18
+  %70 = call i32 @__nla_parse(ptr noundef nonnull %5, i32 noundef 65, ptr noundef %67, i32 noundef %69, ptr noundef nonnull @ifla_policy, i32 noundef 0, ptr noundef %7) #19
   br label %71
 
 71:                                               ; preds = %62, %52
@@ -5372,19 +5372,19 @@ define internal i32 @rtnl_dump_ifinfo(ptr noundef %0, ptr noundef captures(none)
   %94 = load ptr, ptr %10, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 48
   %96 = load ptr, ptr %95, align 8
-  %97 = call ptr @get_net_ns_by_id(ptr noundef %96, i32 noundef %93) #18
+  %97 = call ptr @get_net_ns_by_id(ptr noundef %96, i32 noundef %93) #19
   %98 = icmp eq ptr %97, null
   br i1 %98, label %.thread22.loopexit, label %99
 
 99:                                               ; preds = %91
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 80
   %101 = load ptr, ptr %100, align 16
-  %102 = call zeroext i1 @sk_ns_capable(ptr noundef %94, ptr noundef %101, i32 noundef 12) #18
+  %102 = call zeroext i1 @sk_ns_capable(ptr noundef %94, ptr noundef %101, i32 noundef 12) #19
   br i1 %102, label %111, label %103
 
 103:                                              ; preds = %99
   %104 = getelementptr inbounds nuw i8, ptr %97, i64 140
-  %105 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %104, i32 -1, ptr nonnull elementtype(i32) %104) #18, !srcloc !52
+  %105 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %104, i32 -1, ptr nonnull elementtype(i32) %104) #19, !srcloc !52
   %106 = icmp eq i32 %105, 1
   br i1 %106, label %110, label %107
 
@@ -5393,12 +5393,12 @@ define internal i32 @rtnl_dump_ifinfo(ptr noundef %0, ptr noundef captures(none)
   br i1 %108, label %.thread22, label %109, !prof !5
 
 109:                                              ; preds = %107
-  call void @refcount_warn_saturate(ptr noundef nonnull %104, i32 noundef 3) #18
+  call void @refcount_warn_saturate(ptr noundef nonnull %104, i32 noundef 3) #19
   br label %.thread22
 
 110:                                              ; preds = %103
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !53
-  call void @__put_net(ptr noundef nonnull %97) #18
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !53
+  call void @__put_net(ptr noundef nonnull %97) #19
   br label %.thread22
 
 111:                                              ; preds = %99
@@ -5413,7 +5413,7 @@ define internal i32 @rtnl_dump_ifinfo(ptr noundef %0, ptr noundef captures(none)
 
 .thread22:                                        ; preds = %.thread22.loopexit, %107, %109, %110
   %115 = phi i32 [ -13, %110 ], [ -13, %109 ], [ -13, %107 ], [ %114, %.thread22.loopexit ]
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_dump_ifinfo.__msg) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_dump_ifinfo.__msg) #19
   %116 = icmp eq ptr %7, null
   br i1 %116, label %.thread26, label %117
 
@@ -5439,7 +5439,7 @@ define internal i32 @rtnl_dump_ifinfo(ptr noundef %0, ptr noundef captures(none)
   %127 = load i16, ptr %87, align 2
   %128 = add i16 %127, -4
   %129 = zext i16 %128 to i32
-  %130 = call i32 @__nla_parse(ptr noundef nonnull %3, i32 noundef 5, ptr noundef %126, i32 noundef %129, ptr noundef nonnull @ifla_info_policy, i32 noundef 0, ptr noundef null) #18
+  %130 = call i32 @__nla_parse(ptr noundef nonnull %3, i32 noundef 5, ptr noundef %126, i32 noundef %129, ptr noundef nonnull @ifla_info_policy, i32 noundef 0, ptr noundef null) #19
   %131 = icmp slt i32 %130, 0
   br i1 %131, label %149, label %132
 
@@ -5451,7 +5451,7 @@ define internal i32 @rtnl_dump_ifinfo(ptr noundef %0, ptr noundef captures(none)
 135:                                              ; preds = %132
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %4, i8 0, i64 56, i1 false), !annotation !47
-  %136 = call i64 @nla_strscpy(ptr noundef nonnull %4, ptr noundef nonnull %133, i64 noundef 56) #18
+  %136 = call i64 @nla_strscpy(ptr noundef nonnull %4, ptr noundef nonnull %133, i64 noundef 56) #19
   br label %137
 
 137:                                              ; preds = %141, %135
@@ -5463,7 +5463,7 @@ define internal i32 @rtnl_dump_ifinfo(ptr noundef %0, ptr noundef captures(none)
 141:                                              ; preds = %137
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %143 = load ptr, ptr %142, align 8
-  %144 = call i32 @strcmp(ptr noundef %143, ptr noundef nonnull dereferenceable(1) %4) #18
+  %144 = call i32 @strcmp(ptr noundef %143, ptr noundef nonnull dereferenceable(1) %4) #19
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %146, label %137, !llvm.loop !37
 
@@ -5484,7 +5484,7 @@ define internal i32 @rtnl_dump_ifinfo(ptr noundef %0, ptr noundef captures(none)
   br i1 %153, label %157, label %154
 
 154:                                              ; preds = %151
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_dump_ifinfo.__msg.18) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_dump_ifinfo.__msg.18) #19
   %155 = icmp eq ptr %7, null
   br i1 %155, label %.thread26, label %156
 
@@ -5641,7 +5641,7 @@ define internal i32 @rtnl_dump_ifinfo(ptr noundef %0, ptr noundef captures(none)
 .preheader:                                       ; preds = %.split46, %.thread24
   %255 = phi ptr [ %284, %.thread24 ], [ %252, %.split46 ]
   %256 = phi i32 [ %280, %.thread24 ], [ 0, %.split46 ]
-  %257 = call ptr @netdev_master_upper_dev_get(ptr noundef nonnull %255) #18
+  %257 = call ptr @netdev_master_upper_dev_get(ptr noundef nonnull %255) #19
   %.not28 = icmp eq ptr %257, null
   br i1 %179, label %258, label %259
 
@@ -5752,7 +5752,7 @@ define internal i32 @rtnl_dump_ifinfo(ptr noundef %0, ptr noundef captures(none)
 
 319:                                              ; preds = %316
   %320 = getelementptr inbounds nuw i8, ptr %174, i64 140
-  %321 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %320, i32 -1, ptr nonnull elementtype(i32) %320) #18, !srcloc !52
+  %321 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %320, i32 -1, ptr nonnull elementtype(i32) %320) #19, !srcloc !52
   %322 = icmp eq i32 %321, 1
   br i1 %322, label %326, label %323
 
@@ -5761,12 +5761,12 @@ define internal i32 @rtnl_dump_ifinfo(ptr noundef %0, ptr noundef captures(none)
   br i1 %324, label %.thread26, label %325, !prof !5
 
 325:                                              ; preds = %323
-  call void @refcount_warn_saturate(ptr noundef nonnull %320, i32 noundef 3) #18
+  call void @refcount_warn_saturate(ptr noundef nonnull %320, i32 noundef 3) #19
   br label %.thread26
 
 326:                                              ; preds = %319
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !53
-  call void @__put_net(ptr noundef %174) #18
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !53
+  call void @__put_net(ptr noundef %174) #19
   br label %.thread26
 
 .thread26:                                        ; preds = %.thread22, %117, %323, %325, %326, %316, %156, %154, %.thread
@@ -5789,7 +5789,7 @@ define internal i32 @rtnl_setlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %3
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #19
   %13 = icmp eq ptr %2, null
   br i1 %13, label %.thread, label %14
 
@@ -5801,7 +5801,7 @@ define internal i32 @rtnl_setlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(528) %5, i8 0, i64 528, i1 false), !annotation !47
   %16 = getelementptr i8, ptr %1, i64 32
   %17 = add i32 %10, -32
-  %18 = call i32 @__nla_parse(ptr noundef nonnull %5, i32 noundef 65, ptr noundef %16, i32 noundef %17, ptr noundef nonnull @ifla_policy, i32 noundef 0, ptr noundef %2) #18
+  %18 = call i32 @__nla_parse(ptr noundef nonnull %5, i32 noundef 65, ptr noundef %16, i32 noundef %17, ptr noundef nonnull @ifla_policy, i32 noundef 0, ptr noundef %2) #19
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %.thread, label %20
 
@@ -5838,7 +5838,7 @@ define internal i32 @rtnl_setlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %37, label %38, label %.thread21
 
 38:                                               ; preds = %.thread20, %33, %27
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_ensure_unique_netns.__msg.17) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_ensure_unique_netns.__msg.17) #19
   %39 = icmp eq ptr %2, null
   br i1 %39, label %.thread, label %40
 
@@ -5854,7 +5854,7 @@ define internal i32 @rtnl_setlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %.thread21
-  %46 = call ptr @__dev_get_by_index(ptr noundef %9, i32 noundef %43) #18
+  %46 = call ptr @__dev_get_by_index(ptr noundef %9, i32 noundef %43) #19
   br label %67
 
 47:                                               ; preds = %.thread21
@@ -5874,7 +5874,7 @@ define internal i32 @rtnl_setlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %56, label %59, label %57
 
 57:                                               ; preds = %55
-  %58 = call i64 @nla_strscpy(ptr noundef nonnull %4, ptr noundef nonnull %49, i64 noundef 16) #18
+  %58 = call i64 @nla_strscpy(ptr noundef nonnull %4, ptr noundef nonnull %49, i64 noundef 16) #19
   br label %63
 
 59:                                               ; preds = %55
@@ -5882,11 +5882,11 @@ define internal i32 @rtnl_setlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %60, label %65, label %61
 
 61:                                               ; preds = %59
-  %62 = call i64 @nla_strscpy(ptr noundef nonnull %4, ptr noundef nonnull %52, i64 noundef 128) #18
+  %62 = call i64 @nla_strscpy(ptr noundef nonnull %4, ptr noundef nonnull %52, i64 noundef 128) #19
   br label %63
 
 63:                                               ; preds = %61, %57
-  %64 = call ptr @__dev_get_by_name(ptr noundef %9, ptr noundef nonnull %4) #18
+  %64 = call ptr @__dev_get_by_name(ptr noundef %9, ptr noundef nonnull %4) #19
   br label %65
 
 65:                                               ; preds = %63, %59
@@ -5922,7 +5922,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %7 = alloca [6 x ptr], align 16
   %8 = alloca [56 x i8], align 16
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
-  %10 = tail call noalias align 8 dereferenceable_or_null(1296) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3264, i64 noundef 1296) #19
+  %10 = tail call noalias align 8 dereferenceable_or_null(1296) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3264, i64 noundef 1296) #20
   %11 = icmp eq ptr %10, null
   br i1 %11, label %415, label %12
 
@@ -5960,7 +5960,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %34
-  call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #19
   br i1 %18, label %.thread, label %38
 
 38:                                               ; preds = %37
@@ -5969,7 +5969,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 39:                                               ; preds = %34
   %40 = add i32 %35, -32
-  %41 = call i32 @__nla_parse(ptr noundef %10, i32 noundef 65, ptr noundef %17, i32 noundef %40, ptr noundef nonnull @ifla_policy, i32 noundef 0, ptr noundef %2) #18
+  %41 = call i32 @__nla_parse(ptr noundef %10, i32 noundef 65, ptr noundef %17, i32 noundef %40, ptr noundef nonnull @ifla_policy, i32 noundef 0, ptr noundef %2) #19
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %.thread, label %43
 
@@ -5997,7 +5997,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %53, label %.thread64.thread, label %54
 
 54:                                               ; preds = %52, %48, %47
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_ensure_unique_netns.__msg.17) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_ensure_unique_netns.__msg.17) #19
   br i1 %18, label %.thread, label %55
 
 55:                                               ; preds = %54
@@ -6010,7 +6010,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %.thread64.thread
-  %59 = call ptr @__dev_get_by_index(ptr noundef %16, i32 noundef %56) #18
+  %59 = call ptr @__dev_get_by_index(ptr noundef %16, i32 noundef %56) #19
   br label %76
 
 60:                                               ; preds = %.thread64.thread
@@ -6018,7 +6018,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %60
-  call void @do_trace_netlink_extack(ptr noundef nonnull @__rtnl_newlink.__msg) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @__rtnl_newlink.__msg) #19
   br i1 %18, label %.thread, label %63
 
 63:                                               ; preds = %62
@@ -6038,17 +6038,17 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
 70:                                               ; preds = %67
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %6, i8 0, i64 128, i1 false), !annotation !47
-  %71 = call i64 @nla_strscpy(ptr noundef nonnull %6, ptr noundef nonnull %68, i64 noundef 128) #18
+  %71 = call i64 @nla_strscpy(ptr noundef nonnull %6, ptr noundef nonnull %68, i64 noundef 128) #19
   br label %74
 
 72:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %6, i8 0, i64 128, i1 false), !annotation !47
-  %73 = call i64 @nla_strscpy(ptr noundef nonnull %6, ptr noundef nonnull %65, i64 noundef 16) #18
+  %73 = call i64 @nla_strscpy(ptr noundef nonnull %6, ptr noundef nonnull %65, i64 noundef 16) #19
   br label %74
 
 74:                                               ; preds = %72, %70
-  %75 = call ptr @__dev_get_by_name(ptr noundef %16, ptr noundef nonnull %6) #18
+  %75 = call ptr @__dev_get_by_name(ptr noundef %16, ptr noundef nonnull %6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %76
 
@@ -6058,7 +6058,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %78, label %.thread67, label %79
 
 79:                                               ; preds = %76
-  %80 = call ptr @netdev_master_upper_dev_get(ptr noundef nonnull %77) #18
+  %80 = call ptr @netdev_master_upper_dev_get(ptr noundef nonnull %77) #19
   %81 = icmp eq ptr %80, null
   br i1 %81, label %.thread67, label %82
 
@@ -6082,7 +6082,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %94 = load i16, ptr %90, align 2
   %95 = add i16 %94, -4
   %96 = zext i16 %95 to i32
-  %97 = call i32 @__nla_parse(ptr noundef nonnull %7, i32 noundef 5, ptr noundef %93, i32 noundef %96, ptr noundef nonnull @ifla_info_policy, i32 noundef 0, ptr noundef null) #18
+  %97 = call i32 @__nla_parse(ptr noundef nonnull %7, i32 noundef 5, ptr noundef %93, i32 noundef %96, ptr noundef nonnull @ifla_info_policy, i32 noundef 0, ptr noundef null) #19
   %98 = icmp slt i32 %97, 0
   br i1 %98, label %.thread, label %99
 
@@ -6096,7 +6096,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %100, label %112, label %101
 
 101:                                              ; preds = %99
-  %102 = call i64 @nla_strscpy(ptr noundef nonnull %8, ptr noundef nonnull %.pr69, i64 noundef 56) #18
+  %102 = call i64 @nla_strscpy(ptr noundef nonnull %8, ptr noundef nonnull %.pr69, i64 noundef 56) #19
   br label %103
 
 103:                                              ; preds = %107, %101
@@ -6108,7 +6108,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
 107:                                              ; preds = %103
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %109 = load ptr, ptr %108, align 8
-  %110 = call i32 @strcmp(ptr noundef %109, ptr noundef nonnull dereferenceable(1) %8) #18
+  %110 = call i32 @strcmp(ptr noundef %109, ptr noundef nonnull dereferenceable(1) %8) #19
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %113, label %103, !llvm.loop !37
 
@@ -6140,7 +6140,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %128 = load i16, ptr %121, align 2
   %129 = add i16 %128, -4
   %130 = zext i16 %129 to i32
-  %131 = call i32 @__nla_parse(ptr noundef nonnull %28, i32 noundef %117, ptr noundef %127, i32 noundef %130, ptr noundef %126, i32 noundef 0, ptr noundef %2) #18
+  %131 = call i32 @__nla_parse(ptr noundef nonnull %28, i32 noundef %117, ptr noundef %127, i32 noundef %130, ptr noundef %126, i32 noundef 0, ptr noundef %2) #19
   %132 = icmp slt i32 %131, 0
   br i1 %132, label %.thread, label %133
 
@@ -6152,7 +6152,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %137, label %.thread71, label %138
 
 138:                                              ; preds = %133
-  %139 = call i32 %136(ptr noundef %10, ptr noundef %134, ptr noundef %2) #18
+  %139 = call i32 %136(ptr noundef %10, ptr noundef %134, ptr noundef %2) #19
   %140 = icmp slt i32 %139, 0
   br i1 %140, label %.thread, label %.thread71
 
@@ -6183,7 +6183,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %158 = load i16, ptr %151, align 2
   %159 = add i16 %158, -4
   %160 = zext i16 %159 to i32
-  %161 = call i32 @__nla_parse(ptr noundef nonnull %30, i32 noundef %147, ptr noundef %157, i32 noundef %160, ptr noundef %156, i32 noundef 0, ptr noundef %2) #18
+  %161 = call i32 @__nla_parse(ptr noundef nonnull %30, i32 noundef %147, ptr noundef %157, i32 noundef %160, ptr noundef %156, i32 noundef 0, ptr noundef %2) #19
   %162 = icmp slt i32 %161, 0
   br i1 %162, label %.thread, label %163
 
@@ -6230,7 +6230,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %188, label %.thread, label %189
 
 189:                                              ; preds = %185
-  %190 = call i32 %187(ptr noundef nonnull %87, ptr noundef %10, ptr noundef %143, ptr noundef %2) #18
+  %190 = call i32 %187(ptr noundef nonnull %87, ptr noundef %10, ptr noundef %143, ptr noundef %2) #19
   %191 = icmp slt i32 %190, 0
   br i1 %191, label %.thread, label %192
 
@@ -6250,7 +6250,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %200, label %.thread, label %201
 
 201:                                              ; preds = %197
-  %202 = call i32 %199(ptr noundef %89, ptr noundef nonnull %87, ptr noundef %10, ptr noundef %164, ptr noundef %2) #18
+  %202 = call i32 %199(ptr noundef %89, ptr noundef nonnull %87, ptr noundef %10, ptr noundef %164, ptr noundef %2) #19
   %203 = icmp slt i32 %202, 0
   br i1 %203, label %.thread, label %204
 
@@ -6332,27 +6332,27 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %250, label %252, label %251, !prof !5
 
 251:                                              ; preds = %247
-  call void asm sideeffect "926: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 926b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 926) #18, !srcloc !6
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 136, i32 2305, i64 12) #18, !srcloc !7
-  call void asm sideeffect "927: nop\0A\09.pushsection .discard.instr_end\0A\09.long 927b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 927) #18, !srcloc !8
+  call void asm sideeffect "926: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 926b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 926) #19, !srcloc !6
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 136, i32 2305, i64 12) #19, !srcloc !7
+  call void asm sideeffect "927: nop\0A\09.pushsection .discard.instr_end\0A\09.long 927b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 927) #19, !srcloc !8
   br label %252
 
 252:                                              ; preds = %251, %247
-  call void @mutex_unlock(ptr noundef nonnull @rtnl_mutex) #18
+  call void @mutex_unlock(ptr noundef nonnull @rtnl_mutex) #19
   %253 = icmp eq ptr %248, null
   br i1 %253, label %.loopexit, label %.preheader83
 
 .preheader83:                                     ; preds = %252, %.preheader83
   %254 = phi ptr [ %255, %.preheader83 ], [ %248, %252 ]
   %255 = load ptr, ptr %254, align 8
-  call void @kfree_skb_reason(ptr noundef nonnull %254, i32 noundef 2) #18
-  %256 = call i32 @__SCT__cond_resched() #18
+  call void @kfree_skb_reason(ptr noundef nonnull %254, i32 noundef 2) #19
+  %256 = call i32 @__SCT__cond_resched() #19
   %257 = icmp eq ptr %255, null
   br i1 %257, label %.loopexit, label %.preheader83, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader83, %252
-  %258 = call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext true, ptr noundef nonnull @.str.25, ptr noundef nonnull %8) #18
-  call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #18
+  %258 = call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext true, ptr noundef nonnull @.str.25, ptr noundef nonnull %8) #19
+  call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #19
   br label %259
 
 259:                                              ; preds = %263, %.loopexit
@@ -6364,7 +6364,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
 263:                                              ; preds = %259
   %264 = getelementptr inbounds nuw i8, ptr %261, i64 16
   %265 = load ptr, ptr %264, align 8
-  %266 = call i32 @strcmp(ptr noundef %265, ptr noundef nonnull dereferenceable(1) %8) #18
+  %266 = call i32 @strcmp(ptr noundef %265, ptr noundef nonnull dereferenceable(1) %8) #19
   %267 = icmp eq i32 %266, 0
   br i1 %267, label %268, label %259, !llvm.loop !37
 
@@ -6373,7 +6373,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %269, label %.thread72, label %34
 
 .thread72:                                        ; preds = %268, %244, %259
-  call void @do_trace_netlink_extack(ptr noundef nonnull @__rtnl_newlink.__msg.26) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @__rtnl_newlink.__msg.26) #19
   br i1 %18, label %.thread, label %270
 
 270:                                              ; preds = %.thread72
@@ -6406,13 +6406,13 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %287, label %290, label %288
 
 288:                                              ; preds = %285
-  %289 = call i64 @nla_strscpy(ptr noundef nonnull %4, ptr noundef nonnull %286, i64 noundef 16) #18
+  %289 = call i64 @nla_strscpy(ptr noundef nonnull %4, ptr noundef nonnull %286, i64 noundef 16) #19
   br label %294
 
 290:                                              ; preds = %285
   %291 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %292 = load ptr, ptr %291, align 8
-  %293 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 16, ptr noundef nonnull @.str.27, ptr noundef %292) #18
+  %293 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 16, ptr noundef nonnull @.str.27, ptr noundef %292) #19
   br label %294
 
 294:                                              ; preds = %290, %288
@@ -6435,12 +6435,12 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
 305:                                              ; preds = %301
   %306 = getelementptr i8, ptr %303, i64 4
   %307 = load i32, ptr %306, align 4
-  %308 = call ptr @get_net_ns_by_id(ptr noundef %296, i32 noundef %307) #18
+  %308 = call ptr @get_net_ns_by_id(ptr noundef %296, i32 noundef %307) #19
   %309 = icmp eq ptr %308, null
   br i1 %309, label %310, label %312
 
 310:                                              ; preds = %305
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_newlink_create.__msg) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_newlink_create.__msg) #19
   br i1 %18, label %.thread77, label %311
 
 311:                                              ; preds = %310
@@ -6450,7 +6450,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
 312:                                              ; preds = %305
   %313 = getelementptr inbounds nuw i8, ptr %308, i64 80
   %314 = load ptr, ptr %313, align 16
-  %315 = call zeroext i1 @netlink_ns_capable(ptr noundef %0, ptr noundef %314, i32 noundef 12) #18
+  %315 = call zeroext i1 @netlink_ns_capable(ptr noundef %0, ptr noundef %314, i32 noundef 12) #19
   br i1 %315, label %316, label %.thread78
 
 316:                                              ; preds = %312, %301
@@ -6477,11 +6477,11 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 331:                                              ; preds = %325
   %332 = select i1 %318, ptr %275, ptr %317
-  %333 = call i32 %329(ptr noundef %332, ptr noundef %320, ptr noundef %10, ptr noundef %143, ptr noundef %2) #18
+  %333 = call i32 %329(ptr noundef %332, ptr noundef %320, ptr noundef %10, ptr noundef %143, ptr noundef %2) #19
   br label %336
 
 334:                                              ; preds = %325
-  %335 = call i32 @register_netdevice(ptr noundef %320) #18
+  %335 = call i32 @register_netdevice(ptr noundef %320) #19
   br label %336
 
 336:                                              ; preds = %334, %331
@@ -6490,7 +6490,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %338, label %339, label %340
 
 339:                                              ; preds = %336
-  call void @free_netdev(ptr noundef %320) #18
+  call void @free_netdev(ptr noundef %320) #19
   br label %386
 
 340:                                              ; preds = %336
@@ -6502,7 +6502,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %318, label %347, label %344
 
 344:                                              ; preds = %343
-  %345 = call i32 @__dev_change_net_namespace(ptr noundef %320, ptr noundef %296, ptr noundef nonnull %4, i32 noundef 0) #18
+  %345 = call i32 @__dev_change_net_namespace(ptr noundef %320, ptr noundef %296, ptr noundef nonnull %4, i32 noundef 0) #19
   %346 = icmp slt i32 %345, 0
   br i1 %346, label %.thread76, label %347
 
@@ -6516,7 +6516,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
 352:                                              ; preds = %347
   %353 = getelementptr i8, ptr %350, i64 4
   %354 = load i32, ptr %353, align 4
-  %355 = call ptr @netdev_master_upper_dev_get(ptr noundef %320) #18
+  %355 = call ptr @netdev_master_upper_dev_get(ptr noundef %320) #19
   %356 = icmp eq ptr %355, null
   br i1 %356, label %370, label %357
 
@@ -6535,7 +6535,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %366, label %.thread76, label %367
 
 367:                                              ; preds = %361
-  %368 = call i32 %365(ptr noundef nonnull %355, ptr noundef %320) #18
+  %368 = call i32 %365(ptr noundef nonnull %355, ptr noundef %320) #19
   %369 = icmp eq i32 %368, 0
   br i1 %369, label %370, label %.thread76
 
@@ -6546,7 +6546,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
 372:                                              ; preds = %370
   %373 = getelementptr inbounds nuw i8, ptr %320, i64 272
   %374 = load ptr, ptr %373, align 8
-  %375 = call ptr @__dev_get_by_index(ptr noundef %374, i32 noundef %354) #18
+  %375 = call ptr @__dev_get_by_index(ptr noundef %374, i32 noundef %354) #19
   %376 = icmp eq ptr %375, null
   br i1 %376, label %.thread76, label %377
 
@@ -6559,7 +6559,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %382, label %.thread76, label %383
 
 383:                                              ; preds = %377
-  %384 = call i32 %381(ptr noundef nonnull %375, ptr noundef %320, ptr noundef %2) #18
+  %384 = call i32 %381(ptr noundef nonnull %375, ptr noundef %320, ptr noundef %2) #19
   %385 = icmp eq i32 %384, 0
   br i1 %385, label %386, label %.thread76
 
@@ -6571,7 +6571,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %388 = phi i32 [ %387, %386 ], [ -1, %312 ]
   %389 = phi ptr [ %317, %386 ], [ %308, %312 ]
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 140
-  %391 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %390, i32 -1, ptr nonnull elementtype(i32) %390) #18, !srcloc !52
+  %391 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %390, i32 -1, ptr nonnull elementtype(i32) %390) #19, !srcloc !52
   %392 = icmp eq i32 %391, 1
   br i1 %392, label %396, label %393
 
@@ -6580,18 +6580,18 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %394, label %.thread77, label %395, !prof !5
 
 395:                                              ; preds = %393
-  call void @refcount_warn_saturate(ptr noundef nonnull %390, i32 noundef 3) #18
+  call void @refcount_warn_saturate(ptr noundef nonnull %390, i32 noundef 3) #19
   br label %.thread77
 
 396:                                              ; preds = %.thread78
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !53
-  call void @__put_net(ptr noundef nonnull %389) #18
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !53
+  call void @__put_net(ptr noundef nonnull %389) #19
   br label %.thread77
 
 .thread77:                                        ; preds = %393, %395, %311, %310, %396, %386
   %397 = phi i32 [ %388, %396 ], [ %387, %386 ], [ -22, %310 ], [ -22, %311 ], [ %388, %395 ], [ %388, %393 ]
   %398 = getelementptr inbounds nuw i8, ptr %296, i64 140
-  %399 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %398, i32 -1, ptr nonnull elementtype(i32) %398) #18, !srcloc !52
+  %399 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %398, i32 -1, ptr nonnull elementtype(i32) %398) #19, !srcloc !52
   %400 = icmp eq i32 %399, 1
   br i1 %400, label %404, label %401
 
@@ -6600,12 +6600,12 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %402, label %.thread82, label %403, !prof !5
 
 403:                                              ; preds = %401
-  call void @refcount_warn_saturate(ptr noundef nonnull %398, i32 noundef 3) #18
+  call void @refcount_warn_saturate(ptr noundef nonnull %398, i32 noundef 3) #19
   br label %.thread82
 
 404:                                              ; preds = %.thread77
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !53
-  call void @__put_net(ptr noundef %296) #18
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !53
+  call void @__put_net(ptr noundef %296) #19
   br label %.thread82
 
 .thread76:                                        ; preds = %377, %383, %372, %361, %367, %344, %340
@@ -6621,13 +6621,13 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr %5, ptr %409, align 8
   %410 = getelementptr inbounds nuw i8, ptr %142, i64 88
   %411 = load ptr, ptr %410, align 8
-  call void %411(ptr noundef %320, ptr noundef nonnull %5) #18
-  call void @unregister_netdevice_many(ptr noundef nonnull %5) #18
+  call void %411(ptr noundef %320, ptr noundef nonnull %5) #19
+  call void @unregister_netdevice_many(ptr noundef nonnull %5) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %386
 
 412:                                              ; preds = %.thread76
-  call void @unregister_netdevice_queue(ptr noundef %320, ptr noundef null) #18
+  call void @unregister_netdevice_queue(ptr noundef %320, ptr noundef null) #19
   br label %386
 
 .thread82:                                        ; preds = %401, %403, %404, %298, %281
@@ -6639,7 +6639,7 @@ define internal i32 @rtnl_newlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %414 = phi i32 [ %413, %.thread82 ], [ -22, %63 ], [ -22, %62 ], [ %206, %204 ], [ -17, %165 ], [ -95, %171 ], [ %175, %174 ], [ -95, %185 ], [ -95, %181 ], [ -95, %180 ], [ %190, %189 ], [ -95, %197 ], [ -95, %196 ], [ %202, %201 ], [ -19, %211 ], [ -19, %213 ], [ -95, %270 ], [ -95, %.thread72 ], [ 0, %217 ], [ -22, %38 ], [ -22, %37 ], [ -22, %55 ], [ -22, %54 ], [ 0, %235 ], [ %233, %232 ], [ %230, %229 ], [ -95, %237 ], [ -95, %240 ], [ %161, %154 ], [ -22, %145 ], [ %139, %138 ], [ %131, %124 ], [ -22, %115 ], [ %97, %92 ], [ %41, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @kfree(ptr noundef nonnull %10) #18
+  call void @kfree(ptr noundef nonnull %10) #19
   br label %415
 
 415:                                              ; preds = %.thread, %3
@@ -6665,7 +6665,7 @@ define internal i32 @rtnl_dellink(ptr noundef readonly captures(none) %0, ptr no
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %3
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #19
   %17 = icmp eq ptr %2, null
   br i1 %17, label %.thread, label %18
 
@@ -6677,7 +6677,7 @@ define internal i32 @rtnl_dellink(ptr noundef readonly captures(none) %0, ptr no
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(528) %7, i8 0, i64 528, i1 false), !annotation !47
   %20 = getelementptr i8, ptr %1, i64 32
   %21 = add i32 %14, -32
-  %22 = call i32 @__nla_parse(ptr noundef nonnull %7, i32 noundef 65, ptr noundef %20, i32 noundef %21, ptr noundef nonnull @ifla_policy, i32 noundef 0, ptr noundef %2) #18
+  %22 = call i32 @__nla_parse(ptr noundef nonnull %7, i32 noundef 65, ptr noundef %20, i32 noundef %21, ptr noundef nonnull @ifla_policy, i32 noundef 0, ptr noundef %2) #19
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %.thread, label %24
 
@@ -6692,7 +6692,7 @@ define internal i32 @rtnl_dellink(ptr noundef readonly captures(none) %0, ptr no
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %24
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_ensure_unique_netns.__msg) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_ensure_unique_netns.__msg) #19
   %33 = icmp eq ptr %2, null
   br i1 %33, label %.thread, label %34
 
@@ -6713,19 +6713,19 @@ define internal i32 @rtnl_dellink(ptr noundef readonly captures(none) %0, ptr no
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
   %45 = load ptr, ptr %44, align 8
-  %46 = call ptr @get_net_ns_by_id(ptr noundef %45, i32 noundef %41) #18
+  %46 = call ptr @get_net_ns_by_id(ptr noundef %45, i32 noundef %41) #19
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.thread28, label %48
 
 48:                                               ; preds = %39
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 80
   %50 = load ptr, ptr %49, align 16
-  %51 = call zeroext i1 @sk_ns_capable(ptr noundef %43, ptr noundef %50, i32 noundef 12) #18
+  %51 = call zeroext i1 @sk_ns_capable(ptr noundef %43, ptr noundef %50, i32 noundef 12) #19
   br i1 %51, label %60, label %52
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %46, i64 140
-  %54 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %53, i32 -1, ptr nonnull elementtype(i32) %53) #18, !srcloc !52
+  %54 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %53, i32 -1, ptr nonnull elementtype(i32) %53) #19, !srcloc !52
   %55 = icmp eq i32 %54, 1
   br i1 %55, label %59, label %56
 
@@ -6734,12 +6734,12 @@ define internal i32 @rtnl_dellink(ptr noundef readonly captures(none) %0, ptr no
   br i1 %57, label %.thread28, label %58, !prof !5
 
 58:                                               ; preds = %56
-  call void @refcount_warn_saturate(ptr noundef nonnull %53, i32 noundef 3) #18
+  call void @refcount_warn_saturate(ptr noundef nonnull %53, i32 noundef 3) #19
   br label %.thread28
 
 59:                                               ; preds = %52
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !53
-  call void @__put_net(ptr noundef nonnull %46) #18
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !53
+  call void @__put_net(ptr noundef nonnull %46) #19
   br label %.thread28
 
 60:                                               ; preds = %48
@@ -6761,7 +6761,7 @@ define internal i32 @rtnl_dellink(ptr noundef readonly captures(none) %0, ptr no
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %65
-  %72 = call ptr @__dev_get_by_index(ptr noundef %66, i32 noundef %69) #18
+  %72 = call ptr @__dev_get_by_index(ptr noundef %66, i32 noundef %69) #19
   br label %140
 
 73:                                               ; preds = %65
@@ -6781,7 +6781,7 @@ define internal i32 @rtnl_dellink(ptr noundef readonly captures(none) %0, ptr no
   br i1 %82, label %85, label %83
 
 83:                                               ; preds = %81
-  %84 = call i64 @nla_strscpy(ptr noundef nonnull %6, ptr noundef nonnull %75, i64 noundef 16) #18
+  %84 = call i64 @nla_strscpy(ptr noundef nonnull %6, ptr noundef nonnull %75, i64 noundef 16) #19
   br label %89
 
 85:                                               ; preds = %81
@@ -6789,11 +6789,11 @@ define internal i32 @rtnl_dellink(ptr noundef readonly captures(none) %0, ptr no
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %85
-  %88 = call i64 @nla_strscpy(ptr noundef nonnull %6, ptr noundef nonnull %78, i64 noundef 128) #18
+  %88 = call i64 @nla_strscpy(ptr noundef nonnull %6, ptr noundef nonnull %78, i64 noundef 128) #19
   br label %89
 
 89:                                               ; preds = %87, %83
-  %90 = call ptr @__dev_get_by_name(ptr noundef %11, ptr noundef nonnull %6) #18
+  %90 = call ptr @__dev_get_by_name(ptr noundef %11, ptr noundef nonnull %6) #19
   br label %91
 
 91:                                               ; preds = %89, %85
@@ -6877,7 +6877,7 @@ define internal i32 @rtnl_dellink(ptr noundef readonly captures(none) %0, ptr no
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 88
   %135 = load ptr, ptr %134, align 8
-  call void %135(ptr noundef %131, ptr noundef nonnull %5) #18
+  call void %135(ptr noundef %131, ptr noundef nonnull %5) #19
   br label %136
 
 136:                                              ; preds = %130, %.preheader
@@ -6885,7 +6885,7 @@ define internal i32 @rtnl_dellink(ptr noundef readonly captures(none) %0, ptr no
   br i1 %137, label %138, label %.preheader, !llvm.loop !102
 
 138:                                              ; preds = %136
-  call void @unregister_netdevice_many(ptr noundef nonnull %5) #18
+  call void @unregister_netdevice_many(ptr noundef nonnull %5) #19
   br label %.thread29
 
 .thread29:                                        ; preds = %111, %115, %97, %102, %124, %138
@@ -6934,8 +6934,8 @@ define internal i32 @rtnl_dellink(ptr noundef readonly captures(none) %0, ptr no
   br i1 %164, label %166, label %165
 
 165:                                              ; preds = %161
-  call void %163(ptr noundef nonnull %141, ptr noundef nonnull %4) #18
-  call void @unregister_netdevice_many_notify(ptr noundef nonnull %4, i32 noundef %13, ptr noundef %1) #18
+  call void %163(ptr noundef nonnull %141, ptr noundef nonnull %4) #19
+  call void @unregister_netdevice_many_notify(ptr noundef nonnull %4, i32 noundef %13, ptr noundef %1) #19
   br label %166
 
 166:                                              ; preds = %165, %161, %156
@@ -6950,7 +6950,7 @@ define internal i32 @rtnl_dellink(ptr noundef readonly captures(none) %0, ptr no
 
 171:                                              ; preds = %168
   %172 = getelementptr inbounds nuw i8, ptr %66, i64 140
-  %173 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %172, i32 -1, ptr nonnull elementtype(i32) %172) #18, !srcloc !52
+  %173 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %172, i32 -1, ptr nonnull elementtype(i32) %172) #19, !srcloc !52
   %174 = icmp eq i32 %173, 1
   br i1 %174, label %178, label %175
 
@@ -6959,12 +6959,12 @@ define internal i32 @rtnl_dellink(ptr noundef readonly captures(none) %0, ptr no
   br i1 %176, label %.thread, label %177, !prof !5
 
 177:                                              ; preds = %175
-  call void @refcount_warn_saturate(ptr noundef nonnull %172, i32 noundef 3) #18
+  call void @refcount_warn_saturate(ptr noundef nonnull %172, i32 noundef 3) #19
   br label %.thread
 
 178:                                              ; preds = %171
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !53
-  call void @__put_net(ptr noundef %66) #18
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !53
+  call void @__put_net(ptr noundef %66) #19
   br label %.thread
 
 .thread:                                          ; preds = %175, %177, %32, %34, %16, %18, %178, %168, %.thread28, %19
@@ -7030,7 +7030,7 @@ define internal i32 @rtnl_dump_all(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br label %38
 
 38:                                               ; preds = %35, %37
-  %39 = tail call i32 %33(ptr noundef %0, ptr noundef %1) #18
+  %39 = tail call i32 %33(ptr noundef %0, ptr noundef %1) #19
   %.not = icmp eq i32 %39, 0
   br i1 %.not, label %.thread, label %42
 
@@ -7087,7 +7087,7 @@ define internal i32 @rtnl_fdb_add(ptr noundef readonly captures(none) %0, ptr no
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %3
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #19
   %12 = icmp eq ptr %2, null
   br i1 %12, label %.thread, label %13
 
@@ -7099,7 +7099,7 @@ define internal i32 @rtnl_fdb_add(ptr noundef readonly captures(none) %0, ptr no
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %4, i8 0, i64 144, i1 false), !annotation !47
   %15 = getelementptr i8, ptr %1, i64 28
   %16 = add i32 %9, -28
-  %17 = call i32 @__nla_parse(ptr noundef nonnull %4, i32 noundef 17, ptr noundef %15, i32 noundef %16, ptr noundef null, i32 noundef 0, ptr noundef %2) #18
+  %17 = call i32 @__nla_parse(ptr noundef nonnull %4, i32 noundef 17, ptr noundef %15, i32 noundef %16, ptr noundef null, i32 noundef 0, ptr noundef %2) #19
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %.thread, label %19
 
@@ -7111,7 +7111,7 @@ define internal i32 @rtnl_fdb_add(ptr noundef readonly captures(none) %0, ptr no
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %19
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_add.__msg) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_add.__msg) #19
   %25 = icmp eq ptr %2, null
   br i1 %25, label %.thread, label %26
 
@@ -7120,12 +7120,12 @@ define internal i32 @rtnl_fdb_add(ptr noundef readonly captures(none) %0, ptr no
   br label %.thread
 
 27:                                               ; preds = %19
-  %28 = call ptr @__dev_get_by_index(ptr noundef %8, i32 noundef %22) #18
+  %28 = call ptr @__dev_get_by_index(ptr noundef %8, i32 noundef %22) #19
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %27
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_add.__msg.28) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_add.__msg.28) #19
   %31 = icmp eq ptr %2, null
   br i1 %31, label %.thread, label %32
 
@@ -7145,7 +7145,7 @@ define internal i32 @rtnl_fdb_add(ptr noundef readonly captures(none) %0, ptr no
   br i1 %39, label %43, label %40
 
 40:                                               ; preds = %37, %33
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_add.__msg.29) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_add.__msg.29) #19
   %41 = icmp eq ptr %2, null
   br i1 %41, label %.thread, label %42
 
@@ -7160,7 +7160,7 @@ define internal i32 @rtnl_fdb_add(ptr noundef readonly captures(none) %0, ptr no
   br i1 %46, label %50, label %47
 
 47:                                               ; preds = %43
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_add.__msg.30) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_add.__msg.30) #19
   %48 = icmp eq ptr %2, null
   br i1 %48, label %.thread, label %49
 
@@ -7181,7 +7181,7 @@ define internal i32 @rtnl_fdb_add(ptr noundef readonly captures(none) %0, ptr no
   br i1 %57, label %60, label %58
 
 58:                                               ; preds = %55
-  call void @do_trace_netlink_extack(ptr noundef nonnull @fdb_vid_parse.__msg) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @fdb_vid_parse.__msg) #19
   %59 = icmp eq ptr %2, null
   br i1 %59, label %.thread, label %67
 
@@ -7193,7 +7193,7 @@ define internal i32 @rtnl_fdb_add(ptr noundef readonly captures(none) %0, ptr no
   br i1 %64, label %65, label %69
 
 65:                                               ; preds = %60
-  call void @do_trace_netlink_extack(ptr noundef nonnull @fdb_vid_parse.__msg.31) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @fdb_vid_parse.__msg.31) #19
   %66 = icmp eq ptr %2, null
   br i1 %66, label %.thread, label %67
 
@@ -7219,14 +7219,14 @@ define internal i32 @rtnl_fdb_add(ptr noundef readonly captures(none) %0, ptr no
   br i1 %80, label %94, label %81
 
 81:                                               ; preds = %77
-  %82 = call ptr @netdev_master_upper_dev_get(ptr noundef nonnull %28) #18
+  %82 = call ptr @netdev_master_upper_dev_get(ptr noundef nonnull %28) #19
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 416
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %88 = load i16, ptr %87, align 2
-  %89 = call i32 %86(ptr noundef %20, ptr noundef nonnull %4, ptr noundef nonnull %28, ptr noundef %51, i16 noundef zeroext %70, i16 noundef zeroext %88, ptr noundef %2) #18
+  %89 = call i32 %86(ptr noundef %20, ptr noundef nonnull %4, ptr noundef nonnull %28, ptr noundef %51, i16 noundef zeroext %70, i16 noundef zeroext %88, ptr noundef %2) #19
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %91, label %.thread
 
@@ -7254,7 +7254,7 @@ define internal i32 @rtnl_fdb_add(ptr noundef readonly captures(none) %0, ptr no
   br i1 %104, label %109, label %107
 
 107:                                              ; preds = %99
-  %108 = call i32 %103(ptr noundef %20, ptr noundef nonnull %4, ptr noundef nonnull %28, ptr noundef %51, i16 noundef zeroext %70, i16 noundef zeroext %106, ptr noundef %2) #18
+  %108 = call i32 %103(ptr noundef %20, ptr noundef nonnull %4, ptr noundef nonnull %28, ptr noundef %51, i16 noundef zeroext %70, i16 noundef zeroext %106, ptr noundef %2) #19
   br label %111
 
 109:                                              ; preds = %99
@@ -7295,7 +7295,7 @@ define internal i32 @rtnl_fdb_del(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %13 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %14 = tail call zeroext i1 @netlink_capable(ptr noundef %0, i32 noundef 12) #18
+  %14 = tail call zeroext i1 @netlink_capable(ptr noundef %0, i32 noundef 12) #19
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %3
@@ -7309,7 +7309,7 @@ define internal i32 @rtnl_fdb_del(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %17, label %19, label %26
 
 19:                                               ; preds = %18
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #19
   %20 = icmp eq ptr %2, null
   br i1 %20, label %.thread, label %21
 
@@ -7321,7 +7321,7 @@ define internal i32 @rtnl_fdb_del(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %17, label %23, label %26
 
 23:                                               ; preds = %22
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #19
   %24 = icmp eq ptr %2, null
   br i1 %24, label %.thread, label %25
 
@@ -7333,7 +7333,7 @@ define internal i32 @rtnl_fdb_del(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.sink36 = phi i32 [ 0, %18 ], [ 31, %22 ]
   %27 = getelementptr i8, ptr %1, i64 28
   %28 = add i32 %16, -28
-  %29 = call i32 @__nla_parse(ptr noundef nonnull %4, i32 noundef 17, ptr noundef %27, i32 noundef %28, ptr noundef null, i32 noundef %.sink36, ptr noundef %2) #18
+  %29 = call i32 @__nla_parse(ptr noundef nonnull %4, i32 noundef 17, ptr noundef %27, i32 noundef %28, ptr noundef null, i32 noundef %.sink36, ptr noundef %2) #19
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %.thread, label %31
 
@@ -7345,7 +7345,7 @@ define internal i32 @rtnl_fdb_del(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %31
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_del.__msg) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_del.__msg) #19
   %37 = icmp eq ptr %2, null
   br i1 %37, label %.thread, label %38
 
@@ -7354,12 +7354,12 @@ define internal i32 @rtnl_fdb_del(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %.thread
 
 39:                                               ; preds = %31
-  %40 = call ptr @__dev_get_by_index(ptr noundef %13, i32 noundef %34) #18
+  %40 = call ptr @__dev_get_by_index(ptr noundef %13, i32 noundef %34) #19
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %39
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_del.__msg.32) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_del.__msg.32) #19
   %43 = icmp eq ptr %2, null
   br i1 %43, label %.thread, label %44
 
@@ -7382,7 +7382,7 @@ define internal i32 @rtnl_fdb_del(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %52, label %56, label %53
 
 53:                                               ; preds = %50, %46
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_del.__msg.33) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_del.__msg.33) #19
   %54 = icmp eq ptr %2, null
   br i1 %54, label %.thread, label %55
 
@@ -7406,7 +7406,7 @@ define internal i32 @rtnl_fdb_del(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %66, label %70, label %67
 
 67:                                               ; preds = %62
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_del.__msg.34) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_del.__msg.34) #19
   %68 = icmp eq ptr %2, null
   br i1 %68, label %.thread, label %69
 
@@ -7430,7 +7430,7 @@ define internal i32 @rtnl_fdb_del(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %80, label %104, label %81
 
 81:                                               ; preds = %77
-  %82 = call ptr @netdev_master_upper_dev_get(ptr noundef nonnull %40) #18
+  %82 = call ptr @netdev_master_upper_dev_get(ptr noundef nonnull %40) #19
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
   br i1 %9, label %85, label %92
@@ -7443,7 +7443,7 @@ define internal i32 @rtnl_fdb_del(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 89:                                               ; preds = %85
   %90 = load i16, ptr %5, align 2
-  %91 = call i32 %87(ptr noundef %32, ptr noundef nonnull %4, ptr noundef nonnull %40, ptr noundef %63, i16 noundef zeroext %90, ptr noundef %2) #18
+  %91 = call i32 %87(ptr noundef %32, ptr noundef nonnull %4, ptr noundef nonnull %40, ptr noundef %63, i16 noundef zeroext %90, ptr noundef %2) #19
   br label %98
 
 92:                                               ; preds = %81
@@ -7453,7 +7453,7 @@ define internal i32 @rtnl_fdb_del(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %95, label %.thread, label %96
 
 96:                                               ; preds = %92
-  %97 = call i32 %94(ptr noundef %1, ptr noundef nonnull %40, ptr noundef %2) #18
+  %97 = call i32 %94(ptr noundef %1, ptr noundef nonnull %40, ptr noundef %2) #19
   br label %98
 
 98:                                               ; preds = %96, %89
@@ -7487,7 +7487,7 @@ define internal i32 @rtnl_fdb_del(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 116:                                              ; preds = %112
   %117 = load i16, ptr %5, align 2
-  %118 = call i32 %114(ptr noundef %32, ptr noundef nonnull %4, ptr noundef nonnull %40, ptr noundef %63, i16 noundef zeroext %117, ptr noundef %2) #18
+  %118 = call i32 %114(ptr noundef %32, ptr noundef nonnull %4, ptr noundef nonnull %40, ptr noundef %63, i16 noundef zeroext %117, ptr noundef %2) #19
   br label %125
 
 119:                                              ; preds = %112
@@ -7506,7 +7506,7 @@ define internal i32 @rtnl_fdb_del(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %127, label %130, label %.thread
 
 .thread18:                                        ; preds = %121
-  %128 = call i32 %123(ptr noundef %1, ptr noundef nonnull %40, ptr noundef %2) #18
+  %128 = call i32 %123(ptr noundef %1, ptr noundef nonnull %40, ptr noundef %2) #19
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %.thread19, label %.thread
 
@@ -7546,7 +7546,7 @@ define internal i32 @rtnl_fdb_get(ptr noundef readonly captures(none) %0, ptr no
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %3
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @valid_fdb_get_strict.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @valid_fdb_get_strict.__msg) #19
   %13 = icmp eq ptr %2, null
   br i1 %13, label %.thread, label %75
 
@@ -7575,7 +7575,7 @@ define internal i32 @rtnl_fdb_get(ptr noundef readonly captures(none) %0, ptr no
   br i1 %29, label %32, label %30
 
 30:                                               ; preds = %26, %22, %18, %14
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @valid_fdb_get_strict.__msg.43) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @valid_fdb_get_strict.__msg.43) #19
   %31 = icmp eq ptr %2, null
   br i1 %31, label %.thread, label %75
 
@@ -7587,7 +7587,7 @@ define internal i32 @rtnl_fdb_get(ptr noundef readonly captures(none) %0, ptr no
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %32
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @valid_fdb_get_strict.__msg.44) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @valid_fdb_get_strict.__msg.44) #19
   %38 = icmp eq ptr %2, null
   br i1 %38, label %.thread, label %75
 
@@ -7632,7 +7632,7 @@ define internal i32 @rtnl_fdb_get(ptr noundef readonly captures(none) %0, ptr no
   br i1 %60, label %63, label %61
 
 61:                                               ; preds = %58
-  call void @do_trace_netlink_extack(ptr noundef nonnull @valid_fdb_get_strict.__msg.45) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @valid_fdb_get_strict.__msg.45) #19
   %62 = icmp eq ptr %2, null
   br i1 %62, label %.thread, label %75
 
@@ -7646,7 +7646,7 @@ define internal i32 @rtnl_fdb_get(ptr noundef readonly captures(none) %0, ptr no
   br i1 %67, label %70, label %.thread
 
 68:                                               ; preds = %53
-  call void @do_trace_netlink_extack(ptr noundef nonnull @valid_fdb_get_strict.__msg.46) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @valid_fdb_get_strict.__msg.46) #19
   %69 = icmp eq ptr %2, null
   br i1 %69, label %.thread, label %75
 
@@ -7667,7 +7667,7 @@ define internal i32 @rtnl_fdb_get(ptr noundef readonly captures(none) %0, ptr no
   br i1 %78, label %79, label %82
 
 79:                                               ; preds = %77
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_get.__msg) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_get.__msg) #19
   %80 = icmp eq ptr %2, null
   br i1 %80, label %.thread, label %81
 
@@ -7680,12 +7680,12 @@ define internal i32 @rtnl_fdb_get(ptr noundef readonly captures(none) %0, ptr no
   br i1 %83, label %.thread21, label %84
 
 84:                                               ; preds = %82
-  %85 = call ptr @__dev_get_by_index(ptr noundef %9, i32 noundef %45) #18
+  %85 = call ptr @__dev_get_by_index(ptr noundef %9, i32 noundef %45) #19
   %86 = icmp eq ptr %85, null
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %84
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_get.__msg.35) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_get.__msg.35) #19
   %88 = icmp eq ptr %2, null
   br i1 %88, label %.thread, label %89
 
@@ -7702,7 +7702,7 @@ define internal i32 @rtnl_fdb_get(ptr noundef readonly captures(none) %0, ptr no
   br i1 %92, label %130, label %96
 
 93:                                               ; preds = %90
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_get.__msg.36) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_get.__msg.36) #19
   %94 = icmp eq ptr %2, null
   br i1 %94, label %.thread, label %95
 
@@ -7711,12 +7711,12 @@ define internal i32 @rtnl_fdb_get(ptr noundef readonly captures(none) %0, ptr no
   br label %.thread
 
 96:                                               ; preds = %.thread21
-  %97 = call ptr @__dev_get_by_index(ptr noundef %9, i32 noundef %71) #18
+  %97 = call ptr @__dev_get_by_index(ptr noundef %9, i32 noundef %71) #19
   %98 = icmp eq ptr %97, null
   br i1 %98, label %99, label %.thread27
 
 99:                                               ; preds = %96
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_get.__msg.37) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_get.__msg.37) #19
   %100 = icmp eq ptr %2, null
   br i1 %100, label %.thread, label %101
 
@@ -7741,7 +7741,7 @@ define internal i32 @rtnl_fdb_get(ptr noundef readonly captures(none) %0, ptr no
   br i1 %111, label %112, label %115
 
 112:                                              ; preds = %108
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_get.__msg.38) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_get.__msg.38) #19
   %113 = icmp eq ptr %2, null
   br i1 %113, label %.thread, label %114
 
@@ -7750,12 +7750,12 @@ define internal i32 @rtnl_fdb_get(ptr noundef readonly captures(none) %0, ptr no
   br label %.thread
 
 115:                                              ; preds = %108
-  %116 = call ptr @netdev_master_upper_dev_get(ptr noundef nonnull %85) #18
+  %116 = call ptr @netdev_master_upper_dev_get(ptr noundef nonnull %85) #19
   %117 = icmp eq ptr %116, null
   br i1 %117, label %118, label %.thread26
 
 118:                                              ; preds = %115
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_get.__msg.39) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_get.__msg.39) #19
   %119 = icmp eq ptr %2, null
   br i1 %119, label %.thread, label %120
 
@@ -7769,7 +7769,7 @@ define internal i32 @rtnl_fdb_get(ptr noundef readonly captures(none) %0, ptr no
   br i1 %123, label %124, label %.thread26
 
 124:                                              ; preds = %121
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_get.__msg.40) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_get.__msg.40) #19
   %125 = icmp eq ptr %2, null
   br i1 %125, label %.thread, label %126
 
@@ -7785,7 +7785,7 @@ define internal i32 @rtnl_fdb_get(ptr noundef readonly captures(none) %0, ptr no
   br label %.thread27
 
 130:                                              ; preds = %.thread21
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_get.__msg.41) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_get.__msg.41) #19
   %131 = icmp eq ptr %2, null
   br i1 %131, label %.thread, label %132
 
@@ -7808,7 +7808,7 @@ define internal i32 @rtnl_fdb_get(ptr noundef readonly captures(none) %0, ptr no
   br i1 %139, label %.thread30, label %142
 
 .thread30:                                        ; preds = %136, %.thread27
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_get.__msg.42) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_fdb_get.__msg.42) #19
   %140 = icmp eq ptr %2, null
   br i1 %140, label %.thread, label %141
 
@@ -7817,7 +7817,7 @@ define internal i32 @rtnl_fdb_get(ptr noundef readonly captures(none) %0, ptr no
   br label %.thread
 
 142:                                              ; preds = %136
-  %143 = call ptr @__alloc_skb(i32 noundef 3792, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #18
+  %143 = call ptr @__alloc_skb(i32 noundef 3792, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #19
   %144 = icmp eq ptr %143, null
   br i1 %144, label %.thread, label %145
 
@@ -7828,7 +7828,7 @@ define internal i32 @rtnl_fdb_get(ptr noundef readonly captures(none) %0, ptr no
   %149 = load i32, ptr %148, align 4
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %151 = load i32, ptr %150, align 4
-  %152 = call i32 %146(ptr noundef nonnull %143, ptr noundef nonnull %4, ptr noundef %133, ptr noundef nonnull %72, i16 noundef zeroext %147, i32 noundef %149, i32 noundef %151, ptr noundef %2) #18
+  %152 = call i32 %146(ptr noundef nonnull %143, ptr noundef nonnull %4, ptr noundef %133, ptr noundef nonnull %72, i16 noundef zeroext %147, i32 noundef %149, i32 noundef %151, ptr noundef %2) #19
   %153 = icmp eq i32 %152, 0
   br i1 %153, label %154, label %160
 
@@ -7836,12 +7836,12 @@ define internal i32 @rtnl_fdb_get(ptr noundef readonly captures(none) %0, ptr no
   %155 = load i32, ptr %148, align 4
   %156 = getelementptr inbounds nuw i8, ptr %9, i64 272
   %157 = load ptr, ptr %156, align 16
-  %158 = call i32 @netlink_unicast(ptr noundef %157, ptr noundef nonnull %143, i32 noundef %155, i32 noundef 64) #18
+  %158 = call i32 @netlink_unicast(ptr noundef %157, ptr noundef nonnull %143, i32 noundef %155, i32 noundef 64) #19
   %159 = call i32 @llvm.smin.i32(i32 %158, i32 0)
   br label %.thread
 
 160:                                              ; preds = %145
-  call void @kfree_skb_reason(ptr noundef nonnull %143, i32 noundef 2) #18
+  call void @kfree_skb_reason(ptr noundef nonnull %143, i32 noundef 2) #19
   br label %.thread
 
 .thread:                                          ; preds = %65, %75, %30, %37, %61, %68, %39, %12, %160, %154, %142, %141, %.thread30, %132, %130, %126, %124, %120, %118, %114, %112, %101, %99, %95, %93, %89, %87, %81, %79
@@ -7879,7 +7879,7 @@ define internal i32 @rtnl_fdb_dump(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %17
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @valid_fdb_dump_strict.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @valid_fdb_dump_strict.__msg) #19
   %21 = icmp eq ptr %16, null
   br i1 %21, label %.loopexit21, label %86
 
@@ -7914,7 +7914,7 @@ define internal i32 @rtnl_fdb_dump(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %41, label %44, label %42
 
 42:                                               ; preds = %38, %34, %30, %26, %22
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @valid_fdb_dump_strict.__msg.47) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @valid_fdb_dump_strict.__msg.47) #19
   %43 = icmp eq ptr %16, null
   br i1 %43, label %.loopexit21, label %86
 
@@ -7956,7 +7956,7 @@ define internal i32 @rtnl_fdb_dump(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %67, label %70, label %68
 
 68:                                               ; preds = %65
-  call void @do_trace_netlink_extack(ptr noundef nonnull @valid_fdb_dump_strict.__msg.48) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @valid_fdb_dump_strict.__msg.48) #19
   %69 = icmp eq ptr %16, null
   br i1 %69, label %.loopexit21, label %86
 
@@ -7970,7 +7970,7 @@ define internal i32 @rtnl_fdb_dump(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %74, label %77, label %75
 
 75:                                               ; preds = %72
-  call void @do_trace_netlink_extack(ptr noundef nonnull @valid_fdb_dump_strict.__msg.49) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @valid_fdb_dump_strict.__msg.49) #19
   %76 = icmp eq ptr %16, null
   br i1 %76, label %.loopexit21, label %86
 
@@ -7979,7 +7979,7 @@ define internal i32 @rtnl_fdb_dump(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br label %81
 
 79:                                               ; preds = %63
-  call void @do_trace_netlink_extack(ptr noundef nonnull @valid_fdb_dump_strict.__msg.50) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @valid_fdb_dump_strict.__msg.50) #19
   %80 = icmp eq ptr %16, null
   br i1 %80, label %.loopexit21, label %86
 
@@ -8018,7 +8018,7 @@ define internal i32 @rtnl_fdb_dump(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %96, label %97, label %100
 
 97:                                               ; preds = %95
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #19
   %98 = icmp eq ptr %16, null
   br i1 %98, label %.thread, label %99
 
@@ -8029,7 +8029,7 @@ define internal i32 @rtnl_fdb_dump(ptr noundef %0, ptr noundef %1) #0 align 16 {
 100:                                              ; preds = %95
   %101 = getelementptr i8, ptr %14, i64 32
   %102 = add i32 %94, -32
-  %103 = call i32 @__nla_parse(ptr noundef nonnull %3, i32 noundef 65, ptr noundef %101, i32 noundef %102, ptr noundef nonnull @ifla_policy, i32 noundef 0, ptr noundef %16) #18
+  %103 = call i32 @__nla_parse(ptr noundef nonnull %3, i32 noundef 65, ptr noundef %101, i32 noundef %102, ptr noundef nonnull @ifla_policy, i32 noundef 0, ptr noundef %16) #19
   %104 = icmp sgt i32 %103, -1
   br i1 %104, label %105, label %.thread
 
@@ -8071,7 +8071,7 @@ define internal i32 @rtnl_fdb_dump(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %127, label %134, label %128
 
 128:                                              ; preds = %126
-  %129 = call ptr @__dev_get_by_index(ptr noundef %9, i32 noundef %123) #18
+  %129 = call ptr @__dev_get_by_index(ptr noundef %9, i32 noundef %123) #19
   %130 = icmp eq ptr %129, null
   br i1 %130, label %252, label %131
 
@@ -8137,7 +8137,7 @@ define internal i32 @rtnl_fdb_dump(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %174, label %192, label %175
 
 175:                                              ; preds = %171
-  %176 = call ptr @netdev_master_upper_dev_get(ptr noundef nonnull %162) #18
+  %176 = call ptr @netdev_master_upper_dev_get(ptr noundef nonnull %162) #19
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %178 = load ptr, ptr %177, align 8
   br label %192
@@ -8153,7 +8153,7 @@ define internal i32 @rtnl_fdb_dump(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %184, label %226, label %185
 
 185:                                              ; preds = %181, %179
-  %186 = call ptr @netdev_master_upper_dev_get(ptr noundef nonnull %162) #18
+  %186 = call ptr @netdev_master_upper_dev_get(ptr noundef nonnull %162) #19
   %187 = icmp eq ptr %163, %186
   br i1 %187, label %192, label %188
 
@@ -8184,7 +8184,7 @@ define internal i32 @rtnl_fdb_dump(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %205, label %209, label %206
 
 206:                                              ; preds = %202
-  %207 = call i32 %204(ptr noundef %0, ptr noundef %1, ptr noundef %194, ptr noundef nonnull %162, ptr noundef nonnull %5) #18
+  %207 = call i32 %204(ptr noundef %0, ptr noundef %1, ptr noundef %194, ptr noundef nonnull %162, ptr noundef nonnull %5) #19
   %208 = icmp eq i32 %207, -90
   br i1 %208, label %.loopexit, label %209
 
@@ -8197,7 +8197,7 @@ define internal i32 @rtnl_fdb_dump(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %214, label %217, label %215
 
 215:                                              ; preds = %209
-  %216 = call i32 %213(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %162, ptr noundef null, ptr noundef nonnull %5) #18
+  %216 = call i32 %213(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %162, ptr noundef null, ptr noundef nonnull %5) #19
   br label %219
 
 217:                                              ; preds = %209
@@ -8291,7 +8291,7 @@ define internal i32 @rtnl_bridge_getlink(ptr noundef %0, ptr noundef captures(no
   br i1 %21, label %23, label %25
 
 23:                                               ; preds = %22
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @valid_bridge_getlink_req.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @valid_bridge_getlink_req.__msg) #19
   %24 = icmp eq ptr %19, null
   br i1 %24, label %.thread, label %.thread.sink.split
 
@@ -8326,7 +8326,7 @@ define internal i32 @rtnl_bridge_getlink(ptr noundef %0, ptr noundef captures(no
   br i1 %44, label %.thread60, label %45
 
 45:                                               ; preds = %41, %37, %33, %29, %25
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @valid_bridge_getlink_req.__msg.51) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @valid_bridge_getlink_req.__msg.51) #19
   %46 = icmp eq ptr %19, null
   br i1 %46, label %.thread, label %.thread.sink.split
 
@@ -8334,14 +8334,14 @@ define internal i32 @rtnl_bridge_getlink(ptr noundef %0, ptr noundef captures(no
   br i1 %21, label %48, label %50
 
 48:                                               ; preds = %47
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #19
   %49 = icmp eq ptr %19, null
   br i1 %49, label %.thread, label %.thread.sink.split
 
 50:                                               ; preds = %47
   %51 = getelementptr i8, ptr %5, i64 32
   %52 = add i32 %20, -32
-  %53 = call i32 @__nla_parse(ptr noundef nonnull %3, i32 noundef 65, ptr noundef %51, i32 noundef %52, ptr noundef nonnull @ifla_policy, i32 noundef 0, ptr noundef %19) #18
+  %53 = call i32 @__nla_parse(ptr noundef nonnull %3, i32 noundef 65, ptr noundef %51, i32 noundef %52, ptr noundef nonnull @ifla_policy, i32 noundef 0, ptr noundef %19) #19
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %.thread, label %.preheader.split.us
 
@@ -8389,7 +8389,7 @@ define internal i32 @rtnl_bridge_getlink(ptr noundef %0, ptr noundef captures(no
   br label %82
 
 80:                                               ; preds = %75
-  call void @do_trace_netlink_extack(ptr noundef nonnull @valid_bridge_getlink_req.__msg.52) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @valid_bridge_getlink_req.__msg.52) #19
   %81 = icmp eq ptr %19, null
   br i1 %81, label %.thread, label %.thread.sink.split
 
@@ -8420,7 +8420,7 @@ define internal i32 @rtnl_bridge_getlink(ptr noundef %0, ptr noundef captures(no
 
 88:                                               ; preds = %.critedge, %.thread
   %89 = phi i32 [ %.ph, %.thread ], [ %.us-phi, %.critedge ]
-  call void @__rcu_read_lock() #18
+  call void @__rcu_read_lock() #19
   %90 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -8434,7 +8434,7 @@ define internal i32 @rtnl_bridge_getlink(ptr noundef %0, ptr noundef captures(no
   %97 = getelementptr i8, ptr %95, i64 -360
   %98 = getelementptr i8, ptr %95, i64 -352
   %99 = load ptr, ptr %98, align 8
-  %100 = call ptr @netdev_master_upper_dev_get(ptr noundef %97) #18
+  %100 = call ptr @netdev_master_upper_dev_get(ptr noundef %97) #19
   %101 = icmp eq ptr %100, null
   br i1 %101, label %122, label %102
 
@@ -8453,7 +8453,7 @@ define internal i32 @rtnl_bridge_getlink(ptr noundef %0, ptr noundef captures(no
   br i1 %111, label %120, label %112
 
 112:                                              ; preds = %108
-  %113 = call i32 %106(ptr noundef %0, i32 noundef %12, i32 noundef %14, ptr noundef %97, i32 noundef %89, i32 noundef 2) #18
+  %113 = call i32 %106(ptr noundef %0, i32 noundef %12, i32 noundef %14, ptr noundef %97, i32 noundef %89, i32 noundef 2) #19
   %114 = icmp slt i32 %113, 0
   %115 = icmp ne i32 %113, -95
   %116 = and i1 %114, %115
@@ -8482,7 +8482,7 @@ define internal i32 @rtnl_bridge_getlink(ptr noundef %0, ptr noundef captures(no
   br i1 %130, label %139, label %131
 
 131:                                              ; preds = %127
-  %132 = call i32 %125(ptr noundef %0, i32 noundef %12, i32 noundef %14, ptr noundef %97, i32 noundef %89, i32 noundef 2) #18
+  %132 = call i32 %125(ptr noundef %0, i32 noundef %12, i32 noundef %14, ptr noundef %97, i32 noundef %89, i32 noundef 2) #19
   %133 = icmp slt i32 %132, 0
   %134 = icmp ne i32 %132, -95
   %135 = and i1 %133, %134
@@ -8512,7 +8512,7 @@ define internal i32 @rtnl_bridge_getlink(ptr noundef %0, ptr noundef captures(no
 .thread21:                                        ; preds = %136, %117, %.thread17
   %.pre-phi = phi i64 [ %128, %136 ], [ %109, %117 ], [ %.pre, %.thread17 ]
   %147 = phi i32 [ %132, %136 ], [ %113, %117 ], [ %146, %.thread17 ]
-  call void @__rcu_read_unlock() #18
+  call void @__rcu_read_unlock() #19
   store i64 %.pre-phi, ptr %91, align 8
   br label %148
 
@@ -8541,12 +8541,12 @@ define internal i32 @rtnl_bridge_dellink(ptr noundef readonly captures(none) %0,
 15:                                               ; preds = %11
   %16 = getelementptr i8, ptr %1, i64 20
   %17 = load i32, ptr %16, align 4
-  %18 = tail call ptr @__dev_get_by_index(ptr noundef %7, i32 noundef %17) #18
+  %18 = tail call ptr @__dev_get_by_index(ptr noundef %7, i32 noundef %17) #19
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %15
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_bridge_dellink.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_bridge_dellink.__msg) #19
   %21 = icmp eq ptr %2, null
   br i1 %21, label %.thread, label %22
 
@@ -8558,7 +8558,7 @@ define internal i32 @rtnl_bridge_dellink(ptr noundef readonly captures(none) %0,
   %24 = getelementptr i8, ptr %1, i64 32
   %25 = load i32, ptr %1, align 4
   %26 = add i32 %25, -32
-  %27 = tail call ptr @nla_find(ptr noundef %24, i32 noundef %26, i32 noundef 26) #18
+  %27 = tail call ptr @nla_find(ptr noundef %24, i32 noundef %26, i32 noundef 26) #19
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.critedge.thread, label %29
 
@@ -8616,7 +8616,7 @@ define internal i32 @rtnl_bridge_dellink(ptr noundef readonly captures(none) %0,
   %60 = phi i1 [ true, %.critedge ], [ false, %23 ], [ false, %29 ], [ false, %.lr.ph ], [ false, %47 ]
   %61 = phi i16 [ %55, %.critedge ], [ 0, %23 ], [ 0, %29 ], [ 0, %.lr.ph ], [ 0, %47 ]
   %62 = phi ptr [ %35, %.critedge ], [ null, %23 ], [ %30, %29 ], [ %52, %47 ], [ %35, %.lr.ph ]
-  %63 = tail call ptr @netdev_master_upper_dev_get(ptr noundef nonnull %18) #18
+  %63 = tail call ptr @netdev_master_upper_dev_get(ptr noundef nonnull %18) #19
   %64 = icmp eq ptr %63, null
   br i1 %64, label %.thread, label %65
 
@@ -8629,7 +8629,7 @@ define internal i32 @rtnl_bridge_dellink(ptr noundef readonly captures(none) %0,
   br i1 %70, label %.thread, label %71
 
 71:                                               ; preds = %65
-  %72 = tail call i32 %69(ptr noundef nonnull %18, ptr noundef %1, i16 noundef zeroext %61) #18
+  %72 = tail call i32 %69(ptr noundef nonnull %18, ptr noundef %1, i16 noundef zeroext %61) #19
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %74, label %.thread
 
@@ -8655,7 +8655,7 @@ define internal i32 @rtnl_bridge_dellink(ptr noundef readonly captures(none) %0,
   br i1 %88, label %.thread12, label %89
 
 89:                                               ; preds = %83
-  %90 = tail call i32 %87(ptr noundef nonnull %18, ptr noundef %1, i16 noundef zeroext %80) #18
+  %90 = tail call i32 %87(ptr noundef nonnull %18, ptr noundef %1, i16 noundef zeroext %80) #19
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %92, label %.thread12
 
@@ -8699,12 +8699,12 @@ define internal i32 @rtnl_bridge_setlink(ptr noundef readonly captures(none) %0,
 15:                                               ; preds = %11
   %16 = getelementptr i8, ptr %1, i64 20
   %17 = load i32, ptr %16, align 4
-  %18 = tail call ptr @__dev_get_by_index(ptr noundef %7, i32 noundef %17) #18
+  %18 = tail call ptr @__dev_get_by_index(ptr noundef %7, i32 noundef %17) #19
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %15
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_bridge_setlink.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_bridge_setlink.__msg) #19
   %21 = icmp eq ptr %2, null
   br i1 %21, label %.thread12, label %22
 
@@ -8716,7 +8716,7 @@ define internal i32 @rtnl_bridge_setlink(ptr noundef readonly captures(none) %0,
   %24 = getelementptr i8, ptr %1, i64 32
   %25 = load i32, ptr %1, align 4
   %26 = add i32 %25, -32
-  %27 = tail call ptr @nla_find(ptr noundef %24, i32 noundef %26, i32 noundef 26) #18
+  %27 = tail call ptr @nla_find(ptr noundef %24, i32 noundef %26, i32 noundef 26) #19
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.critedge.thread, label %29
 
@@ -8790,7 +8790,7 @@ define internal i32 @rtnl_bridge_setlink(ptr noundef readonly captures(none) %0,
 .critedge.thread:                                 ; preds = %29, %23, %.critedge
   %69 = phi i16 [ %.lcssa, %.critedge ], [ 0, %23 ], [ 0, %29 ]
   %70 = phi ptr [ %.lcssa17, %.critedge ], [ null, %23 ], [ null, %29 ]
-  %71 = tail call ptr @netdev_master_upper_dev_get(ptr noundef nonnull %18) #18
+  %71 = tail call ptr @netdev_master_upper_dev_get(ptr noundef nonnull %18) #19
   %72 = icmp eq ptr %71, null
   br i1 %72, label %.thread12, label %73
 
@@ -8803,7 +8803,7 @@ define internal i32 @rtnl_bridge_setlink(ptr noundef readonly captures(none) %0,
   br i1 %78, label %.thread12, label %79
 
 79:                                               ; preds = %73
-  %80 = tail call i32 %77(ptr noundef nonnull %18, ptr noundef %1, i16 noundef zeroext %69, ptr noundef %2) #18
+  %80 = tail call i32 %77(ptr noundef nonnull %18, ptr noundef %1, i16 noundef zeroext %69, ptr noundef %2) #19
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %82, label %.thread12
 
@@ -8828,7 +8828,7 @@ define internal i32 @rtnl_bridge_setlink(ptr noundef readonly captures(none) %0,
   br i1 %95, label %.thread13, label %96
 
 96:                                               ; preds = %90
-  %97 = tail call i32 %94(ptr noundef nonnull %18, ptr noundef %1, i16 noundef zeroext %87, ptr noundef %2) #18
+  %97 = tail call i32 %94(ptr noundef nonnull %18, ptr noundef %1, i16 noundef zeroext %87, ptr noundef %2) #19
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %99, label %.thread13
 
@@ -8867,13 +8867,13 @@ define internal range(i32 -2147483648, 1) i32 @rtnl_stats_get(ptr noundef %0, pt
   store i32 0, ptr %5, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  %11 = tail call zeroext i1 @netlink_strict_get_check(ptr noundef %0) #18
+  %11 = tail call zeroext i1 @netlink_strict_get_check(ptr noundef %0) #19
   %12 = load i32, ptr %1, align 4
   %13 = icmp ult i32 %12, 28
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %3
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_stats_req.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_stats_req.__msg) #19
   %15 = icmp eq ptr %2, null
   br i1 %15, label %.thread, label %33
 
@@ -8899,12 +8899,12 @@ define internal range(i32 -2147483648, 1) i32 @rtnl_stats_get(ptr noundef %0, pt
   br i1 %28, label %31, label %35
 
 29:                                               ; preds = %21, %17
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_stats_req.__msg.53) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_stats_req.__msg.53) #19
   %30 = icmp eq ptr %2, null
   br i1 %30, label %.thread, label %33
 
 31:                                               ; preds = %25
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_stats_req.__msg.54) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_stats_req.__msg.54) #19
   %32 = icmp eq ptr %2, null
   br i1 %32, label %.thread, label %33
 
@@ -8920,7 +8920,7 @@ define internal range(i32 -2147483648, 1) i32 @rtnl_stats_get(ptr noundef %0, pt
   br i1 %38, label %.thread, label %39
 
 39:                                               ; preds = %35
-  %40 = tail call ptr @__dev_get_by_index(ptr noundef %10, i32 noundef %37) #18
+  %40 = tail call ptr @__dev_get_by_index(ptr noundef %10, i32 noundef %37) #19
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.thread, label %42
 
@@ -8931,7 +8931,7 @@ define internal range(i32 -2147483648, 1) i32 @rtnl_stats_get(ptr noundef %0, pt
   br i1 %45, label %46, label %49
 
 46:                                               ; preds = %42
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_stats_get.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_stats_get.__msg) #19
   %47 = icmp eq ptr %2, null
   br i1 %47, label %.thread, label %48
 
@@ -8952,7 +8952,7 @@ define internal range(i32 -2147483648, 1) i32 @rtnl_stats_get(ptr noundef %0, pt
   %55 = trunc i64 %54 to i32
   %56 = add i32 %55, 19
   %57 = and i32 %56, -4
-  %58 = tail call ptr @__alloc_skb(i32 noundef %57, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #18
+  %58 = tail call ptr @__alloc_skb(i32 noundef %57, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #19
   %59 = icmp eq ptr %58, null
   br i1 %59, label %.thread, label %60
 
@@ -8970,20 +8970,20 @@ define internal range(i32 -2147483648, 1) i32 @rtnl_stats_get(ptr noundef %0, pt
   br i1 %68, label %69, label %70, !prof !13
 
 69:                                               ; preds = %67
-  call void asm sideeffect "1044: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1044b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1044) #18, !srcloc !112
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5977, i32 2305, i64 12) #18, !srcloc !113
-  call void asm sideeffect "1045: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1045b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1045) #18, !srcloc !114
+  call void asm sideeffect "1044: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1044b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1044) #19, !srcloc !112
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5977, i32 2305, i64 12) #19, !srcloc !113
+  call void asm sideeffect "1045: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1045b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1045) #19, !srcloc !114
   br label %70
 
 70:                                               ; preds = %69, %67
-  call void @kfree_skb_reason(ptr noundef nonnull %58, i32 noundef 2) #18
+  call void @kfree_skb_reason(ptr noundef nonnull %58, i32 noundef 2) #19
   br label %.thread
 
 71:                                               ; preds = %60
   %72 = load i32, ptr %61, align 4
   %73 = getelementptr inbounds nuw i8, ptr %10, i64 272
   %74 = load ptr, ptr %73, align 16
-  %75 = call i32 @netlink_unicast(ptr noundef %74, ptr noundef nonnull %58, i32 noundef %72, i32 noundef 64) #18
+  %75 = call i32 @netlink_unicast(ptr noundef %74, ptr noundef nonnull %58, i32 noundef %72, i32 noundef 64) #19
   %76 = call i32 @llvm.smin.i32(i32 %75, i32 0)
   br label %.thread
 
@@ -9034,7 +9034,7 @@ define internal i32 @rtnl_stats_dump(ptr noundef %0, ptr noundef captures(none) 
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %2
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_stats_req.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_stats_req.__msg) #19
   %32 = icmp eq ptr %7, null
   br i1 %32, label %.thread, label %57
 
@@ -9068,7 +9068,7 @@ define internal i32 @rtnl_stats_dump(ptr noundef %0, ptr noundef captures(none) 
   br i1 %48, label %51, label %49
 
 49:                                               ; preds = %45, %41, %37
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_stats_req.__msg.53) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_stats_req.__msg.53) #19
   %50 = icmp eq ptr %7, null
   br i1 %50, label %.thread, label %57
 
@@ -9079,7 +9079,7 @@ define internal i32 @rtnl_stats_dump(ptr noundef %0, ptr noundef captures(none) 
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %51
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_stats_req.__msg.54) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_stats_req.__msg.54) #19
   %56 = icmp eq ptr %7, null
   br i1 %56, label %.thread, label %57
 
@@ -9094,7 +9094,7 @@ define internal i32 @rtnl_stats_dump(ptr noundef %0, ptr noundef captures(none) 
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %59
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_stats_dump.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_stats_dump.__msg) #19
   %63 = icmp eq ptr %7, null
   br i1 %63, label %.thread, label %64
 
@@ -9155,9 +9155,9 @@ define internal i32 @rtnl_stats_dump(ptr noundef %0, ptr noundef captures(none) 
   br i1 %101, label %102, label %.thread8, !prof !13
 
 102:                                              ; preds = %99
-  call void asm sideeffect "1046: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1046b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1046) #18, !srcloc !115
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 6035, i32 2305, i64 12) #18, !srcloc !116
-  call void asm sideeffect "1047: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1047b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1047) #18, !srcloc !117
+  call void asm sideeffect "1046: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1046b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1046) #19, !srcloc !115
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 6035, i32 2305, i64 12) #19, !srcloc !116
+  call void asm sideeffect "1047: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1047b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1047) #19, !srcloc !117
   br label %.thread8
 
 103:                                              ; preds = %90
@@ -9241,13 +9241,13 @@ define internal i32 @rtnl_stats_set(ptr noundef %0, ptr noundef %1, ptr noundef 
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call zeroext i1 @netlink_strict_get_check(ptr noundef %0) #18
+  %9 = tail call zeroext i1 @netlink_strict_get_check(ptr noundef %0) #19
   %10 = load i32, ptr %1, align 4
   %11 = icmp ult i32 %10, 28
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %3
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_stats_req.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_stats_req.__msg) #19
   %13 = icmp eq ptr %2, null
   br i1 %13, label %.thread, label %31
 
@@ -9273,12 +9273,12 @@ define internal i32 @rtnl_stats_set(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %26, label %29, label %33
 
 27:                                               ; preds = %19, %15
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_stats_req.__msg.53) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_stats_req.__msg.53) #19
   %28 = icmp eq ptr %2, null
   br i1 %28, label %.thread, label %31
 
 29:                                               ; preds = %23
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_stats_req.__msg.54) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_valid_stats_req.__msg.54) #19
   %30 = icmp eq ptr %2, null
   br i1 %30, label %.thread, label %31
 
@@ -9294,7 +9294,7 @@ define internal i32 @rtnl_stats_set(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %36, label %40, label %37
 
 37:                                               ; preds = %33
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_stats_set.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_stats_set.__msg) #19
   %38 = icmp eq ptr %2, null
   br i1 %38, label %.thread, label %39
 
@@ -9309,7 +9309,7 @@ define internal i32 @rtnl_stats_set(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %43, label %.thread, label %44
 
 44:                                               ; preds = %40
-  %45 = tail call ptr @__dev_get_by_index(ptr noundef %8, i32 noundef %42) #18
+  %45 = tail call ptr @__dev_get_by_index(ptr noundef %8, i32 noundef %42) #19
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.thread, label %47
 
@@ -9320,7 +9320,7 @@ define internal i32 @rtnl_stats_set(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %50, label %54, label %51
 
 51:                                               ; preds = %47
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_stats_set.__msg.56) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_stats_set.__msg.56) #19
   %52 = icmp eq ptr %2, null
   br i1 %52, label %.thread, label %53
 
@@ -9334,7 +9334,7 @@ define internal i32 @rtnl_stats_set(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %54
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #19
   %58 = icmp eq ptr %2, null
   br i1 %58, label %.thread, label %59
 
@@ -9346,7 +9346,7 @@ define internal i32 @rtnl_stats_set(ptr noundef %0, ptr noundef %1, ptr noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !47
   %61 = getelementptr i8, ptr %1, i64 28
   %62 = add i32 %55, -28
-  %63 = call i32 @__nla_parse(ptr noundef nonnull %4, i32 noundef 2, ptr noundef %61, i32 noundef %62, ptr noundef nonnull @ifla_stats_set_policy, i32 noundef 31, ptr noundef %2) #18
+  %63 = call i32 @__nla_parse(ptr noundef nonnull %4, i32 noundef 2, ptr noundef %61, i32 noundef %62, ptr noundef nonnull @ifla_stats_set_policy, i32 noundef 31, ptr noundef %2) #19
   %64 = icmp slt i32 %63, 0
   br i1 %64, label %.thread, label %65
 
@@ -9363,11 +9363,11 @@ define internal i32 @rtnl_stats_set(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %72, label %75, label %73
 
 73:                                               ; preds = %69
-  %74 = call i32 @netdev_offload_xstats_enable(ptr noundef nonnull %45, i32 noundef 1, ptr noundef %2) #18
+  %74 = call i32 @netdev_offload_xstats_enable(ptr noundef nonnull %45, i32 noundef 1, ptr noundef %2) #19
   br label %77
 
 75:                                               ; preds = %69
-  %76 = call i32 @netdev_offload_xstats_disable(ptr noundef nonnull %45, i32 noundef 1) #18
+  %76 = call i32 @netdev_offload_xstats_disable(ptr noundef nonnull %45, i32 noundef 1) #19
   br label %77
 
 77:                                               ; preds = %75, %73
@@ -9403,7 +9403,7 @@ define internal i32 @rtnl_mdb_get(ptr noundef readonly captures(none) %0, ptr no
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %3
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #19
   %12 = icmp eq ptr %2, null
   br i1 %12, label %.thread, label %13
 
@@ -9415,7 +9415,7 @@ define internal i32 @rtnl_mdb_get(ptr noundef readonly captures(none) %0, ptr no
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !47
   %15 = getelementptr i8, ptr %1, i64 24
   %16 = add i32 %9, -24
-  %17 = call i32 @__nla_parse(ptr noundef nonnull %4, i32 noundef 2, ptr noundef %15, i32 noundef %16, ptr noundef nonnull @mdba_get_policy, i32 noundef 31, ptr noundef %2) #18
+  %17 = call i32 @__nla_parse(ptr noundef nonnull %4, i32 noundef 2, ptr noundef %15, i32 noundef %16, ptr noundef nonnull @mdba_get_policy, i32 noundef 31, ptr noundef %2) #19
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %.thread
 
@@ -9426,7 +9426,7 @@ define internal i32 @rtnl_mdb_get(ptr noundef readonly captures(none) %0, ptr no
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %19
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_get.__msg) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_get.__msg) #19
   %24 = icmp eq ptr %2, null
   br i1 %24, label %.thread, label %25
 
@@ -9435,12 +9435,12 @@ define internal i32 @rtnl_mdb_get(ptr noundef readonly captures(none) %0, ptr no
   br label %.thread
 
 26:                                               ; preds = %19
-  %27 = call ptr @__dev_get_by_index(ptr noundef %8, i32 noundef %21) #18
+  %27 = call ptr @__dev_get_by_index(ptr noundef %8, i32 noundef %21) #19
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %26
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_get.__msg.58) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_get.__msg.58) #19
   %30 = icmp eq ptr %2, null
   br i1 %30, label %.thread, label %31
 
@@ -9463,7 +9463,7 @@ define internal i32 @rtnl_mdb_get(ptr noundef readonly captures(none) %0, ptr no
   store ptr null, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i16 1, ptr %40, align 8
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_get.__msg.59) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_get.__msg.59) #19
   store ptr @rtnl_mdb_get.__msg.59, ptr %2, align 8
   br label %.thread
 
@@ -9476,7 +9476,7 @@ define internal i32 @rtnl_mdb_get(ptr noundef readonly captures(none) %0, ptr no
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %41
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_get.__msg.60) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_get.__msg.60) #19
   %48 = icmp eq ptr %2, null
   br i1 %48, label %.thread, label %49
 
@@ -9489,11 +9489,11 @@ define internal i32 @rtnl_mdb_get(ptr noundef readonly captures(none) %0, ptr no
   %52 = load i32, ptr %51, align 4
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load i32, ptr %53, align 4
-  %55 = call i32 %45(ptr noundef nonnull %27, ptr noundef nonnull %4, i32 noundef %52, i32 noundef %54, ptr noundef %2) #18
+  %55 = call i32 %45(ptr noundef nonnull %27, ptr noundef nonnull %4, i32 noundef %52, i32 noundef %54, ptr noundef %2) #19
   br label %.thread
 
 56:                                               ; preds = %36
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_get.__msg.59) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_get.__msg.59) #19
   br label %.thread
 
 .thread:                                          ; preds = %11, %13, %56, %50, %49, %47, %38, %31, %29, %25, %23, %14
@@ -9524,7 +9524,7 @@ define internal i32 @rtnl_mdb_dump(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %11
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_valid_dump_req.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_valid_dump_req.__msg) #19
   %19 = icmp eq ptr %15, null
   br i1 %19, label %.thread, label %30
 
@@ -9535,7 +9535,7 @@ define internal i32 @rtnl_mdb_dump(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %20
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_valid_dump_req.__msg.66) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_valid_dump_req.__msg.66) #19
   %25 = icmp eq ptr %15, null
   br i1 %25, label %.thread, label %30
 
@@ -9544,7 +9544,7 @@ define internal i32 @rtnl_mdb_dump(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %27, label %32, label %28
 
 28:                                               ; preds = %26
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_valid_dump_req.__msg.67) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_valid_dump_req.__msg.67) #19
   %29 = icmp eq ptr %15, null
   br i1 %29, label %.thread, label %30
 
@@ -9582,7 +9582,7 @@ define internal i32 @rtnl_mdb_dump(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %51, label %56, label %52
 
 52:                                               ; preds = %46
-  %53 = tail call i32 %50(ptr noundef %44, ptr noundef %0, ptr noundef %1) #18
+  %53 = tail call i32 %50(ptr noundef %44, ptr noundef %0, ptr noundef %1) #19
   %54 = icmp eq i32 %53, -90
   br i1 %54, label %60, label %55
 
@@ -9628,7 +9628,7 @@ define internal i32 @rtnl_mdb_add(ptr noundef readonly captures(none) %0, ptr no
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %3
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #19
   %12 = icmp eq ptr %2, null
   br i1 %12, label %.thread, label %13
 
@@ -9640,7 +9640,7 @@ define internal i32 @rtnl_mdb_add(ptr noundef readonly captures(none) %0, ptr no
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !47
   %15 = getelementptr i8, ptr %1, i64 24
   %16 = add i32 %9, -24
-  %17 = call i32 @__nla_parse(ptr noundef nonnull %4, i32 noundef 2, ptr noundef %15, i32 noundef %16, ptr noundef nonnull @mdba_policy, i32 noundef 0, ptr noundef %2) #18
+  %17 = call i32 @__nla_parse(ptr noundef nonnull %4, i32 noundef 2, ptr noundef %15, i32 noundef %16, ptr noundef nonnull @mdba_policy, i32 noundef 0, ptr noundef %2) #19
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %.thread
 
@@ -9651,7 +9651,7 @@ define internal i32 @rtnl_mdb_add(ptr noundef readonly captures(none) %0, ptr no
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %19
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_add.__msg) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_add.__msg) #19
   %24 = icmp eq ptr %2, null
   br i1 %24, label %.thread, label %25
 
@@ -9660,12 +9660,12 @@ define internal i32 @rtnl_mdb_add(ptr noundef readonly captures(none) %0, ptr no
   br label %.thread
 
 26:                                               ; preds = %19
-  %27 = call ptr @__dev_get_by_index(ptr noundef %8, i32 noundef %21) #18
+  %27 = call ptr @__dev_get_by_index(ptr noundef %8, i32 noundef %21) #19
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %26
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_add.__msg.68) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_add.__msg.68) #19
   %30 = icmp eq ptr %2, null
   br i1 %30, label %.thread, label %31
 
@@ -9688,7 +9688,7 @@ define internal i32 @rtnl_mdb_add(ptr noundef readonly captures(none) %0, ptr no
   store ptr null, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i16 1, ptr %40, align 8
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_add.__msg.69) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_add.__msg.69) #19
   store ptr @rtnl_mdb_add.__msg.69, ptr %2, align 8
   br label %.thread
 
@@ -9701,7 +9701,7 @@ define internal i32 @rtnl_mdb_add(ptr noundef readonly captures(none) %0, ptr no
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %41
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_add.__msg.70) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_add.__msg.70) #19
   %48 = icmp eq ptr %2, null
   br i1 %48, label %.thread, label %49
 
@@ -9712,11 +9712,11 @@ define internal i32 @rtnl_mdb_add(ptr noundef readonly captures(none) %0, ptr no
 50:                                               ; preds = %41
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %52 = load i16, ptr %51, align 2
-  %53 = call i32 %45(ptr noundef nonnull %27, ptr noundef nonnull %4, i16 noundef zeroext %52, ptr noundef %2) #18
+  %53 = call i32 %45(ptr noundef nonnull %27, ptr noundef nonnull %4, i16 noundef zeroext %52, ptr noundef %2) #19
   br label %.thread
 
 54:                                               ; preds = %36
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_add.__msg.69) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_add.__msg.69) #19
   br label %.thread
 
 .thread:                                          ; preds = %11, %13, %54, %50, %49, %47, %38, %31, %29, %25, %23, %14
@@ -9746,7 +9746,7 @@ define internal i32 @rtnl_mdb_del(ptr noundef readonly captures(none) %0, ptr no
   br i1 %14, label %16, label %19
 
 16:                                               ; preds = %15
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #19
   %17 = icmp eq ptr %2, null
   br i1 %17, label %.thread, label %18
 
@@ -9757,14 +9757,14 @@ define internal i32 @rtnl_mdb_del(ptr noundef readonly captures(none) %0, ptr no
 19:                                               ; preds = %15
   %20 = getelementptr i8, ptr %1, i64 24
   %21 = add i32 %13, -24
-  %22 = call i32 @__nla_parse(ptr noundef nonnull %4, i32 noundef 2, ptr noundef %20, i32 noundef %21, ptr noundef nonnull @mdba_policy, i32 noundef 0, ptr noundef %2) #18
+  %22 = call i32 @__nla_parse(ptr noundef nonnull %4, i32 noundef 2, ptr noundef %20, i32 noundef %21, ptr noundef nonnull @mdba_policy, i32 noundef 0, ptr noundef %2) #19
   br label %31
 
 23:                                               ; preds = %3
   br i1 %14, label %24, label %27
 
 24:                                               ; preds = %23
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #19
   %25 = icmp eq ptr %2, null
   br i1 %25, label %.thread, label %26
 
@@ -9775,7 +9775,7 @@ define internal i32 @rtnl_mdb_del(ptr noundef readonly captures(none) %0, ptr no
 27:                                               ; preds = %23
   %28 = getelementptr i8, ptr %1, i64 24
   %29 = add i32 %13, -24
-  %30 = call i32 @__nla_parse(ptr noundef nonnull %4, i32 noundef 2, ptr noundef %28, i32 noundef %29, ptr noundef nonnull @mdba_del_bulk_policy, i32 noundef 31, ptr noundef %2) #18
+  %30 = call i32 @__nla_parse(ptr noundef nonnull %4, i32 noundef 2, ptr noundef %28, i32 noundef %29, ptr noundef nonnull @mdba_del_bulk_policy, i32 noundef 31, ptr noundef %2) #19
   br label %31
 
 31:                                               ; preds = %27, %19
@@ -9790,7 +9790,7 @@ define internal i32 @rtnl_mdb_del(ptr noundef readonly captures(none) %0, ptr no
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %34
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_del.__msg) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_del.__msg) #19
   %39 = icmp eq ptr %2, null
   br i1 %39, label %.thread, label %40
 
@@ -9799,12 +9799,12 @@ define internal i32 @rtnl_mdb_del(ptr noundef readonly captures(none) %0, ptr no
   br label %.thread
 
 41:                                               ; preds = %34
-  %42 = call ptr @__dev_get_by_index(ptr noundef %12, i32 noundef %36) #18
+  %42 = call ptr @__dev_get_by_index(ptr noundef %12, i32 noundef %36) #19
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %41
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_del.__msg.80) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_del.__msg.80) #19
   %45 = icmp eq ptr %2, null
   br i1 %45, label %.thread, label %46
 
@@ -9827,7 +9827,7 @@ define internal i32 @rtnl_mdb_del(ptr noundef readonly captures(none) %0, ptr no
   store ptr null, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i16 1, ptr %55, align 8
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_del.__msg.81) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_del.__msg.81) #19
   store ptr @rtnl_mdb_del.__msg.81, ptr %2, align 8
   br label %.thread
 
@@ -9843,7 +9843,7 @@ define internal i32 @rtnl_mdb_del(ptr noundef readonly captures(none) %0, ptr no
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %59
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_del.__msg.82) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_del.__msg.82) #19
   %64 = icmp eq ptr %2, null
   br i1 %64, label %.thread, label %65
 
@@ -9852,7 +9852,7 @@ define internal i32 @rtnl_mdb_del(ptr noundef readonly captures(none) %0, ptr no
   br label %.thread
 
 66:                                               ; preds = %59
-  %67 = call i32 %61(ptr noundef nonnull %42, ptr noundef nonnull %4, ptr noundef %2) #18
+  %67 = call i32 %61(ptr noundef nonnull %42, ptr noundef nonnull %4, ptr noundef %2) #19
   br label %.thread
 
 68:                                               ; preds = %56
@@ -9862,7 +9862,7 @@ define internal i32 @rtnl_mdb_del(ptr noundef readonly captures(none) %0, ptr no
   br i1 %71, label %72, label %75
 
 72:                                               ; preds = %68
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_del.__msg.83) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_del.__msg.83) #19
   %73 = icmp eq ptr %2, null
   br i1 %73, label %.thread, label %74
 
@@ -9871,11 +9871,11 @@ define internal i32 @rtnl_mdb_del(ptr noundef readonly captures(none) %0, ptr no
   br label %.thread
 
 75:                                               ; preds = %68
-  %76 = call i32 %70(ptr noundef nonnull %42, ptr noundef nonnull %4, ptr noundef %2) #18
+  %76 = call i32 %70(ptr noundef nonnull %42, ptr noundef nonnull %4, ptr noundef %2) #19
   br label %.thread
 
 77:                                               ; preds = %51
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_del.__msg.81) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_mdb_del.__msg.81) #19
   br label %.thread
 
 .thread:                                          ; preds = %24, %26, %16, %18, %77, %75, %74, %72, %66, %65, %63, %53, %46, %44, %40, %38, %31
@@ -9962,8 +9962,8 @@ declare dso_local void @__rcu_read_unlock() local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @put_master_ifindex(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
-  tail call void @__rcu_read_lock() #18
-  %4 = tail call ptr @netdev_master_upper_dev_get_rcu(ptr noundef %1) #18
+  tail call void @__rcu_read_lock() #19
+  %4 = tail call ptr @netdev_master_upper_dev_get_rcu(ptr noundef %1) #19
   %5 = icmp eq ptr %4, null
   br i1 %5, label %10, label %6
 
@@ -9972,13 +9972,13 @@ define internal fastcc i32 @put_master_ifindex(ptr noundef %0, ptr noundef %1) u
   %8 = load i32, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %8, ptr %3, align 4
-  %9 = call i32 @nla_put(ptr noundef %0, i32 noundef 10, i32 noundef 4, ptr noundef nonnull %3) #18
+  %9 = call i32 @nla_put(ptr noundef %0, i32 noundef 10, i32 noundef 4, ptr noundef nonnull %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %10
 
 10:                                               ; preds = %6, %2
   %11 = phi i32 [ %9, %6 ], [ 0, %2 ]
-  call void @__rcu_read_unlock() #18
+  call void @__rcu_read_unlock() #19
   ret i32 %11
 }
 
@@ -9987,15 +9987,15 @@ define internal fastcc i32 @nla_put_ifalias(ptr noundef %0, ptr noundef %1) unna
   %3 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 0, i64 256, i1 false), !annotation !47
-  %4 = call i32 @dev_get_alias(ptr noundef %1, ptr noundef nonnull %3, i64 noundef 256) #18
+  %4 = call i32 @dev_get_alias(ptr noundef %1, ptr noundef nonnull %3, i64 noundef 256) #19
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
-  %7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #18
+  %7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #19
   %8 = trunc i64 %7 to i32
   %9 = add i32 %8, 1
-  %10 = call i32 @nla_put(ptr noundef %0, i32 noundef 20, i32 noundef %9, ptr noundef nonnull %3) #18
+  %10 = call i32 @nla_put(ptr noundef %0, i32 noundef 20, i32 noundef %9, ptr noundef nonnull %3) #19
   br label %11
 
 11:                                               ; preds = %6, %2
@@ -10012,7 +10012,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_proto_down(ptr n
   %6 = load i8, ptr %5, align 8, !range !90, !noundef !96
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %6, ptr %4, align 1
-  %7 = call i32 @nla_put(ptr noundef %0, i32 noundef 39, i32 noundef 1, ptr noundef nonnull %4) #18
+  %7 = call i32 @nla_put(ptr noundef %0, i32 noundef 39, i32 noundef 1, ptr noundef nonnull %4) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %47
@@ -10030,7 +10030,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_proto_down(ptr n
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
   %19 = getelementptr i8, ptr %15, i64 %18
-  %20 = call i32 @nla_put(ptr noundef %0, i32 noundef 32823, i32 noundef 0, ptr noundef null) #18
+  %20 = call i32 @nla_put(ptr noundef %0, i32 noundef 32823, i32 noundef 0, ptr noundef null) #19
   %21 = icmp slt i32 %20, 0
   %22 = icmp eq ptr %19, null
   %23 = select i1 %21, i1 true, i1 %22
@@ -10039,7 +10039,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_proto_down(ptr n
 24:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %11, ptr %3, align 4
-  %25 = call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef 4, ptr noundef nonnull %3) #18
+  %25 = call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef 4, ptr noundef nonnull %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %38, label %27
@@ -10051,9 +10051,9 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_proto_down(ptr n
   br i1 %30, label %31, label %32, !prof !13
 
 31:                                               ; preds = %27
-  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
-  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
+  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
+  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
   %.pre = load ptr, ptr %28, align 8
   br label %32
 
@@ -10063,7 +10063,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_proto_down(ptr n
   %35 = ptrtoint ptr %33 to i64
   %36 = sub i64 %34, %35
   %37 = trunc i64 %36 to i32
-  call void @skb_trim(ptr noundef %0, i32 noundef %37) #18
+  call void @skb_trim(ptr noundef %0, i32 noundef %37) #19
   br label %47
 
 38:                                               ; preds = %24
@@ -10113,7 +10113,7 @@ define internal fastcc range(i32 -90, 1) i32 @rtnl_fill_link_ifmap(ptr noundef %
   %21 = load i8, ptr %20, align 2
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 27
   store i8 %21, ptr %22, align 1
-  %23 = call i32 @nla_put_64bit(ptr noundef %0, i32 noundef 14, i32 noundef 32, ptr noundef nonnull %3, i32 noundef 42) #18
+  %23 = call i32 @nla_put_64bit(ptr noundef %0, i32 noundef 14, i32 noundef 32, ptr noundef nonnull %3, i32 noundef 42) #19
   %24 = icmp eq i32 %23, 0
   %25 = select i1 %24, i32 0, i32 -90
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -10125,7 +10125,7 @@ define internal fastcc range(i32 -94, -95) i32 @rtnl_phys_port_id_fill(ptr nound
   %3 = alloca %struct.netdev_phys_item_id, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %3, i8 0, i64 33, i1 false), !annotation !47
-  %4 = call i32 @dev_get_phys_port_id(ptr noundef %1, ptr noundef nonnull %3) #18
+  %4 = call i32 @dev_get_phys_port_id(ptr noundef %1, ptr noundef nonnull %3) #19
   switch i32 %4, label %5 [
     i32 0, label %6
     i32 -95, label %13
@@ -10138,7 +10138,7 @@ define internal fastcc range(i32 -94, -95) i32 @rtnl_phys_port_id_fill(ptr nound
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
-  %10 = call i32 @nla_put(ptr noundef %0, i32 noundef 34, i32 noundef %9, ptr noundef nonnull %3) #18
+  %10 = call i32 @nla_put(ptr noundef %0, i32 noundef 34, i32 noundef %9, ptr noundef nonnull %3) #19
   %11 = icmp eq i32 %10, 0
   %12 = select i1 %11, i32 0, i32 -90
   br label %13
@@ -10154,7 +10154,7 @@ define internal fastcc range(i32 -94, -95) i32 @rtnl_phys_port_name_fill(ptr nou
   %3 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !47
-  %4 = call i32 @dev_get_phys_port_name(ptr noundef %1, ptr noundef nonnull %3, i64 noundef 16) #18
+  %4 = call i32 @dev_get_phys_port_name(ptr noundef %1, ptr noundef nonnull %3, i64 noundef 16) #19
   switch i32 %4, label %5 [
     i32 0, label %6
     i32 -95, label %13
@@ -10164,10 +10164,10 @@ define internal fastcc range(i32 -94, -95) i32 @rtnl_phys_port_name_fill(ptr nou
   br label %13
 
 6:                                                ; preds = %2
-  %7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #18
+  %7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #19
   %8 = trunc i64 %7 to i32
   %9 = add i32 %8, 1
-  %10 = call i32 @nla_put(ptr noundef %0, i32 noundef 38, i32 noundef %9, ptr noundef nonnull %3) #18
+  %10 = call i32 @nla_put(ptr noundef %0, i32 noundef 38, i32 noundef %9, ptr noundef nonnull %3) #19
   %11 = icmp eq i32 %10, 0
   %12 = select i1 %11, i32 0, i32 -90
   br label %13
@@ -10183,7 +10183,7 @@ define internal fastcc range(i32 -94, -95) i32 @rtnl_phys_switch_id_fill(ptr nou
   %3 = alloca %struct.netdev_phys_item_id, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %3, i8 0, i64 33, i1 false)
-  %4 = call i32 @dev_get_port_parent_id(ptr noundef %1, ptr noundef nonnull %3, i1 noundef zeroext false) #18
+  %4 = call i32 @dev_get_port_parent_id(ptr noundef %1, ptr noundef nonnull %3, i1 noundef zeroext false) #19
   switch i32 %4, label %5 [
     i32 0, label %6
     i32 -95, label %13
@@ -10196,7 +10196,7 @@ define internal fastcc range(i32 -94, -95) i32 @rtnl_phys_switch_id_fill(ptr nou
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
-  %10 = call i32 @nla_put(ptr noundef %0, i32 noundef 36, i32 noundef %9, ptr noundef nonnull %3) #18
+  %10 = call i32 @nla_put(ptr noundef %0, i32 noundef 36, i32 noundef %9, ptr noundef nonnull %3) #19
   %11 = icmp eq i32 %10, 0
   %12 = select i1 %11, i32 0, i32 -90
   br label %13
@@ -10209,14 +10209,14 @@ define internal fastcc range(i32 -94, -95) i32 @rtnl_phys_switch_id_fill(ptr nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_stats(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
-  %3 = tail call ptr @nla_reserve_64bit(ptr noundef %0, i32 noundef 23, i32 noundef 200, i32 noundef 42) #18
+  %3 = tail call ptr @nla_reserve_64bit(ptr noundef %0, i32 noundef 23, i32 noundef 200, i32 noundef 42) #19
   %4 = icmp eq ptr %3, null
   br i1 %4, label %106, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %3, i64 4
-  %7 = tail call ptr @dev_get_stats(ptr noundef %1, ptr noundef %6) #18
-  %8 = tail call ptr @nla_reserve(ptr noundef %0, i32 noundef 7, i32 noundef 96) #18
+  %7 = tail call ptr @dev_get_stats(ptr noundef %1, ptr noundef %6) #19
+  %8 = tail call ptr @nla_reserve(ptr noundef %0, i32 noundef 7, i32 noundef 96) #19
   %9 = icmp eq ptr %8, null
   br i1 %9, label %106, label %10
 
@@ -10393,14 +10393,14 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_vf(ptr noundef %
   br i1 %40, label %43, label %41
 
 41:                                               ; preds = %37
-  %42 = tail call i32 %39(ptr noundef nonnull %28) #18
+  %42 = tail call i32 %39(ptr noundef nonnull %28) #19
   br label %43
 
 43:                                               ; preds = %41, %37, %33
   %44 = phi i32 [ %42, %41 ], [ 0, %37 ], [ 0, %33 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i32 %44, ptr %26, align 4
-  %45 = call i32 @nla_put(ptr noundef %0, i32 noundef 21, i32 noundef 4, ptr noundef nonnull %26) #18
+  %45 = call i32 @nla_put(ptr noundef %0, i32 noundef 21, i32 noundef 4, ptr noundef nonnull %26) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %289
@@ -10420,7 +10420,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_vf(ptr noundef %
   %57 = load i32, ptr %56, align 8
   %58 = zext i32 %57 to i64
   %59 = getelementptr i8, ptr %55, i64 %58
-  %60 = call i32 @nla_put(ptr noundef %0, i32 noundef 22, i32 noundef 0, ptr noundef null) #18
+  %60 = call i32 @nla_put(ptr noundef %0, i32 noundef 22, i32 noundef 0, ptr noundef null) #19
   %61 = icmp slt i32 %60, 0
   %62 = icmp eq ptr %59, null
   %63 = select i1 %61, i1 true, i1 %62
@@ -10520,7 +10520,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_vf(ptr noundef %
   %105 = load ptr, ptr %48, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 272
   %107 = load ptr, ptr %106, align 8
-  %108 = call i32 %107(ptr noundef %1, i32 noundef %104, ptr noundef nonnull %23) #18
+  %108 = call i32 %107(ptr noundef %1, i32 noundef %104, ptr noundef nonnull %23) #19
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %110, label %100
 
@@ -10569,54 +10569,54 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_vf(ptr noundef %
   %124 = load i32, ptr %56, align 8
   %125 = zext i32 %124 to i64
   %126 = getelementptr i8, ptr %123, i64 %125
-  %127 = call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef 0, ptr noundef null) #18
+  %127 = call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef 0, ptr noundef null) #19
   %128 = icmp slt i32 %127, 0
   %129 = icmp eq ptr %126, null
   %130 = select i1 %128, i1 true, i1 %129
   br i1 %130, label %.loopexit, label %131
 
 131:                                              ; preds = %110
-  %132 = call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef 36, ptr noundef nonnull %21) #18
+  %132 = call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef 36, ptr noundef nonnull %21) #19
   %133 = icmp eq i32 %132, 0
   br i1 %133, label %134, label %.loopexit5
 
 134:                                              ; preds = %131
-  %135 = call i32 @nla_put(ptr noundef %0, i32 noundef 13, i32 noundef 32, ptr noundef nonnull %22) #18
+  %135 = call i32 @nla_put(ptr noundef %0, i32 noundef 13, i32 noundef 32, ptr noundef nonnull %22) #19
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %137, label %.loopexit5
 
 137:                                              ; preds = %134
-  %138 = call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef 12, ptr noundef nonnull %19) #18
+  %138 = call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef 12, ptr noundef nonnull %19) #19
   %139 = icmp eq i32 %138, 0
   br i1 %139, label %140, label %.loopexit5
 
 140:                                              ; preds = %137
-  %141 = call i32 @nla_put(ptr noundef %0, i32 noundef 6, i32 noundef 12, ptr noundef nonnull %20) #18
+  %141 = call i32 @nla_put(ptr noundef %0, i32 noundef 6, i32 noundef 12, ptr noundef nonnull %20) #19
   %142 = icmp eq i32 %141, 0
   br i1 %142, label %143, label %.loopexit5
 
 143:                                              ; preds = %140
-  %144 = call i32 @nla_put(ptr noundef %0, i32 noundef 3, i32 noundef 8, ptr noundef nonnull %16) #18
+  %144 = call i32 @nla_put(ptr noundef %0, i32 noundef 3, i32 noundef 8, ptr noundef nonnull %16) #19
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %146, label %.loopexit5
 
 146:                                              ; preds = %143
-  %147 = call i32 @nla_put(ptr noundef %0, i32 noundef 4, i32 noundef 8, ptr noundef nonnull %15) #18
+  %147 = call i32 @nla_put(ptr noundef %0, i32 noundef 4, i32 noundef 8, ptr noundef nonnull %15) #19
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %149, label %.loopexit5
 
 149:                                              ; preds = %146
-  %150 = call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef 8, ptr noundef nonnull %13) #18
+  %150 = call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef 8, ptr noundef nonnull %13) #19
   %151 = icmp eq i32 %150, 0
   br i1 %151, label %152, label %.loopexit5
 
 152:                                              ; preds = %149
-  %153 = call i32 @nla_put(ptr noundef %0, i32 noundef 7, i32 noundef 8, ptr noundef nonnull %12) #18
+  %153 = call i32 @nla_put(ptr noundef %0, i32 noundef 7, i32 noundef 8, ptr noundef nonnull %12) #19
   %154 = icmp eq i32 %153, 0
   br i1 %154, label %155, label %.loopexit5
 
 155:                                              ; preds = %152
-  %156 = call i32 @nla_put(ptr noundef %0, i32 noundef 9, i32 noundef 8, ptr noundef nonnull %18) #18
+  %156 = call i32 @nla_put(ptr noundef %0, i32 noundef 9, i32 noundef 8, ptr noundef nonnull %18) #19
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %158, label %.loopexit5
 
@@ -10628,17 +10628,17 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_vf(ptr noundef %
   br i1 %162, label %172, label %163
 
 163:                                              ; preds = %158
-  %164 = call i32 %161(ptr noundef %1, i32 noundef %104, ptr noundef nonnull %24, ptr noundef nonnull %25) #18
+  %164 = call i32 %161(ptr noundef %1, i32 noundef %104, ptr noundef nonnull %24, ptr noundef nonnull %25) #19
   %165 = icmp eq i32 %164, 0
   br i1 %165, label %166, label %172
 
 166:                                              ; preds = %163
-  %167 = call i32 @nla_put(ptr noundef %0, i32 noundef 10, i32 noundef 16, ptr noundef nonnull %24) #18
+  %167 = call i32 @nla_put(ptr noundef %0, i32 noundef 10, i32 noundef 16, ptr noundef nonnull %24) #19
   %168 = icmp eq i32 %167, 0
   br i1 %168, label %169, label %.loopexit5
 
 169:                                              ; preds = %166
-  %170 = call i32 @nla_put(ptr noundef %0, i32 noundef 11, i32 noundef 16, ptr noundef nonnull %25) #18
+  %170 = call i32 @nla_put(ptr noundef %0, i32 noundef 11, i32 noundef 16, ptr noundef nonnull %25) #19
   %171 = icmp eq i32 %170, 0
   br i1 %171, label %172, label %.loopexit5
 
@@ -10647,14 +10647,14 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_vf(ptr noundef %
   %174 = load i32, ptr %56, align 8
   %175 = zext i32 %174 to i64
   %176 = getelementptr i8, ptr %173, i64 %175
-  %177 = call i32 @nla_put(ptr noundef %0, i32 noundef 12, i32 noundef 0, ptr noundef null) #18
+  %177 = call i32 @nla_put(ptr noundef %0, i32 noundef 12, i32 noundef 0, ptr noundef null) #19
   %178 = icmp slt i32 %177, 0
   %179 = icmp eq ptr %176, null
   %180 = select i1 %178, i1 true, i1 %179
   br i1 %180, label %.loopexit5, label %181
 
 181:                                              ; preds = %172
-  %182 = call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef 16, ptr noundef nonnull %14) #18
+  %182 = call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef 16, ptr noundef nonnull %14) #19
   %183 = icmp eq i32 %182, 0
   br i1 %183, label %184, label %259
 
@@ -10679,7 +10679,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_vf(ptr noundef %
   br i1 %197, label %200, label %198
 
 198:                                              ; preds = %193
-  %199 = call i32 %196(ptr noundef %1, i32 noundef %104, ptr noundef nonnull %17) #18
+  %199 = call i32 %196(ptr noundef %1, i32 noundef %104, ptr noundef nonnull %17) #19
   br label %200
 
 200:                                              ; preds = %198, %193
@@ -10687,7 +10687,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_vf(ptr noundef %
   %202 = load i32, ptr %56, align 8
   %203 = zext i32 %202 to i64
   %204 = getelementptr i8, ptr %201, i64 %203
-  %205 = call i32 @nla_put(ptr noundef %0, i32 noundef 8, i32 noundef 0, ptr noundef null) #18
+  %205 = call i32 @nla_put(ptr noundef %0, i32 noundef 8, i32 noundef 0, ptr noundef null) #19
   %206 = icmp slt i32 %205, 0
   %207 = icmp eq ptr %204, null
   %208 = select i1 %206, i1 true, i1 %207
@@ -10697,7 +10697,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_vf(ptr noundef %
   %210 = load i64, ptr %17, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 %210, ptr %11, align 8
-  %211 = call i32 @nla_put_64bit(ptr noundef %0, i32 noundef 0, i32 noundef 8, ptr noundef nonnull %11, i32 noundef 6) #18
+  %211 = call i32 @nla_put_64bit(ptr noundef %0, i32 noundef 0, i32 noundef 8, ptr noundef nonnull %11, i32 noundef 6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %212 = icmp eq i32 %211, 0
   br i1 %212, label %213, label %259
@@ -10706,7 +10706,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_vf(ptr noundef %
   %214 = load i64, ptr %93, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 %214, ptr %10, align 8
-  %215 = call i32 @nla_put_64bit(ptr noundef %0, i32 noundef 1, i32 noundef 8, ptr noundef nonnull %10, i32 noundef 6) #18
+  %215 = call i32 @nla_put_64bit(ptr noundef %0, i32 noundef 1, i32 noundef 8, ptr noundef nonnull %10, i32 noundef 6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %216 = icmp eq i32 %215, 0
   br i1 %216, label %217, label %259
@@ -10715,7 +10715,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_vf(ptr noundef %
   %218 = load i64, ptr %94, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %218, ptr %9, align 8
-  %219 = call i32 @nla_put_64bit(ptr noundef %0, i32 noundef 2, i32 noundef 8, ptr noundef nonnull %9, i32 noundef 6) #18
+  %219 = call i32 @nla_put_64bit(ptr noundef %0, i32 noundef 2, i32 noundef 8, ptr noundef nonnull %9, i32 noundef 6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %220 = icmp eq i32 %219, 0
   br i1 %220, label %221, label %259
@@ -10724,7 +10724,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_vf(ptr noundef %
   %222 = load i64, ptr %95, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %222, ptr %8, align 8
-  %223 = call i32 @nla_put_64bit(ptr noundef %0, i32 noundef 3, i32 noundef 8, ptr noundef nonnull %8, i32 noundef 6) #18
+  %223 = call i32 @nla_put_64bit(ptr noundef %0, i32 noundef 3, i32 noundef 8, ptr noundef nonnull %8, i32 noundef 6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %224 = icmp eq i32 %223, 0
   br i1 %224, label %225, label %259
@@ -10733,7 +10733,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_vf(ptr noundef %
   %226 = load i64, ptr %96, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %226, ptr %7, align 8
-  %227 = call i32 @nla_put_64bit(ptr noundef %0, i32 noundef 4, i32 noundef 8, ptr noundef nonnull %7, i32 noundef 6) #18
+  %227 = call i32 @nla_put_64bit(ptr noundef %0, i32 noundef 4, i32 noundef 8, ptr noundef nonnull %7, i32 noundef 6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %228 = icmp eq i32 %227, 0
   br i1 %228, label %229, label %259
@@ -10742,7 +10742,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_vf(ptr noundef %
   %230 = load i64, ptr %97, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %230, ptr %6, align 8
-  %231 = call i32 @nla_put_64bit(ptr noundef %0, i32 noundef 5, i32 noundef 8, ptr noundef nonnull %6, i32 noundef 6) #18
+  %231 = call i32 @nla_put_64bit(ptr noundef %0, i32 noundef 5, i32 noundef 8, ptr noundef nonnull %6, i32 noundef 6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %232 = icmp eq i32 %231, 0
   br i1 %232, label %233, label %259
@@ -10751,7 +10751,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_vf(ptr noundef %
   %234 = load i64, ptr %98, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %234, ptr %5, align 8
-  %235 = call i32 @nla_put_64bit(ptr noundef %0, i32 noundef 7, i32 noundef 8, ptr noundef nonnull %5, i32 noundef 6) #18
+  %235 = call i32 @nla_put_64bit(ptr noundef %0, i32 noundef 7, i32 noundef 8, ptr noundef nonnull %5, i32 noundef 6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %236 = icmp eq i32 %235, 0
   br i1 %236, label %237, label %259
@@ -10760,7 +10760,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_vf(ptr noundef %
   %238 = load i64, ptr %99, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %238, ptr %4, align 8
-  %239 = call i32 @nla_put_64bit(ptr noundef %0, i32 noundef 8, i32 noundef 8, ptr noundef nonnull %4, i32 noundef 6) #18
+  %239 = call i32 @nla_put_64bit(ptr noundef %0, i32 noundef 8, i32 noundef 8, ptr noundef nonnull %4, i32 noundef 6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %240 = icmp eq i32 %239, 0
   br i1 %240, label %241, label %259
@@ -10801,9 +10801,9 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_vf(ptr noundef %
   br i1 %263, label %264, label %265, !prof !13
 
 264:                                              ; preds = %.loopexit5
-  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
-  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
+  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
+  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
   %.pre.i = load ptr, ptr %261, align 8
   br label %265
 
@@ -10813,7 +10813,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_vf(ptr noundef %
   %268 = ptrtoint ptr %266 to i64
   %269 = sub i64 %267, %268
   %270 = trunc i64 %269 to i32
-  call void @skb_trim(ptr noundef %0, i32 noundef %270) #18
+  call void @skb_trim(ptr noundef %0, i32 noundef %270) #19
   br label %.loopexit
 
 .loopexit:                                        ; preds = %110, %265
@@ -10837,9 +10837,9 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_vf(ptr noundef %
   br i1 %273, label %274, label %275, !prof !13
 
 274:                                              ; preds = %.loopexit
-  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
-  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
+  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
+  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
   %.pre = load ptr, ptr %271, align 8
   br label %275
 
@@ -10849,7 +10849,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_vf(ptr noundef %
   %278 = ptrtoint ptr %276 to i64
   %279 = sub i64 %277, %278
   %280 = trunc i64 %279 to i32
-  call void @skb_trim(ptr noundef %0, i32 noundef %280) #18
+  call void @skb_trim(ptr noundef %0, i32 noundef %280) #19
   br label %289
 
 .loopexit6:                                       ; preds = %100, %64
@@ -10895,7 +10895,7 @@ define internal fastcc range(i32 -90, 1) i32 @rtnl_port_fill(ptr noundef %0, ptr
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
   %23 = getelementptr i8, ptr %19, i64 %22
-  %24 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 25, i32 noundef 0, ptr noundef null) #18
+  %24 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 25, i32 noundef 0, ptr noundef null) #19
   %25 = icmp slt i32 %24, 0
   %26 = icmp eq ptr %23, null
   %27 = select i1 %25, i1 true, i1 %26
@@ -10905,7 +10905,7 @@ define internal fastcc range(i32 -90, 1) i32 @rtnl_port_fill(ptr noundef %0, ptr
   %29 = load ptr, ptr %5, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 304
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 %31(ptr noundef %1, i32 noundef -1, ptr noundef %0) #18
+  %32 = tail call i32 %31(ptr noundef %1, i32 noundef -1, ptr noundef %0) #19
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %46, label %34
 
@@ -10916,9 +10916,9 @@ define internal fastcc range(i32 -90, 1) i32 @rtnl_port_fill(ptr noundef %0, ptr
   br i1 %37, label %38, label %39, !prof !13
 
 38:                                               ; preds = %34
-  tail call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
-  tail call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
+  tail call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
+  tail call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
   %.pre = load ptr, ptr %35, align 8
   br label %39
 
@@ -10928,7 +10928,7 @@ define internal fastcc range(i32 -90, 1) i32 @rtnl_port_fill(ptr noundef %0, ptr
   %42 = ptrtoint ptr %40 to i64
   %43 = sub i64 %41, %42
   %44 = trunc i64 %43 to i32
-  tail call void @skb_trim(ptr noundef %0, i32 noundef %44) #18
+  tail call void @skb_trim(ptr noundef %0, i32 noundef %44) #19
   %45 = icmp eq i32 %32, -90
   br i1 %45, label %select.unfold, label %55
 
@@ -10958,7 +10958,7 @@ define internal fastcc range(i32 -90, 1) i32 @rtnl_port_fill(ptr noundef %0, ptr
   br i1 %63, label %select.unfold, label %64
 
 64:                                               ; preds = %60
-  %65 = tail call i32 %62(ptr noundef %56) #18
+  %65 = tail call i32 %62(ptr noundef %56) #19
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %select.unfold, label %67
 
@@ -10967,7 +10967,7 @@ define internal fastcc range(i32 -90, 1) i32 @rtnl_port_fill(ptr noundef %0, ptr
   %69 = load i32, ptr %20, align 8
   %70 = zext i32 %69 to i64
   %71 = getelementptr i8, ptr %68, i64 %70
-  %72 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 24, i32 noundef 0, ptr noundef null) #18
+  %72 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 24, i32 noundef 0, ptr noundef null) #19
   %73 = icmp slt i32 %72, 0
   %74 = icmp eq ptr %71, null
   %75 = select i1 %73, i1 true, i1 %74
@@ -10998,7 +10998,7 @@ define internal fastcc range(i32 -90, 1) i32 @rtnl_port_fill(ptr noundef %0, ptr
   br label %.loopexit
 
 92:                                               ; preds = %.lr.ph
-  %93 = call i32 %86(ptr noundef %83) #18
+  %93 = call i32 %86(ptr noundef %83) #19
   %94 = icmp slt i32 %84, %93
   %95 = load ptr, ptr %18, align 8
   %96 = load i32, ptr %20, align 8
@@ -11007,7 +11007,7 @@ define internal fastcc range(i32 -90, 1) i32 @rtnl_port_fill(ptr noundef %0, ptr
   br i1 %94, label %99, label %.loopexit
 
 99:                                               ; preds = %92
-  %100 = call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef 0, ptr noundef null) #18
+  %100 = call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef 0, ptr noundef null) #19
   %101 = icmp slt i32 %100, 0
   %102 = icmp eq ptr %98, null
   %103 = select i1 %101, i1 true, i1 %102
@@ -11016,7 +11016,7 @@ define internal fastcc range(i32 -90, 1) i32 @rtnl_port_fill(ptr noundef %0, ptr
 104:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %84, ptr %4, align 4
-  %105 = call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %4) #18
+  %105 = call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %4) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %137
@@ -11025,7 +11025,7 @@ define internal fastcc range(i32 -90, 1) i32 @rtnl_port_fill(ptr noundef %0, ptr
   %108 = load ptr, ptr %5, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 304
   %110 = load ptr, ptr %109, align 8
-  %111 = call i32 %110(ptr noundef %1, i32 noundef %84, ptr noundef %0) #18
+  %111 = call i32 %110(ptr noundef %1, i32 noundef %84, ptr noundef %0) #19
   switch i32 %111, label %112 [
     i32 -90, label %137
     i32 0, label %122
@@ -11037,9 +11037,9 @@ define internal fastcc range(i32 -90, 1) i32 @rtnl_port_fill(ptr noundef %0, ptr
   br i1 %114, label %115, label %116, !prof !13
 
 115:                                              ; preds = %112
-  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
-  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
+  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
+  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
   %.pre14 = load ptr, ptr %77, align 8
   br label %116
 
@@ -11049,7 +11049,7 @@ define internal fastcc range(i32 -90, 1) i32 @rtnl_port_fill(ptr noundef %0, ptr
   %119 = ptrtoint ptr %117 to i64
   %120 = sub i64 %118, %119
   %121 = trunc i64 %120 to i32
-  call void @skb_trim(ptr noundef %0, i32 noundef %121) #18
+  call void @skb_trim(ptr noundef %0, i32 noundef %121) #19
   br label %131
 
 122:                                              ; preds = %107
@@ -11078,9 +11078,9 @@ define internal fastcc range(i32 -90, 1) i32 @rtnl_port_fill(ptr noundef %0, ptr
   br i1 %139, label %140, label %141, !prof !13
 
 140:                                              ; preds = %137
-  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
-  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
+  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
+  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
   %.pre15 = load ptr, ptr %77, align 8
   br label %141
 
@@ -11090,7 +11090,7 @@ define internal fastcc range(i32 -90, 1) i32 @rtnl_port_fill(ptr noundef %0, ptr
   %144 = ptrtoint ptr %142 to i64
   %145 = sub i64 %143, %144
   %146 = trunc i64 %145 to i32
-  call void @skb_trim(ptr noundef %0, i32 noundef %146) #18
+  call void @skb_trim(ptr noundef %0, i32 noundef %146) #19
   br label %select.unfold
 
 .loopexit:                                        ; preds = %92, %.thread
@@ -11120,26 +11120,26 @@ define internal fastcc i32 @rtnl_xdp_fill(ptr noundef %0, ptr noundef %1) unname
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = getelementptr i8, ptr %9, i64 %12
-  %14 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 43, i32 noundef 0, ptr noundef null) #18
+  %14 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 43, i32 noundef 0, ptr noundef null) #19
   %15 = icmp slt i32 %14, 0
   %16 = icmp eq ptr %13, null
   %17 = select i1 %15, i1 true, i1 %16
   br i1 %17, label %84, label %18
 
 18:                                               ; preds = %2
-  %19 = tail call zeroext i1 @mutex_is_locked(ptr noundef nonnull @rtnl_mutex) #18
+  %19 = tail call zeroext i1 @mutex_is_locked(ptr noundef nonnull @rtnl_mutex) #19
   %20 = load i1, ptr @rtnl_xdp_prog_skb.__already_done, align 1
   %21 = select i1 %19, i1 true, i1 %20
   br i1 %21, label %23, label %22, !prof !5
 
 22:                                               ; preds = %18
   store i1 true, ptr @rtnl_xdp_prog_skb.__already_done, align 1
-  tail call void asm sideeffect "995: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 995b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 995) #18, !srcloc !123
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 1481) #18
-  tail call void asm sideeffect "996: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 996b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 996) #18, !srcloc !124
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1481, i32 2313, i64 12) #18, !srcloc !125
-  tail call void asm sideeffect "997: nop\0A\09.pushsection .discard.instr_end\0A\09.long 997b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 997) #18, !srcloc !126
-  tail call void asm sideeffect "998: nop\0A\09.pushsection .discard.instr_end\0A\09.long 998b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 998) #18, !srcloc !127
+  tail call void asm sideeffect "995: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 995b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 995) #19, !srcloc !123
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 1481) #19
+  tail call void asm sideeffect "996: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 996b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 996) #19, !srcloc !124
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1481, i32 2313, i64 12) #19, !srcloc !125
+  tail call void asm sideeffect "997: nop\0A\09.pushsection .discard.instr_end\0A\09.long 997b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 997) #19, !srcloc !126
+  tail call void asm sideeffect "998: nop\0A\09.pushsection .discard.instr_end\0A\09.long 998b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 998) #19, !srcloc !127
   br label %23
 
 23:                                               ; preds = %22, %18
@@ -11159,7 +11159,7 @@ define internal fastcc i32 @rtnl_xdp_fill(ptr noundef %0, ptr noundef %1) unname
 33:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %31, ptr %7, align 4
-  %34 = call i32 @nla_put(ptr noundef %0, i32 noundef 6, i32 noundef 4, ptr noundef nonnull %7) #18
+  %34 = call i32 @nla_put(ptr noundef %0, i32 noundef 6, i32 noundef 4, ptr noundef nonnull %7) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.thread13, label %72
@@ -11168,14 +11168,14 @@ define internal fastcc i32 @rtnl_xdp_fill(ptr noundef %0, ptr noundef %1) unname
   %36 = phi i8 [ 4, %33 ], [ 1, %27 ], [ 1, %23 ]
   %37 = phi i8 [ 2, %33 ], [ 0, %27 ], [ 0, %23 ]
   %38 = phi i32 [ %31, %33 ], [ 0, %27 ], [ 0, %23 ]
-  %39 = call i32 @dev_xdp_prog_id(ptr noundef %1, i32 noundef 1) #18
+  %39 = call i32 @dev_xdp_prog_id(ptr noundef %1, i32 noundef 1) #19
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %44, label %41
 
 41:                                               ; preds = %.thread13
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %39, ptr %6, align 4
-  %42 = call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef 4, ptr noundef nonnull %6) #18
+  %42 = call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef 4, ptr noundef nonnull %6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %72
@@ -11183,14 +11183,14 @@ define internal fastcc i32 @rtnl_xdp_fill(ptr noundef %0, ptr noundef %1) unname
 44:                                               ; preds = %41, %.thread13
   %.ph = phi i32 [ %38, %.thread13 ], [ %39, %41 ]
   %.ph15 = phi i8 [ %37, %.thread13 ], [ %36, %41 ]
-  %45 = call i32 @dev_xdp_prog_id(ptr noundef %1, i32 noundef 2) #18
+  %45 = call i32 @dev_xdp_prog_id(ptr noundef %1, i32 noundef 2) #19
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %53, label %47
 
 47:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %45, ptr %5, align 4
-  %48 = call i32 @nla_put(ptr noundef %0, i32 noundef 7, i32 noundef 4, ptr noundef nonnull %5) #18
+  %48 = call i32 @nla_put(ptr noundef %0, i32 noundef 7, i32 noundef 4, ptr noundef nonnull %5) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %72
@@ -11205,7 +11205,7 @@ define internal fastcc i32 @rtnl_xdp_fill(ptr noundef %0, ptr noundef %1) unname
   %.ph19 = phi i8 [ %52, %50 ], [ %.ph15, %44 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %.ph19, ptr %4, align 1
-  %54 = call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4) #18
+  %54 = call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %72
@@ -11219,7 +11219,7 @@ define internal fastcc i32 @rtnl_xdp_fill(ptr noundef %0, ptr noundef %1) unname
 60:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.ph18, ptr %3, align 4
-  %61 = call i32 @nla_put(ptr noundef %0, i32 noundef 4, i32 noundef 4, ptr noundef nonnull %3) #18
+  %61 = call i32 @nla_put(ptr noundef %0, i32 noundef 4, i32 noundef 4, ptr noundef nonnull %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %72
@@ -11244,9 +11244,9 @@ define internal fastcc i32 @rtnl_xdp_fill(ptr noundef %0, ptr noundef %1) unname
   br i1 %76, label %77, label %78, !prof !13
 
 77:                                               ; preds = %72
-  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
-  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
+  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
+  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
   %.pre = load ptr, ptr %74, align 8
   br label %78
 
@@ -11256,7 +11256,7 @@ define internal fastcc i32 @rtnl_xdp_fill(ptr noundef %0, ptr noundef %1) unname
   %81 = ptrtoint ptr %79 to i64
   %82 = sub i64 %80, %81
   %83 = trunc i64 %82 to i32
-  call void @skb_trim(ptr noundef %0, i32 noundef %83) #18
+  call void @skb_trim(ptr noundef %0, i32 noundef %83) #19
   br label %84
 
 84:                                               ; preds = %78, %63, %2
@@ -11266,8 +11266,8 @@ define internal fastcc i32 @rtnl_xdp_fill(ptr noundef %0, ptr noundef %1) unname
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc zeroext i1 @rtnl_have_link_slave_info(ptr noundef %0) unnamed_addr #0 align 16 {
-  tail call void @__rcu_read_lock() #18
-  %2 = tail call ptr @netdev_master_upper_dev_get_rcu(ptr noundef %0) #18
+  tail call void @__rcu_read_lock() #19
+  %2 = tail call ptr @netdev_master_upper_dev_get_rcu(ptr noundef %0) #19
   %3 = icmp eq ptr %2, null
   br i1 %3, label %8, label %4
 
@@ -11279,7 +11279,7 @@ define internal fastcc zeroext i1 @rtnl_have_link_slave_info(ptr noundef %0) unn
 
 8:                                                ; preds = %4, %1
   %9 = phi i1 [ false, %1 ], [ %7, %4 ]
-  tail call void @__rcu_read_unlock() #18
+  tail call void @__rcu_read_unlock() #19
   ret i1 %9
 }
 
@@ -11291,7 +11291,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_link_fill(ptr noundef
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
   %8 = getelementptr i8, ptr %4, i64 %7
-  %9 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 18, i32 noundef 0, ptr noundef null) #18
+  %9 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 18, i32 noundef 0, ptr noundef null) #19
   %10 = icmp slt i32 %9, 0
   %11 = icmp eq ptr %8, null
   %12 = select i1 %10, i1 true, i1 %11
@@ -11306,10 +11306,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_link_fill(ptr noundef
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i64 @strlen(ptr noundef %19) #18
+  %20 = tail call i64 @strlen(ptr noundef %19) #19
   %21 = trunc i64 %20 to i32
   %22 = add i32 %21, 1
-  %23 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef %22, ptr noundef %19) #18
+  %23 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef %22, ptr noundef %19) #19
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %.thread, label %25
 
@@ -11320,7 +11320,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_link_fill(ptr noundef
   br i1 %28, label %32, label %29
 
 29:                                               ; preds = %25
-  %30 = tail call i32 %27(ptr noundef %0, ptr noundef %1) #18
+  %30 = tail call i32 %27(ptr noundef %0, ptr noundef %1) #19
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %.thread, label %32
 
@@ -11335,7 +11335,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_link_fill(ptr noundef
   %38 = load i32, ptr %5, align 8
   %39 = zext i32 %38 to i64
   %40 = getelementptr i8, ptr %37, i64 %39
-  %41 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef 0, ptr noundef null) #18
+  %41 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef 0, ptr noundef null) #19
   %42 = icmp slt i32 %41, 0
   %43 = icmp eq ptr %40, null
   %44 = select i1 %42, i1 true, i1 %43
@@ -11343,7 +11343,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_link_fill(ptr noundef
 
 45:                                               ; preds = %36
   %46 = load ptr, ptr %33, align 8
-  %47 = tail call i32 %46(ptr noundef %0, ptr noundef %1) #18
+  %47 = tail call i32 %46(ptr noundef %0, ptr noundef %1) #19
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %58, label %49
 
@@ -11366,14 +11366,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_link_fill(ptr noundef
   br i1 %61, label %62, label %.thread.sink.split, !prof !13
 
 62:                                               ; preds = %58
-  tail call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
-  tail call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
+  tail call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
+  tail call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
   %.pre = load ptr, ptr %59, align 8
   br label %.thread.sink.split
 
 63:                                               ; preds = %13, %32, %49
-  %64 = tail call ptr @netdev_master_upper_dev_get(ptr noundef %1) #18
+  %64 = tail call ptr @netdev_master_upper_dev_get(ptr noundef %1) #19
   %65 = icmp eq ptr %64, null
   br i1 %65, label %109, label %66
 
@@ -11386,10 +11386,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_link_fill(ptr noundef
 70:                                               ; preds = %66
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %72 = load ptr, ptr %71, align 8
-  %73 = tail call i64 @strlen(ptr noundef %72) #18
+  %73 = tail call i64 @strlen(ptr noundef %72) #19
   %74 = trunc i64 %73 to i32
   %75 = add i32 %74, 1
-  %76 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 4, i32 noundef %75, ptr noundef %72) #18
+  %76 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 4, i32 noundef %75, ptr noundef %72) #19
   %77 = icmp slt i32 %76, 0
   br i1 %77, label %.thread, label %78
 
@@ -11404,7 +11404,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_link_fill(ptr noundef
   %84 = load i32, ptr %5, align 8
   %85 = zext i32 %84 to i64
   %86 = getelementptr i8, ptr %83, i64 %85
-  %87 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef 0, ptr noundef null) #18
+  %87 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef 0, ptr noundef null) #19
   %88 = icmp slt i32 %87, 0
   %89 = icmp eq ptr %86, null
   %90 = select i1 %88, i1 true, i1 %89
@@ -11412,7 +11412,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_link_fill(ptr noundef
 
 91:                                               ; preds = %82
   %92 = load ptr, ptr %79, align 8
-  %93 = tail call i32 %92(ptr noundef %0, ptr noundef nonnull %64, ptr noundef %1) #18
+  %93 = tail call i32 %92(ptr noundef %0, ptr noundef nonnull %64, ptr noundef %1) #19
   %94 = icmp slt i32 %93, 0
   br i1 %94, label %104, label %95
 
@@ -11435,9 +11435,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_link_fill(ptr noundef
   br i1 %107, label %108, label %.thread.sink.split, !prof !13
 
 108:                                              ; preds = %104
-  tail call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
-  tail call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
+  tail call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
+  tail call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
   %.pre14 = load ptr, ptr %105, align 8
   br label %.thread.sink.split
 
@@ -11461,7 +11461,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_link_fill(ptr noundef
   %119 = ptrtoint ptr %.sink30 to i64
   %120 = sub i64 %118, %119
   %121 = trunc i64 %120 to i32
-  tail call void @skb_trim(ptr noundef %0, i32 noundef %121) #18
+  tail call void @skb_trim(ptr noundef %0, i32 noundef %121) #19
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %36, %29, %17, %70, %82
@@ -11472,9 +11472,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_link_fill(ptr noundef
   br i1 %125, label %126, label %127, !prof !13
 
 126:                                              ; preds = %.thread
-  tail call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
-  tail call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
+  tail call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
+  tail call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
   %.pre15 = load ptr, ptr %123, align 8
   br label %127
 
@@ -11484,7 +11484,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_link_fill(ptr noundef
   %130 = ptrtoint ptr %128 to i64
   %131 = sub i64 %129, %130
   %132 = trunc i64 %131 to i32
-  tail call void @skb_trim(ptr noundef %0, i32 noundef %132) #18
+  tail call void @skb_trim(ptr noundef %0, i32 noundef %132) #19
   br label %133
 
 133:                                              ; preds = %127, %109, %2
@@ -11508,27 +11508,27 @@ define internal fastcc i32 @rtnl_fill_link_netnsid(ptr noundef %0, ptr noundef %
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %10
-  %15 = tail call ptr %12(ptr noundef %1) #18
+  %15 = tail call ptr %12(ptr noundef %1) #19
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, %15
   br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %14
-  %20 = tail call i32 @peernet2id_alloc(ptr noundef %2, ptr noundef %15, i32 noundef %3) #18
+  %20 = tail call i32 @peernet2id_alloc(ptr noundef %2, ptr noundef %15, i32 noundef %3) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %20, ptr %6, align 4
-  %21 = call i32 @nla_put(ptr noundef %0, i32 noundef 37, i32 noundef 4, ptr noundef nonnull %6) #18
+  %21 = call i32 @nla_put(ptr noundef %0, i32 noundef 37, i32 noundef 4, ptr noundef nonnull %6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %32
 
 23:                                               ; preds = %19
-  %24 = call i32 @dev_get_iflink(ptr noundef %1) #18
+  %24 = call i32 @dev_get_iflink(ptr noundef %1) #19
   br label %29
 
 .thread:                                          ; preds = %14, %10, %4
-  %25 = tail call i32 @dev_get_iflink(ptr noundef %1) #18
+  %25 = tail call i32 @dev_get_iflink(ptr noundef %1) #19
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, %25
@@ -11538,7 +11538,7 @@ define internal fastcc i32 @rtnl_fill_link_netnsid(ptr noundef %0, ptr noundef %
   %30 = phi i32 [ %25, %.thread ], [ %24, %23 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %30, ptr %5, align 4
-  %31 = call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef 4, ptr noundef nonnull %5) #18
+  %31 = call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef 4, ptr noundef nonnull %5) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %32
 
@@ -11558,7 +11558,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_link_af(ptr noun
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
-  %10 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 26, i32 noundef 0, ptr noundef null) #18
+  %10 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 26, i32 noundef 0, ptr noundef null) #19
   %11 = icmp slt i32 %10, 0
   %12 = icmp eq ptr %9, null
   %13 = select i1 %11, i1 true, i1 %12
@@ -11587,7 +11587,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_link_af(ptr noun
   %28 = load i32, ptr %6, align 8
   %29 = zext i32 %28 to i64
   %30 = getelementptr i8, ptr %27, i64 %29
-  %31 = tail call i32 @nla_put(ptr noundef %0, i32 noundef %26, i32 noundef 0, ptr noundef null) #18
+  %31 = tail call i32 @nla_put(ptr noundef %0, i32 noundef %26, i32 noundef 0, ptr noundef null) #19
   %32 = icmp slt i32 %31, 0
   %33 = icmp eq ptr %30, null
   %34 = select i1 %32, i1 true, i1 %33
@@ -11595,7 +11595,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_link_af(ptr noun
 
 35:                                               ; preds = %24
   %36 = load ptr, ptr %21, align 8
-  %37 = tail call i32 %36(ptr noundef %0, ptr noundef %1, i32 noundef %2) #18
+  %37 = tail call i32 %36(ptr noundef %0, ptr noundef %1, i32 noundef %2) #19
   %38 = icmp eq i32 %37, -61
   br i1 %38, label %39, label %49
 
@@ -11605,9 +11605,9 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_link_af(ptr noun
   br i1 %41, label %42, label %43, !prof !13
 
 42:                                               ; preds = %39
-  tail call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
-  tail call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
+  tail call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
+  tail call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
   %.pre = load ptr, ptr %18, align 8
   br label %43
 
@@ -11617,7 +11617,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_link_af(ptr noun
   %46 = ptrtoint ptr %44 to i64
   %47 = sub i64 %45, %46
   %48 = trunc i64 %47 to i32
-  tail call void @skb_trim(ptr noundef %0, i32 noundef %48) #18
+  tail call void @skb_trim(ptr noundef %0, i32 noundef %48) #19
   br label %51
 
 49:                                               ; preds = %35
@@ -11670,7 +11670,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_fill_prop_list(ptr no
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
   %8 = getelementptr i8, ptr %4, i64 %7
-  %9 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 32820, i32 noundef 0, ptr noundef null) #18
+  %9 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 32820, i32 noundef 0, ptr noundef null) #19
   %10 = icmp slt i32 %9, 0
   %11 = icmp eq ptr %8, null
   %12 = select i1 %10, i1 true, i1 %11
@@ -11689,10 +11689,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_fill_prop_list(ptr no
   %20 = phi i32 [ %29, %28 ], [ 0, %13 ]
   %21 = getelementptr i8, ptr %19, i64 24
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i64 @strlen(ptr noundef %22) #18
+  %23 = tail call i64 @strlen(ptr noundef %22) #19
   %24 = trunc i64 %23 to i32
   %25 = add i32 %24, 1
-  %26 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 53, i32 noundef %25, ptr noundef %22) #18
+  %26 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 53, i32 noundef %25, ptr noundef %22) #19
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %.thread
 
@@ -11728,9 +11728,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_fill_prop_list(ptr no
   br i1 %48, label %49, label %50, !prof !13
 
 49:                                               ; preds = %.thread
-  tail call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
-  tail call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
+  tail call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
+  tail call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
   %.pre = load ptr, ptr %46, align 8
   br label %50
 
@@ -11740,7 +11740,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_fill_prop_list(ptr no
   %53 = ptrtoint ptr %51 to i64
   %54 = sub i64 %52, %53
   %55 = trunc i64 %54 to i32
-  tail call void @skb_trim(ptr noundef %0, i32 noundef %55) #18
+  tail call void @skb_trim(ptr noundef %0, i32 noundef %55) #19
   br label %56
 
 56:                                               ; preds = %50, %36, %2
@@ -11756,7 +11756,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_devlink_port(ptr
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = getelementptr i8, ptr %3, i64 %6
-  %8 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 32830, i32 noundef 0, ptr noundef null) #18
+  %8 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 32830, i32 noundef 0, ptr noundef null) #19
   %9 = icmp slt i32 %8, 0
   %10 = icmp eq ptr %7, null
   %11 = select i1 %9, i1 true, i1 %10
@@ -11787,7 +11787,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_dpll_pin(ptr nou
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = getelementptr i8, ptr %3, i64 %6
-  %8 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 32833, i32 noundef 0, ptr noundef null) #18
+  %8 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 32833, i32 noundef 0, ptr noundef null) #19
   %9 = icmp slt i32 %8, 0
   %10 = icmp eq ptr %7, null
   %11 = select i1 %9, i1 true, i1 %10
@@ -11862,7 +11862,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @nlmsg_populate_fdb_fill(pt
   br i1 %20, label %.thread, label %21, !prof !13
 
 21:                                               ; preds = %14
-  %22 = tail call ptr @__nlmsg_put(ptr noundef %0, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef 12, i32 noundef %7) #18
+  %22 = tail call ptr @__nlmsg_put(ptr noundef %0, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef 12, i32 noundef %7) #19
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.thread, label %24
 
@@ -11886,7 +11886,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @nlmsg_populate_fdb_fill(pt
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 813
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
-  %37 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef %36, ptr noundef %2) #18
+  %37 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef %36, ptr noundef %2) #19
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %54
 
@@ -11895,7 +11895,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @nlmsg_populate_fdb_fill(pt
   br i1 %40, label %44, label %41
 
 41:                                               ; preds = %39
-  %42 = call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef 2, ptr noundef nonnull %10) #18
+  %42 = call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef 2, ptr noundef nonnull %10) #19
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %54
 
@@ -11919,9 +11919,9 @@ define internal fastcc noundef range(i32 -90, 1) i32 @nlmsg_populate_fdb_fill(pt
   br i1 %57, label %58, label %59, !prof !13
 
 58:                                               ; preds = %54
-  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
-  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
+  call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
+  call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
   %.pre = load ptr, ptr %55, align 8
   br label %59
 
@@ -11931,7 +11931,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @nlmsg_populate_fdb_fill(pt
   %62 = ptrtoint ptr %60 to i64
   %63 = sub i64 %61, %62
   %64 = trunc i64 %63 to i32
-  call void @skb_trim(ptr noundef %0, i32 noundef %64) #18
+  call void @skb_trim(ptr noundef %0, i32 noundef %64) #19
   br label %.thread
 
 .thread:                                          ; preds = %9, %14, %59, %44, %21
@@ -11966,7 +11966,7 @@ define internal noundef range(i32 -12, 1) i32 @rtnetlink_net_init(ptr noundef %0
   store ptr @rtnetlink_bind, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %8 = call ptr @__netlink_kernel_create(ptr noundef %0, i32 noundef 0, ptr noundef null, ptr noundef nonnull %2) #18
+  %8 = call ptr @__netlink_kernel_create(ptr noundef %0, i32 noundef 0, ptr noundef null, ptr noundef nonnull %2) #19
   %9 = icmp eq ptr %8, null
   br i1 %9, label %12, label %10
 
@@ -11985,14 +11985,14 @@ define internal noundef range(i32 -12, 1) i32 @rtnetlink_net_init(ptr noundef %0
 define internal void @rtnetlink_net_exit(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 16
-  tail call void @netlink_kernel_release(ptr noundef %3) #18
+  tail call void @netlink_kernel_release(ptr noundef %3) #19
   store ptr null, ptr %2, align 16
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @rtnetlink_rcv(ptr noundef %0) #0 align 16 {
-  %2 = tail call i32 @netlink_rcv_skb(ptr noundef %0, ptr noundef nonnull @rtnetlink_rcv_msg) #18
+  %2 = tail call i32 @netlink_rcv_skb(ptr noundef %0, ptr noundef nonnull @rtnetlink_rcv_msg) #19
   ret void
 }
 
@@ -12005,7 +12005,7 @@ define internal noundef range(i32 -1, 1) i32 @rtnetlink_bind(ptr noundef readonl
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 16
-  %8 = tail call zeroext i1 @ns_capable(ptr noundef %7, i32 noundef 12) #18
+  %8 = tail call zeroext i1 @ns_capable(ptr noundef %7, i32 noundef 12) #19
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5, %2
@@ -12048,15 +12048,15 @@ define internal i32 @rtnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %23, label %27, label %24
 
 24:                                               ; preds = %18
-  %25 = tail call zeroext i1 @netlink_net_capable(ptr noundef %0, i32 noundef 12) #18
+  %25 = tail call zeroext i1 @netlink_net_capable(ptr noundef %0, i32 noundef 12) #19
   br i1 %25, label %26, label %216
 
 26:                                               ; preds = %24
-  tail call void @__rcu_read_lock() #18
+  tail call void @__rcu_read_lock() #19
   br label %130
 
 27:                                               ; preds = %18
-  tail call void @__rcu_read_lock() #18
+  tail call void @__rcu_read_lock() #19
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %29 = load i16, ptr %28, align 2
   %30 = and i16 %29, 768
@@ -12135,7 +12135,7 @@ define internal i32 @rtnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %80, label %.thread, label %81
 
 .thread:                                          ; preds = %71
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #19
   br label %.thread18
 
 81:                                               ; preds = %71
@@ -12145,7 +12145,7 @@ define internal i32 @rtnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   %85 = getelementptr i8, ptr %19, i64 %84
   %86 = add i32 %75, -16
   %87 = sub i32 %86, %83
-  %88 = call i32 @__nla_parse(ptr noundef nonnull %4, i32 noundef 65, ptr noundef %85, i32 noundef %87, ptr noundef nonnull @ifla_policy, i32 noundef 0, ptr noundef null) #18
+  %88 = call i32 @__nla_parse(ptr noundef nonnull %4, i32 noundef 65, ptr noundef %85, i32 noundef %87, ptr noundef nonnull @ifla_policy, i32 noundef 0, ptr noundef null) #19
   %89 = icmp sgt i32 %88, -1
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 232
   %91 = load ptr, ptr %90, align 8
@@ -12160,7 +12160,7 @@ define internal i32 @rtnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %97, label %.thread18, label %98
 
 98:                                               ; preds = %94
-  call void @__rcu_read_lock() #18
+  call void @__rcu_read_lock() #19
   %99 = getelementptr inbounds nuw i8, ptr %74, i64 144
   %100 = load volatile ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, %99
@@ -12184,7 +12184,7 @@ define internal i32 @rtnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
 
 113:                                              ; preds = %109, %98
   %114 = phi i32 [ 16, %98 ], [ %112, %109 ]
-  call void @__rcu_read_unlock() #18
+  call void @__rcu_read_unlock() #19
   br label %.thread18
 
 .thread18:                                        ; preds = %.thread, %81, %113, %94
@@ -12194,8 +12194,8 @@ define internal i32 @rtnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
 
 116:                                              ; preds = %.thread18, %65
   %117 = phi i32 [ %115, %.thread18 ], [ 0, %65 ]
-  %118 = call zeroext i1 @try_module_get(ptr noundef %69) #18
-  call void @__rcu_read_unlock() #18
+  %118 = call zeroext i1 @try_module_get(ptr noundef %69) #19
+  call void @__rcu_read_unlock() #19
   br i1 %118, label %119, label %216
 
 119:                                              ; preds = %116
@@ -12219,8 +12219,8 @@ define internal i32 @rtnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   br label %128
 
 128:                                              ; preds = %127, %119
-  %129 = call i32 @__netlink_dump_start(ptr noundef %121, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5) #18
-  call void @module_put(ptr noundef %69) #18
+  %129 = call i32 @__netlink_dump_start(ptr noundef %121, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5) #19
+  call void @module_put(ptr noundef %69) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %216
 
@@ -12276,7 +12276,7 @@ define internal i32 @rtnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   %163 = phi i32 [ %21, %145 ], [ 0, %158 ]
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 16
   %165 = load ptr, ptr %164, align 8
-  %166 = tail call zeroext i1 @try_module_get(ptr noundef %165) #18
+  %166 = tail call zeroext i1 @try_module_get(ptr noundef %165) #19
   br i1 %166, label %167, label %214
 
 167:                                              ; preds = %161
@@ -12296,7 +12296,7 @@ define internal i32 @rtnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %178, label %179, label %183
 
 179:                                              ; preds = %171
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnetlink_rcv_msg.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnetlink_rcv_msg.__msg) #19
   %180 = icmp eq ptr %2, null
   br i1 %180, label %182, label %181
 
@@ -12305,7 +12305,7 @@ define internal i32 @rtnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   br label %182
 
 182:                                              ; preds = %181, %179
-  tail call void @module_put(ptr noundef %165) #18
+  tail call void @module_put(ptr noundef %165) #19
   br label %.thread20
 
 183:                                              ; preds = %171, %167
@@ -12315,22 +12315,22 @@ define internal i32 @rtnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
 
 186:                                              ; preds = %183
   %187 = load ptr, ptr %162, align 8
-  tail call void @__rcu_read_unlock() #18
+  tail call void @__rcu_read_unlock() #19
   %188 = icmp eq ptr %187, null
   br i1 %188, label %191, label %189
 
 189:                                              ; preds = %186
-  %190 = tail call i32 %187(ptr noundef %0, ptr noundef %1, ptr noundef %2) #18
+  %190 = tail call i32 %187(ptr noundef %0, ptr noundef %1, ptr noundef %2) #19
   br label %191
 
 191:                                              ; preds = %189, %186
   %192 = phi i32 [ %190, %189 ], [ -95, %186 ]
-  tail call void @module_put(ptr noundef %165) #18
+  tail call void @module_put(ptr noundef %165) #19
   br label %216
 
 193:                                              ; preds = %183
-  tail call void @__rcu_read_unlock() #18
-  tail call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #18
+  tail call void @__rcu_read_unlock() #19
+  tail call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #19
   %194 = icmp samesign ugt i32 %163, 129
   %195 = select i1 %194, i32 0, i32 %163
   %196 = zext nneg i32 %195 to i64
@@ -12356,22 +12356,22 @@ define internal i32 @rtnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %209, label %212, label %210
 
 210:                                              ; preds = %207
-  %211 = tail call i32 %208(ptr noundef %0, ptr noundef %1, ptr noundef %2) #18
+  %211 = tail call i32 %208(ptr noundef %0, ptr noundef %1, ptr noundef %2) #19
   br label %212
 
 212:                                              ; preds = %210, %207, %202
   %213 = phi i32 [ %211, %210 ], [ -95, %207 ], [ -95, %202 ]
-  tail call void @netdev_run_todo() #18
-  tail call void @module_put(ptr noundef %165) #18
+  tail call void @netdev_run_todo() #19
+  tail call void @module_put(ptr noundef %165) #19
   br label %216
 
 214:                                              ; preds = %161, %158, %153
   %215 = phi i32 [ -95, %158 ], [ -95, %153 ], [ -93, %161 ]
-  tail call void @__rcu_read_unlock() #18
+  tail call void @__rcu_read_unlock() #19
   br label %216
 
 .thread20:                                        ; preds = %56, %61, %182
-  tail call void @__rcu_read_unlock() #18
+  tail call void @__rcu_read_unlock() #19
   br label %216
 
 216:                                              ; preds = %116, %128, %.thread20, %214, %212, %191, %24, %13, %3
@@ -12454,7 +12454,7 @@ define internal noundef i32 @rtnetlink_event(ptr readnone captures(none) %0, i64
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 272
   %23 = load ptr, ptr %22, align 16
-  %24 = tail call i32 @nlmsg_notify(ptr noundef %23, ptr noundef nonnull %17, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 3264) #18
+  %24 = tail call i32 @nlmsg_notify(ptr noundef %23, ptr noundef nonnull %17, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 3264) #19
   br label %25
 
 25:                                               ; preds = %19, %16, %11, %3
@@ -12478,7 +12478,7 @@ define internal fastcc i32 @nlmsg_parse_deprecated_strict(ptr noundef %0, i32 no
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %6
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #19
   %11 = icmp eq ptr %5, null
   br i1 %11, label %21, label %12
 
@@ -12494,7 +12494,7 @@ define internal fastcc i32 @nlmsg_parse_deprecated_strict(ptr noundef %0, i32 no
   %18 = getelementptr i8, ptr %14, i64 %17
   %reass.sub = sub nuw i32 %7, %16
   %19 = add i32 %reass.sub, -16
-  %20 = tail call i32 @__nla_parse(ptr noundef %2, i32 noundef %3, ptr noundef %18, i32 noundef %19, ptr noundef %4, i32 noundef 3, ptr noundef %5) #18
+  %20 = tail call i32 @__nla_parse(ptr noundef %2, i32 noundef %3, ptr noundef %18, i32 noundef %19, ptr noundef %4, i32 noundef 3, ptr noundef %5) #19
   br label %21
 
 21:                                               ; preds = %13, %12, %10
@@ -12530,7 +12530,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %18, label %21, label %19
 
 19:                                               ; preds = %6
-  %20 = call i64 @nla_strscpy(ptr noundef nonnull %8, ptr noundef nonnull %17, i64 noundef 16) #18
+  %20 = call i64 @nla_strscpy(ptr noundef nonnull %8, ptr noundef nonnull %17, i64 noundef 16) #19
   br label %21
 
 21:                                               ; preds = %6, %19
@@ -12579,9 +12579,9 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
 
 51:                                               ; preds = %48, %44
   %52 = phi i32 [ %50, %48 ], [ 0, %44 ]
-  %53 = call i32 @__dev_change_net_namespace(ptr noundef %1, ptr noundef %39, ptr noundef %36, i32 noundef %52) #18
+  %53 = call i32 @__dev_change_net_namespace(ptr noundef %1, ptr noundef %39, ptr noundef %36, i32 noundef %52) #19
   %54 = getelementptr inbounds nuw i8, ptr %39, i64 140
-  %55 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %54, i32 -1, ptr nonnull elementtype(i32) %54) #18, !srcloc !52
+  %55 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %54, i32 -1, ptr nonnull elementtype(i32) %54) #19, !srcloc !52
   %56 = icmp eq i32 %55, 1
   br i1 %56, label %60, label %57
 
@@ -12590,12 +12590,12 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %58, label %.thread, label %59, !prof !5
 
 59:                                               ; preds = %57
-  call void @refcount_warn_saturate(ptr noundef nonnull %54, i32 noundef 3) #18
+  call void @refcount_warn_saturate(ptr noundef nonnull %54, i32 noundef 3) #19
   br label %.thread
 
 60:                                               ; preds = %51
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !53
-  call void @__put_net(ptr noundef %39) #18
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !53
+  call void @__put_net(ptr noundef %39) #19
   br label %.thread
 
 .thread:                                          ; preds = %57, %59, %60
@@ -12659,7 +12659,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %96 = load i8, ptr %95, align 1
   %97 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i8 %96, ptr %97, align 4
-  %98 = call i32 %71(ptr noundef %1, ptr noundef nonnull %9) #18
+  %98 = call i32 %71(ptr noundef %1, ptr noundef nonnull %9) #19
   %99 = icmp slt i32 %98, 0
   %100 = select i1 %99, i32 %65, i32 3
   %101 = icmp sgt i32 %98, -1
@@ -12679,7 +12679,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %110 = call i8 @llvm.umax.i8(i8 %109, i8 16)
   %111 = zext i8 %110 to i64
   %112 = add nuw nsw i64 %111, 2
-  %113 = call noalias align 8 ptr @__kmalloc(i64 noundef %112, i32 noundef 3264) #24
+  %113 = call noalias align 8 ptr @__kmalloc(i64 noundef %112, i32 noundef 3264) #25
   %114 = icmp eq ptr %113, null
   br i1 %114, label %.thread125, label %115
 
@@ -12693,8 +12693,8 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %121 = load i8, ptr %108, align 1
   %122 = zext i8 %121 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %118, ptr align 1 %120, i64 %122, i1 false)
-  %123 = call i32 @dev_set_mac_address_user(ptr noundef %1, ptr noundef nonnull %113, ptr noundef %3) #18
-  call void @kfree(ptr noundef nonnull %113) #18
+  %123 = call i32 @dev_set_mac_address_user(ptr noundef %1, ptr noundef nonnull %113, ptr noundef %3) #19
+  call void @kfree(ptr noundef nonnull %113) #19
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %125, label %.thread125
 
@@ -12712,7 +12712,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
 132:                                              ; preds = %127
   %133 = getelementptr i8, ptr %130, i64 4
   %134 = load i32, ptr %133, align 4
-  %135 = call i32 @dev_set_mtu_ext(ptr noundef %1, i32 noundef %134, ptr noundef %3) #18
+  %135 = call i32 @dev_set_mtu_ext(ptr noundef %1, i32 noundef %134, ptr noundef %3) #19
   %136 = icmp slt i32 %135, 0
   br i1 %136, label %.thread125, label %137
 
@@ -12730,7 +12730,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
 144:                                              ; preds = %139
   %145 = getelementptr i8, ptr %142, i64 4
   %146 = load i32, ptr %145, align 4
-  call void @dev_set_group(ptr noundef %1, i32 noundef %146) #18
+  call void @dev_set_group(ptr noundef %1, i32 noundef %146) #19
   br label %147
 
 147:                                              ; preds = %144, %139
@@ -12744,7 +12744,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %154, label %155, label %160
 
 155:                                              ; preds = %147
-  %156 = call i32 @dev_change_name(ptr noundef %1, ptr noundef nonnull %8) #18
+  %156 = call i32 @dev_change_name(ptr noundef %1, ptr noundef nonnull %8) #19
   %157 = icmp slt i32 %156, 0
   br i1 %157, label %.thread125, label %158
 
@@ -12764,7 +12764,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %167 = load i16, ptr %163, align 2
   %168 = add i16 %167, -4
   %169 = zext i16 %168 to i64
-  %170 = call i32 @dev_set_alias(ptr noundef %1, ptr noundef %166, i64 noundef %169) #18
+  %170 = call i32 @dev_set_alias(ptr noundef %1, ptr noundef %166, i64 noundef %169) #19
   %171 = icmp slt i32 %170, 0
   br i1 %171, label %.thread125, label %172
 
@@ -12780,8 +12780,8 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 813
   %180 = load i8, ptr %179, align 1
   %181 = zext i8 %180 to i32
-  %182 = call i32 @nla_memcpy(ptr noundef nonnull %178, ptr noundef nonnull %175, i32 noundef %181) #18
-  %183 = call i32 @call_netdevice_notifiers(i64 noundef 8, ptr noundef %1) #18
+  %182 = call i32 @nla_memcpy(ptr noundef nonnull %178, ptr noundef nonnull %175, i32 noundef %181) #19
+  %183 = call i32 @call_netdevice_notifiers(i64 noundef 8, ptr noundef %1) #19
   br label %184
 
 184:                                              ; preds = %177, %172
@@ -12816,7 +12816,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
 
 205:                                              ; preds = %.thread385, %192
   %206 = phi i32 [ %204, %.thread385 ], [ %186, %192 ]
-  %207 = call i32 @dev_change_flags(ptr noundef %1, i32 noundef %206, ptr noundef %3) #18
+  %207 = call i32 @dev_change_flags(ptr noundef %1, i32 noundef %206, ptr noundef %3) #19
   %208 = icmp slt i32 %207, 0
   br i1 %208, label %.thread125, label %209
 
@@ -12829,7 +12829,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
 213:                                              ; preds = %209
   %214 = getelementptr i8, ptr %211, i64 4
   %215 = load i32, ptr %214, align 4
-  %216 = call ptr @netdev_master_upper_dev_get(ptr noundef %1) #18
+  %216 = call ptr @netdev_master_upper_dev_get(ptr noundef %1) #19
   %217 = icmp eq ptr %216, null
   br i1 %217, label %231, label %218
 
@@ -12848,7 +12848,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %227, label %.thread125, label %228
 
 228:                                              ; preds = %222
-  %229 = call i32 %226(ptr noundef nonnull %216, ptr noundef %1) #18
+  %229 = call i32 %226(ptr noundef nonnull %216, ptr noundef %1) #19
   %230 = icmp eq i32 %229, 0
   br i1 %230, label %231, label %.thread125
 
@@ -12859,7 +12859,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
 233:                                              ; preds = %231
   %234 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %235 = load ptr, ptr %234, align 8
-  %236 = call ptr @__dev_get_by_index(ptr noundef %235, i32 noundef %215) #18
+  %236 = call ptr @__dev_get_by_index(ptr noundef %235, i32 noundef %215) #19
   %237 = icmp eq ptr %236, null
   br i1 %237, label %.thread125, label %238
 
@@ -12872,7 +12872,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %243, label %.thread125, label %244
 
 244:                                              ; preds = %238
-  %245 = call i32 %242(ptr noundef nonnull %236, ptr noundef %1, ptr noundef %3) #18
+  %245 = call i32 %242(ptr noundef nonnull %236, ptr noundef %1, ptr noundef %3) #19
   %246 = icmp eq i32 %245, 0
   br i1 %246, label %247, label %.thread125
 
@@ -12891,7 +12891,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %255 = getelementptr i8, ptr %252, i64 4
   %256 = load i8, ptr %255, align 1
   %257 = icmp ne i8 %256, 0
-  %258 = call i32 @dev_change_carrier(ptr noundef %1, i1 noundef zeroext %257) #18
+  %258 = call i32 @dev_change_carrier(ptr noundef %1, i1 noundef zeroext %257) #19
   %259 = icmp eq i32 %258, 0
   br i1 %259, label %260, label %.thread125
 
@@ -12910,7 +12910,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %268 = getelementptr i8, ptr %265, i64 4
   %269 = load i32, ptr %268, align 4
   %270 = zext i32 %269 to i64
-  %271 = call i32 @dev_change_tx_queue_len(ptr noundef %1, i64 noundef %270) #18
+  %271 = call i32 @dev_change_tx_queue_len(ptr noundef %1, i64 noundef %270) #19
   %272 = icmp eq i32 %271, 0
   %273 = zext i1 %272 to i32
   %274 = or i32 %263, %273
@@ -13058,13 +13058,13 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
 362:                                              ; preds = %358
   %363 = getelementptr i8, ptr %360, i64 4
   %364 = load i8, ptr %363, align 1
-  call void @_raw_write_lock(ptr noundef nonnull @dev_base_lock) #18
+  call void @_raw_write_lock(ptr noundef nonnull @dev_base_lock) #19
   %365 = getelementptr inbounds nuw i8, ptr %1, i64 777
   %366 = load i8, ptr %365, align 1
   %367 = icmp eq i8 %366, %364
   %368 = select i1 %367, i32 %351, i32 3
   store i8 %364, ptr %365, align 1
-  call void @_raw_write_unlock(ptr noundef nonnull @dev_base_lock) #18
+  call void @_raw_write_unlock(ptr noundef nonnull @dev_base_lock) #19
   br label %369
 
 369:                                              ; preds = %362, %358
@@ -13126,7 +13126,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
 407:                                              ; preds = %404
   %408 = getelementptr i8, ptr %393, i64 4
   %409 = zext i16 %405 to i32
-  %410 = call i32 @__nla_parse(ptr noundef nonnull %10, i32 noundef 13, ptr noundef %408, i32 noundef %409, ptr noundef nonnull @ifla_vf_policy, i32 noundef 0, ptr noundef null) #18
+  %410 = call i32 @__nla_parse(ptr noundef nonnull %10, i32 noundef 13, ptr noundef %408, i32 noundef %409, ptr noundef nonnull @ifla_vf_policy, i32 noundef 0, ptr noundef null) #19
   %411 = icmp slt i32 %410, 0
   br i1 %411, label %.thread169, label %412
 
@@ -13150,7 +13150,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
 
 424:                                              ; preds = %420
   %425 = getelementptr i8, ptr %414, i64 8
-  %426 = call i32 %422(ptr noundef %1, i32 noundef %418, ptr noundef %425) #18
+  %426 = call i32 %422(ptr noundef %1, i32 noundef %418, ptr noundef %425) #19
   %427 = icmp sgt i32 %426, -1
   br i1 %427, label %428, label %.thread166.thread
 
@@ -13179,7 +13179,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %444 = getelementptr i8, ptr %430, i64 12
   %445 = load i32, ptr %444, align 4
   %446 = trunc i32 %445 to i8
-  %447 = call i32 %438(ptr noundef %1, i32 noundef %434, i16 noundef zeroext %443, i8 noundef zeroext %446, i16 noundef zeroext 129) #18
+  %447 = call i32 %438(ptr noundef %1, i32 noundef %434, i16 noundef zeroext %443, i8 noundef zeroext %446, i16 noundef zeroext 129) #19
   %448 = icmp sgt i32 %447, -1
   br i1 %448, label %449, label %.thread390
 
@@ -13279,7 +13279,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %501 = trunc i32 %500 to i8
   %502 = getelementptr inbounds nuw i8, ptr %.lcssa203388, i64 12
   %503 = load i16, ptr %502, align 4
-  %504 = call i32 %455(ptr noundef %1, i32 noundef %491, i16 noundef zeroext %498, i8 noundef zeroext %501, i16 noundef zeroext %503) #18
+  %504 = call i32 %455(ptr noundef %1, i32 noundef %491, i16 noundef zeroext %498, i8 noundef zeroext %501, i16 noundef zeroext %503) #19
   %505 = icmp sgt i32 %504, -1
   br i1 %505, label %506, label %.thread390
 
@@ -13304,7 +13304,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %517, label %.thread148, label %518
 
 518:                                              ; preds = %514
-  %519 = call i32 %516(ptr noundef %1, i32 noundef %512, ptr noundef nonnull %7) #18
+  %519 = call i32 %516(ptr noundef %1, i32 noundef %512, ptr noundef nonnull %7) #19
   %520 = icmp slt i32 %519, 0
   br i1 %520, label %.thread148, label %521
 
@@ -13336,7 +13336,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.thread166
 
 534:                                              ; preds = %530
-  %535 = call i32 %528(ptr noundef %1, i32 noundef %522, i32 noundef %523, i32 noundef %525) #18
+  %535 = call i32 %528(ptr noundef %1, i32 noundef %522, i32 noundef %523, i32 noundef %525) #19
   %536 = icmp sgt i32 %535, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %536, label %537, label %.thread390
@@ -13371,7 +13371,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %557, label %.thread166, label %558
 
 558:                                              ; preds = %554
-  %559 = call i32 %552(ptr noundef %1, i32 noundef %543, i32 noundef %547, i32 noundef %549) #18
+  %559 = call i32 %552(ptr noundef %1, i32 noundef %543, i32 noundef %547, i32 noundef %549) #19
   %560 = icmp sgt i32 %559, -1
   br i1 %560, label %561, label %.thread390
 
@@ -13397,7 +13397,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %574 = getelementptr i8, ptr %563, i64 8
   %575 = load i32, ptr %574, align 4
   %576 = icmp ne i32 %575, 0
-  %577 = call i32 %571(ptr noundef %1, i32 noundef %567, i1 noundef zeroext %576) #18
+  %577 = call i32 %571(ptr noundef %1, i32 noundef %567, i1 noundef zeroext %576) #19
   %578 = icmp sgt i32 %577, -1
   br i1 %578, label %579, label %.thread390
 
@@ -13422,7 +13422,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
 591:                                              ; preds = %587
   %592 = getelementptr i8, ptr %581, i64 8
   %593 = load i32, ptr %592, align 4
-  %594 = call i32 %589(ptr noundef %1, i32 noundef %585, i32 noundef %593) #18
+  %594 = call i32 %589(ptr noundef %1, i32 noundef %585, i32 noundef %593) #19
   %595 = icmp sgt i32 %594, -1
   br i1 %595, label %596, label %.thread390
 
@@ -13448,7 +13448,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %609 = getelementptr i8, ptr %598, i64 8
   %610 = load i32, ptr %609, align 4
   %611 = icmp ne i32 %610, 0
-  %612 = call i32 %606(ptr noundef %1, i32 noundef %602, i1 noundef zeroext %611) #18
+  %612 = call i32 %606(ptr noundef %1, i32 noundef %602, i1 noundef zeroext %611) #19
   %613 = icmp sgt i32 %612, -1
   br i1 %613, label %614, label %.thread390
 
@@ -13474,7 +13474,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %627 = getelementptr i8, ptr %616, i64 8
   %628 = load i32, ptr %627, align 4
   %629 = icmp ne i32 %628, 0
-  %630 = call i32 %624(ptr noundef %1, i32 noundef %620, i1 noundef zeroext %629) #18
+  %630 = call i32 %624(ptr noundef %1, i32 noundef %620, i1 noundef zeroext %629) #19
   %631 = icmp sgt i32 %630, -1
   br i1 %631, label %632, label %.thread390
 
@@ -13507,7 +13507,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %650 = load ptr, ptr %649, align 8
   %651 = getelementptr i8, ptr %634, i64 12
   %652 = load i64, ptr %651, align 8
-  %653 = call i32 %650(ptr noundef %1, i32 noundef %638, i64 noundef %652, i32 noundef 10) #18
+  %653 = call i32 %650(ptr noundef %1, i32 noundef %638, i64 noundef %652, i32 noundef 10) #19
   br label %675
 
 654:                                              ; preds = %632
@@ -13538,7 +13538,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %671 = load ptr, ptr %670, align 8
   %672 = getelementptr i8, ptr %655, i64 12
   %673 = load i64, ptr %672, align 8
-  %674 = call i32 %671(ptr noundef %1, i32 noundef %659, i64 noundef %673, i32 noundef 11) #18
+  %674 = call i32 %671(ptr noundef %1, i32 noundef %659, i64 noundef %673, i32 noundef 11) #19
   br label %675
 
 .thread166.thread:                                ; preds = %424, %416, %420, %432, %436, %453
@@ -13635,7 +13635,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
 718:                                              ; preds = %715
   %719 = getelementptr i8, ptr %704, i64 4
   %720 = zext i16 %716 to i32
-  %721 = call i32 @__nla_parse(ptr noundef nonnull %11, i32 noundef 7, ptr noundef %719, i32 noundef %720, ptr noundef nonnull @ifla_port_policy, i32 noundef 0, ptr noundef null) #18
+  %721 = call i32 @__nla_parse(ptr noundef nonnull %11, i32 noundef 7, ptr noundef %719, i32 noundef %720, ptr noundef nonnull @ifla_port_policy, i32 noundef 0, ptr noundef null) #19
   %722 = icmp slt i32 %721, 0
   br i1 %722, label %.critedge122.thread, label %723
 
@@ -13648,7 +13648,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %727 = getelementptr i8, ptr %724, i64 4
   %728 = load i32, ptr %727, align 4
   %729 = load ptr, ptr %694, align 8
-  %730 = call i32 %729(ptr noundef %1, i32 noundef %728, ptr noundef nonnull %11) #18
+  %730 = call i32 %729(ptr noundef %1, i32 noundef %728, ptr noundef nonnull %11) #19
   %731 = icmp slt i32 %730, 0
   br i1 %731, label %.critedge122.thread, label %732
 
@@ -13688,7 +13688,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %748 = load i16, ptr %744, align 2
   %749 = add i16 %748, -4
   %750 = zext i16 %749 to i32
-  %751 = call i32 @__nla_parse(ptr noundef nonnull %12, i32 noundef 7, ptr noundef %747, i32 noundef %750, ptr noundef nonnull @ifla_port_policy, i32 noundef 0, ptr noundef null) #18
+  %751 = call i32 @__nla_parse(ptr noundef nonnull %12, i32 noundef 7, ptr noundef %747, i32 noundef %750, ptr noundef nonnull @ifla_port_policy, i32 noundef 0, ptr noundef null) #19
   %752 = icmp slt i32 %751, 0
   br i1 %752, label %.thread177, label %753
 
@@ -13707,7 +13707,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.thread125
 
 757:                                              ; preds = %753
-  %758 = call i32 %755(ptr noundef %1, i32 noundef -1, ptr noundef nonnull %12) #18
+  %758 = call i32 %755(ptr noundef %1, i32 noundef -1, ptr noundef nonnull %12) #19
   %.fr = freeze i32 %758
   %759 = icmp slt i32 %.fr, 0
   %spec.select = select i1 %759, i32 %742, i32 3
@@ -13749,19 +13749,19 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %780 = load i16, ptr %779, align 2
   %781 = and i16 %780, 16383
   %782 = zext nneg i16 %781 to i32
-  %783 = call zeroext i1 @mutex_is_locked(ptr noundef nonnull @rtnl_mutex) #18
+  %783 = call zeroext i1 @mutex_is_locked(ptr noundef nonnull @rtnl_mutex) #19
   %784 = load i1, ptr @rtnl_af_lookup.__already_done, align 1
   %785 = select i1 %783, i1 true, i1 %784
   br i1 %785, label %.preheader, label %786, !prof !5
 
 786:                                              ; preds = %778
   store i1 true, ptr @rtnl_af_lookup.__already_done, align 1
-  call void asm sideeffect "977: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 977b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 977) #18, !srcloc !56
-  call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 582) #18
-  call void asm sideeffect "978: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 978b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 978) #18, !srcloc !57
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 582, i32 2313, i64 12) #18, !srcloc !58
-  call void asm sideeffect "979: nop\0A\09.pushsection .discard.instr_end\0A\09.long 979b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 979) #18, !srcloc !59
-  call void asm sideeffect "980: nop\0A\09.pushsection .discard.instr_end\0A\09.long 980b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 980) #18, !srcloc !60
+  call void asm sideeffect "977: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 977b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 977) #19, !srcloc !56
+  call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 582) #19
+  call void asm sideeffect "978: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 978b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 978) #19, !srcloc !57
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 582, i32 2313, i64 12) #19, !srcloc !58
+  call void asm sideeffect "979: nop\0A\09.pushsection .discard.instr_end\0A\09.long 979b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 979) #19, !srcloc !59
+  call void asm sideeffect "980: nop\0A\09.pushsection .discard.instr_end\0A\09.long 980b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 980) #19, !srcloc !60
   br label %.preheader
 
 .preheader:                                       ; preds = %786, %778
@@ -13784,14 +13784,14 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %796, label %.thread181, label %797, !prof !134
 
 .thread181:                                       ; preds = %795, %787
-  call void asm sideeffect "1010: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1010b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1010) #18, !srcloc !135
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 3077, i32 0, i64 12) #18, !srcloc !136
+  call void asm sideeffect "1010: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1010b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1010) #19, !srcloc !135
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 3077, i32 0, i64 12) #19, !srcloc !136
   unreachable
 
 797:                                              ; preds = %795
   %798 = getelementptr inbounds nuw i8, ptr %789, i64 48
   %799 = load ptr, ptr %798, align 8
-  %800 = call i32 %799(ptr noundef %1, ptr noundef %772, ptr noundef %3) #18
+  %800 = call i32 %799(ptr noundef %1, ptr noundef %772, ptr noundef %3) #19
   %801 = icmp sgt i32 %800, -1
   br i1 %801, label %802, label %.thread125
 
@@ -13839,7 +13839,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %828 = load i16, ptr %824, align 2
   %829 = add i16 %828, -4
   %830 = zext i16 %829 to i32
-  %831 = call i32 @__nla_parse(ptr noundef nonnull %13, i32 noundef 8, ptr noundef %827, i32 noundef %830, ptr noundef nonnull @ifla_xdp_policy, i32 noundef 0, ptr noundef null) #18
+  %831 = call i32 @__nla_parse(ptr noundef nonnull %13, i32 noundef 8, ptr noundef %827, i32 noundef %830, ptr noundef nonnull @ifla_xdp_policy, i32 noundef 0, ptr noundef null) #19
   %832 = icmp slt i32 %831, 0
   br i1 %832, label %877, label %833
 
@@ -13867,7 +13867,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
 
 849:                                              ; preds = %845
   %850 = and i32 %847, 14
-  %851 = call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %850) #22, !srcloc !138
+  %851 = call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %850) #23, !srcloc !138
   %852 = icmp ugt i32 %851, 1
   br i1 %852, label %877, label %853
 
@@ -13904,7 +13904,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %871 = phi i32 [ %868, %866 ], [ -1, %860 ], [ -1, %.thread185 ]
   %872 = getelementptr i8, ptr %870, i64 4
   %873 = load i32, ptr %872, align 4
-  %874 = call i32 @dev_change_xdp_fd(ptr noundef %1, ptr noundef %3, i32 noundef %873, i32 noundef %871, i32 noundef %869) #18
+  %874 = call i32 @dev_change_xdp_fd(ptr noundef %1, ptr noundef %3, i32 noundef %873, i32 noundef %871, i32 noundef %869) #19
   %875 = icmp eq i32 %874, 0
   %876 = select i1 %875, i32 3, i32 %822
   br label %877
@@ -13927,7 +13927,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %885, label %886, label %887
 
 886:                                              ; preds = %884
-  call void @netdev_state_change(ptr noundef %1) #18
+  call void @netdev_state_change(ptr noundef %1) #19
   br label %887
 
 887:                                              ; preds = %886, %884
@@ -13935,13 +13935,13 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %888, label %889, label %895
 
 889:                                              ; preds = %887
-  %890 = call i32 @net_ratelimit() #18
+  %890 = call i32 @net_ratelimit() #19
   %891 = icmp eq i32 %890, 0
   br i1 %891, label %895, label %892
 
 892:                                              ; preds = %889
   %893 = getelementptr inbounds nuw i8, ptr %1, i64 296
-  %894 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21, ptr noundef nonnull %893) #21
+  %894 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21, ptr noundef nonnull %893) #22
   br label %895
 
 895:                                              ; preds = %892, %889, %887, %.thread125
@@ -13965,13 +13965,13 @@ define internal fastcc ptr @rtnl_link_get_net_capable(ptr noundef %0, ptr nounde
 11:                                               ; preds = %3
   %12 = getelementptr i8, ptr %5, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = tail call ptr @get_net_ns_by_pid(i32 noundef %13) #18
+  %14 = tail call ptr @get_net_ns_by_pid(i32 noundef %13) #19
   br label %38
 
 15:                                               ; preds = %7
   %16 = getelementptr i8, ptr %9, i64 4
   %17 = load i32, ptr %16, align 4
-  %18 = tail call ptr @get_net_ns_by_fd(i32 noundef %17) #18
+  %18 = tail call ptr @get_net_ns_by_fd(i32 noundef %17) #19
   br label %38
 
 19:                                               ; preds = %7
@@ -13982,12 +13982,12 @@ define internal fastcc ptr @rtnl_link_get_net_capable(ptr noundef %0, ptr nounde
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 140
-  %25 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %24, i32 1, ptr nonnull elementtype(i32) %24) #18, !srcloc !54
+  %25 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %24, i32 1, ptr nonnull elementtype(i32) %24) #19, !srcloc !54
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %28, !prof !13
 
 27:                                               ; preds = %23
-  tail call void @refcount_warn_saturate(ptr noundef nonnull %24, i32 noundef 2) #18
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %24, i32 noundef 2) #19
   br label %38
 
 28:                                               ; preds = %23
@@ -13997,13 +13997,13 @@ define internal fastcc ptr @rtnl_link_get_net_capable(ptr noundef %0, ptr nounde
   br i1 %31, label %38, label %32, !prof !5
 
 32:                                               ; preds = %28
-  tail call void @refcount_warn_saturate(ptr noundef nonnull %24, i32 noundef 1) #18
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %24, i32 noundef 1) #19
   br label %38
 
 33:                                               ; preds = %19
   %34 = getelementptr i8, ptr %21, i64 4
   %35 = load i32, ptr %34, align 4
-  %36 = tail call ptr @get_net_ns_by_id(ptr noundef %1, i32 noundef %35) #18
+  %36 = tail call ptr @get_net_ns_by_id(ptr noundef %1, i32 noundef %35) #19
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.thread, label %38
 
@@ -14015,12 +14015,12 @@ define internal fastcc ptr @rtnl_link_get_net_capable(ptr noundef %0, ptr nounde
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 80
   %43 = load ptr, ptr %42, align 16
-  %44 = tail call zeroext i1 @netlink_ns_capable(ptr noundef %0, ptr noundef %43, i32 noundef 12) #18
+  %44 = tail call zeroext i1 @netlink_ns_capable(ptr noundef %0, ptr noundef %43, i32 noundef 12) #19
   br i1 %44, label %.thread, label %45
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 140
-  %47 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %46, i32 -1, ptr nonnull elementtype(i32) %46) #18, !srcloc !52
+  %47 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %46, i32 -1, ptr nonnull elementtype(i32) %46) #19, !srcloc !52
   %48 = icmp eq i32 %47, 1
   br i1 %48, label %52, label %49
 
@@ -14029,12 +14029,12 @@ define internal fastcc ptr @rtnl_link_get_net_capable(ptr noundef %0, ptr nounde
   br i1 %50, label %.thread, label %51, !prof !5
 
 51:                                               ; preds = %49
-  tail call void @refcount_warn_saturate(ptr noundef nonnull %46, i32 noundef 3) #18
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %46, i32 noundef 3) #19
   br label %.thread
 
 52:                                               ; preds = %45
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !53
-  tail call void @__put_net(ptr noundef %39) #18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !53
+  tail call void @__put_net(ptr noundef %39) #19
   br label %.thread
 
 .thread:                                          ; preds = %49, %51, %33, %52, %41, %38
@@ -14082,7 +14082,7 @@ define internal fastcc i32 @do_set_proto_down(ptr noundef %0, ptr noundef readon
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %4
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @do_set_proto_down.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @do_set_proto_down.__msg) #19
   %10 = icmp eq ptr %3, null
   br i1 %10, label %57, label %11
 
@@ -14100,7 +14100,7 @@ define internal fastcc i32 @do_set_proto_down(ptr noundef %0, ptr noundef readon
   %16 = load i16, ptr %2, align 2
   %17 = add i16 %16, -4
   %18 = zext i16 %17 to i32
-  %19 = call i32 @__nla_parse(ptr noundef nonnull %5, i32 noundef 2, ptr noundef %15, i32 noundef %18, ptr noundef nonnull @ifla_proto_down_reason_policy, i32 noundef 0, ptr noundef null) #18
+  %19 = call i32 @__nla_parse(ptr noundef nonnull %5, i32 noundef 2, ptr noundef %15, i32 noundef %18, ptr noundef nonnull @ifla_proto_down_reason_policy, i32 noundef 0, ptr noundef null) #19
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %57, label %21
 
@@ -14111,7 +14111,7 @@ define internal fastcc i32 @do_set_proto_down(ptr noundef %0, ptr noundef readon
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %21
-  call void @do_trace_netlink_extack(ptr noundef nonnull @do_set_proto_down.__msg.22) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @do_set_proto_down.__msg.22) #19
   %26 = icmp eq ptr %3, null
   br i1 %26, label %57, label %27
 
@@ -14135,7 +14135,7 @@ define internal fastcc i32 @do_set_proto_down(ptr noundef %0, ptr noundef readon
 
 38:                                               ; preds = %34, %28
   %39 = phi i64 [ %37, %34 ], [ 0, %28 ]
-  call void @dev_change_proto_down_reason(ptr noundef %0, i64 noundef %39, i32 noundef %30) #18
+  call void @dev_change_proto_down_reason(ptr noundef %0, i64 noundef %39, i32 noundef %30) #19
   br label %40
 
 40:                                               ; preds = %38, %12
@@ -14155,7 +14155,7 @@ define internal fastcc i32 @do_set_proto_down(ptr noundef %0, ptr noundef readon
   br i1 %49, label %53, label %50
 
 50:                                               ; preds = %46
-  call void @do_trace_netlink_extack(ptr noundef nonnull @do_set_proto_down.__msg.23) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @do_set_proto_down.__msg.23) #19
   %51 = icmp eq ptr %3, null
   br i1 %51, label %57, label %52
 
@@ -14164,7 +14164,7 @@ define internal fastcc i32 @do_set_proto_down(ptr noundef %0, ptr noundef readon
   br label %57
 
 53:                                               ; preds = %46, %42
-  %54 = call i32 @dev_change_proto_down(ptr noundef %0, i1 noundef zeroext %45) #18
+  %54 = call i32 @dev_change_proto_down(ptr noundef %0, i1 noundef zeroext %45) #19
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %57
 
@@ -14211,7 +14211,7 @@ define internal fastcc i32 @rtnl_linkprop(i32 noundef range(i32 108, 110) %0, pt
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %3
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #19
   %9 = icmp eq ptr %2, null
   br i1 %9, label %.thread, label %10
 
@@ -14223,7 +14223,7 @@ define internal fastcc i32 @rtnl_linkprop(i32 noundef range(i32 108, 110) %0, pt
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(528) %5, i8 0, i64 528, i1 false), !annotation !47
   %12 = getelementptr i8, ptr %1, i64 32
   %13 = add i32 %6, -32
-  %14 = call i32 @__nla_parse(ptr noundef nonnull %5, i32 noundef 65, ptr noundef %12, i32 noundef %13, ptr noundef nonnull @ifla_policy, i32 noundef 31, ptr noundef %2) #18
+  %14 = call i32 @__nla_parse(ptr noundef nonnull %5, i32 noundef 65, ptr noundef %12, i32 noundef %13, ptr noundef nonnull @ifla_policy, i32 noundef 31, ptr noundef %2) #19
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %.thread
 
@@ -14238,7 +14238,7 @@ define internal fastcc i32 @rtnl_linkprop(i32 noundef range(i32 108, 110) %0, pt
   br i1 %23, label %27, label %24
 
 24:                                               ; preds = %16
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_ensure_unique_netns.__msg) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_ensure_unique_netns.__msg) #19
   %25 = icmp eq ptr %2, null
   br i1 %25, label %.thread, label %26
 
@@ -14253,7 +14253,7 @@ define internal fastcc i32 @rtnl_linkprop(i32 noundef range(i32 108, 110) %0, pt
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %27
-  %32 = call ptr @__dev_get_by_index(ptr noundef %.24.val.48.val, i32 noundef %29) #18
+  %32 = call ptr @__dev_get_by_index(ptr noundef %.24.val.48.val, i32 noundef %29) #19
   br label %53
 
 33:                                               ; preds = %27
@@ -14273,7 +14273,7 @@ define internal fastcc i32 @rtnl_linkprop(i32 noundef range(i32 108, 110) %0, pt
   br i1 %42, label %45, label %43
 
 43:                                               ; preds = %41
-  %44 = call i64 @nla_strscpy(ptr noundef nonnull %4, ptr noundef nonnull %35, i64 noundef 16) #18
+  %44 = call i64 @nla_strscpy(ptr noundef nonnull %4, ptr noundef nonnull %35, i64 noundef 16) #19
   br label %49
 
 45:                                               ; preds = %41
@@ -14281,11 +14281,11 @@ define internal fastcc i32 @rtnl_linkprop(i32 noundef range(i32 108, 110) %0, pt
   br i1 %46, label %51, label %47
 
 47:                                               ; preds = %45
-  %48 = call i64 @nla_strscpy(ptr noundef nonnull %4, ptr noundef nonnull %38, i64 noundef 128) #18
+  %48 = call i64 @nla_strscpy(ptr noundef nonnull %4, ptr noundef nonnull %38, i64 noundef 128) #19
   br label %49
 
 49:                                               ; preds = %47, %43
-  %50 = call ptr @__dev_get_by_name(ptr noundef %.24.val.48.val, ptr noundef nonnull %4) #18
+  %50 = call ptr @__dev_get_by_name(ptr noundef %.24.val.48.val, ptr noundef nonnull %4) #19
   br label %51
 
 51:                                               ; preds = %49, %45
@@ -14337,12 +14337,12 @@ define internal fastcc i32 @rtnl_linkprop(i32 noundef range(i32 108, 110) %0, pt
   br i1 %79, label %80, label %103
 
 80:                                               ; preds = %75
-  %81 = call i32 @__nla_validate(ptr noundef %69, i32 noundef %74, i32 noundef 65, ptr noundef nonnull @ifla_policy, i32 noundef 31, ptr noundef %2) #18
+  %81 = call i32 @__nla_validate(ptr noundef %69, i32 noundef %74, i32 noundef 65, ptr noundef nonnull @ifla_policy, i32 noundef 31, ptr noundef %2) #19
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %.thread
 
 83:                                               ; preds = %80
-  call void @__rcu_read_lock() #18
+  call void @__rcu_read_lock() #19
   %84 = load ptr, ptr %63, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   br label %86
@@ -14356,22 +14356,22 @@ define internal fastcc i32 @rtnl_linkprop(i32 noundef range(i32 108, 110) %0, pt
   br i1 %90, label %92, label %86, !llvm.loop !68
 
 92:                                               ; preds = %86
-  call void @__rcu_read_unlock() #18
+  call void @__rcu_read_unlock() #19
   %93 = mul i32 %87, 132
   %94 = add i32 %93, -65399
   %95 = icmp ult i32 %94, -65403
   br i1 %95, label %.split.us, label %96
 
 96:                                               ; preds = %92
-  %97 = call ptr @nla_strdup(ptr noundef %69, i32 noundef 4197568) #18
+  %97 = call ptr @nla_strdup(ptr noundef %69, i32 noundef 4197568) #19
   %98 = icmp eq ptr %97, null
   br i1 %98, label %.thread, label %99
 
 99:                                               ; preds = %96
-  %100 = call i32 @netdev_name_node_alt_create(ptr noundef nonnull %54, ptr noundef nonnull %97) #18
+  %100 = call i32 @netdev_name_node_alt_create(ptr noundef nonnull %54, ptr noundef nonnull %97) #19
   %101 = icmp eq i32 %100, 0
   %102 = select i1 %101, ptr null, ptr %97
-  call void @kfree(ptr noundef %102) #18
+  call void @kfree(ptr noundef %102) #19
   br i1 %101, label %._crit_edge, label %.thread
 
 ._crit_edge:                                      ; preds = %99
@@ -14409,17 +14409,17 @@ define internal fastcc i32 @rtnl_linkprop(i32 noundef range(i32 108, 110) %0, pt
   br i1 %121, label %122, label %130
 
 122:                                              ; preds = %117
-  %123 = call i32 @__nla_validate(ptr noundef %111, i32 noundef %116, i32 noundef 65, ptr noundef nonnull @ifla_policy, i32 noundef 31, ptr noundef %2) #18
+  %123 = call i32 @__nla_validate(ptr noundef %111, i32 noundef %116, i32 noundef 65, ptr noundef nonnull @ifla_policy, i32 noundef 31, ptr noundef %2) #19
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %.thread3, label %.thread
 
 .thread3:                                         ; preds = %122
-  %125 = call ptr @nla_strdup(ptr noundef %111, i32 noundef 4197568) #18
+  %125 = call ptr @nla_strdup(ptr noundef %111, i32 noundef 4197568) #19
   %126 = icmp eq ptr %125, null
   br i1 %126, label %.thread, label %.thread4
 
 .split.us:                                        ; preds = %92
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_alt_ifname.__msg) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_alt_ifname.__msg) #19
   br i1 %64, label %.thread, label %127
 
 127:                                              ; preds = %.split.us
@@ -14427,8 +14427,8 @@ define internal fastcc i32 @rtnl_linkprop(i32 noundef range(i32 108, 110) %0, pt
   br label %.thread
 
 .thread4:                                         ; preds = %.thread3
-  %128 = call i32 @netdev_name_node_alt_destroy(ptr noundef nonnull %54, ptr noundef nonnull %125) #18
-  call void @kfree(ptr noundef nonnull %125) #18
+  %128 = call i32 @netdev_name_node_alt_destroy(ptr noundef nonnull %54, ptr noundef nonnull %125) #19
+  call void @kfree(ptr noundef nonnull %125) #19
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %.thread4._crit_edge, label %.thread
 
@@ -14454,7 +14454,7 @@ define internal fastcc i32 @rtnl_linkprop(i32 noundef range(i32 108, 110) %0, pt
   br i1 %138, label %.thread, label %139
 
 139:                                              ; preds = %.critedge
-  call void @netdev_state_change(ptr noundef nonnull %54) #18
+  call void @netdev_state_change(ptr noundef nonnull %54) #19
   br label %.thread
 
 .thread:                                          ; preds = %.thread4, %122, %.thread3, %99, %96, %80, %60, %127, %.split.us, %24, %26, %8, %10, %139, %.critedge, %56, %53, %33, %11
@@ -14486,7 +14486,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @fdb_vid_parse(ptr noundef 
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %5
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @fdb_vid_parse.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @fdb_vid_parse.__msg) #19
   %9 = icmp eq ptr %2, null
   br i1 %9, label %21, label %10
 
@@ -14502,7 +14502,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @fdb_vid_parse(ptr noundef 
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %11
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @fdb_vid_parse.__msg.31) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @fdb_vid_parse.__msg.31) #19
   %17 = icmp eq ptr %2, null
   br i1 %17, label %21, label %18
 
@@ -14531,7 +14531,7 @@ define internal fastcc void @rtnl_fdb_notify(ptr noundef nonnull readonly captur
   %12 = and i32 %11, 508
   %13 = add nuw nsw i32 %12, 39
   %14 = and i32 %13, 1020
-  %15 = tail call ptr @__alloc_skb(i32 noundef %14, i32 noundef 2080, i32 noundef 0, i32 noundef -1) #18
+  %15 = tail call ptr @__alloc_skb(i32 noundef %14, i32 noundef 2080, i32 noundef 0, i32 noundef -1) #19
   %16 = icmp eq ptr %15, null
   br i1 %16, label %25, label %17
 
@@ -14541,20 +14541,20 @@ define internal fastcc void @rtnl_fdb_notify(ptr noundef nonnull readonly captur
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %17
-  tail call void @kfree_skb_reason(ptr noundef nonnull %15, i32 noundef 2) #18
+  tail call void @kfree_skb_reason(ptr noundef nonnull %15, i32 noundef 2) #19
   br label %25
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 272
   %23 = load ptr, ptr %22, align 16
-  %24 = tail call i32 @nlmsg_notify(ptr noundef %23, ptr noundef nonnull %15, i32 noundef 0, i32 noundef 3, i32 noundef 0, i32 noundef 2080) #18
+  %24 = tail call i32 @nlmsg_notify(ptr noundef %23, ptr noundef nonnull %15, i32 noundef 0, i32 noundef 3, i32 noundef 0, i32 noundef 2080) #19
   br label %30
 
 25:                                               ; preds = %20, %5
   %26 = phi i32 [ %18, %20 ], [ -105, %5 ]
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 272
   %28 = load ptr, ptr %27, align 16
-  %29 = tail call i32 @netlink_set_err(ptr noundef %28, i32 noundef 0, i32 noundef 3, i32 noundef %26) #18
+  %29 = tail call i32 @netlink_set_err(ptr noundef %28, i32 noundef 0, i32 noundef 3, i32 noundef %26) #19
   br label %30
 
 30:                                               ; preds = %25, %21
@@ -14576,7 +14576,7 @@ define internal fastcc noundef i32 @rtnl_bridge_notify(ptr noundef nonnull %0) u
   br i1 %8, label %36, label %9
 
 9:                                                ; preds = %1
-  %10 = tail call ptr @__alloc_skb(i32 noundef 152, i32 noundef 2080, i32 noundef 0, i32 noundef -1) #18
+  %10 = tail call ptr @__alloc_skb(i32 noundef 152, i32 noundef 2080, i32 noundef 0, i32 noundef -1) #19
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.sink.split, label %12
 
@@ -14584,7 +14584,7 @@ define internal fastcc noundef i32 @rtnl_bridge_notify(ptr noundef nonnull %0) u
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 504
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15(ptr noundef nonnull %10, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0) #18
+  %16 = tail call i32 %15(ptr noundef nonnull %10, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0) #19
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %26, label %18
 
@@ -14597,7 +14597,7 @@ define internal fastcc noundef i32 @rtnl_bridge_notify(ptr noundef nonnull %0) u
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %24 = load ptr, ptr %23, align 16
-  %25 = tail call i32 @nlmsg_notify(ptr noundef %24, ptr noundef nonnull %10, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 2080) #18
+  %25 = tail call i32 @nlmsg_notify(ptr noundef %24, ptr noundef nonnull %10, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 2080) #19
   br label %36
 
 26:                                               ; preds = %12
@@ -14605,27 +14605,27 @@ define internal fastcc noundef i32 @rtnl_bridge_notify(ptr noundef nonnull %0) u
   br i1 %27, label %28, label %.sink.split, !prof !140
 
 28:                                               ; preds = %26
-  tail call void asm sideeffect "1034: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1034b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1034) #18, !srcloc !141
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5159, i32 2305, i64 12) #18, !srcloc !142
-  tail call void asm sideeffect "1035: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1035b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1035) #18, !srcloc !143
+  tail call void asm sideeffect "1034: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1034b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1034) #19, !srcloc !141
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5159, i32 2305, i64 12) #19, !srcloc !142
+  tail call void asm sideeffect "1035: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1035b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1035) #19, !srcloc !143
   br label %.sink.split
 
 29:                                               ; preds = %18
-  tail call void @kfree_skb_reason(ptr noundef nonnull %10, i32 noundef 2) #18
+  tail call void @kfree_skb_reason(ptr noundef nonnull %10, i32 noundef 2) #19
   %30 = icmp eq i32 %16, 0
   br i1 %30, label %36, label %31
 
 .sink.split:                                      ; preds = %26, %28, %9
   %.sink = phi ptr [ null, %9 ], [ %10, %28 ], [ %10, %26 ]
   %.ph = phi i32 [ -12, %9 ], [ %16, %28 ], [ %16, %26 ]
-  tail call void @kfree_skb_reason(ptr noundef %.sink, i32 noundef 2) #18
+  tail call void @kfree_skb_reason(ptr noundef %.sink, i32 noundef 2) #19
   br label %31
 
 31:                                               ; preds = %.sink.split, %29
   %32 = phi i32 [ %16, %29 ], [ %.ph, %.sink.split ]
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %34 = load ptr, ptr %33, align 16
-  %35 = tail call i32 @netlink_set_err(ptr noundef %34, i32 noundef 0, i32 noundef 1, i32 noundef %32) #18
+  %35 = tail call i32 @netlink_set_err(ptr noundef %34, i32 noundef 0, i32 noundef 1, i32 noundef %32) #19
   br label %36
 
 36:                                               ; preds = %31, %29, %22, %1
@@ -14649,7 +14649,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_stats_get_parse(ptr n
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %4
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #19
   %11 = icmp eq ptr %3, null
   br i1 %11, label %.thread, label %12
 
@@ -14661,7 +14661,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_stats_get_parse(ptr n
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false), !annotation !47
   %14 = getelementptr i8, ptr %0, i64 28
   %15 = add i32 %8, -28
-  %16 = call i32 @__nla_parse(ptr noundef nonnull %6, i32 noundef 2, ptr noundef %14, i32 noundef %15, ptr noundef nonnull @rtnl_stats_get_policy, i32 noundef 31, ptr noundef %3) #18
+  %16 = call i32 @__nla_parse(ptr noundef nonnull %6, i32 noundef 2, ptr noundef %14, i32 noundef %15, ptr noundef nonnull @rtnl_stats_get_policy, i32 noundef 31, ptr noundef %3) #19
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %.thread, label %18
 
@@ -14680,7 +14680,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_stats_get_parse(ptr n
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %22
-  call void @do_trace_netlink_extack(ptr noundef nonnull @nla_parse_nested.__msg) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @nla_parse_nested.__msg) #19
   %27 = icmp eq ptr %3, null
   br i1 %27, label %.thread11, label %28
 
@@ -14697,7 +14697,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_stats_get_parse(ptr n
   %33 = load i16, ptr %20, align 2
   %34 = add i16 %33, -4
   %35 = zext i16 %34 to i32
-  %36 = call i32 @__nla_parse(ptr noundef nonnull %5, i32 noundef 5, ptr noundef %32, i32 noundef %35, ptr noundef nonnull @rtnl_stats_get_policy_filters, i32 noundef 31, ptr noundef %3) #18
+  %36 = call i32 @__nla_parse(ptr noundef nonnull %5, i32 noundef 5, ptr noundef %32, i32 noundef %35, ptr noundef nonnull @rtnl_stats_get_policy_filters, i32 noundef 31, ptr noundef %3) #19
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %.thread11, label %.preheader
 
@@ -14718,7 +14718,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_stats_get_parse(ptr n
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %42
-  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_stats_get_parse_filters.__msg) #18
+  call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_stats_get_parse_filters.__msg) #19
   %50 = icmp eq ptr %3, null
   br i1 %50, label %.thread11, label %51
 
@@ -14766,7 +14766,7 @@ define internal noundef range(i32 -22, 1) i32 @rtnl_validate_mdb_entry_get(ptr n
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %2
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry_get.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry_get.__msg) #19
   %6 = icmp eq ptr %1, null
   br i1 %6, label %44, label %7
 
@@ -14785,7 +14785,7 @@ define internal noundef range(i32 -22, 1) i32 @rtnl_validate_mdb_entry_get(ptr n
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %10
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry_get.__msg.61) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry_get.__msg.61) #19
   %15 = icmp eq ptr %1, null
   br i1 %15, label %44, label %16
 
@@ -14800,7 +14800,7 @@ define internal noundef range(i32 -22, 1) i32 @rtnl_validate_mdb_entry_get(ptr n
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %17
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry_get.__msg.62) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry_get.__msg.62) #19
   %22 = icmp eq ptr %1, null
   br i1 %22, label %44, label %23
 
@@ -14815,7 +14815,7 @@ define internal noundef range(i32 -22, 1) i32 @rtnl_validate_mdb_entry_get(ptr n
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %24
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry_get.__msg.63) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry_get.__msg.63) #19
   %29 = icmp eq ptr %1, null
   br i1 %29, label %44, label %30
 
@@ -14830,7 +14830,7 @@ define internal noundef range(i32 -22, 1) i32 @rtnl_validate_mdb_entry_get(ptr n
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %31
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry_get.__msg.64) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry_get.__msg.64) #19
   %36 = icmp eq ptr %1, null
   br i1 %36, label %44, label %37
 
@@ -14848,7 +14848,7 @@ define internal noundef range(i32 -22, 1) i32 @rtnl_validate_mdb_entry_get(ptr n
   ]
 
 41:                                               ; preds = %38
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry_get.__msg.65) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry_get.__msg.65) #19
   %42 = icmp eq ptr %1, null
   br i1 %42, label %44, label %43
 
@@ -14868,7 +14868,7 @@ define internal noundef range(i32 -22, 1) i32 @rtnl_validate_mdb_entry(ptr nound
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %2
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry.__msg) #19
   %6 = icmp eq ptr %1, null
   br i1 %6, label %70, label %7
 
@@ -14887,7 +14887,7 @@ define internal noundef range(i32 -22, 1) i32 @rtnl_validate_mdb_entry(ptr nound
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %10
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry.__msg.72) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry.__msg.72) #19
   %15 = icmp eq ptr %1, null
   br i1 %15, label %70, label %16
 
@@ -14914,7 +14914,7 @@ define internal noundef range(i32 -22, 1) i32 @rtnl_validate_mdb_entry(ptr nound
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %21
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry.__msg.73) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry.__msg.73) #19
   %28 = icmp eq ptr %1, null
   br i1 %28, label %70, label %29
 
@@ -14928,7 +14928,7 @@ define internal noundef range(i32 -22, 1) i32 @rtnl_validate_mdb_entry(ptr nound
   br i1 %32, label %33, label %56
 
 33:                                               ; preds = %30
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry.__msg.74) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry.__msg.74) #19
   %34 = icmp eq ptr %1, null
   br i1 %34, label %70, label %35
 
@@ -14946,7 +14946,7 @@ define internal noundef range(i32 -22, 1) i32 @rtnl_validate_mdb_entry(ptr nound
   br i1 %42, label %43, label %56
 
 43:                                               ; preds = %36
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry.__msg.75) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry.__msg.75) #19
   %44 = icmp eq ptr %1, null
   br i1 %44, label %70, label %45
 
@@ -14961,7 +14961,7 @@ define internal noundef range(i32 -22, 1) i32 @rtnl_validate_mdb_entry(ptr nound
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %46
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry.__msg.76) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry.__msg.76) #19
   %51 = icmp eq ptr %1, null
   br i1 %51, label %70, label %52
 
@@ -14970,7 +14970,7 @@ define internal noundef range(i32 -22, 1) i32 @rtnl_validate_mdb_entry(ptr nound
   br label %70
 
 53:                                               ; preds = %17
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry.__msg.77) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry.__msg.77) #19
   %54 = icmp eq ptr %1, null
   br i1 %54, label %70, label %55
 
@@ -14985,7 +14985,7 @@ define internal noundef range(i32 -22, 1) i32 @rtnl_validate_mdb_entry(ptr nound
   br i1 %59, label %63, label %60
 
 60:                                               ; preds = %56
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry.__msg.78) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry.__msg.78) #19
   %61 = icmp eq ptr %1, null
   br i1 %61, label %70, label %62
 
@@ -15000,7 +15000,7 @@ define internal noundef range(i32 -22, 1) i32 @rtnl_validate_mdb_entry(ptr nound
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %63
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry.__msg.79) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry.__msg.79) #19
   %68 = icmp eq ptr %1, null
   br i1 %68, label %70, label %69
 
@@ -15023,7 +15023,7 @@ define internal noundef range(i32 -22, 1) i32 @rtnl_validate_mdb_entry_del_bulk(
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %2
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry_del_bulk.__msg) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry_del_bulk.__msg) #19
   %7 = icmp eq ptr %1, null
   br i1 %7, label %40, label %8
 
@@ -15042,7 +15042,7 @@ define internal noundef range(i32 -22, 1) i32 @rtnl_validate_mdb_entry_del_bulk(
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %11
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry_del_bulk.__msg.84) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry_del_bulk.__msg.84) #19
   %16 = icmp eq ptr %1, null
   br i1 %16, label %40, label %17
 
@@ -15057,7 +15057,7 @@ define internal noundef range(i32 -22, 1) i32 @rtnl_validate_mdb_entry_del_bulk(
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %18
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry_del_bulk.__msg.85) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry_del_bulk.__msg.85) #19
   %23 = icmp eq ptr %1, null
   br i1 %23, label %40, label %24
 
@@ -15072,7 +15072,7 @@ define internal noundef range(i32 -22, 1) i32 @rtnl_validate_mdb_entry_del_bulk(
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %25
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry_del_bulk.__msg.86) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry_del_bulk.__msg.86) #19
   %30 = icmp eq ptr %1, null
   br i1 %30, label %40, label %31
 
@@ -15088,7 +15088,7 @@ define internal noundef range(i32 -22, 1) i32 @rtnl_validate_mdb_entry_del_bulk(
   br i1 %36, label %40, label %37
 
 37:                                               ; preds = %32
-  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry_del_bulk.__msg.87) #18
+  tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_validate_mdb_entry_del_bulk.__msg.87) #19
   %38 = icmp eq ptr %1, null
   br i1 %38, label %40, label %39
 
@@ -15102,35 +15102,35 @@ define internal noundef range(i32 -22, 1) i32 @rtnl_validate_mdb_entry_del_bulk(
   ret i32 %41
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #15
+declare i64 @llvm.abs.i64(i64, i1 immarg) #16
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #15
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #15
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -15147,16 +15147,17 @@ attributes #11 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" 
 attributes #12 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #14 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nounwind }
-attributes #19 = { nounwind allocsize(2) }
-attributes #20 = { nounwind allocsize(1) }
-attributes #21 = { cold nounwind }
-attributes #22 = { nounwind memory(none) }
-attributes #23 = { cold noreturn nounwind }
-attributes #24 = { nounwind allocsize(0) }
+attributes #15 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { nounwind }
+attributes #20 = { nounwind allocsize(2) }
+attributes #21 = { nounwind allocsize(1) }
+attributes #22 = { cold nounwind }
+attributes #23 = { nounwind memory(none) }
+attributes #24 = { cold noreturn nounwind }
+attributes #25 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

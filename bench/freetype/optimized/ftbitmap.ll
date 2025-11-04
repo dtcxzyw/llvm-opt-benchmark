@@ -79,7 +79,7 @@ define i32 @FT_Bitmap_Copy(ptr noundef readonly captures(address_is_null) %0, pt
   %24 = load ptr, ptr %0, align 8, !tbaa !12
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !19
-  tail call void @ft_mem_free(ptr noundef %24, ptr noundef %26) #7
+  tail call void @ft_mem_free(ptr noundef %24, ptr noundef %26) #8
   store ptr null, ptr %25, align 8, !tbaa !19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !20
   br i1 %23, label %27, label %31
@@ -103,7 +103,7 @@ define i32 @FT_Bitmap_Copy(ptr noundef readonly captures(address_is_null) %0, pt
   %36 = zext nneg i32 %spec.select to i64
   %37 = load i32, ptr %2, align 8, !tbaa !25
   %38 = zext i32 %37 to i64
-  %39 = call ptr @ft_mem_qrealloc(ptr noundef %24, i64 noundef %36, i64 noundef 0, i64 noundef %38, ptr noundef null, ptr noundef nonnull %4) #7
+  %39 = call ptr @ft_mem_qrealloc(ptr noundef %24, i64 noundef %36, i64 noundef 0, i64 noundef %38, ptr noundef null, ptr noundef nonnull %4) #8
   store ptr %39, ptr %25, align 8, !tbaa !19
   %40 = load i32, ptr %4, align 4, !tbaa !3
   %.not56 = icmp eq i32 %40, 0
@@ -220,7 +220,7 @@ define i32 @FT_Bitmap_Embolden(ptr noundef readonly captures(address_is_null) %0
 FT_Bitmap_Done.exit:                              ; preds = %27
   %29 = load ptr, ptr %0, align 8, !tbaa !12
   %30 = load ptr, ptr %9, align 8, !tbaa !19
-  call void @ft_mem_free(ptr noundef %29, ptr noundef %30) #7
+  call void @ft_mem_free(ptr noundef %29, ptr noundef %30) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load i8, ptr %25, align 2, !tbaa !28
@@ -405,7 +405,7 @@ FT_Bitmap_Done.exit:                              ; preds = %27
   %126 = zext i32 %.0115.i to i64
   %127 = add i32 %87, %.0104202
   %128 = zext i32 %127 to i64
-  %129 = call ptr @ft_mem_qrealloc(ptr noundef %90, i64 noundef %126, i64 noundef 0, i64 noundef %128, ptr noundef null, ptr noundef nonnull %5) #7
+  %129 = call ptr @ft_mem_qrealloc(ptr noundef %90, i64 noundef %126, i64 noundef 0, i64 noundef %128, ptr noundef null, ptr noundef nonnull %5) #8
   %130 = load i32, ptr %5, align 4, !tbaa !3
   %.not129.i = icmp eq i32 %130, 0
   br i1 %.not129.i, label %131, label %ft_bitmap_assure_buffer.exit
@@ -483,7 +483,7 @@ FT_Bitmap_Done.exit:                              ; preds = %27
 
 .loopexit.i:                                      ; preds = %150, %._crit_edge.i, %139
   %170 = load ptr, ptr %9, align 8, !tbaa !19
-  call void @ft_mem_free(ptr noundef %90, ptr noundef %170) #7
+  call void @ft_mem_free(ptr noundef %90, ptr noundef %170) #8
   store ptr %129, ptr %9, align 8, !tbaa !19
   %171 = load i32, ptr %86, align 8, !tbaa !7
   %172 = icmp slt i32 %171, 0
@@ -788,7 +788,7 @@ FT_Bitmap_Done.exit:                              ; preds = %19, %23
   %25 = phi i1 [ true, %19 ], [ %24, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !19
-  tail call void @ft_mem_free(ptr noundef %10, ptr noundef %27) #7
+  tail call void @ft_mem_free(ptr noundef %10, ptr noundef %27) #8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 26
   store i8 2, ptr %28, align 2, !tbaa !28
@@ -818,7 +818,7 @@ FT_Bitmap_Done.exit:                              ; preds = %19, %23
   %.0206 = phi i32 [ %15, %FT_Bitmap_Done.exit ], [ %40, %34 ], [ %15, %32 ]
   %42 = sext i32 %.0206 to i64
   %43 = zext i32 %29 to i64
-  %44 = call ptr @ft_mem_qrealloc(ptr noundef %10, i64 noundef %42, i64 noundef 0, i64 noundef %43, ptr noundef null, ptr noundef nonnull %5) #7
+  %44 = call ptr @ft_mem_qrealloc(ptr noundef %10, i64 noundef %42, i64 noundef 0, i64 noundef %43, ptr noundef null, ptr noundef nonnull %5) #8
   store ptr %44, ptr %26, align 8, !tbaa !19
   %45 = load i32, ptr %5, align 4, !tbaa !3
   %.not219 = icmp eq i32 %45, 0
@@ -1276,7 +1276,7 @@ define range(i32 0, 34) i32 @FT_Bitmap_Done(ptr noundef readonly captures(addres
   %5 = load ptr, ptr %0, align 8, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !19
-  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %7) #7
+  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %7) #8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 40, i1 false)
   br label %8
 
@@ -1469,7 +1469,7 @@ define i32 @FT_Bitmap_Blend(ptr noundef readonly captures(address_is_null) %0, p
 106:                                              ; preds = %98
   %107 = mul nsw i32 %99, %85
   %108 = sext i32 %107 to i64
-  %109 = call ptr @ft_mem_alloc(ptr noundef %15, i64 noundef %108, ptr noundef nonnull %8) #7
+  %109 = call ptr @ft_mem_alloc(ptr noundef %15, i64 noundef %108, ptr noundef nonnull %8) #8
   %110 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %109, ptr %110, align 8, !tbaa !19
   %111 = load i32, ptr %8, align 4, !tbaa !3
@@ -1500,7 +1500,7 @@ define i32 @FT_Bitmap_Blend(ptr noundef readonly captures(address_is_null) %0, p
 123:                                              ; preds = %115
   %124 = mul nsw i32 %118, %85
   %125 = sext i32 %124 to i64
-  %126 = call ptr @ft_mem_alloc(ptr noundef %15, i64 noundef %125, ptr noundef nonnull %8) #7
+  %126 = call ptr @ft_mem_alloc(ptr noundef %15, i64 noundef %125, ptr noundef nonnull %8) #8
   %127 = load i32, ptr %8, align 4, !tbaa !3
   %.not273 = icmp eq i32 %127, 0
   br i1 %.not273, label %128, label %.thread293
@@ -1546,7 +1546,7 @@ define i32 @FT_Bitmap_Blend(ptr noundef readonly captures(address_is_null) %0, p
 .thread286:                                       ; preds = %150, %131, %128
   %154 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %155 = load ptr, ptr %154, align 8, !tbaa !19
-  call void @ft_mem_free(ptr noundef %15, ptr noundef %155) #7
+  call void @ft_mem_free(ptr noundef %15, ptr noundef %155) #8
   store i32 %82, ptr %58, align 4, !tbaa !29
   store i32 %85, ptr %4, align 8, !tbaa !25
   %156 = load i32, ptr %116, align 8, !tbaa !7
@@ -1710,7 +1710,7 @@ FT_Bitmap_Done.exit:                              ; preds = %.loopexit
   %249 = load ptr, ptr %0, align 8, !tbaa !12
   %250 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %251 = load ptr, ptr %250, align 8, !tbaa !19
-  call void @ft_mem_free(ptr noundef %249, ptr noundef %251) #7
+  call void @ft_mem_free(ptr noundef %249, ptr noundef %251) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   br i1 %.not275, label %.thread293, label %FT_Bitmap_Done.exit281
 
@@ -1720,14 +1720,14 @@ FT_Bitmap_Done.exit:                              ; preds = %.loopexit
 FT_Bitmap_Done.exit281:                           ; preds = %FT_Bitmap_Done.exit, %252
   %253 = load ptr, ptr %0, align 8, !tbaa !12
   %254 = load ptr, ptr %.0212.sroa.phi238.sroa.gep, align 8, !tbaa !19
-  call void @ft_mem_free(ptr noundef %253, ptr noundef %254) #7
+  call void @ft_mem_free(ptr noundef %253, ptr noundef %254) #8
   br label %.thread293
 
 .thread293.critedge:                              ; preds = %.thread331
   %255 = load ptr, ptr %0, align 8, !tbaa !12
   %256 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %257 = load ptr, ptr %256, align 8, !tbaa !19
-  call void @ft_mem_free(ptr noundef %255, ptr noundef %257) #7
+  call void @ft_mem_free(ptr noundef %255, ptr noundef %257) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   br label %.thread293
 
@@ -1802,17 +1802,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #6
+declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -1820,8 +1820,9 @@ attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

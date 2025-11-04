@@ -104,7 +104,7 @@ common.ret114:                                    ; preds = %53, %49, %12, %4, %
   %21 = lshr i32 %.090, 1
   %22 = and i32 %21, 1
   %23 = xor i32 %22, %.090
-  %24 = tail call i64 @av_rescale_rnd(i64 noundef %20, i64 noundef %1, i64 noundef %2, i32 noundef %23) #9
+  %24 = tail call i64 @av_rescale_rnd(i64 noundef %20, i64 noundef %1, i64 noundef %2, i32 noundef %23) #11
   %25 = sub i64 0, %24
   br label %common.ret114
 
@@ -209,7 +209,7 @@ common.ret114:                                    ; preds = %53, %49, %12, %4, %
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
 define i64 @av_rescale(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
-  %4 = tail call i64 @av_rescale_rnd(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef 5) #9
+  %4 = tail call i64 @av_rescale_rnd(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef 5) #11
   ret i64 %4
 }
 
@@ -223,7 +223,7 @@ define i64 @av_rescale_q_rnd(i64 noundef %0, i64 %1, i64 %2, i32 noundef %3) loc
   %8 = ashr exact i64 %sext7, 32
   %9 = ashr i64 %1, 32
   %10 = mul nsw i64 %8, %9
-  %11 = tail call i64 @av_rescale_rnd(i64 noundef %0, i64 noundef %7, i64 noundef %10, i32 noundef %3) #9
+  %11 = tail call i64 @av_rescale_rnd(i64 noundef %0, i64 noundef %7, i64 noundef %10, i32 noundef %3) #11
   ret i64 %11
 }
 
@@ -237,7 +237,7 @@ define i64 @av_rescale_q(i64 noundef %0, i64 %1, i64 %2) local_unnamed_addr #2 {
   %7 = ashr exact i64 %sext7.i, 32
   %8 = ashr i64 %1, 32
   %9 = mul nsw i64 %7, %8
-  %10 = tail call i64 @av_rescale_rnd(i64 noundef %0, i64 noundef %6, i64 noundef %9, i32 noundef 5) #9
+  %10 = tail call i64 @av_rescale_rnd(i64 noundef %0, i64 noundef %6, i64 noundef %9, i32 noundef 5) #11
   ret i64 %10
 }
 
@@ -266,12 +266,12 @@ define range(i32 -1, 2) i32 @av_compare_ts(i64 noundef %0, i64 %1, i64 noundef %
   br label %27
 
 21:                                               ; preds = %4
-  %22 = tail call i64 @av_rescale_rnd(i64 noundef %0, i64 noundef %7, i64 noundef %10, i32 noundef 2) #9
+  %22 = tail call i64 @av_rescale_rnd(i64 noundef %0, i64 noundef %7, i64 noundef %10, i32 noundef 2) #11
   %23 = icmp slt i64 %22, %2
   br i1 %23, label %27, label %24
 
 24:                                               ; preds = %21
-  %25 = tail call i64 @av_rescale_rnd(i64 noundef %2, i64 noundef %10, i64 noundef %7, i32 noundef 2) #9
+  %25 = tail call i64 @av_rescale_rnd(i64 noundef %2, i64 noundef %10, i64 noundef %7, i32 noundef 2) #11
   %26 = icmp slt i64 %25, %0
   %. = zext i1 %26 to i32
   br label %27
@@ -299,8 +299,8 @@ define i64 @av_rescale_delta(i64 %0, i64 noundef %1, i64 %2, i32 noundef %3, ptr
   br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %6
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 171) #10
-  tail call void @abort() #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 171) #12
+  tail call void @abort() #13
   unreachable
 
 8:                                                ; preds = %6
@@ -308,8 +308,8 @@ define i64 @av_rescale_delta(i64 %0, i64 noundef %1, i64 %2, i32 noundef %3, ptr
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %8
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 172) #10
-  tail call void @abort() #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 172) #12
+  tail call void @abort() #13
   unreachable
 
 11:                                               ; preds = %8
@@ -349,11 +349,11 @@ define i64 @av_rescale_delta(i64 %0, i64 noundef %1, i64 %2, i32 noundef %3, ptr
   %sext7.i.i = shl i64 %2, 32
   %25 = ashr exact i64 %sext7.i.i, 32
   %26 = mul nsw i64 %25, %.pre-phi82
-  %27 = tail call i64 @av_rescale_rnd(i64 noundef %1, i64 noundef %24, i64 noundef %26, i32 noundef 5) #9
+  %27 = tail call i64 @av_rescale_rnd(i64 noundef %1, i64 noundef %24, i64 noundef %26, i32 noundef 5) #11
   %28 = zext nneg i32 %3 to i64
   %29 = add nsw i64 %27, %28
   store i64 %29, ptr %4, align 8, !tbaa !8
-  %30 = tail call i64 @av_rescale_rnd(i64 noundef %1, i64 noundef %.pre-phi86, i64 noundef %.pre-phi91, i32 noundef 5) #9
+  %30 = tail call i64 @av_rescale_rnd(i64 noundef %1, i64 noundef %.pre-phi86, i64 noundef %.pre-phi91, i32 noundef 5) #11
   br label %58
 
 31:                                               ; preds = %16
@@ -364,10 +364,10 @@ define i64 @av_rescale_delta(i64 %0, i64 noundef %1, i64 %2, i32 noundef %3, ptr
   %sext7.i = shl i64 %2, 32
   %36 = ashr exact i64 %sext7.i, 32
   %37 = mul nsw i64 %36, %20
-  %38 = tail call i64 @av_rescale_rnd(i64 noundef %33, i64 noundef %35, i64 noundef %37, i32 noundef 2) #9
+  %38 = tail call i64 @av_rescale_rnd(i64 noundef %33, i64 noundef %35, i64 noundef %37, i32 noundef 2) #11
   %39 = ashr i64 %38, 1
   %40 = or disjoint i64 %32, 1
-  %41 = tail call i64 @av_rescale_rnd(i64 noundef %40, i64 noundef %35, i64 noundef %37, i32 noundef 3) #9
+  %41 = tail call i64 @av_rescale_rnd(i64 noundef %40, i64 noundef %35, i64 noundef %37, i32 noundef 3) #11
   %42 = add nsw i64 %41, 1
   %43 = ashr i64 %42, 1
   %44 = and i64 %38, -2
@@ -390,7 +390,7 @@ define i64 @av_rescale_delta(i64 %0, i64 noundef %1, i64 %2, i32 noundef %3, ptr
   store i64 %54, ptr %4, align 8, !tbaa !8
   %55 = mul nsw i64 %17, %36
   %56 = mul nsw i64 %19, %34
-  %57 = tail call i64 @av_rescale_rnd(i64 noundef %.0.i, i64 noundef %55, i64 noundef %56, i32 noundef 5) #9
+  %57 = tail call i64 @av_rescale_rnd(i64 noundef %.0.i, i64 noundef %55, i64 noundef %56, i32 noundef 5) #11
   br label %58
 
 58:                                               ; preds = %51, %22
@@ -411,7 +411,7 @@ define i64 @av_add_stable(i64 %0, i64 noundef %1, i64 %2, i64 noundef %3) local_
 5:                                                ; preds = %4
   %.sroa.0.0.insert.ext = and i64 %3, 4294967295
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0.insert.ext, 4294967296
-  %6 = tail call i64 @av_mul_q(i64 %2, i64 %.sroa.0.0.insert.insert) #9
+  %6 = tail call i64 @av_mul_q(i64 %2, i64 %.sroa.0.0.insert.insert) #11
   br label %7
 
 7:                                                ; preds = %5, %4
@@ -441,8 +441,8 @@ define i64 @av_add_stable(i64 %0, i64 noundef %1, i64 %2, i64 noundef %3) local_
   br i1 %21, label %37, label %22
 
 22:                                               ; preds = %20
-  %23 = tail call i64 @av_rescale_rnd(i64 noundef %1, i64 noundef %13, i64 noundef %10, i32 noundef 5) #9
-  %24 = tail call i64 @av_rescale_rnd(i64 noundef %23, i64 noundef %10, i64 noundef %13, i32 noundef 5) #9
+  %23 = tail call i64 @av_rescale_rnd(i64 noundef %1, i64 noundef %13, i64 noundef %10, i32 noundef 5) #11
+  %24 = tail call i64 @av_rescale_rnd(i64 noundef %23, i64 noundef %10, i64 noundef %13, i32 noundef 5) #11
   %25 = add i64 %23, -9223372036854775807
   %or.cond = icmp ult i64 %25, 2
   %26 = icmp eq i64 %24, -9223372036854775808
@@ -451,7 +451,7 @@ define i64 @av_add_stable(i64 %0, i64 noundef %1, i64 %2, i64 noundef %3) local_
 
 27:                                               ; preds = %22
   %28 = add nsw i64 %23, 1
-  %29 = tail call i64 @av_rescale_rnd(i64 noundef %28, i64 noundef %10, i64 noundef %13, i32 noundef 5) #9
+  %29 = tail call i64 @av_rescale_rnd(i64 noundef %28, i64 noundef %10, i64 noundef %13, i32 noundef 5) #11
   %30 = sub nsw i64 %1, %24
   %31 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %29, i64 %30)
   %32 = extractvalue { i64, i1 } %31, 1
@@ -549,35 +549,35 @@ eval_poly.exit34:                                 ; preds = %.lr.ph.i29
   ret double %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #1
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.exp.f64(double) #1
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.exp.f64(double) #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #1
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.sadd.with.overflow.i64(i64, i64) #1
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare { i64, i1 } @llvm.sadd.with.overflow.i64(i64, i64) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64, i64) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64, i64) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.umin.i8(i8, i8) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #8
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #10
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
@@ -587,10 +587,12 @@ attributes #4 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "st
 attributes #5 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn nounwind }
+attributes #8 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

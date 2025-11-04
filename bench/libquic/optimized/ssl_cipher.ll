@@ -191,25 +191,25 @@ define hidden range(i32 0, 2) i32 @ssl_cipher_get_evp_aead(ptr noundef writeonly
   ]
 
 11:                                               ; preds = %.split
-  %12 = tail call ptr @EVP_aead_aes_128_gcm() #16
+  %12 = tail call ptr @EVP_aead_aes_128_gcm() #17
   store ptr %12, ptr %0, align 8, !tbaa !15
   store i64 4, ptr %2, align 8, !tbaa !17
   br label %85
 
 13:                                               ; preds = %.split
-  %14 = tail call ptr @EVP_aead_aes_256_gcm() #16
+  %14 = tail call ptr @EVP_aead_aes_256_gcm() #17
   store ptr %14, ptr %0, align 8, !tbaa !15
   store i64 4, ptr %2, align 8, !tbaa !17
   br label %85
 
 15:                                               ; preds = %.split
-  %16 = tail call ptr @EVP_aead_chacha20_poly1305_old() #16
+  %16 = tail call ptr @EVP_aead_chacha20_poly1305_old() #17
   store ptr %16, ptr %0, align 8, !tbaa !15
   store i64 0, ptr %2, align 8, !tbaa !17
   br label %85
 
 17:                                               ; preds = %.split
-  %18 = tail call ptr @EVP_aead_chacha20_poly1305() #16
+  %18 = tail call ptr @EVP_aead_chacha20_poly1305() #17
   store ptr %18, ptr %0, align 8, !tbaa !15
   store i64 12, ptr %2, align 8, !tbaa !17
   br label %85
@@ -227,11 +227,11 @@ define hidden range(i32 0, 2) i32 @ssl_cipher_get_evp_aead(ptr noundef writeonly
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %22
-  %25 = tail call ptr @EVP_aead_rc4_md5_ssl3() #16
+  %25 = tail call ptr @EVP_aead_rc4_md5_ssl3() #17
   br label %28
 
 26:                                               ; preds = %22
-  %27 = tail call ptr @EVP_aead_rc4_md5_tls() #16
+  %27 = tail call ptr @EVP_aead_rc4_md5_tls() #17
   br label %28
 
 28:                                               ; preds = %26, %24
@@ -245,11 +245,11 @@ define hidden range(i32 0, 2) i32 @ssl_cipher_get_evp_aead(ptr noundef writeonly
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %29
-  %32 = tail call ptr @EVP_aead_rc4_sha1_ssl3() #16
+  %32 = tail call ptr @EVP_aead_rc4_sha1_ssl3() #17
   br label %35
 
 33:                                               ; preds = %29
-  %34 = tail call ptr @EVP_aead_rc4_sha1_tls() #16
+  %34 = tail call ptr @EVP_aead_rc4_sha1_tls() #17
   br label %35
 
 35:                                               ; preds = %33, %31
@@ -273,19 +273,19 @@ define hidden range(i32 0, 2) i32 @ssl_cipher_get_evp_aead(ptr noundef writeonly
   ]
 
 40:                                               ; preds = %39
-  %41 = tail call ptr @EVP_aead_aes_128_cbc_sha1_ssl3() #16
+  %41 = tail call ptr @EVP_aead_aes_128_cbc_sha1_ssl3() #17
   store ptr %41, ptr %0, align 8, !tbaa !15
   store i64 16, ptr %2, align 8, !tbaa !17
   br label %46
 
 42:                                               ; preds = %39
-  %43 = tail call ptr @EVP_aead_aes_128_cbc_sha1_tls_implicit_iv() #16
+  %43 = tail call ptr @EVP_aead_aes_128_cbc_sha1_tls_implicit_iv() #17
   store ptr %43, ptr %0, align 8, !tbaa !15
   store i64 16, ptr %2, align 8, !tbaa !17
   br label %46
 
 44:                                               ; preds = %39
-  %45 = tail call ptr @EVP_aead_aes_128_cbc_sha1_tls() #16
+  %45 = tail call ptr @EVP_aead_aes_128_cbc_sha1_tls() #17
   store ptr %45, ptr %0, align 8, !tbaa !15
   br label %46
 
@@ -294,7 +294,7 @@ define hidden range(i32 0, 2) i32 @ssl_cipher_get_evp_aead(ptr noundef writeonly
   br label %85
 
 47:                                               ; preds = %36
-  %48 = tail call ptr @EVP_aead_aes_128_cbc_sha256_tls() #16
+  %48 = tail call ptr @EVP_aead_aes_128_cbc_sha256_tls() #17
   store ptr %48, ptr %0, align 8, !tbaa !15
   store i64 32, ptr %1, align 8, !tbaa !17
   br label %85
@@ -315,19 +315,19 @@ define hidden range(i32 0, 2) i32 @ssl_cipher_get_evp_aead(ptr noundef writeonly
   ]
 
 53:                                               ; preds = %52
-  %54 = tail call ptr @EVP_aead_aes_256_cbc_sha1_ssl3() #16
+  %54 = tail call ptr @EVP_aead_aes_256_cbc_sha1_ssl3() #17
   store ptr %54, ptr %0, align 8, !tbaa !15
   store i64 16, ptr %2, align 8, !tbaa !17
   br label %59
 
 55:                                               ; preds = %52
-  %56 = tail call ptr @EVP_aead_aes_256_cbc_sha1_tls_implicit_iv() #16
+  %56 = tail call ptr @EVP_aead_aes_256_cbc_sha1_tls_implicit_iv() #17
   store ptr %56, ptr %0, align 8, !tbaa !15
   store i64 16, ptr %2, align 8, !tbaa !17
   br label %59
 
 57:                                               ; preds = %52
-  %58 = tail call ptr @EVP_aead_aes_256_cbc_sha1_tls() #16
+  %58 = tail call ptr @EVP_aead_aes_256_cbc_sha1_tls() #17
   store ptr %58, ptr %0, align 8, !tbaa !15
   br label %59
 
@@ -336,13 +336,13 @@ define hidden range(i32 0, 2) i32 @ssl_cipher_get_evp_aead(ptr noundef writeonly
   br label %85
 
 60:                                               ; preds = %49
-  %61 = tail call ptr @EVP_aead_aes_256_cbc_sha256_tls() #16
+  %61 = tail call ptr @EVP_aead_aes_256_cbc_sha256_tls() #17
   store ptr %61, ptr %0, align 8, !tbaa !15
   store i64 32, ptr %1, align 8, !tbaa !17
   br label %85
 
 62:                                               ; preds = %49
-  %63 = tail call ptr @EVP_aead_aes_256_cbc_sha384_tls() #16
+  %63 = tail call ptr @EVP_aead_aes_256_cbc_sha384_tls() #17
   store ptr %63, ptr %0, align 8, !tbaa !15
   store i64 48, ptr %1, align 8, !tbaa !17
   br label %85
@@ -360,19 +360,19 @@ define hidden range(i32 0, 2) i32 @ssl_cipher_get_evp_aead(ptr noundef writeonly
   ]
 
 68:                                               ; preds = %67
-  %69 = tail call ptr @EVP_aead_des_ede3_cbc_sha1_ssl3() #16
+  %69 = tail call ptr @EVP_aead_des_ede3_cbc_sha1_ssl3() #17
   store ptr %69, ptr %0, align 8, !tbaa !15
   store i64 8, ptr %2, align 8, !tbaa !17
   br label %74
 
 70:                                               ; preds = %67
-  %71 = tail call ptr @EVP_aead_des_ede3_cbc_sha1_tls_implicit_iv() #16
+  %71 = tail call ptr @EVP_aead_des_ede3_cbc_sha1_tls_implicit_iv() #17
   store ptr %71, ptr %0, align 8, !tbaa !15
   store i64 8, ptr %2, align 8, !tbaa !17
   br label %74
 
 72:                                               ; preds = %67
-  %73 = tail call ptr @EVP_aead_des_ede3_cbc_sha1_tls() #16
+  %73 = tail call ptr @EVP_aead_des_ede3_cbc_sha1_tls() #17
   store ptr %73, ptr %0, align 8, !tbaa !15
   br label %74
 
@@ -391,11 +391,11 @@ define hidden range(i32 0, 2) i32 @ssl_cipher_get_evp_aead(ptr noundef writeonly
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %78
-  %81 = tail call ptr @EVP_aead_null_sha1_ssl3() #16
+  %81 = tail call ptr @EVP_aead_null_sha1_ssl3() #17
   br label %84
 
 82:                                               ; preds = %78
-  %83 = tail call ptr @EVP_aead_null_sha1_tls() #16
+  %83 = tail call ptr @EVP_aead_null_sha1_tls() #17
   br label %84
 
 84:                                               ; preds = %82, %80
@@ -462,15 +462,15 @@ define hidden ptr @ssl_get_handshake_digest(i32 noundef %0) local_unnamed_addr #
   ]
 
 2:                                                ; preds = %1
-  %3 = tail call ptr @EVP_sha1() #16
+  %3 = tail call ptr @EVP_sha1() #17
   br label %8
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @EVP_sha256() #16
+  %5 = tail call ptr @EVP_sha256() #17
   br label %8
 
 6:                                                ; preds = %1
-  %7 = tail call ptr @EVP_sha384() #16
+  %7 = tail call ptr @EVP_sha384() #17
   br label %8
 
 8:                                                ; preds = %1, %6, %4, %2
@@ -496,12 +496,12 @@ define hidden ptr @ssl_create_cipher_list(ptr noundef readonly captures(none) %0
   br i1 %or.cond, label %818, label %9
 
 9:                                                ; preds = %4
-  %10 = tail call noalias dereferenceable_or_null(1280) ptr @malloc(i64 noundef 1280) #17
+  %10 = tail call noalias dereferenceable_or_null(1280) ptr @malloc(i64 noundef 1280) #18
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %9
-  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 1396) #16
+  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 1396) #17
   br label %818
 
 13:                                               ; preds = %9
@@ -513,7 +513,7 @@ define hidden ptr @ssl_create_cipher_list(ptr noundef readonly captures(none) %0
   %.04348.i = phi i64 [ 0, %13 ], [ %24, %23 ]
   %16 = getelementptr inbounds nuw %struct.ssl_cipher_st, ptr @kCiphers, i64 %.04348.i
   %17 = load ptr, ptr %14, align 8, !tbaa !21
-  %18 = tail call i32 %17(ptr noundef nonnull %16) #16
+  %18 = tail call i32 %17(ptr noundef nonnull %16) #17
   %.not47.i = icmp eq i32 %18, 0
   br i1 %.not47.i, label %23, label %19
 
@@ -893,7 +893,7 @@ ssl_cipher_apply_rule.exit147:                    ; preds = %.outer.i139, %.back
   %.0.ph.lcssa.i144 = phi ptr [ %.0.ph.lcssa.i116, %ssl_cipher_apply_rule.exit126 ], [ null, %25 ], [ %.0.ph193.i131, %.backedge.us.i145 ], [ %.1131.i141, %.outer.i139 ]
   store ptr %.0132.ph.lcssa.i143, ptr %5, align 8, !tbaa !31
   store ptr %.0.ph.lcssa.i144, ptr %6, align 8, !tbaa !31
-  %160 = tail call i32 @EVP_has_aes_hardware() #16
+  %160 = tail call i32 @EVP_has_aes_hardware() #17
   %.not = icmp eq i32 %160, 0
   %161 = icmp eq ptr %.0.ph.lcssa.i144, null
   %162 = icmp eq ptr %.0132.ph.lcssa.i143, null
@@ -2581,7 +2581,7 @@ ssl_cipher_apply_rule.exit603:                    ; preds = %.outer.i595, %.back
   %.0.ph.lcssa.i600 = phi ptr [ %.0.ph.lcssa.i571, %ssl_cipher_apply_rule.exit574 ], [ %.0.ph193.i579, %.backedge.us.i601 ], [ %.1131.i597, %.outer.i595 ]
   store ptr %.0132.ph.lcssa.i599, ptr %5, align 8, !tbaa !31
   store ptr %.0.ph.lcssa.i600, ptr %6, align 8, !tbaa !31
-  %768 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.1, i64 noundef 7) #18
+  %768 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.1, i64 noundef 7) #19
   %769 = icmp eq i32 %768, 0
   br i1 %769, label %770, label %.thread
 
@@ -2607,12 +2607,12 @@ ssl_cipher_apply_rule.exit603:                    ; preds = %.outer.i595, %.back
   br i1 %778, label %.critedge96, label %.critedge
 
 .critedge:                                        ; preds = %.thread, %776
-  %779 = tail call ptr @sk_new_null() #16
+  %779 = tail call ptr @sk_new_null() #17
   %780 = icmp eq ptr %779, null
   br i1 %780, label %.critedge96, label %781
 
 781:                                              ; preds = %.critedge
-  %782 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #17
+  %782 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #18
   %.not86 = icmp eq ptr %782, null
   br i1 %.not86, label %.critedge96, label %.preheader
 
@@ -2631,7 +2631,7 @@ ssl_cipher_apply_rule.exit603:                    ; preds = %.outer.i595, %.back
 
 785:                                              ; preds = %.lr.ph
   %786 = load ptr, ptr %.061841, align 8, !tbaa !23
-  %787 = tail call i64 @sk_push(ptr noundef nonnull %779, ptr noundef %786) #16
+  %787 = tail call i64 @sk_push(ptr noundef nonnull %779, ptr noundef %786) #17
   %.not93 = icmp eq i64 %787, 0
   br i1 %.not93, label %.critedge96, label %788
 
@@ -2658,19 +2658,19 @@ ssl_cipher_apply_rule.exit603:                    ; preds = %.outer.i595, %.back
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %.059.lcssa = phi i64 [ 0, %.preheader ], [ %797, %._crit_edge.loopexit ]
-  tail call void @free(ptr noundef %10) #16
-  %798 = tail call ptr @sk_dup(ptr noundef nonnull %779) #16
+  tail call void @free(ptr noundef %10) #17
+  %798 = tail call ptr @sk_dup(ptr noundef nonnull %779) #17
   %799 = icmp eq ptr %798, null
   br i1 %799, label %.critedge96, label %800
 
 800:                                              ; preds = %._crit_edge
-  %801 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
+  %801 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %.not88 = icmp eq ptr %801, null
   br i1 %.not88, label %.critedge96, label %802
 
 802:                                              ; preds = %800
   store ptr %779, ptr %801, align 8, !tbaa !38
-  %803 = tail call noalias ptr @malloc(i64 noundef %.059.lcssa) #17
+  %803 = tail call noalias ptr @malloc(i64 noundef %.059.lcssa) #18
   %804 = getelementptr inbounds nuw i8, ptr %801, i64 8
   store ptr %803, ptr %804, align 8, !tbaa !41
   %.not89 = icmp eq ptr %803, null
@@ -2678,13 +2678,13 @@ ssl_cipher_apply_rule.exit603:                    ; preds = %.outer.i595, %.back
 
 805:                                              ; preds = %802
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %803, ptr nonnull align 1 %782, i64 %.059.lcssa, i1 false)
-  tail call void @free(ptr noundef %782) #16
+  tail call void @free(ptr noundef %782) #17
   %806 = load ptr, ptr %1, align 8, !tbaa !42
   %.not90 = icmp eq ptr %806, null
   br i1 %.not90, label %808, label %807
 
 807:                                              ; preds = %805
-  tail call void @ssl_cipher_preference_list_free(ptr noundef nonnull %806) #16
+  tail call void @ssl_cipher_preference_list_free(ptr noundef nonnull %806) #17
   br label %808
 
 808:                                              ; preds = %807, %805
@@ -2694,15 +2694,15 @@ ssl_cipher_apply_rule.exit603:                    ; preds = %.outer.i595, %.back
 
 809:                                              ; preds = %808
   %810 = load ptr, ptr %2, align 8, !tbaa !44
-  tail call void @sk_free(ptr noundef %810) #16
+  tail call void @sk_free(ptr noundef %810) #17
   store ptr %798, ptr %2, align 8, !tbaa !44
-  %811 = tail call ptr @sk_set_cmp_func(ptr noundef nonnull %798, ptr noundef nonnull @ssl_cipher_ptr_id_cmp) #16
+  %811 = tail call ptr @sk_set_cmp_func(ptr noundef nonnull %798, ptr noundef nonnull @ssl_cipher_ptr_id_cmp) #17
   %812 = load ptr, ptr %2, align 8, !tbaa !44
-  tail call void @sk_sort(ptr noundef %812) #16
+  tail call void @sk_sort(ptr noundef %812) #17
   br label %818
 
 813:                                              ; preds = %808
-  tail call void @sk_free(ptr noundef nonnull %798) #16
+  tail call void @sk_free(ptr noundef nonnull %798) #17
   br label %818
 
 .critedge96:                                      ; preds = %785, %770, %802, %800, %._crit_edge, %781, %.critedge, %776
@@ -2711,21 +2711,21 @@ ssl_cipher_apply_rule.exit603:                    ; preds = %.outer.i595, %.back
   %.062 = phi ptr [ %10, %.critedge ], [ null, %._crit_edge ], [ null, %802 ], [ null, %800 ], [ %10, %781 ], [ %10, %776 ], [ %10, %770 ], [ %10, %785 ]
   %.060 = phi ptr [ null, %.critedge ], [ %782, %._crit_edge ], [ %782, %802 ], [ %782, %800 ], [ null, %781 ], [ null, %776 ], [ null, %770 ], [ %782, %785 ]
   %.0 = phi ptr [ null, %.critedge ], [ null, %._crit_edge ], [ %801, %802 ], [ null, %800 ], [ null, %781 ], [ null, %776 ], [ null, %770 ], [ null, %785 ]
-  tail call void @free(ptr noundef %.062) #16
-  tail call void @free(ptr noundef %.060) #16
-  tail call void @sk_free(ptr noundef %.065) #16
-  tail call void @sk_free(ptr noundef %.064) #16
+  tail call void @free(ptr noundef %.062) #17
+  tail call void @free(ptr noundef %.060) #17
+  tail call void @sk_free(ptr noundef %.065) #17
+  tail call void @sk_free(ptr noundef %.064) #17
   %.not94 = icmp eq ptr %.0, null
   br i1 %.not94, label %817, label %814
 
 814:                                              ; preds = %.critedge96
   %815 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %816 = load ptr, ptr %815, align 8, !tbaa !41
-  tail call void @free(ptr noundef %816) #16
+  tail call void @free(ptr noundef %816) #17
   br label %817
 
 817:                                              ; preds = %814, %.critedge96
-  tail call void @free(ptr noundef %.0) #16
+  tail call void @free(ptr noundef %.0) #17
   br label %818
 
 818:                                              ; preds = %809, %813, %4, %817, %12
@@ -3254,11 +3254,11 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nound
   br i1 %or.cond218, label %.thread, label %35
 
 35:                                               ; preds = %31
-  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 224, ptr noundef nonnull @.str, i32 noundef 1198) #16
+  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 224, ptr noundef nonnull @.str, i32 noundef 1198) #17
   br label %.thread18
 
 .split70.us:                                      ; preds = %14
-  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 168, ptr noundef nonnull @.str, i32 noundef 1233) #16
+  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 168, ptr noundef nonnull @.str, i32 noundef 1233) #17
   br label %.thread18
 
 .thread:                                          ; preds = %31
@@ -3364,7 +3364,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nound
   %.us-phi116 = phi i32 [ 0, %42 ], [ %.0153, %60 ]
   %.us-phi117 = phi i32 [ -1, %42 ], [ %.0151, %60 ]
   %.us-phi118 = phi ptr [ %.3186.us, %42 ], [ %.3186, %60 ]
-  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 158, ptr noundef nonnull @.str, i32 noundef 1265) #16
+  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 158, ptr noundef nonnull @.str, i32 noundef 1265) #17
   %62 = getelementptr inbounds nuw i8, ptr %.us-phi118, i64 1
   br label %.loopexit28
 
@@ -3377,7 +3377,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nound
   %.0159107 = phi i64 [ %74, %rule_equals.exit.thread ], [ 0, %63 ]
   %65 = getelementptr inbounds nuw %struct.ssl_cipher_st, ptr @kCiphers, i64 %.0159107
   %66 = load ptr, ptr %65, align 16, !tbaa !47
-  %67 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %66, ptr noundef nonnull readonly dereferenceable(1) %.2185, i64 noundef range(i64 1, 0) %.0158) #18
+  %67 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %66, ptr noundef nonnull readonly dereferenceable(1) %.2185, i64 noundef range(i64 1, 0) %.0158) #19
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %rule_equals.exit, label %rule_equals.exit.thread
 
@@ -3406,7 +3406,7 @@ rule_equals.exit.thread:                          ; preds = %.preheader25, %rule
   %.1160108 = phi i64 [ %96, %rule_equals.exit223.thread ], [ 0, %.loopexit26 ]
   %76 = getelementptr inbounds nuw %struct.cipher_alias_st, ptr @kCipherAliases, i64 %.1160108
   %77 = load ptr, ptr %76, align 16, !tbaa !49
-  %78 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %77, ptr noundef nonnull readonly dereferenceable(1) %.2185, i64 noundef range(i64 1, 0) %.0158) #18
+  %78 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %77, ptr noundef nonnull readonly dereferenceable(1) %.2185, i64 noundef range(i64 1, 0) %.0158) #19
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %rule_equals.exit223, label %rule_equals.exit223.thread
 
@@ -3513,7 +3513,7 @@ rule_equals.exit223.thread:                       ; preds = %.preheader, %rule_e
   br i1 %102, label %103, label %.thread13
 
 103:                                              ; preds = %101
-  %104 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.218558260289, ptr noundef nonnull dereferenceable(9) @.str.74, i64 noundef 8) #18
+  %104 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.218558260289, ptr noundef nonnull dereferenceable(9) @.str.74, i64 noundef 8) #19
   %.not213 = icmp eq i32 %104, 0
   br i1 %.not213, label %105, label %.thread13
 
@@ -3581,7 +3581,7 @@ SSL_CIPHER_get_bits.exit39.i:                     ; preds = %switch.lookup423, %
   br i1 %.not31.i, label %.thread15, label %125
 
 .thread15:                                        ; preds = %._crit_edge.i
-  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 1136) #16
+  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 1136) #17
   br label %153
 
 125:                                              ; preds = %._crit_edge.i
@@ -3653,11 +3653,11 @@ SSL_CIPHER_get_bits.exit44.i:                     ; preds = %132, %.split.i43.i,
   br i1 %151, label %.lr.ph58.i, label %152, !llvm.loop !61
 
 .thread13:                                        ; preds = %101, %103
-  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 158, ptr noundef nonnull @.str, i32 noundef 1347) #16
+  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 158, ptr noundef nonnull @.str, i32 noundef 1347) #17
   br label %153
 
 152:                                              ; preds = %150
-  tail call void @free(ptr noundef nonnull %calloc.i) #16
+  tail call void @free(ptr noundef nonnull %calloc.i) #17
   br label %153
 
 153:                                              ; preds = %.thread13, %.thread15, %152
@@ -3717,7 +3717,7 @@ SSL_CIPHER_get_bits.exit44.i:                     ; preds = %132, %.split.i43.i,
   br i1 %.not216, label %.thread18, label %.outer29._crit_edge.thread300
 
 .outer29._crit_edge.thread300:                    ; preds = %.split.us, %46, %.outer29._crit_edge
-  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 158, ptr noundef nonnull @.str, i32 noundef 1366) #16
+  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 158, ptr noundef nonnull @.str, i32 noundef 1366) #17
   br label %.thread18
 
 .thread18:                                        ; preds = %17, %3, %35, %.split70.us, %.outer29._crit_edge.thread300, %.outer29._crit_edge
@@ -4082,48 +4082,48 @@ ssl_cipher_get_enc_name.exit:                     ; preds = %SSL_CIPHER_get_kx_n
 
 ssl_cipher_get_prf_name.exit:                     ; preds = %ssl_cipher_get_enc_name.exit, %27, %30, %31
   %.0.i42 = phi ptr [ @.str.7, %31 ], [ @.str.31, %30 ], [ %switch.select4.i, %27 ], [ @.str.30, %ssl_cipher_get_enc_name.exit ]
-  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #18
-  %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i40) #18
-  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i42) #18
+  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #19
+  %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i40) #19
+  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i42) #19
   %35 = add i64 %32, 12
   %36 = add i64 %35, %33
   %37 = add i64 %36, %34
-  %38 = tail call noalias ptr @malloc(i64 noundef %37) #17
+  %38 = tail call noalias ptr @malloc(i64 noundef %37) #18
   %39 = icmp eq ptr %38, null
   br i1 %39, label %53, label %40
 
 40:                                               ; preds = %ssl_cipher_get_prf_name.exit
-  %41 = tail call i64 @BUF_strlcpy(ptr noundef nonnull %38, ptr noundef nonnull @.str.12, i64 noundef %37) #16
+  %41 = tail call i64 @BUF_strlcpy(ptr noundef nonnull %38, ptr noundef nonnull @.str.12, i64 noundef %37) #17
   %.not = icmp ult i64 %41, %37
   br i1 %.not, label %42, label %52
 
 42:                                               ; preds = %40
-  %43 = tail call i64 @BUF_strlcat(ptr noundef nonnull %38, ptr noundef nonnull %.0.i, i64 noundef %37) #16
+  %43 = tail call i64 @BUF_strlcat(ptr noundef nonnull %38, ptr noundef nonnull %.0.i, i64 noundef %37) #17
   %.not35 = icmp ult i64 %43, %37
   br i1 %.not35, label %44, label %52
 
 44:                                               ; preds = %42
-  %45 = tail call i64 @BUF_strlcat(ptr noundef nonnull %38, ptr noundef nonnull @.str.13, i64 noundef %37) #16
+  %45 = tail call i64 @BUF_strlcat(ptr noundef nonnull %38, ptr noundef nonnull @.str.13, i64 noundef %37) #17
   %.not36 = icmp ult i64 %45, %37
   br i1 %.not36, label %46, label %52
 
 46:                                               ; preds = %44
-  %47 = tail call i64 @BUF_strlcat(ptr noundef nonnull %38, ptr noundef nonnull %.0.i40, i64 noundef %37) #16
+  %47 = tail call i64 @BUF_strlcat(ptr noundef nonnull %38, ptr noundef nonnull %.0.i40, i64 noundef %37) #17
   %.not37 = icmp ult i64 %47, %37
   br i1 %.not37, label %48, label %52
 
 48:                                               ; preds = %46
-  %49 = tail call i64 @BUF_strlcat(ptr noundef nonnull %38, ptr noundef nonnull @.str.14, i64 noundef %37) #16
+  %49 = tail call i64 @BUF_strlcat(ptr noundef nonnull %38, ptr noundef nonnull @.str.14, i64 noundef %37) #17
   %.not38 = icmp ult i64 %49, %37
   br i1 %.not38, label %50, label %52
 
 50:                                               ; preds = %48
-  %51 = tail call i64 @BUF_strlcat(ptr noundef nonnull %38, ptr noundef nonnull %.0.i42, i64 noundef %37) #16
+  %51 = tail call i64 @BUF_strlcat(ptr noundef nonnull %38, ptr noundef nonnull %.0.i42, i64 noundef %37) #17
   %.not39 = icmp ult i64 %51, %37
   br i1 %.not39, label %53, label %52
 
 52:                                               ; preds = %50, %48, %46, %44, %42, %40
-  tail call void @free(ptr noundef nonnull %38) #16
+  tail call void @free(ptr noundef nonnull %38) #17
   br label %53
 
 53:                                               ; preds = %52, %ssl_cipher_get_prf_name.exit, %50, %1
@@ -4253,7 +4253,7 @@ switch.lookup40:                                  ; preds = %.split2
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %32
-  %35 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #17
+  %35 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #18
   %36 = icmp eq ptr %35, null
   br i1 %36, label %43, label %39
 
@@ -4266,7 +4266,7 @@ switch.lookup40:                                  ; preds = %.split2
   %.022 = phi ptr [ %35, %34 ], [ %1, %37 ]
   %40 = zext nneg i32 %.023 to i64
   %41 = load ptr, ptr %0, align 8, !tbaa !47
-  %42 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %.022, i64 noundef %40, ptr noundef nonnull @.str.34, ptr noundef %41, ptr noundef nonnull %.024, ptr noundef nonnull %.027, ptr noundef nonnull %.026, ptr noundef nonnull %.025) #16
+  %42 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %.022, i64 noundef %40, ptr noundef nonnull @.str.34, ptr noundef %41, ptr noundef nonnull %.024, ptr noundef nonnull %.027, ptr noundef nonnull %.026, ptr noundef nonnull %.025) #17
   br label %43
 
 43:                                               ; preds = %37, %34, %39
@@ -4377,17 +4377,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #14
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #14
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #15
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #16
 
 attributes #0 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4403,11 +4403,12 @@ attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind allocsize(0) }
-attributes #18 = { nounwind willreturn memory(read) }
+attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #17 = { nounwind }
+attributes #18 = { nounwind allocsize(0) }
+attributes #19 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

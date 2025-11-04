@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: cold nounwind optsize uwtable
 define internal range(i32 -1094995529, 1) i32 @gsm_init(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  tail call void @av_channel_layout_uninit(ptr noundef nonnull %2) #9
+  tail call void @av_channel_layout_uninit(ptr noundef nonnull %2) #10
   store i32 1, ptr %2, align 8, !tbaa !4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 356
   store i32 1, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !4
@@ -81,7 +81,7 @@ define internal range(i32 -1094995529, 1) i32 @gsm_init(ptr noundef %0) #0 {
   br i1 %.not18, label %24, label %23
 
 23:                                               ; preds = %20, %18
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.4, i32 noundef %16) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.4, i32 noundef %16) #10
   br label %24
 
 24:                                               ; preds = %6, %10, %20, %17, %23
@@ -102,7 +102,7 @@ define internal i32 @gsm_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %4
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.5) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.5) #10
   br label %403
 
 14:                                               ; preds = %4
@@ -110,7 +110,7 @@ define internal i32 @gsm_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %16 = load i32, ptr %15, align 8, !tbaa !32
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i32 %16, ptr %17, align 8, !tbaa !37
-  %18 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #9
+  %18 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #10
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %403, label %20
 
@@ -136,7 +136,7 @@ define internal i32 @gsm_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not, label %32, label %31
 
 31:                                               ; preds = %24
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.6) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.6) #10
   %.pre = load i32, ptr %7, align 1, !tbaa !8
   br label %32
 
@@ -665,7 +665,7 @@ gsm_decode_block.exit:                            ; preds = %377
   %396 = load i32, ptr %10, align 4, !tbaa !33
   %397 = sub nsw i32 65, %396
   %398 = sdiv i32 %397, 3
-  %399 = tail call i32 @ff_msgsm_decode_block(ptr noundef nonnull %0, ptr noundef %21, ptr noundef %7, i32 noundef %398) #9
+  %399 = tail call i32 @ff_msgsm_decode_block(ptr noundef nonnull %0, ptr noundef %21, ptr noundef %7, i32 noundef %398) #10
   %400 = icmp slt i32 %399, 0
   br i1 %400, label %403, label %401
 
@@ -738,22 +738,22 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #8
+declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -764,8 +764,9 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
+attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

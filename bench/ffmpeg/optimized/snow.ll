@@ -67,7 +67,7 @@ define void @ff_snow_inner_add_yblock(ptr noundef readonly captures(none) %0, i3
 
 35:                                               ; preds = %.lr.ph74.split.us.split.us
   %36 = trunc nsw i64 %32 to i32
-  %37 = tail call ptr @ff_slice_buffer_load_line(ptr noundef nonnull %8, i32 noundef %36) #10
+  %37 = tail call ptr @ff_slice_buffer_load_line(ptr noundef nonnull %8, i32 noundef %36) #11
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %35, %.lr.ph74.split.us.split.us
@@ -145,7 +145,7 @@ define void @ff_snow_inner_add_yblock(ptr noundef readonly captures(none) %0, i3
 
 90:                                               ; preds = %.lr.ph74.split.us.split
   %91 = trunc nsw i64 %87 to i32
-  %92 = tail call ptr @ff_slice_buffer_load_line(ptr noundef nonnull %8, i32 noundef %91) #10
+  %92 = tail call ptr @ff_slice_buffer_load_line(ptr noundef nonnull %8, i32 noundef %91) #11
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %90, %.lr.ph74.split.us.split
@@ -226,7 +226,7 @@ define void @ff_snow_inner_add_yblock(ptr noundef readonly captures(none) %0, i3
 
 146:                                              ; preds = %.lr.ph74.split
   %147 = trunc nsw i64 %143 to i32
-  %148 = tail call ptr @ff_slice_buffer_load_line(ptr noundef nonnull %8, i32 noundef %147) #10
+  %148 = tail call ptr @ff_slice_buffer_load_line(ptr noundef nonnull %8, i32 noundef %147) #11
   br label %149
 
 149:                                              ; preds = %.lr.ph74.split, %146
@@ -302,7 +302,7 @@ define range(i32 -12, 1) i32 @ff_snow_alloc_blocks(ptr noundef captures(none) in
   store i32 %11, ptr %13, align 4, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2141880
   %15 = load ptr, ptr %14, align 8, !tbaa !55
-  tail call void @av_free(ptr noundef %15) #10
+  tail call void @av_free(ptr noundef %15) #11
   %16 = mul nsw i32 %11, %7
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 6664
@@ -310,7 +310,7 @@ define range(i32 -12, 1) i32 @ff_snow_alloc_blocks(ptr noundef captures(none) in
   %20 = shl nsw i32 %19, 1
   %21 = zext nneg i32 %20 to i64
   %22 = shl i64 10, %21
-  %23 = tail call noalias ptr @av_calloc(i64 noundef %17, i64 noundef %22) #10
+  %23 = tail call noalias ptr @av_calloc(i64 noundef %17, i64 noundef %22) #11
   store ptr %23, ptr %14, align 8, !tbaa !55
   %.not = icmp eq ptr %23, null
   %. = select i1 %.not, i32 -12, i32 0
@@ -526,7 +526,7 @@ define void @ff_snow_pred_block(ptr noundef readonly captures(address_is_null) %
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %106 = add nsw i32 %6, 7
   %107 = add nsw i32 %7, 7
-  tail call void %104(ptr noundef nonnull %105, ptr noundef %94, i64 noundef %3, i64 noundef %3, i32 noundef %106, i32 noundef %107, i32 noundef %86, i32 noundef %89, i32 noundef %10, i32 noundef %11) #10
+  tail call void %104(ptr noundef nonnull %105, ptr noundef %94, i64 noundef %3, i64 noundef %3, i32 noundef %106, i32 noundef %107, i32 noundef %86, i32 noundef %89, i32 noundef %10, i32 noundef %11) #11
   br label %108
 
 108:                                              ; preds = %102, %98
@@ -598,11 +598,11 @@ define void @ff_snow_pred_block(ptr noundef readonly captures(address_is_null) %
   %145 = or disjoint i64 %indvars.iv304, 3
   %146 = mul nsw i64 %3, %145
   %147 = getelementptr inbounds i8, ptr %138, i64 %146
-  tail call void %142(ptr noundef %144, ptr noundef nonnull %147, i64 noundef %3) #10
+  tail call void %142(ptr noundef %144, ptr noundef nonnull %147, i64 noundef %3) #11
   %148 = load ptr, ptr %137, align 8, !tbaa !74
   %149 = getelementptr inbounds i8, ptr %139, i64 %143
   %150 = getelementptr inbounds i8, ptr %140, i64 %146
-  tail call void %148(ptr noundef nonnull %149, ptr noundef nonnull %150, i64 noundef %3) #10
+  tail call void %148(ptr noundef nonnull %149, ptr noundef nonnull %150, i64 noundef %3) #11
   %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 16
   %151 = trunc nuw i64 %indvars.iv.next305 to i32
   %152 = icmp sgt i32 %7, %151
@@ -623,7 +623,7 @@ define void @ff_snow_pred_block(ptr noundef readonly captures(address_is_null) %
   %163 = getelementptr inbounds nuw i8, ptr %.0237, i64 3
   %164 = mul nsw i64 %3, 3
   %165 = getelementptr inbounds i8, ptr %163, i64 %164
-  tail call void %162(ptr noundef %1, ptr noundef nonnull %165, i64 noundef %3) #10
+  tail call void %162(ptr noundef %1, ptr noundef nonnull %165, i64 noundef %3) #11
   br label %.loopexit
 
 166:                                              ; preds = %153
@@ -641,13 +641,13 @@ define void @ff_snow_pred_block(ptr noundef readonly captures(address_is_null) %
   %176 = getelementptr i8, ptr %175, i64 1520
   %177 = getelementptr inbounds nuw ptr, ptr %176, i64 %169
   %178 = load ptr, ptr %177, align 8, !tbaa !74
-  tail call void %178(ptr noundef %1, ptr noundef nonnull %172, i64 noundef %3) #10
+  tail call void %178(ptr noundef %1, ptr noundef nonnull %172, i64 noundef %3) #11
   %179 = load ptr, ptr %177, align 8, !tbaa !74
   %180 = sext i32 %7 to i64
   %181 = getelementptr inbounds i8, ptr %1, i64 %180
   %182 = getelementptr inbounds i8, ptr %170, i64 %180
   %183 = getelementptr inbounds i8, ptr %182, i64 %171
-  tail call void %179(ptr noundef %181, ptr noundef nonnull %183, i64 noundef %3) #10
+  tail call void %179(ptr noundef %181, ptr noundef nonnull %183, i64 noundef %3) #11
   br label %.loopexit
 
 184:                                              ; preds = %166
@@ -656,13 +656,13 @@ define void @ff_snow_pred_block(ptr noundef readonly captures(address_is_null) %
   %187 = getelementptr inbounds [16 x ptr], ptr %185, i64 %186
   %188 = getelementptr inbounds nuw ptr, ptr %187, i64 %169
   %189 = load ptr, ptr %188, align 8, !tbaa !74
-  tail call void %189(ptr noundef %1, ptr noundef nonnull %172, i64 noundef %3) #10
+  tail call void %189(ptr noundef %1, ptr noundef nonnull %172, i64 noundef %3) #11
   %190 = load ptr, ptr %188, align 8, !tbaa !74
   %191 = sext i32 %6 to i64
   %192 = mul nsw i64 %3, %191
   %193 = getelementptr inbounds i8, ptr %1, i64 %192
   %194 = getelementptr inbounds i8, ptr %172, i64 %192
-  tail call void %190(ptr noundef %193, ptr noundef nonnull %194, i64 noundef %3) #10
+  tail call void %190(ptr noundef %193, ptr noundef nonnull %194, i64 noundef %3) #11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph266, %.lr.ph268, %.lr.ph270, %.preheader253.us, %141, %.preheader262, %.preheader260, %.preheader258, %.preheader256, %.preheader254, %.preheader, %126, %154, %184, %173
@@ -1613,11 +1613,11 @@ define range(i32 -12, 1) i32 @ff_snow_common_init(ptr noundef %0) local_unnamed_
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 6424
   store i32 1, ptr %6, align 8, !tbaa !89
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 992
-  tail call void @ff_videodsp_init(ptr noundef nonnull %7, i32 noundef 8) #10
+  tail call void @ff_videodsp_init(ptr noundef nonnull %7, i32 noundef 8) #11
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 2032
-  tail call void @ff_dwt_init(ptr noundef nonnull %8) #10
+  tail call void @ff_dwt_init(ptr noundef nonnull %8) #11
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1008
-  tail call void @ff_h264qpel_init(ptr noundef nonnull %9, i32 noundef 8) #10
+  tail call void @ff_h264qpel_init(ptr noundef nonnull %9, i32 noundef 8) #11
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 576
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 832
   store ptr @mc_block_hpel0016, ptr %11, align 8, !tbaa !74
@@ -1657,14 +1657,14 @@ define range(i32 -12, 1) i32 @ff_snow_common_init(ptr noundef %0) local_unnamed_
   %30 = load i32, ptr %29, align 4, !tbaa !52
   %31 = mul nsw i32 %30, %28
   %32 = sext i32 %31 to i64
-  %33 = tail call noalias ptr @av_calloc(i64 noundef %32, i64 noundef 2) #10
+  %33 = tail call noalias ptr @av_calloc(i64 noundef %32, i64 noundef 2) #11
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 6592
   store ptr %33, ptr %34, align 8, !tbaa !90
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %.loopexit, label %35
 
 35:                                               ; preds = %1
-  %36 = tail call noalias ptr @av_calloc(i64 noundef %32, i64 noundef 4) #10
+  %36 = tail call noalias ptr @av_calloc(i64 noundef %32, i64 noundef 4) #11
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 6576
   store ptr %36, ptr %37, align 8, !tbaa !91
   %.not50 = icmp eq ptr %36, null
@@ -1672,14 +1672,14 @@ define range(i32 -12, 1) i32 @ff_snow_common_init(ptr noundef %0) local_unnamed_
 
 38:                                               ; preds = %35
   %39 = sext i32 %28 to i64
-  %40 = tail call noalias ptr @av_calloc(i64 noundef %39, i64 noundef 4) #10
+  %40 = tail call noalias ptr @av_calloc(i64 noundef %39, i64 noundef 4) #11
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 6584
   store ptr %40, ptr %41, align 8, !tbaa !92
   %.not51 = icmp eq ptr %40, null
   br i1 %.not51, label %.loopexit, label %42
 
 42:                                               ; preds = %38
-  %43 = tail call noalias ptr @av_calloc(i64 noundef %39, i64 noundef 2) #10
+  %43 = tail call noalias ptr @av_calloc(i64 noundef %39, i64 noundef 2) #11
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 6600
   store ptr %43, ptr %44, align 8, !tbaa !93
   %.not52 = icmp eq ptr %43, null
@@ -1693,7 +1693,7 @@ define range(i32 -12, 1) i32 @ff_snow_common_init(ptr noundef %0) local_unnamed_
   %50 = mul nsw i32 %49, %47
   %51 = add nsw i32 %50, 1
   %52 = sext i32 %51 to i64
-  %53 = tail call noalias ptr @av_calloc(i64 noundef %52, i64 noundef 4) #10
+  %53 = tail call noalias ptr @av_calloc(i64 noundef %52, i64 noundef 4) #11
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 6608
   store ptr %53, ptr %54, align 8, !tbaa !94
   %.not53 = icmp eq ptr %53, null
@@ -1710,17 +1710,17 @@ define range(i32 -12, 1) i32 @ff_snow_common_init(ptr noundef %0) local_unnamed_
 
 57:                                               ; preds = %.preheader, %56
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %56 ]
-  %58 = tail call ptr @av_frame_alloc() #10
+  %58 = tail call ptr @av_frame_alloc() #11
   %59 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
   store ptr %58, ptr %59, align 8, !tbaa !66
   %.not56 = icmp eq ptr %58, null
   br i1 %.not56, label %.loopexit, label %56
 
 60:                                               ; preds = %56
-  %61 = tail call ptr @av_frame_alloc() #10
+  %61 = tail call ptr @av_frame_alloc() #11
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 2136
   store ptr %61, ptr %62, align 8, !tbaa !96
-  %63 = tail call ptr @av_frame_alloc() #10
+  %63 = tail call ptr @av_frame_alloc() #11
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 2064
   store ptr %63, ptr %64, align 8, !tbaa !97
   %65 = load ptr, ptr %62, align 8, !tbaa !96
@@ -1730,7 +1730,7 @@ define range(i32 -12, 1) i32 @ff_snow_common_init(ptr noundef %0) local_unnamed_
   br i1 %or.cond, label %.loopexit, label %66
 
 66:                                               ; preds = %60
-  %67 = tail call i32 @pthread_once(ptr noundef nonnull @ff_snow_common_init.init_static_once, ptr noundef nonnull @snow_static_init) #10
+  %67 = tail call i32 @pthread_once(ptr noundef nonnull @ff_snow_common_init.init_static_once, ptr noundef nonnull @snow_static_init) #11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %57, %60, %1, %35, %38, %42, %45, %66
@@ -1880,7 +1880,7 @@ define range(i32 -12, 1) i32 @ff_snow_common_init_after_header(ptr noundef reado
   %. = tail call i32 @llvm.smax.i32(i32 %10, i32 %14)
   %15 = mul nsw i32 %., 112
   %16 = sext i32 %15 to i64
-  %17 = tail call noalias ptr @av_calloc(i64 noundef %16, i64 noundef 1) #10
+  %17 = tail call noalias ptr @av_calloc(i64 noundef %16, i64 noundef 1) #11
   store ptr %17, ptr %4, align 8, !tbaa !100
   %.not112 = icmp eq ptr %17, null
   br i1 %.not112, label %.loopexit, label %18
@@ -1888,7 +1888,7 @@ define range(i32 -12, 1) i32 @ff_snow_common_init_after_header(ptr noundef reado
 18:                                               ; preds = %6
   %19 = mul nsw i32 %., 39
   %20 = sext i32 %19 to i64
-  %21 = tail call noalias ptr @av_calloc(i64 noundef %20, i64 noundef 1) #10
+  %21 = tail call noalias ptr @av_calloc(i64 noundef %20, i64 noundef 1) #11
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 2141936
   store ptr %21, ptr %22, align 8, !tbaa !101
   %.not113 = icmp eq ptr %21, null
@@ -2044,14 +2044,14 @@ define range(i32 -12, 1) i32 @ff_snow_common_init_after_header(ptr noundef reado
 
 111:                                              ; preds = %108, %99
   %112 = getelementptr inbounds nuw i8, ptr %67, i64 56
-  tail call void @av_freep(ptr noundef nonnull %112) #10
+  tail call void @av_freep(ptr noundef nonnull %112) #11
   %113 = load i32, ptr %80, align 8, !tbaa !113
   %114 = add nsw i32 %113, 1
   %115 = load i32, ptr %85, align 4, !tbaa !114
   %116 = mul nsw i32 %114, %115
   %117 = add nsw i32 %116, 1
   %118 = sext i32 %117 to i64
-  %119 = tail call noalias ptr @av_calloc(i64 noundef %118, i64 noundef 4) #10
+  %119 = tail call noalias ptr @av_calloc(i64 noundef %118, i64 noundef 4) #11
   store ptr %119, ptr %112, align 8, !tbaa !120
   %.not117.not = icmp eq ptr %119, null
   br i1 %.not117.not, label %.loopexit, label %65
@@ -2101,7 +2101,7 @@ define range(i32 -1094995529, 1) i32 @ff_snow_frames_prepare(ptr noundef capture
   %12 = load ptr, ptr %11, align 8, !tbaa !97
   store ptr %12, ptr %2, align 8, !tbaa !66
   store ptr %8, ptr %11, align 8, !tbaa !97
-  tail call void @av_frame_unref(ptr noundef %8) #10
+  tail call void @av_frame_unref(ptr noundef %8) #11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 6400
   %14 = load i32, ptr %13, align 8, !tbaa !123
   %.not = icmp eq i32 %14, 0
@@ -2189,7 +2189,7 @@ define range(i32 -1094995529, 1) i32 @ff_snow_frames_prepare(ptr noundef capture
 .thread:                                          ; preds = %.critedge.thread, %.critedge
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !25
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %46, i32 noundef 16, ptr noundef nonnull @.str) #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %46, i32 noundef 16, ptr noundef nonnull @.str) #11
   br label %54
 
 47:                                               ; preds = %32
@@ -2215,28 +2215,28 @@ declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 ; Function Attrs: cold nounwind optsize uwtable
 define void @ff_snow_common_end(ptr noundef %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6576
-  tail call void @av_freep(ptr noundef nonnull %2) #10
+  tail call void @av_freep(ptr noundef nonnull %2) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6584
-  tail call void @av_freep(ptr noundef nonnull %3) #10
+  tail call void @av_freep(ptr noundef nonnull %3) #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 6592
-  tail call void @av_freep(ptr noundef nonnull %4) #10
+  tail call void @av_freep(ptr noundef nonnull %4) #11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 6600
-  tail call void @av_freep(ptr noundef nonnull %5) #10
+  tail call void @av_freep(ptr noundef nonnull %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 6608
-  tail call void @av_freep(ptr noundef nonnull %6) #10
+  tail call void @av_freep(ptr noundef nonnull %6) #11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2141880
-  tail call void @av_freep(ptr noundef nonnull %7) #10
+  tail call void @av_freep(ptr noundef nonnull %7) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2141928
-  tail call void @av_freep(ptr noundef nonnull %8) #10
+  tail call void @av_freep(ptr noundef nonnull %8) #11
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2141936
-  tail call void @av_freep(ptr noundef nonnull %9) #10
+  tail call void @av_freep(ptr noundef nonnull %9) #11
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   br label %11
 
 11:                                               ; preds = %1, %11
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %11 ]
   %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
-  tail call void @av_frame_free(ptr noundef nonnull %12) #10
+  tail call void @av_frame_free(ptr noundef nonnull %12) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %.preheader, label %11, !llvm.loop !132
@@ -2257,7 +2257,7 @@ define void @ff_snow_common_end(ptr noundef %0) local_unnamed_addr #5 {
   %indvars.iv34 = phi i64 [ %16, %14 ], [ %indvars.iv.next35, %17 ]
   %18 = getelementptr inbounds nuw %struct.SubBand, ptr %15, i64 %indvars.iv34
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 6744
-  tail call void @av_freep(ptr noundef nonnull %19) #10
+  tail call void @av_freep(ptr noundef nonnull %19) #11
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next35, 4
   br i1 %exitcond37.not, label %20, label %17, !llvm.loop !133
@@ -2274,9 +2274,9 @@ define void @ff_snow_common_end(ptr noundef %0) local_unnamed_addr #5 {
 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2136
-  tail call void @av_frame_free(ptr noundef nonnull %23) #10
+  tail call void @av_frame_free(ptr noundef nonnull %23) #11
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 2064
-  tail call void @av_frame_free(ptr noundef nonnull %24) #10
+  tail call void @av_frame_free(ptr noundef nonnull %24) #11
   ret void
 }
 
@@ -2288,14 +2288,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2306,8 +2306,9 @@ attributes #5 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no
 attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

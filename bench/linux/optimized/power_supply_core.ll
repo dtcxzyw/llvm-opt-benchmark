@@ -156,15 +156,15 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @power_supply_changed(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %2) #17
+  %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %2) #18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 908
   store i8 1, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @pm_stay_awake(ptr noundef nonnull %5) #17
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %2, i64 noundef %3) #17
+  tail call void @pm_stay_awake(ptr noundef nonnull %5) #18
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %2, i64 noundef %3) #18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %7 = load ptr, ptr @system_wq, align 8
-  %8 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %7, ptr noundef nonnull %6) #17
+  %8 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %7, ptr noundef nonnull %6) #18
   ret void
 }
 
@@ -183,7 +183,7 @@ define dso_local i32 @power_supply_am_i_supplied(ptr noundef %0) #0 align 16 {
   store ptr %0, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr @power_supply_class, align 8
-  %6 = call i32 @class_for_each_device(ptr noundef %5, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull @__power_supply_am_i_supplied) #17
+  %6 = call i32 @class_for_each_device(ptr noundef %5, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull @__power_supply_am_i_supplied) #18
   %7 = load i32, ptr %4, align 8
   %8 = icmp eq i32 %7, 0
   %9 = select i1 %8, i32 -19, i32 %6
@@ -239,7 +239,7 @@ define internal i32 @__power_supply_am_i_supplied(ptr noundef readonly captures(
   %27 = phi i32 [ %23, %22 ], [ 0, %18 ]
   %28 = getelementptr ptr, ptr %8, i64 %26
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef %29) #17
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef %29) #18
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.loopexit, label %22
 
@@ -266,7 +266,7 @@ define internal i32 @__power_supply_am_i_supplied(ptr noundef readonly captures(
   %45 = phi i32 [ %41, %40 ], [ 0, %36 ]
   %46 = getelementptr ptr, ptr %12, i64 %44
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call i32 @strcmp(ptr noundef %47, ptr noundef nonnull dereferenceable(1) %34) #17
+  %48 = tail call i32 @strcmp(ptr noundef %47, ptr noundef nonnull dereferenceable(1) %34) #18
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %.loopexit, label %40
 
@@ -278,7 +278,7 @@ define internal i32 @__power_supply_am_i_supplied(ptr noundef readonly captures(
   %53 = load ptr, ptr %5, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %55 = load ptr, ptr %54, align 8
-  %56 = call i32 %55(ptr noundef %5, i32 noundef 4, ptr noundef nonnull %3) #17
+  %56 = call i32 %55(ptr noundef %5, i32 noundef 4, ptr noundef nonnull %3) #18
   %57 = icmp eq i32 %56, 0
   %58 = load i32, ptr %3, align 8
   %59 = select i1 %57, i32 %58, i32 0
@@ -296,7 +296,7 @@ define dso_local i32 @power_supply_is_system_supplied() #0 align 16 {
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 0, ptr %1, align 4
   %2 = load ptr, ptr @power_supply_class, align 8
-  %3 = call i32 @class_for_each_device(ptr noundef %2, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @__power_supply_is_system_supplied) #17
+  %3 = call i32 @class_for_each_device(ptr noundef %2, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @__power_supply_is_system_supplied) #18
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %4, 0
   %6 = select i1 %5, i32 1, i32 %3
@@ -314,7 +314,7 @@ define internal i32 @__power_supply_is_system_supplied(ptr noundef readonly capt
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = call i32 %8(ptr noundef %5, i32 noundef 66, ptr noundef nonnull %3) #17
+  %9 = call i32 %8(ptr noundef %5, i32 noundef 66, ptr noundef nonnull %3) #18
   %10 = icmp eq i32 %9, 0
   %11 = load i32, ptr %3, align 8
   %12 = icmp eq i32 %11, 2
@@ -334,7 +334,7 @@ define internal i32 @__power_supply_is_system_supplied(ptr noundef readonly capt
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %23 = load ptr, ptr %22, align 8
-  %24 = call i32 %23(ptr noundef %5, i32 noundef 4, ptr noundef nonnull %3) #17
+  %24 = call i32 %23(ptr noundef %5, i32 noundef 4, ptr noundef nonnull %3) #18
   %25 = icmp eq i32 %24, 0
   %26 = load i32, ptr %3, align 8
   %27 = select i1 %25, i32 %26, i32 0
@@ -358,7 +358,7 @@ define dso_local i32 @power_supply_get_property_from_supplier(ptr noundef %0, i3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %2, ptr %7, align 8
   %8 = load ptr, ptr @power_supply_class, align 8
-  %9 = call i32 @class_for_each_device(ptr noundef %8, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull @__power_supply_get_supplier_property) #17
+  %9 = call i32 @class_for_each_device(ptr noundef %8, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull @__power_supply_get_supplier_property) #18
   %10 = icmp slt i32 %9, 0
   %11 = icmp eq i32 %9, 0
   %12 = select i1 %11, i32 -19, i32 0
@@ -406,7 +406,7 @@ define internal noundef range(i32 0, 2) i32 @__power_supply_get_supplier_propert
   %26 = phi i32 [ %22, %21 ], [ 0, %17 ]
   %27 = getelementptr ptr, ptr %7, i64 %25
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef %28) #17
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef %28) #18
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %.loopexit16, label %21
 
@@ -433,7 +433,7 @@ define internal noundef range(i32 0, 2) i32 @__power_supply_get_supplier_propert
   %44 = phi i32 [ %40, %39 ], [ 0, %35 ]
   %45 = getelementptr ptr, ptr %11, i64 %43
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call i32 @strcmp(ptr noundef %46, ptr noundef nonnull dereferenceable(1) %33) #17
+  %47 = tail call i32 @strcmp(ptr noundef %46, ptr noundef nonnull dereferenceable(1) %33) #18
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %.loopexit16, label %39
 
@@ -566,7 +566,7 @@ power_supply_battery_info_get_prop.exit.thread12: ; preds = %77, %78, %80, %82, 
 power_supply_battery_info_get_prop.exit:          ; preds = %69, %60
   %108 = getelementptr inbounds nuw i8, ptr %57, i64 48
   %109 = load ptr, ptr %108, align 8
-  %110 = tail call i32 %109(ptr noundef %4, i32 noundef %50, ptr noundef %52) #17
+  %110 = tail call i32 %109(ptr noundef %4, i32 noundef %50, ptr noundef %52) #18
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %112, label %power_supply_battery_info_get_prop.exit.thread
 
@@ -599,7 +599,7 @@ define dso_local noundef range(i32 -22, 1) i32 @power_supply_set_battery_charged
   br i1 %13, label %15, label %14
 
 14:                                               ; preds = %10
-  tail call void %12(ptr noundef %0) #17
+  tail call void %12(ptr noundef %0) #18
   br label %15
 
 15:                                               ; preds = %14, %10, %5, %1
@@ -610,7 +610,7 @@ define dso_local noundef range(i32 -22, 1) i32 @power_supply_set_battery_charged
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @power_supply_get_by_name(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr @power_supply_class, align 8
-  %3 = tail call ptr @class_find_device(ptr noundef %2, ptr noundef null, ptr noundef %0, ptr noundef nonnull @power_supply_match_device_by_name) #17
+  %3 = tail call ptr @class_find_device(ptr noundef %2, ptr noundef null, ptr noundef %0, ptr noundef nonnull @power_supply_match_device_by_name) #18
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
@@ -618,7 +618,7 @@ define dso_local ptr @power_supply_get_by_name(ptr noundef %0) #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 912
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %8, ptr nonnull elementtype(i32) %8) #17, !srcloc !11
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %8, ptr nonnull elementtype(i32) %8) #18, !srcloc !11
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -635,7 +635,7 @@ define internal range(i32 0, 2) i32 @power_supply_match_device_by_name(ptr nound
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @strcmp(ptr noundef %6, ptr noundef %1) #17
+  %7 = tail call i32 @strcmp(ptr noundef %6, ptr noundef %1) #18
   %8 = icmp eq i32 %7, 0
   %9 = zext i1 %8 to i32
   ret i32 %9
@@ -643,11 +643,11 @@ define internal range(i32 0, 2) i32 @power_supply_match_device_by_name(ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @power_supply_put(ptr noundef %0) #0 align 16 {
-  %2 = tail call i32 @__SCT__might_resched() #17
+  %2 = tail call i32 @__SCT__might_resched() #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 912
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3, ptr nonnull elementtype(i32) %3) #17, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3, ptr nonnull elementtype(i32) %3) #18, !srcloc !12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @put_device(ptr noundef nonnull %4) #17
+  tail call void @put_device(ptr noundef nonnull %4) #18
   ret void
 }
 
@@ -677,8 +677,8 @@ define dso_local i32 @power_supply_get_battery_info(ptr noundef %0, ptr noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false), !annotation !5
   store ptr null, ptr %4, align 8, !annotation !5
   store i64 0, ptr %5, align 8, !annotation !5
-  %14 = tail call ptr @__dev_fwnode(ptr noundef nonnull %11) #17
-  %15 = call i32 @fwnode_property_get_reference_args(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %3) #17
+  %14 = tail call ptr @__dev_fwnode(ptr noundef nonnull %11) #18
+  %15 = call i32 @fwnode_property_get_reference_args(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %3) #18
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %.thread
 
@@ -688,19 +688,19 @@ define dso_local i32 @power_supply_get_battery_info(ptr noundef %0, ptr noundef 
   br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %17
-  %21 = call i32 @fwnode_property_read_string(ptr noundef nonnull %18, ptr noundef nonnull @.str.1, ptr noundef nonnull %4) #17
+  %21 = call i32 @fwnode_property_read_string(ptr noundef nonnull %18, ptr noundef nonnull @.str.1, ptr noundef nonnull %4) #18
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %133
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %25 = load ptr, ptr %4, align 8
-  %26 = call i32 @strcmp(ptr noundef nonnull dereferenceable(15) @.str.2, ptr noundef %25) #17
+  %26 = call i32 @strcmp(ptr noundef nonnull dereferenceable(15) @.str.2, ptr noundef %25) #18
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %133
 
 28:                                               ; preds = %23
-  %29 = call noalias noundef dereferenceable_or_null(496) ptr @devm_kmalloc(ptr noundef nonnull %24, i64 noundef 496, i32 noundef 3520) #18
+  %29 = call noalias noundef dereferenceable_or_null(496) ptr @devm_kmalloc(ptr noundef nonnull %24, i64 noundef 496, i32 noundef 3520) #19
   %30 = icmp eq ptr %29, null
   br i1 %30, label %133, label %31
 
@@ -778,13 +778,13 @@ define dso_local i32 @power_supply_get_battery_info(ptr noundef %0, ptr noundef 
   br i1 %68, label %69, label %62, !llvm.loop !13
 
 69:                                               ; preds = %62
-  %70 = call i32 @fwnode_property_read_string(ptr noundef nonnull %18, ptr noundef nonnull @.str.3, ptr noundef nonnull %4) #17
+  %70 = call i32 @fwnode_property_read_string(ptr noundef nonnull %18, ptr noundef nonnull @.str.3, ptr noundef nonnull %4) #18
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %98
 
 72:                                               ; preds = %69
   %73 = load ptr, ptr %4, align 8
-  %74 = call i32 @strcmp(ptr noundef nonnull dereferenceable(15) @.str.4, ptr noundef %73) #17
+  %74 = call i32 @strcmp(ptr noundef nonnull dereferenceable(15) @.str.4, ptr noundef %73) #18
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %76, label %77
 
@@ -793,7 +793,7 @@ define dso_local i32 @power_supply_get_battery_info(ptr noundef %0, ptr noundef 
   br label %98
 
 77:                                               ; preds = %72
-  %78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(21) @.str.5, ptr noundef %73) #17
+  %78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(21) @.str.5, ptr noundef %73) #18
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %81
 
@@ -802,7 +802,7 @@ define dso_local i32 @power_supply_get_battery_info(ptr noundef %0, ptr noundef 
   br label %98
 
 81:                                               ; preds = %77
-  %82 = call i32 @strcmp(ptr noundef nonnull dereferenceable(12) @.str.6, ptr noundef %73) #17
+  %82 = call i32 @strcmp(ptr noundef nonnull dereferenceable(12) @.str.6, ptr noundef %73) #18
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %85
 
@@ -811,7 +811,7 @@ define dso_local i32 @power_supply_get_battery_info(ptr noundef %0, ptr noundef 
   br label %98
 
 85:                                               ; preds = %81
-  %86 = call i32 @strcmp(ptr noundef nonnull dereferenceable(20) @.str.7, ptr noundef %73) #17
+  %86 = call i32 @strcmp(ptr noundef nonnull dereferenceable(20) @.str.7, ptr noundef %73) #18
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %89
 
@@ -820,7 +820,7 @@ define dso_local i32 @power_supply_get_battery_info(ptr noundef %0, ptr noundef 
   br label %98
 
 89:                                               ; preds = %85
-  %90 = call i32 @strcmp(ptr noundef nonnull dereferenceable(27) @.str.8, ptr noundef %73) #17
+  %90 = call i32 @strcmp(ptr noundef nonnull dereferenceable(27) @.str.8, ptr noundef %73) #18
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %92, label %93
 
@@ -829,7 +829,7 @@ define dso_local i32 @power_supply_get_battery_info(ptr noundef %0, ptr noundef 
   br label %98
 
 93:                                               ; preds = %89
-  %94 = call i32 @strcmp(ptr noundef nonnull dereferenceable(28) @.str.9, ptr noundef %73) #17
+  %94 = call i32 @strcmp(ptr noundef nonnull dereferenceable(28) @.str.9, ptr noundef %73) #18
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %96, label %97
 
@@ -838,24 +838,24 @@ define dso_local i32 @power_supply_get_battery_info(ptr noundef %0, ptr noundef 
   br label %98
 
 97:                                               ; preds = %93
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %24, ptr noundef nonnull @.str.10, ptr noundef %73) #19
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %24, ptr noundef nonnull @.str.10, ptr noundef %73) #20
   br label %98
 
 98:                                               ; preds = %97, %96, %92, %88, %84, %80, %76, %69
-  %99 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.11, ptr noundef nonnull %32, i64 noundef 1) #17
-  %100 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.12, ptr noundef nonnull %33, i64 noundef 1) #17
-  %101 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.13, ptr noundef nonnull %34, i64 noundef 1) #17
-  %102 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.14, ptr noundef nonnull %35, i64 noundef 1) #17
-  %103 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.15, ptr noundef nonnull %40, i64 noundef 1) #17
-  %104 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.16, ptr noundef nonnull %36, i64 noundef 1) #17
-  %105 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.17, ptr noundef nonnull %41, i64 noundef 1) #17
-  %106 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.18, ptr noundef nonnull %37, i64 noundef 1) #17
-  %107 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.19, ptr noundef nonnull %42, i64 noundef 1) #17
-  %108 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.20, ptr noundef nonnull %43, i64 noundef 1) #17
-  %109 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.21, ptr noundef nonnull %38, i64 noundef 1) #17
-  %110 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.22, ptr noundef nonnull %39, i64 noundef 1) #17
-  %111 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.23, ptr noundef nonnull %55, i64 noundef 1) #17
-  %112 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.24, ptr noundef nonnull %5, i64 noundef 2) #17
+  %99 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.11, ptr noundef nonnull %32, i64 noundef 1) #18
+  %100 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.12, ptr noundef nonnull %33, i64 noundef 1) #18
+  %101 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.13, ptr noundef nonnull %34, i64 noundef 1) #18
+  %102 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.14, ptr noundef nonnull %35, i64 noundef 1) #18
+  %103 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.15, ptr noundef nonnull %40, i64 noundef 1) #18
+  %104 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.16, ptr noundef nonnull %36, i64 noundef 1) #18
+  %105 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.17, ptr noundef nonnull %41, i64 noundef 1) #18
+  %106 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.18, ptr noundef nonnull %37, i64 noundef 1) #18
+  %107 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.19, ptr noundef nonnull %42, i64 noundef 1) #18
+  %108 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.20, ptr noundef nonnull %43, i64 noundef 1) #18
+  %109 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.21, ptr noundef nonnull %38, i64 noundef 1) #18
+  %110 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.22, ptr noundef nonnull %39, i64 noundef 1) #18
+  %111 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.23, ptr noundef nonnull %55, i64 noundef 1) #18
+  %112 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.24, ptr noundef nonnull %5, i64 noundef 2) #18
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %114, label %118
 
@@ -868,7 +868,7 @@ define dso_local i32 @power_supply_get_battery_info(ptr noundef %0, ptr noundef 
   br label %118
 
 118:                                              ; preds = %114, %98
-  %119 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.25, ptr noundef nonnull %5, i64 noundef 2) #17
+  %119 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.25, ptr noundef nonnull %5, i64 noundef 2) #18
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %121, label %125
 
@@ -881,7 +881,7 @@ define dso_local i32 @power_supply_get_battery_info(ptr noundef %0, ptr noundef 
   br label %125
 
 125:                                              ; preds = %121, %118
-  %126 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.26, ptr noundef nonnull %5, i64 noundef 2) #17
+  %126 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %18, ptr noundef nonnull @.str.26, ptr noundef nonnull %5, i64 noundef 2) #18
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %128, label %132
 
@@ -899,7 +899,7 @@ define dso_local i32 @power_supply_get_battery_info(ptr noundef %0, ptr noundef 
 
 133:                                              ; preds = %132, %28, %23, %20
   %134 = phi i32 [ %21, %20 ], [ 0, %132 ], [ -19, %23 ], [ -12, %28 ]
-  call void @fwnode_handle_put(ptr noundef nonnull %18) #17
+  call void @fwnode_handle_put(ptr noundef nonnull %18) #18
   br label %.thread
 
 .thread:                                          ; preds = %9, %133, %17, %13, %2
@@ -942,7 +942,7 @@ define dso_local void @power_supply_put_battery_info(ptr noundef %0, ptr noundef
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %5
-  tail call void @devm_kfree(ptr noundef nonnull %4, ptr noundef nonnull %8) #17
+  tail call void @devm_kfree(ptr noundef nonnull %4, ptr noundef nonnull %8) #18
   br label %11
 
 11:                                               ; preds = %10, %5
@@ -957,11 +957,11 @@ define dso_local void @power_supply_put_battery_info(ptr noundef %0, ptr noundef
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %14
-  tail call void @devm_kfree(ptr noundef nonnull %4, ptr noundef nonnull %16) #17
+  tail call void @devm_kfree(ptr noundef nonnull %4, ptr noundef nonnull %16) #18
   br label %19
 
 19:                                               ; preds = %18, %14
-  tail call void @devm_kfree(ptr noundef nonnull %4, ptr noundef %1) #17
+  tail call void @devm_kfree(ptr noundef nonnull %4, ptr noundef %1) #18
   ret void
 }
 
@@ -1697,7 +1697,7 @@ define dso_local i32 @power_supply_get_property(ptr noundef %0, i32 noundef %1, 
 .loopexit:                                        ; preds = %25, %16
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call i32 %30(ptr noundef %0, i32 noundef %1, ptr noundef %2) #17
+  %31 = tail call i32 %30(ptr noundef %0, i32 noundef %1, ptr noundef %2) #18
   br label %power_supply_battery_info_get_prop.exit
 
 .critedge:                                        ; preds = %.preheader, %12
@@ -1809,7 +1809,7 @@ define dso_local i32 @power_supply_set_property(ptr noundef %0, i32 noundef %1, 
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %7
-  %13 = tail call i32 %10(ptr noundef %0, i32 noundef %1, ptr noundef %2) #17
+  %13 = tail call i32 %10(ptr noundef %0, i32 noundef %1, ptr noundef %2) #18
   br label %14
 
 14:                                               ; preds = %12, %7, %3
@@ -1832,7 +1832,7 @@ define dso_local i32 @power_supply_property_is_writeable(ptr noundef %0, i32 nou
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %6
-  %12 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
+  %12 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #18
   br label %13
 
 13:                                               ; preds = %11, %6, %2
@@ -1855,7 +1855,7 @@ define dso_local void @power_supply_external_power_changed(ptr noundef %0) #0 al
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %5
-  tail call void %8(ptr noundef %0) #17
+  tail call void %8(ptr noundef %0) #18
   br label %11
 
 11:                                               ; preds = %10, %5, %1
@@ -1865,7 +1865,7 @@ define dso_local void @power_supply_external_power_changed(ptr noundef %0) #0 al
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @power_supply_powers(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %4 = tail call i32 @sysfs_create_link(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull @.str.32) #17
+  %4 = tail call i32 @sysfs_create_link(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull @.str.32) #18
   ret i32 %4
 }
 
@@ -1874,7 +1874,7 @@ declare dso_local i32 @sysfs_create_link(ptr noundef, ptr noundef, ptr noundef) 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @power_supply_reg_notifier(ptr noundef %0) #0 align 16 {
-  %2 = tail call i32 @blocking_notifier_chain_register(ptr noundef nonnull @power_supply_notifier, ptr noundef %0) #17
+  %2 = tail call i32 @blocking_notifier_chain_register(ptr noundef nonnull @power_supply_notifier, ptr noundef %0) #18
   ret i32 %2
 }
 
@@ -1883,7 +1883,7 @@ declare dso_local i32 @blocking_notifier_chain_register(ptr noundef, ptr noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @power_supply_unreg_notifier(ptr noundef %0) #0 align 16 {
-  %2 = tail call i32 @blocking_notifier_chain_unregister(ptr noundef nonnull @power_supply_notifier, ptr noundef %0) #17
+  %2 = tail call i32 @blocking_notifier_chain_unregister(ptr noundef nonnull @power_supply_notifier, ptr noundef %0) #18
   ret void
 }
 
@@ -1923,7 +1923,7 @@ define internal fastcc ptr @__power_supply_register(ptr noundef %0, ptr noundef 
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %17
-  %20 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35, ptr noundef nonnull @__func__.__power_supply_register, ptr noundef nonnull %7) #19
+  %20 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35, ptr noundef nonnull @__func__.__power_supply_register, ptr noundef nonnull %7) #20
   %.pr = load i64, ptr %14, align 8
   %.not = icmp eq i64 %.pr, 0
   br i1 %.not, label %.critedge, label %..thread_crit_edge
@@ -1966,13 +1966,13 @@ define internal fastcc ptr @__power_supply_register(ptr noundef %0, ptr noundef 
 
 .critedge:                                        ; preds = %.preheader, %19, %36
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
-  %41 = tail call noalias noundef align 8 dereferenceable_or_null(1024) ptr @kmalloc_trace(ptr noundef %40, i32 noundef 3520, i64 noundef 1024) #20
+  %41 = tail call noalias noundef align 8 dereferenceable_or_null(1024) ptr @kmalloc_trace(ptr noundef %40, i32 noundef 3520, i64 noundef 1024) #21
   %42 = icmp eq ptr %41, null
   br i1 %42, label %148, label %43
 
 43:                                               ; preds = %.critedge
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 56
-  tail call void @device_initialize(ptr noundef nonnull %44) #17
+  tail call void @device_initialize(ptr noundef nonnull %44) #18
   %45 = load ptr, ptr @power_supply_class, align 8
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 728
   store ptr %45, ptr %46, align 8
@@ -2024,7 +2024,7 @@ define internal fastcc ptr @__power_supply_register(ptr noundef %0, ptr noundef 
 
 74:                                               ; preds = %64, %43
   %75 = load ptr, ptr %1, align 8
-  %76 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %44, ptr noundef nonnull @.str.36, ptr noundef %75) #17
+  %76 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %44, ptr noundef nonnull @.str.36, ptr noundef %75) #18
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %78, label %144
 
@@ -2046,20 +2046,20 @@ define internal fastcc ptr @__power_supply_register(ptr noundef %0, ptr noundef 
   %86 = getelementptr inbounds nuw i8, ptr %41, i64 840
   store ptr @power_supply_deferred_register_work, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %41, i64 848
-  tail call void @init_timer_key(ptr noundef nonnull %87, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #17
+  tail call void @init_timer_key(ptr noundef nonnull %87, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #18
   %88 = load ptr, ptr %48, align 8
   %89 = icmp eq ptr %88, null
   br i1 %89, label %105, label %90
 
 90:                                               ; preds = %78
-  %91 = tail call i32 @device_property_read_string_array(ptr noundef nonnull %88, ptr noundef nonnull @.str.39, ptr noundef null, i64 noundef 0) #17
+  %91 = tail call i32 @device_property_read_string_array(ptr noundef nonnull %88, ptr noundef nonnull @.str.39, ptr noundef null, i64 noundef 0) #18
   %92 = icmp slt i32 %91, 1
   br i1 %92, label %105, label %93
 
 93:                                               ; preds = %90
   %94 = zext nneg i32 %91 to i64
   %95 = shl nuw nsw i64 %94, 3
-  %96 = tail call noalias ptr @devm_kmalloc(ptr noundef nonnull %44, i64 noundef %95, i32 noundef 3264) #18
+  %96 = tail call noalias ptr @devm_kmalloc(ptr noundef nonnull %44, i64 noundef %95, i32 noundef 3264) #19
   %97 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store ptr %96, ptr %97, align 8
   %98 = icmp eq ptr %96, null
@@ -2067,7 +2067,7 @@ define internal fastcc ptr @__power_supply_register(ptr noundef %0, ptr noundef 
 
 99:                                               ; preds = %93
   %100 = load ptr, ptr %48, align 8
-  %101 = tail call i32 @device_property_read_string_array(ptr noundef %100, ptr noundef nonnull @.str.39, ptr noundef nonnull %96, i64 noundef %94) #17
+  %101 = tail call i32 @device_property_read_string_array(ptr noundef %100, ptr noundef nonnull @.str.39, ptr noundef nonnull %96, i64 noundef %94) #18
   %102 = icmp slt i32 %101, 0
   br i1 %102, label %144, label %103
 
@@ -2094,7 +2094,7 @@ define internal fastcc ptr @__power_supply_register(ptr noundef %0, ptr noundef 
 112:                                              ; preds = %109, %109, %109, %105
   %113 = getelementptr inbounds nuw i8, ptr %41, i64 904
   store i32 0, ptr %113, align 8
-  %114 = tail call i32 @device_add(ptr noundef nonnull %44) #17
+  %114 = tail call i32 @device_add(ptr noundef nonnull %44) #18
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %116, label %144
 
@@ -2109,26 +2109,26 @@ define internal fastcc ptr @__power_supply_register(ptr noundef %0, ptr noundef 
   br i1 %121, label %122, label %142
 
 122:                                              ; preds = %119
-  %123 = tail call i32 @power_supply_create_triggers(ptr noundef nonnull %41) #17
+  %123 = tail call i32 @power_supply_create_triggers(ptr noundef nonnull %41) #18
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %125, label %134
 
 125:                                              ; preds = %122
-  %126 = tail call i32 @power_supply_add_hwmon_sysfs(ptr noundef nonnull %41) #17
+  %126 = tail call i32 @power_supply_add_hwmon_sysfs(ptr noundef nonnull %41) #18
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %128, label %133
 
 128:                                              ; preds = %125
   %129 = getelementptr inbounds nuw i8, ptr %41, i64 912
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %129, ptr nonnull elementtype(i32) %129) #17, !srcloc !11
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %129, ptr nonnull elementtype(i32) %129) #18, !srcloc !11
   %130 = getelementptr inbounds nuw i8, ptr %41, i64 909
   store i8 1, ptr %130, align 1
   %131 = load ptr, ptr @system_power_efficient_wq, align 8
-  %132 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %131, ptr noundef nonnull %83, i64 noundef 10) #17
+  %132 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %131, ptr noundef nonnull %83, i64 noundef 10) #18
   br label %148
 
 133:                                              ; preds = %125
-  tail call void @power_supply_remove_triggers(ptr noundef nonnull %41) #17
+  tail call void @power_supply_remove_triggers(ptr noundef nonnull %41) #18
   br label %134
 
 134:                                              ; preds = %133, %122
@@ -2141,17 +2141,17 @@ define internal fastcc ptr @__power_supply_register(ptr noundef %0, ptr noundef 
   br i1 %140, label %142, label %141
 
 141:                                              ; preds = %134
-  tail call void @thermal_zone_device_unregister(ptr noundef nonnull %137) #17
+  tail call void @thermal_zone_device_unregister(ptr noundef nonnull %137) #18
   br label %142
 
 142:                                              ; preds = %141, %134, %119, %116
   %143 = phi i32 [ %117, %116 ], [ %120, %119 ], [ %135, %134 ], [ %135, %141 ]
-  tail call void @device_del(ptr noundef nonnull %44) #17
+  tail call void @device_del(ptr noundef nonnull %44) #18
   br label %144
 
 144:                                              ; preds = %93, %99, %142, %112, %109, %74
   %145 = phi i32 [ %76, %74 ], [ %111, %109 ], [ %114, %112 ], [ %143, %142 ], [ -12, %93 ], [ %101, %99 ]
-  tail call void @put_device(ptr noundef nonnull %44) #17
+  tail call void @put_device(ptr noundef nonnull %44) #18
   %146 = sext i32 %145 to i64
   %147 = inttoptr i64 %146 to ptr
   br label %148
@@ -2169,7 +2169,7 @@ define dso_local ptr @power_supply_register_no_ws(ptr noundef %0, ptr noundef %1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @devm_power_supply_register(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 align 16 {
-  %4 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @devm_power_supply_release, i64 noundef 8, i32 noundef 3264, i32 noundef -1, ptr noundef nonnull @.str.33) #17
+  %4 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @devm_power_supply_release, i64 noundef 8, i32 noundef 3264, i32 noundef -1, ptr noundef nonnull @.str.33) #18
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
 
@@ -2179,12 +2179,12 @@ define dso_local ptr @devm_power_supply_register(ptr noundef %0, ptr noundef %1,
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %6
-  tail call void @devres_free(ptr noundef nonnull %4) #17
+  tail call void @devres_free(ptr noundef nonnull %4) #18
   br label %11
 
 10:                                               ; preds = %6
   store ptr %7, ptr %4, align 8
-  tail call void @devres_add(ptr noundef %0, ptr noundef nonnull %4) #17
+  tail call void @devres_add(ptr noundef %0, ptr noundef nonnull %4) #18
   br label %11
 
 11:                                               ; preds = %10, %9, %3
@@ -2210,7 +2210,7 @@ declare dso_local void @devres_add(ptr noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @devm_power_supply_register_no_ws(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 align 16 {
-  %4 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @devm_power_supply_release, i64 noundef 8, i32 noundef 3264, i32 noundef -1, ptr noundef nonnull @.str.33) #17
+  %4 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @devm_power_supply_release, i64 noundef 8, i32 noundef 3264, i32 noundef -1, ptr noundef nonnull @.str.33) #18
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
 
@@ -2220,12 +2220,12 @@ define dso_local ptr @devm_power_supply_register_no_ws(ptr noundef %0, ptr nound
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %6
-  tail call void @devres_free(ptr noundef nonnull %4) #17
+  tail call void @devres_free(ptr noundef nonnull %4) #18
   br label %11
 
 10:                                               ; preds = %6
   store ptr %7, ptr %4, align 8
-  tail call void @devres_add(ptr noundef %0, ptr noundef nonnull %4) #17
+  tail call void @devres_add(ptr noundef %0, ptr noundef nonnull %4) #18
   br label %11
 
 11:                                               ; preds = %10, %9, %3
@@ -2236,27 +2236,27 @@ define dso_local ptr @devm_power_supply_register_no_ws(ptr noundef %0, ptr nound
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @power_supply_unregister(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 912
-  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 -1, ptr nonnull elementtype(i32) %2) #17, !srcloc !21
+  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 -1, ptr nonnull elementtype(i32) %2) #18, !srcloc !21
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %6, label %5, !prof !22
 
 5:                                                ; preds = %1
-  tail call void asm sideeffect "346: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 346b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 346) #17, !srcloc !23
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.34, i32 1599, i32 2305, i64 12) #17, !srcloc !24
-  tail call void asm sideeffect "347: nop\0A\09.pushsection .discard.instr_end\0A\09.long 347b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 347) #17, !srcloc !25
+  tail call void asm sideeffect "346: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 346b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 346) #18, !srcloc !23
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.34, i32 1599, i32 2305, i64 12) #18, !srcloc !24
+  tail call void asm sideeffect "347: nop\0A\09.pushsection .discard.instr_end\0A\09.long 347b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 347) #18, !srcloc !25
   br label %6
 
 6:                                                ; preds = %5, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 910
   store i8 1, ptr %7, align 2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %9 = tail call zeroext i1 @cancel_work_sync(ptr noundef nonnull %8) #17
+  %9 = tail call zeroext i1 @cancel_work_sync(ptr noundef nonnull %8) #18
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %11 = tail call zeroext i1 @cancel_delayed_work_sync(ptr noundef nonnull %10) #17
+  %11 = tail call zeroext i1 @cancel_delayed_work_sync(ptr noundef nonnull %10) #18
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @sysfs_remove_link(ptr noundef nonnull %12, ptr noundef nonnull @.str.32) #17
-  tail call void @power_supply_remove_hwmon_sysfs(ptr noundef %0) #17
-  tail call void @power_supply_remove_triggers(ptr noundef %0) #17
+  tail call void @sysfs_remove_link(ptr noundef nonnull %12, ptr noundef nonnull @.str.32) #18
+  tail call void @power_supply_remove_hwmon_sysfs(ptr noundef %0) #18
+  tail call void @power_supply_remove_triggers(ptr noundef %0) #18
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
@@ -2265,13 +2265,13 @@ define dso_local void @power_supply_unregister(ptr noundef %0) #0 align 16 {
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %6
-  tail call void @thermal_zone_device_unregister(ptr noundef nonnull %14) #17
+  tail call void @thermal_zone_device_unregister(ptr noundef nonnull %14) #18
   br label %19
 
 19:                                               ; preds = %18, %6
-  %20 = tail call i32 @device_wakeup_disable(ptr noundef nonnull %12) #17
-  tail call void @device_set_wakeup_capable(ptr noundef nonnull %12, i1 noundef zeroext false) #17
-  tail call void @device_unregister(ptr noundef nonnull %12) #17
+  %20 = tail call i32 @device_wakeup_disable(ptr noundef nonnull %12) #18
+  tail call void @device_set_wakeup_capable(ptr noundef nonnull %12, i1 noundef zeroext false) #18
+  tail call void @device_unregister(ptr noundef nonnull %12) #18
   ret void
 }
 
@@ -2295,13 +2295,13 @@ define internal fastcc i32 @device_init_wakeup(ptr noundef %0, i1 noundef zeroex
   br i1 %1, label %3, label %5
 
 3:                                                ; preds = %2
-  tail call void @device_set_wakeup_capable(ptr noundef %0, i1 noundef zeroext true) #17
-  %4 = tail call i32 @device_wakeup_enable(ptr noundef %0) #17
+  tail call void @device_set_wakeup_capable(ptr noundef %0, i1 noundef zeroext true) #18
+  %4 = tail call i32 @device_wakeup_enable(ptr noundef %0) #18
   br label %7
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @device_wakeup_disable(ptr noundef %0) #17
-  tail call void @device_set_wakeup_capable(ptr noundef %0, i1 noundef zeroext false) #17
+  %6 = tail call i32 @device_wakeup_disable(ptr noundef %0) #18
+  tail call void @device_set_wakeup_capable(ptr noundef %0, i1 noundef zeroext false) #18
   br label %7
 
 7:                                                ; preds = %5, %3
@@ -2322,7 +2322,7 @@ define dso_local ptr @power_supply_get_drvdata(ptr noundef readonly captures(non
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal void @power_supply_class_exit() #12 section ".exit.text" align 16 {
   %1 = load ptr, ptr @power_supply_class, align 8
-  tail call void @class_destroy(ptr noundef %1) #17
+  tail call void @class_destroy(ptr noundef %1) #18
   ret void
 }
 
@@ -2331,7 +2331,7 @@ declare dso_local void @class_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal i32 @power_supply_class_init() #12 section ".init.text" align 16 {
-  %1 = tail call ptr @class_create(ptr noundef nonnull @.str.40) #17
+  %1 = tail call ptr @class_create(ptr noundef nonnull @.str.40) #18
   store ptr %1, ptr @power_supply_class, align 8
   %2 = icmp ugt ptr %1, inttoptr (i64 -4096 to ptr)
   br i1 %2, label %3, label %6
@@ -2344,7 +2344,7 @@ define internal i32 @power_supply_class_init() #12 section ".init.text" align 16
 6:                                                ; preds = %0
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr @power_supply_uevent, ptr %7, align 8
-  tail call void @power_supply_init_attrs(ptr noundef nonnull @power_supply_dev_type) #17
+  tail call void @power_supply_init_attrs(ptr noundef nonnull @power_supply_dev_type) #18
   br label %8
 
 8:                                                ; preds = %6, %3
@@ -2373,7 +2373,7 @@ declare dso_local void @device_initialize(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @power_supply_dev_release(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -56
-  tail call void @kfree(ptr noundef %2) #17
+  tail call void @kfree(ptr noundef %2) #18
   ret void
 }
 
@@ -2383,7 +2383,7 @@ declare dso_local i32 @dev_set_name(ptr noundef, ptr noundef, ...) local_unnamed
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @power_supply_changed_work(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 120
-  %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %2) #17
+  %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %2) #18
   %4 = getelementptr i8, ptr %0, i64 124
   %5 = load i8, ptr %4, align 4, !range !19, !noundef !20
   %6 = icmp eq i8 %5, 0
@@ -2392,14 +2392,14 @@ define internal void @power_supply_changed_work(ptr noundef %0) #0 align 16 {
 7:                                                ; preds = %1
   %8 = getelementptr i8, ptr %0, i64 -784
   store i8 0, ptr %4, align 4
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %2, i64 noundef %3) #17
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %2, i64 noundef %3) #18
   %9 = load ptr, ptr @power_supply_class, align 8
-  %10 = tail call i32 @class_for_each_device(ptr noundef %9, ptr noundef null, ptr noundef %8, ptr noundef nonnull @__power_supply_changed_work) #17
-  tail call void @power_supply_update_leds(ptr noundef %8) #17
-  %11 = tail call i32 @blocking_notifier_call_chain(ptr noundef nonnull @power_supply_notifier, i64 noundef 0, ptr noundef %8) #17
+  %10 = tail call i32 @class_for_each_device(ptr noundef %9, ptr noundef null, ptr noundef %8, ptr noundef nonnull @__power_supply_changed_work) #18
+  tail call void @power_supply_update_leds(ptr noundef %8) #18
+  %11 = tail call i32 @blocking_notifier_call_chain(ptr noundef nonnull @power_supply_notifier, i64 noundef 0, ptr noundef %8) #18
   %12 = getelementptr i8, ptr %0, i64 -728
-  %13 = tail call i32 @kobject_uevent(ptr noundef %12, i32 noundef 2) #17
-  %14 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %2) #17
+  %13 = tail call i32 @kobject_uevent(ptr noundef %12, i32 noundef 2) #18
+  %14 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %2) #18
   %.pr = load i8, ptr %4, align 4
   %15 = icmp eq i8 %.pr, 0
   br i1 %15, label %.thread, label %18, !prof !27
@@ -2407,12 +2407,12 @@ define internal void @power_supply_changed_work(ptr noundef %0) #0 align 16 {
 .thread:                                          ; preds = %1, %7
   %16 = phi i64 [ %14, %7 ], [ %3, %1 ]
   %17 = getelementptr i8, ptr %0, i64 -728
-  tail call void @pm_relax(ptr noundef %17) #17
+  tail call void @pm_relax(ptr noundef %17) #18
   br label %18
 
 18:                                               ; preds = %.thread, %7
   %19 = phi i64 [ %16, %.thread ], [ %14, %7 ]
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %2, i64 noundef %19) #17
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %2, i64 noundef %19) #18
   ret void
 }
 
@@ -2425,7 +2425,7 @@ define internal void @power_supply_deferred_register_work(ptr noundef %0) #0 ali
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  %7 = tail call i32 @mutex_trylock(ptr noundef nonnull %6) #17
+  %7 = tail call i32 @mutex_trylock(ptr noundef nonnull %6) #18
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %.loopexit2
 
@@ -2439,31 +2439,31 @@ define internal void @power_supply_deferred_register_work(ptr noundef %0) #0 ali
   br i1 %13, label %14, label %.loopexit
 
 14:                                               ; preds = %11
-  tail call void @msleep(i32 noundef 10) #17
+  tail call void @msleep(i32 noundef 10) #18
   %15 = load ptr, ptr %2, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 128
-  %17 = tail call i32 @mutex_trylock(ptr noundef nonnull %16) #17
+  %17 = tail call i32 @mutex_trylock(ptr noundef nonnull %16) #18
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %11, label %.loopexit2, !llvm.loop !28
 
 .loopexit2:                                       ; preds = %14, %5, %1
   %19 = getelementptr i8, ptr %0, i64 88
-  %20 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %19) #17
+  %20 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %19) #18
   %21 = getelementptr i8, ptr %0, i64 92
   store i8 1, ptr %21, align 4
   %22 = getelementptr i8, ptr %0, i64 -760
-  tail call void @pm_stay_awake(ptr noundef %22) #17
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %19, i64 noundef %20) #17
+  tail call void @pm_stay_awake(ptr noundef %22) #18
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %19, i64 noundef %20) #18
   %23 = getelementptr i8, ptr %0, i64 -32
   %24 = load ptr, ptr @system_wq, align 8
-  %25 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %24, ptr noundef %23) #17
+  %25 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %24, ptr noundef %23) #18
   %26 = load ptr, ptr %2, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.loopexit, label %28
 
 28:                                               ; preds = %.loopexit2
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 128
-  tail call void @mutex_unlock(ptr noundef nonnull %29) #17
+  tail call void @mutex_unlock(ptr noundef nonnull %29) #18
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %28, %.loopexit2
@@ -2520,7 +2520,7 @@ define internal fastcc i32 @psy_register_thermal(ptr noundef nonnull %0) unnamed
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i8 1, ptr %23, align 4
   %24 = load ptr, ptr %3, align 8
-  %25 = call ptr @thermal_tripless_zone_device_register(ptr noundef %24, ptr noundef nonnull %0, ptr noundef nonnull @psy_tzd_ops, ptr noundef nonnull %2) #17
+  %25 = call ptr @thermal_tripless_zone_device_register(ptr noundef %24, ptr noundef nonnull %0, ptr noundef nonnull @psy_tzd_ops, ptr noundef nonnull %2) #18
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store ptr %25, ptr %26, align 8
   %27 = icmp ugt ptr %25, inttoptr (i64 -4096 to ptr)
@@ -2532,13 +2532,13 @@ define internal fastcc i32 @psy_register_thermal(ptr noundef nonnull %0) unnamed
   br label %36
 
 31:                                               ; preds = %.loopexit
-  %32 = call i32 @thermal_zone_device_enable(ptr noundef %25) #17
+  %32 = call i32 @thermal_zone_device_enable(ptr noundef %25) #18
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %36, label %34
 
 34:                                               ; preds = %31
   %35 = load ptr, ptr %26, align 8
-  call void @thermal_zone_device_unregister(ptr noundef %35) #17
+  call void @thermal_zone_device_unregister(ptr noundef %35) #18
   br label %36
 
 36:                                               ; preds = %34, %31, %28
@@ -2601,7 +2601,7 @@ define internal noundef i32 @__power_supply_changed_work(ptr noundef readonly ca
   %25 = phi i32 [ %21, %20 ], [ 0, %16 ]
   %26 = getelementptr ptr, ptr %6, i64 %24
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef %27) #17
+  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef %27) #18
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %.loopexit.loopexit13, label %20
 
@@ -2628,7 +2628,7 @@ define internal noundef i32 @__power_supply_changed_work(ptr noundef readonly ca
   %43 = phi i32 [ %39, %38 ], [ 0, %34 ]
   %44 = getelementptr ptr, ptr %10, i64 %42
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call i32 @strcmp(ptr noundef %45, ptr noundef nonnull dereferenceable(1) %32) #17
+  %46 = tail call i32 @strcmp(ptr noundef %45, ptr noundef nonnull dereferenceable(1) %32) #18
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %.loopexit, label %38
 
@@ -2644,7 +2644,7 @@ define internal noundef i32 @__power_supply_changed_work(ptr noundef readonly ca
   br i1 %51, label %.loopexit9, label %52
 
 52:                                               ; preds = %.loopexit
-  tail call void %50(ptr noundef %4) #17
+  tail call void %50(ptr noundef %4) #18
   br label %.loopexit9
 
 .loopexit9:                                       ; preds = %20, %38, %52, %.loopexit, %34, %30, %16, %12, %8
@@ -2692,13 +2692,13 @@ define internal i32 @power_supply_read_temp(ptr noundef %0, ptr noundef writeonl
   br i1 %4, label %5, label %6, !prof !26
 
 5:                                                ; preds = %2
-  tail call void asm sideeffect "340: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 340b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 340) #17, !srcloc !29
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.34, i32 1283, i32 2305, i64 12) #17, !srcloc !30
-  tail call void asm sideeffect "341: nop\0A\09.pushsection .discard.instr_end\0A\09.long 341b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 341) #17, !srcloc !31
+  tail call void asm sideeffect "340: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 340b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 340) #18, !srcloc !29
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.34, i32 1283, i32 2305, i64 12) #18, !srcloc !30
+  tail call void asm sideeffect "341: nop\0A\09.pushsection .discard.instr_end\0A\09.long 341b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 341) #18, !srcloc !31
   br label %6
 
 6:                                                ; preds = %5, %2
-  %7 = tail call ptr @thermal_zone_device_priv(ptr noundef %0) #17
+  %7 = tail call ptr @thermal_zone_device_priv(ptr noundef %0) #18
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 912
   %9 = load volatile i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 1
@@ -2742,7 +2742,7 @@ define internal i32 @power_supply_read_temp(ptr noundef %0, ptr noundef writeonl
 .loopexit:                                        ; preds = %29, %20
   %33 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %34 = load ptr, ptr %33, align 8
-  %35 = call i32 %34(ptr noundef %7, i32 noundef 52, ptr noundef nonnull %3) #17
+  %35 = call i32 %34(ptr noundef %7, i32 noundef 52, ptr noundef nonnull %3) #18
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %.thread
 
@@ -2785,17 +2785,17 @@ declare dso_local void @power_supply_init_attrs(ptr noundef) local_unnamed_addr 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #15
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #15
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #16
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #15
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -2813,11 +2813,12 @@ attributes #12 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsi
 attributes #13 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #14 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nounwind }
-attributes #18 = { nounwind allocsize(1) }
-attributes #19 = { cold nounwind }
-attributes #20 = { nounwind allocsize(2) }
+attributes #16 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nounwind }
+attributes #19 = { nounwind allocsize(1) }
+attributes #20 = { cold nounwind }
+attributes #21 = { nounwind allocsize(2) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

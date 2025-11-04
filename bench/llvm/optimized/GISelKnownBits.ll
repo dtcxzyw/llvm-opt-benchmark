@@ -153,12 +153,12 @@ define dso_local void @_ZN4llvm36initializeGISelKnownBitsAnalysisPassERNS_12Pass
   store ptr %2, ptr %5, align 8, !tbaa !3
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %6, align 8, !tbaa !3
-  %7 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL40InitializeGISelKnownBitsAnalysisPassFlag, ptr noundef nonnull @__once_proxy) #17
+  %7 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL40InitializeGISelKnownBitsAnalysisPassFlag, ptr noundef nonnull @__once_proxy) #18
   %.not.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i, label %_ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9once_flagOT_DpOT0_.exit, label %8
 
 8:                                                ; preds = %1
-  call void @_ZSt20__throw_system_errori(i32 noundef %7) #18
+  call void @_ZSt20__throw_system_errori(i32 noundef %7) #19
   unreachable
 
 _ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9once_flagOT_DpOT0_.exit: ; preds = %1
@@ -171,7 +171,7 @@ _ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9on
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef nonnull ptr @_ZL40initializeGISelKnownBitsAnalysisPassOnceRN4llvm12PassRegistryE(ptr noundef nonnull align 8 dereferenceable(160) %0) #0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19
+  %2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #20
   store ptr @.str, ptr %2, align 8, !tbaa !9
   %.sroa.25.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 31, ptr %.sroa.25.0..sroa_idx.i, align 8, !tbaa !11
@@ -187,7 +187,7 @@ define internal noundef nonnull ptr @_ZL40initializeGISelKnownBitsAnalysisPassOn
   store i8 1, ptr %6, align 1, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr @_ZN4llvm15callDefaultCtorINS_22GISelKnownBitsAnalysisETnNSt9enable_ifIXtlSt24is_default_constructibleIT_EEEbE4typeELb1EEEPNS_4PassEv, ptr %7, align 8, !tbaa !19
-  tail call void @_ZN4llvm12PassRegistry12registerPassERKNS_8PassInfoEb(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext true) #17
+  tail call void @_ZN4llvm12PassRegistry12registerPassERKNS_8PassInfoEb(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext true) #18
   ret ptr %2
 }
 
@@ -217,11 +217,11 @@ define dso_local void @_ZN4llvm14GISelKnownBitsC2ERNS_15MachineFunctionEj(ptr no
   %17 = load ptr, ptr %16, align 8, !tbaa !27
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 144
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(304) %16) #17
+  %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(304) %16) #18
   store ptr %20, ptr %14, align 8, !tbaa !148
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %22 = load ptr, ptr %1, align 8, !tbaa !150
-  %23 = tail call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136) %22) #17
+  %23 = tail call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136) %22) #18
   store ptr %23, ptr %21, align 8, !tbaa !151
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %2, ptr %24, align 8, !tbaa !153
@@ -253,7 +253,7 @@ define dso_local i8 @_ZN4llvm14GISelKnownBits21computeKnownAlignmentENS_8Registe
 tailrecurse:                                      ; preds = %9, %3
   %.tr11 = phi i32 [ %1, %3 ], [ %13, %9 ]
   %5 = load ptr, ptr %4, align 8, !tbaa !164
-  %6 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %5, i32 %.tr11) #17
+  %6 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %5, i32 %.tr11) #18
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 68
   %8 = load i16, ptr %7, align 4, !tbaa !165
   switch i16 %8, label %39 [
@@ -307,7 +307,7 @@ tailrecurse:                                      ; preds = %9, %3
   %44 = load ptr, ptr %41, align 8, !tbaa !27
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1952
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call i8 %46(ptr noundef nonnull align 8 dereferenceable(412423) %41, ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %.tr11, ptr noundef nonnull align 8 dereferenceable(504) %42, i32 noundef %43) #17
+  %47 = tail call i8 %46(ptr noundef nonnull align 8 dereferenceable(412423) %41, ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %.tr11, ptr noundef nonnull align 8 dereferenceable(504) %42, i32 noundef %43) #18
   br label %48
 
 48:                                               ; preds = %39, %22, %14
@@ -381,7 +381,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit:             ; preds = %_ZNK4llvm19MachineR
   br label %_ZN4llvm5APInt10getAllOnesEj.exit
 
 34:                                               ; preds = %_ZNK4llvm3LLT14getNumElementsEv.exit
-  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %4, i64 noundef -1, i1 noundef zeroext true) #17
+  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %4, i64 noundef -1, i1 noundef zeroext true) #18
   br label %_ZN4llvm5APInt10getAllOnesEj.exit
 
 35:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
@@ -402,7 +402,7 @@ _ZN4llvm5APInt10getAllOnesEj.exit:                ; preds = %34, %27, %35
   %40 = load ptr, ptr %1, align 8, !tbaa !27, !noalias !216
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %42 = load ptr, ptr %41, align 8, !noalias !216
-  call void %42(ptr noundef nonnull align 8 dereferenceable(752) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef 0) #17
+  call void %42(ptr noundef nonnull align 8 dereferenceable(752) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef 0) #18
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 104
   call void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E5clearEv(ptr noundef nonnull align 1 dereferenceable(1) %43)
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -416,7 +416,7 @@ _ZN4llvm5APInt10getAllOnesEj.exit:                ; preds = %34, %27, %35
   br i1 %49, label %_ZN4llvm5APIntD2Ev.exit, label %50
 
 50:                                               ; preds = %47
-  call void @_ZdaPv(ptr noundef nonnull %48) #20
+  call void @_ZdaPv(ptr noundef nonnull %48) #21
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit, %47, %50
@@ -443,7 +443,7 @@ define linkonce_odr hidden void @_ZN4llvm5APInt10getAllOnesEj(ptr dead_on_unwind
   br label %_ZN4llvm5APIntC2Ejmbb.exit
 
 12:                                               ; preds = %2
-  tail call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %0, i64 noundef -1, i1 noundef zeroext true) #17
+  tail call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %0, i64 noundef -1, i1 noundef zeroext true) #18
   br label %_ZN4llvm5APIntC2Ejmbb.exit
 
 _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %5, %12
@@ -462,7 +462,7 @@ define dso_local void @_ZN4llvm14GISelKnownBits12getKnownBitsENS_8RegisterERKNS_
   %9 = load ptr, ptr %1, align 8, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(752) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %4) #17
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(752) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %4) #18
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 104
   tail call void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E5clearEv(ptr noundef nonnull align 1 dereferenceable(1) %12)
   ret void
@@ -541,7 +541,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8R
   br i1 %34, label %_ZN4llvm5APIntD2Ev.exit.i, label %35
 
 35:                                               ; preds = %31
-  tail call void @_ZdaPv(ptr noundef nonnull %33) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %33) #21
   br label %_ZN4llvm5APIntD2Ev.exit.i
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %35, %31, %26
@@ -556,7 +556,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %35, %31, %26
   br i1 %41, label %_ZN4llvm9KnownBitsD2Ev.exit, label %42
 
 42:                                               ; preds = %39
-  tail call void @_ZdaPv(ptr noundef nonnull %40) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %40) #21
   br label %_ZN4llvm9KnownBitsD2Ev.exit
 
 _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %42, %39, %_ZN4llvm5APIntD2Ev.exit.i, %.lr.ph
@@ -586,7 +586,7 @@ define linkonce_odr hidden void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull alig
   br i1 %8, label %_ZN4llvm5APIntD2Ev.exit, label %9
 
 9:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %7) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %7) #21
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %1, %5, %9
@@ -601,7 +601,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %1, %5, %9
   br i1 %15, label %_ZN4llvm5APIntD2Ev.exit1, label %16
 
 16:                                               ; preds = %13
-  tail call void @_ZdaPv(ptr noundef nonnull %14) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %14) #21
   br label %_ZN4llvm5APIntD2Ev.exit1
 
 _ZN4llvm5APIntD2Ev.exit1:                         ; preds = %_ZN4llvm5APIntD2Ev.exit, %13, %16
@@ -655,7 +655,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.thread.i.i:            ; preds = %_ZNK4llvm19MachineR
   br label %32
 
 _ZN4llvm5APIntC2Ejmbb.exit.i.i:                   ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
-  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %4, i64 noundef 0, i1 noundef zeroext false) #17
+  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %4, i64 noundef 0, i1 noundef zeroext false) #18
   %.pr.i.i = load i32, ptr %22, align 8, !tbaa !210, !alias.scope !222
   %27 = add i32 %.0.i, -1
   %28 = and i32 %27, 63
@@ -701,7 +701,7 @@ _ZN4llvm5APInt11getSignMaskEj.exit:               ; preds = %32, %36
   br label %_ZNK4llvm5APInt10isSubsetOfERKS0_.exit.i
 
 51:                                               ; preds = %_ZN4llvm5APInt11getSignMaskEj.exit
-  %52 = call noundef zeroext i1 @_ZNK4llvm5APInt18isSubsetOfSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %3) #21
+  %52 = call noundef zeroext i1 @_ZNK4llvm5APInt18isSubsetOfSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %3) #22
   br label %_ZNK4llvm5APInt10isSubsetOfERKS0_.exit.i
 
 _ZNK4llvm5APInt10isSubsetOfERKS0_.exit.i:         ; preds = %51, %45
@@ -718,7 +718,7 @@ _ZNK4llvm5APInt10isSubsetOfERKS0_.exit.i:         ; preds = %51, %45
   br i1 %59, label %_ZN4llvm5APIntD2Ev.exit.i.i, label %60
 
 60:                                               ; preds = %56
-  call void @_ZdaPv(ptr noundef nonnull %58) #20
+  call void @_ZdaPv(ptr noundef nonnull %58) #21
   br label %_ZN4llvm5APIntD2Ev.exit.i.i
 
 _ZN4llvm5APIntD2Ev.exit.i.i:                      ; preds = %60, %56, %_ZNK4llvm5APInt10isSubsetOfERKS0_.exit.i
@@ -733,7 +733,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i:                      ; preds = %60, %56, %_ZNK4llvm
   br i1 %66, label %_ZN4llvm14GISelKnownBits17maskedValueIsZeroENS_8RegisterERKNS_5APIntE.exit, label %67
 
 67:                                               ; preds = %64
-  call void @_ZdaPv(ptr noundef nonnull %65) #20
+  call void @_ZdaPv(ptr noundef nonnull %65) #21
   br label %_ZN4llvm14GISelKnownBits17maskedValueIsZeroENS_8RegisterERKNS_5APIntE.exit
 
 _ZN4llvm14GISelKnownBits17maskedValueIsZeroENS_8RegisterERKNS_5APIntE.exit: ; preds = %_ZN4llvm5APIntD2Ev.exit.i.i, %64, %67
@@ -748,7 +748,7 @@ _ZN4llvm14GISelKnownBits17maskedValueIsZeroENS_8RegisterERKNS_5APIntE.exit: ; pr
   br i1 %72, label %_ZN4llvm5APIntD2Ev.exit, label %73
 
 73:                                               ; preds = %70
-  call void @_ZdaPv(ptr noundef nonnull %71) #20
+  call void @_ZdaPv(ptr noundef nonnull %71) #21
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm14GISelKnownBits17maskedValueIsZeroENS_8RegisterERKNS_5APIntE.exit, %70, %73
@@ -780,7 +780,7 @@ define dso_local void @_ZN4llvm14GISelKnownBits14getKnownZeroesENS_8RegisterE(pt
   br i1 %15, label %_ZN4llvm9KnownBitsD2Ev.exit, label %_ZN4llvm5APIntD2Ev.exit.i
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %12
-  call void @_ZdaPv(ptr noundef nonnull %14) #20
+  call void @_ZdaPv(ptr noundef nonnull %14) #21
   %.pr.pre = load i32, ptr %6, align 8, !tbaa !210
   %16 = icmp ugt i32 %.pr.pre, 64
   br i1 %16, label %17, label %_ZN4llvm9KnownBitsD2Ev.exit
@@ -791,7 +791,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %12
   br i1 %19, label %_ZN4llvm9KnownBitsD2Ev.exit, label %20
 
 20:                                               ; preds = %17
-  call void @_ZdaPv(ptr noundef nonnull %18) #20
+  call void @_ZdaPv(ptr noundef nonnull %18) #21
   br label %_ZN4llvm9KnownBitsD2Ev.exit
 
 _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %12, %3, %_ZN4llvm5APIntD2Ev.exit.i, %17, %20
@@ -824,7 +824,7 @@ _ZN4llvm5APIntD2Ev.exit.i:
   br i1 %14, label %_ZN4llvm9KnownBitsD2Ev.exit, label %15
 
 15:                                               ; preds = %12
-  call void @_ZdaPv(ptr noundef nonnull %13) #20
+  call void @_ZdaPv(ptr noundef nonnull %13) #21
   br label %_ZN4llvm9KnownBitsD2Ev.exit
 
 _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %_ZN4llvm5APIntD2Ev.exit.i, %12, %15
@@ -839,7 +839,7 @@ define dso_local void @_ZN4llvm14GISelKnownBits19computeKnownBitsMinENS_8Registe
   %9 = load ptr, ptr %0, align 8, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef %5) #17
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef %5) #18
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !210
   %14 = icmp ult i32 %13, 65
@@ -851,7 +851,7 @@ define dso_local void @_ZN4llvm14GISelKnownBits19computeKnownBitsMinENS_8Registe
   br i1 %17, label %20, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 _ZNK4llvm5APInt6isZeroEv.exit.i:                  ; preds = %6
-  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
+  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   %19 = icmp eq i32 %18, %13
   br i1 %19, label %20, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
@@ -868,7 +868,7 @@ _ZNK4llvm5APInt6isZeroEv.exit.i:                  ; preds = %6
   br i1 %27, label %77, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit:             ; preds = %20
-  %28 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %21) #21
+  %28 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %21) #22
   %29 = icmp eq i32 %28, %23
   br i1 %29, label %77, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
@@ -884,7 +884,7 @@ _ZNK4llvm9KnownBits9isUnknownEv.exit.thread:      ; preds = %15, %_ZNK4llvm5APIn
   %33 = load ptr, ptr %0, align 8, !tbaa !27
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %1, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef %5) #17
+  call void %35(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %1, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef %5) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNK4llvm9KnownBits13intersectWithERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %7)
   %36 = load i32, ptr %12, align 8, !tbaa !210
@@ -897,7 +897,7 @@ _ZNK4llvm9KnownBits9isUnknownEv.exit.thread:      ; preds = %15, %_ZNK4llvm5APIn
   br i1 %40, label %_ZN4llvm5APIntaSEOS0_.exit.i, label %41
 
 41:                                               ; preds = %38
-  call void @_ZdaPv(ptr noundef nonnull %39) #20
+  call void @_ZdaPv(ptr noundef nonnull %39) #21
   br label %_ZN4llvm5APIntaSEOS0_.exit.i
 
 _ZN4llvm5APIntaSEOS0_.exit.i:                     ; preds = %41, %38, %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
@@ -928,7 +928,7 @@ _ZN4llvm5APIntD2Ev.exit.i.thread:                 ; preds = %49, %_ZN4llvm5APInt
   br label %_ZN4llvm9KnownBitsD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %49
-  call void @_ZdaPv(ptr noundef nonnull %50) #20
+  call void @_ZdaPv(ptr noundef nonnull %50) #21
   %.pre = load i32, ptr %43, align 8, !tbaa !210
   %56 = icmp ugt i32 %.pre, 64
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -946,7 +946,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %49
   br i1 %63, label %_ZN4llvm9KnownBitsD2Ev.exit, label %64
 
 64:                                               ; preds = %61
-  call void @_ZdaPv(ptr noundef nonnull %62) #20
+  call void @_ZdaPv(ptr noundef nonnull %62) #21
   br label %_ZN4llvm9KnownBitsD2Ev.exit
 
 _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %_ZN4llvm5APIntD2Ev.exit.i.thread, %_ZN4llvm5APIntD2Ev.exit.i, %61, %64
@@ -961,7 +961,7 @@ _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %69, label %_ZN4llvm5APIntD2Ev.exit.i11, label %70
 
 70:                                               ; preds = %67
-  call void @_ZdaPv(ptr noundef nonnull %68) #20
+  call void @_ZdaPv(ptr noundef nonnull %68) #21
   br label %_ZN4llvm5APIntD2Ev.exit.i11
 
 _ZN4llvm5APIntD2Ev.exit.i11:                      ; preds = %70, %67, %_ZN4llvm9KnownBitsD2Ev.exit
@@ -975,7 +975,7 @@ _ZN4llvm5APIntD2Ev.exit.i11:                      ; preds = %70, %67, %_ZN4llvm9
   br i1 %75, label %_ZN4llvm9KnownBitsD2Ev.exit12, label %76
 
 76:                                               ; preds = %73
-  call void @_ZdaPv(ptr noundef nonnull %74) #20
+  call void @_ZdaPv(ptr noundef nonnull %74) #21
   br label %_ZN4llvm9KnownBitsD2Ev.exit12
 
 _ZN4llvm9KnownBitsD2Ev.exit12:                    ; preds = %_ZN4llvm5APIntD2Ev.exit.i11, %73, %76
@@ -999,7 +999,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm9KnownBits9isUnknownEv(p
   br i1 %7, label %10, label %_ZNK4llvm5APInt6isZeroEv.exit2
 
 _ZNK4llvm5APInt6isZeroEv.exit:                    ; preds = %1
-  %8 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #21
+  %8 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #22
   %9 = icmp eq i32 %8, %3
   br i1 %9, label %10, label %_ZNK4llvm5APInt6isZeroEv.exit2
 
@@ -1016,7 +1016,7 @@ _ZNK4llvm5APInt6isZeroEv.exit:                    ; preds = %1
   br label %_ZNK4llvm5APInt6isZeroEv.exit2
 
 18:                                               ; preds = %10
-  %19 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %11) #21
+  %19 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %11) #22
   %20 = icmp eq i32 %19, %13
   br label %_ZNK4llvm5APInt6isZeroEv.exit2
 
@@ -1037,7 +1037,7 @@ define linkonce_odr hidden void @_ZNK4llvm9KnownBits13intersectWithERKS0_(ptr de
   br i1 %9, label %_ZN4llvm5APIntC2ERKS0_.exit.thread, label %_ZN4llvm5APIntC2ERKS0_.exit
 
 _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %3
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %1) #17
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %1) #18
   %.pr = load i32, ptr %6, align 8, !tbaa !210, !noalias !227
   %10 = icmp ult i32 %.pr, 65
   br i1 %10, label %_ZN4llvm5APIntC2ERKS0_.exit.thread, label %14
@@ -1052,7 +1052,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.thread:               ; preds = %_ZN4llvm5APIntC2ERK
   br label %_ZN4llvmanENS_5APIntERKS0_.exit
 
 14:                                               ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
-  call void @_ZN4llvm5APInt17andAssignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %2) #17, !noalias !227
+  call void @_ZN4llvm5APInt17andAssignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %2) #18, !noalias !227
   %.pre.i = load i32, ptr %6, align 8, !tbaa !210, !noalias !227
   %.pre1.i = load i64, ptr %4, align 8, !noalias !227
   br label %_ZN4llvmanENS_5APIntERKS0_.exit
@@ -1074,7 +1074,7 @@ _ZN4llvm5APIntC2ERKS0_.exit3.thread:              ; preds = %_ZN4llvmanENS_5APIn
   br label %_ZN4llvm5APIntC2ERKS0_.exit3._crit_edge
 
 _ZN4llvm5APIntC2ERKS0_.exit3:                     ; preds = %_ZN4llvmanENS_5APIntERKS0_.exit
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %17) #17
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %17) #18
   %.pr14 = load i32, ptr %18, align 8, !tbaa !210, !noalias !230
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %24 = icmp ult i32 %.pr14, 65
@@ -1091,7 +1091,7 @@ _ZN4llvm5APIntC2ERKS0_.exit3._crit_edge:          ; preds = %_ZN4llvm5APIntC2ERK
   br label %_ZN4llvm5APIntD2Ev.exit8
 
 30:                                               ; preds = %_ZN4llvm5APIntC2ERKS0_.exit3
-  call void @_ZN4llvm5APInt17andAssignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %23) #17, !noalias !230
+  call void @_ZN4llvm5APInt17andAssignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %23) #18, !noalias !230
   %.pre.i4 = load i32, ptr %18, align 8, !tbaa !210, !noalias !230
   %.pre1.i5 = load i64, ptr %5, align 8, !noalias !230
   br label %_ZN4llvm5APIntD2Ev.exit8
@@ -1117,7 +1117,7 @@ _ZN4llvm5APIntD2Ev.exit8:                         ; preds = %_ZN4llvm5APIntC2ERK
   br i1 %40, label %_ZN4llvm5APIntD2Ev.exit9, label %41
 
 41:                                               ; preds = %38
-  call void @_ZdaPv(ptr noundef nonnull %39) #20
+  call void @_ZdaPv(ptr noundef nonnull %39) #21
   br label %_ZN4llvm5APIntD2Ev.exit9
 
 _ZN4llvm5APIntD2Ev.exit9:                         ; preds = %_ZN4llvm5APIntD2Ev.exit8, %38, %41
@@ -1137,7 +1137,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4
   br i1 %8, label %_ZN4llvm5APIntaSEOS0_.exit, label %9
 
 9:                                                ; preds = %6
-  tail call void @_ZdaPv(ptr noundef nonnull %7) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %7) #21
   br label %_ZN4llvm5APIntaSEOS0_.exit
 
 _ZN4llvm5APIntaSEOS0_.exit:                       ; preds = %2, %6, %9
@@ -1159,7 +1159,7 @@ _ZN4llvm5APIntaSEOS0_.exit:                       ; preds = %2, %6, %9
   br i1 %19, label %_ZN4llvm5APIntaSEOS0_.exit3, label %20
 
 20:                                               ; preds = %17
-  tail call void @_ZdaPv(ptr noundef nonnull %18) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %18) #21
   br label %_ZN4llvm5APIntaSEOS0_.exit3
 
 _ZN4llvm5APIntaSEOS0_.exit3:                      ; preds = %_ZN4llvm5APIntaSEOS0_.exit, %17, %20
@@ -1245,7 +1245,7 @@ define dso_local void @_ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8Regist
   store i32 %1, ptr %6, align 4
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %74 = load ptr, ptr %73, align 8, !tbaa !164
-  %75 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %74, i32 %1) #17
+  %75 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %74, i32 %1) #18
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 68
   %77 = load i16, ptr %76, align 4, !tbaa !165
   %78 = load ptr, ptr %73, align 8, !tbaa !164
@@ -1281,7 +1281,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread: ; preds = %5, 
   br i1 %96, label %_ZN4llvm5APIntaSEOS0_.exit.i, label %97
 
 97:                                               ; preds = %94
-  tail call void @_ZdaPv(ptr noundef nonnull %95) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %95) #21
   br label %_ZN4llvm5APIntaSEOS0_.exit.i
 
 _ZN4llvm5APIntaSEOS0_.exit.i:                     ; preds = %97, %94, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread
@@ -1299,7 +1299,7 @@ _ZN4llvm5APIntaSEOS0_.exit.i:                     ; preds = %97, %94, %_ZNK4llvm
   br i1 %104, label %_ZN4llvm9KnownBitsD2Ev.exit, label %105
 
 105:                                              ; preds = %102
-  tail call void @_ZdaPv(ptr noundef nonnull %103) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %103) #21
   br label %_ZN4llvm9KnownBitsD2Ev.exit
 
 _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %_ZN4llvm5APIntaSEOS0_.exit.i, %102, %105
@@ -1386,7 +1386,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12D
   br label %_ZN4llvm5APIntaSERKS0_.exit.i
 
 150:                                              ; preds = %143, %138
-  tail call void @_ZN4llvm5APInt14assignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %139) #17
+  tail call void @_ZN4llvm5APInt14assignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %139) #18
   br label %_ZN4llvm5APIntaSERKS0_.exit.i
 
 _ZN4llvm5APIntaSERKS0_.exit.i:                    ; preds = %150, %147
@@ -1411,7 +1411,7 @@ _ZN4llvm5APIntaSERKS0_.exit.i:                    ; preds = %150, %147
   br label %_ZN4llvm9KnownBitsaSERKS0_.exit
 
 163:                                              ; preds = %156, %_ZN4llvm5APIntaSERKS0_.exit.i
-  tail call void @_ZN4llvm5APInt14assignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %151, ptr noundef nonnull align 8 dereferenceable(12) %152) #17
+  tail call void @_ZN4llvm5APInt14assignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %151, ptr noundef nonnull align 8 dereferenceable(12) %152) #18
   br label %_ZN4llvm9KnownBitsaSERKS0_.exit
 
 164:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E4findERKS2_.exit
@@ -1430,9 +1430,9 @@ _ZN4llvm5APIntaSERKS0_.exit.i:                    ; preds = %150, %147
   br label %_ZN4llvm9KnownBitsC2Ej.exit
 
 170:                                              ; preds = %164
-  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0, i1 noundef zeroext false) #17
+  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0, i1 noundef zeroext false) #18
   store i32 %.0.i, ptr %168, align 8, !tbaa !210
-  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %167, i64 noundef 0, i1 noundef zeroext false) #17
+  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %167, i64 noundef 0, i1 noundef zeroext false) #18
   br label %_ZN4llvm9KnownBitsC2Ej.exit
 
 _ZN4llvm9KnownBitsC2Ej.exit:                      ; preds = %169, %170
@@ -1447,7 +1447,7 @@ _ZN4llvm9KnownBitsC2Ej.exit:                      ; preds = %169, %170
   br i1 %176, label %_ZN4llvm5APIntaSEOS0_.exit.i403, label %177
 
 177:                                              ; preds = %174
-  call void @_ZdaPv(ptr noundef nonnull %175) #20
+  call void @_ZdaPv(ptr noundef nonnull %175) #21
   br label %_ZN4llvm5APIntaSEOS0_.exit.i403
 
 _ZN4llvm5APIntaSEOS0_.exit.i403:                  ; preds = %177, %174, %_ZN4llvm9KnownBitsC2Ej.exit
@@ -1482,7 +1482,7 @@ _ZN4llvm5APIntD2Ev.exit.i405.thread628:           ; preds = %186
   br label %_ZN4llvm9KnownBitsD2Ev.exit406
 
 _ZN4llvm5APIntD2Ev.exit.i405:                     ; preds = %186
-  call void @_ZdaPv(ptr noundef nonnull %187) #20
+  call void @_ZdaPv(ptr noundef nonnull %187) #21
   %.pr.pre = load i32, ptr %165, align 8, !tbaa !210
   %191 = icmp ugt i32 %.pr.pre, 64
   %192 = load i64, ptr %167, align 8
@@ -1498,7 +1498,7 @@ _ZN4llvm5APIntD2Ev.exit.i405:                     ; preds = %186
   br i1 %196, label %_ZN4llvm9KnownBitsD2Ev.exit406, label %197
 
 197:                                              ; preds = %194
-  call void @_ZdaPv(ptr noundef nonnull %195) #20
+  call void @_ZdaPv(ptr noundef nonnull %195) #21
   br label %_ZN4llvm9KnownBitsD2Ev.exit406
 
 _ZN4llvm9KnownBitsD2Ev.exit406:                   ; preds = %_ZN4llvm5APIntD2Ev.exit.i405.thread628, %_ZN4llvm5APIntD2Ev.exit.i405.thread, %_ZN4llvm5APIntD2Ev.exit.i405, %194, %197
@@ -1520,7 +1520,7 @@ _ZN4llvm9KnownBitsD2Ev.exit406:                   ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %206, label %_ZN4llvm9KnownBitsaSERKS0_.exit, label %209
 
 _ZNK4llvm5APIntntEv.exit:                         ; preds = %200
-  %207 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %3) #21
+  %207 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %3) #22
   %208 = icmp eq i32 %207, %202
   br i1 %208, label %_ZN4llvm9KnownBitsaSERKS0_.exit, label %209
 
@@ -1599,7 +1599,7 @@ _ZNK4llvm5APIntntEv.exit:                         ; preds = %200
   %217 = load ptr, ptr %215, align 8, !tbaa !27
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 1944
   %219 = load ptr, ptr %218, align 8
-  call void %219(ptr noundef nonnull align 8 dereferenceable(412423) %215, ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %.sroa.0110.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(504) %216, i32 noundef %4) #17
+  call void %219(ptr noundef nonnull align 8 dereferenceable(412423) %215, ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %.sroa.0110.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(504) %216, i32 noundef %4) #18
   br label %.loopexit
 
 220:                                              ; preds = %209
@@ -1648,7 +1648,7 @@ _ZNK4llvm5APIntntEv.exit:                         ; preds = %200
   %245 = load ptr, ptr %0, align 8, !tbaa !27
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 48
   %247 = load ptr, ptr %246, align 8
-  call void %247(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %244, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(12) %9, i32 noundef %227) #17
+  call void %247(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %244, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(12) %9, i32 noundef %227) #18
   %248 = load i32, ptr %226, align 8, !tbaa !210
   %249 = icmp ugt i32 %248, 64
   br i1 %249, label %250, label %_ZN4llvm5APIntD2Ev.exit
@@ -1659,7 +1659,7 @@ _ZNK4llvm5APIntntEv.exit:                         ; preds = %200
   br i1 %252, label %_ZN4llvm5APIntD2Ev.exit, label %253
 
 253:                                              ; preds = %250
-  call void @_ZdaPv(ptr noundef nonnull %251) #20
+  call void @_ZdaPv(ptr noundef nonnull %251) #21
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %239, %250, %253
@@ -1667,7 +1667,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %239, %250, %253
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZNK4llvm9KnownBits13intersectWithERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %8)
   %254 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %10)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %255 = call noundef zeroext i1 @_ZNK4llvm9KnownBits9isUnknownEv(ptr noundef nonnull align 8 dereferenceable(32) %2)
   %256 = icmp uge i32 %.old, %224
@@ -1694,7 +1694,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %239, %250, %253
   br i1 %263, label %_ZN4llvm5APIntD2Ev.exit407, label %264
 
 264:                                              ; preds = %261
-  call void @_ZdaPv(ptr noundef nonnull %262) #20
+  call void @_ZdaPv(ptr noundef nonnull %262) #21
   br label %_ZN4llvm5APIntD2Ev.exit407
 
 _ZN4llvm5APIntD2Ev.exit407:                       ; preds = %264, %261, %258
@@ -1716,7 +1716,7 @@ _ZN4llvm5APIntD2Ev.exit407:                       ; preds = %264, %261, %258
   br i1 %272, label %_ZN4llvm5APIntD2Ev.exit409, label %273
 
 273:                                              ; preds = %270
-  call void @_ZdaPv(ptr noundef nonnull %271) #20
+  call void @_ZdaPv(ptr noundef nonnull %271) #21
   br label %_ZN4llvm5APIntD2Ev.exit409
 
 _ZN4llvm5APIntD2Ev.exit409:                       ; preds = %273, %270, %_ZN4llvm5APIntD2Ev.exit407
@@ -1730,7 +1730,7 @@ _ZN4llvm5APIntD2Ev.exit409:                       ; preds = %273, %270, %_ZN4llv
   call void @_ZN4llvm9KnownBitsC2Ej(ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef %.0.i)
   %277 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_EixERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %108, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %278 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %277, ptr noundef nonnull align 8 dereferenceable(32) %13)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %279 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %280 = load i24, ptr %279, align 8
@@ -1787,7 +1787,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit411: ; preds = %302
   %315 = load ptr, ptr %0, align 8, !tbaa !27
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 48
   %317 = load ptr, ptr %316, align 8
-  call void %317(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %296, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %285) #17
+  call void %317(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %296, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %285) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZNK4llvm9KnownBits13anyextOrTruncEj(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef %.0.i)
   %318 = load i32, ptr %210, align 8, !tbaa !210
@@ -1800,7 +1800,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit411: ; preds = %302
   br i1 %322, label %_ZN4llvm5APIntaSEOS0_.exit.i413, label %323
 
 323:                                              ; preds = %320
-  call void @_ZdaPv(ptr noundef nonnull %321) #20
+  call void @_ZdaPv(ptr noundef nonnull %321) #21
   br label %_ZN4llvm5APIntaSEOS0_.exit.i413
 
 _ZN4llvm5APIntaSEOS0_.exit.i413:                  ; preds = %323, %320, %314
@@ -1826,7 +1826,7 @@ _ZN4llvm5APIntD2Ev.exit.i415.thread:              ; preds = %328, %_ZN4llvm5APIn
   br label %_ZN4llvm9KnownBitsD2Ev.exit416
 
 _ZN4llvm5APIntD2Ev.exit.i415:                     ; preds = %328
-  call void @_ZdaPv(ptr noundef nonnull %329) #20
+  call void @_ZdaPv(ptr noundef nonnull %329) #21
   %.pre579 = load i32, ptr %286, align 8, !tbaa !210
   %333 = icmp ugt i32 %.pre579, 64
   %334 = load i64, ptr %287, align 8
@@ -1842,7 +1842,7 @@ _ZN4llvm5APIntD2Ev.exit.i415:                     ; preds = %328
   br i1 %338, label %_ZN4llvm9KnownBitsD2Ev.exit416, label %339
 
 339:                                              ; preds = %336
-  call void @_ZdaPv(ptr noundef nonnull %337) #20
+  call void @_ZdaPv(ptr noundef nonnull %337) #21
   br label %_ZN4llvm9KnownBitsD2Ev.exit416
 
 _ZN4llvm9KnownBitsD2Ev.exit416:                   ; preds = %_ZN4llvm5APIntD2Ev.exit.i415.thread, %_ZN4llvm5APIntD2Ev.exit.i415, %336, %339
@@ -1859,7 +1859,7 @@ _ZN4llvm9KnownBitsD2Ev.exit416:                   ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %344, label %_ZN4llvm5APIntaSEOS0_.exit.i417, label %345
 
 345:                                              ; preds = %342
-  call void @_ZdaPv(ptr noundef nonnull %343) #20
+  call void @_ZdaPv(ptr noundef nonnull %343) #21
   br label %_ZN4llvm5APIntaSEOS0_.exit.i417
 
 _ZN4llvm5APIntaSEOS0_.exit.i417:                  ; preds = %345, %342, %_ZN4llvm9KnownBitsD2Ev.exit416
@@ -1885,7 +1885,7 @@ _ZN4llvm5APIntD2Ev.exit.i419.thread:              ; preds = %350, %_ZN4llvm5APIn
   br label %_ZN4llvm9KnownBitsD2Ev.exit420
 
 _ZN4llvm5APIntD2Ev.exit.i419:                     ; preds = %350
-  call void @_ZdaPv(ptr noundef nonnull %351) #20
+  call void @_ZdaPv(ptr noundef nonnull %351) #21
   %.pre580 = load i32, ptr %289, align 8, !tbaa !210
   %355 = icmp ugt i32 %.pre580, 64
   %356 = load i64, ptr %290, align 8
@@ -1901,7 +1901,7 @@ _ZN4llvm5APIntD2Ev.exit.i419:                     ; preds = %350
   br i1 %360, label %_ZN4llvm9KnownBitsD2Ev.exit420, label %361
 
 361:                                              ; preds = %358
-  call void @_ZdaPv(ptr noundef nonnull %359) #20
+  call void @_ZdaPv(ptr noundef nonnull %359) #21
   br label %_ZN4llvm9KnownBitsD2Ev.exit420
 
 _ZN4llvm9KnownBitsD2Ev.exit420:                   ; preds = %_ZN4llvm5APIntD2Ev.exit.i419.thread, %_ZN4llvm5APIntD2Ev.exit.i419, %358, %361
@@ -1916,7 +1916,7 @@ _ZN4llvm9KnownBitsD2Ev.exit420:                   ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %366, label %369, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 _ZNK4llvm5APInt6isZeroEv.exit.i:                  ; preds = %_ZN4llvm9KnownBitsD2Ev.exit420
-  %367 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
+  %367 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   %368 = icmp eq i32 %367, %362
   br i1 %368, label %369, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
@@ -1933,7 +1933,7 @@ _ZNK4llvm5APInt6isZeroEv.exit.i:                  ; preds = %_ZN4llvm9KnownBitsD
   br i1 %374, label %.loopexit, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit:             ; preds = %369
-  %375 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %180) #21
+  %375 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %180) #22
   %376 = icmp eq i32 %375, %.fr
   br i1 %376, label %.loopexit, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
@@ -1941,7 +1941,7 @@ _ZNK4llvm9KnownBits9isUnknownEv.exit:             ; preds = %369
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @_ZN4llvm9KnownBitsC2Ej(ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef %.0.i)
   %377 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %16)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.loopexit
 
@@ -1961,7 +1961,7 @@ _ZNK4llvm9KnownBits9isUnknownEv.exit.thread:      ; preds = %364, %_ZNK4llvm5API
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 24
   call void @_ZN4llvm9KnownBits12makeConstantERKNS_5APIntE(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %17, ptr noundef nonnull align 8 dereferenceable(12) %386)
   %387 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %17)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit
 
@@ -1977,7 +1977,7 @@ _ZNK4llvm9KnownBits9isUnknownEv.exit.thread:      ; preds = %364, %_ZNK4llvm5API
   %397 = load ptr, ptr %394, align 8, !tbaa !27
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 1960
   %399 = load ptr, ptr %398, align 8
-  call void %399(ptr noundef nonnull align 8 dereferenceable(412423) %394, i32 noundef %392, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(1065) %396) #17
+  call void %399(ptr noundef nonnull align 8 dereferenceable(412423) %394, i32 noundef %392, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(1065) %396) #18
   br label %.loopexit
 
 400:                                              ; preds = %209
@@ -1989,18 +1989,18 @@ _ZNK4llvm9KnownBits9isUnknownEv.exit.thread:      ; preds = %364, %_ZNK4llvm5API
   %406 = load ptr, ptr %0, align 8, !tbaa !27
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 48
   %408 = load ptr, ptr %407, align 8
-  call void %408(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %404, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %405) #17
+  call void %408(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %404, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %405) #18
   %409 = load ptr, ptr %401, align 8, !tbaa !185
   %410 = getelementptr inbounds nuw i8, ptr %409, i64 68
   %411 = load i32, ptr %410, align 4, !tbaa !186
   %412 = load ptr, ptr %0, align 8, !tbaa !27
   %413 = getelementptr inbounds nuw i8, ptr %412, i64 48
   %414 = load ptr, ptr %413, align 8
-  call void %414(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %411, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %405) #17
+  call void %414(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %411, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %405) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  call void @_ZN4llvm9KnownBits16computeForAddSubEbbbRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %18, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %8) #17
+  call void @_ZN4llvm9KnownBits16computeForAddSubEbbbRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %18, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   %415 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %18)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.loopexit
 
@@ -2013,15 +2013,15 @@ _ZNK4llvm9KnownBits9isUnknownEv.exit.thread:      ; preds = %364, %_ZNK4llvm5API
   %422 = load ptr, ptr %0, align 8, !tbaa !27
   %423 = getelementptr inbounds nuw i8, ptr %422, i64 48
   %424 = load ptr, ptr %423, align 8
-  call void %424(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %420, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %421) #17
+  call void %424(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %420, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %421) #18
   %425 = load ptr, ptr %417, align 8, !tbaa !185
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 36
   %427 = load i32, ptr %426, align 4, !tbaa !186
   %428 = load ptr, ptr %0, align 8, !tbaa !27
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 48
   %430 = load ptr, ptr %429, align 8
-  call void %430(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %427, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %421) #17
-  %431 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitseOERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %8) #17
+  call void %430(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %427, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %421) #18
+  %431 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitseOERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   br label %.loopexit
 
 432:                                              ; preds = %209
@@ -2060,7 +2060,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit422: ; preds = %434, %4
   %.sroa.04.0.i421 = phi i32 [ %454, %446 ], [ 0, %441 ], [ 0, %434 ]
   %455 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %456 = load ptr, ptr %455, align 8, !tbaa !239
-  %457 = call noundef nonnull align 4 dereferenceable(17) ptr @_ZNK4llvm10DataLayout14getPointerSpecEj(ptr noundef nonnull align 8 dereferenceable(496) %456, i32 noundef %.sroa.04.0.i421) #17
+  %457 = call noundef nonnull align 4 dereferenceable(17) ptr @_ZNK4llvm10DataLayout14getPointerSpecEj(ptr noundef nonnull align 8 dereferenceable(496) %456, i32 noundef %.sroa.04.0.i421) #18
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 16
   %459 = load i8, ptr %458, align 4, !tbaa !240, !range !242, !noundef !243
   %460 = trunc nuw i8 %459 to i1
@@ -2075,18 +2075,18 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit422: ; preds = %434, %4
   %467 = load ptr, ptr %0, align 8, !tbaa !27
   %468 = getelementptr inbounds nuw i8, ptr %467, i64 48
   %469 = load ptr, ptr %468, align 8
-  call void %469(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %465, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %466) #17
+  call void %469(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %465, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %466) #18
   %470 = load ptr, ptr %462, align 8, !tbaa !185
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 68
   %472 = load i32, ptr %471, align 4, !tbaa !186
   %473 = load ptr, ptr %0, align 8, !tbaa !27
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 48
   %475 = load ptr, ptr %474, align 8
-  call void %475(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %472, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %466) #17
+  call void %475(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %472, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %466) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  call void @_ZN4llvm9KnownBits16computeForAddSubEbbbRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %19, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %8) #17
+  call void @_ZN4llvm9KnownBits16computeForAddSubEbbbRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %19, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   %476 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %19)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.loopexit
 
@@ -2099,15 +2099,15 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit422: ; preds = %434, %4
   %483 = load ptr, ptr %0, align 8, !tbaa !27
   %484 = getelementptr inbounds nuw i8, ptr %483, i64 48
   %485 = load ptr, ptr %484, align 8
-  call void %485(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %481, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %482) #17
+  call void %485(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %481, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %482) #18
   %486 = load ptr, ptr %478, align 8, !tbaa !185
   %487 = getelementptr inbounds nuw i8, ptr %486, i64 36
   %488 = load i32, ptr %487, align 4, !tbaa !186
   %489 = load ptr, ptr %0, align 8, !tbaa !27
   %490 = getelementptr inbounds nuw i8, ptr %489, i64 48
   %491 = load ptr, ptr %490, align 8
-  call void %491(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %488, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %482) #17
-  %492 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaNERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %8) #17
+  call void %491(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %488, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %482) #18
+  %492 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaNERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   br label %.loopexit
 
 493:                                              ; preds = %209
@@ -2119,15 +2119,15 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit422: ; preds = %434, %4
   %499 = load ptr, ptr %0, align 8, !tbaa !27
   %500 = getelementptr inbounds nuw i8, ptr %499, i64 48
   %501 = load ptr, ptr %500, align 8
-  call void %501(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %497, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %498) #17
+  call void %501(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %497, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %498) #18
   %502 = load ptr, ptr %494, align 8, !tbaa !185
   %503 = getelementptr inbounds nuw i8, ptr %502, i64 36
   %504 = load i32, ptr %503, align 4, !tbaa !186
   %505 = load ptr, ptr %0, align 8, !tbaa !27
   %506 = getelementptr inbounds nuw i8, ptr %505, i64 48
   %507 = load ptr, ptr %506, align 8
-  call void %507(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %504, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %498) #17
-  %508 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsoRERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %8) #17
+  call void %507(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %504, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %498) #18
+  %508 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsoRERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   br label %.loopexit
 
 509:                                              ; preds = %209
@@ -2139,18 +2139,18 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit422: ; preds = %434, %4
   %515 = load ptr, ptr %0, align 8, !tbaa !27
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 48
   %517 = load ptr, ptr %516, align 8
-  call void %517(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %513, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %514) #17
+  call void %517(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %513, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %514) #18
   %518 = load ptr, ptr %510, align 8, !tbaa !185
   %519 = getelementptr inbounds nuw i8, ptr %518, i64 36
   %520 = load i32, ptr %519, align 4, !tbaa !186
   %521 = load ptr, ptr %0, align 8, !tbaa !27
   %522 = getelementptr inbounds nuw i8, ptr %521, i64 48
   %523 = load ptr, ptr %522, align 8
-  call void %523(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %520, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %514) #17
+  call void %523(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %520, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %514) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  call void @_ZN4llvm9KnownBits3mulERKS0_S2_b(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %20, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %8, i1 noundef zeroext false) #17
+  call void @_ZN4llvm9KnownBits3mulERKS0_S2_b(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %20, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %8, i1 noundef zeroext false) #18
   %524 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %20)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.loopexit
 
@@ -2182,20 +2182,20 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit422: ; preds = %434, %4
   %542 = load ptr, ptr %0, align 8, !tbaa !27
   %543 = getelementptr inbounds nuw i8, ptr %542, i64 48
   %544 = load ptr, ptr %543, align 8
-  call void %544(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %540, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %541) #17
+  call void %544(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %540, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %541) #18
   %545 = load ptr, ptr %537, align 8, !tbaa !185
   %546 = getelementptr inbounds nuw i8, ptr %545, i64 68
   %547 = load i32, ptr %546, align 4, !tbaa !186
   %548 = load ptr, ptr %0, align 8, !tbaa !27
   %549 = getelementptr inbounds nuw i8, ptr %548, i64 48
   %550 = load ptr, ptr %549, align 8
-  call void %550(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %547, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %541) #17
+  call void %550(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %547, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %541) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  call void @_ZN4llvm9KnownBits4sminERKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %21) #17
+  call void @_ZN4llvm9KnownBits4sminERKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %21) #18
   %551 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %22)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.loopexit
 
@@ -2216,20 +2216,20 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit422: ; preds = %434, %4
   %561 = load ptr, ptr %0, align 8, !tbaa !27
   %562 = getelementptr inbounds nuw i8, ptr %561, i64 48
   %563 = load ptr, ptr %562, align 8
-  call void %563(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %559, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %560) #17
+  call void %563(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %559, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %560) #18
   %564 = load ptr, ptr %556, align 8, !tbaa !185
   %565 = getelementptr inbounds nuw i8, ptr %564, i64 68
   %566 = load i32, ptr %565, align 4, !tbaa !186
   %567 = load ptr, ptr %0, align 8, !tbaa !27
   %568 = getelementptr inbounds nuw i8, ptr %567, i64 48
   %569 = load ptr, ptr %568, align 8
-  call void %569(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %566, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %560) #17
+  call void %569(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %566, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %560) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  call void @_ZN4llvm9KnownBits4smaxERKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %24, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %23) #17
+  call void @_ZN4llvm9KnownBits4smaxERKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %24, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %23) #18
   %570 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %24)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %.loopexit
 
@@ -2250,20 +2250,20 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit422: ; preds = %434, %4
   %580 = load ptr, ptr %0, align 8, !tbaa !27
   %581 = getelementptr inbounds nuw i8, ptr %580, i64 48
   %582 = load ptr, ptr %581, align 8
-  call void %582(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %578, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %579) #17
+  call void %582(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %578, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %579) #18
   %583 = load ptr, ptr %575, align 8, !tbaa !185
   %584 = getelementptr inbounds nuw i8, ptr %583, i64 68
   %585 = load i32, ptr %584, align 4, !tbaa !186
   %586 = load ptr, ptr %0, align 8, !tbaa !27
   %587 = getelementptr inbounds nuw i8, ptr %586, i64 48
   %588 = load ptr, ptr %587, align 8
-  call void %588(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %585, ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %579) #17
+  call void %588(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %585, ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %579) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  call void @_ZN4llvm9KnownBits4uminERKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %26, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %25) #17
+  call void @_ZN4llvm9KnownBits4uminERKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %26, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %25) #18
   %589 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %26)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %.loopexit
 
@@ -2284,20 +2284,20 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit422: ; preds = %434, %4
   %599 = load ptr, ptr %0, align 8, !tbaa !27
   %600 = getelementptr inbounds nuw i8, ptr %599, i64 48
   %601 = load ptr, ptr %600, align 8
-  call void %601(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %597, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %598) #17
+  call void %601(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %597, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %598) #18
   %602 = load ptr, ptr %594, align 8, !tbaa !185
   %603 = getelementptr inbounds nuw i8, ptr %602, i64 68
   %604 = load i32, ptr %603, align 4, !tbaa !186
   %605 = load ptr, ptr %0, align 8, !tbaa !27
   %606 = getelementptr inbounds nuw i8, ptr %605, i64 48
   %607 = load ptr, ptr %606, align 8
-  call void %607(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %604, ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %598) #17
+  call void %607(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %604, ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %598) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  call void @_ZN4llvm9KnownBits4umaxERKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %28, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %27) #17
+  call void @_ZN4llvm9KnownBits4umaxERKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %28, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %27) #18
   %608 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %28)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %.loopexit
 
@@ -2331,11 +2331,11 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit422: ; preds = %434, %4
   %624 = load ptr, ptr %0, align 8, !tbaa !27
   %625 = getelementptr inbounds nuw i8, ptr %624, i64 48
   %626 = load ptr, ptr %625, align 8
-  call void %626(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %622, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %623) #17
+  call void %626(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %622, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %623) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @_ZNK4llvm9KnownBits4sextEj(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %29, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %.0.i)
   %627 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %29)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %.loopexit
 
@@ -2348,15 +2348,15 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit422: ; preds = %434, %4
   %634 = load ptr, ptr %0, align 8, !tbaa !27
   %635 = getelementptr inbounds nuw i8, ptr %634, i64 48
   %636 = load ptr, ptr %635, align 8
-  call void %636(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %632, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %633) #17
+  call void %636(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %632, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %633) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %637 = load ptr, ptr %629, align 8, !tbaa !185
   %638 = getelementptr inbounds nuw i8, ptr %637, i64 80
   %639 = load i64, ptr %638, align 8, !tbaa !186
   %640 = trunc i64 %639 to i32
-  call void @_ZNK4llvm9KnownBits9sextInRegEj(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %30, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %640) #17
+  call void @_ZNK4llvm9KnownBits9sextInRegEj(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %30, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %640) #18
   %641 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %30)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %.loopexit
 
@@ -2369,11 +2369,11 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit422: ; preds = %434, %4
   %648 = load ptr, ptr %0, align 8, !tbaa !27
   %649 = getelementptr inbounds nuw i8, ptr %648, i64 48
   %650 = load ptr, ptr %649, align 8
-  call void %650(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %646, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %647) #17
+  call void %650(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %646, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %647) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @_ZNK4llvm9KnownBits6anyextEj(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %31, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %.0.i)
   %651 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %31)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %.loopexit
 
@@ -2418,7 +2418,7 @@ _ZNK4llvm12MachineInstr17memoperands_beginEv.exit: ; preds = %658, %660
   br i1 %.not396, label %672, label %671
 
 671:                                              ; preds = %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit
-  call void @_ZN4llvm33computeKnownBitsFromRangeMetadataERKNS_6MDNodeERNS_9KnownBitsE(ptr noundef nonnull align 8 dereferenceable(16) %670, ptr noundef nonnull align 8 dereferenceable(32) %32) #17
+  call void @_ZN4llvm33computeKnownBitsFromRangeMetadataERKNS_6MDNodeERNS_9KnownBitsE(ptr noundef nonnull align 8 dereferenceable(16) %670, ptr noundef nonnull align 8 dereferenceable(32) %32) #18
   br label %672
 
 672:                                              ; preds = %671, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit
@@ -2426,9 +2426,9 @@ _ZNK4llvm12MachineInstr17memoperands_beginEv.exit: ; preds = %658, %660
   %673 = load i32, ptr %171, align 8, !tbaa !210
   call void @_ZNK4llvm9KnownBits6anyextEj(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %33, ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef %673)
   %674 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %33)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %.loopexit
 
@@ -2478,7 +2478,7 @@ _ZNK4llvm12MachineInstr17memoperands_beginEv.exit435: ; preds = %683, %685
   br i1 %.not395, label %697, label %696
 
 696:                                              ; preds = %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit435
-  call void @_ZN4llvm33computeKnownBitsFromRangeMetadataERKNS_6MDNodeERNS_9KnownBitsE(ptr noundef nonnull align 8 dereferenceable(16) %695, ptr noundef nonnull align 8 dereferenceable(32) %34) #17
+  call void @_ZN4llvm33computeKnownBitsFromRangeMetadataERKNS_6MDNodeERNS_9KnownBitsE(ptr noundef nonnull align 8 dereferenceable(16) %695, ptr noundef nonnull align 8 dereferenceable(32) %34) #18
   br label %697
 
 697:                                              ; preds = %696, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit435
@@ -2497,9 +2497,9 @@ _ZNK4llvm12MachineInstr17memoperands_beginEv.exit435: ; preds = %683, %685
 
 702:                                              ; preds = %701, %700
   %703 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %35)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %.loopexit
 
@@ -2528,22 +2528,22 @@ _ZNK4llvm12MachineInstr17memoperands_beginEv.exit435: ; preds = %683, %685
   %716 = load ptr, ptr %0, align 8, !tbaa !27
   %717 = getelementptr inbounds nuw i8, ptr %716, i64 48
   %718 = load ptr, ptr %717, align 8
-  call void %718(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %714, ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %715) #17
+  call void %718(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %714, ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %715) #18
   %719 = load ptr, ptr %711, align 8, !tbaa !185
   %720 = getelementptr inbounds nuw i8, ptr %719, i64 68
   %721 = load i32, ptr %720, align 4, !tbaa !186
   %722 = load ptr, ptr %0, align 8, !tbaa !27
   %723 = getelementptr inbounds nuw i8, ptr %722, i64 48
   %724 = load ptr, ptr %723, align 8
-  call void %724(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %721, ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %715) #17
+  call void %724(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %721, ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %715) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
-  call void @_ZN4llvm9KnownBits4ashrERKS0_S2_bb(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %38, ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %37, i1 noundef zeroext false, i1 noundef zeroext false) #17
+  call void @_ZN4llvm9KnownBits4ashrERKS0_S2_bb(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %38, ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %37, i1 noundef zeroext false, i1 noundef zeroext false) #18
   %725 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %38)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %.loopexit
 
@@ -2572,22 +2572,22 @@ _ZNK4llvm12MachineInstr17memoperands_beginEv.exit435: ; preds = %683, %685
   %738 = load ptr, ptr %0, align 8, !tbaa !27
   %739 = getelementptr inbounds nuw i8, ptr %738, i64 48
   %740 = load ptr, ptr %739, align 8
-  call void %740(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %736, ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %737) #17
+  call void %740(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %736, ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %737) #18
   %741 = load ptr, ptr %733, align 8, !tbaa !185
   %742 = getelementptr inbounds nuw i8, ptr %741, i64 68
   %743 = load i32, ptr %742, align 4, !tbaa !186
   %744 = load ptr, ptr %0, align 8, !tbaa !27
   %745 = getelementptr inbounds nuw i8, ptr %744, i64 48
   %746 = load ptr, ptr %745, align 8
-  call void %746(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %743, ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %737) #17
+  call void %746(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %743, ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %737) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
-  call void @_ZN4llvm9KnownBits4lshrERKS0_S2_bb(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %41, ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %40, i1 noundef zeroext false, i1 noundef zeroext false) #17
+  call void @_ZN4llvm9KnownBits4lshrERKS0_S2_bb(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %41, ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %40, i1 noundef zeroext false, i1 noundef zeroext false) #18
   %747 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %41)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %.loopexit
 
@@ -2616,22 +2616,22 @@ _ZNK4llvm12MachineInstr17memoperands_beginEv.exit435: ; preds = %683, %685
   %760 = load ptr, ptr %0, align 8, !tbaa !27
   %761 = getelementptr inbounds nuw i8, ptr %760, i64 48
   %762 = load ptr, ptr %761, align 8
-  call void %762(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %758, ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %759) #17
+  call void %762(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %758, ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %759) #18
   %763 = load ptr, ptr %755, align 8, !tbaa !185
   %764 = getelementptr inbounds nuw i8, ptr %763, i64 68
   %765 = load i32, ptr %764, align 4, !tbaa !186
   %766 = load ptr, ptr %0, align 8, !tbaa !27
   %767 = getelementptr inbounds nuw i8, ptr %766, i64 48
   %768 = load ptr, ptr %767, align 8
-  call void %768(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %765, ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %759) #17
+  call void %768(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %765, ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %759) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
-  call void @_ZN4llvm9KnownBits3shlERKS0_S2_bbb(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %44, ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %43, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #17
+  call void @_ZN4llvm9KnownBits3shlERKS0_S2_bbb(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %44, ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %43, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #18
   %769 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %44)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %.loopexit
 
@@ -2701,7 +2701,7 @@ _ZNK4llvm3LLT9isPointerEv.exit:                   ; preds = %795
   %802 = lshr i64 %.sroa.04.0.i443, 24
   %803 = trunc i64 %802 to i32
   %804 = and i32 %803, 16777215
-  %805 = call noundef nonnull align 4 dereferenceable(17) ptr @_ZNK4llvm10DataLayout14getPointerSpecEj(ptr noundef nonnull align 8 dereferenceable(496) %801, i32 noundef %804) #17
+  %805 = call noundef nonnull align 4 dereferenceable(17) ptr @_ZNK4llvm10DataLayout14getPointerSpecEj(ptr noundef nonnull align 8 dereferenceable(496) %801, i32 noundef %804) #18
   %806 = getelementptr inbounds nuw i8, ptr %805, i64 12
   %807 = load i32, ptr %806, align 4, !tbaa !262
   br label %812
@@ -2713,7 +2713,7 @@ _ZNK4llvm3LLT9isPointerEv.exit:                   ; preds = %795
   store i64 %.fca.0.extract47, ptr %46, align 8
   %.sroa.250.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i8 %.fca.1.extract48, ptr %.sroa.250.0..sroa_idx, align 8
-  %810 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %46) #17
+  %810 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %46) #18
   %811 = trunc i64 %810 to i32
   br label %812
 
@@ -2727,17 +2727,17 @@ _ZNK4llvm3LLT9isPointerEv.exit:                   ; preds = %795
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   call void @_ZNK4llvm9KnownBits11zextOrTruncEj(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %47, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %.0387)
   %815 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %47)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %816 = add nuw i32 %4, 1
   %817 = load ptr, ptr %0, align 8, !tbaa !27
   %818 = getelementptr inbounds nuw i8, ptr %817, i64 48
   %819 = load ptr, ptr %818, align 8
-  call void %819(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %776, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %816) #17
+  call void %819(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %776, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %816) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   call void @_ZNK4llvm9KnownBits11zextOrTruncEj(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %48, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %.0.i)
   %820 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %48)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %821 = icmp ult i32 %.0387, %.0.i
   br i1 %821, label %822, label %823
@@ -2800,7 +2800,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit447: ; preds = %832, %8
   store i64 %.fca.0.extract, ptr %49, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i8 %.fca.1.extract, ptr %.sroa.2.0..sroa_idx, align 8
-  %854 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %49) #17
+  %854 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %49) #18
   %855 = trunc i64 %854 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
@@ -2831,11 +2831,11 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit447: ; preds = %832, %8
   %867 = load ptr, ptr %0, align 8, !tbaa !27
   %868 = getelementptr inbounds nuw i8, ptr %867, i64 48
   %869 = load ptr, ptr %868, align 8
-  call void %869(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %866, ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %860) #17
+  call void %869(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %866, ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %860) #18
   %870 = trunc nuw i64 %indvars.iv to i32
   %871 = mul i32 %870, %855
-  call void @_ZN4llvm5APInt10insertBitsERKS0_j(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %51, i32 noundef %871) #17
-  call void @_ZN4llvm5APInt10insertBitsERKS0_j(ptr noundef nonnull align 8 dereferenceable(12) %180, ptr noundef nonnull align 8 dereferenceable(12) %858, i32 noundef %871) #17
+  call void @_ZN4llvm5APInt10insertBitsERKS0_j(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %51, i32 noundef %871) #18
+  call void @_ZN4llvm5APInt10insertBitsERKS0_j(ptr noundef nonnull align 8 dereferenceable(12) %180, ptr noundef nonnull align 8 dereferenceable(12) %858, i32 noundef %871) #18
   %872 = load i32, ptr %859, align 8, !tbaa !210
   %873 = icmp ugt i32 %872, 64
   br i1 %873, label %874, label %_ZN4llvm5APIntD2Ev.exit.i448
@@ -2846,7 +2846,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit447: ; preds = %832, %8
   br i1 %876, label %_ZN4llvm5APIntD2Ev.exit.i448, label %877
 
 877:                                              ; preds = %874
-  call void @_ZdaPv(ptr noundef nonnull %875) #20
+  call void @_ZdaPv(ptr noundef nonnull %875) #21
   br label %_ZN4llvm5APIntD2Ev.exit.i448
 
 _ZN4llvm5APIntD2Ev.exit.i448:                     ; preds = %877, %874, %862
@@ -2860,7 +2860,7 @@ _ZN4llvm5APIntD2Ev.exit.i448:                     ; preds = %877, %874, %862
   br i1 %882, label %_ZN4llvm9KnownBitsD2Ev.exit449, label %883
 
 883:                                              ; preds = %880
-  call void @_ZdaPv(ptr noundef nonnull %881) #20
+  call void @_ZdaPv(ptr noundef nonnull %881) #21
   br label %_ZN4llvm9KnownBitsD2Ev.exit449
 
 _ZN4llvm9KnownBitsD2Ev.exit449:                   ; preds = %_ZN4llvm5APIntD2Ev.exit.i448, %880, %883
@@ -2968,7 +2968,7 @@ _ZNK4llvm3LLT13getScalarTypeEv.exit461:           ; preds = %_ZNK4llvm3LLT13getS
   br label %_ZN4llvm5APIntC2ERKS0_.exit
 
 928:                                              ; preds = %.critedge6
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %52, ptr noundef nonnull align 8 dereferenceable(12) %3) #17
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %52, ptr noundef nonnull align 8 dereferenceable(12) %3) #18
   br label %_ZN4llvm5APIntC2ERKS0_.exit
 
 _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %926, %928
@@ -2985,7 +2985,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %926, %928
   br i1 %.not.i465, label %_ZNK4llvm3LLT14getNumElementsEv.exit, label %933
 
 933:                                              ; preds = %931
-  call void @_ZN4llvm24reportInvalidSizeRequestEPKc(ptr noundef nonnull @.str.2) #17
+  call void @_ZN4llvm24reportInvalidSizeRequestEPKc(ptr noundef nonnull @.str.2) #18
   br label %_ZNK4llvm3LLT14getNumElementsEv.exit
 
 _ZNK4llvm3LLT14getNumElementsEv.exit:             ; preds = %931, %933
@@ -3003,14 +3003,14 @@ _ZNK4llvm3LLT14getNumElementsEv.exit:             ; preds = %931, %933
   br i1 %.not.i466, label %_ZNK4llvm3LLT14getNumElementsEv.exit468, label %940
 
 940:                                              ; preds = %937
-  call void @_ZN4llvm24reportInvalidSizeRequestEPKc(ptr noundef nonnull @.str.2) #17
+  call void @_ZN4llvm24reportInvalidSizeRequestEPKc(ptr noundef nonnull @.str.2) #18
   br label %_ZNK4llvm3LLT14getNumElementsEv.exit468
 
 _ZNK4llvm3LLT14getNumElementsEv.exit468:          ; preds = %937, %940
   %941 = trunc i64 %.sroa.04.0.i450534 to i32
   %942 = lshr i32 %941, 8
   %943 = and i32 %942, 65535
-  call void @_ZNK4llvm5APInt4zextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %54, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %943) #17
+  call void @_ZNK4llvm5APInt4zextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %54, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %943) #18
   %944 = mul i32 %938, %.0389.lcssa
   call void @_ZNK4llvm5APInt3shlEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %53, ptr noundef nonnull align 8 dereferenceable(12) %54, i32 noundef %944)
   %945 = load i32, ptr %925, align 8, !tbaa !210
@@ -3023,7 +3023,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit468:          ; preds = %937, %940
   br i1 %949, label %_ZN4llvm5APIntD2Ev.exit470, label %950
 
 950:                                              ; preds = %947
-  call void @_ZdaPv(ptr noundef nonnull %948) #20
+  call void @_ZdaPv(ptr noundef nonnull %948) #21
   br label %_ZN4llvm5APIntD2Ev.exit470
 
 _ZN4llvm5APIntD2Ev.exit470:                       ; preds = %950, %947, %_ZNK4llvm3LLT14getNumElementsEv.exit468
@@ -3044,7 +3044,7 @@ _ZN4llvm5APIntD2Ev.exit470:                       ; preds = %950, %947, %_ZNK4ll
   br i1 %959, label %_ZN4llvm5APIntD2Ev.exit471, label %960
 
 960:                                              ; preds = %957
-  call void @_ZdaPv(ptr noundef nonnull %958) #20
+  call void @_ZdaPv(ptr noundef nonnull %958) #21
   br label %_ZN4llvm5APIntD2Ev.exit471
 
 _ZN4llvm5APIntD2Ev.exit471:                       ; preds = %_ZN4llvm5APIntD2Ev.exit470, %957, %960
@@ -3065,7 +3065,7 @@ _ZN4llvm5APIntD2Ev.exit471:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %966 = load ptr, ptr %0, align 8, !tbaa !27
   %967 = getelementptr inbounds nuw i8, ptr %966, i64 48
   %968 = load ptr, ptr %967, align 8
-  call void %968(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %894, ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull align 8 dereferenceable(12) %52, i32 noundef %965) #17
+  call void %968(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %894, ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull align 8 dereferenceable(12) %52, i32 noundef %965) #18
   br i1 %916, label %969, label %971
 
 969:                                              ; preds = %961
@@ -3077,12 +3077,12 @@ _ZN4llvm5APIntD2Ev.exit471:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %972 = mul i32 %.0389.lcssa, %.0.i
   call void @_ZNK4llvm9KnownBits11extractBitsEjj(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %56, ptr noundef nonnull align 8 dereferenceable(32) %55, i32 noundef %.0.i, i32 noundef %972)
   %973 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %56)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %.critedge401
 
 .critedge401:                                     ; preds = %971, %969
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   %974 = load i32, ptr %925, align 8, !tbaa !210
   %975 = icmp ugt i32 %974, 64
@@ -3094,7 +3094,7 @@ _ZN4llvm5APIntD2Ev.exit471:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %978, label %_ZN4llvm5APIntD2Ev.exit473, label %979
 
 979:                                              ; preds = %976
-  call void @_ZdaPv(ptr noundef nonnull %977) #20
+  call void @_ZdaPv(ptr noundef nonnull %977) #21
   br label %_ZN4llvm5APIntD2Ev.exit473
 
 _ZN4llvm5APIntD2Ev.exit473:                       ; preds = %.critedge401, %976, %979
@@ -3110,11 +3110,11 @@ _ZN4llvm5APIntD2Ev.exit473:                       ; preds = %.critedge401, %976,
   %986 = load ptr, ptr %0, align 8, !tbaa !27
   %987 = getelementptr inbounds nuw i8, ptr %986, i64 48
   %988 = load ptr, ptr %987, align 8
-  call void %988(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %984, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %985) #17
+  call void %988(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %984, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %985) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @_ZNK4llvm9KnownBits8byteSwapEv(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %57, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %989 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %57)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %.loopexit
 
@@ -3127,11 +3127,11 @@ _ZN4llvm5APIntD2Ev.exit473:                       ; preds = %.critedge401, %976,
   %996 = load ptr, ptr %0, align 8, !tbaa !27
   %997 = getelementptr inbounds nuw i8, ptr %996, i64 48
   %998 = load ptr, ptr %997, align 8
-  call void %998(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %994, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %995) #17
+  call void %998(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %994, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %995) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
   call void @_ZNK4llvm9KnownBits11reverseBitsEv(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %58, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %999 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %58)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %.loopexit
 
@@ -3144,7 +3144,7 @@ _ZN4llvm5APIntD2Ev.exit473:                       ; preds = %.critedge401, %976,
   %1006 = load ptr, ptr %0, align 8, !tbaa !27
   %1007 = getelementptr inbounds nuw i8, ptr %1006, i64 48
   %1008 = load ptr, ptr %1007, align 8
-  call void %1008(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %1004, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %1005) #17
+  call void %1008(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %1004, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %1005) #18
   %1009 = load i32, ptr %210, align 8, !tbaa !210
   %1010 = icmp ult i32 %1009, 65
   br i1 %1010, label %1011, label %1015
@@ -3156,7 +3156,7 @@ _ZN4llvm5APIntD2Ev.exit473:                       ; preds = %.critedge401, %976,
   br label %_ZNK4llvm9KnownBits18countMaxPopulationEv.exit
 
 1015:                                             ; preds = %1000
-  %1016 = call noundef i32 @_ZNK4llvm5APInt23countPopulationSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
+  %1016 = call noundef i32 @_ZNK4llvm5APInt23countPopulationSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #22
   br label %_ZNK4llvm9KnownBits18countMaxPopulationEv.exit
 
 _ZNK4llvm9KnownBits18countMaxPopulationEv.exit:   ; preds = %1011, %1015
@@ -3200,31 +3200,31 @@ _ZNK4llvm9KnownBits18countMaxPopulationEv.exit:   ; preds = %1011, %1015
   %1035 = load ptr, ptr %0, align 8, !tbaa !27
   %1036 = getelementptr inbounds nuw i8, ptr %1035, i64 48
   %1037 = load ptr, ptr %1036, align 8
-  call void %1037(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %1033, ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %1034) #17
+  call void %1037(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %1033, ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %1034) #18
   %1038 = load ptr, ptr %1030, align 8, !tbaa !185
   %1039 = getelementptr inbounds nuw i8, ptr %1038, i64 68
   %1040 = load i32, ptr %1039, align 4, !tbaa !186
   %1041 = load ptr, ptr %0, align 8, !tbaa !27
   %1042 = getelementptr inbounds nuw i8, ptr %1041, i64 48
   %1043 = load ptr, ptr %1042, align 8
-  call void %1043(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %1040, ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %1034) #17
+  call void %1043(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %1040, ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %1034) #18
   %1044 = load ptr, ptr %1030, align 8, !tbaa !185
   %1045 = getelementptr inbounds nuw i8, ptr %1044, i64 100
   %1046 = load i32, ptr %1045, align 4, !tbaa !186
   %1047 = load ptr, ptr %0, align 8, !tbaa !27
   %1048 = getelementptr inbounds nuw i8, ptr %1047, i64 48
   %1049 = load ptr, ptr %1048, align 8
-  call void %1049(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %1046, ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %1034) #17
+  call void %1049(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %1046, ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %1034) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   call fastcc void @_ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_(ptr dead_on_unwind noalias writable align 8 %62, i32 noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %61)
   %1050 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %62)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %60) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %60) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %.loopexit
 
@@ -3261,25 +3261,25 @@ _ZNK4llvm9KnownBits18countMaxPopulationEv.exit:   ; preds = %1011, %1015
   %1066 = load ptr, ptr %0, align 8, !tbaa !27
   %1067 = getelementptr inbounds nuw i8, ptr %1066, i64 48
   %1068 = load ptr, ptr %1067, align 8
-  call void %1068(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %1064, ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %1065) #17
+  call void %1068(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %1064, ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %1065) #18
   %1069 = load ptr, ptr %1061, align 8, !tbaa !185
   %1070 = getelementptr inbounds nuw i8, ptr %1069, i64 68
   %1071 = load i32, ptr %1070, align 4, !tbaa !186
   %1072 = load ptr, ptr %0, align 8, !tbaa !27
   %1073 = getelementptr inbounds nuw i8, ptr %1072, i64 48
   %1074 = load ptr, ptr %1073, align 8
-  call void %1074(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %1071, ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %1065) #17
+  call void %1074(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %1071, ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %1065) #18
   %1075 = load ptr, ptr %1061, align 8, !tbaa !185
   %1076 = getelementptr inbounds nuw i8, ptr %1075, i64 100
   %1077 = load i32, ptr %1076, align 4, !tbaa !186
   %1078 = load ptr, ptr %0, align 8, !tbaa !27
   %1079 = getelementptr inbounds nuw i8, ptr %1078, i64 48
   %1080 = load ptr, ptr %1079, align 8
-  call void %1080(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %1077, ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %1065) #17
+  call void %1080(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %1077, ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %1065) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   call fastcc void @_ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_(ptr dead_on_unwind noalias writable align 8 %66, i32 noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 8 dereferenceable(32) %65)
   %1081 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %66)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
   call void @llvm.lifetime.start.p0(ptr nonnull %68)
@@ -3292,7 +3292,7 @@ _ZNK4llvm9KnownBits18countMaxPopulationEv.exit:   ; preds = %1011, %1015
   br label %_ZN4llvm5APIntC2Ejmbb.exit
 
 1084:                                             ; preds = %1051
-  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %68, i64 noundef %.0.in.i, i1 noundef zeroext false) #17
+  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %68, i64 noundef %.0.in.i, i1 noundef zeroext false) #18
   br label %_ZN4llvm5APIntC2Ejmbb.exit
 
 _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %1083, %1084
@@ -3307,31 +3307,31 @@ _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %1083, %1084
   br i1 %1089, label %_ZN4llvm5APIntD2Ev.exit475, label %1090
 
 1090:                                             ; preds = %1087
-  call void @_ZdaPv(ptr noundef nonnull %1088) #20
+  call void @_ZdaPv(ptr noundef nonnull %1088) #21
   br label %_ZN4llvm5APIntD2Ev.exit475
 
 _ZN4llvm5APIntD2Ev.exit475:                       ; preds = %_ZN4llvm5APIntC2Ejmbb.exit, %1087, %1090
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   call void @llvm.lifetime.start.p0(ptr nonnull %69)
-  call void @_ZN4llvm9KnownBits16computeForAddSubEbbbRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %69, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %65) #17
+  call void @_ZN4llvm9KnownBits16computeForAddSubEbbbRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %69, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %65) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %70)
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
-  call void @_ZN4llvm9KnownBits3shlERKS0_S2_bbb(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %71, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %69, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #17
-  call void @_ZN4llvm9KnownBits4ashrERKS0_S2_bb(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %70, ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %69, i1 noundef zeroext false, i1 noundef zeroext false) #17
+  call void @_ZN4llvm9KnownBits3shlERKS0_S2_bbb(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %71, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %69, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #18
+  call void @_ZN4llvm9KnownBits4ashrERKS0_S2_bb(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %70, ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %69, i1 noundef zeroext false, i1 noundef zeroext false) #18
   %1091 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %70)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #17
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #18
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %67) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %67) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %65) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %65) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %.loopexit
 
@@ -3378,7 +3378,7 @@ _ZN4llvm5APIntD2Ev.exit475:                       ; preds = %_ZN4llvm5APIntC2Ejm
   %1115 = load ptr, ptr %0, align 8, !tbaa !27
   %1116 = getelementptr inbounds nuw i8, ptr %1115, i64 48
   %1117 = load ptr, ptr %1116, align 8
-  call void %1117(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %1113, ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %1114) #17
+  call void %1117(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %1113, ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %1114) #18
   %1118 = load i32, ptr %1109, align 8, !tbaa !210
   %1119 = icmp ult i32 %1118, 65
   br i1 %1119, label %1120, label %1125
@@ -3392,7 +3392,7 @@ _ZN4llvm5APIntD2Ev.exit475:                       ; preds = %_ZN4llvm5APIntC2Ejm
   br label %_ZNK4llvm9KnownBits20countMaxLeadingZerosEv.exit
 
 1125:                                             ; preds = %1106
-  %1126 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1108) #21
+  %1126 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1108) #22
   br label %_ZNK4llvm9KnownBits20countMaxLeadingZerosEv.exit
 
 _ZNK4llvm9KnownBits20countMaxLeadingZerosEv.exit: ; preds = %1120, %1125
@@ -3400,7 +3400,7 @@ _ZNK4llvm9KnownBits20countMaxLeadingZerosEv.exit: ; preds = %1120, %1125
   %1127 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0.i.i480, i1 false)
   %1128 = sub nuw nsw i32 32, %1127
   call void @_ZN4llvm5APInt11setBitsFromEj(ptr noundef nonnull align 8 dereferenceable(12) %2, i32 noundef %1128)
-  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #17
+  call void @_ZN4llvm9KnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
   br label %.loopexit
 
@@ -3422,7 +3422,7 @@ _ZNK4llvm9KnownBits20countMaxLeadingZerosEv.exit: ; preds = %1120, %1125
   br label %_ZN4llvm5APIntaSERKS0_.exit.i481
 
 1138:                                             ; preds = %.loopexit
-  call void @_ZN4llvm5APInt14assignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1129, ptr noundef nonnull align 8 dereferenceable(32) %2) #17
+  call void @_ZN4llvm5APInt14assignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1129, ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   br label %_ZN4llvm5APIntaSERKS0_.exit.i481
 
 _ZN4llvm5APIntaSERKS0_.exit.i481:                 ; preds = %1138, %1135
@@ -3443,7 +3443,7 @@ _ZN4llvm5APIntaSERKS0_.exit.i481:                 ; preds = %1138, %1135
   br label %_ZN4llvm9KnownBitsaSERKS0_.exit482
 
 1148:                                             ; preds = %_ZN4llvm5APIntaSERKS0_.exit.i481
-  call void @_ZN4llvm5APInt14assignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1139, ptr noundef nonnull align 8 dereferenceable(12) %180) #17
+  call void @_ZN4llvm5APInt14assignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1139, ptr noundef nonnull align 8 dereferenceable(12) %180) #18
   br label %_ZN4llvm9KnownBitsaSERKS0_.exit482
 
 _ZN4llvm9KnownBitsaSERKS0_.exit482:               ; preds = %1148, %1145, %_ZNK4llvm3LLT13getScalarTypeEv.exit461
@@ -3457,7 +3457,7 @@ _ZN4llvm9KnownBitsaSERKS0_.exit482:               ; preds = %1148, %1145, %_ZNK4
   br i1 %1153, label %_ZN4llvm5APIntD2Ev.exit.i483, label %1154
 
 1154:                                             ; preds = %1151
-  call void @_ZdaPv(ptr noundef nonnull %1152) #20
+  call void @_ZdaPv(ptr noundef nonnull %1152) #21
   br label %_ZN4llvm5APIntD2Ev.exit.i483
 
 _ZN4llvm5APIntD2Ev.exit.i483:                     ; preds = %1154, %1151, %_ZN4llvm9KnownBitsaSERKS0_.exit482
@@ -3471,7 +3471,7 @@ _ZN4llvm5APIntD2Ev.exit.i483:                     ; preds = %1154, %1151, %_ZN4l
   br i1 %1159, label %_ZN4llvm9KnownBitsD2Ev.exit484, label %1160
 
 1160:                                             ; preds = %1157
-  call void @_ZdaPv(ptr noundef nonnull %1158) #20
+  call void @_ZdaPv(ptr noundef nonnull %1158) #21
   br label %_ZN4llvm9KnownBitsD2Ev.exit484
 
 _ZN4llvm9KnownBitsD2Ev.exit484:                   ; preds = %_ZN4llvm5APIntD2Ev.exit.i483, %1157, %1160
@@ -3501,9 +3501,9 @@ define linkonce_odr hidden void @_ZN4llvm9KnownBitsC2Ej(ptr noundef nonnull alig
   br label %_ZN4llvm5APIntC2Ejmbb.exit2
 
 8:                                                ; preds = %2
-  tail call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %0, i64 noundef 0, i1 noundef zeroext false) #17
+  tail call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %0, i64 noundef 0, i1 noundef zeroext false) #18
   store i32 %1, ptr %6, align 8, !tbaa !210
-  tail call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %5, i64 noundef 0, i1 noundef zeroext false) #17
+  tail call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %5, i64 noundef 0, i1 noundef zeroext false) #18
   br label %_ZN4llvm5APIntC2Ejmbb.exit2
 
 _ZN4llvm5APIntC2Ejmbb.exit2:                      ; preds = %7, %8
@@ -3710,9 +3710,9 @@ define linkonce_odr hidden void @_ZNK4llvm9KnownBits13anyextOrTruncEj(ptr dead_o
   tail call void @llvm.experimental.noalias.scope.decl(metadata !268)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @_ZNK4llvm5APInt4zextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) #17, !noalias !268
+  call void @_ZNK4llvm5APInt4zextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) #18, !noalias !268
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @_ZNK4llvm5APInt4zextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %7, ptr noundef nonnull align 8 dereferenceable(12) %12, i32 noundef %2) #17, !noalias !268
+  call void @_ZNK4llvm5APInt4zextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %7, ptr noundef nonnull align 8 dereferenceable(12) %12, i32 noundef %2) #18, !noalias !268
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !210, !noalias !268
@@ -3738,9 +3738,9 @@ define linkonce_odr hidden void @_ZNK4llvm9KnownBits13anyextOrTruncEj(ptr dead_o
   tail call void @llvm.experimental.noalias.scope.decl(metadata !271)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @_ZNK4llvm5APInt5truncEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) #17, !noalias !271
+  call void @_ZNK4llvm5APInt5truncEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) #18, !noalias !271
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @_ZNK4llvm5APInt5truncEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %25, i32 noundef %2) #17, !noalias !271
+  call void @_ZNK4llvm5APInt5truncEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %25, i32 noundef %2) #18, !noalias !271
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %28 = load i32, ptr %27, align 8, !tbaa !210, !noalias !271
@@ -3770,7 +3770,7 @@ define linkonce_odr hidden void @_ZNK4llvm9KnownBits13anyextOrTruncEj(ptr dead_o
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 40:                                               ; preds = %35
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #17
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #18
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %40, %38
@@ -3789,7 +3789,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %40, %38
   br label %_ZN4llvm9KnownBitsC2ERKS0_.exit
 
 49:                                               ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %41, ptr noundef nonnull align 8 dereferenceable(12) %42) #17
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %41, ptr noundef nonnull align 8 dereferenceable(12) %42) #18
   br label %_ZN4llvm9KnownBitsC2ERKS0_.exit
 
 _ZN4llvm9KnownBitsC2ERKS0_.exit:                  ; preds = %49, %47, %24, %11
@@ -3808,7 +3808,7 @@ define linkonce_odr hidden void @_ZN4llvm9KnownBits12makeConstantERKNS_5APIntE(p
   br i1 %8, label %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i, label %_ZN4llvm5APIntC2ERKS0_.exit
 
 _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %2
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %1) #17
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %1) #18
   %.pr = load i32, ptr %5, align 8, !tbaa !210, !noalias !274
   %9 = icmp ult i32 %.pr, 65
   br i1 %9, label %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i, label %19
@@ -3830,7 +3830,7 @@ _ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i:       ; preds = %_ZN4llvm5APIntC2ERK
   br label %_ZN4llvmcoENS_5APIntE.exit
 
 19:                                               ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
-  call void @_ZN4llvm5APInt19flipAllBitsSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %3) #17, !noalias !274
+  call void @_ZN4llvm5APInt19flipAllBitsSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %3) #18, !noalias !274
   %.pre.i = load i32, ptr %5, align 8, !tbaa !210, !noalias !274
   %.pre1.i = load i64, ptr %3, align 8, !noalias !274
   br label %_ZN4llvmcoENS_5APIntE.exit
@@ -3857,7 +3857,7 @@ _ZN4llvm5APIntD2Ev.exit3.thread:                  ; preds = %_ZN4llvmcoENS_5APIn
   br label %_ZN4llvm5APIntD2Ev.exit4
 
 _ZN4llvm5APIntD2Ev.exit3:                         ; preds = %_ZN4llvmcoENS_5APIntE.exit
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %1) #17
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %1) #18
   %.pre6 = load i32, ptr %22, align 8, !tbaa !210
   %.pre7 = load i64, ptr %4, align 8
   %.pre8 = load i32, ptr %5, align 8, !tbaa !210
@@ -3878,7 +3878,7 @@ _ZN4llvm5APIntD2Ev.exit3:                         ; preds = %_ZN4llvmcoENS_5APIn
   br i1 %35, label %_ZN4llvm5APIntD2Ev.exit4, label %36
 
 36:                                               ; preds = %33
-  call void @_ZdaPv(ptr noundef nonnull %34) #20
+  call void @_ZdaPv(ptr noundef nonnull %34) #21
   br label %_ZN4llvm5APIntD2Ev.exit4
 
 _ZN4llvm5APIntD2Ev.exit4:                         ; preds = %_ZN4llvm5APIntD2Ev.exit3.thread, %_ZN4llvm5APIntD2Ev.exit3, %33, %36
@@ -3927,7 +3927,7 @@ define linkonce_odr hidden void @_ZN4llvm5APInt11setBitsFromEj(ptr noundef nonnu
   br label %_ZN4llvm5APInt7setBitsEjj.exit
 
 17:                                               ; preds = %6
-  tail call void @_ZN4llvm5APInt15setBitsSlowCaseEjj(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %1, i32 noundef %4) #17
+  tail call void @_ZN4llvm5APInt15setBitsSlowCaseEjj(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %1, i32 noundef %4) #18
   br label %_ZN4llvm5APInt7setBitsEjj.exit
 
 _ZN4llvm5APInt7setBitsEjj.exit:                   ; preds = %2, %9, %17
@@ -3939,9 +3939,9 @@ define linkonce_odr hidden void @_ZNK4llvm9KnownBits4sextEj(ptr dead_on_unwind n
 _ZN4llvm5APIntD2Ev.exit2:
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::APInt", align 8
-  call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %2) #17
+  call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %2) #18
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %2) #17
+  call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %2) #18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !210
@@ -3965,9 +3965,9 @@ define linkonce_odr hidden void @_ZNK4llvm9KnownBits6anyextEj(ptr dead_on_unwind
 _ZN4llvm5APIntD2Ev.exit2:
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::APInt", align 8
-  call void @_ZNK4llvm5APInt4zextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %2) #17
+  call void @_ZNK4llvm5APInt4zextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %2) #18
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @_ZNK4llvm5APInt4zextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %2) #17
+  call void @_ZNK4llvm5APInt4zextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %2) #18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !210
@@ -3994,7 +3994,7 @@ define linkonce_odr hidden void @_ZNK4llvm9KnownBits4zextEj(ptr dead_on_unwind n
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !210
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @_ZNK4llvm5APInt4zextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %2) #17
+  call void @_ZNK4llvm5APInt4zextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %2) #18
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !210
   %11 = icmp eq i32 %8, %10
@@ -4021,7 +4021,7 @@ _ZN4llvm5APInt11setBitsFromEj.exit.thread:        ; preds = %12
   br label %27
 
 23:                                               ; preds = %12
-  call void @_ZN4llvm5APInt15setBitsSlowCaseEjj(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef %8, i32 noundef %10) #17
+  call void @_ZN4llvm5APInt15setBitsSlowCaseEjj(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef %8, i32 noundef %10) #18
   %.pr.pre = load i32, ptr %9, align 8, !tbaa !210
   br label %_ZN4llvm5APInt11setBitsFromEj.exit
 
@@ -4039,13 +4039,13 @@ _ZN4llvm5APInt11setBitsFromEj.exit:               ; preds = %23, %3
   br label %_ZN4llvm5APIntD2Ev.exit3
 
 30:                                               ; preds = %_ZN4llvm5APInt11setBitsFromEj.exit
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %4) #17
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %4) #18
   br label %_ZN4llvm5APIntD2Ev.exit3
 
 _ZN4llvm5APIntD2Ev.exit3:                         ; preds = %27, %30
   %31 = phi ptr [ %25, %30 ], [ %28, %27 ]
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @_ZNK4llvm5APInt4zextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %6, ptr noundef nonnull align 8 dereferenceable(12) %32, i32 noundef %2) #17
+  call void @_ZNK4llvm5APInt4zextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %6, ptr noundef nonnull align 8 dereferenceable(12) %32, i32 noundef %2) #18
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load i32, ptr %31, align 8, !tbaa !210
   store i32 %34, ptr %33, align 8, !tbaa !210
@@ -4070,7 +4070,7 @@ _ZN4llvm5APIntD2Ev.exit3:                         ; preds = %27, %30
   br i1 %45, label %_ZN4llvm5APIntD2Ev.exit4, label %46
 
 46:                                               ; preds = %43
-  call void @_ZdaPv(ptr noundef nonnull %44) #20
+  call void @_ZdaPv(ptr noundef nonnull %44) #21
   br label %_ZN4llvm5APIntD2Ev.exit4
 
 _ZN4llvm5APIntD2Ev.exit4:                         ; preds = %_ZN4llvm5APIntD2Ev.exit3, %43, %46
@@ -4150,9 +4150,9 @@ define linkonce_odr hidden void @_ZNK4llvm9KnownBits11zextOrTruncEj(ptr dead_on_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !277)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @_ZNK4llvm5APInt5truncEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) #17, !noalias !277
+  call void @_ZNK4llvm5APInt5truncEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) #18, !noalias !277
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @_ZNK4llvm5APInt5truncEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %13, i32 noundef %2) #17, !noalias !277
+  call void @_ZNK4llvm5APInt5truncEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %13, i32 noundef %2) #18, !noalias !277
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !210, !noalias !277
@@ -4182,7 +4182,7 @@ define linkonce_odr hidden void @_ZNK4llvm9KnownBits11zextOrTruncEj(ptr dead_on_
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 28:                                               ; preds = %23
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #17
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #18
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %28, %26
@@ -4201,7 +4201,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %28, %26
   br label %_ZN4llvm9KnownBitsC2ERKS0_.exit
 
 37:                                               ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %29, ptr noundef nonnull align 8 dereferenceable(12) %30) #17
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %29, ptr noundef nonnull align 8 dereferenceable(12) %30) #18
   br label %_ZN4llvm9KnownBitsC2ERKS0_.exit
 
 _ZN4llvm9KnownBitsC2ERKS0_.exit:                  ; preds = %37, %35, %12, %9
@@ -4240,7 +4240,7 @@ define linkonce_odr hidden void @_ZN4llvm5APInt10setLowBitsEj(ptr noundef nonnul
   br label %_ZN4llvm5APInt7setBitsEjj.exit
 
 20:                                               ; preds = %4
-  tail call void @_ZN4llvm5APInt15setBitsSlowCaseEjj(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef 0, i32 noundef %1) #17
+  tail call void @_ZN4llvm5APInt15setBitsSlowCaseEjj(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef 0, i32 noundef %1) #18
   br label %_ZN4llvm5APInt7setBitsEjj.exit
 
 _ZN4llvm5APInt7setBitsEjj.exit:                   ; preds = %2, %13, %16, %20
@@ -4264,7 +4264,7 @@ define linkonce_odr hidden void @_ZN4llvm5APInt12clearLowBitsEj(ptr noundef nonn
   br label %_ZN4llvm5APIntC2Ejmbb.exit.i
 
 10:                                               ; preds = %2
-  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %3, i64 noundef 0, i1 noundef zeroext false) #17
+  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %3, i64 noundef 0, i1 noundef zeroext false) #18
   %.pre.i = load i32, ptr %7, align 8, !tbaa !210, !alias.scope !280
   br label %_ZN4llvm5APIntC2Ejmbb.exit.i
 
@@ -4292,7 +4292,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %10, %9
   br label %_ZN4llvm5APInt14getHighBitsSetEjj.exit
 
 25:                                               ; preds = %14
-  call void @_ZN4llvm5APInt15setBitsSlowCaseEjj(ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %12, i32 noundef %11) #17
+  call void @_ZN4llvm5APInt15setBitsSlowCaseEjj(ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %12, i32 noundef %11) #18
   br label %_ZN4llvm5APInt14getHighBitsSetEjj.exit
 
 _ZN4llvm5APInt14getHighBitsSetEjj.exit:           ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i, %17, %25
@@ -4308,7 +4308,7 @@ _ZN4llvm5APInt14getHighBitsSetEjj.exit:           ; preds = %_ZN4llvm5APIntC2Ejm
   br label %_ZN4llvm5APIntaNERKS0_.exit
 
 32:                                               ; preds = %_ZN4llvm5APInt14getHighBitsSetEjj.exit
-  call void @_ZN4llvm5APInt17andAssignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %3) #17
+  call void @_ZN4llvm5APInt17andAssignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %3) #18
   br label %_ZN4llvm5APIntaNERKS0_.exit
 
 _ZN4llvm5APIntaNERKS0_.exit:                      ; preds = %28, %32
@@ -4322,7 +4322,7 @@ _ZN4llvm5APIntaNERKS0_.exit:                      ; preds = %28, %32
   br i1 %37, label %_ZN4llvm5APIntD2Ev.exit, label %38
 
 38:                                               ; preds = %35
-  call void @_ZdaPv(ptr noundef nonnull %36) #20
+  call void @_ZdaPv(ptr noundef nonnull %36) #21
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntaNERKS0_.exit, %35, %38
@@ -4342,7 +4342,7 @@ define linkonce_odr hidden void @_ZNK4llvm5APInt3shlEj(ptr dead_on_unwind noalia
   br i1 %7, label %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i, label %_ZN4llvm5APIntC2ERKS0_.exit
 
 _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %3
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) #17
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) #18
   %.pr = load i32, ptr %4, align 8, !tbaa !210
   %8 = icmp ult i32 %.pr, 65
   br i1 %8, label %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i, label %20
@@ -4367,7 +4367,7 @@ _ZN4llvm5APInt15clearUnusedBitsEv.exit.i:         ; preds = %_ZN4llvm5APIntC2ERK
   br label %_ZN4llvm5APIntlSEj.exit
 
 20:                                               ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
-  tail call void @_ZN4llvm5APInt11shlSlowCaseEj(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %2) #17
+  tail call void @_ZN4llvm5APInt11shlSlowCaseEj(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %2) #18
   br label %_ZN4llvm5APIntlSEj.exit
 
 _ZN4llvm5APIntlSEj.exit:                          ; preds = %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i, %20
@@ -4379,9 +4379,9 @@ define linkonce_odr hidden void @_ZNK4llvm9KnownBits11extractBitsEjj(ptr dead_on
 _ZN4llvm5APIntD2Ev.exit4:
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
-  call void @_ZNK4llvm5APInt11extractBitsEjj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %2, i32 noundef %3) #17
+  call void @_ZNK4llvm5APInt11extractBitsEjj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %2, i32 noundef %3) #18
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @_ZNK4llvm5APInt11extractBitsEjj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %6, i32 noundef %2, i32 noundef %3) #17
+  call void @_ZNK4llvm5APInt11extractBitsEjj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %6, i32 noundef %2, i32 noundef %3) #18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !210
@@ -4403,9 +4403,9 @@ define linkonce_odr hidden void @_ZNK4llvm9KnownBits8byteSwapEv(ptr dead_on_unwi
 _ZN4llvm5APIntD2Ev.exit1:
   %2 = alloca %"class.llvm::APInt", align 8
   %3 = alloca %"class.llvm::APInt", align 8
-  call void @_ZNK4llvm5APInt8byteSwapEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %2, ptr noundef nonnull align 8 dereferenceable(12) %1) #17
+  call void @_ZNK4llvm5APInt8byteSwapEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %2, ptr noundef nonnull align 8 dereferenceable(12) %1) #18
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @_ZNK4llvm5APInt8byteSwapEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %4) #17
+  call void @_ZNK4llvm5APInt8byteSwapEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %4) #18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !210
@@ -4427,9 +4427,9 @@ define linkonce_odr hidden void @_ZNK4llvm9KnownBits11reverseBitsEv(ptr dead_on_
 _ZN4llvm5APIntD2Ev.exit1:
   %2 = alloca %"class.llvm::APInt", align 8
   %3 = alloca %"class.llvm::APInt", align 8
-  call void @_ZNK4llvm5APInt11reverseBitsEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %2, ptr noundef nonnull align 8 dereferenceable(12) %1) #17
+  call void @_ZNK4llvm5APInt11reverseBitsEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %2, ptr noundef nonnull align 8 dereferenceable(12) %1) #18
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @_ZNK4llvm5APInt11reverseBitsEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %4) #17
+  call void @_ZNK4llvm5APInt11reverseBitsEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %4) #18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !210
@@ -4470,9 +4470,9 @@ define internal fastcc void @_ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_(ptr dead
   br label %_ZN4llvm9KnownBitsC2Ej.exit
 
 18:                                               ; preds = %5
-  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0, i1 noundef zeroext false) #17
+  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0, i1 noundef zeroext false) #18
   store i32 %1, ptr %16, align 8, !tbaa !210
-  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %15, i64 noundef 0, i1 noundef zeroext false) #17
+  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %15, i64 noundef 0, i1 noundef zeroext false) #18
   br label %_ZN4llvm9KnownBitsC2Ej.exit
 
 _ZN4llvm9KnownBitsC2Ej.exit:                      ; preds = %17, %18
@@ -4488,7 +4488,7 @@ _ZN4llvm9KnownBitsC2Ej.exit:                      ; preds = %17, %18
   br i1 %22, label %_ZNK4llvm9KnownBits11getMaxValueEv.exit.thread, label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %_ZN4llvm9KnownBitsC2Ej.exit
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(32) %4) #17, !noalias !283
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(32) %4) #18, !noalias !283
   %.pr.i = load i32, ptr %19, align 8, !tbaa !210, !noalias !286
   call void @llvm.experimental.noalias.scope.decl(metadata !289)
   %23 = icmp ult i32 %.pr.i, 65
@@ -4515,7 +4515,7 @@ _ZNK4llvm9KnownBits11getMaxValueEv.exit.thread:   ; preds = %_ZN4llvm9KnownBitsC
   br label %42
 
 _ZNK4llvm9KnownBits11getMaxValueEv.exit:          ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i
-  call void @_ZN4llvm5APInt19flipAllBitsSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %6) #17, !noalias !286
+  call void @_ZN4llvm5APInt19flipAllBitsSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %6) #18, !noalias !286
   %.pre.i.i = load i32, ptr %19, align 8, !tbaa !210, !noalias !286
   %.pre1.i.i = load i64, ptr %6, align 8, !noalias !286
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -4527,7 +4527,7 @@ _ZNK4llvm9KnownBits11getMaxValueEv.exit:          ; preds = %_ZN4llvm5APIntC2ERK
   br i1 %37, label %42, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i
 
 _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i:        ; preds = %_ZNK4llvm9KnownBits11getMaxValueEv.exit
-  %38 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %9) #21
+  %38 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %9) #22
   %39 = sub i32 %.pre.i.i, %38
   %40 = icmp ugt i32 %39, 64
   br i1 %40, label %_ZNK4llvm5APInt15getLimitedValueEm.exit, label %_ZNK4llvm5APInt3ugtEm.exit.i
@@ -4558,7 +4558,7 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %_ZNK4llvm5APInt13ge
   br label %_ZN4llvm5APIntC2Ejmbb.exit.i
 
 52:                                               ; preds = %_ZNK4llvm5APInt15getLimitedValueEm.exit
-  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %8, i64 noundef 0, i1 noundef zeroext false) #17
+  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %8, i64 noundef 0, i1 noundef zeroext false) #18
   %.pre.i8 = load i32, ptr %50, align 8, !tbaa !210, !alias.scope !290
   br label %_ZN4llvm5APIntC2Ejmbb.exit.i
 
@@ -4586,7 +4586,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %52, %51
   br label %_ZN4llvm5APInt14getBitsSetFromEjj.exit
 
 66:                                               ; preds = %55
-  call void @_ZN4llvm5APInt15setBitsSlowCaseEjj(ptr noundef nonnull align 8 dereferenceable(12) %8, i32 noundef %49, i32 noundef %53) #17
+  call void @_ZN4llvm5APInt15setBitsSlowCaseEjj(ptr noundef nonnull align 8 dereferenceable(12) %8, i32 noundef %49, i32 noundef %53) #18
   br label %_ZN4llvm5APInt14getBitsSetFromEjj.exit
 
 _ZN4llvm5APInt14getBitsSetFromEjj.exit:           ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i, %58, %66
@@ -4600,7 +4600,7 @@ _ZN4llvm5APInt14getBitsSetFromEjj.exit:           ; preds = %_ZN4llvm5APIntC2Ejm
   br i1 %71, label %_ZN4llvm5APIntD2Ev.exit, label %72
 
 72:                                               ; preds = %69
-  call void @_ZdaPv(ptr noundef nonnull %70) #20
+  call void @_ZdaPv(ptr noundef nonnull %70) #21
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %72, %69, %_ZN4llvm5APInt14getBitsSetFromEjj.exit
@@ -4619,7 +4619,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %72, %69, %_ZN4llvm5
   br i1 %79, label %_ZN4llvm5APIntD2Ev.exit9, label %80
 
 80:                                               ; preds = %77
-  call void @_ZdaPv(ptr noundef nonnull %78) #20
+  call void @_ZdaPv(ptr noundef nonnull %78) #21
   br label %_ZN4llvm5APIntD2Ev.exit9
 
 _ZN4llvm5APIntD2Ev.exit9:                         ; preds = %_ZN4llvm5APIntD2Ev.exit, %77, %80
@@ -4642,13 +4642,13 @@ _ZNK4llvm9KnownBits11getMinValueEv.exit.thread:   ; preds = %_ZN4llvm5APIntD2Ev.
   br label %92
 
 _ZNK4llvm9KnownBits11getMinValueEv.exit:          ; preds = %_ZN4llvm5APIntD2Ev.exit9
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(12) %81) #17
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(12) %81) #18
   %.pr = load i32, ptr %82, align 8, !tbaa !210
   %87 = icmp ult i32 %.pr, 65
   br i1 %87, label %92, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i11
 
 _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i11:      ; preds = %_ZNK4llvm9KnownBits11getMinValueEv.exit
-  %88 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %11) #21
+  %88 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %11) #22
   %89 = sub i32 %.pr, %88
   %90 = icmp ugt i32 %89, 64
   br i1 %90, label %_ZNK4llvm5APInt15getLimitedValueEm.exit16, label %_ZNK4llvm5APInt3ugtEm.exit.i12
@@ -4675,7 +4675,7 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit16:        ; preds = %_ZNK4llvm5APInt13ge
   br label %_ZN4llvm5APIntC2Ejmbb.exit.i17
 
 98:                                               ; preds = %_ZNK4llvm5APInt15getLimitedValueEm.exit16
-  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %10, i64 noundef 0, i1 noundef zeroext false) #17
+  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %10, i64 noundef 0, i1 noundef zeroext false) #18
   br label %_ZN4llvm5APIntC2Ejmbb.exit.i17
 
 _ZN4llvm5APIntC2Ejmbb.exit.i17:                   ; preds = %98, %97
@@ -4707,7 +4707,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i17:                   ; preds = %98, %97
   br label %_ZN4llvm5APInt13getLowBitsSetEjj.exit
 
 114:                                              ; preds = %100
-  call void @_ZN4llvm5APInt15setBitsSlowCaseEjj(ptr noundef nonnull align 8 dereferenceable(12) %10, i32 noundef 0, i32 noundef %95) #17
+  call void @_ZN4llvm5APInt15setBitsSlowCaseEjj(ptr noundef nonnull align 8 dereferenceable(12) %10, i32 noundef 0, i32 noundef %95) #18
   br label %_ZN4llvm5APInt13getLowBitsSetEjj.exit
 
 _ZN4llvm5APInt13getLowBitsSetEjj.exit:            ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i17, %107, %110, %114
@@ -4721,7 +4721,7 @@ _ZN4llvm5APInt13getLowBitsSetEjj.exit:            ; preds = %_ZN4llvm5APIntC2Ejm
   br i1 %119, label %_ZN4llvm5APIntD2Ev.exit19, label %120
 
 120:                                              ; preds = %117
-  call void @_ZdaPv(ptr noundef nonnull %118) #20
+  call void @_ZdaPv(ptr noundef nonnull %118) #21
   br label %_ZN4llvm5APIntD2Ev.exit19
 
 _ZN4llvm5APIntD2Ev.exit19:                        ; preds = %120, %117, %_ZN4llvm5APInt13getLowBitsSetEjj.exit
@@ -4740,15 +4740,15 @@ _ZN4llvm5APIntD2Ev.exit19:                        ; preds = %120, %117, %_ZN4llv
   br i1 %127, label %_ZN4llvm9KnownBitsD2Ev.exit, label %128
 
 128:                                              ; preds = %125
-  call void @_ZdaPv(ptr noundef nonnull %126) #20
+  call void @_ZdaPv(ptr noundef nonnull %126) #21
   br label %_ZN4llvm9KnownBitsD2Ev.exit
 
 _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %_ZN4llvm5APIntD2Ev.exit19, %125, %128
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  call void @_ZN4llvm9KnownBits4lshrERKS0_S2_bb(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext false, i1 noundef zeroext false) #17
+  call void @_ZN4llvm9KnownBits4lshrERKS0_S2_bb(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext false, i1 noundef zeroext false) #18
   call void @llvm.experimental.noalias.scope.decl(metadata !299)
-  %129 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaNERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %7) #17, !noalias !299
+  %129 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9KnownBitsaNERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %7) #18, !noalias !299
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %131 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %132 = load i32, ptr %131, align 8, !tbaa !210, !noalias !299
@@ -4775,7 +4775,7 @@ _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %144, label %_ZN4llvm5APIntD2Ev.exit.i21, label %145
 
 145:                                              ; preds = %142
-  call void @_ZdaPv(ptr noundef nonnull %143) #20
+  call void @_ZdaPv(ptr noundef nonnull %143) #21
   br label %_ZN4llvm5APIntD2Ev.exit.i21
 
 _ZN4llvm5APIntD2Ev.exit.i21:                      ; preds = %145, %142, %_ZN4llvm9KnownBitsD2Ev.exit
@@ -4789,7 +4789,7 @@ _ZN4llvm5APIntD2Ev.exit.i21:                      ; preds = %145, %142, %_ZN4llv
   br i1 %150, label %_ZN4llvm9KnownBitsD2Ev.exit22, label %151
 
 151:                                              ; preds = %148
-  call void @_ZdaPv(ptr noundef nonnull %149) #20
+  call void @_ZdaPv(ptr noundef nonnull %149) #21
   br label %_ZN4llvm9KnownBitsD2Ev.exit22
 
 _ZN4llvm9KnownBitsD2Ev.exit22:                    ; preds = %_ZN4llvm5APIntD2Ev.exit.i21, %148, %151
@@ -4835,7 +4835,7 @@ tailrecurse.outer:                                ; preds = %_ZNK4llvm19MachineR
 tailrecurse:                                      ; preds = %tailrecurse.outer, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit130
   %12 = phi ptr [ %68, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit130 ], [ %.pre, %tailrecurse.outer ]
   %.tr233 = phi i32 [ %86, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit130 ], [ %.tr233.ph, %tailrecurse.outer ]
-  %13 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %12, i32 %.tr233) #17
+  %13 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %12, i32 %.tr233) #18
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 68
   %15 = load i16, ptr %14, align 4, !tbaa !165
   %16 = icmp eq i16 %15, 133
@@ -4882,7 +4882,7 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
   br label %common.ret
 
 47:                                               ; preds = %37
-  %48 = tail call noundef i32 @_ZNK4llvm5APInt24countLeadingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %22) #21
+  %48 = tail call noundef i32 @_ZNK4llvm5APInt24countLeadingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %22) #22
   br label %common.ret
 
 49:                                               ; preds = %17
@@ -4896,7 +4896,7 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
   br label %common.ret
 
 54:                                               ; preds = %49
-  %55 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %22) #21
+  %55 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %22) #22
   br label %common.ret
 
 56:                                               ; preds = %tailrecurse
@@ -4915,7 +4915,7 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
   br i1 %64, label %common.ret, label %67
 
 _ZNK4llvm5APIntntEv.exit:                         ; preds = %59
-  %65 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #21
+  %65 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #22
   %66 = icmp eq i32 %65, %60
   br i1 %66, label %common.ret, label %67
 
@@ -5140,7 +5140,7 @@ _ZNK4llvm12MachineInstr17memoperands_beginEv.exit: ; preds = %162, %164
   store i64 %170, ptr %5, align 8
   %.sroa.231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %173, ptr %.sroa.231.0..sroa_idx, align 8
-  %174 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #17
+  %174 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #18
   %175 = trunc i64 %174 to i32
   %176 = add i32 %.0.i.le373, 1
   %177 = sub i32 %176, %175
@@ -5194,7 +5194,7 @@ _ZNK4llvm12MachineInstr17memoperands_beginEv.exit146: ; preds = %189, %191
   store i64 %197, ptr %6, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 %200, ptr %.sroa.2.0..sroa_idx, align 8
-  %201 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %6) #17
+  %201 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %6) #18
   %202 = trunc i64 %201 to i32
   %203 = sub i32 %.0.i.le371, %202
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -5353,7 +5353,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit151: ; preds = %217, %2
   %286 = load ptr, ptr %285, align 8, !tbaa !27
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 1976
   %288 = load ptr, ptr %287, align 8
-  %289 = tail call noundef i32 %288(ptr noundef nonnull align 8 dereferenceable(412423) %285, ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %.tr233, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(504) %68, i32 noundef %.tr235.ph) #17
+  %289 = tail call noundef i32 %288(ptr noundef nonnull align 8 dereferenceable(412423) %285, ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %.tr233, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(504) %68, i32 noundef %.tr235.ph) #18
   %spec.select = tail call i32 @llvm.umax.i32(i32 %289, i32 1)
   br label %.thread
 
@@ -5373,7 +5373,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit151: ; preds = %217, %2
   %293 = load ptr, ptr %0, align 8, !tbaa !27, !noalias !333
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 48
   %295 = load ptr, ptr %294, align 8, !noalias !333
-  call void %295(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %.tr233, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(12) %2, i32 noundef %.tr235.ph) #17
+  call void %295(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %.tr233, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(12) %2, i32 noundef %.tr235.ph) #18
   %296 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E5clearEv(ptr noundef nonnull align 1 dereferenceable(1) %296)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5439,7 +5439,7 @@ _ZN4llvm5APIntlSEj.exit.thread:                   ; preds = %323
   br label %340
 
 _ZN4llvm5APIntlSEj.exit:                          ; preds = %323
-  call void @_ZN4llvm5APInt11shlSlowCaseEj(ptr noundef nonnull align 8 dereferenceable(12) %8, i32 noundef %326) #17
+  call void @_ZN4llvm5APInt11shlSlowCaseEj(ptr noundef nonnull align 8 dereferenceable(12) %8, i32 noundef %326) #18
   %.pre561 = load i32, ptr %297, align 8, !tbaa !210
   %339 = icmp ult i32 %.pre561, 65
   br i1 %339, label %340, label %352
@@ -5461,14 +5461,14 @@ _ZN4llvm5APIntlSEj.exit:                          ; preds = %323
   br label %_ZN4llvm5APIntD2Ev.exit
 
 352:                                              ; preds = %_ZN4llvm5APIntlSEj.exit
-  %353 = call noundef i32 @_ZNK4llvm5APInt24countLeadingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %8) #21
+  %353 = call noundef i32 @_ZNK4llvm5APInt24countLeadingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %8) #22
   %.sroa.speculated = call i32 @llvm.umax.i32(i32 %.0216, i32 %353)
   %354 = load ptr, ptr %8, align 8, !tbaa !186
   %355 = icmp eq ptr %354, null
   br i1 %355, label %_ZN4llvm5APIntD2Ev.exit, label %356
 
 356:                                              ; preds = %352
-  call void @_ZdaPv(ptr noundef nonnull %354) #20
+  call void @_ZdaPv(ptr noundef nonnull %354) #21
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %340, %343, %310, %352, %356
@@ -5484,7 +5484,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %340, %343, %310, %3
   br i1 %361, label %_ZN4llvm5APIntD2Ev.exit.i, label %362
 
 362:                                              ; preds = %359
-  call void @_ZdaPv(ptr noundef nonnull %360) #20
+  call void @_ZdaPv(ptr noundef nonnull %360) #21
   br label %_ZN4llvm5APIntD2Ev.exit.i
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %362, %359, %_ZN4llvm5APIntD2Ev.exit
@@ -5498,7 +5498,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %362, %359, %_ZN4llv
   br i1 %367, label %_ZN4llvm9KnownBitsD2Ev.exit, label %368
 
 368:                                              ; preds = %365
-  call void @_ZdaPv(ptr noundef nonnull %366) #20
+  call void @_ZdaPv(ptr noundef nonnull %366) #21
   br label %_ZN4llvm9KnownBitsD2Ev.exit
 
 _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %_ZN4llvm5APIntD2Ev.exit.i, %365, %368
@@ -5514,7 +5514,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm5APIntneEm(ptr noundef n
   br i1 %5, label %9, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i
 
 _ZNK4llvm5APInt13getActiveBitsEv.exit.i:          ; preds = %2
-  %6 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #21
+  %6 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #22
   %7 = sub i32 %4, %6
   %8 = icmp ult i32 %7, 65
   br i1 %8, label %9, label %_ZNK4llvm5APInteqEm.exit
@@ -5567,7 +5567,7 @@ _ZNK4llvm8GAnyLoad9getRangesEv.exit:              ; preds = %13, %15
 
 22:                                               ; preds = %_ZNK4llvm8GAnyLoad9getRangesEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @_ZN4llvm28getConstantRangeFromMetadataERKNS_6MDNodeE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ConstantRange") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %21) #17
+  call void @_ZN4llvm28getConstantRangeFromMetadataERKNS_6MDNodeE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ConstantRange") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %21) #18
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %24 = load i32, ptr %23, align 8, !tbaa !210
   %25 = icmp ugt i32 %1, %24
@@ -5583,7 +5583,7 @@ _ZNK4llvm8GAnyLoad9getRangesEv.exit:              ; preds = %13, %15
 
 29:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @_ZNK4llvm13ConstantRange10signExtendEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ConstantRange") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %1) #17
+  call void @_ZNK4llvm13ConstantRange10signExtendEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ConstantRange") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %1) #18
   %30 = load i32, ptr %23, align 8, !tbaa !210
   %31 = icmp ult i32 %30, 65
   br i1 %31, label %_ZN4llvm5APIntaSEOS0_.exit.i, label %32
@@ -5594,7 +5594,7 @@ _ZNK4llvm8GAnyLoad9getRangesEv.exit:              ; preds = %13, %15
   br i1 %34, label %_ZN4llvm5APIntaSEOS0_.exit.i, label %35
 
 35:                                               ; preds = %32
-  call void @_ZdaPv(ptr noundef nonnull %33) #20
+  call void @_ZdaPv(ptr noundef nonnull %33) #21
   br label %_ZN4llvm5APIntaSEOS0_.exit.i
 
 _ZN4llvm5APIntaSEOS0_.exit.i:                     ; preds = %35, %32, %29
@@ -5625,7 +5625,7 @@ _ZN4llvm5APIntD2Ev.exit.i.thread:                 ; preds = %43, %_ZN4llvm5APInt
   br label %_ZN4llvm13ConstantRangeD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %43
-  call void @_ZdaPv(ptr noundef nonnull %44) #20
+  call void @_ZdaPv(ptr noundef nonnull %44) #21
   %.pre25 = load i32, ptr %37, align 8, !tbaa !210
   %50 = icmp ugt i32 %.pre25, 64
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -5643,7 +5643,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %43
   br i1 %57, label %_ZN4llvm13ConstantRangeD2Ev.exit, label %58
 
 58:                                               ; preds = %55
-  call void @_ZdaPv(ptr noundef nonnull %56) #20
+  call void @_ZdaPv(ptr noundef nonnull %56) #21
   br label %_ZN4llvm13ConstantRangeD2Ev.exit
 
 _ZN4llvm13ConstantRangeD2Ev.exit:                 ; preds = %_ZN4llvm5APIntD2Ev.exit.i.thread, %_ZN4llvm5APIntD2Ev.exit.i, %55, %58
@@ -5652,7 +5652,7 @@ _ZN4llvm13ConstantRangeD2Ev.exit:                 ; preds = %_ZN4llvm5APIntD2Ev.
 
 59:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @_ZNK4llvm13ConstantRange10zeroExtendEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ConstantRange") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %1) #17
+  call void @_ZNK4llvm13ConstantRange10zeroExtendEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ConstantRange") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %1) #18
   %60 = load i32, ptr %23, align 8, !tbaa !210
   %61 = icmp ult i32 %60, 65
   br i1 %61, label %_ZN4llvm5APIntaSEOS0_.exit.i9, label %62
@@ -5663,7 +5663,7 @@ _ZN4llvm13ConstantRangeD2Ev.exit:                 ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %64, label %_ZN4llvm5APIntaSEOS0_.exit.i9, label %65
 
 65:                                               ; preds = %62
-  call void @_ZdaPv(ptr noundef nonnull %63) #20
+  call void @_ZdaPv(ptr noundef nonnull %63) #21
   br label %_ZN4llvm5APIntaSEOS0_.exit.i9
 
 _ZN4llvm5APIntaSEOS0_.exit.i9:                    ; preds = %65, %62, %59
@@ -5694,7 +5694,7 @@ _ZN4llvm5APIntD2Ev.exit.i11.thread:               ; preds = %73, %_ZN4llvm5APInt
   br label %_ZN4llvm13ConstantRangeD2Ev.exit12
 
 _ZN4llvm5APIntD2Ev.exit.i11:                      ; preds = %73
-  call void @_ZdaPv(ptr noundef nonnull %74) #20
+  call void @_ZdaPv(ptr noundef nonnull %74) #21
   %.pre = load i32, ptr %67, align 8, !tbaa !210
   %80 = icmp ugt i32 %.pre, 64
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5712,7 +5712,7 @@ _ZN4llvm5APIntD2Ev.exit.i11:                      ; preds = %73
   br i1 %87, label %_ZN4llvm13ConstantRangeD2Ev.exit12, label %88
 
 88:                                               ; preds = %85
-  call void @_ZdaPv(ptr noundef nonnull %86) #20
+  call void @_ZdaPv(ptr noundef nonnull %86) #21
   br label %_ZN4llvm13ConstantRangeD2Ev.exit12
 
 _ZN4llvm13ConstantRangeD2Ev.exit12:               ; preds = %_ZN4llvm5APIntD2Ev.exit.i11.thread, %_ZN4llvm5APIntD2Ev.exit.i11, %85, %88
@@ -5721,7 +5721,7 @@ _ZN4llvm13ConstantRangeD2Ev.exit12:               ; preds = %_ZN4llvm5APIntD2Ev.
 
 89:                                               ; preds = %_ZN4llvm13ConstantRangeD2Ev.exit, %_ZN4llvm13ConstantRangeD2Ev.exit12, %26, %22
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @_ZNK4llvm13ConstantRange12getSignedMinEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %3) #17
+  call void @_ZNK4llvm13ConstantRange12getSignedMinEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   %90 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %91 = load i32, ptr %90, align 8, !tbaa !210
   %92 = add i32 %91, -1
@@ -5757,7 +5757,7 @@ _ZN4llvm13ConstantRangeD2Ev.exit12:               ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZNK4llvm5APInt14getNumSignBitsEv.exit
 
 114:                                              ; preds = %104
-  %115 = call noundef i32 @_ZNK4llvm5APInt24countLeadingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %6) #21
+  %115 = call noundef i32 @_ZNK4llvm5APInt24countLeadingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %6) #22
   br label %_ZNK4llvm5APInt14getNumSignBitsEv.exit
 
 116:                                              ; preds = %89
@@ -5771,13 +5771,13 @@ _ZN4llvm13ConstantRangeD2Ev.exit12:               ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZNK4llvm5APInt14getNumSignBitsEv.exit
 
 121:                                              ; preds = %116
-  %122 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %6) #21
+  %122 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %6) #22
   br label %_ZNK4llvm5APInt14getNumSignBitsEv.exit
 
 _ZNK4llvm5APInt14getNumSignBitsEv.exit:           ; preds = %105, %107, %114, %117, %121
   %123 = phi i32 [ %113, %107 ], [ %115, %114 ], [ 0, %105 ], [ %120, %117 ], [ %122, %121 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @_ZNK4llvm13ConstantRange12getSignedMaxEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %3) #17
+  call void @_ZNK4llvm13ConstantRange12getSignedMaxEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   %124 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %125 = load i32, ptr %124, align 8, !tbaa !210
   %126 = add i32 %125, -1
@@ -5813,7 +5813,7 @@ _ZNK4llvm5APInt14getNumSignBitsEv.exit:           ; preds = %105, %107, %114, %1
   br label %_ZNK4llvm5APInt14getNumSignBitsEv.exit16.thread
 
 148:                                              ; preds = %138
-  %149 = call noundef i32 @_ZNK4llvm5APInt24countLeadingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %7) #21
+  %149 = call noundef i32 @_ZNK4llvm5APInt24countLeadingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %7) #22
   br label %157
 
 150:                                              ; preds = %_ZNK4llvm5APInt14getNumSignBitsEv.exit
@@ -5827,7 +5827,7 @@ _ZNK4llvm5APInt14getNumSignBitsEv.exit:           ; preds = %105, %107, %114, %1
   br label %_ZNK4llvm5APInt14getNumSignBitsEv.exit16.thread
 
 155:                                              ; preds = %150
-  %156 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %7) #21
+  %156 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %7) #22
   br label %157
 
 _ZNK4llvm5APInt14getNumSignBitsEv.exit16.thread:  ; preds = %139, %141, %151
@@ -5842,7 +5842,7 @@ _ZNK4llvm5APInt14getNumSignBitsEv.exit16.thread:  ; preds = %139, %141, %151
   br i1 %159, label %_ZN4llvm5APIntD2Ev.exit, label %160
 
 160:                                              ; preds = %157
-  call void @_ZdaPv(ptr noundef nonnull %131) #20
+  call void @_ZdaPv(ptr noundef nonnull %131) #21
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APInt14getNumSignBitsEv.exit16.thread, %157, %160
@@ -5858,7 +5858,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APInt14ge
   br i1 %165, label %_ZN4llvm5APIntD2Ev.exit17, label %166
 
 166:                                              ; preds = %163
-  call void @_ZdaPv(ptr noundef nonnull %164) #20
+  call void @_ZdaPv(ptr noundef nonnull %164) #21
   br label %_ZN4llvm5APIntD2Ev.exit17
 
 _ZN4llvm5APIntD2Ev.exit17:                        ; preds = %_ZN4llvm5APIntD2Ev.exit, %163, %166
@@ -5875,7 +5875,7 @@ _ZN4llvm5APIntD2Ev.exit17:                        ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %173, label %_ZN4llvm5APIntD2Ev.exit.i18, label %174
 
 174:                                              ; preds = %170
-  call void @_ZdaPv(ptr noundef nonnull %172) #20
+  call void @_ZdaPv(ptr noundef nonnull %172) #21
   br label %_ZN4llvm5APIntD2Ev.exit.i18
 
 _ZN4llvm5APIntD2Ev.exit.i18:                      ; preds = %174, %170, %_ZN4llvm5APIntD2Ev.exit17
@@ -5889,7 +5889,7 @@ _ZN4llvm5APIntD2Ev.exit.i18:                      ; preds = %174, %170, %_ZN4llv
   br i1 %179, label %_ZN4llvm13ConstantRangeD2Ev.exit19, label %180
 
 180:                                              ; preds = %177
-  call void @_ZdaPv(ptr noundef nonnull %178) #20
+  call void @_ZdaPv(ptr noundef nonnull %178) #21
   br label %_ZN4llvm13ConstantRangeD2Ev.exit19
 
 _ZN4llvm13ConstantRangeD2Ev.exit19:               ; preds = %_ZN4llvm5APIntD2Ev.exit.i18, %177, %180
@@ -5968,7 +5968,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4
   br label %14
 
 13:                                               ; preds = %6, %2
-  tail call void @_ZN4llvm5APInt14assignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) #17
+  tail call void @_ZN4llvm5APInt14assignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) #18
   br label %14
 
 14:                                               ; preds = %13, %10
@@ -6014,7 +6014,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %8
   br i1 %.not.i, label %_ZNK4llvm3LLT14getNumElementsEv.exit, label %24
 
 24:                                               ; preds = %22
-  tail call void @_ZN4llvm24reportInvalidSizeRequestEPKc(ptr noundef nonnull @.str.2) #17
+  tail call void @_ZN4llvm24reportInvalidSizeRequestEPKc(ptr noundef nonnull @.str.2) #18
   br label %_ZNK4llvm3LLT14getNumElementsEv.exit
 
 _ZNK4llvm3LLT14getNumElementsEv.exit:             ; preds = %22, %24
@@ -6038,7 +6038,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit:             ; preds = %22, %24
   br label %_ZN4llvm5APInt10getAllOnesEj.exit
 
 37:                                               ; preds = %_ZNK4llvm3LLT14getNumElementsEv.exit
-  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %4, i64 noundef -1, i1 noundef zeroext true) #17
+  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %4, i64 noundef -1, i1 noundef zeroext true) #18
   br label %_ZN4llvm5APInt10getAllOnesEj.exit
 
 38:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
@@ -6060,7 +6060,7 @@ _ZN4llvm5APInt10getAllOnesEj.exit:                ; preds = %37, %30, %38
   br i1 %46, label %_ZN4llvm5APIntD2Ev.exit, label %47
 
 47:                                               ; preds = %44
-  call void @_ZdaPv(ptr noundef nonnull %45) #20
+  call void @_ZdaPv(ptr noundef nonnull %45) #21
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit, %44, %47
@@ -6072,7 +6072,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APInt10get
 define dso_local void @_ZNK4llvm22GISelKnownBitsAnalysis16getAnalysisUsageERNS_13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(161) initializes((160, 161)) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i8 1, ptr %3, align 8, !tbaa !339
-  tail call void @_ZNK4llvm19MachineFunctionPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(161) %1) #17
+  tail call void @_ZNK4llvm19MachineFunctionPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(161) %1) #18
   ret void
 }
 
@@ -6097,8 +6097,8 @@ define dso_local noundef nonnull align 8 dereferenceable(752) ptr @_ZN4llvm22GIS
   %9 = load i32, ptr %8, align 8, !tbaa !352
   %10 = icmp eq i32 %9, 0
   %11 = select i1 %10, i32 2, i32 6
-  %12 = tail call noalias noundef nonnull dereferenceable(752) ptr @_Znwm(i64 noundef 752) #19, !noalias !428
-  tail call void @_ZN4llvm14GISelKnownBitsC1ERNS_15MachineFunctionEj(ptr noundef nonnull align 8 dereferenceable(752) %12, ptr noundef nonnull align 8 dereferenceable(1065) %1, i32 noundef %11) #17, !noalias !428
+  %12 = tail call noalias noundef nonnull dereferenceable(752) ptr @_Znwm(i64 noundef 752) #20, !noalias !428
+  tail call void @_ZN4llvm14GISelKnownBitsC1ERNS_15MachineFunctionEj(ptr noundef nonnull align 8 dereferenceable(752) %12, ptr noundef nonnull align 8 dereferenceable(1065) %1, i32 noundef %11) #18, !noalias !428
   %13 = load ptr, ptr %3, align 8, !tbaa !349
   store ptr %12, ptr %3, align 8, !tbaa !349
   %.not.i.i.i.i = icmp eq ptr %13, null
@@ -6108,7 +6108,7 @@ _ZNKSt14default_deleteIN4llvm14GISelKnownBitsEEclEPS1_.exit.i.i.i.i: ; preds = %
   %14 = load ptr, ptr %13, align 8, !tbaa !27
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(752) %13) #17
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(752) %13) #18
   %.pre = load ptr, ptr %3, align 8, !tbaa !349
   br label %_ZNSt10unique_ptrIN4llvm14GISelKnownBitsESt14default_deleteIS1_EED2Ev.exit
 
@@ -6129,12 +6129,12 @@ _ZNKSt14default_deleteIN4llvm14GISelKnownBitsEEclEPS1_.exit.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(752) %3) #17
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(752) %3) #18
   br label %_ZNSt10unique_ptrIN4llvm14GISelKnownBitsESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm14GISelKnownBitsESt14default_deleteIS1_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN4llvm14GISelKnownBitsEEclEPS1_.exit.i
   store ptr null, ptr %2, align 8, !tbaa !349
-  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #17
+  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #18
   ret void
 }
 
@@ -6150,13 +6150,13 @@ _ZNKSt14default_deleteIN4llvm14GISelKnownBitsEEclEPS1_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(752) %3) #17
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(752) %3) #18
   br label %_ZN4llvm22GISelKnownBitsAnalysisD2Ev.exit
 
 _ZN4llvm22GISelKnownBitsAnalysisD2Ev.exit:        ; preds = %1, %_ZNKSt14default_deleteIN4llvm14GISelKnownBitsEEclEPS1_.exit.i.i
   store ptr null, ptr %2, align 8, !tbaa !349
-  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #17
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #20
+  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #21
   ret void
 }
 
@@ -6167,19 +6167,19 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm19MachineFunctionPass16do
   %3 = load ptr, ptr %0, align 8, !tbaa !27
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i64 %5(ptr noundef nonnull align 8 dereferenceable(56) %0) #17
+  %6 = tail call i64 %5(ptr noundef nonnull align 8 dereferenceable(56) %0) #18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %6, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8, !tbaa !27
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i64 %10(ptr noundef nonnull align 8 dereferenceable(56) %0) #17
+  %11 = tail call i64 %10(ptr noundef nonnull align 8 dereferenceable(56) %0) #18
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %11, ptr %12, align 8
   %13 = load ptr, ptr %0, align 8, !tbaa !27
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 168
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i64 %15(ptr noundef nonnull align 8 dereferenceable(56) %0) #17
+  %16 = tail call i64 %15(ptr noundef nonnull align 8 dereferenceable(56) %0) #18
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %16, ptr %17, align 8
   ret i1 false
@@ -6212,7 +6212,7 @@ _ZNKSt14default_deleteIN4llvm14GISelKnownBitsEEclEPS1_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(752) %3) #17
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(752) %3) #18
   br label %_ZNSt10unique_ptrIN4llvm14GISelKnownBitsESt14default_deleteIS1_EE5resetEPS1_.exit
 
 _ZNSt10unique_ptrIN4llvm14GISelKnownBitsESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %1, %_ZNKSt14default_deleteIN4llvm14GISelKnownBitsEEclEPS1_.exit.i.i
@@ -6250,7 +6250,7 @@ define linkonce_odr hidden i64 @_ZNK4llvm19MachineFunctionPass20getClearedProper
 define linkonce_odr hidden void @_ZN4llvm14GISelKnownBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(752) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm14GISelKnownBitsE, i64 16), ptr %0, align 8, !tbaa !27
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  tail call void @_ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(648) %2) #17
+  tail call void @_ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(648) %2) #18
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm19GISelChangeObserverE, i64 16), ptr %0, align 8, !tbaa !27
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i8, ptr %3, align 4, !tbaa !26, !range !242, !noundef !243
@@ -6260,7 +6260,7 @@ define linkonce_odr hidden void @_ZN4llvm14GISelKnownBitsD2Ev(ptr noundef nonnul
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !20
-  tail call void @free(ptr noundef %8) #17
+  tail call void @free(ptr noundef %8) #18
   br label %_ZN4llvm19GISelChangeObserverD2Ev.exit
 
 _ZN4llvm19GISelChangeObserverD2Ev.exit:           ; preds = %1, %6
@@ -6271,7 +6271,7 @@ _ZN4llvm19GISelChangeObserverD2Ev.exit:           ; preds = %1, %6
 define linkonce_odr hidden void @_ZN4llvm14GISelKnownBitsD0Ev(ptr noundef nonnull align 8 dereferenceable(752) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm14GISelKnownBitsE, i64 16), ptr %0, align 8, !tbaa !27
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  tail call void @_ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(648) %2) #17
+  tail call void @_ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(648) %2) #18
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm19GISelChangeObserverE, i64 16), ptr %0, align 8, !tbaa !27
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i8, ptr %3, align 4, !tbaa !26, !range !242, !noundef !243
@@ -6281,11 +6281,11 @@ define linkonce_odr hidden void @_ZN4llvm14GISelKnownBitsD0Ev(ptr noundef nonnul
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !20
-  tail call void @free(ptr noundef %8) #17
+  tail call void @free(ptr noundef %8) #18
   br label %_ZN4llvm14GISelKnownBitsD2Ev.exit
 
 _ZN4llvm14GISelKnownBitsD2Ev.exit:                ; preds = %1, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 752) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 752) #21
   ret void
 }
 
@@ -6316,7 +6316,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 define linkonce_odr noundef ptr @_ZN4llvm15callDefaultCtorINS_22GISelKnownBitsAnalysisETnNSt9enable_ifIXtlSt24is_default_constructibleIT_EEEbE4typeELb1EEEPNS_4PassEv() #0 comdat {
   %1 = alloca %class.anon, align 8
   %2 = alloca %"class.std::reference_wrapper", align 8
-  %3 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #19
+  %3 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %4, align 8, !tbaa !431
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -6328,7 +6328,7 @@ define linkonce_odr noundef ptr @_ZN4llvm15callDefaultCtorINS_22GISelKnownBitsAn
   store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN4llvm22GISelKnownBitsAnalysisE, i64 16), ptr %3, align 8, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr null, ptr %8, align 8, !tbaa !437
-  %9 = tail call noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() #17
+  %9 = tail call noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() #18
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %9, ptr %2, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
@@ -6339,12 +6339,12 @@ define linkonce_odr noundef ptr @_ZN4llvm15callDefaultCtorINS_22GISelKnownBitsAn
   store ptr %1, ptr %11, align 8, !tbaa !3
   %12 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %12, align 8, !tbaa !3
-  %13 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL40InitializeGISelKnownBitsAnalysisPassFlag, ptr noundef nonnull @__once_proxy) #17
+  %13 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL40InitializeGISelKnownBitsAnalysisPassFlag, ptr noundef nonnull @__once_proxy) #18
   %.not.i.i.i.i = icmp eq i32 %13, 0
   br i1 %.not.i.i.i.i, label %_ZN4llvm22GISelKnownBitsAnalysisC2Ev.exit, label %14
 
 14:                                               ; preds = %0
-  call void @_ZSt20__throw_system_errori(i32 noundef %13) #18
+  call void @_ZSt20__throw_system_errori(i32 noundef %13) #19
   unreachable
 
 _ZN4llvm22GISelKnownBitsAnalysisC2Ev.exit:        ; preds = %0
@@ -6370,7 +6370,7 @@ define linkonce_odr hidden void @_ZN4llvm19GISelChangeObserverD2Ev(ptr noundef n
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !20
-  tail call void @free(ptr noundef %7) #17
+  tail call void @free(ptr noundef %7) #18
   br label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit
 
 _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %1, %5
@@ -6379,7 +6379,7 @@ _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm19GISelChangeObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @llvm.trap() #18
+  tail call void @llvm.trap() #19
   unreachable
 }
 
@@ -6434,8 +6434,8 @@ declare void @_ZNK4llvm5APInt11reverseBitsEv(ptr dead_on_unwind writable sret(%"
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare noundef i32 @_ZNK4llvm5APInt23countPopulationSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #10
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #11
 
 declare void @_ZN4llvm28getConstantRangeFromMetadataERKNS_6MDNodeE(ptr dead_on_unwind writable sret(%"class.llvm::ConstantRange") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
@@ -6455,7 +6455,7 @@ declare void @_ZN4llvm5APInt11shlSlowCaseEj(ptr noundef nonnull align 8 derefere
 declare noundef i32 @_ZNK4llvm5APInt24countLeadingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #11
+declare void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #12
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
@@ -6500,7 +6500,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownB
   br i1 %22, label %_ZN4llvm5APIntD2Ev.exit.i.i, label %23
 
 23:                                               ; preds = %19
-  tail call void @_ZdaPv(ptr noundef nonnull %21) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %21) #21
   br label %_ZN4llvm5APIntD2Ev.exit.i.i
 
 _ZN4llvm5APIntD2Ev.exit.i.i:                      ; preds = %23, %19, %14
@@ -6515,7 +6515,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i:                      ; preds = %23, %19, %14
   br i1 %29, label %_ZN4llvm9KnownBitsD2Ev.exit.i, label %30
 
 30:                                               ; preds = %27
-  tail call void @_ZdaPv(ptr noundef nonnull %28) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %28) #21
   br label %_ZN4llvm9KnownBitsD2Ev.exit.i
 
 _ZN4llvm9KnownBitsD2Ev.exit.i:                    ; preds = %30, %27, %_ZN4llvm5APIntD2Ev.exit.i.i, %.lr.ph.i
@@ -6539,7 +6539,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12D
   %37 = load i32, ptr %4, align 8, !tbaa !442
   %38 = zext i32 %37 to i64
   %39 = mul nuw nsw i64 %38, 40
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %36, i64 noundef %39, i64 noundef 8) #17
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %36, i64 noundef %39, i64 noundef 8) #18
   br label %_ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE17deallocateBucketsEv.exit
 
 _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE17deallocateBucketsEv.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E10destroyAllEv.exit, %34
@@ -6551,7 +6551,7 @@ declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 nou
 declare void @__once_proxy() #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #12
+declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #10
@@ -6564,7 +6564,7 @@ define linkonce_odr hidden void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !445
   %6 = load ptr, ptr %5, align 8, !tbaa !446
-  %7 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(160) %6) #17
+  %7 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(160) %6) #18
   ret void
 }
 
@@ -6613,7 +6613,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownB
   br i1 %23, label %_ZN4llvm5APIntD2Ev.exit.i.i, label %24
 
 24:                                               ; preds = %20
-  tail call void @_ZdaPv(ptr noundef nonnull %22) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %22) #21
   br label %_ZN4llvm5APIntD2Ev.exit.i.i
 
 _ZN4llvm5APIntD2Ev.exit.i.i:                      ; preds = %24, %20, %15
@@ -6628,7 +6628,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i:                      ; preds = %24, %20, %15
   br i1 %30, label %_ZN4llvm9KnownBitsD2Ev.exit.i, label %31
 
 31:                                               ; preds = %28
-  tail call void @_ZdaPv(ptr noundef nonnull %29) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %29) #21
   br label %_ZN4llvm9KnownBitsD2Ev.exit.i
 
 _ZN4llvm9KnownBitsD2Ev.exit.i:                    ; preds = %31, %28, %_ZN4llvm5APIntD2Ev.exit.i.i, %.lr.ph.i
@@ -6698,7 +6698,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12D
   %59 = load ptr, ptr %58, align 8, !tbaa !440
   %60 = zext i32 %45 to i64
   %61 = mul nuw nsw i64 %60, 40
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %59, i64 noundef %61, i64 noundef 8) #17
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %59, i64 noundef %61, i64 noundef 8) #18
   br label %_ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE17deallocateBucketsEv.exit
 
 _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE17deallocateBucketsEv.exit: ; preds = %43, %57
@@ -6718,7 +6718,7 @@ _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEE
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = zext i32 %.0 to i64
   %68 = mul nuw nsw i64 %67, 40
-  %69 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %68, i64 noundef 8) #17
+  %69 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %68, i64 noundef 8) #18
   store ptr %69, ptr %66, align 8
   store i32 %.0, ptr %5, align 8
   %.pre.i = load i32, ptr %0, align 8
@@ -6895,7 +6895,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %27
   br i1 %46, label %_ZN4llvm9KnownBitsD2Ev.exit, label %47
 
 47:                                               ; preds = %44
-  tail call void @_ZdaPv(ptr noundef nonnull %45) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %45) #21
   br label %_ZN4llvm9KnownBitsD2Ev.exit
 
 _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %27, %47, %44, %_ZN4llvm5APIntD2Ev.exit.i
@@ -6910,7 +6910,7 @@ _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %27, %47, %44, %_ZN4
   store i32 %50, ptr %0, align 8
   %51 = zext i32 %.0 to i64
   %52 = mul nuw nsw i64 %51, 40
-  %53 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %52, i64 noundef 8) #17
+  %53 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %52, i64 noundef 8) #18
   store ptr %53, ptr %24, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.0, ptr %54, align 8
@@ -6937,7 +6937,7 @@ _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %27, %47, %44, %_ZN4
 61:                                               ; preds = %56
   %62 = zext i32 %.0 to i64
   %63 = mul nuw nsw i64 %62, 40
-  %64 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %63, i64 noundef 8) #17
+  %64 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %63, i64 noundef 8) #18
   store ptr %64, ptr %57, align 8
   store i32 %.0, ptr %.sroa.6.0..sroa_idx, align 8
   br label %65
@@ -6947,7 +6947,7 @@ _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %27, %47, %44, %_ZN4
   %67 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sroa.0.0.copyload, i64 %66
   tail call void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E18moveFromOldBucketsEPS8_SB_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.sroa.0.0.copyload, ptr noundef %67)
   %68 = mul nuw nsw i64 %66, 40
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %.sroa.0.0.copyload, i64 noundef %68, i64 noundef 8) #17
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %.sroa.0.0.copyload, i64 noundef %68, i64 noundef 8) #18
   br label %69
 
 69:                                               ; preds = %65, %55
@@ -7078,7 +7078,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12D
   br i1 %66, label %_ZN4llvm5APIntD2Ev.exit.i, label %67
 
 67:                                               ; preds = %64
-  tail call void @_ZdaPv(ptr noundef nonnull %65) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %65) #21
   br label %_ZN4llvm5APIntD2Ev.exit.i
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %67, %64, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E15LookupBucketForIS2_EEbRKT_RPS8_.exit
@@ -7092,7 +7092,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %67, %64, %_ZN4llvm1
   br i1 %72, label %_ZN4llvm9KnownBitsD2Ev.exit, label %73
 
 73:                                               ; preds = %70
-  tail call void @_ZdaPv(ptr noundef nonnull %71) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %71) #21
   br label %_ZN4llvm9KnownBitsD2Ev.exit
 
 _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %.lr.ph, %73, %70, %_ZN4llvm5APIntD2Ev.exit.i
@@ -7102,25 +7102,25 @@ _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %.lr.ph, %73, %70, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #14
+declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #15
+declare void @llvm.assume(i1 noundef) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #17
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -7133,17 +7133,18 @@ attributes #7 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind }
-attributes #18 = { noreturn nounwind }
-attributes #19 = { builtin nounwind allocsize(0) }
-attributes #20 = { builtin nounwind }
-attributes #21 = { nounwind willreturn memory(read) }
+attributes #11 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #17 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nounwind }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { builtin nounwind allocsize(0) }
+attributes #21 = { builtin nounwind }
+attributes #22 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

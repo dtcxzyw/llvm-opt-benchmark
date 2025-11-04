@@ -70,8 +70,8 @@ define noundef i32 @_Z11xdr3dfcoordP3XDRPfPiS1_i(ptr noundef %0, ptr noundef %1,
 
 19:                                               ; preds = %5
   %20 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.6, i32 noundef %4, i32 noundef 1995, i32 noundef 2023) #17
-  tail call void @exit(i32 noundef 1) #18
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.6, i32 noundef %4, i32 noundef 1995, i32 noundef 2023) #18
+  tail call void @exit(i32 noundef 1) #19
   unreachable
 
 22:                                               ; preds = %5, %5
@@ -83,8 +83,8 @@ define noundef i32 @_Z11xdr3dfcoordP3XDRPfPiS1_i(ptr noundef %0, ptr noundef %1,
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.7, i32 noundef %24, i32 noundef 2023) #17
-  tail call void @exit(i32 noundef 1) #18
+  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.7, i32 noundef %24, i32 noundef 2023) #18
+  tail call void @exit(i32 noundef 1) #19
   unreachable
 
 29:                                               ; preds = %22
@@ -130,9 +130,9 @@ define noundef i32 @_Z11xdr3dfcoordP3XDRPfPiS1_i(ptr noundef %0, ptr noundef %1,
   %50 = fmul double %49, 1.200000e+00
   %51 = fptoui double %50 to i64
   %52 = mul nuw nsw i64 %35, 12
-  %53 = tail call noalias ptr @malloc(i64 noundef %52) #19
+  %53 = tail call noalias ptr @malloc(i64 noundef %52) #20
   %54 = shl i64 %51, 2
-  %55 = tail call noalias ptr @malloc(i64 noundef %54) #19
+  %55 = tail call noalias ptr @malloc(i64 noundef %54) #20
   %56 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %55, ptr %56, align 8, !tbaa !17
   %57 = icmp eq ptr %53, null
@@ -142,8 +142,8 @@ define noundef i32 @_Z11xdr3dfcoordP3XDRPfPiS1_i(ptr noundef %0, ptr noundef %1,
 
 59:                                               ; preds = %48
   %60 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %61 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 14, i64 1, ptr %60) #20
-  tail call void @exit(i32 noundef 1) #18
+  %61 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 14, i64 1, ptr %60) #21
+  tail call void @exit(i32 noundef 1) #19
   unreachable
 
 .lr.ph:                                           ; preds = %46, %48
@@ -319,10 +319,10 @@ define noundef i32 @_Z11xdr3dfcoordP3XDRPfPiS1_i(ptr noundef %0, ptr noundef %1,
   br i1 %45, label %922, label %160
 
 160:                                              ; preds = %159
-  call void @free(ptr noundef %.0403) #21
+  call void @free(ptr noundef %.0403) #22
   %161 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %162 = load ptr, ptr %161, align 8, !tbaa !17
-  call void @free(ptr noundef %162) #21
+  call void @free(ptr noundef %162) #22
   br label %922
 
 163:                                              ; preds = %156
@@ -463,10 +463,10 @@ _ZL9sizeofinti.exit473:                           ; preds = %.lr.ph.i470, %_ZL9s
   br i1 %45, label %922, label %226
 
 226:                                              ; preds = %225
-  call void @free(ptr noundef %.0403) #21
+  call void @free(ptr noundef %.0403) #22
   %227 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %228 = load ptr, ptr %227, align 8, !tbaa !17
-  call void @free(ptr noundef %228) #21
+  call void @free(ptr noundef %228) #22
   br label %922
 
 229:                                              ; preds = %.critedge
@@ -1139,10 +1139,10 @@ _ZL8sendbitsP10DataBufferii.exit505:              ; preds = %_ZL8sendbitsP10Data
   br i1 %45, label %922, label %600
 
 600:                                              ; preds = %599
-  call void @free(ptr noundef %.0403) #21
+  call void @free(ptr noundef %.0403) #22
   %601 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %602 = load ptr, ptr %601, align 8, !tbaa !17
-  call void @free(ptr noundef %602) #21
+  call void @free(ptr noundef %602) #22
   br label %922
 
 603:                                              ; preds = %597
@@ -1170,9 +1170,9 @@ _ZL8sendbitsP10DataBufferii.exit505:              ; preds = %_ZL8sendbitsP10Data
   br i1 %45, label %922, label %618
 
 618:                                              ; preds = %616
-  call void @free(ptr noundef %.0403) #21
+  call void @free(ptr noundef %.0403) #22
   %619 = load ptr, ptr %605, align 8, !tbaa !17
-  call void @free(ptr noundef %619) #21
+  call void @free(ptr noundef %619) #22
   br label %922
 
 620:                                              ; preds = %29
@@ -1192,7 +1192,7 @@ _ZL8sendbitsP10DataBufferii.exit505:              ; preds = %_ZL8sendbitsP10Data
 
 627:                                              ; preds = %625
   %628 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %629 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %628, ptr noundef nonnull @.str.9, i32 noundef %624, i32 noundef %626) #17
+  %629 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %628, ptr noundef nonnull @.str.9, i32 noundef %624, i32 noundef %626) #18
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %623, %627
@@ -1232,9 +1232,9 @@ thread-pre-split:                                 ; preds = %623, %627
   %647 = fmul double %646, 1.200000e+00
   %648 = fptoui double %647 to i64
   %649 = mul nuw nsw i64 %632, 12
-  %650 = call noalias ptr @malloc(i64 noundef %649) #19
+  %650 = call noalias ptr @malloc(i64 noundef %649) #20
   %651 = shl i64 %648, 2
-  %652 = call noalias ptr @malloc(i64 noundef %651) #19
+  %652 = call noalias ptr @malloc(i64 noundef %651) #20
   %653 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %652, ptr %653, align 8, !tbaa !17
   %654 = icmp eq ptr %650, null
@@ -1244,8 +1244,8 @@ thread-pre-split:                                 ; preds = %623, %627
 
 656:                                              ; preds = %645
   %657 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %658 = call i64 @fwrite(ptr nonnull @.str.8, i64 14, i64 1, ptr %657) #20
-  call void @exit(i32 noundef 1) #18
+  %658 = call i64 @fwrite(ptr nonnull @.str.8, i64 14, i64 1, ptr %657) #21
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 659:                                              ; preds = %645, %643
@@ -1290,10 +1290,10 @@ thread-pre-split:                                 ; preds = %623, %627
   br i1 %642, label %922, label %684
 
 684:                                              ; preds = %683
-  call void @free(ptr noundef nonnull %.1404) #21
+  call void @free(ptr noundef nonnull %.1404) #22
   %685 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %686 = load ptr, ptr %685, align 8, !tbaa !17
-  call void @free(ptr noundef %686) #21
+  call void @free(ptr noundef %686) #22
   br label %922
 
 687:                                              ; preds = %679
@@ -1380,10 +1380,10 @@ _ZL9sizeofinti.exit530:                           ; preds = %.lr.ph.i527, %_ZL9s
   br i1 %642, label %922, label %729
 
 729:                                              ; preds = %728
-  call void @free(ptr noundef nonnull %.1404) #21
+  call void @free(ptr noundef nonnull %.1404) #22
   %730 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %731 = load ptr, ptr %730, align 8, !tbaa !17
-  call void @free(ptr noundef %731) #21
+  call void @free(ptr noundef %731) #22
   br label %922
 
 732:                                              ; preds = %_ZL9sizeofinti.exit530
@@ -1426,10 +1426,10 @@ _ZL9sizeofinti.exit530:                           ; preds = %.lr.ph.i527, %_ZL9s
   br i1 %642, label %922, label %756
 
 756:                                              ; preds = %755
-  call void @free(ptr noundef nonnull %.1404) #21
+  call void @free(ptr noundef nonnull %.1404) #22
   %757 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %758 = load ptr, ptr %757, align 8, !tbaa !17
-  call void @free(ptr noundef %758) #21
+  call void @free(ptr noundef %758) #22
   br label %922
 
 759:                                              ; preds = %753
@@ -1460,9 +1460,9 @@ _ZL9sizeofinti.exit530:                           ; preds = %.lr.ph.i527, %_ZL9s
   br i1 %642, label %922, label %775
 
 775:                                              ; preds = %774
-  call void @free(ptr noundef nonnull %.1404) #21
+  call void @free(ptr noundef nonnull %.1404) #22
   %776 = load ptr, ptr %761, align 8, !tbaa !17
-  call void @free(ptr noundef %776) #21
+  call void @free(ptr noundef %776) #22
   br label %922
 
 777:                                              ; preds = %772
@@ -1725,9 +1725,9 @@ _ZL11receivebitsP10DataBufferi.exit543:           ; preds = %823, %825
   br i1 %642, label %922, label %920
 
 920:                                              ; preds = %._crit_edge643
-  call void @free(ptr noundef nonnull %.1404) #21
+  call void @free(ptr noundef nonnull %.1404) #22
   %921 = load ptr, ptr %761, align 8, !tbaa !17
-  call void @free(ptr noundef %921) #21
+  call void @free(ptr noundef %921) #22
   br label %922
 
 922:                                              ; preds = %._crit_edge643, %920, %774, %775, %755, %756, %728, %729, %683, %684, %638, %620, %616, %618, %599, %600, %225, %226, %159, %160, %41, %30, %635, %38
@@ -1889,8 +1889,8 @@ define internal fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr noundef nonnul
 
 17:                                               ; preds = %.preheader98
   %18 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.10, i32 noundef %13, i32 noundef %15) #17
-  tail call void @exit(i32 noundef 1) #18
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.10, i32 noundef %13, i32 noundef %15) #18
+  tail call void @exit(i32 noundef 1) #19
   unreachable
 
 .preheader96:                                     ; preds = %.lr.ph, %.preheader97
@@ -2416,8 +2416,8 @@ _ZL11receivebitsP10DataBufferi.exit:              ; preds = %_ZL11receivebitsP10
 
 .split75.us:                                      ; preds = %.split, %.split.us
   %83 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %84 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 48, i64 1, ptr %83) #20
-  tail call void @exit(i32 noundef 1) #18
+  %84 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 48, i64 1, ptr %83) #21
+  tail call void @exit(i32 noundef 1) #19
   unreachable
 
 .split77.us:                                      ; preds = %.preheader, %._crit_edge71.us
@@ -2439,8 +2439,8 @@ _ZL11receivebitsP10DataBufferi.exit:              ; preds = %_ZL11receivebitsP10
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #8
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #13
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 -1, 1) i32 @_Z18xdr_xtc_seek_frameiP8_IO_FILEP3XDRi(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
@@ -3164,8 +3164,8 @@ _ZL28xtc_get_current_frame_numberP8_IO_FILEP3XDRiPb.exit: ; preds = %22, %11, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_GLOBAL__sub_I_libxdrf.cpp() #13 section ".text.startup" {
-  %1 = tail call float @nextafterf(float noundef 0x41E0000000000000, float noundef 0.000000e+00) #21, !tbaa !16
+define internal void @_GLOBAL__sub_I_libxdrf.cpp() #14 section ".text.startup" {
+  %1 = tail call float @nextafterf(float noundef 0x41E0000000000000, float noundef 0.000000e+00) #22, !tbaa !16
   store float %1, ptr @_ZL14maxAbsoluteInt, align 4, !tbaa !20
   %2 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZL14maxAbsoluteInt)
   ret void
@@ -3178,19 +3178,19 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -3205,15 +3205,16 @@ attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #13 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { cold nounwind }
-attributes #18 = { cold noreturn nounwind }
-attributes #19 = { nounwind allocsize(0) }
-attributes #20 = { cold }
-attributes #21 = { nounwind }
+attributes #13 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #15 = { nofree nounwind }
+attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #17 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { cold nounwind }
+attributes #19 = { cold noreturn nounwind }
+attributes #20 = { nounwind allocsize(0) }
+attributes #21 = { cold }
+attributes #22 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -426,7 +426,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl5types9ValueType9rust_name17
 
 12:                                               ; preds = %19, %13
   %.pn = phi { ptr, i32 } [ %20, %19 ], [ %14, %13 ]
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %3) #15
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %3) #16
           to label %32 unwind label %30
 
 13:                                               ; preds = %2
@@ -448,7 +448,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl5types9ValueType9rust_name17
 19:                                               ; preds = %21, %15
   %20 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %4) #15
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %4) #16
           to label %12 unwind label %30
 
 21:                                               ; preds = %15
@@ -462,7 +462,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl5types9ValueType9rust_name17
 23:                                               ; preds = %22
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %3) #15
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %3) #16
           to label %26 unwind label %30
 
 25:                                               ; preds = %22
@@ -471,7 +471,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl5types9ValueType9rust_name17
 
 26:                                               ; preds = %27, %23
   %.pn9 = phi { ptr, i32 } [ %28, %27 ], [ %24, %23 ]
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %7) #15
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %7) #16
           to label %32 unwind label %30
 
 27:                                               ; preds = %25
@@ -486,7 +486,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl5types9ValueType9rust_name17
 30:                                               ; preds = %26, %23, %19, %12
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #17
   unreachable
 
 32:                                               ; preds = %26, %12
@@ -689,7 +689,7 @@ define hidden { i1, i8 } @_ZN22cranelift_codegen_meta4cdsl5types8LaneType13int_f
 
 8:                                                ; preds = %.split, %1
   call void @_ZN4core3fmt9Arguments6new_v117h8f7516983d0c178cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %3, ptr nonnull align 8 @anon.96edb2e12b1c90f4cebcfcaadf93dceb.12, i64 1, ptr nonnull align 8 %2, i64 0)
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.96edb2e12b1c90f4cebcfcaadf93dceb.14) #17
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.96edb2e12b1c90f4cebcfcaadf93dceb.14) #18
   unreachable
 
 switch.lookup:                                    ; preds = %.split
@@ -712,7 +712,7 @@ define hidden { i1, i8 } @_ZN22cranelift_codegen_meta4cdsl5types8LaneType15float
 
 4:                                                ; preds = %1
   call void @_ZN4core3fmt9Arguments6new_v117h8f7516983d0c178cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %3, ptr nonnull align 8 @anon.96edb2e12b1c90f4cebcfcaadf93dceb.16, i64 1, ptr nonnull align 8 %2, i64 0)
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.96edb2e12b1c90f4cebcfcaadf93dceb.17) #17
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.96edb2e12b1c90f4cebcfcaadf93dceb.17) #18
   unreachable
 
 5:                                                ; preds = %1
@@ -856,7 +856,7 @@ define zeroext i1 @"_ZN82_$LT$cranelift_codegen_meta..cdsl..types..LaneType$u20$
 26:                                               ; preds = %31, %28, %24, %22
   %27 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %16) #15
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %16) #16
           to label %43 unwind label %41
 
 28:                                               ; preds = %22
@@ -879,7 +879,7 @@ define zeroext i1 @"_ZN82_$LT$cranelift_codegen_meta..cdsl..types..LaneType$u20$
 32:                                               ; preds = %34, %29
   %33 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %16) #15
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %16) #16
           to label %37 unwind label %41
 
 34:                                               ; preds = %29
@@ -892,7 +892,7 @@ define zeroext i1 @"_ZN82_$LT$cranelift_codegen_meta..cdsl..types..LaneType$u20$
 
 37:                                               ; preds = %38, %32
   %.pn = phi { ptr, i32 } [ %39, %38 ], [ %33, %32 ]
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %9) #15
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %9) #16
           to label %43 unwind label %41
 
 38:                                               ; preds = %36
@@ -907,7 +907,7 @@ define zeroext i1 @"_ZN82_$LT$cranelift_codegen_meta..cdsl..types..LaneType$u20$
 41:                                               ; preds = %37, %32, %26
   %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #17
   unreachable
 
 43:                                               ; preds = %37, %26
@@ -1097,7 +1097,7 @@ define hidden range(i8 32, 65) i8 @_ZN22cranelift_codegen_meta4cdsl5types13Refer
 
 4:                                                ; preds = %1
   call void @_ZN4core3fmt9Arguments6new_v117h8f7516983d0c178cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %3, ptr nonnull align 8 @anon.96edb2e12b1c90f4cebcfcaadf93dceb.51, i64 1, ptr nonnull align 8 %2, i64 0)
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.96edb2e12b1c90f4cebcfcaadf93dceb.52) #17
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.96edb2e12b1c90f4cebcfcaadf93dceb.52) #18
   unreachable
 
 5:                                                ; preds = %1
@@ -1231,23 +1231,23 @@ declare i8 @"_ZN115_$LT$cranelift_codegen_meta..shared..types..ReferenceIterator
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare i8 @_ZN4core3ops8function6FnOnce9call_once17hbe0e1311121f2a68E(i8) unnamed_addr #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.ctpop.i16(i16) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.cttz.i16(i16, i1 immarg) #12
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.cttz.i8(i8, i1 immarg) #12
+declare i8 @llvm.cttz.i8(i8, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #13
+declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -1261,12 +1261,13 @@ attributes #8 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inli
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #10 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { cold }
-attributes #16 = { cold noreturn nounwind }
-attributes #17 = { noreturn }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { cold }
+attributes #17 = { cold noreturn nounwind }
+attributes #18 = { noreturn }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

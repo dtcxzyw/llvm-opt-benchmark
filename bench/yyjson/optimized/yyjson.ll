@@ -548,7 +548,7 @@ define internal void @pool_free(ptr noundef captures(none) %0, ptr noundef %1) #
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define dso_local noundef ptr @yyjson_alc_dyn_new() local_unnamed_addr #4 {
-  %1 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #29
+  %1 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #30
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %2, !prof !4
 
@@ -570,19 +570,19 @@ define dso_local noundef ptr @yyjson_alc_dyn_new() local_unnamed_addr #4 {
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define internal noalias noundef ptr @default_malloc(ptr readnone captures(none) %0, i64 noundef %1) #5 {
-  %3 = tail call noalias ptr @malloc(i64 noundef %1) #29
+  %3 = tail call noalias ptr @malloc(i64 noundef %1) #30
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal noalias noundef ptr @default_realloc(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i64 %2, i64 noundef %3) #6 {
-  %5 = tail call ptr @realloc(ptr noundef %1, i64 noundef %3) #30
+  %5 = tail call ptr @realloc(ptr noundef %1, i64 noundef %3) #31
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @default_free(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #6 {
-  tail call void @free(ptr noundef %1) #31
+  tail call void @free(ptr noundef %1) #32
   ret void
 }
 
@@ -600,7 +600,7 @@ define internal ptr @dyn_malloc(ptr noundef captures(none) %0, i64 noundef %1) #
   br i1 %.not, label %8, label %.preheader
 
 8:                                                ; preds = %5
-  %9 = tail call noalias noundef ptr @malloc(i64 noundef %4) #29
+  %9 = tail call noalias noundef ptr @malloc(i64 noundef %4) #30
   %.not32 = icmp eq ptr %9, null
   br i1 %.not32, label %dyn_size_align.exit, label %10, !prof !4
 
@@ -640,7 +640,7 @@ define internal ptr @dyn_malloc(ptr noundef captures(none) %0, i64 noundef %1) #
   br i1 %.not34, label %27, label %.preheader
 
 27:                                               ; preds = %24
-  %28 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %15, i64 noundef %4) #30
+  %28 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %15, i64 noundef %4) #31
   %.not35 = icmp eq ptr %28, null
   br i1 %.not35, label %dyn_size_align.exit, label %29, !prof !4
 
@@ -698,7 +698,7 @@ define internal ptr @dyn_realloc(ptr noundef captures(none) %0, ptr noundef %1, 
   br label %dyn_chunk_list_remove.exit
 
 dyn_chunk_list_remove.exit:                       ; preds = %12, %15
-  %18 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %5, i64 noundef %7) #30
+  %18 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %5, i64 noundef %7) #31
   %.not19 = icmp eq ptr %18, null
   br i1 %.not19, label %20, label %19, !prof !4
 
@@ -796,7 +796,7 @@ define dso_local void @yyjson_alc_dyn_free(ptr noundef captures(address_is_null)
   %.020 = phi ptr [ %6, %.lr.ph ], [ %4, %2 ]
   %5 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !34
-  tail call void @free(ptr noundef nonnull %.020) #31
+  tail call void @free(ptr noundef nonnull %.020) #32
   %.not17 = icmp eq ptr %6, null
   br i1 %.not17, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
@@ -810,12 +810,12 @@ define dso_local void @yyjson_alc_dyn_free(ptr noundef captures(address_is_null)
   %.122 = phi ptr [ %10, %.lr.ph24 ], [ %8, %._crit_edge ]
   %9 = getelementptr inbounds nuw i8, ptr %.122, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !34
-  tail call void @free(ptr noundef nonnull %.122) #31
+  tail call void @free(ptr noundef nonnull %.122) #32
   %.not18 = icmp eq ptr %10, null
   br i1 %.not18, label %._crit_edge25, label %.lr.ph24, !llvm.loop !39
 
 ._crit_edge25:                                    ; preds = %.lr.ph24, %._crit_edge
-  tail call void @free(ptr noundef nonnull %0) #31
+  tail call void @free(ptr noundef nonnull %0) #32
   br label %11
 
 11:                                               ; preds = %1, %._crit_edge25
@@ -835,7 +835,7 @@ define dso_local noundef zeroext i1 @unsafe_yyjson_str_pool_grow(ptr noundef cap
   %9 = load ptr, ptr %1, align 8, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !22
-  %12 = tail call ptr %9(ptr noundef %11, i64 noundef %.) #31
+  %12 = tail call ptr %9(ptr noundef %11, i64 noundef %.) #32
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %25, label %13, !prof !4
 
@@ -880,7 +880,7 @@ define dso_local noundef zeroext i1 @unsafe_yyjson_val_pool_grow(ptr noundef cap
   %10 = load ptr, ptr %1, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !22
-  %13 = tail call ptr %10(ptr noundef %12, i64 noundef %.) #31
+  %13 = tail call ptr %10(ptr noundef %12, i64 noundef %.) #32
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %26, label %14, !prof !4
 
@@ -968,7 +968,7 @@ define dso_local void @yyjson_mut_doc_free(ptr noundef %0) local_unnamed_addr #7
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.0.i13 = phi ptr [ %6, %.lr.ph ], [ %5, %2 ]
   %6 = load ptr, ptr %.0.i13, align 8, !tbaa !45
-  tail call void %.sroa.3.0.copyload(ptr noundef %.sroa.6.0.copyload, ptr noundef nonnull %.0.i13) #31
+  tail call void %.sroa.3.0.copyload(ptr noundef %.sroa.6.0.copyload, ptr noundef nonnull %.0.i13) #32
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %unsafe_yyjson_str_pool_release.exit, label %.lr.ph, !llvm.loop !65
 
@@ -981,12 +981,12 @@ unsafe_yyjson_str_pool_release.exit:              ; preds = %.lr.ph, %2
 .lr.ph16:                                         ; preds = %unsafe_yyjson_str_pool_release.exit, %.lr.ph16
   %.0.i615 = phi ptr [ %9, %.lr.ph16 ], [ %8, %unsafe_yyjson_str_pool_release.exit ]
   %9 = load ptr, ptr %.0.i615, align 8, !tbaa !56
-  tail call void %.sroa.3.0.copyload(ptr noundef %.sroa.6.0.copyload, ptr noundef nonnull %.0.i615) #31
+  tail call void %.sroa.3.0.copyload(ptr noundef %.sroa.6.0.copyload, ptr noundef nonnull %.0.i615) #32
   %.not.i7 = icmp eq ptr %9, null
   br i1 %.not.i7, label %unsafe_yyjson_val_pool_release.exit, label %.lr.ph16, !llvm.loop !66
 
 unsafe_yyjson_val_pool_release.exit:              ; preds = %.lr.ph16, %unsafe_yyjson_str_pool_release.exit
-  tail call void %.sroa.3.0.copyload(ptr noundef %.sroa.6.0.copyload, ptr noundef nonnull %0) #31
+  tail call void %.sroa.3.0.copyload(ptr noundef %.sroa.6.0.copyload, ptr noundef nonnull %0) #32
   br label %10
 
 10:                                               ; preds = %unsafe_yyjson_val_pool_release.exit, %1
@@ -1000,7 +1000,7 @@ define dso_local ptr @yyjson_mut_doc_new(ptr noundef readonly captures(address_i
   %2 = load ptr, ptr %spec.store.select, align 8, !tbaa !18
   %3 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !22
-  %5 = tail call ptr %2(ptr noundef %4, i64 noundef 120) #31
+  %5 = tail call ptr %2(ptr noundef %4, i64 noundef 120) #32
   %.not14 = icmp eq ptr %5, null
   br i1 %.not14, label %12, label %6
 
@@ -1038,7 +1038,7 @@ define dso_local ptr @yyjson_doc_mut_copy(ptr noundef readonly captures(address_
   %6 = load ptr, ptr %spec.store.select.i, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %spec.store.select.i, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !22
-  %9 = tail call ptr %6(ptr noundef %8, i64 noundef 120) #31
+  %9 = tail call ptr %6(ptr noundef %8, i64 noundef 120) #32
   %.not14.i = icmp eq ptr %9, null
   br i1 %.not14.i, label %yyjson_mut_doc_new.exit.thread, label %10
 
@@ -1073,7 +1073,7 @@ define dso_local ptr @yyjson_doc_mut_copy(ptr noundef readonly captures(address_
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.i
   %.0.i13.i = phi ptr [ %21, %.lr.ph.i ], [ %20, %18 ]
   %21 = load ptr, ptr %.0.i13.i, align 8, !tbaa !45
-  tail call void %.sroa.3.0.copyload.i(ptr noundef %.sroa.6.0.copyload.i, ptr noundef nonnull %.0.i13.i) #31
+  tail call void %.sroa.3.0.copyload.i(ptr noundef %.sroa.6.0.copyload.i, ptr noundef nonnull %.0.i13.i) #32
   %.not.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i, label %unsafe_yyjson_str_pool_release.exit.i, label %.lr.ph.i, !llvm.loop !65
 
@@ -1086,12 +1086,12 @@ unsafe_yyjson_str_pool_release.exit.i:            ; preds = %.lr.ph.i, %18
 .lr.ph16.i:                                       ; preds = %unsafe_yyjson_str_pool_release.exit.i, %.lr.ph16.i
   %.0.i615.i = phi ptr [ %24, %.lr.ph16.i ], [ %23, %unsafe_yyjson_str_pool_release.exit.i ]
   %24 = load ptr, ptr %.0.i615.i, align 8, !tbaa !56
-  tail call void %.sroa.3.0.copyload.i(ptr noundef %.sroa.6.0.copyload.i, ptr noundef nonnull %.0.i615.i) #31
+  tail call void %.sroa.3.0.copyload.i(ptr noundef %.sroa.6.0.copyload.i, ptr noundef nonnull %.0.i615.i) #32
   %.not.i7.i = icmp eq ptr %24, null
   br i1 %.not.i7.i, label %yyjson_mut_doc_free.exit, label %.lr.ph16.i, !llvm.loop !66
 
 yyjson_mut_doc_free.exit:                         ; preds = %.lr.ph16.i, %unsafe_yyjson_str_pool_release.exit.i
-  tail call void %.sroa.3.0.copyload.i(ptr noundef %.sroa.6.0.copyload.i, ptr noundef nonnull %9) #31
+  tail call void %.sroa.3.0.copyload.i(ptr noundef %.sroa.6.0.copyload.i, ptr noundef nonnull %9) #32
   br label %yyjson_mut_doc_new.exit.thread
 
 25:                                               ; preds = %10
@@ -1332,7 +1332,7 @@ define dso_local ptr @yyjson_mut_doc_mut_copy(ptr noundef readonly captures(addr
   %5 = load ptr, ptr %spec.store.select.i, align 8, !tbaa !18
   %6 = getelementptr inbounds nuw i8, ptr %spec.store.select.i, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !22
-  %8 = tail call ptr %5(ptr noundef %7, i64 noundef 120) #31
+  %8 = tail call ptr %5(ptr noundef %7, i64 noundef 120) #32
   %.not14.i = icmp eq ptr %8, null
   br i1 %.not16, label %9, label %16
 
@@ -1399,7 +1399,7 @@ yyjson_mut_val_mut_copy.exit.thread:              ; preds = %yyjson_mut_val_mut_
 .lr.ph.i:                                         ; preds = %yyjson_mut_val_mut_copy.exit.thread, %.lr.ph.i
   %.0.i13.i = phi ptr [ %25, %.lr.ph.i ], [ %.pre, %yyjson_mut_val_mut_copy.exit.thread ]
   %25 = load ptr, ptr %.0.i13.i, align 8, !tbaa !45
-  tail call void %.sroa.3.0.copyload.i(ptr noundef %.sroa.6.0.copyload.i, ptr noundef nonnull %.0.i13.i) #31
+  tail call void %.sroa.3.0.copyload.i(ptr noundef %.sroa.6.0.copyload.i, ptr noundef nonnull %.0.i13.i) #32
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %unsafe_yyjson_str_pool_release.exit.i, label %.lr.ph.i, !llvm.loop !65
 
@@ -1414,12 +1414,12 @@ unsafe_yyjson_str_pool_release.exit.i:            ; preds = %.lr.ph.i, %yyjson_m
 .lr.ph16.i:                                       ; preds = %unsafe_yyjson_str_pool_release.exit.i, %.lr.ph16.i
   %.0.i615.i = phi ptr [ %28, %.lr.ph16.i ], [ %27, %unsafe_yyjson_str_pool_release.exit.i ]
   %28 = load ptr, ptr %.0.i615.i, align 8, !tbaa !56
-  tail call void %.sroa.3.0.copyload.i39(ptr noundef %.sroa.6.0.copyload.i40, ptr noundef nonnull %.0.i615.i) #31
+  tail call void %.sroa.3.0.copyload.i39(ptr noundef %.sroa.6.0.copyload.i40, ptr noundef nonnull %.0.i615.i) #32
   %.not.i7.i = icmp eq ptr %28, null
   br i1 %.not.i7.i, label %yyjson_mut_doc_free.exit, label %.lr.ph16.i, !llvm.loop !66
 
 yyjson_mut_doc_free.exit:                         ; preds = %.lr.ph16.i, %unsafe_yyjson_str_pool_release.exit.i
-  tail call void %.sroa.3.0.copyload.i39(ptr noundef %.sroa.6.0.copyload.i40, ptr noundef nonnull %8) #31
+  tail call void %.sroa.3.0.copyload.i39(ptr noundef %.sroa.6.0.copyload.i40, ptr noundef nonnull %8) #32
   br label %yyjson_mut_doc_new.exit
 
 29:                                               ; preds = %yyjson_mut_val_mut_copy.exit
@@ -1626,7 +1626,7 @@ size_align_up.exit:                               ; preds = %2
   %10 = load ptr, ptr %spec.store.select, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !22
-  %13 = call ptr %10(ptr noundef %12, i64 noundef %9) #31
+  %13 = call ptr %10(ptr noundef %12, i64 noundef %9) #32
   %.not28 = icmp eq ptr %13, null
   br i1 %.not28, label %34, label %14
 
@@ -1645,7 +1645,7 @@ size_align_up.exit:                               ; preds = %2
 19:                                               ; preds = %14
   %20 = load ptr, ptr %spec.store.select, align 8, !tbaa !18
   %21 = load ptr, ptr %11, align 8, !tbaa !22
-  %22 = call ptr %20(ptr noundef %21, i64 noundef %18) #31
+  %22 = call ptr %20(ptr noundef %21, i64 noundef %18) #32
   store ptr %22, ptr %6, align 8, !tbaa !86
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store ptr %22, ptr %23, align 8, !tbaa !88
@@ -1656,7 +1656,7 @@ size_align_up.exit:                               ; preds = %2
   %25 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !21
   %27 = load ptr, ptr %11, align 8, !tbaa !22
-  call void %26(ptr noundef %27, ptr noundef nonnull %13) #31
+  call void %26(ptr noundef %27, ptr noundef nonnull %13) #32
   br label %34
 
 28:                                               ; preds = %19, %14
@@ -7762,7 +7762,7 @@ define dso_local ptr @yyjson_read_opts(ptr noundef %0, i64 noundef %1, i32 nound
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %40 = load ptr, ptr %39, align 8, !tbaa !22
   %41 = add nuw i64 %1, 4
-  %42 = tail call ptr %38(ptr noundef %40, i64 noundef %41) #31
+  %42 = tail call ptr %38(ptr noundef %40, i64 noundef %41) #32
   %.not116 = icmp eq ptr %42, null
   br i1 %.not116, label %43, label %44, !prof !4
 
@@ -7823,7 +7823,7 @@ define dso_local ptr @yyjson_read_opts(ptr noundef %0, i64 noundef %1, i32 nound
   %63 = load ptr, ptr %62, align 8, !tbaa !21
   %64 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %65 = load ptr, ptr %64, align 8, !tbaa !22
-  tail call void %63(ptr noundef %65, ptr noundef nonnull %.promoted) #31
+  tail call void %63(ptr noundef %65, ptr noundef nonnull %.promoted) #32
   br label %9987
 
 66:                                               ; preds = %53
@@ -7870,7 +7870,7 @@ define dso_local ptr @yyjson_read_opts(ptr noundef %0, i64 noundef %1, i32 nound
   %80 = load ptr, ptr %79, align 8, !tbaa !21
   %81 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %82 = load ptr, ptr %81, align 8, !tbaa !22
-  tail call void %80(ptr noundef %82, ptr noundef nonnull %.promoted) #31
+  tail call void %80(ptr noundef %82, ptr noundef nonnull %.promoted) #32
   br label %9987
 
 83:                                               ; preds = %._crit_edge6864, %46
@@ -7925,7 +7925,7 @@ define dso_local ptr @yyjson_read_opts(ptr noundef %0, i64 noundef %1, i32 nound
   %108 = add nuw nsw i64 %107, 8
   %109 = select i1 %.not3882, i64 %108, i64 24, !prof !23
   %110 = shl nuw i64 %109, 4
-  %111 = tail call ptr %.sroa.01813.0.copyload1814.pre6911(ptr noundef %.sroa.28.0.copyload1789, i64 noundef %110) #31
+  %111 = tail call ptr %.sroa.01813.0.copyload1814.pre6911(ptr noundef %.sroa.28.0.copyload1789, i64 noundef %110) #32
   %.not.i = icmp eq ptr %111, null
   br i1 %.not.i, label %5031, label %.thread, !prof !4
 
@@ -7988,7 +7988,7 @@ define dso_local ptr @yyjson_read_opts(ptr noundef %0, i64 noundef %1, i32 nound
   %137 = add i64 %136, %.2.i
   %138 = shl i64 %.2.i, 4
   %139 = shl i64 %137, 4
-  %140 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.2557.i, i64 noundef %138, i64 noundef %139) #31
+  %140 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.2557.i, i64 noundef %138, i64 noundef %139) #32
   %.not729.i = icmp eq ptr %140, null
   br i1 %.not729.i, label %5031, label %.thread3380
 
@@ -8256,7 +8256,7 @@ define dso_local ptr @yyjson_read_opts(ptr noundef %0, i64 noundef %1, i32 nound
   %236 = add i64 %235, %.1.i.ph
   %237 = shl i64 %.1.i.ph, 4
   %238 = shl i64 %236, 4
-  %239 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.1556.i.ph, i64 noundef %237, i64 noundef %238) #31
+  %239 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.1556.i.ph, i64 noundef %237, i64 noundef %238) #32
   %.not726.i = icmp eq ptr %239, null
   br i1 %.not726.i, label %5031, label %.thread3386
 
@@ -10820,7 +10820,7 @@ read_number.exit430:                              ; preds = %.loopexit4246, %504
   %1499 = add i64 %1498, %.1.i.ph
   %1500 = shl i64 %.1.i.ph, 4
   %1501 = shl i64 %1499, 4
-  %1502 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.1556.i.ph, i64 noundef %1500, i64 noundef %1501) #31
+  %1502 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.1556.i.ph, i64 noundef %1500, i64 noundef %1501) #32
   %.not723.i = icmp eq ptr %1502, null
   br i1 %.not723.i, label %5031, label %.thread3415
 
@@ -11908,7 +11908,7 @@ read_string.exit728:                              ; preds = %.split.loop.exit520
   %2068 = add i64 %2067, %.1.i.ph
   %2069 = shl i64 %.1.i.ph, 4
   %2070 = shl i64 %2068, 4
-  %2071 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.1556.i.ph, i64 noundef %2069, i64 noundef %2070) #31
+  %2071 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.1556.i.ph, i64 noundef %2069, i64 noundef %2070) #32
   %.not720.i = icmp eq ptr %2071, null
   br i1 %.not720.i, label %5031, label %.thread3422
 
@@ -11951,7 +11951,7 @@ read_true.exit814:                                ; preds = %2081
   %2089 = add i64 %2088, %.1.i.ph
   %2090 = shl i64 %.1.i.ph, 4
   %2091 = shl i64 %2089, 4
-  %2092 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.1556.i.ph, i64 noundef %2090, i64 noundef %2091) #31
+  %2092 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.1556.i.ph, i64 noundef %2090, i64 noundef %2091) #32
   %.not717.i = icmp eq ptr %2092, null
   br i1 %.not717.i, label %5031, label %.thread3428
 
@@ -11995,7 +11995,7 @@ read_false.exit817:                               ; preds = %2102
   %2111 = add i64 %2110, %.1.i.ph
   %2112 = shl i64 %.1.i.ph, 4
   %2113 = shl i64 %2111, 4
-  %2114 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.1556.i.ph, i64 noundef %2112, i64 noundef %2113) #31
+  %2114 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.1556.i.ph, i64 noundef %2112, i64 noundef %2113) #32
   %.not714.i = icmp eq ptr %2114, null
   br i1 %.not714.i, label %5031, label %.thread3434
 
@@ -12142,7 +12142,7 @@ read_null.exit820:                                ; preds = %2124
   %2170 = add i64 %2169, %.1.i.ph
   %2171 = shl i64 %.1.i.ph, 4
   %2172 = shl i64 %2170, 4
-  %2173 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.1556.i.ph, i64 noundef %2171, i64 noundef %2172) #31
+  %2173 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.1556.i.ph, i64 noundef %2171, i64 noundef %2172) #32
   %.not709.i = icmp eq ptr %2173, null
   br i1 %.not709.i, label %5031, label %.thread3441
 
@@ -12460,7 +12460,7 @@ read_null.exit820:                                ; preds = %2124
   %2299 = add i64 %2298, %.4.i
   %2300 = shl i64 %.4.i, 4
   %2301 = shl i64 %2299, 4
-  %2302 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.5560.i, i64 noundef %2300, i64 noundef %2301) #31
+  %2302 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.5560.i, i64 noundef %2300, i64 noundef %2301) #32
   %.not732.i = icmp eq ptr %2302, null
   br i1 %.not732.i, label %5031, label %.thread3449
 
@@ -12717,7 +12717,7 @@ read_null.exit820:                                ; preds = %2124
   %2391 = add i64 %2390, %.0546.i.ph
   %2392 = shl i64 %.0546.i.ph, 4
   %2393 = shl i64 %2391, 4
-  %2394 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.0555.i.ph, i64 noundef %2392, i64 noundef %2393) #31
+  %2394 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.0555.i.ph, i64 noundef %2392, i64 noundef %2393) #32
   %.not703.i = icmp eq ptr %2394, null
   br i1 %.not703.i, label %5031, label %.thread3455
 
@@ -18032,7 +18032,7 @@ read_string.exit728.thread:                       ; preds = %2575, %2742, %2741,
   %spec.store.select.sroa.sel1509.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1509.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1509.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink, ptr %spec.store.select.sroa.sel1509.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.27.i) #31
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.27.i) #32
   br label %read_root_pretty.exit
 
 5019:                                             ; preds = %.thread3611, %.thread3608, %3572, %read_number.exit535.thread, %251, %read_number.exit430.thread
@@ -18066,7 +18066,7 @@ read_string.exit728.thread:                       ; preds = %2575, %2742, %2741,
   %spec.store.select.sroa.sel1581.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1581.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1581.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8588, ptr %spec.store.select.sroa.sel1581.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.28.i) #31
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.28.i) #32
   br label %read_root_pretty.exit
 
 5031:                                             ; preds = %2389, %2297, %2168, %2109, %2087, %2066, %1497, %234, %135, %101
@@ -18090,7 +18090,7 @@ read_string.exit728.thread:                       ; preds = %2575, %2742, %2741,
   br i1 %.not736.i, label %read_root_pretty.exit, label %5037
 
 5037:                                             ; preds = %5031
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.29.i) #31
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.29.i) #32
   br label %read_root_pretty.exit
 
 .loopexit4244:                                    ; preds = %.lr.ph4686, %.lr.ph5179, %.preheader4320, %.preheader4243
@@ -18110,7 +18110,7 @@ read_string.exit728.thread:                       ; preds = %2575, %2742, %2741,
   %spec.store.select.sroa.sel1449.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1449.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1449.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8593, ptr %spec.store.select.sroa.sel1449.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.30.i) #31
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.30.i) #32
   br label %read_root_pretty.exit
 
 read_true.exit814.thread:                         ; preds = %4815, %2081
@@ -18130,7 +18130,7 @@ read_true.exit814.thread:                         ; preds = %4815, %2081
   %spec.store.select.sroa.sel1557.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1557.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1557.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8598, ptr %spec.store.select.sroa.sel1557.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.31.i) #31
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.31.i) #32
   br label %read_root_pretty.exit
 
 read_false.exit817.thread:                        ; preds = %4820, %2102
@@ -18150,7 +18150,7 @@ read_false.exit817.thread:                        ; preds = %4820, %2102
   %spec.store.select.sroa.sel1545.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1545.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1545.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8603, ptr %spec.store.select.sroa.sel1545.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.32.i) #31
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.32.i) #32
   br label %read_root_pretty.exit
 
 read_nan.exit829.thread:                          ; preds = %4837, %4838, %4839, %2134, %2135, %2136, %4836, %2133
@@ -18170,7 +18170,7 @@ read_nan.exit829.thread:                          ; preds = %4837, %4838, %4839,
   %spec.store.select.sroa.sel1533.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1533.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1533.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8608, ptr %spec.store.select.sroa.sel1533.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.33.i) #31
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.33.i) #32
   br label %read_root_pretty.exit
 
 read_inf_or_nan.exit873.thread:                   ; preds = %4915, %2238, %4860, %2183, %4899, %4900, %4903, %2222, %2223, %2226, %4921, %2241
@@ -18190,7 +18190,7 @@ read_inf_or_nan.exit873.thread:                   ; preds = %4915, %2238, %4860,
   %spec.store.select.sroa.sel1569.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1569.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1569.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8613, ptr %spec.store.select.sroa.sel1569.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.34.i) #31
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.34.i) #32
   br label %read_root_pretty.exit
 
 .loopexit4268:                                    ; preds = %2262, %2267
@@ -18209,7 +18209,7 @@ read_inf_or_nan.exit873.thread:                   ; preds = %4915, %2238, %4860,
   %spec.store.select.sroa.sel1497.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1497.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1497.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8618, ptr %spec.store.select.sroa.sel1497.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.8563.i.ph) #31
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.8563.i.ph) #32
   br label %read_root_pretty.exit
 
 .loopexit4325:                                    ; preds = %2978, %2981
@@ -18228,7 +18228,7 @@ read_inf_or_nan.exit873.thread:                   ; preds = %4915, %2238, %4860,
   %spec.store.select.sroa.sel1593.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1593.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1593.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8623, ptr %spec.store.select.sroa.sel1593.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.0555.i.ph) #31
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.0555.i.ph) #32
   br label %read_root_pretty.exit
 
 .loopexit4308:                                    ; preds = %3003, %3008
@@ -18247,7 +18247,7 @@ read_inf_or_nan.exit873.thread:                   ; preds = %4915, %2238, %4860,
   %spec.store.select.sroa.sel1521.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1521.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1521.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8628, ptr %spec.store.select.sroa.sel1521.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.25.i) #31
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.25.i) #32
   br label %read_root_pretty.exit
 
 .loopexit4273:                                    ; preds = %4942, %4947
@@ -18266,7 +18266,7 @@ read_inf_or_nan.exit873.thread:                   ; preds = %4915, %2238, %4860,
   %spec.store.select.sroa.sel1461.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1461.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1461.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8633, ptr %spec.store.select.sroa.sel1461.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.21.i.ph) #31
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.21.i.ph) #32
   br label %read_root_pretty.exit
 
 5083:                                             ; preds = %4981, %4947, %4921, %3008, %2981, %2267, %2241
@@ -18286,7 +18286,7 @@ read_inf_or_nan.exit873.thread:                   ; preds = %4915, %2238, %4860,
   %spec.store.select.sroa.sel1473.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1473.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1473.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8638, ptr %spec.store.select.sroa.sel1473.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.35.i) #31
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.35.i) #32
   br label %read_root_pretty.exit
 
 5089:                                             ; preds = %.loopexit4232
@@ -18304,7 +18304,7 @@ read_inf_or_nan.exit873.thread:                   ; preds = %4915, %2238, %4860,
   %spec.store.select.sroa.sel1485.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1485.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1485.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8643, ptr %spec.store.select.sroa.sel1485.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.20.i) #31
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.20.i) #32
   br label %read_root_pretty.exit
 
 read_root_pretty.exit:                            ; preds = %4999, %read_string.exit728.thread, %5030, %5031, %5037, %.loopexit4244, %read_true.exit814.thread, %read_false.exit817.thread, %read_nan.exit829.thread, %read_inf_or_nan.exit873.thread, %.loopexit4268, %.loopexit4325, %.loopexit4308, %.loopexit4273, %5083, %5089
@@ -18335,7 +18335,7 @@ read_root_pretty.exit:                            ; preds = %4999, %read_string.
   %5101 = add nuw nsw i64 %5100, 8
   %5102 = select i1 %.not3647, i64 %5101, i64 50, !prof !23
   %5103 = shl nuw i64 %5102, 4
-  %5104 = tail call ptr %.sroa.01813.0.copyload1814(ptr noundef %.sroa.281842.0.copyload1844, i64 noundef %5103) #31
+  %5104 = tail call ptr %.sroa.01813.0.copyload1814(ptr noundef %.sroa.281842.0.copyload1844, i64 noundef %5103) #32
   %.not.i121 = icmp eq ptr %5104, null
   br i1 %.not.i121, label %9866, label %.thread3490, !prof !4
 
@@ -18394,7 +18394,7 @@ read_root_pretty.exit:                            ; preds = %4999, %read_string.
   %5126 = add i64 %5125, %.2.i125
   %5127 = shl i64 %.2.i125, 4
   %5128 = shl i64 %5126, 4
-  %5129 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.2556.i, i64 noundef %5127, i64 noundef %5128) #31
+  %5129 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.2556.i, i64 noundef %5127, i64 noundef %5128) #32
   %.not728.i128 = icmp eq ptr %5129, null
   br i1 %.not728.i128, label %9866, label %.thread3491
 
@@ -18464,7 +18464,7 @@ read_root_pretty.exit:                            ; preds = %4999, %read_string.
   %5158 = add i64 %5157, %.1.i123.ph
   %5159 = shl i64 %.1.i123.ph, 4
   %5160 = shl i64 %5158, 4
-  %5161 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.1555.i.ph, i64 noundef %5159, i64 noundef %5160) #31
+  %5161 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.1555.i.ph, i64 noundef %5159, i64 noundef %5160) #32
   %.not725.i192 = icmp eq ptr %5161, null
   br i1 %.not725.i192, label %9866, label %.thread3497
 
@@ -21022,7 +21022,7 @@ read_number.exit:                                 ; preds = %.loopexit4151, %542
   %6419 = add i64 %6418, %.1.i123.ph
   %6420 = shl i64 %.1.i123.ph, 4
   %6421 = shl i64 %6419, 4
-  %6422 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.1555.i.ph, i64 noundef %6420, i64 noundef %6421) #31
+  %6422 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.1555.i.ph, i64 noundef %6420, i64 noundef %6421) #32
   %.not722.i184 = icmp eq ptr %6422, null
   br i1 %.not722.i184, label %9866, label %.thread3527
 
@@ -22110,7 +22110,7 @@ read_string.exit:                                 ; preds = %.split.loop.exit579
   %6988 = add i64 %6987, %.1.i123.ph
   %6989 = shl i64 %.1.i123.ph, 4
   %6990 = shl i64 %6988, 4
-  %6991 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.1555.i.ph, i64 noundef %6989, i64 noundef %6990) #31
+  %6991 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.1555.i.ph, i64 noundef %6989, i64 noundef %6990) #32
   %.not719.i181 = icmp eq ptr %6991, null
   br i1 %.not719.i181, label %9866, label %.thread3534
 
@@ -22153,7 +22153,7 @@ read_true.exit:                                   ; preds = %7001
   %7009 = add i64 %7008, %.1.i123.ph
   %7010 = shl i64 %.1.i123.ph, 4
   %7011 = shl i64 %7009, 4
-  %7012 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.1555.i.ph, i64 noundef %7010, i64 noundef %7011) #31
+  %7012 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.1555.i.ph, i64 noundef %7010, i64 noundef %7011) #32
   %.not716.i178 = icmp eq ptr %7012, null
   br i1 %.not716.i178, label %9866, label %.thread3540
 
@@ -22197,7 +22197,7 @@ read_false.exit:                                  ; preds = %7022
   %7031 = add i64 %7030, %.1.i123.ph
   %7032 = shl i64 %.1.i123.ph, 4
   %7033 = shl i64 %7031, 4
-  %7034 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.1555.i.ph, i64 noundef %7032, i64 noundef %7033) #31
+  %7034 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.1555.i.ph, i64 noundef %7032, i64 noundef %7033) #32
   %.not713.i175 = icmp eq ptr %7034, null
   br i1 %.not713.i175, label %9866, label %.thread3546
 
@@ -22344,7 +22344,7 @@ read_null.exit:                                   ; preds = %7044
   %7090 = add i64 %7089, %.1.i123.ph
   %7091 = shl i64 %.1.i123.ph, 4
   %7092 = shl i64 %7090, 4
-  %7093 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.1555.i.ph, i64 noundef %7091, i64 noundef %7092) #31
+  %7093 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.1555.i.ph, i64 noundef %7091, i64 noundef %7092) #32
   %.not708.i187 = icmp eq ptr %7093, null
   br i1 %.not708.i187, label %9866, label %.thread3553
 
@@ -22646,7 +22646,7 @@ read_null.exit:                                   ; preds = %7044
   %7212 = add i64 %7211, %.4.i133
   %7213 = shl i64 %.4.i133, 4
   %7214 = shl i64 %7212, 4
-  %7215 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.5559.i, i64 noundef %7213, i64 noundef %7214) #31
+  %7215 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.5559.i, i64 noundef %7213, i64 noundef %7214) #32
   %.not731.i134 = icmp eq ptr %7215, null
   br i1 %.not731.i134, label %9866, label %.thread3561
 
@@ -22706,7 +22706,7 @@ read_null.exit:                                   ; preds = %7044
   %7237 = add i64 %7236, %.0545.i.ph
   %7238 = shl i64 %.0545.i.ph, 4
   %7239 = shl i64 %7237, 4
-  %7240 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.0554.i.ph, i64 noundef %7238, i64 noundef %7239) #31
+  %7240 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.0554.i.ph, i64 noundef %7238, i64 noundef %7239) #32
   %.not702.i156 = icmp eq ptr %7240, null
   br i1 %.not702.i156, label %9866, label %.thread3567
 
@@ -27988,7 +27988,7 @@ read_string.exit.thread:                          ; preds = %7421, %7588, %7587,
   %spec.store.select.sroa.sel1677.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1677.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1677.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8699, ptr %spec.store.select.sroa.sel1677.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.27.i160) #31
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.27.i160) #32
   br label %read_root_minify.exit
 
 9854:                                             ; preds = %.thread3617, %.thread3614, %8416, %read_number.exit325.thread, %5173, %read_number.exit.thread
@@ -28022,7 +28022,7 @@ read_string.exit.thread:                          ; preds = %7421, %7588, %7587,
   %spec.store.select.sroa.sel1749.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1749.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1749.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8704, ptr %spec.store.select.sroa.sel1749.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.28.i171) #31
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.28.i171) #32
   br label %read_root_minify.exit
 
 9866:                                             ; preds = %7235, %7210, %7088, %7029, %7007, %6986, %6417, %5156, %5124, %5094
@@ -28046,7 +28046,7 @@ read_string.exit.thread:                          ; preds = %7421, %7588, %7587,
   br i1 %.not735.i130, label %read_root_minify.exit, label %9872
 
 9872:                                             ; preds = %9866
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.29.i129) #31
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.29.i129) #32
   br label %read_root_minify.exit
 
 .loopexit4149:                                    ; preds = %.lr.ph5301, %.lr.ph5768, %.preheader4224, %.preheader4148
@@ -28066,7 +28066,7 @@ read_string.exit.thread:                          ; preds = %7421, %7588, %7587,
   %spec.store.select.sroa.sel1617.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1617.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1617.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8710, ptr %spec.store.select.sroa.sel1617.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.30.i140) #31
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.30.i140) #32
   br label %read_root_minify.exit
 
 read_true.exit.thread:                            ; preds = %9657, %7001
@@ -28086,7 +28086,7 @@ read_true.exit.thread:                            ; preds = %9657, %7001
   %spec.store.select.sroa.sel1725.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1725.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1725.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8715, ptr %spec.store.select.sroa.sel1725.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.31.i167) #31
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.31.i167) #32
   br label %read_root_minify.exit
 
 read_false.exit.thread:                           ; preds = %9662, %7022
@@ -28106,7 +28106,7 @@ read_false.exit.thread:                           ; preds = %9662, %7022
   %spec.store.select.sroa.sel1713.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1713.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1713.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8720, ptr %spec.store.select.sroa.sel1713.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.32.i165) #31
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.32.i165) #32
   br label %read_root_minify.exit
 
 read_nan.exit.thread:                             ; preds = %9679, %9680, %9681, %7054, %7055, %7056, %9678, %7053
@@ -28126,7 +28126,7 @@ read_nan.exit.thread:                             ; preds = %9679, %9680, %9681,
   %spec.store.select.sroa.sel1701.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1701.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1701.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8725, ptr %spec.store.select.sroa.sel1701.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.33.i163) #31
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.33.i163) #32
   br label %read_root_minify.exit
 
 read_inf_or_nan.exit861.thread:                   ; preds = %9757, %7158, %9702, %7103, %9741, %9742, %9745, %7142, %7143, %7146, %9763, %7161
@@ -28146,7 +28146,7 @@ read_inf_or_nan.exit861.thread:                   ; preds = %9757, %7158, %9702,
   %spec.store.select.sroa.sel1737.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1737.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1737.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8730, ptr %spec.store.select.sroa.sel1737.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.34.i169) #31
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.34.i169) #32
   br label %read_root_minify.exit
 
 .loopexit4173:                                    ; preds = %7181, %7184
@@ -28165,7 +28165,7 @@ read_inf_or_nan.exit861.thread:                   ; preds = %9757, %7158, %9702,
   %spec.store.select.sroa.sel1665.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1665.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1665.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8735, ptr %spec.store.select.sroa.sel1665.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.8562.i.ph) #31
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.8562.i.ph) #32
   br label %read_root_minify.exit
 
 .loopexit4229:                                    ; preds = %7825, %7828
@@ -28184,7 +28184,7 @@ read_inf_or_nan.exit861.thread:                   ; preds = %9757, %7158, %9702,
   %spec.store.select.sroa.sel1761.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1761.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1761.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8740, ptr %spec.store.select.sroa.sel1761.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.0554.i.ph) #31
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.0554.i.ph) #32
   br label %read_root_minify.exit
 
 .loopexit4212:                                    ; preds = %7846, %7852
@@ -28203,7 +28203,7 @@ read_inf_or_nan.exit861.thread:                   ; preds = %9757, %7158, %9702,
   %spec.store.select.sroa.sel1689.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1689.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1689.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8745, ptr %spec.store.select.sroa.sel1689.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.25.i158) #31
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.25.i158) #32
   br label %read_root_minify.exit
 
 .loopexit4178:                                    ; preds = %9783, %9786
@@ -28222,7 +28222,7 @@ read_inf_or_nan.exit861.thread:                   ; preds = %9757, %7158, %9702,
   %spec.store.select.sroa.sel1629.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1629.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1629.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8750, ptr %spec.store.select.sroa.sel1629.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.21.i147.ph) #31
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.21.i147.ph) #32
   br label %read_root_minify.exit
 
 9918:                                             ; preds = %9816, %9786, %9763, %7852, %7828, %7184, %7161
@@ -28242,7 +28242,7 @@ read_inf_or_nan.exit861.thread:                   ; preds = %9757, %7158, %9702,
   %spec.store.select.sroa.sel1641.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1641.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1641.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8755, ptr %spec.store.select.sroa.sel1641.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.35.i149) #31
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.35.i149) #32
   br label %read_root_minify.exit
 
 9924:                                             ; preds = %.loopexit
@@ -28260,7 +28260,7 @@ read_inf_or_nan.exit861.thread:                   ; preds = %9757, %7158, %9702,
   %spec.store.select.sroa.sel1653.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1653.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1653.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8760, ptr %spec.store.select.sroa.sel1653.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.20.i151) #31
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.20.i151) #32
   br label %read_root_minify.exit
 
 read_root_minify.exit:                            ; preds = %9834, %read_string.exit.thread, %9865, %9866, %9872, %.loopexit4149, %read_true.exit.thread, %read_false.exit.thread, %read_nan.exit.thread, %read_inf_or_nan.exit861.thread, %.loopexit4173, %.loopexit4229, %.loopexit4212, %.loopexit4178, %9918, %9924
@@ -28399,7 +28399,7 @@ read_root_minify.exit:                            ; preds = %9834, %read_string.
   %9984 = load ptr, ptr %9983, align 8, !tbaa !21
   %9985 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %9986 = load ptr, ptr %9985, align 8, !tbaa !22
-  tail call void %9984(ptr noundef %9986, ptr noundef nonnull %.promoted) #31
+  tail call void %9984(ptr noundef %9986, ptr noundef nonnull %.promoted) #32
   br label %9987
 
 9987:                                             ; preds = %9932, %9982, %.thread3606, %77, %78, %57, %61, %43, %36, %29, %27
@@ -28519,7 +28519,7 @@ define internal fastcc ptr @read_root_single(ptr noundef %0, ptr noundef %1, ptr
   %13 = load ptr, ptr %3, align 8, !tbaa !18
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !22
-  %16 = tail call ptr %13(ptr noundef %15, i64 noundef 80) #31
+  %16 = tail call ptr %13(ptr noundef %15, i64 noundef 80) #32
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %1955, label %17, !prof !4
 
@@ -32378,7 +32378,7 @@ read_string.exit:                                 ; preds = %1891, %1893, %1877,
   %1938 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %1939 = load ptr, ptr %1938, align 8, !tbaa !21
   %1940 = load ptr, ptr %14, align 8, !tbaa !22
-  tail call void %1939(ptr noundef %1940, ptr noundef nonnull %16) #31
+  tail call void %1939(ptr noundef %1940, ptr noundef nonnull %16) #32
   br label %2018
 
 .thread581._crit_edge.sink.split:                 ; preds = %690, %120, %108, %739, %720, %817, %792, %760, %97, %read_inf_or_nan.exit.thread, %read_number.exit
@@ -32407,7 +32407,7 @@ read_string.exit:                                 ; preds = %1891, %1893, %1877,
   %1952 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %1953 = load ptr, ptr %1952, align 8, !tbaa !21
   %1954 = load ptr, ptr %14, align 8, !tbaa !22
-  tail call void %1953(ptr noundef %1954, ptr noundef nonnull %16) #31
+  tail call void %1953(ptr noundef %1954, ptr noundef nonnull %16) #32
   br label %2018
 
 1955:                                             ; preds = %6
@@ -32448,7 +32448,7 @@ read_true.exit:                                   ; preds = %1812
   store ptr %.str.57..str.59, ptr %1971, align 8, !tbaa !146
   %1972 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %1973 = load ptr, ptr %1972, align 8, !tbaa !21
-  tail call void %1973(ptr noundef %15, ptr noundef nonnull %16) #31
+  tail call void %1973(ptr noundef %15, ptr noundef nonnull %16) #32
   br label %2018
 
 read_false.exit:                                  ; preds = %1815
@@ -32466,7 +32466,7 @@ read_false.exit:                                  ; preds = %1815
   store ptr %.str.57..str.60, ptr %1979, align 8, !tbaa !146
   %1980 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %1981 = load ptr, ptr %1980, align 8, !tbaa !21
-  tail call void %1981(ptr noundef %15, ptr noundef nonnull %16) #31
+  tail call void %1981(ptr noundef %15, ptr noundef nonnull %16) #32
   br label %2018
 
 read_nan.exit.thread:                             ; preds = %1828, %1829, %1830, %read_null.exit
@@ -32484,7 +32484,7 @@ read_nan.exit.thread:                             ; preds = %1828, %1829, %1830,
   store ptr %.str.57..str.61, ptr %1987, align 8, !tbaa !146
   %1988 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %1989 = load ptr, ptr %1988, align 8, !tbaa !21
-  tail call void %1989(ptr noundef %15, ptr noundef nonnull %16) #31
+  tail call void %1989(ptr noundef %15, ptr noundef nonnull %16) #32
   br label %2018
 
 read_inf_or_nan.exit202:                          ; preds = %1842, %1879, %1883, %1880, %1840
@@ -32502,7 +32502,7 @@ read_inf_or_nan.exit202:                          ; preds = %1842, %1879, %1883,
   store ptr %.str.57..str.83, ptr %1995, align 8, !tbaa !146
   %1996 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %1997 = load ptr, ptr %1996, align 8, !tbaa !21
-  tail call void %1997(ptr noundef %15, ptr noundef nonnull %16) #31
+  tail call void %1997(ptr noundef %15, ptr noundef nonnull %16) #32
   br label %2018
 
 1998:                                             ; preds = %1904
@@ -32521,7 +32521,7 @@ read_inf_or_nan.exit202:                          ; preds = %1842, %1879, %1883,
   %2005 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %2006 = load ptr, ptr %2005, align 8, !tbaa !21
   %2007 = load ptr, ptr %14, align 8, !tbaa !22
-  tail call void %2006(ptr noundef %2007, ptr noundef nonnull %16) #31
+  tail call void %2006(ptr noundef %2007, ptr noundef nonnull %16) #32
   br label %2018
 
 2008:                                             ; preds = %.loopexit
@@ -32540,7 +32540,7 @@ read_inf_or_nan.exit202:                          ; preds = %1842, %1879, %1883,
   %2015 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %2016 = load ptr, ptr %2015, align 8, !tbaa !21
   %2017 = load ptr, ptr %14, align 8, !tbaa !22
-  tail call void %2016(ptr noundef %2017, ptr noundef nonnull %16) #31
+  tail call void %2016(ptr noundef %2017, ptr noundef nonnull %16) #32
   br label %2018
 
 2018:                                             ; preds = %1963, %1960, %2008, %1998, %read_inf_or_nan.exit202, %read_nan.exit.thread, %read_false.exit, %read_true.exit, %.thread581._crit_edge, %.loopexit1443, %1920
@@ -32667,7 +32667,7 @@ define dso_local ptr @yyjson_read_fp(ptr noundef captures(address_is_null) %0, i
   %30 = load ptr, ptr %6, align 8, !tbaa !18
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !22
-  %33 = tail call ptr %30(ptr noundef %32, i64 noundef %29) #31
+  %33 = tail call ptr %30(ptr noundef %32, i64 noundef %29) #32
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %36
 
@@ -32696,7 +32696,7 @@ define dso_local ptr @yyjson_read_fp(ptr noundef captures(address_is_null) %0, i
   store i32 13, ptr %spec.store.select, align 8, !tbaa !147
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !21
-  tail call void %40(ptr noundef %32, ptr noundef nonnull %33) #31
+  tail call void %40(ptr noundef %32, ptr noundef nonnull %33) #32
   br label %.critedge
 
 41:                                               ; preds = %61
@@ -32709,7 +32709,7 @@ define dso_local ptr @yyjson_read_fp(ptr noundef captures(address_is_null) %0, i
   store i32 2, ptr %spec.store.select, align 8, !tbaa !147
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !21
-  tail call void %43(ptr noundef %26, ptr noundef nonnull %.3) #31
+  tail call void %43(ptr noundef %26, ptr noundef nonnull %.3) #32
   br label %.critedge
 
 44:                                               ; preds = %.preheader, %61
@@ -32722,7 +32722,7 @@ define dso_local ptr @yyjson_read_fp(ptr noundef captures(address_is_null) %0, i
   br i1 %.not116, label %46, label %49
 
 46:                                               ; preds = %44
-  %47 = tail call ptr %27(ptr noundef %26, i64 noundef %45) #31
+  %47 = tail call ptr %27(ptr noundef %26, i64 noundef %45) #32
   %.not117 = icmp eq ptr %47, null
   br i1 %.not117, label %48, label %54
 
@@ -32737,7 +32737,7 @@ define dso_local ptr @yyjson_read_fp(ptr noundef captures(address_is_null) %0, i
   br label %.critedge
 
 49:                                               ; preds = %44
-  %50 = tail call ptr %24(ptr noundef %26, ptr noundef nonnull %.198164, i64 noundef %.096165, i64 noundef %45) #31
+  %50 = tail call ptr %24(ptr noundef %26, ptr noundef nonnull %.198164, i64 noundef %.096165, i64 noundef %45) #32
   %.not118 = icmp eq ptr %50, null
   br i1 %.not118, label %51, label %54
 
@@ -32751,7 +32751,7 @@ define dso_local ptr @yyjson_read_fp(ptr noundef captures(address_is_null) %0, i
   store i32 2, ptr %spec.store.select, align 8, !tbaa !147
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !21
-  tail call void %53(ptr noundef %26, ptr noundef nonnull %.198164) #31
+  tail call void %53(ptr noundef %26, ptr noundef nonnull %.198164) #32
   br label %.critedge
 
 54:                                               ; preds = %49, %46
@@ -32792,7 +32792,7 @@ define dso_local ptr @yyjson_read_fp(ptr noundef captures(address_is_null) %0, i
   %72 = load ptr, ptr %71, align 8, !tbaa !21
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %74 = load ptr, ptr %73, align 8, !tbaa !22
-  call void %72(ptr noundef %74, ptr noundef nonnull %.097) #31
+  call void %72(ptr noundef %74, ptr noundef nonnull %.097) #32
   br label %.critedge
 
 .critedge:                                        ; preds = %51, %48, %41, %70, %68, %38, %35, %10
@@ -35358,7 +35358,7 @@ get_enc_table_with_flag.exit67:                   ; preds = %20, %21
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !75
   %30 = add nuw nsw i64 %27, 2
-  %31 = tail call ptr %.sroa.0886.0(ptr noundef %.sroa.9.0, i64 noundef %30) #31
+  %31 = tail call ptr %.sroa.0886.0(ptr noundef %.sroa.9.0, i64 noundef %30) #32
   %.not107.i = icmp eq ptr %31, null
   br i1 %.not107.i, label %1202, label %32
 
@@ -35373,7 +35373,7 @@ get_enc_table_with_flag.exit67:                   ; preds = %20, %21
   %37 = load ptr, ptr %36, align 8, !tbaa !75
   %38 = mul nuw nsw i64 %35, 6
   %39 = add nuw nsw i64 %38, 4
-  %40 = tail call ptr %.sroa.0886.0(ptr noundef %.sroa.9.0, i64 noundef %39) #31
+  %40 = tail call ptr %.sroa.0886.0(ptr noundef %.sroa.9.0, i64 noundef %39) #32
   %.not104.i = icmp eq ptr %40, null
   br i1 %.not104.i, label %1202, label %41
 
@@ -36843,7 +36843,7 @@ write_string_noesc.exit93:                        ; preds = %.lr.ph2611, %.prehe
   br label %write_string.exit551
 
 811:                                              ; preds = %get_enc_table_with_flag.exit67
-  %812 = tail call ptr %.sroa.0886.0(ptr noundef %.sroa.9.0, i64 noundef 42) #31
+  %812 = tail call ptr %.sroa.0886.0(ptr noundef %.sroa.9.0, i64 noundef 42) #32
   %.not102.i = icmp eq ptr %812, null
   br i1 %.not102.i, label %1202, label %813
 
@@ -37361,7 +37361,7 @@ write_number.exit573:                             ; preds = %1166, %1169, %1173,
   br i1 %.not103.i, label %1204, label %write_string.exit551, !prof !216
 
 1177:                                             ; preds = %get_enc_table_with_flag.exit67
-  %1178 = tail call ptr %.sroa.0886.0(ptr noundef %.sroa.9.0, i64 noundef 8) #31
+  %1178 = tail call ptr %.sroa.0886.0(ptr noundef %.sroa.9.0, i64 noundef 8) #32
   %.not101.i = icmp eq ptr %1178, null
   br i1 %.not101.i, label %1202, label %write_bool.exit577
 
@@ -37377,7 +37377,7 @@ write_bool.exit577:                               ; preds = %1177
   br label %write_string.exit551
 
 1184:                                             ; preds = %get_enc_table_with_flag.exit67
-  %1185 = tail call ptr %.sroa.0886.0(ptr noundef %.sroa.9.0, i64 noundef 8) #31
+  %1185 = tail call ptr %.sroa.0886.0(ptr noundef %.sroa.9.0, i64 noundef 8) #32
   %.not100.i = icmp eq ptr %1185, null
   br i1 %.not100.i, label %1202, label %1186
 
@@ -37387,7 +37387,7 @@ write_bool.exit577:                               ; preds = %1177
   br label %write_string.exit551
 
 1188:                                             ; preds = %get_enc_table_with_flag.exit67
-  %1189 = tail call ptr %.sroa.0886.0(ptr noundef %.sroa.9.0, i64 noundef 4) #31
+  %1189 = tail call ptr %.sroa.0886.0(ptr noundef %.sroa.9.0, i64 noundef 4) #32
   %.not99.i = icmp eq ptr %1189, null
   br i1 %.not99.i, label %1202, label %1190
 
@@ -37397,7 +37397,7 @@ write_bool.exit577:                               ; preds = %1177
   br label %write_string.exit551
 
 1192:                                             ; preds = %get_enc_table_with_flag.exit67
-  %1193 = tail call ptr %.sroa.0886.0(ptr noundef %.sroa.9.0, i64 noundef 4) #31
+  %1193 = tail call ptr %.sroa.0886.0(ptr noundef %.sroa.9.0, i64 noundef 4) #32
   %.not.i = icmp eq ptr %1193, null
   br i1 %.not.i, label %1202, label %1194
 
@@ -37464,7 +37464,7 @@ default.unreachable:                              ; preds = %get_enc_table_with_
   br label %yyjson_write_single.exit
 
 1204:                                             ; preds = %write_number.exit573
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %812) #31
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %812) #32
   br i1 %.not28, label %.cont818, label %.else820
 
 .else820:                                         ; preds = %1204
@@ -37479,7 +37479,7 @@ default.unreachable:                              ; preds = %get_enc_table_with_
   br label %yyjson_write_single.exit
 
 .loopexit:                                        ; preds = %.thread, %.thread1057, %.thread1067, %.thread1077
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %40) #31
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %40) #32
   br i1 %.not28, label %.cont815, label %.else817
 
 .else817:                                         ; preds = %.loopexit
@@ -37529,7 +37529,7 @@ size_align_up.exit641.i:                          ; preds = %1210, %1211
   %1220 = and i64 %1219, -32
   %1221 = add i64 %1220, 71
   %1222 = and i64 %1221, -32
-  %1223 = tail call ptr %.sroa.0886.0(ptr noundef %.sroa.9.0, i64 noundef %1222) #31
+  %1223 = tail call ptr %.sroa.0886.0(ptr noundef %.sroa.9.0, i64 noundef %1222) #32
   %.not.i31 = icmp eq ptr %1223, null
   br i1 %.not.i31, label %.loopexit1401, label %1224
 
@@ -37624,7 +37624,7 @@ size_align_up.exit639.i:                          ; preds = %1245
   %1259 = add i64 %1258, 7
   %1260 = and i64 %1259, -8
   %1261 = add i64 %1260, %.0545.i
-  %1262 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %1261) #31
+  %1262 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %1261) #32
   %.not596.i = icmp eq ptr %1262, null
   br i1 %.not596.i, label %.loopexit1401, label %.thread1091, !prof !4
 
@@ -39127,7 +39127,7 @@ size_align_up.exit637.i:                          ; preds = %2045
   %2052 = add i64 %2051, 7
   %2053 = and i64 %2052, -8
   %2054 = add i64 %2053, %.0545.i
-  %2055 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %2054) #31
+  %2055 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %2054) #32
   %.not590.i = icmp eq ptr %2055, null
   br i1 %.not590.i, label %.loopexit1401, label %.thread1139, !prof !4
 
@@ -39712,7 +39712,7 @@ size_align_up.exit635.i:                          ; preds = %2444
   %2449 = add i64 %2448, 7
   %2450 = and i64 %2449, -8
   %2451 = add i64 %2450, %.0545.i
-  %2452 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %2451) #31
+  %2452 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %2451) #32
   %.not587.i = icmp eq ptr %2452, null
   br i1 %.not587.i, label %.loopexit1401, label %.thread1149, !prof !4
 
@@ -39779,7 +39779,7 @@ size_align_up.exit633.i:                          ; preds = %2475
   %2482 = add i64 %2481, 7
   %2483 = and i64 %2482, -8
   %2484 = add i64 %2483, %.0545.i
-  %2485 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %2484) #31
+  %2485 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %2484) #32
   %.not585.i = icmp eq ptr %2485, null
   br i1 %.not585.i, label %.loopexit1401, label %.thread1156, !prof !4
 
@@ -39852,7 +39852,7 @@ size_align_up.exit631.i:                          ; preds = %2509
   %2516 = add i64 %2515, 7
   %2517 = and i64 %2516, -8
   %2518 = add i64 %2517, %.0545.i
-  %2519 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %2518) #31
+  %2519 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %2518) #32
   %.not582.i = icmp eq ptr %2519, null
   br i1 %.not582.i, label %.loopexit1401, label %.thread1163, !prof !4
 
@@ -39917,7 +39917,7 @@ size_align_up.exit629.i:                          ; preds = %2540
   %2547 = add i64 %2546, 7
   %2548 = and i64 %2547, -8
   %2549 = add i64 %2548, %.0545.i
-  %2550 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %2549) #31
+  %2550 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %2549) #32
   %.not579.i = icmp eq ptr %2550, null
   br i1 %.not579.i, label %.loopexit1401, label %.thread1170, !prof !4
 
@@ -39980,7 +39980,7 @@ size_align_up.exit627.i:                          ; preds = %2567
   %2578 = add i64 %2577, 7
   %2579 = and i64 %2578, -8
   %2580 = add i64 %2579, %.0545.i
-  %2581 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %2580) #31
+  %2581 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %2580) #32
   %.not576.i = icmp eq ptr %2581, null
   br i1 %.not576.i, label %.loopexit1401, label %.thread1177, !prof !4
 
@@ -40061,7 +40061,7 @@ size_align_up.exit625.i:                          ; preds = %.preheader1400
   %2610 = add i64 %2609, 7
   %2611 = and i64 %2610, -8
   %2612 = add i64 %2611, %.9554.i
-  %2613 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.16.i, i64 noundef %.9554.i, i64 noundef %2612) #31
+  %2613 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.16.i, i64 noundef %.9554.i, i64 noundef %2612) #32
   %.not601.i = icmp eq ptr %2613, null
   br i1 %.not601.i, label %.loopexit1401, label %.thread1184, !prof !4
 
@@ -40137,7 +40137,7 @@ size_align_up.exit.i:                             ; preds = %2643
   %2647 = add nuw i64 %2646, 7
   %2648 = and i64 %2647, -8
   %2649 = add i64 %2648, %.10555.i
-  %2650 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.18.i, i64 noundef %.10555.i, i64 noundef %2649) #31
+  %2650 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.18.i, i64 noundef %.10555.i, i64 noundef %2649) #32
   %.not605.i = icmp eq ptr %2650, null
   br i1 %.not605.i, label %.loopexit1401, label %.thread1190, !prof !4
 
@@ -40197,7 +40197,7 @@ size_align_up.exit.i:                             ; preds = %2643
   br i1 %.not606.i, label %yyjson_write_single.exit, label %2668
 
 2668:                                             ; preds = %.cont812
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.22.i) #31
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.22.i) #32
   br label %yyjson_write_single.exit
 
 2669:                                             ; preds = %2508
@@ -40212,7 +40212,7 @@ size_align_up.exit.i:                             ; preds = %2643
   %.sroa.sel857.v.sroa.sel.v.sroa.sel.v = select i1 %.not27, ptr %6, ptr %4
   %.sroa.sel857.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel857.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.93, ptr %.sroa.sel857.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.0483.i) #31
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.0483.i) #32
   br label %yyjson_write_single.exit
 
 2671:                                             ; preds = %write_number.exit563
@@ -40227,7 +40227,7 @@ size_align_up.exit.i:                             ; preds = %2643
   %.sroa.sel851.v.sroa.sel.v.sroa.sel.v = select i1 %.not27, ptr %6, ptr %4
   %.sroa.sel851.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel851.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.94, ptr %.sroa.sel851.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.5.i) #31
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.5.i) #32
   br label %yyjson_write_single.exit
 
 .loopexit1373:                                    ; preds = %.thread1097, %.thread1107, %.thread1117, %.thread1127
@@ -40242,7 +40242,7 @@ size_align_up.exit.i:                             ; preds = %2643
   %.sroa.sel854.v.sroa.sel.v.sroa.sel.v = select i1 %.not27, ptr %6, ptr %4
   %.sroa.sel854.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel854.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.95, ptr %.sroa.sel854.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.2.i) #31
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.2.i) #32
   br label %yyjson_write_single.exit
 
 2674:                                             ; preds = %1205
@@ -40269,7 +40269,7 @@ size_align_up.exit476.i:                          ; preds = %2675, %2676
   %2683 = mul i64 %2682, 18
   %2684 = add i64 %2683, 71
   %2685 = and i64 %2684, -8
-  %2686 = tail call ptr %.sroa.0886.0(ptr noundef %.sroa.9.0, i64 noundef %2685) #31
+  %2686 = tail call ptr %.sroa.0886.0(ptr noundef %.sroa.9.0, i64 noundef %2685) #32
   %.not.i35 = icmp eq ptr %2686, null
   br i1 %.not.i35, label %.loopexit1371, label %2687
 
@@ -40347,7 +40347,7 @@ size_align_up.exit474.i:                          ; preds = %2702
   %2714 = add nuw i64 %2713, 7
   %2715 = and i64 %2714, -8
   %2716 = add i64 %2715, %.0405.i
-  %2717 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0357.i, i64 noundef %.0405.i, i64 noundef %2716) #31
+  %2717 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0357.i, i64 noundef %.0405.i, i64 noundef %2716) #32
   %.not441.i = icmp eq ptr %2717, null
   br i1 %.not441.i, label %.loopexit1371, label %.thread1194, !prof !4
 
@@ -41829,7 +41829,7 @@ size_align_up.exit472.i:                          ; preds = %3496
   %3500 = add nuw i64 %3499, 7
   %3501 = and i64 %3500, -8
   %3502 = add i64 %3501, %.0405.i
-  %3503 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0357.i, i64 noundef %.0405.i, i64 noundef %3502) #31
+  %3503 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0357.i, i64 noundef %.0405.i, i64 noundef %3502) #32
   %.not436.i = icmp eq ptr %3503, null
   br i1 %.not436.i, label %.loopexit1371, label %.thread1242, !prof !4
 
@@ -42391,7 +42391,7 @@ size_align_up.exit470.i:                          ; preds = %3884
   %3889 = add nuw i64 %3888, 7
   %3890 = and i64 %3889, -8
   %3891 = add i64 %3890, %.0405.i
-  %3892 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0357.i, i64 noundef %.0405.i, i64 noundef %3891) #31
+  %3892 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0357.i, i64 noundef %.0405.i, i64 noundef %3891) #32
   %.not434.i = icmp eq ptr %3892, null
   br i1 %.not434.i, label %.loopexit1371, label %.thread1251, !prof !4
 
@@ -42458,7 +42458,7 @@ size_align_up.exit468.i:                          ; preds = %3920
   %3924 = add nuw i64 %3923, 7
   %3925 = and i64 %3924, -8
   %3926 = add i64 %3925, %.0405.i
-  %3927 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0357.i, i64 noundef %.0405.i, i64 noundef %3926) #31
+  %3927 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0357.i, i64 noundef %.0405.i, i64 noundef %3926) #32
   %.not432.i = icmp eq ptr %3927, null
   br i1 %.not432.i, label %.loopexit1371, label %.thread1257, !prof !4
 
@@ -42506,7 +42506,7 @@ size_align_up.exit466.i:                          ; preds = %3945
   %3949 = add nuw i64 %3948, 7
   %3950 = and i64 %3949, -8
   %3951 = add i64 %3950, %.0405.i
-  %3952 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0357.i, i64 noundef %.0405.i, i64 noundef %3951) #31
+  %3952 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0357.i, i64 noundef %.0405.i, i64 noundef %3951) #32
   %.not430.i = icmp eq ptr %3952, null
   br i1 %.not430.i, label %.loopexit1371, label %.thread1263, !prof !4
 
@@ -42551,7 +42551,7 @@ size_align_up.exit464.i:                          ; preds = %3967
   %3975 = add nuw i64 %3974, 7
   %3976 = and i64 %3975, -8
   %3977 = add i64 %3976, %.0405.i
-  %3978 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0357.i, i64 noundef %.0405.i, i64 noundef %3977) #31
+  %3978 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0357.i, i64 noundef %.0405.i, i64 noundef %3977) #32
   %.not428.i = icmp eq ptr %3978, null
   br i1 %.not428.i, label %.loopexit1371, label %.thread1269, !prof !4
 
@@ -42631,7 +42631,7 @@ size_align_up.exit.i42:                           ; preds = %4010
   %4014 = add nuw i64 %4013, 7
   %4015 = and i64 %4014, -8
   %4016 = add i64 %4015, %.2407.i
-  %4017 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.3.i40, i64 noundef %.2407.i, i64 noundef %4016) #31
+  %4017 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.3.i40, i64 noundef %.2407.i, i64 noundef %4016) #32
   %.not448.i = icmp eq ptr %4017, null
   br i1 %.not448.i, label %.loopexit1371, label %.thread1275, !prof !4
 
@@ -42691,7 +42691,7 @@ size_align_up.exit.i42:                           ; preds = %4010
   br i1 %.not449.i, label %yyjson_write_single.exit, label %4036
 
 4036:                                             ; preds = %.cont797
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.17.i37) #31
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.17.i37) #32
   br label %yyjson_write_single.exit
 
 4037:                                             ; preds = %3919
@@ -42706,7 +42706,7 @@ size_align_up.exit.i42:                           ; preds = %4010
   %.sroa.sel869.v.sroa.sel.v.sroa.sel.v = select i1 %.not27, ptr %6, ptr %4
   %.sroa.sel869.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel869.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.93, ptr %.sroa.sel869.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.0357.i) #31
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.0357.i) #32
   br label %yyjson_write_single.exit
 
 4039:                                             ; preds = %write_number.exit
@@ -42721,7 +42721,7 @@ size_align_up.exit.i42:                           ; preds = %4010
   %.sroa.sel863.v.sroa.sel.v.sroa.sel.v = select i1 %.not27, ptr %6, ptr %4
   %.sroa.sel863.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel863.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.94, ptr %.sroa.sel863.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.5.i39) #31
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.5.i39) #32
   br label %yyjson_write_single.exit
 
 .loopexit1340:                                    ; preds = %.thread1200, %.thread1210, %.thread1220, %.thread1230
@@ -42736,7 +42736,7 @@ size_align_up.exit.i42:                           ; preds = %4010
   %.sroa.sel866.v.sroa.sel.v.sroa.sel.v = select i1 %.not27, ptr %6, ptr %4
   %.sroa.sel866.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel866.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.95, ptr %.sroa.sel866.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.2.i48) #31
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.2.i48) #32
   br label %yyjson_write_single.exit
 
 yyjson_write_single.exit:                         ; preds = %4041, %4040, %4038, %4036, %.cont797, %.cont794, %2673, %2672, %2670, %2668, %.cont812, %.cont809, %.cont815, %.cont818, %.cont827, %.cont821, %.cont824, %.cont830
@@ -42835,7 +42835,7 @@ write_dat_to_file.exit:                           ; preds = %18, %21, %23, %25
   %27 = load ptr, ptr %26, align 8, !tbaa !21
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !22
-  call void %27(ptr noundef %29, ptr noundef nonnull %13) #31
+  call void %27(ptr noundef %29, ptr noundef nonnull %13) #32
   br label %30
 
 30:                                               ; preds = %12, %write_dat_to_file.exit, %.critedge
@@ -42889,7 +42889,7 @@ write_dat_to_fp.exit:                             ; preds = %13, %16
   %18 = load ptr, ptr %17, align 8, !tbaa !21
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !22
-  call void %18(ptr noundef %20, ptr noundef nonnull %12) #31
+  call void %18(ptr noundef %20, ptr noundef nonnull %12) #32
   br label %21
 
 21:                                               ; preds = %11, %write_dat_to_fp.exit, %10
@@ -42967,7 +42967,7 @@ write_dat_to_fp.exit.i:                           ; preds = %20, %17
   %22 = load ptr, ptr %21, align 8, !tbaa !21
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !22
-  call void %22(ptr noundef %24, ptr noundef nonnull %16) #31
+  call void %22(ptr noundef %24, ptr noundef nonnull %16) #32
   br label %yyjson_val_write_fp.exit
 
 yyjson_val_write_fp.exit:                         ; preds = %14, %15, %write_dat_to_fp.exit.i
@@ -43073,7 +43073,7 @@ get_enc_table_with_flag.exit.i:                   ; preds = %22, %21
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !75
   %31 = add nuw nsw i64 %28, 2
-  %32 = tail call ptr %.sroa.0432.0(ptr noundef %.sroa.9.0, i64 noundef %31) #31
+  %32 = tail call ptr %.sroa.0432.0(ptr noundef %.sroa.9.0, i64 noundef %31) #32
   %.not107.i.i = icmp eq ptr %32, null
   br i1 %.not107.i.i, label %1203, label %33
 
@@ -43088,7 +43088,7 @@ get_enc_table_with_flag.exit.i:                   ; preds = %22, %21
   %38 = load ptr, ptr %37, align 8, !tbaa !75
   %39 = mul nuw nsw i64 %36, 6
   %40 = add nuw nsw i64 %39, 4
-  %41 = tail call ptr %.sroa.0432.0(ptr noundef %.sroa.9.0, i64 noundef %40) #31
+  %41 = tail call ptr %.sroa.0432.0(ptr noundef %.sroa.9.0, i64 noundef %40) #32
   %.not104.i.i = icmp eq ptr %41, null
   br i1 %.not104.i.i, label %1203, label %42
 
@@ -44558,7 +44558,7 @@ write_string_noesc.exit.i:                        ; preds = %.lr.ph2171, %.prehe
   br label %write_string.exit97.i
 
 812:                                              ; preds = %get_enc_table_with_flag.exit.i
-  %813 = tail call ptr %.sroa.0432.0(ptr noundef %.sroa.9.0, i64 noundef 42) #31
+  %813 = tail call ptr %.sroa.0432.0(ptr noundef %.sroa.9.0, i64 noundef 42) #32
   %.not102.i.i = icmp eq ptr %813, null
   br i1 %.not102.i.i, label %1203, label %814
 
@@ -45076,7 +45076,7 @@ write_number.exit.i:                              ; preds = %1176, %1174, %1170,
   br i1 %.not103.i.i, label %1205, label %write_string.exit97.i, !prof !216
 
 1178:                                             ; preds = %get_enc_table_with_flag.exit.i
-  %1179 = tail call ptr %.sroa.0432.0(ptr noundef %.sroa.9.0, i64 noundef 8) #31
+  %1179 = tail call ptr %.sroa.0432.0(ptr noundef %.sroa.9.0, i64 noundef 8) #32
   %.not101.i.i = icmp eq ptr %1179, null
   br i1 %.not101.i.i, label %1203, label %write_bool.exit.i
 
@@ -45092,7 +45092,7 @@ write_bool.exit.i:                                ; preds = %1178
   br label %write_string.exit97.i
 
 1185:                                             ; preds = %get_enc_table_with_flag.exit.i
-  %1186 = tail call ptr %.sroa.0432.0(ptr noundef %.sroa.9.0, i64 noundef 8) #31
+  %1186 = tail call ptr %.sroa.0432.0(ptr noundef %.sroa.9.0, i64 noundef 8) #32
   %.not100.i.i = icmp eq ptr %1186, null
   br i1 %.not100.i.i, label %1203, label %1187
 
@@ -45102,7 +45102,7 @@ write_bool.exit.i:                                ; preds = %1178
   br label %write_string.exit97.i
 
 1189:                                             ; preds = %get_enc_table_with_flag.exit.i
-  %1190 = tail call ptr %.sroa.0432.0(ptr noundef %.sroa.9.0, i64 noundef 4) #31
+  %1190 = tail call ptr %.sroa.0432.0(ptr noundef %.sroa.9.0, i64 noundef 4) #32
   %.not99.i.i = icmp eq ptr %1190, null
   br i1 %.not99.i.i, label %1203, label %1191
 
@@ -45112,7 +45112,7 @@ write_bool.exit.i:                                ; preds = %1178
   br label %write_string.exit97.i
 
 1193:                                             ; preds = %get_enc_table_with_flag.exit.i
-  %1194 = tail call ptr %.sroa.0432.0(ptr noundef %.sroa.9.0, i64 noundef 4) #31
+  %1194 = tail call ptr %.sroa.0432.0(ptr noundef %.sroa.9.0, i64 noundef 4) #32
   %.not.i.i = icmp eq ptr %1194, null
   br i1 %.not.i.i, label %1203, label %1195
 
@@ -45179,7 +45179,7 @@ default.unreachable:                              ; preds = %get_enc_table_with_
   br label %yyjson_mut_write_single.exit
 
 1205:                                             ; preds = %write_number.exit.i
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %813) #31
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %813) #32
   br i1 %.not30, label %.cont357, label %.else359
 
 .else359:                                         ; preds = %1205
@@ -45194,7 +45194,7 @@ default.unreachable:                              ; preds = %get_enc_table_with_
   br label %yyjson_mut_write_single.exit
 
 .loopexit:                                        ; preds = %.thread, %.thread615, %.thread625, %.thread635
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %41) #31
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %41) #32
   br i1 %.not30, label %.cont354, label %.else356
 
 .else356:                                         ; preds = %.loopexit
@@ -45241,7 +45241,7 @@ get_enc_table_with_flag.exit.i34:                 ; preds = %1212, %1211
   %1218 = shl i64 %1, 5
   %1219 = add i64 %1218, 79
   %1220 = and i64 %1219, -32
-  %1221 = tail call ptr %.sroa.0432.0(ptr noundef %.sroa.9.0, i64 noundef %1220) #31
+  %1221 = tail call ptr %.sroa.0432.0(ptr noundef %.sroa.9.0, i64 noundef %1220) #32
   %.not.i = icmp eq ptr %1221, null
   br i1 %.not.i, label %.loopexit959, label %1222
 
@@ -45369,7 +45369,7 @@ get_enc_table_with_flag.exit.i34:                 ; preds = %1212, %1211
   %1263 = add i64 %1262, 15
   %1264 = and i64 %1263, -16
   %1265 = add i64 %1264, %.0550.i
-  %1266 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %1265) #31
+  %1266 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %1265) #32
   %.not603.i = icmp eq ptr %1266, null
   br i1 %.not603.i, label %.loopexit959, label %.thread649, !prof !4
 
@@ -46872,7 +46872,7 @@ write_string.exit742.i:                           ; preds = %.preheader947, %.lr
   %2057 = add i64 %2056, 15
   %2058 = and i64 %2057, -16
   %2059 = add i64 %2058, %.0550.i
-  %2060 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %2059) #31
+  %2060 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %2059) #32
   %.not597.i = icmp eq ptr %2060, null
   br i1 %.not597.i, label %.loopexit959, label %.thread697, !prof !4
 
@@ -47457,7 +47457,7 @@ write_number.exit.i39.thread:                     ; preds = %2147, %2121, %2101,
   %2455 = add i64 %2454, 15
   %2456 = and i64 %2455, -16
   %2457 = add i64 %2456, %.0550.i
-  %2458 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %2457) #31
+  %2458 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %2457) #32
   %.not594.i = icmp eq ptr %2458, null
   br i1 %.not594.i, label %.loopexit959, label %.thread707, !prof !4
 
@@ -47525,7 +47525,7 @@ write_indent.exit808.i:                           ; preds = %select.unfold713, %
   %2490 = add i64 %2489, 15
   %2491 = and i64 %2490, -16
   %2492 = add i64 %2491, %.0550.i
-  %2493 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %2492) #31
+  %2493 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %2492) #32
   %.not590.i = icmp eq ptr %2493, null
   br i1 %.not590.i, label %.loopexit959, label %.thread714, !prof !4
 
@@ -47607,7 +47607,7 @@ write_indent.exit804.i:                           ; preds = %select.unfold720, %
   %2531 = add i64 %2530, 15
   %2532 = and i64 %2531, -16
   %2533 = add i64 %2532, %.0550.i
-  %2534 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %2533) #31
+  %2534 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %2533) #32
   %.not587.i = icmp eq ptr %2534, null
   br i1 %.not587.i, label %.loopexit959, label %.thread721, !prof !4
 
@@ -47672,7 +47672,7 @@ write_indent.exit800.i:                           ; preds = %select.unfold727, %
   %2563 = add i64 %2562, 15
   %2564 = and i64 %2563, -16
   %2565 = add i64 %2564, %.0550.i
-  %2566 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %2565) #31
+  %2566 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %2565) #32
   %.not584.i = icmp eq ptr %2566, null
   br i1 %.not584.i, label %.loopexit959, label %.thread728, !prof !4
 
@@ -47735,7 +47735,7 @@ write_indent.exit796.i:                           ; preds = %select.unfold734, %
   %2595 = add i64 %2594, 15
   %2596 = and i64 %2595, -16
   %2597 = add i64 %2596, %.0550.i
-  %2598 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %2597) #31
+  %2598 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %2597) #32
   %.not581.i = icmp eq ptr %2598, null
   br i1 %.not581.i, label %.loopexit959, label %.thread735, !prof !4
 
@@ -47821,7 +47821,7 @@ write_indent.exit792.i:                           ; preds = %select.unfold741, %
   %2630 = add i64 %2629, 15
   %2631 = and i64 %2630, -16
   %2632 = add i64 %2631, %.9559.i
-  %2633 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.16.i, i64 noundef %.9559.i, i64 noundef %2632) #31
+  %2633 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.16.i, i64 noundef %.9559.i, i64 noundef %2632) #32
   %.not608.i = icmp eq ptr %2633, null
   br i1 %.not608.i, label %.loopexit959, label %.thread742, !prof !4
 
@@ -47901,7 +47901,7 @@ write_indent.exit.i:                              ; preds = %.lr.ph2037, %2646
   %2672 = add nuw i64 %2671, 15
   %2673 = and i64 %2672, -16
   %2674 = add i64 %2673, %.10560.i
-  %2675 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.18.i, i64 noundef %.10560.i, i64 noundef %2674) #31
+  %2675 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.18.i, i64 noundef %.10560.i, i64 noundef %2674) #32
   %.not612.i = icmp eq ptr %2675, null
   br i1 %.not612.i, label %.loopexit959, label %.thread748, !prof !4
 
@@ -47964,7 +47964,7 @@ write_indent.exit.i:                              ; preds = %.lr.ph2037, %2646
   br i1 %.not613.i, label %yyjson_mut_write_single.exit, label %2693
 
 2693:                                             ; preds = %.cont351
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.22.i) #31
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.22.i) #32
   br label %yyjson_mut_write_single.exit
 
 2694:                                             ; preds = %2522
@@ -47979,7 +47979,7 @@ write_indent.exit.i:                              ; preds = %.lr.ph2037, %2646
   %.sroa.sel399.v.sroa.sel.v.sroa.sel.v = select i1 %.not29, ptr %7, ptr %5
   %.sroa.sel399.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel399.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.93, ptr %.sroa.sel399.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.0488.i) #31
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.0488.i) #32
   br label %yyjson_mut_write_single.exit
 
 2696:                                             ; preds = %write_number.exit.i39
@@ -47994,7 +47994,7 @@ write_indent.exit.i:                              ; preds = %.lr.ph2037, %2646
   %.sroa.sel393.v.sroa.sel.v.sroa.sel.v = select i1 %.not29, ptr %7, ptr %5
   %.sroa.sel393.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel393.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.94, ptr %.sroa.sel393.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.5.i) #31
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.5.i) #32
   br label %yyjson_mut_write_single.exit
 
 .loopexit931:                                     ; preds = %.thread655, %.thread665, %.thread675, %.thread685
@@ -48009,7 +48009,7 @@ write_indent.exit.i:                              ; preds = %.lr.ph2037, %2646
   %.sroa.sel396.v.sroa.sel.v.sroa.sel.v = select i1 %.not29, ptr %7, ptr %5
   %.sroa.sel396.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel396.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.95, ptr %.sroa.sel396.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.2.i) #31
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.2.i) #32
   br label %yyjson_mut_write_single.exit
 
 2699:                                             ; preds = %1206
@@ -48033,7 +48033,7 @@ get_enc_table_with_flag.exit.i169:                ; preds = %2701, %2700
   %2705 = mul i64 %1, 18
   %2706 = add i64 %2705, 79
   %2707 = and i64 %2706, -16
-  %2708 = tail call ptr %.sroa.0432.0(ptr noundef %.sroa.9.0, i64 noundef %2707) #31
+  %2708 = tail call ptr %.sroa.0432.0(ptr noundef %.sroa.9.0, i64 noundef %2707) #32
   %.not.i170 = icmp eq ptr %2708, null
   br i1 %.not.i170, label %.loopexit929, label %2709
 
@@ -48130,7 +48130,7 @@ get_enc_table_with_flag.exit.i169:                ; preds = %2701, %2700
   %2742 = add nuw i64 %2741, 15
   %2743 = and i64 %2742, -16
   %2744 = add i64 %2743, %.0410.i
-  %2745 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0362.i, i64 noundef %.0410.i, i64 noundef %2744) #31
+  %2745 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0362.i, i64 noundef %.0410.i, i64 noundef %2744) #32
   %.not448.i = icmp eq ptr %2745, null
   br i1 %.not448.i, label %.loopexit929, label %.thread752, !prof !4
 
@@ -49612,7 +49612,7 @@ write_string.exit577.i:                           ; preds = %.preheader914, %.lr
   %3529 = add nuw i64 %3528, 15
   %3530 = and i64 %3529, -16
   %3531 = add i64 %3530, %.0410.i
-  %3532 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0362.i, i64 noundef %.0410.i, i64 noundef %3531) #31
+  %3532 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0362.i, i64 noundef %.0410.i, i64 noundef %3531) #32
   %.not443.i = icmp eq ptr %3532, null
   br i1 %.not443.i, label %.loopexit929, label %.thread800, !prof !4
 
@@ -50174,7 +50174,7 @@ write_number.exit.i181.thread:                    ; preds = %3617, %3591, %3571,
   %3919 = add nuw i64 %3918, 15
   %3920 = and i64 %3919, -16
   %3921 = add i64 %3920, %.0410.i
-  %3922 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0362.i, i64 noundef %.0410.i, i64 noundef %3921) #31
+  %3922 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0362.i, i64 noundef %.0410.i, i64 noundef %3921) #32
   %.not439.i = icmp eq ptr %3922, null
   br i1 %.not439.i, label %.loopexit929, label %.thread809, !prof !4
 
@@ -50263,7 +50263,7 @@ write_number.exit.i181.thread:                    ; preds = %3617, %3591, %3571,
   %3963 = add nuw i64 %3962, 15
   %3964 = and i64 %3963, -16
   %3965 = add i64 %3964, %.0410.i
-  %3966 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0362.i, i64 noundef %.0410.i, i64 noundef %3965) #31
+  %3966 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0362.i, i64 noundef %.0410.i, i64 noundef %3965) #32
   %.not437.i = icmp eq ptr %3966, null
   br i1 %.not437.i, label %.loopexit929, label %.thread815, !prof !4
 
@@ -50311,7 +50311,7 @@ write_bool.exit.i322:                             ; preds = %.thread815, %3958
   %3989 = add nuw i64 %3988, 15
   %3990 = and i64 %3989, -16
   %3991 = add i64 %3990, %.0410.i
-  %3992 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0362.i, i64 noundef %.0410.i, i64 noundef %3991) #31
+  %3992 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0362.i, i64 noundef %.0410.i, i64 noundef %3991) #32
   %.not435.i = icmp eq ptr %3992, null
   br i1 %.not435.i, label %.loopexit929, label %.thread821, !prof !4
 
@@ -50356,7 +50356,7 @@ write_bool.exit.i322:                             ; preds = %.thread815, %3958
   %4016 = add nuw i64 %4015, 15
   %4017 = and i64 %4016, -16
   %4018 = add i64 %4017, %.0410.i
-  %4019 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0362.i, i64 noundef %.0410.i, i64 noundef %4018) #31
+  %4019 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0362.i, i64 noundef %.0410.i, i64 noundef %4018) #32
   %.not433.i = icmp eq ptr %4019, null
   br i1 %.not433.i, label %.loopexit929, label %.thread827, !prof !4
 
@@ -50438,7 +50438,7 @@ write_bool.exit.i322:                             ; preds = %.thread815, %3958
   %4057 = add nuw i64 %4056, 15
   %4058 = and i64 %4057, -16
   %4059 = add i64 %4058, %.2412.i
-  %4060 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.3.i182, i64 noundef %.2412.i, i64 noundef %4059) #31
+  %4060 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.3.i182, i64 noundef %.2412.i, i64 noundef %4059) #32
   %.not455.i = icmp eq ptr %4060, null
   br i1 %.not455.i, label %.loopexit929, label %.thread833, !prof !4
 
@@ -50501,7 +50501,7 @@ write_bool.exit.i322:                             ; preds = %.thread815, %3958
   br i1 %.not456.i, label %yyjson_mut_write_single.exit, label %4079
 
 4079:                                             ; preds = %.cont336
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.17.i174) #31
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.17.i174) #32
   br label %yyjson_mut_write_single.exit
 
 4080:                                             ; preds = %3957
@@ -50516,7 +50516,7 @@ write_bool.exit.i322:                             ; preds = %.thread815, %3958
   %.sroa.sel414.v.sroa.sel.v.sroa.sel.v = select i1 %.not29, ptr %7, ptr %5
   %.sroa.sel414.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel414.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.93, ptr %.sroa.sel414.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.0362.i) #31
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.0362.i) #32
   br label %yyjson_mut_write_single.exit
 
 4082:                                             ; preds = %write_number.exit.i181
@@ -50531,7 +50531,7 @@ write_bool.exit.i322:                             ; preds = %.thread815, %3958
   %.sroa.sel408.v.sroa.sel.v.sroa.sel.v = select i1 %.not29, ptr %7, ptr %5
   %.sroa.sel408.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel408.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.94, ptr %.sroa.sel408.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.5.i176) #31
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.5.i176) #32
   br label %yyjson_mut_write_single.exit
 
 .loopexit898:                                     ; preds = %.thread758, %.thread768, %.thread778, %.thread788
@@ -50546,7 +50546,7 @@ write_bool.exit.i322:                             ; preds = %.thread815, %3958
   %.sroa.sel411.v.sroa.sel.v.sroa.sel.v = select i1 %.not29, ptr %7, ptr %5
   %.sroa.sel411.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel411.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.95, ptr %.sroa.sel411.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.2.i214) #31
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.2.i214) #32
   br label %yyjson_mut_write_single.exit
 
 yyjson_mut_write_single.exit:                     ; preds = %4084, %4083, %4081, %4079, %.cont336, %.cont333, %2698, %2697, %2695, %2693, %.cont351, %.cont348, %.cont354, %.cont357, %.cont366, %.cont360, %.cont363, %.cont369
@@ -50685,7 +50685,7 @@ write_dat_to_file.exit:                           ; preds = %18, %21, %23, %25
   %27 = load ptr, ptr %26, align 8, !tbaa !21
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !22
-  call void %27(ptr noundef %29, ptr noundef nonnull %13) #31
+  call void %27(ptr noundef %29, ptr noundef nonnull %13) #32
   br label %30
 
 30:                                               ; preds = %12, %write_dat_to_file.exit, %.critedge
@@ -50739,7 +50739,7 @@ write_dat_to_fp.exit:                             ; preds = %13, %16
   %18 = load ptr, ptr %17, align 8, !tbaa !21
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !22
-  call void %18(ptr noundef %20, ptr noundef nonnull %12) #31
+  call void %18(ptr noundef %20, ptr noundef nonnull %12) #32
   br label %21
 
 21:                                               ; preds = %11, %write_dat_to_fp.exit, %10
@@ -50817,7 +50817,7 @@ write_dat_to_fp.exit.i:                           ; preds = %20, %17
   %22 = load ptr, ptr %21, align 8, !tbaa !21
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !22
-  call void %22(ptr noundef %24, ptr noundef nonnull %16) #31
+  call void %22(ptr noundef %24, ptr noundef nonnull %16) #32
   br label %yyjson_mut_val_write_fp.exit
 
 yyjson_mut_val_write_fp.exit:                     ; preds = %14, %15, %write_dat_to_fp.exit.i
@@ -55722,26 +55722,26 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #26
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #27
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #28
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #28
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #28
+declare i32 @llvm.abs.i32(i32, i1 immarg) #29
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #28
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #28
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #29
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -55771,10 +55771,11 @@ attributes #24 = { nofree noinline norecurse nosync nounwind memory(argmem: read
 attributes #25 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #27 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #28 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #29 = { nounwind allocsize(0) }
-attributes #30 = { nounwind allocsize(1) }
-attributes #31 = { nounwind }
+attributes #28 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #29 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #30 = { nounwind allocsize(0) }
+attributes #31 = { nounwind allocsize(1) }
+attributes #32 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

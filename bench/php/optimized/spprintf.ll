@@ -66,7 +66,7 @@ zend_tmp_string_release.exit:                     ; preds = %4, %zend_tmp_string
   br i1 %.not10.i404, label %smart_string_alloc.exit405, label %24, !prof !15
 
 24:                                               ; preds = %20, %19
-  call void @_smart_string_alloc(ptr noundef nonnull %0, i64 noundef 1) #12
+  call void @_smart_string_alloc(ptr noundef nonnull %0, i64 noundef 1) #13
   %.pre1098 = load i64, ptr %12, align 8, !tbaa !14
   %.pre1099 = load ptr, ptr %0, align 8, !tbaa !16
   br label %smart_string_alloc.exit405
@@ -93,7 +93,7 @@ smart_string_alloc.exit405:                       ; preds = %20, %24
 
 35:                                               ; preds = %30, %29
   %.0.i.i423 = phi i64 [ 1, %29 ], [ %33, %30 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i423) #12
+  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i423) #13
   %.pre1097 = load ptr, ptr %0, align 8, !tbaa !24
   br label %smart_str_appendc_ex.exit425
 
@@ -115,7 +115,7 @@ smart_str_appendc_ex.exit425:                     ; preds = %30, %35
   br i1 %44, label %45, label %.loopexit503
 
 45:                                               ; preds = %41
-  %46 = tail call ptr @__ctype_b_loc() #13
+  %46 = tail call ptr @__ctype_b_loc() #14
   %47 = load ptr, ptr %46, align 8, !tbaa !25
   %48 = zext nneg i8 %43 to i64
   %49 = getelementptr inbounds nuw i16, ptr %47, i64 %48
@@ -384,7 +384,7 @@ smart_str_appendc_ex.exit425:                     ; preds = %30, %35
   ]
 
 172:                                              ; preds = %169, %169, %169, %169
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 16, ptr noundef nonnull @.str) #14
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 16, ptr noundef nonnull @.str) #15
   unreachable
 
 173:                                              ; preds = %.loopexit503
@@ -462,7 +462,7 @@ thread-pre-split:                                 ; preds = %156, %163, %165, %1
   br label %zval_get_tmp_string.exit
 
 199:                                              ; preds = %191
-  %200 = call ptr @zval_get_string_func(ptr noundef nonnull %193) #12
+  %200 = call ptr @zval_get_string_func(ptr noundef nonnull %193) #13
   br label %zval_get_tmp_string.exit
 
 zval_get_tmp_string.exit:                         ; preds = %197, %199
@@ -829,7 +829,7 @@ zval_get_tmp_string.exit:                         ; preds = %197, %199
   %.5317 = phi i64 [ %327, %324 ], [ %341, %339 ], [ %355, %353 ], [ %369, %367 ], [ %383, %381 ], [ %397, %395 ], [ %.2314, %.loopexit510 ]
   %399 = load i8, ptr %.10, align 1, !tbaa !4
   %400 = icmp eq i8 %399, 117
-  %401 = call ptr @ap_php_conv_10(i64 noundef %.5317, i1 noundef zeroext %400, ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %5) #12
+  %401 = call ptr @ap_php_conv_10(i64 noundef %.5317, i1 noundef zeroext %400, ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %5) #13
   br i1 %.0293, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %398
@@ -1025,7 +1025,7 @@ zval_get_tmp_string.exit:                         ; preds = %197, %199
 503:                                              ; preds = %500, %486, %472, %458, %444, %429
   %.0310 = phi i64 [ %432, %429 ], [ %446, %444 ], [ %460, %458 ], [ %474, %472 ], [ %488, %486 ], [ %502, %500 ]
   %504 = load i8, ptr %.10, align 1, !tbaa !4
-  %505 = call ptr @ap_php_conv_p2(i64 noundef %.0310, i32 noundef 3, i8 noundef signext %504, ptr noundef nonnull %11, ptr noundef nonnull %5) #12
+  %505 = call ptr @ap_php_conv_p2(i64 noundef %.0310, i32 noundef 3, i8 noundef signext %504, ptr noundef nonnull %11, ptr noundef nonnull %5) #13
   br i1 %.0293, label %.preheader498, label %.loopexit499
 
 .preheader498:                                    ; preds = %503
@@ -1219,7 +1219,7 @@ zval_get_tmp_string.exit:                         ; preds = %197, %199
 606:                                              ; preds = %603, %589, %575, %561, %547, %532
   %.1311 = phi i64 [ %535, %532 ], [ %549, %547 ], [ %563, %561 ], [ %577, %575 ], [ %591, %589 ], [ %605, %603 ]
   %607 = load i8, ptr %.10, align 1, !tbaa !4
-  %608 = call ptr @ap_php_conv_p2(i64 noundef %.1311, i32 noundef 4, i8 noundef signext %607, ptr noundef nonnull %11, ptr noundef nonnull %5) #12
+  %608 = call ptr @ap_php_conv_p2(i64 noundef %.1311, i32 noundef 4, i8 noundef signext %607, ptr noundef nonnull %11, ptr noundef nonnull %5) #13
   br i1 %.0293, label %.preheader500, label %.loopexit501
 
 .preheader500:                                    ; preds = %606
@@ -1284,12 +1284,12 @@ zval_get_tmp_string.exit:                         ; preds = %197, %199
   br i1 %.0293, label %641, label %639
 
 639:                                              ; preds = %638
-  %640 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %637) #15
+  %640 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %637) #16
   br label %.thread439.sink.split
 
 641:                                              ; preds = %638
   %642 = sext i32 %.2286 to i64
-  %643 = call i64 @strnlen(ptr noundef nonnull %637, i64 noundef range(i64 -2147483648, 2147483648) %642) #15
+  %643 = call i64 @strnlen(ptr noundef nonnull %637, i64 noundef range(i64 -2147483648, 2147483648) %642) #16
   br label %.thread439.sink.split
 
 644:                                              ; preds = %178, %178, %178, %178
@@ -1338,7 +1338,7 @@ zval_get_tmp_string.exit:                         ; preds = %197, %199
   br i1 %667, label %.thread439.sink.split, label %668
 
 668:                                              ; preds = %666
-  %669 = call double @llvm.fabs.f64(double %.0320) #16
+  %669 = call double @llvm.fabs.f64(double %.0320) #17
   %670 = fcmp oeq double %669, 0x7FF0000000000000
   br i1 %670, label %.thread439.sink.split, label %671
 
@@ -1347,7 +1347,7 @@ zval_get_tmp_string.exit:                         ; preds = %197, %199
   br i1 %.not390, label %672, label %674
 
 672:                                              ; preds = %671
-  %673 = call ptr @localeconv() #12
+  %673 = call ptr @localeconv() #13
   br label %674
 
 674:                                              ; preds = %672, %671
@@ -1366,7 +1366,7 @@ zval_get_tmp_string.exit:                         ; preds = %197, %199
 
 682:                                              ; preds = %674, %679
   %683 = phi i8 [ %681, %679 ], [ 46, %674 ]
-  %684 = call ptr @php_conv_fp(i8 noundef signext %spec.select398, double noundef %.0320, i1 noundef zeroext %677, i32 noundef %678, i8 noundef signext %683, ptr noundef nonnull %8, ptr noundef nonnull %14, ptr noundef nonnull %5) #12
+  %684 = call ptr @php_conv_fp(i8 noundef signext %spec.select398, double noundef %.0320, i1 noundef zeroext %677, i32 noundef %678, i8 noundef signext %683, ptr noundef nonnull %8, ptr noundef nonnull %14, ptr noundef nonnull %5) #13
   %685 = load i8, ptr %8, align 1, !tbaa !36, !range !38, !noundef !39
   %686 = trunc nuw i8 %685 to i1
   br i1 %686, label %.thread458, label %687
@@ -1425,7 +1425,7 @@ zval_get_tmp_string.exit:                         ; preds = %197, %199
   br i1 %714, label %.thread439.sink.split, label %715
 
 715:                                              ; preds = %713
-  %716 = call double @llvm.fabs.f64(double %.1321) #16
+  %716 = call double @llvm.fabs.f64(double %.1321) #17
   %717 = fcmp oeq double %716, 0x7FF0000000000000
   br i1 %717, label %718, label %720
 
@@ -1442,7 +1442,7 @@ zval_get_tmp_string.exit:                         ; preds = %197, %199
   br i1 %.not389, label %721, label %723
 
 721:                                              ; preds = %720
-  %722 = call ptr @localeconv() #12
+  %722 = call ptr @localeconv() #13
   br label %723
 
 723:                                              ; preds = %721, %720
@@ -1463,7 +1463,7 @@ zval_get_tmp_string.exit:                         ; preds = %197, %199
   %730 = add i8 %724, -71
   %731 = icmp ult i8 %730, 2
   %732 = select i1 %731, i8 69, i8 101
-  %733 = call ptr @zend_gcvt(double noundef %.1321, i32 noundef %.4288, i8 noundef signext %729, i8 noundef signext %732, ptr noundef nonnull %14) #12
+  %733 = call ptr @zend_gcvt(double noundef %.1321, i32 noundef %.4288, i8 noundef signext %729, i8 noundef signext %732, ptr noundef nonnull %14) #13
   %734 = load i8, ptr %733, align 1, !tbaa !4
   %735 = icmp eq i8 %734, 45
   %736 = trunc nuw i8 %.2299 to i1
@@ -1472,13 +1472,13 @@ zval_get_tmp_string.exit:                         ; preds = %197, %199
   %.1323 = select i1 %735, i8 45, i8 %spec.select494
   %.8271.idx = zext i1 %735 to i64
   %.8271 = getelementptr inbounds nuw i8, ptr %733, i64 %.8271.idx
-  %737 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8271) #15
+  %737 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8271) #16
   store i64 %737, ptr %5, align 8, !tbaa !32
   %738 = trunc nuw i8 %.2302 to i1
   br i1 %738, label %739, label %804
 
 739:                                              ; preds = %728
-  %740 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.8271, i32 noundef 46) #15
+  %740 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.8271, i32 noundef 46) #16
   %741 = icmp eq ptr %740, null
   br i1 %741, label %742, label %804
 
@@ -1579,7 +1579,7 @@ zval_get_tmp_string.exit:                         ; preds = %197, %199
   %791 = phi ptr [ %785, %782 ], [ %788, %787 ]
   %792 = load ptr, ptr %791, align 8, !tbaa !40
   %793 = ptrtoint ptr %792 to i64
-  %794 = call ptr @ap_php_conv_p2(i64 noundef %793, i32 noundef 4, i8 noundef signext 120, ptr noundef nonnull %11, ptr noundef nonnull %5) #12
+  %794 = call ptr @ap_php_conv_p2(i64 noundef %793, i32 noundef 4, i8 noundef signext 120, ptr noundef nonnull %11, ptr noundef nonnull %5) #13
   %.not388 = icmp eq ptr %792, null
   br i1 %.not388, label %.thread439, label %795
 
@@ -1596,7 +1596,7 @@ zval_get_tmp_string.exit:                         ; preds = %197, %199
   %801 = phi i8 [ %311, %312 ], [ 117, %225 ], [ 111, %417 ], [ %179, %520 ], [ %179, %644 ], [ %179, %691 ]
   %.4316 = phi i64 [ %.2314, %312 ], [ %.0312.ph, %225 ], [ %.0312.ph, %417 ], [ %.0312.ph, %520 ], [ %.0312.ph, %644 ], [ %.0312.ph, %691 ]
   %802 = sext i8 %801 to i32
-  call void (i32, ptr, ...) @zend_error(i32 noundef 1, ptr noundef nonnull @.str.7, i32 noundef %802) #12
+  call void (i32, ptr, ...) @zend_error(i32 noundef 1, ptr noundef nonnull @.str.7, i32 noundef %802) #13
   br label %.loopexit509
 
 .loopexit509:                                     ; preds = %178, %800
@@ -1674,7 +1674,7 @@ zval_get_tmp_string.exit:                         ; preds = %197, %199
   br i1 %.not10.i, label %smart_string_alloc.exit, label %822, !prof !15
 
 822:                                              ; preds = %818, %817
-  call void @_smart_string_alloc(ptr noundef nonnull %0, i64 noundef 1) #12
+  call void @_smart_string_alloc(ptr noundef nonnull %0, i64 noundef 1) #13
   %.pre1073 = load i64, ptr %12, align 8, !tbaa !14
   %.pre1074 = load ptr, ptr %0, align 8, !tbaa !16
   br label %smart_string_alloc.exit
@@ -1701,7 +1701,7 @@ smart_string_alloc.exit:                          ; preds = %818, %822
 
 833:                                              ; preds = %828, %827
   %.0.i.i = phi i64 [ 1, %827 ], [ %831, %828 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #12
+  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i) #13
   %.pre1072 = load ptr, ptr %0, align 8, !tbaa !24
   br label %smart_str_appendc_ex.exit
 
@@ -1745,7 +1745,7 @@ smart_str_appendc_ex.exit:                        ; preds = %828, %833
   br i1 %.not10.i407, label %.thread475, label %854, !prof !15
 
 854:                                              ; preds = %850, %849
-  call void @_smart_string_alloc(ptr noundef nonnull %0, i64 noundef %847) #12
+  call void @_smart_string_alloc(ptr noundef nonnull %0, i64 noundef %847) #13
   %.pre1082 = load i64, ptr %12, align 8, !tbaa !14
   %.pre1083 = load ptr, ptr %0, align 8, !tbaa !16
   %.pre1084 = load i64, ptr %5, align 8, !tbaa !32
@@ -1779,7 +1779,7 @@ smart_str_appendc_ex.exit:                        ; preds = %828, %833
 
 868:                                              ; preds = %863, %862
   %.0.i413 = phi i64 [ %847, %862 ], [ %866, %863 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i413) #12
+  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i413) #13
   %.pre1075 = load ptr, ptr %0, align 8, !tbaa !24
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre1075, i64 16
   %.pre1076 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !17
@@ -1823,7 +1823,7 @@ thread-pre-split492.thread:                       ; preds = %863, %868
   br i1 %.not10.i.i, label %smart_string_appendl_ex.exit, label %887, !prof !15
 
 887:                                              ; preds = %883, %880
-  call void @_smart_string_alloc(ptr noundef nonnull %0, i64 noundef %882) #12
+  call void @_smart_string_alloc(ptr noundef nonnull %0, i64 noundef %882) #13
   %.pre1088 = load i64, ptr %12, align 8, !tbaa !14
   %.pre1089 = load ptr, ptr %0, align 8, !tbaa !16
   br label %smart_string_appendl_ex.exit
@@ -1858,7 +1858,7 @@ thread-pre-split492:                              ; preds = %879
   %.124851177 = phi ptr [ %.10273, %thread-pre-split492 ], [ %.124851179, %892 ]
   %900 = phi i64 [ %.pre1085.pre, %thread-pre-split492 ], [ %894, %892 ]
   %.0.i.i428 = phi i64 [ %.pre1085.pre, %thread-pre-split492 ], [ %897, %892 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i428) #12
+  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i428) #13
   %.pre1079 = load ptr, ptr %0, align 8, !tbaa !24
   %.phi.trans.insert1080 = getelementptr inbounds nuw i8, ptr %.pre1079, i64 16
   %.pre1081 = load i64, ptr %.phi.trans.insert1080, align 8, !tbaa !17
@@ -1908,7 +1908,7 @@ smart_str_appendl_ex.exit:                        ; preds = %892, %899
   br i1 %.not10.i410, label %smart_string_alloc.exit411, label %922, !prof !15
 
 922:                                              ; preds = %918, %917
-  call void @_smart_string_alloc(ptr noundef nonnull %0, i64 noundef %915) #12
+  call void @_smart_string_alloc(ptr noundef nonnull %0, i64 noundef %915) #13
   %.pre1094 = load i64, ptr %12, align 8, !tbaa !14
   %.pre1095 = load ptr, ptr %0, align 8, !tbaa !16
   %.pre1096 = load i64, ptr %5, align 8, !tbaa !32
@@ -1941,7 +1941,7 @@ smart_string_alloc.exit411:                       ; preds = %918, %922
 
 936:                                              ; preds = %931, %930
   %.0.i416 = phi i64 [ %915, %930 ], [ %934, %931 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i416) #12
+  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i416) #13
   %.pre1090 = load ptr, ptr %0, align 8, !tbaa !24
   %.phi.trans.insert1091 = getelementptr inbounds nuw i8, ptr %.pre1090, i64 16
   %.pre1092 = load i64, ptr %.phi.trans.insert1091, align 8, !tbaa !17
@@ -1986,7 +1986,7 @@ smart_str_alloc.exit418:                          ; preds = %931, %936
   br i1 %956, label %957, label %zend_tmp_string_release.exit.thread
 
 957:                                              ; preds = %952
-  call void @_efree(ptr noundef nonnull %.0431449) #12
+  call void @_efree(ptr noundef nonnull %.0431449) #13
   br label %zend_tmp_string_release.exit.thread
 
 zend_tmp_string_release.exit.thread:              ; preds = %947, %948, %952, %957, %777, %smart_str_appendc_ex.exit425, %smart_string_alloc.exit405
@@ -2025,10 +2025,10 @@ declare ptr @ap_php_conv_p2(i64 noundef, i32 noundef, i8 noundef signext, ptr no
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare ptr @llvm.ptrmask.p0.i64(ptr, i64) #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #5
 
 ; Function Attrs: nounwind
@@ -2069,32 +2069,33 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #11
+declare i32 @llvm.abs.i32(i32, i1 immarg) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind willreturn memory(none) }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { memory(none) }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(none) }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { nounwind willreturn memory(read) }
+attributes #17 = { memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

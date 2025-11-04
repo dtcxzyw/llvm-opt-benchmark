@@ -21,14 +21,14 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr noundef readonly ca
   %5 = load ptr, ptr %4, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !14
-  %8 = tail call i64 @clock() #7
+  %8 = tail call i64 @clock() #8
   %9 = load i8, ptr @Verbose, align 1, !tbaa !15
   %.not = icmp eq i8 %9, 0
   br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr @stderr, align 8, !tbaa !16
-  %12 = tail call i64 @fwrite(ptr nonnull @.str, i64 48, i64 1, ptr %11) #8
+  %12 = tail call i64 @fwrite(ptr nonnull @.str, i64 48, i64 1, ptr %11) #9
   %13 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2)
   br label %14
 
@@ -319,11 +319,11 @@ get_local_12_norm.exit100:                        ; preds = %111, %get_local_12_
 
 get_12_norm.exit:                                 ; preds = %._crit_edge.i101
   %150 = fdiv double %149, %16
-  %151 = tail call i64 @clock() #7
+  %151 = tail call i64 @clock() #8
   %152 = sub nsw i64 %151, %8
   %153 = sitofp i64 %152 to double
   %154 = fdiv double %153, 1.000000e+06
-  %155 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.067, ptr noundef nonnull @.str.3, double noundef %154, double noundef %.sroa.0137.6, double noundef %150) #7
+  %155 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.067, ptr noundef nonnull @.str.3, double noundef %154, double noundef %.sroa.0137.6, double noundef %150) #8
   br label %156
 
 156:                                              ; preds = %._crit_edge, %get_12_norm.exit
@@ -406,12 +406,12 @@ get_12_norm.exit131:                              ; preds = %._crit_edge.i117
   %186 = fdiv double %185, %16
   %187 = load ptr, ptr @stderr, align 8, !tbaa !16
   %188 = add nuw nsw i32 %.065157.ph, 1
-  %189 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %187, ptr noundef nonnull @.str.4, i32 noundef %.065157.ph, double noundef %.sroa.0137.11, double noundef %186) #9
-  %190 = tail call i64 @clock() #7
+  %189 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %187, ptr noundef nonnull @.str.4, i32 noundef %.065157.ph, double noundef %.sroa.0137.11, double noundef %186) #10
+  %190 = tail call i64 @clock() #8
   %191 = sub nsw i64 %190, %8
   %192 = sitofp i64 %191 to double
   %193 = fdiv double %192, 1.000000e+06
-  %194 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.067, ptr noundef nonnull @.str.3, double noundef %193, double noundef %.sroa.0137.11, double noundef %186) #7
+  %194 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.067, ptr noundef nonnull @.str.3, double noundef %193, double noundef %.sroa.0137.11, double noundef %186) #8
   br i1 %.3, label %.preheader.outer, label %.thread184, !llvm.loop !25
 
 195:                                              ; preds = %._crit_edge155
@@ -420,12 +420,12 @@ get_12_norm.exit131:                              ; preds = %._crit_edge.i117
 .thread184.loopexit187.critedge:                  ; preds = %._crit_edge155.thread
   %196 = fdiv double 0.000000e+00, %16
   %197 = load ptr, ptr @stderr, align 8, !tbaa !16
-  %198 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %197, ptr noundef nonnull @.str.4, i32 noundef %.065157.ph, double noundef %16, double noundef %196) #9
-  %199 = tail call i64 @clock() #7
+  %198 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %197, ptr noundef nonnull @.str.4, i32 noundef %.065157.ph, double noundef %16, double noundef %196) #10
+  %199 = tail call i64 @clock() #8
   %200 = sub nsw i64 %199, %8
   %201 = sitofp i64 %200 to double
   %202 = fdiv double %201, 1.000000e+06
-  %203 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.067, ptr noundef nonnull @.str.3, double noundef %202, double noundef %16, double noundef %196) #7
+  %203 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.067, ptr noundef nonnull @.str.3, double noundef %202, double noundef %16, double noundef %196) #8
   br label %.thread184
 
 .thread184:                                       ; preds = %get_12_norm.exit131, %195, %._crit_edge155.thread, %.thread184.loopexit187.critedge
@@ -449,7 +449,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 ; Function Attrs: nofree nounwind
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.minnum.f64(double, double) #3
 
 ; Function Attrs: nofree nounwind
@@ -463,13 +463,13 @@ define dso_local void @country_graph_coloring(i32 noundef %0, ptr noundef %1, pt
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %7 = tail call i64 @clock() #7
-  %8 = tail call ptr @SparseMatrix_symmetrize(ptr noundef nonnull %1, i1 noundef zeroext true) #7
+  %7 = tail call i64 @clock() #8
+  %8 = tail call ptr @SparseMatrix_symmetrize(ptr noundef nonnull %1, i1 noundef zeroext true) #8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !13
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !14
-  %13 = tail call ptr @SparseMatrix_new(i32 noundef %6, i32 noundef %6, i32 noundef 1, i32 noundef 1, i32 noundef 1) #7
+  %13 = tail call ptr @SparseMatrix_new(i32 noundef %6, i32 noundef %6, i32 noundef 1, i32 noundef 1, i32 noundef 1) #8
   %14 = icmp sgt i32 %6, 0
   br i1 %14, label %.lr.ph64.preheader, label %._crit_edge65
 
@@ -508,7 +508,7 @@ define dso_local void @country_graph_coloring(i32 noundef %0, ptr noundef %1, pt
   %27 = load double, ptr %5, align 8, !tbaa !26
   %28 = fadd double %27, 1.000000e+00
   store double %28, ptr %5, align 8, !tbaa !26
-  %29 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %.158, i32 noundef %21, i32 noundef %24, ptr noundef nonnull %4) #7
+  %29 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %.158, i32 noundef %21, i32 noundef %24, ptr noundef nonnull %4) #8
   %.pre = load i32, ptr %17, align 4, !tbaa !18
   br label %30
 
@@ -523,33 +523,33 @@ define dso_local void @country_graph_coloring(i32 noundef %0, ptr noundef %1, pt
 ._crit_edge:                                      ; preds = %30, %.lr.ph64
   %.1.lcssa = phi ptr [ %.04961, %.lr.ph64 ], [ %.2, %30 ]
   %34 = trunc nuw nsw i64 %indvars.iv70 to i32
-  %35 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %.1.lcssa, i32 noundef %34, i32 noundef %34, ptr noundef nonnull %5) #7
+  %35 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %.1.lcssa, i32 noundef %34, i32 noundef %34, ptr noundef nonnull %5) #8
   %exitcond.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge65, label %.lr.ph64, !llvm.loop !29
 
 ._crit_edge65:                                    ; preds = %._crit_edge, %3
   %.049.lcssa = phi ptr [ %13, %3 ], [ %35, %._crit_edge ]
-  %36 = call ptr @SparseMatrix_from_coordinate_format(ptr noundef %.049.lcssa) #7
-  call void @SparseMatrix_delete(ptr noundef %.049.lcssa) #7
+  %36 = call ptr @SparseMatrix_from_coordinate_format(ptr noundef %.049.lcssa) #8
+  call void @SparseMatrix_delete(ptr noundef %.049.lcssa) #8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !30
-  %39 = call ptr @power_method(ptr noundef %36, i32 noundef %38, i32 noundef %0) #7
-  call void @vector_ordering(i32 noundef %6, ptr noundef %39, ptr noundef %2) #7
+  %39 = call ptr @power_method(ptr noundef %36, i32 noundef %38, i32 noundef %0) #8
+  call void @vector_ordering(i32 noundef %6, ptr noundef %39, ptr noundef %2) #8
   %40 = load i8, ptr @Verbose, align 1, !tbaa !15
   %.not = icmp eq i8 %40, 0
   br i1 %.not, label %48, label %41
 
 41:                                               ; preds = %._crit_edge65
   %42 = load ptr, ptr @stderr, align 8, !tbaa !16
-  %43 = call i64 @clock() #7
+  %43 = call i64 @clock() #8
   %44 = sub nsw i64 %43, %7
   %45 = sitofp i64 %44 to double
   %46 = fdiv double %45, 1.000000e+06
-  %47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.5, double noundef %46) #9
+  %47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.5, double noundef %46) #10
   br label %48
 
 48:                                               ; preds = %41, %._crit_edge65
-  %49 = call i64 @clock() #7
+  %49 = call i64 @clock() #8
   %50 = load ptr, ptr %2, align 8, !tbaa !31
   call void @improve_antibandwidth_by_swapping(ptr noundef %8, ptr noundef %50)
   %51 = load i8, ptr @Verbose, align 1, !tbaa !15
@@ -558,17 +558,17 @@ define dso_local void @country_graph_coloring(i32 noundef %0, ptr noundef %1, pt
 
 52:                                               ; preds = %48
   %53 = load ptr, ptr @stderr, align 8, !tbaa !16
-  %54 = call i64 @clock() #7
+  %54 = call i64 @clock() #8
   %55 = sub nsw i64 %54, %49
   %56 = sitofp i64 %55 to double
   %57 = fdiv double %56, 1.000000e+06
-  %58 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.6, double noundef %57) #9
+  %58 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.6, double noundef %57) #10
   %59 = load ptr, ptr @stderr, align 8, !tbaa !16
-  %60 = call i64 @clock() #7
+  %60 = call i64 @clock() #8
   %61 = sub nsw i64 %60, %7
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+06
-  %64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.7, double noundef %63) #9
+  %64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.7, double noundef %63) #10
   br label %get_12_norm.exit
 
 get_12_norm.exit:                                 ; preds = %48, %52
@@ -576,11 +576,11 @@ get_12_norm.exit:                                 ; preds = %48, %52
   br i1 %.not54, label %66, label %65
 
 65:                                               ; preds = %get_12_norm.exit
-  call void @SparseMatrix_delete(ptr noundef %8) #7
+  call void @SparseMatrix_delete(ptr noundef %8) #8
   br label %66
 
 66:                                               ; preds = %65, %get_12_norm.exit
-  call void @SparseMatrix_delete(ptr noundef nonnull %36) #7
+  call void @SparseMatrix_delete(ptr noundef nonnull %36) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -601,27 +601,28 @@ declare ptr @power_method(ptr noundef, i32 noundef, i32 noundef) local_unnamed_a
 declare void @vector_ordering(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #3
+declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nofree nounwind }
-attributes #7 = { nounwind }
-attributes #8 = { cold }
-attributes #9 = { cold nounwind }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nofree nounwind }
+attributes #8 = { nounwind }
+attributes #9 = { cold }
+attributes #10 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

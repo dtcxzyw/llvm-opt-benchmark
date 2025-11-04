@@ -32,8 +32,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_JoystickSupported(ptr noundef %0) #0 {
-  %2 = tail call zeroext i16 @SDL_GetJoystickVendor_REAL(ptr noundef %0) #8
-  %3 = tail call zeroext i16 @SDL_GetJoystickProduct_REAL(ptr noundef %0) #8
+  %2 = tail call zeroext i16 @SDL_GetJoystickVendor_REAL(ptr noundef %0) #9
+  %3 = tail call zeroext i16 @SDL_GetJoystickProduct_REAL(ptr noundef %0) #9
   %.not = icmp eq i16 %2, 1133
   br i1 %.not, label %.preheader, label %.loopexit
 
@@ -60,8 +60,8 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_JoystickSupport
 define internal ptr @SDL_HIDAPI_HapticDriverLg4ff_Open(ptr noundef %0) #0 {
   %2 = alloca %struct.lg4ff_effect_parameters, align 4
   %3 = alloca [7 x i8], align 1
-  %4 = tail call zeroext i16 @SDL_GetJoystickVendor_REAL(ptr noundef %0) #8
-  %5 = tail call zeroext i16 @SDL_GetJoystickProduct_REAL(ptr noundef %0) #8
+  %4 = tail call zeroext i16 @SDL_GetJoystickVendor_REAL(ptr noundef %0) #9
+  %5 = tail call zeroext i16 @SDL_GetJoystickProduct_REAL(ptr noundef %0) #9
   %.not.i = icmp eq i16 %4, 1133
   br i1 %.not.i, label %.preheader.i, label %.loopexit53
 
@@ -82,16 +82,16 @@ define internal ptr @SDL_HIDAPI_HapticDriverLg4ff_Open(ptr noundef %0) #0 {
   br i1 %11, label %SDL_HIDAPI_HapticDriverLg4ff_JoystickSupported.exit, label %7
 
 .loopexit53:                                      ; preds = %7, %1
-  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str) #8
+  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str) #9
   br label %83
 
 SDL_HIDAPI_HapticDriverLg4ff_JoystickSupported.exit: ; preds = %8
-  %13 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 2960) #8
+  %13 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 2960) #9
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %SDL_HIDAPI_HapticDriverLg4ff_JoystickSupported.exit
-  %16 = tail call zeroext i1 @SDL_OutOfMemory_REAL() #8
+  %16 = tail call zeroext i1 @SDL_OutOfMemory_REAL() #9
   br label %83
 
 17:                                               ; preds = %SDL_HIDAPI_HapticDriverLg4ff_JoystickSupported.exit
@@ -105,7 +105,7 @@ SDL_HIDAPI_HapticDriverLg4ff_JoystickSupported.exit: ; preds = %8
   store i8 13, ptr %3, align 1
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %20, align 1
-  %21 = call zeroext i1 @SDL_SendJoystickEffect_REAL(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 7) #8
+  %21 = call zeroext i1 @SDL_SendJoystickEffect_REAL(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 7) #9
   br i1 %21, label %22, label %.loopexit
 
 22:                                               ; preds = %17
@@ -130,7 +130,7 @@ SDL_HIDAPI_HapticDriverLg4ff_JoystickSupported.exit: ; preds = %8
   store i32 %31, ptr %30, align 8
   call fastcc void @lg4ff_update_slot(ptr noundef nonnull %30, ptr noundef %2)
   %32 = load ptr, ptr %18, align 8
-  %33 = call zeroext i1 @SDL_SendJoystickEffect_REAL(ptr noundef %32, ptr noundef nonnull %3, i32 noundef 7) #8
+  %33 = call zeroext i1 @SDL_SendJoystickEffect_REAL(ptr noundef %32, ptr noundef nonnull %3, i32 noundef 7) #9
   br i1 %33, label %34, label %.loopexit
 
 34:                                               ; preds = %29
@@ -143,30 +143,30 @@ SDL_HIDAPI_HapticDriverLg4ff_JoystickSupported.exit: ; preds = %8
 .loopexit:                                        ; preds = %29, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %36 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #8
-  call void @SDL_free_REAL(ptr noundef nonnull %13) #8
+  %36 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #9
+  call void @SDL_free_REAL(ptr noundef nonnull %13) #9
   br label %83
 
 37:                                               ; preds = %34
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %38 = call ptr @SDL_CreateMutex_REAL() #8
+  %38 = call ptr @SDL_CreateMutex_REAL() #9
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 2944
   store ptr %38, ptr %39, align 8
   %40 = icmp eq ptr %38, null
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %37
-  call void @SDL_free_REAL(ptr noundef nonnull %13) #8
+  call void @SDL_free_REAL(ptr noundef nonnull %13) #9
   br label %83
 
 42:                                               ; preds = %37
-  %43 = call ptr @SDL_getenv_REAL(ptr noundef nonnull @.str.2) #8
+  %43 = call ptr @SDL_getenv_REAL(ptr noundef nonnull @.str.2) #9
   %44 = icmp eq ptr %43, null
   br i1 %44, label %SDL_HIDAPI_HapticDriverLg4ff_GetEnvInt.exit, label %45
 
 45:                                               ; preds = %42
-  %46 = call i32 @SDL_atoi_REAL(ptr noundef nonnull %43) #8
+  %46 = call i32 @SDL_atoi_REAL(ptr noundef nonnull %43) #9
   %spec.select.i = call i32 @llvm.smax.i32(i32 %46, i32 0)
   %.1.i = call i32 @llvm.umin.i32(i32 %spec.select.i, i32 100)
   br label %SDL_HIDAPI_HapticDriverLg4ff_GetEnvInt.exit
@@ -175,12 +175,12 @@ SDL_HIDAPI_HapticDriverLg4ff_GetEnvInt.exit:      ; preds = %42, %45
   %.011.i = phi i32 [ %.1.i, %45 ], [ 30, %42 ]
   %47 = getelementptr inbounds nuw i8, ptr %13, i64 2644
   store i32 %.011.i, ptr %47, align 4
-  %48 = call ptr @SDL_getenv_REAL(ptr noundef nonnull @.str.3) #8
+  %48 = call ptr @SDL_getenv_REAL(ptr noundef nonnull @.str.3) #9
   %49 = icmp eq ptr %48, null
   br i1 %49, label %SDL_HIDAPI_HapticDriverLg4ff_GetEnvInt.exit41, label %50
 
 50:                                               ; preds = %SDL_HIDAPI_HapticDriverLg4ff_GetEnvInt.exit
-  %51 = call i32 @SDL_atoi_REAL(ptr noundef nonnull %48) #8
+  %51 = call i32 @SDL_atoi_REAL(ptr noundef nonnull %48) #9
   %spec.select.i38 = call i32 @llvm.smax.i32(i32 %51, i32 0)
   %.1.i39 = call i32 @llvm.umin.i32(i32 %spec.select.i38, i32 100)
   br label %SDL_HIDAPI_HapticDriverLg4ff_GetEnvInt.exit41
@@ -189,12 +189,12 @@ SDL_HIDAPI_HapticDriverLg4ff_GetEnvInt.exit41:    ; preds = %SDL_HIDAPI_HapticDr
   %.011.i40 = phi i32 [ %.1.i39, %50 ], [ 30, %SDL_HIDAPI_HapticDriverLg4ff_GetEnvInt.exit ]
   %52 = getelementptr inbounds nuw i8, ptr %13, i64 2648
   store i32 %.011.i40, ptr %52, align 8
-  %53 = call ptr @SDL_getenv_REAL(ptr noundef nonnull @.str.4) #8
+  %53 = call ptr @SDL_getenv_REAL(ptr noundef nonnull @.str.4) #9
   %54 = icmp eq ptr %53, null
   br i1 %54, label %SDL_HIDAPI_HapticDriverLg4ff_GetEnvInt.exit45, label %55
 
 55:                                               ; preds = %SDL_HIDAPI_HapticDriverLg4ff_GetEnvInt.exit41
-  %56 = call i32 @SDL_atoi_REAL(ptr noundef nonnull %53) #8
+  %56 = call i32 @SDL_atoi_REAL(ptr noundef nonnull %53) #9
   %spec.select.i42 = call i32 @llvm.smax.i32(i32 %56, i32 0)
   %.1.i43 = call i32 @llvm.umin.i32(i32 %spec.select.i42, i32 100)
   br label %SDL_HIDAPI_HapticDriverLg4ff_GetEnvInt.exit45
@@ -203,12 +203,12 @@ SDL_HIDAPI_HapticDriverLg4ff_GetEnvInt.exit45:    ; preds = %SDL_HIDAPI_HapticDr
   %.011.i44 = phi i32 [ %.1.i43, %55 ], [ 30, %SDL_HIDAPI_HapticDriverLg4ff_GetEnvInt.exit41 ]
   %57 = getelementptr inbounds nuw i8, ptr %13, i64 2652
   store i32 %.011.i44, ptr %57, align 4
-  %58 = call ptr @SDL_getenv_REAL(ptr noundef nonnull @.str.5) #8
+  %58 = call ptr @SDL_getenv_REAL(ptr noundef nonnull @.str.5) #9
   %59 = icmp eq ptr %58, null
   br i1 %59, label %SDL_HIDAPI_HapticDriverLg4ff_GetEnvInt.exit49, label %60
 
 60:                                               ; preds = %SDL_HIDAPI_HapticDriverLg4ff_GetEnvInt.exit45
-  %61 = call i32 @SDL_atoi_REAL(ptr noundef nonnull %58) #8
+  %61 = call i32 @SDL_atoi_REAL(ptr noundef nonnull %58) #9
   %spec.select.i46 = call i32 @llvm.smax.i32(i32 %61, i32 0)
   %.1.i47 = call i32 @llvm.umin.i32(i32 %spec.select.i46, i32 65535)
   br label %SDL_HIDAPI_HapticDriverLg4ff_GetEnvInt.exit49
@@ -219,19 +219,19 @@ SDL_HIDAPI_HapticDriverLg4ff_GetEnvInt.exit49:    ; preds = %SDL_HIDAPI_HapticDr
   store i32 %.011.i48, ptr %62, align 4
   %63 = getelementptr inbounds nuw i8, ptr %13, i64 2640
   store i32 65535, ptr %63, align 8
-  %64 = call zeroext i16 @SDL_GetJoystickProduct_REAL(ptr noundef %0) #8
+  %64 = call zeroext i16 @SDL_GetJoystickProduct_REAL(ptr noundef %0) #9
   store i16 %64, ptr %13, align 8
-  %65 = call zeroext i16 @SDL_GetJoystickProductVersion_REAL(ptr noundef %0) #8
+  %65 = call zeroext i16 @SDL_GetJoystickProductVersion_REAL(ptr noundef %0) #9
   %66 = getelementptr inbounds nuw i8, ptr %13, i64 2
   store i16 %65, ptr %66, align 2
   %67 = getelementptr inbounds nuw i8, ptr %13, i64 2688
-  %68 = call i32 @SDL_GetJoystickID_REAL(ptr noundef %0) #8
+  %68 = call i32 @SDL_GetJoystickID_REAL(ptr noundef %0) #9
   %69 = load i16, ptr %13, align 8
   %70 = zext i16 %69 to i32
-  %71 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %67, i64 noundef 256, ptr noundef nonnull @.str.6, i32 noundef %68, i32 noundef 1133, i32 noundef %70) #8
+  %71 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %67, i64 noundef 256, ptr noundef nonnull @.str.6, i32 noundef %68, i32 noundef 1133, i32 noundef %70) #9
   %72 = getelementptr inbounds nuw i8, ptr %13, i64 2672
   store i8 0, ptr %72, align 8
-  %73 = call ptr @SDL_CreateThreadRuntime_REAL(ptr noundef nonnull @SDL_HIDAPI_HapticDriverLg4ff_ThreadFunction, ptr noundef nonnull %67, ptr noundef nonnull %13, ptr noundef null, ptr noundef null) #8
+  %73 = call ptr @SDL_CreateThreadRuntime_REAL(ptr noundef nonnull @SDL_HIDAPI_HapticDriverLg4ff_ThreadFunction, ptr noundef nonnull %67, ptr noundef nonnull %13, ptr noundef null, ptr noundef null) #9
   %74 = getelementptr inbounds nuw i8, ptr %13, i64 2680
   store ptr %73, ptr %74, align 8
   %75 = load i16, ptr %13, align 8
@@ -264,7 +264,7 @@ define internal void @SDL_HIDAPI_HapticDriverLg4ff_Close(ptr noundef readonly ca
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2944
   %5 = load ptr, ptr %4, align 8
-  tail call void @SDL_LockMutex_REAL(ptr noundef %5) #8
+  tail call void @SDL_LockMutex_REAL(ptr noundef %5) #9
   br label %6
 
 6:                                                ; preds = %6, %1
@@ -278,15 +278,15 @@ define internal void @SDL_HIDAPI_HapticDriverLg4ff_Close(ptr noundef readonly ca
 
 SDL_HIDAPI_HapticDriverLg4ff_StopEffects.exit:    ; preds = %6
   %9 = load ptr, ptr %4, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %9) #8
-  tail call void @SDL_Delay_REAL(i32 noundef 50) #8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %9) #9
+  tail call void @SDL_Delay_REAL(i32 noundef 50) #9
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 2672
   store i8 1, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 2680
   %12 = load ptr, ptr %11, align 8
-  tail call void @SDL_WaitThread_REAL(ptr noundef %12, ptr noundef null) #8
+  tail call void @SDL_WaitThread_REAL(ptr noundef %12, ptr noundef null) #9
   %13 = load ptr, ptr %4, align 8
-  tail call void @SDL_DestroyMutex_REAL(ptr noundef %13) #8
+  tail call void @SDL_DestroyMutex_REAL(ptr noundef %13) #9
   ret void
 }
 
@@ -315,13 +315,13 @@ define internal range(i32 -1, 16) i32 @SDL_HIDAPI_HapticDriverLg4ff_CreateEffect
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.7) #8
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.7) #9
   br label %48
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 2944
   %10 = load ptr, ptr %9, align 8
-  tail call void @SDL_LockMutex_REAL(ptr noundef %10) #8
+  tail call void @SDL_LockMutex_REAL(ptr noundef %10) #9
   br label %11
 
 11:                                               ; preds = %8, %16
@@ -339,13 +339,13 @@ define internal range(i32 -1, 16) i32 @SDL_HIDAPI_HapticDriverLg4ff_CreateEffect
 
 17:                                               ; preds = %16
   %18 = load ptr, ptr %9, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %18) #8
-  %19 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %18) #9
+  %19 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #9
   br label %48
 
 20:                                               ; preds = %11
   %21 = trunc nuw nsw i64 %indvars.iv to i32
-  %22 = tail call i64 @SDL_GetTicks_REAL() #8
+  %22 = tail call i64 @SDL_GetTicks_REAL() #9
   %.val.i = load i16, ptr %1, align 8
   %23 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %.val.i)
   %24 = icmp eq i16 %23, 1
@@ -392,7 +392,7 @@ effect_is_periodic.exit.i:                        ; preds = %26, %.split.i.i, %2
 
 41:                                               ; preds = %38, %.thread.i
   %42 = load ptr, ptr %9, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %42) #8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %42) #9
   %43 = getelementptr %struct.lg4ff_effect_state, ptr %4, i64 %31
   %44 = getelementptr i8, ptr %43, i64 156
   store i8 1, ptr %44, align 4
@@ -400,8 +400,8 @@ effect_is_periodic.exit.i:                        ; preds = %26, %.split.i.i, %2
 
 45:                                               ; preds = %36, %26
   %46 = load ptr, ptr %9, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %46) #8
-  %47 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.9) #8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %46) #9
+  %47 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.9) #9
   br label %48
 
 48:                                               ; preds = %45, %41, %17, %6
@@ -415,7 +415,7 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_UpdateEffect(pt
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2944
   %7 = load ptr, ptr %6, align 8
-  tail call void @SDL_LockMutex_REAL(ptr noundef %7) #8
+  tail call void @SDL_LockMutex_REAL(ptr noundef %7) #9
   %or.cond.i = icmp ugt i32 %1, 15
   br i1 %or.cond.i, label %lg4ff_effect_slot_valid_active.exit.thread, label %lg4ff_effect_slot_valid_active.exit
 
@@ -429,12 +429,12 @@ lg4ff_effect_slot_valid_active.exit:              ; preds = %3
 
 lg4ff_effect_slot_valid_active.exit.thread:       ; preds = %3, %lg4ff_effect_slot_valid_active.exit
   %13 = load ptr, ptr %6, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %13) #8
-  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.10) #8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %13) #9
+  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.10) #9
   br label %36
 
 15:                                               ; preds = %lg4ff_effect_slot_valid_active.exit
-  %16 = tail call i64 @SDL_GetTicks_REAL() #8
+  %16 = tail call i64 @SDL_GetTicks_REAL() #9
   %.val.i = load i16, ptr %2, align 8
   %17 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %.val.i)
   %18 = icmp eq i16 %17, 1
@@ -481,7 +481,7 @@ effect_is_periodic.exit.i:                        ; preds = %20, %.split.i.i, %1
 lg4ff_upload_effect.exit:                         ; preds = %20, %.thread.i, %29, %31
   %34 = phi i1 [ false, %20 ], [ false, %29 ], [ true, %31 ], [ true, %.thread.i ]
   %35 = load ptr, ptr %6, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %35) #8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %35) #9
   br label %36
 
 36:                                               ; preds = %lg4ff_upload_effect.exit, %lg4ff_effect_slot_valid_active.exit.thread
@@ -495,7 +495,7 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_RunEffect(ptr n
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2944
   %7 = load ptr, ptr %6, align 8
-  tail call void @SDL_LockMutex_REAL(ptr noundef %7) #8
+  tail call void @SDL_LockMutex_REAL(ptr noundef %7) #9
   %or.cond.i = icmp ugt i32 %1, 15
   br i1 %or.cond.i, label %lg4ff_effect_slot_valid_active.exit.thread, label %lg4ff_effect_slot_valid_active.exit
 
@@ -509,12 +509,12 @@ lg4ff_effect_slot_valid_active.exit:              ; preds = %3
 
 lg4ff_effect_slot_valid_active.exit.thread:       ; preds = %3, %lg4ff_effect_slot_valid_active.exit
   %13 = load ptr, ptr %6, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %13) #8
-  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.10) #8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %13) #9
+  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.10) #9
   br label %39
 
 15:                                               ; preds = %lg4ff_effect_slot_valid_active.exit
-  %16 = tail call i64 @SDL_GetTicks_REAL() #8
+  %16 = tail call i64 @SDL_GetTicks_REAL() #9
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = getelementptr inbounds nuw %struct.lg4ff_effect_state, ptr %17, i64 %8
   %19 = icmp sgt i32 %2, 0
@@ -557,7 +557,7 @@ lg4ff_effect_slot_valid_active.exit.thread:       ; preds = %3, %lg4ff_effect_sl
 
 lg4ff_play_effect.exit:                           ; preds = %29, %33, %34
   %38 = load ptr, ptr %6, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %38) #8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %38) #9
   br label %39
 
 39:                                               ; preds = %lg4ff_play_effect.exit, %lg4ff_effect_slot_valid_active.exit.thread
@@ -571,7 +571,7 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_StopEffect(ptr 
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2944
   %6 = load ptr, ptr %5, align 8
-  tail call void @SDL_LockMutex_REAL(ptr noundef %6) #8
+  tail call void @SDL_LockMutex_REAL(ptr noundef %6) #9
   %or.cond.i.i = icmp ugt i32 %1, 15
   br i1 %or.cond.i.i, label %lg4ff_effect_slot_valid_active.exit.thread.i, label %lg4ff_effect_slot_valid_active.exit.i
 
@@ -585,12 +585,12 @@ lg4ff_effect_slot_valid_active.exit.i:            ; preds = %2
 
 lg4ff_effect_slot_valid_active.exit.thread.i:     ; preds = %lg4ff_effect_slot_valid_active.exit.i, %2
   %12 = load ptr, ptr %5, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %12) #8
-  %13 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.10) #8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %12) #9
+  %13 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.10) #9
   br label %SDL_HIDAPI_HapticDriverLg4ff_RunEffect.exit
 
 14:                                               ; preds = %lg4ff_effect_slot_valid_active.exit.i
-  %15 = tail call i64 @SDL_GetTicks_REAL() #8
+  %15 = tail call i64 @SDL_GetTicks_REAL() #9
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 1
@@ -607,7 +607,7 @@ lg4ff_effect_slot_valid_active.exit.thread.i:     ; preds = %lg4ff_effect_slot_v
 
 lg4ff_play_effect.exit.i:                         ; preds = %19, %14
   %23 = load ptr, ptr %5, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %23) #8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %23) #9
   br label %SDL_HIDAPI_HapticDriverLg4ff_RunEffect.exit
 
 SDL_HIDAPI_HapticDriverLg4ff_RunEffect.exit:      ; preds = %lg4ff_effect_slot_valid_active.exit.thread.i, %lg4ff_play_effect.exit.i
@@ -621,7 +621,7 @@ define internal void @SDL_HIDAPI_HapticDriverLg4ff_DestroyEffect(ptr noundef rea
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2944
   %6 = load ptr, ptr %5, align 8
-  tail call void @SDL_LockMutex_REAL(ptr noundef %6) #8
+  tail call void @SDL_LockMutex_REAL(ptr noundef %6) #9
   %or.cond.i = icmp ugt i32 %1, 15
   br i1 %or.cond.i, label %lg4ff_effect_slot_valid_active.exit.thread, label %lg4ff_effect_slot_valid_active.exit
 
@@ -644,7 +644,7 @@ lg4ff_effect_slot_valid_active.exit:              ; preds = %2
 
 lg4ff_effect_slot_valid_active.exit.thread:       ; preds = %lg4ff_effect_slot_valid_active.exit, %2, %12
   %17 = load ptr, ptr %5, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %17) #8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %17) #9
   ret void
 }
 
@@ -654,7 +654,7 @@ define internal zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_GetEffectStatus(ptr nou
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2944
   %6 = load ptr, ptr %5, align 8
-  tail call void @SDL_LockMutex_REAL(ptr noundef %6) #8
+  tail call void @SDL_LockMutex_REAL(ptr noundef %6) #9
   %or.cond.i = icmp ugt i32 %1, 15
   br i1 %or.cond.i, label %lg4ff_effect_slot_valid_active.exit.thread, label %lg4ff_effect_slot_valid_active.exit
 
@@ -676,7 +676,7 @@ lg4ff_effect_slot_valid_active.exit:              ; preds = %2
 lg4ff_effect_slot_valid_active.exit.thread:       ; preds = %lg4ff_effect_slot_valid_active.exit, %2, %12
   %.09 = phi i1 [ %.not, %12 ], [ false, %2 ], [ false, %lg4ff_effect_slot_valid_active.exit ]
   %16 = load ptr, ptr %5, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %16) #8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %16) #9
   ret i1 %.09
 }
 
@@ -704,7 +704,7 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_SetAutocenter(p
   %spec.store.select2 = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 100)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2944
   %7 = load ptr, ptr %6, align 8
-  tail call void @SDL_LockMutex_REAL(ptr noundef %7) #8
+  tail call void @SDL_LockMutex_REAL(ptr noundef %7) #9
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 2952
   %9 = load i8, ptr %8, align 8, !range !7, !noundef !8
   %10 = trunc nuw i8 %9 to i1
@@ -726,13 +726,13 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_SetAutocenter(p
   store i8 %17, ptr %18, align 1
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 2664
   %20 = load ptr, ptr %19, align 8
-  %21 = call zeroext i1 @SDL_SendJoystickEffect_REAL(ptr noundef %20, ptr noundef nonnull %3, i32 noundef 7) #8
+  %21 = call zeroext i1 @SDL_SendJoystickEffect_REAL(ptr noundef %20, ptr noundef nonnull %3, i32 noundef 7) #9
   br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %11
   %23 = load ptr, ptr %6, align 8
-  call void @SDL_UnlockMutex_REAL(ptr noundef %23) #8
-  %24 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #8
+  call void @SDL_UnlockMutex_REAL(ptr noundef %23) #9
+  %24 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #9
   br label %.thread
 
 25:                                               ; preds = %2
@@ -741,13 +741,13 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_SetAutocenter(p
   store i8 -11, ptr %3, align 1
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 2664
   %29 = load ptr, ptr %28, align 8
-  %30 = call zeroext i1 @SDL_SendJoystickEffect_REAL(ptr noundef %29, ptr noundef nonnull %3, i32 noundef 7) #8
+  %30 = call zeroext i1 @SDL_SendJoystickEffect_REAL(ptr noundef %29, ptr noundef nonnull %3, i32 noundef 7) #9
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %25
   %32 = load ptr, ptr %6, align 8
-  call void @SDL_UnlockMutex_REAL(ptr noundef %32) #8
-  %33 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.12) #8
+  call void @SDL_UnlockMutex_REAL(ptr noundef %32) #9
+  %33 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.12) #9
   br label %.thread
 
 34:                                               ; preds = %25
@@ -756,7 +756,7 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_SetAutocenter(p
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %6, align 8
-  call void @SDL_UnlockMutex_REAL(ptr noundef %37) #8
+  call void @SDL_UnlockMutex_REAL(ptr noundef %37) #9
   br label %.thread
 
 38:                                               ; preds = %34
@@ -795,13 +795,13 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_SetAutocenter(p
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 %57, ptr %58, align 1
   %59 = load ptr, ptr %28, align 8
-  %60 = call zeroext i1 @SDL_SendJoystickEffect_REAL(ptr noundef %59, ptr noundef nonnull %3, i32 noundef 7) #8
+  %60 = call zeroext i1 @SDL_SendJoystickEffect_REAL(ptr noundef %59, ptr noundef nonnull %3, i32 noundef 7) #9
   br i1 %60, label %64, label %61
 
 61:                                               ; preds = %49
   %62 = load ptr, ptr %6, align 8
-  call void @SDL_UnlockMutex_REAL(ptr noundef %62) #8
-  %63 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.13) #8
+  call void @SDL_UnlockMutex_REAL(ptr noundef %62) #9
+  %63 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.13) #9
   br label %.thread
 
 64:                                               ; preds = %49
@@ -809,18 +809,18 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_SetAutocenter(p
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %65, i8 0, i64 6, i1 false)
   store i8 20, ptr %3, align 1
   %66 = load ptr, ptr %28, align 8
-  %67 = call zeroext i1 @SDL_SendJoystickEffect_REAL(ptr noundef %66, ptr noundef nonnull %3, i32 noundef 7) #8
+  %67 = call zeroext i1 @SDL_SendJoystickEffect_REAL(ptr noundef %66, ptr noundef nonnull %3, i32 noundef 7) #9
   br i1 %67, label %.critedge, label %68
 
 68:                                               ; preds = %64
   %69 = load ptr, ptr %6, align 8
-  call void @SDL_UnlockMutex_REAL(ptr noundef %69) #8
-  %70 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.14) #8
+  call void @SDL_UnlockMutex_REAL(ptr noundef %69) #9
+  %70 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.14) #9
   br label %.thread
 
 .critedge:                                        ; preds = %64, %11
   %71 = load ptr, ptr %6, align 8
-  call void @SDL_UnlockMutex_REAL(ptr noundef %71) #8
+  call void @SDL_UnlockMutex_REAL(ptr noundef %71) #9
   br label %.thread
 
 .thread:                                          ; preds = %31, %61, %68, %36, %22, %.critedge
@@ -831,13 +831,13 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_SetAutocenter(p
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_Pause(ptr readnone captures(none) %0) #0 {
-  %2 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.15) #8
+  %2 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.15) #9
   ret i1 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_Resume(ptr readnone captures(none) %0) #0 {
-  %2 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.15) #8
+  %2 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.15) #9
   ret i1 %2
 }
 
@@ -847,7 +847,7 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_StopEffects(ptr
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2944
   %5 = load ptr, ptr %4, align 8
-  tail call void @SDL_LockMutex_REAL(ptr noundef %5) #8
+  tail call void @SDL_LockMutex_REAL(ptr noundef %5) #9
   br label %6
 
 6:                                                ; preds = %1, %6
@@ -861,7 +861,7 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_StopEffects(ptr
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %4, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %10) #8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %10) #9
   ret i1 true
 }
 
@@ -928,9 +928,9 @@ define internal noundef i32 @SDL_HIDAPI_HapticDriverLg4ff_ThreadFunction(ptr nou
 
 28:                                               ; preds = %.lr.ph, %lg4ff_timer.exit
   %29 = load ptr, ptr %6, align 8
-  tail call void @SDL_LockMutex_REAL(ptr noundef %29) #8
+  tail call void @SDL_LockMutex_REAL(ptr noundef %29) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %30 = tail call i64 @SDL_GetTicks_REAL() #8
+  %30 = tail call i64 @SDL_GetTicks_REAL() #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %2, i8 0, i64 96, i1 false)
   %31 = load i32, ptr %7, align 4
   %32 = load i32, ptr %8, align 8
@@ -1090,7 +1090,7 @@ get_effect_replay_length.exit.thread.i..split.i.i.i.i_crit_edge: ; preds = %get_
 98:                                               ; preds = %95
   %99 = sitofp i32 %90 to double
   %100 = sitofp i32 %91 to double
-  %101 = tail call double @SDL_atan2_REAL(double noundef %99, double noundef %100) #8
+  %101 = tail call double @SDL_atan2_REAL(double noundef %99, double noundef %100) #9
   %102 = fptrunc double %101 to float
   %103 = fpext float %102 to double
   %104 = fmul double %103, 1.800000e+04
@@ -1169,7 +1169,7 @@ effect_is_periodic.exit.split.i.i.i:              ; preds = %.split.i.i.i.i
 142:                                              ; preds = %139
   %143 = sitofp i32 %134 to double
   %144 = sitofp i32 %135 to double
-  %145 = tail call double @SDL_atan2_REAL(double noundef %143, double noundef %144) #8
+  %145 = tail call double @SDL_atan2_REAL(double noundef %143, double noundef %144) #9
   %146 = fptrunc double %145 to float
   %147 = fpext float %146 to double
   %148 = fmul double %147, 1.800000e+04
@@ -1239,7 +1239,7 @@ effect_is_periodic.exit.split.i.i.i:              ; preds = %.split.i.i.i.i
 186:                                              ; preds = %183
   %187 = sitofp i32 %178 to double
   %188 = sitofp i32 %179 to double
-  %189 = tail call double @SDL_atan2_REAL(double noundef %187, double noundef %188) #8
+  %189 = tail call double @SDL_atan2_REAL(double noundef %187, double noundef %188) #9
   %190 = fptrunc double %189 to float
   %191 = fpext float %190 to double
   %192 = fmul double %191, 1.800000e+04
@@ -1309,7 +1309,7 @@ effect_is_periodic.exit.split.i.i.i:              ; preds = %.split.i.i.i.i
 230:                                              ; preds = %227
   %231 = sitofp i32 %222 to double
   %232 = sitofp i32 %223 to double
-  %233 = tail call double @SDL_atan2_REAL(double noundef %231, double noundef %232) #8
+  %233 = tail call double @SDL_atan2_REAL(double noundef %231, double noundef %232) #9
   %234 = fptrunc double %233 to float
   %235 = fpext float %234 to double
   %236 = fmul double %235, 1.800000e+04
@@ -1382,7 +1382,7 @@ get_effect_replay_delay.exit.i.i:                 ; preds = %effect_is_periodic.
   %265 = uitofp nneg i32 %264 to double
   %266 = fmul double %265, 0x400921FB54442D18
   %267 = fdiv double %266, 1.800000e+02
-  %268 = tail call double @SDL_sin_REAL(double noundef %267) #8
+  %268 = tail call double @SDL_sin_REAL(double noundef %267) #9
   %269 = getelementptr inbounds nuw i8, ptr %46, i64 136
   store double %268, ptr %269, align 8
   %.val.i76.i = load i16, ptr %46, align 8
@@ -1509,7 +1509,7 @@ get_effect_replay_delay.exit112.i.i:              ; preds = %effect_is_periodic.
   %310 = uitofp nneg i32 %309 to double
   %311 = fmul double %310, 0x400921FB54442D18
   %312 = fdiv double %311, 1.800000e+02
-  %313 = tail call double @SDL_sin_REAL(double noundef %312) #8
+  %313 = tail call double @SDL_sin_REAL(double noundef %312) #9
   %314 = getelementptr inbounds nuw i8, ptr %46, i64 136
   store double %313, ptr %314, align 8
   %.val.i113.i.i = load i16, ptr %46, align 8
@@ -1803,7 +1803,7 @@ get_effect_replay_length.exit.i.i:                ; preds = %425
   %453 = uitofp i32 %452 to double
   %454 = fmul double %453, 0x400921FB54442D18
   %455 = fdiv double %454, 1.800000e+02
-  %456 = tail call double @SDL_sin_REAL(double noundef %455) #8
+  %456 = tail call double @SDL_sin_REAL(double noundef %455) #9
   %457 = sitofp i32 %.0.i84.i to double
   %458 = fmul double %456, %457
   %459 = fptosi double %458 to i32
@@ -2194,7 +2194,7 @@ lg4ff_update_state.exit.i:                        ; preds = %651, %641, %622, %l
 727:                                              ; preds = %721
   %728 = load ptr, ptr %27, align 8
   %729 = getelementptr inbounds nuw i8, ptr %722, i64 28
-  %730 = tail call zeroext i1 @SDL_SendJoystickEffect_REAL(ptr noundef %728, ptr noundef nonnull %729, i32 noundef 7) #8
+  %730 = tail call zeroext i1 @SDL_SendJoystickEffect_REAL(ptr noundef %728, ptr noundef nonnull %729, i32 noundef 7) #9
   store i8 0, ptr %724, align 4
   br label %731
 
@@ -2206,8 +2206,8 @@ lg4ff_update_state.exit.i:                        ; preds = %651, %641, %622, %l
 lg4ff_timer.exit:                                 ; preds = %731
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %732 = load ptr, ptr %6, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %732) #8
-  tail call void @SDL_Delay_REAL(i32 noundef 2) #8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %732) #9
+  tail call void @SDL_Delay_REAL(i32 noundef 2) #9
   %733 = load i8, ptr %3, align 8, !range !7, !noundef !8
   %734 = trunc nuw i8 %733 to i1
   br i1 %734, label %._crit_edge, label %28
@@ -2460,7 +2460,7 @@ define internal fastcc void @lg4ff_update_slot(ptr noundef %0, ptr noundef nonnu
   br label %176
 
 176:                                              ; preds = %30, %49, %54, %112, %143, %37
-  %177 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 7) #8
+  %177 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 7) #9
   %.not = icmp eq i32 %177, 0
   br i1 %.not, label %180, label %178
 
@@ -2505,29 +2505,29 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #7
+declare i32 @llvm.abs.i32(i32, i1 immarg) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.ctpop.i16(i16) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.cttz.i16(i16, i1 immarg) #7
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #7
+declare i64 @llvm.abs.i64(i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2536,8 +2536,9 @@ attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

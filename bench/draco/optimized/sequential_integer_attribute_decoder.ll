@@ -650,7 +650,7 @@ _ZNSt10unique_ptrIN5draco37PredictionSchemeTypedDecoderInterfaceIiiEESt14default
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(8) %29) #20
+  call void %32(ptr noundef nonnull align 8 dereferenceable(8) %29) #21
   %.pr = load ptr, ptr %4, align 8, !tbaa !50
   %.not.i = icmp eq ptr %.pr, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5draco37PredictionSchemeTypedDecoderInterfaceIiiEESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5draco37PredictionSchemeTypedDecoderInterfaceIiiEEEclEPS2_.exit.i
@@ -659,7 +659,7 @@ _ZNKSt14default_deleteIN5draco37PredictionSchemeTypedDecoderInterfaceIiiEEEclEPS
   %33 = load ptr, ptr %.pr, align 8, !tbaa !3
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #20
+  call void %35(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #21
   br label %_ZNSt10unique_ptrIN5draco37PredictionSchemeTypedDecoderInterfaceIiiEESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5draco37PredictionSchemeTypedDecoderInterfaceIiiEESt14default_deleteIS2_EED2Ev.exit: ; preds = %.critedge, %_ZNSt10unique_ptrIN5draco37PredictionSchemeTypedDecoderInterfaceIiiEESt14default_deleteIS2_EEaSEOS5_.exit, %_ZNKSt14default_deleteIN5draco37PredictionSchemeTypedDecoderInterfaceIiiEEEclEPS2_.exit.i
@@ -755,7 +755,7 @@ define void @_ZN5draco33SequentialIntegerAttributeDecoder25CreateIntPredictionSc
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %15 to i64
   %21 = sub i64 %19, %20
-  call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef %21) #21
+  call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef %21) #22
   br label %_ZNSt10unique_ptrIN5draco23PredictionSchemeDecoderIiNS0_37PredictionSchemeWrapDecodingTransformIiiEEEESt14default_deleteIS4_EED2Ev.exit
 
 22:                                               ; preds = %8
@@ -772,7 +772,7 @@ define void @_ZN5draco33SequentialIntegerAttributeDecoder25CreateIntPredictionSc
   %29 = ptrtoint ptr %28 to i64
   %30 = ptrtoint ptr %25 to i64
   %31 = sub i64 %29, %30
-  call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %31) #21
+  call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %31) #22
   br label %_ZN5draco33PredictionSchemeWrapTransformBaseIiED2Ev.exit5.i
 
 _ZN5draco33PredictionSchemeWrapTransformBaseIiED2Ev.exit5.i: ; preds = %26, %22
@@ -1003,7 +1003,7 @@ define void @_ZN5draco33SequentialIntegerAttributeDecoder24PreparePortableAttrib
   %13 = sext i32 %12 to i64
   call void @_ZN5draco17GeometryAttribute4InitENS0_4TypeEPNS_10DataBufferEhNS_8DataTypeEbll(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %9, ptr noundef null, i8 noundef zeroext %10, i32 noundef 5, i1 noundef zeroext false, i64 noundef %13, i64 noundef 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %14 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #22
+  %14 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #23
   invoke void @_ZN5draco14PointAttributeC1ERKNS_17GeometryAttributeE(ptr noundef nonnull align 8 dereferenceable(112) %14, ptr noundef nonnull align 8 dereferenceable(64) %4)
           to label %15 unwind label %32
 
@@ -1058,7 +1058,7 @@ _ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit8: ; 
 32:                                               ; preds = %3
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef 112) #21
+  call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef 112) #22
   br label %35
 
 _ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit10: ; preds = %_ZN5draco14PointAttribute18SetIdentityMappingEv.exit
@@ -1099,7 +1099,7 @@ define noundef zeroext i1 @_ZN5draco33SequentialIntegerAttributeDecoder11StoreVa
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %9 = load i8, ptr %8, align 8, !tbaa !101
   %10 = zext i8 %9 to i64
-  %11 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %10) #22
+  %11 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %10) #23
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !59
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
@@ -1172,7 +1172,7 @@ _ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i:
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %42 = load i8, ptr %41, align 8, !tbaa !101
   %43 = zext i8 %42 to i64
-  %44 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %43) #22
+  %44 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %43) #23
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = load ptr, ptr %45, align 8, !tbaa !59
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 96
@@ -1246,7 +1246,7 @@ _ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i7
   %75 = load i8, ptr %74, align 8, !tbaa !101
   %76 = zext i8 %75 to i64
   %77 = shl nuw nsw i64 %76, 1
-  %78 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %77) #22
+  %78 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %77) #23
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %80 = load ptr, ptr %79, align 8, !tbaa !59
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 96
@@ -1320,7 +1320,7 @@ _ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i3
   %109 = load i8, ptr %108, align 8, !tbaa !101
   %110 = zext i8 %109 to i64
   %111 = shl nuw nsw i64 %110, 1
-  %112 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %111) #22
+  %112 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %111) #23
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %114 = load ptr, ptr %113, align 8, !tbaa !59
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 96
@@ -1394,7 +1394,7 @@ _ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i4
   %143 = load i8, ptr %142, align 8, !tbaa !101
   %144 = zext i8 %143 to i64
   %145 = shl nuw nsw i64 %144, 2
-  %146 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %145) #22
+  %146 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %145) #23
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %148 = load ptr, ptr %147, align 8, !tbaa !59
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 96
@@ -1467,7 +1467,7 @@ _ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i6
   %176 = load i8, ptr %175, align 8, !tbaa !101
   %177 = zext i8 %176 to i64
   %178 = shl nuw nsw i64 %177, 2
-  %179 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %178) #22
+  %179 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %178) #23
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %181 = load ptr, ptr %180, align 8, !tbaa !59
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 96
@@ -1537,7 +1537,7 @@ _ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i9
 
 .sink.split:                                      ; preds = %._crit_edge.us.i107, %.preheader.i110, %._crit_edge.us.i84, %.preheader.i87, %._crit_edge.us.i61, %.preheader.i64, %._crit_edge.us.i41, %.preheader.i42, %._crit_edge.us.i24, %.preheader.i27, %._crit_edge.us.i, %.preheader.i, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i90, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i67, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i44, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i30, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i7, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i
   %.sink = phi ptr [ %11, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i ], [ %44, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i7 ], [ %78, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i30 ], [ %112, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i44 ], [ %146, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i67 ], [ %179, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i90 ], [ %11, %.preheader.i ], [ %11, %._crit_edge.us.i ], [ %44, %.preheader.i27 ], [ %44, %._crit_edge.us.i24 ], [ %78, %.preheader.i42 ], [ %78, %._crit_edge.us.i41 ], [ %112, %.preheader.i64 ], [ %112, %._crit_edge.us.i61 ], [ %146, %.preheader.i87 ], [ %146, %._crit_edge.us.i84 ], [ %179, %.preheader.i110 ], [ %179, %._crit_edge.us.i107 ]
-  tail call void @_ZdaPv(ptr noundef nonnull %.sink) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %.sink) #22
   br label %207
 
 207:                                              ; preds = %.sink.split, %2
@@ -1573,7 +1573,7 @@ _ZNKSt14default_deleteIN5draco37PredictionSchemeTypedDecoderInterfaceIiiEEEclEPS
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #21
   br label %_ZNSt10unique_ptrIN5draco37PredictionSchemeTypedDecoderInterfaceIiiEESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5draco37PredictionSchemeTypedDecoderInterfaceIiiEESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5draco37PredictionSchemeTypedDecoderInterfaceIiiEEEclEPS2_.exit.i
@@ -1605,7 +1605,7 @@ _ZNKSt14default_deleteIN5draco37PredictionSchemeTypedDecoderInterfaceIiiEEEclEPS
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #21
   br label %_ZNSt10unique_ptrIN5draco37PredictionSchemeTypedDecoderInterfaceIiiEESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5draco37PredictionSchemeTypedDecoderInterfaceIiiEESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco37PredictionSchemeTypedDecoderInterfaceIiiEEEclEPS2_.exit.i.i, %1
@@ -1621,7 +1621,7 @@ _ZNSt10unique_ptrIN5draco37PredictionSchemeTypedDecoderInterfaceIiiEESt14default
   br label %_ZN5draco33SequentialIntegerAttributeDecoderD2Ev.exit
 
 _ZN5draco33SequentialIntegerAttributeDecoderD2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5draco37PredictionSchemeTypedDecoderInterfaceIiiEESt14default_deleteIS2_EED2Ev.exit.i, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #22
   ret void
 }
 
@@ -1672,11 +1672,11 @@ define linkonce_odr void @_ZNKSt14default_deleteIN5draco14PointAttributeEEclEPS1
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
   %15 = sub i64 %13, %14
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %15) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %15) #22
   br label %_ZNKSt14default_deleteIN5draco22AttributeTransformDataEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN5draco22AttributeTransformDataEEclEPS1_.exit.i.i: ; preds = %10, %7
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 48) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 48) #22
   br label %_ZNSt10unique_ptrIN5draco22AttributeTransformDataESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5draco22AttributeTransformDataESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco22AttributeTransformDataEEclEPS1_.exit.i.i, %4
@@ -1692,7 +1692,7 @@ _ZNSt10unique_ptrIN5draco22AttributeTransformDataESt14default_deleteIS1_EED2Ev.e
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
-  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %23) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %23) #22
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEENS1_IjNS_29AttributeValueIndex_tag_type_EEEED2Ev.exit.i
 
 _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEENS1_IjNS_29AttributeValueIndex_tag_type_EEEED2Ev.exit.i: ; preds = %18, %_ZNSt10unique_ptrIN5draco22AttributeTransformDataESt14default_deleteIS1_EED2Ev.exit.i
@@ -1712,15 +1712,15 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEENS1_IjNS_2
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %27 to i64
   %33 = sub i64 %31, %32
-  tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef %33) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef %33) #22
   br label %_ZNKSt14default_deleteIN5draco10DataBufferEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN5draco10DataBufferEEclEPS1_.exit.i.i: ; preds = %28, %26
-  tail call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef 40) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef 40) #22
   br label %_ZN5draco14PointAttributeD2Ev.exit
 
 _ZN5draco14PointAttributeD2Ev.exit:               ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEENS1_IjNS_29AttributeValueIndex_tag_type_EEEED2Ev.exit.i, %_ZNKSt14default_deleteIN5draco10DataBufferEEclEPS1_.exit.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 112) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 112) #22
   br label %34
 
 34:                                               ; preds = %_ZN5draco14PointAttributeD2Ev.exit, %2
@@ -1762,7 +1762,7 @@ define linkonce_odr void @_ZN5draco32CreatePredictionSchemeForDecoderIiNS_37Pred
   br i1 %.not, label %_ZNSt10unique_ptrIN5draco23PredictionSchemeDecoderIiNS0_37PredictionSchemeWrapDecodingTransformIiiEEEESt14default_deleteIS4_EED2Ev.exit, label %.critedge
 
 _ZNSt10unique_ptrIN5draco23PredictionSchemeDecoderIiNS0_37PredictionSchemeWrapDecodingTransformIiiEEEESt14default_deleteIS4_EED2Ev.exit: ; preds = %20, %7
-  %30 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #22
+  %30 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #23
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %30, align 8, !tbaa !3
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %14, ptr %31, align 8, !tbaa !125
@@ -1793,14 +1793,14 @@ _ZNSt10unique_ptrIN5draco23PredictionSchemeDecoderIiNS0_37PredictionSchemeWrapDe
   br i1 %45, label %.noexc.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i, !prof !133
 
 .noexc.i.i.i.i.i.i:                               ; preds = %44
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
           to label %.noexc unwind label %54
 
 .noexc:                                           ; preds = %.noexc.i.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i: ; preds = %44
-  %46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #22
+  %46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #23
           to label %47 unwind label %54
 
 47:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i
@@ -1823,7 +1823,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i: ; preds = %4
 54:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i
   %55 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef 64) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef 64) #22
   resume { ptr, i32 } %55
 
 .critedge.sink.split:                             ; preds = %5, %51
@@ -1938,7 +1938,7 @@ define linkonce_odr void @_ZN5draco34MeshPredictionSchemeDecoderFactoryIiE15Disp
   ]
 
 8:                                                ; preds = %7
-  %9 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #22
+  %9 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %9, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %3, ptr %10, align 8, !tbaa !125
@@ -1969,14 +1969,14 @@ define linkonce_odr void @_ZN5draco34MeshPredictionSchemeDecoderFactoryIiE15Disp
   br i1 %24, label %.noexc.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i, !prof !133
 
 .noexc.i.i.i.i.i.i.i:                             ; preds = %23
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
           to label %.noexc unwind label %34
 
 .noexc:                                           ; preds = %.noexc.i.i.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %23
-  %25 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #22
+  %25 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #23
           to label %26 unwind label %34
 
 26:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i
@@ -2001,11 +2001,11 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i: ; preds = 
 34:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i
   %35 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef 96) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef 96) #22
   br label %175
 
 36:                                               ; preds = %7
-  %37 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #22
+  %37 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %37, align 8, !tbaa !3
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %3, ptr %38, align 8, !tbaa !125
@@ -2036,14 +2036,14 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i: ; preds = 
   br i1 %52, label %.noexc.i.i.i.i.i.i.i34, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31, !prof !133
 
 .noexc.i.i.i.i.i.i.i34:                           ; preds = %51
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
           to label %.noexc35 unwind label %62
 
 .noexc35:                                         ; preds = %.noexc.i.i.i.i.i.i.i34
   unreachable
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31: ; preds = %51
-  %53 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #22
+  %53 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #23
           to label %54 unwind label %62
 
 54:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31
@@ -2068,11 +2068,11 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31: ; preds 
 62:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31, %.noexc.i.i.i.i.i.i.i34
   %63 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef 96) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef 96) #22
   br label %175
 
 64:                                               ; preds = %7
-  %65 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #22
+  %65 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #23
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %65, align 8, !tbaa !3
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr %3, ptr %66, align 8, !tbaa !125
@@ -2103,14 +2103,14 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31: ; preds 
   br i1 %80, label %.noexc.i.i.i.i.i.i.i41, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i38, !prof !133
 
 .noexc.i.i.i.i.i.i.i41:                           ; preds = %79
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
           to label %.noexc42 unwind label %97
 
 .noexc42:                                         ; preds = %.noexc.i.i.i.i.i.i.i41
   unreachable
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i38: ; preds = %79
-  %81 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %75) #22
+  %81 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %75) #23
           to label %82 unwind label %97
 
 82:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i38
@@ -2156,11 +2156,11 @@ _ZN5draco27MeshPredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransfo
 97:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i38, %.noexc.i.i.i.i.i.i.i41
   %98 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %65, i64 noundef 264) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %65, i64 noundef 264) #22
   br label %175
 
 99:                                               ; preds = %7
-  %100 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #22
+  %100 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #23
   %101 = zext i16 %6 to i32
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %100, align 8, !tbaa !3
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
@@ -2192,14 +2192,14 @@ _ZN5draco27MeshPredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransfo
   br i1 %116, label %.noexc.i.i.i.i.i.i.i49, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45, !prof !133
 
 .noexc.i.i.i.i.i.i.i49:                           ; preds = %115
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
           to label %.noexc50 unwind label %133
 
 .noexc50:                                         ; preds = %.noexc.i.i.i.i.i.i.i49
   unreachable
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45: ; preds = %115
-  %117 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %111) #22
+  %117 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %111) #23
           to label %118 unwind label %133
 
 118:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45
@@ -2238,11 +2238,11 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45: ; preds 
 133:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45, %.noexc.i.i.i.i.i.i.i49
   %134 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %100, i64 noundef 176) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %100, i64 noundef 176) #22
   br label %175
 
 135:                                              ; preds = %7
-  %136 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #22
+  %136 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #23
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %136, align 8, !tbaa !3
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store ptr %3, ptr %137, align 8, !tbaa !125
@@ -2273,14 +2273,14 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45: ; preds 
   br i1 %151, label %.noexc.i.i.i.i.i.i.i57, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53, !prof !133
 
 .noexc.i.i.i.i.i.i.i57:                           ; preds = %150
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
           to label %.noexc58 unwind label %168
 
 .noexc58:                                         ; preds = %.noexc.i.i.i.i.i.i.i57
   unreachable
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53: ; preds = %150
-  %152 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %146) #22
+  %152 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %146) #23
           to label %153 unwind label %168
 
 153:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53
@@ -2319,18 +2319,18 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53: ; preds 
 168:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53, %.noexc.i.i.i.i.i.i.i57
   %169 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %136, i64 noundef 192) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %136, i64 noundef 192) #22
   br label %175
 
 170:                                              ; preds = %7
-  %171 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #22
+  %171 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #23
   invoke void @_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(208) %171, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %174 unwind label %172
 
 172:                                              ; preds = %170
   %173 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %171, i64 noundef 208) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %171, i64 noundef 208) #22
   br label %175
 
 174:                                              ; preds = %7, %170, %157, %122, %95, %58, %30
@@ -2367,11 +2367,11 @@ define linkonce_odr void @_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderI
   br i1 %16, label %.noexc.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i, !prof !133
 
 .noexc.i.i.i.i.i.i:                               ; preds = %15
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #24
   unreachable
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i: ; preds = %15
-  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #22
+  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #23
   br label %.noexc4.i.i
 
 .noexc4.i.i:                                      ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i, %4
@@ -2440,7 +2440,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i: ; preds = %1
   %47 = ptrtoint ptr %46 to i64
   %48 = ptrtoint ptr %44 to i64
   %49 = sub i64 %47, %48
-  tail call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef %49) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef %49) #22
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit
 
 _ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit: ; preds = %42, %45
@@ -2461,11 +2461,11 @@ define linkonce_odr void @_ZN5draco40MeshPredictionSchemeParallelogramDecoderIiN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #22
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit
 
 _ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #22
   ret void
 }
 
@@ -2638,7 +2638,7 @@ _ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit: ; preds = %18, %20,
   %30 = icmp slt i32 %4, 0
   %31 = shl nsw i64 %9, 2
   %32 = select i1 %30, i64 -1, i64 %31
-  %33 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %32) #22
+  %33 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %32) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %33, i8 0, i64 %32, i1 false)
   %34 = icmp sgt i32 %25, 0
   br i1 %34, label %.lr.ph.i.i, label %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit
@@ -2759,7 +2759,7 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
   br label %97
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit50, %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %33) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %33) #22
   ret i1 true
 
 97:                                               ; preds = %.lr.ph, %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit50
@@ -2770,7 +2770,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNK5draco37P
   br i1 %exitcond.not, label %100, label %101
 
 100:                                              ; preds = %97
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %umax, i64 noundef %88) #23
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %umax, i64 noundef %88) #24
           to label %.noexc unwind label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit63
 
 .noexc:                                           ; preds = %100
@@ -2971,7 +2971,7 @@ _ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit63: ; preds = %100
   %207 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdaPv(ptr noundef nonnull %33) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %33) #22
   resume { ptr, i32 } %207
 
 _ZN5draco30ComputeParallelogramPredictionINS_24MeshAttributeCornerTableEiEEbiNS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPKT_RKSt6vectorIiSaIiEEPKT0_iPSD_.exit: ; preds = %.lr.ph.i38, %147
@@ -3072,7 +3072,7 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5draco27MeshPredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @llvm.trap() #24
+  tail call void @llvm.trap() #25
   unreachable
 }
 
@@ -3080,7 +3080,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @llvm.trap() #24
+  tail call void @llvm.trap() #25
   unreachable
 }
 
@@ -3145,7 +3145,7 @@ _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_Z
   br i1 %25, label %26, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
 
 26:                                               ; preds = %24
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #23
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #24
   unreachable
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %24
@@ -3153,7 +3153,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %24
   %27 = add nuw nsw i64 %.sroa.speculated.i, %10
   %28 = tail call i64 @llvm.umin.i64(i64 %27, i64 2305843009213693951)
   %29 = shl nuw nsw i64 %28, 2
-  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #22
+  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #23
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %9
   store i32 0, ptr %31, align 4, !tbaa !102
   %32 = add nsw i64 %1, -1
@@ -3180,7 +3180,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 37:                                               ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit
   %38 = sub i64 %13, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %38) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %38) #22
   br label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %37
@@ -3218,11 +3218,11 @@ define linkonce_odr void @_ZN5draco45MeshPredictionSchemeMultiParallelogramDecod
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #22
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit
 
 _ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #22
   ret void
 }
 
@@ -3295,9 +3295,9 @@ _ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit: ; preds = %18, %20,
   %25 = icmp slt i32 %4, 0
   %26 = shl nsw i64 %9, 2
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %27) #22
+  %28 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %27) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %28, i8 0, i64 %27, i1 false)
-  %29 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #22
+  %29 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #23
           to label %30 unwind label %100
 
 30:                                               ; preds = %_ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit
@@ -3427,8 +3427,8 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
   br label %102
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit69: ; preds = %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit88, %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %29) #21
-  tail call void @_ZdaPv(ptr noundef nonnull %28) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %29) #22
+  tail call void @_ZdaPv(ptr noundef nonnull %28) #22
   ret i1 true
 
 100:                                              ; preds = %_ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit
@@ -3444,7 +3444,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit69: ; preds = %_ZNK5draco3
   br i1 %exitcond159.not, label %105, label %106
 
 105:                                              ; preds = %102
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %umax, i64 noundef %90) #23
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %umax, i64 noundef %90) #24
           to label %.noexc unwind label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit101
 
 .noexc:                                           ; preds = %105
@@ -3474,7 +3474,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit69: ; preds = %_ZNK5draco3
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit101: ; preds = %105
   %111 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdaPv(ptr noundef nonnull %29) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %29) #22
   br label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit104
 
 112:                                              ; preds = %.lr.ph137, %_ZNK5draco24MeshAttributeCornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
@@ -3853,7 +3853,7 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit104: ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit101, %100
   %.pn62.pn.pn.pn = phi { ptr, i32 } [ %111, %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit101 ], [ %101, %100 ]
-  tail call void @_ZdaPv(ptr noundef nonnull %28) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %28) #22
   resume { ptr, i32 } %.pn62.pn.pn.pn
 }
 
@@ -3879,7 +3879,7 @@ define linkonce_odr void @_ZN5draco56MeshPredictionSchemeConstrainedMultiParalle
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
   %12 = getelementptr inbounds i64, ptr %6, i64 %11
-  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #21
+  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #22
   store ptr null, ptr %.ptr1, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.ptr1, i64 8
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
@@ -3907,7 +3907,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %2, %4
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
   %22 = sub i64 %20, %21
-  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %22) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %22) #22
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit
 
 _ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit: ; preds = %14, %17
@@ -3936,7 +3936,7 @@ define linkonce_odr void @_ZN5draco56MeshPredictionSchemeConstrainedMultiParalle
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
   %12 = getelementptr inbounds i64, ptr %6, i64 %11
-  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #21
+  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #22
   store ptr null, ptr %.ptr1.i, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 8
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8
@@ -3964,11 +3964,11 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit.i:           ; preds = %4, %2
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
   %22 = sub i64 %20, %21
-  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %22) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %22) #22
   br label %_ZN5draco56MeshPredictionSchemeConstrainedMultiParallelogramDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev.exit
 
 _ZN5draco56MeshPredictionSchemeConstrainedMultiParallelogramDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev.exit: ; preds = %14, %17
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 264) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 264) #22
   ret void
 }
 
@@ -4106,7 +4106,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %52, %56
   br label %81
 
 62:                                               ; preds = %_ZNSt14_Bit_referenceaSEb.exit
-  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #20
+  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge35
 
@@ -4150,7 +4150,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %71, %74
 
 81:                                               ; preds = %79, %60
   %.pn.pn = phi { ptr, i32 } [ %61, %60 ], [ %80, %79 ]
-  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #20
+  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn
@@ -4162,7 +4162,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %71, %74
   br i1 %exitcond50.not, label %82, label %20, !llvm.loop !237
 
 .critedge:                                        ; preds = %59
-  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #20
+  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
@@ -4417,7 +4417,7 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
   %96 = load ptr, ptr %95, align 8, !tbaa !142
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %98 = load ptr, ptr %97, align 8, !tbaa !144
-  %99 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
+  %99 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
           to label %.lr.ph.i.i.i.i.i.i.i.i.i.preheader unwind label %128
 
 .lr.ph.i.i.i.i.i.i.i.i.i.preheader:               ; preds = %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit
@@ -4426,7 +4426,7 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
   br i1 %100, label %101, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
 101:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #23
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #24
           to label %.noexc135 unwind label %130
 
 .noexc135:                                        ; preds = %101
@@ -4438,7 +4438,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %.lr.ph.i.i.i.i
 
 102:                                              ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %103 = shl nuw nsw i64 %11, 2
-  %104 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %103) #22
+  %104 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %103) #23
           to label %.noexc136 unwind label %130
 
 .noexc136:                                        ; preds = %102
@@ -4501,7 +4501,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %exitcond318.not, label %133, label %134
 
 133:                                              ; preds = %132
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %umax, i64 noundef %117) #23
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %umax, i64 noundef %117) #24
           to label %.noexc138 unwind label %207
 
 .noexc138:                                        ; preds = %133
@@ -5081,7 +5081,7 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
   %411 = ptrtoint ptr %.sroa.14.0 to i64
   %412 = ptrtoint ptr %.sroa.0209.0 to i64
   %413 = sub i64 %411, %412
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0209.0, i64 noundef %413) #21
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0209.0, i64 noundef %413) #22
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit192
 
 .critedge133:                                     ; preds = %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit175, %290, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
@@ -5093,16 +5093,16 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
   %415 = ptrtoint ptr %.sroa.14.0 to i64
   %416 = ptrtoint ptr %.sroa.0209.0 to i64
   %417 = sub i64 %415, %416
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0209.0, i64 noundef %417) #21
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0209.0, i64 noundef %417) #22
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit190
 
 _ZNSt6vectorIiSaIiEED2Ev.exit190:                 ; preds = %.critedge133, %414
-  call void @_ZdlPvm(ptr noundef nonnull %99, i64 noundef 16) #21
+  call void @_ZdlPvm(ptr noundef nonnull %99, i64 noundef 16) #22
   br label %418
 
 _ZNSt6vectorIiSaIiEED2Ev.exit192:                 ; preds = %410, %207, %130
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %131, %130 ], [ %208, %207 ], [ %208, %410 ]
-  call void @_ZdlPvm(ptr noundef nonnull %99, i64 noundef 16) #21
+  call void @_ZdlPvm(ptr noundef nonnull %99, i64 noundef 16) #22
   br label %430
 
 418:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit194, %_ZNSt6vectorIiSaIiEED2Ev.exit190
@@ -5118,7 +5118,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit192:                 ; preds = %410, %207, %130
   %425 = ptrtoint ptr %424 to i64
   %426 = ptrtoint ptr %421 to i64
   %427 = sub i64 %425, %426
-  call void @_ZdlPvm(ptr noundef nonnull %421, i64 noundef %427) #21
+  call void @_ZdlPvm(ptr noundef nonnull %421, i64 noundef %427) #22
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit194
 
 _ZNSt6vectorIiSaIiEED2Ev.exit194:                 ; preds = %418, %422
@@ -5146,7 +5146,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit194:                 ; preds = %418, %422
   %438 = ptrtoint ptr %437 to i64
   %439 = ptrtoint ptr %434 to i64
   %440 = sub i64 %438, %439
-  call void @_ZdlPvm(ptr noundef nonnull %434, i64 noundef %440) #21
+  call void @_ZdlPvm(ptr noundef nonnull %434, i64 noundef %440) #22
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit196
 
 _ZNSt6vectorIiSaIiEED2Ev.exit196:                 ; preds = %431, %435
@@ -5429,7 +5429,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit:    ; preds = %77, %_ZSt14__fill_b
   br i1 %117, label %118, label %_ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit
 
 118:                                              ; preds = %115
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #23
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #24
   unreachable
 
 _ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit:    ; preds = %115
@@ -5441,7 +5441,7 @@ _ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit:    ; preds = %115
   %123 = select i1 %120, i64 9223372036854775807, i64 %122
   %124 = lshr i64 %123, 3
   %125 = and i64 %124, 1152921504606846968
-  %126 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %125) #22
+  %126 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %125) #23
   %127 = ptrtoint ptr %1 to i64
   %128 = sub i64 %127, %12
   %.not.i.i.i.i.i.i81 = icmp eq ptr %1, %10
@@ -5675,7 +5675,7 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referen
   %232 = ashr exact i64 %231, 3
   %233 = sub nsw i64 0, %232
   %234 = getelementptr inbounds i64, ptr %228, i64 %233
-  tail call void @_ZdlPvm(ptr noundef %234, i64 noundef %231) #21
+  tail call void @_ZdlPvm(ptr noundef %234, i64 noundef %231) #22
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %227
@@ -5814,7 +5814,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69: ; preds = %_ZSt2
   br i1 %50, label %51, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
 
 51:                                               ; preds = %44
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #23
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #24
   unreachable
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %44
@@ -5830,7 +5830,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %44
 
 58:                                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
   %59 = shl nuw nsw i64 %55, 2
-  %60 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %59) #22
+  %60 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %59) #23
   br label %61
 
 61:                                               ; preds = %58, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
@@ -5873,7 +5873,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; pred
 
 73:                                               ; preds = %71
   %74 = sub i64 %10, %46
-  tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef %74) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef %74) #22
   br label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %71, %73
@@ -5904,7 +5904,7 @@ define linkonce_odr void @_ZN5draco36MeshPredictionSchemeTexCoordsDecoderIiNS_37
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
   %12 = getelementptr inbounds i64, ptr %6, i64 %11
-  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #21
+  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #22
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
@@ -5922,7 +5922,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %1, %4
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %14) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %14) #22
   br label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -5939,7 +5939,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt13_Bvect
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
   %22 = sub i64 %20, %21
-  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %22) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %22) #22
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit
 
 _ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit, %17
@@ -5963,7 +5963,7 @@ define linkonce_odr void @_ZN5draco36MeshPredictionSchemeTexCoordsDecoderIiNS_37
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
   %12 = getelementptr inbounds i64, ptr %6, i64 %11
-  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #21
+  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #22
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8
@@ -5981,7 +5981,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit.i:           ; preds = %4, %1
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i, label %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %14) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %14) #22
   br label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i
@@ -5998,11 +5998,11 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %_ZNKSt14def
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
   %22 = sub i64 %20, %21
-  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %22) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %22) #22
   br label %_ZN5draco36MeshPredictionSchemeTexCoordsDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev.exit
 
 _ZN5draco36MeshPredictionSchemeTexCoordsDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i, %17
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 176) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 176) #22
   ret void
 }
 
@@ -6282,13 +6282,13 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %104, %107
 
 _ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit: ; preds = %91, %82, %76, %72, %67, %61, %58
   %.119 = phi i1 [ false, %58 ], [ false, %72 ], [ false, %61 ], [ false, %67 ], [ false, %76 ], [ true, %82 ], [ true, %91 ]
-  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #20
+  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 112:                                              ; preds = %94, %59
   %.pn.pn = phi { ptr, i32 } [ %60, %59 ], [ %95, %94 ]
-  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #20
+  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn
@@ -6309,7 +6309,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco36MeshPredictionSchemeTexCoords
   store i32 2, ptr %8, align 8, !tbaa !250
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %5, ptr %9, align 8, !tbaa !251
-  %10 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znam(i64 noundef 8) #22
+  %10 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znam(i64 noundef 8) #23
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load ptr, ptr %11, align 8, !tbaa !186
   store ptr %10, ptr %11, align 8, !tbaa !186
@@ -6317,7 +6317,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco36MeshPredictionSchemeTexCoords
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i: ; preds = %7
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #22
   br label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i, %7
@@ -6387,7 +6387,7 @@ _ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit: ; preds = %23, %25,
   br i1 %.not.i.i, label %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit, label %51
 
 51:                                               ; preds = %42
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %indvars.iv, i64 noundef %50) #23
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %indvars.iv, i64 noundef %50) #24
   unreachable
 
 _ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit: ; preds = %42
@@ -6555,7 +6555,7 @@ _ZNK5draco24MeshAttributeCornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_ta
   br i1 %.not.i.i97, label %_ZNKSt6vectorIiSaIiEE2atEm.exit, label %40
 
 40:                                               ; preds = %_ZNK5draco24MeshAttributeCornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %32, i64 noundef %39) #23
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %32, i64 noundef %39) #24
   unreachable
 
 _ZNKSt6vectorIiSaIiEE2atEm.exit:                  ; preds = %_ZNK5draco24MeshAttributeCornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
@@ -6569,7 +6569,7 @@ _ZNKSt6vectorIiSaIiEE2atEm.exit:                  ; preds = %_ZNK5draco24MeshAtt
   br i1 %.not.i.i98, label %_ZNKSt6vectorIiSaIiEE2atEm.exit99, label %46
 
 46:                                               ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %45, i64 noundef %39) #23
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %45, i64 noundef %39) #24
   unreachable
 
 _ZNKSt6vectorIiSaIiEE2atEm.exit99:                ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit
@@ -6848,7 +6848,7 @@ _ZNK5draco7VectorDIfLi3EEmiERKS1_.exit120:        ; preds = %172, %_ZNK5draco7Ve
 
 _ZNK5draco7VectorDIfLi3EE11SquaredNormEv.exit125: ; preds = %_ZNK5draco7VectorDIfLi3EEmiERKS1_.exit120
   %182 = fdiv float %181, %156
-  %183 = call noundef float @sqrtf(float noundef %182) #20, !tbaa !102
+  %183 = call noundef float @sqrtf(float noundef %182) #21, !tbaa !102
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZNK5draco7VectorDIfLi2EEmiERKS1_.exit.critedge
@@ -7011,10 +7011,10 @@ _ZNSt6vectorIbSaIbEE8pop_backEv.exit:             ; preds = %200, %212
   ret i1 %.2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #13
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #13
 
 ; Function Attrs: mustprogress uwtable
@@ -7832,7 +7832,7 @@ define linkonce_odr void @_ZN5draco44MeshPredictionSchemeTexCoordsPortableDecode
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
   %12 = getelementptr inbounds i64, ptr %6, i64 %11
-  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #21
+  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #22
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8
@@ -7856,7 +7856,7 @@ _ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSc
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
-  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %20) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %20) #22
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit
 
 _ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit: ; preds = %_ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev.exit, %15
@@ -7880,7 +7880,7 @@ define linkonce_odr void @_ZN5draco44MeshPredictionSchemeTexCoordsPortableDecode
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
   %12 = getelementptr inbounds i64, ptr %6, i64 %11
-  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #21
+  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #22
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8
@@ -7904,11 +7904,11 @@ _ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSc
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
-  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %20) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %20) #22
   br label %_ZN5draco44MeshPredictionSchemeTexCoordsPortableDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev.exit
 
 _ZN5draco44MeshPredictionSchemeTexCoordsPortableDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev.exit: ; preds = %_ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev.exit.i, %15
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 192) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 192) #22
   ret void
 }
 
@@ -8153,13 +8153,13 @@ _ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSc
 
 _ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit: ; preds = %65, %56, %50, %46, %41, %._crit_edge, %35
   %.116 = phi i1 [ false, %35 ], [ false, %46 ], [ false, %._crit_edge ], [ false, %41 ], [ false, %50 ], [ true, %56 ], [ true, %65 ]
-  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %3) #20
+  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %3) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5draco13DecoderBuffer6DecodeIiEEbPT_.exit.thread
 
 87:                                               ; preds = %83, %36
   %.pn = phi { ptr, i32 } [ %84, %83 ], [ %37, %36 ]
-  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %3) #20
+  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %3) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 
@@ -8244,7 +8244,7 @@ _ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit: ; preds = %20, %22,
   br i1 %.not.i.i, label %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit, label %49
 
 49:                                               ; preds = %40
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %indvars.iv, i64 noundef %48) #23
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %indvars.iv, i64 noundef %48) #24
   unreachable
 
 _ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit: ; preds = %40
@@ -8410,7 +8410,7 @@ _ZNK5draco24MeshAttributeCornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_ta
   br i1 %.not.i.i70, label %_ZNKSt6vectorIiSaIiEE2atEm.exit, label %40
 
 40:                                               ; preds = %_ZNK5draco24MeshAttributeCornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %32, i64 noundef %39) #23
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %32, i64 noundef %39) #24
   unreachable
 
 _ZNKSt6vectorIiSaIiEE2atEm.exit:                  ; preds = %_ZNK5draco24MeshAttributeCornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
@@ -8424,7 +8424,7 @@ _ZNKSt6vectorIiSaIiEE2atEm.exit:                  ; preds = %_ZNK5draco24MeshAtt
   br i1 %.not.i.i71, label %_ZNKSt6vectorIiSaIiEE2atEm.exit72, label %46
 
 46:                                               ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %45, i64 noundef %39) #23
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %45, i64 noundef %39) #24
   unreachable
 
 _ZNKSt6vectorIiSaIiEE2atEm.exit72:                ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit
@@ -9467,7 +9467,7 @@ _ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29Attrib
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #13
+declare i64 @llvm.abs.i64(i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #9 comdat align 2 {
@@ -9478,7 +9478,7 @@ define linkonce_odr void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredicto
 define linkonce_odr void @_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  tail call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %2) #20
+  tail call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %2) #21
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !55
@@ -9491,7 +9491,7 @@ define linkonce_odr void @_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderI
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #22
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit
 
 _ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit: ; preds = %1, %5
@@ -9502,7 +9502,7 @@ _ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIi
 define linkonce_odr void @_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  tail call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %2) #20
+  tail call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %2) #21
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !55
@@ -9515,11 +9515,11 @@ define linkonce_odr void @_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderI
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #22
   br label %_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev.exit
 
 _ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev.exit: ; preds = %1, %5
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 208) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 208) #22
   ret void
 }
 
@@ -9750,7 +9750,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco42MeshPredictionSchemeGeometric
   br i1 %.not.i.i, label %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit, label %43
 
 43:                                               ; preds = %34
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %indvars.iv, i64 noundef %42) #23
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %indvars.iv, i64 noundef %42) #24
   unreachable
 
 _ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit: ; preds = %34
@@ -10049,7 +10049,7 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #9 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #22
   ret void
 }
 
@@ -10116,7 +10116,7 @@ define linkonce_odr void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredicto
   br i1 %.not.i.i.i, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, label %32
 
 32:                                               ; preds = %3
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %24, i64 noundef %31) #23, !noalias !380
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %24, i64 noundef %31) #24, !noalias !380
   unreachable
 
 _ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %3
@@ -10229,7 +10229,7 @@ _ZNK5draco24MeshAttributeCornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_ta
   br i1 %.not.i.i.i44, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i45, label %98
 
 98:                                               ; preds = %_ZNK5draco24MeshAttributeCornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %90, i64 noundef %97) #23, !noalias !388
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %90, i64 noundef %97) #24, !noalias !388
   unreachable
 
 _ZNKSt6vectorIiSaIiEE2atEm.exit.i45:              ; preds = %_ZNK5draco24MeshAttributeCornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
@@ -10281,7 +10281,7 @@ _ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_37PredictionSch
   br i1 %.not.i.i.i50, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i51, label %131
 
 131:                                              ; preds = %_ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE20GetPositionForCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit48
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %123, i64 noundef %130) #23, !noalias !395
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %123, i64 noundef %130) #24, !noalias !395
   unreachable
 
 _ZNKSt6vectorIiSaIiEE2atEm.exit.i51:              ; preds = %_ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE20GetPositionForCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit48
@@ -10501,7 +10501,7 @@ _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread:   ; preds = %.preheader, %_ZNK5d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #9 comdat align 2 {
-  tail call void @llvm.trap() #24
+  tail call void @llvm.trap() #25
   unreachable
 }
 
@@ -10705,7 +10705,7 @@ _ZNK5draco24MeshAttributeCornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #13
+declare i32 @llvm.abs.i32(i32, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5draco34MeshPredictionSchemeDecoderFactoryIiE15DispatchFunctorINS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEELNS_29PredictionSchemeTransformTypeE1EEclENS_22PredictionSchemeMethodEPKNS_14PointAttributeERKS4_RKS7_t(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.20") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i16 noundef zeroext %6) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -10719,7 +10719,7 @@ define linkonce_odr void @_ZN5draco34MeshPredictionSchemeDecoderFactoryIiE15Disp
   ]
 
 8:                                                ; preds = %7
-  %9 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #22
+  %9 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %9, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %3, ptr %10, align 8, !tbaa !125
@@ -10750,14 +10750,14 @@ define linkonce_odr void @_ZN5draco34MeshPredictionSchemeDecoderFactoryIiE15Disp
   br i1 %24, label %.noexc.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i, !prof !133
 
 .noexc.i.i.i.i.i.i.i:                             ; preds = %23
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
           to label %.noexc unwind label %34
 
 .noexc:                                           ; preds = %.noexc.i.i.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %23
-  %25 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #22
+  %25 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #23
           to label %26 unwind label %34
 
 26:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i
@@ -10782,11 +10782,11 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i: ; preds = 
 34:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i
   %35 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef 96) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef 96) #22
   br label %175
 
 36:                                               ; preds = %7
-  %37 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #22
+  %37 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %37, align 8, !tbaa !3
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %3, ptr %38, align 8, !tbaa !125
@@ -10817,14 +10817,14 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i: ; preds = 
   br i1 %52, label %.noexc.i.i.i.i.i.i.i34, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31, !prof !133
 
 .noexc.i.i.i.i.i.i.i34:                           ; preds = %51
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
           to label %.noexc35 unwind label %62
 
 .noexc35:                                         ; preds = %.noexc.i.i.i.i.i.i.i34
   unreachable
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31: ; preds = %51
-  %53 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #22
+  %53 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #23
           to label %54 unwind label %62
 
 54:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31
@@ -10849,11 +10849,11 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31: ; preds 
 62:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31, %.noexc.i.i.i.i.i.i.i34
   %63 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef 96) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef 96) #22
   br label %175
 
 64:                                               ; preds = %7
-  %65 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #22
+  %65 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #23
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %65, align 8, !tbaa !3
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr %3, ptr %66, align 8, !tbaa !125
@@ -10884,14 +10884,14 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31: ; preds 
   br i1 %80, label %.noexc.i.i.i.i.i.i.i41, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i38, !prof !133
 
 .noexc.i.i.i.i.i.i.i41:                           ; preds = %79
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
           to label %.noexc42 unwind label %97
 
 .noexc42:                                         ; preds = %.noexc.i.i.i.i.i.i.i41
   unreachable
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i38: ; preds = %79
-  %81 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %75) #22
+  %81 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %75) #23
           to label %82 unwind label %97
 
 82:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i38
@@ -10937,11 +10937,11 @@ _ZN5draco27MeshPredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransfo
 97:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i38, %.noexc.i.i.i.i.i.i.i41
   %98 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %65, i64 noundef 264) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %65, i64 noundef 264) #22
   br label %175
 
 99:                                               ; preds = %7
-  %100 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #22
+  %100 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #23
   %101 = zext i16 %6 to i32
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %100, align 8, !tbaa !3
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
@@ -10973,14 +10973,14 @@ _ZN5draco27MeshPredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransfo
   br i1 %116, label %.noexc.i.i.i.i.i.i.i49, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45, !prof !133
 
 .noexc.i.i.i.i.i.i.i49:                           ; preds = %115
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
           to label %.noexc50 unwind label %133
 
 .noexc50:                                         ; preds = %.noexc.i.i.i.i.i.i.i49
   unreachable
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45: ; preds = %115
-  %117 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %111) #22
+  %117 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %111) #23
           to label %118 unwind label %133
 
 118:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45
@@ -11019,11 +11019,11 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45: ; preds 
 133:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45, %.noexc.i.i.i.i.i.i.i49
   %134 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %100, i64 noundef 176) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %100, i64 noundef 176) #22
   br label %175
 
 135:                                              ; preds = %7
-  %136 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #22
+  %136 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #23
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %136, align 8, !tbaa !3
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store ptr %3, ptr %137, align 8, !tbaa !125
@@ -11054,14 +11054,14 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45: ; preds 
   br i1 %151, label %.noexc.i.i.i.i.i.i.i57, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53, !prof !133
 
 .noexc.i.i.i.i.i.i.i57:                           ; preds = %150
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
           to label %.noexc58 unwind label %168
 
 .noexc58:                                         ; preds = %.noexc.i.i.i.i.i.i.i57
   unreachable
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53: ; preds = %150
-  %152 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %146) #22
+  %152 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %146) #23
           to label %153 unwind label %168
 
 153:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53
@@ -11100,18 +11100,18 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53: ; preds 
 168:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53, %.noexc.i.i.i.i.i.i.i57
   %169 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %136, i64 noundef 192) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %136, i64 noundef 192) #22
   br label %175
 
 170:                                              ; preds = %7
-  %171 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #22
+  %171 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #23
   invoke void @_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(208) %171, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %174 unwind label %172
 
 172:                                              ; preds = %170
   %173 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %171, i64 noundef 208) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %171, i64 noundef 208) #22
   br label %175
 
 174:                                              ; preds = %7, %170, %157, %122, %95, %58, %30
@@ -11148,11 +11148,11 @@ define linkonce_odr void @_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderI
   br i1 %16, label %.noexc.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i, !prof !133
 
 .noexc.i.i.i.i.i.i:                               ; preds = %15
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #24
   unreachable
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i: ; preds = %15
-  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #22
+  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #23
   br label %.noexc4.i.i
 
 .noexc4.i.i:                                      ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i, %4
@@ -11221,7 +11221,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i: ; preds = %1
   %47 = ptrtoint ptr %46 to i64
   %48 = ptrtoint ptr %44 to i64
   %49 = sub i64 %47, %48
-  tail call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef %49) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef %49) #22
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit
 
 _ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit: ; preds = %42, %45
@@ -11242,11 +11242,11 @@ define linkonce_odr void @_ZN5draco40MeshPredictionSchemeParallelogramDecoderIiN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #22
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit
 
 _ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #22
   ret void
 }
 
@@ -11325,7 +11325,7 @@ _ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit: ; preds = %18, %20,
   %30 = icmp slt i32 %4, 0
   %31 = shl nsw i64 %9, 2
   %32 = select i1 %30, i64 -1, i64 %31
-  %33 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %32) #22
+  %33 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %32) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %33, i8 0, i64 %32, i1 false)
   %34 = icmp sgt i32 %25, 0
   br i1 %34, label %.lr.ph.i.i, label %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit
@@ -11445,7 +11445,7 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
   br label %96
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit50, %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %33) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %33) #22
   ret i1 true
 
 96:                                               ; preds = %.lr.ph, %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit50
@@ -11456,7 +11456,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNK5draco37P
   br i1 %exitcond.not, label %99, label %100
 
 99:                                               ; preds = %96
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %umax, i64 noundef %88) #23
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %umax, i64 noundef %88) #24
           to label %.noexc unwind label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit63
 
 .noexc:                                           ; preds = %99
@@ -11665,7 +11665,7 @@ _ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit63: ; preds = %99
   %202 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdaPv(ptr noundef nonnull %33) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %33) #22
   resume { ptr, i32 } %202
 
 _ZN5draco30ComputeParallelogramPredictionINS_11CornerTableEiEEbiNS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPKT_RKSt6vectorIiSaIiEEPKT0_iPSD_.exit: ; preds = %.lr.ph.i38, %142
@@ -11766,7 +11766,7 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5draco27MeshPredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @llvm.trap() #24
+  tail call void @llvm.trap() #25
   unreachable
 }
 
@@ -11784,11 +11784,11 @@ define linkonce_odr void @_ZN5draco45MeshPredictionSchemeMultiParallelogramDecod
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #22
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit
 
 _ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #22
   ret void
 }
 
@@ -11861,9 +11861,9 @@ _ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit: ; preds = %18, %20,
   %25 = icmp slt i32 %4, 0
   %26 = shl nsw i64 %9, 2
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %27) #22
+  %28 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %27) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %28, i8 0, i64 %27, i1 false)
-  %29 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #22
+  %29 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #23
           to label %30 unwind label %99
 
 30:                                               ; preds = %_ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit
@@ -11992,8 +11992,8 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
   br label %101
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit69: ; preds = %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit86, %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %29) #21
-  tail call void @_ZdaPv(ptr noundef nonnull %28) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %29) #22
+  tail call void @_ZdaPv(ptr noundef nonnull %28) #22
   ret i1 true
 
 99:                                               ; preds = %_ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit
@@ -12009,7 +12009,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit69: ; preds = %_ZNK5draco3
   br i1 %exitcond156.not, label %104, label %105
 
 104:                                              ; preds = %101
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %umax, i64 noundef %90) #23
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %umax, i64 noundef %90) #24
           to label %.noexc unwind label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit99
 
 .noexc:                                           ; preds = %104
@@ -12039,7 +12039,7 @@ _ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit99: ; preds = %104
   %110 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdaPv(ptr noundef nonnull %29) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %29) #22
   br label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit102
 
 _ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i: ; preds = %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i.lr.ph, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
@@ -12411,7 +12411,7 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit102: ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit99, %99
   %.pn62.pn.pn.pn = phi { ptr, i32 } [ %110, %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit99 ], [ %100, %99 ]
-  tail call void @_ZdaPv(ptr noundef nonnull %28) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %28) #22
   resume { ptr, i32 } %.pn62.pn.pn.pn
 }
 
@@ -12437,7 +12437,7 @@ define linkonce_odr void @_ZN5draco56MeshPredictionSchemeConstrainedMultiParalle
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
   %12 = getelementptr inbounds i64, ptr %6, i64 %11
-  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #21
+  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #22
   store ptr null, ptr %.ptr1, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.ptr1, i64 8
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
@@ -12465,7 +12465,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %2, %4
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
   %22 = sub i64 %20, %21
-  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %22) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %22) #22
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit
 
 _ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit: ; preds = %14, %17
@@ -12494,7 +12494,7 @@ define linkonce_odr void @_ZN5draco56MeshPredictionSchemeConstrainedMultiParalle
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
   %12 = getelementptr inbounds i64, ptr %6, i64 %11
-  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #21
+  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #22
   store ptr null, ptr %.ptr1.i, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 8
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8
@@ -12522,11 +12522,11 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit.i:           ; preds = %4, %2
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
   %22 = sub i64 %20, %21
-  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %22) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %22) #22
   br label %_ZN5draco56MeshPredictionSchemeConstrainedMultiParallelogramDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev.exit
 
 _ZN5draco56MeshPredictionSchemeConstrainedMultiParallelogramDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev.exit: ; preds = %14, %17
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 264) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 264) #22
   ret void
 }
 
@@ -12662,7 +12662,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %50, %54
   br label %79
 
 60:                                               ; preds = %_ZNSt14_Bit_referenceaSEb.exit
-  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #20
+  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge35
 
@@ -12706,7 +12706,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %69, %72
 
 79:                                               ; preds = %77, %58
   %.pn.pn = phi { ptr, i32 } [ %59, %58 ], [ %78, %77 ]
-  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #20
+  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn
@@ -12718,7 +12718,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %69, %72
   br i1 %exitcond50.not, label %80, label %20, !llvm.loop !436
 
 .critedge:                                        ; preds = %57
-  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #20
+  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
@@ -12973,7 +12973,7 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
   %96 = load ptr, ptr %95, align 8, !tbaa !151
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %98 = load ptr, ptr %97, align 8, !tbaa !153
-  %99 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
+  %99 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
           to label %.lr.ph.i.i.i.i.i.i.i.i.i.preheader unwind label %127
 
 .lr.ph.i.i.i.i.i.i.i.i.i.preheader:               ; preds = %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit
@@ -12982,7 +12982,7 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
   br i1 %100, label %101, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
 101:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #23
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #24
           to label %.noexc135 unwind label %129
 
 .noexc135:                                        ; preds = %101
@@ -12994,7 +12994,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %.lr.ph.i.i.i.i
 
 102:                                              ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %103 = shl nuw nsw i64 %11, 2
-  %104 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %103) #22
+  %104 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %103) #23
           to label %.noexc136 unwind label %129
 
 .noexc136:                                        ; preds = %102
@@ -13056,7 +13056,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %exitcond311.not, label %132, label %133
 
 132:                                              ; preds = %131
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %umax, i64 noundef %117) #23
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %umax, i64 noundef %117) #24
           to label %.noexc138 unwind label %198
 
 .noexc138:                                        ; preds = %132
@@ -13599,7 +13599,7 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
   %374 = ptrtoint ptr %.sroa.14.0 to i64
   %375 = ptrtoint ptr %.sroa.0202.0 to i64
   %376 = sub i64 %374, %375
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0202.0, i64 noundef %376) #21
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0202.0, i64 noundef %376) #22
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit185
 
 .critedge133:                                     ; preds = %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit168, %253, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
@@ -13611,16 +13611,16 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
   %378 = ptrtoint ptr %.sroa.14.0 to i64
   %379 = ptrtoint ptr %.sroa.0202.0 to i64
   %380 = sub i64 %378, %379
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0202.0, i64 noundef %380) #21
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0202.0, i64 noundef %380) #22
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit183
 
 _ZNSt6vectorIiSaIiEED2Ev.exit183:                 ; preds = %.critedge133, %377
-  call void @_ZdlPvm(ptr noundef nonnull %99, i64 noundef 16) #21
+  call void @_ZdlPvm(ptr noundef nonnull %99, i64 noundef 16) #22
   br label %381
 
 _ZNSt6vectorIiSaIiEED2Ev.exit185:                 ; preds = %373, %198, %129
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %130, %129 ], [ %199, %198 ], [ %199, %373 ]
-  call void @_ZdlPvm(ptr noundef nonnull %99, i64 noundef 16) #21
+  call void @_ZdlPvm(ptr noundef nonnull %99, i64 noundef 16) #22
   br label %393
 
 381:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit187, %_ZNSt6vectorIiSaIiEED2Ev.exit183
@@ -13636,7 +13636,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit185:                 ; preds = %373, %198, %129
   %388 = ptrtoint ptr %387 to i64
   %389 = ptrtoint ptr %384 to i64
   %390 = sub i64 %388, %389
-  call void @_ZdlPvm(ptr noundef nonnull %384, i64 noundef %390) #21
+  call void @_ZdlPvm(ptr noundef nonnull %384, i64 noundef %390) #22
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit187
 
 _ZNSt6vectorIiSaIiEED2Ev.exit187:                 ; preds = %381, %385
@@ -13664,7 +13664,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit187:                 ; preds = %381, %385
   %401 = ptrtoint ptr %400 to i64
   %402 = ptrtoint ptr %397 to i64
   %403 = sub i64 %401, %402
-  call void @_ZdlPvm(ptr noundef nonnull %397, i64 noundef %403) #21
+  call void @_ZdlPvm(ptr noundef nonnull %397, i64 noundef %403) #22
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit189
 
 _ZNSt6vectorIiSaIiEED2Ev.exit189:                 ; preds = %394, %398
@@ -13693,7 +13693,7 @@ define linkonce_odr void @_ZN5draco36MeshPredictionSchemeTexCoordsDecoderIiNS_37
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
   %12 = getelementptr inbounds i64, ptr %6, i64 %11
-  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #21
+  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #22
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
@@ -13711,7 +13711,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %1, %4
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %14) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %14) #22
   br label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -13728,7 +13728,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt13_Bvect
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
   %22 = sub i64 %20, %21
-  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %22) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %22) #22
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit
 
 _ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit, %17
@@ -13752,7 +13752,7 @@ define linkonce_odr void @_ZN5draco36MeshPredictionSchemeTexCoordsDecoderIiNS_37
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
   %12 = getelementptr inbounds i64, ptr %6, i64 %11
-  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #21
+  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #22
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8
@@ -13770,7 +13770,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit.i:           ; preds = %4, %1
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i, label %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %14) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %14) #22
   br label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i
@@ -13787,11 +13787,11 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %_ZNKSt14def
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
   %22 = sub i64 %20, %21
-  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %22) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %22) #22
   br label %_ZN5draco36MeshPredictionSchemeTexCoordsDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev.exit
 
 _ZN5draco36MeshPredictionSchemeTexCoordsDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i, %17
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 176) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 176) #22
   ret void
 }
 
@@ -14069,13 +14069,13 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %102, %105
 
 _ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit: ; preds = %89, %80, %74, %70, %65, %59, %56
   %.119 = phi i1 [ false, %56 ], [ false, %70 ], [ false, %59 ], [ false, %65 ], [ false, %74 ], [ true, %80 ], [ true, %89 ]
-  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #20
+  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 110:                                              ; preds = %92, %57
   %.pn.pn = phi { ptr, i32 } [ %58, %57 ], [ %93, %92 ]
-  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #20
+  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn
@@ -14096,7 +14096,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco36MeshPredictionSchemeTexCoords
   store i32 2, ptr %8, align 8, !tbaa !445
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %5, ptr %9, align 8, !tbaa !446
-  %10 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znam(i64 noundef 8) #22
+  %10 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znam(i64 noundef 8) #23
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load ptr, ptr %11, align 8, !tbaa !186
   store ptr %10, ptr %11, align 8, !tbaa !186
@@ -14104,7 +14104,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco36MeshPredictionSchemeTexCoords
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i: ; preds = %7
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #22
   br label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i, %7
@@ -14174,7 +14174,7 @@ _ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit: ; preds = %23, %25,
   br i1 %.not.i.i, label %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit, label %51
 
 51:                                               ; preds = %42
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %indvars.iv, i64 noundef %50) #23
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %indvars.iv, i64 noundef %50) #24
   unreachable
 
 _ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit: ; preds = %42
@@ -14352,7 +14352,7 @@ _ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   br i1 %.not.i.i, label %_ZNKSt6vectorIiSaIiEE2atEm.exit, label %42
 
 42:                                               ; preds = %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %34, i64 noundef %41) #23
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %34, i64 noundef %41) #24
   unreachable
 
 _ZNKSt6vectorIiSaIiEE2atEm.exit:                  ; preds = %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit99
@@ -14362,7 +14362,7 @@ _ZNKSt6vectorIiSaIiEE2atEm.exit:                  ; preds = %_ZNK5draco11CornerT
   br i1 %.not.i.i100, label %_ZNKSt6vectorIiSaIiEE2atEm.exit101, label %45
 
 45:                                               ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %.sroa.01.0.i98, i64 noundef %41) #23
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %.sroa.01.0.i98, i64 noundef %41) #24
   unreachable
 
 _ZNKSt6vectorIiSaIiEE2atEm.exit101:               ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit
@@ -14641,7 +14641,7 @@ _ZNK5draco7VectorDIfLi3EEmiERKS1_.exit123:        ; preds = %171, %_ZNK5draco7Ve
 
 _ZNK5draco7VectorDIfLi3EE11SquaredNormEv.exit128: ; preds = %_ZNK5draco7VectorDIfLi3EEmiERKS1_.exit123
   %181 = fdiv float %180, %155
-  %182 = call noundef float @sqrtf(float noundef %181) #20, !tbaa !102
+  %182 = call noundef float @sqrtf(float noundef %181) #21, !tbaa !102
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZNK5draco7VectorDIfLi2EEmiERKS1_.exit.critedge
@@ -14821,7 +14821,7 @@ define linkonce_odr void @_ZN5draco44MeshPredictionSchemeTexCoordsPortableDecode
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
   %12 = getelementptr inbounds i64, ptr %6, i64 %11
-  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #21
+  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #22
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8
@@ -14845,7 +14845,7 @@ _ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSc
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
-  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %20) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %20) #22
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit
 
 _ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit: ; preds = %_ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev.exit, %15
@@ -14869,7 +14869,7 @@ define linkonce_odr void @_ZN5draco44MeshPredictionSchemeTexCoordsPortableDecode
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
   %12 = getelementptr inbounds i64, ptr %6, i64 %11
-  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #21
+  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #22
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8
@@ -14893,11 +14893,11 @@ _ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSc
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
-  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %20) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %20) #22
   br label %_ZN5draco44MeshPredictionSchemeTexCoordsPortableDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev.exit
 
 _ZN5draco44MeshPredictionSchemeTexCoordsPortableDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev.exit: ; preds = %_ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev.exit.i, %15
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 192) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 192) #22
   ret void
 }
 
@@ -15142,13 +15142,13 @@ _ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSc
 
 _ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit: ; preds = %65, %56, %50, %46, %41, %._crit_edge, %35
   %.116 = phi i1 [ false, %35 ], [ false, %46 ], [ false, %._crit_edge ], [ false, %41 ], [ false, %50 ], [ true, %56 ], [ true, %65 ]
-  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %3) #20
+  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %3) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5draco13DecoderBuffer6DecodeIiEEbPT_.exit.thread
 
 87:                                               ; preds = %83, %36
   %.pn = phi { ptr, i32 } [ %84, %83 ], [ %37, %36 ]
-  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %3) #20
+  call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %3) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 
@@ -15233,7 +15233,7 @@ _ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit: ; preds = %20, %22,
   br i1 %.not.i.i, label %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit, label %49
 
 49:                                               ; preds = %40
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %indvars.iv, i64 noundef %48) #23
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %indvars.iv, i64 noundef %48) #24
   unreachable
 
 _ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit: ; preds = %40
@@ -15409,7 +15409,7 @@ _ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   br i1 %.not.i.i, label %_ZNKSt6vectorIiSaIiEE2atEm.exit, label %42
 
 42:                                               ; preds = %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit72
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %34, i64 noundef %41) #23
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %34, i64 noundef %41) #24
   unreachable
 
 _ZNKSt6vectorIiSaIiEE2atEm.exit:                  ; preds = %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit72
@@ -15419,7 +15419,7 @@ _ZNKSt6vectorIiSaIiEE2atEm.exit:                  ; preds = %_ZNK5draco11CornerT
   br i1 %.not.i.i73, label %_ZNKSt6vectorIiSaIiEE2atEm.exit74, label %45
 
 45:                                               ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %.sroa.01.0.i71, i64 noundef %41) #23
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %.sroa.01.0.i71, i64 noundef %41) #24
   unreachable
 
 _ZNKSt6vectorIiSaIiEE2atEm.exit74:                ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit
@@ -15891,7 +15891,7 @@ define linkonce_odr void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredicto
 define linkonce_odr void @_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  tail call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %2) #20
+  tail call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %2) #21
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !55
@@ -15904,7 +15904,7 @@ define linkonce_odr void @_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderI
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #22
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit
 
 _ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit: ; preds = %1, %5
@@ -15915,7 +15915,7 @@ _ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIi
 define linkonce_odr void @_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  tail call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %2) #20
+  tail call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %2) #21
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !55
@@ -15928,11 +15928,11 @@ define linkonce_odr void @_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderI
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #22
   br label %_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev.exit
 
 _ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev.exit: ; preds = %1, %5
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 208) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 208) #22
   ret void
 }
 
@@ -16163,7 +16163,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco42MeshPredictionSchemeGeometric
   br i1 %.not.i.i, label %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit, label %43
 
 43:                                               ; preds = %34
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %indvars.iv, i64 noundef %42) #23
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %indvars.iv, i64 noundef %42) #24
   unreachable
 
 _ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit: ; preds = %34
@@ -16462,7 +16462,7 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #9 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #22
   ret void
 }
 
@@ -16536,7 +16536,7 @@ _ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   br i1 %.not.i.i.i, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, label %33
 
 33:                                               ; preds = %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %.sroa.01.0.i.i, i64 noundef %32) #23, !noalias !531
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %.sroa.01.0.i.i, i64 noundef %32) #24, !noalias !531
   unreachable
 
 _ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i
@@ -16661,7 +16661,7 @@ _ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   br i1 %.not.i.i.i46, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i47, label %100
 
 100:                                              ; preds = %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i44
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %.sroa.01.0.i.i45, i64 noundef %99) #23, !noalias !538
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %.sroa.01.0.i.i45, i64 noundef %99) #24, !noalias !538
   unreachable
 
 _ZNKSt6vectorIiSaIiEE2atEm.exit.i47:              ; preds = %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i44
@@ -16720,7 +16720,7 @@ _ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   br i1 %.not.i.i.i54, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i55, label %134
 
 134:                                              ; preds = %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i52
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %.sroa.01.0.i.i53, i64 noundef %133) #23, !noalias !545
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %.sroa.01.0.i.i53, i64 noundef %133) #24, !noalias !545
   unreachable
 
 _ZNKSt6vectorIiSaIiEE2atEm.exit.i55:              ; preds = %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i52
@@ -16940,7 +16940,7 @@ _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread:   ; preds = %.preheader, %_ZNK5d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #9 comdat align 2 {
-  tail call void @llvm.trap() #24
+  tail call void @llvm.trap() #25
   unreachable
 }
 
@@ -17112,7 +17112,7 @@ define linkonce_odr void @_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSch
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #22
   br label %_ZN5draco33PredictionSchemeWrapTransformBaseIiED2Ev.exit
 
 _ZN5draco33PredictionSchemeWrapTransformBaseIiED2Ev.exit: ; preds = %1, %4
@@ -17133,11 +17133,11 @@ define linkonce_odr void @_ZN5draco28PredictionSchemeDeltaDecoderIiNS_37Predicti
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #22
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit
 
 _ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #22
   ret void
 }
 
@@ -17191,7 +17191,7 @@ _ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit: ; preds = %18, %20,
   %26 = icmp slt i32 %4, 0
   %27 = shl nsw i64 %9, 2
   %28 = select i1 %26, i64 -1, i64 %27
-  %29 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %28) #22
+  %29 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %28) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %29, i8 0, i64 %28, i1 false)
   %30 = icmp sgt i32 %25, 0
   br i1 %30, label %.lr.ph.i.i, label %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit
@@ -17302,7 +17302,7 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
   br label %.lr.ph.split
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit30, %.lr.ph, %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %29) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %29) #22
   ret i1 true
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit30
@@ -17404,41 +17404,41 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_sequential_integer_attribute_decoder.cc() #15 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_sequential_integer_attribute_decoder.cc() #16 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #20
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #17
+declare void @llvm.assume(i1 noundef) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #18
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #19
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #18
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #19
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #18
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #19
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #18
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #19
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #18
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #19
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #18
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.umin.i8(i8, i8) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #19
+declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -17453,18 +17453,19 @@ attributes #9 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no
 attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #20 = { nounwind }
-attributes #21 = { builtin nounwind }
-attributes #22 = { builtin allocsize(0) }
-attributes #23 = { noreturn }
-attributes #24 = { noreturn nounwind }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #19 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #21 = { nounwind }
+attributes #22 = { builtin nounwind }
+attributes #23 = { builtin allocsize(0) }
+attributes #24 = { noreturn }
+attributes #25 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

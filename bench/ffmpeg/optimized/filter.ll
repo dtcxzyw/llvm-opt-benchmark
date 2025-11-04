@@ -1232,7 +1232,7 @@ sao_get_edges.exit:                               ; preds = %91, %.thread4.i, %3
   %486 = getelementptr inbounds nuw i8, ptr %420, i64 %indvars.iv
   %487 = load i8, ptr %486, align 1, !tbaa !59
   %488 = zext i8 %487 to i32
-  call void %484(ptr noundef %448, ptr noundef %448, i64 noundef %427, i64 noundef %427, ptr noundef nonnull %485, i32 noundef %488, i32 noundef %464, i32 noundef %470) #8
+  call void %484(ptr noundef %448, ptr noundef %448, i64 noundef %427, i64 noundef %427, ptr noundef nonnull %485, i32 noundef %488, i32 noundef %464, i32 noundef %470) #9
   br label %641
 
 489:                                              ; preds = %422
@@ -1509,10 +1509,10 @@ sao_extends_edges.exit:                           ; preds = %610, %.preheader22.
   %616 = load ptr, ptr %615, align 8, !tbaa !113
   %617 = getelementptr inbounds nuw [5 x i16], ptr %412, i64 %indvars.iv
   %618 = load i32, ptr %477, align 4, !tbaa !82
-  call void %616(ptr noundef %448, ptr noundef nonnull %401, i64 noundef %427, ptr noundef nonnull %617, i32 noundef %618, i32 noundef %464, i32 noundef %470) #8
+  call void %616(ptr noundef %448, ptr noundef nonnull %401, i64 noundef %427, ptr noundef nonnull %617, i32 noundef %618, i32 noundef %464, i32 noundef %470) #9
   %619 = load ptr, ptr %414, align 8, !tbaa !113
   %620 = trunc nuw nsw i64 %indvars.iv to i32
-  call void %619(ptr noundef %448, ptr noundef nonnull %401, i64 noundef %427, i64 noundef 320, ptr noundef nonnull %41, ptr noundef nonnull %4, i32 noundef %464, i32 noundef %470, i32 noundef %620, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
+  call void %619(ptr noundef %448, ptr noundef nonnull %401, i64 noundef %427, i64 noundef 320, ptr noundef nonnull %41, ptr noundef nonnull %4, i32 noundef %464, i32 noundef %470, i32 noundef %620, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
   %621 = icmp ne i32 %478, 1
   %or.cond = select i1 %415, i1 %621, i1 false
   br i1 %or.cond, label %622, label %630
@@ -1525,7 +1525,7 @@ sao_extends_edges.exit:                           ; preds = %610, %.preheader22.
   %627 = getelementptr i8, ptr %448, i64 %626
   %628 = getelementptr i8, ptr %401, i64 %626
   %629 = shl i32 2, %456
-  call void @av_image_copy_plane(ptr noundef %627, i32 noundef %426, ptr noundef %628, i32 noundef 320, i32 noundef %629, i32 noundef %470) #8
+  call void @av_image_copy_plane(ptr noundef %627, i32 noundef %426, ptr noundef %628, i32 noundef 320, i32 noundef %629, i32 noundef %470) #9
   br label %630
 
 630:                                              ; preds = %622, %sao_extends_edges.exit
@@ -1542,7 +1542,7 @@ sao_extends_edges.exit:                           ; preds = %610, %.preheader22.
   %638 = mul nsw i64 %635, 320
   %639 = getelementptr i8, ptr %401, i64 %638
   %640 = shl i32 %464, %456
-  call void @av_image_copy_plane(ptr noundef %637, i32 noundef %426, ptr noundef %639, i32 noundef 320, i32 noundef %640, i32 noundef 2) #8
+  call void @av_image_copy_plane(ptr noundef %637, i32 noundef %426, ptr noundef %639, i32 noundef 320, i32 noundef %640, i32 noundef 2) #9
   br label %641
 
 641:                                              ; preds = %630, %632, %481, %422
@@ -1570,7 +1570,7 @@ define void @ff_vvc_deblock_bs(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   %11 = zext i8 %10 to i32
   %12 = shl i32 %1, %11
   %13 = shl i32 %2, %11
-  tail call void @ff_vvc_decode_neighbour(ptr noundef %0, i32 noundef %12, i32 noundef %13, i32 noundef %1, i32 noundef %2, i32 noundef %3) #8
+  tail call void @ff_vvc_decode_neighbour(ptr noundef %0, i32 noundef %12, i32 noundef %13, i32 noundef %1, i32 noundef %2, i32 noundef %3) #9
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 21904
   %15 = load ptr, ptr %14, align 8, !tbaa !116
   %16 = sext i32 %3 to i64
@@ -1824,7 +1824,7 @@ is_virtual_boundary.exit.i:                       ; preds = %140, %.lr.ph.i.i.i,
   %151 = sub nsw i32 %44, %150
   %152 = xor i32 %150, 1
   %153 = sub nsw i32 %45, %152
-  %154 = tail call ptr @ff_vvc_get_ref_list(ptr noundef nonnull %48, ptr noundef %149, i32 noundef %151, i32 noundef %153) #8
+  %154 = tail call ptr @ff_vvc_get_ref_list(ptr noundef nonnull %48, ptr noundef %149, i32 noundef %151, i32 noundef %153) #9
   br label %159
 
 155:                                              ; preds = %is_virtual_boundary.exit.i
@@ -2869,12 +2869,12 @@ define internal fastcc void @vvc_deblock(ptr %.4580552.val, i32 noundef %0, i32 
 
 136:                                              ; preds = %110
   %137 = load ptr, ptr %64, align 8, !tbaa !113
-  call void %137(ptr noundef %135, i64 noundef %97, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %108) #8
+  call void %137(ptr noundef %135, i64 noundef %97, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %108) #9
   br label %._crit_edge.us.us.thread
 
 138:                                              ; preds = %110
   %139 = load ptr, ptr %66, align 8, !tbaa !113
-  call void %139(ptr noundef %135, i64 noundef %97, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %74) #8
+  call void %139(ptr noundef %135, i64 noundef %97, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %74) #9
   br label %._crit_edge.us.us.thread
 
 ._crit_edge.us.us.thread:                         ; preds = %107, %138, %136, %._crit_edge.us.us
@@ -2970,8 +2970,8 @@ define internal fastcc void @vvc_deblock(ptr %.4580552.val, i32 noundef %0, i32 
   br label %get_qp.exit.us.us
 
 209:                                              ; preds = %160
-  %210 = call i32 @ff_vvc_get_qPy(ptr noundef nonnull %.4580552.val, i32 noundef %186, i32 noundef %187) #8
-  %211 = call i32 @ff_vvc_get_qPy(ptr noundef nonnull %.4580552.val, i32 noundef %spec.select.us.us, i32 noundef %spec.select192.us.us) #8
+  %210 = call i32 @ff_vvc_get_qPy(ptr noundef nonnull %.4580552.val, i32 noundef %186, i32 noundef %187) #9
+  %211 = call i32 @ff_vvc_get_qPy(ptr noundef nonnull %.4580552.val, i32 noundef %spec.select.us.us, i32 noundef %spec.select192.us.us) #9
   %212 = add i32 %210, 1
   %213 = add i32 %212, %211
   %214 = ashr i32 %213, 1
@@ -2987,7 +2987,7 @@ define internal fastcc void @vvc_deblock(ptr %.4580552.val, i32 noundef %0, i32 
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 64
   %222 = load i32, ptr %221, align 8, !tbaa !82
   %223 = sext i32 %222 to i64
-  %224 = call i32 %219(ptr noundef %185, i64 noundef %223) #8
+  %224 = call i32 %219(ptr noundef %185, i64 noundef %223) #9
   %225 = load ptr, ptr %164, align 8, !tbaa !67
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 38752
   %227 = getelementptr inbounds nuw i8, ptr %164, i64 44
@@ -4460,16 +4460,16 @@ alf_filter_luma.exit:                             ; preds = %539, %541
   %555 = sdiv i32 %554, 16
   %556 = getelementptr inbounds nuw i8, ptr %.pre186, i64 21256
   %557 = load ptr, ptr %556, align 8, !tbaa !199
-  call void %557(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %gep, i64 noundef range(i64 -2147483648, 2147483648) %289, i32 noundef %332, i32 noundef %335, i32 noundef %553, ptr noundef nonnull %303) #8
+  call void %557(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %gep, i64 noundef range(i64 -2147483648, 2147483648) %289, i32 noundef %332, i32 noundef %335, i32 noundef %553, ptr noundef nonnull %303) #9
   %558 = getelementptr inbounds nuw i8, ptr %.pre186, i64 21264
   %559 = load ptr, ptr %558, align 8, !tbaa !200
-  call void %559(ptr noundef nonnull %302, ptr noundef nonnull %301, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %555, ptr noundef nonnull %.0.i.i, ptr noundef nonnull %.025.i.i, ptr noundef nonnull %.026.i.i) #8
+  call void %559(ptr noundef nonnull %302, ptr noundef nonnull %301, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %555, ptr noundef nonnull %.0.i.i, ptr noundef nonnull %.025.i.i, ptr noundef nonnull %.026.i.i) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %560 = getelementptr inbounds nuw i8, ptr %.pre186, i64 21232
   %561 = load ptr, ptr %560, align 8, !tbaa !113
-  call void %561(ptr noundef %349, i64 noundef range(i64 -2147483648, 2147483648) %359, ptr noundef %gep, i64 noundef range(i64 -2147483648, 2147483648) %289, i32 noundef %332, i32 noundef %335, ptr noundef nonnull %302, ptr noundef nonnull %301, i32 noundef %553) #8
+  call void %561(ptr noundef %349, i64 noundef range(i64 -2147483648, 2147483648) %359, ptr noundef %gep, i64 noundef range(i64 -2147483648, 2147483648) %289, i32 noundef %332, i32 noundef %335, ptr noundef nonnull %302, ptr noundef nonnull %301, i32 noundef %553) #9
   br label %alf_filter_cc.exit
 
 562:                                              ; preds = %536
@@ -4516,7 +4516,7 @@ alf_filter_luma.exit:                             ; preds = %539, %541
   %590 = getelementptr inbounds nuw [6 x i16], ptr %589, i64 %570
   %591 = getelementptr inbounds nuw i8, ptr %.pre186, i64 21240
   %592 = load ptr, ptr %591, align 8, !tbaa !113
-  call void %592(ptr noundef %349, i64 noundef range(i64 -2147483648, 2147483648) %359, ptr noundef nonnull %gep, i64 noundef range(i64 -2147483648, 2147483648) %289, i32 noundef %332, i32 noundef %335, ptr noundef nonnull %590, ptr noundef nonnull %4, i32 noundef range(i32 -2147483648, 2147483646) %588) #8
+  call void %592(ptr noundef %349, i64 noundef range(i64 -2147483648, 2147483648) %359, ptr noundef nonnull %gep, i64 noundef range(i64 -2147483648, 2147483648) %289, i32 noundef %332, i32 noundef %335, ptr noundef nonnull %590, ptr noundef nonnull %4, i32 noundef range(i32 -2147483648, 2147483646) %588) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %593
 
@@ -4556,7 +4556,7 @@ alf_prepare_buffer.exit.thread:                   ; preds = %352, %alf_prepare_b
   %610 = getelementptr i8, ptr %609, i64 986
   %611 = getelementptr inbounds nuw i8, ptr %.val136, i64 21248
   %612 = load ptr, ptr %611, align 8, !tbaa !204
-  call void %612(ptr noundef %349, i64 noundef range(i64 -2147483648, 2147483648) %606, ptr noundef nonnull %298, i64 noundef range(i64 -2147483648, 2147483648) %289, i32 noundef %332, i32 noundef %335, i32 noundef range(i32 0, 256) %321, i32 noundef range(i32 0, 256) %325, ptr noundef %610, i32 noundef range(i32 -2147483648, 2147483644) %605) #8
+  call void %612(ptr noundef %349, i64 noundef range(i64 -2147483648, 2147483648) %606, ptr noundef nonnull %298, i64 noundef range(i64 -2147483648, 2147483648) %289, i32 noundef %332, i32 noundef %335, i32 noundef range(i32 0, 256) %321, i32 noundef range(i32 0, 256) %325, ptr noundef %610, i32 noundef range(i32 -2147483648, 2147483644) %605) #9
   br label %alf_filter_cc.exit
 
 alf_filter_cc.exit:                               ; preds = %356, %alf_filter_luma.exit, %603, %596, %593, %alf_prepare_buffer.exit.thread
@@ -4622,7 +4622,7 @@ define void @ff_vvc_lmcs_filter(ptr noundef readonly captures(none) %0, i32 noun
   %51 = load ptr, ptr %50, align 8, !tbaa !207
   %52 = sext i32 %37 to i64
   %53 = getelementptr inbounds nuw i8, ptr %12, i64 10666
-  tail call void %51(ptr noundef %49, i64 noundef %52, i32 noundef %., i32 noundef %24, ptr noundef nonnull %53) #8
+  tail call void %51(ptr noundef %49, i64 noundef %52, i32 noundef %., i32 noundef %24, ptr noundef nonnull %53) #9
   br label %54
 
 54:                                               ; preds = %10, %3
@@ -4964,22 +4964,22 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #7
+declare i32 @llvm.abs.i32(i32, i1 immarg) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4989,8 +4989,9 @@ attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "st
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

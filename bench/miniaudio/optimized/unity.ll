@@ -1271,7 +1271,7 @@ define ptr @ma_copy_string(ptr noundef readonly captures(address_is_null) %0, pt
   br i1 %3, label %ma_malloc.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #76
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #77
   %6 = add i64 %5, 1
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %13, label %7
@@ -1288,7 +1288,7 @@ define ptr @ma_copy_string(ptr noundef readonly captures(address_is_null) %0, pt
   br label %ma_malloc.exit
 
 13:                                               ; preds = %4
-  %14 = tail call noalias noundef ptr @malloc(i64 noundef %6) #77
+  %14 = tail call noalias noundef ptr @malloc(i64 noundef %6) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %10, %13
@@ -1325,7 +1325,7 @@ define ptr @ma_malloc(i64 noundef %0, ptr noundef readonly captures(address_is_n
   br label %11
 
 9:                                                ; preds = %2
-  %10 = tail call noalias noundef ptr @malloc(i64 noundef %0) #77
+  %10 = tail call noalias noundef ptr @malloc(i64 noundef %0) #78
   br label %11
 
 11:                                               ; preds = %3, %9, %6
@@ -1335,7 +1335,7 @@ define ptr @ma_malloc(i64 noundef %0, ptr noundef readonly captures(address_is_n
 
 ; Function Attrs: noinline nounwind uwtable
 define ptr @ma_copy_string_w(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
-  %3 = tail call i64 @wcslen(ptr noundef %0) #76
+  %3 = tail call i64 @wcslen(ptr noundef %0) #77
   %4 = add i64 %3, 1
   %5 = shl i64 %4, 2
   %.not.i = icmp eq ptr %1, null
@@ -1353,7 +1353,7 @@ define ptr @ma_copy_string_w(ptr noundef readonly captures(address_is_null) %0, 
   br label %ma_malloc.exit
 
 12:                                               ; preds = %2
-  %13 = tail call noalias noundef ptr @malloc(i64 noundef %5) #77
+  %13 = tail call noalias noundef ptr @malloc(i64 noundef %5) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %9, %12
@@ -1392,7 +1392,7 @@ define range(i32 -51, 1) i32 @ma_fopen(ptr noundef writeonly captures(address_is
   br i1 %9, label %10, label %.thread
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @__errno_location() #78
+  %11 = tail call ptr @__errno_location() #79
   %12 = load i32, ptr %11, align 4, !tbaa !3
   %13 = tail call fastcc i32 @ma_result_from_errno(i32 noundef %12)
   %14 = icmp eq i32 %13, 0
@@ -1453,7 +1453,7 @@ define range(i32 -51, 1) i32 @ma_wfopen(ptr noundef captures(address_is_null) %0
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %11
-  %15 = tail call ptr @__errno_location() #78
+  %15 = tail call ptr @__errno_location() #79
   %16 = load i32, ptr %15, align 4, !tbaa !3
   %17 = call fastcc i32 @ma_result_from_errno(i32 noundef %16)
   br label %ma_free.exit
@@ -1475,7 +1475,7 @@ define range(i32 -51, 1) i32 @ma_wfopen(ptr noundef captures(address_is_null) %0
   br label %ma_malloc.exit
 
 26:                                               ; preds = %18
-  %27 = call noalias noundef ptr @malloc(i64 noundef %19) #77
+  %27 = call noalias noundef ptr @malloc(i64 noundef %19) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %23, %26
@@ -2947,7 +2947,7 @@ define range(i32 -4, 1) i32 @ma_slot_allocator_init(ptr noundef readonly capture
   br label %ma_malloc.exit
 
 26:                                               ; preds = %8
-  %27 = tail call noalias noundef ptr @malloc(i64 noundef %19) #77
+  %27 = tail call noalias noundef ptr @malloc(i64 noundef %19) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %23, %26
@@ -3555,7 +3555,7 @@ define range(i32 -4, 1) i32 @ma_job_queue_init(ptr noundef readonly captures(add
   br label %ma_malloc.exit
 
 29:                                               ; preds = %9
-  %30 = tail call noalias noundef ptr @malloc(i64 noundef %22) #77
+  %30 = tail call noalias noundef ptr @malloc(i64 noundef %22) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %26, %29
@@ -5534,7 +5534,7 @@ define internal fastcc range(i32 -51, 1) i32 @ma_thread_create(ptr noundef %0, i
   br i1 %.not8.i, label %ma_free.exit, label %ma_malloc.exit.thread28
 
 ma_malloc.exit:                                   ; preds = %11
-  %15 = tail call noalias noundef dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #77
+  %15 = tail call noalias noundef dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #78
   %16 = icmp eq ptr %15, null
   br i1 %16, label %ma_free.exit, label %20
 
@@ -12046,7 +12046,7 @@ define i32 @ma_device_get_name(ptr noundef %0, i32 noundef %1, ptr noundef captu
 
 .sink.split:                                      ; preds = %15, %19
   %.sink25 = phi ptr [ %20, %19 ], [ %2, %15 ]
-  %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink25) #76
+  %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink25) #77
   store i64 %21, ptr %4, align 8, !tbaa !52
   br label %22
 
@@ -12089,7 +12089,7 @@ ma_channel_map_get_channel.exit.us.us:            ; preds = %.lr.ph.split.us, %m
   %.03041.us.us = phi i32 [ %10, %ma_channel_map_get_channel.exit.us.us ], [ 0, %.lr.ph.split.us ]
   %6 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %1, i32 noundef %.03041.us.us)
   %7 = tail call ptr @ma_channel_position_to_string(i8 noundef zeroext %6)
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #76
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #77
   %9 = add i64 %8, %.042.us.us
   %10 = add nuw i32 %.03041.us.us, 1
   %11 = icmp ult i32 %10, %1
@@ -12103,7 +12103,7 @@ ma_channel_map_get_channel.exit.us:               ; preds = %.lr.ph.split.us, %2
   %.03041.us = phi i32 [ %21, %28 ], [ 0, %.lr.ph.split.us ]
   %13 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %1, i32 noundef %.03041.us)
   %14 = tail call ptr @ma_channel_position_to_string(i8 noundef zeroext %13)
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #76
+  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #77
   %16 = add i64 %15, %.042.us
   %17 = icmp ugt i64 %3, %16
   br i1 %17, label %18, label %20
@@ -12143,7 +12143,7 @@ ma_channel_map_get_channel.exit.us43:             ; preds = %.lr.ph.split, %ma_c
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv58
   %31 = load i8, ptr %30, align 1, !tbaa !7
   %32 = tail call ptr @ma_channel_position_to_string(i8 noundef zeroext %31)
-  %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #76
+  %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #77
   %34 = add i64 %33, %.042.us44
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %35 = icmp samesign ult i64 %indvars.iv.next59, %29
@@ -12158,7 +12158,7 @@ ma_channel_map_get_channel.exit:                  ; preds = %.lr.ph.split, %52
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %38 = load i8, ptr %37, align 1, !tbaa !7
   %39 = tail call ptr @ma_channel_position_to_string(i8 noundef zeroext %38)
-  %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #76
+  %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #77
   %41 = add i64 %40, %.042
   %42 = icmp ugt i64 %3, %41
   br i1 %42, label %43, label %45
@@ -18245,7 +18245,7 @@ define range(i32 -4, 1) i32 @ma_biquad_init(ptr noundef readonly captures(addres
   br label %ma_malloc.exit
 
 18:                                               ; preds = %9
-  %19 = tail call noalias noundef ptr @malloc(i64 noundef %11) #77
+  %19 = tail call noalias noundef ptr @malloc(i64 noundef %11) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %15, %18
@@ -18812,7 +18812,7 @@ define range(i32 -4, 1) i32 @ma_lpf1_init(ptr noundef readonly captures(address_
   br label %ma_malloc.exit
 
 20:                                               ; preds = %9
-  %21 = tail call noalias noundef ptr @malloc(i64 noundef %13) #77
+  %21 = tail call noalias noundef ptr @malloc(i64 noundef %13) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %17, %20
@@ -19343,7 +19343,7 @@ cdce.end10.i:                                     ; preds = %cdce.call32, %cdce.
   br label %ma_malloc.exit
 
 30:                                               ; preds = %21
-  %31 = tail call noalias noundef ptr @malloc(i64 noundef %23) #77
+  %31 = tail call noalias noundef ptr @malloc(i64 noundef %23) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %27, %30
@@ -20298,7 +20298,7 @@ cdce.end10.i.i.i:                                 ; preds = %cdce.call31, %cdce.
   br label %ma_malloc.exit
 
 56:                                               ; preds = %49
-  %57 = tail call noalias noundef ptr @malloc(i64 noundef %48) #77
+  %57 = tail call noalias noundef ptr @malloc(i64 noundef %48) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %53, %56
@@ -21368,7 +21368,7 @@ define range(i32 -4, 1) i32 @ma_hpf1_init(ptr noundef readonly captures(address_
   br label %ma_malloc.exit
 
 20:                                               ; preds = %9
-  %21 = tail call noalias noundef ptr @malloc(i64 noundef %13) #77
+  %21 = tail call noalias noundef ptr @malloc(i64 noundef %13) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %17, %20
@@ -21878,7 +21878,7 @@ cdce.end10.i:                                     ; preds = %cdce.call32, %cdce.
   br label %ma_malloc.exit
 
 30:                                               ; preds = %21
-  %31 = tail call noalias noundef ptr @malloc(i64 noundef %23) #77
+  %31 = tail call noalias noundef ptr @malloc(i64 noundef %23) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %27, %30
@@ -22804,7 +22804,7 @@ cdce.end10.i.i.i:                                 ; preds = %cdce.call31, %cdce.
   br label %ma_malloc.exit
 
 56:                                               ; preds = %49
-  %57 = tail call noalias noundef ptr @malloc(i64 noundef %48) #77
+  %57 = tail call noalias noundef ptr @malloc(i64 noundef %48) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %53, %56
@@ -23780,7 +23780,7 @@ cdce.end10.i:                                     ; preds = %cdce.call32, %cdce.
   br label %ma_malloc.exit
 
 30:                                               ; preds = %21
-  %31 = tail call noalias noundef ptr @malloc(i64 noundef %23) #77
+  %31 = tail call noalias noundef ptr @malloc(i64 noundef %23) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %27, %30
@@ -24466,7 +24466,7 @@ ma_bpf_get_heap_size.exit:                        ; preds = %32
   br label %ma_malloc.exit
 
 45:                                               ; preds = %38
-  %46 = tail call noalias noundef ptr @malloc(i64 noundef %36) #77
+  %46 = tail call noalias noundef ptr @malloc(i64 noundef %36) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %42, %45
@@ -25142,7 +25142,7 @@ cdce.end10.i:                                     ; preds = %cdce.call32, %cdce.
   br label %ma_malloc.exit
 
 30:                                               ; preds = %21
-  %31 = tail call noalias noundef ptr @malloc(i64 noundef %23) #77
+  %31 = tail call noalias noundef ptr @malloc(i64 noundef %23) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %27, %30
@@ -25644,7 +25644,7 @@ cdce.end12.i:                                     ; preds = %cdce.call34, %cdce.
   br label %ma_malloc.exit
 
 35:                                               ; preds = %26
-  %36 = tail call noalias noundef ptr @malloc(i64 noundef %28) #77
+  %36 = tail call noalias noundef ptr @malloc(i64 noundef %28) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %32, %35
@@ -26207,7 +26207,7 @@ cdce.end14.i:                                     ; preds = %cdce.call36, %cdce.
   br label %ma_malloc.exit
 
 45:                                               ; preds = %36
-  %46 = tail call noalias noundef ptr @malloc(i64 noundef %38) #77
+  %46 = tail call noalias noundef ptr @malloc(i64 noundef %38) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %42, %45
@@ -26794,7 +26794,7 @@ cdce.end14.i:                                     ; preds = %cdce.call36, %cdce.
   br label %ma_malloc.exit
 
 45:                                               ; preds = %36
-  %46 = tail call noalias noundef ptr @malloc(i64 noundef %38) #77
+  %46 = tail call noalias noundef ptr @malloc(i64 noundef %38) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %42, %45
@@ -27107,7 +27107,7 @@ ma_malloc.exit.thread:                            ; preds = %20
   br label %ma_malloc.exit
 
 27:                                               ; preds = %11
-  %28 = tail call noalias noundef ptr @malloc(i64 noundef %19) #77
+  %28 = tail call noalias noundef ptr @malloc(i64 noundef %19) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %24, %27
@@ -27308,7 +27308,7 @@ define range(i32 -2, 1) i32 @ma_delay_process_pcm_frames(ptr noundef captures(ad
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #37
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -27519,7 +27519,7 @@ define range(i32 -4, 1) i32 @ma_gainer_init(ptr noundef readonly captures(addres
   br label %ma_malloc.exit
 
 17:                                               ; preds = %8
-  %18 = tail call noalias noundef ptr @malloc(i64 noundef %10) #77
+  %18 = tail call noalias noundef ptr @malloc(i64 noundef %10) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %14, %17
@@ -29693,7 +29693,7 @@ define range(i32 -4, 1) i32 @ma_spatializer_listener_init(ptr noundef readonly c
   br label %ma_malloc.exit
 
 18:                                               ; preds = %8
-  %19 = tail call noalias noundef ptr @malloc(i64 noundef %11) #77
+  %19 = tail call noalias noundef ptr @malloc(i64 noundef %11) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %15, %18
@@ -30571,7 +30571,7 @@ define range(i32 -4, 1) i32 @ma_spatializer_init(ptr noundef readonly captures(a
   br label %ma_malloc.exit
 
 32:                                               ; preds = %12
-  %33 = tail call noalias noundef ptr @malloc(i64 noundef %25) #77
+  %33 = tail call noalias noundef ptr @malloc(i64 noundef %25) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %29, %32
@@ -34461,7 +34461,7 @@ define range(i32 -4, 1) i32 @ma_linear_resampler_init(ptr noundef readonly captu
   br label %ma_malloc.exit
 
 45:                                               ; preds = %38
-  %46 = tail call noalias noundef ptr @malloc(i64 noundef %37) #77
+  %46 = tail call noalias noundef ptr @malloc(i64 noundef %37) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %42, %45
@@ -36316,7 +36316,7 @@ ma_resampler_get_heap_size.exit:                  ; preds = %.thread.i
   br label %ma_malloc.exit
 
 27:                                               ; preds = %20
-  %28 = call noalias noundef ptr @malloc(i64 noundef %19) #77
+  %28 = call noalias noundef ptr @malloc(i64 noundef %19) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %24, %27
@@ -38594,7 +38594,7 @@ ma_channel_converter_get_heap_size.exit:          ; preds = %3
   br label %ma_malloc.exit
 
 15:                                               ; preds = %8
-  %16 = tail call noalias noundef ptr @malloc(i64 noundef %7) #77
+  %16 = tail call noalias noundef ptr @malloc(i64 noundef %7) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %12, %15
@@ -40595,7 +40595,7 @@ ma_data_converter_get_heap_size.exit:             ; preds = %3
   br label %ma_malloc.exit
 
 15:                                               ; preds = %8
-  %16 = tail call noalias noundef ptr @malloc(i64 noundef %7) #77
+  %16 = tail call noalias noundef ptr @malloc(i64 noundef %7) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %12, %15
@@ -43182,7 +43182,7 @@ ma_data_converter_get_heap_size.exit.i:           ; preds = %14
   br i1 %.not18.i, label %.thread.i, label %18
 
 18:                                               ; preds = %16
-  %19 = tail call noalias noundef ptr @malloc(i64 noundef %17) #77
+  %19 = tail call noalias noundef ptr @malloc(i64 noundef %17) #78
   %20 = icmp eq ptr %19, null
   br i1 %20, label %ma_data_converter_init.exit.thread, label %21
 
@@ -43526,7 +43526,7 @@ define ptr @ma_aligned_malloc(i64 noundef %0, i64 noundef %1, ptr noundef readon
   br label %ma_malloc.exit
 
 14:                                               ; preds = %5
-  %15 = tail call noalias noundef ptr @malloc(i64 noundef %7) #77
+  %15 = tail call noalias noundef ptr @malloc(i64 noundef %7) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %11, %14
@@ -45340,7 +45340,7 @@ define noundef nonnull ptr @ma_result_description(i32 noundef %0) local_unnamed_
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define internal noalias noundef ptr @ma__malloc_default(i64 noundef %0, ptr readnone captures(none) %1) #47 {
-  %3 = tail call noalias ptr @malloc(i64 noundef %0) #77
+  %3 = tail call noalias ptr @malloc(i64 noundef %0) #78
   ret ptr %3
 }
 
@@ -45361,7 +45361,7 @@ define ptr @ma_calloc(i64 noundef %0, ptr noundef readonly captures(address_is_n
   br label %ma_malloc.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias noundef ptr @malloc(i64 noundef %0) #77
+  %10 = tail call noalias noundef ptr @malloc(i64 noundef %0) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %6, %9
@@ -45399,7 +45399,7 @@ define ptr @ma_realloc(ptr noundef %0, i64 noundef %1, ptr noundef readonly capt
   br label %12
 
 10:                                               ; preds = %3
-  %11 = tail call noalias noundef ptr @realloc(ptr noundef %0, i64 noundef %1) #79
+  %11 = tail call noalias noundef ptr @realloc(ptr noundef %0, i64 noundef %1) #80
   br label %12
 
 12:                                               ; preds = %4, %10, %7
@@ -45409,7 +45409,7 @@ define ptr @ma_realloc(ptr noundef %0, i64 noundef %1, ptr noundef readonly capt
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal noalias noundef ptr @ma__realloc_default(ptr noundef captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2) #48 {
-  %4 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #79
+  %4 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #80
   ret ptr %4
 }
 
@@ -48066,7 +48066,7 @@ define range(i32 -4, 1) i32 @ma_paged_audio_buffer_data_allocate_page(ptr nounde
   br label %ma_malloc.exit
 
 28:                                               ; preds = %21
-  %29 = tail call noalias noundef ptr @malloc(i64 noundef %19) #77
+  %29 = tail call noalias noundef ptr @malloc(i64 noundef %19) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %25, %28
@@ -48214,7 +48214,7 @@ define range(i32 -4, 1) i32 @ma_paged_audio_buffer_data_allocate_and_append_page
   br label %ma_malloc.exit.i
 
 26:                                               ; preds = %19
-  %27 = tail call noalias noundef ptr @malloc(i64 noundef %17) #77
+  %27 = tail call noalias noundef ptr @malloc(i64 noundef %17) #78
   br label %ma_malloc.exit.i
 
 ma_malloc.exit.i:                                 ; preds = %26, %23
@@ -48948,7 +48948,7 @@ define internal range(i32 -51, 1) i32 @ma_default_vfs_open(ptr readnone captures
   br i1 %13, label %14, label %ma_fopen.exit.i
 
 14:                                               ; preds = %9
-  %15 = tail call ptr @__errno_location() #78
+  %15 = tail call ptr @__errno_location() #79
   %16 = load i32, ptr %15, align 4, !tbaa !3
   %17 = tail call fastcc i32 @ma_result_from_errno(i32 noundef %16)
   %18 = icmp eq i32 %17, 0
@@ -49162,7 +49162,7 @@ ma_zero_memory_default.exit:                      ; preds = %3
   br i1 %.not.i, label %14, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @__errno_location() #78
+  %11 = tail call ptr @__errno_location() #79
   %12 = load i32, ptr %11, align 4, !tbaa !3
   %13 = tail call fastcc i32 @ma_result_from_errno(i32 noundef %12)
   br label %ma_default_vfs_info__stdio.exit
@@ -49230,7 +49230,7 @@ define i32 @ma_vfs_or_default_open(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %23, label %24, label %ma_fopen.exit.i.i
 
 24:                                               ; preds = %19
-  %25 = tail call ptr @__errno_location() #78
+  %25 = tail call ptr @__errno_location() #79
   %26 = load i32, ptr %25, align 4, !tbaa !3
   %27 = tail call fastcc i32 @ma_result_from_errno(i32 noundef %26)
   %28 = icmp eq i32 %27, 0
@@ -49620,7 +49620,7 @@ ma_zero_memory_default.exit.i8:                   ; preds = %14
   br i1 %.not.i.i, label %23, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call ptr @__errno_location() #78
+  %20 = tail call ptr @__errno_location() #79
   %21 = load i32, ptr %20, align 4, !tbaa !3
   %22 = tail call fastcc i32 @ma_result_from_errno(i32 noundef %21)
   br label %ma_default_vfs_info__stdio.exit.i
@@ -49699,7 +49699,7 @@ define internal fastcc i32 @ma_vfs_open_and_read_file_ex(ptr noundef %0, ptr nou
   br i1 %25, label %26, label %.thread118
 
 26:                                               ; preds = %23
-  %27 = tail call ptr @__errno_location() #78
+  %27 = tail call ptr @__errno_location() #79
   %28 = load i32, ptr %27, align 4, !tbaa !3
   %29 = tail call fastcc i32 @ma_result_from_errno(i32 noundef %28)
   %30 = icmp eq i32 %29, 0
@@ -49783,7 +49783,7 @@ ma_vfs_or_default_info.exit.thread138:            ; preds = %53
   br label %76
 
 ma_vfs_or_default_info.exit:                      ; preds = %53
-  %59 = tail call ptr @__errno_location() #78
+  %59 = tail call ptr @__errno_location() #79
   %60 = load i32, ptr %59, align 4, !tbaa !3
   %61 = call fastcc i32 @ma_result_from_errno(i32 noundef %60)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -49877,7 +49877,7 @@ thread-pre-split:                                 ; preds = %ma_vfs_or_default_i
   br label %ma_malloc.exit
 
 103:                                              ; preds = %95
-  %104 = call noalias noundef ptr @malloc(i64 noundef %96) #77
+  %104 = call noalias noundef ptr @malloc(i64 noundef %96) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %100, %103
@@ -58605,7 +58605,7 @@ ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %22
   br label %ma_malloc.exit.i.i
 
 65:                                               ; preds = %56
-  %66 = tail call noalias noundef ptr @malloc(i64 noundef %58) #77
+  %66 = tail call noalias noundef ptr @malloc(i64 noundef %58) #78
   br label %ma_malloc.exit.i.i
 
 ma_malloc.exit.i.i:                               ; preds = %65, %62
@@ -58846,7 +58846,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %4
   br label %ma_malloc.exit.i.i
 
 30:                                               ; preds = %21
-  %31 = tail call noalias noundef ptr @malloc(i64 noundef %23) #77
+  %31 = tail call noalias noundef ptr @malloc(i64 noundef %23) #78
   br label %ma_malloc.exit.i.i
 
 ma_malloc.exit.i.i:                               ; preds = %30, %27
@@ -59069,7 +59069,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %4
   br label %ma_malloc.exit.i.i
 
 30:                                               ; preds = %21
-  %31 = tail call noalias noundef ptr @malloc(i64 noundef %23) #77
+  %31 = tail call noalias noundef ptr @malloc(i64 noundef %23) #78
   br label %ma_malloc.exit.i.i
 
 ma_malloc.exit.i.i:                               ; preds = %30, %27
@@ -59372,7 +59372,7 @@ ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %21
   br label %ma_malloc.exit.i.i
 
 61:                                               ; preds = %52
-  %62 = tail call noalias noundef ptr @malloc(i64 noundef %54) #77
+  %62 = tail call noalias noundef ptr @malloc(i64 noundef %54) #78
   br label %ma_malloc.exit.i.i
 
 ma_malloc.exit.i.i:                               ; preds = %61, %58
@@ -62006,7 +62006,7 @@ ma_decoder__preinit.exit.i:                       ; preds = %57, %49
   br i1 %68, label %69, label %75
 
 69:                                               ; preds = %66
-  %70 = tail call ptr @__errno_location() #78
+  %70 = tail call ptr @__errno_location() #79
   %71 = load i32, ptr %70, align 4, !tbaa !3
   %72 = tail call fastcc i32 @ma_result_from_errno(i32 noundef %71)
   %73 = icmp eq i32 %72, 0
@@ -62356,7 +62356,7 @@ ma_path_file_name.exit.i.i:                       ; preds = %.preheader.i.i.i, %
 ma_path_extension_equal.exit:                     ; preds = %ma_path_file_name.exit.i.i
   %.not13.i.i = icmp eq ptr %.0.i.i103, null
   %190 = select i1 %.not13.i.i, ptr %.010.i.i, ptr %.0.i.i103
-  %191 = call i32 @strcasecmp(ptr noundef nonnull @.str.169, ptr noundef nonnull %190) #76
+  %191 = call i32 @strcasecmp(ptr noundef nonnull @.str.169, ptr noundef nonnull %190) #77
   %.not = icmp eq i32 %191, 0
   br i1 %.not, label %192, label %.preheader.i118.preheader
 
@@ -62479,7 +62479,7 @@ ma_path_file_name.exit.i.i125:                    ; preds = %.preheader.i.i.i122
 ma_path_extension_equal.exit134:                  ; preds = %ma_path_file_name.exit.i.i125
   %.not13.i.i132 = icmp eq ptr %.0.i.i127, null
   %231 = select i1 %.not13.i.i132, ptr %.010.i.i126, ptr %.0.i.i127
-  %232 = call i32 @strcasecmp(ptr noundef nonnull @.str.170, ptr noundef nonnull %231) #76
+  %232 = call i32 @strcasecmp(ptr noundef nonnull @.str.170, ptr noundef nonnull %231) #77
   %.not204 = icmp eq i32 %232, 0
   br i1 %.not204, label %233, label %.preheader.i143.preheader
 
@@ -62579,7 +62579,7 @@ ma_path_file_name.exit.i.i150:                    ; preds = %.preheader.i.i.i147
 ma_path_extension_equal.exit159:                  ; preds = %ma_path_file_name.exit.i.i150
   %.not13.i.i157 = icmp eq ptr %.0.i.i152, null
   %260 = select i1 %.not13.i.i157, ptr %.010.i.i151, ptr %.0.i.i152
-  %261 = call i32 @strcasecmp(ptr noundef nonnull @.str.171, ptr noundef nonnull %260) #76
+  %261 = call i32 @strcasecmp(ptr noundef nonnull @.str.171, ptr noundef nonnull %260) #77
   %.not205 = icmp eq i32 %261, 0
   br i1 %.not205, label %262, label %.critedge73
 
@@ -63434,7 +63434,7 @@ ma_path_extension_w.exit:                         ; preds = %ma_path_file_name_w
   br i1 %27, label %32, label %28
 
 28:                                               ; preds = %25
-  %29 = call i32 @strcasecmp(ptr noundef nonnull %3, ptr noundef nonnull %4) #76
+  %29 = call i32 @strcasecmp(ptr noundef nonnull %3, ptr noundef nonnull %4) #77
   %30 = icmp eq i32 %29, 0
   %31 = zext i1 %30 to i32
   br label %32
@@ -63819,7 +63819,7 @@ ma_path_file_name.exit.i.i:                       ; preds = %.preheader.i.i.i, %
 ma_path_extension_equal.exit:                     ; preds = %ma_path_file_name.exit.i.i
   %.not13.i.i = icmp eq ptr %.0.i.i106, null
   %145 = select i1 %.not13.i.i, ptr %.010.i.i, ptr %.0.i.i106
-  %146 = call i32 @strcasecmp(ptr noundef nonnull @.str.169, ptr noundef nonnull %145) #76
+  %146 = call i32 @strcasecmp(ptr noundef nonnull @.str.169, ptr noundef nonnull %145) #77
   %.not212 = icmp eq i32 %146, 0
   br i1 %.not212, label %147, label %.preheader.i116.preheader
 
@@ -63918,7 +63918,7 @@ ma_path_file_name.exit.i.i123:                    ; preds = %.preheader.i.i.i120
 ma_path_extension_equal.exit132:                  ; preds = %ma_path_file_name.exit.i.i123
   %.not13.i.i130 = icmp eq ptr %.0.i.i125, null
   %172 = select i1 %.not13.i.i130, ptr %.010.i.i124, ptr %.0.i.i125
-  %173 = call i32 @strcasecmp(ptr noundef nonnull @.str.170, ptr noundef nonnull %172) #76
+  %173 = call i32 @strcasecmp(ptr noundef nonnull @.str.170, ptr noundef nonnull %172) #77
   %.not213 = icmp eq i32 %173, 0
   br i1 %.not213, label %.critedge78, label %.preheader.i141.preheader
 
@@ -64017,7 +64017,7 @@ ma_path_file_name.exit.i.i148:                    ; preds = %.preheader.i.i.i145
 ma_path_extension_equal.exit157:                  ; preds = %ma_path_file_name.exit.i.i148
   %.not13.i.i155 = icmp eq ptr %.0.i.i150, null
   %198 = select i1 %.not13.i.i155, ptr %.010.i.i149, ptr %.0.i.i150
-  %199 = call i32 @strcasecmp(ptr noundef nonnull @.str.171, ptr noundef nonnull %198) #76
+  %199 = call i32 @strcasecmp(ptr noundef nonnull @.str.171, ptr noundef nonnull %198) #77
   %.not214 = icmp eq i32 %199, 0
   br i1 %.not214, label %.critedge80, label %.critedge81
 
@@ -66630,7 +66630,7 @@ ma_encoder_preinit.exit:                          ; preds = %46, %37
   br i1 %56, label %57, label %ma_vfs_or_default_open.exit.thread27
 
 57:                                               ; preds = %54
-  %58 = tail call ptr @__errno_location() #78
+  %58 = tail call ptr @__errno_location() #79
   %59 = load i32, ptr %58, align 4, !tbaa !3
   %60 = tail call fastcc i32 @ma_result_from_errno(i32 noundef %59)
   %61 = icmp eq i32 %60, 0
@@ -68491,7 +68491,7 @@ ma_pcm_convert.exit:                              ; preds = %.lr.ph.i134.i.prehe
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #37
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -69022,7 +69022,7 @@ define range(i32 -4, 1) i32 @ma_noise_init(ptr noundef readonly captures(address
   br label %ma_malloc.exit
 
 27:                                               ; preds = %17
-  %28 = tail call noalias noundef ptr @malloc(i64 noundef %20) #77
+  %28 = tail call noalias noundef ptr @malloc(i64 noundef %20) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %24, %27
@@ -72878,7 +72878,7 @@ define internal fastcc i32 @ma_resource_manager_data_buffer_node_acquire(ptr nou
   br i1 %17, label %77, label %29
 
 29:                                               ; preds = %28
-  %30 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #76
+  %30 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #77
   %31 = trunc i64 %30 to i32
   %32 = sdiv i32 %31, 4
   %33 = shl nsw i32 %32, 2
@@ -72964,7 +72964,7 @@ ma_hash_string_32.exit:                           ; preds = %._crit_edge.i.i, %6
   br label %105
 
 77:                                               ; preds = %28
-  %78 = tail call i64 @wcslen(ptr noundef readonly %2) #76
+  %78 = tail call i64 @wcslen(ptr noundef readonly %2) #77
   %.tr.i = trunc i64 %78 to i32
   %79 = shl i32 %.tr.i, 2
   %80 = sext i32 %79 to i64
@@ -73720,7 +73720,7 @@ define internal fastcc range(i32 -50, -51) i32 @ma_resource_manager_data_buffer_
   br i1 %11, label %62, label %14
 
 14:                                               ; preds = %13
-  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #76
+  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #77
   %16 = trunc i64 %15 to i32
   %17 = sdiv i32 %16, 4
   %18 = shl nsw i32 %17, 2
@@ -73806,7 +73806,7 @@ ma_hash_string_32.exit:                           ; preds = %._crit_edge.i.i, %4
   br label %90
 
 62:                                               ; preds = %13
-  %63 = tail call i64 @wcslen(ptr noundef readonly %3) #76
+  %63 = tail call i64 @wcslen(ptr noundef readonly %3) #77
   %.tr.i = trunc i64 %63 to i32
   %64 = shl i32 %.tr.i, 2
   %65 = sext i32 %64 to i64
@@ -76831,7 +76831,7 @@ ma_node_get_heap_size.exit:                       ; preds = %4
   br label %ma_malloc.exit
 
 16:                                               ; preds = %9
-  %17 = tail call noalias noundef ptr @malloc(i64 noundef %8) #77
+  %17 = tail call noalias noundef ptr @malloc(i64 noundef %8) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %13, %16
@@ -79788,7 +79788,7 @@ ma_zero_memory_default.exit:                      ; preds = %4
   br label %ma_malloc.exit.i
 
 25:                                               ; preds = %16
-  %26 = tail call noalias noundef ptr @malloc(i64 noundef %18) #77
+  %26 = tail call noalias noundef ptr @malloc(i64 noundef %18) #78
   br label %ma_malloc.exit.i
 
 ma_malloc.exit.i:                                 ; preds = %25, %22
@@ -80843,7 +80843,7 @@ ma_malloc.exit.thread.i:                          ; preds = %22
   br label %ma_malloc.exit.i
 
 29:                                               ; preds = %12
-  %30 = tail call noalias noundef ptr @malloc(i64 noundef %21) #77
+  %30 = tail call noalias noundef ptr @malloc(i64 noundef %21) #78
   br label %ma_malloc.exit.i
 
 ma_malloc.exit.i:                                 ; preds = %29, %26
@@ -81726,7 +81726,7 @@ ma_engine_node_get_heap_size.exit:                ; preds = %3
   br label %ma_malloc.exit
 
 15:                                               ; preds = %8
-  %16 = tail call noalias noundef ptr @malloc(i64 noundef %7) #77
+  %16 = tail call noalias noundef ptr @malloc(i64 noundef %7) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %12, %15
@@ -107790,7 +107790,7 @@ define ptr @ma_dr_mp3_malloc(i64 noundef %0, ptr noundef readonly captures(addre
   br label %ma_dr_mp3__malloc_from_callbacks.exit
 
 15:                                               ; preds = %2
-  %16 = tail call noalias noundef ptr @malloc(i64 noundef %0) #77
+  %16 = tail call noalias noundef ptr @malloc(i64 noundef %0) #78
   br label %ma_dr_mp3__malloc_from_callbacks.exit
 
 ma_dr_mp3__malloc_from_callbacks.exit:            ; preds = %12, %9, %6, %15
@@ -107800,7 +107800,7 @@ ma_dr_mp3__malloc_from_callbacks.exit:            ; preds = %12, %9, %6, %15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define internal noalias noundef ptr @ma_dr_mp3__malloc_default(i64 noundef %0, ptr readnone captures(none) %1) #47 {
-  %3 = tail call noalias ptr @malloc(i64 noundef %0) #77
+  %3 = tail call noalias ptr @malloc(i64 noundef %0) #78
   ret ptr %3
 }
 
@@ -109523,7 +109523,7 @@ define internal fastcc i32 @ma_resource_manager_data_buffer_node_init_supply_dec
   br label %ma_malloc.exit
 
 18:                                               ; preds = %6
-  %19 = tail call noalias noundef dereferenceable_or_null(552) ptr @malloc(i64 noundef 552) #77
+  %19 = tail call noalias noundef dereferenceable_or_null(552) ptr @malloc(i64 noundef 552) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %15, %18
@@ -110112,7 +110112,7 @@ define internal fastcc i32 @ma_resource_manager_data_buffer_node_decode_next_pag
   br label %ma_malloc.exit.i
 
 57:                                               ; preds = %50
-  %58 = tail call noalias noundef ptr @malloc(i64 noundef %48) #77
+  %58 = tail call noalias noundef ptr @malloc(i64 noundef %48) #78
   br label %ma_malloc.exit.i
 
 ma_malloc.exit.i:                                 ; preds = %57, %54
@@ -115555,7 +115555,7 @@ ma_device_get_context.exit.i10:                   ; preds = %25
 ma_device_get_log.exit12:                         ; preds = %ma_device_get_context.exit.i10, %29
   %.0.i1.i11 = phi ptr [ %31, %29 ], [ null, %ma_device_get_context.exit.i10 ]
   %32 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i11, i32 noundef 1, ptr noundef nonnull @.str.443)
-  %33 = tail call ptr @__errno_location() #78
+  %33 = tail call ptr @__errno_location() #79
   %34 = load i32, ptr %33, align 4, !tbaa !3
   %35 = tail call fastcc i32 @ma_result_from_errno(i32 noundef %34)
   br label %40
@@ -117294,7 +117294,7 @@ ma_device_get_context.exit.i503:                  ; preds = %678, %674
 ma_device_get_log.exit505:                        ; preds = %ma_device_get_context.exit.i503, %687
   %.0.i1.i504 = phi ptr [ %689, %687 ], [ null, %ma_device_get_context.exit.i503 ]
   %690 = call i32 @ma_log_post(ptr noundef %.0.i1.i504, i32 noundef 1, ptr noundef nonnull @.str.418)
-  %691 = tail call ptr @__errno_location() #78
+  %691 = tail call ptr @__errno_location() #79
   %692 = load i32, ptr %691, align 4, !tbaa !3
   %693 = call fastcc i32 @ma_result_from_errno(i32 noundef %692)
   br label %ma_log_post.exit
@@ -117551,7 +117551,7 @@ ma_device_get_log.exit:                           ; preds = %ma_device_get_conte
   br label %ma_log_post.exit
 
 ma_log_post.exit:                                 ; preds = %._crit_edge, %ma_device_get_context.exit.i, %ma_device_get_log.exit, %._crit_edge.i
-  %36 = tail call ptr @__errno_location() #78
+  %36 = tail call ptr @__errno_location() #79
   %37 = load i32, ptr %36, align 4, !tbaa !3
   %38 = call fastcc i32 @ma_result_from_errno(i32 noundef %37)
   br label %.thread
@@ -117620,7 +117620,7 @@ ma_device_get_log.exit32:                         ; preds = %ma_device_get_conte
   br label %ma_log_post.exit41
 
 ma_log_post.exit41:                               ; preds = %47, %ma_device_get_context.exit.i30, %ma_device_get_log.exit32, %._crit_edge.i39
-  %69 = tail call ptr @__errno_location() #78
+  %69 = tail call ptr @__errno_location() #79
   %70 = load i32, ptr %69, align 4, !tbaa !3
   %71 = call fastcc i32 @ma_result_from_errno(i32 noundef %70)
   br label %79
@@ -123173,7 +123173,7 @@ define internal range(i32 -10, 1) i32 @ma_decoding_backend_init__wav(ptr readnon
   br label %ma_malloc.exit
 
 15:                                               ; preds = %8
-  %16 = tail call noalias noundef dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #77
+  %16 = tail call noalias noundef dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %12, %15
@@ -123230,7 +123230,7 @@ define internal range(i32 -10, 1) i32 @ma_decoding_backend_init_file__wav(ptr re
   br label %ma_malloc.exit
 
 12:                                               ; preds = %5
-  %13 = tail call noalias noundef dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #77
+  %13 = tail call noalias noundef dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %9, %12
@@ -123287,7 +123287,7 @@ define internal range(i32 -10, 1) i32 @ma_decoding_backend_init_file_w__wav(ptr 
   br label %ma_malloc.exit
 
 12:                                               ; preds = %5
-  %13 = tail call noalias noundef dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #77
+  %13 = tail call noalias noundef dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %9, %12
@@ -123344,7 +123344,7 @@ define internal range(i32 -10, 1) i32 @ma_decoding_backend_init_memory__wav(ptr 
   br label %ma_malloc.exit
 
 13:                                               ; preds = %6
-  %14 = tail call noalias noundef dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #77
+  %14 = tail call noalias noundef dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %10, %13
@@ -123431,7 +123431,7 @@ define internal range(i32 -10, 1) i32 @ma_decoding_backend_init__flac(ptr readno
   br label %ma_malloc.exit
 
 15:                                               ; preds = %8
-  %16 = tail call noalias noundef dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #77
+  %16 = tail call noalias noundef dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %12, %15
@@ -123535,7 +123535,7 @@ define internal range(i32 -10, 1) i32 @ma_decoding_backend_init_file__flac(ptr r
   br label %ma_malloc.exit
 
 12:                                               ; preds = %5
-  %13 = tail call noalias noundef dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #77
+  %13 = tail call noalias noundef dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %9, %12
@@ -123640,7 +123640,7 @@ define internal range(i32 -10, 1) i32 @ma_decoding_backend_init_file_w__flac(ptr
   br label %ma_malloc.exit
 
 13:                                               ; preds = %5
-  %14 = tail call noalias noundef dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #77
+  %14 = tail call noalias noundef dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %10, %13
@@ -123745,7 +123745,7 @@ define internal range(i32 -10, 1) i32 @ma_decoding_backend_init_memory__flac(ptr
   br label %ma_malloc.exit
 
 14:                                               ; preds = %6
-  %15 = tail call noalias noundef dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #77
+  %15 = tail call noalias noundef dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %11, %14
@@ -123941,7 +123941,7 @@ define internal range(i32 -10, 1) i32 @ma_decoding_backend_init__mp3(ptr readnon
   br label %ma_malloc.exit
 
 15:                                               ; preds = %8
-  %16 = tail call noalias noundef dereferenceable_or_null(16192) ptr @malloc(i64 noundef 16192) #77
+  %16 = tail call noalias noundef dereferenceable_or_null(16192) ptr @malloc(i64 noundef 16192) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %12, %15
@@ -123998,7 +123998,7 @@ define internal range(i32 -10, 1) i32 @ma_decoding_backend_init_file__mp3(ptr re
   br label %ma_malloc.exit
 
 12:                                               ; preds = %5
-  %13 = tail call noalias noundef dereferenceable_or_null(16192) ptr @malloc(i64 noundef 16192) #77
+  %13 = tail call noalias noundef dereferenceable_or_null(16192) ptr @malloc(i64 noundef 16192) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %9, %12
@@ -124055,7 +124055,7 @@ define internal range(i32 -10, 1) i32 @ma_decoding_backend_init_file_w__mp3(ptr 
   br label %ma_malloc.exit
 
 12:                                               ; preds = %5
-  %13 = tail call noalias noundef dereferenceable_or_null(16192) ptr @malloc(i64 noundef 16192) #77
+  %13 = tail call noalias noundef dereferenceable_or_null(16192) ptr @malloc(i64 noundef 16192) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %9, %12
@@ -124112,7 +124112,7 @@ define internal range(i32 -10, 1) i32 @ma_decoding_backend_init_memory__mp3(ptr 
   br label %ma_malloc.exit
 
 13:                                               ; preds = %6
-  %14 = tail call noalias noundef dereferenceable_or_null(16192) ptr @malloc(i64 noundef 16192) #77
+  %14 = tail call noalias noundef dereferenceable_or_null(16192) ptr @malloc(i64 noundef 16192) #78
   br label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %10, %13
@@ -125019,7 +125019,7 @@ ma_data_source_set_looping.exit:                  ; preds = %ma_resource_manager
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #37
 
 ; Function Attrs: nounwind uwtable
@@ -126886,13 +126886,13 @@ ma_engine_node_get_required_input_frame_count.exit: ; preds = %ma_engine_node_up
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define internal noalias noundef ptr @ma_dr_wav__malloc_default(i64 noundef %0, ptr readnone captures(none) %1) #47 {
-  %3 = tail call noalias ptr @malloc(i64 noundef %0) #77
+  %3 = tail call noalias ptr @malloc(i64 noundef %0) #78
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal noalias noundef ptr @ma_dr_wav__realloc_default(ptr noundef captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2) #48 {
-  %4 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #79
+  %4 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #80
   ret ptr %4
 }
 
@@ -130533,7 +130533,7 @@ ma_dr_wav__write_or_count_byte.exit891:           ; preds = %705, %.thread1032
   ret i64 %.0418
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #37
 
 ; Function Attrs: nofree nounwind uwtable
@@ -130816,18 +130816,18 @@ define internal noundef i32 @ma_dr_wav__on_seek_memory_write(ptr noundef capture
   ret i32 1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #37
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define internal noalias noundef ptr @ma_dr_flac__malloc_default(i64 noundef %0, ptr readnone captures(none) %1) #47 {
-  %3 = tail call noalias ptr @malloc(i64 noundef %0) #77
+  %3 = tail call noalias ptr @malloc(i64 noundef %0) #78
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal noalias noundef ptr @ma_dr_flac__realloc_default(ptr noundef captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2) #48 {
-  %4 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #79
+  %4 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #80
   ret ptr %4
 }
 
@@ -149265,7 +149265,7 @@ declare <4 x float> @llvm.x86.sse.min.ps(<4 x float>, <4 x float>) #67
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal noalias noundef ptr @ma_dr_mp3__realloc_default(ptr noundef captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2) #48 {
-  %4 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #79
+  %4 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #80
   ret ptr %4
 }
 
@@ -149275,70 +149275,70 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #73
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #73
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #74
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #74
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #75
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #74
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #74
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #74
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #74
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #74
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #74
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.fshl.i16(i16, i16, i16) #74
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #74
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #74
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #75
+declare void @llvm.experimental.noalias.scope.decl(metadata) #76
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #74
+declare i32 @llvm.abs.i32(i32, i1 immarg) #75
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #74
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #74
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #74
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #75
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #74
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #74
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #74
+declare i64 @llvm.abs.i64(i64, i1 immarg) #75
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smax.i16(i16, i16) #74
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smin.i16(i16, i16) #74
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #74
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -149378,7 +149378,7 @@ attributes #33 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #34 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #35 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #36 = { nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #37 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #37 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #38 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #39 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #40 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -149415,12 +149415,13 @@ attributes #70 = { mustprogress nounwind willreturn allockind("realloc") allocsi
 attributes #71 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #72 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #73 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #74 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #75 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #76 = { nounwind willreturn memory(read) }
-attributes #77 = { nounwind allocsize(0) }
-attributes #78 = { nounwind willreturn memory(none) }
-attributes #79 = { nounwind allocsize(1) }
+attributes #74 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #75 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #76 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #77 = { nounwind willreturn memory(read) }
+attributes #78 = { nounwind allocsize(0) }
+attributes #79 = { nounwind willreturn memory(none) }
+attributes #80 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

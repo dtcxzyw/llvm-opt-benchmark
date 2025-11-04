@@ -145,12 +145,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Wln_WriteTableOne(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %4) #12
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %4) #13
   %7 = add nsw i32 %1, -1
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %7) #12
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %7) #13
   %9 = add nsw i32 %2, -1
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %9) #12
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %9) #12
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %9) #13
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %9) #13
   %12 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 16, i64 1, ptr %0)
   %13 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 8, i64 1, ptr %0)
   %14 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %0)
@@ -176,7 +176,7 @@ define void @Wln_WriteTableOne(ptr noundef captures(none) %0, i32 noundef %1, i3
   %27 = lshr i64 %24, %26
   %28 = and i64 %27, %18
   %29 = trunc i64 %28 to i32
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %1, i32 noundef %.028, i32 noundef %2, i32 noundef %29) #12
+  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %1, i32 noundef %.028, i32 noundef %2, i32 noundef %29) #13
   %31 = add nuw nsw i32 %.028, 1
   %exitcond.not = icmp eq i32 %31, %15
   br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !7
@@ -209,7 +209,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %6
   %spec.store.select.i.i = tail call i32 @llvm.umax.i32(i32 %.val, i32 16)
   %9 = sext i32 %spec.store.select.i.i to i64
   %10 = shl nsw i64 %9, 2
-  %11 = tail call noalias ptr @malloc(i64 noundef %10) #13
+  %11 = tail call noalias ptr @malloc(i64 noundef %10) #14
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %Vec_IntStart.exit, label %12
 
@@ -349,7 +349,7 @@ Wln_ObjFanin0.exit:                               ; preds = %43, %56
   br i1 %.not.i, label %Vec_IntFree.exit, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %Wln_ObjFanin0.exit, %.critedge
-  tail call void @free(ptr noundef nonnull %11) #12
+  tail call void @free(ptr noundef nonnull %11) #13
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %.critedge.thread, %.critedge, %2, %6
@@ -379,7 +379,7 @@ define void @Wln_WriteAddPos(ptr noundef %0) local_unnamed_addr #2 {
 
 9:                                                ; preds = %5
   %10 = trunc nuw nsw i64 %indvars.iv to i32
-  %11 = tail call i32 @Wln_ObjCreateCo(ptr noundef nonnull %0, i32 noundef %10) #12
+  %11 = tail call i32 @Wln_ObjCreateCo(ptr noundef nonnull %0, i32 noundef %10) #13
   %.val.pre = load i32, ptr %2, align 4, !tbaa !23
   br label %12
 
@@ -414,8 +414,8 @@ define void @Wln_WriteVerIntVec(ptr noundef captures(none) %0, ptr noundef %1, p
   %.val24 = load ptr, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i32, ptr %.val24, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !25
-  %11 = tail call ptr @Wln_ObjName(ptr noundef %1, i32 noundef %10) #12
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #14
+  %11 = tail call ptr @Wln_ObjName(ptr noundef %1, i32 noundef %10) #13
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #15
   %13 = trunc i64 %12 to i32
   %14 = add i32 %13, 2
   %.not = icmp eq i32 %.02126, 0
@@ -438,7 +438,7 @@ define void @Wln_WriteVerIntVec(ptr noundef captures(none) %0, ptr noundef %1, p
   %22 = zext i32 %21 to i64
   %23 = icmp eq i64 %indvars.iv, %22
   %24 = select i1 %23, ptr @.str.14, ptr @.str.15
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull %11, ptr noundef nonnull %24) #12
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull %11, ptr noundef nonnull %24) #13
   %26 = add nsw i32 %.1, %14
   %27 = add nsw i32 %.122, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -461,7 +461,7 @@ define void @Wln_WriteVerInt(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %3 = alloca [100 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %1, align 8, !tbaa !43
-  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef %4) #12
+  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef %4) #13
   %6 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 4, i64 1, ptr %0)
   %7 = getelementptr i8, ptr %1, i64 28
   %.val882 = load i32, ptr %7, align 4, !tbaa !23
@@ -479,8 +479,8 @@ define void @Wln_WriteVerInt(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %.val24.i = load ptr, ptr %9, align 8, !tbaa !24
   %11 = getelementptr inbounds nuw i32, ptr %.val24.i, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 4, !tbaa !25
-  %13 = tail call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %12) #12
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #14
+  %13 = tail call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %12) #13
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #15
   %15 = trunc i64 %14 to i32
   %16 = add i32 %15, 2
   %.not.i = icmp eq i32 %.02126.i, 0
@@ -503,7 +503,7 @@ define void @Wln_WriteVerInt(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %24 = zext i32 %23 to i64
   %25 = icmp eq i64 %indvars.iv.i, %24
   %26 = select i1 %25, ptr @.str.14, ptr @.str.15
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull %13, ptr noundef nonnull %26) #12
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull %13, ptr noundef nonnull %26) #13
   %28 = add nsw i32 %.1.i, %16
   %29 = add nsw i32 %.122.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -533,8 +533,8 @@ Wln_WriteVerIntVec.exit:                          ; preds = %22
   %.val24.i900 = load ptr, ptr %36, align 8, !tbaa !24
   %38 = getelementptr inbounds nuw i32, ptr %.val24.i900, i64 %indvars.iv.i897
   %39 = load i32, ptr %38, align 4, !tbaa !25
-  %40 = tail call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %39) #12
-  %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #14
+  %40 = tail call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %39) #13
+  %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #15
   %42 = trunc i64 %41 to i32
   %43 = add i32 %42, 2
   %.not.i901 = icmp eq i32 %.02126.i899, 0
@@ -557,7 +557,7 @@ Wln_WriteVerIntVec.exit:                          ; preds = %22
   %51 = zext i32 %50 to i64
   %52 = icmp eq i64 %indvars.iv.i897, %51
   %53 = select i1 %52, ptr @.str.14, ptr @.str.15
-  %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull %40, ptr noundef nonnull %53) #12
+  %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull %40, ptr noundef nonnull %53) #13
   %55 = add nsw i32 %.1.i903, %43
   %56 = add nsw i32 %.122.i902, 1
   %indvars.iv.next.i905 = add nuw nsw i64 %indvars.iv.i897, 1
@@ -655,7 +655,7 @@ Abc_Base10Log.exit917:                            ; preds = %.lr.ph.i912, %Abc_B
   %96 = add nsw i32 %.neg1056.neg, %83
   %97 = add i32 %96, %88
   %98 = sub i32 -2, %97
-  %99 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef nonnull %95, i32 noundef %76, i32 noundef %78, i32 noundef %98, ptr noundef nonnull @.str.14) #12
+  %99 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef nonnull %95, i32 noundef %76, i32 noundef %78, i32 noundef %98, ptr noundef nonnull @.str.14) #13
   %100 = call i64 @fwrite(ptr nonnull @.str.22, i64 2, i64 1, ptr %0)
   %.val886 = load ptr, ptr %66, align 8, !tbaa !24
   %101 = getelementptr inbounds nuw i32, ptr %.val886, i64 %indvars.iv1143
@@ -674,8 +674,8 @@ Abc_Base10Log.exit917:                            ; preds = %.lr.ph.i912, %Abc_B
 
 107:                                              ; preds = %94
   %108 = trunc nuw nsw i64 %indvars.iv1143 to i32
-  %109 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %108) #12
-  %110 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %3, ptr noundef %109) #12
+  %109 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %108) #13
+  %110 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %3, ptr noundef %109) #13
   %.val887 = load ptr, ptr %66, align 8, !tbaa !24
   %111 = getelementptr inbounds nuw i32, ptr %.val887, i64 %indvars.iv1143
   %112 = load i32, ptr %111, align 4, !tbaa !25
@@ -684,7 +684,7 @@ Abc_Base10Log.exit917:                            ; preds = %.lr.ph.i912, %Abc_B
 
 113:                                              ; preds = %107
   %114 = call i64 @fwrite(ptr nonnull @.str.26, i64 33, i64 1, ptr %0)
-  %115 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %108) #12
+  %115 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %108) #13
   %.val848 = load ptr, ptr %67, align 8, !tbaa !26
   %116 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val848, i64 %indvars.iv1143
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 4
@@ -700,15 +700,15 @@ Abc_Base10Log.exit917:                            ; preds = %.lr.ph.i912, %Abc_B
 Wln_ObjFanin0.exit:                               ; preds = %113, %121
   %.sink.i.i = phi ptr [ %122, %121 ], [ %120, %113 ]
   %123 = load i32, ptr %.sink.i.i, align 4, !tbaa !29
-  %124 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %123) #12
-  %125 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.27, ptr noundef %115, ptr noundef %124) #12
+  %124 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %123) #13
+  %125 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.27, ptr noundef %115, ptr noundef %124) #13
   br label %1111
 
 126:                                              ; preds = %94
   %.off = add i32 %105, -43
   %switch = icmp ult i32 %.off, 2
   %.str.28..str.29 = select i1 %switch, ptr @.str.28, ptr @.str.29
-  %127 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.28..str.29, ptr noundef nonnull %3) #12
+  %127 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.28..str.29, ptr noundef nonnull %3) #13
   %.val781 = load ptr, ptr %66, align 8, !tbaa !24
   %128 = getelementptr inbounds nuw i32, ptr %.val781, i64 %indvars.iv1143
   %129 = load i32, ptr %128, align 4, !tbaa !25
@@ -729,7 +729,7 @@ Wln_ObjFanin0.exit:                               ; preds = %113, %121
 
 130:                                              ; preds = %126
   %131 = trunc nuw nsw i64 %indvars.iv1143 to i32
-  %132 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %131) #12
+  %132 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %131) #13
   %.val821 = load ptr, ptr %67, align 8, !tbaa !26
   %133 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val821, i64 %indvars.iv1143
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 4
@@ -746,7 +746,7 @@ Wln_ObjFanin1.exit:                               ; preds = %130, %138
   %.sink.i.i918 = phi ptr [ %139, %138 ], [ %137, %130 ]
   %140 = getelementptr inbounds nuw i8, ptr %.sink.i.i918, i64 4
   %141 = load i32, ptr %140, align 4, !tbaa !29
-  %142 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.30, ptr noundef %132, i32 noundef %141) #12
+  %142 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.30, ptr noundef %132, i32 noundef %141) #13
   %.val847 = load ptr, ptr %67, align 8, !tbaa !26
   %143 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val847, i64 %indvars.iv1143
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 4
@@ -762,16 +762,16 @@ Wln_ObjFanin1.exit:                               ; preds = %130, %138
 Wln_ObjFanin0.exit920:                            ; preds = %Wln_ObjFanin1.exit, %148
   %.sink.i.i919 = phi ptr [ %149, %148 ], [ %147, %Wln_ObjFanin1.exit ]
   %150 = load i32, ptr %.sink.i.i919, align 4, !tbaa !29
-  %151 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %150) #12
-  %152 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.31, i32 noundef %131, ptr noundef %151) #12
-  %153 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %131) #12
-  %154 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.32, ptr noundef %153) #12
+  %151 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %150) #13
+  %152 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.31, i32 noundef %131, ptr noundef %151) #13
+  %153 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %131) #13
+  %154 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.32, ptr noundef %153) #13
   br label %1102
 
 155:                                              ; preds = %126
   %156 = trunc nuw nsw i64 %indvars.iv1143 to i32
-  %157 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %156) #12
-  %158 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.33, ptr noundef %157) #12
+  %157 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %156) #13
+  %158 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.33, ptr noundef %157) #13
   %.val846 = load ptr, ptr %67, align 8, !tbaa !26
   %159 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val846, i64 %indvars.iv1143
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 4
@@ -787,8 +787,8 @@ Wln_ObjFanin0.exit920:                            ; preds = %Wln_ObjFanin1.exit,
 Wln_ObjFanin0.exit922:                            ; preds = %155, %164
   %.sink.i.i921 = phi ptr [ %165, %164 ], [ %163, %155 ]
   %166 = load i32, ptr %.sink.i.i921, align 4, !tbaa !29
-  %167 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %166) #12
-  %168 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.34, i32 noundef %156, ptr noundef %167) #12
+  %167 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %166) #13
+  %168 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.34, i32 noundef %156, ptr noundef %167) #13
   %.val7841094 = load ptr, ptr %67, align 8, !tbaa !26
   %169 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val7841094, i64 %indvars.iv1143
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 4
@@ -813,8 +813,8 @@ Wln_ObjFanin.exit:                                ; preds = %.lr.ph1096, %178
   %.sink.i = phi ptr [ %179, %178 ], [ %177, %.lr.ph1096 ]
   %180 = getelementptr inbounds nuw i32, ptr %.sink.i, i64 %indvars.iv1137
   %181 = load i32, ptr %180, align 4, !tbaa !29
-  %182 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %181) #12
-  %183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.35, ptr noundef %182) #12
+  %182 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %181) #13
+  %183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.35, ptr noundef %182) #13
   %indvars.iv.next1138 = add nuw nsw i64 %indvars.iv1137, 1
   %.val784 = load ptr, ptr %67, align 8, !tbaa !26
   %184 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val784, i64 %indvars.iv1143
@@ -825,15 +825,15 @@ Wln_ObjFanin.exit:                                ; preds = %.lr.ph1096, %178
   br i1 %188, label %.lr.ph1096, label %._crit_edge1097, !llvm.loop !47
 
 ._crit_edge1097:                                  ; preds = %Wln_ObjFanin.exit, %Wln_ObjFanin0.exit922
-  %189 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %156) #12
-  %190 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.32, ptr noundef %189) #12
+  %189 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %156) #13
+  %190 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.32, ptr noundef %189) #13
   br label %1102
 
 191:                                              ; preds = %126
   %192 = trunc nuw nsw i64 %indvars.iv1143 to i32
-  %193 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %192) #12
-  %194 = call ptr @Wln_ObjConstString(ptr noundef nonnull %1, i32 noundef %192) #12
-  %195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.36, ptr noundef %193, ptr noundef %194) #12
+  %193 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %192) #13
+  %194 = call ptr @Wln_ObjConstString(ptr noundef nonnull %1, i32 noundef %192) #13
+  %195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.36, ptr noundef %193, ptr noundef %194) #13
   br label %1102
 
 196:                                              ; preds = %126, %126
@@ -874,8 +874,8 @@ Wln_ObjFanin1.exit924:                            ; preds = %196, %202
   %reass.sub = sub i32 %217, %205
   %218 = add i32 %reass.sub, 1
   %219 = trunc nuw nsw i64 %indvars.iv1143 to i32
-  %220 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %219) #12
-  %221 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.37, ptr noundef %220) #12
+  %220 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %219) #13
+  %221 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.37, ptr noundef %220) #13
   %.val777 = load ptr, ptr %66, align 8, !tbaa !24
   %222 = getelementptr inbounds nuw i32, ptr %.val777, i64 %indvars.iv1143
   %223 = load i32, ptr %222, align 4, !tbaa !25
@@ -898,7 +898,7 @@ Wln_ObjFanin1.exit924:                            ; preds = %196, %202
 Wln_ObjFanin0.exit926:                            ; preds = %230, %231
   %.sink.i.i925 = phi ptr [ %232, %231 ], [ %229, %230 ]
   %233 = load i32, ptr %.sink.i.i925, align 4, !tbaa !29
-  %234 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %233) #12
+  %234 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %233) #13
   %.val844 = load ptr, ptr %67, align 8, !tbaa !26
   %235 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val844, i64 %indvars.iv1143
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 4
@@ -914,8 +914,8 @@ Wln_ObjFanin0.exit926:                            ; preds = %230, %231
 Wln_ObjFanin0.exit928:                            ; preds = %Wln_ObjFanin0.exit926, %240
   %.sink.i.i927 = phi ptr [ %241, %240 ], [ %239, %Wln_ObjFanin0.exit926 ]
   %242 = load i32, ptr %.sink.i.i927, align 4, !tbaa !29
-  %243 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %242) #12
-  %244 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.38, ptr noundef %234, i32 noundef %205, ptr noundef %243, i32 noundef %218) #12
+  %243 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %242) #13
+  %244 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.38, ptr noundef %234, i32 noundef %205, ptr noundef %243, i32 noundef %218) #13
   br label %1102
 
 245:                                              ; preds = %Wln_ObjFanin1.exit924
@@ -928,7 +928,7 @@ Wln_ObjFanin0.exit928:                            ; preds = %Wln_ObjFanin0.exit9
 Wln_ObjFanin0.exit930:                            ; preds = %245, %246
   %.sink.i.i929 = phi ptr [ %247, %246 ], [ %229, %245 ]
   %248 = load i32, ptr %.sink.i.i929, align 4, !tbaa !29
-  %249 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %248) #12
+  %249 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %248) #13
   %.val842 = load ptr, ptr %67, align 8, !tbaa !26
   %250 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val842, i64 %indvars.iv1143
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 4
@@ -944,14 +944,14 @@ Wln_ObjFanin0.exit930:                            ; preds = %245, %246
 Wln_ObjFanin0.exit932:                            ; preds = %Wln_ObjFanin0.exit930, %255
   %.sink.i.i931 = phi ptr [ %256, %255 ], [ %254, %Wln_ObjFanin0.exit930 ]
   %257 = load i32, ptr %.sink.i.i931, align 4, !tbaa !29
-  %258 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %257) #12
-  %259 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.39, ptr noundef %249, i32 noundef %205, ptr noundef %258, i32 noundef %218) #12
+  %258 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %257) #13
+  %259 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.39, ptr noundef %249, i32 noundef %205, ptr noundef %258, i32 noundef %218) #13
   br label %1102
 
 260:                                              ; preds = %126
   %261 = trunc nuw nsw i64 %indvars.iv1143 to i32
-  %262 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %261) #12
-  %263 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %262) #12
+  %262 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %261) #13
+  %263 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %262) #13
   %264 = call i64 @fwrite(ptr nonnull @.str.41, i64 9, i64 1, ptr %0)
   %265 = call i64 @fwrite(ptr nonnull @.str.42, i64 10, i64 1, ptr %0)
   %.val7851086 = load ptr, ptr %67, align 8, !tbaa !26
@@ -987,8 +987,8 @@ Wln_ObjFanin.exit936:                             ; preds = %Wln_ObjFanin.exit93
   %279 = phi i32 [ %278, %Wln_ObjFanin.exit934.thread ], [ %276, %Wln_ObjFanin.exit934 ]
   %.not7181039 = icmp eq i64 %indvars.iv1131, 0
   %280 = select i1 %.not7181039, ptr @.str.14, ptr @.str.44
-  %281 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %279) #12
-  %282 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.43, ptr noundef nonnull %280, ptr noundef %281) #12
+  %281 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %279) #13
+  %282 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.43, ptr noundef nonnull %280, ptr noundef %281) #13
   %.val785.pre = load ptr, ptr %67, align 8, !tbaa !26
   br label %283
 
@@ -1022,8 +1022,8 @@ Wln_ObjFanin.exit936:                             ; preds = %Wln_ObjFanin.exit93
 Wln_ObjFanin.exit938:                             ; preds = %.critedge, %298
   %.sink.i937 = phi ptr [ %299, %298 ], [ %297, %.critedge ]
   %300 = load i32, ptr %.sink.i937, align 4, !tbaa !29
-  %301 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %300) #12
-  %302 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.49, ptr noundef %301) #12
+  %301 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %300) #13
+  %302 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.49, ptr noundef %301) #13
   %.val7861091 = load ptr, ptr %67, align 8, !tbaa !26
   %303 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val7861091, i64 %indvars.iv1143
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 4
@@ -1055,10 +1055,10 @@ Wln_ObjFanin.exit940:                             ; preds = %.lr.ph1093, %311
 
 317:                                              ; preds = %Wln_ObjFanin.exit940
   %318 = call i64 @fwrite(ptr nonnull @.str.50, i64 15, i64 1, ptr %0)
-  %319 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %261) #12
+  %319 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %261) #13
   %320 = trunc i64 %indvars.iv1134 to i32
   %321 = add i32 %320, -1
-  %322 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.51, i32 noundef %321, ptr noundef %319) #12
+  %322 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.51, i32 noundef %321, ptr noundef %319) #13
   %.val801 = load ptr, ptr %67, align 8, !tbaa !26
   %323 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val801, i64 %indvars.iv1143
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 4
@@ -1075,8 +1075,8 @@ Wln_ObjFanin.exit942:                             ; preds = %317, %328
   %.sink.i941 = phi ptr [ %329, %328 ], [ %327, %317 ]
   %330 = getelementptr inbounds nuw i32, ptr %.sink.i941, i64 %indvars.iv1134
   %331 = load i32, ptr %330, align 4, !tbaa !29
-  %332 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %331) #12
-  %333 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %332) #12
+  %332 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %331) #13
+  %333 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %332) #13
   %.val786.pre = load ptr, ptr %67, align 8, !tbaa !26
   br label %334
 
@@ -1099,8 +1099,8 @@ Wln_ObjFanin.exit942:                             ; preds = %317, %328
 
 344:                                              ; preds = %126
   %345 = trunc nuw nsw i64 %indvars.iv1143 to i32
-  %346 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %345) #12
-  %347 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %346) #12
+  %346 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %345) #13
+  %347 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %346) #13
   %348 = call i64 @fwrite(ptr nonnull @.str.41, i64 9, i64 1, ptr %0)
   %349 = call i64 @fwrite(ptr nonnull @.str.42, i64 10, i64 1, ptr %0)
   %.val7871075 = load ptr, ptr %67, align 8, !tbaa !26
@@ -1136,8 +1136,8 @@ Wln_ObjFanin.exit946:                             ; preds = %Wln_ObjFanin.exit94
   %363 = phi i32 [ %362, %Wln_ObjFanin.exit944.thread ], [ %360, %Wln_ObjFanin.exit944 ]
   %.not7161043 = icmp eq i64 %indvars.iv1125, 0
   %364 = select i1 %.not7161043, ptr @.str.14, ptr @.str.44
-  %365 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %363) #12
-  %366 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.43, ptr noundef nonnull %364, ptr noundef %365) #12
+  %365 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %363) #13
+  %366 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.43, ptr noundef nonnull %364, ptr noundef %365) #13
   %.val787.pre = load ptr, ptr %67, align 8, !tbaa !26
   br label %367
 
@@ -1171,8 +1171,8 @@ Wln_ObjFanin.exit946:                             ; preds = %Wln_ObjFanin.exit94
 Wln_ObjFanin.exit948:                             ; preds = %.critedge4, %382
   %.sink.i947 = phi ptr [ %383, %382 ], [ %381, %.critedge4 ]
   %384 = load i32, ptr %.sink.i947, align 4, !tbaa !29
-  %385 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %384) #12
-  %386 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.49, ptr noundef %385) #12
+  %385 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %384) #13
+  %386 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.49, ptr noundef %385) #13
   %.val7881081 = load ptr, ptr %67, align 8, !tbaa !26
   %387 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val7881081, i64 %indvars.iv1143
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 4
@@ -1209,7 +1209,7 @@ Wln_ObjFanin.exit950:                             ; preds = %.lr.ph1084, %395
   %404 = getelementptr inbounds nuw i8, ptr %403, i64 4
   %405 = load i32, ptr %404, align 4, !tbaa !27
   %406 = add nsw i32 %405, -1
-  %407 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.54, i32 noundef %406) #12
+  %407 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.54, i32 noundef %406) #13
   %.val790 = load ptr, ptr %67, align 8, !tbaa !26
   %408 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val790, i64 %indvars.iv1143
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 4
@@ -1223,13 +1223,13 @@ Wln_ObjFanin.exit950:                             ; preds = %.lr.ph1084, %395
   %412 = zext nneg i32 %.0678 to i64
   %413 = icmp eq i64 %indvars.iv1128, %412
   %414 = zext i1 %413 to i32
-  %415 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.55, i32 noundef %414) #12
+  %415 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.55, i32 noundef %414) #13
   %416 = icmp samesign ugt i32 %.0678.in1079, 2
   br i1 %416, label %.lr.ph1080, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph1080, %401
-  %417 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %345) #12
-  %418 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.56, ptr noundef %417) #12
+  %417 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %345) #13
+  %418 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.56, ptr noundef %417) #13
   %.val806 = load ptr, ptr %67, align 8, !tbaa !26
   %419 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val806, i64 %indvars.iv1143
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 4
@@ -1246,8 +1246,8 @@ Wln_ObjFanin.exit952:                             ; preds = %._crit_edge, %424
   %.sink.i951 = phi ptr [ %425, %424 ], [ %423, %._crit_edge ]
   %426 = getelementptr inbounds nuw i32, ptr %.sink.i951, i64 %indvars.iv1128
   %427 = load i32, ptr %426, align 4, !tbaa !29
-  %428 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %427) #12
-  %429 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %428) #12
+  %428 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %427) #13
+  %429 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %428) #13
   %.val788.pre = load ptr, ptr %67, align 8, !tbaa !26
   br label %430
 
@@ -1264,8 +1264,8 @@ Wln_ObjFanin.exit952:                             ; preds = %._crit_edge, %424
 .critedge6:                                       ; preds = %430, %Wln_ObjFanin.exit948
   %436 = call i64 @fwrite(ptr nonnull @.str.50, i64 15, i64 1, ptr %0)
   %437 = call i64 @fwrite(ptr nonnull @.str.57, i64 7, i64 1, ptr %0)
-  %438 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %345) #12
-  %439 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.56, ptr noundef %438) #12
+  %438 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %345) #13
+  %439 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.56, ptr noundef %438) #13
   %.val877 = load ptr, ptr %62, align 8, !tbaa !24
   %.val878 = load ptr, ptr %63, align 8, !tbaa !33
   %440 = getelementptr i8, ptr %.val878, i64 8
@@ -1285,7 +1285,7 @@ Wln_ObjFanin.exit952:                             ; preds = %._crit_edge, %424
   %450 = sub nsw i32 %447, %449
   %451 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %450, i1 true)
   %452 = add nuw nsw i32 %451, 1
-  %453 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.54, i32 noundef %452) #12
+  %453 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.54, i32 noundef %452) #13
   %.val875 = load ptr, ptr %62, align 8, !tbaa !24
   %.val876 = load ptr, ptr %63, align 8, !tbaa !33
   %454 = getelementptr i8, ptr %.val876, i64 8
@@ -1310,7 +1310,7 @@ Wln_ObjFanin.exit952:                             ; preds = %._crit_edge, %424
 467:                                              ; preds = %.critedge6, %467
   %.1679.in1085 = phi i32 [ %466, %.critedge6 ], [ %.1679, %467 ]
   %.1679 = add nsw i32 %.1679.in1085, -1
-  %468 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.55, i32 noundef 0) #12
+  %468 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.55, i32 noundef 0) #13
   %469 = icmp samesign ugt i32 %.1679.in1085, 1
   br i1 %469, label %467, label %470, !llvm.loop !53
 
@@ -1358,8 +1358,8 @@ Wln_ObjFanin0.exit956:                            ; preds = %476, %482
   %496 = sub i32 %493, %495
   %497 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %496, i1 true)
   %498 = trunc nuw nsw i64 %indvars.iv1143 to i32
-  %499 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %498) #12
-  %500 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %499) #12
+  %499 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %498) #13
+  %500 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %499) #13
   %smax = call i32 @llvm.abs.i32(i32 %496, i1 false)
   br label %501
 
@@ -1367,8 +1367,8 @@ Wln_ObjFanin0.exit956:                            ; preds = %476, %482
   %.51071 = phi i32 [ 0, %Wln_ObjFanin0.exit956 ], [ %533, %531 ]
   %502 = call i64 @fwrite(ptr nonnull @.str.41, i64 9, i64 1, ptr %0)
   %503 = call i64 @fwrite(ptr nonnull @.str.59, i64 5, i64 1, ptr %0)
-  %504 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %498) #12
-  %505 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.60, ptr noundef %504) #12
+  %504 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %498) #13
+  %505 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.60, ptr noundef %504) #13
   br label %506
 
 506:                                              ; preds = %501, %506
@@ -1376,7 +1376,7 @@ Wln_ObjFanin0.exit956:                            ; preds = %476, %482
   %507 = sub nuw nsw i32 %497, %.26801064
   %508 = lshr i32 %.51071, %507
   %509 = and i32 %508, 1
-  %510 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.55, i32 noundef %509) #12
+  %510 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.55, i32 noundef %509) #13
   %511 = add nuw i32 %.26801064, 1
   %exitcond.not = icmp eq i32 %.26801064, %smax
   br i1 %exitcond.not, label %512, label %506, !llvm.loop !54
@@ -1409,8 +1409,8 @@ Wln_ObjFanin0.exit956:                            ; preds = %476, %482
 Wln_ObjFanin.exit960:                             ; preds = %514, %525
   %.sink.i959 = phi ptr [ %526, %525 ], [ %524, %514 ]
   %527 = load i32, ptr %.sink.i959, align 4, !tbaa !29
-  %528 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %527) #12
-  %529 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.62, ptr noundef nonnull %515, ptr noundef nonnull %519, ptr noundef %528, i32 noundef %516) #12
+  %528 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %527) #13
+  %529 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.62, ptr noundef nonnull %515, ptr noundef nonnull %519, ptr noundef %528, i32 noundef %516) #13
   %530 = add nuw i32 %.36811065, 1
   %exitcond1122.not = icmp eq i32 %.36811065, %smax
   br i1 %exitcond1122.not, label %531, label %514, !llvm.loop !55
@@ -1441,8 +1441,8 @@ Wln_ObjFanin.exit960:                             ; preds = %514, %525
 
 546:                                              ; preds = %531
   %547 = call i64 @fwrite(ptr nonnull @.str.41, i64 9, i64 1, ptr %0)
-  %548 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %498) #12
-  %549 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.66, ptr noundef %548) #12
+  %548 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %498) #13
+  %549 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.66, ptr noundef %548) #13
   %.val869 = load ptr, ptr %62, align 8, !tbaa !24
   %.val870 = load ptr, ptr %63, align 8, !tbaa !33
   %550 = getelementptr i8, ptr %.val870, i64 8
@@ -1492,8 +1492,8 @@ Wln_ObjFanin.exit960:                             ; preds = %514, %525
   %576 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %575, i1 true)
   %.not1052 = icmp samesign ugt i32 %.6.in1073, %576
   %577 = select i1 %.not1052, ptr @.str.14, ptr @.str.68
-  %578 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %498) #12
-  %579 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.67, ptr noundef nonnull %577, ptr noundef %578) #12
+  %578 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %498) #13
+  %579 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.67, ptr noundef nonnull %577, ptr noundef %578) #13
   br label %580
 
 580:                                              ; preds = %564, %580
@@ -1501,7 +1501,7 @@ Wln_ObjFanin.exit960:                             ; preds = %514, %525
   %581 = sub nuw nsw i32 %497, %.46821072
   %582 = lshr i32 %.61074, %581
   %583 = and i32 %582, 1
-  %584 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.55, i32 noundef %583) #12
+  %584 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.55, i32 noundef %583) #13
   %585 = add nuw i32 %.46821072, 1
   %exitcond1124.not = icmp eq i32 %.46821072, %smax
   br i1 %exitcond1124.not, label %.loopexit, label %580, !llvm.loop !58
@@ -1512,11 +1512,11 @@ Wln_ObjFanin.exit960:                             ; preds = %514, %525
 
 588:                                              ; preds = %126
   %589 = trunc nuw nsw i64 %indvars.iv1143 to i32
-  %590 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %589) #12
-  %591 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %590) #12
+  %590 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %589) #13
+  %591 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %590) #13
   %592 = call i64 @fwrite(ptr nonnull @.str.41, i64 9, i64 1, ptr %0)
   %593 = call i64 @fwrite(ptr nonnull @.str.70, i64 7, i64 1, ptr %0)
-  %594 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %589) #12
+  %594 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %589) #13
   %.val840 = load ptr, ptr %67, align 8, !tbaa !26
   %595 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val840, i64 %indvars.iv1143
   %596 = getelementptr inbounds nuw i8, ptr %595, i64 4
@@ -1532,7 +1532,7 @@ Wln_ObjFanin.exit960:                             ; preds = %514, %525
 Wln_ObjFanin0.exit964:                            ; preds = %588, %600
   %.sink.i.i963 = phi ptr [ %601, %600 ], [ %599, %588 ]
   %602 = load i32, ptr %.sink.i.i963, align 4, !tbaa !29
-  %603 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %602) #12
+  %603 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %602) #13
   %.val890 = load ptr, ptr %67, align 8, !tbaa !26
   %604 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val890, i64 %indvars.iv1143
   %605 = getelementptr inbounds nuw i8, ptr %604, i64 4
@@ -1549,7 +1549,7 @@ Wln_ObjFanin2.exit:                               ; preds = %Wln_ObjFanin0.exit9
   %.sink.i.i965 = phi ptr [ %610, %609 ], [ %608, %Wln_ObjFanin0.exit964 ]
   %611 = getelementptr inbounds nuw i8, ptr %.sink.i.i965, i64 8
   %612 = load i32, ptr %611, align 4, !tbaa !29
-  %613 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %612) #12
+  %613 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %612) #13
   %.val808 = load ptr, ptr %67, align 8, !tbaa !26
   %614 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val808, i64 %indvars.iv1143
   %615 = getelementptr inbounds nuw i8, ptr %614, i64 4
@@ -1566,7 +1566,7 @@ Wln_ObjFanin.exit967:                             ; preds = %Wln_ObjFanin2.exit,
   %.sink.i966 = phi ptr [ %620, %619 ], [ %618, %Wln_ObjFanin2.exit ]
   %621 = getelementptr inbounds nuw i8, ptr %.sink.i966, i64 12
   %622 = load i32, ptr %621, align 4, !tbaa !29
-  %623 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %622) #12
+  %623 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %622) #13
   %.val819 = load ptr, ptr %67, align 8, !tbaa !26
   %624 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val819, i64 %indvars.iv1143
   %625 = getelementptr inbounds nuw i8, ptr %624, i64 4
@@ -1583,7 +1583,7 @@ Wln_ObjFanin1.exit969:                            ; preds = %Wln_ObjFanin.exit96
   %.sink.i.i968 = phi ptr [ %630, %629 ], [ %628, %Wln_ObjFanin.exit967 ]
   %631 = getelementptr inbounds nuw i8, ptr %.sink.i.i968, i64 4
   %632 = load i32, ptr %631, align 4, !tbaa !29
-  %633 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %632) #12
+  %633 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %632) #13
   %.val891 = load ptr, ptr %67, align 8, !tbaa !26
   %634 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val891, i64 %indvars.iv1143
   %635 = getelementptr inbounds nuw i8, ptr %634, i64 4
@@ -1600,7 +1600,7 @@ Wln_ObjFanin2.exit971:                            ; preds = %Wln_ObjFanin1.exit9
   %.sink.i.i970 = phi ptr [ %640, %639 ], [ %638, %Wln_ObjFanin1.exit969 ]
   %641 = getelementptr inbounds nuw i8, ptr %.sink.i.i970, i64 8
   %642 = load i32, ptr %641, align 4, !tbaa !29
-  %643 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %642) #12
+  %643 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %642) #13
   %.val809 = load ptr, ptr %67, align 8, !tbaa !26
   %644 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val809, i64 %indvars.iv1143
   %645 = getelementptr inbounds nuw i8, ptr %644, i64 4
@@ -1617,7 +1617,7 @@ Wln_ObjFanin.exit973:                             ; preds = %Wln_ObjFanin2.exit9
   %.sink.i972 = phi ptr [ %650, %649 ], [ %648, %Wln_ObjFanin2.exit971 ]
   %651 = getelementptr inbounds nuw i8, ptr %.sink.i972, i64 12
   %652 = load i32, ptr %651, align 4, !tbaa !29
-  %653 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %652) #12
+  %653 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %652) #13
   %.val818 = load ptr, ptr %67, align 8, !tbaa !26
   %654 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val818, i64 %indvars.iv1143
   %655 = getelementptr inbounds nuw i8, ptr %654, i64 4
@@ -1634,21 +1634,21 @@ Wln_ObjFanin1.exit975:                            ; preds = %Wln_ObjFanin.exit97
   %.sink.i.i974 = phi ptr [ %660, %659 ], [ %658, %Wln_ObjFanin.exit973 ]
   %661 = getelementptr inbounds nuw i8, ptr %.sink.i.i974, i64 4
   %662 = load i32, ptr %661, align 4, !tbaa !29
-  %663 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %662) #12
-  %664 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.71, ptr noundef %594, ptr noundef %603, ptr noundef %613, ptr noundef %623, ptr noundef %633, ptr noundef %643, ptr noundef %653, ptr noundef %663) #12
+  %663 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %662) #13
+  %664 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.71, ptr noundef %594, ptr noundef %603, ptr noundef %613, ptr noundef %623, ptr noundef %633, ptr noundef %643, ptr noundef %653, ptr noundef %663) #13
   br label %1111
 
 665:                                              ; preds = %126, %126
   %666 = trunc nuw nsw i64 %indvars.iv1143 to i32
-  %667 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %666) #12
-  %668 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %667) #12
+  %667 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %666) #13
+  %668 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %667) #13
   %669 = call i64 @fwrite(ptr nonnull @.str.41, i64 9, i64 1, ptr %0)
   %.val770 = load ptr, ptr %66, align 8, !tbaa !24
   %670 = getelementptr inbounds nuw i32, ptr %.val770, i64 %indvars.iv1143
   %671 = load i32, ptr %670, align 4, !tbaa !25
   %672 = icmp eq i32 %671, 80
   %673 = select i1 %672, ptr @.str.73, ptr @.str.74
-  %674 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.72, ptr noundef nonnull %673) #12
+  %674 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.72, ptr noundef nonnull %673) #13
   %.val7911062 = load ptr, ptr %67, align 8, !tbaa !26
   %675 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val7911062, i64 %indvars.iv1143
   %676 = getelementptr inbounds nuw i8, ptr %675, i64 4
@@ -1681,8 +1681,8 @@ Wln_ObjFanin.exit977:                             ; preds = %.lr.ph, %683
   %689 = icmp eq i64 %indvars.iv, 1
   %690 = select i1 %689, ptr @.str.77, ptr @.str.78
   %691 = select i1 %688, ptr @.str.76, ptr %690
-  %692 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %686) #12
-  %693 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.75, ptr noundef nonnull %691, ptr noundef %692) #12
+  %692 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %686) #13
+  %693 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.75, ptr noundef nonnull %691, ptr noundef %692) #13
   %.val791.pre = load ptr, ptr %67, align 8, !tbaa !26
   br label %694
 
@@ -1702,20 +1702,20 @@ Wln_ObjFanin.exit977:                             ; preds = %.lr.ph, %683
   %701 = load i32, ptr %700, align 4, !tbaa !25
   %702 = icmp eq i32 %701, 80
   %703 = select i1 %702, ptr @.str.78, ptr @.str.80
-  %704 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %666) #12
-  %705 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.79, ptr noundef nonnull %703, ptr noundef %704) #12
+  %704 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %666) #13
+  %705 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.79, ptr noundef nonnull %703, ptr noundef %704) #13
   br label %1111
 
 706:                                              ; preds = %126
   %707 = trunc nuw nsw i64 %indvars.iv1143 to i32
-  %708 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %707) #12
-  %709 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %708) #12
+  %708 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %707) #13
+  %709 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %708) #13
   br label %1111
 
 710:                                              ; preds = %126
   %711 = trunc nuw nsw i64 %indvars.iv1143 to i32
-  %712 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %711) #12
-  %713 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.37, ptr noundef %712) #12
+  %712 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %711) #13
+  %713 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.37, ptr noundef %712) #13
   %.val767 = load ptr, ptr %66, align 8, !tbaa !24
   %714 = getelementptr inbounds nuw i32, ptr %.val767, i64 %indvars.iv1143
   %715 = load i32, ptr %714, align 4, !tbaa !25
@@ -1753,7 +1753,7 @@ Wln_ObjFanin.exit977:                             ; preds = %.lr.ph, %683
 Wln_ObjFanin0.exit979:                            ; preds = %716, %722
   %.sink.i.i978 = phi ptr [ %723, %722 ], [ %721, %716 ]
   %724 = load i32, ptr %.sink.i.i978, align 4, !tbaa !29
-  %725 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %724) #12
+  %725 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %724) #13
   %fputs711 = call i32 @fputs(ptr %725, ptr %0)
   br label %1102
 
@@ -1773,8 +1773,8 @@ Wln_ObjFanin0.exit979:                            ; preds = %716, %722
 Wln_ObjFanin0.exit981:                            ; preds = %726, %732
   %.sink.i.i980 = phi ptr [ %733, %732 ], [ %731, %726 ]
   %734 = load i32, ptr %.sink.i.i980, align 4, !tbaa !29
-  %735 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %734) #12
-  %736 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.82, ptr noundef %735) #12
+  %735 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %734) #13
+  %736 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.82, ptr noundef %735) #13
   %.val817 = load ptr, ptr %67, align 8, !tbaa !26
   %737 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val817, i64 %indvars.iv1143
   %738 = getelementptr inbounds nuw i8, ptr %737, i64 4
@@ -1791,8 +1791,8 @@ Wln_ObjFanin1.exit983:                            ; preds = %Wln_ObjFanin0.exit9
   %.sink.i.i982 = phi ptr [ %743, %742 ], [ %741, %Wln_ObjFanin0.exit981 ]
   %744 = getelementptr inbounds nuw i8, ptr %.sink.i.i982, i64 4
   %745 = load i32, ptr %744, align 4, !tbaa !29
-  %746 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %745) #12
-  %747 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.83, ptr noundef %746) #12
+  %746 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %745) #13
+  %747 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.83, ptr noundef %746) #13
   %.val892 = load ptr, ptr %67, align 8, !tbaa !26
   %748 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val892, i64 %indvars.iv1143
   %749 = getelementptr inbounds nuw i8, ptr %748, i64 4
@@ -1809,7 +1809,7 @@ Wln_ObjFanin2.exit985:                            ; preds = %Wln_ObjFanin1.exit9
   %.sink.i.i984 = phi ptr [ %754, %753 ], [ %752, %Wln_ObjFanin1.exit983 ]
   %755 = getelementptr inbounds nuw i8, ptr %.sink.i.i984, i64 8
   %756 = load i32, ptr %755, align 4, !tbaa !29
-  %757 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %756) #12
+  %757 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %756) #13
   %fputs = call i32 @fputs(ptr %757, ptr %0)
   br label %1102
 
@@ -1829,8 +1829,8 @@ Wln_ObjFanin2.exit985:                            ; preds = %Wln_ObjFanin1.exit9
 Wln_ObjFanin0.exit987:                            ; preds = %758, %764
   %.sink.i.i986 = phi ptr [ %765, %764 ], [ %763, %758 ]
   %766 = load i32, ptr %.sink.i.i986, align 4, !tbaa !29
-  %767 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %766) #12
-  %768 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.84, ptr noundef %767) #12
+  %767 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %766) #13
+  %768 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.84, ptr noundef %767) #13
   br label %1102
 
 769:                                              ; preds = %710
@@ -1849,8 +1849,8 @@ Wln_ObjFanin0.exit987:                            ; preds = %758, %764
 Wln_ObjFanin0.exit989:                            ; preds = %769, %775
   %.sink.i.i988 = phi ptr [ %776, %775 ], [ %774, %769 ]
   %777 = load i32, ptr %.sink.i.i988, align 4, !tbaa !29
-  %778 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %777) #12
-  %779 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.85, ptr noundef %778) #12
+  %778 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %777) #13
+  %779 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.85, ptr noundef %778) #13
   br label %1102
 
 780:                                              ; preds = %710
@@ -1869,8 +1869,8 @@ Wln_ObjFanin0.exit989:                            ; preds = %769, %775
 Wln_ObjFanin0.exit991:                            ; preds = %780, %786
   %.sink.i.i990 = phi ptr [ %787, %786 ], [ %785, %780 ]
   %788 = load i32, ptr %.sink.i.i990, align 4, !tbaa !29
-  %789 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %788) #12
-  %790 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.86, ptr noundef %789) #12
+  %789 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %788) #13
+  %790 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.86, ptr noundef %789) #13
   br label %1102
 
 791:                                              ; preds = %710
@@ -1889,8 +1889,8 @@ Wln_ObjFanin0.exit991:                            ; preds = %780, %786
 Wln_ObjFanin0.exit993:                            ; preds = %791, %797
   %.sink.i.i992 = phi ptr [ %798, %797 ], [ %796, %791 ]
   %799 = load i32, ptr %.sink.i.i992, align 4, !tbaa !29
-  %800 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %799) #12
-  %801 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.87, ptr noundef %800) #12
+  %800 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %799) #13
+  %801 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.87, ptr noundef %800) #13
   br label %1102
 
 802:                                              ; preds = %710
@@ -1909,8 +1909,8 @@ Wln_ObjFanin0.exit993:                            ; preds = %791, %797
 Wln_ObjFanin0.exit995:                            ; preds = %802, %808
   %.sink.i.i994 = phi ptr [ %809, %808 ], [ %807, %802 ]
   %810 = load i32, ptr %.sink.i.i994, align 4, !tbaa !29
-  %811 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %810) #12
-  %812 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.88, ptr noundef %811) #12
+  %811 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %810) #13
+  %812 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.88, ptr noundef %811) #13
   br label %1102
 
 813:                                              ; preds = %710
@@ -1929,8 +1929,8 @@ Wln_ObjFanin0.exit995:                            ; preds = %802, %808
 Wln_ObjFanin0.exit997:                            ; preds = %813, %819
   %.sink.i.i996 = phi ptr [ %820, %819 ], [ %818, %813 ]
   %821 = load i32, ptr %.sink.i.i996, align 4, !tbaa !29
-  %822 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %821) #12
-  %823 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.89, ptr noundef %822) #12
+  %822 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %821) #13
+  %823 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.89, ptr noundef %822) #13
   br label %1102
 
 824:                                              ; preds = %710
@@ -1949,8 +1949,8 @@ Wln_ObjFanin0.exit997:                            ; preds = %813, %819
 Wln_ObjFanin0.exit999:                            ; preds = %824, %830
   %.sink.i.i998 = phi ptr [ %831, %830 ], [ %829, %824 ]
   %832 = load i32, ptr %.sink.i.i998, align 4, !tbaa !29
-  %833 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %832) #12
-  %834 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.90, ptr noundef %833) #12
+  %833 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %832) #13
+  %834 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.90, ptr noundef %833) #13
   br label %1102
 
 835:                                              ; preds = %710
@@ -1969,8 +1969,8 @@ Wln_ObjFanin0.exit999:                            ; preds = %824, %830
 Wln_ObjFanin0.exit1001:                           ; preds = %835, %841
   %.sink.i.i1000 = phi ptr [ %842, %841 ], [ %840, %835 ]
   %843 = load i32, ptr %.sink.i.i1000, align 4, !tbaa !29
-  %844 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %843) #12
-  %845 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.91, ptr noundef %844) #12
+  %844 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %843) #13
+  %845 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.91, ptr noundef %844) #13
   br label %1102
 
 846:                                              ; preds = %710
@@ -1989,8 +1989,8 @@ Wln_ObjFanin0.exit1001:                           ; preds = %835, %841
 Wln_ObjFanin0.exit1003:                           ; preds = %846, %852
   %.sink.i.i1002 = phi ptr [ %853, %852 ], [ %851, %846 ]
   %854 = load i32, ptr %.sink.i.i1002, align 4, !tbaa !29
-  %855 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %854) #12
-  %856 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.92, ptr noundef %855) #12
+  %855 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %854) #13
+  %856 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.92, ptr noundef %855) #13
   br label %1102
 
 857:                                              ; preds = %710
@@ -2009,7 +2009,7 @@ Wln_ObjFanin0.exit1003:                           ; preds = %846, %852
 Wln_ObjFanin0.exit1005:                           ; preds = %857, %863
   %.sink.i.i1004 = phi ptr [ %864, %863 ], [ %862, %857 ]
   %865 = load i32, ptr %.sink.i.i1004, align 4, !tbaa !29
-  %866 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %865) #12
+  %866 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %865) #13
   %.val851 = load ptr, ptr %62, align 8, !tbaa !24
   %.val852 = load ptr, ptr %63, align 8, !tbaa !33
   %867 = getelementptr i8, ptr %.val852, i64 8
@@ -2026,7 +2026,7 @@ Wln_ObjFanin0.exit1005:                           ; preds = %857, %863
   %874 = load i32, ptr %873, align 4, !tbaa !37
   %875 = getelementptr inbounds nuw i8, ptr %873, i64 4
   %876 = load i32, ptr %875, align 4, !tbaa !39
-  %877 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.93, ptr noundef %866, i32 noundef %874, i32 noundef %876) #12
+  %877 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.93, ptr noundef %866, i32 noundef %874, i32 noundef %876) #13
   br label %1102
 
 878:                                              ; preds = %710
@@ -2086,7 +2086,7 @@ Wln_ObjFanin0.exit1010:                           ; preds = %878, %896
 Wln_ObjFanin0.exit1013:                           ; preds = %Wln_ObjFanin0.exit1010, %911
   %.sink.i.i1012 = phi ptr [ %912, %911 ], [ %895, %Wln_ObjFanin0.exit1010 ]
   %913 = load i32, ptr %.sink.i.i1012, align 4, !tbaa !29
-  %914 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %913) #12
+  %914 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %913) #13
   %.val825 = load ptr, ptr %67, align 8, !tbaa !26
   %915 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val825, i64 %indvars.iv1143
   %916 = getelementptr inbounds nuw i8, ptr %915, i64 4
@@ -2130,8 +2130,8 @@ Wln_ObjFanin0.exit1015:                           ; preds = %Wln_ObjFanin0.exit1
 Wln_ObjFanin0.exit1018:                           ; preds = %Wln_ObjFanin0.exit1015, %936
   %.sink.i.i1017 = phi ptr [ %937, %936 ], [ %919, %Wln_ObjFanin0.exit1015 ]
   %938 = load i32, ptr %.sink.i.i1017, align 4, !tbaa !29
-  %939 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %938) #12
-  %940 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.94, i32 noundef %910, ptr noundef %914, i32 noundef %935, ptr noundef %939) #12
+  %939 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %938) #13
+  %940 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.94, i32 noundef %910, ptr noundef %914, i32 noundef %935, ptr noundef %939) #13
   br label %1102
 
 941:                                              ; preds = %710
@@ -2191,8 +2191,8 @@ Wln_ObjFanin0.exit1021:                           ; preds = %941, %959
 Wln_ObjFanin0.exit1024:                           ; preds = %Wln_ObjFanin0.exit1021, %974
   %.sink.i.i1023 = phi ptr [ %975, %974 ], [ %958, %Wln_ObjFanin0.exit1021 ]
   %976 = load i32, ptr %.sink.i.i1023, align 4, !tbaa !29
-  %977 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %976) #12
-  %978 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.95, i32 noundef %973, ptr noundef %977) #12
+  %977 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %976) #13
+  %978 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.95, i32 noundef %973, ptr noundef %977) #13
   br label %1102
 
 979:                                              ; preds = %710
@@ -2228,7 +2228,7 @@ Wln_ObjFanin.exit1026.thread:                     ; preds = %.lr.ph1101
 
 Wln_ObjFanin.exit1028:                            ; preds = %Wln_ObjFanin.exit1026, %Wln_ObjFanin.exit1026.thread
   %993 = phi i32 [ %992, %Wln_ObjFanin.exit1026.thread ], [ %990, %Wln_ObjFanin.exit1026 ]
-  %994 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %993) #12
+  %994 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %993) #13
   %.val793 = load ptr, ptr %67, align 8, !tbaa !26
   %995 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val793, i64 %indvars.iv1143
   %996 = getelementptr inbounds nuw i8, ptr %995, i64 4
@@ -2237,7 +2237,7 @@ Wln_ObjFanin.exit1028:                            ; preds = %Wln_ObjFanin.exit10
   %999 = zext i32 %998 to i64
   %1000 = icmp eq i64 %indvars.iv1140, %999
   %1001 = select i1 %1000, ptr @.str.14, ptr @.str.15
-  %1002 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %994, ptr noundef nonnull %1001) #12
+  %1002 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %994, ptr noundef nonnull %1001) #13
   %.val792.pre = load ptr, ptr %67, align 8, !tbaa !26
   br label %1003
 
@@ -2271,8 +2271,8 @@ Wln_ObjFanin.exit1028:                            ; preds = %Wln_ObjFanin.exit10
 Wln_ObjFanin.exit1030:                            ; preds = %1010, %1016
   %.sink.i1029 = phi ptr [ %1017, %1016 ], [ %1015, %1010 ]
   %1018 = load i32, ptr %.sink.i1029, align 4, !tbaa !29
-  %1019 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %1018) #12
-  %1020 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.98, ptr noundef %1019) #12
+  %1019 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %1018) #13
+  %1020 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.98, ptr noundef %1019) #13
   %.val752 = load ptr, ptr %66, align 8, !tbaa !24
   %1021 = getelementptr inbounds nuw i32, ptr %.val752, i64 %indvars.iv1143
   %1022 = load i32, ptr %1021, align 4, !tbaa !25
@@ -2405,11 +2405,11 @@ Wln_ObjFanin.exit1030:                            ; preds = %1010, %1016
   br label %1076
 
 1062:                                             ; preds = %Wln_ObjFanin.exit1030
-  %1063 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.123) #12
+  %1063 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.123) #13
   br label %1076
 
 1064:                                             ; preds = %Wln_ObjFanin.exit1030
-  %1065 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.123) #12
+  %1065 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.123) #13
   br label %1076
 
 1066:                                             ; preds = %Wln_ObjFanin.exit1030
@@ -2425,7 +2425,7 @@ Wln_ObjFanin.exit1030:                            ; preds = %1010, %1016
   br label %1076
 
 1070:                                             ; preds = %Wln_ObjFanin.exit1030
-  %1071 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %711) #12
+  %1071 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %711) #13
   %.val723 = load ptr, ptr %66, align 8, !tbaa !24
   %1072 = getelementptr inbounds nuw i32, ptr %.val723, i64 %indvars.iv1143
   %1073 = load i32, ptr %1072, align 4, !tbaa !25
@@ -2450,8 +2450,8 @@ Wln_ObjFanin.exit1032:                            ; preds = %1076, %1082
   %.sink.i1031 = phi ptr [ %1083, %1082 ], [ %1081, %1076 ]
   %1084 = getelementptr inbounds nuw i8, ptr %.sink.i1031, i64 4
   %1085 = load i32, ptr %1084, align 4, !tbaa !29
-  %1086 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %1085) #12
-  %1087 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.129, ptr noundef %1086) #12
+  %1086 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %1085) #13
+  %1087 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.129, ptr noundef %1086) #13
   %.val794 = load ptr, ptr %67, align 8, !tbaa !26
   %1088 = getelementptr inbounds nuw %struct.Wln_Vec_t_, ptr %.val794, i64 %indvars.iv1143
   %1089 = getelementptr inbounds nuw i8, ptr %1088, i64 4
@@ -2471,8 +2471,8 @@ Wln_ObjFanin.exit1034:                            ; preds = %1092
   %1097 = load ptr, ptr %1096, align 8, !tbaa !29
   %1098 = getelementptr inbounds nuw i8, ptr %1097, i64 8
   %1099 = load i32, ptr %1098, align 4, !tbaa !29
-  %1100 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %1099) #12
-  %1101 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.130, ptr noundef %1100) #12
+  %1100 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %1099) #13
+  %1101 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.130, ptr noundef %1100) #13
   br label %1102
 
 1102:                                             ; preds = %Wln_ObjFanin0.exit928, %Wln_ObjFanin0.exit932, %._crit_edge1097, %Wln_ObjFanin2.exit985, %Wln_ObjFanin0.exit989, %Wln_ObjFanin0.exit993, %Wln_ObjFanin0.exit997, %Wln_ObjFanin0.exit1001, %Wln_ObjFanin0.exit1005, %Wln_ObjFanin0.exit1024, %Wln_ObjFanin.exit1032, %1092, %Wln_ObjFanin.exit1034, %.critedge10, %Wln_ObjFanin0.exit1018, %Wln_ObjFanin0.exit1003, %Wln_ObjFanin0.exit999, %Wln_ObjFanin0.exit995, %Wln_ObjFanin0.exit991, %Wln_ObjFanin0.exit987, %Wln_ObjFanin0.exit979, %191, %Wln_ObjFanin0.exit920
@@ -2490,7 +2490,7 @@ Wln_ObjFanin.exit1034:                            ; preds = %1092
 
 1108:                                             ; preds = %1104, %1102
   %1109 = phi ptr [ @.str.14, %1102 ], [ %1107, %1104 ]
-  %1110 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.131, ptr noundef nonnull %1109) #12
+  %1110 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.131, ptr noundef nonnull %1109) #13
   br label %1111
 
 1111:                                             ; preds = %107, %1108, %1070, %706, %.critedge8, %Wln_ObjFanin1.exit975, %586, %470, %.critedge2, %Wln_ObjFanin0.exit
@@ -2518,7 +2518,7 @@ Wln_ObjFanin.exit1034:                            ; preds = %1092
   %1119 = getelementptr inbounds nuw i32, ptr %.val894, i64 %indvars.iv1149
   %1120 = load i32, ptr %1119, align 4, !tbaa !25
   %1121 = call i64 @fwrite(ptr nonnull @.str.41, i64 9, i64 1, ptr %0)
-  %1122 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.141) #12
+  %1122 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.141) #13
   %1123 = sext i32 %1120 to i64
   %.val7951106 = load ptr, ptr %1117, align 8, !tbaa !26
   %1124 = getelementptr inbounds %struct.Wln_Vec_t_, ptr %.val7951106, i64 %1123
@@ -2550,8 +2550,8 @@ Wln_ObjFanin.exit1036:                            ; preds = %.lr.ph1109, %1132
 1136:                                             ; preds = %Wln_ObjFanin.exit1036
   %1137 = getelementptr inbounds nuw ptr, ptr @__const.Wln_WriteVerInt.pInNames, i64 %indvars.iv1146
   %1138 = load ptr, ptr %1137, align 8, !tbaa !62
-  %1139 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %1135) #12
-  %1140 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.75, ptr noundef %1138, ptr noundef %1139) #12
+  %1139 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %1135) #13
+  %1140 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.75, ptr noundef %1138, ptr noundef %1139) #13
   %.val795.pre = load ptr, ptr %1117, align 8, !tbaa !26
   br label %1141
 
@@ -2566,8 +2566,8 @@ Wln_ObjFanin.exit1036:                            ; preds = %.lr.ph1109, %1132
   br i1 %1146, label %.lr.ph1109, label %.critedge14, !llvm.loop !63
 
 .critedge14:                                      ; preds = %1141, %1118
-  %1147 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %1120) #12
-  %1148 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.142, ptr noundef %1147) #12
+  %1147 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %1120) #13
+  %1148 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.142, ptr noundef %1147) #13
   %indvars.iv.next1150 = add nuw nsw i64 %indvars.iv1149, 1
   %.val893 = load i32, ptr %1114, align 4, !tbaa !23
   %1149 = sext i32 %.val893 to i64
@@ -2597,7 +2597,7 @@ define void @Wln_WriteVer(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @stdout, align 8, !tbaa !65
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.145, ptr noundef %1) #12
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.145, ptr noundef %1) #13
   br label %15
 
 8:                                                ; preds = %2
@@ -2606,8 +2606,8 @@ define void @Wln_WriteVer(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 
   %11 = load ptr, ptr %10, align 8, !tbaa !67
   %.not = icmp eq ptr %11, null
   %spec.select = select i1 %.not, ptr @.str.147, ptr %11
-  %12 = tail call ptr (...) @Extra_TimeStamp() #12
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.146, ptr noundef %9, ptr noundef nonnull %spec.select, ptr noundef %12) #12
+  %12 = tail call ptr (...) @Extra_TimeStamp() #13
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.146, ptr noundef %9, ptr noundef nonnull %spec.select, ptr noundef %12) #13
   %fputc = tail call i32 @fputc(i32 10, ptr nonnull %3)
   tail call void @Wln_WriteTables(ptr noundef nonnull %3, ptr noundef nonnull %0)
   tail call void @Wln_WriteVerInt(ptr noundef nonnull %3, ptr noundef nonnull %0)
@@ -2657,8 +2657,8 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #12
 
 attributes #0 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2672,9 +2672,10 @@ attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #9 = { nofree nounwind }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind allocsize(0) }
-attributes #14 = { nounwind willreturn memory(read) }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind allocsize(0) }
+attributes #15 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -72,16 +72,16 @@ define dso_local void @gistfillbuffer(ptr noundef %0, ptr noundef readonly captu
   %.val20 = load i16, ptr %18, align 2
   %19 = and i16 %.val20, 8191
   %20 = zext nneg i16 %19 to i64
-  %21 = tail call zeroext i16 @PageAddItemExtended(ptr noundef %0, ptr noundef %17, i64 noundef %20, i16 noundef zeroext %.123, i32 noundef 0) #10
+  %21 = tail call zeroext i16 @PageAddItemExtended(ptr noundef %0, ptr noundef %17, i64 noundef %20, i16 noundef zeroext %.123, i32 noundef 0) #11
   %22 = icmp eq i16 %21, 0
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %.lr.ph
   %24 = trunc nuw nsw i64 %indvars.iv to i32
-  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   %26 = zext nneg i16 %19 to i32
-  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %24, i32 noundef %2, i32 noundef %26) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 50, ptr noundef nonnull @__func__.gistfillbuffer) #10
+  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %24, i32 noundef %2, i32 noundef %26) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 50, ptr noundef nonnull @__func__.gistfillbuffer) #11
   unreachable
 
 28:                                               ; preds = %.lr.ph
@@ -149,7 +149,7 @@ define dso_local zeroext i1 @gistnospace(ptr noundef %0, ptr noundef readonly ca
 
 23:                                               ; preds = %13, %._crit_edge
   %.015 = phi i64 [ %22, %13 ], [ 0, %._crit_edge ]
-  %24 = tail call i64 @PageGetFreeSpace(ptr noundef %0) #10
+  %24 = tail call i64 @PageGetFreeSpace(ptr noundef %0) #11
   %25 = add i64 %24, %.015
   %26 = and i64 %.0.in.lcssa, 4294967295
   %27 = icmp ult i64 %25, %26
@@ -205,7 +205,7 @@ define dso_local ptr @gistextractpage(ptr noundef %0, ptr noundef writeonly capt
   store i32 %9, ptr %1, align 4
   %10 = zext nneg i16 %.0.i to i64
   %11 = shl nuw nsw i64 %10, 3
-  %12 = tail call ptr @palloc(i64 noundef %11) #10
+  %12 = tail call ptr @palloc(i64 noundef %11) #11
   %.not14 = icmp eq i16 %.0.i, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -242,7 +242,7 @@ define dso_local ptr @gistjoinvector(ptr noundef %0, ptr noundef captures(none) 
   %6 = add i32 %5, %3
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 3
-  %9 = tail call ptr @repalloc(ptr noundef %0, i64 noundef %8) #10
+  %9 = tail call ptr @repalloc(ptr noundef %0, i64 noundef %8) #11
   %10 = load i32, ptr %1, align 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds ptr, ptr %9, i64 %11
@@ -286,12 +286,12 @@ define dso_local ptr @gistfillitupvec(ptr noundef readonly captures(none) %0, i3
   br i1 %exitcond.not, label %.lr.ph27.preheader, label %5, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %3
-  %13 = tail call ptr @palloc(i64 noundef 0) #10
+  %13 = tail call ptr @palloc(i64 noundef 0) #11
   br label %._crit_edge28
 
 .lr.ph27.preheader:                               ; preds = %5
   %14 = sext i32 %12 to i64
-  %15 = tail call ptr @palloc(i64 noundef %14) #10
+  %15 = tail call ptr @palloc(i64 noundef %14) #11
   %wide.trip.count33 = zext nneg i32 %1 to i64
   br label %.lr.ph27
 
@@ -331,7 +331,7 @@ define dso_local void @gistMakeUnionItVec(ptr noundef %0, ptr noundef readonly c
   %8 = sext i32 %7 to i64
   %9 = shl nsw i64 %8, 5
   %10 = or disjoint i64 %9, 8
-  %11 = tail call ptr @palloc(i64 noundef %10) #10
+  %11 = tail call ptr @palloc(i64 noundef %10) #11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 8
@@ -378,7 +378,7 @@ define dso_local void @gistMakeUnionItVec(ptr noundef %0, ptr noundef readonly c
 36:                                               ; preds = %35, %._crit_edge.us
   %37 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %22, i64 %indvars.iv51
   %38 = load i32, ptr %32, align 4
-  %39 = call i64 @FunctionCall2Coll(ptr noundef nonnull %37, i32 noundef %38, i64 noundef %23, i64 noundef %24) #10
+  %39 = call i64 @FunctionCall2Coll(ptr noundef nonnull %37, i32 noundef %38, i64 noundef %23, i64 noundef %24) #11
   br label %40
 
 40:                                               ; preds = %._crit_edge.us, %36
@@ -413,7 +413,7 @@ define dso_local void @gistMakeUnionItVec(ptr noundef %0, ptr noundef readonly c
   br i1 %58, label %61, label %59
 
 59:                                               ; preds = %54
-  %60 = call i64 @nocache_index_getattr(ptr noundef nonnull %50, i32 noundef %33, ptr noundef nonnull %51) #10
+  %60 = call i64 @nocache_index_getattr(ptr noundef nonnull %50, i32 noundef %33, ptr noundef nonnull %51) #11
   br label %96
 
 61:                                               ; preds = %54
@@ -475,7 +475,7 @@ define dso_local void @gistMakeUnionItVec(ptr noundef %0, ptr noundef readonly c
   br i1 %.not.i19.i.us, label %index_getattr.exit.us, label %94
 
 94:                                               ; preds = %88
-  %95 = call i64 @nocache_index_getattr(ptr noundef nonnull %50, i32 noundef %34, ptr noundef %51) #10
+  %95 = call i64 @nocache_index_getattr(ptr noundef nonnull %50, i32 noundef %34, ptr noundef %51) #11
   br label %96
 
 96:                                               ; preds = %94, %85, %82, %79, %77, %71, %59
@@ -496,7 +496,7 @@ define dso_local void @gistMakeUnionItVec(ptr noundef %0, ptr noundef readonly c
 105:                                              ; preds = %96
   %106 = load i32, ptr %32, align 4
   %107 = ptrtoint ptr %99 to i64
-  %108 = call i64 @FunctionCall1Coll(ptr noundef nonnull %30, i32 noundef %106, i64 noundef %107) #10
+  %108 = call i64 @FunctionCall1Coll(ptr noundef nonnull %30, i32 noundef %106, i64 noundef %107) #11
   %109 = inttoptr i64 %108 to ptr
   %.not39.i.us = icmp eq ptr %99, %109
   br i1 %.not39.i.us, label %gistdentryinit.exit.us, label %110
@@ -537,9 +537,9 @@ index_getattr.exit.us:                            ; preds = %gistdentryinit.exit
   ]
 
 .split.us:                                        ; preds = %73, %.split.i.i.us
-  %123 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %124 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef range(i32 -32768, 32768) %70) #10
-  call void @errfinish(ptr noundef nonnull @.str.8, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #10
+  %123 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %124 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef range(i32 -32768, 32768) %70) #11
+  call void @errfinish(ptr noundef nonnull @.str.8, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #11
   unreachable
 
 .lr.ph44.split.preheader:                         ; preds = %.lr.ph44, %.lr.ph44.split.preheader
@@ -624,9 +624,9 @@ define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef %1, ptr no
   br label %fetch_att.exit
 
 39:                                               ; preds = %.split.i, %24
-  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef range(i32 -32768, 32768) %23) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.8, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #10
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef range(i32 -32768, 32768) %23) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.8, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #11
   unreachable
 
 42:                                               ; preds = %14
@@ -634,7 +634,7 @@ define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef %1, ptr no
   br label %fetch_att.exit
 
 44:                                               ; preds = %8
-  %45 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #10
+  %45 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #11
   br label %fetch_att.exit
 
 46:                                               ; preds = %4
@@ -655,7 +655,7 @@ define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef %1, ptr no
   br label %fetch_att.exit
 
 57:                                               ; preds = %46
-  %58 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #10
+  %58 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #11
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %42, %37, %34, %31, %28, %44, %57, %56
@@ -691,7 +691,7 @@ define dso_local void @gistdentryinit(ptr noundef %0, i32 noundef %1, ptr nounde
   %23 = getelementptr inbounds i32, ptr %22, i64 %17
   %24 = load i32, ptr %23, align 4
   %25 = ptrtoint ptr %2 to i64
-  %26 = tail call i64 @FunctionCall1Coll(ptr noundef nonnull %18, i32 noundef %24, i64 noundef %25) #10
+  %26 = tail call i64 @FunctionCall1Coll(ptr noundef nonnull %18, i32 noundef %24, i64 noundef %25) #11
   %27 = inttoptr i64 %26 to ptr
   %.not39 = icmp eq ptr %2, %27
   br i1 %.not39, label %39, label %28
@@ -789,7 +789,7 @@ define dso_local ptr @gistunion(ptr noundef %0, ptr noundef readonly captures(no
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.i.i
   %36 = load i32, ptr %35, align 4
-  %37 = call i64 @FunctionCall1Coll(ptr noundef nonnull %31, i32 noundef %36, i64 noundef %20) #10
+  %37 = call i64 @FunctionCall1Coll(ptr noundef nonnull %31, i32 noundef %36, i64 noundef %20) #11
   %38 = inttoptr i64 %37 to ptr
   %.pre.i.i = load i64, ptr %38, align 8
   %.pre.pre.i = load ptr, ptr %9, align 8
@@ -816,7 +816,7 @@ define dso_local ptr @gistunion(ptr noundef %0, ptr noundef readonly captures(no
 gistFormTuple.exit:                               ; preds = %42, %4
   %.in.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %48 = load ptr, ptr %.in.i, align 8
-  %49 = call ptr @index_form_tuple(ptr noundef %48, ptr noundef nonnull %6, ptr noundef nonnull %8) #10
+  %49 = call ptr @index_form_tuple(ptr noundef %48, ptr noundef nonnull %6, ptr noundef nonnull %8) #11
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store i16 -1, ptr %50, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -880,7 +880,7 @@ define dso_local ptr @gistFormTuple(ptr noundef %0, ptr noundef %1, ptr noundef 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.i
   %36 = load i32, ptr %35, align 4
-  %37 = call i64 @FunctionCall1Coll(ptr noundef nonnull %31, i32 noundef %36, i64 noundef %20) #10
+  %37 = call i64 @FunctionCall1Coll(ptr noundef nonnull %31, i32 noundef %36, i64 noundef %20) #11
   %38 = inttoptr i64 %37 to ptr
   %.pre.i = load i64, ptr %38, align 8
   %.pre.pre = load ptr, ptr %9, align 8
@@ -948,7 +948,7 @@ gistCompressValues.exit:                          ; preds = %61, %._crit_edge.i,
   %.in.v = phi i64 [ 24, %._crit_edge.i ], [ 16, %.preheader.i ], [ 16, %61 ]
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
   %64 = load ptr, ptr %.in, align 8
-  %65 = call ptr @index_form_tuple(ptr noundef %64, ptr noundef nonnull %7, ptr noundef %3) #10
+  %65 = call ptr @index_form_tuple(ptr noundef %64, ptr noundef nonnull %7, ptr noundef %3) #11
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   store i16 -1, ptr %66, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1004,7 +1004,7 @@ define dso_local void @gistMakeUnionKey(ptr noundef %0, i32 noundef %1, ptr noun
   %26 = load i32, ptr %25, align 4
   %27 = ptrtoint ptr %9 to i64
   %28 = ptrtoint ptr %10 to i64
-  %29 = call i64 @FunctionCall2Coll(ptr noundef nonnull %23, i32 noundef %26, i64 noundef %27, i64 noundef %28) #10
+  %29 = call i64 @FunctionCall2Coll(ptr noundef nonnull %23, i32 noundef %26, i64 noundef %27, i64 noundef %28) #11
   br label %30
 
 30:                                               ; preds = %20, %11
@@ -1027,7 +1027,7 @@ define dso_local zeroext i1 @gistKeyIsEQ(ptr noundef %0, i32 noundef %1, i64 nou
   %10 = getelementptr inbounds i32, ptr %9, i64 %7
   %11 = load i32, ptr %10, align 4
   %12 = ptrtoint ptr %5 to i64
-  %13 = call i64 @FunctionCall3Coll(ptr noundef nonnull %8, i32 noundef %11, i64 noundef %2, i64 noundef %3, i64 noundef %12) #10
+  %13 = call i64 @FunctionCall3Coll(ptr noundef nonnull %8, i32 noundef %11, i64 noundef %2, i64 noundef %3, i64 noundef %12) #11
   %14 = load i8, ptr %5, align 1, !range !12, !noundef !13
   %15 = trunc nuw i8 %14 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1083,7 +1083,7 @@ define dso_local void @gistDeCompressAtt(ptr noundef %0, ptr noundef %1, ptr nou
   %33 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4
   %35 = ptrtoint ptr %21 to i64
-  %36 = tail call i64 @FunctionCall1Coll(ptr noundef nonnull %29, i32 noundef %34, i64 noundef %35) #10
+  %36 = tail call i64 @FunctionCall1Coll(ptr noundef nonnull %29, i32 noundef %34, i64 noundef %35) #11
   %37 = inttoptr i64 %36 to ptr
   %.not39.i = icmp eq ptr %21, %37
   br i1 %.not39.i, label %gistdentryinit.exit, label %38
@@ -1192,7 +1192,7 @@ define dso_local noundef ptr @gistgetadjusted(ptr noundef %0, ptr noundef %1, pt
   %41 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv.i
   %42 = load i32, ptr %41, align 4
   %43 = ptrtoint ptr %29 to i64
-  %44 = call i64 @FunctionCall1Coll(ptr noundef nonnull %37, i32 noundef %42, i64 noundef %43) #10
+  %44 = call i64 @FunctionCall1Coll(ptr noundef nonnull %37, i32 noundef %42, i64 noundef %43) #11
   %45 = inttoptr i64 %44 to ptr
   %.not39.i.i = icmp eq ptr %29, %45
   br i1 %.not39.i.i, label %gistdentryinit.exit.i, label %46
@@ -1275,7 +1275,7 @@ gistDeCompressAtt.exit:                           ; preds = %gistdentryinit.exit
   %83 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv.i33
   %84 = load i32, ptr %83, align 4
   %85 = ptrtoint ptr %71 to i64
-  %86 = call i64 @FunctionCall1Coll(ptr noundef nonnull %79, i32 noundef %84, i64 noundef %85) #10
+  %86 = call i64 @FunctionCall1Coll(ptr noundef nonnull %79, i32 noundef %84, i64 noundef %85) #11
   %87 = inttoptr i64 %86 to ptr
   %.not39.i.i36 = icmp eq ptr %71, %87
   br i1 %.not39.i.i36, label %gistdentryinit.exit.i39, label %88
@@ -1366,7 +1366,7 @@ gistDeCompressAtt.exit40:                         ; preds = %gistdentryinit.exit
   %127 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %107, i64 %indvars.iv
   %128 = getelementptr inbounds nuw i32, ptr %108, i64 %indvars.iv
   %129 = load i32, ptr %128, align 4
-  %130 = call i64 @FunctionCall2Coll(ptr noundef nonnull %127, i32 noundef %129, i64 noundef %109, i64 noundef %110) #10
+  %130 = call i64 @FunctionCall2Coll(ptr noundef nonnull %127, i32 noundef %129, i64 noundef %109, i64 noundef %110) #11
   br label %gistMakeUnionKey.exit
 
 gistMakeUnionKey.exit:                            ; preds = %123, %124
@@ -1393,7 +1393,7 @@ gistMakeUnionKey.exit:                            ; preds = %123, %124
   %138 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %111, i64 %indvars.iv
   %139 = getelementptr inbounds nuw i32, ptr %108, i64 %indvars.iv
   %140 = load i32, ptr %139, align 4
-  %141 = call i64 @FunctionCall3Coll(ptr noundef nonnull %138, i32 noundef %140, i64 noundef %137, i64 noundef %storemerge.i, i64 noundef %112) #10
+  %141 = call i64 @FunctionCall3Coll(ptr noundef nonnull %138, i32 noundef %140, i64 noundef %137, i64 noundef %storemerge.i, i64 noundef %112) #11
   %142 = load i8, ptr %7, align 1, !range !12, !noundef !13
   %143 = trunc nuw i8 %142 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1463,7 +1463,7 @@ gistMakeUnionKey.exit:                            ; preds = %123, %124
 174:                                              ; preds = %168
   %175 = getelementptr inbounds nuw i32, ptr %159, i64 %indvars.iv.i.i
   %176 = load i32, ptr %175, align 4
-  %177 = call i64 @FunctionCall1Coll(ptr noundef nonnull %171, i32 noundef %176, i64 noundef %160) #10
+  %177 = call i64 @FunctionCall1Coll(ptr noundef nonnull %171, i32 noundef %176, i64 noundef %160) #11
   %178 = inttoptr i64 %177 to ptr
   %.pre.i.i = load i64, ptr %178, align 8
   %.pre.pre.i = load ptr, ptr %16, align 8
@@ -1490,7 +1490,7 @@ gistMakeUnionKey.exit:                            ; preds = %123, %124
 gistFormTuple.exit:                               ; preds = %182, %152
   %.in.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %188 = load ptr, ptr %.in.i, align 8
-  %189 = call ptr @index_form_tuple(ptr noundef %188, ptr noundef nonnull %6, ptr noundef nonnull %15) #10
+  %189 = call ptr @index_form_tuple(ptr noundef %188, ptr noundef nonnull %6, ptr noundef nonnull %15) #11
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 4
   store i16 -1, ptr %190, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1564,7 +1564,7 @@ define dso_local zeroext i16 @gistchoose(ptr noundef %0, ptr noundef %1, ptr nou
   %35 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.i
   %36 = load i32, ptr %35, align 4
   %37 = ptrtoint ptr %23 to i64
-  %38 = call i64 @FunctionCall1Coll(ptr noundef nonnull %31, i32 noundef %36, i64 noundef %37) #10
+  %38 = call i64 @FunctionCall1Coll(ptr noundef nonnull %31, i32 noundef %36, i64 noundef %37) #11
   %39 = inttoptr i64 %38 to ptr
   %.not39.i.i = icmp eq ptr %23, %39
   br i1 %.not39.i.i, label %gistdentryinit.exit.i, label %40
@@ -1718,9 +1718,9 @@ gistDeCompressAtt.exit:                           ; preds = %gistdentryinit.exit
   br label %139
 
 118:                                              ; preds = %.split.i.i, %103
-  %119 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %120 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef range(i32 -32768, 32768) %102) #10
-  call void @errfinish(ptr noundef nonnull @.str.8, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #10
+  %119 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %120 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef range(i32 -32768, 32768) %102) #11
+  call void @errfinish(ptr noundef nonnull @.str.8, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #11
   unreachable
 
 121:                                              ; preds = %94
@@ -1729,7 +1729,7 @@ gistDeCompressAtt.exit:                           ; preds = %gistdentryinit.exit
 
 123:                                              ; preds = %89
   %124 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %125 = call i64 @nocache_index_getattr(ptr noundef nonnull %78, i32 noundef %124, ptr noundef nonnull %87) #10
+  %125 = call i64 @nocache_index_getattr(ptr noundef nonnull %78, i32 noundef %124, ptr noundef nonnull %87) #11
   br label %139
 
 126:                                              ; preds = %85
@@ -1747,7 +1747,7 @@ gistDeCompressAtt.exit:                           ; preds = %gistdentryinit.exit
 
 136:                                              ; preds = %126
   %137 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %138 = call i64 @nocache_index_getattr(ptr noundef nonnull %78, i32 noundef %137, ptr noundef %87) #10
+  %138 = call i64 @nocache_index_getattr(ptr noundef nonnull %78, i32 noundef %137, ptr noundef %87) #11
   br label %139
 
 139:                                              ; preds = %136, %107, %110, %113, %116, %121, %123
@@ -1766,7 +1766,7 @@ gistDeCompressAtt.exit:                           ; preds = %gistdentryinit.exit
 143:                                              ; preds = %139
   %144 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv
   %145 = load i32, ptr %144, align 4
-  %146 = call i64 @FunctionCall1Coll(ptr noundef nonnull %140, i32 noundef %145, i64 noundef %70) #10
+  %146 = call i64 @FunctionCall1Coll(ptr noundef nonnull %140, i32 noundef %145, i64 noundef %70) #11
   %147 = inttoptr i64 %146 to ptr
   %.not39.i = icmp eq ptr %7, %147
   br i1 %.not39.i, label %gistdentryinit.exit, label %148
@@ -1820,7 +1820,7 @@ gistdentryinit.exit:                              ; preds = %139, %143, %.sink.s
   %170 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv
   %171 = load i32, ptr %170, align 4
   %172 = ptrtoint ptr %169 to i64
-  %173 = call i64 @FunctionCall3Coll(ptr noundef nonnull %164, i32 noundef %171, i64 noundef %70, i64 noundef %172, i64 noundef %72) #10
+  %173 = call i64 @FunctionCall3Coll(ptr noundef nonnull %164, i32 noundef %171, i64 noundef %70, i64 noundef %172, i64 noundef %72) #11
   %174 = load float, ptr %5, align 4
   %or.cond12.i = fcmp ult float %174, 0.000000e+00
   br i1 %or.cond12.i, label %175, label %gistpenalty.exit
@@ -1904,7 +1904,7 @@ gistpenalty.exit:                                 ; preds = %168, %175, %176
   br i1 %204, label %205, label %208
 
 205:                                              ; preds = %203
-  %206 = call zeroext i1 @pg_prng_bool(ptr noundef nonnull @pg_global_prng_state) #10
+  %206 = call zeroext i1 @pg_prng_bool(ptr noundef nonnull @pg_global_prng_state) #11
   %207 = zext i1 %206 to i32
   br label %208
 
@@ -1925,7 +1925,7 @@ gistpenalty.exit:                                 ; preds = %168, %175, %176
   br i1 %212, label %213, label %216
 
 213:                                              ; preds = %211
-  %214 = call zeroext i1 @pg_prng_bool(ptr noundef nonnull @pg_global_prng_state) #10
+  %214 = call zeroext i1 @pg_prng_bool(ptr noundef nonnull @pg_global_prng_state) #11
   %215 = zext i1 %214 to i32
   br label %216
 
@@ -1971,7 +1971,7 @@ define dso_local float @gistpenalty(ptr noundef %0, i32 noundef %1, ptr noundef 
   %18 = ptrtoint ptr %2 to i64
   %19 = ptrtoint ptr %4 to i64
   %20 = ptrtoint ptr %7 to i64
-  %21 = call i64 @FunctionCall3Coll(ptr noundef nonnull %10, i32 noundef %17, i64 noundef %18, i64 noundef %19, i64 noundef %20) #10
+  %21 = call i64 @FunctionCall3Coll(ptr noundef nonnull %10, i32 noundef %17, i64 noundef %18, i64 noundef %19, i64 noundef %20) #11
   %22 = load float, ptr %7, align 4
   %or.cond12 = fcmp ult float %22, 0.000000e+00
   br i1 %or.cond12, label %23, label %25
@@ -2045,7 +2045,7 @@ define dso_local void @gistCompressValues(ptr noundef %0, ptr noundef %1, ptr no
 33:                                               ; preds = %27
   %34 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
-  %36 = call i64 @FunctionCall1Coll(ptr noundef nonnull %30, i32 noundef %35, i64 noundef %20) #10
+  %36 = call i64 @FunctionCall1Coll(ptr noundef nonnull %30, i32 noundef %35, i64 noundef %20) #11
   %37 = inttoptr i64 %36 to ptr
   %.pre = load i64, ptr %37, align 8
   br label %38
@@ -2184,7 +2184,7 @@ define dso_local ptr @gistFetchTuple(ptr noundef %0, ptr noundef %1, ptr noundef
   %41 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %20, i64 %indvars.iv
   %42 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4
-  %44 = call i64 @FunctionCall1Coll(ptr noundef nonnull %41, i32 noundef %43, i64 noundef %22) #10
+  %44 = call i64 @FunctionCall1Coll(ptr noundef nonnull %41, i32 noundef %43, i64 noundef %22) #11
   %45 = inttoptr i64 %44 to ptr
   %46 = load i64, ptr %45, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2250,7 +2250,7 @@ define dso_local ptr @gistFetchTuple(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr %9, ptr @CurrentMemoryContext, align 8
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %79 = load ptr, ptr %78, align 8
-  %80 = call ptr @heap_form_tuple(ptr noundef %79, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
+  %80 = call ptr @heap_form_tuple(ptr noundef %79, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %80
@@ -2260,7 +2260,7 @@ declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @gistinitpage(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  tail call void @PageInit(ptr noundef %0, i64 noundef 8192, i64 noundef 16) #10
+  tail call void @PageInit(ptr noundef %0, i64 noundef 8192, i64 noundef 16) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i16, ptr %3, align 4
   %5 = zext i16 %4 to i64
@@ -2300,7 +2300,7 @@ define dso_local void @GISTInitBuffer(i32 noundef %0, i32 noundef %1) local_unna
 
 BufferGetPage.exit:                               ; preds = %4, %10
   %.0.i.i = phi ptr [ %9, %4 ], [ %15, %10 ]
-  tail call void @PageInit(ptr noundef %.0.i.i, i64 noundef 8192, i64 noundef 16) #10
+  tail call void @PageInit(ptr noundef %.0.i.i, i64 noundef 8192, i64 noundef 16) #11
   %16 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %17 = load i16, ptr %16, align 4
   %18 = zext i16 %17 to i64
@@ -2344,15 +2344,15 @@ BufferGetPage.exit:                               ; preds = %4, %10
   br i1 %17, label %18, label %27
 
 18:                                               ; preds = %BufferGetPage.exit
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %20 = tail call i32 @errcode(i32 noundef 33557032) #10
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %20 = tail call i32 @errcode(i32 noundef 33557032) #11
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %24 = tail call i32 @BufferGetBlockNumber(i32 noundef %1) #10
-  %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %23, i32 noundef %24) #10
-  %26 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.3) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 801, ptr noundef nonnull @__func__.gistcheckpage) #10
+  %24 = tail call i32 @BufferGetBlockNumber(i32 noundef %1) #11
+  %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %23, i32 noundef %24) #11
+  %26 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.3) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 801, ptr noundef nonnull @__func__.gistcheckpage) #11
   unreachable
 
 27:                                               ; preds = %BufferGetPage.exit
@@ -2366,15 +2366,15 @@ BufferGetPage.exit:                               ; preds = %4, %10
   br i1 %.not, label %41, label %32
 
 32:                                               ; preds = %27
-  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %34 = tail call i32 @errcode(i32 noundef 33557032) #10
+  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %34 = tail call i32 @errcode(i32 noundef 33557032) #11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %38 = tail call i32 @BufferGetBlockNumber(i32 noundef %1) #10
-  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %37, i32 noundef %38) #10
-  %40 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.3) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 812, ptr noundef nonnull @__func__.gistcheckpage) #10
+  %38 = tail call i32 @BufferGetBlockNumber(i32 noundef %1) #11
+  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %37, i32 noundef %38) #11
+  %40 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.3) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 812, ptr noundef nonnull @__func__.gistcheckpage) #11
   unreachable
 
 41:                                               ; preds = %27
@@ -2392,14 +2392,14 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @gistNewBuffer(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.BufferManagerRelation, align 8
-  %4 = tail call i32 @GetFreeIndexPage(ptr noundef %0) #10
+  %4 = tail call i32 @GetFreeIndexPage(ptr noundef %0) #11
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %56
   %6 = phi i32 [ %57, %56 ], [ %4, %2 ]
-  %7 = tail call i32 @ReadBuffer(ptr noundef %0, i32 noundef %6) #10
-  %8 = tail call zeroext i1 @ConditionalLockBuffer(i32 noundef %7) #10
+  %7 = tail call i32 @ReadBuffer(ptr noundef %0, i32 noundef %6) #11
+  %8 = tail call zeroext i1 @ConditionalLockBuffer(i32 noundef %7) #11
   br i1 %8, label %9, label %56
 
 9:                                                ; preds = %.lr.ph
@@ -2459,7 +2459,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
 
 gistPageRecyclable.exit:                          ; preds = %35, %39
   %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.copyload.i.i, %39 ], [ 3, %35 ]
-  %41 = tail call zeroext i1 @GlobalVisCheckRemovableFullXid(ptr noundef null, i64 %.sroa.0.0.i.i) #10
+  %41 = tail call zeroext i1 @GlobalVisCheckRemovableFullXid(ptr noundef null, i64 %.sroa.0.0.i.i) #11
   br i1 %41, label %gistPageRecyclable.exit.thread, label %gistPageRecyclable.exit.thread29
 
 gistPageRecyclable.exit.thread:                   ; preds = %25, %gistPageRecyclable.exit
@@ -2488,16 +2488,16 @@ gistPageRecyclable.exit.thread:                   ; preds = %25, %gistPageRecycl
 
 GistPageGetDeleteXid.exit:                        ; preds = %50, %54
   %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i, %54 ], [ 3, %50 ]
-  tail call void @gistXLogPageReuse(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %6, i64 %.sroa.0.0.i) #10
+  tail call void @gistXLogPageReuse(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %6, i64 %.sroa.0.0.i) #11
   br label %.thread33
 
 gistPageRecyclable.exit.thread29:                 ; preds = %27, %gistPageRecyclable.exit
-  tail call void @LockBuffer(i32 noundef %7, i32 noundef 0) #10
+  tail call void @LockBuffer(i32 noundef %7, i32 noundef 0) #11
   br label %56
 
 56:                                               ; preds = %.lr.ph, %gistPageRecyclable.exit.thread29
-  tail call void @ReleaseBuffer(i32 noundef %7) #10
-  %57 = tail call i32 @GetFreeIndexPage(ptr noundef %0) #10
+  tail call void @ReleaseBuffer(i32 noundef %7) #11
+  %57 = tail call i32 @GetFreeIndexPage(ptr noundef %0) #11
   %58 = icmp eq i32 %57, -1
   br i1 %58, label %._crit_edge, label %.lr.ph
 
@@ -2505,7 +2505,7 @@ gistPageRecyclable.exit.thread29:                 ; preds = %27, %gistPageRecycl
   store ptr %0, ptr %3, align 8
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, i8 0, i64 16, i1 false)
-  %60 = tail call i32 @ExtendBufferedRel(ptr noundef nonnull byval(%struct.BufferManagerRelation) align 8 %3, i32 noundef 0, ptr noundef null, i32 noundef 8) #10
+  %60 = tail call i32 @ExtendBufferedRel(ptr noundef nonnull byval(%struct.BufferManagerRelation) align 8 %3, i32 noundef 0, ptr noundef null, i32 noundef 8) #11
   br label %.thread33
 
 .thread33:                                        ; preds = %BufferGetPage.exit, %GistPageGetDeleteXid.exit, %44, %gistPageRecyclable.exit.thread, %._crit_edge
@@ -2550,7 +2550,7 @@ define dso_local zeroext i1 @gistPageRecyclable(ptr noundef readonly captures(no
 
 GistPageGetDeleteXid.exit:                        ; preds = %12, %16
   %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i, %16 ], [ 3, %12 ]
-  %18 = tail call zeroext i1 @GlobalVisCheckRemovableFullXid(ptr noundef null, i64 %.sroa.0.0.i) #10
+  %18 = tail call zeroext i1 @GlobalVisCheckRemovableFullXid(ptr noundef null, i64 %.sroa.0.0.i) #11
   br label %19
 
 19:                                               ; preds = %4, %1, %GistPageGetDeleteXid.exit
@@ -2573,7 +2573,7 @@ declare zeroext i1 @GlobalVisCheckRemovableFullXid(ptr noundef, i64) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @gistoptions(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @build_reloptions(i64 noundef %0, i1 noundef zeroext %1, i32 noundef 32, i64 noundef 12, ptr noundef nonnull @gistoptions.tab, i32 noundef 2) #10
+  %3 = tail call ptr @build_reloptions(i64 noundef %0, i1 noundef zeroext %1, i32 noundef 32, i64 noundef 12, ptr noundef nonnull @gistoptions.tab, i32 noundef 2) #11
   ret ptr %3
 }
 
@@ -2599,12 +2599,12 @@ define dso_local noundef zeroext i1 @gistproperty(i32 noundef %0, i32 noundef %1
 
 12:                                               ; preds = %10, %11
   %.0 = phi i64 [ 9, %11 ], [ 8, %10 ]
-  %13 = tail call i32 @get_index_column_opclass(i32 noundef %0, i32 noundef %1) #10
+  %13 = tail call i32 @get_index_column_opclass(i32 noundef %0, i32 noundef %1) #11
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %.sink.split, label %14
 
 14:                                               ; preds = %12
-  %15 = call zeroext i1 @get_opclass_opfamily_and_input_type(i32 noundef %13, ptr noundef nonnull %7, ptr noundef nonnull %8) #10
+  %15 = call zeroext i1 @get_opclass_opfamily_and_input_type(i32 noundef %13, ptr noundef nonnull %7, ptr noundef nonnull %8) #11
   br i1 %15, label %16, label %.sink.split
 
 16:                                               ; preds = %14
@@ -2612,7 +2612,7 @@ define dso_local noundef zeroext i1 @gistproperty(i32 noundef %0, i32 noundef %1
   %18 = zext i32 %17 to i64
   %19 = load i32, ptr %8, align 4
   %20 = zext i32 %19 to i64
-  %21 = call zeroext i1 @SearchSysCacheExists(i32 noundef 5, i64 noundef %18, i64 noundef %20, i64 noundef %20, i64 noundef %.0) #10
+  %21 = call zeroext i1 @SearchSysCacheExists(i32 noundef 5, i64 noundef %18, i64 noundef %20, i64 noundef %20, i64 noundef %.0) #11
   %22 = zext i1 %21 to i8
   store i8 %22, ptr %4, align 1
   %23 = icmp ne i32 %2, 7
@@ -2624,7 +2624,7 @@ define dso_local noundef zeroext i1 @gistproperty(i32 noundef %0, i32 noundef %1
   %26 = zext i32 %25 to i64
   %27 = load i32, ptr %8, align 4
   %28 = zext i32 %27 to i64
-  %29 = call zeroext i1 @SearchSysCacheExists(i32 noundef 5, i64 noundef %26, i64 noundef %28, i64 noundef %28, i64 noundef 3) #10
+  %29 = call zeroext i1 @SearchSysCacheExists(i32 noundef 5, i64 noundef %26, i64 noundef %28, i64 noundef %28, i64 noundef 3) #11
   %30 = xor i1 %29, true
   %31 = zext i1 %30 to i8
   store i8 %31, ptr %4, align 1
@@ -2666,7 +2666,7 @@ define dso_local i64 @gistGetFakeLSN(ptr noundef readonly captures(none) %0) loc
   br label %19
 
 9:                                                ; preds = %1
-  %10 = tail call i64 @GetXLogInsertRecPtr() #10
+  %10 = tail call i64 @GetXLogInsertRecPtr() #11
   %11 = load i64, ptr @gistGetFakeLSN.lastlsn, align 8
   %12 = icmp ne i64 %11, 0
   %13 = icmp eq i64 %11, %10
@@ -2674,7 +2674,7 @@ define dso_local i64 @gistGetFakeLSN(ptr noundef readonly captures(none) %0) loc
   br i1 %or.cond, label %14, label %16
 
 14:                                               ; preds = %9
-  %15 = tail call i64 @gistXLogAssignLSN() #10
+  %15 = tail call i64 @gistXLogAssignLSN() #11
   br label %16
 
 16:                                               ; preds = %14, %9
@@ -2683,7 +2683,7 @@ define dso_local i64 @gistGetFakeLSN(ptr noundef readonly captures(none) %0) loc
   br label %19
 
 17:                                               ; preds = %1
-  %18 = tail call i64 @GetFakeLSNForUnloggedRel() #10
+  %18 = tail call i64 @GetFakeLSNForUnloggedRel() #11
   br label %19
 
 19:                                               ; preds = %17, %16, %6
@@ -2719,13 +2719,13 @@ switch.lookup:                                    ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i16 @gisttranslatecmptype(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @get_opfamily_proc(i32 noundef %1, i32 noundef %2, i32 noundef %2, i16 noundef signext 12) #10
+  %4 = tail call i32 @get_opfamily_proc(i32 noundef %1, i32 noundef %2, i32 noundef %2, i16 noundef signext 12) #11
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %3
   %6 = sext i32 %0 to i64
-  %7 = tail call i64 @OidFunctionCall1Coll(i32 noundef %4, i32 noundef 0, i64 noundef %6) #10
+  %7 = tail call i64 @OidFunctionCall1Coll(i32 noundef %4, i32 noundef 0, i64 noundef %6) #11
   %8 = trunc i64 %7 to i16
   br label %9
 
@@ -2746,13 +2746,13 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2764,9 +2764,10 @@ attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-t
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

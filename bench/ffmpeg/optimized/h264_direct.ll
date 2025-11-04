@@ -91,7 +91,7 @@ define void @ff_h264_direct_dist_scale_factor(ptr noundef readonly captures(none
   %48 = load ptr, ptr %1, align 16, !tbaa !70
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !77
-  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %50, ptr noundef nonnull @.str.4) #7
+  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %50, ptr noundef nonnull @.str.4) #8
   br label %51
 
 51:                                               ; preds = %47, %35
@@ -126,7 +126,7 @@ define void @ff_h264_direct_dist_scale_factor(ptr noundef readonly captures(none
   %68 = load ptr, ptr %1, align 16, !tbaa !70
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !77
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %70, i32 noundef 48, ptr noundef nonnull @.str.5) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %70, i32 noundef 48, ptr noundef nonnull @.str.5) #8
   br label %71
 
 71:                                               ; preds = %67, %58
@@ -189,7 +189,7 @@ get_scale_factor.exit:                            ; preds = %51, %53, %71
   %102 = load ptr, ptr %1, align 16, !tbaa !70
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8, !tbaa !77
-  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %104, ptr noundef nonnull @.str.4) #7
+  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %104, ptr noundef nonnull @.str.4) #8
   br label %105
 
 105:                                              ; preds = %101, %89
@@ -224,7 +224,7 @@ get_scale_factor.exit:                            ; preds = %51, %53, %71
   %122 = load ptr, ptr %1, align 16, !tbaa !70
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load ptr, ptr %123, align 8, !tbaa !77
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %124, i32 noundef 48, ptr noundef nonnull @.str.5) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %124, i32 noundef 48, ptr noundef nonnull @.str.5) #8
   br label %125
 
 125:                                              ; preds = %121, %112
@@ -358,8 +358,8 @@ define void @ff_h264_direct_ref_list_init(ptr noundef readonly captures(none) %0
   br i1 %67, label %69, label %68
 
 68:                                               ; preds = %62
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 143) #7
-  tail call void @abort() #8
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 143) #8
+  tail call void @abort() #9
   unreachable
 
 69:                                               ; preds = %62, %58
@@ -395,7 +395,7 @@ define void @ff_h264_direct_ref_list_init(ptr noundef readonly captures(none) %0
 87:                                               ; preds = %78
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !77
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %89, i32 noundef 16, ptr noundef nonnull @.str.3) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %89, i32 noundef 16, ptr noundef nonnull @.str.3) #8
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 21092
   store i32 1, ptr %90, align 4, !tbaa !91
   br label %115
@@ -956,7 +956,7 @@ define void @ff_h264_pred_direct_motion(ptr noundef readonly captures(none) %0, 
   %39 = icmp ne i32 %.val.i, 1
   %40 = select i1 %38, i1 %39, i1 false
   %41 = zext i1 %40 to i32
-  tail call void @ff_thread_await_progress(ptr noundef nonnull %33, i32 noundef %37, i32 noundef %41) #7
+  tail call void @ff_thread_await_progress(ptr noundef nonnull %33, i32 noundef %37, i32 noundef %41) #8
   br label %await_reference_mb_row.exit.i
 
 await_reference_mb_row.exit.i:                    ; preds = %24, %14
@@ -1385,7 +1385,7 @@ mid_pred.exit416.i:                               ; preds = %106, %104, %103, %1
   %271 = icmp ne i32 %.val411.i, 1
   %272 = select i1 %270, i1 %271, i1 false
   %273 = zext i1 %272 to i32
-  tail call void @ff_thread_await_progress(ptr noundef nonnull %265, i32 noundef %269, i32 noundef %273) #7
+  tail call void @ff_thread_await_progress(ptr noundef nonnull %265, i32 noundef %269, i32 noundef %273) #8
   %.pre.i = load ptr, ptr %18, align 8, !tbaa !69
   br label %await_reference_mb_row.exit418.i
 
@@ -2121,7 +2121,7 @@ pred_spatial_direct_motion.exit:                  ; preds = %142, %395, %397, %.
   %673 = icmp ne i32 %.val.i8, 1
   %674 = select i1 %672, i1 %673, i1 false
   %675 = zext i1 %674 to i32
-  tail call void @ff_thread_await_progress(ptr noundef nonnull %667, i32 noundef %671, i32 noundef %675) #7
+  tail call void @ff_thread_await_progress(ptr noundef nonnull %667, i32 noundef %671, i32 noundef %675) #8
   %.pre48 = load i32, ptr %2, align 4, !tbaa !65
   br label %await_reference_mb_row.exit.i10
 
@@ -2306,7 +2306,7 @@ await_reference_mb_row.exit.i10:                  ; preds = %658, %648
   %777 = icmp ne i32 %.val301.i, 1
   %778 = select i1 %776, i1 %777, i1 false
   %779 = zext i1 %778 to i32
-  tail call void @ff_thread_await_progress(ptr noundef nonnull %771, i32 noundef %775, i32 noundef %779) #7
+  tail call void @ff_thread_await_progress(ptr noundef nonnull %771, i32 noundef %775, i32 noundef %779) #8
   %.pre.i17 = load ptr, ptr %652, align 8, !tbaa !69
   br label %await_reference_mb_row.exit304.i
 
@@ -2965,23 +2965,23 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.abs.i8(i8, i1 immarg) #6
+declare i8 @llvm.abs.i8(i8, i1 immarg) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #6
+declare i64 @llvm.abs.i64(i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.abs.i16(i16, i1 immarg) #6
+declare i16 @llvm.abs.i16(i16, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -2989,9 +2989,10 @@ attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "st
 attributes #3 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { noreturn nounwind }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

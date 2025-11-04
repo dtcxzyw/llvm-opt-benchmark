@@ -28,7 +28,7 @@ define void @Java_sun_awt_image_ImageRepresentation_initIDs(ptr noundef %0, ptr 
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 752
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #4
+  %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #5
   store ptr %6, ptr @s_JnumSrcLUTID, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -37,7 +37,7 @@ define void @Java_sun_awt_image_ImageRepresentation_initIDs(ptr noundef %0, ptr 
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 752
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1) #4
+  %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1) #5
   store ptr %12, ptr @s_JsrcLUTtransIndexID, align 8
   br label %13
 
@@ -51,7 +51,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setICMp
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %11
-  tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str.3) #4
+  tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str.3) #5
   br label %207
 
 14:                                               ; preds = %11
@@ -59,7 +59,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setICMp
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %14
-  tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str.3) #4
+  tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str.3) #5
   br label %207
 
 17:                                               ; preds = %14
@@ -85,22 +85,22 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setICMp
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 800
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr @g_ICRscanstrID, align 8
-  %32 = tail call i32 %30(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %31) #4
+  %32 = tail call i32 %30(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %31) #5
   %33 = load ptr, ptr %0, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 800
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr @g_ICRpixstrID, align 8
-  %37 = tail call i32 %35(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %36) #4
+  %37 = tail call i32 %35(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %36) #5
   %38 = load ptr, ptr %0, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 760
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr @g_ICRdataOffsetsID, align 8
-  %42 = tail call ptr %40(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %41) #4
+  %42 = tail call ptr %40(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %41) #5
   %43 = load ptr, ptr %0, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 760
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr @g_ICRdataID, align 8
-  %47 = tail call ptr %45(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %46) #4
+  %47 = tail call ptr %45(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %46) #5
   %48 = icmp eq ptr %47, null
   %49 = icmp eq ptr %42, null
   %or.cond232 = select i1 %48, i1 true, i1 %49
@@ -110,7 +110,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setICMp
   %51 = load ptr, ptr %0, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 1368
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call i32 %53(ptr noundef nonnull %0, ptr noundef nonnull %42) #4
+  %54 = tail call i32 %53(ptr noundef nonnull %0, ptr noundef nonnull %42) #5
   %55 = icmp slt i32 %54, 1
   br i1 %55, label %207, label %56
 
@@ -118,15 +118,15 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setICMp
   %57 = load ptr, ptr %0, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 1368
   %59 = load ptr, ptr %58, align 8
-  %60 = tail call i32 %59(ptr noundef nonnull %0, ptr noundef nonnull %7) #4
+  %60 = tail call i32 %59(ptr noundef nonnull %0, ptr noundef nonnull %7) #5
   %61 = load ptr, ptr %0, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 1368
   %63 = load ptr, ptr %62, align 8
-  %64 = tail call i32 %63(ptr noundef nonnull %0, ptr noundef nonnull %47) #4
+  %64 = tail call i32 %63(ptr noundef nonnull %0, ptr noundef nonnull %47) #5
   %65 = load ptr, ptr %0, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 1776
   %67 = load ptr, ptr %66, align 8
-  %68 = tail call ptr %67(ptr noundef nonnull %0, ptr noundef nonnull %42, ptr noundef null) #4
+  %68 = tail call ptr %67(ptr noundef nonnull %0, ptr noundef nonnull %42, ptr noundef null) #5
   %69 = icmp eq ptr %68, null
   br i1 %69, label %70, label %74
 
@@ -134,8 +134,8 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setICMp
   %71 = load ptr, ptr %0, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 136
   %73 = load ptr, ptr %72, align 8
-  tail call void %73(ptr noundef nonnull %0) #4
-  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #4
+  tail call void %73(ptr noundef nonnull %0) #5
+  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #5
   br label %207
 
 74:                                               ; preds = %56
@@ -143,7 +143,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setICMp
   %76 = load ptr, ptr %0, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 1784
   %78 = load ptr, ptr %77, align 8
-  tail call void %78(ptr noundef nonnull %0, ptr noundef nonnull %42, ptr noundef nonnull %68, i32 noundef 2) #4
+  tail call void %78(ptr noundef nonnull %0, ptr noundef nonnull %42, ptr noundef nonnull %68, i32 noundef 2) #5
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %87, label %79
 
@@ -251,7 +251,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setICMp
   %140 = load ptr, ptr %0, align 8
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 1776
   %142 = load ptr, ptr %141, align 8
-  %143 = tail call ptr %142(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef null) #4
+  %143 = tail call ptr %142(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef null) #5
   %144 = icmp eq ptr %143, null
   %145 = load ptr, ptr %0, align 8
   br i1 %144, label %146, label %149
@@ -259,14 +259,14 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setICMp
 146:                                              ; preds = %139
   %147 = getelementptr inbounds nuw i8, ptr %145, i64 136
   %148 = load ptr, ptr %147, align 8
-  tail call void %148(ptr noundef nonnull %0) #4
-  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #4
+  tail call void %148(ptr noundef nonnull %0) #5
+  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #5
   br label %207
 
 149:                                              ; preds = %139
   %150 = getelementptr inbounds nuw i8, ptr %145, i64 1776
   %151 = load ptr, ptr %150, align 8
-  %152 = tail call ptr %151(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef null) #4
+  %152 = tail call ptr %151(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef null) #5
   %153 = icmp eq ptr %152, null
   %154 = load ptr, ptr %0, align 8
   br i1 %153, label %155, label %161
@@ -274,18 +274,18 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setICMp
 155:                                              ; preds = %149
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 1784
   %157 = load ptr, ptr %156, align 8
-  tail call void %157(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %143, i32 noundef 2) #4
+  tail call void %157(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %143, i32 noundef 2) #5
   %158 = load ptr, ptr %0, align 8
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 136
   %160 = load ptr, ptr %159, align 8
-  tail call void %160(ptr noundef nonnull %0) #4
-  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #4
+  tail call void %160(ptr noundef nonnull %0) #5
+  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #5
   br label %207
 
 161:                                              ; preds = %149
   %162 = getelementptr inbounds nuw i8, ptr %154, i64 1776
   %163 = load ptr, ptr %162, align 8
-  %164 = tail call ptr %163(ptr noundef nonnull %0, ptr noundef nonnull %47, ptr noundef null) #4
+  %164 = tail call ptr %163(ptr noundef nonnull %0, ptr noundef nonnull %47, ptr noundef null) #5
   %165 = icmp eq ptr %164, null
   br i1 %165, label %166, label %.preheader.us.preheader
 
@@ -293,16 +293,16 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setICMp
   %167 = load ptr, ptr %0, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 1784
   %169 = load ptr, ptr %168, align 8
-  tail call void %169(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %143, i32 noundef 2) #4
+  tail call void %169(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %143, i32 noundef 2) #5
   %170 = load ptr, ptr %0, align 8
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 1784
   %172 = load ptr, ptr %171, align 8
-  tail call void %172(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %152, i32 noundef 2) #4
+  tail call void %172(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %152, i32 noundef 2) #5
   %173 = load ptr, ptr %0, align 8
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 136
   %175 = load ptr, ptr %174, align 8
-  tail call void %175(ptr noundef nonnull %0) #4
-  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #4
+  tail call void %175(ptr noundef nonnull %0) #5
+  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #5
   br label %207
 
 .preheader.us.preheader:                          ; preds = %161
@@ -351,15 +351,15 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setICMp
   %198 = load ptr, ptr %0, align 8
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 1784
   %200 = load ptr, ptr %199, align 8
-  tail call void %200(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %143, i32 noundef 2) #4
+  tail call void %200(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %143, i32 noundef 2) #5
   %201 = load ptr, ptr %0, align 8
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 1784
   %203 = load ptr, ptr %202, align 8
-  tail call void %203(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %152, i32 noundef 2) #4
+  tail call void %203(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %152, i32 noundef 2) #5
   %204 = load ptr, ptr %0, align 8
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 1784
   %206 = load ptr, ptr %205, align 8
-  tail call void %206(ptr noundef nonnull %0, ptr noundef nonnull %47, ptr noundef nonnull %164, i32 noundef 2) #4
+  tail call void %206(ptr noundef nonnull %0, ptr noundef nonnull %47, ptr noundef nonnull %164, i32 noundef 2) #5
   br label %207
 
 207:                                              ; preds = %135, %131, %127, %124, %121, %117, %108, %105, %101, %96, %88, %92, %79, %83, %50, %27, %22, %17, %._crit_edge241, %166, %155, %146, %70, %16, %13
@@ -379,7 +379,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setDiff
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %15
-  tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str.3) #4
+  tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str.3) #5
   br label %220
 
 22:                                               ; preds = %15
@@ -387,7 +387,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setDiff
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %22
-  tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str.3) #4
+  tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str.3) #5
   br label %220
 
 25:                                               ; preds = %22
@@ -413,27 +413,27 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setDiff
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 800
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr @g_BCRscanstrID, align 8
-  %40 = tail call i32 %38(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %39) #4
+  %40 = tail call i32 %38(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %39) #5
   %41 = load ptr, ptr %0, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 800
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr @g_BCRpixstrID, align 8
-  %45 = tail call i32 %43(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %44) #4
+  %45 = tail call i32 %43(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %44) #5
   %46 = load ptr, ptr %0, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 760
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr @g_BCRdataID, align 8
-  %50 = tail call ptr %48(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %49) #4
+  %50 = tail call ptr %48(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %49) #5
   %51 = load ptr, ptr %0, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 760
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr @g_ICMrgbID, align 8
-  %55 = tail call ptr %53(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %54) #4
+  %55 = tail call ptr %53(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %54) #5
   %56 = load ptr, ptr %0, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 800
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr @g_ICMmapSizeID, align 8
-  %60 = tail call i32 %58(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %59) #4
+  %60 = tail call i32 %58(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %59) #5
   %or.cond5 = icmp ugt i32 %8, 256
   %61 = icmp ugt i32 %60, 256
   %or.cond9 = select i1 %or.cond5, i1 true, i1 %61
@@ -445,11 +445,11 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setDiff
   %64 = load ptr, ptr %0, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 1368
   %66 = load ptr, ptr %65, align 8
-  %67 = tail call i32 %66(ptr noundef nonnull %0, ptr noundef nonnull %10) #4
+  %67 = tail call i32 %66(ptr noundef nonnull %0, ptr noundef nonnull %10) #5
   %68 = load ptr, ptr %0, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 1368
   %70 = load ptr, ptr %69, align 8
-  %71 = tail call i32 %70(ptr noundef nonnull %0, ptr noundef nonnull %50) #4
+  %71 = tail call i32 %70(ptr noundef nonnull %0, ptr noundef nonnull %50) #5
   %.not = icmp eq i32 %40, 0
   br i1 %.not, label %80, label %72
 
@@ -557,7 +557,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setDiff
   %133 = load ptr, ptr %0, align 8
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 1776
   %135 = load ptr, ptr %134, align 8
-  %136 = tail call ptr %135(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef null) #4
+  %136 = tail call ptr %135(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef null) #5
   %137 = icmp eq ptr %136, null
   br i1 %137, label %220, label %138
 
@@ -565,7 +565,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setDiff
   %139 = load ptr, ptr %0, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 1776
   %141 = load ptr, ptr %140, align 8
-  %142 = tail call ptr %141(ptr noundef nonnull %0, ptr noundef %55, ptr noundef null) #4
+  %142 = tail call ptr %141(ptr noundef nonnull %0, ptr noundef %55, ptr noundef null) #5
   %143 = icmp eq ptr %142, null
   br i1 %143, label %144, label %148
 
@@ -573,7 +573,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setDiff
   %145 = load ptr, ptr %0, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 1784
   %147 = load ptr, ptr %146, align 8
-  tail call void %147(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %136, i32 noundef 2) #4
+  tail call void %147(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %136, i32 noundef 2) #5
   br label %220
 
 148:                                              ; preds = %138
@@ -587,20 +587,20 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setDiff
   br i1 %150, label %154, label %158
 
 154:                                              ; preds = %148
-  tail call void %153(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %136, i32 noundef 2) #4
+  tail call void %153(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %136, i32 noundef 2) #5
   %155 = load ptr, ptr %0, align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 1784
   %157 = load ptr, ptr %156, align 8
-  tail call void %157(ptr noundef nonnull %0, ptr noundef %55, ptr noundef nonnull %142, i32 noundef 2) #4
+  tail call void %157(ptr noundef nonnull %0, ptr noundef %55, ptr noundef nonnull %142, i32 noundef 2) #5
   br label %220
 
 158:                                              ; preds = %148
   %159 = load i32, ptr %18, align 4
-  tail call void %153(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %136, i32 noundef %159) #4
+  tail call void %153(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %136, i32 noundef %159) #5
   %160 = load ptr, ptr %0, align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 1784
   %162 = load ptr, ptr %161, align 8
-  tail call void %162(ptr noundef nonnull %0, ptr noundef %55, ptr noundef nonnull %142, i32 noundef 2) #4
+  tail call void %162(ptr noundef nonnull %0, ptr noundef %55, ptr noundef nonnull %142, i32 noundef 2) #5
   %163 = load i32, ptr %16, align 4
   %.not243 = icmp eq i32 %163, %8
   br i1 %.not243, label %169, label %164
@@ -610,7 +610,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setDiff
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 872
   %167 = load ptr, ptr %166, align 8
   %168 = load ptr, ptr @s_JnumSrcLUTID, align 8
-  tail call void %167(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %168, i32 noundef %163) #4
+  tail call void %167(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %168, i32 noundef %163) #5
   br label %169
 
 169:                                              ; preds = %164, %158
@@ -623,14 +623,14 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setDiff
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 872
   %174 = load ptr, ptr %173, align 8
   %175 = load ptr, ptr @s_JsrcLUTtransIndexID, align 8
-  tail call void %174(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %175, i32 noundef %170) #4
+  tail call void %174(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %175, i32 noundef %170) #5
   br label %176
 
 176:                                              ; preds = %171, %169
   %177 = load ptr, ptr %0, align 8
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 1776
   %179 = load ptr, ptr %178, align 8
-  %180 = tail call ptr %179(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef null) #4
+  %180 = tail call ptr %179(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef null) #5
   %181 = icmp eq ptr %180, null
   br i1 %181, label %220, label %182
 
@@ -638,7 +638,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setDiff
   %183 = load ptr, ptr %0, align 8
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 1776
   %185 = load ptr, ptr %184, align 8
-  %186 = tail call ptr %185(ptr noundef nonnull %0, ptr noundef nonnull %50, ptr noundef null) #4
+  %186 = tail call ptr %185(ptr noundef nonnull %0, ptr noundef nonnull %50, ptr noundef null) #5
   %187 = icmp eq ptr %186, null
   br i1 %187, label %188, label %.preheader.us.preheader
 
@@ -646,7 +646,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setDiff
   %189 = load ptr, ptr %0, align 8
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 1784
   %191 = load ptr, ptr %190, align 8
-  tail call void %191(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %180, i32 noundef 2) #4
+  tail call void %191(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %180, i32 noundef 2) #5
   br label %220
 
 .preheader.us.preheader:                          ; preds = %182
@@ -695,11 +695,11 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setDiff
   %214 = load ptr, ptr %0, align 8
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 1784
   %216 = load ptr, ptr %215, align 8
-  tail call void %216(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %180, i32 noundef 2) #4
+  tail call void %216(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %180, i32 noundef 2) #5
   %217 = load ptr, ptr %0, align 8
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 1784
   %219 = load ptr, ptr %218, align 8
-  tail call void %219(ptr noundef nonnull %0, ptr noundef nonnull %50, ptr noundef nonnull %186, i32 noundef 2) #4
+  tail call void %219(ptr noundef nonnull %0, ptr noundef nonnull %50, ptr noundef nonnull %186, i32 noundef 2) #5
   br label %220
 
 220:                                              ; preds = %176, %132, %128, %124, %120, %117, %114, %110, %101, %98, %94, %89, %81, %85, %72, %76, %35, %30, %25, %._crit_edge261, %188, %154, %144, %24, %21
@@ -873,14 +873,15 @@ findIdx.exit:                                     ; preds = %.lr.ph.i
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #3
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

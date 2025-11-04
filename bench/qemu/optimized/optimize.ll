@@ -146,7 +146,7 @@ define dso_local void @tcg_optimize(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %56, label %57, label %59, !prof !6
 
 57:                                               ; preds = %51
-  %58 = call ptr @tcg_malloc_internal(ptr noundef nonnull %35, i32 noundef 64) #9
+  %58 = call ptr @tcg_malloc_internal(ptr noundef nonnull %35, i32 noundef 64) #10
   br label %tcg_malloc.exit.i.i.i
 
 59:                                               ; preds = %51
@@ -347,7 +347,7 @@ copy_propagate.exit.i:                            ; preds = %107, %init_argument
 
 .preheader.i660:                                  ; preds = %154, %.preheader.i660
   %.042.i661 = phi ptr [ %157, %.preheader.i660 ], [ %152, %154 ]
-  call void @interval_tree_remove(ptr noundef nonnull %.042.i661, ptr noundef nonnull %17) #9
+  call void @interval_tree_remove(ptr noundef nonnull %.042.i661, ptr noundef nonnull %17) #10
   %156 = getelementptr inbounds nuw i8, ptr %.042.i661, i64 48
   %157 = load ptr, ptr %156, align 8
   %.not.i662 = icmp eq ptr %157, null
@@ -451,7 +451,7 @@ reset_ts.exit663:                                 ; preds = %186, %._crit_edge.i
   br i1 %.not31.i, label %192, label %remove_mem_copy_all.exit.i
 
 192:                                              ; preds = %.loopexit.i
-  %193 = call ptr @interval_tree_iter_first(ptr noundef nonnull %17, i64 noundef 0, i64 noundef -1) #9
+  %193 = call ptr @interval_tree_iter_first(ptr noundef nonnull %17, i64 noundef 0, i64 noundef -1) #10
   %.not9.i.i.i = icmp eq ptr %193, null
   br i1 %.not9.i.i.i, label %remove_mem_copy_all.exit.i, label %.lr.ph.i.i37.i
 
@@ -461,7 +461,7 @@ reset_ts.exit663:                                 ; preds = %186, %._crit_edge.i
   %196 = load ptr, ptr %195, align 8
   %197 = getelementptr i8, ptr %196, i64 48
   %.val.i.i.i.i = load ptr, ptr %197, align 8
-  call void @interval_tree_remove(ptr noundef nonnull %194, ptr noundef nonnull %17) #9
+  call void @interval_tree_remove(ptr noundef nonnull %194, ptr noundef nonnull %17) #10
   %198 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 24
   %199 = load ptr, ptr %198, align 8
   %200 = icmp eq ptr %199, %194
@@ -509,7 +509,7 @@ reset_ts.exit663:                                 ; preds = %186, %._crit_edge.i
   %219 = load ptr, ptr %5, align 8
   store ptr %194, ptr %219, align 8
   store ptr %218, ptr %5, align 8
-  %220 = call ptr @interval_tree_iter_first(ptr noundef nonnull %17, i64 noundef 0, i64 noundef -1) #9
+  %220 = call ptr @interval_tree_iter_first(ptr noundef nonnull %17, i64 noundef 0, i64 noundef -1) #10
   %.not.i.i39.i = icmp eq ptr %220, null
   br i1 %.not.i.i39.i, label %remove_mem_copy_all.exit.i, label %.lr.ph.i.i37.i
 
@@ -560,7 +560,7 @@ remove_mem_copy_all.exit.i:                       ; preds = %217, %192, %.loopex
 
 .preheader.i:                                     ; preds = %241, %.preheader.i
   %.042.i629 = phi ptr [ %244, %.preheader.i ], [ %239, %241 ]
-  call void @interval_tree_remove(ptr noundef nonnull %.042.i629, ptr noundef nonnull %17) #9
+  call void @interval_tree_remove(ptr noundef nonnull %.042.i629, ptr noundef nonnull %17) #10
   %243 = getelementptr inbounds nuw i8, ptr %.042.i629, i64 48
   %244 = load ptr, ptr %243, align 8
   %.not.i630 = icmp eq ptr %244, null
@@ -716,7 +716,7 @@ fold_call.exit:                                   ; preds = %reset_ts.exit, %rem
   br i1 %314, label %315, label %317, !prof !6
 
 315:                                              ; preds = %309
-  %316 = call ptr @tcg_malloc_internal(ptr noundef nonnull %293, i32 noundef 64) #9
+  %316 = call ptr @tcg_malloc_internal(ptr noundef nonnull %293, i32 noundef 64) #10
   br label %tcg_malloc.exit.i.i
 
 317:                                              ; preds = %309
@@ -1412,7 +1412,7 @@ arg_is_const_val.exit63.i:                        ; preds = %arg_is_const_val.ex
 
 558:                                              ; preds = %556
   %559 = load ptr, ptr %2, align 8
-  call void @tcg_op_remove(ptr noundef %559, ptr noundef nonnull %.076705) #9
+  call void @tcg_op_remove(ptr noundef %559, ptr noundef nonnull %.076705) #10
   br label %fold_add.exit
 
 560:                                              ; preds = %556
@@ -1422,7 +1422,7 @@ arg_is_const_val.exit63.i:                        ; preds = %arg_is_const_val.ex
   store i32 %563, ptr %.076705, align 8
   store i64 %489, ptr %483, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %16, i8 0, i64 72, i1 false)
-  %564 = call ptr @interval_tree_iter_first(ptr noundef nonnull %17, i64 noundef 0, i64 noundef -1) #9
+  %564 = call ptr @interval_tree_iter_first(ptr noundef nonnull %17, i64 noundef 0, i64 noundef -1) #10
   %.not9.i.i.i.i = icmp eq ptr %564, null
   br i1 %.not9.i.i.i.i, label %fold_add.exit, label %.lr.ph.i.i.i.i
 
@@ -1432,7 +1432,7 @@ arg_is_const_val.exit63.i:                        ; preds = %arg_is_const_val.ex
   %567 = load ptr, ptr %566, align 8
   %568 = getelementptr i8, ptr %567, i64 48
   %.val.i.i.i.i.i119 = load ptr, ptr %568, align 8
-  call void @interval_tree_remove(ptr noundef nonnull %565, ptr noundef nonnull %17) #9
+  call void @interval_tree_remove(ptr noundef nonnull %565, ptr noundef nonnull %17) #10
   %569 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i119, i64 24
   %570 = load ptr, ptr %569, align 8
   %571 = icmp eq ptr %570, %565
@@ -1480,7 +1480,7 @@ arg_is_const_val.exit63.i:                        ; preds = %arg_is_const_val.ex
   %590 = load ptr, ptr %5, align 8
   store ptr %565, ptr %590, align 8
   store ptr %589, ptr %5, align 8
-  %591 = call ptr @interval_tree_iter_first(ptr noundef nonnull %17, i64 noundef 0, i64 noundef -1) #9
+  %591 = call ptr @interval_tree_iter_first(ptr noundef nonnull %17, i64 noundef 0, i64 noundef -1) #10
   %.not.i.i.i.i120 = icmp eq ptr %591, null
   br i1 %.not.i.i.i.i120, label %fold_add.exit, label %.lr.ph.i.i.i.i
 
@@ -1541,7 +1541,7 @@ arg_is_const_val.exit.thread.i:                   ; preds = %arg_is_const_val.ex
   br label %622
 
 621:                                              ; preds = %608
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1565, ptr noundef nonnull @__func__.fold_bswap, ptr noundef null) #10
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1565, ptr noundef nonnull @__func__.fold_bswap, ptr noundef null) #11
   unreachable
 
 622:                                              ; preds = %619, %615, %611
@@ -1655,7 +1655,7 @@ arg_is_const_val.exit.thread.i:                   ; preds = %arg_is_const_val.ex
   br label %681
 
 680:                                              ; preds = %678
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1680, ptr noundef nonnull @__func__.fold_count_zeros, ptr noundef null) #10
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1680, ptr noundef nonnull @__func__.fold_count_zeros, ptr noundef null) #11
   unreachable
 
 681:                                              ; preds = %679, %678
@@ -1749,7 +1749,7 @@ fold_const1.exit.i:                               ; preds = %706
   br label %fold_add.exit
 
 732:                                              ; preds = %fold_const1.exit.i
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1705, ptr noundef nonnull @__func__.fold_ctpop, ptr noundef null) #10
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1705, ptr noundef nonnull @__func__.fold_ctpop, ptr noundef null) #11
   unreachable
 
 733:                                              ; preds = %copy_propagate.exit, %copy_propagate.exit
@@ -1789,7 +1789,7 @@ fold_const1.exit.i:                               ; preds = %706
   br i1 %or.cond13.i.i, label %756, label %deposit64.exit.i
 
 756:                                              ; preds = %752
-  call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 675, ptr noundef nonnull @__PRETTY_FUNCTION__.deposit64) #10
+  call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 675, ptr noundef nonnull @__PRETTY_FUNCTION__.deposit64) #11
   unreachable
 
 deposit64.exit.i:                                 ; preds = %752
@@ -1823,7 +1823,7 @@ deposit64.exit.i:                                 ; preds = %752
   br label %774
 
 773:                                              ; preds = %771
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1736, ptr noundef nonnull @__func__.fold_deposit, ptr noundef null) #10
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1736, ptr noundef nonnull @__func__.fold_deposit, ptr noundef null) #11
   unreachable
 
 774:                                              ; preds = %772, %771
@@ -1874,7 +1874,7 @@ ti_is_const_val.exit64.i:                         ; preds = %ti_is_const_val.exi
   br i1 %or.cond13.i67.i, label %793, label %deposit64.exit68.i
 
 793:                                              ; preds = %789
-  call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 675, ptr noundef nonnull @__PRETTY_FUNCTION__.deposit64) #10
+  call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 675, ptr noundef nonnull @__PRETTY_FUNCTION__.deposit64) #11
   unreachable
 
 deposit64.exit68.i:                               ; preds = %789
@@ -1926,7 +1926,7 @@ ti_is_const_val.exit64.thread.i:                  ; preds = %ti_is_const_val.exi
   br i1 %or.cond13.i71.i, label %823, label %deposit64.exit72.i
 
 823:                                              ; preds = %819
-  call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 675, ptr noundef nonnull @__PRETTY_FUNCTION__.deposit64) #10
+  call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 675, ptr noundef nonnull @__PRETTY_FUNCTION__.deposit64) #11
   unreachable
 
 deposit64.exit72.i:                               ; preds = %819
@@ -2068,7 +2068,7 @@ fold_xi_to_x.exit.i153:                           ; preds = %arg_is_const_val.ex
   %905 = lshr i32 %903, 24
   %906 = getelementptr inbounds nuw i8, ptr %.val.i.i154, i64 40
   %907 = load i64, ptr %906, align 8
-  %908 = call i64 @dup_const(i32 noundef %905, i64 noundef %907) #9
+  %908 = call i64 @dup_const(i32 noundef %905, i64 noundef %907) #10
   %909 = load i64, ptr %897, align 8
   %910 = call fastcc i64 @arg_new_constant(ptr noundef nonnull %2, i64 noundef %908)
   call fastcc void @tcg_opt_gen_mov(ptr noundef nonnull %2, ptr noundef nonnull %.076705, i64 noundef %909, i64 noundef %910)
@@ -2283,7 +2283,7 @@ fold_xi_to_x.exit.i189:                           ; preds = %arg_is_const_val.ex
   br label %fold_xi_to_not.exit.i
 
 1004:                                             ; preds = %1001
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1118, ptr noundef nonnull @__func__.fold_to_not, ptr noundef null) #10
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1118, ptr noundef nonnull @__func__.fold_to_not, ptr noundef null) #11
   unreachable
 
 1005:                                             ; preds = %1001, %1001, %1001
@@ -2354,7 +2354,7 @@ swap_commutative.exit.i._crit_edge.i183.thread:   ; preds = %988, %arg_is_const_
   br i1 %or.cond9.i.i, label %1046, label %extract64.exit.i
 
 1046:                                             ; preds = %1042
-  call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 574, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #10
+  call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 574, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
   unreachable
 
 extract64.exit.i:                                 ; preds = %1042
@@ -2384,7 +2384,7 @@ extract64.exit.i:                                 ; preds = %1042
   br i1 %or.cond9.i25.i, label %1063, label %extract64.exit26.i
 
 1063:                                             ; preds = %1057
-  call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 574, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #10
+  call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 574, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
   unreachable
 
 extract64.exit26.i:                               ; preds = %1057
@@ -2577,7 +2577,7 @@ fold_const1.exit.i210:                            ; preds = %1150
   br label %fold_affected_mask.exit.i214
 
 1172:                                             ; preds = %fold_const1.exit.i210
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1890, ptr noundef nonnull @__func__.fold_exts, ptr noundef null) #10
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1890, ptr noundef nonnull @__func__.fold_exts, ptr noundef null) #11
   unreachable
 
 1173:                                             ; preds = %fold_const1.exit.i210
@@ -2690,7 +2690,7 @@ fold_const1.exit.i220:                            ; preds = %1205
   br label %fold_affected_mask.exit.i222
 
 1225:                                             ; preds = %fold_const1.exit.i220
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1930, ptr noundef nonnull @__func__.fold_extu, ptr noundef null) #10
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1930, ptr noundef nonnull @__func__.fold_extu, ptr noundef null) #11
   unreachable
 
 1226:                                             ; preds = %fold_const1.exit.i220
@@ -2778,7 +2778,7 @@ fold_affected_mask.exit.i222:                     ; preds = %.thread.i225, %.thr
   br label %fold_tcg_ld.exit
 
 1260:                                             ; preds = %1253
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2729, ptr noundef nonnull @__func__.fold_tcg_ld, ptr noundef null) #10
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2729, ptr noundef nonnull @__func__.fold_tcg_ld, ptr noundef null) #11
   unreachable
 
 fold_tcg_ld.exit:                                 ; preds = %1253, %1253, %1255, %1256, %1257, %1258, %1259
@@ -2853,7 +2853,7 @@ fold_tcg_ld.exit:                                 ; preds = %1253, %1253, %1255,
   %1302 = load i64, ptr %1301, align 8
   %1303 = load i64, ptr %1300, align 8
   %1304 = inttoptr i64 %1303 to ptr
-  %1305 = call ptr @interval_tree_iter_first(ptr noundef nonnull %17, i64 noundef %1302, i64 noundef %1302) #9
+  %1305 = call ptr @interval_tree_iter_first(ptr noundef nonnull %17, i64 noundef %1302, i64 noundef %1302) #10
   %.not15.i.i = icmp eq ptr %1305, null
   br i1 %.not15.i.i, label %find_mem_copy_for.exit.thread.i, label %.lr.ph.i26.i
 
@@ -2908,7 +2908,7 @@ fold_tcg_ld.exit:                                 ; preds = %1253, %1253, %1255,
   br i1 %.not.i.i.i251, label %find_mem_copy_for.exit.i, label %.lr.ph.i.i.i244, !llvm.loop !8
 
 1329:                                             ; preds = %1309, %.lr.ph.i26.i
-  %1330 = call ptr @interval_tree_iter_next(ptr noundef nonnull %.016.i.i, i64 noundef %1302, i64 noundef %1302) #9
+  %1330 = call ptr @interval_tree_iter_next(ptr noundef nonnull %.016.i.i, i64 noundef %1302, i64 noundef %1302) #10
   %.not.i27.i = icmp eq ptr %1330, null
   br i1 %.not.i27.i, label %find_mem_copy_for.exit.thread.i, label %.lr.ph.i26.i, !llvm.loop !19
 
@@ -2978,7 +2978,7 @@ find_mem_copy_for.exit.thread.i:                  ; preds = %1329, %find_mem_cop
   br i1 %1361, label %1362, label %.critedge.i
 
 1362:                                             ; preds = %1354
-  %1363 = call ptr @interval_tree_iter_first(ptr noundef nonnull %17, i64 noundef %1359, i64 noundef %1359) #9
+  %1363 = call ptr @interval_tree_iter_first(ptr noundef nonnull %17, i64 noundef %1359, i64 noundef %1359) #10
   %.not15.i.i258 = icmp eq ptr %1363, null
   br i1 %.not15.i.i258, label %.critedge.i, label %.lr.ph.i.i259
 
@@ -3033,7 +3033,7 @@ find_mem_copy_for.exit.thread.i:                  ; preds = %1329, %find_mem_cop
   br i1 %.not.i.i.i278, label %find_mem_copy_for.exit.i262, label %.lr.ph.i.i.i271, !llvm.loop !8
 
 1387:                                             ; preds = %1367, %.lr.ph.i.i259
-  %1388 = call ptr @interval_tree_iter_next(ptr noundef nonnull %.016.i.i260, i64 noundef %1359, i64 noundef %1359) #9
+  %1388 = call ptr @interval_tree_iter_next(ptr noundef nonnull %.016.i.i260, i64 noundef %1359, i64 noundef %1359) #10
   %.not.i.i261 = icmp eq ptr %1388, null
   br i1 %.not.i.i261, label %find_mem_copy_for.exit.i262, label %.lr.ph.i.i259, !llvm.loop !19
 
@@ -3044,7 +3044,7 @@ find_mem_copy_for.exit.i262:                      ; preds = %1387, %.lr.ph.i.i.i
 
 1389:                                             ; preds = %find_mem_copy_for.exit.i262
   %1390 = load ptr, ptr %2, align 8
-  call void @tcg_op_remove(ptr noundef %1390, ptr noundef nonnull %.076705) #9
+  call void @tcg_op_remove(ptr noundef %1390, ptr noundef nonnull %.076705) #10
   br label %fold_add.exit
 
 .critedge.i:                                      ; preds = %find_mem_copy_for.exit.i262, %1362, %1354
@@ -3055,7 +3055,7 @@ find_mem_copy_for.exit.i262:                      ; preds = %1387, %.lr.ph.i.i.i
   %1394 = zext nneg i32 %1393 to i64
   %1395 = add nsw i64 %1394, -1
   %1396 = add i64 %1395, %1359
-  %1397 = call ptr @interval_tree_iter_first(ptr noundef nonnull %17, i64 noundef %1359, i64 noundef %1396) #9
+  %1397 = call ptr @interval_tree_iter_first(ptr noundef nonnull %17, i64 noundef %1359, i64 noundef %1396) #10
   %.not9.i.i = icmp eq ptr %1397, null
   br i1 %.not9.i.i, label %remove_mem_copy_in.exit.i, label %.lr.ph.i27.i
 
@@ -3065,7 +3065,7 @@ find_mem_copy_for.exit.i262:                      ; preds = %1387, %.lr.ph.i.i.i
   %1400 = load ptr, ptr %1399, align 8
   %1401 = getelementptr i8, ptr %1400, i64 48
   %.val.i.i.i256 = load ptr, ptr %1401, align 8
-  call void @interval_tree_remove(ptr noundef nonnull %1398, ptr noundef nonnull %17) #9
+  call void @interval_tree_remove(ptr noundef nonnull %1398, ptr noundef nonnull %17) #10
   %1402 = getelementptr inbounds nuw i8, ptr %.val.i.i.i256, i64 24
   %1403 = load ptr, ptr %1402, align 8
   %1404 = icmp eq ptr %1403, %1398
@@ -3113,7 +3113,7 @@ find_mem_copy_for.exit.i262:                      ; preds = %1387, %.lr.ph.i.i.i
   %1423 = load ptr, ptr %5, align 8
   store ptr %1398, ptr %1423, align 8
   store ptr %1422, ptr %5, align 8
-  %1424 = call ptr @interval_tree_iter_first(ptr noundef nonnull %17, i64 noundef %1359, i64 noundef %1396) #9
+  %1424 = call ptr @interval_tree_iter_first(ptr noundef nonnull %17, i64 noundef %1359, i64 noundef %1396) #10
   %.not.i30.i = icmp eq ptr %1424, null
   br i1 %.not.i30.i, label %remove_mem_copy_in.exit.i, label %.lr.ph.i27.i
 
@@ -3134,7 +3134,7 @@ remove_mem_copy_in.exit.i:                        ; preds = %1421, %.critedge.i
   %1432 = or i64 %1431, %1429
   store i64 %1432, ptr %1430, align 8
   %1433 = load ptr, ptr %2, align 8
-  call void @tcg_op_remove(ptr noundef %1433, ptr noundef nonnull %.076705) #9
+  call void @tcg_op_remove(ptr noundef %1433, ptr noundef nonnull %.076705) #10
   br label %fold_add.exit
 
 1434:                                             ; preds = %1425
@@ -3282,7 +3282,7 @@ swap_commutative.exit.i295:                       ; preds = %1465, %1461
   br label %1510
 
 1509:                                             ; preds = %1501
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2021, ptr noundef nonnull @__func__.fold_movcond, ptr noundef null) #10
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2021, ptr noundef nonnull @__func__.fold_movcond, ptr noundef null) #11
   unreachable
 
 1510:                                             ; preds = %1506, %1501
@@ -3663,7 +3663,7 @@ swap_commutative.exit.i348:                       ; preds = %1660, %1657
   br label %1700
 
 1699:                                             ; preds = %1667
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2092, ptr noundef nonnull @__func__.fold_multiply2, ptr noundef null) #10
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2092, ptr noundef nonnull @__func__.fold_multiply2, ptr noundef null) #11
   unreachable
 
 1700:                                             ; preds = %1692, %1685, %1679, %1673
@@ -3672,7 +3672,7 @@ swap_commutative.exit.i348:                       ; preds = %1660, %1657
   %1701 = getelementptr inbounds nuw i8, ptr %.076705, i64 40
   %1702 = load i64, ptr %1701, align 8
   %1703 = load ptr, ptr %2, align 8
-  %1704 = call ptr @tcg_op_insert_before(ptr noundef %1703, ptr noundef nonnull %.076705, i32 noundef 0, i32 noundef 2) #9
+  %1704 = call ptr @tcg_op_insert_before(ptr noundef %1703, ptr noundef nonnull %.076705, i32 noundef 0, i32 noundef 2) #10
   %1705 = call fastcc i64 @arg_new_constant(ptr noundef nonnull %2, i64 noundef %.0.i358)
   call fastcc void @tcg_opt_gen_mov(ptr noundef nonnull %2, ptr noundef nonnull %.076705, i64 noundef %1647, i64 noundef %1705)
   %1706 = call fastcc i64 @arg_new_constant(ptr noundef nonnull %2, i64 noundef %.037.i)
@@ -3789,7 +3789,7 @@ arg_is_const_val.exit.i.i373:                     ; preds = %swap_commutative.ex
   br label %fold_xi_to_not.exit.i375
 
 1752:                                             ; preds = %1750
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1118, ptr noundef nonnull @__func__.fold_to_not, ptr noundef null) #10
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1118, ptr noundef nonnull @__func__.fold_to_not, ptr noundef null) #11
   unreachable
 
 1753:                                             ; preds = %1750, %1750, %1750
@@ -3980,7 +3980,7 @@ arg_is_const_val.exit.i.i402:                     ; preds = %swap_commutative.ex
   br label %fold_xi_to_not.exit.i404
 
 1851:                                             ; preds = %1849
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1118, ptr noundef nonnull @__func__.fold_to_not, ptr noundef null) #10
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1118, ptr noundef nonnull @__func__.fold_to_not, ptr noundef null) #11
   unreachable
 
 1852:                                             ; preds = %1849, %1849, %1849
@@ -5109,7 +5109,7 @@ args_are_copies.exit.i537:                        ; preds = %.lr.ph.i.i.i521, %2
   br i1 %or.cond10.i.i, label %2437, label %sextract64.exit.i
 
 2437:                                             ; preds = %2433
-  call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 621, ptr noundef nonnull @__PRETTY_FUNCTION__.sextract64) #10
+  call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 621, ptr noundef nonnull @__PRETTY_FUNCTION__.sextract64) #11
   unreachable
 
 sextract64.exit.i:                                ; preds = %2433
@@ -5149,7 +5149,7 @@ sextract64.exit.i:                                ; preds = %2433
   br i1 %or.cond10.i32.i, label %2461, label %sextract64.exit33.i
 
 2461:                                             ; preds = %.split.i540
-  call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 621, ptr noundef nonnull @__PRETTY_FUNCTION__.sextract64) #10
+  call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 621, ptr noundef nonnull @__PRETTY_FUNCTION__.sextract64) #11
   unreachable
 
 sextract64.exit33.i:                              ; preds = %.split.i540
@@ -5184,7 +5184,7 @@ fold_affected_mask.exit.thread.i547:              ; preds = %2470
   br i1 %or.cond10.i36.i, label %2479, label %sextract64.exit37.i
 
 2479:                                             ; preds = %.split27.i
-  call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 621, ptr noundef nonnull @__PRETTY_FUNCTION__.sextract64) #10
+  call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 621, ptr noundef nonnull @__PRETTY_FUNCTION__.sextract64) #11
   unreachable
 
 sextract64.exit37.i:                              ; preds = %.split27.i
@@ -5477,7 +5477,7 @@ fold_xi_to_x.exit.i596:                           ; preds = %arg_is_const_val.ex
 
 2620:                                             ; preds = %copy_propagate.exit, %copy_propagate.exit, %copy_propagate.exit, %copy_propagate.exit, %copy_propagate.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %16, i8 0, i64 72, i1 false)
-  %2621 = call ptr @interval_tree_iter_first(ptr noundef nonnull %17, i64 noundef 0, i64 noundef -1) #9
+  %2621 = call ptr @interval_tree_iter_first(ptr noundef nonnull %17, i64 noundef 0, i64 noundef -1) #10
   %.not9.i.i.i598 = icmp eq ptr %2621, null
   br i1 %.not9.i.i.i598, label %fold_add.exit, label %.lr.ph.i.i.i599
 
@@ -5487,7 +5487,7 @@ fold_xi_to_x.exit.i596:                           ; preds = %arg_is_const_val.ex
   %2624 = load ptr, ptr %2623, align 8
   %2625 = getelementptr i8, ptr %2624, i64 48
   %.val.i.i.i.i600 = load ptr, ptr %2625, align 8
-  call void @interval_tree_remove(ptr noundef nonnull %2622, ptr noundef nonnull %17) #9
+  call void @interval_tree_remove(ptr noundef nonnull %2622, ptr noundef nonnull %17) #10
   %2626 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i600, i64 24
   %2627 = load ptr, ptr %2626, align 8
   %2628 = icmp eq ptr %2627, %2622
@@ -5535,7 +5535,7 @@ fold_xi_to_x.exit.i596:                           ; preds = %arg_is_const_val.ex
   %2647 = load ptr, ptr %5, align 8
   store ptr %2622, ptr %2647, align 8
   store ptr %2646, ptr %5, align 8
-  %2648 = call ptr @interval_tree_iter_first(ptr noundef nonnull %17, i64 noundef 0, i64 noundef -1) #9
+  %2648 = call ptr @interval_tree_iter_first(ptr noundef nonnull %17, i64 noundef 0, i64 noundef -1) #10
   %.not.i.i.i604 = icmp eq ptr %2648, null
   br i1 %.not.i.i.i604, label %fold_add.exit, label %.lr.ph.i.i.i599
 
@@ -5894,7 +5894,7 @@ arg_is_const_val.exit.i35:                        ; preds = %42
   br label %fold_ix_to_not.exit
 
 49:                                               ; preds = %45
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1118, ptr noundef nonnull @__func__.fold_to_not, ptr noundef null) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1118, ptr noundef nonnull @__func__.fold_to_not, ptr noundef null) #11
   unreachable
 
 50:                                               ; preds = %45, %45, %45
@@ -6004,7 +6004,7 @@ define internal fastcc void @fold_brcond(ptr noundef nonnull %0, ptr noundef non
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  tail call void @tcg_op_remove(ptr noundef %9, ptr noundef nonnull %1) #9
+  tail call void @tcg_op_remove(ptr noundef %9, ptr noundef nonnull %1) #10
   br label %finish_ebb.exit
 
 10:                                               ; preds = %2
@@ -6022,9 +6022,9 @@ define internal fastcc void @fold_brcond(ptr noundef nonnull %0, ptr noundef non
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %19, i8 noundef 0, i64 noundef 64, i1 noundef false) #9
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %19, i8 noundef 0, i64 noundef 64, i1 noundef false) #10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %21 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull %20, i64 noundef 0, i64 noundef -1) #9
+  %21 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull %20, i64 noundef 0, i64 noundef -1) #10
   %.not9.i.i.i = icmp eq ptr %21, null
   br i1 %.not9.i.i.i, label %finish_ebb.exit, label %.lr.ph.i.i.i
 
@@ -6038,7 +6038,7 @@ define internal fastcc void @fold_brcond(ptr noundef nonnull %0, ptr noundef non
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr i8, ptr %26, i64 48
   %.val.i.i.i.i = load ptr, ptr %27, align 8
-  tail call void @interval_tree_remove(ptr noundef nonnull %24, ptr noundef nonnull %20) #9
+  tail call void @interval_tree_remove(ptr noundef nonnull %24, ptr noundef nonnull %20) #10
   %28 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %24
@@ -6086,7 +6086,7 @@ define internal fastcc void @fold_brcond(ptr noundef nonnull %0, ptr noundef non
   %49 = load ptr, ptr %22, align 8
   store ptr %24, ptr %49, align 8
   store ptr %48, ptr %22, align 8
-  %50 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull %20, i64 noundef 0, i64 noundef -1) #9
+  %50 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull %20, i64 noundef 0, i64 noundef -1) #10
   %.not.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i, label %finish_ebb.exit, label %23
 
@@ -6116,7 +6116,7 @@ define internal fastcc void @fold_tcg_st(ptr noundef nonnull %0, ptr noundef non
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %15 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull %14, i64 noundef 0, i64 noundef -1) #9
+  %15 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull %14, i64 noundef 0, i64 noundef -1) #10
   %.not9.i.i = icmp eq ptr %15, null
   br i1 %.not9.i.i, label %remove_mem_copy_in.exit, label %.lr.ph.i.i
 
@@ -6130,7 +6130,7 @@ define internal fastcc void @fold_tcg_st(ptr noundef nonnull %0, ptr noundef non
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 48
   %.val.i.i.i = load ptr, ptr %21, align 8
-  tail call void @interval_tree_remove(ptr noundef nonnull %18, ptr noundef nonnull %14) #9
+  tail call void @interval_tree_remove(ptr noundef nonnull %18, ptr noundef nonnull %14) #10
   %22 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %18
@@ -6178,7 +6178,7 @@ define internal fastcc void @fold_tcg_st(ptr noundef nonnull %0, ptr noundef non
   %43 = load ptr, ptr %16, align 8
   store ptr %18, ptr %43, align 8
   store ptr %42, ptr %16, align 8
-  %44 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull %14, i64 noundef 0, i64 noundef -1) #9
+  %44 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull %14, i64 noundef 0, i64 noundef -1) #10
   %.not.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i, label %remove_mem_copy_in.exit, label %17
 
@@ -6217,14 +6217,14 @@ define internal fastcc void @fold_tcg_st(ptr noundef nonnull %0, ptr noundef non
   br label %59
 
 58:                                               ; preds = %45
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2785, ptr noundef nonnull @__func__.fold_tcg_st, ptr noundef null) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2785, ptr noundef nonnull @__func__.fold_tcg_st, ptr noundef null) #11
   unreachable
 
 59:                                               ; preds = %45, %45, %50, %49, %48, %47
   %.0 = phi i64 [ 1, %47 ], [ 3, %48 ], [ 7, %49 ], [ %57, %50 ], [ 0, %45 ], [ 0, %45 ]
   %60 = add i64 %.0, %4
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %62 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull %61, i64 noundef %4, i64 noundef %60) #9
+  %62 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull %61, i64 noundef %4, i64 noundef %60) #10
   %.not9.i = icmp eq ptr %62, null
   br i1 %.not9.i, label %remove_mem_copy_in.exit, label %.lr.ph.i
 
@@ -6238,7 +6238,7 @@ define internal fastcc void @fold_tcg_st(ptr noundef nonnull %0, ptr noundef non
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr i8, ptr %67, i64 48
   %.val.i.i = load ptr, ptr %68, align 8
-  tail call void @interval_tree_remove(ptr noundef nonnull %65, ptr noundef nonnull %61) #9
+  tail call void @interval_tree_remove(ptr noundef nonnull %65, ptr noundef nonnull %61) #10
   %69 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 24
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, %65
@@ -6286,7 +6286,7 @@ define internal fastcc void @fold_tcg_st(ptr noundef nonnull %0, ptr noundef non
   %90 = load ptr, ptr %63, align 8
   store ptr %65, ptr %90, align 8
   store ptr %89, ptr %63, align 8
-  %91 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull %61, i64 noundef %4, i64 noundef %60) #9
+  %91 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull %61, i64 noundef %4, i64 noundef %60) #10
   %.not.i = icmp eq ptr %91, null
   br i1 %.not.i, label %remove_mem_copy_in.exit, label %64
 
@@ -6632,7 +6632,7 @@ arg_is_const_val.exit.i19:                        ; preds = %42
   br label %fold_ix_to_not.exit
 
 49:                                               ; preds = %45
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1118, ptr noundef nonnull @__func__.fold_to_not, ptr noundef null) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1118, ptr noundef nonnull @__func__.fold_to_not, ptr noundef null) #11
   unreachable
 
 50:                                               ; preds = %45, %45, %45
@@ -6868,7 +6868,7 @@ arg_is_const_val.exit.i21:                        ; preds = %arg_is_const_val.ex
   br label %fold_xi_to_not.exit
 
 59:                                               ; preds = %55
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1118, ptr noundef nonnull @__func__.fold_to_not, ptr noundef null) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1118, ptr noundef nonnull @__func__.fold_to_not, ptr noundef null) #11
   unreachable
 
 60:                                               ; preds = %55, %55, %55
@@ -6978,7 +6978,7 @@ define internal fastcc void @reset_ts(ptr noundef nonnull %0, ptr noundef %1) un
 
 21:                                               ; preds = %.preheader, %21
   %.042 = phi ptr [ %16, %.preheader ], [ %23, %21 ]
-  tail call void @interval_tree_remove(ptr noundef nonnull %.042, ptr noundef nonnull %20) #9
+  tail call void @interval_tree_remove(ptr noundef nonnull %.042, ptr noundef nonnull %20) #10
   %22 = getelementptr inbounds nuw i8, ptr %.042, i64 48
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
@@ -7478,7 +7478,7 @@ define internal fastcc i64 @do_constant_folding(i32 noundef range(i32 0, 256) %0
   br label %do_constant_folding_2.exit
 
 178:                                              ; preds = %4
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 571, ptr noundef nonnull @__func__.do_constant_folding_2, ptr noundef null) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 571, ptr noundef nonnull @__func__.do_constant_folding_2, ptr noundef null) #11
   unreachable
 
 do_constant_folding_2.exit:                       ; preds = %5, %7, %9, %11, %13, %15, %17, %23, %26, %32, %35, %41, %44, %49, %51, %56, %58, %60, %62, %65, %68, %71, %74, %77, %79, %82, %83, %85, %87, %90, %92, %96, %98, %100, %102, %104, %106, %113, %120, %122, %124, %126, %128, %133, %138, %144, %150, %155, %160, %162, %164, %169, %174, %176
@@ -7490,17 +7490,17 @@ do_constant_folding_2.exit:                       ; preds = %5, %7, %9, %11, %13
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #3
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.bswap.i16(i16) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #3
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.bswap.i32(i32) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #3
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.bswap.i64(i64) #4
 
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #3
@@ -7511,11 +7511,11 @@ declare i32 @llvm.cttz.i32(i32, i1 immarg) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #3
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #3
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @tcg_opt_gen_mov(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
@@ -7555,7 +7555,7 @@ define internal fastcc void @tcg_opt_gen_mov(ptr noundef nonnull %0, ptr noundef
 
 ts_are_copies.exit:                               ; preds = %.lr.ph.i, %4
   %19 = load ptr, ptr %0, align 8
-  tail call void @tcg_op_remove(ptr noundef %19, ptr noundef %1) #9
+  tail call void @tcg_op_remove(ptr noundef %19, ptr noundef %1) #10
   br label %move_mem_copies.exit
 
 .loopexit:                                        ; preds = %17, %12, %8
@@ -7573,7 +7573,7 @@ ts_are_copies.exit:                               ; preds = %.lr.ph.i, %4
   br i1 %or.cond, label %switch.lookup, label %24
 
 24:                                               ; preds = %.loopexit
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 378, ptr noundef nonnull @__func__.tcg_opt_gen_mov, ptr noundef null) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 378, ptr noundef nonnull @__func__.tcg_opt_gen_mov, ptr noundef null) #11
   unreachable
 
 switch.lookup:                                    ; preds = %.loopexit
@@ -7686,7 +7686,7 @@ define internal fastcc i64 @arg_new_constant(ptr noundef nonnull captures(none) 
   %sext = shl i64 %1, 32
   %6 = ashr exact i64 %sext, 32
   %.0 = select i1 %5, i64 %6, i64 %1
-  %7 = tail call ptr @tcg_constant_internal(i32 noundef %4, i64 noundef %.0) #9
+  %7 = tail call ptr @tcg_constant_internal(i32 noundef %4, i64 noundef %.0) #10
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 672
@@ -7722,7 +7722,7 @@ define internal fastcc i64 @arg_new_constant(ptr noundef nonnull captures(none) 
   br i1 %33, label %34, label %36, !prof !6
 
 34:                                               ; preds = %27
-  %35 = tail call ptr @tcg_malloc_internal(ptr noundef nonnull %28, i32 noundef 64) #9
+  %35 = tail call ptr @tcg_malloc_internal(ptr noundef nonnull %28, i32 noundef 64) #10
   br label %tcg_malloc.exit.i
 
 36:                                               ; preds = %27
@@ -7895,7 +7895,7 @@ define internal fastcc void @fold_addsub2(ptr noundef nonnull %0, ptr noundef no
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %64 = load i64, ptr %63, align 8
   %65 = load ptr, ptr %0, align 8
-  %66 = tail call ptr @tcg_op_insert_before(ptr noundef %65, ptr noundef nonnull %1, i32 noundef 0, i32 noundef 2) #9
+  %66 = tail call ptr @tcg_op_insert_before(ptr noundef %65, ptr noundef nonnull %1, i32 noundef 0, i32 noundef 2) #10
   %67 = tail call fastcc i64 @arg_new_constant(ptr noundef nonnull %0, i64 noundef %.083)
   tail call fastcc void @tcg_opt_gen_mov(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %62, i64 noundef %67)
   %68 = tail call fastcc i64 @arg_new_constant(ptr noundef nonnull %0, i64 noundef %.084)
@@ -7962,7 +7962,7 @@ finish_folding.exit:                              ; preds = %94, %.thread120, %6
 declare ptr @tcg_op_insert_before(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 -1, 2) i32 @do_constant_folding_cond1(ptr noundef nonnull captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 {
@@ -8198,7 +8198,7 @@ define internal fastcc range(i32 -1, 2) i32 @do_constant_folding_cond(i32 nounde
   br label %do_constant_folding_cond_32.exit
 
 46:                                               ; preds = %17
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 616, ptr noundef nonnull @__func__.do_constant_folding_cond_32, ptr noundef null) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 616, ptr noundef nonnull @__func__.do_constant_folding_cond_32, ptr noundef null) #11
   unreachable
 
 do_constant_folding_cond_32.exit:                 ; preds = %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %43
@@ -8273,7 +8273,7 @@ do_constant_folding_cond_32.exit:                 ; preds = %20, %22, %24, %26, 
   br label %do_constant_folding_cond_64.exit
 
 75:                                               ; preds = %48
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 650, ptr noundef nonnull @__func__.do_constant_folding_cond_64, ptr noundef null) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 650, ptr noundef nonnull @__func__.do_constant_folding_cond_64, ptr noundef null) #11
   unreachable
 
 do_constant_folding_cond_64.exit:                 ; preds = %49, %51, %53, %55, %57, %59, %61, %63, %65, %67, %69, %72
@@ -8322,7 +8322,7 @@ args_are_copies.exit:                             ; preds = %.lr.ph.i.i, %._crit
   br i1 %or.cond, label %switch.lookup, label %88
 
 88:                                               ; preds = %args_are_copies.exit
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 675, ptr noundef nonnull @__func__.do_constant_folding_cond_eq, ptr noundef null) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 675, ptr noundef nonnull @__func__.do_constant_folding_cond_eq, ptr noundef null) #11
   unreachable
 
 .loopexit:                                        ; preds = %85, %78, %81
@@ -8529,7 +8529,7 @@ swap_commutative2.exit:                           ; preds = %2
   br label %do_constant_folding_cond_64.exit
 
 90:                                               ; preds = %56
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 650, ptr noundef nonnull @__func__.do_constant_folding_cond_64, ptr noundef null) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 650, ptr noundef nonnull @__func__.do_constant_folding_cond_64, ptr noundef null) #11
   unreachable
 
 do_constant_folding_cond_64.exit:                 ; preds = %64, %66, %68, %70, %72, %74, %76, %78, %80, %82, %84, %87
@@ -8662,7 +8662,7 @@ args_are_copies.exit83:                           ; preds = %.lr.ph.i.i76, %args
   br label %.thread
 
 136:                                              ; preds = %args_are_copies.exit83
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 675, ptr noundef nonnull @__func__.do_constant_folding_cond_eq, ptr noundef null) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 675, ptr noundef nonnull @__func__.do_constant_folding_cond_eq, ptr noundef null) #11
   unreachable
 
 do_constant_folding_cond_eq.exit:                 ; preds = %args_are_copies.exit83, %args_are_copies.exit83
@@ -8721,7 +8721,7 @@ define internal fastcc void @record_mem_copy(ptr noundef nonnull %0, i32 noundef
   br i1 %22, label %23, label %25, !prof !6
 
 23:                                               ; preds = %15
-  %24 = tail call ptr @tcg_malloc_internal(ptr noundef nonnull %17, i32 noundef 72) #9
+  %24 = tail call ptr @tcg_malloc_internal(ptr noundef nonnull %17, i32 noundef 72) #10
   br label %tcg_malloc.exit
 
 25:                                               ; preds = %15
@@ -8730,7 +8730,7 @@ define internal fastcc void @record_mem_copy(ptr noundef nonnull %0, i32 noundef
 
 tcg_malloc.exit:                                  ; preds = %25, %23, %14
   %.0 = phi ptr [ %7, %14 ], [ %24, %23 ], [ %18, %25 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %.0, i8 noundef 0, i64 noundef 72, i1 noundef false) #9
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %.0, i8 noundef 0, i64 noundef 72, i1 noundef false) #10
   %26 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   store i64 %3, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.0, i64 32
@@ -8738,7 +8738,7 @@ tcg_malloc.exit:                                  ; preds = %25, %23, %14
   %28 = getelementptr inbounds nuw i8, ptr %.0, i64 64
   store i32 %1, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @interval_tree_insert(ptr noundef nonnull %.0, ptr noundef nonnull %29) #9
+  tail call void @interval_tree_insert(ptr noundef nonnull %.0, ptr noundef nonnull %29) #10
   %.val13.i = load i64, ptr %2, align 8
   %30 = and i64 %.val13.i, 30064771072
   %31 = icmp samesign ugt i64 %30, 8589934592
@@ -8898,7 +8898,7 @@ switch.lookup:                                    ; preds = %28
   br label %51
 
 50:                                               ; preds = %48
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2321, ptr noundef nonnull @__func__.fold_setcond_zmask, ptr noundef null) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2321, ptr noundef nonnull @__func__.fold_setcond_zmask, ptr noundef null) #11
   unreachable
 
 51:                                               ; preds = %48, %49
@@ -8981,7 +8981,7 @@ define internal fastcc void @fold_setcond_tst_pow2(ptr noundef nonnull captures(
   br i1 %.not126, label %51, label %40
 
 28:                                               ; preds = %20
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2389, ptr noundef nonnull @__func__.fold_setcond_tst_pow2, ptr noundef null) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2389, ptr noundef nonnull @__func__.fold_setcond_tst_pow2, ptr noundef null) #11
   unreachable
 
 29:                                               ; preds = %20
@@ -9016,7 +9016,7 @@ define internal fastcc void @fold_setcond_tst_pow2(ptr noundef nonnull captures(
   %43 = phi i64 [ %26, %.thread ], [ %39, %37 ]
   %44 = phi i1 [ %27, %.thread ], [ %32, %37 ]
   %45 = load ptr, ptr %0, align 8
-  %46 = tail call ptr @tcg_op_insert_before(ptr noundef %45, ptr noundef nonnull %1, i32 noundef %.093115119, i32 noundef 3) #9
+  %46 = tail call ptr @tcg_op_insert_before(ptr noundef %45, ptr noundef nonnull %1, i32 noundef %.093115119, i32 noundef 3) #10
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   store i64 %41, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 40
@@ -9055,7 +9055,7 @@ define internal fastcc void @fold_setcond_tst_pow2(ptr noundef nonnull captures(
 
 62:                                               ; preds = %59
   %63 = load ptr, ptr %0, align 8
-  %64 = tail call ptr @tcg_op_insert_after(ptr noundef %63, ptr noundef nonnull %1, i32 noundef %.096109, i32 noundef 3) #9
+  %64 = tail call ptr @tcg_op_insert_after(ptr noundef %63, ptr noundef nonnull %1, i32 noundef %.096109, i32 noundef 3) #10
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   store i64 %61, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 40
@@ -9070,7 +9070,7 @@ define internal fastcc void @fold_setcond_tst_pow2(ptr noundef nonnull captures(
 
 70:                                               ; preds = %69
   %71 = load ptr, ptr %0, align 8
-  %72 = tail call ptr @tcg_op_insert_after(ptr noundef %71, ptr noundef nonnull %1, i32 noundef %.095111, i32 noundef 3) #9
+  %72 = tail call ptr @tcg_op_insert_after(ptr noundef %71, ptr noundef nonnull %1, i32 noundef %.095111, i32 noundef 3) #10
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   store i64 %61, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 40
@@ -9085,7 +9085,7 @@ define internal fastcc void @fold_setcond_tst_pow2(ptr noundef nonnull captures(
 
 78:                                               ; preds = %77
   %79 = load ptr, ptr %0, align 8
-  %80 = tail call ptr @tcg_op_insert_after(ptr noundef %79, ptr noundef nonnull %1, i32 noundef %.094113, i32 noundef 2) #9
+  %80 = tail call ptr @tcg_op_insert_after(ptr noundef %79, ptr noundef nonnull %1, i32 noundef %.094113, i32 noundef 2) #10
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
   store i64 %61, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 40
@@ -9130,7 +9130,7 @@ define internal fastcc noundef zeroext i1 @fold_sub_to_neg(ptr noundef nonnull %
   br label %16
 
 15:                                               ; preds = %11
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2658, ptr noundef nonnull @__func__.fold_sub_to_neg, ptr noundef null) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2658, ptr noundef nonnull @__func__.fold_sub_to_neg, ptr noundef null) #11
   unreachable
 
 16:                                               ; preds = %14, %11
@@ -9189,46 +9189,47 @@ define internal fastcc noundef zeroext i1 @fold_sub_to_neg(ptr noundef nonnull %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
+declare void @llvm.assume(i1 noundef) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshr.i32(i32, i32, i32) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshr.i32(i32, i32, i32) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshr.i64(i64, i64, i64) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshr.i64(i64, i64, i64) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #9
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #5 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
+attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #6 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

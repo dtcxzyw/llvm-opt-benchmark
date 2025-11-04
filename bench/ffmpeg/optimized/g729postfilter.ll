@@ -193,7 +193,7 @@ residual_filter.exit:                             ; preds = %59, %41
   %.0272424.i = phi i32 [ 3, %residual_filter.exit ], [ %.0272423426.i, %.lr.ph351.i ], [ %85, %94 ]
   %102 = load ptr, ptr %0, align 8, !tbaa !17
   %103 = getelementptr inbounds nuw i8, ptr %11, i64 304
-  %104 = call i32 %102(ptr noundef nonnull %103, ptr noundef nonnull %103, i32 noundef %9) #7
+  %104 = call i32 %102(ptr noundef nonnull %103, ptr noundef nonnull %103, i32 noundef %9) #8
   %.not290.i = icmp eq i32 %104, 0
   br i1 %.not290.i, label %.thread.i, label %105
 
@@ -211,7 +211,7 @@ residual_filter.exit:                             ; preds = %59, %41
   %111 = load ptr, ptr %0, align 8, !tbaa !17
   %112 = sub nsw i64 0, %indvars.iv389.i
   %113 = getelementptr inbounds i16, ptr %103, i64 %112
-  %114 = call i32 %111(ptr noundef nonnull %103, ptr noundef nonnull %113, i32 noundef %9) #7
+  %114 = call i32 %111(ptr noundef nonnull %103, ptr noundef nonnull %113, i32 noundef %9) #8
   %115 = icmp sgt i32 %114, %.0270352.i
   %116 = trunc i64 %indvars.iv389.i to i16
   %spec.select.i = call i32 @llvm.smax.i32(i32 %114, i32 %.0270352.i)
@@ -245,7 +245,7 @@ residual_filter.exit:                             ; preds = %59, %41
   %130 = sext i16 %spec.select298.i to i64
   %131 = sub nsw i64 0, %130
   %132 = getelementptr inbounds i16, ptr %103, i64 %131
-  %133 = call i32 %129(ptr noundef nonnull %132, ptr noundef nonnull %132, i32 noundef %9) #7
+  %133 = call i32 %129(ptr noundef nonnull %132, ptr noundef nonnull %132, i32 noundef %9) #8
   %134 = sub nsw i64 152, %130
   %135 = getelementptr inbounds i16, ptr %11, i64 %134
   %136 = add nsw i32 %9, 1
@@ -260,7 +260,7 @@ residual_filter.exit:                             ; preds = %59, %41
   %139 = getelementptr inbounds nuw [41 x i16], ptr %12, i64 %indvars.iv391.i
   %140 = trunc i64 %indvars.iv391.i to i32
   %141 = sub i32 7, %140
-  call void @ff_acelp_interpolate(ptr noundef nonnull %139, ptr noundef nonnull %135, ptr noundef nonnull @ff_g729_interp_filt_short, i32 noundef 8, i32 noundef %141, i32 noundef 2, i32 noundef %136) #7
+  call void @ff_acelp_interpolate(ptr noundef nonnull %139, ptr noundef nonnull %135, ptr noundef nonnull @ff_g729_interp_filt_short, i32 noundef 8, i32 noundef %141, i32 noundef 2, i32 noundef %136) #8
   %indvars.iv.next392.i = add nuw nsw i64 %indvars.iv391.i, 1
   %exitcond394.not.i = icmp eq i64 %indvars.iv.next392.i, 7
   br i1 %exitcond394.not.i, label %.preheader340.i, label %138, !llvm.loop !21
@@ -271,7 +271,7 @@ residual_filter.exit:                             ; preds = %59, %41
   %143 = load ptr, ptr %0, align 8, !tbaa !17
   %144 = getelementptr inbounds nuw [41 x i16], ptr %12, i64 %indvars.iv395.i
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 2
-  %146 = call i32 %143(ptr noundef nonnull %145, ptr noundef nonnull %145, i32 noundef %137) #7
+  %146 = call i32 %143(ptr noundef nonnull %145, ptr noundef nonnull %145, i32 noundef %137) #8
   %147 = load i16, ptr %144, align 2, !tbaa !4
   %148 = sext i16 %147 to i32
   %149 = mul nsw i32 %148, %148
@@ -346,7 +346,7 @@ residual_filter.exit:                             ; preds = %59, %41
   %.2266358.i = phi i16 [ %.1265364.i, %.preheader339.i ], [ %.3267.i, %210 ]
   %185 = load ptr, ptr %0, align 8, !tbaa !17
   %186 = getelementptr inbounds nuw i16, ptr %179, i64 %indvars.iv399.i
-  %187 = call i32 %185(ptr noundef nonnull %186, ptr noundef nonnull %103, i32 noundef %9) #7
+  %187 = call i32 %185(ptr noundef nonnull %186, ptr noundef nonnull %103, i32 noundef %9) #8
   %188 = ashr i32 %187, %172
   %189 = call i32 @llvm.smax.i32(i32 %188, i32 0)
   %sext297.i = shl i32 %189, 16
@@ -421,9 +421,9 @@ residual_filter.exit:                             ; preds = %59, %41
   %231 = getelementptr i8, ptr %230, i64 304
   %232 = sext i16 %.3241.i to i32
   %233 = sub nsw i32 8, %232
-  call void @ff_acelp_interpolate(ptr noundef nonnull %70, ptr noundef %231, ptr noundef nonnull @ff_g729_interp_filt_long, i32 noundef 8, i32 noundef %233, i32 noundef 8, i32 noundef %136) #7
+  call void @ff_acelp_interpolate(ptr noundef nonnull %70, ptr noundef %231, ptr noundef nonnull @ff_g729_interp_filt_long, i32 noundef 8, i32 noundef %233, i32 noundef 8, i32 noundef %136) #8
   %234 = load ptr, ptr %0, align 8, !tbaa !17
-  %235 = call i32 %234(ptr noundef nonnull %70, ptr noundef nonnull %103, i32 noundef %9) #7
+  %235 = call i32 %234(ptr noundef nonnull %70, ptr noundef nonnull %103, i32 noundef %9) #8
   %236 = icmp slt i32 %235, 0
   br i1 %236, label %250, label %237
 
@@ -452,7 +452,7 @@ residual_filter.exit:                             ; preds = %59, %41
   %.0248.i = phi i16 [ %248, %237 ], [ 0, %228 ]
   %.0246.i = phi i16 [ %249, %237 ], [ 0, %228 ]
   %251 = load ptr, ptr %0, align 8, !tbaa !17
-  %252 = call i32 %251(ptr noundef nonnull %70, ptr noundef nonnull %70, i32 noundef %9) #7
+  %252 = call i32 %251(ptr noundef nonnull %70, ptr noundef nonnull %70, i32 noundef %9) #8
   %.not.i320.i = icmp ult i32 %252, 65536
   %253 = lshr i32 %252, 16
   %spec.select.i321.i = select i1 %.not.i320.i, i32 %252, i32 %253
@@ -590,7 +590,7 @@ residual_filter.exit:                             ; preds = %59, %41
   %spec.select301336.i = call i64 @llvm.smax.i64(i64 %324, i64 21845)
   %spec.select301.i = trunc i64 %spec.select301336.i to i16
   %325 = sub i16 -32768, %spec.select301.i
-  call void @ff_acelp_weighted_vector_sum(ptr noundef nonnull %70, ptr noundef nonnull %43, ptr noundef %.0230.i, i16 noundef signext %spec.select301.i, i16 noundef signext %325, i16 noundef signext 16384, i32 noundef 15, i32 noundef %9) #7
+  call void @ff_acelp_weighted_vector_sum(ptr noundef nonnull %70, ptr noundef nonnull %43, ptr noundef %.0230.i, i16 noundef signext %spec.select301.i, i16 noundef signext %325, i16 noundef signext 16384, i32 noundef 15, i32 noundef %9) #8
   br label %long_term_filter.exit
 
 long_term_filter.exit:                            ; preds = %.thread.i, %.loopexit.i
@@ -606,11 +606,11 @@ long_term_filter.exit:                            ; preds = %.thread.i, %.loopex
   %328 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i16 4096, ptr %328, align 4, !tbaa !4
   %329 = getelementptr inbounds nuw i8, ptr %16, i64 2
-  %330 = call i32 @ff_celp_lp_synthesis_filter(ptr noundef nonnull %44, ptr noundef nonnull %329, ptr noundef nonnull %44, i32 noundef 22, i32 noundef 10, i32 noundef 0, i32 noundef 0, i32 noundef 2048) #7
+  %330 = call i32 @ff_celp_lp_synthesis_filter(ptr noundef nonnull %44, ptr noundef nonnull %329, ptr noundef nonnull %44, i32 noundef 22, i32 noundef 10, i32 noundef 0, i32 noundef 0, i32 noundef 2048) #8
   %331 = load ptr, ptr %0, align 8, !tbaa !17
-  %332 = call i32 %331(ptr noundef nonnull %328, ptr noundef nonnull %328, i32 noundef 20) #7
+  %332 = call i32 %331(ptr noundef nonnull %328, ptr noundef nonnull %328, i32 noundef 20) #8
   %333 = load ptr, ptr %0, align 8, !tbaa !17
-  %334 = call i32 %333(ptr noundef nonnull %328, ptr noundef nonnull %44, i32 noundef 20) #7
+  %334 = call i32 %333(ptr noundef nonnull %328, ptr noundef nonnull %44, i32 noundef 20) #8
   %.not.i.i = icmp ult i32 %332, 65536
   %335 = lshr i32 %332, 16
   %spec.select.i.i = select i1 %.not.i.i, i32 %332, i32 %335
@@ -684,7 +684,7 @@ long_term_filter.exit:                            ; preds = %.thread.i, %.loopex
 get_tilt_comp.exit:                               ; preds = %long_term_filter.exit, %.loopexit.i57
   %.047.i = phi i32 [ %366, %.loopexit.i57 ], [ 0, %long_term_filter.exit ]
   %367 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %368 = call i32 @ff_celp_lp_synthesis_filter(ptr noundef nonnull %367, ptr noundef nonnull %329, ptr noundef nonnull %70, i32 noundef %9, i32 noundef 10, i32 noundef 0, i32 noundef 0, i32 noundef 2048) #7
+  %368 = call i32 @ff_celp_lp_synthesis_filter(ptr noundef nonnull %367, ptr noundef nonnull %329, ptr noundef nonnull %70, i32 noundef %9, i32 noundef 10, i32 noundef 0, i32 noundef 0, i32 noundef 2048) #8
   %369 = getelementptr inbounds i16, ptr %7, i64 %67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %7, ptr noundef nonnull align 2 dereferenceable(20) %369, i64 20, i1 false)
   %370 = load i16, ptr %1, align 2, !tbaa !4
@@ -918,28 +918,28 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #6
+declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.abs.i16(i16, i1 immarg) #6
+declare i16 @llvm.abs.i16(i16, i1 immarg) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.sadd.sat.i16(i16, i16) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -948,8 +948,9 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

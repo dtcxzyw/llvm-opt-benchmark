@@ -186,7 +186,7 @@ define void @_ZN9grpc_core14WorkSerializer18WorkSerializerImpl6OrphanEv(ptr noun
 8:                                                ; preds = %7
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_2024072219ReleasableMutexLockD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #25
+  call void @_ZN4absl12lts_2024072219ReleasableMutexLockD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %9
 
@@ -199,7 +199,7 @@ define void @_ZN9grpc_core14WorkSerializer18WorkSerializerImpl6OrphanEv(ptr noun
   %12 = load ptr, ptr %0, align 16, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 16 dereferenceable(176) %0) #25
+  call void %14(ptr noundef nonnull align 16 dereferenceable(176) %0) #26
   %.pre = load ptr, ptr %2, align 8, !tbaa !3
   %.not.i = icmp eq ptr %.pre, null
   br i1 %.not.i, label %_ZN4absl12lts_2024072219ReleasableMutexLockD2Ev.exit, label %15
@@ -213,7 +213,7 @@ define void @_ZN9grpc_core14WorkSerializer18WorkSerializerImpl6OrphanEv(ptr noun
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #26
+  call void @__clang_call_terminate(ptr %19) #27
   unreachable
 
 _ZN4absl12lts_2024072219ReleasableMutexLockD2Ev.exit: ; preds = %11, %15
@@ -242,7 +242,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072219ReleasableMutexLockD2Ev(ptr no
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #26
+  tail call void @__clang_call_terminate(ptr %7) #27
   unreachable
 }
 
@@ -262,7 +262,7 @@ define void @_ZN9grpc_core14WorkSerializer18WorkSerializerImpl3RunEN4absl12lts_2
 
 12:                                               ; preds = %2
   store i8 1, ptr %9, align 8, !tbaa !9
-  %13 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #25
+  %13 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #26
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %13, ptr %14, align 16, !tbaa !35
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -274,11 +274,11 @@ define void @_ZN9grpc_core14WorkSerializer18WorkSerializerImpl3RunEN4absl12lts_2
 
 18:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  invoke void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str, i32 noundef 178, i64 19, ptr nonnull @.str.1) #27
+  invoke void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str, i32 noundef 178, i64 19, ptr nonnull @.str.1) #28
           to label %19 unwind label %20
 
 19:                                               ; preds = %18
-  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
+  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
   unreachable
 
 20:                                               ; preds = %18
@@ -301,7 +301,7 @@ define void @_ZN9grpc_core14WorkSerializer18WorkSerializerImpl3RunEN4absl12lts_2
   %.sink2.i.i.i = select i1 %.not.i.i.i, ptr %26, ptr %25
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %28 = load ptr, ptr %27, align 16, !tbaa !41
-  tail call void %28(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %.sink2.i.i.i) #25
+  tail call void %28(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %.sink2.i.i.i) #26
   %29 = load ptr, ptr %27, align 16, !tbaa !41
   %30 = getelementptr inbounds nuw i8, ptr %.sink2.i.i.i, i64 16
   store ptr %29, ptr %30, align 16, !tbaa !41
@@ -354,7 +354,7 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerialize
   %55 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %.sink2.i.i.i14, i64 %.sink1.i.i.i12
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %57 = load ptr, ptr %56, align 16, !tbaa !41
-  tail call void %57(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %55) #25
+  tail call void %57(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %55) #26
   %58 = load ptr, ptr %56, align 16, !tbaa !41
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store ptr %58, ptr %59, align 16, !tbaa !41
@@ -381,7 +381,7 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerialize
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #26
+  call void @__clang_call_terminate(ptr %69) #27
   unreachable
 
 _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE12emplace_backIJNS0_12AnyInvocableIFvvEEERNS2_13DebugLocationEEEERS5_DpOT_.exit17
@@ -396,7 +396,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %_ZN4absl12lts_20240
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #27
   unreachable
 
 _ZN4absl12lts_202407229MutexLockD2Ev.exit18:      ; preds = %70
@@ -469,7 +469,7 @@ _ZN9grpc_core7ExecCtxC2Ev.exit:                   ; preds = %15, %_ZN9grpc_core4
   %22 = lshr i64 %17, 1
   %23 = getelementptr %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %21, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -32
-  %25 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #25
+  %25 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #26
   %26 = getelementptr i8, ptr %23, i64 -8
   %27 = load ptr, ptr %26, align 8, !tbaa !43
   invoke void %27(ptr noundef nonnull align 16 dereferenceable(32) %24)
@@ -486,7 +486,7 @@ _ZN9grpc_core7ExecCtxC2Ev.exit:                   ; preds = %15, %_ZN9grpc_core4
   %35 = getelementptr i8, ptr %34, i64 -32
   %36 = getelementptr i8, ptr %34, i64 -16
   %37 = load ptr, ptr %36, align 16, !tbaa !41
-  call void %37(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %35, ptr noundef nonnull align 16 dereferenceable(32) %35) #25
+  call void %37(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %35, ptr noundef nonnull align 16 dereferenceable(32) %35) #26
   %38 = load i64, ptr %16, align 16, !tbaa !35
   %39 = add i64 %38, -2
   store i64 %39, ptr %16, align 16, !tbaa !35
@@ -496,7 +496,7 @@ _ZN9grpc_core7ExecCtxC2Ev.exit:                   ; preds = %15, %_ZN9grpc_core4
 41:                                               ; preds = %28
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 200
   %43 = atomicrmw add ptr %42, i64 1 monotonic, align 8
-  %44 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #25
+  %44 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #26
   %45 = sub nsw i64 %44, %25
   %46 = invoke noundef nonnull align 8 dereferenceable(6632) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
           to label %.noexc unwind label %69
@@ -602,7 +602,7 @@ _ZN9grpc_core4Fork15DecExecCtxCountEv.exit.i:     ; preds = %91, %88, %85
   br i1 %.not.i.i.i.i.i.i.i12, label %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i13, label %97
 
 97:                                               ; preds = %94
-  call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E() #25
+  call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E() #26
   br label %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i13
 
 _ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i13: ; preds = %97, %94
@@ -614,7 +614,7 @@ _ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.
   %100 = landingpad { ptr, i32 }
           catch ptr null
   %101 = extractvalue { ptr, i32 } %100, 0
-  call void @__clang_call_terminate(ptr %101) #26
+  call void @__clang_call_terminate(ptr %101) #27
   unreachable
 
 _ZN9grpc_core7ExecCtxD2Ev.exit:                   ; preds = %_ZN9grpc_core4Fork15DecExecCtxCountEv.exit.i, %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i13
@@ -623,7 +623,7 @@ _ZN9grpc_core7ExecCtxD2Ev.exit:                   ; preds = %_ZN9grpc_core4Fork1
 
 common.resume:                                    ; preds = %67, %69, %65
   %.pn.pn = phi { ptr, i32 } [ %66, %65 ], [ %68, %67 ], [ %70, %69 ]
-  call void @_ZN9grpc_core7ExecCtxD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #25
+  call void @_ZN9grpc_core7ExecCtxD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn
 }
@@ -665,7 +665,7 @@ define noundef zeroext i1 @_ZN9grpc_core14WorkSerializer18WorkSerializerImpl6Ref
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 16
   %18 = load ptr, ptr %17, align 16, !tbaa !41
-  call void %18(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.0913.i.i, ptr noundef nonnull align 16 dereferenceable(32) %2) #25
+  call void %18(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.0913.i.i, ptr noundef nonnull align 16 dereferenceable(32) %2) #26
   %19 = load ptr, ptr %17, align 16, !tbaa !41
   store ptr %19, ptr %14, align 16, !tbaa !41
   %20 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 24
@@ -675,7 +675,7 @@ define noundef zeroext i1 @_ZN9grpc_core14WorkSerializer18WorkSerializerImpl6Ref
   store ptr null, ptr %20, align 8, !tbaa !43
   %22 = getelementptr inbounds i8, ptr %.pn14.i.i, i64 -16
   %23 = load ptr, ptr %22, align 16, !tbaa !41
-  call void %23(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.015.i.i, ptr noundef nonnull align 16 dereferenceable(32) %.0913.i.i) #25
+  call void %23(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.015.i.i, ptr noundef nonnull align 16 dereferenceable(32) %.0913.i.i) #26
   %24 = load ptr, ptr %22, align 16, !tbaa !41
   store ptr %24, ptr %17, align 16, !tbaa !41
   %25 = getelementptr inbounds i8, ptr %.pn14.i.i, i64 -8
@@ -684,7 +684,7 @@ define noundef zeroext i1 @_ZN9grpc_core14WorkSerializer18WorkSerializerImpl6Ref
   store ptr @_ZN4absl12lts_2024072222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %22, align 16, !tbaa !41
   store ptr null, ptr %25, align 8, !tbaa !43
   %27 = load ptr, ptr %14, align 16, !tbaa !41
-  call void %27(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 16 dereferenceable(32) %.015.i.i) #25
+  call void %27(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 16 dereferenceable(32) %.015.i.i) #26
   %28 = load ptr, ptr %14, align 16, !tbaa !41
   store ptr %28, ptr %22, align 16, !tbaa !41
   %29 = load ptr, ptr %15, align 8, !tbaa !43
@@ -699,7 +699,7 @@ define noundef zeroext i1 @_ZN9grpc_core14WorkSerializer18WorkSerializerImpl6Ref
   %33 = load ptr, ptr %0, align 16, !tbaa !33
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 16 dereferenceable(176) %0) #25
+  tail call void %35(ptr noundef nonnull align 16 dereferenceable(176) %0) #26
   br label %_ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit
 
 default.unreachable3:                             ; preds = %1
@@ -763,7 +763,7 @@ _ZN9grpc_core4Fork15DecExecCtxCountEv.exit:       ; preds = %14, %17, %10
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i, label %25
 
 25:                                               ; preds = %21
-  tail call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E() #25
+  tail call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E() #26
   br label %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i
 
 _ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i: ; preds = %25, %21
@@ -778,7 +778,7 @@ _ZNSt14_Optional_baseIN9grpc_core15ScopedTimeCacheELb0ELb0EED2Ev.exit: ; preds =
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #26
+  tail call void @__clang_call_terminate(ptr %29) #27
   unreachable
 }
 
@@ -816,7 +816,7 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerialize
 9:                                                ; preds = %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE4swapERS7_.exit
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 0, ptr %10, align 8, !tbaa !9
-  %11 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #25
+  %11 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #26
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.sroa.0.0.copyload.i2.i = load i64, ptr %12, align 16, !tbaa !35
   %13 = invoke noundef nonnull align 8 dereferenceable(6632) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
@@ -895,7 +895,7 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerialize
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  tail call void @__clang_call_terminate(ptr %56) #26
+  tail call void @__clang_call_terminate(ptr %56) #27
   unreachable
 
 _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %53
@@ -910,7 +910,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %53
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  tail call void @__clang_call_terminate(ptr %60) #26
+  tail call void @__clang_call_terminate(ptr %60) #27
   unreachable
 
 _ZN4absl12lts_202407229MutexLockD2Ev.exit13:      ; preds = %57
@@ -920,7 +920,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit13:      ; preds = %57
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core14WorkSerializerC2ESt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
-  %3 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #28, !noalias !72
+  %3 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #29, !noalias !72
   %4 = load ptr, ptr %1, align 8, !tbaa !44, !noalias !72
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !75, !noalias !72
@@ -964,7 +964,7 @@ define void @_ZN9grpc_core14WorkSerializerD2Ev(ptr noundef nonnull align 8 captu
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #26
+  tail call void @__clang_call_terminate(ptr %8) #27
   unreachable
 
 _ZNSt10unique_ptrIN9grpc_core14WorkSerializer18WorkSerializerImplENS0_16OrphanableDeleteEED2Ev.exit: ; preds = %1, %3
@@ -978,7 +978,7 @@ define void @_ZN9grpc_core14WorkSerializer3RunEN4absl12lts_2024072212AnyInvocabl
   %4 = load ptr, ptr %0, align 8, !tbaa !78
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 16, !tbaa !41
-  call void %6(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %3) #25
+  call void %6(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %3) #26
   %7 = load ptr, ptr %5, align 16, !tbaa !41
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %7, ptr %8, align 16, !tbaa !41
@@ -993,14 +993,14 @@ define void @_ZN9grpc_core14WorkSerializer3RunEN4absl12lts_2024072212AnyInvocabl
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %8, align 16, !tbaa !41
-  call void %13(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) %3) #25
+  call void %13(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) %3) #26
   ret void
 
 14:                                               ; preds = %2
   %15 = landingpad { ptr, i32 }
           cleanup
   %16 = load ptr, ptr %8, align 16, !tbaa !41
-  call void %16(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) %3) #25
+  call void %16(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) %3) #26
   resume { ptr, i32 } %15
 }
 
@@ -1022,7 +1022,7 @@ define linkonce_odr void @_ZN9grpc_core14WorkSerializer18WorkSerializerImplD2Ev(
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #26
+  tail call void @__clang_call_terminate(ptr %9) #27
   unreachable
 
 _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EED2Ev.exit: ; preds = %1, %6
@@ -1045,11 +1045,11 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerialize
   %19 = load ptr, ptr %11, align 8, !tbaa !33
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %11) #25
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %11) #26
   %22 = load ptr, ptr %11, align 8, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %11) #25
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %11) #26
   br label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 25:                                               ; preds = %12
@@ -1072,7 +1072,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %29, %27
   br i1 %31, label %32, label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !40
 
 32:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #25
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #26
   br label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EED2Ev.exit, %17, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %32
@@ -1089,7 +1089,7 @@ _ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  tail call void @__clang_call_terminate(ptr %39) #26
+  tail call void @__clang_call_terminate(ptr %39) #27
   unreachable
 
 _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EED2Ev.exit1: ; preds = %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %36
@@ -1114,7 +1114,7 @@ define linkonce_odr void @_ZN9grpc_core14WorkSerializer18WorkSerializerImplD0Ev(
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #26
+  tail call void @__clang_call_terminate(ptr %9) #27
   unreachable
 
 _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EED2Ev.exit.i: ; preds = %6, %1
@@ -1137,11 +1137,11 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerialize
   %19 = load ptr, ptr %11, align 8, !tbaa !33
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %11) #25
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %11) #26
   %22 = load ptr, ptr %11, align 8, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %11) #25
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %11) #26
   br label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
 25:                                               ; preds = %12
@@ -1164,7 +1164,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %29, %27
   br i1 %31, label %32, label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, !prof !40
 
 32:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #25
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #26
   br label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
 _ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %32, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %17, %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EED2Ev.exit.i
@@ -1181,11 +1181,11 @@ _ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  tail call void @__clang_call_terminate(ptr %39) #26
+  tail call void @__clang_call_terminate(ptr %39) #27
   unreachable
 
 _ZN9grpc_core14WorkSerializer18WorkSerializerImplD2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, %36
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 176) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 176) #30
   ret void
 }
 
@@ -1207,7 +1207,7 @@ define linkonce_odr void @_ZThn8_N9grpc_core14WorkSerializer18WorkSerializerImpl
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #26
+  tail call void @__clang_call_terminate(ptr %9) #27
   unreachable
 
 _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EED2Ev.exit.i: ; preds = %6, %1
@@ -1230,11 +1230,11 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerialize
   %19 = load ptr, ptr %11, align 8, !tbaa !33
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %11) #25
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %11) #26
   %22 = load ptr, ptr %11, align 8, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %11) #25
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %11) #26
   br label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
 25:                                               ; preds = %12
@@ -1257,7 +1257,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %29, %27
   br i1 %31, label %32, label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, !prof !40
 
 32:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #25
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #26
   br label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
 _ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %32, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %17, %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EED2Ev.exit.i
@@ -1274,7 +1274,7 @@ _ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  tail call void @__clang_call_terminate(ptr %39) #26
+  tail call void @__clang_call_terminate(ptr %39) #27
   unreachable
 
 _ZN9grpc_core14WorkSerializer18WorkSerializerImplD2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, %36
@@ -1284,7 +1284,7 @@ _ZN9grpc_core14WorkSerializer18WorkSerializerImplD2Ev.exit: ; preds = %_ZNSt12__
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZThn8_N9grpc_core14WorkSerializer18WorkSerializerImplD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZN9grpc_core14WorkSerializer18WorkSerializerImplD0Ev(ptr noundef nonnull align 16 dereferenceable(176) %2) #25
+  tail call void @_ZN9grpc_core14WorkSerializer18WorkSerializerImplD0Ev(ptr noundef nonnull align 16 dereferenceable(176) %2) #26
   ret void
 }
 
@@ -1308,7 +1308,7 @@ define internal void @__cxx_global_var_init.3() #11 section ".text.startup" comd
   %8 = extractvalue { i64, i1 } %7, 1
   %9 = extractvalue { i64, i1 } %7, 0
   %10 = select i1 %8, i64 -1, i64 %9
-  %11 = call noalias noundef nonnull ptr @_Znam(i64 noundef %10) #28
+  %11 = call noalias noundef nonnull ptr @_Znam(i64 noundef %10) #29
   %12 = icmp eq i64 %6, 0
   br i1 %12, label %_ZN9grpc_core10NoDestructINS_20GlobalStatsCollectorEEC2IJEEEDpOT_.exit, label %.loopexit.loopexit.i.i.i
 
@@ -1334,8 +1334,8 @@ declare void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #14 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #25
-  tail call void @_ZSt9terminatev() #26
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #26
+  tail call void @_ZSt9terminatev() #27
   unreachable
 }
 
@@ -1459,7 +1459,7 @@ _ZN9grpc_core4Fork15DecExecCtxCountEv.exit.i:     ; preds = %17, %14, %10
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i, label %25
 
 25:                                               ; preds = %21
-  tail call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E() #25
+  tail call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E() #26
   br label %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i
 
 _ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i: ; preds = %25, %21
@@ -1471,11 +1471,11 @@ _ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #26
+  tail call void @__clang_call_terminate(ptr %29) #27
   unreachable
 
 _ZN9grpc_core7ExecCtxD2Ev.exit:                   ; preds = %_ZN9grpc_core4Fork15DecExecCtxCountEv.exit.i, %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i
-  tail call void @abort() #26
+  tail call void @abort() #27
   unreachable
 }
 
@@ -1536,7 +1536,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
   %9 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 16, !tbaa !41
-  tail call void %11(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %9) #25
+  tail call void %11(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %9) #26
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit.loopexit, label %.lr.ph.i, !llvm.loop !101
 
@@ -1555,7 +1555,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i64, ptr %14, align 8, !tbaa !84
   %16 = shl i64 %15, 5
-  tail call void @_ZdlPvm(ptr noundef %13, i64 noundef %16) #29
+  tail call void @_ZdlPvm(ptr noundef %13, i64 noundef %16) #30
   br label %_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE21DeallocateIfAllocatedEv.exit
 
 _ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE21DeallocateIfAllocatedEv.exit: ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, %12
@@ -1570,7 +1570,7 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = load ptr, ptr %0, align 8, !tbaa !33
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !84
   %.not.i = icmp eq i8 %6, 0
@@ -1595,7 +1595,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i: ; preds = %10, %7
   %14 = load ptr, ptr %0, align 8, !tbaa !33
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i, %13
@@ -1604,7 +1604,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 
 declare noundef i64 @_ZN9grpc_core13PerCpuOptions6ShardsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #20
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -1631,20 +1631,20 @@ define linkonce_odr noundef nonnull align 16 dereferenceable(32) ptr @_ZN4absl12
   br i1 %14, label %.noexc, label %.noexc14
 
 .noexc:                                           ; preds = %13
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #30
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #31
   unreachable
 
 .noexc14:                                         ; preds = %13
-  tail call void @_ZSt17__throw_bad_allocv() #30
+  tail call void @_ZSt17__throw_bad_allocv() #31
   unreachable
 
 _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i: ; preds = %3
   %15 = shl nuw nsw i64 %11, 5
-  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #28
+  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #29
   %17 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %16, i64 %.sink1.i
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 16, !tbaa !41
-  tail call void %19(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %17) #25
+  tail call void %19(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %17) #26
   %20 = load ptr, ptr %18, align 16, !tbaa !41
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %20, ptr %21, align 16, !tbaa !41
@@ -1663,7 +1663,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
   %25 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %16, i64 %.012.i
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.023.0, i64 16
   %27 = load ptr, ptr %26, align 16, !tbaa !41
-  tail call void %27(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.023.0, ptr noundef nonnull align 16 dereferenceable(32) %25) #25
+  tail call void %27(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.023.0, ptr noundef nonnull align 16 dereferenceable(32) %25) #26
   %28 = load ptr, ptr %26, align 16, !tbaa !41
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %28, ptr %29, align 16, !tbaa !41
@@ -1684,7 +1684,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
   %36 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %.sink2.i, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 16, !tbaa !41
-  tail call void %38(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %36, ptr noundef nonnull align 16 dereferenceable(32) %36) #25
+  tail call void %38(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %36, ptr noundef nonnull align 16 dereferenceable(32) %36) #26
   %.not.i18 = icmp eq i64 %35, 0
   br i1 %.not.i18, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i17, !llvm.loop !101
 
@@ -1698,7 +1698,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14
   %42 = load ptr, ptr %6, align 16, !tbaa !84
   %43 = load i64, ptr %8, align 8, !tbaa !84
   %44 = shl i64 %43, 5
-  tail call void @_ZdlPvm(ptr noundef %42, i64 noundef %44) #29
+  tail call void @_ZdlPvm(ptr noundef %42, i64 noundef %44) #30
   %.pre = load i64, ptr %0, align 16, !tbaa !35
   br label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEED2Ev.exit
 
@@ -1745,16 +1745,16 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
   br i1 %14, label %.noexc, label %.noexc25
 
 .noexc:                                           ; preds = %13
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #30
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #31
   unreachable
 
 .noexc25:                                         ; preds = %13
-  tail call void @_ZSt17__throw_bad_allocv() #30
+  tail call void @_ZSt17__throw_bad_allocv() #31
   unreachable
 
 _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i: ; preds = %11
   %15 = shl nuw nsw i64 %5, 5
-  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #28
+  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #29
   %.not = icmp ult i64 %5, %7
   br i1 %.not, label %.lr.ph.preheader.i, label %39
 
@@ -1764,7 +1764,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
 
 .thread58:                                        ; preds = %17
   %18 = shl i64 %7, 5
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %18) #29
+  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %18) #30
   br label %36
 
 .lr.ph.preheader.i:                               ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i, %17
@@ -1779,7 +1779,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
   %19 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %.02150, i64 %.012.i
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.032.0, i64 16
   %21 = load ptr, ptr %20, align 16, !tbaa !41
-  tail call void %21(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.032.0, ptr noundef nonnull align 16 dereferenceable(32) %19) #25
+  tail call void %21(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.032.0, ptr noundef nonnull align 16 dereferenceable(32) %19) #26
   %22 = load ptr, ptr %20, align 16, !tbaa !41
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %22, ptr %23, align 16, !tbaa !41
@@ -1800,13 +1800,13 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
   %30 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %3, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 16, !tbaa !41
-  tail call void %32(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %30, ptr noundef nonnull align 16 dereferenceable(32) %30) #25
+  tail call void %32(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %30, ptr noundef nonnull align 16 dereferenceable(32) %30) #26
   %.not.i28 = icmp eq i64 %29, 0
   br i1 %.not.i28, label %33, label %.lr.ph.i27, !llvm.loop !101
 
 33:                                               ; preds = %.lr.ph.i27
   %34 = shl i64 %7, 5
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %34) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %34) #30
   %.not67 = icmp eq ptr %.sroa.033.148, null
   br i1 %.not67, label %36, label %35
 
@@ -1822,7 +1822,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
   br label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEED2Ev.exit
 
 39:                                               ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %15) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %15) #30
   br label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEED2Ev.exit
 
 _ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEED2Ev.exit: ; preds = %36, %35, %39, %1
@@ -1879,7 +1879,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
   %21 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %15, i64 %.012.i
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.017.0, i64 16
   %23 = load ptr, ptr %22, align 16, !tbaa !41
-  tail call void %23(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.017.0, ptr noundef nonnull align 16 dereferenceable(32) %21) #25
+  tail call void %23(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.017.0, ptr noundef nonnull align 16 dereferenceable(32) %21) #26
   %24 = load ptr, ptr %22, align 16, !tbaa !41
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %24, ptr %25, align 16, !tbaa !41
@@ -1909,7 +1909,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_cor
   %33 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %19, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 16, !tbaa !41
-  tail call void %35(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %33, ptr noundef nonnull align 16 dereferenceable(32) %33) #25
+  tail call void %35(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %33, ptr noundef nonnull align 16 dereferenceable(32) %33) #26
   %.not.i16 = icmp eq i64 %32, 0
   br i1 %.not.i16, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i15, !llvm.loop !101
 
@@ -1960,7 +1960,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = getelementptr inbounds nuw i8, ptr %.079.i.i, i64 16
   %21 = load ptr, ptr %20, align 16, !tbaa !41
-  call void %21(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.079.i.i, ptr noundef nonnull align 16 dereferenceable(32) %3) #25
+  call void %21(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.079.i.i, ptr noundef nonnull align 16 dereferenceable(32) %3) #26
   %22 = load ptr, ptr %20, align 16, !tbaa !41
   store ptr %22, ptr %17, align 16, !tbaa !41
   %23 = getelementptr inbounds nuw i8, ptr %.079.i.i, i64 24
@@ -1970,7 +1970,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
   store ptr null, ptr %23, align 8, !tbaa !43
   %25 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 16
   %26 = load ptr, ptr %25, align 16, !tbaa !41
-  call void %26(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.010.i.i, ptr noundef nonnull align 16 dereferenceable(32) %.079.i.i) #25
+  call void %26(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.010.i.i, ptr noundef nonnull align 16 dereferenceable(32) %.079.i.i) #26
   %27 = load ptr, ptr %25, align 16, !tbaa !41
   store ptr %27, ptr %20, align 16, !tbaa !41
   %28 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 24
@@ -1979,7 +1979,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
   store ptr @_ZN4absl12lts_2024072222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %25, align 16, !tbaa !41
   store ptr null, ptr %28, align 8, !tbaa !43
   %30 = load ptr, ptr %17, align 16, !tbaa !41
-  call void %30(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) %.010.i.i) #25
+  call void %30(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) %.010.i.i) #26
   %31 = load ptr, ptr %17, align 16, !tbaa !41
   store ptr %31, ptr %25, align 16, !tbaa !41
   %32 = load ptr, ptr %18, align 8, !tbaa !43
@@ -2004,7 +2004,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSeriali
   %39 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %38, i64 %.012.i
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.011.0, i64 16
   %41 = load ptr, ptr %40, align 16, !tbaa !41
-  call void %41(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.011.0, ptr noundef nonnull align 16 dereferenceable(32) %39) #25
+  call void %41(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.011.0, ptr noundef nonnull align 16 dereferenceable(32) %39) #26
   %42 = load ptr, ptr %40, align 16, !tbaa !41
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %42, ptr %43, align 16, !tbaa !41
@@ -2025,7 +2025,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSeriali
   %50 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %36, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 16, !tbaa !41
-  call void %52(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %50, ptr noundef nonnull align 16 dereferenceable(32) %50) #25
+  call void %52(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %50, ptr noundef nonnull align 16 dereferenceable(32) %50) #26
   %.not.i10 = icmp eq i64 %49, 0
   br i1 %.not.i10, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i9, !llvm.loop !101
 
@@ -2036,27 +2036,27 @@ _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_work_serializer.cc() #11 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #25
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #26
   ret void
 }
 
 declare extern_weak void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E() #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #20
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #23
 
 declare extern_weak void @_ZTHN9grpc_core7ExecCtx9exec_ctx_E() #0
 
 declare extern_weak void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E() #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #24
+declare void @llvm.experimental.noalias.scope.decl(metadata) #25
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2078,17 +2078,18 @@ attributes #16 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stac
 attributes #17 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #25 = { nounwind }
-attributes #26 = { noreturn nounwind }
-attributes #27 = { cold }
-attributes #28 = { builtin allocsize(0) }
-attributes #29 = { builtin nounwind }
-attributes #30 = { noreturn }
+attributes #23 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #26 = { nounwind }
+attributes #27 = { noreturn nounwind }
+attributes #28 = { cold }
+attributes #29 = { builtin allocsize(0) }
+attributes #30 = { builtin nounwind }
+attributes #31 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 

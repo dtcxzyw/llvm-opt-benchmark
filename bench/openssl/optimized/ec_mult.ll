@@ -55,7 +55,7 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %3
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %12 = phi ptr [ %14, %.lr.ph ], [ %11, %.preheader ]
   %.015 = phi ptr [ %13, %.lr.ph ], [ %10, %.preheader ]
-  tail call void @EC_POINT_free(ptr noundef nonnull %12) #8
+  tail call void @EC_POINT_free(ptr noundef nonnull %12) #9
   %13 = getelementptr inbounds nuw i8, ptr %.015, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !12
   %.not13 = icmp eq ptr %14, null
@@ -67,11 +67,11 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %3
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %15 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %10, %.preheader ]
-  tail call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str, i32 noundef 98) #8
+  tail call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str, i32 noundef 98) #9
   br label %16
 
 16:                                               ; preds = %._crit_edge, %8
-  tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 101) #8
+  tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 101) #9
   br label %17
 
 17:                                               ; preds = %CRYPTO_DOWN_REF.exit, %1, %16
@@ -88,48 +88,48 @@ define i32 @ossl_ec_scalar_mul_ladder(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @EC_POINT_is_at_infinity(ptr noundef %0, ptr noundef nonnull %3) #8
+  %7 = tail call i32 @EC_POINT_is_at_infinity(ptr noundef %0, ptr noundef nonnull %3) #9
   %.not162 = icmp eq i32 %7, 0
   br i1 %.not162, label %10, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @EC_POINT_set_to_infinity(ptr noundef %0, ptr noundef %1) #8
+  %9 = tail call i32 @EC_POINT_set_to_infinity(ptr noundef %0, ptr noundef %1) #9
   br label %176
 
 10:                                               ; preds = %6, %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !16
-  %13 = tail call i32 @BN_is_zero(ptr noundef %12) #8
+  %13 = tail call i32 @BN_is_zero(ptr noundef %12) #9
   %.not163 = icmp eq i32 %13, 0
   br i1 %.not163, label %15, label %14
 
 14:                                               ; preds = %10
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 156, ptr noundef nonnull @__func__.ossl_ec_scalar_mul_ladder) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 114, ptr noundef null) #8
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 156, ptr noundef nonnull @__func__.ossl_ec_scalar_mul_ladder) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 114, ptr noundef null) #9
   br label %176
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !24
-  %18 = tail call i32 @BN_is_zero(ptr noundef %17) #8
+  %18 = tail call i32 @BN_is_zero(ptr noundef %17) #9
   %.not164 = icmp eq i32 %18, 0
   br i1 %.not164, label %20, label %19
 
 19:                                               ; preds = %15
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 160, ptr noundef nonnull @__func__.ossl_ec_scalar_mul_ladder) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 164, ptr noundef null) #8
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 160, ptr noundef nonnull @__func__.ossl_ec_scalar_mul_ladder) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 164, ptr noundef null) #9
   br label %176
 
 20:                                               ; preds = %15
-  tail call void @BN_CTX_start(ptr noundef %4) #8
-  %21 = tail call ptr @EC_POINT_new(ptr noundef nonnull %0) #8
+  tail call void @BN_CTX_start(ptr noundef %4) #9
+  %21 = tail call ptr @EC_POINT_new(ptr noundef nonnull %0) #9
   %22 = icmp eq ptr %21, null
   br i1 %22, label %ec_point_ladder_post.exit.thread.sink.split, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call ptr @EC_POINT_new(ptr noundef nonnull %0) #8
+  %24 = tail call ptr @EC_POINT_new(ptr noundef nonnull %0) #9
   %25 = icmp eq ptr %24, null
   br i1 %25, label %ec_point_ladder_post.exit.thread.sink.split, label %26
 
@@ -139,158 +139,158 @@ define i32 @ossl_ec_scalar_mul_ladder(ptr noundef %0, ptr noundef %1, ptr nounde
 27:                                               ; preds = %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !25
-  %30 = tail call i32 @EC_POINT_copy(ptr noundef nonnull %21, ptr noundef %29) #8
+  %30 = tail call i32 @EC_POINT_copy(ptr noundef nonnull %21, ptr noundef %29) #9
   %.not166 = icmp eq i32 %30, 0
   br i1 %.not166, label %ec_point_ladder_post.exit.thread.sink.split, label %33
 
 31:                                               ; preds = %26
-  %32 = tail call i32 @EC_POINT_copy(ptr noundef nonnull %21, ptr noundef nonnull %3) #8
+  %32 = tail call i32 @EC_POINT_copy(ptr noundef nonnull %21, ptr noundef nonnull %3) #9
   %.not165 = icmp eq i32 %32, 0
   br i1 %.not165, label %ec_point_ladder_post.exit.thread.sink.split, label %33
 
 33:                                               ; preds = %27, %31
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !26
-  tail call void @BN_set_flags(ptr noundef %35, i32 noundef 4) #8
+  tail call void @BN_set_flags(ptr noundef %35, i32 noundef 4) #9
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %37 = load ptr, ptr %36, align 8, !tbaa !28
-  tail call void @BN_set_flags(ptr noundef %37, i32 noundef 4) #8
+  tail call void @BN_set_flags(ptr noundef %37, i32 noundef 4) #9
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %39 = load ptr, ptr %38, align 8, !tbaa !29
-  tail call void @BN_set_flags(ptr noundef %39, i32 noundef 4) #8
+  tail call void @BN_set_flags(ptr noundef %39, i32 noundef 4) #9
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !26
-  tail call void @BN_set_flags(ptr noundef %41, i32 noundef 4) #8
+  tail call void @BN_set_flags(ptr noundef %41, i32 noundef 4) #9
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %43 = load ptr, ptr %42, align 8, !tbaa !28
-  tail call void @BN_set_flags(ptr noundef %43, i32 noundef 4) #8
+  tail call void @BN_set_flags(ptr noundef %43, i32 noundef 4) #9
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %45 = load ptr, ptr %44, align 8, !tbaa !29
-  tail call void @BN_set_flags(ptr noundef %45, i32 noundef 4) #8
+  tail call void @BN_set_flags(ptr noundef %45, i32 noundef 4) #9
   %46 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !26
-  tail call void @BN_set_flags(ptr noundef %47, i32 noundef 4) #8
+  tail call void @BN_set_flags(ptr noundef %47, i32 noundef 4) #9
   %48 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !28
-  tail call void @BN_set_flags(ptr noundef %49, i32 noundef 4) #8
+  tail call void @BN_set_flags(ptr noundef %49, i32 noundef 4) #9
   %50 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %51 = load ptr, ptr %50, align 8, !tbaa !29
-  tail call void @BN_set_flags(ptr noundef %51, i32 noundef 4) #8
-  %52 = tail call ptr @BN_CTX_get(ptr noundef %4) #8
-  %53 = tail call ptr @BN_CTX_get(ptr noundef %4) #8
-  %54 = tail call ptr @BN_CTX_get(ptr noundef %4) #8
+  tail call void @BN_set_flags(ptr noundef %51, i32 noundef 4) #9
+  %52 = tail call ptr @BN_CTX_get(ptr noundef %4) #9
+  %53 = tail call ptr @BN_CTX_get(ptr noundef %4) #9
+  %54 = tail call ptr @BN_CTX_get(ptr noundef %4) #9
   %55 = icmp eq ptr %54, null
   br i1 %55, label %ec_point_ladder_post.exit.thread.sink.split, label %56
 
 56:                                               ; preds = %33
   %57 = load ptr, ptr %11, align 8, !tbaa !16
   %58 = load ptr, ptr %16, align 8, !tbaa !24
-  %59 = tail call i32 @BN_mul(ptr noundef %52, ptr noundef %57, ptr noundef %58, ptr noundef %4) #8
+  %59 = tail call i32 @BN_mul(ptr noundef %52, ptr noundef %57, ptr noundef %58, ptr noundef %4) #9
   %.not167 = icmp eq i32 %59, 0
   br i1 %.not167, label %ec_point_ladder_post.exit.thread.sink.split, label %60
 
 60:                                               ; preds = %56
-  %61 = tail call i32 @BN_num_bits(ptr noundef %52) #8
-  %62 = tail call i32 @bn_get_top(ptr noundef %52) #8
+  %61 = tail call i32 @BN_num_bits(ptr noundef %52) #9
+  %62 = tail call i32 @bn_get_top(ptr noundef %52) #9
   %63 = add nsw i32 %62, 2
-  %64 = tail call ptr @bn_wexpand(ptr noundef nonnull %54, i32 noundef %63) #8
+  %64 = tail call ptr @bn_wexpand(ptr noundef nonnull %54, i32 noundef %63) #9
   %65 = icmp eq ptr %64, null
   br i1 %65, label %ec_point_ladder_post.exit.thread.sink.split, label %66
 
 66:                                               ; preds = %60
-  %67 = tail call ptr @bn_wexpand(ptr noundef %53, i32 noundef %63) #8
+  %67 = tail call ptr @bn_wexpand(ptr noundef %53, i32 noundef %63) #9
   %68 = icmp eq ptr %67, null
   br i1 %68, label %ec_point_ladder_post.exit.thread.sink.split, label %69
 
 69:                                               ; preds = %66
-  %70 = tail call ptr @BN_copy(ptr noundef nonnull %54, ptr noundef %2) #8
+  %70 = tail call ptr @BN_copy(ptr noundef nonnull %54, ptr noundef %2) #9
   %.not168 = icmp eq ptr %70, null
   br i1 %.not168, label %ec_point_ladder_post.exit.thread.sink.split, label %71
 
 71:                                               ; preds = %69
-  tail call void @BN_set_flags(ptr noundef nonnull %54, i32 noundef 4) #8
-  %72 = tail call i32 @BN_num_bits(ptr noundef nonnull %54) #8
+  tail call void @BN_set_flags(ptr noundef nonnull %54, i32 noundef 4) #9
+  %72 = tail call i32 @BN_num_bits(ptr noundef nonnull %54) #9
   %73 = icmp sgt i32 %72, %61
   br i1 %73, label %76, label %74
 
 74:                                               ; preds = %71
-  %75 = tail call i32 @BN_is_negative(ptr noundef nonnull %54) #8
+  %75 = tail call i32 @BN_is_negative(ptr noundef nonnull %54) #9
   %.not169 = icmp eq i32 %75, 0
   br i1 %.not169, label %78, label %76
 
 76:                                               ; preds = %74, %71
-  %77 = tail call i32 @BN_nnmod(ptr noundef nonnull %54, ptr noundef nonnull %54, ptr noundef %52, ptr noundef %4) #8
+  %77 = tail call i32 @BN_nnmod(ptr noundef nonnull %54, ptr noundef nonnull %54, ptr noundef %52, ptr noundef %4) #9
   %.not170 = icmp eq i32 %77, 0
   br i1 %.not170, label %ec_point_ladder_post.exit.thread.sink.split, label %78
 
 78:                                               ; preds = %76, %74
-  %79 = tail call i32 @BN_add(ptr noundef %53, ptr noundef nonnull %54, ptr noundef %52) #8
+  %79 = tail call i32 @BN_add(ptr noundef %53, ptr noundef nonnull %54, ptr noundef %52) #9
   %.not171 = icmp eq i32 %79, 0
   br i1 %.not171, label %ec_point_ladder_post.exit.thread.sink.split, label %80
 
 80:                                               ; preds = %78
-  tail call void @BN_set_flags(ptr noundef %53, i32 noundef 4) #8
-  %81 = tail call i32 @BN_add(ptr noundef nonnull %54, ptr noundef %53, ptr noundef %52) #8
+  tail call void @BN_set_flags(ptr noundef %53, i32 noundef 4) #9
+  %81 = tail call i32 @BN_add(ptr noundef nonnull %54, ptr noundef %53, ptr noundef %52) #9
   %.not172 = icmp eq i32 %81, 0
   br i1 %.not172, label %ec_point_ladder_post.exit.thread.sink.split, label %82
 
 82:                                               ; preds = %80
-  %83 = tail call i32 @BN_is_bit_set(ptr noundef %53, i32 noundef %61) #8
+  %83 = tail call i32 @BN_is_bit_set(ptr noundef %53, i32 noundef %61) #9
   %84 = sext i32 %83 to i64
-  tail call void @BN_consttime_swap(i64 noundef %84, ptr noundef nonnull %54, ptr noundef %53, i32 noundef %63) #8
+  tail call void @BN_consttime_swap(i64 noundef %84, ptr noundef nonnull %54, ptr noundef %53, i32 noundef %63) #9
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %86 = load ptr, ptr %85, align 8, !tbaa !30
-  %87 = tail call i32 @bn_get_top(ptr noundef %86) #8
+  %87 = tail call i32 @bn_get_top(ptr noundef %86) #9
   %88 = load ptr, ptr %46, align 8, !tbaa !26
-  %89 = tail call ptr @bn_wexpand(ptr noundef %88, i32 noundef %87) #8
+  %89 = tail call ptr @bn_wexpand(ptr noundef %88, i32 noundef %87) #9
   %90 = icmp eq ptr %89, null
   br i1 %90, label %ec_point_ladder_post.exit.thread.sink.split, label %91
 
 91:                                               ; preds = %82
   %92 = load ptr, ptr %48, align 8, !tbaa !28
-  %93 = tail call ptr @bn_wexpand(ptr noundef %92, i32 noundef %87) #8
+  %93 = tail call ptr @bn_wexpand(ptr noundef %92, i32 noundef %87) #9
   %94 = icmp eq ptr %93, null
   br i1 %94, label %ec_point_ladder_post.exit.thread.sink.split, label %95
 
 95:                                               ; preds = %91
   %96 = load ptr, ptr %50, align 8, !tbaa !29
-  %97 = tail call ptr @bn_wexpand(ptr noundef %96, i32 noundef %87) #8
+  %97 = tail call ptr @bn_wexpand(ptr noundef %96, i32 noundef %87) #9
   %98 = icmp eq ptr %97, null
   br i1 %98, label %ec_point_ladder_post.exit.thread.sink.split, label %99
 
 99:                                               ; preds = %95
   %100 = load ptr, ptr %40, align 8, !tbaa !26
-  %101 = tail call ptr @bn_wexpand(ptr noundef %100, i32 noundef %87) #8
+  %101 = tail call ptr @bn_wexpand(ptr noundef %100, i32 noundef %87) #9
   %102 = icmp eq ptr %101, null
   br i1 %102, label %ec_point_ladder_post.exit.thread.sink.split, label %103
 
 103:                                              ; preds = %99
   %104 = load ptr, ptr %42, align 8, !tbaa !28
-  %105 = tail call ptr @bn_wexpand(ptr noundef %104, i32 noundef %87) #8
+  %105 = tail call ptr @bn_wexpand(ptr noundef %104, i32 noundef %87) #9
   %106 = icmp eq ptr %105, null
   br i1 %106, label %ec_point_ladder_post.exit.thread.sink.split, label %107
 
 107:                                              ; preds = %103
   %108 = load ptr, ptr %44, align 8, !tbaa !29
-  %109 = tail call ptr @bn_wexpand(ptr noundef %108, i32 noundef %87) #8
+  %109 = tail call ptr @bn_wexpand(ptr noundef %108, i32 noundef %87) #9
   %110 = icmp eq ptr %109, null
   br i1 %110, label %ec_point_ladder_post.exit.thread.sink.split, label %111
 
 111:                                              ; preds = %107
   %112 = load ptr, ptr %34, align 8, !tbaa !26
-  %113 = tail call ptr @bn_wexpand(ptr noundef %112, i32 noundef %87) #8
+  %113 = tail call ptr @bn_wexpand(ptr noundef %112, i32 noundef %87) #9
   %114 = icmp eq ptr %113, null
   br i1 %114, label %ec_point_ladder_post.exit.thread.sink.split, label %115
 
 115:                                              ; preds = %111
   %116 = load ptr, ptr %36, align 8, !tbaa !28
-  %117 = tail call ptr @bn_wexpand(ptr noundef %116, i32 noundef %87) #8
+  %117 = tail call ptr @bn_wexpand(ptr noundef %116, i32 noundef %87) #9
   %118 = icmp eq ptr %117, null
   br i1 %118, label %ec_point_ladder_post.exit.thread.sink.split, label %119
 
 119:                                              ; preds = %115
   %120 = load ptr, ptr %38, align 8, !tbaa !29
-  %121 = tail call ptr @bn_wexpand(ptr noundef %120, i32 noundef %87) #8
+  %121 = tail call ptr @bn_wexpand(ptr noundef %120, i32 noundef %87) #9
   %122 = icmp eq ptr %121, null
   br i1 %122, label %ec_point_ladder_post.exit.thread.sink.split, label %123
 
@@ -308,7 +308,7 @@ define i32 @ossl_ec_scalar_mul_ladder(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %130, label %ec_point_ladder_post.exit.thread.sink.split, label %131
 
 131:                                              ; preds = %126
-  %132 = tail call i32 %129(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef %4) #8
+  %132 = tail call i32 %129(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef %4) #9
   %.not174 = icmp eq i32 %132, 0
   br i1 %.not174, label %ec_point_ladder_post.exit.thread.sink.split, label %133
 
@@ -330,18 +330,18 @@ define i32 @ossl_ec_scalar_mul_ladder(ptr noundef %0, ptr noundef %1, ptr nounde
 
 139:                                              ; preds = %137
   %.0154 = add nsw i32 %.0154.in, -1
-  %140 = tail call i32 @BN_is_bit_set(ptr noundef nonnull %54, i32 noundef %.0154) #8
+  %140 = tail call i32 @BN_is_bit_set(ptr noundef nonnull %54, i32 noundef %.0154) #9
   %141 = xor i32 %140, %.0152
   %142 = sext i32 %141 to i64
   %143 = load ptr, ptr %40, align 8, !tbaa !26
   %144 = load ptr, ptr %46, align 8, !tbaa !26
-  tail call void @BN_consttime_swap(i64 noundef %142, ptr noundef %143, ptr noundef %144, i32 noundef %87) #8
+  tail call void @BN_consttime_swap(i64 noundef %142, ptr noundef %143, ptr noundef %144, i32 noundef %87) #9
   %145 = load ptr, ptr %42, align 8, !tbaa !28
   %146 = load ptr, ptr %48, align 8, !tbaa !28
-  tail call void @BN_consttime_swap(i64 noundef %142, ptr noundef %145, ptr noundef %146, i32 noundef %87) #8
+  tail call void @BN_consttime_swap(i64 noundef %142, ptr noundef %145, ptr noundef %146, i32 noundef %87) #9
   %147 = load ptr, ptr %44, align 8, !tbaa !29
   %148 = load ptr, ptr %50, align 8, !tbaa !29
-  tail call void @BN_consttime_swap(i64 noundef %142, ptr noundef %147, ptr noundef %148, i32 noundef %87) #8
+  tail call void @BN_consttime_swap(i64 noundef %142, ptr noundef %147, ptr noundef %148, i32 noundef %87) #9
   %149 = load i32, ptr %135, align 8, !tbaa !31
   %150 = load i32, ptr %136, align 8, !tbaa !31
   %151 = xor i32 %150, %149
@@ -359,13 +359,13 @@ define i32 @ossl_ec_scalar_mul_ladder(ptr noundef %0, ptr noundef %1, ptr nounde
   %158 = sext i32 %.0152 to i64
   %159 = load ptr, ptr %40, align 8, !tbaa !26
   %160 = load ptr, ptr %46, align 8, !tbaa !26
-  tail call void @BN_consttime_swap(i64 noundef %158, ptr noundef %159, ptr noundef %160, i32 noundef %87) #8
+  tail call void @BN_consttime_swap(i64 noundef %158, ptr noundef %159, ptr noundef %160, i32 noundef %87) #9
   %161 = load ptr, ptr %42, align 8, !tbaa !28
   %162 = load ptr, ptr %48, align 8, !tbaa !28
-  tail call void @BN_consttime_swap(i64 noundef %158, ptr noundef %161, ptr noundef %162, i32 noundef %87) #8
+  tail call void @BN_consttime_swap(i64 noundef %158, ptr noundef %161, ptr noundef %162, i32 noundef %87) #9
   %163 = load ptr, ptr %44, align 8, !tbaa !29
   %164 = load ptr, ptr %50, align 8, !tbaa !29
-  tail call void @BN_consttime_swap(i64 noundef %158, ptr noundef %163, ptr noundef %164, i32 noundef %87) #8
+  tail call void @BN_consttime_swap(i64 noundef %158, ptr noundef %163, ptr noundef %164, i32 noundef %87) #9
   %165 = load i32, ptr %135, align 8, !tbaa !31
   %166 = load i32, ptr %136, align 8, !tbaa !31
   %167 = xor i32 %166, %165
@@ -382,7 +382,7 @@ define i32 @ossl_ec_scalar_mul_ladder(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not.i, label %ec_point_ladder_post.exit.thread, label %ec_point_ladder_post.exit
 
 ec_point_ladder_post.exit:                        ; preds = %157
-  %175 = tail call i32 %174(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %24, ptr noundef nonnull %21, ptr noundef %4) #8
+  %175 = tail call i32 %174(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %24, ptr noundef nonnull %21, ptr noundef %4) #9
   %.not176 = icmp eq i32 %175, 0
   br i1 %.not176, label %ec_point_ladder_post.exit.thread.sink.split, label %ec_point_ladder_post.exit.thread
 
@@ -390,17 +390,17 @@ ec_point_ladder_post.exit.thread.sink.split:      ; preds = %139, %ec_point_ladd
   %.sink190 = phi i32 [ 168, %23 ], [ 168, %20 ], [ 174, %27 ], [ 179, %31 ], [ 192, %33 ], [ 197, %56 ], [ 211, %66 ], [ 211, %60 ], [ 216, %69 ], [ 228, %76 ], [ 234, %78 ], [ 239, %80 ], [ 259, %119 ], [ 259, %115 ], [ 259, %111 ], [ 259, %107 ], [ 259, %103 ], [ 259, %99 ], [ 259, %95 ], [ 259, %91 ], [ 259, %82 ], [ 266, %131 ], [ 266, %126 ], [ 272, %133 ], [ 367, %ec_point_ladder_post.exit ], [ 352, %139 ]
   %.sink = phi i32 [ 524304, %23 ], [ 524304, %20 ], [ 524304, %27 ], [ 524304, %31 ], [ 524291, %33 ], [ 524291, %56 ], [ 524291, %66 ], [ 524291, %60 ], [ 524291, %69 ], [ 524291, %76 ], [ 524291, %78 ], [ 524291, %80 ], [ 524291, %119 ], [ 524291, %115 ], [ 524291, %111 ], [ 524291, %107 ], [ 524291, %103 ], [ 524291, %99 ], [ 524291, %95 ], [ 524291, %91 ], [ 524291, %82 ], [ 524304, %131 ], [ 524304, %126 ], [ 153, %133 ], [ 136, %ec_point_ladder_post.exit ], [ 162, %139 ]
   %.1.ph = phi ptr [ null, %23 ], [ null, %20 ], [ %24, %27 ], [ %24, %31 ], [ %24, %33 ], [ %24, %56 ], [ %24, %66 ], [ %24, %60 ], [ %24, %69 ], [ %24, %76 ], [ %24, %78 ], [ %24, %80 ], [ %24, %119 ], [ %24, %115 ], [ %24, %111 ], [ %24, %107 ], [ %24, %103 ], [ %24, %99 ], [ %24, %95 ], [ %24, %91 ], [ %24, %82 ], [ %24, %131 ], [ %24, %126 ], [ %24, %133 ], [ %24, %ec_point_ladder_post.exit ], [ %24, %139 ]
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink190, ptr noundef nonnull @__func__.ossl_ec_scalar_mul_ladder) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #8
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink190, ptr noundef nonnull @__func__.ossl_ec_scalar_mul_ladder) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #9
   br label %ec_point_ladder_post.exit.thread
 
 ec_point_ladder_post.exit.thread:                 ; preds = %ec_point_ladder_post.exit.thread.sink.split, %157, %ec_point_ladder_post.exit
   %.1 = phi ptr [ %24, %ec_point_ladder_post.exit ], [ %24, %157 ], [ %.1.ph, %ec_point_ladder_post.exit.thread.sink.split ]
   %.0 = phi i32 [ 1, %ec_point_ladder_post.exit ], [ 1, %157 ], [ 0, %ec_point_ladder_post.exit.thread.sink.split ]
-  tail call void @EC_POINT_free(ptr noundef %21) #8
-  tail call void @EC_POINT_clear_free(ptr noundef %.1) #8
-  tail call void @BN_CTX_end(ptr noundef %4) #8
+  tail call void @EC_POINT_free(ptr noundef %21) #9
+  tail call void @EC_POINT_clear_free(ptr noundef %.1) #9
+  tail call void @BN_CTX_end(ptr noundef %4) #9
   br label %176
 
 176:                                              ; preds = %ec_point_ladder_post.exit.thread, %19, %14, %8
@@ -459,16 +459,16 @@ define internal fastcc i32 @ec_point_ladder_pre(ptr noundef %0, ptr noundef %1, 
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call i32 %8(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4) #8
+  %10 = tail call i32 %8(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4) #9
   br label %15
 
 11:                                               ; preds = %5
-  %12 = tail call i32 @EC_POINT_copy(ptr noundef nonnull %2, ptr noundef nonnull %3) #8
+  %12 = tail call i32 @EC_POINT_copy(ptr noundef nonnull %2, ptr noundef nonnull %3) #9
   %.not14 = icmp eq i32 %12, 0
   br i1 %.not14, label %15, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @EC_POINT_dbl(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %4) #8
+  %14 = tail call i32 @EC_POINT_dbl(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %4) #9
   %.not15 = icmp ne i32 %14, 0
   %spec.select = zext i1 %.not15 to i32
   br label %15
@@ -487,16 +487,16 @@ define internal fastcc i32 @ec_point_ladder_step(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call i32 %8(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4) #8
+  %10 = tail call i32 %8(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4) #9
   br label %15
 
 11:                                               ; preds = %5
-  %12 = tail call i32 @EC_POINT_add(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %4) #8
+  %12 = tail call i32 @EC_POINT_add(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %4) #9
   %.not17 = icmp eq i32 %12, 0
   br i1 %.not17, label %15, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @EC_POINT_dbl(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1, ptr noundef %4) #8
+  %14 = tail call i32 @EC_POINT_dbl(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1, ptr noundef %4) #9
   %.not18 = icmp ne i32 %14, 0
   %spec.select = zext i1 %.not18 to i32
   br label %15
@@ -515,14 +515,14 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %8 = alloca i64, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !16
-  %11 = tail call i32 @BN_is_zero(ptr noundef %10) #8
+  %11 = tail call i32 @BN_is_zero(ptr noundef %10) #9
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %31
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !24
-  %15 = tail call i32 @BN_is_zero(ptr noundef %14) #8
+  %15 = tail call i32 @BN_is_zero(ptr noundef %14) #9
   %.not393 = icmp eq i32 %15, 0
   br i1 %.not393, label %16, label %31
 
@@ -560,14 +560,14 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %.not395, label %.thread, label %32
 
 32:                                               ; preds = %31
-  %33 = tail call ptr @EC_GROUP_get0_generator(ptr noundef nonnull %0) #8
+  %33 = tail call ptr @EC_GROUP_get0_generator(ptr noundef nonnull %0) #9
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %32
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 465, ptr noundef nonnull @__func__.ossl_ec_wNAF_mul) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 113, ptr noundef null) #8
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 465, ptr noundef nonnull @__func__.ossl_ec_wNAF_mul) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 113, ptr noundef null) #9
   br label %.thread438
 
 36:                                               ; preds = %32
@@ -586,14 +586,14 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %44 = load ptr, ptr %43, align 8, !tbaa !3
   %45 = load ptr, ptr %44, align 8, !tbaa !12
-  %46 = tail call i32 @EC_POINT_cmp(ptr noundef nonnull %0, ptr noundef nonnull %33, ptr noundef %45, ptr noundef %6) #8
+  %46 = tail call i32 @EC_POINT_cmp(ptr noundef nonnull %0, ptr noundef nonnull %33, ptr noundef %45, ptr noundef %6) #9
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %.thread
 
 48:                                               ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !42
-  %51 = tail call i32 @BN_num_bits(ptr noundef nonnull %2) #8
+  %51 = tail call i32 @BN_num_bits(ptr noundef nonnull %2) #9
   %52 = sext i32 %51 to i64
   %53 = udiv i64 %52, %50
   %54 = add i64 %53, 1
@@ -610,9 +610,9 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %.not398, label %.thread, label %63
 
 63:                                               ; preds = %48
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 493, ptr noundef nonnull @__func__.ossl_ec_wNAF_mul) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 786691, ptr noundef null) #8
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 493, ptr noundef nonnull @__func__.ossl_ec_wNAF_mul) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 786691, ptr noundef null) #9
   br label %.thread438
 
 .thread:                                          ; preds = %26, %36, %39, %42, %48, %31
@@ -626,11 +626,11 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %.0316 = phi ptr [ %33, %48 ], [ null, %31 ], [ %33, %42 ], [ %33, %39 ], [ %33, %36 ], [ null, %26 ]
   %64 = add i64 %.0354, %3
   %65 = shl i64 %64, 3
-  %66 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %65, ptr noundef nonnull @.str, i32 noundef 507) #8
-  %67 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %65, ptr noundef nonnull @.str, i32 noundef 508) #8
+  %66 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %65, ptr noundef nonnull @.str, i32 noundef 507) #9
+  %67 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %65, ptr noundef nonnull @.str, i32 noundef 508) #9
   %68 = add i64 %65, 8
-  %69 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %68, ptr noundef nonnull @.str, i32 noundef 510) #8
-  %70 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %65, ptr noundef nonnull @.str, i32 noundef 511) #8
+  %69 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %68, ptr noundef nonnull @.str, i32 noundef 510) #9
+  %70 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %65, ptr noundef nonnull @.str, i32 noundef 511) #9
   %.not399 = icmp eq ptr %69, null
   br i1 %.not399, label %.thread438, label %71
 
@@ -662,7 +662,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 80:                                               ; preds = %.lr.ph, %77
   %.sink = phi ptr [ %79, %77 ], [ %2, %.lr.ph ]
-  %81 = tail call i32 @BN_num_bits(ptr noundef %.sink) #8
+  %81 = tail call i32 @BN_num_bits(ptr noundef %.sink) #9
   %82 = icmp ugt i32 %81, 1999
   br i1 %82, label %92, label %83
 
@@ -702,7 +702,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %104 = phi ptr [ %102, %100 ], [ %2, %92 ]
   %105 = trunc nuw nsw i64 %93 to i32
   %106 = getelementptr inbounds nuw i64, ptr %67, i64 %.0348490
-  %107 = tail call ptr @bn_compute_wNAF(ptr noundef %104, i32 noundef %105, ptr noundef %106) #8
+  %107 = tail call ptr @bn_compute_wNAF(ptr noundef %104, i32 noundef %105, ptr noundef %106) #9
   %108 = getelementptr inbounds nuw ptr, ptr %69, i64 %.0348490
   store ptr %107, ptr %108, align 8, !tbaa !45
   %109 = icmp eq ptr %107, null
@@ -728,9 +728,9 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %.not404, label %183, label %115
 
 115:                                              ; preds = %114
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 546, ptr noundef nonnull @__func__.ossl_ec_wNAF_mul) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 786691, ptr noundef null) #8
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 546, ptr noundef nonnull @__func__.ossl_ec_wNAF_mul) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 786691, ptr noundef null) #9
   br label %.thread438
 
 116:                                              ; preds = %112
@@ -739,9 +739,9 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %.not401, label %118, label %117
 
 117:                                              ; preds = %116
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 555, ptr noundef nonnull @__func__.ossl_ec_wNAF_mul) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 786691, ptr noundef null) #8
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 555, ptr noundef nonnull @__func__.ossl_ec_wNAF_mul) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 786691, ptr noundef null) #9
   br label %.thread453
 
 118:                                              ; preds = %116
@@ -750,7 +750,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %121 = getelementptr inbounds nuw i64, ptr %66, i64 %3
   store i64 %120, ptr %121, align 8, !tbaa !46
   %122 = trunc i64 %120 to i32
-  %123 = call ptr @bn_compute_wNAF(ptr noundef %2, i32 noundef %122, ptr noundef nonnull %8) #8
+  %123 = call ptr @bn_compute_wNAF(ptr noundef %2, i32 noundef %122, ptr noundef nonnull %8) #9
   %.not402 = icmp eq ptr %123, null
   br i1 %.not402, label %.thread453, label %124
 
@@ -788,10 +788,10 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %143, label %144, label %145
 
 144:                                              ; preds = %137
-  call void @ERR_new() #8
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 598, ptr noundef nonnull @__func__.ossl_ec_wNAF_mul) #8
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 786691, ptr noundef null) #8
-  call void @CRYPTO_free(ptr noundef nonnull %123, ptr noundef nonnull @.str, i32 noundef 599) #8
+  call void @ERR_new() #9
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 598, ptr noundef nonnull @__func__.ossl_ec_wNAF_mul) #9
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 786691, ptr noundef null) #9
+  call void @CRYPTO_free(ptr noundef nonnull %123, ptr noundef nonnull @.str, i32 noundef 599) #9
   br label %.thread453
 
 145:                                              ; preds = %137
@@ -825,10 +825,10 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %157, label %158, label %159
 
 158:                                              ; preds = %154
-  call void @ERR_new() #8
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 613, ptr noundef nonnull @__func__.ossl_ec_wNAF_mul) #8
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 786691, ptr noundef null) #8
-  call void @CRYPTO_free(ptr noundef nonnull %123, ptr noundef nonnull @.str, i32 noundef 614) #8
+  call void @ERR_new() #9
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 613, ptr noundef nonnull @__func__.ossl_ec_wNAF_mul) #9
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 786691, ptr noundef null) #9
+  call void @CRYPTO_free(ptr noundef nonnull %123, ptr noundef nonnull @.str, i32 noundef 614) #9
   br label %.thread453
 
 159:                                              ; preds = %154
@@ -847,14 +847,14 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %166 = add i64 %.1349495, 1
   %167 = getelementptr inbounds nuw ptr, ptr %69, i64 %166
   store ptr null, ptr %167, align 8, !tbaa !45
-  %168 = call noalias ptr @CRYPTO_malloc(i64 noundef %165, ptr noundef nonnull @.str, i32 noundef 626) #8
+  %168 = call noalias ptr @CRYPTO_malloc(i64 noundef %165, ptr noundef nonnull @.str, i32 noundef 626) #9
   %169 = getelementptr inbounds nuw ptr, ptr %69, i64 %.1349495
   store ptr %168, ptr %169, align 8, !tbaa !45
   %170 = icmp eq ptr %168, null
   br i1 %170, label %171, label %172
 
 171:                                              ; preds = %164
-  call void @CRYPTO_free(ptr noundef nonnull %123, ptr noundef nonnull @.str, i32 noundef 628) #8
+  call void @CRYPTO_free(ptr noundef nonnull %123, ptr noundef nonnull @.str, i32 noundef 628) #9
   br label %.thread453
 
 172:                                              ; preds = %164
@@ -866,10 +866,10 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %176, label %177, label %178
 
 177:                                              ; preds = %172
-  call void @ERR_new() #8
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 636, ptr noundef nonnull @__func__.ossl_ec_wNAF_mul) #8
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 786691, ptr noundef null) #8
-  call void @CRYPTO_free(ptr noundef nonnull %123, ptr noundef nonnull @.str, i32 noundef 637) #8
+  call void @ERR_new() #9
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 636, ptr noundef nonnull @__func__.ossl_ec_wNAF_mul) #9
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 786691, ptr noundef null) #9
+  call void @CRYPTO_free(ptr noundef nonnull %123, ptr noundef nonnull @.str, i32 noundef 637) #9
   br label %.thread453
 
 178:                                              ; preds = %172
@@ -883,7 +883,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 ._crit_edge501:                                   ; preds = %178, %147
   %.7.lcssa = phi i64 [ %.0327.lcssa, %147 ], [ %spec.select431, %178 ]
-  call void @CRYPTO_free(ptr noundef nonnull %123, ptr noundef nonnull @.str, i32 noundef 644) #8
+  call void @CRYPTO_free(ptr noundef nonnull %123, ptr noundef nonnull @.str, i32 noundef 644) #9
   br label %182
 
 .thread453:                                       ; preds = %117, %118, %144, %158, %171, %177
@@ -902,7 +902,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %.0357.fr = freeze i64 %.0357
   %184 = shl i64 %.0326.lcssa, 3
   %185 = add i64 %184, 8
-  %186 = call noalias ptr @CRYPTO_malloc(i64 noundef %185, ptr noundef nonnull @.str, i32 noundef 654) #8
+  %186 = call noalias ptr @CRYPTO_malloc(i64 noundef %185, ptr noundef nonnull @.str, i32 noundef 654) #9
   %187 = icmp eq ptr %186, null
   br i1 %187, label %.thread438, label %188
 
@@ -922,7 +922,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 192:                                              ; preds = %.lr.ph508, %195
   %.1323504 = phi ptr [ %.0322506, %.lr.ph508 ], [ %196, %195 ]
   %.0346503 = phi i64 [ 0, %.lr.ph508 ], [ %197, %195 ]
-  %193 = call ptr @EC_POINT_new(ptr noundef %0) #8
+  %193 = call ptr @EC_POINT_new(ptr noundef %0) #9
   store ptr %193, ptr %.1323504, align 8, !tbaa !12
   %194 = icmp eq ptr %193, null
   br i1 %194, label %.thread438, label %195
@@ -947,13 +947,13 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %203, label %205, label %204
 
 204:                                              ; preds = %._crit_edge509
-  call void @ERR_new() #8
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 671, ptr noundef nonnull @__func__.ossl_ec_wNAF_mul) #8
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 786691, ptr noundef null) #8
+  call void @ERR_new() #9
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 671, ptr noundef nonnull @__func__.ossl_ec_wNAF_mul) #9
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 786691, ptr noundef null) #9
   br label %.thread438
 
 205:                                              ; preds = %._crit_edge509
-  %206 = call ptr @EC_POINT_new(ptr noundef %0) #8
+  %206 = call ptr @EC_POINT_new(ptr noundef %0) #9
   %207 = icmp eq ptr %206, null
   br i1 %207, label %.thread438, label %.preheader467
 
@@ -971,12 +971,12 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 212:                                              ; preds = %.lr.ph515
   %213 = getelementptr inbounds nuw ptr, ptr %4, i64 %.3351514
   %214 = load ptr, ptr %213, align 8, !tbaa !12
-  %215 = call i32 @EC_POINT_copy(ptr noundef %211, ptr noundef %214) #8
+  %215 = call i32 @EC_POINT_copy(ptr noundef %211, ptr noundef %214) #9
   %.not422 = icmp eq i32 %215, 0
   br i1 %.not422, label %.thread438, label %218
 
 216:                                              ; preds = %.lr.ph515
-  %217 = call i32 @EC_POINT_copy(ptr noundef %211, ptr noundef %.0316) #8
+  %217 = call i32 @EC_POINT_copy(ptr noundef %211, ptr noundef %.0316) #9
   %.not421 = icmp eq i32 %217, 0
   br i1 %.not421, label %.thread438, label %218
 
@@ -988,7 +988,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 222:                                              ; preds = %218
   %223 = load ptr, ptr %210, align 8, !tbaa !12
-  %224 = call i32 @EC_POINT_dbl(ptr noundef %0, ptr noundef nonnull %206, ptr noundef %223, ptr noundef %6) #8
+  %224 = call i32 @EC_POINT_dbl(ptr noundef %0, ptr noundef nonnull %206, ptr noundef %223, ptr noundef %6) #9
   %.not423 = icmp eq i32 %224, 0
   br i1 %.not423, label %.thread438, label %.lr.ph513.preheader
 
@@ -1008,7 +1008,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %230 = load ptr, ptr %229, align 8, !tbaa !12
   %231 = getelementptr i8, ptr %229, i64 -8
   %232 = load ptr, ptr %231, align 8, !tbaa !12
-  %233 = call i32 @EC_POINT_add(ptr noundef %0, ptr noundef %230, ptr noundef %232, ptr noundef nonnull %206, ptr noundef %6) #8
+  %233 = call i32 @EC_POINT_add(ptr noundef %0, ptr noundef %230, ptr noundef %232, ptr noundef nonnull %206, ptr noundef %6) #9
   %.not424 = icmp eq i32 %233, 0
   br i1 %.not424, label %.thread438, label %226
 
@@ -1025,7 +1025,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %238, label %.thread438, label %239
 
 239:                                              ; preds = %._crit_edge516
-  %240 = call i32 %237(ptr noundef nonnull %0, i64 noundef %.0326.lcssa, ptr noundef nonnull %186, ptr noundef %6) #8
+  %240 = call i32 %237(ptr noundef nonnull %0, i64 noundef %.0326.lcssa, ptr noundef nonnull %186, ptr noundef %6) #9
   %.not405 = icmp eq i32 %240, 0
   br i1 %.not405, label %.thread438, label %241
 
@@ -1049,7 +1049,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %.not410.us, label %245, label %.lr.ph521.us.preheader
 
 245:                                              ; preds = %.lr.ph529.split.us
-  %246 = call i32 @EC_POINT_dbl(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1, ptr noundef %6) #8
+  %246 = call i32 @EC_POINT_dbl(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1, ptr noundef %6) #9
   %.not411.us = icmp eq i32 %246, 0
   br i1 %.not411.us, label %.thread438, label %.lr.ph521.us.preheader
 
@@ -1085,7 +1085,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %.not414.us, label %259, label %261
 
 259:                                              ; preds = %258
-  %260 = call i32 @EC_POINT_invert(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #8
+  %260 = call i32 @EC_POINT_invert(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #9
   %.not415.us = icmp eq i32 %260, 0
   br i1 %.not415.us, label %.thread438, label %261
 
@@ -1106,17 +1106,17 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %.not417.us, label %274, label %270
 
 270:                                              ; preds = %263
-  %271 = call i32 @EC_POINT_copy(ptr noundef %1, ptr noundef %269) #8
+  %271 = call i32 @EC_POINT_copy(ptr noundef %1, ptr noundef %269) #9
   %.not419.us = icmp eq i32 %271, 0
   br i1 %.not419.us, label %.thread438, label %272
 
 272:                                              ; preds = %270
-  %273 = call i32 @ossl_ec_point_blind_coordinates(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #8
+  %273 = call i32 @ossl_ec_point_blind_coordinates(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #9
   %.not420.us = icmp eq i32 %273, 0
   br i1 %.not420.us, label %.split.us, label %276
 
 274:                                              ; preds = %263
-  %275 = call i32 @EC_POINT_add(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1, ptr noundef %269, ptr noundef %6) #8
+  %275 = call i32 @EC_POINT_add(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1, ptr noundef %269, ptr noundef %6) #9
   %.not418.us = icmp eq i32 %275, 0
   br i1 %.not418.us, label %.thread438, label %276
 
@@ -1133,9 +1133,9 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %278, label %.lr.ph529.split.us, label %._crit_edge530, !llvm.loop !56
 
 .split.us:                                        ; preds = %272
-  call void @ERR_new() #8
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 751, ptr noundef nonnull @__func__.ossl_ec_wNAF_mul) #8
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 163, ptr noundef null) #8
+  call void @ERR_new() #9
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 751, ptr noundef nonnull @__func__.ossl_ec_wNAF_mul) #9
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 163, ptr noundef null) #9
   br label %.thread438
 
 ._crit_edge530:                                   ; preds = %..loopexit_crit_edge.us
@@ -1143,7 +1143,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %279, label %281, label %._crit_edge530.thread
 
 ._crit_edge530.thread:                            ; preds = %241, %._crit_edge530
-  %280 = call i32 @EC_POINT_set_to_infinity(ptr noundef nonnull %0, ptr noundef %1) #8
+  %280 = call i32 @EC_POINT_set_to_infinity(ptr noundef nonnull %0, ptr noundef %1) #9
   %.not409 = icmp eq i32 %280, 0
   br i1 %.not409, label %.thread438, label %285
 
@@ -1152,7 +1152,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %282, label %285, label %283
 
 283:                                              ; preds = %281
-  %284 = call i32 @EC_POINT_invert(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #8
+  %284 = call i32 @EC_POINT_invert(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #9
   %.not408 = icmp eq i32 %284, 0
   br i1 %.not408, label %.thread438, label %285
 
@@ -1167,9 +1167,9 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %.0325 = phi ptr [ null, %35 ], [ null, %63 ], [ null, %71 ], [ null, %115 ], [ null, %183 ], [ %186, %205 ], [ %186, %._crit_edge516 ], [ %186, %285 ], [ %186, %._crit_edge530.thread ], [ %186, %283 ], [ %186, %239 ], [ %186, %204 ], [ null, %.thread453 ], [ null, %.thread ], [ %186, %.split.us ], [ %186, %259 ], [ %186, %270 ], [ %186, %274 ], [ %186, %245 ], [ %186, %.lr.ph513 ], [ %186, %212 ], [ %186, %216 ], [ %186, %222 ], [ %186, %192 ], [ null, %103 ]
   %.0321 = phi ptr [ null, %35 ], [ null, %63 ], [ %70, %71 ], [ %70, %115 ], [ %70, %183 ], [ %70, %205 ], [ %70, %._crit_edge516 ], [ %70, %285 ], [ %70, %._crit_edge530.thread ], [ %70, %283 ], [ %70, %239 ], [ %70, %204 ], [ %70, %.thread453 ], [ %70, %.thread ], [ %70, %.split.us ], [ %70, %259 ], [ %70, %270 ], [ %70, %274 ], [ %70, %245 ], [ %70, %.lr.ph513 ], [ %70, %212 ], [ %70, %216 ], [ %70, %222 ], [ %70, %192 ], [ %70, %103 ]
   %.0318 = phi i32 [ 0, %35 ], [ 0, %63 ], [ 0, %71 ], [ 0, %115 ], [ 0, %183 ], [ 0, %205 ], [ 0, %._crit_edge516 ], [ 1, %285 ], [ 0, %._crit_edge530.thread ], [ 0, %283 ], [ 0, %239 ], [ 0, %204 ], [ 0, %.thread453 ], [ 0, %.thread ], [ 0, %.split.us ], [ 0, %259 ], [ 0, %270 ], [ 0, %274 ], [ 0, %245 ], [ 0, %.lr.ph513 ], [ 0, %212 ], [ 0, %216 ], [ 0, %222 ], [ 0, %192 ], [ 0, %103 ]
-  call void @EC_POINT_free(ptr noundef %.0362) #8
-  call void @CRYPTO_free(ptr noundef %.0333, ptr noundef nonnull @.str, i32 noundef 779) #8
-  call void @CRYPTO_free(ptr noundef %.0331, ptr noundef nonnull @.str, i32 noundef 780) #8
+  call void @EC_POINT_free(ptr noundef %.0362) #9
+  call void @CRYPTO_free(ptr noundef %.0333, ptr noundef nonnull @.str, i32 noundef 779) #9
+  call void @CRYPTO_free(ptr noundef %.0331, ptr noundef nonnull @.str, i32 noundef 780) #9
   %.not425 = icmp eq ptr %.0332, null
   br i1 %.not425, label %290, label %.preheader462
 
@@ -1181,14 +1181,14 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 .lr.ph536:                                        ; preds = %.preheader462, %.lr.ph536
   %287 = phi ptr [ %289, %.lr.ph536 ], [ %286, %.preheader462 ]
   %.0535 = phi ptr [ %288, %.lr.ph536 ], [ %.0332, %.preheader462 ]
-  call void @CRYPTO_free(ptr noundef nonnull %287, ptr noundef nonnull @.str, i32 noundef 785) #8
+  call void @CRYPTO_free(ptr noundef nonnull %287, ptr noundef nonnull @.str, i32 noundef 785) #9
   %288 = getelementptr inbounds nuw i8, ptr %.0535, i64 8
   %289 = load ptr, ptr %288, align 8, !tbaa !45
   %.not426 = icmp eq ptr %289, null
   br i1 %.not426, label %._crit_edge537, label %.lr.ph536, !llvm.loop !57
 
 ._crit_edge537:                                   ; preds = %.lr.ph536, %.preheader462
-  call void @CRYPTO_free(ptr noundef nonnull %.0332, ptr noundef nonnull @.str, i32 noundef 787) #8
+  call void @CRYPTO_free(ptr noundef nonnull %.0332, ptr noundef nonnull @.str, i32 noundef 787) #9
   br label %290
 
 290:                                              ; preds = %._crit_edge537, %.thread438
@@ -1203,18 +1203,18 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 .lr.ph540:                                        ; preds = %.preheader, %.lr.ph540
   %292 = phi ptr [ %294, %.lr.ph540 ], [ %291, %.preheader ]
   %.2324539 = phi ptr [ %293, %.lr.ph540 ], [ %.0325, %.preheader ]
-  call void @EC_POINT_clear_free(ptr noundef nonnull %292) #8
+  call void @EC_POINT_clear_free(ptr noundef nonnull %292) #9
   %293 = getelementptr inbounds nuw i8, ptr %.2324539, i64 8
   %294 = load ptr, ptr %293, align 8, !tbaa !12
   %.not428 = icmp eq ptr %294, null
   br i1 %.not428, label %._crit_edge541, label %.lr.ph540, !llvm.loop !58
 
 ._crit_edge541:                                   ; preds = %.lr.ph540, %.preheader
-  call void @CRYPTO_free(ptr noundef nonnull %.0325, ptr noundef nonnull @.str, i32 noundef 793) #8
+  call void @CRYPTO_free(ptr noundef nonnull %.0325, ptr noundef nonnull @.str, i32 noundef 793) #9
   br label %295
 
 295:                                              ; preds = %._crit_edge541, %290
-  call void @CRYPTO_free(ptr noundef %.0321, ptr noundef nonnull @.str, i32 noundef 795) #8
+  call void @CRYPTO_free(ptr noundef %.0321, ptr noundef nonnull @.str, i32 noundef 795) #9
   br label %296
 
 296:                                              ; preds = %295, %28, %21
@@ -1243,12 +1243,12 @@ declare i32 @ossl_ec_point_blind_coordinates(ptr noundef, ptr noundef, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  tail call void @EC_pre_comp_free(ptr noundef %0) #8
+  tail call void @EC_pre_comp_free(ptr noundef %0) #9
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %ec_pre_comp_new.exit.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 56, ptr noundef nonnull @.str, i32 noundef 57) #8
+  %4 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 56, ptr noundef nonnull @.str, i32 noundef 57) #9
   %5 = icmp eq ptr %4, null
   br i1 %5, label %ec_pre_comp_new.exit.thread, label %6
 
@@ -1260,14 +1260,14 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
   store i64 4, ptr %8, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store atomic i32 1, ptr %9 seq_cst, align 8, !tbaa !60
-  %10 = tail call ptr @EC_GROUP_get0_generator(ptr noundef nonnull %0) #8
+  %10 = tail call ptr @EC_GROUP_get0_generator(ptr noundef nonnull %0) #9
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %6
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 840, ptr noundef nonnull @__func__.ossl_ec_wNAF_precompute_mult) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 113, ptr noundef null) #8
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 840, ptr noundef nonnull @__func__.ossl_ec_wNAF_precompute_mult) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 113, ptr noundef null) #9
   br label %.thread193
 
 13:                                               ; preds = %6
@@ -1275,31 +1275,31 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %13
-  %16 = tail call ptr @BN_CTX_new() #8
+  %16 = tail call ptr @BN_CTX_new() #9
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.thread193, label %.thread
 
 .thread:                                          ; preds = %13, %15
   %.1115161 = phi ptr [ %16, %15 ], [ null, %13 ]
   %.1122160 = phi ptr [ %16, %15 ], [ %1, %13 ]
-  tail call void @BN_CTX_start(ptr noundef nonnull %.1122160) #8
-  %18 = tail call ptr @EC_GROUP_get0_order(ptr noundef nonnull %0) #8
+  tail call void @BN_CTX_start(ptr noundef nonnull %.1122160) #9
+  %18 = tail call ptr @EC_GROUP_get0_order(ptr noundef nonnull %0) #9
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.thread166, label %20
 
 20:                                               ; preds = %.thread
-  %21 = tail call i32 @BN_is_zero(ptr noundef nonnull %18) #8
+  %21 = tail call i32 @BN_is_zero(ptr noundef nonnull %18) #9
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %23, label %22
 
 22:                                               ; preds = %20
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 858, ptr noundef nonnull @__func__.ossl_ec_wNAF_precompute_mult) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 114, ptr noundef null) #8
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 858, ptr noundef nonnull @__func__.ossl_ec_wNAF_precompute_mult) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 114, ptr noundef null) #9
   br label %.thread166
 
 23:                                               ; preds = %20
-  %24 = tail call i32 @BN_num_bits(ptr noundef nonnull %18) #8
+  %24 = tail call i32 @BN_num_bits(ptr noundef nonnull %18) #9
   %25 = sext i32 %24 to i64
   %26 = icmp ugt i32 %24, 1999
   %27 = icmp ugt i32 %24, 799
@@ -1311,7 +1311,7 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
   %31 = shl i64 %29, %30
   %32 = shl i64 %31, 3
   %33 = add i64 %32, 8
-  %34 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %33, ptr noundef nonnull @.str, i32 noundef 884) #8
+  %34 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %33, ptr noundef nonnull @.str, i32 noundef 884) #9
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.thread166, label %36
 
@@ -1328,36 +1328,36 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
 
 .lr.ph:                                           ; preds = %36, %38
   %.0129215 = phi i64 [ %39, %38 ], [ 0, %36 ]
-  %40 = tail call ptr @EC_POINT_new(ptr noundef nonnull %0) #8
+  %40 = tail call ptr @EC_POINT_new(ptr noundef nonnull %0) #9
   %41 = getelementptr inbounds nuw ptr, ptr %34, i64 %.0129215
   store ptr %40, ptr %41, align 8, !tbaa !12
   %42 = icmp eq ptr %40, null
   br i1 %42, label %43, label %38
 
 43:                                               ; preds = %.lr.ph
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 892, ptr noundef nonnull @__func__.ossl_ec_wNAF_precompute_mult) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 524304, ptr noundef null) #8
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 892, ptr noundef nonnull @__func__.ossl_ec_wNAF_precompute_mult) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 524304, ptr noundef null) #9
   br label %.thread166
 
 ._crit_edge:                                      ; preds = %38, %36
-  %44 = tail call ptr @EC_POINT_new(ptr noundef nonnull %0) #8
+  %44 = tail call ptr @EC_POINT_new(ptr noundef nonnull %0) #9
   %45 = icmp eq ptr %44, null
   br i1 %45, label %49, label %46
 
 46:                                               ; preds = %._crit_edge
-  %47 = tail call ptr @EC_POINT_new(ptr noundef nonnull %0) #8
+  %47 = tail call ptr @EC_POINT_new(ptr noundef nonnull %0) #9
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %46, %._crit_edge
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 899, ptr noundef nonnull @__func__.ossl_ec_wNAF_precompute_mult) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 524304, ptr noundef null) #8
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 899, ptr noundef nonnull @__func__.ossl_ec_wNAF_precompute_mult) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 524304, ptr noundef null) #9
   br label %.thread166
 
 50:                                               ; preds = %46
-  %51 = tail call i32 @EC_POINT_copy(ptr noundef nonnull %47, ptr noundef nonnull %10) #8
+  %51 = tail call i32 @EC_POINT_copy(ptr noundef nonnull %47, ptr noundef nonnull %10) #9
   %.not146 = icmp eq i32 %51, 0
   br i1 %.not146, label %.thread166, label %.preheader212
 
@@ -1373,13 +1373,13 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
 53:                                               ; preds = %.lr.ph226, %.loopexit
   %.0127225 = phi ptr [ %34, %.lr.ph226 ], [ %.2, %.loopexit ]
   %.1130224 = phi i64 [ 0, %.lr.ph226 ], [ %70, %.loopexit ]
-  %54 = tail call i32 @EC_POINT_dbl(ptr noundef nonnull %0, ptr noundef nonnull %44, ptr noundef nonnull %47, ptr noundef nonnull %.1122160) #8
+  %54 = tail call i32 @EC_POINT_dbl(ptr noundef nonnull %0, ptr noundef nonnull %44, ptr noundef nonnull %47, ptr noundef nonnull %.1122160) #9
   %.not148 = icmp eq i32 %54, 0
   br i1 %.not148, label %.thread166, label %55
 
 55:                                               ; preds = %53
   %56 = load ptr, ptr %.0127225, align 8, !tbaa !12
-  %57 = tail call i32 @EC_POINT_copy(ptr noundef %56, ptr noundef nonnull %47) #8
+  %57 = tail call i32 @EC_POINT_copy(ptr noundef %56, ptr noundef nonnull %47) #9
   %.not149 = icmp eq i32 %57, 0
   br i1 %.not149, label %.thread166, label %.lr.ph221.preheader
 
@@ -1400,7 +1400,7 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
   %.2.pn218 = phi ptr [ %.2220, %58 ], [ %.0127225, %.lr.ph221.preheader ]
   %61 = load ptr, ptr %.2220, align 8, !tbaa !12
   %62 = load ptr, ptr %.2.pn218, align 8, !tbaa !12
-  %63 = tail call i32 @EC_POINT_add(ptr noundef nonnull %0, ptr noundef %61, ptr noundef nonnull %44, ptr noundef %62, ptr noundef nonnull %.1122160) #8
+  %63 = tail call i32 @EC_POINT_add(ptr noundef nonnull %0, ptr noundef %61, ptr noundef nonnull %44, ptr noundef %62, ptr noundef nonnull %.1122160) #9
   %.not152 = icmp eq i32 %63, 0
   br i1 %.not152, label %.thread166, label %58
 
@@ -1409,7 +1409,7 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
   br i1 %64, label %65, label %.loopexit
 
 65:                                               ; preds = %._crit_edge222
-  %66 = tail call i32 @EC_POINT_dbl(ptr noundef nonnull %0, ptr noundef nonnull %47, ptr noundef nonnull %44, ptr noundef nonnull %.1122160) #8
+  %66 = tail call i32 @EC_POINT_dbl(ptr noundef nonnull %0, ptr noundef nonnull %47, ptr noundef nonnull %44, ptr noundef nonnull %.1122160) #9
   %.not150 = icmp eq i32 %66, 0
   br i1 %.not150, label %.thread166, label %.preheader209
 
@@ -1420,7 +1420,7 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
 
 .preheader209:                                    ; preds = %65, %67
   %.0111223 = phi i64 [ %68, %67 ], [ 2, %65 ]
-  %69 = tail call i32 @EC_POINT_dbl(ptr noundef nonnull %0, ptr noundef nonnull %47, ptr noundef nonnull %47, ptr noundef nonnull %.1122160) #8
+  %69 = tail call i32 @EC_POINT_dbl(ptr noundef nonnull %0, ptr noundef nonnull %47, ptr noundef nonnull %47, ptr noundef nonnull %.1122160) #9
   %.not151 = icmp eq i32 %69, 0
   br i1 %.not151, label %.thread166, label %67
 
@@ -1437,7 +1437,7 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
   br i1 %74, label %.thread166, label %75
 
 75:                                               ; preds = %._crit_edge227
-  %76 = tail call i32 %73(ptr noundef nonnull %0, i64 noundef %31, ptr noundef nonnull %34, ptr noundef nonnull %.1122160) #8
+  %76 = tail call i32 %73(ptr noundef nonnull %0, i64 noundef %31, ptr noundef nonnull %34, ptr noundef nonnull %.1122160) #9
   %.not147 = icmp eq i32 %76, 0
   br i1 %.not147, label %.thread166, label %77
 
@@ -1458,7 +1458,7 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
   br label %.thread166
 
 .thread193:                                       ; preds = %12, %15
-  tail call void @BN_CTX_free(ptr noundef null) #8
+  tail call void @BN_CTX_free(ptr noundef null) #9
   br label %84
 
 .thread166:                                       ; preds = %65, %55, %53, %.lr.ph221, %.preheader209, %50, %75, %77, %._crit_edge227, %49, %43, %23, %22, %.thread
@@ -1467,8 +1467,8 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
   %.0119.ph = phi ptr [ %34, %50 ], [ %34, %75 ], [ null, %77 ], [ %34, %._crit_edge227 ], [ %34, %49 ], [ %34, %43 ], [ null, %23 ], [ null, %22 ], [ null, %.thread ], [ %34, %.preheader209 ], [ %34, %.lr.ph221 ], [ %34, %53 ], [ %34, %55 ], [ %34, %65 ]
   %.0118.ph = phi ptr [ %4, %50 ], [ %4, %75 ], [ null, %77 ], [ %4, %._crit_edge227 ], [ %4, %49 ], [ %4, %43 ], [ %4, %23 ], [ %4, %22 ], [ %4, %.thread ], [ %4, %.preheader209 ], [ %4, %.lr.ph221 ], [ %4, %53 ], [ %4, %55 ], [ %4, %65 ]
   %.0117.ph = phi i32 [ 0, %50 ], [ 0, %75 ], [ 1, %77 ], [ 0, %._crit_edge227 ], [ 0, %49 ], [ 0, %43 ], [ 0, %23 ], [ 0, %22 ], [ 0, %.thread ], [ 0, %.preheader209 ], [ 0, %.lr.ph221 ], [ 0, %53 ], [ 0, %55 ], [ 0, %65 ]
-  tail call void @BN_CTX_end(ptr noundef nonnull %.1122160) #8
-  tail call void @BN_CTX_free(ptr noundef %.1115161) #8
+  tail call void @BN_CTX_end(ptr noundef nonnull %.1122160) #9
+  tail call void @BN_CTX_free(ptr noundef %.1115161) #9
   %83 = icmp eq ptr %.0118.ph, null
   br i1 %83, label %EC_ec_pre_comp_free.exit, label %84
 
@@ -1505,7 +1505,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %84
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %93 = phi ptr [ %95, %.lr.ph.i ], [ %92, %.preheader.i ]
   %.015.i = phi ptr [ %94, %.lr.ph.i ], [ %91, %.preheader.i ]
-  tail call void @EC_POINT_free(ptr noundef nonnull %93) #8
+  tail call void @EC_POINT_free(ptr noundef nonnull %93) #9
   %94 = getelementptr inbounds nuw i8, ptr %.015.i, i64 8
   %95 = load ptr, ptr %94, align 8, !tbaa !12
   %.not13.i = icmp eq ptr %95, null
@@ -1517,11 +1517,11 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %84
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
   %96 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %91, %.preheader.i ]
-  tail call void @CRYPTO_free(ptr noundef %96, ptr noundef nonnull @.str, i32 noundef 98) #8
+  tail call void @CRYPTO_free(ptr noundef %96, ptr noundef nonnull @.str, i32 noundef 98) #9
   br label %97
 
 97:                                               ; preds = %._crit_edge.i, %89
-  tail call void @CRYPTO_free(ptr noundef nonnull %.0118187202, ptr noundef nonnull @.str, i32 noundef 101) #8
+  tail call void @CRYPTO_free(ptr noundef nonnull %.0118187202, ptr noundef nonnull @.str, i32 noundef 101) #9
   br label %EC_ec_pre_comp_free.exit
 
 EC_ec_pre_comp_free.exit:                         ; preds = %.thread166, %CRYPTO_DOWN_REF.exit.i, %97
@@ -1540,19 +1540,19 @@ EC_ec_pre_comp_free.exit:                         ; preds = %.thread166, %CRYPTO
 .lr.ph230:                                        ; preds = %.preheader, %.lr.ph230
   %99 = phi ptr [ %101, %.lr.ph230 ], [ %98, %.preheader ]
   %.0229 = phi ptr [ %100, %.lr.ph230 ], [ %.0119185204, %.preheader ]
-  tail call void @EC_POINT_free(ptr noundef nonnull %99) #8
+  tail call void @EC_POINT_free(ptr noundef nonnull %99) #9
   %100 = getelementptr inbounds nuw i8, ptr %.0229, i64 8
   %101 = load ptr, ptr %100, align 8, !tbaa !12
   %.not155 = icmp eq ptr %101, null
   br i1 %.not155, label %._crit_edge231, label %.lr.ph230, !llvm.loop !66
 
 ._crit_edge231:                                   ; preds = %.lr.ph230, %.preheader
-  tail call void @CRYPTO_free(ptr noundef nonnull %.0119185204, ptr noundef nonnull @.str, i32 noundef 971) #8
+  tail call void @CRYPTO_free(ptr noundef nonnull %.0119185204, ptr noundef nonnull @.str, i32 noundef 971) #9
   br label %102
 
 102:                                              ; preds = %._crit_edge231, %EC_ec_pre_comp_free.exit
-  tail call void @EC_POINT_free(ptr noundef %.0123182206) #8
-  tail call void @EC_POINT_free(ptr noundef %.0124180208) #8
+  tail call void @EC_POINT_free(ptr noundef %.0123182206) #9
+  tail call void @EC_POINT_free(ptr noundef %.0124180208) #9
   br label %ec_pre_comp_new.exit.thread
 
 ec_pre_comp_new.exit.thread:                      ; preds = %3, %2, %102
@@ -1595,14 +1595,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.abs.i8(i8, i1 immarg) #7
+declare i8 @llvm.abs.i8(i8, i1 immarg) #8
 
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1611,8 +1611,9 @@ attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-t
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

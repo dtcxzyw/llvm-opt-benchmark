@@ -4636,7 +4636,7 @@ _ZL12WrapPositionm.exit.i387:                     ; preds = %1465, %_ZL16GetBrot
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit24.i.i
 
 1515:                                             ; preds = %.preheader.i.i
-  %1516 = tail call double @log2(double noundef %1510) #18, !tbaa !61
+  %1516 = tail call double @log2(double noundef %1510) #19, !tbaa !61
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit24.i.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit24.i.i:        ; preds = %1515, %1512
@@ -4657,7 +4657,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit24.i.i:        ; preds = %1515, %1512
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i.i
 
 1527:                                             ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit24.i.i
-  %1528 = tail call double @log2(double noundef %1522) #18, !tbaa !61
+  %1528 = tail call double @log2(double noundef %1522) #19, !tbaa !61
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit.i.i:          ; preds = %1527, %1524
@@ -4684,7 +4684,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i.i:          ; preds = %1527, %1524
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit26.i.i
 
 1541:                                             ; preds = %1535
-  %1542 = tail call double @log2(double noundef %1536) #18, !tbaa !61
+  %1542 = tail call double @log2(double noundef %1536) #19, !tbaa !61
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit26.i.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit26.i.i:        ; preds = %1541, %1538
@@ -7010,7 +7010,7 @@ define internal fastcc void @_ZL32DecideOverLiteralContextModelingPKhmmmimPmPPKj
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit64.i
 
 63:                                               ; preds = %.preheader.i
-  %64 = tail call double @log2(double noundef %58) #18, !tbaa !61
+  %64 = tail call double @log2(double noundef %58) #19, !tbaa !61
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit64.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit64.i:          ; preds = %63, %60
@@ -7031,7 +7031,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit64.i:          ; preds = %63, %60
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i
 
 75:                                               ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit64.i
-  %76 = tail call double @log2(double noundef %70) #18, !tbaa !61
+  %76 = tail call double @log2(double noundef %70) #19, !tbaa !61
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %75, %72
@@ -7056,7 +7056,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %75, %72
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit66.i
 
 87:                                               ; preds = %81
-  %88 = tail call double @log2(double noundef %82) #18, !tbaa !61
+  %88 = tail call double @log2(double noundef %82) #19, !tbaa !61
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit66.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit66.i:          ; preds = %87, %84
@@ -7094,7 +7094,7 @@ _ZN13duckdb_brotliL14ShannonEntropyEPKjmPm.exit62.i: ; preds = %_ZN13duckdb_brot
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit70.i
 
 101:                                              ; preds = %92
-  %102 = tail call double @log2(double noundef %96) #18, !tbaa !61
+  %102 = tail call double @log2(double noundef %96) #19, !tbaa !61
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit70.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit70.i:          ; preds = %101, %98
@@ -7115,7 +7115,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit70.i:          ; preds = %101, %98
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit68.i
 
 113:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit70.i
-  %114 = tail call double @log2(double noundef %108) #18, !tbaa !61
+  %114 = tail call double @log2(double noundef %108) #19, !tbaa !61
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit68.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit68.i:          ; preds = %113, %110
@@ -7140,7 +7140,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit68.i:          ; preds = %113, %110
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit72.i
 
 125:                                              ; preds = %119
-  %126 = tail call double @log2(double noundef %120) #18, !tbaa !61
+  %126 = tail call double @log2(double noundef %120) #19, !tbaa !61
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit72.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit72.i:          ; preds = %125, %122
@@ -7265,7 +7265,7 @@ _ZL32ShouldUseComplexStaticContextMapPKhmmmimPmPPKjPj.exit: ; preds = %135
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i52
 
 179:                                              ; preds = %170
-  %180 = tail call double @log2(double noundef %174) #18, !tbaa !61
+  %180 = tail call double @log2(double noundef %174) #19, !tbaa !61
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i52
 
 _ZN13duckdb_brotliL8FastLog2Em.exit.i52:          ; preds = %179, %176
@@ -7293,7 +7293,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i52:          ; preds = %179, %176
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit51.i
 
 192:                                              ; preds = %.preheader.i44
-  %193 = tail call double @log2(double noundef %187) #18, !tbaa !61
+  %193 = tail call double @log2(double noundef %187) #19, !tbaa !61
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit51.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit51.i:          ; preds = %192, %189
@@ -7318,7 +7318,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit51.i:          ; preds = %192, %189
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit49.i
 
 203:                                              ; preds = %197
-  %204 = tail call double @log2(double noundef %198) #18, !tbaa !61
+  %204 = tail call double @log2(double noundef %198) #19, !tbaa !61
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit49.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit49.i:          ; preds = %203, %200
@@ -7344,7 +7344,7 @@ _ZN13duckdb_brotliL14ShannonEntropyEPKjmPm.exit46.i: ; preds = %_ZN13duckdb_brot
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit53.i
 
 215:                                              ; preds = %206
-  %216 = tail call double @log2(double noundef %210) #18, !tbaa !61
+  %216 = tail call double @log2(double noundef %210) #19, !tbaa !61
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit53.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit53.i:          ; preds = %215, %212
@@ -7372,7 +7372,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit53.i:          ; preds = %215, %212
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit57.i
 
 229:                                              ; preds = %219
-  %230 = tail call double @log2(double noundef %224) #18, !tbaa !61
+  %230 = tail call double @log2(double noundef %224) #19, !tbaa !61
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit57.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit57.i:          ; preds = %229, %226
@@ -7396,7 +7396,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit57.i:          ; preds = %229, %226
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit55.i
 
 240:                                              ; preds = %234
-  %241 = tail call double @log2(double noundef %235) #18, !tbaa !61
+  %241 = tail call double @log2(double noundef %235) #19, !tbaa !61
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit55.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit55.i:          ; preds = %240, %237
@@ -7423,7 +7423,7 @@ _ZN13duckdb_brotliL14ShannonEntropyEPKjmPm.exit40.i: ; preds = %_ZN13duckdb_brot
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit59.i
 
 252:                                              ; preds = %243
-  %253 = tail call double @log2(double noundef %247) #18, !tbaa !61
+  %253 = tail call double @log2(double noundef %247) #19, !tbaa !61
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit59.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit59.i:          ; preds = %252, %249
@@ -7451,7 +7451,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit59.i:          ; preds = %252, %249
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit63.i
 
 265:                                              ; preds = %256
-  %266 = tail call double @log2(double noundef %260) #18, !tbaa !61
+  %266 = tail call double @log2(double noundef %260) #19, !tbaa !61
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit63.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit63.i:          ; preds = %265, %262
@@ -7476,7 +7476,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit63.i:          ; preds = %265, %262
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit61.i
 
 277:                                              ; preds = %271
-  %278 = tail call double @log2(double noundef %272) #18, !tbaa !61
+  %278 = tail call double @log2(double noundef %272) #19, !tbaa !61
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit61.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit61.i:          ; preds = %277, %274
@@ -7509,7 +7509,7 @@ _ZN13duckdb_brotliL14ShannonEntropyEPKjmPm.exit34.i: ; preds = %_ZN13duckdb_brot
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit65.i
 
 291:                                              ; preds = %282
-  %292 = tail call double @log2(double noundef %286) #18, !tbaa !61
+  %292 = tail call double @log2(double noundef %286) #19, !tbaa !61
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit65.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit65.i:          ; preds = %291, %288
@@ -7538,7 +7538,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit65.i:          ; preds = %291, %288
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit69.i
 
 305:                                              ; preds = %295
-  %306 = tail call double @log2(double noundef %300) #18, !tbaa !61
+  %306 = tail call double @log2(double noundef %300) #19, !tbaa !61
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit69.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit69.i:          ; preds = %305, %302
@@ -7562,7 +7562,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit69.i:          ; preds = %305, %302
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit67.i
 
 316:                                              ; preds = %310
-  %317 = tail call double @log2(double noundef %311) #18, !tbaa !61
+  %317 = tail call double @log2(double noundef %311) #19, !tbaa !61
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit67.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit67.i:          ; preds = %316, %313
@@ -7636,11 +7636,11 @@ declare void @_ZN13duckdb_brotli24BrotliOptimizeHistogramsEjPNS_14MetaBlockSplit
 
 declare void @_ZN13duckdb_brotli20BrotliStoreMetaBlockEPNS_13MemoryManagerEPKhmmmhhiPK19BrotliEncoderParamsNS_11ContextTypeEPKNS_7CommandEmPKNS_14MetaBlockSplitEPmPh(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i8 noundef zeroext, i8 noundef zeroext, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #8
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log2(double noundef) local_unnamed_addr #14
+declare double @log2(double noundef) local_unnamed_addr #15
 
 declare void @_ZN13duckdb_brotli20BrotliInitBlockSplitEPNS_10BlockSplitE(ptr noundef) local_unnamed_addr #2
 
@@ -7649,34 +7649,34 @@ declare void @_ZN13duckdb_brotli23BrotliDestroyBlockSplitEPNS_13MemoryManagerEPN
 declare void @_ZN13duckdb_brotli33BrotliInitSharedEncoderDictionaryEPNS_23SharedEncoderDictionaryE(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #17
+declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #16
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -7692,11 +7692,12 @@ attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(argmem: 
 attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #18 = { nounwind }
+attributes #14 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #19 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

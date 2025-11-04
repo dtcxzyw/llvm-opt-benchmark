@@ -71,7 +71,7 @@ define internal void @_ZL12_ISO2022OpenP10UConverterP18UConverterLoadArgsP10UErr
   %6 = alloca %struct.UConverterLoadArgs, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %4, ptr noundef nonnull align 1 dereferenceable(7) @__const._ZL12_ISO2022OpenP10UConverterP18UConverterLoadArgsP10UErrorCode.myLocale, i64 7, i1 false)
-  %7 = tail call noalias dereferenceable_or_null(152) ptr @uprv_malloc_77(i64 noundef 152) #12
+  %7 = tail call noalias dereferenceable_or_null(152) ptr @uprv_malloc_77(i64 noundef 152) #13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %8, align 8, !tbaa !3
   %.not = icmp eq ptr %7, null
@@ -103,7 +103,7 @@ define internal void @_ZL12_ISO2022OpenP10UConverterP18UConverterLoadArgsP10UErr
   br label %.thread143
 
 20:                                               ; preds = %9
-  %21 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %15, i64 noundef 6) #13
+  %21 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %15, i64 noundef 6) #14
   %.pre = load i8, ptr %4, align 1, !tbaa !23
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %23 = load i32, ptr %22, align 4, !tbaa !17
@@ -177,10 +177,10 @@ define internal void @_ZL12_ISO2022OpenP10UConverterP18UConverterLoadArgsP10UErr
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @_ZN12_GLOBAL__N_114_ISO2022JPDataE, ptr %50, align 8, !tbaa !27
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 143
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %51, ptr noundef nonnull align 1 dereferenceable(3) @.str.5, i64 3, i1 false) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %51, ptr noundef nonnull align 1 dereferenceable(3) @.str.5, i64 3, i1 false) #14
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 113
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %52, ptr noundef nonnull align 1 dereferenceable(28) @.str.6, i64 28, i1 false) #13
-  %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %52) #14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %52, ptr noundef nonnull align 1 dereferenceable(28) @.str.6, i64 28, i1 false) #14
+  %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %52) #15
   %54 = load i32, ptr %25, align 4, !tbaa !18
   %55 = trunc i32 %54 to i8
   %56 = add i8 %55, 48
@@ -251,7 +251,7 @@ define internal void @_ZL12_ISO2022OpenP10UConverterP18UConverterLoadArgsP10UErr
   br i1 %69, label %83, label %93
 
 83:                                               ; preds = %81
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %82, ptr noundef nonnull align 1 dereferenceable(29) @.str.9, i64 29, i1 false) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %82, ptr noundef nonnull align 1 dereferenceable(29) @.str.9, i64 29, i1 false) #14
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %85 = load ptr, ptr %84, align 8, !tbaa !29
   %86 = getelementptr inbounds nuw i8, ptr %76, i64 40
@@ -266,7 +266,7 @@ define internal void @_ZL12_ISO2022OpenP10UConverterP18UConverterLoadArgsP10UErr
   br label %94
 
 93:                                               ; preds = %81
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %82, ptr noundef nonnull align 1 dereferenceable(29) @.str.10, i64 29, i1 false) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %82, ptr noundef nonnull align 1 dereferenceable(29) @.str.10, i64 29, i1 false) #14
   br label %94
 
 94:                                               ; preds = %93, %83
@@ -316,7 +316,7 @@ _ZL28setInitialStateFromUnicodeKRP10UConverterP21UConverterDataISO2022.exit: ; p
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @_ZN12_GLOBAL__N_114_ISO2022KRDataE, ptr %114, align 8, !tbaa !27
   %115 = getelementptr inbounds nuw i8, ptr %7, i64 143
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %115, ptr noundef nonnull align 1 dereferenceable(3) @.str.11, i64 3, i1 false) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %115, ptr noundef nonnull align 1 dereferenceable(3) @.str.11, i64 3, i1 false) #14
   br label %149
 
 116:                                              ; preds = %20
@@ -369,14 +369,14 @@ _ZL28setInitialStateFromUnicodeKRP10UConverterP21UConverterDataISO2022.exit: ; p
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @_ZN12_GLOBAL__N_114_ISO2022CNDataE, ptr %140, align 8, !tbaa !27
   %141 = getelementptr inbounds nuw i8, ptr %7, i64 143
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %141, ptr noundef nonnull align 1 dereferenceable(3) @.str.14, i64 3, i1 false) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %141, ptr noundef nonnull align 1 dereferenceable(3) @.str.14, i64 3, i1 false) #14
   %142 = icmp eq i32 %24, 0
   br i1 %142, label %143, label %145
 
 143:                                              ; preds = %137
   store i32 0, ptr %25, align 4, !tbaa !18
   %144 = getelementptr inbounds nuw i8, ptr %7, i64 113
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %144, ptr noundef nonnull align 1 dereferenceable(29) @.str.15, i64 29, i1 false) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %144, ptr noundef nonnull align 1 dereferenceable(29) @.str.15, i64 29, i1 false) #14
   br label %149
 
 145:                                              ; preds = %137
@@ -385,12 +385,12 @@ _ZL28setInitialStateFromUnicodeKRP10UConverterP21UConverterDataISO2022.exit: ; p
 
 147:                                              ; preds = %145
   store i32 1, ptr %25, align 4, !tbaa !18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %146, ptr noundef nonnull align 1 dereferenceable(29) @.str.16, i64 29, i1 false) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %146, ptr noundef nonnull align 1 dereferenceable(29) @.str.16, i64 29, i1 false) #14
   br label %149
 
 148:                                              ; preds = %145
   store i32 2, ptr %25, align 4, !tbaa !18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %146, ptr noundef nonnull align 1 dereferenceable(29) @.str.17, i64 29, i1 false) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %146, ptr noundef nonnull align 1 dereferenceable(29) @.str.17, i64 29, i1 false) #14
   br label %149
 
 .thread143:                                       ; preds = %.thread152, %62, %59, %29, %26, %124, %121
@@ -5114,13 +5114,13 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #11
+declare i32 @llvm.abs.i32(i32, i1 immarg) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #11
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5134,10 +5134,11 @@ attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { allocsize(0) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { allocsize(0) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

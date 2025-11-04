@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @FT_Outline_GetInsideBorder(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @FT_Outline_Get_Orientation(ptr noundef %0) #10
+  %2 = tail call i32 @FT_Outline_Get_Orientation(ptr noundef %0) #11
   %3 = icmp eq i32 %2, 0
   %4 = zext i1 %3 to i32
   ret i32 %4
@@ -21,7 +21,7 @@ declare i32 @FT_Outline_Get_Orientation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @FT_Outline_GetOutsideBorder(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @FT_Outline_Get_Orientation(ptr noundef %0) #10
+  %2 = tail call i32 @FT_Outline_Get_Orientation(ptr noundef %0) #11
   %3 = icmp ne i32 %2, 0
   %4 = zext i1 %3 to i32
   ret i32 %4
@@ -40,7 +40,7 @@ define i32 @FT_Stroker_New(ptr noundef %0, ptr noundef writeonly captures(addres
 
 5:                                                ; preds = %4
   %6 = load ptr, ptr %0, align 8, !tbaa !3
-  %7 = call ptr @ft_mem_alloc(ptr noundef %6, i64 noundef 216, ptr noundef nonnull %3) #10
+  %7 = call ptr @ft_mem_alloc(ptr noundef %6, i64 noundef 216, ptr noundef nonnull %3) #11
   %8 = load i32, ptr %3, align 4, !tbaa !14
   %.not15 = icmp eq i32 %8, 0
   br i1 %.not15, label %9, label %19
@@ -151,11 +151,11 @@ define void @FT_Stroker_Done(ptr noundef %0) local_unnamed_addr #0 {
   %8 = load ptr, ptr %7, align 8, !tbaa !20
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %10 = load ptr, ptr %9, align 8, !tbaa !34
-  tail call void @ft_mem_free(ptr noundef %8, ptr noundef %10) #10
+  tail call void @ft_mem_free(ptr noundef %8, ptr noundef %10) #11
   store ptr null, ptr %9, align 8, !tbaa !34
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = load ptr, ptr %11, align 8, !tbaa !35
-  tail call void @ft_mem_free(ptr noundef %8, ptr noundef %12) #10
+  tail call void @ft_mem_free(ptr noundef %8, ptr noundef %12) #11
   store ptr null, ptr %11, align 8, !tbaa !35
   store i32 0, ptr %6, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -169,11 +169,11 @@ define void @FT_Stroker_Done(ptr noundef %0) local_unnamed_addr #0 {
   %18 = load ptr, ptr %17, align 8, !tbaa !20
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %20 = load ptr, ptr %19, align 8, !tbaa !34
-  tail call void @ft_mem_free(ptr noundef %18, ptr noundef %20) #10
+  tail call void @ft_mem_free(ptr noundef %18, ptr noundef %20) #11
   store ptr null, ptr %19, align 8, !tbaa !34
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %22 = load ptr, ptr %21, align 8, !tbaa !35
-  tail call void @ft_mem_free(ptr noundef %18, ptr noundef %22) #10
+  tail call void @ft_mem_free(ptr noundef %18, ptr noundef %22) #11
   store ptr null, ptr %21, align 8, !tbaa !35
   store i32 0, ptr %16, align 8, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 164
@@ -183,7 +183,7 @@ define void @FT_Stroker_Done(ptr noundef %0) local_unnamed_addr #0 {
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i8 0, ptr %25, align 8, !tbaa !25
   store ptr null, ptr %3, align 8, !tbaa !15
-  tail call void @ft_mem_free(ptr noundef %5, ptr noundef nonnull %0) #10
+  tail call void @ft_mem_free(ptr noundef %5, ptr noundef nonnull %0) #11
   br label %26
 
 26:                                               ; preds = %2, %1
@@ -221,14 +221,14 @@ define i32 @FT_Stroker_LineTo(ptr noundef captures(address_is_null) %0, ptr noun
   br i1 %or.cond4, label %56, label %20
 
 20:                                               ; preds = %7
-  %21 = call i64 @FT_Vector_Length(ptr noundef nonnull %3) #10
+  %21 = call i64 @FT_Vector_Length(ptr noundef nonnull %3) #11
   %22 = load i64, ptr %3, align 8, !tbaa !37
   %23 = load i64, ptr %17, align 8, !tbaa !39
-  %24 = call i64 @FT_Atan2(i64 noundef %22, i64 noundef %23) #10
+  %24 = call i64 @FT_Atan2(i64 noundef %22, i64 noundef %23) #11
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %26 = load i64, ptr %25, align 8, !tbaa !28
   %27 = add nsw i64 %24, 5898240
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %3, i64 noundef %26, i64 noundef %27) #10
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %3, i64 noundef %26, i64 noundef %27) #11
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i8, ptr %28, align 8, !tbaa !41
   %.not = icmp eq i8 %29, 0
@@ -314,7 +314,7 @@ define internal fastcc i32 @ft_stroker_subpath_start(ptr noundef nonnull capture
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load i64, ptr %6, align 8, !tbaa !28
   %8 = add nsw i64 %1, 5898240
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %4, i64 noundef %7, i64 noundef %8) #10
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %4, i64 noundef %7, i64 noundef %8) #11
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !38
   %11 = load i64, ptr %4, align 8, !tbaa !37
@@ -472,7 +472,7 @@ define internal fastcc i32 @ft_stroker_process_corner(ptr noundef nonnull captur
   %10 = load i64, ptr %0, align 8, !tbaa !45
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !42
-  %13 = tail call i64 @FT_Angle_Diff(i64 noundef %10, i64 noundef %12) #10
+  %13 = tail call i64 @FT_Angle_Diff(i64 noundef %10, i64 noundef %12) #11
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %ft_stroker_outside.exit, label %15
 
@@ -487,7 +487,7 @@ define internal fastcc i32 @ft_stroker_process_corner(ptr noundef nonnull captur
   %18 = select i1 %isneg, i64 -5898240, i64 5898240
   %19 = load i64, ptr %0, align 8, !tbaa !45
   %20 = load i64, ptr %11, align 8, !tbaa !42
-  %21 = tail call i64 @FT_Angle_Diff(i64 noundef %19, i64 noundef %20) #10
+  %21 = tail call i64 @FT_Angle_Diff(i64 noundef %19, i64 noundef %20) #11
   %22 = sdiv i64 %21, 2
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %24 = load i8, ptr %23, align 8, !tbaa !50
@@ -500,13 +500,13 @@ define internal fastcc i32 @ft_stroker_process_corner(ptr noundef nonnull captur
   br i1 %or.cond5.i, label %.critedge.i, label %29
 
 29:                                               ; preds = %15
-  call void @FT_Vector_Unit(ptr noundef nonnull %8, i64 noundef %22) #10
+  call void @FT_Vector_Unit(ptr noundef nonnull %8, i64 noundef %22) #11
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %31 = load i64, ptr %30, align 8, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !39
   %34 = load i64, ptr %8, align 8, !tbaa !37
-  %35 = call i64 @FT_MulDiv(i64 noundef %31, i64 noundef %33, i64 noundef %34) #10
+  %35 = call i64 @FT_MulDiv(i64 noundef %31, i64 noundef %33, i64 noundef %34) #11
   %.not.i = icmp eq i64 %35, 0
   br i1 %.not.i, label %.critedge.i, label %36
 
@@ -524,7 +524,7 @@ define internal fastcc i32 @ft_stroker_process_corner(ptr noundef nonnull captur
   %41 = load i64, ptr %40, align 8, !tbaa !28
   %42 = load i64, ptr %11, align 8, !tbaa !42
   %43 = add nsw i64 %42, %18
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %9, i64 noundef %41, i64 noundef %43) #10
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %9, i64 noundef %41, i64 noundef %43) #11
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load i64, ptr %44, align 8, !tbaa !38
   %46 = load i64, ptr %9, align 8, !tbaa !37
@@ -545,8 +545,8 @@ define internal fastcc i32 @ft_stroker_process_corner(ptr noundef nonnull captur
   %56 = add i64 %55, %54
   %57 = load i64, ptr %30, align 8, !tbaa !28
   %58 = load i64, ptr %8, align 8, !tbaa !37
-  %59 = call i64 @FT_DivFix(i64 noundef %57, i64 noundef %58) #10
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %9, i64 noundef %59, i64 noundef %56) #10
+  %59 = call i64 @FT_DivFix(i64 noundef %57, i64 noundef %58) #11
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %9, i64 noundef %59, i64 noundef %56) #11
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %61 = load i64, ptr %60, align 8, !tbaa !38
   %62 = load i64, ptr %9, align 8, !tbaa !37
@@ -595,7 +595,7 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
 85:                                               ; preds = %80
   %86 = load i64, ptr %0, align 8, !tbaa !45
   %87 = load i64, ptr %11, align 8, !tbaa !42
-  %88 = call i64 @FT_Angle_Diff(i64 noundef %86, i64 noundef %87) #10
+  %88 = call i64 @FT_Angle_Diff(i64 noundef %86, i64 noundef %87) #11
   %89 = sdiv i64 %88, 2
   %90 = and i64 %88, -2
   %91 = icmp eq i64 %90, 11796480
@@ -606,7 +606,7 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
   %95 = add i64 %94, %spec.select.i14
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %97 = load i64, ptr %96, align 8, !tbaa !31
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %3, i64 noundef %97, i64 noundef %spec.select.i14) #10
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %3, i64 noundef %97, i64 noundef %spec.select.i14) #11
   %98 = load i64, ptr %3, align 8, !tbaa !37
   %99 = icmp slt i64 %98, 65536
   br i1 %99, label %100, label %177
@@ -623,7 +623,7 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %104 = load i64, ptr %11, align 8, !tbaa !42
   %105 = add nsw i64 %104, %83
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %4, i64 noundef %82, i64 noundef %105) #10
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %4, i64 noundef %82, i64 noundef %105) #11
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %107 = load i64, ptr %106, align 8, !tbaa !38
   %108 = load i64, ptr %4, align 8, !tbaa !37
@@ -655,12 +655,12 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
   %124 = add nsw i64 %123, %122
   %125 = shl i64 %124, 16
   %126 = ashr i64 %125, 32
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %5, i64 noundef %126, i64 noundef %95) #10
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %5, i64 noundef %126, i64 noundef %95) #11
   %127 = load i64, ptr %3, align 8, !tbaa !37
   %128 = sub nsw i64 65536, %127
   %129 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %130 = load i64, ptr %129, align 8, !tbaa !39
-  %131 = call i64 @FT_DivFix(i64 noundef %128, i64 noundef %130) #10
+  %131 = call i64 @FT_DivFix(i64 noundef %128, i64 noundef %130) #11
   %132 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %133 = load i64, ptr %132, align 8, !tbaa !39
   %sext95.i = shl i64 %133, 32
@@ -716,7 +716,7 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
 166:                                              ; preds = %160
   %167 = load i64, ptr %11, align 8, !tbaa !42
   %168 = add nsw i64 %167, %83
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %6, i64 noundef %82, i64 noundef %168) #10
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %6, i64 noundef %82, i64 noundef %168) #11
   %169 = load i64, ptr %151, align 8, !tbaa !38
   %170 = load i64, ptr %6, align 8, !tbaa !37
   %171 = add nsw i64 %170, %169
@@ -738,8 +738,8 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %178 = load i64, ptr %81, align 8, !tbaa !28
   %179 = load i64, ptr %96, align 8, !tbaa !31
-  %180 = call i64 @FT_MulDiv(i64 noundef %178, i64 noundef %179, i64 noundef %98) #10
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %7, i64 noundef %180, i64 noundef %95) #10
+  %180 = call i64 @FT_MulDiv(i64 noundef %178, i64 noundef %179, i64 noundef %98) #11
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %7, i64 noundef %180, i64 noundef %95) #11
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %182 = load i64, ptr %181, align 8, !tbaa !38
   %183 = load i64, ptr %7, align 8, !tbaa !37
@@ -760,7 +760,7 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
   %192 = load i64, ptr %81, align 8, !tbaa !28
   %193 = load i64, ptr %11, align 8, !tbaa !42
   %194 = add nsw i64 %193, %83
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %7, i64 noundef %192, i64 noundef %194) #10
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %7, i64 noundef %192, i64 noundef %194) #11
   %195 = load i64, ptr %181, align 8, !tbaa !38
   %196 = load i64, ptr %7, align 8, !tbaa !37
   %197 = add nsw i64 %196, %195
@@ -864,7 +864,7 @@ define internal fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull captures
   %49 = zext i32 %43 to i64
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !34
-  %52 = call ptr @ft_mem_realloc(ptr noundef %47, i64 noundef 16, i64 noundef %48, i64 noundef %49, ptr noundef %51, ptr noundef nonnull %4) #10
+  %52 = call ptr @ft_mem_realloc(ptr noundef %47, i64 noundef 16, i64 noundef %48, i64 noundef %49, ptr noundef %51, ptr noundef nonnull %4) #11
   store ptr %52, ptr %50, align 8, !tbaa !34
   %53 = load i32, ptr %4, align 4, !tbaa !14
   %.not.i = icmp eq i32 %53, 0
@@ -873,7 +873,7 @@ define internal fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull captures
 54:                                               ; preds = %45
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !35
-  %57 = call ptr @ft_mem_realloc(ptr noundef %47, i64 noundef 1, i64 noundef %48, i64 noundef %49, ptr noundef %56, ptr noundef nonnull %4) #10
+  %57 = call ptr @ft_mem_realloc(ptr noundef %47, i64 noundef 1, i64 noundef %48, i64 noundef %49, ptr noundef %56, ptr noundef nonnull %4) #11
   store ptr %57, ptr %55, align 8, !tbaa !35
   %58 = load i32, ptr %4, align 4, !tbaa !14
   %.not28.i = icmp eq i32 %58, 0
@@ -1036,21 +1036,21 @@ define i32 @FT_Stroker_ConicTo(ptr noundef captures(address_is_null) %0, ptr nou
   br i1 %77, label %ft_conic_is_small_enough.exit, label %79
 
 79:                                               ; preds = %78
-  %80 = call i64 @FT_Atan2(i64 noundef %66, i64 noundef %69) #10
+  %80 = call i64 @FT_Atan2(i64 noundef %66, i64 noundef %69) #11
   br label %ft_conic_is_small_enough.exit
 
 81:                                               ; preds = %54
-  %82 = call i64 @FT_Atan2(i64 noundef %59, i64 noundef %64) #10
+  %82 = call i64 @FT_Atan2(i64 noundef %59, i64 noundef %64) #11
   br i1 %77, label %ft_conic_is_small_enough.exit, label %83
 
 83:                                               ; preds = %81
-  %84 = call i64 @FT_Atan2(i64 noundef %66, i64 noundef %69) #10
+  %84 = call i64 @FT_Atan2(i64 noundef %66, i64 noundef %69) #11
   br label %ft_conic_is_small_enough.exit
 
 ft_conic_is_small_enough.exit:                    ; preds = %81, %78, %79, %83
   %.1173 = phi i64 [ %52, %78 ], [ %80, %79 ], [ %82, %83 ], [ %82, %81 ]
   %.1171 = phi i64 [ %52, %78 ], [ %80, %79 ], [ %84, %83 ], [ %82, %81 ]
-  %85 = call i64 @FT_Angle_Diff(i64 noundef %.1173, i64 noundef %.1171) #10
+  %85 = call i64 @FT_Angle_Diff(i64 noundef %.1173, i64 noundef %.1171) #11
   %86 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %85, i1 true)
   %87 = icmp samesign ugt i64 %86, 1966079
   br i1 %87, label %88, label %108
@@ -1113,7 +1113,7 @@ ft_conic_is_small_enough.exit:                    ; preds = %81, %78, %79, %83
 
 115:                                              ; preds = %108
   %116 = load i64, ptr %0, align 8, !tbaa !45
-  %117 = call i64 @FT_Angle_Diff(i64 noundef %116, i64 noundef %.0172) #10
+  %117 = call i64 @FT_Angle_Diff(i64 noundef %116, i64 noundef %.0172) #11
   %118 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %117, i1 true)
   %119 = icmp samesign ugt i64 %118, 491520
   br i1 %119, label %120, label %.thread222
@@ -1136,12 +1136,12 @@ ft_conic_is_small_enough.exit:                    ; preds = %81, %78, %79, %83
 .thread222:                                       ; preds = %115, %124
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %125 = call i64 @FT_Angle_Diff(i64 noundef %.0172, i64 noundef %.0170) #10
+  %125 = call i64 @FT_Angle_Diff(i64 noundef %.0172, i64 noundef %.0170) #11
   %126 = sdiv i64 %125, 2
   %127 = add nsw i64 %126, %.0172
   %128 = load i64, ptr %43, align 8, !tbaa !28
-  %129 = call i64 @FT_Cos(i64 noundef %126) #10
-  %130 = call i64 @FT_DivFix(i64 noundef %128, i64 noundef %129) #10
+  %129 = call i64 @FT_Cos(i64 noundef %126) #11
+  %130 = call i64 @FT_DivFix(i64 noundef %128, i64 noundef %129) #11
   %131 = load i8, ptr %44, align 8, !tbaa !54
   %.not146 = icmp eq i8 %131, 0
   br i1 %.not146, label %143, label %132
@@ -1156,7 +1156,7 @@ ft_conic_is_small_enough.exit:                    ; preds = %81, %78, %79, %83
   %139 = getelementptr inbounds nuw i8, ptr %.0114.ptr, i64 40
   %140 = load i64, ptr %139, align 8, !tbaa !39
   %141 = sub nsw i64 %138, %140
-  %142 = call i64 @FT_Atan2(i64 noundef %136, i64 noundef %141) #10
+  %142 = call i64 @FT_Atan2(i64 noundef %136, i64 noundef %141) #11
   br label %143
 
 143:                                              ; preds = %132, %.thread222
@@ -1173,7 +1173,7 @@ ft_conic_is_small_enough.exit:                    ; preds = %81, %78, %79, %83
   %indvars.iv = phi i64 [ 5898240, %143 ], [ -5898240, %220 ]
   %.0124208 = phi ptr [ %45, %143 ], [ %221, %220 ]
   %151 = add nsw i64 %127, %indvars.iv
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %5, i64 noundef %130, i64 noundef %151) #10
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %5, i64 noundef %130, i64 noundef %151) #11
   %152 = load i64, ptr %144, align 8, !tbaa !37
   %153 = load i64, ptr %5, align 8, !tbaa !37
   %154 = add nsw i64 %153, %152
@@ -1184,7 +1184,7 @@ ft_conic_is_small_enough.exit:                    ; preds = %81, %78, %79, %83
   store i64 %157, ptr %46, align 8, !tbaa !39
   %158 = load i64, ptr %43, align 8, !tbaa !28
   %159 = add nsw i64 %indvars.iv, %.0170
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %6, i64 noundef %158, i64 noundef %159) #10
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %6, i64 noundef %158, i64 noundef %159) #11
   %160 = load i64, ptr %.0114.ptr, align 8, !tbaa !37
   %161 = load i64, ptr %6, align 8, !tbaa !37
   %162 = add nsw i64 %161, %160
@@ -1210,8 +1210,8 @@ ft_conic_is_small_enough.exit:                    ; preds = %81, %78, %79, %83
   %175 = sub nsw i64 %162, %174
   %176 = load i64, ptr %48, align 8, !tbaa !39
   %177 = sub nsw i64 %165, %176
-  %178 = call i64 @FT_Atan2(i64 noundef %175, i64 noundef %177) #10
-  %179 = call i64 @FT_Angle_Diff(i64 noundef %.0123, i64 noundef %178) #10
+  %178 = call i64 @FT_Atan2(i64 noundef %175, i64 noundef %177) #11
+  %179 = call i64 @FT_Angle_Diff(i64 noundef %.0123, i64 noundef %178) #11
   %180 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %179, i1 true)
   %181 = icmp samesign ugt i64 %180, 5898240
   br i1 %181, label %182, label %.thread
@@ -1227,27 +1227,27 @@ ft_conic_is_small_enough.exit:                    ; preds = %81, %78, %79, %83
   %184 = sub nsw i64 %183, %174
   %185 = load i64, ptr %148, align 8, !tbaa !39
   %186 = sub nsw i64 %185, %176
-  %187 = call i64 @FT_Atan2(i64 noundef %184, i64 noundef %186) #10
+  %187 = call i64 @FT_Atan2(i64 noundef %184, i64 noundef %186) #11
   %188 = load i64, ptr %6, align 8, !tbaa !37
   %189 = sub nsw i64 %160, %188
   %190 = load i64, ptr %47, align 8, !tbaa !39
   %191 = sub nsw i64 %163, %190
-  %192 = call i64 @FT_Atan2(i64 noundef %189, i64 noundef %191) #10
+  %192 = call i64 @FT_Atan2(i64 noundef %189, i64 noundef %191) #11
   %193 = load i64, ptr %6, align 8, !tbaa !37
   %194 = sub nsw i64 %193, %174
   store i64 %194, ptr %8, align 8, !tbaa !37
   %195 = load i64, ptr %47, align 8, !tbaa !39
   %196 = sub nsw i64 %195, %176
   store i64 %196, ptr %49, align 8, !tbaa !39
-  %197 = call i64 @FT_Vector_Length(ptr noundef nonnull %8) #10
+  %197 = call i64 @FT_Vector_Length(ptr noundef nonnull %8) #11
   %198 = sub nsw i64 %178, %192
-  %199 = call i64 @FT_Sin(i64 noundef %198) #10
+  %199 = call i64 @FT_Sin(i64 noundef %198) #11
   %200 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %199, i1 true)
   %201 = sub nsw i64 %187, %192
-  %202 = call i64 @FT_Sin(i64 noundef %201) #10
+  %202 = call i64 @FT_Sin(i64 noundef %201) #11
   %203 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %202, i1 true)
-  %204 = call i64 @FT_MulDiv(i64 noundef %197, i64 noundef %200, i64 noundef %203) #10
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %9, i64 noundef %204, i64 noundef %187) #10
+  %204 = call i64 @FT_MulDiv(i64 noundef %197, i64 noundef %200, i64 noundef %203) #11
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %9, i64 noundef %204, i64 noundef %187) #11
   %205 = load i64, ptr %9, align 8, !tbaa !37
   %206 = add nsw i64 %205, %174
   store i64 %206, ptr %9, align 8, !tbaa !37
@@ -1365,7 +1365,7 @@ define internal fastcc i32 @ft_stroke_border_conicto(ptr noundef nonnull capture
   %18 = zext i32 %12 to i64
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !34
-  %21 = call ptr @ft_mem_realloc(ptr noundef %16, i64 noundef 16, i64 noundef %17, i64 noundef %18, ptr noundef %20, ptr noundef nonnull %4) #10
+  %21 = call ptr @ft_mem_realloc(ptr noundef %16, i64 noundef 16, i64 noundef %17, i64 noundef %18, ptr noundef %20, ptr noundef nonnull %4) #11
   store ptr %21, ptr %19, align 8, !tbaa !34
   %22 = load i32, ptr %4, align 4, !tbaa !14
   %.not.i = icmp eq i32 %22, 0
@@ -1374,7 +1374,7 @@ define internal fastcc i32 @ft_stroke_border_conicto(ptr noundef nonnull capture
 23:                                               ; preds = %14
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !35
-  %26 = call ptr @ft_mem_realloc(ptr noundef %16, i64 noundef 1, i64 noundef %17, i64 noundef %18, ptr noundef %25, ptr noundef nonnull %4) #10
+  %26 = call ptr @ft_mem_realloc(ptr noundef %16, i64 noundef 1, i64 noundef %17, i64 noundef %18, ptr noundef %25, ptr noundef nonnull %4) #11
   store ptr %26, ptr %24, align 8, !tbaa !35
   %27 = load i32, ptr %4, align 4, !tbaa !14
   %.not28.i = icmp eq i32 %27, 0
@@ -1570,46 +1570,46 @@ define i32 @FT_Stroker_CubicTo(ptr noundef captures(address_is_null) %0, ptr nou
   br i1 %101, label %ft_cubic_is_small_enough.exit, label %104
 
 104:                                              ; preds = %103
-  %105 = call i64 @FT_Atan2(i64 noundef %86, i64 noundef %89) #10
+  %105 = call i64 @FT_Atan2(i64 noundef %86, i64 noundef %89) #11
   br label %ft_cubic_is_small_enough.exit
 
 106:                                              ; preds = %102
-  %107 = call i64 @FT_Atan2(i64 noundef %81, i64 noundef %84) #10
+  %107 = call i64 @FT_Atan2(i64 noundef %81, i64 noundef %84) #11
   br i1 %101, label %ft_cubic_is_small_enough.exit, label %108
 
 108:                                              ; preds = %106
-  %109 = call i64 @FT_Atan2(i64 noundef %86, i64 noundef %89) #10
+  %109 = call i64 @FT_Atan2(i64 noundef %86, i64 noundef %89) #11
   br label %ft_cubic_is_small_enough.exit
 
 110:                                              ; preds = %68
-  %111 = call i64 @FT_Atan2(i64 noundef %73, i64 noundef %78) #10
+  %111 = call i64 @FT_Atan2(i64 noundef %73, i64 noundef %78) #11
   br i1 %97, label %112, label %118
 
 112:                                              ; preds = %110
   br i1 %101, label %ft_cubic_is_small_enough.exit, label %113
 
 113:                                              ; preds = %112
-  %114 = call i64 @FT_Atan2(i64 noundef %86, i64 noundef %89) #10
-  %115 = call i64 @FT_Angle_Diff(i64 noundef %111, i64 noundef %114) #10
+  %114 = call i64 @FT_Atan2(i64 noundef %86, i64 noundef %89) #11
+  %115 = call i64 @FT_Angle_Diff(i64 noundef %111, i64 noundef %114) #11
   %116 = sdiv i64 %115, 2
   %117 = add nsw i64 %116, %111
   br label %ft_cubic_is_small_enough.exit
 
 118:                                              ; preds = %110
-  %119 = call i64 @FT_Atan2(i64 noundef %81, i64 noundef %84) #10
+  %119 = call i64 @FT_Atan2(i64 noundef %81, i64 noundef %84) #11
   br i1 %101, label %ft_cubic_is_small_enough.exit, label %120
 
 120:                                              ; preds = %118
-  %121 = call i64 @FT_Atan2(i64 noundef %86, i64 noundef %89) #10
+  %121 = call i64 @FT_Atan2(i64 noundef %86, i64 noundef %89) #11
   br label %ft_cubic_is_small_enough.exit
 
 ft_cubic_is_small_enough.exit:                    ; preds = %118, %112, %106, %103, %104, %108, %113, %120
   %.1207 = phi i64 [ %66, %103 ], [ %105, %104 ], [ %107, %108 ], [ %111, %113 ], [ %111, %120 ], [ %107, %106 ], [ %111, %112 ], [ %111, %118 ]
   %.1205 = phi i64 [ %66, %103 ], [ %105, %104 ], [ %107, %108 ], [ %117, %113 ], [ %119, %120 ], [ %107, %106 ], [ %111, %112 ], [ %119, %118 ]
   %.1203 = phi i64 [ %66, %103 ], [ %105, %104 ], [ %109, %108 ], [ %114, %113 ], [ %121, %120 ], [ %107, %106 ], [ %111, %112 ], [ %119, %118 ]
-  %122 = call i64 @FT_Angle_Diff(i64 noundef %.1207, i64 noundef %.1205) #10
+  %122 = call i64 @FT_Angle_Diff(i64 noundef %.1207, i64 noundef %.1205) #11
   %123 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %122, i1 true)
-  %124 = call i64 @FT_Angle_Diff(i64 noundef %.1205, i64 noundef %.1203) #10
+  %124 = call i64 @FT_Angle_Diff(i64 noundef %.1205, i64 noundef %.1203) #11
   %125 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %124, i1 true)
   %126 = icmp samesign ugt i64 %123, 1474559
   %127 = icmp samesign ugt i64 %125, 1474559
@@ -1691,7 +1691,7 @@ ft_cubic_is_small_enough.exit:                    ; preds = %118, %112, %106, %1
 
 167:                                              ; preds = %160
   %168 = load i64, ptr %0, align 8, !tbaa !45
-  %169 = call i64 @FT_Angle_Diff(i64 noundef %168, i64 noundef %.0206) #10
+  %169 = call i64 @FT_Angle_Diff(i64 noundef %168, i64 noundef %.0206) #11
   %170 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %169, i1 true)
   %171 = icmp samesign ugt i64 %170, 368640
   br i1 %171, label %172, label %.thread262
@@ -1715,22 +1715,22 @@ ft_cubic_is_small_enough.exit:                    ; preds = %118, %112, %106, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %177 = call i64 @FT_Angle_Diff(i64 noundef %.0206, i64 noundef %.0204) #10
+  %177 = call i64 @FT_Angle_Diff(i64 noundef %.0206, i64 noundef %.0204) #11
   %178 = sdiv i64 %177, 2
-  %179 = call i64 @FT_Angle_Diff(i64 noundef %.0204, i64 noundef %.0202) #10
+  %179 = call i64 @FT_Angle_Diff(i64 noundef %.0204, i64 noundef %.0202) #11
   %180 = sdiv i64 %179, 2
-  %181 = call i64 @FT_Angle_Diff(i64 noundef %.0206, i64 noundef %.0204) #10
+  %181 = call i64 @FT_Angle_Diff(i64 noundef %.0206, i64 noundef %.0204) #11
   %182 = sdiv i64 %181, 2
   %183 = add nsw i64 %182, %.0206
-  %184 = call i64 @FT_Angle_Diff(i64 noundef %.0204, i64 noundef %.0202) #10
+  %184 = call i64 @FT_Angle_Diff(i64 noundef %.0204, i64 noundef %.0202) #11
   %185 = sdiv i64 %184, 2
   %186 = add nsw i64 %185, %.0204
   %187 = load i64, ptr %56, align 8, !tbaa !28
-  %188 = call i64 @FT_Cos(i64 noundef %178) #10
-  %189 = call i64 @FT_DivFix(i64 noundef %187, i64 noundef %188) #10
+  %188 = call i64 @FT_Cos(i64 noundef %178) #11
+  %189 = call i64 @FT_DivFix(i64 noundef %187, i64 noundef %188) #11
   %190 = load i64, ptr %56, align 8, !tbaa !28
-  %191 = call i64 @FT_Cos(i64 noundef %180) #10
-  %192 = call i64 @FT_DivFix(i64 noundef %190, i64 noundef %191) #10
+  %191 = call i64 @FT_Cos(i64 noundef %180) #11
+  %192 = call i64 @FT_DivFix(i64 noundef %190, i64 noundef %191) #11
   %193 = load i8, ptr %57, align 8, !tbaa !54
   %.not168 = icmp eq i8 %193, 0
   br i1 %.not168, label %205, label %194
@@ -1745,7 +1745,7 @@ ft_cubic_is_small_enough.exit:                    ; preds = %118, %112, %106, %1
   %201 = getelementptr inbounds nuw i8, ptr %.0133.ptr, i64 56
   %202 = load i64, ptr %201, align 8, !tbaa !39
   %203 = sub nsw i64 %200, %202
-  %204 = call i64 @FT_Atan2(i64 noundef %198, i64 noundef %203) #10
+  %204 = call i64 @FT_Atan2(i64 noundef %198, i64 noundef %203) #11
   br label %205
 
 205:                                              ; preds = %194, %.thread262
@@ -1764,7 +1764,7 @@ ft_cubic_is_small_enough.exit:                    ; preds = %118, %112, %106, %1
   %indvars.iv = phi i64 [ 5898240, %205 ], [ -5898240, %291 ]
   %.0143247 = phi ptr [ %58, %205 ], [ %292, %291 ]
   %215 = add nsw i64 %183, %indvars.iv
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %6, i64 noundef %189, i64 noundef %215) #10
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %6, i64 noundef %189, i64 noundef %215) #11
   %216 = load i64, ptr %206, align 8, !tbaa !37
   %217 = load i64, ptr %6, align 8, !tbaa !37
   %218 = add nsw i64 %217, %216
@@ -1774,7 +1774,7 @@ ft_cubic_is_small_enough.exit:                    ; preds = %118, %112, %106, %1
   %221 = add nsw i64 %220, %219
   store i64 %221, ptr %59, align 8, !tbaa !39
   %222 = add nsw i64 %186, %indvars.iv
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %7, i64 noundef %192, i64 noundef %222) #10
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %7, i64 noundef %192, i64 noundef %222) #11
   %223 = load i64, ptr %208, align 8, !tbaa !37
   %224 = load i64, ptr %7, align 8, !tbaa !37
   %225 = add nsw i64 %224, %223
@@ -1785,7 +1785,7 @@ ft_cubic_is_small_enough.exit:                    ; preds = %118, %112, %106, %1
   store i64 %228, ptr %60, align 8, !tbaa !39
   %229 = load i64, ptr %56, align 8, !tbaa !28
   %230 = add nsw i64 %indvars.iv, %.0202
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %8, i64 noundef %229, i64 noundef %230) #10
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %8, i64 noundef %229, i64 noundef %230) #11
   %231 = load i64, ptr %.0133.ptr, align 8, !tbaa !37
   %232 = load i64, ptr %8, align 8, !tbaa !37
   %233 = add nsw i64 %232, %231
@@ -1811,8 +1811,8 @@ ft_cubic_is_small_enough.exit:                    ; preds = %118, %112, %106, %1
   %246 = sub nsw i64 %233, %245
   %247 = load i64, ptr %62, align 8, !tbaa !39
   %248 = sub nsw i64 %236, %247
-  %249 = call i64 @FT_Atan2(i64 noundef %246, i64 noundef %248) #10
-  %250 = call i64 @FT_Angle_Diff(i64 noundef %.0142, i64 noundef %249) #10
+  %249 = call i64 @FT_Atan2(i64 noundef %246, i64 noundef %248) #11
+  %250 = call i64 @FT_Angle_Diff(i64 noundef %.0142, i64 noundef %249) #11
   %251 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %250, i1 true)
   %252 = icmp samesign ugt i64 %251, 5898240
   br i1 %252, label %253, label %.thread
@@ -1828,27 +1828,27 @@ ft_cubic_is_small_enough.exit:                    ; preds = %118, %112, %106, %1
   %255 = sub nsw i64 %254, %245
   %256 = load i64, ptr %212, align 8, !tbaa !39
   %257 = sub nsw i64 %256, %247
-  %258 = call i64 @FT_Atan2(i64 noundef %255, i64 noundef %257) #10
+  %258 = call i64 @FT_Atan2(i64 noundef %255, i64 noundef %257) #11
   %259 = load i64, ptr %8, align 8, !tbaa !37
   %260 = sub nsw i64 %231, %259
   %261 = load i64, ptr %61, align 8, !tbaa !39
   %262 = sub nsw i64 %234, %261
-  %263 = call i64 @FT_Atan2(i64 noundef %260, i64 noundef %262) #10
+  %263 = call i64 @FT_Atan2(i64 noundef %260, i64 noundef %262) #11
   %264 = load i64, ptr %8, align 8, !tbaa !37
   %265 = sub nsw i64 %264, %245
   store i64 %265, ptr %10, align 8, !tbaa !37
   %266 = load i64, ptr %61, align 8, !tbaa !39
   %267 = sub nsw i64 %266, %247
   store i64 %267, ptr %63, align 8, !tbaa !39
-  %268 = call i64 @FT_Vector_Length(ptr noundef nonnull %10) #10
+  %268 = call i64 @FT_Vector_Length(ptr noundef nonnull %10) #11
   %269 = sub nsw i64 %249, %263
-  %270 = call i64 @FT_Sin(i64 noundef %269) #10
+  %270 = call i64 @FT_Sin(i64 noundef %269) #11
   %271 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %270, i1 true)
   %272 = sub nsw i64 %258, %263
-  %273 = call i64 @FT_Sin(i64 noundef %272) #10
+  %273 = call i64 @FT_Sin(i64 noundef %272) #11
   %274 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %273, i1 true)
-  %275 = call i64 @FT_MulDiv(i64 noundef %268, i64 noundef %271, i64 noundef %274) #10
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %11, i64 noundef %275, i64 noundef %258) #10
+  %275 = call i64 @FT_MulDiv(i64 noundef %268, i64 noundef %271, i64 noundef %274) #11
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %11, i64 noundef %275, i64 noundef %258) #11
   %276 = load i64, ptr %11, align 8, !tbaa !37
   %277 = add nsw i64 %276, %245
   store i64 %277, ptr %11, align 8, !tbaa !37
@@ -1958,7 +1958,7 @@ define internal fastcc i32 @ft_stroke_border_cubicto(ptr noundef nonnull capture
   %19 = zext i32 %13 to i64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !34
-  %22 = call ptr @ft_mem_realloc(ptr noundef %17, i64 noundef 16, i64 noundef %18, i64 noundef %19, ptr noundef %21, ptr noundef nonnull %5) #10
+  %22 = call ptr @ft_mem_realloc(ptr noundef %17, i64 noundef 16, i64 noundef %18, i64 noundef %19, ptr noundef %21, ptr noundef nonnull %5) #11
   store ptr %22, ptr %20, align 8, !tbaa !34
   %23 = load i32, ptr %5, align 4, !tbaa !14
   %.not.i = icmp eq i32 %23, 0
@@ -1967,7 +1967,7 @@ define internal fastcc i32 @ft_stroke_border_cubicto(ptr noundef nonnull capture
 24:                                               ; preds = %15
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !35
-  %27 = call ptr @ft_mem_realloc(ptr noundef %17, i64 noundef 1, i64 noundef %18, i64 noundef %19, ptr noundef %26, ptr noundef nonnull %5) #10
+  %27 = call ptr @ft_mem_realloc(ptr noundef %17, i64 noundef 1, i64 noundef %18, i64 noundef %19, ptr noundef %26, ptr noundef nonnull %5) #11
   store ptr %27, ptr %25, align 8, !tbaa !35
   %28 = load i32, ptr %5, align 4, !tbaa !14
   %.not28.i = icmp eq i32 %28, 0
@@ -2117,7 +2117,7 @@ define i32 @FT_Stroker_EndSubPath(ptr noundef %0) local_unnamed_addr #0 {
   %32 = zext i32 %26 to i64
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %34 = load ptr, ptr %33, align 8, !tbaa !34
-  %35 = call ptr @ft_mem_realloc(ptr noundef %30, i64 noundef 16, i64 noundef %31, i64 noundef %32, ptr noundef %34, ptr noundef nonnull %3) #10
+  %35 = call ptr @ft_mem_realloc(ptr noundef %30, i64 noundef 16, i64 noundef %31, i64 noundef %32, ptr noundef %34, ptr noundef nonnull %3) #11
   store ptr %35, ptr %33, align 8, !tbaa !34
   %36 = load i32, ptr %3, align 4, !tbaa !14
   %.not.i.i = icmp eq i32 %36, 0
@@ -2126,7 +2126,7 @@ define i32 @FT_Stroker_EndSubPath(ptr noundef %0) local_unnamed_addr #0 {
 37:                                               ; preds = %28
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %39 = load ptr, ptr %38, align 8, !tbaa !35
-  %40 = call ptr @ft_mem_realloc(ptr noundef %30, i64 noundef 1, i64 noundef %31, i64 noundef %32, ptr noundef %39, ptr noundef nonnull %3) #10
+  %40 = call ptr @ft_mem_realloc(ptr noundef %30, i64 noundef 1, i64 noundef %31, i64 noundef %32, ptr noundef %39, ptr noundef nonnull %3) #11
   store ptr %40, ptr %38, align 8, !tbaa !35
   %41 = load i32, ptr %3, align 4, !tbaa !14
   %.not28.i.i = icmp eq i32 %41, 0
@@ -2476,7 +2476,7 @@ define internal fastcc i32 @ft_stroker_cap(ptr noundef nonnull captures(none) %0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = load i64, ptr %13, align 8, !tbaa !28
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %3, i64 noundef %14, i64 noundef %1) #10
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %3, i64 noundef %14, i64 noundef %1) #11
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = load i64, ptr %3, align 8
@@ -3429,7 +3429,7 @@ define i32 @FT_Glyph_Stroke(ptr noundef captures(address_is_null) %0, ptr nounde
 
 10:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %11 = call i32 @FT_Glyph_Copy(ptr noundef nonnull %6, ptr noundef nonnull %4) #10
+  %11 = call i32 @FT_Glyph_Copy(ptr noundef nonnull %6, ptr noundef nonnull %4) #11
   %.not42 = icmp eq i32 %11, 0
   %12 = load ptr, ptr %4, align 8
   %.034 = select i1 %.not42, ptr %12, ptr %6
@@ -3543,9 +3543,9 @@ FT_Stroker_GetCounts.exit:                        ; preds = %16, %ft_stroke_bord
   %.012.i = phi i32 [ %44, %ft_stroke_border_get_counts.exit38.i ], [ 0, %16 ]
   %.011.i = phi i32 [ %45, %ft_stroke_border_get_counts.exit38.i ], [ 0, %16 ]
   %46 = load ptr, ptr %.034, align 8, !tbaa !82
-  %47 = call i32 @FT_Outline_Done(ptr noundef %46, ptr noundef nonnull %14) #10
+  %47 = call i32 @FT_Outline_Done(ptr noundef %46, ptr noundef nonnull %14) #11
   %48 = load ptr, ptr %.034, align 8, !tbaa !82
-  %49 = call i32 @FT_Outline_New(ptr noundef %48, i32 noundef %.012.i, i32 noundef %.011.i, ptr noundef nonnull %14) #10
+  %49 = call i32 @FT_Outline_New(ptr noundef %48, i32 noundef %.012.i, i32 noundef %.011.i, ptr noundef nonnull %14) #11
   %.not44 = icmp eq i32 %49, 0
   br i1 %.not44, label %50, label %54
 
@@ -3559,12 +3559,12 @@ FT_Stroker_GetCounts.exit:                        ; preds = %16, %ft_stroke_bord
 
 52:                                               ; preds = %50
   %53 = load ptr, ptr %0, align 8, !tbaa !77
-  call void @FT_Done_Glyph(ptr noundef %53) #10
+  call void @FT_Done_Glyph(ptr noundef %53) #11
   br label %.sink.split
 
 54:                                               ; preds = %13, %FT_Stroker_GetCounts.exit
   %.1.ph = phi i32 [ %49, %FT_Stroker_GetCounts.exit ], [ %15, %13 ]
-  call void @FT_Done_Glyph(ptr noundef nonnull %.034) #10
+  call void @FT_Done_Glyph(ptr noundef nonnull %.034) #11
   %.not45 = icmp eq i8 %2, 0
   br i1 %.not45, label %.sink.split, label %55
 
@@ -3606,7 +3606,7 @@ define i32 @FT_Glyph_StrokeBorder(ptr noundef captures(address_is_null) %0, ptr 
 
 11:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %12 = call i32 @FT_Glyph_Copy(ptr noundef nonnull %7, ptr noundef nonnull %5) #10
+  %12 = call i32 @FT_Glyph_Copy(ptr noundef nonnull %7, ptr noundef nonnull %5) #11
   %.not48 = icmp eq i32 %12, 0
   %13 = load ptr, ptr %5, align 8
   %.040 = select i1 %.not48, ptr %13, ptr %7
@@ -3615,7 +3615,7 @@ define i32 @FT_Glyph_StrokeBorder(ptr noundef captures(address_is_null) %0, ptr 
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %16 = call i32 @FT_Outline_Get_Orientation(ptr noundef nonnull %15) #10
+  %16 = call i32 @FT_Outline_Get_Orientation(ptr noundef nonnull %15) #11
   %17 = icmp ne i32 %16, 0
   %.not49 = icmp ne i8 %2, 0
   %.036.v = xor i1 %.not49, %17
@@ -3676,9 +3676,9 @@ FT_Stroker_GetBorderCounts.exit:                  ; preds = %.lr.ph.i.i, %19, %.
   %.016.i = phi i32 [ 0, %19 ], [ %25, %._crit_edge.thread.i.i ], [ 0, %._crit_edge.i.i ], [ 0, %.lr.ph.i.i ]
   %.015.i = phi i32 [ 0, %19 ], [ %.022.lcssa48.i.i, %._crit_edge.thread.i.i ], [ 0, %._crit_edge.i.i ], [ 0, %.lr.ph.i.i ]
   %37 = load ptr, ptr %.040, align 8, !tbaa !82
-  %38 = call i32 @FT_Outline_Done(ptr noundef %37, ptr noundef nonnull %15) #10
+  %38 = call i32 @FT_Outline_Done(ptr noundef %37, ptr noundef nonnull %15) #11
   %39 = load ptr, ptr %.040, align 8, !tbaa !82
-  %40 = call i32 @FT_Outline_New(ptr noundef %39, i32 noundef %.016.i, i32 noundef %.015.i, ptr noundef nonnull %15) #10
+  %40 = call i32 @FT_Outline_New(ptr noundef %39, i32 noundef %.016.i, i32 noundef %.015.i, ptr noundef nonnull %15) #11
   %.not51 = icmp eq i32 %40, 0
   br i1 %.not51, label %41, label %45
 
@@ -3692,12 +3692,12 @@ FT_Stroker_GetBorderCounts.exit:                  ; preds = %.lr.ph.i.i, %19, %.
 
 43:                                               ; preds = %41
   %44 = load ptr, ptr %0, align 8, !tbaa !77
-  call void @FT_Done_Glyph(ptr noundef %44) #10
+  call void @FT_Done_Glyph(ptr noundef %44) #11
   br label %.sink.split
 
 45:                                               ; preds = %14, %FT_Stroker_GetBorderCounts.exit
   %.1.ph = phi i32 [ %40, %FT_Stroker_GetBorderCounts.exit ], [ %18, %14 ]
-  call void @FT_Done_Glyph(ptr noundef nonnull %.040) #10
+  call void @FT_Done_Glyph(ptr noundef nonnull %.040) #11
   %.not52 = icmp eq i8 %3, 0
   br i1 %.not52, label %.sink.split, label %46
 
@@ -3729,7 +3729,7 @@ define internal fastcc i32 @ft_stroker_arcto(ptr noundef nonnull captures(none) 
   %10 = load i64, ptr %0, align 8, !tbaa !45
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !42
-  %13 = tail call i64 @FT_Angle_Diff(i64 noundef %10, i64 noundef %12) #10
+  %13 = tail call i64 @FT_Angle_Diff(i64 noundef %10, i64 noundef %12) #11
   %14 = icmp eq i64 %13, 11796480
   %.neg16 = mul nuw nsw i64 %9, 23592960
   %15 = add nsw i64 %.neg16, -11796480
@@ -3753,10 +3753,10 @@ define internal fastcc i32 @ft_stroker_arcto(ptr noundef nonnull captures(none) 
   %25 = shl nuw nsw i64 %19, 2
   %26 = and i64 %25, 4294967292
   %27 = sdiv i64 %.0, %26
-  %28 = tail call i64 @FT_Tan(i64 noundef %27) #10
+  %28 = tail call i64 @FT_Tan(i64 noundef %27) #11
   %29 = sdiv i64 %28, 3
   %30 = add nsw i64 %29, %28
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %3, i64 noundef %8, i64 noundef %24) #10
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %3, i64 noundef %8, i64 noundef %24) #11
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !39
   %.neg.i = mul i64 %32, -4294967296
@@ -3801,7 +3801,7 @@ define internal fastcc i32 @ft_stroker_arcto(ptr noundef nonnull captures(none) 
   %61 = mul nsw i64 %indvars.iv50.i, %.0
   %62 = sdiv i64 %61, %19
   %63 = add nsw i64 %62, %24
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %6, i64 noundef %8, i64 noundef %63) #10
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %6, i64 noundef %8, i64 noundef %63) #11
   %64 = load i64, ptr %57, align 8, !tbaa !39
   %sext40.i = shl i64 %64, 32
   %65 = ashr exact i64 %sext40.i, 32
@@ -3870,11 +3870,11 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3886,7 +3886,8 @@ attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

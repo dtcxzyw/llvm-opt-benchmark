@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 0, 2) i32 @av_reduce(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = tail call i64 @llvm.abs.i64(i64 %2, i1 true)
   %7 = tail call i64 @llvm.abs.i64(i64 %3, i1 true)
-  %8 = tail call i64 @av_gcd(i64 noundef %6, i64 noundef %7) #8
+  %8 = tail call i64 @av_gcd(i64 noundef %6, i64 noundef %7) #9
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %.preheader, label %9
 
@@ -217,7 +217,7 @@ define i64 @av_d2q(double noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   br label %28
 
 12:                                               ; preds = %6
-  %13 = call nsz double @frexp(double noundef %0, ptr noundef nonnull %4) #9
+  %13 = call nsz double @frexp(double noundef %0, ptr noundef nonnull %4) #10
   %14 = load i32, ptr %4, align 4, !tbaa !4
   %15 = tail call i32 @llvm.smax.i32(i32 %14, i32 1)
   %16 = sub nsw i32 63, %15
@@ -246,16 +246,16 @@ define i64 @av_d2q(double noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   ret i64 %.sroa.0.0.insert.insert
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
@@ -306,12 +306,12 @@ av_cmp_q.exit:                                    ; preds = %10, %17, %20, %23
   %27 = ashr i64 %0, 32
   %28 = shl nsw i64 %8, 1
   %29 = mul nsw i64 %28, %5
-  %30 = tail call i64 @av_rescale_rnd(i64 noundef %26, i64 noundef %27, i64 noundef %29, i32 noundef 2) #8
+  %30 = tail call i64 @av_rescale_rnd(i64 noundef %26, i64 noundef %27, i64 noundef %29, i32 noundef 2) #9
   %sext20 = shl i64 %0, 32
   %31 = ashr exact i64 %sext20, 32
   %32 = icmp slt i64 %30, %31
   %.neg = sext i1 %32 to i32
-  %33 = tail call i64 @av_rescale_rnd(i64 noundef %26, i64 noundef %27, i64 noundef %29, i32 noundef 3) #8
+  %33 = tail call i64 @av_rescale_rnd(i64 noundef %26, i64 noundef %27, i64 noundef %29, i32 noundef 3) #9
   %34 = icmp sgt i64 %33, %31
   %35 = zext i1 %34 to i32
   %36 = add nsw i32 %35, %.neg
@@ -388,10 +388,10 @@ av_nearer_q.exit:                                 ; preds = %19, %26, %29, %32
   %35 = add nsw i64 %18, %15
   %36 = shl nsw i64 %17, 1
   %37 = mul nsw i64 %36, %14
-  %38 = tail call i64 @av_rescale_rnd(i64 noundef %35, i64 noundef %5, i64 noundef %37, i32 noundef 2) #8
+  %38 = tail call i64 @av_rescale_rnd(i64 noundef %35, i64 noundef %5, i64 noundef %37, i32 noundef 2) #9
   %39 = icmp slt i64 %38, %6
   %.neg.i = sext i1 %39 to i32
-  %40 = tail call i64 @av_rescale_rnd(i64 noundef %35, i64 noundef %5, i64 noundef %37, i32 noundef 3) #8
+  %40 = tail call i64 @av_rescale_rnd(i64 noundef %35, i64 noundef %5, i64 noundef %37, i32 noundef 3) #9
   %41 = icmp sgt i64 %40, %6
   %42 = zext i1 %41 to i32
   %43 = add nsw i32 %42, %.neg.i
@@ -469,7 +469,7 @@ define i32 @av_q2intfloat(i64 %0) local_unnamed_addr #2 {
   %29 = zext nneg i32 %25 to i64
   %30 = shl nuw i64 1, %29
   %31 = zext nneg i32 %.sroa.14.0 to i64
-  %32 = tail call i64 @av_rescale(i64 noundef %27, i64 noundef %30, i64 noundef %31) #8
+  %32 = tail call i64 @av_rescale(i64 noundef %27, i64 noundef %30, i64 noundef %31) #9
   br label %39
 
 33:                                               ; preds = %7
@@ -477,7 +477,7 @@ define i32 @av_q2intfloat(i64 %0) local_unnamed_addr #2 {
   %35 = sub nsw i32 0, %25
   %36 = zext nneg i32 %35 to i64
   %37 = shl i64 %34, %36
-  %38 = tail call i64 @av_rescale(i64 noundef %27, i64 noundef 1, i64 noundef %37) #8
+  %38 = tail call i64 @av_rescale(i64 noundef %27, i64 noundef 1, i64 noundef %37) #9
   br label %39
 
 39:                                               ; preds = %33, %28
@@ -496,7 +496,7 @@ define i32 @av_q2intfloat(i64 %0) local_unnamed_addr #2 {
   %48 = zext nneg i32 %44 to i64
   %49 = shl nuw i64 1, %48
   %50 = zext nneg i32 %.sroa.14.0 to i64
-  %51 = tail call i64 @av_rescale(i64 noundef %46, i64 noundef %49, i64 noundef %50) #8
+  %51 = tail call i64 @av_rescale(i64 noundef %46, i64 noundef %49, i64 noundef %50) #9
   br label %58
 
 52:                                               ; preds = %39
@@ -504,7 +504,7 @@ define i32 @av_q2intfloat(i64 %0) local_unnamed_addr #2 {
   %54 = sub nsw i32 0, %44
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %53, %55
-  %57 = tail call i64 @av_rescale(i64 noundef %46, i64 noundef 1, i64 noundef %56) #8
+  %57 = tail call i64 @av_rescale(i64 noundef %46, i64 noundef 1, i64 noundef %56) #9
   br label %58
 
 58:                                               ; preds = %52, %47
@@ -529,7 +529,7 @@ declare i64 @av_rescale(i64 noundef, i64 noundef, i64 noundef) local_unnamed_add
 define i64 @av_gcd_q(i64 %0, i64 %1, i32 noundef %2, i64 %3) local_unnamed_addr #2 {
   %5 = ashr i64 %0, 32
   %6 = ashr i64 %1, 32
-  %7 = tail call i64 @av_gcd(i64 noundef %5, i64 noundef %6) #8
+  %7 = tail call i64 @av_gcd(i64 noundef %5, i64 noundef %6) #9
   %8 = sdiv i64 %5, %7
   %9 = mul nsw i64 %8, %6
   %10 = sext i32 %2 to i64
@@ -541,7 +541,7 @@ define i64 @av_gcd_q(i64 %0, i64 %1, i32 noundef %2, i64 %3) local_unnamed_addr 
   %13 = ashr exact i64 %sext, 32
   %sext10 = shl i64 %1, 32
   %14 = ashr exact i64 %sext10, 32
-  %15 = tail call i64 @av_gcd(i64 noundef %13, i64 noundef %14) #8
+  %15 = tail call i64 @av_gcd(i64 noundef %13, i64 noundef %14) #9
   %.sroa.2.0.insert.ext.i = shl i64 %9, 32
   %.sroa.0.0.insert.ext.i = and i64 %15, 4294967295
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.0.insert.ext.i, %.sroa.2.0.insert.ext.i
@@ -561,14 +561,14 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #7
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #7
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #7
@@ -576,13 +576,14 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 attributes #0 = { nofree nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind willreturn memory(none) }
-attributes #9 = { nounwind }
+attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind willreturn memory(none) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

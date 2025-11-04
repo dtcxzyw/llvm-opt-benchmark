@@ -1265,7 +1265,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @PyInit__testinternalcapi() local_unnamed_addr #0 {
-  %1 = tail call ptr @PyModuleDef_Init(ptr noundef nonnull @_testcapimodule) #11
+  %1 = tail call ptr @PyModuleDef_Init(ptr noundef nonnull @_testcapimodule) #12
   ret ptr %1
 }
 
@@ -1277,16 +1277,16 @@ define internal noundef i32 @module_traverse(ptr noundef %0, ptr noundef readonl
   br i1 %.not.i, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call void @__assert_fail(ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.80, i32 noundef 71, ptr noundef nonnull @__PRETTY_FUNCTION__.get_module_state) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.80, i32 noundef 71, ptr noundef nonnull @__PRETTY_FUNCTION__.get_module_state) #13
   unreachable
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @PyModule_GetState(ptr noundef nonnull %0) #11
+  %6 = tail call ptr @PyModule_GetState(ptr noundef nonnull %0) #12
   %.not5.i = icmp eq ptr %6, null
   br i1 %.not5.i, label %7, label %get_module_state.exit
 
 7:                                                ; preds = %5
-  tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.80, i32 noundef 73, ptr noundef nonnull @__PRETTY_FUNCTION__.get_module_state) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.80, i32 noundef 73, ptr noundef nonnull @__PRETTY_FUNCTION__.get_module_state) #13
   unreachable
 
 get_module_state.exit:                            ; preds = %5
@@ -1295,7 +1295,7 @@ get_module_state.exit:                            ; preds = %5
   br i1 %.not.i5, label %traverse_module_state.exit, label %8
 
 8:                                                ; preds = %get_module_state.exit
-  %9 = tail call i32 %1(ptr noundef nonnull %.val, ptr noundef %2) #11
+  %9 = tail call i32 %1(ptr noundef nonnull %.val, ptr noundef %2) #12
   br label %traverse_module_state.exit
 
 traverse_module_state.exit:                       ; preds = %8, %get_module_state.exit
@@ -1308,16 +1308,16 @@ define internal noundef i32 @module_clear(ptr noundef %0) #0 {
   br i1 %.not.i, label %2, label %3
 
 2:                                                ; preds = %1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.80, i32 noundef 71, ptr noundef nonnull @__PRETTY_FUNCTION__.get_module_state) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.80, i32 noundef 71, ptr noundef nonnull @__PRETTY_FUNCTION__.get_module_state) #13
   unreachable
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @PyModule_GetState(ptr noundef nonnull %0) #11
+  %4 = tail call ptr @PyModule_GetState(ptr noundef nonnull %0) #12
   %.not5.i = icmp eq ptr %4, null
   br i1 %.not5.i, label %5, label %get_module_state.exit
 
 5:                                                ; preds = %3
-  tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.80, i32 noundef 73, ptr noundef nonnull @__PRETTY_FUNCTION__.get_module_state) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.80, i32 noundef 73, ptr noundef nonnull @__PRETTY_FUNCTION__.get_module_state) #13
   unreachable
 
 get_module_state.exit:                            ; preds = %3
@@ -1338,7 +1338,7 @@ get_module_state.exit:                            ; preds = %3
   br i1 %11, label %12, label %clear_module_state.exit
 
 12:                                               ; preds = %9
-  tail call void @_Py_Dealloc(ptr noundef nonnull %6) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull %6) #12
   br label %clear_module_state.exit
 
 clear_module_state.exit:                          ; preds = %get_module_state.exit, %7, %9, %12
@@ -1351,16 +1351,16 @@ define internal void @module_free(ptr noundef %0) #0 {
   br i1 %.not.i, label %2, label %3
 
 2:                                                ; preds = %1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.80, i32 noundef 71, ptr noundef nonnull @__PRETTY_FUNCTION__.get_module_state) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.80, i32 noundef 71, ptr noundef nonnull @__PRETTY_FUNCTION__.get_module_state) #13
   unreachable
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @PyModule_GetState(ptr noundef nonnull %0) #11
+  %4 = tail call ptr @PyModule_GetState(ptr noundef nonnull %0) #12
   %.not5.i = icmp eq ptr %4, null
   br i1 %.not5.i, label %5, label %get_module_state.exit
 
 5:                                                ; preds = %3
-  tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.80, i32 noundef 73, ptr noundef nonnull @__PRETTY_FUNCTION__.get_module_state) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.80, i32 noundef 73, ptr noundef nonnull @__PRETTY_FUNCTION__.get_module_state) #13
   unreachable
 
 get_module_state.exit:                            ; preds = %3
@@ -1381,7 +1381,7 @@ get_module_state.exit:                            ; preds = %3
   br i1 %11, label %12, label %clear_module_state.exit
 
 12:                                               ; preds = %9
-  tail call void @_Py_Dealloc(ptr noundef nonnull %6) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull %6) #12
   br label %clear_module_state.exit
 
 clear_module_state.exit:                          ; preds = %get_module_state.exit, %7, %9, %12
@@ -1390,30 +1390,30 @@ clear_module_state.exit:                          ; preds = %get_module_state.ex
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @get_configs(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
-  %3 = tail call ptr @_Py_GetConfigsAsDict() #11
+  %3 = tail call ptr @_Py_GetConfigsAsDict() #12
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @get_recursion_depth(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
-  %3 = tail call ptr @_PyThreadState_GetCurrent() #11
+  %3 = tail call ptr @_PyThreadState_GetCurrent() #12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load i32, ptr %4, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %7 = load i32, ptr %6, align 4, !tbaa !23
   %8 = sub i32 %5, %7
   %9 = sext i32 %8 to i64
-  %10 = tail call ptr @PyLong_FromLong(i64 noundef %9) #11
+  %10 = tail call ptr @PyLong_FromLong(i64 noundef %9) #12
   ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @get_c_recursion_remaining(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
-  %3 = tail call ptr @_PyThreadState_GetCurrent() #11
+  %3 = tail call ptr @_PyThreadState_GetCurrent() #12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %5 = load i32, ptr %4, align 4, !tbaa !24
   %6 = sext i32 %5 to i64
-  %7 = tail call ptr @PyLong_FromLong(i64 noundef %6) #11
+  %7 = tail call ptr @PyLong_FromLong(i64 noundef %6) #12
   ret ptr %7
 }
 
@@ -1441,7 +1441,7 @@ define internal noundef ptr @test_popcount(ptr readnone captures(none) %0, ptr r
 check_popcount.exit.thread:                       ; preds = %2
   %11 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.0..0..0..0..0..0..i)
   %12 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %13 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %12, ptr noundef nonnull @.str.77, i64 noundef 0, i32 noundef %11, i32 noundef 0) #11
+  %13 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %12, ptr noundef nonnull @.str.77, i64 noundef 0, i32 noundef %11, i32 noundef 0) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %43
 
@@ -1456,7 +1456,7 @@ check_popcount.exit.thread:                       ; preds = %2
 
 check_popcount.exit4.thread:                      ; preds = %14
   %16 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %17 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %16, ptr noundef nonnull @.str.77, i64 noundef 1, i32 noundef %15, i32 noundef 1) #11
+  %17 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %16, ptr noundef nonnull @.str.77, i64 noundef 1, i32 noundef %15, i32 noundef 1) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %43
 
@@ -1471,7 +1471,7 @@ check_popcount.exit4.thread:                      ; preds = %14
 
 check_popcount.exit8.thread:                      ; preds = %18
   %20 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %21 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %20, ptr noundef nonnull @.str.77, i64 noundef 134744072, i32 noundef %19, i32 noundef 4) #11
+  %21 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %20, ptr noundef nonnull @.str.77, i64 noundef 134744072, i32 noundef %19, i32 noundef 4) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %43
 
@@ -1486,7 +1486,7 @@ check_popcount.exit8.thread:                      ; preds = %18
 
 check_popcount.exit12.thread:                     ; preds = %22
   %24 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %25 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %24, ptr noundef nonnull @.str.77, i64 noundef 268435457, i32 noundef %23, i32 noundef 2) #11
+  %25 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %24, ptr noundef nonnull @.str.77, i64 noundef 268435457, i32 noundef %23, i32 noundef 2) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %43
 
@@ -1501,7 +1501,7 @@ check_popcount.exit12.thread:                     ; preds = %22
 
 check_popcount.exit16.thread:                     ; preds = %26
   %28 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %29 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %28, ptr noundef nonnull @.str.77, i64 noundef 269488144, i32 noundef %27, i32 noundef 4) #11
+  %29 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %28, ptr noundef nonnull @.str.77, i64 noundef 269488144, i32 noundef %27, i32 noundef 4) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %43
 
@@ -1516,7 +1516,7 @@ check_popcount.exit16.thread:                     ; preds = %26
 
 check_popcount.exit20.thread:                     ; preds = %30
   %32 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %33 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %32, ptr noundef nonnull @.str.77, i64 noundef 270549120, i32 noundef %31, i32 noundef 4) #11
+  %33 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %32, ptr noundef nonnull @.str.77, i64 noundef 270549120, i32 noundef %31, i32 noundef 4) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %43
 
@@ -1531,7 +1531,7 @@ check_popcount.exit20.thread:                     ; preds = %30
 
 check_popcount.exit24.thread:                     ; preds = %34
   %36 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %37 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %36, ptr noundef nonnull @.str.77, i64 noundef 3735931646, i32 noundef %35, i32 noundef 22) #11
+  %37 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %36, ptr noundef nonnull @.str.77, i64 noundef 3735931646, i32 noundef %35, i32 noundef 22) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %43
 
@@ -1550,7 +1550,7 @@ check_popcount.exit28:                            ; preds = %38
 39:                                               ; preds = %38
   %40 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.0..0..0..0..0..0..i25)
   %41 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %42 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %41, ptr noundef nonnull @.str.77, i64 noundef 4294967295, i32 noundef %40, i32 noundef 32) #11
+  %42 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %41, ptr noundef nonnull @.str.77, i64 noundef 4294967295, i32 noundef %40, i32 noundef 32) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %43
 
@@ -1579,7 +1579,7 @@ check_bit_length.exit.thread:                     ; preds = %2
   %11 = trunc nuw nsw i64 %10 to i32
   %12 = sub nuw nsw i32 64, %11
   %13 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %14 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %13, ptr noundef nonnull @.str.78, i64 noundef 0, i32 noundef %12, i32 noundef 0) #11
+  %14 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %13, ptr noundef nonnull @.str.78, i64 noundef 0, i32 noundef %12, i32 noundef 0) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %52
 
@@ -1598,7 +1598,7 @@ check_bit_length.exit.thread:                     ; preds = %2
 
 check_bit_length.exit5.thread:                    ; preds = %15
   %19 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %20 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %19, ptr noundef nonnull @.str.78, i64 noundef 1, i32 noundef %.0.i.i3, i32 noundef 1) #11
+  %20 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %19, ptr noundef nonnull @.str.78, i64 noundef 1, i32 noundef %.0.i.i3, i32 noundef 1) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %52
 
@@ -1617,7 +1617,7 @@ check_bit_length.exit5.thread:                    ; preds = %15
 
 check_bit_length.exit11.thread:                   ; preds = %21
   %25 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %26 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %25, ptr noundef nonnull @.str.78, i64 noundef 4096, i32 noundef %.0.i.i8, i32 noundef 13) #11
+  %26 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %25, ptr noundef nonnull @.str.78, i64 noundef 4096, i32 noundef %.0.i.i8, i32 noundef 13) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %52
 
@@ -1636,7 +1636,7 @@ check_bit_length.exit11.thread:                   ; preds = %21
 
 check_bit_length.exit17.thread:                   ; preds = %27
   %31 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %32 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %31, ptr noundef nonnull @.str.78, i64 noundef 4660, i32 noundef %.0.i.i14, i32 noundef 13) #11
+  %32 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %31, ptr noundef nonnull @.str.78, i64 noundef 4660, i32 noundef %.0.i.i14, i32 noundef 13) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %52
 
@@ -1655,7 +1655,7 @@ check_bit_length.exit17.thread:                   ; preds = %27
 
 check_bit_length.exit23.thread:                   ; preds = %33
   %37 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %38 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %37, ptr noundef nonnull @.str.78, i64 noundef 344865, i32 noundef %.0.i.i20, i32 noundef 19) #11
+  %38 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %37, ptr noundef nonnull @.str.78, i64 noundef 344865, i32 noundef %.0.i.i20, i32 noundef 19) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %52
 
@@ -1674,7 +1674,7 @@ check_bit_length.exit23.thread:                   ; preds = %33
 
 check_bit_length.exit29.thread:                   ; preds = %39
   %43 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %44 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %43, ptr noundef nonnull @.str.78, i64 noundef 2147483647, i32 noundef %.0.i.i26, i32 noundef 31) #11
+  %44 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %43, ptr noundef nonnull @.str.78, i64 noundef 2147483647, i32 noundef %.0.i.i26, i32 noundef 31) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %52
 
@@ -1697,7 +1697,7 @@ check_bit_length.exit35:                          ; preds = %45
 
 49:                                               ; preds = %45
   %50 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %51 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %50, ptr noundef nonnull @.str.78, i64 noundef 4294967295, i32 noundef %.0.i.i32, i32 noundef 32) #11
+  %51 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %50, ptr noundef nonnull @.str.78, i64 noundef 4294967295, i32 noundef %.0.i.i32, i32 noundef 32) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %52
 
@@ -1709,12 +1709,12 @@ check_bit_length.exit35:                          ; preds = %45
 ; Function Attrs: nounwind uwtable
 define internal ptr @test_hashtable(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
-  %4 = tail call ptr @_Py_hashtable_new(ptr noundef nonnull @hash_char, ptr noundef nonnull @_Py_hashtable_compare_direct) #11
+  %4 = tail call ptr @_Py_hashtable_new(ptr noundef nonnull @hash_char, ptr noundef nonnull @_Py_hashtable_compare_direct) #12
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @PyErr_NoMemory() #11
+  %7 = tail call ptr @PyErr_NoMemory() #12
   br label %99
 
 8:                                                ; preds = %2
@@ -1723,7 +1723,7 @@ define internal ptr @test_hashtable(ptr readnone captures(none) %0, ptr readnone
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %8
-  tail call void @__assert_fail(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, i32 noundef 265, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, i32 noundef 265, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #13
   unreachable
 
 12:                                               ; preds = %8
@@ -1733,16 +1733,16 @@ define internal ptr @test_hashtable(ptr readnone captures(none) %0, ptr readnone
   br i1 %.not, label %15, label %16
 
 15:                                               ; preds = %12
-  tail call void @__assert_fail(ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.80, i32 noundef 266, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.80, i32 noundef 266, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #13
   unreachable
 
 16:                                               ; preds = %12
-  %17 = tail call ptr @_Py_hashtable_get(ptr noundef nonnull %4, ptr noundef nonnull inttoptr (i64 120 to ptr)) #11
+  %17 = tail call ptr @_Py_hashtable_get(ptr noundef nonnull %4, ptr noundef nonnull inttoptr (i64 120 to ptr)) #12
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.preheader59, label %19
 
 19:                                               ; preds = %16
-  tail call void @__assert_fail(ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.80, i32 noundef 267, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.80, i32 noundef 267, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #13
   unreachable
 
 20:                                               ; preds = %.preheader59
@@ -1755,13 +1755,13 @@ define internal ptr @test_hashtable(ptr readnone captures(none) %0, ptr readnone
   %21 = add nsw i64 %indvars.iv, -96
   %22 = inttoptr i64 %indvars.iv to ptr
   %23 = inttoptr i64 %21 to ptr
-  %24 = tail call i32 @_Py_hashtable_set(ptr noundef nonnull %4, ptr noundef nonnull %22, ptr noundef %23) #11
+  %24 = tail call i32 @_Py_hashtable_set(ptr noundef nonnull %4, ptr noundef nonnull %22, ptr noundef %23) #12
   %25 = icmp sgt i32 %24, -1
   br i1 %25, label %20, label %26
 
 26:                                               ; preds = %.preheader59
-  tail call void @_Py_hashtable_destroy(ptr noundef nonnull %4) #11
-  %27 = tail call ptr @PyErr_NoMemory() #11
+  tail call void @_Py_hashtable_destroy(ptr noundef nonnull %4) #12
+  %27 = tail call ptr @PyErr_NoMemory() #12
   br label %99
 
 28:                                               ; preds = %20
@@ -1770,7 +1770,7 @@ define internal ptr @test_hashtable(ptr readnone captures(none) %0, ptr readnone
   br i1 %30, label %32, label %31
 
 31:                                               ; preds = %28
-  tail call void @__assert_fail(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.80, i32 noundef 278, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.80, i32 noundef 278, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #13
   unreachable
 
 32:                                               ; preds = %28
@@ -1783,7 +1783,7 @@ define internal ptr @test_hashtable(ptr readnone captures(none) %0, ptr readnone
   br label %38
 
 36:                                               ; preds = %32
-  tail call void @__assert_fail(ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.80, i32 noundef 279, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.80, i32 noundef 279, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #13
   unreachable
 
 37:                                               ; preds = %48
@@ -1795,12 +1795,12 @@ define internal ptr @test_hashtable(ptr readnone captures(none) %0, ptr readnone
   %indvars.iv64 = phi i64 [ 97, %.preheader58 ], [ %indvars.iv.next65, %37 ]
   %39 = inttoptr i64 %indvars.iv64 to ptr
   %40 = load ptr, ptr %35, align 8, !tbaa !34
-  %41 = tail call ptr %40(ptr noundef nonnull %4, ptr noundef nonnull %39) #11
+  %41 = tail call ptr %40(ptr noundef nonnull %4, ptr noundef nonnull %39) #12
   %.not55 = icmp eq ptr %41, null
   br i1 %.not55, label %42, label %43
 
 42:                                               ; preds = %38
-  tail call void @__assert_fail(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.80, i32 noundef 284, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.80, i32 noundef 284, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #13
   unreachable
 
 43:                                               ; preds = %38
@@ -1810,7 +1810,7 @@ define internal ptr @test_hashtable(ptr readnone captures(none) %0, ptr readnone
   br i1 %46, label %48, label %47
 
 47:                                               ; preds = %43
-  tail call void @__assert_fail(ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.80, i32 noundef 285, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.80, i32 noundef 285, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #13
   unreachable
 
 48:                                               ; preds = %43
@@ -1822,7 +1822,7 @@ define internal ptr @test_hashtable(ptr readnone captures(none) %0, ptr readnone
   br i1 %53, label %37, label %54
 
 54:                                               ; preds = %48
-  tail call void @__assert_fail(ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.80, i32 noundef 286, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.80, i32 noundef 286, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #13
   unreachable
 
 55:                                               ; preds = %.preheader
@@ -1834,7 +1834,7 @@ define internal ptr @test_hashtable(ptr readnone captures(none) %0, ptr readnone
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %55 ], [ 97, %37 ]
   %56 = trunc nuw nsw i64 %indvars.iv68 to i32
   %57 = inttoptr i64 %indvars.iv68 to ptr
-  %58 = tail call ptr @_Py_hashtable_get(ptr noundef nonnull %4, ptr noundef nonnull %57) #11
+  %58 = tail call ptr @_Py_hashtable_get(ptr noundef nonnull %4, ptr noundef nonnull %57) #12
   %59 = ptrtoint ptr %58 to i64
   %60 = trunc i64 %59 to i32
   %61 = add nsw i32 %56, -96
@@ -1842,18 +1842,18 @@ define internal ptr @test_hashtable(ptr readnone captures(none) %0, ptr readnone
   br i1 %62, label %55, label %63
 
 63:                                               ; preds = %.preheader
-  tail call void @__assert_fail(ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.80, i32 noundef 292, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.80, i32 noundef 292, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #13
   unreachable
 
 64:                                               ; preds = %55
-  %65 = tail call ptr @_Py_hashtable_steal(ptr noundef nonnull %4, ptr noundef nonnull inttoptr (i64 112 to ptr)) #11
+  %65 = tail call ptr @_Py_hashtable_steal(ptr noundef nonnull %4, ptr noundef nonnull inttoptr (i64 112 to ptr)) #12
   %66 = ptrtoint ptr %65 to i64
   %67 = and i64 %66, 4294967295
   %68 = icmp eq i64 %67, 16
   br i1 %68, label %70, label %69
 
 69:                                               ; preds = %64
-  tail call void @__assert_fail(ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.80, i32 noundef 298, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.80, i32 noundef 298, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #13
   unreachable
 
 70:                                               ; preds = %64
@@ -1862,28 +1862,28 @@ define internal ptr @test_hashtable(ptr readnone captures(none) %0, ptr readnone
   br i1 %72, label %74, label %73
 
 73:                                               ; preds = %70
-  tail call void @__assert_fail(ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.80, i32 noundef 299, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.80, i32 noundef 299, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #13
   unreachable
 
 74:                                               ; preds = %70
   %75 = load ptr, ptr %35, align 8, !tbaa !34
-  %76 = tail call ptr %75(ptr noundef nonnull %4, ptr noundef nonnull inttoptr (i64 112 to ptr)) #11
+  %76 = tail call ptr %75(ptr noundef nonnull %4, ptr noundef nonnull inttoptr (i64 112 to ptr)) #12
   %77 = icmp eq ptr %76, null
   br i1 %77, label %79, label %78
 
 78:                                               ; preds = %74
-  tail call void @__assert_fail(ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.80, i32 noundef 300, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.80, i32 noundef 300, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #13
   unreachable
 
 79:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !25
-  %80 = call i32 @_Py_hashtable_foreach(ptr noundef nonnull %4, ptr noundef nonnull @hashtable_cb, ptr noundef nonnull %3) #11
+  %80 = call i32 @_Py_hashtable_foreach(ptr noundef nonnull %4, ptr noundef nonnull @hashtable_cb, ptr noundef nonnull %3) #12
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %83, label %82
 
 82:                                               ; preds = %79
-  call void @__assert_fail(ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.80, i32 noundef 305, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.80, i32 noundef 305, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #13
   unreachable
 
 83:                                               ; preds = %79
@@ -1892,17 +1892,17 @@ define internal ptr @test_hashtable(ptr readnone captures(none) %0, ptr readnone
   br i1 %85, label %87, label %86
 
 86:                                               ; preds = %83
-  call void @__assert_fail(ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.80, i32 noundef 306, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.80, i32 noundef 306, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #13
   unreachable
 
 87:                                               ; preds = %83
-  call void @_Py_hashtable_clear(ptr noundef nonnull %4) #11
+  call void @_Py_hashtable_clear(ptr noundef nonnull %4) #12
   %88 = load i64, ptr %4, align 8, !tbaa !27
   %89 = icmp eq i64 %88, 0
   br i1 %89, label %91, label %90
 
 90:                                               ; preds = %87
-  call void @__assert_fail(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, i32 noundef 310, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, i32 noundef 310, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #13
   unreachable
 
 91:                                               ; preds = %87
@@ -1911,20 +1911,20 @@ define internal ptr @test_hashtable(ptr readnone captures(none) %0, ptr readnone
   br i1 %.not54, label %93, label %94
 
 93:                                               ; preds = %91
-  call void @__assert_fail(ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.80, i32 noundef 311, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.80, i32 noundef 311, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #13
   unreachable
 
 94:                                               ; preds = %91
-  %95 = call ptr @_Py_hashtable_get(ptr noundef nonnull %4, ptr noundef nonnull inttoptr (i64 120 to ptr)) #11
+  %95 = call ptr @_Py_hashtable_get(ptr noundef nonnull %4, ptr noundef nonnull inttoptr (i64 120 to ptr)) #12
   %96 = icmp eq ptr %95, null
   br i1 %96, label %98, label %97
 
 97:                                               ; preds = %94
-  call void @__assert_fail(ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.80, i32 noundef 312, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.80, i32 noundef 312, ptr noundef nonnull @__PRETTY_FUNCTION__.test_hashtable) #13
   unreachable
 
 98:                                               ; preds = %94
-  call void @_Py_hashtable_destroy(ptr noundef nonnull %4) #11
+  call void @_Py_hashtable_destroy(ptr noundef nonnull %4) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %99
 
@@ -1935,7 +1935,7 @@ define internal ptr @test_hashtable(ptr readnone captures(none) %0, ptr readnone
 
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @test_reset_path_config(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
-  tail call void @_PyPathConfig_ClearGlobal() #11
+  tail call void @_PyPathConfig_ClearGlobal() #12
   ret ptr @_Py_NoneStruct
 }
 
@@ -2168,15 +2168,15 @@ define internal ptr @normalize_path(ptr readnone captures(none) %0, ptr noundef 
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 -1, ptr %3, align 8, !tbaa !26
-  %4 = call ptr @PyUnicode_AsWideCharString(ptr noundef %1, ptr noundef nonnull %3) #11
+  %4 = call ptr @PyUnicode_AsWideCharString(ptr noundef %1, ptr noundef nonnull %3) #12
   %5 = icmp eq ptr %4, null
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %2
   %7 = load i64, ptr %3, align 8, !tbaa !26
-  %8 = call ptr @_Py_normpath(ptr noundef nonnull %4, i64 noundef %7) #11
-  %9 = call ptr @PyUnicode_FromWideChar(ptr noundef %8, i64 noundef -1) #11
-  call void @PyMem_Free(ptr noundef nonnull %4) #11
+  %8 = call ptr @_Py_normpath(ptr noundef nonnull %4, i64 noundef %7) #12
+  %9 = call ptr @PyUnicode_FromWideChar(ptr noundef %8, i64 noundef -1) #12
+  call void @PyMem_Free(ptr noundef nonnull %4) #12
   br label %10
 
 10:                                               ; preds = %2, %6
@@ -2187,7 +2187,7 @@ define internal ptr @normalize_path(ptr readnone captures(none) %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @get_getpath_codeobject(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
-  %3 = tail call ptr @_Py_Get_Getpath_CodeObject() #11
+  %3 = tail call ptr @_Py_Get_Getpath_CodeObject() #12
   ret ptr %3
 }
 
@@ -2204,27 +2204,27 @@ define internal ptr @encode_locale_ex(ptr readnone captures(none) %0, ptr nounde
   store i32 0, ptr %4, align 4, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !41
-  %9 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.145, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
+  %9 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.145, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %35, label %10
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %3, align 8, !tbaa !9
-  %12 = call ptr @PyUnicode_AsWideCharString(ptr noundef %11, ptr noundef null) #11
+  %12 = call ptr @PyUnicode_AsWideCharString(ptr noundef %11, ptr noundef null) #12
   %13 = icmp eq ptr %12, null
   br i1 %13, label %35, label %14
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %5, align 8, !tbaa !41
-  %16 = call i32 @_Py_GetErrorHandler(ptr noundef %15) #11
+  %16 = call i32 @_Py_GetErrorHandler(ptr noundef %15) #12
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !41
   %17 = load i32, ptr %4, align 4, !tbaa !25
-  %18 = call i32 @_Py_EncodeLocaleEx(ptr noundef nonnull %12, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %17, i32 noundef %16) #11
-  call void @PyMem_Free(ptr noundef nonnull %12) #11
+  %18 = call i32 @_Py_EncodeLocaleEx(ptr noundef nonnull %12, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %17, i32 noundef %16) #12
+  call void @PyMem_Free(ptr noundef nonnull %12) #12
   switch i32 %18, label %32 [
     i32 0, label %19
     i32 -1, label %23
@@ -2234,30 +2234,30 @@ define internal ptr @encode_locale_ex(ptr readnone captures(none) %0, ptr nounde
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %6, align 8, !tbaa !41
-  %21 = call ptr @PyBytes_FromString(ptr noundef %20) #11
+  %21 = call ptr @PyBytes_FromString(ptr noundef %20) #12
   %22 = load ptr, ptr %6, align 8, !tbaa !41
-  call void @PyMem_RawFree(ptr noundef %22) #11
+  call void @PyMem_RawFree(ptr noundef %22) #12
   br label %34
 
 23:                                               ; preds = %14
-  %24 = call ptr @PyErr_NoMemory() #11
+  %24 = call ptr @PyErr_NoMemory() #12
   br label %34
 
 25:                                               ; preds = %14
   %26 = load ptr, ptr @PyExc_RuntimeError, align 8, !tbaa !9
   %27 = load i64, ptr %7, align 8, !tbaa !26
   %28 = load ptr, ptr %8, align 8, !tbaa !41
-  %29 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %26, ptr noundef nonnull @.str.146, i64 noundef %27, ptr noundef %28) #11
+  %29 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %26, ptr noundef nonnull @.str.146, i64 noundef %27, ptr noundef %28) #12
   br label %34
 
 30:                                               ; preds = %14
   %31 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  call void @PyErr_SetString(ptr noundef %31, ptr noundef nonnull @.str.147) #11
+  call void @PyErr_SetString(ptr noundef %31, ptr noundef nonnull @.str.147) #12
   br label %34
 
 32:                                               ; preds = %14
   %33 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  call void @PyErr_SetString(ptr noundef %33, ptr noundef nonnull @.str.148) #11
+  call void @PyErr_SetString(ptr noundef %33, ptr noundef nonnull @.str.148) #12
   br label %34
 
 34:                                               ; preds = %32, %30, %25, %23, %19
@@ -2288,13 +2288,13 @@ define internal ptr @decode_locale_ex(ptr readnone captures(none) %0, ptr nounde
   store i32 0, ptr %4, align 4, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !41
-  %9 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.149, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
+  %9 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.149, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %33, label %10
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %5, align 8, !tbaa !41
-  %12 = call i32 @_Py_GetErrorHandler(ptr noundef %11) #11
+  %12 = call i32 @_Py_GetErrorHandler(ptr noundef %11) #12
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !43
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -2303,7 +2303,7 @@ define internal ptr @decode_locale_ex(ptr readnone captures(none) %0, ptr nounde
   store ptr null, ptr %8, align 8, !tbaa !41
   %13 = load ptr, ptr %3, align 8, !tbaa !41
   %14 = load i32, ptr %4, align 4, !tbaa !25
-  %15 = call i32 @_Py_DecodeLocaleEx(ptr noundef %13, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %14, i32 noundef %12) #11
+  %15 = call i32 @_Py_DecodeLocaleEx(ptr noundef %13, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %14, i32 noundef %12) #12
   switch i32 %15, label %30 [
     i32 0, label %16
     i32 -1, label %21
@@ -2314,30 +2314,30 @@ define internal ptr @decode_locale_ex(ptr readnone captures(none) %0, ptr nounde
 16:                                               ; preds = %10
   %17 = load ptr, ptr %6, align 8, !tbaa !43
   %18 = load i64, ptr %7, align 8, !tbaa !26
-  %19 = call ptr @PyUnicode_FromWideChar(ptr noundef %17, i64 noundef %18) #11
+  %19 = call ptr @PyUnicode_FromWideChar(ptr noundef %17, i64 noundef %18) #12
   %20 = load ptr, ptr %6, align 8, !tbaa !43
-  call void @PyMem_RawFree(ptr noundef %20) #11
+  call void @PyMem_RawFree(ptr noundef %20) #12
   br label %32
 
 21:                                               ; preds = %10
-  %22 = call ptr @PyErr_NoMemory() #11
+  %22 = call ptr @PyErr_NoMemory() #12
   br label %32
 
 23:                                               ; preds = %10
   %24 = load ptr, ptr @PyExc_RuntimeError, align 8, !tbaa !9
   %25 = load i64, ptr %7, align 8, !tbaa !26
   %26 = load ptr, ptr %8, align 8, !tbaa !41
-  %27 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %24, ptr noundef nonnull @.str.150, i64 noundef %25, ptr noundef %26) #11
+  %27 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %24, ptr noundef nonnull @.str.150, i64 noundef %25, ptr noundef %26) #12
   br label %32
 
 28:                                               ; preds = %10
   %29 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  call void @PyErr_SetString(ptr noundef %29, ptr noundef nonnull @.str.147) #11
+  call void @PyErr_SetString(ptr noundef %29, ptr noundef nonnull @.str.147) #12
   br label %32
 
 30:                                               ; preds = %10
   %31 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  call void @PyErr_SetString(ptr noundef %31, ptr noundef nonnull @.str.148) #11
+  call void @PyErr_SetString(ptr noundef %31, ptr noundef nonnull @.str.148) #12
   br label %32
 
 32:                                               ; preds = %30, %28, %23, %21, %16
@@ -2361,23 +2361,23 @@ define internal noundef nonnull ptr @set_eval_frame_default(ptr noundef %0, ptr 
   br i1 %.not.i6, label %3, label %4
 
 3:                                                ; preds = %2
-  tail call void @__assert_fail(ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.80, i32 noundef 71, ptr noundef nonnull @__PRETTY_FUNCTION__.get_module_state) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.80, i32 noundef 71, ptr noundef nonnull @__PRETTY_FUNCTION__.get_module_state) #13
   unreachable
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @PyModule_GetState(ptr noundef nonnull %0) #11
+  %5 = tail call ptr @PyModule_GetState(ptr noundef nonnull %0) #12
   %.not5.i = icmp eq ptr %5, null
   br i1 %.not5.i, label %6, label %get_module_state.exit
 
 6:                                                ; preds = %4
-  tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.80, i32 noundef 73, ptr noundef nonnull @__PRETTY_FUNCTION__.get_module_state) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.80, i32 noundef 73, ptr noundef nonnull @__PRETTY_FUNCTION__.get_module_state) #13
   unreachable
 
 get_module_state.exit:                            ; preds = %4
-  %7 = tail call ptr @_PyThreadState_GetCurrent() #11
+  %7 = tail call ptr @_PyThreadState_GetCurrent() #12
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !45
-  tail call void @_PyInterpreterState_SetEvalFrameFunc(ptr noundef %9, ptr noundef nonnull @_PyEval_EvalFrameDefault) #11
+  tail call void @_PyInterpreterState_SetEvalFrameFunc(ptr noundef %9, ptr noundef nonnull @_PyEval_EvalFrameDefault) #12
   %10 = load ptr, ptr %5, align 8, !tbaa !9
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %Py_DECREF.exit, label %11
@@ -2395,7 +2395,7 @@ get_module_state.exit:                            ; preds = %4
   br i1 %15, label %16, label %Py_DECREF.exit
 
 16:                                               ; preds = %13
-  tail call void @_Py_Dealloc(ptr noundef nonnull %10) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull %10) #12
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %16, %13, %11, %get_module_state.exit
@@ -2408,16 +2408,16 @@ define internal noundef ptr @set_eval_frame_record(ptr noundef %0, ptr noundef %
   br i1 %.not.i, label %3, label %4
 
 3:                                                ; preds = %2
-  tail call void @__assert_fail(ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.80, i32 noundef 71, ptr noundef nonnull @__PRETTY_FUNCTION__.get_module_state) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.80, i32 noundef 71, ptr noundef nonnull @__PRETTY_FUNCTION__.get_module_state) #13
   unreachable
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @PyModule_GetState(ptr noundef nonnull %0) #11
+  %5 = tail call ptr @PyModule_GetState(ptr noundef nonnull %0) #12
   %.not5.i = icmp eq ptr %5, null
   br i1 %.not5.i, label %6, label %get_module_state.exit
 
 6:                                                ; preds = %4
-  tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.80, i32 noundef 73, ptr noundef nonnull @__PRETTY_FUNCTION__.get_module_state) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.80, i32 noundef 73, ptr noundef nonnull @__PRETTY_FUNCTION__.get_module_state) #13
   unreachable
 
 get_module_state.exit:                            ; preds = %4
@@ -2431,7 +2431,7 @@ get_module_state.exit:                            ; preds = %4
 
 10:                                               ; preds = %get_module_state.exit
   %11 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.153) #11
+  tail call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.153) #12
   br label %27
 
 12:                                               ; preds = %get_module_state.exit
@@ -2462,14 +2462,14 @@ _Py_NewRef.exit:                                  ; preds = %12, %16
   br i1 %22, label %23, label %Py_XDECREF.exit
 
 23:                                               ; preds = %20
-  tail call void @_Py_Dealloc(ptr noundef nonnull %13) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull %13) #12
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %_Py_NewRef.exit, %18, %20, %23
-  %24 = tail call ptr @_PyThreadState_GetCurrent() #11
+  %24 = tail call ptr @_PyThreadState_GetCurrent() #12
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !45
-  tail call void @_PyInterpreterState_SetEvalFrameFunc(ptr noundef %26, ptr noundef nonnull @record_eval) #11
+  tail call void @_PyInterpreterState_SetEvalFrameFunc(ptr noundef %26, ptr noundef nonnull @record_eval) #12
   br label %27
 
 27:                                               ; preds = %Py_XDECREF.exit, %10
@@ -2489,7 +2489,7 @@ define internal ptr @_testinternalcapi_compiler_cleandoc(ptr readnone captures(n
   br i1 %or.cond5, label %.thread, label %9
 
 9:                                                ; preds = %4
-  %10 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @_testinternalcapi_compiler_cleandoc._parser, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #11
+  %10 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @_testinternalcapi_compiler_cleandoc._parser, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #12
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %19, label %.thread
 
@@ -2505,11 +2505,11 @@ define internal ptr @_testinternalcapi_compiler_cleandoc(ptr readnone captures(n
   br i1 %.not21, label %16, label %17
 
 16:                                               ; preds = %.thread
-  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.159, ptr noundef nonnull @.str.160, ptr noundef nonnull %12) #11
+  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.159, ptr noundef nonnull @.str.160, ptr noundef nonnull %12) #12
   br label %19
 
 17:                                               ; preds = %.thread
-  %18 = call ptr @_PyCompile_CleanDoc(ptr noundef nonnull %12) #11
+  %18 = call ptr @_PyCompile_CleanDoc(ptr noundef nonnull %12) #12
   br label %19
 
 19:                                               ; preds = %9, %17, %16
@@ -2520,7 +2520,7 @@ define internal ptr @_testinternalcapi_compiler_cleandoc(ptr readnone captures(n
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_testinternalcapi_new_instruction_sequence(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
-  %3 = tail call ptr @_PyInstructionSequence_New() #11
+  %3 = tail call ptr @_PyInstructionSequence_New() #12
   ret ptr %3
 }
 
@@ -2541,7 +2541,7 @@ define internal ptr @_testinternalcapi_compiler_codegen(ptr readnone captures(no
   br i1 %.not.i, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void @__assert_fail(ptr noundef nonnull @.str.165, ptr noundef nonnull @.str.166, i32 noundef 22, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_GET_SIZE) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.165, ptr noundef nonnull @.str.166, i32 noundef 22, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_GET_SIZE) #13
   unreachable
 
 11:                                               ; preds = %6
@@ -2549,7 +2549,7 @@ define internal ptr @_testinternalcapi_compiler_codegen(ptr readnone captures(no
   br i1 %.not.i.i, label %12, label %13
 
 12:                                               ; preds = %11
-  tail call void @__assert_fail(ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.168, i32 noundef 282, ptr noundef nonnull @__PRETTY_FUNCTION__.Py_SIZE) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.168, i32 noundef 282, ptr noundef nonnull @__PRETTY_FUNCTION__.Py_SIZE) #13
   unreachable
 
 13:                                               ; preds = %11
@@ -2557,7 +2557,7 @@ define internal ptr @_testinternalcapi_compiler_codegen(ptr readnone captures(no
   br i1 %.not3.i.i, label %14, label %.thread
 
 14:                                               ; preds = %13
-  tail call void @__assert_fail(ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.168, i32 noundef 283, ptr noundef nonnull @__PRETTY_FUNCTION__.Py_SIZE) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.168, i32 noundef 283, ptr noundef nonnull @__PRETTY_FUNCTION__.Py_SIZE) #13
   unreachable
 
 .thread:                                          ; preds = %13
@@ -2575,7 +2575,7 @@ define internal ptr @_testinternalcapi_compiler_codegen(ptr readnone captures(no
 
 22:                                               ; preds = %18, %.thread
   %23 = phi i64 [ %17, %.thread ], [ %2, %18 ]
-  %24 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @_testinternalcapi_compiler_codegen._parser, i32 noundef 3, i32 noundef 4, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #11
+  %24 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @_testinternalcapi_compiler_codegen._parser, i32 noundef 3, i32 noundef 4, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #12
   %.not34 = icmp eq ptr %24, null
   br i1 %.not34, label %46, label %.thread40
 
@@ -2587,12 +2587,12 @@ define internal ptr @_testinternalcapi_compiler_codegen(ptr readnone captures(no
   %29 = load ptr, ptr %28, align 8, !tbaa !9
   %30 = getelementptr i8, ptr %25, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !9
-  %32 = call i32 @PyLong_AsInt(ptr noundef %31) #11
+  %32 = call i32 @PyLong_AsInt(ptr noundef %31) #12
   %33 = icmp eq i32 %32, -1
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %.thread40
-  %35 = call ptr @PyErr_Occurred() #11
+  %35 = call ptr @PyErr_Occurred() #12
   %.not35 = icmp eq ptr %35, null
   br i1 %.not35, label %36, label %46
 
@@ -2603,18 +2603,18 @@ define internal ptr @_testinternalcapi_compiler_codegen(ptr readnone captures(no
 37:                                               ; preds = %36
   %38 = getelementptr i8, ptr %25, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !9
-  %40 = call i32 @PyLong_AsInt(ptr noundef %39) #11
+  %40 = call i32 @PyLong_AsInt(ptr noundef %39) #12
   %41 = icmp eq i32 %40, -1
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %37
-  %43 = call ptr @PyErr_Occurred() #11
+  %43 = call ptr @PyErr_Occurred() #12
   %.not37 = icmp eq ptr %43, null
   br i1 %.not37, label %44, label %46
 
 44:                                               ; preds = %37, %42, %36
   %.0 = phi i32 [ -1, %42 ], [ %40, %37 ], [ 0, %36 ]
-  %45 = call ptr @_PyCompile_CodeGen(ptr noundef %27, ptr noundef %29, ptr noundef null, i32 noundef %32, i32 noundef %.0) #11
+  %45 = call ptr @_PyCompile_CodeGen(ptr noundef %27, ptr noundef %29, ptr noundef null, i32 noundef %32, i32 noundef %.0) #12
   br label %46
 
 46:                                               ; preds = %42, %34, %22, %44
@@ -2635,7 +2635,7 @@ define internal ptr @_testinternalcapi_optimize_cfg(ptr readnone captures(none) 
   br i1 %or.cond5, label %.thread, label %9
 
 9:                                                ; preds = %4
-  %10 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @_testinternalcapi_optimize_cfg._parser, i32 noundef 3, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #11
+  %10 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @_testinternalcapi_optimize_cfg._parser, i32 noundef 3, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #12
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %22, label %.thread
 
@@ -2646,18 +2646,18 @@ define internal ptr @_testinternalcapi_optimize_cfg(ptr readnone captures(none) 
   %14 = load ptr, ptr %13, align 8, !tbaa !9
   %15 = getelementptr i8, ptr %11, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !9
-  %17 = call i32 @PyLong_AsInt(ptr noundef %16) #11
+  %17 = call i32 @PyLong_AsInt(ptr noundef %16) #12
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %19, label %.sink.split
 
 19:                                               ; preds = %.thread
-  %20 = call ptr @PyErr_Occurred() #11
+  %20 = call ptr @PyErr_Occurred() #12
   %.not26 = icmp eq ptr %20, null
   br i1 %.not26, label %.sink.split, label %22
 
 .sink.split:                                      ; preds = %19, %.thread
   %.sink = phi i32 [ %17, %.thread ], [ -1, %19 ]
-  %21 = call ptr @_PyCompile_OptimizeCfg(ptr noundef %12, ptr noundef %14, i32 noundef %.sink) #11
+  %21 = call ptr @_PyCompile_OptimizeCfg(ptr noundef %12, ptr noundef %14, i32 noundef %.sink) #12
   br label %22
 
 22:                                               ; preds = %.sink.split, %19, %9
@@ -2679,7 +2679,7 @@ define internal ptr @_testinternalcapi_assemble_code_object(ptr readnone capture
   br i1 %or.cond5, label %.thread, label %10
 
 10:                                               ; preds = %4
-  %11 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @_testinternalcapi_assemble_code_object._parser, i32 noundef 3, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6) #11
+  %11 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @_testinternalcapi_assemble_code_object._parser, i32 noundef 3, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6) #12
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %117, label %.thread
 
@@ -2699,14 +2699,14 @@ define internal ptr @_testinternalcapi_assemble_code_object(ptr readnone capture
   br i1 %.not.i, label %21, label %22
 
 21:                                               ; preds = %.thread
-  call void @__assert_fail(ptr noundef nonnull @.str.174, ptr noundef nonnull @.str.80, i32 noundef 776, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.174, ptr noundef nonnull @.str.80, i32 noundef 776, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #13
   unreachable
 
 22:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %23 = call ptr @PyDict_GetItemString(ptr noundef nonnull %17, ptr noundef nonnull @.str.175) #11
+  %23 = call ptr @PyDict_GetItemString(ptr noundef nonnull %17, ptr noundef nonnull @.str.175) #12
   store ptr %23, ptr %5, align 8, !tbaa !57
-  %24 = call ptr @PyDict_GetItemString(ptr noundef nonnull %17, ptr noundef nonnull @.str.176) #11
+  %24 = call ptr @PyDict_GetItemString(ptr noundef nonnull %17, ptr noundef nonnull @.str.176) #12
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %24, ptr %25, align 8, !tbaa !59
   %26 = getelementptr i8, ptr %23, i64 8
@@ -2718,7 +2718,7 @@ define internal ptr @_testinternalcapi_assemble_code_object(ptr readnone capture
   br i1 %.not15.i, label %29, label %30
 
 29:                                               ; preds = %22
-  call void @__assert_fail(ptr noundef nonnull @.str.177, ptr noundef nonnull @.str.80, i32 noundef 782, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.177, ptr noundef nonnull @.str.80, i32 noundef 782, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #13
   unreachable
 
 30:                                               ; preds = %22
@@ -2731,26 +2731,26 @@ define internal ptr @_testinternalcapi_assemble_code_object(ptr readnone capture
   br i1 %.not16.i, label %34, label %35
 
 34:                                               ; preds = %30
-  call void @__assert_fail(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.80, i32 noundef 783, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.80, i32 noundef 783, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #13
   unreachable
 
 35:                                               ; preds = %30
-  %36 = call ptr @PyDict_GetItemString(ptr noundef nonnull %17, ptr noundef nonnull @.str.171) #11
+  %36 = call ptr @PyDict_GetItemString(ptr noundef nonnull %17, ptr noundef nonnull @.str.171) #12
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %36, ptr %37, align 8, !tbaa !60
-  %38 = call ptr @PyDict_GetItemString(ptr noundef nonnull %17, ptr noundef nonnull @.str.179) #11
+  %38 = call ptr @PyDict_GetItemString(ptr noundef nonnull %17, ptr noundef nonnull @.str.179) #12
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %38, ptr %39, align 8, !tbaa !61
-  %40 = call ptr @PyDict_GetItemString(ptr noundef nonnull %17, ptr noundef nonnull @.str.180) #11
+  %40 = call ptr @PyDict_GetItemString(ptr noundef nonnull %17, ptr noundef nonnull @.str.180) #12
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %40, ptr %41, align 8, !tbaa !62
-  %42 = call ptr @PyDict_GetItemString(ptr noundef nonnull %17, ptr noundef nonnull @.str.181) #11
+  %42 = call ptr @PyDict_GetItemString(ptr noundef nonnull %17, ptr noundef nonnull @.str.181) #12
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %42, ptr %43, align 8, !tbaa !63
-  %44 = call ptr @PyDict_GetItemString(ptr noundef nonnull %17, ptr noundef nonnull @.str.182) #11
+  %44 = call ptr @PyDict_GetItemString(ptr noundef nonnull %17, ptr noundef nonnull @.str.182) #12
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %44, ptr %45, align 8, !tbaa !64
-  %46 = call ptr @PyDict_GetItemString(ptr noundef nonnull %17, ptr noundef nonnull @.str.183) #11
+  %46 = call ptr @PyDict_GetItemString(ptr noundef nonnull %17, ptr noundef nonnull @.str.183) #12
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %46, ptr %47, align 8, !tbaa !65
   %48 = getelementptr i8, ptr %36, i64 8
@@ -2762,7 +2762,7 @@ define internal ptr @_testinternalcapi_assemble_code_object(ptr readnone capture
   br i1 %.not17.i, label %51, label %52
 
 51:                                               ; preds = %35
-  call void @__assert_fail(ptr noundef nonnull @.str.184, ptr noundef nonnull @.str.80, i32 noundef 792, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.184, ptr noundef nonnull @.str.80, i32 noundef 792, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #13
   unreachable
 
 52:                                               ; preds = %35
@@ -2775,7 +2775,7 @@ define internal ptr @_testinternalcapi_assemble_code_object(ptr readnone capture
   br i1 %.not18.i, label %56, label %57
 
 56:                                               ; preds = %52
-  call void @__assert_fail(ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.80, i32 noundef 793, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.80, i32 noundef 793, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #13
   unreachable
 
 57:                                               ; preds = %52
@@ -2788,7 +2788,7 @@ define internal ptr @_testinternalcapi_assemble_code_object(ptr readnone capture
   br i1 %.not19.i, label %61, label %62
 
 61:                                               ; preds = %57
-  call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.80, i32 noundef 794, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.80, i32 noundef 794, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #13
   unreachable
 
 62:                                               ; preds = %57
@@ -2801,7 +2801,7 @@ define internal ptr @_testinternalcapi_assemble_code_object(ptr readnone capture
   br i1 %.not20.i, label %66, label %67
 
 66:                                               ; preds = %62
-  call void @__assert_fail(ptr noundef nonnull @.str.187, ptr noundef nonnull @.str.80, i32 noundef 795, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.187, ptr noundef nonnull @.str.80, i32 noundef 795, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #13
   unreachable
 
 67:                                               ; preds = %62
@@ -2814,7 +2814,7 @@ define internal ptr @_testinternalcapi_assemble_code_object(ptr readnone capture
   br i1 %.not21.i, label %71, label %72
 
 71:                                               ; preds = %67
-  call void @__assert_fail(ptr noundef nonnull @.str.188, ptr noundef nonnull @.str.80, i32 noundef 796, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.188, ptr noundef nonnull @.str.80, i32 noundef 796, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #13
   unreachable
 
 72:                                               ; preds = %67
@@ -2827,16 +2827,16 @@ define internal ptr @_testinternalcapi_assemble_code_object(ptr readnone capture
   br i1 %.not22.i, label %76, label %77
 
 76:                                               ; preds = %72
-  call void @__assert_fail(ptr noundef nonnull @.str.189, ptr noundef nonnull @.str.80, i32 noundef 797, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.189, ptr noundef nonnull @.str.80, i32 noundef 797, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #13
   unreachable
 
 77:                                               ; preds = %72
-  %78 = call ptr @PyDict_GetItemString(ptr noundef nonnull %17, ptr noundef nonnull @.str.190) #11
+  %78 = call ptr @PyDict_GetItemString(ptr noundef nonnull %17, ptr noundef nonnull @.str.190) #12
   %79 = icmp eq ptr %78, null
   br i1 %79, label %get_nonnegative_int_from_dict.exit.i, label %80
 
 80:                                               ; preds = %77
-  %81 = call i64 @PyLong_AsLong(ptr noundef nonnull %78) #11
+  %81 = call i64 @PyLong_AsLong(ptr noundef nonnull %78) #12
   %sext.i = shl i64 %81, 32
   %82 = ashr exact i64 %sext.i, 32
   br label %get_nonnegative_int_from_dict.exit.i
@@ -2845,12 +2845,12 @@ get_nonnegative_int_from_dict.exit.i:             ; preds = %80, %77
   %83 = phi i64 [ %82, %80 ], [ -1, %77 ]
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i64 %83, ptr %84, align 8, !tbaa !66
-  %85 = call ptr @PyDict_GetItemString(ptr noundef nonnull %17, ptr noundef nonnull @.str.191) #11
+  %85 = call ptr @PyDict_GetItemString(ptr noundef nonnull %17, ptr noundef nonnull @.str.191) #12
   %86 = icmp eq ptr %85, null
   br i1 %86, label %get_nonnegative_int_from_dict.exit41.i, label %87
 
 87:                                               ; preds = %get_nonnegative_int_from_dict.exit.i
-  %88 = call i64 @PyLong_AsLong(ptr noundef nonnull %85) #11
+  %88 = call i64 @PyLong_AsLong(ptr noundef nonnull %85) #12
   %sext1.i = shl i64 %88, 32
   %89 = ashr exact i64 %sext1.i, 32
   br label %get_nonnegative_int_from_dict.exit41.i
@@ -2859,12 +2859,12 @@ get_nonnegative_int_from_dict.exit41.i:           ; preds = %87, %get_nonnegativ
   %90 = phi i64 [ %89, %87 ], [ -1, %get_nonnegative_int_from_dict.exit.i ]
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i64 %90, ptr %91, align 8, !tbaa !67
-  %92 = call ptr @PyDict_GetItemString(ptr noundef nonnull %17, ptr noundef nonnull @.str.192) #11
+  %92 = call ptr @PyDict_GetItemString(ptr noundef nonnull %17, ptr noundef nonnull @.str.192) #12
   %93 = icmp eq ptr %92, null
   br i1 %93, label %get_nonnegative_int_from_dict.exit43.i, label %94
 
 94:                                               ; preds = %get_nonnegative_int_from_dict.exit41.i
-  %95 = call i64 @PyLong_AsLong(ptr noundef nonnull %92) #11
+  %95 = call i64 @PyLong_AsLong(ptr noundef nonnull %92) #12
   %sext2.i = shl i64 %95, 32
   %96 = ashr exact i64 %sext2.i, 32
   br label %get_nonnegative_int_from_dict.exit43.i
@@ -2873,12 +2873,12 @@ get_nonnegative_int_from_dict.exit43.i:           ; preds = %94, %get_nonnegativ
   %97 = phi i64 [ %96, %94 ], [ -1, %get_nonnegative_int_from_dict.exit41.i ]
   %98 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i64 %97, ptr %98, align 8, !tbaa !68
-  %99 = call ptr @PyDict_GetItemString(ptr noundef nonnull %17, ptr noundef nonnull @.str.193) #11
+  %99 = call ptr @PyDict_GetItemString(ptr noundef nonnull %17, ptr noundef nonnull @.str.193) #12
   %100 = icmp eq ptr %99, null
   br i1 %100, label %get_nonnegative_int_from_dict.exit45.i, label %101
 
 101:                                              ; preds = %get_nonnegative_int_from_dict.exit43.i
-  %102 = call i64 @PyLong_AsLong(ptr noundef nonnull %99) #11
+  %102 = call i64 @PyLong_AsLong(ptr noundef nonnull %99) #12
   %103 = trunc i64 %102 to i32
   br label %get_nonnegative_int_from_dict.exit45.i
 
@@ -2890,7 +2890,7 @@ get_nonnegative_int_from_dict.exit45.i:           ; preds = %101, %get_nonnegati
   br i1 %105, label %107, label %106
 
 106:                                              ; preds = %get_nonnegative_int_from_dict.exit45.i
-  call void @__assert_fail(ptr noundef nonnull @.str.194, ptr noundef nonnull @.str.80, i32 noundef 804, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.194, ptr noundef nonnull @.str.80, i32 noundef 804, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #13
   unreachable
 
 107:                                              ; preds = %get_nonnegative_int_from_dict.exit45.i
@@ -2898,7 +2898,7 @@ get_nonnegative_int_from_dict.exit45.i:           ; preds = %101, %get_nonnegati
   br i1 %108, label %110, label %109
 
 109:                                              ; preds = %107
-  call void @__assert_fail(ptr noundef nonnull @.str.195, ptr noundef nonnull @.str.80, i32 noundef 805, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.195, ptr noundef nonnull @.str.80, i32 noundef 805, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #13
   unreachable
 
 110:                                              ; preds = %107
@@ -2906,7 +2906,7 @@ get_nonnegative_int_from_dict.exit45.i:           ; preds = %101, %get_nonnegati
   br i1 %111, label %113, label %112
 
 112:                                              ; preds = %110
-  call void @__assert_fail(ptr noundef nonnull @.str.196, ptr noundef nonnull @.str.80, i32 noundef 806, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.196, ptr noundef nonnull @.str.80, i32 noundef 806, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #13
   unreachable
 
 113:                                              ; preds = %110
@@ -2914,11 +2914,11 @@ get_nonnegative_int_from_dict.exit45.i:           ; preds = %101, %get_nonnegati
   br i1 %114, label %_testinternalcapi_assemble_code_object_impl.exit, label %115
 
 115:                                              ; preds = %113
-  call void @__assert_fail(ptr noundef nonnull @.str.197, ptr noundef nonnull @.str.80, i32 noundef 807, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.197, ptr noundef nonnull @.str.80, i32 noundef 807, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_assemble_code_object_impl) #13
   unreachable
 
 _testinternalcapi_assemble_code_object_impl.exit: ; preds = %113
-  %116 = call ptr @_PyCompile_Assemble(ptr noundef nonnull %5, ptr noundef %13, ptr noundef %15) #11
+  %116 = call ptr @_PyCompile_Assemble(ptr noundef nonnull %5, ptr noundef %13, ptr noundef %15) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %117
 
@@ -2933,7 +2933,7 @@ define internal ptr @get_interp_settings(ptr readnone captures(none) %0, ptr nou
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -1, ptr %3, align 4, !tbaa !25
-  %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.198, ptr noundef nonnull %3) #11
+  %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.198, ptr noundef nonnull %3) #12
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %Py_DECREF.exit, label %5
 
@@ -2943,7 +2943,7 @@ define internal ptr @get_interp_settings(ptr readnone captures(none) %0, ptr nou
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %5
-  %9 = call ptr @_PyThreadState_GetCurrent() #11
+  %9 = call ptr @_PyThreadState_GetCurrent() #12
   %.not23 = icmp eq ptr %9, null
   br i1 %.not23, label %17, label %10
 
@@ -2957,7 +2957,7 @@ define internal ptr @get_interp_settings(ptr readnone captures(none) %0, ptr nou
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr @PyExc_NotImplementedError, align 8, !tbaa !9
-  %16 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.199, i32 noundef %6) #11
+  %16 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.199, i32 noundef %6) #12
   br label %Py_DECREF.exit
 
 17:                                               ; preds = %12, %8, %10
@@ -2967,18 +2967,18 @@ define internal ptr @get_interp_settings(ptr readnone captures(none) %0, ptr nou
   br i1 %.not24, label %18, label %19
 
 18:                                               ; preds = %17
-  call void @__assert_fail(ptr noundef nonnull @.str.200, ptr noundef nonnull @.str.80, i32 noundef 835, ptr noundef nonnull @__PRETTY_FUNCTION__.get_interp_settings) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.200, ptr noundef nonnull @.str.80, i32 noundef 835, ptr noundef nonnull @__PRETTY_FUNCTION__.get_interp_settings) #13
   unreachable
 
 19:                                               ; preds = %17
-  %20 = call ptr @PyDict_New() #11
+  %20 = call ptr @PyDict_New() #12
   %21 = icmp eq ptr %20, null
   br i1 %21, label %Py_DECREF.exit, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %.018, i64 8440
   %24 = load i64, ptr %23, align 8, !tbaa !71
-  %25 = call ptr @PyLong_FromUnsignedLong(i64 noundef %24) #11
+  %25 = call ptr @PyLong_FromUnsignedLong(i64 noundef %24) #12
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %33
 
@@ -2994,11 +2994,11 @@ define internal ptr @get_interp_settings(ptr readnone captures(none) %0, ptr nou
   br i1 %31, label %32, label %Py_DECREF.exit
 
 32:                                               ; preds = %29
-  call void @_Py_Dealloc(ptr noundef nonnull %20) #11
+  call void @_Py_Dealloc(ptr noundef nonnull %20) #12
   br label %Py_DECREF.exit
 
 33:                                               ; preds = %22
-  %34 = call i32 @PyDict_SetItemString(ptr noundef nonnull %20, ptr noundef nonnull @.str.201, ptr noundef nonnull %25) #11
+  %34 = call i32 @PyDict_SetItemString(ptr noundef nonnull %20, ptr noundef nonnull @.str.201, ptr noundef nonnull %25) #12
   %35 = load i32, ptr %25, align 8, !tbaa !10
   %.not.i28 = icmp sgt i32 %35, -1
   br i1 %.not.i28, label %36, label %Py_DECREF.exit29
@@ -3010,7 +3010,7 @@ define internal ptr @get_interp_settings(ptr readnone captures(none) %0, ptr nou
   br i1 %38, label %39, label %Py_DECREF.exit29
 
 39:                                               ; preds = %36
-  call void @_Py_Dealloc(ptr noundef nonnull %25) #11
+  call void @_Py_Dealloc(ptr noundef nonnull %25) #12
   br label %Py_DECREF.exit29
 
 Py_DECREF.exit29:                                 ; preds = %33, %36, %39
@@ -3029,7 +3029,7 @@ Py_DECREF.exit29:                                 ; preds = %33, %36, %39
   br i1 %44, label %45, label %Py_DECREF.exit
 
 45:                                               ; preds = %42
-  call void @_Py_Dealloc(ptr noundef nonnull %20) #11
+  call void @_Py_Dealloc(ptr noundef nonnull %20) #12
   br label %Py_DECREF.exit
 
 46:                                               ; preds = %Py_DECREF.exit29
@@ -3037,7 +3037,7 @@ Py_DECREF.exit29:                                 ; preds = %33, %36, %39
   %48 = load i32, ptr %47, align 8, !tbaa !139
   %.not26 = icmp eq i32 %48, 0
   %49 = select i1 %.not26, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
-  %50 = call i32 @PyDict_SetItemString(ptr noundef nonnull %20, ptr noundef nonnull @.str.202, ptr noundef nonnull %49) #11
+  %50 = call i32 @PyDict_SetItemString(ptr noundef nonnull %20, ptr noundef nonnull @.str.202, ptr noundef nonnull %49) #12
   %.not27 = icmp eq i32 %50, 0
   br i1 %.not27, label %Py_DECREF.exit, label %51
 
@@ -3053,7 +3053,7 @@ Py_DECREF.exit29:                                 ; preds = %33, %36, %39
   br i1 %55, label %56, label %Py_DECREF.exit
 
 56:                                               ; preds = %53
-  call void @_Py_Dealloc(ptr noundef nonnull %20) #11
+  call void @_Py_Dealloc(ptr noundef nonnull %20) #12
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %56, %53, %51, %45, %42, %40, %32, %29, %27, %14, %46, %19, %2
@@ -3070,14 +3070,14 @@ define internal ptr @clear_extension(ptr readnone captures(none) %0, ptr noundef
   store ptr null, ptr %3, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !9
-  %5 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.203, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
+  %5 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.203, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %3, align 8, !tbaa !9
   %8 = load ptr, ptr %4, align 8, !tbaa !9
-  %9 = call i32 @_PyImport_ClearExtension(ptr noundef %7, ptr noundef %8) #11
+  %9 = call i32 @_PyImport_ClearExtension(ptr noundef %7, ptr noundef %8) #12
   %10 = icmp slt i32 %9, 0
   %._Py_NoneStruct = select i1 %10, ptr null, ptr @_Py_NoneStruct
   br label %11
@@ -3097,31 +3097,31 @@ define internal ptr @write_perf_map_entry(ptr readnone captures(none) %0, ptr no
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.204, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
+  %6 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.204, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %22, label %7
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %3, align 8, !tbaa !9
-  %9 = call ptr @PyLong_AsVoidPtr(ptr noundef %8) #11
+  %9 = call ptr @PyLong_AsVoidPtr(ptr noundef %8) #12
   %10 = icmp eq ptr %9, null
   br i1 %10, label %22, label %11
 
 11:                                               ; preds = %7
   %12 = load i32, ptr %4, align 4, !tbaa !25
   %13 = load ptr, ptr %5, align 8, !tbaa !41
-  %14 = call i32 @PyUnstable_WritePerfMapEntry(ptr noundef nonnull %9, i32 noundef %12, ptr noundef %13) #11
+  %14 = call i32 @PyUnstable_WritePerfMapEntry(ptr noundef nonnull %9, i32 noundef %12, ptr noundef %13) #12
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !9
-  %18 = call ptr @PyErr_SetFromErrno(ptr noundef %17) #11
+  %18 = call ptr @PyErr_SetFromErrno(ptr noundef %17) #12
   br label %22
 
 19:                                               ; preds = %11
   %20 = zext nneg i32 %14 to i64
-  %21 = call ptr @PyLong_FromLong(i64 noundef %20) #11
+  %21 = call ptr @PyLong_FromLong(i64 noundef %20) #12
   br label %22
 
 22:                                               ; preds = %16, %19, %7, %2
@@ -3134,7 +3134,7 @@ define internal ptr @write_perf_map_entry(ptr readnone captures(none) %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @perf_map_state_teardown(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
-  tail call void @PyUnstable_PerfMapState_Fini() #11
+  tail call void @PyUnstable_PerfMapState_Fini() #12
   ret ptr @_Py_NoneStruct
 }
 
@@ -3147,13 +3147,13 @@ define internal ptr @iframe_getcode(ptr readnone captures(none) %0, ptr noundef 
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.205) #11
+  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.205) #12
   br label %10
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !140
-  %9 = tail call ptr @PyUnstable_InterpreterFrame_GetCode(ptr noundef %8) #11
+  %9 = tail call ptr @PyUnstable_InterpreterFrame_GetCode(ptr noundef %8) #12
   br label %10
 
 10:                                               ; preds = %6, %4
@@ -3170,15 +3170,15 @@ define internal ptr @iframe_getline(ptr readnone captures(none) %0, ptr noundef 
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.205) #11
+  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.205) #12
   br label %12
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !140
-  %9 = tail call i32 @PyUnstable_InterpreterFrame_GetLine(ptr noundef %8) #11
+  %9 = tail call i32 @PyUnstable_InterpreterFrame_GetLine(ptr noundef %8) #12
   %10 = sext i32 %9 to i64
-  %11 = tail call ptr @PyLong_FromLong(i64 noundef %10) #11
+  %11 = tail call ptr @PyLong_FromLong(i64 noundef %10) #12
   br label %12
 
 12:                                               ; preds = %6, %4
@@ -3195,15 +3195,15 @@ define internal ptr @iframe_getlasti(ptr readnone captures(none) %0, ptr noundef
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.205) #11
+  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.205) #12
   br label %12
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !140
-  %9 = tail call i32 @PyUnstable_InterpreterFrame_GetLasti(ptr noundef %8) #11
+  %9 = tail call i32 @PyUnstable_InterpreterFrame_GetLasti(ptr noundef %8) #12
   %10 = sext i32 %9 to i64
-  %11 = tail call ptr @PyLong_FromLong(i64 noundef %10) #11
+  %11 = tail call ptr @PyLong_FromLong(i64 noundef %10) #12
   br label %12
 
 12:                                               ; preds = %6, %4
@@ -3220,14 +3220,14 @@ define internal ptr @get_co_framesize(ptr readnone captures(none) %0, ptr nounde
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.206) #11
+  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.206) #12
   br label %11
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %8 = load i32, ptr %7, align 4, !tbaa !143
   %9 = sext i32 %8 to i64
-  %10 = tail call ptr @PyLong_FromLong(i64 noundef %9) #11
+  %10 = tail call ptr @PyLong_FromLong(i64 noundef %9) #12
   br label %11
 
 11:                                               ; preds = %6, %4
@@ -3237,13 +3237,13 @@ define internal ptr @get_co_framesize(ptr readnone captures(none) %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @jit_enabled(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
-  %3 = tail call ptr @_PyThreadState_GetCurrent() #11
+  %3 = tail call ptr @_PyThreadState_GetCurrent() #12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !45
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 222968
   %7 = load i8, ptr %6, align 8, !tbaa !145, !range !146, !noundef !147
   %8 = zext nneg i8 %7 to i64
-  %9 = tail call ptr @PyBool_FromLong(i64 noundef %8) #11
+  %9 = tail call ptr @PyBool_FromLong(i64 noundef %8) #12
   ret ptr %9
 }
 
@@ -3260,12 +3260,12 @@ define internal ptr @pending_threadfunc(ptr readnone captures(none) %0, ptr noun
   store i32 0, ptr %6, align 4, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !25
-  %8 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.211, ptr noundef nonnull @pending_threadfunc.kwlist, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
+  %8 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.211, ptr noundef nonnull @pending_threadfunc.kwlist, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #12
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %65, label %9
 
 9:                                                ; preds = %3
-  %10 = call ptr @_PyThreadState_GetCurrent() #11
+  %10 = call ptr @_PyThreadState_GetCurrent() #12
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !45
   %13 = load i32, ptr %5, align 4, !tbaa !25
@@ -3305,7 +3305,7 @@ Py_INCREF.exit:                                   ; preds = %.lr.ph.split, %23
   br i1 %27, label %.lr.ph.split, label %._crit_edge, !llvm.loop !148
 
 28:                                               ; preds = %._crit_edge
-  %29 = call ptr @PyEval_SaveThread() #11
+  %29 = call ptr @PyEval_SaveThread() #12
   %.pre40 = load i32, ptr %5, align 4, !tbaa !25
   br label %30
 
@@ -3323,13 +3323,13 @@ Py_INCREF.exit:                                   ; preds = %.lr.ph.split, %23
 
 .preheader:                                       ; preds = %.lr.ph28, %37
   %33 = load ptr, ptr %4, align 8, !tbaa !9
-  %34 = call i32 @_PyEval_AddPendingCall(ptr noundef %12, ptr noundef nonnull @_pending_callback, ptr noundef %33, i32 noundef 0) #11
+  %34 = call i32 @_PyEval_AddPendingCall(ptr noundef %12, ptr noundef nonnull @_pending_callback, ptr noundef %33, i32 noundef 0) #12
   %35 = add i32 %34, 1
   %or.cond = icmp ult i32 %35, 2
   br i1 %or.cond, label %37, label %36
 
 36:                                               ; preds = %.preheader
-  call void @__assert_fail(ptr noundef nonnull @.str.212, ptr noundef nonnull @.str.80, i32 noundef 1030, ptr noundef nonnull @__PRETTY_FUNCTION__.pending_threadfunc) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.212, ptr noundef nonnull @.str.80, i32 noundef 1030, ptr noundef nonnull @__PRETTY_FUNCTION__.pending_threadfunc) #13
   unreachable
 
 37:                                               ; preds = %.preheader
@@ -3338,7 +3338,7 @@ Py_INCREF.exit:                                   ; preds = %.lr.ph.split, %23
 
 39:                                               ; preds = %.lr.ph28
   %40 = load ptr, ptr %4, align 8, !tbaa !9
-  %41 = call i32 @_PyEval_AddPendingCall(ptr noundef %12, ptr noundef nonnull @_pending_callback, ptr noundef %40, i32 noundef 0) #11
+  %41 = call i32 @_PyEval_AddPendingCall(ptr noundef %12, ptr noundef nonnull @_pending_callback, ptr noundef %40, i32 noundef 0) #12
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %._crit_edge29, label %.loopexit
 
@@ -3355,7 +3355,7 @@ Py_INCREF.exit:                                   ; preds = %.lr.ph.split, %23
   br i1 %.not23, label %47, label %48
 
 47:                                               ; preds = %._crit_edge29
-  call void @PyEval_RestoreThread(ptr noundef %.019) #11
+  call void @PyEval_RestoreThread(ptr noundef %.019) #12
   br label %48
 
 48:                                               ; preds = %47, %._crit_edge29
@@ -3371,7 +3371,7 @@ Py_INCREF.exit:                                   ; preds = %.lr.ph.split, %23
 
 ._crit_edge35:                                    ; preds = %Py_DECREF.exit, %.lr.ph34, %48
   %54 = zext i32 %.018.lcssa to i64
-  %55 = call ptr @PyLong_FromUnsignedLong(i64 noundef %54) #11
+  %55 = call ptr @PyLong_FromUnsignedLong(i64 noundef %54) #12
   br label %65
 
 .lr.ph34.split:                                   ; preds = %.lr.ph34, %Py_DECREF.exit
@@ -3388,7 +3388,7 @@ Py_INCREF.exit:                                   ; preds = %.lr.ph.split, %23
   br i1 %60, label %61, label %Py_DECREF.exit
 
 61:                                               ; preds = %58
-  call void @_Py_Dealloc(ptr noundef nonnull %56) #11
+  call void @_Py_Dealloc(ptr noundef nonnull %56) #12
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %.lr.ph34.split, %58, %61
@@ -3410,46 +3410,46 @@ Py_DECREF.exit:                                   ; preds = %.lr.ph34.split, %58
 define internal ptr @pending_identify(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.213, ptr noundef nonnull %3) #11
+  %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.213, ptr noundef nonnull %3) #12
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %29, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %3, align 8, !tbaa !9
-  %7 = call ptr @_PyInterpreterState_LookUpIDObject(ptr noundef %6) #11
+  %7 = call ptr @_PyInterpreterState_LookUpIDObject(ptr noundef %6) #12
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %5
-  %10 = call ptr @PyErr_Occurred() #11
+  %10 = call ptr @PyErr_Occurred() #12
   %.not19 = icmp eq ptr %10, null
   br i1 %.not19, label %11, label %29
 
 11:                                               ; preds = %9
   %12 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.214) #11
+  call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.214) #12
   br label %29
 
 13:                                               ; preds = %5
   store i64 -1, ptr @pending_identify_result.0, align 8, !tbaa !153
-  %14 = call ptr @PyThread_allocate_lock() #11
+  %14 = call ptr @PyThread_allocate_lock() #12
   %15 = icmp eq ptr %14, null
   br i1 %15, label %29, label %16
 
 16:                                               ; preds = %13
-  %17 = call i32 @PyThread_acquire_lock(ptr noundef nonnull %14, i32 noundef 1) #11
+  %17 = call i32 @PyThread_acquire_lock(ptr noundef nonnull %14, i32 noundef 1) #12
   br label %18
 
 18:                                               ; preds = %23, %16
-  %19 = call ptr @PyEval_SaveThread() #11
-  %20 = call i32 @_PyEval_AddPendingCall(ptr noundef nonnull %7, ptr noundef nonnull @_pending_identify_callback, ptr noundef nonnull %14, i32 noundef 0) #11
-  call void @PyEval_RestoreThread(ptr noundef %19) #11
+  %19 = call ptr @PyEval_SaveThread() #12
+  %20 = call i32 @_PyEval_AddPendingCall(ptr noundef nonnull %7, ptr noundef nonnull @_pending_identify_callback, ptr noundef nonnull %14, i32 noundef 0) #12
+  call void @PyEval_RestoreThread(ptr noundef %19) #12
   %21 = add i32 %20, 1
   %or.cond = icmp ult i32 %21, 2
   br i1 %or.cond, label %23, label %22
 
 22:                                               ; preds = %18
-  call void @__assert_fail(ptr noundef nonnull @.str.212, ptr noundef nonnull @.str.80, i32 noundef 1100, ptr noundef nonnull @__PRETTY_FUNCTION__.pending_identify) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.212, ptr noundef nonnull @.str.80, i32 noundef 1100, ptr noundef nonnull @__PRETTY_FUNCTION__.pending_identify) #13
   unreachable
 
 23:                                               ; preds = %18
@@ -3457,11 +3457,11 @@ define internal ptr @pending_identify(ptr readnone captures(none) %0, ptr nounde
   br i1 %24, label %18, label %25, !llvm.loop !155
 
 25:                                               ; preds = %23
-  %26 = call i32 @PyThread_acquire_lock(ptr noundef nonnull %14, i32 noundef 1) #11
-  call void @PyThread_release_lock(ptr noundef nonnull %14) #11
-  call void @PyThread_free_lock(ptr noundef nonnull %14) #11
+  %26 = call i32 @PyThread_acquire_lock(ptr noundef nonnull %14, i32 noundef 1) #12
+  call void @PyThread_release_lock(ptr noundef nonnull %14) #12
+  call void @PyThread_free_lock(ptr noundef nonnull %14) #12
   %27 = load i64, ptr @pending_identify_result.0, align 8, !tbaa !153
-  %28 = call ptr @PyLong_FromLongLong(i64 noundef %27) #11
+  %28 = call ptr @PyLong_FromLongLong(i64 noundef %27) #12
   store i64 -1, ptr @pending_identify_result.0, align 8, !tbaa !153
   br label %29
 
@@ -3477,21 +3477,21 @@ define internal ptr @tracemalloc_get_traceback(ptr readnone captures(none) %0, p
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.216, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
+  %5 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.216, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8, !tbaa !9
-  %8 = call ptr @PyLong_AsVoidPtr(ptr noundef %7) #11
-  %9 = call ptr @PyErr_Occurred() #11
+  %8 = call ptr @PyLong_AsVoidPtr(ptr noundef %7) #12
+  %9 = call ptr @PyErr_Occurred() #12
   %.not3 = icmp eq ptr %9, null
   br i1 %.not3, label %10, label %14
 
 10:                                               ; preds = %6
   %11 = load i32, ptr %3, align 4, !tbaa !25
   %12 = ptrtoint ptr %8 to i64
-  %13 = call ptr @_PyTraceMalloc_GetTraceback(i32 noundef %11, i64 noundef %12) #11
+  %13 = call ptr @_PyTraceMalloc_GetTraceback(i32 noundef %11, i64 noundef %12) #12
   br label %14
 
 14:                                               ; preds = %10, %6, %2
@@ -3503,30 +3503,30 @@ define internal ptr @tracemalloc_get_traceback(ptr readnone captures(none) %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @test_tstate_capi(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
-  %3 = tail call ptr @PyThreadState_Get() #11
+  %3 = tail call ptr @PyThreadState_Get() #12
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void @__assert_fail(ptr noundef nonnull @.str.217, ptr noundef nonnull @.str.80, i32 noundef 1140, ptr noundef nonnull @__PRETTY_FUNCTION__.test_tstate_capi) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.217, ptr noundef nonnull @.str.80, i32 noundef 1140, ptr noundef nonnull @__PRETTY_FUNCTION__.test_tstate_capi) #13
   unreachable
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @PyThreadState_GetDict() #11
+  %6 = tail call ptr @PyThreadState_GetDict() #12
   %.not6 = icmp eq ptr %6, null
   br i1 %.not6, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call void @__assert_fail(ptr noundef nonnull @.str.218, ptr noundef nonnull @.str.80, i32 noundef 1144, ptr noundef nonnull @__PRETTY_FUNCTION__.test_tstate_capi) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.218, ptr noundef nonnull @.str.80, i32 noundef 1144, ptr noundef nonnull @__PRETTY_FUNCTION__.test_tstate_capi) #13
   unreachable
 
 8:                                                ; preds = %5
-  %9 = tail call ptr @_PyThreadState_GetDict(ptr noundef nonnull %3) #11
+  %9 = tail call ptr @_PyThreadState_GetDict(ptr noundef nonnull %3) #12
   %10 = icmp eq ptr %9, %6
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %8
-  tail call void @__assert_fail(ptr noundef nonnull @.str.219, ptr noundef nonnull @.str.80, i32 noundef 1148, ptr noundef nonnull @__PRETTY_FUNCTION__.test_tstate_capi) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.219, ptr noundef nonnull @.str.80, i32 noundef 1148, ptr noundef nonnull @__PRETTY_FUNCTION__.test_tstate_capi) #13
   unreachable
 
 12:                                               ; preds = %8
@@ -3537,13 +3537,13 @@ define internal noundef nonnull ptr @test_tstate_capi(ptr readnone captures(none
 define internal ptr @unicode_transformdecimalandspacetoascii(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = icmp eq ptr %1, @_Py_NoneStruct
   %spec.store.select = select i1 %3, ptr null, ptr %1
-  %4 = tail call ptr @_PyUnicode_TransformDecimalAndSpaceToASCII(ptr noundef %spec.store.select) #11
+  %4 = tail call ptr @_PyUnicode_TransformDecimalAndSpaceToASCII(ptr noundef %spec.store.select) #12
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @check_pyobject_forbidden_bytes_is_freed(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
-  %3 = tail call ptr @PyObject_Malloc(i64 noundef 8) #11
+  %3 = tail call ptr @PyObject_Malloc(i64 noundef 8) #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %test_pyobject_is_freed.exit, label %5
 
@@ -3557,13 +3557,13 @@ define internal noundef ptr @check_pyobject_forbidden_bytes_is_freed(ptr readnon
   br label %Py_SET_REFCNT.exit
 
 Py_SET_REFCNT.exit:                               ; preds = %5, %7
-  %8 = tail call i32 @_PyObject_IsFreed(ptr noundef nonnull %3) #11
+  %8 = tail call i32 @_PyObject_IsFreed(ptr noundef nonnull %3) #12
   %.not.i5 = icmp eq i32 %8, 0
   br i1 %.not.i5, label %9, label %test_pyobject_is_freed.exit
 
 9:                                                ; preds = %Py_SET_REFCNT.exit
   %10 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.222) #11
+  tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.222) #12
   br label %test_pyobject_is_freed.exit
 
 test_pyobject_is_freed.exit:                      ; preds = %9, %Py_SET_REFCNT.exit, %2
@@ -3573,7 +3573,7 @@ test_pyobject_is_freed.exit:                      ; preds = %9, %Py_SET_REFCNT.e
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @check_pyobject_freed_is_freed(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
-  %3 = tail call ptr @PyObject_CallNoArgs(ptr noundef nonnull @PyBaseObject_Type) #11
+  %3 = tail call ptr @PyObject_CallNoArgs(ptr noundef nonnull @PyBaseObject_Type) #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %test_pyobject_is_freed.exit, label %5
 
@@ -3582,7 +3582,7 @@ define internal noundef ptr @check_pyobject_freed_is_freed(ptr readnone captures
   %.val = load ptr, ptr %6, align 8, !tbaa !46
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !156
-  tail call void %8(ptr noundef nonnull %3) #11
+  tail call void %8(ptr noundef nonnull %3) #12
   %9 = load i32, ptr %3, align 8, !tbaa !10
   %.not.i = icmp sgt i32 %9, -1
   br i1 %.not.i, label %10, label %Py_SET_REFCNT.exit
@@ -3592,13 +3592,13 @@ define internal noundef ptr @check_pyobject_freed_is_freed(ptr readnone captures
   br label %Py_SET_REFCNT.exit
 
 Py_SET_REFCNT.exit:                               ; preds = %5, %10
-  %11 = tail call i32 @_PyObject_IsFreed(ptr noundef nonnull %3) #11
+  %11 = tail call i32 @_PyObject_IsFreed(ptr noundef nonnull %3) #12
   %.not.i7 = icmp eq i32 %11, 0
   br i1 %.not.i7, label %12, label %test_pyobject_is_freed.exit
 
 12:                                               ; preds = %Py_SET_REFCNT.exit
   %13 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.222) #11
+  tail call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.222) #12
   br label %test_pyobject_is_freed.exit
 
 test_pyobject_is_freed.exit:                      ; preds = %12, %Py_SET_REFCNT.exit, %2
@@ -3608,13 +3608,13 @@ test_pyobject_is_freed.exit:                      ; preds = %12, %Py_SET_REFCNT.
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @check_pyobject_null_is_freed(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
-  %3 = tail call i32 @_PyObject_IsFreed(ptr noundef null) #11
+  %3 = tail call i32 @_PyObject_IsFreed(ptr noundef null) #12
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %4, label %test_pyobject_is_freed.exit
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.222) #11
+  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.222) #12
   br label %test_pyobject_is_freed.exit
 
 test_pyobject_is_freed.exit:                      ; preds = %2, %4
@@ -3624,7 +3624,7 @@ test_pyobject_is_freed.exit:                      ; preds = %2, %4
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @check_pyobject_uninitialized_is_freed(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
-  %3 = tail call ptr @PyObject_Malloc(i64 noundef 16) #11
+  %3 = tail call ptr @PyObject_Malloc(i64 noundef 16) #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %test_pyobject_is_freed.exit, label %5
 
@@ -3638,13 +3638,13 @@ define internal noundef ptr @check_pyobject_uninitialized_is_freed(ptr readnone 
   br label %Py_SET_REFCNT.exit
 
 Py_SET_REFCNT.exit:                               ; preds = %5, %7
-  %8 = tail call i32 @_PyObject_IsFreed(ptr noundef nonnull %3) #11
+  %8 = tail call i32 @_PyObject_IsFreed(ptr noundef nonnull %3) #12
   %.not.i5 = icmp eq i32 %8, 0
   br i1 %.not.i5, label %9, label %test_pyobject_is_freed.exit
 
 9:                                                ; preds = %Py_SET_REFCNT.exit
   %10 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.222) #11
+  tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.222) #12
   br label %test_pyobject_is_freed.exit
 
 test_pyobject_is_freed.exit:                      ; preds = %9, %Py_SET_REFCNT.exit, %2
@@ -3654,17 +3654,17 @@ test_pyobject_is_freed.exit:                      ; preds = %9, %Py_SET_REFCNT.e
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @test_pymem_getallocatorsname(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
-  %3 = tail call ptr @_PyMem_GetCurrentAllocatorName() #11
+  %3 = tail call ptr @_PyMem_GetCurrentAllocatorName() #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @PyExc_RuntimeError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.223) #11
+  tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.223) #12
   br label %9
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %3) #11
+  %8 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %3) #12
   br label %9
 
 9:                                                ; preds = %7, %5
@@ -3692,7 +3692,7 @@ define internal ptr @get_object_dict_values(ptr readnone captures(none) %0, ptr 
   br i1 %or.cond.i, label %13, label %12
 
 12:                                               ; preds = %6
-  tail call void @__assert_fail(ptr noundef nonnull @.str.226, ptr noundef nonnull @.str.227, i32 noundef 940, ptr noundef nonnull @__PRETTY_FUNCTION__._PyObject_InlineValues) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.226, ptr noundef nonnull @.str.227, i32 noundef 940, ptr noundef nonnull @__PRETTY_FUNCTION__._PyObject_InlineValues) #13
   unreachable
 
 13:                                               ; preds = %6
@@ -3701,7 +3701,7 @@ define internal ptr @get_object_dict_values(ptr readnone captures(none) %0, ptr 
   br i1 %.not7.i, label %15, label %_PyObject_InlineValues.exit
 
 15:                                               ; preds = %13
-  tail call void @__assert_fail(ptr noundef nonnull @.str.229, ptr noundef nonnull @.str.227, i32 noundef 942, ptr noundef nonnull @__PRETTY_FUNCTION__._PyObject_InlineValues) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.229, ptr noundef nonnull @.str.227, i32 noundef 942, ptr noundef nonnull @__PRETTY_FUNCTION__._PyObject_InlineValues) #13
   unreachable
 
 _PyObject_InlineValues.exit:                      ; preds = %13
@@ -3718,7 +3718,7 @@ _PyObject_InlineValues.exit:                      ; preds = %13
   br i1 %.not28, label %22, label %23
 
 22:                                               ; preds = %19
-  tail call void @__assert_fail(ptr noundef nonnull @.str.224, ptr noundef nonnull @.str.80, i32 noundef 1259, ptr noundef nonnull @__PRETTY_FUNCTION__.get_object_dict_values) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.224, ptr noundef nonnull @.str.80, i32 noundef 1259, ptr noundef nonnull @__PRETTY_FUNCTION__.get_object_dict_values) #13
   unreachable
 
 23:                                               ; preds = %19
@@ -3729,12 +3729,12 @@ _PyObject_InlineValues.exit:                      ; preds = %13
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %23
-  tail call void @__assert_fail(ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.80, i32 noundef 1261, ptr noundef nonnull @__PRETTY_FUNCTION__.get_object_dict_values) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.80, i32 noundef 1261, ptr noundef nonnull @__PRETTY_FUNCTION__.get_object_dict_values) #13
   unreachable
 
 29:                                               ; preds = %23
   %30 = and i64 %25, 2147483647
-  %31 = tail call ptr @PyTuple_New(i64 noundef %30) #11
+  %31 = tail call ptr @PyTuple_New(i64 noundef %30) #12
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.loopexit, label %.preheader
 
@@ -3777,7 +3777,7 @@ Py_INCREF.exit:                                   ; preds = %44, %41, %37
   br i1 %.not.i30, label %48, label %49
 
 48:                                               ; preds = %Py_INCREF.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.165, ptr noundef nonnull @.str.166, i32 noundef 32, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_SET_ITEM) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.165, ptr noundef nonnull @.str.166, i32 noundef 32, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_SET_ITEM) #13
   unreachable
 
 49:                                               ; preds = %Py_INCREF.exit
@@ -3785,7 +3785,7 @@ Py_INCREF.exit:                                   ; preds = %44, %41, %37
   br i1 %.not.i.i, label %50, label %51
 
 50:                                               ; preds = %49
-  tail call void @__assert_fail(ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.168, i32 noundef 282, ptr noundef nonnull @__PRETTY_FUNCTION__.Py_SIZE) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.168, i32 noundef 282, ptr noundef nonnull @__PRETTY_FUNCTION__.Py_SIZE) #13
   unreachable
 
 51:                                               ; preds = %49
@@ -3793,7 +3793,7 @@ Py_INCREF.exit:                                   ; preds = %44, %41, %37
   br i1 %.not3.i.i, label %52, label %Py_SIZE.exit.i
 
 52:                                               ; preds = %51
-  tail call void @__assert_fail(ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.168, i32 noundef 283, ptr noundef nonnull @__PRETTY_FUNCTION__.Py_SIZE) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.168, i32 noundef 283, ptr noundef nonnull @__PRETTY_FUNCTION__.Py_SIZE) #13
   unreachable
 
 Py_SIZE.exit.i:                                   ; preds = %51
@@ -3802,7 +3802,7 @@ Py_SIZE.exit.i:                                   ; preds = %51
   br i1 %54, label %PyTuple_SET_ITEM.exit, label %55
 
 55:                                               ; preds = %Py_SIZE.exit.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.231, ptr noundef nonnull @.str.166, i32 noundef 34, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_SET_ITEM) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.231, ptr noundef nonnull @.str.166, i32 noundef 34, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_SET_ITEM) #13
   unreachable
 
 PyTuple_SET_ITEM.exit:                            ; preds = %Py_SIZE.exit.i
@@ -3819,7 +3819,7 @@ PyTuple_SET_ITEM.exit:                            ; preds = %Py_SIZE.exit.i
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @new_hamt(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
-  %3 = tail call ptr @_PyContext_NewHamtForTests() #11
+  %3 = tail call ptr @_PyContext_NewHamtForTests() #12
   ret ptr %3
 }
 
@@ -3831,7 +3831,7 @@ define internal ptr @dict_getitem_knownhash(ptr readnone captures(none) %0, ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.232, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
+  %6 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.232, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %_Py_XNewRef.exit, label %7
 
@@ -3839,7 +3839,7 @@ define internal ptr @dict_getitem_knownhash(ptr readnone captures(none) %0, ptr 
   %8 = load ptr, ptr %3, align 8, !tbaa !9
   %9 = load ptr, ptr %4, align 8, !tbaa !9
   %10 = load i64, ptr %5, align 8, !tbaa !26
-  %11 = call ptr @_PyDict_GetItem_KnownHash(ptr noundef %8, ptr noundef %9, i64 noundef %10) #11
+  %11 = call ptr @_PyDict_GetItem_KnownHash(ptr noundef %8, ptr noundef %9, i64 noundef %10) #12
   %12 = icmp eq ptr %11, null
   br i1 %12, label %17, label %.split
 
@@ -3854,13 +3854,13 @@ define internal ptr @dict_getitem_knownhash(ptr readnone captures(none) %0, ptr 
   br label %_Py_XNewRef.exit
 
 17:                                               ; preds = %7
-  %18 = call ptr @PyErr_Occurred() #11
+  %18 = call ptr @PyErr_Occurred() #12
   %.not6 = icmp eq ptr %18, null
   br i1 %.not6, label %19, label %_Py_XNewRef.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %4, align 8, !tbaa !9
-  call void @_PyErr_SetKeyError(ptr noundef %20) #11
+  call void @_PyErr_SetKeyError(ptr noundef %20) #12
   br label %_Py_XNewRef.exit
 
 _Py_XNewRef.exit:                                 ; preds = %17, %15, %.split, %2, %19
@@ -3883,7 +3883,7 @@ define internal ptr @create_interpreter(ptr readnone captures(none) %0, ptr noun
   store ptr null, ptr %7, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 4, ptr %8, align 8, !tbaa !26
-  %10 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.235, ptr noundef nonnull @create_interpreter.kwlist, ptr noundef nonnull %7, ptr noundef nonnull %8) #11
+  %10 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.235, ptr noundef nonnull @create_interpreter.kwlist, ptr noundef nonnull %7, ptr noundef nonnull %8) #12
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %89, label %11
 
@@ -3913,7 +3913,7 @@ define internal ptr @create_interpreter(ptr readnone captures(none) %0, ptr noun
 
 20:                                               ; preds = %19
   %21 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  call void @PyErr_SetString(ptr noundef %21, ptr noundef nonnull @.str.236) #11
+  call void @PyErr_SetString(ptr noundef %21, ptr noundef nonnull @.str.236) #12
   br label %88
 
 22:                                               ; preds = %14
@@ -3937,17 +3937,17 @@ _init_interp_config_from_object.exit.thread17:    ; preds = %.thread, %22
   br label %.thread31
 
 24:                                               ; preds = %22
-  %25 = call ptr @PyObject_GetAttrString(ptr noundef nonnull %12, ptr noundef nonnull @.str.237) #11
+  %25 = call ptr @PyObject_GetAttrString(ptr noundef nonnull %12, ptr noundef nonnull @.str.237) #12
   %26 = icmp eq ptr %25, null
   br i1 %26, label %_init_interp_config_from_object.exit.thread, label %29
 
 _init_interp_config_from_object.exit.thread:      ; preds = %24
   %27 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !9
-  %28 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.238, ptr noundef nonnull %12) #11
+  %28 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.238, ptr noundef nonnull %12) #12
   br label %88
 
 29:                                               ; preds = %24
-  %30 = call i32 @_PyInterpreterConfig_InitFromDict(ptr noundef nonnull %9, ptr noundef nonnull %25) #11
+  %30 = call i32 @_PyInterpreterConfig_InitFromDict(ptr noundef nonnull %9, ptr noundef nonnull %25) #12
   %31 = load i32, ptr %25, align 8, !tbaa !10
   %.not.i.i = icmp sgt i32 %31, -1
   br i1 %.not.i.i, label %32, label %_init_interp_config_from_object.exit
@@ -3959,7 +3959,7 @@ _init_interp_config_from_object.exit.thread:      ; preds = %24
   br i1 %34, label %35, label %_init_interp_config_from_object.exit
 
 35:                                               ; preds = %32
-  call void @_Py_Dealloc(ptr noundef nonnull %25) #11
+  call void @_Py_Dealloc(ptr noundef nonnull %25) #12
   br label %_init_interp_config_from_object.exit
 
 _init_interp_config_from_object.exit:             ; preds = %29, %32, %35
@@ -3985,11 +3985,11 @@ _init_interp_config_from_object.exit._crit_edge:  ; preds = %_init_interp_config
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %38
-  call void @__assert_fail(ptr noundef nonnull @.str.239, ptr noundef nonnull @.str.80, i32 noundef 1339, ptr noundef nonnull @__PRETTY_FUNCTION__._new_interpreter) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.239, ptr noundef nonnull @.str.80, i32 noundef 1339, ptr noundef nonnull @__PRETTY_FUNCTION__._new_interpreter) #13
   unreachable
 
 41:                                               ; preds = %38
-  %42 = call ptr @PyInterpreterState_New() #11
+  %42 = call ptr @PyInterpreterState_New() #12
   br label %77
 
 43:                                               ; preds = %.thread31
@@ -4000,7 +4000,7 @@ _init_interp_config_from_object.exit._crit_edge:  ; preds = %_init_interp_config
 45:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !169
-  %46 = call ptr @PyThreadState_Swap(ptr noundef null) #11
+  %46 = call ptr @PyThreadState_Swap(ptr noundef null) #12
   %47 = icmp eq i64 %37, 2
   br i1 %47, label %48, label %54
 
@@ -4009,20 +4009,20 @@ _init_interp_config_from_object.exit._crit_edge:  ; preds = %_init_interp_config
   br i1 %49, label %51, label %50
 
 50:                                               ; preds = %48
-  call void @__assert_fail(ptr noundef nonnull @.str.239, ptr noundef nonnull @.str.80, i32 noundef 1348, ptr noundef nonnull @__PRETTY_FUNCTION__._new_interpreter) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.239, ptr noundef nonnull @.str.80, i32 noundef 1348, ptr noundef nonnull @__PRETTY_FUNCTION__._new_interpreter) #13
   unreachable
 
 51:                                               ; preds = %48
-  %52 = call ptr @Py_NewInterpreter() #11
+  %52 = call ptr @Py_NewInterpreter() #12
   store ptr %52, ptr %5, align 8, !tbaa !169
-  %53 = call ptr @PyThreadState_Swap(ptr noundef %46) #11
+  %53 = call ptr @PyThreadState_Swap(ptr noundef %46) #12
   br label %64
 
 54:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @Py_NewInterpreterFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %6, ptr noundef nonnull %5, ptr noundef %.011) #11
-  %55 = call ptr @PyThreadState_Swap(ptr noundef %46) #11
-  %56 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %6) #11
+  call void @Py_NewInterpreterFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %6, ptr noundef nonnull %5, ptr noundef %.011) #12
+  %55 = call ptr @PyThreadState_Swap(ptr noundef %46) #12
+  %56 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %6) #12
   %.not.i = icmp eq i32 %56, 0
   br i1 %.not.i, label %63, label %57
 
@@ -4032,12 +4032,12 @@ _init_interp_config_from_object.exit._crit_edge:  ; preds = %_init_interp_config
   br i1 %59, label %61, label %60
 
 60:                                               ; preds = %57
-  call void @__assert_fail(ptr noundef nonnull @.str.240, ptr noundef nonnull @.str.80, i32 noundef 1356, ptr noundef nonnull @__PRETTY_FUNCTION__._new_interpreter) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.240, ptr noundef nonnull @.str.80, i32 noundef 1356, ptr noundef nonnull @__PRETTY_FUNCTION__._new_interpreter) #13
   unreachable
 
 61:                                               ; preds = %57
-  call void @_PyErr_SetFromPyStatus(ptr noundef nonnull byval(%struct.PyStatus) align 8 %6) #11
-  %62 = call ptr @PyErr_GetRaisedException() #11
+  call void @_PyErr_SetFromPyStatus(ptr noundef nonnull byval(%struct.PyStatus) align 8 %6) #12
+  %62 = call ptr @PyErr_GetRaisedException() #12
   br label %63
 
 63:                                               ; preds = %61, %54
@@ -4053,14 +4053,14 @@ _init_interp_config_from_object.exit._crit_edge:  ; preds = %_init_interp_config
   br i1 %.not19.i, label %73, label %66
 
 66:                                               ; preds = %64
-  %67 = call ptr @PyThreadState_GetInterpreter(ptr noundef nonnull %65) #11
+  %67 = call ptr @PyThreadState_GetInterpreter(ptr noundef nonnull %65) #12
   %68 = load ptr, ptr %5, align 8, !tbaa !169
-  %69 = call ptr @PyThreadState_Swap(ptr noundef %68) #11
+  %69 = call ptr @PyThreadState_Swap(ptr noundef %68) #12
   %70 = load ptr, ptr %5, align 8, !tbaa !169
-  call void @PyThreadState_Clear(ptr noundef %70) #11
-  %71 = call ptr @PyThreadState_Swap(ptr noundef %46) #11
+  call void @PyThreadState_Clear(ptr noundef %70) #12
+  %71 = call ptr @PyThreadState_Swap(ptr noundef %46) #12
   %72 = load ptr, ptr %5, align 8, !tbaa !169
-  call void @PyThreadState_Delete(ptr noundef %72) #11
+  call void @PyThreadState_Delete(ptr noundef %72) #12
   br label %73
 
 73:                                               ; preds = %66, %64
@@ -4070,7 +4070,7 @@ _init_interp_config_from_object.exit._crit_edge:  ; preds = %_init_interp_config
 
 74:                                               ; preds = %43
   %75 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  %76 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %75, ptr noundef nonnull @.str.241, i64 noundef %37) #11
+  %76 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %75, ptr noundef nonnull @.str.241, i64 noundef %37) #12
   br label %_new_interpreter.exit.thread
 
 77:                                               ; preds = %73, %41
@@ -4085,12 +4085,12 @@ _new_interpreter.exit.thread20:                   ; preds = %77
 
 79:                                               ; preds = %77
   %80 = load ptr, ptr @PyExc_InterpreterError, align 8, !tbaa !9
-  call void @PyErr_SetString(ptr noundef %80, ptr noundef nonnull @.str.242) #11
+  call void @PyErr_SetString(ptr noundef %80, ptr noundef nonnull @.str.242) #12
   %.not20.i = icmp eq ptr %.015.i, null
   br i1 %.not20.i, label %_new_interpreter.exit.thread, label %81
 
 81:                                               ; preds = %79
-  call void @_PyErr_ChainExceptions1(ptr noundef nonnull %.015.i) #11
+  call void @_PyErr_ChainExceptions1(ptr noundef nonnull %.015.i) #12
   br label %_new_interpreter.exit.thread
 
 _new_interpreter.exit.thread:                     ; preds = %74, %79, %81
@@ -4098,19 +4098,19 @@ _new_interpreter.exit.thread:                     ; preds = %74, %79, %81
   br label %88
 
 _new_interpreter.exit:                            ; preds = %.thread31
-  %82 = call ptr @_PyXI_NewInterpreter(ptr noundef %.011, ptr noundef nonnull %4, ptr noundef null, ptr noundef null) #11
+  %82 = call ptr @_PyXI_NewInterpreter(ptr noundef %.011, ptr noundef nonnull %4, ptr noundef null, ptr noundef null) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %83 = icmp eq ptr %82, null
   br i1 %83, label %88, label %84
 
 84:                                               ; preds = %_new_interpreter.exit.thread20, %_new_interpreter.exit
   %.0.i1522 = phi ptr [ %.013.i, %_new_interpreter.exit.thread20 ], [ %82, %_new_interpreter.exit ]
-  %85 = call ptr @_PyInterpreterState_GetIDObject(ptr noundef nonnull %.0.i1522) #11
+  %85 = call ptr @_PyInterpreterState_GetIDObject(ptr noundef nonnull %.0.i1522) #12
   %86 = icmp eq ptr %85, null
   br i1 %86, label %87, label %88
 
 87:                                               ; preds = %84
-  call void @_PyXI_EndInterpreter(ptr noundef nonnull %.0.i1522, ptr noundef null, ptr noundef null) #11
+  call void @_PyXI_EndInterpreter(ptr noundef nonnull %.0.i1522, ptr noundef null, ptr noundef null) #12
   br label %88
 
 88:                                               ; preds = %_new_interpreter.exit.thread, %_init_interp_config_from_object.exit.thread, %_new_interpreter.exit, %84, %87, %_init_interp_config_from_object.exit, %20
@@ -4130,18 +4130,18 @@ define internal noundef ptr @destroy_interpreter(ptr readnone captures(none) %0,
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !9
-  %5 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.244, ptr noundef nonnull @destroy_interpreter.kwlist, ptr noundef nonnull %4) #11
+  %5 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.244, ptr noundef nonnull @destroy_interpreter.kwlist, ptr noundef nonnull %4) #12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %4, align 8, !tbaa !9
-  %8 = call ptr @_PyInterpreterState_LookUpIDObject(ptr noundef %7) #11
+  %8 = call ptr @_PyInterpreterState_LookUpIDObject(ptr noundef %7) #12
   %9 = icmp eq ptr %8, null
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %6
-  call void @_PyXI_EndInterpreter(ptr noundef nonnull %8, ptr noundef null, ptr noundef null) #11
+  call void @_PyXI_EndInterpreter(ptr noundef nonnull %8, ptr noundef null, ptr noundef null) #12
   br label %11
 
 11:                                               ; preds = %10, %6, %3
@@ -4160,38 +4160,38 @@ define internal ptr @exec_interpreter(ptr readnone captures(none) %0, ptr nounde
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !25
-  %8 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.247, ptr noundef nonnull @exec_interpreter.kwlist, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
+  %8 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.247, ptr noundef nonnull @exec_interpreter.kwlist, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %33, label %9
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %4, align 8, !tbaa !9
-  %11 = call ptr @_PyInterpreterState_LookUpIDObject(ptr noundef %10) #11
+  %11 = call ptr @_PyInterpreterState_LookUpIDObject(ptr noundef %10) #12
   %12 = icmp eq ptr %11, null
   br i1 %12, label %33, label %13
 
 13:                                               ; preds = %9
-  %14 = call ptr @_PyThreadState_NewBound(ptr noundef nonnull %11, i32 noundef 5) #11
-  %15 = call ptr @PyThreadState_Swap(ptr noundef %14) #11
+  %14 = call ptr @_PyThreadState_NewBound(ptr noundef nonnull %11, i32 noundef 5) #12
+  %15 = call ptr @PyThreadState_Swap(ptr noundef %14) #12
   %16 = load i32, ptr %6, align 4, !tbaa !25
   %.not14 = icmp eq i32 %16, 0
   br i1 %.not14, label %20, label %17
 
 17:                                               ; preds = %13
-  %18 = call i32 @_PyInterpreterState_SetRunningMain(ptr noundef nonnull %11) #11
+  %18 = call i32 @_PyInterpreterState_SetRunningMain(ptr noundef nonnull %11) #12
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %31, label %20
 
 20:                                               ; preds = %17, %13
   store i64 0, ptr %7, align 8
   %21 = load ptr, ptr %5, align 8, !tbaa !41
-  %22 = call i32 @PyRun_SimpleStringFlags(ptr noundef %21, ptr noundef nonnull %7) #11
-  %23 = call ptr @PyErr_Occurred() #11
+  %22 = call i32 @PyRun_SimpleStringFlags(ptr noundef %21, ptr noundef nonnull %7) #12
+  %23 = call ptr @PyErr_Occurred() #12
   %.not15 = icmp eq ptr %23, null
   br i1 %.not15, label %25, label %24
 
 24:                                               ; preds = %20
-  call void @PyErr_PrintEx(i32 noundef 0) #11
+  call void @PyErr_PrintEx(i32 noundef 0) #12
   br label %25
 
 25:                                               ; preds = %24, %20
@@ -4200,19 +4200,19 @@ define internal ptr @exec_interpreter(ptr readnone captures(none) %0, ptr nounde
   br i1 %.not16, label %28, label %27
 
 27:                                               ; preds = %25
-  call void @_PyInterpreterState_SetNotRunningMain(ptr noundef nonnull %11) #11
+  call void @_PyInterpreterState_SetNotRunningMain(ptr noundef nonnull %11) #12
   br label %28
 
 28:                                               ; preds = %27, %25
   %29 = sext i32 %22 to i64
-  %30 = call ptr @PyLong_FromLong(i64 noundef %29) #11
+  %30 = call ptr @PyLong_FromLong(i64 noundef %29) #12
   br label %31
 
 31:                                               ; preds = %17, %28
   %.012 = phi ptr [ null, %17 ], [ %30, %28 ]
-  call void @PyThreadState_Clear(ptr noundef %14) #11
-  %32 = call ptr @PyThreadState_Swap(ptr noundef %15) #11
-  call void @PyThreadState_Delete(ptr noundef %14) #11
+  call void @PyThreadState_Clear(ptr noundef %14) #12
+  %32 = call ptr @PyThreadState_Swap(ptr noundef %15) #12
+  call void @PyThreadState_Delete(ptr noundef %14) #12
   br label %33
 
 33:                                               ; preds = %31, %9, %3
@@ -4238,7 +4238,7 @@ define internal ptr @run_in_subinterp_with_config(ptr readnone captures(none) %0
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !25
-  %13 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.249, ptr noundef nonnull @run_in_subinterp_with_config.kwlist, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
+  %13 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.249, ptr noundef nonnull @run_in_subinterp_with_config.kwlist, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %54, label %14
 
@@ -4265,17 +4265,17 @@ _init_interp_config_from_object.exit.thread21:    ; preds = %14
   br label %30
 
 17:                                               ; preds = %14
-  %18 = call ptr @PyObject_GetAttrString(ptr noundef nonnull %15, ptr noundef nonnull @.str.237) #11
+  %18 = call ptr @PyObject_GetAttrString(ptr noundef nonnull %15, ptr noundef nonnull @.str.237) #12
   %19 = icmp eq ptr %18, null
   br i1 %19, label %_init_interp_config_from_object.exit.thread, label %22
 
 _init_interp_config_from_object.exit.thread:      ; preds = %17
   %20 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !9
-  %21 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %20, ptr noundef nonnull @.str.238, ptr noundef nonnull %15) #11
+  %21 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %20, ptr noundef nonnull @.str.238, ptr noundef nonnull %15) #12
   br label %53
 
 22:                                               ; preds = %17
-  %23 = call i32 @_PyInterpreterConfig_InitFromDict(ptr noundef nonnull %7, ptr noundef nonnull %18) #11
+  %23 = call i32 @_PyInterpreterConfig_InitFromDict(ptr noundef nonnull %7, ptr noundef nonnull %18) #12
   %24 = load i32, ptr %18, align 8, !tbaa !10
   %.not.i.i = icmp sgt i32 %24, -1
   br i1 %.not.i.i, label %25, label %_init_interp_config_from_object.exit
@@ -4287,7 +4287,7 @@ _init_interp_config_from_object.exit.thread:      ; preds = %17
   br i1 %27, label %28, label %_init_interp_config_from_object.exit
 
 28:                                               ; preds = %25
-  call void @_Py_Dealloc(ptr noundef nonnull %18) #11
+  call void @_Py_Dealloc(ptr noundef nonnull %18) #12
   br label %_init_interp_config_from_object.exit
 
 _init_interp_config_from_object.exit:             ; preds = %22, %25, %28
@@ -4304,45 +4304,45 @@ _init_interp_config_from_object.exit:             ; preds = %22, %25, %28
 32:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %33 = call ptr @_PyXI_NewInterpreter(ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %10, ptr noundef nonnull %9) #11
+  %33 = call ptr @_PyXI_NewInterpreter(ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %10, ptr noundef nonnull %9) #12
   %.not19 = icmp eq ptr %33, null
   br i1 %.not19, label %.critedge, label %34
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr %4, align 8, !tbaa !41
-  %36 = call i32 @PyRun_SimpleStringFlags(ptr noundef %35, ptr noundef nonnull %8) #11
+  %36 = call i32 @PyRun_SimpleStringFlags(ptr noundef %35, ptr noundef nonnull %8) #12
   %37 = load ptr, ptr %10, align 8, !tbaa !169
-  call void @_PyXI_EndInterpreter(ptr noundef nonnull %33, ptr noundef %37, ptr noundef nonnull %9) #11
+  call void @_PyXI_EndInterpreter(ptr noundef nonnull %33, ptr noundef %37, ptr noundef nonnull %9) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %49
 
 38:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %39 = call ptr @PyThreadState_Swap(ptr noundef null) #11
+  %39 = call ptr @PyThreadState_Swap(ptr noundef null) #12
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  call void @Py_NewInterpreterFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %12, ptr noundef nonnull %11, ptr noundef nonnull %7) #11
-  %40 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %12) #11
+  call void @Py_NewInterpreterFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %12, ptr noundef nonnull %11, ptr noundef nonnull %7) #12
+  %40 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %12) #12
   %.not18 = icmp eq i32 %40, 0
   br i1 %.not18, label %.thread, label %45
 
 .thread:                                          ; preds = %38
   %41 = load ptr, ptr %4, align 8, !tbaa !41
-  %42 = call i32 @PyRun_SimpleStringFlags(ptr noundef %41, ptr noundef nonnull %8) #11
+  %42 = call i32 @PyRun_SimpleStringFlags(ptr noundef %41, ptr noundef nonnull %8) #12
   %43 = load ptr, ptr %11, align 8, !tbaa !169
-  call void @Py_EndInterpreter(ptr noundef %43) #11
-  %44 = call ptr @PyThreadState_Swap(ptr noundef %39) #11
+  call void @Py_EndInterpreter(ptr noundef %43) #12
+  %44 = call ptr @PyThreadState_Swap(ptr noundef %39) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %49
 
 45:                                               ; preds = %38
-  %46 = call ptr @PyThreadState_Swap(ptr noundef %39) #11
-  call void @_PyErr_SetFromPyStatus(ptr noundef nonnull byval(%struct.PyStatus) align 8 %12) #11
-  %47 = call ptr @PyErr_GetRaisedException() #11
+  %46 = call ptr @PyThreadState_Swap(ptr noundef %39) #12
+  call void @_PyErr_SetFromPyStatus(ptr noundef nonnull byval(%struct.PyStatus) align 8 %12) #12
+  %47 = call ptr @PyErr_GetRaisedException() #12
   %48 = load ptr, ptr @PyExc_InterpreterError, align 8, !tbaa !9
-  call void @PyErr_SetString(ptr noundef %48, ptr noundef nonnull @.str.242) #11
-  call void @_PyErr_ChainExceptions1(ptr noundef %47) #11
+  call void @PyErr_SetString(ptr noundef %48, ptr noundef nonnull @.str.242) #12
+  call void @_PyErr_ChainExceptions1(ptr noundef %47) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %52
@@ -4350,7 +4350,7 @@ _init_interp_config_from_object.exit:             ; preds = %22, %25, %28
 49:                                               ; preds = %.thread, %34
   %.114 = phi i32 [ %36, %34 ], [ %42, %.thread ]
   %50 = sext i32 %.114 to i64
-  %51 = call ptr @PyLong_FromLong(i64 noundef %50) #11
+  %51 = call ptr @PyLong_FromLong(i64 noundef %50) #12
   br label %52
 
 .critedge:                                        ; preds = %32
@@ -4378,12 +4378,12 @@ _init_interp_config_from_object.exit:             ; preds = %22, %25, %28
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @normalize_interp_id(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call i64 @_PyInterpreterState_ObjectToID(ptr noundef %1) #11
+  %3 = tail call i64 @_PyInterpreterState_ObjectToID(ptr noundef %1) #12
   %4 = icmp slt i64 %3, 0
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @PyLong_FromLongLong(i64 noundef %3) #11
+  %6 = tail call ptr @PyLong_FromLongLong(i64 noundef %3) #12
   br label %7
 
 7:                                                ; preds = %2, %5
@@ -4394,7 +4394,7 @@ define internal ptr @normalize_interp_id(ptr readnone captures(none) %0, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal ptr @next_interpreter_id(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 720), align 8, !tbaa !170
-  %4 = tail call ptr @PyLong_FromLongLong(i64 noundef %3) #11
+  %4 = tail call ptr @PyLong_FromLongLong(i64 noundef %3) #12
   ret ptr %4
 }
 
@@ -4405,37 +4405,37 @@ define internal ptr @unused_interpreter_id(ptr readnone captures(none) %0, ptr r
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void @__assert_fail(ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.80, i32 noundef 1613, ptr noundef nonnull @__PRETTY_FUNCTION__.unused_interpreter_id) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.80, i32 noundef 1613, ptr noundef nonnull @__PRETTY_FUNCTION__.unused_interpreter_id) #13
   unreachable
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @PyLong_FromLongLong(i64 noundef 9223372036854775807) #11
+  %6 = tail call ptr @PyLong_FromLongLong(i64 noundef 9223372036854775807) #12
   ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @interpreter_exists(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call ptr @_PyInterpreterState_LookUpIDObject(ptr noundef %1) #11
+  %3 = tail call ptr @_PyInterpreterState_LookUpIDObject(ptr noundef %1) #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @PyExc_InterpreterNotFoundError, align 8, !tbaa !9
-  %7 = tail call i32 @PyErr_ExceptionMatches(ptr noundef %6) #11
+  %7 = tail call i32 @PyErr_ExceptionMatches(ptr noundef %6) #12
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void @PyErr_Clear() #11
+  tail call void @PyErr_Clear() #12
   br label %12
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @PyErr_Occurred() #11
+  %10 = tail call ptr @PyErr_Occurred() #12
   %.not3 = icmp eq ptr %10, null
   br i1 %.not3, label %11, label %12
 
 11:                                               ; preds = %9
-  tail call void @__assert_fail(ptr noundef nonnull @.str.251, ptr noundef nonnull @.str.80, i32 noundef 1626, ptr noundef nonnull @__PRETTY_FUNCTION__.interpreter_exists) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.251, ptr noundef nonnull @.str.80, i32 noundef 1626, ptr noundef nonnull @__PRETTY_FUNCTION__.interpreter_exists) #13
   unreachable
 
 12:                                               ; preds = %2, %9, %8
@@ -4445,14 +4445,14 @@ define internal noundef ptr @interpreter_exists(ptr readnone captures(none) %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @get_interpreter_refcount(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call ptr @_PyInterpreterState_LookUpIDObject(ptr noundef %1) #11
+  %3 = tail call ptr @_PyInterpreterState_LookUpIDObject(ptr noundef %1) #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 7280
   %7 = load i64, ptr %6, align 8, !tbaa !251
-  %8 = tail call ptr @PyLong_FromLongLong(i64 noundef %7) #11
+  %8 = tail call ptr @PyLong_FromLongLong(i64 noundef %7) #12
   br label %9
 
 9:                                                ; preds = %2, %5
@@ -4462,21 +4462,21 @@ define internal ptr @get_interpreter_refcount(ptr readnone captures(none) %0, pt
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @link_interpreter_refcount(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call ptr @_PyInterpreterState_LookUpIDObject(ptr noundef %1) #11
+  %3 = tail call ptr @_PyInterpreterState_LookUpIDObject(ptr noundef %1) #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @PyErr_Occurred() #11
+  %6 = tail call ptr @PyErr_Occurred() #12
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %5
-  tail call void @__assert_fail(ptr noundef nonnull @.str.251, ptr noundef nonnull @.str.80, i32 noundef 1647, ptr noundef nonnull @__PRETTY_FUNCTION__.link_interpreter_refcount) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.251, ptr noundef nonnull @.str.80, i32 noundef 1647, ptr noundef nonnull @__PRETTY_FUNCTION__.link_interpreter_refcount) #13
   unreachable
 
 8:                                                ; preds = %2
-  tail call void @_PyInterpreterState_RequireIDRef(ptr noundef nonnull %3, i32 noundef 1) #11
+  tail call void @_PyInterpreterState_RequireIDRef(ptr noundef nonnull %3, i32 noundef 1) #12
   br label %9
 
 9:                                                ; preds = %5, %8
@@ -4486,21 +4486,21 @@ define internal noundef ptr @link_interpreter_refcount(ptr readnone captures(non
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @unlink_interpreter_refcount(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call ptr @_PyInterpreterState_LookUpIDObject(ptr noundef %1) #11
+  %3 = tail call ptr @_PyInterpreterState_LookUpIDObject(ptr noundef %1) #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @PyErr_Occurred() #11
+  %6 = tail call ptr @PyErr_Occurred() #12
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %5
-  tail call void @__assert_fail(ptr noundef nonnull @.str.251, ptr noundef nonnull @.str.80, i32 noundef 1659, ptr noundef nonnull @__PRETTY_FUNCTION__.unlink_interpreter_refcount) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.251, ptr noundef nonnull @.str.80, i32 noundef 1659, ptr noundef nonnull @__PRETTY_FUNCTION__.unlink_interpreter_refcount) #13
   unreachable
 
 8:                                                ; preds = %2
-  tail call void @_PyInterpreterState_RequireIDRef(ptr noundef nonnull %3, i32 noundef 0) #11
+  tail call void @_PyInterpreterState_RequireIDRef(ptr noundef nonnull %3, i32 noundef 0) #12
   br label %9
 
 9:                                                ; preds = %5, %8
@@ -4510,12 +4510,12 @@ define internal noundef ptr @unlink_interpreter_refcount(ptr readnone captures(n
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @interpreter_refcount_linked(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call ptr @_PyInterpreterState_LookUpIDObject(ptr noundef %1) #11
+  %3 = tail call ptr @_PyInterpreterState_LookUpIDObject(ptr noundef %1) #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @_PyInterpreterState_RequiresIDRef(ptr noundef nonnull %3) #11
+  %6 = tail call i32 @_PyInterpreterState_RequiresIDRef(ptr noundef nonnull %3) #12
   %.not = icmp eq i32 %6, 0
   %_Py_FalseStruct._Py_TrueStruct = select i1 %.not, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   br label %7
@@ -4529,23 +4529,23 @@ define internal ptr @interpreter_refcount_linked(ptr readnone captures(none) %0,
 define internal ptr @compile_perf_trampoline_entry(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.252, ptr noundef nonnull @PyCode_Type, ptr noundef nonnull %3) #11
+  %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.252, ptr noundef nonnull @PyCode_Type, ptr noundef nonnull %3) #12
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %3, align 8, !tbaa !9
-  %7 = call i32 @PyUnstable_PerfTrampoline_CompileCode(ptr noundef %6) #11
+  %7 = call i32 @PyUnstable_PerfTrampoline_CompileCode(ptr noundef %6) #12
   %.not4 = icmp eq i32 %7, 0
   br i1 %.not4, label %10, label %8
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.253) #11
+  call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.253) #12
   br label %12
 
 10:                                               ; preds = %5
-  %11 = call ptr @PyLong_FromLong(i64 noundef 0) #11
+  %11 = call ptr @PyLong_FromLong(i64 noundef 0) #12
   br label %12
 
 12:                                               ; preds = %8, %10, %2
@@ -4558,24 +4558,24 @@ define internal ptr @compile_perf_trampoline_entry(ptr readnone captures(none) %
 define internal ptr @perf_trampoline_set_persist_after_fork(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.254, ptr noundef nonnull %3) #11
+  %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.254, ptr noundef nonnull %3) #12
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %14, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %3, align 4, !tbaa !25
-  %7 = call i32 @PyUnstable_PerfTrampoline_SetPersistAfterFork(i32 noundef %6) #11
+  %7 = call i32 @PyUnstable_PerfTrampoline_SetPersistAfterFork(i32 noundef %6) #12
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.255) #11
+  call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.255) #12
   br label %14
 
 11:                                               ; preds = %5
   %12 = sext i32 %7 to i64
-  %13 = call ptr @PyLong_FromLong(i64 noundef %12) #11
+  %13 = call ptr @PyLong_FromLong(i64 noundef %12) #12
   br label %14
 
 14:                                               ; preds = %9, %11, %2
@@ -4588,46 +4588,46 @@ define internal ptr @perf_trampoline_set_persist_after_fork(ptr readnone capture
 define internal ptr @get_crossinterp_data(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct._PyXIData_lookup_context_t, align 8
   %4 = alloca ptr, align 8
-  %5 = tail call ptr @PyInterpreterState_Get() #11
+  %5 = tail call ptr @PyInterpreterState_Get() #12
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %6 = call i32 @_PyXIData_GetLookupContext(ptr noundef %5, ptr noundef nonnull %3) #11
+  %6 = call i32 @_PyXIData_GetLookupContext(ptr noundef %5, ptr noundef nonnull %3) #12
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %24, label %8
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !9
-  %9 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.256, ptr noundef nonnull %4) #11
+  %9 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.256, ptr noundef nonnull %4) #12
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %23, label %10
 
 10:                                               ; preds = %8
-  %11 = call ptr @_PyXIData_New() #11
+  %11 = call ptr @_PyXIData_New() #12
   %12 = icmp eq ptr %11, null
   br i1 %12, label %23, label %13
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %4, align 8, !tbaa !9
-  %15 = call i32 @_PyObject_GetXIData(ptr noundef nonnull %3, ptr noundef %14, ptr noundef nonnull %11) #11
+  %15 = call i32 @_PyObject_GetXIData(ptr noundef nonnull %3, ptr noundef %14, ptr noundef nonnull %11) #12
   %.not12 = icmp eq i32 %15, 0
   br i1 %.not12, label %16, label %.sink.split
 
 16:                                               ; preds = %13
-  %17 = call ptr @PyCapsule_New(ptr noundef nonnull %11, ptr noundef null, ptr noundef nonnull @_xid_capsule_destructor) #11
+  %17 = call ptr @PyCapsule_New(ptr noundef nonnull %11, ptr noundef null, ptr noundef nonnull @_xid_capsule_destructor) #12
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %16
-  %20 = call i32 @_PyXIData_Release(ptr noundef nonnull %11) #11
+  %20 = call i32 @_PyXIData_Release(ptr noundef nonnull %11) #12
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.sink.split, label %22
 
 22:                                               ; preds = %19
-  call void @__assert_fail(ptr noundef nonnull @.str.257, ptr noundef nonnull @.str.80, i32 noundef 1714, ptr noundef nonnull @__PRETTY_FUNCTION__.get_crossinterp_data) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.257, ptr noundef nonnull @.str.80, i32 noundef 1714, ptr noundef nonnull @__PRETTY_FUNCTION__.get_crossinterp_data) #13
   unreachable
 
 .sink.split:                                      ; preds = %19, %13
-  call void @_PyXIData_Free(ptr noundef nonnull %11) #11
+  call void @_PyXIData_Free(ptr noundef nonnull %11) #12
   br label %23
 
 23:                                               ; preds = %.sink.split, %10, %16, %8
@@ -4646,18 +4646,18 @@ define internal ptr @restore_crossinterp_data(ptr readnone captures(none) %0, pt
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !9
-  %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.258, ptr noundef nonnull %3) #11
+  %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.258, ptr noundef nonnull %3) #12
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %11, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %3, align 8, !tbaa !9
-  %7 = call ptr @PyCapsule_GetPointer(ptr noundef %6, ptr noundef null) #11
+  %7 = call ptr @PyCapsule_GetPointer(ptr noundef %6, ptr noundef null) #12
   %8 = icmp eq ptr %7, null
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %5
-  %10 = call ptr @_PyXIData_NewObject(ptr noundef nonnull %7) #11
+  %10 = call ptr @_PyXIData_NewObject(ptr noundef nonnull %7) #12
   br label %11
 
 11:                                               ; preds = %9, %5, %2
@@ -4677,13 +4677,13 @@ define internal noundef ptr @_testinternalcapi_test_long_numbits(ptr readnone ca
   store i32 -7, ptr %3, align 4, !tbaa !25
   %5 = getelementptr %struct.triple, ptr @__const._testinternalcapi_test_long_numbits_impl.testcases, i64 %.0121.i
   %6 = load i64, ptr %5, align 8, !tbaa !252
-  %7 = call ptr @PyLong_FromLong(i64 noundef %6) #11
+  %7 = call ptr @PyLong_FromLong(i64 noundef %6) #12
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.critedge.i, label %9
 
 9:                                                ; preds = %4
-  %10 = call i64 @_PyLong_NumBits(ptr noundef nonnull %7) #11
-  %11 = call i32 @PyLong_GetSign(ptr noundef nonnull %7, ptr noundef nonnull %3) #11
+  %10 = call i64 @_PyLong_NumBits(ptr noundef nonnull %7) #12
+  %11 = call i32 @PyLong_GetSign(ptr noundef nonnull %7, ptr noundef nonnull %3) #12
   %12 = load i32, ptr %7, align 8, !tbaa !10
   %.not.i.i = icmp sgt i32 %12, -1
   br i1 %.not.i.i, label %13, label %Py_DECREF.exit.i
@@ -4695,7 +4695,7 @@ define internal noundef ptr @_testinternalcapi_test_long_numbits(ptr readnone ca
   br i1 %15, label %16, label %Py_DECREF.exit.i
 
 16:                                               ; preds = %13
-  call void @_Py_Dealloc(ptr noundef nonnull %7) #11
+  call void @_Py_Dealloc(ptr noundef nonnull %7) #12
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %16, %13, %9
@@ -4720,7 +4720,7 @@ Py_DECREF.exit.i:                                 ; preds = %16, %13, %9
 .critedge.sink.split.i:                           ; preds = %19, %Py_DECREF.exit.i
   %.str.260.sink.i = phi ptr [ @.str.259, %Py_DECREF.exit.i ], [ @.str.260, %19 ]
   %25 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %26 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %25, ptr noundef nonnull @.str.261, ptr noundef nonnull @.str.60, ptr noundef nonnull %.str.260.sink.i) #11
+  %26 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %25, ptr noundef nonnull @.str.261, ptr noundef nonnull @.str.60, ptr noundef nonnull %.str.260.sink.i) #12
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %4, %.critedge.sink.split.i
@@ -4734,7 +4734,7 @@ _testinternalcapi_test_long_numbits_impl.exit:    ; preds = %23, %.critedge.i
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @get_rare_event_counters(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
-  %3 = tail call ptr @PyInterpreterState_Get() #11
+  %3 = tail call ptr @PyInterpreterState_Get() #12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 222992
   %5 = load i8, ptr %4, align 8, !tbaa !257
   %6 = zext i8 %5 to i64
@@ -4750,13 +4750,13 @@ define internal ptr @get_rare_event_counters(ptr readnone captures(none) %0, ptr
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 222996
   %17 = load i8, ptr %16, align 4, !tbaa !261
   %18 = zext i8 %17 to i64
-  %19 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.262, ptr noundef nonnull @.str.263, i64 noundef %6, ptr noundef nonnull @.str.264, i64 noundef %9, ptr noundef nonnull @.str.265, i64 noundef %12, ptr noundef nonnull @.str.266, i64 noundef %15, ptr noundef nonnull @.str.267, i64 noundef %18) #11
+  %19 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.262, ptr noundef nonnull @.str.263, i64 noundef %6, ptr noundef nonnull @.str.264, i64 noundef %9, ptr noundef nonnull @.str.265, i64 noundef %12, ptr noundef nonnull @.str.266, i64 noundef %15, ptr noundef nonnull @.str.267, i64 noundef %18) #12
   ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @reset_rare_event_counters(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
-  %3 = tail call ptr @PyInterpreterState_Get() #11
+  %3 = tail call ptr @PyInterpreterState_Get() #12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 222992
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %4, i8 0, i64 5, i1 false)
   ret ptr @_Py_NoneStruct
@@ -4782,7 +4782,7 @@ define internal noundef nonnull ptr @has_inline_values(ptr readnone captures(non
   br i1 %or.cond.i, label %14, label %13
 
 13:                                               ; preds = %7
-  tail call void @__assert_fail(ptr noundef nonnull @.str.226, ptr noundef nonnull @.str.227, i32 noundef 940, ptr noundef nonnull @__PRETTY_FUNCTION__._PyObject_InlineValues) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.226, ptr noundef nonnull @.str.227, i32 noundef 940, ptr noundef nonnull @__PRETTY_FUNCTION__._PyObject_InlineValues) #13
   unreachable
 
 14:                                               ; preds = %7
@@ -4791,7 +4791,7 @@ define internal noundef nonnull ptr @has_inline_values(ptr readnone captures(non
   br i1 %.not7.i, label %16, label %_PyObject_InlineValues.exit
 
 16:                                               ; preds = %14
-  tail call void @__assert_fail(ptr noundef nonnull @.str.229, ptr noundef nonnull @.str.227, i32 noundef 942, ptr noundef nonnull @__PRETTY_FUNCTION__._PyObject_InlineValues) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.229, ptr noundef nonnull @.str.227, i32 noundef 942, ptr noundef nonnull @__PRETTY_FUNCTION__._PyObject_InlineValues) #13
   unreachable
 
 _PyObject_InlineValues.exit:                      ; preds = %14
@@ -4839,7 +4839,7 @@ define internal noundef ptr @type_assign_specific_version_unsafe(ptr readnone ca
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.268, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
+  %5 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.268, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %13, label %6
 
@@ -4852,12 +4852,12 @@ define internal noundef ptr @type_assign_specific_version_unsafe(ptr readnone ca
   br i1 %.not2, label %11, label %10
 
 10:                                               ; preds = %6
-  call void @__assert_fail(ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.80, i32 noundef 1937, ptr noundef nonnull @__PRETTY_FUNCTION__.type_assign_specific_version_unsafe) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.80, i32 noundef 1937, ptr noundef nonnull @__PRETTY_FUNCTION__.type_assign_specific_version_unsafe) #13
   unreachable
 
 11:                                               ; preds = %6
   %12 = load i32, ptr %4, align 4, !tbaa !25
-  call void @_PyType_SetVersion(ptr noundef nonnull %7, i32 noundef %12) #11
+  call void @_PyType_SetVersion(ptr noundef nonnull %7, i32 noundef %12) #12
   br label %13
 
 13:                                               ; preds = %2, %11
@@ -4884,7 +4884,7 @@ define internal ptr @gh_119213_getargs(ptr readnone captures(none) %0, ptr nound
   br i1 %.not.i, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void @__assert_fail(ptr noundef nonnull @.str.165, ptr noundef nonnull @.str.166, i32 noundef 22, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_GET_SIZE) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.165, ptr noundef nonnull @.str.166, i32 noundef 22, ptr noundef nonnull @__PRETTY_FUNCTION__.PyTuple_GET_SIZE) #13
   unreachable
 
 11:                                               ; preds = %6
@@ -4892,7 +4892,7 @@ define internal ptr @gh_119213_getargs(ptr readnone captures(none) %0, ptr nound
   br i1 %.not.i.i, label %12, label %13
 
 12:                                               ; preds = %11
-  tail call void @__assert_fail(ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.168, i32 noundef 282, ptr noundef nonnull @__PRETTY_FUNCTION__.Py_SIZE) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.168, i32 noundef 282, ptr noundef nonnull @__PRETTY_FUNCTION__.Py_SIZE) #13
   unreachable
 
 13:                                               ; preds = %11
@@ -4900,7 +4900,7 @@ define internal ptr @gh_119213_getargs(ptr readnone captures(none) %0, ptr nound
   br i1 %.not3.i.i, label %14, label %.thread
 
 14:                                               ; preds = %13
-  tail call void @__assert_fail(ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.168, i32 noundef 283, ptr noundef nonnull @__PRETTY_FUNCTION__.Py_SIZE) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.168, i32 noundef 283, ptr noundef nonnull @__PRETTY_FUNCTION__.Py_SIZE) #13
   unreachable
 
 .thread:                                          ; preds = %13
@@ -4916,7 +4916,7 @@ define internal ptr @gh_119213_getargs(ptr readnone captures(none) %0, ptr nound
 
 20:                                               ; preds = %17, %.thread
   %21 = phi i64 [ %16, %.thread ], [ 0, %17 ]
-  %22 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @gh_119213_getargs._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #11
+  %22 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @gh_119213_getargs._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #12
   %.not25 = icmp eq ptr %22, null
   br i1 %.not25, label %gh_119213_getargs_impl.exit, label %.thread30
 
@@ -4933,13 +4933,13 @@ define internal ptr @gh_119213_getargs(ptr readnone captures(none) %0, ptr nound
 
 28:                                               ; preds = %.thread30, %26
   %.0 = phi ptr [ %27, %26 ], [ @_Py_NoneStruct, %.thread30 ]
-  %29 = call ptr @PyInterpreterState_Get() #11
+  %29 = call ptr @PyInterpreterState_Get() #12
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !266
   %.not.i27 = icmp eq ptr %29, %30
   br i1 %.not.i27, label %31, label %32
 
 31:                                               ; preds = %28
-  call void @__assert_fail(ptr noundef nonnull @.str.271, ptr noundef nonnull @.str.80, i32 noundef 1955, ptr noundef nonnull @__PRETTY_FUNCTION__.gh_119213_getargs_impl) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.271, ptr noundef nonnull @.str.80, i32 noundef 1955, ptr noundef nonnull @__PRETTY_FUNCTION__.gh_119213_getargs_impl) #13
   unreachable
 
 32:                                               ; preds = %28
@@ -4960,28 +4960,28 @@ gh_119213_getargs_impl.exit:                      ; preds = %35, %32, %20
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @get_static_builtin_types(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
-  %3 = tail call ptr @_PyStaticType_GetBuiltins() #11
+  %3 = tail call ptr @_PyStaticType_GetBuiltins() #12
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @identify_type_slot_wrappers(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
-  %3 = tail call ptr @_PyType_GetSlotWrapperNames() #11
+  %3 = tail call ptr @_PyType_GetSlotWrapperNames() #12
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @has_deferred_refcount(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
-  %3 = tail call ptr @PyBool_FromLong(i64 noundef 0) #11
+  %3 = tail call ptr @PyBool_FromLong(i64 noundef 0) #12
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @get_tracked_heap_size(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
-  %3 = tail call ptr @PyInterpreterState_Get() #11
+  %3 = tail call ptr @PyInterpreterState_Get() #12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 7616
   %5 = load i64, ptr %4, align 8, !tbaa !267
-  %6 = tail call ptr @PyLong_FromInt64(i64 noundef %5) #11
+  %6 = tail call ptr @PyLong_FromInt64(i64 noundef %5) #12
   ret ptr %6
 }
 
@@ -5003,11 +5003,11 @@ declare ptr @_PyThreadState_GetCurrent() local_unnamed_addr #1
 
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #5
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #6
 
 declare ptr @_Py_hashtable_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -5024,7 +5024,7 @@ declare i32 @_Py_hashtable_compare_direct(ptr noundef, ptr noundef) #1
 declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 declare ptr @_Py_hashtable_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -5048,7 +5048,7 @@ define internal noundef i32 @hashtable_cb(ptr readnone captures(none) %0, ptr no
   br i1 %11, label %13, label %12
 
 12:                                               ; preds = %4
-  tail call void @__assert_fail(ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.80, i32 noundef 249, ptr noundef nonnull @__PRETTY_FUNCTION__.hashtable_cb) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.80, i32 noundef 249, ptr noundef nonnull @__PRETTY_FUNCTION__.hashtable_cb) #13
   unreachable
 
 13:                                               ; preds = %4
@@ -5064,23 +5064,23 @@ declare void @_PyPathConfig_ClearGlobal() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @check_edit_cost(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 0, 13) %2) unnamed_addr #0 {
-  %4 = tail call ptr @PyUnicode_FromString(ptr noundef %0) #11
+  %4 = tail call ptr @PyUnicode_FromString(ptr noundef %0) #12
   %5 = icmp eq ptr %4, null
   br i1 %5, label %Py_XDECREF.exit56, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @PyUnicode_FromString(ptr noundef %1) #11
+  %7 = tail call ptr @PyUnicode_FromString(ptr noundef %1) #12
   %8 = icmp eq ptr %7, null
   br i1 %8, label %26, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call i64 @_Py_UTF8_Edit_Cost(ptr noundef nonnull %4, ptr noundef nonnull %7, i64 noundef -1) #11
+  %10 = tail call i64 @_Py_UTF8_Edit_Cost(ptr noundef nonnull %4, ptr noundef nonnull %7, i64 noundef -1) #12
   %.not = icmp eq i64 %10, %2
   br i1 %.not, label %.preheader, label %11
 
 11:                                               ; preds = %9
   %12 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %13 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %12, ptr noundef nonnull @.str.125, ptr noundef %0, ptr noundef %1, i64 noundef %10, i64 noundef %2) #11
+  %13 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %12, ptr noundef nonnull @.str.125, ptr noundef %0, ptr noundef %1, i64 noundef %10, i64 noundef %2) #12
   br label %26
 
 .preheader:                                       ; preds = %9, %14
@@ -5090,25 +5090,25 @@ define internal fastcc range(i32 -1, 1) i32 @check_edit_cost(ptr noundef %0, ptr
 
 14:                                               ; preds = %.preheader
   %15 = lshr i64 %.041, 1
-  %16 = tail call i64 @_Py_UTF8_Edit_Cost(ptr noundef nonnull %4, ptr noundef nonnull %7, i64 noundef %15) #11
+  %16 = tail call i64 @_Py_UTF8_Edit_Cost(ptr noundef nonnull %4, ptr noundef nonnull %7, i64 noundef %15) #12
   %.not52 = icmp sgt i64 %16, %15
   br i1 %.not52, label %.preheader, label %.thread
 
 .thread:                                          ; preds = %14
   %17 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %18 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %17, ptr noundef nonnull @.str.126, ptr noundef %0, ptr noundef %1, i64 noundef %15, i64 noundef %16, i64 noundef %15) #11
+  %18 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %17, ptr noundef nonnull @.str.126, ptr noundef %0, ptr noundef %1, i64 noundef %15, i64 noundef %16, i64 noundef %15) #12
   br label %26
 
 19:                                               ; preds = %.preheader
   %20 = shl nuw nsw i64 %2, 1
   %21 = or disjoint i64 %20, 1
-  %22 = tail call i64 @_Py_UTF8_Edit_Cost(ptr noundef nonnull %4, ptr noundef nonnull %7, i64 noundef %21) #11
+  %22 = tail call i64 @_Py_UTF8_Edit_Cost(ptr noundef nonnull %4, ptr noundef nonnull %7, i64 noundef %21) #12
   %.not51 = icmp eq i64 %22, %2
   br i1 %.not51, label %26, label %23
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %25 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %24, ptr noundef nonnull @.str.127, ptr noundef %0, ptr noundef %1, i64 noundef %20, i64 noundef %22, i64 noundef %2) #11
+  %25 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %24, ptr noundef nonnull @.str.127, ptr noundef %0, ptr noundef %1, i64 noundef %20, i64 noundef %22, i64 noundef %2) #12
   br label %26
 
 26:                                               ; preds = %.thread, %19, %6, %23, %11
@@ -5124,7 +5124,7 @@ define internal fastcc range(i32 -1, 1) i32 @check_edit_cost(ptr noundef %0, ptr
   br i1 %30, label %31, label %Py_XDECREF.exit
 
 31:                                               ; preds = %28
-  tail call void @_Py_Dealloc(ptr noundef nonnull %4) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull %4) #12
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %26, %28, %31
@@ -5142,7 +5142,7 @@ Py_XDECREF.exit:                                  ; preds = %26, %28, %31
   br i1 %36, label %37, label %Py_XDECREF.exit56
 
 37:                                               ; preds = %34
-  tail call void @_Py_Dealloc(ptr noundef nonnull %7) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull %7) #12
   br label %Py_XDECREF.exit56
 
 Py_XDECREF.exit56:                                ; preds = %3, %Py_XDECREF.exit, %32, %34, %37
@@ -5158,49 +5158,49 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @check_bytes_find(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 7) %2, i64 noundef range(i64 -1, 31) %3) unnamed_addr #0 {
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %7 = zext nneg i32 %2 to i64
-  %8 = tail call i64 @_PyBytes_Find(ptr noundef nonnull %0, i64 noundef %5, ptr noundef nonnull %1, i64 noundef %6, i64 noundef %7) #11
+  %8 = tail call i64 @_PyBytes_Find(ptr noundef nonnull %0, i64 noundef %5, ptr noundef nonnull %1, i64 noundef %6, i64 noundef %7) #12
   %.not = icmp eq i64 %8, %3
   br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %11 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %10, ptr noundef nonnull @.str.142, ptr noundef nonnull %1, ptr noundef nonnull %0, i32 noundef %2) #11
+  %11 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %10, ptr noundef nonnull @.str.142, ptr noundef nonnull %1, ptr noundef nonnull %0, i32 noundef %2) #12
   br label %27
 
 12:                                               ; preds = %4
-  %13 = tail call ptr @PyMem_Malloc(i64 noundef %5) #11
+  %13 = tail call ptr @PyMem_Malloc(i64 noundef %5) #12
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %12
-  %16 = tail call ptr @PyErr_NoMemory() #11
+  %16 = tail call ptr @PyErr_NoMemory() #12
   br label %27
 
 17:                                               ; preds = %12
-  %18 = tail call ptr @PyMem_Malloc(i64 noundef %6) #11
+  %18 = tail call ptr @PyMem_Malloc(i64 noundef %6) #12
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %17
-  tail call void @PyMem_Free(ptr noundef nonnull %13) #11
-  %21 = tail call ptr @PyErr_NoMemory() #11
+  tail call void @PyMem_Free(ptr noundef nonnull %13) #12
+  %21 = tail call ptr @PyErr_NoMemory() #12
   br label %27
 
 22:                                               ; preds = %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %0, i64 %5, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %1, i64 %6, i1 false)
-  %23 = tail call i64 @_PyBytes_Find(ptr noundef nonnull %13, i64 noundef %5, ptr noundef nonnull %18, i64 noundef %6, i64 noundef %7) #11
-  tail call void @PyMem_Free(ptr noundef nonnull %13) #11
-  tail call void @PyMem_Free(ptr noundef nonnull %18) #11
+  %23 = tail call i64 @_PyBytes_Find(ptr noundef nonnull %13, i64 noundef %5, ptr noundef nonnull %18, i64 noundef %6, i64 noundef %7) #12
+  tail call void @PyMem_Free(ptr noundef nonnull %13) #12
+  tail call void @PyMem_Free(ptr noundef nonnull %18) #12
   %.not38 = icmp eq i64 %23, %3
   br i1 %.not38, label %27, label %24
 
 24:                                               ; preds = %22
   %25 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %26 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %25, ptr noundef nonnull @.str.143, ptr noundef nonnull %1, ptr noundef nonnull %0, i32 noundef %2) #11
+  %26 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %25, ptr noundef nonnull @.str.143, ptr noundef nonnull %1, ptr noundef nonnull %0, i32 noundef %2) #12
   br label %27
 
 27:                                               ; preds = %15, %24, %22, %20, %9
@@ -5210,23 +5210,23 @@ define internal fastcc range(i32 -1, 1) i32 @check_bytes_find(ptr noundef %0, pt
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @check_bytes_find_large(i64 noundef range(i64 2048, 32769) %0, i64 noundef range(i64 2, 17) %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call ptr @PyMem_RawCalloc(i64 noundef %0, i64 noundef 1) #11
+  %4 = tail call ptr @PyMem_RawCalloc(i64 noundef %0, i64 noundef 1) #12
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @PyErr_NoMemory() #11
+  %7 = tail call ptr @PyErr_NoMemory() #12
   br label %13
 
 8:                                                ; preds = %3
-  %9 = tail call i64 @_PyBytes_Find(ptr noundef nonnull %4, i64 noundef %0, ptr noundef %2, i64 noundef %1, i64 noundef 0) #11
-  tail call void @PyMem_RawFree(ptr noundef nonnull %4) #11
+  %9 = tail call i64 @_PyBytes_Find(ptr noundef nonnull %4, i64 noundef %0, ptr noundef %2, i64 noundef %1, i64 noundef 0) #12
+  tail call void @PyMem_RawFree(ptr noundef nonnull %4) #12
   %.not = icmp eq i64 %9, -1
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !9
-  %12 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %11, ptr noundef nonnull @.str.144, i64 noundef %0, i64 noundef %1, i64 noundef %9) #11
+  %12 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %11, ptr noundef nonnull @.str.144, i64 noundef %0, i64 noundef %1, i64 noundef %9) #12
   br label %13
 
 13:                                               ; preds = %10, %8, %6
@@ -5235,7 +5235,7 @@ define internal fastcc range(i32 -1, 1) i32 @check_bytes_find_large(i64 noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i64 @_PyBytes_Find(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -5244,7 +5244,7 @@ declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare ptr @PyMem_RawCalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -5287,12 +5287,12 @@ define internal ptr @record_eval(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br i1 %8, label %_PyFrame_GetFunction.exit, label %33
 
 _PyFrame_GetFunction.exit:                        ; preds = %3
-  %9 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str) #11
+  %9 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str) #12
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_get_current_module.exit.thread, label %11
 
 11:                                               ; preds = %_PyFrame_GetFunction.exit
-  %12 = tail call ptr @PyImport_GetModule(ptr noundef nonnull %9) #11
+  %12 = tail call ptr @PyImport_GetModule(ptr noundef nonnull %9) #12
   %13 = load i32, ptr %9, align 8, !tbaa !10
   %.not.i.i = icmp sgt i32 %13, -1
   br i1 %.not.i.i, label %14, label %Py_DECREF.exit.i
@@ -5304,7 +5304,7 @@ _PyFrame_GetFunction.exit:                        ; preds = %3
   br i1 %16, label %17, label %Py_DECREF.exit.i
 
 17:                                               ; preds = %14
-  tail call void @_Py_Dealloc(ptr noundef nonnull %9) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull %9) #12
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %17, %14, %11
@@ -5316,20 +5316,20 @@ Py_DECREF.exit.i:                                 ; preds = %17, %14, %11
   br i1 %.not.i16, label %20, label %_get_current_module.exit
 
 20:                                               ; preds = %19
-  tail call void @__assert_fail(ptr noundef nonnull @.str.157, ptr noundef nonnull @.str.80, i32 noundef 57, ptr noundef nonnull @__PRETTY_FUNCTION__._get_current_module) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.157, ptr noundef nonnull @.str.80, i32 noundef 57, ptr noundef nonnull @__PRETTY_FUNCTION__._get_current_module) #13
   unreachable
 
 _get_current_module.exit.thread:                  ; preds = %Py_DECREF.exit.i, %_PyFrame_GetFunction.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.80, i32 noundef 651, ptr noundef nonnull @__PRETTY_FUNCTION__.record_eval) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.80, i32 noundef 651, ptr noundef nonnull @__PRETTY_FUNCTION__.record_eval) #13
   unreachable
 
 _get_current_module.exit:                         ; preds = %19
-  %21 = tail call ptr @PyModule_GetState(ptr noundef nonnull %12) #11
+  %21 = tail call ptr @PyModule_GetState(ptr noundef nonnull %12) #12
   %.not5.i = icmp eq ptr %21, null
   br i1 %.not5.i, label %22, label %get_module_state.exit
 
 22:                                               ; preds = %_get_current_module.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.80, i32 noundef 73, ptr noundef nonnull @__PRETTY_FUNCTION__.get_module_state) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.80, i32 noundef 73, ptr noundef nonnull @__PRETTY_FUNCTION__.get_module_state) #13
   unreachable
 
 get_module_state.exit:                            ; preds = %_get_current_module.exit
@@ -5344,19 +5344,19 @@ get_module_state.exit:                            ; preds = %_get_current_module
   br i1 %26, label %27, label %Py_DECREF.exit
 
 27:                                               ; preds = %24
-  tail call void @_Py_Dealloc(ptr noundef nonnull %12) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull %12) #12
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %get_module_state.exit, %24, %27
   %28 = load ptr, ptr %21, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %30 = load ptr, ptr %29, align 8, !tbaa !268
-  %31 = tail call i32 @PyList_Append(ptr noundef %28, ptr noundef %30) #11
+  %31 = tail call i32 @PyList_Append(ptr noundef %28, ptr noundef %30) #12
   %32 = icmp sgt i32 %31, -1
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %Py_DECREF.exit, %3
-  %34 = tail call ptr @_PyEval_EvalFrameDefault(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) #11
+  %34 = tail call ptr @_PyEval_EvalFrameDefault(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) #12
   br label %35
 
 35:                                               ; preds = %Py_DECREF.exit, %33
@@ -5422,7 +5422,7 @@ declare i32 @_PyEval_AddPendingCall(ptr noundef, ptr noundef, ptr noundef, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_pending_callback(ptr noundef %0) #0 {
-  %2 = tail call ptr @PyObject_CallNoArgs(ptr noundef %0) #11
+  %2 = tail call ptr @PyObject_CallNoArgs(ptr noundef %0) #12
   %3 = load i32, ptr %0, align 8, !tbaa !10
   %.not.i = icmp sgt i32 %3, -1
   br i1 %.not.i, label %4, label %Py_DECREF.exit
@@ -5434,7 +5434,7 @@ define internal range(i32 -1, 1) i32 @_pending_callback(ptr noundef %0) #0 {
   br i1 %6, label %7, label %Py_DECREF.exit
 
 7:                                                ; preds = %4
-  tail call void @_Py_Dealloc(ptr noundef nonnull %0) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull %0) #12
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %1, %4, %7
@@ -5453,7 +5453,7 @@ Py_DECREF.exit:                                   ; preds = %1, %4, %7
   br i1 %12, label %13, label %Py_XDECREF.exit
 
 13:                                               ; preds = %10
-  tail call void @_Py_Dealloc(ptr noundef nonnull %2) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull %2) #12
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %Py_DECREF.exit, %8, %10, %13
@@ -5478,16 +5478,16 @@ define internal noundef i32 @_pending_identify_callback(ptr noundef %0) #0 {
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.215, ptr noundef nonnull @.str.80, i32 noundef 1061, ptr noundef nonnull @__PRETTY_FUNCTION__._pending_identify_callback) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.215, ptr noundef nonnull @.str.80, i32 noundef 1061, ptr noundef nonnull @__PRETTY_FUNCTION__._pending_identify_callback) #13
   unreachable
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @PyThreadState_Get() #11
+  %6 = tail call ptr @PyThreadState_Get() #12
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !45
-  %9 = tail call i64 @PyInterpreterState_GetID(ptr noundef %8) #11
+  %9 = tail call i64 @PyInterpreterState_GetID(ptr noundef %8) #12
   store i64 %9, ptr @pending_identify_result.0, align 8, !tbaa !153
-  tail call void @PyThread_release_lock(ptr noundef %0) #11
+  tail call void @PyThread_release_lock(ptr noundef %0) #12
   ret i32 0
 }
 
@@ -5560,7 +5560,7 @@ declare ptr @_PyThreadState_NewBound(ptr noundef, i32 noundef) local_unnamed_add
 declare i32 @_PyInterpreterState_SetRunningMain(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare i32 @PyRun_SimpleStringFlags(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -5598,21 +5598,21 @@ declare ptr @PyCapsule_New(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define internal void @_xid_capsule_destructor(ptr noundef %0) #0 {
-  %2 = tail call ptr @PyCapsule_GetPointer(ptr noundef %0, ptr noundef null) #11
+  %2 = tail call ptr @PyCapsule_GetPointer(ptr noundef %0, ptr noundef null) #12
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @_PyXIData_Release(ptr noundef nonnull %2) #11
+  %4 = tail call i32 @_PyXIData_Release(ptr noundef nonnull %2) #12
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %3
-  tail call void @__assert_fail(ptr noundef nonnull @.str.257, ptr noundef nonnull @.str.80, i32 noundef 1685, ptr noundef nonnull @__PRETTY_FUNCTION__._xid_capsule_destructor) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.257, ptr noundef nonnull @.str.80, i32 noundef 1685, ptr noundef nonnull @__PRETTY_FUNCTION__._xid_capsule_destructor) #13
   unreachable
 
 7:                                                ; preds = %3
-  tail call void @_PyXIData_Free(ptr noundef nonnull %2) #11
+  tail call void @_PyXIData_Free(ptr noundef nonnull %2) #12
   br label %8
 
 8:                                                ; preds = %7, %1
@@ -5641,70 +5641,70 @@ declare ptr @PyLong_FromInt64(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @module_exec(ptr noundef %0) #0 {
-  %2 = tail call i32 @_PyTestInternalCapi_Init_Lock(ptr noundef %0) #11
+  %2 = tail call i32 @_PyTestInternalCapi_Init_Lock(ptr noundef %0) #12
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %44, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @_PyTestInternalCapi_Init_PyTime(ptr noundef %0) #11
+  %5 = tail call i32 @_PyTestInternalCapi_Init_PyTime(ptr noundef %0) #12
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %44, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @_PyTestInternalCapi_Init_Set(ptr noundef %0) #11
+  %8 = tail call i32 @_PyTestInternalCapi_Init_Set(ptr noundef %0) #12
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %44, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call i32 @_PyTestInternalCapi_Init_CriticalSection(ptr noundef %0) #11
+  %11 = tail call i32 @_PyTestInternalCapi_Init_CriticalSection(ptr noundef %0) #12
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %44, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call ptr @PyLong_FromSsize_t(i64 noundef 16) #11
-  %15 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.273, ptr noundef %14) #11
+  %14 = tail call ptr @PyLong_FromSsize_t(i64 noundef 16) #12
+  %15 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.273, ptr noundef %14) #12
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %44, label %17
 
 17:                                               ; preds = %13
-  %18 = tail call ptr @PyLong_FromSsize_t(i64 noundef 16) #11
-  %19 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.274, ptr noundef %18) #11
+  %18 = tail call ptr @PyLong_FromSsize_t(i64 noundef 16) #12
+  %19 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.274, ptr noundef %18) #12
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %44, label %21
 
 21:                                               ; preds = %17
-  %22 = tail call ptr @PyLong_FromSsize_t(i64 noundef 16) #11
-  %23 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.275, ptr noundef %22) #11
+  %22 = tail call ptr @PyLong_FromSsize_t(i64 noundef 16) #12
+  %23 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.275, ptr noundef %22) #12
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %44, label %25
 
 25:                                               ; preds = %21
-  %26 = tail call ptr @PyLong_FromSsize_t(i64 noundef 8) #11
-  %27 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.276, ptr noundef %26) #11
+  %26 = tail call ptr @PyLong_FromSsize_t(i64 noundef 8) #12
+  %27 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.276, ptr noundef %26) #12
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %44, label %29
 
 29:                                               ; preds = %25
-  %30 = tail call ptr @PyLong_FromLong(i64 noundef 4096) #11
-  %31 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.277, ptr noundef %30) #11
+  %30 = tail call ptr @PyLong_FromLong(i64 noundef 4096) #12
+  %31 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.277, ptr noundef %30) #12
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %44, label %33
 
 33:                                               ; preds = %29
-  %34 = tail call ptr @PyLong_FromLong(i64 noundef 2) #11
-  %35 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.278, ptr noundef %34) #11
+  %34 = tail call ptr @PyLong_FromLong(i64 noundef 2) #12
+  %35 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.278, ptr noundef %34) #12
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %44, label %37
 
 37:                                               ; preds = %33
-  %38 = tail call ptr @PyLong_FromLong(i64 noundef 53) #11
-  %39 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.279, ptr noundef %38) #11
+  %38 = tail call ptr @PyLong_FromLong(i64 noundef 53) #12
+  %39 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.279, ptr noundef %38) #12
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %44, label %41
 
 41:                                               ; preds = %37
-  %42 = tail call ptr @PyLong_FromLong(i64 noundef 30) #11
-  %43 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.280, ptr noundef %42) #11
+  %42 = tail call ptr @PyLong_FromLong(i64 noundef 30) #12
+  %43 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.280, ptr noundef %42) #12
   %.lobit = lshr i32 %43, 31
   br label %44
 
@@ -5726,25 +5726,26 @@ declare i32 @PyModule_Add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @PyLong_FromSsize_t(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind willreturn memory(read) }
+attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

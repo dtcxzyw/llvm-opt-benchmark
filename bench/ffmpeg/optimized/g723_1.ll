@@ -95,7 +95,7 @@ define range(i32 -2147483648, 2147483647) i32 @ff_g723_1_normalize_bits(i32 noun
 
 ; Function Attrs: nounwind uwtable
 define i32 @ff_g723_1_dot_product(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
-  %4 = tail call i64 @ff_dot_product(ptr noundef %0, ptr noundef %1, i32 noundef %2) #7
+  %4 = tail call i64 @ff_dot_product(ptr noundef %0, ptr noundef %1, i32 noundef %2) #8
   %sext = shl i64 %4, 32
   %5 = ashr exact i64 %sext, 31
   %6 = tail call i64 @llvm.smax.i64(i64 %5, i64 -2147483648)
@@ -235,7 +235,7 @@ ff_g723_1_get_residual.exit:                      ; preds = %19
 35:                                               ; preds = %ff_g723_1_get_residual.exit, %35
   %indvars.iv = phi i64 [ 0, %ff_g723_1_get_residual.exit ], [ %indvars.iv.next, %35 ]
   %36 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
-  %37 = call i64 @ff_dot_product(ptr noundef nonnull %36, ptr noundef nonnull %34, i32 noundef 5) #7
+  %37 = call i64 @ff_dot_product(ptr noundef nonnull %36, ptr noundef nonnull %34, i32 noundef 5) #8
   %sext = shl i64 %37, 32
   %38 = ashr exact i64 %sext, 31
   %39 = call i64 @llvm.smax.i64(i64 %38, i64 -2147483648)
@@ -272,11 +272,11 @@ ff_g723_1_get_residual.exit:                      ; preds = %19
 define void @ff_g723_1_lsp_interpolate(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = alloca [6 x i32], align 16
   %5 = alloca [6 x i32], align 16
-  tail call void @ff_acelp_weighted_vector_sum(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef signext 4096, i16 noundef signext 12288, i16 noundef signext 8192, i32 noundef 14, i32 noundef 10) #7
+  tail call void @ff_acelp_weighted_vector_sum(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef signext 4096, i16 noundef signext 12288, i16 noundef signext 8192, i32 noundef 14, i32 noundef 10) #8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  tail call void @ff_acelp_weighted_vector_sum(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i16 noundef signext 8192, i16 noundef signext 8192, i16 noundef signext 8192, i32 noundef 14, i32 noundef 10) #7
+  tail call void @ff_acelp_weighted_vector_sum(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i16 noundef signext 8192, i16 noundef signext 8192, i16 noundef signext 8192, i32 noundef 14, i32 noundef 10) #8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @ff_acelp_weighted_vector_sum(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, i16 noundef signext 12288, i16 noundef signext 4096, i16 noundef signext 8192, i32 noundef 14, i32 noundef 10) #7
+  tail call void @ff_acelp_weighted_vector_sum(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, i16 noundef signext 12288, i16 noundef signext 4096, i16 noundef signext 8192, i32 noundef 14, i32 noundef 10) #8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %8, ptr noundef nonnull align 2 dereferenceable(20) %1, i64 20, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -713,25 +713,25 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.abs.i16(i16, i1 immarg) #6
+declare i16 @llvm.abs.i16(i16, i1 immarg) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.sadd.sat.i32(i32, i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smax.i16(i16, i16) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smin.i16(i16, i16) #6
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -740,8 +740,9 @@ attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros
 attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

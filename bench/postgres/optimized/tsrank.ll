@@ -28,11 +28,11 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rank_wttf(ptr nounde
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #9
+  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
-  %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #9
+  %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
@@ -48,7 +48,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rank_wttf(ptr nounde
   br i1 %.not, label %21, label %20
 
 20:                                               ; preds = %1
-  tail call void @pfree(ptr noundef %6) #9
+  tail call void @pfree(ptr noundef %6) #10
   br label %21
 
 21:                                               ; preds = %1, %20
@@ -58,7 +58,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rank_wttf(ptr nounde
   br i1 %.not19, label %25, label %24
 
 24:                                               ; preds = %21
-  tail call void @pfree(ptr noundef %10) #9
+  tail call void @pfree(ptr noundef %10) #10
   br label %25
 
 25:                                               ; preds = %21, %24
@@ -67,7 +67,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rank_wttf(ptr nounde
   br i1 %.not20, label %28, label %27
 
 27:                                               ; preds = %25
-  tail call void @pfree(ptr noundef %13) #9
+  tail call void @pfree(ptr noundef %13) #10
   br label %28
 
 28:                                               ; preds = %27, %25
@@ -87,34 +87,34 @@ define internal fastcc void @getWeights(ptr noundef %0, ptr noundef nonnull writ
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  %7 = tail call i32 @errcode(i32 noundef 352845954) #9
-  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 415, ptr noundef nonnull @__func__.getWeights) #9
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %7 = tail call i32 @errcode(i32 noundef 352845954) #10
+  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 415, ptr noundef nonnull @__func__.getWeights) #10
   unreachable
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = tail call i32 @ArrayGetNItems(i32 noundef 1, ptr noundef nonnull %10) #9
+  %11 = tail call i32 @ArrayGetNItems(i32 noundef 1, ptr noundef nonnull %10) #10
   %12 = icmp slt i32 %11, 4
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  %15 = tail call i32 @errcode(i32 noundef 352845954) #9
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 420, ptr noundef nonnull @__func__.getWeights) #9
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %15 = tail call i32 @errcode(i32 noundef 352845954) #10
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 420, ptr noundef nonnull @__func__.getWeights) #10
   unreachable
 
 17:                                               ; preds = %9
-  %18 = tail call zeroext i1 @array_contains_nulls(ptr noundef nonnull %0) #9
+  %18 = tail call zeroext i1 @array_contains_nulls(ptr noundef nonnull %0) #10
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %17
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  %21 = tail call i32 @errcode(i32 noundef 67108994) #9
-  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 425, ptr noundef nonnull @__func__.getWeights) #9
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %21 = tail call i32 @errcode(i32 noundef 67108994) #10
+  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 425, ptr noundef nonnull @__func__.getWeights) #10
   unreachable
 
 23:                                               ; preds = %17
@@ -165,10 +165,10 @@ define internal fastcc void @getWeights(ptr noundef %0, ptr noundef nonnull writ
   br i1 %48, label %49, label %37
 
 49:                                               ; preds = %45
-  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  %51 = tail call i32 @errcode(i32 noundef 50856066) #9
-  %52 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 434, ptr noundef nonnull @__func__.getWeights) #9
+  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %51 = tail call i32 @errcode(i32 noundef 50856066) #10
+  %52 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 434, ptr noundef nonnull @__func__.getWeights) #10
   unreachable
 
 53:                                               ; preds = %37
@@ -216,7 +216,7 @@ define internal fastcc float @calc_rank(ptr noundef readonly captures(none) %0, 
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %20
-  tail call void @pfree(ptr noundef %21) #9
+  tail call void @pfree(ptr noundef %21) #10
   %25 = tail call fastcc float @calc_rank_or(ptr noundef readonly %0, ptr noundef nonnull %1, ptr noundef nonnull %2)
   br label %calc_rank_and.exit
 
@@ -224,7 +224,7 @@ define internal fastcc float @calc_rank(ptr noundef readonly captures(none) %0, 
   %27 = load i32, ptr %12, align 4
   %28 = sext i32 %27 to i64
   %29 = shl nsw i64 %28, 3
-  %30 = tail call ptr @palloc0(i64 noundef %29) #9
+  %30 = tail call ptr @palloc0(i64 noundef %29) #10
   store i16 1, ptr %5, align 2
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 16383, ptr %31, align 2
@@ -355,7 +355,7 @@ define internal fastcc float @calc_rank(ptr noundef readonly captures(none) %0, 
   %91 = uitofp nneg i32 %.mux.mux.i.us.us to double
   %92 = fdiv double %91, 1.500000e+00
   %93 = fadd double %92, -2.000000e+00
-  %94 = call double @exp(double noundef %93) #9
+  %94 = call double @exp(double noundef %93) #10
   %95 = call double @llvm.fmuladd.f64(double %94, double 5.000000e-02, double 1.005000e+00)
   %96 = fdiv double 1.000000e+00, %95
   %97 = fptrunc double %96 to float
@@ -433,7 +433,7 @@ word_distance.exit.us.us.us.i.us.us:              ; preds = %90, %70
   %132 = uitofp nneg i32 %119 to double
   %133 = fdiv double %132, 1.500000e+00
   %134 = fadd double %133, -2.000000e+00
-  %135 = call double @exp(double noundef %134) #9
+  %135 = call double @exp(double noundef %134) #10
   %136 = call double @llvm.fmuladd.f64(double %135, double 5.000000e-02, double 1.005000e+00)
   %137 = fdiv double 1.000000e+00, %136
   %138 = fptrunc double %137 to float
@@ -505,8 +505,8 @@ word_distance.exit.us.us.us.i:                    ; preds = %131, %120
   br i1 %exitcond131.not.i, label %169, label %33, !llvm.loop !10
 
 169:                                              ; preds = %.loopexit86.i
-  call void @pfree(ptr noundef %30) #9
-  call void @pfree(ptr noundef %21) #9
+  call void @pfree(ptr noundef %30) #10
+  call void @pfree(ptr noundef %21) #10
   br label %calc_rank_and.exit
 
 calc_rank_and.exit:                               ; preds = %24, %169
@@ -573,7 +573,7 @@ calc_rank_and.exit:                               ; preds = %24, %169
 cnt_length.exit:                                  ; preds = %.thread.i
   %196 = add i32 %spec.select.i, 1
   %197 = sitofp i32 %196 to double
-  %198 = call double @log(double noundef %197) #9
+  %198 = call double @log(double noundef %197) #10
   %199 = fdiv double %198, 0x3FE62E42FEFA39EF
   %200 = fpext float %.034 to double
   %201 = fdiv double %200, %199
@@ -664,7 +664,7 @@ cnt_length.exit62.thread:                         ; preds = %205, %cnt_length.ex
 240:                                              ; preds = %237
   %241 = add nuw i32 %238, 1
   %242 = sitofp i32 %241 to double
-  %243 = call double @log(double noundef %242) #9
+  %243 = call double @log(double noundef %242) #10
   %244 = fdiv double %243, 0x3FE62E42FEFA39EF
   %245 = fpext float %.3 to double
   %246 = fdiv double %245, %244
@@ -693,11 +693,11 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rank_wtt(ptr noundef
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #9
+  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
-  %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #9
+  %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
@@ -710,7 +710,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rank_wtt(ptr noundef
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %1
-  tail call void @pfree(ptr noundef %6) #9
+  tail call void @pfree(ptr noundef %6) #10
   br label %18
 
 18:                                               ; preds = %1, %17
@@ -720,7 +720,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rank_wtt(ptr noundef
   br i1 %.not18, label %22, label %21
 
 21:                                               ; preds = %18
-  tail call void @pfree(ptr noundef %10) #9
+  tail call void @pfree(ptr noundef %10) #10
   br label %22
 
 22:                                               ; preds = %18, %21
@@ -729,7 +729,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rank_wtt(ptr noundef
   br i1 %.not19, label %25, label %24
 
 24:                                               ; preds = %22
-  tail call void @pfree(ptr noundef %13) #9
+  tail call void @pfree(ptr noundef %13) #10
   br label %25
 
 25:                                               ; preds = %24, %22
@@ -744,7 +744,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rank_ttf(ptr noundef
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #9
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
@@ -758,7 +758,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rank_ttf(ptr noundef
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %1
-  tail call void @pfree(ptr noundef %5) #9
+  tail call void @pfree(ptr noundef %5) #10
   br label %16
 
 16:                                               ; preds = %1, %15
@@ -767,7 +767,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rank_ttf(ptr noundef
   br i1 %.not13, label %19, label %18
 
 18:                                               ; preds = %16
-  tail call void @pfree(ptr noundef %8) #9
+  tail call void @pfree(ptr noundef %8) #10
   br label %19
 
 19:                                               ; preds = %18, %16
@@ -781,7 +781,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rank_tt(ptr noundef 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #9
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
@@ -792,7 +792,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rank_tt(ptr noundef 
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %1
-  tail call void @pfree(ptr noundef %5) #9
+  tail call void @pfree(ptr noundef %5) #10
   br label %13
 
 13:                                               ; preds = %1, %12
@@ -801,7 +801,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rank_tt(ptr noundef 
   br i1 %.not12, label %16, label %15
 
 15:                                               ; preds = %13
-  tail call void @pfree(ptr noundef %8) #9
+  tail call void @pfree(ptr noundef %8) #10
   br label %16
 
 16:                                               ; preds = %15, %13
@@ -816,11 +816,11 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rankcd_wttf(ptr noun
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #9
+  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
-  %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #9
+  %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
@@ -836,7 +836,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rankcd_wttf(ptr noun
   br i1 %.not, label %21, label %20
 
 20:                                               ; preds = %1
-  tail call void @pfree(ptr noundef %6) #9
+  tail call void @pfree(ptr noundef %6) #10
   br label %21
 
 21:                                               ; preds = %1, %20
@@ -846,7 +846,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rankcd_wttf(ptr noun
   br i1 %.not19, label %25, label %24
 
 24:                                               ; preds = %21
-  tail call void @pfree(ptr noundef %10) #9
+  tail call void @pfree(ptr noundef %10) #10
   br label %25
 
 25:                                               ; preds = %21, %24
@@ -855,7 +855,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rankcd_wttf(ptr noun
   br i1 %.not20, label %28, label %27
 
 27:                                               ; preds = %25
-  tail call void @pfree(ptr noundef %13) #9
+  tail call void @pfree(ptr noundef %13) #10
   br label %28
 
 28:                                               ; preds = %27, %25
@@ -892,10 +892,10 @@ define internal fastcc float @calc_rank_cd(ptr noundef readonly captures(none) %
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %15
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  %20 = tail call i32 @errcode(i32 noundef 50856066) #9
-  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 876, ptr noundef nonnull @__func__.calc_rank_cd) #9
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %20 = tail call i32 @errcode(i32 noundef 50856066) #10
+  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 876, ptr noundef nonnull @__func__.calc_rank_cd) #10
   unreachable
 
 22:                                               ; preds = %15
@@ -913,7 +913,7 @@ define internal fastcc float @calc_rank_cd(ptr noundef readonly captures(none) %
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
   %30 = mul nsw i64 %29, 32776
-  %31 = tail call ptr @palloc0(i64 noundef %30) #9
+  %31 = tail call ptr @palloc0(i64 noundef %30) #10
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %31, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -922,7 +922,7 @@ define internal fastcc float @calc_rank_cd(ptr noundef readonly captures(none) %
   %35 = shl i32 %34, 2
   %36 = sext i32 %35 to i64
   %37 = mul nsw i64 %36, 24
-  %38 = tail call ptr @palloc(i64 noundef %37) #9
+  %38 = tail call ptr @palloc(i64 noundef %37) #10
   %39 = load i32, ptr %27, align 4
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph145.i, label %get_docrep.exit.thread
@@ -1020,7 +1020,7 @@ define internal fastcc float @calc_rank_cd(ptr noundef readonly captures(none) %
   %82 = shl i32 %.3103124.i, 1
   %83 = sext i32 %82 to i64
   %84 = mul nsw i64 %83, 24
-  %85 = tail call ptr @repalloc(ptr noundef %.3125.i, i64 noundef %84) #9
+  %85 = tail call ptr @repalloc(ptr noundef %.3125.i, i64 noundef %84) #10
   %.not112.i = icmp slt i32 %72, %82
   br i1 %.not112.i, label %.preheader.i, label %.lr.ph126.i, !llvm.loop !14
 
@@ -1103,13 +1103,13 @@ define internal fastcc float @calc_rank_cd(ptr noundef readonly captures(none) %
 117:                                              ; preds = %._crit_edge146.i
   %118 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %119 = zext nneg i32 %.197.i to i64
-  tail call void @pg_qsort(ptr noundef %.195.i, i64 noundef %119, i64 noundef 24, ptr noundef nonnull @compareDocR) #9
+  tail call void @pg_qsort(ptr noundef %.195.i, i64 noundef %119, i64 noundef 24, ptr noundef nonnull @compareDocR) #10
   %120 = getelementptr inbounds nuw i8, ptr %.195.i, i64 16
   %121 = load i16, ptr %120, align 8
   %122 = load i32, ptr %118, align 4
   %123 = sext i32 %122 to i64
   %124 = shl nsw i64 %123, 3
-  %125 = tail call ptr @palloc(i64 noundef %124) #9
+  %125 = tail call ptr @palloc(i64 noundef %124) #10
   %126 = load ptr, ptr %.195.i, align 8
   store ptr %126, ptr %125, align 8
   %127 = ptrtoint ptr %.195.i to i64
@@ -1163,7 +1163,7 @@ define internal fastcc float @calc_rank_cd(ptr noundef readonly captures(none) %
   %149 = load i32, ptr %148, align 4
   %150 = sext i32 %149 to i64
   %151 = shl nsw i64 %150, 3
-  %152 = tail call ptr @palloc(i64 noundef %151) #9
+  %152 = tail call ptr @palloc(i64 noundef %151) #10
   %153 = load ptr, ptr %.092155.i, align 8
   store ptr %153, ptr %152, align 8
   br label %154
@@ -1183,9 +1183,9 @@ define internal fastcc float @calc_rank_cd(ptr noundef readonly captures(none) %
 get_docrep.exit.thread:                           ; preds = %._crit_edge146.i.get_docrep.exit.thread_crit_edge, %26
   %159 = phi ptr [ %.pre, %._crit_edge146.i.get_docrep.exit.thread_crit_edge ], [ %31, %26 ]
   %.094.lcssa186.i = phi ptr [ %.195.i, %._crit_edge146.i.get_docrep.exit.thread_crit_edge ], [ %38, %26 ]
-  tail call void @pfree(ptr noundef %.094.lcssa186.i) #9
+  tail call void @pfree(ptr noundef %.094.lcssa186.i) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  tail call void @pfree(ptr noundef %159) #9
+  tail call void @pfree(ptr noundef %159) #10
   br label %449
 
 get_docrep.exit:                                  ; preds = %154, %117
@@ -1221,7 +1221,7 @@ get_docrep.exit:                                  ; preds = %154, %117
 
 tailrecurse.i:                                    ; preds = %.loopexit.i108.thread, %166
   %indvars.iv191 = phi i64 [ %indvars.iv.next192, %.loopexit.i108.thread ], [ %167, %166 ]
-  call void @check_stack_depth() #9
+  call void @check_stack_depth() #10
   %168 = load ptr, ptr %7, align 8
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %170 = load i32, ptr %169, align 4
@@ -1343,7 +1343,7 @@ resetQueryRepresentation.exit.i:                  ; preds = %.lr.ph.i.i, %tailre
 fillQueryRepresentationData.exit.i:               ; preds = %234, %.lr.ph.i106
   %238 = load ptr, ptr %7, align 8
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
-  %240 = call zeroext i1 @TS_execute(ptr noundef nonnull %239, ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull @checkcondition_QueryOperand) #9
+  %240 = call zeroext i1 @TS_execute(ptr noundef nonnull %239, ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull @checkcondition_QueryOperand) #10
   br i1 %240, label %241, label %265
 
 241:                                              ; preds = %fillQueryRepresentationData.exit.i
@@ -1484,7 +1484,7 @@ resetQueryRepresentation.exit62.i:                ; preds = %.lr.ph.i59.i, %245
 fillQueryRepresentationData.exit71.i:             ; preds = %317, %.lr.ph86.i
   %321 = load ptr, ptr %7, align 8
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 8
-  %323 = call zeroext i1 @TS_execute(ptr noundef nonnull %322, ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull @checkcondition_QueryOperand) #9
+  %323 = call zeroext i1 @TS_execute(ptr noundef nonnull %322, ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull @checkcondition_QueryOperand) #10
   br i1 %323, label %.loopexit.i108, label %324
 
 324:                                              ; preds = %fillQueryRepresentationData.exit71.i
@@ -1609,7 +1609,7 @@ fillQueryRepresentationData.exit71.i:             ; preds = %317, %.lr.ph86.i
 cnt_length.exit:                                  ; preds = %.thread.i
   %390 = add i32 %spec.select.i, 1
   %391 = sitofp i32 %390 to double
-  %392 = call double @log(double noundef %391) #9
+  %392 = call double @log(double noundef %391) #10
   %393 = fdiv double %.086, %392
   br label %394
 
@@ -1706,7 +1706,7 @@ cnt_length.exit125.thread:                        ; preds = %396, %cnt_length.ex
 437:                                              ; preds = %434
   %438 = add nuw i32 %435, 1
   %439 = sitofp i32 %438 to double
-  %440 = call double @log(double noundef %439) #9
+  %440 = call double @log(double noundef %439) #10
   %441 = fdiv double %440, 0x3FE62E42FEFA39EF
   %442 = fdiv double %.4, %441
   br label %443
@@ -1718,9 +1718,9 @@ cnt_length.exit125.thread:                        ; preds = %396, %cnt_length.ex
   %445 = fadd double %.5, 1.000000e+00
   %446 = fdiv double %.5, %445
   %.6 = select i1 %.not104, double %.5, double %446
-  call void @pfree(ptr noundef nonnull %.195.i) #9
+  call void @pfree(ptr noundef nonnull %.195.i) #10
   %447 = load ptr, ptr %32, align 8
-  call void @pfree(ptr noundef %447) #9
+  call void @pfree(ptr noundef %447) #10
   %448 = fptrunc double %.6 to float
   br label %449
 
@@ -1737,11 +1737,11 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rankcd_wtt(ptr nound
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #9
+  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
-  %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #9
+  %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
@@ -1754,7 +1754,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rankcd_wtt(ptr nound
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %1
-  tail call void @pfree(ptr noundef %6) #9
+  tail call void @pfree(ptr noundef %6) #10
   br label %18
 
 18:                                               ; preds = %1, %17
@@ -1764,7 +1764,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rankcd_wtt(ptr nound
   br i1 %.not18, label %22, label %21
 
 21:                                               ; preds = %18
-  tail call void @pfree(ptr noundef %10) #9
+  tail call void @pfree(ptr noundef %10) #10
   br label %22
 
 22:                                               ; preds = %18, %21
@@ -1773,7 +1773,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rankcd_wtt(ptr nound
   br i1 %.not19, label %25, label %24
 
 24:                                               ; preds = %22
-  tail call void @pfree(ptr noundef %13) #9
+  tail call void @pfree(ptr noundef %13) #10
   br label %25
 
 25:                                               ; preds = %24, %22
@@ -1788,7 +1788,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rankcd_ttf(ptr nound
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #9
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
@@ -1802,7 +1802,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rankcd_ttf(ptr nound
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %1
-  tail call void @pfree(ptr noundef %5) #9
+  tail call void @pfree(ptr noundef %5) #10
   br label %16
 
 16:                                               ; preds = %1, %15
@@ -1811,7 +1811,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rankcd_ttf(ptr nound
   br i1 %.not13, label %19, label %18
 
 18:                                               ; preds = %16
-  tail call void @pfree(ptr noundef %8) #9
+  tail call void @pfree(ptr noundef %8) #10
   br label %19
 
 19:                                               ; preds = %18, %16
@@ -1825,7 +1825,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rankcd_tt(ptr nounde
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #9
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
@@ -1836,7 +1836,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rankcd_tt(ptr nounde
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %1
-  tail call void @pfree(ptr noundef %5) #9
+  tail call void @pfree(ptr noundef %5) #10
   br label %13
 
 13:                                               ; preds = %1, %12
@@ -1845,7 +1845,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rankcd_tt(ptr nounde
   br i1 %.not12, label %16, label %15
 
 15:                                               ; preds = %13
-  tail call void @pfree(ptr noundef %8) #9
+  tail call void @pfree(ptr noundef %8) #10
   br label %16
 
 16:                                               ; preds = %15, %13
@@ -2004,7 +2004,7 @@ define internal fastcc float @calc_rank_or(ptr noundef readonly captures(none) %
   %69 = uitofp nneg i32 %11 to float
   %70 = fdiv float %.051.lcssa, %69
   %.3 = select i1 %12, float %70, float %.051.lcssa
-  tail call void @pfree(ptr noundef %10) #9
+  tail call void @pfree(ptr noundef %10) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2022,7 +2022,7 @@ define internal fastcc ptr @SortAndUniqItems(ptr noundef %0, ptr noundef nonnull
   %6 = load i32, ptr %1, align 4
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 3
-  %9 = tail call ptr @palloc(i64 noundef %8) #9
+  %9 = tail call ptr @palloc(i64 noundef %8) #10
   %10 = load i32, ptr %1, align 4
   %11 = add i32 %10, -1
   store i32 %11, ptr %1, align 4
@@ -2068,7 +2068,7 @@ define internal fastcc ptr @SortAndUniqItems(ptr noundef %0, ptr noundef nonnull
 
 30:                                               ; preds = %._crit_edge
   %31 = and i64 %27, 2147483647
-  tail call void @qsort_arg(ptr noundef %9, i64 noundef %31, i64 noundef 8, ptr noundef nonnull @compareQueryOperand, ptr noundef nonnull %23) #9
+  tail call void @qsort_arg(ptr noundef %9, i64 noundef %31, i64 noundef 8, ptr noundef nonnull @compareQueryOperand, ptr noundef nonnull %23) #10
   %32 = load i32, ptr %1, align 4
   %33 = icmp sgt i32 %32, 1
   br i1 %33, label %.lr.ph48.preheader, label %._crit_edge49
@@ -2094,7 +2094,7 @@ define internal fastcc ptr @SortAndUniqItems(ptr noundef %0, ptr noundef nonnull
   %45 = zext nneg i32 %44 to i64
   %46 = getelementptr inbounds nuw i8, ptr %23, i64 %45
   %47 = and i32 %43, 4095
-  %48 = tail call i32 @tsCompareString(ptr noundef nonnull %40, i32 noundef %41, ptr noundef nonnull %46, i32 noundef %47, i1 noundef zeroext false) #9
+  %48 = tail call i32 @tsCompareString(ptr noundef nonnull %40, i32 noundef %41, ptr noundef nonnull %46, i32 noundef %47, i1 noundef zeroext false) #10
   %.not40 = icmp eq i32 %48, 0
   br i1 %.not40, label %52, label %49
 
@@ -2176,7 +2176,7 @@ define internal fastcc ptr @find_wordentry(ptr noundef %0, ptr noundef %1, ptr n
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 %35
   %37 = lshr i32 %33, 1
   %38 = and i32 %37, 2047
-  %39 = tail call i32 @tsCompareString(ptr noundef nonnull %28, i32 noundef %29, ptr noundef nonnull %36, i32 noundef %38, i1 noundef zeroext false) #9
+  %39 = tail call i32 @tsCompareString(ptr noundef nonnull %28, i32 noundef %29, ptr noundef nonnull %36, i32 noundef %38, i1 noundef zeroext false) #10
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %42
 
@@ -2236,7 +2236,7 @@ define internal fastcc ptr @find_wordentry(ptr noundef %0, ptr noundef %1, ptr n
   %72 = getelementptr inbounds nuw i8, ptr %59, i64 %71
   %73 = lshr i32 %69, 1
   %74 = and i32 %73, 2047
-  %75 = tail call i32 @tsCompareString(ptr noundef nonnull %67, i32 noundef %68, ptr noundef nonnull %72, i32 noundef %74, i1 noundef zeroext true) #9
+  %75 = tail call i32 @tsCompareString(ptr noundef nonnull %67, i32 noundef %68, ptr noundef nonnull %72, i32 noundef %74, i1 noundef zeroext true) #10
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %77, label %.critedge
 
@@ -2261,8 +2261,8 @@ define internal fastcc ptr @find_wordentry(ptr noundef %0, ptr noundef %1, ptr n
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #4
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #5
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
@@ -2284,7 +2284,7 @@ define internal i32 @compareQueryOperand(ptr noundef readonly captures(none) %0,
   %15 = zext nneg i32 %14 to i64
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 %15
   %17 = and i32 %13, 4095
-  %18 = tail call i32 @tsCompareString(ptr noundef %10, i32 noundef %11, ptr noundef %16, i32 noundef %17, i1 noundef zeroext false) #9
+  %18 = tail call i32 @tsCompareString(ptr noundef %10, i32 noundef %11, ptr noundef %16, i32 noundef %17, i1 noundef zeroext false) #10
   ret i32 %18
 }
 
@@ -2298,7 +2298,7 @@ declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @compareDocR(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 -1, 2) i32 @compareDocR(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i16, ptr %3, align 8
   %5 = zext i16 %4 to i32
@@ -2349,7 +2349,7 @@ declare void @check_stack_depth() local_unnamed_addr #1
 declare zeroext i1 @TS_execute(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @checkcondition_QueryOperand(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) #6 {
+define internal range(i32 0, 2) i32 @checkcondition_QueryOperand(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
@@ -2393,27 +2393,28 @@ define internal range(i32 0, 2) i32 @checkcondition_QueryOperand(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 declare float @sqrtf(float) local_unnamed_addr
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umax.i16(i16, i16) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { cold nounwind }
+attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

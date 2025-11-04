@@ -257,11 +257,11 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.59) #30
+  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.59) #31
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #31
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #32
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i)
   store i64 %call.i, ptr %__dnew.i, align 8, !tbaa !9
   %cmp.i = icmp ugt i64 %call.i, 15
@@ -311,7 +311,7 @@ entry:
   br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %1) #32
+  tail call void @_ZdlPv(ptr noundef %1) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %entry, %if.then.i.i
@@ -320,7 +320,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %entry
   br i1 %cmp.i.i.i.1, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1, label %if.then.i.i.1
 
 if.then.i.i.1:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef %2) #32
+  tail call void @_ZdlPv(ptr noundef %2) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %if.then.i.i.1
@@ -329,7 +329,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1: ; preds = %_ZN
   br i1 %cmp.i.i.i.2, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.2, label %if.then.i.i.2
 
 if.then.i.i.2:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1
-  tail call void @_ZdlPv(ptr noundef %3) #32
+  tail call void @_ZdlPv(ptr noundef %3) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.2
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.2: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1, %if.then.i.i.2
@@ -338,7 +338,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.2: ; preds = %_ZN
   br i1 %cmp.i.i.i.3, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.3, label %if.then.i.i.3
 
 if.then.i.i.3:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.2
-  tail call void @_ZdlPv(ptr noundef %4) #32
+  tail call void @_ZdlPv(ptr noundef %4) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.3
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.3: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.2, %if.then.i.i.3
@@ -353,7 +353,7 @@ entry:
   br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %1) #32
+  tail call void @_ZdlPv(ptr noundef %1) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %entry, %if.then.i.i
@@ -362,7 +362,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %entry
   br i1 %cmp.i.i.i.1, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1, label %if.then.i.i.1
 
 if.then.i.i.1:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef %2) #32
+  tail call void @_ZdlPv(ptr noundef %2) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %if.then.i.i.1
@@ -371,7 +371,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1: ; preds = %_ZN
   br i1 %cmp.i.i.i.2, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.2, label %if.then.i.i.2
 
 if.then.i.i.2:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1
-  tail call void @_ZdlPv(ptr noundef %3) #32
+  tail call void @_ZdlPv(ptr noundef %3) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.2
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.2: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1, %if.then.i.i.2
@@ -429,7 +429,7 @@ for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_Destr
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %2) #32
+  tail call void @_ZdlPv(ptr noundef %2) #33
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i: ; preds = %for.body.i.i.i.i, %if.then.i.i.i.i.i.i.i
@@ -447,7 +447,7 @@ invoke.cont.i:                                    ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #33
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %if.then.i.i.i, %invoke.cont.i
@@ -457,7 +457,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorImSaImEED2Ev.exit, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #33
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %if.then.i.i.i4, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
@@ -589,7 +589,7 @@ invoke.cont8:                                     ; preds = %if.then
   br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i61
 
 if.then.i.i61:                                    ; preds = %invoke.cont8
-  call void @_ZdlPv(ptr noundef %11) #32
+  call void @_ZdlPv(ptr noundef %11) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %invoke.cont8, %if.then.i.i61
@@ -632,7 +632,7 @@ lpad7:                                            ; preds = %if.then
   br i1 %cmp.i.i.i68, label %ehcleanup, label %if.then.i.i69
 
 if.then.i.i69:                                    ; preds = %lpad7
-  call void @_ZdlPv(ptr noundef %22) #32
+  call void @_ZdlPv(ptr noundef %22) #33
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad7, %if.then.i.i69
@@ -708,7 +708,7 @@ delete.notnull.i:                                 ; preds = %invoke.cont
   %vtable.i = load ptr, ptr %add.ptr, align 8, !tbaa !37
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
   %4 = load ptr, ptr %vfn.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr) #31
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr) #32
   br label %_ZNK3irr17IReferenceCounted4dropEv.exit
 
 _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %invoke.cont
@@ -750,11 +750,11 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8, !tbaa !37
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %7) #31
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %7) #32
   %vtable3.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8, !tbaa !37
   %vfn4.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable3.i.i.i.i.i.i.i.i, i64 24
   %11 = load ptr, ptr %vfn4.i.i.i.i.i.i.i.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %7) #31
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %7) #32
   br label %_ZSt8_DestroyISt10shared_ptrI11button_infoEEvPT_.exit.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i.i
@@ -777,7 +777,7 @@ invoke.cont.i.i.i.i.i.i.i.i:                      ; preds = %if.else.i.i.i.i.i.i
   br i1 %cmp6.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrI11button_infoEEvPT_.exit.i.i.i.i, !prof !77
 
 if.then7.i.i.i.i.i.i.i.i:                         ; preds = %invoke.cont.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #31
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #32
   br label %_ZSt8_DestroyISt10shared_ptrI11button_infoEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10shared_ptrI11button_infoEEvPT_.exit.i.i.i.i: ; preds = %if.then7.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
@@ -795,7 +795,7 @@ invoke.cont.i:                                    ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt10shared_ptrI11button_infoESaIS2_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  tail call void @_ZdlPv(ptr noundef nonnull %14) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #33
   br label %_ZNSt6vectorISt10shared_ptrI11button_infoESaIS2_EED2Ev.exit
 
 _ZNSt6vectorISt10shared_ptrI11button_infoESaIS2_EED2Ev.exit: ; preds = %if.then.i.i.i, %invoke.cont.i
@@ -814,7 +814,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt6vectorISt10sh
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i37
 
 if.then.i.i.i.i.i.i.i.i37:                        ; preds = %for.body.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %17) #32
+  tail call void @_ZdlPv(ptr noundef %17) #33
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i37
@@ -832,7 +832,7 @@ invoke.cont.i.i:                                  ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %19) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %19) #33
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %invoke.cont.i.i
@@ -842,7 +842,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %tobool.not.i.i.i3.i, label %_ZN11button_infoD2Ev.exit, label %if.then.i.i.i4.i
 
 if.then.i.i.i4.i:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %20) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %20) #33
   br label %_ZN11button_infoD2Ev.exit
 
 _ZN11button_infoD2Ev.exit:                        ; preds = %if.then.i.i.i4.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
@@ -872,7 +872,7 @@ delete.notnull.i41:                               ; preds = %if.then18
   %vtable.i42 = load ptr, ptr %add.ptr24, align 8, !tbaa !37
   %vfn.i43 = getelementptr inbounds nuw i8, ptr %vtable.i42, i64 8
   %24 = load ptr, ptr %vfn.i43, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr24) #31
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr24) #32
   %.pre = load ptr, ptr %__begin1.sroa.0.048, align 8, !tbaa !79
   br label %_ZNK3irr17IReferenceCounted4dropEv.exit44
 
@@ -891,14 +891,14 @@ terminate.lpad:                                   ; preds = %if.then
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #33
+  tail call void @__clang_call_terminate(ptr %27) #34
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #31
-  tail call void @_ZSt9terminatev() #33
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #32
+  tail call void @_ZSt9terminatev() #34
   unreachable
 }
 
@@ -954,7 +954,7 @@ if.then.i:                                        ; preds = %_ZN9LogStreamlsIRA5
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i165, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 if.then.i.i.i165:                                 ; preds = %if.then.i
-  tail call void @_ZSt16__throw_bad_castv() #30
+  tail call void @_ZSt16__throw_bad_castv() #31
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %if.then.i
@@ -1138,24 +1138,24 @@ if.end93:                                         ; preds = %if.end85, %if.end45
   %40 = load ptr, ptr %vfn, align 8
   %call94 = call noundef ptr %40(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 4 dereferenceable(16) %current_button, ptr noundef null, i32 noundef %button_id, ptr noundef %caption, ptr noundef null)
   call void @llvm.lifetime.start.p0(ptr nonnull %btn)
-  %call95 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #34
+  %call95 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #35
   %ids.i = getelementptr inbounds nuw i8, ptr %call95, i64 16
   %toggleable.i = getelementptr inbounds nuw i8, ptr %call95, i64 52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ids.i, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %toggleable.i, i8 0, i64 28, i1 false)
   store ptr %call95, ptr %btn, align 8, !tbaa !79
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %btn, i64 8
-  %call.i166 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #34
+  %call.i166 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #35
           to label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IP11button_infoEET_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.end93
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  %43 = call ptr @__cxa_begin_catch(ptr %42) #31
-  call void @_ZN11button_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %call95) #31
-  call void @_ZdlPv(ptr noundef nonnull %call95) #32
-  invoke void @__cxa_rethrow() #30
+  %43 = call ptr @__cxa_begin_catch(ptr %42) #32
+  call void @_ZN11button_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %call95) #32
+  call void @_ZdlPv(ptr noundef nonnull %call95) #33
+  invoke void @__cxa_rethrow() #31
           to label %unreachable.i unwind label %lpad3.i
 
 lpad3.i:                                          ; preds = %lpad.i
@@ -1172,7 +1172,7 @@ terminate.lpad.i:                                 ; preds = %lpad3.i
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #33
+  call void @__clang_call_terminate(ptr %46) #34
   unreachable
 
 unreachable.i:                                    ; preds = %lpad.i
@@ -1304,11 +1304,11 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i159
   %vtable.i.i.i = load ptr, ptr %65, align 8, !tbaa !37
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %68 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %68(ptr noundef nonnull align 8 dereferenceable(16) %65) #31
+  call void %68(ptr noundef nonnull align 8 dereferenceable(16) %65) #32
   %vtable3.i.i.i = load ptr, ptr %65, align 8, !tbaa !37
   %vfn4.i.i.i = getelementptr inbounds nuw i8, ptr %vtable3.i.i.i, i64 24
   %69 = load ptr, ptr %vfn4.i.i.i, align 8
-  call void %69(ptr noundef nonnull align 8 dereferenceable(16) %65) #31
+  call void %69(ptr noundef nonnull align 8 dereferenceable(16) %65) #32
   br label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i159
@@ -1331,7 +1331,7 @@ invoke.cont.i.i.i:                                ; preds = %if.else.i.i.i.i, %i
   br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !77
 
 if.then7.i.i.i:                                   ; preds = %invoke.cont.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %65) #31
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %65) #32
   br label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.then7.i.i.i, %invoke.cont.i.i.i, %if.then.i.i.i, %invoke.cont119
@@ -1345,7 +1345,7 @@ return:                                           ; preds = %_ZNSt12__shared_ptr
 lpad:                                             ; preds = %if.else.i, %_ZNSt6vectorImSaImEE5clearEv.exit, %invoke.cont109, %invoke.cont104, %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IP11button_infoEET_.exit
   %72 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %btn) #31
+  call void @_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %btn) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %btn)
   call void @llvm.lifetime.end.p0(ptr nonnull %current_button)
   br label %common.resume
@@ -1354,7 +1354,7 @@ lpad:                                             ; preds = %if.else.i, %_ZNSt6v
 ; Function Attrs: inlinehint mustprogress uwtable
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #11
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #12
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -1464,7 +1464,7 @@ invoke.cont51:                                    ; preds = %if.end.i.i.i.i.i151
   br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i154
 
 if.then.i.i154:                                   ; preds = %invoke.cont51
-  call void @_ZdlPv(ptr noundef %18) #32
+  call void @_ZdlPv(ptr noundef %18) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %invoke.cont51, %if.then.i.i154
@@ -1487,7 +1487,7 @@ lpad48:                                           ; preds = %if.then.i.i152, %in
   br i1 %cmp.i.i.i156, label %ehcleanup, label %if.then.i.i157
 
 if.then.i.i157:                                   ; preds = %lpad48
-  call void @_ZdlPv(ptr noundef %23) #32
+  call void @_ZdlPv(ptr noundef %23) #33
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad48, %if.then.i.i157, %lpad46
@@ -1503,12 +1503,12 @@ lpad53:                                           ; preds = %_ZNSt7__cxx1112basi
           catch ptr @_ZTI14UnknownKeycode
   %26 = extractvalue { ptr, i32 } %25, 0
   %27 = extractvalue { ptr, i32 } %25, 1
-  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI14UnknownKeycode) #31
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI14UnknownKeycode) #32
   %matches = icmp eq i32 %27, %28
   br i1 %matches, label %catch, label %ehcleanup74
 
 catch:                                            ; preds = %lpad53
-  %29 = call ptr @__cxa_begin_catch(ptr %26) #31
+  %29 = call ptr @__cxa_begin_catch(ptr %26) #32
   %.not = icmp eq ptr @_ZTH13warningstream, null
   br i1 %.not, label %_ZTW13warningstream.exit, label %30
 
@@ -1571,7 +1571,7 @@ try.cont:                                         ; preds = %invoke.cont67, %_ZN
   br i1 %cmp.i.i.i174, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179, label %if.then.i.i175
 
 if.then.i.i175:                                   ; preds = %try.cont
-  call void @_ZdlPv(ptr noundef %39) #32
+  call void @_ZdlPv(ptr noundef %39) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179: ; preds = %try.cont, %if.then.i.i175
@@ -1581,7 +1581,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179: ; preds = %tr
   br i1 %cmp.i.i.i180, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185, label %if.then.i.i181
 
 if.then.i.i181:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179
-  call void @_ZdlPv(ptr noundef %40) #32
+  call void @_ZdlPv(ptr noundef %40) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179, %if.then.i.i181
@@ -1613,7 +1613,7 @@ ehcleanup74:                                      ; preds = %ehcleanup73, %lpad5
   br i1 %cmp.i.i.i186, label %ehcleanup75, label %if.then.i.i187
 
 if.then.i.i187:                                   ; preds = %ehcleanup74
-  call void @_ZdlPv(ptr noundef %43) #32
+  call void @_ZdlPv(ptr noundef %43) #33
   br label %ehcleanup75
 
 ehcleanup75:                                      ; preds = %ehcleanup74, %if.then.i.i187, %ehcleanup
@@ -1630,7 +1630,7 @@ ehcleanup76:                                      ; preds = %ehcleanup75, %lpad1
   br i1 %cmp.i.i.i192, label %ehcleanup77, label %if.then.i.i193
 
 if.then.i.i193:                                   ; preds = %ehcleanup76
-  call void @_ZdlPv(ptr noundef %44) #32
+  call void @_ZdlPv(ptr noundef %44) #33
   br label %ehcleanup77
 
 ehcleanup77:                                      ; preds = %ehcleanup76, %if.then.i.i193
@@ -1647,7 +1647,7 @@ terminate.lpad:                                   ; preds = %lpad56
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #33
+  call void @__clang_call_terminate(ptr %46) #34
   unreachable
 }
 
@@ -1843,11 +1843,11 @@ if.then.i.i.i31:                                  ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %30, align 8, !tbaa !37
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %33 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(16) %30) #31
+  call void %33(ptr noundef nonnull align 8 dereferenceable(16) %30) #32
   %vtable3.i.i.i = load ptr, ptr %30, align 8, !tbaa !37
   %vfn4.i.i.i = getelementptr inbounds nuw i8, ptr %vtable3.i.i.i, i64 24
   %34 = load ptr, ptr %vfn4.i.i.i, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(16) %30) #31
+  call void %34(ptr noundef nonnull align 8 dereferenceable(16) %30) #32
   br label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
@@ -1870,7 +1870,7 @@ invoke.cont.i.i.i:                                ; preds = %if.else.i.i.i.i, %i
   br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !77
 
 if.then7.i.i.i:                                   ; preds = %invoke.cont.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #31
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #32
   br label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.then7.i.i.i, %invoke.cont.i.i.i, %if.then.i.i.i31, %invoke.cont6
@@ -1880,7 +1880,7 @@ _ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pred
 lpad:                                             ; preds = %if.else.i26, %if.then.i.i.i.i.i25, %if.else.i, %if.then.i.i.i.i.i9
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %btn) #31
+  call void @_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %btn) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %btn)
   resume { ptr, i32 } %37
 }
@@ -1986,7 +1986,7 @@ if.else.i:                                        ; preds = %if.then16
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.60) #30
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.60) #31
   unreachable
 
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
@@ -1999,7 +1999,7 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
-  %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #34
+  %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #35
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   %21 = load i64, ptr %2, align 8, !tbaa !9
   store i64 %21, ptr %add.ptr.i.i, align 8, !tbaa !9
@@ -2016,7 +2016,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit38.i.i: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, label %if.then.i39.i.i
 
 if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit38.i.i
-  call void @_ZdlPv(ptr noundef nonnull %19) #32
+  call void @_ZdlPv(ptr noundef nonnull %19) #33
   %.pre.pre = load ptr, ptr %__begin2.sroa.0.0193, align 8, !tbaa !79
   br label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i
 
@@ -2114,7 +2114,7 @@ if.else.i154:                                     ; preds = %if.then75
   br i1 %cmp.i.i.i158, label %if.then.i.i.i181, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i159
 
 if.then.i.i.i181:                                 ; preds = %if.else.i154
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.60) #30
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.60) #31
   unreachable
 
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i159: ; preds = %if.else.i154
@@ -2127,7 +2127,7 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i159: ; preds = %if.else.i154
   %cmp.not.i.i.i165 = icmp ne i64 %cond.i.i.i164, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i165)
   %mul.i.i.i.i.i167 = shl nuw nsw i64 %cond.i.i.i164, 3
-  %call5.i.i.i.i.i168 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i167) #34
+  %call5.i.i.i.i.i168 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i167) #35
   %add.ptr.i.i171 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i168, i64 %sub.ptr.sub.i.i.i.i157
   %40 = load i64, ptr %2, align 8, !tbaa !9
   store i64 %40, ptr %add.ptr.i.i171, align 8, !tbaa !9
@@ -2144,7 +2144,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit38.i.i173: ; preds = %if.then
   br i1 %tobool.not.i.i.i176, label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i178, label %if.then.i39.i.i177
 
 if.then.i39.i.i177:                               ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit38.i.i173
-  call void @_ZdlPv(ptr noundef nonnull %38) #32
+  call void @_ZdlPv(ptr noundef nonnull %38) #33
   %.pre198.pre = load ptr, ptr %gui_button73, align 8, !tbaa !53
   br label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i178
 
@@ -2667,7 +2667,7 @@ invoke.cont13:                                    ; preds = %call2.i10.i.noexc
   br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i183
 
 if.then.i.i183:                                   ; preds = %invoke.cont13
-  call void @_ZdlPv(ptr noundef %11) #32
+  call void @_ZdlPv(ptr noundef %11) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %invoke.cont13, %if.then.i.i183
@@ -2703,7 +2703,7 @@ invoke.cont22:                                    ; preds = %call2.i10.i.noexc19
   br i1 %cmp.i.i.i196, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201, label %if.then.i.i197
 
 if.then.i.i197:                                   ; preds = %invoke.cont22
-  call void @_ZdlPv(ptr noundef %16) #32
+  call void @_ZdlPv(ptr noundef %16) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201: ; preds = %invoke.cont22, %if.then.i.i197
@@ -2739,7 +2739,7 @@ invoke.cont34:                                    ; preds = %call2.i10.i.noexc21
   br i1 %cmp.i.i.i214, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit219, label %if.then.i.i215
 
 if.then.i.i215:                                   ; preds = %invoke.cont34
-  call void @_ZdlPv(ptr noundef %21) #32
+  call void @_ZdlPv(ptr noundef %21) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit219
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit219: ; preds = %invoke.cont34, %if.then.i.i215
@@ -2825,7 +2825,7 @@ cleanup.action:                                   ; preds = %invoke.cont72
   br i1 %cmp.i.i.i245, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250, label %if.then.i.i246
 
 if.then.i.i246:                                   ; preds = %cleanup.action
-  call void @_ZdlPv(ptr noundef %32) #32
+  call void @_ZdlPv(ptr noundef %32) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %cleanup.action, %if.then.i.i246
@@ -2838,7 +2838,7 @@ cleanup.done107:                                  ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.i.i251, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit256, label %if.then.i.i252
 
 if.then.i.i252:                                   ; preds = %cleanup.done107
-  call void @_ZdlPv(ptr noundef %33) #32
+  call void @_ZdlPv(ptr noundef %33) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit256
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit256: ; preds = %cleanup.done107, %if.then.i.i252
@@ -2858,7 +2858,7 @@ lpad12:                                           ; preds = %call2.i10.i.noexc
   br i1 %cmp.i.i.i257, label %ehcleanup, label %if.then.i.i258
 
 if.then.i.i258:                                   ; preds = %lpad12
-  call void @_ZdlPv(ptr noundef %36) #32
+  call void @_ZdlPv(ptr noundef %36) #33
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad12, %if.then.i.i258, %lpad10
@@ -2879,7 +2879,7 @@ lpad21:                                           ; preds = %call2.i10.i.noexc19
   br i1 %cmp.i.i.i263, label %ehcleanup26, label %if.then.i.i264
 
 if.then.i.i264:                                   ; preds = %lpad21
-  call void @_ZdlPv(ptr noundef %39) #32
+  call void @_ZdlPv(ptr noundef %39) #33
   br label %ehcleanup26
 
 ehcleanup26:                                      ; preds = %lpad21, %if.then.i.i264, %lpad19
@@ -2900,7 +2900,7 @@ lpad33:                                           ; preds = %call2.i10.i.noexc21
   br i1 %cmp.i.i.i269, label %ehcleanup39, label %if.then.i.i270
 
 if.then.i.i270:                                   ; preds = %lpad33
-  call void @_ZdlPv(ptr noundef %42) #32
+  call void @_ZdlPv(ptr noundef %42) #33
   br label %ehcleanup39
 
 ehcleanup39:                                      ; preds = %lpad33, %if.then.i.i270, %lpad31
@@ -2926,7 +2926,7 @@ lpad82:                                           ; preds = %invoke.cont72
   br i1 %cmp.i.i.i275, label %cleanup.action96, label %if.then.i.i276
 
 if.then.i.i276:                                   ; preds = %lpad82
-  call void @_ZdlPv(ptr noundef %46) #32
+  call void @_ZdlPv(ptr noundef %46) #33
   br label %cleanup.action96
 
 cleanup.action96:                                 ; preds = %lpad82, %if.then.i.i276
@@ -2940,7 +2940,7 @@ ehcleanup112:                                     ; preds = %cleanup.action96, %
   br i1 %cmp.i.i.i281, label %ehcleanup113, label %if.then.i.i282
 
 if.then.i.i282:                                   ; preds = %ehcleanup112
-  call void @_ZdlPv(ptr noundef %47) #32
+  call void @_ZdlPv(ptr noundef %47) #33
   br label %ehcleanup113
 
 ehcleanup113:                                     ; preds = %ehcleanup112, %if.then.i.i282
@@ -2949,12 +2949,12 @@ ehcleanup113:                                     ; preds = %ehcleanup112, %if.t
 
 ehcleanup116:                                     ; preds = %ehcleanup113, %lpad45, %ehcleanup39, %ehcleanup26, %ehcleanup
   %.pn143.pn.pn.pn = phi { ptr, i32 } [ %.pn143.pn, %ehcleanup113 ], [ %43, %lpad45 ], [ %.pn141, %ehcleanup39 ], [ %.pn139, %ehcleanup26 ], [ %.pn, %ehcleanup ]
-  call void @_ZN17AutoHideButtonBarD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %m_rare_controls_bar) #31
+  call void @_ZN17AutoHideButtonBarD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %m_rare_controls_bar) #32
   br label %ehcleanup117
 
 ehcleanup117:                                     ; preds = %ehcleanup116, %lpad5
   %.pn143.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn143.pn.pn.pn, %ehcleanup116 ], [ %10, %lpad5 ]
-  call void @_ZN17AutoHideButtonBarD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %m_settings_bar) #31
+  call void @_ZN17AutoHideButtonBarD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %m_settings_bar) #32
   br label %ehcleanup118
 
 ehcleanup118:                                     ; preds = %ehcleanup117, %lpad3
@@ -2962,16 +2962,16 @@ ehcleanup118:                                     ; preds = %ehcleanup117, %lpad
   %m_joystick_btn_center = getelementptr inbounds nuw i8, ptr %this, i64 280
   %m_joystick_btn_bg = getelementptr inbounds nuw i8, ptr %this, i64 264
   %m_joystick_btn_off = getelementptr inbounds nuw i8, ptr %this, i64 248
-  call void @_ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_pointer_pos) #31
-  call void @_ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_pointer_downpos) #31
-  call void @_ZN11button_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %arrayctor.cur.ptr.3) #31
-  call void @_ZN11button_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %arrayctor.cur.ptr.2) #31
-  call void @_ZN11button_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %arrayctor.cur.ptr.1) #31
-  call void @_ZN11button_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %arrayctor.cur.ptr) #31
-  call void @_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_joystick_btn_center) #31
-  call void @_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_joystick_btn_bg) #31
-  call void @_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_joystick_btn_off) #31
-  call void @_ZNSt13unordered_mapItN3irr4core4rectIiEESt4hashItESt8equal_toItESaISt4pairIKtS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_hotbar_rects) #31
+  call void @_ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_pointer_pos) #32
+  call void @_ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_pointer_downpos) #32
+  call void @_ZN11button_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %arrayctor.cur.ptr.3) #32
+  call void @_ZN11button_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %arrayctor.cur.ptr.2) #32
+  call void @_ZN11button_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %arrayctor.cur.ptr.1) #32
+  call void @_ZN11button_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %arrayctor.cur.ptr) #32
+  call void @_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_joystick_btn_center) #32
+  call void @_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_joystick_btn_bg) #32
+  call void @_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_joystick_btn_off) #32
+  call void @_ZNSt13unordered_mapItN3irr4core4rectIiEESt4hashItESt8equal_toItESaISt4pairIKtS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_hotbar_rects) #32
   resume { ptr, i32 } %.pn143.pn.pn.pn.pn.pn
 }
 
@@ -2994,7 +2994,7 @@ entry:
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__n.addr.05.i.i.i = phi ptr [ %1, %while.body.i.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__n.addr.05.i.i.i, align 8, !tbaa !170
-  tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.05.i.i.i) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.05.i.i.i) #33
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i, label %while.body.i.i.i, !llvm.loop !171
 
@@ -3011,7 +3011,7 @@ _ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Selec
   br i1 %cmp.i.i.i.i, label %_ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i
-  tail call void @_ZdlPv(ptr noundef %4) #32
+  tail call void @_ZdlPv(ptr noundef %4) #33
   br label %_ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit
 
 _ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit: ; preds = %if.end.i.i.i, %_ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i
@@ -3029,7 +3029,7 @@ entry:
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__n.addr.05.i.i.i = phi ptr [ %1, %while.body.i.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__n.addr.05.i.i.i, align 8, !tbaa !170
-  tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.05.i.i.i) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.05.i.i.i) #33
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZNSt10_HashtableItSt4pairIKtN3irr4core4rectIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i, label %while.body.i.i.i, !llvm.loop !173
 
@@ -3046,7 +3046,7 @@ _ZNSt10_HashtableItSt4pairIKtN3irr4core4rectIiEEESaIS6_ENSt8__detail10_Select1st
   br i1 %cmp.i.i.i.i, label %_ZNSt10_HashtableItSt4pairIKtN3irr4core4rectIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNSt10_HashtableItSt4pairIKtN3irr4core4rectIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i
-  tail call void @_ZdlPv(ptr noundef %4) #32
+  tail call void @_ZdlPv(ptr noundef %4) #33
   br label %_ZNSt10_HashtableItSt4pairIKtN3irr4core4rectIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit
 
 _ZNSt10_HashtableItSt4pairIKtN3irr4core4rectIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit: ; preds = %if.end.i.i.i, %_ZNSt10_HashtableItSt4pairIKtN3irr4core4rectIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i
@@ -3119,7 +3119,7 @@ entry:
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 184
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(16) %button_rect, ptr noundef null, i32 noundef %id, ptr noundef nonnull @.str.16, ptr noundef null)
-  %call2 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #34
+  %call2 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #35
   %ids.i = getelementptr inbounds nuw i8, ptr %call2, i64 16
   %toggleable.i = getelementptr inbounds nuw i8, ptr %call2, i64 52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ids.i, i8 0, i64 32, i1 false)
@@ -3127,17 +3127,17 @@ entry:
   store ptr %call2, ptr %agg.result, align 8, !tbaa !79
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %_M_refcount.i.i, align 8, !tbaa !72
-  %call.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #34
+  %call.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #35
           to label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IP11button_infoEET_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  %4 = tail call ptr @__cxa_begin_catch(ptr %3) #31
-  tail call void @_ZN11button_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %call2) #31
-  tail call void @_ZdlPv(ptr noundef nonnull %call2) #32
-  invoke void @__cxa_rethrow() #30
+  %4 = tail call ptr @__cxa_begin_catch(ptr %3) #32
+  tail call void @_ZN11button_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %call2) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %call2) #33
+  invoke void @__cxa_rethrow() #31
           to label %unreachable.i unwind label %lpad3.i
 
 lpad3.i:                                          ; preds = %lpad.i
@@ -3154,7 +3154,7 @@ terminate.lpad.i:                                 ; preds = %lpad3.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #33
+  tail call void @__clang_call_terminate(ptr %7) #34
   unreachable
 
 unreachable.i:                                    ; preds = %lpad.i
@@ -3217,7 +3217,7 @@ invoke.cont16:                                    ; preds = %_ZNSt6vectorImSaImE
 lpad:                                             ; preds = %invoke.cont16, %_ZNSt6vectorImSaImEE5clearEv.exit, %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IP11button_infoEET_.exit
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #31
+  tail call void @_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #32
   br label %common.resume
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont16
@@ -3327,11 +3327,11 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %4, align 8, !tbaa !37
   %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(16) %4) #31
+  call void %7(ptr noundef nonnull align 8 dereferenceable(16) %4) #32
   %vtable3.i.i.i.i.i = load ptr, ptr %4, align 8, !tbaa !37
   %vfn4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable3.i.i.i.i.i, i64 24
   %8 = load ptr, ptr %vfn4.i.i.i.i.i, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %4) #31
+  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %4) #32
   br label %_ZNSt10shared_ptrI11button_infoEaSEOS1_.exit
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -3354,7 +3354,7 @@ invoke.cont.i.i.i.i.i:                            ; preds = %if.else.i.i.i.i.i.i
   br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZNSt10shared_ptrI11button_infoEaSEOS1_.exit, !prof !77
 
 if.then7.i.i.i.i.i:                               ; preds = %invoke.cont.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #31
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #32
   br label %_ZNSt10shared_ptrI11button_infoEaSEOS1_.exit
 
 _ZNSt10shared_ptrI11button_infoEaSEOS1_.exit:     ; preds = %if.then7.i.i.i.i.i, %invoke.cont.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -3376,11 +3376,11 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %.pr, align 8, !tbaa !37
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %13 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #31
+  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #32
   %vtable3.i.i.i = load ptr, ptr %.pr, align 8, !tbaa !37
   %vfn4.i.i.i = getelementptr inbounds nuw i8, ptr %vtable3.i.i.i, i64 24
   %14 = load ptr, ptr %vfn4.i.i.i, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #31
+  call void %14(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #32
   br label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
@@ -3403,7 +3403,7 @@ invoke.cont.i.i.i:                                ; preds = %if.else.i.i.i.i, %i
   br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !77
 
 if.then7.i.i.i:                                   ; preds = %invoke.cont.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #31
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #32
   br label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.then, %if.then7.i.i.i, %invoke.cont.i.i.i, %if.then.i.i.i, %_ZNSt10shared_ptrI11button_infoEaSEOS1_.exit
@@ -3449,11 +3449,11 @@ if.then.i.i.i.i.i560:                             ; preds = %if.then.i.i.i.i548
   %vtable.i.i.i.i.i562 = load ptr, ptr %20, align 8, !tbaa !37
   %vfn.i.i.i.i.i563 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i562, i64 16
   %23 = load ptr, ptr %vfn.i.i.i.i.i563, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(16) %20) #31
+  call void %23(ptr noundef nonnull align 8 dereferenceable(16) %20) #32
   %vtable3.i.i.i.i.i564 = load ptr, ptr %20, align 8, !tbaa !37
   %vfn4.i.i.i.i.i565 = getelementptr inbounds nuw i8, ptr %vtable3.i.i.i.i.i564, i64 24
   %24 = load ptr, ptr %vfn4.i.i.i.i.i565, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(16) %20) #31
+  call void %24(ptr noundef nonnull align 8 dereferenceable(16) %20) #32
   br label %_ZNSt10shared_ptrI11button_infoEaSEOS1_.exit566
 
 if.end.i.i.i.i.i551:                              ; preds = %if.then.i.i.i.i548
@@ -3476,7 +3476,7 @@ invoke.cont.i.i.i.i.i555:                         ; preds = %if.else.i.i.i.i.i.i
   br i1 %cmp6.i.i.i.i.i557, label %if.then7.i.i.i.i.i558, label %_ZNSt10shared_ptrI11button_infoEaSEOS1_.exit566, !prof !77
 
 if.then7.i.i.i.i.i558:                            ; preds = %invoke.cont.i.i.i.i.i555
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #31
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #32
   br label %_ZNSt10shared_ptrI11button_infoEaSEOS1_.exit566
 
 _ZNSt10shared_ptrI11button_infoEaSEOS1_.exit566:  ; preds = %if.then7.i.i.i.i.i558, %invoke.cont.i.i.i.i.i555, %if.then.i.i.i.i.i560
@@ -3498,11 +3498,11 @@ if.then.i.i.i581:                                 ; preds = %if.then.i.i569
   %vtable.i.i.i583 = load ptr, ptr %.pr66, align 8, !tbaa !37
   %vfn.i.i.i584 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i583, i64 16
   %29 = load ptr, ptr %vfn.i.i.i584, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(16) %.pr66) #31
+  call void %29(ptr noundef nonnull align 8 dereferenceable(16) %.pr66) #32
   %vtable3.i.i.i585 = load ptr, ptr %.pr66, align 8, !tbaa !37
   %vfn4.i.i.i586 = getelementptr inbounds nuw i8, ptr %vtable3.i.i.i585, i64 24
   %30 = load ptr, ptr %vfn4.i.i.i586, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(16) %.pr66) #31
+  call void %30(ptr noundef nonnull align 8 dereferenceable(16) %.pr66) #32
   br label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit587
 
 if.end.i.i.i572:                                  ; preds = %if.then.i.i569
@@ -3525,7 +3525,7 @@ invoke.cont.i.i.i576:                             ; preds = %if.else.i.i.i.i580,
   br i1 %cmp6.i.i.i578, label %if.then7.i.i.i579, label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit587, !prof !77
 
 if.then7.i.i.i579:                                ; preds = %invoke.cont.i.i.i576
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr66) #31
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr66) #32
   br label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit587
 
 _ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit587: ; preds = %if.else, %if.then7.i.i.i579, %invoke.cont.i.i.i576, %if.then.i.i.i581, %_ZNSt10shared_ptrI11button_infoEaSEOS1_.exit566
@@ -3574,11 +3574,11 @@ if.then.i.i.i.i.i606:                             ; preds = %if.then.i.i.i.i594
   %vtable.i.i.i.i.i608 = load ptr, ptr %36, align 8, !tbaa !37
   %vfn.i.i.i.i.i609 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i608, i64 16
   %39 = load ptr, ptr %vfn.i.i.i.i.i609, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(16) %36) #31
+  call void %39(ptr noundef nonnull align 8 dereferenceable(16) %36) #32
   %vtable3.i.i.i.i.i610 = load ptr, ptr %36, align 8, !tbaa !37
   %vfn4.i.i.i.i.i611 = getelementptr inbounds nuw i8, ptr %vtable3.i.i.i.i.i610, i64 24
   %40 = load ptr, ptr %vfn4.i.i.i.i.i611, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(16) %36) #31
+  call void %40(ptr noundef nonnull align 8 dereferenceable(16) %36) #32
   br label %_ZNSt10shared_ptrI11button_infoEaSEOS1_.exit612
 
 if.end.i.i.i.i.i597:                              ; preds = %if.then.i.i.i.i594
@@ -3601,7 +3601,7 @@ invoke.cont.i.i.i.i.i601:                         ; preds = %if.else.i.i.i.i.i.i
   br i1 %cmp6.i.i.i.i.i603, label %if.then7.i.i.i.i.i604, label %_ZNSt10shared_ptrI11button_infoEaSEOS1_.exit612, !prof !77
 
 if.then7.i.i.i.i.i604:                            ; preds = %invoke.cont.i.i.i.i.i601
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #31
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #32
   br label %_ZNSt10shared_ptrI11button_infoEaSEOS1_.exit612
 
 _ZNSt10shared_ptrI11button_infoEaSEOS1_.exit612:  ; preds = %if.then7.i.i.i.i.i604, %invoke.cont.i.i.i.i.i601, %if.then.i.i.i.i.i606
@@ -3623,11 +3623,11 @@ if.then.i.i.i627:                                 ; preds = %if.then.i.i615
   %vtable.i.i.i629 = load ptr, ptr %.pr67, align 8, !tbaa !37
   %vfn.i.i.i630 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i629, i64 16
   %45 = load ptr, ptr %vfn.i.i.i630, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(16) %.pr67) #31
+  call void %45(ptr noundef nonnull align 8 dereferenceable(16) %.pr67) #32
   %vtable3.i.i.i631 = load ptr, ptr %.pr67, align 8, !tbaa !37
   %vfn4.i.i.i632 = getelementptr inbounds nuw i8, ptr %vtable3.i.i.i631, i64 24
   %46 = load ptr, ptr %vfn4.i.i.i632, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(16) %.pr67) #31
+  call void %46(ptr noundef nonnull align 8 dereferenceable(16) %.pr67) #32
   br label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit633
 
 if.end.i.i.i618:                                  ; preds = %if.then.i.i615
@@ -3650,7 +3650,7 @@ invoke.cont.i.i.i622:                             ; preds = %if.else.i.i.i.i626,
   br i1 %cmp6.i.i.i624, label %if.then7.i.i.i625, label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit633, !prof !77
 
 if.then7.i.i.i625:                                ; preds = %invoke.cont.i.i.i622
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr67) #31
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr67) #32
   br label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit633
 
 _ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit633: ; preds = %if.end, %if.then7.i.i.i625, %invoke.cont.i.i.i622, %if.then.i.i.i627, %_ZNSt10shared_ptrI11button_infoEaSEOS1_.exit612
@@ -3691,11 +3691,11 @@ if.then.i.i.i.i.i652:                             ; preds = %if.then.i.i.i.i640
   %vtable.i.i.i.i.i654 = load ptr, ptr %51, align 8, !tbaa !37
   %vfn.i.i.i.i.i655 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i654, i64 16
   %54 = load ptr, ptr %vfn.i.i.i.i.i655, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(16) %51) #31
+  call void %54(ptr noundef nonnull align 8 dereferenceable(16) %51) #32
   %vtable3.i.i.i.i.i656 = load ptr, ptr %51, align 8, !tbaa !37
   %vfn4.i.i.i.i.i657 = getelementptr inbounds nuw i8, ptr %vtable3.i.i.i.i.i656, i64 24
   %55 = load ptr, ptr %vfn4.i.i.i.i.i657, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(16) %51) #31
+  call void %55(ptr noundef nonnull align 8 dereferenceable(16) %51) #32
   br label %_ZNSt10shared_ptrI11button_infoEaSEOS1_.exit658
 
 if.end.i.i.i.i.i643:                              ; preds = %if.then.i.i.i.i640
@@ -3718,7 +3718,7 @@ invoke.cont.i.i.i.i.i647:                         ; preds = %if.else.i.i.i.i.i.i
   br i1 %cmp6.i.i.i.i.i649, label %if.then7.i.i.i.i.i650, label %_ZNSt10shared_ptrI11button_infoEaSEOS1_.exit658, !prof !77
 
 if.then7.i.i.i.i.i650:                            ; preds = %invoke.cont.i.i.i.i.i647
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %51) #31
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %51) #32
   br label %_ZNSt10shared_ptrI11button_infoEaSEOS1_.exit658
 
 _ZNSt10shared_ptrI11button_infoEaSEOS1_.exit658:  ; preds = %if.then7.i.i.i.i.i650, %invoke.cont.i.i.i.i.i647, %if.then.i.i.i.i.i652
@@ -3740,11 +3740,11 @@ if.then.i.i.i673:                                 ; preds = %if.then.i.i661
   %vtable.i.i.i675 = load ptr, ptr %.pr68, align 8, !tbaa !37
   %vfn.i.i.i676 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i675, i64 16
   %60 = load ptr, ptr %vfn.i.i.i676, align 8
-  call void %60(ptr noundef nonnull align 8 dereferenceable(16) %.pr68) #31
+  call void %60(ptr noundef nonnull align 8 dereferenceable(16) %.pr68) #32
   %vtable3.i.i.i677 = load ptr, ptr %.pr68, align 8, !tbaa !37
   %vfn4.i.i.i678 = getelementptr inbounds nuw i8, ptr %vtable3.i.i.i677, i64 24
   %61 = load ptr, ptr %vfn4.i.i.i678, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(16) %.pr68) #31
+  call void %61(ptr noundef nonnull align 8 dereferenceable(16) %.pr68) #32
   br label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit679
 
 if.end.i.i.i664:                                  ; preds = %if.then.i.i661
@@ -3767,7 +3767,7 @@ invoke.cont.i.i.i668:                             ; preds = %if.else.i.i.i.i672,
   br i1 %cmp6.i.i.i670, label %if.then7.i.i.i671, label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit679, !prof !77
 
 if.then7.i.i.i671:                                ; preds = %invoke.cont.i.i.i668
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr68) #31
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr68) #32
   br label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit679
 
 _ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit679: ; preds = %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit633, %if.then7.i.i.i671, %invoke.cont.i.i.i668, %if.then.i.i.i673, %_ZNSt10shared_ptrI11button_infoEaSEOS1_.exit658
@@ -3859,7 +3859,7 @@ invoke.cont68:                                    ; preds = %call13.i.noexc
   br i1 %cmp.i.i.i691, label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit, label %if.then.i.i692
 
 if.then.i.i692:                                   ; preds = %invoke.cont68
-  call void @_ZdlPv(ptr noundef %78) #32
+  call void @_ZdlPv(ptr noundef %78) #33
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit: ; preds = %invoke.cont68, %if.then.i.i692
@@ -3949,7 +3949,7 @@ invoke.cont98:                                    ; preds = %call13.i.noexc738
   br i1 %cmp.i.i.i741, label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit746, label %if.then.i.i742
 
 if.then.i.i742:                                   ; preds = %invoke.cont98
-  call void @_ZdlPv(ptr noundef %93) #32
+  call void @_ZdlPv(ptr noundef %93) #33
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit746
 
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit746: ; preds = %invoke.cont98, %if.then.i.i742
@@ -4042,7 +4042,7 @@ invoke.cont134:                                   ; preds = %call13.i.noexc793
   br i1 %cmp.i.i.i796, label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit801, label %if.then.i.i797
 
 if.then.i.i797:                                   ; preds = %invoke.cont134
-  call void @_ZdlPv(ptr noundef %108) #32
+  call void @_ZdlPv(ptr noundef %108) #33
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit801
 
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit801: ; preds = %invoke.cont134, %if.then.i.i797
@@ -4077,7 +4077,7 @@ call2.i11.i.noexc817:                             ; preds = %if.then141
   store ptr %call2.i11.i818, ptr %ref.tmp171, align 8, !tbaa !174
   %119 = load i64, ptr %__dnew.i.i805, align 8, !tbaa !9
   store i64 %119, ptr %118, align 8, !tbaa !13
-  %call.i.i.i.i.i813 = call ptr @wmemcpy(ptr noundef %call2.i11.i818, ptr noundef nonnull @.str.20, i64 noundef 4) #31
+  %call.i.i.i.i.i813 = call ptr @wmemcpy(ptr noundef %call2.i11.i818, ptr noundef nonnull @.str.20, i64 noundef 4) #32
   %.pre18.i.i814 = load i64, ptr %__dnew.i.i805, align 8, !tbaa !9
   %.pre19.i.i815 = load ptr, ptr %ref.tmp171, align 8, !tbaa !174
   %_M_string_length.i.i.i.i809 = getelementptr inbounds nuw i8, ptr %ref.tmp171, i64 8
@@ -4143,7 +4143,7 @@ invoke.cont176:                                   ; preds = %call13.i.noexc848
   br i1 %cmp.i.i.i851, label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit856, label %if.then.i.i852
 
 if.then.i.i852:                                   ; preds = %invoke.cont176
-  call void @_ZdlPv(ptr noundef %128) #32
+  call void @_ZdlPv(ptr noundef %128) #33
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit856
 
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit856: ; preds = %invoke.cont176, %if.then.i.i852
@@ -4159,7 +4159,7 @@ lpad67:                                           ; preds = %call13.i.noexc, %_Z
   br i1 %cmp.i.i.i857, label %ehcleanup, label %if.then.i.i858
 
 if.then.i.i858:                                   ; preds = %lpad67
-  call void @_ZdlPv(ptr noundef %130) #32
+  call void @_ZdlPv(ptr noundef %130) #33
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad67, %if.then.i.i858
@@ -4175,7 +4175,7 @@ lpad97:                                           ; preds = %call13.i.noexc738, 
   br i1 %cmp.i.i.i863, label %ehcleanup100, label %if.then.i.i864
 
 if.then.i.i864:                                   ; preds = %lpad97
-  call void @_ZdlPv(ptr noundef %132) #32
+  call void @_ZdlPv(ptr noundef %132) #33
   br label %ehcleanup100
 
 ehcleanup100:                                     ; preds = %lpad97, %if.then.i.i864
@@ -4191,7 +4191,7 @@ lpad133:                                          ; preds = %call13.i.noexc793, 
   br i1 %cmp.i.i.i869, label %ehcleanup136, label %if.then.i.i870
 
 if.then.i.i870:                                   ; preds = %lpad133
-  call void @_ZdlPv(ptr noundef %134) #32
+  call void @_ZdlPv(ptr noundef %134) #33
   br label %ehcleanup136
 
 ehcleanup136:                                     ; preds = %lpad133, %if.then.i.i870
@@ -4212,7 +4212,7 @@ lpad175:                                          ; preds = %call13.i.noexc848, 
   br i1 %cmp.i.i.i875, label %ehcleanup178, label %if.then.i.i876
 
 if.then.i.i876:                                   ; preds = %lpad175
-  call void @_ZdlPv(ptr noundef %137) #32
+  call void @_ZdlPv(ptr noundef %137) #33
   br label %ehcleanup178
 
 ehcleanup178:                                     ; preds = %lpad175, %if.then.i.i876, %lpad173
@@ -4318,7 +4318,7 @@ invoke.cont228:                                   ; preds = %_ZNSt6vectorImSaImE
   br i1 %cmp.i.i.i909, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i910
 
 if.then.i.i910:                                   ; preds = %invoke.cont228
-  call void @_ZdlPv(ptr noundef %166) #32
+  call void @_ZdlPv(ptr noundef %166) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %invoke.cont228, %if.then.i.i910
@@ -4328,7 +4328,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %invok
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !185
 
 init.check:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %168 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN14TouchScreenGUI4initEP20ISimpleTextureSourceE20settings_bar_buttonsB5cxx11) #31
+  %168 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN14TouchScreenGUI4initEP20ISimpleTextureSourceE20settings_bar_buttonsB5cxx11) #32
   %tobool235.not = icmp eq i32 %168, 0
   br i1 %tobool235.not, label %init.end, label %init
 
@@ -4397,7 +4397,7 @@ invoke.cont266:                                   ; preds = %invoke.cont262
   br i1 %cmp.i.i.i.i, label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %if.then.i.i.i913
 
 if.then.i.i.i913:                                 ; preds = %invoke.cont266
-  call void @_ZdlPv(ptr noundef %169) #32
+  call void @_ZdlPv(ptr noundef %169) #33
   br label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %invoke.cont266, %if.then.i.i.i913
@@ -4408,7 +4408,7 @@ _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %cmp.i.i.i.i.1, label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.1, label %if.then.i.i.i913.1
 
 if.then.i.i.i913.1:                               ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
-  call void @_ZdlPv(ptr noundef %171) #32
+  call void @_ZdlPv(ptr noundef %171) #33
   br label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.1
 
 _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.1: ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, %if.then.i.i.i913.1
@@ -4419,7 +4419,7 @@ _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %cmp.i.i.i.i.2, label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.2, label %if.then.i.i.i913.2
 
 if.then.i.i.i913.2:                               ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.1
-  call void @_ZdlPv(ptr noundef %173) #32
+  call void @_ZdlPv(ptr noundef %173) #33
   br label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.2
 
 _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.2: ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.1, %if.then.i.i.i913.2
@@ -4430,7 +4430,7 @@ _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %cmp.i.i.i.i.3, label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.3, label %if.then.i.i.i913.3
 
 if.then.i.i.i913.3:                               ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.2
-  call void @_ZdlPv(ptr noundef %175) #32
+  call void @_ZdlPv(ptr noundef %175) #33
   br label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.3
 
 _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.3: ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.2, %if.then.i.i.i913.3
@@ -4441,7 +4441,7 @@ _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %cmp.i.i.i.i.4, label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.4, label %if.then.i.i.i913.4
 
 if.then.i.i.i913.4:                               ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.3
-  call void @_ZdlPv(ptr noundef %177) #32
+  call void @_ZdlPv(ptr noundef %177) #33
   br label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.4
 
 _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.4: ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.3, %if.then.i.i.i913.4
@@ -4452,7 +4452,7 @@ _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %cmp.i.i.i.i.5, label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.5, label %if.then.i.i.i913.5
 
 if.then.i.i.i913.5:                               ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.4
-  call void @_ZdlPv(ptr noundef %179) #32
+  call void @_ZdlPv(ptr noundef %179) #33
   br label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.5
 
 _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.5: ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.4, %if.then.i.i.i913.5
@@ -4463,7 +4463,7 @@ _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %cmp.i.i.i.i.6, label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.6, label %if.then.i.i.i913.6
 
 if.then.i.i.i913.6:                               ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.5
-  call void @_ZdlPv(ptr noundef %181) #32
+  call void @_ZdlPv(ptr noundef %181) #33
   br label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.6
 
 _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.6: ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.5, %if.then.i.i.i913.6
@@ -4475,8 +4475,8 @@ _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp240)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp237)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp236)
-  %183 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapI19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS0_ESaISt4pairIKS0_S6_EEED2Ev, ptr nonnull @_ZZN14TouchScreenGUI4initEP20ISimpleTextureSourceE20settings_bar_buttonsB5cxx11, ptr nonnull @__dso_handle) #31
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN14TouchScreenGUI4initEP20ISimpleTextureSourceE20settings_bar_buttonsB5cxx11) #31
+  %183 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapI19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS0_ESaISt4pairIKS0_S6_EEED2Ev, ptr nonnull @_ZZN14TouchScreenGUI4initEP20ISimpleTextureSourceE20settings_bar_buttonsB5cxx11, ptr nonnull @__dso_handle) #32
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN14TouchScreenGUI4initEP20ISimpleTextureSourceE20settings_bar_buttonsB5cxx11) #32
   br label %init.end
 
 init.end:                                         ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.6, %init.check, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -4526,7 +4526,7 @@ lpad226:                                          ; preds = %_ZNSt6vectorImSaImE
   br i1 %cmp.i.i.i927, label %ehcleanup232, label %if.then.i.i928
 
 if.then.i.i928:                                   ; preds = %lpad226
-  call void @_ZdlPv(ptr noundef %192) #32
+  call void @_ZdlPv(ptr noundef %192) #33
   br label %ehcleanup232
 
 ehcleanup232:                                     ; preds = %lpad226, %if.then.i.i928
@@ -4581,7 +4581,7 @@ lpad265:                                          ; preds = %invoke.cont262
   br i1 %cmp.i.i.i.i934, label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939, label %if.then.i.i.i935
 
 if.then.i.i.i935:                                 ; preds = %lpad265
-  call void @_ZdlPv(ptr noundef %201) #32
+  call void @_ZdlPv(ptr noundef %201) #33
   br label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939
 
 _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939: ; preds = %lpad265, %if.then.i.i.i935
@@ -4592,7 +4592,7 @@ _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %cmp.i.i.i.i934.1, label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.1, label %if.then.i.i.i935.1
 
 if.then.i.i.i935.1:                               ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939
-  call void @_ZdlPv(ptr noundef %203) #32
+  call void @_ZdlPv(ptr noundef %203) #33
   br label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.1
 
 _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.1: ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939, %if.then.i.i.i935.1
@@ -4603,7 +4603,7 @@ _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %cmp.i.i.i.i934.2, label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.2, label %if.then.i.i.i935.2
 
 if.then.i.i.i935.2:                               ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.1
-  call void @_ZdlPv(ptr noundef %205) #32
+  call void @_ZdlPv(ptr noundef %205) #33
   br label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.2
 
 _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.2: ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.1, %if.then.i.i.i935.2
@@ -4614,7 +4614,7 @@ _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %cmp.i.i.i.i934.3, label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.3, label %if.then.i.i.i935.3
 
 if.then.i.i.i935.3:                               ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.2
-  call void @_ZdlPv(ptr noundef %207) #32
+  call void @_ZdlPv(ptr noundef %207) #33
   br label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.3
 
 _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.3: ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.2, %if.then.i.i.i935.3
@@ -4625,7 +4625,7 @@ _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %cmp.i.i.i.i934.4, label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.4, label %if.then.i.i.i935.4
 
 if.then.i.i.i935.4:                               ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.3
-  call void @_ZdlPv(ptr noundef %209) #32
+  call void @_ZdlPv(ptr noundef %209) #33
   br label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.4
 
 _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.4: ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.3, %if.then.i.i.i935.4
@@ -4636,7 +4636,7 @@ _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %cmp.i.i.i.i934.5, label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.5, label %if.then.i.i.i935.5
 
 if.then.i.i.i935.5:                               ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.4
-  call void @_ZdlPv(ptr noundef %211) #32
+  call void @_ZdlPv(ptr noundef %211) #33
   br label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.5
 
 _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.5: ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.4, %if.then.i.i.i935.5
@@ -4647,7 +4647,7 @@ _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %cmp.i.i.i.i934.6, label %ehcleanup278, label %if.then.i.i.i935.6
 
 if.then.i.i.i935.6:                               ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.5
-  call void @_ZdlPv(ptr noundef %213) #32
+  call void @_ZdlPv(ptr noundef %213) #33
   br label %ehcleanup278
 
 ehcleanup278:                                     ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit939.5, %if.then.i.i.i935.6, %lpad261
@@ -4704,7 +4704,7 @@ arraydestroy.body286:                             ; preds = %ehcleanup284, %_ZNS
   br i1 %cmp.i.i.i.i941, label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit946, label %if.then.i.i.i942
 
 if.then.i.i.i942:                                 ; preds = %arraydestroy.body286
-  call void @_ZdlPv(ptr noundef %216) #32
+  call void @_ZdlPv(ptr noundef %216) #33
   br label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit946
 
 _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit946: ; preds = %arraydestroy.body286, %if.then.i.i.i942
@@ -4714,7 +4714,7 @@ _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 cleanup.done:                                     ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit946, %ehcleanup284, %ehcleanup284.thread
   %.pn518.pn.pn.pn.pn.pn.pn1169 = phi { ptr, i32 } [ %193, %ehcleanup284.thread ], [ %.pn518.pn.pn.pn.pn.pn, %ehcleanup284 ], [ %.pn518.pn.pn.pn.pn.pn, %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit946 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp236)
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN14TouchScreenGUI4initEP20ISimpleTextureSourceE20settings_bar_buttonsB5cxx11) #31
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN14TouchScreenGUI4initEP20ISimpleTextureSourceE20settings_bar_buttonsB5cxx11) #32
   br label %eh.resume
 
 for.body:                                         ; preds = %cleanup, %for.body.lr.ph
@@ -4783,7 +4783,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   br i1 %cmp.i.i2.i, label %if.then.i.i3.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
 
 if.then.i.i3.i:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.58) #30
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.58) #31
           to label %.noexc.i unwind label %lpad.i.loopexit.split-lp
 
 .noexc.i:                                         ; preds = %if.then.i.i3.i
@@ -4810,7 +4810,7 @@ lpad.i:                                           ; preds = %lpad.i.loopexit.spl
   br i1 %cmp.i.i.i.i950, label %ehcleanup313, label %if.then.i.i5.i
 
 if.then.i.i5.i:                                   ; preds = %lpad.i
-  call void @_ZdlPv(ptr noundef %232) #32
+  call void @_ZdlPv(ptr noundef %232) #33
   br label %ehcleanup313
 
 invoke.cont309:                                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
@@ -4823,7 +4823,7 @@ invoke.cont311:                                   ; preds = %invoke.cont309
   br i1 %cmp.i.i.i956, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit961, label %if.then.i.i957
 
 if.then.i.i957:                                   ; preds = %invoke.cont311
-  call void @_ZdlPv(ptr noundef %233) #32
+  call void @_ZdlPv(ptr noundef %233) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit961
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit961: ; preds = %invoke.cont311, %if.then.i.i957
@@ -4833,7 +4833,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit961: ; preds = %in
   br i1 %cmp.i.i.i962, label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit967, label %if.then.i.i963
 
 if.then.i.i963:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit961
-  call void @_ZdlPv(ptr noundef %234) #32
+  call void @_ZdlPv(ptr noundef %234) #33
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit967
 
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit967: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit961, %if.then.i.i963
@@ -4841,7 +4841,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit967: ; preds = %_Z
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit967, %for.body
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.01192) #35
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.01192) #36
   %cmp.i.not = icmp eq ptr %call.i, getelementptr inbounds nuw (i8, ptr @_ZZN14TouchScreenGUI4initEP20ISimpleTextureSourceE20settings_bar_buttonsB5cxx11, i64 8)
   br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body
 
@@ -4858,7 +4858,7 @@ lpad310:                                          ; preds = %invoke.cont309
   br i1 %cmp.i.i.i968, label %ehcleanup313, label %if.then.i.i969
 
 if.then.i.i969:                                   ; preds = %lpad310
-  call void @_ZdlPv(ptr noundef %237) #32
+  call void @_ZdlPv(ptr noundef %237) #33
   br label %ehcleanup313
 
 ehcleanup313:                                     ; preds = %lpad310, %lpad.i, %if.then.i.i969, %lpad308, %if.then.i.i5.i
@@ -4869,7 +4869,7 @@ ehcleanup313:                                     ; preds = %lpad310, %lpad.i, %
   br i1 %cmp.i.i.i974, label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit979, label %if.then.i.i975
 
 if.then.i.i975:                                   ; preds = %ehcleanup313
-  call void @_ZdlPv(ptr noundef %238) #32
+  call void @_ZdlPv(ptr noundef %238) #33
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit979
 
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit979: ; preds = %ehcleanup313, %if.then.i.i975
@@ -4896,7 +4896,7 @@ invoke.cont334:                                   ; preds = %call2.i10.i.noexc98
   br i1 %cmp.i.i.i992, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit997, label %if.then.i.i993
 
 if.then.i.i993:                                   ; preds = %invoke.cont334
-  call void @_ZdlPv(ptr noundef %241) #32
+  call void @_ZdlPv(ptr noundef %241) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit997
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit997: ; preds = %invoke.cont334, %if.then.i.i993
@@ -4906,7 +4906,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit997: ; preds = %in
   br i1 %cmp.i.i.i998, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1003, label %if.then.i.i999
 
 if.then.i.i999:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit997
-  call void @_ZdlPv(ptr noundef %242) #32
+  call void @_ZdlPv(ptr noundef %242) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1003
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1003: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit997, %if.then.i.i999
@@ -5014,7 +5014,7 @@ invoke.cont382:                                   ; preds = %_ZNSt6vectorImSaImE
   br i1 %cmp.i.i.i1051, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1056, label %if.then.i.i1052
 
 if.then.i.i1052:                                  ; preds = %invoke.cont382
-  call void @_ZdlPv(ptr noundef %270) #32
+  call void @_ZdlPv(ptr noundef %270) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1056
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1056: ; preds = %invoke.cont382, %if.then.i.i1052
@@ -5024,7 +5024,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1056: ; preds = %i
   br i1 %guard.uninitialized389, label %init.check390, label %init.end452, !prof !185
 
 init.check390:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1056
-  %272 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN14TouchScreenGUI4initEP20ISimpleTextureSourceE25rare_controls_bar_buttonsB5cxx11) #31
+  %272 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN14TouchScreenGUI4initEP20ISimpleTextureSourceE25rare_controls_bar_buttonsB5cxx11) #32
   %tobool391.not = icmp eq i32 %272, 0
   br i1 %tobool391.not, label %init.end452, label %init392
 
@@ -5072,7 +5072,7 @@ invoke.cont419:                                   ; preds = %invoke.cont411
   br i1 %cmp.i.i.i.i1058, label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1064, label %if.then.i.i.i1059
 
 if.then.i.i.i1059:                                ; preds = %invoke.cont419
-  call void @_ZdlPv(ptr noundef %273) #32
+  call void @_ZdlPv(ptr noundef %273) #33
   br label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1064
 
 _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1064: ; preds = %invoke.cont419, %if.then.i.i.i1059
@@ -5083,7 +5083,7 @@ _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %cmp.i.i.i.i1058.1, label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1064.1, label %if.then.i.i.i1059.1
 
 if.then.i.i.i1059.1:                              ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1064
-  call void @_ZdlPv(ptr noundef %275) #32
+  call void @_ZdlPv(ptr noundef %275) #33
   br label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1064.1
 
 _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1064.1: ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1064, %if.then.i.i.i1059.1
@@ -5094,7 +5094,7 @@ _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %cmp.i.i.i.i1058.2, label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1064.2, label %if.then.i.i.i1059.2
 
 if.then.i.i.i1059.2:                              ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1064.1
-  call void @_ZdlPv(ptr noundef %277) #32
+  call void @_ZdlPv(ptr noundef %277) #33
   br label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1064.2
 
 _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1064.2: ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1064.1, %if.then.i.i.i1059.2
@@ -5105,7 +5105,7 @@ _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %cmp.i.i.i.i1058.3, label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1064.3, label %if.then.i.i.i1059.3
 
 if.then.i.i.i1059.3:                              ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1064.2
-  call void @_ZdlPv(ptr noundef %279) #32
+  call void @_ZdlPv(ptr noundef %279) #33
   br label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1064.3
 
 _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1064.3: ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1064.2, %if.then.i.i.i1059.3
@@ -5114,8 +5114,8 @@ _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp401)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp397)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp394)
-  %281 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapI19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS0_ESaISt4pairIKS0_S6_EEED2Ev, ptr nonnull @_ZZN14TouchScreenGUI4initEP20ISimpleTextureSourceE25rare_controls_bar_buttonsB5cxx11, ptr nonnull @__dso_handle) #31
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN14TouchScreenGUI4initEP20ISimpleTextureSourceE25rare_controls_bar_buttonsB5cxx11) #31
+  %281 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapI19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS0_ESaISt4pairIKS0_S6_EEED2Ev, ptr nonnull @_ZZN14TouchScreenGUI4initEP20ISimpleTextureSourceE25rare_controls_bar_buttonsB5cxx11, ptr nonnull @__dso_handle) #32
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN14TouchScreenGUI4initEP20ISimpleTextureSourceE25rare_controls_bar_buttonsB5cxx11) #32
   br label %init.end452
 
 init.end452:                                      ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1064.3, %init.check390, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1056
@@ -5151,7 +5151,7 @@ lpad333:                                          ; preds = %call2.i10.i.noexc98
   br i1 %cmp.i.i.i1066, label %ehcleanup336, label %if.then.i.i1067
 
 if.then.i.i1067:                                  ; preds = %lpad333
-  call void @_ZdlPv(ptr noundef %288) #32
+  call void @_ZdlPv(ptr noundef %288) #33
   br label %ehcleanup336
 
 ehcleanup336:                                     ; preds = %lpad333, %if.then.i.i1067, %lpad331
@@ -5162,7 +5162,7 @@ ehcleanup336:                                     ; preds = %lpad333, %if.then.i
   br i1 %cmp.i.i.i1072, label %ehcleanup340, label %if.then.i.i1073
 
 if.then.i.i1073:                                  ; preds = %ehcleanup336
-  call void @_ZdlPv(ptr noundef %289) #32
+  call void @_ZdlPv(ptr noundef %289) #33
   br label %ehcleanup340
 
 ehcleanup340:                                     ; preds = %ehcleanup336, %if.then.i.i1073, %lpad327
@@ -5183,7 +5183,7 @@ lpad380:                                          ; preds = %_ZNSt6vectorImSaImE
   br i1 %cmp.i.i.i1078, label %ehcleanup386, label %if.then.i.i1079
 
 if.then.i.i1079:                                  ; preds = %lpad380
-  call void @_ZdlPv(ptr noundef %292) #32
+  call void @_ZdlPv(ptr noundef %292) #33
   br label %ehcleanup386
 
 ehcleanup386:                                     ; preds = %lpad380, %if.then.i.i1079, %lpad346
@@ -5219,7 +5219,7 @@ lpad418:                                          ; preds = %invoke.cont411
   br i1 %cmp.i.i.i.i1085, label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1091, label %if.then.i.i.i1086
 
 if.then.i.i.i1086:                                ; preds = %lpad418
-  call void @_ZdlPv(ptr noundef %297) #32
+  call void @_ZdlPv(ptr noundef %297) #33
   br label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1091
 
 _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1091: ; preds = %lpad418, %if.then.i.i.i1086
@@ -5230,7 +5230,7 @@ _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %cmp.i.i.i.i1085.1, label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1091.1, label %if.then.i.i.i1086.1
 
 if.then.i.i.i1086.1:                              ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1091
-  call void @_ZdlPv(ptr noundef %299) #32
+  call void @_ZdlPv(ptr noundef %299) #33
   br label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1091.1
 
 _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1091.1: ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1091, %if.then.i.i.i1086.1
@@ -5241,7 +5241,7 @@ _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %cmp.i.i.i.i1085.2, label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1091.2, label %if.then.i.i.i1086.2
 
 if.then.i.i.i1086.2:                              ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1091.1
-  call void @_ZdlPv(ptr noundef %301) #32
+  call void @_ZdlPv(ptr noundef %301) #33
   br label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1091.2
 
 _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1091.2: ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1091.1, %if.then.i.i.i1086.2
@@ -5252,7 +5252,7 @@ _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %cmp.i.i.i.i1085.3, label %ehcleanup439.thread1205, label %if.then.i.i.i1086.3
 
 if.then.i.i.i1086.3:                              ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1091.2
-  call void @_ZdlPv(ptr noundef %303) #32
+  call void @_ZdlPv(ptr noundef %303) #33
   br label %ehcleanup439.thread1205
 
 ehcleanup439.thread1205:                          ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1091.2, %if.then.i.i.i1086.3
@@ -5285,7 +5285,7 @@ arraydestroy.body444:                             ; preds = %_ZNSt4pairIK19touch
   br i1 %cmp.i.i.i.i1093, label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1099, label %if.then.i.i.i1094
 
 if.then.i.i.i1094:                                ; preds = %arraydestroy.body444
-  call void @_ZdlPv(ptr noundef %306) #32
+  call void @_ZdlPv(ptr noundef %306) #33
   br label %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1099
 
 _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1099: ; preds = %arraydestroy.body444, %if.then.i.i.i1094
@@ -5300,7 +5300,7 @@ cleanup.done449.sink.split:                       ; preds = %ehcleanup439.thread
 cleanup.done449:                                  ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1099, %cleanup.done449.sink.split
   %.pn531.pn.pn.pn1175 = phi { ptr, i32 } [ %.pn531.pn.pn.pn1175.ph, %cleanup.done449.sink.split ], [ %.pn531.pn.pn1200, %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1099 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp394)
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN14TouchScreenGUI4initEP20ISimpleTextureSourceE25rare_controls_bar_buttonsB5cxx11) #31
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN14TouchScreenGUI4initEP20ISimpleTextureSourceE25rare_controls_bar_buttonsB5cxx11) #32
   br label %eh.resume
 
 for.body463:                                      ; preds = %cleanup488, %for.body463.lr.ph
@@ -5369,7 +5369,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i1108: ; pred
   br i1 %cmp.i.i2.i1113, label %if.then.i.i3.i1122, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i1114
 
 if.then.i.i3.i1122:                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i1108
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.58) #30
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.58) #31
           to label %.noexc.i1123 unwind label %lpad.i1116.loopexit.split-lp
 
 .noexc.i1123:                                     ; preds = %if.then.i.i3.i1122
@@ -5396,7 +5396,7 @@ lpad.i1116:                                       ; preds = %lpad.i1116.loopexit
   br i1 %cmp.i.i.i.i1117, label %ehcleanup485, label %if.then.i.i5.i1118
 
 if.then.i.i5.i1118:                               ; preds = %lpad.i1116
-  call void @_ZdlPv(ptr noundef %322) #32
+  call void @_ZdlPv(ptr noundef %322) #33
   br label %ehcleanup485
 
 invoke.cont481:                                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i1114
@@ -5409,7 +5409,7 @@ invoke.cont483:                                   ; preds = %invoke.cont481
   br i1 %cmp.i.i.i1131, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1136, label %if.then.i.i1132
 
 if.then.i.i1132:                                  ; preds = %invoke.cont483
-  call void @_ZdlPv(ptr noundef %323) #32
+  call void @_ZdlPv(ptr noundef %323) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1136
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1136: ; preds = %invoke.cont483, %if.then.i.i1132
@@ -5419,7 +5419,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1136: ; preds = %i
   br i1 %cmp.i.i.i1137, label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit1142, label %if.then.i.i1138
 
 if.then.i.i1138:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1136
-  call void @_ZdlPv(ptr noundef %324) #32
+  call void @_ZdlPv(ptr noundef %324) #33
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit1142
 
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit1142: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1136, %if.then.i.i1138
@@ -5427,7 +5427,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit1142: ; preds = %_
   br label %cleanup488
 
 cleanup488:                                       ; preds = %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit1142, %for.body463
-  %call.i1143 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin1454.sroa.0.01194) #35
+  %call.i1143 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin1454.sroa.0.01194) #36
   %cmp.i1065.not = icmp eq ptr %call.i1143, getelementptr inbounds nuw (i8, ptr @_ZZN14TouchScreenGUI4initEP20ISimpleTextureSourceE25rare_controls_bar_buttonsB5cxx11, i64 8)
   br i1 %cmp.i1065.not, label %for.cond.cleanup462, label %for.body463
 
@@ -5444,7 +5444,7 @@ lpad482:                                          ; preds = %invoke.cont481
   br i1 %cmp.i.i.i1144, label %ehcleanup485, label %if.then.i.i1145
 
 if.then.i.i1145:                                  ; preds = %lpad482
-  call void @_ZdlPv(ptr noundef %327) #32
+  call void @_ZdlPv(ptr noundef %327) #33
   br label %ehcleanup485
 
 ehcleanup485:                                     ; preds = %lpad482, %lpad.i1116, %if.then.i.i1145, %lpad480, %if.then.i.i5.i1118
@@ -5455,7 +5455,7 @@ ehcleanup485:                                     ; preds = %lpad482, %lpad.i111
   br i1 %cmp.i.i.i1150, label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit1155, label %if.then.i.i1151
 
 if.then.i.i1151:                                  ; preds = %ehcleanup485
-  call void @_ZdlPv(ptr noundef %328) #32
+  call void @_ZdlPv(ptr noundef %328) #33
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit1155
 
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit1155: ; preds = %ehcleanup485, %if.then.i.i1151
@@ -5479,7 +5479,7 @@ entry:
   %second = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %1, ptr %second, align 8, !tbaa !4
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__y) #31
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__y) #32
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i)
   store i64 %call.i.i, ptr %__dnew.i.i, align 8, !tbaa !9
   %cmp.i.i = icmp ugt i64 %call.i.i, 15
@@ -5528,7 +5528,7 @@ entry:
   %second = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %1, ptr %second, align 8, !tbaa !4
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__y) #31
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__y) #32
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i)
   store i64 %call.i.i, ptr %__dnew.i.i, align 8, !tbaa !9
   %cmp.i.i = icmp ugt i64 %call.i.i, 15
@@ -5577,7 +5577,7 @@ entry:
   %second = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %1, ptr %second, align 8, !tbaa !4
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__y) #31
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__y) #32
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i)
   store i64 %call.i.i, ptr %__dnew.i.i, align 8, !tbaa !9
   %cmp.i.i = icmp ugt i64 %call.i.i, 15
@@ -5626,7 +5626,7 @@ entry:
   %second = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %1, ptr %second, align 8, !tbaa !4
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__y) #31
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__y) #32
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i)
   store i64 %call.i.i, ptr %__dnew.i.i, align 8, !tbaa !9
   %cmp.i.i = icmp ugt i64 %call.i.i, 15
@@ -5675,7 +5675,7 @@ entry:
   %second = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %1, ptr %second, align 8, !tbaa !4
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__y) #31
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__y) #32
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i)
   store i64 %call.i.i, ptr %__dnew.i.i, align 8, !tbaa !9
   %cmp.i.i = icmp ugt i64 %call.i.i, 15
@@ -5724,7 +5724,7 @@ entry:
   %second = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %1, ptr %second, align 8, !tbaa !4
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__y) #31
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__y) #32
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i)
   store i64 %call.i.i, ptr %__dnew.i.i, align 8, !tbaa !9
   %cmp.i.i = icmp ugt i64 %call.i.i, 15
@@ -5825,7 +5825,7 @@ if.then.i.i12:                                    ; preds = %while.end.i.i, %if.
   br i1 %cmp.i27.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i12
-  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa48.i.i) #35
+  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa48.i.i) #36
   %_M_storage.i.i.i.i.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   %.pre194.i = load i32, ptr %_M_storage.i.i.i.i.phi.trans.insert.i, align 4, !tbaa !186
   %.pre195.i = load i32, ptr %__first.addr.08.i, align 4, !tbaa !186
@@ -5852,7 +5852,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
 
 _ZNSt8_Rb_treeI19touch_gui_button_idSt4pairIKS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS9_ESt4lessIS0_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
   %11 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i.i.i, %lor.rhs.i.i.i ]
-  %call5.i.i.i.i.i.i.i.i9 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #34
+  %call5.i.i.i.i.i.i.i.i9 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #35
           to label %call5.i.i.i.i.i.i.i.i.noexc unwind label %lpad4
 
 call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %_ZNSt8_Rb_treeI19touch_gui_button_idSt4pairIKS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS9_ESt4lessIS0_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i
@@ -5860,7 +5860,7 @@ call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %_ZNSt8_Rb_treeI19to
           to label %.noexc unwind label %lpad4
 
 .noexc:                                           ; preds = %call5.i.i.i.i.i.i.i.i.noexc
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %11, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i9, ptr noundef nonnull %retval.sroa.12.2.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %0) #31
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %11, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i9, ptr noundef nonnull %retval.sroa.12.2.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %0) #32
   %12 = load i64, ptr %_M_node_count.i.i.i.i, align 8, !tbaa !203
   %inc.i.i.i = add i64 %12, 1
   store i64 %inc.i.i.i, ptr %_M_node_count.i.i.i.i, align 8, !tbaa !203
@@ -5878,7 +5878,7 @@ invoke.cont5:                                     ; preds = %_ZNSt8_Rb_treeI19to
 lpad4:                                            ; preds = %call5.i.i.i.i.i.i.i.i.noexc, %_ZNSt8_Rb_treeI19touch_gui_button_idSt4pairIKS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS9_ESt4lessIS0_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt8_Rb_treeI19touch_gui_button_idSt4pairIKS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS9_ESt4lessIS0_ESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #31
+  tail call void @_ZNSt8_Rb_treeI19touch_gui_button_idSt4pairIKS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS9_ESt4lessIS0_ESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #32
   resume { ptr, i32 } %13
 }
 
@@ -5894,7 +5894,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #33
+  tail call void @__clang_call_terminate(ptr %2) #34
   unreachable
 
 _ZNSt8_Rb_treeI19touch_gui_button_idSt4pairIKS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS9_ESt4lessIS0_ESaIS9_EED2Ev.exit: ; preds = %entry
@@ -6513,7 +6513,7 @@ if.else.i:                                        ; preds = %if.then
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.60) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.60) #31
   unreachable
 
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
@@ -6526,7 +6526,7 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
-  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #34
+  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #35
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   store i64 %eventID, ptr %add.ptr.i.i, align 8, !tbaa !9
   %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
@@ -6542,7 +6542,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit38.i.i: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, label %if.then.i39.i.i
 
 if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit38.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #33
   br label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit38.i.i
@@ -6893,7 +6893,7 @@ if.then.i43:                                      ; preds = %_ZN11StreamProxylsI
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i43
-  tail call void @_ZSt16__throw_bad_castv() #30
+  tail call void @_ZSt16__throw_bad_castv() #31
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %if.then.i43
@@ -7036,7 +7036,7 @@ if.then.i:                                        ; preds = %_ZN9LogStreamlsIRA6
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  tail call void @_ZSt16__throw_bad_castv() #30
+  tail call void @_ZSt16__throw_bad_castv() #31
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %if.then.i
@@ -7439,7 +7439,7 @@ if.then89:                                        ; preds = %if.else87
   %m_move_has_really_moved = getelementptr inbounds nuw i8, ptr %this, i64 192
   store i8 0, ptr %m_move_has_really_moved, align 8, !tbaa !151
   call void @llvm.lifetime.start.p0(ptr nonnull %ts.i)
-  %call.i.i393 = call i32 @clock_gettime(i32 noundef 4, ptr noundef nonnull %ts.i) #31
+  %call.i.i393 = call i32 @clock_gettime(i32 noundef 4, ptr noundef nonnull %ts.i) #32
   %83 = load i64, ptr %ts.i, align 8, !tbaa !213
   %mul.i394 = mul i64 %83, 1000
   %tv_nsec.i = getelementptr inbounds nuw i8, ptr %ts.i, i64 8
@@ -7490,7 +7490,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %cleanup.cont.i.i, !llvm.loop !217
 
 cleanup.cont.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i, %if.end3.i.i.i.i, %if.end98
-  %call5.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #34
+  %call5.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #35
   store ptr null, ptr %call5.i.i.i.i.i.i, align 8, !tbaa !170
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 8
   store i64 %85, ptr %add.ptr.i.i.i.i, align 8, !tbaa !218
@@ -7508,7 +7508,7 @@ common.resume:                                    ; preds = %ehcleanup, %_ZNSt10
 _ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit33.i.i: ; preds = %cleanup.cont.i.i
   %93 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i) #32
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i) #33
   br label %common.resume
 
 _ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEEixERS9_.exit: ; preds = %for.cond.i.i.i.i, %cleanup.cont.i.i, %if.end.i.i.i.i
@@ -7551,7 +7551,7 @@ lor.lhs.false.i.i.i.i406:                         ; preds = %if.end3.i.i.i.i403
   br i1 %cmp.not.i.i.i.i409, label %for.cond.i.i.i.i419, label %cleanup.cont.i.i410, !llvm.loop !217
 
 cleanup.cont.i.i410:                              ; preds = %lor.lhs.false.i.i.i.i406, %if.end3.i.i.i.i403, %_ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEEixERS9_.exit
-  %call5.i.i.i.i.i.i411 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #34
+  %call5.i.i.i.i.i.i411 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #35
   store ptr null, ptr %call5.i.i.i.i.i.i411, align 8, !tbaa !170
   %add.ptr.i.i.i.i412 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i411, i64 8
   store i64 %94, ptr %add.ptr.i.i.i.i412, align 8, !tbaa !218
@@ -7565,7 +7565,7 @@ cleanup.cont.i.i410:                              ; preds = %lor.lhs.false.i.i.i
 _ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit33.i.i416: ; preds = %cleanup.cont.i.i410
   %102 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i411) #32
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i411) #33
   br label %common.resume
 
 _ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEEixERS9_.exit421: ; preds = %for.cond.i.i.i.i419, %cleanup.cont.i.i410, %if.end.i.i.i.i400
@@ -7618,7 +7618,7 @@ if.then.i435:                                     ; preds = %_ZN11StreamProxylsI
   br i1 %tobool.not.i.i.i602, label %if.then.i.i.i614, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i603
 
 if.then.i.i.i614:                                 ; preds = %if.then.i435
-  tail call void @_ZSt16__throw_bad_castv() #30
+  tail call void @_ZSt16__throw_bad_castv() #31
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i603: ; preds = %if.then.i435
@@ -7698,7 +7698,7 @@ lor.lhs.false.i.i.i.i449:                         ; preds = %if.end3.i.i.i.i446
   br i1 %cmp.not.i.i.i.i452, label %for.cond.i.i.i.i462, label %cleanup.cont.i.i453, !llvm.loop !217
 
 cleanup.cont.i.i453:                              ; preds = %lor.lhs.false.i.i.i.i449, %if.end3.i.i.i.i446, %land.lhs.true119
-  %call5.i.i.i.i.i.i454 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #34
+  %call5.i.i.i.i.i.i454 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #35
   store ptr null, ptr %call5.i.i.i.i.i.i454, align 8, !tbaa !170
   %add.ptr.i.i.i.i455 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i454, i64 8
   store i64 %.pre702, ptr %add.ptr.i.i.i.i455, align 8, !tbaa !218
@@ -7712,7 +7712,7 @@ cleanup.cont.i.i453:                              ; preds = %lor.lhs.false.i.i.i
 _ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit33.i.i459: ; preds = %cleanup.cont.i.i453
   %123 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i454) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i454) #33
   br label %common.resume
 
 _ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEEixERS9_.exit464: ; preds = %for.cond.i.i.i.i462, %cleanup.cont.i.i453, %if.end.i.i.i.i443
@@ -7767,7 +7767,7 @@ lor.lhs.false.i.i.i.i477:                         ; preds = %if.end3.i.i.i.i474
   br i1 %cmp.not.i.i.i.i480, label %for.cond.i.i.i.i490, label %cleanup.cont.i.i481, !llvm.loop !217
 
 cleanup.cont.i.i481:                              ; preds = %lor.lhs.false.i.i.i.i477, %if.end3.i.i.i.i474, %if.end125
-  %call5.i.i.i.i.i.i482 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #34
+  %call5.i.i.i.i.i.i482 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #35
   store ptr null, ptr %call5.i.i.i.i.i.i482, align 8, !tbaa !170
   %add.ptr.i.i.i.i483 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i482, i64 8
   store i64 %127, ptr %add.ptr.i.i.i.i483, align 8, !tbaa !218
@@ -7785,7 +7785,7 @@ cleanup.cont.i.i481._ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8eq
 _ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit33.i.i487: ; preds = %cleanup.cont.i.i481
   %135 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i482) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i482) #33
   br label %common.resume
 
 _ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEEixERS9_.exit492: ; preds = %for.cond.i.i.i.i490, %cleanup.cont.i.i481._ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEEixERS9_.exit492_crit_edge, %if.end.i.i.i.i471
@@ -7832,7 +7832,7 @@ lor.lhs.false.i.i.i.i511:                         ; preds = %if.end3.i.i.i.i508
   br i1 %cmp.not.i.i.i.i514, label %for.cond.i.i.i.i524, label %cleanup.cont.i.i515, !llvm.loop !217
 
 cleanup.cont.i.i515:                              ; preds = %lor.lhs.false.i.i.i.i511, %if.end3.i.i.i.i508, %_ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEEixERS9_.exit492
-  %call5.i.i.i.i.i.i516 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #34
+  %call5.i.i.i.i.i.i516 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #35
   store ptr null, ptr %call5.i.i.i.i.i.i516, align 8, !tbaa !170
   %add.ptr.i.i.i.i517 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i516, i64 8
   store i64 %136, ptr %add.ptr.i.i.i.i517, align 8, !tbaa !218
@@ -7846,7 +7846,7 @@ cleanup.cont.i.i515:                              ; preds = %lor.lhs.false.i.i.i
 _ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit33.i.i521: ; preds = %cleanup.cont.i.i515
   %146 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i516) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i516) #33
   br label %common.resume
 
 _ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEEixERS9_.exit526: ; preds = %for.cond.i.i.i.i524, %cleanup.cont.i.i515, %if.end.i.i.i.i505
@@ -7902,7 +7902,7 @@ invoke.cont153:                                   ; preds = %invoke.cont150
   br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i535
 
 if.then.i.i535:                                   ; preds = %invoke.cont153
-  call void @_ZdlPv(ptr noundef %153) #32
+  call void @_ZdlPv(ptr noundef %153) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %invoke.cont153, %if.then.i.i535
@@ -7945,7 +7945,7 @@ lpad149:                                          ; preds = %invoke.cont150, %in
   br i1 %cmp.i.i.i540, label %ehcleanup, label %if.then.i.i541
 
 if.then.i.i541:                                   ; preds = %lpad149
-  call void @_ZdlPv(ptr noundef %163) #32
+  call void @_ZdlPv(ptr noundef %163) #33
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad149, %if.then.i.i541, %lpad
@@ -7993,7 +7993,7 @@ if.then197:                                       ; preds = %if.then179
   %conv200 = sitofp i32 %dir.sroa.0.0 to double
   %sub202 = sub nsw i32 0, %dir.sroa.7.0
   %conv203 = sitofp i32 %sub202 to double
-  %call204 = call nsz double @atan2(double noundef %conv200, double noundef %conv203) #36
+  %call204 = call nsz double @atan2(double noundef %conv200, double noundef %conv203) #37
   %conv205 = fptrunc double %call204 to float
   %m_joystick_direction = getelementptr inbounds nuw i8, ptr %this, i64 236
   store float %conv205, ptr %m_joystick_direction, align 4, !tbaa !221
@@ -8250,7 +8250,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end3.i.i.i
   br i1 %cmp.not.i.i.i, label %for.cond.i.i.i, label %cleanup.cont.i, !llvm.loop !217
 
 cleanup.cont.i:                                   ; preds = %lor.lhs.false.i.i.i, %if.end3.i.i.i, %entry
-  %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #34
+  %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #35
   store ptr null, ptr %call5.i.i.i.i.i, align 8, !tbaa !170
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 8
   store i64 %0, ptr %add.ptr.i.i.i, align 8, !tbaa !218
@@ -8264,7 +8264,7 @@ cleanup.cont.i:                                   ; preds = %lor.lhs.false.i.i.i
 _ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit33.i: ; preds = %cleanup.cont.i
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i) #33
   resume { ptr, i32 } %8
 
 _ZNSt8__detail9_Map_baseImSt4pairIKmN3irr4core8vector2dIiEEESaIS7_ENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_.exit: ; preds = %for.cond.i.i.i, %cleanup.cont.i, %if.end.i.i.i
@@ -8278,7 +8278,7 @@ declare noundef float @_ZNK8Settings8getFloatERKNSt7__cxx1112basic_stringIcSt11c
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare double @atan2(double noundef, double noundef) local_unnamed_addr #18
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #12
 
 ; Function Attrs: mustprogress uwtable
@@ -8788,7 +8788,7 @@ delete.notnull.i:                                 ; preds = %if.then4
   %vtable.i = load ptr, ptr %add.ptr6, align 8, !tbaa !37
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
   %3 = load ptr, ptr %vfn.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr6) #31
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr6) #32
   br label %_ZNK3irr17IReferenceCounted4dropEv.exit
 
 _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %if.then4
@@ -8817,7 +8817,7 @@ delete.notnull.i.1:                               ; preds = %if.then4.1
   %vtable.i.1 = load ptr, ptr %add.ptr6.1, align 8, !tbaa !37
   %vfn.i.1 = getelementptr inbounds nuw i8, ptr %vtable.i.1, i64 8
   %6 = load ptr, ptr %vfn.i.1, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr6.1) #31
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr6.1) #32
   br label %_ZNK3irr17IReferenceCounted4dropEv.exit.1
 
 _ZNK3irr17IReferenceCounted4dropEv.exit.1:        ; preds = %delete.notnull.i.1, %if.then4.1
@@ -8846,7 +8846,7 @@ delete.notnull.i.2:                               ; preds = %if.then4.2
   %vtable.i.2 = load ptr, ptr %add.ptr6.2, align 8, !tbaa !37
   %vfn.i.2 = getelementptr inbounds nuw i8, ptr %vtable.i.2, i64 8
   %9 = load ptr, ptr %vfn.i.2, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr6.2) #31
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr6.2) #32
   br label %_ZNK3irr17IReferenceCounted4dropEv.exit.2
 
 _ZNK3irr17IReferenceCounted4dropEv.exit.2:        ; preds = %delete.notnull.i.2, %if.then4.2
@@ -8875,7 +8875,7 @@ delete.notnull.i.3:                               ; preds = %if.then4.3
   %vtable.i.3 = load ptr, ptr %add.ptr6.3, align 8, !tbaa !37
   %vfn.i.3 = getelementptr inbounds nuw i8, ptr %vtable.i.3, i64 8
   %12 = load ptr, ptr %vfn.i.3, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr6.3) #31
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr6.3) #32
   br label %_ZNK3irr17IReferenceCounted4dropEv.exit.3
 
 _ZNK3irr17IReferenceCounted4dropEv.exit.3:        ; preds = %delete.notnull.i.3, %if.then4.3
@@ -8906,7 +8906,7 @@ delete.notnull.i81:                               ; preds = %if.then12
   %vtable.i82 = load ptr, ptr %add.ptr19, align 8, !tbaa !37
   %vfn.i83 = getelementptr inbounds nuw i8, ptr %vtable.i82, i64 8
   %16 = load ptr, ptr %vfn.i83, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr19) #31
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr19) #32
   %.pre = load ptr, ptr %m_joystick_btn_off, align 8, !tbaa !79
   br label %_ZNK3irr17IReferenceCounted4dropEv.exit84
 
@@ -8940,7 +8940,7 @@ delete.notnull.i88:                               ; preds = %if.then29
   %vtable.i89 = load ptr, ptr %add.ptr36, align 8, !tbaa !37
   %vfn.i90 = getelementptr inbounds nuw i8, ptr %vtable.i89, i64 8
   %21 = load ptr, ptr %vfn.i90, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr36) #31
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr36) #32
   %.pre166 = load ptr, ptr %m_joystick_btn_bg, align 8, !tbaa !79
   br label %_ZNK3irr17IReferenceCounted4dropEv.exit91
 
@@ -8974,7 +8974,7 @@ delete.notnull.i95:                               ; preds = %if.then46
   %vtable.i96 = load ptr, ptr %add.ptr53, align 8, !tbaa !37
   %vfn.i97 = getelementptr inbounds nuw i8, ptr %vtable.i96, i64 8
   %26 = load ptr, ptr %vfn.i97, align 8
-  tail call void %26(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr53) #31
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr53) #32
   %.pre167 = load ptr, ptr %m_joystick_btn_center, align 8, !tbaa !79
   br label %_ZNK3irr17IReferenceCounted4dropEv.exit98
 
@@ -8986,9 +8986,9 @@ _ZNK3irr17IReferenceCounted4dropEv.exit98:        ; preds = %delete.notnull.i95,
 
 cleanup:                                          ; preds = %_ZNK3irr17IReferenceCounted4dropEv.exit98, %if.end42, %entry
   %m_rare_controls_bar = getelementptr inbounds nuw i8, ptr %this, i64 904
-  tail call void @_ZN17AutoHideButtonBarD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %m_rare_controls_bar) #31
+  tail call void @_ZN17AutoHideButtonBarD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %m_rare_controls_bar) #32
   %m_settings_bar = getelementptr inbounds nuw i8, ptr %this, i64 728
-  tail call void @_ZN17AutoHideButtonBarD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %m_settings_bar) #31
+  tail call void @_ZN17AutoHideButtonBarD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %m_settings_bar) #32
   %m_pointer_pos = getelementptr inbounds nuw i8, ptr %this, i64 672
   %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 688
   %28 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8, !tbaa !169
@@ -8998,7 +8998,7 @@ cleanup:                                          ; preds = %_ZNK3irr17IReferenc
 while.body.i.i.i.i:                               ; preds = %cleanup, %while.body.i.i.i.i
   %__n.addr.05.i.i.i.i = phi ptr [ %29, %while.body.i.i.i.i ], [ %28, %cleanup ]
   %29 = load ptr, ptr %__n.addr.05.i.i.i.i, align 8, !tbaa !170
-  tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.05.i.i.i.i) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.05.i.i.i.i) #33
   %tobool.not.i.i.i.i = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !171
 
@@ -9015,7 +9015,7 @@ _ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Selec
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
-  tail call void @_ZdlPv(ptr noundef %32) #32
+  tail call void @_ZdlPv(ptr noundef %32) #33
   br label %_ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEED2Ev.exit
 
 _ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEED2Ev.exit: ; preds = %if.end.i.i.i.i, %_ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -9028,7 +9028,7 @@ _ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8equal_toImESaISt4pairI
 while.body.i.i.i.i101:                            ; preds = %_ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEED2Ev.exit, %while.body.i.i.i.i101
   %__n.addr.05.i.i.i.i102 = phi ptr [ %34, %while.body.i.i.i.i101 ], [ %33, %_ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEED2Ev.exit ]
   %34 = load ptr, ptr %__n.addr.05.i.i.i.i102, align 8, !tbaa !170
-  tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.05.i.i.i.i102) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.05.i.i.i.i102) #33
   %tobool.not.i.i.i.i103 = icmp eq ptr %34, null
   br i1 %tobool.not.i.i.i.i103, label %_ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i104, label %while.body.i.i.i.i101, !llvm.loop !171
 
@@ -9045,7 +9045,7 @@ _ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Selec
   br i1 %cmp.i.i.i.i.i108, label %_ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEED2Ev.exit110, label %if.end.i.i.i.i109
 
 if.end.i.i.i.i109:                                ; preds = %_ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i104
-  tail call void @_ZdlPv(ptr noundef %37) #32
+  tail call void @_ZdlPv(ptr noundef %37) #33
   br label %_ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEED2Ev.exit110
 
 _ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEED2Ev.exit110: ; preds = %if.end.i.i.i.i109, %_ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i104
@@ -9064,7 +9064,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt13unordered_ma
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %40) #32
+  tail call void @_ZdlPv(ptr noundef %40) #33
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
@@ -9082,7 +9082,7 @@ invoke.cont.i.i:                                  ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i111, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %42) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %42) #33
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %invoke.cont.i.i
@@ -9092,7 +9092,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %tobool.not.i.i.i3.i, label %_ZN11button_infoD2Ev.exit, label %if.then.i.i.i4.i
 
 if.then.i.i.i4.i:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %43) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %43) #33
   br label %_ZN11button_infoD2Ev.exit
 
 _ZN11button_infoD2Ev.exit:                        ; preds = %if.then.i.i.i4.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
@@ -9111,7 +9111,7 @@ for.body.i.i.i.i.i.1:                             ; preds = %_ZN11button_infoD2E
   br i1 %cmp.i.i.i.i.i.i.i.i.i.1, label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i.1, label %if.then.i.i.i.i.i.i.i.i.1
 
 if.then.i.i.i.i.i.i.i.i.1:                        ; preds = %for.body.i.i.i.i.i.1
-  tail call void @_ZdlPv(ptr noundef %46) #32
+  tail call void @_ZdlPv(ptr noundef %46) #33
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i.1
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i.1: ; preds = %for.body.i.i.i.i.i.1, %if.then.i.i.i.i.i.i.i.i.1
@@ -9129,7 +9129,7 @@ invoke.cont.i.i.1:                                ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i111.1, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.1, label %if.then.i.i.i.i.1
 
 if.then.i.i.i.i.1:                                ; preds = %invoke.cont.i.i.1
-  tail call void @_ZdlPv(ptr noundef nonnull %48) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %48) #33
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.1
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.1: ; preds = %if.then.i.i.i.i.1, %invoke.cont.i.i.1
@@ -9139,7 +9139,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %tobool.not.i.i.i3.i.1, label %_ZN11button_infoD2Ev.exit.1, label %if.then.i.i.i4.i.1
 
 if.then.i.i.i4.i.1:                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.1
-  tail call void @_ZdlPv(ptr noundef nonnull %49) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %49) #33
   br label %_ZN11button_infoD2Ev.exit.1
 
 _ZN11button_infoD2Ev.exit.1:                      ; preds = %if.then.i.i.i4.i.1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.1
@@ -9158,7 +9158,7 @@ for.body.i.i.i.i.i.2:                             ; preds = %_ZN11button_infoD2E
   br i1 %cmp.i.i.i.i.i.i.i.i.i.2, label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i.2, label %if.then.i.i.i.i.i.i.i.i.2
 
 if.then.i.i.i.i.i.i.i.i.2:                        ; preds = %for.body.i.i.i.i.i.2
-  tail call void @_ZdlPv(ptr noundef %52) #32
+  tail call void @_ZdlPv(ptr noundef %52) #33
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i.2
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i.2: ; preds = %for.body.i.i.i.i.i.2, %if.then.i.i.i.i.i.i.i.i.2
@@ -9176,7 +9176,7 @@ invoke.cont.i.i.2:                                ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i111.2, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.2, label %if.then.i.i.i.i.2
 
 if.then.i.i.i.i.2:                                ; preds = %invoke.cont.i.i.2
-  tail call void @_ZdlPv(ptr noundef nonnull %54) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %54) #33
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.2
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.2: ; preds = %if.then.i.i.i.i.2, %invoke.cont.i.i.2
@@ -9186,7 +9186,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %tobool.not.i.i.i3.i.2, label %_ZN11button_infoD2Ev.exit.2, label %if.then.i.i.i4.i.2
 
 if.then.i.i.i4.i.2:                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.2
-  tail call void @_ZdlPv(ptr noundef nonnull %55) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %55) #33
   br label %_ZN11button_infoD2Ev.exit.2
 
 _ZN11button_infoD2Ev.exit.2:                      ; preds = %if.then.i.i.i4.i.2, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.2
@@ -9205,7 +9205,7 @@ for.body.i.i.i.i.i.3:                             ; preds = %_ZN11button_infoD2E
   br i1 %cmp.i.i.i.i.i.i.i.i.i.3, label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i.3, label %if.then.i.i.i.i.i.i.i.i.3
 
 if.then.i.i.i.i.i.i.i.i.3:                        ; preds = %for.body.i.i.i.i.i.3
-  tail call void @_ZdlPv(ptr noundef %58) #32
+  tail call void @_ZdlPv(ptr noundef %58) #33
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i.3
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i.3: ; preds = %for.body.i.i.i.i.i.3, %if.then.i.i.i.i.i.i.i.i.3
@@ -9223,7 +9223,7 @@ invoke.cont.i.i.3:                                ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i111.3, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.3, label %if.then.i.i.i.i.3
 
 if.then.i.i.i.i.3:                                ; preds = %invoke.cont.i.i.3
-  tail call void @_ZdlPv(ptr noundef nonnull %60) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %60) #33
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.3
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.3: ; preds = %if.then.i.i.i.i.3, %invoke.cont.i.i.3
@@ -9233,7 +9233,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %tobool.not.i.i.i3.i.3, label %_ZN11button_infoD2Ev.exit.3, label %if.then.i.i.i4.i.3
 
 if.then.i.i.i4.i.3:                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.3
-  tail call void @_ZdlPv(ptr noundef nonnull %61) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %61) #33
   br label %_ZN11button_infoD2Ev.exit.3
 
 _ZN11button_infoD2Ev.exit.3:                      ; preds = %if.then.i.i.i4.i.3, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.3
@@ -9256,11 +9256,11 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %62, align 8, !tbaa !37
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %65 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %62) #31
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %62) #32
   %vtable3.i.i.i = load ptr, ptr %62, align 8, !tbaa !37
   %vfn4.i.i.i = getelementptr inbounds nuw i8, ptr %vtable3.i.i.i, i64 24
   %66 = load ptr, ptr %vfn4.i.i.i, align 8
-  tail call void %66(ptr noundef nonnull align 8 dereferenceable(16) %62) #31
+  tail call void %66(ptr noundef nonnull align 8 dereferenceable(16) %62) #32
   br label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
@@ -9283,7 +9283,7 @@ invoke.cont.i.i.i:                                ; preds = %if.else.i.i.i.i, %i
   br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !77
 
 if.then7.i.i.i:                                   ; preds = %invoke.cont.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %62) #31
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %62) #32
   br label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.then7.i.i.i, %invoke.cont.i.i.i, %if.then.i.i.i, %_ZN11button_infoD2Ev.exit.3
@@ -9306,11 +9306,11 @@ if.then.i.i.i127:                                 ; preds = %if.then.i.i115
   %vtable.i.i.i129 = load ptr, ptr %69, align 8, !tbaa !37
   %vfn.i.i.i130 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i129, i64 16
   %72 = load ptr, ptr %vfn.i.i.i130, align 8
-  tail call void %72(ptr noundef nonnull align 8 dereferenceable(16) %69) #31
+  tail call void %72(ptr noundef nonnull align 8 dereferenceable(16) %69) #32
   %vtable3.i.i.i131 = load ptr, ptr %69, align 8, !tbaa !37
   %vfn4.i.i.i132 = getelementptr inbounds nuw i8, ptr %vtable3.i.i.i131, i64 24
   %73 = load ptr, ptr %vfn4.i.i.i132, align 8
-  tail call void %73(ptr noundef nonnull align 8 dereferenceable(16) %69) #31
+  tail call void %73(ptr noundef nonnull align 8 dereferenceable(16) %69) #32
   br label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit133
 
 if.end.i.i.i118:                                  ; preds = %if.then.i.i115
@@ -9333,7 +9333,7 @@ invoke.cont.i.i.i122:                             ; preds = %if.else.i.i.i.i126,
   br i1 %cmp6.i.i.i124, label %if.then7.i.i.i125, label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit133, !prof !77
 
 if.then7.i.i.i125:                                ; preds = %invoke.cont.i.i.i122
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #31
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #32
   br label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit133
 
 _ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit133: ; preds = %if.then7.i.i.i125, %invoke.cont.i.i.i122, %if.then.i.i.i127, %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -9356,11 +9356,11 @@ if.then.i.i.i148:                                 ; preds = %if.then.i.i136
   %vtable.i.i.i150 = load ptr, ptr %76, align 8, !tbaa !37
   %vfn.i.i.i151 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i150, i64 16
   %79 = load ptr, ptr %vfn.i.i.i151, align 8
-  tail call void %79(ptr noundef nonnull align 8 dereferenceable(16) %76) #31
+  tail call void %79(ptr noundef nonnull align 8 dereferenceable(16) %76) #32
   %vtable3.i.i.i152 = load ptr, ptr %76, align 8, !tbaa !37
   %vfn4.i.i.i153 = getelementptr inbounds nuw i8, ptr %vtable3.i.i.i152, i64 24
   %80 = load ptr, ptr %vfn4.i.i.i153, align 8
-  tail call void %80(ptr noundef nonnull align 8 dereferenceable(16) %76) #31
+  tail call void %80(ptr noundef nonnull align 8 dereferenceable(16) %76) #32
   br label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit154
 
 if.end.i.i.i139:                                  ; preds = %if.then.i.i136
@@ -9383,7 +9383,7 @@ invoke.cont.i.i.i143:                             ; preds = %if.else.i.i.i.i147,
   br i1 %cmp6.i.i.i145, label %if.then7.i.i.i146, label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit154, !prof !77
 
 if.then7.i.i.i146:                                ; preds = %invoke.cont.i.i.i143
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %76) #31
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %76) #32
   br label %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit154
 
 _ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit154: ; preds = %if.then7.i.i.i146, %invoke.cont.i.i.i143, %if.then.i.i.i148, %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit133
@@ -9396,7 +9396,7 @@ _ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit154: ; p
 while.body.i.i.i.i157:                            ; preds = %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit154, %while.body.i.i.i.i157
   %__n.addr.05.i.i.i.i158 = phi ptr [ %84, %while.body.i.i.i.i157 ], [ %83, %_ZNSt12__shared_ptrI11button_infoLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit154 ]
   %84 = load ptr, ptr %__n.addr.05.i.i.i.i158, align 8, !tbaa !170
-  tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.05.i.i.i.i158) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.05.i.i.i.i158) #33
   %tobool.not.i.i.i.i159 = icmp eq ptr %84, null
   br i1 %tobool.not.i.i.i.i159, label %_ZNSt10_HashtableItSt4pairIKtN3irr4core4rectIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i157, !llvm.loop !173
 
@@ -9413,7 +9413,7 @@ _ZNSt10_HashtableItSt4pairIKtN3irr4core4rectIiEEESaIS6_ENSt8__detail10_Select1st
   br i1 %cmp.i.i.i.i.i163, label %_ZNSt13unordered_mapItN3irr4core4rectIiEESt4hashItESt8equal_toItESaISt4pairIKtS3_EEED2Ev.exit, label %if.end.i.i.i.i164
 
 if.end.i.i.i.i164:                                ; preds = %_ZNSt10_HashtableItSt4pairIKtN3irr4core4rectIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
-  tail call void @_ZdlPv(ptr noundef %87) #32
+  tail call void @_ZdlPv(ptr noundef %87) #33
   br label %_ZNSt13unordered_mapItN3irr4core4rectIiEESt4hashItESt8equal_toItESaISt4pairIKtS3_EEED2Ev.exit
 
 _ZNSt13unordered_mapItN3irr4core4rectIiEESt4hashItESt8equal_toItESaISt4pairIKtS3_EEED2Ev.exit: ; preds = %if.end.i.i.i.i164, %_ZNSt10_HashtableItSt4pairIKtN3irr4core4rectIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -9663,7 +9663,7 @@ if.then26:                                        ; preds = %land.lhs.true24
   %m_move_downtime = getelementptr inbounds nuw i8, ptr %this, i64 200
   %46 = load i64, ptr %m_move_downtime, align 8, !tbaa !216
   call void @llvm.lifetime.start.p0(ptr nonnull %ts.i)
-  %call.i.i = call i32 @clock_gettime(i32 noundef 4, ptr noundef nonnull %ts.i) #31
+  %call.i.i = call i32 @clock_gettime(i32 noundef 4, ptr noundef nonnull %ts.i) #32
   %47 = load i64, ptr %ts.i, align 8, !tbaa !213
   %mul.i = mul i64 %47, 1000
   %tv_nsec.i = getelementptr inbounds nuw i8, ptr %ts.i, i64 8
@@ -9896,7 +9896,7 @@ entry:
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__n.addr.05.i.i.i = phi ptr [ %1, %while.body.i.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__n.addr.05.i.i.i, align 8, !tbaa !170
-  tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.05.i.i.i) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.05.i.i.i) #33
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZNSt13unordered_mapItN3irr4core4rectIiEESt4hashItESt8equal_toItESaISt4pairIKtS3_EEE5clearEv.exit, label %while.body.i.i.i, !llvm.loop !173
 
@@ -9951,7 +9951,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %cleanup.cont.i.i, !llvm.loop !250
 
 cleanup.cont.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i, %if.end3.i.i.i.i, %entry
-  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #34
+  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #35
   store ptr null, ptr %call5.i.i.i.i.i.i, align 8, !tbaa !170
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 8
   store i16 %index, ptr %add.ptr.i.i.i.i, align 8, !tbaa !251
@@ -9963,7 +9963,7 @@ cleanup.cont.i.i:                                 ; preds = %lor.lhs.false.i.i.i
 _ZNSt10_HashtableItSt4pairIKtN3irr4core4rectIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit33.i.i: ; preds = %cleanup.cont.i.i
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i) #33
   resume { ptr, i32 } %7
 
 _ZNSt13unordered_mapItN3irr4core4rectIiEESt4hashItESt8equal_toItESaISt4pairIKtS3_EEEixERS9_.exit: ; preds = %for.cond.i.i.i.i, %cleanup.cont.i.i, %if.end.i.i.i.i
@@ -10347,7 +10347,7 @@ entry:
   %event.i = alloca %"struct.irr::SEvent", align 8
   %ts.i = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ts.i)
-  %call.i.i = call i32 @clock_gettime(i32 noundef 4, ptr noundef nonnull %ts.i) #31
+  %call.i.i = call i32 @clock_gettime(i32 noundef 4, ptr noundef nonnull %ts.i) #32
   %0 = load i64, ptr %ts.i, align 8, !tbaa !213
   %mul.i = mul i64 %0, 1000
   %tv_nsec.i = getelementptr inbounds nuw i8, ptr %ts.i, i64 8
@@ -10662,7 +10662,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8Settings3getERKNSt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %__lhs, ptr noundef nonnull align 8 dereferenceable(32) %__rhs) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__lhs) #31
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__lhs) #32
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !4
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -10692,7 +10692,7 @@ invoke.cont5:                                     ; preds = %_ZNKSt7__cxx1112bas
   br i1 %cmp.i.i.i, label %if.then.i.i.i.invoke, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i
 
 if.then.i.i.i.invoke:                             ; preds = %invoke.cont5, %invoke.cont4
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.58) #30
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.58) #31
           to label %if.then.i.i.i.cont unwind label %lpad3
 
 if.then.i.i.i.cont:                               ; preds = %if.then.i.i.i.invoke
@@ -10711,7 +10711,7 @@ lpad3:                                            ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.i.i20, label %ehcleanup, label %if.then.i.i21
 
 if.then.i.i21:                                    ; preds = %lpad3
-  tail call void @_ZdlPv(ptr noundef %7) #32
+  tail call void @_ZdlPv(ptr noundef %7) #33
   br label %ehcleanup
 
 nrvo.skipdtor:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i
@@ -10737,7 +10737,7 @@ entry:
   br i1 %tobool.not.i, label %_ZN11StreamProxylsIRA30_KcEERS_OT_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %arg) #31
+  %call.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %arg) #32
   %call1.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %arg, i64 noundef %call.i.i.i)
   br label %_ZN11StreamProxylsIRA30_KcEERS_OT_.exit
 
@@ -10753,7 +10753,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %arg) #31
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %arg) #32
   %call1.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %arg, i64 noundef %call.i.i)
   br label %if.end
 
@@ -10769,7 +10769,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %arg) #31
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %arg) #32
   %call1.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %arg, i64 noundef %call.i.i)
   br label %if.end
 
@@ -10801,7 +10801,7 @@ entry:
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !37
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this) #31
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this) #32
   %_M_weak_count.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %1 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !13
   %tobool.i.not.i = icmp eq i8 %1, 0
@@ -10826,7 +10826,7 @@ if.then.i:                                        ; preds = %invoke.cont.i
   %vtable2.i = load ptr, ptr %this, align 8, !tbaa !37
   %vfn3.i = getelementptr inbounds nuw i8, ptr %vtable2.i, i64 24
   %4 = load ptr, ptr %vfn3.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %this) #31
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %this) #32
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit: ; preds = %if.then.i, %invoke.cont.i
@@ -10848,7 +10848,7 @@ terminate.lpad:                                   ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #33
+  tail call void @__clang_call_terminate(ptr %2) #34
   unreachable
 }
 
@@ -10872,11 +10872,11 @@ while.body:                                       ; preds = %entry, %_ZNSt8_Rb_t
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeI19touch_gui_button_idSt4pairIKS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS9_ESt4lessIS0_ESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %while.body
-  tail call void @_ZdlPv(ptr noundef %2) #32
+  tail call void @_ZdlPv(ptr noundef %2) #33
   br label %_ZNSt8_Rb_treeI19touch_gui_button_idSt4pairIKS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS9_ESt4lessIS0_ESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit
 
 _ZNSt8_Rb_treeI19touch_gui_button_idSt4pairIKS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS9_ESt4lessIS0_ESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit: ; preds = %while.body, %if.then.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.07) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.07) #33
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !258
 
@@ -10910,7 +10910,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt15_Sp_counted_ptrIP11button_infoLN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #33
   ret void
 }
 
@@ -10938,7 +10938,7 @@ for.body.i.i.i.i.i:                               ; preds = %delete.notnull, %_Z
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %3) #32
+  tail call void @_ZdlPv(ptr noundef %3) #33
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
@@ -10956,7 +10956,7 @@ invoke.cont.i.i:                                  ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #33
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %invoke.cont.i.i
@@ -10966,11 +10966,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %tobool.not.i.i.i3.i, label %_ZN11button_infoD2Ev.exit, label %if.then.i.i.i4.i
 
 if.then.i.i.i4.i:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #33
   br label %_ZN11button_infoD2Ev.exit
 
 _ZN11button_infoD2Ev.exit:                        ; preds = %if.then.i.i.i4.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #33
   br label %delete.end
 
 delete.end:                                       ; preds = %_ZN11button_infoD2Ev.exit, %entry
@@ -10980,7 +10980,7 @@ delete.end:                                       ; preds = %_ZN11button_infoD2E
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt15_Sp_counted_ptrIP11button_infoLN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #33
   ret void
 }
 
@@ -11003,7 +11003,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorISt10shared_ptrI11button_infoESaIS2_EE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.60) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.60) #31
   unreachable
 
 _ZNKSt6vectorISt10shared_ptrI11button_infoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %entry
@@ -11018,7 +11018,7 @@ _ZNKSt6vectorISt10shared_ptrI11button_infoESaIS2_EE12_M_check_lenEmPKc.exit: ; p
   %cmp.not.i = icmp ne i64 %cond.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i)
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 4
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #34
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #35
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   %3 = load ptr, ptr %__args, align 8, !tbaa !79
   store ptr %3, ptr %add.ptr, align 8, !tbaa !79
@@ -11091,7 +11091,7 @@ _ZNSt6vectorISt10shared_ptrI11button_infoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseISt10shared_ptrI11button_infoESaIS2_EE13_M_deallocateEPS2_m.exit, label %if.then.i43
 
 if.then.i43:                                      ; preds = %_ZNSt6vectorISt10shared_ptrI11button_infoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit42
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #33
   br label %_ZNSt12_Vector_baseISt10shared_ptrI11button_infoESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseISt10shared_ptrI11button_infoESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %if.then.i43, %_ZNSt6vectorISt10shared_ptrI11button_infoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit42
@@ -11123,7 +11123,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.60) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.60) #31
   unreachable
 
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
@@ -11140,7 +11140,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
 
 cond.true.i:                                      ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 5
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #34
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #35
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %cond.true.i, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
@@ -11289,7 +11289,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit, label %if.then.i69
 
 if.then.i69:                                      ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit68
-  call void @_ZdlPv(ptr noundef nonnull %1) #32
+  call void @_ZdlPv(ptr noundef nonnull %1) #33
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %if.then.i69, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit68
@@ -11310,9 +11310,9 @@ invoke.cont19:                                    ; preds = %if.then.i.i.i.i
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  %26 = call ptr @__cxa_begin_catch(ptr %25) #31
-  call void @_ZdlPv(ptr noundef nonnull %cond.i47) #32
-  invoke void @__cxa_rethrow() #30
+  %26 = call ptr @__cxa_begin_catch(ptr %25) #32
+  call void @_ZdlPv(ptr noundef nonnull %cond.i47) #33
+  invoke void @__cxa_rethrow() #31
           to label %unreachable unwind label %lpad17
 
 invoke.cont20:                                    ; preds = %lpad17
@@ -11322,7 +11322,7 @@ terminate.lpad:                                   ; preds = %lpad17
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #33
+  call void @__clang_call_terminate(ptr %28) #34
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont19
@@ -11354,11 +11354,11 @@ if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %0, align 8, !tbaa !37
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #31
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #32
   %vtable3.i.i = load ptr, ptr %0, align 8, !tbaa !37
   %vfn4.i.i = getelementptr inbounds nuw i8, ptr %vtable3.i.i, i64 24
   %4 = load ptr, ptr %vfn4.i.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #31
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #32
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 if.end.i.i:                                       ; preds = %if.then.i
@@ -11381,7 +11381,7 @@ invoke.cont.i.i:                                  ; preds = %if.else.i.i.i, %if.
   br i1 %cmp6.i.i, label %if.then7.i.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !77
 
 if.then7.i.i:                                     ; preds = %invoke.cont.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #31
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #32
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.then7.i.i, %invoke.cont.i.i, %if.then.i.i, %entry
@@ -11448,9 +11448,9 @@ lpad:                                             ; preds = %if.then.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %8) #31
-  call void @_ZdlPv(ptr noundef nonnull %__node) #32
-  invoke void @__cxa_rethrow() #30
+  %9 = call ptr @__cxa_begin_catch(ptr %8) #32
+  call void @_ZdlPv(ptr noundef nonnull %__node) #33
+  invoke void @__cxa_rethrow() #31
           to label %unreachable unwind label %lpad3
 
 lpad3:                                            ; preds = %lpad
@@ -11476,7 +11476,7 @@ terminate.lpad:                                   ; preds = %lpad3
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #33
+  call void @__clang_call_terminate(ptr %14) #34
   unreachable
 
 unreachable:                                      ; preds = %lpad
@@ -11649,7 +11649,7 @@ _ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Selec
   %__n.163 = phi ptr [ %__n.16473, %cond.end.i ], [ %__n.16474, %if.end11.i.i ], [ %__n.1, %if.else.i ], [ %__n.1, %if.then6.i ], [ %__n.1, %if.then11.i ]
   %30 = load ptr, ptr %__n.163, align 8, !tbaa !170
   store ptr %30, ptr %__prev_n.066, align 8, !tbaa !170
-  tail call void @_ZdlPv(ptr noundef nonnull %__n.163) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %__n.163) #33
   %31 = load i64, ptr %_M_element_count.i, align 8, !tbaa !253
   %dec.i = add i64 %31, -1
   store i64 %dec.i, ptr %_M_element_count.i, align 8, !tbaa !253
@@ -11685,9 +11685,9 @@ lpad.i:                                           ; preds = %if.then
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  %8 = tail call ptr @__cxa_begin_catch(ptr %7) #31
+  %8 = tail call ptr @__cxa_begin_catch(ptr %7) #32
   store i64 %0, ptr %_M_next_resize.i, align 8, !tbaa !282
-  invoke void @__cxa_rethrow() #30
+  invoke void @__cxa_rethrow() #31
           to label %unreachable.i unwind label %lpad2.i
 
 lpad2.i:                                          ; preds = %lpad.i
@@ -11703,7 +11703,7 @@ terminate.lpad.i:                                 ; preds = %lpad2.i
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #33
+  tail call void @__clang_call_terminate(ptr %11) #34
   unreachable
 
 unreachable.i:                                    ; preds = %lpad.i
@@ -11783,16 +11783,16 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i
   br i1 %cmp2.i.i.i.i, label %if.then3.i.i.i.i, label %if.end.i.i.i.i
 
 if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #30
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #31
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i
-  tail call void @_ZSt17__throw_bad_allocv() #30
+  tail call void @_ZSt17__throw_bad_allocv() #31
   unreachable
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmN3irr4core8vector2dIiEEELb0EEEEE19_M_allocate_bucketsEm.exit.i: ; preds = %if.end.i
   %mul.i.i.i.i = shl nuw nsw i64 %__bkt_count, 3
-  %call5.i.i8.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #34
+  %call5.i.i8.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #35
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i8.i.i, i8 0, i64 %mul.i.i.i.i, i1 false)
   br label %_ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -11853,7 +11853,7 @@ while.end:                                        ; preds = %if.end22, %_ZNSt10_
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end
-  tail call void @_ZdlPv(ptr noundef %8) #32
+  tail call void @_ZdlPv(ptr noundef %8) #33
   br label %_ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %if.end.i.i, %while.end
@@ -11888,9 +11888,9 @@ lpad.i:                                           ; preds = %if.then
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  %8 = tail call ptr @__cxa_begin_catch(ptr %7) #31
+  %8 = tail call ptr @__cxa_begin_catch(ptr %7) #32
   store i64 %0, ptr %_M_next_resize.i, align 8, !tbaa !282
-  invoke void @__cxa_rethrow() #30
+  invoke void @__cxa_rethrow() #31
           to label %unreachable.i unwind label %lpad2.i
 
 lpad2.i:                                          ; preds = %lpad.i
@@ -11906,7 +11906,7 @@ terminate.lpad.i:                                 ; preds = %lpad2.i
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #33
+  tail call void @__clang_call_terminate(ptr %11) #34
   unreachable
 
 unreachable.i:                                    ; preds = %lpad.i
@@ -11985,16 +11985,16 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i
   br i1 %cmp2.i.i.i.i, label %if.then3.i.i.i.i, label %if.end.i.i.i.i
 
 if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #30
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #31
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i
-  tail call void @_ZSt17__throw_bad_allocv() #30
+  tail call void @_ZSt17__throw_bad_allocv() #31
   unreachable
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKtN3irr4core4rectIiEEELb0EEEEE19_M_allocate_bucketsEm.exit.i: ; preds = %if.end.i
   %mul.i.i.i.i = shl nuw nsw i64 %__bkt_count, 3
-  %call5.i.i8.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #34
+  %call5.i.i8.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #35
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i8.i.i, i8 0, i64 %mul.i.i.i.i, i1 false)
   br label %_ZNSt10_HashtableItSt4pairIKtN3irr4core4rectIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -12056,7 +12056,7 @@ while.end:                                        ; preds = %if.end22, %_ZNSt10_
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableItSt4pairIKtN3irr4core4rectIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end
-  tail call void @_ZdlPv(ptr noundef %8) #32
+  tail call void @_ZdlPv(ptr noundef %8) #33
   br label %_ZNSt10_HashtableItSt4pairIKtN3irr4core4rectIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableItSt4pairIKtN3irr4core4rectIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %if.end.i.i, %while.end
@@ -12072,7 +12072,7 @@ entry:
   %__dnew.i.i27.i = alloca i64, align 8
   %__dnew.i.i.i = alloca i64, align 8
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #31
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #32
   store ptr getelementptr inbounds nuw (i8, ptr @_Z18button_image_namesB5cxx11, i64 16), ptr @_Z18button_image_namesB5cxx11, align 16, !tbaa !4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @_Z18button_image_namesB5cxx11, i64 16), ptr noundef nonnull align 1 dereferenceable(12) @.str, i64 12, i1 false)
   store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_Z18button_image_namesB5cxx11, i64 8), align 8, !tbaa !14
@@ -12089,7 +12089,7 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @_Z18button_image_namesB5cxx11, i64 112), ptr noundef nonnull align 1 dereferenceable(12) @.str.4, i64 12, i1 false)
   store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_Z18button_image_namesB5cxx11, i64 104), align 8, !tbaa !14
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_Z18button_image_namesB5cxx11, i64 124), align 4, !tbaa !13
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor, ptr null, ptr nonnull @__dso_handle) #31
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor, ptr null, ptr nonnull @__dso_handle) #32
   store ptr getelementptr inbounds nuw (i8, ptr @_Z20joystick_image_namesB5cxx11, i64 16), ptr @_Z20joystick_image_namesB5cxx11, align 16, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i.i)
   store i64 16, ptr %__dnew.i.i.i, align 8, !tbaa !9
@@ -12121,7 +12121,7 @@ lpad5.i:                                          ; preds = %entry
   br i1 %cmp.i.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %if.then.i.i38.i
 
 if.then.i.i38.i:                                  ; preds = %lpad5.i
-  call void @_ZdlPv(ptr noundef %5) #32
+  call void @_ZdlPv(ptr noundef %5) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %lpad5.i, %if.then.i.i38.i
@@ -12130,7 +12130,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %lpa
   br i1 %cmp.i.i.i.1.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1.i, label %if.then.i.i38.1.i
 
 if.then.i.i38.1.i:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef %6) #32
+  call void @_ZdlPv(ptr noundef %6) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %if.then.i.i38.1.i
@@ -12146,14 +12146,14 @@ __cxx_global_var_init.5.exit:                     ; preds = %entry
   %arrayidx.i.i.i31.i = getelementptr inbounds i8, ptr %8, i64 %7
   store i8 0, ptr %arrayidx.i.i.i31.i, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i.i27.i)
-  %9 = call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor.9, ptr null, ptr nonnull @__dso_handle) #31
+  %9 = call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor.9, ptr null, ptr nonnull @__dso_handle) #32
   ret void
 }
 
 declare extern_weak void @_ZTH11errorstream() #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #12
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #25
 
 declare extern_weak void @_ZTH10infostream() #0
 
@@ -12162,37 +12162,37 @@ declare extern_weak void @_ZTH13verbosestream() #0
 declare extern_weak void @_ZTH13warningstream() #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #25
+declare void @llvm.assume(i1 noundef) #26
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #26
+declare void @llvm.experimental.noalias.scope.decl(metadata) #27
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #12
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #12
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
-declare ptr @llvm.load.relative.i64(ptr, i64) #27
+declare ptr @llvm.load.relative.i64(ptr, i64) #28
 
 ; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for.p0(ptr) #28
+declare i32 @llvm.eh.typeid.for.p0(ptr) #29
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #29
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #30
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #29
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #30
 
 attributes #0 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -12206,7 +12206,7 @@ attributes #8 = { noreturn nounwind uwtable "no-signed-zeros-fp-math"="true" "no
 attributes #9 = { cold nofree noreturn }
 attributes #10 = { uwtable "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nobuiltin allocsize(0) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -12219,18 +12219,19 @@ attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #22 = { noreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { mustprogress nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) }
-attributes #28 = { nofree nosync nounwind memory(none) }
-attributes #29 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #30 = { noreturn }
-attributes #31 = { nounwind }
-attributes #32 = { builtin nounwind }
-attributes #33 = { noreturn nounwind }
-attributes #34 = { builtin allocsize(0) }
-attributes #35 = { nounwind willreturn memory(read) }
-attributes #36 = { nounwind willreturn memory(none) }
+attributes #25 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #28 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) }
+attributes #29 = { nofree nosync nounwind memory(none) }
+attributes #30 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #31 = { noreturn }
+attributes #32 = { nounwind }
+attributes #33 = { builtin nounwind }
+attributes #34 = { noreturn nounwind }
+attributes #35 = { builtin allocsize(0) }
+attributes #36 = { nounwind willreturn memory(read) }
+attributes #37 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

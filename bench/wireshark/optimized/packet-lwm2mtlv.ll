@@ -348,7 +348,7 @@ define internal void @object_name_object_id_tostr_cb(ptr noundef readonly captur
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.75, i32 noundef %6)
   store ptr %7, ptr %1, align 8
-  %8 = tail call i64 @strlen(ptr noundef %7) #10
+  %8 = tail call i64 @strlen(ptr noundef %7) #11
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
   ret void
@@ -379,7 +379,7 @@ define internal void @object_name_name_tostr_cb(ptr noundef readonly captures(no
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #10
+  %11 = tail call i64 @strlen(ptr noundef %10) #11
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -408,7 +408,7 @@ define internal void @resource_object_id_tostr_cb(ptr noundef readonly captures(
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.75, i32 noundef %6)
   store ptr %7, ptr %1, align 8
-  %8 = tail call i64 @strlen(ptr noundef %7) #10
+  %8 = tail call i64 @strlen(ptr noundef %7) #11
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
   ret void
@@ -430,7 +430,7 @@ define internal void @resource_resource_id_tostr_cb(ptr noundef readonly capture
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.75, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #10
+  %9 = tail call i64 @strlen(ptr noundef %8) #11
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -458,7 +458,7 @@ define internal void @resource_name_tostr_cb(ptr noundef readonly captures(none)
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #10
+  %11 = tail call i64 @strlen(ptr noundef %10) #11
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -551,7 +551,7 @@ define internal void @resource_data_type_tostr_cb(ptr noundef readonly captures(
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
   %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %20, ptr %1, align 8
-  %21 = tail call i64 @strlen(ptr noundef %20) #10
+  %21 = tail call i64 @strlen(ptr noundef %20) #11
   %22 = trunc i64 %21 to i32
   br label %24
 
@@ -698,7 +698,7 @@ define internal noundef zeroext i1 @lwm2m_resource_update_cb(ptr noundef capture
 26:                                               ; preds = %.lr.ph, %25
   %27 = phi ptr [ %22, %.lr.ph ], [ %.pre, %25 ]
   %28 = add nuw i64 %.027, 1
-  %29 = tail call i64 @strlen(ptr noundef %27) #10
+  %29 = tail call i64 @strlen(ptr noundef %27) #11
   %30 = icmp ult i64 %28, %29
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
@@ -794,7 +794,7 @@ define internal i32 @dissect_lwm2mtlv(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not54, label %31, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call i64 @strtol(ptr noundef nonnull captures(none) %18, ptr noundef null, i32 noundef 10) #11
+  %20 = tail call i64 @strtol(ptr noundef nonnull captures(none) %18, ptr noundef null, i32 noundef 10) #12
   %21 = trunc i64 %20 to i32
   %22 = getelementptr i8, ptr %13, i64 16
   %23 = load ptr, ptr %22, align 8
@@ -809,7 +809,7 @@ define internal i32 @dissect_lwm2mtlv(ptr noundef %0, ptr noundef %1, ptr nounde
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %17, align 8
-  %29 = tail call i64 @strtol(ptr noundef captures(none) %28, ptr noundef null, i32 noundef 10) #11
+  %29 = tail call i64 @strtol(ptr noundef captures(none) %28, ptr noundef null, i32 noundef 10) #12
   %30 = trunc i64 %29 to i32
   br label %31
 
@@ -927,14 +927,14 @@ define internal fastcc void @lwm2m_allocate_fields(ptr noundef captures(none) in
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %7, ptr %8, align 8
   %9 = zext i32 %7 to i64
-  %10 = tail call noalias ptr @g_malloc0_n(i64 noundef %9, i64 noundef 80) #12
+  %10 = tail call noalias ptr @g_malloc0_n(i64 noundef %9, i64 noundef 80) #13
   store ptr %10, ptr %0, align 8
   %11 = tail call ptr @g_array_new(i32 noundef 1, i32 noundef 1, i32 noundef 8)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %12, align 8
   %13 = load i32, ptr %5, align 8
   %14 = zext i32 %13 to i64
-  %15 = tail call noalias ptr @g_malloc0_n(i64 noundef %14, i64 noundef 48) #12
+  %15 = tail call noalias ptr @g_malloc0_n(i64 noundef %14, i64 noundef 48) #13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %16, align 8
   br label %35
@@ -993,7 +993,7 @@ define internal fastcc void @lwm2m_allocate_fields(ptr noundef captures(none) in
   %47 = load ptr, ptr %16, align 8
   %48 = zext i32 %.07381 to i64
   %49 = getelementptr %struct._lwm2m_resource_t, ptr %47, i64 %48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(48) %49, ptr noundef align 1 dereferenceable(48) %36, i64 noundef 48, i1 noundef false) #11
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(48) %49, ptr noundef align 1 dereferenceable(48) %36, i64 noundef 48, i1 noundef false) #12
   %50 = load ptr, ptr %16, align 8
   %51 = add i32 %.07381, 1
   %52 = getelementptr %struct._lwm2m_resource_t, ptr %50, i64 %48
@@ -1537,7 +1537,7 @@ proto_item_set_generated.exit.i:                  ; preds = %138, %143, %146, %a
   %163 = call ptr @proto_tree_add_item_ret_string(ptr noundef %.037.i, i32 noundef %161, ptr noundef %16, i32 noundef %32, i32 noundef %.sroa.23.0, i32 noundef 2, ptr noundef %162, ptr noundef nonnull %6)
   %164 = load ptr, ptr %12, align 8
   %165 = load ptr, ptr %6, align 8
-  %166 = call i64 @strlen(ptr noundef %165) #10
+  %166 = call i64 @strlen(ptr noundef %165) #11
   %167 = call ptr @format_text(ptr noundef %164, ptr noundef %165, i64 noundef %166)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.037.i, ptr noundef nonnull @.str.110, ptr noundef %167)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1969,7 +1969,7 @@ declare ptr @g_array_new(i32 noundef, i32 noundef, i32 noundef) local_unnamed_ad
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @lwm2m_add_resource(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
-  %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #13
+  %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #14
   store i32 -1, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -2003,7 +2003,7 @@ define internal fastcc void @lwm2m_add_resource(ptr noundef captures(none) %0, p
 
 16:                                               ; preds = %.lr.ph, %15
   %17 = add nuw i64 %.062, 1
-  %18 = tail call i64 @strlen(ptr noundef %12) #10
+  %18 = tail call i64 @strlen(ptr noundef %12) #11
   %19 = icmp ult i64 %17, %18
   br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
@@ -2102,17 +2102,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2121,13 +2121,14 @@ attributes #3 = { mustprogress nocallback nofree nounwind null_pointer_is_valid 
 attributes #4 = { null_pointer_is_valid allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { nounwind }
-attributes #12 = { allocsize(0,1) }
-attributes #13 = { allocsize(0) }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind }
+attributes #13 = { allocsize(0,1) }
+attributes #14 = { allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

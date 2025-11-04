@@ -52,7 +52,7 @@ define internal fastcc i32 @lv_vsnprintf_inner(ptr noundef readonly captures(non
 
 18:                                               ; preds = %16
   %19 = add i64 %.0224, 1
-  call void %spec.select(i8 noundef signext %17, ptr noundef %1, i64 noundef %.0224, i64 noundef %2) #8, !callees !6
+  call void %spec.select(i8 noundef signext %17, ptr noundef %1, i64 noundef %.0224, i64 noundef %2) #9, !callees !6
   br label %.backedge
 
 .backedge:                                        ; preds = %.lr.ph408, %.lr.ph424, %470, %490, %562, %564, %296, %_ntoa_long.exit316, %_ntoa_long.exit323, %_ntoa_long_long.exit309, %_ntoa_long_long.exit, %_ntoa_long.exit302, %_ntoa_long.exit, %511, %.critedge, %18
@@ -974,7 +974,7 @@ _ntoa_long.exit323:                               ; preds = %441, %431
   %497 = phi i32 [ %499, %.lr.ph ], [ 2, %.preheader388 ]
   %.4228404 = phi i64 [ %498, %.lr.ph ], [ %.0224, %.preheader388 ]
   %498 = add i64 %.4228404, 1
-  call void %spec.select(i8 noundef signext 32, ptr noundef %1, i64 noundef %.4228404, i64 noundef %2) #8, !callees !6
+  call void %spec.select(i8 noundef signext 32, ptr noundef %1, i64 noundef %.4228404, i64 noundef %2) #9, !callees !6
   %499 = add i32 %497, 1
   %exitcond.not = icmp eq i32 %497, %.0217
   br i1 %exitcond.not, label %.loopexit389.loopexit, label %.lr.ph, !llvm.loop !28
@@ -1009,7 +1009,7 @@ _ntoa_long.exit323:                               ; preds = %441, %431
   %513 = load i32, ptr %512, align 4, !tbaa !11
   %514 = trunc i32 %513 to i8
   %515 = add i64 %.3227, 1
-  call void %spec.select(i8 noundef signext %514, ptr noundef %1, i64 noundef %.3227, i64 noundef %2) #8, !callees !6
+  call void %spec.select(i8 noundef signext %514, ptr noundef %1, i64 noundef %.3227, i64 noundef %2) #9, !callees !6
   %516 = icmp ult i32 %.0209, %.0217
   %or.cond = select i1 %.not270, i1 %516, i1 false
   br i1 %or.cond, label %.lr.ph408, label %.backedge
@@ -1019,7 +1019,7 @@ _ntoa_long.exit323:                               ; preds = %441, %431
   %.6230406 = phi i64 [ %518, %.lr.ph408 ], [ %515, %511 ]
   %517 = add i32 %.2211407, 1
   %518 = add i64 %.6230406, 1
-  call void %spec.select(i8 noundef signext 32, ptr noundef %1, i64 noundef %.6230406, i64 noundef %2) #8, !callees !6
+  call void %spec.select(i8 noundef signext 32, ptr noundef %1, i64 noundef %.6230406, i64 noundef %2) #9, !callees !6
   %exitcond446.not = icmp eq i32 %517, %.0217
   br i1 %exitcond446.not, label %.backedge, label %.lr.ph408, !llvm.loop !29
 
@@ -1088,7 +1088,7 @@ _strnlen_s.exit:                                  ; preds = %.lr.ph.i324, %530
   %548 = phi i32 [ %550, %.lr.ph411 ], [ %546, %.preheader384 ]
   %.8232410 = phi i64 [ %549, %.lr.ph411 ], [ %.0224, %.preheader384 ]
   %549 = add i64 %.8232410, 1
-  call void %spec.select(i8 noundef signext 32, ptr noundef %1, i64 noundef %.8232410, i64 noundef %2) #8, !callees !6
+  call void %spec.select(i8 noundef signext 32, ptr noundef %1, i64 noundef %.8232410, i64 noundef %2) #9, !callees !6
   %550 = add i32 %548, 1
   %exitcond447.not = icmp eq i32 %548, %.0217
   br i1 %exitcond447.not, label %.loopexit385.loopexit, label %.lr.ph411, !llvm.loop !32
@@ -1121,7 +1121,7 @@ _strnlen_s.exit:                                  ; preds = %.lr.ph.i324, %530
   %.2221 = phi i32 [ %555, %554 ], [ %.1220416, %.lr.ph418 ]
   %556 = getelementptr inbounds nuw i8, ptr %.0208417, i64 1
   %557 = add i64 %.9233415, 1
-  call void %spec.select(i8 noundef signext %553, ptr noundef %1, i64 noundef %.9233415, i64 noundef %2) #8, !callees !6
+  call void %spec.select(i8 noundef signext %553, ptr noundef %1, i64 noundef %.9233415, i64 noundef %2) #9, !callees !6
   %558 = load i8, ptr %556, align 1, !tbaa !3
   %.not268 = icmp eq i8 %558, 0
   br i1 %.not268, label %.critedge, label %.lr.ph418, !llvm.loop !33
@@ -1137,25 +1137,25 @@ _strnlen_s.exit:                                  ; preds = %.lr.ph.i324, %530
   %.11235422 = phi i64 [ %561, %.lr.ph424 ], [ %.9233.lcssa, %.critedge ]
   %560 = add i32 %.3423, 1
   %561 = add i64 %.11235422, 1
-  call void %spec.select(i8 noundef signext 32, ptr noundef %1, i64 noundef %.11235422, i64 noundef %2) #8, !callees !6
+  call void %spec.select(i8 noundef signext 32, ptr noundef %1, i64 noundef %.11235422, i64 noundef %2) #9, !callees !6
   %exitcond448.not = icmp eq i32 %560, %.0217
   br i1 %exitcond448.not, label %.backedge, label %.lr.ph424, !llvm.loop !34
 
 562:                                              ; preds = %111
   %563 = add i64 %.0224, 1
-  call void %spec.select(i8 noundef signext 37, ptr noundef %1, i64 noundef %.0224, i64 noundef %2) #8, !callees !6
+  call void %spec.select(i8 noundef signext 37, ptr noundef %1, i64 noundef %.0224, i64 noundef %2) #9, !callees !6
   br label %.backedge
 
 564:                                              ; preds = %111
   %565 = add i64 %.0224, 1
-  call void %spec.select(i8 noundef signext %.pr368, ptr noundef %1, i64 noundef %.0224, i64 noundef %2) #8, !callees !6
+  call void %spec.select(i8 noundef signext %.pr368, ptr noundef %1, i64 noundef %.0224, i64 noundef %2) #9, !callees !6
   br label %.backedge
 
 566:                                              ; preds = %16
   %567 = icmp ult i64 %.0224, %2
   %568 = add i64 %2, -1
   %569 = select i1 %567, i64 %.0224, i64 %568
-  call void %spec.select(i8 noundef signext 0, ptr noundef %1, i64 noundef %569, i64 noundef %2) #8, !callees !6
+  call void %spec.select(i8 noundef signext 0, ptr noundef %1, i64 noundef %569, i64 noundef %2) #9, !callees !6
   %570 = trunc i64 %.0224 to i32
   ret i32 %570
 }
@@ -1222,7 +1222,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   %.033.i = phi i64 [ %21, %.lr.ph.i ], [ 4, %.preheader30.i ]
   %.132.i = phi i64 [ %20, %.lr.ph.i ], [ %2, %.preheader30.i ]
   %20 = add i64 %.132.i, 1
-  tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.132.i, i64 noundef %3) #8, !callees !6
+  tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.132.i, i64 noundef %3) #9, !callees !6
   %21 = add nuw nsw i64 %.033.i, 1
   %exitcond.not.i = icmp eq i64 %21, %18
   br i1 %exitcond.not.i, label %.lr.ph37.i.preheader, label %.lr.ph.i, !llvm.loop !35
@@ -1238,7 +1238,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   %23 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !3
   %25 = add i64 %.236.i, 1
-  tail call void %0(i8 noundef signext %24, ptr noundef %1, i64 noundef %.236.i, i64 noundef %3) #8, !callees !6
+  tail call void %0(i8 noundef signext %24, ptr noundef %1, i64 noundef %.236.i, i64 noundef %3) #9, !callees !6
   %.not29.i = icmp eq i64 %22, 0
   br i1 %.not29.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !36
 
@@ -1254,7 +1254,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
 .lr.ph40.i:                                       ; preds = %.preheader.i, %.lr.ph40.i
   %.439.i = phi i64 [ %29, %.lr.ph40.i ], [ %25, %.preheader.i ]
   %29 = add i64 %.439.i, 1
-  tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.439.i, i64 noundef %3) #8, !callees !6
+  tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.439.i, i64 noundef %3) #9, !callees !6
   %30 = sub i64 %29, %2
   %31 = icmp ult i64 %30, %26
   br i1 %31, label %.lr.ph40.i, label %_out_rev.exit, !llvm.loop !37
@@ -1283,7 +1283,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   %.033.i167 = phi i64 [ %43, %.lr.ph.i166 ], [ %37, %.preheader30.i165 ]
   %.132.i168 = phi i64 [ %42, %.lr.ph.i166 ], [ %2, %.preheader30.i165 ]
   %42 = add i64 %.132.i168, 1
-  tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.132.i168, i64 noundef %3) #8, !callees !6
+  tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.132.i168, i64 noundef %3) #9, !callees !6
   %43 = add i64 %.033.i167, 1
   %exitcond.not.i169 = icmp eq i64 %43, %40
   br i1 %exitcond.not.i169, label %.lr.ph37.i156.preheader, label %.lr.ph.i166, !llvm.loop !35
@@ -1299,7 +1299,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !3
   %47 = add i64 %.236.i157, 1
-  tail call void %0(i8 noundef signext %46, ptr noundef %1, i64 noundef %.236.i157, i64 noundef %3) #8, !callees !6
+  tail call void %0(i8 noundef signext %46, ptr noundef %1, i64 noundef %.236.i157, i64 noundef %3) #9, !callees !6
   %.not29.i159 = icmp eq i64 %44, 0
   br i1 %.not29.i159, label %._crit_edge.i160, label %.lr.ph37.i156, !llvm.loop !36
 
@@ -1315,7 +1315,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
 .lr.ph40.i163:                                    ; preds = %.preheader.i161, %.lr.ph40.i163
   %.439.i164 = phi i64 [ %51, %.lr.ph40.i163 ], [ %47, %.preheader.i161 ]
   %51 = add i64 %.439.i164, 1
-  tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.439.i164, i64 noundef %3) #8, !callees !6
+  tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.439.i164, i64 noundef %3) #9, !callees !6
   %52 = sub i64 %51, %2
   %53 = icmp ult i64 %52, %48
   br i1 %53, label %.lr.ph40.i163, label %_out_rev.exit, !llvm.loop !37
@@ -1568,7 +1568,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   %.033.i186 = phi i64 [ %153, %.lr.ph.i185 ], [ %.10, %.preheader30.i184 ]
   %.132.i187 = phi i64 [ %152, %.lr.ph.i185 ], [ %2, %.preheader30.i184 ]
   %152 = add i64 %.132.i187, 1
-  tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.132.i187, i64 noundef %3) #8, !callees !6
+  tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.132.i187, i64 noundef %3) #9, !callees !6
   %153 = add i64 %.033.i186, 1
   %exitcond.not.i188 = icmp eq i64 %153, %150
   br i1 %exitcond.not.i188, label %.lr.ph37.i175.preheader, label %.lr.ph.i185, !llvm.loop !35
@@ -1584,7 +1584,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   %155 = getelementptr inbounds nuw i8, ptr %9, i64 %154
   %156 = load i8, ptr %155, align 1, !tbaa !3
   %157 = add i64 %.236.i176, 1
-  tail call void %0(i8 noundef signext %156, ptr noundef %1, i64 noundef %.236.i176, i64 noundef %3) #8, !callees !6
+  tail call void %0(i8 noundef signext %156, ptr noundef %1, i64 noundef %.236.i176, i64 noundef %3) #9, !callees !6
   %.not29.i178 = icmp eq i64 %154, 0
   br i1 %.not29.i178, label %._crit_edge.i179, label %.lr.ph37.i175, !llvm.loop !36
 
@@ -1600,7 +1600,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
 .lr.ph40.i182:                                    ; preds = %.preheader.i180, %.lr.ph40.i182
   %.439.i183 = phi i64 [ %161, %.lr.ph40.i182 ], [ %157, %.preheader.i180 ]
   %161 = add i64 %.439.i183, 1
-  tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.439.i183, i64 noundef %3) #8, !callees !6
+  tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.439.i183, i64 noundef %3) #9, !callees !6
   %162 = sub i64 %161, %2
   %163 = icmp ult i64 %162, %158
   br i1 %163, label %.lr.ph40.i182, label %_out_rev.exit, !llvm.loop !37
@@ -1726,7 +1726,7 @@ define internal fastcc i64 @_etoa(ptr noundef readonly captures(none) %0, ptr no
   %83 = trunc i32 %.0110 to i8
   %84 = and i8 %83, 32
   %85 = xor i8 %84, 101
-  tail call void %0(i8 noundef signext %85, ptr noundef %1, i64 noundef %81, i64 noundef %3) #8, !callees !6
+  tail call void %0(i8 noundef signext %85, ptr noundef %1, i64 noundef %81, i64 noundef %3) #9, !callees !6
   %86 = tail call i32 @llvm.abs.i32(i32 %.1107.fr, i1 true)
   %87 = zext nneg i32 %86 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -1783,7 +1783,7 @@ _ntoa_long.exit:                                  ; preds = %88
   %104 = getelementptr inbounds nuw i8, ptr %9, i64 %103
   %105 = load i8, ptr %104, align 1, !tbaa !3
   %106 = add i64 %.236.i.i, 1
-  tail call void %0(i8 noundef signext %105, ptr noundef %1, i64 noundef %.236.i.i, i64 noundef %3) #8, !callees !6
+  tail call void %0(i8 noundef signext %105, ptr noundef %1, i64 noundef %.236.i.i, i64 noundef %3) #9, !callees !6
   %.not29.i.i = icmp eq i64 %103, 0
   br i1 %.not29.i.i, label %_ntoa_format.exit, label %.lr.ph37.i.i, !llvm.loop !36
 
@@ -1800,7 +1800,7 @@ _ntoa_format.exit:                                ; preds = %.lr.ph37.i.i
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.1103124 = phi i64 [ %110, %.lr.ph ], [ %106, %.preheader ]
   %110 = add i64 %.1103124, 1
-  tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.1103124, i64 noundef %3) #8, !callees !6
+  tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.1103124, i64 noundef %3) #9, !callees !6
   %111 = sub i64 %110, %2
   %112 = icmp ult i64 %111, %107
   br i1 %112, label %.lr.ph, label %.loopexit, !llvm.loop !42
@@ -1976,7 +1976,7 @@ define internal fastcc noundef i64 @_ntoa_format(ptr noundef readonly captures(n
   %.033.i = phi i64 [ %70, %.lr.ph.i ], [ %.6, %.preheader30.i ]
   %.132.i = phi i64 [ %69, %.lr.ph.i ], [ %2, %.preheader30.i ]
   %69 = add i64 %.132.i, 1
-  tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.132.i, i64 noundef %3) #8, !callees !6
+  tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.132.i, i64 noundef %3) #9, !callees !6
   %70 = add i64 %.033.i, 1
   %exitcond.not.i = icmp eq i64 %70, %67
   br i1 %exitcond.not.i, label %.loopexit31.i, label %.lr.ph.i, !llvm.loop !35
@@ -1993,7 +1993,7 @@ define internal fastcc noundef i64 @_ntoa_format(ptr noundef readonly captures(n
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !3
   %74 = add i64 %.236.i, 1
-  tail call void %0(i8 noundef signext %73, ptr noundef %1, i64 noundef %.236.i, i64 noundef %3) #8, !callees !6
+  tail call void %0(i8 noundef signext %73, ptr noundef %1, i64 noundef %.236.i, i64 noundef %3) #9, !callees !6
   %.not29.i = icmp eq i64 %71, 0
   br i1 %.not29.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !36
 
@@ -2010,7 +2010,7 @@ define internal fastcc noundef i64 @_ntoa_format(ptr noundef readonly captures(n
 .lr.ph40.i:                                       ; preds = %.preheader.i, %.lr.ph40.i
   %.439.i = phi i64 [ %78, %.lr.ph40.i ], [ %.2.lcssa.i, %.preheader.i ]
   %78 = add i64 %.439.i, 1
-  tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.439.i, i64 noundef %3) #8, !callees !6
+  tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.439.i, i64 noundef %3) #9, !callees !6
   %79 = sub i64 %78, %2
   %80 = icmp ult i64 %79, %75
   br i1 %80, label %.lr.ph40.i, label %_out_rev.exit, !llvm.loop !37
@@ -2037,7 +2037,7 @@ define internal fastcc noundef i64 @_out_rev(ptr noundef readonly captures(none)
   %.033 = phi i64 [ %14, %.lr.ph ], [ %5, %.preheader30 ]
   %.132 = phi i64 [ %13, %.lr.ph ], [ %2, %.preheader30 ]
   %13 = add i64 %.132, 1
-  tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.132, i64 noundef %3) #8, !callees !6
+  tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.132, i64 noundef %3) #9, !callees !6
   %14 = add i64 %.033, 1
   %exitcond.not = icmp eq i64 %14, %11
   br i1 %exitcond.not, label %.loopexit31, label %.lr.ph, !llvm.loop !35
@@ -2054,7 +2054,7 @@ define internal fastcc noundef i64 @_out_rev(ptr noundef readonly captures(none)
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !3
   %18 = add i64 %.236, 1
-  tail call void %0(i8 noundef signext %17, ptr noundef %1, i64 noundef %.236, i64 noundef %3) #8, !callees !6
+  tail call void %0(i8 noundef signext %17, ptr noundef %1, i64 noundef %.236, i64 noundef %3) #9, !callees !6
   %.not29 = icmp eq i64 %15, 0
   br i1 %.not29, label %._crit_edge, label %.lr.ph37, !llvm.loop !36
 
@@ -2071,7 +2071,7 @@ define internal fastcc noundef i64 @_out_rev(ptr noundef readonly captures(none)
 .lr.ph40:                                         ; preds = %.preheader, %.lr.ph40
   %.439 = phi i64 [ %22, %.lr.ph40 ], [ %.2.lcssa, %.preheader ]
   %22 = add i64 %.439, 1
-  tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.439, i64 noundef %3) #8, !callees !6
+  tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.439, i64 noundef %3) #9, !callees !6
   %23 = sub i64 %22, %2
   %24 = icmp ult i64 %23, %19
   br i1 %24, label %.lr.ph40, label %.loopexit, !llvm.loop !37
@@ -2081,7 +2081,7 @@ define internal fastcc noundef i64 @_out_rev(ptr noundef readonly captures(none)
   ret i64 %.3
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -2090,42 +2090,43 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #6
+declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #6
+declare i64 @llvm.abs.i64(i64, i1 immarg) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #2 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

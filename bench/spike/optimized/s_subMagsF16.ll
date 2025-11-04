@@ -31,7 +31,7 @@ define i16 @softfloat_subMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
   br i1 %.not112, label %16, label %109
 
 16:                                               ; preds = %14
-  tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #4
+  tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #5
   br label %137
 
 17:                                               ; preds = %12
@@ -195,11 +195,11 @@ define i16 @softfloat_subMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %.1 = phi i64 [ %98, %97 ], [ %95, %99 ]
   %106 = trunc nuw i8 %.297 to i1
   %107 = sext i8 %94 to i64
-  %108 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %106, i64 noundef %107, i64 noundef %.1) #4
+  %108 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %106, i64 noundef %107, i64 noundef %.1) #5
   br label %139
 
 109:                                              ; preds = %66, %49, %14
-  %110 = tail call i64 @softfloat_propagateNaNF16UI(i64 noundef %0, i64 noundef %1) #4
+  %110 = tail call i64 @softfloat_propagateNaNF16UI(i64 noundef %0, i64 noundef %1) #5
   br label %137
 
 111:                                              ; preds = %69, %54
@@ -271,20 +271,21 @@ declare i16 @softfloat_roundPackToF16(i1 noundef zeroext, i64 noundef, i64 nound
 
 declare i64 @softfloat_propagateNaNF16UI(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.usub.sat.i8(i8, i8) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #3
+declare i64 @llvm.abs.i64(i64, i1 immarg) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.smax.i8(i8, i8) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #3 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

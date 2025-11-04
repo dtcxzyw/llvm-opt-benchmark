@@ -83,7 +83,7 @@ define hidden range(i32 0, 2) i32 @VP8ParseIntraModeRow(ptr noundef %0, ptr noun
   br label %VP8LoadNewBytes.exit.i.i
 
 42:                                               ; preds = %32
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #8
   %.pre.i.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !27
   br label %VP8LoadNewBytes.exit.i.i
 
@@ -148,7 +148,7 @@ VP8GetBit.exit.i:                                 ; preds = %56, %50
   br label %VP8LoadNewBytes.exit.i74.i
 
 77:                                               ; preds = %68
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #8
   %.pre.i76.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !39
   %.pre.i = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !39
   br label %VP8LoadNewBytes.exit.i74.i
@@ -213,7 +213,7 @@ VP8GetBit.exit78.i:                               ; preds = %92, %86
   br label %VP8LoadNewBytes.exit.i79.i
 
 112:                                              ; preds = %103
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #8
   %.pre.i81.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !46
   %.pre159.i = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !46
   br label %VP8LoadNewBytes.exit.i79.i
@@ -296,7 +296,7 @@ VP8GetBit.exit83.i:                               ; preds = %127, %121
   br label %VP8LoadNewBytes.exit.i84.i
 
 155:                                              ; preds = %145
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #8
   %.pre.i86.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !60
   br label %VP8LoadNewBytes.exit.i84.i
 
@@ -364,7 +364,7 @@ VP8GetBit.exit88.i:                               ; preds = %170, %164
   br label %VP8LoadNewBytes.exit.i89.i
 
 193:                                              ; preds = %183
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #8
   %.pre.i91.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !56
   br label %VP8LoadNewBytes.exit.i89.i
 
@@ -430,7 +430,7 @@ VP8GetBit.exit93.i:                               ; preds = %208, %202
   br label %VP8LoadNewBytes.exit.i94.i
 
 229:                                              ; preds = %219
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #8
   %.pre.i96.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !73
   br label %VP8LoadNewBytes.exit.i94.i
 
@@ -493,7 +493,7 @@ VP8GetBit.exit98.i:                               ; preds = %243, %237
   br label %VP8LoadNewBytes.exit.i99.i
 
 262:                                              ; preds = %253
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #8
   %.pre.i101.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !80
   %.pre165.i = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !80
   br label %VP8LoadNewBytes.exit.i99.i
@@ -544,7 +544,7 @@ VP8LoadNewBytes.exit.i99.i:                       ; preds = %262, %257, %252
   br label %VP8LoadNewBytes.exit.i104.i
 
 288:                                              ; preds = %279
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #8
   %.pre.i106.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !87
   %.pre164.i = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !87
   br label %VP8LoadNewBytes.exit.i104.i
@@ -638,7 +638,7 @@ VP8GetBit.exit103.i:                              ; preds = %302, %296, %276, %2
   br label %VP8LoadNewBytes.exit.i109.i
 
 338:                                              ; preds = %328
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #8
   %.pre.i111.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !94
   br label %VP8LoadNewBytes.exit.i109.i
 
@@ -714,7 +714,7 @@ VP8GetBit.exit113.i:                              ; preds = %353, %347
   br label %VP8LoadNewBytes.exit.i114.i
 
 379:                                              ; preds = %370
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #8
   %.pre.i116.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !101
   %.pre166.i = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !101
   br label %VP8LoadNewBytes.exit.i114.i
@@ -808,7 +808,7 @@ VP8GetBit.exit118.i:                              ; preds = %394, %388
   br label %VP8LoadNewBytes.exit.i119.i
 
 424:                                              ; preds = %414
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #8
   %.pre.i121.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !112
   br label %VP8LoadNewBytes.exit.i119.i
 
@@ -871,7 +871,7 @@ VP8GetBit.exit123.i:                              ; preds = %438, %432
   br label %VP8LoadNewBytes.exit.i124.i
 
 457:                                              ; preds = %448
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #8
   %.pre.i126.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !119
   %.pre167.i = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !119
   br label %VP8LoadNewBytes.exit.i124.i
@@ -935,7 +935,7 @@ VP8GetBit.exit128.i:                              ; preds = %471, %465
   br label %VP8LoadNewBytes.exit.i129.i
 
 490:                                              ; preds = %481
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #8
   %.pre.i131.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !126
   %.pre168.i = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !126
   br label %VP8LoadNewBytes.exit.i129.i
@@ -1059,7 +1059,7 @@ define hidden void @VP8ParseProba(ptr noundef %0, ptr noundef %1) local_unnamed_
   br label %VP8LoadNewBytes.exit.i
 
 36:                                               ; preds = %26
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #8
   %.pre.i = load i32, ptr %4, align 4, !tbaa !31, !alias.scope !136
   br label %VP8LoadNewBytes.exit.i
 
@@ -1099,7 +1099,7 @@ VP8GetBit.exit:                                   ; preds = %44, %50
   br i1 %.not41, label %57, label %60
 
 57:                                               ; preds = %VP8GetBit.exit
-  %58 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 8) #7
+  %58 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 8) #8
   %59 = trunc i32 %58 to i8
   br label %63
 
@@ -1144,14 +1144,14 @@ VP8GetBit.exit:                                   ; preds = %44, %50
   br i1 %exitcond66.not, label %75, label %.preheader44, !llvm.loop !148
 
 75:                                               ; preds = %74
-  %76 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #7
+  %76 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #8
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 2800
   store i32 %76, ptr %77, align 8, !tbaa !55
   %.not = icmp eq i32 %76, 0
   br i1 %.not, label %82, label %78
 
 78:                                               ; preds = %75
-  %79 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 8) #7
+  %79 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 8) #8
   %80 = trunc i32 %79 to i8
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 2804
   store i8 %80, ptr %81, align 4, !tbaa !59
@@ -1165,26 +1165,27 @@ declare i32 @VP8GetValue(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 declare void @VP8LoadFinalBytes(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #5
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #6
+declare void @llvm.experimental.noalias.scope.decl(metadata) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #7 = { nounwind }
+attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

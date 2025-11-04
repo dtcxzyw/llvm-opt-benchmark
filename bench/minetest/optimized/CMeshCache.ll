@@ -83,7 +83,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %_ZN3irr4core6stringIcED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #17
+  tail call void @_ZdlPv(ptr noundef %0) #18
   br label %_ZN3irr4core6stringIcED2Ev.exit
 
 _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %entry, %if.then.i.i.i
@@ -93,7 +93,7 @@ _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %entry, %if.then.i.i
   br i1 %cmp.i.i.i.i2, label %_ZN3irr4core6stringIcED2Ev.exit7, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZN3irr4core6stringIcED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef %2) #17
+  tail call void @_ZdlPv(ptr noundef %2) #18
   br label %_ZN3irr4core6stringIcED2Ev.exit7
 
 _ZN3irr4core6stringIcED2Ev.exit7:                 ; preds = %_ZN3irr4core6stringIcED2Ev.exit, %if.then.i.i.i3
@@ -117,7 +117,7 @@ entry:
   %vtable3 = load ptr, ptr %this, align 8, !tbaa !10
   %vfn = getelementptr inbounds nuw i8, ptr %vtable3, i64 104
   %3 = load ptr, ptr %vfn, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(40) %this) #18
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(40) %this) #19
   %Meshes = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %Meshes, align 8, !tbaa !12
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -134,7 +134,7 @@ for.body.i.i.i.i.i:                               ; preds = %entry, %_ZSt8_Destr
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %6) #17
+  tail call void @_ZdlPv(ptr noundef %6) #18
   br label %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i
 
 _ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i:  ; preds = %for.body.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -144,7 +144,7 @@ _ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i:  ; preds = %for.body.i.i.i.i.i,
   br i1 %cmp.i.i.i.i2.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3irr5scene10CMeshCache9MeshEntryEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i3.i.i.i.i.i.i.i.i
 
 if.then.i.i.i3.i.i.i.i.i.i.i.i:                   ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %8) #17
+  tail call void @_ZdlPv(ptr noundef %8) #18
   br label %_ZSt8_DestroyIN3irr5scene10CMeshCache9MeshEntryEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN3irr5scene10CMeshCache9MeshEntryEEvPT_.exit.i.i.i.i.i: ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i3.i.i.i.i.i.i.i.i
@@ -162,7 +162,7 @@ _ZSt8_DestroyIPN3irr5scene10CMeshCache9MeshEntryES3_EvT_S5_RSaIT0_E.exit.i.i: ; 
   br i1 %tobool.not.i.i.i.i, label %_ZN3irr4core5arrayINS_5scene10CMeshCache9MeshEntryEED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZSt8_DestroyIPN3irr5scene10CMeshCache9MeshEntryES3_EvT_S5_RSaIT0_E.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %10) #18
   br label %_ZN3irr4core5arrayINS_5scene10CMeshCache9MeshEntryEED2Ev.exit
 
 _ZN3irr4core5arrayINS_5scene10CMeshCache9MeshEntryEED2Ev.exit: ; preds = %if.then.i.i.i.i, %_ZSt8_DestroyIPN3irr5scene10CMeshCache9MeshEntryES3_EvT_S5_RSaIT0_E.exit.i.i
@@ -175,7 +175,7 @@ entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 24), ptr %this, align 8, !tbaa !10
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 168), ptr %add.ptr.i, align 8, !tbaa !10
-  tail call void @_ZN3irr5scene10CMeshCache5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %this) #18
+  tail call void @_ZN3irr5scene10CMeshCache5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %this) #19
   %Meshes.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %Meshes.i, align 8, !tbaa !12
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -192,7 +192,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %entry, %_ZSt8_Destr
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %2) #17
+  tail call void @_ZdlPv(ptr noundef %2) #18
   br label %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i.i
 
 _ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
@@ -202,7 +202,7 @@ _ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i
   br i1 %cmp.i.i.i.i2.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3irr5scene10CMeshCache9MeshEntryEEvPT_.exit.i.i.i.i.i.i, label %if.then.i.i.i3.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i3.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %4) #17
+  tail call void @_ZdlPv(ptr noundef %4) #18
   br label %_ZSt8_DestroyIN3irr5scene10CMeshCache9MeshEntryEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyIN3irr5scene10CMeshCache9MeshEntryEEvPT_.exit.i.i.i.i.i.i: ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i3.i.i.i.i.i.i.i.i.i
@@ -220,7 +220,7 @@ _ZSt8_DestroyIPN3irr5scene10CMeshCache9MeshEntryES3_EvT_S5_RSaIT0_E.exit.i.i.i: 
   br i1 %tobool.not.i.i.i.i.i, label %_ZN3irr5scene10CMeshCacheD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZSt8_DestroyIPN3irr5scene10CMeshCache9MeshEntryES3_EvT_S5_RSaIT0_E.exit.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #18
   br label %_ZN3irr5scene10CMeshCacheD2Ev.exit
 
 _ZN3irr5scene10CMeshCacheD2Ev.exit:               ; preds = %if.then.i.i.i.i.i, %_ZSt8_DestroyIPN3irr5scene10CMeshCache9MeshEntryES3_EvT_S5_RSaIT0_E.exit.i.i.i
@@ -237,7 +237,7 @@ entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 24), ptr %3, align 8, !tbaa !10
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !10
-  tail call void @_ZN3irr5scene10CMeshCache5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #18
+  tail call void @_ZN3irr5scene10CMeshCache5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
   %Meshes.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %Meshes.i.i, align 8, !tbaa !12
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -254,7 +254,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %entry, %_ZSt8_Destr
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %6) #17
+  tail call void @_ZdlPv(ptr noundef %6) #18
   br label %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -264,7 +264,7 @@ _ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i
   br i1 %cmp.i.i.i.i2.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3irr5scene10CMeshCache9MeshEntryEEvPT_.exit.i.i.i.i.i.i.i, label %if.then.i.i.i3.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i3.i.i.i.i.i.i.i.i.i.i:               ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %8) #17
+  tail call void @_ZdlPv(ptr noundef %8) #18
   br label %_ZSt8_DestroyIN3irr5scene10CMeshCache9MeshEntryEEvPT_.exit.i.i.i.i.i.i.i
 
 _ZSt8_DestroyIN3irr5scene10CMeshCache9MeshEntryEEvPT_.exit.i.i.i.i.i.i.i: ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i3.i.i.i.i.i.i.i.i.i.i
@@ -282,7 +282,7 @@ _ZSt8_DestroyIPN3irr5scene10CMeshCache9MeshEntryES3_EvT_S5_RSaIT0_E.exit.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN3irr5scene10CMeshCacheD1Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZSt8_DestroyIPN3irr5scene10CMeshCache9MeshEntryES3_EvT_S5_RSaIT0_E.exit.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %10) #18
   br label %_ZN3irr5scene10CMeshCacheD1Ev.exit
 
 _ZN3irr5scene10CMeshCacheD1Ev.exit:               ; preds = %if.then.i.i.i.i.i.i, %_ZSt8_DestroyIPN3irr5scene10CMeshCache9MeshEntryES3_EvT_S5_RSaIT0_E.exit.i.i.i.i
@@ -295,7 +295,7 @@ entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 24), ptr %this, align 8, !tbaa !10
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 168), ptr %add.ptr.i.i, align 8, !tbaa !10
-  tail call void @_ZN3irr5scene10CMeshCache5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %this) #18
+  tail call void @_ZN3irr5scene10CMeshCache5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %this) #19
   %Meshes.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %Meshes.i.i, align 8, !tbaa !12
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -312,7 +312,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %entry, %_ZSt8_Destr
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %2) #17
+  tail call void @_ZdlPv(ptr noundef %2) #18
   br label %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -322,7 +322,7 @@ _ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i
   br i1 %cmp.i.i.i.i2.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3irr5scene10CMeshCache9MeshEntryEEvPT_.exit.i.i.i.i.i.i.i, label %if.then.i.i.i3.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i3.i.i.i.i.i.i.i.i.i.i:               ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %4) #17
+  tail call void @_ZdlPv(ptr noundef %4) #18
   br label %_ZSt8_DestroyIN3irr5scene10CMeshCache9MeshEntryEEvPT_.exit.i.i.i.i.i.i.i
 
 _ZSt8_DestroyIN3irr5scene10CMeshCache9MeshEntryEEvPT_.exit.i.i.i.i.i.i.i: ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i3.i.i.i.i.i.i.i.i.i.i
@@ -340,11 +340,11 @@ _ZSt8_DestroyIPN3irr5scene10CMeshCache9MeshEntryES3_EvT_S5_RSaIT0_E.exit.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN3irr5scene10CMeshCacheD1Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZSt8_DestroyIPN3irr5scene10CMeshCache9MeshEntryES3_EvT_S5_RSaIT0_E.exit.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #18
   br label %_ZN3irr5scene10CMeshCacheD1Ev.exit
 
 _ZN3irr5scene10CMeshCacheD1Ev.exit:               ; preds = %if.then.i.i.i.i.i.i, %_ZSt8_DestroyIPN3irr5scene10CMeshCache9MeshEntryES3_EvT_S5_RSaIT0_E.exit.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
 }
 
@@ -361,7 +361,7 @@ entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 24), ptr %3, align 8, !tbaa !10
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 168), ptr %add.ptr.i.i.i, align 8, !tbaa !10
-  tail call void @_ZN3irr5scene10CMeshCache5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #18
+  tail call void @_ZN3irr5scene10CMeshCache5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
   %Meshes.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %Meshes.i.i.i, align 8, !tbaa !12
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -378,7 +378,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %entry, %_ZSt8_Destr
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %for.body.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %6) #17
+  tail call void @_ZdlPv(ptr noundef %6) #18
   br label %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -388,7 +388,7 @@ _ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i
   br i1 %cmp.i.i.i.i2.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3irr5scene10CMeshCache9MeshEntryEEvPT_.exit.i.i.i.i.i.i.i.i, label %if.then.i.i.i3.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i3.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %8) #17
+  tail call void @_ZdlPv(ptr noundef %8) #18
   br label %_ZSt8_DestroyIN3irr5scene10CMeshCache9MeshEntryEEvPT_.exit.i.i.i.i.i.i.i.i
 
 _ZSt8_DestroyIN3irr5scene10CMeshCache9MeshEntryEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i3.i.i.i.i.i.i.i.i.i.i.i
@@ -406,11 +406,11 @@ _ZSt8_DestroyIPN3irr5scene10CMeshCache9MeshEntryES3_EvT_S5_RSaIT0_E.exit.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN3irr5scene10CMeshCacheD0Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZSt8_DestroyIPN3irr5scene10CMeshCache9MeshEntryES3_EvT_S5_RSaIT0_E.exit.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %10) #18
   br label %_ZN3irr5scene10CMeshCacheD0Ev.exit
 
 _ZN3irr5scene10CMeshCacheD0Ev.exit:               ; preds = %if.then.i.i.i.i.i.i.i, %_ZSt8_DestroyIPN3irr5scene10CMeshCache9MeshEntryES3_EvT_S5_RSaIT0_E.exit.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #18
   ret void
 }
 
@@ -436,7 +436,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %_ZN3irr4core6stringIcEC2ERKS2_.exit.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %entry
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %e, ptr noundef nonnull align 8 dereferenceable(32) %filename) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %e, ptr noundef nonnull align 8 dereferenceable(32) %filename) #19
   br label %_ZN3irr4core6stringIcEC2ERKS2_.exit.i.i
 
 _ZN3irr4core6stringIcEC2ERKS2_.exit.i.i:          ; preds = %if.end.i.i.i.i, %entry
@@ -450,7 +450,7 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit.i.i:          ; preds = %if.end.i.i.i.i, %en
   br i1 %cmp.i.i.i.i.i, label %_ZN3irr5scene10CMeshCache9MeshEntryC2ERKNS_4core6stringIcEE.exit, label %_ZN3irr4core6stringIcEC2ERKS2_.exit.i.i.i
 
 _ZN3irr4core6stringIcEC2ERKS2_.exit.i.i.i:        ; preds = %_ZN3irr4core6stringIcEC2ERKS2_.exit.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i, ptr noundef nonnull align 8 dereferenceable(32) %filename) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i, ptr noundef nonnull align 8 dereferenceable(32) %filename) #19
   %.pr.i.i.i = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !21, !alias.scope !23
   %3 = load ptr, ptr %InternalName.i.i, align 8, !tbaa !3, !alias.scope !23
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %.pr.i.i.i
@@ -996,14 +996,14 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i.i.i.i.i: ; preds = %if.then.i.i
   br label %_ZNSt16allocator_traitsISaIN3irr5scene10CMeshCache9MeshEntryEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i
 
 if.end.i.i7.i.i.i.i.i.i:                          ; preds = %if.then.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %e) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %e) #19
   %InternalName.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %66, i64 32
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 48
   store ptr %69, ptr %InternalName.i.i.i.i.i.i, align 8, !tbaa !20
   %_M_string_length.i.i.i.i5.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %66, i64 40
   store i64 0, ptr %_M_string_length.i.i.i.i5.i.i.i.i.i.i, align 8, !tbaa !21
   store i8 0, ptr %69, align 8, !tbaa !22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i) #19
   br label %_ZNSt16allocator_traitsISaIN3irr5scene10CMeshCache9MeshEntryEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i
 
 _ZNSt16allocator_traitsISaIN3irr5scene10CMeshCache9MeshEntryEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i: ; preds = %if.end.i.i7.i.i.i.i.i.i, %_ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i.i.i.i.i
@@ -1028,7 +1028,7 @@ _ZN3irr4core5arrayINS_5scene10CMeshCache9MeshEntryEE9push_backERKS4_.exit: ; pre
   br i1 %cmp.i.i.i.i.i.i, label %_ZN3irr4core6stringIcED2Ev.exit.i.i, label %if.then.i.i.i.i.i4
 
 if.then.i.i.i.i.i4:                               ; preds = %_ZN3irr4core5arrayINS_5scene10CMeshCache9MeshEntryEE9push_backERKS4_.exit
-  call void @_ZdlPv(ptr noundef %72) #17
+  call void @_ZdlPv(ptr noundef %72) #18
   br label %_ZN3irr4core6stringIcED2Ev.exit.i.i
 
 _ZN3irr4core6stringIcED2Ev.exit.i.i:              ; preds = %_ZN3irr4core5arrayINS_5scene10CMeshCache9MeshEntryEE9push_backERKS4_.exit, %if.then.i.i.i.i.i4
@@ -1037,7 +1037,7 @@ _ZN3irr4core6stringIcED2Ev.exit.i.i:              ; preds = %_ZN3irr4core5arrayI
   br i1 %cmp.i.i.i.i2.i.i, label %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit, label %if.then.i.i.i3.i.i
 
 if.then.i.i.i3.i.i:                               ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i
-  call void @_ZdlPv(ptr noundef %73) #17
+  call void @_ZdlPv(ptr noundef %73) #18
   br label %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit
 
 _ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit:     ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i, %if.then.i.i.i3.i.i
@@ -1082,7 +1082,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
   %vtable = load ptr, ptr %5, align 8, !tbaa !10
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 104
   %6 = load ptr, ptr %vfn, align 8
-  %call12 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0, i32 noundef 255, i32 noundef -1, i32 noundef -1) #18
+  %call12 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0, i32 noundef 255, i32 noundef -1, i32 noundef -1) #19
   %cmp13 = icmp eq ptr %call12, %mesh
   %.pre52 = load ptr, ptr %Meshes, align 8, !tbaa !38
   br i1 %cmp13, label %land.lhs.true.if.then14_crit_edge, label %land.lhs.true.for.inc_crit_edge
@@ -1115,7 +1115,7 @@ delete.notnull.i:                                 ; preds = %if.then14
   %vtable.i = load ptr, ptr %add.ptr, align 8, !tbaa !10
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
   %10 = load ptr, ptr %vfn.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr) #18
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr) #19
   %.pre53 = load ptr, ptr %Meshes, align 8, !tbaa !38
   br label %_ZNK3irr17IReferenceCounted4dropEv.exit
 
@@ -1143,10 +1143,10 @@ _ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZN3
   %__n.010.i.i.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i.i.i, %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit.i.i.i.i.i.i.i.i ], [ %sub.ptr.div11.i.i.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i.i.i.i ]
   %__result.addr.09.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i.i, %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i, %for.body.preheader.i.i.i.i.i.i.i.i ]
   %__first.addr.08.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i, %for.body.preheader.i.i.i.i.i.i.i.i ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.09.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.08.i.i.i.i.i.i.i.i) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.09.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.08.i.i.i.i.i.i.i.i) #19
   %InternalName3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i.i.i.i, i64 32
   %InternalName.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.09.i.i.i.i.i.i.i.i, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i.i.i.i.i.i.i.i.i) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i.i.i.i.i.i.i.i.i) #19
   %Mesh.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i.i.i.i, i64 64
   %13 = load ptr, ptr %Mesh.i.i.i.i.i.i.i.i.i, align 8, !tbaa !34
   %Mesh3.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.09.i.i.i.i.i.i.i.i, i64 64
@@ -1172,7 +1172,7 @@ if.end.i.i.i:                                     ; preds = %if.end.loopexit.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i24.i.i.i, label %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i
-  tail call void @_ZdlPv(ptr noundef %15) #17
+  tail call void @_ZdlPv(ptr noundef %15) #18
   br label %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i
 
 _ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i:    ; preds = %if.end.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
@@ -1182,7 +1182,7 @@ _ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i:    ; preds = %if.end.i.i.i, %if.t
   br i1 %cmp.i.i.i.i2.i.i.i.i.i.i.i, label %for.end, label %if.then.i.i.i3.i.i.i.i.i.i.i
 
 if.then.i.i.i3.i.i.i.i.i.i.i:                     ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %17) #17
+  tail call void @_ZdlPv(ptr noundef %17) #18
   br label %for.end
 
 for.inc:                                          ; preds = %land.lhs.true.for.inc_crit_edge, %lor.lhs.false
@@ -1249,7 +1249,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
   %vtable = load ptr, ptr %5, align 8, !tbaa !10
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 104
   %6 = load ptr, ptr %vfn, align 8
-  %call11 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0, i32 noundef 255, i32 noundef -1, i32 noundef -1) #18
+  %call11 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0, i32 noundef 255, i32 noundef -1, i32 noundef -1) #19
   %cmp12 = icmp eq ptr %call11, %mesh
   br i1 %cmp12, label %cleanup.loopexit.split.loop.exit35, label %land.lhs.true.for.inc_crit_edge
 
@@ -1324,7 +1324,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %_ZN3irr4core6stringIcEC2ERKS2_.exit.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %entry
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %e, ptr noundef nonnull align 8 dereferenceable(32) %name) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %e, ptr noundef nonnull align 8 dereferenceable(32) %name) #19
   br label %_ZN3irr4core6stringIcEC2ERKS2_.exit.i.i
 
 _ZN3irr4core6stringIcEC2ERKS2_.exit.i.i:          ; preds = %if.end.i.i.i.i, %entry
@@ -1338,7 +1338,7 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit.i.i:          ; preds = %if.end.i.i.i.i, %en
   br i1 %cmp.i.i.i.i.i, label %_ZN3irr5scene10CMeshCache9MeshEntryC2ERKNS_4core6stringIcEE.exit, label %_ZN3irr4core6stringIcEC2ERKS2_.exit.i.i.i
 
 _ZN3irr4core6stringIcEC2ERKS2_.exit.i.i.i:        ; preds = %_ZN3irr4core6stringIcEC2ERKS2_.exit.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name) #19
   %.pr.i.i.i = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !21, !alias.scope !49
   %2 = load ptr, ptr %InternalName.i.i, align 8, !tbaa !3, !alias.scope !49
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 %.pr.i.i.i
@@ -1879,7 +1879,7 @@ cond.end:                                         ; preds = %cond.true, %_ZN3irr
   br i1 %cmp.i.i.i.i.i.i, label %_ZN3irr4core6stringIcED2Ev.exit.i.i, label %if.then.i.i.i.i.i6
 
 if.then.i.i.i.i.i6:                               ; preds = %cond.end
-  call void @_ZdlPv(ptr noundef %67) #17
+  call void @_ZdlPv(ptr noundef %67) #18
   br label %_ZN3irr4core6stringIcED2Ev.exit.i.i
 
 _ZN3irr4core6stringIcED2Ev.exit.i.i:              ; preds = %cond.end, %if.then.i.i.i.i.i6
@@ -1888,7 +1888,7 @@ _ZN3irr4core6stringIcED2Ev.exit.i.i:              ; preds = %cond.end, %if.then.
   br i1 %cmp.i.i.i.i2.i.i, label %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit, label %if.then.i.i.i3.i.i
 
 if.then.i.i.i3.i.i:                               ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i
-  call void @_ZdlPv(ptr noundef %68) #17
+  call void @_ZdlPv(ptr noundef %68) #18
   br label %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit
 
 _ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit:     ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i, %if.then.i.i.i3.i.i
@@ -2015,7 +2015,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
   %vtable = load ptr, ptr %5, align 8, !tbaa !10
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 104
   %6 = load ptr, ptr %vfn, align 8
-  %call12 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0, i32 noundef 255, i32 noundef -1, i32 noundef -1) #18
+  %call12 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0, i32 noundef 255, i32 noundef -1, i32 noundef -1) #19
   %cmp13 = icmp eq ptr %call12, %mesh
   %.pre43 = load ptr, ptr %Meshes, align 8, !tbaa !12
   br i1 %cmp13, label %if.then14, label %land.lhs.true.for.inc_crit_edge
@@ -2121,7 +2121,7 @@ entry:
   br i1 %cmp.i, label %_ZN3irr4core6stringIcEaSERKS2_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %p) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %p) #19
   br label %_ZN3irr4core6stringIcEaSERKS2_.exit
 
 _ZN3irr4core6stringIcEaSERKS2_.exit:              ; preds = %if.end.i, %entry
@@ -2135,7 +2135,7 @@ _ZN3irr4core6stringIcEaSERKS2_.exit:              ; preds = %if.end.i, %entry
   br i1 %cmp.i.i.i, label %_ZNK3irr2io10SNamedPath10PathToNameERKNS_4core6stringIcEE.exit, label %_ZN3irr4core6stringIcEC2ERKS2_.exit.i
 
 _ZN3irr4core6stringIcEC2ERKS2_.exit.i:            ; preds = %_ZN3irr4core6stringIcEaSERKS2_.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %p) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %p) #19
   %.pr.i = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !21, !alias.scope !63
   %1 = load ptr, ptr %ref.tmp, align 8, !tbaa !3, !alias.scope !63
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 %.pr.i
@@ -2661,7 +2661,7 @@ _ZNK3irr2io10SNamedPath10PathToNameERKNS_4core6stringIcEE.exit: ; preds = %for.b
   br i1 %cmp.i4, label %_ZN3irr4core6stringIcEaSERKS2_.exit6, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZNK3irr2io10SNamedPath10PathToNameERKNS_4core6stringIcEE.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %_ZN3irr4core6stringIcEaSERKS2_.exit6
 
 _ZN3irr4core6stringIcEaSERKS2_.exit6:             ; preds = %if.end.i5, %_ZNK3irr2io10SNamedPath10PathToNameERKNS_4core6stringIcEE.exit
@@ -2670,7 +2670,7 @@ _ZN3irr4core6stringIcEaSERKS2_.exit6:             ; preds = %if.end.i5, %_ZNK3ir
   br i1 %cmp.i.i.i.i, label %_ZN3irr4core6stringIcED2Ev.exit, label %if.then.i.i.i7
 
 if.then.i.i.i7:                                   ; preds = %_ZN3irr4core6stringIcEaSERKS2_.exit6
-  call void @_ZdlPv(ptr noundef %64) #17
+  call void @_ZdlPv(ptr noundef %64) #18
   br label %_ZN3irr4core6stringIcED2Ev.exit
 
 _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %_ZN3irr4core6stringIcEaSERKS2_.exit6, %if.then.i.i.i7
@@ -2711,7 +2711,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
   %vtable = load ptr, ptr %5, align 8, !tbaa !10
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 104
   %6 = load ptr, ptr %vfn, align 8
-  %call11 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0, i32 noundef 255, i32 noundef -1, i32 noundef -1) #18
+  %call11 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0, i32 noundef 255, i32 noundef -1, i32 noundef -1) #19
   %cmp12 = icmp eq ptr %call11, %mesh
   %.pre45 = load ptr, ptr %Meshes, align 8, !tbaa !12
   br i1 %cmp12, label %if.then, label %land.lhs.true.for.inc_crit_edge
@@ -2791,7 +2791,7 @@ entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !10
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
-  %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) #18
+  %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) #19
   %cmp = icmp ne ptr %call, null
   ret i1 %cmp
 }
@@ -2827,7 +2827,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.cond.cleanup, %
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %3) #17
+  tail call void @_ZdlPv(ptr noundef %3) #18
   br label %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i
 
 _ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i:  ; preds = %for.body.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -2837,7 +2837,7 @@ _ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i:  ; preds = %for.body.i.i.i.i.i,
   br i1 %cmp.i.i.i.i2.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3irr5scene10CMeshCache9MeshEntryEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i3.i.i.i.i.i.i.i.i
 
 if.then.i.i.i3.i.i.i.i.i.i.i.i:                   ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %5) #17
+  tail call void @_ZdlPv(ptr noundef %5) #18
   br label %_ZSt8_DestroyIN3irr5scene10CMeshCache9MeshEntryEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN3irr5scene10CMeshCache9MeshEntryEEvPT_.exit.i.i.i.i.i: ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i3.i.i.i.i.i.i.i.i
@@ -2850,7 +2850,7 @@ _ZSt8_DestroyIPN3irr5scene10CMeshCache9MeshEntryES3_EvT_S5_RSaIT0_E.exit.i.i: ; 
   br i1 %tobool.not.i.i.i.i, label %_ZN3irr4core5arrayINS_5scene10CMeshCache9MeshEntryEE5clearEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZSt8_DestroyIPN3irr5scene10CMeshCache9MeshEntryES3_EvT_S5_RSaIT0_E.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa) #18
   br label %_ZN3irr4core5arrayINS_5scene10CMeshCache9MeshEntryEE5clearEv.exit
 
 _ZN3irr4core5arrayINS_5scene10CMeshCache9MeshEntryEE5clearEv.exit: ; preds = %if.then.i.i.i.i, %_ZSt8_DestroyIPN3irr5scene10CMeshCache9MeshEntryES3_EvT_S5_RSaIT0_E.exit.i.i
@@ -2880,7 +2880,7 @@ delete.notnull.i:                                 ; preds = %for.body
   %vtable.i = load ptr, ptr %add.ptr, align 8, !tbaa !10
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
   %11 = load ptr, ptr %vfn.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr) #18
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr) #19
   %.pre = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !14
   %.pre21 = load ptr, ptr %Meshes, align 8, !tbaa !12
   br label %_ZNK3irr17IReferenceCounted4dropEv.exit
@@ -2938,7 +2938,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %for.body
   %vtable.i = load ptr, ptr %add.ptr, align 8, !tbaa !10
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
   %7 = load ptr, ptr %vfn.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr) #18
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr) #19
   %8 = load ptr, ptr %Meshes, align 8, !tbaa !38
   %add.ptr.i.i.i.i.i.idx = mul nuw nsw i64 %conv.i20, 72
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %add.ptr.i.i.i.i.i.idx
@@ -2962,10 +2962,10 @@ _ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZN3
   %__n.010.i.i.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i.i.i, %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit.i.i.i.i.i.i.i.i ], [ %sub.ptr.div11.i.i.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i.i.i.i ]
   %__result.addr.09.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i.i, %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i, %for.body.preheader.i.i.i.i.i.i.i.i ]
   %__first.addr.08.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i, %for.body.preheader.i.i.i.i.i.i.i.i ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.09.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.08.i.i.i.i.i.i.i.i) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.09.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.08.i.i.i.i.i.i.i.i) #19
   %InternalName3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i.i.i.i, i64 32
   %InternalName.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.09.i.i.i.i.i.i.i.i, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i.i.i.i.i.i.i.i.i) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i.i.i.i.i.i.i.i.i) #19
   %Mesh.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i.i.i.i, i64 64
   %10 = load ptr, ptr %Mesh.i.i.i.i.i.i.i.i.i, align 8, !tbaa !34
   %Mesh3.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.09.i.i.i.i.i.i.i.i, i64 64
@@ -2991,7 +2991,7 @@ if.end.i.i.i:                                     ; preds = %if.end.loopexit.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i24.i.i.i, label %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i
-  tail call void @_ZdlPv(ptr noundef %12) #17
+  tail call void @_ZdlPv(ptr noundef %12) #18
   br label %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i
 
 _ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i:    ; preds = %if.end.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
@@ -3001,7 +3001,7 @@ _ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i:    ; preds = %if.end.i.i.i, %if.t
   br i1 %cmp.i.i.i.i2.i.i.i.i.i.i.i, label %_ZN3irr4core5arrayINS_5scene10CMeshCache9MeshEntryEE5eraseEj.exit, label %if.then.i.i.i3.i.i.i.i.i.i.i
 
 if.then.i.i.i3.i.i.i.i.i.i.i:                     ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %14) #17
+  tail call void @_ZdlPv(ptr noundef %14) #18
   br label %_ZN3irr4core5arrayINS_5scene10CMeshCache9MeshEntryEE5eraseEj.exit
 
 _ZN3irr4core5arrayINS_5scene10CMeshCache9MeshEntryEE5eraseEj.exit: ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i.i, %if.then.i.i.i3.i.i.i.i.i.i.i
@@ -3027,14 +3027,14 @@ for.inc:                                          ; preds = %_ZN3irr4core5arrayI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5scene10IMeshCacheD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #19
+  tail call void @llvm.trap() #20
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5scene10IMeshCacheD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #19
+  tail call void @llvm.trap() #20
   unreachable
 }
 
@@ -3043,14 +3043,14 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZTv0_n24_N3irr5scene10IMeshCacheD1Ev(ptr noundef %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #19
+  tail call void @llvm.trap() #20
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZTv0_n24_N3irr5scene10IMeshCacheD0Ev(ptr noundef %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #19
+  tail call void @llvm.trap() #20
   unreachable
 }
 
@@ -3072,7 +3072,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIN3irr5scene10CMeshCache9MeshEntryESaIS3_EE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #20
   unreachable
 
 _ZNKSt6vectorIN3irr5scene10CMeshCache9MeshEntryESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
@@ -3087,7 +3087,7 @@ _ZNKSt6vectorIN3irr5scene10CMeshCache9MeshEntryESaIS3_EE12_M_check_lenEmPKc.exit
   %cmp.not.i = icmp ne i64 %cond.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i)
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 72
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #20
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   %3 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   store ptr %3, ptr %add.ptr, align 8, !tbaa !20
@@ -3107,7 +3107,7 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i.i.i: ; preds = %_ZNKSt6vectorIN3i
   br label %_ZNSt16allocator_traitsISaIN3irr5scene10CMeshCache9MeshEntryEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
 
 if.end.i.i7.i.i.i.i:                              ; preds = %_ZNKSt6vectorIN3irr5scene10CMeshCache9MeshEntryESaIS3_EE12_M_check_lenEmPKc.exit
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args) #19
   %InternalName.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 48
   store ptr %5, ptr %InternalName.i.i.i.i, align 8, !tbaa !20
@@ -3115,7 +3115,7 @@ if.end.i.i7.i.i.i.i:                              ; preds = %_ZNKSt6vectorIN3irr
   store i64 0, ptr %_M_string_length.i.i.i.i5.i.i.i.i, align 8, !tbaa !21
   store i8 0, ptr %5, align 8, !tbaa !22
   %InternalName3.i.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i.i.i) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i.i.i) #19
   br label %_ZNSt16allocator_traitsISaIN3irr5scene10CMeshCache9MeshEntryEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
 
 _ZNSt16allocator_traitsISaIN3irr5scene10CMeshCache9MeshEntryEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit: ; preds = %if.end.i.i7.i.i.i.i, %_ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i.i.i
@@ -3147,7 +3147,7 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i.i.i.i.i.i.i: ; preds = %for.body.
   br label %_ZSt10_ConstructIN3irr5scene10CMeshCache9MeshEntryEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i
 
 if.end.i.i7.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.08.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i.i) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.08.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i.i) #19
   %InternalName.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 48
   store ptr %9, ptr %InternalName.i.i.i.i.i.i.i.i, align 8, !tbaa !20
@@ -3155,7 +3155,7 @@ if.end.i.i7.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i.i.i
   store i64 0, ptr %_M_string_length.i.i.i.i5.i.i.i.i.i.i.i.i, align 8, !tbaa !21
   store i8 0, ptr %9, align 8, !tbaa !22
   %InternalName3.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i.i.i.i.i.i.i) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i.i.i.i.i.i.i) #19
   br label %_ZSt10_ConstructIN3irr5scene10CMeshCache9MeshEntryEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i
 
 _ZSt10_ConstructIN3irr5scene10CMeshCache9MeshEntryEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %if.end.i.i7.i.i.i.i.i.i.i.i, %_ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i.i.i.i.i.i.i
@@ -3195,7 +3195,7 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i.i.i.i.i.i.i52: ; preds = %for.bod
   br label %_ZSt10_ConstructIN3irr5scene10CMeshCache9MeshEntryEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i45
 
 if.end.i.i7.i.i.i.i.i.i.i.i41:                    ; preds = %for.body.i.i.i.i.i36
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.08.i.i.i.i.i37, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i.i38) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.08.i.i.i.i.i37, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i.i38) #19
   %InternalName.i.i.i.i.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i37, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i37, i64 48
   store ptr %13, ptr %InternalName.i.i.i.i.i.i.i.i42, align 8, !tbaa !20
@@ -3203,7 +3203,7 @@ if.end.i.i7.i.i.i.i.i.i.i.i41:                    ; preds = %for.body.i.i.i.i.i3
   store i64 0, ptr %_M_string_length.i.i.i.i5.i.i.i.i.i.i.i.i43, align 8, !tbaa !21
   store i8 0, ptr %13, align 8, !tbaa !22
   %InternalName3.i.i.i.i.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i38, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i.i.i.i.i.i.i42, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i.i.i.i.i.i.i44) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i.i.i.i.i.i.i42, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i.i.i.i.i.i.i44) #19
   br label %_ZSt10_ConstructIN3irr5scene10CMeshCache9MeshEntryEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i45
 
 _ZSt10_ConstructIN3irr5scene10CMeshCache9MeshEntryEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i45: ; preds = %if.end.i.i7.i.i.i.i.i.i.i.i41, %_ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i.i.i.i.i.i.i52
@@ -3230,7 +3230,7 @@ for.body.i.i.i:                                   ; preds = %_ZSt34__uninitializ
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i56, label %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i
-  tail call void @_ZdlPv(ptr noundef %15) #17
+  tail call void @_ZdlPv(ptr noundef %15) #18
   br label %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i
 
 _ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i:      ; preds = %for.body.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
@@ -3240,7 +3240,7 @@ _ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i:      ; preds = %for.body.i.i.i, %if
   br i1 %cmp.i.i.i.i2.i.i.i.i.i.i, label %_ZSt8_DestroyIN3irr5scene10CMeshCache9MeshEntryEEvPT_.exit.i.i.i, label %if.then.i.i.i3.i.i.i.i.i.i
 
 if.then.i.i.i3.i.i.i.i.i.i:                       ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %17) #17
+  tail call void @_ZdlPv(ptr noundef %17) #18
   br label %_ZSt8_DestroyIN3irr5scene10CMeshCache9MeshEntryEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyIN3irr5scene10CMeshCache9MeshEntryEEvPT_.exit.i.i.i: ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i.i.i.i.i, %if.then.i.i.i3.i.i.i.i.i.i
@@ -3253,7 +3253,7 @@ _ZSt8_DestroyIPN3irr5scene10CMeshCache9MeshEntryES3_EvT_S5_RSaIT0_E.exit: ; pred
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN3irr5scene10CMeshCache9MeshEntryESaIS3_EE13_M_deallocateEPS3_m.exit, label %if.then.i57
 
 if.then.i57:                                      ; preds = %_ZSt8_DestroyIPN3irr5scene10CMeshCache9MeshEntryES3_EvT_S5_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #18
   br label %_ZNSt12_Vector_baseIN3irr5scene10CMeshCache9MeshEntryESaIS3_EE13_M_deallocateEPS3_m.exit
 
 _ZNSt12_Vector_baseIN3irr5scene10CMeshCache9MeshEntryESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %if.then.i57, %_ZSt8_DestroyIPN3irr5scene10CMeshCache9MeshEntryES3_EvT_S5_RSaIT0_E.exit
@@ -3308,7 +3308,7 @@ while.body.i.i:                                   ; preds = %_ZNK9__gnu_cxx5__op
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %while.body.i.i
   %InternalName.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 32
   %4 = load ptr, ptr %InternalName.i.i.i.i.i, align 8, !tbaa !3
-  %call.i.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %4, ptr noundef %2, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i) #18
+  %call.i.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %4, ptr noundef %2, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i) #19
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i
 
@@ -3343,7 +3343,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZSt11lower_bou
   %InternalName.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0.lcssa.i.i, i64 32
   %7 = load ptr, ptr %InternalName2.i.i, align 8, !tbaa !3
   %8 = load ptr, ptr %InternalName.i.i, align 8, !tbaa !3
-  %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %8, ptr noundef %7, i64 noundef %.sroa.speculated.i.i.i.i.i) #18
+  %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %8, ptr noundef %7, i64 noundef %.sroa.speculated.i.i.i.i.i) #19
   %tobool.not.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZNK3irr5scene10CMeshCache9MeshEntryltERKS2_.exit.thread71, label %_ZNK3irr5scene10CMeshCache9MeshEntryltERKS2_.exit.thread
 
@@ -3368,7 +3368,7 @@ _ZNK3irr5scene10CMeshCache9MeshEntryltERKS2_.exit.thread: ; preds = %_ZNSt11char
   br i1 %cmp.i.i.i.i4970, label %return, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i54
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i54: ; preds = %_ZNK3irr5scene10CMeshCache9MeshEntryltERKS2_.exit.thread, %_ZNK3irr5scene10CMeshCache9MeshEntryltERKS2_.exit.thread71
-  %call.i.i.i.i.i.i57 = tail call i32 @memcmp(ptr noundef %7, ptr noundef %8, i64 noundef %.sroa.speculated.i.i.i.i.i) #18
+  %call.i.i.i.i.i.i57 = tail call i32 @memcmp(ptr noundef %7, ptr noundef %8, i64 noundef %.sroa.speculated.i.i.i.i.i) #19
   %tobool.not.i.i.i.i.i58 = icmp eq i32 %call.i.i.i.i.i.i57, 0
   br i1 %tobool.not.i.i.i.i.i58, label %if.then.i.i.i.i.i61, label %_ZNK3irr5scene10CMeshCache9MeshEntryltERKS2_.exit66
 
@@ -3476,7 +3476,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %while.con
   %InternalName.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 32
   %4 = load ptr, ptr %InternalName2.i.i.i.i.i, align 8, !tbaa !3
   %5 = load ptr, ptr %InternalName.i.i.i.i.i, align 8, !tbaa !3
-  %call.i.i.i.i.i.i.i.i.i = call i32 @memcmp(ptr noundef %5, ptr noundef %4, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i) #18
+  %call.i.i.i.i.i.i.i.i.i = call i32 @memcmp(ptr noundef %5, ptr noundef %4, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i) #19
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i.i
 
@@ -3506,7 +3506,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i31.i.i: ; preds = %while.c
   %InternalName2.i.i.i32.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i.i, i64 -40
   %7 = load ptr, ptr %InternalName2.i.i.i32.i.i, align 8, !tbaa !3
   %8 = load ptr, ptr %InternalName2.i.i.i.i.i, align 8, !tbaa !3
-  %call.i.i.i.i.i.i.i34.i.i = call i32 @memcmp(ptr noundef %8, ptr noundef %7, i64 noundef %.sroa.speculated.i.i.i.i.i.i29.i.i) #18
+  %call.i.i.i.i.i.i.i34.i.i = call i32 @memcmp(ptr noundef %8, ptr noundef %7, i64 noundef %.sroa.speculated.i.i.i.i.i.i29.i.i) #19
   %tobool.not.i.i.i.i.i.i35.i.i = icmp eq i32 %call.i.i.i.i.i.i.i34.i.i, 0
   br i1 %tobool.not.i.i.i.i.i.i35.i.i, label %if.then.i.i.i.i.i.i38.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit43.i.i
 
@@ -3542,22 +3542,22 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i.i: ; preds = %if.end.i.i
   br label %_ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit.i
 
 if.end.i.i7.i.i.i:                                ; preds = %if.end.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.1.i.i) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.1.i.i) #19
   store ptr %1, ptr %InternalName.i.i.i, align 8, !tbaa !20
   store i64 0, ptr %_M_string_length.i.i.i.i5.i.i.i, align 8, !tbaa !21
   store i8 0, ptr %1, align 8, !tbaa !22
   %InternalName3.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i.i) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i.i) #19
   br label %_ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit.i
 
 _ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit.i: ; preds = %if.end.i.i7.i.i.i, %_ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i.i
   %Mesh3.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 64
   %9 = load ptr, ptr %Mesh3.i.i, align 8, !tbaa !34
   store ptr %9, ptr %Mesh.i.i, align 8, !tbaa !34
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.1.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__last.sroa.0.1.i.i) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.1.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__last.sroa.0.1.i.i) #19
   %InternalName3.i.i4.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i.i, i64 -40
   %InternalName.i.i5.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i5.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i4.i) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i5.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i4.i) #19
   %Mesh.i6.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
   %10 = load ptr, ptr %Mesh.i6.i, align 8, !tbaa !34
   store ptr %10, ptr %Mesh3.i.i, align 8, !tbaa !34
@@ -3565,8 +3565,8 @@ _ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit.i: ; preds = %if.end.i.i7.i.i.i,
   br i1 %cmp.i.i.i8.i, label %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit14.i, label %if.end.i7.i.i9.i
 
 if.end.i7.i.i9.i:                                 ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__last.sroa.0.1.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i4.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i.i) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__last.sroa.0.1.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i4.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i.i) #19
   br label %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit14.i
 
 _ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit14.i: ; preds = %if.end.i7.i.i9.i, %_ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit.i
@@ -3577,7 +3577,7 @@ _ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit14.i: ; preds = %if.end.i7.i.i9.i
   br i1 %cmp.i.i.i.i.i.i.i24, label %_ZN3irr4core6stringIcED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit14.i
-  call void @_ZdlPv(ptr noundef %12) #17
+  call void @_ZdlPv(ptr noundef %12) #18
   br label %_ZN3irr4core6stringIcED2Ev.exit.i.i.i
 
 _ZN3irr4core6stringIcED2Ev.exit.i.i.i:            ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit14.i, %if.then.i.i.i.i.i.i
@@ -3586,7 +3586,7 @@ _ZN3irr4core6stringIcED2Ev.exit.i.i.i:            ; preds = %_ZN3irr5scene10CMes
   br i1 %cmp.i.i.i.i2.i.i.i, label %_ZSt4swapIN3irr5scene10CMeshCache9MeshEntryEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_.exit, label %if.then.i.i.i3.i.i.i
 
 if.then.i.i.i3.i.i.i:                             ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i.i
-  call void @_ZdlPv(ptr noundef %13) #17
+  call void @_ZdlPv(ptr noundef %13) #18
   br label %_ZSt4swapIN3irr5scene10CMeshCache9MeshEntryEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_.exit
 
 _ZSt4swapIN3irr5scene10CMeshCache9MeshEntryEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_.exit: ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i.i, %if.then.i.i.i3.i.i.i
@@ -3651,12 +3651,12 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i:   ; preds = %while.cond
   br label %_ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit
 
 if.end.i.i7.i.i:                                  ; preds = %while.cond
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__value, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__value, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #19
   store ptr %1, ptr %InternalName.i.i, align 8, !tbaa !20
   store i64 0, ptr %_M_string_length.i.i.i.i5.i.i, align 8, !tbaa !21
   store i8 0, ptr %1, align 8, !tbaa !22
   %InternalName3.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i) #19
   br label %_ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit
 
 _ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit:  ; preds = %if.end.i.i7.i.i, %_ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i
@@ -3666,11 +3666,11 @@ _ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit:  ; preds = %if.end.i.i7.i.i, %_
   store ptr %2, ptr %agg.tmp6, align 8, !tbaa !20
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i23, align 8, !tbaa !21
   store i8 0, ptr %2, align 8, !tbaa !22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6, ptr noundef nonnull align 8 dereferenceable(32) %__value) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6, ptr noundef nonnull align 8 dereferenceable(32) %__value) #19
   store ptr %3, ptr %InternalName.i.i25, align 8, !tbaa !20
   store i64 0, ptr %_M_string_length.i.i.i.i5.i.i26, align 8, !tbaa !21
   store i8 0, ptr %3, align 8, !tbaa !22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i25, ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i25, ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i) #19
   %5 = load ptr, ptr %Mesh.i, align 8, !tbaa !34
   store ptr %5, ptr %Mesh.i28, align 8, !tbaa !34
   call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene10CMeshCache9MeshEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_(ptr %__first.coerce, i64 noundef %__parent.0, i64 noundef %sub.ptr.div.i, ptr noundef nonnull %agg.tmp6)
@@ -3679,7 +3679,7 @@ _ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit:  ; preds = %if.end.i.i7.i.i, %_
   br i1 %cmp.i.i.i.i.i.i, label %_ZN3irr4core6stringIcED2Ev.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit
-  call void @_ZdlPv(ptr noundef %6) #17
+  call void @_ZdlPv(ptr noundef %6) #18
   br label %_ZN3irr4core6stringIcED2Ev.exit.i.i
 
 _ZN3irr4core6stringIcED2Ev.exit.i.i:              ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit, %if.then.i.i.i.i.i
@@ -3688,7 +3688,7 @@ _ZN3irr4core6stringIcED2Ev.exit.i.i:              ; preds = %_ZN3irr5scene10CMes
   br i1 %cmp.i.i.i.i2.i.i, label %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit, label %if.then.i.i.i3.i.i
 
 if.then.i.i.i3.i.i:                               ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i
-  call void @_ZdlPv(ptr noundef %7) #17
+  call void @_ZdlPv(ptr noundef %7) #18
   br label %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit
 
 _ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit:     ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i, %if.then.i.i.i3.i.i
@@ -3699,7 +3699,7 @@ _ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit:     ; preds = %_ZN3irr4core6string
   br i1 %cmp.i.i.i.i.i.i34, label %_ZN3irr4core6stringIcED2Ev.exit.i.i36, label %if.then.i.i.i.i.i35
 
 if.then.i.i.i.i.i35:                              ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit
-  call void @_ZdlPv(ptr noundef %8) #17
+  call void @_ZdlPv(ptr noundef %8) #18
   br label %_ZN3irr4core6stringIcED2Ev.exit.i.i36
 
 _ZN3irr4core6stringIcED2Ev.exit.i.i36:            ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit, %if.then.i.i.i.i.i35
@@ -3708,7 +3708,7 @@ _ZN3irr4core6stringIcED2Ev.exit.i.i36:            ; preds = %_ZN3irr5scene10CMes
   br i1 %cmp.i.i.i.i2.i.i37, label %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit45, label %if.then.i.i.i3.i.i38
 
 if.then.i.i.i3.i.i38:                             ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i36
-  call void @_ZdlPv(ptr noundef %9) #17
+  call void @_ZdlPv(ptr noundef %9) #18
   br label %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit45
 
 _ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit45:   ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i36, %if.then.i.i.i3.i.i38
@@ -3743,7 +3743,7 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i:   ; preds = %entry
   br label %_ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit
 
 if.end.i.i7.i.i:                                  ; preds = %entry
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__value, ptr noundef nonnull align 8 dereferenceable(32) %__result.coerce) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__value, ptr noundef nonnull align 8 dereferenceable(32) %__result.coerce) #19
   %InternalName.i.i = getelementptr inbounds nuw i8, ptr %__value, i64 32
   %2 = getelementptr inbounds nuw i8, ptr %__value, i64 48
   store ptr %2, ptr %InternalName.i.i, align 8, !tbaa !20
@@ -3751,7 +3751,7 @@ if.end.i.i7.i.i:                                  ; preds = %entry
   store i64 0, ptr %_M_string_length.i.i.i.i5.i.i, align 8, !tbaa !21
   store i8 0, ptr %2, align 8, !tbaa !22
   %InternalName3.i.i = getelementptr inbounds nuw i8, ptr %__result.coerce, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i) #19
   br label %_ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit
 
 _ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit:  ; preds = %if.end.i.i7.i.i, %_ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i
@@ -3763,10 +3763,10 @@ _ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit:  ; preds = %if.end.i.i7.i.i, %_
   br i1 %cmp.i.i.i, label %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit, label %if.end.i7.i.i
 
 if.end.i7.i.i:                                    ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__first.coerce) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__first.coerce) #19
   %InternalName3.i.i10 = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 32
   %InternalName.i.i11 = getelementptr inbounds nuw i8, ptr %__result.coerce, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i10) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i10) #19
   br label %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit
 
 _ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit:  ; preds = %if.end.i7.i.i, %_ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit
@@ -3782,7 +3782,7 @@ _ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit:  ; preds = %if.end.i7.i.i, %_ZN
   %_M_string_length.i.i.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %agg.tmp7, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i14, align 8, !tbaa !21
   store i8 0, ptr %5, align 8, !tbaa !22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7, ptr noundef nonnull align 8 dereferenceable(32) %__value) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7, ptr noundef nonnull align 8 dereferenceable(32) %__value) #19
   %InternalName.i.i16 = getelementptr inbounds nuw i8, ptr %agg.tmp7, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %agg.tmp7, i64 48
   store ptr %6, ptr %InternalName.i.i16, align 8, !tbaa !20
@@ -3790,7 +3790,7 @@ _ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit:  ; preds = %if.end.i7.i.i, %_ZN
   store i64 0, ptr %_M_string_length.i.i.i.i5.i.i17, align 8, !tbaa !21
   store i8 0, ptr %6, align 8, !tbaa !22
   %InternalName3.i.i18 = getelementptr inbounds nuw i8, ptr %__value, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i16, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i18) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i16, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i18) #19
   %Mesh.i19 = getelementptr inbounds nuw i8, ptr %agg.tmp7, i64 64
   %7 = load ptr, ptr %Mesh.i, align 8, !tbaa !34
   store ptr %7, ptr %Mesh.i19, align 8, !tbaa !34
@@ -3800,7 +3800,7 @@ _ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit:  ; preds = %if.end.i7.i.i, %_ZN
   br i1 %cmp.i.i.i.i.i.i, label %_ZN3irr4core6stringIcED2Ev.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit
-  call void @_ZdlPv(ptr noundef %8) #17
+  call void @_ZdlPv(ptr noundef %8) #18
   br label %_ZN3irr4core6stringIcED2Ev.exit.i.i
 
 _ZN3irr4core6stringIcED2Ev.exit.i.i:              ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit, %if.then.i.i.i.i.i
@@ -3809,7 +3809,7 @@ _ZN3irr4core6stringIcED2Ev.exit.i.i:              ; preds = %_ZN3irr5scene10CMes
   br i1 %cmp.i.i.i.i2.i.i, label %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit, label %if.then.i.i.i3.i.i
 
 if.then.i.i.i3.i.i:                               ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i
-  call void @_ZdlPv(ptr noundef %9) #17
+  call void @_ZdlPv(ptr noundef %9) #18
   br label %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit
 
 _ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit:     ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i, %if.then.i.i.i3.i.i
@@ -3819,7 +3819,7 @@ _ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit:     ; preds = %_ZN3irr4core6string
   br i1 %cmp.i.i.i.i.i.i25, label %_ZN3irr4core6stringIcED2Ev.exit.i.i27, label %if.then.i.i.i.i.i26
 
 if.then.i.i.i.i.i26:                              ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit
-  call void @_ZdlPv(ptr noundef %10) #17
+  call void @_ZdlPv(ptr noundef %10) #18
   br label %_ZN3irr4core6stringIcED2Ev.exit.i.i27
 
 _ZN3irr4core6stringIcED2Ev.exit.i.i27:            ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit, %if.then.i.i.i.i.i26
@@ -3828,7 +3828,7 @@ _ZN3irr4core6stringIcED2Ev.exit.i.i27:            ; preds = %_ZN3irr5scene10CMes
   br i1 %cmp.i.i.i.i2.i.i28, label %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit36, label %if.then.i.i.i3.i.i29
 
 if.then.i.i.i3.i.i29:                             ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i27
-  call void @_ZdlPv(ptr noundef %12) #17
+  call void @_ZdlPv(ptr noundef %12) #18
   br label %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit36
 
 _ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit36:   ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i27, %if.then.i.i.i3.i.i29
@@ -3866,7 +3866,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %while.body
   %InternalName.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   %2 = load ptr, ptr %InternalName2.i.i.i, align 8, !tbaa !3
   %3 = load ptr, ptr %InternalName.i.i.i, align 8, !tbaa !3
-  %call.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %3, ptr noundef %2, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #18
+  %call.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %3, ptr noundef %2, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #19
   %tobool.not.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
 
@@ -3887,10 +3887,10 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5scene10CMe
   br i1 %cmp.i.i.i, label %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit, label %if.end.i7.i.i
 
 if.end.i7.i.i:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i58, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i57) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i58, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i57) #19
   %InternalName3.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i57, i64 32
   %InternalName.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i58, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i) #19
   br label %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit
 
 _ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit:  ; preds = %if.end.i7.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
@@ -3922,10 +3922,10 @@ if.then21:                                        ; preds = %land.lhs.true
   br i1 %cmp.i.i.i61, label %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit67, label %if.end.i7.i.i62
 
 if.end.i7.i.i62:                                  ; preds = %if.then21
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i60, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i59) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i60, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i59) #19
   %InternalName3.i.i63 = getelementptr inbounds nuw i8, ptr %add.ptr.i59, i64 32
   %InternalName.i.i64 = getelementptr inbounds nuw i8, ptr %add.ptr.i60, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i64, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i63) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i64, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i63) #19
   br label %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit67
 
 _ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit67: ; preds = %if.end.i7.i.i62, %if.then21
@@ -3956,7 +3956,7 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i:   ; preds = %if.end35
   br label %_ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit
 
 if.end.i.i7.i.i:                                  ; preds = %if.end35
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp38, ptr noundef nonnull align 8 dereferenceable(32) %__value) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp38, ptr noundef nonnull align 8 dereferenceable(32) %__value) #19
   %InternalName.i.i68 = getelementptr inbounds nuw i8, ptr %agg.tmp38, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %agg.tmp38, i64 48
   store ptr %8, ptr %InternalName.i.i68, align 8, !tbaa !20
@@ -3964,7 +3964,7 @@ if.end.i.i7.i.i:                                  ; preds = %if.end35
   store i64 0, ptr %_M_string_length.i.i.i.i5.i.i, align 8, !tbaa !21
   store i8 0, ptr %8, align 8, !tbaa !22
   %InternalName3.i.i69 = getelementptr inbounds nuw i8, ptr %__value, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i68, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i69) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i68, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i69) #19
   br label %_ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit
 
 _ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit:  ; preds = %if.end.i.i7.i.i, %_ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i
@@ -3980,7 +3980,7 @@ _ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit:  ; preds = %if.end.i.i7.i.i, %_
   br i1 %cmp.i.i.i.i.i.i, label %_ZN3irr4core6stringIcED2Ev.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit
-  call void @_ZdlPv(ptr noundef %10) #17
+  call void @_ZdlPv(ptr noundef %10) #18
   br label %_ZN3irr4core6stringIcED2Ev.exit.i.i
 
 _ZN3irr4core6stringIcED2Ev.exit.i.i:              ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit, %if.then.i.i.i.i.i
@@ -3989,7 +3989,7 @@ _ZN3irr4core6stringIcED2Ev.exit.i.i:              ; preds = %_ZN3irr5scene10CMes
   br i1 %cmp.i.i.i.i2.i.i, label %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit, label %if.then.i.i.i3.i.i
 
 if.then.i.i.i3.i.i:                               ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i
-  call void @_ZdlPv(ptr noundef %12) #17
+  call void @_ZdlPv(ptr noundef %12) #18
   br label %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit
 
 _ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit:     ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i, %if.then.i.i.i3.i.i
@@ -4024,7 +4024,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %land.rhs
   %InternalName.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   %2 = load ptr, ptr %InternalName2.i.i.i, align 8, !tbaa !3
   %3 = load ptr, ptr %InternalName.i.i.i, align 8, !tbaa !3
-  %call.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %3, ptr noundef %2, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #18
+  %call.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %3, ptr noundef %2, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #19
   %tobool.not.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit
 
@@ -4046,10 +4046,10 @@ while.body:                                       ; preds = %_ZNK9__gnu_cxx5__op
   br i1 %cmp.i.i.i, label %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit, label %if.end.i7.i.i
 
 if.end.i7.i.i:                                    ; preds = %while.body
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i26, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i26, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #19
   %InternalName3.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   %InternalName.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i26, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i) #19
   br label %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit
 
 _ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit:  ; preds = %if.end.i7.i.i, %while.body
@@ -4067,10 +4067,10 @@ while.end:                                        ; preds = %_ZN3irr5scene10CMes
   br i1 %cmp.i.i.i28, label %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit34, label %if.end.i7.i.i29
 
 if.end.i7.i.i29:                                  ; preds = %while.end
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i27, ptr noundef nonnull align 8 dereferenceable(32) %__value) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i27, ptr noundef nonnull align 8 dereferenceable(32) %__value) #19
   %InternalName3.i.i30 = getelementptr inbounds nuw i8, ptr %__value, i64 32
   %InternalName.i.i31 = getelementptr inbounds nuw i8, ptr %add.ptr.i27, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i31, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i30) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i31, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i30) #19
   br label %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit34
 
 _ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit34: ; preds = %if.end.i7.i.i29, %while.end
@@ -4097,7 +4097,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %entry
   %InternalName.i.i.i = getelementptr inbounds nuw i8, ptr %__a.coerce, i64 32
   %2 = load ptr, ptr %InternalName2.i.i.i, align 8, !tbaa !3
   %3 = load ptr, ptr %InternalName.i.i.i, align 8, !tbaa !3
-  %call.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %3, ptr noundef %2, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #18
+  %call.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %3, ptr noundef %2, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #19
   %tobool.not.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
 
@@ -4125,7 +4125,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i67: ; preds = %if.then
   %InternalName.i.i.i69 = getelementptr inbounds nuw i8, ptr %__b.coerce, i64 32
   %5 = load ptr, ptr %InternalName2.i.i.i68, align 8, !tbaa !3
   %6 = load ptr, ptr %InternalName.i.i.i69, align 8, !tbaa !3
-  %call.i.i.i.i.i.i.i70 = tail call i32 @memcmp(ptr noundef %6, ptr noundef %5, i64 noundef %.sroa.speculated.i.i.i.i.i.i65) #18
+  %call.i.i.i.i.i.i.i70 = tail call i32 @memcmp(ptr noundef %6, ptr noundef %5, i64 noundef %.sroa.speculated.i.i.i.i.i.i65) #19
   %tobool.not.i.i.i.i.i.i71 = icmp eq i32 %call.i.i.i.i.i.i.i70, 0
   br i1 %tobool.not.i.i.i.i.i.i71, label %if.then.i.i.i.i.i.i74, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit79
 
@@ -4151,7 +4151,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i84: ; preds = %if.else
   %InternalName.i.i.i86 = getelementptr inbounds nuw i8, ptr %__a.coerce, i64 32
   %7 = load ptr, ptr %InternalName2.i.i.i85, align 8, !tbaa !3
   %8 = load ptr, ptr %InternalName.i.i.i86, align 8, !tbaa !3
-  %call.i.i.i.i.i.i.i87 = tail call i32 @memcmp(ptr noundef %8, ptr noundef %7, i64 noundef %.sroa.speculated.i.i.i.i.i.i82) #18
+  %call.i.i.i.i.i.i.i87 = tail call i32 @memcmp(ptr noundef %8, ptr noundef %7, i64 noundef %.sroa.speculated.i.i.i.i.i.i82) #19
   %tobool.not.i.i.i.i.i.i88 = icmp eq i32 %call.i.i.i.i.i.i.i87, 0
   br i1 %tobool.not.i.i.i.i.i.i88, label %if.then.i.i.i.i.i.i91, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit96
 
@@ -4178,7 +4178,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i101: ; preds = %if.else33
   %InternalName.i.i.i103 = getelementptr inbounds nuw i8, ptr %__a.coerce, i64 32
   %9 = load ptr, ptr %InternalName2.i.i.i102, align 8, !tbaa !3
   %10 = load ptr, ptr %InternalName.i.i.i103, align 8, !tbaa !3
-  %call.i.i.i.i.i.i.i104 = tail call i32 @memcmp(ptr noundef %10, ptr noundef %9, i64 noundef %.sroa.speculated.i.i.i.i.i.i99) #18
+  %call.i.i.i.i.i.i.i104 = tail call i32 @memcmp(ptr noundef %10, ptr noundef %9, i64 noundef %.sroa.speculated.i.i.i.i.i.i99) #19
   %tobool.not.i.i.i.i.i.i105 = icmp eq i32 %call.i.i.i.i.i.i.i104, 0
   br i1 %tobool.not.i.i.i.i.i.i105, label %if.then.i.i.i.i.i.i108, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit113
 
@@ -4204,7 +4204,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i118: ; preds = %if.else44
   %InternalName.i.i.i120 = getelementptr inbounds nuw i8, ptr %__b.coerce, i64 32
   %11 = load ptr, ptr %InternalName2.i.i.i119, align 8, !tbaa !3
   %12 = load ptr, ptr %InternalName.i.i.i120, align 8, !tbaa !3
-  %call.i.i.i.i.i.i.i121 = tail call i32 @memcmp(ptr noundef %12, ptr noundef %11, i64 noundef %.sroa.speculated.i.i.i.i.i.i116) #18
+  %call.i.i.i.i.i.i.i121 = tail call i32 @memcmp(ptr noundef %12, ptr noundef %11, i64 noundef %.sroa.speculated.i.i.i.i.i.i116) #19
   %tobool.not.i.i.i.i.i.i122 = icmp eq i32 %call.i.i.i.i.i.i.i121, 0
   br i1 %tobool.not.i.i.i.i.i.i122, label %if.then.i.i.i.i.i.i125, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit130
 
@@ -4250,7 +4250,7 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i:   ; preds = %entry
   br label %_ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit
 
 if.end.i.i7.i.i:                                  ; preds = %entry
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__tmp, ptr noundef nonnull align 8 dereferenceable(32) %__a) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__tmp, ptr noundef nonnull align 8 dereferenceable(32) %__a) #19
   %InternalName.i.i = getelementptr inbounds nuw i8, ptr %__tmp, i64 32
   %2 = getelementptr inbounds nuw i8, ptr %__tmp, i64 48
   store ptr %2, ptr %InternalName.i.i, align 8, !tbaa !20
@@ -4258,7 +4258,7 @@ if.end.i.i7.i.i:                                  ; preds = %entry
   store i64 0, ptr %_M_string_length.i.i.i.i5.i.i, align 8, !tbaa !21
   store i8 0, ptr %2, align 8, !tbaa !22
   %InternalName3.i.i = getelementptr inbounds nuw i8, ptr %__a, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i) #19
   br label %_ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit
 
 _ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit:  ; preds = %if.end.i.i7.i.i, %_ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i
@@ -4270,10 +4270,10 @@ _ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit:  ; preds = %if.end.i.i7.i.i, %_
   br i1 %cmp.i.i.i, label %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit, label %if.end.i7.i.i
 
 if.end.i7.i.i:                                    ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__a, ptr noundef nonnull align 8 dereferenceable(32) %__b) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__a, ptr noundef nonnull align 8 dereferenceable(32) %__b) #19
   %InternalName3.i.i4 = getelementptr inbounds nuw i8, ptr %__b, i64 32
   %InternalName.i.i5 = getelementptr inbounds nuw i8, ptr %__a, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i4) #19
   br label %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit
 
 _ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit:  ; preds = %if.end.i7.i.i, %_ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit
@@ -4284,10 +4284,10 @@ _ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit:  ; preds = %if.end.i7.i.i, %_ZN
   br i1 %cmp.i.i.i8, label %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit14, label %if.end.i7.i.i9
 
 if.end.i7.i.i9:                                   ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__b, ptr noundef nonnull align 8 dereferenceable(32) %__tmp) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__b, ptr noundef nonnull align 8 dereferenceable(32) %__tmp) #19
   %InternalName3.i.i10 = getelementptr inbounds nuw i8, ptr %__tmp, i64 32
   %InternalName.i.i11 = getelementptr inbounds nuw i8, ptr %__b, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i10) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i10) #19
   br label %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit14
 
 _ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit14: ; preds = %if.end.i7.i.i9, %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit
@@ -4300,7 +4300,7 @@ _ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit14: ; preds = %if.end.i7.i.i9, %_
   br i1 %cmp.i.i.i.i.i.i, label %_ZN3irr4core6stringIcED2Ev.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit14
-  call void @_ZdlPv(ptr noundef %6) #17
+  call void @_ZdlPv(ptr noundef %6) #18
   br label %_ZN3irr4core6stringIcED2Ev.exit.i.i
 
 _ZN3irr4core6stringIcED2Ev.exit.i.i:              ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit14, %if.then.i.i.i.i.i
@@ -4309,7 +4309,7 @@ _ZN3irr4core6stringIcED2Ev.exit.i.i:              ; preds = %_ZN3irr5scene10CMes
   br i1 %cmp.i.i.i.i2.i.i, label %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit, label %if.then.i.i.i3.i.i
 
 if.then.i.i.i3.i.i:                               ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i
-  call void @_ZdlPv(ptr noundef %8) #17
+  call void @_ZdlPv(ptr noundef %8) #18
   br label %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit
 
 _ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit:     ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i, %if.then.i.i.i3.i.i
@@ -4360,7 +4360,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %for.body
   %InternalName.i.i.i = getelementptr inbounds nuw i8, ptr %__first.coerce.pn47, i64 104
   %4 = load ptr, ptr %InternalName2.i.i.i, align 8, !tbaa !3
   %5 = load ptr, ptr %InternalName.i.i.i, align 8, !tbaa !3
-  %call.i.i.i.i.i.i.i = call i32 @memcmp(ptr noundef %5, ptr noundef %4, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #18
+  %call.i.i.i.i.i.i.i = call i32 @memcmp(ptr noundef %5, ptr noundef %4, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #19
   %tobool.not.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
 
@@ -4391,12 +4391,12 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i:   ; preds = %if.then9
   br label %_ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit
 
 if.end.i.i7.i.i:                                  ; preds = %if.then9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__val, ptr noundef nonnull align 8 dereferenceable(32) %__i.sroa.0.048) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__val, ptr noundef nonnull align 8 dereferenceable(32) %__i.sroa.0.048) #19
   store ptr %1, ptr %InternalName.i.i, align 8, !tbaa !20
   store i64 0, ptr %_M_string_length.i.i.i.i5.i.i, align 8, !tbaa !21
   store i8 0, ptr %1, align 8, !tbaa !22
   %InternalName3.i.i = getelementptr inbounds nuw i8, ptr %__first.coerce.pn47, i64 104
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i) #19
   br label %_ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit
 
 _ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit:  ; preds = %if.end.i.i7.i.i, %_ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i
@@ -4419,10 +4419,10 @@ _ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit.i.i.i.i.i: ; preds = %_ZN3irr5sc
   %__last.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit.i.i.i.i.i ], [ %__i.sroa.0.048, %for.body.preheader.i.i.i.i.i ]
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.06.i.i.i.i.i, i64 -72
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i.i.i, i64 -72
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr1.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i.i.i) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr1.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i.i.i) #19
   %InternalName3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.06.i.i.i.i.i, i64 -40
   %InternalName.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i.i.i, i64 -40
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i.i.i.i.i.i) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i.i.i.i.i.i) #19
   %Mesh.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.06.i.i.i.i.i, i64 -8
   %7 = load ptr, ptr %Mesh.i.i.i.i.i.i, align 8, !tbaa !34
   %Mesh3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i.i.i, i64 -8
@@ -4435,8 +4435,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3irr5scene10CMeshCache9Mesh
   br i1 %cmp.i.i.i, label %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit, label %if.end.i7.i.i
 
 if.end.i7.i.i:                                    ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3irr5scene10CMeshCache9MeshEntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__val) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName2.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__val) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName2.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i) #19
   br label %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit
 
 _ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit:  ; preds = %if.end.i7.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3irr5scene10CMeshCache9MeshEntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
@@ -4447,7 +4447,7 @@ _ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit:  ; preds = %if.end.i7.i.i, %_ZS
   br i1 %cmp.i.i.i.i.i.i, label %_ZN3irr4core6stringIcED2Ev.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit
-  call void @_ZdlPv(ptr noundef %9) #17
+  call void @_ZdlPv(ptr noundef %9) #18
   br label %_ZN3irr4core6stringIcED2Ev.exit.i.i
 
 _ZN3irr4core6stringIcED2Ev.exit.i.i:              ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit, %if.then.i.i.i.i.i
@@ -4456,7 +4456,7 @@ _ZN3irr4core6stringIcED2Ev.exit.i.i:              ; preds = %_ZN3irr5scene10CMes
   br i1 %cmp.i.i.i.i2.i.i, label %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit, label %if.then.i.i.i3.i.i
 
 if.then.i.i.i3.i.i:                               ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i
-  call void @_ZdlPv(ptr noundef %10) #17
+  call void @_ZdlPv(ptr noundef %10) #18
   br label %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit
 
 _ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit:     ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i, %if.then.i.i.i3.i.i
@@ -4499,7 +4499,7 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i:   ; preds = %entry
   br label %_ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit
 
 if.end.i.i7.i.i:                                  ; preds = %entry
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__val, ptr noundef nonnull align 8 dereferenceable(32) %__last.coerce) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__val, ptr noundef nonnull align 8 dereferenceable(32) %__last.coerce) #19
   %InternalName.i.i = getelementptr inbounds nuw i8, ptr %__val, i64 32
   %2 = getelementptr inbounds nuw i8, ptr %__val, i64 48
   store ptr %2, ptr %InternalName.i.i, align 8, !tbaa !20
@@ -4507,7 +4507,7 @@ if.end.i.i7.i.i:                                  ; preds = %entry
   store i64 0, ptr %_M_string_length.i.i.i.i5.i.i, align 8, !tbaa !21
   store i8 0, ptr %2, align 8, !tbaa !22
   %InternalName3.i.i = getelementptr inbounds nuw i8, ptr %__last.coerce, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i) #19
   br label %_ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit
 
 _ZN3irr5scene10CMeshCache9MeshEntryC2EOS2_.exit:  ; preds = %if.end.i.i7.i.i, %_ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i
@@ -4533,7 +4533,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %while.cond
   %InternalName2.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 -40
   %6 = load ptr, ptr %InternalName2.i.i.i, align 8, !tbaa !3
   %7 = load ptr, ptr %InternalName.i.i.i, align 8, !tbaa !3
-  %call.i.i.i.i.i.i.i = call i32 @memcmp(ptr noundef %7, ptr noundef %6, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #18
+  %call.i.i.i.i.i.i.i = call i32 @memcmp(ptr noundef %7, ptr noundef %6, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #19
   %tobool.not.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3irr5scene10CMeshCache9MeshEntryENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit
 
@@ -4550,10 +4550,10 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3irr5scene10CMeshCache9MeshEntryENS_17__
   br i1 %cmp.i.i.i.i.i, label %if.end.i7.i.i, label %while.end
 
 if.end.i7.i.i:                                    ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3irr5scene10CMeshCache9MeshEntryENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__last.sroa.0.0, ptr noundef nonnull align 8 dereferenceable(32) %__next.sroa.0.0) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__last.sroa.0.0, ptr noundef nonnull align 8 dereferenceable(32) %__next.sroa.0.0) #19
   %InternalName3.i.i10 = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 -40
   %InternalName.i.i11 = getelementptr inbounds nuw i8, ptr %__last.sroa.0.0, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i10) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %InternalName3.i.i10) #19
   %Mesh.i12 = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 -8
   %8 = load ptr, ptr %Mesh.i12, align 8, !tbaa !34
   %Mesh3.i13 = getelementptr inbounds nuw i8, ptr %__last.sroa.0.0, i64 64
@@ -4565,9 +4565,9 @@ while.end:                                        ; preds = %_ZNK9__gnu_cxx5__op
   br i1 %cmp.i.i.i15, label %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit21, label %if.end.i7.i.i16
 
 if.end.i7.i.i16:                                  ; preds = %while.end
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__last.sroa.0.0, ptr noundef nonnull align 8 dereferenceable(32) %__val) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__last.sroa.0.0, ptr noundef nonnull align 8 dereferenceable(32) %__val) #19
   %InternalName.i.i18 = getelementptr inbounds nuw i8, ptr %__last.sroa.0.0, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i18, ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i.i) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i18, ptr noundef nonnull align 8 dereferenceable(32) %InternalName.i.i.i) #19
   br label %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit21
 
 _ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit21: ; preds = %if.end.i7.i.i16, %while.end
@@ -4580,7 +4580,7 @@ _ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit21: ; preds = %if.end.i7.i.i16, %
   br i1 %cmp.i.i.i.i.i.i, label %_ZN3irr4core6stringIcED2Ev.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit21
-  call void @_ZdlPv(ptr noundef %10) #17
+  call void @_ZdlPv(ptr noundef %10) #18
   br label %_ZN3irr4core6stringIcED2Ev.exit.i.i
 
 _ZN3irr4core6stringIcED2Ev.exit.i.i:              ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit21, %if.then.i.i.i.i.i
@@ -4589,7 +4589,7 @@ _ZN3irr4core6stringIcED2Ev.exit.i.i:              ; preds = %_ZN3irr5scene10CMes
   br i1 %cmp.i.i.i.i2.i.i, label %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit, label %if.then.i.i.i3.i.i
 
 if.then.i.i.i3.i.i:                               ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i
-  call void @_ZdlPv(ptr noundef %12) #17
+  call void @_ZdlPv(ptr noundef %12) #18
   br label %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit
 
 _ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit:     ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i.i, %if.then.i.i.i3.i.i
@@ -4609,30 +4609,30 @@ entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN3irr5sceneL14emptyNamedPathE, i64 48), ptr getelementptr inbounds nuw (i8, ptr @_ZN3irr5sceneL14emptyNamedPathE, i64 32), align 8, !tbaa !20
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN3irr5sceneL14emptyNamedPathE, i64 40), align 8, !tbaa !21
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN3irr5sceneL14emptyNamedPathE, i64 48), align 8, !tbaa !22
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3irr2io10SNamedPathD2Ev, ptr nonnull @_ZN3irr5sceneL14emptyNamedPathE, ptr nonnull @__dso_handle) #18
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3irr2io10SNamedPathD2Ev, ptr nonnull @_ZN3irr5sceneL14emptyNamedPathE, ptr nonnull @__dso_handle) #19
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #15
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #12
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #16
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #12
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #16
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #12
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #16
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #12
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
@@ -4650,11 +4650,12 @@ attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable w
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { builtin nounwind }
-attributes #18 = { nounwind }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { builtin nounwind allocsize(0) }
+attributes #16 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { builtin nounwind }
+attributes #19 = { nounwind }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { builtin nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -40,8 +40,8 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawLine(ptr noundef %0, ptr nound
   %21 = tail call i32 @llvm.smin.i32(i32 %20, i32 32767)
   %22 = tail call i32 @llvm.smax.i32(i32 %7, i32 -32768)
   %23 = tail call i32 @llvm.smin.i32(i32 %22, i32 32767)
-  %24 = tail call i32 @XDrawLine(ptr noundef %12, i64 noundef %14, ptr noundef %15, i32 noundef %17, i32 noundef %19, i32 noundef %21, i32 noundef %23) #10
-  tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %11) #10
+  %24 = tail call i32 @XDrawLine(ptr noundef %12, i64 noundef %14, ptr noundef %15, i32 noundef %17, i32 noundef %19, i32 noundef %21, i32 noundef %23) #11
+  tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %11) #11
   br label %25
 
 25:                                               ; preds = %8, %10
@@ -80,17 +80,17 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawRect(ptr noundef %0, ptr nound
   %spec.select = add nuw nsw i32 %25, 1
   %26 = tail call i32 @llvm.smin.i32(i32 %7, i32 65534)
   %27 = add nuw nsw i32 %26, 1
-  %28 = tail call i32 @XFillRectangle(ptr noundef %16, i64 noundef %18, ptr noundef %19, i32 noundef %21, i32 noundef %23, i32 noundef %spec.select, i32 noundef %27) #10
+  %28 = tail call i32 @XFillRectangle(ptr noundef %16, i64 noundef %18, ptr noundef %19, i32 noundef %21, i32 noundef %23, i32 noundef %spec.select, i32 noundef %27) #11
   br label %33
 
 29:                                               ; preds = %13
   %30 = tail call i32 @llvm.umin.i32(i32 %6, i32 65535)
   %31 = tail call i32 @llvm.umin.i32(i32 %7, i32 65535)
-  %32 = tail call i32 @XDrawRectangle(ptr noundef %16, i64 noundef %18, ptr noundef %19, i32 noundef %21, i32 noundef %23, i32 noundef %30, i32 noundef %31) #10
+  %32 = tail call i32 @XDrawRectangle(ptr noundef %16, i64 noundef %18, ptr noundef %19, i32 noundef %21, i32 noundef %23, i32 noundef %30, i32 noundef %31) #11
   br label %33
 
 33:                                               ; preds = %29, %24
-  tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %9) #10
+  tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %9) #11
   br label %34
 
 34:                                               ; preds = %8, %33
@@ -139,13 +139,13 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawRoundRect(ptr noundef %0, ptr 
   %spec.select.i = add nuw nsw i32 %32, 1
   %33 = tail call i32 @llvm.smin.i32(i32 %7, i32 65534)
   %34 = add nuw nsw i32 %33, 1
-  %35 = tail call i32 @XFillRectangle(ptr noundef %23, i64 noundef %25, ptr noundef %26, i32 noundef %28, i32 noundef %30, i32 noundef %spec.select.i, i32 noundef %34) #10
+  %35 = tail call i32 @XFillRectangle(ptr noundef %23, i64 noundef %25, ptr noundef %26, i32 noundef %28, i32 noundef %30, i32 noundef %spec.select.i, i32 noundef %34) #11
   br label %.sink.split
 
 36:                                               ; preds = %20
   %37 = tail call i32 @llvm.umin.i32(i32 %6, i32 65535)
   %38 = tail call i32 @llvm.umin.i32(i32 %7, i32 65535)
-  %39 = tail call i32 @XDrawRectangle(ptr noundef %23, i64 noundef %25, ptr noundef %26, i32 noundef %28, i32 noundef %30, i32 noundef %37, i32 noundef %38) #10
+  %39 = tail call i32 @XDrawRectangle(ptr noundef %23, i64 noundef %25, ptr noundef %26, i32 noundef %28, i32 noundef %30, i32 noundef %37, i32 noundef %38) #11
   br label %.sink.split
 
 40:                                               ; preds = %15
@@ -202,7 +202,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawRoundRect(ptr noundef %0, ptr 
   %82 = load ptr, ptr @awt_display, align 8
   %sext = shl i64 %81, 32
   %83 = ashr exact i64 %sext, 32
-  %84 = tail call i32 @XDrawArc(ptr noundef %82, i64 noundef %83, ptr noundef %74, i32 noundef %46, i32 noundef %48, i32 noundef %76, i32 noundef %78, i32 noundef 5760, i32 noundef 5760) #10
+  %84 = tail call i32 @XDrawArc(ptr noundef %82, i64 noundef %83, ptr noundef %74, i32 noundef %46, i32 noundef %48, i32 noundef %76, i32 noundef %78, i32 noundef 5760, i32 noundef 5760) #11
   br label %awt_drawArc.exit
 
 awt_drawArc.exit:                                 ; preds = %40, %80
@@ -219,7 +219,7 @@ awt_drawArc.exit:                                 ; preds = %40, %80
   %91 = load ptr, ptr @awt_display, align 8
   %sext180 = shl i64 %90, 32
   %92 = ashr exact i64 %sext180, 32
-  %93 = tail call i32 @XDrawArc(ptr noundef %91, i64 noundef %92, ptr noundef %74, i32 noundef %87, i32 noundef %48, i32 noundef %86, i32 noundef %78, i32 noundef 0, i32 noundef 5760) #10
+  %93 = tail call i32 @XDrawArc(ptr noundef %91, i64 noundef %92, ptr noundef %74, i32 noundef %87, i32 noundef %48, i32 noundef %86, i32 noundef %78, i32 noundef 0, i32 noundef 5760) #11
   br label %awt_drawArc.exit173
 
 awt_drawArc.exit173:                              ; preds = %awt_drawArc.exit, %89
@@ -236,7 +236,7 @@ awt_drawArc.exit173:                              ; preds = %awt_drawArc.exit, %
   %100 = load ptr, ptr @awt_display, align 8
   %sext182 = shl i64 %99, 32
   %101 = ashr exact i64 %sext182, 32
-  %102 = tail call i32 @XDrawArc(ptr noundef %100, i64 noundef %101, ptr noundef %74, i32 noundef %46, i32 noundef %96, i32 noundef %76, i32 noundef %95, i32 noundef 11520, i32 noundef 5760) #10
+  %102 = tail call i32 @XDrawArc(ptr noundef %100, i64 noundef %101, ptr noundef %74, i32 noundef %46, i32 noundef %96, i32 noundef %76, i32 noundef %95, i32 noundef 11520, i32 noundef 5760) #11
   br label %awt_drawArc.exit175
 
 awt_drawArc.exit175:                              ; preds = %awt_drawArc.exit173, %98
@@ -249,7 +249,7 @@ awt_drawArc.exit175:                              ; preds = %awt_drawArc.exit173
   %106 = load ptr, ptr @awt_display, align 8
   %sext183 = shl i64 %105, 32
   %107 = ashr exact i64 %sext183, 32
-  %108 = tail call i32 @XDrawArc(ptr noundef %106, i64 noundef %107, ptr noundef %74, i32 noundef %87, i32 noundef %96, i32 noundef %86, i32 noundef %95, i32 noundef 17280, i32 noundef 5760) #10
+  %108 = tail call i32 @XDrawArc(ptr noundef %106, i64 noundef %107, ptr noundef %74, i32 noundef %87, i32 noundef %96, i32 noundef %86, i32 noundef %95, i32 noundef 17280, i32 noundef 5760) #11
   br label %awt_drawArc.exit177
 
 awt_drawArc.exit177:                              ; preds = %awt_drawArc.exit175, %104
@@ -259,14 +259,14 @@ awt_drawArc.exit177:                              ; preds = %awt_drawArc.exit175
 109:                                              ; preds = %awt_drawArc.exit177
   %110 = load ptr, ptr @awt_display, align 8
   %111 = load i64, ptr %73, align 8
-  %112 = tail call i32 @XDrawLine(ptr noundef %110, i64 noundef %111, ptr noundef %74, i32 noundef %75, i32 noundef %48, i32 noundef %85, i32 noundef %48) #10
+  %112 = tail call i32 @XDrawLine(ptr noundef %110, i64 noundef %111, ptr noundef %74, i32 noundef %75, i32 noundef %48, i32 noundef %85, i32 noundef %48) #11
   %113 = icmp sgt i32 %7, 0
   br i1 %113, label %114, label %118
 
 114:                                              ; preds = %109
   %115 = load ptr, ptr @awt_display, align 8
   %116 = load i64, ptr %73, align 8
-  %117 = tail call i32 @XDrawLine(ptr noundef %115, i64 noundef %116, ptr noundef %74, i32 noundef %75, i32 noundef %54, i32 noundef %85, i32 noundef %54) #10
+  %117 = tail call i32 @XDrawLine(ptr noundef %115, i64 noundef %116, ptr noundef %74, i32 noundef %75, i32 noundef %54, i32 noundef %85, i32 noundef %54) #11
   br label %118
 
 118:                                              ; preds = %109, %114, %awt_drawArc.exit177
@@ -276,18 +276,18 @@ awt_drawArc.exit177:                              ; preds = %awt_drawArc.exit175
 119:                                              ; preds = %118
   %120 = load ptr, ptr @awt_display, align 8
   %121 = load i64, ptr %73, align 8
-  %122 = tail call i32 @XDrawLine(ptr noundef %120, i64 noundef %121, ptr noundef %74, i32 noundef %46, i32 noundef %77, i32 noundef %46, i32 noundef %94) #10
+  %122 = tail call i32 @XDrawLine(ptr noundef %120, i64 noundef %121, ptr noundef %74, i32 noundef %46, i32 noundef %77, i32 noundef %46, i32 noundef %94) #11
   %123 = icmp sgt i32 %6, 0
   br i1 %123, label %124, label %.sink.split
 
 124:                                              ; preds = %119
   %125 = load ptr, ptr @awt_display, align 8
   %126 = load i64, ptr %73, align 8
-  %127 = tail call i32 @XDrawLine(ptr noundef %125, i64 noundef %126, ptr noundef %74, i32 noundef %51, i32 noundef %77, i32 noundef %51, i32 noundef %94) #10
+  %127 = tail call i32 @XDrawLine(ptr noundef %125, i64 noundef %126, ptr noundef %74, i32 noundef %51, i32 noundef %77, i32 noundef %51, i32 noundef %94) #11
   br label %.sink.split
 
 .sink.split:                                      ; preds = %118, %124, %119, %36, %31
-  tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %11) #10
+  tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %11) #11
   br label %128
 
 128:                                              ; preds = %.sink.split, %10
@@ -318,7 +318,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawOval(ptr noundef %0, ptr nound
   %20 = inttoptr i64 %3 to ptr
   %21 = add nuw nsw i32 %6, 1
   %22 = add nuw nsw i32 %7, 1
-  %23 = tail call i32 @XFillRectangle(ptr noundef %17, i64 noundef %19, ptr noundef %20, i32 noundef %4, i32 noundef %5, i32 noundef %21, i32 noundef %22) #10
+  %23 = tail call i32 @XFillRectangle(ptr noundef %17, i64 noundef %19, ptr noundef %20, i32 noundef %4, i32 noundef %5, i32 noundef %21, i32 noundef %22) #11
   br label %awt_drawArc.exit
 
 24:                                               ; preds = %11
@@ -328,11 +328,11 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawOval(ptr noundef %0, ptr nound
   %28 = load ptr, ptr @awt_display, align 8
   %sext = shl i64 %26, 32
   %29 = ashr exact i64 %sext, 32
-  %30 = tail call i32 @XDrawArc(ptr noundef %28, i64 noundef %29, ptr noundef %27, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef 0, i32 noundef 23040) #10
+  %30 = tail call i32 @XDrawArc(ptr noundef %28, i64 noundef %29, ptr noundef %27, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef 0, i32 noundef 23040) #11
   br label %awt_drawArc.exit
 
 awt_drawArc.exit:                                 ; preds = %24, %14, %16
-  tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %9) #10
+  tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %9) #11
   br label %31
 
 31:                                               ; preds = %8, %awt_drawArc.exit
@@ -370,11 +370,11 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawArc(ptr noundef %0, ptr nounde
   %25 = load ptr, ptr @awt_display, align 8
   %sext = shl i64 %15, 32
   %26 = ashr exact i64 %sext, 32
-  %27 = tail call i32 @XDrawArc(ptr noundef %25, i64 noundef %26, ptr noundef %16, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %.025.i, i32 noundef %.0.i) #10
+  %27 = tail call i32 @XDrawArc(ptr noundef %25, i64 noundef %26, ptr noundef %16, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %.025.i, i32 noundef %.0.i) #11
   br label %awt_drawArc.exit
 
 awt_drawArc.exit:                                 ; preds = %12, %24
-  tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %13) #10
+  tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %13) #11
   br label %28
 
 28:                                               ; preds = %10, %awt_drawArc.exit
@@ -397,14 +397,14 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawPoly(ptr noundef %0, ptr nound
   br i1 %or.cond, label %18, label %19
 
 18:                                               ; preds = %15
-  tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str) #10
+  tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str) #11
   br label %62
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1368
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %7) #10
+  %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %7) #11
   %24 = icmp slt i32 %23, %8
   br i1 %24, label %31, label %25
 
@@ -412,12 +412,12 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawPoly(ptr noundef %0, ptr nound
   %26 = load ptr, ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 1368
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 %28(ptr noundef nonnull %0, ptr noundef nonnull %6) #10
+  %29 = tail call i32 %28(ptr noundef nonnull %0, ptr noundef nonnull %6) #11
   %30 = icmp slt i32 %29, %8
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %25, %19
-  tail call void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef nonnull %0, ptr noundef nonnull @.str) #10
+  tail call void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef nonnull %0, ptr noundef nonnull @.str) #11
   br label %62
 
 32:                                               ; preds = %25
@@ -451,11 +451,11 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawPoly(ptr noundef %0, ptr nound
   %53 = getelementptr inbounds nuw i8, ptr %36, i64 6
   %54 = load i16, ptr %53, align 2
   %55 = sext i16 %54 to i32
-  %56 = call i32 @XDrawLine(ptr noundef %40, i64 noundef %42, ptr noundef %43, i32 noundef %46, i32 noundef %49, i32 noundef %52, i32 noundef %55) #10
+  %56 = call i32 @XDrawLine(ptr noundef %40, i64 noundef %42, ptr noundef %43, i32 noundef %46, i32 noundef %49, i32 noundef %52, i32 noundef %55) #11
   br label %59
 
 57:                                               ; preds = %37
-  %58 = call i32 @XDrawLines(ptr noundef %40, i64 noundef %42, ptr noundef %43, ptr noundef nonnull %36, i32 noundef %38, i32 noundef 0) #10
+  %58 = call i32 @XDrawLines(ptr noundef %40, i64 noundef %42, ptr noundef %43, ptr noundef nonnull %36, i32 noundef %38, i32 noundef 0) #11
   br label %59
 
 59:                                               ; preds = %57, %44
@@ -463,11 +463,11 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawPoly(ptr noundef %0, ptr nound
   br i1 %.not37, label %61, label %60
 
 60:                                               ; preds = %59
-  call void @free(ptr noundef nonnull %36) #10
+  call void @free(ptr noundef nonnull %36) #11
   br label %61
 
 61:                                               ; preds = %60, %59
-  call void @X11SD_DirectRenderNotify(ptr noundef nonnull %0, ptr noundef nonnull %13) #10
+  call void @X11SD_DirectRenderNotify(ptr noundef nonnull %0, ptr noundef nonnull %13) #11
   br label %62
 
 62:                                               ; preds = %32, %10, %61, %34, %31, %18
@@ -484,7 +484,7 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1776
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef null) #10
+  %13 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef null) #11
   %14 = icmp eq ptr %13, null
   br i1 %14, label %91, label %15
 
@@ -492,7 +492,7 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1776
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef null) #10
+  %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef null) #11
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %25
 
@@ -500,7 +500,7 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
   %22 = load ptr, ptr %0, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 1784
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %13, i32 noundef 2) #10
+  tail call void %24(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %13, i32 noundef 2) #11
   br label %91
 
 25:                                               ; preds = %15
@@ -540,7 +540,7 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
 41:                                               ; preds = %39
   %42 = zext nneg i32 %.0105 to i64
   %43 = shl nuw nsw i64 %42, 2
-  %44 = tail call noalias ptr @malloc(i64 noundef %43) #11
+  %44 = tail call noalias ptr @malloc(i64 noundef %43) #12
   %.not115 = icmp eq ptr %44, null
   br i1 %.not115, label %84, label %.thread124
 
@@ -643,11 +643,11 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
   %85 = load ptr, ptr %0, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 1784
   %87 = load ptr, ptr %86, align 8
-  tail call void %87(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %13, i32 noundef 2) #10
+  tail call void %87(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %13, i32 noundef 2) #11
   %88 = load ptr, ptr %0, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 1784
   %90 = load ptr, ptr %89, align 8
-  tail call void %90(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %19, i32 noundef 2) #10
+  tail call void %90(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %19, i32 noundef 2) #11
   br label %91
 
 91:                                               ; preds = %8, %84, %21
@@ -686,7 +686,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XDoPath(ptr noundef %0, ptr noundef
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 800
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr @path2DWindingRuleID, align 8
-  %24 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %23) #10
+  %24 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %23) #11
   br label %25
 
 25:                                               ; preds = %19, %18
@@ -695,17 +695,17 @@ define void @Java_sun_java2d_x11_X11Renderer_XDoPath(ptr noundef %0, ptr noundef
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 760
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr @path2DTypesID, align 8
-  %30 = tail call ptr %28(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %29) #10
+  %30 = tail call ptr %28(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %29) #11
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 760
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr @path2DFloatCoordsID, align 8
-  %35 = tail call ptr %33(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %34) #10
+  %35 = tail call ptr %33(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %34) #11
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %25
-  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #10
+  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #11
   br label %104
 
 38:                                               ; preds = %25
@@ -713,16 +713,16 @@ define void @Java_sun_java2d_x11_X11Renderer_XDoPath(ptr noundef %0, ptr noundef
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 800
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr @path2DNumTypesID, align 8
-  %43 = tail call i32 %41(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %42) #10
+  %43 = tail call i32 %41(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %42) #11
   %44 = load ptr, ptr %0, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1368
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call i32 %46(ptr noundef nonnull %0, ptr noundef %30) #10
+  %47 = tail call i32 %46(ptr noundef nonnull %0, ptr noundef %30) #11
   %48 = icmp slt i32 %47, %43
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %38
-  tail call void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #10
+  tail call void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #11
   br label %104
 
 50:                                               ; preds = %38
@@ -745,18 +745,18 @@ define void @Java_sun_java2d_x11_X11Renderer_XDoPath(ptr noundef %0, ptr noundef
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 800
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr @sg2dStrokeHintID, align 8
-  %64 = call i32 %62(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %63) #10
+  %64 = call i32 %62(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %63) #11
   %65 = load i32, ptr @sunHints_INTVAL_STROKE_PURE, align 4
   %66 = icmp ne i32 %64, %65
   %67 = zext i1 %66 to i32
   %68 = load ptr, ptr %0, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 1368
   %70 = load ptr, ptr %69, align 8
-  %71 = call i32 %70(ptr noundef nonnull %0, ptr noundef nonnull %35) #10
+  %71 = call i32 %70(ptr noundef nonnull %0, ptr noundef nonnull %35) #11
   %72 = load ptr, ptr %0, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 1776
   %74 = load ptr, ptr %73, align 8
-  %75 = call ptr %74(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef null) #10
+  %75 = call ptr %74(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef null) #11
   %.not72 = icmp eq ptr %75, null
   br i1 %.not72, label %100, label %76
 
@@ -764,7 +764,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XDoPath(ptr noundef %0, ptr noundef
   %77 = load ptr, ptr %0, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 1776
   %79 = load ptr, ptr %78, align 8
-  %80 = call ptr %79(ptr noundef nonnull %0, ptr noundef %30, ptr noundef null) #10
+  %80 = call ptr %79(ptr noundef nonnull %0, ptr noundef %30, ptr noundef null) #11
   %.not73 = icmp eq ptr %80, null
   br i1 %.not73, label %.critedge, label %81
 
@@ -774,14 +774,14 @@ define void @Java_sun_java2d_x11_X11Renderer_XDoPath(ptr noundef %0, ptr noundef
 82:                                               ; preds = %81
   %83 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr @drawScanline, ptr %83, align 8
-  %84 = call zeroext i8 @doFillPath(ptr noundef nonnull %11, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %75, i32 noundef %71, ptr noundef nonnull %80, i32 noundef %43, i32 noundef %67, i32 noundef %.065) #10
+  %84 = call zeroext i8 @doFillPath(ptr noundef nonnull %11, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %75, i32 noundef %71, ptr noundef nonnull %80, i32 noundef %43, i32 noundef %67, i32 noundef %.065) #11
   br label %88
 
 85:                                               ; preds = %81
   store ptr @storeLine, ptr %11, align 8
   %86 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @storePoint, ptr %86, align 8
-  %87 = call zeroext i8 @doDrawPath(ptr noundef nonnull %11, ptr noundef nonnull @drawSubPath, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %75, i32 noundef %71, ptr noundef nonnull %80, i32 noundef %43, i32 noundef %67) #10
+  %87 = call zeroext i8 @doDrawPath(ptr noundef nonnull %11, ptr noundef nonnull @drawSubPath, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %75, i32 noundef %71, ptr noundef nonnull %80, i32 noundef %43, i32 noundef %67) #11
   br label %88
 
 88:                                               ; preds = %85, %82
@@ -789,23 +789,23 @@ define void @Java_sun_java2d_x11_X11Renderer_XDoPath(ptr noundef %0, ptr noundef
   %89 = load ptr, ptr %0, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 1784
   %91 = load ptr, ptr %90, align 8
-  call void %91(ptr noundef nonnull %0, ptr noundef %30, ptr noundef nonnull %80, i32 noundef 2) #10
+  call void %91(ptr noundef nonnull %0, ptr noundef %30, ptr noundef nonnull %80, i32 noundef 2) #11
   %92 = icmp eq i8 %.1, 0
   %93 = load ptr, ptr %0, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 1784
   %95 = load ptr, ptr %94, align 8
-  call void %95(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef nonnull %75, i32 noundef 2) #10
+  call void %95(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef nonnull %75, i32 noundef 2) #11
   br i1 %92, label %96, label %100
 
 96:                                               ; preds = %88
-  call void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #10
+  call void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #11
   br label %100
 
 .critedge:                                        ; preds = %76
   %97 = load ptr, ptr %0, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 1784
   %99 = load ptr, ptr %98, align 8
-  call void %99(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef nonnull %75, i32 noundef 2) #10
+  call void %99(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef nonnull %75, i32 noundef 2) #11
   br label %100
 
 100:                                              ; preds = %.critedge, %50, %96, %88
@@ -814,11 +814,11 @@ define void @Java_sun_java2d_x11_X11Renderer_XDoPath(ptr noundef %0, ptr noundef
   br i1 %.not75, label %103, label %102
 
 102:                                              ; preds = %100
-  call void @free(ptr noundef %101) #10
+  call void @free(ptr noundef %101) #11
   br label %103
 
 103:                                              ; preds = %100, %102
-  call void @X11SD_DirectRenderNotify(ptr noundef nonnull %0, ptr noundef nonnull %12) #10
+  call void @X11SD_DirectRenderNotify(ptr noundef nonnull %0, ptr noundef nonnull %12) #11
   br label %104
 
 104:                                              ; preds = %9, %103, %49, %37
@@ -836,7 +836,7 @@ define internal void @drawScanline(ptr noundef readonly captures(none) %0, i32 n
   %8 = load i64, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @XDrawLine(ptr noundef %7, i64 noundef %8, ptr noundef %10, i32 noundef %1, i32 noundef %3, i32 noundef %2, i32 noundef %3) #10
+  %11 = tail call i32 @XDrawLine(ptr noundef %7, i64 noundef %8, ptr noundef %10, i32 noundef %1, i32 noundef %3, i32 noundef %2, i32 noundef %3) #11
   ret void
 }
 
@@ -864,7 +864,7 @@ define internal void @storeLine(ptr noundef readonly captures(none) %0, i32 noun
   br i1 %17, label %20, label %24
 
 20:                                               ; preds = %14
-  %21 = tail call noalias ptr @malloc(i64 noundef %19) #11
+  %21 = tail call noalias ptr @malloc(i64 noundef %19) #12
   store ptr %21, ptr %8, align 8
   %22 = sext i32 %11 to i64
   %23 = shl nsw i64 %22, 2
@@ -872,7 +872,7 @@ define internal void @storeLine(ptr noundef readonly captures(none) %0, i32 noun
   br label %26
 
 24:                                               ; preds = %14
-  %25 = tail call ptr @realloc(ptr noundef %9, i64 noundef %19) #12
+  %25 = tail call ptr @realloc(ptr noundef %9, i64 noundef %19) #13
   store ptr %25, ptr %8, align 8
   br label %26
 
@@ -906,7 +906,7 @@ define internal void @storeLine(ptr noundef readonly captures(none) %0, i32 noun
   br i1 %40, label %43, label %47
 
 43:                                               ; preds = %37
-  %44 = tail call noalias ptr @malloc(i64 noundef %42) #11
+  %44 = tail call noalias ptr @malloc(i64 noundef %42) #12
   store ptr %44, ptr %8, align 8
   %45 = sext i32 %34 to i64
   %46 = shl nsw i64 %45, 2
@@ -914,7 +914,7 @@ define internal void @storeLine(ptr noundef readonly captures(none) %0, i32 noun
   br label %49
 
 47:                                               ; preds = %37
-  %48 = tail call ptr @realloc(ptr noundef %35, i64 noundef %42) #12
+  %48 = tail call ptr @realloc(ptr noundef %35, i64 noundef %42) #13
   store ptr %48, ptr %8, align 8
   br label %49
 
@@ -959,7 +959,7 @@ define internal void @storePoint(ptr noundef readonly captures(none) %0, i32 nou
   br i1 %15, label %18, label %22
 
 18:                                               ; preds = %12
-  %19 = tail call noalias ptr @malloc(i64 noundef %17) #11
+  %19 = tail call noalias ptr @malloc(i64 noundef %17) #12
   store ptr %19, ptr %6, align 8
   %20 = sext i32 %9 to i64
   %21 = shl nsw i64 %20, 2
@@ -967,7 +967,7 @@ define internal void @storePoint(ptr noundef readonly captures(none) %0, i32 nou
   br label %24
 
 22:                                               ; preds = %12
-  %23 = tail call ptr @realloc(ptr noundef %7, i64 noundef %17) #12
+  %23 = tail call ptr @realloc(ptr noundef %7, i64 noundef %17) #13
   store ptr %23, ptr %6, align 8
   br label %24
 
@@ -1018,7 +1018,7 @@ define internal void @drawSubPath(ptr noundef readonly captures(none) %0) #0 {
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %18 = load i16, ptr %17, align 2
   %19 = sext i16 %18 to i32
-  %20 = tail call i32 @XFillRectangle(ptr noundef %11, i64 noundef %12, ptr noundef %14, i32 noundef %16, i32 noundef %19, i32 noundef 1, i32 noundef 1) #10
+  %20 = tail call i32 @XFillRectangle(ptr noundef %11, i64 noundef %12, ptr noundef %14, i32 noundef %16, i32 noundef %19, i32 noundef 1, i32 noundef 1) #11
   br label %44
 
 21:                                               ; preds = %1
@@ -1037,7 +1037,7 @@ define internal void @drawSubPath(ptr noundef readonly captures(none) %0) #0 {
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %35 = load i16, ptr %34, align 2
   %36 = sext i16 %35 to i32
-  %37 = tail call i32 @XDrawLine(ptr noundef %22, i64 noundef %23, ptr noundef %25, i32 noundef %27, i32 noundef %30, i32 noundef %33, i32 noundef %36) #10
+  %37 = tail call i32 @XDrawLine(ptr noundef %22, i64 noundef %23, ptr noundef %25, i32 noundef %27, i32 noundef %30, i32 noundef %33, i32 noundef %36) #11
   br label %44
 
 38:                                               ; preds = %1
@@ -1045,7 +1045,7 @@ define internal void @drawSubPath(ptr noundef readonly captures(none) %0) #0 {
   %40 = load i64, ptr %5, align 8
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call i32 @XDrawLines(ptr noundef %39, i64 noundef %40, ptr noundef %42, ptr noundef %7, i32 noundef %9, i32 noundef 0) #10
+  %43 = tail call i32 @XDrawLines(ptr noundef %39, i64 noundef %40, ptr noundef %42, ptr noundef %7, i32 noundef %9, i32 noundef 0) #11
   br label %44
 
 44:                                               ; preds = %10, %21, %38, %1
@@ -1072,8 +1072,8 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillRect(ptr noundef %0, ptr nound
   %21 = tail call i32 @llvm.umin.i32(i32 %20, i32 65535)
   %22 = tail call i32 @llvm.smax.i32(i32 %7, i32 0)
   %23 = tail call i32 @llvm.umin.i32(i32 %22, i32 65535)
-  %24 = tail call i32 @XFillRectangle(ptr noundef %12, i64 noundef %14, ptr noundef %15, i32 noundef %17, i32 noundef %19, i32 noundef %21, i32 noundef %23) #10
-  tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %11) #10
+  %24 = tail call i32 @XFillRectangle(ptr noundef %12, i64 noundef %14, ptr noundef %15, i32 noundef %17, i32 noundef %19, i32 noundef %21, i32 noundef %23) #11
+  tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %11) #11
   br label %25
 
 25:                                               ; preds = %8, %10
@@ -1107,7 +1107,7 @@ Java_sun_java2d_x11_X11Renderer_XFillRect.exit:   ; preds = %15
   %25 = tail call i32 @llvm.smin.i32(i32 %24, i32 32767)
   %26 = tail call i32 @llvm.umin.i32(i32 %6, i32 65535)
   %27 = tail call i32 @llvm.umin.i32(i32 %7, i32 65535)
-  %28 = tail call i32 @XFillRectangle(ptr noundef %18, i64 noundef %20, ptr noundef %21, i32 noundef %23, i32 noundef %25, i32 noundef %26, i32 noundef %27) #10
+  %28 = tail call i32 @XFillRectangle(ptr noundef %18, i64 noundef %20, ptr noundef %21, i32 noundef %23, i32 noundef %25, i32 noundef %26, i32 noundef %27) #11
   br label %.sink.split
 
 29:                                               ; preds = %15
@@ -1171,7 +1171,7 @@ Java_sun_java2d_x11_X11Renderer_XFillRect.exit:   ; preds = %15
   %74 = load ptr, ptr @awt_display, align 8
   %sext = shl i64 %73, 32
   %75 = ashr exact i64 %sext, 32
-  %76 = tail call i32 @XFillArc(ptr noundef %74, i64 noundef %75, ptr noundef %66, i32 noundef %37, i32 noundef %39, i32 noundef %68, i32 noundef %70, i32 noundef 5760, i32 noundef 5760) #10
+  %76 = tail call i32 @XFillArc(ptr noundef %74, i64 noundef %75, ptr noundef %66, i32 noundef %37, i32 noundef %39, i32 noundef %68, i32 noundef %70, i32 noundef 5760, i32 noundef 5760) #11
   br label %awt_drawArc.exit
 
 awt_drawArc.exit:                                 ; preds = %29, %72
@@ -1188,7 +1188,7 @@ awt_drawArc.exit:                                 ; preds = %29, %72
   %83 = load ptr, ptr @awt_display, align 8
   %sext181 = shl i64 %82, 32
   %84 = ashr exact i64 %sext181, 32
-  %85 = tail call i32 @XFillArc(ptr noundef %83, i64 noundef %84, ptr noundef %66, i32 noundef %79, i32 noundef %39, i32 noundef %78, i32 noundef %70, i32 noundef 0, i32 noundef 5760) #10
+  %85 = tail call i32 @XFillArc(ptr noundef %83, i64 noundef %84, ptr noundef %66, i32 noundef %79, i32 noundef %39, i32 noundef %78, i32 noundef %70, i32 noundef 0, i32 noundef 5760) #11
   br label %awt_drawArc.exit174
 
 awt_drawArc.exit174:                              ; preds = %awt_drawArc.exit, %81
@@ -1204,7 +1204,7 @@ awt_drawArc.exit174:                              ; preds = %awt_drawArc.exit, %
   %91 = load ptr, ptr @awt_display, align 8
   %sext182 = shl i64 %90, 32
   %92 = ashr exact i64 %sext182, 32
-  %93 = tail call i32 @XFillArc(ptr noundef %91, i64 noundef %92, ptr noundef %66, i32 noundef %37, i32 noundef %87, i32 noundef %68, i32 noundef %86, i32 noundef 11520, i32 noundef 5760) #10
+  %93 = tail call i32 @XFillArc(ptr noundef %91, i64 noundef %92, ptr noundef %66, i32 noundef %37, i32 noundef %87, i32 noundef %68, i32 noundef %86, i32 noundef 11520, i32 noundef 5760) #11
   br label %awt_drawArc.exit176
 
 awt_drawArc.exit176:                              ; preds = %awt_drawArc.exit174, %89
@@ -1217,7 +1217,7 @@ awt_drawArc.exit176:                              ; preds = %awt_drawArc.exit174
   %97 = load ptr, ptr @awt_display, align 8
   %sext183 = shl i64 %96, 32
   %98 = ashr exact i64 %sext183, 32
-  %99 = tail call i32 @XFillArc(ptr noundef %97, i64 noundef %98, ptr noundef %66, i32 noundef %79, i32 noundef %87, i32 noundef %78, i32 noundef %86, i32 noundef 17280, i32 noundef 5760) #10
+  %99 = tail call i32 @XFillArc(ptr noundef %97, i64 noundef %98, ptr noundef %66, i32 noundef %79, i32 noundef %87, i32 noundef %78, i32 noundef %86, i32 noundef 17280, i32 noundef 5760) #11
   br label %awt_drawArc.exit178
 
 awt_drawArc.exit178:                              ; preds = %awt_drawArc.exit176, %95
@@ -1233,7 +1233,7 @@ awt_drawArc.exit178:                              ; preds = %awt_drawArc.exit176
   %105 = load i64, ptr %65, align 8
   %106 = sub nsw i64 %54, %50
   %107 = trunc nsw i64 %106 to i32
-  %108 = tail call i32 @XFillRectangle(ptr noundef %104, i64 noundef %105, ptr noundef %66, i32 noundef %67, i32 noundef %39, i32 noundef %107, i32 noundef %.tr170) #10
+  %108 = tail call i32 @XFillRectangle(ptr noundef %104, i64 noundef %105, ptr noundef %66, i32 noundef %67, i32 noundef %39, i32 noundef %107, i32 noundef %.tr170) #11
   br label %109
 
 109:                                              ; preds = %103, %101
@@ -1247,7 +1247,7 @@ awt_drawArc.exit178:                              ; preds = %awt_drawArc.exit176
   %115 = sub nsw i64 %54, %50
   %116 = trunc nsw i64 %115 to i32
   %117 = trunc nsw i64 %64 to i32
-  %118 = tail call i32 @XFillRectangle(ptr noundef %112, i64 noundef %113, ptr noundef %66, i32 noundef %67, i32 noundef %114, i32 noundef %116, i32 noundef %117) #10
+  %118 = tail call i32 @XFillRectangle(ptr noundef %112, i64 noundef %113, ptr noundef %66, i32 noundef %67, i32 noundef %114, i32 noundef %116, i32 noundef %117) #11
   br label %119
 
 119:                                              ; preds = %109, %111, %awt_drawArc.exit178
@@ -1260,11 +1260,11 @@ awt_drawArc.exit178:                              ; preds = %awt_drawArc.exit176
   %124 = sub nsw i32 %narrow, %37
   %125 = sub nsw i64 %63, %59
   %126 = trunc nsw i64 %125 to i32
-  %127 = tail call i32 @XFillRectangle(ptr noundef %122, i64 noundef %123, ptr noundef %66, i32 noundef %37, i32 noundef %69, i32 noundef %124, i32 noundef %126) #10
+  %127 = tail call i32 @XFillRectangle(ptr noundef %122, i64 noundef %123, ptr noundef %66, i32 noundef %37, i32 noundef %69, i32 noundef %124, i32 noundef %126) #11
   br label %.sink.split
 
 .sink.split:                                      ; preds = %119, %121, %Java_sun_java2d_x11_X11Renderer_XFillRect.exit
-  tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %11) #10
+  tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %11) #11
   br label %128
 
 128:                                              ; preds = %.sink.split, %10
@@ -1342,7 +1342,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillOval(ptr noundef %0, ptr nound
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %54 = load i64, ptr %53, align 8
   %55 = inttoptr i64 %3 to ptr
-  %56 = tail call i32 @XFillRectangle(ptr noundef %52, i64 noundef %54, ptr noundef %55, i32 noundef %.0, i32 noundef %.047, i32 noundef %.048, i32 noundef %.049) #10
+  %56 = tail call i32 @XFillRectangle(ptr noundef %52, i64 noundef %54, ptr noundef %55, i32 noundef %.0, i32 noundef %.047, i32 noundef %.048, i32 noundef %.049) #11
   br label %awt_drawArc.exit
 
 57:                                               ; preds = %11
@@ -1352,18 +1352,18 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillOval(ptr noundef %0, ptr nound
   %61 = load ptr, ptr @awt_display, align 8
   %sext = shl i64 %59, 32
   %62 = ashr exact i64 %sext, 32
-  %63 = tail call i32 @XFillArc(ptr noundef %61, i64 noundef %62, ptr noundef %60, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef 0, i32 noundef 23040) #10
+  %63 = tail call i32 @XFillArc(ptr noundef %61, i64 noundef %62, ptr noundef %60, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef 0, i32 noundef 23040) #11
   br label %awt_drawArc.exit
 
 awt_drawArc.exit:                                 ; preds = %57, %48, %51
-  tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %9) #10
+  tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %9) #11
   br label %64
 
 64:                                               ; preds = %8, %awt_drawArc.exit
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: nounwind uwtable
@@ -1397,11 +1397,11 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillArc(ptr noundef %0, ptr nounde
   %25 = load ptr, ptr @awt_display, align 8
   %sext = shl i64 %15, 32
   %26 = ashr exact i64 %sext, 32
-  %27 = tail call i32 @XFillArc(ptr noundef %25, i64 noundef %26, ptr noundef %16, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %.025.i, i32 noundef %.0.i) #10
+  %27 = tail call i32 @XFillArc(ptr noundef %25, i64 noundef %26, ptr noundef %16, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %.025.i, i32 noundef %.0.i) #11
   br label %awt_drawArc.exit
 
 awt_drawArc.exit:                                 ; preds = %12, %24
-  tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %13) #10
+  tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %13) #11
   br label %28
 
 28:                                               ; preds = %10, %awt_drawArc.exit
@@ -1424,14 +1424,14 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillPoly(ptr noundef %0, ptr nound
   br i1 %or.cond, label %17, label %18
 
 17:                                               ; preds = %14
-  tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str) #10
+  tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str) #11
   br label %46
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 1368
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 %21(ptr noundef nonnull %0, ptr noundef nonnull %7) #10
+  %22 = tail call i32 %21(ptr noundef nonnull %0, ptr noundef nonnull %7) #11
   %23 = icmp slt i32 %22, %8
   br i1 %23, label %30, label %24
 
@@ -1439,12 +1439,12 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillPoly(ptr noundef %0, ptr nound
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 1368
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 %27(ptr noundef nonnull %0, ptr noundef nonnull %6) #10
+  %28 = tail call i32 %27(ptr noundef nonnull %0, ptr noundef nonnull %6) #11
   %29 = icmp slt i32 %28, %8
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %24, %18
-  tail call void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef nonnull %0, ptr noundef nonnull @.str) #10
+  tail call void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef nonnull %0, ptr noundef nonnull @.str) #11
   br label %46
 
 31:                                               ; preds = %24
@@ -1466,8 +1466,8 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillPoly(ptr noundef %0, ptr nound
   %40 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %41 = load i64, ptr %40, align 8
   %42 = inttoptr i64 %3 to ptr
-  %43 = call i32 @XFillPolygon(ptr noundef %39, i64 noundef %41, ptr noundef %42, ptr noundef nonnull %34, i32 noundef %36, i32 noundef 0, i32 noundef 0) #10
-  call void @X11SD_DirectRenderNotify(ptr noundef nonnull %0, ptr noundef nonnull %12) #10
+  %43 = call i32 @XFillPolygon(ptr noundef %39, i64 noundef %41, ptr noundef %42, ptr noundef nonnull %34, i32 noundef %36, i32 noundef 0, i32 noundef 0) #11
+  call void @X11SD_DirectRenderNotify(ptr noundef nonnull %0, ptr noundef nonnull %12) #11
   br label %44
 
 44:                                               ; preds = %38, %35
@@ -1475,7 +1475,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillPoly(ptr noundef %0, ptr nound
   br i1 %.not30, label %46, label %45
 
 45:                                               ; preds = %44
-  call void @free(ptr noundef nonnull %34) #10
+  call void @free(ptr noundef nonnull %34) #11
   br label %46
 
 46:                                               ; preds = %44, %45, %31, %9, %33, %30, %17
@@ -1497,7 +1497,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillSpans(ptr noundef %0, ptr noun
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %13
-  tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str.4) #10
+  tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str.4) #11
   br label %54
 
 16:                                               ; preds = %13
@@ -1505,15 +1505,15 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillSpans(ptr noundef %0, ptr noun
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %16
-  tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str.5) #10
+  tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str.5) #11
   br label %54
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %10, align 8
-  %21 = tail call ptr %20(ptr noundef %0, ptr noundef nonnull %4) #10
+  %21 = tail call ptr %20(ptr noundef %0, ptr noundef nonnull %4) #11
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = call zeroext i8 %23(ptr noundef %21, ptr noundef nonnull %9) #10
+  %24 = call zeroext i8 %23(ptr noundef %21, ptr noundef nonnull %9) #11
   %.not34 = icmp eq i8 %24, 0
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
@@ -1544,17 +1544,17 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillSpans(ptr noundef %0, ptr noun
   %46 = call i32 @llvm.umin.i32(i32 %45, i32 65535)
   %47 = call i32 @llvm.smax.i32(i32 %38, i32 0)
   %48 = call i32 @llvm.umin.i32(i32 %47, i32 65535)
-  %49 = call i32 @XFillRectangle(ptr noundef %39, i64 noundef %40, ptr noundef %29, i32 noundef %42, i32 noundef %44, i32 noundef %46, i32 noundef %48) #10
+  %49 = call i32 @XFillRectangle(ptr noundef %39, i64 noundef %40, ptr noundef %29, i32 noundef %42, i32 noundef %44, i32 noundef %46, i32 noundef %48) #11
   %50 = load ptr, ptr %22, align 8
-  %51 = call zeroext i8 %50(ptr noundef %21, ptr noundef nonnull %9) #10
+  %51 = call zeroext i8 %50(ptr noundef %21, ptr noundef nonnull %9) #11
   %.not = icmp eq i8 %51, 0
   br i1 %.not, label %._crit_edge, label %30, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %30, %19
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %53 = load ptr, ptr %52, align 8
-  call void %53(ptr noundef %0, ptr noundef %21) #10
-  call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %11) #10
+  call void %53(ptr noundef %0, ptr noundef %21) #11
+  call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %11) #11
   br label %54
 
 54:                                               ; preds = %8, %._crit_edge, %18, %15
@@ -1574,8 +1574,8 @@ define void @Java_sun_java2d_x11_X11Renderer_devCopyArea(ptr noundef %0, ptr nou
   %16 = load ptr, ptr @awt_display, align 8
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %18 = load i64, ptr %17, align 8
-  %19 = tail call i32 @XCopyArea(ptr noundef %16, i64 noundef %18, i64 noundef %18, ptr noundef nonnull %15, i32 noundef %4, i32 noundef %5, i32 noundef %8, i32 noundef %9, i32 noundef %6, i32 noundef %7) #10
-  tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %14) #10
+  %19 = tail call i32 @XCopyArea(ptr noundef %16, i64 noundef %18, i64 noundef %18, ptr noundef nonnull %15, i32 noundef %4, i32 noundef %5, i32 noundef %8, i32 noundef %9, i32 noundef %6, i32 noundef %7) #11
+  tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %14) #11
   br label %20
 
 20:                                               ; preds = %10, %13
@@ -1597,22 +1597,22 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #9
+declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1620,14 +1620,15 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind allocsize(0) }
-attributes #12 = { nounwind allocsize(1) }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind allocsize(0) }
+attributes #13 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

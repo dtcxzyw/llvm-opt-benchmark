@@ -66,18 +66,18 @@ define internal fastcc i64 @date_strftime_with_tmx(ptr noundef %0, i64 noundef %
   br i1 %or.cond16, label %.loopexit1565, label %21
 
 21:                                               ; preds = %4
-  %22 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 37) #10
+  %22 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 37) #11
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %21
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #10
+  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
   %26 = add i64 %25, 1
   %.not = icmp ult i64 %26, %1
   br i1 %.not, label %28, label %.thread1503
 
 .thread1503:                                      ; preds = %308, %283, %687, %660, %569, %542, %126, %97, %1005, %992, %977, %968, %956, %957, %947, %948, %935, %936, %923, %924, %914, %915, %905, %906, %.loopexit2405, %.loopexit2403, %.loopexit2402, %.loopexit2401, %.loopexit2398, %.loopexit2391, %.loopexit2390, %.loopexit2388, %376, %353, %rb_num2int_inline.exit, %237, %1135, %1136, %1127, %1128, %.thread2371, %1101, %1102, %.thread2349, %498, %499, %.thread2342, %477, %478, %.loopexit2389, %403, %._crit_edge1869, %24
-  %27 = call ptr @rb_errno_ptr() #11
+  %27 = call ptr @rb_errno_ptr() #12
   store i32 34, ptr %27, align 4, !tbaa !6
   br label %.loopexit1565
 
@@ -422,7 +422,7 @@ define internal fastcc i64 @date_strftime_with_tmx(ptr noundef %0, i64 noundef %
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 72
   %61 = load ptr, ptr %60, align 8, !tbaa !17
   %62 = load ptr, ptr %3, align 8, !tbaa !19
-  %63 = call i32 %61(ptr noundef %62) #11
+  %63 = call i32 %61(ptr noundef %62) #12
   %or.cond18 = icmp ugt i32 %63, 6
   br i1 %or.cond18, label %.thread1517, label %64
 
@@ -434,7 +434,7 @@ define internal fastcc i64 @date_strftime_with_tmx(ptr noundef %0, i64 noundef %
   br i1 %66, label %69, label %.thread1517
 
 69:                                               ; preds = %64
-  %70 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #10
+  %70 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #11
   br label %1122
 
 .loopexit2379:                                    ; preds = %.preheader1564.jt32, %.preheader1564.jt32, %.preheader1564.jt32, %.preheader1564.jt48, %.preheader1564.jt48, %.preheader1564.jt48, %.preheader1564.jt0, %.preheader1564.jt0, %.preheader1564.jt0, %.preheader1564, %.preheader1564, %.preheader1564
@@ -451,7 +451,7 @@ define internal fastcc i64 @date_strftime_with_tmx(ptr noundef %0, i64 noundef %
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !20
   %78 = load ptr, ptr %3, align 8, !tbaa !19
-  %79 = call i32 %77(ptr noundef %78) #11
+  %79 = call i32 %77(ptr noundef %78) #12
   %80 = add i32 %79, -13
   %or.cond20 = icmp ult i32 %80, -12
   br i1 %or.cond20, label %.thread1517, label %81
@@ -465,7 +465,7 @@ define internal fastcc i64 @date_strftime_with_tmx(ptr noundef %0, i64 noundef %
   br i1 %83, label %87, label %.thread1517
 
 87:                                               ; preds = %81
-  %88 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %86) #10
+  %88 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %86) #11
   br label %1122
 
 .loopexit2380:                                    ; preds = %.preheader1564.jt32, %.preheader1564.jt48, %.preheader1564.jt0, %.preheader1564
@@ -476,20 +476,20 @@ define internal fastcc i64 @date_strftime_with_tmx(ptr noundef %0, i64 noundef %
   %90 = load ptr, ptr %35, align 8, !tbaa !14
   %91 = load ptr, ptr %90, align 8, !tbaa !21
   %92 = load ptr, ptr %3, align 8, !tbaa !19
-  %93 = call i64 %91(ptr noundef %92) #11
+  %93 = call i64 %91(ptr noundef %92) #12
   %.pr.i = load i64, ptr @date_strftime_with_tmx.rbimpl_id, align 8, !tbaa !22
   %.not1.i = icmp eq i64 %.pr.i, 0
   br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
 .lr.ph.i:                                         ; preds = %.loopexit2380, %.lr.ph.i
-  %94 = call i64 @rb_intern2(ptr noundef nonnull @.str.1, i64 noundef 3) #11
+  %94 = call i64 @rb_intern2(ptr noundef nonnull @.str.1, i64 noundef 3) #12
   store i64 %94, ptr @date_strftime_with_tmx.rbimpl_id, align 8, !tbaa !22
   %.not.i = icmp eq i64 %94, 0
   br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !24
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %.loopexit2380
   %.lcssa.i = phi i64 [ %.pr.i, %.loopexit2380 ], [ %94, %.lr.ph.i ]
-  %95 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %93, i64 noundef %.lcssa.i, i32 noundef 1, i64 noundef 201) #11
+  %95 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %93, i64 noundef %.lcssa.i, i32 noundef 1, i64 noundef 201) #12
   %96 = and i64 %95, 1
   %.not1550 = icmp eq i64 %96, 0
   br i1 %.not1550, label %110, label %97
@@ -507,7 +507,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %.loopexi
   %103 = or i1 %102, %.not1378
   %104 = select i1 %103, ptr @.str.2, ptr @.str.3
   %105 = ashr i64 %95, 1
-  %106 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %101, ptr noundef nonnull %104, i32 noundef %.31060, i64 noundef %105) #11
+  %106 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %101, ptr noundef nonnull %104, i32 noundef %.31060, i64 noundef %105) #12
   %107 = icmp sgt i32 %106, -1
   %108 = zext nneg i32 %106 to i64
   %109 = getelementptr inbounds nuw i8, ptr %.010291863, i64 %108
@@ -528,20 +528,20 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %.loopexi
   %116 = load ptr, ptr %35, align 8, !tbaa !14
   %117 = load ptr, ptr %116, align 8, !tbaa !21
   %118 = load ptr, ptr %3, align 8, !tbaa !19
-  %119 = call i64 %117(ptr noundef %118) #11
+  %119 = call i64 %117(ptr noundef %118) #12
   %.pr.i1435 = load i64, ptr @date_strftime_with_tmx.rbimpl_id.4, align 8, !tbaa !22
   %.not1.i1436 = icmp eq i64 %.pr.i1435, 0
   br i1 %.not1.i1436, label %.lr.ph.i1438, label %rbimpl_intern_const.exit1440
 
 .lr.ph.i1438:                                     ; preds = %110, %.lr.ph.i1438
-  %120 = call i64 @rb_intern2(ptr noundef nonnull @.str.1, i64 noundef 3) #11
+  %120 = call i64 @rb_intern2(ptr noundef nonnull @.str.1, i64 noundef 3) #12
   store i64 %120, ptr @date_strftime_with_tmx.rbimpl_id.4, align 8, !tbaa !22
   %.not.i1439 = icmp eq i64 %120, 0
   br i1 %.not.i1439, label %.lr.ph.i1438, label %rbimpl_intern_const.exit1440, !llvm.loop !24
 
 rbimpl_intern_const.exit1440:                     ; preds = %.lr.ph.i1438, %110
   %.lcssa.i1437 = phi i64 [ %.pr.i1435, %110 ], [ %120, %.lr.ph.i1438 ]
-  %121 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %119, i64 noundef %.lcssa.i1437, i32 noundef 1, i64 noundef 201) #11
+  %121 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %119, i64 noundef %.lcssa.i1437, i32 noundef 1, i64 noundef 201) #12
   store i64 %121, ptr %40, align 8, !tbaa !22
   switch i8 %.011082204, label %124 [
     i8 48, label %122
@@ -549,21 +549,21 @@ rbimpl_intern_const.exit1440:                     ; preds = %.lr.ph.i1438, %110
   ]
 
 122:                                              ; preds = %rbimpl_intern_const.exit1440, %rbimpl_intern_const.exit1440
-  %123 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.5, i64 noundef 4) #11
+  %123 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.5, i64 noundef 4) #12
   br label %126
 
 124:                                              ; preds = %rbimpl_intern_const.exit1440
-  %125 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.6, i64 noundef 3) #11
+  %125 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.6, i64 noundef 3) #12
   br label %126
 
 126:                                              ; preds = %124, %122
   %.sink = phi i64 [ %125, %124 ], [ %123, %122 ]
-  %127 = call i64 @rb_str_format(i32 noundef 2, ptr noundef nonnull %5, i64 noundef %.sink) #11
+  %127 = call i64 @rb_str_format(i32 noundef 2, ptr noundef nonnull %5, i64 noundef %.sink) #12
   store i64 %127, ptr %6, align 8, !tbaa !22
-  %128 = call ptr @rb_string_value_cstr(ptr noundef nonnull %6) #11
+  %128 = call ptr @rb_string_value_cstr(ptr noundef nonnull %6) #12
   %129 = ptrtoint ptr %.010291863 to i64
   %130 = sub i64 %34, %129
-  %131 = call i64 @strlcpy(ptr noundef %.010291863, ptr noundef nonnull dereferenceable(1) %128, i64 noundef %130) #11
+  %131 = call i64 @strlcpy(ptr noundef %.010291863, ptr noundef nonnull dereferenceable(1) %128, i64 noundef %130) #12
   %.not1376 = icmp ugt i64 %130, %131
   %132 = getelementptr inbounds nuw i8, ptr %.010291863, i64 %131
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -622,18 +622,18 @@ upcase.exit:                                      ; preds = %145, %137
   br i1 %154, label %155, label %157
 
 155:                                              ; preds = %152
-  %156 = call ptr @rb_errno_ptr() #11
+  %156 = call ptr @rb_errno_ptr() #12
   store i32 34, ptr %156, align 4, !tbaa !6
   br label %.loopexit1565
 
 157:                                              ; preds = %152
   %158 = sub i64 0, %136
   %159 = getelementptr inbounds i8, ptr %153, i64 %158
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %159, ptr noundef nonnull align 1 %.010291863, i64 noundef range(i64 1, 0) %136, i1 noundef false) #11
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %159, ptr noundef nonnull align 1 %.010291863, i64 noundef range(i64 1, 0) %136, i1 noundef false) #12
   %.not1372 = icmp eq i8 %.011082205, 0
   %narrow1373 = select i1 %.not1372, i8 32, i8 %.011082205
   %160 = sub nsw i64 %150, %136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1373, i64 noundef %160, i1 noundef false) #11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1373, i64 noundef %160, i1 noundef false) #12
   br label %.thread
 
 161:                                              ; preds = %149, %upcase.exit
@@ -692,18 +692,18 @@ upcase.exit1444:                                  ; preds = %175, %167
   br i1 %184, label %185, label %187
 
 185:                                              ; preds = %182
-  %186 = call ptr @rb_errno_ptr() #11
+  %186 = call ptr @rb_errno_ptr() #12
   store i32 34, ptr %186, align 4, !tbaa !6
   br label %.loopexit1565
 
 187:                                              ; preds = %182
   %188 = sub i64 0, %166
   %189 = getelementptr inbounds i8, ptr %183, i64 %188
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %189, ptr noundef nonnull align 1 %.010291863, i64 noundef range(i64 1, 0) %166, i1 noundef false) #11
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %189, ptr noundef nonnull align 1 %.010291863, i64 noundef range(i64 1, 0) %166, i1 noundef false) #12
   %.not1367 = icmp eq i8 %.011082206, 0
   %narrow1368 = select i1 %.not1367, i8 32, i8 %.011082206
   %190 = sub nsw i64 %180, %166
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1368, i64 noundef %190, i1 noundef false) #11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1368, i64 noundef %190, i1 noundef false) #12
   br label %.thread
 
 191:                                              ; preds = %179, %upcase.exit1444
@@ -715,7 +715,7 @@ upcase.exit1444:                                  ; preds = %175, %167
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 24
   %196 = load ptr, ptr %195, align 8, !tbaa !27
   %197 = load ptr, ptr %3, align 8, !tbaa !19
-  %198 = call i32 %196(ptr noundef %197) #11
+  %198 = call i32 %196(ptr noundef %197) #12
   %199 = icmp slt i32 %.01057.be, 1
   %spec.select1390 = select i1 %199, i32 2, i32 %.01057.be
   %200 = and i32 %.01102.be, 1
@@ -733,7 +733,7 @@ upcase.exit1444:                                  ; preds = %175, %167
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 24
   %206 = load ptr, ptr %205, align 8, !tbaa !27
   %207 = load ptr, ptr %3, align 8, !tbaa !19
-  %208 = call i32 %206(ptr noundef %207) #11
+  %208 = call i32 %206(ptr noundef %207) #12
   %209 = ptrtoint ptr %.010291863 to i64
   %210 = sub i64 %34, %209
   br label %230
@@ -743,7 +743,7 @@ upcase.exit1444:                                  ; preds = %175, %167
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 24
   %214 = load ptr, ptr %213, align 8, !tbaa !27
   %215 = load ptr, ptr %3, align 8, !tbaa !19
-  %216 = call i32 %214(ptr noundef %215) #11
+  %216 = call i32 %214(ptr noundef %215) #12
   %217 = and i32 %.011022276.ph, 1
   %.71064.jt32 = sub nuw nsw i32 2, %217
   %218 = ptrtoint ptr %.010291863 to i64
@@ -755,7 +755,7 @@ upcase.exit1444:                                  ; preds = %175, %167
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 24
   %223 = load ptr, ptr %222, align 8, !tbaa !27
   %224 = load ptr, ptr %3, align 8, !tbaa !19
-  %225 = call i32 %223(ptr noundef %224) #11
+  %225 = call i32 %223(ptr noundef %224) #12
   %226 = icmp slt i64 %1091, 1
   %spec.select1390.jt48 = select i1 %226, i32 2, i32 %52
   %227 = and i32 %.011022280.ph, 1
@@ -784,7 +784,7 @@ upcase.exit1444:                                  ; preds = %175, %167
   %239 = phi i32 [ %225, %220 ], [ %198, %193 ], [ %232, %230 ], [ %216, %211 ], [ %198, %.fold.split ]
   %240 = phi ptr [ %53, %220 ], [ %45, %193 ], [ %233, %230 ], [ %49, %211 ], [ %45, %.fold.split ]
   %241 = phi ptr [ @.str.5, %220 ], [ @.str.5, %193 ], [ %236, %230 ], [ @.str.6, %211 ], [ @.str.6, %.fold.split ]
-  %242 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %238, ptr noundef nonnull %241, i32 noundef %.710642337, i32 noundef %239) #11
+  %242 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %238, ptr noundef nonnull %241, i32 noundef %.710642337, i32 noundef %239) #12
   %243 = icmp slt i32 %242, 0
   %244 = zext nneg i32 %242 to i64
   %245 = getelementptr inbounds nuw i8, ptr %.010291863, i64 %244
@@ -842,18 +842,18 @@ upcase.exit1448:                                  ; preds = %258, %250
   br i1 %267, label %268, label %270
 
 268:                                              ; preds = %265
-  %269 = call ptr @rb_errno_ptr() #11
+  %269 = call ptr @rb_errno_ptr() #12
   store i32 34, ptr %269, align 4, !tbaa !6
   br label %.loopexit1565
 
 270:                                              ; preds = %265
   %271 = sub i64 0, %249
   %272 = getelementptr inbounds i8, ptr %266, i64 %271
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %272, ptr noundef nonnull align 1 %.010291863, i64 noundef range(i64 1, 0) %249, i1 noundef false) #11
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %272, ptr noundef nonnull align 1 %.010291863, i64 noundef range(i64 1, 0) %249, i1 noundef false) #12
   %.not1360 = icmp eq i8 %.011082207, 0
   %narrow1361 = select i1 %.not1360, i8 32, i8 %.011082207
   %273 = sub nsw i64 %263, %249
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1361, i64 noundef %273, i1 noundef false) #11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1361, i64 noundef %273, i1 noundef false) #12
   br label %.thread
 
 274:                                              ; preds = %262, %upcase.exit1448
@@ -872,7 +872,7 @@ upcase.exit1448:                                  ; preds = %258, %250
   %.sink2779.in = getelementptr inbounds nuw i8, ptr %279, i64 %.sink2779.in.idx
   %.sink2779 = load ptr, ptr %.sink2779.in, align 8, !tbaa !28
   %280 = load ptr, ptr %3, align 8, !tbaa !19
-  %281 = call i64 %.sink2779(ptr noundef %280) #11
+  %281 = call i64 %.sink2779(ptr noundef %280) #12
   %282 = and i64 %281, 1
   %.not1549 = icmp eq i64 %282, 0
   br i1 %.not1549, label %298, label %283
@@ -892,7 +892,7 @@ upcase.exit1448:                                  ; preds = %258, %250
   %.not1356 = icmp eq i8 %.011082208, 0
   %292 = or i1 %291, %.not1356
   %293 = select i1 %292, ptr @.str.2, ptr @.str.3
-  %294 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %290, ptr noundef nonnull %293, i32 noundef %.91066, i64 noundef %284) #11
+  %294 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %290, ptr noundef nonnull %293, i32 noundef %.91066, i64 noundef %284) #12
   %295 = icmp sgt i32 %294, -1
   %296 = zext nneg i32 %294 to i64
   %297 = getelementptr inbounds nuw i8, ptr %.010291863, i64 %296
@@ -917,21 +917,21 @@ upcase.exit1448:                                  ; preds = %258, %250
   ]
 
 304:                                              ; preds = %298, %298
-  %305 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.5, i64 noundef 4) #11
+  %305 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.5, i64 noundef 4) #12
   br label %308
 
 306:                                              ; preds = %298
-  %307 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.6, i64 noundef 3) #11
+  %307 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.6, i64 noundef 3) #12
   br label %308
 
 308:                                              ; preds = %306, %304
   %.sink2780 = phi i64 [ %307, %306 ], [ %305, %304 ]
-  %309 = call i64 @rb_str_format(i32 noundef 2, ptr noundef nonnull %7, i64 noundef %.sink2780) #11
+  %309 = call i64 @rb_str_format(i32 noundef 2, ptr noundef nonnull %7, i64 noundef %.sink2780) #12
   store i64 %309, ptr %8, align 8, !tbaa !22
-  %310 = call ptr @rb_string_value_cstr(ptr noundef nonnull %8) #11
+  %310 = call ptr @rb_string_value_cstr(ptr noundef nonnull %8) #12
   %311 = ptrtoint ptr %.010291863 to i64
   %312 = sub i64 %34, %311
-  %313 = call i64 @strlcpy(ptr noundef %.010291863, ptr noundef nonnull dereferenceable(1) %310, i64 noundef %312) #11
+  %313 = call i64 @strlcpy(ptr noundef %.010291863, ptr noundef nonnull dereferenceable(1) %310, i64 noundef %312) #12
   %.not1354 = icmp ugt i64 %312, %313
   %314 = getelementptr inbounds nuw i8, ptr %.010291863, i64 %313
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -950,18 +950,18 @@ upcase.exit1448:                                  ; preds = %258, %250
   %.sink2782.in = getelementptr inbounds nuw i8, ptr %318, i64 %.sink2782.in.idx
   %.sink2782 = load ptr, ptr %.sink2782.in, align 8, !tbaa !28
   %319 = load ptr, ptr %3, align 8, !tbaa !19
-  %320 = call i64 %.sink2782(ptr noundef %319) #11
-  %321 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %320, i64 noundef 37, i32 noundef 1, i64 noundef 201) #11
+  %320 = call i64 %.sink2782(ptr noundef %319) #12
+  %321 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %320, i64 noundef 37, i32 noundef 1, i64 noundef 201) #12
   %322 = and i64 %321, 1
   %.not.i1449 = icmp eq i64 %322, 0
   br i1 %.not.i1449, label %325, label %323
 
 323:                                              ; preds = %.loopexit2385
-  %324 = call i64 @rb_fix2int(i64 noundef %321) #11
+  %324 = call i64 @rb_fix2int(i64 noundef %321) #12
   br label %rb_num2int_inline.exit
 
 325:                                              ; preds = %.loopexit2385
-  %326 = call i64 @rb_num2int(i64 noundef %321) #11
+  %326 = call i64 @rb_num2int(i64 noundef %321) #12
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %323, %325
@@ -978,7 +978,7 @@ rb_num2int_inline.exit:                           ; preds = %323, %325
   %.not1351 = icmp eq i8 %.011082209, 0
   %333 = or i1 %332, %.not1351
   %334 = select i1 %333, ptr @.str.5, ptr @.str.6
-  %335 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %331, ptr noundef nonnull %334, i32 noundef %.151072, i32 noundef %327) #11
+  %335 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %331, ptr noundef nonnull %334, i32 noundef %.151072, i32 noundef %327) #12
   %336 = icmp slt i32 %335, 0
   %337 = zext nneg i32 %335 to i64
   %338 = getelementptr inbounds nuw i8, ptr %.010291863, i64 %337
@@ -993,7 +993,7 @@ rb_num2int_inline.exit:                           ; preds = %323, %325
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 80
   %342 = load ptr, ptr %341, align 8, !tbaa !29
   %343 = load ptr, ptr %3, align 8, !tbaa !19
-  %344 = call i32 %342(ptr noundef %343) #11
+  %344 = call i32 %342(ptr noundef %343) #12
   %345 = icmp slt i32 %.010572291, 1
   %spec.select1394 = select i1 %345, i32 2, i32 %.010572291
   %346 = and i32 %.011022249, 1
@@ -1017,7 +1017,7 @@ rb_num2int_inline.exit:                           ; preds = %323, %325
 
 353:                                              ; preds = %.loopexit2386, %.fold.split1395, %349
   %354 = phi ptr [ @.str.5, %.loopexit2386 ], [ %352, %349 ], [ @.str.6, %.fold.split1395 ]
-  %355 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %348, ptr noundef nonnull %354, i32 noundef %.171074, i32 noundef %344) #11
+  %355 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %348, ptr noundef nonnull %354, i32 noundef %.171074, i32 noundef %344) #12
   %356 = icmp slt i32 %355, 0
   %357 = zext nneg i32 %355 to i64
   %358 = getelementptr inbounds nuw i8, ptr %.010291863, i64 %357
@@ -1032,7 +1032,7 @@ rb_num2int_inline.exit:                           ; preds = %323, %325
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 80
   %362 = load ptr, ptr %361, align 8, !tbaa !29
   %363 = load ptr, ptr %3, align 8, !tbaa !19
-  %364 = call i32 %362(ptr noundef %363) #11
+  %364 = call i32 %362(ptr noundef %363) #12
   %365 = icmp eq i32 %364, 0
   %366 = icmp sgt i32 %364, 12
   %367 = add nsw i32 %364, -12
@@ -1061,7 +1061,7 @@ rb_num2int_inline.exit:                           ; preds = %323, %325
 
 376:                                              ; preds = %.loopexit2387, %.fold.split1398, %372
   %377 = phi ptr [ @.str.5, %.loopexit2387 ], [ %375, %372 ], [ @.str.6, %.fold.split1398 ]
-  %378 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %371, ptr noundef nonnull %377, i32 noundef %.191076, i32 noundef %.01053) #11
+  %378 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %371, ptr noundef nonnull %377, i32 noundef %.191076, i32 noundef %.01053) #12
   %379 = icmp slt i32 %378, 0
   %380 = zext nneg i32 %378 to i64
   %381 = getelementptr inbounds nuw i8, ptr %.010291863, i64 %380
@@ -1076,7 +1076,7 @@ rb_num2int_inline.exit:                           ; preds = %323, %325
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 8
   %385 = load ptr, ptr %384, align 8, !tbaa !30
   %386 = load ptr, ptr %3, align 8, !tbaa !19
-  %387 = call i32 %385(ptr noundef %386) #11
+  %387 = call i32 %385(ptr noundef %386) #12
   %388 = icmp slt i32 %.010572293, 1
   %spec.select1399 = select i1 %388, i32 3, i32 %.010572293
   %389 = and i32 %.011022251, 1
@@ -1088,7 +1088,7 @@ rb_num2int_inline.exit:                           ; preds = %323, %325
   %.not1345 = icmp eq i8 %.011082212, 0
   %393 = or i1 %392, %.not1345
   %394 = select i1 %393, ptr @.str.5, ptr @.str.6
-  %395 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %391, ptr noundef nonnull %394, i32 noundef %.211078, i32 noundef %387) #11
+  %395 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %391, ptr noundef nonnull %394, i32 noundef %.211078, i32 noundef %387) #12
   %396 = icmp slt i32 %395, 0
   %397 = zext nneg i32 %395 to i64
   %398 = getelementptr inbounds nuw i8, ptr %.010291863, i64 %397
@@ -1118,7 +1118,7 @@ rb_num2int_inline.exit:                           ; preds = %323, %325
   %410 = getelementptr inbounds nuw i8, ptr %409, i64 104
   %411 = load ptr, ptr %410, align 8, !tbaa !31
   %412 = load ptr, ptr %3, align 8, !tbaa !19
-  %413 = call i64 %411(ptr noundef %412) #11
+  %413 = call i64 %411(ptr noundef %412) #12
   %414 = icmp sgt i32 %.221079, 8
   br i1 %414, label %.lr.ph, label %.preheader1556
 
@@ -1131,7 +1131,7 @@ rb_num2int_inline.exit:                           ; preds = %323, %325
 .lr.ph:                                           ; preds = %408, %.lr.ph
   %.011411856 = phi i64 [ %416, %.lr.ph ], [ %413, %408 ]
   %.011431855 = phi i32 [ %417, %.lr.ph ], [ %.221079, %408 ]
-  %416 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.011411856, i64 noundef 42, i32 noundef 1, i64 noundef 2000000001) #11
+  %416 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.011411856, i64 noundef 42, i32 noundef 1, i64 noundef 2000000001) #12
   %417 = add nsw i32 %.011431855, -9
   %418 = icmp samesign ugt i32 %.011431855, 17
   br i1 %418, label %.lr.ph, label %.preheader1556, !llvm.loop !32
@@ -1147,7 +1147,7 @@ rb_num2int_inline.exit:                           ; preds = %323, %325
 ._crit_edge:                                      ; preds = %.lr.ph1860
   %422 = mul i64 %.011451858, 20
   %423 = or disjoint i64 %422, 1
-  %424 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.01141.lcssa, i64 noundef 42, i32 noundef 1, i64 noundef %423) #11
+  %424 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.01141.lcssa, i64 noundef 42, i32 noundef 1, i64 noundef %423) #12
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader1556, %._crit_edge
@@ -1157,21 +1157,21 @@ rb_num2int_inline.exit:                           ; preds = %323, %325
   br i1 %.not1.i1452, label %.lr.ph.i1454, label %rbimpl_intern_const.exit1456
 
 .lr.ph.i1454:                                     ; preds = %._crit_edge.thread, %.lr.ph.i1454
-  %425 = call i64 @rb_intern2(ptr noundef nonnull @.str.1, i64 noundef 3) #11
+  %425 = call i64 @rb_intern2(ptr noundef nonnull @.str.1, i64 noundef 3) #12
   store i64 %425, ptr @date_strftime_with_tmx.rbimpl_id.10, align 8, !tbaa !22
   %.not.i1455 = icmp eq i64 %425, 0
   br i1 %.not.i1455, label %.lr.ph.i1454, label %rbimpl_intern_const.exit1456, !llvm.loop !24
 
 rbimpl_intern_const.exit1456:                     ; preds = %.lr.ph.i1454, %._crit_edge.thread
   %.lcssa.i1453 = phi i64 [ %.pr.i1451, %._crit_edge.thread ], [ %425, %.lr.ph.i1454 ]
-  %426 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.11142, i64 noundef %.lcssa.i1453, i32 noundef 1, i64 noundef 3) #11
+  %426 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.11142, i64 noundef %.lcssa.i1453, i32 noundef 1, i64 noundef 3) #12
   %427 = and i64 %426, 1
   %.not1548 = icmp eq i64 %427, 0
   br i1 %.not1548, label %431, label %428
 
 428:                                              ; preds = %rbimpl_intern_const.exit1456
   %429 = ashr i64 %426, 1
-  %430 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %406, ptr noundef nonnull @.str.2, i32 noundef %.221079, i64 noundef %429) #11
+  %430 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %406, ptr noundef nonnull @.str.2, i32 noundef %.221079, i64 noundef %429) #12
   br label %438
 
 431:                                              ; preds = %rbimpl_intern_const.exit1456
@@ -1181,11 +1181,11 @@ rbimpl_intern_const.exit1456:                     ; preds = %.lr.ph.i1454, %._cr
   %433 = or disjoint i64 %432, 1
   store i64 %433, ptr %9, align 16, !tbaa !22
   store i64 %426, ptr %38, align 8, !tbaa !22
-  %434 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.5, i64 noundef 4) #11
-  %435 = call i64 @rb_str_format(i32 noundef 2, ptr noundef nonnull %9, i64 noundef %434) #11
+  %434 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.5, i64 noundef 4) #12
+  %435 = call i64 @rb_str_format(i32 noundef 2, ptr noundef nonnull %9, i64 noundef %434) #12
   store i64 %435, ptr %10, align 8, !tbaa !22
-  %436 = call ptr @rb_string_value_cstr(ptr noundef nonnull %10) #11
-  %437 = call i64 @strlcpy(ptr noundef %.010291863, ptr noundef nonnull dereferenceable(1) %436, i64 noundef %406) #11
+  %436 = call ptr @rb_string_value_cstr(ptr noundef nonnull %10) #12
+  %437 = call i64 @strlcpy(ptr noundef %.010291863, ptr noundef nonnull dereferenceable(1) %436, i64 noundef %406) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %438
@@ -1203,7 +1203,7 @@ rbimpl_intern_const.exit1456:                     ; preds = %.lr.ph.i1454, %._cr
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 88
   %442 = load ptr, ptr %441, align 8, !tbaa !34
   %443 = load ptr, ptr %3, align 8, !tbaa !19
-  %444 = call i32 %442(ptr noundef %443) #11
+  %444 = call i32 %442(ptr noundef %443) #12
   %445 = icmp slt i32 %.010572295, 1
   %spec.select1400 = select i1 %445, i32 2, i32 %.010572295
   %446 = and i32 %.011022252, 1
@@ -1215,7 +1215,7 @@ rbimpl_intern_const.exit1456:                     ; preds = %.lr.ph.i1454, %._cr
   %.not1340 = icmp eq i8 %.011082213, 0
   %450 = or i1 %449, %.not1340
   %451 = select i1 %450, ptr @.str.5, ptr @.str.6
-  %452 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %448, ptr noundef nonnull %451, i32 noundef %.241081, i32 noundef %444) #11
+  %452 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %448, ptr noundef nonnull %451, i32 noundef %.241081, i32 noundef %444) #12
   %453 = icmp slt i32 %452, 0
   %454 = zext nneg i32 %452 to i64
   %455 = getelementptr inbounds nuw i8, ptr %.010291863, i64 %454
@@ -1230,7 +1230,7 @@ rbimpl_intern_const.exit1456:                     ; preds = %.lr.ph.i1454, %._cr
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 16
   %459 = load ptr, ptr %458, align 8, !tbaa !20
   %460 = load ptr, ptr %3, align 8, !tbaa !19
-  %461 = call i32 %459(ptr noundef %460) #11
+  %461 = call i32 %459(ptr noundef %460) #12
   %462 = icmp slt i32 %.010572296, 1
   %spec.select1401 = select i1 %462, i32 2, i32 %.010572296
   %463 = and i32 %.011022253, 1
@@ -1242,7 +1242,7 @@ rbimpl_intern_const.exit1456:                     ; preds = %.lr.ph.i1454, %._cr
   %.not1338 = icmp eq i8 %.011082214, 0
   %467 = or i1 %466, %.not1338
   %468 = select i1 %467, ptr @.str.5, ptr @.str.6
-  %469 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %465, ptr noundef nonnull %468, i32 noundef %.261083, i32 noundef %461) #11
+  %469 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %465, ptr noundef nonnull %468, i32 noundef %.261083, i32 noundef %461) #12
   %470 = icmp slt i32 %469, 0
   %471 = zext nneg i32 %469 to i64
   %472 = getelementptr inbounds nuw i8, ptr %.010291863, i64 %471
@@ -1276,7 +1276,7 @@ rbimpl_intern_const.exit1456:                     ; preds = %.lr.ph.i1454, %._cr
   %narrow1336 = select i1 %.not1335, i8 32, i8 %.011082215
   %484 = add nsw i32 %.010572297, -1
   %485 = zext nneg i32 %484 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1336, i64 noundef %485, i1 noundef false) #11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1336, i64 noundef %485, i1 noundef false) #12
   %486 = getelementptr inbounds nuw i8, ptr %.010291863, i64 %485
   br label %491
 
@@ -1324,7 +1324,7 @@ rbimpl_intern_const.exit1456:                     ; preds = %.lr.ph.i1454, %._cr
   %narrow1331 = select i1 %.not1330, i8 32, i8 %.011082216
   %505 = add nsw i32 %.010572298, -1
   %506 = zext nneg i32 %505 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1331, i64 noundef %506, i1 noundef false) #11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1331, i64 noundef %506, i1 noundef false) #12
   %507 = getelementptr inbounds nuw i8, ptr %.010291863, i64 %506
   br label %512
 
@@ -1386,7 +1386,7 @@ rbimpl_intern_const.exit1456:                     ; preds = %.lr.ph.i1454, %._cr
   %530 = getelementptr inbounds nuw i8, ptr %529, i64 80
   %531 = load ptr, ptr %530, align 8, !tbaa !29
   %532 = load ptr, ptr %3, align 8, !tbaa !19
-  %533 = call i32 %531(ptr noundef %532) #11
+  %533 = call i32 %531(ptr noundef %532) #12
   %534 = icmp slt i32 %533, 12
   %date_strftime_with_tmx.ampm. = select i1 %534, ptr @date_strftime_with_tmx.ampm, ptr getelementptr inbounds nuw (i8, ptr @date_strftime_with_tmx.ampm, i64 3)
   br label %.thread1517
@@ -1400,7 +1400,7 @@ rbimpl_intern_const.exit1456:                     ; preds = %.lr.ph.i1454, %._cr
   %537 = getelementptr inbounds nuw i8, ptr %536, i64 120
   %538 = load ptr, ptr %537, align 8, !tbaa !35
   %539 = load ptr, ptr %3, align 8, !tbaa !19
-  %540 = call i64 %538(ptr noundef %539) #11
+  %540 = call i64 %538(ptr noundef %539) #12
   %541 = and i64 %540, 1
   %.not1547 = icmp eq i64 %541, 0
   br i1 %.not1547, label %554, label %542
@@ -1417,7 +1417,7 @@ rbimpl_intern_const.exit1456:                     ; preds = %.lr.ph.i1454, %._cr
   %547 = or i1 %546, %.not1324
   %548 = select i1 %547, ptr @.str.2, ptr @.str.3
   %549 = ashr i64 %540, 1
-  %550 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %545, ptr noundef nonnull %548, i32 noundef %.281085, i64 noundef %549) #11
+  %550 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %545, ptr noundef nonnull %548, i32 noundef %.281085, i64 noundef %549) #12
   %551 = icmp sgt i32 %550, -1
   %552 = zext nneg i32 %550 to i64
   %553 = getelementptr inbounds nuw i8, ptr %.010291863, i64 %552
@@ -1438,7 +1438,7 @@ rbimpl_intern_const.exit1456:                     ; preds = %.lr.ph.i1454, %._cr
   %561 = getelementptr inbounds nuw i8, ptr %560, i64 120
   %562 = load ptr, ptr %561, align 8, !tbaa !35
   %563 = load ptr, ptr %3, align 8, !tbaa !19
-  %564 = call i64 %562(ptr noundef %563) #11
+  %564 = call i64 %562(ptr noundef %563) #12
   store i64 %564, ptr %37, align 8, !tbaa !22
   switch i8 %.011082218, label %567 [
     i8 48, label %565
@@ -1446,21 +1446,21 @@ rbimpl_intern_const.exit1456:                     ; preds = %.lr.ph.i1454, %._cr
   ]
 
 565:                                              ; preds = %554, %554
-  %566 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.5, i64 noundef 4) #11
+  %566 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.5, i64 noundef 4) #12
   br label %569
 
 567:                                              ; preds = %554
-  %568 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.6, i64 noundef 3) #11
+  %568 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.6, i64 noundef 3) #12
   br label %569
 
 569:                                              ; preds = %567, %565
   %.sink2783 = phi i64 [ %568, %567 ], [ %566, %565 ]
-  %570 = call i64 @rb_str_format(i32 noundef 2, ptr noundef nonnull %11, i64 noundef %.sink2783) #11
+  %570 = call i64 @rb_str_format(i32 noundef 2, ptr noundef nonnull %11, i64 noundef %.sink2783) #12
   store i64 %570, ptr %12, align 8, !tbaa !22
-  %571 = call ptr @rb_string_value_cstr(ptr noundef nonnull %12) #11
+  %571 = call ptr @rb_string_value_cstr(ptr noundef nonnull %12) #12
   %572 = ptrtoint ptr %.010291863 to i64
   %573 = sub i64 %34, %572
-  %574 = call i64 @strlcpy(ptr noundef %.010291863, ptr noundef nonnull dereferenceable(1) %571, i64 noundef %573) #11
+  %574 = call i64 @strlcpy(ptr noundef %.010291863, ptr noundef nonnull dereferenceable(1) %571, i64 noundef %573) #12
   %.not1322 = icmp ugt i64 %573, %574
   %575 = getelementptr inbounds nuw i8, ptr %.010291863, i64 %574
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1519,18 +1519,18 @@ upcase.exit1460:                                  ; preds = %588, %580
   br i1 %597, label %598, label %600
 
 598:                                              ; preds = %595
-  %599 = call ptr @rb_errno_ptr() #11
+  %599 = call ptr @rb_errno_ptr() #12
   store i32 34, ptr %599, align 4, !tbaa !6
   br label %.loopexit1565
 
 600:                                              ; preds = %595
   %601 = sub i64 0, %579
   %602 = getelementptr inbounds i8, ptr %596, i64 %601
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %602, ptr noundef nonnull align 1 %.010291863, i64 noundef range(i64 1, 0) %579, i1 noundef false) #11
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %602, ptr noundef nonnull align 1 %.010291863, i64 noundef range(i64 1, 0) %579, i1 noundef false) #12
   %.not1318 = icmp eq i8 %.011082219, 0
   %narrow1319 = select i1 %.not1318, i8 32, i8 %.011082219
   %603 = sub nsw i64 %593, %579
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1319, i64 noundef %603, i1 noundef false) #11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1319, i64 noundef %603, i1 noundef false) #12
   br label %.thread
 
 604:                                              ; preds = %592, %upcase.exit1460
@@ -1589,18 +1589,18 @@ upcase.exit1464:                                  ; preds = %618, %610
   br i1 %627, label %628, label %630
 
 628:                                              ; preds = %625
-  %629 = call ptr @rb_errno_ptr() #11
+  %629 = call ptr @rb_errno_ptr() #12
   store i32 34, ptr %629, align 4, !tbaa !6
   br label %.loopexit1565
 
 630:                                              ; preds = %625
   %631 = sub i64 0, %609
   %632 = getelementptr inbounds i8, ptr %626, i64 %631
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %632, ptr noundef nonnull align 1 %.010291863, i64 noundef range(i64 1, 0) %609, i1 noundef false) #11
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %632, ptr noundef nonnull align 1 %.010291863, i64 noundef range(i64 1, 0) %609, i1 noundef false) #12
   %.not1313 = icmp eq i8 %.011082220, 0
   %narrow1314 = select i1 %.not1313, i8 32, i8 %.011082220
   %633 = sub nsw i64 %623, %609
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1314, i64 noundef %633, i1 noundef false) #11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1314, i64 noundef %633, i1 noundef false) #12
   br label %.thread
 
 634:                                              ; preds = %622, %upcase.exit1464
@@ -1616,7 +1616,7 @@ upcase.exit1464:                                  ; preds = %618, %610
   %638 = getelementptr inbounds nuw i8, ptr %637, i64 96
   %639 = load ptr, ptr %638, align 8, !tbaa !36
   %640 = load ptr, ptr %3, align 8, !tbaa !19
-  %641 = call i32 %639(ptr noundef %640) #11
+  %641 = call i32 %639(ptr noundef %640) #12
   %642 = icmp slt i32 %.010572303, 1
   %spec.select1415 = select i1 %642, i32 2, i32 %.010572303
   %643 = and i32 %.011022260, 1
@@ -1628,7 +1628,7 @@ upcase.exit1464:                                  ; preds = %618, %610
   %.not1309 = icmp eq i8 %.011082221, 0
   %647 = or i1 %646, %.not1309
   %648 = select i1 %647, ptr @.str.5, ptr @.str.6
-  %649 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %645, ptr noundef nonnull %648, i32 noundef %.321089, i32 noundef %641) #11
+  %649 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %645, ptr noundef nonnull %648, i32 noundef %.321089, i32 noundef %641) #12
   %650 = icmp slt i32 %649, 0
   %651 = zext nneg i32 %649 to i64
   %652 = getelementptr inbounds nuw i8, ptr %.010291863, i64 %651
@@ -1643,7 +1643,7 @@ upcase.exit1464:                                  ; preds = %618, %610
   %655 = getelementptr inbounds nuw i8, ptr %654, i64 112
   %656 = load ptr, ptr %655, align 8, !tbaa !37
   %657 = load ptr, ptr %3, align 8, !tbaa !19
-  %658 = call i64 %656(ptr noundef %657) #11
+  %658 = call i64 %656(ptr noundef %657) #12
   %659 = and i64 %658, 1
   %.not1546 = icmp eq i64 %659, 0
   br i1 %.not1546, label %672, label %660
@@ -1660,7 +1660,7 @@ upcase.exit1464:                                  ; preds = %618, %610
   %665 = or i1 %664, %.not1307
   %666 = select i1 %665, ptr @.str.2, ptr @.str.3
   %667 = ashr i64 %658, 1
-  %668 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %663, ptr noundef nonnull %666, i32 noundef %.341091, i64 noundef %667) #11
+  %668 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %663, ptr noundef nonnull %666, i32 noundef %.341091, i64 noundef %667) #12
   %669 = icmp sgt i32 %668, -1
   %670 = zext nneg i32 %668 to i64
   %671 = getelementptr inbounds nuw i8, ptr %.010291863, i64 %670
@@ -1681,7 +1681,7 @@ upcase.exit1464:                                  ; preds = %618, %610
   %679 = getelementptr inbounds nuw i8, ptr %678, i64 112
   %680 = load ptr, ptr %679, align 8, !tbaa !37
   %681 = load ptr, ptr %3, align 8, !tbaa !19
-  %682 = call i64 %680(ptr noundef %681) #11
+  %682 = call i64 %680(ptr noundef %681) #12
   store i64 %682, ptr %36, align 8, !tbaa !22
   switch i8 %.011082222, label %685 [
     i8 48, label %683
@@ -1689,21 +1689,21 @@ upcase.exit1464:                                  ; preds = %618, %610
   ]
 
 683:                                              ; preds = %672, %672
-  %684 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.5, i64 noundef 4) #11
+  %684 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.5, i64 noundef 4) #12
   br label %687
 
 685:                                              ; preds = %672
-  %686 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.6, i64 noundef 3) #11
+  %686 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.6, i64 noundef 3) #12
   br label %687
 
 687:                                              ; preds = %685, %683
   %.sink2784 = phi i64 [ %686, %685 ], [ %684, %683 ]
-  %688 = call i64 @rb_str_format(i32 noundef 2, ptr noundef nonnull %13, i64 noundef %.sink2784) #11
+  %688 = call i64 @rb_str_format(i32 noundef 2, ptr noundef nonnull %13, i64 noundef %.sink2784) #12
   store i64 %688, ptr %14, align 8, !tbaa !22
-  %689 = call ptr @rb_string_value_cstr(ptr noundef nonnull %14) #11
+  %689 = call ptr @rb_string_value_cstr(ptr noundef nonnull %14) #12
   %690 = ptrtoint ptr %.010291863 to i64
   %691 = sub i64 %34, %690
-  %692 = call i64 @strlcpy(ptr noundef %.010291863, ptr noundef nonnull dereferenceable(1) %689, i64 noundef %691) #11
+  %692 = call i64 @strlcpy(ptr noundef %.010291863, ptr noundef nonnull dereferenceable(1) %689, i64 noundef %691) #12
   %.not1305 = icmp ugt i64 %691, %692
   %693 = getelementptr inbounds nuw i8, ptr %.010291863, i64 %692
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -1762,18 +1762,18 @@ upcase.exit1468:                                  ; preds = %706, %698
   br i1 %715, label %716, label %718
 
 716:                                              ; preds = %713
-  %717 = call ptr @rb_errno_ptr() #11
+  %717 = call ptr @rb_errno_ptr() #12
   store i32 34, ptr %717, align 4, !tbaa !6
   br label %.loopexit1565
 
 718:                                              ; preds = %713
   %719 = sub i64 0, %697
   %720 = getelementptr inbounds i8, ptr %714, i64 %719
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %720, ptr noundef nonnull align 1 %.010291863, i64 noundef range(i64 1, 0) %697, i1 noundef false) #11
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %720, ptr noundef nonnull align 1 %.010291863, i64 noundef range(i64 1, 0) %697, i1 noundef false) #12
   %.not1301 = icmp eq i8 %.011082223, 0
   %narrow1302 = select i1 %.not1301, i8 32, i8 %.011082223
   %721 = sub nsw i64 %711, %697
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1302, i64 noundef %721, i1 noundef false) #11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1302, i64 noundef %721, i1 noundef false) #12
   br label %.thread
 
 722:                                              ; preds = %710, %upcase.exit1468
@@ -1792,7 +1792,7 @@ upcase.exit1468:                                  ; preds = %706, %698
   %.2788 = select i1 %726, i64 56, i64 64
   %729 = getelementptr inbounds nuw i8, ptr %727, i64 %.2788
   %730 = load ptr, ptr %729, align 8, !tbaa !28
-  %731 = call i32 %730(ptr noundef %728) #11
+  %731 = call i32 %730(ptr noundef %728) #12
   %732 = icmp slt i32 %.010572306, 1
   %spec.select1419 = select i1 %732, i32 2, i32 %.010572306
   %733 = and i32 %.011022263, 1
@@ -1804,7 +1804,7 @@ upcase.exit1468:                                  ; preds = %706, %698
   %.not1297 = icmp eq i8 %.011082224, 0
   %737 = or i1 %736, %.not1297
   %738 = select i1 %737, ptr @.str.5, ptr @.str.6
-  %739 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %735, ptr noundef nonnull %738, i32 noundef %.381095, i32 noundef %731) #11
+  %739 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %735, ptr noundef nonnull %738, i32 noundef %.381095, i32 noundef %731) #12
   %740 = icmp slt i32 %739, 0
   %741 = zext nneg i32 %739 to i64
   %742 = getelementptr inbounds nuw i8, ptr %.010291863, i64 %741
@@ -1819,7 +1819,7 @@ upcase.exit1468:                                  ; preds = %706, %698
   %745 = getelementptr inbounds nuw i8, ptr %744, i64 48
   %746 = load ptr, ptr %745, align 8, !tbaa !38
   %747 = load ptr, ptr %3, align 8, !tbaa !19
-  %748 = call i32 %746(ptr noundef %747) #11
+  %748 = call i32 %746(ptr noundef %747) #12
   %spec.select1420 = call i32 @llvm.smax.i32(i32 %.010572307, i32 1)
   %749 = and i32 %.011022264, 1
   %.not1294 = icmp eq i32 %749, 0
@@ -1830,7 +1830,7 @@ upcase.exit1468:                                  ; preds = %706, %698
   %.not1295 = icmp eq i8 %.011082225, 0
   %753 = or i1 %752, %.not1295
   %754 = select i1 %753, ptr @.str.5, ptr @.str.6
-  %755 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %751, ptr noundef nonnull %754, i32 noundef %.401097, i32 noundef %748) #11
+  %755 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %751, ptr noundef nonnull %754, i32 noundef %.401097, i32 noundef %748) #12
   %756 = icmp slt i32 %755, 0
   %757 = zext nneg i32 %755 to i64
   %758 = getelementptr inbounds nuw i8, ptr %.010291863, i64 %757
@@ -1845,7 +1845,7 @@ upcase.exit1468:                                  ; preds = %706, %698
   %761 = getelementptr inbounds nuw i8, ptr %760, i64 40
   %762 = load ptr, ptr %761, align 8, !tbaa !39
   %763 = load ptr, ptr %3, align 8, !tbaa !19
-  %764 = call i32 %762(ptr noundef %763) #11
+  %764 = call i32 %762(ptr noundef %763) #12
   %765 = icmp slt i32 %.010572308, 1
   %spec.select1421 = select i1 %765, i32 2, i32 %.010572308
   %766 = and i32 %.011022265, 1
@@ -1857,7 +1857,7 @@ upcase.exit1468:                                  ; preds = %706, %698
   %.not1293 = icmp eq i8 %.011082226, 0
   %770 = or i1 %769, %.not1293
   %771 = select i1 %770, ptr @.str.5, ptr @.str.6
-  %772 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %768, ptr noundef nonnull %771, i32 noundef %.421099, i32 noundef %764) #11
+  %772 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %768, ptr noundef nonnull %771, i32 noundef %.421099, i32 noundef %764) #12
   %773 = icmp slt i32 %772, 0
   %774 = zext nneg i32 %772 to i64
   %775 = getelementptr inbounds nuw i8, ptr %.010291863, i64 %774
@@ -1915,18 +1915,18 @@ upcase.exit1472:                                  ; preds = %788, %780
   br i1 %797, label %798, label %800
 
 798:                                              ; preds = %795
-  %799 = call ptr @rb_errno_ptr() #11
+  %799 = call ptr @rb_errno_ptr() #12
   store i32 34, ptr %799, align 4, !tbaa !6
   br label %.loopexit1565
 
 800:                                              ; preds = %795
   %801 = sub i64 0, %779
   %802 = getelementptr inbounds i8, ptr %796, i64 %801
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %802, ptr noundef nonnull align 1 %.010291863, i64 noundef range(i64 1, 0) %779, i1 noundef false) #11
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %802, ptr noundef nonnull align 1 %.010291863, i64 noundef range(i64 1, 0) %779, i1 noundef false) #12
   %.not1290 = icmp eq i8 %.011082227, 0
   %narrow1291 = select i1 %.not1290, i8 32, i8 %.011082227
   %803 = sub nsw i64 %793, %779
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1291, i64 noundef %803, i1 noundef false) #11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1291, i64 noundef %803, i1 noundef false) #12
   br label %.thread
 
 804:                                              ; preds = %792, %upcase.exit1472
@@ -1942,7 +1942,7 @@ upcase.exit1472:                                  ; preds = %788, %780
   %808 = getelementptr inbounds nuw i8, ptr %807, i64 72
   %809 = load ptr, ptr %808, align 8, !tbaa !17
   %810 = load ptr, ptr %3, align 8, !tbaa !19
-  %811 = call i32 %809(ptr noundef %810) #11
+  %811 = call i32 %809(ptr noundef %810) #12
   %spec.select1422 = call i32 @llvm.smax.i32(i32 %.010572310, i32 1)
   %812 = and i32 %.011022267, 1
   %.not1285 = icmp eq i32 %812, 0
@@ -1953,7 +1953,7 @@ upcase.exit1472:                                  ; preds = %788, %780
   %.not1286 = icmp eq i8 %.011082228, 0
   %816 = or i1 %815, %.not1286
   %817 = select i1 %816, ptr @.str.5, ptr @.str.6
-  %818 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %814, ptr noundef nonnull %817, i32 noundef %.441101, i32 noundef %811) #11
+  %818 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %814, ptr noundef nonnull %817, i32 noundef %.441101, i32 noundef %811) #12
   %819 = icmp slt i32 %818, 0
   %820 = zext nneg i32 %818 to i64
   %821 = getelementptr inbounds nuw i8, ptr %.010291863, i64 %820
@@ -2011,18 +2011,18 @@ upcase.exit1476:                                  ; preds = %834, %826
   br i1 %843, label %844, label %846
 
 844:                                              ; preds = %841
-  %845 = call ptr @rb_errno_ptr() #11
+  %845 = call ptr @rb_errno_ptr() #12
   store i32 34, ptr %845, align 4, !tbaa !6
   br label %.loopexit1565
 
 846:                                              ; preds = %841
   %847 = sub i64 0, %825
   %848 = getelementptr inbounds i8, ptr %842, i64 %847
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %848, ptr noundef nonnull align 1 %.010291863, i64 noundef range(i64 1, 0) %825, i1 noundef false) #11
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %848, ptr noundef nonnull align 1 %.010291863, i64 noundef range(i64 1, 0) %825, i1 noundef false) #12
   %.not1283 = icmp eq i8 %.011082229, 0
   %narrow1284 = select i1 %.not1283, i8 32, i8 %.011082229
   %849 = sub nsw i64 %839, %825
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1284, i64 noundef %849, i1 noundef false) #11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1284, i64 noundef %849, i1 noundef false) #12
   br label %.thread
 
 850:                                              ; preds = %838, %upcase.exit1476
@@ -2081,18 +2081,18 @@ upcase.exit1480:                                  ; preds = %864, %856
   br i1 %873, label %874, label %876
 
 874:                                              ; preds = %871
-  %875 = call ptr @rb_errno_ptr() #11
+  %875 = call ptr @rb_errno_ptr() #12
   store i32 34, ptr %875, align 4, !tbaa !6
   br label %.loopexit1565
 
 876:                                              ; preds = %871
   %877 = sub i64 0, %855
   %878 = getelementptr inbounds i8, ptr %872, i64 %877
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %878, ptr noundef nonnull align 1 %.010291863, i64 noundef range(i64 1, 0) %855, i1 noundef false) #11
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %878, ptr noundef nonnull align 1 %.010291863, i64 noundef range(i64 1, 0) %855, i1 noundef false) #12
   %.not1278 = icmp eq i8 %.011082230, 0
   %narrow1279 = select i1 %.not1278, i8 32, i8 %.011082230
   %879 = sub nsw i64 %869, %855
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1279, i64 noundef %879, i1 noundef false) #11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1279, i64 noundef %879, i1 noundef false) #12
   br label %.thread
 
 880:                                              ; preds = %868, %upcase.exit1480
@@ -2113,10 +2113,10 @@ upcase.exit1480:                                  ; preds = %864, %856
   %887 = getelementptr inbounds nuw i8, ptr %886, i64 136
   %888 = load ptr, ptr %887, align 8, !tbaa !40
   %889 = load ptr, ptr %3, align 8, !tbaa !19
-  %890 = call ptr %888(ptr noundef %889) #11
+  %890 = call ptr %888(ptr noundef %889) #12
   %891 = icmp eq ptr %890, null
   %.41049 = select i1 %891, ptr @.str.15, ptr %890
-  %892 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.41049) #10
+  %892 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.41049) #11
   br label %1122
 
 .loopexit2409.loopexit:                           ; preds = %.preheader1564.jt48
@@ -2134,7 +2134,7 @@ upcase.exit1480:                                  ; preds = %864, %856
   %896 = getelementptr inbounds nuw i8, ptr %895, i64 128
   %897 = load ptr, ptr %896, align 8, !tbaa !41
   %898 = load ptr, ptr %3, align 8, !tbaa !19
-  %899 = call i32 %897(ptr noundef %898) #11
+  %899 = call i32 %897(ptr noundef %898) #12
   %900 = icmp slt i32 %899, 0
   %901 = call i32 @llvm.abs.i32(i32 %899, i1 false)
   %902 = icmp ult i32 %901, 36000
@@ -2266,7 +2266,7 @@ upcase.exit1480:                                  ; preds = %864, %856
   %969 = ptrtoint ptr %.010291863 to i64
   %970 = sub i64 %34, %969
   %971 = sub nuw nsw i32 %.45, %.01034
-  %972 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %970, ptr noundef nonnull @.str.16, i32 noundef %971, ptr noundef nonnull @.str.15) #11
+  %972 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.010291863, i64 noundef %970, ptr noundef nonnull @.str.16, i32 noundef %971, ptr noundef nonnull @.str.15) #12
   %973 = icmp slt i32 %972, 0
   br i1 %973, label %.thread1503, label %974
 
@@ -2286,7 +2286,7 @@ upcase.exit1480:                                  ; preds = %864, %856
   %980 = udiv i32 %901, 3600
   %981 = urem i32 %901, 3600
   %.zext = zext nneg i32 %980 to i64
-  %982 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %.40, i64 noundef %979, ptr noundef nonnull @.str.17, i32 noundef %.46, i64 noundef %.zext) #11
+  %982 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %.40, i64 noundef %979, ptr noundef nonnull @.str.17, i32 noundef %.46, i64 noundef %.zext) #12
   %983 = icmp slt i32 %982, 0
   br i1 %983, label %.thread1503, label %984
 
@@ -2315,7 +2315,7 @@ upcase.exit1480:                                  ; preds = %864, %856
   %995 = udiv i16 %.lhs.trunc1536, 60
   %996 = urem i16 %.lhs.trunc1536, 60
   %997 = zext nneg i16 %995 to i32
-  %998 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %.41, i64 noundef %994, ptr noundef nonnull @.str.18, i32 noundef %997) #11
+  %998 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %.41, i64 noundef %994, ptr noundef nonnull @.str.18, i32 noundef %997) #12
   %999 = icmp slt i32 %998, 0
   br i1 %999, label %.thread1503, label %1000
 
@@ -2334,7 +2334,7 @@ upcase.exit1480:                                  ; preds = %864, %856
   %1007 = ptrtoint ptr %1006 to i64
   %1008 = sub i64 %34, %1007
   %1009 = zext nneg i16 %996 to i32
-  %1010 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %1006, i64 noundef %1008, ptr noundef nonnull @.str.18, i32 noundef %1009) #11
+  %1010 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %1006, i64 noundef %1008, ptr noundef nonnull @.str.18, i32 noundef %1009) #12
   %1011 = icmp slt i32 %1010, 0
   br i1 %1011, label %.thread1503, label %1012
 
@@ -2395,18 +2395,18 @@ upcase.exit1484:                                  ; preds = %1027, %1019
   br i1 %1036, label %1037, label %1039
 
 1037:                                             ; preds = %1034
-  %1038 = call ptr @rb_errno_ptr() #11
+  %1038 = call ptr @rb_errno_ptr() #12
   store i32 34, ptr %1038, align 4, !tbaa !6
   br label %.loopexit1565
 
 1039:                                             ; preds = %1034
   %1040 = sub i64 0, %1018
   %1041 = getelementptr inbounds i8, ptr %1035, i64 %1040
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %1041, ptr noundef nonnull align 1 %.010291863, i64 noundef range(i64 1, 0) %1018, i1 noundef false) #11
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %1041, ptr noundef nonnull align 1 %.010291863, i64 noundef range(i64 1, 0) %1018, i1 noundef false) #12
   %.not1253 = icmp eq i8 %.011082233, 0
   %narrow1254 = select i1 %.not1253, i8 32, i8 %.011082233
   %1042 = sub nsw i64 %1032, %1018
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1254, i64 noundef %1042, i1 noundef false) #11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1254, i64 noundef %1042, i1 noundef false) #12
   br label %.thread
 
 1043:                                             ; preds = %1031, %upcase.exit1484
@@ -2465,7 +2465,7 @@ upcase.exit1484:                                  ; preds = %1027, %1019
   %.011022275 = phi i32 [ 0, %.preheader1564.jt0 ], [ %.01102.be, %.preheader1564 ], [ %.011022280.ph, %.preheader1564.jt48 ], [ %.011022276.ph, %.preheader1564.jt32 ]
   %.011082236 = phi i8 [ 0, %.preheader1564.jt0 ], [ %.01108.be, %.preheader1564 ], [ 48, %.preheader1564.jt48 ], [ 32, %.preheader1564.jt32 ]
   %1060 = or i32 %.011022275, 64
-  %1061 = call i64 @strspn(ptr noundef nonnull %1059, ptr noundef nonnull @.str.22) #10
+  %1061 = call i64 @strspn(ptr noundef nonnull %1059, ptr noundef nonnull @.str.22) #11
   %1062 = getelementptr inbounds nuw i8, ptr %1059, i64 %1061
   %1063 = load i8, ptr %1062, align 1, !tbaa !10
   %1064 = icmp eq i8 %1063, 122
@@ -2548,18 +2548,18 @@ upcase.exit1484:                                  ; preds = %1027, %1019
   %.011022281 = phi i32 [ 0, %.preheader1564.jt0 ], [ 0, %.preheader1564.jt0 ], [ 0, %.preheader1564.jt0 ], [ 0, %.preheader1564.jt0 ], [ 0, %.preheader1564.jt0 ], [ 0, %.preheader1564.jt0 ], [ 0, %.preheader1564.jt0 ], [ 0, %.preheader1564.jt0 ], [ 0, %.preheader1564.jt0 ], [ %.01102.be, %.preheader1564 ], [ %.01102.be, %.preheader1564 ], [ %.01102.be, %.preheader1564 ], [ %.01102.be, %.preheader1564 ], [ %.01102.be, %.preheader1564 ], [ %.01102.be, %.preheader1564 ], [ %.01102.be, %.preheader1564 ], [ %.01102.be, %.preheader1564 ], [ %.01102.be, %.preheader1564 ], [ %.011022280.ph, %.preheader1564.jt48 ], [ %.011022280.ph, %.preheader1564.jt48 ], [ %.011022280.ph, %.preheader1564.jt48 ], [ %.011022280.ph, %.preheader1564.jt48 ], [ %.011022280.ph, %.preheader1564.jt48 ], [ %.011022280.ph, %.preheader1564.jt48 ], [ %.011022280.ph, %.preheader1564.jt48 ], [ %.011022280.ph, %.preheader1564.jt48 ], [ %.011022280.ph, %.preheader1564.jt48 ], [ %.011022276.ph, %.preheader1564.jt32 ], [ %.011022276.ph, %.preheader1564.jt32 ], [ %.011022276.ph, %.preheader1564.jt32 ], [ %.011022276.ph, %.preheader1564.jt32 ], [ %.011022276.ph, %.preheader1564.jt32 ], [ %.011022276.ph, %.preheader1564.jt32 ], [ %.011022276.ph, %.preheader1564.jt32 ], [ %.011022276.ph, %.preheader1564.jt32 ], [ %.011022276.ph, %.preheader1564.jt32 ]
   %.11109 = phi i8 [ 0, %.preheader1564.jt0 ], [ 0, %.preheader1564.jt0 ], [ 0, %.preheader1564.jt0 ], [ 0, %.preheader1564.jt0 ], [ 0, %.preheader1564.jt0 ], [ 0, %.preheader1564.jt0 ], [ 0, %.preheader1564.jt0 ], [ 0, %.preheader1564.jt0 ], [ 0, %.preheader1564.jt0 ], [ %.01108.be, %.preheader1564 ], [ %.01108.be, %.preheader1564 ], [ %.01108.be, %.preheader1564 ], [ %.01108.be, %.preheader1564 ], [ %.01108.be, %.preheader1564 ], [ %.01108.be, %.preheader1564 ], [ %.01108.be, %.preheader1564 ], [ %.01108.be, %.preheader1564 ], [ %.01108.be, %.preheader1564 ], [ 48, %.preheader1564.jt48 ], [ 48, %.preheader1564.jt48 ], [ 48, %.preheader1564.jt48 ], [ 48, %.preheader1564.jt48 ], [ 48, %.preheader1564.jt48 ], [ 48, %.preheader1564.jt48 ], [ 48, %.preheader1564.jt48 ], [ 48, %.preheader1564.jt48 ], [ 48, %.preheader1564.jt48 ], [ 32, %.preheader1564.jt32 ], [ 32, %.preheader1564.jt32 ], [ 32, %.preheader1564.jt32 ], [ 32, %.preheader1564.jt32 ], [ 32, %.preheader1564.jt32 ], [ 32, %.preheader1564.jt32 ], [ 32, %.preheader1564.jt32 ], [ 32, %.preheader1564.jt32 ], [ 32, %.preheader1564.jt32 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %1089 = call i64 @strtoul(ptr noundef nonnull %1088, ptr noundef nonnull %15, i32 noundef 10) #11
+  %1089 = call i64 @strtoul(ptr noundef nonnull %1088, ptr noundef nonnull %15, i32 noundef 10) #12
   %or.cond1430 = icmp ugt i64 %1089, %invariant.umin
   br i1 %or.cond1430, label %.thread1512, label %1093
 
 1090:                                             ; preds = %1085
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %1091 = call i64 @strtoul(ptr noundef nonnull %1086, ptr noundef nonnull %15, i32 noundef 10) #11
+  %1091 = call i64 @strtoul(ptr noundef nonnull %1086, ptr noundef nonnull %15, i32 noundef 10) #12
   %or.cond1430.jt48 = icmp ugt i64 %1091, %invariant.umin
   br i1 %or.cond1430.jt48, label %.thread1512, label %.preheader1564.jt48
 
 .thread1512:                                      ; preds = %.loopexit2418, %1090
-  %1092 = call ptr @rb_errno_ptr() #11
+  %1092 = call ptr @rb_errno_ptr() #12
   store i32 34, ptr %1092, align 4, !tbaa !6
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.loopexit1565
@@ -2599,7 +2599,7 @@ upcase.exit1484:                                  ; preds = %1027, %1019
   %narrow = select i1 %.not1239, i8 32, i8 %.011082240
   %1108 = add nsw i32 %.010572324, -1
   %1109 = zext nneg i32 %1108 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow, i64 noundef %1109, i1 noundef false) #11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow, i64 noundef %1109, i1 noundef false) #12
   %1110 = getelementptr inbounds nuw i8, ptr %.010291863, i64 %1109
   br label %1115
 
@@ -2676,7 +2676,7 @@ upcase.exit1484:                                  ; preds = %1027, %1019
   %.not1385 = icmp eq i8 %.211101526, 0
   %narrow1386 = select i1 %.not1385, i8 32, i8 %.211101526
   %1133 = sub nsw i64 %1125, %.110511529
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1386, i64 noundef %1133, i1 noundef false) #11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %.010291863, i8 noundef %narrow1386, i64 noundef %1133, i1 noundef false) #12
   %1134 = getelementptr inbounds i8, ptr %.010291863, i64 %1133
   br label %1140
 
@@ -2693,7 +2693,7 @@ upcase.exit1484:                                  ; preds = %1027, %1019
 
 1140:                                             ; preds = %1136, %1132
   %.44 = phi ptr [ %.010291863, %1136 ], [ %1134, %1132 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.44, ptr noundef nonnull align 1 dereferenceable(1) %.110461531, i64 noundef range(i64 1, 0) %.110511529, i1 noundef false) #11
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.44, ptr noundef nonnull align 1 dereferenceable(1) %.110461531, i64 noundef range(i64 1, 0) %.110511529, i1 noundef false) #12
   %1141 = and i32 %.211041527, 12
   switch i32 %1141, label %upcase.exit1488 [
     i32 8, label %.preheader
@@ -2821,20 +2821,20 @@ declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #6
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #7
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2844,10 +2844,11 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn "no-trappin
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { nounwind }
+attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

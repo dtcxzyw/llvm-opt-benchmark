@@ -17,10 +17,10 @@ define dso_local i64 @gtsquery_compress(ptr noundef readonly captures(none) %0) 
   br i1 %7, label %8, label %24
 
 8:                                                ; preds = %1
-  %9 = tail call ptr @palloc(i64 noundef 32) #7
+  %9 = tail call ptr @palloc(i64 noundef 32) #8
   %10 = load i64, ptr %4, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call i64 @makeTSQuerySign(ptr noundef %11) #7
+  %12 = tail call i64 @makeTSQuerySign(ptr noundef %11) #8
   store i64 %12, ptr %9, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8
@@ -63,7 +63,7 @@ define dso_local range(i64 0, 2) i64 @gtsquery_consistent(ptr noundef readonly c
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = load i64, ptr %4, align 8
-  %15 = tail call i64 @makeTSQuerySign(ptr noundef %7) #7
+  %15 = tail call i64 @makeTSQuerySign(ptr noundef %7) #8
   store i8 1, ptr %13, align 1
   switch i16 %10, label %46 [
     i16 7, label %16
@@ -215,9 +215,9 @@ define dso_local i64 @gtsquery_picksplit(ptr noundef readonly captures(none) %0)
   %11 = shl nuw nsw i32 %10, 1
   %12 = add nuw nsw i32 %11, 4
   %13 = zext nneg i32 %12 to i64
-  %14 = tail call ptr @palloc(i64 noundef %13) #7
+  %14 = tail call ptr @palloc(i64 noundef %13) #8
   store ptr %14, ptr %7, align 8
-  %15 = tail call ptr @palloc(i64 noundef %13) #7
+  %15 = tail call ptr @palloc(i64 noundef %13) #8
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -299,12 +299,12 @@ hemdist.exit:                                     ; preds = %31
   %48 = add i16 %47, -1
   %49 = zext i16 %48 to i64
   %50 = shl nuw nsw i64 %49, 3
-  %51 = tail call ptr @palloc(i64 noundef %50) #7
+  %51 = tail call ptr @palloc(i64 noundef %50) #8
   %.not170 = icmp eq i16 %48, 0
   br i1 %.not170, label %._crit_edge174.thread, label %.lr.ph173.preheader
 
 ._crit_edge174.thread:                            ; preds = %._crit_edge
-  tail call void @pg_qsort(ptr noundef %51, i64 noundef %49, i64 noundef 8, ptr noundef nonnull @comparecost) #7
+  tail call void @pg_qsort(ptr noundef %51, i64 noundef %49, i64 noundef 8, ptr noundef nonnull @comparecost) #8
   br label %._crit_edge182
 
 .lr.ph173.preheader:                              ; preds = %._crit_edge
@@ -361,7 +361,7 @@ hemdist.exit141:                                  ; preds = %66
   br i1 %exitcond198, label %._crit_edge174, label %.lr.ph173, !llvm.loop !11
 
 ._crit_edge174:                                   ; preds = %hemdist.exit141
-  tail call void @pg_qsort(ptr noundef nonnull %51, i64 noundef %49, i64 noundef 8, ptr noundef nonnull @comparecost) #7
+  tail call void @pg_qsort(ptr noundef nonnull %51, i64 noundef %49, i64 noundef 8, ptr noundef nonnull @comparecost) #8
   br label %.lr.ph181
 
 .lr.ph181:                                        ; preds = %._crit_edge174, %124
@@ -498,8 +498,8 @@ define internal noundef range(i32 -1, 2) i32 @comparecost(ptr noundef readonly c
   ret i32 %7
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #4
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @gtsquery_consistent_oldsig(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -516,7 +516,7 @@ define dso_local range(i64 0, 2) i64 @gtsquery_consistent_oldsig(ptr noundef rea
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = load i64, ptr %4, align 8
-  %15 = tail call i64 @makeTSQuerySign(ptr noundef %7) #7
+  %15 = tail call i64 @makeTSQuerySign(ptr noundef %7) #8
   store i8 1, ptr %13, align 1
   switch i16 %10, label %gtsquery_consistent.exit [
     i16 7, label %16
@@ -573,14 +573,14 @@ gtsquery_consistent.exit:                         ; preds = %1, %27, %29, %42, %
   ret i64 %46
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #6
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #6
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #6
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umax.i16(i16, i16) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -588,8 +588,9 @@ attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #6 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -63,7 +63,7 @@ define hidden void @VP8SetHistogramData(ptr noundef readonly captures(none) %0, 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8EncDspInit() local_unnamed_addr #1 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @VP8EncDspInit.VP8EncDspInit_body_lock) #14
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @VP8EncDspInit.VP8EncDspInit_body_lock) #15
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %23
 
@@ -74,7 +74,7 @@ define hidden void @VP8EncDspInit() local_unnamed_addr #1 {
   br i1 %.not1, label %VP8EncDspInit_body.exit, label %5
 
 5:                                                ; preds = %2
-  tail call void @VP8DspInit() #14
+  tail call void @VP8DspInit() #15
   %6 = load volatile i32, ptr @tables_ok, align 4, !tbaa !3
   %.not.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i, label %.preheader.i.i, label %InitTables.exit.i
@@ -122,25 +122,25 @@ InitTables.exit.i:                                ; preds = %13, %5
   br i1 %.not.i, label %VP8EncDspInit_body.exit, label %15
 
 15:                                               ; preds = %InitTables.exit.i
-  %16 = tail call i32 %14(i32 noundef 0) #14
+  %16 = tail call i32 %14(i32 noundef 0) #15
   %.not1.i = icmp eq i32 %16, 0
   br i1 %.not1.i, label %VP8EncDspInit_body.exit, label %17
 
 17:                                               ; preds = %15
-  tail call void @VP8EncDspInitSSE2() #14
+  tail call void @VP8EncDspInitSSE2() #15
   %18 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !12
-  %19 = tail call i32 %18(i32 noundef 3) #14
+  %19 = tail call i32 %18(i32 noundef 3) #15
   %.not2.i = icmp eq i32 %19, 0
   br i1 %.not2.i, label %VP8EncDspInit_body.exit, label %20
 
 20:                                               ; preds = %17
-  tail call void @VP8EncDspInitSSE41() #14
+  tail call void @VP8EncDspInitSSE41() #15
   br label %VP8EncDspInit_body.exit
 
 VP8EncDspInit_body.exit:                          ; preds = %20, %17, %15, %InitTables.exit.i, %2
   %21 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !12
   store volatile ptr %21, ptr @VP8EncDspInit.VP8EncDspInit_body_last_cpuinfo_used, align 8, !tbaa !12
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @VP8EncDspInit.VP8EncDspInit_body_lock) #14
+  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @VP8EncDspInit.VP8EncDspInit_body_lock) #15
   br label %23
 
 23:                                               ; preds = %0, %VP8EncDspInit_body.exit
@@ -820,7 +820,7 @@ define internal void @CollectHistogram_C(ptr noalias noundef %0, ptr noalias nou
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
   %15 = getelementptr inbounds i8, ptr %1, i64 %13
-  call void %10(ptr noundef %14, ptr noundef %15, ptr noundef nonnull %7) #14
+  call void %10(ptr noundef %14, ptr noundef %15, ptr noundef nonnull %7) #15
   br label %16
 
 16:                                               ; preds = %.lr.ph, %16
@@ -1104,11 +1104,11 @@ define internal range(i32 0, 2) i32 @QuantizeBlock_C(ptr noundef captures(none) 
 ; Function Attrs: nounwind uwtable
 define internal i32 @Quantize2Blocks_C(ptr noundef %0, ptr noundef %1, ptr noalias noundef %2) #1 {
   %4 = load ptr, ptr @VP8EncQuantizeBlock, align 8, !tbaa !12
-  %5 = tail call i32 %4(ptr noundef %0, ptr noundef %1, ptr noundef %2) #14
+  %5 = tail call i32 %4(ptr noundef %0, ptr noundef %1, ptr noundef %2) #15
   %6 = load ptr, ptr @VP8EncQuantizeBlock, align 8, !tbaa !12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %9 = tail call i32 %6(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %2) #14
+  %9 = tail call i32 %6(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %2) #15
   %10 = shl i32 %9, 1
   %11 = or i32 %10, %5
   ret i32 %11
@@ -1834,12 +1834,12 @@ TrueMotion.exit:                                  ; preds = %62, %.preheader.i.i
 ; Function Attrs: nounwind uwtable
 define internal void @FTransform2_C(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2) #1 {
   %4 = load ptr, ptr @VP8FTransform, align 8, !tbaa !12
-  tail call void %4(ptr noundef %0, ptr noundef %1, ptr noundef %2) #14
+  tail call void %4(ptr noundef %0, ptr noundef %1, ptr noundef %2) #15
   %5 = load ptr, ptr @VP8FTransform, align 8, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  tail call void %5(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #14
+  tail call void %5(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #15
   ret void
 }
 
@@ -2524,17 +2524,17 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.abs.i16(i16, i1 immarg) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #13
+declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umin.i16(i16, i16) #13
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2549,8 +2549,9 @@ attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #14 = { nounwind }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #15 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

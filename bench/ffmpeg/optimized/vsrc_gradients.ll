@@ -92,16 +92,16 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %12 = load i64, ptr %11, align 8, !tbaa !29
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %14 = load i64, ptr %13, align 8
-  %15 = tail call i64 @av_rescale_q(i64 noundef %12, i64 %14, i64 4294967296000001) #7
+  %15 = tail call i64 @av_rescale_q(i64 noundef %12, i64 %14, i64 4294967296000001) #8
   %.not = icmp slt i64 %15, %8
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %10
-  tail call void @ff_avfilter_link_set_in_status(ptr noundef nonnull %6, i32 noundef -541478725, i64 noundef %12) #8
+  tail call void @ff_avfilter_link_set_in_status(ptr noundef nonnull %6, i32 noundef -541478725, i64 noundef %12) #9
   br label %91
 
 17:                                               ; preds = %10, %1
-  %18 = tail call i32 @ff_outlink_frame_wanted(ptr noundef %6) #8
+  %18 = tail call i32 @ff_outlink_frame_wanted(ptr noundef %6) #9
   %.not73 = icmp eq i32 %18, 0
   br i1 %.not73, label %91, label %19
 
@@ -110,7 +110,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %21 = load i32, ptr %20, align 8, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %23 = load i32, ptr %22, align 4, !tbaa !31
-  %24 = tail call ptr @ff_get_video_buffer(ptr noundef %6, i32 noundef %21, i32 noundef %23) #8
+  %24 = tail call ptr @ff_get_video_buffer(ptr noundef %6, i32 noundef %21, i32 noundef %23) #9
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %26 = load float, ptr %25, align 4, !tbaa !32
   %27 = frem nsz float %26, 0x401921FB60000000
@@ -190,10 +190,10 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %85 = load ptr, ptr %84, align 8, !tbaa !53
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %87 = load i32, ptr %86, align 4, !tbaa !54
-  %88 = tail call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %0) #9
+  %88 = tail call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %0) #10
   %. = tail call i32 @llvm.smin.i32(i32 %87, i32 %88)
-  %89 = tail call i32 @ff_filter_execute(ptr noundef nonnull %0, ptr noundef %85, ptr noundef nonnull %24, ptr noundef null, i32 noundef %.) #8
-  %90 = tail call i32 @ff_filter_frame(ptr noundef %6, ptr noundef nonnull %24) #8
+  %89 = tail call i32 @ff_filter_execute(ptr noundef nonnull %0, ptr noundef %85, ptr noundef nonnull %24, ptr noundef null, i32 noundef %.) #9
+  %90 = tail call i32 @ff_filter_frame(ptr noundef %6, ptr noundef nonnull %24) #9
   br label %91
 
 91:                                               ; preds = %17, %72, %19, %16
@@ -208,12 +208,12 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef captures
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !61
-  %7 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %6) #8
+  %7 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %6) #9
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !30
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !31
-  %12 = tail call i32 @av_image_check_size(i32 noundef %9, i32 noundef %11, i32 noundef 0, ptr noundef %2) #8
+  %12 = tail call i32 @av_image_check_size(i32 noundef %9, i32 noundef %11, i32 noundef 0, ptr noundef %2) #9
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %.loopexit, label %14
 
@@ -242,7 +242,7 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef captures
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %14
-  %29 = tail call i32 @av_get_random_seed() #8
+  %29 = tail call i32 @av_get_random_seed() #9
   %30 = zext i32 %29 to i64
   store i64 %30, ptr %25, align 8, !tbaa !63
   br label %31
@@ -251,7 +251,7 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef captures
   %32 = phi i64 [ %30, %28 ], [ %26, %14 ]
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 264
   %34 = trunc i64 %32 to i32
-  tail call void @av_lfg_init(ptr noundef nonnull %33, i32 noundef %34) #8
+  tail call void @av_lfg_init(ptr noundef nonnull %33, i32 noundef %34) #9
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %36 = load i32, ptr %35, align 8, !tbaa !64
   switch i32 %36, label %.loopexit [
@@ -1171,70 +1171,71 @@ lerp_colors32.exit.us:                            ; preds = %137, %132, %125
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.maxnum.f32(float, float) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.atan2.f32(float, float) #3
+declare float @llvm.atan2.f32(float, float) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.floor.f32(float) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.lrint.i64.f32(float) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.llrint.i64.f32(float) #3
 
 declare ptr @av_default_item_name(ptr noundef) #0
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @av_rescale_q(i64 noundef, i64, i64) local_unnamed_addr #4
+declare i64 @av_rescale_q(i64 noundef, i64, i64) local_unnamed_addr #5
 
 declare i32 @ff_outlink_frame_wanted(ptr noundef) local_unnamed_addr #0
 
 declare ptr @ff_get_video_buffer(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.cos.f32(float) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sin.f32(float) #3
 
 declare i32 @ff_filter_execute(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @ff_filter_get_nb_threads(ptr noundef) local_unnamed_addr #5
+declare i32 @ff_filter_get_nb_threads(ptr noundef) local_unnamed_addr #6
 
 declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 declare void @ff_avfilter_link_set_in_status(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #0
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #6
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #6
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #7
 
 attributes #0 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
+attributes #3 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

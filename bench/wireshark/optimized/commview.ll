@@ -513,7 +513,7 @@ define internal fastcc range(i32 0, 2) i32 @commview_ncf_read_packet(ptr noundef
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 22, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %17, i8 noundef 0, i64 noundef 72, i1 noundef false) #9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %17, i8 noundef 0, i64 noundef 72, i1 noundef false) #10
   store i32 -1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 84
   store i8 0, ptr %18, align 4
@@ -795,7 +795,7 @@ default.unreachable100:                           ; preds = %.split
   %154 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %152, ptr %154, align 4
   store i32 %152, ptr %153, align 8
-  %155 = call i64 @mktime(ptr noundef nonnull %6) #9
+  %155 = call i64 @mktime(ptr noundef nonnull %6) #10
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %155, ptr %156, align 8
   %157 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -871,7 +871,7 @@ define internal fastcc range(i32 0, 2) i32 @commview_ncfx_read_packet(ptr nounde
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 22, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %20, i8 noundef 0, i64 noundef 72, i1 noundef false) #9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %20, i8 noundef 0, i64 noundef 72, i1 noundef false) #10
   store i32 0, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 17
   %22 = load i8, ptr %21, align 1
@@ -1270,7 +1270,7 @@ commview_ncfx_read_rf_header.exit:                ; preds = %56
   %233 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %.0102, ptr %233, align 4
   store i32 %.0102, ptr %232, align 8
-  %234 = call i64 @mktime(ptr noundef nonnull %6) #9
+  %234 = call i64 @mktime(ptr noundef nonnull %6) #10
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %234, ptr %235, align 8
   %236 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -1374,7 +1374,7 @@ define internal zeroext i1 @commview_ncf_dump(ptr noundef %0, ptr noundef %1, pt
   store i16 %16, ptr %17, align 2
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %20 = tail call ptr @localtime(ptr noundef nonnull %19) #9
+  %20 = tail call ptr @localtime(ptr noundef nonnull %19) #10
   %.not79 = icmp eq ptr %20, null
   br i1 %.not79, label %49, label %21
 
@@ -1793,7 +1793,7 @@ define internal zeroext i1 @commview_ncfx_dump(ptr noundef %0, ptr noundef %1, p
 15:                                               ; preds = %10
   store i32 %12, ptr %6, align 4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = tail call ptr @localtime(ptr noundef nonnull %16) #9
+  %17 = tail call ptr @localtime(ptr noundef nonnull %16) #10
   %.not49 = icmp eq ptr %17, null
   br i1 %.not49, label %46, label %18
 
@@ -1965,11 +1965,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #8
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1979,8 +1979,9 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
+attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

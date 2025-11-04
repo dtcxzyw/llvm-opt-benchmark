@@ -667,13 +667,13 @@ define void @SSL_trace(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nound
   br i1 %.not, label %.critedge.thread, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %5) #4
+  %17 = tail call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %5) #5
   %.pr = load i32, ptr %5, align 8, !tbaa !3
   %.not119 = icmp eq i32 %.pr, 128
   br i1 %.not119, label %18, label %.critedge
 
 18:                                               ; preds = %16
-  %19 = tail call i32 @ossl_quic_trace(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %5, ptr noundef %6) #4
+  %19 = tail call i32 @ossl_quic_trace(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %5, ptr noundef %6) #5
   %.not81 = icmp ne i32 %19, 0
   %20 = icmp eq ptr %17, null
   %or.cond = select i1 %.not81, i1 true, i1 %20
@@ -709,10 +709,10 @@ define void @SSL_trace(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nound
 33:                                               ; preds = %22
   %.not89 = icmp eq i32 %0, 0
   %34 = select i1 %.not89, ptr @.str.1, ptr @.str
-  %35 = tail call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %34) #4
-  %36 = tail call i32 @BIO_indent(ptr noundef %6, i32 noundef 0, i32 noundef 80) #4
+  %35 = tail call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %34) #5
+  %36 = tail call i32 @BIO_indent(ptr noundef %6, i32 noundef 0, i32 noundef 80) #5
   %37 = trunc nuw nsw i64 %4 to i32
-  %38 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.2, i32 noundef %37) #4
+  %38 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.2, i32 noundef %37) #5
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %ssl_print_hex.exit, label %.lr.ph.i
 
@@ -721,13 +721,13 @@ define void @SSL_trace(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nound
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 %.011.i
   %40 = load i8, ptr %39, align 1, !tbaa !75
   %41 = zext i8 %40 to i32
-  %42 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.14, i32 noundef %41) #4
+  %42 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.14, i32 noundef %41) #5
   %43 = add nuw nsw i64 %.011.i, 1
   %exitcond.not.i = icmp eq i64 %43, %4
   br i1 %exitcond.not.i, label %ssl_print_hex.exit, label %.lr.ph.i, !llvm.loop !76
 
 ssl_print_hex.exit:                               ; preds = %.lr.ph.i, %33
-  %44 = tail call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.12) #4
+  %44 = tail call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.12) #5
   br label %303
 
 45:                                               ; preds = %22
@@ -741,7 +741,7 @@ ssl_print_hex.exit:                               ; preds = %.lr.ph.i, %33
   %53 = or disjoint i32 %49, %52
   %.not87 = icmp eq i32 %0, 0
   %54 = select i1 %.not87, ptr @.str.1, ptr @.str
-  %55 = tail call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %54) #4
+  %55 = tail call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %54) #5
   br label %56
 
 56:                                               ; preds = %62, %45
@@ -764,7 +764,7 @@ ssl_print_hex.exit:                               ; preds = %.lr.ph.i, %33
 
 do_ssl_trace_str.exit:                            ; preds = %62, %59
   %.07.i = phi ptr [ %61, %59 ], [ @.str.15, %62 ]
-  %65 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.3, ptr noundef %.07.i, i32 noundef %53) #4
+  %65 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.3, ptr noundef %.07.i, i32 noundef %53) #5
   %66 = load ptr, ptr %23, align 8, !tbaa !15
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 216
   %68 = load ptr, ptr %67, align 8, !tbaa !70
@@ -807,7 +807,7 @@ do_ssl_trace_str.exit:                            ; preds = %62, %59
   %102 = load i8, ptr %101, align 1, !tbaa !75
   %103 = zext i8 %102 to i32
   %104 = or disjoint i32 %100, %103
-  %105 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.4, i32 noundef %80, i32 noundef %88, i32 noundef %96, i32 noundef %104) #4
+  %105 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.4, i32 noundef %80, i32 noundef %88, i32 noundef %96, i32 noundef %104) #5
   br label %106
 
 106:                                              ; preds = %72, %do_ssl_trace_str.exit
@@ -844,7 +844,7 @@ do_ssl_trace_str.exit96:                          ; preds = %115, %112
   %124 = load i8, ptr %123, align 1, !tbaa !75
   %125 = zext i8 %124 to i32
   %126 = or disjoint i32 %122, %125
-  %127 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.5, ptr noundef %.07.i95, i32 noundef %108, i32 noundef %126) #4
+  %127 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.5, ptr noundef %.07.i95, i32 noundef %108, i32 noundef %126) #5
   br label %303
 
 128:                                              ; preds = %.critedge.thread115
@@ -872,7 +872,7 @@ do_ssl_trace_str.exit96:                          ; preds = %115, %112
 
 do_ssl_trace_str.exit101:                         ; preds = %137, %134
   %.07.i100 = phi ptr [ %136, %134 ], [ @.str.15, %137 ]
-  %140 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.6, ptr noundef %.07.i100, i32 noundef %130) #4
+  %140 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.6, ptr noundef %.07.i100, i32 noundef %130) #5
   br label %303
 
 141:                                              ; preds = %.critedge.thread115
@@ -903,7 +903,7 @@ do_ssl_trace_str.exit101:                         ; preds = %137, %134
   %160 = zext i8 %159 to i32
   %161 = or disjoint i32 %157, %160
   %162 = zext nneg i32 %161 to i64
-  %163 = tail call i32 @BIO_indent(ptr noundef %6, i32 noundef 4, i32 noundef 80) #4
+  %163 = tail call i32 @BIO_indent(ptr noundef %6, i32 noundef 4, i32 noundef 80) #5
   %164 = zext i8 %148 to i32
   br label %165
 
@@ -927,7 +927,7 @@ do_ssl_trace_str.exit101:                         ; preds = %137, %134
 
 do_ssl_trace_str.exit.i:                          ; preds = %171, %168
   %.07.i.i = phi ptr [ %170, %168 ], [ @.str.15, %171 ]
-  %174 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.30, ptr noundef %.07.i.i, i32 noundef %161) #4
+  %174 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.30, ptr noundef %.07.i.i, i32 noundef %161) #5
   %175 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store ptr %175, ptr %8, align 8, !tbaa !83
   %176 = add i64 %4, -4
@@ -947,7 +947,7 @@ do_ssl_trace_str.exit.i:                          ; preds = %171, %168
   br i1 %185, label %262, label %186
 
 186:                                              ; preds = %184
-  %187 = tail call i32 @BIO_indent(ptr noundef %6, i32 noundef 4, i32 noundef 80) #4
+  %187 = tail call i32 @BIO_indent(ptr noundef %6, i32 noundef 4, i32 noundef 80) #5
   %188 = load i8, ptr %175, align 1, !tbaa !75
   %189 = zext i8 %188 to i32
   %190 = shl nuw nsw i32 %189, 8
@@ -981,7 +981,7 @@ do_ssl_trace_str.exit.i:                          ; preds = %171, %168
   %218 = load i8, ptr %217, align 1, !tbaa !75
   %219 = zext i8 %218 to i32
   %220 = or disjoint i32 %216, %219
-  %221 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.31, i32 noundef %194, i32 noundef %207, i32 noundef %220) #4
+  %221 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.31, i32 noundef %194, i32 noundef %207, i32 noundef %220) #5
   %222 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store ptr %222, ptr %8, align 8, !tbaa !83
   %223 = add i64 %4, -12
@@ -1094,10 +1094,10 @@ thread-pre-split.i:                               ; preds = %186, %do_ssl_trace_
   br i1 %.not59.i, label %262, label %ssl_print_handshake.exit
 
 257:                                              ; preds = %227
-  %258 = tail call i32 @BIO_indent(ptr noundef %6, i32 noundef 6, i32 noundef 80) #4
-  %259 = tail call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.34) #4
+  %258 = tail call i32 @BIO_indent(ptr noundef %6, i32 noundef 6, i32 noundef 80) #5
+  %259 = tail call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.34) #5
   %260 = trunc i64 %225 to i32
-  %261 = tail call i32 @BIO_dump_indent(ptr noundef %6, ptr noundef nonnull %224, i32 noundef %260, i32 noundef 8) #4
+  %261 = tail call i32 @BIO_dump_indent(ptr noundef %6, ptr noundef nonnull %224, i32 noundef %260, i32 noundef 8) #5
   br label %ssl_print_handshake.exit
 
 ssl_print_handshake.exit:                         ; preds = %228, %230, %232, %234, %236, %238, %240, %242, %244, %246, %247, %248, %249, %251, %255, %257
@@ -1108,7 +1108,7 @@ ssl_print_handshake.exit:                         ; preds = %228, %230, %232, %2
 262:                                              ; preds = %254, %141, %184, %thread-pre-split.i, %228, %230, %232, %234, %236, %238, %240, %242, %244, %249, %251, %255
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %263 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.7) #4
+  %263 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.7) #5
   br label %303
 
 264:                                              ; preds = %.critedge.thread115
@@ -1116,9 +1116,9 @@ ssl_print_handshake.exit:                         ; preds = %228, %230, %232, %2
   br i1 %265, label %275, label %.split
 
 .split:                                           ; preds = %264
-  %266 = tail call i32 @BIO_indent(ptr noundef %6, i32 noundef 4, i32 noundef 80) #4
+  %266 = tail call i32 @BIO_indent(ptr noundef %6, i32 noundef 4, i32 noundef 80) #5
   %267 = trunc i64 %4 to i32
-  %268 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.9, i32 noundef %267) #4
+  %268 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.9, i32 noundef %267) #5
   %.not.i103 = icmp eq i64 %4, 0
   br i1 %.not.i103, label %ssl_print_hex.exit107, label %.lr.ph.i104
 
@@ -1127,13 +1127,13 @@ ssl_print_handshake.exit:                         ; preds = %228, %230, %232, %2
   %269 = getelementptr inbounds nuw i8, ptr %3, i64 %.011.i105
   %270 = load i8, ptr %269, align 1, !tbaa !75
   %271 = zext i8 %270 to i32
-  %272 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.14, i32 noundef %271) #4
+  %272 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.14, i32 noundef %271) #5
   %273 = add nuw i64 %.011.i105, 1
   %exitcond.not.i106 = icmp eq i64 %273, %4
   br i1 %exitcond.not.i106, label %ssl_print_hex.exit107, label %.lr.ph.i104, !llvm.loop !76
 
 ssl_print_hex.exit107:                            ; preds = %.lr.ph.i104, %.split
-  %274 = tail call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.12) #4
+  %274 = tail call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.12) #5
   br label %303
 
 275:                                              ; preds = %264
@@ -1142,16 +1142,16 @@ ssl_print_hex.exit107:                            ; preds = %.lr.ph.i104, %.spli
   br i1 %277, label %284, label %.split75
 
 .split75:                                         ; preds = %275
-  %278 = tail call i32 @BIO_indent(ptr noundef %6, i32 noundef 4, i32 noundef 80) #4
-  %279 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.9, i32 noundef 1) #4
+  %278 = tail call i32 @BIO_indent(ptr noundef %6, i32 noundef 4, i32 noundef 80) #5
+  %279 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.9, i32 noundef 1) #5
   %280 = load i8, ptr %3, align 1, !tbaa !75
   %281 = zext i8 %280 to i32
-  %282 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.14, i32 noundef %281) #4
-  %283 = tail call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.12) #4
+  %282 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.14, i32 noundef %281) #5
+  %283 = tail call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.12) #5
   br label %303
 
 284:                                              ; preds = %275
-  %285 = tail call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.8) #4
+  %285 = tail call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.8) #5
   br label %303
 
 286:                                              ; preds = %.critedge.thread115
@@ -1159,27 +1159,27 @@ ssl_print_hex.exit107:                            ; preds = %.lr.ph.i104, %.spli
   br i1 %.not82, label %289, label %287
 
 287:                                              ; preds = %286
-  %288 = tail call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.10) #4
+  %288 = tail call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.10) #5
   br label %303
 
 289:                                              ; preds = %286
   %290 = load i8, ptr %3, align 1, !tbaa !75
   %291 = zext i8 %290 to i32
   %292 = shl nuw nsw i32 %291, 8
-  %293 = tail call ptr @SSL_alert_type_string_long(i32 noundef %292) #4
+  %293 = tail call ptr @SSL_alert_type_string_long(i32 noundef %292) #5
   %294 = load i8, ptr %3, align 1, !tbaa !75
   %295 = zext i8 %294 to i32
   %296 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %297 = load i8, ptr %296, align 1, !tbaa !75
   %298 = zext i8 %297 to i32
-  %299 = tail call ptr @SSL_alert_desc_string_long(i32 noundef %298) #4
+  %299 = tail call ptr @SSL_alert_desc_string_long(i32 noundef %298) #5
   %300 = load i8, ptr %296, align 1, !tbaa !75
   %301 = zext i8 %300 to i32
-  %302 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.11, ptr noundef %293, i32 noundef %295, ptr noundef %299, i32 noundef %301) #4
+  %302 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.11, ptr noundef %293, i32 noundef %295, ptr noundef %299, i32 noundef %301) #5
   br label %303
 
 303:                                              ; preds = %ssl_print_handshake.exit, %ssl_print_hex.exit107, %.split75, %ssl_print_hex.exit, %do_ssl_trace_str.exit96, %287, %289, %284, %262, %do_ssl_trace_str.exit101, %.critedge.thread115
-  %304 = tail call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.12) #4
+  %304 = tail call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.12) #5
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %14, %7, %.critedge, %18, %303
@@ -1194,9 +1194,9 @@ declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ssl_print_hex(ptr noundef %0, i32 noundef range(i32 0, 15) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) unnamed_addr #0 {
-  %6 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %1, i32 noundef 80) #4
+  %6 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %1, i32 noundef 80) #5
   %7 = trunc i64 %4 to i32
-  %8 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %2, i32 noundef %7) #4
+  %8 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %2, i32 noundef %7) #5
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1205,13 +1205,13 @@ define internal fastcc void @ssl_print_hex(ptr noundef %0, i32 noundef range(i32
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 %.011
   %10 = load i8, ptr %9, align 1, !tbaa !75
   %11 = zext i8 %10 to i32
-  %12 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %11) #4
+  %12 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %11) #5
   %13 = add nuw i64 %.011, 1
   %exitcond.not = icmp eq i64 %13, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
-  %14 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %14 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   ret void
 }
 
@@ -1238,7 +1238,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_client_hello(ptr noundef %
   %13 = load i8, ptr %12, align 1, !tbaa !75
   %14 = zext i8 %13 to i32
   %15 = or disjoint i32 %11, %14
-  %16 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #4
+  %16 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #5
   br label %17
 
 17:                                               ; preds = %23, %8
@@ -1261,7 +1261,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_client_hello(ptr noundef %
 
 .loopexit70:                                      ; preds = %23, %20
   %.07.i.i = phi ptr [ %22, %20 ], [ @.str.15, %23 ]
-  %26 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.57, i32 noundef %15, ptr noundef %.07.i.i) #4
+  %26 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.57, i32 noundef %15, ptr noundef %.07.i.i) #5
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store ptr %27, ptr %5, align 8, !tbaa !83
   %28 = add i64 %3, -2
@@ -1285,9 +1285,9 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_client_hello(ptr noundef %
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 1
-  %40 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 6, i32 noundef 80) #4
+  %40 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 6, i32 noundef 80) #5
   %41 = zext i8 %35 to i32
-  %42 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.58, i32 noundef %41) #4
+  %42 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.58, i32 noundef %41) #5
   %.not.i.i = icmp eq i8 %35, 0
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i
 
@@ -1296,13 +1296,13 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_client_hello(ptr noundef %
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 %.011.i.i47
   %44 = load i8, ptr %43, align 1, !tbaa !75
   %45 = zext i8 %44 to i32
-  %46 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %45) #4
+  %46 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %45) #5
   %47 = add nuw nsw i64 %.011.i.i47, 1
   %exitcond.not.i.i48 = icmp eq i64 %47, %36
   br i1 %exitcond.not.i.i48, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !76
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %38
-  %48 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %48 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   %49 = getelementptr inbounds nuw i8, ptr %31, i64 %37
   %50 = sub i64 %32, %37
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1328,9 +1328,9 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_client_hello(ptr noundef %
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %49, i64 1
-  %66 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 6, i32 noundef 80) #4
+  %66 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 6, i32 noundef 80) #5
   %67 = zext i8 %61 to i32
-  %68 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.59, i32 noundef %67) #4
+  %68 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.59, i32 noundef %67) #5
   %.not.i.i50 = icmp eq i8 %61, 0
   br i1 %.not.i.i50, label %ssl_print_hexbuf.exit56, label %.lr.ph.i.i51
 
@@ -1339,13 +1339,13 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_client_hello(ptr noundef %
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 %.011.i.i52
   %70 = load i8, ptr %69, align 1, !tbaa !75
   %71 = zext i8 %70 to i32
-  %72 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %71) #4
+  %72 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %71) #5
   %73 = add nuw nsw i64 %.011.i.i52, 1
   %exitcond.not.i.i53 = icmp eq i64 %73, %62
   br i1 %exitcond.not.i.i53, label %ssl_print_hexbuf.exit56, label %.lr.ph.i.i51, !llvm.loop !76
 
 ssl_print_hexbuf.exit56:                          ; preds = %.lr.ph.i.i51, %64
-  %74 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %74 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   %75 = getelementptr inbounds nuw i8, ptr %49, i64 %63
   %76 = sub i64 %50, %63
   %77 = icmp ult i64 %76, 2
@@ -1370,8 +1370,8 @@ ssl_print_hexbuf.exit56:                          ; preds = %.lr.ph.i.i51, %64
   store ptr %90, ptr %5, align 8, !tbaa !83
   %91 = add i64 %80, -2
   store i64 %91, ptr %6, align 8, !tbaa !84
-  %92 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #4
-  %93 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.60, i32 noundef %88) #4
+  %92 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #5
+  %93 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.60, i32 noundef %88) #5
   %94 = icmp uge i64 %91, %89
   %95 = and i64 %89, 1
   %.not40 = icmp eq i64 %95, 0
@@ -1393,7 +1393,7 @@ ssl_print_hexbuf.exit56:                          ; preds = %.lr.ph.i.i51, %64
   %102 = load i8, ptr %101, align 1, !tbaa !75
   %103 = zext i8 %102 to i32
   %104 = or disjoint i32 %100, %103
-  %105 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #4
+  %105 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #5
   %106 = load i8, ptr %96, align 1, !tbaa !75
   %107 = zext i8 %106 to i32
   %108 = load i8, ptr %101, align 1, !tbaa !75
@@ -1420,7 +1420,7 @@ ssl_print_hexbuf.exit56:                          ; preds = %.lr.ph.i.i51, %64
 
 do_ssl_trace_str.exit:                            ; preds = %116, %113
   %.07.i = phi ptr [ %115, %113 ], [ @.str.15, %116 ]
-  %119 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.61, i32 noundef %107, i32 noundef %109, ptr noundef %.07.i) #4
+  %119 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.61, i32 noundef %107, i32 noundef %109, ptr noundef %.07.i) #5
   %120 = getelementptr inbounds nuw i8, ptr %96, i64 2
   %121 = add i64 %97, -2
   %122 = add i64 %.03377, -2
@@ -1446,16 +1446,16 @@ do_ssl_trace_str.exit:                            ; preds = %116, %113
   br i1 %130, label %ssl_print_version.exit.thread, label %131
 
 131:                                              ; preds = %125
-  %132 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #4
+  %132 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #5
   %133 = zext i8 %126 to i32
-  %134 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.62, i32 noundef %133) #4
+  %134 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.62, i32 noundef %133) #5
   %.not4283 = icmp eq i8 %126, 0
   br i1 %.not4283, label %._crit_edge87, label %.lr.ph86
 
 .lr.ph86:                                         ; preds = %131, %do_ssl_trace_str.exit61
   %.184 = phi i64 [ %149, %do_ssl_trace_str.exit61 ], [ %127, %131 ]
   %135 = phi ptr [ %148, %do_ssl_trace_str.exit61 ], [ %128, %131 ]
-  %136 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #4
+  %136 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #5
   %137 = load i8, ptr %135, align 1, !tbaa !75
   %138 = zext i8 %137 to i32
   br label %139
@@ -1478,7 +1478,7 @@ do_ssl_trace_str.exit:                            ; preds = %116, %113
 
 do_ssl_trace_str.exit61:                          ; preds = %145, %142
   %.07.i60 = phi ptr [ %144, %142 ], [ @.str.15, %145 ]
-  %147 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.63, ptr noundef %.07.i60, i32 noundef %138) #4
+  %147 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.63, ptr noundef %.07.i60, i32 noundef %138) #5
   %148 = getelementptr inbounds nuw i8, ptr %135, i64 1
   %149 = add nsw i64 %.184, -1
   %.not42 = icmp eq i64 %149, 0
@@ -1514,7 +1514,7 @@ define internal fastcc range(i32 0, 2) i32 @dtls_print_hello_vfyrequest(ptr noun
   %10 = load i8, ptr %9, align 1, !tbaa !75
   %11 = zext i8 %10 to i32
   %12 = or disjoint i32 %8, %11
-  %13 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #4
+  %13 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #5
   br label %14
 
 14:                                               ; preds = %20, %5
@@ -1537,7 +1537,7 @@ define internal fastcc range(i32 0, 2) i32 @dtls_print_hello_vfyrequest(ptr noun
 
 .loopexit:                                        ; preds = %20, %17
   %.07.i.i = phi ptr [ %19, %17 ], [ @.str.15, %20 ]
-  %23 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.416, i32 noundef %12, ptr noundef %.07.i.i) #4
+  %23 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.416, i32 noundef %12, ptr noundef %.07.i.i) #5
   %24 = add i64 %2, -2
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %ssl_print_version.exit.thread, label %26
@@ -1551,9 +1551,9 @@ define internal fastcc range(i32 0, 2) i32 @dtls_print_hello_vfyrequest(ptr noun
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %32 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 6, i32 noundef 80) #4
+  %32 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 6, i32 noundef 80) #5
   %33 = zext i8 %28 to i32
-  %34 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.59, i32 noundef %33) #4
+  %34 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.59, i32 noundef %33) #5
   %.not.i.i = icmp eq i8 %28, 0
   br i1 %.not.i.i, label %ssl_print_hexbuf.exit, label %.lr.ph.i.i
 
@@ -1562,13 +1562,13 @@ define internal fastcc range(i32 0, 2) i32 @dtls_print_hello_vfyrequest(ptr noun
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 %.011.i.i6
   %36 = load i8, ptr %35, align 1, !tbaa !75
   %37 = zext i8 %36 to i32
-  %38 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %37) #4
+  %38 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %37) #5
   %39 = add nuw nsw i64 %.011.i.i6, 1
   %exitcond.not.i.i7 = icmp eq i64 %39, %29
   br i1 %exitcond.not.i.i7, label %ssl_print_hexbuf.exit, label %.lr.ph.i.i, !llvm.loop !76
 
 ssl_print_hexbuf.exit:                            ; preds = %.lr.ph.i.i, %30
-  %40 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %40 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   br label %ssl_print_version.exit.thread
 
 ssl_print_version.exit.thread:                    ; preds = %3, %ssl_print_hexbuf.exit, %.loopexit, %26
@@ -1591,7 +1591,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_server_hello(ptr noundef %
   %12 = load i8, ptr %11, align 1, !tbaa !75
   %13 = zext i8 %12 to i32
   %14 = or disjoint i32 %10, %13
-  %15 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #4
+  %15 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #5
   br label %16
 
 16:                                               ; preds = %22, %7
@@ -1614,7 +1614,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_server_hello(ptr noundef %
 
 .loopexit:                                        ; preds = %22, %19
   %.07.i.i = phi ptr [ %21, %19 ], [ @.str.15, %22 ]
-  %25 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.416, i32 noundef %14, ptr noundef %.07.i.i) #4
+  %25 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.416, i32 noundef %14, ptr noundef %.07.i.i) #5
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %26, ptr %4, align 8, !tbaa !83
   %27 = add i64 %2, -2
@@ -1642,9 +1642,9 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_server_hello(ptr noundef %
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 1
-  %40 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 6, i32 noundef 80) #4
+  %40 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 6, i32 noundef 80) #5
   %41 = zext i8 %35 to i32
-  %42 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.58, i32 noundef %41) #4
+  %42 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.58, i32 noundef %41) #5
   %.not.i.i = icmp eq i8 %35, 0
   br i1 %.not.i.i, label %ssl_print_hexbuf.exit, label %.lr.ph.i.i
 
@@ -1653,13 +1653,13 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_server_hello(ptr noundef %
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 %.011.i.i22
   %44 = load i8, ptr %43, align 1, !tbaa !75
   %45 = zext i8 %44 to i32
-  %46 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %45) #4
+  %46 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %45) #5
   %47 = add nuw nsw i64 %.011.i.i22, 1
   %exitcond.not.i.i23 = icmp eq i64 %47, %36
   br i1 %exitcond.not.i.i23, label %ssl_print_hexbuf.exit, label %.lr.ph.i.i, !llvm.loop !76
 
 ssl_print_hexbuf.exit:                            ; preds = %.lr.ph.i.i, %38
-  %48 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %48 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   %49 = getelementptr inbounds nuw i8, ptr %31, i64 %37
   %50 = sub i64 %32, %37
   %51 = icmp ult i64 %50, 2
@@ -1684,7 +1684,7 @@ ssl_print_hexbuf.exit:                            ; preds = %.lr.ph.i.i, %38
   %60 = load i8, ptr %59, align 1, !tbaa !75
   %61 = zext i8 %60 to i32
   %62 = or disjoint i32 %58, %61
-  %63 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #4
+  %63 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #5
   %64 = load i8, ptr %55, align 1, !tbaa !75
   %65 = zext i8 %64 to i32
   %66 = load i8, ptr %59, align 1, !tbaa !75
@@ -1711,7 +1711,7 @@ ssl_print_hexbuf.exit:                            ; preds = %.lr.ph.i.i, %38
 
 do_ssl_trace_str.exit:                            ; preds = %74, %71
   %.07.i = phi ptr [ %73, %71 ], [ @.str.15, %74 ]
-  %77 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.417, i32 noundef %65, i32 noundef %67, ptr noundef %.07.i) #4
+  %77 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.417, i32 noundef %65, i32 noundef %67, ptr noundef %.07.i) #5
   %78 = getelementptr inbounds nuw i8, ptr %55, i64 2
   store ptr %78, ptr %4, align 8, !tbaa !83
   %79 = add i64 %54, -2
@@ -1723,7 +1723,7 @@ do_ssl_trace_str.exit:                            ; preds = %74, %71
   br i1 %81, label %ssl_print_version.exit.thread, label %82
 
 82:                                               ; preds = %80
-  %83 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #4
+  %83 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #5
   %84 = load i8, ptr %78, align 1, !tbaa !75
   %85 = zext i8 %84 to i32
   br label %86
@@ -1746,7 +1746,7 @@ do_ssl_trace_str.exit:                            ; preds = %74, %71
 
 do_ssl_trace_str.exit28:                          ; preds = %92, %89
   %.07.i27 = phi ptr [ %91, %89 ], [ @.str.15, %92 ]
-  %94 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.418, ptr noundef %.07.i27, i32 noundef %85) #4
+  %94 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.418, ptr noundef %.07.i27, i32 noundef %85) #5
   %95 = getelementptr inbounds nuw i8, ptr %55, i64 3
   store ptr %95, ptr %4, align 8, !tbaa !83
   %96 = add i64 %54, -3
@@ -1827,8 +1827,8 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_server_keyex(ptr noundef %
 ssl_get_keyex.exit:                               ; preds = %4, %11, %13, %15, %17, %19, %21, %23, %25, %27
   %.str.15.sink.i = phi ptr [ @.str.431, %4 ], [ @.str.432, %11 ], [ @.str.433, %13 ], [ @.str.434, %15 ], [ @.str.435, %17 ], [ @.str.436, %19 ], [ @.str.437, %21 ], [ @.str.438, %23 ], [ @.str.439, %25 ], [ %.str.15..str.440.i, %27 ]
   %.0.i = phi i32 [ 1, %4 ], [ 2, %11 ], [ 4, %13 ], [ 8, %15 ], [ 64, %17 ], [ 256, %19 ], [ 128, %21 ], [ 32, %23 ], [ 16, %25 ], [ %..i, %27 ]
-  %29 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #4
-  %30 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.419, ptr noundef nonnull %.str.15.sink.i) #4
+  %29 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #5
+  %30 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.419, ptr noundef nonnull %.str.15.sink.i) #5
   %31 = and i32 %.0.i, 456
   %.not = icmp eq i32 %31, 0
   br i1 %.not, label %57, label %32
@@ -1851,9 +1851,9 @@ ssl_get_keyex.exit:                               ; preds = %4, %11, %13, %15, %
 
 44:                                               ; preds = %34
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %46 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #4
+  %46 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #5
   %47 = trunc nuw nsw i64 %41 to i32
-  %48 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.420, i32 noundef %47) #4
+  %48 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.420, i32 noundef %47) #5
   %.not.i.i = icmp eq i64 %41, 0
   br i1 %.not.i.i, label %ssl_print_hexbuf.exit, label %.lr.ph.i.i
 
@@ -1862,13 +1862,13 @@ ssl_get_keyex.exit:                               ; preds = %4, %11, %13, %15, %
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 %.011.i.i
   %50 = load i8, ptr %49, align 1, !tbaa !75
   %51 = zext i8 %50 to i32
-  %52 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %51) #4
+  %52 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %51) #5
   %53 = add nuw nsw i64 %.011.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %53, %41
   br i1 %exitcond.not.i.i, label %ssl_print_hexbuf.exit, label %.lr.ph.i.i, !llvm.loop !76
 
 ssl_print_hexbuf.exit:                            ; preds = %.lr.ph.i.i, %44
-  %54 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %54 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 %42
   store ptr %55, ptr %5, align 8, !tbaa !83
   %56 = sub i64 %3, %42
@@ -1910,9 +1910,9 @@ ssl_print_hexbuf.exit:                            ; preds = %.lr.ph.i.i, %44
 
 75:                                               ; preds = %65
   %76 = getelementptr inbounds nuw i8, ptr %58, i64 2
-  %77 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #4
+  %77 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #5
   %78 = trunc nuw nsw i64 %72 to i32
-  %79 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.421, i32 noundef %78) #4
+  %79 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.421, i32 noundef %78) #5
   %.not.i.i45 = icmp eq i64 %72, 0
   br i1 %.not.i.i45, label %.loopexit, label %.lr.ph.i.i46
 
@@ -1921,13 +1921,13 @@ ssl_print_hexbuf.exit:                            ; preds = %.lr.ph.i.i, %44
   %80 = getelementptr inbounds nuw i8, ptr %76, i64 %.011.i.i47
   %81 = load i8, ptr %80, align 1, !tbaa !75
   %82 = zext i8 %81 to i32
-  %83 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %82) #4
+  %83 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %82) #5
   %84 = add nuw nsw i64 %.011.i.i47, 1
   %exitcond.not.i.i48 = icmp eq i64 %84, %72
   br i1 %exitcond.not.i.i48, label %.loopexit, label %.lr.ph.i.i46, !llvm.loop !76
 
 .loopexit:                                        ; preds = %.lr.ph.i.i46, %75
-  %85 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %85 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   %86 = getelementptr inbounds nuw i8, ptr %58, i64 %73
   %87 = sub i64 %59, %73
   %88 = icmp ult i64 %87, 2
@@ -1947,9 +1947,9 @@ ssl_print_hexbuf.exit:                            ; preds = %.lr.ph.i.i, %44
 
 99:                                               ; preds = %89
   %100 = getelementptr inbounds nuw i8, ptr %86, i64 2
-  %101 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #4
+  %101 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #5
   %102 = trunc nuw nsw i64 %96 to i32
-  %103 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.422, i32 noundef %102) #4
+  %103 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.422, i32 noundef %102) #5
   %.not.i.i53 = icmp eq i64 %96, 0
   br i1 %.not.i.i53, label %ssl_print_hexbuf.exit59, label %.lr.ph.i.i54
 
@@ -1958,13 +1958,13 @@ ssl_print_hexbuf.exit:                            ; preds = %.lr.ph.i.i, %44
   %104 = getelementptr inbounds nuw i8, ptr %100, i64 %.011.i.i55
   %105 = load i8, ptr %104, align 1, !tbaa !75
   %106 = zext i8 %105 to i32
-  %107 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %106) #4
+  %107 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %106) #5
   %108 = add nuw nsw i64 %.011.i.i55, 1
   %exitcond.not.i.i56 = icmp eq i64 %108, %96
   br i1 %exitcond.not.i.i56, label %ssl_print_hexbuf.exit59, label %.lr.ph.i.i54, !llvm.loop !76
 
 ssl_print_hexbuf.exit59:                          ; preds = %.lr.ph.i.i54, %99
-  %109 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %109 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   %110 = getelementptr inbounds nuw i8, ptr %86, i64 %97
   store ptr %110, ptr %5, align 8, !tbaa !83
   %111 = sub i64 %87, %97
@@ -1989,9 +1989,9 @@ ssl_print_hexbuf.exit59:                          ; preds = %.lr.ph.i.i54, %99
 
 124:                                              ; preds = %114
   %125 = getelementptr inbounds nuw i8, ptr %58, i64 2
-  %126 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #4
+  %126 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #5
   %127 = trunc nuw nsw i64 %121 to i32
-  %128 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.423, i32 noundef %127) #4
+  %128 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.423, i32 noundef %127) #5
   %.not.i.i61 = icmp eq i64 %121, 0
   br i1 %.not.i.i61, label %.loopexit97, label %.lr.ph.i.i62
 
@@ -2000,13 +2000,13 @@ ssl_print_hexbuf.exit59:                          ; preds = %.lr.ph.i.i54, %99
   %129 = getelementptr inbounds nuw i8, ptr %125, i64 %.011.i.i63
   %130 = load i8, ptr %129, align 1, !tbaa !75
   %131 = zext i8 %130 to i32
-  %132 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %131) #4
+  %132 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %131) #5
   %133 = add nuw nsw i64 %.011.i.i63, 1
   %exitcond.not.i.i64 = icmp eq i64 %133, %121
   br i1 %exitcond.not.i.i64, label %.loopexit97, label %.lr.ph.i.i62, !llvm.loop !76
 
 .loopexit97:                                      ; preds = %.lr.ph.i.i62, %124
-  %134 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %134 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   %135 = getelementptr inbounds nuw i8, ptr %58, i64 %122
   %136 = sub i64 %59, %122
   %137 = icmp ult i64 %136, 2
@@ -2026,9 +2026,9 @@ ssl_print_hexbuf.exit59:                          ; preds = %.lr.ph.i.i54, %99
 
 148:                                              ; preds = %138
   %149 = getelementptr inbounds nuw i8, ptr %135, i64 2
-  %150 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #4
+  %150 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #5
   %151 = trunc nuw nsw i64 %145 to i32
-  %152 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.424, i32 noundef %151) #4
+  %152 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.424, i32 noundef %151) #5
   %.not.i.i69 = icmp eq i64 %145, 0
   br i1 %.not.i.i69, label %.loopexit96, label %.lr.ph.i.i70
 
@@ -2037,13 +2037,13 @@ ssl_print_hexbuf.exit59:                          ; preds = %.lr.ph.i.i54, %99
   %153 = getelementptr inbounds nuw i8, ptr %149, i64 %.011.i.i71
   %154 = load i8, ptr %153, align 1, !tbaa !75
   %155 = zext i8 %154 to i32
-  %156 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %155) #4
+  %156 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %155) #5
   %157 = add nuw nsw i64 %.011.i.i71, 1
   %exitcond.not.i.i72 = icmp eq i64 %157, %145
   br i1 %exitcond.not.i.i72, label %.loopexit96, label %.lr.ph.i.i70, !llvm.loop !76
 
 .loopexit96:                                      ; preds = %.lr.ph.i.i70, %148
-  %158 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %158 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   %159 = getelementptr inbounds nuw i8, ptr %135, i64 %146
   %160 = sub i64 %136, %146
   %161 = icmp ult i64 %160, 2
@@ -2063,9 +2063,9 @@ ssl_print_hexbuf.exit59:                          ; preds = %.lr.ph.i.i54, %99
 
 172:                                              ; preds = %162
   %173 = getelementptr inbounds nuw i8, ptr %159, i64 2
-  %174 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #4
+  %174 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #5
   %175 = trunc nuw nsw i64 %169 to i32
-  %176 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.425, i32 noundef %175) #4
+  %176 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.425, i32 noundef %175) #5
   %.not.i.i77 = icmp eq i64 %169, 0
   br i1 %.not.i.i77, label %ssl_print_hexbuf.exit83, label %.lr.ph.i.i78
 
@@ -2074,13 +2074,13 @@ ssl_print_hexbuf.exit59:                          ; preds = %.lr.ph.i.i54, %99
   %177 = getelementptr inbounds nuw i8, ptr %173, i64 %.011.i.i79
   %178 = load i8, ptr %177, align 1, !tbaa !75
   %179 = zext i8 %178 to i32
-  %180 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %179) #4
+  %180 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %179) #5
   %181 = add nuw nsw i64 %.011.i.i79, 1
   %exitcond.not.i.i80 = icmp eq i64 %181, %169
   br i1 %exitcond.not.i.i80, label %ssl_print_hexbuf.exit83, label %.lr.ph.i.i78, !llvm.loop !76
 
 ssl_print_hexbuf.exit83:                          ; preds = %.lr.ph.i.i78, %172
-  %182 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %182 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   %183 = getelementptr inbounds nuw i8, ptr %159, i64 %170
   store ptr %183, ptr %5, align 8, !tbaa !83
   %184 = sub i64 %160, %170
@@ -2092,7 +2092,7 @@ ssl_print_hexbuf.exit83:                          ; preds = %.lr.ph.i.i78, %172
   br i1 %186, label %.critedge, label %187
 
 187:                                              ; preds = %185
-  %188 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #4
+  %188 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #5
   %189 = load i8, ptr %58, align 1, !tbaa !75
   switch i8 %189, label %218 [
     i8 1, label %190
@@ -2101,11 +2101,11 @@ ssl_print_hexbuf.exit83:                          ; preds = %.lr.ph.i.i78, %172
   ]
 
 190:                                              ; preds = %187
-  %191 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.426) #4
+  %191 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.426) #5
   br label %221
 
 192:                                              ; preds = %187
-  %193 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.427) #4
+  %193 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.427) #5
   br label %221
 
 194:                                              ; preds = %187
@@ -2143,7 +2143,7 @@ ssl_print_hexbuf.exit83:                          ; preds = %.lr.ph.i.i78, %172
 
 do_ssl_trace_str.exit:                            ; preds = %211, %208
   %.07.i = phi ptr [ %210, %208 ], [ @.str.15, %211 ]
-  %214 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.428, ptr noundef %.07.i, i32 noundef %204) #4
+  %214 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.428, ptr noundef %.07.i, i32 noundef %204) #5
   %215 = getelementptr inbounds nuw i8, ptr %58, i64 3
   store ptr %215, ptr %5, align 8, !tbaa !83
   %216 = add i64 %59, -3
@@ -2154,7 +2154,7 @@ do_ssl_trace_str.exit:                            ; preds = %211, %208
 
 218:                                              ; preds = %187
   %219 = zext i8 %189 to i32
-  %220 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.430, i32 noundef %219) #4
+  %220 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.430, i32 noundef %219) #5
   br label %.critedge
 
 221:                                              ; preds = %ssl_print_hexbuf.exit83, %ssl_print_hexbuf.exit59, %190, %do_ssl_trace_str.exit, %192, %57, %.split
@@ -2236,8 +2236,8 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_client_keyex(ptr noundef %
 ssl_get_keyex.exit:                               ; preds = %4, %9, %11, %13, %15, %17, %19, %21, %23, %25
   %.str.15.sink.i = phi ptr [ @.str.431, %4 ], [ @.str.432, %9 ], [ @.str.433, %11 ], [ @.str.434, %13 ], [ @.str.435, %15 ], [ @.str.436, %17 ], [ @.str.437, %19 ], [ @.str.438, %21 ], [ @.str.439, %23 ], [ %.str.15..str.440.i, %25 ]
   %.0.i = phi i32 [ 1, %4 ], [ 2, %9 ], [ 4, %11 ], [ 8, %13 ], [ 64, %15 ], [ 256, %17 ], [ 128, %19 ], [ 32, %21 ], [ 16, %23 ], [ %..i, %25 ]
-  %27 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #4
-  %28 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.419, ptr noundef nonnull %.str.15.sink.i) #4
+  %27 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #5
+  %28 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.419, ptr noundef nonnull %.str.15.sink.i) #5
   %29 = and i32 %.0.i, 456
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %55, label %30
@@ -2260,9 +2260,9 @@ ssl_get_keyex.exit:                               ; preds = %4, %9, %11, %13, %1
 
 42:                                               ; preds = %32
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %44 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #4
+  %44 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #5
   %45 = trunc nuw nsw i64 %39 to i32
-  %46 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.493, i32 noundef %45) #4
+  %46 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.493, i32 noundef %45) #5
   %.not.i.i = icmp eq i64 %39, 0
   br i1 %.not.i.i, label %ssl_print_hexbuf.exit, label %.lr.ph.i.i
 
@@ -2271,13 +2271,13 @@ ssl_get_keyex.exit:                               ; preds = %4, %9, %11, %13, %1
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 %.011.i.i
   %48 = load i8, ptr %47, align 1, !tbaa !75
   %49 = zext i8 %48 to i32
-  %50 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %49) #4
+  %50 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %49) #5
   %51 = add nuw nsw i64 %.011.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %51, %39
   br i1 %exitcond.not.i.i, label %ssl_print_hexbuf.exit, label %.lr.ph.i.i, !llvm.loop !76
 
 ssl_print_hexbuf.exit:                            ; preds = %.lr.ph.i.i, %42
-  %52 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %52 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 %40
   %54 = sub i64 %3, %40
   br label %55
@@ -2303,20 +2303,20 @@ ssl_print_hexbuf.exit:                            ; preds = %.lr.ph.i.i, %42
   ]
 
 59:                                               ; preds = %.split, %.split
-  %60 = tail call i32 @SSL_version(ptr noundef nonnull %1) #4
+  %60 = tail call i32 @SSL_version(ptr noundef nonnull %1) #5
   %.mask = and i32 %60, -256
   %61 = icmp eq i32 %.mask, 768
   br i1 %61, label %62, label %.critedge
 
 62:                                               ; preds = %59
-  %63 = tail call i32 @SSL_version(ptr noundef nonnull %1) #4
+  %63 = tail call i32 @SSL_version(ptr noundef nonnull %1) #5
   %64 = icmp eq i32 %63, 768
   br i1 %64, label %65, label %.critedge
 
 65:                                               ; preds = %62
-  %66 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #4
+  %66 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #5
   %67 = trunc i64 %.086 to i32
-  %68 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.494, i32 noundef %67) #4
+  %68 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.494, i32 noundef %67) #5
   %.not.i28 = icmp eq i64 %.086, 0
   br i1 %.not.i28, label %ssl_print_hex.exit, label %.lr.ph.i
 
@@ -2325,13 +2325,13 @@ ssl_print_hexbuf.exit:                            ; preds = %.lr.ph.i.i, %42
   %69 = getelementptr inbounds nuw i8, ptr %.085, i64 %.011.i
   %70 = load i8, ptr %69, align 1, !tbaa !75
   %71 = zext i8 %70 to i32
-  %72 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %71) #4
+  %72 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %71) #5
   %73 = add nuw i64 %.011.i, 1
   %exitcond.not.i = icmp eq i64 %73, %.086
   br i1 %exitcond.not.i, label %ssl_print_hex.exit, label %.lr.ph.i, !llvm.loop !76
 
 ssl_print_hex.exit:                               ; preds = %.lr.ph.i, %65
-  %74 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %74 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   br label %159
 
 .critedge:                                        ; preds = %59, %62
@@ -2352,9 +2352,9 @@ ssl_print_hex.exit:                               ; preds = %.lr.ph.i, %65
 
 86:                                               ; preds = %76
   %87 = getelementptr inbounds nuw i8, ptr %.085, i64 2
-  %88 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #4
+  %88 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #5
   %89 = trunc nuw nsw i64 %83 to i32
-  %90 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.494, i32 noundef %89) #4
+  %90 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.494, i32 noundef %89) #5
   %.not.i.i30 = icmp eq i64 %83, 0
   br i1 %.not.i.i30, label %ssl_print_hexbuf.exit36, label %.lr.ph.i.i31
 
@@ -2363,13 +2363,13 @@ ssl_print_hex.exit:                               ; preds = %.lr.ph.i, %65
   %91 = getelementptr inbounds nuw i8, ptr %87, i64 %.011.i.i32
   %92 = load i8, ptr %91, align 1, !tbaa !75
   %93 = zext i8 %92 to i32
-  %94 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %93) #4
+  %94 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %93) #5
   %95 = add nuw nsw i64 %.011.i.i32, 1
   %exitcond.not.i.i33 = icmp eq i64 %95, %83
   br i1 %exitcond.not.i.i33, label %ssl_print_hexbuf.exit36, label %.lr.ph.i.i31, !llvm.loop !76
 
 ssl_print_hexbuf.exit36:                          ; preds = %.lr.ph.i.i31, %86
-  %96 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %96 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   %97 = sub i64 %.086, %84
   br label %159
 
@@ -2391,9 +2391,9 @@ ssl_print_hexbuf.exit36:                          ; preds = %.lr.ph.i.i31, %86
 
 110:                                              ; preds = %100
   %111 = getelementptr inbounds nuw i8, ptr %.085, i64 2
-  %112 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #4
+  %112 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #5
   %113 = trunc nuw nsw i64 %107 to i32
-  %114 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.495, i32 noundef %113) #4
+  %114 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.495, i32 noundef %113) #5
   %.not.i.i38 = icmp eq i64 %107, 0
   br i1 %.not.i.i38, label %ssl_print_hexbuf.exit44, label %.lr.ph.i.i39
 
@@ -2402,13 +2402,13 @@ ssl_print_hexbuf.exit36:                          ; preds = %.lr.ph.i.i31, %86
   %115 = getelementptr inbounds nuw i8, ptr %111, i64 %.011.i.i40
   %116 = load i8, ptr %115, align 1, !tbaa !75
   %117 = zext i8 %116 to i32
-  %118 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %117) #4
+  %118 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %117) #5
   %119 = add nuw nsw i64 %.011.i.i40, 1
   %exitcond.not.i.i41 = icmp eq i64 %119, %107
   br i1 %exitcond.not.i.i41, label %ssl_print_hexbuf.exit44, label %.lr.ph.i.i39, !llvm.loop !76
 
 ssl_print_hexbuf.exit44:                          ; preds = %.lr.ph.i.i39, %110
-  %120 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %120 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   %121 = sub i64 %.086, %108
   br label %159
 
@@ -2425,9 +2425,9 @@ ssl_print_hexbuf.exit44:                          ; preds = %.lr.ph.i.i39, %110
 
 127:                                              ; preds = %124
   %128 = getelementptr inbounds nuw i8, ptr %.085, i64 1
-  %129 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #4
+  %129 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #5
   %130 = zext i8 %125 to i32
-  %131 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.496, i32 noundef %130) #4
+  %131 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.496, i32 noundef %130) #5
   %.not.i.i46 = icmp eq i8 %125, 0
   br i1 %.not.i.i46, label %ssl_print_hexbuf.exit52, label %.lr.ph.i.i47
 
@@ -2436,20 +2436,20 @@ ssl_print_hexbuf.exit44:                          ; preds = %.lr.ph.i.i39, %110
   %132 = getelementptr inbounds nuw i8, ptr %128, i64 %.011.i.i48
   %133 = load i8, ptr %132, align 1, !tbaa !75
   %134 = zext i8 %133 to i32
-  %135 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %134) #4
+  %135 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %134) #5
   %136 = add nuw nsw i64 %.011.i.i48, 1
   %exitcond.not.i.i49 = icmp eq i64 %136, %126
   br i1 %exitcond.not.i.i49, label %ssl_print_hexbuf.exit52, label %.lr.ph.i.i47, !llvm.loop !76
 
 ssl_print_hexbuf.exit52:                          ; preds = %.lr.ph.i.i47, %127
-  %137 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %137 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   %138 = add i64 %.086, %.neg
   br label %159
 
 139:                                              ; preds = %.split
-  %140 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #4
+  %140 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #5
   %141 = trunc i64 %.086 to i32
-  %142 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.497, i32 noundef %141) #4
+  %142 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.497, i32 noundef %141) #5
   %.not.i53 = icmp eq i64 %.086, 0
   br i1 %.not.i53, label %ssl_print_hex.exit57, label %.lr.ph.i54
 
@@ -2458,19 +2458,19 @@ ssl_print_hexbuf.exit52:                          ; preds = %.lr.ph.i.i47, %127
   %143 = getelementptr inbounds nuw i8, ptr %.085, i64 %.011.i55
   %144 = load i8, ptr %143, align 1, !tbaa !75
   %145 = zext i8 %144 to i32
-  %146 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %145) #4
+  %146 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %145) #5
   %147 = add nuw i64 %.011.i55, 1
   %exitcond.not.i56 = icmp eq i64 %147, %.086
   br i1 %exitcond.not.i56, label %ssl_print_hex.exit57, label %.lr.ph.i54, !llvm.loop !76
 
 ssl_print_hex.exit57:                             ; preds = %.lr.ph.i54, %139
-  %148 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %148 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   br label %159
 
 149:                                              ; preds = %.split
-  %150 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #4
+  %150 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #5
   %151 = trunc i64 %.086 to i32
-  %152 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.498, i32 noundef %151) #4
+  %152 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.498, i32 noundef %151) #5
   %.not.i58 = icmp eq i64 %.086, 0
   br i1 %.not.i58, label %ssl_print_hex.exit62, label %.lr.ph.i59
 
@@ -2479,13 +2479,13 @@ ssl_print_hex.exit57:                             ; preds = %.lr.ph.i54, %139
   %153 = getelementptr inbounds nuw i8, ptr %.085, i64 %.011.i60
   %154 = load i8, ptr %153, align 1, !tbaa !75
   %155 = zext i8 %154 to i32
-  %156 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %155) #4
+  %156 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %155) #5
   %157 = add nuw i64 %.011.i60, 1
   %exitcond.not.i61 = icmp eq i64 %157, %.086
   br i1 %exitcond.not.i61, label %ssl_print_hex.exit62, label %.lr.ph.i59, !llvm.loop !76
 
 ssl_print_hex.exit62:                             ; preds = %.lr.ph.i59, %149
-  %158 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %158 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   br label %159
 
 159:                                              ; preds = %ssl_print_hexbuf.exit52, %ssl_print_hexbuf.exit44, %ssl_print_hexbuf.exit36, %ssl_print_hex.exit, %55, %ssl_print_hex.exit62, %ssl_print_hex.exit57, %.split
@@ -2536,9 +2536,9 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_certificates(ptr noundef %
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %28 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 6, i32 noundef 80) #4
+  %28 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 6, i32 noundef 80) #5
   %29 = zext i8 %23 to i32
-  %30 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.499, i32 noundef %29) #4
+  %30 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.499, i32 noundef %29) #5
   %.not.i.i = icmp eq i8 %23, 0
   br i1 %.not.i.i, label %ssl_print_hexbuf.exit, label %.lr.ph.i.i
 
@@ -2547,13 +2547,13 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_certificates(ptr noundef %
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 %.011.i.i
   %32 = load i8, ptr %31, align 1, !tbaa !75
   %33 = zext i8 %32 to i32
-  %34 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %33) #4
+  %34 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %33) #5
   %35 = add nuw nsw i64 %.011.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %35, %24
   br i1 %exitcond.not.i.i, label %ssl_print_hexbuf.exit, label %.lr.ph.i.i, !llvm.loop !76
 
 ssl_print_hexbuf.exit:                            ; preds = %.lr.ph.i.i, %26
-  %36 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %36 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 %25
   %38 = sub i64 %4, %25
   %39 = icmp ult i64 %38, 3
@@ -2632,9 +2632,9 @@ ssl_print_hexbuf.exit:                            ; preds = %.lr.ph.i.i, %26
   br label %ssl_print_hexbuf.exit.thread
 
 79:                                               ; preds = %58, %.critedge
-  %80 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #4
+  %80 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #5
   %81 = trunc nuw nsw i64 %54 to i32
-  %82 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.500, i32 noundef %81) #4
+  %82 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.500, i32 noundef %81) #5
   %.not4065 = icmp eq i64 %54, 0
   br i1 %.not4065, label %ssl_print_hexbuf.exit.thread, label %.lr.ph
 
@@ -2672,24 +2672,24 @@ ssl_print_hexbuf.exit:                            ; preds = %.lr.ph.i.i, %26
 104:                                              ; preds = %88
   %105 = getelementptr inbounds nuw i8, ptr %86, i64 3
   store ptr %105, ptr %7, align 8, !tbaa !83
-  %106 = call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #4
-  %107 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.502, i32 noundef %100) #4
+  %106 = call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #5
+  %107 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.502, i32 noundef %100) #5
   %108 = load ptr, ptr %.val, align 8, !tbaa !94
   %109 = getelementptr inbounds nuw i8, ptr %.val, i64 1152
   %110 = load ptr, ptr %109, align 8, !tbaa !109
-  %111 = call ptr @X509_new_ex(ptr noundef %108, ptr noundef %110) #4
+  %111 = call ptr @X509_new_ex(ptr noundef %108, ptr noundef %110) #5
   store ptr %111, ptr %6, align 8, !tbaa !110
   %.not.i = icmp eq ptr %111, null
   br i1 %.not.i, label %.thread.i, label %112
 
 112:                                              ; preds = %104
-  %113 = call ptr @d2i_X509(ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef %101) #4
+  %113 = call ptr @d2i_X509(ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef %101) #5
   %114 = icmp eq ptr %113, null
   %115 = load ptr, ptr %6, align 8, !tbaa !110
   br i1 %114, label %116, label %117
 
 116:                                              ; preds = %112
-  call void @X509_free(ptr noundef %115) #4
+  call void @X509_free(ptr noundef %115) #5
   store ptr null, ptr %6, align 8, !tbaa !110
   br label %.thread.i
 
@@ -2698,18 +2698,18 @@ ssl_print_hexbuf.exit:                            ; preds = %.lr.ph.i.i, %26
   br i1 %118, label %.thread.i, label %120
 
 .thread.i:                                        ; preds = %117, %116, %104
-  %119 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.503) #4
+  %119 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.503) #5
   br label %128
 
 120:                                              ; preds = %117
-  %121 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.504) #4
+  %121 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.504) #5
   %122 = load ptr, ptr %6, align 8, !tbaa !110
-  %123 = call i32 @X509_print_ex(ptr noundef %0, ptr noundef %122, i64 noundef 8520479, i64 noundef 0) #4
+  %123 = call i32 @X509_print_ex(ptr noundef %0, ptr noundef %122, i64 noundef 8520479, i64 noundef 0) #5
   %124 = load ptr, ptr %6, align 8, !tbaa !110
-  %125 = call i32 @PEM_write_bio_X509(ptr noundef %0, ptr noundef %124) #4
-  %126 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.505) #4
+  %125 = call i32 @PEM_write_bio_X509(ptr noundef %0, ptr noundef %124) #5
+  %126 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.505) #5
   %127 = load ptr, ptr %6, align 8, !tbaa !110
-  call void @X509_free(ptr noundef %127) #4
+  call void @X509_free(ptr noundef %127) #5
   br label %128
 
 128:                                              ; preds = %120, %.thread.i
@@ -2719,7 +2719,7 @@ ssl_print_hexbuf.exit:                            ; preds = %.lr.ph.i.i, %26
   br i1 %.not31.i, label %133, label %131
 
 131:                                              ; preds = %128
-  %132 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.506) #4
+  %132 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.506) #5
   br label %133
 
 ssl_print_certificate.exit.thread:                ; preds = %84, %88
@@ -2816,7 +2816,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_compressed_certificates(pt
   %39 = zext i8 %38 to i32
   %40 = or disjoint i32 %36, %39
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %42 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #4
+  %42 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #5
   br label %43
 
 43:                                               ; preds = %49, %33
@@ -2839,10 +2839,10 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_compressed_certificates(pt
 
 do_ssl_trace_str.exit:                            ; preds = %49, %46
   %.07.i = phi ptr [ %48, %46 ], [ @.str.15, %49 ]
-  %52 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.507, ptr noundef %.07.i, i32 noundef %40) #4
-  %53 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #4
-  %54 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.508, i32 noundef %18) #4
-  %55 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #4
+  %52 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.507, ptr noundef %.07.i, i32 noundef %40) #5
+  %53 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #5
+  %54 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.508, i32 noundef %18) #5
+  %55 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #5
   %.not37 = icmp eq i32 %31, 0
   br i1 %.not37, label %62, label %56
 
@@ -2851,15 +2851,15 @@ do_ssl_trace_str.exit:                            ; preds = %49, %46
   %58 = uitofp nneg i32 %31 to float
   %59 = fdiv float %57, %58
   %60 = fpext float %59 to double
-  %61 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.509, i32 noundef %31, double noundef %60) #4
+  %61 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.509, i32 noundef %31, double noundef %60) #5
   br label %64
 
 62:                                               ; preds = %do_ssl_trace_str.exit
-  %63 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.510, i32 noundef 0) #4
+  %63 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.510, i32 noundef 0) #5
   br label %64
 
 64:                                               ; preds = %62, %56
-  %65 = tail call i32 @BIO_dump_indent(ptr noundef %0, ptr noundef nonnull %41, i32 noundef %31, i32 noundef 6) #4
+  %65 = tail call i32 @BIO_dump_indent(ptr noundef %0, ptr noundef nonnull %41, i32 noundef %31, i32 noundef 6) #5
   br label %66
 
 66:                                               ; preds = %5, %3, %64
@@ -2893,7 +2893,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_signature(ptr noundef %0, 
   %20 = load i8, ptr %19, align 1, !tbaa !75
   %21 = zext i8 %20 to i32
   %22 = or disjoint i32 %18, %21
-  %23 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #4
+  %23 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #5
   br label %24
 
 24:                                               ; preds = %30, %15
@@ -2916,7 +2916,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_signature(ptr noundef %0, 
 
 .loopexit:                                        ; preds = %30, %27
   %.07.i = phi ptr [ %29, %27 ], [ @.str.15, %30 ]
-  %33 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.516, ptr noundef %.07.i, i32 noundef %22) #4
+  %33 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.516, ptr noundef %.07.i, i32 noundef %22) #5
   %34 = load ptr, ptr %2, align 8, !tbaa !83
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 2
   store ptr %35, ptr %2, align 8, !tbaa !83
@@ -2942,9 +2942,9 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_signature(ptr noundef %0, 
 
 50:                                               ; preds = %.thread
   %51 = getelementptr inbounds nuw i8, ptr %40, i64 2
-  %52 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 6, i32 noundef 80) #4
+  %52 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 6, i32 noundef 80) #5
   %53 = trunc nuw nsw i64 %47 to i32
-  %54 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.517, i32 noundef %53) #4
+  %54 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.517, i32 noundef %53) #5
   %.not.i.i = icmp eq i64 %47, 0
   br i1 %.not.i.i, label %ssl_print_hex.exit.i, label %.lr.ph.i.i
 
@@ -2953,13 +2953,13 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_signature(ptr noundef %0, 
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 %.011.i.i
   %56 = load i8, ptr %55, align 1, !tbaa !75
   %57 = zext i8 %56 to i32
-  %58 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %57) #4
+  %58 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %57) #5
   %59 = add nuw nsw i64 %.011.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %59, %47
   br i1 %exitcond.not.i.i, label %ssl_print_hex.exit.i, label %.lr.ph.i.i, !llvm.loop !76
 
 ssl_print_hex.exit.i:                             ; preds = %.lr.ph.i.i, %50
-  %60 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %60 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   %61 = load ptr, ptr %2, align 8, !tbaa !83
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 %48
   store ptr %62, ptr %2, align 8, !tbaa !83
@@ -3008,9 +3008,9 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_cert_request(ptr noundef %
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %26 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 6, i32 noundef 80) #4
+  %26 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 6, i32 noundef 80) #5
   %27 = zext i8 %21 to i32
-  %28 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.551, i32 noundef %27) #4
+  %28 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.551, i32 noundef %27) #5
   %.not.i.i = icmp eq i8 %21, 0
   br i1 %.not.i.i, label %.loopexit96, label %.lr.ph.i.i
 
@@ -3019,13 +3019,13 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_cert_request(ptr noundef %
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 %.011.i.i
   %30 = load i8, ptr %29, align 1, !tbaa !75
   %31 = zext i8 %30 to i32
-  %32 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %31) #4
+  %32 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %31) #5
   %33 = add nuw nsw i64 %.011.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %33, %22
   br i1 %exitcond.not.i.i, label %.loopexit96, label %.lr.ph.i.i, !llvm.loop !76
 
 .loopexit96:                                      ; preds = %.lr.ph.i.i, %24
-  %34 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %34 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 %23
   store ptr %35, ptr %5, align 8, !tbaa !83
   %36 = sub i64 %3, %23
@@ -3046,9 +3046,9 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_cert_request(ptr noundef %
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %45 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #4
+  %45 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #5
   %46 = zext i8 %41 to i32
-  %47 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.552, i32 noundef %46) #4
+  %47 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.552, i32 noundef %46) #5
   %.not2123.i = icmp eq i8 %41, 0
   br i1 %.not2123.i, label %do_ssl_trace_list.exit, label %.lr.ph.split.i
 
@@ -3057,7 +3057,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_cert_request(ptr noundef %
   %.02024.i = phi i64 [ %62, %do_ssl_trace_str.exit.i ], [ %42, %43 ]
   %48 = load i8, ptr %.01925.i, align 1, !tbaa !75
   %49 = zext i8 %48 to i32
-  %50 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #4
+  %50 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #5
   br label %51
 
 51:                                               ; preds = %57, %.lr.ph.split.i
@@ -3080,7 +3080,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_cert_request(ptr noundef %
 
 do_ssl_trace_str.exit.i:                          ; preds = %57, %54
   %.07.i.i = phi ptr [ %56, %54 ], [ @.str.15, %57 ]
-  %60 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.586, ptr noundef %.07.i.i, i32 noundef %49) #4
+  %60 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.586, ptr noundef %.07.i.i, i32 noundef %49) #5
   %61 = getelementptr inbounds nuw i8, ptr %.01925.i, i64 1
   %62 = add nsw i64 %.02024.i, -1
   %.not21.i = icmp eq i64 %62, 0
@@ -3124,15 +3124,15 @@ do_ssl_trace_list.exit:                           ; preds = %do_ssl_trace_str.ex
   %86 = getelementptr inbounds nuw i8, ptr %63, i64 2
   %87 = sub nuw i64 %64, %82
   store i64 %87, ptr %6, align 8, !tbaa !84
-  %88 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #4
-  %89 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.553, i32 noundef %80) #4
+  %88 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #5
+  %89 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.553, i32 noundef %80) #5
   %.not8399 = icmp eq i32 %80, 0
   br i1 %.not8399, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %85, %do_ssl_trace_str.exit
   %.063100 = phi i64 [ %109, %do_ssl_trace_str.exit ], [ %81, %85 ]
   %90 = phi ptr [ %110, %do_ssl_trace_str.exit ], [ %86, %85 ]
-  %91 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #4
+  %91 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #5
   %92 = load i8, ptr %90, align 1, !tbaa !75
   %93 = zext i8 %92 to i32
   %94 = shl nuw nsw i32 %93, 8
@@ -3162,7 +3162,7 @@ do_ssl_trace_list.exit:                           ; preds = %do_ssl_trace_str.ex
 
 do_ssl_trace_str.exit:                            ; preds = %105, %102
   %.07.i = phi ptr [ %104, %102 ], [ @.str.15, %105 ]
-  %108 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.554, ptr noundef %.07.i, i32 noundef %98) #4
+  %108 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.554, ptr noundef %.07.i, i32 noundef %98) #5
   %109 = add i64 %.063100, -2
   %110 = getelementptr inbounds nuw i8, ptr %90, i64 2
   %.not83 = icmp eq i64 %109, 0
@@ -3188,7 +3188,7 @@ do_ssl_trace_str.exit:                            ; preds = %105, %102
   %121 = zext i8 %120 to i32
   %122 = or disjoint i32 %118, %121
   %123 = zext nneg i32 %122 to i64
-  %124 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #4
+  %124 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #5
   %125 = add nuw nsw i64 %123, 2
   %126 = icmp ult i64 %113, %125
   br i1 %126, label %ssl_print_hexbuf.exit.thread, label %127
@@ -3198,7 +3198,7 @@ do_ssl_trace_str.exit:                            ; preds = %105, %102
   store ptr %128, ptr %5, align 8, !tbaa !83
   %129 = sub nuw i64 %113, %125
   store i64 %129, ptr %6, align 8, !tbaa !84
-  %130 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.555, i32 noundef %122) #4
+  %130 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.555, i32 noundef %122) #5
   %.not84104 = icmp eq i32 %122, 0
   br i1 %.not84104, label %._crit_edge, label %.lr.ph106
 
@@ -3224,21 +3224,21 @@ do_ssl_trace_str.exit:                            ; preds = %105, %102
 
 144:                                              ; preds = %133
   %145 = getelementptr inbounds nuw i8, ptr %131, i64 2
-  %146 = call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #4
-  %147 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.556, i32 noundef %140) #4
+  %146 = call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #5
+  %147 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.556, i32 noundef %140) #5
   store ptr %145, ptr %7, align 8, !tbaa !83
-  %148 = call ptr @d2i_X509_NAME(ptr noundef null, ptr noundef nonnull %7, i64 noundef %141) #4
+  %148 = call ptr @d2i_X509_NAME(ptr noundef null, ptr noundef nonnull %7, i64 noundef %141) #5
   %.not88 = icmp eq ptr %148, null
   br i1 %.not88, label %149, label %151
 
 149:                                              ; preds = %144
-  %150 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.557) #4
+  %150 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.557) #5
   br label %154
 
 151:                                              ; preds = %144
-  %152 = call i32 @X509_NAME_print_ex(ptr noundef %0, ptr noundef nonnull %148, i32 noundef 0, i64 noundef 8520479) #4
-  %153 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
-  call void @X509_NAME_free(ptr noundef nonnull %148) #4
+  %152 = call i32 @X509_NAME_print_ex(ptr noundef %0, ptr noundef nonnull %148, i32 noundef 0, i64 noundef 8520479) #5
+  %153 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
+  call void @X509_NAME_free(ptr noundef nonnull %148) #5
   br label %154
 
 154:                                              ; preds = %151, %149
@@ -3299,8 +3299,8 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_ticket(ptr noundef %0, ptr
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %4
-  %9 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #4
-  %10 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.572) #4
+  %9 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #5
+  %10 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.572) #5
   br label %.critedge
 
 11:                                               ; preds = %4
@@ -3327,8 +3327,8 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_ticket(ptr noundef %0, ptr
   %30 = or disjoint i32 %26, %29
   %31 = add i64 %3, -4
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %33 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #4
-  %34 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.573, i32 noundef %30) #4
+  %33 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #5
+  %34 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.573, i32 noundef %30) #5
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !15
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 216
@@ -3372,8 +3372,8 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_ticket(ptr noundef %0, ptr
   store i64 %65, ptr %6, align 8, !tbaa !84
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %66, ptr %5, align 8, !tbaa !83
-  %67 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #4
-  %68 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.574, i32 noundef %64) #4
+  %67 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #5
+  %68 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.574, i32 noundef %64) #5
   %69 = icmp eq i64 %65, 0
   br i1 %69, label %.critedge, label %70
 
@@ -3386,9 +3386,9 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_ticket(ptr noundef %0, ptr
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  %76 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #4
+  %76 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #5
   %77 = zext i8 %71 to i32
-  %78 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.575, i32 noundef %77) #4
+  %78 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.575, i32 noundef %77) #5
   %.not.i.i = icmp eq i8 %71, 0
   br i1 %.not.i.i, label %.loopexit50, label %.lr.ph.i.i
 
@@ -3397,13 +3397,13 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_ticket(ptr noundef %0, ptr
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 %.011.i.i
   %80 = load i8, ptr %79, align 1, !tbaa !75
   %81 = zext i8 %80 to i32
-  %82 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %81) #4
+  %82 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %81) #5
   %83 = add nuw nsw i64 %.011.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %83, %72
   br i1 %exitcond.not.i.i, label %.loopexit50, label %.lr.ph.i.i, !llvm.loop !76
 
 .loopexit50:                                      ; preds = %.lr.ph.i.i, %74
-  %84 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %84 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   %85 = getelementptr inbounds nuw i8, ptr %66, i64 %73
   %86 = sub i64 %65, %73
   br label %thread-pre-split
@@ -3428,9 +3428,9 @@ thread-pre-split:                                 ; preds = %42, %13, %.loopexit
 
 100:                                              ; preds = %90
   %101 = getelementptr inbounds nuw i8, ptr %87, i64 2
-  %102 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #4
+  %102 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #5
   %103 = trunc nuw nsw i64 %97 to i32
-  %104 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.576, i32 noundef %103) #4
+  %104 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.576, i32 noundef %103) #5
   %.not.i.i38 = icmp eq i64 %97, 0
   br i1 %.not.i.i38, label %.loopexit, label %.lr.ph.i.i39
 
@@ -3439,13 +3439,13 @@ thread-pre-split:                                 ; preds = %42, %13, %.loopexit
   %105 = getelementptr inbounds nuw i8, ptr %101, i64 %.011.i.i40
   %106 = load i8, ptr %105, align 1, !tbaa !75
   %107 = zext i8 %106 to i32
-  %108 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %107) #4
+  %108 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %107) #5
   %109 = add nuw nsw i64 %.011.i.i40, 1
   %exitcond.not.i.i41 = icmp eq i64 %109, %97
   br i1 %exitcond.not.i.i41, label %.loopexit, label %.lr.ph.i.i39, !llvm.loop !76
 
 .loopexit:                                        ; preds = %.lr.ph.i.i39, %100
-  %110 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %110 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   %111 = getelementptr inbounds nuw i8, ptr %87, i64 %98
   store ptr %111, ptr %5, align 8, !tbaa !83
   %112 = sub i64 %88, %98
@@ -3490,14 +3490,14 @@ thread-pre-split:                                 ; preds = %42, %13, %.loopexit
 define internal fastcc range(i32 0, 2) i32 @ssl_print_extensions(ptr noundef %0, i32 noundef range(i32 6, 9) %1, i32 noundef %2, i8 noundef zeroext range(i8 1, 14) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 {
   %7 = load i64, ptr %5, align 8, !tbaa !84
   %8 = load ptr, ptr %4, align 8, !tbaa !83
-  %9 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %1, i32 noundef 80) #4
+  %9 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %1, i32 noundef 80) #5
   switch i64 %7, label %12 [
     i64 0, label %10
     i64 1, label %.critedge
   ]
 
 10:                                               ; preds = %6
-  %11 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.577) #4
+  %11 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.577) #5
   br label %.critedge
 
 12:                                               ; preds = %6
@@ -3515,7 +3515,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_extensions(ptr noundef %0,
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %12
-  %25 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.577) #4
+  %25 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.577) #5
   store ptr %22, ptr %4, align 8, !tbaa !83
   store i64 %21, ptr %5, align 8, !tbaa !84
   br label %.critedge
@@ -3525,7 +3525,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_extensions(ptr noundef %0,
   br i1 %27, label %.critedge, label %28
 
 28:                                               ; preds = %26
-  %29 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.578, i32 noundef %19) #4
+  %29 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.578, i32 noundef %19) #5
   %30 = sub nuw i64 %21, %20
   %31 = add nuw nsw i32 %1, 2
   %.not.i = icmp eq i32 %2, 0
@@ -3563,14 +3563,14 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_extensions(ptr noundef %0,
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %37
-  %57 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.579, i32 noundef %44, i32 noundef %52) #4
+  %57 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.579, i32 noundef %44, i32 noundef %52) #5
   %58 = trunc nuw nsw i64 %.055103 to i32
-  %59 = tail call i32 @BIO_dump_indent(ptr noundef %0, ptr noundef nonnull %.058102, i32 noundef %58, i32 noundef %31) #4
+  %59 = tail call i32 @BIO_dump_indent(ptr noundef %0, ptr noundef nonnull %.058102, i32 noundef %58, i32 noundef %31) #5
   br label %.critedge
 
 60:                                               ; preds = %37
   %61 = getelementptr inbounds nuw i8, ptr %.058102, i64 4
-  %62 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 8, 11) %31, i32 noundef 80) #4
+  %62 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 8, 11) %31, i32 noundef 80) #5
   br label %63
 
 63:                                               ; preds = %69, %60
@@ -3593,7 +3593,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_extensions(ptr noundef %0,
 
 do_ssl_trace_str.exit.i:                          ; preds = %69, %66
   %.07.i.i = phi ptr [ %68, %66 ], [ @.str.15, %69 ]
-  %72 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.580, ptr noundef %.07.i.i, i32 noundef range(i32 0, 65536) %44, i32 noundef %52) #4
+  %72 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.580, ptr noundef %.07.i.i, i32 noundef range(i32 0, 65536) %44, i32 noundef %52) #5
   %trunc.i = trunc nuw i32 %44 to i16
   switch i16 %trunc.i, label %409 [
     i16 27, label %73
@@ -3644,7 +3644,7 @@ do_ssl_trace_str.exit.i:                          ; preds = %69, %66
   %85 = load i8, ptr %84, align 1, !tbaa !75
   %86 = zext i8 %85 to i32
   %87 = or disjoint i32 %83, %86
-  %88 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 6, 13) %32, i32 noundef 80) #4
+  %88 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 6, 13) %32, i32 noundef 80) #5
   br label %89
 
 89:                                               ; preds = %92, %.lr.ph.split.us.i.i
@@ -3667,7 +3667,7 @@ do_ssl_trace_str.exit.i:                          ; preds = %69, %66
 
 do_ssl_trace_str.exit.us.i.i:                     ; preds = %92, %95
   %.07.i.us.i.i = phi ptr [ %97, %95 ], [ @.str.15, %92 ]
-  %98 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.586, ptr noundef %.07.i.us.i.i, i32 noundef %87) #4
+  %98 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.586, ptr noundef %.07.i.us.i.i, i32 noundef %87) #5
   %99 = getelementptr inbounds nuw i8, ptr %.01925.us.i.i, i64 2
   %100 = add i64 %.02024.us.i.i, -2
   %.not21.us.i.i = icmp eq i64 %100, 0
@@ -3682,7 +3682,7 @@ do_ssl_trace_str.exit.us.i.i:                     ; preds = %92, %95
   %.02024.i.i = phi i64 [ %117, %do_ssl_trace_str.exit.i.i ], [ %53, %101 ]
   %103 = load i8, ptr %.01925.i.i, align 1, !tbaa !75
   %104 = zext i8 %103 to i32
-  %105 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 6, 13) %32, i32 noundef 80) #4
+  %105 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 6, 13) %32, i32 noundef 80) #5
   br label %106
 
 106:                                              ; preds = %112, %.lr.ph.split.i.i
@@ -3705,7 +3705,7 @@ do_ssl_trace_str.exit.us.i.i:                     ; preds = %92, %95
 
 do_ssl_trace_str.exit.i.i:                        ; preds = %112, %109
   %.07.i.i.i = phi ptr [ %111, %109 ], [ @.str.15, %112 ]
-  %115 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.586, ptr noundef %.07.i.i.i, i32 noundef %104) #4
+  %115 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.586, ptr noundef %.07.i.i.i, i32 noundef %104) #5
   %116 = getelementptr inbounds nuw i8, ptr %.01925.i.i, i64 1
   %117 = add nsw i64 %.02024.i.i, -1
   %.not21.i.i = icmp eq i64 %117, 0
@@ -3732,7 +3732,7 @@ do_ssl_trace_str.exit.i.i:                        ; preds = %112, %109
   %.01925.i275.i = getelementptr inbounds nuw i8, ptr %.01925.i275.pn.i, i64 1
   %125 = load i8, ptr %.01925.i275.i, align 1, !tbaa !75
   %126 = zext i8 %125 to i32
-  %127 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 6, 13) %32, i32 noundef 80) #4
+  %127 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 6, 13) %32, i32 noundef 80) #5
   br label %128
 
 128:                                              ; preds = %134, %.lr.ph.split.i274.i
@@ -3755,7 +3755,7 @@ do_ssl_trace_str.exit.i.i:                        ; preds = %112, %109
 
 do_ssl_trace_str.exit.i280.i:                     ; preds = %134, %131
   %.07.i.i281.i = phi ptr [ %133, %131 ], [ @.str.15, %134 ]
-  %137 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.586, ptr noundef %.07.i.i281.i, i32 noundef %126) #4
+  %137 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.586, ptr noundef %.07.i.i281.i, i32 noundef %126) #5
   %138 = add nsw i64 %.02024.i276.i, -1
   %.not21.i282.i = icmp eq i64 %138, 0
   br i1 %.not21.i282.i, label %ssl_print_extension.exit.thread68, label %.lr.ph.split.i274.i, !llvm.loop !112
@@ -3816,10 +3816,10 @@ do_ssl_trace_str.exit.i280.i:                     ; preds = %134, %131
 169:                                              ; preds = %166
   %170 = getelementptr inbounds nuw i8, ptr %.0201373.i, i64 1
   %.neg.i = xor i64 %168, -1
-  %171 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %32, i32 noundef 80) #4
+  %171 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %32, i32 noundef 80) #5
   %172 = zext i8 %167 to i32
-  %173 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull %170, i32 noundef %172) #4
-  %174 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %173 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull %170, i32 noundef %172) #5
+  %174 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   %175 = getelementptr inbounds nuw i8, ptr %170, i64 %168
   %176 = add i64 %.0207372.i, %.neg.i
   %.not249.i = icmp eq i64 %176, 0
@@ -3852,7 +3852,7 @@ do_ssl_trace_str.exit.i280.i:                     ; preds = %134, %131
   %.pn369.i = phi ptr [ %.2203.i, %do_ssl_trace_str.exit288.i ], [ %61, %.preheader.i ]
   %.2209368.i = phi i64 [ %207, %do_ssl_trace_str.exit288.i ], [ %186, %.preheader.i ]
   %.2203.i = getelementptr inbounds nuw i8, ptr %.pn369.i, i64 2
-  %189 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %32, i32 noundef 80) #4
+  %189 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %32, i32 noundef 80) #5
   %190 = load i8, ptr %.2203.i, align 1, !tbaa !75
   %191 = zext i8 %190 to i32
   %192 = shl nuw nsw i32 %191, 8
@@ -3882,7 +3882,7 @@ do_ssl_trace_str.exit.i280.i:                     ; preds = %134, %131
 
 do_ssl_trace_str.exit288.i:                       ; preds = %203, %200
   %.07.i287.i = phi ptr [ %202, %200 ], [ @.str.15, %203 ]
-  %206 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.554, ptr noundef %.07.i287.i, i32 noundef %196) #4
+  %206 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.554, ptr noundef %.07.i287.i, i32 noundef %196) #5
   %207 = add i64 %.2209368.i, -2
   %.not247.i = icmp eq i64 %207, 0
   br i1 %.not247.i, label %ssl_print_extension.exit.thread68, label %.lr.ph370.i, !llvm.loop !116
@@ -3919,8 +3919,8 @@ do_ssl_trace_str.exit288.i:                       ; preds = %203, %200
   br label %ssl_print_extension.exit.thread68
 
 222:                                              ; preds = %214
-  %223 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %33, i32 noundef 80) #4
-  %224 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.583) #4
+  %223 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %33, i32 noundef 80) #5
+  %224 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.583) #5
   br label %ssl_print_extension.exit.thread68
 
 225:                                              ; preds = %do_ssl_trace_str.exit.i
@@ -3928,8 +3928,8 @@ do_ssl_trace_str.exit288.i:                       ; preds = %203, %200
   br i1 %.not240.i, label %ssl_print_extension.exit.thread68, label %226
 
 226:                                              ; preds = %225
-  %227 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) %33, i32 noundef 80) #4
-  %228 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.576, i32 noundef %52) #4
+  %227 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) %33, i32 noundef 80) #5
+  %228 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.576, i32 noundef %52) #5
   br label %.lr.ph.i290.i
 
 .lr.ph.i290.i:                                    ; preds = %.lr.ph.i290.i, %226
@@ -3937,13 +3937,13 @@ do_ssl_trace_str.exit288.i:                       ; preds = %203, %200
   %229 = getelementptr inbounds nuw i8, ptr %61, i64 %.011.i291.i
   %230 = load i8, ptr %229, align 1, !tbaa !75
   %231 = zext i8 %230 to i32
-  %232 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %231) #4
+  %232 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %231) #5
   %233 = add nuw nsw i64 %.011.i291.i, 1
   %exitcond.not.i292.i = icmp eq i64 %233, %53
   br i1 %exitcond.not.i292.i, label %ssl_print_hex.exit.i, label %.lr.ph.i290.i, !llvm.loop !76
 
 ssl_print_hex.exit.i:                             ; preds = %.lr.ph.i290.i
-  %234 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %234 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   br label %ssl_print_extension.exit.thread68
 
 235:                                              ; preds = %do_ssl_trace_str.exit.i
@@ -3959,7 +3959,7 @@ ssl_print_hex.exit.i:                             ; preds = %.lr.ph.i290.i
   %242 = load i8, ptr %241, align 1, !tbaa !75
   %243 = zext i8 %242 to i32
   %244 = or disjoint i32 %240, %243
-  %245 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %33, i32 noundef 80) #4
+  %245 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %33, i32 noundef 80) #5
   br label %246
 
 246:                                              ; preds = %252, %237
@@ -3982,7 +3982,7 @@ ssl_print_hex.exit.i:                             ; preds = %.lr.ph.i290.i
 
 do_ssl_trace_str.exit297.i:                       ; preds = %252, %249
   %.07.i296.i = phi ptr [ %251, %249 ], [ @.str.15, %252 ]
-  %255 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.584, ptr noundef %.07.i296.i, i32 noundef %244) #4
+  %255 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.584, ptr noundef %.07.i296.i, i32 noundef %244) #5
   br label %ssl_print_extension.exit.thread68
 
 256:                                              ; preds = %235
@@ -4042,7 +4042,7 @@ do_ssl_trace_str.exit297.i:                       ; preds = %252, %249
   %288 = load i8, ptr %287, align 1, !tbaa !75
   %289 = zext i8 %288 to i32
   %290 = or disjoint i32 %286, %289
-  %291 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %33, i32 noundef 80) #4
+  %291 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %33, i32 noundef 80) #5
   br label %292
 
 292:                                              ; preds = %298, %283
@@ -4065,10 +4065,10 @@ do_ssl_trace_str.exit297.i:                       ; preds = %252, %249
 
 do_ssl_trace_str.exit302.i:                       ; preds = %298, %295
   %.07.i301.i = phi ptr [ %297, %295 ], [ @.str.15, %298 ]
-  %301 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.584, ptr noundef %.07.i301.i, i32 noundef %290) #4
-  %302 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) %33, i32 noundef 80) #4
+  %301 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.584, ptr noundef %.07.i301.i, i32 noundef %290) #5
+  %302 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) %33, i32 noundef 80) #5
   %303 = trunc nuw nsw i64 %279 to i32
-  %304 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.585, i32 noundef %303) #4
+  %304 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.585, i32 noundef %303) #5
   %.not.i303.i = icmp eq i64 %279, 0
   br i1 %.not.i303.i, label %ssl_print_hex.exit307.i, label %.lr.ph.i304.i
 
@@ -4077,13 +4077,13 @@ do_ssl_trace_str.exit302.i:                       ; preds = %298, %295
   %305 = getelementptr inbounds nuw i8, ptr %280, i64 %.011.i305.i
   %306 = load i8, ptr %305, align 1, !tbaa !75
   %307 = zext i8 %306 to i32
-  %308 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %307) #4
+  %308 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %307) #5
   %309 = add nuw nsw i64 %.011.i305.i, 1
   %exitcond.not.i306.i = icmp eq i64 %309, %279
   br i1 %exitcond.not.i306.i, label %ssl_print_hex.exit307.i, label %.lr.ph.i304.i, !llvm.loop !76
 
 ssl_print_hex.exit307.i:                          ; preds = %.lr.ph.i304.i, %do_ssl_trace_str.exit302.i
-  %310 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %310 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   %311 = getelementptr inbounds nuw i8, ptr %280, i64 %279
   %312 = sub i64 %281, %279
   %.not239.i = icmp eq i64 %312, 0
@@ -4104,7 +4104,7 @@ ssl_print_hex.exit307.i:                          ; preds = %.lr.ph.i304.i, %do_
   %320 = load i8, ptr %319, align 1, !tbaa !75
   %321 = zext i8 %320 to i32
   %322 = or disjoint i32 %318, %321
-  %323 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %33, i32 noundef 80) #4
+  %323 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %33, i32 noundef 80) #5
   br label %324
 
 324:                                              ; preds = %330, %315
@@ -4127,7 +4127,7 @@ ssl_print_hex.exit307.i:                          ; preds = %.lr.ph.i304.i, %do_
 
 do_ssl_trace_str.exit312.i:                       ; preds = %330, %327
   %.07.i311.i = phi ptr [ %329, %327 ], [ @.str.15, %330 ]
-  %333 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.586, ptr noundef %.07.i311.i, i32 noundef %322) #4
+  %333 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.586, ptr noundef %.07.i311.i, i32 noundef %322) #5
   br label %ssl_print_extension.exit.thread68
 
 334:                                              ; preds = %313
@@ -4167,7 +4167,7 @@ do_ssl_trace_str.exit312.i:                       ; preds = %330, %327
   %.01925.i320.i = getelementptr inbounds nuw i8, ptr %.01925.i320.pn.i, i64 1
   %350 = load i8, ptr %.01925.i320.i, align 1, !tbaa !75
   %351 = zext i8 %350 to i32
-  %352 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 6, 13) %32, i32 noundef 80) #4
+  %352 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 6, 13) %32, i32 noundef 80) #5
   br label %353
 
 353:                                              ; preds = %359, %.lr.ph.split.i319.i
@@ -4188,7 +4188,7 @@ do_ssl_trace_str.exit312.i:                       ; preds = %330, %327
 
 do_ssl_trace_str.exit.i325.i:                     ; preds = %359, %356
   %.07.i.i326.i = phi ptr [ %358, %356 ], [ @.str.15, %359 ]
-  %361 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.586, ptr noundef %.07.i.i326.i, i32 noundef %351) #4
+  %361 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.586, ptr noundef %.07.i.i326.i, i32 noundef %351) #5
   %362 = add nsw i64 %.02024.i321.i, -1
   %.not21.i327.i = icmp eq i64 %362, 0
   br i1 %.not21.i327.i, label %ssl_print_extension.exit.thread68, label %.lr.ph.split.i319.i, !llvm.loop !112
@@ -4218,8 +4218,8 @@ do_ssl_trace_str.exit.i325.i:                     ; preds = %359, %356
   %380 = load i8, ptr %379, align 1, !tbaa !75
   %381 = zext i8 %380 to i32
   %382 = or disjoint i32 %378, %381
-  %383 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %32, i32 noundef 80) #4
-  %384 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.587, i32 noundef %382) #4
+  %383 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %32, i32 noundef 80) #5
+  %384 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.587, i32 noundef %382) #5
   br label %ssl_print_extension.exit.thread68
 
 385:                                              ; preds = %do_ssl_trace_str.exit.i, %do_ssl_trace_str.exit.i
@@ -4232,7 +4232,7 @@ do_ssl_trace_str.exit.i325.i:                     ; preds = %359, %356
 .lr.ph.split.i331.i:                              ; preds = %386
   %387 = load i8, ptr %61, align 1, !tbaa !75
   %388 = zext i8 %387 to i32
-  %389 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 6, 13) %32, i32 noundef 80) #4
+  %389 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 6, 13) %32, i32 noundef 80) #5
   br label %390
 
 390:                                              ; preds = %396, %.lr.ph.split.i331.i
@@ -4255,7 +4255,7 @@ do_ssl_trace_str.exit.i325.i:                     ; preds = %359, %356
 
 do_ssl_trace_str.exit.i337.i:                     ; preds = %396, %393
   %.07.i.i338.i = phi ptr [ %395, %393 ], [ @.str.15, %396 ]
-  %399 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.586, ptr noundef %.07.i.i338.i, i32 noundef %388) #4
+  %399 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.586, ptr noundef %.07.i.i338.i, i32 noundef %388) #5
   br label %ssl_print_extension.exit.thread68
 
 400:                                              ; preds = %385
@@ -4275,7 +4275,7 @@ do_ssl_trace_str.exit.i337.i:                     ; preds = %396, %393
   br label %ssl_print_extension.exit
 
 409:                                              ; preds = %do_ssl_trace_str.exit.i
-  %410 = tail call i32 @BIO_dump_indent(ptr noundef %0, ptr noundef nonnull %61, i32 noundef %52, i32 noundef %32) #4
+  %410 = tail call i32 @BIO_dump_indent(ptr noundef %0, ptr noundef nonnull %61, i32 noundef %52, i32 noundef %32) #5
   br label %ssl_print_extension.exit.thread68
 
 .critedge255.i:                                   ; preds = %216
@@ -4329,7 +4329,7 @@ define internal fastcc range(i32 0, 2) i32 @do_ssl_trace_list(ptr noundef %0, i3
   %14 = load i8, ptr %13, align 1, !tbaa !75
   %15 = zext i8 %14 to i32
   %16 = or disjoint i32 %12, %15
-  %17 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %1, i32 noundef 80) #4
+  %17 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %1, i32 noundef 80) #5
   br label %18
 
 18:                                               ; preds = %21, %.lr.ph.split.us
@@ -4352,7 +4352,7 @@ define internal fastcc range(i32 0, 2) i32 @do_ssl_trace_list(ptr noundef %0, i3
 
 do_ssl_trace_str.exit.us:                         ; preds = %21, %24
   %.07.i.us = phi ptr [ %26, %24 ], [ @.str.15, %21 ]
-  %27 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.586, ptr noundef %.07.i.us, i32 noundef %16) #4
+  %27 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.586, ptr noundef %.07.i.us, i32 noundef %16) #5
   %28 = getelementptr inbounds nuw i8, ptr %.01925.us, i64 2
   %29 = add i64 %.02024.us, -2
   %.not21.us = icmp eq i64 %29, 0
@@ -4363,7 +4363,7 @@ do_ssl_trace_str.exit.us:                         ; preds = %21, %24
   %.02024 = phi i64 [ %44, %do_ssl_trace_str.exit ], [ %3, %.lr.ph ]
   %30 = load i8, ptr %.01925, align 1, !tbaa !75
   %31 = zext i8 %30 to i32
-  %32 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %1, i32 noundef 80) #4
+  %32 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %1, i32 noundef 80) #5
   br label %33
 
 33:                                               ; preds = %39, %.lr.ph.split
@@ -4386,7 +4386,7 @@ do_ssl_trace_str.exit.us:                         ; preds = %21, %24
 
 do_ssl_trace_str.exit:                            ; preds = %39, %36
   %.07.i = phi ptr [ %38, %36 ], [ @.str.15, %39 ]
-  %42 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.586, ptr noundef %.07.i, i32 noundef %31) #4
+  %42 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.586, ptr noundef %.07.i, i32 noundef %31) #5
   %43 = getelementptr inbounds nuw i8, ptr %.01925, i64 1
   %44 = add nsw i64 %.02024, -1
   %.not21 = icmp eq i64 %44, 0
@@ -4425,12 +4425,12 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_random(ptr noundef %0, ptr
   %23 = zext i8 %22 to i32
   %24 = or disjoint i32 %20, %23
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %26 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #4
-  %27 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.65) #4
-  %28 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #4
-  %29 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.66, i32 noundef %24) #4
-  %30 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #4
-  %31 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.67, i32 noundef 28) #4
+  %26 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #5
+  %27 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.65) #5
+  %28 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #5
+  %29 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.66, i32 noundef %24) #5
+  %30 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #5
+  %31 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.67, i32 noundef 28) #5
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %6
@@ -4438,13 +4438,13 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_random(ptr noundef %0, ptr
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 %.011.i
   %33 = load i8, ptr %32, align 1, !tbaa !75
   %34 = zext i8 %33 to i32
-  %35 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %34) #4
+  %35 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %34) #5
   %36 = add nuw nsw i64 %.011.i, 1
   %exitcond.not.i = icmp eq i64 %36, 28
   br i1 %exitcond.not.i, label %ssl_print_hex.exit, label %.lr.ph.i, !llvm.loop !76
 
 ssl_print_hex.exit:                               ; preds = %.lr.ph.i
-  %37 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %37 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   %38 = load ptr, ptr %1, align 8, !tbaa !83
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store ptr %39, ptr %1, align 8, !tbaa !83
@@ -4487,9 +4487,9 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_hexbuf(ptr noundef %0, i32
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 %3
-  %25 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) %1, i32 noundef 80) #4
+  %25 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 0, 15) %1, i32 noundef 80) #5
   %26 = trunc nuw nsw i64 %.0 to i32
-  %27 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %2, i32 noundef %26) #4
+  %27 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %2, i32 noundef %26) #5
   %.not.i = icmp eq i64 %.0, 0
   br i1 %.not.i, label %ssl_print_hex.exit, label %.lr.ph.i
 
@@ -4498,13 +4498,13 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_hexbuf(ptr noundef %0, i32
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 %.011.i
   %29 = load i8, ptr %28, align 1, !tbaa !75
   %30 = zext i8 %29 to i32
-  %31 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %30) #4
+  %31 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %30) #5
   %32 = add nuw nsw i64 %.011.i, 1
   %exitcond.not.i = icmp eq i64 %32, %.0
   br i1 %exitcond.not.i, label %ssl_print_hex.exit, label %.lr.ph.i, !llvm.loop !76
 
 ssl_print_hex.exit:                               ; preds = %.lr.ph.i, %23
-  %33 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  %33 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #5
   %34 = load ptr, ptr %4, align 8, !tbaa !83
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %21
   store ptr %35, ptr %4, align 8, !tbaa !83
@@ -4550,20 +4550,20 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_raw_public_key(ptr noundef
 25:                                               ; preds = %9
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 3
   store ptr %26, ptr %5, align 8, !tbaa !83
-  %27 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #4
-  %28 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.501, i32 noundef %21) #4
+  %27 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #5
+  %28 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.501, i32 noundef %21) #5
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !119
   %31 = load ptr, ptr %30, align 8, !tbaa !94
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 1152
   %33 = load ptr, ptr %32, align 8, !tbaa !109
-  %34 = call ptr @d2i_PUBKEY_ex(ptr noundef null, ptr noundef nonnull %5, i64 noundef %22, ptr noundef %31, ptr noundef %33) #4
+  %34 = call ptr @d2i_PUBKEY_ex(ptr noundef null, ptr noundef nonnull %5, i64 noundef %22, ptr noundef %31, ptr noundef %33) #5
   %35 = icmp eq ptr %34, null
   br i1 %35, label %42, label %36
 
 36:                                               ; preds = %25
-  %37 = call i32 @EVP_PKEY_print_public(ptr noundef %0, ptr noundef nonnull %34, i32 noundef 8, ptr noundef null) #4
-  call void @EVP_PKEY_free(ptr noundef nonnull %34) #4
+  %37 = call i32 @EVP_PKEY_print_public(ptr noundef %0, ptr noundef nonnull %34, i32 noundef 8, ptr noundef null) #5
+  call void @EVP_PKEY_free(ptr noundef nonnull %34) #5
   %38 = load ptr, ptr %2, align 8, !tbaa !83
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 %23
   store ptr %39, ptr %2, align 8, !tbaa !83
@@ -4608,17 +4608,18 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #3
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #3 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

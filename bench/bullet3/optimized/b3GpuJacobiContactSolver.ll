@@ -150,7 +150,7 @@ define dso_local void @_ZN24b3GpuJacobiContactSolverC2EP11_cl_contextP13_cl_devi
   store ptr %2, ptr %8, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %3, ptr %9, align 8, !tbaa !16
-  %10 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #20
+  %10 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #21
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   store i8 1, ptr %11, align 8, !tbaa !17
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 64
@@ -169,14 +169,14 @@ define dso_local void @_ZN24b3GpuJacobiContactSolverC2EP11_cl_contextP13_cl_devi
   store i32 0, ptr %18, align 8, !tbaa !25
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %19, align 8, !tbaa !26
-  %20 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
+  %20 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21
   invoke void @_ZN14b3PrefixScanCLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 0)
           to label %21 unwind label %96
 
 21:                                               ; preds = %5
   %22 = load ptr, ptr %19, align 8, !tbaa !26
   store ptr %20, ptr %22, align 8, !tbaa !27
-  %23 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #20
+  %23 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
   %24 = load ptr, ptr %7, align 8, !tbaa !7
   %25 = load ptr, ptr %9, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %23, align 8, !tbaa !4
@@ -192,7 +192,7 @@ define dso_local void @_ZN24b3GpuJacobiContactSolverC2EP11_cl_contextP13_cl_devi
   store i8 1, ptr %30, align 1, !tbaa !42
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %23, ptr %31, align 8, !tbaa !43
-  %32 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
+  %32 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21
   %33 = load ptr, ptr %8, align 8, !tbaa !15
   invoke void @_ZN8b3FillCLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queue(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef %24, ptr noundef %33, ptr noundef %25)
           to label %34 unwind label %98
@@ -201,7 +201,7 @@ define dso_local void @_ZN24b3GpuJacobiContactSolverC2EP11_cl_contextP13_cl_devi
   %35 = load ptr, ptr %19, align 8, !tbaa !26
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 120
   store ptr %32, ptr %36, align 8, !tbaa !44
-  %37 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #20
+  %37 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
   %38 = load ptr, ptr %7, align 8, !tbaa !7
   %39 = load ptr, ptr %9, align 8, !tbaa !16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV13b3OpenCLArrayI6b3Int2E, i64 16), ptr %37, align 8, !tbaa !4
@@ -217,7 +217,7 @@ define dso_local void @_ZN24b3GpuJacobiContactSolverC2EP11_cl_contextP13_cl_devi
   store i8 1, ptr %44, align 1, !tbaa !49
   %45 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %37, ptr %45, align 8, !tbaa !50
-  %46 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #20
+  %46 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %46, align 8, !tbaa !4
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 32
@@ -231,7 +231,7 @@ define dso_local void @_ZN24b3GpuJacobiContactSolverC2EP11_cl_contextP13_cl_devi
   store i8 1, ptr %51, align 1, !tbaa !42
   %52 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr %46, ptr %52, align 8, !tbaa !51
-  %53 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #20
+  %53 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV13b3OpenCLArrayI16b3GpuConstraint4E, i64 16), ptr %53, align 8, !tbaa !4
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 32
@@ -245,7 +245,7 @@ define dso_local void @_ZN24b3GpuJacobiContactSolverC2EP11_cl_contextP13_cl_devi
   store i8 1, ptr %58, align 1, !tbaa !56
   %59 = getelementptr inbounds nuw i8, ptr %35, i64 112
   store ptr %53, ptr %59, align 8, !tbaa !57
-  %60 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #20
+  %60 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 16), ptr %60, align 8, !tbaa !4
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 32
@@ -259,7 +259,7 @@ define dso_local void @_ZN24b3GpuJacobiContactSolverC2EP11_cl_contextP13_cl_devi
   store i8 1, ptr %65, align 1, !tbaa !62
   %66 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store ptr %60, ptr %66, align 8, !tbaa !63
-  %67 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #20
+  %67 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 16), ptr %67, align 8, !tbaa !4
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 32
@@ -319,7 +319,7 @@ define dso_local void @_ZN24b3GpuJacobiContactSolverC2EP11_cl_contextP13_cl_devi
 100:                                              ; preds = %98, %96
   %.sink = phi ptr [ %32, %98 ], [ %20, %96 ]
   %.pn = phi { ptr, i32 } [ %99, %98 ], [ %97, %96 ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink, i64 noundef 48) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink, i64 noundef 48) #22
   resume { ptr, i32 } %.pn
 }
 
@@ -405,7 +405,7 @@ define dso_local void @_ZN24b3GpuJacobiContactSolverD2Ev(ptr noundef nonnull ali
   %50 = load ptr, ptr %47, align 8, !tbaa !4
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
-  tail call void %52(ptr noundef nonnull align 8 dereferenceable(50) %47) #22
+  tail call void %52(ptr noundef nonnull align 8 dereferenceable(50) %47) #23
   %.pre = load ptr, ptr %3, align 8, !tbaa !26
   br label %53
 
@@ -420,7 +420,7 @@ define dso_local void @_ZN24b3GpuJacobiContactSolverD2Ev(ptr noundef nonnull ali
   %59 = load ptr, ptr %56, align 8, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
-  tail call void %61(ptr noundef nonnull align 8 dereferenceable(50) %56) #22
+  tail call void %61(ptr noundef nonnull align 8 dereferenceable(50) %56) #23
   %.pre9 = load ptr, ptr %3, align 8, !tbaa !26
   br label %62
 
@@ -435,7 +435,7 @@ define dso_local void @_ZN24b3GpuJacobiContactSolverD2Ev(ptr noundef nonnull ali
   %68 = load ptr, ptr %65, align 8, !tbaa !4
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
-  tail call void %70(ptr noundef nonnull align 8 dereferenceable(50) %65) #22
+  tail call void %70(ptr noundef nonnull align 8 dereferenceable(50) %65) #23
   %.pre10 = load ptr, ptr %3, align 8, !tbaa !26
   br label %71
 
@@ -450,7 +450,7 @@ define dso_local void @_ZN24b3GpuJacobiContactSolverD2Ev(ptr noundef nonnull ali
   %77 = load ptr, ptr %74, align 8, !tbaa !4
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8
-  tail call void %79(ptr noundef nonnull align 8 dereferenceable(50) %74) #22
+  tail call void %79(ptr noundef nonnull align 8 dereferenceable(50) %74) #23
   %.pre11 = load ptr, ptr %3, align 8, !tbaa !26
   br label %80
 
@@ -465,7 +465,7 @@ define dso_local void @_ZN24b3GpuJacobiContactSolverD2Ev(ptr noundef nonnull ali
   %86 = load ptr, ptr %83, align 8, !tbaa !4
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8
-  tail call void %88(ptr noundef nonnull align 8 dereferenceable(50) %83) #22
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(50) %83) #23
   %.pre12 = load ptr, ptr %3, align 8, !tbaa !26
   br label %89
 
@@ -480,7 +480,7 @@ define dso_local void @_ZN24b3GpuJacobiContactSolverD2Ev(ptr noundef nonnull ali
   %95 = load ptr, ptr %92, align 8, !tbaa !4
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load ptr, ptr %96, align 8
-  tail call void %97(ptr noundef nonnull align 8 dereferenceable(50) %92) #22
+  tail call void %97(ptr noundef nonnull align 8 dereferenceable(50) %92) #23
   %.pre13 = load ptr, ptr %3, align 8, !tbaa !26
   br label %98
 
@@ -495,7 +495,7 @@ define dso_local void @_ZN24b3GpuJacobiContactSolverD2Ev(ptr noundef nonnull ali
   %104 = load ptr, ptr %101, align 8, !tbaa !4
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8
-  tail call void %106(ptr noundef nonnull align 8 dereferenceable(48) %101) #22
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(48) %101) #23
   %.pre14 = load ptr, ptr %3, align 8, !tbaa !26
   br label %107
 
@@ -509,7 +509,7 @@ define dso_local void @_ZN24b3GpuJacobiContactSolverD2Ev(ptr noundef nonnull ali
   %112 = load ptr, ptr %109, align 8, !tbaa !4
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load ptr, ptr %113, align 8
-  tail call void %114(ptr noundef nonnull align 8 dereferenceable(48) %109) #22
+  tail call void %114(ptr noundef nonnull align 8 dereferenceable(48) %109) #23
   %.pr = load ptr, ptr %3, align 8, !tbaa !26
   %115 = icmp eq ptr %.pr, null
   br i1 %115, label %137, label %.thread
@@ -533,7 +533,7 @@ define dso_local void @_ZN24b3GpuJacobiContactSolverD2Ev(ptr noundef nonnull ali
   %124 = landingpad { ptr, i32 }
           catch ptr null
   %125 = extractvalue { ptr, i32 } %124, 0
-  tail call void @__clang_call_terminate(ptr %125) #23
+  tail call void @__clang_call_terminate(ptr %125) #24
   unreachable
 
 _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit.i: ; preds = %122, %.thread
@@ -560,11 +560,11 @@ _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit.i: ; preds = %122, %.thread
   %135 = landingpad { ptr, i32 }
           catch ptr null
   %136 = extractvalue { ptr, i32 } %135, 0
-  tail call void @__clang_call_terminate(ptr %136) #23
+  tail call void @__clang_call_terminate(ptr %136) #24
   unreachable
 
 _ZN29b3GpuJacobiSolverInternalDataD2Ev.exit:      ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit.i, %133
-  tail call void @_ZdlPvm(ptr noundef nonnull %116, i64 noundef 184) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %116, i64 noundef 184) #22
   br label %137
 
 137:                                              ; preds = %_ZN29b3GpuJacobiSolverInternalDataD2Ev.exit, %111
@@ -574,14 +574,14 @@ _ZN29b3GpuJacobiSolverInternalDataD2Ev.exit:      ; preds = %_ZN20b3AlignedObjec
   %139 = landingpad { ptr, i32 }
           catch ptr null
   %140 = extractvalue { ptr, i32 } %139, 0
-  tail call void @__clang_call_terminate(ptr %140) #23
+  tail call void @__clang_call_terminate(ptr %140) #24
   unreachable
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
-  tail call void @_ZSt9terminatev() #23
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 }
 
@@ -592,8 +592,8 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN24b3GpuJacobiContactSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
-  tail call void @_ZN24b3GpuJacobiContactSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #22
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #21
+  tail call void @_ZN24b3GpuJacobiContactSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #22
   ret void
 }
 
@@ -965,7 +965,7 @@ define dso_local noundef float @_Z12calcJacCoeffRK9b3Vector3S1_S1_S1_fPK11b3Matr
   ret float %83
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -1399,13 +1399,13 @@ _Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit:   ; preds = %204, %217
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #10
+declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_Z25ContactToConstraintKernelP10b3Contact4P15b3RigidBodyDataP13b3InertiaDataP16b3GpuConstraint4ifffiR20b3AlignedObjectArrayIjE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, i32 noundef %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %9) local_unnamed_addr #12 {
+define dso_local void @_Z25ContactToConstraintKernelP10b3Contact4P15b3RigidBodyDataP13b3InertiaDataP16b3GpuConstraint4ifffiR20b3AlignedObjectArrayIjE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, i32 noundef %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %9) local_unnamed_addr #13 {
   %11 = alloca %class.b3Matrix3x3, align 16
   %12 = alloca %class.b3Matrix3x3, align 16
   %13 = alloca %struct.b3GpuConstraint4, align 16
@@ -1495,7 +1495,7 @@ define dso_local void @_Z25ContactToConstraintKernelP10b3Contact4P15b3RigidBodyD
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24b3GpuJacobiContactSolver14solveGroupHostEP15b3RigidBodyDataP13b3InertiaDataiP10b3Contact4iRK18b3JacobiSolverInfo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %6) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24b3GpuJacobiContactSolver14solveGroupHostEP15b3RigidBodyDataP13b3InertiaDataiP10b3Contact4iRK18b3JacobiSolverInfo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %6) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca [2 x %class.b3Vector3], align 16
   %9 = alloca %class.b3Matrix3x3, align 16
   %10 = alloca %class.b3Matrix3x3, align 16
@@ -3101,7 +3101,7 @@ _ZL13solveFrictionR16b3GpuConstraint4RK9b3Vector3S3_S3_fRK11b3Matrix3x3S3_S3_S3_
   %946 = landingpad { ptr, i32 }
           catch ptr null
   %947 = extractvalue { ptr, i32 } %946, 0
-  call void @__clang_call_terminate(ptr %947) #23
+  call void @__clang_call_terminate(ptr %947) #24
   unreachable
 
 _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit:   ; preds = %._crit_edge658, %944
@@ -3116,7 +3116,7 @@ _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit:   ; preds = %._crit_edge658, %94
   %950 = landingpad { ptr, i32 }
           catch ptr null
   %951 = extractvalue { ptr, i32 } %950, 0
-  call void @__clang_call_terminate(ptr %951) #23
+  call void @__clang_call_terminate(ptr %951) #24
   unreachable
 
 _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit426: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit, %948
@@ -3131,7 +3131,7 @@ _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit426: ; preds = %_ZN20b3AlignedObje
   %954 = landingpad { ptr, i32 }
           catch ptr null
   %955 = extractvalue { ptr, i32 } %954, 0
-  call void @__clang_call_terminate(ptr %955) #23
+  call void @__clang_call_terminate(ptr %955) #24
   unreachable
 
 _ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit426, %952
@@ -3151,7 +3151,7 @@ _ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit: ; preds = %_ZN20b3Aligne
   %961 = landingpad { ptr, i32 }
           catch ptr null
   %962 = extractvalue { ptr, i32 } %961, 0
-  call void @__clang_call_terminate(ptr %962) #23
+  call void @__clang_call_terminate(ptr %962) #24
   unreachable
 
 _ZN20b3AlignedObjectArrayIjED2Ev.exit:            ; preds = %_ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit, %959
@@ -3167,7 +3167,7 @@ _ZN20b3AlignedObjectArrayIjED2Ev.exit:            ; preds = %_ZN20b3AlignedObjec
   %965 = landingpad { ptr, i32 }
           catch ptr null
   %966 = extractvalue { ptr, i32 } %965, 0
-  call void @__clang_call_terminate(ptr %966) #23
+  call void @__clang_call_terminate(ptr %966) #24
   unreachable
 
 _ZN20b3AlignedObjectArrayI6b3Int2ED2Ev.exit:      ; preds = %_ZN20b3AlignedObjectArrayIjED2Ev.exit, %963
@@ -3186,7 +3186,7 @@ _ZN20b3AlignedObjectArrayI6b3Int2ED2Ev.exit:      ; preds = %_ZN20b3AlignedObjec
   %972 = landingpad { ptr, i32 }
           catch ptr null
   %973 = extractvalue { ptr, i32 } %972, 0
-  call void @__clang_call_terminate(ptr %973) #23
+  call void @__clang_call_terminate(ptr %973) #24
   unreachable
 
 _ZN20b3AlignedObjectArrayIjED2Ev.exit435:         ; preds = %_ZN20b3AlignedObjectArrayI6b3Int2ED2Ev.exit, %970
@@ -3198,7 +3198,7 @@ _ZN20b3AlignedObjectArrayIjED2Ev.exit435:         ; preds = %_ZN20b3AlignedObjec
   %975 = landingpad { ptr, i32 }
           catch ptr null
   %976 = extractvalue { ptr, i32 } %975, 0
-  call void @__clang_call_terminate(ptr %976) #23
+  call void @__clang_call_terminate(ptr %976) #24
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit:                      ; preds = %_ZN20b3AlignedObjectArrayIjED2Ev.exit435
@@ -3275,7 +3275,7 @@ _ZN13b3ProfileZoneD2Ev.exit:                      ; preds = %_ZN20b3AlignedObjec
   %1023 = landingpad { ptr, i32 }
           catch ptr null
   %1024 = extractvalue { ptr, i32 } %1023, 0
-  call void @__clang_call_terminate(ptr %1024) #23
+  call void @__clang_call_terminate(ptr %1024) #24
   unreachable
 
 _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit438.thread, %1020
@@ -3291,7 +3291,7 @@ _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441.thread578: ; preds = %_ZN20b3A
   %1026 = landingpad { ptr, i32 }
           catch ptr null
   %1027 = extractvalue { ptr, i32 } %1026, 0
-  call void @__clang_call_terminate(ptr %1027) #23
+  call void @__clang_call_terminate(ptr %1027) #24
   unreachable
 
 _ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit444: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441.thread, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441.thread578, %131
@@ -3316,7 +3316,7 @@ _ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit444: ; preds = %_ZN20b3Ali
   %1034 = landingpad { ptr, i32 }
           catch ptr null
   %1035 = extractvalue { ptr, i32 } %1034, 0
-  call void @__clang_call_terminate(ptr %1035) #23
+  call void @__clang_call_terminate(ptr %1035) #24
   unreachable
 
 _ZN20b3AlignedObjectArrayIjED2Ev.exit447:         ; preds = %1028, %1032
@@ -3332,7 +3332,7 @@ _ZN20b3AlignedObjectArrayIjED2Ev.exit447:         ; preds = %1028, %1032
   %1038 = landingpad { ptr, i32 }
           catch ptr null
   %1039 = extractvalue { ptr, i32 } %1038, 0
-  call void @__clang_call_terminate(ptr %1039) #23
+  call void @__clang_call_terminate(ptr %1039) #24
   unreachable
 
 _ZN20b3AlignedObjectArrayI6b3Int2ED2Ev.exit450:   ; preds = %.thread, %_ZN20b3AlignedObjectArrayIjED2Ev.exit447, %1036, %41
@@ -3352,7 +3352,7 @@ _ZN20b3AlignedObjectArrayI6b3Int2ED2Ev.exit450:   ; preds = %.thread, %_ZN20b3Al
   %1045 = landingpad { ptr, i32 }
           catch ptr null
   %1046 = extractvalue { ptr, i32 } %1045, 0
-  call void @__clang_call_terminate(ptr %1046) #23
+  call void @__clang_call_terminate(ptr %1046) #24
   unreachable
 
 _ZN20b3AlignedObjectArrayIjED2Ev.exit453:         ; preds = %_ZN20b3AlignedObjectArrayI6b3Int2ED2Ev.exit450, %1043
@@ -3364,7 +3364,7 @@ _ZN20b3AlignedObjectArrayIjED2Ev.exit453:         ; preds = %_ZN20b3AlignedObjec
   %1048 = landingpad { ptr, i32 }
           catch ptr null
   %1049 = extractvalue { ptr, i32 } %1048, 0
-  call void @__clang_call_terminate(ptr %1049) #23
+  call void @__clang_call_terminate(ptr %1049) #24
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit454:                   ; preds = %_ZN20b3AlignedObjectArrayIjED2Ev.exit453
@@ -3372,12 +3372,12 @@ _ZN13b3ProfileZoneD2Ev.exit454:                   ; preds = %_ZN20b3AlignedObjec
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 declare void @_ZN14b3PrefixScanCL11executeHostER20b3AlignedObjectArrayIjES2_iPj(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(25), ptr noundef nonnull align 8 dereferenceable(25), i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #15
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN24b3GpuJacobiContactSolver13solveContactsEiP7_cl_memS1_iS1_RK8b3Configi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef nonnull readnone align 1 captures(none) %6, i32 noundef %7) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -3447,7 +3447,7 @@ _ZN13b3ProfileZoneC2EPKc.exit:                    ; preds = %8
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  tail call void @__clang_call_terminate(ptr %53) #23
+  tail call void @__clang_call_terminate(ptr %53) #24
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit:                      ; preds = %50
@@ -3495,7 +3495,7 @@ _ZN13b3ProfileZoneC2EPKc.exit83:                  ; preds = %_ZN13b3ProfileZoneD
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #23
+  call void @__clang_call_terminate(ptr %78) #24
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit84:                    ; preds = %75
@@ -3820,7 +3820,7 @@ _ZN12b3LauncherCL8setConstIiEEvRKT_.exit89:       ; preds = %192
 214:                                              ; preds = %212, %.noexc90
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %31) #22
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %31) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   invoke void @b3LeaveProfileZone()
           to label %_ZN13b3ProfileZoneD2Ev.exit91 unwind label %215
@@ -3829,7 +3829,7 @@ _ZN12b3LauncherCL8setConstIiEEvRKT_.exit89:       ; preds = %192
   %216 = landingpad { ptr, i32 }
           catch ptr null
   %217 = extractvalue { ptr, i32 } %216, 0
-  call void @__clang_call_terminate(ptr %217) #23
+  call void @__clang_call_terminate(ptr %217) #24
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit91:                    ; preds = %214
@@ -3912,7 +3912,7 @@ _ZNK13b3OpenCLArrayIjE17copyToHostPointerEPjmmb.exit.i: ; preds = %232
   %257 = landingpad { ptr, i32 }
           catch ptr null
   %258 = extractvalue { ptr, i32 } %257, 0
-  call void @__clang_call_terminate(ptr %258) #23
+  call void @__clang_call_terminate(ptr %258) #24
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit99:                    ; preds = %253
@@ -3936,7 +3936,7 @@ _ZN13b3ProfileZoneC2EPKc.exit101:                 ; preds = %_ZN13b3ProfileZoneD
   %267 = landingpad { ptr, i32 }
           catch ptr null
   %268 = extractvalue { ptr, i32 } %267, 0
-  call void @__clang_call_terminate(ptr %268) #23
+  call void @__clang_call_terminate(ptr %268) #24
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit102:                   ; preds = %265
@@ -4512,7 +4512,7 @@ _ZN12b3LauncherCL8setConstIfEEvRKT_.exit115:      ; preds = %479
 501:                                              ; preds = %499, %.noexc119
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %33) #22
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %33) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   invoke void @b3LeaveProfileZone()
           to label %_ZN13b3ProfileZoneD2Ev.exit121 unwind label %502
@@ -4521,7 +4521,7 @@ _ZN12b3LauncherCL8setConstIfEEvRKT_.exit115:      ; preds = %479
   %503 = landingpad { ptr, i32 }
           catch ptr null
   %504 = extractvalue { ptr, i32 } %503, 0
-  call void @__clang_call_terminate(ptr %504) #23
+  call void @__clang_call_terminate(ptr %504) #24
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit121:                   ; preds = %501
@@ -4554,7 +4554,7 @@ _ZN13b3ProfileZoneC2EPKc.exit123:                 ; preds = %_ZN13b3ProfileZoneD
   %520 = landingpad { ptr, i32 }
           catch ptr null
   %521 = extractvalue { ptr, i32 } %520, 0
-  call void @__clang_call_terminate(ptr %521) #23
+  call void @__clang_call_terminate(ptr %521) #24
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit124:                   ; preds = %518
@@ -4758,7 +4758,7 @@ _ZN12b3LauncherCL8setConstIjEEvRKT_.exit:         ; preds = %583
           to label %611 unwind label %720
 
 611:                                              ; preds = %607
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %34) #22
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %34) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   invoke void @b3LeaveProfileZone()
           to label %_ZN13b3ProfileZoneD2Ev.exit134 unwind label %612
@@ -4767,7 +4767,7 @@ _ZN12b3LauncherCL8setConstIjEEvRKT_.exit:         ; preds = %583
   %613 = landingpad { ptr, i32 }
           catch ptr null
   %614 = extractvalue { ptr, i32 } %613, 0
-  call void @__clang_call_terminate(ptr %614) #23
+  call void @__clang_call_terminate(ptr %614) #24
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit134:                   ; preds = %611
@@ -4841,7 +4841,7 @@ _ZN13b3ProfileZoneD2Ev.exit134:                   ; preds = %611
   %666 = landingpad { ptr, i32 }
           catch ptr null
   %667 = extractvalue { ptr, i32 } %666, 0
-  tail call void @__clang_call_terminate(ptr %667) #23
+  tail call void @__clang_call_terminate(ptr %667) #24
   unreachable
 
 668:                                              ; preds = %_ZN13b3ProfileZoneD2Ev.exit
@@ -4859,7 +4859,7 @@ _ZN13b3ProfileZoneD2Ev.exit134:                   ; preds = %611
   %673 = landingpad { ptr, i32 }
           catch ptr null
   %674 = extractvalue { ptr, i32 } %673, 0
-  call void @__clang_call_terminate(ptr %674) #23
+  call void @__clang_call_terminate(ptr %674) #24
   unreachable
 
 675:                                              ; preds = %_ZN13b3ProfileZoneD2Ev.exit84
@@ -4875,7 +4875,7 @@ _ZN13b3ProfileZoneD2Ev.exit134:                   ; preds = %611
 679:                                              ; preds = %181, %.noexc253, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i251, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i237, %131, %.noexc232, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i, %_ZN12b3LauncherCL8setConstIiEEvRKT_.exit89, %192, %142, %91, %85, %84
   %680 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %31) #22
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %31) #23
   br label %681
 
 681:                                              ; preds = %679, %677
@@ -4888,7 +4888,7 @@ _ZN13b3ProfileZoneD2Ev.exit134:                   ; preds = %611
   %683 = landingpad { ptr, i32 }
           catch ptr null
   %684 = extractvalue { ptr, i32 } %683, 0
-  call void @__clang_call_terminate(ptr %684) #23
+  call void @__clang_call_terminate(ptr %684) #24
   unreachable
 
 685:                                              ; preds = %_ZN13b3ProfileZoneD2Ev.exit91
@@ -4906,7 +4906,7 @@ _ZN13b3ProfileZoneD2Ev.exit134:                   ; preds = %611
   %690 = landingpad { ptr, i32 }
           catch ptr null
   %691 = extractvalue { ptr, i32 } %690, 0
-  call void @__clang_call_terminate(ptr %691) #23
+  call void @__clang_call_terminate(ptr %691) #24
   unreachable
 
 692:                                              ; preds = %_ZN13b3ProfileZoneD2Ev.exit99
@@ -4924,7 +4924,7 @@ _ZN13b3ProfileZoneD2Ev.exit134:                   ; preds = %611
   %697 = landingpad { ptr, i32 }
           catch ptr null
   %698 = extractvalue { ptr, i32 } %697, 0
-  call void @__clang_call_terminate(ptr %698) #23
+  call void @__clang_call_terminate(ptr %698) #24
   unreachable
 
 699:                                              ; preds = %_ZN13b3ProfileZoneD2Ev.exit102
@@ -4940,7 +4940,7 @@ _ZN13b3ProfileZoneD2Ev.exit134:                   ; preds = %611
 703:                                              ; preds = %468, %.noexc341, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i339, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i325, %420, %.noexc319, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i317, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i303, %372, %.noexc297, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i295, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i281, %322, %.noexc275, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i273, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i259, %_ZN12b3LauncherCL8setConstIfEEvRKT_.exit115, %479, %431, %383, %333, %282, %276, %275, %274, %273
   %704 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %33) #22
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %33) #23
   br label %705
 
 705:                                              ; preds = %703, %701
@@ -4953,7 +4953,7 @@ _ZN13b3ProfileZoneD2Ev.exit134:                   ; preds = %611
   %707 = landingpad { ptr, i32 }
           catch ptr null
   %708 = extractvalue { ptr, i32 } %707, 0
-  call void @__clang_call_terminate(ptr %708) #23
+  call void @__clang_call_terminate(ptr %708) #24
   unreachable
 
 709:                                              ; preds = %_ZN13b3ProfileZoneD2Ev.exit121
@@ -4971,7 +4971,7 @@ _ZN13b3ProfileZoneD2Ev.exit134:                   ; preds = %611
   %714 = landingpad { ptr, i32 }
           catch ptr null
   %715 = extractvalue { ptr, i32 } %714, 0
-  call void @__clang_call_terminate(ptr %715) #23
+  call void @__clang_call_terminate(ptr %715) #24
   unreachable
 
 716:                                              ; preds = %_ZN13b3ProfileZoneD2Ev.exit124
@@ -4987,7 +4987,7 @@ _ZN13b3ProfileZoneD2Ev.exit134:                   ; preds = %611
 720:                                              ; preds = %572, %.noexc363, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i361, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i347, %_ZN12b3LauncherCL8setConstIjEEvRKT_.exit, %583, %607, %532, %526
   %721 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %34) #22
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %34) #23
   br label %722
 
 722:                                              ; preds = %720, %718
@@ -5000,7 +5000,7 @@ _ZN13b3ProfileZoneD2Ev.exit134:                   ; preds = %611
   %724 = landingpad { ptr, i32 }
           catch ptr null
   %725 = extractvalue { ptr, i32 } %724, 0
-  call void @__clang_call_terminate(ptr %725) #23
+  call void @__clang_call_terminate(ptr %725) #24
   unreachable
 
 726:                                              ; preds = %.lr.ph, %_ZN13b3ProfileZoneD2Ev.exit212
@@ -5686,7 +5686,7 @@ _ZN12b3LauncherCL8setConstIiEEvRKT_.exit161:      ; preds = %963
           to label %986 unwind label %1442
 
 986:                                              ; preds = %982
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %35) #22
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %35) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   invoke void @b3LeaveProfileZone()
           to label %_ZN13b3ProfileZoneD2Ev.exit167 unwind label %987
@@ -5695,7 +5695,7 @@ _ZN12b3LauncherCL8setConstIiEEvRKT_.exit161:      ; preds = %963
   %988 = landingpad { ptr, i32 }
           catch ptr null
   %989 = extractvalue { ptr, i32 } %988, 0
-  call void @__clang_call_terminate(ptr %989) #23
+  call void @__clang_call_terminate(ptr %989) #24
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit167:                   ; preds = %986
@@ -5907,7 +5907,7 @@ _ZN12b3LauncherCL8setConstIiEEvRKT_.exit172:      ; preds = %1055
           to label %1078 unwind label %1452
 
 1078:                                             ; preds = %1074
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %36) #22
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %36) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   invoke void @b3LeaveProfileZone()
           to label %_ZN13b3ProfileZoneD2Ev.exit178 unwind label %1079
@@ -5916,7 +5916,7 @@ _ZN12b3LauncherCL8setConstIiEEvRKT_.exit172:      ; preds = %1055
   %1080 = landingpad { ptr, i32 }
           catch ptr null
   %1081 = extractvalue { ptr, i32 } %1080, 0
-  call void @__clang_call_terminate(ptr %1081) #23
+  call void @__clang_call_terminate(ptr %1081) #24
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit178:                   ; preds = %1078
@@ -6601,7 +6601,7 @@ _ZN12b3LauncherCL8setConstIiEEvRKT_.exit195:      ; preds = %1318
           to label %1341 unwind label %1462
 
 1341:                                             ; preds = %1337
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %37) #22
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %37) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   invoke void @b3LeaveProfileZone()
           to label %_ZN13b3ProfileZoneD2Ev.exit201 unwind label %1342
@@ -6610,7 +6610,7 @@ _ZN12b3LauncherCL8setConstIiEEvRKT_.exit195:      ; preds = %1318
   %1343 = landingpad { ptr, i32 }
           catch ptr null
   %1344 = extractvalue { ptr, i32 } %1343, 0
-  call void @__clang_call_terminate(ptr %1344) #23
+  call void @__clang_call_terminate(ptr %1344) #24
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit201:                   ; preds = %1341
@@ -6822,7 +6822,7 @@ _ZN12b3LauncherCL8setConstIiEEvRKT_.exit206:      ; preds = %1410
           to label %1433 unwind label %1472
 
 1433:                                             ; preds = %1429
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %38) #22
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %38) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   invoke void @b3LeaveProfileZone()
           to label %_ZN13b3ProfileZoneD2Ev.exit212 unwind label %1434
@@ -6831,7 +6831,7 @@ _ZN12b3LauncherCL8setConstIiEEvRKT_.exit206:      ; preds = %1410
   %1435 = landingpad { ptr, i32 }
           catch ptr null
   %1436 = extractvalue { ptr, i32 } %1435, 0
-  call void @__clang_call_terminate(ptr %1436) #23
+  call void @__clang_call_terminate(ptr %1436) #24
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit212:                   ; preds = %1433
@@ -6852,7 +6852,7 @@ _ZN13b3ProfileZoneD2Ev.exit212:                   ; preds = %1433
 1442:                                             ; preds = %954, %.noexc473, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i471, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i457, %913, %.noexc451, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i449, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i435, %872, %.noexc429, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i427, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i413, %831, %.noexc407, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i405, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i391, %790, %.noexc385, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i383, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i369, %_ZN12b3LauncherCL8setConstIiEEvRKT_.exit161, %963, %922, %881, %840, %799, %982, %757, %751, %745, %739, %738, %737, %731
   %1443 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %35) #22
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %35) #23
   br label %1444
 
 1444:                                             ; preds = %1442, %1440
@@ -6865,7 +6865,7 @@ _ZN13b3ProfileZoneD2Ev.exit212:                   ; preds = %1433
   %1446 = landingpad { ptr, i32 }
           catch ptr null
   %1447 = extractvalue { ptr, i32 } %1446, 0
-  call void @__clang_call_terminate(ptr %1447) #23
+  call void @__clang_call_terminate(ptr %1447) #24
   unreachable
 
 1448:                                             ; preds = %_ZN13b3ProfileZoneD2Ev.exit167
@@ -6881,7 +6881,7 @@ _ZN13b3ProfileZoneD2Ev.exit212:                   ; preds = %1433
 1452:                                             ; preds = %1046, %.noexc495, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i493, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i479, %_ZN12b3LauncherCL8setConstIiEEvRKT_.exit172, %1055, %1074, %1013, %1007, %1001, %995, %994
   %1453 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %36) #22
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %36) #23
   br label %1454
 
 1454:                                             ; preds = %1452, %1450
@@ -6894,7 +6894,7 @@ _ZN13b3ProfileZoneD2Ev.exit212:                   ; preds = %1433
   %1456 = landingpad { ptr, i32 }
           catch ptr null
   %1457 = extractvalue { ptr, i32 } %1456, 0
-  call void @__clang_call_terminate(ptr %1457) #23
+  call void @__clang_call_terminate(ptr %1457) #24
   unreachable
 
 1458:                                             ; preds = %_ZN13b3ProfileZoneD2Ev.exit178
@@ -6910,7 +6910,7 @@ _ZN13b3ProfileZoneD2Ev.exit212:                   ; preds = %1433
 1462:                                             ; preds = %1309, %.noexc605, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i603, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i589, %1268, %.noexc583, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i581, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i567, %1227, %.noexc561, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i559, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i545, %1186, %.noexc539, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i537, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i523, %1145, %.noexc517, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i515, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i501, %_ZN12b3LauncherCL8setConstIiEEvRKT_.exit195, %1318, %1277, %1236, %1195, %1154, %1337, %1112, %1106, %1100, %1094, %1093, %1092, %1086
   %1463 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %37) #22
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %37) #23
   br label %1464
 
 1464:                                             ; preds = %1462, %1460
@@ -6923,7 +6923,7 @@ _ZN13b3ProfileZoneD2Ev.exit212:                   ; preds = %1433
   %1466 = landingpad { ptr, i32 }
           catch ptr null
   %1467 = extractvalue { ptr, i32 } %1466, 0
-  call void @__clang_call_terminate(ptr %1467) #23
+  call void @__clang_call_terminate(ptr %1467) #24
   unreachable
 
 1468:                                             ; preds = %_ZN13b3ProfileZoneD2Ev.exit201
@@ -6939,7 +6939,7 @@ _ZN13b3ProfileZoneD2Ev.exit212:                   ; preds = %1433
 1472:                                             ; preds = %1401, %.noexc627, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i625, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i611, %_ZN12b3LauncherCL8setConstIiEEvRKT_.exit206, %1410, %1429, %1368, %1362, %1356, %1350, %1349
   %1473 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %38) #22
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %38) #23
   br label %1474
 
 1474:                                             ; preds = %1472, %1470
@@ -6952,7 +6952,7 @@ _ZN13b3ProfileZoneD2Ev.exit212:                   ; preds = %1433
   %1476 = landingpad { ptr, i32 }
           catch ptr null
   %1477 = extractvalue { ptr, i32 } %1476, 0
-  call void @__clang_call_terminate(ptr %1477) #23
+  call void @__clang_call_terminate(ptr %1477) #24
   unreachable
 
 _ZN13b3ProfileZoneC2EPKc.exit136:                 ; preds = %._crit_edge
@@ -7174,7 +7174,7 @@ _ZN12b3LauncherCL8setConstIiEEvRKT_.exit219:      ; preds = %1552
           to label %1580 unwind label %1591
 
 1580:                                             ; preds = %1576
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %39) #22
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %39) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   invoke void @b3LeaveProfileZone()
           to label %_ZN13b3ProfileZoneD2Ev.exit225 unwind label %1581
@@ -7183,7 +7183,7 @@ _ZN12b3LauncherCL8setConstIiEEvRKT_.exit219:      ; preds = %1552
   %1582 = landingpad { ptr, i32 }
           catch ptr null
   %1583 = extractvalue { ptr, i32 } %1582, 0
-  call void @__clang_call_terminate(ptr %1583) #23
+  call void @__clang_call_terminate(ptr %1583) #24
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit225:                   ; preds = %1580
@@ -7197,7 +7197,7 @@ _ZN13b3ProfileZoneD2Ev.exit225:                   ; preds = %1580
   %1585 = landingpad { ptr, i32 }
           catch ptr null
   %1586 = extractvalue { ptr, i32 } %1585, 0
-  call void @__clang_call_terminate(ptr %1586) #23
+  call void @__clang_call_terminate(ptr %1586) #24
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit226:                   ; preds = %_ZN13b3ProfileZoneD2Ev.exit225
@@ -7217,7 +7217,7 @@ _ZN13b3ProfileZoneD2Ev.exit226:                   ; preds = %_ZN13b3ProfileZoneD
 1591:                                             ; preds = %1541, %.noexc649, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i647, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i633, %_ZN12b3LauncherCL8setConstIiEEvRKT_.exit219, %1552, %1576, %1501, %1495, %1489, %1483, %1482
   %1592 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %39) #22
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %39) #23
   br label %1593
 
 1593:                                             ; preds = %1591, %1589
@@ -7230,7 +7230,7 @@ _ZN13b3ProfileZoneD2Ev.exit226:                   ; preds = %_ZN13b3ProfileZoneD
   %1595 = landingpad { ptr, i32 }
           catch ptr null
   %1596 = extractvalue { ptr, i32 } %1595, 0
-  call void @__clang_call_terminate(ptr %1596) #23
+  call void @__clang_call_terminate(ptr %1596) #24
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit140:                   ; preds = %1587, %1593, %1468, %1474, %1458, %1464, %1448, %1454, %1438, %1444, %716, %722, %709, %711, %699, %705, %692, %694, %685, %687
@@ -7253,7 +7253,7 @@ _ZN13b3ProfileZoneD2Ev.exit137:                   ; preds = %661, %663, %_ZN13b3
   %1598 = landingpad { ptr, i32 }
           catch ptr null
   %1599 = extractvalue { ptr, i32 } %1598, 0
-  call void @__clang_call_terminate(ptr %1599) #23
+  call void @__clang_call_terminate(ptr %1599) #24
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit228:                   ; preds = %_ZN13b3ProfileZoneD2Ev.exit137
@@ -7262,7 +7262,7 @@ _ZN13b3ProfileZoneD2Ev.exit228:                   ; preds = %_ZN13b3ProfileZoneD
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN13b3OpenCLArrayIjE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #16 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN13b3OpenCLArrayIjE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #17 comdat align 2 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !160
@@ -7367,7 +7367,7 @@ _ZN13b3OpenCLArrayIjE7reserveEmb.exit.thread:     ; preds = %_ZN13b3OpenCLArrayI
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN13b3OpenCLArrayI6b3Int2E6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #16 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN13b3OpenCLArrayI6b3Int2E6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #17 comdat align 2 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !161
@@ -7480,12 +7480,12 @@ declare void @_ZN12b3LauncherCLC1EP17_cl_command_queueP10_cl_kernelPKc(ptr nound
 declare void @_ZN12b3LauncherCL9setBufferEP7_cl_mem(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #17
+declare void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #18
 
 declare void @_ZN14b3PrefixScanCL7executeER13b3OpenCLArrayIjES2_iPj(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(50), ptr noundef nonnull align 8 dereferenceable(50), i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN13b3OpenCLArrayI16b3GpuConstraint4E6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #16 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN13b3OpenCLArrayI16b3GpuConstraint4E6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #17 comdat align 2 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !163
@@ -7590,7 +7590,7 @@ _ZN13b3OpenCLArrayI16b3GpuConstraint4E7reserveEmb.exit.thread: ; preds = %_ZN13b
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN13b3OpenCLArrayI9b3Vector3E6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #16 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN13b3OpenCLArrayI9b3Vector3E6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #17 comdat align 2 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !165
@@ -7702,7 +7702,7 @@ declare void @b3EnterProfileZone(ptr noundef) local_unnamed_addr #3
 
 declare void @b3LeaveProfileZone() local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #10
 
 declare void @_Z21b3AlignedFreeInternalPv(ptr noundef) local_unnamed_addr #3
@@ -7733,7 +7733,7 @@ define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIjED2Ev(ptr noundef nonnul
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #23
+  tail call void @__clang_call_terminate(ptr %14) #24
   unreachable
 }
 
@@ -7758,11 +7758,11 @@ define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIjED0Ev(ptr noundef nonnul
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #23
+  tail call void @__clang_call_terminate(ptr %12) #24
   unreachable
 
 _ZN13b3OpenCLArrayIjED2Ev.exit:                   ; preds = %1, %7
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #22
   ret void
 }
 
@@ -7794,7 +7794,7 @@ define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI6b3Int2ED2Ev(ptr noundef 
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #23
+  tail call void @__clang_call_terminate(ptr %14) #24
   unreachable
 }
 
@@ -7819,11 +7819,11 @@ define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI6b3Int2ED0Ev(ptr noundef 
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #23
+  tail call void @__clang_call_terminate(ptr %12) #24
   unreachable
 
 _ZN13b3OpenCLArrayI6b3Int2ED2Ev.exit:             ; preds = %1, %7
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #22
   ret void
 }
 
@@ -7853,7 +7853,7 @@ define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI16b3GpuConstraint4ED2Ev(p
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #23
+  tail call void @__clang_call_terminate(ptr %14) #24
   unreachable
 }
 
@@ -7878,11 +7878,11 @@ define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI16b3GpuConstraint4ED0Ev(p
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #23
+  tail call void @__clang_call_terminate(ptr %12) #24
   unreachable
 
 _ZN13b3OpenCLArrayI16b3GpuConstraint4ED2Ev.exit:  ; preds = %1, %7
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #22
   ret void
 }
 
@@ -7912,7 +7912,7 @@ define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI9b3Vector3ED2Ev(ptr nound
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #23
+  tail call void @__clang_call_terminate(ptr %14) #24
   unreachable
 }
 
@@ -7937,27 +7937,27 @@ define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI9b3Vector3ED0Ev(ptr nound
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #23
+  tail call void @__clang_call_terminate(ptr %12) #24
   unreachable
 
 _ZN13b3OpenCLArrayI9b3Vector3ED2Ev.exit:          ; preds = %1, %7
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #22
   ret void
 }
 
 declare noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #20
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -7969,20 +7969,21 @@ attributes #6 = { cold nofree noreturn }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { builtin allocsize(0) }
-attributes #21 = { builtin nounwind }
-attributes #22 = { nounwind }
-attributes #23 = { noreturn nounwind }
+attributes #10 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #20 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { builtin allocsize(0) }
+attributes #22 = { builtin nounwind }
+attributes #23 = { nounwind }
+attributes #24 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

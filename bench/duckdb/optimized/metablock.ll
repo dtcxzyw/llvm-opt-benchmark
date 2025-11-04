@@ -1888,7 +1888,7 @@ define internal fastcc void @_ZL31BlockSplitterFinishBlockLiteralP20BlockSplitte
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit
 
 37:                                               ; preds = %27
-  %38 = tail call double @log2(double noundef %32) #10, !tbaa !15
+  %38 = tail call double @log2(double noundef %32) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit
 
 _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %34, %37
@@ -1915,7 +1915,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %34, %37
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit155
 
 51:                                               ; preds = %41
-  %52 = tail call double @log2(double noundef %46) #10, !tbaa !15
+  %52 = tail call double @log2(double noundef %46) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit155
 
 _ZN13duckdb_brotliL8FastLog2Em.exit155:           ; preds = %48, %51
@@ -1939,7 +1939,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit155:           ; preds = %48, %51
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit153
 
 62:                                               ; preds = %56
-  %63 = tail call double @log2(double noundef %57) #10, !tbaa !15
+  %63 = tail call double @log2(double noundef %57) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit153
 
 _ZN13duckdb_brotliL8FastLog2Em.exit153:           ; preds = %59, %62
@@ -2018,7 +2018,7 @@ _ZN13duckdb_brotliL14ShannonEntropyEPKjmPm.exit150: ; preds = %55, %_ZN13duckdb_
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit157
 
 102:                                              ; preds = %92
-  %103 = tail call double @log2(double noundef %97) #10, !tbaa !15
+  %103 = tail call double @log2(double noundef %97) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit157
 
 _ZN13duckdb_brotliL8FastLog2Em.exit157:           ; preds = %99, %102
@@ -2045,7 +2045,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit157:           ; preds = %99, %102
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit161
 
 116:                                              ; preds = %106
-  %117 = tail call double @log2(double noundef %111) #10, !tbaa !15
+  %117 = tail call double @log2(double noundef %111) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit161
 
 _ZN13duckdb_brotliL8FastLog2Em.exit161:           ; preds = %113, %116
@@ -2069,7 +2069,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit161:           ; preds = %113, %116
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit159
 
 127:                                              ; preds = %121
-  %128 = tail call double @log2(double noundef %122) #10, !tbaa !15
+  %128 = tail call double @log2(double noundef %122) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit159
 
 _ZN13duckdb_brotliL8FastLog2Em.exit159:           ; preds = %124, %127
@@ -2148,7 +2148,7 @@ _ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.e
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit163
 
 166:                                              ; preds = %156
-  %167 = tail call double @log2(double noundef %161) #10, !tbaa !15
+  %167 = tail call double @log2(double noundef %161) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit163
 
 _ZN13duckdb_brotliL8FastLog2Em.exit163:           ; preds = %163, %166
@@ -2175,7 +2175,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit163:           ; preds = %163, %166
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit167
 
 180:                                              ; preds = %170
-  %181 = tail call double @log2(double noundef %175) #10, !tbaa !15
+  %181 = tail call double @log2(double noundef %175) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit167
 
 _ZN13duckdb_brotliL8FastLog2Em.exit167:           ; preds = %177, %180
@@ -2199,7 +2199,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit167:           ; preds = %177, %180
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit165
 
 191:                                              ; preds = %185
-  %192 = tail call double @log2(double noundef %186) #10, !tbaa !15
+  %192 = tail call double @log2(double noundef %186) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit165
 
 _ZN13duckdb_brotliL8FastLog2Em.exit165:           ; preds = %188, %191
@@ -2485,7 +2485,7 @@ define internal fastcc void @_ZL31ContextBlockSplitterFinishBlockP20ContextBlock
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit
 
 48:                                               ; preds = %38
-  %49 = tail call double @log2(double noundef %43) #10, !tbaa !15
+  %49 = tail call double @log2(double noundef %43) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit
 
 _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %45, %48
@@ -2512,7 +2512,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %45, %48
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit230
 
 62:                                               ; preds = %52
-  %63 = tail call double @log2(double noundef %57) #10, !tbaa !15
+  %63 = tail call double @log2(double noundef %57) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit230
 
 _ZN13duckdb_brotliL8FastLog2Em.exit230:           ; preds = %59, %62
@@ -2536,7 +2536,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit230:           ; preds = %59, %62
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit228
 
 73:                                               ; preds = %67
-  %74 = tail call double @log2(double noundef %68) #10, !tbaa !15
+  %74 = tail call double @log2(double noundef %68) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit228
 
 _ZN13duckdb_brotliL8FastLog2Em.exit228:           ; preds = %70, %73
@@ -2664,7 +2664,7 @@ _ZN13duckdb_brotliL22ClearHistogramsLiteralEPNS_16HistogramLiteralEm.exit200: ; 
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit232
 
 125:                                              ; preds = %115
-  %126 = tail call double @log2(double noundef %120) #10, !tbaa !15
+  %126 = tail call double @log2(double noundef %120) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit232
 
 _ZN13duckdb_brotliL8FastLog2Em.exit232:           ; preds = %122, %125
@@ -2691,7 +2691,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit232:           ; preds = %122, %125
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit236
 
 139:                                              ; preds = %129
-  %140 = tail call double @log2(double noundef %134) #10, !tbaa !15
+  %140 = tail call double @log2(double noundef %134) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit236
 
 _ZN13duckdb_brotliL8FastLog2Em.exit236:           ; preds = %136, %139
@@ -2715,7 +2715,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit236:           ; preds = %136, %139
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit234
 
 150:                                              ; preds = %144
-  %151 = tail call double @log2(double noundef %145) #10, !tbaa !15
+  %151 = tail call double @log2(double noundef %145) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit234
 
 _ZN13duckdb_brotliL8FastLog2Em.exit234:           ; preds = %147, %150
@@ -2793,7 +2793,7 @@ _ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.e
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit238
 
 189:                                              ; preds = %179
-  %190 = tail call double @log2(double noundef %184) #10, !tbaa !15
+  %190 = tail call double @log2(double noundef %184) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit238
 
 _ZN13duckdb_brotliL8FastLog2Em.exit238:           ; preds = %186, %189
@@ -2820,7 +2820,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit238:           ; preds = %186, %189
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit242
 
 203:                                              ; preds = %193
-  %204 = tail call double @log2(double noundef %198) #10, !tbaa !15
+  %204 = tail call double @log2(double noundef %198) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit242
 
 _ZN13duckdb_brotliL8FastLog2Em.exit242:           ; preds = %200, %203
@@ -2844,7 +2844,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit242:           ; preds = %200, %203
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit240
 
 214:                                              ; preds = %208
-  %215 = tail call double @log2(double noundef %209) #10, !tbaa !15
+  %215 = tail call double @log2(double noundef %209) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit240
 
 _ZN13duckdb_brotliL8FastLog2Em.exit240:           ; preds = %211, %214
@@ -3195,7 +3195,7 @@ define internal fastcc void @_ZL31BlockSplitterFinishBlockCommandP20BlockSplitte
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit
 
 37:                                               ; preds = %27
-  %38 = tail call double @log2(double noundef %32) #10, !tbaa !15
+  %38 = tail call double @log2(double noundef %32) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit
 
 _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %34, %37
@@ -3222,7 +3222,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %34, %37
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit154
 
 51:                                               ; preds = %41
-  %52 = tail call double @log2(double noundef %46) #10, !tbaa !15
+  %52 = tail call double @log2(double noundef %46) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit154
 
 _ZN13duckdb_brotliL8FastLog2Em.exit154:           ; preds = %48, %51
@@ -3246,7 +3246,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit154:           ; preds = %48, %51
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit152
 
 62:                                               ; preds = %56
-  %63 = tail call double @log2(double noundef %57) #10, !tbaa !15
+  %63 = tail call double @log2(double noundef %57) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit152
 
 _ZN13duckdb_brotliL8FastLog2Em.exit152:           ; preds = %59, %62
@@ -3325,7 +3325,7 @@ _ZN13duckdb_brotliL14ShannonEntropyEPKjmPm.exit149: ; preds = %55, %_ZN13duckdb_
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit156
 
 102:                                              ; preds = %92
-  %103 = tail call double @log2(double noundef %97) #10, !tbaa !15
+  %103 = tail call double @log2(double noundef %97) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit156
 
 _ZN13duckdb_brotliL8FastLog2Em.exit156:           ; preds = %99, %102
@@ -3352,7 +3352,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit156:           ; preds = %99, %102
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit160
 
 116:                                              ; preds = %106
-  %117 = tail call double @log2(double noundef %111) #10, !tbaa !15
+  %117 = tail call double @log2(double noundef %111) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit160
 
 _ZN13duckdb_brotliL8FastLog2Em.exit160:           ; preds = %113, %116
@@ -3376,7 +3376,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit160:           ; preds = %113, %116
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit158
 
 127:                                              ; preds = %121
-  %128 = tail call double @log2(double noundef %122) #10, !tbaa !15
+  %128 = tail call double @log2(double noundef %122) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit158
 
 _ZN13duckdb_brotliL8FastLog2Em.exit158:           ; preds = %124, %127
@@ -3455,7 +3455,7 @@ _ZN13duckdb_brotliL28HistogramAddHistogramCommandEPNS_16HistogramCommandEPKS0_.e
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit162
 
 166:                                              ; preds = %156
-  %167 = tail call double @log2(double noundef %161) #10, !tbaa !15
+  %167 = tail call double @log2(double noundef %161) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit162
 
 _ZN13duckdb_brotliL8FastLog2Em.exit162:           ; preds = %163, %166
@@ -3482,7 +3482,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit162:           ; preds = %163, %166
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit166
 
 180:                                              ; preds = %170
-  %181 = tail call double @log2(double noundef %175) #10, !tbaa !15
+  %181 = tail call double @log2(double noundef %175) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit166
 
 _ZN13duckdb_brotliL8FastLog2Em.exit166:           ; preds = %177, %180
@@ -3506,7 +3506,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit166:           ; preds = %177, %180
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit164
 
 191:                                              ; preds = %185
-  %192 = tail call double @log2(double noundef %186) #10, !tbaa !15
+  %192 = tail call double @log2(double noundef %186) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit164
 
 _ZN13duckdb_brotliL8FastLog2Em.exit164:           ; preds = %188, %191
@@ -3773,7 +3773,7 @@ define internal fastcc void @_ZL32BlockSplitterFinishBlockDistanceP21BlockSplitt
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit
 
 37:                                               ; preds = %27
-  %38 = tail call double @log2(double noundef %32) #10, !tbaa !15
+  %38 = tail call double @log2(double noundef %32) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit
 
 _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %34, %37
@@ -3800,7 +3800,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %34, %37
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit154
 
 51:                                               ; preds = %41
-  %52 = tail call double @log2(double noundef %46) #10, !tbaa !15
+  %52 = tail call double @log2(double noundef %46) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit154
 
 _ZN13duckdb_brotliL8FastLog2Em.exit154:           ; preds = %48, %51
@@ -3824,7 +3824,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit154:           ; preds = %48, %51
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit152
 
 62:                                               ; preds = %56
-  %63 = tail call double @log2(double noundef %57) #10, !tbaa !15
+  %63 = tail call double @log2(double noundef %57) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit152
 
 _ZN13duckdb_brotliL8FastLog2Em.exit152:           ; preds = %59, %62
@@ -3903,7 +3903,7 @@ _ZN13duckdb_brotliL14ShannonEntropyEPKjmPm.exit149: ; preds = %55, %_ZN13duckdb_
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit156
 
 102:                                              ; preds = %92
-  %103 = tail call double @log2(double noundef %97) #10, !tbaa !15
+  %103 = tail call double @log2(double noundef %97) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit156
 
 _ZN13duckdb_brotliL8FastLog2Em.exit156:           ; preds = %99, %102
@@ -3930,7 +3930,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit156:           ; preds = %99, %102
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit160
 
 116:                                              ; preds = %106
-  %117 = tail call double @log2(double noundef %111) #10, !tbaa !15
+  %117 = tail call double @log2(double noundef %111) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit160
 
 _ZN13duckdb_brotliL8FastLog2Em.exit160:           ; preds = %113, %116
@@ -3954,7 +3954,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit160:           ; preds = %113, %116
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit158
 
 127:                                              ; preds = %121
-  %128 = tail call double @log2(double noundef %122) #10, !tbaa !15
+  %128 = tail call double @log2(double noundef %122) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit158
 
 _ZN13duckdb_brotliL8FastLog2Em.exit158:           ; preds = %124, %127
@@ -4033,7 +4033,7 @@ _ZN13duckdb_brotliL29HistogramAddHistogramDistanceEPNS_17HistogramDistanceEPKS0_
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit162
 
 166:                                              ; preds = %156
-  %167 = tail call double @log2(double noundef %161) #10, !tbaa !15
+  %167 = tail call double @log2(double noundef %161) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit162
 
 _ZN13duckdb_brotliL8FastLog2Em.exit162:           ; preds = %163, %166
@@ -4060,7 +4060,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit162:           ; preds = %163, %166
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit166
 
 180:                                              ; preds = %170
-  %181 = tail call double @log2(double noundef %175) #10, !tbaa !15
+  %181 = tail call double @log2(double noundef %175) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit166
 
 _ZN13duckdb_brotliL8FastLog2Em.exit166:           ; preds = %177, %180
@@ -4084,7 +4084,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit166:           ; preds = %177, %180
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit164
 
 191:                                              ; preds = %185
-  %192 = tail call double @log2(double noundef %186) #10, !tbaa !15
+  %192 = tail call double @log2(double noundef %186) #11, !tbaa !15
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit164
 
 _ZN13duckdb_brotliL8FastLog2Em.exit164:           ; preds = %188, %191
@@ -4293,23 +4293,23 @@ _ZN13duckdb_brotliL14ShannonEntropyEPKjmPm.exit:  ; preds = %184, %_ZN13duckdb_b
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #5
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log2(double noundef) local_unnamed_addr #7
+declare double @log2(double noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4318,10 +4318,11 @@ attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
+attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

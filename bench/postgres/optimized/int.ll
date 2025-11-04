@@ -59,7 +59,7 @@ define dso_local range(i64 -32768, 32768) i64 @int2in(ptr noundef readonly captu
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call signext i16 @pg_strtoint16_safe(ptr noundef %4, ptr noundef %6) #12
+  %7 = tail call signext i16 @pg_strtoint16_safe(ptr noundef %4, ptr noundef %6) #13
   %8 = sext i16 %7 to i64
   ret i64 %8
 }
@@ -71,8 +71,8 @@ define dso_local noundef i64 @int2out(ptr noundef readonly captures(none) %0) lo
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i16
-  %5 = tail call ptr @palloc(i64 noundef 7) #12
-  %6 = tail call i32 @pg_itoa(i16 noundef signext %4, ptr noundef %5) #12
+  %5 = tail call ptr @palloc(i64 noundef 7) #13
+  %6 = tail call i32 @pg_itoa(i16 noundef signext %4, ptr noundef %5) #13
   %7 = ptrtoint ptr %5 to i64
   ret i64 %7
 }
@@ -86,7 +86,7 @@ define dso_local range(i64 -32768, 32768) i64 @int2recv(ptr noundef readonly cap
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call i32 @pq_getmsgint(ptr noundef %4, i32 noundef 2) #12
+  %5 = tail call i32 @pq_getmsgint(ptr noundef %4, i32 noundef 2) #13
   %6 = zext i32 %5 to i64
   %sext = shl i64 %6, 48
   %7 = ashr exact i64 %sext, 48
@@ -102,8 +102,8 @@ define dso_local i64 @int2send(ptr noundef readonly captures(none) %0) local_unn
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @pq_begintypsend(ptr noundef nonnull %2) #12
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 2) #12
+  call void @pq_begintypsend(ptr noundef nonnull %2) #13
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 2) #13
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %6 = call i16 @llvm.bswap.i16(i16 %5)
   %7 = load ptr, ptr %2, align 8, !alias.scope !4
@@ -114,7 +114,7 @@ define dso_local i64 @int2send(ptr noundef readonly captures(none) %0) local_unn
   store i16 %6, ptr %11, align 1, !noalias !4
   %12 = add i32 %9, 2
   store i32 %12, ptr %8, align 8, !alias.scope !4
-  %13 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #12
+  %13 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #13
   %14 = ptrtoint ptr %13 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %14
@@ -129,7 +129,7 @@ define dso_local ptr @buildint2vector(ptr noundef readonly captures(address_is_n
   %3 = sext i32 %1 to i64
   %4 = shl nsw i64 %3, 1
   %5 = add nsw i64 %4, 24
-  %6 = tail call ptr @palloc0(i64 noundef %5) #12
+  %6 = tail call ptr @palloc0(i64 noundef %5) #13
   %7 = icmp sgt i32 %1, 0
   %8 = icmp ne ptr %0, null
   %or.cond = and i1 %8, %7
@@ -170,14 +170,14 @@ define dso_local noundef i64 @int2vectorin(ptr noundef readonly captures(none) %
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr @palloc0(i64 noundef 88) #12
+  %8 = tail call ptr @palloc0(i64 noundef 88) #13
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = load i8, ptr %5, align 1
   %.not8490 = icmp eq i8 %9, 0
   br i1 %.not8490, label %._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %1
-  %10 = tail call ptr @__ctype_b_loc() #13
+  %10 = tail call ptr @__ctype_b_loc() #14
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %55
@@ -214,26 +214,26 @@ define dso_local noundef i64 @int2vectorin(ptr noundef readonly captures(none) %
   %24 = sext i32 %23 to i64
   %25 = shl nsw i64 %24, 1
   %26 = add nsw i64 %25, 24
-  %27 = tail call ptr @repalloc(ptr noundef %.04893, i64 noundef %26) #12
+  %27 = tail call ptr @repalloc(ptr noundef %.04893, i64 noundef %26) #13
   br label %28
 
 28:                                               ; preds = %22, %.critedge
   %.254 = phi i32 [ %23, %22 ], [ %.05292, %.critedge ]
   %.250 = phi ptr [ %27, %22 ], [ %.04893, %.critedge ]
-  %29 = tail call ptr @__errno_location() #13
+  %29 = tail call ptr @__errno_location() #14
   store i32 0, ptr %29, align 4
-  %30 = call i64 @strtol(ptr noundef nonnull %.14685, ptr noundef nonnull %2, i32 noundef 10) #12
+  %30 = call i64 @strtol(ptr noundef nonnull %.14685, ptr noundef nonnull %2, i32 noundef 10) #13
   %31 = load ptr, ptr %2, align 8
   %32 = icmp eq ptr %.14685, %31
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %28
-  %34 = tail call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #12
+  %34 = tail call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #13
   br i1 %34, label %35, label %.thread
 
 35:                                               ; preds = %33
-  %36 = tail call i32 @errcode(i32 noundef 33685634) #12
-  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %.14685) #12
+  %36 = tail call i32 @errcode(i32 noundef 33685634) #13
+  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %.14685) #13
   br label %.thread.sink.split
 
 38:                                               ; preds = %28
@@ -245,12 +245,12 @@ define dso_local noundef i64 @int2vectorin(ptr noundef readonly captures(none) %
   br i1 %or.cond3, label %43, label %48
 
 43:                                               ; preds = %38
-  %44 = tail call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #12
+  %44 = tail call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #13
   br i1 %44, label %45, label %.thread
 
 45:                                               ; preds = %43
-  %46 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %47 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %.14685, ptr noundef nonnull @.str.1) #12
+  %46 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %47 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %.14685, ptr noundef nonnull @.str.1) #13
   br label %.thread.sink.split
 
 48:                                               ; preds = %38
@@ -261,17 +261,17 @@ define dso_local noundef i64 @int2vectorin(ptr noundef readonly captures(none) %
   ]
 
 50:                                               ; preds = %48
-  %51 = tail call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #12
+  %51 = tail call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #13
   br i1 %51, label %52, label %.thread
 
 52:                                               ; preds = %50
-  %53 = tail call i32 @errcode(i32 noundef 33685634) #12
-  %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %.14685) #12
+  %53 = tail call i32 @errcode(i32 noundef 33685634) #13
+  %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %.14685) #13
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %52, %45, %35
   %.sink = phi i32 [ 175, %35 ], [ 181, %45 ], [ 187, %52 ]
-  tail call void @errsave_finish(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.int2vectorin) #12
+  tail call void @errsave_finish(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.int2vectorin) #13
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %33, %43, %50
@@ -346,7 +346,7 @@ define dso_local i64 @int2vectorout(ptr noundef readonly captures(none) %0) loca
   %7 = mul i32 %6, 7
   %8 = add i32 %7, 1
   %9 = sext i32 %8 to i64
-  %10 = tail call ptr @palloc(i64 noundef %9) #12
+  %10 = tail call ptr @palloc(i64 noundef %9) #13
   %11 = icmp sgt i32 %6, 0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
@@ -370,7 +370,7 @@ define dso_local i64 @int2vectorout(ptr noundef readonly captures(none) %0) loca
   %.1 = phi ptr [ %15, %14 ], [ %.01314, %13 ]
   %17 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv
   %18 = load i16, ptr %17, align 2
-  %19 = tail call i32 @pg_itoa(i16 noundef signext %18, ptr noundef %.1) #12
+  %19 = tail call i32 @pg_itoa(i16 noundef signext %18, ptr noundef %.1) #13
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i8, ptr %.1, i64 %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -408,7 +408,7 @@ define dso_local i64 @int2vectorrecv(ptr noundef readonly captures(none) %0) loc
   store i64 -1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i8 0, ptr %13, align 8
-  %14 = call i64 @array_recv(ptr noundef nonnull %2) #12
+  %14 = call i64 @array_recv(ptr noundef nonnull %2) #13
   %15 = inttoptr i64 %14 to ptr
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
@@ -434,10 +434,10 @@ define dso_local i64 @int2vectorrecv(ptr noundef readonly captures(none) %0) loc
   br i1 %.not24, label %31, label %27
 
 27:                                               ; preds = %24, %21, %18, %1
-  %28 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %29 = call i32 @errcode(i32 noundef 50462850) #12
-  %30 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #12
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 264, ptr noundef nonnull @__func__.int2vectorrecv) #12
+  %28 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %29 = call i32 @errcode(i32 noundef 50462850) #13
+  %30 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 264, ptr noundef nonnull @__func__.int2vectorrecv) #13
   unreachable
 
 31:                                               ; preds = %24
@@ -454,7 +454,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @int2vectorsend(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @array_send(ptr noundef %0) #12
+  %2 = tail call i64 @array_send(ptr noundef %0) #13
   ret i64 %2
 }
 
@@ -467,7 +467,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int4in(ptr noundef read
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @pg_strtoint32_safe(ptr noundef %4, ptr noundef %6) #12
+  %7 = tail call i32 @pg_strtoint32_safe(ptr noundef %4, ptr noundef %6) #13
   %8 = sext i32 %7 to i64
   ret i64 %8
 }
@@ -479,8 +479,8 @@ define dso_local noundef i64 @int4out(ptr noundef readonly captures(none) %0) lo
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
-  %5 = tail call ptr @palloc(i64 noundef 12) #12
-  %6 = tail call i32 @pg_ltoa(i32 noundef %4, ptr noundef %5) #12
+  %5 = tail call ptr @palloc(i64 noundef 12) #13
+  %6 = tail call i32 @pg_ltoa(i32 noundef %4, ptr noundef %5) #13
   %7 = ptrtoint ptr %5 to i64
   ret i64 %7
 }
@@ -492,7 +492,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int4recv(ptr noundef re
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call i32 @pq_getmsgint(ptr noundef %4, i32 noundef 4) #12
+  %5 = tail call i32 @pq_getmsgint(ptr noundef %4, i32 noundef 4) #13
   %6 = sext i32 %5 to i64
   ret i64 %6
 }
@@ -504,8 +504,8 @@ define dso_local i64 @int4send(ptr noundef readonly captures(none) %0) local_unn
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @pq_begintypsend(ptr noundef nonnull %2) #12
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #12
+  call void @pq_begintypsend(ptr noundef nonnull %2) #13
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #13
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %6 = call i32 @llvm.bswap.i32(i32 %5)
   %7 = load ptr, ptr %2, align 8, !alias.scope !10
@@ -516,7 +516,7 @@ define dso_local i64 @int4send(ptr noundef readonly captures(none) %0) local_unn
   store i32 %6, ptr %11, align 1, !noalias !10
   %12 = add i32 %9, 4
   store i32 %12, ptr %8, align 8, !alias.scope !10
-  %13 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #12
+  %13 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #13
   %14 = ptrtoint ptr %13 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %14
@@ -541,10 +541,10 @@ define dso_local range(i64 -32768, 32768) i64 @i4toi2(ptr noundef readonly captu
   br i1 %or.cond, label %6, label %10, !prof !13
 
 6:                                                ; preds = %1
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %8 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 355, ptr noundef nonnull @__func__.i4toi2) #12
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %8 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 355, ptr noundef nonnull @__func__.i4toi2) #13
   unreachable
 
 10:                                               ; preds = %1
@@ -914,10 +914,10 @@ define dso_local range(i64 0, 2) i64 @in_range_int4_int4(ptr noundef readonly ca
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %1
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %16 = tail call i32 @errcode(i32 noundef 50593922) #12
-  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 635, ptr noundef nonnull @__func__.in_range_int4_int4) #12
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %16 = tail call i32 @errcode(i32 noundef 50593922) #13
+  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 635, ptr noundef nonnull @__func__.in_range_int4_int4) #13
   unreachable
 
 18:                                               ; preds = %1
@@ -966,7 +966,7 @@ define dso_local i64 @in_range_int4_int2(ptr noundef readonly captures(none) %0)
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load i64, ptr %11, align 8
-  %13 = tail call i64 @DirectFunctionCall5Coll(ptr noundef nonnull @in_range_int4_int4, i32 noundef 0, i64 noundef %3, i64 noundef %5, i64 noundef %8, i64 noundef %10, i64 noundef %12) #12
+  %13 = tail call i64 @DirectFunctionCall5Coll(ptr noundef nonnull @in_range_int4_int4, i32 noundef 0, i64 noundef %3, i64 noundef %5, i64 noundef %8, i64 noundef %10, i64 noundef %12) #13
   ret i64 %13
 }
 
@@ -990,10 +990,10 @@ define dso_local range(i64 0, 2) i64 @in_range_int4_int8(ptr noundef readonly ca
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %1
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %15 = tail call i32 @errcode(i32 noundef 50593922) #12
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 682, ptr noundef nonnull @__func__.in_range_int4_int8) #12
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %15 = tail call i32 @errcode(i32 noundef 50593922) #13
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 682, ptr noundef nonnull @__func__.in_range_int4_int8) #13
   unreachable
 
 17:                                               ; preds = %1
@@ -1048,10 +1048,10 @@ define dso_local range(i64 0, 2) i64 @in_range_int2_int4(ptr noundef readonly ca
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %1
-  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %17 = tail call i32 @errcode(i32 noundef 50593922) #12
-  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 717, ptr noundef nonnull @__func__.in_range_int2_int4) #12
+  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %17 = tail call i32 @errcode(i32 noundef 50593922) #13
+  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 717, ptr noundef nonnull @__func__.in_range_int2_int4) #13
   unreachable
 
 19:                                               ; preds = %1
@@ -1101,7 +1101,7 @@ define dso_local i64 @in_range_int2_int2(ptr noundef readonly captures(none) %0)
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load i64, ptr %11, align 8
-  %13 = tail call i64 @DirectFunctionCall5Coll(ptr noundef nonnull @in_range_int2_int4, i32 noundef 0, i64 noundef %3, i64 noundef %5, i64 noundef %8, i64 noundef %10, i64 noundef %12) #12
+  %13 = tail call i64 @DirectFunctionCall5Coll(ptr noundef nonnull @in_range_int2_int4, i32 noundef 0, i64 noundef %3, i64 noundef %5, i64 noundef %8, i64 noundef %10, i64 noundef %12) #13
   ret i64 %13
 }
 
@@ -1121,7 +1121,7 @@ define dso_local i64 @in_range_int2_int8(ptr noundef readonly captures(none) %0)
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load i64, ptr %12, align 8
-  %14 = tail call i64 @DirectFunctionCall5Coll(ptr noundef nonnull @in_range_int4_int8, i32 noundef 0, i64 noundef %4, i64 noundef %7, i64 noundef %9, i64 noundef %11, i64 noundef %13) #12
+  %14 = tail call i64 @DirectFunctionCall5Coll(ptr noundef nonnull @in_range_int4_int8, i32 noundef 0, i64 noundef %4, i64 noundef %7, i64 noundef %9, i64 noundef %11, i64 noundef %13) #13
   ret i64 %14
 }
 
@@ -1134,10 +1134,10 @@ define dso_local range(i64 -2147483647, 2147483648) i64 @int4um(ptr noundef read
   br i1 %5, label %6, label %10, !prof !14
 
 6:                                                ; preds = %1
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %8 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 778, ptr noundef nonnull @__func__.int4um) #12
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %8 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 778, ptr noundef nonnull @__func__.int4um) #13
   unreachable
 
 10:                                               ; preds = %1
@@ -1168,10 +1168,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int4pl(ptr noundef read
   br i1 %9, label %10, label %14, !prof !14
 
 10:                                               ; preds = %1
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %12 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 800, ptr noundef nonnull @__func__.int4pl) #12
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %12 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 800, ptr noundef nonnull @__func__.int4pl) #13
   unreachable
 
 14:                                               ; preds = %1
@@ -1193,10 +1193,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int4mi(ptr noundef read
   br i1 %9, label %10, label %14, !prof !14
 
 10:                                               ; preds = %1
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %12 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 814, ptr noundef nonnull @__func__.int4mi) #12
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %12 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 814, ptr noundef nonnull @__func__.int4mi) #13
   unreachable
 
 14:                                               ; preds = %1
@@ -1218,10 +1218,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int4mul(ptr noundef rea
   br i1 %9, label %10, label %14, !prof !14
 
 10:                                               ; preds = %1
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %12 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 828, ptr noundef nonnull @__func__.int4mul) #12
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %12 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 828, ptr noundef nonnull @__func__.int4mul) #13
   unreachable
 
 14:                                               ; preds = %1
@@ -1244,10 +1244,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int4div(ptr noundef rea
   ]
 
 8:                                                ; preds = %1
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %10 = tail call i32 @errcode(i32 noundef 33816706) #12
-  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 843, ptr noundef nonnull @__func__.int4div) #12
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %10 = tail call i32 @errcode(i32 noundef 33816706) #13
+  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 843, ptr noundef nonnull @__func__.int4div) #13
   unreachable
 
 12:                                               ; preds = %1
@@ -1255,10 +1255,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int4div(ptr noundef rea
   br i1 %13, label %14, label %18, !prof !14
 
 14:                                               ; preds = %12
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %16 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 859, ptr noundef nonnull @__func__.int4div) #12
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %16 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 859, ptr noundef nonnull @__func__.int4div) #13
   unreachable
 
 18:                                               ; preds = %12
@@ -1286,10 +1286,10 @@ define dso_local range(i64 -2147483647, 2147483648) i64 @int4inc(ptr noundef rea
   br i1 %6, label %7, label %11, !prof !14
 
 7:                                                ; preds = %1
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %9 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 880, ptr noundef nonnull @__func__.int4inc) #12
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %9 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 880, ptr noundef nonnull @__func__.int4inc) #13
   unreachable
 
 11:                                               ; preds = %1
@@ -1307,10 +1307,10 @@ define dso_local range(i64 -32767, 32768) i64 @int2um(ptr noundef readonly captu
   br i1 %5, label %6, label %10, !prof !14
 
 6:                                                ; preds = %1
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %8 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 893, ptr noundef nonnull @__func__.int2um) #12
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %8 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 893, ptr noundef nonnull @__func__.int2um) #13
   unreachable
 
 10:                                               ; preds = %1
@@ -1341,10 +1341,10 @@ define dso_local range(i64 -32768, 32768) i64 @int2pl(ptr noundef readonly captu
   br i1 %9, label %10, label %14, !prof !14
 
 10:                                               ; preds = %1
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %12 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 915, ptr noundef nonnull @__func__.int2pl) #12
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %12 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 915, ptr noundef nonnull @__func__.int2pl) #13
   unreachable
 
 14:                                               ; preds = %1
@@ -1366,10 +1366,10 @@ define dso_local range(i64 -32768, 32768) i64 @int2mi(ptr noundef readonly captu
   br i1 %9, label %10, label %14, !prof !14
 
 10:                                               ; preds = %1
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %12 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 929, ptr noundef nonnull @__func__.int2mi) #12
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %12 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 929, ptr noundef nonnull @__func__.int2mi) #13
   unreachable
 
 14:                                               ; preds = %1
@@ -1391,10 +1391,10 @@ define dso_local range(i64 -32768, 32768) i64 @int2mul(ptr noundef readonly capt
   br i1 %9, label %10, label %14, !prof !14
 
 10:                                               ; preds = %1
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %12 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 943, ptr noundef nonnull @__func__.int2mul) #12
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %12 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 943, ptr noundef nonnull @__func__.int2mul) #13
   unreachable
 
 14:                                               ; preds = %1
@@ -1417,10 +1417,10 @@ define dso_local range(i64 -32768, 32768) i64 @int2div(ptr noundef readonly capt
   ]
 
 8:                                                ; preds = %1
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %10 = tail call i32 @errcode(i32 noundef 33816706) #12
-  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 959, ptr noundef nonnull @__func__.int2div) #12
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %10 = tail call i32 @errcode(i32 noundef 33816706) #13
+  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 959, ptr noundef nonnull @__func__.int2div) #13
   unreachable
 
 12:                                               ; preds = %1
@@ -1428,10 +1428,10 @@ define dso_local range(i64 -32768, 32768) i64 @int2div(ptr noundef readonly capt
   br i1 %13, label %14, label %18, !prof !14
 
 14:                                               ; preds = %12
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %16 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 975, ptr noundef nonnull @__func__.int2div) #12
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %16 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 975, ptr noundef nonnull @__func__.int2div) #13
   unreachable
 
 18:                                               ; preds = %12
@@ -1466,10 +1466,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int24pl(ptr noundef rea
   br i1 %10, label %11, label %15, !prof !14
 
 11:                                               ; preds = %1
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %13 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 997, ptr noundef nonnull @__func__.int24pl) #12
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %13 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 997, ptr noundef nonnull @__func__.int24pl) #13
   unreachable
 
 15:                                               ; preds = %1
@@ -1492,10 +1492,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int24mi(ptr noundef rea
   br i1 %10, label %11, label %15, !prof !14
 
 11:                                               ; preds = %1
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %13 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1011, ptr noundef nonnull @__func__.int24mi) #12
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %13 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1011, ptr noundef nonnull @__func__.int24mi) #13
   unreachable
 
 15:                                               ; preds = %1
@@ -1518,10 +1518,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int24mul(ptr noundef re
   br i1 %10, label %11, label %15, !prof !14
 
 11:                                               ; preds = %1
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %13 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1025, ptr noundef nonnull @__func__.int24mul) #12
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %13 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1025, ptr noundef nonnull @__func__.int24mul) #13
   unreachable
 
 15:                                               ; preds = %1
@@ -1539,10 +1539,10 @@ define dso_local range(i64 -32768, 32769) i64 @int24div(ptr noundef readonly cap
   br i1 %5, label %6, label %10, !prof !14
 
 6:                                                ; preds = %1
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %8 = tail call i32 @errcode(i32 noundef 33816706) #12
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1039, ptr noundef nonnull @__func__.int24div) #12
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %8 = tail call i32 @errcode(i32 noundef 33816706) #13
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1039, ptr noundef nonnull @__func__.int24div) #13
   unreachable
 
 10:                                               ; preds = %1
@@ -1569,10 +1569,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int42pl(ptr noundef rea
   br i1 %10, label %11, label %15, !prof !14
 
 11:                                               ; preds = %1
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %13 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1058, ptr noundef nonnull @__func__.int42pl) #12
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %13 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1058, ptr noundef nonnull @__func__.int42pl) #13
   unreachable
 
 15:                                               ; preds = %1
@@ -1595,10 +1595,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int42mi(ptr noundef rea
   br i1 %10, label %11, label %15, !prof !14
 
 11:                                               ; preds = %1
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %13 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1072, ptr noundef nonnull @__func__.int42mi) #12
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %13 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1072, ptr noundef nonnull @__func__.int42mi) #13
   unreachable
 
 15:                                               ; preds = %1
@@ -1621,10 +1621,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int42mul(ptr noundef re
   br i1 %10, label %11, label %15, !prof !14
 
 11:                                               ; preds = %1
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %13 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1086, ptr noundef nonnull @__func__.int42mul) #12
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %13 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1086, ptr noundef nonnull @__func__.int42mul) #13
   unreachable
 
 15:                                               ; preds = %1
@@ -1647,10 +1647,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int42div(ptr noundef re
   ], !prof !15
 
 8:                                                ; preds = %1
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %10 = tail call i32 @errcode(i32 noundef 33816706) #12
-  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1101, ptr noundef nonnull @__func__.int42div) #12
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %10 = tail call i32 @errcode(i32 noundef 33816706) #13
+  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1101, ptr noundef nonnull @__func__.int42div) #13
   unreachable
 
 12:                                               ; preds = %1
@@ -1658,10 +1658,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int42div(ptr noundef re
   br i1 %13, label %14, label %18, !prof !14
 
 14:                                               ; preds = %12
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %16 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1117, ptr noundef nonnull @__func__.int42div) #12
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %16 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1117, ptr noundef nonnull @__func__.int42div) #13
   unreachable
 
 18:                                               ; preds = %12
@@ -1691,10 +1691,10 @@ define dso_local range(i64 -2147483647, 2147483648) i64 @int4mod(ptr noundef rea
   ], !prof !15
 
 5:                                                ; preds = %1
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %7 = tail call i32 @errcode(i32 noundef 33816706) #12
-  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1139, ptr noundef nonnull @__func__.int4mod) #12
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %7 = tail call i32 @errcode(i32 noundef 33816706) #13
+  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1139, ptr noundef nonnull @__func__.int4mod) #13
   unreachable
 
 9:                                                ; preds = %1
@@ -1721,10 +1721,10 @@ define dso_local range(i64 -32767, 32768) i64 @int2mod(ptr noundef readonly capt
   ], !prof !15
 
 5:                                                ; preds = %1
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %7 = tail call i32 @errcode(i32 noundef 33816706) #12
-  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1167, ptr noundef nonnull @__func__.int2mod) #12
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %7 = tail call i32 @errcode(i32 noundef 33816706) #13
+  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1167, ptr noundef nonnull @__func__.int2mod) #13
   unreachable
 
 9:                                                ; preds = %1
@@ -1753,10 +1753,10 @@ define dso_local range(i64 0, 2147483648) i64 @int4abs(ptr noundef readonly capt
   br i1 %5, label %6, label %10, !prof !14
 
 6:                                                ; preds = %1
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %8 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1199, ptr noundef nonnull @__func__.int4abs) #12
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %8 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1199, ptr noundef nonnull @__func__.int4abs) #13
   unreachable
 
 10:                                               ; preds = %1
@@ -1774,10 +1774,10 @@ define dso_local range(i64 0, 32768) i64 @int2abs(ptr noundef readonly captures(
   br i1 %5, label %6, label %10, !prof !14
 
 6:                                                ; preds = %1
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %8 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1213, ptr noundef nonnull @__func__.int2abs) #12
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %8 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1213, ptr noundef nonnull @__func__.int2abs) #13
   unreachable
 
 10:                                               ; preds = %1
@@ -1810,10 +1810,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int4gcd(ptr noundef rea
   br i1 %or.cond.i, label %16, label %20
 
 16:                                               ; preds = %14
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %18 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1263, ptr noundef nonnull @__func__.int4gcd_internal) #12
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %18 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1263, ptr noundef nonnull @__func__.int4gcd_internal) #13
   unreachable
 
 20:                                               ; preds = %14
@@ -1875,10 +1875,10 @@ define dso_local range(i64 0, 2147483648) i64 @int4lcm(ptr noundef readonly capt
   br i1 %or.cond.i, label %19, label %23
 
 19:                                               ; preds = %17
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %21 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1263, ptr noundef nonnull @__func__.int4gcd_internal) #12
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %21 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1263, ptr noundef nonnull @__func__.int4gcd_internal) #13
   unreachable
 
 23:                                               ; preds = %17
@@ -1908,10 +1908,10 @@ int4gcd_internal.exit:                            ; preds = %23, %._crit_edge.i
   br i1 %27, label %29, label %33, !prof !14
 
 29:                                               ; preds = %int4gcd_internal.exit
-  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %31 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1331, ptr noundef nonnull @__func__.int4lcm) #12
+  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %31 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1331, ptr noundef nonnull @__func__.int4lcm) #13
   unreachable
 
 33:                                               ; preds = %int4gcd_internal.exit
@@ -1919,10 +1919,10 @@ int4gcd_internal.exit:                            ; preds = %23, %._crit_edge.i
   br i1 %34, label %35, label %39, !prof !14
 
 35:                                               ; preds = %33
-  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %37 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1337, ptr noundef nonnull @__func__.int4lcm) #12
+  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %37 = tail call i32 @errcode(i32 noundef 50331778) #13
+  %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1337, ptr noundef nonnull @__func__.int4lcm) #13
   unreachable
 
 39:                                               ; preds = %33
@@ -2170,20 +2170,20 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @generate_series_step_in
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %16
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %23 = tail call i32 @errcode(i32 noundef 50856066) #12
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1529, ptr noundef nonnull @__func__.generate_series_step_int4) #12
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %23 = tail call i32 @errcode(i32 noundef 50856066) #13
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1529, ptr noundef nonnull @__func__.generate_series_step_int4) #13
   unreachable
 
 .thread:                                          ; preds = %6, %16
   %.04043 = phi i32 [ %19, %16 ], [ 1, %6 ]
-  %25 = tail call ptr @init_MultiFuncCall(ptr noundef nonnull %0) #12
+  %25 = tail call ptr @init_MultiFuncCall(ptr noundef nonnull %0) #13
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %27, ptr @CurrentMemoryContext, align 8
-  %29 = tail call ptr @palloc(i64 noundef 12) #12
+  %29 = tail call ptr @palloc(i64 noundef 12) #13
   store i32 %9, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 %12, ptr %30, align 4
@@ -2195,7 +2195,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @generate_series_step_in
   br label %33
 
 33:                                               ; preds = %.thread, %1
-  %34 = tail call ptr @per_MultiFuncCall(ptr noundef nonnull %0) #12
+  %34 = tail call ptr @per_MultiFuncCall(ptr noundef nonnull %0) #13
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = load i32, ptr %36, align 4
@@ -2243,7 +2243,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @generate_series_step_in
   br label %65
 
 .thread44:                                        ; preds = %41, %44, %46
-  tail call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef nonnull %34) #12
+  tail call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef nonnull %34) #13
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
@@ -2291,12 +2291,12 @@ list_length.exit:                                 ; preds = %is_funcclause.exit
   %16 = getelementptr i8, ptr %13, i64 16
   %.val = load ptr, ptr %16, align 8
   %17 = load ptr, ptr %.val, align 8
-  %18 = tail call ptr @estimate_expression_value(ptr noundef %15, ptr noundef %17) #12
+  %18 = tail call ptr @estimate_expression_value(ptr noundef %15, ptr noundef %17) #13
   %19 = load ptr, ptr %14, align 8
   %.val39 = load ptr, ptr %16, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.val39, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call ptr @estimate_expression_value(ptr noundef %19, ptr noundef %21) #12
+  %22 = tail call ptr @estimate_expression_value(ptr noundef %19, ptr noundef %21) #13
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = icmp sgt i32 %24, 2
@@ -2307,7 +2307,7 @@ list_length.exit:                                 ; preds = %is_funcclause.exit
   %.val40 = load ptr, ptr %16, align 8
   %28 = getelementptr inbounds nuw i8, ptr %.val40, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call ptr @estimate_expression_value(ptr noundef %27, ptr noundef %29) #12
+  %30 = tail call ptr @estimate_expression_value(ptr noundef %27, ptr noundef %29) #13
   br label %31
 
 31:                                               ; preds = %list_length.exit, %26
@@ -2398,36 +2398,36 @@ is_funcclause.exit.thread:                        ; preds = %is_funcclause.exit.
 
 declare ptr @estimate_expression_value(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #7
 
 declare void @enlargeStringInfo(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare { i32, i1 } @llvm.sadd.with.overflow.i32(i32, i32) #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.sadd.with.overflow.i64(i64, i64) #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare { i32, i1 } @llvm.ssub.with.overflow.i32(i32, i32) #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare { i32, i1 } @llvm.smul.with.overflow.i32(i32, i32) #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare { i16, i1 } @llvm.sadd.with.overflow.i16(i16, i16) #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare { i16, i1 } @llvm.ssub.with.overflow.i16(i16, i16) #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare { i16, i1 } @llvm.smul.with.overflow.i16(i16, i16) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -2442,23 +2442,23 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.abs.i16(i16, i1 immarg) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smax.i16(i16, i16) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.smax.i16(i16, i16) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smin.i16(i16, i16) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.smin.i16(i16, i16) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #10
+declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2467,14 +2467,15 @@ attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "n
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind willreturn memory(none) }
-attributes #14 = { cold nounwind }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(none) }
+attributes #15 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

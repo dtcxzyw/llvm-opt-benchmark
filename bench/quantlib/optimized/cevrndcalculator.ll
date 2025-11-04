@@ -728,7 +728,7 @@ invoke.cont:
   %div = fdiv double %0, %sub
   store double %div, ptr %delta_, align 8, !tbaa !13
   %mul.i = fmul double %sub, 2.000000e+00
-  %call.i = tail call double @pow(double noundef %f0, double noundef %mul.i) #32, !tbaa !14
+  %call.i = tail call double @pow(double noundef %f0, double noundef %mul.i) #33, !tbaa !14
   %mul4.i = fmul double %alpha, %sub
   %mul.i.i = fmul double %mul4.i, %mul4.i
   %div.i = fdiv double %call.i, %mul.i.i
@@ -744,7 +744,7 @@ if.then:                                          ; preds = %invoke.cont
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %if.then
-  %exception = call ptr @__cxa_allocate_exception(i64 24) #32
+  %exception = call ptr @__cxa_allocate_exception(i64 24) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp7)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7)
@@ -766,7 +766,7 @@ invoke.cont16:                                    ; preds = %invoke.cont13
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont16
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8QuantLib5ErrorE, ptr nonnull @_ZN8QuantLib5ErrorD2Ev) #33
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8QuantLib5ErrorE, ptr nonnull @_ZN8QuantLib5ErrorD2Ev) #34
           to label %unreachable unwind label %lpad17
 
 lpad4:                                            ; preds = %if.then
@@ -796,7 +796,7 @@ lpad17:                                           ; preds = %invoke.cont18, %inv
 if.then.i.i:                                      ; preds = %lpad17
   %7 = load i64, ptr %6, align 8, !tbaa !22
   %add.i.i.i = add i64 %7, 1
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef %add.i.i.i) #34
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef %add.i.i.i) #35
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad17, %if.then.i.i, %lpad15
@@ -811,7 +811,7 @@ ehcleanup:                                        ; preds = %lpad17, %if.then.i.
 if.then.i.i13:                                    ; preds = %ehcleanup
   %10 = load i64, ptr %9, align 8, !tbaa !22
   %add.i.i.i14 = add i64 %10, 1
-  call void @_ZdlPvm(ptr noundef %8, i64 noundef %add.i.i.i14) #34
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef %add.i.i.i14) #35
   br label %ehcleanup20
 
 ehcleanup20:                                      ; preds = %ehcleanup, %if.then.i.i13
@@ -835,7 +835,7 @@ ehcleanup20.thread:                               ; preds = %invoke.cont9
 ehcleanup24.thread40:                             ; preds = %ehcleanup20.thread
   %16 = load i64, ptr %15, align 8, !tbaa !22
   %add.i.i.i2143 = add i64 %16, 1
-  call void @_ZdlPvm(ptr noundef %14, i64 noundef %add.i.i.i2143) #34
+  call void @_ZdlPvm(ptr noundef %14, i64 noundef %add.i.i.i2143) #35
   br label %cleanup.action.sink.split
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22: ; preds = %ehcleanup20
@@ -846,7 +846,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 ehcleanup24:                                      ; preds = %ehcleanup20
   %17 = load i64, ptr %12, align 8, !tbaa !22
   %add.i.i.i21 = add i64 %17, 1
-  call void @_ZdlPvm(ptr noundef %11, i64 noundef %add.i.i.i21) #34
+  call void @_ZdlPvm(ptr noundef %11, i64 noundef %add.i.i.i21) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp7)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup28
@@ -859,12 +859,12 @@ cleanup.action.sink.split:                        ; preds = %ehcleanup20.thread,
 
 cleanup.action:                                   ; preds = %cleanup.action.sink.split, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22, %ehcleanup24
   %.pn.pn.pn28 = phi { ptr, i32 } [ %.pn, %ehcleanup24 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22 ], [ %.pn.pn.pn28.ph, %cleanup.action.sink.split ]
-  call void @__cxa_free_exception(ptr %exception) #32
+  call void @__cxa_free_exception(ptr %exception) #33
   br label %ehcleanup28
 
 ehcleanup28:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22, %ehcleanup24, %cleanup.action, %lpad4
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn28, %cleanup.action ], [ %.pn, %ehcleanup24 ], [ %1, %lpad4 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22 ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream) #32
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %_ql_msg_stream)
   resume { ptr, i32 } %.pn.pn.pn.pn
 
@@ -875,7 +875,7 @@ unreachable:                                      ; preds = %invoke.cont18
   unreachable
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable
@@ -885,7 +885,7 @@ entry:
   %0 = load double, ptr %beta_, align 8, !tbaa !12
   %sub = fsub double 1.000000e+00, %0
   %mul = fmul double %sub, 2.000000e+00
-  %call = tail call double @pow(double noundef %f, double noundef %mul) #32, !tbaa !14
+  %call = tail call double @pow(double noundef %f, double noundef %mul) #33, !tbaa !14
   %alpha_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load double, ptr %alpha_, align 8, !tbaa !11
   %mul4 = fmul double %sub, %1
@@ -911,11 +911,11 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.9) #33
+  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.9) #34
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #32
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i)
   store i64 %call.i, ptr %__dnew.i, align 8, !tbaa !24
   %cmp.i = icmp ugt i64 %call.i, 15
@@ -999,11 +999,11 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #35
+  tail call void @__clang_call_terminate(ptr %6) #36
   unreachable
 
 _ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %entry, %if.then.i.i, %.noexc.i.i, %if.then.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #32
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #33
   ret void
 }
 
@@ -1069,7 +1069,7 @@ entry:
   %mul2 = fmul double %x, %mul.i
   %mul5 = fmul double %sub, 2.000000e+00
   %div = fdiv double 1.000000e+00, %mul5
-  %call6 = tail call double @pow(double noundef %mul2, double noundef %div) #32, !tbaa !14
+  %call6 = tail call double @pow(double noundef %mul2, double noundef %div) #33, !tbaa !14
   ret double %call6
 }
 
@@ -1086,7 +1086,7 @@ entry:
   %0 = load double, ptr %beta_.i, align 8, !tbaa !12
   %sub.i = fsub double 1.000000e+00, %0
   %mul.i = fmul double %sub.i, 2.000000e+00
-  %call.i = tail call double @pow(double noundef %f, double noundef %mul.i) #32, !tbaa !14
+  %call.i = tail call double @pow(double noundef %f, double noundef %mul.i) #33, !tbaa !14
   %alpha_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load double, ptr %alpha_.i, align 8, !tbaa !11
   %mul4.i = fmul double %sub.i, %1
@@ -1222,7 +1222,7 @@ entry:
   %0 = load double, ptr %beta_.i, align 8, !tbaa !12
   %sub.i = fsub double 1.000000e+00, %0
   %mul.i = fmul double %sub.i, 2.000000e+00
-  %call.i = tail call double @pow(double noundef %f, double noundef %mul.i) #32, !tbaa !14
+  %call.i = tail call double @pow(double noundef %f, double noundef %mul.i) #33, !tbaa !14
   %alpha_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load double, ptr %alpha_.i, align 8, !tbaa !11
   %mul4.i = fmul double %sub.i, %1
@@ -1451,7 +1451,7 @@ entry:
   %4 = tail call double @llvm.fmuladd.f64(double %sub9, double -3.000000e+00, double 1.000000e+00)
   %mul16 = fmul double %sub14, %4
   %div18 = fdiv double %div, %add
-  %call19 = tail call double @pow(double noundef %div18, double noundef %sub9) #32, !tbaa !14
+  %call19 = tail call double @pow(double noundef %div18, double noundef %sub9) #33, !tbaa !14
   %mul20 = fmul double %div13, %sub9
   %sub22 = fsub double 2.000000e+00, %sub9
   %mul23 = fmul double %sub22, 5.000000e-01
@@ -1461,7 +1461,7 @@ entry:
   %7 = tail call double @llvm.fmuladd.f64(double %mul20, double %6, double 1.000000e+00)
   %sub27 = fsub double %call19, %7
   %mul28 = fmul double %div13, 2.000000e+00
-  %call29 = tail call double @sqrt(double noundef %mul28) #32, !tbaa !14
+  %call29 = tail call double @sqrt(double noundef %mul28) #33, !tbaa !14
   %mul30 = fmul double %call29, %sub9
   %mul31 = fmul double %mul16, 5.000000e-01
   %8 = tail call double @llvm.fmuladd.f64(double %mul31, double %div13, double 1.000000e+00)
@@ -1580,7 +1580,7 @@ _ZNK8QuantLib23InverseCumulativeNormalclEd.exit:  ; preds = %if.then.i.i, %if.el
   %30 = load double, ptr %beta_.i, align 8, !tbaa !12
   %sub.i7 = fsub double 1.000000e+00, %30
   %mul.i8 = fmul double %sub.i7, 2.000000e+00
-  %call.i = call double @pow(double noundef %29, double noundef %mul.i8) #32, !tbaa !14
+  %call.i = call double @pow(double noundef %29, double noundef %mul.i8) #33, !tbaa !14
   %alpha_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %31 = load double, ptr %alpha_.i, align 8, !tbaa !11
   %mul4.i = fmul double %sub.i7, %31
@@ -1610,7 +1610,7 @@ _ZNK8QuantLib23InverseCumulativeNormalclEd.exit:  ; preds = %if.then.i.i, %if.el
   %36 = call double @llvm.fmuladd.f64(double %sub9.i.i.i, double -3.000000e+00, double 1.000000e+00)
   %mul16.i.i.i = fmul double %sub14.i.i.i, %36
   %div18.i.i.i = fdiv double %div.i.i.i, %add.i.i.i
-  %call19.i.i.i = call double @pow(double noundef %div18.i.i.i, double noundef %sub9.i.i.i) #32, !tbaa !14
+  %call19.i.i.i = call double @pow(double noundef %div18.i.i.i, double noundef %sub9.i.i.i) #33, !tbaa !14
   %mul20.i.i.i = fmul double %div13.i.i.i, %sub9.i.i.i
   %sub22.i.i.i = fsub double 2.000000e+00, %sub9.i.i.i
   %mul23.i.i.i = fmul double %sub22.i.i.i, 5.000000e-01
@@ -1620,7 +1620,7 @@ _ZNK8QuantLib23InverseCumulativeNormalclEd.exit:  ; preds = %if.then.i.i, %if.el
   %39 = call double @llvm.fmuladd.f64(double %mul20.i.i.i, double %38, double 1.000000e+00)
   %sub27.i.i.i = fsub double %call19.i.i.i, %39
   %mul28.i.i.i = fmul double %div13.i.i.i, 2.000000e+00
-  %call29.i.i.i = call double @sqrt(double noundef %mul28.i.i.i) #32, !tbaa !14
+  %call29.i.i.i = call double @sqrt(double noundef %mul28.i.i.i) #33, !tbaa !14
   %mul30.i.i.i = fmul double %call29.i.i.i, %sub9.i.i.i
   %mul31.i.i.i = fmul double %mul16.i.i.i, 5.000000e-01
   %40 = call double @llvm.fmuladd.f64(double %mul31.i.i.i, double %div13.i.i.i, double 1.000000e+00)
@@ -1656,7 +1656,7 @@ _ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit.i: ; preds = %if.else.
   %44 = call double @llvm.fmuladd.f64(double %sub9.i.i32.i, double -3.000000e+00, double 1.000000e+00)
   %mul16.i.i36.i = fmul double %sub14.i.i35.i, %44
   %div18.i.i37.i = fdiv double %div.i.i.i, %add.i.i26.i
-  %call19.i.i38.i = call double @pow(double noundef %div18.i.i37.i, double noundef %sub9.i.i32.i) #32, !tbaa !14
+  %call19.i.i38.i = call double @pow(double noundef %div18.i.i37.i, double noundef %sub9.i.i32.i) #33, !tbaa !14
   %mul20.i.i39.i = fmul double %div13.i.i34.i, %sub9.i.i32.i
   %sub22.i.i40.i = fsub double 2.000000e+00, %sub9.i.i32.i
   %mul23.i.i41.i = fmul double %sub22.i.i40.i, 5.000000e-01
@@ -1666,7 +1666,7 @@ _ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit.i: ; preds = %if.else.
   %47 = call double @llvm.fmuladd.f64(double %mul20.i.i39.i, double %46, double 1.000000e+00)
   %sub27.i.i43.i = fsub double %call19.i.i38.i, %47
   %mul28.i.i44.i = fmul double %div13.i.i34.i, 2.000000e+00
-  %call29.i.i45.i = call double @sqrt(double noundef %mul28.i.i44.i) #32, !tbaa !14
+  %call29.i.i45.i = call double @sqrt(double noundef %mul28.i.i44.i) #33, !tbaa !14
   %mul30.i.i46.i = fmul double %sub9.i.i32.i, %call29.i.i45.i
   %mul31.i.i47.i = fmul double %mul16.i.i36.i, 5.000000e-01
   %48 = call double @llvm.fmuladd.f64(double %mul31.i.i47.i, double %div13.i.i34.i, double 1.000000e+00)
@@ -1694,7 +1694,7 @@ _ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit64.i: ; preds = %if.els
   %51 = call double @llvm.fmuladd.f64(double %sub9.i.i78.i, double -3.000000e+00, double 1.000000e+00)
   %mul16.i.i82.i = fmul double %sub14.i.i81.i, %51
   %div18.i.i83.i = fdiv double %div.i.i.i, %add.i.i72.i
-  %call19.i.i84.i = call double @pow(double noundef %div18.i.i83.i, double noundef %sub9.i.i78.i) #32, !tbaa !14
+  %call19.i.i84.i = call double @pow(double noundef %div18.i.i83.i, double noundef %sub9.i.i78.i) #33, !tbaa !14
   %mul20.i.i85.i = fmul double %div13.i.i80.i, %sub9.i.i78.i
   %sub22.i.i86.i = fsub double 2.000000e+00, %sub9.i.i78.i
   %mul23.i.i87.i = fmul double %sub22.i.i86.i, 5.000000e-01
@@ -1704,7 +1704,7 @@ _ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit64.i: ; preds = %if.els
   %54 = call double @llvm.fmuladd.f64(double %mul20.i.i85.i, double %53, double 1.000000e+00)
   %sub27.i.i89.i = fsub double %call19.i.i84.i, %54
   %mul28.i.i90.i = fmul double %div13.i.i80.i, 2.000000e+00
-  %call29.i.i91.i = call double @sqrt(double noundef %mul28.i.i90.i) #32, !tbaa !14
+  %call29.i.i91.i = call double @sqrt(double noundef %mul28.i.i90.i) #33, !tbaa !14
   %mul30.i.i92.i = fmul double %sub9.i.i78.i, %call29.i.i91.i
   %mul31.i.i93.i = fmul double %mul16.i.i82.i, 5.000000e-01
   %55 = call double @llvm.fmuladd.f64(double %mul31.i.i93.i, double %div13.i.i80.i, double 1.000000e+00)
@@ -1781,9 +1781,9 @@ if.end74.i:                                       ; preds = %if.end69.i
   %mul.i17.i.i.i.i = fmul double %add.i.i.i.i, %add.i.i.i.i
   %div13.i.i.i.i = fdiv double %67, %mul.i17.i.i.i.i
   %div18.i.i.i.i = fdiv double %div.i.i.i, %add.i.i.i.i
-  %call19.i.i.i.i = call double @pow(double noundef %div18.i.i.i.i, double noundef %sub9.i.i.i.i) #32, !tbaa !14
+  %call19.i.i.i.i = call double @pow(double noundef %div18.i.i.i.i, double noundef %sub9.i.i.i.i) #33, !tbaa !14
   %mul28.i.i.i.i = fmul double %div13.i.i.i.i, 2.000000e+00
-  %call29.i.i.i.i = call double @sqrt(double noundef %mul28.i.i.i.i) #32, !tbaa !14
+  %call29.i.i.i.i = call double @sqrt(double noundef %mul28.i.i.i.i) #33, !tbaa !14
   %cmp10.not167.i.i = icmp samesign ugt i64 %storemerge402450.i, 19
   br i1 %cmp10.not167.i.i, label %do.body.i.i, label %while.body.lr.ph.i.i
 
@@ -1889,13 +1889,13 @@ if.then52.i.i:                                    ; preds = %if.end40.i.i
   %mul.i17.i.i64.i.i = fmul double %add.i.i57.i.i, %add.i.i57.i.i
   %div13.i.i65.i.i = fdiv double %98, %mul.i17.i.i64.i.i
   %div18.i.i68.i.i = fdiv double %div.i.i.i, %add.i.i57.i.i
-  %call19.i.i69.i.i = call double @pow(double noundef %div18.i.i68.i.i, double noundef %sub9.i.i63.i.i) #32, !tbaa !14
+  %call19.i.i69.i.i = call double @pow(double noundef %div18.i.i68.i.i, double noundef %sub9.i.i63.i.i) #33, !tbaa !14
   %mul28.i.i75.i.i = fmul double %div13.i.i65.i.i, 2.000000e+00
   %99 = fcmp olt double %mul28.i.i75.i.i, 0.000000e+00
   br i1 %99, label %cdce.call, label %invoke.cont13, !prof !32
 
 cdce.call:                                        ; preds = %if.then52.i.i
-  %call29.i.i76.i.i = call double @sqrt(double noundef %mul28.i.i75.i.i) #32, !tbaa !14
+  %call29.i.i76.i.i = call double @sqrt(double noundef %mul28.i.i75.i.i) #33, !tbaa !14
   br label %invoke.cont13
 
 if.end58.i.i:                                     ; preds = %if.end40.i.i
@@ -2018,7 +2018,7 @@ if.end122.i.i:                                    ; preds = %if.else118.i.i, %if
   %117 = call double @llvm.fmuladd.f64(double %sub9.i.i101.i.i, double -3.000000e+00, double 1.000000e+00)
   %mul16.i.i105.i.i = fmul double %sub14.i.i104.i.i, %117
   %div18.i.i106.i.i = fdiv double %div.i.i.i, %add.i.i95.i.i
-  %call19.i.i107.i.i = call double @pow(double noundef %div18.i.i106.i.i, double noundef %sub9.i.i101.i.i) #32, !tbaa !14
+  %call19.i.i107.i.i = call double @pow(double noundef %div18.i.i106.i.i, double noundef %sub9.i.i101.i.i) #33, !tbaa !14
   %mul20.i.i108.i.i = fmul double %div13.i.i103.i.i, %sub9.i.i101.i.i
   %sub22.i.i109.i.i = fsub double 2.000000e+00, %sub9.i.i101.i.i
   %mul23.i.i110.i.i = fmul double %sub22.i.i109.i.i, 5.000000e-01
@@ -2028,7 +2028,7 @@ if.end122.i.i:                                    ; preds = %if.else118.i.i, %if
   %120 = call double @llvm.fmuladd.f64(double %mul20.i.i108.i.i, double %119, double 1.000000e+00)
   %sub27.i.i112.i.i = fsub double %call19.i.i107.i.i, %120
   %mul28.i.i113.i.i = fmul double %div13.i.i103.i.i, 2.000000e+00
-  %call29.i.i114.i.i = call double @sqrt(double noundef %mul28.i.i113.i.i) #32, !tbaa !14
+  %call29.i.i114.i.i = call double @sqrt(double noundef %mul28.i.i113.i.i) #33, !tbaa !14
   %mul30.i.i115.i.i = fmul double %call29.i.i114.i.i, %sub9.i.i101.i.i
   %mul31.i.i116.i.i = fmul double %mul16.i.i105.i.i, 5.000000e-01
   %121 = call double @llvm.fmuladd.f64(double %mul31.i.i116.i.i, double %div13.i.i103.i.i, double 1.000000e+00)
@@ -2057,7 +2057,7 @@ invoke.cont129.i.i:                               ; preds = %invoke.cont.i.i
           to label %invoke.cont131.i.i unwind label %lpad.i.i
 
 invoke.cont131.i.i:                               ; preds = %invoke.cont129.i.i
-  %exception.i.i = call ptr @__cxa_allocate_exception(i64 24) #32
+  %exception.i.i = call ptr @__cxa_allocate_exception(i64 24) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp133.i.i)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull @.str.111, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp133.i.i)
@@ -2079,7 +2079,7 @@ invoke.cont142.i.i:                               ; preds = %invoke.cont139.i.i
           to label %invoke.cont144.i.i unwind label %lpad143.i.i
 
 invoke.cont144.i.i:                               ; preds = %invoke.cont142.i.i
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN8QuantLib5ErrorE, ptr nonnull @_ZN8QuantLib5ErrorD2Ev) #33
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN8QuantLib5ErrorE, ptr nonnull @_ZN8QuantLib5ErrorD2Ev) #34
           to label %unreachable.i.i unwind label %lpad143.i.i
 
 lpad.i.i:                                         ; preds = %invoke.cont129.i.i, %invoke.cont.i.i, %.noexc
@@ -2109,7 +2109,7 @@ lpad143.i.i:                                      ; preds = %invoke.cont144.i.i,
 if.then.i.i.i.i19:                                ; preds = %lpad143.i.i
   %128 = load i64, ptr %127, align 8, !tbaa !22
   %add.i.i.i.i.i = add i64 %128, 1
-  call void @_ZdlPvm(ptr noundef %126, i64 noundef %add.i.i.i.i.i) #34
+  call void @_ZdlPvm(ptr noundef %126, i64 noundef %add.i.i.i.i.i) #35
   br label %ehcleanup.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad143.i.i, %if.then.i.i.i.i19, %lpad141.i.i
@@ -2124,7 +2124,7 @@ ehcleanup.i.i:                                    ; preds = %lpad143.i.i, %if.th
 if.then.i.i129.i.i:                               ; preds = %ehcleanup.i.i
   %131 = load i64, ptr %130, align 8, !tbaa !22
   %add.i.i.i130.i.i = add i64 %131, 1
-  call void @_ZdlPvm(ptr noundef %129, i64 noundef %add.i.i.i130.i.i) #34
+  call void @_ZdlPvm(ptr noundef %129, i64 noundef %add.i.i.i130.i.i) #35
   br label %ehcleanup146.i.i
 
 ehcleanup146.i.i:                                 ; preds = %ehcleanup.i.i, %if.then.i.i129.i.i
@@ -2148,7 +2148,7 @@ ehcleanup146.thread.i.i:                          ; preds = %invoke.cont135.i.i
 ehcleanup150.thread158.i.i:                       ; preds = %ehcleanup146.thread.i.i
   %137 = load i64, ptr %136, align 8, !tbaa !22
   %add.i.i.i137161.i.i = add i64 %137, 1
-  call void @_ZdlPvm(ptr noundef %135, i64 noundef %add.i.i.i137161.i.i) #34
+  call void @_ZdlPvm(ptr noundef %135, i64 noundef %add.i.i.i137161.i.i) #35
   br label %cleanup.action.sink.split.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138.i.i: ; preds = %ehcleanup146.i.i
@@ -2159,7 +2159,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 ehcleanup150.i.i:                                 ; preds = %ehcleanup146.i.i
   %138 = load i64, ptr %133, align 8, !tbaa !22
   %add.i.i.i137.i.i = add i64 %138, 1
-  call void @_ZdlPvm(ptr noundef %132, i64 noundef %add.i.i.i137.i.i) #34
+  call void @_ZdlPvm(ptr noundef %132, i64 noundef %add.i.i.i137.i.i) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp133.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   br i1 %cleanup.isactive.3.i.i, label %cleanup.action.i.i, label %ehcleanup154.i.i
@@ -2172,12 +2172,12 @@ cleanup.action.sink.split.i.i:                    ; preds = %ehcleanup146.thread
 
 cleanup.action.i.i:                               ; preds = %cleanup.action.sink.split.i.i, %ehcleanup150.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138.i.i
   %.pn.pn.pn146.i.i = phi { ptr, i32 } [ %.pn.i.i, %ehcleanup150.i.i ], [ %.pn.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138.i.i ], [ %.pn.pn.pn146.ph.i.i, %cleanup.action.sink.split.i.i ]
-  call void @__cxa_free_exception(ptr %exception.i.i) #32
+  call void @__cxa_free_exception(ptr %exception.i.i) #33
   br label %ehcleanup154.i.i
 
 ehcleanup154.i.i:                                 ; preds = %cleanup.action.i.i, %ehcleanup150.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138.i.i, %lpad.i.i
   %.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn146.i.i, %cleanup.action.i.i ], [ %.pn.i.i, %ehcleanup150.i.i ], [ %122, %lpad.i.i ], [ %.pn.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138.i.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream.i.i) #32
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream.i.i) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %_ql_msg_stream.i.i)
   br label %ehcleanup
 
@@ -2229,7 +2229,7 @@ _ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit129.i: ; preds = %if.en
   %151 = call double @llvm.fmuladd.f64(double %sub9.i.i143.i, double -3.000000e+00, double 1.000000e+00)
   %mul16.i.i147.i = fmul double %sub14.i.i146.i, %151
   %div18.i.i148.i = fdiv double %div.i.i.i, %add.i.i137.i
-  %call19.i.i149.i = call double @pow(double noundef %div18.i.i148.i, double noundef %sub9.i.i143.i) #32, !tbaa !14
+  %call19.i.i149.i = call double @pow(double noundef %div18.i.i148.i, double noundef %sub9.i.i143.i) #33, !tbaa !14
   %mul20.i.i150.i = fmul double %div13.i.i145.i, %sub9.i.i143.i
   %sub22.i.i151.i = fsub double 2.000000e+00, %sub9.i.i143.i
   %mul23.i.i152.i = fmul double %sub22.i.i151.i, 5.000000e-01
@@ -2239,7 +2239,7 @@ _ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit129.i: ; preds = %if.en
   %154 = call double @llvm.fmuladd.f64(double %mul20.i.i150.i, double %153, double 1.000000e+00)
   %sub27.i.i154.i = fsub double %call19.i.i149.i, %154
   %mul28.i.i155.i = fmul double %div13.i.i145.i, 2.000000e+00
-  %call29.i.i156.i = call double @sqrt(double noundef %mul28.i.i155.i) #32, !tbaa !14
+  %call29.i.i156.i = call double @sqrt(double noundef %mul28.i.i155.i) #33, !tbaa !14
   %mul30.i.i157.i = fmul double %call29.i.i156.i, %sub9.i.i143.i
   %mul31.i.i158.i = fmul double %mul16.i.i147.i, 5.000000e-01
   %155 = call double @llvm.fmuladd.f64(double %mul31.i.i158.i, double %div13.i.i145.i, double 1.000000e+00)
@@ -2287,7 +2287,7 @@ _ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit175.i: ; preds = %if.el
   %162 = call double @llvm.fmuladd.f64(double %sub9.i.i189.i, double -3.000000e+00, double 1.000000e+00)
   %mul16.i.i193.i = fmul double %sub14.i.i192.i, %162
   %div18.i.i194.i = fdiv double %div.i.i.i, %add.i.i183.i
-  %call19.i.i195.i = call double @pow(double noundef %div18.i.i194.i, double noundef %sub9.i.i189.i) #32, !tbaa !14
+  %call19.i.i195.i = call double @pow(double noundef %div18.i.i194.i, double noundef %sub9.i.i189.i) #33, !tbaa !14
   %mul20.i.i196.i = fmul double %div13.i.i191.i, %sub9.i.i189.i
   %sub22.i.i197.i = fsub double 2.000000e+00, %sub9.i.i189.i
   %mul23.i.i198.i = fmul double %sub22.i.i197.i, 5.000000e-01
@@ -2297,7 +2297,7 @@ _ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit175.i: ; preds = %if.el
   %165 = call double @llvm.fmuladd.f64(double %mul20.i.i196.i, double %164, double 1.000000e+00)
   %sub27.i.i200.i = fsub double %call19.i.i195.i, %165
   %mul28.i.i201.i = fmul double %div13.i.i191.i, 2.000000e+00
-  %call29.i.i202.i = call double @sqrt(double noundef %mul28.i.i201.i) #32, !tbaa !14
+  %call29.i.i202.i = call double @sqrt(double noundef %mul28.i.i201.i) #33, !tbaa !14
   %mul30.i.i203.i = fmul double %call29.i.i202.i, %sub9.i.i189.i
   %mul31.i.i204.i = fmul double %mul16.i.i193.i, 5.000000e-01
   %166 = call double @llvm.fmuladd.f64(double %mul31.i.i204.i, double %div13.i.i191.i, double 1.000000e+00)
@@ -2353,7 +2353,7 @@ if.end141.jt4294967295.i:                         ; preds = %if.else96.jt1.i, %i
   %177 = call double @llvm.fmuladd.f64(double %sub9.i.i281.i, double -3.000000e+00, double 1.000000e+00)
   %mul16.i.i285.i = fmul double %sub14.i.i284.i, %177
   %div18.i.i286.i = fdiv double %div.i.i.i, %add.i.i275.i
-  %call19.i.i287.i = call double @pow(double noundef %div18.i.i286.i, double noundef %sub9.i.i281.i) #32, !tbaa !14
+  %call19.i.i287.i = call double @pow(double noundef %div18.i.i286.i, double noundef %sub9.i.i281.i) #33, !tbaa !14
   %mul20.i.i288.i = fmul double %div13.i.i283.i, %sub9.i.i281.i
   %sub22.i.i289.i = fsub double 2.000000e+00, %sub9.i.i281.i
   %mul23.i.i290.i = fmul double %sub22.i.i289.i, 5.000000e-01
@@ -2363,7 +2363,7 @@ if.end141.jt4294967295.i:                         ; preds = %if.else96.jt1.i, %i
   %180 = call double @llvm.fmuladd.f64(double %mul20.i.i288.i, double %179, double 1.000000e+00)
   %sub27.i.i292.i = fsub double %call19.i.i287.i, %180
   %mul28.i.i293.i = fmul double %div13.i.i283.i, 2.000000e+00
-  %call29.i.i294.i = call double @sqrt(double noundef %mul28.i.i293.i) #32, !tbaa !14
+  %call29.i.i294.i = call double @sqrt(double noundef %mul28.i.i293.i) #33, !tbaa !14
   %mul30.i.i295.i = fmul double %call29.i.i294.i, %sub9.i.i281.i
   %mul31.i.i296.i = fmul double %mul16.i.i285.i, 5.000000e-01
   %181 = call double @llvm.fmuladd.f64(double %mul31.i.i296.i, double %div13.i.i283.i, double 1.000000e+00)
@@ -2400,7 +2400,7 @@ if.end141.jt1.i:                                  ; preds = %if.else96.jt4294967
   %188 = call double @llvm.fmuladd.f64(double %sub9.i.i235.i, double -3.000000e+00, double 1.000000e+00)
   %mul16.i.i239.i = fmul double %sub14.i.i238.i, %188
   %div18.i.i240.i = fdiv double %div.i.i.i, %add.i.i229.i
-  %call19.i.i241.i = call double @pow(double noundef %div18.i.i240.i, double noundef %sub9.i.i235.i) #32, !tbaa !14
+  %call19.i.i241.i = call double @pow(double noundef %div18.i.i240.i, double noundef %sub9.i.i235.i) #33, !tbaa !14
   %mul20.i.i242.i = fmul double %div13.i.i237.i, %sub9.i.i235.i
   %sub22.i.i243.i = fsub double 2.000000e+00, %sub9.i.i235.i
   %mul23.i.i244.i = fmul double %sub22.i.i243.i, 5.000000e-01
@@ -2410,7 +2410,7 @@ if.end141.jt1.i:                                  ; preds = %if.else96.jt4294967
   %191 = call double @llvm.fmuladd.f64(double %mul20.i.i242.i, double %190, double 1.000000e+00)
   %sub27.i.i246.i = fsub double %call19.i.i241.i, %191
   %mul28.i.i247.i = fmul double %div13.i.i237.i, 2.000000e+00
-  %call29.i.i248.i = call double @sqrt(double noundef %mul28.i.i247.i) #32, !tbaa !14
+  %call29.i.i248.i = call double @sqrt(double noundef %mul28.i.i247.i) #33, !tbaa !14
   %mul30.i.i249.i = fmul double %call29.i.i248.i, %sub9.i.i235.i
   %mul31.i.i250.i = fmul double %mul16.i.i239.i, 5.000000e-01
   %192 = call double @llvm.fmuladd.f64(double %mul31.i.i250.i, double %div13.i.i237.i, double 1.000000e+00)
@@ -2483,7 +2483,7 @@ invoke.cont174.i:                                 ; preds = %invoke.cont171.i
           to label %invoke.cont176.i unwind label %lpad146.i
 
 invoke.cont176.i:                                 ; preds = %invoke.cont174.i
-  %exception178.i = call ptr @__cxa_allocate_exception(i64 24) #32
+  %exception178.i = call ptr @__cxa_allocate_exception(i64 24) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp179.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp180.i)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp179.i, ptr noundef nonnull @.str.101, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp180.i)
@@ -2505,7 +2505,7 @@ invoke.cont189.i:                                 ; preds = %invoke.cont186.i
           to label %invoke.cont191.i unwind label %lpad190.i
 
 invoke.cont191.i:                                 ; preds = %invoke.cont189.i
-  invoke void @__cxa_throw(ptr nonnull %exception178.i, ptr nonnull @_ZTIN8QuantLib5ErrorE, ptr nonnull @_ZN8QuantLib5ErrorD2Ev) #33
+  invoke void @__cxa_throw(ptr nonnull %exception178.i, ptr nonnull @_ZTIN8QuantLib5ErrorE, ptr nonnull @_ZN8QuantLib5ErrorD2Ev) #34
           to label %unreachable.i unwind label %lpad190.i
 
 lpad146.i:                                        ; preds = %invoke.cont174.i, %invoke.cont171.i, %invoke.cont169.i, %invoke.cont166.i, %invoke.cont164.i, %invoke.cont162.i, %invoke.cont159.i, %invoke.cont157.i, %invoke.cont154.i, %invoke.cont152.i, %invoke.cont150.i, %invoke.cont147.i, %.noexc25
@@ -2535,7 +2535,7 @@ lpad190.i:                                        ; preds = %invoke.cont191.i, %
 if.then.i.i.i:                                    ; preds = %lpad190.i
   %199 = load i64, ptr %198, align 8, !tbaa !22
   %add.i.i.i347.i = add i64 %199, 1
-  call void @_ZdlPvm(ptr noundef %197, i64 noundef %add.i.i.i347.i) #34
+  call void @_ZdlPvm(ptr noundef %197, i64 noundef %add.i.i.i347.i) #35
   br label %ehcleanup194.i
 
 ehcleanup194.i:                                   ; preds = %lpad190.i, %if.then.i.i.i, %lpad188.i
@@ -2550,7 +2550,7 @@ ehcleanup194.i:                                   ; preds = %lpad190.i, %if.then
 if.then.i.i350.i:                                 ; preds = %ehcleanup194.i
   %202 = load i64, ptr %201, align 8, !tbaa !22
   %add.i.i.i351.i = add i64 %202, 1
-  call void @_ZdlPvm(ptr noundef %200, i64 noundef %add.i.i.i351.i) #34
+  call void @_ZdlPvm(ptr noundef %200, i64 noundef %add.i.i.i351.i) #35
   br label %ehcleanup196.i
 
 ehcleanup196.i:                                   ; preds = %ehcleanup194.i, %if.then.i.i350.i
@@ -2574,7 +2574,7 @@ ehcleanup196.thread.i:                            ; preds = %invoke.cont182.i
 ehcleanup200.thread383.i:                         ; preds = %ehcleanup196.thread.i
   %208 = load i64, ptr %207, align 8, !tbaa !22
   %add.i.i.i359386.i = add i64 %208, 1
-  call void @_ZdlPvm(ptr noundef %206, i64 noundef %add.i.i.i359386.i) #34
+  call void @_ZdlPvm(ptr noundef %206, i64 noundef %add.i.i.i359386.i) #35
   br label %cleanup.action205.sink.split.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i361.i: ; preds = %ehcleanup196.i
@@ -2585,7 +2585,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 ehcleanup200.i:                                   ; preds = %ehcleanup196.i
   %209 = load i64, ptr %204, align 8, !tbaa !22
   %add.i.i.i359.i = add i64 %209, 1
-  call void @_ZdlPvm(ptr noundef %203, i64 noundef %add.i.i.i359.i) #34
+  call void @_ZdlPvm(ptr noundef %203, i64 noundef %add.i.i.i359.i) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp180.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp179.i)
   br i1 %cleanup.isactive192.3.i, label %cleanup.action205.i, label %ehcleanup207.i
@@ -2598,12 +2598,12 @@ cleanup.action205.sink.split.i:                   ; preds = %ehcleanup196.thread
 
 cleanup.action205.i:                              ; preds = %cleanup.action205.sink.split.i, %ehcleanup200.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i361.i
   %.pn.pn.pn371.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup200.i ], [ %.pn.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i361.i ], [ %.pn.pn.pn371.ph.i, %cleanup.action205.sink.split.i ]
-  call void @__cxa_free_exception(ptr %exception178.i) #32
+  call void @__cxa_free_exception(ptr %exception178.i) #33
   br label %ehcleanup207.i
 
 ehcleanup207.i:                                   ; preds = %cleanup.action205.i, %ehcleanup200.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i361.i, %lpad146.i
   %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn371.i, %cleanup.action205.i ], [ %.pn.i, %ehcleanup200.i ], [ %193, %lpad146.i ], [ %.pn.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i361.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream145.i) #32
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream145.i) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %_ql_msg_stream145.i)
   br label %ehcleanup
 
@@ -2615,7 +2615,7 @@ invoke.cont13:                                    ; preds = %if.then52.i.i, %cdc
   %mul12 = fmul double %t, %retval.0.i20
   %mul2.i = fmul double %mul.i.i9, %mul12
   %div.i31 = fdiv double 1.000000e+00, %mul.i8
-  %call6.i = call noundef double @pow(double noundef %mul2.i, double noundef %div.i31) #32, !tbaa !14
+  %call6.i = call noundef double @pow(double noundef %mul2.i, double noundef %div.i31) #33, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp15)
   invoke void @_ZN8QuantLib28RiskNeutralDensityCalculator12InvCDFHelperC1EPKS0_ddmd(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp15, ptr noundef nonnull %this, double noundef %call6.i, double noundef 1.000000e-08, i64 noundef 100, double noundef 1.000000e-02)
           to label %invoke.cont17 unwind label %lpad16
@@ -2642,7 +2642,7 @@ lpad16:                                           ; preds = %invoke.cont17, %inv
 ehcleanup:                                        ; preds = %lpad9, %ehcleanup207.i, %ehcleanup154.i.i, %lpad16
   %.pn = phi { ptr, i32 } [ %211, %lpad16 ], [ %210, %lpad9 ], [ %.pn.pn.pn.pn.i.i, %ehcleanup154.i.i ], [ %.pn.pn.pn.pn.i, %ehcleanup207.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %212 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #32
+  %212 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp21)
   %213 = load double, ptr %f0_, align 8, !tbaa !6
   invoke void @_ZN8QuantLib28RiskNeutralDensityCalculator12InvCDFHelperC1EPKS0_ddmd(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp21, ptr noundef nonnull %this, double noundef %213, double noundef 1.000000e-08, i64 noundef 100, double noundef 1.000000e-02)
@@ -2720,7 +2720,7 @@ _ZN5boost4math36non_central_chi_squared_distributionIdNS0_8policies6policyINS2_1
   %mul2.i42 = fmul double %mul42, %mul.i.i41
   %mul5.i43 = fmul double %sub.i39, 2.000000e+00
   %div.i44 = fdiv double 1.000000e+00, %mul5.i43
-  %call6.i45 = call noundef double @pow(double noundef %mul2.i42, double noundef %div.i44) #32, !tbaa !14
+  %call6.i45 = call noundef double @pow(double noundef %mul2.i42, double noundef %div.i44) #33, !tbaa !14
   br label %return
 
 return:                                           ; preds = %invoke.cont18, %invoke.cont25, %if.then, %_ZNK8QuantLib16CEVRNDCalculator10massAtZeroEd.exit, %_ZN5boost4math36non_central_chi_squared_distributionIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEC2Edd.exit
@@ -2731,7 +2731,7 @@ terminate.lpad:                                   ; preds = %lpad23
   %221 = landingpad { ptr, i32 }
           catch ptr null
   %222 = extractvalue { ptr, i32 } %221, 0
-  call void @__clang_call_terminate(ptr %222) #35
+  call void @__clang_call_terminate(ptr %222) #36
   unreachable
 }
 
@@ -2745,8 +2745,8 @@ declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #32
-  tail call void @_ZSt9terminatev() #35
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #33
+  tail call void @_ZSt9terminatev() #36
   unreachable
 }
 
@@ -2762,7 +2762,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib16CEVRNDCalculatorD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 48) #34
+  tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 48) #35
   ret void
 }
 
@@ -2881,15 +2881,15 @@ init.check:                                       ; preds = %entry
   br i1 %guard.uninitialized.i.i.i, label %init.check.i.i.i, label %_ZN5boost4math6detail21min_shift_initializerIeE4initC2Ev.exit, !prof !32
 
 init.check.i.i.i:                                 ; preds = %init.check
-  %2 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIeEET_vE3val) #32
+  %2 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIeEET_vE3val) #33
   %tobool.not.i.i.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i.i.i, label %_ZN5boost4math6detail21min_shift_initializerIeE4initC2Ev.exit, label %init.i.i.i
 
 init.i.i.i:                                       ; preds = %init.check.i.i.i
-  %call.i.i.i.i.i = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef 0xK00018000000000000000, i32 noundef 65) #32, !tbaa !14
+  %call.i.i.i.i.i = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef 0xK00018000000000000000, i32 noundef 65) #33, !tbaa !14
   store x86_fp80 %call.i.i.i.i.i, ptr @_ZZN5boost4math6detail19get_min_shift_valueIeEET_vE3val, align 16, !tbaa !36
   %3 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZZN5boost4math6detail19get_min_shift_valueIeEET_vE3val)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIeEET_vE3val) #32
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIeEET_vE3val) #33
   br label %_ZN5boost4math6detail21min_shift_initializerIeE4initC2Ev.exit
 
 _ZN5boost4math6detail21min_shift_initializerIeE4initC2Ev.exit: ; preds = %init.check, %init.check.i.i.i, %init.i.i.i
@@ -2986,14 +2986,14 @@ if.then7:                                         ; preds = %if.end5
   br i1 %or.cond132, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.then7
-  %call.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef %x) #32, !tbaa !14
+  %call.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef %x) #33, !tbaa !14
   %neg = fneg x86_fp80 %x
   %2 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %a, x86_fp80 %call.i, x86_fp80 %neg)
   %tobool.not = icmp eq ptr %p_derivative, null
   br i1 %tobool.not, label %if.end16, label %if.then14
 
 if.then14:                                        ; preds = %if.then11
-  %call.i135 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %2) #32, !tbaa !14
+  %call.i135 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %2) #33, !tbaa !14
   store x86_fp80 %call.i135, ptr %p_derivative, align 16, !tbaa !36
   br label %if.end16
 
@@ -3040,7 +3040,7 @@ _ZN5boost4math6detail20upper_gamma_fractionIeEET_S3_S3_S3_.exit: ; preds = %do.b
   %div20.i.i.i = fdiv x86_fp80 %sub.i.i.i.i, %mul16.i.i.i
   %add1.i = fadd x86_fp80 %add.i.i, %div20.i.i.i
   %div.i = fdiv x86_fp80 0xK3FFF8000000000000000, %add1.i
-  %call.i136 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %div.i) #32, !tbaa !14
+  %call.i136 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %div.i) #33, !tbaa !14
   %add = fadd x86_fp80 %2, %call.i136
   br label %if.end83
 
@@ -3053,21 +3053,21 @@ land.lhs.true21:                                  ; preds = %if.else
   br i1 %cmp23, label %if.then24, label %if.else35.thread
 
 if.then24:                                        ; preds = %land.lhs.true21
-  %call.i137 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %x) #32, !tbaa !14
+  %call.i137 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %x) #33, !tbaa !14
   %neg27 = fneg x86_fp80 %x
   %7 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %a, x86_fp80 %call.i137, x86_fp80 %neg27)
   %tobool28.not = icmp eq ptr %p_derivative, null
   br i1 %tobool28.not, label %if.end31, label %if.then29
 
 if.then29:                                        ; preds = %if.then24
-  %call.i138 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %7) #32, !tbaa !14
+  %call.i138 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %7) #33, !tbaa !14
   store x86_fp80 %call.i138, ptr %p_derivative, align 16, !tbaa !36
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then29, %if.then24
   %call32 = tail call noundef x86_fp80 @_ZN5boost4math6detail18lower_gamma_seriesIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_RKT0_SB_(x86_fp80 noundef %a, x86_fp80 noundef %x, ptr noundef nonnull align 1 dereferenceable(1) %pol, x86_fp80 noundef 0xK00000000000000000000)
   %div = fdiv x86_fp80 %call32, %a
-  %call.i139 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %div) #32, !tbaa !14
+  %call.i139 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %div) #33, !tbaa !14
   %add34 = fadd x86_fp80 %7, %call.i139
   br label %if.end83
 
@@ -3089,7 +3089,7 @@ if.then41:                                        ; preds = %if.else35
   %mul46 = fmul x86_fp80 %a, %mul45
   %div47 = fdiv x86_fp80 0xK3FFF8000000000000000, %mul46
   %add48 = fadd x86_fp80 %add44, %div47
-  %call.i140 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %add48) #32, !tbaa !14
+  %call.i140 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %add48) #33, !tbaa !14
   %sub = fsub x86_fp80 %call.i140, %a
   %sub50 = fadd x86_fp80 %a, 0xKBFFE8000000000000000
   %call.i141 = tail call x86_fp80 @llvm.log.f80(x86_fp80 %a), !tbaa !14
@@ -3100,35 +3100,35 @@ if.then41:                                        ; preds = %if.else35
   br i1 %tobool56.not, label %if.end83, label %if.then57
 
 if.then57:                                        ; preds = %if.then41
-  %call.i143 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %x) #32, !tbaa !14
+  %call.i143 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %x) #33, !tbaa !14
   %neg60 = fneg x86_fp80 %x
   %9 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %a, x86_fp80 %call.i143, x86_fp80 %neg60)
-  %call.i144 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %9) #32, !tbaa !14
+  %call.i144 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %9) #33, !tbaa !14
   store x86_fp80 %call.i144, ptr %p_derivative, align 16, !tbaa !36
   br label %if.end83
 
 if.else63:                                        ; preds = %if.else35.thread
-  %call.i145 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %x) #32, !tbaa !14
+  %call.i145 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %x) #33, !tbaa !14
   %neg66 = fneg x86_fp80 %x
   %10 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %a, x86_fp80 %call.i145, x86_fp80 %neg66)
   %tobool67.not = icmp eq ptr %p_derivative, null
   br i1 %tobool67.not, label %if.end70, label %if.then68
 
 if.then68:                                        ; preds = %if.else63
-  %call.i146 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %10) #32, !tbaa !14
+  %call.i146 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %10) #33, !tbaa !14
   store x86_fp80 %call.i146, ptr %p_derivative, align 16, !tbaa !36
   br label %if.end70
 
 if.end70:                                         ; preds = %if.then68, %if.else63
   %call72 = tail call noundef x86_fp80 @_ZN5boost4math6detail18lower_gamma_seriesIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_RKT0_SB_(x86_fp80 noundef %a, x86_fp80 noundef %x, ptr noundef nonnull align 1 dereferenceable(1) %pol, x86_fp80 noundef 0xK00000000000000000000)
   %div73 = fdiv x86_fp80 %call72, %a
-  %call.i147 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %div73) #32, !tbaa !14
+  %call.i147 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %div73) #33, !tbaa !14
   %add75 = fadd x86_fp80 %10, %call.i147
   br label %if.end83
 
 if.else77:                                        ; preds = %if.else35.thread, %if.else35
   %call37156 = phi x86_fp80 [ %call37154, %if.else35.thread ], [ %call37, %if.else35 ]
-  %call.i148 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %call37156) #32, !tbaa !14
+  %call.i148 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %call37156) #33, !tbaa !14
   %call79 = tail call noundef x86_fp80 @_ZN5boost4math6lgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeESC_RKT0_(x86_fp80 noundef %a, ptr noundef nonnull align 1 dereferenceable(1) %pol)
   %add80 = fadd x86_fp80 %call.i148, %call79
   br label %if.end83
@@ -3144,7 +3144,7 @@ if.then86:                                        ; preds = %if.end83
   br label %return
 
 if.end88:                                         ; preds = %if.end83
-  %call.i149 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %result.0) #32, !tbaa !14
+  %call.i149 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %result.0) #33, !tbaa !14
   br label %return
 
 if.end90:                                         ; preds = %if.end5
@@ -3210,7 +3210,7 @@ if.else150:                                       ; preds = %lor.lhs.false, %if.
   br i1 %cmp151, label %if.then152, label %if.else159
 
 if.then152:                                       ; preds = %if.else150
-  %call.i150 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %x) #32, !tbaa !14
+  %call.i150 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %x) #33, !tbaa !14
   %div154 = fdiv x86_fp80 0xKBFFDCCCCCCCCCCCCD000, %call.i150
   %cmp155 = fcmp olt x86_fp80 %div154, %a
   br i1 %cmp155, label %sw.bb228, label %sw.bb283
@@ -3432,7 +3432,7 @@ if.then320:                                       ; preds = %sw.bb311
   br i1 %invert.addr.4237, label %if.then371, label %if.then382
 
 sw.bb324:                                         ; preds = %if.else132
-  %call.i152 = tail call noundef x86_fp80 @powl(x86_fp80 noundef %x, x86_fp80 noundef %a) #32, !tbaa !14
+  %call.i152 = tail call noundef x86_fp80 @powl(x86_fp80 noundef %x, x86_fp80 noundef %a) #33, !tbaa !14
   br i1 %normalised, label %if.else329, label %if.then326
 
 if.then326:                                       ; preds = %sw.bb324
@@ -3453,13 +3453,13 @@ lpad:                                             ; preds = %if.else329
           cleanup
           catch ptr @_ZTISt14overflow_error
   %28 = extractvalue { ptr, i32 } %27, 1
-  %29 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt14overflow_error) #32
+  %29 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt14overflow_error) #33
   %matches = icmp eq i32 %28, %29
   br i1 %matches, label %catch, label %ehcleanup
 
 catch:                                            ; preds = %lpad
   %30 = extractvalue { ptr, i32 } %27, 0
-  %31 = tail call ptr @__cxa_begin_catch(ptr %30) #32
+  %31 = tail call ptr @__cxa_begin_catch(ptr %30) #33
   tail call void @__cxa_end_catch()
   br label %if.end336
 
@@ -3610,7 +3610,7 @@ return:                                           ; preds = %if.then86, %if.end8
   ret x86_fp80 %retval.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare x86_fp80 @llvm.fabs.f80(x86_fp80) #1
 
 ; Function Attrs: mustprogress uwtable
@@ -3628,7 +3628,7 @@ entry:
   call void @llvm.lifetime.start.p0(ptr nonnull %function)
   %0 = getelementptr inbounds nuw i8, ptr %function, i64 16
   store ptr %0, ptr %function, align 8, !tbaa !23
-  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #32
+  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i)
   store i64 %call.i.i, ptr %__dnew.i.i, align 8, !tbaa !24
   %cmp.i.i = icmp ugt i64 %call.i.i, 15
@@ -3710,14 +3710,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
           to label %invoke.cont12 unwind label %lpad7
 
 invoke.cont12:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
-  %call.i.i.i26 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select1) #32
+  %call.i.i.i26 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select1) #33
   %14 = load i64, ptr %_M_string_length.i.i.i.i13, align 8, !tbaa !25
   %sub3.i.i.i28 = sub i64 4611686018427387903, %14
   %cmp.i.i.i29 = icmp ult i64 %sub3.i.i.i28, %call.i.i.i26
   br i1 %cmp.i.i.i29, label %if.then.i.i.i31.invoke, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i30
 
 if.then.i.i.i31.invoke:                           ; preds = %invoke.cont12, %invoke.cont10, %invoke.cont9
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.20) #33
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.20) #34
           to label %if.then.i.i.i31.cont unwind label %lpad7
 
 if.then.i.i.i31.cont:                             ; preds = %if.then.i.i.i31.invoke
@@ -3733,7 +3733,7 @@ invoke.cont14:                                    ; preds = %_ZNSt7__cxx1112basi
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont14
-  invoke void @_ZN5boost15throw_exceptionISt14overflow_errorEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16) #33
+  invoke void @_ZN5boost15throw_exceptionISt14overflow_errorEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16) #34
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %invoke.cont18
@@ -3757,7 +3757,7 @@ lpad17:                                           ; preds = %invoke.cont14
 lpad19:                                           ; preds = %invoke.cont18
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt14overflow_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16) #32
+  call void @_ZNSt14overflow_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16) #33
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad19, %lpad17
@@ -3774,7 +3774,7 @@ ehcleanup21:                                      ; preds = %ehcleanup, %lpad7
 if.then.i.i36:                                    ; preds = %ehcleanup21
   %20 = load i64, ptr %6, align 8, !tbaa !22
   %add.i.i.i = add i64 %20, 1
-  call void @_ZdlPvm(ptr noundef %19, i64 noundef %add.i.i.i) #34
+  call void @_ZdlPvm(ptr noundef %19, i64 noundef %add.i.i.i) #35
   br label %ehcleanup22
 
 ehcleanup22:                                      ; preds = %ehcleanup21, %if.then.i.i36, %lpad5
@@ -3787,7 +3787,7 @@ ehcleanup22:                                      ; preds = %ehcleanup21, %if.th
 if.then.i.i39:                                    ; preds = %ehcleanup22
   %22 = load i64, ptr %0, align 8, !tbaa !22
   %add.i.i.i40 = add i64 %22, 1
-  call void @_ZdlPvm(ptr noundef %21, i64 noundef %add.i.i.i40) #34
+  call void @_ZdlPvm(ptr noundef %21, i64 noundef %add.i.i.i40) #35
   br label %ehcleanup24
 
 ehcleanup24:                                      ; preds = %ehcleanup22, %if.then.i.i39
@@ -3798,10 +3798,10 @@ ehcleanup24:                                      ; preds = %ehcleanup22, %if.th
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN5boost4math8policies6detail21replace_all_in_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSB_(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef %what, ptr noundef %with) local_unnamed_addr #21 comdat {
 entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %what) #36
-  %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %with) #36
-  %call.i.i8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %what) #32
-  %call2.i9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef nonnull %what, i64 noundef 0, i64 noundef %call.i.i8) #32
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %what) #37
+  %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %with) #37
+  %call.i.i8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %what) #33
+  %call2.i9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef nonnull %what, i64 noundef 0, i64 noundef %call.i.i8) #33
   %cmp.not10 = icmp eq i64 %call2.i9, -1
   br i1 %cmp.not10, label %while.end, label %while.body.lr.ph
 
@@ -3816,17 +3816,17 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit
 
 if.then.i.i.i:                                    ; preds = %while.body
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.10, i64 noundef %call2.i11, i64 noundef %0) #33
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.10, i64 noundef %call2.i11, i64 noundef %0) #34
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit: ; preds = %while.body
-  %call.i.i6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %with) #32
+  %call.i.i6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %with) #33
   %sub.i.i.i = sub nuw i64 %0, %call2.i11
   %spec.select.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %call, i64 %sub.i.i.i)
   %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %result, i64 noundef %call2.i11, i64 noundef %spec.select.i.i.i, ptr noundef nonnull %with, i64 noundef %call.i.i6)
   %add = add i64 %call2.i11, %call1
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %what) #32
-  %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef nonnull %what, i64 noundef %add, i64 noundef %call.i.i) #32
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %what) #33
+  %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef nonnull %what, i64 noundef %add, i64 noundef %call.i.i) #33
   %cmp.not = icmp eq i64 %call2.i, -1
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !41
 
@@ -3840,18 +3840,18 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr void @_ZN5boost15throw_exceptionISt14overflow_errorEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %e) local_unnamed_addr #22 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 64) #32
+  %exception = tail call ptr @__cxa_allocate_exception(i64 64) #33
   invoke void @_ZN5boost10wrapexceptISt14overflow_errorEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %exception, ptr noundef nonnull align 8 dereferenceable(16) %e)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5boost10wrapexceptISt14overflow_errorEE, ptr nonnull @_ZN5boost10wrapexceptISt14overflow_errorED2Ev) #33
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5boost10wrapexceptISt14overflow_errorEE, ptr nonnull @_ZN5boost10wrapexceptISt14overflow_errorED2Ev) #34
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %exception) #32
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #33
   resume { ptr, i32 } %0
 }
 
@@ -3873,7 +3873,7 @@ define linkonce_odr void @_ZN5boost10wrapexceptISt14overflow_errorEC2ERKS1_(ptr 
 invoke.cont:
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %this, align 8, !tbaa !3
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %e) #32
+  tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %e) #33
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %data_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %throw_line_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -3915,12 +3915,12 @@ terminate.lpad.i.i:                               ; preds = %land.lhs.true.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #35
+  tail call void @__clang_call_terminate(ptr %4) #36
   unreachable
 
 _ZN5boost9exceptionD2Ev.exit:                     ; preds = %entry, %call.i.noexc.i.i, %if.then.i.i.i
   %5 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #32
+  tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #33
   ret void
 }
 
@@ -3930,11 +3930,11 @@ declare void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptISt14overflow_errorE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #37
+  %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #38
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %call, align 8, !tbaa !3
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i) #32
+  tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i) #33
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt14overflow_error, i64 16), ptr %0, align 8, !tbaa !3
   %1 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %1, align 8, !tbaa !3
@@ -3955,8 +3955,8 @@ if.then.i.i.i.i:                                  ; preds = %entry
 lpad.i:                                           ; preds = %if.then.i.i.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #32
-  tail call void @_ZdlPvm(ptr noundef nonnull %call, i64 noundef 64) #34
+  tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull %call, i64 noundef 64) #35
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i, %entry
@@ -3979,7 +3979,7 @@ _ZN5boost10wrapexceptISt14overflow_errorE7deleterD2Ev.exit8: ; preds = %invoke.c
   %vtable.i6 = load ptr, ptr %call, align 8, !tbaa !3
   %vfn.i7 = getelementptr inbounds nuw i8, ptr %vtable.i6, i64 24
   %6 = load ptr, ptr %vfn.i7, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(64) %call) #32
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(64) %call) #33
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %_ZN5boost10wrapexceptISt14overflow_errorE7deleterD2Ev.exit8, %lpad.i
@@ -3990,18 +3990,18 @@ ehcleanup:                                        ; preds = %_ZN5boost10wrapexce
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK5boost10wrapexceptISt14overflow_errorE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 64) #32
+  %exception = tail call ptr @__cxa_allocate_exception(i64 64) #33
   invoke void @_ZN5boost10wrapexceptISt14overflow_errorEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %exception, ptr noundef nonnull align 8 dereferenceable(64) %this)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5boost10wrapexceptISt14overflow_errorEE, ptr nonnull @_ZN5boost10wrapexceptISt14overflow_errorED2Ev) #33
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5boost10wrapexceptISt14overflow_errorEE, ptr nonnull @_ZN5boost10wrapexceptISt14overflow_errorED2Ev) #34
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %exception) #32
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #33
   resume { ptr, i32 } %0
 }
 
@@ -4033,13 +4033,13 @@ terminate.lpad.i.i.i:                             ; preds = %land.lhs.true.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #35
+  tail call void @__clang_call_terminate(ptr %4) #36
   unreachable
 
 _ZN5boost10wrapexceptISt14overflow_errorED2Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i, %if.then.i.i.i.i
   %5 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #32
-  tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 64) #34
+  tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 64) #35
   ret void
 }
 
@@ -4071,11 +4071,11 @@ terminate.lpad.i.i.i:                             ; preds = %land.lhs.true.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #35
+  tail call void @__clang_call_terminate(ptr %4) #36
   unreachable
 
 _ZN5boost10wrapexceptISt14overflow_errorED2Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i, %if.then.i.i.i.i
-  tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #32
+  tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #33
   ret void
 }
 
@@ -4107,13 +4107,13 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #35
+  tail call void @__clang_call_terminate(ptr %4) #36
   unreachable
 
 _ZN5boost10wrapexceptISt14overflow_errorED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
-  tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #32
-  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #34
+  tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #35
   ret void
 }
 
@@ -4147,12 +4147,12 @@ terminate.lpad.i.i.i:                             ; preds = %land.lhs.true.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #35
+  tail call void @__clang_call_terminate(ptr %3) #36
   unreachable
 
 _ZN5boost10wrapexceptISt14overflow_errorED2Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i, %if.then.i.i.i.i
   %4 = getelementptr inbounds i8, ptr %this, i64 -16
-  tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #32
+  tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #33
   ret void
 }
 
@@ -4183,14 +4183,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #35
+  tail call void @__clang_call_terminate(ptr %3) #36
   unreachable
 
 _ZN5boost10wrapexceptISt14overflow_errorED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
-  tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #32
-  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #34
+  tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #35
   ret void
 }
 
@@ -4203,7 +4203,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost16exception_detail10clone_baseD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #35
+  tail call void @llvm.trap() #36
   unreachable
 }
 
@@ -4219,7 +4219,7 @@ entry:
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %this, align 8, !tbaa !3
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr) #32
+  tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr) #33
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt14overflow_error, i64 16), ptr %1, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
@@ -4249,7 +4249,7 @@ invoke.cont:                                      ; preds = %entry, %if.then.i.i
 lpad:                                             ; preds = %if.then.i.i.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #32
+  tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #33
   resume { ptr, i32 } %5
 }
 
@@ -4298,7 +4298,7 @@ terminate.lpad.i:                                 ; preds = %land.lhs.true.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #35
+  call void @__clang_call_terminate(ptr %6) #36
   unreachable
 
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit: ; preds = %land.lhs.true.i.i, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i, %invoke.cont4
@@ -4328,7 +4328,7 @@ terminate.lpad.i19:                               ; preds = %land.lhs.true.i.i15
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #35
+  call void @__clang_call_terminate(ptr %12) #36
   unreachable
 
 ehcleanup:                                        ; preds = %land.lhs.true.i.i15, %lpad3, %lpad1
@@ -4390,7 +4390,7 @@ terminate.lpad.i41:                               ; preds = %land.lhs.true.i.i37
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #35
+  call void @__clang_call_terminate(ptr %22) #36
   unreachable
 
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit44: ; preds = %land.lhs.true.i.i37, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i27
@@ -4418,14 +4418,14 @@ terminate.lpad.i50:                               ; preds = %land.lhs.true.i.i46
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #35
+  call void @__clang_call_terminate(ptr %26) #36
   unreachable
 
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit53: ; preds = %land.lhs.true.i.i46, %ehcleanup15
   resume { ptr, i32 } %.pn11
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare x86_fp80 @llvm.fmuladd.f80(x86_fp80, x86_fp80, x86_fp80) #1
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -4552,7 +4552,7 @@ entry:
   %ref.tmp.i.i.i = alloca x86_fp80, align 16
   %ref.tmp = alloca x86_fp80, align 16
   %fneg = fneg x86_fp80 %x
-  %call.i = tail call noundef x86_fp80 @expl(x86_fp80 noundef %fneg) #32, !tbaa !14
+  %call.i = tail call noundef x86_fp80 @expl(x86_fp80 noundef %fneg) #33, !tbaa !14
   %cmp = fcmp une x86_fp80 %call.i, 0xK00000000000000000000
   %cmp116 = fcmp ogt x86_fp80 %a, 0xK3FFF8000000000000000
   %or.cond = and i1 %cmp, %cmp116
@@ -4577,7 +4577,7 @@ if.end:                                           ; preds = %for.body, %entry
   br i1 %tobool.not, label %if.end9, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %call.i14 = tail call noundef x86_fp80 @powl(x86_fp80 noundef %x, x86_fp80 noundef %a) #32, !tbaa !14
+  %call.i14 = tail call noundef x86_fp80 @powl(x86_fp80 noundef %x, x86_fp80 noundef %a) #33, !tbaa !14
   %mul5 = fmul x86_fp80 %call.i, %call.i14
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %sub = fadd x86_fp80 %a, 0xKBFFF8000000000000000
@@ -4658,7 +4658,7 @@ define linkonce_odr noundef x86_fp80 @_ZN5boost4math6detail19finite_half_gamma_q
 entry:
   %ref.tmp.i = alloca %"struct.boost::math::policies::policy", align 1
   %ref.tmp1.i = alloca %"struct.std::integral_constant.3", align 1
-  %call.i = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %x) #32, !tbaa !14
+  %call.i = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %x) #33, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1.i)
   %call.i21 = call noundef x86_fp80 @_ZN5boost4math6detail7erf_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_bRKT0_RKSt17integral_constantIiLi64EE(x86_fp80 noundef %call.i, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i)
@@ -4680,9 +4680,9 @@ _ZN5boost4math4erfcIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promot
 
 if.then:                                          ; preds = %_ZN5boost4math4erfcIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeESC_RKT0_.exit
   %fneg = fneg x86_fp80 %x
-  %call.i22 = call noundef x86_fp80 @expl(x86_fp80 noundef %fneg) #32, !tbaa !14
+  %call.i22 = call noundef x86_fp80 @expl(x86_fp80 noundef %fneg) #33, !tbaa !14
   %mul = fmul x86_fp80 %x, 0xK4000C90FDAA22168C235
-  %call.i23 = call noundef x86_fp80 @sqrtl(x86_fp80 noundef %mul) #32, !tbaa !14
+  %call.i23 = call noundef x86_fp80 @sqrtl(x86_fp80 noundef %mul) #33, !tbaa !14
   %div = fdiv x86_fp80 %call.i22, %call.i23
   %mul6 = fmul x86_fp80 %x, %div
   %div7 = fmul x86_fp80 %mul6, 0xK40008000000000000000
@@ -4714,9 +4714,9 @@ if.else:                                          ; preds = %_ZN5boost4math4erfc
   br i1 %tobool14.not, label %if.end23, label %if.then15
 
 if.then15:                                        ; preds = %if.else
-  %call.i24 = call noundef x86_fp80 @sqrtl(x86_fp80 noundef %x) #32, !tbaa !14
+  %call.i24 = call noundef x86_fp80 @sqrtl(x86_fp80 noundef %x) #33, !tbaa !14
   %fneg17 = fneg x86_fp80 %x
-  %call.i25 = call noundef x86_fp80 @expl(x86_fp80 noundef %fneg17) #32, !tbaa !14
+  %call.i25 = call noundef x86_fp80 @expl(x86_fp80 noundef %fneg17) #33, !tbaa !14
   %mul19 = fmul x86_fp80 %call.i24, %call.i25
   %div21 = fdiv x86_fp80 %mul19, 0xK3FFFE2DFC48DA77B553D
   br label %if.end23.sink.split
@@ -4760,16 +4760,16 @@ if.then8:                                         ; preds = %if.end
   br i1 %or.cond80, label %if.then14, label %if.else
 
 if.then14:                                        ; preds = %if.then8
-  %call.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef %z) #32, !tbaa !14
+  %call.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef %z) #33, !tbaa !14
   %0 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %a, x86_fp80 %call.i, x86_fp80 %neg)
   %call16 = tail call noundef x86_fp80 @_ZN5boost4math6detail10lgamma_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EENS0_7lanczos12lanczos17m64EEET_SD_RKT0_RKT1_Pi(x86_fp80 noundef %a, ptr noundef nonnull align 1 dereferenceable(1) %pol, ptr noundef nonnull align 1 dereferenceable(1) %l, ptr noundef null)
   %sub17 = fsub x86_fp80 %0, %call16
-  %call.i37 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %sub17) #32, !tbaa !14
+  %call.i37 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %sub17) #33, !tbaa !14
   br label %return
 
 if.else:                                          ; preds = %if.then8
-  %call.i38 = tail call noundef x86_fp80 @powl(x86_fp80 noundef %z, x86_fp80 noundef %a) #32, !tbaa !14
-  %call.i39 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %neg) #32, !tbaa !14
+  %call.i38 = tail call noundef x86_fp80 @powl(x86_fp80 noundef %z, x86_fp80 noundef %a) #33, !tbaa !14
+  %call.i39 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %neg) #33, !tbaa !14
   %mul = fmul x86_fp80 %call.i38, %call.i39
   %call21 = tail call noundef x86_fp80 @_ZN5boost4math6detail9gamma_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EENS0_7lanczos12lanczos17m64EEET_SD_RKT0_RKT1_(x86_fp80 noundef %a, ptr noundef nonnull align 1 dereferenceable(1) %pol, ptr noundef nonnull align 1 dereferenceable(1) %l)
   %div22 = fdiv x86_fp80 %mul, %call21
@@ -4811,7 +4811,7 @@ if.end4.i:                                        ; preds = %if.end.i
 
 if.then7.i:                                       ; preds = %if.end4.i
   %add.i = fadd x86_fp80 %div, 0xK3FFF8000000000000000
-  %call.i.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef %add.i) #32, !tbaa !14
+  %call.i.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef %add.i) #33, !tbaa !14
   %sub.i = fsub x86_fp80 %call.i.i, %div
   br label %_ZN5boost4math7log1pmxIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeESC_RKT0_.exit
 
@@ -4868,12 +4868,12 @@ _ZN5boost4math7log1pmxIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14pro
   %mul35 = fmul x86_fp80 %z, 0xKC002BB9A832800000000
   %div36 = fdiv x86_fp80 %mul35, %sub
   %9 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %a, x86_fp80 %retval.0.i, x86_fp80 %div36)
-  %call.i40 = call noundef x86_fp80 @expl(x86_fp80 noundef %9) #32, !tbaa !14
+  %call.i40 = call noundef x86_fp80 @expl(x86_fp80 noundef %9) #33, !tbaa !14
   br label %if.end115
 
 if.else38:                                        ; preds = %if.else23
   %div39 = fdiv x86_fp80 %z, %sub
-  %call.i41 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %div39) #32, !tbaa !14
+  %call.i41 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %div39) #33, !tbaa !14
   %mul41 = fmul x86_fp80 %a, %call.i41
   %sub42 = fsub x86_fp80 %a, %z
   %cmp.i42 = fcmp olt x86_fp80 %sub42, %mul41
@@ -4902,9 +4902,9 @@ land.lhs.true56:                                  ; preds = %if.then50
 
 if.then61:                                        ; preds = %land.lhs.true56
   %div63 = fmul x86_fp80 %a, 0xK3FFE8000000000000000
-  %call.i49 = tail call noundef x86_fp80 @powl(x86_fp80 noundef %div39, x86_fp80 noundef %div63) #32, !tbaa !14
+  %call.i49 = tail call noundef x86_fp80 @powl(x86_fp80 noundef %div39, x86_fp80 noundef %div63) #33, !tbaa !14
   %div65 = fmul x86_fp80 %sub42, 0xK3FFE8000000000000000
-  %call.i50 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %div65) #32, !tbaa !14
+  %call.i50 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %div65) #33, !tbaa !14
   %mul67 = fmul x86_fp80 %call.i49, %call.i50
   %mul68 = fmul x86_fp80 %mul67, %mul67
   br label %if.end115
@@ -4925,9 +4925,9 @@ land.lhs.true74:                                  ; preds = %if.else69
 
 if.then81:                                        ; preds = %land.lhs.true74
   %div84 = fmul x86_fp80 %a, 0xK3FFD8000000000000000
-  %call.i55 = tail call noundef x86_fp80 @powl(x86_fp80 noundef %div39, x86_fp80 noundef %div84) #32, !tbaa !14
+  %call.i55 = tail call noundef x86_fp80 @powl(x86_fp80 noundef %div39, x86_fp80 noundef %div84) #33, !tbaa !14
   %div86 = fmul x86_fp80 %sub42, 0xK3FFD8000000000000000
-  %call.i56 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %div86) #32, !tbaa !14
+  %call.i56 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %div86) #33, !tbaa !14
   %mul88 = fmul x86_fp80 %call.i55, %call.i56
   %mul89 = fmul x86_fp80 %mul88, %mul88
   %mul90 = fmul x86_fp80 %mul89, %mul89
@@ -4940,28 +4940,28 @@ if.else91:                                        ; preds = %land.lhs.true74, %i
   br i1 %or.cond82, label %if.then97, label %if.else102
 
 if.then97:                                        ; preds = %if.else91
-  %call.i57 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %div51) #32, !tbaa !14
+  %call.i57 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %div51) #33, !tbaa !14
   %mul99 = fmul x86_fp80 %z, %call.i57
   %div100 = fdiv x86_fp80 %mul99, %sub
-  %call.i58 = tail call noundef x86_fp80 @powl(x86_fp80 noundef %div100, x86_fp80 noundef %a) #32, !tbaa !14
+  %call.i58 = tail call noundef x86_fp80 @powl(x86_fp80 noundef %div100, x86_fp80 noundef %a) #33, !tbaa !14
   br label %if.end115
 
 if.else102:                                       ; preds = %if.else91
   %add103 = fadd x86_fp80 %sub42, %mul41
-  %call.i59 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %add103) #32, !tbaa !14
+  %call.i59 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %add103) #33, !tbaa !14
   br label %if.end115
 
 if.else108:                                       ; preds = %lor.lhs.false46
-  %call.i60 = tail call noundef x86_fp80 @powl(x86_fp80 noundef %div39, x86_fp80 noundef %a) #32, !tbaa !14
-  %call.i61 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %sub42) #32, !tbaa !14
+  %call.i60 = tail call noundef x86_fp80 @powl(x86_fp80 noundef %div39, x86_fp80 noundef %a) #33, !tbaa !14
+  %call.i61 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %sub42) #33, !tbaa !14
   %mul112 = fmul x86_fp80 %call.i60, %call.i61
   br label %if.end115
 
 if.end115:                                        ; preds = %if.else108, %if.then81, %if.else102, %if.then97, %if.then61, %_ZN5boost4math7log1pmxIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeESC_RKT0_.exit
   %prefix.2 = phi x86_fp80 [ %call.i40, %_ZN5boost4math7log1pmxIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeESC_RKT0_.exit ], [ %mul112, %if.else108 ], [ %mul68, %if.then61 ], [ %mul90, %if.then81 ], [ %call.i58, %if.then97 ], [ %call.i59, %if.else102 ]
   %div117 = fdiv x86_fp80 %sub, 0xK4000ADF85458A2BB4A9B
-  %call.i62 = call noundef x86_fp80 @sqrtl(x86_fp80 noundef %div117) #32, !tbaa !14
-  %call.i.i63 = call noundef x86_fp80 @_ZN5boost4math5tools6detail23evaluate_rational_c_impIemeEET1_PKT_PKT0_RKS4_PKSt17integral_constantIiLi17EE(ptr noundef nonnull @_ZZN5boost4math7lanczos12lanczos17m6423lanczos_sum_expG_scaledIeEET_RKS4_E3num, ptr noundef nonnull @_ZZN5boost4math7lanczos12lanczos17m6423lanczos_sum_expG_scaledIeEET_RKS4_E5denom, ptr noundef nonnull align 16 dereferenceable(16) %a.addr, ptr noundef null) #32
+  %call.i62 = call noundef x86_fp80 @sqrtl(x86_fp80 noundef %div117) #33, !tbaa !14
+  %call.i.i63 = call noundef x86_fp80 @_ZN5boost4math5tools6detail23evaluate_rational_c_impIemeEET1_PKT_PKT0_RKS4_PKSt17integral_constantIiLi17EE(ptr noundef nonnull @_ZZN5boost4math7lanczos12lanczos17m6423lanczos_sum_expG_scaledIeEET_RKS4_E3num, ptr noundef nonnull @_ZZN5boost4math7lanczos12lanczos17m6423lanczos_sum_expG_scaledIeEET_RKS4_E5denom, ptr noundef nonnull align 16 dereferenceable(16) %a.addr, ptr noundef null) #33
   %div120 = fdiv x86_fp80 %call.i62, %call.i.i63
   %mul121 = fmul x86_fp80 %prefix.2, %div120
   br label %return
@@ -4978,7 +4978,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef %z) #32, !tbaa !14
+  %call.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef %z) #33, !tbaa !14
   %mul = fmul x86_fp80 %a, %call.i
   %cmp2 = fcmp ult x86_fp80 %z, 0xK3FFF8000000000000000
   br i1 %cmp2, label %if.else22, label %if.then3
@@ -4991,8 +4991,8 @@ if.then3:                                         ; preds = %if.end
 
 if.then8:                                         ; preds = %if.then3
   %fneg = fneg x86_fp80 %z
-  %call.i27 = tail call noundef x86_fp80 @powl(x86_fp80 noundef %z, x86_fp80 noundef %a) #32, !tbaa !14
-  %call.i28 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %fneg) #32, !tbaa !14
+  %call.i27 = tail call noundef x86_fp80 @powl(x86_fp80 noundef %z, x86_fp80 noundef %a) #33, !tbaa !14
+  %call.i28 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %fneg) #33, !tbaa !14
   %mul12 = fmul x86_fp80 %call.i27, %call.i28
   br label %if.end44
 
@@ -5002,14 +5002,14 @@ if.else:                                          ; preds = %if.then3
 
 if.then14:                                        ; preds = %if.else
   %div = fdiv x86_fp80 %z, %a
-  %call.i29 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %div) #32, !tbaa !14
+  %call.i29 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %div) #33, !tbaa !14
   %div16 = fdiv x86_fp80 %z, %call.i29
-  %call.i30 = tail call noundef x86_fp80 @powl(x86_fp80 noundef %div16, x86_fp80 noundef %a) #32, !tbaa !14
+  %call.i30 = tail call noundef x86_fp80 @powl(x86_fp80 noundef %div16, x86_fp80 noundef %a) #33, !tbaa !14
   br label %if.end44
 
 if.else18:                                        ; preds = %if.else
   %sub = fsub x86_fp80 %mul, %z
-  %call.i31 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %sub) #32, !tbaa !14
+  %call.i31 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %sub) #33, !tbaa !14
   br label %if.end44
 
 if.else22:                                        ; preds = %if.end
@@ -5017,9 +5017,9 @@ if.else22:                                        ; preds = %if.end
   br i1 %cmp24, label %if.then25, label %if.else30
 
 if.then25:                                        ; preds = %if.else22
-  %call.i32 = tail call noundef x86_fp80 @powl(x86_fp80 noundef %z, x86_fp80 noundef %a) #32, !tbaa !14
+  %call.i32 = tail call noundef x86_fp80 @powl(x86_fp80 noundef %z, x86_fp80 noundef %a) #33, !tbaa !14
   %fneg27 = fneg x86_fp80 %z
-  %call.i33 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %fneg27) #32, !tbaa !14
+  %call.i33 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %fneg27) #33, !tbaa !14
   %mul29 = fmul x86_fp80 %call.i32, %call.i33
   br label %if.end44
 
@@ -5029,14 +5029,14 @@ if.else30:                                        ; preds = %if.else22
   br i1 %cmp33, label %if.then34, label %if.else39
 
 if.then34:                                        ; preds = %if.else30
-  %call.i34 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %div31) #32, !tbaa !14
+  %call.i34 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %div31) #33, !tbaa !14
   %div37 = fdiv x86_fp80 %z, %call.i34
-  %call.i35 = tail call noundef x86_fp80 @powl(x86_fp80 noundef %div37, x86_fp80 noundef %a) #32, !tbaa !14
+  %call.i35 = tail call noundef x86_fp80 @powl(x86_fp80 noundef %div37, x86_fp80 noundef %a) #33, !tbaa !14
   br label %if.end44
 
 if.else39:                                        ; preds = %if.else30
   %sub40 = fsub x86_fp80 %mul, %z
-  %call.i36 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %sub40) #32, !tbaa !14
+  %call.i36 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %sub40) #33, !tbaa !14
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then25, %if.else39, %if.then34, %if.then8, %if.else18, %if.then14
@@ -5094,7 +5094,7 @@ if.end:                                           ; preds = %if.then, %_ZN5boost
 
 if.then7:                                         ; preds = %if.end
   %1 = load x86_fp80, ptr %pgam, align 16, !tbaa !36
-  %call.i24 = call noundef x86_fp80 @expl(x86_fp80 noundef %x) #32, !tbaa !14
+  %call.i24 = call noundef x86_fp80 @expl(x86_fp80 noundef %x) #33, !tbaa !14
   %mul = fmul x86_fp80 %1, %call.i24
   %div9 = fdiv x86_fp80 %add5, %mul
   store x86_fp80 %div9, ptr %pderivative, align 16, !tbaa !36
@@ -5195,7 +5195,7 @@ if.end4.i:                                        ; preds = %if.end.i
 
 if.then7.i:                                       ; preds = %if.end4.i
   %add.i = fadd x86_fp80 %div, 0xK3FFF8000000000000000
-  %call.i.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef %add.i) #32, !tbaa !14
+  %call.i.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef %add.i) #33, !tbaa !14
   %sub.i = fsub x86_fp80 %call.i.i, %div
   br label %_ZN5boost4math7log1pmxIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeESC_RKT0_.exit
 
@@ -5252,16 +5252,16 @@ _ZN5boost4math7log1pmxIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14pro
   %fneg = fneg x86_fp80 %retval.0.i
   %mul = fmul x86_fp80 %a, %fneg
   %mul1 = fmul x86_fp80 %retval.0.i, 0xKC0008000000000000000
-  %call.i = call noundef x86_fp80 @sqrtl(x86_fp80 noundef %mul1) #32, !tbaa !14
+  %call.i = call noundef x86_fp80 @sqrtl(x86_fp80 noundef %mul1) #33, !tbaa !14
   %cmp = fcmp olt x86_fp80 %x, %a
   %fneg3 = fneg x86_fp80 %call.i
   %storemerge = select i1 %cmp, x86_fp80 %fneg3, x86_fp80 %call.i
   %mul.i.i = fmul x86_fp80 %storemerge, %storemerge
   %fneg31 = fneg x86_fp80 %mul
-  %call.i177 = call noundef x86_fp80 @expl(x86_fp80 noundef %fneg31) #32, !tbaa !14
+  %call.i177 = call noundef x86_fp80 @expl(x86_fp80 noundef %fneg31) #33, !tbaa !14
   %mul35 = fmul x86_fp80 %a, 0xK4001C90FDAA22168C235
-  %call.i178 = call noundef x86_fp80 @sqrtl(x86_fp80 noundef %mul35) #32, !tbaa !14
-  %call.i179 = call noundef x86_fp80 @sqrtl(x86_fp80 noundef %mul) #32, !tbaa !14
+  %call.i178 = call noundef x86_fp80 @sqrtl(x86_fp80 noundef %mul35) #33, !tbaa !14
+  %call.i179 = call noundef x86_fp80 @sqrtl(x86_fp80 noundef %mul) #33, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1.i)
   %call.i180 = call noundef x86_fp80 @_ZN5boost4math6detail7erf_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_bRKT0_RKSt17integral_constantIiLi64EE(x86_fp80 noundef %call.i179, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i)
@@ -5577,7 +5577,7 @@ entry:
   call void @llvm.lifetime.start.p0(ptr nonnull %function)
   %0 = getelementptr inbounds nuw i8, ptr %function, i64 16
   store ptr %0, ptr %function, align 8, !tbaa !23
-  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #32
+  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i)
   store i64 %call.i.i, ptr %__dnew.i.i, align 8, !tbaa !24
   %cmp.i.i = icmp ugt i64 %call.i.i, 15
@@ -5619,7 +5619,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %
   call void @llvm.lifetime.start.p0(ptr nonnull %message)
   %6 = getelementptr inbounds nuw i8, ptr %message, i64 16
   store ptr %6, ptr %message, align 8, !tbaa !23
-  %call.i.i13 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select1) #32
+  %call.i.i13 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select1) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i12)
   store i64 %call.i.i13, ptr %__dnew.i.i12, align 8, !tbaa !24
   %cmp.i.i14 = icmp ugt i64 %call.i.i13, 15
@@ -5700,7 +5700,7 @@ invoke.cont13:                                    ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.i.i, label %if.then.i.i.i.invoke, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 if.then.i.i.i.invoke:                             ; preds = %invoke.cont13, %invoke.cont12
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.20) #33
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.20) #34
           to label %if.then.i.i.i.cont unwind label %lpad10
 
 if.then.i.i.i.cont:                               ; preds = %if.then.i.i.i.invoke
@@ -5730,7 +5730,7 @@ invoke.cont22:                                    ; preds = %invoke.cont21
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %invoke.cont22
-  invoke void @_ZN5boost15throw_exceptionISt12domain_errorEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp24) #33
+  invoke void @_ZN5boost15throw_exceptionISt12domain_errorEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp24) #34
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %invoke.cont26
@@ -5769,7 +5769,7 @@ lpad25:                                           ; preds = %invoke.cont22
 lpad27:                                           ; preds = %invoke.cont26
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12domain_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp24) #32
+  call void @_ZNSt12domain_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp24) #33
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad27, %lpad25
@@ -5787,7 +5787,7 @@ ehcleanup29:                                      ; preds = %ehcleanup, %lpad20
 if.then.i.i42:                                    ; preds = %ehcleanup29
   %30 = load i64, ptr %29, align 8, !tbaa !22
   %add.i.i.i = add i64 %30, 1
-  call void @_ZdlPvm(ptr noundef %28, i64 noundef %add.i.i.i) #34
+  call void @_ZdlPvm(ptr noundef %28, i64 noundef %add.i.i.i) #35
   br label %ehcleanup30
 
 ehcleanup30:                                      ; preds = %ehcleanup29, %if.then.i.i42, %lpad17
@@ -5804,7 +5804,7 @@ ehcleanup31:                                      ; preds = %ehcleanup30, %lpad1
 if.then.i.i45:                                    ; preds = %ehcleanup31
   %32 = load i64, ptr %12, align 8, !tbaa !22
   %add.i.i.i46 = add i64 %32, 1
-  call void @_ZdlPvm(ptr noundef %31, i64 noundef %add.i.i.i46) #34
+  call void @_ZdlPvm(ptr noundef %31, i64 noundef %add.i.i.i46) #35
   br label %ehcleanup32
 
 ehcleanup32:                                      ; preds = %ehcleanup31, %if.then.i.i45, %lpad8
@@ -5817,7 +5817,7 @@ ehcleanup32:                                      ; preds = %ehcleanup31, %if.th
 if.then.i.i52:                                    ; preds = %ehcleanup32
   %34 = load i64, ptr %6, align 8, !tbaa !22
   %add.i.i.i53 = add i64 %34, 1
-  call void @_ZdlPvm(ptr noundef %33, i64 noundef %add.i.i.i53) #34
+  call void @_ZdlPvm(ptr noundef %33, i64 noundef %add.i.i.i53) #35
   br label %ehcleanup34
 
 ehcleanup34:                                      ; preds = %ehcleanup32, %if.then.i.i52, %lpad5
@@ -5830,7 +5830,7 @@ ehcleanup34:                                      ; preds = %ehcleanup32, %if.th
 if.then.i.i59:                                    ; preds = %ehcleanup34
   %36 = load i64, ptr %0, align 8, !tbaa !22
   %add.i.i.i60 = add i64 %36, 1
-  call void @_ZdlPvm(ptr noundef %35, i64 noundef %add.i.i.i60) #34
+  call void @_ZdlPvm(ptr noundef %35, i64 noundef %add.i.i.i60) #35
   br label %ehcleanup36
 
 ehcleanup36:                                      ; preds = %ehcleanup34, %if.then.i.i59
@@ -5893,7 +5893,7 @@ lpad.i.i:                                         ; preds = %if.else.i.i, %if.th
 if.then.i.i.i.i:                                  ; preds = %lpad.i.i
   %7 = load i64, ptr %1, align 8, !tbaa !22, !alias.scope !67
   %add.i.i.i.i.i = add i64 %7, 1
-  call void @_ZdlPvm(ptr noundef %6, i64 noundef %add.i.i.i.i.i) #34
+  call void @_ZdlPvm(ptr noundef %6, i64 noundef %add.i.i.i.i.i) #35
   br label %ehcleanup
 
 if.else.i.i:                                      ; preds = %invoke.cont6
@@ -5922,13 +5922,13 @@ invoke.cont8:                                     ; preds = %if.else.i.i, %if.th
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont8
   %13 = load i64, ptr %12, align 8, !tbaa !22
   %add.i.i.i.i.i.i = add i64 %13, 1
-  call void @_ZdlPvm(ptr noundef %11, i64 noundef %add.i.i.i.i.i.i) #34
+  call void @_ZdlPvm(ptr noundef %11, i64 noundef %add.i.i.i.i.i.i) #35
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %invoke.cont8, %if.then.i.i.i.i.i
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !3
   %_M_buf_locale.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 80
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #32
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #33
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8, !tbaa !3
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
@@ -5939,7 +5939,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %_M_gcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 8
   store i64 0, ptr %_M_gcount.i.i.i.i, align 8, !tbaa !71
   %16 = getelementptr inbounds nuw i8, ptr %ss, i64 128
-  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %16) #32
+  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %16) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %ss)
   ret void
 
@@ -5950,7 +5950,7 @@ lpad5:                                            ; preds = %invoke.cont2
 
 ehcleanup:                                        ; preds = %lpad.i.i, %lpad5, %if.then.i.i.i.i
   %.pn = phi { ptr, i32 } [ %17, %lpad5 ], [ %5, %if.then.i.i.i.i ], [ %5, %lpad.i.i ]
-  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #32
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %ss)
   resume { ptr, i32 } %.pn
 }
@@ -5958,18 +5958,18 @@ ehcleanup:                                        ; preds = %lpad.i.i, %lpad5, %
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr void @_ZN5boost15throw_exceptionISt12domain_errorEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %e) local_unnamed_addr #22 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 64) #32
+  %exception = tail call ptr @__cxa_allocate_exception(i64 64) #33
   invoke void @_ZN5boost10wrapexceptISt12domain_errorEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %exception, ptr noundef nonnull align 8 dereferenceable(16) %e)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5boost10wrapexceptISt12domain_errorEE, ptr nonnull @_ZN5boost10wrapexceptISt12domain_errorED2Ev) #33
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5boost10wrapexceptISt12domain_errorEE, ptr nonnull @_ZN5boost10wrapexceptISt12domain_errorED2Ev) #34
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %exception) #32
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #33
   resume { ptr, i32 } %0
 }
 
@@ -5991,7 +5991,7 @@ define linkonce_odr void @_ZN5boost10wrapexceptISt12domain_errorEC2ERKS1_(ptr no
 invoke.cont:
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %this, align 8, !tbaa !3
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %e) #32
+  tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %e) #33
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %data_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %throw_line_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -6033,12 +6033,12 @@ terminate.lpad.i.i:                               ; preds = %land.lhs.true.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #35
+  tail call void @__clang_call_terminate(ptr %4) #36
   unreachable
 
 _ZN5boost9exceptionD2Ev.exit:                     ; preds = %entry, %call.i.noexc.i.i, %if.then.i.i.i
   %5 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #32
+  tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #33
   ret void
 }
 
@@ -6048,11 +6048,11 @@ declare void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptISt12domain_errorE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #37
+  %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #38
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %call, align 8, !tbaa !3
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i) #32
+  tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i) #33
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12domain_error, i64 16), ptr %0, align 8, !tbaa !3
   %1 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %1, align 8, !tbaa !3
@@ -6073,8 +6073,8 @@ if.then.i.i.i.i:                                  ; preds = %entry
 lpad.i:                                           ; preds = %if.then.i.i.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #32
-  tail call void @_ZdlPvm(ptr noundef nonnull %call, i64 noundef 64) #34
+  tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull %call, i64 noundef 64) #35
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i, %entry
@@ -6097,7 +6097,7 @@ _ZN5boost10wrapexceptISt12domain_errorE7deleterD2Ev.exit8: ; preds = %invoke.con
   %vtable.i6 = load ptr, ptr %call, align 8, !tbaa !3
   %vfn.i7 = getelementptr inbounds nuw i8, ptr %vtable.i6, i64 24
   %6 = load ptr, ptr %vfn.i7, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(64) %call) #32
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(64) %call) #33
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %_ZN5boost10wrapexceptISt12domain_errorE7deleterD2Ev.exit8, %lpad.i
@@ -6108,18 +6108,18 @@ ehcleanup:                                        ; preds = %_ZN5boost10wrapexce
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK5boost10wrapexceptISt12domain_errorE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 64) #32
+  %exception = tail call ptr @__cxa_allocate_exception(i64 64) #33
   invoke void @_ZN5boost10wrapexceptISt12domain_errorEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %exception, ptr noundef nonnull align 8 dereferenceable(64) %this)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5boost10wrapexceptISt12domain_errorEE, ptr nonnull @_ZN5boost10wrapexceptISt12domain_errorED2Ev) #33
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5boost10wrapexceptISt12domain_errorEE, ptr nonnull @_ZN5boost10wrapexceptISt12domain_errorED2Ev) #34
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %exception) #32
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #33
   resume { ptr, i32 } %0
 }
 
@@ -6151,13 +6151,13 @@ terminate.lpad.i.i.i:                             ; preds = %land.lhs.true.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #35
+  tail call void @__clang_call_terminate(ptr %4) #36
   unreachable
 
 _ZN5boost10wrapexceptISt12domain_errorED2Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i, %if.then.i.i.i.i
   %5 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #32
-  tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 64) #34
+  tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 64) #35
   ret void
 }
 
@@ -6189,11 +6189,11 @@ terminate.lpad.i.i.i:                             ; preds = %land.lhs.true.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #35
+  tail call void @__clang_call_terminate(ptr %4) #36
   unreachable
 
 _ZN5boost10wrapexceptISt12domain_errorED2Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i, %if.then.i.i.i.i
-  tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #32
+  tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #33
   ret void
 }
 
@@ -6225,13 +6225,13 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #35
+  tail call void @__clang_call_terminate(ptr %4) #36
   unreachable
 
 _ZN5boost10wrapexceptISt12domain_errorED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
-  tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #32
-  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #34
+  tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #35
   ret void
 }
 
@@ -6265,12 +6265,12 @@ terminate.lpad.i.i.i:                             ; preds = %land.lhs.true.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #35
+  tail call void @__clang_call_terminate(ptr %3) #36
   unreachable
 
 _ZN5boost10wrapexceptISt12domain_errorED2Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i, %if.then.i.i.i.i
   %4 = getelementptr inbounds i8, ptr %this, i64 -16
-  tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #32
+  tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #33
   ret void
 }
 
@@ -6301,14 +6301,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #35
+  tail call void @__clang_call_terminate(ptr %3) #36
   unreachable
 
 _ZN5boost10wrapexceptISt12domain_errorED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
-  tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #32
-  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #34
+  tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #35
   ret void
 }
 
@@ -6321,7 +6321,7 @@ entry:
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %this, align 8, !tbaa !3
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr) #32
+  tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr) #33
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12domain_error, i64 16), ptr %1, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
@@ -6351,7 +6351,7 @@ invoke.cont:                                      ; preds = %entry, %if.then.i.i
 lpad:                                             ; preds = %if.then.i.i.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #32
+  tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #33
   resume { ptr, i32 } %5
 }
 
@@ -6377,7 +6377,7 @@ entry:
   call void @llvm.lifetime.start.p0(ptr nonnull %function)
   %0 = getelementptr inbounds nuw i8, ptr %function, i64 16
   store ptr %0, ptr %function, align 8, !tbaa !23
-  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #32
+  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i)
   store i64 %call.i.i, ptr %__dnew.i.i, align 8, !tbaa !24
   %cmp.i.i = icmp ugt i64 %call.i.i, 15
@@ -6419,7 +6419,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %
   call void @llvm.lifetime.start.p0(ptr nonnull %message)
   %6 = getelementptr inbounds nuw i8, ptr %message, i64 16
   store ptr %6, ptr %message, align 8, !tbaa !23
-  %call.i.i13 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select1) #32
+  %call.i.i13 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select1) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i12)
   store i64 %call.i.i13, ptr %__dnew.i.i12, align 8, !tbaa !24
   %cmp.i.i14 = icmp ugt i64 %call.i.i13, 15
@@ -6500,7 +6500,7 @@ invoke.cont12:                                    ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.i.i, label %if.then.i.i.i.invoke, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 if.then.i.i.i.invoke:                             ; preds = %invoke.cont12, %invoke.cont11
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.20) #33
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.20) #34
           to label %if.then.i.i.i.cont unwind label %lpad10
 
 if.then.i.i.i.cont:                               ; preds = %if.then.i.i.i.invoke
@@ -6531,7 +6531,7 @@ invoke.cont21:                                    ; preds = %invoke.cont20
 
 invoke.cont25:                                    ; preds = %invoke.cont21
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost4math16evaluation_errorE, i64 16), ptr %ref.tmp23, align 8, !tbaa !3
-  invoke void @_ZN5boost15throw_exceptionINS_4math16evaluation_errorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23) #33
+  invoke void @_ZN5boost15throw_exceptionINS_4math16evaluation_errorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23) #34
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %invoke.cont25
@@ -6570,7 +6570,7 @@ lpad24:                                           ; preds = %invoke.cont21
 lpad26:                                           ; preds = %invoke.cont25
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23) #32
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23) #33
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad26, %lpad24
@@ -6588,7 +6588,7 @@ ehcleanup28:                                      ; preds = %ehcleanup, %lpad19
 if.then.i.i43:                                    ; preds = %ehcleanup28
   %30 = load i64, ptr %29, align 8, !tbaa !22
   %add.i.i.i = add i64 %30, 1
-  call void @_ZdlPvm(ptr noundef %28, i64 noundef %add.i.i.i) #34
+  call void @_ZdlPvm(ptr noundef %28, i64 noundef %add.i.i.i) #35
   br label %ehcleanup29
 
 ehcleanup29:                                      ; preds = %ehcleanup28, %if.then.i.i43, %lpad16
@@ -6605,7 +6605,7 @@ ehcleanup30:                                      ; preds = %ehcleanup29, %lpad1
 if.then.i.i46:                                    ; preds = %ehcleanup30
   %32 = load i64, ptr %12, align 8, !tbaa !22
   %add.i.i.i47 = add i64 %32, 1
-  call void @_ZdlPvm(ptr noundef %31, i64 noundef %add.i.i.i47) #34
+  call void @_ZdlPvm(ptr noundef %31, i64 noundef %add.i.i.i47) #35
   br label %ehcleanup31
 
 ehcleanup31:                                      ; preds = %ehcleanup30, %if.then.i.i46, %lpad8
@@ -6618,7 +6618,7 @@ ehcleanup31:                                      ; preds = %ehcleanup30, %if.th
 if.then.i.i53:                                    ; preds = %ehcleanup31
   %34 = load i64, ptr %6, align 8, !tbaa !22
   %add.i.i.i54 = add i64 %34, 1
-  call void @_ZdlPvm(ptr noundef %33, i64 noundef %add.i.i.i54) #34
+  call void @_ZdlPvm(ptr noundef %33, i64 noundef %add.i.i.i54) #35
   br label %ehcleanup33
 
 ehcleanup33:                                      ; preds = %ehcleanup31, %if.then.i.i53, %lpad5
@@ -6631,7 +6631,7 @@ ehcleanup33:                                      ; preds = %ehcleanup31, %if.th
 if.then.i.i60:                                    ; preds = %ehcleanup33
   %36 = load i64, ptr %0, align 8, !tbaa !22
   %add.i.i.i61 = add i64 %36, 1
-  call void @_ZdlPvm(ptr noundef %35, i64 noundef %add.i.i.i61) #34
+  call void @_ZdlPvm(ptr noundef %35, i64 noundef %add.i.i.i61) #35
   br label %ehcleanup35
 
 ehcleanup35:                                      ; preds = %ehcleanup33, %if.then.i.i60
@@ -6642,18 +6642,18 @@ ehcleanup35:                                      ; preds = %ehcleanup33, %if.th
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr void @_ZN5boost15throw_exceptionINS_4math16evaluation_errorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %e) local_unnamed_addr #22 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 64) #32
+  %exception = tail call ptr @__cxa_allocate_exception(i64 64) #33
   invoke void @_ZN5boost10wrapexceptINS_4math16evaluation_errorEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %exception, ptr noundef nonnull align 8 dereferenceable(16) %e)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5boost10wrapexceptINS_4math16evaluation_errorEEE, ptr nonnull @_ZN5boost10wrapexceptINS_4math16evaluation_errorEED2Ev) #33
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5boost10wrapexceptINS_4math16evaluation_errorEEE, ptr nonnull @_ZN5boost10wrapexceptINS_4math16evaluation_errorEED2Ev) #34
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %exception) #32
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #33
   resume { ptr, i32 } %0
 }
 
@@ -6662,7 +6662,7 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_4math16evaluation_errorEEC2ER
 invoke.cont:
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %this, align 8, !tbaa !3
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %e) #32
+  tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %e) #33
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %data_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %throw_line_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -6704,23 +6704,23 @@ terminate.lpad.i.i:                               ; preds = %land.lhs.true.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #35
+  tail call void @__clang_call_terminate(ptr %4) #36
   unreachable
 
 _ZN5boost9exceptionD2Ev.exit:                     ; preds = %entry, %call.i.noexc.i.i, %if.then.i.i.i
   %5 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #32
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #33
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptINS_4math16evaluation_errorEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #37
+  %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #38
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %call, align 8, !tbaa !3
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i) #32
+  tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i) #33
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost4math16evaluation_errorE, i64 16), ptr %0, align 8, !tbaa !3
   %1 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %1, align 8, !tbaa !3
@@ -6741,8 +6741,8 @@ if.then.i.i.i.i:                                  ; preds = %entry
 lpad.i:                                           ; preds = %if.then.i.i.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #32
-  tail call void @_ZdlPvm(ptr noundef nonnull %call, i64 noundef 64) #34
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull %call, i64 noundef 64) #35
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i, %entry
@@ -6765,7 +6765,7 @@ _ZN5boost10wrapexceptINS_4math16evaluation_errorEE7deleterD2Ev.exit8: ; preds = 
   %vtable.i6 = load ptr, ptr %call, align 8, !tbaa !3
   %vfn.i7 = getelementptr inbounds nuw i8, ptr %vtable.i6, i64 24
   %6 = load ptr, ptr %vfn.i7, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(64) %call) #32
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(64) %call) #33
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %_ZN5boost10wrapexceptINS_4math16evaluation_errorEE7deleterD2Ev.exit8, %lpad.i
@@ -6776,18 +6776,18 @@ ehcleanup:                                        ; preds = %_ZN5boost10wrapexce
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK5boost10wrapexceptINS_4math16evaluation_errorEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 64) #32
+  %exception = tail call ptr @__cxa_allocate_exception(i64 64) #33
   invoke void @_ZN5boost10wrapexceptINS_4math16evaluation_errorEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(64) %exception, ptr noundef nonnull align 8 dereferenceable(64) %this)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5boost10wrapexceptINS_4math16evaluation_errorEEE, ptr nonnull @_ZN5boost10wrapexceptINS_4math16evaluation_errorEED2Ev) #33
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5boost10wrapexceptINS_4math16evaluation_errorEEE, ptr nonnull @_ZN5boost10wrapexceptINS_4math16evaluation_errorEED2Ev) #34
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %exception) #32
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #33
   resume { ptr, i32 } %0
 }
 
@@ -6819,13 +6819,13 @@ terminate.lpad.i.i.i:                             ; preds = %land.lhs.true.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #35
+  tail call void @__clang_call_terminate(ptr %4) #36
   unreachable
 
 _ZN5boost10wrapexceptINS_4math16evaluation_errorEED2Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i, %if.then.i.i.i.i
   %5 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #32
-  tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 64) #34
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 64) #35
   ret void
 }
 
@@ -6857,11 +6857,11 @@ terminate.lpad.i.i.i:                             ; preds = %land.lhs.true.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #35
+  tail call void @__clang_call_terminate(ptr %4) #36
   unreachable
 
 _ZN5boost10wrapexceptINS_4math16evaluation_errorEED2Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i, %if.then.i.i.i.i
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #32
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #33
   ret void
 }
 
@@ -6893,13 +6893,13 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #35
+  tail call void @__clang_call_terminate(ptr %4) #36
   unreachable
 
 _ZN5boost10wrapexceptINS_4math16evaluation_errorEED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #32
-  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #34
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #35
   ret void
 }
 
@@ -6930,12 +6930,12 @@ terminate.lpad.i.i.i:                             ; preds = %land.lhs.true.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #35
+  tail call void @__clang_call_terminate(ptr %3) #36
   unreachable
 
 _ZN5boost10wrapexceptINS_4math16evaluation_errorEED2Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i, %if.then.i.i.i.i
   %4 = getelementptr inbounds i8, ptr %this, i64 -16
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #32
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #33
   ret void
 }
 
@@ -6966,22 +6966,22 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #35
+  tail call void @__clang_call_terminate(ptr %3) #36
   unreachable
 
 _ZN5boost10wrapexceptINS_4math16evaluation_errorEED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #32
-  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #34
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #35
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost4math16evaluation_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #32
-  tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 16) #34
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 16) #35
   ret void
 }
 
@@ -6991,7 +6991,7 @@ entry:
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %this, align 8, !tbaa !3
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr) #32
+  tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr) #33
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost4math16evaluation_errorE, i64 16), ptr %1, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
@@ -7021,7 +7021,7 @@ invoke.cont:                                      ; preds = %entry, %if.then.i.i
 lpad:                                             ; preds = %if.then.i.i.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #32
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #33
   resume { ptr, i32 } %5
 }
 
@@ -7060,7 +7060,7 @@ if.end:                                           ; preds = %if.then
   %sub10.i = fsub x86_fp80 0xK3FFF8000000000000000, %dist.0.i
   %dist.1.i = select i1 %cmp8.i, x86_fp80 %sub10.i, x86_fp80 %dist.0.i
   %mul.i = fmul x86_fp80 %dist.1.i, 0xK4000C90FDAA22168C235
-  %call.i.i = tail call noundef x86_fp80 @sinl(x86_fp80 noundef %mul.i) #32, !tbaa !14
+  %call.i.i = tail call noundef x86_fp80 @sinl(x86_fp80 noundef %mul.i) #33, !tbaa !14
   %mul15.i = select i1 %tobool.i.i.not.i, x86_fp80 %fneg.i, x86_fp80 %z
   %mul16.i = fmul x86_fp80 %mul15.i, %call.i.i
   %cmp7 = fcmp olt x86_fp80 %mul16.i, 0xK00000000000000000000
@@ -7070,7 +7070,7 @@ if.end:                                           ; preds = %if.then
   %call.i = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK4000C90FDAA22168C235), !tbaa !14
   %call13 = tail call noundef x86_fp80 @_ZN5boost4math6detail10lgamma_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EENS0_7lanczos12lanczos17m64EEET_SD_RKT0_RKT1_Pi(x86_fp80 noundef %fneg.i, ptr noundef nonnull align 1 dereferenceable(1) %pol, ptr noundef nonnull align 1 dereferenceable(1) %l, ptr noundef null)
   %sub14 = fsub x86_fp80 %call.i, %call13
-  %call.i16 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %t.0) #32, !tbaa !14
+  %call.i16 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %t.0) #33, !tbaa !14
   %sub16 = fsub x86_fp80 %sub14, %call.i16
   br label %if.end72
 
@@ -7102,7 +7102,7 @@ if.else32:                                        ; preds = %if.end24
   %div = fdiv x86_fp80 0xK3FFF8000000000000000, %z
   %sub34 = fadd x86_fp80 %div, 0xKBFFE93C467E37DB0C7A5
   %5 = tail call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %sub34)
-  %call.i18 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %5) #32, !tbaa !14
+  %call.i18 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %5) #33, !tbaa !14
   br label %if.end37
 
 if.end37:                                         ; preds = %if.else32, %if.then28
@@ -7133,13 +7133,13 @@ if.else47:                                        ; preds = %if.else41
 
 if.then50:                                        ; preds = %if.else47
   %call51 = tail call noundef x86_fp80 @_ZN5boost4math6detail9gamma_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EENS0_7lanczos12lanczos17m64EEET_SD_RKT0_RKT1_(x86_fp80 noundef %z, ptr noundef nonnull align 1 dereferenceable(1) %pol, ptr noundef nonnull align 1 dereferenceable(1) %l)
-  %call.i19 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %call51) #32, !tbaa !14
+  %call.i19 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %call51) #33, !tbaa !14
   br label %if.end72
 
 if.else53:                                        ; preds = %if.else47
   %add = fadd x86_fp80 %z, 0xK4002C39A832800000000
   %sub56 = fadd x86_fp80 %add, 0xKBFFE8000000000000000
-  %call.i20 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %sub56) #32, !tbaa !14
+  %call.i20 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %sub56) #33, !tbaa !14
   %sub58 = fadd x86_fp80 %call.i20, 0xKBFFF8000000000000000
   %sub59 = fadd x86_fp80 %z, 0xKBFFE8000000000000000
   %mul60 = fmul x86_fp80 %sub59, %sub58
@@ -7148,8 +7148,8 @@ if.else53:                                        ; preds = %if.else47
   br i1 %cmp63, label %if.then64, label %if.end72
 
 if.then64:                                        ; preds = %if.else53
-  %call.i.i21 = call noundef x86_fp80 @_ZN5boost4math5tools6detail23evaluate_rational_c_impIemeEET1_PKT_PKT0_RKS4_PKSt17integral_constantIiLi17EE(ptr noundef nonnull @_ZZN5boost4math7lanczos12lanczos17m6423lanczos_sum_expG_scaledIeEET_RKS4_E3num, ptr noundef nonnull @_ZZN5boost4math7lanczos12lanczos17m6423lanczos_sum_expG_scaledIeEET_RKS4_E5denom, ptr noundef nonnull align 16 dereferenceable(16) %z.addr, ptr noundef null) #32
-  %call.i22 = call noundef x86_fp80 @logl(x86_fp80 noundef %call.i.i21) #32, !tbaa !14
+  %call.i.i21 = call noundef x86_fp80 @_ZN5boost4math5tools6detail23evaluate_rational_c_impIemeEET1_PKT_PKT0_RKS4_PKSt17integral_constantIiLi17EE(ptr noundef nonnull @_ZZN5boost4math7lanczos12lanczos17m6423lanczos_sum_expG_scaledIeEET_RKS4_E3num, ptr noundef nonnull @_ZZN5boost4math7lanczos12lanczos17m6423lanczos_sum_expG_scaledIeEET_RKS4_E5denom, ptr noundef nonnull align 16 dereferenceable(16) %z.addr, ptr noundef null) #33
+  %call.i22 = call noundef x86_fp80 @logl(x86_fp80 noundef %call.i.i21) #33, !tbaa !14
   %add67 = fadd x86_fp80 %mul60, %call.i22
   br label %if.end72
 
@@ -7183,7 +7183,7 @@ entry:
   call void @llvm.lifetime.start.p0(ptr nonnull %function)
   %0 = getelementptr inbounds nuw i8, ptr %function, i64 16
   store ptr %0, ptr %function, align 8, !tbaa !23
-  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #32
+  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i)
   store i64 %call.i.i, ptr %__dnew.i.i, align 8, !tbaa !24
   %cmp.i.i = icmp ugt i64 %call.i.i, 15
@@ -7265,14 +7265,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
           to label %invoke.cont11 unwind label %lpad7
 
 invoke.cont11:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
-  %call.i.i.i26 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select1) #32
+  %call.i.i.i26 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select1) #33
   %14 = load i64, ptr %_M_string_length.i.i.i.i13, align 8, !tbaa !25
   %sub3.i.i.i28 = sub i64 4611686018427387903, %14
   %cmp.i.i.i29 = icmp ult i64 %sub3.i.i.i28, %call.i.i.i26
   br i1 %cmp.i.i.i29, label %if.then.i.i.i31.invoke, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i30
 
 if.then.i.i.i31.invoke:                           ; preds = %invoke.cont11, %invoke.cont9, %invoke.cont8
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.20) #33
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.20) #34
           to label %if.then.i.i.i31.cont unwind label %lpad7
 
 if.then.i.i.i31.cont:                             ; preds = %if.then.i.i.i31.invoke
@@ -7288,7 +7288,7 @@ invoke.cont13:                                    ; preds = %_ZNSt7__cxx1112basi
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont13
-  invoke void @_ZN5boost15throw_exceptionISt14overflow_errorEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15) #33
+  invoke void @_ZN5boost15throw_exceptionISt14overflow_errorEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15) #34
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont17
@@ -7312,7 +7312,7 @@ lpad16:                                           ; preds = %invoke.cont13
 lpad18:                                           ; preds = %invoke.cont17
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt14overflow_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15) #32
+  call void @_ZNSt14overflow_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15) #33
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad18, %lpad16
@@ -7329,7 +7329,7 @@ ehcleanup20:                                      ; preds = %ehcleanup, %lpad7
 if.then.i.i36:                                    ; preds = %ehcleanup20
   %20 = load i64, ptr %6, align 8, !tbaa !22
   %add.i.i.i = add i64 %20, 1
-  call void @_ZdlPvm(ptr noundef %19, i64 noundef %add.i.i.i) #34
+  call void @_ZdlPvm(ptr noundef %19, i64 noundef %add.i.i.i) #35
   br label %ehcleanup21
 
 ehcleanup21:                                      ; preds = %ehcleanup20, %if.then.i.i36, %lpad5
@@ -7342,7 +7342,7 @@ ehcleanup21:                                      ; preds = %ehcleanup20, %if.th
 if.then.i.i39:                                    ; preds = %ehcleanup21
   %22 = load i64, ptr %0, align 8, !tbaa !22
   %add.i.i.i40 = add i64 %22, 1
-  call void @_ZdlPvm(ptr noundef %21, i64 noundef %add.i.i.i40) #34
+  call void @_ZdlPvm(ptr noundef %21, i64 noundef %add.i.i.i40) #35
   br label %ehcleanup23
 
 ehcleanup23:                                      ; preds = %ehcleanup21, %if.then.i.i39
@@ -7357,7 +7357,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef %z) #32, !tbaa !14
+  %call.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef %z) #33, !tbaa !14
   %fneg = fneg x86_fp80 %call.i
   br label %if.end56
 
@@ -7379,7 +7379,7 @@ do.body:                                          ; preds = %if.then9, %do.body
   %result.2 = phi x86_fp80 [ %add, %do.body ], [ 0xK00000000000000000000, %if.then9 ]
   %z.addr.1 = phi x86_fp80 [ %sub, %do.body ], [ %z, %if.then9 ]
   %sub = fadd x86_fp80 %z.addr.1, 0xKBFFF8000000000000000
-  %call.i23 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %sub) #32, !tbaa !14
+  %call.i23 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %sub) #33, !tbaa !14
   %add = fadd x86_fp80 %result.2, %call.i23
   %cmp14 = fcmp ult x86_fp80 %sub, 0xK4000C000000000000000
   br i1 %cmp14, label %do.end, label %do.body, !llvm.loop !73
@@ -7540,7 +7540,7 @@ _ZN5boost4math6detail5sinpxIeEET_S3_.exit:        ; preds = %if.end
   %sub10.i = fsub x86_fp80 0xK3FFF8000000000000000, %dist.0.i
   %dist.1.i = select i1 %cmp8.i, x86_fp80 %sub10.i, x86_fp80 %dist.0.i
   %mul.i = fmul x86_fp80 %dist.1.i, 0xK4000C90FDAA22168C235
-  %call.i.i = tail call noundef x86_fp80 @sinl(x86_fp80 noundef %mul.i) #32, !tbaa !14
+  %call.i.i = tail call noundef x86_fp80 @sinl(x86_fp80 noundef %mul.i) #33, !tbaa !14
   %mul15.i = select i1 %tobool.i.i.not.i, x86_fp80 %fneg, x86_fp80 %z
   %mul16.i = fmul x86_fp80 %mul15.i, %call.i.i
   %mul = fmul x86_fp80 %call6, %mul16.i
@@ -7658,12 +7658,12 @@ if.end52:                                         ; preds = %if.then50, %if.then
   br label %cleanup110
 
 if.else57:                                        ; preds = %if.else
-  %call.i.i25 = call noundef x86_fp80 @_ZN5boost4math5tools6detail23evaluate_rational_c_impIemeEET1_PKT_PKT0_RKS4_PKSt17integral_constantIiLi17EE(ptr noundef nonnull @_ZZN5boost4math7lanczos12lanczos17m6411lanczos_sumIeEET_RKS4_E3num, ptr noundef nonnull @_ZZN5boost4math7lanczos12lanczos17m6411lanczos_sumIeEET_RKS4_E5denom, ptr noundef nonnull align 16 dereferenceable(16) %z.addr, ptr noundef null) #32
+  %call.i.i25 = call noundef x86_fp80 @_ZN5boost4math5tools6detail23evaluate_rational_c_impIemeEET1_PKT_PKT0_RKS4_PKSt17integral_constantIiLi17EE(ptr noundef nonnull @_ZZN5boost4math7lanczos12lanczos17m6411lanczos_sumIeEET_RKS4_E3num, ptr noundef nonnull @_ZZN5boost4math7lanczos12lanczos17m6411lanczos_sumIeEET_RKS4_E5denom, ptr noundef nonnull align 16 dereferenceable(16) %z.addr, ptr noundef null) #33
   %mul59 = fmul x86_fp80 %result.0, %call.i.i25
   %18 = load x86_fp80, ptr %z.addr, align 16, !tbaa !36
   %add62 = fadd x86_fp80 %18, 0xK4002C39A832800000000
   %sub64 = fadd x86_fp80 %add62, 0xKBFFE8000000000000000
-  %call.i = call noundef x86_fp80 @logl(x86_fp80 noundef %sub64) #32, !tbaa !14
+  %call.i = call noundef x86_fp80 @logl(x86_fp80 noundef %sub64) #33, !tbaa !14
   %mul66 = fmul x86_fp80 %18, %call.i
   %cmp68 = fcmp ogt x86_fp80 %mul66, 0xK400CB170000000000000
   br i1 %cmp68, label %if.then69, label %if.else96
@@ -7685,8 +7685,8 @@ if.then74:                                        ; preds = %if.then69
 if.end79:                                         ; preds = %if.then69
   %div80 = fmul x86_fp80 %18, 0xK3FFE8000000000000000
   %sub81 = fadd x86_fp80 %div80, 0xKBFFD8000000000000000
-  %call.i30 = call noundef x86_fp80 @powl(x86_fp80 noundef %sub64, x86_fp80 noundef %sub81) #32, !tbaa !14
-  %call.i31 = call noundef x86_fp80 @expl(x86_fp80 noundef %sub64) #32, !tbaa !14
+  %call.i30 = call noundef x86_fp80 @powl(x86_fp80 noundef %sub64, x86_fp80 noundef %sub81) #33, !tbaa !14
+  %call.i31 = call noundef x86_fp80 @expl(x86_fp80 noundef %sub64) #33, !tbaa !14
   %div84 = fdiv x86_fp80 %call.i30, %call.i31
   %mul85 = fmul x86_fp80 %mul59, %div84
   %div87 = fdiv x86_fp80 0xK7FFEFFFFFFFFFFFFFFFF, %call.i30
@@ -7704,8 +7704,8 @@ cleanup:                                          ; preds = %if.end79
 
 if.else96:                                        ; preds = %if.else57
   %sub98 = fadd x86_fp80 %18, 0xKBFFE8000000000000000
-  %call.i36 = call noundef x86_fp80 @powl(x86_fp80 noundef %sub64, x86_fp80 noundef %sub98) #32, !tbaa !14
-  %call.i37 = call noundef x86_fp80 @expl(x86_fp80 noundef %sub64) #32, !tbaa !14
+  %call.i36 = call noundef x86_fp80 @powl(x86_fp80 noundef %sub64, x86_fp80 noundef %sub98) #33, !tbaa !14
+  %call.i37 = call noundef x86_fp80 @expl(x86_fp80 noundef %sub64) #33, !tbaa !14
   %div101 = fdiv x86_fp80 %call.i36, %call.i37
   %mul102 = fmul x86_fp80 %mul59, %div101
   br label %cleanup110
@@ -7753,7 +7753,7 @@ entry:
   ret x86_fp80 %add26.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i1 @llvm.is.fpclass.f80(x86_fp80, i32 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
@@ -7772,7 +7772,7 @@ entry:
   call void @llvm.lifetime.start.p0(ptr nonnull %function)
   %0 = getelementptr inbounds nuw i8, ptr %function, i64 16
   store ptr %0, ptr %function, align 8, !tbaa !23
-  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #32
+  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i)
   store i64 %call.i.i, ptr %__dnew.i.i, align 8, !tbaa !24
   %cmp.i.i = icmp ugt i64 %call.i.i, 15
@@ -7814,7 +7814,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %
   call void @llvm.lifetime.start.p0(ptr nonnull %message)
   %6 = getelementptr inbounds nuw i8, ptr %message, i64 16
   store ptr %6, ptr %message, align 8, !tbaa !23
-  %call.i.i13 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select1) #32
+  %call.i.i13 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select1) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i12)
   store i64 %call.i.i13, ptr %__dnew.i.i12, align 8, !tbaa !24
   %cmp.i.i14 = icmp ugt i64 %call.i.i13, 15
@@ -7895,7 +7895,7 @@ invoke.cont12:                                    ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.i.i, label %if.then.i.i.i.invoke, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 if.then.i.i.i.invoke:                             ; preds = %invoke.cont12, %invoke.cont11
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.20) #33
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.20) #34
           to label %if.then.i.i.i.cont unwind label %lpad10
 
 if.then.i.i.i.cont:                               ; preds = %if.then.i.i.i.invoke
@@ -7926,7 +7926,7 @@ invoke.cont21:                                    ; preds = %invoke.cont20
 
 invoke.cont25:                                    ; preds = %invoke.cont21
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost4math14rounding_errorE, i64 16), ptr %ref.tmp23, align 8, !tbaa !3
-  invoke void @_ZN5boost15throw_exceptionINS_4math14rounding_errorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23) #33
+  invoke void @_ZN5boost15throw_exceptionINS_4math14rounding_errorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23) #34
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %invoke.cont25
@@ -7965,7 +7965,7 @@ lpad24:                                           ; preds = %invoke.cont21
 lpad26:                                           ; preds = %invoke.cont25
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23) #32
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23) #33
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad26, %lpad24
@@ -7983,7 +7983,7 @@ ehcleanup28:                                      ; preds = %ehcleanup, %lpad19
 if.then.i.i43:                                    ; preds = %ehcleanup28
   %30 = load i64, ptr %29, align 8, !tbaa !22
   %add.i.i.i = add i64 %30, 1
-  call void @_ZdlPvm(ptr noundef %28, i64 noundef %add.i.i.i) #34
+  call void @_ZdlPvm(ptr noundef %28, i64 noundef %add.i.i.i) #35
   br label %ehcleanup29
 
 ehcleanup29:                                      ; preds = %ehcleanup28, %if.then.i.i43, %lpad16
@@ -8000,7 +8000,7 @@ ehcleanup30:                                      ; preds = %ehcleanup29, %lpad1
 if.then.i.i46:                                    ; preds = %ehcleanup30
   %32 = load i64, ptr %12, align 8, !tbaa !22
   %add.i.i.i47 = add i64 %32, 1
-  call void @_ZdlPvm(ptr noundef %31, i64 noundef %add.i.i.i47) #34
+  call void @_ZdlPvm(ptr noundef %31, i64 noundef %add.i.i.i47) #35
   br label %ehcleanup31
 
 ehcleanup31:                                      ; preds = %ehcleanup30, %if.then.i.i46, %lpad8
@@ -8013,7 +8013,7 @@ ehcleanup31:                                      ; preds = %ehcleanup30, %if.th
 if.then.i.i53:                                    ; preds = %ehcleanup31
   %34 = load i64, ptr %6, align 8, !tbaa !22
   %add.i.i.i54 = add i64 %34, 1
-  call void @_ZdlPvm(ptr noundef %33, i64 noundef %add.i.i.i54) #34
+  call void @_ZdlPvm(ptr noundef %33, i64 noundef %add.i.i.i54) #35
   br label %ehcleanup33
 
 ehcleanup33:                                      ; preds = %ehcleanup31, %if.then.i.i53, %lpad5
@@ -8026,7 +8026,7 @@ ehcleanup33:                                      ; preds = %ehcleanup31, %if.th
 if.then.i.i60:                                    ; preds = %ehcleanup33
   %36 = load i64, ptr %0, align 8, !tbaa !22
   %add.i.i.i61 = add i64 %36, 1
-  call void @_ZdlPvm(ptr noundef %35, i64 noundef %add.i.i.i61) #34
+  call void @_ZdlPvm(ptr noundef %35, i64 noundef %add.i.i.i61) #35
   br label %ehcleanup35
 
 ehcleanup35:                                      ; preds = %ehcleanup33, %if.then.i.i60
@@ -8037,18 +8037,18 @@ ehcleanup35:                                      ; preds = %ehcleanup33, %if.th
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr void @_ZN5boost15throw_exceptionINS_4math14rounding_errorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %e) local_unnamed_addr #22 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 64) #32
+  %exception = tail call ptr @__cxa_allocate_exception(i64 64) #33
   invoke void @_ZN5boost10wrapexceptINS_4math14rounding_errorEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %exception, ptr noundef nonnull align 8 dereferenceable(16) %e)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5boost10wrapexceptINS_4math14rounding_errorEEE, ptr nonnull @_ZN5boost10wrapexceptINS_4math14rounding_errorEED2Ev) #33
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5boost10wrapexceptINS_4math14rounding_errorEEE, ptr nonnull @_ZN5boost10wrapexceptINS_4math14rounding_errorEED2Ev) #34
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %exception) #32
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #33
   resume { ptr, i32 } %0
 }
 
@@ -8060,7 +8060,7 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_4math14rounding_errorEEC2ERKS
 invoke.cont:
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %this, align 8, !tbaa !3
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %e) #32
+  tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %e) #33
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %data_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %throw_line_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -8102,23 +8102,23 @@ terminate.lpad.i.i:                               ; preds = %land.lhs.true.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #35
+  tail call void @__clang_call_terminate(ptr %4) #36
   unreachable
 
 _ZN5boost9exceptionD2Ev.exit:                     ; preds = %entry, %call.i.noexc.i.i, %if.then.i.i.i
   %5 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #32
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #33
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptINS_4math14rounding_errorEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #37
+  %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #38
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %call, align 8, !tbaa !3
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i) #32
+  tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i) #33
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost4math14rounding_errorE, i64 16), ptr %0, align 8, !tbaa !3
   %1 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %1, align 8, !tbaa !3
@@ -8139,8 +8139,8 @@ if.then.i.i.i.i:                                  ; preds = %entry
 lpad.i:                                           ; preds = %if.then.i.i.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #32
-  tail call void @_ZdlPvm(ptr noundef nonnull %call, i64 noundef 64) #34
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull %call, i64 noundef 64) #35
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i, %entry
@@ -8163,7 +8163,7 @@ _ZN5boost10wrapexceptINS_4math14rounding_errorEE7deleterD2Ev.exit8: ; preds = %i
   %vtable.i6 = load ptr, ptr %call, align 8, !tbaa !3
   %vfn.i7 = getelementptr inbounds nuw i8, ptr %vtable.i6, i64 24
   %6 = load ptr, ptr %vfn.i7, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(64) %call) #32
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(64) %call) #33
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %_ZN5boost10wrapexceptINS_4math14rounding_errorEE7deleterD2Ev.exit8, %lpad.i
@@ -8174,18 +8174,18 @@ ehcleanup:                                        ; preds = %_ZN5boost10wrapexce
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK5boost10wrapexceptINS_4math14rounding_errorEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 64) #32
+  %exception = tail call ptr @__cxa_allocate_exception(i64 64) #33
   invoke void @_ZN5boost10wrapexceptINS_4math14rounding_errorEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(64) %exception, ptr noundef nonnull align 8 dereferenceable(64) %this)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5boost10wrapexceptINS_4math14rounding_errorEEE, ptr nonnull @_ZN5boost10wrapexceptINS_4math14rounding_errorEED2Ev) #33
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5boost10wrapexceptINS_4math14rounding_errorEEE, ptr nonnull @_ZN5boost10wrapexceptINS_4math14rounding_errorEED2Ev) #34
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %exception) #32
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #33
   resume { ptr, i32 } %0
 }
 
@@ -8217,13 +8217,13 @@ terminate.lpad.i.i.i:                             ; preds = %land.lhs.true.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #35
+  tail call void @__clang_call_terminate(ptr %4) #36
   unreachable
 
 _ZN5boost10wrapexceptINS_4math14rounding_errorEED2Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i, %if.then.i.i.i.i
   %5 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #32
-  tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 64) #34
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 64) #35
   ret void
 }
 
@@ -8255,11 +8255,11 @@ terminate.lpad.i.i.i:                             ; preds = %land.lhs.true.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #35
+  tail call void @__clang_call_terminate(ptr %4) #36
   unreachable
 
 _ZN5boost10wrapexceptINS_4math14rounding_errorEED2Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i, %if.then.i.i.i.i
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #32
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #33
   ret void
 }
 
@@ -8291,13 +8291,13 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #35
+  tail call void @__clang_call_terminate(ptr %4) #36
   unreachable
 
 _ZN5boost10wrapexceptINS_4math14rounding_errorEED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #32
-  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #34
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #35
   ret void
 }
 
@@ -8328,12 +8328,12 @@ terminate.lpad.i.i.i:                             ; preds = %land.lhs.true.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #35
+  tail call void @__clang_call_terminate(ptr %3) #36
   unreachable
 
 _ZN5boost10wrapexceptINS_4math14rounding_errorEED2Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i, %if.then.i.i.i.i
   %4 = getelementptr inbounds i8, ptr %this, i64 -16
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #32
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #33
   ret void
 }
 
@@ -8364,22 +8364,22 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #35
+  tail call void @__clang_call_terminate(ptr %3) #36
   unreachable
 
 _ZN5boost10wrapexceptINS_4math14rounding_errorEED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #32
-  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #34
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #35
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost4math14rounding_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #32
-  tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 16) #34
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 16) #35
   ret void
 }
 
@@ -8389,7 +8389,7 @@ entry:
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %this, align 8, !tbaa !3
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr) #32
+  tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr) #33
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost4math14rounding_errorE, i64 16), ptr %1, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
@@ -8419,11 +8419,11 @@ invoke.cont:                                      ; preds = %entry, %if.then.i.i
 lpad:                                             ; preds = %if.then.i.i.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #32
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #33
   resume { ptr, i32 } %5
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare x86_fp80 @llvm.ceil.f80(x86_fp80) #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -8736,7 +8736,7 @@ return:                                           ; preds = %if.else, %if.then
   ret x86_fp80 %retval.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare x86_fp80 @llvm.floor.f80(x86_fp80) #1
 
 ; Function Attrs: mustprogress uwtable
@@ -8876,10 +8876,10 @@ if.then41:                                        ; preds = %if.then37
   %10 = tail call { x86_fp80, i32 } @llvm.frexp.f80.i32(x86_fp80 %z)
   %11 = extractvalue { x86_fp80, i32 } %10, 1
   %12 = extractvalue { x86_fp80, i32 } %10, 0
-  %call.i = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef %12, i32 noundef 32) #32, !tbaa !14
+  %call.i = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef %12, i32 noundef 32) #33, !tbaa !14
   %13 = tail call noundef x86_fp80 @llvm.floor.f80(x86_fp80 %call.i)
   %sub53 = add nsw i32 %11, -32
-  %call.i67 = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef %13, i32 noundef %sub53) #32, !tbaa !14
+  %call.i67 = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef %13, i32 noundef %sub53) #33, !tbaa !14
   %sub55 = fsub x86_fp80 %z, %call.i67
   %14 = fneg x86_fp80 %z
   %neg = fmul x86_fp80 %z, %14
@@ -8887,9 +8887,9 @@ if.then41:                                        ; preds = %if.then37
   %mul58 = fmul x86_fp80 %call.i67, 0xK40008000000000000000
   %16 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul58, x86_fp80 %sub55, x86_fp80 %15)
   %17 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %sub55, x86_fp80 %sub55, x86_fp80 %16)
-  %call.i68 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %neg) #32, !tbaa !14
+  %call.i68 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %neg) #33, !tbaa !14
   %fneg63 = fneg x86_fp80 %17
-  %call.i69 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %fneg63) #32, !tbaa !14
+  %call.i69 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %fneg63) #33, !tbaa !14
   %mul65 = fmul x86_fp80 %call.i68, %call.i69
   %div66 = fdiv x86_fp80 %mul65, %z
   %mul67 = fmul x86_fp80 %add49, %div66
@@ -8903,10 +8903,10 @@ if.then70:                                        ; preds = %if.else68
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp71)
   %sub72 = fadd x86_fp80 %z, 0xKBFFFC000000000000000
   store x86_fp80 %sub72, ptr %ref.tmp71, align 16, !tbaa !36
-  %call73 = call noundef x86_fp80 @_ZN5boost4math5tools19evaluate_polynomialILm7EeeEET1_RAT__KT0_RKS3_(ptr noundef nonnull align 16 dereferenceable(112) @_ZZN5boost4math6detail7erf_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_bRKT0_RKSt17integral_constantIiLi64EEE1P_1, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp71) #32
+  %call73 = call noundef x86_fp80 @_ZN5boost4math5tools19evaluate_polynomialILm7EeeEET1_RAT__KT0_RKS3_(ptr noundef nonnull align 16 dereferenceable(112) @_ZZN5boost4math6detail7erf_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_bRKT0_RKSt17integral_constantIiLi64EEE1P_1, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp71) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp74)
   store x86_fp80 %sub72, ptr %ref.tmp74, align 16, !tbaa !36
-  %call76 = call noundef x86_fp80 @_ZN5boost4math5tools19evaluate_polynomialILm7EeeEET1_RAT__KT0_RKS3_(ptr noundef nonnull align 16 dereferenceable(112) @_ZZN5boost4math6detail7erf_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_bRKT0_RKSt17integral_constantIiLi64EEE1Q_1, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp74) #32
+  %call76 = call noundef x86_fp80 @_ZN5boost4math5tools19evaluate_polynomialILm7EeeEET1_RAT__KT0_RKS3_(ptr noundef nonnull align 16 dereferenceable(112) @_ZZN5boost4math6detail7erf_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_bRKT0_RKSt17integral_constantIiLi64EEE1Q_1, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp74) #33
   %div77 = fdiv x86_fp80 %call73, %call76
   %add78 = fadd x86_fp80 %div77, 0xK3FFE81B8F00000000000
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp74)
@@ -8914,10 +8914,10 @@ if.then70:                                        ; preds = %if.else68
   %18 = call { x86_fp80, i32 } @llvm.frexp.f80.i32(x86_fp80 %z)
   %19 = extractvalue { x86_fp80, i32 } %18, 1
   %20 = extractvalue { x86_fp80, i32 } %18, 0
-  %call.i70 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %20, i32 noundef 32) #32, !tbaa !14
+  %call.i70 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %20, i32 noundef 32) #33, !tbaa !14
   %21 = call noundef x86_fp80 @llvm.floor.f80(x86_fp80 %call.i70)
   %sub85 = add nsw i32 %19, -32
-  %call.i71 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %21, i32 noundef %sub85) #32, !tbaa !14
+  %call.i71 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %21, i32 noundef %sub85) #33, !tbaa !14
   %sub87 = fsub x86_fp80 %z, %call.i71
   %22 = fneg x86_fp80 %z
   %neg92 = fmul x86_fp80 %z, %22
@@ -8925,9 +8925,9 @@ if.then70:                                        ; preds = %if.else68
   %mul93 = fmul x86_fp80 %call.i71, 0xK40008000000000000000
   %24 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul93, x86_fp80 %sub87, x86_fp80 %23)
   %25 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %sub87, x86_fp80 %sub87, x86_fp80 %24)
-  %call.i72 = call noundef x86_fp80 @expl(x86_fp80 noundef %neg92) #32, !tbaa !14
+  %call.i72 = call noundef x86_fp80 @expl(x86_fp80 noundef %neg92) #33, !tbaa !14
   %fneg98 = fneg x86_fp80 %25
-  %call.i73 = call noundef x86_fp80 @expl(x86_fp80 noundef %fneg98) #32, !tbaa !14
+  %call.i73 = call noundef x86_fp80 @expl(x86_fp80 noundef %fneg98) #33, !tbaa !14
   %mul100 = fmul x86_fp80 %call.i72, %call.i73
   %div101 = fdiv x86_fp80 %mul100, %z
   %mul102 = fmul x86_fp80 %add78, %div101
@@ -8947,25 +8947,25 @@ if.then105:                                       ; preds = %if.else103
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp106)
   %sub107 = fadd x86_fp80 %z, 0xKC000E000000000000000
   store x86_fp80 %sub107, ptr %ref.tmp106, align 16, !tbaa !36
-  %call108 = call noundef x86_fp80 @_ZN5boost4math5tools19evaluate_polynomialILm7EeeEET1_RAT__KT0_RKS3_(ptr noundef nonnull align 16 dereferenceable(112) @_ZZN5boost4math6detail7erf_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_bRKT0_RKSt17integral_constantIiLi64EEE1P_2, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp106) #32
+  %call108 = call noundef x86_fp80 @_ZN5boost4math5tools19evaluate_polynomialILm7EeeEET1_RAT__KT0_RKS3_(ptr noundef nonnull align 16 dereferenceable(112) @_ZZN5boost4math6detail7erf_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_bRKT0_RKSt17integral_constantIiLi64EEE1P_2, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp106) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp109)
   store x86_fp80 %sub107, ptr %ref.tmp109, align 16, !tbaa !36
-  %call111 = call noundef x86_fp80 @_ZN5boost4math5tools19evaluate_polynomialILm7EeeEET1_RAT__KT0_RKS3_(ptr noundef nonnull align 16 dereferenceable(112) @_ZZN5boost4math6detail7erf_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_bRKT0_RKSt17integral_constantIiLi64EEE1Q_2, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp109) #32
+  %call111 = call noundef x86_fp80 @_ZN5boost4math5tools19evaluate_polynomialILm7EeeEET1_RAT__KT0_RKS3_(ptr noundef nonnull align 16 dereferenceable(112) @_ZZN5boost4math6detail7erf_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_bRKT0_RKSt17integral_constantIiLi64EEE1Q_2, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp109) #33
   %div112 = fdiv x86_fp80 %call108, %call111
   %add113 = fadd x86_fp80 %div112, 0xK3FFE8A63200000000000
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp109)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp106)
-  %call.i74 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %28, i32 noundef 32) #32, !tbaa !14
+  %call.i74 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %28, i32 noundef 32) #33, !tbaa !14
   %30 = call noundef x86_fp80 @llvm.floor.f80(x86_fp80 %call.i74)
-  %call.i75 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %30, i32 noundef %sub120) #32, !tbaa !14
+  %call.i75 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %30, i32 noundef %sub120) #33, !tbaa !14
   %sub122 = fsub x86_fp80 %z, %call.i75
   %31 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %call.i75, x86_fp80 %call.i75, x86_fp80 %neg127)
   %mul128 = fmul x86_fp80 %call.i75, 0xK40008000000000000000
   %32 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul128, x86_fp80 %sub122, x86_fp80 %31)
   %33 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %sub122, x86_fp80 %sub122, x86_fp80 %32)
-  %call.i76 = call noundef x86_fp80 @expl(x86_fp80 noundef %neg127) #32, !tbaa !14
+  %call.i76 = call noundef x86_fp80 @expl(x86_fp80 noundef %neg127) #33, !tbaa !14
   %fneg133 = fneg x86_fp80 %33
-  %call.i77 = call noundef x86_fp80 @expl(x86_fp80 noundef %fneg133) #32, !tbaa !14
+  %call.i77 = call noundef x86_fp80 @expl(x86_fp80 noundef %fneg133) #33, !tbaa !14
   %mul135 = fmul x86_fp80 %call.i76, %call.i77
   %div136 = fdiv x86_fp80 %mul135, %z
   %mul137 = fmul x86_fp80 %add113, %div136
@@ -8975,25 +8975,25 @@ if.else138:                                       ; preds = %if.else103
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp139)
   %div140 = fdiv x86_fp80 0xK3FFF8000000000000000, %z
   store x86_fp80 %div140, ptr %ref.tmp139, align 16, !tbaa !36
-  %call141 = call noundef x86_fp80 @_ZN5boost4math5tools19evaluate_polynomialILm9EeeEET1_RAT__KT0_RKS3_(ptr noundef nonnull align 16 dereferenceable(144) @_ZZN5boost4math6detail7erf_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_bRKT0_RKSt17integral_constantIiLi64EEE1P_3, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp139) #32
+  %call141 = call noundef x86_fp80 @_ZN5boost4math5tools19evaluate_polynomialILm9EeeEET1_RAT__KT0_RKS3_(ptr noundef nonnull align 16 dereferenceable(144) @_ZZN5boost4math6detail7erf_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_bRKT0_RKSt17integral_constantIiLi64EEE1P_3, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp139) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp142)
   store x86_fp80 %div140, ptr %ref.tmp142, align 16, !tbaa !36
-  %call144 = call noundef x86_fp80 @_ZN5boost4math5tools19evaluate_polynomialILm9EeeEET1_RAT__KT0_RKS3_(ptr noundef nonnull align 16 dereferenceable(144) @_ZZN5boost4math6detail7erf_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_bRKT0_RKSt17integral_constantIiLi64EEE1Q_3, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp142) #32
+  %call144 = call noundef x86_fp80 @_ZN5boost4math5tools19evaluate_polynomialILm9EeeEET1_RAT__KT0_RKS3_(ptr noundef nonnull align 16 dereferenceable(144) @_ZZN5boost4math6detail7erf_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_bRKT0_RKSt17integral_constantIiLi64EEE1Q_3, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp142) #33
   %div145 = fdiv x86_fp80 %call141, %call144
   %add146 = fadd x86_fp80 %div145, 0xK3FFE8EE9D00000000000
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp142)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp139)
-  %call.i78 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %28, i32 noundef 32) #32, !tbaa !14
+  %call.i78 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %28, i32 noundef 32) #33, !tbaa !14
   %34 = call noundef x86_fp80 @llvm.floor.f80(x86_fp80 %call.i78)
-  %call.i79 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %34, i32 noundef %sub120) #32, !tbaa !14
+  %call.i79 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %34, i32 noundef %sub120) #33, !tbaa !14
   %sub155 = fsub x86_fp80 %z, %call.i79
   %35 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %call.i79, x86_fp80 %call.i79, x86_fp80 %neg127)
   %mul161 = fmul x86_fp80 %call.i79, 0xK40008000000000000000
   %36 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul161, x86_fp80 %sub155, x86_fp80 %35)
   %37 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %sub155, x86_fp80 %sub155, x86_fp80 %36)
-  %call.i80 = call noundef x86_fp80 @expl(x86_fp80 noundef %neg127) #32, !tbaa !14
+  %call.i80 = call noundef x86_fp80 @expl(x86_fp80 noundef %neg127) #33, !tbaa !14
   %fneg166 = fneg x86_fp80 %37
-  %call.i81 = call noundef x86_fp80 @expl(x86_fp80 noundef %fneg166) #32, !tbaa !14
+  %call.i81 = call noundef x86_fp80 @expl(x86_fp80 noundef %fneg166) #33, !tbaa !14
   %mul168 = fmul x86_fp80 %call.i80, %call.i81
   %div169 = fdiv x86_fp80 %mul168, %z
   %mul170 = fmul x86_fp80 %add146, %div169
@@ -9053,7 +9053,7 @@ entry:
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare x86_fp80 @ldexpl(x86_fp80 noundef, i32 noundef) local_unnamed_addr #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare { x86_fp80, i32 } @llvm.frexp.f80.i32(x86_fp80) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
@@ -9103,7 +9103,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %_ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEeeRKT_.exit
 
 if.end4.i:                                        ; preds = %if.end.i
-  %call5.i = tail call x86_fp80 @log1pl(x86_fp80 noundef %dz) #32, !tbaa !14
+  %call5.i = tail call x86_fp80 @log1pl(x86_fp80 noundef %dz) #33, !tbaa !14
   br label %_ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEeeRKT_.exit
 
 _ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEeeRKT_.exit: ; preds = %if.then2.i, %if.end4.i
@@ -9130,7 +9130,7 @@ if.then5.i.i:                                     ; preds = %if.then3.i7.i
   br label %_ZN5boost4math6detail9expm1_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_RKSt17integral_constantIiLi64EERKT0_.exit.i
 
 if.end7.i.i:                                      ; preds = %if.then.i6.i
-  %call.i.i.i = call noundef x86_fp80 @expl(x86_fp80 noundef %add7) #32, !tbaa !14
+  %call.i.i.i = call noundef x86_fp80 @expl(x86_fp80 noundef %add7) #33, !tbaa !14
   %sub.i.i = fadd x86_fp80 %call.i.i.i, 0xKBFFF8000000000000000
   br label %_ZN5boost4math6detail9expm1_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_RKSt17integral_constantIiLi64EERKT0_.exit.i
 
@@ -9205,7 +9205,7 @@ if.then5.i.i48:                                   ; preds = %if.then3.i7.i46
   br label %_ZN5boost4math6detail9expm1_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_RKSt17integral_constantIiLi64EERKT0_.exit.i40
 
 if.end7.i.i49:                                    ; preds = %if.then.i6.i44
-  %call.i.i.i50 = call noundef x86_fp80 @expl(x86_fp80 noundef %call15) #32, !tbaa !14
+  %call.i.i.i50 = call noundef x86_fp80 @expl(x86_fp80 noundef %call15) #33, !tbaa !14
   %sub.i.i51 = fadd x86_fp80 %call.i.i.i50, 0xKBFFF8000000000000000
   br label %_ZN5boost4math6detail9expm1_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_RKSt17integral_constantIiLi64EERKT0_.exit.i40
 
@@ -9324,7 +9324,7 @@ if.then5.i.i:                                     ; preds = %if.then3.i7.i
   br label %_ZN5boost4math6detail9expm1_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_RKSt17integral_constantIiLi64EERKT0_.exit.i
 
 if.end7.i.i:                                      ; preds = %if.then.i6.i
-  %call.i.i.i = tail call noundef x86_fp80 @expl(x86_fp80 noundef %mul6) #32, !tbaa !14
+  %call.i.i.i = tail call noundef x86_fp80 @expl(x86_fp80 noundef %mul6) #33, !tbaa !14
   %sub.i.i = fadd x86_fp80 %call.i.i.i, 0xKBFFF8000000000000000
   br label %_ZN5boost4math6detail9expm1_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_RKSt17integral_constantIiLi64EERKT0_.exit.i
 
@@ -9455,7 +9455,7 @@ if.then26:                                        ; preds = %_ZN5boost4math5trun
 
 if.end30:                                         ; preds = %if.then, %if.end, %if.else, %_ZN5boost4math5truncIeEENS0_5tools12promote_argsIT_fffffE4typeERKS4_.exit19
   %20 = phi x86_fp80 [ %x, %if.then ], [ %x, %if.end ], [ %x, %if.else ], [ %.pre, %_ZN5boost4math5truncIeEENS0_5tools12promote_argsIT_fffffE4typeERKS4_.exit19 ]
-  %call.i20 = call noundef x86_fp80 @powl(x86_fp80 noundef %20, x86_fp80 noundef %y) #32, !tbaa !14
+  %call.i20 = call noundef x86_fp80 @powl(x86_fp80 noundef %20, x86_fp80 noundef %y) #33, !tbaa !14
   %sub32 = fadd x86_fp80 %call.i20, 0xKBFFF8000000000000000
   %21 = call x86_fp80 @llvm.fabs.f80(x86_fp80 %sub32)
   %22 = fcmp oeq x86_fp80 %21, 0xK7FFF8000000000000000
@@ -9485,7 +9485,7 @@ return:                                           ; preds = %if.then34, %if.then
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare x86_fp80 @powl(x86_fp80 noundef, x86_fp80 noundef) local_unnamed_addr #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
@@ -9504,7 +9504,7 @@ entry:
   call void @llvm.lifetime.start.p0(ptr nonnull %function)
   %0 = getelementptr inbounds nuw i8, ptr %function, i64 16
   store ptr %0, ptr %function, align 8, !tbaa !23
-  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #32
+  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i)
   store i64 %call.i.i, ptr %__dnew.i.i, align 8, !tbaa !24
   %cmp.i.i = icmp ugt i64 %call.i.i, 15
@@ -9546,7 +9546,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %
   call void @llvm.lifetime.start.p0(ptr nonnull %message)
   %6 = getelementptr inbounds nuw i8, ptr %message, i64 16
   store ptr %6, ptr %message, align 8, !tbaa !23
-  %call.i.i13 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select1) #32
+  %call.i.i13 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select1) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i12)
   store i64 %call.i.i13, ptr %__dnew.i.i12, align 8, !tbaa !24
   %cmp.i.i14 = icmp ugt i64 %call.i.i13, 15
@@ -9627,7 +9627,7 @@ invoke.cont12:                                    ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.i.i, label %if.then.i.i.i.invoke, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 if.then.i.i.i.invoke:                             ; preds = %invoke.cont12, %invoke.cont11
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.20) #33
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.20) #34
           to label %if.then.i.i.i.cont unwind label %lpad10
 
 if.then.i.i.i.cont:                               ; preds = %if.then.i.i.i.invoke
@@ -9657,7 +9657,7 @@ invoke.cont21:                                    ; preds = %invoke.cont20
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %invoke.cont21
-  invoke void @_ZN5boost15throw_exceptionISt12domain_errorEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23) #33
+  invoke void @_ZN5boost15throw_exceptionISt12domain_errorEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23) #34
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %invoke.cont25
@@ -9696,7 +9696,7 @@ lpad24:                                           ; preds = %invoke.cont21
 lpad26:                                           ; preds = %invoke.cont25
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12domain_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23) #32
+  call void @_ZNSt12domain_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23) #33
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad26, %lpad24
@@ -9714,7 +9714,7 @@ ehcleanup28:                                      ; preds = %ehcleanup, %lpad19
 if.then.i.i42:                                    ; preds = %ehcleanup28
   %30 = load i64, ptr %29, align 8, !tbaa !22
   %add.i.i.i = add i64 %30, 1
-  call void @_ZdlPvm(ptr noundef %28, i64 noundef %add.i.i.i) #34
+  call void @_ZdlPvm(ptr noundef %28, i64 noundef %add.i.i.i) #35
   br label %ehcleanup29
 
 ehcleanup29:                                      ; preds = %ehcleanup28, %if.then.i.i42, %lpad16
@@ -9731,7 +9731,7 @@ ehcleanup30:                                      ; preds = %ehcleanup29, %lpad1
 if.then.i.i45:                                    ; preds = %ehcleanup30
   %32 = load i64, ptr %12, align 8, !tbaa !22
   %add.i.i.i46 = add i64 %32, 1
-  call void @_ZdlPvm(ptr noundef %31, i64 noundef %add.i.i.i46) #34
+  call void @_ZdlPvm(ptr noundef %31, i64 noundef %add.i.i.i46) #35
   br label %ehcleanup31
 
 ehcleanup31:                                      ; preds = %ehcleanup30, %if.then.i.i45, %lpad8
@@ -9744,7 +9744,7 @@ ehcleanup31:                                      ; preds = %ehcleanup30, %if.th
 if.then.i.i52:                                    ; preds = %ehcleanup31
   %34 = load i64, ptr %6, align 8, !tbaa !22
   %add.i.i.i53 = add i64 %34, 1
-  call void @_ZdlPvm(ptr noundef %33, i64 noundef %add.i.i.i53) #34
+  call void @_ZdlPvm(ptr noundef %33, i64 noundef %add.i.i.i53) #35
   br label %ehcleanup33
 
 ehcleanup33:                                      ; preds = %ehcleanup31, %if.then.i.i52, %lpad5
@@ -9757,7 +9757,7 @@ ehcleanup33:                                      ; preds = %ehcleanup31, %if.th
 if.then.i.i59:                                    ; preds = %ehcleanup33
   %36 = load i64, ptr %0, align 8, !tbaa !22
   %add.i.i.i60 = add i64 %36, 1
-  call void @_ZdlPvm(ptr noundef %35, i64 noundef %add.i.i.i60) #34
+  call void @_ZdlPvm(ptr noundef %35, i64 noundef %add.i.i.i60) #35
   br label %ehcleanup35
 
 ehcleanup35:                                      ; preds = %ehcleanup33, %if.then.i.i59
@@ -9820,7 +9820,7 @@ lpad.i.i:                                         ; preds = %if.else.i.i, %if.th
 if.then.i.i.i.i:                                  ; preds = %lpad.i.i
   %7 = load i64, ptr %1, align 8, !tbaa !22, !alias.scope !81
   %add.i.i.i.i.i = add i64 %7, 1
-  call void @_ZdlPvm(ptr noundef %6, i64 noundef %add.i.i.i.i.i) #34
+  call void @_ZdlPvm(ptr noundef %6, i64 noundef %add.i.i.i.i.i) #35
   br label %ehcleanup
 
 if.else.i.i:                                      ; preds = %invoke.cont5
@@ -9849,13 +9849,13 @@ invoke.cont7:                                     ; preds = %if.else.i.i, %if.th
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont7
   %13 = load i64, ptr %12, align 8, !tbaa !22
   %add.i.i.i.i.i.i = add i64 %13, 1
-  call void @_ZdlPvm(ptr noundef %11, i64 noundef %add.i.i.i.i.i.i) #34
+  call void @_ZdlPvm(ptr noundef %11, i64 noundef %add.i.i.i.i.i.i) #35
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %invoke.cont7, %if.then.i.i.i.i.i
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !3
   %_M_buf_locale.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 80
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #32
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #33
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %14, ptr %ss, align 8, !tbaa !3
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
@@ -9866,7 +9866,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %_M_gcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 8
   store i64 0, ptr %_M_gcount.i.i.i.i, align 8, !tbaa !71
   %16 = getelementptr inbounds nuw i8, ptr %ss, i64 128
-  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %16) #32
+  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %16) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %ss)
   ret void
 
@@ -9877,7 +9877,7 @@ lpad4:                                            ; preds = %invoke.cont
 
 ehcleanup:                                        ; preds = %lpad.i.i, %lpad4, %if.then.i.i.i.i
   %.pn = phi { ptr, i32 } [ %17, %lpad4 ], [ %5, %if.then.i.i.i.i ], [ %5, %lpad.i.i ]
-  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #32
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %ss)
   resume { ptr, i32 } %.pn
 }
@@ -9975,7 +9975,7 @@ if.then19:                                        ; preds = %if.end17
 
 if.else:                                          ; preds = %if.end17
   %div = fdiv x86_fp80 %conv6, %conv2
-  %call.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef %div) #32, !tbaa !14
+  %call.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef %div) #33, !tbaa !14
   %div25 = fmul x86_fp80 %conv, 0xK3FFD8000000000000000
   %sub = fadd x86_fp80 %div25, 0xKBFFE8000000000000000
   %add = fadd x86_fp80 %conv2, %conv6
@@ -9992,12 +9992,12 @@ if.then33:                                        ; preds = %if.else
   br label %if.end48
 
 if.else37:                                        ; preds = %if.else
-  %call.i27 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %6) #32, !tbaa !14
+  %call.i27 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %6) #33, !tbaa !14
   %mul = fmul x86_fp80 %call.i27, 0xK3FFE8000000000000000
   %div39 = fmul x86_fp80 %conv, 0xK3FFE8000000000000000
   %sub40 = fadd x86_fp80 %div39, 0xKBFFF8000000000000000
   %mul42 = fmul x86_fp80 %conv2, %conv6
-  %call.i28 = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %mul42) #32, !tbaa !14
+  %call.i28 = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %mul42) #33, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp44)
   %call45 = call noundef x86_fp80 @_ZN5boost4math12cyl_bessel_iIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_6detail13bessel_traitsIT_T0_T1_E11result_typeESC_SD_RKSE_(x86_fp80 noundef %sub40, x86_fp80 noundef %call.i28, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44)
   %mul46 = fmul x86_fp80 %mul, %call45
@@ -10348,7 +10348,7 @@ _ZN5boost4math6lgammaIdNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14prom
   %sub = fsub double %0, %call.i.i
   %call27 = call double @llvm.log.f64(double %x), !tbaa !14
   %sub28 = fsub double %sub, %call27
-  %call29 = call double @exp(double noundef %sub28) #32, !tbaa !14
+  %call29 = call double @exp(double noundef %sub28) #33, !tbaa !14
   br label %return
 
 if.else:                                          ; preds = %if.end21
@@ -10360,7 +10360,7 @@ return:                                           ; preds = %if.then19, %if.else
   ret double %retval.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #1
 
 ; Function Attrs: mustprogress uwtable
@@ -10389,16 +10389,16 @@ if.then7:                                         ; preds = %if.end
   br i1 %or.cond95, label %if.then13, label %if.else
 
 if.then13:                                        ; preds = %if.then7
-  %call14 = tail call double @log(double noundef %z) #32, !tbaa !14
+  %call14 = tail call double @log(double noundef %z) #33, !tbaa !14
   %0 = tail call double @llvm.fmuladd.f64(double %a, double %call14, double %neg)
   %call15 = tail call noundef double @_ZN5boost4math6detail10lgamma_impIdNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EENS0_7lanczos12lanczos13m53EEET_SD_RKT0_RKT1_Pi(double noundef %a, ptr noundef nonnull align 1 dereferenceable(1) %pol, ptr noundef nonnull align 1 dereferenceable(1) %l, ptr noundef null)
   %sub16 = fsub double %0, %call15
-  %call17 = tail call double @exp(double noundef %sub16) #32, !tbaa !14
+  %call17 = tail call double @exp(double noundef %sub16) #33, !tbaa !14
   br label %return
 
 if.else:                                          ; preds = %if.then7
-  %call18 = tail call double @pow(double noundef %z, double noundef %a) #32, !tbaa !14
-  %call19 = tail call double @exp(double noundef %neg) #32, !tbaa !14
+  %call18 = tail call double @pow(double noundef %z, double noundef %a) #33, !tbaa !14
+  %call19 = tail call double @exp(double noundef %neg) #33, !tbaa !14
   %mul = fmul double %call18, %call19
   %call20 = tail call noundef double @_ZN5boost4math6detail9gamma_impIdNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EENS0_7lanczos12lanczos13m53EEET_SD_RKT0_RKT1_(double noundef %a, ptr noundef nonnull align 1 dereferenceable(1) %pol, ptr noundef nonnull align 1 dereferenceable(1) %l)
   %div21 = fdiv double %mul, %call20
@@ -10440,7 +10440,7 @@ if.end4.i:                                        ; preds = %if.end.i
 
 if.then7.i:                                       ; preds = %if.end4.i
   %add.i = fadd double %div, 1.000000e+00
-  %call8.i = tail call double @log(double noundef %add.i) #32, !tbaa !14
+  %call8.i = tail call double @log(double noundef %add.i) #33, !tbaa !14
   %sub.i = fsub double %call8.i, %div
   br label %_ZN5boost4math7log1pmxIdNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeESC_RKT0_.exit
 
@@ -10496,12 +10496,12 @@ _ZN5boost4math7log1pmxIdNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14pro
   %mul32 = fmul double %z, 0xC0161945B9800000
   %div33 = fdiv double %mul32, %sub
   %9 = call double @llvm.fmuladd.f64(double %a, double %retval.0.i, double %div33)
-  %call34 = call double @exp(double noundef %9) #32, !tbaa !14
+  %call34 = call double @exp(double noundef %9) #33, !tbaa !14
   br label %if.end112
 
 if.else35:                                        ; preds = %if.else22
   %div36 = fdiv double %z, %sub
-  %call37 = tail call double @log(double noundef %div36) #32, !tbaa !14
+  %call37 = tail call double @log(double noundef %div36) #33, !tbaa !14
   %mul38 = fmul double %a, %call37
   %sub39 = fsub double %a, %z
   %cmp.i36 = fcmp olt double %sub39, %mul38
@@ -10530,9 +10530,9 @@ land.lhs.true53:                                  ; preds = %if.then47
 
 if.then58:                                        ; preds = %land.lhs.true53
   %div60 = fmul double %a, 5.000000e-01
-  %call61 = tail call double @pow(double noundef %div36, double noundef %div60) #32, !tbaa !14
+  %call61 = tail call double @pow(double noundef %div36, double noundef %div60) #33, !tbaa !14
   %div62 = fmul double %sub39, 5.000000e-01
-  %call63 = tail call double @exp(double noundef %div62) #32, !tbaa !14
+  %call63 = tail call double @exp(double noundef %div62) #33, !tbaa !14
   %mul64 = fmul double %call61, %call63
   %mul65 = fmul double %mul64, %mul64
   br label %if.end112
@@ -10553,9 +10553,9 @@ land.lhs.true71:                                  ; preds = %if.else66
 
 if.then78:                                        ; preds = %land.lhs.true71
   %div81 = fmul double %a, 2.500000e-01
-  %call82 = tail call double @pow(double noundef %div36, double noundef %div81) #32, !tbaa !14
+  %call82 = tail call double @pow(double noundef %div36, double noundef %div81) #33, !tbaa !14
   %div83 = fmul double %sub39, 2.500000e-01
-  %call84 = tail call double @exp(double noundef %div83) #32, !tbaa !14
+  %call84 = tail call double @exp(double noundef %div83) #33, !tbaa !14
   %mul85 = fmul double %call82, %call84
   %mul86 = fmul double %mul85, %mul85
   %mul87 = fmul double %mul86, %mul86
@@ -10568,27 +10568,27 @@ if.else88:                                        ; preds = %land.lhs.true71, %i
   br i1 %or.cond97, label %if.then94, label %if.else99
 
 if.then94:                                        ; preds = %if.else88
-  %call95 = tail call double @exp(double noundef %div48) #32, !tbaa !14
+  %call95 = tail call double @exp(double noundef %div48) #33, !tbaa !14
   %mul96 = fmul double %z, %call95
   %div97 = fdiv double %mul96, %sub
-  %call98 = tail call double @pow(double noundef %div97, double noundef %a) #32, !tbaa !14
+  %call98 = tail call double @pow(double noundef %div97, double noundef %a) #33, !tbaa !14
   br label %if.end112
 
 if.else99:                                        ; preds = %if.else88
   %add100 = fadd double %sub39, %mul38
-  %call101 = tail call double @exp(double noundef %add100) #32, !tbaa !14
+  %call101 = tail call double @exp(double noundef %add100) #33, !tbaa !14
   br label %if.end112
 
 if.else105:                                       ; preds = %lor.lhs.false43
-  %call107 = tail call double @pow(double noundef %div36, double noundef %a) #32, !tbaa !14
-  %call108 = tail call double @exp(double noundef %sub39) #32, !tbaa !14
+  %call107 = tail call double @pow(double noundef %div36, double noundef %a) #33, !tbaa !14
+  %call108 = tail call double @exp(double noundef %sub39) #33, !tbaa !14
   %mul109 = fmul double %call107, %call108
   br label %if.end112
 
 if.end112:                                        ; preds = %if.else105, %if.then78, %if.else99, %if.then94, %if.then58, %_ZN5boost4math7log1pmxIdNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeESC_RKT0_.exit
   %prefix.2 = phi double [ %call34, %_ZN5boost4math7log1pmxIdNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeESC_RKT0_.exit ], [ %mul109, %if.else105 ], [ %mul65, %if.then58 ], [ %mul87, %if.then78 ], [ %call98, %if.then94 ], [ %call101, %if.else99 ]
   %div114 = fdiv double %sub, 0x4005BF0A8B145769
-  %call115 = call double @sqrt(double noundef %div114) #32, !tbaa !14
+  %call115 = call double @sqrt(double noundef %div114) #33, !tbaa !14
   %cmp.i47 = fcmp ogt double %a, 4.768860e+25
   br i1 %cmp.i47, label %if.then.i50, label %if.end.i48
 
@@ -10706,7 +10706,7 @@ if.end:                                           ; preds = %if.then
   %sub9.i = fsub double 1.000000e+00, %dist.0.i
   %dist.1.i = select i1 %cmp7.i, double %sub9.i, double %dist.0.i
   %mul.i = fmul double %dist.1.i, 0x400921FB54442D18
-  %call12.i = tail call double @sin(double noundef %mul.i) #32, !tbaa !14
+  %call12.i = tail call double @sin(double noundef %mul.i) #33, !tbaa !14
   %mul14.i = select i1 %tobool.i.i.not.i, double %fneg.i, double %z
   %mul15.i = fmul double %mul14.i, %call12.i
   %cmp6 = fcmp olt double %mul15.i, 0.000000e+00
@@ -10715,7 +10715,7 @@ if.end:                                           ; preds = %if.then
   %t.0 = select i1 %cmp6, double %fneg8, double %mul15.i
   %call12 = tail call noundef double @_ZN5boost4math6detail10lgamma_impIdNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EENS0_7lanczos12lanczos13m53EEET_SD_RKT0_RKT1_Pi(double noundef %fneg.i, ptr noundef nonnull align 1 dereferenceable(1) %pol, ptr noundef nonnull align 1 dereferenceable(1) %l, ptr noundef null)
   %sub13 = fsub double 0x3FF250D048E7A1BD, %call12
-  %call14 = tail call double @log(double noundef %t.0) #32, !tbaa !14
+  %call14 = tail call double @log(double noundef %t.0) #33, !tbaa !14
   %sub15 = fsub double %sub13, %call14
   br label %if.end68
 
@@ -10747,7 +10747,7 @@ if.else29:                                        ; preds = %if.end23
   %div = fdiv double 1.000000e+00, %z
   %sub31 = fadd double %div, 0xBFE2788CFC6FB619
   %5 = tail call double @llvm.fabs.f64(double %sub31)
-  %call32 = tail call double @log(double noundef %5) #32, !tbaa !14
+  %call32 = tail call double @log(double noundef %5) #33, !tbaa !14
   br label %if.end33
 
 if.end33:                                         ; preds = %if.else29, %if.then26
@@ -10778,13 +10778,13 @@ if.else43:                                        ; preds = %if.else37
 
 if.then46:                                        ; preds = %if.else43
   %call47 = tail call noundef double @_ZN5boost4math6detail9gamma_impIdNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EENS0_7lanczos12lanczos13m53EEET_SD_RKT0_RKT1_(double noundef %z, ptr noundef nonnull align 1 dereferenceable(1) %pol, ptr noundef nonnull align 1 dereferenceable(1) %l)
-  %call48 = tail call double @log(double noundef %call47) #32, !tbaa !14
+  %call48 = tail call double @log(double noundef %call47) #33, !tbaa !14
   br label %if.end68
 
 if.else49:                                        ; preds = %if.else43
   %add = fadd double %z, 0x40181945B9800000
   %sub52 = fadd double %add, -5.000000e-01
-  %call53 = tail call double @log(double noundef %sub52) #32, !tbaa !14
+  %call53 = tail call double @log(double noundef %sub52) #33, !tbaa !14
   %sub54 = fadd double %call53, -1.000000e+00
   %sub55 = fadd double %z, -5.000000e-01
   %mul56 = fmul double %sub55, %sub54
@@ -10862,7 +10862,7 @@ if.end.i:                                         ; preds = %if.then60
 
 _ZN5boost4math7lanczos12lanczos13m5323lanczos_sum_expG_scaledIdEET_RKS4_.exit: ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi double [ %div1.i, %if.then.i ], [ %div41.i, %if.end.i ]
-  %call62 = tail call double @log(double noundef %retval.0.i) #32, !tbaa !14
+  %call62 = tail call double @log(double noundef %retval.0.i) #33, !tbaa !14
   %add63 = fadd double %mul56, %call62
   br label %if.end68
 
@@ -10919,7 +10919,7 @@ _ZN5boost4math6detail5sinpxIdEET_S3_.exit:        ; preds = %if.end
   %sub9.i = fsub double 1.000000e+00, %dist.0.i
   %dist.1.i = select i1 %cmp7.i, double %sub9.i, double %dist.0.i
   %mul.i = fmul double %dist.1.i, 0x400921FB54442D18
-  %call12.i = tail call double @sin(double noundef %mul.i) #32, !tbaa !14
+  %call12.i = tail call double @sin(double noundef %mul.i) #33, !tbaa !14
   %mul14.i = select i1 %tobool.i.i.not.i, double %fneg, double %z
   %mul15.i = fmul double %mul14.i, %call12.i
   %mul = fmul double %call5, %mul15.i
@@ -11109,7 +11109,7 @@ _ZN5boost4math7lanczos12lanczos13m5311lanczos_sumIdEET_RKS4_.exit: ; preds = %if
   %mul55 = fmul double %result.0, %retval.0.i
   %add57 = fadd double %9, 0x40181945B9800000
   %sub59 = fadd double %add57, -5.000000e-01
-  %call60 = tail call double @log(double noundef %sub59) #32, !tbaa !14
+  %call60 = tail call double @log(double noundef %sub59) #33, !tbaa !14
   %mul61 = fmul double %9, %call60
   %cmp63 = fcmp ogt double %mul61, 7.090000e+02
   br i1 %cmp63, label %if.then64, label %if.else91
@@ -11131,8 +11131,8 @@ if.then69:                                        ; preds = %if.then64
 if.end74:                                         ; preds = %if.then64
   %div75 = fmul double %9, 5.000000e-01
   %sub76 = fadd double %div75, -2.500000e-01
-  %call77 = tail call double @pow(double noundef %sub59, double noundef %sub76) #32, !tbaa !14
-  %call78 = tail call double @exp(double noundef %sub59) #32, !tbaa !14
+  %call77 = tail call double @pow(double noundef %sub59, double noundef %sub76) #33, !tbaa !14
+  %call78 = tail call double @exp(double noundef %sub59) #33, !tbaa !14
   %div79 = fdiv double %call77, %call78
   %mul80 = fmul double %mul55, %div79
   %div82 = fdiv double 0x7FEFFFFFFFFFFFFF, %call77
@@ -11150,8 +11150,8 @@ cleanup:                                          ; preds = %if.end74
 
 if.else91:                                        ; preds = %_ZN5boost4math7lanczos12lanczos13m5311lanczos_sumIdEET_RKS4_.exit
   %sub93 = fadd double %9, -5.000000e-01
-  %call94 = tail call double @pow(double noundef %sub59, double noundef %sub93) #32, !tbaa !14
-  %call95 = tail call double @exp(double noundef %sub59) #32, !tbaa !14
+  %call94 = tail call double @pow(double noundef %sub59, double noundef %sub93) #33, !tbaa !14
+  %call95 = tail call double @exp(double noundef %sub59) #33, !tbaa !14
   %div96 = fdiv double %call94, %call95
   %mul97 = fmul double %mul55, %div96
   br label %cleanup105
@@ -11165,7 +11165,7 @@ cleanup105:                                       ; preds = %fpclassify_not_zero
   ret double %retval.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11175,7 +11175,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call3 = tail call double @log(double noundef %z) #32, !tbaa !14
+  %call3 = tail call double @log(double noundef %z) #33, !tbaa !14
   %fneg = fneg double %call3
   br label %if.end56
 
@@ -11197,7 +11197,7 @@ do.body:                                          ; preds = %if.then9, %do.body
   %result.2 = phi double [ %add, %do.body ], [ 0.000000e+00, %if.then9 ]
   %z.addr.1 = phi double [ %sub, %do.body ], [ %z, %if.then9 ]
   %sub = fadd double %z.addr.1, -1.000000e+00
-  %call13 = tail call double @log(double noundef %sub) #32, !tbaa !14
+  %call13 = tail call double @log(double noundef %sub) #33, !tbaa !14
   %add = fadd double %result.2, %call13
   %cmp14 = fcmp ult double %sub, 3.000000e+00
   br i1 %cmp14, label %do.end, label %do.body, !llvm.loop !88
@@ -11323,7 +11323,7 @@ if.end56:                                         ; preds = %if.else, %if.then31
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @sin(double noundef) local_unnamed_addr #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.ceil.f64(double) #1
 
 ; Function Attrs: mustprogress uwtable
@@ -11342,7 +11342,7 @@ entry:
   call void @llvm.lifetime.start.p0(ptr nonnull %function)
   %0 = getelementptr inbounds nuw i8, ptr %function, i64 16
   store ptr %0, ptr %function, align 8, !tbaa !23
-  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #32
+  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i)
   store i64 %call.i.i, ptr %__dnew.i.i, align 8, !tbaa !24
   %cmp.i.i = icmp ugt i64 %call.i.i, 15
@@ -11384,7 +11384,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %
   call void @llvm.lifetime.start.p0(ptr nonnull %message)
   %6 = getelementptr inbounds nuw i8, ptr %message, i64 16
   store ptr %6, ptr %message, align 8, !tbaa !23
-  %call.i.i13 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select1) #32
+  %call.i.i13 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select1) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i12)
   store i64 %call.i.i13, ptr %__dnew.i.i12, align 8, !tbaa !24
   %cmp.i.i14 = icmp ugt i64 %call.i.i13, 15
@@ -11465,7 +11465,7 @@ invoke.cont12:                                    ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.i.i, label %if.then.i.i.i.invoke, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 if.then.i.i.i.invoke:                             ; preds = %invoke.cont12, %invoke.cont11
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.20) #33
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.20) #34
           to label %if.then.i.i.i.cont unwind label %lpad10
 
 if.then.i.i.i.cont:                               ; preds = %if.then.i.i.i.invoke
@@ -11496,7 +11496,7 @@ invoke.cont21:                                    ; preds = %invoke.cont20
 
 invoke.cont25:                                    ; preds = %invoke.cont21
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost4math14rounding_errorE, i64 16), ptr %ref.tmp23, align 8, !tbaa !3
-  invoke void @_ZN5boost15throw_exceptionINS_4math14rounding_errorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23) #33
+  invoke void @_ZN5boost15throw_exceptionINS_4math14rounding_errorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23) #34
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %invoke.cont25
@@ -11535,7 +11535,7 @@ lpad24:                                           ; preds = %invoke.cont21
 lpad26:                                           ; preds = %invoke.cont25
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23) #32
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23) #33
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad26, %lpad24
@@ -11553,7 +11553,7 @@ ehcleanup28:                                      ; preds = %ehcleanup, %lpad19
 if.then.i.i43:                                    ; preds = %ehcleanup28
   %30 = load i64, ptr %29, align 8, !tbaa !22
   %add.i.i.i = add i64 %30, 1
-  call void @_ZdlPvm(ptr noundef %28, i64 noundef %add.i.i.i) #34
+  call void @_ZdlPvm(ptr noundef %28, i64 noundef %add.i.i.i) #35
   br label %ehcleanup29
 
 ehcleanup29:                                      ; preds = %ehcleanup28, %if.then.i.i43, %lpad16
@@ -11570,7 +11570,7 @@ ehcleanup30:                                      ; preds = %ehcleanup29, %lpad1
 if.then.i.i46:                                    ; preds = %ehcleanup30
   %32 = load i64, ptr %12, align 8, !tbaa !22
   %add.i.i.i47 = add i64 %32, 1
-  call void @_ZdlPvm(ptr noundef %31, i64 noundef %add.i.i.i47) #34
+  call void @_ZdlPvm(ptr noundef %31, i64 noundef %add.i.i.i47) #35
   br label %ehcleanup31
 
 ehcleanup31:                                      ; preds = %ehcleanup30, %if.then.i.i46, %lpad8
@@ -11583,7 +11583,7 @@ ehcleanup31:                                      ; preds = %ehcleanup30, %if.th
 if.then.i.i53:                                    ; preds = %ehcleanup31
   %34 = load i64, ptr %6, align 8, !tbaa !22
   %add.i.i.i54 = add i64 %34, 1
-  call void @_ZdlPvm(ptr noundef %33, i64 noundef %add.i.i.i54) #34
+  call void @_ZdlPvm(ptr noundef %33, i64 noundef %add.i.i.i54) #35
   br label %ehcleanup33
 
 ehcleanup33:                                      ; preds = %ehcleanup31, %if.then.i.i53, %lpad5
@@ -11596,7 +11596,7 @@ ehcleanup33:                                      ; preds = %ehcleanup31, %if.th
 if.then.i.i60:                                    ; preds = %ehcleanup33
   %36 = load i64, ptr %0, align 8, !tbaa !22
   %add.i.i.i61 = add i64 %36, 1
-  call void @_ZdlPvm(ptr noundef %35, i64 noundef %add.i.i.i61) #34
+  call void @_ZdlPvm(ptr noundef %35, i64 noundef %add.i.i.i61) #35
   br label %ehcleanup35
 
 ehcleanup35:                                      ; preds = %ehcleanup33, %if.then.i.i60
@@ -11620,7 +11620,7 @@ entry:
   call void @llvm.lifetime.start.p0(ptr nonnull %function)
   %0 = getelementptr inbounds nuw i8, ptr %function, i64 16
   store ptr %0, ptr %function, align 8, !tbaa !23
-  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #32
+  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i)
   store i64 %call.i.i, ptr %__dnew.i.i, align 8, !tbaa !24
   %cmp.i.i = icmp ugt i64 %call.i.i, 15
@@ -11662,7 +11662,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %
   call void @llvm.lifetime.start.p0(ptr nonnull %message)
   %6 = getelementptr inbounds nuw i8, ptr %message, i64 16
   store ptr %6, ptr %message, align 8, !tbaa !23
-  %call.i.i13 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select1) #32
+  %call.i.i13 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select1) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i12)
   store i64 %call.i.i13, ptr %__dnew.i.i12, align 8, !tbaa !24
   %cmp.i.i14 = icmp ugt i64 %call.i.i13, 15
@@ -11743,7 +11743,7 @@ invoke.cont12:                                    ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.i.i, label %if.then.i.i.i.invoke, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 if.then.i.i.i.invoke:                             ; preds = %invoke.cont12, %invoke.cont11
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.20) #33
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.20) #34
           to label %if.then.i.i.i.cont unwind label %lpad10
 
 if.then.i.i.i.cont:                               ; preds = %if.then.i.i.i.invoke
@@ -11774,7 +11774,7 @@ invoke.cont21:                                    ; preds = %invoke.cont20
 
 invoke.cont25:                                    ; preds = %invoke.cont21
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost4math16evaluation_errorE, i64 16), ptr %ref.tmp23, align 8, !tbaa !3
-  invoke void @_ZN5boost15throw_exceptionINS_4math16evaluation_errorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23) #33
+  invoke void @_ZN5boost15throw_exceptionINS_4math16evaluation_errorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23) #34
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %invoke.cont25
@@ -11813,7 +11813,7 @@ lpad24:                                           ; preds = %invoke.cont21
 lpad26:                                           ; preds = %invoke.cont25
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23) #32
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23) #33
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad26, %lpad24
@@ -11831,7 +11831,7 @@ ehcleanup28:                                      ; preds = %ehcleanup, %lpad19
 if.then.i.i43:                                    ; preds = %ehcleanup28
   %30 = load i64, ptr %29, align 8, !tbaa !22
   %add.i.i.i = add i64 %30, 1
-  call void @_ZdlPvm(ptr noundef %28, i64 noundef %add.i.i.i) #34
+  call void @_ZdlPvm(ptr noundef %28, i64 noundef %add.i.i.i) #35
   br label %ehcleanup29
 
 ehcleanup29:                                      ; preds = %ehcleanup28, %if.then.i.i43, %lpad16
@@ -11848,7 +11848,7 @@ ehcleanup30:                                      ; preds = %ehcleanup29, %lpad1
 if.then.i.i46:                                    ; preds = %ehcleanup30
   %32 = load i64, ptr %12, align 8, !tbaa !22
   %add.i.i.i47 = add i64 %32, 1
-  call void @_ZdlPvm(ptr noundef %31, i64 noundef %add.i.i.i47) #34
+  call void @_ZdlPvm(ptr noundef %31, i64 noundef %add.i.i.i47) #35
   br label %ehcleanup31
 
 ehcleanup31:                                      ; preds = %ehcleanup30, %if.then.i.i46, %lpad8
@@ -11861,7 +11861,7 @@ ehcleanup31:                                      ; preds = %ehcleanup30, %if.th
 if.then.i.i53:                                    ; preds = %ehcleanup31
   %34 = load i64, ptr %6, align 8, !tbaa !22
   %add.i.i.i54 = add i64 %34, 1
-  call void @_ZdlPvm(ptr noundef %33, i64 noundef %add.i.i.i54) #34
+  call void @_ZdlPvm(ptr noundef %33, i64 noundef %add.i.i.i54) #35
   br label %ehcleanup33
 
 ehcleanup33:                                      ; preds = %ehcleanup31, %if.then.i.i53, %lpad5
@@ -11874,7 +11874,7 @@ ehcleanup33:                                      ; preds = %ehcleanup31, %if.th
 if.then.i.i60:                                    ; preds = %ehcleanup33
   %36 = load i64, ptr %0, align 8, !tbaa !22
   %add.i.i.i61 = add i64 %36, 1
-  call void @_ZdlPvm(ptr noundef %35, i64 noundef %add.i.i.i61) #34
+  call void @_ZdlPvm(ptr noundef %35, i64 noundef %add.i.i.i61) #35
   br label %ehcleanup35
 
 ehcleanup35:                                      ; preds = %ehcleanup33, %if.then.i.i60
@@ -11981,7 +11981,7 @@ _ZN5boost4math6lgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14prom
   %sub = fsub x86_fp80 %0, %call.i.i
   %call.i10 = call x86_fp80 @llvm.log.f80(x86_fp80 %x), !tbaa !14
   %sub28 = fsub x86_fp80 %sub, %call.i10
-  %call.i11 = call noundef x86_fp80 @expl(x86_fp80 noundef %sub28) #32, !tbaa !14
+  %call.i11 = call noundef x86_fp80 @expl(x86_fp80 noundef %sub28) #33, !tbaa !14
   br label %return
 
 if.else:                                          ; preds = %if.end21
@@ -12108,10 +12108,10 @@ if.then21:                                        ; preds = %if.end19
 
 if.then24:                                        ; preds = %if.then21
   %div = fmul x86_fp80 %x, 0xK3FFE8000000000000000
-  %call.i = tail call noundef x86_fp80 @expl(x86_fp80 noundef %div) #32, !tbaa !14
+  %call.i = tail call noundef x86_fp80 @expl(x86_fp80 noundef %div) #33, !tbaa !14
   %mul = fmul x86_fp80 %x, 0xK40008000000000000000
   %mul27 = fmul x86_fp80 %mul, 0xK4000C90FDAA22168C235
-  %call.i10 = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %mul27) #32, !tbaa !14
+  %call.i10 = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %mul27) #33, !tbaa !14
   %div29 = fdiv x86_fp80 %call.i, %call.i10
   %mul30 = fmul x86_fp80 %call.i, %div29
   br label %return
@@ -12119,8 +12119,8 @@ if.then24:                                        ; preds = %if.then21
 if.end31:                                         ; preds = %if.then21
   %mul33 = fmul x86_fp80 %x, 0xK4000C90FDAA22168C235
   %div34 = fdiv x86_fp80 0xK40008000000000000000, %mul33
-  %call.i11 = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %div34) #32, !tbaa !14
-  %call.i12 = tail call noundef x86_fp80 @sinhl(x86_fp80 noundef %x) #32, !tbaa !14
+  %call.i11 = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %div34) #33, !tbaa !14
+  %call.i12 = tail call noundef x86_fp80 @sinhl(x86_fp80 noundef %x) #33, !tbaa !14
   %mul37 = fmul x86_fp80 %call.i11, %call.i12
   br label %return
 
@@ -12183,7 +12183,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call noundef x86_fp80 @powl(x86_fp80 noundef %div, x86_fp80 noundef %v) #32, !tbaa !14
+  %call.i = tail call noundef x86_fp80 @powl(x86_fp80 noundef %div, x86_fp80 noundef %v) #33, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1.i.i)
   %call.i.i = call noundef x86_fp80 @_ZN5boost4math6detail9gamma_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EENS0_7lanczos12lanczos17m64EEET_SD_RKT0_RKT1_(x86_fp80 noundef %add, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i.i)
@@ -12202,7 +12202,7 @@ _ZN5boost4math6tgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14prom
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %call.i12 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %div) #32, !tbaa !14
+  %call.i12 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %div) #33, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i13)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1.i.i14)
   %call.i.i15 = call noundef x86_fp80 @_ZN5boost4math6detail10lgamma_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EENS0_7lanczos12lanczos17m64EEET_SD_RKT0_RKT1_Pi(x86_fp80 noundef %add, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i.i14, ptr noundef null)
@@ -12219,7 +12219,7 @@ _ZN5boost4math6lgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14prom
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i13)
   %neg = fneg x86_fp80 %call.i.i15
   %2 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %v, x86_fp80 %call.i12, x86_fp80 %neg)
-  %call.i18 = call noundef x86_fp80 @expl(x86_fp80 noundef %2) #32, !tbaa !14
+  %call.i18 = call noundef x86_fp80 @expl(x86_fp80 noundef %2) #33, !tbaa !14
   br label %if.end
 
 if.end:                                           ; preds = %_ZN5boost4math6lgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeESC_RKT0_.exit, %_ZN5boost4math6tgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_.exit
@@ -12474,11 +12474,11 @@ if.then51:                                        ; preds = %if.then38
   %div13.i = fdiv x86_fp80 %mul10.i, %mul12.i
   %sub14.i = fsub x86_fp80 %add.i, %div13.i
   %div15.i = fmul x86_fp80 %x, 0xK3FFE8000000000000000
-  %call.i.i = call noundef x86_fp80 @expl(x86_fp80 noundef %div15.i) #32, !tbaa !14
+  %call.i.i = call noundef x86_fp80 @expl(x86_fp80 noundef %div15.i) #33, !tbaa !14
   %mul16.i = fmul x86_fp80 %sub14.i, %call.i.i
   %mul17.i = fmul x86_fp80 %x, 0xK40008000000000000000
   %mul19.i = fmul x86_fp80 %mul17.i, 0xK4000C90FDAA22168C235
-  %call.i22.i = call noundef x86_fp80 @sqrtl(x86_fp80 noundef %mul19.i) #32, !tbaa !14
+  %call.i22.i = call noundef x86_fp80 @sqrtl(x86_fp80 noundef %mul19.i) #33, !tbaa !14
   %div21.i = fdiv x86_fp80 %mul16.i, %call.i22.i
   %mul22.i = fmul x86_fp80 %call.i.i, %div21.i
   %14 = call x86_fp80 @llvm.fabs.f80(x86_fp80 %mul22.i)
@@ -12669,7 +12669,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.else10
 
 if.then3:                                         ; preds = %if.else
-  %call.i = tail call noundef x86_fp80 @expl(x86_fp80 noundef %1) #32, !tbaa !14
+  %call.i = tail call noundef x86_fp80 @expl(x86_fp80 noundef %1) #33, !tbaa !14
   %div5 = fdiv x86_fp80 0xK3FFF8000000000000000, %1
   %mul.i.i20 = fmul x86_fp80 %div5, %div5
   %5 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i20, x86_fp80 0xK4012E80DC1D212A9C5CF, x86_fp80 0xK401391E879FD223DFE48)
@@ -12696,7 +12696,7 @@ if.then3:                                         ; preds = %if.else
   %add56.i.i38 = fadd x86_fp80 %mul53.i.i, %add51.i.i
   %add = fadd x86_fp80 %add56.i.i38, 0xK3FFDCF6A900000000000
   %mul7 = fmul x86_fp80 %add, %call.i
-  %call.i39 = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %1) #32, !tbaa !14
+  %call.i39 = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %1) #33, !tbaa !14
   %div9 = fdiv x86_fp80 %mul7, %call.i39
   br label %return
 
@@ -12705,7 +12705,7 @@ if.else10:                                        ; preds = %if.else
   br i1 %cmp11, label %if.then12, label %if.else21
 
 if.then12:                                        ; preds = %if.else10
-  %call.i40 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %1) #32, !tbaa !14
+  %call.i40 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %1) #33, !tbaa !14
   %div15 = fdiv x86_fp80 0xK3FFF8000000000000000, %1
   %mul.i.i41 = fmul x86_fp80 %div15, %div15
   %7 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i41, x86_fp80 0xKC018B459E6E4C323E040, x86_fp80 0xKC017C818294B9256A4D5)
@@ -12734,7 +12734,7 @@ if.then12:                                        ; preds = %if.else10
   %add61.i.i = fadd x86_fp80 %add56.i.i61, %mul58.i.i62
   %add17 = fadd x86_fp80 %add61.i.i, 0xK3FFDCE7FD00000000000
   %mul18 = fmul x86_fp80 %add17, %call.i40
-  %call.i63 = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %1) #32, !tbaa !14
+  %call.i63 = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %1) #33, !tbaa !14
   %div20 = fdiv x86_fp80 %mul18, %call.i63
   br label %return
 
@@ -12743,7 +12743,7 @@ if.else21:                                        ; preds = %if.else10
   br i1 %cmp22, label %if.then23, label %if.else32
 
 if.then23:                                        ; preds = %if.else21
-  %call.i64 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %1) #32, !tbaa !14
+  %call.i64 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %1) #33, !tbaa !14
   %div26 = fdiv x86_fp80 0xK3FFF8000000000000000, %1
   %mul.i.i65 = fmul x86_fp80 %div26, %div26
   %9 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i65, x86_fp80 0xK401F85952DDEFCCBDCC8, x86_fp80 0xK401DD2DB3B3F437EC306)
@@ -12778,13 +12778,13 @@ if.then23:                                        ; preds = %if.else21
   %add76.i.i = fadd x86_fp80 %mul73.i.i, %add71.i.i91
   %add28 = fadd x86_fp80 %add76.i.i, 0xK3FFDCD66300000000000
   %mul29 = fmul x86_fp80 %add28, %call.i64
-  %call.i92 = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %1) #32, !tbaa !14
+  %call.i92 = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %1) #33, !tbaa !14
   %div31 = fdiv x86_fp80 %mul29, %call.i92
   br label %return
 
 if.else32:                                        ; preds = %if.else21
   %div33 = fmul x86_fp80 %1, 0xK3FFE8000000000000000
-  %call.i93 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %div33) #32, !tbaa !14
+  %call.i93 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %div33) #33, !tbaa !14
   %div36 = fdiv x86_fp80 0xK3FFF8000000000000000, %1
   %mul.i.i94 = fmul x86_fp80 %div36, %div36
   %11 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i94, x86_fp80 0xKC022F77ED2D16EBEB59D, x86_fp80 0xKC01FD9BE2051BA473BF1)
@@ -12820,7 +12820,7 @@ if.else32:                                        ; preds = %if.else21
   %mul78.i.i = fmul x86_fp80 %div36, %add73.i.i
   %add81.i.i = fadd x86_fp80 %add76.i.i120, %mul78.i.i
   %mul38 = fmul x86_fp80 %add81.i.i, %call.i93
-  %call.i121 = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %1) #32, !tbaa !14
+  %call.i121 = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %1) #33, !tbaa !14
   %div40 = fdiv x86_fp80 %mul38, %call.i121
   %mul41 = fmul x86_fp80 %call.i93, %div40
   br label %return
@@ -12878,7 +12878,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp5, label %if.then6, label %if.else13
 
 if.then6:                                         ; preds = %if.else
-  %call.i = tail call noundef x86_fp80 @expl(x86_fp80 noundef %1) #32, !tbaa !14
+  %call.i = tail call noundef x86_fp80 @expl(x86_fp80 noundef %1) #33, !tbaa !14
   %div8 = fdiv x86_fp80 0xK3FFF8000000000000000, %1
   br label %for.body.i.i.i
 
@@ -12895,7 +12895,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
 
 _ZN5boost4math5tools19evaluate_polynomialILm21EeeEET1_RAT__KT0_RKS3_.exit: ; preds = %for.body.i.i.i
   %mul10 = fmul x86_fp80 %call.i, %add.i.i.i
-  %call.i17 = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %1) #32, !tbaa !14
+  %call.i17 = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %1) #33, !tbaa !14
   %div12 = fdiv x86_fp80 %mul10, %call.i17
   br label %return
 
@@ -12904,7 +12904,7 @@ if.else13:                                        ; preds = %if.else
   br i1 %cmp14, label %if.then15, label %if.else23
 
 if.then15:                                        ; preds = %if.else13
-  %call.i18 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %1) #32, !tbaa !14
+  %call.i18 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %1) #33, !tbaa !14
   %div18 = fdiv x86_fp80 0xK3FFF8000000000000000, %1
   %mul.i.i19 = fmul x86_fp80 %div18, %div18
   %7 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i19, x86_fp80 0xKC00E9243E1DCE41422D1, x86_fp80 0xKC009B353F354E9489E85)
@@ -12930,13 +12930,13 @@ if.then15:                                        ; preds = %if.else13
   %mul53.i.i = fmul x86_fp80 %div18, %add46.i.i35
   %add56.i.i37 = fadd x86_fp80 %mul53.i.i, %add51.i.i
   %mul20 = fmul x86_fp80 %add56.i.i37, %call.i18
-  %call.i38 = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %1) #32, !tbaa !14
+  %call.i38 = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %1) #33, !tbaa !14
   %div22 = fdiv x86_fp80 %mul20, %call.i38
   br label %return
 
 if.else23:                                        ; preds = %if.else13
   %div24 = fmul x86_fp80 %1, 0xK3FFE8000000000000000
-  %call.i39 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %div24) #32, !tbaa !14
+  %call.i39 = tail call noundef x86_fp80 @expl(x86_fp80 noundef %div24) #33, !tbaa !14
   %div27 = fdiv x86_fp80 0xK3FFF8000000000000000, %1
   %mul.i.i40 = fmul x86_fp80 %div27, %div27
   %9 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i40, x86_fp80 0xKBFFEEAD1F9DB8AD57F83, x86_fp80 0xKBFFBE2D3786B6F5C7668)
@@ -12952,7 +12952,7 @@ if.else23:                                        ; preds = %if.else13
   %mul28.i.i49 = fmul x86_fp80 %div27, %add23.i.i47
   %add31.i.i = fadd x86_fp80 %add26.i.i48, %mul28.i.i49
   %mul29 = fmul x86_fp80 %add31.i.i, %call.i39
-  %call.i50 = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %1) #32, !tbaa !14
+  %call.i50 = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %1) #33, !tbaa !14
   %div31 = fdiv x86_fp80 %mul29, %call.i50
   %mul32 = fmul x86_fp80 %call.i39, %div31
   br label %return
@@ -13019,9 +13019,9 @@ _ZN5boost4math10tgamma1pm1IeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_1
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp1.i60)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i59)
   %div = fmul x86_fp80 %x, 0xK3FFE8000000000000000
-  %call.i65 = call noundef x86_fp80 @logl(x86_fp80 noundef %div) #32, !tbaa !14
+  %call.i65 = call noundef x86_fp80 @logl(x86_fp80 noundef %div) #33, !tbaa !14
   %mul = fmul x86_fp80 %v, %call.i65
-  %call.i66 = call noundef x86_fp80 @expl(x86_fp80 noundef %mul) #32, !tbaa !14
+  %call.i66 = call noundef x86_fp80 @expl(x86_fp80 noundef %mul) #33, !tbaa !14
   %fneg16 = fneg x86_fp80 %call.i65
   %mul17 = fmul x86_fp80 %v, %fneg16
   %cmp20 = fcmp olt x86_fp80 %1, 0xK3FC08000000000000000
@@ -13042,7 +13042,7 @@ cond.end27:                                       ; preds = %_ZN5boost4math10tga
   br i1 %cmp30, label %cond.end35, label %cond.false32
 
 cond.false32:                                     ; preds = %cond.end27
-  %call.i69 = call noundef x86_fp80 @sinhl(x86_fp80 noundef %mul17) #32, !tbaa !14
+  %call.i69 = call noundef x86_fp80 @sinhl(x86_fp80 noundef %mul17) #33, !tbaa !14
   %div34 = fdiv x86_fp80 %call.i69, %mul17
   br label %cond.end35
 
@@ -13069,7 +13069,7 @@ cond.end47:                                       ; preds = %cond.end35, %cond.f
   %add55 = fadd x86_fp80 %call.i61, 0xK3FFF8000000000000000
   %mul56 = fmul x86_fp80 %add55, %call.i66
   %div57 = fmul x86_fp80 %mul56, 0xK3FFE8000000000000000
-  %call.i70 = call noundef x86_fp80 @coshl(x86_fp80 noundef %mul17) #32, !tbaa !14
+  %call.i70 = call noundef x86_fp80 @coshl(x86_fp80 noundef %mul17) #33, !tbaa !14
   %mul61 = fmul x86_fp80 %cond36, %fneg16
   %mul62 = fmul x86_fp80 %div51, %mul61
   %5 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %call.i70, x86_fp80 %cond48, x86_fp80 %mul62)
@@ -13224,16 +13224,16 @@ _ZN5boost4math8policies23check_series_iterationsIeNS1_6policyINS1_13promote_floa
   br i1 %cmp37, label %if.else, label %if.then38
 
 if.then38:                                        ; preds = %_ZN5boost4math8policies23check_series_iterationsIeNS1_6policyINS1_13promote_floatILb0EEENS1_14promote_doubleILb0EEENS1_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEvPKcmRKT0_.exit
-  %call.i = call noundef x86_fp80 @logl(x86_fp80 noundef %div50) #32, !tbaa !14
+  %call.i = call noundef x86_fp80 @logl(x86_fp80 noundef %div50) #33, !tbaa !14
   %10 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %call.i, x86_fp80 0xK3FFE8000000000000000, x86_fp80 %fneg52)
-  %call.i50 = call noundef x86_fp80 @logl(x86_fp80 noundef %7) #32, !tbaa !14
+  %call.i50 = call noundef x86_fp80 @logl(x86_fp80 noundef %7) #33, !tbaa !14
   %sub46 = fsub x86_fp80 %10, %call.i50
-  %call.i51 = call noundef x86_fp80 @expl(x86_fp80 noundef %sub46) #32, !tbaa !14
+  %call.i51 = call noundef x86_fp80 @expl(x86_fp80 noundef %sub46) #33, !tbaa !14
   br label %if.end56
 
 if.else:                                          ; preds = %_ZN5boost4math8policies23check_series_iterationsIeNS1_6policyINS1_13promote_floatILb0EEENS1_14promote_doubleILb0EEENS1_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEvPKcmRKT0_.exit
-  %call.i52 = call noundef x86_fp80 @sqrtl(x86_fp80 noundef %div50) #32, !tbaa !14
-  %call.i53 = call noundef x86_fp80 @expl(x86_fp80 noundef %fneg52) #32, !tbaa !14
+  %call.i52 = call noundef x86_fp80 @sqrtl(x86_fp80 noundef %div50) #33, !tbaa !14
+  %call.i53 = call noundef x86_fp80 @expl(x86_fp80 noundef %fneg52) #33, !tbaa !14
   %mul54 = fmul x86_fp80 %call.i52, %call.i53
   %div55 = fdiv x86_fp80 %mul54, %7
   br label %if.end56
@@ -13275,7 +13275,7 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %mul = fmul x86_fp80 %x, 0xK4000C90FDAA22168C235
-  %call.i = tail call noundef x86_fp80 @sinl(x86_fp80 noundef %mul) #32, !tbaa !14
+  %call.i = tail call noundef x86_fp80 @sinl(x86_fp80 noundef %mul) #33, !tbaa !14
   br label %common.ret20
 
 if.end6:                                          ; preds = %if.end
@@ -13303,7 +13303,7 @@ if.then24:                                        ; preds = %if.end6
 
 if.end26:                                         ; preds = %if.end6
   %mul28 = fmul x86_fp80 %rem.0, 0xK4000C90FDAA22168C235
-  %call.i18 = tail call noundef x86_fp80 @sinl(x86_fp80 noundef %mul28) #32, !tbaa !14
+  %call.i18 = tail call noundef x86_fp80 @sinl(x86_fp80 noundef %mul28) #33, !tbaa !14
   %fneg31 = fneg x86_fp80 %call.i18
   %cond32 = select i1 %invert.119, x86_fp80 %fneg31, x86_fp80 %call.i18
   br label %common.ret20
@@ -13745,7 +13745,7 @@ _ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %div2 = fmul x86_fp80 %theta, 0xK3FFE8000000000000000
   %fneg = fneg x86_fp80 %div2
-  %call.i20 = call noundef x86_fp80 @expl(x86_fp80 noundef %fneg) #32, !tbaa !14
+  %call.i20 = call noundef x86_fp80 @expl(x86_fp80 noundef %fneg) #33, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %sum)
   %1 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %call.i, x86_fp80 %call.i20, x86_fp80 %init_sum)
   %cmp4 = fcmp oeq x86_fp80 %1, 0xK00000000000000000000
@@ -14164,14 +14164,14 @@ if.then44:                                        ; preds = %if.end42
   %sub52 = fadd x86_fp80 %div51, 0xKBFFF8000000000000000
   %exp2l = call x86_fp80 @exp2l(x86_fp80 %sub52)
   %div54 = fmul x86_fp80 %conv2, 0xK3FFE8000000000000000
-  %call.i38 = call noundef x86_fp80 @expl(x86_fp80 noundef %div54) #32, !tbaa !14
+  %call.i38 = call noundef x86_fp80 @expl(x86_fp80 noundef %div54) #33, !tbaa !14
   %mul56 = fmul x86_fp80 %exp2l, %call.i38
   %mul57 = fmul x86_fp80 %mul56, %conv50
   %mul58 = fmul x86_fp80 %mul57, %conv
   %call60 = call noundef x86_fp80 @_ZN5boost4math6tgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_(x86_fp80 noundef %div51)
   %mul61 = fmul x86_fp80 %call60, %mul58
   %div62 = fdiv x86_fp80 0xK40008000000000000000, %conv
-  %call.i39 = call noundef x86_fp80 @powl(x86_fp80 noundef %mul61, x86_fp80 noundef %div62) #32, !tbaa !14
+  %call.i39 = call noundef x86_fp80 @powl(x86_fp80 noundef %mul61, x86_fp80 noundef %div62) #33, !tbaa !14
   store x86_fp80 %call.i39, ptr %guess, align 16, !tbaa !36
   %cmp64 = fcmp oeq x86_fp80 %call.i39, 0xK00000000000000000000
   br i1 %cmp64, label %if.then65, label %if.end68
@@ -14342,7 +14342,7 @@ _ZN5boost4math6detail18check_range_resultIeNS0_8policies6policyINS3_13promote_fl
 if.end20:                                         ; preds = %if.end
   %storedv.i = zext i1 %comp to i8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 16 dereferenceable(32) %dist, i64 32, i1 false)
-  %call.i.i = tail call noundef float @ldexpf(float noundef 1.000000e+00, i32 noundef -60) #32, !tbaa !14
+  %call.i.i = tail call noundef float @ldexpf(float noundef 1.000000e+00, i32 noundef -60) #33, !tbaa !14
   %.inv.i = fcmp ole float %call.i.i, 0x3C20000000000000
   %1 = select i1 %.inv.i, float 0x3C20000000000000, float %call.i.i
   %2 = fpext float %1 to x86_fp80
@@ -14546,7 +14546,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef %q) #32, !tbaa !14
+  %call.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef %q) #33, !tbaa !14
   %fneg = fneg x86_fp80 %call.i
   br label %if.end418
 
@@ -14590,13 +14590,13 @@ if.then12:                                        ; preds = %if.then7
   %mul13 = fmul x86_fp80 %p, %call.i.i
   %mul14 = fmul x86_fp80 %a, %mul13
   %div = fdiv x86_fp80 0xK3FFF8000000000000000, %a
-  %call.i246 = call noundef x86_fp80 @powl(x86_fp80 noundef %mul14, x86_fp80 noundef %div) #32, !tbaa !14
+  %call.i246 = call noundef x86_fp80 @powl(x86_fp80 noundef %mul14, x86_fp80 noundef %div) #33, !tbaa !14
   br label %if.end
 
 if.else16:                                        ; preds = %if.then7
   %1 = fdiv x86_fp80 %q, %a
   %sub = fsub x86_fp80 0xKBFFE93C467E37DB0C7A5, %1
-  %call.i247 = call noundef x86_fp80 @expl(x86_fp80 noundef %sub) #32, !tbaa !14
+  %call.i247 = call noundef x86_fp80 @expl(x86_fp80 noundef %sub) #33, !tbaa !14
   br label %if.end
 
 if.end:                                           ; preds = %if.else16, %if.then12
@@ -14615,10 +14615,10 @@ if.else24:                                        ; preds = %lor.lhs.false
 
 if.then28:                                        ; preds = %if.else24
   %sub31 = fsub x86_fp80 0xKBFFE93C467E37DB0C7A5, %mul
-  %call.i248 = call noundef x86_fp80 @expl(x86_fp80 noundef %sub31) #32, !tbaa !14
-  %call.i249 = call noundef x86_fp80 @expl(x86_fp80 noundef %call.i248) #32, !tbaa !14
+  %call.i248 = call noundef x86_fp80 @expl(x86_fp80 noundef %sub31) #33, !tbaa !14
+  %call.i249 = call noundef x86_fp80 @expl(x86_fp80 noundef %call.i248) #33, !tbaa !14
   %mul35 = fmul x86_fp80 %call.i248, %call.i249
-  %call.i250 = call noundef x86_fp80 @expl(x86_fp80 noundef %mul35) #32, !tbaa !14
+  %call.i250 = call noundef x86_fp80 @expl(x86_fp80 noundef %mul35) #33, !tbaa !14
   %mul37 = fmul x86_fp80 %call.i248, %call.i250
   br label %if.end418
 
@@ -14628,18 +14628,18 @@ if.else38:                                        ; preds = %if.else24
   br i1 %or.cond3, label %if.then42, label %if.else59
 
 if.then42:                                        ; preds = %if.else38
-  %call.i251 = call noundef x86_fp80 @logl(x86_fp80 noundef %mul) #32, !tbaa !14
+  %call.i251 = call noundef x86_fp80 @logl(x86_fp80 noundef %mul) #33, !tbaa !14
   %fneg44 = fneg x86_fp80 %call.i251
   %sub46 = fsub x86_fp80 0xK3FFF8000000000000000, %a
-  %call.i252 = call noundef x86_fp80 @logl(x86_fp80 noundef %fneg44) #32, !tbaa !14
+  %call.i252 = call noundef x86_fp80 @logl(x86_fp80 noundef %fneg44) #33, !tbaa !14
   %neg = fneg x86_fp80 %sub46
   %2 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %neg, x86_fp80 %call.i252, x86_fp80 %fneg44)
-  %call.i253 = call noundef x86_fp80 @logl(x86_fp80 noundef %2) #32, !tbaa !14
+  %call.i253 = call noundef x86_fp80 @logl(x86_fp80 noundef %2) #33, !tbaa !14
   %3 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %neg, x86_fp80 %call.i253, x86_fp80 %fneg44)
   %add54 = fadd x86_fp80 %2, 0xK3FFF8000000000000000
   %div55 = fdiv x86_fp80 %sub46, %add54
   %add56 = fadd x86_fp80 %div55, 0xK3FFF8000000000000000
-  %call.i254 = call noundef x86_fp80 @logl(x86_fp80 noundef %add56) #32, !tbaa !14
+  %call.i254 = call noundef x86_fp80 @logl(x86_fp80 noundef %add56) #33, !tbaa !14
   %sub58 = fsub x86_fp80 %3, %call.i254
   br label %if.end418
 
@@ -14651,10 +14651,10 @@ if.then61:                                        ; preds = %if.else59
   %call.i255 = call x86_fp80 @llvm.log.f80(x86_fp80 %mul), !tbaa !14
   %fneg64 = fneg x86_fp80 %call.i255
   %sub66 = fsub x86_fp80 0xK3FFF8000000000000000, %a
-  %call.i256 = call noundef x86_fp80 @logl(x86_fp80 noundef %fneg64) #32, !tbaa !14
+  %call.i256 = call noundef x86_fp80 @logl(x86_fp80 noundef %fneg64) #33, !tbaa !14
   %neg69 = fneg x86_fp80 %sub66
   %4 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %neg69, x86_fp80 %call.i256, x86_fp80 %fneg64)
-  %call.i257 = call noundef x86_fp80 @logl(x86_fp80 noundef %4) #32, !tbaa !14
+  %call.i257 = call noundef x86_fp80 @logl(x86_fp80 noundef %4) #33, !tbaa !14
   %5 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %neg69, x86_fp80 %call.i257, x86_fp80 %fneg64)
   %sub75 = fsub x86_fp80 0xK4000C000000000000000, %a
   %mul76 = fmul x86_fp80 %sub75, 0xK40008000000000000000
@@ -14667,15 +14667,15 @@ if.then61:                                        ; preds = %if.else59
   %8 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %4, x86_fp80 %4, x86_fp80 %mul83)
   %add84 = fadd x86_fp80 %8, 0xK40008000000000000000
   %div85 = fdiv x86_fp80 %7, %add84
-  %call.i258 = call noundef x86_fp80 @logl(x86_fp80 noundef %div85) #32, !tbaa !14
+  %call.i258 = call noundef x86_fp80 @logl(x86_fp80 noundef %div85) #33, !tbaa !14
   %sub87 = fsub x86_fp80 %5, %call.i258
   br label %if.end418
 
 if.else88:                                        ; preds = %if.else59
-  %call.i259 = call noundef x86_fp80 @logl(x86_fp80 noundef %mul) #32, !tbaa !14
+  %call.i259 = call noundef x86_fp80 @logl(x86_fp80 noundef %mul) #33, !tbaa !14
   %fneg91 = fneg x86_fp80 %call.i259
   %sub92 = fadd x86_fp80 %a, 0xKBFFF8000000000000000
-  %call.i260 = call noundef x86_fp80 @logl(x86_fp80 noundef %fneg91) #32, !tbaa !14
+  %call.i260 = call noundef x86_fp80 @logl(x86_fp80 noundef %fneg91) #33, !tbaa !14
   %mul94 = fmul x86_fp80 %sub92, %call.i260
   %mul95 = fmul x86_fp80 %mul94, %mul94
   %mul96 = fmul x86_fp80 %mul94, %mul95
@@ -14749,9 +14749,9 @@ if.then168:                                       ; preds = %if.else88
 if.else174:                                       ; preds = %if.else
   %cmp.i = fcmp olt x86_fp80 %p, 0xK3FFE8000000000000000
   %p.q.i = select i1 %cmp.i, x86_fp80 %p, x86_fp80 %q
-  %call.i5.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef %p.q.i) #32, !tbaa !14
+  %call.i5.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef %p.q.i) #33, !tbaa !14
   %mul3.i = fmul x86_fp80 %call.i5.i, 0xKC0008000000000000000
-  %call.i6.i = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %mul3.i) #32, !tbaa !14
+  %call.i6.i = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %mul3.i) #33, !tbaa !14
   %23 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %call.i6.i, x86_fp80 0xK3FFCDAC01DFCAADAC800, x86_fp80 0xK40018911CA173896F800)
   %24 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %23, x86_fp80 %call.i6.i, x86_fp80 0xK4002BA963568CCA2B800)
   %25 = tail call noundef x86_fp80 @llvm.fmuladd.f80(x86_fp80 %24, x86_fp80 %call.i6.i, x86_fp80 0xK4000D3EBABCBC986E800)
@@ -14770,7 +14770,7 @@ if.else174:                                       ; preds = %if.else
   %mul177 = fmul x86_fp80 %s.0.i, %mul176
   %mul178 = fmul x86_fp80 %mul176, %mul176
   %mul179 = fmul x86_fp80 %s.0.i, %mul178
-  %call.i261 = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %a) #32, !tbaa !14
+  %call.i261 = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %a) #33, !tbaa !14
   %28 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %s.0.i, x86_fp80 %call.i261, x86_fp80 %a)
   %29 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %s.0.i, x86_fp80 %s.0.i, x86_fp80 0xKBFFF8000000000000000)
   %div183 = fdiv x86_fp80 %29, 0xK4000C000000000000000
@@ -14834,7 +14834,7 @@ if.then.i.i.i267:                                 ; preds = %if.else215
 _ZN5boost4math6lgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeESC_RKT0_.exit: ; preds = %if.else215, %if.then.i.i.i267
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp1.i.i264)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i263)
-  %call.i268 = call noundef x86_fp80 @logl(x86_fp80 noundef %q) #32, !tbaa !14
+  %call.i268 = call noundef x86_fp80 @logl(x86_fp80 noundef %q) #33, !tbaa !14
   %add222 = fadd x86_fp80 %call.i.i265, %call.i268
   %mul224 = fmul x86_fp80 %35, 0xKC0009333333333333000
   %cmp225 = fcmp olt x86_fp80 %add222, %mul224
@@ -14842,7 +14842,7 @@ _ZN5boost4math6lgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14prom
   br i1 %cmp225, label %if.then226, label %if.else317
 
 if.then226:                                       ; preds = %_ZN5boost4math6lgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeESC_RKT0_.exit
-  %call.i269 = call noundef x86_fp80 @logl(x86_fp80 noundef %fneg228) #32, !tbaa !14
+  %call.i269 = call noundef x86_fp80 @logl(x86_fp80 noundef %fneg228) #33, !tbaa !14
   %mul232 = fmul x86_fp80 %sub217, %call.i269
   %mul234 = fmul x86_fp80 %mul232, %mul232
   %mul236 = fmul x86_fp80 %mul232, %mul234
@@ -14909,20 +14909,20 @@ if.then226:                                       ; preds = %_ZN5boost4math6lgam
   br label %if.end418
 
 if.else317:                                       ; preds = %_ZN5boost4math6lgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeESC_RKT0_.exit
-  %call.i270 = call noundef x86_fp80 @logl(x86_fp80 noundef %add201) #32, !tbaa !14
+  %call.i270 = call noundef x86_fp80 @logl(x86_fp80 noundef %add201) #33, !tbaa !14
   %51 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %sub217, x86_fp80 %call.i270, x86_fp80 %fneg228)
   %sub323 = fsub x86_fp80 0xK3FFF8000000000000000, %a
   %add324 = fadd x86_fp80 %add201, 0xK3FFF8000000000000000
   %div325 = fdiv x86_fp80 %sub323, %add324
   %add326 = fadd x86_fp80 %div325, 0xK3FFF8000000000000000
-  %call.i271 = call noundef x86_fp80 @logl(x86_fp80 noundef %add326) #32, !tbaa !14
+  %call.i271 = call noundef x86_fp80 @logl(x86_fp80 noundef %add326) #33, !tbaa !14
   %sub328 = fsub x86_fp80 %51, %call.i271
-  %call.i272 = call noundef x86_fp80 @logl(x86_fp80 noundef %sub328) #32, !tbaa !14
+  %call.i272 = call noundef x86_fp80 @logl(x86_fp80 noundef %sub328) #33, !tbaa !14
   %52 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %sub217, x86_fp80 %call.i272, x86_fp80 %fneg228)
   %add334 = fadd x86_fp80 %sub328, 0xK3FFF8000000000000000
   %div335 = fdiv x86_fp80 %sub323, %add334
   %add336 = fadd x86_fp80 %div335, 0xK3FFF8000000000000000
-  %call.i273 = call noundef x86_fp80 @logl(x86_fp80 noundef %add336) #32, !tbaa !14
+  %call.i273 = call noundef x86_fp80 @logl(x86_fp80 noundef %add336) #33, !tbaa !14
   %sub338 = fsub x86_fp80 %52, %call.i273
   br label %if.end418
 
@@ -14934,7 +14934,7 @@ if.else341:                                       ; preds = %if.else209
 
 if.then346:                                       ; preds = %if.else341
   %add343 = fadd x86_fp80 %a, 0xK40008000000000000000
-  %call.i274 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %p) #32, !tbaa !14
+  %call.i274 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %p) #33, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i275)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1.i.i276)
   %call.i.i277 = call noundef x86_fp80 @_ZN5boost4math6detail10lgamma_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EENS0_7lanczos12lanczos17m64EEET_SD_RKT0_RKT1_Pi(x86_fp80 noundef %add342, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i275, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i.i276, ptr noundef null)
@@ -14952,7 +14952,7 @@ _ZN5boost4math6lgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14prom
   %add349 = fadd x86_fp80 %call.i274, %call.i.i277
   %add350 = fadd x86_fp80 %add201, %add349
   %div351 = fdiv x86_fp80 %add350, %a
-  %call.i281 = call noundef x86_fp80 @expl(x86_fp80 noundef %div351) #32, !tbaa !14
+  %call.i281 = call noundef x86_fp80 @expl(x86_fp80 noundef %div351) #33, !tbaa !14
   %div353 = fdiv x86_fp80 %call.i281, %add342
   %div354 = fdiv x86_fp80 %call.i281, %add343
   %add355 = fadd x86_fp80 %div354, 0xK3FFF8000000000000000
@@ -14975,7 +14975,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %_ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEeeRKT_.exit
 
 if.end4.i:                                        ; preds = %if.end.i
-  %call5.i = call x86_fp80 @log1pl(x86_fp80 noundef %mul356) #32, !tbaa !14
+  %call5.i = call x86_fp80 @log1pl(x86_fp80 noundef %mul356) #33, !tbaa !14
   br label %_ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEeeRKT_.exit
 
 _ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEeeRKT_.exit: ; preds = %if.then.i, %if.then2.i, %if.end4.i
@@ -14984,7 +14984,7 @@ _ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promot
   %add358 = fadd x86_fp80 %add349, %call.i281
   %sub359 = fsub x86_fp80 %add358, %retval.0.i
   %div360 = fdiv x86_fp80 %sub359, %a
-  %call.i283 = call noundef x86_fp80 @expl(x86_fp80 noundef %div360) #32, !tbaa !14
+  %call.i283 = call noundef x86_fp80 @expl(x86_fp80 noundef %div360) #33, !tbaa !14
   %div362 = fdiv x86_fp80 %call.i283, %add342
   %div363 = fdiv x86_fp80 %call.i283, %add343
   %add364 = fadd x86_fp80 %div363, 0xK3FFF8000000000000000
@@ -15007,7 +15007,7 @@ if.then2.i291:                                    ; preds = %if.end.i286
   br label %_ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEeeRKT_.exit293
 
 if.end4.i288:                                     ; preds = %if.end.i286
-  %call5.i289 = call x86_fp80 @log1pl(x86_fp80 noundef %mul365) #32, !tbaa !14
+  %call5.i289 = call x86_fp80 @log1pl(x86_fp80 noundef %mul365) #33, !tbaa !14
   br label %_ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEeeRKT_.exit293
 
 _ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEeeRKT_.exit293: ; preds = %if.then.i292, %if.then2.i291, %if.end4.i288
@@ -15016,7 +15016,7 @@ _ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promot
   %add367 = fadd x86_fp80 %add349, %call.i283
   %sub368 = fsub x86_fp80 %add367, %retval.0.i290
   %div369 = fdiv x86_fp80 %sub368, %a
-  %call.i294 = call noundef x86_fp80 @expl(x86_fp80 noundef %div369) #32, !tbaa !14
+  %call.i294 = call noundef x86_fp80 @expl(x86_fp80 noundef %div369) #33, !tbaa !14
   %div371 = fdiv x86_fp80 %call.i294, %add342
   %div372 = fdiv x86_fp80 %call.i294, %add343
   %add373 = fadd x86_fp80 %a, 0xK4000C000000000000000
@@ -15042,7 +15042,7 @@ if.then2.i302:                                    ; preds = %if.end.i297
   br label %_ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEeeRKT_.exit304
 
 if.end4.i299:                                     ; preds = %if.end.i297
-  %call5.i300 = call x86_fp80 @log1pl(x86_fp80 noundef %mul377) #32, !tbaa !14
+  %call5.i300 = call x86_fp80 @log1pl(x86_fp80 noundef %mul377) #33, !tbaa !14
   br label %_ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEeeRKT_.exit304
 
 _ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEeeRKT_.exit304: ; preds = %if.then.i303, %if.then2.i302, %if.end4.i299
@@ -15051,7 +15051,7 @@ _ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promot
   %add379 = fadd x86_fp80 %add349, %call.i294
   %sub380 = fsub x86_fp80 %add379, %retval.0.i301
   %div381 = fdiv x86_fp80 %sub380, %a
-  %call.i305 = call noundef x86_fp80 @expl(x86_fp80 noundef %div381) #32, !tbaa !14
+  %call.i305 = call noundef x86_fp80 @expl(x86_fp80 noundef %div381) #33, !tbaa !14
   br label %if.end383
 
 if.end383:                                        ; preds = %_ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEeeRKT_.exit304, %if.else341
@@ -15093,8 +15093,8 @@ for.body.i:                                       ; preds = %for.body.i, %if.els
   br i1 %or.cond.i, label %_ZN5boost4math6detail11didonato_SNIeEET_S3_S3_jS3_.exit, label %for.body.i, !llvm.loop !116
 
 _ZN5boost4math6detail11didonato_SNIeEET_S3_S3_jS3_.exit: ; preds = %for.body.i
-  %call.i308 = call noundef x86_fp80 @logl(x86_fp80 noundef %add5.i) #32, !tbaa !14
-  %call.i309 = call noundef x86_fp80 @logl(x86_fp80 noundef %p) #32, !tbaa !14
+  %call.i308 = call noundef x86_fp80 @logl(x86_fp80 noundef %add5.i) #33, !tbaa !14
+  %call.i309 = call noundef x86_fp80 @logl(x86_fp80 noundef %p) #33, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i310)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1.i.i311)
   %call.i.i312 = call noundef x86_fp80 @_ZN5boost4math6detail10lgamma_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EENS0_7lanczos12lanczos17m64EEET_SD_RKT0_RKT1_Pi(x86_fp80 noundef %add342, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i310, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i.i311, ptr noundef null)
@@ -15113,8 +15113,8 @@ _ZN5boost4math6lgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14prom
   %add401 = fadd x86_fp80 %z.0, %add400
   %sub402 = fsub x86_fp80 %add401, %call.i308
   %div403 = fdiv x86_fp80 %sub402, %a
-  %call.i316 = call noundef x86_fp80 @expl(x86_fp80 noundef %div403) #32, !tbaa !14
-  %call.i317 = call noundef x86_fp80 @logl(x86_fp80 noundef %call.i316) #32, !tbaa !14
+  %call.i316 = call noundef x86_fp80 @expl(x86_fp80 noundef %div403) #33, !tbaa !14
+  %call.i317 = call noundef x86_fp80 @logl(x86_fp80 noundef %call.i316) #33, !tbaa !14
   %neg407 = fneg x86_fp80 %call.i316
   %56 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %a, x86_fp80 %call.i317, x86_fp80 %neg407)
   %sub408 = fsub x86_fp80 %56, %add400
@@ -15177,7 +15177,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(ptr nonnull %f0)
   store x86_fp80 0xK00000000000000000000, ptr %f0, align 16, !tbaa !36
   %sub = sub nsw i32 1, %digits
-  %call.i = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef 0xK3FFF8000000000000000, i32 noundef %sub) #32, !tbaa !14
+  %call.i = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef 0xK3FFF8000000000000000, i32 noundef %sub) #33, !tbaa !14
   %mul = fmul x86_fp80 %guess, 0xK40169896800000000000
   %cmp.i = fcmp olt x86_fp80 %mul, 0xK40169896800000000000
   %1 = select i1 %cmp.i, x86_fp80 0xK40169896800000000000, x86_fp80 %mul
@@ -15232,7 +15232,7 @@ lpad:                                             ; preds = %do.body
           cleanup
           catch ptr @_ZTISt14overflow_error
   %8 = extractvalue { ptr, i32 } %7, 1
-  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt14overflow_error) #32
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt14overflow_error) #33
   %matches = icmp eq i32 %8, %9
   br i1 %matches, label %try.cont.thread, label %ehcleanup
 
@@ -15252,7 +15252,7 @@ try.cont:                                         ; preds = %if.then.i, %if.else
 
 try.cont.thread:                                  ; preds = %lpad
   %12 = extractvalue { ptr, i32 } %7, 0
-  %13 = call ptr @__cxa_begin_catch(ptr %12) #32
+  %13 = call ptr @__cxa_begin_catch(ptr %12) #33
   %14 = load x86_fp80, ptr %max.addr, align 16, !tbaa !36
   %cmp6 = fcmp ogt x86_fp80 %14, 0xK00000000000000000000
   %cond = select i1 %cmp6, x86_fp80 0xK7FFEFFFFFFFFFFFFFFFF, x86_fp80 0xK80018000000000000000
@@ -15511,7 +15511,7 @@ if.else149:                                       ; preds = %cond.end134
   %53 = load x86_fp80, ptr %max.addr, align 16, !tbaa !36
   store x86_fp80 %53, ptr %ref.tmp2.i.i, align 16, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5.i.i)
-  %call6.i.i = call noundef x86_fp80 @_ZN5boost4math6detail18float_distance_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_S9_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i.i40, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp2.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i41) #38
+  %call6.i.i = call noundef x86_fp80 @_ZN5boost4math6detail18float_distance_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_S9_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i.i40, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp2.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i41) #39
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i40)
@@ -15616,7 +15616,7 @@ if.else202:                                       ; preds = %cond.end186
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i50)
   store x86_fp80 %60, ptr %ref.tmp2.i.i50, align 16, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5.i.i51)
-  %call6.i.i53 = call noundef x86_fp80 @_ZN5boost4math6detail18float_distance_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_S9_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i.i49, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp2.i.i50, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i51, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i52) #38
+  %call6.i.i53 = call noundef x86_fp80 @_ZN5boost4math6detail18float_distance_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_S9_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i.i49, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp2.i.i50, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i51, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i52) #39
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5.i.i51)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i50)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i49)
@@ -15782,7 +15782,7 @@ if.end:                                           ; preds = %entry
 
 cond.false:                                       ; preds = %if.end
   %div328 = lshr i32 %6, 5
-  %call.i = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef 0xK3FFF8000000000000000, i32 noundef %div328) #32, !tbaa !14
+  %call.i = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef 0xK3FFF8000000000000000, i32 noundef %div328) #33, !tbaa !14
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end, %cond.false
@@ -15940,7 +15940,7 @@ if.end:                                           ; preds = %entry
 
 cond.false:                                       ; preds = %if.end
   %div328 = lshr i32 %5, 5
-  %call.i = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef 0xK3FFF8000000000000000, i32 noundef %div328) #32, !tbaa !14
+  %call.i = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef 0xK3FFF8000000000000000, i32 noundef %div328) #33, !tbaa !14
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end, %cond.false
@@ -16092,7 +16092,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #1
+declare i32 @llvm.abs.i32(i32, i1 immarg) #27
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr noundef x86_fp80 @_ZN5boost4math14float_distanceIeeNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeERKS8_RKS9_RKT1_(ptr noundef nonnull align 16 dereferenceable(16) %a, ptr noundef nonnull align 16 dereferenceable(16) %b, ptr noundef nonnull align 1 dereferenceable(1) %pol) local_unnamed_addr #21 comdat {
@@ -16367,7 +16367,7 @@ cond.end86:                                       ; preds = %cond.end77, %cond.f
   br i1 %or.cond, label %cond.end92, label %fpclassify_not_nan.i.i.i
 
 fpclassify_not_nan.i.i.i:                         ; preds = %cond.end86
-  %18 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %17) #39
+  %18 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %17) #40
   %isinf.i.i.i = fcmp oeq x86_fp80 %18, 0xK7FFF8000000000000000
   br i1 %isinf.i.i.i, label %cond.end92, label %fpclassify_not_inf.i.i.i
 
@@ -16382,7 +16382,7 @@ cond.end92:                                       ; preds = %select.unfold, %fpc
   %cond93 = phi x86_fp80 [ 0xK00018000000000000000, %fpclassify_not_inf.i.i.i ], [ %17, %cond.end86 ], [ %17, %fpclassify_not_nan.i.i.i ], [ %17, %select.unfold ]
   %19 = tail call { x86_fp80, i32 } @llvm.frexp.f80.i32(x86_fp80 %cond93)
   %20 = extractvalue { x86_fp80, i32 } %19, 1
-  %call.i = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef 0xK3FFF8000000000000000, i32 noundef %20) #32, !tbaa !14
+  %call.i = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef 0xK3FFF8000000000000000, i32 noundef %20) #33, !tbaa !14
   %21 = load x86_fp80, ptr %b, align 16, !tbaa !36
   %cmp96 = fcmp ogt x86_fp80 %21, %call.i
   br i1 %cmp96, label %if.then97, label %if.end106
@@ -16391,13 +16391,13 @@ if.then97:                                        ; preds = %cond.end92
   %22 = tail call { x86_fp80, i32 } @llvm.frexp.f80.i32(x86_fp80 %21)
   %23 = extractvalue { x86_fp80, i32 } %22, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %upper2)
-  %call.i120 = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef 0xK3FFE8000000000000000, i32 noundef %23) #32, !tbaa !14
+  %call.i120 = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef 0xK3FFE8000000000000000, i32 noundef %23) #33, !tbaa !14
   store x86_fp80 %call.i120, ptr %upper2, align 16, !tbaa !36
   %call100 = call noundef x86_fp80 @_ZN5boost4math14float_distanceIeeEENS0_5tools12promote_argsIT_T0_ffffE4typeERKS4_RKS5_(ptr noundef nonnull align 16 dereferenceable(16) %upper2, ptr noundef nonnull align 16 dereferenceable(16) %b)
   %24 = xor i32 %20, -1
   %sub101 = add i32 %23, %24
   %conv102 = sitofp i32 %sub101 to x86_fp80
-  %call.i121 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef 0xK3FFF8000000000000000, i32 noundef 63) #32, !tbaa !14
+  %call.i121 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef 0xK3FFF8000000000000000, i32 noundef 63) #33, !tbaa !14
   %25 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %conv102, x86_fp80 %call.i121, x86_fp80 %call100)
   call void @llvm.lifetime.end.p0(ptr nonnull %upper2)
   %.pre = load x86_fp80, ptr %a, align 16, !tbaa !36
@@ -16426,9 +16426,9 @@ lor.lhs.false:                                    ; preds = %if.end106.lor.lhs.f
 
 if.then114:                                       ; preds = %fpclassify_not_nan.i.i.i125, %lor.lhs.false
   %28 = phi x86_fp80 [ %27, %lor.lhs.false ], [ %.pre157, %fpclassify_not_nan.i.i.i125 ]
-  %call.i131 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %26, i32 noundef 64) #32, !tbaa !14
-  %call.i132 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %28, i32 noundef 64) #32, !tbaa !14
-  %call.i133 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %call.i, i32 noundef 64) #32, !tbaa !14
+  %call.i131 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %26, i32 noundef 64) #33, !tbaa !14
+  %call.i132 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %28, i32 noundef 64) #33, !tbaa !14
+  %call.i133 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %call.i, i32 noundef 64) #33, !tbaa !14
   %cmp.i134 = fcmp olt x86_fp80 %call.i132, %call.i133
   %29 = select i1 %cmp.i134, x86_fp80 %call.i132, x86_fp80 %call.i133
   %fneg123 = fneg x86_fp80 %29
@@ -16462,8 +16462,8 @@ if.end140:                                        ; preds = %if.else, %if.then11
   %fneg144 = fneg x86_fp80 %y.0
   %x.1 = select i1 %cmp141, x86_fp80 %fneg143, x86_fp80 %x.0
   %y.1 = select i1 %cmp141, x86_fp80 %fneg144, x86_fp80 %y.0
-  %call.i137 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %x.1, i32 noundef %expon.0) #32, !tbaa !14
-  %call.i138 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %y.1, i32 noundef %expon.0) #32, !tbaa !14
+  %call.i137 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %x.1, i32 noundef %expon.0) #33, !tbaa !14
+  %call.i138 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %y.1, i32 noundef %expon.0) #33, !tbaa !14
   %add148 = fadd x86_fp80 %call.i137, %call.i138
   %add149 = fadd x86_fp80 %result.0, %add148
   %31 = call noundef x86_fp80 @llvm.floor.f80(x86_fp80 %add149)
@@ -16480,7 +16480,7 @@ return:                                           ; preds = %cond.false158, %if.
 }
 
 ; Function Attrs: nounwind memory(argmem: write)
-declare void @llvm.x86.sse.stmxcsr(ptr) #27
+declare void @llvm.x86.sse.stmxcsr(ptr) #28
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef x86_fp80 @_ZN5boost4math6detail14float_next_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 16 dereferenceable(16) %val, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %pol) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -16540,15 +16540,15 @@ land.lhs.true18:                                  ; preds = %if.end15
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN5boost4math6detail19get_min_shift_valueIeEET_v.exit, !prof !32
 
 init.check.i:                                     ; preds = %land.lhs.true18
-  %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIeEET_vE3val) #32
+  %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIeEET_vE3val) #33
   %tobool.not.i = icmp eq i32 %6, 0
   br i1 %tobool.not.i, label %_ZN5boost4math6detail19get_min_shift_valueIeEET_v.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  %call.i.i.i = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef 0xK00018000000000000000, i32 noundef 65) #32, !tbaa !14
+  %call.i.i.i = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef 0xK00018000000000000000, i32 noundef 65) #33, !tbaa !14
   store x86_fp80 %call.i.i.i, ptr @_ZZN5boost4math6detail19get_min_shift_valueIeEET_vE3val, align 16, !tbaa !36
   %7 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZZN5boost4math6detail19get_min_shift_valueIeEET_vE3val)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIeEET_vE3val) #32
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIeEET_vE3val) #33
   br label %_ZN5boost4math6detail19get_min_shift_valueIeEET_v.exit
 
 _ZN5boost4math6detail19get_min_shift_valueIeEET_v.exit: ; preds = %land.lhs.true18, %init.check.i, %init.i
@@ -16562,14 +16562,14 @@ land.lhs.true22:                                  ; preds = %_ZN5boost4math6deta
   br i1 %cmp25, label %if.then26, label %if.end33
 
 if.then26:                                        ; preds = %land.lhs.true22
-  %call.i = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef %.pre, i32 noundef 128) #32, !tbaa !14
+  %call.i = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef %.pre, i32 noundef 128) #33, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store x86_fp80 %call.i, ptr %ref.tmp.i, align 16, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %call3.i = call noundef x86_fp80 @_ZN5boost4math6detail14float_next_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i, ptr noundef nonnull align 1 dereferenceable(1) %pol)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
-  %call.i17 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %call3.i, i32 noundef -128) #32, !tbaa !14
+  %call.i17 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %call3.i, i32 noundef -128) #33, !tbaa !14
   br label %cleanup
 
 if.end33:                                         ; preds = %land.lhs.true22, %_ZN5boost4math6detail19get_min_shift_valueIeEET_v.exit, %if.end15
@@ -16581,7 +16581,7 @@ if.end33:                                         ; preds = %land.lhs.true22, %_
   %dec = sext i1 %cmp35 to i32
   %expon.0 = add i32 %11, -64
   %sub = add i32 %expon.0, %dec
-  %call.i18 = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef 0xK3FFF8000000000000000, i32 noundef %sub) #32, !tbaa !14
+  %call.i18 = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef 0xK3FFF8000000000000000, i32 noundef %sub) #33, !tbaa !14
   %cmp40 = fcmp oeq x86_fp80 %call.i18, 0xK00000000000000000000
   br i1 %cmp40, label %if.then41, label %if.end43
 
@@ -16606,10 +16606,10 @@ cleanup:                                          ; preds = %if.then, %if.end43,
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #28
+declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #29
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_release(ptr) local_unnamed_addr #28
+declare void @__cxa_guard_release(ptr) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef x86_fp80 @_ZN5boost4math6detail15float_prior_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 16 dereferenceable(16) %val, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %pol) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -16669,15 +16669,15 @@ land.lhs.true20:                                  ; preds = %if.end17
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN5boost4math6detail19get_min_shift_valueIeEET_v.exit, !prof !32
 
 init.check.i:                                     ; preds = %land.lhs.true20
-  %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIeEET_vE3val) #32
+  %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIeEET_vE3val) #33
   %tobool.not.i = icmp eq i32 %6, 0
   br i1 %tobool.not.i, label %_ZN5boost4math6detail19get_min_shift_valueIeEET_v.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  %call.i.i.i = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef 0xK00018000000000000000, i32 noundef 65) #32, !tbaa !14
+  %call.i.i.i = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef 0xK00018000000000000000, i32 noundef 65) #33, !tbaa !14
   store x86_fp80 %call.i.i.i, ptr @_ZZN5boost4math6detail19get_min_shift_valueIeEET_vE3val, align 16, !tbaa !36
   %7 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZZN5boost4math6detail19get_min_shift_valueIeEET_vE3val)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIeEET_vE3val) #32
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIeEET_vE3val) #33
   br label %_ZN5boost4math6detail19get_min_shift_valueIeEET_v.exit
 
 _ZN5boost4math6detail19get_min_shift_valueIeEET_v.exit: ; preds = %land.lhs.true20, %init.check.i, %init.i
@@ -16691,14 +16691,14 @@ land.lhs.true24:                                  ; preds = %_ZN5boost4math6deta
   br i1 %cmp26, label %if.then27, label %if.end34
 
 if.then27:                                        ; preds = %land.lhs.true24
-  %call.i = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef %.pre, i32 noundef 128) #32, !tbaa !14
+  %call.i = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef %.pre, i32 noundef 128) #33, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store x86_fp80 %call.i, ptr %ref.tmp.i, align 16, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %call3.i = call noundef x86_fp80 @_ZN5boost4math6detail15float_prior_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i, ptr noundef nonnull align 1 dereferenceable(1) %pol)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
-  %call.i17 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %call3.i, i32 noundef -128) #32, !tbaa !14
+  %call.i17 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %call3.i, i32 noundef -128) #33, !tbaa !14
   br label %cleanup
 
 if.end34:                                         ; preds = %land.lhs.true24, %_ZN5boost4math6detail19get_min_shift_valueIeEET_v.exit, %if.end17
@@ -16710,7 +16710,7 @@ if.end34:                                         ; preds = %land.lhs.true24, %_
   %dec = sext i1 %cmp36 to i32
   %expon.0 = add i32 %11, -64
   %sub = add i32 %expon.0, %dec
-  %call.i18 = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef 0xK3FFF8000000000000000, i32 noundef %sub) #32, !tbaa !14
+  %call.i18 = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef 0xK3FFF8000000000000000, i32 noundef %sub) #33, !tbaa !14
   %cmp41 = fcmp oeq x86_fp80 %call.i18, 0xK00000000000000000000
   br i1 %cmp41, label %if.then42, label %if.end44
 
@@ -18730,36 +18730,36 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #29
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #30
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #30
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #31
+declare void @llvm.experimental.noalias.scope.decl(metadata) #32
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare x86_fp80 @llvm.log.f80(x86_fp80) #30
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare x86_fp80 @llvm.log.f80(x86_fp80) #31
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare x86_fp80 @llvm.copysign.f80(x86_fp80, x86_fp80) #30
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare x86_fp80 @llvm.copysign.f80(x86_fp80, x86_fp80) #31
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare x86_fp80 @llvm.sqrt.f80(x86_fp80) #30
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare x86_fp80 @llvm.sqrt.f80(x86_fp80) #31
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #30
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #31
 
 declare x86_fp80 @exp2l(x86_fp80) local_unnamed_addr
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.log.f64(double) #30
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #31
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.copysign.f64(double, double) #30
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.copysign.f64(double, double) #31
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -18785,19 +18785,20 @@ attributes #23 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-
 attributes #24 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { nofree nosync nounwind memory(none) }
 attributes #26 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { nounwind memory(argmem: write) }
-attributes #28 = { nofree nounwind }
-attributes #29 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #30 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #31 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #32 = { nounwind }
-attributes #33 = { noreturn }
-attributes #34 = { builtin nounwind }
-attributes #35 = { noreturn nounwind }
-attributes #36 = { nounwind willreturn memory(read) }
-attributes #37 = { builtin allocsize(0) }
-attributes #38 = { "function-inline-cost-multiplier"="2" }
-attributes #39 = { memory(none) }
+attributes #27 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #28 = { nounwind memory(argmem: write) }
+attributes #29 = { nofree nounwind }
+attributes #30 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #31 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #32 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #33 = { nounwind }
+attributes #34 = { noreturn }
+attributes #35 = { builtin nounwind }
+attributes #36 = { noreturn nounwind }
+attributes #37 = { nounwind willreturn memory(read) }
+attributes #38 = { builtin allocsize(0) }
+attributes #39 = { "function-inline-cost-multiplier"="2" }
+attributes #40 = { memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

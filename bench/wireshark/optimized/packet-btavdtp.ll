@@ -1020,7 +1020,7 @@ define internal i32 @dissect_btavdtp(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not, label %47, label %48
 
 47:                                               ; preds = %46
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.513, ptr noundef nonnull @.str.514, i32 noundef 1551, ptr noundef nonnull @.str.515) #7
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.513, ptr noundef nonnull @.str.514, i32 noundef 1551, ptr noundef nonnull @.str.515) #8
   unreachable
 
 48:                                               ; preds = %46
@@ -1132,7 +1132,7 @@ define internal i32 @dissect_btavdtp(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .thread:                                          ; preds = %48, %102, %74
   %106 = call ptr @wmem_file_scope()
-  %107 = call noalias dereferenceable_or_null(64) ptr @wmem_alloc(ptr noundef %106, i64 noundef 64) #8
+  %107 = call noalias dereferenceable_or_null(64) ptr @wmem_alloc(ptr noundef %106, i64 noundef 64) #9
   %108 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %109 = load i32, ptr %108, align 4
   store i32 %109, ptr %107, align 8
@@ -1635,7 +1635,7 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %364 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %364, i64 16, i1 false)
   %365 = call ptr @wmem_epan_scope()
-  %366 = call noalias dereferenceable_or_null(56) ptr @wmem_alloc(ptr noundef %365, i64 noundef 56) #8
+  %366 = call noalias dereferenceable_or_null(56) ptr @wmem_alloc(ptr noundef %365, i64 noundef 56) #9
   %367 = getelementptr inbounds nuw i8, ptr %30, i64 48
   store ptr %366, ptr %367, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %366, ptr noundef nonnull align 8 dereferenceable(16) %364, i64 16, i1 false)
@@ -1669,7 +1669,7 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %380 = fcmp oeq double %.1, -1.000000e+00
   %.3 = select i1 %380, double 0.000000e+00, double %.1
   %381 = call ptr @wmem_file_scope()
-  %382 = call noalias dereferenceable_or_null(56) ptr @wmem_alloc(ptr noundef %381, i64 noundef 56) #8
+  %382 = call noalias dereferenceable_or_null(56) ptr @wmem_alloc(ptr noundef %381, i64 noundef 56) #9
   %383 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %382, ptr noundef nonnull align 8 dereferenceable(16) %383, i64 16, i1 false)
   %384 = getelementptr inbounds nuw i8, ptr %382, i64 16
@@ -2351,14 +2351,14 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
 733:                                              ; preds = %724, %729, %721
   %.0499 = phi i32 [ %723, %721 ], [ %732, %729 ], [ 0, %724 ]
   %734 = call ptr @wmem_file_scope()
-  %735 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %734, i64 noundef 12) #8
+  %735 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %734, i64 noundef 12) #9
   %736 = getelementptr inbounds nuw i8, ptr %735, i64 8
   store i32 %.0499, ptr %736, align 4
   %737 = load ptr, ptr @file_scope_stream_number, align 8
   %738 = load i32, ptr %24, align 4
   call void @wmem_tree_insert32(ptr noundef %737, i32 noundef %738, ptr noundef %735)
   %739 = call ptr @wmem_file_scope()
-  %740 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %739, i64 noundef 12) #8
+  %740 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %739, i64 noundef 12) #9
   %741 = add i32 %.0499, 1
   %742 = getelementptr inbounds nuw i8, ptr %740, i64 8
   store i32 %741, ptr %742, align 4
@@ -4153,7 +4153,7 @@ define internal fastcc noundef i32 @dissect_sep(ptr noundef %0, ptr noundef read
   store i32 0, ptr %36, align 16
   store ptr null, ptr %37, align 8
   %76 = call ptr @wmem_file_scope()
-  %77 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %76, i64 noundef 32) #8
+  %77 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %76, i64 noundef 32) #9
   %78 = load i32, ptr %11, align 4
   %79 = trunc i32 %78 to i8
   store i8 %79, ptr %77, align 8
@@ -5867,16 +5867,16 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #6
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.ctpop.i8(i8) #6
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5885,9 +5885,10 @@ attributes #2 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stac
 attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { noreturn }
-attributes #8 = { allocsize(1) }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { noreturn }
+attributes #9 = { allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

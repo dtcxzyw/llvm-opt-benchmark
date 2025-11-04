@@ -80,7 +80,7 @@ bytestream2_get_be16.exit397:                     ; preds = %22
   %46 = load i16, ptr %44, align 1, !tbaa !16
   %47 = tail call i16 @llvm.bswap.i16(i16 %46)
   %48 = zext i16 %47 to i32
-  %49 = tail call i32 @ff_set_dimensions(ptr noundef nonnull %0, i32 noundef %43, i32 noundef %48) #9
+  %49 = tail call i32 @ff_set_dimensions(ptr noundef nonnull %0, i32 noundef %43, i32 noundef %48) #10
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %bytestream2_get_be16.exit.thread, label %51
 
@@ -107,7 +107,7 @@ bytestream2_get_be16.exit405:                     ; preds = %57
 
 bytestream2_get_be16.exit405.thread:              ; preds = %57, %bytestream2_get_be16.exit405
   %.0.i404477 = phi i32 [ %63, %bytestream2_get_be16.exit405 ], [ 0, %57 ]
-  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, i32 noundef %.0.i404477) #9
+  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, i32 noundef %.0.i404477) #10
   br label %bytestream2_get_be16.exit.thread
 
 .thread512.thread:                                ; preds = %bytestream2_get_be16.exit405
@@ -162,7 +162,7 @@ bytestream2_peek_be32.exit:                       ; preds = %72
   br i1 %.not365, label %91, label %80
 
 80:                                               ; preds = %79
-  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.4, i32 noundef %26) #9
+  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.4, i32 noundef %26) #10
   br label %bytestream2_get_be16.exit.thread
 
 81:                                               ; preds = %bytestream2_peek_be32.exit
@@ -170,7 +170,7 @@ bytestream2_peek_be32.exit:                       ; preds = %72
   br i1 %.not364, label %91, label %82
 
 82:                                               ; preds = %81
-  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef %26) #9
+  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef %26) #10
   br label %bytestream2_get_be16.exit.thread
 
 83:                                               ; preds = %bytestream2_peek_be32.exit
@@ -194,7 +194,7 @@ switch.early.test.split:                          ; preds = %switch.early.test
   ]
 
 88:                                               ; preds = %switch.early.test, %switch.early.test.split
-  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, i32 noundef %26) #9
+  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, i32 noundef %26) #10
   br label %bytestream2_get_be16.exit.thread
 
 .thread512:                                       ; preds = %bytestream2_peek_be32.exit, %72
@@ -213,7 +213,7 @@ switch.early.test390:                             ; preds = %.thread512
   ]
 
 90:                                               ; preds = %switch.early.test390
-  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, i32 noundef %26) #9
+  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, i32 noundef %26) #10
   br label %bytestream2_get_be16.exit.thread
 
 91:                                               ; preds = %.thread512.thread, %switch.early.test390, %switch.early.test390, %switch.early.test390, %switch.early.test390, %switch.early.test390, %.thread512, %switch.early.test.split, %switch.early.test.split, %switch.early.test.split, %switch.early.test.split, %switch.early.test.split, %83, %81, %79
@@ -223,7 +223,7 @@ switch.early.test390:                             ; preds = %.thread512
   %.0322483495 = phi i32 [ %.0322, %switch.early.test390 ], [ %.0322, %switch.early.test390 ], [ %.0322, %switch.early.test390 ], [ %.0322, %switch.early.test390 ], [ %.0322, %switch.early.test390 ], [ %.0322, %.thread512 ], [ %.0322, %switch.early.test.split ], [ %.0322, %switch.early.test.split ], [ %.0322, %switch.early.test.split ], [ %.0322, %switch.early.test.split ], [ %.0322, %switch.early.test.split ], [ %.0322, %83 ], [ %.0322, %81 ], [ %.0322, %79 ], [ 3, %.thread512.thread ]
   %.0311484493 = phi i32 [ 1, %switch.early.test390 ], [ 1, %switch.early.test390 ], [ 1, %switch.early.test390 ], [ 1, %switch.early.test390 ], [ 1, %switch.early.test390 ], [ 1, %.thread512 ], [ 1, %switch.early.test.split ], [ 1, %switch.early.test.split ], [ 1, %switch.early.test.split ], [ 1, %switch.early.test.split ], [ 1, %switch.early.test.split ], [ 1, %83 ], [ 1, %81 ], [ 1, %79 ], [ 3, %.thread512.thread ]
   %.0309485491 = phi i32 [ %26, %switch.early.test390 ], [ %26, %switch.early.test390 ], [ %26, %switch.early.test390 ], [ %26, %switch.early.test390 ], [ %26, %switch.early.test390 ], [ %26, %.thread512 ], [ %26, %switch.early.test.split ], [ %26, %switch.early.test.split ], [ %26, %switch.early.test.split ], [ %26, %switch.early.test.split ], [ %26, %switch.early.test.split ], [ %26, %83 ], [ 15, %81 ], [ 4, %79 ], [ 24, %.thread512.thread ]
-  %93 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #9
+  %93 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #10
   %94 = icmp slt i32 %93, 0
   br i1 %94, label %bytestream2_get_be16.exit.thread, label %95
 
@@ -283,8 +283,8 @@ bytestream2_get_be16.exit407:                     ; preds = %.preheader556, %110
   br i1 %exitcond630.not, label %.loopexit, label %.preheader556, !llvm.loop !42
 
 125:                                              ; preds = %102
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 198) #9
-  tail call void @abort() #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 198) #10
+  tail call void @abort() #11
   unreachable
 
 126:                                              ; preds = %95
@@ -298,8 +298,8 @@ bytestream2_get_be16.exit407:                     ; preds = %.preheader556, %110
   br i1 %.not366, label %.loopexit, label %128
 
 128:                                              ; preds = %127
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 203) #9
-  tail call void @abort() #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 203) #10
+  tail call void @abort() #11
   unreachable
 
 129:                                              ; preds = %126
@@ -415,8 +415,8 @@ bytestream2_get_be16.exit413:                     ; preds = %bytestream2_get_be1
   br label %.loopexit
 
 189:                                              ; preds = %129
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 227) #9
-  tail call void @abort() #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 227) #10
+  tail call void @abort() #11
   unreachable
 
 190:                                              ; preds = %126
@@ -519,8 +519,8 @@ bytestream2_get_be16.exit415:                     ; preds = %205, %209
   br label %.loopexit
 
 238:                                              ; preds = %225
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 256) #9
-  tail call void @abort() #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 256) #10
+  tail call void @abort() #11
   unreachable
 
 .loopexit:                                        ; preds = %bytestream2_get_be16.exit413, %.preheader558, %bytestream2_get_be16.exit415, %bytestream2_get_be16.exit407, %127, %192, %235, %232, %224, %180, %186, %174
@@ -530,7 +530,7 @@ bytestream2_get_be16.exit415:                     ; preds = %205, %209
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %240 = zext nneg i32 %.1 to i64
   %241 = sext i32 %.0321 to i64
-  %242 = tail call i32 @av_reallocp_array(ptr noundef nonnull %239, i64 noundef %240, i64 noundef %241) #9
+  %242 = tail call i32 @av_reallocp_array(ptr noundef nonnull %239, i64 noundef %240, i64 noundef %241) #10
   %243 = icmp slt i32 %242, 0
   br i1 %243, label %bytestream2_get_be16.exit.thread, label %244
 
@@ -605,7 +605,7 @@ bytestream2_get_be16.exit415:                     ; preds = %205, %209
   %280 = mul nsw i32 %279, %.0321
   %281 = sext i32 %280 to i64
   %282 = getelementptr inbounds i8, ptr %245, i64 %281
-  call void %.0323(ptr noundef nonnull %0, i32 noundef %.1, i32 noundef %.0321, i32 noundef %.0322483495, ptr noundef nonnull %5, ptr noundef %282, ptr noundef nonnull %1) #9, !callees !51
+  call void %.0323(ptr noundef nonnull %0, i32 noundef %.1, i32 noundef %.0321, i32 noundef %.0322483495, ptr noundef nonnull %5, ptr noundef %282, ptr noundef nonnull %1) #10, !callees !51
   %283 = load i32, ptr %5, align 4, !tbaa !52
   %284 = load i32, ptr %247, align 4, !tbaa !48
   %.not388 = icmp slt i32 %283, %284
@@ -656,7 +656,7 @@ bytestream2_get_be16.exit415:                     ; preds = %205, %209
   %300 = mul nsw i32 %299, %.0321
   %301 = sext i32 %300 to i64
   %302 = getelementptr inbounds i8, ptr %245, i64 %301
-  call void %.0323(ptr noundef nonnull %0, i32 noundef %.1, i32 noundef %.0321, i32 noundef %.0322483495, ptr noundef nonnull %5, ptr noundef %302, ptr noundef nonnull %1) #9, !callees !51
+  call void %.0323(ptr noundef nonnull %0, i32 noundef %.1, i32 noundef %.0321, i32 noundef %.0322483495, ptr noundef nonnull %5, ptr noundef %302, ptr noundef nonnull %1) #10, !callees !51
   %303 = load i32, ptr %5, align 4, !tbaa !52
   %304 = load i32, ptr %247, align 4, !tbaa !48
   %.not382 = icmp slt i32 %303, %304
@@ -712,7 +712,7 @@ bytestream2_get_be16.exit415:                     ; preds = %205, %209
   %327 = mul nsw i32 %326, %.0321
   %328 = sext i32 %327 to i64
   %329 = getelementptr inbounds i8, ptr %245, i64 %328
-  call void %.0323(ptr noundef nonnull %0, i32 noundef %.1, i32 noundef %.0321, i32 noundef %.0322483495, ptr noundef nonnull %5, ptr noundef %329, ptr noundef nonnull %1) #9, !callees !51
+  call void %.0323(ptr noundef nonnull %0, i32 noundef %.1, i32 noundef %.0321, i32 noundef %.0322483495, ptr noundef nonnull %5, ptr noundef %329, ptr noundef nonnull %1) #10, !callees !51
   %330 = load i32, ptr %5, align 4, !tbaa !52
   %331 = load i32, ptr %247, align 4, !tbaa !48
   %.not377.us = icmp slt i32 %330, %331
@@ -773,7 +773,7 @@ bytestream2_get_be16.exit415:                     ; preds = %205, %209
   %349 = mul nsw i32 %348, %.0321
   %350 = sext i32 %349 to i64
   %351 = getelementptr inbounds i8, ptr %245, i64 %350
-  call void %.0323(ptr noundef nonnull %0, i32 noundef %.1, i32 noundef %.0321, i32 noundef %.0322483495, ptr noundef nonnull %5, ptr noundef %351, ptr noundef nonnull %1) #9, !callees !51
+  call void %.0323(ptr noundef nonnull %0, i32 noundef %.1, i32 noundef %.0321, i32 noundef %.0322483495, ptr noundef nonnull %5, ptr noundef %351, ptr noundef nonnull %1) #10, !callees !51
   %352 = load i32, ptr %5, align 4, !tbaa !52
   %353 = load i32, ptr %247, align 4, !tbaa !48
   %.not373 = icmp slt i32 %352, %353
@@ -804,7 +804,7 @@ bytestream2_get_be16.exit.thread:                 ; preds = %.loopexit, %91, %by
 ; Function Attrs: cold nounwind optsize uwtable
 define internal noundef i32 @gem_close(ptr noundef %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @av_freep(ptr noundef nonnull %2) #9
+  tail call void @av_freep(ptr noundef nonnull %2) #10
   ret i32 0
 }
 
@@ -998,19 +998,19 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #8
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1021,9 +1021,10 @@ attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 attributes #5 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
+attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

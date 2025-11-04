@@ -230,8 +230,8 @@ define void @ff_opus_rc_enc_cdf(ptr noundef captures(none) %0, i32 noundef %1, p
   br i1 %71, label %73, label %72
 
 72:                                               ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43) #8
-  tail call void @abort() #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43) #9
+  tail call void @abort() #10
   unreachable
 
 73:                                               ; preds = %._crit_edge
@@ -436,8 +436,8 @@ define void @ff_opus_rc_enc_log(ptr noundef captures(none) %0, i32 noundef %1, i
   br i1 %69, label %71, label %70
 
 70:                                               ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43) #8
-  tail call void @abort() #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43) #9
+  tail call void @abort() #10
   unreachable
 
 71:                                               ; preds = %._crit_edge
@@ -571,8 +571,8 @@ define void @ff_opus_rc_put_raw(ptr noundef captures(none) %0, i32 noundef %1, i
   br i1 %35, label %37, label %36
 
 36:                                               ; preds = %20
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 175) #8
-  tail call void @abort() #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 175) #9
+  tail call void @abort() #10
   unreachable
 
 37:                                               ; preds = %20, %3
@@ -846,8 +846,8 @@ define void @ff_opus_rc_enc_uint(ptr noundef captures(none) %0, i32 noundef %1, 
   br i1 %66, label %68, label %67
 
 67:                                               ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43) #8
-  tail call void @abort() #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43) #9
+  tail call void @abort() #10
   unreachable
 
 68:                                               ; preds = %._crit_edge
@@ -921,8 +921,8 @@ opus_rc_enc_normalize.exit:                       ; preds = %opus_rc_enc_carryou
   br i1 %109, label %ff_opus_rc_put_raw.exit, label %110
 
 110:                                              ; preds = %94
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 175) #8
-  tail call void @abort() #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 175) #9
+  tail call void @abort() #10
   unreachable
 
 ff_opus_rc_put_raw.exit:                          ; preds = %opus_rc_enc_normalize.exit, %94
@@ -1124,8 +1124,8 @@ define void @ff_opus_rc_enc_uint_step(ptr noundef captures(none) %0, i32 noundef
   br i1 %63, label %65, label %64
 
 64:                                               ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43) #8
-  tail call void @abort() #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43) #9
+  tail call void @abort() #10
   unreachable
 
 65:                                               ; preds = %._crit_edge
@@ -1553,8 +1553,8 @@ define void @ff_opus_rc_enc_uint_tri(ptr noundef captures(none) %0, i32 noundef 
   br i1 %68, label %70, label %69
 
 69:                                               ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43) #8
-  tail call void @abort() #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43) #9
+  tail call void @abort() #10
   unreachable
 
 70:                                               ; preds = %._crit_edge
@@ -1799,8 +1799,8 @@ define void @ff_opus_rc_enc_laplace(ptr noundef captures(none) %0, ptr noundef c
   br i1 %55, label %57, label %56
 
 56:                                               ; preds = %._crit_edge69
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43) #8
-  tail call void @abort() #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43) #9
+  tail call void @abort() #10
   unreachable
 
 57:                                               ; preds = %._crit_edge69
@@ -1975,8 +1975,8 @@ opus_rc_enc_carryout.exit.i:                      ; preds = %57, %30
   br i1 %155, label %157, label %156
 
 156:                                              ; preds = %._crit_edge64
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43) #8
-  tail call void @abort() #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43) #9
+  tail call void @abort() #10
   unreachable
 
 157:                                              ; preds = %._crit_edge64
@@ -2200,8 +2200,8 @@ define void @ff_opus_rc_enc_end(ptr noundef %0, ptr noundef captures(none) %1, i
   br i1 %67, label %69, label %68
 
 68:                                               ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43) #8
-  tail call void @abort() #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43) #9
+  tail call void @abort() #10
   unreachable
 
 69:                                               ; preds = %._crit_edge
@@ -2272,8 +2272,8 @@ opus_rc_enc_carryout.exit:                        ; preds = %42, %69
   br i1 %102, label %opus_rc_enc_carryout.exit73, label %103
 
 103:                                              ; preds = %._crit_edge84
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43) #8
-  tail call void @abort() #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43) #9
+  tail call void @abort() #10
   unreachable
 
 opus_rc_enc_carryout.exit73:                      ; preds = %._crit_edge84
@@ -2337,8 +2337,8 @@ opus_rc_enc_carryout.exit73:                      ; preds = %._crit_edge84
   br i1 %138, label %ff_opus_rc_put_raw.exit, label %139
 
 139:                                              ; preds = %129
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 175) #8
-  tail call void @abort() #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 175) #9
+  tail call void @abort() #10
   unreachable
 
 ff_opus_rc_put_raw.exit:                          ; preds = %123, %129
@@ -2420,17 +2420,17 @@ define void @ff_opus_rc_enc_init(ptr noundef initializes((56, 68), (1368, 1376))
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #7
+declare i32 @llvm.abs.i32(i32, i1 immarg) #8
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2439,9 +2439,10 @@ attributes #3 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true"
 attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn nounwind }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

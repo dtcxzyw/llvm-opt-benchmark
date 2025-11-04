@@ -157,7 +157,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 18:                                               ; preds = %17, %2
   call void @init_report_failure_message(ptr noundef nonnull @.str)
   call void @wtap_init(i1 noundef zeroext true)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %10, i8 noundef 0, i64 noundef 192, i1 noundef false) #12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %10, i8 noundef 0, i64 noundef 192, i1 noundef false) #13
   call void @wtap_dump_params_init(ptr noundef nonnull %11, ptr noundef null)
   %19 = load i32, ptr %9, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -224,7 +224,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   call void @show_help_header(ptr noundef nonnull @.str.13)
   %33 = load ptr, ptr @stdout, align 8
   call fastcc void @print_usage(ptr noundef %33)
-  call void @exit(i32 noundef 0) #13
+  call void @exit(i32 noundef 0) #14
   unreachable
 
 34:                                               ; preds = %30
@@ -241,14 +241,14 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 37:                                               ; preds = %30
   %38 = load ptr, ptr @ws_optarg, align 8
-  %39 = call i64 @strtol(ptr noundef captures(none) %38, ptr noundef null, i32 noundef 0) #12
+  %39 = call i64 @strtol(ptr noundef captures(none) %38, ptr noundef null, i32 noundef 0) #13
   %40 = trunc i64 %39 to i32
   %41 = call i32 @wtap_pcap_encap_to_wtap_encap(i32 noundef %40)
   br label %.backedge
 
 42:                                               ; preds = %30
   %43 = load ptr, ptr @ws_optarg, align 8
-  %44 = call i64 @strtol(ptr noundef captures(none) %43, ptr noundef null, i32 noundef 0) #12
+  %44 = call i64 @strtol(ptr noundef captures(none) %43, ptr noundef null, i32 noundef 0) #13
   %45 = trunc i64 %44 to i32
   store i32 %45, ptr @max_offset, align 4
   br label %.backedge
@@ -327,7 +327,7 @@ switch.lookup:                                    ; preds = %.split.i
 69:                                               ; preds = %30
   store i1 true, ptr @hdr_ethernet, align 1
   %70 = load ptr, ptr @ws_optarg, align 8
-  %71 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %70, ptr noundef nonnull @.str.17, ptr noundef nonnull @hdr_ethernet_proto) #12
+  %71 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %70, ptr noundef nonnull @.str.17, ptr noundef nonnull @hdr_ethernet_proto) #13
   %72 = icmp slt i32 %71, 1
   br i1 %72, label %73, label %.backedge
 
@@ -441,7 +441,7 @@ switch.lookup:                                    ; preds = %.split.i
   store i1 false, ptr @hdr_tcp, align 1
   store i1 false, ptr @hdr_udp, align 1
   %122 = load ptr, ptr @ws_optarg, align 8
-  %123 = call i64 @strtol(ptr noundef %122, ptr noundef nonnull %3, i32 noundef 10) #12
+  %123 = call i64 @strtol(ptr noundef %122, ptr noundef nonnull %3, i32 noundef 10) #13
   %124 = trunc i64 %123 to i32
   store i32 %124, ptr @hdr_sctp_src, align 4
   %125 = load ptr, ptr %3, align 8
@@ -476,7 +476,7 @@ switch.lookup:                                    ; preds = %.split.i
   %139 = getelementptr i8, ptr %125, i64 1
   store ptr %139, ptr %3, align 8
   store ptr %139, ptr @ws_optarg, align 8
-  %140 = call i64 @strtol(ptr noundef %139, ptr noundef nonnull %3, i32 noundef 10) #12
+  %140 = call i64 @strtol(ptr noundef %139, ptr noundef nonnull %3, i32 noundef 10) #13
   %141 = trunc i64 %140 to i32
   store i32 %141, ptr @hdr_sctp_dest, align 4
   %142 = load ptr, ptr %3, align 8
@@ -511,7 +511,7 @@ switch.lookup:                                    ; preds = %.split.i
   %156 = getelementptr i8, ptr %142, i64 1
   store ptr %156, ptr %3, align 8
   store ptr %156, ptr @ws_optarg, align 8
-  %157 = call i64 @strtol(ptr noundef %156, ptr noundef nonnull %3, i32 noundef 10) #12
+  %157 = call i64 @strtol(ptr noundef %156, ptr noundef nonnull %3, i32 noundef 10) #13
   %158 = trunc i64 %157 to i32
   store i32 %158, ptr @hdr_sctp_tag, align 4
   %159 = load ptr, ptr %3, align 8
@@ -543,7 +543,7 @@ switch.lookup:                                    ; preds = %.split.i
   store i1 false, ptr @hdr_tcp, align 1
   store i1 false, ptr @hdr_udp, align 1
   %170 = load ptr, ptr @ws_optarg, align 8
-  %171 = call i64 @strtol(ptr noundef %170, ptr noundef nonnull %3, i32 noundef 10) #12
+  %171 = call i64 @strtol(ptr noundef %170, ptr noundef nonnull %3, i32 noundef 10) #13
   %172 = trunc i64 %171 to i32
   store i32 %172, ptr @hdr_sctp_src, align 4
   %173 = load ptr, ptr %3, align 8
@@ -578,7 +578,7 @@ switch.lookup:                                    ; preds = %.split.i
   %187 = getelementptr i8, ptr %173, i64 1
   store ptr %187, ptr %3, align 8
   store ptr %187, ptr @ws_optarg, align 8
-  %188 = call i64 @strtol(ptr noundef %187, ptr noundef nonnull %3, i32 noundef 10) #12
+  %188 = call i64 @strtol(ptr noundef %187, ptr noundef nonnull %3, i32 noundef 10) #13
   %189 = trunc i64 %188 to i32
   store i32 %189, ptr @hdr_sctp_dest, align 4
   %190 = load ptr, ptr %3, align 8
@@ -613,7 +613,7 @@ switch.lookup:                                    ; preds = %.split.i
   %204 = getelementptr i8, ptr %190, i64 1
   store ptr %204, ptr %3, align 8
   store ptr %204, ptr @ws_optarg, align 8
-  %205 = call i64 @strtoul(ptr noundef %204, ptr noundef nonnull %3, i32 noundef 10) #12
+  %205 = call i64 @strtoul(ptr noundef %204, ptr noundef nonnull %3, i32 noundef 10) #13
   %206 = trunc i64 %205 to i32
   store i32 %206, ptr @hdr_data_chunk_ppid, align 4
   %207 = load ptr, ptr %3, align 8
@@ -650,7 +650,7 @@ switch.lookup:                                    ; preds = %.split.i
   store i1 false, ptr @hdr_sctp, align 1
   store i1 false, ptr @hdr_data_chunk, align 1
   %220 = load ptr, ptr @ws_optarg, align 8
-  %221 = call i64 @strtol(ptr noundef %220, ptr noundef nonnull %3, i32 noundef 10) #12
+  %221 = call i64 @strtol(ptr noundef %220, ptr noundef nonnull %3, i32 noundef 10) #13
   %222 = trunc i64 %221 to i32
   store i32 %222, ptr @hdr_src_port, align 4
   %223 = load ptr, ptr %3, align 8
@@ -685,7 +685,7 @@ switch.lookup:                                    ; preds = %.split.i
   %237 = getelementptr i8, ptr %223, i64 1
   store ptr %237, ptr %3, align 8
   store ptr %237, ptr @ws_optarg, align 8
-  %238 = call i64 @strtol(ptr noundef %237, ptr noundef nonnull %3, i32 noundef 10) #12
+  %238 = call i64 @strtol(ptr noundef %237, ptr noundef nonnull %3, i32 noundef 10) #13
   %239 = trunc i64 %238 to i32
   store i32 %239, ptr @hdr_dest_port, align 4
   %240 = load ptr, ptr %3, align 8
@@ -717,7 +717,7 @@ switch.lookup:                                    ; preds = %.split.i
   store i1 false, ptr @hdr_sctp, align 1
   store i1 false, ptr @hdr_data_chunk, align 1
   %251 = load ptr, ptr @ws_optarg, align 8
-  %252 = call i64 @strtol(ptr noundef %251, ptr noundef nonnull %3, i32 noundef 10) #12
+  %252 = call i64 @strtol(ptr noundef %251, ptr noundef nonnull %3, i32 noundef 10) #13
   %253 = trunc i64 %252 to i32
   store i32 %253, ptr @hdr_src_port, align 4
   %254 = load ptr, ptr %3, align 8
@@ -752,7 +752,7 @@ switch.lookup:                                    ; preds = %.split.i
   %268 = getelementptr i8, ptr %254, i64 1
   store ptr %268, ptr %3, align 8
   store ptr %268, ptr @ws_optarg, align 8
-  %269 = call i64 @strtol(ptr noundef %268, ptr noundef nonnull %3, i32 noundef 10) #12
+  %269 = call i64 @strtol(ptr noundef %268, ptr noundef nonnull %3, i32 noundef 10) #13
   %270 = trunc i64 %269 to i32
   store i32 %270, ptr @hdr_dest_port, align 4
   %271 = load ptr, ptr %3, align 8
@@ -780,12 +780,12 @@ switch.lookup:                                    ; preds = %.split.i
 
 281:                                              ; preds = %30
   call void @show_version()
-  call void @exit(i32 noundef 0) #13
+  call void @exit(i32 noundef 0) #14
   unreachable
 
 282:                                              ; preds = %30, %30
   %283 = load ptr, ptr @ws_optarg, align 8
-  %284 = call ptr @strchr(ptr noundef %283, i32 noundef 44) #14
+  %284 = call ptr @strchr(ptr noundef %283, i32 noundef 44) #15
   %.not234.i = icmp eq ptr %284, null
   br i1 %.not234.i, label %285, label %289
 
@@ -1097,7 +1097,7 @@ list_output_compression_types.exit.i:             ; preds = %.lr.ph.i.i, %330
   %396 = sext i32 %395 to i64
   %397 = getelementptr ptr, ptr %1, i64 %396
   %398 = load ptr, ptr %397, align 8
-  %399 = call ptr @strrchr(ptr noundef %398, i32 noundef 46) #14
+  %399 = call ptr @strrchr(ptr noundef %398, i32 noundef 46) #15
   %.not225.i = icmp eq ptr %399, null
   br i1 %.not225.i, label %.thread268.i, label %400
 
@@ -1186,7 +1186,7 @@ list_output_compression_types.exit.i:             ; preds = %.lr.ph.i.i, %330
 
 435:                                              ; preds = %433
   %436 = load ptr, ptr @input_filename, align 8
-  %437 = tail call ptr @__errno_location() #15
+  %437 = tail call ptr @__errno_location() #16
   %438 = load i32, ptr %437, align 4
   call void @open_failure_message(ptr noundef %436, i32 noundef %438, i1 noundef zeroext false)
   br label %parse_options.exit.thread
@@ -1745,7 +1745,7 @@ declare i32 @wtap_name_to_encap(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @list_encap_types() unnamed_addr #0 {
   %1 = tail call i32 @wtap_get_num_encap_types()
   %2 = sext i32 %1 to i64
-  %3 = tail call noalias ptr @g_malloc_n(i64 noundef %2, i64 noundef 16) #16
+  %3 = tail call noalias ptr @g_malloc_n(i64 noundef %2, i64 noundef 16) #17
   tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.72)
   %4 = tail call i32 @wtap_get_num_encap_types()
   %5 = icmp sgt i32 %4, 0
@@ -1992,14 +1992,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2011,13 +2011,14 @@ attributes #6 = { mustprogress nofree nosync nounwind null_pointer_is_valid will
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { null_pointer_is_valid allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
-attributes #15 = { nounwind willreturn memory(none) }
-attributes #16 = { allocsize(0,1) }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { nounwind willreturn memory(none) }
+attributes #17 = { allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

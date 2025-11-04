@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden double @SDL_atan_REAL(double noundef %0) local_unnamed_addr #0 {
-  %2 = tail call double @atan(double noundef %0) #10
+  %2 = tail call double @atan(double noundef %0) #11
   ret double %2
 }
 
@@ -14,7 +14,7 @@ declare double @atan(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden float @SDL_atanf_REAL(float noundef %0) local_unnamed_addr #0 {
-  %2 = tail call float @atanf(float noundef %0) #10
+  %2 = tail call float @atanf(float noundef %0) #11
   ret float %2
 }
 
@@ -23,7 +23,7 @@ declare float @atanf(float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden double @SDL_atan2_REAL(double noundef %0, double noundef %1) local_unnamed_addr #0 {
-  %3 = tail call double @atan2(double noundef %0, double noundef %1) #10
+  %3 = tail call double @atan2(double noundef %0, double noundef %1) #11
   ret double %3
 }
 
@@ -32,7 +32,7 @@ declare double @atan2(double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden float @SDL_atan2f_REAL(float noundef %0, float noundef %1) local_unnamed_addr #0 {
-  %3 = tail call float @atan2f(float noundef %0, float noundef %1) #10
+  %3 = tail call float @atan2f(float noundef %0, float noundef %1) #11
   ret float %3
 }
 
@@ -41,7 +41,7 @@ declare float @atan2f(float noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden double @SDL_acos_REAL(double noundef %0) local_unnamed_addr #0 {
-  %2 = tail call double @acos(double noundef %0) #10
+  %2 = tail call double @acos(double noundef %0) #11
   ret double %2
 }
 
@@ -50,7 +50,7 @@ declare double @acos(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden float @SDL_acosf_REAL(float noundef %0) local_unnamed_addr #0 {
-  %2 = tail call float @acosf(float noundef %0) #10
+  %2 = tail call float @acosf(float noundef %0) #11
   ret float %2
 }
 
@@ -59,7 +59,7 @@ declare float @acosf(float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden double @SDL_asin_REAL(double noundef %0) local_unnamed_addr #0 {
-  %2 = tail call double @asin(double noundef %0) #10
+  %2 = tail call double @asin(double noundef %0) #11
   ret double %2
 }
 
@@ -68,7 +68,7 @@ declare double @asin(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden float @SDL_asinf_REAL(float noundef %0) local_unnamed_addr #0 {
-  %2 = tail call float @asinf(float noundef %0) #10
+  %2 = tail call float @asinf(float noundef %0) #11
   ret float %2
 }
 
@@ -81,7 +81,7 @@ define hidden noundef double @SDL_ceil_REAL(double noundef %0) local_unnamed_add
   ret double %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.ceil.f64(double) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -90,7 +90,7 @@ define hidden noundef float @SDL_ceilf_REAL(float noundef %0) local_unnamed_addr
   ret float %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.ceil.f32(float) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -99,7 +99,7 @@ define hidden noundef double @SDL_copysign_REAL(double noundef %0, double nounde
   ret double %3
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.copysign.f64(double, double) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -108,12 +108,12 @@ define hidden noundef float @SDL_copysignf_REAL(float noundef %0, float noundef 
   ret float %3
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.copysign.f32(float, float) #3
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden double @SDL_cos_REAL(double noundef %0) local_unnamed_addr #0 {
-  %2 = tail call double @cos(double noundef %0) #10
+  %2 = tail call double @cos(double noundef %0) #11
   ret double %2
 }
 
@@ -122,7 +122,7 @@ declare double @cos(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden float @SDL_cosf_REAL(float noundef %0) local_unnamed_addr #0 {
-  %2 = tail call float @cosf(float noundef %0) #10
+  %2 = tail call float @cosf(float noundef %0) #11
   ret float %2
 }
 
@@ -131,7 +131,7 @@ declare float @cosf(float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden double @SDL_exp_REAL(double noundef %0) local_unnamed_addr #0 {
-  %2 = tail call double @exp(double noundef %0) #10
+  %2 = tail call double @exp(double noundef %0) #11
   ret double %2
 }
 
@@ -140,7 +140,7 @@ declare double @exp(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden float @SDL_expf_REAL(float noundef %0) local_unnamed_addr #0 {
-  %2 = tail call float @expf(float noundef %0) #10
+  %2 = tail call float @expf(float noundef %0) #11
   ret float %2
 }
 
@@ -153,7 +153,7 @@ define hidden noundef double @SDL_fabs_REAL(double noundef %0) local_unnamed_add
   ret double %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -162,7 +162,7 @@ define hidden noundef float @SDL_fabsf_REAL(float noundef %0) local_unnamed_addr
   ret float %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -171,7 +171,7 @@ define hidden noundef double @SDL_floor_REAL(double noundef %0) local_unnamed_ad
   ret double %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -180,7 +180,7 @@ define hidden noundef float @SDL_floorf_REAL(float noundef %0) local_unnamed_add
   ret float %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.floor.f32(float) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -189,7 +189,7 @@ define hidden noundef double @SDL_trunc_REAL(double noundef %0) local_unnamed_ad
   ret double %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.trunc.f64(double) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -198,12 +198,12 @@ define hidden noundef float @SDL_truncf_REAL(float noundef %0) local_unnamed_add
   ret float %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.trunc.f32(float) #3
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden double @SDL_fmod_REAL(double noundef %0, double noundef %1) local_unnamed_addr #0 {
-  %3 = tail call double @fmod(double noundef %0, double noundef %1) #10
+  %3 = tail call double @fmod(double noundef %0, double noundef %1) #11
   ret double %3
 }
 
@@ -212,7 +212,7 @@ declare double @fmod(double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden float @SDL_fmodf_REAL(float noundef %0, float noundef %1) local_unnamed_addr #0 {
-  %3 = tail call float @fmodf(float noundef %0, float noundef %1) #10
+  %3 = tail call float @fmodf(float noundef %0, float noundef %1) #11
   ret float %3
 }
 
@@ -221,7 +221,7 @@ declare float @fmodf(float noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef range(i32 -1, 2) i32 @SDL_isinf_REAL(double noundef %0) local_unnamed_addr #2 {
-  %2 = tail call double @llvm.fabs.f64(double %0) #11
+  %2 = tail call double @llvm.fabs.f64(double %0) #12
   %3 = fcmp oeq double %2, 0x7FF0000000000000
   %4 = bitcast double %0 to i64
   %5 = icmp slt i64 %4, 0
@@ -232,7 +232,7 @@ define hidden noundef range(i32 -1, 2) i32 @SDL_isinf_REAL(double noundef %0) lo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef range(i32 -1, 2) i32 @SDL_isinff_REAL(float noundef %0) local_unnamed_addr #2 {
-  %2 = tail call float @llvm.fabs.f32(float %0) #11
+  %2 = tail call float @llvm.fabs.f32(float %0) #12
   %3 = fcmp oeq float %2, 0x7FF0000000000000
   %4 = bitcast float %0 to i32
   %.inv = icmp sgt i32 %4, -1
@@ -257,7 +257,7 @@ define hidden range(i32 0, 2) i32 @SDL_isnanf_REAL(float noundef %0) local_unnam
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden double @SDL_log_REAL(double noundef %0) local_unnamed_addr #0 {
-  %2 = tail call double @log(double noundef %0) #10
+  %2 = tail call double @log(double noundef %0) #11
   ret double %2
 }
 
@@ -266,7 +266,7 @@ declare double @log(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden float @SDL_logf_REAL(float noundef %0) local_unnamed_addr #0 {
-  %2 = tail call float @logf(float noundef %0) #10
+  %2 = tail call float @logf(float noundef %0) #11
   ret float %2
 }
 
@@ -275,7 +275,7 @@ declare float @logf(float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden double @SDL_log10_REAL(double noundef %0) local_unnamed_addr #0 {
-  %2 = tail call double @log10(double noundef %0) #10
+  %2 = tail call double @log10(double noundef %0) #11
   ret double %2
 }
 
@@ -284,7 +284,7 @@ declare double @log10(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden float @SDL_log10f_REAL(float noundef %0) local_unnamed_addr #0 {
-  %2 = tail call float @log10f(float noundef %0) #10
+  %2 = tail call float @log10f(float noundef %0) #11
   ret float %2
 }
 
@@ -301,7 +301,7 @@ define hidden double @SDL_modf_REAL(double noundef %0, ptr noundef writeonly cap
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { double, double } @llvm.modf.f64(double) #3
+declare { double, double } @llvm.modf.f64(double) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden float @SDL_modff_REAL(float noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #4 {
@@ -313,11 +313,11 @@ define hidden float @SDL_modff_REAL(float noundef %0, ptr noundef writeonly capt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { float, float } @llvm.modf.f32(float) #3
+declare { float, float } @llvm.modf.f32(float) #5
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden double @SDL_pow_REAL(double noundef %0, double noundef %1) local_unnamed_addr #0 {
-  %3 = tail call double @pow(double noundef %0, double noundef %1) #10
+  %3 = tail call double @pow(double noundef %0, double noundef %1) #11
   ret double %3
 }
 
@@ -326,7 +326,7 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden float @SDL_powf_REAL(float noundef %0, float noundef %1) local_unnamed_addr #0 {
-  %3 = tail call float @powf(float noundef %0, float noundef %1) #10
+  %3 = tail call float @powf(float noundef %0, float noundef %1) #11
   ret float %3
 }
 
@@ -339,7 +339,7 @@ define hidden noundef double @SDL_round_REAL(double noundef %0) local_unnamed_ad
   ret double %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.round.f64(double) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -348,30 +348,30 @@ define hidden noundef float @SDL_roundf_REAL(float noundef %0) local_unnamed_add
   ret float %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.round.f32(float) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @SDL_lround_REAL(double noundef %0) local_unnamed_addr #5 {
-  %2 = tail call i64 @lround(double noundef %0) #10
+define hidden i64 @SDL_lround_REAL(double noundef %0) local_unnamed_addr #6 {
+  %2 = tail call i64 @lround(double noundef %0) #11
   ret i64 %2
 }
 
 ; Function Attrs: nounwind
-declare i64 @lround(double noundef) local_unnamed_addr #6
+declare i64 @lround(double noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @SDL_lroundf_REAL(float noundef %0) local_unnamed_addr #5 {
-  %2 = tail call i64 @lroundf(float noundef %0) #10
+define hidden i64 @SDL_lroundf_REAL(float noundef %0) local_unnamed_addr #6 {
+  %2 = tail call i64 @lroundf(float noundef %0) #11
   ret i64 %2
 }
 
 ; Function Attrs: nounwind
-declare i64 @lroundf(float noundef) local_unnamed_addr #6
+declare i64 @lroundf(float noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden double @SDL_scalbn_REAL(double noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call double @scalbn(double noundef %0, i32 noundef %1) #10
+  %3 = tail call double @scalbn(double noundef %0, i32 noundef %1) #11
   ret double %3
 }
 
@@ -380,7 +380,7 @@ declare double @scalbn(double noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden float @SDL_scalbnf_REAL(float noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call float @scalbnf(float noundef %0, i32 noundef %1) #10
+  %3 = tail call float @scalbnf(float noundef %0, i32 noundef %1) #11
   ret float %3
 }
 
@@ -389,7 +389,7 @@ declare float @scalbnf(float noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden double @SDL_sin_REAL(double noundef %0) local_unnamed_addr #0 {
-  %2 = tail call double @sin(double noundef %0) #10
+  %2 = tail call double @sin(double noundef %0) #11
   ret double %2
 }
 
@@ -398,7 +398,7 @@ declare double @sin(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden float @SDL_sinf_REAL(float noundef %0) local_unnamed_addr #0 {
-  %2 = tail call float @sinf(float noundef %0) #10
+  %2 = tail call float @sinf(float noundef %0) #11
   ret float %2
 }
 
@@ -407,7 +407,7 @@ declare float @sinf(float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden double @SDL_sqrt_REAL(double noundef %0) local_unnamed_addr #0 {
-  %2 = tail call double @sqrt(double noundef %0) #10
+  %2 = tail call double @sqrt(double noundef %0) #11
   ret double %2
 }
 
@@ -416,7 +416,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden float @SDL_sqrtf_REAL(float noundef %0) local_unnamed_addr #0 {
-  %2 = tail call float @sqrtf(float noundef %0) #10
+  %2 = tail call float @sqrtf(float noundef %0) #11
   ret float %2
 }
 
@@ -425,7 +425,7 @@ declare float @sqrtf(float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden double @SDL_tan_REAL(double noundef %0) local_unnamed_addr #0 {
-  %2 = tail call double @tan(double noundef %0) #10
+  %2 = tail call double @tan(double noundef %0) #11
   ret double %2
 }
 
@@ -434,7 +434,7 @@ declare double @tan(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden float @SDL_tanf_REAL(float noundef %0) local_unnamed_addr #0 {
-  %2 = tail call float @tanf(float noundef %0) #10
+  %2 = tail call float @tanf(float noundef %0) #11
   ret float %2
 }
 
@@ -448,7 +448,7 @@ define hidden range(i32 0, -2147483648) i32 @SDL_abs_REAL(i32 noundef %0) local_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #3
+declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden range(i32 0, 2) i32 @SDL_isalpha_REAL(i32 noundef %0) local_unnamed_addr #2 {
@@ -617,7 +617,7 @@ define hidden range(i32 0, 2) i32 @SDL_isblank_REAL(i32 noundef %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @SDL_aligned_alloc_REAL(i64 noundef %0, i64 noundef %1) local_unnamed_addr #5 {
+define hidden noalias ptr @SDL_aligned_alloc_REAL(i64 noundef %0, i64 noundef %1) local_unnamed_addr #6 {
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %0, i64 8)
   %3 = urem i64 %1, %spec.store.select
   %4 = sub i64 %spec.store.select, %3
@@ -639,7 +639,7 @@ define hidden noalias ptr @SDL_aligned_alloc_REAL(i64 noundef %0, i64 noundef %1
 
 15:                                               ; preds = %11
   %16 = extractvalue { i64, i1 } %13, 0
-  %17 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %16) #10
+  %17 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %16) #11
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %26, label %18
 
@@ -660,46 +660,47 @@ define hidden noalias ptr @SDL_aligned_alloc_REAL(i64 noundef %0, i64 noundef %1
   ret ptr %.0
 }
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #7
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define hidden void @SDL_aligned_free_REAL(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define hidden void @SDL_aligned_free_REAL(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 -8
   %.0.copyload = load ptr, ptr %3, align 1
-  tail call void @SDL_free_REAL(ptr noundef %.0.copyload) #10
+  tail call void @SDL_free_REAL(ptr noundef %.0.copyload) #11
   br label %4
 
 4:                                                ; preds = %2, %1
   ret void
 }
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #7
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #10
 
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

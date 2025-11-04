@@ -185,9 +185,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit172.thread: ; preds = %35
   br i1 %100, label %101, label %103
 
 101:                                              ; preds = %74
-  %102 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %102 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %102, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %102, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %102, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 103:                                              ; preds = %74
@@ -275,9 +275,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit:           ; preds = %.lr.ph, %72, %103
   br i1 %155, label %156, label %158
 
 156:                                              ; preds = %129
-  %157 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %157 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %157, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %157, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %157, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 158:                                              ; preds = %129
@@ -384,9 +384,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit172:  ; preds = %108, %.split.loop.e
   br i1 %216, label %217, label %219
 
 217:                                              ; preds = %190
-  %218 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %218 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %218, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %218, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %218, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 219:                                              ; preds = %190
@@ -465,9 +465,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit185:        ; preds = %183, %188, %219
   br i1 %265, label %266, label %268
 
 266:                                              ; preds = %239
-  %267 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %267 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %267, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %267, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %267, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 268:                                              ; preds = %239
@@ -564,9 +564,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit189:        ; preds = %231, %237, %268
   br i1 %324, label %325, label %327
 
 325:                                              ; preds = %298
-  %326 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %326 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %326, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %326, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %326, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 327:                                              ; preds = %298
@@ -646,9 +646,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit193:        ; preds = %291, %296, %327
   br i1 %374, label %375, label %377
 
 375:                                              ; preds = %348
-  %376 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %376 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %376, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %376, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %376, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 377:                                              ; preds = %348
@@ -784,9 +784,9 @@ _Z17crxDecodeSymbolL1P12CrxBandParamii.exit:      ; preds = %.loopexit311, %_ZL1
   br i1 %465, label %466, label %468
 
 466:                                              ; preds = %439
-  %467 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %467 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %467, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %467, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %467, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 468:                                              ; preds = %439
@@ -864,9 +864,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit201:        ; preds = %432, %437, %468
   br i1 %513, label %514, label %516
 
 514:                                              ; preds = %487
-  %515 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %515 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %515, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %515, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %515, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 516:                                              ; preds = %487
@@ -964,9 +964,9 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit122:  ; preds = %_ZL13crxFillBufferP
   br i1 %570, label %571, label %573
 
 571:                                              ; preds = %544
-  %572 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %572 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %572, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %572, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %572, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 573:                                              ; preds = %544
@@ -1044,9 +1044,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit209:        ; preds = %537, %542, %573
   br i1 %618, label %619, label %621
 
 619:                                              ; preds = %592
-  %620 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %620 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %620, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %620, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %620, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 621:                                              ; preds = %592
@@ -1175,9 +1175,9 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit130:  ; preds = %_ZL13crxFillBufferP
   br i1 %694, label %695, label %697
 
 695:                                              ; preds = %668
-  %696 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %696 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %696, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %696, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %696, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 697:                                              ; preds = %668
@@ -1257,9 +1257,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit217:        ; preds = %661, %666, %697
   br i1 %744, label %745, label %747
 
 745:                                              ; preds = %718
-  %746 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %746 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %746, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %746, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %746, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 747:                                              ; preds = %718
@@ -1441,9 +1441,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit156.thread: ; preds = %782
   br i1 %837, label %838, label %840
 
 838:                                              ; preds = %811
-  %839 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %839 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %839, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %839, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %839, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 840:                                              ; preds = %811
@@ -1531,9 +1531,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit225:        ; preds = %.lr.ph399, %809, %8
   br i1 %892, label %893, label %895
 
 893:                                              ; preds = %866
-  %894 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %894 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %894, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %894, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %894, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 895:                                              ; preds = %866
@@ -1640,9 +1640,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit156:  ; preds = %845, %.split.loop.e
   br i1 %953, label %954, label %956
 
 954:                                              ; preds = %927
-  %955 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %955 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %955, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %955, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %955, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 956:                                              ; preds = %927
@@ -1721,9 +1721,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit233:        ; preds = %920, %925, %956
   br i1 %1002, label %1003, label %1005
 
 1003:                                             ; preds = %976
-  %1004 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1004 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1004, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1004, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1004, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1005:                                             ; preds = %976
@@ -1820,9 +1820,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit237:        ; preds = %968, %974, %1005
   br i1 %1061, label %1062, label %1064
 
 1062:                                             ; preds = %1035
-  %1063 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1063 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1063, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1063, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1063, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1064:                                             ; preds = %1035
@@ -1902,9 +1902,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit241:        ; preds = %1028, %1033, %1064
   br i1 %1111, label %1112, label %1114
 
 1112:                                             ; preds = %1085
-  %1113 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1113 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1113, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1113, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1113, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1114:                                             ; preds = %1085
@@ -2129,9 +2129,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread: ; preds = %1168
   br i1 %1248, label %1249, label %1251
 
 1249:                                             ; preds = %1222
-  %1250 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1250 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1250, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1250, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1250, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1251:                                             ; preds = %1222
@@ -2219,9 +2219,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit249:        ; preds = %.lr.ph419, %1220, %
   br i1 %1303, label %1304, label %1306
 
 1304:                                             ; preds = %1277
-  %1305 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1305 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1305, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1305, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1305, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1306:                                             ; preds = %1277
@@ -2328,9 +2328,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit:     ; preds = %1256, %.split.loop.
   br i1 %1364, label %1365, label %1367
 
 1365:                                             ; preds = %1338
-  %1366 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1366 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1366, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1366, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1366, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1367:                                             ; preds = %1338
@@ -2409,9 +2409,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit257:        ; preds = %1331, %1336, %1367
   br i1 %1413, label %1414, label %1416
 
 1414:                                             ; preds = %1387
-  %1415 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1415 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1415, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1415, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1415, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1416:                                             ; preds = %1387
@@ -2521,9 +2521,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit261:        ; preds = %1379, %1385, %1416
   br i1 %1482, label %1483, label %1485
 
 1483:                                             ; preds = %1454
-  %1484 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1484 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1484, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1484, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1484, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1485:                                             ; preds = %1454
@@ -2603,9 +2603,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit265:        ; preds = %1446, %1451, %1485
   br i1 %1533, label %1534, label %1536
 
 1534:                                             ; preds = %1507
-  %1535 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1535 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1535, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1535, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1535, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1536:                                             ; preds = %1507
@@ -2845,9 +2845,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit255.thread: ; preds = %42
   br i1 %108, label %109, label %111
 
 109:                                              ; preds = %82
-  %110 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %110 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %110, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %110, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %110, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 111:                                              ; preds = %82
@@ -2935,9 +2935,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit:           ; preds = %.lr.ph642, %80, %11
   br i1 %163, label %164, label %166
 
 164:                                              ; preds = %137
-  %165 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %165 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %165, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %165, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %165, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 166:                                              ; preds = %137
@@ -3044,9 +3044,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit255:  ; preds = %116, %.split.loop.e
   br i1 %224, label %225, label %227
 
 225:                                              ; preds = %198
-  %226 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %226 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %226, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %226, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %226, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 227:                                              ; preds = %198
@@ -3125,9 +3125,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit270:        ; preds = %191, %196, %227
   br i1 %273, label %274, label %276
 
 274:                                              ; preds = %247
-  %275 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %275 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %275, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %275, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %275, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 276:                                              ; preds = %247
@@ -3224,9 +3224,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit274:        ; preds = %239, %245, %276
   br i1 %332, label %333, label %335
 
 333:                                              ; preds = %306
-  %334 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %334 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %334, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %334, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %334, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 335:                                              ; preds = %306
@@ -3306,9 +3306,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit278:        ; preds = %299, %304, %335
   br i1 %382, label %383, label %385
 
 383:                                              ; preds = %356
-  %384 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %384 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %384, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %384, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %384, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 385:                                              ; preds = %356
@@ -3531,9 +3531,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit239.thread: ; preds = %454
   br i1 %517, label %518, label %520
 
 518:                                              ; preds = %491
-  %519 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %519 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %519, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %519, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %519, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 520:                                              ; preds = %491
@@ -3621,9 +3621,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit286:        ; preds = %.lr.ph627, %489, %5
   br i1 %572, label %573, label %575
 
 573:                                              ; preds = %546
-  %574 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %574 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %574, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %574, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %574, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 575:                                              ; preds = %546
@@ -3730,9 +3730,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit239:  ; preds = %525, %.split.loop.e
   br i1 %633, label %634, label %636
 
 634:                                              ; preds = %607
-  %635 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %635 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %635, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %635, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %635, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 636:                                              ; preds = %607
@@ -3811,9 +3811,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit294:        ; preds = %600, %605, %636
   br i1 %682, label %683, label %685
 
 683:                                              ; preds = %656
-  %684 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %684 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %684, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %684, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %684, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 685:                                              ; preds = %656
@@ -3910,9 +3910,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit298:        ; preds = %648, %654, %685
   br i1 %741, label %742, label %744
 
 742:                                              ; preds = %715
-  %743 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %743 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %743, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %743, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %743, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 744:                                              ; preds = %715
@@ -3992,9 +3992,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit302:        ; preds = %708, %713, %744
   br i1 %791, label %792, label %794
 
 792:                                              ; preds = %765
-  %793 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %793 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %793, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %793, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %793, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 794:                                              ; preds = %765
@@ -4156,9 +4156,9 @@ _Z24crxDecodeSymbolL1RoundedP12CrxBandParamii.exit130: ; preds = %828, %835
   br i1 %898, label %899, label %901
 
 899:                                              ; preds = %872
-  %900 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %900 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %900, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %900, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %900, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 901:                                              ; preds = %872
@@ -4236,9 +4236,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit310:        ; preds = %865, %870, %901
   br i1 %946, label %947, label %949
 
 947:                                              ; preds = %920
-  %948 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %948 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %948, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %948, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %948, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 949:                                              ; preds = %920
@@ -4340,9 +4340,9 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit108:  ; preds = %_ZL13crxFillBufferP
   br i1 %1004, label %1005, label %1007
 
 1005:                                             ; preds = %978
-  %1006 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1006 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1006, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1006, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1006, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1007:                                             ; preds = %978
@@ -4420,9 +4420,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit318:        ; preds = %971, %976, %1007
   br i1 %1052, label %1053, label %1055
 
 1053:                                             ; preds = %1026
-  %1054 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1054 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1054, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1054, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1054, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1055:                                             ; preds = %1026
@@ -4551,9 +4551,9 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit100:  ; preds = %_ZL13crxFillBufferP
   br i1 %1128, label %1129, label %1131
 
 1129:                                             ; preds = %1102
-  %1130 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1130 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1130, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1130, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1130, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1131:                                             ; preds = %1102
@@ -4633,9 +4633,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit326:        ; preds = %1095, %1100, %1131
   br i1 %1178, label %1179, label %1181
 
 1179:                                             ; preds = %1152
-  %1180 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1180 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1180, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1180, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1180, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1181:                                             ; preds = %1152
@@ -4807,9 +4807,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit223.thread: ; preds = %1216
   br i1 %1268, label %1269, label %1271
 
 1269:                                             ; preds = %1242
-  %1270 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1270 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1270, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1270, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1270, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1271:                                             ; preds = %1242
@@ -4897,9 +4897,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit334:        ; preds = %.lr.ph612, %1240, %
   br i1 %1323, label %1324, label %1326
 
 1324:                                             ; preds = %1297
-  %1325 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1325 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1325, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1325, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1325, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1326:                                             ; preds = %1297
@@ -5006,9 +5006,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit223:  ; preds = %1276, %.split.loop.
   br i1 %1384, label %1385, label %1387
 
 1385:                                             ; preds = %1358
-  %1386 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1386 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1386, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1386, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1386, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1387:                                             ; preds = %1358
@@ -5087,9 +5087,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit342:        ; preds = %1351, %1356, %1387
   br i1 %1433, label %1434, label %1436
 
 1434:                                             ; preds = %1407
-  %1435 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1435 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1435, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1435, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1435, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1436:                                             ; preds = %1407
@@ -5186,9 +5186,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit346:        ; preds = %1399, %1405, %1436
   br i1 %1492, label %1493, label %1495
 
 1493:                                             ; preds = %1466
-  %1494 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1494 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1494, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1494, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1494, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1495:                                             ; preds = %1466
@@ -5268,9 +5268,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit350:        ; preds = %1459, %1464, %1495
   br i1 %1542, label %1543, label %1545
 
 1543:                                             ; preds = %1516
-  %1544 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1544 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1544, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1544, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1544, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1545:                                             ; preds = %1516
@@ -5468,9 +5468,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit207.thread: ; preds = %1618
   br i1 %1670, label %1671, label %1673
 
 1671:                                             ; preds = %1644
-  %1672 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1672 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1672, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1672, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1672, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1673:                                             ; preds = %1644
@@ -5558,9 +5558,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit358:        ; preds = %.lr.ph599, %1642, %
   br i1 %1725, label %1726, label %1728
 
 1726:                                             ; preds = %1699
-  %1727 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1727 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1727, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1727, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1727, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1728:                                             ; preds = %1699
@@ -5667,9 +5667,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit207:  ; preds = %1678, %.split.loop.
   br i1 %1786, label %1787, label %1789
 
 1787:                                             ; preds = %1760
-  %1788 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1788 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1788, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1788, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1788, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1789:                                             ; preds = %1760
@@ -5748,9 +5748,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit366:        ; preds = %1753, %1758, %1789
   br i1 %1835, label %1836, label %1838
 
 1836:                                             ; preds = %1809
-  %1837 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1837 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1837, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1837, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1837, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1838:                                             ; preds = %1809
@@ -5847,9 +5847,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit370:        ; preds = %1801, %1807, %1838
   br i1 %1894, label %1895, label %1897
 
 1895:                                             ; preds = %1868
-  %1896 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1896 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1896, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1896, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1896, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1897:                                             ; preds = %1868
@@ -5929,9 +5929,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit374:        ; preds = %1861, %1866, %1897
   br i1 %1944, label %1945, label %1947
 
 1945:                                             ; preds = %1918
-  %1946 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1946 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1946, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1946, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1946, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1947:                                             ; preds = %1918
@@ -6143,9 +6143,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread: ; preds = %1994
   br i1 %2073, label %2074, label %2076
 
 2074:                                             ; preds = %2047
-  %2075 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %2075 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %2075, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %2075, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %2075, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 2076:                                             ; preds = %2047
@@ -6233,9 +6233,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit382:        ; preds = %.lr.ph663, %2045, %
   br i1 %2128, label %2129, label %2131
 
 2129:                                             ; preds = %2102
-  %2130 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %2130 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %2130, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %2130, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %2130, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 2131:                                             ; preds = %2102
@@ -6342,9 +6342,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit:     ; preds = %2081, %.split.loop.
   br i1 %2189, label %2190, label %2192
 
 2190:                                             ; preds = %2163
-  %2191 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %2191 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %2191, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %2191, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %2191, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 2192:                                             ; preds = %2163
@@ -6423,9 +6423,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit390:        ; preds = %2156, %2161, %2192
   br i1 %2238, label %2239, label %2241
 
 2239:                                             ; preds = %2212
-  %2240 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %2240 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %2240, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %2240, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %2240, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 2241:                                             ; preds = %2212
@@ -6535,9 +6535,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit394:        ; preds = %2204, %2210, %2241
   br i1 %2307, label %2308, label %2310
 
 2308:                                             ; preds = %2279
-  %2309 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %2309 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %2309, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %2309, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %2309, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 2310:                                             ; preds = %2279
@@ -6617,9 +6617,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit398:        ; preds = %2271, %2276, %2310
   br i1 %2358, label %2359, label %2361
 
 2359:                                             ; preds = %2332
-  %2360 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %2360 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %2360, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %2360, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %2360, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 2361:                                             ; preds = %2332
@@ -6830,9 +6830,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread: ; preds = %34
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %58
-  %86 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %86 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %86, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %86, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %86, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 87:                                               ; preds = %58
@@ -6920,9 +6920,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit:           ; preds = %.lr.ph, %56, %87
   br i1 %139, label %140, label %142
 
 140:                                              ; preds = %113
-  %141 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %141 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %141, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %141, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %141, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 142:                                              ; preds = %113
@@ -7029,9 +7029,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit:     ; preds = %92, %.split.loop.ex
   br i1 %200, label %201, label %203
 
 201:                                              ; preds = %174
-  %202 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %202 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %202, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %202, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %202, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 203:                                              ; preds = %174
@@ -7110,9 +7110,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit318:        ; preds = %167, %172, %203
   br i1 %249, label %250, label %252
 
 250:                                              ; preds = %223
-  %251 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %251 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %251, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %251, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %251, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 252:                                              ; preds = %223
@@ -7209,9 +7209,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit322:        ; preds = %215, %221, %252
   br i1 %308, label %309, label %311
 
 309:                                              ; preds = %282
-  %310 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %310 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %310, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %310, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %310, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 311:                                              ; preds = %282
@@ -7291,9 +7291,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit326:        ; preds = %275, %280, %311
   br i1 %358, label %359, label %361
 
 359:                                              ; preds = %332
-  %360 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %360 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %360, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %360, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %360, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 361:                                              ; preds = %332
@@ -7430,9 +7430,9 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit254:  ; preds = %.loopexit491, %_ZL1
   br i1 %446, label %447, label %449
 
 447:                                              ; preds = %420
-  %448 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %448 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %448, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %448, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %448, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 449:                                              ; preds = %420
@@ -7510,9 +7510,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit334:        ; preds = %413, %418, %449
   br i1 %494, label %495, label %497
 
 495:                                              ; preds = %468
-  %496 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %496 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %496, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %496, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %496, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 497:                                              ; preds = %468
@@ -7617,9 +7617,9 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit238:  ; preds = %_ZL13crxFillBufferP
   br i1 %555, label %556, label %558
 
 556:                                              ; preds = %529
-  %557 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %557 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %557, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %557, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %557, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 558:                                              ; preds = %529
@@ -7697,9 +7697,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit342:        ; preds = %522, %527, %558
   br i1 %603, label %604, label %606
 
 604:                                              ; preds = %577
-  %605 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %605 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %605, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %605, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %605, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 606:                                              ; preds = %577
@@ -7842,9 +7842,9 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit230..loopexit487.loopexit_crit_edge:
   br i1 %683, label %684, label %686
 
 684:                                              ; preds = %657
-  %685 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %685 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %685, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %685, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %685, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 686:                                              ; preds = %657
@@ -7924,9 +7924,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit350:        ; preds = %650, %655, %686
   br i1 %733, label %734, label %736
 
 734:                                              ; preds = %707
-  %735 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %735 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %735, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %735, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %735, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 736:                                              ; preds = %707
@@ -8100,9 +8100,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit272.thread: ; preds = %775
   br i1 %825, label %826, label %828
 
 826:                                              ; preds = %799
-  %827 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %827 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %827, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %827, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %827, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 828:                                              ; preds = %799
@@ -8190,9 +8190,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit358:        ; preds = %.lr.ph626, %797, %8
   br i1 %880, label %881, label %883
 
 881:                                              ; preds = %854
-  %882 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %882 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %882, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %882, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %882, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 883:                                              ; preds = %854
@@ -8299,9 +8299,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit272:  ; preds = %833, %.split.loop.e
   br i1 %941, label %942, label %944
 
 942:                                              ; preds = %915
-  %943 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %943 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %943, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %943, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %943, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 944:                                              ; preds = %915
@@ -8380,9 +8380,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit366:        ; preds = %908, %913, %944
   br i1 %990, label %991, label %993
 
 991:                                              ; preds = %964
-  %992 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %992 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %992, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %992, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %992, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 993:                                              ; preds = %964
@@ -8479,9 +8479,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit370:        ; preds = %956, %962, %993
   br i1 %1049, label %1050, label %1052
 
 1050:                                             ; preds = %1023
-  %1051 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1051 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1051, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1051, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1051, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1052:                                             ; preds = %1023
@@ -8561,9 +8561,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit374:        ; preds = %1016, %1021, %1052
   br i1 %1099, label %1100, label %1102
 
 1100:                                             ; preds = %1073
-  %1101 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1101 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1101, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1101, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1101, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1102:                                             ; preds = %1073
@@ -8716,9 +8716,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit288.thread: ; preds = %1143
   br i1 %1193, label %1194, label %1196
 
 1194:                                             ; preds = %1167
-  %1195 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1195 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1195, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1195, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1195, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1196:                                             ; preds = %1167
@@ -8806,9 +8806,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit382:        ; preds = %.lr.ph641, %1165, %
   br i1 %1248, label %1249, label %1251
 
 1249:                                             ; preds = %1222
-  %1250 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1250 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1250, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1250, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1250, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1251:                                             ; preds = %1222
@@ -8915,9 +8915,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit288:  ; preds = %1201, %.split.loop.
   br i1 %1309, label %1310, label %1312
 
 1310:                                             ; preds = %1283
-  %1311 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1311 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1311, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1311, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1311, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1312:                                             ; preds = %1283
@@ -8996,9 +8996,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit390:        ; preds = %1276, %1281, %1312
   br i1 %1358, label %1359, label %1361
 
 1359:                                             ; preds = %1332
-  %1360 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1360 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1360, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1360, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1360, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1361:                                             ; preds = %1332
@@ -9095,9 +9095,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit394:        ; preds = %1324, %1330, %1361
   br i1 %1417, label %1418, label %1420
 
 1418:                                             ; preds = %1391
-  %1419 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1419 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1419, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1419, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1419, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1420:                                             ; preds = %1391
@@ -9177,9 +9177,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit398:        ; preds = %1384, %1389, %1420
   br i1 %1467, label %1468, label %1470
 
 1468:                                             ; preds = %1441
-  %1469 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1469 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1469, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1469, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1469, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1470:                                             ; preds = %1441
@@ -9380,9 +9380,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit304.thread: ; preds = %1528
   br i1 %1586, label %1587, label %1589
 
 1587:                                             ; preds = %1560
-  %1588 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1588 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1588, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1588, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1588, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1589:                                             ; preds = %1560
@@ -9470,9 +9470,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit406:        ; preds = %.lr.ph662, %1558, %
   br i1 %1641, label %1642, label %1644
 
 1642:                                             ; preds = %1615
-  %1643 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1643 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1643, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1643, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1643, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1644:                                             ; preds = %1615
@@ -9579,9 +9579,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit304:  ; preds = %1594, %.split.loop.
   br i1 %1702, label %1703, label %1705
 
 1703:                                             ; preds = %1676
-  %1704 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1704 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1704, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1704, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1704, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1705:                                             ; preds = %1676
@@ -9660,9 +9660,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit414:        ; preds = %1669, %1674, %1705
   br i1 %1751, label %1752, label %1754
 
 1752:                                             ; preds = %1725
-  %1753 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1753 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1753, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1753, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1753, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1754:                                             ; preds = %1725
@@ -9772,9 +9772,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit418:        ; preds = %1717, %1723, %1754
   br i1 %1820, label %1821, label %1823
 
 1821:                                             ; preds = %1792
-  %1822 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1822 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1822, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1822, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1822, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1823:                                             ; preds = %1792
@@ -9854,9 +9854,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit422:        ; preds = %1784, %1789, %1823
   br i1 %1871, label %1872, label %1874
 
 1872:                                             ; preds = %1845
-  %1873 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1873 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1873, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1873, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1873, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1874:                                             ; preds = %1845
@@ -10027,9 +10027,9 @@ define noundef range(i32 -1, 1) i32 @_Z16crxDecodeTopLineP12CrxBandParam(ptr nou
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %35
-  %63 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %63 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %63, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %63, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %63, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 64:                                               ; preds = %35
@@ -10107,9 +10107,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit:           ; preds = %28, %33, %64
   br i1 %109, label %110, label %112
 
 110:                                              ; preds = %83
-  %111 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %111 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %111, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %111, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %111, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 112:                                              ; preds = %83
@@ -10211,9 +10211,9 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit147..thread251_crit_edge: ; preds = 
   br i1 %166, label %167, label %169
 
 167:                                              ; preds = %140
-  %168 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %168 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %168, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %168, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %168, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 169:                                              ; preds = %140
@@ -10291,9 +10291,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit177:        ; preds = %133, %138, %169
   br i1 %214, label %215, label %217
 
 215:                                              ; preds = %188
-  %216 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %216 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %216, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %216, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %216, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 217:                                              ; preds = %188
@@ -10422,9 +10422,9 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit139:  ; preds = %_ZL13crxFillBufferP
   br i1 %290, label %291, label %293
 
 291:                                              ; preds = %264
-  %292 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %292 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %292, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %292, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %292, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 293:                                              ; preds = %264
@@ -10504,9 +10504,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit185:        ; preds = %257, %262, %293
   br i1 %340, label %341, label %343
 
 341:                                              ; preds = %314
-  %342 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %342 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %342, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %342, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %342, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 343:                                              ; preds = %314
@@ -10675,9 +10675,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit165.thread: ; preds = %.thread251
   br i1 %424, label %425, label %427
 
 425:                                              ; preds = %398
-  %426 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %426 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %426, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %426, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %426, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 427:                                              ; preds = %398
@@ -10765,9 +10765,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit193:        ; preds = %.lr.ph328, %396, %4
   br i1 %479, label %480, label %482
 
 480:                                              ; preds = %453
-  %481 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %481 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %481, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %481, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %481, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 482:                                              ; preds = %453
@@ -10874,9 +10874,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit165:  ; preds = %432, %.split.loop.e
   br i1 %540, label %541, label %543
 
 541:                                              ; preds = %514
-  %542 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %542 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %542, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %542, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %542, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 543:                                              ; preds = %514
@@ -10955,9 +10955,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit201:        ; preds = %507, %512, %543
   br i1 %589, label %590, label %592
 
 590:                                              ; preds = %563
-  %591 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %591 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %591, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %591, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %591, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 592:                                              ; preds = %563
@@ -11054,9 +11054,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit205:        ; preds = %555, %561, %592
   br i1 %648, label %649, label %651
 
 649:                                              ; preds = %622
-  %650 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %650 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %650, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %650, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %650, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 651:                                              ; preds = %622
@@ -11136,9 +11136,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit209:        ; preds = %615, %620, %651
   br i1 %698, label %699, label %701
 
 699:                                              ; preds = %672
-  %700 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %700 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %700, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %700, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %700, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 701:                                              ; preds = %672
@@ -11307,9 +11307,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread: ; preds = %743
   br i1 %803, label %804, label %806
 
 804:                                              ; preds = %777
-  %805 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %805 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %805, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %805, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %805, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 806:                                              ; preds = %777
@@ -11397,9 +11397,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit217:        ; preds = %.lr.ph346, %775, %8
   br i1 %858, label %859, label %861
 
 859:                                              ; preds = %832
-  %860 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %860 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %860, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %860, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %860, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 861:                                              ; preds = %832
@@ -11506,9 +11506,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit:     ; preds = %811, %.split.loop.e
   br i1 %919, label %920, label %922
 
 920:                                              ; preds = %893
-  %921 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %921 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %921, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %921, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %921, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 922:                                              ; preds = %893
@@ -11587,9 +11587,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit225:        ; preds = %886, %891, %922
   br i1 %968, label %969, label %971
 
 969:                                              ; preds = %942
-  %970 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %970 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %970, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %970, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %970, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 971:                                              ; preds = %942
@@ -11699,9 +11699,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit229:        ; preds = %934, %940, %971
   br i1 %1037, label %1038, label %1040
 
 1038:                                             ; preds = %1009
-  %1039 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1039 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1039, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1039, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1039, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1040:                                             ; preds = %1009
@@ -11781,9 +11781,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit233:        ; preds = %1001, %1006, %1040
   br i1 %1088, label %1089, label %1091
 
 1089:                                             ; preds = %1062
-  %1090 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1090 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1090, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1090, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1090, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1091:                                             ; preds = %1062
@@ -11958,9 +11958,9 @@ define noundef range(i32 -1, 1) i32 @_Z23crxDecodeTopLineRoundedP12CrxBandParam(
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %39
-  %67 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %67 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %67, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %67, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %67, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 68:                                               ; preds = %39
@@ -12038,9 +12038,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit:           ; preds = %32, %37, %68
   br i1 %113, label %114, label %116
 
 114:                                              ; preds = %87
-  %115 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %115 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %115, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %115, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %115, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 116:                                              ; preds = %87
@@ -12138,9 +12138,9 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit151:  ; preds = %_ZL13crxFillBufferP
   br i1 %170, label %171, label %173
 
 171:                                              ; preds = %144
-  %172 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %172 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %172, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %172, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %172, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 173:                                              ; preds = %144
@@ -12218,9 +12218,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit181:        ; preds = %137, %142, %173
   br i1 %218, label %219, label %221
 
 219:                                              ; preds = %192
-  %220 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %220 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %220, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %220, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %220, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 221:                                              ; preds = %192
@@ -12349,9 +12349,9 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit143:  ; preds = %_ZL13crxFillBufferP
   br i1 %294, label %295, label %297
 
 295:                                              ; preds = %268
-  %296 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %296 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %296, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %296, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %296, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 297:                                              ; preds = %268
@@ -12431,9 +12431,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit189:        ; preds = %261, %266, %297
   br i1 %344, label %345, label %347
 
 345:                                              ; preds = %318
-  %346 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %346 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %346, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %346, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %346, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 347:                                              ; preds = %318
@@ -12603,9 +12603,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit169.thread: ; preds = %.thread254
   br i1 %427, label %428, label %430
 
 428:                                              ; preds = %401
-  %429 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %429 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %429, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %429, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %429, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 430:                                              ; preds = %401
@@ -12693,9 +12693,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit197:        ; preds = %.lr.ph331, %399, %4
   br i1 %482, label %483, label %485
 
 483:                                              ; preds = %456
-  %484 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %484 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %484, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %484, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %484, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 485:                                              ; preds = %456
@@ -12802,9 +12802,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit169:  ; preds = %435, %.split.loop.e
   br i1 %543, label %544, label %546
 
 544:                                              ; preds = %517
-  %545 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %545 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %545, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %545, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %545, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 546:                                              ; preds = %517
@@ -12883,9 +12883,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit205:        ; preds = %510, %515, %546
   br i1 %592, label %593, label %595
 
 593:                                              ; preds = %566
-  %594 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %594 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %594, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %594, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %594, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 595:                                              ; preds = %566
@@ -12982,9 +12982,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit209:        ; preds = %558, %564, %595
   br i1 %651, label %652, label %654
 
 652:                                              ; preds = %625
-  %653 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %653 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %653, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %653, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %653, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 654:                                              ; preds = %625
@@ -13064,9 +13064,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit213:        ; preds = %618, %623, %654
   br i1 %701, label %702, label %704
 
 702:                                              ; preds = %675
-  %703 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %703 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %703, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %703, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %703, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 704:                                              ; preds = %675
@@ -13236,9 +13236,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread: ; preds = %750
   br i1 %808, label %809, label %811
 
 809:                                              ; preds = %782
-  %810 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %810 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %810, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %810, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %810, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 811:                                              ; preds = %782
@@ -13326,9 +13326,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit221:        ; preds = %.lr.ph349, %780, %8
   br i1 %863, label %864, label %866
 
 864:                                              ; preds = %837
-  %865 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %865 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %865, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %865, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %865, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 866:                                              ; preds = %837
@@ -13435,9 +13435,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit:     ; preds = %816, %.split.loop.e
   br i1 %924, label %925, label %927
 
 925:                                              ; preds = %898
-  %926 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %926 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %926, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %926, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %926, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 927:                                              ; preds = %898
@@ -13516,9 +13516,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit229:        ; preds = %891, %896, %927
   br i1 %973, label %974, label %976
 
 974:                                              ; preds = %947
-  %975 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %975 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %975, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %975, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %975, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 976:                                              ; preds = %947
@@ -13628,9 +13628,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit233:        ; preds = %939, %945, %976
   br i1 %1042, label %1043, label %1045
 
 1043:                                             ; preds = %1014
-  %1044 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1044 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1044, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1044, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1044, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1045:                                             ; preds = %1014
@@ -13710,9 +13710,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit237:        ; preds = %1006, %1011, %1045
   br i1 %1093, label %1094, label %1096
 
 1094:                                             ; preds = %1067
-  %1095 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1095 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1095, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1095, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1095, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1096:                                             ; preds = %1067
@@ -13915,9 +13915,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit214.thread: ; preds = %23
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %47
-  %75 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %75 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %75, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %75, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %75, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 76:                                               ; preds = %47
@@ -14005,9 +14005,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit:           ; preds = %.lr.ph, %45, %76
   br i1 %128, label %129, label %131
 
 129:                                              ; preds = %102
-  %130 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %130 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %130, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %130, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %130, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 131:                                              ; preds = %102
@@ -14114,9 +14114,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit214:  ; preds = %81, %.split.loop.ex
   br i1 %189, label %190, label %192
 
 190:                                              ; preds = %163
-  %191 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %191 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %191, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %191, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %191, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 192:                                              ; preds = %163
@@ -14195,9 +14195,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit227:        ; preds = %156, %161, %192
   br i1 %238, label %239, label %241
 
 239:                                              ; preds = %212
-  %240 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %240 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %240, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %240, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %240, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 241:                                              ; preds = %212
@@ -14294,9 +14294,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit231:        ; preds = %204, %210, %241
   br i1 %297, label %298, label %300
 
 298:                                              ; preds = %271
-  %299 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %299 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %299, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %299, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %299, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 300:                                              ; preds = %271
@@ -14376,9 +14376,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit235:        ; preds = %264, %269, %300
   br i1 %347, label %348, label %350
 
 348:                                              ; preds = %321
-  %349 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %349 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %349, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %349, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %349, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 350:                                              ; preds = %321
@@ -14477,9 +14477,9 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit172:  ; preds = %_ZL13crxFillBufferP
   br i1 %408, label %409, label %411
 
 409:                                              ; preds = %382
-  %410 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %410 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %410, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %410, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %410, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 411:                                              ; preds = %382
@@ -14557,9 +14557,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit243:        ; preds = %375, %380, %411
   br i1 %456, label %457, label %459
 
 457:                                              ; preds = %430
-  %458 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %458 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %458, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %458, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %458, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 459:                                              ; preds = %430
@@ -14657,9 +14657,9 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit164:  ; preds = %_ZL13crxFillBufferP
   br i1 %513, label %514, label %516
 
 514:                                              ; preds = %487
-  %515 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %515 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %515, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %515, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %515, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 516:                                              ; preds = %487
@@ -14737,9 +14737,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit251:        ; preds = %480, %485, %516
   br i1 %561, label %562, label %564
 
 562:                                              ; preds = %535
-  %563 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %563 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %563, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %563, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %563, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 564:                                              ; preds = %535
@@ -14868,9 +14868,9 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit156:  ; preds = %_ZL13crxFillBufferP
   br i1 %637, label %638, label %640
 
 638:                                              ; preds = %611
-  %639 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %639 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %639, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %639, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %639, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 640:                                              ; preds = %611
@@ -14950,9 +14950,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit259:        ; preds = %604, %609, %640
   br i1 %687, label %688, label %690
 
 688:                                              ; preds = %661
-  %689 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %689 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %689, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %689, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %689, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 690:                                              ; preds = %661
@@ -15120,9 +15120,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit198.thread: ; preds = %722
   br i1 %772, label %773, label %775
 
 773:                                              ; preds = %746
-  %774 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %774 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %774, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %774, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %774, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 775:                                              ; preds = %746
@@ -15210,9 +15210,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit267:        ; preds = %.lr.ph452, %744, %7
   br i1 %827, label %828, label %830
 
 828:                                              ; preds = %801
-  %829 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %829 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %829, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %829, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %829, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 830:                                              ; preds = %801
@@ -15319,9 +15319,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit198:  ; preds = %780, %.split.loop.e
   br i1 %888, label %889, label %891
 
 889:                                              ; preds = %862
-  %890 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %890 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %890, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %890, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %890, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 891:                                              ; preds = %862
@@ -15400,9 +15400,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit275:        ; preds = %855, %860, %891
   br i1 %937, label %938, label %940
 
 938:                                              ; preds = %911
-  %939 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %939 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %939, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %939, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %939, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 940:                                              ; preds = %911
@@ -15499,9 +15499,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit279:        ; preds = %903, %909, %940
   br i1 %996, label %997, label %999
 
 997:                                              ; preds = %970
-  %998 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %998 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %998, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %998, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %998, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 999:                                              ; preds = %970
@@ -15581,9 +15581,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit283:        ; preds = %963, %968, %999
   br i1 %1046, label %1047, label %1049
 
 1047:                                             ; preds = %1020
-  %1048 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1048 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1048, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1048, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1048, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1049:                                             ; preds = %1020
@@ -15759,9 +15759,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit.thread: ; preds = %1093
   br i1 %1151, label %1152, label %1154
 
 1152:                                             ; preds = %1125
-  %1153 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1153 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1153, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1153, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1153, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1154:                                             ; preds = %1125
@@ -15849,9 +15849,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit291:        ; preds = %.lr.ph472, %1123, %
   br i1 %1206, label %1207, label %1209
 
 1207:                                             ; preds = %1180
-  %1208 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1208 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1208, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1208, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1208, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1209:                                             ; preds = %1180
@@ -15958,9 +15958,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit:     ; preds = %1159, %.split.loop.
   br i1 %1267, label %1268, label %1270
 
 1268:                                             ; preds = %1241
-  %1269 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1269 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1269, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1269, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1269, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1270:                                             ; preds = %1241
@@ -16039,9 +16039,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit299:        ; preds = %1234, %1239, %1270
   br i1 %1316, label %1317, label %1319
 
 1317:                                             ; preds = %1290
-  %1318 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1318 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1318, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1318, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1318, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1319:                                             ; preds = %1290
@@ -16151,9 +16151,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit303:        ; preds = %1282, %1288, %1319
   br i1 %1385, label %1386, label %1388
 
 1386:                                             ; preds = %1357
-  %1387 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1387 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1387, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1387, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1387, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1388:                                             ; preds = %1357
@@ -16233,9 +16233,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit307:        ; preds = %1349, %1354, %1388
   br i1 %1436, label %1437, label %1439
 
 1437:                                             ; preds = %1410
-  %1438 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %1438 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %1438, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %1438, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %1438, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 1439:                                             ; preds = %1410
@@ -16582,9 +16582,9 @@ define noundef range(i32 -1, 1) i32 @_Z15crxUpdateQparamP10CrxSubband(ptr nounde
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %35
-  %63 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %63 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %63, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %63, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %63, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 64:                                               ; preds = %35
@@ -16672,9 +16672,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit:           ; preds = %.lr.ph, %33, %64
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %90
-  %118 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %118 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %118, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %118, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %118, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 119:                                              ; preds = %90
@@ -16800,9 +16800,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit:     ; preds = %5, %133
   br i1 %190, label %191, label %193
 
 191:                                              ; preds = %162
-  %192 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %192 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %192, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %192, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %192, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 193:                                              ; preds = %162
@@ -16881,9 +16881,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit38:         ; preds = %154, %159, %193
   br i1 %240, label %241, label %243
 
 241:                                              ; preds = %214
-  %242 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %242 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %242, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %242, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %242, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 243:                                              ; preds = %214
@@ -16994,9 +16994,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit42:         ; preds = %206, %212, %243
   br i1 %311, label %312, label %314
 
 312:                                              ; preds = %283
-  %313 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %313 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %313, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %313, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %313, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 314:                                              ; preds = %283
@@ -17076,9 +17076,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit46:         ; preds = %275, %280, %314
   br i1 %362, label %363, label %365
 
 363:                                              ; preds = %336
-  %364 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %364 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %364, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %364, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %364, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 365:                                              ; preds = %336
@@ -18891,7 +18891,7 @@ define void @_Z18crxFreeSubbandDataP8CrxImageP12CrxPlaneComp(ptr noundef readonl
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
-  tail call void @free(ptr noundef nonnull %3) #21
+  tail call void @free(ptr noundef nonnull %3) #23
   store ptr null, ptr %1, align 8, !tbaa !120
   br label %5
 
@@ -18917,7 +18917,7 @@ define void @_Z18crxFreeSubbandDataP8CrxImageP12CrxPlaneComp(ptr noundef readonl
   br i1 %.not19, label %17, label %14
 
 14:                                               ; preds = %.lr.ph
-  tail call void @free(ptr noundef nonnull %13) #21
+  tail call void @free(ptr noundef nonnull %13) #23
   %15 = load ptr, ptr %6, align 8, !tbaa !106
   %16 = getelementptr inbounds nuw %struct.CrxSubband, ptr %15, i64 %indvars.iv
   store ptr null, ptr %16, align 8, !tbaa !66
@@ -19276,7 +19276,7 @@ define noundef range(i32 -1, 1) i32 @_Z12crxParamInitP8CrxImagePP12CrxBandParamm
   %24 = tail call i64 @llvm.umax.i64(i64 %18, i64 1)
   %25 = udiv i64 %23, %24
   %26 = add i64 %25, 1
-  %27 = tail call noalias ptr @calloc(i64 noundef %26, i64 noundef %18) #23
+  %27 = tail call noalias ptr @calloc(i64 noundef %26, i64 noundef %18) #25
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %_ZL13crxFillBufferP12CrxBitstream.exit, label %.preheader.i.i
 
@@ -19308,9 +19308,9 @@ define noundef range(i32 -1, 1) i32 @_Z12crxParamInitP8CrxImagePP12CrxBandParamm
   br label %38
 
 38:                                               ; preds = %37, %34
-  %39 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %39 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 11, ptr %39, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %39, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %39, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 _ZN13libraw_memmgr6callocEmm.exit:                ; preds = %31
@@ -19378,9 +19378,9 @@ _ZN13libraw_memmgr6callocEmm.exit:                ; preds = %31
   br i1 %80, label %81, label %83
 
 81:                                               ; preds = %56
-  %82 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %82 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %82, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %82, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %82, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 83:                                               ; preds = %56
@@ -19463,7 +19463,7 @@ define noundef range(i32 -1, 1) i32 @_Z19crxSetupSubbandDataP8CrxImageP12CrxPlan
   %36 = load i32, ptr %35, align 8, !tbaa !141
   %37 = zext i32 %36 to i64
   %38 = add i64 %.1168, %37
-  %39 = tail call noalias ptr @malloc(i64 noundef %38) #24
+  %39 = tail call noalias ptr @malloc(i64 noundef %38) #26
   %.not.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i, label %_ZN13libraw_memmgr6mallocEm.exit.thread, label %.preheader.i.i
 
@@ -19499,9 +19499,9 @@ _ZN13libraw_memmgr6mallocEm.exit.thread:          ; preds = %.loopexit193
   br label %50
 
 50:                                               ; preds = %49, %46
-  %51 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %51 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 11, ptr %51, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 _ZN13libraw_memmgr6mallocEm.exit:                 ; preds = %43
@@ -19683,7 +19683,7 @@ define linkonce_odr noundef ptr @_ZN13libraw_memmgr6mallocEm(ptr noundef nonnull
   %4 = load i32, ptr %3, align 8, !tbaa !141
   %5 = zext i32 %4 to i64
   %6 = add i64 %1, %5
-  %7 = tail call noalias ptr @malloc(i64 noundef %6) #24
+  %7 = tail call noalias ptr @malloc(i64 noundef %6) #26
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZN13libraw_memmgr7mem_ptrEPv.exit, label %.preheader.i
 
@@ -19719,9 +19719,9 @@ define linkonce_odr noundef ptr @_ZN13libraw_memmgr6mallocEm(ptr noundef nonnull
   br label %19
 
 19:                                               ; preds = %18, %15
-  %20 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %20 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 11, ptr %20, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 _ZN13libraw_memmgr7mem_ptrEPv.exit:               ; preds = %2, %13
@@ -20030,9 +20030,9 @@ define noundef i32 @_Z9crxReadQPP12CrxBitstreami(ptr noundef %0, i32 noundef %1)
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %35
-  %63 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %63 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %63, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %63, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %63, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 64:                                               ; preds = %35
@@ -20120,9 +20120,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit:           ; preds = %.lr.ph, %33, %64
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %90
-  %118 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %118 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %118, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %118, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %118, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 119:                                              ; preds = %90
@@ -20246,9 +20246,9 @@ _Z20crxBitstreamGetZerosP12CrxBitstream.exit:     ; preds = %5, %133
   br i1 %188, label %189, label %191
 
 189:                                              ; preds = %160
-  %190 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %190 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %190, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %190, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %190, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 191:                                              ; preds = %160
@@ -20327,9 +20327,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit29:         ; preds = %152, %157, %191
   br i1 %238, label %239, label %241
 
 239:                                              ; preds = %212
-  %240 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %240 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %240, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %240, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %240, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 241:                                              ; preds = %212
@@ -20434,9 +20434,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit33:         ; preds = %204, %210, %241
   br i1 %303, label %304, label %306
 
 304:                                              ; preds = %275
-  %305 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %305 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %305, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %305, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %305, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 306:                                              ; preds = %275
@@ -20516,9 +20516,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit37:         ; preds = %267, %272, %306
   br i1 %354, label %355, label %357
 
 355:                                              ; preds = %328
-  %356 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %356 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %356, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %356, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %356, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 357:                                              ; preds = %328
@@ -20765,7 +20765,7 @@ define noundef range(i32 -1, 1) i32 @_Z12crxMakeQStepP8CrxImageP7CrxTilePij(ptr 
   %34 = zext i32 %33 to i64
   %35 = add nuw nsw i64 %31, %34
   %36 = add nuw nsw i64 %35, %29
-  %37 = tail call noalias ptr @malloc(i64 noundef %36) #24
+  %37 = tail call noalias ptr @malloc(i64 noundef %36) #26
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %_ZN13libraw_memmgr6mallocEm.exit.thread, label %.preheader.i.i
 
@@ -20802,9 +20802,9 @@ _ZN13libraw_memmgr6mallocEm.exit.thread:          ; preds = %8
   br label %49
 
 49:                                               ; preds = %48, %45
-  %50 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %50 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 11, ptr %50, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %50, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %50, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 _ZN13libraw_memmgr6mallocEm.exit:                 ; preds = %42
@@ -21786,7 +21786,7 @@ define noundef range(i32 -1, 1) i32 @_Z19crxReadImageHeadersP17crx_data_header_t
   %reass.add = add nuw nsw i64 %24, %29
   %reass.mul = mul nuw nsw i64 %reass.add, %20
   %33 = add nuw nsw i64 %reass.mul, %32
-  %34 = tail call noalias ptr @calloc(i64 noundef %33, i64 noundef 1) #23
+  %34 = tail call noalias ptr @calloc(i64 noundef %33, i64 noundef 1) #25
   %.not.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i, label %_ZN13libraw_memmgr6callocEmm.exit.thread, label %.preheader.i.i
 
@@ -21822,9 +21822,9 @@ _ZN13libraw_memmgr6callocEmm.exit.thread:         ; preds = %19
   br label %45
 
 45:                                               ; preds = %44, %41
-  %46 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %46 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 11, ptr %46, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %46, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %46, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 _ZN13libraw_memmgr6callocEmm.exit:                ; preds = %38
@@ -22474,9 +22474,9 @@ _ZN6LibRaw5sgetnEiPh.exit345:                     ; preds = %.lr.ph.i341
   br i1 %362, label %363, label %365
 
 363:                                              ; preds = %340
-  %364 = call ptr @__cxa_allocate_exception(i64 4) #21
+  %364 = call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %364, align 16, !tbaa !30
-  call void @__cxa_throw(ptr nonnull %364, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  call void @__cxa_throw(ptr nonnull %364, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 365:                                              ; preds = %340
@@ -22505,7 +22505,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit:           ; preds = %331, %365
   %narrow = add nuw nsw i32 %382, %380
   %383 = zext nneg i32 %narrow to i64
   %384 = shl nuw nsw i64 %383, 2
-  %385 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %384) #25
+  %385 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %384) #27
           to label %386 unwind label %401
 
 386:                                              ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit
@@ -22662,7 +22662,7 @@ _Z18crxDecodeGolombTopP12CrxBitstreamiPiS1_.exit.us: ; preds = %.lr.ph424.split.
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge425
   %.not281 = icmp eq i32 %400, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @_ZdlPvm(ptr noundef nonnull %385, i64 noundef %384) #26
+  call void @_ZdlPvm(ptr noundef nonnull %385, i64 noundef %384) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not281, label %441, label %.thread
 
@@ -22674,13 +22674,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge425
 _ZNSt6vectorIiSaIiEED2Ev.exit349:                 ; preds = %.loopexit, %.loopexit.split-lp.split.us.split, %.loopexit.split-lp.split, %438
   %.pn = phi { ptr, i32 } [ %439, %438 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.split ], [ %lpad.loopexit.split-lp.us, %.loopexit.split-lp.split.us.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @_ZdlPvm(ptr noundef nonnull %385, i64 noundef %384) #26
+  call void @_ZdlPvm(ptr noundef nonnull %385, i64 noundef %384) #28
   br label %.critedge288
 
 .critedge288:                                     ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit349, %401
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit349 ], [ %402, %401 ]
   %.0239 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %440 = call ptr @__cxa_begin_catch(ptr %.0239) #21
+  %440 = call ptr @__cxa_begin_catch(ptr %.0239) #23
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
@@ -22947,7 +22947,7 @@ define noundef i32 @_Z16crxFreeImageDataP8CrxImage(ptr noundef readonly captures
   br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %3
-  tail call void @free(ptr noundef nonnull %6) #21
+  tail call void @free(ptr noundef nonnull %6) #23
   %8 = load ptr, ptr %2, align 8, !tbaa !142
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
   store ptr null, ptr %9, align 8, !tbaa !144
@@ -23102,7 +23102,7 @@ define void @_ZN6LibRaw10crxLoadRawEv(ptr noundef nonnull align 8 dereferenceabl
   br i1 %50, label %51, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
 
 51:                                               ; preds = %44
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #22
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #24
           to label %.noexc unwind label %85
 
 .noexc:                                           ; preds = %51
@@ -23113,7 +23113,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %44
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit, label %52
 
 52:                                               ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
-  %53 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #25
+  %53 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #27
           to label %.noexc11 unwind label %85
 
 .noexc11:                                         ; preds = %52
@@ -23168,7 +23168,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %57, %.noexc11, %_ZN
   br i1 %.not, label %93, label %83
 
 83:                                               ; preds = %82
-  %84 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %84 = tail call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 4, ptr %84, align 16, !tbaa !30
   br label %.invoke
 
@@ -23187,7 +23187,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %57, %.noexc11, %_ZN
   %90 = ptrtoint ptr %.sroa.11.0 to i64
   %91 = ptrtoint ptr %.sroa.015.0 to i64
   %92 = sub i64 %90, %91
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.015.0, i64 noundef %92) #26
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.015.0, i64 noundef %92) #28
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 93:                                               ; preds = %82
@@ -23203,13 +23203,13 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %57, %.noexc11, %_ZN
   br i1 %.not7, label %103, label %100
 
 100:                                              ; preds = %99
-  %101 = call ptr @__cxa_allocate_exception(i64 4) #21
+  %101 = call ptr @__cxa_allocate_exception(i64 4) #23
   store i32 5, ptr %101, align 16, !tbaa !30
   br label %.invoke
 
 .invoke:                                          ; preds = %83, %100
   %102 = phi ptr [ %101, %100 ], [ %84, %83 ]
-  invoke void @__cxa_throw(ptr nonnull %102, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  invoke void @__cxa_throw(ptr nonnull %102, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
           to label %.cont unwind label %87
 
 .cont:                                            ; preds = %.invoke
@@ -23250,7 +23250,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %57, %.noexc11, %_ZN
   br i1 %.not.i.i, label %125, label %122
 
 122:                                              ; preds = %118
-  call void @free(ptr noundef nonnull %121) #21
+  call void @free(ptr noundef nonnull %121) #23
   %123 = load ptr, ptr %4, align 8, !tbaa !142
   %124 = getelementptr inbounds nuw ptr, ptr %123, i64 %indvars.iv.i.i
   store ptr null, ptr %124, align 8, !tbaa !144
@@ -23269,7 +23269,7 @@ _Z16crxFreeImageDataP8CrxImage.exit:              ; preds = %125
   %127 = ptrtoint ptr %.sroa.11.0 to i64
   %128 = ptrtoint ptr %.sroa.015.0 to i64
   %129 = sub i64 %127, %128
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.015.0, i64 noundef %129) #26
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.015.0, i64 noundef %129) #28
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit13
 
 _ZNSt6vectorIhSaIhEED2Ev.exit13:                  ; preds = %_Z16crxFreeImageDataP8CrxImage.exit, %126
@@ -23285,7 +23285,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit13:                  ; preds = %_Z16crxFreeImageDat
   br i1 %.not.i.i.i14, label %137, label %134
 
 134:                                              ; preds = %130
-  call void @free(ptr noundef nonnull %133) #21
+  call void @free(ptr noundef nonnull %133) #23
   %135 = load ptr, ptr %4, align 8, !tbaa !142
   %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv.i.i.i
   store ptr null, ptr %136, align 8, !tbaa !144
@@ -23298,7 +23298,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit13:                  ; preds = %_Z16crxFreeImageDat
 
 _ZN8CrxImageD2Ev.exit:                            ; preds = %137
   %138 = load ptr, ptr %4, align 8, !tbaa !142
-  call void @free(ptr noundef %138) #21
+  call void @free(ptr noundef %138) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
@@ -23309,7 +23309,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %85, %87, %89, %23
 
 139:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %10
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ %11, %10 ]
-  call void @_ZN8CrxImageD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #21
+  call void @_ZN8CrxImageD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn.pn
 }
@@ -23333,7 +23333,7 @@ define linkonce_odr void @_ZN8CrxImageD2Ev(ptr noundef nonnull align 8 dereferen
   br i1 %.not.i.i, label %10, label %7
 
 7:                                                ; preds = %3
-  tail call void @free(ptr noundef nonnull %6) #21
+  tail call void @free(ptr noundef nonnull %6) #23
   %8 = load ptr, ptr %2, align 8, !tbaa !142
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
   store ptr null, ptr %9, align 8, !tbaa !144
@@ -23346,7 +23346,7 @@ define linkonce_odr void @_ZN8CrxImageD2Ev(ptr noundef nonnull align 8 dereferen
 
 _ZN13libraw_memmgrD2Ev.exit:                      ; preds = %10
   %11 = load ptr, ptr %2, align 8, !tbaa !142
-  tail call void @free(ptr noundef %11) #21
+  tail call void @free(ptr noundef %11) #23
   ret void
 }
 
@@ -23617,53 +23617,53 @@ _ZN6LibRaw5sgetnEiPh.exit117:                     ; preds = %.lr.ph.i113
   ret i32 %.073
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #13
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #16
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #18
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #20
+declare i32 @llvm.abs.i32(i32, i1 immarg) #21
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #22
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #22
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #22
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #20
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #21
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #20
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #22
 
 attributes #0 = { mustprogress uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -23678,20 +23678,22 @@ attributes #9 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" 
 attributes #10 = { cold noreturn }
 attributes #11 = { inlinehint mustprogress nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #16 = { noreturn "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #17 = { nobuiltin allocsize(0) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #18 = { nobuiltin nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { nounwind }
-attributes #22 = { noreturn }
-attributes #23 = { nounwind allocsize(0,1) }
-attributes #24 = { nounwind allocsize(0) }
-attributes #25 = { builtin allocsize(0) }
-attributes #26 = { builtin nounwind }
+attributes #13 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #16 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #17 = { noreturn "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #18 = { nobuiltin allocsize(0) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #19 = { nobuiltin nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nounwind }
+attributes #24 = { noreturn }
+attributes #25 = { nounwind allocsize(0,1) }
+attributes #26 = { nounwind allocsize(0) }
+attributes #27 = { builtin allocsize(0) }
+attributes #28 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

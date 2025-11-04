@@ -353,7 +353,7 @@ define void @nk_triangle_from_direction(ptr noundef writeonly captures(none) ini
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
@@ -574,7 +574,7 @@ define double @nk_strtod(ptr noundef %0, ptr noundef writeonly captures(address_
   ret double %.059
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -4561,7 +4561,7 @@ define void @nk_buffer_init_default(ptr noundef %0) local_unnamed_addr #15 {
 nk_zero.exit.i:                                   ; preds = %.preheader44.preheader.i.i.i, %.thread.i
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 1, ptr %6, align 8, !tbaa !36
-  %7 = tail call noalias noundef dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #54
+  %7 = tail call noalias noundef dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #55
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %7, ptr %8, align 8, !tbaa !41
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -4584,13 +4584,13 @@ nk_buffer_init.exit:                              ; preds = %1, %nk_zero.exit.i
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define internal noalias noundef ptr @nk_malloc(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 noundef %2) #16 {
-  %4 = tail call noalias ptr @malloc(i64 noundef %2) #54
+  %4 = tail call noalias ptr @malloc(i64 noundef %2) #55
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @nk_mfree(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #17 {
-  tail call void @free(ptr noundef %1) #55
+  tail call void @free(ptr noundef %1) #56
   ret void
 }
 
@@ -4628,7 +4628,7 @@ nk_zero.exit:                                     ; preds = %.thread, %.preheade
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !46
   %14 = load ptr, ptr %1, align 8
-  %15 = tail call ptr %13(ptr %14, ptr noundef null, i64 noundef %2) #55
+  %15 = tail call ptr %13(ptr %14, ptr noundef null, i64 noundef %2) #56
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %15, ptr %16, align 8, !tbaa !41
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -4832,7 +4832,7 @@ define internal fastcc ptr @nk_buffer_alloc(ptr noundef captures(address_is_null
   %spec.select = tail call i64 @llvm.umax.i64(i64 %74, i64 %90)
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %92 = load ptr, ptr %91, align 8
-  %93 = tail call ptr %62(ptr %92, ptr noundef %13, i64 noundef %spec.select) #55
+  %93 = tail call ptr %62(ptr %92, ptr noundef %13, i64 noundef %spec.select) #56
   %.not48.i = icmp eq ptr %93, null
   br i1 %.not48.i, label %nk_buffer_realloc.exit.thread, label %94
 
@@ -4851,7 +4851,7 @@ nk_buffer_realloc.exit.thread:                    ; preds = %66
   %98 = load ptr, ptr %64, align 8, !tbaa !51
   %99 = load ptr, ptr %67, align 8, !tbaa !41
   %100 = load ptr, ptr %91, align 8
-  tail call void %98(ptr %100, ptr noundef %99) #55
+  tail call void %98(ptr %100, ptr noundef %99) #56
   br label %101
 
 101:                                              ; preds = %96, %94
@@ -5248,7 +5248,7 @@ define void @nk_buffer_free(ptr noundef readonly captures(address_is_null) %0) l
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
-  tail call void %11(ptr %14, ptr noundef nonnull %4) #55
+  tail call void %11(ptr %14, ptr noundef nonnull %4) #56
   br label %15
 
 15:                                               ; preds = %9, %5, %1, %2, %12
@@ -5360,7 +5360,7 @@ define void @nk_str_init_default(ptr noundef %0) local_unnamed_addr #15 {
 nk_zero.exit.i:                                   ; preds = %.preheader44.preheader.i.i.i, %.thread.i
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 1, ptr %6, align 8, !tbaa !36
-  %7 = tail call noalias noundef dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #54
+  %7 = tail call noalias noundef dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #55
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %7, ptr %8, align 8, !tbaa !41
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -5417,7 +5417,7 @@ nk_zero.exit.i:                                   ; preds = %.preheader44.prehea
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !46
   %14 = load ptr, ptr %1, align 8
-  %15 = tail call ptr %13(ptr %14, ptr noundef null, i64 noundef %2) #55
+  %15 = tail call ptr %13(ptr %14, ptr noundef null, i64 noundef %2) #56
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %15, ptr %16, align 8, !tbaa !41
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -7900,7 +7900,7 @@ define void @nk_str_free(ptr noundef captures(address_is_null) %0) local_unnamed
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
-  tail call void %11(ptr %14, ptr noundef nonnull %4) #55
+  tail call void %11(ptr %14, ptr noundef nonnull %4) #56
   br label %nk_buffer_free.exit
 
 nk_buffer_free.exit:                              ; preds = %1, %2, %5, %9, %12
@@ -9786,7 +9786,7 @@ define void @nk_draw_text(ptr noundef captures(address_is_null) %0, <2 x float> 
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %44 = load float, ptr %43, align 8, !tbaa !213
   %45 = load ptr, ptr %5, align 8
-  %46 = tail call float %42(ptr %45, float noundef %44, ptr noundef nonnull %3, i32 noundef %4) #55
+  %46 = tail call float %42(ptr %45, float noundef %44, ptr noundef nonnull %3, i32 noundef %4) #56
   %47 = fcmp ogt float %46, %.sroa.7.8.vec.extract63.pre-phi
   br i1 %47, label %48, label %.thread
 
@@ -9901,7 +9901,7 @@ nk_utf_decode.exit:                               ; preds = %57, %._crit_edge.lo
   %88 = load ptr, ptr %41, align 8, !tbaa !211
   %89 = load float, ptr %43, align 8, !tbaa !213
   %90 = load ptr, ptr %5, align 8
-  %91 = call float %88(ptr %90, float noundef %89, ptr noundef nonnull %3, i32 noundef %87) #55
+  %91 = call float %88(ptr %90, float noundef %89, ptr noundef nonnull %3, i32 noundef %87) #56
   %92 = sext i32 %87 to i64
   %93 = getelementptr inbounds i8, ptr %3, i64 %92
   %94 = sub nsw i32 %4, %87
@@ -13849,7 +13849,7 @@ nk_utf_decode.exit99.thread:                      ; preds = %108, %136, %140, %n
   %146 = phi i32 [ %spec.select, %nk_utf_decode.exit99 ], [ 0, %nk_utf_validate.exit.loopexit92.i93 ], [ 0, %nk_utf_validate.exit.loopexit.i89 ], [ 0, %._crit_edge.loopexit.i97 ], [ 0, %._crit_edge.i75 ], [ 0, %nk_utf_decode_byte.exit.i72 ], [ 0, %140 ], [ 0, %136 ], [ 0, %108 ]
   %147 = load ptr, ptr %.in, align 8, !tbaa !279
   %148 = load ptr, ptr %1, align 8
-  call void %147(ptr %148, float noundef %6, ptr noundef nonnull %9, i32 noundef %.0107158, i32 noundef %146) #55
+  call void %147(ptr %148, float noundef %6, ptr noundef nonnull %9, i32 noundef %.0107158, i32 noundef %146) #56
   %149 = load float, ptr %88, align 8, !tbaa !280
   %150 = fadd float %.0161, %149
   %151 = load float, ptr %89, align 4, !tbaa !282
@@ -15176,7 +15176,7 @@ nk_image_is_subimage.exit.thread.i:               ; preds = %718
   %766 = load i16, ptr %765, align 2, !tbaa !209
   %767 = getelementptr inbounds nuw i8, ptr %.0249434, i64 24
   %768 = load ptr, ptr %767, align 8
-  tail call void %758(ptr noundef nonnull %14, i16 noundef signext %760, i16 noundef signext %762, i16 noundef zeroext %764, i16 noundef zeroext %766, ptr %768) #55
+  tail call void %758(ptr noundef nonnull %14, i16 noundef signext %760, i16 noundef signext %762, i16 noundef zeroext %764, i16 noundef zeroext %766, ptr %768) #56
   br label %nk_draw_list_stroke_line.exit
 
 nk_draw_list_stroke_line.exit:                    ; preds = %40, %756, %696, %nk_draw_list_path_stroke.exit392, %nk_draw_list_path_fill.exit383, %nk_draw_list_path_stroke.exit374, %nk_draw_list_path_fill.exit, %nk_draw_list_path_stroke.exit, %329, %306, %285, %51, %64, %nk_draw_list_path_stroke.exit.i, %110, %nk_draw_list_path_stroke.exit.i276, %196, %nk_draw_list_path_stroke.exit.i290, %242, %nk_draw_list_path_fill.exit.i, %520, %nk_draw_list_path_stroke.exit.i352, %563, %nk_draw_list_path_fill.exit.i365, %nk_image_is_subimage.exit.thread.i, %753
@@ -15746,13 +15746,13 @@ define range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef captures(address) %0, p
 
 ._crit_edge59.thread:                             ; preds = %3
   %8 = sext i32 %2 to i64
-  tail call void @qsort(ptr noundef %1, i64 noundef %8, i64 noundef 24, ptr noundef nonnull @rect_height_compare) #55
-  tail call void @qsort(ptr noundef %1, i64 noundef %8, i64 noundef 24, ptr noundef nonnull @rect_original_order) #55
+  tail call void @qsort(ptr noundef %1, i64 noundef %8, i64 noundef 24, ptr noundef nonnull @rect_height_compare) #56
+  tail call void @qsort(ptr noundef %1, i64 noundef %8, i64 noundef 24, ptr noundef nonnull @rect_original_order) #56
   br label %._crit_edge64
 
 .lr.ph58:                                         ; preds = %.lr.ph
   %9 = zext nneg i32 %2 to i64
-  tail call void @qsort(ptr noundef nonnull %1, i64 noundef %9, i64 noundef 24, ptr noundef nonnull @rect_height_compare) #55
+  tail call void @qsort(ptr noundef nonnull %1, i64 noundef %9, i64 noundef 24, ptr noundef nonnull @rect_height_compare) #56
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -16149,7 +16149,7 @@ stbrp__skyline_pack_rectangle.exit:               ; preds = %152, %149, %stbrp__
   br i1 %exitcond71.not, label %._crit_edge59, label %15, !llvm.loop !402
 
 ._crit_edge59:                                    ; preds = %stbrp__skyline_pack_rectangle.exit
-  tail call void @qsort(ptr noundef nonnull %1, i64 noundef %9, i64 noundef 24, ptr noundef nonnull @rect_original_order) #55
+  tail call void @qsort(ptr noundef nonnull %1, i64 noundef %9, i64 noundef 24, ptr noundef nonnull @rect_original_order) #56
   %wide.trip.count75 = zext nneg i32 %2 to i64
   br label %.lr.ph63
 
@@ -16770,7 +16770,7 @@ stbtt__GetGlyfOffset.exit:                        ; preds = %82
   %.val402.i = load ptr, ptr %110, align 8
   %111 = getelementptr i8, ptr %110, i64 8
   %.val403.i = load ptr, ptr %111, align 8, !tbaa !46
-  %112 = tail call ptr %.val403.i(ptr %.val402.i, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %109) #55
+  %112 = tail call ptr %.val403.i(ptr %.val402.i, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %109) #56
   %.not374.i = icmp eq ptr %112, null
   br i1 %.not374.i, label %stbtt__GetGlyphShapeTT.exit, label %113
 
@@ -17510,7 +17510,7 @@ stbtt__close_shape.exit18:                        ; preds = %217, %234, %238
   %.val404.i = load ptr, ptr %515, align 8
   %516 = getelementptr i8, ptr %515, i64 8
   %.val405.i = load ptr, ptr %516, align 8, !tbaa !46
-  %517 = tail call ptr %.val405.i(ptr %.val404.i, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %514) #55
+  %517 = tail call ptr %.val405.i(ptr %.val404.i, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %514) #56
   %.not354.i = icmp eq ptr %517, null
   br i1 %.not354.i, label %518, label %522
 
@@ -17523,7 +17523,7 @@ stbtt__close_shape.exit18:                        ; preds = %217, %234, %238
   %.val406.i = load ptr, ptr %520, align 8
   %521 = getelementptr i8, ptr %520, i64 16
   %.val407.i = load ptr, ptr %521, align 8, !tbaa !429
-  tail call void %.val407.i(ptr %.val406.i, ptr noundef nonnull %.1279.i40) #55
+  tail call void %.val407.i(ptr %.val406.i, ptr noundef nonnull %.1279.i40) #56
   br label %540
 
 522:                                              ; preds = %511
@@ -17552,7 +17552,7 @@ stbtt__close_shape.exit18:                        ; preds = %217, %234, %238
   %.val410.i = load ptr, ptr %533, align 8
   %534 = getelementptr i8, ptr %533, i64 16
   %.val411.i = load ptr, ptr %534, align 8, !tbaa !429
-  tail call void %.val411.i(ptr %.val410.i, ptr noundef nonnull %.1279.i40) #55
+  tail call void %.val411.i(ptr %.val410.i, ptr noundef nonnull %.1279.i40) #56
   br label %535
 
 535:                                              ; preds = %532, %529
@@ -17560,7 +17560,7 @@ stbtt__close_shape.exit18:                        ; preds = %217, %234, %238
   %.val412.i = load ptr, ptr %536, align 8
   %537 = getelementptr i8, ptr %536, i64 16
   %.val413.i = load ptr, ptr %537, align 8, !tbaa !429
-  tail call void %.val413.i(ptr %.val412.i, ptr noundef nonnull %477) #55
+  tail call void %.val413.i(ptr %.val412.i, ptr noundef nonnull %477) #56
   br label %538
 
 538:                                              ; preds = %470, %535
@@ -17576,7 +17576,7 @@ stbtt__close_shape.exit18:                        ; preds = %217, %234, %238
   %.val408.i = load ptr, ptr %541, align 8
   %542 = getelementptr i8, ptr %541, i64 16
   %.val409.i = load ptr, ptr %542, align 8, !tbaa !429
-  tail call void %.val409.i(ptr %.val408.i, ptr noundef nonnull %477) #55
+  tail call void %.val409.i(ptr %.val408.i, ptr noundef nonnull %477) #56
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %stbtt__GetGlyphShapeTT.exit
 
@@ -17605,7 +17605,7 @@ stbtt__close_shape.exit18:                        ; preds = %217, %234, %238
   %.val.i8 = load ptr, ptr %550, align 8
   %551 = getelementptr i8, ptr %550, i64 8
   %.val9.i = load ptr, ptr %551, align 8, !tbaa !46
-  %552 = call ptr %.val9.i(ptr %.val.i8, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %549) #55
+  %552 = call ptr %.val9.i(ptr %.val.i8, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %549) #56
   store ptr %552, ptr %2, align 8, !tbaa !45
   %553 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %552, ptr %553, align 8, !tbaa !433
@@ -19341,7 +19341,7 @@ define void @stbtt_FreeShape(ptr noundef readonly captures(none) %0, ptr noundef
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %3, i64 16
   %.val2 = load ptr, ptr %4, align 8, !tbaa !429
-  tail call void %.val2(ptr %.val, ptr noundef %1) #55
+  tail call void %.val2(ptr %.val, ptr noundef %1) #56
   ret void
 }
 
@@ -20017,7 +20017,7 @@ define void @stbtt_Rasterize(ptr noundef readonly captures(none) %0, float nound
   %.val.i = load ptr, ptr %11, align 8
   %30 = getelementptr i8, ptr %11, i64 8
   %.val112.i = load ptr, ptr %30, align 8, !tbaa !46
-  %31 = tail call ptr %.val112.i(ptr %.val.i, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %29) #55
+  %31 = tail call ptr %.val112.i(ptr %.val.i, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %29) #56
   %32 = icmp eq ptr %31, null
   br i1 %32, label %stbtt_FlattenCurves.exit.thread, label %.preheader.split.us.i
 
@@ -20034,7 +20034,7 @@ define void @stbtt_Rasterize(ptr noundef readonly captures(none) %0, float nound
   %38 = shl nsw i64 %37, 3
   %.val113.us.i = load ptr, ptr %11, align 8
   %.val114.us.i = load ptr, ptr %30, align 8, !tbaa !46
-  %39 = tail call ptr %.val114.us.i(ptr %.val113.us.i, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %38) #55
+  %39 = tail call ptr %.val114.us.i(ptr %.val113.us.i, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %38) #56
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.split.us.i, label %.lr.ph135.us.i
 
@@ -20175,10 +20175,10 @@ stbtt__add_point.exit.us.i:                       ; preds = %109, %101, %91, %83
   %.val117.i = load ptr, ptr %11, align 8
   %117 = getelementptr i8, ptr %11, i64 16
   %.val118.i = load ptr, ptr %117, align 8, !tbaa !429
-  tail call void %.val118.i(ptr %.val117.i, ptr noundef null) #55
+  tail call void %.val118.i(ptr %.val117.i, ptr noundef null) #56
   %.val115.i = load ptr, ptr %11, align 8
   %.val116.i = load ptr, ptr %117, align 8, !tbaa !429
-  tail call void %.val116.i(ptr %.val115.i, ptr noundef nonnull %31) #55
+  tail call void %.val116.i(ptr %.val115.i, ptr noundef nonnull %31) #56
   br label %stbtt_FlattenCurves.exit.thread
 
 stbtt_FlattenCurves.exit.thread:                  ; preds = %._crit_edge.i, %.split.us.i, %27, %12
@@ -20208,7 +20208,7 @@ stbtt_FlattenCurves.exit:                         ; preds = %._crit_edge136.us.i
   %125 = select i1 %.not.i, float %5, float %124
   %.val.i26 = load ptr, ptr %11, align 8
   %.val93.i = load ptr, ptr %30, align 8, !tbaa !46
-  %126 = tail call ptr %.val93.i(ptr %.val.i26, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %123) #55
+  %126 = tail call ptr %.val93.i(ptr %.val.i26, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %123) #56
   %127 = icmp eq ptr %126, null
   br i1 %127, label %stbtt__rasterize.exit, label %.lr.ph117.i
 
@@ -20468,7 +20468,7 @@ stbtt__sort_edges.exit.i:                         ; preds = %223, %._crit_edge11
   %230 = shl nuw nsw i64 %229, 2
   %.val.i.i = load ptr, ptr %11, align 8
   %.val96.i.i = load ptr, ptr %30, align 8, !tbaa !46
-  %231 = tail call ptr %.val96.i.i(ptr %.val.i.i, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %230) #55
+  %231 = tail call ptr %.val96.i.i(ptr %.val.i.i, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %230) #56
   %.pre.i.i = load i32, ptr %0, align 8, !tbaa !476
   br label %232
 
@@ -20586,7 +20586,7 @@ stbtt__sort_edges.exit.i:                         ; preds = %223, %._crit_edge11
 285:                                              ; preds = %282
   %.val.i.i.i.i = load ptr, ptr %11, align 8
   %.val26.i.i.i.i = load ptr, ptr %30, align 8, !tbaa !46
-  %286 = tail call ptr %.val26.i.i.i.i(ptr %.val.i.i.i.i, ptr noundef null, i64 noundef 25608) #55
+  %286 = tail call ptr %.val26.i.i.i.i(ptr %.val.i.i.i.i, ptr noundef null, i64 noundef 25608) #56
   %287 = icmp eq ptr %286, null
   br i1 %287, label %stbtt__new_active.exit.thread.i.i, label %.thread.i.i.i.i
 
@@ -22418,7 +22418,7 @@ stbtt__fill_active_edges_new.exit.i.i:            ; preds = %stbtt__handle_clipp
   %1397 = load ptr, ptr %.02.i.i.i, align 8, !tbaa !484
   %.val.i.i.i = load ptr, ptr %11, align 8
   %.val6.i.i.i = load ptr, ptr %1395, align 8, !tbaa !429
-  tail call void %.val6.i.i.i(ptr %.val.i.i.i, ptr noundef nonnull %.02.i.i.i) #55
+  tail call void %.val6.i.i.i(ptr %.val.i.i.i, ptr noundef nonnull %.02.i.i.i) #56
   %.not.i101.i.i = icmp eq ptr %1397, null
   br i1 %.not.i101.i.i, label %stbtt__hheap_cleanup.exit.i.i, label %1396, !llvm.loop !500
 
@@ -22430,7 +22430,7 @@ stbtt__hheap_cleanup.exit.i.i:                    ; preds = %1396, %._crit_edge1
   %.val97.i.i = load ptr, ptr %11, align 8
   %1399 = getelementptr i8, ptr %11, i64 16
   %.val98.i.i = load ptr, ptr %1399, align 8, !tbaa !429
-  call void %.val98.i.i(ptr %.val97.i.i, ptr noundef %.081.i.i) #55
+  call void %.val98.i.i(ptr %.val97.i.i, ptr noundef %.081.i.i) #56
   br label %stbtt__rasterize_sorted_edges.exit.i
 
 stbtt__rasterize_sorted_edges.exit.i:             ; preds = %1398, %stbtt__hheap_cleanup.exit.i.i
@@ -22439,17 +22439,17 @@ stbtt__rasterize_sorted_edges.exit.i:             ; preds = %1398, %stbtt__hheap
   %.val94.i = load ptr, ptr %11, align 8
   %1400 = getelementptr i8, ptr %11, i64 16
   %.val95.i = load ptr, ptr %1400, align 8, !tbaa !429
-  call void %.val95.i(ptr %.val94.i, ptr noundef nonnull %126) #55
+  call void %.val95.i(ptr %.val94.i, ptr noundef nonnull %126) #56
   br label %stbtt__rasterize.exit
 
 stbtt__rasterize.exit:                            ; preds = %._crit_edge.loopexit.i, %stbtt__rasterize_sorted_edges.exit.i
   %.val23 = load ptr, ptr %11, align 8
   %1401 = getelementptr i8, ptr %11, i64 16
   %.val24 = load ptr, ptr %1401, align 8, !tbaa !429
-  call void %.val24(ptr %.val23, ptr noundef nonnull %31) #55
+  call void %.val24(ptr %.val23, ptr noundef nonnull %31) #56
   %.val = load ptr, ptr %11, align 8
   %.val22 = load ptr, ptr %1401, align 8, !tbaa !429
-  call void %.val22(ptr %.val, ptr noundef nonnull %.1106.us.i) #55
+  call void %.val22(ptr %.val, ptr noundef nonnull %.1106.us.i) #56
   br label %1402
 
 1402:                                             ; preds = %stbtt_FlattenCurves.exit.thread, %stbtt__rasterize.exit, %stbtt_FlattenCurves.exit
@@ -22461,7 +22461,7 @@ define void @stbtt_FreeBitmap(ptr noundef %0, ptr noundef readonly captures(none
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %1, i64 16
   %.val2 = load ptr, ptr %3, align 8, !tbaa !429
-  tail call void %.val2(ptr %.val, ptr noundef %0) #55
+  tail call void %.val2(ptr %.val, ptr noundef %0) #56
   ret void
 }
 
@@ -22489,7 +22489,7 @@ define ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly captures(none) %0,
   %.val49 = load ptr, ptr %22, align 8
   %23 = getelementptr i8, ptr %22, i64 16
   %.val50 = load ptr, ptr %23, align 8, !tbaa !429
-  tail call void %.val50(ptr %.val49, ptr noundef %21) #55
+  tail call void %.val50(ptr %.val49, ptr noundef %21) #56
   br label %77
 
 24:                                               ; preds = %10
@@ -22591,7 +22591,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %24, %26
   %.val = load ptr, ptr %66, align 8
   %67 = getelementptr i8, ptr %66, i64 8
   %.val46 = load ptr, ptr %67, align 8, !tbaa !46
-  %68 = call ptr %.val46(ptr %.val, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %65) #55
+  %68 = call ptr %.val46(ptr %.val, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %65) #56
   store ptr %68, ptr %52, align 8, !tbaa !495
   %.not45 = icmp eq ptr %68, null
   %.pre63 = load ptr, ptr %16, align 8, !tbaa !45
@@ -22611,7 +22611,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %24, %26
   %.val47 = load ptr, ptr %75, align 8
   %76 = getelementptr i8, ptr %75, i64 16
   %.val48 = load ptr, ptr %76, align 8, !tbaa !429
-  call void %.val48(ptr %.val47, ptr noundef %73) #55
+  call void %.val48(ptr %.val47, ptr noundef %73) #56
   br label %77
 
 77:                                               ; preds = %72, %20
@@ -22691,7 +22691,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %10, %19
   %.val = load ptr, ptr %39, align 8
   %40 = getelementptr i8, ptr %39, i64 16
   %.val20 = load ptr, ptr %40, align 8, !tbaa !429
-  call void %.val20(ptr %.val, ptr noundef %.pre) #55
+  call void %.val20(ptr %.val, ptr noundef %.pre) #56
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void
@@ -22923,13 +22923,13 @@ define range(i32 0, 2) i32 @stbtt_PackBegin(ptr noundef writeonly captures(none)
   %.val54 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %6, i64 8
   %.val55 = load ptr, ptr %8, align 8, !tbaa !46
-  %9 = tail call ptr %.val55(ptr %.val54, ptr noundef null, i64 noundef 72) #55
+  %9 = tail call ptr %.val55(ptr %.val54, ptr noundef null, i64 noundef 72) #56
   %10 = sub nsw i32 %2, %5
   %11 = sext i32 %10 to i64
   %12 = shl nsw i64 %11, 4
   %.val = load ptr, ptr %6, align 8
   %.val53 = load ptr, ptr %8, align 8, !tbaa !46
-  %13 = tail call ptr %.val53(ptr %.val, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %12) #55
+  %13 = tail call ptr %.val53(ptr %.val, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %12) #56
   %14 = icmp eq ptr %9, null
   %15 = icmp eq ptr %13, null
   %or.cond = select i1 %14, i1 true, i1 %15
@@ -22942,7 +22942,7 @@ define range(i32 0, 2) i32 @stbtt_PackBegin(ptr noundef writeonly captures(none)
   %.val58 = load ptr, ptr %6, align 8
   %18 = getelementptr i8, ptr %6, i64 16
   %.val59 = load ptr, ptr %18, align 8, !tbaa !429
-  tail call void %.val59(ptr %.val58, ptr noundef nonnull %9) #55
+  tail call void %.val59(ptr %.val58, ptr noundef nonnull %9) #56
   br label %19
 
 19:                                               ; preds = %17, %16
@@ -22952,7 +22952,7 @@ define range(i32 0, 2) i32 @stbtt_PackBegin(ptr noundef writeonly captures(none)
   %.val56 = load ptr, ptr %6, align 8
   %21 = getelementptr i8, ptr %6, i64 16
   %.val57 = load ptr, ptr %21, align 8, !tbaa !429
-  tail call void %.val57(ptr %.val56, ptr noundef nonnull %13) #55
+  tail call void %.val57(ptr %.val56, ptr noundef nonnull %13) #56
   br label %60
 
 22:                                               ; preds = %7
@@ -23054,14 +23054,14 @@ define void @stbtt_PackEnd(ptr noundef readonly captures(none) %0) local_unnamed
   %.val5 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %4, i64 16
   %.val6 = load ptr, ptr %5, align 8, !tbaa !429
-  tail call void %.val6(ptr %.val5, ptr noundef %3) #55
+  tail call void %.val6(ptr %.val5, ptr noundef %3) #56
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !523
   %8 = load ptr, ptr %0, align 8, !tbaa !518
   %.val = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %8, i64 16
   %.val4 = load ptr, ptr %9, align 8, !tbaa !429
-  tail call void %.val4(ptr %.val, ptr noundef %7) #55
+  tail call void %.val4(ptr %.val, ptr noundef %7) #56
   ret void
 }
 
@@ -24495,7 +24495,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   %.val.i162 = load ptr, ptr %398, align 8
   %399 = getelementptr i8, ptr %398, i64 16
   %.val20.i = load ptr, ptr %399, align 8, !tbaa !429
-  call void %.val20.i(ptr %.val.i162, ptr noundef %.pre.i) #55
+  call void %.val20.i(ptr %.val.i162, ptr noundef %.pre.i) #56
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %400 = load i32, ptr %12, align 4, !tbaa !527
@@ -25112,7 +25112,7 @@ define range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr noundef captures(none) %0, 
   %.val = load ptr, ptr %22, align 8
   %23 = getelementptr i8, ptr %22, i64 8
   %.val51 = load ptr, ptr %23, align 8, !tbaa !46
-  %24 = tail call ptr %.val51(ptr %.val, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %.046.lcssa) #55
+  %24 = tail call ptr %.val51(ptr %.val, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %.046.lcssa) #56
   %25 = icmp eq ptr %24, null
   br i1 %25, label %37, label %26
 
@@ -25130,7 +25130,7 @@ define range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr noundef captures(none) %0, 
   %.val52 = load ptr, ptr %35, align 8
   %36 = getelementptr i8, ptr %35, i64 16
   %.val53 = load ptr, ptr %36, align 8, !tbaa !429
-  tail call void %.val53(ptr %.val52, ptr noundef nonnull %24) #55
+  tail call void %.val53(ptr %.val52, ptr noundef nonnull %24) #56
   br label %37
 
 37:                                               ; preds = %._crit_edge60, %26
@@ -27121,14 +27121,14 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %17
   %.val490 = load ptr, ptr %62, align 8
   %63 = getelementptr i8, ptr %62, i64 8
   %.val491 = load ptr, ptr %63, align 8, !tbaa !46
-  %64 = call ptr %.val491(ptr %.val490, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %61) #55
+  %64 = call ptr %.val491(ptr %.val490, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %61) #56
   %65 = sext i32 %59 to i64
   %66 = shl nsw i64 %65, 2
   %67 = load ptr, ptr %0, align 8, !tbaa !417
   %.val = load ptr, ptr %67, align 8
   %68 = getelementptr i8, ptr %67, i64 8
   %.val489 = load ptr, ptr %68, align 8, !tbaa !46
-  %69 = call ptr %.val489(ptr %.val, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %66) #55
+  %69 = call ptr %.val489(ptr %.val, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %66) #56
   %70 = icmp sgt i32 %59, 0
   %.pre.pre = load ptr, ptr %15, align 8, !tbaa !45
   br i1 %70, label %.lr.ph, label %.preheader526
@@ -27172,7 +27172,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %17
   %88 = sitofp i32 %87 to float
   %89 = fadd float %88, 5.000000e-01
   %90 = fdiv float %89, %1
-  %91 = call double @fmod(double noundef %80, double noundef 1.000000e+00) #55, !tbaa !7
+  %91 = call double @fmod(double noundef %80, double noundef 1.000000e+00) #56, !tbaa !7
   %92 = fcmp olt double %91, 0x3F847AE130000000
   br i1 %92, label %96, label %93
 
@@ -27608,14 +27608,14 @@ stbtt__ray_intersect_bezier.exit.i.us:            ; preds = %222, %.thread21.i.i
 
 388:                                              ; preds = %381
   %389 = fpext float %384 to double
-  %390 = call double @pow(double noundef %389, double noundef 0x3FD5555560000000) #55, !tbaa !7
+  %390 = call double @pow(double noundef %389, double noundef 0x3FD5555560000000) #56, !tbaa !7
   %391 = fptrunc double %390 to float
   br label %stbtt__cuberoot.exit.i.us
 
 392:                                              ; preds = %381
   %393 = fneg float %384
   %394 = fpext float %393 to double
-  %395 = call double @pow(double noundef %394, double noundef 0x3FD5555560000000) #55, !tbaa !7
+  %395 = call double @pow(double noundef %394, double noundef 0x3FD5555560000000) #56, !tbaa !7
   %396 = fptrunc double %395 to float
   %397 = fneg float %396
   br label %stbtt__cuberoot.exit.i.us
@@ -27627,14 +27627,14 @@ stbtt__cuberoot.exit.i.us:                        ; preds = %392, %388
 
 399:                                              ; preds = %stbtt__cuberoot.exit.i.us
   %400 = fpext float %386 to double
-  %401 = call double @pow(double noundef %400, double noundef 0x3FD5555560000000) #55, !tbaa !7
+  %401 = call double @pow(double noundef %400, double noundef 0x3FD5555560000000) #56, !tbaa !7
   %402 = fptrunc double %401 to float
   br label %stbtt__cuberoot.exit49.i.us
 
 403:                                              ; preds = %stbtt__cuberoot.exit.i.us
   %404 = fneg float %386
   %405 = fpext float %404 to double
-  %406 = call double @pow(double noundef %405, double noundef 0x3FD5555560000000) #55, !tbaa !7
+  %406 = call double @pow(double noundef %405, double noundef 0x3FD5555560000000) #56, !tbaa !7
   %407 = fptrunc double %406 to float
   %408 = fneg float %407
   br label %stbtt__cuberoot.exit49.i.us
@@ -27650,19 +27650,19 @@ stbtt__cuberoot.exit49.i.us:                      ; preds = %403, %399
   %sqrtf.i.us = call float @sqrtf(float noundef %412) #29
   %413 = fdiv float -2.700000e+01, %376
   %414 = fpext float %413 to double
-  %415 = call double @sqrt(double noundef %414) #55, !tbaa !7
+  %415 = call double @sqrt(double noundef %414) #56, !tbaa !7
   %416 = fneg double %415
   %417 = fpext float %374 to double
   %418 = fmul double %417, %416
   %419 = fmul double %418, 5.000000e-01
-  %420 = call double @acos(double noundef %419) #55, !tbaa !7
+  %420 = call double @acos(double noundef %419) #56, !tbaa !7
   %421 = fptrunc double %420 to float
   %422 = fdiv float %421, 3.000000e+00
   %423 = fpext float %422 to double
-  %424 = call double @cos(double noundef %423) #55, !tbaa !7
+  %424 = call double @cos(double noundef %423) #56, !tbaa !7
   %425 = fptrunc double %424 to float
   %426 = fadd double %423, 0xBFF921FAFC8B007A
-  %427 = call double @cos(double noundef %426) #55, !tbaa !7
+  %427 = call double @cos(double noundef %426) #56, !tbaa !7
   %428 = fptrunc double %427 to float
   %429 = fmul float %428, 0x3FFBB67AE0000000
   %430 = fmul float %sqrtf.i.us, 2.000000e+00
@@ -27966,12 +27966,12 @@ stbtt__solve_cubic.exit.us:                       ; preds = %461, %459, %452, %4
   %.val494 = load ptr, ptr %642, align 8
   %643 = getelementptr i8, ptr %642, i64 16
   %.val495 = load ptr, ptr %643, align 8, !tbaa !429
-  call void %.val495(ptr %.val494, ptr noundef %69) #55
+  call void %.val495(ptr %.val494, ptr noundef %69) #56
   %644 = load ptr, ptr %0, align 8, !tbaa !417
   %.val492 = load ptr, ptr %644, align 8
   %645 = getelementptr i8, ptr %644, i64 16
   %.val493 = load ptr, ptr %645, align 8, !tbaa !429
-  call void %.val493(ptr %.val492, ptr noundef %.pre.pre) #55
+  call void %.val493(ptr %.val492, ptr noundef %.pre.pre) #56
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %646
 
@@ -27983,7 +27983,7 @@ stbtt__solve_cubic.exit.us:                       ; preds = %461, %459, %452, %4
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @sqrt(double noundef) local_unnamed_addr #29
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #5
 
 ; Function Attrs: nounwind uwtable
@@ -27998,7 +27998,7 @@ define void @stbtt_FreeSDF(ptr noundef %0, ptr noundef readonly captures(none) %
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %1, i64 16
   %.val2 = load ptr, ptr %3, align 8, !tbaa !429
-  tail call void %.val2(ptr %.val, ptr noundef %0) #55
+  tail call void %.val2(ptr %.val, ptr noundef %0) #56
   ret void
 }
 
@@ -28473,7 +28473,7 @@ define i32 @stbtt_FindMatchingFont(ptr noundef readonly captures(none) %0, ptr n
   br i1 %5, label %stbtt_FindMatchingFont_internal.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #56
+  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #57
   %7 = trunc i64 %6 to i32
   %.not39.i.i = icmp eq i32 %2, 0
   %8 = and i32 %2, 7
@@ -28970,7 +28970,7 @@ define void @nk_font_atlas_begin(ptr noundef captures(address_is_null) %0) local
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %3, align 8
-  tail call void %8(ptr %19, ptr noundef nonnull %17) #55
+  tail call void %8(ptr %19, ptr noundef nonnull %17) #56
   store ptr null, ptr %16, align 8, !tbaa !608
   br label %20
 
@@ -28982,7 +28982,7 @@ define void @nk_font_atlas_begin(ptr noundef captures(address_is_null) %0) local
 22:                                               ; preds = %20
   %23 = load ptr, ptr %7, align 8, !tbaa !607
   %24 = load ptr, ptr %3, align 8
-  tail call void %23(ptr %24, ptr noundef nonnull %21) #55
+  tail call void %23(ptr %24, ptr noundef nonnull %21) #56
   store ptr null, ptr %0, align 8, !tbaa !609
   br label %25
 
@@ -29042,7 +29042,7 @@ define ptr @nk_font_atlas_add(ptr noundef captures(address_is_null) %0, ptr noun
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %16, align 8
-  %30 = tail call ptr %18(ptr %29, ptr noundef null, i64 noundef 88) #55
+  %30 = tail call ptr %18(ptr %29, ptr noundef null, i64 noundef 88) #56
   %31 = tail call fastcc ptr @nk_memcopy(ptr noundef %30, ptr noundef nonnull %1, i64 noundef 88)
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 72
   store ptr %30, ptr %32, align 8, !tbaa !595
@@ -29077,7 +29077,7 @@ define ptr @nk_font_atlas_add(ptr noundef captures(address_is_null) %0, ptr noun
   store ptr null, ptr %30, align 8, !tbaa !615
   %43 = load ptr, ptr %17, align 8, !tbaa !606
   %44 = load ptr, ptr %16, align 8
-  %45 = tail call ptr %43(ptr %44, ptr noundef null, i64 noundef 128) #55
+  %45 = tail call ptr %43(ptr %44, ptr noundef null, i64 noundef 128) #56
   %46 = ptrtoint ptr %45 to i64
   %47 = and i64 %46, 3
   %.not.i.i = icmp eq i64 %47, 0
@@ -29154,7 +29154,7 @@ nk_zero.exit.thread:                              ; preds = %42
   %74 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %75 = load i64, ptr %74, align 8, !tbaa !611
   %76 = load ptr, ptr %16, align 8
-  %77 = tail call ptr %73(ptr %76, ptr noundef null, i64 noundef %75) #55
+  %77 = tail call ptr %73(ptr %76, ptr noundef null, i64 noundef %75) #56
   %78 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %77, ptr %78, align 8, !tbaa !610
   %.not97 = icmp eq ptr %77, null
@@ -29290,7 +29290,7 @@ define ptr @nk_font_atlas_add_from_file(ptr noundef captures(address_is_null) %0
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !46
   %19 = load ptr, ptr %9, align 8
-  %20 = tail call ptr %18(ptr %19, ptr noundef null, i64 noundef %13) #55
+  %20 = tail call ptr %18(ptr %19, ptr noundef null, i64 noundef %13) #56
   %.not32.i = icmp eq ptr %20, null
   br i1 %.not32.i, label %nk_file_load.exit.thread28, label %22
 
@@ -29402,7 +29402,7 @@ define ptr @nk_font_atlas_add_compressed(ptr noundef captures(address_is_null) %
   %39 = zext i8 %38 to i64
   %40 = or disjoint i64 %36, %39
   %41 = load ptr, ptr %16, align 8
-  %42 = tail call ptr %18(ptr %41, ptr noundef null, i64 noundef %40) #55
+  %42 = tail call ptr %18(ptr %41, ptr noundef null, i64 noundef %40) #56
   %.not29 = icmp eq ptr %42, null
   br i1 %.not29, label %346, label %43
 
@@ -29957,7 +29957,7 @@ define ptr @nk_font_atlas_add_compressed_base85(ptr noundef captures(address_is_
 nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader34, %.lr.ph.i.preheader
   %.07.i.lcssa = phi i64 [ 0, %.lr.ph.i.preheader ], [ %25, %.lr.ph.i.preheader34 ]
   %26 = load ptr, ptr %8, align 8
-  %27 = tail call ptr %10(ptr %26, ptr noundef null, i64 noundef %.07.i.lcssa) #55
+  %27 = tail call ptr %10(ptr %26, ptr noundef null, i64 noundef %.07.i.lcssa) #56
   %.not29 = icmp eq ptr %27, null
   br i1 %.not29, label %68, label %28
 
@@ -30017,7 +30017,7 @@ nk_decode_85.exit:                                ; preds = %.lr.ph.i30, %28
   %65 = tail call ptr @nk_font_atlas_add_compressed(ptr noundef nonnull %0, ptr noundef nonnull %27, i64 noundef %.07.i.lcssa, float noundef %2, ptr noundef %3)
   %66 = load ptr, ptr %12, align 8, !tbaa !605
   %67 = load ptr, ptr %8, align 8
-  tail call void %66(ptr %67, ptr noundef nonnull %27) #55
+  tail call void %66(ptr %67, ptr noundef nonnull %27) #56
   br label %68
 
 68:                                               ; preds = %nk_strlen.exit, %4, %7, %11, %14, %17, %nk_decode_85.exit
@@ -30176,7 +30176,7 @@ nk_font_baker_memory.exit:                        ; preds = %.thread, %61
   %.0162 = phi i64 [ %69, %61 ], [ 0, %.thread ]
   %70 = load ptr, ptr %12, align 8, !tbaa !602
   %71 = load ptr, ptr %11, align 8
-  %72 = tail call ptr %70(ptr %71, ptr noundef null, i64 noundef %.0162) #55
+  %72 = tail call ptr %70(ptr %71, ptr noundef null, i64 noundef %.0162) #56
   %.not142 = icmp eq ptr %72, null
   br i1 %.not142, label %.critedge, label %73
 
@@ -30261,7 +30261,7 @@ nk_memset.exit:                                   ; preds = %.preheader.i152, %.
   %116 = sext i32 %115 to i64
   %117 = mul nsw i64 %116, 48
   %118 = load ptr, ptr %18, align 8
-  %119 = tail call ptr %114(ptr %118, ptr noundef null, i64 noundef %117) #55
+  %119 = tail call ptr %114(ptr %118, ptr noundef null, i64 noundef %117) #56
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store ptr %119, ptr %120, align 8, !tbaa !608
   %.not143 = icmp eq ptr %119, null
@@ -30283,7 +30283,7 @@ nk_memset.exit:                                   ; preds = %.preheader.i152, %.
   %129 = load ptr, ptr %12, align 8, !tbaa !602
   %130 = load i64, ptr %6, align 8, !tbaa !52
   %131 = load ptr, ptr %11, align 8
-  %132 = tail call ptr %129(ptr %131, ptr noundef null, i64 noundef %130) #55
+  %132 = tail call ptr %129(ptr %131, ptr noundef null, i64 noundef %130) #56
   store ptr %132, ptr %0, align 8, !tbaa !609
   %.not145 = icmp eq ptr %132, null
   br i1 %.not145, label %274, label %133
@@ -30312,7 +30312,7 @@ nk_memset.exit:                                   ; preds = %.preheader.i152, %.
   %150 = mul i32 %149, %148
   %151 = sext i32 %150 to i64
   %152 = load ptr, ptr %11, align 8
-  %153 = tail call ptr %146(ptr %152, ptr noundef null, i64 noundef %151) #55
+  %153 = tail call ptr %146(ptr %152, ptr noundef null, i64 noundef %151) #56
   %.not146 = icmp eq ptr %153, null
   br i1 %.not146, label %274, label %154
 
@@ -30348,7 +30348,7 @@ nk_memset.exit:                                   ; preds = %.preheader.i152, %.
 .thread164:                                       ; preds = %.lr.ph.i, %154
   %171 = load ptr, ptr %15, align 8, !tbaa !605
   %172 = load ptr, ptr %11, align 8
-  tail call void %171(ptr %172, ptr noundef %157) #55
+  tail call void %171(ptr %172, ptr noundef %157) #56
   store ptr %153, ptr %0, align 8, !tbaa !609
   br label %173
 
@@ -30538,14 +30538,14 @@ nk_font_init.exit:                                ; preds = %.lr.ph, %nk_font_fi
 270:                                              ; preds = %239
   %271 = load ptr, ptr %15, align 8, !tbaa !605
   %272 = load ptr, ptr %11, align 8
-  tail call void %271(ptr %272, ptr noundef nonnull %72) #55
+  tail call void %271(ptr %272, ptr noundef nonnull %72) #56
   %273 = load ptr, ptr %0, align 8, !tbaa !609
   br label %287
 
 274:                                              ; preds = %nk_memset.exit, %121, %128, %145
   %275 = load ptr, ptr %15, align 8, !tbaa !605
   %276 = load ptr, ptr %11, align 8
-  tail call void %275(ptr %276, ptr noundef nonnull %72) #55
+  tail call void %275(ptr %276, ptr noundef nonnull %72) #56
   br label %.critedge
 
 .critedge:                                        ; preds = %nk_font_baker_memory.exit, %274
@@ -30557,7 +30557,7 @@ nk_font_init.exit:                                ; preds = %.lr.ph, %nk_font_fi
 279:                                              ; preds = %.critedge
   %280 = load ptr, ptr %22, align 8, !tbaa !607
   %281 = load ptr, ptr %18, align 8
-  tail call void %280(ptr %281, ptr noundef nonnull %278) #55
+  tail call void %280(ptr %281, ptr noundef nonnull %278) #56
   store ptr null, ptr %277, align 8, !tbaa !608
   br label %282
 
@@ -30569,7 +30569,7 @@ nk_font_init.exit:                                ; preds = %.lr.ph, %nk_font_fi
 284:                                              ; preds = %282
   %285 = load ptr, ptr %15, align 8, !tbaa !605
   %286 = load ptr, ptr %11, align 8
-  tail call void %285(ptr %286, ptr noundef nonnull %283) #55
+  tail call void %285(ptr %286, ptr noundef nonnull %283) #56
   store ptr null, ptr %0, align 8, !tbaa !609
   br label %287
 
@@ -31089,14 +31089,14 @@ stbtt_PackSetOversampling.exit:                   ; preds = %47, %49
   %.val5.i = load ptr, ptr %67, align 8
   %68 = getelementptr i8, ptr %67, i64 16
   %.val6.i = load ptr, ptr %68, align 8, !tbaa !429
-  tail call void %.val6.i(ptr %.val5.i, ptr noundef %66) #55
+  tail call void %.val6.i(ptr %.val5.i, ptr noundef %66) #56
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %70 = load ptr, ptr %69, align 8, !tbaa !523
   %71 = load ptr, ptr %28, align 8, !tbaa !518
   %.val.i = load ptr, ptr %71, align 8
   %72 = getelementptr i8, ptr %71, i64 16
   %.val4.i = load ptr, ptr %72, align 8, !tbaa !429
-  tail call void %.val4.i(ptr %.val.i, ptr noundef %70) #55
+  tail call void %.val4.i(ptr %.val.i, ptr noundef %70) #56
   br i1 %31, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %._crit_edge
@@ -31480,7 +31480,7 @@ define void @nk_font_atlas_end(ptr noundef captures(address_is_null) %0, ptr %1,
   %36 = load ptr, ptr %35, align 8, !tbaa !605
   %37 = load ptr, ptr %0, align 8, !tbaa !609
   %38 = load ptr, ptr %34, align 8
-  tail call void %36(ptr %38, ptr noundef %37) #55
+  tail call void %36(ptr %38, ptr noundef %37) #56
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i64 0, ptr %39, align 8
@@ -31527,7 +31527,7 @@ define void @nk_font_atlas_cleanup(ptr noundef readonly captures(address_is_null
   %13 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !610
   %15 = load ptr, ptr %3, align 8
-  tail call void %12(ptr %15, ptr noundef %14) #55
+  tail call void %12(ptr %15, ptr noundef %14) #56
   store ptr null, ptr %13, align 8, !tbaa !610
   %.0.in = getelementptr inbounds nuw i8, ptr %.031, i64 72
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !595
@@ -31539,7 +31539,7 @@ define void @nk_font_atlas_cleanup(ptr noundef readonly captures(address_is_null
   %17 = getelementptr inbounds nuw i8, ptr %.01932, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !610
   %19 = load ptr, ptr %3, align 8
-  tail call void %16(ptr %19, ptr noundef %18) #55
+  tail call void %16(ptr %19, ptr noundef %18) #56
   store ptr null, ptr %17, align 8, !tbaa !610
   %20 = load ptr, ptr %.01932, align 8, !tbaa !615
   %.not25 = icmp eq ptr %20, null
@@ -31592,14 +31592,14 @@ define void @nk_font_atlas_clear(ptr noundef %0) local_unnamed_addr #18 {
 
 18:                                               ; preds = %.lr.ph
   %19 = load ptr, ptr %3, align 8
-  tail call void %.pre67(ptr %19, ptr noundef nonnull %17) #55
+  tail call void %.pre67(ptr %19, ptr noundef nonnull %17) #56
   %.pre = load ptr, ptr %7, align 8, !tbaa !607
   br label %20
 
 20:                                               ; preds = %18, %.lr.ph
   %21 = phi ptr [ %.pre, %18 ], [ %.pre67, %.lr.ph ]
   %22 = load ptr, ptr %3, align 8
-  tail call void %21(ptr %22, ptr noundef nonnull %.04364) #55
+  tail call void %21(ptr %22, ptr noundef nonnull %.04364) #56
   %.not56 = icmp eq ptr %15, %.065
   br i1 %.not56, label %._crit_edge, label %.lr.ph, !llvm.loop !715
 
@@ -31616,14 +31616,14 @@ define void @nk_font_atlas_clear(ptr noundef %0) local_unnamed_addr #18 {
   %27 = getelementptr inbounds nuw i8, ptr %.065, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !610
   %29 = load ptr, ptr %3, align 8
-  tail call void %.pre69(ptr %29, ptr noundef %28) #55
+  tail call void %.pre69(ptr %29, ptr noundef %28) #56
   %.pre68 = load ptr, ptr %7, align 8, !tbaa !607
   br label %30
 
 30:                                               ; preds = %26, %._crit_edge
   %31 = phi ptr [ %.pre68, %26 ], [ %.pre69, %._crit_edge ]
   %32 = load ptr, ptr %3, align 8
-  tail call void %31(ptr %32, ptr noundef nonnull %.065) #55
+  tail call void %31(ptr %32, ptr noundef nonnull %.065) #56
   %.not52 = icmp eq ptr %23, null
   br i1 %.not52, label %33, label %.preheader62, !llvm.loop !716
 
@@ -31642,7 +31642,7 @@ define void @nk_font_atlas_clear(ptr noundef %0) local_unnamed_addr #18 {
   %37 = load ptr, ptr %.04266, align 8, !tbaa !618
   %38 = load ptr, ptr %7, align 8, !tbaa !607
   %39 = load ptr, ptr %3, align 8
-  tail call void %38(ptr %39, ptr noundef nonnull %.04266) #55
+  tail call void %38(ptr %39, ptr noundef nonnull %.04266) #56
   %.not54 = icmp eq ptr %37, null
   br i1 %.not54, label %40, label %.preheader, !llvm.loop !717
 
@@ -31659,7 +31659,7 @@ define void @nk_font_atlas_clear(ptr noundef %0) local_unnamed_addr #18 {
 44:                                               ; preds = %41
   %45 = load ptr, ptr %7, align 8, !tbaa !607
   %46 = load ptr, ptr %3, align 8
-  tail call void %45(ptr %46, ptr noundef nonnull %43) #55
+  tail call void %45(ptr %46, ptr noundef nonnull %43) #56
   br label %47
 
 47:                                               ; preds = %44, %41
@@ -35153,7 +35153,7 @@ nk_buffer_init.exit:                              ; preds = %.thread.i14, %.preh
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !46
   %48 = load ptr, ptr %1, align 8
-  %49 = tail call ptr %47(ptr %48, ptr noundef null, i64 noundef 4096) #55
+  %49 = tail call ptr %47(ptr %48, ptr noundef null, i64 noundef 4096) #56
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 9760
   store ptr %49, ptr %50, align 8, !tbaa !41
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 9768
@@ -35552,7 +35552,7 @@ define void @nk_free(ptr noundef %0) local_unnamed_addr #18 {
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 9728
   %15 = load ptr, ptr %14, align 8
-  tail call void %12(ptr %15, ptr noundef nonnull %5) #55
+  tail call void %12(ptr %15, ptr noundef nonnull %5) #56
   br label %nk_buffer_free.exit
 
 nk_buffer_free.exit:                              ; preds = %2, %6, %10, %13
@@ -35582,7 +35582,7 @@ nk_buffer_free.exit:                              ; preds = %2, %6, %10, %13
   %28 = load ptr, ptr %27, align 8, !tbaa !872
   %29 = load ptr, ptr %25, align 8, !tbaa !874
   %30 = load ptr, ptr %19, align 8
-  tail call void %29(ptr %30, ptr noundef nonnull %.011.i) #55
+  tail call void %29(ptr %30, ptr noundef nonnull %.011.i) #56
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %nk_pool_free.exit, label %26, !llvm.loop !875
 
@@ -37125,7 +37125,7 @@ define internal fastcc ptr @nk_create_window(ptr noundef nonnull captures(addres
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 18432
   %29 = load ptr, ptr %28, align 8, !tbaa !908
   %30 = load ptr, ptr %11, align 8
-  %31 = tail call ptr %29(ptr %30, ptr noundef null, i64 noundef %27) #55
+  %31 = tail call ptr %29(ptr %30, ptr noundef null, i64 noundef %27) #56
   %32 = load ptr, ptr %12, align 8, !tbaa !868
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %32, ptr %33, align 8, !tbaa !872
@@ -37310,7 +37310,7 @@ define internal fastcc ptr @nk_create_panel(ptr noundef captures(address_is_null
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 18432
   %29 = load ptr, ptr %28, align 8, !tbaa !908
   %30 = load ptr, ptr %11, align 8
-  %31 = tail call ptr %29(ptr %30, ptr noundef null, i64 noundef %27) #55
+  %31 = tail call ptr %29(ptr %30, ptr noundef null, i64 noundef %27) #56
   %32 = load ptr, ptr %12, align 8, !tbaa !868
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %32, ptr %33, align 8, !tbaa !872
@@ -38005,7 +38005,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader4
   %309 = load ptr, ptr %308, align 8, !tbaa !211
   %310 = load float, ptr %179, align 8, !tbaa !213
   %311 = load ptr, ptr %29, align 8
-  %312 = tail call float %309(ptr %311, float noundef %310, ptr noundef nonnull %1, i32 noundef %.07.i.lcssa) #55
+  %312 = tail call float %309(ptr %311, float noundef %310, ptr noundef nonnull %1, i32 noundef %.07.i.lcssa) #56
   %.sroa.068.0.vec.extract89 = extractelement <2 x float> %.sroa.068.2, i64 0
   %313 = load float, ptr %181, align 4, !tbaa !929
   %314 = fadd float %.sroa.068.0.vec.extract89, %313
@@ -38030,7 +38030,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader4
   %..sroa.14.12.vec.extract.i = select i1 %329, float 0.000000e+00, float %320
   %330 = load ptr, ptr %308, align 8, !tbaa !211
   %331 = load ptr, ptr %29, align 8
-  %332 = tail call float %330(ptr %331, float noundef %319, ptr noundef nonnull %1, i32 noundef %.07.i.lcssa) #55
+  %332 = tail call float %330(ptr %331, float noundef %319, ptr noundef nonnull %1, i32 noundef %.07.i.lcssa) #56
   %333 = fadd float %316, 0.000000e+00
   %334 = insertelement <2 x float> poison, float %333, i64 0
   %335 = insertelement <2 x float> poison, float %328, i64 0
@@ -38786,7 +38786,7 @@ nk_input_is_mouse_hovering_rect.exit.thread.i:    ; preds = %228, %226, %._crit_
 346:                                              ; preds = %304
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 6696
   %348 = load ptr, ptr %347, align 8
-  tail call void %345(ptr noundef nonnull %70, ptr %348) #55
+  tail call void %345(ptr noundef nonnull %70, ptr %348) #56
   br label %349
 
 349:                                              ; preds = %346, %304
@@ -38804,7 +38804,7 @@ nk_input_is_mouse_hovering_rect.exit.thread.i:    ; preds = %228, %226, %._crit_
 353:                                              ; preds = %349
   %354 = getelementptr inbounds nuw i8, ptr %0, i64 6696
   %355 = load ptr, ptr %354, align 8
-  tail call void %352(ptr noundef nonnull %70, ptr %355) #55
+  tail call void %352(ptr noundef nonnull %70, ptr %355) #56
   br label %nk_do_scrollbarh.exit.i
 
 nk_do_scrollbarh.exit.i:                          ; preds = %353, %349, %257
@@ -42577,7 +42577,7 @@ define internal fastcc i32 @nk_do_button_text(ptr noundef nonnull captures(none)
 48:                                               ; preds = %16
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 192
   %50 = load ptr, ptr %49, align 8
-  tail call void %47(ptr noundef nonnull %1, ptr %50) #55
+  tail call void %47(ptr noundef nonnull %1, ptr %50) #56
   br label %51
 
 51:                                               ; preds = %48, %16
@@ -42650,7 +42650,7 @@ nk_rgb_factor.exit.i:                             ; preds = %65, %64
   %84 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %85 = load ptr, ptr %84, align 8, !tbaa !211
   %86 = load ptr, ptr %10, align 8
-  %87 = tail call float %85(ptr %86, float noundef %81, ptr noundef nonnull %4, i32 noundef %5) #55
+  %87 = tail call float %85(ptr %86, float noundef %81, ptr noundef nonnull %4, i32 noundef %5) #56
   %88 = fadd float %87, 0.000000e+00
   %89 = and i32 %6, 1
   %.not173.i.i = icmp eq i32 %89, 0
@@ -42756,7 +42756,7 @@ nk_draw_button_text.exit:                         ; preds = %112, %136
 139:                                              ; preds = %nk_draw_button_text.exit
   %140 = getelementptr inbounds nuw i8, ptr %8, i64 192
   %141 = load ptr, ptr %140, align 8
-  tail call void %138(ptr noundef nonnull %1, ptr %141) #55
+  tail call void %138(ptr noundef nonnull %1, ptr %141) #56
   br label %142
 
 142:                                              ; preds = %nk_draw_button_text.exit, %139, %11
@@ -43053,7 +43053,7 @@ define internal fastcc i32 @nk_do_button_text_image(ptr noundef nonnull captures
 78:                                               ; preds = %65
   %79 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %80 = load ptr, ptr %79, align 8
-  tail call void %77(ptr noundef nonnull %1, ptr %80) #55
+  tail call void %77(ptr noundef nonnull %1, ptr %80) #56
   br label %81
 
 81:                                               ; preds = %78, %65
@@ -43121,7 +43121,7 @@ nk_draw_button_text_image.exit:                   ; preds = %94, %95
   %111 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %112 = load ptr, ptr %111, align 8, !tbaa !211
   %113 = load ptr, ptr %10, align 8
-  %114 = tail call float %112(ptr %113, float noundef %110, ptr noundef nonnull %5, i32 noundef %6) #55
+  %114 = tail call float %112(ptr %113, float noundef %110, ptr noundef nonnull %5, i32 noundef %6) #56
   %115 = fadd float %114, 0.000000e+00
   %116 = fcmp ogt float %115, 1.000000e+00
   %117 = select i1 %116, float %115, float 1.000000e+00
@@ -43171,7 +43171,7 @@ nk_draw_button_text_image.exit:                   ; preds = %94, %95
 150:                                              ; preds = %nk_draw_button_text_image.exit
   %151 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %152 = load ptr, ptr %151, align 8
-  tail call void %149(ptr noundef nonnull %1, ptr %152) #55
+  tail call void %149(ptr noundef nonnull %1, ptr %152) #56
   br label %153
 
 153:                                              ; preds = %nk_draw_button_text_image.exit, %150, %12
@@ -43429,7 +43429,7 @@ define internal fastcc i32 @nk_do_button_text_symbol(ptr noundef nonnull capture
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %70 = load ptr, ptr %69, align 8
-  tail call void %67(ptr noundef nonnull %1, ptr %70) #55
+  tail call void %67(ptr noundef nonnull %1, ptr %70) #56
   br label %71
 
 71:                                               ; preds = %68, %64
@@ -43498,7 +43498,7 @@ nk_draw_button_text_symbol.exit:                  ; preds = %84, %85
   %103 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %104 = load ptr, ptr %103, align 8, !tbaa !211
   %105 = load ptr, ptr %10, align 8
-  %106 = tail call float %104(ptr %105, float noundef %102, ptr noundef %5, i32 noundef %6) #55
+  %106 = tail call float %104(ptr %105, float noundef %102, ptr noundef %5, i32 noundef %6) #56
   %107 = fadd float %106, 0.000000e+00
   %108 = fcmp ogt float %107, 1.000000e+00
   %109 = select i1 %108, float %107, float 1.000000e+00
@@ -43538,7 +43538,7 @@ nk_draw_button_text_symbol.exit:                  ; preds = %84, %85
 134:                                              ; preds = %nk_draw_button_text_symbol.exit
   %135 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %136 = load ptr, ptr %135, align 8
-  tail call void %133(ptr noundef nonnull %1, ptr %136) #55
+  tail call void %133(ptr noundef nonnull %1, ptr %136) #56
   br label %137
 
 137:                                              ; preds = %nk_draw_button_text_symbol.exit, %134, %12
@@ -44225,7 +44225,7 @@ define range(i32 0, 2) i32 @nk_menu_begin_image(ptr noundef %0, ptr noundef read
 70:                                               ; preds = %20
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %72 = load ptr, ptr %71, align 8
-  tail call void %69(ptr noundef nonnull %23, ptr %72) #55
+  tail call void %69(ptr noundef nonnull %23, ptr %72) #56
   br label %73
 
 73:                                               ; preds = %70, %20
@@ -44249,7 +44249,7 @@ define range(i32 0, 2) i32 @nk_menu_begin_image(ptr noundef %0, ptr noundef read
 86:                                               ; preds = %73
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %88 = load ptr, ptr %87, align 8
-  tail call void %85(ptr noundef nonnull %23, ptr %88) #55
+  tail call void %85(ptr noundef nonnull %23, ptr %88) #56
   br label %nk_do_button_image.exit
 
 nk_do_button_image.exit:                          ; preds = %73, %86
@@ -44385,7 +44385,7 @@ define internal fastcc i32 @nk_do_button_symbol(ptr noundef nonnull captures(non
 47:                                               ; preds = %15
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %49 = load ptr, ptr %48, align 8
-  tail call void %46(ptr noundef nonnull %1, ptr %49) #55
+  tail call void %46(ptr noundef nonnull %1, ptr %49) #56
   br label %50
 
 50:                                               ; preds = %47, %15
@@ -44455,7 +44455,7 @@ nk_draw_button_symbol.exit:                       ; preds = %63, %64
 79:                                               ; preds = %nk_draw_button_symbol.exit
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %81 = load ptr, ptr %80, align 8
-  tail call void %78(ptr noundef nonnull %1, ptr %81) #55
+  tail call void %78(ptr noundef nonnull %1, ptr %81) #56
   br label %82
 
 82:                                               ; preds = %nk_draw_button_symbol.exit, %79, %9
@@ -46750,7 +46750,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader1
   %229 = getelementptr inbounds nuw i8, ptr %194, i64 16
   %230 = load ptr, ptr %229, align 8, !tbaa !211
   %231 = load ptr, ptr %194, align 8
-  %232 = tail call float %230(ptr %231, float noundef %193, ptr noundef %3, i32 noundef %.0.lcssa.i) #55
+  %232 = tail call float %230(ptr %231, float noundef %193, ptr noundef %3, i32 noundef %.0.lcssa.i) #56
   %233 = fadd float %199, 0.000000e+00
   %234 = insertelement <2 x float> poison, float %233, i64 0
   %235 = fcmp ogt float %204, 0.000000e+00
@@ -47458,7 +47458,7 @@ nk_strlen.exit.i:                                 ; preds = %.lr.ph.i.preheader1
   %216 = getelementptr inbounds nuw i8, ptr %213, i64 8
   %217 = load float, ptr %216, align 8, !tbaa !213
   %218 = load ptr, ptr %213, align 8
-  %219 = tail call float %215(ptr %218, float noundef %217, ptr noundef %3, i32 noundef %.0.lcssa.i.i) #55
+  %219 = tail call float %215(ptr %218, float noundef %217, ptr noundef %3, i32 noundef %.0.lcssa.i.i) #56
   %220 = tail call float @llvm.fmuladd.f32(float %.sroa.037.0.copyload.i, float 4.000000e+00, float %219)
   %221 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %222 = load float, ptr %221, align 8, !tbaa !123
@@ -47530,7 +47530,7 @@ nk_strlen.exit.i:                                 ; preds = %.lr.ph.i.preheader1
 260:                                              ; preds = %256
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 2000
   %262 = load ptr, ptr %261, align 8
-  tail call void %259(ptr noundef nonnull %47, ptr %262) #55
+  tail call void %259(ptr noundef nonnull %47, ptr %262) #56
   %.pre195.i = load i32, ptr %5, align 4, !tbaa !7
   br label %263
 
@@ -47546,7 +47546,7 @@ nk_strlen.exit.i:                                 ; preds = %.lr.ph.i.preheader1
 268:                                              ; preds = %263
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 2000
   %270 = load ptr, ptr %269, align 8
-  tail call void %267(ptr noundef nonnull %47, ptr %270) #55
+  tail call void %267(ptr noundef nonnull %47, ptr %270) #56
   br label %nk_do_selectable.exit.i
 
 nk_do_selectable.exit.i:                          ; preds = %268, %263, %239, %237
@@ -48225,7 +48225,7 @@ define internal fastcc noundef ptr @nk_add_value(ptr noundef captures(address_is
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 18432
   %41 = load ptr, ptr %40, align 8, !tbaa !908
   %42 = load ptr, ptr %23, align 8
-  %43 = tail call ptr %41(ptr %42, ptr noundef null, i64 noundef %39) #55
+  %43 = tail call ptr %41(ptr %42, ptr noundef null, i64 noundef %39) #56
   %44 = load ptr, ptr %24, align 8, !tbaa !868
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %44, ptr %45, align 8, !tbaa !872
@@ -50022,7 +50022,7 @@ nk_rgb_factor.exit:                               ; preds = %21, %22
   %48 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !211
   %50 = load ptr, ptr %36, align 8
-  %51 = tail call float %49(ptr %50, float noundef %44, ptr noundef %1, i32 noundef %2) #55
+  %51 = tail call float %49(ptr %50, float noundef %44, ptr noundef %1, i32 noundef %2) #56
   %52 = tail call float @llvm.fmuladd.f32(float %.sroa.01.0.copyload, float 2.000000e+00, float %51)
   %53 = and i32 %3, 1
   %.not173.i = icmp eq i32 %53, 0
@@ -50256,7 +50256,7 @@ nk_text_clamp.exit.thread.thread.i:               ; preds = %nk_rgb_factor.exit
   %60 = load ptr, ptr %58, align 8, !tbaa !211
   %61 = load float, ptr %51, align 8, !tbaa !213
   %62 = load ptr, ptr %37, align 8
-  %63 = call float %60(ptr %62, float noundef %61, ptr noundef %1, i32 noundef %59) #55
+  %63 = call float %60(ptr %62, float noundef %61, ptr noundef %1, i32 noundef %59) #56
   %64 = load i32, ptr %6, align 4
   %.fr.i = freeze i32 %64
   %.not65.i.i = icmp eq i32 %.fr.i, 32
@@ -50304,7 +50304,7 @@ nk_text_clamp.exit.thread.i:                      ; preds = %.loopexit.i.i
   %83 = load float, ptr %51, align 8, !tbaa !213
   %84 = load ptr, ptr %58, align 8, !tbaa !211
   %85 = load ptr, ptr %37, align 8
-  %86 = call float %84(ptr %85, float noundef %83, ptr noundef %82, i32 noundef %.065177.i) #55
+  %86 = call float %84(ptr %85, float noundef %83, ptr noundef %82, i32 noundef %.065177.i) #56
   %.sroa.099.0.vec.extract.i.i = extractelement <2 x float> %.sroa.04.0179.i, i64 0
   %87 = fadd float %.sroa.099.0.vec.extract.i.i, 0.000000e+00
   %88 = insertelement <2 x float> poison, float %87, i64 0
@@ -50347,7 +50347,7 @@ nk_text_clamp.exit111.thread.thread.i:            ; preds = %80
 .lr.ph.i86.preheader.split.us.i:                  ; preds = %.lr.ph.i86.preheader.i
   %106 = load ptr, ptr %58, align 8, !tbaa !211
   %107 = load ptr, ptr %37, align 8
-  %108 = call float %106(ptr %107, float noundef %97, ptr noundef %101, i32 noundef %103) #55
+  %108 = call float %106(ptr %107, float noundef %97, ptr noundef %101, i32 noundef %103) #56
   %.not65.i110.us.i = icmp eq i32 %.promoted.fr.i, 32
   %spec.select237.i = select i1 %.not65.i110.us.i, i32 %103, i32 0
   br label %nk_utf_decode.exit.thread.i, !llvm.loop !1114
@@ -50362,7 +50362,7 @@ nk_text_clamp.exit111.thread.thread.i:            ; preds = %80
   %111 = load ptr, ptr %58, align 8, !tbaa !211
   %112 = load float, ptr %51, align 8, !tbaa !213
   %113 = load ptr, ptr %37, align 8
-  %114 = call float %111(ptr %113, float noundef %112, ptr noundef nonnull %101, i32 noundef %110) #55
+  %114 = call float %111(ptr %113, float noundef %112, ptr noundef nonnull %101, i32 noundef %110) #56
   %.not65.i110.i = icmp eq i32 %.fr182.i, 32
   %spec.select238.i = select i1 %.not65.i110.i, i32 %110, i32 %.05177.i89.i
   %115 = sext i32 %110 to i64
@@ -51853,7 +51853,7 @@ define i32 @nk_button_image_styled(ptr noundef captures(address_is_null) %0, ptr
 70:                                               ; preds = %28
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %72 = load ptr, ptr %71, align 8
-  tail call void %69(ptr noundef nonnull %21, ptr %72) #55
+  tail call void %69(ptr noundef nonnull %21, ptr %72) #56
   br label %73
 
 73:                                               ; preds = %70, %28
@@ -51877,7 +51877,7 @@ define i32 @nk_button_image_styled(ptr noundef captures(address_is_null) %0, ptr
 86:                                               ; preds = %73
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %88 = load ptr, ptr %87, align 8
-  tail call void %85(ptr noundef nonnull %21, ptr %88) #55
+  tail call void %85(ptr noundef nonnull %21, ptr %88) #56
   br label %nk_do_button_image.exit
 
 nk_do_button_image.exit:                          ; preds = %18, %73, %86
@@ -52707,7 +52707,7 @@ nk_toggle_behavior.exit:                          ; preds = %110, %.thread.i, %1
 126:                                              ; preds = %nk_toggle_behavior.exit
   %127 = getelementptr inbounds nuw i8, ptr %8, i64 264
   %128 = load ptr, ptr %127, align 8
-  tail call void %125(ptr noundef nonnull %1, ptr %128) #55
+  tail call void %125(ptr noundef nonnull %1, ptr %128) #56
   br label %129
 
 129:                                              ; preds = %126, %nk_toggle_behavior.exit
@@ -52795,7 +52795,7 @@ nk_rgb_factor.exit.i:                             ; preds = %148, %147
   %168 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %169 = load ptr, ptr %168, align 8, !tbaa !211
   %170 = load ptr, ptr %10, align 8
-  %171 = tail call float %169(ptr %170, float noundef %165, ptr noundef %5, i32 noundef %6) #55
+  %171 = tail call float %169(ptr %170, float noundef %165, ptr noundef %5, i32 noundef %6) #56
   %172 = fadd float %171, 0.000000e+00
   %173 = and i32 %12, 1
   %.not173.i.i = icmp eq i32 %173, 0
@@ -53116,7 +53116,7 @@ nk_rgb_factor.exit.i148:                          ; preds = %302, %301
   %322 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %323 = load ptr, ptr %322, align 8, !tbaa !211
   %324 = load ptr, ptr %10, align 8
-  %325 = tail call float %323(ptr %324, float noundef %319, ptr noundef %5, i32 noundef %6) #55
+  %325 = tail call float %323(ptr %324, float noundef %319, ptr noundef %5, i32 noundef %6) #56
   %326 = fadd float %325, 0.000000e+00
   %327 = and i32 %12, 1
   %.not173.i.i166 = icmp eq i32 %327, 0
@@ -53369,7 +53369,7 @@ nk_draw_checkbox.exit:                            ; preds = %440, %nk_rgb_factor
 444:                                              ; preds = %nk_draw_checkbox.exit
   %445 = getelementptr inbounds nuw i8, ptr %8, i64 264
   %446 = load ptr, ptr %445, align 8
-  tail call void %443(ptr noundef nonnull %1, ptr %446) #55
+  tail call void %443(ptr noundef nonnull %1, ptr %446) #56
   br label %447
 
 447:                                              ; preds = %nk_draw_checkbox.exit, %444, %13
@@ -54748,7 +54748,7 @@ define range(i32 0, 2) i32 @nk_selectable_text(ptr noundef captures(address_is_n
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 2000
   %53 = load ptr, ptr %52, align 8
-  tail call void %50(ptr noundef nonnull %25, ptr %53) #55
+  tail call void %50(ptr noundef nonnull %25, ptr %53) #56
   br label %54
 
 54:                                               ; preds = %51, %48
@@ -54763,7 +54763,7 @@ define range(i32 0, 2) i32 @nk_selectable_text(ptr noundef captures(address_is_n
 59:                                               ; preds = %54
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 2000
   %61 = load ptr, ptr %60, align 8
-  tail call void %58(ptr noundef nonnull %25, ptr %61) #55
+  tail call void %58(ptr noundef nonnull %25, ptr %61) #56
   br label %62
 
 62:                                               ; preds = %59, %54
@@ -54925,7 +54925,7 @@ define internal fastcc range(i32 0, 2) i32 @nk_do_selectable_image(ptr noundef n
 63:                                               ; preds = %52
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 312
   %65 = load ptr, ptr %64, align 8
-  tail call void %62(ptr noundef nonnull %1, ptr %65) #55
+  tail call void %62(ptr noundef nonnull %1, ptr %65) #56
   br label %66
 
 66:                                               ; preds = %63, %52
@@ -54940,7 +54940,7 @@ define internal fastcc range(i32 0, 2) i32 @nk_do_selectable_image(ptr noundef n
 71:                                               ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %9, i64 312
   %73 = load ptr, ptr %72, align 8
-  call void %70(ptr noundef nonnull %1, ptr %73) #55
+  call void %70(ptr noundef nonnull %1, ptr %73) #56
   br label %74
 
 74:                                               ; preds = %71, %66
@@ -55089,7 +55089,7 @@ define range(i32 0, 2) i32 @nk_selectable_symbol_text(ptr noundef captures(addre
 81:                                               ; preds = %70
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 2000
   %83 = load ptr, ptr %82, align 8
-  tail call void %80(ptr noundef nonnull %27, ptr %83) #55
+  tail call void %80(ptr noundef nonnull %27, ptr %83) #56
   br label %84
 
 84:                                               ; preds = %81, %70
@@ -55104,7 +55104,7 @@ define range(i32 0, 2) i32 @nk_selectable_symbol_text(ptr noundef captures(addre
 89:                                               ; preds = %84
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 2000
   %91 = load ptr, ptr %90, align 8
-  call void %88(ptr noundef nonnull %27, ptr %91) #55
+  call void %88(ptr noundef nonnull %27, ptr %91) #56
   br label %92
 
 92:                                               ; preds = %89, %84
@@ -55228,7 +55228,7 @@ define i32 @nk_select_text(ptr noundef captures(address_is_null) %0, ptr noundef
 45:                                               ; preds = %32
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 2000
   %47 = load ptr, ptr %46, align 8
-  tail call void %44(ptr noundef nonnull %23, ptr %47) #55
+  tail call void %44(ptr noundef nonnull %23, ptr %47) #56
   br label %48
 
 48:                                               ; preds = %45, %32
@@ -55242,7 +55242,7 @@ define i32 @nk_select_text(ptr noundef captures(address_is_null) %0, ptr noundef
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 2000
   %54 = load ptr, ptr %53, align 8
-  tail call void %51(ptr noundef nonnull %23, ptr %54) #55
+  tail call void %51(ptr noundef nonnull %23, ptr %54) #56
   br label %nk_selectable_text.exit
 
 nk_selectable_text.exit:                          ; preds = %48, %52, %5, %7, %10, %13, %20
@@ -55448,7 +55448,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader1
 47:                                               ; preds = %34
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 2000
   %49 = load ptr, ptr %48, align 8
-  tail call void %46(ptr noundef nonnull %25, ptr %49) #55
+  tail call void %46(ptr noundef nonnull %25, ptr %49) #56
   br label %50
 
 50:                                               ; preds = %47, %34
@@ -55462,7 +55462,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader1
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 2000
   %56 = load ptr, ptr %55, align 8
-  tail call void %53(ptr noundef nonnull %25, ptr %56) #55
+  tail call void %53(ptr noundef nonnull %25, ptr %56) #56
   br label %nk_selectable_text.exit
 
 nk_selectable_text.exit:                          ; preds = %50, %54, %nk_strlen.exit, %9, %12, %15, %22
@@ -55933,7 +55933,7 @@ nk_slider_behavior.exit.i:                        ; preds = %nk_input_is_mouse_p
 174:                                              ; preds = %nk_slider_behavior.exit.i
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 2776
   %176 = load ptr, ptr %175, align 8
-  tail call void %173(ptr noundef nonnull %27, ptr %176) #55
+  tail call void %173(ptr noundef nonnull %27, ptr %176) #56
   %.pre196.i = load i32, ptr %26, align 8, !tbaa !7
   br label %177
 
@@ -56266,7 +56266,7 @@ nk_draw_slider.exit.i:                            ; preds = %nk_rgb_factor.exit1
 327:                                              ; preds = %nk_draw_slider.exit.i
   %328 = getelementptr inbounds nuw i8, ptr %0, i64 2776
   %329 = load ptr, ptr %328, align 8
-  tail call void %326(ptr noundef nonnull %27, ptr %329) #55
+  tail call void %326(ptr noundef nonnull %27, ptr %329) #56
   br label %nk_do_slider.exit
 
 nk_do_slider.exit:                                ; preds = %nk_draw_slider.exit.i, %327
@@ -56695,7 +56695,7 @@ nk_knob_behavior.exit.i:                          ; preds = %nk_input_is_mouse_p
 219:                                              ; preds = %nk_knob_behavior.exit.i
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 2992
   %221 = load ptr, ptr %220, align 8
-  tail call void %218(ptr noundef nonnull %27, ptr %221) #55
+  tail call void %218(ptr noundef nonnull %27, ptr %221) #56
   %.pre.i = load i32, ptr %26, align 8, !tbaa !7
   br label %222
 
@@ -57095,7 +57095,7 @@ nk_draw_knob.exit.i:                              ; preds = %399, %nk_rgb_factor
 430:                                              ; preds = %nk_draw_knob.exit.i
   %431 = getelementptr inbounds nuw i8, ptr %0, i64 2992
   %432 = load ptr, ptr %431, align 8
-  tail call void %429(ptr noundef nonnull %27, ptr %432) #55
+  tail call void %429(ptr noundef nonnull %27, ptr %432) #56
   br label %nk_do_knob.exit
 
 nk_do_knob.exit:                                  ; preds = %nk_draw_knob.exit.i, %430
@@ -57339,7 +57339,7 @@ nk_progress_behavior.exit.i:                      ; preds = %nk_input_is_mouse_p
 123:                                              ; preds = %nk_progress_behavior.exit.i
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 3304
   %125 = load ptr, ptr %124, align 8
-  tail call void %122(ptr noundef nonnull %24, ptr %125) #55
+  tail call void %122(ptr noundef nonnull %24, ptr %125) #56
   %.pre.i = load i32, ptr %23, align 8, !tbaa !7
   br label %126
 
@@ -57623,7 +57623,7 @@ nk_draw_progress.exit.i:                          ; preds = %nk_rgb_factor.exit1
 256:                                              ; preds = %nk_draw_progress.exit.i
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 3304
   %258 = load ptr, ptr %257, align 8
-  tail call void %255(ptr noundef nonnull %24, ptr %258) #55
+  tail call void %255(ptr noundef nonnull %24, ptr %258) #56
   br label %nk_do_progress.exit
 
 nk_do_progress.exit:                              ; preds = %nk_draw_progress.exit.i, %256
@@ -58621,7 +58621,7 @@ nk_utf_decode.exit:                               ; preds = %20, %nk_utf_decode_
   br i1 %.not54, label %84, label %82
 
 82:                                               ; preds = %80
-  %83 = call i32 %81(ptr noundef nonnull %0, i32 noundef %.0247308) #55
+  %83 = call i32 %81(ptr noundef nonnull %0, i32 noundef %.0247308) #56
   %.not55 = icmp eq i32 %83, 0
   br i1 %.not55, label %333, label %84
 
@@ -60134,7 +60134,7 @@ nk_zero.exit.i.i:                                 ; preds = %.preheader44.prehea
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !46
   %32 = load ptr, ptr %1, align 8
-  %33 = tail call ptr %31(ptr %32, ptr noundef null, i64 noundef %2) #55
+  %33 = tail call ptr %31(ptr %32, ptr noundef null, i64 noundef %2) #56
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %33, ptr %34, align 8, !tbaa !41
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -60231,7 +60231,7 @@ nk_memset.exit:                                   ; preds = %.thread, %.preheade
 nk_str_init_default.exit:                         ; preds = %.thread.i.i, %.preheader44.preheader.i.i.i.i
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %24, align 8, !tbaa !36
-  %25 = tail call noalias noundef dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #54
+  %25 = tail call noalias noundef dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #55
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %25, ptr %26, align 8, !tbaa !41
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -60291,7 +60291,7 @@ define void @nk_textedit_free(ptr noundef captures(address_is_null) %0) local_un
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
-  tail call void %11(ptr %14, ptr noundef nonnull %4) #55
+  tail call void %11(ptr %14, ptr noundef nonnull %4) #56
   br label %nk_str_free.exit
 
 nk_str_free.exit:                                 ; preds = %2, %5, %9, %12
@@ -61339,7 +61339,7 @@ nk_str_at_const.exit:                             ; preds = %258, %.loopexit.i, 
   %285 = call i32 @llvm.smax.i32(i32 %260, i32 %262)
   %286 = sub nsw i32 %285, %263
   %287 = load ptr, ptr %6, align 8
-  call void %283(ptr %287, ptr noundef %.0.i812, i32 noundef %286) #55
+  call void %283(ptr %287, ptr noundef %.0.i812, i32 noundef %286) #56
   br label %288
 
 288:                                              ; preds = %284, %nk_str_at_const.exit
@@ -61464,7 +61464,7 @@ nk_textedit_cut.exit:                             ; preds = %nk_textedit_delete_
 
 335:                                              ; preds = %332
   %336 = load ptr, ptr %6, align 8
-  call void %334(ptr %336, ptr noundef nonnull %6) #55
+  call void %334(ptr %336, ptr noundef nonnull %6) #56
   br label %nk_input_is_key_pressed.exit820.thread
 
 nk_input_is_key_pressed.exit820.thread:           ; preds = %330, %329, %332, %335
@@ -61830,7 +61830,7 @@ nk_utf_decode.exit:                               ; preds = %449, %nk_utf_decode
   %489 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %490 = load float, ptr %489, align 8, !tbaa !213
   %491 = load ptr, ptr %9, align 8
-  %492 = call float %488(ptr %491, float noundef %490, ptr noundef nonnull %.0.i8271195, i32 noundef %.023.i) #55
+  %492 = call float %488(ptr %491, float noundef %490, ptr noundef nonnull %.0.i8271195, i32 noundef %.023.i) #56
   %493 = icmp sgt i32 %.0.i830, 0
   %494 = icmp ne i32 %.023.i, 0
   %495 = and i1 %493, %494
@@ -62098,7 +62098,7 @@ nk_utf_decode.exit912:                            ; preds = %553, %535, %nk_utf_
   %591 = load ptr, ptr %487, align 8, !tbaa !211
   %592 = load float, ptr %489, align 8, !tbaa !213
   %593 = load ptr, ptr %9, align 8
-  %594 = call float %591(ptr %593, float noundef %592, ptr noundef nonnull %542, i32 noundef %.023.i884) #55
+  %594 = call float %591(ptr %593, float noundef %592, ptr noundef nonnull %542, i32 noundef %.023.i884) #56
   %595 = icmp slt i32 %539, %.0.i830
   %596 = icmp ne i32 %.023.i884, 0
   %597 = and i1 %595, %596
@@ -62234,7 +62234,7 @@ nk_utf_decode.exit948:                            ; preds = %614, %598, %nk_utf_
   %652 = load ptr, ptr %487, align 8, !tbaa !211
   %653 = load float, ptr %489, align 8, !tbaa !213
   %654 = load ptr, ptr %9, align 8
-  %655 = call float %652(ptr %654, float noundef %653, ptr noundef nonnull %603, i32 noundef %.023.i920) #55
+  %655 = call float %652(ptr %654, float noundef %653, ptr noundef nonnull %603, i32 noundef %.023.i920) #56
   %656 = icmp slt i32 %600, %.0.i830
   %657 = icmp ne i32 %.023.i920, 0
   %658 = and i1 %656, %657
@@ -62906,7 +62906,7 @@ nk_utf_validate.exit.loopexit92.i1089:            ; preds = %nk_utf_decode_byte.
   %969 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %970 = load float, ptr %969, align 8, !tbaa !213
   %971 = load ptr, ptr %9, align 8
-  %972 = call float %968(ptr %971, float noundef %970, ptr noundef %.0686, i32 noundef %phi.call) #55
+  %972 = call float %968(ptr %971, float noundef %970, ptr noundef %.0686, i32 noundef %phi.call) #56
   %.sroa.6.8.vec.insert = insertelement <2 x float> poison, float %972, i64 0
   %.sroa.6.12.vec.insert = insertelement <2 x float> %.sroa.6.8.vec.insert, float %50, i64 1
   call void @nk_fill_rect(ptr noundef nonnull %1, <2 x float> %.sroa.027.4.vec.insert, <2 x float> %.sroa.6.12.vec.insert, float noundef 0.000000e+00, i32 %.sroa.011.0.insert.insert.i968)
@@ -62915,7 +62915,7 @@ nk_utf_validate.exit.loopexit92.i1089:            ; preds = %nk_utf_decode_byte.
   %974 = load float, ptr %969, align 8, !tbaa !213
   %975 = load ptr, ptr %967, align 8, !tbaa !211
   %976 = load ptr, ptr %9, align 8
-  %977 = call float %975(ptr %976, float noundef %974, ptr noundef %.0686, i32 noundef %phi.call) #55
+  %977 = call float %975(ptr %976, float noundef %974, ptr noundef %.0686, i32 noundef %phi.call) #56
   %978 = fadd float %962, 0.000000e+00
   %979 = insertelement <2 x float> poison, float %978, i64 0
   %980 = fcmp ogt float %972, 0.000000e+00
@@ -63420,7 +63420,7 @@ nk_strlen.exit.i:                                 ; preds = %.lr.ph.i.preheader.
   %90 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %91 = load ptr, ptr %90, align 8, !tbaa !211
   %92 = load ptr, ptr %66, align 8
-  %93 = tail call float %91(ptr %92, float noundef %73, ptr noundef nonnull %.0, i32 noundef %.0327.i) #55
+  %93 = tail call float %91(ptr %92, float noundef %73, ptr noundef nonnull %.0, i32 noundef %.0327.i) #56
   %94 = fadd float %74, %81
   %95 = load float, ptr %79, align 8, !tbaa !1202
   %96 = fadd float %94, %95
@@ -63448,7 +63448,7 @@ nk_strlen.exit.i:                                 ; preds = %.lr.ph.i.preheader.
   %114 = load float, ptr %72, align 8, !tbaa !213
   %115 = load i32, ptr %.085, align 4, !tbaa !7
   %116 = load ptr, ptr %66, align 8
-  %117 = call float %113(ptr %116, float noundef %114, ptr noundef nonnull %.086, i32 noundef %115) #55
+  %117 = call float %113(ptr %116, float noundef %114, ptr noundef nonnull %.086, i32 noundef %115) #56
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 4428
   %119 = load float, ptr %118, align 4, !tbaa !1204
   %120 = fadd float %117, %119
@@ -63651,7 +63651,7 @@ nk_string_float_limit.exit440.i:                  ; preds = %179, %183
   %192 = load ptr, ptr %90, align 8, !tbaa !211
   %193 = load float, ptr %72, align 8, !tbaa !213
   %194 = load ptr, ptr %66, align 8
-  %195 = call float %192(ptr %194, float noundef %193, ptr noundef nonnull %7, i32 noundef %.0..0..0..i) #55
+  %195 = call float %192(ptr %194, float noundef %193, ptr noundef nonnull %7, i32 noundef %.0..0..0..i) #56
   br label %196
 
 196:                                              ; preds = %191, %112
@@ -63964,7 +63964,7 @@ nk_property_behavior.exit.i:                      ; preds = %.sink.split.i.i, %n
 341:                                              ; preds = %nk_property_behavior.exit.i
   %342 = getelementptr inbounds nuw i8, ptr %0, i64 4896
   %343 = load ptr, ptr %342, align 8
-  call void %340(ptr noundef nonnull %64, ptr %343) #55
+  call void %340(ptr noundef nonnull %64, ptr %343) #56
   br label %344
 
 344:                                              ; preds = %341, %nk_property_behavior.exit.i
@@ -64153,7 +64153,7 @@ nk_widget_text.exit.i.i:                          ; preds = %418
   %421 = load float, ptr %72, align 8, !tbaa !213
   %422 = load ptr, ptr %90, align 8, !tbaa !211
   %423 = load ptr, ptr %66, align 8
-  %424 = call float %422(ptr %423, float noundef %421, ptr noundef nonnull %.0, i32 noundef %.0327.i) #55
+  %424 = call float %422(ptr %423, float noundef %421, ptr noundef nonnull %.0, i32 noundef %.0327.i) #56
   %425 = fadd float %424, 0.000000e+00
   %426 = fcmp ogt float %425, 1.000000e+00
   %427 = select i1 %426, float %425, float 1.000000e+00
@@ -64195,7 +64195,7 @@ nk_draw_property.exit.i:                          ; preds = %nk_widget_text.exit
 451:                                              ; preds = %nk_draw_property.exit.i
   %452 = getelementptr inbounds nuw i8, ptr %0, i64 4896
   %453 = load ptr, ptr %452, align 8
-  call void %450(ptr noundef nonnull %64, ptr %453) #55
+  call void %450(ptr noundef nonnull %64, ptr %453) #56
   br label %454
 
 454:                                              ; preds = %451, %nk_draw_property.exit.i
@@ -66226,7 +66226,7 @@ define void @nk_plot_function(ptr noundef readonly captures(address_is_null) %0,
   br i1 %or.cond3, label %10, label %nk_chart_end.exit
 
 10:                                               ; preds = %6
-  %11 = tail call float %3(ptr noundef %2, i32 noundef %5) #55
+  %11 = tail call float %3(ptr noundef %2, i32 noundef %5) #56
   %12 = icmp sgt i32 %4, 0
   br i1 %12, label %.lr.ph, label %._crit_edge
 
@@ -66235,7 +66235,7 @@ define void @nk_plot_function(ptr noundef readonly captures(address_is_null) %0,
   %.03743 = phi float [ %18, %.lr.ph ], [ %11, %10 ]
   %.03842 = phi float [ %16, %.lr.ph ], [ %11, %10 ]
   %13 = add nsw i32 %.044, %5
-  %14 = tail call float %3(ptr noundef %2, i32 noundef %13) #55
+  %14 = tail call float %3(ptr noundef %2, i32 noundef %13) #56
   %15 = fcmp olt float %14, %.03842
   %16 = select i1 %15, float %14, float %.03842
   %17 = fcmp olt float %14, %.03743
@@ -66261,7 +66261,7 @@ define void @nk_plot_function(ptr noundef readonly captures(address_is_null) %0,
 .lr.ph47:                                         ; preds = %.preheader, %.lr.ph47
   %.146 = phi i32 [ %28, %.lr.ph47 ], [ 0, %.preheader ]
   %25 = add nsw i32 %.146, %5
-  %26 = tail call float %3(ptr noundef %2, i32 noundef %25) #55
+  %26 = tail call float %3(ptr noundef %2, i32 noundef %25) #56
   %27 = tail call range(i32 0, 4) i32 @nk_chart_push_slot(ptr noundef nonnull readonly %0, float noundef %26, i32 noundef 0)
   %28 = add nuw nsw i32 %.146, 1
   %exitcond50.not = icmp eq i32 %28, %4
@@ -67404,7 +67404,7 @@ nk_rgb_factor.exit166:                            ; preds = %96, %97
   %156 = getelementptr inbounds nuw i8, ptr %152, i64 16
   %157 = load ptr, ptr %156, align 8, !tbaa !211
   %158 = load ptr, ptr %152, align 8
-  %159 = tail call float %157(ptr %158, float noundef %155, ptr noundef nonnull %1, i32 noundef %2) #55
+  %159 = tail call float %157(ptr %158, float noundef %155, ptr noundef nonnull %1, i32 noundef %2) #56
   %160 = fadd float %137, 0.000000e+00
   %161 = insertelement <2 x float> poison, float %160, i64 0
   %162 = fcmp ogt float %.sink189, 0.000000e+00
@@ -68599,7 +68599,7 @@ nk_widget_text.exit:                              ; preds = %8, %9
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !211
   %20 = load ptr, ptr %7, align 8
-  %21 = tail call float %19(ptr %20, float noundef %17, ptr noundef %14, i32 noundef 1) #55
+  %21 = tail call float %19(ptr %20, float noundef %17, ptr noundef %14, i32 noundef 1) #56
   %22 = fadd float %21, 0.000000e+00
   %23 = fcmp ogt float %22, 1.000000e+00
   %24 = select i1 %23, float %22, float 1.000000e+00
@@ -69273,7 +69273,7 @@ nk_draw_button_symbol.exit:                       ; preds = %161, %162
   %199 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %200 = load ptr, ptr %199, align 8, !tbaa !211
   %201 = load ptr, ptr %195, align 8
-  %202 = tail call float %200(ptr %201, float noundef %198, ptr noundef %1, i32 noundef %2) #55
+  %202 = tail call float %200(ptr %201, float noundef %198, ptr noundef %1, i32 noundef %2) #56
   %203 = fadd float %189, 0.000000e+00
   %204 = insertelement <2 x float> poison, float %203, i64 0
   %205 = fcmp ogt float %193, 0.000000e+00
@@ -70124,7 +70124,7 @@ nk_rgb_factor.exit190:                            ; preds = %nk_draw_button_symb
   %188 = getelementptr inbounds nuw i8, ptr %184, i64 16
   %189 = load ptr, ptr %188, align 8, !tbaa !211
   %190 = load ptr, ptr %184, align 8
-  %191 = tail call float %189(ptr %190, float noundef %187, ptr noundef %1, i32 noundef %2) #55
+  %191 = tail call float %189(ptr %190, float noundef %187, ptr noundef %1, i32 noundef %2) #56
   %192 = fadd float %178, 0.000000e+00
   %193 = insertelement <2 x float> poison, float %192, i64 0
   %194 = fcmp ogt float %183, 0.000000e+00
@@ -71048,7 +71048,7 @@ nk_panel_get_padding.exit:                        ; preds = %switch.lookup, %.sp
   %32 = fcmp olt float %.sroa.031.4.vec.extract, %31
   %33 = select i1 %32, float %.sroa.031.4.vec.extract, float %31
   %.sroa.031.4.vec.insert = insertelement <2 x float> %6, float %33, i64 1
-  call void %1(ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8) #55
+  call void %1(ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8) #56
   %34 = load ptr, ptr %8, align 8, !tbaa !13
   %.not5.i.i = icmp eq ptr %34, null
   br i1 %.not5.i.i, label %nk_combo_begin_label.exit, label %.lr.ph.i.preheader.i
@@ -71156,7 +71156,7 @@ nk_layout_row_dynamic.exit:                       ; preds = %39, %42, %nk_panel_
 .lr.ph:                                           ; preds = %nk_layout_row_dynamic.exit, %.lr.ph
   %.142 = phi i32 [ %spec.select, %.lr.ph ], [ %3, %nk_layout_row_dynamic.exit ]
   %.03741 = phi i32 [ %81, %.lr.ph ], [ 0, %nk_layout_row_dynamic.exit ]
-  call void %1(ptr noundef %2, i32 noundef %.03741, ptr noundef nonnull %8) #55
+  call void %1(ptr noundef %2, i32 noundef %.03741, ptr noundef nonnull %8) #56
   %79 = load ptr, ptr %8, align 8, !tbaa !13
   %80 = call range(i32 0, 2) i32 @nk_contextual_item_label(ptr noundef nonnull %0, ptr noundef %79, i32 noundef 17)
   %.not40 = icmp eq i32 %80, 0
@@ -71373,7 +71373,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader,
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %22 = load float, ptr %21, align 8, !tbaa !213
   %23 = load ptr, ptr %18, align 8
-  %24 = tail call float %20(ptr %23, float noundef %22, ptr noundef nonnull %1, i32 noundef %.07.i.lcssa) #55
+  %24 = tail call float %20(ptr %23, float noundef %22, ptr noundef nonnull %1, i32 noundef %.07.i.lcssa) #56
   %25 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0.copyload, float 4.000000e+00, float %24)
   %26 = load ptr, ptr %16, align 8, !tbaa !822
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -71557,7 +71557,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader,
   %109 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %110 = load ptr, ptr %109, align 8, !tbaa !211
   %111 = load ptr, ptr %101, align 8
-  %112 = tail call float %110(ptr %111, float noundef %108, ptr noundef nonnull %1, i32 noundef %.07.i.lcssa) #55
+  %112 = tail call float %110(ptr %111, float noundef %108, ptr noundef nonnull %1, i32 noundef %.07.i.lcssa) #56
   %.sroa.099.0.vec.extract.i.i = extractelement <2 x float> %102, i64 0
   %113 = fadd float %.sroa.01.0.copyload.i, %.sroa.099.0.vec.extract.i.i
   %114 = insertelement <2 x float> poison, float %113, i64 0
@@ -76532,7 +76532,7 @@ define internal fastcc float @nk_do_scrollbarv(ptr noundef nonnull captures(none
 107:                                              ; preds = %53
   %108 = getelementptr inbounds nuw i8, ptr %9, i64 728
   %109 = load ptr, ptr %108, align 8
-  tail call void %106(ptr noundef nonnull %1, ptr %109) #55
+  tail call void %106(ptr noundef nonnull %1, ptr %109) #56
   br label %110
 
 110:                                              ; preds = %107, %53
@@ -76550,7 +76550,7 @@ define internal fastcc float @nk_do_scrollbarv(ptr noundef nonnull captures(none
 114:                                              ; preds = %110
   %115 = getelementptr inbounds nuw i8, ptr %9, i64 728
   %116 = load ptr, ptr %115, align 8
-  tail call void %113(ptr noundef nonnull %1, ptr %116) #55
+  tail call void %113(ptr noundef nonnull %1, ptr %116) #56
   br label %117
 
 117:                                              ; preds = %110, %114, %12
@@ -77652,7 +77652,7 @@ nk_rgb_factor.exit96:                             ; preds = %56
   %78 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %79 = load ptr, ptr %78, align 8, !tbaa !211
   %80 = load ptr, ptr %10, align 8
-  %81 = tail call float %79(ptr %80, float noundef %74, ptr noundef %7, i32 noundef %8) #55
+  %81 = tail call float %79(ptr %80, float noundef %74, ptr noundef %7, i32 noundef %8) #56
   %82 = tail call float @llvm.fmuladd.f32(float %13, float 2.000000e+00, float %81)
   %83 = and i32 %9, 1
   %.not173.i = icmp eq i32 %83, 0
@@ -78598,7 +78598,7 @@ nk_textedit_get_width.exit:                       ; preds = %283, %.loopexit.i.i
   %301 = load ptr, ptr %281, align 8, !tbaa !211
   %302 = load float, ptr %282, align 8, !tbaa !213
   %303 = load ptr, ptr %3, align 8
-  %304 = call float %301(ptr %303, float noundef %302, ptr noundef %.0.i.i, i32 noundef %.1.i) #55
+  %304 = call float %301(ptr %303, float noundef %302, ptr noundef %.0.i.i, i32 noundef %.1.i) #56
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %305 = fadd float %.0252399, %304
   %306 = fcmp ogt float %305, %267
@@ -78858,7 +78858,7 @@ nk_textedit_get_width.exit351:                    ; preds = %403, %.loopexit.i.i
   %421 = load ptr, ptr %401, align 8, !tbaa !211
   %422 = load float, ptr %402, align 8, !tbaa !213
   %423 = load ptr, ptr %3, align 8
-  %424 = call float %421(ptr %423, float noundef %422, ptr noundef %.0.i.i347, i32 noundef %.1.i346) #55
+  %424 = call float %421(ptr %423, float noundef %422, ptr noundef %.0.i.i347, i32 noundef %.1.i346) #56
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %425 = fadd float %.0251402, %424
   %426 = fcmp ogt float %425, %390
@@ -79583,7 +79583,7 @@ nk_utf_decode.exit:                               ; preds = %53, %58, %nk_utf_va
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %62 = load float, ptr %61, align 8, !tbaa !213
   %63 = load ptr, ptr %0, align 8
-  %64 = tail call float %60(ptr %63, float noundef %62, ptr noundef nonnull %1, i32 noundef %.023.i181) #55
+  %64 = tail call float %60(ptr %63, float noundef %62, ptr noundef nonnull %1, i32 noundef %.023.i181) #56
   store i32 0, ptr %6, align 4, !tbaa !7
   %65 = add nsw i32 %2, -3
   %66 = zext nneg i32 %2 to i64
@@ -79898,7 +79898,7 @@ nk_utf_decode.exit168:                            ; preds = %155, %137, %nk_utf_
   %195 = load ptr, ptr %59, align 8, !tbaa !211
   %196 = load float, ptr %61, align 8, !tbaa !213
   %197 = load ptr, ptr %0, align 8
-  %198 = tail call float %195(ptr %197, float noundef %196, ptr noundef nonnull %144, i32 noundef %.023.i140) #55
+  %198 = tail call float %195(ptr %197, float noundef %196, ptr noundef nonnull %144, i32 noundef %.023.i140) #56
   %199 = icmp slt i32 %141, %2
   %200 = icmp ne i32 %.023.i140, 0
   %201 = and i1 %200, %199
@@ -80184,7 +80184,7 @@ nk_widget_text.exit:                              ; preds = %96, %93
   %104 = load float, ptr %81, align 8, !tbaa !213
   %105 = load ptr, ptr %80, align 8, !tbaa !211
   %106 = load ptr, ptr %8, align 8
-  %107 = tail call float %105(ptr %106, float noundef %104, ptr noundef nonnull %.0104.ph.ph337, i32 noundef %103) #55
+  %107 = tail call float %105(ptr %106, float noundef %104, ptr noundef nonnull %.0104.ph.ph337, i32 noundef %103) #56
   %108 = fadd float %107, 0.000000e+00
   %109 = fcmp ogt float %108, 1.000000e+00
   %110 = select i1 %109, float %108, float 1.000000e+00
@@ -80492,7 +80492,7 @@ nk_utf_decode.exit207:                            ; preds = %202, %nk_utf_decode
   %249 = ashr exact i64 %sext437, 32
   %250 = getelementptr inbounds i8, ptr %5, i64 %249
   %251 = load ptr, ptr %8, align 8
-  %252 = tail call float %247(ptr %251, float noundef %248, ptr noundef nonnull %250, i32 noundef %.0311) #55
+  %252 = tail call float %247(ptr %251, float noundef %248, ptr noundef nonnull %250, i32 noundef %.0311) #56
   %253 = fadd float %.0106.ph322, %252
   %254 = add nsw i32 %.0311, %246
   %255 = sext i32 %254 to i64
@@ -80664,7 +80664,7 @@ nk_utf_decode.exit243:                            ; preds = %267, %nk_utf_decode
   %325 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %326 = load ptr, ptr %325, align 8, !tbaa !211
   %327 = load ptr, ptr %8, align 8
-  %328 = tail call float %326(ptr %327, float noundef %324, ptr noundef nonnull %.0104.ph.ph337, i32 noundef %321) #55
+  %328 = tail call float %326(ptr %327, float noundef %324, ptr noundef nonnull %.0104.ph.ph337, i32 noundef %321) #56
   %.sroa.099.0.vec.extract.i = extractelement <2 x float> %.sroa.0.0, i64 0
   %329 = fadd float %.sroa.099.0.vec.extract.i, 0.000000e+00
   %330 = insertelement <2 x float> poison, float %329, i64 0
@@ -80806,7 +80806,7 @@ nk_textedit_get_width.exit:                       ; preds = %.loopexit.i.i, %.lo
   %61 = load ptr, ptr %43, align 8, !tbaa !211
   %62 = load float, ptr %44, align 8, !tbaa !213
   %63 = load ptr, ptr %3, align 8
-  %64 = call float %61(ptr %63, float noundef %62, ptr noundef %.0.i.i, i32 noundef %.1.i) #55
+  %64 = call float %61(ptr %63, float noundef %62, ptr noundef %.0.i.i, i32 noundef %.1.i) #56
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %65 = fadd float %.05080, %64
   %66 = fcmp uge float %1, %65
@@ -81331,7 +81331,7 @@ nk_textedit_get_width.exit:                       ; preds = %65, %.loopexit.i.i,
   %121 = load ptr, ptr %62, align 8, !tbaa !211
   %122 = load float, ptr %63, align 8, !tbaa !213
   %123 = load ptr, ptr %4, align 8
-  %124 = call float %121(ptr %123, float noundef %122, ptr noundef %.0.i.i, i32 noundef %.1.i) #55
+  %124 = call float %121(ptr %123, float noundef %122, ptr noundef %.0.i.i, i32 noundef %.1.i) #56
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %125 = load float, ptr %0, align 4, !tbaa !1318
   %126 = fadd float %124, %125
@@ -81654,80 +81654,80 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #50
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #50
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #51
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #51
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #52
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #51
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #51
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #51
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #51
 
 declare float @sqrtf(float) local_unnamed_addr
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.floor.f32(float) #51
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.ceil.f32(float) #51
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #51
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smin.i16(i16, i16) #51
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smax.i16(i16, i16) #51
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #51
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #51
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #51
+declare i32 @llvm.abs.i32(i32, i1 immarg) #52
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #51
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #51
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #51
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #51
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #51
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.copysign.f32(float, float) #51
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr captures(none)) local_unnamed_addr #52
+declare i64 @wcslen(ptr captures(none)) local_unnamed_addr #53
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #53
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #54
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -81773,12 +81773,13 @@ attributes #47 = { nofree nounwind "no-trapping-math"="true" "stack-protector-bu
 attributes #48 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #49 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #50 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #51 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #52 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #53 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #54 = { nounwind allocsize(0) }
-attributes #55 = { nounwind }
-attributes #56 = { nounwind willreturn memory(read) }
+attributes #51 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #52 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #53 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #54 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #55 = { nounwind allocsize(0) }
+attributes #56 = { nounwind }
+attributes #57 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

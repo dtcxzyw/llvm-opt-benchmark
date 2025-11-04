@@ -47,7 +47,7 @@ define range(i32 0, 2) i32 @WebPPictureHasTransparency(ptr noundef readonly capt
   %12 = load i32, ptr %11, align 4, !tbaa !14
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load i32, ptr %13, align 8, !tbaa !15
-  tail call void @WebPInitAlphaProcessing() #9
+  tail call void @WebPInitAlphaProcessing() #10
   %15 = icmp sgt i32 %12, 0
   br i1 %15, label %.lr.ph.i, label %CheckNonOpaque.exit
 
@@ -61,7 +61,7 @@ define range(i32 0, 2) i32 @WebPPictureHasTransparency(ptr noundef readonly capt
   %.in.i = phi i32 [ %12, %.lr.ph.i ], [ %23, %22 ]
   %.120.i = phi ptr [ %17, %.lr.ph.i ], [ %24, %22 ]
   %20 = load ptr, ptr @WebPHasAlpha32b, align 8, !tbaa !16
-  %21 = tail call i32 %20(ptr noundef %.120.i, i32 noundef %10) #9
+  %21 = tail call i32 %20(ptr noundef %.120.i, i32 noundef %10) #10
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %22, label %CheckNonOpaque.exit
 
@@ -84,7 +84,7 @@ define range(i32 0, 2) i32 @WebPPictureHasTransparency(ptr noundef readonly capt
   br i1 %35, label %CheckNonOpaque.exit, label %36
 
 36:                                               ; preds = %26
-  tail call void @WebPInitAlphaProcessing() #9
+  tail call void @WebPInitAlphaProcessing() #10
   %37 = icmp sgt i32 %32, 0
   br i1 %37, label %.lr.ph24.i, label %CheckNonOpaque.exit
 
@@ -96,7 +96,7 @@ define range(i32 0, 2) i32 @WebPPictureHasTransparency(ptr noundef readonly capt
   %.in28.i = phi i32 [ %32, %.lr.ph24.i ], [ %43, %42 ]
   %.01223.i = phi ptr [ %28, %.lr.ph24.i ], [ %44, %42 ]
   %40 = load ptr, ptr @WebPHasAlpha8b, align 8, !tbaa !16
-  %41 = tail call i32 %40(ptr noundef %.01223.i, i32 noundef %30) #9
+  %41 = tail call i32 %40(ptr noundef %.01223.i, i32 noundef %30) #10
   %.not16.i = icmp eq i32 %41, 0
   br i1 %.not16.i, label %42, label %CheckNonOpaque.exit
 
@@ -123,7 +123,7 @@ define i32 @WebPPictureARGBToYUVADithered(ptr noundef %0, i32 noundef %1, float 
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %5
-  %10 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 3) #9
+  %10 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 3) #10
   br label %PictureARGBToYUVA.exit
 
 11:                                               ; preds = %5
@@ -132,7 +132,7 @@ define i32 @WebPPictureARGBToYUVADithered(ptr noundef %0, i32 noundef %1, float 
   br i1 %.not.i, label %15, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 4) #9
+  %14 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 4) #10
   br label %PictureARGBToYUVA.exit
 
 15:                                               ; preds = %11
@@ -164,7 +164,7 @@ define i32 @WebPPictureARGBToYUVA(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %4
-  %9 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 3) #9
+  %9 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 3) #10
   br label %PictureARGBToYUVA.exit
 
 10:                                               ; preds = %4
@@ -173,7 +173,7 @@ define i32 @WebPPictureARGBToYUVA(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %.not.i, label %14, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 4) #9
+  %13 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 4) #10
   br label %PictureARGBToYUVA.exit
 
 14:                                               ; preds = %10
@@ -205,7 +205,7 @@ define i32 @WebPPictureSharpARGBToYUVA(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 3) #9
+  %8 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 3) #10
   br label %PictureARGBToYUVA.exit
 
 9:                                                ; preds = %3
@@ -237,7 +237,7 @@ define i32 @WebPPictureSmartARGBToYUVA(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 3) #9
+  %8 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 3) #10
   br label %WebPPictureSharpARGBToYUVA.exit
 
 9:                                                ; preds = %3
@@ -299,7 +299,7 @@ define i32 @WebPPictureYUVAToARGB(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not93, label %25, label %.loopexit.sink.split
 
 25:                                               ; preds = %23
-  %26 = tail call i32 @WebPPictureAllocARGB(ptr noundef nonnull %0) #9
+  %26 = tail call i32 @WebPPictureAllocARGB(ptr noundef nonnull %0) #10
   %.not94 = icmp eq i32 %26, 0
   br i1 %.not94, label %.loopexit, label %27
 
@@ -317,8 +317,8 @@ define i32 @WebPPictureYUVAToARGB(ptr noundef %0) local_unnamed_addr #0 {
   %37 = load ptr, ptr %8, align 8, !tbaa !24
   %38 = load ptr, ptr %12, align 8, !tbaa !25
   %39 = load ptr, ptr %4, align 8, !tbaa !23
-  %40 = tail call ptr @WebPGetLinePairConverter(i32 noundef 1) #9
-  tail call void %40(ptr noundef %39, ptr noundef null, ptr noundef %37, ptr noundef %38, ptr noundef %37, ptr noundef %38, ptr noundef %36, ptr noundef null, i32 noundef %29) #9
+  %40 = tail call ptr @WebPGetLinePairConverter(i32 noundef 1) #10
+  tail call void %40(ptr noundef %39, ptr noundef null, ptr noundef %37, ptr noundef %38, ptr noundef %37, ptr noundef %38, ptr noundef %36, ptr noundef null, i32 noundef %29) #10
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load i32, ptr %41, align 8, !tbaa !26
   %43 = sext i32 %42 to i64
@@ -348,7 +348,7 @@ define i32 @WebPPictureYUVAToARGB(ptr noundef %0) local_unnamed_addr #0 {
   %57 = sext i32 %52 to i64
   %58 = getelementptr inbounds i8, ptr %.09097, i64 %57
   %59 = getelementptr inbounds i8, ptr %.087100, i64 %45
-  tail call void %40(ptr noundef %.09097, ptr noundef %58, ptr noundef %.08899, ptr noundef %.08998, ptr noundef %55, ptr noundef %56, ptr noundef %.087100, ptr noundef %59, i32 noundef %29) #9
+  tail call void %40(ptr noundef %.09097, ptr noundef %58, ptr noundef %.08899, ptr noundef %.08998, ptr noundef %55, ptr noundef %56, ptr noundef %.087100, ptr noundef %59, i32 noundef %29) #10
   %60 = load i32, ptr %41, align 8, !tbaa !26
   %61 = shl nsw i32 %60, 1
   %62 = sext i32 %61 to i64
@@ -371,7 +371,7 @@ define i32 @WebPPictureYUVAToARGB(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %70, label %71
 
 70:                                               ; preds = %._crit_edge
-  tail call void %40(ptr noundef %.090.lcssa, ptr noundef null, ptr noundef %.088.lcssa, ptr noundef %.089.lcssa, ptr noundef %.088.lcssa, ptr noundef %.089.lcssa, ptr noundef %.087.lcssa, ptr noundef null, i32 noundef %29) #9
+  tail call void %40(ptr noundef %.090.lcssa, ptr noundef null, ptr noundef %.088.lcssa, ptr noundef %.089.lcssa, ptr noundef %.088.lcssa, ptr noundef %.089.lcssa, ptr noundef %.087.lcssa, ptr noundef null, i32 noundef %29) #10
   br label %71
 
 71:                                               ; preds = %70, %._crit_edge
@@ -428,7 +428,7 @@ define i32 @WebPPictureYUVAToARGB(ptr noundef %0) local_unnamed_addr #0 {
 
 .loopexit.sink.split:                             ; preds = %23, %19, %3, %7, %11
   %.sink = phi i32 [ 3, %11 ], [ 3, %7 ], [ 3, %3 ], [ 3, %19 ], [ 4, %23 ]
-  %98 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef %.sink) #9
+  %98 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef %.sink) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge108.us, %.loopexit.sink.split, %.lr.ph110, %71, %25, %1
@@ -471,13 +471,13 @@ define i32 @WebPPictureImportBGR(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br label %Import.exit
 
 20:                                               ; preds = %16
-  %21 = tail call i32 @WebPPictureAlloc(ptr noundef nonnull %0) #9
+  %21 = tail call i32 @WebPPictureAlloc(ptr noundef nonnull %0) #10
   %.not74.i = icmp eq i32 %21, 0
   br i1 %.not74.i, label %Import.exit, label %22
 
 22:                                               ; preds = %20
-  tail call void @VP8LDspInit() #9
-  tail call void @WebPInitAlphaProcessing() #9
+  tail call void @VP8LDspInit() #10
+  tail call void @WebPInitAlphaProcessing() #10
   %23 = icmp sgt i32 %12, 0
   br i1 %23, label %.lr.ph90.i, label %Import.exit
 
@@ -495,7 +495,7 @@ define i32 @WebPPictureImportBGR(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %.07086.i = phi ptr [ %1, %.lr.ph90.i ], [ %32, %28 ]
   %.07185.i = phi ptr [ %8, %.lr.ph90.i ], [ %31, %28 ]
   %29 = load ptr, ptr @WebPPackRGB, align 8, !tbaa !16
-  tail call void %29(ptr noundef %.06987.i, ptr noundef %.07185.i, ptr noundef %.07086.i, i32 noundef %10, i32 noundef 3, ptr noundef %.089.i) #9
+  tail call void %29(ptr noundef %.06987.i, ptr noundef %.07185.i, ptr noundef %.07086.i, i32 noundef %10, i32 noundef 3, ptr noundef %.089.i) #10
   %30 = getelementptr inbounds i8, ptr %.06987.i, i64 %26
   %31 = getelementptr inbounds i8, ptr %.07185.i, i64 %26
   %32 = getelementptr inbounds i8, ptr %.07086.i, i64 %26
@@ -541,13 +541,13 @@ define i32 @WebPPictureImportBGRA(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %Import.exit
 
 21:                                               ; preds = %16
-  %22 = tail call i32 @WebPPictureAlloc(ptr noundef nonnull %0) #9
+  %22 = tail call i32 @WebPPictureAlloc(ptr noundef nonnull %0) #10
   %.not74.i = icmp eq i32 %22, 0
   br i1 %.not74.i, label %Import.exit, label %23
 
 23:                                               ; preds = %21
-  tail call void @VP8LDspInit() #9
-  tail call void @WebPInitAlphaProcessing() #9
+  tail call void @VP8LDspInit() #10
+  tail call void @WebPInitAlphaProcessing() #10
   %24 = icmp sgt i32 %12, 0
   br i1 %24, label %.lr.ph.i, label %Import.exit
 
@@ -606,13 +606,13 @@ define i32 @WebPPictureImportBGRX(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %Import.exit
 
 20:                                               ; preds = %16
-  %21 = tail call i32 @WebPPictureAlloc(ptr noundef nonnull %0) #9
+  %21 = tail call i32 @WebPPictureAlloc(ptr noundef nonnull %0) #10
   %.not74.i = icmp eq i32 %21, 0
   br i1 %.not74.i, label %Import.exit, label %22
 
 22:                                               ; preds = %20
-  tail call void @VP8LDspInit() #9
-  tail call void @WebPInitAlphaProcessing() #9
+  tail call void @VP8LDspInit() #10
+  tail call void @WebPInitAlphaProcessing() #10
   %23 = icmp sgt i32 %12, 0
   br i1 %23, label %.lr.ph90.i, label %Import.exit
 
@@ -630,7 +630,7 @@ define i32 @WebPPictureImportBGRX(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %.07086.i = phi ptr [ %1, %.lr.ph90.i ], [ %32, %28 ]
   %.07185.i = phi ptr [ %8, %.lr.ph90.i ], [ %31, %28 ]
   %29 = load ptr, ptr @WebPPackRGB, align 8, !tbaa !16
-  tail call void %29(ptr noundef %.06987.i, ptr noundef %.07185.i, ptr noundef %.07086.i, i32 noundef %10, i32 noundef 4, ptr noundef %.089.i) #9
+  tail call void %29(ptr noundef %.06987.i, ptr noundef %.07185.i, ptr noundef %.07086.i, i32 noundef %10, i32 noundef 4, ptr noundef %.089.i) #10
   %30 = getelementptr inbounds i8, ptr %.06987.i, i64 %26
   %31 = getelementptr inbounds i8, ptr %.07185.i, i64 %26
   %32 = getelementptr inbounds i8, ptr %.07086.i, i64 %26
@@ -675,13 +675,13 @@ define i32 @WebPPictureImportRGB(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br label %Import.exit
 
 20:                                               ; preds = %16
-  %21 = tail call i32 @WebPPictureAlloc(ptr noundef nonnull %0) #9
+  %21 = tail call i32 @WebPPictureAlloc(ptr noundef nonnull %0) #10
   %.not74.i = icmp eq i32 %21, 0
   br i1 %.not74.i, label %Import.exit, label %22
 
 22:                                               ; preds = %20
-  tail call void @VP8LDspInit() #9
-  tail call void @WebPInitAlphaProcessing() #9
+  tail call void @VP8LDspInit() #10
+  tail call void @WebPInitAlphaProcessing() #10
   %23 = icmp sgt i32 %12, 0
   br i1 %23, label %.lr.ph90.i, label %Import.exit
 
@@ -699,7 +699,7 @@ define i32 @WebPPictureImportRGB(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %.07086.i = phi ptr [ %8, %.lr.ph90.i ], [ %32, %28 ]
   %.07185.i = phi ptr [ %7, %.lr.ph90.i ], [ %31, %28 ]
   %29 = load ptr, ptr @WebPPackRGB, align 8, !tbaa !16
-  tail call void %29(ptr noundef %.06987.i, ptr noundef %.07185.i, ptr noundef %.07086.i, i32 noundef %10, i32 noundef 3, ptr noundef %.089.i) #9
+  tail call void %29(ptr noundef %.06987.i, ptr noundef %.07185.i, ptr noundef %.07086.i, i32 noundef %10, i32 noundef 3, ptr noundef %.089.i) #10
   %30 = getelementptr inbounds i8, ptr %.06987.i, i64 %26
   %31 = getelementptr inbounds i8, ptr %.07185.i, i64 %26
   %32 = getelementptr inbounds i8, ptr %.07086.i, i64 %26
@@ -745,13 +745,13 @@ define i32 @WebPPictureImportRGBA(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %Import.exit
 
 21:                                               ; preds = %16
-  %22 = tail call i32 @WebPPictureAlloc(ptr noundef nonnull %0) #9
+  %22 = tail call i32 @WebPPictureAlloc(ptr noundef nonnull %0) #10
   %.not74.i = icmp eq i32 %22, 0
   br i1 %.not74.i, label %Import.exit, label %23
 
 23:                                               ; preds = %21
-  tail call void @VP8LDspInit() #9
-  tail call void @WebPInitAlphaProcessing() #9
+  tail call void @VP8LDspInit() #10
+  tail call void @WebPInitAlphaProcessing() #10
   %24 = icmp sgt i32 %12, 0
   br i1 %24, label %.lr.ph84.i, label %Import.exit
 
@@ -767,7 +767,7 @@ define i32 @WebPPictureImportRGBA(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %.16682.i = phi ptr [ %1, %.lr.ph84.i ], [ %31, %29 ]
   %.16881.i = phi i32 [ 0, %.lr.ph84.i ], [ %35, %29 ]
   %30 = load ptr, ptr @VP8LConvertBGRAToRGBA, align 8, !tbaa !16
-  tail call void %30(ptr noundef %.16682.i, i32 noundef %10, ptr noundef %.183.i) #9
+  tail call void %30(ptr noundef %.16682.i, i32 noundef %10, ptr noundef %.183.i) #10
   %31 = getelementptr inbounds i8, ptr %.16682.i, i64 %27
   %32 = load i32, ptr %28, align 8, !tbaa !15
   %33 = sext i32 %32 to i64
@@ -810,13 +810,13 @@ define i32 @WebPPictureImportRGBX(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %Import.exit
 
 20:                                               ; preds = %16
-  %21 = tail call i32 @WebPPictureAlloc(ptr noundef nonnull %0) #9
+  %21 = tail call i32 @WebPPictureAlloc(ptr noundef nonnull %0) #10
   %.not74.i = icmp eq i32 %21, 0
   br i1 %.not74.i, label %Import.exit, label %22
 
 22:                                               ; preds = %20
-  tail call void @VP8LDspInit() #9
-  tail call void @WebPInitAlphaProcessing() #9
+  tail call void @VP8LDspInit() #10
+  tail call void @WebPInitAlphaProcessing() #10
   %23 = icmp sgt i32 %12, 0
   br i1 %23, label %.lr.ph90.i, label %Import.exit
 
@@ -834,7 +834,7 @@ define i32 @WebPPictureImportRGBX(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %.07086.i = phi ptr [ %8, %.lr.ph90.i ], [ %32, %28 ]
   %.07185.i = phi ptr [ %7, %.lr.ph90.i ], [ %31, %28 ]
   %29 = load ptr, ptr @WebPPackRGB, align 8, !tbaa !16
-  tail call void %29(ptr noundef %.06987.i, ptr noundef %.07185.i, ptr noundef %.07086.i, i32 noundef %10, i32 noundef 4, ptr noundef %.089.i) #9
+  tail call void %29(ptr noundef %.06987.i, ptr noundef %.07185.i, ptr noundef %.07086.i, i32 noundef %10, i32 noundef 4, ptr noundef %.089.i) #10
   %30 = getelementptr inbounds i8, ptr %.06987.i, i64 %26
   %31 = getelementptr inbounds i8, ptr %.07185.i, i64 %26
   %32 = getelementptr inbounds i8, ptr %.07086.i, i64 %26
@@ -866,7 +866,7 @@ define internal fastcc i32 @ImportYUVAFromRGBA(ptr noundef nonnull %0, ptr nound
   br i1 %15, label %CheckNonOpaque.exit, label %16
 
 16:                                               ; preds = %9
-  tail call void @WebPInitAlphaProcessing() #9
+  tail call void @WebPInitAlphaProcessing() #10
   %17 = icmp sgt i32 %14, 0
   br i1 %17, label %.lr.ph.i, label %CheckNonOpaque.exit
 
@@ -878,7 +878,7 @@ define internal fastcc i32 @ImportYUVAFromRGBA(ptr noundef nonnull %0, ptr nound
   %.in.i = phi i32 [ %14, %.lr.ph.i ], [ %23, %22 ]
   %.120.i = phi ptr [ %3, %.lr.ph.i ], [ %24, %22 ]
   %20 = load ptr, ptr @WebPHasAlpha32b, align 8, !tbaa !16
-  %21 = tail call i32 %20(ptr noundef %.120.i, i32 noundef %12) #9
+  %21 = tail call i32 %20(ptr noundef %.120.i, i32 noundef %12) #10
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %22, label %CheckNonOpaque.exit
 
@@ -895,7 +895,7 @@ CheckNonOpaque.exit:                              ; preds = %22, %19, %16, %9
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %26, ptr %28, align 4, !tbaa !22
   store i32 0, ptr %8, align 8, !tbaa !3
-  %29 = tail call i32 @WebPPictureAllocYUVA(ptr noundef nonnull %8) #9
+  %29 = tail call i32 @WebPPictureAllocYUVA(ptr noundef nonnull %8) #10
   %.not199 = icmp eq i32 %29, 0
   br i1 %.not199, label %491, label %30
 
@@ -910,7 +910,7 @@ CheckNonOpaque.exit:                              ; preds = %22, %19, %16, %9
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !16
-  tail call void @SharpYuvInit(ptr noundef %35) #9
+  tail call void @SharpYuvInit(ptr noundef %35) #10
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !23
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -922,13 +922,13 @@ CheckNonOpaque.exit:                              ; preds = %22, %19, %16, %9
   %44 = load ptr, ptr %33, align 8, !tbaa !25
   %45 = load i32, ptr %11, align 8, !tbaa !13
   %46 = load i32, ptr %13, align 4, !tbaa !14
-  %47 = tail call ptr @SharpYuvGetConversionMatrix(i32 noundef 0) #9
-  %48 = tail call i32 @SharpYuvConvert(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef range(i32 3, 5) %4, i32 noundef %5, i32 noundef 8, ptr noundef %37, i32 noundef %39, ptr noundef %41, i32 noundef %43, ptr noundef %44, i32 noundef %43, i32 noundef 8, i32 noundef %45, i32 noundef %46, ptr noundef %47) #9
+  %47 = tail call ptr @SharpYuvGetConversionMatrix(i32 noundef 0) #10
+  %48 = tail call i32 @SharpYuvConvert(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef range(i32 3, 5) %4, i32 noundef %5, i32 noundef 8, ptr noundef %37, i32 noundef %39, ptr noundef %41, i32 noundef %43, ptr noundef %44, i32 noundef %43, i32 noundef 8, i32 noundef %45, i32 noundef %46, ptr noundef %47) #10
   %.not.i211 = icmp eq i32 %48, 0
   br i1 %.not.i211, label %PreprocessARGB.exit, label %PreprocessARGB.exit.thread
 
 PreprocessARGB.exit:                              ; preds = %34
-  %49 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %8, i32 noundef 1) #9
+  %49 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %8, i32 noundef 1) #10
   %.not209 = icmp eq i32 %49, 0
   %brmerge = or i1 %.not342, %.not209
   %not..not209 = xor i1 %.not209, true
@@ -944,7 +944,7 @@ PreprocessARGB.exit.thread:                       ; preds = %34
   %53 = load ptr, ptr %52, align 8, !tbaa !19
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %55 = load i32, ptr %54, align 8, !tbaa !20
-  %56 = tail call i32 %51(ptr noundef %3, i32 noundef %5, i32 noundef %12, i32 noundef %14, ptr noundef %53, i32 noundef %55) #9
+  %56 = tail call i32 %51(ptr noundef %3, i32 noundef %5, i32 noundef %12, i32 noundef %14, ptr noundef %53, i32 noundef %55) #10
   br label %491
 
 57:                                               ; preds = %30
@@ -953,7 +953,7 @@ PreprocessARGB.exit.thread:                       ; preds = %34
   %60 = icmp ne i32 %4, 3
   %61 = shl nsw i32 %59, 2
   %62 = sext i32 %61 to i64
-  %63 = tail call ptr @WebPSafeMalloc(i64 noundef %62, i64 noundef 2) #9
+  %63 = tail call ptr @WebPSafeMalloc(i64 noundef %62, i64 noundef 2) #10
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %65 = load ptr, ptr %64, align 8, !tbaa !23
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -966,7 +966,7 @@ PreprocessARGB.exit.thread:                       ; preds = %34
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %57
-  call void @VP8InitRandom(ptr noundef nonnull %10, float noundef %6) #9
+  call void @VP8InitRandom(ptr noundef nonnull %10, float noundef %6) #10
   br label %73
 
 73:                                               ; preds = %72, %57
@@ -975,8 +975,8 @@ PreprocessARGB.exit.thread:                       ; preds = %34
   %.0180.sroa.phi269 = phi ptr [ %.0180.sroa.gep270, %72 ], [ inttoptr (i64 8 to ptr), %57 ]
   %.0180.sroa.phi271 = phi ptr [ %.0180.sroa.gep272, %72 ], [ inttoptr (i64 4 to ptr), %57 ]
   %.0180 = phi ptr [ %10, %72 ], [ null, %57 ]
-  call void @WebPInitConvertARGBToYUV() #9
-  %74 = call i32 @pthread_mutex_lock(ptr noundef nonnull @InitGammaTables.InitGammaTables_body_lock) #9
+  call void @WebPInitConvertARGBToYUV() #10
+  %74 = call i32 @pthread_mutex_lock(ptr noundef nonnull @InitGammaTables.InitGammaTables_body_lock) #10
   %.not.i213 = icmp eq i32 %74, 0
   br i1 %.not.i213, label %75, label %InitGammaTables.exit
 
@@ -996,7 +996,7 @@ PreprocessARGB.exit.thread:                       ; preds = %34
   %80 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %81 = uitofp nneg i32 %80 to double
   %82 = fmul double %81, 0x3F70101010101010
-  %83 = call double @pow(double noundef %82, double noundef 8.000000e-01) #9, !tbaa !29
+  %83 = call double @pow(double noundef %82, double noundef 8.000000e-01) #10, !tbaa !29
   %84 = call double @llvm.fmuladd.f64(double %83, double 4.095000e+03, double 5.000000e-01)
   %85 = fptoui double %84 to i16
   %86 = getelementptr inbounds nuw i16, ptr @kGammaToLinearTab, i64 %indvars.iv.i.i
@@ -1010,7 +1010,7 @@ PreprocessARGB.exit.thread:                       ; preds = %34
   %87 = trunc nuw nsw i64 %indvars.iv12.i.i to i32
   %88 = uitofp nneg i32 %87 to double
   %89 = fmul double %88, 0x3FA0010010010010
-  %90 = call double @pow(double noundef %89, double noundef 1.250000e+00) #9, !tbaa !29
+  %90 = call double @pow(double noundef %89, double noundef 1.250000e+00) #10, !tbaa !29
   %91 = call double @llvm.fmuladd.f64(double %90, double 2.550000e+02, double 5.000000e-01)
   %92 = fptosi double %91 to i32
   %93 = getelementptr inbounds nuw i32, ptr @kLinearToGammaTab, i64 %indvars.iv12.i.i
@@ -1025,7 +1025,7 @@ PreprocessARGB.exit.thread:                       ; preds = %34
 
 InitGammaTables_body.exit.i:                      ; preds = %94, %78, %75
   store volatile ptr %77, ptr @InitGammaTables.InitGammaTables_body_last_cpuinfo_used, align 8, !tbaa !16
-  %95 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @InitGammaTables.InitGammaTables_body_lock) #9
+  %95 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @InitGammaTables.InitGammaTables_body_lock) #10
   br label %InitGammaTables.exit
 
 InitGammaTables.exit:                             ; preds = %73, %InitGammaTables_body.exit.i
@@ -1055,7 +1055,7 @@ InitGammaTables.exit:                             ; preds = %73, %InitGammaTable
   br label %109
 
 .thread303:                                       ; preds = %InitGammaTables.exit
-  %108 = call i32 @WebPEncodingSetError(ptr noundef nonnull %8, i32 noundef 1) #9
+  %108 = call i32 @WebPEncodingSetError(ptr noundef nonnull %8, i32 noundef 1) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %491
 
@@ -1074,13 +1074,13 @@ InitGammaTables.exit:                             ; preds = %73, %InitGammaTable
 ConvertRowToY.exit231.sink.split:                 ; preds = %109
   %.0188313..0191311 = select i1 %27, ptr %.0188313, ptr %.0191311
   %110 = load ptr, ptr %WebPConvertRGB24ToY.WebPConvertBGR24ToY, align 8, !tbaa !16
-  call void %110(ptr noundef %.0188313..0191311, ptr noundef %.0184314, i32 noundef %12) #9
+  call void %110(ptr noundef %.0188313..0191311, ptr noundef %.0184314, i32 noundef %12) #10
   %111 = load ptr, ptr %WebPConvertRGB24ToY.WebPConvertBGR24ToY, align 8, !tbaa !16
   %112 = getelementptr inbounds i8, ptr %.0188313..0191311, i64 %98
   %113 = load i32, ptr %99, align 8, !tbaa !26
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds i8, ptr %.0184314, i64 %114
-  call void %111(ptr noundef %112, ptr noundef %115, i32 noundef %12) #9
+  call void %111(ptr noundef %112, ptr noundef %115, i32 noundef %12) #10
   br label %ConvertRowToY.exit231
 
 116:                                              ; preds = %109
@@ -1279,7 +1279,7 @@ ConvertRowToY.exit231:                            ; preds = %RGBToY.exit.i217, %
 249:                                              ; preds = %ConvertRowToY.exit231
   %250 = load ptr, ptr @WebPExtractAlpha, align 8, !tbaa !16
   %251 = load i32, ptr %103, align 8, !tbaa !20
-  %252 = call i32 %250(ptr noundef %.0192310, i32 noundef %5, i32 noundef %12, i32 noundef 2, ptr noundef %.0181317, i32 noundef %251) #9
+  %252 = call i32 %250(ptr noundef %.0192310, i32 noundef %5, i32 noundef %12, i32 noundef 2, ptr noundef %.0181317, i32 noundef %251) #10
   %.not206.not = icmp eq i32 %252, 0
   %253 = load i32, ptr %103, align 8, !tbaa !20
   %254 = shl nsw i32 %253, 1
@@ -1302,7 +1302,7 @@ ConvertRowToY.exit231:                            ; preds = %RGBToY.exit.i217, %
 
 259:                                              ; preds = %258
   %260 = load ptr, ptr @WebPConvertRGBA32ToUV, align 8, !tbaa !16
-  call void %260(ptr noundef nonnull %63, ptr noundef %.0183315, ptr noundef %.0182316, i32 noundef %59) #9
+  call void %260(ptr noundef nonnull %63, ptr noundef %.0183315, ptr noundef %.0182316, i32 noundef %59) #10
   br label %ConvertRowsToUV.exit
 
 261:                                              ; preds = %258
@@ -1437,7 +1437,7 @@ ConvertRowToY.exit254.sink.split:                 ; preds = %343
   %WebPConvertRGB24ToY.val = load ptr, ptr @WebPConvertRGB24ToY, align 8
   %WebPConvertBGR24ToY.val = load ptr, ptr @WebPConvertBGR24ToY, align 8
   %345 = select i1 %344, ptr %WebPConvertRGB24ToY.val, ptr %WebPConvertBGR24ToY.val
-  call void %345(ptr noundef %.0188.lcssa..0191.lcssa, ptr noundef %.0184.lcssa, i32 noundef %12) #9
+  call void %345(ptr noundef %.0188.lcssa..0191.lcssa, ptr noundef %.0184.lcssa, i32 noundef %12) #10
   br label %ConvertRowToY.exit254
 
 346:                                              ; preds = %343
@@ -1536,7 +1536,7 @@ ConvertRowToY.exit254:                            ; preds = %RGBToY.exit.i240, %
 
 408:                                              ; preds = %ConvertRowToY.exit254
   %409 = load ptr, ptr @WebPExtractAlpha, align 8, !tbaa !16
-  %410 = call i32 %409(ptr noundef %.0192.lcssa, i32 noundef 0, i32 noundef %12, i32 noundef 1, ptr noundef %.0181.lcssa, i32 noundef 0) #9
+  %410 = call i32 %409(ptr noundef %.0192.lcssa, i32 noundef 0, i32 noundef %12, i32 noundef 1, ptr noundef %.0181.lcssa, i32 noundef 0) #10
   %.not203.not = icmp eq i32 %410, 0
   br i1 %.not203.not, label %411, label %.critedge
 
@@ -1554,7 +1554,7 @@ ConvertRowToY.exit254:                            ; preds = %RGBToY.exit.i240, %
 
 414:                                              ; preds = %412
   %415 = load ptr, ptr @WebPConvertRGBA32ToUV, align 8, !tbaa !16
-  call void %415(ptr noundef nonnull %63, ptr noundef %.0183.lcssa, ptr noundef %.0182.lcssa, i32 noundef %59) #9
+  call void %415(ptr noundef nonnull %63, ptr noundef %.0183.lcssa, ptr noundef %.0182.lcssa, i32 noundef %59) #10
   br label %.loopexit
 
 416:                                              ; preds = %412
@@ -1660,7 +1660,7 @@ ConvertRowToY.exit254:                            ; preds = %RGBToY.exit.i240, %
   br i1 %exitcond.not.i267, label %.loopexit, label %418, !llvm.loop !45
 
 .loopexit:                                        ; preds = %418, %._crit_edge, %414, %416
-  call void @WebPSafeFree(ptr noundef nonnull %63) #9
+  call void @WebPSafeFree(ptr noundef nonnull %63) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %491
 
@@ -2483,41 +2483,42 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #5
+declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 
 declare i32 @WebPPictureAlloc(ptr noundef) local_unnamed_addr #1
 
 declare void @VP8LDspInit() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
+attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

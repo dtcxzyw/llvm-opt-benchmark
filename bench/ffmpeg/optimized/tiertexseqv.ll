@@ -17,12 +17,12 @@ define internal range(i32 -2147483648, 1) i32 @seqvideo_decode_init(ptr noundef 
   store ptr %0, ptr %3, align 8, !tbaa !27
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 11, ptr %4, align 8, !tbaa !31
-  %5 = tail call i32 @ff_set_dimensions(ptr noundef %0, i32 noundef 256, i32 noundef 128) #7
+  %5 = tail call i32 @ff_set_dimensions(ptr noundef %0, i32 noundef 256, i32 noundef 128) #8
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %1
-  %8 = tail call ptr @av_frame_alloc() #7
+  %8 = tail call ptr @av_frame_alloc() #8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !32
   %.not = icmp eq ptr %8, null
@@ -48,7 +48,7 @@ define internal i32 @seqvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   %14 = load ptr, ptr %13, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !32
-  %17 = tail call i32 @ff_reget_buffer(ptr noundef %0, ptr noundef %16, i32 noundef 0) #7
+  %17 = tail call i32 @ff_reget_buffer(ptr noundef %0, ptr noundef %16, i32 noundef 0) #8
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %306, label %19
 
@@ -587,7 +587,7 @@ seqvideo_decode.exit.thread:                      ; preds = %seq_decode_op2.exit
 .loopexit:                                        ; preds = %299, %.loopexit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %302 = load ptr, ptr %15, align 8, !tbaa !32
-  %303 = tail call i32 @av_frame_ref(ptr noundef %1, ptr noundef %302) #7
+  %303 = tail call i32 @av_frame_ref(ptr noundef %1, ptr noundef %302) #8
   %304 = icmp slt i32 %303, 0
   br i1 %304, label %306, label %305
 
@@ -605,7 +605,7 @@ define internal noundef i32 @seqvideo_decode_end(ptr noundef readonly captures(n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @av_frame_free(ptr noundef nonnull %4) #7
+  tail call void @av_frame_free(ptr noundef nonnull %4) #8
   ret i32 0
 }
 
@@ -631,11 +631,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #6
+declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -643,8 +643,9 @@ attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "st
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

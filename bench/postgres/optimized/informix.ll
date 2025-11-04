@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1201, 1) i32 @decadd(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @__errno_location() #15
+  %4 = tail call ptr @__errno_location() #16
   store i32 0, ptr %4, align 4
   %5 = tail call fastcc i32 @deccall3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @PGTYPESnumeric_add)
   %6 = load i32, ptr %4, align 4
@@ -39,46 +39,46 @@ declare ptr @__errno_location() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @deccall3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
-  %5 = tail call zeroext i1 @ECPGis_noind_null(i32 noundef 17, ptr noundef %0) #16
+  %5 = tail call zeroext i1 @ECPGis_noind_null(i32 noundef 17, ptr noundef %0) #17
   br i1 %5, label %26, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i1 @ECPGis_noind_null(i32 noundef 17, ptr noundef %1) #16
+  %7 = tail call zeroext i1 @ECPGis_noind_null(i32 noundef 17, ptr noundef %1) #17
   br i1 %7, label %26, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @PGTYPESnumeric_new() #16
+  %9 = tail call ptr @PGTYPESnumeric_new() #17
   %10 = icmp eq ptr %9, null
   br i1 %10, label %26, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call ptr @PGTYPESnumeric_new() #16
+  %12 = tail call ptr @PGTYPESnumeric_new() #17
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.sink.split, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call ptr @PGTYPESnumeric_new() #16
+  %15 = tail call ptr @PGTYPESnumeric_new() #17
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.sink.split.sink.split, label %17
 
 17:                                               ; preds = %14
-  %18 = tail call i32 @PGTYPESnumeric_from_decimal(ptr noundef %0, ptr noundef nonnull %9) #16
+  %18 = tail call i32 @PGTYPESnumeric_from_decimal(ptr noundef %0, ptr noundef nonnull %9) #17
   %.not31 = icmp eq i32 %18, 0
   br i1 %.not31, label %19, label %.sink.split.sink.split.sink.split
 
 19:                                               ; preds = %17
-  %20 = tail call i32 @PGTYPESnumeric_from_decimal(ptr noundef %1, ptr noundef nonnull %12) #16
+  %20 = tail call i32 @PGTYPESnumeric_from_decimal(ptr noundef %1, ptr noundef nonnull %12) #17
   %.not32 = icmp eq i32 %20, 0
   br i1 %.not32, label %21, label %.sink.split.sink.split.sink.split
 
 21:                                               ; preds = %19
-  %22 = tail call i32 %3(ptr noundef nonnull %9, ptr noundef nonnull %12, ptr noundef nonnull %15) #16, !callees !3
+  %22 = tail call i32 %3(ptr noundef nonnull %9, ptr noundef nonnull %12, ptr noundef nonnull %15) #17, !callees !3
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %.sink.split.sink.split.sink.split
 
 24:                                               ; preds = %21
-  tail call void @ECPGset_noind_null(i32 noundef 17, ptr noundef %2) #16
-  %25 = tail call i32 @PGTYPESnumeric_to_decimal(ptr noundef nonnull %15, ptr noundef %2) #16
+  tail call void @ECPGset_noind_null(i32 noundef 17, ptr noundef %2) #17
+  %25 = tail call i32 @PGTYPESnumeric_to_decimal(ptr noundef nonnull %15, ptr noundef %2) #17
   br label %.sink.split.sink.split.sink.split
 
 .sink.split.sink.split.sink.split:                ; preds = %21, %24, %19, %17
@@ -86,20 +86,20 @@ define internal fastcc i32 @deccall3(ptr noundef %0, ptr noundef %1, ptr noundef
   %.sink36.ph = phi ptr [ %12, %17 ], [ %12, %19 ], [ %9, %24 ], [ %9, %21 ]
   %.sink.ph.ph = phi ptr [ %15, %17 ], [ %15, %19 ], [ %12, %24 ], [ %12, %21 ]
   %.0.ph.ph.ph = phi i32 [ -1211, %17 ], [ -1211, %19 ], [ %22, %24 ], [ %22, %21 ]
-  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %.sink37) #16
+  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %.sink37) #17
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %.sink.split.sink.split.sink.split, %14
   %.sink36 = phi ptr [ %9, %14 ], [ %.sink36.ph, %.sink.split.sink.split.sink.split ]
   %.sink.ph = phi ptr [ %12, %14 ], [ %.sink.ph.ph, %.sink.split.sink.split.sink.split ]
   %.0.ph.ph = phi i32 [ -1211, %14 ], [ %.0.ph.ph.ph, %.sink.split.sink.split.sink.split ]
-  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %.sink36) #16
+  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %.sink36) #17
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %11
   %.sink = phi ptr [ %9, %11 ], [ %.sink.ph, %.sink.split.sink.split ]
   %.0.ph = phi i32 [ -1211, %11 ], [ %.0.ph.ph, %.sink.split.sink.split ]
-  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %.sink) #16
+  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %.sink) #17
   br label %26
 
 26:                                               ; preds = %.sink.split, %8, %4, %6
@@ -111,38 +111,38 @@ declare i32 @PGTYPESnumeric_add(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @deccmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @PGTYPESnumeric_new() #16
+  %3 = tail call ptr @PGTYPESnumeric_new() #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %deccall2.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @PGTYPESnumeric_new() #16
+  %6 = tail call ptr @PGTYPESnumeric_new() #17
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.sink.split.i, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call i32 @PGTYPESnumeric_from_decimal(ptr noundef %0, ptr noundef nonnull %3) #16
+  %9 = tail call i32 @PGTYPESnumeric_from_decimal(ptr noundef %0, ptr noundef nonnull %3) #17
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %10, label %.sink.split.sink.split.i
 
 10:                                               ; preds = %8
-  %11 = tail call i32 @PGTYPESnumeric_from_decimal(ptr noundef %1, ptr noundef nonnull %6) #16
+  %11 = tail call i32 @PGTYPESnumeric_from_decimal(ptr noundef %1, ptr noundef nonnull %6) #17
   %.not17.i = icmp eq i32 %11, 0
   br i1 %.not17.i, label %12, label %.sink.split.sink.split.i
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @PGTYPESnumeric_cmp(ptr noundef nonnull %3, ptr noundef nonnull %6) #16
+  %13 = tail call i32 @PGTYPESnumeric_cmp(ptr noundef nonnull %3, ptr noundef nonnull %6) #17
   br label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %12, %10, %8
   %.0.ph.ph.i = phi i32 [ %13, %12 ], [ -1211, %8 ], [ -1211, %10 ]
-  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %3) #16
+  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %3) #17
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %5
   %.sink.i = phi ptr [ %3, %5 ], [ %6, %.sink.split.sink.split.i ]
   %.0.ph.i = phi i32 [ -1211, %5 ], [ %.0.ph.ph.i, %.sink.split.sink.split.i ]
-  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %.sink.i) #16
+  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %.sink.i) #17
   br label %deccall2.exit
 
 deccall2.exit:                                    ; preds = %2, %.sink.split.i
@@ -163,23 +163,23 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1216, 1) i32 @deccvasc(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  tail call void @ECPGset_noind_null(i32 noundef 17, ptr noundef %2) #16
-  %4 = tail call zeroext i1 @ECPGis_noind_null(i32 noundef 1, ptr noundef %0) #16
+  tail call void @ECPGset_noind_null(i32 noundef 17, ptr noundef %2) #17
+  %4 = tail call zeroext i1 @ECPGis_noind_null(i32 noundef 1, ptr noundef %0) #17
   br i1 %4, label %23, label %5
 
 5:                                                ; preds = %3
   %6 = sext i32 %1 to i64
-  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #17
+  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #18
   %8 = tail call i64 @llvm.umin.i64(i64 %7, i64 range(i64 -2147483648, 2147483648) %6)
   %9 = shl i64 %8, 32
   %sext.i = add i64 %9, 4294967296
   %10 = ashr exact i64 %sext.i, 32
-  %11 = tail call noalias ptr @malloc(i64 noundef %10) #18
+  %11 = tail call noalias ptr @malloc(i64 noundef %10) #19
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %ecpg_strndup.exit.thread, label %13
 
 ecpg_strndup.exit.thread:                         ; preds = %5
-  %12 = tail call ptr @__errno_location() #15
+  %12 = tail call ptr @__errno_location() #16
   store i32 12, ptr %12, align 4
   br label %22
 
@@ -188,9 +188,9 @@ ecpg_strndup.exit.thread:                         ; preds = %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull readonly align 1 %0, i64 %14, i1 false)
   %15 = getelementptr inbounds i8, ptr %11, i64 %14
   store i8 0, ptr %15, align 1
-  %16 = tail call ptr @__errno_location() #15
+  %16 = tail call ptr @__errno_location() #16
   store i32 0, ptr %16, align 4
-  %17 = tail call ptr @PGTYPESnumeric_from_asc(ptr noundef nonnull %11, ptr noundef null) #16
+  %17 = tail call ptr @PGTYPESnumeric_from_asc(ptr noundef nonnull %11, ptr noundef null) #17
   %.not17 = icmp eq ptr %17, null
   br i1 %.not17, label %18, label %20
 
@@ -203,15 +203,15 @@ ecpg_strndup.exit.thread:                         ; preds = %5
   br label %22
 
 20:                                               ; preds = %13
-  %21 = tail call i32 @PGTYPESnumeric_to_decimal(ptr noundef nonnull %17, ptr noundef %2) #16
-  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %17) #16
+  %21 = tail call i32 @PGTYPESnumeric_to_decimal(ptr noundef nonnull %17, ptr noundef %2) #17
+  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %17) #17
   %.not18 = icmp eq i32 %21, 0
   %spec.select = select i1 %.not18, i32 0, i32 -1200
   br label %22
 
 22:                                               ; preds = %ecpg_strndup.exit.thread, %18, %20
   %.013 = phi i32 [ %spec.select, %20 ], [ %switch.select20, %18 ], [ -1201, %ecpg_strndup.exit.thread ]
-  tail call void @free(ptr noundef %11) #16
+  tail call void @free(ptr noundef %11) #17
   br label %23
 
 23:                                               ; preds = %3, %22
@@ -221,13 +221,13 @@ ecpg_strndup.exit.thread:                         ; preds = %5
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @rsetnull(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  tail call void @ECPGset_noind_null(i32 noundef %0, ptr noundef %1) #16
+  tail call void @ECPGset_noind_null(i32 noundef %0, ptr noundef %1) #17
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @risnull(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call zeroext i1 @ECPGis_noind_null(i32 noundef %0, ptr noundef %1) #16
+  %3 = tail call zeroext i1 @ECPGis_noind_null(i32 noundef %0, ptr noundef %1) #17
   %4 = zext i1 %3 to i32
   ret i32 %4
 }
@@ -245,28 +245,28 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 define i32 @deccvdbl(double noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
   store double %0, ptr %3, align 8
-  tail call void @ECPGset_noind_null(i32 noundef 17, ptr noundef %1) #16
-  %4 = call zeroext i1 @ECPGis_noind_null(i32 noundef 13, ptr noundef nonnull %3) #16
+  tail call void @ECPGset_noind_null(i32 noundef 17, ptr noundef %1) #17
+  %4 = call zeroext i1 @ECPGis_noind_null(i32 noundef 13, ptr noundef nonnull %3) #17
   br i1 %4, label %15, label %5
 
 5:                                                ; preds = %2
-  %6 = call ptr @PGTYPESnumeric_new() #16
+  %6 = call ptr @PGTYPESnumeric_new() #17
   %7 = icmp eq ptr %6, null
   br i1 %7, label %15, label %8
 
 8:                                                ; preds = %5
   %9 = load double, ptr %3, align 8
-  %10 = call i32 @PGTYPESnumeric_from_double(double noundef %9, ptr noundef nonnull %6) #16
+  %10 = call i32 @PGTYPESnumeric_from_double(double noundef %9, ptr noundef nonnull %6) #17
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %8
-  %13 = call i32 @PGTYPESnumeric_to_decimal(ptr noundef nonnull %6, ptr noundef %1) #16
+  %13 = call i32 @PGTYPESnumeric_to_decimal(ptr noundef nonnull %6, ptr noundef %1) #17
   br label %14
 
 14:                                               ; preds = %12, %8
   %.0 = phi i32 [ %13, %12 ], [ %10, %8 ]
-  call void @PGTYPESnumeric_free(ptr noundef nonnull %6) #16
+  call void @PGTYPESnumeric_free(ptr noundef nonnull %6) #17
   br label %15
 
 15:                                               ; preds = %5, %2, %14
@@ -282,28 +282,28 @@ declare i32 @PGTYPESnumeric_from_double(double noundef, ptr noundef) local_unnam
 define i32 @deccvint(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
-  tail call void @ECPGset_noind_null(i32 noundef 17, ptr noundef %1) #16
-  %4 = call zeroext i1 @ECPGis_noind_null(i32 noundef 5, ptr noundef nonnull %3) #16
+  tail call void @ECPGset_noind_null(i32 noundef 17, ptr noundef %1) #17
+  %4 = call zeroext i1 @ECPGis_noind_null(i32 noundef 5, ptr noundef nonnull %3) #17
   br i1 %4, label %15, label %5
 
 5:                                                ; preds = %2
-  %6 = call ptr @PGTYPESnumeric_new() #16
+  %6 = call ptr @PGTYPESnumeric_new() #17
   %7 = icmp eq ptr %6, null
   br i1 %7, label %15, label %8
 
 8:                                                ; preds = %5
   %9 = load i32, ptr %3, align 4
-  %10 = call i32 @PGTYPESnumeric_from_int(i32 noundef %9, ptr noundef nonnull %6) #16
+  %10 = call i32 @PGTYPESnumeric_from_int(i32 noundef %9, ptr noundef nonnull %6) #17
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %8
-  %13 = call i32 @PGTYPESnumeric_to_decimal(ptr noundef nonnull %6, ptr noundef %1) #16
+  %13 = call i32 @PGTYPESnumeric_to_decimal(ptr noundef nonnull %6, ptr noundef %1) #17
   br label %14
 
 14:                                               ; preds = %12, %8
   %.0 = phi i32 [ %13, %12 ], [ %10, %8 ]
-  call void @PGTYPESnumeric_free(ptr noundef nonnull %6) #16
+  call void @PGTYPESnumeric_free(ptr noundef nonnull %6) #17
   br label %15
 
 15:                                               ; preds = %5, %2, %14
@@ -317,28 +317,28 @@ declare i32 @PGTYPESnumeric_from_int(i32 noundef, ptr noundef) local_unnamed_add
 define i32 @deccvlong(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
-  tail call void @ECPGset_noind_null(i32 noundef 17, ptr noundef %1) #16
-  %4 = call zeroext i1 @ECPGis_noind_null(i32 noundef 7, ptr noundef nonnull %3) #16
+  tail call void @ECPGset_noind_null(i32 noundef 17, ptr noundef %1) #17
+  %4 = call zeroext i1 @ECPGis_noind_null(i32 noundef 7, ptr noundef nonnull %3) #17
   br i1 %4, label %15, label %5
 
 5:                                                ; preds = %2
-  %6 = call ptr @PGTYPESnumeric_new() #16
+  %6 = call ptr @PGTYPESnumeric_new() #17
   %7 = icmp eq ptr %6, null
   br i1 %7, label %15, label %8
 
 8:                                                ; preds = %5
   %9 = load i64, ptr %3, align 8
-  %10 = call i32 @PGTYPESnumeric_from_long(i64 noundef %9, ptr noundef nonnull %6) #16
+  %10 = call i32 @PGTYPESnumeric_from_long(i64 noundef %9, ptr noundef nonnull %6) #17
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %8
-  %13 = call i32 @PGTYPESnumeric_to_decimal(ptr noundef nonnull %6, ptr noundef %1) #16
+  %13 = call i32 @PGTYPESnumeric_to_decimal(ptr noundef nonnull %6, ptr noundef %1) #17
   br label %14
 
 14:                                               ; preds = %12, %8
   %.0 = phi i32 [ %13, %12 ], [ %10, %8 ]
-  call void @PGTYPESnumeric_free(ptr noundef nonnull %6) #16
+  call void @PGTYPESnumeric_free(ptr noundef nonnull %6) #17
   br label %15
 
 15:                                               ; preds = %5, %2, %14
@@ -350,7 +350,7 @@ declare i32 @PGTYPESnumeric_from_long(i64 noundef, ptr noundef) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1202, 1) i32 @decdiv(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @__errno_location() #15
+  %4 = tail call ptr @__errno_location() #16
   store i32 0, ptr %4, align 4
   %5 = tail call fastcc i32 @deccall3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @PGTYPESnumeric_div)
   %.not = icmp eq i32 %5, 0
@@ -373,7 +373,7 @@ declare i32 @PGTYPESnumeric_div(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1201, 1) i32 @decmul(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @__errno_location() #15
+  %4 = tail call ptr @__errno_location() #16
   store i32 0, ptr %4, align 4
   %5 = tail call fastcc i32 @deccall3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @PGTYPESnumeric_mul)
   %.not = icmp eq i32 %5, 0
@@ -394,7 +394,7 @@ declare i32 @PGTYPESnumeric_mul(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1201, 1) i32 @decsub(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @__errno_location() #15
+  %4 = tail call ptr @__errno_location() #16
   store i32 0, ptr %4, align 4
   %5 = tail call fastcc i32 @deccall3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @PGTYPESnumeric_sub)
   %.not = icmp eq i32 %5, 0
@@ -415,22 +415,22 @@ declare i32 @PGTYPESnumeric_sub(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1211, 1) i32 @dectoasc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  tail call void @ECPGset_noind_null(i32 noundef 1, ptr noundef %1) #16
-  %5 = tail call zeroext i1 @ECPGis_noind_null(i32 noundef 17, ptr noundef %0) #16
+  tail call void @ECPGset_noind_null(i32 noundef 1, ptr noundef %1) #17
+  %5 = tail call zeroext i1 @ECPGis_noind_null(i32 noundef 17, ptr noundef %0) #17
   br i1 %5, label %31, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @PGTYPESnumeric_new() #16
+  %7 = tail call ptr @PGTYPESnumeric_new() #17
   %8 = icmp eq ptr %7, null
   br i1 %8, label %31, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call i32 @PGTYPESnumeric_from_decimal(ptr noundef %0, ptr noundef nonnull %7) #16
+  %10 = tail call i32 @PGTYPESnumeric_from_decimal(ptr noundef %0, ptr noundef nonnull %7) #17
   %.not26 = icmp eq i32 %10, 0
   br i1 %.not26, label %12, label %11
 
 11:                                               ; preds = %9
-  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %7) #16
+  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %7) #17
   br label %31
 
 12:                                               ; preds = %9
@@ -444,13 +444,13 @@ define range(i32 -1211, 1) i32 @dectoasc(ptr noundef %0, ptr noundef %1, i32 nou
 
 17:                                               ; preds = %12, %14
   %.sink = phi i32 [ %16, %14 ], [ %3, %12 ]
-  %18 = tail call ptr @PGTYPESnumeric_to_asc(ptr noundef nonnull %7, i32 noundef %.sink) #16
-  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %7) #16
+  %18 = tail call ptr @PGTYPESnumeric_to_asc(ptr noundef nonnull %7, i32 noundef %.sink) #17
+  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %7) #17
   %.not27 = icmp eq ptr %18, null
   br i1 %.not27, label %31, label %19
 
 19:                                               ; preds = %17
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #17
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #18
   %21 = trunc i64 %20 to i32
   %22 = add i32 %21, 1
   %23 = icmp sgt i32 %22, %2
@@ -467,12 +467,12 @@ define range(i32 -1211, 1) i32 @dectoasc(ptr noundef %0, ptr noundef %1, i32 nou
   br label %28
 
 28:                                               ; preds = %26, %24
-  tail call void @free(ptr noundef nonnull %18) #16
+  tail call void @free(ptr noundef nonnull %18) #17
   br label %31
 
 29:                                               ; preds = %19
-  %30 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %18) #16
-  tail call void @free(ptr noundef nonnull %18) #16
+  %30 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %18) #17
+  tail call void @free(ptr noundef nonnull %18) #17
   br label %31
 
 31:                                               ; preds = %17, %6, %4, %29, %28, %11
@@ -492,22 +492,22 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef 
 
 ; Function Attrs: nounwind uwtable
 define i32 @dectodbl(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @PGTYPESnumeric_new() #16
+  %3 = tail call ptr @PGTYPESnumeric_new() #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @PGTYPESnumeric_from_decimal(ptr noundef %0, ptr noundef nonnull %3) #16
+  %6 = tail call i32 @PGTYPESnumeric_from_decimal(ptr noundef %0, ptr noundef nonnull %3) #17
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %.sink.split
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @PGTYPESnumeric_to_double(ptr noundef nonnull %3, ptr noundef %1) #16
+  %8 = tail call i32 @PGTYPESnumeric_to_double(ptr noundef nonnull %3, ptr noundef %1) #17
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %7
   %.0.ph = phi i32 [ %8, %7 ], [ -1211, %5 ]
-  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %3) #16
+  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %3) #17
   br label %9
 
 9:                                                ; preds = %.sink.split, %2
@@ -519,25 +519,25 @@ declare i32 @PGTYPESnumeric_to_double(ptr noundef, ptr noundef) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define i32 @dectoint(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @PGTYPESnumeric_new() #16
+  %3 = tail call ptr @PGTYPESnumeric_new() #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %14, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @PGTYPESnumeric_from_decimal(ptr noundef %0, ptr noundef nonnull %3) #16
+  %6 = tail call i32 @PGTYPESnumeric_from_decimal(ptr noundef %0, ptr noundef nonnull %3) #17
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %3) #16
+  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %3) #17
   br label %14
 
 8:                                                ; preds = %5
-  %9 = tail call ptr @__errno_location() #15
+  %9 = tail call ptr @__errno_location() #16
   store i32 0, ptr %9, align 4
-  %10 = tail call i32 @PGTYPESnumeric_to_int(ptr noundef nonnull %3, ptr noundef %1) #16
+  %10 = tail call i32 @PGTYPESnumeric_to_int(ptr noundef nonnull %3, ptr noundef %1) #17
   %11 = load i32, ptr %9, align 4
-  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %3) #16
+  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %3) #17
   %12 = icmp eq i32 %10, -1
   %13 = icmp eq i32 %11, 301
   %or.cond = select i1 %12, i1 %13, i1 false
@@ -553,25 +553,25 @@ declare i32 @PGTYPESnumeric_to_int(ptr noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define i32 @dectolong(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @PGTYPESnumeric_new() #16
+  %3 = tail call ptr @PGTYPESnumeric_new() #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %14, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @PGTYPESnumeric_from_decimal(ptr noundef %0, ptr noundef nonnull %3) #16
+  %6 = tail call i32 @PGTYPESnumeric_from_decimal(ptr noundef %0, ptr noundef nonnull %3) #17
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %3) #16
+  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %3) #17
   br label %14
 
 8:                                                ; preds = %5
-  %9 = tail call ptr @__errno_location() #15
+  %9 = tail call ptr @__errno_location() #16
   store i32 0, ptr %9, align 4
-  %10 = tail call i32 @PGTYPESnumeric_to_long(ptr noundef nonnull %3, ptr noundef %1) #16
+  %10 = tail call i32 @PGTYPESnumeric_to_long(ptr noundef nonnull %3, ptr noundef %1) #17
   %11 = load i32, ptr %9, align 4
-  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %3) #16
+  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %3) #17
   %12 = icmp eq i32 %10, -1
   %13 = icmp eq i32 %11, 301
   %or.cond = select i1 %12, i1 %13, i1 false
@@ -587,13 +587,13 @@ declare i32 @PGTYPESnumeric_to_long(ptr noundef, ptr noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1210, 1) i32 @rdatestr(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @PGTYPESdate_to_asc(i64 noundef %0) #16
+  %3 = tail call ptr @PGTYPESdate_to_asc(i64 noundef %0) #17
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %3) #16
-  tail call void @free(ptr noundef nonnull %3) #16
+  %5 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %3) #17
+  tail call void @free(ptr noundef nonnull %3) #17
   br label %6
 
 6:                                                ; preds = %2, %4
@@ -605,9 +605,9 @@ declare ptr @PGTYPESdate_to_asc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1212, 1) i32 @rstrdate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @__errno_location() #15
+  %3 = tail call ptr @__errno_location() #16
   store i32 0, ptr %3, align 4
-  %4 = tail call i32 @PGTYPESdate_defmt_asc(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef %0) #16
+  %4 = tail call i32 @PGTYPESdate_defmt_asc(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef %0) #17
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %rdefmtdate.exit, label %6
 
@@ -630,9 +630,9 @@ rdefmtdate.exit:                                  ; preds = %6, %switch.lookup, 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1212, 1) i32 @rdefmtdate(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @__errno_location() #15
+  %4 = tail call ptr @__errno_location() #16
   store i32 0, ptr %4, align 4
-  %5 = tail call i32 @PGTYPESdate_defmt_asc(ptr noundef %0, ptr noundef %1, ptr noundef %2) #16
+  %5 = tail call i32 @PGTYPESdate_defmt_asc(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %11, label %7
 
@@ -655,7 +655,7 @@ switch.lookup:                                    ; preds = %7
 
 ; Function Attrs: nounwind uwtable
 define void @rtoday(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @PGTYPESdate_today(ptr noundef %0) #16
+  tail call void @PGTYPESdate_today(ptr noundef %0) #17
   ret void
 }
 
@@ -665,7 +665,7 @@ declare void @PGTYPESdate_today(ptr noundef) local_unnamed_addr #2
 define noundef i32 @rjulmdy(i64 noundef %0, ptr noundef writeonly captures(none) initializes((0, 6)) %1) local_unnamed_addr #0 {
   %3 = alloca [3 x i32], align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @PGTYPESdate_julmdy(i64 noundef %0, ptr noundef nonnull %3) #16
+  call void @PGTYPESdate_julmdy(i64 noundef %0, ptr noundef nonnull %3) #17
   %4 = load i32, ptr %3, align 4
   %5 = trunc i32 %4 to i16
   store i16 %5, ptr %1, align 2
@@ -689,9 +689,9 @@ declare i32 @PGTYPESdate_defmt_asc(ptr noundef, ptr noundef, ptr noundef) local_
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1211, 1) i32 @rfmtdate(i64 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @__errno_location() #15
+  %4 = tail call ptr @__errno_location() #16
   store i32 0, ptr %4, align 4
-  %5 = tail call i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr noundef %1, ptr noundef %2) #16
+  %5 = tail call i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr noundef %1, ptr noundef %2) #17
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %10, label %7
 
@@ -725,7 +725,7 @@ define noundef i32 @rmdyjul(ptr noundef readonly captures(none) %0, ptr noundef 
   %12 = sext i16 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %12, ptr %13, align 4
-  call void @PGTYPESdate_mdyjul(ptr noundef nonnull %3, ptr noundef %1) #16
+  call void @PGTYPESdate_mdyjul(ptr noundef nonnull %3, ptr noundef %1) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
@@ -734,7 +734,7 @@ declare void @PGTYPESdate_mdyjul(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @rdayofweek(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @PGTYPESdate_dayofweek(i64 noundef %0) #16
+  %2 = tail call i32 @PGTYPESdate_dayofweek(i64 noundef %0) #17
   ret i32 %2
 }
 
@@ -742,7 +742,7 @@ declare i32 @PGTYPESdate_dayofweek(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @dtcurrent(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @PGTYPEStimestamp_current(ptr noundef %0) #16
+  tail call void @PGTYPEStimestamp_current(ptr noundef %0) #17
   ret void
 }
 
@@ -752,9 +752,9 @@ declare void @PGTYPEStimestamp_current(ptr noundef) local_unnamed_addr #2
 define i32 @dtcvasc(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  %4 = tail call ptr @__errno_location() #15
+  %4 = tail call ptr @__errno_location() #16
   store i32 0, ptr %4, align 4
-  %5 = call i64 @PGTYPEStimestamp_from_asc(ptr noundef %0, ptr noundef nonnull %3) #16
+  %5 = call i64 @PGTYPEStimestamp_from_asc(ptr noundef %0, ptr noundef nonnull %3) #17
   %6 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %11
@@ -778,7 +778,7 @@ declare i64 @PGTYPEStimestamp_from_asc(ptr noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define i32 @dtcvfmtasc(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @PGTYPEStimestamp_defmt_asc(ptr noundef %0, ptr noundef %1, ptr noundef %2) #16
+  %4 = tail call i32 @PGTYPEStimestamp_defmt_asc(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
   ret i32 %4
 }
 
@@ -786,7 +786,7 @@ declare i32 @PGTYPEStimestamp_defmt_asc(ptr noundef, ptr noundef, ptr noundef) l
 
 ; Function Attrs: nounwind uwtable
 define i32 @dtsub(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @PGTYPEStimestamp_sub(ptr noundef %0, ptr noundef %1, ptr noundef %2) #16
+  %4 = tail call i32 @PGTYPEStimestamp_sub(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
   ret i32 %4
 }
 
@@ -795,9 +795,9 @@ declare i32 @PGTYPEStimestamp_sub(ptr noundef, ptr noundef, ptr noundef) local_u
 ; Function Attrs: nounwind uwtable
 define noundef i32 @dttoasc(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8
-  %4 = tail call ptr @PGTYPEStimestamp_to_asc(i64 noundef %3) #16
-  %5 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %4) #16
-  tail call void @free(ptr noundef %4) #16
+  %4 = tail call ptr @PGTYPEStimestamp_to_asc(i64 noundef %3) #17
+  %5 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %4) #17
+  tail call void @free(ptr noundef %4) #17
   ret i32 0
 }
 
@@ -805,7 +805,7 @@ declare ptr @PGTYPEStimestamp_to_asc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @dttofmtasc(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @PGTYPEStimestamp_fmt_asc(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #16
+  %5 = tail call i32 @PGTYPEStimestamp_fmt_asc(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #17
   ret i32 %5
 }
 
@@ -813,9 +813,9 @@ declare i32 @PGTYPEStimestamp_fmt_asc(ptr noundef, ptr noundef, i32 noundef, ptr
 
 ; Function Attrs: nounwind uwtable
 define i32 @intoasc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @__errno_location() #15
+  %3 = tail call ptr @__errno_location() #16
   store i32 0, ptr %3, align 4
-  %4 = tail call ptr @PGTYPESinterval_to_asc(ptr noundef %0) #16
+  %4 = tail call ptr @PGTYPESinterval_to_asc(ptr noundef %0) #17
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %8
 
@@ -825,8 +825,8 @@ define i32 @intoasc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %10
 
 8:                                                ; preds = %2
-  %9 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %4) #16
-  tail call void @free(ptr noundef nonnull %4) #16
+  %9 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %4) #17
+  tail call void @free(ptr noundef nonnull %4) #17
   br label %10
 
 10:                                               ; preds = %8, %5
@@ -839,16 +839,16 @@ declare ptr @PGTYPESinterval_to_asc(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @rfmtlong(i64 noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [2 x i8], align 2
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 32, ptr %4, align 2
   %6 = add i64 %5, 1
-  %7 = tail call noalias ptr @malloc(i64 noundef %6) #18
+  %7 = tail call noalias ptr @malloc(i64 noundef %6) #19
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %10
 
 8:                                                ; preds = %3
-  %9 = tail call ptr @__errno_location() #15
+  %9 = tail call ptr @__errno_location() #16
   store i32 12, ptr %9, align 4
   br label %169
 
@@ -885,7 +885,7 @@ define range(i32 -1, 1) i32 @rfmtlong(i64 noundef %0, ptr noundef readonly %1, p
   %.1.i = phi i64 [ %23, %22 ], [ %14, %24 ]
   %27 = add i32 %.sink.i, 1
   %28 = sext i32 %27 to i64
-  %29 = tail call noalias ptr @malloc(i64 noundef %28) #18
+  %29 = tail call noalias ptr @malloc(i64 noundef %28) #19
   store ptr %29, ptr @value.5, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %38, label %.preheader.i
@@ -914,8 +914,8 @@ define range(i32 -1, 1) i32 @rfmtlong(i64 noundef %0, ptr noundef readonly %1, p
   br i1 %exitcond.not.i, label %.loopexit177, label %.lr.ph.i, !llvm.loop !6
 
 38:                                               ; preds = %26
-  tail call void @free(ptr noundef nonnull %7) #16
-  %39 = tail call ptr @__errno_location() #15
+  tail call void @free(ptr noundef nonnull %7) #17
+  %39 = tail call ptr @__errno_location() #16
   store i32 12, ptr %39, align 4
   br label %169
 
@@ -923,14 +923,14 @@ define range(i32 -1, 1) i32 @rfmtlong(i64 noundef %0, ptr noundef readonly %1, p
   %40 = sext i32 %.sink.i to i64
   %41 = getelementptr inbounds i8, ptr %29, i64 %40
   store i8 0, ptr %41, align 1
-  %42 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 60) #17
+  %42 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 60) #18
   %.not140 = icmp ne ptr %42, null
-  %43 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 40) #17
+  %43 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 40) #18
   %.not141 = icmp eq ptr %43, null
   br i1 %.not141, label %46, label %44
 
 44:                                               ; preds = %.loopexit177
-  %45 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 41) #17
+  %45 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 41) #18
   %.not142 = icmp ne ptr %45, null
   br label %46
 
@@ -1027,7 +1027,7 @@ getRightMostDot.exit:                             ; preds = %58, %54
 79:                                               ; preds = %73, %75
   %.sink = phi i8 [ %., %75 ], [ 46, %73 ]
   store i8 %.sink, ptr %4, align 2
-  %80 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %4) #16
+  %80 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %4) #17
   br label %158
 
 81:                                               ; preds = %72
@@ -1244,7 +1244,7 @@ getRightMostDot.exit:                             ; preds = %58, %54
   %.2136 = phi i32 [ %.0134187, %154 ], [ %94, %93 ], [ %.0134187, %96 ], [ %.0134187, %97 ], [ %.0134187, %102 ], [ %.0134187, %103 ], [ %.0134187, %108 ], [ %.0134187, %109 ], [ %.0134187, %116 ], [ %.0134187, %117 ], [ %.0134187, %114 ], [ %.0134187, %125 ], [ %.0134187, %126 ], [ %.0134187, %123 ], [ %.0134187, %131 ], [ %.0134187, %133 ], [ %.0134187, %134 ], [ %.0134187, %139 ], [ %.0134187, %140 ], [ %.0134187, %145 ], [ %.0134187, %146 ], [ %.0134187, %143 ], [ %.0134187, %150 ]
   %.2125 = phi i32 [ %.0123192, %154 ], [ %.0123192, %93 ], [ %.0123192, %96 ], [ %.0123192, %97 ], [ %.0123192, %102 ], [ %.0123192, %103 ], [ %.0123192, %108 ], [ %.0123192, %109 ], [ %.0123192, %116 ], [ %.0123192, %117 ], [ %.0123192, %114 ], [ %.0123192, %125 ], [ %.0123192, %126 ], [ %.0123192, %123 ], [ %.0123192, %131 ], [ %.0123192, %133 ], [ %.0123192, %134 ], [ %.0123192, %139 ], [ %.0123192, %140 ], [ %.0123192, %145 ], [ %.0123192, %146 ], [ 1, %143 ], [ %.0123192, %150 ]
   %.2 = phi i32 [ %.0121193, %154 ], [ %.0121193, %93 ], [ %.0121193, %96 ], [ %.0121193, %97 ], [ %.0121193, %102 ], [ %.0121193, %103 ], [ %.0121193, %108 ], [ %.0121193, %109 ], [ %.0121193, %116 ], [ %.0121193, %117 ], [ 1, %114 ], [ %.0121193, %125 ], [ %.0121193, %126 ], [ 1, %123 ], [ %.0121193, %131 ], [ %.0121193, %133 ], [ %.0121193, %134 ], [ %.0121193, %139 ], [ %.0121193, %140 ], [ %.0121193, %145 ], [ %.0121193, %146 ], [ %.0121193, %143 ], [ %.0121193, %150 ]
-  %156 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %4) #16
+  %156 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %4) #17
   %157 = add i32 %.2136, -1
   br label %158
 
@@ -1263,7 +1263,7 @@ getRightMostDot.exit:                             ; preds = %58, %54
 .loopexit:                                        ; preds = %158, %getRightMostDot.exit.thread, %69
   %160 = getelementptr inbounds nuw i8, ptr %7, i64 %5
   store i8 0, ptr %160, align 1
-  %161 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #17
+  %161 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #18
   store i8 0, ptr %2, align 1
   %162 = trunc i64 %161 to i32
   %.1133196 = add i32 %162, -1
@@ -1279,7 +1279,7 @@ getRightMostDot.exit:                             ; preds = %58, %54
   %165 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv203
   %166 = load i8, ptr %165, align 1
   store i8 %166, ptr %4, align 2
-  %167 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %4) #16
+  %167 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %4) #17
   %indvars.iv.next204 = add nsw i64 %indvars.iv203, -1
   %.not220 = icmp eq i64 %indvars.iv203, 0
   br i1 %.not220, label %._crit_edge, label %.lr.ph198, !llvm.loop !9
@@ -1287,8 +1287,8 @@ getRightMostDot.exit:                             ; preds = %58, %54
 ._crit_edge:                                      ; preds = %.lr.ph198, %.loopexit
   %168 = getelementptr inbounds nuw i8, ptr %2, i64 %161
   store i8 0, ptr %168, align 1
-  tail call void @free(ptr noundef nonnull %7) #16
-  tail call void @free(ptr noundef %29) #16
+  tail call void @free(ptr noundef nonnull %7) #17
+  tail call void @free(ptr noundef %29) #17
   br label %169
 
 169:                                              ; preds = %._crit_edge, %38, %8
@@ -1313,7 +1313,7 @@ define void @rupshift(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %3 = tail call ptr @__ctype_b_loc() #15
+  %3 = tail call ptr @__ctype_b_loc() #16
   br label %4
 
 4:                                                ; preds = %.lr.ph, %17
@@ -1328,7 +1328,7 @@ define void @rupshift(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   br i1 %.not6, label %17, label %11
 
 11:                                               ; preds = %4
-  %12 = tail call ptr @__ctype_toupper_loc() #15
+  %12 = tail call ptr @__ctype_toupper_loc() #16
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i32, ptr %13, i64 %7
   %15 = load i32, ptr %14, align 4
@@ -1415,7 +1415,7 @@ define noundef i32 @rtypwidth(i32 noundef %0, i32 noundef %1) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define void @ECPG_informix_set_var(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  tail call void @ECPGset_var(i32 noundef %0, ptr noundef %1, i32 noundef %2) #16
+  tail call void @ECPGset_var(i32 noundef %0, ptr noundef %1, i32 noundef %2) #17
   ret void
 }
 
@@ -1423,7 +1423,7 @@ declare void @ECPGset_var(i32 noundef, ptr noundef, i32 noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define ptr @ECPG_informix_get_var(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @ECPGget_var(i32 noundef %0) #16
+  %2 = tail call ptr @ECPGget_var(i32 noundef %0) #17
   ret ptr %2
 }
 
@@ -1431,7 +1431,7 @@ declare ptr @ECPGget_var(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @ECPG_informix_reset_sqlca() local_unnamed_addr #0 {
-  %1 = tail call ptr @ECPGget_sqlca() #16
+  %1 = tail call ptr @ECPGget_sqlca() #17
   %2 = icmp eq ptr %1, null
   br i1 %2, label %4, label %3
 
@@ -1455,11 +1455,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #14
+declare i64 @llvm.abs.i64(i64, i1 immarg) #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1475,11 +1475,12 @@ attributes #10 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable
 attributes #11 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind willreturn memory(none) }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind willreturn memory(read) }
-attributes #18 = { nounwind allocsize(0) }
+attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nounwind willreturn memory(none) }
+attributes #17 = { nounwind }
+attributes #18 = { nounwind willreturn memory(read) }
+attributes #19 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

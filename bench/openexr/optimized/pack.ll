@@ -535,7 +535,7 @@ half_to_uint.exit:                                ; preds = %232, %238, %half_to
   br i1 %or.cond7.i, label %float_to_uint.exit, label %260
 
 260:                                              ; preds = %258
-  %261 = tail call float @llvm.fabs.f32(float %259) #3
+  %261 = tail call float @llvm.fabs.f32(float %259) #4
   %262 = fcmp oeq float %261, 0x7FF0000000000000
   %263 = fcmp ogt float %259, 0x41F0000000000000
   %or.cond.i = or i1 %263, %262
@@ -608,13 +608,14 @@ float_to_uint.exit:                               ; preds = %258, %260
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #2
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { memory(none) }
+attributes #3 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

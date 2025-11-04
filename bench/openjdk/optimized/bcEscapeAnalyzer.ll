@@ -108,7 +108,7 @@ define hidden void @_ZN16BCEscapeAnalyzer12set_returnedENS_11ArgumentMapE(ptr no
   br i1 %.not.i, label %_ZN9VectorSet3setEj.exit, label %15
 
 15:                                               ; preds = %12
-  tail call void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %13) #12
+  tail call void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %13) #13
   br label %_ZN9VectorSet3setEj.exit
 
 _ZN9VectorSet3setEj.exit:                         ; preds = %12, %15
@@ -790,7 +790,7 @@ define hidden void @_ZN16BCEscapeAnalyzer6invokeERNS_9StateInfoEN9Bytecodes4Code
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr @_ZN5ciEnv45get_instance_klass_for_declared_method_holderEP7ciKlass(ptr noundef %4) #12
+  %13 = tail call noundef ptr @_ZN5ciEnv45get_instance_klass_for_declared_method_holderEP7ciKlass(ptr noundef %4) #13
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %15, null
@@ -800,7 +800,7 @@ _ZNK10ciMetadata9is_loadedEv.exit:                ; preds = %5
   %16 = load ptr, ptr %3, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   br i1 %19, label %_ZNK10ciMetadata9is_loadedEv.exit.thread, label %31
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %5, %_ZNK10ciMetadata9is_loadedEv.exit
@@ -841,7 +841,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.i:              ; preds = %31
   %33 = load ptr, ptr %3, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(160) %3) #12
+  %36 = tail call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(160) %3) #13
   br i1 %36, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i, label %46
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i:       ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i, %31
@@ -1026,7 +1026,7 @@ _ZN16BCEscapeAnalyzer11is_argumentENS_11ArgumentMapE.exit.thread.us: ; preds = %
 124:                                              ; preds = %121
   %125 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %125, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit:   ; preds = %121
@@ -1102,7 +1102,7 @@ _ZNK10ciMetadata9is_loadedEv.exit115:             ; preds = %154
   %156 = load ptr, ptr %3, align 8
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 32
   %158 = load ptr, ptr %157, align 8
-  %159 = tail call noundef zeroext i1 %158(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  %159 = tail call noundef zeroext i1 %158(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   br i1 %159, label %_ZNK10ciMetadata9is_loadedEv.exit115.thread, label %.thread
 
 _ZNK10ciMetadata9is_loadedEv.exit115.thread:      ; preds = %154, %_ZNK10ciMetadata9is_loadedEv.exit115
@@ -1115,7 +1115,7 @@ _ZNK10ciMetadata9is_loadedEv.exit117:             ; preds = %_ZNK10ciMetadata9is
   %162 = load ptr, ptr %8, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 32
   %164 = load ptr, ptr %163, align 8
-  %165 = tail call noundef zeroext i1 %164(ptr noundef nonnull align 8 dereferenceable(24) %8) #12
+  %165 = tail call noundef zeroext i1 %164(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
   br i1 %165, label %_ZNK10ciMetadata9is_loadedEv.exit117.thread, label %.thread
 
 _ZNK10ciMetadata9is_loadedEv.exit117.thread:      ; preds = %_ZNK10ciMetadata9is_loadedEv.exit115.thread, %_ZNK10ciMetadata9is_loadedEv.exit117
@@ -1137,11 +1137,11 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i:            ; preds = %171
   %173 = load ptr, ptr %8, align 8
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 32
   %175 = load ptr, ptr %174, align 8
-  %176 = tail call noundef zeroext i1 %175(ptr noundef nonnull align 8 dereferenceable(144) %8) #12
+  %176 = tail call noundef zeroext i1 %175(ptr noundef nonnull align 8 dereferenceable(144) %8) #13
   br i1 %176, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i, label %_ZN15ciInstanceKlass14is_initializedEv.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i:     ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i, %171
-  tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %8) #12
+  tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %8) #13
   br label %_ZN15ciInstanceKlass14is_initializedEv.exitthread-pre-split
 
 _ZN15ciInstanceKlass14is_initializedEv.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i
@@ -1157,7 +1157,7 @@ _ZN15ciInstanceKlass14is_initializedEv.exit:      ; preds = %_ZN15ciInstanceKlas
   %180 = load ptr, ptr %8, align 8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 184
   %182 = load ptr, ptr %181, align 8
-  %183 = tail call noundef zeroext i1 %182(ptr noundef nonnull align 8 dereferenceable(144) %8) #12
+  %183 = tail call noundef zeroext i1 %182(ptr noundef nonnull align 8 dereferenceable(144) %8) #13
   br i1 %183, label %184, label %.thread
 
 184:                                              ; preds = %179
@@ -1181,11 +1181,11 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i124:         ; preds = %191
   %194 = load ptr, ptr %185, align 8
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 32
   %196 = load ptr, ptr %195, align 8
-  %197 = tail call noundef zeroext i1 %196(ptr noundef nonnull align 8 dereferenceable(144) %185) #12
+  %197 = tail call noundef zeroext i1 %196(ptr noundef nonnull align 8 dereferenceable(144) %185) #13
   br i1 %197, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i123, label %_ZN15ciInstanceKlass14is_initializedEv.exit125thread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i123:  ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i124, %191
-  tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %185) #12
+  tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %185) #13
   br label %_ZN15ciInstanceKlass14is_initializedEv.exit125thread-pre-split
 
 _ZN15ciInstanceKlass14is_initializedEv.exit125thread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i123, %_ZNK10ciMetadata9is_loadedEv.exit.i.i124
@@ -1222,7 +1222,7 @@ _ZNK8ciMethod15is_final_methodEv.exit129:         ; preds = %204
   br i1 %.not267, label %210, label %.thread257
 
 210:                                              ; preds = %202, %_ZNK8ciMethod15is_final_methodEv.exit129
-  %211 = tail call noundef ptr @_ZN8ciMethod23find_monomorphic_targetEP15ciInstanceKlassS1_S1_b(ptr noundef nonnull align 8 dereferenceable(160) %3, ptr noundef %12, ptr noundef %13, ptr noundef %13, i1 noundef zeroext true) #12
+  %211 = tail call noundef ptr @_ZN8ciMethod23find_monomorphic_targetEP15ciInstanceKlassS1_S1_b(ptr noundef nonnull align 8 dereferenceable(160) %3, ptr noundef %12, ptr noundef %13, ptr noundef %13, i1 noundef zeroext true) #13
   %.not101 = icmp eq ptr %211, null
   br i1 %.not101, label %.thread, label %.thread257
 
@@ -1278,7 +1278,7 @@ _ZN16BCEscapeAnalyzer17is_recursive_callEP8ciMethod.exit: ; preds = %216
 239:                                              ; preds = %236
   %240 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %240, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit132: ; preds = %236
@@ -1800,7 +1800,7 @@ _ZN26GrowableArrayWithAllocatorIP10ciMetadata13GrowableArrayIS1_EE9appendAllEPK1
   br i1 %.not.i231, label %_ZN16BCEscapeAnalyzerD2Ev.exit, label %.loopexit.thread.i
 
 .loopexit.thread.i:                               ; preds = %.loopexit.i
-  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %490) #12
+  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %490) #13
   br label %_ZN16BCEscapeAnalyzerD2Ev.exit
 
 .thread:                                          ; preds = %212, %_ZNK10ciMetadata9is_loadedEv.exit115, %_ZNK10ciMetadata9is_loadedEv.exit117, %179, %_ZN15ciInstanceKlass14is_initializedEv.exit125, %210
@@ -1828,7 +1828,7 @@ _ZN26GrowableArrayWithAllocatorIP10ciMetadata13GrowableArrayIS1_EE9appendAllEPK1
 504:                                              ; preds = %501
   %505 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %505, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit199: ; preds = %501
@@ -2035,7 +2035,7 @@ define hidden void @_ZN16BCEscapeAnalyzer17iterate_one_blockEP7ciBlockRNS_9State
   br i1 %26, label %27, label %_ZN8ciMethod4codeEv.exit.i.i
 
 27:                                               ; preds = %20
-  tail call void @_ZN8ciMethod9load_codeEv(ptr noundef nonnull align 8 dereferenceable(160) %15) #12
+  tail call void @_ZN8ciMethod9load_codeEv(ptr noundef nonnull align 8 dereferenceable(160) %15) #13
   %.pre.i.i.i = load ptr, ptr %24, align 8
   br label %_ZN8ciMethod4codeEv.exit.i.i
 
@@ -2060,7 +2060,7 @@ _ZN16ciBytecodeStreamC2EP8ciMethod.exit:          ; preds = %17, %_ZN8ciMethod4c
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %40 = load i32, ptr %39, align 4
-  call void @_ZN16ciBytecodeStream12reset_to_bciEi(ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef %40) #12
+  call void @_ZN16ciBytecodeStream12reset_to_bciEi(ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef %40) #13
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -2127,7 +2127,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.i:       ; preds = %70
   br i1 %85, label %86, label %_ZN16ciBytecodeStream4nextEv.exit.thread922
 
 86:                                               ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.i
-  %87 = call noundef i32 @_ZN16ciBytecodeStream18next_wide_or_tableEN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef %76) #12
+  %87 = call noundef i32 @_ZN16ciBytecodeStream18next_wide_or_tableEN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef %76) #13
   store i32 %87, ptr %47, align 8
   br label %_ZN16ciBytecodeStream4nextEv.exit
 
@@ -2367,7 +2367,7 @@ _ZN16ciBytecodeStream4nextEv.exit.thread922:      ; preds = %_ZN16ciBytecodeStre
 101:                                              ; preds = %97
   %102 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %102, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit: ; preds = %97
@@ -2388,7 +2388,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit: ; preds = %97
 111:                                              ; preds = %107
   %112 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %112, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit:     ; preds = %107
@@ -2410,7 +2410,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit:     ; preds = %107
 121:                                              ; preds = %117
   %122 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %122, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i:   ; preds = %117
@@ -2429,7 +2429,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i:   ; preds = %117
 130:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i
   %131 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %131, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit:     ; preds = %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i
@@ -2442,8 +2442,8 @@ _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit:     ; preds = %_ZN16BCEscapeAnalyz
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
 136:                                              ; preds = %96, %96, %96
-  %137 = call noundef i32 @_ZNK16ciBytecodeStream23get_constant_pool_indexEv(ptr noundef nonnull align 8 dereferenceable(72) %5) #12
-  %138 = call noundef zeroext i8 @_ZNK16ciBytecodeStream30get_basic_type_for_constant_atEi(ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef %137) #12
+  %137 = call noundef i32 @_ZNK16ciBytecodeStream23get_constant_pool_indexEv(ptr noundef nonnull align 8 dereferenceable(72) %5) #13
+  %138 = call noundef zeroext i8 @_ZNK16ciBytecodeStream30get_basic_type_for_constant_atEi(ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef %137) #13
   switch i8 %138, label %168 [
     i8 11, label %139
     i8 7, label %139
@@ -2459,7 +2459,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit:     ; preds = %_ZN16BCEscapeAnalyz
 143:                                              ; preds = %139
   %144 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %144, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i343: ; preds = %139
@@ -2478,7 +2478,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i343: ; preds = %139
 152:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i343
   %153 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %153, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit345:  ; preds = %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i343
@@ -2499,7 +2499,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit345:  ; preds = %_ZN16BCEscapeAnalyz
 162:                                              ; preds = %158
   %163 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %163, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit346: ; preds = %158
@@ -2520,7 +2520,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit346: ; preds = %158
 172:                                              ; preds = %168
   %173 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %173, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit348:  ; preds = %168
@@ -2546,7 +2546,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit348:  ; preds = %168
   br i1 %.not.i.i.i.i.i, label %185, label %_ZNK16ciBytecodeStream12get_index_u2Eb.exit.i
 
 185:                                              ; preds = %184
-  %186 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #12
+  %186 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #13
   br label %_ZNK16ciBytecodeStream12get_index_u2Eb.exit.i
 
 _ZNK16ciBytecodeStream12get_index_u2Eb.exit.i:    ; preds = %185, %184
@@ -2567,7 +2567,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit.i:    ; preds = %185, %184
   br i1 %.not.i.i.i.i.i, label %196, label %_ZNK16ciBytecodeStream12get_index_u1Ev.exit.i
 
 196:                                              ; preds = %195
-  %197 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #12
+  %197 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #13
   br label %_ZNK16ciBytecodeStream12get_index_u1Ev.exit.i
 
 _ZNK16ciBytecodeStream12get_index_u1Ev.exit.i:    ; preds = %196, %195
@@ -2586,7 +2586,7 @@ _ZNK16ciBytecodeStream9get_indexEv.exit:          ; preds = %_ZNK16ciBytecodeStr
 205:                                              ; preds = %_ZNK16ciBytecodeStream9get_indexEv.exit
   %206 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %206, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit349: ; preds = %_ZNK16ciBytecodeStream9get_indexEv.exit
@@ -2609,7 +2609,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit349: ; preds = %_ZNK
 216:                                              ; preds = %212
   %217 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %217, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit351:  ; preds = %212
@@ -2631,7 +2631,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit351:  ; preds = %212
 226:                                              ; preds = %222
   %227 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %227, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i352: ; preds = %222
@@ -2650,7 +2650,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i352: ; preds = %222
 235:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i352
   %236 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %236, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit354:  ; preds = %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i352
@@ -2671,7 +2671,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit354:  ; preds = %_ZN16BCEscapeAnalyz
 245:                                              ; preds = %241
   %246 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %246, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit355: ; preds = %241
@@ -2694,7 +2694,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit355: ; preds = %241
 256:                                              ; preds = %252
   %257 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %257, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit356: ; preds = %252
@@ -2718,7 +2718,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit356: ; preds = %252
 268:                                              ; preds = %264
   %269 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %269, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit357: ; preds = %264
@@ -2742,7 +2742,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit357: ; preds = %264
 280:                                              ; preds = %276
   %281 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %281, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit358: ; preds = %276
@@ -2765,7 +2765,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit358: ; preds = %276
 291:                                              ; preds = %288
   %292 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %292, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit:      ; preds = %288
@@ -2777,7 +2777,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit:      ; preds = %288
 294:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit
   %295 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %295, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit:      ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit
@@ -2843,7 +2843,7 @@ _ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit: ; preds = %_ZN1
 325:                                              ; preds = %_ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit
   %326 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %326, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit363:  ; preds = %_ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit
@@ -2864,7 +2864,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit363:  ; preds = %_ZN16BCEscapeAnalyz
 334:                                              ; preds = %331
   %335 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %335, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit364:   ; preds = %331
@@ -2876,7 +2876,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit364:   ; preds = %331
 337:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit364
   %338 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %338, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit366:   ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit364
@@ -2942,7 +2942,7 @@ _ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit376: ; preds = %_
 368:                                              ; preds = %_ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit376
   %369 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %369, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i377: ; preds = %_ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit376
@@ -2961,7 +2961,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i377: ; preds = %_ZN16BCEscapeAnaly
 377:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i377
   %378 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %378, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit379:  ; preds = %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i377
@@ -2981,7 +2981,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit379:  ; preds = %_ZN16BCEscapeAnalyz
 386:                                              ; preds = %383
   %387 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %387, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit380:   ; preds = %383
@@ -2993,7 +2993,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit380:   ; preds = %383
 389:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit380
   %390 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %390, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit382:   ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit380
@@ -3059,7 +3059,7 @@ _ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit392: ; preds = %_
 420:                                              ; preds = %_ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit392
   %421 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %421, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit393: ; preds = %_ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit392
@@ -3079,7 +3079,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit393: ; preds = %_ZN1
 429:                                              ; preds = %426
   %430 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %430, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit394:   ; preds = %426
@@ -3095,7 +3095,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit394:   ; preds = %426
 435:                                              ; preds = %432
   %436 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %436, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i:    ; preds = %432
@@ -3107,7 +3107,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i:    ; preds = %432
 438:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i
   %439 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %439, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit:      ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i
@@ -3123,7 +3123,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit:      ; preds = %_ZN16BCEscapeAnalyz
 444:                                              ; preds = %441
   %445 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %445, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit397:   ; preds = %441
@@ -3145,7 +3145,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit397:   ; preds = %441
   br i1 %.not.i.i.i.i.i398, label %456, label %_ZNK16ciBytecodeStream12get_index_u2Eb.exit.i400
 
 456:                                              ; preds = %455
-  %457 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #12
+  %457 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #13
   br label %_ZNK16ciBytecodeStream12get_index_u2Eb.exit.i400
 
 _ZNK16ciBytecodeStream12get_index_u2Eb.exit.i400: ; preds = %456, %455
@@ -3166,7 +3166,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit.i400: ; preds = %456, %455
   br i1 %.not.i.i.i.i.i398, label %467, label %_ZNK16ciBytecodeStream12get_index_u1Ev.exit.i399
 
 467:                                              ; preds = %466
-  %468 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #12
+  %468 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #13
   br label %_ZNK16ciBytecodeStream12get_index_u1Ev.exit.i399
 
 _ZNK16ciBytecodeStream12get_index_u1Ev.exit.i399: ; preds = %467, %466
@@ -3189,7 +3189,7 @@ _ZNK16ciBytecodeStream9get_indexEv.exit404:       ; preds = %_ZNK16ciBytecodeStr
 477:                                              ; preds = %474
   %478 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %478, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit406:   ; preds = %474
@@ -3211,7 +3211,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit406:   ; preds = %474
 487:                                              ; preds = %484
   %488 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %488, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit408:   ; preds = %484
@@ -3234,7 +3234,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit408:   ; preds = %484
 498:                                              ; preds = %495
   %499 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %499, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit410:   ; preds = %495
@@ -3257,7 +3257,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit410:   ; preds = %495
 509:                                              ; preds = %506
   %510 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %510, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit412:   ; preds = %506
@@ -3280,7 +3280,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit412:   ; preds = %506
 520:                                              ; preds = %517
   %521 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %521, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit413:   ; preds = %517
@@ -3292,7 +3292,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit413:   ; preds = %517
 523:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit413
   %524 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %524, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit414:   ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit413
@@ -3304,7 +3304,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit414:   ; preds = %_ZN16BCEscapeAnalyz
 526:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit414
   %527 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %527, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit416:   ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit414
@@ -3407,7 +3407,7 @@ _ZN16BCEscapeAnalyzer16set_arg_modifiedEiii.exit.us.i: ; preds = %560, %.lr.ph.s
 571:                                              ; preds = %568
   %572 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %572, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i428: ; preds = %568
@@ -3419,7 +3419,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i428: ; preds = %568
 574:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i428
   %575 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %575, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit430:   ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i428
@@ -3431,7 +3431,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit430:   ; preds = %_ZN16BCEscapeAnalyz
 577:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit430
   %578 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %578, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit431:   ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit430
@@ -3443,7 +3443,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit431:   ; preds = %_ZN16BCEscapeAnalyz
 580:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit431
   %581 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %581, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit433:   ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit431
@@ -3546,7 +3546,7 @@ _ZN16BCEscapeAnalyzer16set_arg_modifiedEiii.exit.us.i453: ; preds = %614, %.lr.p
 625:                                              ; preds = %622
   %626 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %626, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit457:   ; preds = %622
@@ -3649,7 +3649,7 @@ _ZN16BCEscapeAnalyzer17set_global_escapeENS_11ArgumentMapEb.exit: ; preds = %_ZN
 673:                                              ; preds = %_ZN16BCEscapeAnalyzer17set_global_escapeENS_11ArgumentMapEb.exit
   %674 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %674, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit467:   ; preds = %_ZN16BCEscapeAnalyzer17set_global_escapeENS_11ArgumentMapEb.exit
@@ -3661,7 +3661,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit467:   ; preds = %_ZN16BCEscapeAnalyz
 676:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit467
   %677 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %677, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit469:   ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit467
@@ -3716,7 +3716,7 @@ _ZN16BCEscapeAnalyzer16set_arg_modifiedEiii.exit.us.i479: ; preds = %688, %.lr.p
 699:                                              ; preds = %696
   %700 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %700, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit:   ; preds = %696
@@ -3732,7 +3732,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit:   ; preds = %696
 705:                                              ; preds = %702
   %706 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %706, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit484: ; preds = %702
@@ -3744,7 +3744,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit484: ; preds = %702
 708:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit484
   %709 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %709, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit486: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit484
@@ -3760,7 +3760,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit486: ; preds = %_ZN16BCEscapeAnaly
 714:                                              ; preds = %711
   %715 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %715, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit488: ; preds = %711
@@ -3777,7 +3777,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit488: ; preds = %711
 721:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit488
   %722 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %722, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit488
@@ -3791,7 +3791,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit: ; preds = %_ZN1
 726:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit
   %727 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %727, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit489: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit
@@ -3811,7 +3811,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit489: ; preds = %_
 735:                                              ; preds = %732
   %736 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %736, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit491: ; preds = %732
@@ -3827,7 +3827,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit491: ; preds = %732
 741:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit491
   %742 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %742, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit493: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit491
@@ -3843,7 +3843,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit493: ; preds = %_ZN16BCEscapeAnaly
 748:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit493
   %749 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %749, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit494: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit493
@@ -3857,7 +3857,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit494: ; preds = %_
 753:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit494
   %754 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %754, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit495: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit494
@@ -3875,7 +3875,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit495: ; preds = %_
 762:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit495
   %763 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %763, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit496: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit495
@@ -3895,7 +3895,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit496: ; preds = %_
 771:                                              ; preds = %768
   %772 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %772, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit498: ; preds = %768
@@ -3911,7 +3911,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit498: ; preds = %768
 777:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit498
   %778 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %778, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit500: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit498
@@ -3926,7 +3926,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit500: ; preds = %_ZN16BCEscapeAnaly
 782:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit500
   %783 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %783, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit502: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit500
@@ -3942,7 +3942,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit502: ; preds = %_ZN16BCEscapeAnaly
 789:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit502
   %790 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %790, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit503: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit502
@@ -3956,7 +3956,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit503: ; preds = %_
 794:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit503
   %795 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %795, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit504: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit503
@@ -3974,7 +3974,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit504: ; preds = %_
 803:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit504
   %804 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %804, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit505: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit504
@@ -3992,7 +3992,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit505: ; preds = %_
 812:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit505
   %813 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %813, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit506: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit505
@@ -4012,7 +4012,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit506: ; preds = %_
 821:                                              ; preds = %818
   %822 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %822, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit508: ; preds = %818
@@ -4028,7 +4028,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit508: ; preds = %818
 827:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit508
   %828 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %828, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit510: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit508
@@ -4044,7 +4044,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit510: ; preds = %_ZN16BCEscapeAnaly
 834:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit510
   %835 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %835, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit511: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit510
@@ -4058,7 +4058,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit511: ; preds = %_
 839:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit511
   %840 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %840, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit512: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit511
@@ -4076,7 +4076,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit512: ; preds = %_
 848:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit512
   %849 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %849, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit513: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit512
@@ -4094,7 +4094,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit513: ; preds = %_
 857:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit513
   %858 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %858, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit514: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit513
@@ -4114,7 +4114,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit514: ; preds = %_
 866:                                              ; preds = %863
   %867 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %867, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit516: ; preds = %863
@@ -4130,7 +4130,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit516: ; preds = %863
 872:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit516
   %873 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %873, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit518: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit516
@@ -4145,7 +4145,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit518: ; preds = %_ZN16BCEscapeAnaly
 877:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit518
   %878 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %878, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit520: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit518
@@ -4161,7 +4161,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit520: ; preds = %_ZN16BCEscapeAnaly
 884:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit520
   %885 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %885, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit521: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit520
@@ -4175,7 +4175,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit521: ; preds = %_
 889:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit521
   %890 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %890, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit522: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit521
@@ -4193,7 +4193,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit522: ; preds = %_
 898:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit522
   %899 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %899, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit523: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit522
@@ -4211,7 +4211,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit523: ; preds = %_
 907:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit523
   %908 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %908, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit524: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit523
@@ -4229,7 +4229,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit524: ; preds = %_
 916:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit524
   %917 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %917, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit525: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit524
@@ -4249,7 +4249,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit525: ; preds = %_
 925:                                              ; preds = %922
   %926 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %926, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit527: ; preds = %922
@@ -4265,7 +4265,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit527: ; preds = %922
 931:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit527
   %932 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %932, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit529: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit527
@@ -4280,7 +4280,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit529: ; preds = %_ZN16BCEscapeAnaly
 936:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit529
   %937 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %937, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit531: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit529
@@ -4295,7 +4295,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit531: ; preds = %_ZN16BCEscapeAnaly
 941:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit531
   %942 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %942, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit533: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit531
@@ -4311,7 +4311,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit533: ; preds = %_ZN16BCEscapeAnaly
 948:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit533
   %949 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %949, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit534: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit533
@@ -4325,7 +4325,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit534: ; preds = %_
 953:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit534
   %954 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %954, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit535: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit534
@@ -4343,7 +4343,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit535: ; preds = %_
 962:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit535
   %963 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %963, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit536: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit535
@@ -4361,7 +4361,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit536: ; preds = %_
 971:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit536
   %972 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %972, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit537: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit536
@@ -4379,7 +4379,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit537: ; preds = %_
 980:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit537
   %981 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %981, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit538: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit537
@@ -4397,7 +4397,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit538: ; preds = %_
 989:                                              ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit538
   %990 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %990, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit539: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit538
@@ -4417,7 +4417,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit539: ; preds = %_
 998:                                              ; preds = %995
   %999 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %999, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit541: ; preds = %995
@@ -4433,7 +4433,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit541: ; preds = %995
 1004:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit541
   %1005 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1005, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit543: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit541
@@ -4449,7 +4449,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit543: ; preds = %_ZN16BCEscapeAnaly
 1011:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit543
   %1012 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1012, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit544: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit543
@@ -4463,7 +4463,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit544: ; preds = %_
 1016:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit544
   %1017 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1017, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit545: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit544
@@ -4483,7 +4483,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit545: ; preds = %_
 1025:                                             ; preds = %1022
   %1026 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1026, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit546:   ; preds = %1022
@@ -4495,7 +4495,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit546:   ; preds = %1022
 1028:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit546
   %1029 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1029, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit547:   ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit546
@@ -4508,7 +4508,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit547:   ; preds = %_ZN16BCEscapeAnalyz
 1033:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit547
   %1034 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1034, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit549:  ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit547
@@ -4528,7 +4528,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit549:  ; preds = %_ZN16BCEscapeAnalyz
 1041:                                             ; preds = %1038
   %1042 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1042, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i550: ; preds = %1038
@@ -4540,7 +4540,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i550: ; preds = %1038
 1044:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i550
   %1045 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1045, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit552:   ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i550
@@ -4552,7 +4552,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit552:   ; preds = %_ZN16BCEscapeAnalyz
 1047:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit552
   %1048 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1048, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i553: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit552
@@ -4564,7 +4564,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i553: ; preds = %_ZN16BCEscapeAnalyz
 1050:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i553
   %1051 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1051, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit555:   ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i553
@@ -4577,7 +4577,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit555:   ; preds = %_ZN16BCEscapeAnalyz
 1055:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit555
   %1056 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1056, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i556: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit555
@@ -4595,7 +4595,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i556: ; preds = %_ZN16BCEscapeAnaly
 1063:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i556
   %1064 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1064, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit558:  ; preds = %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i556
@@ -4615,7 +4615,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit558:  ; preds = %_ZN16BCEscapeAnalyz
 1072:                                             ; preds = %1069
   %1073 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1073, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit559:   ; preds = %1069
@@ -4627,7 +4627,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit559:   ; preds = %1069
 1075:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit559
   %1076 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1076, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit560:   ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit559
@@ -4640,7 +4640,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit560:   ; preds = %_ZN16BCEscapeAnalyz
 1080:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit560
   %1081 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1081, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit562:  ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit560
@@ -4660,7 +4660,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit562:  ; preds = %_ZN16BCEscapeAnalyz
 1088:                                             ; preds = %1085
   %1089 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1089, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit563:   ; preds = %1085
@@ -4672,7 +4672,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit563:   ; preds = %1085
 1091:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit563
   %1092 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1092, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i564: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit563
@@ -4684,7 +4684,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i564: ; preds = %_ZN16BCEscapeAnalyz
 1094:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i564
   %1095 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1095, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit566:   ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i564
@@ -4697,7 +4697,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit566:   ; preds = %_ZN16BCEscapeAnalyz
 1099:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit566
   %1100 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1100, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i567: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit566
@@ -4715,7 +4715,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i567: ; preds = %_ZN16BCEscapeAnaly
 1107:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i567
   %1108 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1108, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit569:  ; preds = %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i567
@@ -4735,7 +4735,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit569:  ; preds = %_ZN16BCEscapeAnalyz
 1116:                                             ; preds = %1113
   %1117 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1117, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit570:   ; preds = %1113
@@ -4748,7 +4748,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit570:   ; preds = %1113
 1120:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit570
   %1121 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1121, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit572:  ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit570
@@ -4768,7 +4768,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit572:  ; preds = %_ZN16BCEscapeAnalyz
 1128:                                             ; preds = %1125
   %1129 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1129, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i573: ; preds = %1125
@@ -4780,7 +4780,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i573: ; preds = %1125
 1131:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i573
   %1132 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1132, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit575:   ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i573
@@ -4793,7 +4793,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit575:   ; preds = %_ZN16BCEscapeAnalyz
 1136:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit575
   %1137 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1137, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i576: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit575
@@ -4811,7 +4811,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i576: ; preds = %_ZN16BCEscapeAnaly
 1144:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i576
   %1145 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1145, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit578:  ; preds = %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i576
@@ -4831,7 +4831,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit578:  ; preds = %_ZN16BCEscapeAnalyz
 1153:                                             ; preds = %1150
   %1154 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1154, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit579:   ; preds = %1150
@@ -4844,7 +4844,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit579:   ; preds = %1150
 1157:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit579
   %1158 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1158, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i580: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit579
@@ -4862,7 +4862,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i580: ; preds = %_ZN16BCEscapeAnaly
 1165:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i580
   %1166 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1166, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit582:  ; preds = %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i580
@@ -4882,7 +4882,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit582:  ; preds = %_ZN16BCEscapeAnalyz
 1174:                                             ; preds = %1171
   %1175 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1175, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit583:   ; preds = %1171
@@ -4895,7 +4895,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit583:   ; preds = %1171
 1178:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit583
   %1179 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1179, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit585:  ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit583
@@ -4915,7 +4915,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit585:  ; preds = %_ZN16BCEscapeAnalyz
 1186:                                             ; preds = %1183
   %1187 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1187, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i586: ; preds = %1183
@@ -4927,7 +4927,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i586: ; preds = %1183
 1189:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i586
   %1190 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1190, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit588:   ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i586
@@ -4940,7 +4940,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit588:   ; preds = %_ZN16BCEscapeAnalyz
 1194:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit588
   %1195 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1195, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit590:  ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit588
@@ -4960,7 +4960,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit590:  ; preds = %_ZN16BCEscapeAnalyz
 1202:                                             ; preds = %1199
   %1203 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1203, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i591: ; preds = %1199
@@ -4972,7 +4972,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i591: ; preds = %1199
 1205:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i591
   %1206 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1206, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit593:   ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i591
@@ -4985,7 +4985,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit593:   ; preds = %_ZN16BCEscapeAnalyz
 1210:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit593
   %1211 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1211, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i594: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit593
@@ -5003,7 +5003,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i594: ; preds = %_ZN16BCEscapeAnaly
 1218:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i594
   %1219 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1219, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit596:  ; preds = %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i594
@@ -5023,7 +5023,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit596:  ; preds = %_ZN16BCEscapeAnalyz
 1227:                                             ; preds = %1224
   %1228 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1228, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit597:   ; preds = %1224
@@ -5036,7 +5036,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit597:   ; preds = %1224
 1231:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit597
   %1232 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1232, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit599:  ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit597
@@ -5056,7 +5056,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit599:  ; preds = %_ZN16BCEscapeAnalyz
 1239:                                             ; preds = %1236
   %1240 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1240, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i600: ; preds = %1236
@@ -5068,7 +5068,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i600: ; preds = %1236
 1242:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i600
   %1243 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1243, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit602:   ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i600
@@ -5080,7 +5080,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit602:   ; preds = %_ZN16BCEscapeAnalyz
 1245:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit602
   %1246 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1246, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i603: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit602
@@ -5092,7 +5092,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i603: ; preds = %_ZN16BCEscapeAnalyz
 1248:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i603
   %1249 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1249, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit605:   ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i603
@@ -5105,7 +5105,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit605:   ; preds = %_ZN16BCEscapeAnalyz
 1253:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit605
   %1254 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1254, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit607:  ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit605
@@ -5125,7 +5125,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit607:  ; preds = %_ZN16BCEscapeAnalyz
 1261:                                             ; preds = %1258
   %1262 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1262, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit608:   ; preds = %1258
@@ -5137,7 +5137,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit608:   ; preds = %1258
 1264:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit608
   %1265 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1265, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit609:   ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit608
@@ -5150,7 +5150,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit609:   ; preds = %_ZN16BCEscapeAnalyz
 1269:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit609
   %1270 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1270, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit611:  ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit609
@@ -5170,7 +5170,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit611:  ; preds = %_ZN16BCEscapeAnalyz
 1277:                                             ; preds = %1274
   %1278 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1278, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit612:   ; preds = %1274
@@ -5181,7 +5181,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit612:   ; preds = %1274
   br i1 %.not.i.i.i.i, label %1281, label %_ZNK16ciBytecodeStream8get_destEv.exit
 
 1281:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit612
-  %1282 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #12
+  %1282 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #13
   br label %_ZNK16ciBytecodeStream8get_destEv.exit
 
 _ZNK16ciBytecodeStream8get_destEv.exit:           ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit612, %1281
@@ -5191,7 +5191,7 @@ _ZNK16ciBytecodeStream8get_destEv.exit:           ; preds = %_ZN16BCEscapeAnalyz
   %1285 = sext i16 %1284 to i32
   %1286 = add nsw i32 %1285, %94
   %1287 = load ptr, ptr %52, align 8
-  %1288 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %1287, i32 noundef %1286) #12
+  %1288 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %1287, i32 noundef %1286) #13
   %1289 = load i32, ptr %3, align 8
   %1290 = load i32, ptr %53, align 4
   %1291 = icmp eq i32 %1289, %1290
@@ -5229,7 +5229,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit: 
 1308:                                             ; preds = %1305
   %1309 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1309, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit615:   ; preds = %1305
@@ -5241,7 +5241,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit615:   ; preds = %1305
 1311:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit615
   %1312 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1312, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit616:   ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit615
@@ -5252,7 +5252,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit616:   ; preds = %_ZN16BCEscapeAnalyz
   br i1 %.not.i.i.i.i617, label %1315, label %_ZNK16ciBytecodeStream8get_destEv.exit619
 
 1315:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit616
-  %1316 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #12
+  %1316 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #13
   br label %_ZNK16ciBytecodeStream8get_destEv.exit619
 
 _ZNK16ciBytecodeStream8get_destEv.exit619:        ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit616, %1315
@@ -5262,7 +5262,7 @@ _ZNK16ciBytecodeStream8get_destEv.exit619:        ; preds = %_ZN16BCEscapeAnalyz
   %1319 = sext i16 %1318 to i32
   %1320 = add nsw i32 %1319, %94
   %1321 = load ptr, ptr %52, align 8
-  %1322 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %1321, i32 noundef %1320) #12
+  %1322 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %1321, i32 noundef %1320) #13
   %1323 = load i32, ptr %3, align 8
   %1324 = load i32, ptr %53, align 4
   %1325 = icmp eq i32 %1323, %1324
@@ -5300,7 +5300,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit62
 1342:                                             ; preds = %1339
   %1343 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1343, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit625:   ; preds = %1339
@@ -5365,7 +5365,7 @@ _ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit635: ; preds = %_
 1372:                                             ; preds = %_ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit635
   %1373 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1373, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit637:   ; preds = %_ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit635
@@ -5430,7 +5430,7 @@ _ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit647: ; preds = %_
   br i1 %.not.i.i.i.i648, label %1403, label %_ZNK16ciBytecodeStream8get_destEv.exit650
 
 1403:                                             ; preds = %_ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit647
-  %1404 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %1400) #12
+  %1404 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %1400) #13
   br label %_ZNK16ciBytecodeStream8get_destEv.exit650
 
 _ZNK16ciBytecodeStream8get_destEv.exit650:        ; preds = %_ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit647, %1403
@@ -5444,7 +5444,7 @@ _ZNK16ciBytecodeStream8get_destEv.exit650:        ; preds = %_ZN16BCEscapeAnalyz
   %1411 = sext i16 %1410 to i32
   %1412 = add nsw i32 %1411, %1408
   %1413 = load ptr, ptr %52, align 8
-  %1414 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %1413, i32 noundef %1412) #12
+  %1414 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %1413, i32 noundef %1412) #13
   %1415 = load i32, ptr %3, align 8
   %1416 = load i32, ptr %53, align 4
   %1417 = icmp eq i32 %1415, %1416
@@ -5480,7 +5480,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit65
   br i1 %.not.i.i.i.i655, label %1433, label %_ZNK16ciBytecodeStream8get_destEv.exit657
 
 1433:                                             ; preds = %1431
-  %1434 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #12
+  %1434 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #13
   br label %_ZNK16ciBytecodeStream8get_destEv.exit657
 
 _ZNK16ciBytecodeStream8get_destEv.exit657:        ; preds = %1431, %1433
@@ -5490,7 +5490,7 @@ _ZNK16ciBytecodeStream8get_destEv.exit657:        ; preds = %1431, %1433
   %1437 = sext i16 %1436 to i32
   %1438 = add nsw i32 %1437, %94
   %1439 = load ptr, ptr %52, align 8
-  %1440 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %1439, i32 noundef %1438) #12
+  %1440 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %1439, i32 noundef %1438) #13
   %1441 = load i32, ptr %3, align 8
   %1442 = load i32, ptr %53, align 4
   %1443 = icmp eq i32 %1441, %1442
@@ -5526,7 +5526,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit66
   br i1 %.not.i.i.i.i662, label %1459, label %_ZNK16ciBytecodeStream8get_destEv.exit664
 
 1459:                                             ; preds = %1457
-  %1460 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #12
+  %1460 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #13
   br label %_ZNK16ciBytecodeStream8get_destEv.exit664
 
 _ZNK16ciBytecodeStream8get_destEv.exit664:        ; preds = %1457, %1459
@@ -5538,7 +5538,7 @@ _ZNK16ciBytecodeStream8get_destEv.exit664:        ; preds = %1457, %1459
 1464:                                             ; preds = %_ZNK16ciBytecodeStream8get_destEv.exit664
   %1465 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1465, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit665: ; preds = %_ZNK16ciBytecodeStream8get_destEv.exit664
@@ -5554,7 +5554,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit665: ; preds = %_ZNK
   %1473 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1470, i64 %1472
   store i32 0, ptr %1473, align 4
   %1474 = load ptr, ptr %52, align 8
-  %1475 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %1474, i32 noundef %1469) #12
+  %1475 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %1474, i32 noundef %1469) #13
   %1476 = load i32, ptr %3, align 8
   %1477 = load i32, ptr %53, align 4
   %1478 = icmp eq i32 %1476, %1477
@@ -5595,7 +5595,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit66
 1496:                                             ; preds = %1493
   %1497 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1497, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit670:   ; preds = %1493
@@ -5608,7 +5608,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit670:   ; preds = %1493
   br i1 %.not.i.i.i671, label %1501, label %_ZN20Bytecode_tableswitchC2EPK16ciBytecodeStream.exit
 
 1501:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit670
-  %1502 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #12
+  %1502 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #13
   %.pre1336 = load ptr, ptr %6, align 8
   br label %_ZN20Bytecode_tableswitchC2EPK16ciBytecodeStream.exit
 
@@ -5643,10 +5643,10 @@ _ZN20Bytecode_tableswitchC2EPK16ciBytecodeStream.exit: ; preds = %_ZN16BCEscapeA
   %1523 = ptrtoint ptr %1521 to i64
   %1524 = sub i64 %1522, %1523
   %1525 = trunc i64 %1524 to i32
-  %1526 = call noundef i32 @_ZNK20Bytecode_tableswitch14dest_offset_atEi(ptr noundef nonnull align 8 dereferenceable(12) %6, i32 noundef %.03351320) #12
+  %1526 = call noundef i32 @_ZNK20Bytecode_tableswitch14dest_offset_atEi(ptr noundef nonnull align 8 dereferenceable(12) %6, i32 noundef %.03351320) #13
   %1527 = add nsw i32 %1526, %1525
   %1528 = load ptr, ptr %52, align 8
-  %1529 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %1528, i32 noundef %1527) #12
+  %1529 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %1528, i32 noundef %1527) #13
   %1530 = load i32, ptr %3, align 8
   %1531 = load i32, ptr %53, align 4
   %1532 = icmp eq i32 %1530, %1531
@@ -5699,7 +5699,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit67
   %1559 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i677)
   %1560 = add nsw i32 %1559, %1553
   %1561 = load ptr, ptr %52, align 8
-  %1562 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %1561, i32 noundef %1560) #12
+  %1562 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %1561, i32 noundef %1560) #13
   %1563 = load i32, ptr %3, align 8
   %1564 = load i32, ptr %53, align 4
   %1565 = icmp eq i32 %1563, %1564
@@ -5737,7 +5737,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit68
 1582:                                             ; preds = %1579
   %1583 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1583, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit682:   ; preds = %1579
@@ -5748,7 +5748,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit682:   ; preds = %1579
   br i1 %.not.i.i.i683, label %1586, label %_ZN21Bytecode_lookupswitchC2EPK16ciBytecodeStream.exit
 
 1586:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit682
-  %1587 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #12
+  %1587 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #13
   br label %_ZN21Bytecode_lookupswitchC2EPK16ciBytecodeStream.exit
 
 _ZN21Bytecode_lookupswitchC2EPK16ciBytecodeStream.exit: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit682, %1586
@@ -5788,7 +5788,7 @@ _ZN21Bytecode_lookupswitchC2EPK16ciBytecodeStream.exit: ; preds = %_ZN16BCEscape
   %1611 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i685)
   %1612 = add nsw i32 %1611, %1600
   %1613 = load ptr, ptr %52, align 8
-  %1614 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %1613, i32 noundef %1612) #12
+  %1614 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %1613, i32 noundef %1612) #13
   %1615 = load i32, ptr %3, align 8
   %1616 = load i32, ptr %53, align 4
   %1617 = icmp eq i32 %1615, %1616
@@ -5836,7 +5836,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit68
   %1642 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i690)
   %1643 = add nsw i32 %1642, %1636
   %1644 = load ptr, ptr %52, align 8
-  %1645 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %1644, i32 noundef %1643) #12
+  %1645 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %1644, i32 noundef %1643) #13
   %1646 = load i32, ptr %3, align 8
   %1647 = load i32, ptr %53, align 4
   %1648 = icmp eq i32 %1646, %1647
@@ -5874,7 +5874,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit69
 1665:                                             ; preds = %1662
   %1666 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1666, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit695:   ; preds = %1662
@@ -5890,7 +5890,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit695:   ; preds = %1662
 1671:                                             ; preds = %1668
   %1672 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1672, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i696: ; preds = %1668
@@ -5902,7 +5902,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i696: ; preds = %1668
 1674:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i696
   %1675 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1675, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit698:   ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i696
@@ -5918,7 +5918,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit698:   ; preds = %_ZN16BCEscapeAnalyz
 1680:                                             ; preds = %1677
   %1681 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1681, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit700:   ; preds = %1677
@@ -5948,7 +5948,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit700:   ; preds = %1677
   br i1 %.not.i.i704, label %_ZN9VectorSet3setEj.exit.i, label %1694
 
 1694:                                             ; preds = %1691
-  call void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 dereferenceable(32) %64, i32 noundef %1692) #12
+  call void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 dereferenceable(32) %64, i32 noundef %1692) #13
   br label %_ZN9VectorSet3setEj.exit.i
 
 _ZN9VectorSet3setEj.exit.i:                       ; preds = %1694, %1691
@@ -5990,14 +5990,14 @@ _ZN16BCEscapeAnalyzer12set_returnedENS_11ArgumentMapE.exit: ; preds = %1702, %_Z
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
 1719:                                             ; preds = %96, %96
-  %1720 = call noundef ptr @_ZN16ciBytecodeStream9get_fieldERb(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 1 dereferenceable(1) %7) #12
+  %1720 = call noundef ptr @_ZN16ciBytecodeStream9get_fieldERb(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 1 dereferenceable(1) %7) #13
   %1721 = getelementptr inbounds nuw i8, ptr %1720, i64 32
   %1722 = load ptr, ptr %1721, align 8
   %1723 = icmp eq ptr %1722, null
   br i1 %1723, label %1724, label %_ZN7ciField4typeEv.exit
 
 1724:                                             ; preds = %1719
-  %1725 = call noundef ptr @_ZN7ciField12compute_typeEv(ptr noundef nonnull align 8 dereferenceable(80) %1720) #12
+  %1725 = call noundef ptr @_ZN7ciField12compute_typeEv(ptr noundef nonnull align 8 dereferenceable(80) %1720) #13
   br label %_ZN7ciField4typeEv.exit
 
 _ZN7ciField4typeEv.exit:                          ; preds = %1719, %1724
@@ -6016,7 +6016,7 @@ _ZN7ciField4typeEv.exit:                          ; preds = %1719, %1724
 1733:                                             ; preds = %1730
   %1734 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1734, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit706:   ; preds = %1730
@@ -6087,7 +6087,7 @@ _ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit716: ; preds = %1
 1766:                                             ; preds = %1762
   %1767 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1767, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit717: ; preds = %1762
@@ -6115,7 +6115,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %_ZN16BCEscapeAnalyz
 1780:                                             ; preds = %1779
   %1781 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1781, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit719:  ; preds = %1779
@@ -6134,7 +6134,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit719:  ; preds = %1779
 1787:                                             ; preds = %1786
   %1788 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1788, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i720: ; preds = %1786
@@ -6153,7 +6153,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i720: ; preds = %1786
 1796:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i720
   %1797 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1797, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit722:  ; preds = %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i720
@@ -6166,14 +6166,14 @@ _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit722:  ; preds = %_ZN16BCEscapeAnalyz
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
 1802:                                             ; preds = %96, %96
-  %1803 = call noundef ptr @_ZN16ciBytecodeStream9get_fieldERb(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 1 dereferenceable(1) %8) #12
+  %1803 = call noundef ptr @_ZN16ciBytecodeStream9get_fieldERb(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 1 dereferenceable(1) %8) #13
   %1804 = getelementptr inbounds nuw i8, ptr %1803, i64 32
   %1805 = load ptr, ptr %1804, align 8
   %1806 = icmp eq ptr %1805, null
   br i1 %1806, label %1807, label %_ZN7ciField4typeEv.exit723
 
 1807:                                             ; preds = %1802
-  %1808 = call noundef ptr @_ZN7ciField12compute_typeEv(ptr noundef nonnull align 8 dereferenceable(80) %1803) #12
+  %1808 = call noundef ptr @_ZN7ciField12compute_typeEv(ptr noundef nonnull align 8 dereferenceable(80) %1803) #13
   br label %_ZN7ciField4typeEv.exit723
 
 _ZN7ciField4typeEv.exit723:                       ; preds = %1802, %1807
@@ -6192,7 +6192,7 @@ _ZN7ciField4typeEv.exit723:                       ; preds = %1802, %1807
 1816:                                             ; preds = %1813
   %1817 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1817, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit727:   ; preds = %1813
@@ -6302,7 +6302,7 @@ _Z17is_reference_type9BasicTypeb.exit725:         ; preds = %_ZN7ciField4typeEv.
 1869:                                             ; preds = %1868
   %1870 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1870, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit749:   ; preds = %1868
@@ -6316,7 +6316,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit749:   ; preds = %1868
 1873:                                             ; preds = %1872
   %1874 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1874, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i750: ; preds = %1872
@@ -6328,7 +6328,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i750: ; preds = %1872
 1876:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i750
   %1877 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1877, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit752:   ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit.i750
@@ -6349,7 +6349,7 @@ _ZN16BCEscapeAnalyzer17set_global_escapeENS_11ArgumentMapEb.exit748: ; preds = %
 1883:                                             ; preds = %1880
   %1884 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1884, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit754:   ; preds = %1880
@@ -6508,8 +6508,8 @@ _ZN16BCEscapeAnalyzer16set_arg_modifiedEiii.exit.us12.i: ; preds = %_ZN16BCEscap
 
 1956:                                             ; preds = %96, %96, %96, %96, %96
   store ptr null, ptr %10, align 8
-  %1957 = call noundef ptr @_ZN16ciBytecodeStream10get_methodERbPP11ciSignature(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull %10) #12
-  %1958 = call noundef ptr @_ZN16ciBytecodeStream26get_declared_method_holderEv(ptr noundef nonnull align 8 dereferenceable(72) %5) #12
+  %1957 = call noundef ptr @_ZN16ciBytecodeStream10get_methodERbPP11ciSignature(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull %10) #13
+  %1958 = call noundef ptr @_ZN16ciBytecodeStream26get_declared_method_holderEv(ptr noundef nonnull align 8 dereferenceable(72) %5) #13
   %1959 = getelementptr inbounds nuw i8, ptr %1957, i64 16
   %1960 = load ptr, ptr %1959, align 8
   %.not.i778 = icmp eq ptr %1960, null
@@ -6519,7 +6519,7 @@ _ZNK10ciMetadata9is_loadedEv.exit:                ; preds = %1956
   %1961 = load ptr, ptr %1957, align 8
   %1962 = getelementptr inbounds nuw i8, ptr %1961, i64 32
   %1963 = load ptr, ptr %1962, align 8
-  %1964 = call noundef zeroext i1 %1963(ptr noundef nonnull align 8 dereferenceable(24) %1957) #12
+  %1964 = call noundef zeroext i1 %1963(ptr noundef nonnull align 8 dereferenceable(24) %1957) #13
   br i1 %1964, label %_ZNK10ciMetadata9is_loadedEv.exit.thread, label %1979
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %1956, %_ZNK10ciMetadata9is_loadedEv.exit
@@ -6544,7 +6544,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %1956, %_ZNK10ciMeta
 1973:                                             ; preds = %1969
   %1974 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1974, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit779: ; preds = %1969
@@ -6577,7 +6577,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit779: ; preds = %1969
 1991:                                             ; preds = %1987
   %1992 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1992, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit780: ; preds = %1987
@@ -6607,7 +6607,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit780: ; preds = %1987
 2005:                                             ; preds = %2001
   %2006 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2006, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit782:  ; preds = %2001
@@ -6629,7 +6629,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit782:  ; preds = %2001
 2015:                                             ; preds = %2011
   %2016 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2016, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i783: ; preds = %2011
@@ -6648,7 +6648,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i783: ; preds = %2011
 2024:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i783
   %2025 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2025, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit785:  ; preds = %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i783
@@ -6669,7 +6669,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit785:  ; preds = %_ZN16BCEscapeAnalyz
 2034:                                             ; preds = %2030
   %2035 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2035, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit786: ; preds = %2030
@@ -6689,7 +6689,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit786: ; preds = %2030
 2043:                                             ; preds = %2040
   %2044 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2044, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit787:   ; preds = %2040
@@ -6702,7 +6702,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit787:   ; preds = %2040
 2047:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit787
   %2048 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2048, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit788: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit787
@@ -6733,7 +6733,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit788: ; preds = %_ZN1
 2059:                                             ; preds = %2056
   %2060 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2060, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit789:   ; preds = %2056
@@ -6752,7 +6752,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit789:   ; preds = %2056
 2067:                                             ; preds = %._crit_edge
   %2068 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2068, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit790: ; preds = %._crit_edge
@@ -6772,7 +6772,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit790: ; preds = %._cr
 2076:                                             ; preds = %2073
   %2077 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2077, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit792:   ; preds = %2073
@@ -6838,7 +6838,7 @@ _ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit802: ; preds = %_
 2107:                                             ; preds = %_ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit802
   %2108 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2108, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit804:  ; preds = %_ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit802
@@ -6859,7 +6859,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit804:  ; preds = %_ZN16BCEscapeAnalyz
 2116:                                             ; preds = %2113
   %2117 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2117, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit806:   ; preds = %2113
@@ -6962,7 +6962,7 @@ _ZN16BCEscapeAnalyzer10clear_bitsENS_11ArgumentMapER9VectorSet.exit10.i807: ; pr
 2165:                                             ; preds = %2162
   %2166 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2166, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit829:   ; preds = %2162
@@ -7028,7 +7028,7 @@ _ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit839: ; preds = %_
 2196:                                             ; preds = %_ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit839
   %2197 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2197, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit840: ; preds = %_ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit839
@@ -7048,7 +7048,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit840: ; preds = %_ZN1
 2205:                                             ; preds = %2202
   %2206 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2206, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit842:   ; preds = %2202
@@ -7114,7 +7114,7 @@ _ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit852: ; preds = %_
 2236:                                             ; preds = %_ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit852
   %2237 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2237, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit854:  ; preds = %_ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit852
@@ -7135,7 +7135,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit854:  ; preds = %_ZN16BCEscapeAnalyz
 2245:                                             ; preds = %2242
   %2246 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2246, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit856:   ; preds = %2242
@@ -7146,7 +7146,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit856:   ; preds = %2242
 2248:                                             ; preds = %96
   %2249 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2249, align 1
-  call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 978) #13
+  call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 978) #14
   unreachable
 
 2250:                                             ; preds = %96, %96
@@ -7157,7 +7157,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit856:   ; preds = %2242
 2253:                                             ; preds = %2250
   %2254 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2254, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit858:   ; preds = %2250
@@ -7222,7 +7222,7 @@ _ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit868: ; preds = %_
   br i1 %.not.i.i.i.i869, label %2284, label %_ZNK16ciBytecodeStream8get_destEv.exit871
 
 2284:                                             ; preds = %_ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit868
-  %2285 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %2281) #12
+  %2285 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %2281) #13
   br label %_ZNK16ciBytecodeStream8get_destEv.exit871
 
 _ZNK16ciBytecodeStream8get_destEv.exit871:        ; preds = %_ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit868, %2284
@@ -7236,7 +7236,7 @@ _ZNK16ciBytecodeStream8get_destEv.exit871:        ; preds = %_ZN16BCEscapeAnalyz
   %2292 = sext i16 %2291 to i32
   %2293 = add nsw i32 %2292, %2289
   %2294 = load ptr, ptr %52, align 8
-  %2295 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %2294, i32 noundef %2293) #12
+  %2295 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %2294, i32 noundef %2293) #13
   %2296 = load i32, ptr %3, align 8
   %2297 = load i32, ptr %53, align 4
   %2298 = icmp eq i32 %2296, %2297
@@ -7272,7 +7272,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit87
   br i1 %.not.i.i.i.i876, label %2314, label %_ZNK16ciBytecodeStream12get_far_destEv.exit
 
 2314:                                             ; preds = %2312
-  %2315 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #12
+  %2315 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #13
   br label %_ZNK16ciBytecodeStream12get_far_destEv.exit
 
 _ZNK16ciBytecodeStream12get_far_destEv.exit:      ; preds = %2312, %2314
@@ -7281,7 +7281,7 @@ _ZNK16ciBytecodeStream12get_far_destEv.exit:      ; preds = %2312, %2314
   %2317 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i877)
   %2318 = add nsw i32 %2317, %94
   %2319 = load ptr, ptr %52, align 8
-  %2320 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %2319, i32 noundef %2318) #12
+  %2320 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %2319, i32 noundef %2318) #13
   %2321 = load i32, ptr %3, align 8
   %2322 = load i32, ptr %53, align 4
   %2323 = icmp eq i32 %2321, %2322
@@ -7317,7 +7317,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit88
   br i1 %.not.i.i.i.i882, label %2339, label %_ZNK16ciBytecodeStream12get_far_destEv.exit884
 
 2339:                                             ; preds = %2337
-  %2340 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #12
+  %2340 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #13
   br label %_ZNK16ciBytecodeStream12get_far_destEv.exit884
 
 _ZNK16ciBytecodeStream12get_far_destEv.exit884:   ; preds = %2337, %2339
@@ -7329,7 +7329,7 @@ _ZNK16ciBytecodeStream12get_far_destEv.exit884:   ; preds = %2337, %2339
 2344:                                             ; preds = %_ZNK16ciBytecodeStream12get_far_destEv.exit884
   %2345 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2345, align 1
-  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit885: ; preds = %_ZNK16ciBytecodeStream12get_far_destEv.exit884
@@ -7344,7 +7344,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit885: ; preds = %_ZNK
   %2352 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %2349, i64 %2351
   store i32 0, ptr %2352, align 4
   %2353 = load ptr, ptr %52, align 8
-  %2354 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %2353, i32 noundef %2348) #12
+  %2354 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %2353, i32 noundef %2348) #13
   %2355 = load i32, ptr %3, align 8
   %2356 = load i32, ptr %53, align 4
   %2357 = icmp eq i32 %2355, %2356
@@ -7377,7 +7377,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit88
 2371:                                             ; preds = %96
   %2372 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2372, align 1
-  call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 1012) #13
+  call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 1012) #14
   unreachable
 
 _ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit: ; preds = %1997, %2161, %_ZN16BCEscapeAnalyzer10clear_bitsENS_11ArgumentMapER9VectorSet.exit10.i807, %1955, %._crit_edge.i765, %695, %._crit_edge.i470, %621, %._crit_edge.i444, %567, %._crit_edge.i, %_ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit780, %_ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit785, %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit782, %_ZN16BCEscapeAnalyzer17set_global_escapeENS_11ArgumentMapEb.exit748, %_ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit717, %_ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit722, %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit719, %_ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit345, %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit348, %_ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit346, %96, %96, %96, %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit889, %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit881, %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit875, %_ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit856, %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit854, %_ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit840, %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit804, %_ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit790, %_ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit788, %_ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit786, %_ZN16BCEscapeAnalyzer12set_returnedENS_11ArgumentMapE.exit, %_ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit698, %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit695, %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit694, %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit681, %1492, %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit669, %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit661, %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit654, %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit623, %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit, %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit611, %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit607, %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit599, %_ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit596, %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit590, %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit585, %_ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit582, %_ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit578, %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit572, %_ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit569, %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit562, %_ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit558, %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit549, %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit545, %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit539, %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit525, %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit514, %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit506, %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit496, %_ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit489, %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit486, %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit, %_ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit412, %_ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit410, %_ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit408, %_ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit406, %_ZNK16ciBytecodeStream9get_indexEv.exit404, %_ZN16BCEscapeAnalyzer9StateInfo4lpopEv.exit, %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit394, %_ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit393, %_ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit379, %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit363, %_ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit358, %_ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit357, %_ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit356, %_ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit355, %_ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit354, %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit351, %_ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit349, %_ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit, %_ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit, %_ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit
@@ -7407,7 +7407,7 @@ _ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit: ; preds = %1997, %
 
 2386:                                             ; preds = %2375
   %2387 = load ptr, ptr %52, align 8
-  %2388 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %2387, i32 noundef %2381) #12
+  %2388 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %2387, i32 noundef %2381) #13
   %2389 = load i32, ptr %3, align 8
   %2390 = load i32, ptr %53, align 4
   %2391 = icmp eq i32 %2389, %2390
@@ -7690,7 +7690,7 @@ define hidden void @_ZN16BCEscapeAnalyzer14iterate_blocksEP5Arena(ptr noundef no
   br label %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit
 
 31:                                               ; preds = %2
-  %32 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %21, i32 noundef 0) #12
+  %32 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %21, i32 noundef 0) #13
   %.pre = load ptr, ptr %22, align 8
   %.pre344 = load ptr, ptr %24, align 8
   %.pre350 = ptrtoint ptr %.pre to i64
@@ -7714,7 +7714,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %29, %31
   br label %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit125
 
 41:                                               ; preds = %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit
-  %42 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %36, i32 noundef 0) #12
+  %42 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %36, i32 noundef 0) #13
   br label %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit125
 
 _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit125: ; preds = %39, %41
@@ -7746,7 +7746,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit125: ; preds = %39, 
   %.nonneg = sub i32 0, %8
   %53 = lshr i32 %.nonneg, 2
   %.neg = sub nsw i32 0, %53
-  %54 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %.neg, i32 noundef 8, ptr noundef nonnull %1) #12
+  %54 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %.neg, i32 noundef 8, ptr noundef nonnull %1) #13
   br label %_ZN13GrowableArrayIP7ciBlockEC2EP5ArenaiiRKS1_.exit
 
 .lr.ph276.preheader:                              ; preds = %._crit_edge
@@ -7775,7 +7775,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit125: ; preds = %39, 
 
 ._crit_edge277:                                   ; preds = %.lr.ph276
   %63 = lshr i32 %8, 2
-  %64 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %63, i32 noundef 8, ptr noundef nonnull %1) #12
+  %64 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %63, i32 noundef 8, ptr noundef nonnull %1) #13
   %65 = icmp samesign ugt i32 %8, 3
   br i1 %65, label %.lr.ph16.preheader.i.i, label %_ZN13GrowableArrayIP7ciBlockEC2EP5ArenaiiRKS1_.exit
 
@@ -7791,7 +7791,7 @@ _ZN13GrowableArrayIP7ciBlockEC2EP5ArenaiiRKS1_.exit: ; preds = %._crit_edge277.t
   %70 = phi ptr [ %54, %._crit_edge277.thread ], [ %64, %._crit_edge277 ], [ %64, %.lr.ph16.preheader.i.i ]
   %71 = phi i32 [ %.neg, %._crit_edge277.thread ], [ %63, %._crit_edge277 ], [ %63, %.lr.ph16.preheader.i.i ]
   %72 = ptrtoint ptr %1 to i64
-  %73 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef nonnull %1) #12
+  %73 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef nonnull %1) #13
   store i32 0, ptr %4, align 8
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 4, ptr %74, align 4
@@ -7801,12 +7801,12 @@ _ZN13GrowableArrayIP7ciBlockEC2EP5ArenaiiRKS1_.exit: ; preds = %._crit_edge277.t
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %72, ptr %76, align 8
   %77 = load ptr, ptr %5, align 8
-  tail call void @_ZN14ciMethodBlocks15clear_processedEv(ptr noundef nonnull align 8 dereferenceable(40) %77) #12
+  tail call void @_ZN14ciMethodBlocks15clear_processedEv(ptr noundef nonnull align 8 dereferenceable(40) %77) #13
   %78 = load ptr, ptr %9, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 48
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr %5, align 8
-  %82 = tail call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %81, i32 noundef 0) #12
+  %82 = tail call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %81, i32 noundef 0) #13
   %83 = load i32, ptr %82, align 4
   %84 = load ptr, ptr %9, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 24
@@ -7895,20 +7895,20 @@ _ZN13GrowableArrayIP7ciBlockEC2EP5ArenaiiRKS1_.exit: ; preds = %._crit_edge277.t
   br i1 %.not.i.i139, label %.lr.ph19.preheader.i.thread, label %.lr.ph19.preheader.i
 
 .lr.ph19.preheader.i.thread:                      ; preds = %125
-  %126 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 1, i32 noundef 8, ptr noundef nonnull %1) #12
+  %126 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 1, i32 noundef 8, ptr noundef nonnull %1) #13
   store ptr null, ptr %126, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit
 
 .lr.ph19.preheader.i:                             ; preds = %125
   %127 = lshr i64 %72, 1
   %128 = trunc i64 %127 to i8
-  %129 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 1, i32 noundef 8, i8 noundef zeroext %128) #12
+  %129 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 1, i32 noundef 8, i8 noundef zeroext %128) #13
   store ptr null, ptr %129, align 8
   %.not.i142 = icmp eq ptr %70, null
   br i1 %.not.i142, label %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit, label %130
 
 130:                                              ; preds = %.lr.ph19.preheader.i
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %70) #12
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %70) #13
   br label %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %._crit_edge283, %.lr.ph19.preheader.i.thread, %130, %.lr.ph19.preheader.i
@@ -8122,7 +8122,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit: 
   br i1 %226, label %227, label %229
 
 227:                                              ; preds = %217
-  %228 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %.0.i.i.i.i.i129, i32 noundef 8) #12
+  %228 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %.0.i.i.i.i.i129, i32 noundef 8) #13
   br label %_ZN13GrowableArrayIP7ciBlockE8allocateEv.exit.i147
 
 229:                                              ; preds = %217
@@ -8133,12 +8133,12 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit: 
 231:                                              ; preds = %229
   %232 = lshr i64 %225, 1
   %233 = trunc i64 %232 to i8
-  %234 = call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i.i.i129, i32 noundef 8, i8 noundef zeroext %233) #12
+  %234 = call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i.i.i129, i32 noundef 8, i8 noundef zeroext %233) #13
   br label %_ZN13GrowableArrayIP7ciBlockE8allocateEv.exit.i147
 
 235:                                              ; preds = %229
   %236 = inttoptr i64 %225 to ptr
-  %237 = call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %.0.i.i.i.i.i129, i32 noundef 8, ptr noundef nonnull %236) #12
+  %237 = call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %.0.i.i.i.i.i129, i32 noundef 8, ptr noundef nonnull %236) #13
   br label %_ZN13GrowableArrayIP7ciBlockE8allocateEv.exit.i147
 
 _ZN13GrowableArrayIP7ciBlockE8allocateEv.exit.i147: ; preds = %235, %231, %227
@@ -8196,7 +8196,7 @@ _ZN13GrowableArrayIP7ciBlockE8allocateEv.exit.i147: ; preds = %235, %231, %227
   br i1 %.not.i15.i153, label %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE9expand_toEi.exit162, label %259
 
 259:                                              ; preds = %256
-  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %251) #12
+  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %251) #13
   br label %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE9expand_toEi.exit162
 
 _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE9expand_toEi.exit162: ; preds = %.preheader.i151, %256, %259
@@ -8589,11 +8589,11 @@ _ZN16BCEscapeAnalyzer18merge_block_statesEPNS_9StateInfoEP7ciBlockS1_.exit: ; pr
   br i1 %.not.i.i166, label %433, label %431
 
 431:                                              ; preds = %423
-  %432 = call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i.i.i133, i32 noundef 8, i8 noundef zeroext %144) #12
+  %432 = call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i.i.i133, i32 noundef 8, i8 noundef zeroext %144) #13
   br label %_ZN13GrowableArrayIP7ciBlockE8allocateEv.exit.i167
 
 433:                                              ; preds = %423
-  %434 = call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %.0.i.i.i.i.i133, i32 noundef 8, ptr noundef nonnull %1) #12
+  %434 = call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %.0.i.i.i.i.i133, i32 noundef 8, ptr noundef nonnull %1) #13
   br label %_ZN13GrowableArrayIP7ciBlockE8allocateEv.exit.i167
 
 _ZN13GrowableArrayIP7ciBlockE8allocateEv.exit.i167: ; preds = %433, %431
@@ -8638,7 +8638,7 @@ _ZN13GrowableArrayIP7ciBlockE8allocateEv.exit.i167: ; preds = %433, %431
   br i1 %or.cond255, label %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit135, label %448
 
 448:                                              ; preds = %.preheader.i171
-  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sroa.27.1302) #12
+  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sroa.27.1302) #13
   br label %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit135
 
 _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit135: ; preds = %448, %.preheader.i171, %421
@@ -8677,7 +8677,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit13
   br i1 %.not.i183, label %_ZN13GrowableArrayIP7ciBlockE10deallocateEPS1_.exit.i, label %.loopexit.thread.i
 
 .loopexit.thread.i:                               ; preds = %.loopexit.i
-  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %461) #12
+  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %461) #13
   br label %_ZN13GrowableArrayIP7ciBlockE10deallocateEPS1_.exit.i
 
 _ZN13GrowableArrayIP7ciBlockE10deallocateEPS1_.exit.i: ; preds = %.loopexit.thread.i, %.loopexit.i
@@ -8692,7 +8692,7 @@ _ZN13GrowableArrayIP7ciBlockED2Ev.exit:           ; preds = %_ZN13GrowableArrayI
   br i1 %or.cond257, label %_ZN13GrowableArrayIP7ciBlockED2Ev.exit138, label %.loopexit.thread.i194
 
 .loopexit.thread.i194:                            ; preds = %_ZN13GrowableArrayIP7ciBlockED2Ev.exit
-  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sroa.27.1.lcssa) #12
+  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sroa.27.1.lcssa) #13
   br label %_ZN13GrowableArrayIP7ciBlockED2Ev.exit138
 
 _ZN13GrowableArrayIP7ciBlockED2Ev.exit138:        ; preds = %.loopexit.thread.i194, %_ZN13GrowableArrayIP7ciBlockED2Ev.exit
@@ -8710,7 +8710,7 @@ define hidden void @_ZN16BCEscapeAnalyzer11do_analysisEv(ptr noundef nonnull ali
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call noundef ptr @_ZN8ciMethod17get_method_blocksEv(ptr noundef nonnull align 8 dereferenceable(160) %8) #12
+  %9 = tail call noundef ptr @_ZN8ciMethod17get_method_blocksEv(ptr noundef nonnull align 8 dereferenceable(160) %8) #13
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %9, ptr %10, align 8
   tail call void @_ZN16BCEscapeAnalyzer14iterate_blocksEP5Arena(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %6)
@@ -8751,7 +8751,7 @@ define hidden void @_ZN16BCEscapeAnalyzer28compute_escape_for_intrinsicE13vmIntr
 define hidden void @_ZN16BCEscapeAnalyzer10initializeEv(ptr noundef nonnull align 8 dereferenceable(196) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  tail call void @_ZN12ciMethodData17clear_escape_infoEv(ptr noundef nonnull align 8 dereferenceable(176) %3) #12
+  tail call void @_ZN12ciMethodData17clear_escape_infoEv(ptr noundef nonnull align 8 dereferenceable(176) %3) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -8769,7 +8769,7 @@ define hidden void @_ZN16BCEscapeAnalyzer10initializeEv(ptr noundef nonnull alig
   br i1 %.not.i.not, label %13, label %_ZN9VectorSet3setEj.exit
 
 13:                                               ; preds = %10
-  tail call void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 0) #12
+  tail call void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 0) #13
   br label %_ZN9VectorSet3setEj.exit
 
 _ZN9VectorSet3setEj.exit:                         ; preds = %10, %13
@@ -8784,7 +8784,7 @@ _ZN9VectorSet3setEj.exit:                         ; preds = %10, %13
   br i1 %.not.i13.not, label %20, label %_ZN9VectorSet3setEj.exit14
 
 20:                                               ; preds = %_ZN9VectorSet3setEj.exit
-  tail call void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 0) #12
+  tail call void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 0) #13
   br label %_ZN9VectorSet3setEj.exit14
 
 _ZN9VectorSet3setEj.exit14:                       ; preds = %_ZN9VectorSet3setEj.exit, %20
@@ -8830,7 +8830,7 @@ _ZN9VectorSet3setEj.exit14:                       ; preds = %_ZN9VectorSet3setEj
   br i1 %.not.i15, label %_ZN9VectorSet3setEj.exit16, label %45
 
 45:                                               ; preds = %42
-  tail call void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef %43) #12
+  tail call void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef %43) #13
   br label %_ZN9VectorSet3setEj.exit16
 
 _ZN9VectorSet3setEj.exit16:                       ; preds = %42, %45
@@ -8847,7 +8847,7 @@ _ZN9VectorSet3setEj.exit16:                       ; preds = %42, %45
   br i1 %.not.i17, label %_ZN9VectorSet3setEj.exit18, label %54
 
 54:                                               ; preds = %_ZN9VectorSet3setEj.exit16
-  tail call void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef %43) #12
+  tail call void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef %43) #13
   br label %_ZN9VectorSet3setEj.exit18
 
 _ZN9VectorSet3setEj.exit18:                       ; preds = %_ZN9VectorSet3setEj.exit16, %54
@@ -9099,11 +9099,11 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i:            ; preds = %19
   %22 = load ptr, ptr %13, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(144) %13) #12
+  %25 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(144) %13) #13
   br i1 %25, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i, label %_ZN15ciInstanceKlass14is_initializedEv.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i:     ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i, %19
-  tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %13) #12
+  tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %13) #13
   br label %_ZN15ciInstanceKlass14is_initializedEv.exitthread-pre-split
 
 _ZN15ciInstanceKlass14is_initializedEv.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i
@@ -9139,7 +9139,7 @@ _ZN15ciInstanceKlass14is_initializedEv.exit:      ; preds = %_ZN15ciInstanceKlas
 
 44:                                               ; preds = %41
   %45 = load ptr, ptr @tty, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %45, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %45, ptr noundef nonnull @.str.4) #13
   %46 = load ptr, ptr %2, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %.sroa.0.0.copyload.i.i22 = load i64, ptr %47, align 8
@@ -9149,7 +9149,7 @@ _ZN15ciInstanceKlass14is_initializedEv.exit:      ; preds = %_ZN15ciInstanceKlas
 
 49:                                               ; preds = %44
   %50 = load ptr, ptr @tty, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %50, ptr noundef nonnull @.str.5) #12
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %50, ptr noundef nonnull @.str.5) #13
   br label %95
 
 51:                                               ; preds = %44
@@ -9159,7 +9159,7 @@ _ZN15ciInstanceKlass14is_initializedEv.exit:      ; preds = %_ZN15ciInstanceKlas
 
 53:                                               ; preds = %51
   %54 = load ptr, ptr @tty, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %54, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %54, ptr noundef nonnull @.str.6) #13
   br label %95
 
 55:                                               ; preds = %51
@@ -9184,11 +9184,11 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i28:          ; preds = %63
   %66 = load ptr, ptr %57, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(144) %57) #12
+  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(144) %57) #13
   br i1 %69, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i27, label %_ZN15ciInstanceKlass14is_initializedEv.exit29thread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i27:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i28, %63
-  tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %57) #12
+  tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %57) #13
   br label %_ZN15ciInstanceKlass14is_initializedEv.exit29thread-pre-split
 
 _ZN15ciInstanceKlass14is_initializedEv.exit29thread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i27, %_ZNK10ciMetadata9is_loadedEv.exit.i.i28
@@ -9202,7 +9202,7 @@ _ZN15ciInstanceKlass14is_initializedEv.exit29:    ; preds = %_ZN15ciInstanceKlas
 
 72:                                               ; preds = %_ZN15ciInstanceKlass14is_initializedEv.exit29
   %73 = load ptr, ptr @tty, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %73, ptr noundef nonnull @.str.7) #12
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %73, ptr noundef nonnull @.str.7) #13
   br label %95
 
 74:                                               ; preds = %_ZN15ciInstanceKlass14is_initializedEv.exit29
@@ -9216,7 +9216,7 @@ _ZN15ciInstanceKlass14is_initializedEv.exit29:    ; preds = %_ZN15ciInstanceKlas
 80:                                               ; preds = %74
   %81 = load ptr, ptr @tty, align 8
   %82 = trunc i64 %78 to i32
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %81, ptr noundef nonnull @.str.8, i32 noundef %76, i32 noundef %82) #12
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %81, ptr noundef nonnull @.str.8, i32 noundef %76, i32 noundef %82) #13
   br label %95
 
 83:                                               ; preds = %74
@@ -9231,13 +9231,13 @@ _ZN15ciInstanceKlass14is_initializedEv.exit29:    ; preds = %_ZN15ciInstanceKlas
 90:                                               ; preds = %83
   %91 = load ptr, ptr @tty, align 8
   %92 = trunc i64 %88 to i32
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %91, ptr noundef nonnull @.str.9, i32 noundef %86, i32 noundef %92) #12
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %91, ptr noundef nonnull @.str.9, i32 noundef %86, i32 noundef %92) #13
   br label %95
 
 93:                                               ; preds = %83
   %94 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %94, align 1
-  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 1316) #13
+  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 1316) #14
   unreachable
 
 95:                                               ; preds = %49, %72, %90, %80, %53, %41
@@ -9251,29 +9251,29 @@ _ZN15ciInstanceKlass14is_initializedEv.exit29:    ; preds = %_ZN15ciInstanceKlas
 
 99:                                               ; preds = %96
   %100 = load ptr, ptr @tty, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %100, ptr noundef nonnull @.str.10) #12
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %100, ptr noundef nonnull @.str.10) #13
   br i1 %7, label %103, label %101
 
 101:                                              ; preds = %99
   %102 = load ptr, ptr @tty, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %102, ptr noundef nonnull @.str.11) #12
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %102, ptr noundef nonnull @.str.11) #13
   br label %103
 
 103:                                              ; preds = %101, %99
   %104 = load ptr, ptr %2, align 8
   %105 = load ptr, ptr @tty, align 8
-  tail call void @_ZN8ciMethod16print_short_nameEP12outputStream(ptr noundef nonnull align 8 dereferenceable(160) %104, ptr noundef %105) #12
+  tail call void @_ZN8ciMethod16print_short_nameEP12outputStream(ptr noundef nonnull align 8 dereferenceable(160) %104, ptr noundef %105) #13
   %106 = load ptr, ptr @tty, align 8
   %107 = load ptr, ptr %2, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 72
   %109 = load i32, ptr %108, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %106, ptr noundef nonnull @.str.12, i32 noundef %109) #12
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %106, ptr noundef nonnull @.str.12, i32 noundef %109) #13
   br label %110
 
 110:                                              ; preds = %103, %96
   tail call void @_ZN16BCEscapeAnalyzer10initializeEv(ptr noundef nonnull align 8 dereferenceable(196) %0)
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %112 = tail call noundef zeroext i1 @_ZNK9VectorSet8is_emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %111) #12
+  %112 = tail call noundef zeroext i1 @_ZNK9VectorSet8is_emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %111) #13
   %.not18 = xor i1 %112, true
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 145
   %114 = load i8, ptr %113, align 1
@@ -9285,11 +9285,11 @@ _ZN15ciInstanceKlass14is_initializedEv.exit29:    ; preds = %_ZN15ciInstanceKlas
   tail call void @_ZN16BCEscapeAnalyzer17clear_escape_infoEv(ptr noundef nonnull align 8 dereferenceable(196) %0)
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %118 = load ptr, ptr %117, align 8
-  tail call void @_ZN12ciMethodData9set_eflagEN10MethodData10EscapeFlagE(ptr noundef nonnull align 8 dereferenceable(176) %118, i32 noundef 8) #12
+  tail call void @_ZN12ciMethodData9set_eflagEN10MethodData10EscapeFlagE(ptr noundef nonnull align 8 dereferenceable(176) %118, i32 noundef 8) #13
   %119 = load ptr, ptr %117, align 8
-  tail call void @_ZN12ciMethodData9set_eflagEN10MethodData10EscapeFlagE(ptr noundef nonnull align 8 dereferenceable(176) %119, i32 noundef 16) #12
+  tail call void @_ZN12ciMethodData9set_eflagEN10MethodData10EscapeFlagE(ptr noundef nonnull align 8 dereferenceable(176) %119, i32 noundef 16) #13
   %120 = load ptr, ptr %117, align 8
-  tail call void @_ZN12ciMethodData9set_eflagEN10MethodData10EscapeFlagE(ptr noundef nonnull align 8 dereferenceable(176) %120, i32 noundef 1) #12
+  tail call void @_ZN12ciMethodData9set_eflagEN10MethodData10EscapeFlagE(ptr noundef nonnull align 8 dereferenceable(176) %120, i32 noundef 1) #13
   br label %210
 
 121:                                              ; preds = %110
@@ -9312,7 +9312,7 @@ _ZN15ciInstanceKlass14is_initializedEv.exit29:    ; preds = %_ZN15ciInstanceKlas
   %129 = load ptr, ptr %128, align 8
   %130 = load ptr, ptr %129, align 8
   %131 = load ptr, ptr %2, align 8
-  %132 = tail call noundef ptr @_ZN8ciMethod17get_method_blocksEv(ptr noundef nonnull align 8 dereferenceable(160) %131) #12
+  %132 = tail call noundef ptr @_ZN8ciMethod17get_method_blocksEv(ptr noundef nonnull align 8 dereferenceable(160) %131) #13
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %132, ptr %133, align 8
   tail call void @_ZN16BCEscapeAnalyzer14iterate_blocksEP5Arena(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %130)
@@ -9368,7 +9368,7 @@ _ZNK9VectorSet4testEj.exit:                       ; preds = %151
 
 162:                                              ; preds = %_ZNK9VectorSet4testEj.exit
   %163 = load ptr, ptr %137, align 8
-  tail call void @_ZN12ciMethodData13set_arg_localEi(ptr noundef nonnull align 8 dereferenceable(176) %163, i32 noundef %152) #12
+  tail call void @_ZN12ciMethodData13set_arg_localEi(ptr noundef nonnull align 8 dereferenceable(176) %163, i32 noundef %152) #13
   br label %_ZNK9VectorSet4testEj.exit32.thread.sink.split
 
 _ZNK9VectorSet4testEj.exit.thread:                ; preds = %151, %_ZNK9VectorSet4testEj.exit
@@ -9389,7 +9389,7 @@ _ZNK9VectorSet4testEj.exit32:                     ; preds = %_ZNK9VectorSet4test
 
 _ZNK9VectorSet4testEj.exit32.thread.sink.split:   ; preds = %_ZNK9VectorSet4testEj.exit32, %162
   %172 = load ptr, ptr %137, align 8
-  tail call void @_ZN12ciMethodData13set_arg_stackEi(ptr noundef nonnull align 8 dereferenceable(176) %172, i32 noundef %152) #12
+  tail call void @_ZN12ciMethodData13set_arg_stackEi(ptr noundef nonnull align 8 dereferenceable(176) %172, i32 noundef %152) #13
   br label %_ZNK9VectorSet4testEj.exit32.thread
 
 _ZNK9VectorSet4testEj.exit32.thread:              ; preds = %_ZNK9VectorSet4testEj.exit32.thread.sink.split, %_ZNK9VectorSet4testEj.exit.thread, %_ZNK9VectorSet4testEj.exit32
@@ -9410,7 +9410,7 @@ _ZNK9VectorSet4testEj.exit35:                     ; preds = %_ZNK9VectorSet4test
 
 181:                                              ; preds = %_ZNK9VectorSet4testEj.exit35
   %182 = load ptr, ptr %137, align 8
-  tail call void @_ZN12ciMethodData16set_arg_returnedEi(ptr noundef nonnull align 8 dereferenceable(176) %182, i32 noundef %152) #12
+  tail call void @_ZN12ciMethodData16set_arg_returnedEi(ptr noundef nonnull align 8 dereferenceable(176) %182, i32 noundef %152) #13
   br label %_ZNK9VectorSet4testEj.exit35.thread
 
 _ZNK9VectorSet4testEj.exit35.thread:              ; preds = %_ZNK9VectorSet4testEj.exit32.thread, %181, %_ZNK9VectorSet4testEj.exit35
@@ -9418,7 +9418,7 @@ _ZNK9VectorSet4testEj.exit35.thread:              ; preds = %_ZNK9VectorSet4test
   %184 = load ptr, ptr %150, align 8
   %185 = getelementptr inbounds nuw i32, ptr %184, i64 %indvars.iv
   %186 = load i32, ptr %185, align 4
-  tail call void @_ZN12ciMethodData16set_arg_modifiedEij(ptr noundef nonnull align 8 dereferenceable(176) %183, i32 noundef %152, i32 noundef %186) #12
+  tail call void @_ZN12ciMethodData16set_arg_modifiedEij(ptr noundef nonnull align 8 dereferenceable(176) %183, i32 noundef %152, i32 noundef %186) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %187 = load i32, ptr %142, align 8
   %188 = sext i32 %187 to i64
@@ -9437,7 +9437,7 @@ _ZNK9VectorSet4testEj.exit35.thread:              ; preds = %_ZNK9VectorSet4test
   br i1 %192, label %193, label %194
 
 193:                                              ; preds = %._crit_edge
-  tail call void @_ZN12ciMethodData9set_eflagEN10MethodData10EscapeFlagE(ptr noundef nonnull align 8 dereferenceable(176) %.pre49.pre50.pre52.pre54, i32 noundef 2) #12
+  tail call void @_ZN12ciMethodData9set_eflagEN10MethodData10EscapeFlagE(ptr noundef nonnull align 8 dereferenceable(176) %.pre49.pre50.pre52.pre54, i32 noundef 2) #13
   %.pre49.pre50.pre52.pre = load ptr, ptr %137, align 8
   br label %194
 
@@ -9448,7 +9448,7 @@ _ZNK9VectorSet4testEj.exit35.thread:              ; preds = %_ZNK9VectorSet4test
   br i1 %196, label %197, label %198
 
 197:                                              ; preds = %194
-  tail call void @_ZN12ciMethodData9set_eflagEN10MethodData10EscapeFlagE(ptr noundef nonnull align 8 dereferenceable(176) %.pre49.pre50.pre52, i32 noundef 4) #12
+  tail call void @_ZN12ciMethodData9set_eflagEN10MethodData10EscapeFlagE(ptr noundef nonnull align 8 dereferenceable(176) %.pre49.pre50.pre52, i32 noundef 4) #13
   %.pre49.pre50.pre = load ptr, ptr %137, align 8
   br label %198
 
@@ -9460,7 +9460,7 @@ _ZNK9VectorSet4testEj.exit35.thread:              ; preds = %_ZNK9VectorSet4test
   br i1 %201, label %202, label %203
 
 202:                                              ; preds = %198
-  tail call void @_ZN12ciMethodData9set_eflagEN10MethodData10EscapeFlagE(ptr noundef nonnull align 8 dereferenceable(176) %.pre49.pre50, i32 noundef 8) #12
+  tail call void @_ZN12ciMethodData9set_eflagEN10MethodData10EscapeFlagE(ptr noundef nonnull align 8 dereferenceable(176) %.pre49.pre50, i32 noundef 8) #13
   %.pre49.pre = load ptr, ptr %137, align 8
   br label %203
 
@@ -9472,13 +9472,13 @@ _ZNK9VectorSet4testEj.exit35.thread:              ; preds = %_ZNK9VectorSet4test
   br i1 %206, label %207, label %208
 
 207:                                              ; preds = %203
-  tail call void @_ZN12ciMethodData9set_eflagEN10MethodData10EscapeFlagE(ptr noundef nonnull align 8 dereferenceable(176) %.pre49, i32 noundef 16) #12
+  tail call void @_ZN12ciMethodData9set_eflagEN10MethodData10EscapeFlagE(ptr noundef nonnull align 8 dereferenceable(176) %.pre49, i32 noundef 16) #13
   %.pre = load ptr, ptr %137, align 8
   br label %208
 
 208:                                              ; preds = %207, %203
   %209 = phi ptr [ %.pre, %207 ], [ %.pre49, %203 ]
-  tail call void @_ZN12ciMethodData9set_eflagEN10MethodData10EscapeFlagE(ptr noundef nonnull align 8 dereferenceable(176) %209, i32 noundef 1) #12
+  tail call void @_ZN12ciMethodData9set_eflagEN10MethodData10EscapeFlagE(ptr noundef nonnull align 8 dereferenceable(176) %209, i32 noundef 1) #13
   br label %210
 
 210:                                              ; preds = %208, %136, %_ZN16BCEscapeAnalyzer28compute_escape_for_intrinsicE13vmIntrinsicID.exit, %116, %95
@@ -9525,7 +9525,7 @@ define hidden void @_ZN16BCEscapeAnalyzer16read_escape_infoEv(ptr noundef nonnul
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
   %14 = load ptr, ptr %5, align 8
   %15 = trunc nuw nsw i64 %indvars.iv to i32
-  %16 = tail call noundef zeroext i1 @_ZNK12ciMethodData12is_arg_localEi(ptr noundef nonnull align 8 dereferenceable(176) %14, i32 noundef %15) #12
+  %16 = tail call noundef zeroext i1 @_ZNK12ciMethodData12is_arg_localEi(ptr noundef nonnull align 8 dereferenceable(176) %14, i32 noundef %15) #13
   br i1 %16, label %17, label %28
 
 17:                                               ; preds = %13
@@ -9535,7 +9535,7 @@ define hidden void @_ZN16BCEscapeAnalyzer16read_escape_infoEv(ptr noundef nonnul
   br i1 %.not.i, label %_ZN9VectorSet3setEj.exit, label %20
 
 20:                                               ; preds = %17
-  tail call void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %18) #12
+  tail call void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %18) #13
   br label %_ZN9VectorSet3setEj.exit
 
 _ZN9VectorSet3setEj.exit:                         ; preds = %17, %20
@@ -9551,7 +9551,7 @@ _ZN9VectorSet3setEj.exit:                         ; preds = %17, %20
 
 28:                                               ; preds = %_ZN9VectorSet3setEj.exit, %13
   %29 = load ptr, ptr %5, align 8
-  %30 = tail call noundef zeroext i1 @_ZNK12ciMethodData12is_arg_stackEi(ptr noundef nonnull align 8 dereferenceable(176) %29, i32 noundef %15) #12
+  %30 = tail call noundef zeroext i1 @_ZNK12ciMethodData12is_arg_stackEi(ptr noundef nonnull align 8 dereferenceable(176) %29, i32 noundef %15) #13
   br i1 %30, label %31, label %42
 
 31:                                               ; preds = %28
@@ -9561,7 +9561,7 @@ _ZN9VectorSet3setEj.exit:                         ; preds = %17, %20
   br i1 %.not.i10, label %_ZN9VectorSet3setEj.exit11, label %34
 
 34:                                               ; preds = %31
-  tail call void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef %32) #12
+  tail call void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef %32) #13
   br label %_ZN9VectorSet3setEj.exit11
 
 _ZN9VectorSet3setEj.exit11:                       ; preds = %31, %34
@@ -9577,7 +9577,7 @@ _ZN9VectorSet3setEj.exit11:                       ; preds = %31, %34
 
 42:                                               ; preds = %_ZN9VectorSet3setEj.exit11, %28
   %43 = load ptr, ptr %5, align 8
-  %44 = tail call noundef zeroext i1 @_ZNK12ciMethodData15is_arg_returnedEi(ptr noundef nonnull align 8 dereferenceable(176) %43, i32 noundef %15) #12
+  %44 = tail call noundef zeroext i1 @_ZNK12ciMethodData15is_arg_returnedEi(ptr noundef nonnull align 8 dereferenceable(176) %43, i32 noundef %15) #13
   br i1 %44, label %45, label %56
 
 45:                                               ; preds = %42
@@ -9587,7 +9587,7 @@ _ZN9VectorSet3setEj.exit11:                       ; preds = %31, %34
   br i1 %.not.i12, label %_ZN9VectorSet3setEj.exit13, label %48
 
 48:                                               ; preds = %45
-  tail call void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef %46) #12
+  tail call void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef %46) #13
   br label %_ZN9VectorSet3setEj.exit13
 
 _ZN9VectorSet3setEj.exit13:                       ; preds = %45, %48
@@ -9603,7 +9603,7 @@ _ZN9VectorSet3setEj.exit13:                       ; preds = %45, %48
 
 56:                                               ; preds = %_ZN9VectorSet3setEj.exit13, %42
   %57 = load ptr, ptr %5, align 8
-  %58 = tail call noundef i32 @_ZNK12ciMethodData12arg_modifiedEi(ptr noundef nonnull align 8 dereferenceable(176) %57, i32 noundef %15) #12
+  %58 = tail call noundef i32 @_ZNK12ciMethodData12arg_modifiedEi(ptr noundef nonnull align 8 dereferenceable(176) %57, i32 noundef %15) #13
   %59 = load ptr, ptr %12, align 8
   %60 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv
   store i32 %58, ptr %60, align 4
@@ -9616,22 +9616,22 @@ _ZN9VectorSet3setEj.exit13:                       ; preds = %45, %48
 ._crit_edge:                                      ; preds = %56, %1
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %65 = load ptr, ptr %64, align 8
-  %66 = tail call noundef zeroext i1 @_ZNK12ciMethodData9eflag_setEN10MethodData10EscapeFlagE(ptr noundef nonnull align 8 dereferenceable(176) %65, i32 noundef 2) #12
+  %66 = tail call noundef zeroext i1 @_ZNK12ciMethodData9eflag_setEN10MethodData10EscapeFlagE(ptr noundef nonnull align 8 dereferenceable(176) %65, i32 noundef 2) #13
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %68 = zext i1 %66 to i8
   store i8 %68, ptr %67, align 8
   %69 = load ptr, ptr %64, align 8
-  %70 = tail call noundef zeroext i1 @_ZNK12ciMethodData9eflag_setEN10MethodData10EscapeFlagE(ptr noundef nonnull align 8 dereferenceable(176) %69, i32 noundef 4) #12
+  %70 = tail call noundef zeroext i1 @_ZNK12ciMethodData9eflag_setEN10MethodData10EscapeFlagE(ptr noundef nonnull align 8 dereferenceable(176) %69, i32 noundef 4) #13
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 145
   %72 = zext i1 %70 to i8
   store i8 %72, ptr %71, align 1
   %73 = load ptr, ptr %64, align 8
-  %74 = tail call noundef zeroext i1 @_ZNK12ciMethodData9eflag_setEN10MethodData10EscapeFlagE(ptr noundef nonnull align 8 dereferenceable(176) %73, i32 noundef 8) #12
+  %74 = tail call noundef zeroext i1 @_ZNK12ciMethodData9eflag_setEN10MethodData10EscapeFlagE(ptr noundef nonnull align 8 dereferenceable(176) %73, i32 noundef 8) #13
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 146
   %76 = zext i1 %74 to i8
   store i8 %76, ptr %75, align 2
   %77 = load ptr, ptr %64, align 8
-  %78 = tail call noundef zeroext i1 @_ZNK12ciMethodData9eflag_setEN10MethodData10EscapeFlagE(ptr noundef nonnull align 8 dereferenceable(176) %77, i32 noundef 16) #12
+  %78 = tail call noundef zeroext i1 @_ZNK12ciMethodData9eflag_setEN10MethodData10EscapeFlagE(ptr noundef nonnull align 8 dereferenceable(176) %77, i32 noundef 16) #13
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 147
   %80 = zext i1 %78 to i8
   store i8 %80, ptr %79, align 1
@@ -9673,7 +9673,7 @@ define hidden void @_ZN16BCEscapeAnalyzerC2EP8ciMethodPS_(ptr noundef nonnull al
   br label %28
 
 17:                                               ; preds = %3
-  %18 = tail call noundef ptr @_ZN8ciMethod11method_dataEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #12
+  %18 = tail call noundef ptr @_ZN8ciMethod11method_dataEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #13
   store ptr %18, ptr %16, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %20 = load ptr, ptr %19, align 8
@@ -9694,18 +9694,18 @@ define hidden void @_ZN16BCEscapeAnalyzerC2EP8ciMethodPS_(ptr noundef nonnull al
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %30, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN9VectorSetC1EP5Arena(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef %29) #12
+  tail call void @_ZN9VectorSetC1EP5Arena(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef %29) #13
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %34 = load ptr, ptr %0, align 8
-  tail call void @_ZN9VectorSetC1EP5Arena(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef %34) #12
+  tail call void @_ZN9VectorSetC1EP5Arena(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef %34) #13
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %36 = load ptr, ptr %0, align 8
-  tail call void @_ZN9VectorSetC1EP5Arena(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef %36) #12
+  tail call void @_ZN9VectorSetC1EP5Arena(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef %36) #13
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 0, ptr %37, align 8
   %39 = load ptr, ptr %0, align 8
-  %40 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef %39) #12
+  %40 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef %39) #13
   store i32 0, ptr %38, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 4, ptr %41, align 4
@@ -9763,7 +9763,7 @@ define hidden void @_ZN16BCEscapeAnalyzerC2EP8ciMethodPS_(ptr noundef nonnull al
   br label %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit
 
 75:                                               ; preds = %56
-  %76 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %60, i64 noundef %65, i32 noundef 0) #12
+  %76 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %60, i64 noundef %65, i32 noundef 0) #13
   br label %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit
 
 _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %73, %75
@@ -9779,7 +9779,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %73, %75
   br i1 %82, label %88, label %83
 
 83:                                               ; preds = %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit
-  %84 = tail call noundef zeroext i1 @_ZN12ciMethodData15has_escape_infoEv(ptr noundef nonnull align 8 dereferenceable(176) %81) #12
+  %84 = tail call noundef zeroext i1 @_ZN12ciMethodData15has_escape_infoEv(ptr noundef nonnull align 8 dereferenceable(176) %81) #13
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %83
@@ -9789,7 +9789,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %73, %75
 86:                                               ; preds = %83
   tail call void @_ZN16BCEscapeAnalyzer19compute_escape_infoEv(ptr noundef nonnull align 8 dereferenceable(196) %0)
   %87 = load ptr, ptr %16, align 8
-  tail call void @_ZN12ciMethodData18update_escape_infoEv(ptr noundef nonnull align 8 dereferenceable(176) %87) #12
+  tail call void @_ZN12ciMethodData18update_escape_infoEv(ptr noundef nonnull align 8 dereferenceable(176) %87) #13
   br label %88
 
 88:                                               ; preds = %85, %86, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit, %52
@@ -9818,7 +9818,7 @@ define hidden void @_ZN16BCEscapeAnalyzer17copy_dependenciesEP12Dependencies(ptr
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  tail call void @_ZN12Dependencies18assert_evol_methodEP8ciMethod(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %12) #12
+  tail call void @_ZN12Dependencies18assert_evol_methodEP8ciMethod(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %12) #13
   br label %13
 
 13:                                               ; preds = %10, %2
@@ -9842,7 +9842,7 @@ define hidden void @_ZN16BCEscapeAnalyzer17copy_dependenciesEP12Dependencies(ptr
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %27 = load ptr, ptr %26, align 8
-  tail call void @_ZN12Dependencies29assert_unique_concrete_methodEP7ciKlassP8ciMethodS1_S3_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %21, ptr noundef %23, ptr noundef %25, ptr noundef %27) #12
+  tail call void @_ZN12Dependencies29assert_unique_concrete_methodEP7ciKlassP8ciMethodS1_S3_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %21, ptr noundef %23, ptr noundef %25, ptr noundef %27) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %28 = load i32, ptr %14, align 8
   %29 = trunc nuw i64 %indvars.iv.next to i32
@@ -9865,7 +9865,7 @@ define internal void @__cxx_global_var_init.13() #8 section ".text.startup" comd
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 162, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 162, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -9874,7 +9874,7 @@ define internal void @__cxx_global_var_init.13() #8 section ".text.startup" comd
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #12
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #13
   ret i64 %3
 }
 
@@ -9888,7 +9888,7 @@ define internal void @__cxx_global_var_init.14() #8 section ".text.startup" comd
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -9897,7 +9897,7 @@ define internal void @__cxx_global_var_init.14() #8 section ".text.startup" comd
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #12
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #13
   ret i64 %3
 }
 
@@ -9909,7 +9909,7 @@ define internal void @__cxx_global_var_init.15() #8 section ".text.startup" comd
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 107, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 107, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -9918,7 +9918,7 @@ define internal void @__cxx_global_var_init.15() #8 section ".text.startup" comd
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #12
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #13
   ret i64 %3
 }
 
@@ -9930,7 +9930,7 @@ define internal void @__cxx_global_var_init.16() #8 section ".text.startup" comd
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 80, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 80, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -9939,7 +9939,7 @@ define internal void @__cxx_global_var_init.16() #8 section ".text.startup" comd
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #12
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #13
   ret i64 %3
 }
 
@@ -9964,10 +9964,10 @@ declare noundef i32 @_ZN16ciBytecodeStream18next_wide_or_tableEN9Bytecodes4CodeE
 
 declare noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #9
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #9
 
 declare noundef ptr @_ZN7ciField12compute_typeEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #4
@@ -9975,10 +9975,10 @@ declare noundef ptr @_ZN7ciField12compute_typeEv(ptr noundef nonnull align 8 der
 declare noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #9
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
@@ -9992,7 +9992,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP10ciMetadata13
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %1, i32 noundef 8) #12
+  %8 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %1, i32 noundef 8) #13
   br label %_ZN13GrowableArrayIP10ciMetadataE8allocateEv.exit
 
 9:                                                ; preds = %2
@@ -10003,12 +10003,12 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP10ciMetadata13
 11:                                               ; preds = %9
   %12 = lshr i64 %5, 1
   %13 = trunc i64 %12 to i8
-  %14 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %1, i32 noundef 8, i8 noundef zeroext %13) #12
+  %14 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %1, i32 noundef 8, i8 noundef zeroext %13) #13
   br label %_ZN13GrowableArrayIP10ciMetadataE8allocateEv.exit
 
 15:                                               ; preds = %9
   %16 = inttoptr i64 %5 to ptr
-  %17 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %1, i32 noundef 8, ptr noundef nonnull %16) #12
+  %17 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %1, i32 noundef 8, ptr noundef nonnull %16) #13
   br label %_ZN13GrowableArrayIP10ciMetadataE8allocateEv.exit
 
 _ZN13GrowableArrayIP10ciMetadataE8allocateEv.exit: ; preds = %7, %11, %15
@@ -10071,7 +10071,7 @@ _ZN13GrowableArrayIP10ciMetadataE8allocateEv.exit: ; preds = %7, %11, %15
   br i1 %.not.i15, label %_ZN13GrowableArrayIP10ciMetadataE10deallocateEPS1_.exit, label %42
 
 42:                                               ; preds = %39
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #12
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #13
   br label %_ZN13GrowableArrayIP10ciMetadataE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP10ciMetadataE10deallocateEPS1_.exit: ; preds = %42, %39, %.preheader
@@ -10080,7 +10080,7 @@ _ZN13GrowableArrayIP10ciMetadataE10deallocateEPS1_.exit: ; preds = %42, %39, %.p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
@@ -10092,7 +10092,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP7ciBlock13Grow
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %1, i32 noundef 8) #12
+  %8 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %1, i32 noundef 8) #13
   br label %_ZN13GrowableArrayIP7ciBlockE8allocateEv.exit
 
 9:                                                ; preds = %2
@@ -10103,12 +10103,12 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP7ciBlock13Grow
 11:                                               ; preds = %9
   %12 = lshr i64 %5, 1
   %13 = trunc i64 %12 to i8
-  %14 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %1, i32 noundef 8, i8 noundef zeroext %13) #12
+  %14 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %1, i32 noundef 8, i8 noundef zeroext %13) #13
   br label %_ZN13GrowableArrayIP7ciBlockE8allocateEv.exit
 
 15:                                               ; preds = %9
   %16 = inttoptr i64 %5 to ptr
-  %17 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %1, i32 noundef 8, ptr noundef nonnull %16) #12
+  %17 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %1, i32 noundef 8, ptr noundef nonnull %16) #13
   br label %_ZN13GrowableArrayIP7ciBlockE8allocateEv.exit
 
 _ZN13GrowableArrayIP7ciBlockE8allocateEv.exit:    ; preds = %7, %11, %15
@@ -10171,7 +10171,7 @@ _ZN13GrowableArrayIP7ciBlockE8allocateEv.exit:    ; preds = %7, %11, %15
   br i1 %.not.i15, label %_ZN13GrowableArrayIP7ciBlockE10deallocateEPS1_.exit, label %42
 
 42:                                               ; preds = %39
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #12
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #13
   br label %_ZN13GrowableArrayIP7ciBlockE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP7ciBlockE10deallocateEPS1_.exit: ; preds = %42, %39, %.preheader
@@ -10179,17 +10179,17 @@ _ZN13GrowableArrayIP7ciBlockE10deallocateEPS1_.exit: ; preds = %42, %39, %.prehe
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -10200,11 +10200,12 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
+attributes #9 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

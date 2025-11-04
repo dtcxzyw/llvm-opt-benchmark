@@ -46,7 +46,7 @@ define dso_local zeroext i16 @_bt_findsplitloc(ptr noundef %0, ptr noundef %1, i
 
 30:                                               ; preds = %24, %6
   %.079 = phi i32 [ %20, %6 ], [ %29, %24 ]
-  %31 = tail call i64 @PageGetExactFreeSpace(ptr noundef nonnull %1) #7
+  %31 = tail call i64 @PageGetExactFreeSpace(ptr noundef nonnull %1) #8
   %32 = trunc i64 %31 to i32
   %33 = sub i32 %.079, %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -69,7 +69,7 @@ define dso_local zeroext i16 @_bt_findsplitloc(ptr noundef %0, ptr noundef %1, i
   %46 = load i32, ptr %21, align 4
   %47 = zext nneg i16 %.0.i to i64
   %48 = mul nuw nsw i64 %47, 10
-  %49 = tail call ptr @palloc(i64 noundef %48) #7
+  %49 = tail call ptr @palloc(i64 noundef %48) #8
   %50 = load i32, ptr %21, align 4
   %51 = icmp eq i32 %50, 0
   %52 = select i1 %51, i16 1, i16 2
@@ -382,12 +382,12 @@ _bt_recsplitloc.exit198:                          ; preds = %174, %BTreeTupleIsP
   br i1 %182, label %183, label %189
 
 183:                                              ; preds = %_bt_recsplitloc.exit198
-  %184 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %184 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %186 = load ptr, ptr %185, align 8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 4
-  %188 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef nonnull %187) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 261, ptr noundef nonnull @__func__._bt_findsplitloc) #7
+  %188 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef nonnull %187) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 261, ptr noundef nonnull @__func__._bt_findsplitloc) #8
   unreachable
 
 189:                                              ; preds = %_bt_recsplitloc.exit198
@@ -433,7 +433,7 @@ _bt_recsplitloc.exit198:                          ; preds = %174, %BTreeTupleIsP
   %211 = and i32 %.val.i204, 32767
   %212 = zext nneg i32 %211 to i64
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 %212
-  %214 = tail call i32 @_bt_keep_natts_fast(ptr noundef nonnull %0, ptr noundef %213, ptr noundef %4) #7
+  %214 = tail call i32 @_bt_keep_natts_fast(ptr noundef nonnull %0, ptr noundef %213, ptr noundef %4) #8
   %215 = icmp slt i32 %214, 2
   %.not48.i = icmp sgt i32 %214, %199
   %or.cond.i205 = or i1 %215, %.not48.i
@@ -495,7 +495,7 @@ BTreeTupleIsPosting.exit.thread.i203:             ; preds = %BTreeTupleIsPosting
   br i1 %246, label %247, label %.loopexit
 
 247:                                              ; preds = %244, %BTreeTupleIsPosting.exit.thread.i203
-  %248 = tail call i32 @_bt_keep_natts_fast(ptr noundef nonnull %0, ptr noundef nonnull %223, ptr noundef nonnull %4) #7
+  %248 = tail call i32 @_bt_keep_natts_fast(ptr noundef nonnull %0, ptr noundef nonnull %223, ptr noundef nonnull %4) #8
   %249 = icmp slt i32 %248, 2
   %.not47.i = icmp sgt i32 %248, %199
   %or.cond49.i = or i1 %249, %.not47.i
@@ -533,7 +533,7 @@ _bt_afternewitemoff.exit:                         ; preds = %247
   br i1 %263, label %.thread425, label %264
 
 .thread425:                                       ; preds = %260
-  tail call void @pfree(ptr noundef nonnull %49) #7
+  tail call void @pfree(ptr noundef nonnull %49) #8
   store i8 1, ptr %5, align 1
   br label %486
 
@@ -603,7 +603,7 @@ _bt_afternewitemoff.exit:                         ; preds = %247
 
 _bt_deltasortsplits.exit:                         ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.._crit_edge_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i206, %.._crit_edge_crit_edge.i ], [ %270, %.lr.ph.split.us.i ], [ %270, %.lr.ph.split.i ]
-  tail call void @pg_qsort(ptr noundef nonnull %49, i64 noundef %.pre-phi.i, i64 noundef 10, ptr noundef nonnull @_bt_splitcmp) #7
+  tail call void @pg_qsort(ptr noundef nonnull %49, i64 noundef %.pre-phi.i, i64 noundef 10, ptr noundef nonnull @_bt_splitcmp) #8
   %288 = sitofp i32 %33 to double
   %..i = select i1 %190, double 5.000000e-02, double 0x3FB3333333333333
   %289 = fmul double %..i, %288
@@ -805,7 +805,7 @@ _bt_split_lastleft.exit.i:                        ; preds = %_bt_interval_edges.
 
 _bt_split_firstright.exit.i:                      ; preds = %_bt_split_lastleft.exit.i, %._crit_edge.i44.i
   %.0.i46.i = phi ptr [ %372, %._crit_edge.i44.i ], [ %4, %_bt_split_lastleft.exit.i ]
-  %373 = tail call i32 @_bt_keep_natts_fast(ptr noundef %0, ptr noundef %.0.i.i, ptr noundef %.0.i46.i) #7
+  %373 = tail call i32 @_bt_keep_natts_fast(ptr noundef %0, ptr noundef %.0.i.i, ptr noundef %.0.i46.i) #8
   %.not.i214 = icmp sgt i32 %373, %315
   br i1 %.not.i214, label %374, label %_bt_strategy.exit
 
@@ -845,7 +845,7 @@ _bt_split_lastleft.exit50.i:                      ; preds = %374, %._crit_edge.i
 
 _bt_split_firstright.exit56.i:                    ; preds = %_bt_split_lastleft.exit50.i, %._crit_edge.i53.i
   %.0.i55.i = phi ptr [ %391, %._crit_edge.i53.i ], [ %4, %_bt_split_lastleft.exit50.i ]
-  %392 = tail call i32 @_bt_keep_natts_fast(ptr noundef %0, ptr noundef %.0.i49.i, ptr noundef %.0.i55.i) #7
+  %392 = tail call i32 @_bt_keep_natts_fast(ptr noundef %0, ptr noundef %.0.i49.i, ptr noundef %.0.i55.i) #8
   %.not40.i = icmp sgt i32 %392, %315
   br i1 %.not40.i, label %393, label %_bt_strategy.exit
 
@@ -858,7 +858,7 @@ _bt_split_firstright.exit56.i:                    ; preds = %_bt_split_lastleft.
   %396 = and i32 %.val.i215, 32767
   %397 = zext nneg i32 %396 to i64
   %398 = getelementptr inbounds nuw i8, ptr %1, i64 %397
-  %399 = tail call i32 @_bt_keep_natts_fast(ptr noundef %0, ptr noundef %398, ptr noundef %4) #7
+  %399 = tail call i32 @_bt_keep_natts_fast(ptr noundef %0, ptr noundef %398, ptr noundef %4) #8
   %.not41.i = icmp sgt i32 %399, %315
   br i1 %.not41.i, label %_bt_strategy.exit, label %400
 
@@ -894,7 +894,7 @@ _bt_split_firstright.exit56.i:                    ; preds = %_bt_split_lastleft.
 
 _bt_deltasortsplits.exit226:                      ; preds = %.lr.ph.split.us.i222, %.._crit_edge_crit_edge.i218
   %.pre-phi.i220 = phi i64 [ %.pre.i219, %.._crit_edge_crit_edge.i218 ], [ %401, %.lr.ph.split.us.i222 ]
-  tail call void @pg_qsort(ptr noundef nonnull %49, i64 noundef %.pre-phi.i220, i64 noundef 10, ptr noundef nonnull @_bt_splitcmp) #7
+  tail call void @pg_qsort(ptr noundef nonnull %49, i64 noundef %.pre-phi.i220, i64 noundef 10, ptr noundef nonnull @_bt_splitcmp) #8
   br label %_bt_strategy.exit
 
 _bt_strategy.exit:                                ; preds = %_bt_split_firstright.exit.i, %394, %_bt_split_firstright.exit56.i, %_bt_deltasortsplits.exit226
@@ -1010,7 +1010,7 @@ _bt_split_lastleft.exit.thread21.i.i:             ; preds = %442
 _bt_split_penalty.exit.i:                         ; preds = %._crit_edge.i15.i.i, %450
   %.0.i19.i.i = phi ptr [ %.0.i20.i.i, %._crit_edge.i15.i.i ], [ %456, %450 ]
   %.0.i17.i.i = phi ptr [ %462, %._crit_edge.i15.i.i ], [ %4, %450 ]
-  %463 = tail call i32 @_bt_keep_natts_fast(ptr noundef %0, ptr noundef %.0.i19.i.i, ptr noundef %.0.i17.i.i) #7
+  %463 = tail call i32 @_bt_keep_natts_fast(ptr noundef %0, ptr noundef %.0.i19.i.i, ptr noundef %.0.i17.i.i) #8
   %464 = icmp slt i32 %463, %.048.i
   %465 = trunc nuw nsw i64 %indvars.iv53.i to i32
   %spec.select.i239 = select i1 %464, i32 %465, i32 %.03346.i
@@ -1062,7 +1062,7 @@ _bt_bestsplitloc.exit:                            ; preds = %._crit_edge.i.threa
   store i8 %483, ptr %5, align 1
   %484 = getelementptr inbounds nuw i8, ptr %.032.i, i64 6
   %485 = load i16, ptr %484, align 2
-  tail call void @pfree(ptr noundef nonnull %49) #7
+  tail call void @pfree(ptr noundef nonnull %49) #8
   br label %486
 
 486:                                              ; preds = %.thread425, %_bt_bestsplitloc.exit
@@ -1083,7 +1083,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
@@ -1103,24 +1103,25 @@ declare i32 @_bt_keep_natts_fast(ptr noundef, ptr noundef, ptr noundef) local_un
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.abs.i16(i16, i1 immarg) #6
+declare i16 @llvm.abs.i16(i16, i1 immarg) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

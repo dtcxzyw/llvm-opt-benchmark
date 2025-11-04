@@ -132,7 +132,7 @@ define void @dlaed6_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %95 = fcmp oge double %94, 0.000000e+00
   %96 = fneg double %94
   %97 = select i1 %95, double %94, double %96
-  %98 = tail call double @sqrt(double noundef %97) #7, !tbaa !3
+  %98 = tail call double @sqrt(double noundef %97) #8, !tbaa !3
   %99 = fsub double %82, %98
   %100 = fmul double %84, 2.000000e+00
   %101 = fdiv double %99, %100
@@ -147,7 +147,7 @@ define void @dlaed6_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %108 = fcmp oge double %107, 0.000000e+00
   %109 = fneg double %107
   %110 = select i1 %108, double %107, double %109
-  %111 = tail call double @sqrt(double noundef %110) #7, !tbaa !3
+  %111 = tail call double @sqrt(double noundef %110) #8, !tbaa !3
   %112 = fadd double %82, %111
   %113 = fdiv double %103, %112
   br label %114
@@ -214,11 +214,11 @@ define void @dlaed6_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 153:                                              ; preds = %.sink.split, %127, %20
   %.2375 = phi double [ %.1374., %127 ], [ %.1374, %20 ], [ %.2375.ph, %.sink.split ]
   %.2 = phi double [ %..1, %127 ], [ %.1, %20 ], [ %.2.ph, %.sink.split ]
-  %154 = tail call double @dlamch_(ptr noundef nonnull @.str) #7
-  %155 = tail call double @dlamch_(ptr noundef nonnull @.str.1) #7
-  %156 = tail call double @dlamch_(ptr noundef nonnull @.str.2) #7
-  %157 = tail call double @log(double noundef %156) #7, !tbaa !3
-  %158 = tail call double @log(double noundef %155) #7, !tbaa !3
+  %154 = tail call double @dlamch_(ptr noundef nonnull @.str) #8
+  %155 = tail call double @dlamch_(ptr noundef nonnull @.str.1) #8
+  %156 = tail call double @dlamch_(ptr noundef nonnull @.str.2) #8
+  %157 = tail call double @log(double noundef %156) #8, !tbaa !3
+  %158 = tail call double @log(double noundef %155) #8, !tbaa !3
   %159 = fdiv double %157, %158
   %160 = fdiv double %159, 3.000000e+00
   %161 = fptosi double %160 to i32
@@ -416,7 +416,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %153, %16
   %269 = fcmp oge double %268, 0.000000e+00
   %270 = fneg double %268
   %271 = select i1 %269, double %268, double %270
-  %272 = tail call double @sqrt(double noundef %271) #7, !tbaa !3
+  %272 = tail call double @sqrt(double noundef %271) #8, !tbaa !3
   %273 = fsub double %256, %272
   %274 = fmul double %258, 2.000000e+00
   %275 = fdiv double %273, %274
@@ -431,7 +431,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %153, %16
   %282 = fcmp oge double %281, 0.000000e+00
   %283 = fneg double %281
   %284 = select i1 %282, double %281, double %283
-  %285 = tail call double @sqrt(double noundef %284) #7, !tbaa !3
+  %285 = tail call double @sqrt(double noundef %284) #8, !tbaa !3
   %286 = fadd double %256, %285
   %287 = fdiv double %277, %286
   br label %288
@@ -535,7 +535,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %153, %16
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
@@ -552,23 +552,24 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #5
+declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind }
+attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

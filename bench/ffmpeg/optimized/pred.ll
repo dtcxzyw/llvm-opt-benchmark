@@ -1255,19 +1255,19 @@ define internal void @intra_pred_2_9(ptr noundef readonly captures(none) %0, ptr
 619:                                              ; preds = %.thread5.thread.thread.thread
   %620 = getelementptr i8, ptr %11, i64 11672
   %621 = load ptr, ptr %620, align 8, !tbaa !4
-  call void %621(ptr noundef %64, ptr noundef nonnull %69, ptr noundef nonnull %68, i64 noundef %57) #8
+  call void %621(ptr noundef %64, ptr noundef nonnull %69, ptr noundef nonnull %68, i64 noundef %57) #9
   br label %intra_pred_9.exit
 
 622:                                              ; preds = %.thread5.thread.thread.thread
   %623 = getelementptr inbounds nuw i8, ptr %11, i64 11704
   %624 = load ptr, ptr %623, align 8, !tbaa !138
-  call void %624(ptr noundef %64, ptr noundef nonnull %69, ptr noundef nonnull %68, i64 noundef %57, i32 noundef 2, i32 noundef %4) #8
+  call void %624(ptr noundef %64, ptr noundef nonnull %69, ptr noundef nonnull %68, i64 noundef %57, i32 noundef 2, i32 noundef %4) #9
   br label %intra_pred_9.exit
 
 625:                                              ; preds = %.thread5.thread.thread.thread
   %626 = getelementptr i8, ptr %11, i64 11712
   %627 = load ptr, ptr %626, align 8, !tbaa !4
-  call void %627(ptr noundef %64, ptr noundef nonnull %69, ptr noundef nonnull %68, i64 noundef %57, i32 noundef %4, i32 noundef %67) #8
+  call void %627(ptr noundef %64, ptr noundef nonnull %69, ptr noundef nonnull %68, i64 noundef %57, i32 noundef %4, i32 noundef %67) #9
   br label %intra_pred_9.exit
 
 intra_pred_9.exit:                                ; preds = %619, %622, %625
@@ -2573,7 +2573,7 @@ define internal void @intra_pred_3_9(ptr noundef readonly captures(none) %0, ptr
 709:                                              ; preds = %.loopexit
   %710 = getelementptr i8, ptr %13, i64 11680
   %711 = load ptr, ptr %710, align 8, !tbaa !4
-  call void %711(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59) #8
+  call void %711(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59) #9
   br label %intra_pred_9.exit
 
 .thread19:                                        ; preds = %644, %.loopexit
@@ -2581,13 +2581,13 @@ define internal void @intra_pred_3_9(ptr noundef readonly captures(none) %0, ptr
   %.0775.i22 = phi ptr [ %.0775.i, %.loopexit ], [ %71, %644 ]
   %712 = getelementptr inbounds nuw i8, ptr %13, i64 11704
   %713 = load ptr, ptr %712, align 8, !tbaa !138
-  call void %713(ptr noundef %66, ptr noundef nonnull %.0775.i22, ptr noundef nonnull %.0772.i23, i64 noundef %59, i32 noundef 3, i32 noundef %4) #8
+  call void %713(ptr noundef %66, ptr noundef nonnull %.0775.i22, ptr noundef nonnull %.0772.i23, i64 noundef %59, i32 noundef 3, i32 noundef %4) #9
   br label %intra_pred_9.exit
 
 714:                                              ; preds = %.loopexit
   %715 = getelementptr i8, ptr %13, i64 11720
   %716 = load ptr, ptr %715, align 8, !tbaa !4
-  call void %716(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59, i32 noundef %4, i32 noundef %69) #8
+  call void %716(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59, i32 noundef %4, i32 noundef %69) #9
   br label %intra_pred_9.exit
 
 intra_pred_9.exit:                                ; preds = %709, %.thread19, %714
@@ -3932,7 +3932,7 @@ define internal void @intra_pred_4_9(ptr noundef readonly captures(none) %0, ptr
 733:                                              ; preds = %.loopexit
   %734 = getelementptr i8, ptr %13, i64 11688
   %735 = load ptr, ptr %734, align 8, !tbaa !4
-  call void %735(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59) #8
+  call void %735(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59) #9
   br label %intra_pred_9.exit
 
 .thread19:                                        ; preds = %668, %.loopexit
@@ -3940,13 +3940,13 @@ define internal void @intra_pred_4_9(ptr noundef readonly captures(none) %0, ptr
   %.0775.i22 = phi ptr [ %.0775.i, %.loopexit ], [ %71, %668 ]
   %736 = getelementptr inbounds nuw i8, ptr %13, i64 11704
   %737 = load ptr, ptr %736, align 8, !tbaa !138
-  call void %737(ptr noundef %66, ptr noundef nonnull %.0775.i22, ptr noundef nonnull %.0772.i23, i64 noundef %59, i32 noundef 4, i32 noundef %4) #8
+  call void %737(ptr noundef %66, ptr noundef nonnull %.0775.i22, ptr noundef nonnull %.0772.i23, i64 noundef %59, i32 noundef 4, i32 noundef %4) #9
   br label %intra_pred_9.exit
 
 738:                                              ; preds = %.loopexit
   %739 = getelementptr i8, ptr %13, i64 11728
   %740 = load ptr, ptr %739, align 8, !tbaa !4
-  call void %740(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59, i32 noundef %4, i32 noundef %69) #8
+  call void %740(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59, i32 noundef %4, i32 noundef %69) #9
   br label %intra_pred_9.exit
 
 intra_pred_9.exit:                                ; preds = %733, %.thread19, %738
@@ -5373,7 +5373,7 @@ define internal void @intra_pred_5_9(ptr noundef readonly captures(none) %0, ptr
 786:                                              ; preds = %.loopexit
   %787 = getelementptr i8, ptr %13, i64 11696
   %788 = load ptr, ptr %787, align 8, !tbaa !4
-  call void %788(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59) #8
+  call void %788(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59) #9
   br label %intra_pred_9.exit
 
 .thread19:                                        ; preds = %668, %.loopexit
@@ -5381,13 +5381,13 @@ define internal void @intra_pred_5_9(ptr noundef readonly captures(none) %0, ptr
   %.0775.i22 = phi ptr [ %.0775.i, %.loopexit ], [ %71, %668 ]
   %789 = getelementptr inbounds nuw i8, ptr %13, i64 11704
   %790 = load ptr, ptr %789, align 8, !tbaa !138
-  call void %790(ptr noundef %66, ptr noundef nonnull %.0775.i22, ptr noundef nonnull %.0772.i23, i64 noundef %59, i32 noundef 5, i32 noundef %4) #8
+  call void %790(ptr noundef %66, ptr noundef nonnull %.0775.i22, ptr noundef nonnull %.0772.i23, i64 noundef %59, i32 noundef 5, i32 noundef %4) #9
   br label %intra_pred_9.exit
 
 791:                                              ; preds = %.loopexit
   %792 = getelementptr i8, ptr %13, i64 11736
   %793 = load ptr, ptr %792, align 8, !tbaa !4
-  call void %793(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59, i32 noundef %4, i32 noundef %69) #8
+  call void %793(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59, i32 noundef %4, i32 noundef %69) #9
   br label %intra_pred_9.exit
 
 intra_pred_9.exit:                                ; preds = %786, %.thread19, %791
@@ -8206,19 +8206,19 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
 619:                                              ; preds = %.thread4.thread.thread.thread
   %620 = getelementptr i8, ptr %11, i64 11672
   %621 = load ptr, ptr %620, align 8, !tbaa !4
-  call void %621(ptr noundef %64, ptr noundef nonnull %69, ptr noundef nonnull %68, i64 noundef %57) #8
+  call void %621(ptr noundef %64, ptr noundef nonnull %69, ptr noundef nonnull %68, i64 noundef %57) #9
   br label %intra_pred_10.exit
 
 622:                                              ; preds = %.thread4.thread.thread.thread
   %623 = getelementptr inbounds nuw i8, ptr %11, i64 11704
   %624 = load ptr, ptr %623, align 8, !tbaa !138
-  call void %624(ptr noundef %64, ptr noundef nonnull %69, ptr noundef nonnull %68, i64 noundef %57, i32 noundef 2, i32 noundef %4) #8
+  call void %624(ptr noundef %64, ptr noundef nonnull %69, ptr noundef nonnull %68, i64 noundef %57, i32 noundef 2, i32 noundef %4) #9
   br label %intra_pred_10.exit
 
 625:                                              ; preds = %.thread4.thread.thread.thread
   %626 = getelementptr i8, ptr %11, i64 11712
   %627 = load ptr, ptr %626, align 8, !tbaa !4
-  call void %627(ptr noundef %64, ptr noundef nonnull %69, ptr noundef nonnull %68, i64 noundef %57, i32 noundef %4, i32 noundef %67) #8
+  call void %627(ptr noundef %64, ptr noundef nonnull %69, ptr noundef nonnull %68, i64 noundef %57, i32 noundef %4, i32 noundef %67) #9
   br label %intra_pred_10.exit
 
 intra_pred_10.exit:                               ; preds = %619, %622, %625
@@ -9524,7 +9524,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
 709:                                              ; preds = %.loopexit
   %710 = getelementptr i8, ptr %13, i64 11680
   %711 = load ptr, ptr %710, align 8, !tbaa !4
-  call void %711(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59) #8
+  call void %711(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59) #9
   br label %intra_pred_10.exit
 
 .thread18:                                        ; preds = %644, %.loopexit
@@ -9532,13 +9532,13 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   %.0775.i21 = phi ptr [ %.0775.i, %.loopexit ], [ %71, %644 ]
   %712 = getelementptr inbounds nuw i8, ptr %13, i64 11704
   %713 = load ptr, ptr %712, align 8, !tbaa !138
-  call void %713(ptr noundef %66, ptr noundef nonnull %.0775.i21, ptr noundef nonnull %.0772.i22, i64 noundef %59, i32 noundef 3, i32 noundef %4) #8
+  call void %713(ptr noundef %66, ptr noundef nonnull %.0775.i21, ptr noundef nonnull %.0772.i22, i64 noundef %59, i32 noundef 3, i32 noundef %4) #9
   br label %intra_pred_10.exit
 
 714:                                              ; preds = %.loopexit
   %715 = getelementptr i8, ptr %13, i64 11720
   %716 = load ptr, ptr %715, align 8, !tbaa !4
-  call void %716(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59, i32 noundef %4, i32 noundef %69) #8
+  call void %716(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59, i32 noundef %4, i32 noundef %69) #9
   br label %intra_pred_10.exit
 
 intra_pred_10.exit:                               ; preds = %709, %.thread18, %714
@@ -10883,7 +10883,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
 733:                                              ; preds = %.loopexit
   %734 = getelementptr i8, ptr %13, i64 11688
   %735 = load ptr, ptr %734, align 8, !tbaa !4
-  call void %735(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59) #8
+  call void %735(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59) #9
   br label %intra_pred_10.exit
 
 .thread18:                                        ; preds = %668, %.loopexit
@@ -10891,13 +10891,13 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   %.0775.i21 = phi ptr [ %.0775.i, %.loopexit ], [ %71, %668 ]
   %736 = getelementptr inbounds nuw i8, ptr %13, i64 11704
   %737 = load ptr, ptr %736, align 8, !tbaa !138
-  call void %737(ptr noundef %66, ptr noundef nonnull %.0775.i21, ptr noundef nonnull %.0772.i22, i64 noundef %59, i32 noundef 4, i32 noundef %4) #8
+  call void %737(ptr noundef %66, ptr noundef nonnull %.0775.i21, ptr noundef nonnull %.0772.i22, i64 noundef %59, i32 noundef 4, i32 noundef %4) #9
   br label %intra_pred_10.exit
 
 738:                                              ; preds = %.loopexit
   %739 = getelementptr i8, ptr %13, i64 11728
   %740 = load ptr, ptr %739, align 8, !tbaa !4
-  call void %740(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59, i32 noundef %4, i32 noundef %69) #8
+  call void %740(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59, i32 noundef %4, i32 noundef %69) #9
   br label %intra_pred_10.exit
 
 intra_pred_10.exit:                               ; preds = %733, %.thread18, %738
@@ -12324,7 +12324,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
 786:                                              ; preds = %.loopexit
   %787 = getelementptr i8, ptr %13, i64 11696
   %788 = load ptr, ptr %787, align 8, !tbaa !4
-  call void %788(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59) #8
+  call void %788(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59) #9
   br label %intra_pred_10.exit
 
 .thread18:                                        ; preds = %668, %.loopexit
@@ -12332,13 +12332,13 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   %.0775.i21 = phi ptr [ %.0775.i, %.loopexit ], [ %71, %668 ]
   %789 = getelementptr inbounds nuw i8, ptr %13, i64 11704
   %790 = load ptr, ptr %789, align 8, !tbaa !138
-  call void %790(ptr noundef %66, ptr noundef nonnull %.0775.i21, ptr noundef nonnull %.0772.i22, i64 noundef %59, i32 noundef 5, i32 noundef %4) #8
+  call void %790(ptr noundef %66, ptr noundef nonnull %.0775.i21, ptr noundef nonnull %.0772.i22, i64 noundef %59, i32 noundef 5, i32 noundef %4) #9
   br label %intra_pred_10.exit
 
 791:                                              ; preds = %.loopexit
   %792 = getelementptr i8, ptr %13, i64 11736
   %793 = load ptr, ptr %792, align 8, !tbaa !4
-  call void %793(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59, i32 noundef %4, i32 noundef %69) #8
+  call void %793(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59, i32 noundef %4, i32 noundef %69) #9
   br label %intra_pred_10.exit
 
 intra_pred_10.exit:                               ; preds = %786, %.thread18, %791
@@ -15157,19 +15157,19 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
 619:                                              ; preds = %.thread4.thread.thread.thread
   %620 = getelementptr i8, ptr %11, i64 11672
   %621 = load ptr, ptr %620, align 8, !tbaa !4
-  call void %621(ptr noundef %64, ptr noundef nonnull %69, ptr noundef nonnull %68, i64 noundef %57) #8
+  call void %621(ptr noundef %64, ptr noundef nonnull %69, ptr noundef nonnull %68, i64 noundef %57) #9
   br label %intra_pred_12.exit
 
 622:                                              ; preds = %.thread4.thread.thread.thread
   %623 = getelementptr inbounds nuw i8, ptr %11, i64 11704
   %624 = load ptr, ptr %623, align 8, !tbaa !138
-  call void %624(ptr noundef %64, ptr noundef nonnull %69, ptr noundef nonnull %68, i64 noundef %57, i32 noundef 2, i32 noundef %4) #8
+  call void %624(ptr noundef %64, ptr noundef nonnull %69, ptr noundef nonnull %68, i64 noundef %57, i32 noundef 2, i32 noundef %4) #9
   br label %intra_pred_12.exit
 
 625:                                              ; preds = %.thread4.thread.thread.thread
   %626 = getelementptr i8, ptr %11, i64 11712
   %627 = load ptr, ptr %626, align 8, !tbaa !4
-  call void %627(ptr noundef %64, ptr noundef nonnull %69, ptr noundef nonnull %68, i64 noundef %57, i32 noundef %4, i32 noundef %67) #8
+  call void %627(ptr noundef %64, ptr noundef nonnull %69, ptr noundef nonnull %68, i64 noundef %57, i32 noundef %4, i32 noundef %67) #9
   br label %intra_pred_12.exit
 
 intra_pred_12.exit:                               ; preds = %619, %622, %625
@@ -16475,7 +16475,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
 709:                                              ; preds = %.loopexit
   %710 = getelementptr i8, ptr %13, i64 11680
   %711 = load ptr, ptr %710, align 8, !tbaa !4
-  call void %711(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59) #8
+  call void %711(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59) #9
   br label %intra_pred_12.exit
 
 .thread18:                                        ; preds = %644, %.loopexit
@@ -16483,13 +16483,13 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   %.0775.i21 = phi ptr [ %.0775.i, %.loopexit ], [ %71, %644 ]
   %712 = getelementptr inbounds nuw i8, ptr %13, i64 11704
   %713 = load ptr, ptr %712, align 8, !tbaa !138
-  call void %713(ptr noundef %66, ptr noundef nonnull %.0775.i21, ptr noundef nonnull %.0772.i22, i64 noundef %59, i32 noundef 3, i32 noundef %4) #8
+  call void %713(ptr noundef %66, ptr noundef nonnull %.0775.i21, ptr noundef nonnull %.0772.i22, i64 noundef %59, i32 noundef 3, i32 noundef %4) #9
   br label %intra_pred_12.exit
 
 714:                                              ; preds = %.loopexit
   %715 = getelementptr i8, ptr %13, i64 11720
   %716 = load ptr, ptr %715, align 8, !tbaa !4
-  call void %716(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59, i32 noundef %4, i32 noundef %69) #8
+  call void %716(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59, i32 noundef %4, i32 noundef %69) #9
   br label %intra_pred_12.exit
 
 intra_pred_12.exit:                               ; preds = %709, %.thread18, %714
@@ -17834,7 +17834,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
 733:                                              ; preds = %.loopexit
   %734 = getelementptr i8, ptr %13, i64 11688
   %735 = load ptr, ptr %734, align 8, !tbaa !4
-  call void %735(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59) #8
+  call void %735(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59) #9
   br label %intra_pred_12.exit
 
 .thread18:                                        ; preds = %668, %.loopexit
@@ -17842,13 +17842,13 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   %.0775.i21 = phi ptr [ %.0775.i, %.loopexit ], [ %71, %668 ]
   %736 = getelementptr inbounds nuw i8, ptr %13, i64 11704
   %737 = load ptr, ptr %736, align 8, !tbaa !138
-  call void %737(ptr noundef %66, ptr noundef nonnull %.0775.i21, ptr noundef nonnull %.0772.i22, i64 noundef %59, i32 noundef 4, i32 noundef %4) #8
+  call void %737(ptr noundef %66, ptr noundef nonnull %.0775.i21, ptr noundef nonnull %.0772.i22, i64 noundef %59, i32 noundef 4, i32 noundef %4) #9
   br label %intra_pred_12.exit
 
 738:                                              ; preds = %.loopexit
   %739 = getelementptr i8, ptr %13, i64 11728
   %740 = load ptr, ptr %739, align 8, !tbaa !4
-  call void %740(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59, i32 noundef %4, i32 noundef %69) #8
+  call void %740(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59, i32 noundef %4, i32 noundef %69) #9
   br label %intra_pred_12.exit
 
 intra_pred_12.exit:                               ; preds = %733, %.thread18, %738
@@ -19275,7 +19275,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
 786:                                              ; preds = %.loopexit
   %787 = getelementptr i8, ptr %13, i64 11696
   %788 = load ptr, ptr %787, align 8, !tbaa !4
-  call void %788(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59) #8
+  call void %788(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59) #9
   br label %intra_pred_12.exit
 
 .thread18:                                        ; preds = %668, %.loopexit
@@ -19283,13 +19283,13 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   %.0775.i21 = phi ptr [ %.0775.i, %.loopexit ], [ %71, %668 ]
   %789 = getelementptr inbounds nuw i8, ptr %13, i64 11704
   %790 = load ptr, ptr %789, align 8, !tbaa !138
-  call void %790(ptr noundef %66, ptr noundef nonnull %.0775.i21, ptr noundef nonnull %.0772.i22, i64 noundef %59, i32 noundef 5, i32 noundef %4) #8
+  call void %790(ptr noundef %66, ptr noundef nonnull %.0775.i21, ptr noundef nonnull %.0772.i22, i64 noundef %59, i32 noundef 5, i32 noundef %4) #9
   br label %intra_pred_12.exit
 
 791:                                              ; preds = %.loopexit
   %792 = getelementptr i8, ptr %13, i64 11736
   %793 = load ptr, ptr %792, align 8, !tbaa !4
-  call void %793(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59, i32 noundef %4, i32 noundef %69) #8
+  call void %793(ptr noundef %66, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %59, i32 noundef %4, i32 noundef %69) #9
   br label %intra_pred_12.exit
 
 intra_pred_12.exit:                               ; preds = %786, %.thread18, %791
@@ -22101,19 +22101,19 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
 612:                                              ; preds = %.thread4.thread.thread.thread
   %613 = getelementptr i8, ptr %11, i64 11672
   %614 = load ptr, ptr %613, align 8, !tbaa !4
-  call void %614(ptr noundef %63, ptr noundef nonnull %68, ptr noundef nonnull %67, i64 noundef %56) #8
+  call void %614(ptr noundef %63, ptr noundef nonnull %68, ptr noundef nonnull %67, i64 noundef %56) #9
   br label %intra_pred_8.exit
 
 615:                                              ; preds = %.thread4.thread.thread.thread
   %616 = getelementptr inbounds nuw i8, ptr %11, i64 11704
   %617 = load ptr, ptr %616, align 8, !tbaa !138
-  call void %617(ptr noundef %63, ptr noundef nonnull %68, ptr noundef nonnull %67, i64 noundef %56, i32 noundef 2, i32 noundef %4) #8
+  call void %617(ptr noundef %63, ptr noundef nonnull %68, ptr noundef nonnull %67, i64 noundef %56, i32 noundef 2, i32 noundef %4) #9
   br label %intra_pred_8.exit
 
 618:                                              ; preds = %.thread4.thread.thread.thread
   %619 = getelementptr i8, ptr %11, i64 11712
   %620 = load ptr, ptr %619, align 8, !tbaa !4
-  call void %620(ptr noundef %63, ptr noundef nonnull %68, ptr noundef nonnull %67, i64 noundef %56, i32 noundef %4, i32 noundef %66) #8
+  call void %620(ptr noundef %63, ptr noundef nonnull %68, ptr noundef nonnull %67, i64 noundef %56, i32 noundef %4, i32 noundef %66) #9
   br label %intra_pred_8.exit
 
 intra_pred_8.exit:                                ; preds = %612, %615, %618
@@ -23399,7 +23399,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
 700:                                              ; preds = %.loopexit
   %701 = getelementptr i8, ptr %13, i64 11680
   %702 = load ptr, ptr %701, align 8, !tbaa !4
-  call void %702(ptr noundef %65, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %58) #8
+  call void %702(ptr noundef %65, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %58) #9
   br label %intra_pred_8.exit
 
 .thread18:                                        ; preds = %635, %.loopexit
@@ -23407,13 +23407,13 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   %.0775.i21 = phi ptr [ %.0775.i, %.loopexit ], [ %70, %635 ]
   %703 = getelementptr inbounds nuw i8, ptr %13, i64 11704
   %704 = load ptr, ptr %703, align 8, !tbaa !138
-  call void %704(ptr noundef %65, ptr noundef nonnull %.0775.i21, ptr noundef nonnull %.0772.i22, i64 noundef %58, i32 noundef 3, i32 noundef %4) #8
+  call void %704(ptr noundef %65, ptr noundef nonnull %.0775.i21, ptr noundef nonnull %.0772.i22, i64 noundef %58, i32 noundef 3, i32 noundef %4) #9
   br label %intra_pred_8.exit
 
 705:                                              ; preds = %.loopexit
   %706 = getelementptr i8, ptr %13, i64 11720
   %707 = load ptr, ptr %706, align 8, !tbaa !4
-  call void %707(ptr noundef %65, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %58, i32 noundef %4, i32 noundef %68) #8
+  call void %707(ptr noundef %65, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %58, i32 noundef %4, i32 noundef %68) #9
   br label %intra_pred_8.exit
 
 intra_pred_8.exit:                                ; preds = %700, %.thread18, %705
@@ -24740,7 +24740,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
 721:                                              ; preds = %.loopexit
   %722 = getelementptr i8, ptr %13, i64 11688
   %723 = load ptr, ptr %722, align 8, !tbaa !4
-  call void %723(ptr noundef %65, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %58) #8
+  call void %723(ptr noundef %65, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %58) #9
   br label %intra_pred_8.exit
 
 .thread18:                                        ; preds = %656, %.loopexit
@@ -24748,13 +24748,13 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   %.0775.i21 = phi ptr [ %.0775.i, %.loopexit ], [ %70, %656 ]
   %724 = getelementptr inbounds nuw i8, ptr %13, i64 11704
   %725 = load ptr, ptr %724, align 8, !tbaa !138
-  call void %725(ptr noundef %65, ptr noundef nonnull %.0775.i21, ptr noundef nonnull %.0772.i22, i64 noundef %58, i32 noundef 4, i32 noundef %4) #8
+  call void %725(ptr noundef %65, ptr noundef nonnull %.0775.i21, ptr noundef nonnull %.0772.i22, i64 noundef %58, i32 noundef 4, i32 noundef %4) #9
   br label %intra_pred_8.exit
 
 726:                                              ; preds = %.loopexit
   %727 = getelementptr i8, ptr %13, i64 11728
   %728 = load ptr, ptr %727, align 8, !tbaa !4
-  call void %728(ptr noundef %65, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %58, i32 noundef %4, i32 noundef %68) #8
+  call void %728(ptr noundef %65, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %58, i32 noundef %4, i32 noundef %68) #9
   br label %intra_pred_8.exit
 
 intra_pred_8.exit:                                ; preds = %721, %.thread18, %726
@@ -26163,7 +26163,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
 774:                                              ; preds = %.loopexit
   %775 = getelementptr i8, ptr %13, i64 11696
   %776 = load ptr, ptr %775, align 8, !tbaa !4
-  call void %776(ptr noundef %65, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %58) #8
+  call void %776(ptr noundef %65, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %58) #9
   br label %intra_pred_8.exit
 
 .thread18:                                        ; preds = %656, %.loopexit
@@ -26171,13 +26171,13 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   %.0775.i21 = phi ptr [ %.0775.i, %.loopexit ], [ %70, %656 ]
   %777 = getelementptr inbounds nuw i8, ptr %13, i64 11704
   %778 = load ptr, ptr %777, align 8, !tbaa !138
-  call void %778(ptr noundef %65, ptr noundef nonnull %.0775.i21, ptr noundef nonnull %.0772.i22, i64 noundef %58, i32 noundef 5, i32 noundef %4) #8
+  call void %778(ptr noundef %65, ptr noundef nonnull %.0775.i21, ptr noundef nonnull %.0772.i22, i64 noundef %58, i32 noundef 5, i32 noundef %4) #9
   br label %intra_pred_8.exit
 
 779:                                              ; preds = %.loopexit
   %780 = getelementptr i8, ptr %13, i64 11736
   %781 = load ptr, ptr %780, align 8, !tbaa !4
-  call void %781(ptr noundef %65, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %58, i32 noundef %4, i32 noundef %68) #8
+  call void %781(ptr noundef %65, ptr noundef nonnull %.0775.i, ptr noundef nonnull %.0772.i, i64 noundef %58, i32 noundef %4, i32 noundef %68) #9
   br label %intra_pred_8.exit
 
 intra_pred_8.exit:                                ; preds = %774, %.thread18, %779
@@ -27896,19 +27896,19 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #7
+declare i32 @llvm.abs.i32(i32, i1 immarg) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -27918,8 +27918,9 @@ attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrit
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

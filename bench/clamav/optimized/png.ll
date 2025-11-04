@@ -50,12 +50,12 @@ define i32 @cli_parsepng(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !3
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #7
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %1
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #7
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #8
   br label %151
 
 7:                                                ; preds = %1
@@ -80,7 +80,7 @@ define i32 @cli_parsepng(ptr noundef %0) local_unnamed_addr #0 {
   %16 = sub nuw i64 %14, %.0
   %spec.select.i = call i64 @llvm.umin.i64(i64 %16, i64 4)
   %17 = load ptr, ptr %11, align 8, !tbaa !26
-  %18 = call ptr %17(ptr noundef nonnull %9, i64 noundef %.0, i64 noundef range(i64 0, 2147483648) %spec.select.i, i32 noundef 0) #7
+  %18 = call ptr %17(ptr noundef nonnull %9, i64 noundef %.0, i64 noundef range(i64 0, 2147483648) %spec.select.i, i32 noundef 0) #8
   %.not26.i = icmp eq ptr %18, null
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
@@ -98,7 +98,7 @@ fmap_readn.exit:                                  ; preds = %15
   br i1 %24, label %25, label %31
 
 25:                                               ; preds = %20
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, i64 noundef %22) #7
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, i64 noundef %22) #8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %27 = load ptr, ptr %26, align 8, !tbaa !27
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -116,7 +116,7 @@ fmap_readn.exit:                                  ; preds = %15
   %34 = sub nuw i64 %32, %23
   %spec.select.i152 = call i64 @llvm.umin.i64(i64 %34, i64 4)
   %35 = load ptr, ptr %11, align 8, !tbaa !26
-  %36 = call ptr %35(ptr noundef nonnull %9, i64 noundef %23, i64 noundef range(i64 0, 2147483648) %spec.select.i152, i32 noundef 0) #7
+  %36 = call ptr %35(ptr noundef nonnull %9, i64 noundef %23, i64 noundef range(i64 0, 2147483648) %spec.select.i152, i32 noundef 0) #8
   %.not26.i153 = icmp eq ptr %36, null
   br i1 %.not26.i153, label %fmap_readn.exit155.thread, label %fmap_readn.exit155
 
@@ -126,7 +126,7 @@ fmap_readn.exit155:                               ; preds = %33
   br i1 %.not, label %42, label %fmap_readn.exit155.thread
 
 fmap_readn.exit155.thread:                        ; preds = %33, %31, %fmap_readn.exit155
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #7
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %38 = load ptr, ptr %37, align 8, !tbaa !27
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -138,18 +138,18 @@ fmap_readn.exit155.thread:                        ; preds = %33, %31, %fmap_read
 42:                                               ; preds = %fmap_readn.exit155
   %43 = add i64 %.0, 8
   store i8 0, ptr %12, align 1, !tbaa !30
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %2, i64 noundef %22) #7
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %2, i64 noundef %22) #8
   %.not134 = icmp eq i32 %.0..0..0., 0
   br i1 %.not134, label %.thread, label %44
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr %11, align 8, !tbaa !26
-  %46 = call ptr %45(ptr noundef nonnull %9, i64 noundef %43, i64 noundef range(i64 0, 2147483648) %22, i32 noundef 0) #7
+  %46 = call ptr %45(ptr noundef nonnull %9, i64 noundef %43, i64 noundef range(i64 0, 2147483648) %22, i32 noundef 0) #8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %44
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.7) #7
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.7) #8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %50 = load ptr, ptr %49, align 8, !tbaa !27
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -175,7 +175,7 @@ fmap_readn.exit155.thread:                        ; preds = %33, %31, %fmap_read
 
 .thread174:                                       ; preds = %.thread, %58
   %.3173178 = phi i64 [ %55, %58 ], [ %43, %.thread ]
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10, i64 noundef %22) #7
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10, i64 noundef %22) #8
   br label %fmap_readn.exit.thread
 
 59:                                               ; preds = %58
@@ -196,7 +196,7 @@ fmap_readn.exit155.thread:                        ; preds = %33, %31, %fmap_read
   br i1 %or.cond5, label %71, label %72
 
 71:                                               ; preds = %59
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11, i64 noundef %62, i64 noundef %66) #7
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11, i64 noundef %62, i64 noundef %66) #8
   br label %fmap_readn.exit.thread
 
 72:                                               ; preds = %59
@@ -219,7 +219,7 @@ fmap_readn.exit155.thread:                        ; preds = %33, %31, %fmap_read
   br i1 %.not142, label %89, label %88
 
 88:                                               ; preds = %72
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12, i32 noundef %81) #7
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12, i32 noundef %81) #8
   br label %89
 
 89:                                               ; preds = %88, %72
@@ -227,7 +227,7 @@ fmap_readn.exit155.thread:                        ; preds = %33, %31, %fmap_read
   br i1 %.not143, label %91, label %90
 
 90:                                               ; preds = %89
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13, i32 noundef %84) #7
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13, i32 noundef %84) #8
   br label %91
 
 91:                                               ; preds = %90, %89
@@ -261,11 +261,11 @@ fmap_readn.exit155.thread:                        ; preds = %33, %31, %fmap_read
   ]
 
 .thread179:                                       ; preds = %96
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.14, i32 noundef %75) #7
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.14, i32 noundef %75) #8
   br label %104
 
 .sink.split:                                      ; preds = %.split, %91, %95, %95, %95
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.14, i32 noundef %75) #7
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.14, i32 noundef %75) #8
   br label %97
 
 97:                                               ; preds = %.sink.split, %.split
@@ -289,13 +289,13 @@ fmap_readn.exit155.thread:                        ; preds = %33, %31, %fmap_read
 
 104:                                              ; preds = %.thread179, %95, %96, %102, %100, %98, %97
   %.0117 = phi i32 [ %75, %97 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %75, %96 ], [ %75, %95 ], [ %75, %.thread179 ]
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, i64 noundef %62) #7
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, i64 noundef %66) #7
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17, i32 noundef %75, i32 noundef %.0117) #7
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18, i32 noundef %78) #7
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.19, i32 noundef %81) #7
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.20, i32 noundef %84) #7
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.21, i32 noundef %87) #7
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, i64 noundef %62) #8
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, i64 noundef %66) #8
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17, i32 noundef %75, i32 noundef %.0117) #8
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18, i32 noundef %78) #8
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.19, i32 noundef %81) #8
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.20, i32 noundef %84) #8
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.21, i32 noundef %87) #8
   br label %127
 
 105:                                              ; preds = %.thread, %54
@@ -308,7 +308,7 @@ fmap_readn.exit155.thread:                        ; preds = %33, %31, %fmap_read
   br i1 %.0118, label %108, label %109
 
 108:                                              ; preds = %107
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.23) #7
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.23) #8
   br label %109
 
 109:                                              ; preds = %108, %107
@@ -326,11 +326,11 @@ fmap_readn.exit155.thread:                        ; preds = %33, %31, %fmap_read
   br i1 %or.cond11, label %115, label %116
 
 115:                                              ; preds = %109
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.24, i32 noundef %spec.store.select) #7
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.24, i32 noundef %spec.store.select) #8
   br label %116
 
 116:                                              ; preds = %109, %115
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.25, i64 noundef %.2114) #7
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.25, i64 noundef %.2114) #8
   br label %127
 
 117:                                              ; preds = %105
@@ -343,7 +343,7 @@ fmap_readn.exit155.thread:                        ; preds = %33, %31, %fmap_read
   br i1 %120, label %121, label %122
 
 121:                                              ; preds = %119
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27) #7
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27) #8
   br label %127
 
 122:                                              ; preds = %119, %117
@@ -359,7 +359,7 @@ fmap_readn.exit155.thread:                        ; preds = %33, %31, %fmap_read
   br i1 %or.cond150, label %127, label %126
 
 126:                                              ; preds = %124
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.30) #7
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.30) #8
   br label %127
 
 127:                                              ; preds = %124, %122, %116, %126, %121, %104
@@ -377,7 +377,7 @@ fmap_readn.exit155.thread:                        ; preds = %33, %31, %fmap_read
   %130 = sub nuw i64 %128, %.3171
   %spec.select.i157 = call i64 @llvm.umin.i64(i64 %130, i64 4)
   %131 = load ptr, ptr %11, align 8, !tbaa !26
-  %132 = call ptr %131(ptr noundef nonnull %9, i64 noundef %.3171, i64 noundef range(i64 0, 2147483648) %spec.select.i157, i32 noundef 0) #7
+  %132 = call ptr %131(ptr noundef nonnull %9, i64 noundef %.3171, i64 noundef range(i64 0, 2147483648) %spec.select.i157, i32 noundef 0) #8
   %.not26.i158 = icmp eq ptr %132, null
   br i1 %.not26.i158, label %fmap_readn.exit160.thread, label %fmap_readn.exit160
 
@@ -387,7 +387,7 @@ fmap_readn.exit160:                               ; preds = %129
   br i1 %.not144, label %138, label %fmap_readn.exit160.thread
 
 fmap_readn.exit160.thread:                        ; preds = %129, %127, %fmap_readn.exit160
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.32) #7
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.32) #8
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %134 = load ptr, ptr %133, align 8, !tbaa !27
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
@@ -400,19 +400,19 @@ fmap_readn.exit160.thread:                        ; preds = %129, %127, %fmap_re
   %.0..0..0.161 = load i32, ptr %3, align 4, !tbaa !3
   %139 = call i32 @llvm.bswap.i32(i32 %.0..0..0.161)
   store i32 %139, ptr %3, align 4, !tbaa !3
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.34, i32 noundef %139) #7
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.34, i32 noundef %139) #8
   %140 = add i64 %.3171, 4
   br i1 %.2122, label %.thread187, label %13
 
 fmap_readn.exit.thread:                           ; preds = %15, %13, %fmap_readn.exit, %.thread174, %71
   %.1.ph = phi i64 [ %55, %71 ], [ %.3173178, %.thread174 ], [ %.0, %fmap_readn.exit ], [ %.0, %13 ], [ %.0, %15 ]
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.35) #7
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.35) #8
   br label %.thread187
 
 141:                                              ; preds = %fmap_readn.exit160.thread, %48, %fmap_readn.exit155.thread, %25
   %.str.33.sink = phi ptr [ @.str.3, %25 ], [ @.str.5, %fmap_readn.exit155.thread ], [ @.str.8, %48 ], [ @.str.33, %fmap_readn.exit160.thread ]
   %.2 = phi i64 [ %23, %25 ], [ %23, %fmap_readn.exit155.thread ], [ %43, %48 ], [ %.3171, %fmap_readn.exit160.thread ]
-  %142 = call i32 @cli_append_potentially_unwanted(ptr noundef nonnull %0, ptr noundef nonnull %.str.33.sink) #7
+  %142 = call i32 @cli_append_potentially_unwanted(ptr noundef nonnull %0, ptr noundef nonnull %.str.33.sink) #8
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %.thread187, label %151
 
@@ -424,10 +424,10 @@ fmap_readn.exit.thread:                           ; preds = %15, %13, %fmap_read
 
 146:                                              ; preds = %.thread187
   %147 = sub nuw i64 %144, %.2190
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.36, i64 noundef %147) #7
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.36, i64 noundef %147) #8
   %148 = load i64, ptr %10, align 8, !tbaa !24
   %149 = sub i64 %148, %.2190
-  %150 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef nonnull %9, i64 noundef %.2190, i64 noundef %149, ptr noundef nonnull %0, i32 noundef 0, ptr noundef null, i32 noundef 0) #7
+  %150 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef nonnull %9, i64 noundef %.2190, i64 noundef %149, ptr noundef nonnull %0, i32 noundef 0, ptr noundef null, i32 noundef 0) #8
   br label %151
 
 151:                                              ; preds = %141, %.thread187, %146, %6
@@ -456,19 +456,19 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #5
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -476,9 +476,10 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #7 = { nounwind }
+attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

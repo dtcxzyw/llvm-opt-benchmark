@@ -340,7 +340,7 @@ define dso_local void @rb_thread_add_event_hook(i64 noundef %0, ptr noundef %1, 
   unreachable
 
 rb_threadptr_add_event_hook.exit:                 ; preds = %4
-  %11 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #25
+  %11 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #26
   store i32 1, ptr %11, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %2, ptr %12, align 4, !tbaa !28
@@ -383,7 +383,7 @@ define dso_local void @rb_add_event_hook(ptr noundef %0, i32 noundef %1, i64 nou
   unreachable
 
 rb_add_event_hook2.exit:                          ; preds = %3
-  %7 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #25
+  %7 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #26
   store i32 1, ptr %7, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %1, ptr %8, align 4, !tbaa !28
@@ -428,7 +428,7 @@ define dso_local void @rb_add_event_hook2(ptr noundef %0, i32 noundef %1, i64 no
   unreachable
 
 alloc_event_hook.exit:                            ; preds = %4
-  %8 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #25
+  %8 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #26
   store i32 %3, ptr %8, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %1, ptr %9, align 4, !tbaa !28
@@ -476,7 +476,7 @@ define dso_local void @rb_thread_add_event_hook2(i64 noundef %0, ptr noundef %1,
   unreachable
 
 rb_threadptr_add_event_hook.exit:                 ; preds = %5
-  %12 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #25
+  %12 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #26
   store i32 %4, ptr %12, align 8, !tbaa !26
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %2, ptr %13, align 4, !tbaa !28
@@ -2414,7 +2414,7 @@ define dso_local range(i64 37, 36) i64 @rb_tracearg_return_value(ptr noundef non
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.1) #26
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.1) #27
   unreachable
 
 11:                                               ; preds = %6
@@ -2443,7 +2443,7 @@ define dso_local range(i64 37, 36) i64 @rb_tracearg_raised_exception(ptr noundef
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.2) #26
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.2) #27
   unreachable
 
 11:                                               ; preds = %6
@@ -2469,7 +2469,7 @@ define hidden i64 @rb_tracearg_eval_script(ptr noundef readonly captures(none) %
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %8
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.2) #26
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.2) #27
   unreachable
 
 11:                                               ; preds = %8
@@ -2530,7 +2530,7 @@ define hidden i64 @rb_tracearg_instruction_sequence(ptr noundef readonly capture
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %8
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.2) #26
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.2) #27
   unreachable
 
 11:                                               ; preds = %8
@@ -2596,7 +2596,7 @@ define dso_local range(i64 37, 36) i64 @rb_tracearg_object(ptr noundef nonnull r
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.3) #26
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.3) #27
   unreachable
 
 11:                                               ; preds = %6
@@ -2647,7 +2647,7 @@ define dso_local noundef i64 @rb_tracepoint_enable(i64 noundef %0) #0 {
   unreachable
 
 rb_thread_add_event_hook2.exit:                   ; preds = %13
-  %23 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #25
+  %23 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #26
   store i32 5, ptr %23, align 8, !tbaa !26
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %16, ptr %24, align 4, !tbaa !28
@@ -2675,7 +2675,7 @@ rb_thread_add_event_hook2.exit:                   ; preds = %13
   unreachable
 
 rb_add_event_hook2.exit:                          ; preds = %29
-  %34 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #25
+  %34 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #26
   store i32 5, ptr %34, align 8, !tbaa !26
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 %30, ptr %35, align 4, !tbaa !28
@@ -3078,7 +3078,7 @@ define hidden void @rb_hook_list_connect_tracepoint(i64 noundef %0, ptr noundef 
   unreachable
 
 alloc_event_hook.exit:                            ; preds = %4
-  %11 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #25
+  %11 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #26
   store i32 5, ptr %11, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %7, ptr %12, align 4, !tbaa !28
@@ -3421,43 +3421,43 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %59
   br i1 %62, label %symbol2event_flag.exit, label %63
 
 63:                                               ; preds = %rbimpl_intern_const.exit
-  %64 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @symbol2event_flag.rbimpl_id.79, ptr noundef @.str.59) #27
+  %64 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @symbol2event_flag.rbimpl_id.79, ptr noundef @.str.59) #28
   %65 = tail call i64 @rb_id2sym(i64 noundef %64) #4
   %66 = icmp eq i64 %23, %65
   br i1 %66, label %symbol2event_flag.exit, label %67
 
 67:                                               ; preds = %63
-  %68 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @symbol2event_flag.rbimpl_id.80, ptr noundef @.str.61) #27
+  %68 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @symbol2event_flag.rbimpl_id.80, ptr noundef @.str.61) #28
   %69 = tail call i64 @rb_id2sym(i64 noundef %68) #4
   %70 = icmp eq i64 %23, %69
   br i1 %70, label %symbol2event_flag.exit, label %71
 
 71:                                               ; preds = %67
-  %72 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @symbol2event_flag.rbimpl_id.81, ptr noundef @.str.63) #27
+  %72 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @symbol2event_flag.rbimpl_id.81, ptr noundef @.str.63) #28
   %73 = tail call i64 @rb_id2sym(i64 noundef %72) #4
   %74 = icmp eq i64 %23, %73
   br i1 %74, label %symbol2event_flag.exit, label %75
 
 75:                                               ; preds = %71
-  %76 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @symbol2event_flag.rbimpl_id.82, ptr noundef @.str.65) #27
+  %76 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @symbol2event_flag.rbimpl_id.82, ptr noundef @.str.65) #28
   %77 = tail call i64 @rb_id2sym(i64 noundef %76) #4
   %78 = icmp eq i64 %23, %77
   br i1 %78, label %symbol2event_flag.exit, label %79
 
 79:                                               ; preds = %75
-  %80 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @symbol2event_flag.rbimpl_id.83, ptr noundef @.str.67) #27
+  %80 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @symbol2event_flag.rbimpl_id.83, ptr noundef @.str.67) #28
   %81 = tail call i64 @rb_id2sym(i64 noundef %80) #4
   %82 = icmp eq i64 %23, %81
   br i1 %82, label %symbol2event_flag.exit, label %83
 
 83:                                               ; preds = %79
-  %84 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @symbol2event_flag.rbimpl_id.84, ptr noundef @.str.85) #27
+  %84 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @symbol2event_flag.rbimpl_id.84, ptr noundef @.str.85) #28
   %85 = tail call i64 @rb_id2sym(i64 noundef %84) #4
   %86 = icmp eq i64 %23, %85
   br i1 %86, label %symbol2event_flag.exit, label %87
 
 87:                                               ; preds = %83
-  %88 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @symbol2event_flag.rbimpl_id.86, ptr noundef @.str.87) #27
+  %88 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @symbol2event_flag.rbimpl_id.86, ptr noundef @.str.87) #28
   %89 = tail call i64 @rb_id2sym(i64 noundef %88) #4
   %90 = icmp eq i64 %23, %89
   br i1 %90, label %symbol2event_flag.exit, label %91
@@ -4161,7 +4161,7 @@ rb_obj_write.exit.i:                              ; preds = %69, %61
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %79
-  %84 = tail call noalias nonnull dereferenceable(24) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 24) #28
+  %84 = tail call noalias nonnull dereferenceable(24) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 24) #29
   store ptr %84, ptr %80, align 8, !tbaa !123
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 17
   store i8 1, ptr %85, align 1, !tbaa !30
@@ -4184,7 +4184,7 @@ rb_obj_write.exit.i:                              ; preds = %69, %61
   unreachable
 
 alloc_event_hook.exit.i.i:                        ; preds = %86
-  %94 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #25
+  %94 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #26
   store i32 5, ptr %94, align 8, !tbaa !26
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
   store i32 %90, ptr %95, align 4, !tbaa !28
@@ -4839,7 +4839,7 @@ get_trace_arg.exit:                               ; preds = %2
   br i1 %17, label %18, label %rb_tracearg_return_value.exit
 
 18:                                               ; preds = %14
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.1) #26
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.1) #27
   unreachable
 
 rb_tracearg_return_value.exit:                    ; preds = %14
@@ -4878,7 +4878,7 @@ get_trace_arg.exit:                               ; preds = %2
   br i1 %17, label %18, label %rb_tracearg_raised_exception.exit
 
 18:                                               ; preds = %14
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.2) #26
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.2) #27
   unreachable
 
 rb_tracearg_raised_exception.exit:                ; preds = %14
@@ -4917,7 +4917,7 @@ get_trace_arg.exit:                               ; preds = %2
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %16
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.2) #26
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.2) #27
   unreachable
 
 19:                                               ; preds = %16
@@ -4988,7 +4988,7 @@ get_trace_arg.exit:                               ; preds = %2
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %16
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.2) #26
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.2) #27
   unreachable
 
 19:                                               ; preds = %16
@@ -5133,7 +5133,7 @@ rb_remove_event_hook.exit:                        ; preds = %._crit_edge.i.i, %2
   unreachable
 
 36:                                               ; preds = %32
-  %37 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #25
+  %37 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #26
   store i32 1, ptr %37, align 8, !tbaa !26
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 255, ptr %38, align 4, !tbaa !28
@@ -5272,7 +5272,7 @@ remove_event_hook.exit:                           ; preds = %._crit_edge.i, %36,
   unreachable
 
 thread_add_trace_func.exit:                       ; preds = %42
-  %46 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #25
+  %46 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #26
   store i32 1, ptr %46, align 8, !tbaa !26
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 255, ptr %47, align 4, !tbaa !28
@@ -5318,7 +5318,7 @@ define internal noundef i64 @thread_add_trace_func_m(i64 noundef %0, i64 noundef
   unreachable
 
 thread_add_trace_func.exit:                       ; preds = %2
-  %9 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #25
+  %9 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #26
   store i32 1, ptr %9, align 8, !tbaa !26
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 255, ptr %10, align 4, !tbaa !28
@@ -5369,7 +5369,7 @@ define hidden i64 @rb_vm_memsize_workqueue(ptr noundef readonly captures(address
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden range(i32 0, 2) i32 @rb_workqueue_register(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #25
+  %4 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #26
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %17, label %5
 
@@ -5954,7 +5954,7 @@ define internal fastcc range(i64 1, 0) i64 @rbimpl_intern_const(ptr noundef nonn
   br i1 %.not4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #30
   %4 = tail call i64 @rb_intern2(ptr noundef nonnull %1, i64 noundef %3) #4
   store i64 %4, ptr %0, align 8, !tbaa !35
   %.not = icmp eq i64 %4, 0
@@ -6038,7 +6038,7 @@ define internal noundef i64 @disallow_reentry(i64 noundef %0) #0 {
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %1
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.97, ptr noundef nonnull %5) #26
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.97, ptr noundef nonnull %5) #27
   unreachable
 
 7:                                                ; preds = %1
@@ -6250,14 +6250,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #23
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #24
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #24
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #25
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6282,13 +6282,14 @@ attributes #19 = { inlinehint nounwind sspstrong memory(argmem: readwrite, inacc
 attributes #20 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #24 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #25 = { nounwind allocsize(0) }
-attributes #26 = { cold noreturn nounwind }
-attributes #27 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) }
-attributes #28 = { nounwind allocsize(0,1) }
-attributes #29 = { nounwind willreturn memory(read) }
+attributes #23 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #25 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #26 = { nounwind allocsize(0) }
+attributes #27 = { cold noreturn nounwind }
+attributes #28 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) }
+attributes #29 = { nounwind allocsize(0,1) }
+attributes #30 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

@@ -65,7 +65,7 @@ define hidden noundef ptr @_ZNK30G1MonotonicArenaFreeMemoryTask14get_state_nameE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask17deadline_exceededEl(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #14
+  %3 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #15
   %4 = icmp sge i64 %3, %1
   ret i1 %4
 }
@@ -81,9 +81,9 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask22calculate
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false)
   %7 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1304
-  call void @_ZNK24G1MonotonicArenaFreePool12memory_sizesEv(ptr dead_on_unwind nonnull writable sret(%class.G1MonotonicArenaMemoryStats) align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %8) #14
-  %9 = call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 16, i8 noundef zeroext 5) #14
-  %10 = call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 4, i32 noundef 8, i8 noundef zeroext 5) #14
+  call void @_ZNK24G1MonotonicArenaFreePool12memory_sizesEv(ptr dead_on_unwind nonnull writable sret(%class.G1MonotonicArenaMemoryStats) align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %8) #15
+  %9 = call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 16, i8 noundef zeroext 5) #15
+  %10 = call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 4, i32 noundef 8, i8 noundef zeroext 5) #15
   store i32 0, ptr %9, align 4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 4, ptr %11, align 4
@@ -112,7 +112,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask22calculate
 
 26:                                               ; preds = %15
   %27 = trunc nuw nsw i64 %indvars.iv to i32
-  %28 = call noundef ptr @_ZN22G1CardSetConfiguration24mem_object_type_name_strEj(i32 noundef %27) #14
+  %28 = call noundef ptr @_ZN22G1CardSetConfiguration24mem_object_type_name_strEj(i32 noundef %27) #15
   %29 = load i64, ptr %16, align 8
   %30 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
   %31 = load i64, ptr %30, align 8
@@ -121,7 +121,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask22calculate
 
 32:                                               ; preds = %15, %26
   %33 = load ptr, ptr %13, align 8
-  %34 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 5, i32 noundef 0) #14
+  %34 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 5, i32 noundef 0) #15
   store ptr null, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %24, ptr %35, align 8
@@ -135,7 +135,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask22calculate
 
 38:                                               ; preds = %32
   %39 = load ptr, ptr %13, align 8
-  call void @_ZN24G1MonotonicArenaFreePool24update_unlink_processorsEP18GrowableArrayCHeapIPNS_23G1ReturnMemoryProcessorEL8MEMFLAGS5EE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %39) #14
+  call void @_ZN24G1MonotonicArenaFreePool24update_unlink_processorsEP18GrowableArrayCHeapIPNS_23G1ReturnMemoryProcessorEL8MEMFLAGS5EE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %39) #15
   ret i1 false
 }
 
@@ -145,7 +145,7 @@ declare void @_ZNK24G1MonotonicArenaFreePool12memory_sizesEv(ptr dead_on_unwind 
 define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef %0, ...) local_unnamed_addr #2 comdat align 2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i32 noundef 1, ptr noundef %0, ptr noundef nonnull %2) #14
+  call void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i32 noundef 1, ptr noundef %0, ptr noundef nonnull %2) #15
   call void @llvm.va_end.p0(ptr nonnull %2)
   ret void
 }
@@ -176,7 +176,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPN24G1Mo
   %14 = shl nuw i32 1, %13
   %.0.i.i.i = select i1 %or.cond.i.i.i, i32 %8, i32 %14
   store i32 %.0.i.i.i, ptr %4, align 4
-  %15 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i, i32 noundef 8, i8 noundef zeroext 5) #14
+  %15 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i, i32 noundef 8, i8 noundef zeroext 5) #15
   %16 = load i32, ptr %0, align 8
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph.i.i, label %.preheader15.i.i
@@ -229,7 +229,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPN24G1Mo
   br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !9
 
 37:                                               ; preds = %.preheader.i.i
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %32) #14
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %32) #15
   br label %_ZN26GrowableArrayWithAllocatorIPN24G1MonotonicArenaFreePool23G1ReturnMemoryProcessorE18GrowableArrayCHeapIS2_L8MEMFLAGS5EEE4growEi.exit
 
 _ZN26GrowableArrayWithAllocatorIPN24G1MonotonicArenaFreePool23G1ReturnMemoryProcessorE18GrowableArrayCHeapIS2_L8MEMFLAGS5EEE4growEi.exit: ; preds = %.preheader.i.i, %37
@@ -273,7 +273,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask19return_me
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %.lr.ph
-  %17 = tail call noundef zeroext i1 @_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryProcessor12return_to_vmEl(ptr noundef nonnull align 8 dereferenceable(40) %12, i64 noundef %1) #14
+  %17 = tail call noundef zeroext i1 @_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryProcessor12return_to_vmEl(ptr noundef nonnull align 8 dereferenceable(40) %12, i64 noundef %1) #15
   br i1 %17, label %._crit_edge, label %._crit_edge12
 
 ._crit_edge12:                                    ; preds = %16
@@ -318,7 +318,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask19return_me
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %.lr.ph
-  %17 = tail call noundef zeroext i1 @_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryProcessor12return_to_osEl(ptr noundef nonnull align 8 dereferenceable(40) %12, i64 noundef %1) #14
+  %17 = tail call noundef zeroext i1 @_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryProcessor12return_to_osEl(ptr noundef nonnull align 8 dereferenceable(40) %12, i64 noundef %1) #15
   br i1 %17, label %._crit_edge, label %._crit_edge12
 
 ._crit_edge12:                                    ; preds = %16
@@ -361,7 +361,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask20cleanup_r
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %.lr.ph
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %11) #14
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %11) #15
   %.pre = load ptr, ptr %2, align 8
   %.pre10 = load i32, ptr %.pre, align 4
   br label %14
@@ -390,7 +390,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask20cleanup_r
   br i1 %.not.i.i.i, label %24, label %.loopexit.thread.i.i.i
 
 .loopexit.thread.i.i.i:                           ; preds = %.loopexit.i.i.i
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %23) #14
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %23) #15
   br label %24
 
 24:                                               ; preds = %.loopexit.thread.i.i.i, %.loopexit.i.i.i
@@ -398,16 +398,16 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask20cleanup_r
   br label %25
 
 25:                                               ; preds = %24, %._crit_edge
-  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.lcssa) #14
+  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.lcssa) #15
   store ptr null, ptr %2, align 8
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask24free_excess_arena_memoryEv(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %0) local_unnamed_addr #2 align 2 {
-  %2 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #14
+  %2 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #15
   %3 = sitofp i64 %2 to double
-  %4 = tail call noundef i64 @_ZN2os17elapsed_frequencyEv() #14
+  %4 = tail call noundef i64 @_ZN2os17elapsed_frequencyEv() #15
   %5 = sdiv i64 %4, 1000
   %6 = sitofp i64 %5 to double
   %7 = load double, ptr @G1RemSetFreeMemoryStepDurationMillis, align 8
@@ -418,8 +418,8 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask24free_exce
   br i1 %.not25, label %14, label %11
 
 11:                                               ; preds = %1
-  %12 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %2) #14
-  %13 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %9) #14
+  %12 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %2) #15
+  %13 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %9) #15
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.9, double noundef %12, double noundef %13)
   br label %14
 
@@ -461,7 +461,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask24free_exce
   br i1 %33, label %36, label %34
 
 34:                                               ; preds = %.lr.ph.i
-  %35 = tail call noundef zeroext i1 @_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryProcessor12return_to_vmEl(ptr noundef nonnull align 8 dereferenceable(40) %30, i64 noundef %9) #14
+  %35 = tail call noundef zeroext i1 @_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryProcessor12return_to_vmEl(ptr noundef nonnull align 8 dereferenceable(40) %30, i64 noundef %9) #15
   br i1 %35, label %_ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_vmEl.exit, label %._crit_edge12.i
 
 ._crit_edge12.i:                                  ; preds = %34
@@ -497,7 +497,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask24free_exce
   br i1 %53, label %56, label %54
 
 54:                                               ; preds = %.lr.ph.i12
-  %55 = tail call noundef zeroext i1 @_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryProcessor12return_to_osEl(ptr noundef nonnull align 8 dereferenceable(40) %50, i64 noundef %9) #14
+  %55 = tail call noundef zeroext i1 @_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryProcessor12return_to_osEl(ptr noundef nonnull align 8 dereferenceable(40) %50, i64 noundef %9) #15
   br i1 %55, label %_ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_vmEl.exit, label %._crit_edge12.i14
 
 ._crit_edge12.i14:                                ; preds = %54
@@ -531,7 +531,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask24free_exce
   br i1 %71, label %73, label %72
 
 72:                                               ; preds = %.lr.ph.i19
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %70) #14
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %70) #15
   %.pre.i21 = load ptr, ptr %16, align 8
   %.pre10.i = load i32, ptr %.pre.i21, align 4
   br label %73
@@ -560,7 +560,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask24free_exce
   br i1 %.not.i.i.i.i, label %83, label %.loopexit.thread.i.i.i.i
 
 .loopexit.thread.i.i.i.i:                         ; preds = %.loopexit.i.i.i.i
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %82) #14
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %82) #15
   br label %83
 
 83:                                               ; preds = %.loopexit.thread.i.i.i.i, %.loopexit.i.i.i.i
@@ -568,7 +568,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask24free_exce
   br label %_ZN30G1MonotonicArenaFreeMemoryTask20cleanup_return_infosEv.exit
 
 _ZN30G1MonotonicArenaFreeMemoryTask20cleanup_return_infosEv.exit: ; preds = %._crit_edge.i, %83
-  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.lcssa.i18) #14
+  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.lcssa.i18) #15
   store ptr null, ptr %16, align 8
   br label %_ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_vmEl.exit.thread
 
@@ -587,7 +587,7 @@ _ZN30G1MonotonicArenaFreeMemoryTask20cleanup_return_infosEv.exit: ; preds = %._c
 90:                                               ; preds = %86, %84
   %91 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %91, align 1
-  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.11, i32 noundef 156) #15
+  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.11, i32 noundef 156) #16
   unreachable
 
 _ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_vmEl.exit.thread: ; preds = %56, %36, %41, %21, %_ZN30G1MonotonicArenaFreeMemoryTask20cleanup_return_infosEv.exit, %19
@@ -613,7 +613,7 @@ _ZN30G1MonotonicArenaFreeMemoryTask9set_stateENS_5StateE.exit: ; preds = %_ZN30G
   br i1 %.not, label %.critedge, label %101
 
 101:                                              ; preds = %_ZN30G1MonotonicArenaFreeMemoryTask9set_stateENS_5StateE.exit
-  %102 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #14
+  %102 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #15
   %.not26 = icmp slt i64 %102, %9
   br i1 %.not26, label %17, label %.critedge, !llvm.loop !13
 
@@ -623,9 +623,9 @@ _ZN30G1MonotonicArenaFreeMemoryTask9set_stateENS_5StateE.exit: ; preds = %_ZN30G
   br i1 %.not27, label %111, label %104
 
 104:                                              ; preds = %.critedge
-  %105 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #14
+  %105 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #15
   %106 = sub nsw i64 %105, %2
-  %107 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %106) #14
+  %107 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %106) #15
   %108 = load i32, ptr %15, align 8
   %109 = icmp eq i32 %108, 1
   %110 = select i1 %109, ptr @.str.16, ptr @.str.17
@@ -644,7 +644,7 @@ _ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_vmEl.exit: ; preds = %54, 
 
 declare noundef i64 @_ZN2os17elapsed_frequencyEv() local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 declare noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef) local_unnamed_addr #3
@@ -653,7 +653,7 @@ declare noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef) local_
 define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef %0, ...) local_unnamed_addr #2 comdat align 2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i32 noundef 5, ptr noundef %0, ptr noundef nonnull %2) #14
+  call void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i32 noundef 5, ptr noundef %0, ptr noundef nonnull %2) #15
   call void @llvm.va_end.p0(ptr nonnull %2)
   ret void
 }
@@ -702,12 +702,12 @@ define hidden noundef range(i64 0, 4294967296) i64 @_ZNK30G1MonotonicArenaFreeMe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN30G1MonotonicArenaFreeMemoryTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN13G1ServiceTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) #14
+  tail call void @_ZN13G1ServiceTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) #15
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV30G1MonotonicArenaFreeMemoryTask, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @_ZN27G1MonotonicArenaMemoryStatsC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #14
+  tail call void @_ZN27G1MonotonicArenaMemoryStatsC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %5, align 8
   ret void
@@ -719,18 +719,18 @@ declare void @_ZN27G1MonotonicArenaMemoryStatsC1Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN30G1MonotonicArenaFreeMemoryTask7executeEv(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN20SuspendibleThreadSet4joinEv() #14
+  tail call void @_ZN20SuspendibleThreadSet4joinEv() #15
   %2 = tail call noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask24free_excess_arena_memoryEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
   br i1 %2, label %3, label %_ZN26SuspendibleThreadSetJoinerD2Ev.exit
 
 3:                                                ; preds = %1
   %4 = load i32, ptr @G1RemSetFreeMemoryRescheduleDelayMillis, align 4
   %5 = zext i32 %4 to i64
-  tail call void @_ZN13G1ServiceTask8scheduleEl(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %5) #14
+  tail call void @_ZN13G1ServiceTask8scheduleEl(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %5) #15
   br label %_ZN26SuspendibleThreadSetJoinerD2Ev.exit
 
 _ZN26SuspendibleThreadSetJoinerD2Ev.exit:         ; preds = %3, %1
-  tail call void @_ZN20SuspendibleThreadSet5leaveEv() #14
+  tail call void @_ZN20SuspendibleThreadSet5leaveEv() #15
   ret void
 }
 
@@ -786,7 +786,7 @@ _ZN30G1MonotonicArenaFreeMemoryTask9set_stateENS_5StateE.exit: ; preds = %21, %2
   %24 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 104
   %26 = load ptr, ptr %25, align 8
-  tail call void @_ZN15G1ServiceThread13schedule_taskEP13G1ServiceTaskl(ptr noundef nonnull align 8 dereferenceable(1064) %26, ptr noundef nonnull %0, i64 noundef 0) #14
+  tail call void @_ZN15G1ServiceThread13schedule_taskEP13G1ServiceTaskl(ptr noundef nonnull align 8 dereferenceable(1064) %26, ptr noundef nonnull %0, i64 noundef 0) #15
   br label %27
 
 27:                                               ; preds = %_ZN30G1MonotonicArenaFreeMemoryTask9set_stateENS_5StateE.exit, %_ZN27G1MonotonicArenaMemoryStats3addES_.exit
@@ -803,7 +803,7 @@ define internal void @__cxx_global_var_init.14() #8 section ".text.startup" comd
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #15
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -812,7 +812,7 @@ define internal void @__cxx_global_var_init.14() #8 section ".text.startup" comd
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #2 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #14
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #15
   ret i64 %3
 }
 
@@ -826,7 +826,7 @@ define internal void @__cxx_global_var_init.15() #8 section ".text.startup" comd
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 158, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 158, i32 noundef 0, i32 noundef 0, i32 noundef 0) #15
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -835,7 +835,7 @@ define internal void @__cxx_global_var_init.15() #8 section ".text.startup" comd
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #2 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #14
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #15
   ret i64 %3
 }
 
@@ -863,44 +863,45 @@ declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr nound
 declare void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #11
 
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind }
-attributes #15 = { noreturn nounwind }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nounwind }
+attributes #16 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

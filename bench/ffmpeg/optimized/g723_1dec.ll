@@ -50,7 +50,7 @@ define internal range(i32 -22, 1) i32 @g723_1_decode_init(ptr noundef initialize
   br label %10
 
 9:                                                ; preds = %1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.7, i32 noundef %6) #8
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.7, i32 noundef %6) #9
   br label %.loopexit
 
 10:                                               ; preds = %.lr.ph, %10
@@ -117,13 +117,13 @@ define internal i32 @g723_1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not194, label %.sink.split, label %33
 
 33:                                               ; preds = %32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.8, i32 noundef %29, i32 noundef %21) #8
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.8, i32 noundef %29, i32 noundef %21) #9
   br label %.sink.split
 
 34:                                               ; preds = %4
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i32 240, ptr %35, align 8, !tbaa !40
-  %36 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #8
+  %36 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #9
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %1382, label %.preheader263
 
@@ -676,8 +676,8 @@ define internal i32 @g723_1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   %422 = phi ptr [ %415, %413 ], [ %415, %418 ], [ %409, %411 ]
   %423 = getelementptr inbounds nuw i8, ptr %91, i64 140
   %424 = getelementptr inbounds nuw i8, ptr %91, i64 124
-  call void @ff_g723_1_inverse_quant(ptr noundef nonnull %13, ptr noundef nonnull %423, ptr noundef nonnull %424, i32 noundef %.1391395) #8
-  call void @ff_g723_1_lsp_interpolate(ptr noundef nonnull %14, ptr noundef nonnull %13, ptr noundef nonnull %423) #8
+  call void @ff_g723_1_inverse_quant(ptr noundef nonnull %13, ptr noundef nonnull %423, ptr noundef nonnull %424, i32 noundef %.1391395) #9
+  call void @ff_g723_1_lsp_interpolate(ptr noundef nonnull %14, ptr noundef nonnull %13, ptr noundef nonnull %423) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %423, ptr noundef nonnull align 16 dereferenceable(20) %13, i64 20, i1 false)
   %425 = getelementptr inbounds nuw i8, ptr %91, i64 470
   %426 = getelementptr inbounds nuw i8, ptr %91, i64 180
@@ -785,7 +785,7 @@ define internal i32 @g723_1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %493, label %494, label %gen_fcb_excitation.exit
 
 494:                                              ; preds = %490
-  call void @ff_g723_1_gen_dirac_train(ptr noundef nonnull %.0172278, i32 noundef %450) #8
+  call void @ff_g723_1_gen_dirac_train(ptr noundef nonnull %.0172278, i32 noundef %450) #9
   br label %gen_fcb_excitation.exit
 
 495:                                              ; preds = %444
@@ -867,7 +867,7 @@ gen_fcb_excitation.exit:                          ; preds = %.lr.ph.i, %452, %49
   %549 = getelementptr inbounds nuw i8, ptr %425, i64 %.idx
   %550 = load i32, ptr %449, align 4, !tbaa !47
   %551 = load i32, ptr %442, align 4, !tbaa !45
-  call void @ff_g723_1_gen_acb_excitation(ptr noundef nonnull %15, ptr noundef nonnull %549, i32 noundef %550, ptr noundef nonnull %445, i32 noundef %551) #8
+  call void @ff_g723_1_gen_acb_excitation(ptr noundef nonnull %15, ptr noundef nonnull %549, i32 noundef %550, ptr noundef nonnull %445, i32 noundef %551) #9
   br label %552
 
 552:                                              ; preds = %gen_fcb_excitation.exit, %552
@@ -901,7 +901,7 @@ gen_fcb_excitation.exit:                          ; preds = %.lr.ph.i, %452, %49
   %569 = load i32, ptr %568, align 4, !tbaa !47
   %570 = getelementptr inbounds nuw i8, ptr %91, i64 1348
   %571 = getelementptr inbounds nuw i8, ptr %91, i64 1380
-  %572 = call i32 @ff_g723_1_scale_vector(ptr noundef nonnull %571, ptr noundef nonnull %425, i32 noundef 385) #8
+  %572 = call i32 @ff_g723_1_scale_vector(ptr noundef nonnull %571, ptr noundef nonnull %425, i32 noundef 385) #9
   store i32 %572, ptr %570, align 4, !tbaa !47
   %573 = getelementptr inbounds nuw i8, ptr %91, i64 1910
   %574 = call i32 @llvm.smin.i32(i32 %569, i32 142)
@@ -916,7 +916,7 @@ gen_fcb_excitation.exit:                          ; preds = %.lr.ph.i, %452, %49
   %.02432.i.i = phi i32 [ 0, %567 ], [ %spec.select30.i, %.lr.ph.i.i ]
   %578 = sub nsw i64 0, %indvars.iv.i.i
   %579 = getelementptr inbounds i16, ptr %573, i64 %578
-  %580 = call i32 @ff_g723_1_dot_product(ptr noundef nonnull %573, ptr noundef nonnull %579, i32 noundef 120) #8
+  %580 = call i32 @ff_g723_1_dot_product(ptr noundef nonnull %573, ptr noundef nonnull %579, i32 noundef 120) #9
   %581 = icmp sgt i32 %580, %.029.i
   %582 = trunc nsw i64 %indvars.iv.i.i to i32
   %spec.select.i = call i32 @llvm.smax.i32(i32 %580, i32 %.029.i)
@@ -932,7 +932,7 @@ autocorr_max.exit.i:                              ; preds = %.lr.ph.i.i
   %.not.i24.i = icmp ult i32 %spec.select.i, 2147450880
   %585 = ashr i32 %584, 16
   %586 = select i1 %.not.i24.i, i32 %585, i32 32767
-  %587 = call i32 @ff_g723_1_dot_product(ptr noundef nonnull %573, ptr noundef nonnull %573, i32 noundef 120) #8
+  %587 = call i32 @ff_g723_1_dot_product(ptr noundef nonnull %573, ptr noundef nonnull %573, i32 noundef 120) #9
   %588 = sext i32 %587 to i64
   %589 = add i32 %587, 32768
   %590 = add nsw i64 %588, 2147516416
@@ -949,7 +949,7 @@ autocorr_max.exit.i:                              ; preds = %.lr.ph.i.i
   %596 = sext i32 %spec.select30.i to i64
   %597 = sub nsw i64 0, %596
   %598 = getelementptr inbounds i16, ptr %573, i64 %597
-  %599 = call i32 @ff_g723_1_dot_product(ptr noundef nonnull %598, ptr noundef nonnull %598, i32 noundef 120) #8
+  %599 = call i32 @ff_g723_1_dot_product(ptr noundef nonnull %598, ptr noundef nonnull %598, i32 noundef 120) #9
   %600 = sext i32 %599 to i64
   %601 = add i32 %599, 32768
   %602 = add nsw i64 %600, 2147516416
@@ -1005,7 +1005,7 @@ comp_interp_index.exit:                           ; preds = %autocorr_max.exit.i
   %indvars.iv.i.i205 = phi i64 [ %623, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i208, %.lr.ph.i.i204 ]
   %.02432.i.i206 = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %spec.select76.i, %.lr.ph.i.i204 ]
   %628 = getelementptr inbounds i16, ptr %619, i64 %indvars.iv.i.i205
-  %629 = call i32 @ff_g723_1_dot_product(ptr noundef nonnull %619, ptr noundef nonnull %628, i32 noundef 60) #8
+  %629 = call i32 @ff_g723_1_dot_product(ptr noundef nonnull %619, ptr noundef nonnull %628, i32 noundef 60) #9
   %630 = icmp sgt i32 %629, %627
   %631 = trunc nsw i64 %indvars.iv.i.i205 to i32
   %spec.select.i207 = call i32 @llvm.smax.i32(i32 %629, i32 %627)
@@ -1030,7 +1030,7 @@ autocorr_max.exit.i211:                           ; preds = %.preheader259, %aut
   %.02432.i64.i = phi i32 [ 0, %autocorr_max.exit.i211 ], [ %spec.select78.i, %.lr.ph.i62.i ]
   %634 = sub nsw i64 0, %indvars.iv.i63.i
   %635 = getelementptr inbounds i16, ptr %619, i64 %634
-  %636 = call i32 @ff_g723_1_dot_product(ptr noundef nonnull %619, ptr noundef nonnull %635, i32 noundef 60) #8
+  %636 = call i32 @ff_g723_1_dot_product(ptr noundef nonnull %619, ptr noundef nonnull %635, i32 noundef 60) #9
   %637 = icmp sgt i32 %636, %633
   %638 = trunc nsw i64 %indvars.iv.i63.i to i32
   %spec.select77.i = call i32 @llvm.smax.i32(i32 %636, i32 %633)
@@ -1053,14 +1053,14 @@ autocorr_max.exit70.i:                            ; preds = %.lr.ph.i62.i
   br i1 %or.cond.i, label %643, label %comp_ppf_coeff.exit
 
 643:                                              ; preds = %autocorr_max.exit70.i
-  %644 = call i32 @ff_g723_1_dot_product(ptr noundef nonnull %619, ptr noundef nonnull %619, i32 noundef 60) #8
+  %644 = call i32 @ff_g723_1_dot_product(ptr noundef nonnull %619, ptr noundef nonnull %619, i32 noundef 60) #9
   store i32 %644, ptr %11, align 16, !tbaa !47
   br i1 %642, label %645, label %649
 
 645:                                              ; preds = %643
   %646 = sext i32 %.024.lcssa.i.i to i64
   %647 = getelementptr inbounds i16, ptr %619, i64 %646
-  %648 = call i32 @ff_g723_1_dot_product(ptr noundef nonnull %647, ptr noundef nonnull %647, i32 noundef 60) #8
+  %648 = call i32 @ff_g723_1_dot_product(ptr noundef nonnull %647, ptr noundef nonnull %647, i32 noundef 60) #9
   store i32 %648, ptr %84, align 8, !tbaa !47
   br label %649
 
@@ -1071,7 +1071,7 @@ autocorr_max.exit70.i:                            ; preds = %.lr.ph.i62.i
   %651 = sext i32 %spec.select78.i to i64
   %652 = sub nsw i64 0, %651
   %653 = getelementptr inbounds i16, ptr %619, i64 %652
-  %654 = call i32 @ff_g723_1_dot_product(ptr noundef nonnull %653, ptr noundef nonnull %653, i32 noundef 60) #8
+  %654 = call i32 @ff_g723_1_dot_product(ptr noundef nonnull %653, ptr noundef nonnull %653, i32 noundef 60) #9
   store i32 %654, ptr %85, align 16, !tbaa !47
   br label %.preheader435
 
@@ -1089,7 +1089,7 @@ autocorr_max.exit70.i:                            ; preds = %.lr.ph.i62.i
   br i1 %exitcond.not.i214, label %658, label %655, !llvm.loop !75
 
 658:                                              ; preds = %655
-  %659 = call i32 @ff_g723_1_normalize_bits(i32 noundef %..056.i, i32 noundef 31) #8
+  %659 = call i32 @ff_g723_1_normalize_bits(i32 noundef %..056.i, i32 noundef 31) #9
   %sext.i = shl i32 %659, 16
   %660 = ashr exact i32 %sext.i, 16
   br label %661
@@ -1175,7 +1175,7 @@ comp_ppf_coeff.exit:                              ; preds = %autocorr_max.exit70
   %703 = load i16, ptr %702, align 2, !tbaa !74
   %704 = getelementptr inbounds nuw i8, ptr %698, i64 4
   %705 = load i16, ptr %704, align 4, !tbaa !73
-  call void @ff_acelp_weighted_vector_sum(ptr noundef nonnull %696, ptr noundef nonnull %697, ptr noundef nonnull %701, i16 noundef signext %703, i16 noundef signext %705, i16 noundef signext 16384, i32 noundef 15, i32 noundef 60) #8
+  call void @ff_acelp_weighted_vector_sum(ptr noundef nonnull %696, ptr noundef nonnull %697, ptr noundef nonnull %701, i16 noundef signext %703, i16 noundef signext %705, i16 noundef signext 16384, i32 noundef 15, i32 noundef 60) #9
   %indvars.iv.next317 = add nuw nsw i64 %indvars.iv316, 60
   %indvars.iv.next319 = add nuw nsw i64 %indvars.iv318, 1
   %exitcond323.not = icmp eq i64 %indvars.iv.next319, 4
@@ -1252,7 +1252,7 @@ comp_ppf_coeff.exit:                              ; preds = %autocorr_max.exit70
   %735 = getelementptr inbounds i16, ptr %719, i64 %.pre-phi.i218
   %736 = shl i32 %721, 1
   %737 = sub i32 480, %736
-  call void @av_memcpy_backptr(ptr noundef nonnull %735, i32 noundef %736, i32 noundef %737) #8
+  call void @av_memcpy_backptr(ptr noundef nonnull %735, i32 noundef %736, i32 noundef %737) #9
   br label %residual_interp.exit
 
 738:                                              ; preds = %738, %.preheader.i
@@ -1442,7 +1442,7 @@ residual_interp.exit:                             ; preds = %._crit_edge.i, %746
   %834 = getelementptr inbounds nuw i8, ptr %91, i64 160
   %835 = getelementptr inbounds nuw i8, ptr %91, i64 140
   %836 = getelementptr inbounds nuw i8, ptr %91, i64 124
-  call void @ff_g723_1_inverse_quant(ptr noundef nonnull %834, ptr noundef nonnull %835, ptr noundef nonnull %836, i32 noundef 0) #8
+  call void @ff_g723_1_inverse_quant(ptr noundef nonnull %834, ptr noundef nonnull %835, ptr noundef nonnull %836, i32 noundef 0) #9
   %.phi.trans.insert340 = getelementptr inbounds nuw i8, ptr %91, i64 116
   %.pre341 = load i32, ptr %.phi.trans.insert340, align 4, !tbaa !33
   %837 = icmp eq i32 %.pre341, 0
@@ -1635,12 +1635,12 @@ residual_interp.exit:                             ; preds = %._crit_edge.i, %746
   %941 = load i32, ptr %940, align 4, !tbaa !47
   %942 = getelementptr inbounds nuw %struct.G723_1_Subframe, ptr %91, i64 %indvars.iv264.i
   %943 = load i32, ptr %935, align 4, !tbaa !45
-  call void @ff_g723_1_gen_acb_excitation(ptr noundef nonnull %.0160210.i, ptr noundef nonnull %.0160210.i, i32 noundef %941, ptr noundef nonnull %942, i32 noundef %943) #8
+  call void @ff_g723_1_gen_acb_excitation(ptr noundef nonnull %.0160210.i, ptr noundef nonnull %.0160210.i, i32 noundef %941, ptr noundef nonnull %942, i32 noundef %943) #9
   %944 = getelementptr inbounds nuw i8, ptr %.0160210.i, i64 120
   %945 = load i32, ptr %940, align 4, !tbaa !47
   %946 = getelementptr inbounds nuw i8, ptr %942, i64 28
   %947 = load i32, ptr %935, align 4, !tbaa !45
-  call void @ff_g723_1_gen_acb_excitation(ptr noundef nonnull %944, ptr noundef nonnull %944, i32 noundef %945, ptr noundef nonnull %946, i32 noundef %947) #8
+  call void @ff_g723_1_gen_acb_excitation(ptr noundef nonnull %944, ptr noundef nonnull %944, i32 noundef %945, ptr noundef nonnull %946, i32 noundef %947) #9
   br label %948
 
 948:                                              ; preds = %948, %937
@@ -1930,7 +1930,7 @@ generate_noise.exit:                              ; preds = %1122
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %1126 = getelementptr inbounds nuw i8, ptr %91, i64 160
   %1127 = getelementptr inbounds nuw i8, ptr %91, i64 140
-  call void @ff_g723_1_lsp_interpolate(ptr noundef nonnull %14, ptr noundef nonnull %1126, ptr noundef nonnull %1127) #8
+  call void @ff_g723_1_lsp_interpolate(ptr noundef nonnull %14, ptr noundef nonnull %1126, ptr noundef nonnull %1127) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %1127, ptr noundef nonnull align 4 dereferenceable(20) %1126, i64 20, i1 false)
   br label %1128
 
@@ -1953,7 +1953,7 @@ generate_noise.exit:                              ; preds = %1122
   %.idx384 = mul nuw nsw i64 %indvars.iv326, 20
   %1136 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx384
   %1137 = getelementptr inbounds nuw i16, ptr %.2, i64 %indvars.iv324
-  %1138 = call i32 @ff_celp_lp_synthesis_filter(ptr noundef nonnull %1135, ptr noundef nonnull %1136, ptr noundef nonnull %1137, i32 noundef 60, i32 noundef 10, i32 noundef 0, i32 noundef 1, i32 noundef 4096) #8
+  %1138 = call i32 @ff_celp_lp_synthesis_filter(ptr noundef nonnull %1135, ptr noundef nonnull %1136, ptr noundef nonnull %1137, i32 noundef 60, i32 noundef 10, i32 noundef 0, i32 noundef 1, i32 noundef 4096) #9
   %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, 60
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
   %exitcond331.not = icmp eq i64 %indvars.iv.next327, 4
@@ -2084,10 +2084,10 @@ generate_noise.exit:                              ; preds = %1122
   %.080110.i = phi ptr [ %1130, %1204 ], [ %1369, %gain_scale.exit.i ]
   %.083109.i = phi ptr [ %88, %1204 ], [ %1368, %gain_scale.exit.i ]
   %.1108.i = phi i32 [ 0, %1204 ], [ %1370, %gain_scale.exit.i ]
-  %1209 = call i32 @ff_g723_1_scale_vector(ptr noundef %.080110.i, ptr noundef nonnull %.079111.i, i32 noundef 60) #8
+  %1209 = call i32 @ff_g723_1_scale_vector(ptr noundef %.080110.i, ptr noundef nonnull %.079111.i, i32 noundef 60) #9
   %1210 = getelementptr inbounds nuw i8, ptr %.080110.i, i64 2
-  %1211 = call i32 @ff_g723_1_dot_product(ptr noundef %.080110.i, ptr noundef nonnull %1210, i32 noundef 59) #8
-  %1212 = call i32 @ff_g723_1_dot_product(ptr noundef %.080110.i, ptr noundef %.080110.i, i32 noundef 60) #8
+  %1211 = call i32 @ff_g723_1_dot_product(ptr noundef %.080110.i, ptr noundef nonnull %1210, i32 noundef 59) #9
+  %1212 = call i32 @ff_g723_1_dot_product(ptr noundef %.080110.i, ptr noundef %.080110.i, i32 noundef 60) #9
   %.not.i248 = icmp ult i32 %1212, 65536
   br i1 %.not.i248, label %1218, label %1213
 
@@ -2181,8 +2181,8 @@ generate_noise.exit:                              ; preds = %1122
   br i1 %or.cond.i.i254, label %1269, label %1351
 
 1269:                                             ; preds = %1266
-  %1270 = call i32 @ff_g723_1_normalize_bits(i32 noundef %.0.i250, i32 noundef 31) #8
-  %1271 = call i32 @ff_g723_1_normalize_bits(i32 noundef %1265, i32 noundef 31) #8
+  %1270 = call i32 @ff_g723_1_normalize_bits(i32 noundef %.0.i250, i32 noundef 31) #9
+  %1271 = call i32 @ff_g723_1_normalize_bits(i32 noundef %1265, i32 noundef 31) #9
   %1272 = shl i32 %.0.i250, %1270
   %1273 = shl i32 %1265, %1271
   %1274 = add nsw i32 %1270, 5
@@ -2536,37 +2536,37 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #7
+declare i32 @llvm.abs.i32(i32, i1 immarg) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.sadd.sat.i32(i32, i32) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.abs.i16(i16, i1 immarg) #7
+declare i16 @llvm.abs.i16(i16, i1 immarg) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.smax.i8(i8, i8) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.sadd.sat.i16(i16, i16) #7
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2576,8 +2576,9 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

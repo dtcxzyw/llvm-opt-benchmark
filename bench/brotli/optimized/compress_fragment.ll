@@ -1663,7 +1663,7 @@ EmitCopyLen.exit:                                 ; preds = %747, %769, %809, %8
 
 956:                                              ; preds = %._crit_edge.i
   %957 = uitofp nneg i32 %952 to double
-  %958 = tail call double @log2(double noundef %957) #10, !tbaa !77
+  %958 = tail call double @log2(double noundef %957) #11, !tbaa !77
   br label %FastLog2.exit.i
 
 FastLog2.exit.i:                                  ; preds = %956, %._crit_edge.thread.i
@@ -1692,7 +1692,7 @@ FastLog2.exit.i:                                  ; preds = %956, %._crit_edge.t
   br label %FastLog2.exit23.i
 
 973:                                              ; preds = %961
-  %974 = tail call double @log2(double noundef %964) #10, !tbaa !77
+  %974 = tail call double @log2(double noundef %964) #11, !tbaa !77
   br label %FastLog2.exit23.i
 
 FastLog2.exit23.i:                                ; preds = %973, %969
@@ -3671,7 +3671,7 @@ EmitCopyLen.exit:                                 ; preds = %747, %769, %809, %8
 
 956:                                              ; preds = %._crit_edge.i
   %957 = uitofp nneg i32 %952 to double
-  %958 = tail call double @log2(double noundef %957) #10, !tbaa !77
+  %958 = tail call double @log2(double noundef %957) #11, !tbaa !77
   br label %FastLog2.exit.i
 
 FastLog2.exit.i:                                  ; preds = %956, %._crit_edge.thread.i
@@ -3700,7 +3700,7 @@ FastLog2.exit.i:                                  ; preds = %956, %._crit_edge.t
   br label %FastLog2.exit23.i
 
 973:                                              ; preds = %961
-  %974 = tail call double @log2(double noundef %964) #10, !tbaa !77
+  %974 = tail call double @log2(double noundef %964) #11, !tbaa !77
   br label %FastLog2.exit23.i
 
 FastLog2.exit23.i:                                ; preds = %973, %969
@@ -5679,7 +5679,7 @@ EmitCopyLen.exit:                                 ; preds = %747, %769, %809, %8
 
 956:                                              ; preds = %._crit_edge.i
   %957 = uitofp nneg i32 %952 to double
-  %958 = tail call double @log2(double noundef %957) #10, !tbaa !77
+  %958 = tail call double @log2(double noundef %957) #11, !tbaa !77
   br label %FastLog2.exit.i
 
 FastLog2.exit.i:                                  ; preds = %956, %._crit_edge.thread.i
@@ -5708,7 +5708,7 @@ FastLog2.exit.i:                                  ; preds = %956, %._crit_edge.t
   br label %FastLog2.exit23.i
 
 973:                                              ; preds = %961
-  %974 = tail call double @log2(double noundef %964) #10, !tbaa !77
+  %974 = tail call double @log2(double noundef %964) #11, !tbaa !77
   br label %FastLog2.exit23.i
 
 FastLog2.exit23.i:                                ; preds = %973, %969
@@ -7687,7 +7687,7 @@ EmitCopyLen.exit:                                 ; preds = %747, %769, %809, %8
 
 956:                                              ; preds = %._crit_edge.i
   %957 = uitofp nneg i32 %952 to double
-  %958 = tail call double @log2(double noundef %957) #10, !tbaa !77
+  %958 = tail call double @log2(double noundef %957) #11, !tbaa !77
   br label %FastLog2.exit.i
 
 FastLog2.exit.i:                                  ; preds = %956, %._crit_edge.thread.i
@@ -7716,7 +7716,7 @@ FastLog2.exit.i:                                  ; preds = %956, %._crit_edge.t
   br label %FastLog2.exit23.i
 
 973:                                              ; preds = %961
-  %974 = tail call double @log2(double noundef %964) #10, !tbaa !77
+  %974 = tail call double @log2(double noundef %964) #11, !tbaa !77
   br label %FastLog2.exit23.i
 
 FastLog2.exit23.i:                                ; preds = %973, %969
@@ -8349,7 +8349,7 @@ define internal fastcc i64 @BuildAndStoreLiteralPrefixCode(ptr noundef initializ
 .loopexit:                                        ; preds = %36, %.preheader
   %.153 = phi i64 [ %23, %.preheader ], [ %44, %36 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 2184
-  tail call void @BrotliBuildAndStoreHuffmanTreeFast(ptr noundef nonnull %46, ptr noundef nonnull %8, i64 noundef %.153, i64 noundef 8, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #10
+  tail call void @BrotliBuildAndStoreHuffmanTreeFast(ptr noundef nonnull %46, ptr noundef nonnull %8, i64 noundef %.153, i64 noundef 8, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #11
   br label %47
 
 47:                                               ; preds = %.loopexit, %57
@@ -8390,10 +8390,10 @@ define internal fastcc void @BuildAndStoreCommandPrefixCode(ptr noundef initiali
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8016
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(704) %7, i8 0, i64 704, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2184
-  tail call void @BrotliCreateHuffmanTree(ptr noundef nonnull %4, i64 noundef 64, i32 noundef 15, ptr noundef nonnull %9, ptr noundef nonnull %5) #10
+  tail call void @BrotliCreateHuffmanTree(ptr noundef nonnull %4, i64 noundef 64, i32 noundef 15, ptr noundef nonnull %9, ptr noundef nonnull %5) #11
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 832
-  tail call void @BrotliCreateHuffmanTree(ptr noundef nonnull %10, i64 noundef 64, i32 noundef 14, ptr noundef nonnull %9, ptr noundef nonnull %11) #10
+  tail call void @BrotliCreateHuffmanTree(ptr noundef nonnull %10, i64 noundef 64, i32 noundef 14, ptr noundef nonnull %9, ptr noundef nonnull %11) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %7, ptr noundef nonnull align 1 dereferenceable(24) %5, i64 24, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 7336
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 808
@@ -8415,7 +8415,7 @@ define internal fastcc void @BuildAndStoreCommandPrefixCode(ptr noundef initiali
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %26 = load i64, ptr %25, align 1
   store i64 %26, ptr %24, align 1
-  tail call void @BrotliConvertBitDepthsToSymbols(ptr noundef nonnull %7, i64 noundef 64, ptr noundef nonnull %8) #10
+  tail call void @BrotliConvertBitDepthsToSymbols(ptr noundef nonnull %7, i64 noundef 64, ptr noundef nonnull %8) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(48) %6, ptr noundef nonnull align 2 dereferenceable(48) %8, i64 48, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8080
@@ -8433,7 +8433,7 @@ define internal fastcc void @BuildAndStoreCommandPrefixCode(ptr noundef initiali
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %35, ptr noundef nonnull align 2 dereferenceable(16) %36, i64 16, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  tail call void @BrotliConvertBitDepthsToSymbols(ptr noundef nonnull %11, i64 noundef 64, ptr noundef nonnull %37) #10
+  tail call void @BrotliConvertBitDepthsToSymbols(ptr noundef nonnull %11, i64 noundef 64, ptr noundef nonnull %37) #11
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 7320
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %38, i8 0, i64 56, i1 false)
   %39 = load i64, ptr %5, align 1
@@ -8476,8 +8476,8 @@ define internal fastcc void @BuildAndStoreCommandPrefixCode(ptr noundef initiali
   br i1 %exitcond.not, label %64, label %50, !llvm.loop !1301
 
 64:                                               ; preds = %50
-  tail call void @BrotliStoreHuffmanTree(ptr noundef nonnull %7, i64 noundef 704, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %2) #10
-  tail call void @BrotliStoreHuffmanTree(ptr noundef nonnull %11, i64 noundef 64, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %2) #10
+  tail call void @BrotliStoreHuffmanTree(ptr noundef nonnull %7, i64 noundef 704, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %2) #11
+  tail call void @BrotliStoreHuffmanTree(ptr noundef nonnull %11, i64 noundef 64, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %2) #11
   ret void
 }
 
@@ -8489,11 +8489,11 @@ declare hidden void @BrotliBuildAndStoreHuffmanTreeFast(ptr noundef, ptr noundef
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #3
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log2(double noundef) local_unnamed_addr #7
+declare double @log2(double noundef) local_unnamed_addr #8
 
 declare hidden void @BrotliCreateHuffmanTree(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
@@ -8501,14 +8501,14 @@ declare hidden void @BrotliConvertBitDepthsToSymbols(ptr noundef, i64 noundef, p
 
 declare hidden void @BrotliStoreHuffmanTree(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #9
+declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8517,10 +8517,11 @@ attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #10 = { nounwind }
+attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -72,8 +72,8 @@ define hidden void @mbedtls_mpi_core_bigendian_to_host(ptr noundef captures(addr
 ; Function Attrs: nounwind uwtable
 define hidden i64 @mbedtls_mpi_core_uint_le_mpi(i64 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = load i64, ptr %1, align 8, !tbaa !3
-  %5 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %4, i64 %0) #10, !srcloc !10
-  %6 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
+  %5 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %4, i64 %0) #11, !srcloc !10
+  %6 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #11, !srcloc !11
   %7 = icmp ugt i64 %2, 1
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -89,7 +89,7 @@ define hidden i64 @mbedtls_mpi_core_uint_le_mpi(i64 noundef %0, ptr noundef read
   %.0910 = phi i64 [ %14, %.lr.ph ], [ %6, %3 ]
   %11 = getelementptr inbounds nuw i64, ptr %1, i64 %.011
   %12 = load i64, ptr %11, align 8, !tbaa !3
-  %13 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %12) #10, !srcloc !12
+  %13 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %12) #11, !srcloc !12
   %14 = or i64 %13, %.0910
   %15 = add nuw i64 %.011, 1
   %exitcond.not = icmp eq i64 %15, %2
@@ -98,9 +98,9 @@ define hidden i64 @mbedtls_mpi_core_uint_le_mpi(i64 noundef %0, ptr noundef read
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @mbedtls_mpi_core_lt_ct(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
-  %4 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
-  %5 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
-  %6 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
+  %4 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #11, !srcloc !11
+  %5 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #11, !srcloc !11
+  %6 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #11, !srcloc !11
   %.not20 = icmp eq i64 %2, 0
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
@@ -117,12 +117,12 @@ define hidden i64 @mbedtls_mpi_core_lt_ct(ptr noundef readonly captures(none) %0
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i64, ptr %0, i64 %7
   %11 = load i64, ptr %10, align 8, !tbaa !3
-  %12 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %9, i64 %11) #10, !srcloc !10
+  %12 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %9, i64 %11) #11, !srcloc !10
   %13 = extractvalue { i64, i64, i64 } %12, 1
   %14 = or i64 %13, %.01822
   %15 = load i64, ptr %10, align 8, !tbaa !3
   %16 = load i64, ptr %8, align 8, !tbaa !3
-  %17 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %15, i64 %16) #10, !srcloc !10
+  %17 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %15, i64 %16) #11, !srcloc !10
   %18 = extractvalue { i64, i64, i64 } %17, 1
   %19 = xor i64 %14, -1
   %20 = and i64 %18, %19
@@ -145,7 +145,7 @@ define hidden void @mbedtls_mpi_core_cond_assign(ptr noundef captures(address) %
   %8 = load i64, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i64, ptr %0, i64 %.013
   %10 = load i64, ptr %9, align 8, !tbaa !3
-  %11 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %8, i64 %10) #10, !srcloc !15
+  %11 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %8, i64 %10) #11, !srcloc !15
   %12 = extractvalue { i64, i64, i64 } %11, 2
   store i64 %12, ptr %9, align 8, !tbaa !3
   %13 = add nuw i64 %.013, 1
@@ -169,11 +169,11 @@ define hidden void @mbedtls_mpi_core_cond_swap(ptr noundef captures(address) %0,
   %8 = load i64, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i64, ptr %1, i64 %.021
   %10 = load i64, ptr %9, align 8, !tbaa !3
-  %11 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %10, i64 %8) #10, !srcloc !15
+  %11 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %10, i64 %8) #11, !srcloc !15
   %12 = extractvalue { i64, i64, i64 } %11, 2
   store i64 %12, ptr %7, align 8, !tbaa !3
   %13 = load i64, ptr %9, align 8, !tbaa !3
-  %14 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %8, i64 %13) #10, !srcloc !15
+  %14 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %8, i64 %13) #11, !srcloc !15
   %15 = extractvalue { i64, i64, i64 } %14, 2
   store i64 %15, ptr %9, align 8, !tbaa !3
   %16 = add nuw i64 %.021, 1
@@ -580,7 +580,7 @@ define hidden range(i64 0, 3) i64 @mbedtls_mpi_core_add(ptr noundef writeonly ca
 ; Function Attrs: nounwind uwtable
 define hidden range(i64 0, 3) i64 @mbedtls_mpi_core_add_if(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = zext i32 %3 to i64
-  %6 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %5) #10, !srcloc !12
+  %6 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %5) #11, !srcloc !12
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -663,7 +663,7 @@ define hidden i64 @mbedtls_mpi_core_mla(ptr noundef %0, i64 noundef %1, ptr noun
   %.03043 = phi ptr [ %11, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.03442 = phi ptr [ %12, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %8 = add nsw i64 %.02745, -1
-  %9 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.03043, i64 %4, ptr elementtype([16 x i64]) %.03442, i64 %.02944, ptr %.03043, ptr %.03442, ptr elementtype([16 x i64]) %.03043) #10, !srcloc !31
+  %9 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.03043, i64 %4, ptr elementtype([16 x i64]) %.03442, i64 %.02944, ptr %.03043, ptr %.03442, ptr elementtype([16 x i64]) %.03043) #11, !srcloc !31
   %10 = extractvalue { i64, ptr, ptr } %9, 0
   %11 = extractvalue { i64, ptr, ptr } %9, 1
   %12 = extractvalue { i64, ptr, ptr } %9, 2
@@ -683,7 +683,7 @@ define hidden i64 @mbedtls_mpi_core_mla(ptr noundef %0, i64 noundef %1, ptr noun
   %.13150 = phi ptr [ %17, %.lr.ph53 ], [ %.030.lcssa, %.preheader40 ]
   %.13549 = phi ptr [ %18, %.lr.ph53 ], [ %.034.lcssa, %.preheader40 ]
   %14 = add nsw i64 %.052, -1
-  %15 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.13150, i64 %4, ptr elementtype([16 x i64]) %.13549, i64 %.151, ptr %.13150, ptr %.13549, ptr elementtype([16 x i64]) %.13150) #10, !srcloc !33
+  %15 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.13150, i64 %4, ptr elementtype([16 x i64]) %.13549, i64 %.151, ptr %.13150, ptr %.13549, ptr elementtype([16 x i64]) %.13150) #11, !srcloc !33
   %16 = extractvalue { i64, ptr, ptr } %15, 0
   %17 = extractvalue { i64, ptr, ptr } %15, 1
   %18 = extractvalue { i64, ptr, ptr } %15, 2
@@ -771,7 +771,7 @@ mbedtls_mpi_core_mla.exit.loopexit.us.us:         ; preds = %.lr.ph60.i.us.us
   %.13150.i.us = phi ptr [ %26, %.lr.ph53.i.us ], [ %20, %.preheader40.i.us ]
   %.13549.i.us = phi ptr [ %27, %.lr.ph53.i.us ], [ %1, %.preheader40.i.us ]
   %23 = add nsw i64 %.052.i.us, -1
-  %24 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.13150.i.us, i64 %22, ptr elementtype([16 x i64]) %.13549.i.us, i64 %.151.i.us, ptr %.13150.i.us, ptr %.13549.i.us, ptr elementtype([16 x i64]) %.13150.i.us) #10, !srcloc !33
+  %24 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.13150.i.us, i64 %22, ptr elementtype([16 x i64]) %.13549.i.us, i64 %.151.i.us, ptr %.13150.i.us, ptr %.13549.i.us, ptr elementtype([16 x i64]) %.13150.i.us) #11, !srcloc !33
   %25 = extractvalue { i64, ptr, ptr } %24, 0
   %26 = extractvalue { i64, ptr, ptr } %24, 1
   %27 = extractvalue { i64, ptr, ptr } %24, 2
@@ -819,7 +819,7 @@ mbedtls_mpi_core_mla.exit.us:                     ; preds = %.lr.ph60.i.us, %.pr
   %.03043.i.us.us = phi ptr [ %41, %.lr.ph.i.us.us ], [ %35, %.lr.ph.preheader.i.us.us ]
   %.03442.i.us.us = phi ptr [ %42, %.lr.ph.i.us.us ], [ %1, %.lr.ph.preheader.i.us.us ]
   %38 = add nsw i64 %.02745.i.us.us, -1
-  %39 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.03043.i.us.us, i64 %37, ptr elementtype([16 x i64]) %.03442.i.us.us, i64 %.02944.i.us.us, ptr %.03043.i.us.us, ptr %.03442.i.us.us, ptr elementtype([16 x i64]) %.03043.i.us.us) #10, !srcloc !31
+  %39 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.03043.i.us.us, i64 %37, ptr elementtype([16 x i64]) %.03442.i.us.us, i64 %.02944.i.us.us, ptr %.03043.i.us.us, ptr %.03442.i.us.us, ptr elementtype([16 x i64]) %.03043.i.us.us) #11, !srcloc !31
   %40 = extractvalue { i64, ptr, ptr } %39, 0
   %41 = extractvalue { i64, ptr, ptr } %39, 1
   %42 = extractvalue { i64, ptr, ptr } %39, 2
@@ -844,7 +844,7 @@ mbedtls_mpi_core_mla.exit.us:                     ; preds = %.lr.ph60.i.us, %.pr
   %.03043.i.us = phi ptr [ %50, %.lr.ph.i.us ], [ %44, %.lr.ph.preheader.i.us ]
   %.03442.i.us = phi ptr [ %51, %.lr.ph.i.us ], [ %1, %.lr.ph.preheader.i.us ]
   %47 = add nsw i64 %.02745.i.us, -1
-  %48 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.03043.i.us, i64 %46, ptr elementtype([16 x i64]) %.03442.i.us, i64 %.02944.i.us, ptr %.03043.i.us, ptr %.03442.i.us, ptr elementtype([16 x i64]) %.03043.i.us) #10, !srcloc !31
+  %48 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.03043.i.us, i64 %46, ptr elementtype([16 x i64]) %.03442.i.us, i64 %.02944.i.us, ptr %.03043.i.us, ptr %.03442.i.us, ptr elementtype([16 x i64]) %.03043.i.us) #11, !srcloc !31
   %49 = extractvalue { i64, ptr, ptr } %48, 0
   %50 = extractvalue { i64, ptr, ptr } %48, 1
   %51 = extractvalue { i64, ptr, ptr } %48, 2
@@ -886,7 +886,7 @@ mbedtls_mpi_core_mla.exit.loopexit.us28:          ; preds = %.lr.ph60.i.us21
   %.03043.i.us34 = phi ptr [ %65, %.lr.ph.i.us31 ], [ %59, %.lr.ph.preheader.i.us29 ]
   %.03442.i.us35 = phi ptr [ %66, %.lr.ph.i.us31 ], [ %1, %.lr.ph.preheader.i.us29 ]
   %62 = add nsw i64 %.02745.i.us32, -1
-  %63 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.03043.i.us34, i64 %61, ptr elementtype([16 x i64]) %.03442.i.us35, i64 %.02944.i.us33, ptr %.03043.i.us34, ptr %.03442.i.us35, ptr elementtype([16 x i64]) %.03043.i.us34) #10, !srcloc !31
+  %63 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.03043.i.us34, i64 %61, ptr elementtype([16 x i64]) %.03442.i.us35, i64 %.02944.i.us33, ptr %.03043.i.us34, ptr %.03442.i.us35, ptr elementtype([16 x i64]) %.03043.i.us34) #11, !srcloc !31
   %64 = extractvalue { i64, ptr, ptr } %63, 0
   %65 = extractvalue { i64, ptr, ptr } %63, 1
   %66 = extractvalue { i64, ptr, ptr } %63, 2
@@ -899,7 +899,7 @@ mbedtls_mpi_core_mla.exit.loopexit.us28:          ; preds = %.lr.ph60.i.us21
   %.13150.i.us40 = phi ptr [ %70, %.lr.ph53.i.us37 ], [ %65, %.lr.ph.i.us31 ]
   %.13549.i.us41 = phi ptr [ %71, %.lr.ph53.i.us37 ], [ %66, %.lr.ph.i.us31 ]
   %67 = add nsw i64 %.052.i.us38, -1
-  %68 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.13150.i.us40, i64 %61, ptr elementtype([16 x i64]) %.13549.i.us41, i64 %.151.i.us39, ptr %.13150.i.us40, ptr %.13549.i.us41, ptr elementtype([16 x i64]) %.13150.i.us40) #10, !srcloc !33
+  %68 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.13150.i.us40, i64 %61, ptr elementtype([16 x i64]) %.13549.i.us41, i64 %.151.i.us39, ptr %.13150.i.us40, ptr %.13549.i.us41, ptr elementtype([16 x i64]) %.13150.i.us40) #11, !srcloc !33
   %69 = extractvalue { i64, ptr, ptr } %68, 0
   %70 = extractvalue { i64, ptr, ptr } %68, 1
   %71 = extractvalue { i64, ptr, ptr } %68, 2
@@ -927,7 +927,7 @@ mbedtls_mpi_core_mla.exit.loopexit.us28:          ; preds = %.lr.ph60.i.us21
   %.03043.i = phi ptr [ %79, %.lr.ph.i ], [ %73, %.lr.ph.preheader.i ]
   %.03442.i = phi ptr [ %80, %.lr.ph.i ], [ %1, %.lr.ph.preheader.i ]
   %76 = add nsw i64 %.02745.i, -1
-  %77 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.03043.i, i64 %75, ptr elementtype([16 x i64]) %.03442.i, i64 %.02944.i, ptr %.03043.i, ptr %.03442.i, ptr elementtype([16 x i64]) %.03043.i) #10, !srcloc !31
+  %77 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.03043.i, i64 %75, ptr elementtype([16 x i64]) %.03442.i, i64 %.02944.i, ptr %.03043.i, ptr %.03442.i, ptr elementtype([16 x i64]) %.03043.i) #11, !srcloc !31
   %78 = extractvalue { i64, ptr, ptr } %77, 0
   %79 = extractvalue { i64, ptr, ptr } %77, 1
   %80 = extractvalue { i64, ptr, ptr } %77, 2
@@ -940,7 +940,7 @@ mbedtls_mpi_core_mla.exit.loopexit.us28:          ; preds = %.lr.ph60.i.us21
   %.13150.i = phi ptr [ %84, %.lr.ph53.i ], [ %79, %.lr.ph.i ]
   %.13549.i = phi ptr [ %85, %.lr.ph53.i ], [ %80, %.lr.ph.i ]
   %81 = add nsw i64 %.052.i, -1
-  %82 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.13150.i, i64 %75, ptr elementtype([16 x i64]) %.13549.i, i64 %.151.i, ptr %.13150.i, ptr %.13549.i, ptr elementtype([16 x i64]) %.13150.i) #10, !srcloc !33
+  %82 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.13150.i, i64 %75, ptr elementtype([16 x i64]) %.13549.i, i64 %.151.i, ptr %.13150.i, ptr %.13549.i, ptr elementtype([16 x i64]) %.13150.i) #11, !srcloc !33
   %83 = extractvalue { i64, ptr, ptr } %82, 0
   %84 = extractvalue { i64, ptr, ptr } %82, 1
   %85 = extractvalue { i64, ptr, ptr } %82, 2
@@ -1052,9 +1052,9 @@ mbedtls_mpi_core_sub.exit:                        ; preds = %.lr.ph.i, %._crit_e
   %.0.lcssa96 = phi ptr [ %7, %._crit_edge.thread ], [ %79, %.lr.ph.i ]
   %.0.lcssa.i = phi i64 [ 0, %._crit_edge.thread ], [ %31, %.lr.ph.i ]
   %36 = xor i64 %.0.lcssa.i, %35
-  %37 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %36) #10, !srcloc !12
+  %37 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %36) #11, !srcloc !12
   %38 = shl i64 %5, 3
-  tail call void @mbedtls_ct_memcpy_if(i64 noundef %37, ptr noundef %0, ptr noundef nonnull %.0.lcssa96, ptr noundef null, i64 noundef %38) #10
+  tail call void @mbedtls_ct_memcpy_if(i64 noundef %37, ptr noundef %0, ptr noundef nonnull %.0.lcssa96, ptr noundef null, i64 noundef %38) #11
   ret void
 
 39:                                               ; preds = %.lr.ph, %mbedtls_mpi_core_mla.exit66
@@ -1081,7 +1081,7 @@ mbedtls_mpi_core_sub.exit:                        ; preds = %.lr.ph.i, %._crit_e
   %.03043.i = phi ptr [ %50, %.lr.ph.i34 ], [ %.078, %39 ]
   %.03442.i = phi ptr [ %51, %.lr.ph.i34 ], [ %2, %39 ]
   %47 = add nsw i64 %.02745.i, -1
-  %48 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.03043.i, i64 %41, ptr elementtype([16 x i64]) %.03442.i, i64 %.02944.i, ptr %.03043.i, ptr %.03442.i, ptr elementtype([16 x i64]) %.03043.i) #10, !srcloc !31
+  %48 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.03043.i, i64 %41, ptr elementtype([16 x i64]) %.03442.i, i64 %.02944.i, ptr %.03043.i, ptr %.03442.i, ptr elementtype([16 x i64]) %.03043.i) #11, !srcloc !31
   %49 = extractvalue { i64, ptr, ptr } %48, 0
   %50 = extractvalue { i64, ptr, ptr } %48, 1
   %51 = extractvalue { i64, ptr, ptr } %48, 2
@@ -1099,7 +1099,7 @@ mbedtls_mpi_core_sub.exit:                        ; preds = %.lr.ph.i, %._crit_e
   %.13150.i = phi ptr [ %55, %.lr.ph53.i ], [ %.030.lcssa.i, %.preheader40.i ]
   %.13549.i = phi ptr [ %56, %.lr.ph53.i ], [ %.034.lcssa.i, %.preheader40.i ]
   %52 = add nsw i64 %.052.i, -1
-  %53 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.13150.i, i64 %41, ptr elementtype([16 x i64]) %.13549.i, i64 %.151.i, ptr %.13150.i, ptr %.13549.i, ptr elementtype([16 x i64]) %.13150.i) #10, !srcloc !33
+  %53 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.13150.i, i64 %41, ptr elementtype([16 x i64]) %.13549.i, i64 %.151.i, ptr %.13150.i, ptr %.13549.i, ptr elementtype([16 x i64]) %.13150.i) #11, !srcloc !33
   %54 = extractvalue { i64, ptr, ptr } %53, 0
   %55 = extractvalue { i64, ptr, ptr } %53, 1
   %56 = extractvalue { i64, ptr, ptr } %53, 2
@@ -1135,7 +1135,7 @@ mbedtls_mpi_core_mla.exit:                        ; preds = %.lr.ph60.i, %.prehe
   %.03043.i42 = phi ptr [ %66, %.lr.ph.i39 ], [ %.078, %mbedtls_mpi_core_mla.exit ]
   %.03442.i43 = phi ptr [ %67, %.lr.ph.i39 ], [ %4, %mbedtls_mpi_core_mla.exit ]
   %63 = add nsw i64 %.02745.i40, -1
-  %64 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.03043.i42, i64 %46, ptr elementtype([16 x i64]) %.03442.i43, i64 %.02944.i41, ptr %.03043.i42, ptr %.03442.i43, ptr elementtype([16 x i64]) %.03043.i42) #10, !srcloc !31
+  %64 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.03043.i42, i64 %46, ptr elementtype([16 x i64]) %.03442.i43, i64 %.02944.i41, ptr %.03043.i42, ptr %.03442.i43, ptr elementtype([16 x i64]) %.03043.i42) #11, !srcloc !31
   %65 = extractvalue { i64, ptr, ptr } %64, 0
   %66 = extractvalue { i64, ptr, ptr } %64, 1
   %67 = extractvalue { i64, ptr, ptr } %64, 2
@@ -1153,7 +1153,7 @@ mbedtls_mpi_core_mla.exit:                        ; preds = %.lr.ph60.i, %.prehe
   %.13150.i53 = phi ptr [ %71, %.lr.ph53.i50 ], [ %.030.lcssa.i47, %.preheader40.i45 ]
   %.13549.i54 = phi ptr [ %72, %.lr.ph53.i50 ], [ %.034.lcssa.i46, %.preheader40.i45 ]
   %68 = add nsw i64 %.052.i51, -1
-  %69 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.13150.i53, i64 %46, ptr elementtype([16 x i64]) %.13549.i54, i64 %.151.i52, ptr %.13150.i53, ptr %.13549.i54, ptr elementtype([16 x i64]) %.13150.i53) #10, !srcloc !33
+  %69 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.13150.i53, i64 %46, ptr elementtype([16 x i64]) %.13549.i54, i64 %.151.i52, ptr %.13150.i53, ptr %.13549.i54, ptr elementtype([16 x i64]) %.13150.i53) #11, !srcloc !33
   %70 = extractvalue { i64, ptr, ptr } %69, 0
   %71 = extractvalue { i64, ptr, ptr } %69, 1
   %72 = extractvalue { i64, ptr, ptr } %69, 2
@@ -1185,7 +1185,7 @@ declare void @mbedtls_ct_memcpy_if(i64 noundef, ptr noundef, ptr noundef, ptr no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_mpi_core_get_mont_r2_unsafe(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
-  %3 = tail call i32 @mbedtls_mpi_lset(ptr noundef %0, i64 noundef 1) #10
+  %3 = tail call i32 @mbedtls_mpi_lset(ptr noundef %0, i64 noundef 1) #11
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %16
 
@@ -1194,19 +1194,19 @@ define hidden i32 @mbedtls_mpi_core_get_mont_r2_unsafe(ptr noundef %0, ptr nound
   %6 = load i16, ptr %5, align 2, !tbaa !39
   %7 = zext i16 %6 to i64
   %8 = shl nuw nsw i64 %7, 7
-  %9 = tail call i32 @mbedtls_mpi_shift_l(ptr noundef %0, i64 noundef %8) #10
+  %9 = tail call i32 @mbedtls_mpi_shift_l(ptr noundef %0, i64 noundef %8) #11
   %.not11 = icmp eq i32 %9, 0
   br i1 %.not11, label %10, label %16
 
 10:                                               ; preds = %4
-  %11 = tail call i32 @mbedtls_mpi_mod_mpi(ptr noundef %0, ptr noundef %0, ptr noundef nonnull %1) #10
+  %11 = tail call i32 @mbedtls_mpi_mod_mpi(ptr noundef %0, ptr noundef %0, ptr noundef nonnull %1) #11
   %.not12 = icmp eq i32 %11, 0
   br i1 %.not12, label %12, label %16
 
 12:                                               ; preds = %10
   %13 = load i16, ptr %5, align 2, !tbaa !39
   %14 = zext i16 %13 to i64
-  %15 = tail call i32 @mbedtls_mpi_shrink(ptr noundef %0, i64 noundef %14) #10
+  %15 = tail call i32 @mbedtls_mpi_shrink(ptr noundef %0, i64 noundef %14) #11
   br label %16
 
 16:                                               ; preds = %12, %10, %4, %2
@@ -1241,7 +1241,7 @@ define hidden i32 @mbedtls_mpi_core_fill_random(ptr noundef %0, i64 noundef %1, 
   %17 = shl i64 %16, 3
   tail call void @llvm.memset.p0.i64(ptr align 1 %15, i8 0, i64 %17, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %14
-  %19 = tail call i32 %3(ptr noundef %4, ptr noundef %18, i64 noundef %2) #10
+  %19 = tail call i32 %3(ptr noundef %4, ptr noundef %18, i64 noundef %2) #11
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %20, label %mbedtls_mpi_core_bigendian_to_host.exit
 
@@ -1274,8 +1274,8 @@ mbedtls_mpi_core_bigendian_to_host.exit:          ; preds = %.lr.ph.i, %20, %12,
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_mpi_core_random(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #4 {
-  %7 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 -1) #10, !srcloc !11
-  %8 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
+  %7 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 -1) #11, !srcloc !11
+  %8 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #11, !srcloc !11
   %9 = and i64 %3, 4294967295
   br label %10
 
@@ -1352,7 +1352,7 @@ mbedtls_mpi_core_bitlen.exit.thread.split:        ; preds = %mbedtls_mpi_core_bi
   %.0 = phi i32 [ %71, %mbedtls_mpi_core_lt_ct.exit ], [ %26, %mbedtls_mpi_core_bitlen.exit.thread.split.preheader ]
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %30, i1 false)
   tail call void @llvm.memset.p0.i64(ptr align 1 %33, i8 0, i64 %35, i1 false)
-  %51 = tail call i32 %4(ptr noundef %5, ptr noundef %36, i64 noundef %25) #10
+  %51 = tail call i32 %4(ptr noundef %5, ptr noundef %36, i64 noundef %25) #11
   %.not.i25 = icmp eq i32 %51, 0
   br i1 %.not.i25, label %52, label %mbedtls_mpi_core_fill_random.exit.split
 
@@ -1427,8 +1427,8 @@ mbedtls_mpi_core_shift_r.exit:                    ; preds = %.lr.ph52.i, %58, %.
 
 73:                                               ; preds = %mbedtls_mpi_core_shift_r.exit
   %74 = load i64, ptr %0, align 8, !tbaa !3
-  %75 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %74, i64 %1) #10, !srcloc !10
-  %76 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
+  %75 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %74, i64 %1) #11, !srcloc !10
+  %76 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #11, !srcloc !11
   br i1 %49, label %.lr.ph.i28, label %mbedtls_mpi_core_uint_le_mpi.exit
 
 .lr.ph.i28:                                       ; preds = %73, %.lr.ph.i28
@@ -1436,7 +1436,7 @@ mbedtls_mpi_core_shift_r.exit:                    ; preds = %.lr.ph52.i, %58, %.
   %.0910.i = phi i64 [ %80, %.lr.ph.i28 ], [ %76, %73 ]
   %77 = getelementptr inbounds nuw i64, ptr %0, i64 %.011.i
   %78 = load i64, ptr %77, align 8, !tbaa !3
-  %79 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %78) #10, !srcloc !12
+  %79 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %78) #11, !srcloc !12
   %80 = or i64 %79, %.0910.i
   %81 = add nuw i64 %.011.i, 1
   %exitcond.not.i29 = icmp eq i64 %81, %3
@@ -1447,9 +1447,9 @@ mbedtls_mpi_core_uint_le_mpi.exit:                ; preds = %.lr.ph.i28, %73
   %82 = extractvalue { i64, i64, i64 } %75, 1
   %83 = xor i64 %82, -1
   %84 = or i64 %.09.lcssa.i, %83
-  %85 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
-  %86 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
-  %87 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
+  %85 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #11, !srcloc !11
+  %86 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #11, !srcloc !11
+  %87 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #11, !srcloc !11
   br i1 %.not20.i, label %mbedtls_mpi_core_lt_ct.exit, label %.lr.ph.i30
 
 .lr.ph.i30:                                       ; preds = %mbedtls_mpi_core_uint_le_mpi.exit, %.lr.ph.i30
@@ -1461,12 +1461,12 @@ mbedtls_mpi_core_uint_le_mpi.exit:                ; preds = %.lr.ph.i28, %73
   %90 = load i64, ptr %89, align 8, !tbaa !3
   %91 = getelementptr inbounds nuw i64, ptr %0, i64 %88
   %92 = load i64, ptr %91, align 8, !tbaa !3
-  %93 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %90, i64 %92) #10, !srcloc !10
+  %93 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %90, i64 %92) #11, !srcloc !10
   %94 = extractvalue { i64, i64, i64 } %93, 1
   %95 = or i64 %94, %.01822.i
   %96 = load i64, ptr %91, align 8, !tbaa !3
   %97 = load i64, ptr %89, align 8, !tbaa !3
-  %98 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %96, i64 %97) #10, !srcloc !10
+  %98 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %96, i64 %97) #11, !srcloc !10
   %99 = extractvalue { i64, i64, i64 } %98, 1
   %100 = xor i64 %95, -1
   %101 = and i64 %99, %100
@@ -1478,7 +1478,7 @@ mbedtls_mpi_core_uint_le_mpi.exit:                ; preds = %.lr.ph.i28, %73
 mbedtls_mpi_core_lt_ct.exit:                      ; preds = %.lr.ph.i30, %mbedtls_mpi_core_uint_le_mpi.exit
   %.019.lcssa.i = phi i64 [ %85, %mbedtls_mpi_core_uint_le_mpi.exit ], [ %102, %.lr.ph.i30 ]
   %104 = and i64 %.019.lcssa.i, %84
-  %105 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
+  %105 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #11, !srcloc !11
   %106 = icmp eq i64 %104, %105
   br i1 %106, label %mbedtls_mpi_core_bitlen.exit.thread.split, label %mbedtls_mpi_core_fill_random.exit.split, !llvm.loop !44
 
@@ -1630,10 +1630,10 @@ exp_mod_precompute_window.exit:                   ; preds = %.lr.ph.i, %mbedtls_
 
 mbedtls_mpi_core_cond_assign.exit.us.i.i:         ; preds = %66, %mbedtls_mpi_core_cond_assign.exit.us.i.i
   %.01011.us.i.i = phi i64 [ %71, %mbedtls_mpi_core_cond_assign.exit.us.i.i ], [ 0, %66 ]
-  %67 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 8) %.01011.us.i.i) #10, !srcloc !11
-  %68 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %59) #10, !srcloc !11
+  %67 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 8) %.01011.us.i.i) #11, !srcloc !11
+  %68 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %59) #11, !srcloc !11
   %69 = xor i64 %68, %67
-  %70 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %69) #10, !srcloc !12
+  %70 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %69) #11, !srcloc !12
   %71 = add nuw nsw i64 %.01011.us.i.i, 1
   %exitcond17.not.i.i = icmp eq i64 %71, %40
   br i1 %exitcond17.not.i.i, label %exp_mod_table_lookup_optionally_safe.exit, label %mbedtls_mpi_core_cond_assign.exit.us.i.i, !llvm.loop !46
@@ -1641,10 +1641,10 @@ mbedtls_mpi_core_cond_assign.exit.us.i.i:         ; preds = %66, %mbedtls_mpi_co
 .split.i.i:                                       ; preds = %66, %mbedtls_mpi_core_cond_assign.exit.i.i
   %.012.i.i = phi ptr [ %85, %mbedtls_mpi_core_cond_assign.exit.i.i ], [ %8, %66 ]
   %.01011.i.i = phi i64 [ %84, %mbedtls_mpi_core_cond_assign.exit.i.i ], [ 0, %66 ]
-  %72 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 8) %.01011.i.i) #10, !srcloc !11
-  %73 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %59) #10, !srcloc !11
+  %72 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 8) %.01011.i.i) #11, !srcloc !11
+  %73 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %59) #11, !srcloc !11
   %74 = xor i64 %73, %72
-  %75 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %74) #10, !srcloc !12
+  %75 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %74) #11, !srcloc !12
   %76 = xor i64 %75, -1
   %.not15.i.i = icmp eq ptr %42, %.012.i.i
   br i1 %.not15.i.i, label %mbedtls_mpi_core_cond_assign.exit.i.i, label %.lr.ph.i.i.i
@@ -1655,7 +1655,7 @@ mbedtls_mpi_core_cond_assign.exit.us.i.i:         ; preds = %66, %mbedtls_mpi_co
   %78 = load i64, ptr %77, align 8, !tbaa !3
   %79 = getelementptr inbounds nuw i64, ptr %42, i64 %.013.i.i.i
   %80 = load i64, ptr %79, align 8, !tbaa !3
-  %81 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %76, i64 %78, i64 %80) #10, !srcloc !15
+  %81 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %76, i64 %78, i64 %80) #11, !srcloc !15
   %82 = extractvalue { i64, i64, i64 } %81, 2
   store i64 %82, ptr %79, align 8, !tbaa !3
   %83 = add nuw i64 %.013.i.i.i, 1
@@ -1718,7 +1718,7 @@ define hidden i64 @mbedtls_mpi_core_check_zero_ct(ptr noundef %0, i64 noundef %1
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.07.lcssa = phi i64 [ 0, %2 ], [ %6, %.lr.ph ]
-  %3 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %.07.lcssa) #10, !srcloc !12
+  %3 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %.07.lcssa) #11, !srcloc !12
   ret i64 %3
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -1748,17 +1748,17 @@ define hidden void @mbedtls_mpi_core_from_mont_rep(ptr noundef %0, ptr noundef r
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #1
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.bswap.i64(i64) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
@@ -1768,9 +1768,10 @@ attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
+attributes #8 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

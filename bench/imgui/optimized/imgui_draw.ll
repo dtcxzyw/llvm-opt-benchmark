@@ -1323,8 +1323,8 @@ define void @_ZN20ImDrawListSharedDataC2Ev(ptr noundef nonnull writeonly align 8
   %8 = fmul float %7, 2.000000e+00
   %9 = fmul float %8, 0x400921FB60000000
   %10 = fdiv float %9, 4.800000e+01
-  %11 = tail call float @cosf(float noundef %10) #42, !tbaa !19
-  %12 = tail call float @sinf(float noundef %10) #42, !tbaa !19
+  %11 = tail call float @cosf(float noundef %10) #43, !tbaa !19
+  %12 = tail call float @sinf(float noundef %10) #43, !tbaa !19
   %13 = getelementptr inbounds nuw %struct.ImVec2, ptr %scevgep, i64 %indvars.iv
   store float %11, ptr %13, align 8
   %.sroa_idx8 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -1375,7 +1375,7 @@ define void @_ZN20ImDrawListSharedData29SetCircleTessellationMaxErrorEf(ptr noun
   %16 = select i1 %15, float %1, float %14
   %17 = fdiv float %16, %14
   %18 = fsub float 1.000000e+00, %17
-  %19 = tail call float @acosf(float noundef %18) #42, !tbaa !19
+  %19 = tail call float @acosf(float noundef %18) #43, !tbaa !19
   %20 = fdiv float 0x400921FB60000000, %19
   %21 = tail call float @llvm.ceil.f32(float %20)
   %22 = fptosi float %21 to i32
@@ -1402,7 +1402,7 @@ define void @_ZN20ImDrawListSharedData29SetCircleTessellationMaxErrorEf(ptr noun
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @acosf(float noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.ceil.f32(float) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -1431,7 +1431,7 @@ define linkonce_odr void @_ZN8ImVectorI10ImDrawVertED2Ev(ptr noundef nonnull ali
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #43
+  tail call void @__clang_call_terminate(ptr %8) #44
   unreachable
 }
 
@@ -1454,7 +1454,7 @@ define void @_ZN10ImDrawListD2Ev(ptr noundef nonnull align 8 captures(none) dere
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #43
+  tail call void @__clang_call_terminate(ptr %8) #44
   unreachable
 
 _ZN8ImVectorIhED2Ev.exit:                         ; preds = %2, %5
@@ -1471,7 +1471,7 @@ _ZN8ImVectorIhED2Ev.exit:                         ; preds = %2, %5
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #43
+  tail call void @__clang_call_terminate(ptr %14) #44
   unreachable
 
 _ZN8ImVectorIyED2Ev.exit:                         ; preds = %_ZN8ImVectorIhED2Ev.exit, %11
@@ -1488,7 +1488,7 @@ _ZN8ImVectorIyED2Ev.exit:                         ; preds = %_ZN8ImVectorIhED2Ev
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #43
+  tail call void @__clang_call_terminate(ptr %20) #44
   unreachable
 
 _ZN8ImVectorI6ImVec4ED2Ev.exit:                   ; preds = %_ZN8ImVectorIyED2Ev.exit, %17
@@ -1510,14 +1510,14 @@ _ZN8ImVectorI6ImVec4ED2Ev.exit:                   ; preds = %_ZN8ImVectorIyED2Ev
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #43
+  tail call void @__clang_call_terminate(ptr %28) #44
   unreachable
 
 29:                                               ; preds = %_ZN8ImVectorI6ImVec4ED2Ev.exit
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #43
+  tail call void @__clang_call_terminate(ptr %31) #44
   unreachable
 
 _ZN18ImDrawListSplitterD2Ev.exit:                 ; preds = %22, %25
@@ -1534,7 +1534,7 @@ _ZN18ImDrawListSplitterD2Ev.exit:                 ; preds = %22, %25
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #43
+  tail call void @__clang_call_terminate(ptr %37) #44
   unreachable
 
 _ZN8ImVectorI6ImVec2ED2Ev.exit:                   ; preds = %_ZN18ImDrawListSplitterD2Ev.exit, %34
@@ -1551,7 +1551,7 @@ _ZN8ImVectorI6ImVec2ED2Ev.exit:                   ; preds = %_ZN18ImDrawListSpli
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #43
+  tail call void @__clang_call_terminate(ptr %43) #44
   unreachable
 
 _ZN8ImVectorI10ImDrawVertED2Ev.exit:              ; preds = %_ZN8ImVectorI6ImVec2ED2Ev.exit, %40
@@ -1568,7 +1568,7 @@ _ZN8ImVectorI10ImDrawVertED2Ev.exit:              ; preds = %_ZN8ImVectorI6ImVec
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  tail call void @__clang_call_terminate(ptr %49) #43
+  tail call void @__clang_call_terminate(ptr %49) #44
   unreachable
 
 _ZN8ImVectorItED2Ev.exit:                         ; preds = %_ZN8ImVectorI10ImDrawVertED2Ev.exit, %46
@@ -1585,7 +1585,7 @@ _ZN8ImVectorItED2Ev.exit:                         ; preds = %_ZN8ImVectorI10ImDr
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  tail call void @__clang_call_terminate(ptr %55) #43
+  tail call void @__clang_call_terminate(ptr %55) #44
   unreachable
 
 _ZN8ImVectorI9ImDrawCmdED2Ev.exit:                ; preds = %_ZN8ImVectorItED2Ev.exit, %52
@@ -1595,7 +1595,7 @@ _ZN8ImVectorI9ImDrawCmdED2Ev.exit:                ; preds = %_ZN8ImVectorItED2Ev
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  tail call void @__clang_call_terminate(ptr %58) #43
+  tail call void @__clang_call_terminate(ptr %58) #44
   unreachable
 }
 
@@ -1718,8 +1718,8 @@ _ZN8ImVectorI6ImVec2E5clearEv.exit:               ; preds = %_ZN8ImVectorIhE5cle
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #42
-  tail call void @_ZSt9terminatev() #43
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #43
+  tail call void @_ZSt9terminatev() #44
   unreachable
 }
 
@@ -3689,7 +3689,7 @@ define noundef range(i32 0, 513) i32 @_ZNK10ImDrawList27_CalcCircleAutoSegmentCo
   %17 = select i1 %16, float %15, float %1
   %18 = fdiv float %17, %1
   %19 = fsub float 1.000000e+00, %18
-  %20 = tail call float @acosf(float noundef %19) #42, !tbaa !19
+  %20 = tail call float @acosf(float noundef %19) #43, !tbaa !19
   %21 = fdiv float 0x400921FB60000000, %20
   %22 = tail call float @llvm.ceil.f32(float %21)
   %23 = fptosi float %22 to i32
@@ -5254,7 +5254,7 @@ define void @_ZN10ImDrawList11AddPolylineEPK6ImVec2ijif(ptr noundef nonnull alig
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: mustprogress uwtable
@@ -5648,7 +5648,7 @@ _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit:       ; preds = %._ZN8ImVectorI6ImVe
   %56 = select i1 %55, float %54, float %2
   %57 = fdiv float %56, %2
   %58 = fsub float 1.000000e+00, %57
-  %59 = tail call float @acosf(float noundef %58) #42, !tbaa !19
+  %59 = tail call float @acosf(float noundef %58) #43, !tbaa !19
   %60 = fdiv float 0x400921FB60000000, %59
   %61 = tail call float @llvm.ceil.f32(float %60)
   %62 = fptosi float %61 to i32
@@ -5963,10 +5963,10 @@ _ZN8ImVectorI6ImVec2E7reserveEi.exit:             ; preds = %39, %55
   %61 = fdiv float %60, %56
   %62 = tail call float @llvm.fmuladd.f32(float %61, float %57, float %3)
   %63 = load float, ptr %1, align 4, !tbaa !103
-  %64 = tail call float @cosf(float noundef %62) #42, !tbaa !19
+  %64 = tail call float @cosf(float noundef %62) #43, !tbaa !19
   %65 = tail call float @llvm.fmuladd.f32(float %64, float %2, float %63)
   %66 = load float, ptr %58, align 4, !tbaa !104
-  %67 = tail call float @sinf(float noundef %62) #42, !tbaa !19
+  %67 = tail call float @sinf(float noundef %62) #43, !tbaa !19
   %68 = tail call float @llvm.fmuladd.f32(float %67, float %2, float %66)
   %69 = load i32, ptr %8, align 8, !tbaa !67
   %70 = load i32, ptr %42, align 4, !tbaa !66
@@ -6287,11 +6287,11 @@ _ZN8ImVectorI6ImVec2E7reserveEi.exit:             ; preds = %78, %117
 
 118:                                              ; preds = %_ZN8ImVectorI6ImVec2E7reserveEi.exit
   %119 = load float, ptr %1, align 4, !tbaa !103
-  %120 = tail call float @cosf(float noundef %3) #42, !tbaa !19
+  %120 = tail call float @cosf(float noundef %3) #43, !tbaa !19
   %121 = tail call float @llvm.fmuladd.f32(float %120, float %2, float %119)
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %123 = load float, ptr %122, align 4, !tbaa !104
-  %124 = tail call float @sinf(float noundef %3) #42, !tbaa !19
+  %124 = tail call float @sinf(float noundef %3) #43, !tbaa !19
   %125 = tail call float @llvm.fmuladd.f32(float %124, float %2, float %123)
   %126 = load i32, ptr %96, align 8, !tbaa !67
   %127 = load i32, ptr %104, align 4, !tbaa !66
@@ -6365,11 +6365,11 @@ _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit73:     ; preds = %._ZN8ImVectorI6ImVe
 
 156:                                              ; preds = %155
   %157 = load float, ptr %1, align 4, !tbaa !103
-  %158 = tail call float @cosf(float noundef %4) #42, !tbaa !19
+  %158 = tail call float @cosf(float noundef %4) #43, !tbaa !19
   %159 = tail call float @llvm.fmuladd.f32(float %158, float %2, float %157)
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %161 = load float, ptr %160, align 4, !tbaa !104
-  %162 = tail call float @sinf(float noundef %4) #42, !tbaa !19
+  %162 = tail call float @sinf(float noundef %4) #43, !tbaa !19
   %163 = tail call float @llvm.fmuladd.f32(float %162, float %2, float %161)
   %164 = load i32, ptr %96, align 8, !tbaa !67
   %165 = load i32, ptr %104, align 4, !tbaa !66
@@ -6453,7 +6453,7 @@ _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit81:     ; preds = %._ZN8ImVectorI6ImVe
   %206 = select i1 %205, float %204, float %2
   %207 = fdiv float %206, %2
   %208 = fsub float 1.000000e+00, %207
-  %209 = tail call float @acosf(float noundef %208) #42, !tbaa !19
+  %209 = tail call float @acosf(float noundef %208) #43, !tbaa !19
   %210 = fdiv float 0x400921FB60000000, %209
   %211 = tail call float @llvm.ceil.f32(float %210)
   %212 = fptosi float %211 to i32
@@ -6514,7 +6514,7 @@ define void @_ZN10ImDrawList19PathEllipticalArcToERK6ImVec2S2_fffi(ptr noundef n
   %29 = select i1 %28, float %27, float %14
   %30 = fdiv float %29, %14
   %31 = fsub float 1.000000e+00, %30
-  %32 = tail call float @acosf(float noundef %31) #42, !tbaa !19
+  %32 = tail call float @acosf(float noundef %31) #43, !tbaa !19
   %33 = fdiv float 0x400921FB60000000, %32
   %34 = tail call float @llvm.ceil.f32(float %33)
   %35 = fptosi float %34 to i32
@@ -6560,8 +6560,8 @@ _ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf.exit: ; preds = %25, %19, %7
   br label %_ZN8ImVectorI6ImVec2E7reserveEi.exit
 
 _ZN8ImVectorI6ImVec2E7reserveEi.exit:             ; preds = %_ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf.exit, %58
-  %59 = tail call float @cosf(float noundef %3) #42, !tbaa !19
-  %60 = tail call float @sinf(float noundef %3) #42, !tbaa !19
+  %59 = tail call float @cosf(float noundef %3) #43, !tbaa !19
+  %60 = tail call float @sinf(float noundef %3) #43, !tbaa !19
   %61 = uitofp nneg i32 %.0 to float
   %62 = fsub float %5, %4
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -6578,10 +6578,10 @@ _ZN8ImVectorI6ImVec2E7reserveEi.exit:             ; preds = %_ZNK10ImDrawList27_
   %68 = uitofp nneg i32 %.02428 to float
   %69 = fdiv float %68, %61
   %70 = tail call float @llvm.fmuladd.f32(float %69, float %62, float %4)
-  %71 = tail call float @cosf(float noundef %70) #42, !tbaa !19
+  %71 = tail call float @cosf(float noundef %70) #43, !tbaa !19
   %72 = load float, ptr %2, align 4, !tbaa !103
   %73 = fmul float %71, %72
-  %74 = tail call float @sinf(float noundef %70) #42, !tbaa !19
+  %74 = tail call float @sinf(float noundef %70) #43, !tbaa !19
   %75 = load float, ptr %63, align 4, !tbaa !104
   %76 = fmul float %74, %75
   %77 = fmul float %76, %64
@@ -7850,7 +7850,7 @@ _ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit111: ; preds = %_ZN8ImVectorI6Im
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #7
 
 ; Function Attrs: mustprogress uwtable
@@ -9304,7 +9304,7 @@ define void @_ZN10ImDrawList10AddEllipseERK6ImVec2S2_jfif(ptr noundef nonnull al
   %31 = select i1 %30, float %29, float %16
   %32 = fdiv float %31, %16
   %33 = fsub float 1.000000e+00, %32
-  %34 = tail call float @acosf(float noundef %33) #42, !tbaa !19
+  %34 = tail call float @acosf(float noundef %33) #43, !tbaa !19
   %35 = fdiv float 0x400921FB60000000, %34
   %36 = tail call float @llvm.ceil.f32(float %35)
   %37 = fptosi float %36 to i32
@@ -9372,7 +9372,7 @@ define void @_ZN10ImDrawList16AddEllipseFilledERK6ImVec2S2_jfi(ptr noundef nonnu
   %30 = select i1 %29, float %28, float %15
   %31 = fdiv float %30, %15
   %32 = fsub float 1.000000e+00, %31
-  %33 = tail call float @acosf(float noundef %32) #42, !tbaa !19
+  %33 = tail call float @acosf(float noundef %32) #43, !tbaa !19
   %34 = fdiv float 0x400921FB60000000, %33
   %35 = tail call float @llvm.ceil.f32(float %34)
   %36 = fptosi float %35 to i32
@@ -9657,7 +9657,7 @@ define void @_ZN6ImFont10RenderTextEP10ImDrawListfRK6ImVec2jRK6ImVec4PKcS9_fb(pt
   br i1 %.not, label %23, label %26
 
 23:                                               ; preds = %22
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #44
+  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #45
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 %24
   br label %26
 
@@ -9685,7 +9685,7 @@ define void @_ZN6ImFont10RenderTextEP10ImDrawListfRK6ImVec2jRK6ImVec4PKcS9_fb(pt
   %.1306392.us = phi ptr [ %spec.select.i.us, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us ], [ %6, %.lr.ph ]
   %39 = ptrtoint ptr %.1306392.us to i64
   %40 = sub i64 %37, %39
-  %41 = tail call noundef ptr @memchr(ptr noundef %.1306392.us, i32 noundef 10, i64 noundef %40) #44
+  %41 = tail call noundef ptr @memchr(ptr noundef %.1306392.us, i32 noundef 10, i64 noundef %40) #45
   %.not338.us = icmp eq ptr %41, null
   %42 = select i1 %.not338.us, ptr %.0, ptr %41
   %43 = tail call noundef ptr @_ZN6ImFont21CalcWordWrapPositionAEfPKcS1_f(ptr noundef nonnull align 8 dereferenceable(114) %0, float noundef %29, ptr noundef %.1306392.us, ptr noundef nonnull %42, float noundef %8)
@@ -9729,7 +9729,7 @@ _ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us:    ; preds = %.lr.ph.i.us, %48, %
   %.1306392 = phi ptr [ %62, %.lr.ph.split ], [ %6, %.lr.ph ]
   %58 = ptrtoint ptr %.1306392 to i64
   %59 = sub i64 %37, %58
-  %60 = tail call noundef ptr @memchr(ptr noundef %.1306392, i32 noundef 10, i64 noundef %59) #44
+  %60 = tail call noundef ptr @memchr(ptr noundef %.1306392, i32 noundef 10, i64 noundef %59) #45
   %.not337 = icmp eq ptr %60, null
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 1
   %62 = select i1 %.not337, ptr %.0, ptr %61
@@ -9761,7 +9761,7 @@ _ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us:    ; preds = %.lr.ph.i.us, %48, %
   %.0311395 = phi float [ %80, %.lr.ph397 ], [ %.0267, %.preheader ]
   %75 = ptrtoint ptr %.0310396 to i64
   %76 = sub i64 %67, %75
-  %77 = tail call noundef ptr @memchr(ptr noundef %.0310396, i32 noundef 10, i64 noundef %76) #44
+  %77 = tail call noundef ptr @memchr(ptr noundef %.0310396, i32 noundef 10, i64 noundef %76) #45
   %.not332 = icmp eq ptr %77, null
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 1
   %79 = select i1 %.not332, ptr %.0, ptr %78
@@ -12993,7 +12993,7 @@ define void @_ZN10ImDrawData17DeIndexAllBuffersEv(ptr noundef nonnull align 8 ca
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #43
+  tail call void @__clang_call_terminate(ptr %14) #44
   unreachable
 
 _ZN8ImVectorI10ImDrawVertED2Ev.exit:              ; preds = %1, %._crit_edge27, %11
@@ -13017,7 +13017,7 @@ _ZN8ImVectorI10ImDrawVertED2Ev.exit:              ; preds = %1, %._crit_edge27, 
 26:                                               ; preds = %61, %57, %39, %_ZNK8ImVectorI10ImDrawVertE14_grow_capacityEi.exit.i
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8ImVectorI10ImDrawVertED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #42
+  call void @_ZN8ImVectorI10ImDrawVertED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #43
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %27
 
@@ -13379,7 +13379,7 @@ define void @_ZN11ImFontAtlasD2Ev(ptr noundef nonnull align 8 captures(none) der
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #43
+  tail call void @__clang_call_terminate(ptr %8) #44
   unreachable
 
 _ZN8ImVectorI12ImFontConfigED2Ev.exit:            ; preds = %2, %5
@@ -13396,7 +13396,7 @@ _ZN8ImVectorI12ImFontConfigED2Ev.exit:            ; preds = %2, %5
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #43
+  tail call void @__clang_call_terminate(ptr %14) #44
   unreachable
 
 _ZN8ImVectorI21ImFontAtlasCustomRectED2Ev.exit:   ; preds = %_ZN8ImVectorI12ImFontConfigED2Ev.exit, %11
@@ -13413,7 +13413,7 @@ _ZN8ImVectorI21ImFontAtlasCustomRectED2Ev.exit:   ; preds = %_ZN8ImVectorI12ImFo
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #43
+  tail call void @__clang_call_terminate(ptr %20) #44
   unreachable
 
 _ZN8ImVectorIP6ImFontED2Ev.exit:                  ; preds = %_ZN8ImVectorI21ImFontAtlasCustomRectED2Ev.exit, %17
@@ -13423,7 +13423,7 @@ _ZN8ImVectorIP6ImFontED2Ev.exit:                  ; preds = %_ZN8ImVectorI21ImFo
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  tail call void @__clang_call_terminate(ptr %23) #43
+  tail call void @__clang_call_terminate(ptr %23) #44
   unreachable
 }
 
@@ -13487,7 +13487,7 @@ _ZN11ImFontAtlas12ClearTexDataEv.exit:            ; preds = %5, %8
   br i1 %.not.i3.i.i, label %_Z9IM_DELETEI6ImFontEvPT_.exit.i.i, label %23
 
 23:                                               ; preds = %18
-  tail call void @_ZN6ImFontD1Ev(ptr noundef nonnull align 8 dereferenceable(114) %22) #42
+  tail call void @_ZN6ImFontD1Ev(ptr noundef nonnull align 8 dereferenceable(114) %22) #43
   tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %22)
   %.pre.i.i = load i32, ptr %10, align 8, !tbaa !258
   br label %_Z9IM_DELETEI6ImFontEvPT_.exit.i.i
@@ -13683,7 +13683,7 @@ define void @_ZN11ImFontAtlas10ClearFontsEv(ptr noundef nonnull align 8 captures
   br i1 %.not.i3.i, label %_Z9IM_DELETEI6ImFontEvPT_.exit.i, label %15
 
 15:                                               ; preds = %10
-  tail call void @_ZN6ImFontD1Ev(ptr noundef nonnull align 8 dereferenceable(114) %14) #42
+  tail call void @_ZN6ImFontD1Ev(ptr noundef nonnull align 8 dereferenceable(114) %14) #43
   tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %14)
   %.pre.i = load i32, ptr %2, align 8, !tbaa !258
   br label %_Z9IM_DELETEI6ImFontEvPT_.exit.i
@@ -14959,7 +14959,7 @@ define noundef ptr @_ZN11ImFontAtlas18AddFontFromFileTTFEPKcfPK12ImFontConfigPKt
   br i1 %18, label %19, label %29
 
 19:                                               ; preds = %15
-  %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #44
+  %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #45
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %20
   br label %22
 
@@ -15061,7 +15061,7 @@ define noundef ptr @_ZN11ImFontAtlas20AddFontFromMemoryTTFEPvifPK12ImFontConfigP
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN11ImFontAtlas36AddFontFromMemoryCompressedBase85TTFEPKcfPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(676) %0, ptr noundef readonly captures(none) %1, float noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #11 align 2 {
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #44
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #45
   %7 = trunc i64 %6 to i32
   %8 = add nsw i32 %7, 4
   %9 = sdiv i32 %8, 5
@@ -18306,7 +18306,7 @@ _Z36ImFontAtlasBuildGetOversampleFactorsPK12ImFontConfigPiS2_.exit: ; preds = %1
 ._crit_edge705:                                   ; preds = %1465, %.preheader570
   %.3311.lcssa = phi i32 [ %.0308.lcssa, %.preheader570 ], [ %1476, %1465 ]
   %1460 = sitofp i32 %.3311.lcssa to float
-  %1461 = call float @sqrtf(float noundef %1460) #42, !tbaa !19
+  %1461 = call float @sqrtf(float noundef %1460) #43, !tbaa !19
   store i32 0, ptr %29, align 4, !tbaa !284
   %1462 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1463 = load i32, ptr %1462, align 8, !tbaa !400
@@ -22034,7 +22034,7 @@ _ZN8ImVectorI10stbrp_rectE5clearEv.exit:          ; preds = %_ZL13stbtt_PackEndP
   %3497 = landingpad { ptr, i32 }
           catch ptr null
   %3498 = extractvalue { ptr, i32 } %3497, 0
-  call void @__clang_call_terminate(ptr %3498) #43
+  call void @__clang_call_terminate(ptr %3498) #44
   unreachable
 
 _ZN8ImVectorIiED2Ev.exit.i.i:                     ; preds = %3495, %.lr.ph.i473
@@ -22051,7 +22051,7 @@ _ZN8ImVectorIiED2Ev.exit.i.i:                     ; preds = %3495, %.lr.ph.i473
   %3503 = landingpad { ptr, i32 }
           catch ptr null
   %3504 = extractvalue { ptr, i32 } %3503, 0
-  call void @__clang_call_terminate(ptr %3504) #43
+  call void @__clang_call_terminate(ptr %3504) #44
   unreachable
 
 _ZN18ImFontBuildSrcDataD2Ev.exit.i:               ; preds = %3501, %_ZN8ImVectorIiED2Ev.exit.i.i
@@ -22441,7 +22441,7 @@ _ZN8ImVectorI18ImFontBuildSrcDataE14clear_destructEv.exit: ; preds = %.noexc478,
   %3740 = landingpad { ptr, i32 }
           catch ptr null
   %3741 = extractvalue { ptr, i32 } %3740, 0
-  call void @__clang_call_terminate(ptr %3741) #43
+  call void @__clang_call_terminate(ptr %3741) #44
   unreachable
 
 _ZN8ImVectorI10stbrp_rectED2Ev.exit:              ; preds = %3738, %3736
@@ -22451,9 +22451,9 @@ _ZN8ImVectorI10stbrp_rectED2Ev.exit:              ; preds = %3738, %3736
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %1523, %1529, %3734, %3603, %1340
   %.pn343.pn = phi { ptr, i32 } [ %1341, %1340 ], [ %1530, %1529 ], [ %1524, %1523 ], [ %3735, %3734 ], [ %3604, %3603 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit563, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit566, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN8ImVectorI16stbtt_packedcharED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #42
+  call void @_ZN8ImVectorI16stbtt_packedcharED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #43
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  call void @_ZN8ImVectorI10stbrp_rectED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #42
+  call void @_ZN8ImVectorI10stbrp_rectED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #43
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %3752
 
@@ -22471,7 +22471,7 @@ _ZN8ImVectorI10stbrp_rectED2Ev.exit:              ; preds = %3738, %3736
   %3745 = landingpad { ptr, i32 }
           catch ptr null
   %3746 = extractvalue { ptr, i32 } %3745, 0
-  call void @__clang_call_terminate(ptr %3746) #43
+  call void @__clang_call_terminate(ptr %3746) #44
   unreachable
 
 _ZN8ImVectorI18ImFontBuildDstDataED2Ev.exit:      ; preds = %.critedge355, %3743
@@ -22488,7 +22488,7 @@ _ZN8ImVectorI18ImFontBuildDstDataED2Ev.exit:      ; preds = %.critedge355, %3743
   %3750 = landingpad { ptr, i32 }
           catch ptr null
   %3751 = extractvalue { ptr, i32 } %3750, 0
-  call void @__clang_call_terminate(ptr %3751) #43
+  call void @__clang_call_terminate(ptr %3751) #44
   unreachable
 
 _ZN8ImVectorI18ImFontBuildSrcDataED2Ev.exit:      ; preds = %_ZN8ImVectorI18ImFontBuildDstDataED2Ev.exit, %3748
@@ -22497,9 +22497,9 @@ _ZN8ImVectorI18ImFontBuildSrcDataED2Ev.exit:      ; preds = %_ZN8ImVectorI18ImFo
 
 3752:                                             ; preds = %.loopexit573, %.loopexit.split-lp574, %1301, %1338, %.loopexit.split-lp, %1177, %77
   %.pn350.pn.pn = phi { ptr, i32 } [ %78, %77 ], [ %1302, %1301 ], [ %.pn343.pn, %.loopexit.split-lp ], [ %1339, %1338 ], [ %1178, %1177 ], [ %lpad.loopexit575, %.loopexit573 ], [ %lpad.loopexit.split-lp576, %.loopexit.split-lp574 ]
-  call void @_ZN8ImVectorI18ImFontBuildDstDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #42
+  call void @_ZN8ImVectorI18ImFontBuildDstDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #43
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  call void @_ZN8ImVectorI18ImFontBuildSrcDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #42
+  call void @_ZN8ImVectorI18ImFontBuildSrcDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #43
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   resume { ptr, i32 } %.pn350.pn.pn
 }
@@ -22698,7 +22698,7 @@ _ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i:
 22:                                               ; preds = %._crit_edge, %_ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8ImVectorI10stbrp_rectED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #42
+  call void @_ZN8ImVectorI10stbrp_rectED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #43
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %23
 
@@ -22730,7 +22730,7 @@ _ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i:
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  tail call void @__clang_call_terminate(ptr %39) #43
+  tail call void @__clang_call_terminate(ptr %39) #44
   unreachable
 
 _ZN8ImVectorI10stbrp_rectED2Ev.exit:              ; preds = %._crit_edge36
@@ -23258,7 +23258,7 @@ define linkonce_odr void @_ZN8ImVectorI10stbrp_rectED2Ev(ptr noundef nonnull ali
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #43
+  tail call void @__clang_call_terminate(ptr %8) #44
   unreachable
 }
 
@@ -25353,7 +25353,7 @@ _ZN8ImVectorIfE5clearEv.exit.i:                   ; preds = %.noexc1, %_ZN8ImVec
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #43
+  tail call void @__clang_call_terminate(ptr %29) #44
   unreachable
 
 _ZN8ImVectorI11ImFontGlyphED2Ev.exit:             ; preds = %26
@@ -25369,7 +25369,7 @@ _ZN8ImVectorI11ImFontGlyphED2Ev.exit:             ; preds = %26
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #43
+  tail call void @__clang_call_terminate(ptr %33) #44
   unreachable
 
 _ZN8ImVectorItED2Ev.exit:                         ; preds = %18, %_ZN8ImVectorI11ImFontGlyphED2Ev.exit, %30
@@ -25385,7 +25385,7 @@ _ZN8ImVectorItED2Ev.exit:                         ; preds = %18, %_ZN8ImVectorI1
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #43
+  tail call void @__clang_call_terminate(ptr %38) #44
   unreachable
 
 _ZN8ImVectorIfED2Ev.exit:                         ; preds = %_ZN8ImVectorItED2Ev.exit, %35
@@ -25395,7 +25395,7 @@ _ZN8ImVectorIfED2Ev.exit:                         ; preds = %_ZN8ImVectorItED2Ev
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  tail call void @__clang_call_terminate(ptr %41) #43
+  tail call void @__clang_call_terminate(ptr %41) #44
   unreachable
 }
 
@@ -25852,7 +25852,7 @@ define <2 x float> @_ZN6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull 
   br i1 %.not, label %9, label %12
 
 9:                                                ; preds = %7
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #44
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #45
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 %10
   br label %12
 
@@ -26812,7 +26812,7 @@ define void @_ZN5ImGui22RenderRectFilledRangeHEP10ImDrawListRK6ImRectjfff(ptr no
   br i1 %91, label %92, label %_ZL8ImAcos01f.exit
 
 92:                                               ; preds = %90
-  %93 = tail call float @acosf(float noundef %88) #42, !tbaa !19
+  %93 = tail call float @acosf(float noundef %88) #43, !tbaa !19
   br label %_ZL8ImAcos01f.exit
 
 _ZL8ImAcos01f.exit:                               ; preds = %74, %90, %92
@@ -26828,7 +26828,7 @@ _ZL8ImAcos01f.exit:                               ; preds = %74, %90, %92
   br i1 %99, label %100, label %_ZL8ImAcos01f.exit97
 
 100:                                              ; preds = %98
-  %101 = tail call float @acosf(float noundef %96) #42, !tbaa !19
+  %101 = tail call float @acosf(float noundef %96) #43, !tbaa !19
   br label %_ZL8ImAcos01f.exit97
 
 _ZL8ImAcos01f.exit97:                             ; preds = %_ZL8ImAcos01f.exit, %98, %100
@@ -27148,7 +27148,7 @@ _ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit121: ; preds = %_ZN8ImVectorI6Im
   br i1 %252, label %253, label %_ZL8ImAcos01f.exit123
 
 253:                                              ; preds = %251
-  %254 = tail call float @acosf(float noundef %249) #42, !tbaa !19
+  %254 = tail call float @acosf(float noundef %249) #43, !tbaa !19
   br label %_ZL8ImAcos01f.exit123
 
 _ZL8ImAcos01f.exit123:                            ; preds = %245, %251, %253
@@ -27164,7 +27164,7 @@ _ZL8ImAcos01f.exit123:                            ; preds = %245, %251, %253
   br i1 %260, label %261, label %_ZL8ImAcos01f.exit125
 
 261:                                              ; preds = %259
-  %262 = tail call float @acosf(float noundef %257) #42, !tbaa !19
+  %262 = tail call float @acosf(float noundef %257) #43, !tbaa !19
   br label %_ZL8ImAcos01f.exit125
 
 _ZL8ImAcos01f.exit125:                            ; preds = %_ZL8ImAcos01f.exit123, %259, %261
@@ -28439,7 +28439,7 @@ define linkonce_odr void @_ZN8ImVectorI16stbtt_packedcharED2Ev(ptr noundef nonnu
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #43
+  tail call void @__clang_call_terminate(ptr %8) #44
   unreachable
 }
 
@@ -28461,7 +28461,7 @@ define linkonce_odr void @_ZN8ImVectorI18ImFontBuildDstDataED2Ev(ptr noundef non
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #43
+  tail call void @__clang_call_terminate(ptr %8) #44
   unreachable
 }
 
@@ -28483,7 +28483,7 @@ define linkonce_odr void @_ZN8ImVectorI18ImFontBuildSrcDataED2Ev(ptr noundef non
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #43
+  tail call void @__clang_call_terminate(ptr %8) #44
   unreachable
 }
 
@@ -32898,28 +32898,28 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #38
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #39
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #40
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #41
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #40
+declare i32 @llvm.abs.i32(i32, i1 immarg) #42
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #40
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #40
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -32929,7 +32929,7 @@ attributes #3 = { mustprogress nofree norecurse nounwind memory(argmem: write, e
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -32962,11 +32962,12 @@ attributes #36 = { mustprogress nofree nosync nounwind memory(argmem: readwrite)
 attributes #37 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #38 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #39 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #40 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #40 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #41 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #42 = { nounwind }
-attributes #43 = { noreturn nounwind }
-attributes #44 = { nounwind willreturn memory(read) }
+attributes #42 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #43 = { nounwind }
+attributes #44 = { noreturn nounwind }
+attributes #45 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

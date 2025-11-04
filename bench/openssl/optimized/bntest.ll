@@ -839,7 +839,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %1
 
 1:                                                ; preds = %.backedge, %.outer
-  %2 = tail call i32 @opt_next() #8
+  %2 = tail call i32 @opt_next() #9
   switch i32 %2, label %.loopexit [
     i32 0, label %3
     i32 1, label %.outer
@@ -855,11 +855,11 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %1, !llvm.loop !4
 
 3:                                                ; preds = %1
-  %4 = tail call i64 @test_get_argument_count() #8
+  %4 = tail call i64 @test_get_argument_count() #9
   %5 = trunc i64 %4 to i32
-  %6 = tail call ptr @BN_CTX_new() #8
+  %6 = tail call ptr @BN_CTX_new() #9
   store ptr %6, ptr @ctx, align 8, !tbaa !6
-  %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3377, ptr noundef nonnull @.str.18, ptr noundef %6) #8
+  %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3377, ptr noundef nonnull @.str.18, ptr noundef %6) #9
   %.not8 = icmp eq i32 %7, 0
   br i1 %.not8, label %.loopexit, label %8
 
@@ -868,56 +868,56 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  tail call void @add_test(ptr noundef nonnull @.str.19, ptr noundef nonnull @test_sub) #8
-  tail call void @add_test(ptr noundef nonnull @.str.20, ptr noundef nonnull @test_div_recip) #8
-  tail call void @add_all_tests(ptr noundef nonnull @.str.21, ptr noundef nonnull @test_signed_mod_replace_ab, i32 noundef 4, i32 noundef 1) #8
-  tail call void @add_all_tests(ptr noundef nonnull @.str.22, ptr noundef nonnull @test_signed_mod_replace_ba, i32 noundef 4, i32 noundef 1) #8
-  tail call void @add_test(ptr noundef nonnull @.str.23, ptr noundef nonnull @test_mod) #8
-  tail call void @add_test(ptr noundef nonnull @.str.24, ptr noundef nonnull @test_mod_inverse) #8
-  tail call void @add_all_tests(ptr noundef nonnull @.str.25, ptr noundef nonnull @test_mod_exp_alias, i32 noundef 2, i32 noundef 1) #8
-  tail call void @add_test(ptr noundef nonnull @.str.26, ptr noundef nonnull @test_modexp_mont5) #8
-  tail call void @add_test(ptr noundef nonnull @.str.27, ptr noundef nonnull @test_kronecker) #8
-  tail call void @add_test(ptr noundef nonnull @.str.28, ptr noundef nonnull @test_rand) #8
-  tail call void @add_test(ptr noundef nonnull @.str.29, ptr noundef nonnull @test_bn2padded) #8
-  tail call void @add_test(ptr noundef nonnull @.str.30, ptr noundef nonnull @test_dec2bn) #8
-  tail call void @add_test(ptr noundef nonnull @.str.31, ptr noundef nonnull @test_hex2bn) #8
-  tail call void @add_test(ptr noundef nonnull @.str.32, ptr noundef nonnull @test_asc2bn) #8
-  tail call void @add_test(ptr noundef nonnull @.str.33, ptr noundef nonnull @test_bin2zero) #8
-  tail call void @add_test(ptr noundef nonnull @.str.34, ptr noundef nonnull @test_bin2bn_lengths) #8
-  tail call void @add_all_tests(ptr noundef nonnull @.str.35, ptr noundef nonnull @test_mpi, i32 noundef 6, i32 noundef 1) #8
-  tail call void @add_all_tests(ptr noundef nonnull @.str.36, ptr noundef nonnull @test_bn2signed, i32 noundef 43, i32 noundef 1) #8
-  tail call void @add_test(ptr noundef nonnull @.str.37, ptr noundef nonnull @test_negzero) #8
-  tail call void @add_test(ptr noundef nonnull @.str.38, ptr noundef nonnull @test_badmod) #8
-  tail call void @add_test(ptr noundef nonnull @.str.39, ptr noundef nonnull @test_expmodzero) #8
-  tail call void @add_test(ptr noundef nonnull @.str.40, ptr noundef nonnull @test_expmodone) #8
-  tail call void @add_all_tests(ptr noundef nonnull @.str.41, ptr noundef nonnull @test_smallprime, i32 noundef 16, i32 noundef 1) #8
-  tail call void @add_all_tests(ptr noundef nonnull @.str.42, ptr noundef nonnull @test_smallsafeprime, i32 noundef 16, i32 noundef 1) #8
-  tail call void @add_test(ptr noundef nonnull @.str.43, ptr noundef nonnull @test_swap) #8
-  tail call void @add_test(ptr noundef nonnull @.str.44, ptr noundef nonnull @test_ctx_consttime_flag) #8
-  tail call void @add_test(ptr noundef nonnull @.str.45, ptr noundef nonnull @test_gf2m_add) #8
-  tail call void @add_test(ptr noundef nonnull @.str.46, ptr noundef nonnull @test_gf2m_mod) #8
-  tail call void @add_test(ptr noundef nonnull @.str.47, ptr noundef nonnull @test_gf2m_mul) #8
-  tail call void @add_test(ptr noundef nonnull @.str.48, ptr noundef nonnull @test_gf2m_sqr) #8
-  tail call void @add_test(ptr noundef nonnull @.str.49, ptr noundef nonnull @test_gf2m_modinv) #8
-  tail call void @add_test(ptr noundef nonnull @.str.50, ptr noundef nonnull @test_gf2m_moddiv) #8
-  tail call void @add_test(ptr noundef nonnull @.str.51, ptr noundef nonnull @test_gf2m_modexp) #8
-  tail call void @add_test(ptr noundef nonnull @.str.52, ptr noundef nonnull @test_gf2m_modsqrt) #8
-  tail call void @add_test(ptr noundef nonnull @.str.53, ptr noundef nonnull @test_gf2m_modsolvequad) #8
-  tail call void @add_all_tests(ptr noundef nonnull @.str.54, ptr noundef nonnull @test_is_prime, i32 noundef 5, i32 noundef 1) #8
-  tail call void @add_all_tests(ptr noundef nonnull @.str.55, ptr noundef nonnull @test_not_prime, i32 noundef 4, i32 noundef 1) #8
-  tail call void @add_test(ptr noundef nonnull @.str.56, ptr noundef nonnull @test_gcd_prime) #8
-  tail call void @add_test(ptr noundef nonnull @.str.57, ptr noundef nonnull @test_coprime) #8
-  tail call void @add_all_tests(ptr noundef nonnull @.str.58, ptr noundef nonnull @test_mod_exp, i32 noundef 16, i32 noundef 1) #8
-  tail call void @add_all_tests(ptr noundef nonnull @.str.59, ptr noundef nonnull @test_mod_exp_consttime, i32 noundef 16, i32 noundef 1) #8
-  tail call void @add_test(ptr noundef nonnull @.str.60, ptr noundef nonnull @test_mod_exp2_mont) #8
+  tail call void @add_test(ptr noundef nonnull @.str.19, ptr noundef nonnull @test_sub) #9
+  tail call void @add_test(ptr noundef nonnull @.str.20, ptr noundef nonnull @test_div_recip) #9
+  tail call void @add_all_tests(ptr noundef nonnull @.str.21, ptr noundef nonnull @test_signed_mod_replace_ab, i32 noundef 4, i32 noundef 1) #9
+  tail call void @add_all_tests(ptr noundef nonnull @.str.22, ptr noundef nonnull @test_signed_mod_replace_ba, i32 noundef 4, i32 noundef 1) #9
+  tail call void @add_test(ptr noundef nonnull @.str.23, ptr noundef nonnull @test_mod) #9
+  tail call void @add_test(ptr noundef nonnull @.str.24, ptr noundef nonnull @test_mod_inverse) #9
+  tail call void @add_all_tests(ptr noundef nonnull @.str.25, ptr noundef nonnull @test_mod_exp_alias, i32 noundef 2, i32 noundef 1) #9
+  tail call void @add_test(ptr noundef nonnull @.str.26, ptr noundef nonnull @test_modexp_mont5) #9
+  tail call void @add_test(ptr noundef nonnull @.str.27, ptr noundef nonnull @test_kronecker) #9
+  tail call void @add_test(ptr noundef nonnull @.str.28, ptr noundef nonnull @test_rand) #9
+  tail call void @add_test(ptr noundef nonnull @.str.29, ptr noundef nonnull @test_bn2padded) #9
+  tail call void @add_test(ptr noundef nonnull @.str.30, ptr noundef nonnull @test_dec2bn) #9
+  tail call void @add_test(ptr noundef nonnull @.str.31, ptr noundef nonnull @test_hex2bn) #9
+  tail call void @add_test(ptr noundef nonnull @.str.32, ptr noundef nonnull @test_asc2bn) #9
+  tail call void @add_test(ptr noundef nonnull @.str.33, ptr noundef nonnull @test_bin2zero) #9
+  tail call void @add_test(ptr noundef nonnull @.str.34, ptr noundef nonnull @test_bin2bn_lengths) #9
+  tail call void @add_all_tests(ptr noundef nonnull @.str.35, ptr noundef nonnull @test_mpi, i32 noundef 6, i32 noundef 1) #9
+  tail call void @add_all_tests(ptr noundef nonnull @.str.36, ptr noundef nonnull @test_bn2signed, i32 noundef 43, i32 noundef 1) #9
+  tail call void @add_test(ptr noundef nonnull @.str.37, ptr noundef nonnull @test_negzero) #9
+  tail call void @add_test(ptr noundef nonnull @.str.38, ptr noundef nonnull @test_badmod) #9
+  tail call void @add_test(ptr noundef nonnull @.str.39, ptr noundef nonnull @test_expmodzero) #9
+  tail call void @add_test(ptr noundef nonnull @.str.40, ptr noundef nonnull @test_expmodone) #9
+  tail call void @add_all_tests(ptr noundef nonnull @.str.41, ptr noundef nonnull @test_smallprime, i32 noundef 16, i32 noundef 1) #9
+  tail call void @add_all_tests(ptr noundef nonnull @.str.42, ptr noundef nonnull @test_smallsafeprime, i32 noundef 16, i32 noundef 1) #9
+  tail call void @add_test(ptr noundef nonnull @.str.43, ptr noundef nonnull @test_swap) #9
+  tail call void @add_test(ptr noundef nonnull @.str.44, ptr noundef nonnull @test_ctx_consttime_flag) #9
+  tail call void @add_test(ptr noundef nonnull @.str.45, ptr noundef nonnull @test_gf2m_add) #9
+  tail call void @add_test(ptr noundef nonnull @.str.46, ptr noundef nonnull @test_gf2m_mod) #9
+  tail call void @add_test(ptr noundef nonnull @.str.47, ptr noundef nonnull @test_gf2m_mul) #9
+  tail call void @add_test(ptr noundef nonnull @.str.48, ptr noundef nonnull @test_gf2m_sqr) #9
+  tail call void @add_test(ptr noundef nonnull @.str.49, ptr noundef nonnull @test_gf2m_modinv) #9
+  tail call void @add_test(ptr noundef nonnull @.str.50, ptr noundef nonnull @test_gf2m_moddiv) #9
+  tail call void @add_test(ptr noundef nonnull @.str.51, ptr noundef nonnull @test_gf2m_modexp) #9
+  tail call void @add_test(ptr noundef nonnull @.str.52, ptr noundef nonnull @test_gf2m_modsqrt) #9
+  tail call void @add_test(ptr noundef nonnull @.str.53, ptr noundef nonnull @test_gf2m_modsolvequad) #9
+  tail call void @add_all_tests(ptr noundef nonnull @.str.54, ptr noundef nonnull @test_is_prime, i32 noundef 5, i32 noundef 1) #9
+  tail call void @add_all_tests(ptr noundef nonnull @.str.55, ptr noundef nonnull @test_not_prime, i32 noundef 4, i32 noundef 1) #9
+  tail call void @add_test(ptr noundef nonnull @.str.56, ptr noundef nonnull @test_gcd_prime) #9
+  tail call void @add_test(ptr noundef nonnull @.str.57, ptr noundef nonnull @test_coprime) #9
+  tail call void @add_all_tests(ptr noundef nonnull @.str.58, ptr noundef nonnull @test_mod_exp, i32 noundef 16, i32 noundef 1) #9
+  tail call void @add_all_tests(ptr noundef nonnull @.str.59, ptr noundef nonnull @test_mod_exp_consttime, i32 noundef 16, i32 noundef 1) #9
+  tail call void @add_test(ptr noundef nonnull @.str.60, ptr noundef nonnull @test_mod_exp2_mont) #9
   br i1 %.not9, label %.loopexit, label %11
 
 11:                                               ; preds = %10
-  tail call void @add_test(ptr noundef nonnull @.str.61, ptr noundef nonnull @test_rand_range) #8
+  tail call void @add_test(ptr noundef nonnull @.str.61, ptr noundef nonnull @test_rand_range) #9
   br label %.loopexit
 
 12:                                               ; preds = %8
-  tail call void @add_all_tests(ptr noundef nonnull @.str.62, ptr noundef nonnull @run_file_tests, i32 noundef %5, i32 noundef 1) #8
+  tail call void @add_all_tests(ptr noundef nonnull @.str.62, ptr noundef nonnull @run_file_tests, i32 noundef %5, i32 noundef 1) #9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1, %12, %11, %10, %3
@@ -937,20 +937,20 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_sub() #1 {
-  %1 = tail call ptr @BN_new() #8
-  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 244, ptr noundef nonnull @.str.63, ptr noundef %1) #8
+  %1 = tail call ptr @BN_new() #9
+  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 244, ptr noundef nonnull @.str.63, ptr noundef %1) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @BN_new() #8
-  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 245, ptr noundef nonnull @.str.64, ptr noundef %4) #8
+  %4 = tail call ptr @BN_new() #9
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 245, ptr noundef nonnull @.str.64, ptr noundef %4) #9
   %.not30 = icmp eq i32 %5, 0
   br i1 %.not30, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @BN_new() #8
-  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 246, ptr noundef nonnull @.str.65, ptr noundef %7) #8
+  %7 = tail call ptr @BN_new() #9
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 246, ptr noundef nonnull @.str.65, ptr noundef %7) #9
   %.not31 = icmp eq i32 %8, 0
   br i1 %.not31, label %.loopexit, label %.preheader
 
@@ -965,41 +965,41 @@ define internal range(i32 0, 2) i32 @test_sub() #1 {
   br i1 %10, label %11, label %28
 
 11:                                               ; preds = %.preheader
-  %12 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 512, i32 noundef 0, i32 noundef 0) #8
+  %12 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 512, i32 noundef 0, i32 noundef 0) #9
   %13 = icmp ne i32 %12, 0
   %14 = zext i1 %13 to i32
-  %15 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 251, ptr noundef nonnull @.str.66, i32 noundef %14) #8
+  %15 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 251, ptr noundef nonnull @.str.66, i32 noundef %14) #9
   %.not33 = icmp eq i32 %15, 0
   br i1 %.not33, label %16, label %48
 
 16:                                               ; preds = %11
-  %17 = tail call ptr @BN_copy(ptr noundef %4, ptr noundef %1) #8
-  %18 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 252, ptr noundef nonnull @.str.67, ptr noundef %17) #8
+  %17 = tail call ptr @BN_copy(ptr noundef %4, ptr noundef %1) #9
+  %18 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 252, ptr noundef nonnull @.str.67, ptr noundef %17) #9
   %.not34 = icmp eq i32 %18, 0
   br i1 %.not34, label %48, label %19
 
 19:                                               ; preds = %16
   %20 = trunc nuw nsw i64 %indvars.iv to i32
-  %21 = tail call i32 @BN_set_bit(ptr noundef %1, i32 noundef %20) #8
-  %22 = tail call i32 @test_int_ne(ptr noundef nonnull @.str.17, i32 noundef 253, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef %21, i32 noundef 0) #8
+  %21 = tail call i32 @BN_set_bit(ptr noundef %1, i32 noundef %20) #9
+  %22 = tail call i32 @test_int_ne(ptr noundef nonnull @.str.17, i32 noundef 253, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef %21, i32 noundef 0) #9
   %.not35 = icmp eq i32 %22, 0
   br i1 %.not35, label %48, label %23
 
 23:                                               ; preds = %19
-  %24 = tail call i32 @BN_add_word(ptr noundef %4, i64 noundef %indvars.iv) #8
+  %24 = tail call i32 @BN_add_word(ptr noundef %4, i64 noundef %indvars.iv) #9
   %25 = icmp ne i32 %24, 0
   %26 = zext i1 %25 to i32
-  %27 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 254, ptr noundef nonnull @.str.70, i32 noundef %26) #8
+  %27 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 254, ptr noundef nonnull @.str.70, i32 noundef %26) #9
   %.not36 = icmp eq i32 %27, 0
   br i1 %.not36, label %48, label %.loopexit
 
 28:                                               ; preds = %.preheader
   %29 = trunc i64 %indvars.iv to i32
   %30 = add i32 %29, 350
-  %31 = tail call i32 @BN_bntest_rand(ptr noundef %4, i32 noundef %30, i32 noundef 0, i32 noundef 0) #8
+  %31 = tail call i32 @BN_bntest_rand(ptr noundef %4, i32 noundef %30, i32 noundef 0, i32 noundef 0) #9
   %32 = icmp ne i32 %31, 0
   %33 = zext i1 %32 to i32
-  %34 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 257, ptr noundef nonnull @.str.71, i32 noundef %33) #8
+  %34 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 257, ptr noundef nonnull @.str.71, i32 noundef %33) #9
   %.not32 = icmp eq i32 %34, 0
   br i1 %.not32, label %.loopexit, label %35
 
@@ -1011,7 +1011,7 @@ define internal range(i32 0, 2) i32 @test_sub() #1 {
   %39 = zext nneg i32 %38 to i64
   %40 = getelementptr inbounds nuw i32, ptr @rand_neg.sign, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !12
-  tail call void @BN_set_negative(ptr noundef %1, i32 noundef %41) #8
+  tail call void @BN_set_negative(ptr noundef %1, i32 noundef %41) #9
   %42 = load i32, ptr @rand_neg.neg, align 4, !tbaa !12
   %43 = add i32 %42, 1
   store i32 %43, ptr @rand_neg.neg, align 4, !tbaa !12
@@ -1019,35 +1019,35 @@ define internal range(i32 0, 2) i32 @test_sub() #1 {
   %45 = zext nneg i32 %44 to i64
   %46 = getelementptr inbounds nuw i32, ptr @rand_neg.sign, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !12
-  tail call void @BN_set_negative(ptr noundef %4, i32 noundef %47) #8
+  tail call void @BN_set_negative(ptr noundef %4, i32 noundef %47) #9
   br label %48
 
 48:                                               ; preds = %11, %16, %19, %23, %35
-  %49 = tail call i32 @BN_sub(ptr noundef %7, ptr noundef %1, ptr noundef %4) #8
+  %49 = tail call i32 @BN_sub(ptr noundef %7, ptr noundef %1, ptr noundef %4) #9
   %50 = icmp ne i32 %49, 0
   %51 = zext i1 %50 to i32
-  %52 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 262, ptr noundef nonnull @.str.72, i32 noundef %51) #8
+  %52 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 262, ptr noundef nonnull @.str.72, i32 noundef %51) #9
   %.not37 = icmp eq i32 %52, 0
   br i1 %.not37, label %.loopexit, label %53
 
 53:                                               ; preds = %48
-  %54 = tail call i32 @BN_add(ptr noundef %7, ptr noundef %7, ptr noundef %4) #8
+  %54 = tail call i32 @BN_add(ptr noundef %7, ptr noundef %7, ptr noundef %4) #9
   %55 = icmp ne i32 %54, 0
   %56 = zext i1 %55 to i32
-  %57 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 263, ptr noundef nonnull @.str.73, i32 noundef %56) #8
+  %57 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 263, ptr noundef nonnull @.str.73, i32 noundef %56) #9
   %.not38 = icmp eq i32 %57, 0
   br i1 %.not38, label %.loopexit, label %58
 
 58:                                               ; preds = %53
-  %59 = tail call i32 @BN_sub(ptr noundef %7, ptr noundef %7, ptr noundef %1) #8
+  %59 = tail call i32 @BN_sub(ptr noundef %7, ptr noundef %7, ptr noundef %1) #9
   %60 = icmp ne i32 %59, 0
   %61 = zext i1 %60 to i32
-  %62 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 264, ptr noundef nonnull @.str.74, i32 noundef %61) #8
+  %62 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 264, ptr noundef nonnull @.str.74, i32 noundef %61) #9
   %.not39 = icmp eq i32 %62, 0
   br i1 %.not39, label %.loopexit, label %63
 
 63:                                               ; preds = %58
-  %64 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 265, ptr noundef nonnull @.str.75, ptr noundef %7) #8
+  %64 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 265, ptr noundef nonnull @.str.75, ptr noundef %7) #9
   %.not40 = icmp eq i32 %64, 0
   br i1 %.not40, label %.loopexit, label %9
 
@@ -1055,46 +1055,46 @@ define internal range(i32 0, 2) i32 @test_sub() #1 {
   %.029 = phi ptr [ %4, %6 ], [ %4, %3 ], [ null, %0 ], [ %4, %23 ], [ %4, %28 ], [ %4, %63 ], [ %4, %58 ], [ %4, %53 ], [ %4, %48 ], [ %4, %9 ]
   %.028 = phi ptr [ %7, %6 ], [ null, %3 ], [ null, %0 ], [ %7, %23 ], [ %7, %28 ], [ %7, %63 ], [ %7, %58 ], [ %7, %53 ], [ %7, %48 ], [ %7, %9 ]
   %.0 = phi i32 [ 0, %6 ], [ 0, %3 ], [ 0, %0 ], [ 1, %9 ], [ 0, %48 ], [ 0, %53 ], [ 0, %58 ], [ 0, %63 ], [ 0, %28 ], [ 0, %23 ]
-  tail call void @BN_free(ptr noundef %1) #8
-  tail call void @BN_free(ptr noundef %.029) #8
-  tail call void @BN_free(ptr noundef %.028) #8
+  tail call void @BN_free(ptr noundef %1) #9
+  tail call void @BN_free(ptr noundef %.029) #9
+  tail call void @BN_free(ptr noundef %.028) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_div_recip() #1 {
-  %1 = tail call ptr @BN_new() #8
-  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 282, ptr noundef nonnull @.str.63, ptr noundef %1) #8
+  %1 = tail call ptr @BN_new() #9
+  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 282, ptr noundef nonnull @.str.63, ptr noundef %1) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @BN_new() #8
-  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 283, ptr noundef nonnull @.str.64, ptr noundef %4) #8
+  %4 = tail call ptr @BN_new() #9
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 283, ptr noundef nonnull @.str.64, ptr noundef %4) #9
   %.not43 = icmp eq i32 %5, 0
   br i1 %.not43, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @BN_new() #8
-  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 284, ptr noundef nonnull @.str.65, ptr noundef %7) #8
+  %7 = tail call ptr @BN_new() #9
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 284, ptr noundef nonnull @.str.65, ptr noundef %7) #9
   %.not44 = icmp eq i32 %8, 0
   br i1 %.not44, label %.loopexit, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @BN_new() #8
-  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 285, ptr noundef nonnull @.str.76, ptr noundef %10) #8
+  %10 = tail call ptr @BN_new() #9
+  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 285, ptr noundef nonnull @.str.76, ptr noundef %10) #9
   %.not45 = icmp eq i32 %11, 0
   br i1 %.not45, label %.loopexit, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call ptr @BN_new() #8
-  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 286, ptr noundef nonnull @.str.77, ptr noundef %13) #8
+  %13 = tail call ptr @BN_new() #9
+  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 286, ptr noundef nonnull @.str.77, ptr noundef %13) #9
   %.not46 = icmp eq i32 %14, 0
   br i1 %.not46, label %.loopexit, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call ptr @BN_RECP_CTX_new() #8
-  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 287, ptr noundef nonnull @.str.78, ptr noundef %16) #8
+  %16 = tail call ptr @BN_RECP_CTX_new() #9
+  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 287, ptr noundef nonnull @.str.78, ptr noundef %16) #9
   %.not47 = icmp eq i32 %17, 0
   br i1 %.not47, label %.loopexit, label %.preheader
 
@@ -1109,33 +1109,33 @@ define internal range(i32 0, 2) i32 @test_div_recip() #1 {
   br i1 %19, label %20, label %39
 
 20:                                               ; preds = %.preheader
-  %21 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 400, i32 noundef 0, i32 noundef 0) #8
+  %21 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 400, i32 noundef 0, i32 noundef 0) #9
   %22 = icmp ne i32 %21, 0
   %23 = zext i1 %22 to i32
-  %24 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 292, ptr noundef nonnull @.str.79, i32 noundef %23) #8
+  %24 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 292, ptr noundef nonnull @.str.79, i32 noundef %23) #9
   %.not49 = icmp eq i32 %24, 0
   br i1 %.not49, label %.loopexit, label %25
 
 25:                                               ; preds = %20
-  %26 = tail call ptr @BN_copy(ptr noundef %4, ptr noundef %1) #8
-  %27 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 293, ptr noundef nonnull @.str.67, ptr noundef %26) #8
+  %26 = tail call ptr @BN_copy(ptr noundef %4, ptr noundef %1) #9
+  %27 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 293, ptr noundef nonnull @.str.67, ptr noundef %26) #9
   %.not50 = icmp eq i32 %27, 0
   br i1 %.not50, label %.loopexit, label %28
 
 28:                                               ; preds = %25
   %29 = trunc nuw nsw i64 %indvars.iv to i32
-  %30 = tail call i32 @BN_lshift(ptr noundef %1, ptr noundef %1, i32 noundef %29) #8
+  %30 = tail call i32 @BN_lshift(ptr noundef %1, ptr noundef %1, i32 noundef %29) #9
   %31 = icmp ne i32 %30, 0
   %32 = zext i1 %31 to i32
-  %33 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 294, ptr noundef nonnull @.str.80, i32 noundef %32) #8
+  %33 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 294, ptr noundef nonnull @.str.80, i32 noundef %32) #9
   %.not51 = icmp eq i32 %33, 0
   br i1 %.not51, label %.loopexit, label %34
 
 34:                                               ; preds = %28
-  %35 = tail call i32 @BN_add_word(ptr noundef %1, i64 noundef %indvars.iv) #8
+  %35 = tail call i32 @BN_add_word(ptr noundef %1, i64 noundef %indvars.iv) #9
   %36 = icmp ne i32 %35, 0
   %37 = zext i1 %36 to i32
-  %38 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 295, ptr noundef nonnull @.str.81, i32 noundef %37) #8
+  %38 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 295, ptr noundef nonnull @.str.81, i32 noundef %37) #9
   %.not52 = icmp eq i32 %38, 0
   br i1 %.not52, label %.loopexit, label %47
 
@@ -1143,10 +1143,10 @@ define internal range(i32 0, 2) i32 @test_div_recip() #1 {
   %40 = trunc i64 %indvars.iv to i32
   %41 = mul i32 %40, 3
   %42 = add i32 %41, -100
-  %43 = tail call i32 @BN_bntest_rand(ptr noundef %4, i32 noundef %42, i32 noundef 0, i32 noundef 0) #8
+  %43 = tail call i32 @BN_bntest_rand(ptr noundef %4, i32 noundef %42, i32 noundef 0, i32 noundef 0) #9
   %44 = icmp ne i32 %43, 0
   %45 = zext i1 %44 to i32
-  %46 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 298, ptr noundef nonnull @.str.82, i32 noundef %45) #8
+  %46 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 298, ptr noundef nonnull @.str.82, i32 noundef %45) #9
   %.not48 = icmp eq i32 %46, 0
   br i1 %.not48, label %.loopexit, label %47
 
@@ -1158,7 +1158,7 @@ define internal range(i32 0, 2) i32 @test_div_recip() #1 {
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw i32, ptr @rand_neg.sign, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !12
-  tail call void @BN_set_negative(ptr noundef %1, i32 noundef %53) #8
+  tail call void @BN_set_negative(ptr noundef %1, i32 noundef %53) #9
   %54 = load i32, ptr @rand_neg.neg, align 4, !tbaa !12
   %55 = add i32 %54, 1
   store i32 %55, ptr @rand_neg.neg, align 4, !tbaa !12
@@ -1166,51 +1166,51 @@ define internal range(i32 0, 2) i32 @test_div_recip() #1 {
   %57 = zext nneg i32 %56 to i64
   %58 = getelementptr inbounds nuw i32, ptr @rand_neg.sign, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !12
-  tail call void @BN_set_negative(ptr noundef %4, i32 noundef %59) #8
+  tail call void @BN_set_negative(ptr noundef %4, i32 noundef %59) #9
   %60 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %61 = tail call i32 @BN_RECP_CTX_set(ptr noundef %16, ptr noundef %4, ptr noundef %60) #8
+  %61 = tail call i32 @BN_RECP_CTX_set(ptr noundef %16, ptr noundef %4, ptr noundef %60) #9
   %62 = icmp ne i32 %61, 0
   %63 = zext i1 %62 to i32
-  %64 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 303, ptr noundef nonnull @.str.83, i32 noundef %63) #8
+  %64 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 303, ptr noundef nonnull @.str.83, i32 noundef %63) #9
   %.not53 = icmp eq i32 %64, 0
   br i1 %.not53, label %.loopexit, label %65
 
 65:                                               ; preds = %47
   %66 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %67 = tail call i32 @BN_div_recp(ptr noundef %10, ptr noundef %7, ptr noundef %1, ptr noundef %16, ptr noundef %66) #8
+  %67 = tail call i32 @BN_div_recp(ptr noundef %10, ptr noundef %7, ptr noundef %1, ptr noundef %16, ptr noundef %66) #9
   %68 = icmp ne i32 %67, 0
   %69 = zext i1 %68 to i32
-  %70 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 304, ptr noundef nonnull @.str.84, i32 noundef %69) #8
+  %70 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 304, ptr noundef nonnull @.str.84, i32 noundef %69) #9
   %.not54 = icmp eq i32 %70, 0
   br i1 %.not54, label %.loopexit, label %71
 
 71:                                               ; preds = %65
   %72 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %73 = tail call i32 @BN_mul(ptr noundef %13, ptr noundef %10, ptr noundef %4, ptr noundef %72) #8
+  %73 = tail call i32 @BN_mul(ptr noundef %13, ptr noundef %10, ptr noundef %4, ptr noundef %72) #9
   %74 = icmp ne i32 %73, 0
   %75 = zext i1 %74 to i32
-  %76 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 305, ptr noundef nonnull @.str.85, i32 noundef %75) #8
+  %76 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 305, ptr noundef nonnull @.str.85, i32 noundef %75) #9
   %.not55 = icmp eq i32 %76, 0
   br i1 %.not55, label %.loopexit, label %77
 
 77:                                               ; preds = %71
-  %78 = tail call i32 @BN_add(ptr noundef %10, ptr noundef %13, ptr noundef %7) #8
+  %78 = tail call i32 @BN_add(ptr noundef %10, ptr noundef %13, ptr noundef %7) #9
   %79 = icmp ne i32 %78, 0
   %80 = zext i1 %79 to i32
-  %81 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 306, ptr noundef nonnull @.str.86, i32 noundef %80) #8
+  %81 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 306, ptr noundef nonnull @.str.86, i32 noundef %80) #9
   %.not56 = icmp eq i32 %81, 0
   br i1 %.not56, label %.loopexit, label %82
 
 82:                                               ; preds = %77
-  %83 = tail call i32 @BN_sub(ptr noundef %10, ptr noundef %10, ptr noundef %1) #8
+  %83 = tail call i32 @BN_sub(ptr noundef %10, ptr noundef %10, ptr noundef %1) #9
   %84 = icmp ne i32 %83, 0
   %85 = zext i1 %84 to i32
-  %86 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 307, ptr noundef nonnull @.str.87, i32 noundef %85) #8
+  %86 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 307, ptr noundef nonnull @.str.87, i32 noundef %85) #9
   %.not57 = icmp eq i32 %86, 0
   br i1 %.not57, label %.loopexit, label %87
 
 87:                                               ; preds = %82
-  %88 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 308, ptr noundef nonnull @.str.88, ptr noundef %10) #8
+  %88 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 308, ptr noundef nonnull @.str.88, ptr noundef %10) #9
   %.not58 = icmp eq i32 %88, 0
   br i1 %.not58, label %.loopexit, label %18
 
@@ -1221,12 +1221,12 @@ define internal range(i32 0, 2) i32 @test_div_recip() #1 {
   %.039 = phi ptr [ %13, %15 ], [ %13, %12 ], [ null, %9 ], [ null, %6 ], [ null, %3 ], [ null, %0 ], [ %13, %34 ], [ %13, %28 ], [ %13, %25 ], [ %13, %20 ], [ %13, %39 ], [ %13, %87 ], [ %13, %82 ], [ %13, %77 ], [ %13, %71 ], [ %13, %65 ], [ %13, %47 ], [ %13, %18 ]
   %.038 = phi ptr [ %16, %15 ], [ null, %12 ], [ null, %9 ], [ null, %6 ], [ null, %3 ], [ null, %0 ], [ %16, %34 ], [ %16, %28 ], [ %16, %25 ], [ %16, %20 ], [ %16, %39 ], [ %16, %87 ], [ %16, %82 ], [ %16, %77 ], [ %16, %71 ], [ %16, %65 ], [ %16, %47 ], [ %16, %18 ]
   %.037 = phi i32 [ 0, %15 ], [ 0, %12 ], [ 0, %9 ], [ 0, %6 ], [ 0, %3 ], [ 0, %0 ], [ 1, %18 ], [ 0, %47 ], [ 0, %65 ], [ 0, %71 ], [ 0, %77 ], [ 0, %82 ], [ 0, %87 ], [ 0, %39 ], [ 0, %20 ], [ 0, %25 ], [ 0, %28 ], [ 0, %34 ]
-  tail call void @BN_free(ptr noundef %1) #8
-  tail call void @BN_free(ptr noundef %.042) #8
-  tail call void @BN_free(ptr noundef %.041) #8
-  tail call void @BN_free(ptr noundef %.040) #8
-  tail call void @BN_free(ptr noundef %.039) #8
-  tail call void @BN_RECP_CTX_free(ptr noundef %.038) #8
+  tail call void @BN_free(ptr noundef %1) #9
+  tail call void @BN_free(ptr noundef %.042) #9
+  tail call void @BN_free(ptr noundef %.041) #9
+  tail call void @BN_free(ptr noundef %.040) #9
+  tail call void @BN_free(ptr noundef %.039) #9
+  tail call void @BN_RECP_CTX_free(ptr noundef %.038) #9
   ret i32 %.037
 }
 
@@ -1237,135 +1237,135 @@ define internal range(i32 0, 2) i32 @test_signed_mod_replace_ab(i32 noundef %0) 
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds %struct.anon, ptr @signed_mod_tests, i64 %2
   %4 = load i32, ptr %3, align 16, !tbaa !15
-  %5 = tail call ptr @BN_new() #8
+  %5 = tail call ptr @BN_new() #9
   %6 = icmp eq ptr %5, null
   br i1 %6, label %set_signed_bn.exit, label %7
 
 7:                                                ; preds = %1
   %8 = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
   %9 = zext nneg i32 %8 to i64
-  %10 = tail call i32 @BN_set_word(ptr noundef nonnull %5, i64 noundef %9) #8
+  %10 = tail call i32 @BN_set_word(ptr noundef nonnull %5, i64 noundef %9) #9
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %11, label %12
 
 11:                                               ; preds = %7
-  tail call void @BN_free(ptr noundef nonnull %5) #8
+  tail call void @BN_free(ptr noundef nonnull %5) #9
   br label %set_signed_bn.exit
 
 12:                                               ; preds = %7
   %.lobit.i = lshr i32 %4, 31
-  tail call void @BN_set_negative(ptr noundef nonnull %5, i32 noundef %.lobit.i) #8
+  tail call void @BN_set_negative(ptr noundef nonnull %5, i32 noundef %.lobit.i) #9
   br label %set_signed_bn.exit
 
 set_signed_bn.exit:                               ; preds = %1, %11, %12
   %.0.i = phi ptr [ %5, %12 ], [ null, %11 ], [ null, %1 ]
-  %13 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 350, ptr noundef nonnull @.str.89, ptr noundef %.0.i) #8
+  %13 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 350, ptr noundef nonnull @.str.89, ptr noundef %.0.i) #9
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %60, label %14
 
 14:                                               ; preds = %set_signed_bn.exit
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !17
-  %17 = tail call ptr @BN_new() #8
+  %17 = tail call ptr @BN_new() #9
   %18 = icmp eq ptr %17, null
   br i1 %18, label %set_signed_bn.exit28, label %19
 
 19:                                               ; preds = %14
   %20 = tail call i32 @llvm.abs.i32(i32 %16, i1 true)
   %21 = zext nneg i32 %20 to i64
-  %22 = tail call i32 @BN_set_word(ptr noundef nonnull %17, i64 noundef %21) #8
+  %22 = tail call i32 @BN_set_word(ptr noundef nonnull %17, i64 noundef %21) #9
   %.not.i25 = icmp eq i32 %22, 0
   br i1 %.not.i25, label %23, label %24
 
 23:                                               ; preds = %19
-  tail call void @BN_free(ptr noundef nonnull %17) #8
+  tail call void @BN_free(ptr noundef nonnull %17) #9
   br label %set_signed_bn.exit28
 
 24:                                               ; preds = %19
   %.lobit.i26 = lshr i32 %16, 31
-  tail call void @BN_set_negative(ptr noundef nonnull %17, i32 noundef %.lobit.i26) #8
+  tail call void @BN_set_negative(ptr noundef nonnull %17, i32 noundef %.lobit.i26) #9
   br label %set_signed_bn.exit28
 
 set_signed_bn.exit28:                             ; preds = %14, %23, %24
   %.0.i27 = phi ptr [ %17, %24 ], [ null, %23 ], [ null, %14 ]
-  %25 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 351, ptr noundef nonnull @.str.90, ptr noundef %.0.i27) #8
+  %25 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 351, ptr noundef nonnull @.str.90, ptr noundef %.0.i27) #9
   %.not19 = icmp eq i32 %25, 0
   br i1 %.not19, label %60, label %26
 
 26:                                               ; preds = %set_signed_bn.exit28
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %28 = load i32, ptr %27, align 8, !tbaa !18
-  %29 = tail call ptr @BN_new() #8
+  %29 = tail call ptr @BN_new() #9
   %30 = icmp eq ptr %29, null
   br i1 %30, label %set_signed_bn.exit32, label %31
 
 31:                                               ; preds = %26
   %32 = tail call i32 @llvm.abs.i32(i32 %28, i1 true)
   %33 = zext nneg i32 %32 to i64
-  %34 = tail call i32 @BN_set_word(ptr noundef nonnull %29, i64 noundef %33) #8
+  %34 = tail call i32 @BN_set_word(ptr noundef nonnull %29, i64 noundef %33) #9
   %.not.i29 = icmp eq i32 %34, 0
   br i1 %.not.i29, label %35, label %36
 
 35:                                               ; preds = %31
-  tail call void @BN_free(ptr noundef nonnull %29) #8
+  tail call void @BN_free(ptr noundef nonnull %29) #9
   br label %set_signed_bn.exit32
 
 36:                                               ; preds = %31
   %.lobit.i30 = lshr i32 %28, 31
-  tail call void @BN_set_negative(ptr noundef nonnull %29, i32 noundef %.lobit.i30) #8
+  tail call void @BN_set_negative(ptr noundef nonnull %29, i32 noundef %.lobit.i30) #9
   br label %set_signed_bn.exit32
 
 set_signed_bn.exit32:                             ; preds = %26, %35, %36
   %.0.i31 = phi ptr [ %29, %36 ], [ null, %35 ], [ null, %26 ]
-  %37 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 352, ptr noundef nonnull @.str.91, ptr noundef %.0.i31) #8
+  %37 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 352, ptr noundef nonnull @.str.91, ptr noundef %.0.i31) #9
   %.not20 = icmp eq i32 %37, 0
   br i1 %.not20, label %60, label %38
 
 38:                                               ; preds = %set_signed_bn.exit32
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %40 = load i32, ptr %39, align 4, !tbaa !19
-  %41 = tail call ptr @BN_new() #8
+  %41 = tail call ptr @BN_new() #9
   %42 = icmp eq ptr %41, null
   br i1 %42, label %set_signed_bn.exit36, label %43
 
 43:                                               ; preds = %38
   %44 = tail call i32 @llvm.abs.i32(i32 %40, i1 true)
   %45 = zext nneg i32 %44 to i64
-  %46 = tail call i32 @BN_set_word(ptr noundef nonnull %41, i64 noundef %45) #8
+  %46 = tail call i32 @BN_set_word(ptr noundef nonnull %41, i64 noundef %45) #9
   %.not.i33 = icmp eq i32 %46, 0
   br i1 %.not.i33, label %47, label %48
 
 47:                                               ; preds = %43
-  tail call void @BN_free(ptr noundef nonnull %41) #8
+  tail call void @BN_free(ptr noundef nonnull %41) #9
   br label %set_signed_bn.exit36
 
 48:                                               ; preds = %43
   %.lobit.i34 = lshr i32 %40, 31
-  tail call void @BN_set_negative(ptr noundef nonnull %41, i32 noundef %.lobit.i34) #8
+  tail call void @BN_set_negative(ptr noundef nonnull %41, i32 noundef %.lobit.i34) #9
   br label %set_signed_bn.exit36
 
 set_signed_bn.exit36:                             ; preds = %38, %47, %48
   %.0.i35 = phi ptr [ %41, %48 ], [ null, %47 ], [ null, %38 ]
-  %49 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 353, ptr noundef nonnull @.str.92, ptr noundef %.0.i35) #8
+  %49 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 353, ptr noundef nonnull @.str.92, ptr noundef %.0.i35) #9
   %.not21 = icmp eq i32 %49, 0
   br i1 %.not21, label %60, label %50
 
 50:                                               ; preds = %set_signed_bn.exit36
   %51 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %52 = tail call i32 @BN_div(ptr noundef %.0.i, ptr noundef %.0.i27, ptr noundef %.0.i, ptr noundef %.0.i27, ptr noundef %51) #8
+  %52 = tail call i32 @BN_div(ptr noundef %.0.i, ptr noundef %.0.i27, ptr noundef %.0.i, ptr noundef %.0.i27, ptr noundef %51) #9
   %53 = icmp ne i32 %52, 0
   %54 = zext i1 %53 to i32
-  %55 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 356, ptr noundef nonnull @.str.93, i32 noundef %54) #8
+  %55 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 356, ptr noundef nonnull @.str.93, i32 noundef %54) #9
   %.not22 = icmp eq i32 %55, 0
   br i1 %.not22, label %60, label %56
 
 56:                                               ; preds = %50
-  %57 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 357, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.75, ptr noundef %.0.i, ptr noundef %.0.i31) #8
+  %57 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 357, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.75, ptr noundef %.0.i, ptr noundef %.0.i31) #9
   %.not23 = icmp eq i32 %57, 0
   br i1 %.not23, label %60, label %58
 
 58:                                               ; preds = %56
-  %59 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 358, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.88, ptr noundef %.0.i27, ptr noundef %.0.i35) #8
+  %59 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 358, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.88, ptr noundef %.0.i27, ptr noundef %.0.i35) #9
   %.not24 = icmp ne i32 %59, 0
   %spec.select = zext i1 %.not24 to i32
   br label %60
@@ -1375,10 +1375,10 @@ set_signed_bn.exit36:                             ; preds = %38, %47, %48
   %.017 = phi ptr [ %.0.i31, %56 ], [ %.0.i31, %50 ], [ %.0.i31, %set_signed_bn.exit36 ], [ %.0.i31, %set_signed_bn.exit32 ], [ null, %set_signed_bn.exit28 ], [ null, %set_signed_bn.exit ], [ %.0.i31, %58 ]
   %.016 = phi ptr [ %.0.i35, %56 ], [ %.0.i35, %50 ], [ %.0.i35, %set_signed_bn.exit36 ], [ null, %set_signed_bn.exit32 ], [ null, %set_signed_bn.exit28 ], [ null, %set_signed_bn.exit ], [ %.0.i35, %58 ]
   %.0 = phi i32 [ 0, %56 ], [ 0, %50 ], [ 0, %set_signed_bn.exit36 ], [ 0, %set_signed_bn.exit32 ], [ 0, %set_signed_bn.exit28 ], [ 0, %set_signed_bn.exit ], [ %spec.select, %58 ]
-  tail call void @BN_free(ptr noundef %.0.i) #8
-  tail call void @BN_free(ptr noundef %.018) #8
-  tail call void @BN_free(ptr noundef %.017) #8
-  tail call void @BN_free(ptr noundef %.016) #8
+  tail call void @BN_free(ptr noundef %.0.i) #9
+  tail call void @BN_free(ptr noundef %.018) #9
+  tail call void @BN_free(ptr noundef %.017) #9
+  tail call void @BN_free(ptr noundef %.016) #9
   ret i32 %.0
 }
 
@@ -1387,135 +1387,135 @@ define internal range(i32 0, 2) i32 @test_signed_mod_replace_ba(i32 noundef %0) 
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds %struct.anon, ptr @signed_mod_tests, i64 %2
   %4 = load i32, ptr %3, align 16, !tbaa !15
-  %5 = tail call ptr @BN_new() #8
+  %5 = tail call ptr @BN_new() #9
   %6 = icmp eq ptr %5, null
   br i1 %6, label %set_signed_bn.exit, label %7
 
 7:                                                ; preds = %1
   %8 = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
   %9 = zext nneg i32 %8 to i64
-  %10 = tail call i32 @BN_set_word(ptr noundef nonnull %5, i64 noundef %9) #8
+  %10 = tail call i32 @BN_set_word(ptr noundef nonnull %5, i64 noundef %9) #9
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %11, label %12
 
 11:                                               ; preds = %7
-  tail call void @BN_free(ptr noundef nonnull %5) #8
+  tail call void @BN_free(ptr noundef nonnull %5) #9
   br label %set_signed_bn.exit
 
 12:                                               ; preds = %7
   %.lobit.i = lshr i32 %4, 31
-  tail call void @BN_set_negative(ptr noundef nonnull %5, i32 noundef %.lobit.i) #8
+  tail call void @BN_set_negative(ptr noundef nonnull %5, i32 noundef %.lobit.i) #9
   br label %set_signed_bn.exit
 
 set_signed_bn.exit:                               ; preds = %1, %11, %12
   %.0.i = phi ptr [ %5, %12 ], [ null, %11 ], [ null, %1 ]
-  %13 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 373, ptr noundef nonnull @.str.89, ptr noundef %.0.i) #8
+  %13 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 373, ptr noundef nonnull @.str.89, ptr noundef %.0.i) #9
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %60, label %14
 
 14:                                               ; preds = %set_signed_bn.exit
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !17
-  %17 = tail call ptr @BN_new() #8
+  %17 = tail call ptr @BN_new() #9
   %18 = icmp eq ptr %17, null
   br i1 %18, label %set_signed_bn.exit28, label %19
 
 19:                                               ; preds = %14
   %20 = tail call i32 @llvm.abs.i32(i32 %16, i1 true)
   %21 = zext nneg i32 %20 to i64
-  %22 = tail call i32 @BN_set_word(ptr noundef nonnull %17, i64 noundef %21) #8
+  %22 = tail call i32 @BN_set_word(ptr noundef nonnull %17, i64 noundef %21) #9
   %.not.i25 = icmp eq i32 %22, 0
   br i1 %.not.i25, label %23, label %24
 
 23:                                               ; preds = %19
-  tail call void @BN_free(ptr noundef nonnull %17) #8
+  tail call void @BN_free(ptr noundef nonnull %17) #9
   br label %set_signed_bn.exit28
 
 24:                                               ; preds = %19
   %.lobit.i26 = lshr i32 %16, 31
-  tail call void @BN_set_negative(ptr noundef nonnull %17, i32 noundef %.lobit.i26) #8
+  tail call void @BN_set_negative(ptr noundef nonnull %17, i32 noundef %.lobit.i26) #9
   br label %set_signed_bn.exit28
 
 set_signed_bn.exit28:                             ; preds = %14, %23, %24
   %.0.i27 = phi ptr [ %17, %24 ], [ null, %23 ], [ null, %14 ]
-  %25 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 374, ptr noundef nonnull @.str.90, ptr noundef %.0.i27) #8
+  %25 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 374, ptr noundef nonnull @.str.90, ptr noundef %.0.i27) #9
   %.not19 = icmp eq i32 %25, 0
   br i1 %.not19, label %60, label %26
 
 26:                                               ; preds = %set_signed_bn.exit28
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %28 = load i32, ptr %27, align 8, !tbaa !18
-  %29 = tail call ptr @BN_new() #8
+  %29 = tail call ptr @BN_new() #9
   %30 = icmp eq ptr %29, null
   br i1 %30, label %set_signed_bn.exit32, label %31
 
 31:                                               ; preds = %26
   %32 = tail call i32 @llvm.abs.i32(i32 %28, i1 true)
   %33 = zext nneg i32 %32 to i64
-  %34 = tail call i32 @BN_set_word(ptr noundef nonnull %29, i64 noundef %33) #8
+  %34 = tail call i32 @BN_set_word(ptr noundef nonnull %29, i64 noundef %33) #9
   %.not.i29 = icmp eq i32 %34, 0
   br i1 %.not.i29, label %35, label %36
 
 35:                                               ; preds = %31
-  tail call void @BN_free(ptr noundef nonnull %29) #8
+  tail call void @BN_free(ptr noundef nonnull %29) #9
   br label %set_signed_bn.exit32
 
 36:                                               ; preds = %31
   %.lobit.i30 = lshr i32 %28, 31
-  tail call void @BN_set_negative(ptr noundef nonnull %29, i32 noundef %.lobit.i30) #8
+  tail call void @BN_set_negative(ptr noundef nonnull %29, i32 noundef %.lobit.i30) #9
   br label %set_signed_bn.exit32
 
 set_signed_bn.exit32:                             ; preds = %26, %35, %36
   %.0.i31 = phi ptr [ %29, %36 ], [ null, %35 ], [ null, %26 ]
-  %37 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 375, ptr noundef nonnull @.str.91, ptr noundef %.0.i31) #8
+  %37 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 375, ptr noundef nonnull @.str.91, ptr noundef %.0.i31) #9
   %.not20 = icmp eq i32 %37, 0
   br i1 %.not20, label %60, label %38
 
 38:                                               ; preds = %set_signed_bn.exit32
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %40 = load i32, ptr %39, align 4, !tbaa !19
-  %41 = tail call ptr @BN_new() #8
+  %41 = tail call ptr @BN_new() #9
   %42 = icmp eq ptr %41, null
   br i1 %42, label %set_signed_bn.exit36, label %43
 
 43:                                               ; preds = %38
   %44 = tail call i32 @llvm.abs.i32(i32 %40, i1 true)
   %45 = zext nneg i32 %44 to i64
-  %46 = tail call i32 @BN_set_word(ptr noundef nonnull %41, i64 noundef %45) #8
+  %46 = tail call i32 @BN_set_word(ptr noundef nonnull %41, i64 noundef %45) #9
   %.not.i33 = icmp eq i32 %46, 0
   br i1 %.not.i33, label %47, label %48
 
 47:                                               ; preds = %43
-  tail call void @BN_free(ptr noundef nonnull %41) #8
+  tail call void @BN_free(ptr noundef nonnull %41) #9
   br label %set_signed_bn.exit36
 
 48:                                               ; preds = %43
   %.lobit.i34 = lshr i32 %40, 31
-  tail call void @BN_set_negative(ptr noundef nonnull %41, i32 noundef %.lobit.i34) #8
+  tail call void @BN_set_negative(ptr noundef nonnull %41, i32 noundef %.lobit.i34) #9
   br label %set_signed_bn.exit36
 
 set_signed_bn.exit36:                             ; preds = %38, %47, %48
   %.0.i35 = phi ptr [ %41, %48 ], [ null, %47 ], [ null, %38 ]
-  %49 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 376, ptr noundef nonnull @.str.92, ptr noundef %.0.i35) #8
+  %49 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 376, ptr noundef nonnull @.str.92, ptr noundef %.0.i35) #9
   %.not21 = icmp eq i32 %49, 0
   br i1 %.not21, label %60, label %50
 
 50:                                               ; preds = %set_signed_bn.exit36
   %51 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %52 = tail call i32 @BN_div(ptr noundef %.0.i27, ptr noundef %.0.i, ptr noundef %.0.i, ptr noundef %.0.i27, ptr noundef %51) #8
+  %52 = tail call i32 @BN_div(ptr noundef %.0.i27, ptr noundef %.0.i, ptr noundef %.0.i, ptr noundef %.0.i27, ptr noundef %51) #9
   %53 = icmp ne i32 %52, 0
   %54 = zext i1 %53 to i32
-  %55 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 379, ptr noundef nonnull @.str.96, i32 noundef %54) #8
+  %55 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 379, ptr noundef nonnull @.str.96, i32 noundef %54) #9
   %.not22 = icmp eq i32 %55, 0
   br i1 %.not22, label %60, label %56
 
 56:                                               ; preds = %50
-  %57 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 380, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.75, ptr noundef %.0.i27, ptr noundef %.0.i31) #8
+  %57 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 380, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.75, ptr noundef %.0.i27, ptr noundef %.0.i31) #9
   %.not23 = icmp eq i32 %57, 0
   br i1 %.not23, label %60, label %58
 
 58:                                               ; preds = %56
-  %59 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 381, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.88, ptr noundef %.0.i, ptr noundef %.0.i35) #8
+  %59 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 381, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.88, ptr noundef %.0.i, ptr noundef %.0.i35) #9
   %.not24 = icmp ne i32 %59, 0
   %spec.select = zext i1 %.not24 to i32
   br label %60
@@ -1525,49 +1525,49 @@ set_signed_bn.exit36:                             ; preds = %38, %47, %48
   %.017 = phi ptr [ %.0.i31, %56 ], [ %.0.i31, %50 ], [ %.0.i31, %set_signed_bn.exit36 ], [ %.0.i31, %set_signed_bn.exit32 ], [ null, %set_signed_bn.exit28 ], [ null, %set_signed_bn.exit ], [ %.0.i31, %58 ]
   %.016 = phi ptr [ %.0.i35, %56 ], [ %.0.i35, %50 ], [ %.0.i35, %set_signed_bn.exit36 ], [ null, %set_signed_bn.exit32 ], [ null, %set_signed_bn.exit28 ], [ null, %set_signed_bn.exit ], [ %.0.i35, %58 ]
   %.0 = phi i32 [ 0, %56 ], [ 0, %50 ], [ 0, %set_signed_bn.exit36 ], [ 0, %set_signed_bn.exit32 ], [ 0, %set_signed_bn.exit28 ], [ 0, %set_signed_bn.exit ], [ %spec.select, %58 ]
-  tail call void @BN_free(ptr noundef %.0.i) #8
-  tail call void @BN_free(ptr noundef %.018) #8
-  tail call void @BN_free(ptr noundef %.017) #8
-  tail call void @BN_free(ptr noundef %.016) #8
+  tail call void @BN_free(ptr noundef %.0.i) #9
+  tail call void @BN_free(ptr noundef %.018) #9
+  tail call void @BN_free(ptr noundef %.017) #9
+  tail call void @BN_free(ptr noundef %.016) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_mod() #1 {
-  %1 = tail call ptr @BN_new() #8
-  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 396, ptr noundef nonnull @.str.63, ptr noundef %1) #8
+  %1 = tail call ptr @BN_new() #9
+  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 396, ptr noundef nonnull @.str.63, ptr noundef %1) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @BN_new() #8
-  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 397, ptr noundef nonnull @.str.64, ptr noundef %4) #8
+  %4 = tail call ptr @BN_new() #9
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 397, ptr noundef nonnull @.str.64, ptr noundef %4) #9
   %.not34 = icmp eq i32 %5, 0
   br i1 %.not34, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @BN_new() #8
-  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 398, ptr noundef nonnull @.str.65, ptr noundef %7) #8
+  %7 = tail call ptr @BN_new() #9
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 398, ptr noundef nonnull @.str.65, ptr noundef %7) #9
   %.not35 = icmp eq i32 %8, 0
   br i1 %.not35, label %.loopexit, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @BN_new() #8
-  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 399, ptr noundef nonnull @.str.76, ptr noundef %10) #8
+  %10 = tail call ptr @BN_new() #9
+  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 399, ptr noundef nonnull @.str.76, ptr noundef %10) #9
   %.not36 = icmp eq i32 %11, 0
   br i1 %.not36, label %.loopexit, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call ptr @BN_new() #8
-  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 400, ptr noundef nonnull @.str.77, ptr noundef %13) #8
+  %13 = tail call ptr @BN_new() #9
+  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 400, ptr noundef nonnull @.str.77, ptr noundef %13) #9
   %.not37 = icmp eq i32 %14, 0
   br i1 %.not37, label %.loopexit, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 1024, i32 noundef 0, i32 noundef 0) #8
+  %16 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 1024, i32 noundef 0, i32 noundef 0) #9
   %17 = icmp ne i32 %16, 0
   %18 = zext i1 %17 to i32
-  %19 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 403, ptr noundef nonnull @.str.97, i32 noundef %18) #8
+  %19 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 403, ptr noundef nonnull @.str.97, i32 noundef %18) #9
   %.not38 = icmp eq i32 %19, 0
   br i1 %.not38, label %.loopexit, label %.preheader
 
@@ -1580,10 +1580,10 @@ define internal range(i32 0, 2) i32 @test_mod() #1 {
   %.046 = phi i32 [ %21, %20 ], [ 0, %15 ]
   %22 = mul nuw nsw i32 %.046, 10
   %23 = add nuw nsw i32 %22, 450
-  %24 = tail call i32 @BN_bntest_rand(ptr noundef %4, i32 noundef %23, i32 noundef 0, i32 noundef 0) #8
+  %24 = tail call i32 @BN_bntest_rand(ptr noundef %4, i32 noundef %23, i32 noundef 0, i32 noundef 0) #9
   %25 = icmp ne i32 %24, 0
   %26 = zext i1 %25 to i32
-  %27 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 406, ptr noundef nonnull @.str.98, i32 noundef %26) #8
+  %27 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 406, ptr noundef nonnull @.str.98, i32 noundef %26) #9
   %.not39 = icmp eq i32 %27, 0
   br i1 %.not39, label %.loopexit, label %28
 
@@ -1595,7 +1595,7 @@ define internal range(i32 0, 2) i32 @test_mod() #1 {
   %32 = zext nneg i32 %31 to i64
   %33 = getelementptr inbounds nuw i32, ptr @rand_neg.sign, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !12
-  tail call void @BN_set_negative(ptr noundef %1, i32 noundef %34) #8
+  tail call void @BN_set_negative(ptr noundef %1, i32 noundef %34) #9
   %35 = load i32, ptr @rand_neg.neg, align 4, !tbaa !12
   %36 = add i32 %35, 1
   store i32 %36, ptr @rand_neg.neg, align 4, !tbaa !12
@@ -1603,48 +1603,48 @@ define internal range(i32 0, 2) i32 @test_mod() #1 {
   %38 = zext nneg i32 %37 to i64
   %39 = getelementptr inbounds nuw i32, ptr @rand_neg.sign, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !12
-  tail call void @BN_set_negative(ptr noundef %4, i32 noundef %40) #8
+  tail call void @BN_set_negative(ptr noundef %4, i32 noundef %40) #9
   %41 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %42 = tail call i32 @BN_div(ptr noundef null, ptr noundef %7, ptr noundef %1, ptr noundef %4, ptr noundef %41) #8
+  %42 = tail call i32 @BN_div(ptr noundef null, ptr noundef %7, ptr noundef %1, ptr noundef %4, ptr noundef %41) #9
   %43 = icmp ne i32 %42, 0
   %44 = zext i1 %43 to i32
-  %45 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 410, ptr noundef nonnull @.str.99, i32 noundef %44) #8
+  %45 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 410, ptr noundef nonnull @.str.99, i32 noundef %44) #9
   %.not40 = icmp eq i32 %45, 0
   br i1 %.not40, label %.loopexit, label %46
 
 46:                                               ; preds = %28
   %47 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %48 = tail call i32 @BN_div(ptr noundef %10, ptr noundef %13, ptr noundef %1, ptr noundef %4, ptr noundef %47) #8
+  %48 = tail call i32 @BN_div(ptr noundef %10, ptr noundef %13, ptr noundef %1, ptr noundef %4, ptr noundef %47) #9
   %49 = icmp ne i32 %48, 0
   %50 = zext i1 %49 to i32
-  %51 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 411, ptr noundef nonnull @.str.100, i32 noundef %50) #8
+  %51 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 411, ptr noundef nonnull @.str.100, i32 noundef %50) #9
   %.not41 = icmp eq i32 %51, 0
   br i1 %.not41, label %.loopexit, label %52
 
 52:                                               ; preds = %46
-  %53 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 412, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.75, ptr noundef %13, ptr noundef %7) #8
+  %53 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 412, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.75, ptr noundef %13, ptr noundef %7) #9
   %.not42 = icmp eq i32 %53, 0
   br i1 %.not42, label %.loopexit, label %54
 
 54:                                               ; preds = %52
   %55 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %56 = tail call i32 @BN_mul(ptr noundef %7, ptr noundef %10, ptr noundef %4, ptr noundef %55) #8
+  %56 = tail call i32 @BN_mul(ptr noundef %7, ptr noundef %10, ptr noundef %4, ptr noundef %55) #9
   %57 = icmp ne i32 %56, 0
   %58 = zext i1 %57 to i32
-  %59 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 413, ptr noundef nonnull @.str.102, i32 noundef %58) #8
+  %59 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 413, ptr noundef nonnull @.str.102, i32 noundef %58) #9
   %.not43 = icmp eq i32 %59, 0
   br i1 %.not43, label %.loopexit, label %60
 
 60:                                               ; preds = %54
-  %61 = tail call i32 @BN_add(ptr noundef %10, ptr noundef %7, ptr noundef %13) #8
+  %61 = tail call i32 @BN_add(ptr noundef %10, ptr noundef %7, ptr noundef %13) #9
   %62 = icmp ne i32 %61, 0
   %63 = zext i1 %62 to i32
-  %64 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 414, ptr noundef nonnull @.str.103, i32 noundef %63) #8
+  %64 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 414, ptr noundef nonnull @.str.103, i32 noundef %63) #9
   %.not44 = icmp eq i32 %64, 0
   br i1 %.not44, label %.loopexit, label %65
 
 65:                                               ; preds = %60
-  %66 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 415, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.94, ptr noundef %10, ptr noundef %1) #8
+  %66 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 415, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.94, ptr noundef %10, ptr noundef %1) #9
   %.not45 = icmp eq i32 %66, 0
   br i1 %.not45, label %.loopexit, label %20
 
@@ -1654,11 +1654,11 @@ define internal range(i32 0, 2) i32 @test_mod() #1 {
   %.031 = phi ptr [ %10, %15 ], [ %10, %12 ], [ %10, %9 ], [ null, %6 ], [ null, %3 ], [ null, %0 ], [ %10, %.preheader ], [ %10, %65 ], [ %10, %60 ], [ %10, %54 ], [ %10, %52 ], [ %10, %46 ], [ %10, %28 ], [ %10, %20 ]
   %.030 = phi ptr [ %13, %15 ], [ %13, %12 ], [ null, %9 ], [ null, %6 ], [ null, %3 ], [ null, %0 ], [ %13, %.preheader ], [ %13, %65 ], [ %13, %60 ], [ %13, %54 ], [ %13, %52 ], [ %13, %46 ], [ %13, %28 ], [ %13, %20 ]
   %.029 = phi i32 [ 0, %15 ], [ 0, %12 ], [ 0, %9 ], [ 0, %6 ], [ 0, %3 ], [ 0, %0 ], [ 1, %20 ], [ 0, %28 ], [ 0, %46 ], [ 0, %52 ], [ 0, %54 ], [ 0, %60 ], [ 0, %65 ], [ 0, %.preheader ]
-  tail call void @BN_free(ptr noundef %1) #8
-  tail call void @BN_free(ptr noundef %.033) #8
-  tail call void @BN_free(ptr noundef %.032) #8
-  tail call void @BN_free(ptr noundef %.031) #8
-  tail call void @BN_free(ptr noundef %.030) #8
+  tail call void @BN_free(ptr noundef %1) #9
+  tail call void @BN_free(ptr noundef %.033) #9
+  tail call void @BN_free(ptr noundef %.032) #9
+  tail call void @BN_free(ptr noundef %.031) #9
+  tail call void @BN_free(ptr noundef %.030) #9
   ret i32 %.029
 }
 
@@ -1670,24 +1670,24 @@ define internal range(i32 0, 2) i32 @test_mod_inverse() #1 {
   store ptr null, ptr %1, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !21
-  %3 = call i32 @BN_dec2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.105) #8
+  %3 = call i32 @BN_dec2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.105) #9
   %4 = icmp ne i32 %3, 0
   %5 = zext i1 %4 to i32
-  %6 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3183, ptr noundef nonnull @.str.104, i32 noundef %5) #8
+  %6 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3183, ptr noundef nonnull @.str.104, i32 noundef %5) #9
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %33, label %7
 
 7:                                                ; preds = %0
-  %8 = call i32 @BN_dec2bn(ptr noundef nonnull %2, ptr noundef nonnull @.str.107) #8
+  %8 = call i32 @BN_dec2bn(ptr noundef nonnull %2, ptr noundef nonnull @.str.107) #9
   %9 = icmp ne i32 %8, 0
   %10 = zext i1 %9 to i32
-  %11 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3185, ptr noundef nonnull @.str.106, i32 noundef %10) #8
+  %11 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3185, ptr noundef nonnull @.str.106, i32 noundef %10) #9
   %.not8 = icmp eq i32 %11, 0
   br i1 %.not8, label %33, label %12
 
 12:                                               ; preds = %7
-  %13 = call ptr @BN_new() #8
-  %14 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3187, ptr noundef nonnull @.str.108, ptr noundef %13) #8
+  %13 = call ptr @BN_new() #9
+  %14 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3187, ptr noundef nonnull @.str.108, ptr noundef %13) #9
   %.not9 = icmp eq i32 %14, 0
   br i1 %.not9, label %33, label %15
 
@@ -1695,20 +1695,20 @@ define internal range(i32 0, 2) i32 @test_mod_inverse() #1 {
   %16 = load ptr, ptr %1, align 8, !tbaa !21
   %17 = load ptr, ptr %2, align 8, !tbaa !21
   %18 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %19 = call ptr @BN_mod_inverse(ptr noundef %13, ptr noundef %16, ptr noundef %17, ptr noundef %18) #8
-  %20 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.17, i32 noundef 3189, ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.110, ptr noundef %19, ptr noundef %13) #8
+  %19 = call ptr @BN_mod_inverse(ptr noundef %13, ptr noundef %16, ptr noundef %17, ptr noundef %18) #9
+  %20 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.17, i32 noundef 3189, ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.110, ptr noundef %19, ptr noundef %13) #9
   %.not10 = icmp eq i32 %20, 0
   br i1 %.not10, label %33, label %21
 
 21:                                               ; preds = %15
-  %22 = call ptr @BN_bn2dec(ptr noundef %13) #8
-  %23 = call i32 @test_ptr_ne(ptr noundef nonnull @.str.17, i32 noundef 3191, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.112, ptr noundef %22, ptr noundef null) #8
+  %22 = call ptr @BN_bn2dec(ptr noundef %13) #9
+  %23 = call i32 @test_ptr_ne(ptr noundef nonnull @.str.17, i32 noundef 3191, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.112, ptr noundef %22, ptr noundef null) #9
   %.not11 = icmp eq i32 %23, 0
   br i1 %.not11, label %33, label %24
 
 24:                                               ; preds = %21
-  %25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(11) @.str.114) #9
-  %26 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 3193, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.69, i32 noundef %25, i32 noundef 0) #8
+  %25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(11) @.str.114) #10
+  %26 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 3193, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.69, i32 noundef %25, i32 noundef 0) #9
   %.not12 = icmp eq i32 %26, 0
   br i1 %.not12, label %33, label %27
 
@@ -1716,8 +1716,8 @@ define internal range(i32 0, 2) i32 @test_mod_inverse() #1 {
   %28 = load ptr, ptr %2, align 8, !tbaa !21
   %29 = load ptr, ptr %1, align 8, !tbaa !21
   %30 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %31 = call ptr @BN_mod_inverse(ptr noundef %28, ptr noundef %29, ptr noundef %28, ptr noundef %30) #8
-  %32 = call i32 @test_ptr_null(ptr noundef nonnull @.str.17, i32 noundef 3197, ptr noundef nonnull @.str.115, ptr noundef %31) #8
+  %31 = call ptr @BN_mod_inverse(ptr noundef %28, ptr noundef %29, ptr noundef %28, ptr noundef %30) #9
+  %32 = call i32 @test_ptr_null(ptr noundef nonnull @.str.17, i32 noundef 3197, ptr noundef nonnull @.str.115, ptr noundef %31) #9
   %.not13 = icmp ne i32 %32, 0
   %spec.select = zext i1 %.not13 to i32
   br label %33
@@ -1727,11 +1727,11 @@ define internal range(i32 0, 2) i32 @test_mod_inverse() #1 {
   %.06 = phi ptr [ %22, %24 ], [ %22, %21 ], [ null, %15 ], [ null, %12 ], [ null, %7 ], [ null, %0 ], [ %22, %27 ]
   %.0 = phi ptr [ %13, %24 ], [ %13, %21 ], [ %13, %15 ], [ %13, %12 ], [ null, %7 ], [ null, %0 ], [ %13, %27 ]
   %34 = load ptr, ptr %1, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %34) #8
+  call void @BN_free(ptr noundef %34) #9
   %35 = load ptr, ptr %2, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %35) #8
-  call void @BN_free(ptr noundef %.0) #8
-  call void @CRYPTO_free(ptr noundef %.06, ptr noundef nonnull @.str.17, i32 noundef 3206) #8
+  call void @BN_free(ptr noundef %35) #9
+  call void @BN_free(ptr noundef %.0) #9
+  call void @CRYPTO_free(ptr noundef %.06, ptr noundef nonnull @.str.17, i32 noundef 3206) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.07
@@ -1748,32 +1748,32 @@ define internal range(i32 0, 2) i32 @test_mod_exp_alias(i32 noundef %0) #1 {
   store ptr null, ptr %3, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !21
-  %5 = call i32 @BN_dec2bn(ptr noundef nonnull %2, ptr noundef nonnull @.str.117) #8
+  %5 = call i32 @BN_dec2bn(ptr noundef nonnull %2, ptr noundef nonnull @.str.117) #9
   %6 = icmp ne i32 %5, 0
   %7 = zext i1 %6 to i32
-  %8 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3219, ptr noundef nonnull @.str.116, i32 noundef %7) #8
+  %8 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3219, ptr noundef nonnull @.str.116, i32 noundef %7) #9
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %67, label %9
 
 9:                                                ; preds = %1
-  %10 = call i32 @BN_dec2bn(ptr noundef nonnull %3, ptr noundef nonnull @.str.119) #8
+  %10 = call i32 @BN_dec2bn(ptr noundef nonnull %3, ptr noundef nonnull @.str.119) #9
   %11 = icmp ne i32 %10, 0
   %12 = zext i1 %11 to i32
-  %13 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3221, ptr noundef nonnull @.str.118, i32 noundef %12) #8
+  %13 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3221, ptr noundef nonnull @.str.118, i32 noundef %12) #9
   %.not18 = icmp eq i32 %13, 0
   br i1 %.not18, label %67, label %14
 
 14:                                               ; preds = %9
-  %15 = call i32 @BN_dec2bn(ptr noundef nonnull %4, ptr noundef nonnull @.str.121) #8
+  %15 = call i32 @BN_dec2bn(ptr noundef nonnull %4, ptr noundef nonnull @.str.121) #9
   %16 = icmp ne i32 %15, 0
   %17 = zext i1 %16 to i32
-  %18 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3223, ptr noundef nonnull @.str.120, i32 noundef %17) #8
+  %18 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3223, ptr noundef nonnull @.str.120, i32 noundef %17) #9
   %.not19 = icmp eq i32 %18, 0
   br i1 %.not19, label %67, label %19
 
 19:                                               ; preds = %14
-  %20 = call ptr @BN_new() #8
-  %21 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3225, ptr noundef nonnull @.str.108, ptr noundef %20) #8
+  %20 = call ptr @BN_new() #9
+  %21 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3225, ptr noundef nonnull @.str.108, ptr noundef %20) #9
   %.not20 = icmp eq i32 %21, 0
   br i1 %.not20, label %67, label %22
 
@@ -1784,47 +1784,47 @@ define internal range(i32 0, 2) i32 @test_mod_exp_alias(i32 noundef %0) #1 {
   %26 = load ptr, ptr %3, align 8, !tbaa !21
   %27 = load ptr, ptr %4, align 8, !tbaa !21
   %28 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %29 = call i32 %24(ptr noundef %20, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28) #8, !callees !23
-  %30 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 3229, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123, i32 noundef %29, i32 noundef 1) #8
+  %29 = call i32 %24(ptr noundef %20, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28) #9, !callees !23
+  %30 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 3229, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123, i32 noundef %29, i32 noundef 1) #9
   %.not21 = icmp eq i32 %30, 0
   br i1 %.not21, label %67, label %31
 
 31:                                               ; preds = %22
-  %32 = call ptr @BN_bn2dec(ptr noundef %20) #8
-  %33 = call i32 @test_ptr_ne(ptr noundef nonnull @.str.17, i32 noundef 3231, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.112, ptr noundef %32, ptr noundef null) #8
+  %32 = call ptr @BN_bn2dec(ptr noundef %20) #9
+  %33 = call i32 @test_ptr_ne(ptr noundef nonnull @.str.17, i32 noundef 3231, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.112, ptr noundef %32, ptr noundef null) #9
   %.not22 = icmp eq i32 %33, 0
   br i1 %.not22, label %67, label %34
 
 34:                                               ; preds = %31
-  %35 = call i32 @test_str_eq(ptr noundef nonnull @.str.17, i32 noundef 3233, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.125, ptr noundef %32, ptr noundef nonnull @.str.126) #8
+  %35 = call i32 @test_str_eq(ptr noundef nonnull @.str.17, i32 noundef 3233, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.125, ptr noundef %32, ptr noundef nonnull @.str.126) #9
   %.not23 = icmp eq i32 %35, 0
   br i1 %.not23, label %67, label %36
 
 36:                                               ; preds = %34
-  call void @CRYPTO_free(ptr noundef %32, ptr noundef nonnull @.str.17, i32 noundef 3236) #8
+  call void @CRYPTO_free(ptr noundef %32, ptr noundef nonnull @.str.17, i32 noundef 3236) #9
   %37 = load ptr, ptr %3, align 8, !tbaa !21
-  %38 = call ptr @BN_copy(ptr noundef %20, ptr noundef %37) #8
+  %38 = call ptr @BN_copy(ptr noundef %20, ptr noundef %37) #9
   %39 = load ptr, ptr %2, align 8, !tbaa !21
   %40 = load ptr, ptr %4, align 8, !tbaa !21
   %41 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %42 = call i32 %24(ptr noundef %20, ptr noundef %39, ptr noundef %20, ptr noundef %40, ptr noundef %41) #8, !callees !23
-  %43 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 3243, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.123, i32 noundef %42, i32 noundef 1) #8
+  %42 = call i32 %24(ptr noundef %20, ptr noundef %39, ptr noundef %20, ptr noundef %40, ptr noundef %41) #9, !callees !23
+  %43 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 3243, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.123, i32 noundef %42, i32 noundef 1) #9
   %.not24 = icmp eq i32 %43, 0
   br i1 %.not24, label %67, label %44
 
 44:                                               ; preds = %36
-  %45 = call ptr @BN_bn2dec(ptr noundef %20) #8
-  %46 = call i32 @test_ptr_ne(ptr noundef nonnull @.str.17, i32 noundef 3245, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.112, ptr noundef %45, ptr noundef null) #8
+  %45 = call ptr @BN_bn2dec(ptr noundef %20) #9
+  %46 = call i32 @test_ptr_ne(ptr noundef nonnull @.str.17, i32 noundef 3245, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.112, ptr noundef %45, ptr noundef null) #9
   %.not25 = icmp eq i32 %46, 0
   br i1 %.not25, label %67, label %47
 
 47:                                               ; preds = %44
-  %48 = call i32 @test_str_eq(ptr noundef nonnull @.str.17, i32 noundef 3247, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.125, ptr noundef %45, ptr noundef nonnull @.str.126) #8
+  %48 = call i32 @test_str_eq(ptr noundef nonnull @.str.17, i32 noundef 3247, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.125, ptr noundef %45, ptr noundef nonnull @.str.126) #9
   %.not26 = icmp eq i32 %48, 0
   br i1 %.not26, label %67, label %49
 
 49:                                               ; preds = %47
-  call void @CRYPTO_free(ptr noundef %45, ptr noundef nonnull @.str.17, i32 noundef 3250) #8
+  call void @CRYPTO_free(ptr noundef %45, ptr noundef nonnull @.str.17, i32 noundef 3250) #9
   %50 = load ptr, ptr %4, align 8, !tbaa !21
   %51 = load ptr, ptr %2, align 8, !tbaa !21
   %52 = load ptr, ptr %3, align 8, !tbaa !21
@@ -1832,26 +1832,26 @@ define internal range(i32 0, 2) i32 @test_mod_exp_alias(i32 noundef %0) #1 {
   br i1 %23, label %54, label %57
 
 54:                                               ; preds = %49
-  %55 = call i32 @BN_mod_exp_simple(ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %50, ptr noundef %53) #8
-  %56 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 3255, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.69, i32 noundef %55, i32 noundef 0) #8
+  %55 = call i32 @BN_mod_exp_simple(ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %50, ptr noundef %53) #9
+  %56 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 3255, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.69, i32 noundef %55, i32 noundef 0) #9
   %.not30 = icmp eq i32 %56, 0
   br i1 %.not30, label %67, label %66
 
 57:                                               ; preds = %49
-  %58 = call i32 @BN_mod_exp_recp(ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %50, ptr noundef %53) #8
-  %59 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 3258, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.123, i32 noundef %58, i32 noundef 1) #8
+  %58 = call i32 @BN_mod_exp_recp(ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %50, ptr noundef %53) #9
+  %59 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 3258, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.123, i32 noundef %58, i32 noundef 1) #9
   %.not27 = icmp eq i32 %59, 0
   br i1 %.not27, label %67, label %60
 
 60:                                               ; preds = %57
   %61 = load ptr, ptr %4, align 8, !tbaa !21
-  %62 = call ptr @BN_bn2dec(ptr noundef %61) #8
-  %63 = call i32 @test_ptr_ne(ptr noundef nonnull @.str.17, i32 noundef 3260, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.112, ptr noundef %62, ptr noundef null) #8
+  %62 = call ptr @BN_bn2dec(ptr noundef %61) #9
+  %63 = call i32 @test_ptr_ne(ptr noundef nonnull @.str.17, i32 noundef 3260, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.112, ptr noundef %62, ptr noundef null) #9
   %.not28 = icmp eq i32 %63, 0
   br i1 %.not28, label %67, label %64
 
 64:                                               ; preds = %60
-  %65 = call i32 @test_str_eq(ptr noundef nonnull @.str.17, i32 noundef 3262, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.125, ptr noundef %62, ptr noundef nonnull @.str.126) #8
+  %65 = call i32 @test_str_eq(ptr noundef nonnull @.str.17, i32 noundef 3262, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.125, ptr noundef %62, ptr noundef nonnull @.str.126) #9
   %.not29 = icmp eq i32 %65, 0
   br i1 %.not29, label %67, label %66
 
@@ -1864,13 +1864,13 @@ define internal range(i32 0, 2) i32 @test_mod_exp_alias(i32 noundef %0) #1 {
   %.016 = phi ptr [ %.1, %66 ], [ null, %54 ], [ %62, %64 ], [ %62, %60 ], [ null, %57 ], [ %45, %47 ], [ %45, %44 ], [ null, %36 ], [ %32, %34 ], [ %32, %31 ], [ null, %22 ], [ null, %19 ], [ null, %14 ], [ null, %9 ], [ null, %1 ]
   %.0 = phi ptr [ %20, %66 ], [ %20, %54 ], [ %20, %64 ], [ %20, %60 ], [ %20, %57 ], [ %20, %47 ], [ %20, %44 ], [ %20, %36 ], [ %20, %34 ], [ %20, %31 ], [ %20, %22 ], [ %20, %19 ], [ null, %14 ], [ null, %9 ], [ null, %1 ]
   %68 = load ptr, ptr %2, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %68) #8
+  call void @BN_free(ptr noundef %68) #9
   %69 = load ptr, ptr %3, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %69) #8
+  call void @BN_free(ptr noundef %69) #9
   %70 = load ptr, ptr %4, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %70) #8
-  call void @BN_free(ptr noundef %.0) #8
-  call void @CRYPTO_free(ptr noundef %.016, ptr noundef nonnull @.str.17, i32 noundef 3273) #8
+  call void @BN_free(ptr noundef %70) #9
+  call void @BN_free(ptr noundef %.0) #9
+  call void @CRYPTO_free(ptr noundef %.016, ptr noundef nonnull @.str.17, i32 noundef 3273) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1896,127 +1896,127 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   store ptr null, ptr %5, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !21
-  %7 = tail call ptr @BN_new() #8
+  %7 = tail call ptr @BN_new() #9
   store ptr %7, ptr %1, align 8, !tbaa !21
-  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 479, ptr noundef nonnull @.str.63, ptr noundef %7) #8
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 479, ptr noundef nonnull @.str.63, ptr noundef %7) #9
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %394, label %9
 
 9:                                                ; preds = %0
-  %10 = tail call ptr @BN_new() #8
+  %10 = tail call ptr @BN_new() #9
   store ptr %10, ptr %2, align 8, !tbaa !21
-  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 480, ptr noundef nonnull @.str.131, ptr noundef %10) #8
+  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 480, ptr noundef nonnull @.str.131, ptr noundef %10) #9
   %.not55 = icmp eq i32 %11, 0
   br i1 %.not55, label %394, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call ptr @BN_new() #8
+  %13 = tail call ptr @BN_new() #9
   store ptr %13, ptr %3, align 8, !tbaa !21
-  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 481, ptr noundef nonnull @.str.132, ptr noundef %13) #8
+  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 481, ptr noundef nonnull @.str.132, ptr noundef %13) #9
   %.not56 = icmp eq i32 %14, 0
   br i1 %.not56, label %394, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call ptr @BN_new() #8
-  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 482, ptr noundef nonnull @.str.76, ptr noundef %16) #8
+  %16 = tail call ptr @BN_new() #9
+  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 482, ptr noundef nonnull @.str.76, ptr noundef %16) #9
   %.not57 = icmp eq i32 %17, 0
   br i1 %.not57, label %394, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call ptr @BN_new() #8
+  %19 = tail call ptr @BN_new() #9
   store ptr %19, ptr %4, align 8, !tbaa !21
-  %20 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 483, ptr noundef nonnull @.str.77, ptr noundef %19) #8
+  %20 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 483, ptr noundef nonnull @.str.77, ptr noundef %19) #9
   %.not58 = icmp eq i32 %20, 0
   br i1 %.not58, label %394, label %21
 
 21:                                               ; preds = %18
-  %22 = tail call ptr @BN_new() #8
+  %22 = tail call ptr @BN_new() #9
   store ptr %22, ptr %5, align 8, !tbaa !21
-  %23 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 484, ptr noundef nonnull @.str.64, ptr noundef %22) #8
+  %23 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 484, ptr noundef nonnull @.str.64, ptr noundef %22) #9
   %.not59 = icmp eq i32 %23, 0
   br i1 %.not59, label %394, label %24
 
 24:                                               ; preds = %21
-  %25 = tail call ptr @BN_new() #8
+  %25 = tail call ptr @BN_new() #9
   store ptr %25, ptr %6, align 8, !tbaa !21
-  %26 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 485, ptr noundef nonnull @.str.133, ptr noundef %25) #8
+  %26 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 485, ptr noundef nonnull @.str.133, ptr noundef %25) #9
   %.not60 = icmp eq i32 %26, 0
   br i1 %.not60, label %394, label %27
 
 27:                                               ; preds = %24
-  %28 = tail call ptr @BN_new() #8
-  %29 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 486, ptr noundef nonnull @.str.65, ptr noundef %28) #8
+  %28 = tail call ptr @BN_new() #9
+  %29 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 486, ptr noundef nonnull @.str.65, ptr noundef %28) #9
   %.not61 = icmp eq i32 %29, 0
   br i1 %.not61, label %394, label %30
 
 30:                                               ; preds = %27
-  %31 = tail call ptr @BN_MONT_CTX_new() #8
-  %32 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 487, ptr noundef nonnull @.str.134, ptr noundef %31) #8
+  %31 = tail call ptr @BN_MONT_CTX_new() #9
+  %32 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 487, ptr noundef nonnull @.str.134, ptr noundef %31) #9
   %.not62 = icmp eq i32 %32, 0
   br i1 %.not62, label %394, label %33
 
 33:                                               ; preds = %30
-  %34 = tail call i32 @BN_bntest_rand(ptr noundef %13, i32 noundef 1024, i32 noundef 0, i32 noundef 1) #8
+  %34 = tail call i32 @BN_bntest_rand(ptr noundef %13, i32 noundef 1024, i32 noundef 0, i32 noundef 1) #9
   %35 = icmp ne i32 %34, 0
   %36 = zext i1 %35 to i32
-  %37 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 491, ptr noundef nonnull @.str.135, i32 noundef %36) #8
+  %37 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 491, ptr noundef nonnull @.str.135, i32 noundef %36) #9
   %.not63 = icmp eq i32 %37, 0
   br i1 %.not63, label %394, label %38
 
 38:                                               ; preds = %33
-  %39 = tail call i32 @BN_bntest_rand(ptr noundef %7, i32 noundef 1024, i32 noundef 0, i32 noundef 0) #8
+  %39 = tail call i32 @BN_bntest_rand(ptr noundef %7, i32 noundef 1024, i32 noundef 0, i32 noundef 0) #9
   %40 = icmp ne i32 %39, 0
   %41 = zext i1 %40 to i32
-  %42 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 493, ptr noundef nonnull @.str.97, i32 noundef %41) #8
+  %42 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 493, ptr noundef nonnull @.str.97, i32 noundef %41) #9
   %.not64 = icmp eq i32 %42, 0
   br i1 %.not64, label %394, label %43
 
 43:                                               ; preds = %38
-  tail call void @BN_zero_ex(ptr noundef %10) #8
+  tail call void @BN_zero_ex(ptr noundef %10) #9
   %44 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %45 = tail call i32 @BN_mod_exp_mont_consttime(ptr noundef %16, ptr noundef %7, ptr noundef %10, ptr noundef %13, ptr noundef %44, ptr noundef null) #8
+  %45 = tail call i32 @BN_mod_exp_mont_consttime(ptr noundef %16, ptr noundef %7, ptr noundef %10, ptr noundef %13, ptr noundef %44, ptr noundef null) #9
   %46 = icmp ne i32 %45, 0
   %47 = zext i1 %46 to i32
-  %48 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 497, ptr noundef nonnull @.str.136, i32 noundef %47) #8
+  %48 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 497, ptr noundef nonnull @.str.136, i32 noundef %47) #9
   %.not65 = icmp eq i32 %48, 0
   br i1 %.not65, label %394, label %49
 
 49:                                               ; preds = %43
-  %50 = tail call i32 @test_BN_eq_one(ptr noundef nonnull @.str.17, i32 noundef 499, ptr noundef nonnull @.str.88, ptr noundef %16) #8
+  %50 = tail call i32 @test_BN_eq_one(ptr noundef nonnull @.str.17, i32 noundef 499, ptr noundef nonnull @.str.88, ptr noundef %16) #9
   %.not66 = icmp eq i32 %50, 0
   br i1 %.not66, label %394, label %51
 
 51:                                               ; preds = %49
-  %52 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.138) #8
+  %52 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.138) #9
   %53 = icmp ne i32 %52, 0
   %54 = zext i1 %53 to i32
-  %55 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 507, ptr noundef nonnull @.str.137, i32 noundef %54) #8
+  %55 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 507, ptr noundef nonnull @.str.137, i32 noundef %54) #9
   %.not67 = icmp eq i32 %55, 0
   br i1 %.not67, label %394, label %56
 
 56:                                               ; preds = %51
-  %57 = call i32 @BN_hex2bn(ptr noundef nonnull %5, ptr noundef nonnull @.str.140) #8
+  %57 = call i32 @BN_hex2bn(ptr noundef nonnull %5, ptr noundef nonnull @.str.140) #9
   %58 = icmp ne i32 %57, 0
   %59 = zext i1 %58 to i32
-  %60 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 512, ptr noundef nonnull @.str.139, i32 noundef %59) #8
+  %60 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 512, ptr noundef nonnull @.str.139, i32 noundef %59) #9
   %.not68 = icmp eq i32 %60, 0
   br i1 %.not68, label %394, label %61
 
 61:                                               ; preds = %56
-  %62 = call i32 @BN_hex2bn(ptr noundef nonnull %6, ptr noundef nonnull @.str.142) #8
+  %62 = call i32 @BN_hex2bn(ptr noundef nonnull %6, ptr noundef nonnull @.str.142) #9
   %63 = icmp ne i32 %62, 0
   %64 = zext i1 %63 to i32
-  %65 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 517, ptr noundef nonnull @.str.141, i32 noundef %64) #8
+  %65 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 517, ptr noundef nonnull @.str.141, i32 noundef %64) #9
   %.not69 = icmp eq i32 %65, 0
   br i1 %.not69, label %394, label %66
 
 66:                                               ; preds = %61
   %67 = load ptr, ptr %6, align 8, !tbaa !21
   %68 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %69 = call i32 @BN_MONT_CTX_set(ptr noundef %31, ptr noundef %67, ptr noundef %68) #8
+  %69 = call i32 @BN_MONT_CTX_set(ptr noundef %31, ptr noundef %67, ptr noundef %68) #9
   %70 = icmp ne i32 %69, 0
   %71 = zext i1 %70 to i32
-  %72 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 520, ptr noundef nonnull @.str.143, i32 noundef %71) #8
+  %72 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 520, ptr noundef nonnull @.str.143, i32 noundef %71) #9
   %.not70 = icmp eq i32 %72, 0
   br i1 %.not70, label %394, label %73
 
@@ -2024,10 +2024,10 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %74 = load ptr, ptr %1, align 8, !tbaa !21
   %75 = load ptr, ptr %5, align 8, !tbaa !21
   %76 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %77 = call i32 @BN_mod_mul_montgomery(ptr noundef %28, ptr noundef %74, ptr noundef %75, ptr noundef %31, ptr noundef %76) #8
+  %77 = call i32 @BN_mod_mul_montgomery(ptr noundef %28, ptr noundef %74, ptr noundef %75, ptr noundef %31, ptr noundef %76) #9
   %78 = icmp ne i32 %77, 0
   %79 = zext i1 %78 to i32
-  %80 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 521, ptr noundef nonnull @.str.144, i32 noundef %79) #8
+  %80 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 521, ptr noundef nonnull @.str.144, i32 noundef %79) #9
   %.not71 = icmp eq i32 %80, 0
   br i1 %.not71, label %394, label %81
 
@@ -2035,15 +2035,15 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %82 = load ptr, ptr %5, align 8, !tbaa !21
   %83 = load ptr, ptr %1, align 8, !tbaa !21
   %84 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %85 = call i32 @BN_mod_mul_montgomery(ptr noundef %16, ptr noundef %82, ptr noundef %83, ptr noundef %31, ptr noundef %84) #8
+  %85 = call i32 @BN_mod_mul_montgomery(ptr noundef %16, ptr noundef %82, ptr noundef %83, ptr noundef %31, ptr noundef %84) #9
   %86 = icmp ne i32 %85, 0
   %87 = zext i1 %86 to i32
-  %88 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 522, ptr noundef nonnull @.str.145, i32 noundef %87) #8
+  %88 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 522, ptr noundef nonnull @.str.145, i32 noundef %87) #9
   %.not72 = icmp eq i32 %88, 0
   br i1 %.not72, label %394, label %89
 
 89:                                               ; preds = %81
-  %90 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 523, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.88, ptr noundef %28, ptr noundef %16) #8
+  %90 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 523, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.88, ptr noundef %28, ptr noundef %16) #9
   %.not73 = icmp eq i32 %90, 0
   br i1 %.not73, label %394, label %91
 
@@ -2051,7 +2051,7 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %92 = call fastcc i32 @parse_bigBN(ptr noundef %6, ptr noundef nonnull @bn1strings)
   %93 = icmp ne i32 %92, 0
   %94 = zext i1 %93 to i32
-  %95 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 527, ptr noundef nonnull @.str.146, i32 noundef %94) #8
+  %95 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 527, ptr noundef nonnull @.str.146, i32 noundef %94) #9
   %.not74 = icmp eq i32 %95, 0
   br i1 %.not74, label %394, label %96
 
@@ -2059,37 +2059,37 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %97 = call fastcc i32 @parse_bigBN(ptr noundef %1, ptr noundef nonnull @bn2strings)
   %98 = icmp ne i32 %97, 0
   %99 = zext i1 %98 to i32
-  %100 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 528, ptr noundef nonnull @.str.147, i32 noundef %99) #8
+  %100 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 528, ptr noundef nonnull @.str.147, i32 noundef %99) #9
   %.not75 = icmp eq i32 %100, 0
   br i1 %.not75, label %394, label %101
 
 101:                                              ; preds = %96
   %102 = load ptr, ptr %5, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %102) #8
+  call void @BN_free(ptr noundef %102) #9
   %103 = load ptr, ptr %1, align 8, !tbaa !21
-  %104 = call ptr @BN_dup(ptr noundef %103) #8
+  %104 = call ptr @BN_dup(ptr noundef %103) #9
   store ptr %104, ptr %5, align 8, !tbaa !21
-  %105 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 531, ptr noundef nonnull @.str.148, ptr noundef %104) #8
+  %105 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 531, ptr noundef nonnull @.str.148, ptr noundef %104) #9
   %.not76 = icmp eq i32 %105, 0
   br i1 %.not76, label %394, label %106
 
 106:                                              ; preds = %101
   %107 = load ptr, ptr %6, align 8, !tbaa !21
   %108 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %109 = call i32 @BN_MONT_CTX_set(ptr noundef %31, ptr noundef %107, ptr noundef %108) #8
+  %109 = call i32 @BN_MONT_CTX_set(ptr noundef %31, ptr noundef %107, ptr noundef %108) #9
   %110 = icmp ne i32 %109, 0
   %111 = zext i1 %110 to i32
-  %112 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 532, ptr noundef nonnull @.str.143, i32 noundef %111) #8
+  %112 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 532, ptr noundef nonnull @.str.143, i32 noundef %111) #9
   %.not77 = icmp eq i32 %112, 0
   br i1 %.not77, label %394, label %113
 
 113:                                              ; preds = %106
   %114 = load ptr, ptr %1, align 8, !tbaa !21
   %115 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %116 = call i32 @BN_mod_mul_montgomery(ptr noundef %28, ptr noundef %114, ptr noundef %114, ptr noundef %31, ptr noundef %115) #8
+  %116 = call i32 @BN_mod_mul_montgomery(ptr noundef %28, ptr noundef %114, ptr noundef %114, ptr noundef %31, ptr noundef %115) #9
   %117 = icmp ne i32 %116, 0
   %118 = zext i1 %117 to i32
-  %119 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 533, ptr noundef nonnull @.str.149, i32 noundef %118) #8
+  %119 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 533, ptr noundef nonnull @.str.149, i32 noundef %118) #9
   %.not78 = icmp eq i32 %119, 0
   br i1 %.not78, label %394, label %120
 
@@ -2097,15 +2097,15 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %121 = load ptr, ptr %1, align 8, !tbaa !21
   %122 = load ptr, ptr %5, align 8, !tbaa !21
   %123 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %124 = call i32 @BN_mod_mul_montgomery(ptr noundef %16, ptr noundef %121, ptr noundef %122, ptr noundef %31, ptr noundef %123) #8
+  %124 = call i32 @BN_mod_mul_montgomery(ptr noundef %16, ptr noundef %121, ptr noundef %122, ptr noundef %31, ptr noundef %123) #9
   %125 = icmp ne i32 %124, 0
   %126 = zext i1 %125 to i32
-  %127 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 534, ptr noundef nonnull @.str.150, i32 noundef %126) #8
+  %127 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 534, ptr noundef nonnull @.str.150, i32 noundef %126) #9
   %.not79 = icmp eq i32 %127, 0
   br i1 %.not79, label %394, label %128
 
 128:                                              ; preds = %120
-  %129 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 535, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.88, ptr noundef %28, ptr noundef %16) #8
+  %129 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 535, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.88, ptr noundef %28, ptr noundef %16) #9
   %.not80 = icmp eq i32 %129, 0
   br i1 %.not80, label %394, label %130
 
@@ -2113,7 +2113,7 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %131 = call fastcc i32 @parse_bigBN(ptr noundef %1, ptr noundef nonnull @test_modexp_mont5.ahex)
   %132 = icmp ne i32 %131, 0
   %133 = zext i1 %132 to i32
-  %134 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 571, ptr noundef nonnull @.str.168, i32 noundef %133) #8
+  %134 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 571, ptr noundef nonnull @.str.168, i32 noundef %133) #9
   %.not81 = icmp eq i32 %134, 0
   br i1 %.not81, label %394, label %135
 
@@ -2121,37 +2121,37 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %136 = call fastcc i32 @parse_bigBN(ptr noundef %6, ptr noundef nonnull @test_modexp_mont5.nhex)
   %137 = icmp ne i32 %136, 0
   %138 = zext i1 %137 to i32
-  %139 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 572, ptr noundef nonnull @.str.169, i32 noundef %138) #8
+  %139 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 572, ptr noundef nonnull @.str.169, i32 noundef %138) #9
   %.not82 = icmp eq i32 %139, 0
   br i1 %.not82, label %394, label %140
 
 140:                                              ; preds = %135
   %141 = load ptr, ptr %5, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %141) #8
+  call void @BN_free(ptr noundef %141) #9
   %142 = load ptr, ptr %1, align 8, !tbaa !21
-  %143 = call ptr @BN_dup(ptr noundef %142) #8
+  %143 = call ptr @BN_dup(ptr noundef %142) #9
   store ptr %143, ptr %5, align 8, !tbaa !21
-  %144 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 576, ptr noundef nonnull @.str.148, ptr noundef %143) #8
+  %144 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 576, ptr noundef nonnull @.str.148, ptr noundef %143) #9
   %.not83 = icmp eq i32 %144, 0
   br i1 %.not83, label %394, label %145
 
 145:                                              ; preds = %140
   %146 = load ptr, ptr %6, align 8, !tbaa !21
   %147 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %148 = call i32 @BN_MONT_CTX_set(ptr noundef %31, ptr noundef %146, ptr noundef %147) #8
+  %148 = call i32 @BN_MONT_CTX_set(ptr noundef %31, ptr noundef %146, ptr noundef %147) #9
   %149 = icmp ne i32 %148, 0
   %150 = zext i1 %149 to i32
-  %151 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 577, ptr noundef nonnull @.str.143, i32 noundef %150) #8
+  %151 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 577, ptr noundef nonnull @.str.143, i32 noundef %150) #9
   %.not84 = icmp eq i32 %151, 0
   br i1 %.not84, label %394, label %152
 
 152:                                              ; preds = %145
   %153 = load ptr, ptr %1, align 8, !tbaa !21
   %154 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %155 = call i32 @BN_mod_mul_montgomery(ptr noundef %28, ptr noundef %153, ptr noundef %153, ptr noundef %31, ptr noundef %154) #8
+  %155 = call i32 @BN_mod_mul_montgomery(ptr noundef %28, ptr noundef %153, ptr noundef %153, ptr noundef %31, ptr noundef %154) #9
   %156 = icmp ne i32 %155, 0
   %157 = zext i1 %156 to i32
-  %158 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 580, ptr noundef nonnull @.str.149, i32 noundef %157) #8
+  %158 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 580, ptr noundef nonnull @.str.149, i32 noundef %157) #9
   %.not85 = icmp eq i32 %158, 0
   br i1 %.not85, label %394, label %159
 
@@ -2159,85 +2159,85 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %160 = load ptr, ptr %1, align 8, !tbaa !21
   %161 = load ptr, ptr %5, align 8, !tbaa !21
   %162 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %163 = call i32 @BN_mod_mul_montgomery(ptr noundef %16, ptr noundef %160, ptr noundef %161, ptr noundef %31, ptr noundef %162) #8
+  %163 = call i32 @BN_mod_mul_montgomery(ptr noundef %16, ptr noundef %160, ptr noundef %161, ptr noundef %31, ptr noundef %162) #9
   %164 = icmp ne i32 %163, 0
   %165 = zext i1 %164 to i32
-  %166 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 581, ptr noundef nonnull @.str.150, i32 noundef %165) #8
+  %166 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 581, ptr noundef nonnull @.str.150, i32 noundef %165) #9
   %.not86 = icmp eq i32 %166, 0
   br i1 %.not86, label %394, label %167
 
 167:                                              ; preds = %159
-  %168 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 582, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.88, ptr noundef %28, ptr noundef %16) #8
+  %168 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 582, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.88, ptr noundef %28, ptr noundef %16) #9
   %.not87 = icmp eq i32 %168, 0
   br i1 %.not87, label %394, label %169
 
 169:                                              ; preds = %167
-  %170 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.171) #8
+  %170 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.171) #9
   %171 = icmp ne i32 %170, 0
   %172 = zext i1 %171 to i32
-  %173 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 589, ptr noundef nonnull @.str.170, i32 noundef %172) #8
+  %173 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 589, ptr noundef nonnull @.str.170, i32 noundef %172) #9
   %.not88 = icmp eq i32 %173, 0
   br i1 %.not88, label %394, label %174
 
 174:                                              ; preds = %169
-  %175 = call i32 @BN_hex2bn(ptr noundef nonnull %6, ptr noundef nonnull @.str.173) #8
+  %175 = call i32 @BN_hex2bn(ptr noundef nonnull %6, ptr noundef nonnull @.str.173) #9
   %176 = icmp ne i32 %175, 0
   %177 = zext i1 %176 to i32
-  %178 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 592, ptr noundef nonnull @.str.172, i32 noundef %177) #8
+  %178 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 592, ptr noundef nonnull @.str.172, i32 noundef %177) #9
   %.not89 = icmp eq i32 %178, 0
   br i1 %.not89, label %394, label %179
 
 179:                                              ; preds = %174
   %180 = load ptr, ptr %6, align 8, !tbaa !21
   %181 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %182 = call i32 @BN_MONT_CTX_set(ptr noundef %31, ptr noundef %180, ptr noundef %181) #8
+  %182 = call i32 @BN_MONT_CTX_set(ptr noundef %31, ptr noundef %180, ptr noundef %181) #9
   %183 = icmp ne i32 %182, 0
   %184 = zext i1 %183 to i32
-  %185 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 593, ptr noundef nonnull @.str.143, i32 noundef %184) #8
+  %185 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 593, ptr noundef nonnull @.str.143, i32 noundef %184) #9
   %.not90 = icmp eq i32 %185, 0
   br i1 %.not90, label %394, label %186
 
 186:                                              ; preds = %179
   %187 = load ptr, ptr %1, align 8, !tbaa !21
   %188 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %189 = call i32 @BN_mod_mul_montgomery(ptr noundef %16, ptr noundef %187, ptr noundef %187, ptr noundef %31, ptr noundef %188) #8
+  %189 = call i32 @BN_mod_mul_montgomery(ptr noundef %16, ptr noundef %187, ptr noundef %187, ptr noundef %31, ptr noundef %188) #9
   %190 = icmp ne i32 %189, 0
   %191 = zext i1 %190 to i32
-  %192 = call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 594, ptr noundef nonnull @.str.174, i32 noundef %191) #8
+  %192 = call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 594, ptr noundef nonnull @.str.174, i32 noundef %191) #9
   %.not91 = icmp eq i32 %192, 0
   br i1 %.not91, label %394, label %193
 
 193:                                              ; preds = %186
-  %194 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.176) #8
+  %194 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.176) #9
   %195 = icmp ne i32 %194, 0
   %196 = zext i1 %195 to i32
-  %197 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 602, ptr noundef nonnull @.str.175, i32 noundef %196) #8
+  %197 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 602, ptr noundef nonnull @.str.175, i32 noundef %196) #9
   %.not92 = icmp eq i32 %197, 0
   br i1 %.not92, label %394, label %198
 
 198:                                              ; preds = %193
-  %199 = call i32 @BN_hex2bn(ptr noundef nonnull %5, ptr noundef nonnull @.str.178) #8
+  %199 = call i32 @BN_hex2bn(ptr noundef nonnull %5, ptr noundef nonnull @.str.178) #9
   %200 = icmp ne i32 %199, 0
   %201 = zext i1 %200 to i32
-  %202 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 607, ptr noundef nonnull @.str.177, i32 noundef %201) #8
+  %202 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 607, ptr noundef nonnull @.str.177, i32 noundef %201) #9
   %.not93 = icmp eq i32 %202, 0
   br i1 %.not93, label %394, label %203
 
 203:                                              ; preds = %198
-  %204 = call i32 @BN_hex2bn(ptr noundef nonnull %6, ptr noundef nonnull @.str.180) #8
+  %204 = call i32 @BN_hex2bn(ptr noundef nonnull %6, ptr noundef nonnull @.str.180) #9
   %205 = icmp ne i32 %204, 0
   %206 = zext i1 %205 to i32
-  %207 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 612, ptr noundef nonnull @.str.179, i32 noundef %206) #8
+  %207 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 612, ptr noundef nonnull @.str.179, i32 noundef %206) #9
   %.not94 = icmp eq i32 %207, 0
   br i1 %.not94, label %394, label %208
 
 208:                                              ; preds = %203
   %209 = load ptr, ptr %6, align 8, !tbaa !21
   %210 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %211 = call i32 @BN_MONT_CTX_set(ptr noundef %31, ptr noundef %209, ptr noundef %210) #8
+  %211 = call i32 @BN_MONT_CTX_set(ptr noundef %31, ptr noundef %209, ptr noundef %210) #9
   %212 = icmp ne i32 %211, 0
   %213 = zext i1 %212 to i32
-  %214 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 613, ptr noundef nonnull @.str.143, i32 noundef %213) #8
+  %214 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 613, ptr noundef nonnull @.str.143, i32 noundef %213) #9
   %.not95 = icmp eq i32 %214, 0
   br i1 %.not95, label %394, label %215
 
@@ -2246,10 +2246,10 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %217 = load ptr, ptr %5, align 8, !tbaa !21
   %218 = load ptr, ptr %6, align 8, !tbaa !21
   %219 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %220 = call i32 @BN_mod_exp_mont_consttime(ptr noundef %28, ptr noundef %216, ptr noundef %217, ptr noundef %218, ptr noundef %219, ptr noundef %31) #8
+  %220 = call i32 @BN_mod_exp_mont_consttime(ptr noundef %28, ptr noundef %216, ptr noundef %217, ptr noundef %218, ptr noundef %219, ptr noundef %31) #9
   %221 = icmp ne i32 %220, 0
   %222 = zext i1 %221 to i32
-  %223 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 614, ptr noundef nonnull @.str.181, i32 noundef %222) #8
+  %223 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 614, ptr noundef nonnull @.str.181, i32 noundef %222) #9
   %.not96 = icmp eq i32 %223, 0
   br i1 %.not96, label %394, label %224
 
@@ -2258,49 +2258,49 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %226 = load ptr, ptr %5, align 8, !tbaa !21
   %227 = load ptr, ptr %6, align 8, !tbaa !21
   %228 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %229 = call i32 @BN_mod_exp_mont(ptr noundef %16, ptr noundef %225, ptr noundef %226, ptr noundef %227, ptr noundef %228, ptr noundef %31) #8
+  %229 = call i32 @BN_mod_exp_mont(ptr noundef %16, ptr noundef %225, ptr noundef %226, ptr noundef %227, ptr noundef %228, ptr noundef %31) #9
   %230 = icmp ne i32 %229, 0
   %231 = zext i1 %230 to i32
-  %232 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 615, ptr noundef nonnull @.str.182, i32 noundef %231) #8
+  %232 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 615, ptr noundef nonnull @.str.182, i32 noundef %231) #9
   %.not97 = icmp eq i32 %232, 0
   br i1 %.not97, label %394, label %233
 
 233:                                              ; preds = %224
-  %234 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 616, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.88, ptr noundef %28, ptr noundef %16) #8
+  %234 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 616, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.88, ptr noundef %28, ptr noundef %16) #9
   %.not98 = icmp eq i32 %234, 0
   br i1 %.not98, label %394, label %235
 
 235:                                              ; preds = %233
-  %236 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.176) #8
+  %236 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.176) #9
   %237 = icmp ne i32 %236, 0
   %238 = zext i1 %237 to i32
-  %239 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 627, ptr noundef nonnull @.str.175, i32 noundef %238) #8
+  %239 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 627, ptr noundef nonnull @.str.175, i32 noundef %238) #9
   %.not99 = icmp eq i32 %239, 0
   br i1 %.not99, label %394, label %240
 
 240:                                              ; preds = %235
-  %241 = call i32 @BN_hex2bn(ptr noundef nonnull %5, ptr noundef nonnull @.str.184) #8
+  %241 = call i32 @BN_hex2bn(ptr noundef nonnull %5, ptr noundef nonnull @.str.184) #9
   %242 = icmp ne i32 %241, 0
   %243 = zext i1 %242 to i32
-  %244 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 632, ptr noundef nonnull @.str.183, i32 noundef %243) #8
+  %244 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 632, ptr noundef nonnull @.str.183, i32 noundef %243) #9
   %.not100 = icmp eq i32 %244, 0
   br i1 %.not100, label %394, label %245
 
 245:                                              ; preds = %240
-  %246 = call i32 @BN_hex2bn(ptr noundef nonnull %6, ptr noundef nonnull @.str.176) #8
+  %246 = call i32 @BN_hex2bn(ptr noundef nonnull %6, ptr noundef nonnull @.str.176) #9
   %247 = icmp ne i32 %246, 0
   %248 = zext i1 %247 to i32
-  %249 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 637, ptr noundef nonnull @.str.185, i32 noundef %248) #8
+  %249 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 637, ptr noundef nonnull @.str.185, i32 noundef %248) #9
   %.not101 = icmp eq i32 %249, 0
   br i1 %.not101, label %394, label %250
 
 250:                                              ; preds = %245
   %251 = load ptr, ptr %6, align 8, !tbaa !21
   %252 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %253 = call i32 @BN_MONT_CTX_set(ptr noundef %31, ptr noundef %251, ptr noundef %252) #8
+  %253 = call i32 @BN_MONT_CTX_set(ptr noundef %31, ptr noundef %251, ptr noundef %252) #9
   %254 = icmp ne i32 %253, 0
   %255 = zext i1 %254 to i32
-  %256 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 638, ptr noundef nonnull @.str.143, i32 noundef %255) #8
+  %256 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 638, ptr noundef nonnull @.str.143, i32 noundef %255) #9
   %.not102 = icmp eq i32 %256, 0
   br i1 %.not102, label %394, label %257
 
@@ -2309,16 +2309,16 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %259 = load ptr, ptr %5, align 8, !tbaa !21
   %260 = load ptr, ptr %6, align 8, !tbaa !21
   %261 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %262 = call i32 @BN_mod_exp_mont_consttime(ptr noundef %28, ptr noundef %258, ptr noundef %259, ptr noundef %260, ptr noundef %261, ptr noundef %31) #8
+  %262 = call i32 @BN_mod_exp_mont_consttime(ptr noundef %28, ptr noundef %258, ptr noundef %259, ptr noundef %260, ptr noundef %261, ptr noundef %31) #9
   %263 = icmp ne i32 %262, 0
   %264 = zext i1 %263 to i32
-  %265 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 639, ptr noundef nonnull @.str.181, i32 noundef %264) #8
+  %265 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 639, ptr noundef nonnull @.str.181, i32 noundef %264) #9
   %.not103 = icmp eq i32 %265, 0
   br i1 %.not103, label %394, label %266
 
 266:                                              ; preds = %257
-  call void @BN_zero_ex(ptr noundef %16) #8
-  %267 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 642, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.88, ptr noundef %28, ptr noundef %16) #8
+  call void @BN_zero_ex(ptr noundef %16) #9
+  %267 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 642, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.88, ptr noundef %28, ptr noundef %16) #9
   %.not104 = icmp eq i32 %267, 0
   br i1 %.not104, label %394, label %268
 
@@ -2326,7 +2326,7 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %269 = call fastcc i32 @parse_bigBN(ptr noundef %4, ptr noundef nonnull @test_modexp_mont5.ehex)
   %270 = icmp ne i32 %269, 0
   %271 = zext i1 %270 to i32
-  %272 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 681, ptr noundef nonnull @.str.210, i32 noundef %271) #8
+  %272 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 681, ptr noundef nonnull @.str.210, i32 noundef %271) #9
   %.not105 = icmp eq i32 %272, 0
   br i1 %.not105, label %394, label %273
 
@@ -2334,7 +2334,7 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %274 = call fastcc i32 @parse_bigBN(ptr noundef %2, ptr noundef nonnull @test_modexp_mont5.phex)
   %275 = icmp ne i32 %274, 0
   %276 = zext i1 %275 to i32
-  %277 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 682, ptr noundef nonnull @.str.211, i32 noundef %276) #8
+  %277 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 682, ptr noundef nonnull @.str.211, i32 noundef %276) #9
   %.not106 = icmp eq i32 %277, 0
   br i1 %.not106, label %394, label %278
 
@@ -2342,7 +2342,7 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %279 = call fastcc i32 @parse_bigBN(ptr noundef %3, ptr noundef nonnull @test_modexp_mont5.mhex)
   %280 = icmp ne i32 %279, 0
   %281 = zext i1 %280 to i32
-  %282 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 683, ptr noundef nonnull @.str.212, i32 noundef %281) #8
+  %282 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 683, ptr noundef nonnull @.str.212, i32 noundef %281) #9
   %.not107 = icmp eq i32 %282, 0
   br i1 %.not107, label %394, label %283
 
@@ -2351,10 +2351,10 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %285 = load ptr, ptr %2, align 8, !tbaa !21
   %286 = load ptr, ptr %3, align 8, !tbaa !21
   %287 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %288 = call i32 @BN_mod_exp_mont_consttime(ptr noundef %16, ptr noundef %284, ptr noundef %285, ptr noundef %286, ptr noundef %287, ptr noundef null) #8
+  %288 = call i32 @BN_mod_exp_mont_consttime(ptr noundef %16, ptr noundef %284, ptr noundef %285, ptr noundef %286, ptr noundef %287, ptr noundef null) #9
   %289 = icmp ne i32 %288, 0
   %290 = zext i1 %289 to i32
-  %291 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 684, ptr noundef nonnull @.str.213, i32 noundef %290) #8
+  %291 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 684, ptr noundef nonnull @.str.213, i32 noundef %290) #9
   %.not108 = icmp eq i32 %291, 0
   br i1 %.not108, label %394, label %292
 
@@ -2364,63 +2364,63 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %295 = load ptr, ptr %2, align 8, !tbaa !21
   %296 = load ptr, ptr %3, align 8, !tbaa !21
   %297 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %298 = call i32 @BN_mod_exp_simple(ptr noundef %293, ptr noundef %294, ptr noundef %295, ptr noundef %296, ptr noundef %297) #8
+  %298 = call i32 @BN_mod_exp_simple(ptr noundef %293, ptr noundef %294, ptr noundef %295, ptr noundef %296, ptr noundef %297) #9
   %299 = icmp ne i32 %298, 0
   %300 = zext i1 %299 to i32
-  %301 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 685, ptr noundef nonnull @.str.214, i32 noundef %300) #8
+  %301 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 685, ptr noundef nonnull @.str.214, i32 noundef %300) #9
   %.not109 = icmp eq i32 %301, 0
   br i1 %.not109, label %394, label %302
 
 302:                                              ; preds = %292
   %303 = load ptr, ptr %1, align 8, !tbaa !21
-  %304 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 686, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.88, ptr noundef %303, ptr noundef %16) #8
+  %304 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 686, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.88, ptr noundef %303, ptr noundef %16) #9
   %.not110 = icmp eq i32 %304, 0
   br i1 %.not110, label %394, label %305
 
 305:                                              ; preds = %302
   %306 = load ptr, ptr %2, align 8, !tbaa !21
-  %307 = call i32 @BN_bntest_rand(ptr noundef %306, i32 noundef 1024, i32 noundef 0, i32 noundef 0) #8
+  %307 = call i32 @BN_bntest_rand(ptr noundef %306, i32 noundef 1024, i32 noundef 0, i32 noundef 0) #9
   %308 = icmp ne i32 %307, 0
   %309 = zext i1 %308 to i32
-  %310 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 691, ptr noundef nonnull @.str.215, i32 noundef %309) #8
+  %310 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 691, ptr noundef nonnull @.str.215, i32 noundef %309) #9
   %.not111 = icmp eq i32 %310, 0
   br i1 %.not111, label %394, label %311
 
 311:                                              ; preds = %305
   %312 = load ptr, ptr %1, align 8, !tbaa !21
-  call void @BN_zero_ex(ptr noundef %312) #8
+  call void @BN_zero_ex(ptr noundef %312) #9
   %313 = load ptr, ptr %1, align 8, !tbaa !21
   %314 = load ptr, ptr %2, align 8, !tbaa !21
   %315 = load ptr, ptr %3, align 8, !tbaa !21
   %316 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %317 = call i32 @BN_mod_exp_mont_consttime(ptr noundef %16, ptr noundef %313, ptr noundef %314, ptr noundef %315, ptr noundef %316, ptr noundef null) #8
+  %317 = call i32 @BN_mod_exp_mont_consttime(ptr noundef %16, ptr noundef %313, ptr noundef %314, ptr noundef %315, ptr noundef %316, ptr noundef null) #9
   %318 = icmp ne i32 %317, 0
   %319 = zext i1 %318 to i32
-  %320 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 694, ptr noundef nonnull @.str.136, i32 noundef %319) #8
+  %320 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 694, ptr noundef nonnull @.str.136, i32 noundef %319) #9
   %.not112 = icmp eq i32 %320, 0
   br i1 %.not112, label %394, label %321
 
 321:                                              ; preds = %311
-  %322 = call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 695, ptr noundef nonnull @.str.88, ptr noundef %16) #8
+  %322 = call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 695, ptr noundef nonnull @.str.88, ptr noundef %16) #9
   %.not113 = icmp eq i32 %322, 0
   br i1 %.not113, label %394, label %323
 
 323:                                              ; preds = %321
   %324 = load ptr, ptr %1, align 8, !tbaa !21
-  %325 = call i32 @BN_set_word(ptr noundef %324, i64 noundef 1) #8
+  %325 = call i32 @BN_set_word(ptr noundef %324, i64 noundef 1) #9
   %326 = icmp ne i32 %325, 0
   %327 = zext i1 %326 to i32
-  %328 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 703, ptr noundef nonnull @.str.216, i32 noundef %327) #8
+  %328 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 703, ptr noundef nonnull @.str.216, i32 noundef %327) #9
   %.not114 = icmp eq i32 %328, 0
   br i1 %.not114, label %394, label %329
 
 329:                                              ; preds = %323
   %330 = load ptr, ptr %3, align 8, !tbaa !21
   %331 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %332 = call i32 @BN_MONT_CTX_set(ptr noundef %31, ptr noundef %330, ptr noundef %331) #8
+  %332 = call i32 @BN_MONT_CTX_set(ptr noundef %31, ptr noundef %330, ptr noundef %331) #9
   %333 = icmp ne i32 %332, 0
   %334 = zext i1 %333 to i32
-  %335 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 704, ptr noundef nonnull @.str.217, i32 noundef %334) #8
+  %335 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 704, ptr noundef nonnull @.str.217, i32 noundef %334) #9
   %.not115 = icmp eq i32 %335, 0
   br i1 %.not115, label %394, label %336
 
@@ -2428,10 +2428,10 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %337 = load ptr, ptr %4, align 8, !tbaa !21
   %338 = load ptr, ptr %1, align 8, !tbaa !21
   %339 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %340 = call i32 @BN_from_montgomery(ptr noundef %337, ptr noundef %338, ptr noundef %31, ptr noundef %339) #8
+  %340 = call i32 @BN_from_montgomery(ptr noundef %337, ptr noundef %338, ptr noundef %31, ptr noundef %339) #9
   %341 = icmp ne i32 %340, 0
   %342 = zext i1 %341 to i32
-  %343 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 706, ptr noundef nonnull @.str.218, i32 noundef %342) #8
+  %343 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 706, ptr noundef nonnull @.str.218, i32 noundef %342) #9
   %.not116 = icmp eq i32 %343, 0
   br i1 %.not116, label %394, label %344
 
@@ -2440,10 +2440,10 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %346 = load ptr, ptr %2, align 8, !tbaa !21
   %347 = load ptr, ptr %3, align 8, !tbaa !21
   %348 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %349 = call i32 @BN_mod_exp_mont_consttime(ptr noundef %16, ptr noundef %345, ptr noundef %346, ptr noundef %347, ptr noundef %348, ptr noundef null) #8
+  %349 = call i32 @BN_mod_exp_mont_consttime(ptr noundef %16, ptr noundef %345, ptr noundef %346, ptr noundef %347, ptr noundef %348, ptr noundef null) #9
   %350 = icmp ne i32 %349, 0
   %351 = zext i1 %350 to i32
-  %352 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 707, ptr noundef nonnull @.str.213, i32 noundef %351) #8
+  %352 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 707, ptr noundef nonnull @.str.213, i32 noundef %351) #9
   %.not117 = icmp eq i32 %352, 0
   br i1 %.not117, label %394, label %353
 
@@ -2453,25 +2453,25 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %356 = load ptr, ptr %2, align 8, !tbaa !21
   %357 = load ptr, ptr %3, align 8, !tbaa !21
   %358 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %359 = call i32 @BN_mod_exp_simple(ptr noundef %354, ptr noundef %355, ptr noundef %356, ptr noundef %357, ptr noundef %358) #8
+  %359 = call i32 @BN_mod_exp_simple(ptr noundef %354, ptr noundef %355, ptr noundef %356, ptr noundef %357, ptr noundef %358) #9
   %360 = icmp ne i32 %359, 0
   %361 = zext i1 %360 to i32
-  %362 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 708, ptr noundef nonnull @.str.214, i32 noundef %361) #8
+  %362 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 708, ptr noundef nonnull @.str.214, i32 noundef %361) #9
   %.not118 = icmp eq i32 %362, 0
   br i1 %.not118, label %394, label %363
 
 363:                                              ; preds = %353
   %364 = load ptr, ptr %1, align 8, !tbaa !21
-  %365 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 709, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.88, ptr noundef %364, ptr noundef %16) #8
+  %365 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 709, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.88, ptr noundef %364, ptr noundef %16) #9
   %.not119 = icmp eq i32 %365, 0
   br i1 %.not119, label %394, label %366
 
 366:                                              ; preds = %363
   %367 = load ptr, ptr %4, align 8, !tbaa !21
-  %368 = call i32 @BN_bntest_rand(ptr noundef %367, i32 noundef 1024, i32 noundef 0, i32 noundef 0) #8
+  %368 = call i32 @BN_bntest_rand(ptr noundef %367, i32 noundef 1024, i32 noundef 0, i32 noundef 0) #9
   %369 = icmp ne i32 %368, 0
   %370 = zext i1 %369 to i32
-  %371 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 713, ptr noundef nonnull @.str.219, i32 noundef %370) #8
+  %371 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 713, ptr noundef nonnull @.str.219, i32 noundef %370) #9
   %.not120 = icmp eq i32 %371, 0
   br i1 %.not120, label %394, label %372
 
@@ -2480,10 +2480,10 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %374 = load ptr, ptr %2, align 8, !tbaa !21
   %375 = load ptr, ptr %3, align 8, !tbaa !21
   %376 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %377 = call i32 @BN_mod_exp_mont_consttime(ptr noundef %16, ptr noundef %373, ptr noundef %374, ptr noundef %375, ptr noundef %376, ptr noundef null) #8
+  %377 = call i32 @BN_mod_exp_mont_consttime(ptr noundef %16, ptr noundef %373, ptr noundef %374, ptr noundef %375, ptr noundef %376, ptr noundef null) #9
   %378 = icmp ne i32 %377, 0
   %379 = zext i1 %378 to i32
-  %380 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 714, ptr noundef nonnull @.str.213, i32 noundef %379) #8
+  %380 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 714, ptr noundef nonnull @.str.213, i32 noundef %379) #9
   %.not121 = icmp eq i32 %380, 0
   br i1 %.not121, label %394, label %381
 
@@ -2493,16 +2493,16 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %384 = load ptr, ptr %2, align 8, !tbaa !21
   %385 = load ptr, ptr %3, align 8, !tbaa !21
   %386 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %387 = call i32 @BN_mod_exp_simple(ptr noundef %382, ptr noundef %383, ptr noundef %384, ptr noundef %385, ptr noundef %386) #8
+  %387 = call i32 @BN_mod_exp_simple(ptr noundef %382, ptr noundef %383, ptr noundef %384, ptr noundef %385, ptr noundef %386) #9
   %388 = icmp ne i32 %387, 0
   %389 = zext i1 %388 to i32
-  %390 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 715, ptr noundef nonnull @.str.214, i32 noundef %389) #8
+  %390 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 715, ptr noundef nonnull @.str.214, i32 noundef %389) #9
   %.not122 = icmp eq i32 %390, 0
   br i1 %.not122, label %394, label %391
 
 391:                                              ; preds = %381
   %392 = load ptr, ptr %1, align 8, !tbaa !21
-  %393 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 716, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.88, ptr noundef %392, ptr noundef %16) #8
+  %393 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 716, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.88, ptr noundef %392, ptr noundef %16) #9
   %.not123 = icmp ne i32 %393, 0
   %spec.select = zext i1 %.not123 to i32
   br label %394
@@ -2512,21 +2512,21 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %.053 = phi ptr [ %28, %381 ], [ %28, %372 ], [ %28, %366 ], [ %28, %363 ], [ %28, %353 ], [ %28, %344 ], [ %28, %336 ], [ %28, %329 ], [ %28, %323 ], [ %28, %321 ], [ %28, %311 ], [ %28, %305 ], [ %28, %302 ], [ %28, %292 ], [ %28, %283 ], [ %28, %278 ], [ %28, %273 ], [ %28, %268 ], [ %28, %266 ], [ %28, %257 ], [ %28, %250 ], [ %28, %245 ], [ %28, %240 ], [ %28, %235 ], [ %28, %233 ], [ %28, %224 ], [ %28, %215 ], [ %28, %208 ], [ %28, %203 ], [ %28, %198 ], [ %28, %193 ], [ %28, %186 ], [ %28, %179 ], [ %28, %174 ], [ %28, %169 ], [ %28, %167 ], [ %28, %159 ], [ %28, %152 ], [ %28, %145 ], [ %28, %140 ], [ %28, %135 ], [ %28, %130 ], [ %28, %128 ], [ %28, %120 ], [ %28, %113 ], [ %28, %106 ], [ %28, %101 ], [ %28, %96 ], [ %28, %91 ], [ %28, %89 ], [ %28, %81 ], [ %28, %73 ], [ %28, %66 ], [ %28, %61 ], [ %28, %56 ], [ %28, %51 ], [ %28, %49 ], [ %28, %43 ], [ %28, %38 ], [ %28, %33 ], [ %28, %30 ], [ %28, %27 ], [ null, %24 ], [ null, %21 ], [ null, %18 ], [ null, %15 ], [ null, %12 ], [ null, %9 ], [ null, %0 ], [ %28, %391 ]
   %.052 = phi ptr [ %31, %381 ], [ %31, %372 ], [ %31, %366 ], [ %31, %363 ], [ %31, %353 ], [ %31, %344 ], [ %31, %336 ], [ %31, %329 ], [ %31, %323 ], [ %31, %321 ], [ %31, %311 ], [ %31, %305 ], [ %31, %302 ], [ %31, %292 ], [ %31, %283 ], [ %31, %278 ], [ %31, %273 ], [ %31, %268 ], [ %31, %266 ], [ %31, %257 ], [ %31, %250 ], [ %31, %245 ], [ %31, %240 ], [ %31, %235 ], [ %31, %233 ], [ %31, %224 ], [ %31, %215 ], [ %31, %208 ], [ %31, %203 ], [ %31, %198 ], [ %31, %193 ], [ %31, %186 ], [ %31, %179 ], [ %31, %174 ], [ %31, %169 ], [ %31, %167 ], [ %31, %159 ], [ %31, %152 ], [ %31, %145 ], [ %31, %140 ], [ %31, %135 ], [ %31, %130 ], [ %31, %128 ], [ %31, %120 ], [ %31, %113 ], [ %31, %106 ], [ %31, %101 ], [ %31, %96 ], [ %31, %91 ], [ %31, %89 ], [ %31, %81 ], [ %31, %73 ], [ %31, %66 ], [ %31, %61 ], [ %31, %56 ], [ %31, %51 ], [ %31, %49 ], [ %31, %43 ], [ %31, %38 ], [ %31, %33 ], [ %31, %30 ], [ null, %27 ], [ null, %24 ], [ null, %21 ], [ null, %18 ], [ null, %15 ], [ null, %12 ], [ null, %9 ], [ null, %0 ], [ %31, %391 ]
   %.0 = phi i32 [ 0, %381 ], [ 0, %372 ], [ 0, %366 ], [ 0, %363 ], [ 0, %353 ], [ 0, %344 ], [ 0, %336 ], [ 0, %329 ], [ 0, %323 ], [ 0, %321 ], [ 0, %311 ], [ 0, %305 ], [ 0, %302 ], [ 0, %292 ], [ 0, %283 ], [ 0, %278 ], [ 0, %273 ], [ 0, %268 ], [ 0, %266 ], [ 0, %257 ], [ 0, %250 ], [ 0, %245 ], [ 0, %240 ], [ 0, %235 ], [ 0, %233 ], [ 0, %224 ], [ 0, %215 ], [ 0, %208 ], [ 0, %203 ], [ 0, %198 ], [ 0, %193 ], [ 0, %186 ], [ 0, %179 ], [ 0, %174 ], [ 0, %169 ], [ 0, %167 ], [ 0, %159 ], [ 0, %152 ], [ 0, %145 ], [ 0, %140 ], [ 0, %135 ], [ 0, %130 ], [ 0, %128 ], [ 0, %120 ], [ 0, %113 ], [ 0, %106 ], [ 0, %101 ], [ 0, %96 ], [ 0, %91 ], [ 0, %89 ], [ 0, %81 ], [ 0, %73 ], [ 0, %66 ], [ 0, %61 ], [ 0, %56 ], [ 0, %51 ], [ 0, %49 ], [ 0, %43 ], [ 0, %38 ], [ 0, %33 ], [ 0, %30 ], [ 0, %27 ], [ 0, %24 ], [ 0, %21 ], [ 0, %18 ], [ 0, %15 ], [ 0, %12 ], [ 0, %9 ], [ 0, %0 ], [ %spec.select, %391 ]
-  call void @BN_MONT_CTX_free(ptr noundef %.052) #8
+  call void @BN_MONT_CTX_free(ptr noundef %.052) #9
   %395 = load ptr, ptr %1, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %395) #8
+  call void @BN_free(ptr noundef %395) #9
   %396 = load ptr, ptr %2, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %396) #8
+  call void @BN_free(ptr noundef %396) #9
   %397 = load ptr, ptr %3, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %397) #8
-  call void @BN_free(ptr noundef %.054) #8
+  call void @BN_free(ptr noundef %397) #9
+  call void @BN_free(ptr noundef %.054) #9
   %398 = load ptr, ptr %4, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %398) #8
+  call void @BN_free(ptr noundef %398) #9
   %399 = load ptr, ptr %5, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %399) #8
+  call void @BN_free(ptr noundef %399) #9
   %400 = load ptr, ptr %6, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %400) #8
-  call void @BN_free(ptr noundef %.053) #8
+  call void @BN_free(ptr noundef %400) #9
+  call void @BN_free(ptr noundef %.053) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2538,34 +2538,34 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_kronecker() #1 {
-  %1 = tail call ptr @BN_new() #8
-  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1142, ptr noundef nonnull @.str.63, ptr noundef %1) #8
+  %1 = tail call ptr @BN_new() #9
+  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1142, ptr noundef nonnull @.str.63, ptr noundef %1) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @BN_new() #8
-  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1143, ptr noundef nonnull @.str.64, ptr noundef %4) #8
+  %4 = tail call ptr @BN_new() #9
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1143, ptr noundef nonnull @.str.64, ptr noundef %4) #9
   %.not40 = icmp eq i32 %5, 0
   br i1 %.not40, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @BN_new() #8
-  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1144, ptr noundef nonnull @.str.108, ptr noundef %7) #8
+  %7 = tail call ptr @BN_new() #9
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1144, ptr noundef nonnull @.str.108, ptr noundef %7) #9
   %.not41 = icmp eq i32 %8, 0
   br i1 %.not41, label %.loopexit, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @BN_new() #8
-  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1145, ptr noundef nonnull @.str.225, ptr noundef %10) #8
+  %10 = tail call ptr @BN_new() #9
+  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1145, ptr noundef nonnull @.str.225, ptr noundef %10) #9
   %.not42 = icmp eq i32 %11, 0
   br i1 %.not42, label %.loopexit, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call i32 @BN_generate_prime_ex(ptr noundef %4, i32 noundef 512, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #8
+  %13 = tail call i32 @BN_generate_prime_ex(ptr noundef %4, i32 noundef 512, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #9
   %14 = icmp ne i32 %13, 0
   %15 = zext i1 %14 to i32
-  %16 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1158, ptr noundef nonnull @.str.226, i32 noundef %15) #8
+  %16 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1158, ptr noundef nonnull @.str.226, i32 noundef %15) #9
   %.not43 = icmp eq i32 %16, 0
   br i1 %.not43, label %.loopexit, label %17
 
@@ -2577,7 +2577,7 @@ define internal range(i32 0, 2) i32 @test_kronecker() #1 {
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds nuw i32, ptr @rand_neg.sign, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !12
-  tail call void @BN_set_negative(ptr noundef %4, i32 noundef %23) #8
+  tail call void @BN_set_negative(ptr noundef %4, i32 noundef %23) #9
   br label %26
 
 24:                                               ; preds = %80
@@ -2587,10 +2587,10 @@ define internal range(i32 0, 2) i32 @test_kronecker() #1 {
 
 26:                                               ; preds = %17, %24
   %.03657 = phi i32 [ 0, %17 ], [ %25, %24 ]
-  %27 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 512, i32 noundef 0, i32 noundef 0) #8
+  %27 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 512, i32 noundef 0, i32 noundef 0) #9
   %28 = icmp ne i32 %27, 0
   %29 = zext i1 %28 to i32
-  %30 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1163, ptr noundef nonnull @.str.66, i32 noundef %29) #8
+  %30 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1163, ptr noundef nonnull @.str.66, i32 noundef %29) #9
   %.not44 = icmp eq i32 %30, 0
   br i1 %.not44, label %.loopexit, label %31
 
@@ -2602,85 +2602,85 @@ define internal range(i32 0, 2) i32 @test_kronecker() #1 {
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr inbounds nuw i32, ptr @rand_neg.sign, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !12
-  tail call void @BN_set_negative(ptr noundef %1, i32 noundef %37) #8
-  %38 = tail call ptr @BN_copy(ptr noundef %10, ptr noundef %4) #8
+  tail call void @BN_set_negative(ptr noundef %1, i32 noundef %37) #9
+  %38 = tail call ptr @BN_copy(ptr noundef %10, ptr noundef %4) #9
   %39 = icmp ne ptr %38, null
   %40 = zext i1 %39 to i32
-  %41 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1168, ptr noundef nonnull @.str.227, i32 noundef %40) #8
+  %41 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1168, ptr noundef nonnull @.str.227, i32 noundef %40) #9
   %.not45 = icmp eq i32 %41, 0
   br i1 %.not45, label %.loopexit, label %42
 
 42:                                               ; preds = %31
-  tail call void @BN_set_negative(ptr noundef %10, i32 noundef 0) #8
-  %43 = tail call i32 @BN_sub_word(ptr noundef %10, i64 noundef 1) #8
+  tail call void @BN_set_negative(ptr noundef %10, i32 noundef 0) #9
+  %43 = tail call i32 @BN_sub_word(ptr noundef %10, i64 noundef 1) #9
   %44 = icmp ne i32 %43, 0
   %45 = zext i1 %44 to i32
-  %46 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1171, ptr noundef nonnull @.str.228, i32 noundef %45) #8
+  %46 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1171, ptr noundef nonnull @.str.228, i32 noundef %45) #9
   %.not46 = icmp eq i32 %46, 0
   br i1 %.not46, label %.loopexit, label %47
 
 47:                                               ; preds = %42
-  %48 = tail call i32 @BN_rshift1(ptr noundef %10, ptr noundef %10) #8
+  %48 = tail call i32 @BN_rshift1(ptr noundef %10, ptr noundef %10) #9
   %49 = icmp ne i32 %48, 0
   %50 = zext i1 %49 to i32
-  %51 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1173, ptr noundef nonnull @.str.229, i32 noundef %50) #8
+  %51 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1173, ptr noundef nonnull @.str.229, i32 noundef %50) #9
   %.not47 = icmp eq i32 %51, 0
   br i1 %.not47, label %.loopexit, label %52
 
 52:                                               ; preds = %47
-  tail call void @BN_set_negative(ptr noundef %4, i32 noundef 0) #8
+  tail call void @BN_set_negative(ptr noundef %4, i32 noundef 0) #9
   %53 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %54 = tail call i32 @BN_mod_exp_recp(ptr noundef %7, ptr noundef %1, ptr noundef %10, ptr noundef %4, ptr noundef %53) #8
+  %54 = tail call i32 @BN_mod_exp_recp(ptr noundef %7, ptr noundef %1, ptr noundef %10, ptr noundef %4, ptr noundef %53) #9
   %55 = icmp ne i32 %54, 0
   %56 = zext i1 %55 to i32
-  %57 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1178, ptr noundef nonnull @.str.230, i32 noundef %56) #8
+  %57 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1178, ptr noundef nonnull @.str.230, i32 noundef %56) #9
   %.not48 = icmp eq i32 %57, 0
   br i1 %.not48, label %.loopexit, label %58
 
 58:                                               ; preds = %52
-  tail call void @BN_set_negative(ptr noundef %4, i32 noundef 1) #8
-  %59 = tail call i32 @BN_is_word(ptr noundef %7, i64 noundef 1) #8
+  tail call void @BN_set_negative(ptr noundef %4, i32 noundef 1) #9
+  %59 = tail call i32 @BN_is_word(ptr noundef %7, i64 noundef 1) #9
   %.not49 = icmp eq i32 %59, 0
   br i1 %.not49, label %60, label %71
 
 60:                                               ; preds = %58
-  %61 = tail call i32 @BN_is_zero(ptr noundef %7) #8
+  %61 = tail call i32 @BN_is_zero(ptr noundef %7) #9
   %.not50 = icmp eq i32 %61, 0
   br i1 %.not50, label %62, label %71
 
 62:                                               ; preds = %60
-  %63 = tail call i32 @BN_add_word(ptr noundef %7, i64 noundef 1) #8
+  %63 = tail call i32 @BN_add_word(ptr noundef %7, i64 noundef 1) #9
   %64 = icmp ne i32 %63, 0
   %65 = zext i1 %64 to i32
-  %66 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1187, ptr noundef nonnull @.str.231, i32 noundef %65) #8
+  %66 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1187, ptr noundef nonnull @.str.231, i32 noundef %65) #9
   %.not51 = icmp eq i32 %66, 0
   br i1 %.not51, label %.loopexit, label %67
 
 67:                                               ; preds = %62
-  %68 = tail call i32 @BN_ucmp(ptr noundef %7, ptr noundef %4) #8
-  %69 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1189, ptr noundef nonnull @.str.232, ptr noundef nonnull @.str.69, i32 noundef %68, i32 noundef 0) #8
+  %68 = tail call i32 @BN_ucmp(ptr noundef %7, ptr noundef %4) #9
+  %69 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1189, ptr noundef nonnull @.str.232, ptr noundef nonnull @.str.69, i32 noundef %68, i32 noundef 0) #9
   %.not52 = icmp eq i32 %69, 0
   br i1 %.not52, label %70, label %71
 
 70:                                               ; preds = %67
-  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.17, i32 noundef 1190, ptr noundef nonnull @.str.233) #8
+  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.17, i32 noundef 1190, ptr noundef nonnull @.str.233) #9
   br label %.loopexit
 
 71:                                               ; preds = %67, %60, %58
   %.035 = phi i32 [ 1, %58 ], [ 0, %60 ], [ -1, %67 ]
   %72 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %73 = tail call i32 @BN_kronecker(ptr noundef %1, ptr noundef %4, ptr noundef %72) #8
-  %74 = tail call i32 @test_int_ge(ptr noundef nonnull @.str.17, i32 noundef 1196, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.235, i32 noundef %73, i32 noundef -1) #8
+  %73 = tail call i32 @BN_kronecker(ptr noundef %1, ptr noundef %4, ptr noundef %72) #9
+  %74 = tail call i32 @test_int_ge(ptr noundef nonnull @.str.17, i32 noundef 1196, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.235, i32 noundef %73, i32 noundef -1) #9
   %.not53 = icmp eq i32 %74, 0
   br i1 %.not53, label %.loopexit, label %75
 
 75:                                               ; preds = %71
-  %76 = tail call i32 @BN_is_negative(ptr noundef %1) #8
+  %76 = tail call i32 @BN_is_negative(ptr noundef %1) #9
   %.not54 = icmp eq i32 %76, 0
   br i1 %.not54, label %80, label %77
 
 77:                                               ; preds = %75
-  %78 = tail call i32 @BN_is_negative(ptr noundef %4) #8
+  %78 = tail call i32 @BN_is_negative(ptr noundef %4) #9
   %.not55 = icmp eq i32 %78, 0
   %79 = sub nsw i32 0, %73
   %spec.select = select i1 %.not55, i32 %73, i32 %79
@@ -2688,7 +2688,7 @@ define internal range(i32 0, 2) i32 @test_kronecker() #1 {
 
 80:                                               ; preds = %77, %75
   %.034 = phi i32 [ %73, %75 ], [ %spec.select, %77 ]
-  %81 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1202, ptr noundef nonnull @.str.236, ptr noundef nonnull @.str.237, i32 noundef %.035, i32 noundef %.034) #8
+  %81 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1202, ptr noundef nonnull @.str.236, ptr noundef nonnull @.str.237, i32 noundef %.035, i32 noundef %.034) #9
   %.not56 = icmp eq i32 %81, 0
   br i1 %.not56, label %.loopexit, label %24
 
@@ -2697,87 +2697,87 @@ define internal range(i32 0, 2) i32 @test_kronecker() #1 {
   %.038 = phi ptr [ %7, %70 ], [ %7, %12 ], [ %7, %9 ], [ %7, %6 ], [ null, %3 ], [ null, %0 ], [ %7, %26 ], [ %7, %31 ], [ %7, %42 ], [ %7, %47 ], [ %7, %52 ], [ %7, %62 ], [ %7, %71 ], [ %7, %80 ], [ %7, %24 ]
   %.037 = phi ptr [ %10, %70 ], [ %10, %12 ], [ %10, %9 ], [ null, %6 ], [ null, %3 ], [ null, %0 ], [ %10, %26 ], [ %10, %31 ], [ %10, %42 ], [ %10, %47 ], [ %10, %52 ], [ %10, %62 ], [ %10, %71 ], [ %10, %80 ], [ %10, %24 ]
   %.0 = phi i32 [ 0, %70 ], [ 0, %12 ], [ 0, %9 ], [ 0, %6 ], [ 0, %3 ], [ 0, %0 ], [ 1, %24 ], [ 0, %80 ], [ 0, %71 ], [ 0, %62 ], [ 0, %52 ], [ 0, %47 ], [ 0, %42 ], [ 0, %31 ], [ 0, %26 ]
-  tail call void @BN_free(ptr noundef %1) #8
-  tail call void @BN_free(ptr noundef %.039) #8
-  tail call void @BN_free(ptr noundef %.038) #8
-  tail call void @BN_free(ptr noundef %.037) #8
+  tail call void @BN_free(ptr noundef %1) #9
+  tail call void @BN_free(ptr noundef %.039) #9
+  tail call void @BN_free(ptr noundef %.038) #9
+  tail call void @BN_free(ptr noundef %.037) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_rand() #1 {
-  %1 = tail call ptr @BN_new() #8
-  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2303, ptr noundef nonnull @.str.238, ptr noundef %1) #8
+  %1 = tail call ptr @BN_new() #9
+  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2303, ptr noundef nonnull @.str.238, ptr noundef %1) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %40, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @BN_rand(ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #8
+  %4 = tail call i32 @BN_rand(ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
   %5 = icmp ne i32 %4, 0
   %6 = zext i1 %5 to i32
-  %7 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2307, ptr noundef nonnull @.str.239, i32 noundef %6) #8
+  %7 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2307, ptr noundef nonnull @.str.239, i32 noundef %6) #9
   %.not12 = icmp eq i32 %7, 0
   br i1 %.not12, label %39, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call i32 @BN_rand(ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 1) #8
+  %9 = tail call i32 @BN_rand(ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 1) #9
   %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i32
-  %12 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2308, ptr noundef nonnull @.str.240, i32 noundef %11) #8
+  %12 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2308, ptr noundef nonnull @.str.240, i32 noundef %11) #9
   %.not13 = icmp eq i32 %12, 0
   br i1 %.not13, label %39, label %13
 
 13:                                               ; preds = %8
-  %14 = tail call i32 @BN_rand(ptr noundef %1, i32 noundef 1, i32 noundef 0, i32 noundef 0) #8
+  %14 = tail call i32 @BN_rand(ptr noundef %1, i32 noundef 1, i32 noundef 0, i32 noundef 0) #9
   %15 = icmp ne i32 %14, 0
   %16 = zext i1 %15 to i32
-  %17 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2309, ptr noundef nonnull @.str.241, i32 noundef %16) #8
+  %17 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2309, ptr noundef nonnull @.str.241, i32 noundef %16) #9
   %.not14 = icmp eq i32 %17, 0
   br i1 %.not14, label %39, label %18
 
 18:                                               ; preds = %13
-  %19 = tail call i32 @test_BN_eq_one(ptr noundef nonnull @.str.17, i32 noundef 2310, ptr noundef nonnull @.str.242, ptr noundef %1) #8
+  %19 = tail call i32 @test_BN_eq_one(ptr noundef nonnull @.str.17, i32 noundef 2310, ptr noundef nonnull @.str.242, ptr noundef %1) #9
   %.not15 = icmp eq i32 %19, 0
   br i1 %.not15, label %39, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call i32 @BN_rand(ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef 0) #8
+  %21 = tail call i32 @BN_rand(ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
   %22 = icmp ne i32 %21, 0
   %23 = zext i1 %22 to i32
-  %24 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2311, ptr noundef nonnull @.str.243, i32 noundef %23) #8
+  %24 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2311, ptr noundef nonnull @.str.243, i32 noundef %23) #9
   %.not16 = icmp eq i32 %24, 0
   br i1 %.not16, label %39, label %25
 
 25:                                               ; preds = %20
-  %26 = tail call i32 @BN_rand(ptr noundef %1, i32 noundef 1, i32 noundef -1, i32 noundef 1) #8
+  %26 = tail call i32 @BN_rand(ptr noundef %1, i32 noundef 1, i32 noundef -1, i32 noundef 1) #9
   %27 = icmp ne i32 %26, 0
   %28 = zext i1 %27 to i32
-  %29 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2312, ptr noundef nonnull @.str.244, i32 noundef %28) #8
+  %29 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2312, ptr noundef nonnull @.str.244, i32 noundef %28) #9
   %.not17 = icmp eq i32 %29, 0
   br i1 %.not17, label %39, label %30
 
 30:                                               ; preds = %25
-  %31 = tail call i32 @test_BN_eq_one(ptr noundef nonnull @.str.17, i32 noundef 2313, ptr noundef nonnull @.str.242, ptr noundef %1) #8
+  %31 = tail call i32 @test_BN_eq_one(ptr noundef nonnull @.str.17, i32 noundef 2313, ptr noundef nonnull @.str.242, ptr noundef %1) #9
   %.not18 = icmp eq i32 %31, 0
   br i1 %.not18, label %39, label %32
 
 32:                                               ; preds = %30
-  %33 = tail call i32 @BN_rand(ptr noundef %1, i32 noundef 2, i32 noundef 1, i32 noundef 0) #8
+  %33 = tail call i32 @BN_rand(ptr noundef %1, i32 noundef 2, i32 noundef 1, i32 noundef 0) #9
   %34 = icmp ne i32 %33, 0
   %35 = zext i1 %34 to i32
-  %36 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2314, ptr noundef nonnull @.str.245, i32 noundef %35) #8
+  %36 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2314, ptr noundef nonnull @.str.245, i32 noundef %35) #9
   %.not19 = icmp eq i32 %36, 0
   br i1 %.not19, label %39, label %37
 
 37:                                               ; preds = %32
-  %38 = tail call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2315, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.246, ptr noundef %1, i64 noundef 3) #8
+  %38 = tail call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2315, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.246, ptr noundef %1, i64 noundef 3) #9
   %.not20 = icmp ne i32 %38, 0
   %spec.select = zext i1 %.not20 to i32
   br label %39
 
 39:                                               ; preds = %37, %3, %8, %13, %18, %20, %25, %30, %32
   %.0 = phi i32 [ 0, %32 ], [ 0, %30 ], [ 0, %25 ], [ 0, %20 ], [ 0, %18 ], [ 0, %13 ], [ 0, %8 ], [ 0, %3 ], [ %spec.select, %37 ]
-  tail call void @BN_free(ptr noundef %1) #8
+  tail call void @BN_free(ptr noundef %1) #9
   br label %40
 
 40:                                               ; preds = %0, %39
@@ -2793,27 +2793,27 @@ define internal range(i32 0, 2) i32 @test_bn2padded() #1 {
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = tail call ptr @BN_new() #8
-  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1816, ptr noundef nonnull @.str.247, ptr noundef %4) #8
+  %4 = tail call ptr @BN_new() #9
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1816, ptr noundef nonnull @.str.247, ptr noundef %4) #9
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.loopexit, label %6
 
 6:                                                ; preds = %0
-  %7 = tail call i32 @BN_bn2binpad(ptr noundef %4, ptr noundef null, i32 noundef 0) #8
-  %8 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1818, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.69, i32 noundef %7, i32 noundef 0) #8
+  %7 = tail call i32 @BN_bn2binpad(ptr noundef %4, ptr noundef null, i32 noundef 0) #9
+  %8 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1818, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.69, i32 noundef %7, i32 noundef 0) #9
   %.not31 = icmp eq i32 %8, 0
   br i1 %.not31, label %.loopexit, label %9
 
 9:                                                ; preds = %6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %2, i8 -1, i64 256, i1 false)
-  %10 = call i32 @BN_bn2binpad(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 256) #8
-  %11 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1821, ptr noundef nonnull @.str.249, ptr noundef nonnull @.str.250, i32 noundef %10, i32 noundef 256) #8
+  %10 = call i32 @BN_bn2binpad(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 256) #9
+  %11 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1821, ptr noundef nonnull @.str.249, ptr noundef nonnull @.str.250, i32 noundef %10, i32 noundef 256) #9
   %.not32 = icmp eq i32 %11, 0
   br i1 %.not32, label %.loopexit, label %12
 
 12:                                               ; preds = %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %1, i8 0, i64 256, i1 false)
-  %13 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 1824, ptr noundef nonnull @.str.251, ptr noundef nonnull @.str.252, ptr noundef nonnull %1, i64 noundef 256, ptr noundef nonnull %2, i64 noundef 256) #8
+  %13 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 1824, ptr noundef nonnull @.str.251, ptr noundef nonnull @.str.252, ptr noundef nonnull %1, i64 noundef 256, ptr noundef nonnull %2, i64 noundef 256) #9
   %.not33 = icmp eq i32 %13, 0
   br i1 %.not33, label %.loopexit, label %.preheader
 
@@ -2830,91 +2830,91 @@ define internal range(i32 0, 2) i32 @test_bn2padded() #1 {
 17:                                               ; preds = %16
   %.030.tr = trunc nuw nsw i64 %.030 to i32
   %18 = shl nuw nsw i32 %.030.tr, 3
-  %19 = call i32 @BN_rand(ptr noundef %4, i32 noundef %18, i32 noundef 0, i32 noundef 0) #8
+  %19 = call i32 @BN_rand(ptr noundef %4, i32 noundef %18, i32 noundef 0, i32 noundef 0) #9
   %20 = icmp ne i32 %19, 0
   %21 = zext i1 %20 to i32
-  %22 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1831, ptr noundef nonnull @.str.253, i32 noundef %21) #8
+  %22 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1831, ptr noundef nonnull @.str.253, i32 noundef %21) #9
   %.not34 = icmp eq i32 %22, 0
   br i1 %.not34, label %.loopexit, label %23
 
 23:                                               ; preds = %17
-  %24 = call i32 @BN_num_bits(ptr noundef %4) #8
+  %24 = call i32 @BN_num_bits(ptr noundef %4) #9
   %25 = add nsw i32 %24, 7
   %26 = sdiv i32 %25, 8
-  %27 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1833, ptr noundef nonnull @.str.254, ptr noundef nonnull @.str.255, i32 noundef %26, i32 noundef %.030.tr) #8
+  %27 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1833, ptr noundef nonnull @.str.254, ptr noundef nonnull @.str.255, i32 noundef %26, i32 noundef %.030.tr) #9
   %.not35 = icmp eq i32 %27, 0
   br i1 %.not35, label %.loopexit, label %28
 
 28:                                               ; preds = %23
-  %29 = call i32 @BN_bn2bin(ptr noundef %4, ptr noundef nonnull %3) #8
-  %30 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1834, ptr noundef nonnull @.str.256, ptr noundef nonnull @.str.255, i32 noundef %29, i32 noundef %.030.tr) #8
+  %29 = call i32 @BN_bn2bin(ptr noundef %4, ptr noundef nonnull %3) #9
+  %30 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1834, ptr noundef nonnull @.str.256, ptr noundef nonnull @.str.255, i32 noundef %29, i32 noundef %.030.tr) #9
   %.not36 = icmp eq i32 %30, 0
   br i1 %.not36, label %.loopexit, label %31
 
 31:                                               ; preds = %28
-  %32 = call i32 @BN_bn2binpad(ptr noundef %4, ptr noundef null, i32 noundef 0) #8
-  %33 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1837, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.235, i32 noundef %32, i32 noundef -1) #8
+  %32 = call i32 @BN_bn2binpad(ptr noundef %4, ptr noundef null, i32 noundef 0) #9
+  %33 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1837, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.235, i32 noundef %32, i32 noundef -1) #9
   %.not37 = icmp eq i32 %33, 0
   br i1 %.not37, label %.loopexit, label %34
 
 34:                                               ; preds = %31
   %35 = add nsw i32 %.030.tr, -1
-  %36 = call i32 @BN_bn2binpad(ptr noundef %4, ptr noundef nonnull %2, i32 noundef %35) #8
-  %37 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1840, ptr noundef nonnull @.str.257, ptr noundef nonnull @.str.235, i32 noundef %36, i32 noundef -1) #8
+  %36 = call i32 @BN_bn2binpad(ptr noundef %4, ptr noundef nonnull %2, i32 noundef %35) #9
+  %37 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1840, ptr noundef nonnull @.str.257, ptr noundef nonnull @.str.235, i32 noundef %36, i32 noundef -1) #9
   %.not38 = icmp eq i32 %37, 0
   br i1 %.not38, label %.loopexit, label %38
 
 38:                                               ; preds = %34
-  %39 = call i32 @BN_bn2binpad(ptr noundef %4, ptr noundef nonnull %2, i32 noundef %.030.tr) #8
-  %40 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1843, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.255, i32 noundef %39, i32 noundef %.030.tr) #8
+  %39 = call i32 @BN_bn2binpad(ptr noundef %4, ptr noundef nonnull %2, i32 noundef %.030.tr) #9
+  %40 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1843, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.255, i32 noundef %39, i32 noundef %.030.tr) #9
   %.not39 = icmp eq i32 %40, 0
   br i1 %.not39, label %.loopexit, label %41
 
 41:                                               ; preds = %38
-  %42 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 1844, ptr noundef nonnull @.str.252, ptr noundef nonnull @.str.259, ptr noundef nonnull %2, i64 noundef %.030, ptr noundef nonnull %3, i64 noundef %.030) #8
+  %42 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 1844, ptr noundef nonnull @.str.252, ptr noundef nonnull @.str.259, ptr noundef nonnull %2, i64 noundef %.030, ptr noundef nonnull %3, i64 noundef %.030) #9
   %.not40 = icmp eq i32 %42, 0
   br i1 %.not40, label %.loopexit, label %43
 
 43:                                               ; preds = %41
   %44 = add nuw nsw i64 %.030, 1
   %45 = trunc nuw nsw i64 %44 to i32
-  %46 = call i32 @BN_bn2binpad(ptr noundef %4, ptr noundef nonnull %2, i32 noundef %45) #8
-  %47 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1847, ptr noundef nonnull @.str.260, ptr noundef nonnull @.str.261, i32 noundef %46, i32 noundef %45) #8
+  %46 = call i32 @BN_bn2binpad(ptr noundef %4, ptr noundef nonnull %2, i32 noundef %45) #9
+  %47 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1847, ptr noundef nonnull @.str.260, ptr noundef nonnull @.str.261, i32 noundef %46, i32 noundef %45) #9
   %.not41 = icmp eq i32 %47, 0
   br i1 %.not41, label %.loopexit, label %48
 
 48:                                               ; preds = %43
-  %49 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 1848, ptr noundef nonnull @.str.262, ptr noundef nonnull @.str.259, ptr noundef nonnull %14, i64 noundef %.030, ptr noundef nonnull %3, i64 noundef %.030) #8
+  %49 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 1848, ptr noundef nonnull @.str.262, ptr noundef nonnull @.str.259, ptr noundef nonnull %14, i64 noundef %.030, ptr noundef nonnull %3, i64 noundef %.030) #9
   %.not42 = icmp eq i32 %49, 0
   br i1 %.not42, label %.loopexit, label %50
 
 50:                                               ; preds = %48
-  %51 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 1849, ptr noundef nonnull @.str.252, ptr noundef nonnull @.str.251, ptr noundef nonnull %2, i64 noundef 1, ptr noundef nonnull %1, i64 noundef 1) #8
+  %51 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 1849, ptr noundef nonnull @.str.252, ptr noundef nonnull @.str.251, ptr noundef nonnull %2, i64 noundef 1, ptr noundef nonnull %1, i64 noundef 1) #9
   %.not43 = icmp eq i32 %51, 0
   br i1 %.not43, label %.loopexit, label %52
 
 52:                                               ; preds = %50
-  %53 = call i32 @BN_bn2binpad(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 256) #8
-  %54 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1852, ptr noundef nonnull @.str.249, ptr noundef nonnull @.str.250, i32 noundef %53, i32 noundef 256) #8
+  %53 = call i32 @BN_bn2binpad(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 256) #9
+  %54 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1852, ptr noundef nonnull @.str.249, ptr noundef nonnull @.str.250, i32 noundef %53, i32 noundef 256) #9
   %.not44 = icmp eq i32 %54, 0
   br i1 %.not44, label %.loopexit, label %55
 
 55:                                               ; preds = %52
   %56 = sub nsw i64 0, %.030
   %57 = getelementptr inbounds i8, ptr %15, i64 %56
-  %58 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 1854, ptr noundef nonnull @.str.263, ptr noundef nonnull @.str.259, ptr noundef nonnull %57, i64 noundef %.030, ptr noundef nonnull %3, i64 noundef %.030) #8
+  %58 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 1854, ptr noundef nonnull @.str.263, ptr noundef nonnull @.str.259, ptr noundef nonnull %57, i64 noundef %.030, ptr noundef nonnull %3, i64 noundef %.030) #9
   %.not45 = icmp eq i32 %58, 0
   br i1 %.not45, label %.loopexit, label %59
 
 59:                                               ; preds = %55
   %60 = sub nuw nsw i64 256, %.030
-  %61 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 1856, ptr noundef nonnull @.str.252, ptr noundef nonnull @.str.251, ptr noundef nonnull %2, i64 noundef %60, ptr noundef nonnull %1, i64 noundef %60) #8
+  %61 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 1856, ptr noundef nonnull @.str.252, ptr noundef nonnull @.str.251, ptr noundef nonnull %2, i64 noundef %60, ptr noundef nonnull %1, i64 noundef %60) #9
   %.not46 = icmp eq i32 %61, 0
   br i1 %.not46, label %.loopexit, label %16, !llvm.loop !25
 
 .loopexit:                                        ; preds = %16, %52, %55, %59, %43, %48, %50, %38, %41, %34, %31, %23, %28, %17, %12, %9, %6, %0
   %.0 = phi i32 [ 0, %12 ], [ 0, %9 ], [ 0, %6 ], [ 0, %0 ], [ 1, %16 ], [ 0, %17 ], [ 0, %23 ], [ 0, %28 ], [ 0, %31 ], [ 0, %34 ], [ 0, %38 ], [ 0, %41 ], [ 0, %43 ], [ 0, %48 ], [ 0, %50 ], [ 0, %52 ], [ 0, %55 ], [ 0, %59 ]
-  call void @BN_free(ptr noundef %4) #8
+  call void @BN_free(ptr noundef %4) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -2926,233 +2926,233 @@ define internal range(i32 0, 2) i32 @test_dec2bn() #1 {
   %1 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !21
-  %2 = call i32 @BN_dec2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.69) #8
-  %3 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2002, ptr noundef nonnull @.str.264, ptr noundef nonnull @.str.123, i32 noundef %2, i32 noundef 1) #8
+  %2 = call i32 @BN_dec2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.69) #9
+  %3 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2002, ptr noundef nonnull @.str.264, ptr noundef nonnull @.str.123, i32 noundef %2, i32 noundef 1) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %114, label %4
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr %1, align 8, !tbaa !21
-  %6 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2003, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.69, ptr noundef %5, i64 noundef 0) #8
+  %6 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2003, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.69, ptr noundef %5, i64 noundef 0) #9
   %.not1 = icmp eq i32 %6, 0
   br i1 %.not1, label %114, label %7
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %1, align 8, !tbaa !21
-  %9 = call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2004, ptr noundef nonnull @.str.242, ptr noundef %8) #8
+  %9 = call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2004, ptr noundef nonnull @.str.242, ptr noundef %8) #9
   %.not2 = icmp eq i32 %9, 0
   br i1 %.not2, label %114, label %10
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %1, align 8, !tbaa !21
-  %12 = call i32 @test_BN_le_zero(ptr noundef nonnull @.str.17, i32 noundef 2005, ptr noundef nonnull @.str.242, ptr noundef %11) #8
+  %12 = call i32 @test_BN_le_zero(ptr noundef nonnull @.str.17, i32 noundef 2005, ptr noundef nonnull @.str.242, ptr noundef %11) #9
   %.not3 = icmp eq i32 %12, 0
   br i1 %.not3, label %114, label %13
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %1, align 8, !tbaa !21
-  %15 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2006, ptr noundef nonnull @.str.242, ptr noundef %14) #8
+  %15 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2006, ptr noundef nonnull @.str.242, ptr noundef %14) #9
   %.not4 = icmp eq i32 %15, 0
   br i1 %.not4, label %114, label %16
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %1, align 8, !tbaa !21
-  %18 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2007, ptr noundef nonnull @.str.242, ptr noundef %17) #8
+  %18 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2007, ptr noundef nonnull @.str.242, ptr noundef %17) #9
   %.not5 = icmp eq i32 %18, 0
   br i1 %.not5, label %114, label %19
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %1, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %20) #8
+  call void @BN_free(ptr noundef %20) #9
   store ptr null, ptr %1, align 8, !tbaa !21
-  %21 = call i32 @BN_dec2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.266) #8
-  %22 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2012, ptr noundef nonnull @.str.265, ptr noundef nonnull @.str.246, i32 noundef %21, i32 noundef 3) #8
+  %21 = call i32 @BN_dec2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.266) #9
+  %22 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2012, ptr noundef nonnull @.str.265, ptr noundef nonnull @.str.246, i32 noundef %21, i32 noundef 3) #9
   %.not6 = icmp eq i32 %22, 0
   br i1 %.not6, label %114, label %23
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr %1, align 8, !tbaa !21
-  %25 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2013, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.266, ptr noundef %24, i64 noundef 256) #8
+  %25 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2013, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.266, ptr noundef %24, i64 noundef 256) #9
   %.not7 = icmp eq i32 %25, 0
   br i1 %.not7, label %114, label %26
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr %1, align 8, !tbaa !21
-  %28 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2014, ptr noundef nonnull @.str.242, ptr noundef %27) #8
+  %28 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2014, ptr noundef nonnull @.str.242, ptr noundef %27) #9
   %.not8 = icmp eq i32 %28, 0
   br i1 %.not8, label %114, label %29
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %1, align 8, !tbaa !21
-  %31 = call i32 @test_BN_gt_zero(ptr noundef nonnull @.str.17, i32 noundef 2015, ptr noundef nonnull @.str.242, ptr noundef %30) #8
+  %31 = call i32 @test_BN_gt_zero(ptr noundef nonnull @.str.17, i32 noundef 2015, ptr noundef nonnull @.str.242, ptr noundef %30) #9
   %.not9 = icmp eq i32 %31, 0
   br i1 %.not9, label %114, label %32
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %1, align 8, !tbaa !21
-  %34 = call i32 @test_BN_ne_zero(ptr noundef nonnull @.str.17, i32 noundef 2016, ptr noundef nonnull @.str.242, ptr noundef %33) #8
+  %34 = call i32 @test_BN_ne_zero(ptr noundef nonnull @.str.17, i32 noundef 2016, ptr noundef nonnull @.str.242, ptr noundef %33) #9
   %.not10 = icmp eq i32 %34, 0
   br i1 %.not10, label %114, label %35
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr %1, align 8, !tbaa !21
-  %37 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2017, ptr noundef nonnull @.str.242, ptr noundef %36) #8
+  %37 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2017, ptr noundef nonnull @.str.242, ptr noundef %36) #9
   %.not11 = icmp eq i32 %37, 0
   br i1 %.not11, label %114, label %38
 
 38:                                               ; preds = %35
   %39 = load ptr, ptr %1, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %39) #8
+  call void @BN_free(ptr noundef %39) #9
   store ptr null, ptr %1, align 8, !tbaa !21
-  %40 = call i32 @BN_dec2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.268) #8
-  %41 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2022, ptr noundef nonnull @.str.267, ptr noundef nonnull @.str.246, i32 noundef %40, i32 noundef 3) #8
+  %40 = call i32 @BN_dec2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.268) #9
+  %41 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2022, ptr noundef nonnull @.str.267, ptr noundef nonnull @.str.246, i32 noundef %40, i32 noundef 3) #9
   %.not12 = icmp eq i32 %41, 0
   br i1 %.not12, label %114, label %42
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr %1, align 8, !tbaa !21
-  %44 = call i32 @test_BN_abs_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2023, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.269, ptr noundef %43, i64 noundef 42) #8
+  %44 = call i32 @test_BN_abs_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2023, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.269, ptr noundef %43, i64 noundef 42) #9
   %.not13 = icmp eq i32 %44, 0
   br i1 %.not13, label %114, label %45
 
 45:                                               ; preds = %42
   %46 = load ptr, ptr %1, align 8, !tbaa !21
-  %47 = call i32 @test_BN_lt_zero(ptr noundef nonnull @.str.17, i32 noundef 2024, ptr noundef nonnull @.str.242, ptr noundef %46) #8
+  %47 = call i32 @test_BN_lt_zero(ptr noundef nonnull @.str.17, i32 noundef 2024, ptr noundef nonnull @.str.242, ptr noundef %46) #9
   %.not14 = icmp eq i32 %47, 0
   br i1 %.not14, label %114, label %48
 
 48:                                               ; preds = %45
   %49 = load ptr, ptr %1, align 8, !tbaa !21
-  %50 = call i32 @test_BN_le_zero(ptr noundef nonnull @.str.17, i32 noundef 2025, ptr noundef nonnull @.str.242, ptr noundef %49) #8
+  %50 = call i32 @test_BN_le_zero(ptr noundef nonnull @.str.17, i32 noundef 2025, ptr noundef nonnull @.str.242, ptr noundef %49) #9
   %.not15 = icmp eq i32 %50, 0
   br i1 %.not15, label %114, label %51
 
 51:                                               ; preds = %48
   %52 = load ptr, ptr %1, align 8, !tbaa !21
-  %53 = call i32 @test_BN_ne_zero(ptr noundef nonnull @.str.17, i32 noundef 2026, ptr noundef nonnull @.str.242, ptr noundef %52) #8
+  %53 = call i32 @test_BN_ne_zero(ptr noundef nonnull @.str.17, i32 noundef 2026, ptr noundef nonnull @.str.242, ptr noundef %52) #9
   %.not16 = icmp eq i32 %53, 0
   br i1 %.not16, label %114, label %54
 
 54:                                               ; preds = %51
   %55 = load ptr, ptr %1, align 8, !tbaa !21
-  %56 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2027, ptr noundef nonnull @.str.242, ptr noundef %55) #8
+  %56 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2027, ptr noundef nonnull @.str.242, ptr noundef %55) #9
   %.not17 = icmp eq i32 %56, 0
   br i1 %.not17, label %114, label %57
 
 57:                                               ; preds = %54
   %58 = load ptr, ptr %1, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %58) #8
+  call void @BN_free(ptr noundef %58) #9
   store ptr null, ptr %1, align 8, !tbaa !21
-  %59 = call i32 @BN_dec2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.123) #8
-  %60 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2032, ptr noundef nonnull @.str.270, ptr noundef nonnull @.str.123, i32 noundef %59, i32 noundef 1) #8
+  %59 = call i32 @BN_dec2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.123) #9
+  %60 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2032, ptr noundef nonnull @.str.270, ptr noundef nonnull @.str.123, i32 noundef %59, i32 noundef 1) #9
   %.not18 = icmp eq i32 %60, 0
   br i1 %.not18, label %114, label %61
 
 61:                                               ; preds = %57
   %62 = load ptr, ptr %1, align 8, !tbaa !21
-  %63 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2033, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.123, ptr noundef %62, i64 noundef 1) #8
+  %63 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2033, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.123, ptr noundef %62, i64 noundef 1) #9
   %.not19 = icmp eq i32 %63, 0
   br i1 %.not19, label %114, label %64
 
 64:                                               ; preds = %61
   %65 = load ptr, ptr %1, align 8, !tbaa !21
-  %66 = call i32 @test_BN_ne_zero(ptr noundef nonnull @.str.17, i32 noundef 2034, ptr noundef nonnull @.str.242, ptr noundef %65) #8
+  %66 = call i32 @test_BN_ne_zero(ptr noundef nonnull @.str.17, i32 noundef 2034, ptr noundef nonnull @.str.242, ptr noundef %65) #9
   %.not20 = icmp eq i32 %66, 0
   br i1 %.not20, label %114, label %67
 
 67:                                               ; preds = %64
   %68 = load ptr, ptr %1, align 8, !tbaa !21
-  %69 = call i32 @test_BN_gt_zero(ptr noundef nonnull @.str.17, i32 noundef 2035, ptr noundef nonnull @.str.242, ptr noundef %68) #8
+  %69 = call i32 @test_BN_gt_zero(ptr noundef nonnull @.str.17, i32 noundef 2035, ptr noundef nonnull @.str.242, ptr noundef %68) #9
   %.not21 = icmp eq i32 %69, 0
   br i1 %.not21, label %114, label %70
 
 70:                                               ; preds = %67
   %71 = load ptr, ptr %1, align 8, !tbaa !21
-  %72 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2036, ptr noundef nonnull @.str.242, ptr noundef %71) #8
+  %72 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2036, ptr noundef nonnull @.str.242, ptr noundef %71) #9
   %.not22 = icmp eq i32 %72, 0
   br i1 %.not22, label %114, label %73
 
 73:                                               ; preds = %70
   %74 = load ptr, ptr %1, align 8, !tbaa !21
-  %75 = call i32 @test_BN_eq_one(ptr noundef nonnull @.str.17, i32 noundef 2037, ptr noundef nonnull @.str.242, ptr noundef %74) #8
+  %75 = call i32 @test_BN_eq_one(ptr noundef nonnull @.str.17, i32 noundef 2037, ptr noundef nonnull @.str.242, ptr noundef %74) #9
   %.not23 = icmp eq i32 %75, 0
   br i1 %.not23, label %114, label %76
 
 76:                                               ; preds = %73
   %77 = load ptr, ptr %1, align 8, !tbaa !21
-  %78 = call i32 @test_BN_odd(ptr noundef nonnull @.str.17, i32 noundef 2038, ptr noundef nonnull @.str.242, ptr noundef %77) #8
+  %78 = call i32 @test_BN_odd(ptr noundef nonnull @.str.17, i32 noundef 2038, ptr noundef nonnull @.str.242, ptr noundef %77) #9
   %.not24 = icmp eq i32 %78, 0
   br i1 %.not24, label %114, label %79
 
 79:                                               ; preds = %76
   %80 = load ptr, ptr %1, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %80) #8
+  call void @BN_free(ptr noundef %80) #9
   store ptr null, ptr %1, align 8, !tbaa !21
-  %81 = call i32 @BN_dec2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.273) #8
-  %82 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2043, ptr noundef nonnull @.str.271, ptr noundef nonnull @.str.272, i32 noundef %81, i32 noundef 2) #8
+  %81 = call i32 @BN_dec2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.273) #9
+  %82 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2043, ptr noundef nonnull @.str.271, ptr noundef nonnull @.str.272, i32 noundef %81, i32 noundef 2) #9
   %.not25 = icmp eq i32 %82, 0
   br i1 %.not25, label %114, label %83
 
 83:                                               ; preds = %79
   %84 = load ptr, ptr %1, align 8, !tbaa !21
-  %85 = call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2044, ptr noundef nonnull @.str.242, ptr noundef %84) #8
+  %85 = call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2044, ptr noundef nonnull @.str.242, ptr noundef %84) #9
   %.not26 = icmp eq i32 %85, 0
   br i1 %.not26, label %114, label %86
 
 86:                                               ; preds = %83
   %87 = load ptr, ptr %1, align 8, !tbaa !21
-  %88 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2045, ptr noundef nonnull @.str.242, ptr noundef %87) #8
+  %88 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2045, ptr noundef nonnull @.str.242, ptr noundef %87) #9
   %.not27 = icmp eq i32 %88, 0
   br i1 %.not27, label %114, label %89
 
 89:                                               ; preds = %86
   %90 = load ptr, ptr %1, align 8, !tbaa !21
-  %91 = call i32 @test_BN_le_zero(ptr noundef nonnull @.str.17, i32 noundef 2046, ptr noundef nonnull @.str.242, ptr noundef %90) #8
+  %91 = call i32 @test_BN_le_zero(ptr noundef nonnull @.str.17, i32 noundef 2046, ptr noundef nonnull @.str.242, ptr noundef %90) #9
   %.not28 = icmp eq i32 %91, 0
   br i1 %.not28, label %114, label %92
 
 92:                                               ; preds = %89
   %93 = load ptr, ptr %1, align 8, !tbaa !21
-  %94 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2047, ptr noundef nonnull @.str.242, ptr noundef %93) #8
+  %94 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2047, ptr noundef nonnull @.str.242, ptr noundef %93) #9
   %.not29 = icmp eq i32 %94, 0
   br i1 %.not29, label %114, label %95
 
 95:                                               ; preds = %92
   %96 = load ptr, ptr %1, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %96) #8
+  call void @BN_free(ptr noundef %96) #9
   store ptr null, ptr %1, align 8, !tbaa !21
-  %97 = call i32 @BN_dec2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.275) #8
-  %98 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2052, ptr noundef nonnull @.str.274, ptr noundef nonnull @.str.272, i32 noundef %97, i32 noundef 2) #8
+  %97 = call i32 @BN_dec2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.275) #9
+  %98 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2052, ptr noundef nonnull @.str.274, ptr noundef nonnull @.str.272, i32 noundef %97, i32 noundef 2) #9
   %.not30 = icmp eq i32 %98, 0
   br i1 %.not30, label %114, label %99
 
 99:                                               ; preds = %95
   %100 = load ptr, ptr %1, align 8, !tbaa !21
-  %101 = call i32 @test_BN_abs_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2053, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.269, ptr noundef %100, i64 noundef 42) #8
+  %101 = call i32 @test_BN_abs_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2053, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.269, ptr noundef %100, i64 noundef 42) #9
   %.not31 = icmp eq i32 %101, 0
   br i1 %.not31, label %114, label %102
 
 102:                                              ; preds = %99
   %103 = load ptr, ptr %1, align 8, !tbaa !21
-  %104 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2054, ptr noundef nonnull @.str.242, ptr noundef %103) #8
+  %104 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2054, ptr noundef nonnull @.str.242, ptr noundef %103) #9
   %.not32 = icmp eq i32 %104, 0
   br i1 %.not32, label %114, label %105
 
 105:                                              ; preds = %102
   %106 = load ptr, ptr %1, align 8, !tbaa !21
-  %107 = call i32 @test_BN_gt_zero(ptr noundef nonnull @.str.17, i32 noundef 2055, ptr noundef nonnull @.str.242, ptr noundef %106) #8
+  %107 = call i32 @test_BN_gt_zero(ptr noundef nonnull @.str.17, i32 noundef 2055, ptr noundef nonnull @.str.242, ptr noundef %106) #9
   %.not33 = icmp eq i32 %107, 0
   br i1 %.not33, label %114, label %108
 
 108:                                              ; preds = %105
   %109 = load ptr, ptr %1, align 8, !tbaa !21
-  %110 = call i32 @test_BN_ne_zero(ptr noundef nonnull @.str.17, i32 noundef 2056, ptr noundef nonnull @.str.242, ptr noundef %109) #8
+  %110 = call i32 @test_BN_ne_zero(ptr noundef nonnull @.str.17, i32 noundef 2056, ptr noundef nonnull @.str.242, ptr noundef %109) #9
   %.not34 = icmp eq i32 %110, 0
   br i1 %.not34, label %114, label %111
 
 111:                                              ; preds = %108
   %112 = load ptr, ptr %1, align 8, !tbaa !21
-  %113 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2057, ptr noundef nonnull @.str.242, ptr noundef %112) #8
+  %113 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2057, ptr noundef nonnull @.str.242, ptr noundef %112) #9
   %.not35 = icmp ne i32 %113, 0
   %spec.select = zext i1 %.not35 to i32
   br label %114
@@ -3160,7 +3160,7 @@ define internal range(i32 0, 2) i32 @test_dec2bn() #1 {
 114:                                              ; preds = %111, %95, %99, %102, %105, %108, %79, %83, %86, %89, %92, %57, %61, %64, %67, %70, %73, %76, %38, %42, %45, %48, %51, %54, %19, %23, %26, %29, %32, %35, %0, %4, %7, %10, %13, %16
   %.0 = phi i32 [ 0, %108 ], [ 0, %105 ], [ 0, %102 ], [ 0, %99 ], [ 0, %95 ], [ 0, %92 ], [ 0, %89 ], [ 0, %86 ], [ 0, %83 ], [ 0, %79 ], [ 0, %76 ], [ 0, %73 ], [ 0, %70 ], [ 0, %67 ], [ 0, %64 ], [ 0, %61 ], [ 0, %57 ], [ 0, %54 ], [ 0, %51 ], [ 0, %48 ], [ 0, %45 ], [ 0, %42 ], [ 0, %38 ], [ 0, %35 ], [ 0, %32 ], [ 0, %29 ], [ 0, %26 ], [ 0, %23 ], [ 0, %19 ], [ 0, %16 ], [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ 0, %4 ], [ 0, %0 ], [ %spec.select, %111 ]
   %115 = load ptr, ptr %1, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %115) #8
+  call void @BN_free(ptr noundef %115) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
@@ -3170,215 +3170,215 @@ define internal range(i32 0, 2) i32 @test_hex2bn() #1 {
   %1 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !21
-  %2 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.69) #8
-  %3 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2071, ptr noundef nonnull @.str.276, ptr noundef nonnull @.str.123, i32 noundef %2, i32 noundef 1) #8
+  %2 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.69) #9
+  %3 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2071, ptr noundef nonnull @.str.276, ptr noundef nonnull @.str.123, i32 noundef %2, i32 noundef 1) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %105, label %4
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr %1, align 8, !tbaa !21
-  %6 = call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2072, ptr noundef nonnull @.str.242, ptr noundef %5) #8
+  %6 = call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2072, ptr noundef nonnull @.str.242, ptr noundef %5) #9
   %.not1 = icmp eq i32 %6, 0
   br i1 %.not1, label %105, label %7
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %1, align 8, !tbaa !21
-  %9 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2073, ptr noundef nonnull @.str.242, ptr noundef %8) #8
+  %9 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2073, ptr noundef nonnull @.str.242, ptr noundef %8) #9
   %.not2 = icmp eq i32 %9, 0
   br i1 %.not2, label %105, label %10
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %1, align 8, !tbaa !21
-  %12 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2074, ptr noundef nonnull @.str.242, ptr noundef %11) #8
+  %12 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2074, ptr noundef nonnull @.str.242, ptr noundef %11) #9
   %.not3 = icmp eq i32 %12, 0
   br i1 %.not3, label %105, label %13
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %1, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %14) #8
+  call void @BN_free(ptr noundef %14) #9
   store ptr null, ptr %1, align 8, !tbaa !21
-  %15 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.266) #8
-  %16 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2079, ptr noundef nonnull @.str.277, ptr noundef nonnull @.str.246, i32 noundef %15, i32 noundef 3) #8
+  %15 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.266) #9
+  %16 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2079, ptr noundef nonnull @.str.277, ptr noundef nonnull @.str.246, i32 noundef %15, i32 noundef 3) #9
   %.not4 = icmp eq i32 %16, 0
   br i1 %.not4, label %105, label %17
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %1, align 8, !tbaa !21
-  %19 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2080, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.278, ptr noundef %18, i64 noundef 598) #8
+  %19 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2080, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.278, ptr noundef %18, i64 noundef 598) #9
   %.not5 = icmp eq i32 %19, 0
   br i1 %.not5, label %105, label %20
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %1, align 8, !tbaa !21
-  %22 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2081, ptr noundef nonnull @.str.242, ptr noundef %21) #8
+  %22 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2081, ptr noundef nonnull @.str.242, ptr noundef %21) #9
   %.not6 = icmp eq i32 %22, 0
   br i1 %.not6, label %105, label %23
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %1, align 8, !tbaa !21
-  %25 = call i32 @test_BN_gt_zero(ptr noundef nonnull @.str.17, i32 noundef 2082, ptr noundef nonnull @.str.242, ptr noundef %24) #8
+  %25 = call i32 @test_BN_gt_zero(ptr noundef nonnull @.str.17, i32 noundef 2082, ptr noundef nonnull @.str.242, ptr noundef %24) #9
   %.not7 = icmp eq i32 %25, 0
   br i1 %.not7, label %105, label %26
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr %1, align 8, !tbaa !21
-  %28 = call i32 @test_BN_ne_zero(ptr noundef nonnull @.str.17, i32 noundef 2083, ptr noundef nonnull @.str.242, ptr noundef %27) #8
+  %28 = call i32 @test_BN_ne_zero(ptr noundef nonnull @.str.17, i32 noundef 2083, ptr noundef nonnull @.str.242, ptr noundef %27) #9
   %.not8 = icmp eq i32 %28, 0
   br i1 %.not8, label %105, label %29
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %1, align 8, !tbaa !21
-  %31 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2084, ptr noundef nonnull @.str.242, ptr noundef %30) #8
+  %31 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2084, ptr noundef nonnull @.str.242, ptr noundef %30) #9
   %.not9 = icmp eq i32 %31, 0
   br i1 %.not9, label %105, label %32
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %1, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %33) #8
+  call void @BN_free(ptr noundef %33) #9
   store ptr null, ptr %1, align 8, !tbaa !21
-  %34 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.268) #8
-  %35 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2089, ptr noundef nonnull @.str.279, ptr noundef nonnull @.str.246, i32 noundef %34, i32 noundef 3) #8
+  %34 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.268) #9
+  %35 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2089, ptr noundef nonnull @.str.279, ptr noundef nonnull @.str.246, i32 noundef %34, i32 noundef 3) #9
   %.not10 = icmp eq i32 %35, 0
   br i1 %.not10, label %105, label %36
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr %1, align 8, !tbaa !21
-  %38 = call i32 @test_BN_abs_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2090, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.280, ptr noundef %37, i64 noundef 66) #8
+  %38 = call i32 @test_BN_abs_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2090, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.280, ptr noundef %37, i64 noundef 66) #9
   %.not11 = icmp eq i32 %38, 0
   br i1 %.not11, label %105, label %39
 
 39:                                               ; preds = %36
   %40 = load ptr, ptr %1, align 8, !tbaa !21
-  %41 = call i32 @test_BN_lt_zero(ptr noundef nonnull @.str.17, i32 noundef 2091, ptr noundef nonnull @.str.242, ptr noundef %40) #8
+  %41 = call i32 @test_BN_lt_zero(ptr noundef nonnull @.str.17, i32 noundef 2091, ptr noundef nonnull @.str.242, ptr noundef %40) #9
   %.not12 = icmp eq i32 %41, 0
   br i1 %.not12, label %105, label %42
 
 42:                                               ; preds = %39
   %43 = load ptr, ptr %1, align 8, !tbaa !21
-  %44 = call i32 @test_BN_le_zero(ptr noundef nonnull @.str.17, i32 noundef 2092, ptr noundef nonnull @.str.242, ptr noundef %43) #8
+  %44 = call i32 @test_BN_le_zero(ptr noundef nonnull @.str.17, i32 noundef 2092, ptr noundef nonnull @.str.242, ptr noundef %43) #9
   %.not13 = icmp eq i32 %44, 0
   br i1 %.not13, label %105, label %45
 
 45:                                               ; preds = %42
   %46 = load ptr, ptr %1, align 8, !tbaa !21
-  %47 = call i32 @test_BN_ne_zero(ptr noundef nonnull @.str.17, i32 noundef 2093, ptr noundef nonnull @.str.242, ptr noundef %46) #8
+  %47 = call i32 @test_BN_ne_zero(ptr noundef nonnull @.str.17, i32 noundef 2093, ptr noundef nonnull @.str.242, ptr noundef %46) #9
   %.not14 = icmp eq i32 %47, 0
   br i1 %.not14, label %105, label %48
 
 48:                                               ; preds = %45
   %49 = load ptr, ptr %1, align 8, !tbaa !21
-  %50 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2094, ptr noundef nonnull @.str.242, ptr noundef %49) #8
+  %50 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2094, ptr noundef nonnull @.str.242, ptr noundef %49) #9
   %.not15 = icmp eq i32 %50, 0
   br i1 %.not15, label %105, label %51
 
 51:                                               ; preds = %48
   %52 = load ptr, ptr %1, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %52) #8
+  call void @BN_free(ptr noundef %52) #9
   store ptr null, ptr %1, align 8, !tbaa !21
-  %53 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.282) #8
-  %54 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2099, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.272, i32 noundef %53, i32 noundef 2) #8
+  %53 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.282) #9
+  %54 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2099, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.272, i32 noundef %53, i32 noundef 2) #9
   %.not16 = icmp eq i32 %54, 0
   br i1 %.not16, label %105, label %55
 
 55:                                               ; preds = %51
   %56 = load ptr, ptr %1, align 8, !tbaa !21
-  %57 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2100, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.283, ptr noundef %56, i64 noundef 203) #8
+  %57 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2100, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.283, ptr noundef %56, i64 noundef 203) #9
   %.not17 = icmp eq i32 %57, 0
   br i1 %.not17, label %105, label %58
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %1, align 8, !tbaa !21
-  %60 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2101, ptr noundef nonnull @.str.242, ptr noundef %59) #8
+  %60 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2101, ptr noundef nonnull @.str.242, ptr noundef %59) #9
   %.not18 = icmp eq i32 %60, 0
   br i1 %.not18, label %105, label %61
 
 61:                                               ; preds = %58
   %62 = load ptr, ptr %1, align 8, !tbaa !21
-  %63 = call i32 @test_BN_gt_zero(ptr noundef nonnull @.str.17, i32 noundef 2102, ptr noundef nonnull @.str.242, ptr noundef %62) #8
+  %63 = call i32 @test_BN_gt_zero(ptr noundef nonnull @.str.17, i32 noundef 2102, ptr noundef nonnull @.str.242, ptr noundef %62) #9
   %.not19 = icmp eq i32 %63, 0
   br i1 %.not19, label %105, label %64
 
 64:                                               ; preds = %61
   %65 = load ptr, ptr %1, align 8, !tbaa !21
-  %66 = call i32 @test_BN_ne_zero(ptr noundef nonnull @.str.17, i32 noundef 2103, ptr noundef nonnull @.str.242, ptr noundef %65) #8
+  %66 = call i32 @test_BN_ne_zero(ptr noundef nonnull @.str.17, i32 noundef 2103, ptr noundef nonnull @.str.242, ptr noundef %65) #9
   %.not20 = icmp eq i32 %66, 0
   br i1 %.not20, label %105, label %67
 
 67:                                               ; preds = %64
   %68 = load ptr, ptr %1, align 8, !tbaa !21
-  %69 = call i32 @test_BN_odd(ptr noundef nonnull @.str.17, i32 noundef 2104, ptr noundef nonnull @.str.242, ptr noundef %68) #8
+  %69 = call i32 @test_BN_odd(ptr noundef nonnull @.str.17, i32 noundef 2104, ptr noundef nonnull @.str.242, ptr noundef %68) #9
   %.not21 = icmp eq i32 %69, 0
   br i1 %.not21, label %105, label %70
 
 70:                                               ; preds = %67
   %71 = load ptr, ptr %1, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %71) #8
+  call void @BN_free(ptr noundef %71) #9
   store ptr null, ptr %1, align 8, !tbaa !21
-  %72 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.273) #8
-  %73 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2109, ptr noundef nonnull @.str.284, ptr noundef nonnull @.str.272, i32 noundef %72, i32 noundef 2) #8
+  %72 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.273) #9
+  %73 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2109, ptr noundef nonnull @.str.284, ptr noundef nonnull @.str.272, i32 noundef %72, i32 noundef 2) #9
   %.not22 = icmp eq i32 %73, 0
   br i1 %.not22, label %105, label %74
 
 74:                                               ; preds = %70
   %75 = load ptr, ptr %1, align 8, !tbaa !21
-  %76 = call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2110, ptr noundef nonnull @.str.242, ptr noundef %75) #8
+  %76 = call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2110, ptr noundef nonnull @.str.242, ptr noundef %75) #9
   %.not23 = icmp eq i32 %76, 0
   br i1 %.not23, label %105, label %77
 
 77:                                               ; preds = %74
   %78 = load ptr, ptr %1, align 8, !tbaa !21
-  %79 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2111, ptr noundef nonnull @.str.242, ptr noundef %78) #8
+  %79 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2111, ptr noundef nonnull @.str.242, ptr noundef %78) #9
   %.not24 = icmp eq i32 %79, 0
   br i1 %.not24, label %105, label %80
 
 80:                                               ; preds = %77
   %81 = load ptr, ptr %1, align 8, !tbaa !21
-  %82 = call i32 @test_BN_le_zero(ptr noundef nonnull @.str.17, i32 noundef 2112, ptr noundef nonnull @.str.242, ptr noundef %81) #8
+  %82 = call i32 @test_BN_le_zero(ptr noundef nonnull @.str.17, i32 noundef 2112, ptr noundef nonnull @.str.242, ptr noundef %81) #9
   %.not25 = icmp eq i32 %82, 0
   br i1 %.not25, label %105, label %83
 
 83:                                               ; preds = %80
   %84 = load ptr, ptr %1, align 8, !tbaa !21
-  %85 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2113, ptr noundef nonnull @.str.242, ptr noundef %84) #8
+  %85 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2113, ptr noundef nonnull @.str.242, ptr noundef %84) #9
   %.not26 = icmp eq i32 %85, 0
   br i1 %.not26, label %105, label %86
 
 86:                                               ; preds = %83
   %87 = load ptr, ptr %1, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %87) #8
+  call void @BN_free(ptr noundef %87) #9
   store ptr null, ptr %1, align 8, !tbaa !21
-  %88 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.286) #8
-  %89 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2118, ptr noundef nonnull @.str.285, ptr noundef nonnull @.str.246, i32 noundef %88, i32 noundef 3) #8
+  %88 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.286) #9
+  %89 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2118, ptr noundef nonnull @.str.285, ptr noundef nonnull @.str.246, i32 noundef %88, i32 noundef 3) #9
   %.not27 = icmp eq i32 %89, 0
   br i1 %.not27, label %105, label %90
 
 90:                                               ; preds = %86
   %91 = load ptr, ptr %1, align 8, !tbaa !21
-  %92 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2119, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.287, ptr noundef %91, i64 noundef 2748) #8
+  %92 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2119, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.287, ptr noundef %91, i64 noundef 2748) #9
   %.not28 = icmp eq i32 %92, 0
   br i1 %.not28, label %105, label %93
 
 93:                                               ; preds = %90
   %94 = load ptr, ptr %1, align 8, !tbaa !21
-  %95 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2120, ptr noundef nonnull @.str.242, ptr noundef %94) #8
+  %95 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2120, ptr noundef nonnull @.str.242, ptr noundef %94) #9
   %.not29 = icmp eq i32 %95, 0
   br i1 %.not29, label %105, label %96
 
 96:                                               ; preds = %93
   %97 = load ptr, ptr %1, align 8, !tbaa !21
-  %98 = call i32 @test_BN_gt_zero(ptr noundef nonnull @.str.17, i32 noundef 2121, ptr noundef nonnull @.str.242, ptr noundef %97) #8
+  %98 = call i32 @test_BN_gt_zero(ptr noundef nonnull @.str.17, i32 noundef 2121, ptr noundef nonnull @.str.242, ptr noundef %97) #9
   %.not30 = icmp eq i32 %98, 0
   br i1 %.not30, label %105, label %99
 
 99:                                               ; preds = %96
   %100 = load ptr, ptr %1, align 8, !tbaa !21
-  %101 = call i32 @test_BN_ne_zero(ptr noundef nonnull @.str.17, i32 noundef 2122, ptr noundef nonnull @.str.242, ptr noundef %100) #8
+  %101 = call i32 @test_BN_ne_zero(ptr noundef nonnull @.str.17, i32 noundef 2122, ptr noundef nonnull @.str.242, ptr noundef %100) #9
   %.not31 = icmp eq i32 %101, 0
   br i1 %.not31, label %105, label %102
 
 102:                                              ; preds = %99
   %103 = load ptr, ptr %1, align 8, !tbaa !21
-  %104 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2123, ptr noundef nonnull @.str.242, ptr noundef %103) #8
+  %104 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2123, ptr noundef nonnull @.str.242, ptr noundef %103) #9
   %.not32 = icmp ne i32 %104, 0
   %spec.select = zext i1 %.not32 to i32
   br label %105
@@ -3386,7 +3386,7 @@ define internal range(i32 0, 2) i32 @test_hex2bn() #1 {
 105:                                              ; preds = %102, %86, %90, %93, %96, %99, %70, %74, %77, %80, %83, %51, %55, %58, %61, %64, %67, %32, %36, %39, %42, %45, %48, %13, %17, %20, %23, %26, %29, %0, %4, %7, %10
   %.0 = phi i32 [ 0, %99 ], [ 0, %96 ], [ 0, %93 ], [ 0, %90 ], [ 0, %86 ], [ 0, %83 ], [ 0, %80 ], [ 0, %77 ], [ 0, %74 ], [ 0, %70 ], [ 0, %67 ], [ 0, %64 ], [ 0, %61 ], [ 0, %58 ], [ 0, %55 ], [ 0, %51 ], [ 0, %48 ], [ 0, %45 ], [ 0, %42 ], [ 0, %39 ], [ 0, %36 ], [ 0, %32 ], [ 0, %29 ], [ 0, %26 ], [ 0, %23 ], [ 0, %20 ], [ 0, %17 ], [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ 0, %4 ], [ 0, %0 ], [ %spec.select, %102 ]
   %106 = load ptr, ptr %1, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %106) #8
+  call void @BN_free(ptr noundef %106) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
@@ -3395,169 +3395,169 @@ define internal range(i32 0, 2) i32 @test_hex2bn() #1 {
 define internal range(i32 0, 2) i32 @test_asc2bn() #1 {
   %1 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %2 = tail call ptr @BN_new() #8
+  %2 = tail call ptr @BN_new() #9
   store ptr %2, ptr %1, align 8, !tbaa !21
-  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2137, ptr noundef nonnull @.str.238, ptr noundef %2) #8
+  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2137, ptr noundef nonnull @.str.238, ptr noundef %2) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %92, label %4
 
 4:                                                ; preds = %0
-  %5 = call i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.69) #8
+  %5 = call i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.69) #9
   %6 = icmp ne i32 %5, 0
   %7 = zext i1 %6 to i32
-  %8 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2140, ptr noundef nonnull @.str.288, i32 noundef %7) #8
+  %8 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2140, ptr noundef nonnull @.str.288, i32 noundef %7) #9
   %.not1 = icmp eq i32 %8, 0
   br i1 %.not1, label %92, label %9
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %1, align 8, !tbaa !21
-  %11 = call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2141, ptr noundef nonnull @.str.242, ptr noundef %10) #8
+  %11 = call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2141, ptr noundef nonnull @.str.242, ptr noundef %10) #9
   %.not2 = icmp eq i32 %11, 0
   br i1 %.not2, label %92, label %12
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %1, align 8, !tbaa !21
-  %14 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2142, ptr noundef nonnull @.str.242, ptr noundef %13) #8
+  %14 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2142, ptr noundef nonnull @.str.242, ptr noundef %13) #9
   %.not3 = icmp eq i32 %14, 0
   br i1 %.not3, label %92, label %15
 
 15:                                               ; preds = %12
-  %16 = call i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.266) #8
+  %16 = call i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.266) #9
   %17 = icmp ne i32 %16, 0
   %18 = zext i1 %17 to i32
-  %19 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2145, ptr noundef nonnull @.str.289, i32 noundef %18) #8
+  %19 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2145, ptr noundef nonnull @.str.289, i32 noundef %18) #9
   %.not4 = icmp eq i32 %19, 0
   br i1 %.not4, label %92, label %20
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %1, align 8, !tbaa !21
-  %22 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2146, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.266, ptr noundef %21, i64 noundef 256) #8
+  %22 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2146, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.266, ptr noundef %21, i64 noundef 256) #9
   %.not5 = icmp eq i32 %22, 0
   br i1 %.not5, label %92, label %23
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %1, align 8, !tbaa !21
-  %25 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2147, ptr noundef nonnull @.str.242, ptr noundef %24) #8
+  %25 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2147, ptr noundef nonnull @.str.242, ptr noundef %24) #9
   %.not6 = icmp eq i32 %25, 0
   br i1 %.not6, label %92, label %26
 
 26:                                               ; preds = %23
-  %27 = call i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.268) #8
+  %27 = call i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.268) #9
   %28 = icmp ne i32 %27, 0
   %29 = zext i1 %28 to i32
-  %30 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2150, ptr noundef nonnull @.str.290, i32 noundef %29) #8
+  %30 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2150, ptr noundef nonnull @.str.290, i32 noundef %29) #9
   %.not7 = icmp eq i32 %30, 0
   br i1 %.not7, label %92, label %31
 
 31:                                               ; preds = %26
   %32 = load ptr, ptr %1, align 8, !tbaa !21
-  %33 = call i32 @test_BN_abs_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2151, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.269, ptr noundef %32, i64 noundef 42) #8
+  %33 = call i32 @test_BN_abs_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2151, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.269, ptr noundef %32, i64 noundef 42) #9
   %.not8 = icmp eq i32 %33, 0
   br i1 %.not8, label %92, label %34
 
 34:                                               ; preds = %31
   %35 = load ptr, ptr %1, align 8, !tbaa !21
-  %36 = call i32 @test_BN_lt_zero(ptr noundef nonnull @.str.17, i32 noundef 2152, ptr noundef nonnull @.str.242, ptr noundef %35) #8
+  %36 = call i32 @test_BN_lt_zero(ptr noundef nonnull @.str.17, i32 noundef 2152, ptr noundef nonnull @.str.242, ptr noundef %35) #9
   %.not9 = icmp eq i32 %36, 0
   br i1 %.not9, label %92, label %37
 
 37:                                               ; preds = %34
-  %38 = call i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.292) #8
+  %38 = call i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.292) #9
   %39 = icmp ne i32 %38, 0
   %40 = zext i1 %39 to i32
-  %41 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2155, ptr noundef nonnull @.str.291, i32 noundef %40) #8
+  %41 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2155, ptr noundef nonnull @.str.291, i32 noundef %40) #9
   %.not10 = icmp eq i32 %41, 0
   br i1 %.not10, label %92, label %42
 
 42:                                               ; preds = %37
   %43 = load ptr, ptr %1, align 8, !tbaa !21
-  %44 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2156, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.292, ptr noundef %43, i64 noundef 4660) #8
+  %44 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2156, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.292, ptr noundef %43, i64 noundef 4660) #9
   %.not11 = icmp eq i32 %44, 0
   br i1 %.not11, label %92, label %45
 
 45:                                               ; preds = %42
   %46 = load ptr, ptr %1, align 8, !tbaa !21
-  %47 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2157, ptr noundef nonnull @.str.242, ptr noundef %46) #8
+  %47 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2157, ptr noundef nonnull @.str.242, ptr noundef %46) #9
   %.not12 = icmp eq i32 %47, 0
   br i1 %.not12, label %92, label %48
 
 48:                                               ; preds = %45
-  %49 = call i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.294) #8
+  %49 = call i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.294) #9
   %50 = icmp ne i32 %49, 0
   %51 = zext i1 %50 to i32
-  %52 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2160, ptr noundef nonnull @.str.293, i32 noundef %51) #8
+  %52 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2160, ptr noundef nonnull @.str.293, i32 noundef %51) #9
   %.not13 = icmp eq i32 %52, 0
   br i1 %.not13, label %92, label %53
 
 53:                                               ; preds = %48
   %54 = load ptr, ptr %1, align 8, !tbaa !21
-  %55 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2161, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.292, ptr noundef %54, i64 noundef 4660) #8
+  %55 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2161, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.292, ptr noundef %54, i64 noundef 4660) #9
   %.not14 = icmp eq i32 %55, 0
   br i1 %.not14, label %92, label %56
 
 56:                                               ; preds = %53
   %57 = load ptr, ptr %1, align 8, !tbaa !21
-  %58 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2162, ptr noundef nonnull @.str.242, ptr noundef %57) #8
+  %58 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2162, ptr noundef nonnull @.str.242, ptr noundef %57) #9
   %.not15 = icmp eq i32 %58, 0
   br i1 %.not15, label %92, label %59
 
 59:                                               ; preds = %56
-  %60 = call i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.296) #8
+  %60 = call i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.296) #9
   %61 = icmp ne i32 %60, 0
   %62 = zext i1 %61 to i32
-  %63 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2165, ptr noundef nonnull @.str.295, i32 noundef %62) #8
+  %63 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2165, ptr noundef nonnull @.str.295, i32 noundef %62) #9
   %.not16 = icmp eq i32 %63, 0
   br i1 %.not16, label %92, label %64
 
 64:                                               ; preds = %59
   %65 = load ptr, ptr %1, align 8, !tbaa !21
-  %66 = call i32 @test_BN_abs_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2166, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.297, ptr noundef %65, i64 noundef 43981) #8
+  %66 = call i32 @test_BN_abs_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2166, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.297, ptr noundef %65, i64 noundef 43981) #9
   %.not17 = icmp eq i32 %66, 0
   br i1 %.not17, label %92, label %67
 
 67:                                               ; preds = %64
   %68 = load ptr, ptr %1, align 8, !tbaa !21
-  %69 = call i32 @test_BN_lt_zero(ptr noundef nonnull @.str.17, i32 noundef 2167, ptr noundef nonnull @.str.242, ptr noundef %68) #8
+  %69 = call i32 @test_BN_lt_zero(ptr noundef nonnull @.str.17, i32 noundef 2167, ptr noundef nonnull @.str.242, ptr noundef %68) #9
   %.not18 = icmp eq i32 %69, 0
   br i1 %.not18, label %92, label %70
 
 70:                                               ; preds = %67
-  %71 = call i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.273) #8
+  %71 = call i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.273) #9
   %72 = icmp ne i32 %71, 0
   %73 = zext i1 %72 to i32
-  %74 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2170, ptr noundef nonnull @.str.298, i32 noundef %73) #8
+  %74 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2170, ptr noundef nonnull @.str.298, i32 noundef %73) #9
   %.not19 = icmp eq i32 %74, 0
   br i1 %.not19, label %92, label %75
 
 75:                                               ; preds = %70
   %76 = load ptr, ptr %1, align 8, !tbaa !21
-  %77 = call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2171, ptr noundef nonnull @.str.242, ptr noundef %76) #8
+  %77 = call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2171, ptr noundef nonnull @.str.242, ptr noundef %76) #9
   %.not20 = icmp eq i32 %77, 0
   br i1 %.not20, label %92, label %78
 
 78:                                               ; preds = %75
   %79 = load ptr, ptr %1, align 8, !tbaa !21
-  %80 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2172, ptr noundef nonnull @.str.242, ptr noundef %79) #8
+  %80 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2172, ptr noundef nonnull @.str.242, ptr noundef %79) #9
   %.not21 = icmp eq i32 %80, 0
   br i1 %.not21, label %92, label %81
 
 81:                                               ; preds = %78
-  %82 = call i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.300) #8
+  %82 = call i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.300) #9
   %83 = icmp ne i32 %82, 0
   %84 = zext i1 %83 to i32
-  %85 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2175, ptr noundef nonnull @.str.299, i32 noundef %84) #8
+  %85 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2175, ptr noundef nonnull @.str.299, i32 noundef %84) #9
   %.not22 = icmp eq i32 %85, 0
   br i1 %.not22, label %92, label %86
 
 86:                                               ; preds = %81
   %87 = load ptr, ptr %1, align 8, !tbaa !21
-  %88 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2176, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.301, ptr noundef %87, i64 noundef 123) #8
+  %88 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2176, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.301, ptr noundef %87, i64 noundef 123) #9
   %.not23 = icmp eq i32 %88, 0
   br i1 %.not23, label %92, label %89
 
 89:                                               ; preds = %86
   %90 = load ptr, ptr %1, align 8, !tbaa !21
-  %91 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2177, ptr noundef nonnull @.str.242, ptr noundef %90) #8
+  %91 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2177, ptr noundef nonnull @.str.242, ptr noundef %90) #9
   %.not24 = icmp ne i32 %91, 0
   %spec.select = zext i1 %.not24 to i32
   br label %92
@@ -3565,7 +3565,7 @@ define internal range(i32 0, 2) i32 @test_asc2bn() #1 {
 92:                                               ; preds = %89, %81, %86, %70, %75, %78, %59, %64, %67, %48, %53, %56, %37, %42, %45, %26, %31, %34, %15, %20, %23, %4, %9, %12, %0
   %.0 = phi i32 [ 0, %86 ], [ 0, %81 ], [ 0, %78 ], [ 0, %75 ], [ 0, %70 ], [ 0, %67 ], [ 0, %64 ], [ 0, %59 ], [ 0, %56 ], [ 0, %53 ], [ 0, %48 ], [ 0, %45 ], [ 0, %42 ], [ 0, %37 ], [ 0, %34 ], [ 0, %31 ], [ 0, %26 ], [ 0, %23 ], [ 0, %20 ], [ 0, %15 ], [ 0, %12 ], [ 0, %9 ], [ 0, %4 ], [ 0, %0 ], [ %spec.select, %89 ]
   %93 = load ptr, ptr %1, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %93) #8
+  call void @BN_free(ptr noundef %93) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
@@ -3575,183 +3575,183 @@ define internal range(i32 0, 2) i32 @test_bin2zero() #1 {
   %1 = alloca [1 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i8 0, ptr %1, align 1
-  %2 = tail call ptr @BN_new() #8
-  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2236, ptr noundef nonnull @.str.302, ptr noundef %2) #8
+  %2 = tail call ptr @BN_new() #9
+  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2236, ptr noundef nonnull @.str.302, ptr noundef %2) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %100, label %4
 
 4:                                                ; preds = %0
-  %5 = call ptr @BN_bin2bn(ptr noundef nonnull %1, i32 noundef 1, ptr noundef %2) #8
-  %6 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2248, ptr noundef nonnull @.str.303, ptr noundef %5) #8
+  %5 = call ptr @BN_bin2bn(ptr noundef nonnull %1, i32 noundef 1, ptr noundef %2) #9
+  %6 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2248, ptr noundef nonnull @.str.303, ptr noundef %5) #9
   %.not25 = icmp eq i32 %6, 0
   br i1 %.not25, label %100, label %7
 
 7:                                                ; preds = %4
-  %8 = call i32 @BN_is_zero(ptr noundef %2) #8
+  %8 = call i32 @BN_is_zero(ptr noundef %2) #9
   %9 = icmp ne i32 %8, 0
   %10 = zext i1 %9 to i32
-  %11 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2248, ptr noundef nonnull @.str.304, i32 noundef %10) #8
+  %11 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2248, ptr noundef nonnull @.str.304, i32 noundef %10) #9
   %.not26 = icmp eq i32 %11, 0
   br i1 %.not26, label %100, label %12
 
 12:                                               ; preds = %7
-  %13 = call ptr @BN_bin2bn(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %2) #8
-  %14 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2248, ptr noundef nonnull @.str.305, ptr noundef %13) #8
+  %13 = call ptr @BN_bin2bn(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %2) #9
+  %14 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2248, ptr noundef nonnull @.str.305, ptr noundef %13) #9
   %.not27 = icmp eq i32 %14, 0
   br i1 %.not27, label %100, label %15
 
 15:                                               ; preds = %12
-  %16 = call i32 @BN_is_zero(ptr noundef %2) #8
+  %16 = call i32 @BN_is_zero(ptr noundef %2) #9
   %17 = icmp ne i32 %16, 0
   %18 = zext i1 %17 to i32
-  %19 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2248, ptr noundef nonnull @.str.304, i32 noundef %18) #8
+  %19 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2248, ptr noundef nonnull @.str.304, i32 noundef %18) #9
   %.not28 = icmp eq i32 %19, 0
   br i1 %.not28, label %100, label %20
 
 20:                                               ; preds = %15
-  %21 = call ptr @BN_bin2bn(ptr noundef null, i32 noundef 0, ptr noundef %2) #8
-  %22 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2248, ptr noundef nonnull @.str.306, ptr noundef %21) #8
+  %21 = call ptr @BN_bin2bn(ptr noundef null, i32 noundef 0, ptr noundef %2) #9
+  %22 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2248, ptr noundef nonnull @.str.306, ptr noundef %21) #9
   %.not29 = icmp eq i32 %22, 0
   br i1 %.not29, label %100, label %23
 
 23:                                               ; preds = %20
-  %24 = call i32 @BN_is_zero(ptr noundef %2) #8
+  %24 = call i32 @BN_is_zero(ptr noundef %2) #9
   %25 = icmp ne i32 %24, 0
   %26 = zext i1 %25 to i32
-  %27 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2248, ptr noundef nonnull @.str.304, i32 noundef %26) #8
+  %27 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2248, ptr noundef nonnull @.str.304, i32 noundef %26) #9
   %.not30 = icmp eq i32 %27, 0
   br i1 %.not30, label %100, label %28
 
 28:                                               ; preds = %23
-  %29 = call ptr @BN_signed_bin2bn(ptr noundef nonnull %1, i32 noundef 1, ptr noundef %2) #8
-  %30 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2249, ptr noundef nonnull @.str.307, ptr noundef %29) #8
+  %29 = call ptr @BN_signed_bin2bn(ptr noundef nonnull %1, i32 noundef 1, ptr noundef %2) #9
+  %30 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2249, ptr noundef nonnull @.str.307, ptr noundef %29) #9
   %.not31 = icmp eq i32 %30, 0
   br i1 %.not31, label %100, label %31
 
 31:                                               ; preds = %28
-  %32 = call i32 @BN_is_zero(ptr noundef %2) #8
+  %32 = call i32 @BN_is_zero(ptr noundef %2) #9
   %33 = icmp ne i32 %32, 0
   %34 = zext i1 %33 to i32
-  %35 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2249, ptr noundef nonnull @.str.304, i32 noundef %34) #8
+  %35 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2249, ptr noundef nonnull @.str.304, i32 noundef %34) #9
   %.not32 = icmp eq i32 %35, 0
   br i1 %.not32, label %100, label %36
 
 36:                                               ; preds = %31
-  %37 = call ptr @BN_signed_bin2bn(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %2) #8
-  %38 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2249, ptr noundef nonnull @.str.308, ptr noundef %37) #8
+  %37 = call ptr @BN_signed_bin2bn(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %2) #9
+  %38 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2249, ptr noundef nonnull @.str.308, ptr noundef %37) #9
   %.not33 = icmp eq i32 %38, 0
   br i1 %.not33, label %100, label %39
 
 39:                                               ; preds = %36
-  %40 = call i32 @BN_is_zero(ptr noundef %2) #8
+  %40 = call i32 @BN_is_zero(ptr noundef %2) #9
   %41 = icmp ne i32 %40, 0
   %42 = zext i1 %41 to i32
-  %43 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2249, ptr noundef nonnull @.str.304, i32 noundef %42) #8
+  %43 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2249, ptr noundef nonnull @.str.304, i32 noundef %42) #9
   %.not34 = icmp eq i32 %43, 0
   br i1 %.not34, label %100, label %44
 
 44:                                               ; preds = %39
-  %45 = call ptr @BN_signed_bin2bn(ptr noundef null, i32 noundef 0, ptr noundef %2) #8
-  %46 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2249, ptr noundef nonnull @.str.309, ptr noundef %45) #8
+  %45 = call ptr @BN_signed_bin2bn(ptr noundef null, i32 noundef 0, ptr noundef %2) #9
+  %46 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2249, ptr noundef nonnull @.str.309, ptr noundef %45) #9
   %.not35 = icmp eq i32 %46, 0
   br i1 %.not35, label %100, label %47
 
 47:                                               ; preds = %44
-  %48 = call i32 @BN_is_zero(ptr noundef %2) #8
+  %48 = call i32 @BN_is_zero(ptr noundef %2) #9
   %49 = icmp ne i32 %48, 0
   %50 = zext i1 %49 to i32
-  %51 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2249, ptr noundef nonnull @.str.304, i32 noundef %50) #8
+  %51 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2249, ptr noundef nonnull @.str.304, i32 noundef %50) #9
   %.not36 = icmp eq i32 %51, 0
   br i1 %.not36, label %100, label %52
 
 52:                                               ; preds = %47
-  %53 = call ptr @BN_lebin2bn(ptr noundef nonnull %1, i32 noundef 1, ptr noundef %2) #8
-  %54 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2250, ptr noundef nonnull @.str.310, ptr noundef %53) #8
+  %53 = call ptr @BN_lebin2bn(ptr noundef nonnull %1, i32 noundef 1, ptr noundef %2) #9
+  %54 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2250, ptr noundef nonnull @.str.310, ptr noundef %53) #9
   %.not37 = icmp eq i32 %54, 0
   br i1 %.not37, label %100, label %55
 
 55:                                               ; preds = %52
-  %56 = call i32 @BN_is_zero(ptr noundef %2) #8
+  %56 = call i32 @BN_is_zero(ptr noundef %2) #9
   %57 = icmp ne i32 %56, 0
   %58 = zext i1 %57 to i32
-  %59 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2250, ptr noundef nonnull @.str.304, i32 noundef %58) #8
+  %59 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2250, ptr noundef nonnull @.str.304, i32 noundef %58) #9
   %.not38 = icmp eq i32 %59, 0
   br i1 %.not38, label %100, label %60
 
 60:                                               ; preds = %55
-  %61 = call ptr @BN_lebin2bn(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %2) #8
-  %62 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2250, ptr noundef nonnull @.str.311, ptr noundef %61) #8
+  %61 = call ptr @BN_lebin2bn(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %2) #9
+  %62 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2250, ptr noundef nonnull @.str.311, ptr noundef %61) #9
   %.not39 = icmp eq i32 %62, 0
   br i1 %.not39, label %100, label %63
 
 63:                                               ; preds = %60
-  %64 = call i32 @BN_is_zero(ptr noundef %2) #8
+  %64 = call i32 @BN_is_zero(ptr noundef %2) #9
   %65 = icmp ne i32 %64, 0
   %66 = zext i1 %65 to i32
-  %67 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2250, ptr noundef nonnull @.str.304, i32 noundef %66) #8
+  %67 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2250, ptr noundef nonnull @.str.304, i32 noundef %66) #9
   %.not40 = icmp eq i32 %67, 0
   br i1 %.not40, label %100, label %68
 
 68:                                               ; preds = %63
-  %69 = call ptr @BN_lebin2bn(ptr noundef null, i32 noundef 0, ptr noundef %2) #8
-  %70 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2250, ptr noundef nonnull @.str.312, ptr noundef %69) #8
+  %69 = call ptr @BN_lebin2bn(ptr noundef null, i32 noundef 0, ptr noundef %2) #9
+  %70 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2250, ptr noundef nonnull @.str.312, ptr noundef %69) #9
   %.not41 = icmp eq i32 %70, 0
   br i1 %.not41, label %100, label %71
 
 71:                                               ; preds = %68
-  %72 = call i32 @BN_is_zero(ptr noundef %2) #8
+  %72 = call i32 @BN_is_zero(ptr noundef %2) #9
   %73 = icmp ne i32 %72, 0
   %74 = zext i1 %73 to i32
-  %75 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2250, ptr noundef nonnull @.str.304, i32 noundef %74) #8
+  %75 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2250, ptr noundef nonnull @.str.304, i32 noundef %74) #9
   %.not42 = icmp eq i32 %75, 0
   br i1 %.not42, label %100, label %76
 
 76:                                               ; preds = %71
-  %77 = call ptr @BN_signed_lebin2bn(ptr noundef nonnull %1, i32 noundef 1, ptr noundef %2) #8
-  %78 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2251, ptr noundef nonnull @.str.313, ptr noundef %77) #8
+  %77 = call ptr @BN_signed_lebin2bn(ptr noundef nonnull %1, i32 noundef 1, ptr noundef %2) #9
+  %78 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2251, ptr noundef nonnull @.str.313, ptr noundef %77) #9
   %.not43 = icmp eq i32 %78, 0
   br i1 %.not43, label %100, label %79
 
 79:                                               ; preds = %76
-  %80 = call i32 @BN_is_zero(ptr noundef %2) #8
+  %80 = call i32 @BN_is_zero(ptr noundef %2) #9
   %81 = icmp ne i32 %80, 0
   %82 = zext i1 %81 to i32
-  %83 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2251, ptr noundef nonnull @.str.304, i32 noundef %82) #8
+  %83 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2251, ptr noundef nonnull @.str.304, i32 noundef %82) #9
   %.not44 = icmp eq i32 %83, 0
   br i1 %.not44, label %100, label %84
 
 84:                                               ; preds = %79
-  %85 = call ptr @BN_signed_lebin2bn(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %2) #8
-  %86 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2251, ptr noundef nonnull @.str.314, ptr noundef %85) #8
+  %85 = call ptr @BN_signed_lebin2bn(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %2) #9
+  %86 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2251, ptr noundef nonnull @.str.314, ptr noundef %85) #9
   %.not45 = icmp eq i32 %86, 0
   br i1 %.not45, label %100, label %87
 
 87:                                               ; preds = %84
-  %88 = call i32 @BN_is_zero(ptr noundef %2) #8
+  %88 = call i32 @BN_is_zero(ptr noundef %2) #9
   %89 = icmp ne i32 %88, 0
   %90 = zext i1 %89 to i32
-  %91 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2251, ptr noundef nonnull @.str.304, i32 noundef %90) #8
+  %91 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2251, ptr noundef nonnull @.str.304, i32 noundef %90) #9
   %.not46 = icmp eq i32 %91, 0
   br i1 %.not46, label %100, label %92
 
 92:                                               ; preds = %87
-  %93 = call ptr @BN_signed_lebin2bn(ptr noundef null, i32 noundef 0, ptr noundef %2) #8
-  %94 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2251, ptr noundef nonnull @.str.315, ptr noundef %93) #8
+  %93 = call ptr @BN_signed_lebin2bn(ptr noundef null, i32 noundef 0, ptr noundef %2) #9
+  %94 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2251, ptr noundef nonnull @.str.315, ptr noundef %93) #9
   %.not47 = icmp eq i32 %94, 0
   br i1 %.not47, label %100, label %95
 
 95:                                               ; preds = %92
-  %96 = call i32 @BN_is_zero(ptr noundef %2) #8
+  %96 = call i32 @BN_is_zero(ptr noundef %2) #9
   %97 = icmp ne i32 %96, 0
   %98 = zext i1 %97 to i32
-  %99 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2251, ptr noundef nonnull @.str.304, i32 noundef %98) #8
+  %99 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2251, ptr noundef nonnull @.str.304, i32 noundef %98) #9
   %.not48 = icmp ne i32 %99, 0
   %spec.select = zext i1 %.not48 to i32
   br label %100
 
 100:                                              ; preds = %95, %76, %79, %84, %87, %92, %52, %55, %60, %63, %68, %71, %28, %31, %36, %39, %44, %47, %4, %7, %12, %15, %20, %23, %0
   %.0 = phi i32 [ 0, %92 ], [ 0, %87 ], [ 0, %84 ], [ 0, %79 ], [ 0, %76 ], [ 0, %71 ], [ 0, %68 ], [ 0, %63 ], [ 0, %60 ], [ 0, %55 ], [ 0, %52 ], [ 0, %47 ], [ 0, %44 ], [ 0, %39 ], [ 0, %36 ], [ 0, %31 ], [ 0, %28 ], [ 0, %23 ], [ 0, %20 ], [ 0, %15 ], [ 0, %12 ], [ 0, %7 ], [ 0, %4 ], [ 0, %0 ], [ %spec.select, %95 ]
-  call void @BN_free(ptr noundef %2) #8
+  call void @BN_free(ptr noundef %2) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
@@ -3761,170 +3761,170 @@ define internal range(i32 0, 2) i32 @test_bin2bn_lengths() #1 {
   %1 = alloca [2 x i8], align 2
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i16 513, ptr %1, align 2
-  %2 = tail call ptr @BN_new() #8
-  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2267, ptr noundef nonnull @.str.316, ptr noundef %2) #8
+  %2 = tail call ptr @BN_new() #9
+  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2267, ptr noundef nonnull @.str.316, ptr noundef %2) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %91, label %4
 
 4:                                                ; preds = %0
-  %5 = tail call ptr @BN_new() #8
-  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2268, ptr noundef nonnull @.str.317, ptr noundef %5) #8
+  %5 = tail call ptr @BN_new() #9
+  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2268, ptr noundef nonnull @.str.317, ptr noundef %5) #9
   %.not33 = icmp eq i32 %6, 0
   br i1 %.not33, label %91, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @BN_set_word(ptr noundef %5, i64 noundef 258) #8
+  %8 = tail call i32 @BN_set_word(ptr noundef %5, i64 noundef 258) #9
   %9 = icmp ne i32 %8, 0
   %10 = zext i1 %9 to i32
-  %11 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2269, ptr noundef nonnull @.str.318, i32 noundef %10) #8
+  %11 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2269, ptr noundef nonnull @.str.318, i32 noundef %10) #9
   %.not34 = icmp eq i32 %11, 0
   br i1 %.not34, label %91, label %12
 
 12:                                               ; preds = %7
-  %13 = tail call ptr @BN_new() #8
-  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2270, ptr noundef nonnull @.str.319, ptr noundef %13) #8
+  %13 = tail call ptr @BN_new() #9
+  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2270, ptr noundef nonnull @.str.319, ptr noundef %13) #9
   %.not35 = icmp eq i32 %14, 0
   br i1 %.not35, label %91, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call ptr @BN_new() #8
-  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2271, ptr noundef nonnull @.str.320, ptr noundef %16) #8
+  %16 = tail call ptr @BN_new() #9
+  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2271, ptr noundef nonnull @.str.320, ptr noundef %16) #9
   %.not36 = icmp eq i32 %17, 0
   br i1 %.not36, label %91, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call i32 @BN_set_word(ptr noundef %16, i64 noundef 513) #8
+  %19 = tail call i32 @BN_set_word(ptr noundef %16, i64 noundef 513) #9
   %20 = icmp ne i32 %19, 0
   %21 = zext i1 %20 to i32
-  %22 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2272, ptr noundef nonnull @.str.321, i32 noundef %21) #8
+  %22 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2272, ptr noundef nonnull @.str.321, i32 noundef %21) #9
   %.not37 = icmp eq i32 %22, 0
   br i1 %.not37, label %91, label %23
 
 23:                                               ; preds = %18
-  %24 = call ptr @BN_bin2bn(ptr noundef nonnull %1, i32 noundef -1, ptr noundef %2) #8
-  %25 = call i32 @test_ptr_null(ptr noundef nonnull @.str.17, i32 noundef 2283, ptr noundef nonnull @.str.322, ptr noundef %24) #8
+  %24 = call ptr @BN_bin2bn(ptr noundef nonnull %1, i32 noundef -1, ptr noundef %2) #9
+  %25 = call i32 @test_ptr_null(ptr noundef nonnull @.str.17, i32 noundef 2283, ptr noundef nonnull @.str.322, ptr noundef %24) #9
   %.not38 = icmp eq i32 %25, 0
   br i1 %.not38, label %91, label %26
 
 26:                                               ; preds = %23
-  %27 = call ptr @BN_bin2bn(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %2) #8
-  %28 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2283, ptr noundef nonnull @.str.323, ptr noundef %27) #8
+  %27 = call ptr @BN_bin2bn(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %2) #9
+  %28 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2283, ptr noundef nonnull @.str.323, ptr noundef %27) #9
   %.not39 = icmp eq i32 %28, 0
   br i1 %.not39, label %91, label %29
 
 29:                                               ; preds = %26
-  %30 = call i32 @BN_is_zero(ptr noundef %2) #8
+  %30 = call i32 @BN_is_zero(ptr noundef %2) #9
   %31 = icmp ne i32 %30, 0
   %32 = zext i1 %31 to i32
-  %33 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2283, ptr noundef nonnull @.str.324, i32 noundef %32) #8
+  %33 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2283, ptr noundef nonnull @.str.324, i32 noundef %32) #9
   %.not40 = icmp eq i32 %33, 0
   br i1 %.not40, label %91, label %34
 
 34:                                               ; preds = %29
-  %35 = call ptr @BN_bin2bn(ptr noundef nonnull %1, i32 noundef 2, ptr noundef %2) #8
-  %36 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2283, ptr noundef nonnull @.str.325, ptr noundef %35) #8
+  %35 = call ptr @BN_bin2bn(ptr noundef nonnull %1, i32 noundef 2, ptr noundef %2) #9
+  %36 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2283, ptr noundef nonnull @.str.325, ptr noundef %35) #9
   %.not41 = icmp eq i32 %36, 0
   br i1 %.not41, label %91, label %37
 
 37:                                               ; preds = %34
-  %38 = call i32 @BN_cmp(ptr noundef %2, ptr noundef %5) #8
-  %39 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2283, ptr noundef nonnull @.str.326, ptr noundef nonnull @.str.69, i32 noundef %38, i32 noundef 0) #8
+  %38 = call i32 @BN_cmp(ptr noundef %2, ptr noundef %5) #9
+  %39 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2283, ptr noundef nonnull @.str.326, ptr noundef nonnull @.str.69, i32 noundef %38, i32 noundef 0) #9
   %.not42 = icmp eq i32 %39, 0
   br i1 %.not42, label %91, label %40
 
 40:                                               ; preds = %37
-  %41 = call ptr @BN_signed_bin2bn(ptr noundef nonnull %1, i32 noundef -1, ptr noundef %2) #8
-  %42 = call i32 @test_ptr_null(ptr noundef nonnull @.str.17, i32 noundef 2284, ptr noundef nonnull @.str.327, ptr noundef %41) #8
+  %41 = call ptr @BN_signed_bin2bn(ptr noundef nonnull %1, i32 noundef -1, ptr noundef %2) #9
+  %42 = call i32 @test_ptr_null(ptr noundef nonnull @.str.17, i32 noundef 2284, ptr noundef nonnull @.str.327, ptr noundef %41) #9
   %.not43 = icmp eq i32 %42, 0
   br i1 %.not43, label %91, label %43
 
 43:                                               ; preds = %40
-  %44 = call ptr @BN_signed_bin2bn(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %2) #8
-  %45 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2284, ptr noundef nonnull @.str.328, ptr noundef %44) #8
+  %44 = call ptr @BN_signed_bin2bn(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %2) #9
+  %45 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2284, ptr noundef nonnull @.str.328, ptr noundef %44) #9
   %.not44 = icmp eq i32 %45, 0
   br i1 %.not44, label %91, label %46
 
 46:                                               ; preds = %43
-  %47 = call i32 @BN_is_zero(ptr noundef %2) #8
+  %47 = call i32 @BN_is_zero(ptr noundef %2) #9
   %48 = icmp ne i32 %47, 0
   %49 = zext i1 %48 to i32
-  %50 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2284, ptr noundef nonnull @.str.324, i32 noundef %49) #8
+  %50 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2284, ptr noundef nonnull @.str.324, i32 noundef %49) #9
   %.not45 = icmp eq i32 %50, 0
   br i1 %.not45, label %91, label %51
 
 51:                                               ; preds = %46
-  %52 = call ptr @BN_signed_bin2bn(ptr noundef nonnull %1, i32 noundef 2, ptr noundef %2) #8
-  %53 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2284, ptr noundef nonnull @.str.329, ptr noundef %52) #8
+  %52 = call ptr @BN_signed_bin2bn(ptr noundef nonnull %1, i32 noundef 2, ptr noundef %2) #9
+  %53 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2284, ptr noundef nonnull @.str.329, ptr noundef %52) #9
   %.not46 = icmp eq i32 %53, 0
   br i1 %.not46, label %91, label %54
 
 54:                                               ; preds = %51
-  %55 = call i32 @BN_cmp(ptr noundef %2, ptr noundef %5) #8
-  %56 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2284, ptr noundef nonnull @.str.326, ptr noundef nonnull @.str.69, i32 noundef %55, i32 noundef 0) #8
+  %55 = call i32 @BN_cmp(ptr noundef %2, ptr noundef %5) #9
+  %56 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2284, ptr noundef nonnull @.str.326, ptr noundef nonnull @.str.69, i32 noundef %55, i32 noundef 0) #9
   %.not47 = icmp eq i32 %56, 0
   br i1 %.not47, label %91, label %57
 
 57:                                               ; preds = %54
-  %58 = call ptr @BN_lebin2bn(ptr noundef nonnull %1, i32 noundef -1, ptr noundef %13) #8
-  %59 = call i32 @test_ptr_null(ptr noundef nonnull @.str.17, i32 noundef 2285, ptr noundef nonnull @.str.330, ptr noundef %58) #8
+  %58 = call ptr @BN_lebin2bn(ptr noundef nonnull %1, i32 noundef -1, ptr noundef %13) #9
+  %59 = call i32 @test_ptr_null(ptr noundef nonnull @.str.17, i32 noundef 2285, ptr noundef nonnull @.str.330, ptr noundef %58) #9
   %.not48 = icmp eq i32 %59, 0
   br i1 %.not48, label %91, label %60
 
 60:                                               ; preds = %57
-  %61 = call ptr @BN_lebin2bn(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %13) #8
-  %62 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2285, ptr noundef nonnull @.str.331, ptr noundef %61) #8
+  %61 = call ptr @BN_lebin2bn(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %13) #9
+  %62 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2285, ptr noundef nonnull @.str.331, ptr noundef %61) #9
   %.not49 = icmp eq i32 %62, 0
   br i1 %.not49, label %91, label %63
 
 63:                                               ; preds = %60
-  %64 = call i32 @BN_is_zero(ptr noundef %13) #8
+  %64 = call i32 @BN_is_zero(ptr noundef %13) #9
   %65 = icmp ne i32 %64, 0
   %66 = zext i1 %65 to i32
-  %67 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2285, ptr noundef nonnull @.str.332, i32 noundef %66) #8
+  %67 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2285, ptr noundef nonnull @.str.332, i32 noundef %66) #9
   %.not50 = icmp eq i32 %67, 0
   br i1 %.not50, label %91, label %68
 
 68:                                               ; preds = %63
-  %69 = call ptr @BN_lebin2bn(ptr noundef nonnull %1, i32 noundef 2, ptr noundef %13) #8
-  %70 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2285, ptr noundef nonnull @.str.333, ptr noundef %69) #8
+  %69 = call ptr @BN_lebin2bn(ptr noundef nonnull %1, i32 noundef 2, ptr noundef %13) #9
+  %70 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2285, ptr noundef nonnull @.str.333, ptr noundef %69) #9
   %.not51 = icmp eq i32 %70, 0
   br i1 %.not51, label %91, label %71
 
 71:                                               ; preds = %68
-  %72 = call i32 @BN_cmp(ptr noundef %13, ptr noundef %16) #8
-  %73 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2285, ptr noundef nonnull @.str.334, ptr noundef nonnull @.str.69, i32 noundef %72, i32 noundef 0) #8
+  %72 = call i32 @BN_cmp(ptr noundef %13, ptr noundef %16) #9
+  %73 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2285, ptr noundef nonnull @.str.334, ptr noundef nonnull @.str.69, i32 noundef %72, i32 noundef 0) #9
   %.not52 = icmp eq i32 %73, 0
   br i1 %.not52, label %91, label %74
 
 74:                                               ; preds = %71
-  %75 = call ptr @BN_signed_lebin2bn(ptr noundef nonnull %1, i32 noundef -1, ptr noundef %13) #8
-  %76 = call i32 @test_ptr_null(ptr noundef nonnull @.str.17, i32 noundef 2286, ptr noundef nonnull @.str.335, ptr noundef %75) #8
+  %75 = call ptr @BN_signed_lebin2bn(ptr noundef nonnull %1, i32 noundef -1, ptr noundef %13) #9
+  %76 = call i32 @test_ptr_null(ptr noundef nonnull @.str.17, i32 noundef 2286, ptr noundef nonnull @.str.335, ptr noundef %75) #9
   %.not53 = icmp eq i32 %76, 0
   br i1 %.not53, label %91, label %77
 
 77:                                               ; preds = %74
-  %78 = call ptr @BN_signed_lebin2bn(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %13) #8
-  %79 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2286, ptr noundef nonnull @.str.336, ptr noundef %78) #8
+  %78 = call ptr @BN_signed_lebin2bn(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %13) #9
+  %79 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2286, ptr noundef nonnull @.str.336, ptr noundef %78) #9
   %.not54 = icmp eq i32 %79, 0
   br i1 %.not54, label %91, label %80
 
 80:                                               ; preds = %77
-  %81 = call i32 @BN_is_zero(ptr noundef %13) #8
+  %81 = call i32 @BN_is_zero(ptr noundef %13) #9
   %82 = icmp ne i32 %81, 0
   %83 = zext i1 %82 to i32
-  %84 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2286, ptr noundef nonnull @.str.332, i32 noundef %83) #8
+  %84 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2286, ptr noundef nonnull @.str.332, i32 noundef %83) #9
   %.not55 = icmp eq i32 %84, 0
   br i1 %.not55, label %91, label %85
 
 85:                                               ; preds = %80
-  %86 = call ptr @BN_signed_lebin2bn(ptr noundef nonnull %1, i32 noundef 2, ptr noundef %13) #8
-  %87 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2286, ptr noundef nonnull @.str.337, ptr noundef %86) #8
+  %86 = call ptr @BN_signed_lebin2bn(ptr noundef nonnull %1, i32 noundef 2, ptr noundef %13) #9
+  %87 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2286, ptr noundef nonnull @.str.337, ptr noundef %86) #9
   %.not56 = icmp eq i32 %87, 0
   br i1 %.not56, label %91, label %88
 
 88:                                               ; preds = %85
-  %89 = call i32 @BN_cmp(ptr noundef %13, ptr noundef %16) #8
-  %90 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2286, ptr noundef nonnull @.str.334, ptr noundef nonnull @.str.69, i32 noundef %89, i32 noundef 0) #8
+  %89 = call i32 @BN_cmp(ptr noundef %13, ptr noundef %16) #9
+  %90 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2286, ptr noundef nonnull @.str.334, ptr noundef nonnull @.str.69, i32 noundef %89, i32 noundef 0) #9
   %.not57 = icmp ne i32 %90, 0
   %spec.select = zext i1 %.not57 to i32
   br label %91
@@ -3934,10 +3934,10 @@ define internal range(i32 0, 2) i32 @test_bin2bn_lengths() #1 {
   %.031 = phi ptr [ %13, %85 ], [ %13, %80 ], [ %13, %77 ], [ %13, %74 ], [ %13, %71 ], [ %13, %68 ], [ %13, %63 ], [ %13, %60 ], [ %13, %57 ], [ %13, %54 ], [ %13, %51 ], [ %13, %46 ], [ %13, %43 ], [ %13, %40 ], [ %13, %37 ], [ %13, %34 ], [ %13, %29 ], [ %13, %26 ], [ %13, %23 ], [ %13, %18 ], [ %13, %15 ], [ %13, %12 ], [ null, %7 ], [ null, %4 ], [ null, %0 ], [ %13, %88 ]
   %.030 = phi ptr [ %16, %85 ], [ %16, %80 ], [ %16, %77 ], [ %16, %74 ], [ %16, %71 ], [ %16, %68 ], [ %16, %63 ], [ %16, %60 ], [ %16, %57 ], [ %16, %54 ], [ %16, %51 ], [ %16, %46 ], [ %16, %43 ], [ %16, %40 ], [ %16, %37 ], [ %16, %34 ], [ %16, %29 ], [ %16, %26 ], [ %16, %23 ], [ %16, %18 ], [ %16, %15 ], [ null, %12 ], [ null, %7 ], [ null, %4 ], [ null, %0 ], [ %16, %88 ]
   %.0 = phi i32 [ 0, %85 ], [ 0, %80 ], [ 0, %77 ], [ 0, %74 ], [ 0, %71 ], [ 0, %68 ], [ 0, %63 ], [ 0, %60 ], [ 0, %57 ], [ 0, %54 ], [ 0, %51 ], [ 0, %46 ], [ 0, %43 ], [ 0, %40 ], [ 0, %37 ], [ 0, %34 ], [ 0, %29 ], [ 0, %26 ], [ 0, %23 ], [ 0, %18 ], [ 0, %15 ], [ 0, %12 ], [ 0, %7 ], [ 0, %4 ], [ 0, %0 ], [ %spec.select, %88 ]
-  call void @BN_free(ptr noundef %2) #8
-  call void @BN_free(ptr noundef %.032) #8
-  call void @BN_free(ptr noundef %.031) #8
-  call void @BN_free(ptr noundef %.030) #8
+  call void @BN_free(ptr noundef %2) #9
+  call void @BN_free(ptr noundef %.032) #9
+  call void @BN_free(ptr noundef %.031) #9
+  call void @BN_free(ptr noundef %.030) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
@@ -3950,34 +3950,34 @@ define internal range(i32 0, 2) i32 @test_mpi(i32 noundef %0) #1 {
   %4 = sext i32 %0 to i64
   %5 = getelementptr inbounds %struct.mpitest_st, ptr @kMPITests, i64 %4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %6 = tail call ptr @BN_new() #8
+  %6 = tail call ptr @BN_new() #9
   store ptr %6, ptr %3, align 8, !tbaa !21
-  %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2204, ptr noundef nonnull @.str.238, ptr noundef %6) #8
+  %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2204, ptr noundef nonnull @.str.238, ptr noundef %6) #9
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %36, label %8
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %5, align 8, !tbaa !26
-  %10 = call i32 @BN_asc2bn(ptr noundef nonnull %3, ptr noundef %9) #8
+  %10 = call i32 @BN_asc2bn(ptr noundef nonnull %3, ptr noundef %9) #9
   %11 = icmp ne i32 %10, 0
   %12 = zext i1 %11 to i32
-  %13 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2205, ptr noundef nonnull @.str.338, i32 noundef %12) #8
+  %13 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2205, ptr noundef nonnull @.str.338, i32 noundef %12) #9
   %.not11 = icmp eq i32 %13, 0
   br i1 %.not11, label %36, label %14
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %3, align 8, !tbaa !21
-  %16 = call i32 @BN_bn2mpi(ptr noundef %15, ptr noundef null) #8
+  %16 = call i32 @BN_bn2mpi(ptr noundef %15, ptr noundef null) #9
   %17 = sext i32 %16 to i64
-  %18 = call i32 @test_size_t_le(ptr noundef nonnull @.str.17, i32 noundef 2208, ptr noundef nonnull @.str.339, ptr noundef nonnull @.str.340, i64 noundef %17, i64 noundef 8) #8
+  %18 = call i32 @test_size_t_le(ptr noundef nonnull @.str.17, i32 noundef 2208, ptr noundef nonnull @.str.339, ptr noundef nonnull @.str.340, i64 noundef %17, i64 noundef 8) #9
   %.not12 = icmp eq i32 %18, 0
   br i1 %.not12, label %36, label %19
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %3, align 8, !tbaa !21
-  %21 = call i32 @BN_bn2mpi(ptr noundef %20, ptr noundef nonnull %2) #8
+  %21 = call i32 @BN_bn2mpi(ptr noundef %20, ptr noundef nonnull %2) #9
   %22 = sext i32 %21 to i64
-  %23 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 2211, ptr noundef nonnull @.str.341, ptr noundef nonnull @.str.339, i64 noundef %22, i64 noundef %17) #8
+  %23 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 2211, ptr noundef nonnull @.str.341, ptr noundef nonnull @.str.339, i64 noundef %22, i64 noundef %17) #9
   %.not13 = icmp eq i32 %23, 0
   br i1 %.not13, label %36, label %24
 
@@ -3986,28 +3986,28 @@ define internal range(i32 0, 2) i32 @test_mpi(i32 noundef %0) #1 {
   %26 = load ptr, ptr %25, align 8, !tbaa !30
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %28 = load i64, ptr %27, align 8, !tbaa !31
-  %29 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 2212, ptr noundef nonnull @.str.342, ptr noundef nonnull @.str.343, ptr noundef %26, i64 noundef %28, ptr noundef nonnull %2, i64 noundef %17) #8
+  %29 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 2212, ptr noundef nonnull @.str.342, ptr noundef nonnull @.str.343, ptr noundef %26, i64 noundef %28, ptr noundef nonnull %2, i64 noundef %17) #9
   %.not14 = icmp eq i32 %29, 0
   br i1 %.not14, label %36, label %30
 
 30:                                               ; preds = %24
-  %31 = call ptr @BN_mpi2bn(ptr noundef nonnull %2, i32 noundef %16, ptr noundef null) #8
-  %32 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2215, ptr noundef nonnull @.str.344, ptr noundef %31) #8
+  %31 = call ptr @BN_mpi2bn(ptr noundef nonnull %2, i32 noundef %16, ptr noundef null) #9
+  %32 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2215, ptr noundef nonnull @.str.344, ptr noundef %31) #9
   %.not15 = icmp eq i32 %32, 0
   br i1 %.not15, label %36, label %33
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr %3, align 8, !tbaa !21
-  %35 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 2218, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.345, ptr noundef %34, ptr noundef %31) #8
+  %35 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 2218, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.345, ptr noundef %34, ptr noundef %31) #9
   %.not16 = icmp ne i32 %35, 0
-  call void @BN_free(ptr noundef %31) #8
+  call void @BN_free(ptr noundef %31) #9
   %. = zext i1 %.not16 to i32
   br label %36
 
 36:                                               ; preds = %33, %30, %19, %24, %14, %1, %8
   %.0 = phi i32 [ 0, %30 ], [ 0, %24 ], [ 0, %19 ], [ 0, %14 ], [ 0, %8 ], [ 0, %1 ], [ %., %33 ]
   %37 = load ptr, ptr %3, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %37) #8
+  call void @BN_free(ptr noundef %37) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -4023,18 +4023,18 @@ define internal range(i32 0, 2) i32 @test_bn2signed(i32 noundef %0) #1 {
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds %struct.mpitest_st, ptr @kSignedTests_BE, i64 %5
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %7 = tail call ptr @BN_new() #8
+  %7 = tail call ptr @BN_new() #9
   store ptr %7, ptr %4, align 8, !tbaa !21
-  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1935, ptr noundef nonnull @.str.238, ptr noundef %7) #8
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1935, ptr noundef nonnull @.str.238, ptr noundef %7) #9
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %72, label %9
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr %6, align 8, !tbaa !26
-  %11 = call i32 @BN_asc2bn(ptr noundef nonnull %4, ptr noundef %10) #8
+  %11 = call i32 @BN_asc2bn(ptr noundef nonnull %4, ptr noundef %10) #9
   %12 = icmp ne i32 %11, 0
   %13 = zext i1 %12 to i32
-  %14 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1936, ptr noundef nonnull @.str.338, i32 noundef %13) #8
+  %14 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1936, ptr noundef nonnull @.str.338, i32 noundef %13) #9
   %.not21 = icmp eq i32 %14, 0
   br i1 %.not21, label %72, label %15
 
@@ -4042,8 +4042,8 @@ define internal range(i32 0, 2) i32 @test_bn2signed(i32 noundef %0) #1 {
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !31
   %18 = load ptr, ptr %4, align 8, !tbaa !21
-  %19 = call i32 @BN_signed_bn2bin(ptr noundef %18, ptr noundef nonnull %2, i32 noundef 10) #8
-  %20 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1946, ptr noundef nonnull @.str.354, ptr noundef nonnull @.str.340, i32 noundef %19, i32 noundef 10) #8
+  %19 = call i32 @BN_signed_bn2bin(ptr noundef %18, ptr noundef nonnull %2, i32 noundef 10) #9
+  %20 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1946, ptr noundef nonnull @.str.354, ptr noundef nonnull @.str.340, i32 noundef %19, i32 noundef 10) #9
   %.not22 = icmp eq i32 %20, 0
   br i1 %.not22, label %72, label %21
 
@@ -4064,7 +4064,7 @@ define internal range(i32 0, 2) i32 @test_bn2signed(i32 noundef %0) #1 {
   br i1 %.not.i, label %copy_reversed.exit, label %23, !llvm.loop !33
 
 copy_reversed.exit:                               ; preds = %23
-  %28 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1947, ptr noundef nonnull @.str.355, i32 noundef 1) #8
+  %28 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1947, ptr noundef nonnull @.str.355, i32 noundef 1) #9
   %.not23 = icmp eq i32 %28, 0
   br i1 %.not23, label %72, label %29
 
@@ -4075,40 +4075,40 @@ copy_reversed.exit:                               ; preds = %23
   %sext = sub i64 42949672960, %32
   %33 = ashr exact i64 %sext, 32
   %34 = getelementptr inbounds i8, ptr %2, i64 %33
-  %35 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 1948, ptr noundef nonnull @.str.342, ptr noundef nonnull @.str.356, ptr noundef %31, i64 noundef %17, ptr noundef nonnull %34, i64 noundef %17) #8
+  %35 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 1948, ptr noundef nonnull @.str.342, ptr noundef nonnull @.str.356, ptr noundef %31, i64 noundef %17, ptr noundef nonnull %34, i64 noundef %17) #9
   %.not24 = icmp eq i32 %35, 0
   br i1 %.not24, label %72, label %36
 
 36:                                               ; preds = %29
-  %37 = call ptr @BN_signed_bin2bn(ptr noundef nonnull %2, i32 noundef 10, ptr noundef null) #8
-  %38 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1951, ptr noundef nonnull @.str.357, ptr noundef %37) #8
+  %37 = call ptr @BN_signed_bin2bn(ptr noundef nonnull %2, i32 noundef 10, ptr noundef null) #9
+  %38 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1951, ptr noundef nonnull @.str.357, ptr noundef %37) #9
   %.not25 = icmp eq i32 %38, 0
   br i1 %.not25, label %72, label %39
 
 39:                                               ; preds = %36
   %40 = load ptr, ptr %4, align 8, !tbaa !21
-  %41 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 1952, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.345, ptr noundef %40, ptr noundef %37) #8
+  %41 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 1952, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.345, ptr noundef %40, ptr noundef %37) #9
   %.not26 = icmp eq i32 %41, 0
   br i1 %.not26, label %72, label %42
 
 42:                                               ; preds = %39
-  call void @BN_free(ptr noundef %37) #8
-  %43 = call ptr @BN_signed_lebin2bn(ptr noundef nonnull %3, i32 noundef 10, ptr noundef null) #8
-  %44 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1959, ptr noundef nonnull @.str.358, ptr noundef %43) #8
+  call void @BN_free(ptr noundef %37) #9
+  %43 = call ptr @BN_signed_lebin2bn(ptr noundef nonnull %3, i32 noundef 10, ptr noundef null) #9
+  %44 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1959, ptr noundef nonnull @.str.358, ptr noundef %43) #9
   %.not27 = icmp eq i32 %44, 0
   br i1 %.not27, label %72, label %45
 
 45:                                               ; preds = %42
   %46 = load ptr, ptr %4, align 8, !tbaa !21
-  %47 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 1960, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.345, ptr noundef %46, ptr noundef %43) #8
+  %47 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 1960, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.345, ptr noundef %46, ptr noundef %43) #9
   %.not28 = icmp eq i32 %47, 0
   br i1 %.not28, label %72, label %48
 
 48:                                               ; preds = %45
-  call void @BN_free(ptr noundef %43) #8
+  call void @BN_free(ptr noundef %43) #9
   %49 = load ptr, ptr %4, align 8, !tbaa !21
-  %50 = call i32 @BN_signed_bn2lebin(ptr noundef %49, ptr noundef nonnull %2, i32 noundef 10) #8
-  %51 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1973, ptr noundef nonnull @.str.359, ptr noundef nonnull @.str.340, i32 noundef %50, i32 noundef 10) #8
+  %50 = call i32 @BN_signed_bn2lebin(ptr noundef %49, ptr noundef nonnull %2, i32 noundef 10) #9
+  %51 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1973, ptr noundef nonnull @.str.359, ptr noundef nonnull @.str.340, i32 noundef %50, i32 noundef 10) #9
   %.not29 = icmp eq i32 %51, 0
   br i1 %.not29, label %72, label %.preheader
 
@@ -4125,38 +4125,38 @@ copy_reversed.exit:                               ; preds = %23
   br i1 %.not.i40, label %copy_reversed.exit41, label %.preheader, !llvm.loop !33
 
 copy_reversed.exit41:                             ; preds = %.preheader
-  %56 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1974, ptr noundef nonnull @.str.355, i32 noundef 1) #8
+  %56 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1974, ptr noundef nonnull @.str.355, i32 noundef 1) #9
   %.not30 = icmp eq i32 %56, 0
   br i1 %.not30, label %72, label %57
 
 57:                                               ; preds = %copy_reversed.exit41
   %58 = getelementptr inbounds i8, ptr %3, i64 %33
-  %59 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 1975, ptr noundef nonnull @.str.342, ptr noundef nonnull @.str.360, ptr noundef %31, i64 noundef %17, ptr noundef nonnull %58, i64 noundef %17) #8
+  %59 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 1975, ptr noundef nonnull @.str.342, ptr noundef nonnull @.str.360, ptr noundef %31, i64 noundef %17, ptr noundef nonnull %58, i64 noundef %17) #9
   %.not32 = icmp eq i32 %59, 0
   br i1 %.not32, label %72, label %60
 
 60:                                               ; preds = %57
-  %61 = call ptr @BN_signed_lebin2bn(ptr noundef nonnull %2, i32 noundef 10, ptr noundef null) #8
-  %62 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1978, ptr noundef nonnull @.str.361, ptr noundef %61) #8
+  %61 = call ptr @BN_signed_lebin2bn(ptr noundef nonnull %2, i32 noundef 10, ptr noundef null) #9
+  %62 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1978, ptr noundef nonnull @.str.361, ptr noundef %61) #9
   %.not33 = icmp eq i32 %62, 0
   br i1 %.not33, label %72, label %63
 
 63:                                               ; preds = %60
   %64 = load ptr, ptr %4, align 8, !tbaa !21
-  %65 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 1979, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.345, ptr noundef %64, ptr noundef %61) #8
+  %65 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 1979, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.345, ptr noundef %64, ptr noundef %61) #9
   %.not34 = icmp eq i32 %65, 0
   br i1 %.not34, label %72, label %66
 
 66:                                               ; preds = %63
-  call void @BN_free(ptr noundef %61) #8
-  %67 = call ptr @BN_signed_bin2bn(ptr noundef nonnull %3, i32 noundef 10, ptr noundef null) #8
-  %68 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1986, ptr noundef nonnull @.str.362, ptr noundef %67) #8
+  call void @BN_free(ptr noundef %61) #9
+  %67 = call ptr @BN_signed_bin2bn(ptr noundef nonnull %3, i32 noundef 10, ptr noundef null) #9
+  %68 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1986, ptr noundef nonnull @.str.362, ptr noundef %67) #9
   %.not35 = icmp eq i32 %68, 0
   br i1 %.not35, label %72, label %69
 
 69:                                               ; preds = %66
   %70 = load ptr, ptr %4, align 8, !tbaa !21
-  %71 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 1987, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.345, ptr noundef %70, ptr noundef %67) #8
+  %71 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 1987, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.345, ptr noundef %70, ptr noundef %67) #9
   %.not36 = icmp ne i32 %71, 0
   %spec.select = zext i1 %.not36 to i32
   br label %72
@@ -4164,9 +4164,9 @@ copy_reversed.exit41:                             ; preds = %.preheader
 72:                                               ; preds = %69, %66, %60, %63, %48, %copy_reversed.exit41, %57, %42, %45, %36, %39, %15, %copy_reversed.exit, %29, %1, %9
   %.020 = phi ptr [ %67, %66 ], [ %61, %63 ], [ %61, %60 ], [ null, %57 ], [ null, %copy_reversed.exit41 ], [ null, %48 ], [ %43, %45 ], [ %43, %42 ], [ %37, %39 ], [ %37, %36 ], [ null, %29 ], [ null, %copy_reversed.exit ], [ null, %15 ], [ null, %9 ], [ null, %1 ], [ %67, %69 ]
   %.0 = phi i32 [ 0, %66 ], [ 0, %63 ], [ 0, %60 ], [ 0, %57 ], [ 0, %copy_reversed.exit41 ], [ 0, %48 ], [ 0, %45 ], [ 0, %42 ], [ 0, %39 ], [ 0, %36 ], [ 0, %29 ], [ 0, %copy_reversed.exit ], [ 0, %15 ], [ 0, %9 ], [ 0, %1 ], [ %spec.select, %69 ]
-  call void @BN_free(ptr noundef %.020) #8
+  call void @BN_free(ptr noundef %.020) #9
   %73 = load ptr, ptr %4, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %73) #8
+  call void @BN_free(ptr noundef %73) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -4175,68 +4175,68 @@ copy_reversed.exit41:                             ; preds = %.preheader
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_negzero() #1 {
-  %1 = tail call ptr @BN_new() #8
-  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2410, ptr noundef nonnull @.str.63, ptr noundef %1) #8
+  %1 = tail call ptr @BN_new() #9
+  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2410, ptr noundef nonnull @.str.63, ptr noundef %1) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @BN_new() #8
-  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2411, ptr noundef nonnull @.str.64, ptr noundef %4) #8
+  %4 = tail call ptr @BN_new() #9
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2411, ptr noundef nonnull @.str.64, ptr noundef %4) #9
   %.not47 = icmp eq i32 %5, 0
   br i1 %.not47, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @BN_new() #8
-  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2412, ptr noundef nonnull @.str.65, ptr noundef %7) #8
+  %7 = tail call ptr @BN_new() #9
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2412, ptr noundef nonnull @.str.65, ptr noundef %7) #9
   %.not48 = icmp eq i32 %8, 0
   br i1 %.not48, label %.loopexit, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @BN_new() #8
-  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2413, ptr noundef nonnull @.str.76, ptr noundef %10) #8
+  %10 = tail call ptr @BN_new() #9
+  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2413, ptr noundef nonnull @.str.76, ptr noundef %10) #9
   %.not49 = icmp eq i32 %11, 0
   br i1 %.not49, label %.loopexit, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call i32 @BN_set_word(ptr noundef %1, i64 noundef 1) #8
+  %13 = tail call i32 @BN_set_word(ptr noundef %1, i64 noundef 1) #9
   %14 = icmp ne i32 %13, 0
   %15 = zext i1 %14 to i32
-  %16 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2417, ptr noundef nonnull @.str.443, i32 noundef %15) #8
+  %16 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2417, ptr noundef nonnull @.str.443, i32 noundef %15) #9
   %.not50 = icmp eq i32 %16, 0
   br i1 %.not50, label %.loopexit, label %17
 
 17:                                               ; preds = %12
-  tail call void @BN_set_negative(ptr noundef %1, i32 noundef 1) #8
-  tail call void @BN_zero_ex(ptr noundef %4) #8
+  tail call void @BN_set_negative(ptr noundef %1, i32 noundef 1) #9
+  tail call void @BN_zero_ex(ptr noundef %4) #9
   %18 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %19 = tail call i32 @BN_mul(ptr noundef %7, ptr noundef %1, ptr noundef %4, ptr noundef %18) #8
+  %19 = tail call i32 @BN_mul(ptr noundef %7, ptr noundef %1, ptr noundef %4, ptr noundef %18) #9
   %20 = icmp ne i32 %19, 0
   %21 = zext i1 %20 to i32
-  %22 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2421, ptr noundef nonnull @.str.444, i32 noundef %21) #8
+  %22 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2421, ptr noundef nonnull @.str.444, i32 noundef %21) #9
   %.not51 = icmp eq i32 %22, 0
   br i1 %.not51, label %.loopexit, label %23
 
 23:                                               ; preds = %17
-  %24 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2423, ptr noundef nonnull @.str.75, ptr noundef %7) #8
+  %24 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2423, ptr noundef nonnull @.str.75, ptr noundef %7) #9
   %.not52 = icmp eq i32 %24, 0
   br i1 %.not52, label %.loopexit, label %25
 
 25:                                               ; preds = %23
-  %26 = tail call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2424, ptr noundef nonnull @.str.75, ptr noundef %7) #8
+  %26 = tail call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2424, ptr noundef nonnull @.str.75, ptr noundef %7) #9
   %.not53 = icmp eq i32 %26, 0
   br i1 %.not53, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %25, %69
   %.not57 = phi i1 [ false, %69 ], [ true, %25 ]
-  %27 = tail call ptr @BN_new() #8
-  %28 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2428, ptr noundef nonnull @.str.445, ptr noundef %27) #8
+  %27 = tail call ptr @BN_new() #9
+  %28 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2428, ptr noundef nonnull @.str.445, ptr noundef %27) #9
   %.not55 = icmp eq i32 %28, 0
   br i1 %.not55, label %.loopexit, label %29
 
 29:                                               ; preds = %.preheader
-  %30 = tail call ptr @BN_new() #8
-  %31 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2429, ptr noundef nonnull @.str.446, ptr noundef %30) #8
+  %30 = tail call ptr @BN_new() #9
+  %31 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2429, ptr noundef nonnull @.str.446, ptr noundef %30) #9
   %.not56 = icmp eq i32 %31, 0
   br i1 %.not56, label %.loopexit, label %32
 
@@ -4244,82 +4244,82 @@ define internal range(i32 0, 2) i32 @test_negzero() #1 {
   br i1 %.not57, label %34, label %33
 
 33:                                               ; preds = %32
-  tail call void @BN_set_flags(ptr noundef %27, i32 noundef 4) #8
-  tail call void @BN_set_flags(ptr noundef %30, i32 noundef 4) #8
+  tail call void @BN_set_flags(ptr noundef %27, i32 noundef 4) #9
+  tail call void @BN_set_flags(ptr noundef %30, i32 noundef 4) #9
   br label %34
 
 34:                                               ; preds = %33, %32
-  %35 = tail call i32 @BN_set_word(ptr noundef %27, i64 noundef 1) #8
+  %35 = tail call i32 @BN_set_word(ptr noundef %27, i64 noundef 1) #9
   %36 = icmp ne i32 %35, 0
   %37 = zext i1 %36 to i32
-  %38 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2436, ptr noundef nonnull @.str.447, i32 noundef %37) #8
+  %38 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2436, ptr noundef nonnull @.str.447, i32 noundef %37) #9
   %.not58 = icmp eq i32 %38, 0
   br i1 %.not58, label %.loopexit, label %39
 
 39:                                               ; preds = %34
-  %40 = tail call i32 @BN_set_word(ptr noundef %30, i64 noundef 2) #8
+  %40 = tail call i32 @BN_set_word(ptr noundef %30, i64 noundef 2) #9
   %41 = icmp ne i32 %40, 0
   %42 = zext i1 %41 to i32
-  %43 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2437, ptr noundef nonnull @.str.448, i32 noundef %42) #8
+  %43 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2437, ptr noundef nonnull @.str.448, i32 noundef %42) #9
   %.not59 = icmp eq i32 %43, 0
   br i1 %.not59, label %.loopexit, label %44
 
 44:                                               ; preds = %39
-  tail call void @BN_set_negative(ptr noundef %27, i32 noundef 1) #8
+  tail call void @BN_set_negative(ptr noundef %27, i32 noundef 1) #9
   %45 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %46 = tail call i32 @BN_div(ptr noundef %1, ptr noundef %4, ptr noundef %27, ptr noundef %30, ptr noundef %45) #8
+  %46 = tail call i32 @BN_div(ptr noundef %1, ptr noundef %4, ptr noundef %27, ptr noundef %30, ptr noundef %45) #9
   %47 = icmp ne i32 %46, 0
   %48 = zext i1 %47 to i32
-  %49 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2440, ptr noundef nonnull @.str.449, i32 noundef %48) #8
+  %49 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2440, ptr noundef nonnull @.str.449, i32 noundef %48) #9
   %.not60 = icmp eq i32 %49, 0
   br i1 %.not60, label %.loopexit, label %50
 
 50:                                               ; preds = %44
-  %51 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2441, ptr noundef nonnull @.str.94, ptr noundef %1) #8
+  %51 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2441, ptr noundef nonnull @.str.94, ptr noundef %1) #9
   %.not61 = icmp eq i32 %51, 0
   br i1 %.not61, label %.loopexit, label %52
 
 52:                                               ; preds = %50
-  %53 = tail call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2442, ptr noundef nonnull @.str.94, ptr noundef %1) #8
+  %53 = tail call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2442, ptr noundef nonnull @.str.94, ptr noundef %1) #9
   %.not62 = icmp eq i32 %53, 0
   br i1 %.not62, label %.loopexit, label %54
 
 54:                                               ; preds = %52
-  %55 = tail call i32 @BN_set_word(ptr noundef %30, i64 noundef 1) #8
+  %55 = tail call i32 @BN_set_word(ptr noundef %30, i64 noundef 1) #9
   %56 = icmp ne i32 %55, 0
   %57 = zext i1 %56 to i32
-  %58 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2446, ptr noundef nonnull @.str.450, i32 noundef %57) #8
+  %58 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2446, ptr noundef nonnull @.str.450, i32 noundef %57) #9
   %.not63 = icmp eq i32 %58, 0
   br i1 %.not63, label %.loopexit, label %59
 
 59:                                               ; preds = %54
   %60 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %61 = tail call i32 @BN_div(ptr noundef %1, ptr noundef %4, ptr noundef %27, ptr noundef %30, ptr noundef %60) #8
+  %61 = tail call i32 @BN_div(ptr noundef %1, ptr noundef %4, ptr noundef %27, ptr noundef %30, ptr noundef %60) #9
   %62 = icmp ne i32 %61, 0
   %63 = zext i1 %62 to i32
-  %64 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2447, ptr noundef nonnull @.str.449, i32 noundef %63) #8
+  %64 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2447, ptr noundef nonnull @.str.449, i32 noundef %63) #9
   %.not64 = icmp eq i32 %64, 0
   br i1 %.not64, label %.loopexit, label %65
 
 65:                                               ; preds = %59
-  %66 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2448, ptr noundef nonnull @.str.95, ptr noundef %4) #8
+  %66 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2448, ptr noundef nonnull @.str.95, ptr noundef %4) #9
   %.not65 = icmp eq i32 %66, 0
   br i1 %.not65, label %.loopexit, label %67
 
 67:                                               ; preds = %65
-  %68 = tail call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2449, ptr noundef nonnull @.str.95, ptr noundef %4) #8
+  %68 = tail call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2449, ptr noundef nonnull @.str.95, ptr noundef %4) #9
   %.not66 = icmp eq i32 %68, 0
   br i1 %.not66, label %.loopexit, label %69
 
 69:                                               ; preds = %67
-  tail call void @BN_free(ptr noundef %27) #8
-  tail call void @BN_free(ptr noundef %30) #8
+  tail call void @BN_free(ptr noundef %27) #9
+  tail call void @BN_free(ptr noundef %30) #9
   br i1 %.not57, label %.preheader, label %70, !llvm.loop !34
 
 70:                                               ; preds = %69
-  tail call void @BN_zero_ex(ptr noundef %1) #8
-  tail call void @BN_set_negative(ptr noundef %1, i32 noundef 1) #8
-  %71 = tail call i32 @BN_is_negative(ptr noundef %1) #8
+  tail call void @BN_zero_ex(ptr noundef %1) #9
+  tail call void @BN_set_negative(ptr noundef %1, i32 noundef 1) #9
+  %71 = tail call i32 @BN_is_negative(ptr noundef %1) #9
   %.not54 = icmp eq i32 %71, 0
   %spec.select = zext i1 %.not54 to i32
   br label %.loopexit
@@ -4331,153 +4331,153 @@ define internal range(i32 0, 2) i32 @test_negzero() #1 {
   %.042 = phi ptr [ null, %25 ], [ null, %23 ], [ null, %17 ], [ null, %12 ], [ null, %9 ], [ null, %6 ], [ null, %3 ], [ null, %0 ], [ null, %70 ], [ %27, %29 ], [ %27, %.preheader ], [ %27, %39 ], [ %27, %34 ], [ %27, %52 ], [ %27, %50 ], [ %27, %44 ], [ %27, %67 ], [ %27, %65 ], [ %27, %59 ], [ %27, %54 ]
   %.041 = phi ptr [ null, %25 ], [ null, %23 ], [ null, %17 ], [ null, %12 ], [ null, %9 ], [ null, %6 ], [ null, %3 ], [ null, %0 ], [ null, %70 ], [ %30, %54 ], [ %30, %59 ], [ %30, %65 ], [ %30, %67 ], [ %30, %44 ], [ %30, %50 ], [ %30, %52 ], [ %30, %34 ], [ %30, %39 ], [ null, %.preheader ], [ %30, %29 ]
   %.0 = phi i32 [ 0, %25 ], [ 0, %23 ], [ 0, %17 ], [ 0, %12 ], [ 0, %9 ], [ 0, %6 ], [ 0, %3 ], [ 0, %0 ], [ %spec.select, %70 ], [ 0, %29 ], [ 0, %.preheader ], [ 0, %39 ], [ 0, %34 ], [ 0, %52 ], [ 0, %50 ], [ 0, %44 ], [ 0, %67 ], [ 0, %65 ], [ 0, %59 ], [ 0, %54 ]
-  tail call void @BN_free(ptr noundef %1) #8
-  tail call void @BN_free(ptr noundef %.046) #8
-  tail call void @BN_free(ptr noundef %.045) #8
-  tail call void @BN_free(ptr noundef %.044) #8
-  tail call void @BN_free(ptr noundef %.042) #8
-  tail call void @BN_free(ptr noundef %.041) #8
+  tail call void @BN_free(ptr noundef %1) #9
+  tail call void @BN_free(ptr noundef %.046) #9
+  tail call void @BN_free(ptr noundef %.045) #9
+  tail call void @BN_free(ptr noundef %.044) #9
+  tail call void @BN_free(ptr noundef %.042) #9
+  tail call void @BN_free(ptr noundef %.041) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_badmod() #1 {
-  %1 = tail call ptr @BN_new() #8
-  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2479, ptr noundef nonnull @.str.63, ptr noundef %1) #8
+  %1 = tail call ptr @BN_new() #9
+  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2479, ptr noundef nonnull @.str.63, ptr noundef %1) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %85, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @BN_new() #8
-  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2480, ptr noundef nonnull @.str.64, ptr noundef %4) #8
+  %4 = tail call ptr @BN_new() #9
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2480, ptr noundef nonnull @.str.64, ptr noundef %4) #9
   %.not28 = icmp eq i32 %5, 0
   br i1 %.not28, label %85, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @BN_new() #8
-  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2481, ptr noundef nonnull @.str.451, ptr noundef %7) #8
+  %7 = tail call ptr @BN_new() #9
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2481, ptr noundef nonnull @.str.451, ptr noundef %7) #9
   %.not29 = icmp eq i32 %8, 0
   br i1 %.not29, label %85, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @BN_MONT_CTX_new() #8
-  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2482, ptr noundef nonnull @.str.134, ptr noundef %10) #8
+  %10 = tail call ptr @BN_MONT_CTX_new() #9
+  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2482, ptr noundef nonnull @.str.134, ptr noundef %10) #9
   %.not30 = icmp eq i32 %11, 0
   br i1 %.not30, label %85, label %12
 
 12:                                               ; preds = %9
-  tail call void @BN_zero_ex(ptr noundef %7) #8
-  %13 = tail call ptr @BN_value_one() #8
+  tail call void @BN_zero_ex(ptr noundef %7) #9
+  %13 = tail call ptr @BN_value_one() #9
   %14 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %15 = tail call i32 @BN_div(ptr noundef %1, ptr noundef %4, ptr noundef %13, ptr noundef %7, ptr noundef %14) #8
+  %15 = tail call i32 @BN_div(ptr noundef %1, ptr noundef %4, ptr noundef %13, ptr noundef %7, ptr noundef %14) #9
   %16 = icmp ne i32 %15, 0
   %17 = zext i1 %16 to i32
-  %18 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2486, ptr noundef nonnull @.str.452, i32 noundef %17) #8
+  %18 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2486, ptr noundef nonnull @.str.452, i32 noundef %17) #9
   %.not31 = icmp eq i32 %18, 0
   br i1 %.not31, label %85, label %19
 
 19:                                               ; preds = %12
-  tail call void @ERR_clear_error() #8
-  %20 = tail call ptr @BN_value_one() #8
-  %21 = tail call ptr @BN_value_one() #8
+  tail call void @ERR_clear_error() #9
+  %20 = tail call ptr @BN_value_one() #9
+  %21 = tail call ptr @BN_value_one() #9
   %22 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %23 = tail call i32 @BN_mod_mul(ptr noundef %1, ptr noundef %20, ptr noundef %21, ptr noundef %7, ptr noundef %22) #8
+  %23 = tail call i32 @BN_mod_mul(ptr noundef %1, ptr noundef %20, ptr noundef %21, ptr noundef %7, ptr noundef %22) #9
   %24 = icmp ne i32 %23, 0
   %25 = zext i1 %24 to i32
-  %26 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2490, ptr noundef nonnull @.str.453, i32 noundef %25) #8
+  %26 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2490, ptr noundef nonnull @.str.453, i32 noundef %25) #9
   %.not32 = icmp eq i32 %26, 0
   br i1 %.not32, label %85, label %27
 
 27:                                               ; preds = %19
-  tail call void @ERR_clear_error() #8
-  %28 = tail call ptr @BN_value_one() #8
-  %29 = tail call ptr @BN_value_one() #8
+  tail call void @ERR_clear_error() #9
+  %28 = tail call ptr @BN_value_one() #9
+  %29 = tail call ptr @BN_value_one() #9
   %30 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %31 = tail call i32 @BN_mod_exp(ptr noundef %1, ptr noundef %28, ptr noundef %29, ptr noundef %7, ptr noundef %30) #8
+  %31 = tail call i32 @BN_mod_exp(ptr noundef %1, ptr noundef %28, ptr noundef %29, ptr noundef %7, ptr noundef %30) #9
   %32 = icmp ne i32 %31, 0
   %33 = zext i1 %32 to i32
-  %34 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2494, ptr noundef nonnull @.str.454, i32 noundef %33) #8
+  %34 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2494, ptr noundef nonnull @.str.454, i32 noundef %33) #9
   %.not33 = icmp eq i32 %34, 0
   br i1 %.not33, label %85, label %35
 
 35:                                               ; preds = %27
-  tail call void @ERR_clear_error() #8
-  %36 = tail call ptr @BN_value_one() #8
-  %37 = tail call ptr @BN_value_one() #8
+  tail call void @ERR_clear_error() #9
+  %36 = tail call ptr @BN_value_one() #9
+  %37 = tail call ptr @BN_value_one() #9
   %38 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %39 = tail call i32 @BN_mod_exp_mont(ptr noundef %1, ptr noundef %36, ptr noundef %37, ptr noundef %7, ptr noundef %38, ptr noundef null) #8
+  %39 = tail call i32 @BN_mod_exp_mont(ptr noundef %1, ptr noundef %36, ptr noundef %37, ptr noundef %7, ptr noundef %38, ptr noundef null) #9
   %40 = icmp ne i32 %39, 0
   %41 = zext i1 %40 to i32
-  %42 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2499, ptr noundef nonnull @.str.455, i32 noundef %41) #8
+  %42 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2499, ptr noundef nonnull @.str.455, i32 noundef %41) #9
   %.not34 = icmp eq i32 %42, 0
   br i1 %.not34, label %85, label %43
 
 43:                                               ; preds = %35
-  tail call void @ERR_clear_error() #8
-  %44 = tail call ptr @BN_value_one() #8
-  %45 = tail call ptr @BN_value_one() #8
+  tail call void @ERR_clear_error() #9
+  %44 = tail call ptr @BN_value_one() #9
+  %45 = tail call ptr @BN_value_one() #9
   %46 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %47 = tail call i32 @BN_mod_exp_mont_consttime(ptr noundef %1, ptr noundef %44, ptr noundef %45, ptr noundef %7, ptr noundef %46, ptr noundef null) #8
+  %47 = tail call i32 @BN_mod_exp_mont_consttime(ptr noundef %1, ptr noundef %44, ptr noundef %45, ptr noundef %7, ptr noundef %46, ptr noundef null) #9
   %48 = icmp ne i32 %47, 0
   %49 = zext i1 %48 to i32
-  %50 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2504, ptr noundef nonnull @.str.456, i32 noundef %49) #8
+  %50 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2504, ptr noundef nonnull @.str.456, i32 noundef %49) #9
   %.not35 = icmp eq i32 %50, 0
   br i1 %.not35, label %85, label %51
 
 51:                                               ; preds = %43
-  tail call void @ERR_clear_error() #8
+  tail call void @ERR_clear_error() #9
   %52 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %53 = tail call i32 @BN_MONT_CTX_set(ptr noundef %10, ptr noundef %7, ptr noundef %52) #8
+  %53 = tail call i32 @BN_MONT_CTX_set(ptr noundef %10, ptr noundef %7, ptr noundef %52) #9
   %54 = icmp ne i32 %53, 0
   %55 = zext i1 %54 to i32
-  %56 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2508, ptr noundef nonnull @.str.457, i32 noundef %55) #8
+  %56 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2508, ptr noundef nonnull @.str.457, i32 noundef %55) #9
   %.not36 = icmp eq i32 %56, 0
   br i1 %.not36, label %85, label %57
 
 57:                                               ; preds = %51
-  tail call void @ERR_clear_error() #8
-  %58 = tail call i32 @BN_set_word(ptr noundef %4, i64 noundef 16) #8
+  tail call void @ERR_clear_error() #9
+  %58 = tail call i32 @BN_set_word(ptr noundef %4, i64 noundef 16) #9
   %59 = icmp ne i32 %58, 0
   %60 = zext i1 %59 to i32
-  %61 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2513, ptr noundef nonnull @.str.458, i32 noundef %60) #8
+  %61 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2513, ptr noundef nonnull @.str.458, i32 noundef %60) #9
   %.not37 = icmp eq i32 %61, 0
   br i1 %.not37, label %85, label %62
 
 62:                                               ; preds = %57
   %63 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %64 = tail call i32 @BN_MONT_CTX_set(ptr noundef %10, ptr noundef %4, ptr noundef %63) #8
+  %64 = tail call i32 @BN_MONT_CTX_set(ptr noundef %10, ptr noundef %4, ptr noundef %63) #9
   %65 = icmp ne i32 %64, 0
   %66 = zext i1 %65 to i32
-  %67 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2516, ptr noundef nonnull @.str.459, i32 noundef %66) #8
+  %67 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2516, ptr noundef nonnull @.str.459, i32 noundef %66) #9
   %.not38 = icmp eq i32 %67, 0
   br i1 %.not38, label %85, label %68
 
 68:                                               ; preds = %62
-  tail call void @ERR_clear_error() #8
-  %69 = tail call ptr @BN_value_one() #8
-  %70 = tail call ptr @BN_value_one() #8
+  tail call void @ERR_clear_error() #9
+  %69 = tail call ptr @BN_value_one() #9
+  %70 = tail call ptr @BN_value_one() #9
   %71 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %72 = tail call i32 @BN_mod_exp_mont(ptr noundef %1, ptr noundef %69, ptr noundef %70, ptr noundef %4, ptr noundef %71, ptr noundef null) #8
+  %72 = tail call i32 @BN_mod_exp_mont(ptr noundef %1, ptr noundef %69, ptr noundef %70, ptr noundef %4, ptr noundef %71, ptr noundef null) #9
   %73 = icmp ne i32 %72, 0
   %74 = zext i1 %73 to i32
-  %75 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2521, ptr noundef nonnull @.str.460, i32 noundef %74) #8
+  %75 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2521, ptr noundef nonnull @.str.460, i32 noundef %74) #9
   %.not39 = icmp eq i32 %75, 0
   br i1 %.not39, label %85, label %76
 
 76:                                               ; preds = %68
-  tail call void @ERR_clear_error() #8
-  %77 = tail call ptr @BN_value_one() #8
-  %78 = tail call ptr @BN_value_one() #8
+  tail call void @ERR_clear_error() #9
+  %77 = tail call ptr @BN_value_one() #9
+  %78 = tail call ptr @BN_value_one() #9
   %79 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %80 = tail call i32 @BN_mod_exp_mont_consttime(ptr noundef %1, ptr noundef %77, ptr noundef %78, ptr noundef %4, ptr noundef %79, ptr noundef null) #8
+  %80 = tail call i32 @BN_mod_exp_mont_consttime(ptr noundef %1, ptr noundef %77, ptr noundef %78, ptr noundef %4, ptr noundef %79, ptr noundef null) #9
   %81 = icmp ne i32 %80, 0
   %82 = zext i1 %81 to i32
-  %83 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2526, ptr noundef nonnull @.str.461, i32 noundef %82) #8
+  %83 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2526, ptr noundef nonnull @.str.461, i32 noundef %82) #9
   %.not40 = icmp eq i32 %83, 0
   br i1 %.not40, label %85, label %84
 
 84:                                               ; preds = %76
-  tail call void @ERR_clear_error() #8
+  tail call void @ERR_clear_error() #9
   br label %85
 
 85:                                               ; preds = %76, %68, %62, %57, %51, %43, %35, %27, %19, %12, %0, %3, %6, %9, %84
@@ -4485,86 +4485,86 @@ define internal range(i32 0, 2) i32 @test_badmod() #1 {
   %.026 = phi ptr [ %7, %84 ], [ %7, %76 ], [ %7, %68 ], [ %7, %62 ], [ %7, %57 ], [ %7, %51 ], [ %7, %43 ], [ %7, %35 ], [ %7, %27 ], [ %7, %19 ], [ %7, %12 ], [ %7, %9 ], [ %7, %6 ], [ null, %3 ], [ null, %0 ]
   %.025 = phi ptr [ %10, %84 ], [ %10, %76 ], [ %10, %68 ], [ %10, %62 ], [ %10, %57 ], [ %10, %51 ], [ %10, %43 ], [ %10, %35 ], [ %10, %27 ], [ %10, %19 ], [ %10, %12 ], [ %10, %9 ], [ null, %6 ], [ null, %3 ], [ null, %0 ]
   %.0 = phi i32 [ 1, %84 ], [ 0, %76 ], [ 0, %68 ], [ 0, %62 ], [ 0, %57 ], [ 0, %51 ], [ 0, %43 ], [ 0, %35 ], [ 0, %27 ], [ 0, %19 ], [ 0, %12 ], [ 0, %9 ], [ 0, %6 ], [ 0, %3 ], [ 0, %0 ]
-  tail call void @BN_free(ptr noundef %1) #8
-  tail call void @BN_free(ptr noundef %.027) #8
-  tail call void @BN_free(ptr noundef %.026) #8
-  tail call void @BN_MONT_CTX_free(ptr noundef %.025) #8
+  tail call void @BN_free(ptr noundef %1) #9
+  tail call void @BN_free(ptr noundef %.027) #9
+  tail call void @BN_free(ptr noundef %.026) #9
+  tail call void @BN_MONT_CTX_free(ptr noundef %.025) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_expmodzero() #1 {
-  %1 = tail call ptr @BN_new() #8
-  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2544, ptr noundef nonnull @.str.451, ptr noundef %1) #8
+  %1 = tail call ptr @BN_new() #9
+  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2544, ptr noundef nonnull @.str.451, ptr noundef %1) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %41, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @BN_new() #8
-  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2545, ptr noundef nonnull @.str.63, ptr noundef %4) #8
+  %4 = tail call ptr @BN_new() #9
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2545, ptr noundef nonnull @.str.63, ptr noundef %4) #9
   %.not21 = icmp eq i32 %5, 0
   br i1 %.not21, label %41, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @BN_new() #8
-  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2546, ptr noundef nonnull @.str.108, ptr noundef %7) #8
+  %7 = tail call ptr @BN_new() #9
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2546, ptr noundef nonnull @.str.108, ptr noundef %7) #9
   %.not22 = icmp eq i32 %8, 0
   br i1 %.not22, label %41, label %9
 
 9:                                                ; preds = %6
-  tail call void @BN_zero_ex(ptr noundef %1) #8
-  %10 = tail call ptr @BN_value_one() #8
-  %11 = tail call i32 @BN_mod_exp(ptr noundef %7, ptr noundef %4, ptr noundef %1, ptr noundef %10, ptr noundef null) #8
+  tail call void @BN_zero_ex(ptr noundef %1) #9
+  %10 = tail call ptr @BN_value_one() #9
+  %11 = tail call i32 @BN_mod_exp(ptr noundef %7, ptr noundef %4, ptr noundef %1, ptr noundef %10, ptr noundef null) #9
   %12 = icmp ne i32 %11, 0
   %13 = zext i1 %12 to i32
-  %14 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2550, ptr noundef nonnull @.str.462, i32 noundef %13) #8
+  %14 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2550, ptr noundef nonnull @.str.462, i32 noundef %13) #9
   %.not23 = icmp eq i32 %14, 0
   br i1 %.not23, label %41, label %15
 
 15:                                               ; preds = %9
-  %16 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2551, ptr noundef nonnull @.str.110, ptr noundef %7) #8
+  %16 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2551, ptr noundef nonnull @.str.110, ptr noundef %7) #9
   %.not24 = icmp eq i32 %16, 0
   br i1 %.not24, label %41, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call ptr @BN_value_one() #8
-  %19 = tail call i32 @BN_mod_exp_mont(ptr noundef %7, ptr noundef %4, ptr noundef %1, ptr noundef %18, ptr noundef null, ptr noundef null) #8
+  %18 = tail call ptr @BN_value_one() #9
+  %19 = tail call i32 @BN_mod_exp_mont(ptr noundef %7, ptr noundef %4, ptr noundef %1, ptr noundef %18, ptr noundef null, ptr noundef null) #9
   %20 = icmp ne i32 %19, 0
   %21 = zext i1 %20 to i32
-  %22 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2553, ptr noundef nonnull @.str.463, i32 noundef %21) #8
+  %22 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2553, ptr noundef nonnull @.str.463, i32 noundef %21) #9
   %.not25 = icmp eq i32 %22, 0
   br i1 %.not25, label %41, label %23
 
 23:                                               ; preds = %17
-  %24 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2554, ptr noundef nonnull @.str.110, ptr noundef %7) #8
+  %24 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2554, ptr noundef nonnull @.str.110, ptr noundef %7) #9
   %.not26 = icmp eq i32 %24, 0
   br i1 %.not26, label %41, label %25
 
 25:                                               ; preds = %23
-  %26 = tail call ptr @BN_value_one() #8
-  %27 = tail call i32 @BN_mod_exp_mont_consttime(ptr noundef %7, ptr noundef %4, ptr noundef %1, ptr noundef %26, ptr noundef null, ptr noundef null) #8
+  %26 = tail call ptr @BN_value_one() #9
+  %27 = tail call i32 @BN_mod_exp_mont_consttime(ptr noundef %7, ptr noundef %4, ptr noundef %1, ptr noundef %26, ptr noundef null, ptr noundef null) #9
   %28 = icmp ne i32 %27, 0
   %29 = zext i1 %28 to i32
-  %30 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2557, ptr noundef nonnull @.str.464, i32 noundef %29) #8
+  %30 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2557, ptr noundef nonnull @.str.464, i32 noundef %29) #9
   %.not27 = icmp eq i32 %30, 0
   br i1 %.not27, label %41, label %31
 
 31:                                               ; preds = %25
-  %32 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2558, ptr noundef nonnull @.str.110, ptr noundef %7) #8
+  %32 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2558, ptr noundef nonnull @.str.110, ptr noundef %7) #9
   %.not28 = icmp eq i32 %32, 0
   br i1 %.not28, label %41, label %33
 
 33:                                               ; preds = %31
-  %34 = tail call ptr @BN_value_one() #8
-  %35 = tail call i32 @BN_mod_exp_mont_word(ptr noundef %7, i64 noundef 42, ptr noundef %1, ptr noundef %34, ptr noundef null, ptr noundef null) #8
+  %34 = tail call ptr @BN_value_one() #9
+  %35 = tail call i32 @BN_mod_exp_mont_word(ptr noundef %7, i64 noundef 42, ptr noundef %1, ptr noundef %34, ptr noundef null, ptr noundef null) #9
   %36 = icmp ne i32 %35, 0
   %37 = zext i1 %36 to i32
-  %38 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2560, ptr noundef nonnull @.str.465, i32 noundef %37) #8
+  %38 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2560, ptr noundef nonnull @.str.465, i32 noundef %37) #9
   %.not29 = icmp eq i32 %38, 0
   br i1 %.not29, label %41, label %39
 
 39:                                               ; preds = %33
-  %40 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2561, ptr noundef nonnull @.str.110, ptr noundef %7) #8
+  %40 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2561, ptr noundef nonnull @.str.110, ptr noundef %7) #9
   %.not30 = icmp ne i32 %40, 0
   %spec.select = zext i1 %.not30 to i32
   br label %41
@@ -4573,152 +4573,152 @@ define internal range(i32 0, 2) i32 @test_expmodzero() #1 {
   %.020 = phi ptr [ %4, %33 ], [ %4, %31 ], [ %4, %25 ], [ %4, %23 ], [ %4, %17 ], [ %4, %15 ], [ %4, %9 ], [ %4, %6 ], [ %4, %3 ], [ null, %0 ], [ %4, %39 ]
   %.019 = phi ptr [ %7, %33 ], [ %7, %31 ], [ %7, %25 ], [ %7, %23 ], [ %7, %17 ], [ %7, %15 ], [ %7, %9 ], [ %7, %6 ], [ null, %3 ], [ null, %0 ], [ %7, %39 ]
   %.0 = phi i32 [ 0, %33 ], [ 0, %31 ], [ 0, %25 ], [ 0, %23 ], [ 0, %17 ], [ 0, %15 ], [ 0, %9 ], [ 0, %6 ], [ 0, %3 ], [ 0, %0 ], [ %spec.select, %39 ]
-  tail call void @BN_free(ptr noundef %1) #8
-  tail call void @BN_free(ptr noundef %.020) #8
-  tail call void @BN_free(ptr noundef %.019) #8
+  tail call void @BN_free(ptr noundef %1) #9
+  tail call void @BN_free(ptr noundef %.020) #9
+  tail call void @BN_free(ptr noundef %.019) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_expmodone() #1 {
-  %1 = tail call ptr @BN_new() #8
-  %2 = tail call ptr @BN_new() #8
-  %3 = tail call ptr @BN_new() #8
-  %4 = tail call ptr @BN_new() #8
-  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2580, ptr noundef nonnull @.str.110, ptr noundef %1) #8
+  %1 = tail call ptr @BN_new() #9
+  %2 = tail call ptr @BN_new() #9
+  %3 = tail call ptr @BN_new() #9
+  %4 = tail call ptr @BN_new() #9
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2580, ptr noundef nonnull @.str.110, ptr noundef %1) #9
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.loopexit, label %6
 
 6:                                                ; preds = %0
-  %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2581, ptr noundef nonnull @.str.94, ptr noundef %2) #8
+  %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2581, ptr noundef nonnull @.str.94, ptr noundef %2) #9
   %.not46 = icmp eq i32 %7, 0
   br i1 %.not46, label %.loopexit, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2582, ptr noundef nonnull @.str.466, ptr noundef %3) #8
+  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2582, ptr noundef nonnull @.str.466, ptr noundef %3) #9
   %.not47 = icmp eq i32 %9, 0
   br i1 %.not47, label %.loopexit, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2583, ptr noundef nonnull @.str.466, ptr noundef %3) #8
+  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2583, ptr noundef nonnull @.str.466, ptr noundef %3) #9
   %.not48 = icmp eq i32 %11, 0
   br i1 %.not48, label %.loopexit, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2584, ptr noundef nonnull @.str.467, ptr noundef %4) #8
+  %13 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2584, ptr noundef nonnull @.str.467, ptr noundef %4) #9
   %.not49 = icmp eq i32 %13, 0
   br i1 %.not49, label %.loopexit, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call i32 @BN_set_word(ptr noundef %2, i64 noundef 1) #8
+  %15 = tail call i32 @BN_set_word(ptr noundef %2, i64 noundef 1) #9
   %16 = icmp ne i32 %15, 0
   %17 = zext i1 %16 to i32
-  %18 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2585, ptr noundef nonnull @.str.443, i32 noundef %17) #8
+  %18 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2585, ptr noundef nonnull @.str.443, i32 noundef %17) #9
   %.not50 = icmp eq i32 %18, 0
   br i1 %.not50, label %.loopexit, label %19
 
 19:                                               ; preds = %14
-  %20 = tail call i32 @BN_set_word(ptr noundef %3, i64 noundef 0) #8
+  %20 = tail call i32 @BN_set_word(ptr noundef %3, i64 noundef 0) #9
   %21 = icmp ne i32 %20, 0
   %22 = zext i1 %21 to i32
-  %23 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2586, ptr noundef nonnull @.str.468, i32 noundef %22) #8
+  %23 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2586, ptr noundef nonnull @.str.468, i32 noundef %22) #9
   %.not51 = icmp eq i32 %23, 0
   br i1 %.not51, label %.loopexit, label %24
 
 24:                                               ; preds = %19
-  %25 = tail call i32 @BN_set_word(ptr noundef %4, i64 noundef 1) #8
+  %25 = tail call i32 @BN_set_word(ptr noundef %4, i64 noundef 1) #9
   %26 = icmp ne i32 %25, 0
   %27 = zext i1 %26 to i32
-  %28 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2587, ptr noundef nonnull @.str.469, i32 noundef %27) #8
+  %28 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2587, ptr noundef nonnull @.str.469, i32 noundef %27) #9
   %.not52 = icmp eq i32 %28, 0
   br i1 %.not52, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %24
-  %29 = tail call i32 @BN_mod_exp(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null) #8
+  %29 = tail call i32 @BN_mod_exp(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null) #9
   %30 = icmp ne i32 %29, 0
   %31 = zext i1 %30 to i32
-  %32 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2592, ptr noundef nonnull @.str.470, i32 noundef %31) #8
+  %32 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2592, ptr noundef nonnull @.str.470, i32 noundef %31) #9
   %.not5366 = icmp eq i32 %32, 0
   br i1 %.not5366, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader.preheader, %.preheader
   %.not90 = phi i1 [ true, %.preheader ], [ false, %.preheader.preheader ]
-  %33 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2593, ptr noundef nonnull @.str.110, ptr noundef %1) #8
+  %33 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2593, ptr noundef nonnull @.str.110, ptr noundef %1) #9
   %.not54 = icmp eq i32 %33, 0
   br i1 %.not54, label %.loopexit, label %34
 
 34:                                               ; preds = %.lr.ph
-  %35 = tail call i32 @BN_mod_exp_mont(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, ptr noundef null) #8
+  %35 = tail call i32 @BN_mod_exp_mont(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, ptr noundef null) #9
   %36 = icmp ne i32 %35, 0
   %37 = zext i1 %36 to i32
-  %38 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2594, ptr noundef nonnull @.str.471, i32 noundef %37) #8
+  %38 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2594, ptr noundef nonnull @.str.471, i32 noundef %37) #9
   %.not55 = icmp eq i32 %38, 0
   br i1 %.not55, label %.loopexit, label %39
 
 39:                                               ; preds = %34
-  %40 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2595, ptr noundef nonnull @.str.110, ptr noundef %1) #8
+  %40 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2595, ptr noundef nonnull @.str.110, ptr noundef %1) #9
   %.not56 = icmp eq i32 %40, 0
   br i1 %.not56, label %.loopexit, label %41
 
 41:                                               ; preds = %39
-  %42 = tail call i32 @BN_mod_exp_mont_consttime(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, ptr noundef null) #8
+  %42 = tail call i32 @BN_mod_exp_mont_consttime(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, ptr noundef null) #9
   %43 = icmp ne i32 %42, 0
   %44 = zext i1 %43 to i32
-  %45 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2596, ptr noundef nonnull @.str.472, i32 noundef %44) #8
+  %45 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2596, ptr noundef nonnull @.str.472, i32 noundef %44) #9
   %.not57 = icmp eq i32 %45, 0
   br i1 %.not57, label %.loopexit, label %46
 
 46:                                               ; preds = %41
-  %47 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2597, ptr noundef nonnull @.str.110, ptr noundef %1) #8
+  %47 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2597, ptr noundef nonnull @.str.110, ptr noundef %1) #9
   %.not58 = icmp eq i32 %47, 0
   br i1 %.not58, label %.loopexit, label %48
 
 48:                                               ; preds = %46
-  %49 = tail call i32 @BN_mod_exp_mont_word(ptr noundef %1, i64 noundef 1, ptr noundef %3, ptr noundef %4, ptr noundef null, ptr noundef null) #8
+  %49 = tail call i32 @BN_mod_exp_mont_word(ptr noundef %1, i64 noundef 1, ptr noundef %3, ptr noundef %4, ptr noundef null, ptr noundef null) #9
   %50 = icmp ne i32 %49, 0
   %51 = zext i1 %50 to i32
-  %52 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2598, ptr noundef nonnull @.str.473, i32 noundef %51) #8
+  %52 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2598, ptr noundef nonnull @.str.473, i32 noundef %51) #9
   %.not59 = icmp eq i32 %52, 0
   br i1 %.not59, label %.loopexit, label %53
 
 53:                                               ; preds = %48
-  %54 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2599, ptr noundef nonnull @.str.110, ptr noundef %1) #8
+  %54 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2599, ptr noundef nonnull @.str.110, ptr noundef %1) #9
   %.not60 = icmp eq i32 %54, 0
   br i1 %.not60, label %.loopexit, label %55
 
 55:                                               ; preds = %53
-  %56 = tail call i32 @BN_mod_exp_simple(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null) #8
+  %56 = tail call i32 @BN_mod_exp_simple(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null) #9
   %57 = icmp ne i32 %56, 0
   %58 = zext i1 %57 to i32
-  %59 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2600, ptr noundef nonnull @.str.474, i32 noundef %58) #8
+  %59 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2600, ptr noundef nonnull @.str.474, i32 noundef %58) #9
   %.not61 = icmp eq i32 %59, 0
   br i1 %.not61, label %.loopexit, label %60
 
 60:                                               ; preds = %55
-  %61 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2601, ptr noundef nonnull @.str.110, ptr noundef %1) #8
+  %61 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2601, ptr noundef nonnull @.str.110, ptr noundef %1) #9
   %.not62 = icmp eq i32 %61, 0
   br i1 %.not62, label %.loopexit, label %62
 
 62:                                               ; preds = %60
-  %63 = tail call i32 @BN_mod_exp_recp(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null) #8
+  %63 = tail call i32 @BN_mod_exp_recp(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null) #9
   %64 = icmp ne i32 %63, 0
   %65 = zext i1 %64 to i32
-  %66 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2602, ptr noundef nonnull @.str.475, i32 noundef %65) #8
+  %66 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2602, ptr noundef nonnull @.str.475, i32 noundef %65) #9
   %.not63 = icmp eq i32 %66, 0
   br i1 %.not63, label %.loopexit, label %67
 
 67:                                               ; preds = %62
-  %68 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2603, ptr noundef nonnull @.str.110, ptr noundef %1) #8
+  %68 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2603, ptr noundef nonnull @.str.110, ptr noundef %1) #9
   %.not64 = icmp eq i32 %68, 0
   %brmerge = or i1 %.not64, %.not90
   br i1 %brmerge, label %.loopexit.loopexit.split.loop.exit111, label %.preheader
 
 .preheader:                                       ; preds = %67
-  tail call void @BN_set_negative(ptr noundef %4, i32 noundef 1) #8
-  %69 = tail call i32 @BN_mod_exp(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null) #8
+  tail call void @BN_set_negative(ptr noundef %4, i32 noundef 1) #9
+  %69 = tail call i32 @BN_mod_exp(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null) #9
   %70 = icmp ne i32 %69, 0
   %71 = zext i1 %70 to i32
-  %72 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2592, ptr noundef nonnull @.str.470, i32 noundef %71) #8
+  %72 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2592, ptr noundef nonnull @.str.470, i32 noundef %71) #9
   %.not53 = icmp eq i32 %72, 0
   br i1 %.not53, label %.loopexit, label %.lr.ph, !llvm.loop !35
 
@@ -4729,40 +4729,40 @@ define internal range(i32 0, 2) i32 @test_expmodone() #1 {
 
 .loopexit:                                        ; preds = %.loopexit.loopexit.split.loop.exit111, %.preheader, %.lr.ph, %34, %39, %41, %46, %48, %53, %55, %60, %62, %.preheader.preheader, %0, %6, %8, %10, %12, %14, %19, %24
   %.0 = phi i32 [ 0, %24 ], [ 0, %19 ], [ 0, %14 ], [ 0, %12 ], [ 0, %10 ], [ 0, %8 ], [ 0, %6 ], [ 0, %0 ], [ 0, %.preheader.preheader ], [ %.mux.le, %.loopexit.loopexit.split.loop.exit111 ], [ 0, %.preheader ], [ 0, %.lr.ph ], [ 0, %34 ], [ 0, %39 ], [ 0, %41 ], [ 0, %46 ], [ 0, %48 ], [ 0, %53 ], [ 0, %55 ], [ 0, %60 ], [ 0, %62 ]
-  tail call void @BN_free(ptr noundef %1) #8
-  tail call void @BN_free(ptr noundef %2) #8
-  tail call void @BN_free(ptr noundef %3) #8
-  tail call void @BN_free(ptr noundef %4) #8
+  tail call void @BN_free(ptr noundef %1) #9
+  tail call void @BN_free(ptr noundef %2) #9
+  tail call void @BN_free(ptr noundef %3) #9
+  tail call void @BN_free(ptr noundef %4) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_smallprime(i32 noundef %0) #1 {
-  %2 = tail call ptr @BN_new() #8
-  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2624, ptr noundef nonnull @.str.108, ptr noundef %2) #8
+  %2 = tail call ptr @BN_new() #9
+  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2624, ptr noundef nonnull @.str.108, ptr noundef %2) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %17, label %4
 
 4:                                                ; preds = %1
   %5 = icmp slt i32 %0, 2
-  %6 = tail call i32 @BN_generate_prime_ex(ptr noundef %2, i32 noundef %0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #8
+  %6 = tail call i32 @BN_generate_prime_ex(ptr noundef %2, i32 noundef %0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #9
   %7 = icmp ne i32 %6, 0
   %8 = zext i1 %7 to i32
   br i1 %5, label %9, label %11
 
 9:                                                ; preds = %4
-  %10 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2629, ptr noundef nonnull @.str.476, i32 noundef %8) #8
+  %10 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2629, ptr noundef nonnull @.str.476, i32 noundef %8) #9
   %.not11 = icmp eq i32 %10, 0
   br i1 %.not11, label %17, label %16
 
 11:                                               ; preds = %4
-  %12 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2633, ptr noundef nonnull @.str.476, i32 noundef %8) #8
+  %12 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2633, ptr noundef nonnull @.str.476, i32 noundef %8) #9
   %.not9 = icmp eq i32 %12, 0
   br i1 %.not9, label %17, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @BN_num_bits(ptr noundef %2) #8
-  %15 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2634, ptr noundef nonnull @.str.477, ptr noundef nonnull @.str.478, i32 noundef %14, i32 noundef %0) #8
+  %14 = tail call i32 @BN_num_bits(ptr noundef %2) #9
+  %15 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2634, ptr noundef nonnull @.str.477, ptr noundef nonnull @.str.478, i32 noundef %14, i32 noundef %0) #9
   %.not10 = icmp eq i32 %15, 0
   br i1 %.not10, label %17, label %16
 
@@ -4771,14 +4771,14 @@ define internal range(i32 0, 2) i32 @test_smallprime(i32 noundef %0) #1 {
 
 17:                                               ; preds = %11, %13, %9, %1, %16
   %.0 = phi i32 [ 1, %16 ], [ 0, %9 ], [ 0, %13 ], [ 0, %11 ], [ 0, %1 ]
-  tail call void @BN_free(ptr noundef %2) #8
+  tail call void @BN_free(ptr noundef %2) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_smallsafeprime(i32 noundef %0) #1 {
-  %2 = tail call ptr @BN_new() #8
-  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2649, ptr noundef nonnull @.str.108, ptr noundef %2) #8
+  %2 = tail call ptr @BN_new() #9
+  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2649, ptr noundef nonnull @.str.108, ptr noundef %2) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %18, label %4
 
@@ -4786,24 +4786,24 @@ define internal range(i32 0, 2) i32 @test_smallsafeprime(i32 noundef %0) #1 {
   %5 = icmp slt i32 %0, 6
   %6 = icmp ne i32 %0, 3
   %or.cond = and i1 %5, %6
-  %7 = tail call i32 @BN_generate_prime_ex(ptr noundef %2, i32 noundef %0, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null) #8
+  %7 = tail call i32 @BN_generate_prime_ex(ptr noundef %2, i32 noundef %0, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null) #9
   %8 = icmp ne i32 %7, 0
   %9 = zext i1 %8 to i32
   br i1 %or.cond, label %10, label %12
 
 10:                                               ; preds = %4
-  %11 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2654, ptr noundef nonnull @.str.479, i32 noundef %9) #8
+  %11 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2654, ptr noundef nonnull @.str.479, i32 noundef %9) #9
   %.not13 = icmp eq i32 %11, 0
   br i1 %.not13, label %18, label %17
 
 12:                                               ; preds = %4
-  %13 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2658, ptr noundef nonnull @.str.479, i32 noundef %9) #8
+  %13 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2658, ptr noundef nonnull @.str.479, i32 noundef %9) #9
   %.not11 = icmp eq i32 %13, 0
   br i1 %.not11, label %18, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call i32 @BN_num_bits(ptr noundef %2) #8
-  %16 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2659, ptr noundef nonnull @.str.477, ptr noundef nonnull @.str.478, i32 noundef %15, i32 noundef %0) #8
+  %15 = tail call i32 @BN_num_bits(ptr noundef %2) #9
+  %16 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2659, ptr noundef nonnull @.str.477, ptr noundef nonnull @.str.478, i32 noundef %15, i32 noundef %0) #9
   %.not12 = icmp eq i32 %16, 0
   br i1 %.not12, label %18, label %17
 
@@ -4812,74 +4812,74 @@ define internal range(i32 0, 2) i32 @test_smallsafeprime(i32 noundef %0) #1 {
 
 18:                                               ; preds = %12, %14, %10, %1, %17
   %.0 = phi i32 [ 1, %17 ], [ 0, %10 ], [ 0, %14 ], [ 0, %12 ], [ 0, %1 ]
-  tail call void @BN_free(ptr noundef %2) #8
+  tail call void @BN_free(ptr noundef %2) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_swap() #1 {
-  %1 = tail call ptr @BN_new() #8
-  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 156, ptr noundef nonnull @.str.63, ptr noundef %1) #8
+  %1 = tail call ptr @BN_new() #9
+  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 156, ptr noundef nonnull @.str.63, ptr noundef %1) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %91, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @BN_new() #8
-  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 157, ptr noundef nonnull @.str.64, ptr noundef %4) #8
+  %4 = tail call ptr @BN_new() #9
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 157, ptr noundef nonnull @.str.64, ptr noundef %4) #9
   %.not81 = icmp eq i32 %5, 0
   br i1 %.not81, label %91, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @BN_new() #8
-  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 158, ptr noundef nonnull @.str.65, ptr noundef %7) #8
+  %7 = tail call ptr @BN_new() #9
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 158, ptr noundef nonnull @.str.65, ptr noundef %7) #9
   %.not82 = icmp eq i32 %8, 0
   br i1 %.not82, label %91, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @BN_new() #8
-  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 159, ptr noundef nonnull @.str.76, ptr noundef %10) #8
+  %10 = tail call ptr @BN_new() #9
+  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 159, ptr noundef nonnull @.str.76, ptr noundef %10) #9
   %.not83 = icmp eq i32 %11, 0
   br i1 %.not83, label %91, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 1024, i32 noundef 1, i32 noundef 0) #8
+  %13 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 1024, i32 noundef 1, i32 noundef 0) #9
   %14 = icmp ne i32 %13, 0
   %15 = zext i1 %14 to i32
-  %16 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 162, ptr noundef nonnull @.str.480, i32 noundef %15) #8
+  %16 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 162, ptr noundef nonnull @.str.480, i32 noundef %15) #9
   %.not84 = icmp eq i32 %16, 0
   br i1 %.not84, label %91, label %17
 
 17:                                               ; preds = %12
-  %18 = tail call i32 @BN_bntest_rand(ptr noundef %4, i32 noundef 1024, i32 noundef 1, i32 noundef 0) #8
+  %18 = tail call i32 @BN_bntest_rand(ptr noundef %4, i32 noundef 1024, i32 noundef 1, i32 noundef 0) #9
   %19 = icmp ne i32 %18, 0
   %20 = zext i1 %19 to i32
-  %21 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 163, ptr noundef nonnull @.str.481, i32 noundef %20) #8
+  %21 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 163, ptr noundef nonnull @.str.481, i32 noundef %20) #9
   %.not85 = icmp eq i32 %21, 0
   br i1 %.not85, label %91, label %22
 
 22:                                               ; preds = %17
-  %23 = tail call ptr @BN_copy(ptr noundef %7, ptr noundef %1) #8
-  %24 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 164, ptr noundef nonnull @.str.482, ptr noundef %23) #8
+  %23 = tail call ptr @BN_copy(ptr noundef %7, ptr noundef %1) #9
+  %24 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 164, ptr noundef nonnull @.str.482, ptr noundef %23) #9
   %.not86 = icmp eq i32 %24, 0
   br i1 %.not86, label %91, label %25
 
 25:                                               ; preds = %22
-  %26 = tail call ptr @BN_copy(ptr noundef %10, ptr noundef %4) #8
-  %27 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 165, ptr noundef nonnull @.str.483, ptr noundef %26) #8
+  %26 = tail call ptr @BN_copy(ptr noundef %10, ptr noundef %4) #9
+  %27 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 165, ptr noundef nonnull @.str.483, ptr noundef %26) #9
   %.not87 = icmp eq i32 %27, 0
   br i1 %.not87, label %91, label %28
 
 28:                                               ; preds = %25
-  %29 = tail call i32 @BN_num_bits(ptr noundef %1) #8
+  %29 = tail call i32 @BN_num_bits(ptr noundef %1) #9
   %30 = sdiv i32 %29, 64
-  tail call void @BN_swap(ptr noundef %1, ptr noundef %4) #8
-  %31 = tail call i32 @BN_cmp(ptr noundef %1, ptr noundef %10) #8
+  tail call void @BN_swap(ptr noundef %1, ptr noundef %4) #9
+  %31 = tail call i32 @BN_cmp(ptr noundef %1, ptr noundef %10) #9
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %equalBN.exit, label %equalBN.exit.thread
 
 equalBN.exit.thread:                              ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.484) #8
-  %33 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %1, ptr noundef %10) #8
+  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.484) #9
+  %33 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %1, ptr noundef %10) #9
   br label %91
 
 equalBN.exit:                                     ; preds = %28
@@ -4888,13 +4888,13 @@ equalBN.exit:                                     ; preds = %28
   br i1 %.not89, label %91, label %35
 
 35:                                               ; preds = %equalBN.exit
-  tail call void @BN_swap(ptr noundef %1, ptr noundef %1) #8
+  tail call void @BN_swap(ptr noundef %1, ptr noundef %1) #9
   %36 = tail call fastcc i32 @equalBN(ptr noundef nonnull @.str.485, ptr noundef %1, ptr noundef %10)
   %.not90 = icmp eq i32 %36, 0
   br i1 %.not90, label %91, label %37
 
 37:                                               ; preds = %35
-  tail call void @BN_consttime_swap(i64 noundef 1, ptr noundef %1, ptr noundef %4, i32 noundef %30) #8
+  tail call void @BN_consttime_swap(i64 noundef 1, ptr noundef %1, ptr noundef %4, i32 noundef %30) #9
   %38 = tail call fastcc i32 @equalBN(ptr noundef nonnull @.str.486, ptr noundef %1, ptr noundef %7)
   %.not91 = icmp eq i32 %38, 0
   br i1 %.not91, label %91, label %39
@@ -4905,13 +4905,13 @@ equalBN.exit:                                     ; preds = %28
   br i1 %.not92, label %91, label %41
 
 41:                                               ; preds = %39
-  tail call void @BN_consttime_swap(i64 noundef 1, ptr noundef %1, ptr noundef %1, i32 noundef %30) #8
+  tail call void @BN_consttime_swap(i64 noundef 1, ptr noundef %1, ptr noundef %1, i32 noundef %30) #9
   %42 = tail call fastcc i32 @equalBN(ptr noundef nonnull @.str.486, ptr noundef %1, ptr noundef %7)
   %.not93 = icmp eq i32 %42, 0
   br i1 %.not93, label %91, label %43
 
 43:                                               ; preds = %41
-  tail call void @BN_consttime_swap(i64 noundef 0, ptr noundef %1, ptr noundef %4, i32 noundef %30) #8
+  tail call void @BN_consttime_swap(i64 noundef 0, ptr noundef %1, ptr noundef %4, i32 noundef %30) #9
   %44 = tail call fastcc i32 @equalBN(ptr noundef nonnull @.str.487, ptr noundef %1, ptr noundef %7)
   %.not94 = icmp eq i32 %44, 0
   br i1 %.not94, label %91, label %45
@@ -4922,14 +4922,14 @@ equalBN.exit:                                     ; preds = %28
   br i1 %.not95, label %91, label %47
 
 47:                                               ; preds = %45
-  tail call void @BN_consttime_swap(i64 noundef 0, ptr noundef %1, ptr noundef %1, i32 noundef %30) #8
+  tail call void @BN_consttime_swap(i64 noundef 0, ptr noundef %1, ptr noundef %1, i32 noundef %30) #9
   %48 = tail call fastcc i32 @equalBN(ptr noundef nonnull @.str.487, ptr noundef %1, ptr noundef %7)
   %.not96 = icmp eq i32 %48, 0
   br i1 %.not96, label %91, label %49
 
 49:                                               ; preds = %47
-  tail call void @BN_set_flags(ptr noundef %1, i32 noundef 4) #8
-  tail call void @BN_swap(ptr noundef %1, ptr noundef %4) #8
+  tail call void @BN_set_flags(ptr noundef %1, i32 noundef 4) #9
+  tail call void @BN_swap(ptr noundef %1, ptr noundef %4) #9
   %50 = tail call fastcc i32 @equalBN(ptr noundef nonnull @.str.488, ptr noundef %1, ptr noundef %10)
   %.not97 = icmp eq i32 %50, 0
   br i1 %.not97, label %91, label %51
@@ -4940,23 +4940,23 @@ equalBN.exit:                                     ; preds = %28
   br i1 %.not98, label %91, label %53
 
 53:                                               ; preds = %51
-  %54 = tail call i32 @BN_get_flags(ptr noundef %4, i32 noundef 4) #8
+  %54 = tail call i32 @BN_get_flags(ptr noundef %4, i32 noundef 4) #9
   %55 = icmp ne i32 %54, 0
   %56 = zext i1 %55 to i32
-  %57 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 210, ptr noundef nonnull @.str.489, i32 noundef %56) #8
+  %57 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 210, ptr noundef nonnull @.str.489, i32 noundef %56) #9
   %.not99 = icmp eq i32 %57, 0
   br i1 %.not99, label %91, label %58
 
 58:                                               ; preds = %53
-  %59 = tail call i32 @BN_get_flags(ptr noundef %1, i32 noundef 4) #8
+  %59 = tail call i32 @BN_get_flags(ptr noundef %1, i32 noundef 4) #9
   %60 = icmp ne i32 %59, 0
   %61 = zext i1 %60 to i32
-  %62 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 211, ptr noundef nonnull @.str.490, i32 noundef %61) #8
+  %62 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 211, ptr noundef nonnull @.str.490, i32 noundef %61) #9
   %.not100 = icmp eq i32 %62, 0
   br i1 %.not100, label %91, label %63
 
 63:                                               ; preds = %58
-  tail call void @BN_consttime_swap(i64 noundef 1, ptr noundef %1, ptr noundef %4, i32 noundef %30) #8
+  tail call void @BN_consttime_swap(i64 noundef 1, ptr noundef %1, ptr noundef %4, i32 noundef %30) #9
   %64 = tail call fastcc i32 @equalBN(ptr noundef nonnull @.str.491, ptr noundef %1, ptr noundef %7)
   %.not101 = icmp eq i32 %64, 0
   br i1 %.not101, label %91, label %65
@@ -4967,23 +4967,23 @@ equalBN.exit:                                     ; preds = %28
   br i1 %.not102, label %91, label %67
 
 67:                                               ; preds = %65
-  %68 = tail call i32 @BN_get_flags(ptr noundef %1, i32 noundef 4) #8
+  %68 = tail call i32 @BN_get_flags(ptr noundef %1, i32 noundef 4) #9
   %69 = icmp ne i32 %68, 0
   %70 = zext i1 %69 to i32
-  %71 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 218, ptr noundef nonnull @.str.490, i32 noundef %70) #8
+  %71 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 218, ptr noundef nonnull @.str.490, i32 noundef %70) #9
   %.not103 = icmp eq i32 %71, 0
   br i1 %.not103, label %91, label %72
 
 72:                                               ; preds = %67
-  %73 = tail call i32 @BN_get_flags(ptr noundef %4, i32 noundef 4) #8
+  %73 = tail call i32 @BN_get_flags(ptr noundef %4, i32 noundef 4) #9
   %74 = icmp ne i32 %73, 0
   %75 = zext i1 %74 to i32
-  %76 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 219, ptr noundef nonnull @.str.489, i32 noundef %75) #8
+  %76 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 219, ptr noundef nonnull @.str.489, i32 noundef %75) #9
   %.not104 = icmp eq i32 %76, 0
   br i1 %.not104, label %91, label %77
 
 77:                                               ; preds = %72
-  tail call void @BN_consttime_swap(i64 noundef 0, ptr noundef %1, ptr noundef %4, i32 noundef %30) #8
+  tail call void @BN_consttime_swap(i64 noundef 0, ptr noundef %1, ptr noundef %4, i32 noundef %30) #9
   %78 = tail call fastcc i32 @equalBN(ptr noundef nonnull @.str.492, ptr noundef %1, ptr noundef %7)
   %.not105 = icmp eq i32 %78, 0
   br i1 %.not105, label %91, label %79
@@ -4994,18 +4994,18 @@ equalBN.exit:                                     ; preds = %28
   br i1 %.not106, label %91, label %81
 
 81:                                               ; preds = %79
-  %82 = tail call i32 @BN_get_flags(ptr noundef %1, i32 noundef 4) #8
+  %82 = tail call i32 @BN_get_flags(ptr noundef %1, i32 noundef 4) #9
   %83 = icmp ne i32 %82, 0
   %84 = zext i1 %83 to i32
-  %85 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 226, ptr noundef nonnull @.str.490, i32 noundef %84) #8
+  %85 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 226, ptr noundef nonnull @.str.490, i32 noundef %84) #9
   %.not107 = icmp eq i32 %85, 0
   br i1 %.not107, label %91, label %86
 
 86:                                               ; preds = %81
-  %87 = tail call i32 @BN_get_flags(ptr noundef %4, i32 noundef 4) #8
+  %87 = tail call i32 @BN_get_flags(ptr noundef %4, i32 noundef 4) #9
   %88 = icmp ne i32 %87, 0
   %89 = zext i1 %88 to i32
-  %90 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 227, ptr noundef nonnull @.str.489, i32 noundef %89) #8
+  %90 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 227, ptr noundef nonnull @.str.489, i32 noundef %89) #9
   %.not108 = icmp ne i32 %90, 0
   %spec.select = zext i1 %.not108 to i32
   br label %91
@@ -5015,36 +5015,36 @@ equalBN.exit:                                     ; preds = %28
   %.079 = phi ptr [ %7, %81 ], [ %7, %79 ], [ %7, %77 ], [ %7, %72 ], [ %7, %67 ], [ %7, %65 ], [ %7, %63 ], [ %7, %58 ], [ %7, %53 ], [ %7, %51 ], [ %7, %49 ], [ %7, %47 ], [ %7, %45 ], [ %7, %43 ], [ %7, %41 ], [ %7, %39 ], [ %7, %37 ], [ %7, %35 ], [ %7, %equalBN.exit ], [ %7, %25 ], [ %7, %22 ], [ %7, %17 ], [ %7, %12 ], [ %7, %9 ], [ %7, %6 ], [ null, %3 ], [ null, %0 ], [ %7, %86 ], [ %7, %equalBN.exit.thread ]
   %.078 = phi ptr [ %10, %81 ], [ %10, %79 ], [ %10, %77 ], [ %10, %72 ], [ %10, %67 ], [ %10, %65 ], [ %10, %63 ], [ %10, %58 ], [ %10, %53 ], [ %10, %51 ], [ %10, %49 ], [ %10, %47 ], [ %10, %45 ], [ %10, %43 ], [ %10, %41 ], [ %10, %39 ], [ %10, %37 ], [ %10, %35 ], [ %10, %equalBN.exit ], [ %10, %25 ], [ %10, %22 ], [ %10, %17 ], [ %10, %12 ], [ %10, %9 ], [ null, %6 ], [ null, %3 ], [ null, %0 ], [ %10, %86 ], [ %10, %equalBN.exit.thread ]
   %.0 = phi i32 [ 0, %81 ], [ 0, %79 ], [ 0, %77 ], [ 0, %72 ], [ 0, %67 ], [ 0, %65 ], [ 0, %63 ], [ 0, %58 ], [ 0, %53 ], [ 0, %51 ], [ 0, %49 ], [ 0, %47 ], [ 0, %45 ], [ 0, %43 ], [ 0, %41 ], [ 0, %39 ], [ 0, %37 ], [ 0, %35 ], [ 0, %equalBN.exit ], [ 0, %25 ], [ 0, %22 ], [ 0, %17 ], [ 0, %12 ], [ 0, %9 ], [ 0, %6 ], [ 0, %3 ], [ 0, %0 ], [ %spec.select, %86 ], [ 0, %equalBN.exit.thread ]
-  tail call void @BN_free(ptr noundef %1) #8
-  tail call void @BN_free(ptr noundef %.080) #8
-  tail call void @BN_free(ptr noundef %.079) #8
-  tail call void @BN_free(ptr noundef %.078) #8
+  tail call void @BN_free(ptr noundef %1) #9
+  tail call void @BN_free(ptr noundef %.080) #9
+  tail call void @BN_free(ptr noundef %.079) #9
+  tail call void @BN_free(ptr noundef %.078) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_ctx_consttime_flag() #1 {
-  %1 = tail call ptr @BN_CTX_new() #8
-  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2784, ptr noundef nonnull @.str.496, ptr noundef %1) #8
+  %1 = tail call ptr @BN_CTX_new() #9
+  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2784, ptr noundef nonnull @.str.496, ptr noundef %1) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.thread, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @BN_CTX_secure_new() #8
-  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2785, ptr noundef nonnull @.str.497, ptr noundef %4) #8
+  %4 = tail call ptr @BN_CTX_secure_new() #9
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2785, ptr noundef nonnull @.str.497, ptr noundef %4) #9
   %.not15 = icmp eq i32 %5, 0
   br i1 %.not15, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %3, %test_ctx_check_ct_flag.exit
   %6 = phi i1 [ false, %test_ctx_check_ct_flag.exit ], [ true, %3 ]
   %7 = select i1 %6, ptr %1, ptr %4
-  tail call void @BN_CTX_start(ptr noundef %7) #8
+  tail call void @BN_CTX_start(ptr noundef %7) #9
   br label %8
 
 8:                                                ; preds = %14, %.preheader
   %.010.i = phi i64 [ 0, %.preheader ], [ %15, %14 ]
-  %9 = tail call ptr @BN_CTX_get(ptr noundef %7) #8
-  %10 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2724, ptr noundef nonnull @.str.500, ptr noundef %9) #8
+  %9 = tail call ptr @BN_CTX_get(ptr noundef %7) #9
+  %10 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2724, ptr noundef nonnull @.str.500, ptr noundef %9) #9
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %test_ctx_set_ct_flag.exit, label %11
 
@@ -5054,7 +5054,7 @@ define internal range(i32 0, 2) i32 @test_ctx_consttime_flag() #1 {
   br i1 %.not9.i, label %14, label %13
 
 13:                                               ; preds = %11
-  tail call void @BN_set_flags(ptr noundef %9, i32 noundef 4) #8
+  tail call void @BN_set_flags(ptr noundef %9, i32 noundef 4) #9
   br label %14
 
 14:                                               ; preds = %13, %11
@@ -5064,13 +5064,13 @@ define internal range(i32 0, 2) i32 @test_ctx_consttime_flag() #1 {
 
 test_ctx_set_ct_flag.exit:                        ; preds = %8, %14
   %.08.i = phi i32 [ 0, %8 ], [ 1, %14 ]
-  tail call void @BN_CTX_end(ptr noundef %7) #8
-  %16 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2790, ptr noundef nonnull @.str.498, i32 noundef %.08.i) #8
+  tail call void @BN_CTX_end(ptr noundef %7) #9
+  %16 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2790, ptr noundef nonnull @.str.498, i32 noundef %.08.i) #9
   %.not16 = icmp eq i32 %16, 0
   br i1 %.not16, label %.thread, label %17
 
 17:                                               ; preds = %test_ctx_set_ct_flag.exit
-  tail call void @BN_CTX_start(ptr noundef %7) #8
+  tail call void @BN_CTX_start(ptr noundef %7) #9
   br label %20
 
 18:                                               ; preds = %23
@@ -5080,23 +5080,23 @@ test_ctx_set_ct_flag.exit:                        ; preds = %8, %14
 
 20:                                               ; preds = %18, %17
   %.09.i = phi i64 [ 0, %17 ], [ %19, %18 ]
-  %21 = tail call ptr @BN_CTX_get(ptr noundef %7) #8
-  %22 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2744, ptr noundef nonnull @.str.500, ptr noundef %21) #8
+  %21 = tail call ptr @BN_CTX_get(ptr noundef %7) #9
+  %22 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2744, ptr noundef nonnull @.str.500, ptr noundef %21) #9
   %.not.i19 = icmp eq i32 %22, 0
   br i1 %.not.i19, label %test_ctx_check_ct_flag.exit, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call i32 @BN_get_flags(ptr noundef %21, i32 noundef 4) #8
+  %24 = tail call i32 @BN_get_flags(ptr noundef %21, i32 noundef 4) #9
   %25 = icmp ne i32 %24, 0
   %26 = zext i1 %25 to i32
-  %27 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2746, ptr noundef nonnull @.str.501, i32 noundef %26) #8
+  %27 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2746, ptr noundef nonnull @.str.501, i32 noundef %26) #9
   %.not8.i = icmp eq i32 %27, 0
   br i1 %.not8.i, label %test_ctx_check_ct_flag.exit, label %18
 
 test_ctx_check_ct_flag.exit:                      ; preds = %18, %20, %23
   %.07.i = phi i32 [ 0, %23 ], [ 0, %20 ], [ 1, %18 ]
-  tail call void @BN_CTX_end(ptr noundef %7) #8
-  %28 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2791, ptr noundef nonnull @.str.499, i32 noundef %.07.i) #8
+  tail call void @BN_CTX_end(ptr noundef %7) #9
+  %28 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2791, ptr noundef nonnull @.str.499, i32 noundef %.07.i) #9
   %.not17 = icmp ne i32 %28, 0
   %brmerge.not = and i1 %.not17, %6
   br i1 %brmerge.not, label %.preheader, label %.thread.loopexit.split.loop.exit
@@ -5108,27 +5108,27 @@ test_ctx_check_ct_flag.exit:                      ; preds = %18, %20, %23
 .thread:                                          ; preds = %.thread.loopexit.split.loop.exit, %test_ctx_set_ct_flag.exit, %0, %3
   %.014 = phi ptr [ %4, %3 ], [ null, %0 ], [ %4, %test_ctx_set_ct_flag.exit ], [ %4, %.thread.loopexit.split.loop.exit ]
   %.012 = phi i32 [ 0, %3 ], [ 0, %0 ], [ %.mux.le, %.thread.loopexit.split.loop.exit ], [ 0, %test_ctx_set_ct_flag.exit ]
-  tail call void @BN_CTX_free(ptr noundef %1) #8
-  tail call void @BN_CTX_free(ptr noundef %.014) #8
+  tail call void @BN_CTX_free(ptr noundef %1) #9
+  tail call void @BN_CTX_free(ptr noundef %.014) #9
   ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_gf2m_add() #1 {
-  %1 = tail call ptr @BN_new() #8
-  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 740, ptr noundef nonnull @.str.63, ptr noundef %1) #8
+  %1 = tail call ptr @BN_new() #9
+  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 740, ptr noundef nonnull @.str.63, ptr noundef %1) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @BN_new() #8
-  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 741, ptr noundef nonnull @.str.64, ptr noundef %4) #8
+  %4 = tail call ptr @BN_new() #9
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 741, ptr noundef nonnull @.str.64, ptr noundef %4) #9
   %.not23 = icmp eq i32 %5, 0
   br i1 %.not23, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @BN_new() #8
-  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 742, ptr noundef nonnull @.str.65, ptr noundef %7) #8
+  %7 = tail call ptr @BN_new() #9
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 742, ptr noundef nonnull @.str.65, ptr noundef %7) #9
   %.not24 = icmp eq i32 %8, 0
   br i1 %.not24, label %.loopexit, label %.preheader
 
@@ -5139,17 +5139,17 @@ define internal range(i32 0, 2) i32 @test_gf2m_add() #1 {
 
 .preheader:                                       ; preds = %6, %9
   %.02035 = phi i32 [ %10, %9 ], [ 0, %6 ]
-  %11 = tail call i32 @BN_rand(ptr noundef %1, i32 noundef 512, i32 noundef 0, i32 noundef 0) #8
+  %11 = tail call i32 @BN_rand(ptr noundef %1, i32 noundef 512, i32 noundef 0, i32 noundef 0) #9
   %12 = icmp ne i32 %11, 0
   %13 = zext i1 %12 to i32
-  %14 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 746, ptr noundef nonnull @.str.502, i32 noundef %13) #8
+  %14 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 746, ptr noundef nonnull @.str.502, i32 noundef %13) #9
   %.not25 = icmp eq i32 %14, 0
   br i1 %.not25, label %.loopexit, label %15
 
 15:                                               ; preds = %.preheader
-  %16 = tail call ptr @BN_value_one() #8
-  %17 = tail call ptr @BN_copy(ptr noundef %4, ptr noundef %16) #8
-  %18 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 747, ptr noundef nonnull @.str.503, ptr noundef %17) #8
+  %16 = tail call ptr @BN_value_one() #9
+  %17 = tail call ptr @BN_copy(ptr noundef %4, ptr noundef %16) #9
+  %18 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 747, ptr noundef nonnull @.str.503, ptr noundef %17) #9
   %.not26 = icmp eq i32 %18, 0
   br i1 %.not26, label %.loopexit, label %19
 
@@ -5161,7 +5161,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_add() #1 {
   %23 = zext nneg i32 %22 to i64
   %24 = getelementptr inbounds nuw i32, ptr @rand_neg.sign, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !12
-  tail call void @BN_set_negative(ptr noundef %1, i32 noundef %25) #8
+  tail call void @BN_set_negative(ptr noundef %1, i32 noundef %25) #9
   %26 = load i32, ptr @rand_neg.neg, align 4, !tbaa !12
   %27 = add i32 %26, 1
   store i32 %27, ptr @rand_neg.neg, align 4, !tbaa !12
@@ -5169,51 +5169,51 @@ define internal range(i32 0, 2) i32 @test_gf2m_add() #1 {
   %29 = zext nneg i32 %28 to i64
   %30 = getelementptr inbounds nuw i32, ptr @rand_neg.sign, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !12
-  tail call void @BN_set_negative(ptr noundef %4, i32 noundef %31) #8
-  %32 = tail call i32 @BN_GF2m_add(ptr noundef %7, ptr noundef %1, ptr noundef %4) #8
+  tail call void @BN_set_negative(ptr noundef %4, i32 noundef %31) #9
+  %32 = tail call i32 @BN_GF2m_add(ptr noundef %7, ptr noundef %1, ptr noundef %4) #9
   %33 = icmp ne i32 %32, 0
   %34 = zext i1 %33 to i32
-  %35 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 751, ptr noundef nonnull @.str.504, i32 noundef %34) #8
+  %35 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 751, ptr noundef nonnull @.str.504, i32 noundef %34) #9
   %.not27 = icmp eq i32 %35, 0
   br i1 %.not27, label %.loopexit, label %36
 
 36:                                               ; preds = %19
-  %37 = tail call i32 @BN_is_odd(ptr noundef %1) #8
+  %37 = tail call i32 @BN_is_odd(ptr noundef %1) #9
   %.not28 = icmp eq i32 %37, 0
   br i1 %.not28, label %40, label %38
 
 38:                                               ; preds = %36
-  %39 = tail call i32 @BN_is_odd(ptr noundef %7) #8
+  %39 = tail call i32 @BN_is_odd(ptr noundef %7) #9
   %.not29 = icmp eq i32 %39, 0
   br i1 %.not29, label %40, label %45
 
 40:                                               ; preds = %38, %36
-  %41 = tail call i32 @BN_is_odd(ptr noundef %1) #8
+  %41 = tail call i32 @BN_is_odd(ptr noundef %1) #9
   %.not30 = icmp eq i32 %41, 0
   br i1 %.not30, label %42, label %45
 
 42:                                               ; preds = %40
-  %43 = tail call i32 @BN_is_odd(ptr noundef %7) #8
+  %43 = tail call i32 @BN_is_odd(ptr noundef %7) #9
   %.not31 = icmp eq i32 %43, 0
   %44 = zext i1 %.not31 to i32
   br label %45
 
 45:                                               ; preds = %40, %42, %38
   %46 = phi i32 [ 1, %38 ], [ 0, %40 ], [ %44, %42 ]
-  %47 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 754, ptr noundef nonnull @.str.505, i32 noundef %46) #8
+  %47 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 754, ptr noundef nonnull @.str.505, i32 noundef %46) #9
   %.not32 = icmp eq i32 %47, 0
   br i1 %.not32, label %.loopexit, label %48
 
 48:                                               ; preds = %45
-  %49 = tail call i32 @BN_GF2m_add(ptr noundef %7, ptr noundef %7, ptr noundef %7) #8
+  %49 = tail call i32 @BN_GF2m_add(ptr noundef %7, ptr noundef %7, ptr noundef %7) #9
   %50 = icmp ne i32 %49, 0
   %51 = zext i1 %50 to i32
-  %52 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 756, ptr noundef nonnull @.str.506, i32 noundef %51) #8
+  %52 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 756, ptr noundef nonnull @.str.506, i32 noundef %51) #9
   %.not33 = icmp eq i32 %52, 0
   br i1 %.not33, label %.loopexit, label %53
 
 53:                                               ; preds = %48
-  %54 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 758, ptr noundef nonnull @.str.75, ptr noundef %7) #8
+  %54 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 758, ptr noundef nonnull @.str.75, ptr noundef %7) #9
   %.not34 = icmp eq i32 %54, 0
   br i1 %.not34, label %.loopexit, label %9
 
@@ -5221,71 +5221,71 @@ define internal range(i32 0, 2) i32 @test_gf2m_add() #1 {
   %.022 = phi ptr [ %4, %6 ], [ %4, %3 ], [ null, %0 ], [ %4, %15 ], [ %4, %.preheader ], [ %4, %45 ], [ %4, %19 ], [ %4, %53 ], [ %4, %48 ], [ %4, %9 ]
   %.021 = phi ptr [ %7, %6 ], [ null, %3 ], [ null, %0 ], [ %7, %15 ], [ %7, %.preheader ], [ %7, %45 ], [ %7, %19 ], [ %7, %53 ], [ %7, %48 ], [ %7, %9 ]
   %.0 = phi i32 [ 0, %6 ], [ 0, %3 ], [ 0, %0 ], [ 1, %9 ], [ 0, %48 ], [ 0, %53 ], [ 0, %19 ], [ 0, %45 ], [ 0, %.preheader ], [ 0, %15 ]
-  tail call void @BN_free(ptr noundef %1) #8
-  tail call void @BN_free(ptr noundef %.022) #8
-  tail call void @BN_free(ptr noundef %.021) #8
+  tail call void @BN_free(ptr noundef %1) #9
+  tail call void @BN_free(ptr noundef %.022) #9
+  tail call void @BN_free(ptr noundef %.021) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_gf2m_mod() #1 {
-  %1 = tail call ptr @BN_new() #8
-  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 774, ptr noundef nonnull @.str.63, ptr noundef %1) #8
+  %1 = tail call ptr @BN_new() #9
+  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 774, ptr noundef nonnull @.str.63, ptr noundef %1) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @BN_new() #8
-  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 775, ptr noundef nonnull @.str.507, ptr noundef %4) #8
+  %4 = tail call ptr @BN_new() #9
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 775, ptr noundef nonnull @.str.507, ptr noundef %4) #9
   %.not24 = icmp eq i32 %5, 0
   br i1 %.not24, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @BN_new() #8
-  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 776, ptr noundef nonnull @.str.508, ptr noundef %7) #8
+  %7 = tail call ptr @BN_new() #9
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 776, ptr noundef nonnull @.str.508, ptr noundef %7) #9
   %.not25 = icmp eq i32 %8, 0
   br i1 %.not25, label %.loopexit, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @BN_new() #8
-  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 777, ptr noundef nonnull @.str.65, ptr noundef %10) #8
+  %10 = tail call ptr @BN_new() #9
+  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 777, ptr noundef nonnull @.str.65, ptr noundef %10) #9
   %.not26 = icmp eq i32 %11, 0
   br i1 %.not26, label %.loopexit, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call ptr @BN_new() #8
-  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 778, ptr noundef nonnull @.str.76, ptr noundef %13) #8
+  %13 = tail call ptr @BN_new() #9
+  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 778, ptr noundef nonnull @.str.76, ptr noundef %13) #9
   %.not27 = icmp eq i32 %14, 0
   br i1 %.not27, label %.loopexit, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call ptr @BN_new() #8
-  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 779, ptr noundef nonnull @.str.77, ptr noundef %16) #8
+  %16 = tail call ptr @BN_new() #9
+  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 779, ptr noundef nonnull @.str.77, ptr noundef %16) #9
   %.not28 = icmp eq i32 %17, 0
   br i1 %.not28, label %.loopexit, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p0, ptr noundef %4) #8
+  %19 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p0, ptr noundef %4) #9
   %20 = icmp ne i32 %19, 0
   %21 = zext i1 %20 to i32
-  %22 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 782, ptr noundef nonnull @.str.509, i32 noundef %21) #8
+  %22 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 782, ptr noundef nonnull @.str.509, i32 noundef %21) #9
   %.not29 = icmp eq i32 %22, 0
   br i1 %.not29, label %.loopexit, label %23
 
 23:                                               ; preds = %18
-  %24 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p1, ptr noundef %7) #8
+  %24 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p1, ptr noundef %7) #9
   %25 = icmp ne i32 %24, 0
   %26 = zext i1 %25 to i32
-  %27 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 783, ptr noundef nonnull @.str.510, i32 noundef %26) #8
+  %27 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 783, ptr noundef nonnull @.str.510, i32 noundef %26) #9
   %.not30 = icmp eq i32 %27, 0
   br i1 %.not30, label %.loopexit, label %.preheader36
 
 .preheader36:                                     ; preds = %23, %50
   %.02039 = phi i32 [ %51, %50 ], [ 0, %23 ]
-  %28 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 1024, i32 noundef 0, i32 noundef 0) #8
+  %28 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 1024, i32 noundef 0, i32 noundef 0) #9
   %29 = icmp ne i32 %28, 0
   %30 = zext i1 %29 to i32
-  %31 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 787, ptr noundef nonnull @.str.97, i32 noundef %30) #8
+  %31 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 787, ptr noundef nonnull @.str.97, i32 noundef %30) #9
   %.not31 = icmp eq i32 %31, 0
   br i1 %.not31, label %.loopexit, label %.preheader
 
@@ -5295,31 +5295,31 @@ define internal range(i32 0, 2) i32 @test_gf2m_mod() #1 {
 .preheader:                                       ; preds = %.preheader36, %32
   %33 = phi i1 [ false, %32 ], [ true, %.preheader36 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %7, %32 ], [ %4, %.preheader36 ]
-  %34 = tail call i32 @BN_GF2m_mod(ptr noundef %10, ptr noundef %1, ptr noundef %indvars.iv.sroa.phi.sroa.speculated) #8
+  %34 = tail call i32 @BN_GF2m_mod(ptr noundef %10, ptr noundef %1, ptr noundef %indvars.iv.sroa.phi.sroa.speculated) #9
   %35 = icmp ne i32 %34, 0
   %36 = zext i1 %35 to i32
-  %37 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 790, ptr noundef nonnull @.str.511, i32 noundef %36) #8
+  %37 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 790, ptr noundef nonnull @.str.511, i32 noundef %36) #9
   %.not32 = icmp eq i32 %37, 0
   br i1 %.not32, label %.loopexit, label %38
 
 38:                                               ; preds = %.preheader
-  %39 = tail call i32 @BN_GF2m_add(ptr noundef %13, ptr noundef %1, ptr noundef %10) #8
+  %39 = tail call i32 @BN_GF2m_add(ptr noundef %13, ptr noundef %1, ptr noundef %10) #9
   %40 = icmp ne i32 %39, 0
   %41 = zext i1 %40 to i32
-  %42 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 791, ptr noundef nonnull @.str.512, i32 noundef %41) #8
+  %42 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 791, ptr noundef nonnull @.str.512, i32 noundef %41) #9
   %.not33 = icmp eq i32 %42, 0
   br i1 %.not33, label %.loopexit, label %43
 
 43:                                               ; preds = %38
-  %44 = tail call i32 @BN_GF2m_mod(ptr noundef %16, ptr noundef %13, ptr noundef %indvars.iv.sroa.phi.sroa.speculated) #8
+  %44 = tail call i32 @BN_GF2m_mod(ptr noundef %16, ptr noundef %13, ptr noundef %indvars.iv.sroa.phi.sroa.speculated) #9
   %45 = icmp ne i32 %44, 0
   %46 = zext i1 %45 to i32
-  %47 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 792, ptr noundef nonnull @.str.513, i32 noundef %46) #8
+  %47 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 792, ptr noundef nonnull @.str.513, i32 noundef %46) #9
   %.not34 = icmp eq i32 %47, 0
   br i1 %.not34, label %.loopexit, label %48
 
 48:                                               ; preds = %43
-  %49 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 794, ptr noundef nonnull @.str.101, ptr noundef %16) #8
+  %49 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 794, ptr noundef nonnull @.str.101, ptr noundef %16) #9
   %.not35 = icmp eq i32 %49, 0
   br i1 %.not35, label %.loopexit, label %32
 
@@ -5335,108 +5335,108 @@ define internal range(i32 0, 2) i32 @test_gf2m_mod() #1 {
   %.022 = phi ptr [ null, %0 ], [ null, %3 ], [ null, %6 ], [ null, %9 ], [ %13, %12 ], [ %13, %15 ], [ %13, %18 ], [ %13, %23 ], [ %13, %48 ], [ %13, %43 ], [ %13, %38 ], [ %13, %.preheader ], [ %13, %.preheader36 ], [ %13, %50 ]
   %.021 = phi ptr [ null, %0 ], [ null, %3 ], [ null, %6 ], [ null, %9 ], [ null, %12 ], [ %16, %15 ], [ %16, %18 ], [ %16, %23 ], [ %16, %48 ], [ %16, %43 ], [ %16, %38 ], [ %16, %.preheader ], [ %16, %.preheader36 ], [ %16, %50 ]
   %.0 = phi i32 [ 0, %0 ], [ 0, %3 ], [ 0, %6 ], [ 0, %9 ], [ 0, %12 ], [ 0, %15 ], [ 0, %18 ], [ 0, %23 ], [ 0, %48 ], [ 0, %43 ], [ 0, %38 ], [ 0, %.preheader ], [ 1, %50 ], [ 0, %.preheader36 ]
-  tail call void @BN_free(ptr noundef %1) #8
-  tail call void @BN_free(ptr noundef %.sroa.0.0) #8
-  tail call void @BN_free(ptr noundef %52) #8
-  tail call void @BN_free(ptr noundef %.023) #8
-  tail call void @BN_free(ptr noundef %.022) #8
-  tail call void @BN_free(ptr noundef %.021) #8
+  tail call void @BN_free(ptr noundef %1) #9
+  tail call void @BN_free(ptr noundef %.sroa.0.0) #9
+  tail call void @BN_free(ptr noundef %52) #9
+  tail call void @BN_free(ptr noundef %.023) #9
+  tail call void @BN_free(ptr noundef %.022) #9
+  tail call void @BN_free(ptr noundef %.021) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_gf2m_mul() #1 {
-  %1 = tail call ptr @BN_new() #8
-  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 815, ptr noundef nonnull @.str.63, ptr noundef %1) #8
+  %1 = tail call ptr @BN_new() #9
+  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 815, ptr noundef nonnull @.str.63, ptr noundef %1) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @BN_new() #8
-  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 816, ptr noundef nonnull @.str.507, ptr noundef %4) #8
+  %4 = tail call ptr @BN_new() #9
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 816, ptr noundef nonnull @.str.507, ptr noundef %4) #9
   %.not44 = icmp eq i32 %5, 0
   br i1 %.not44, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @BN_new() #8
-  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 817, ptr noundef nonnull @.str.508, ptr noundef %7) #8
+  %7 = tail call ptr @BN_new() #9
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 817, ptr noundef nonnull @.str.508, ptr noundef %7) #9
   %.not45 = icmp eq i32 %8, 0
   br i1 %.not45, label %.loopexit, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @BN_new() #8
-  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 818, ptr noundef nonnull @.str.65, ptr noundef %10) #8
+  %10 = tail call ptr @BN_new() #9
+  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 818, ptr noundef nonnull @.str.65, ptr noundef %10) #9
   %.not46 = icmp eq i32 %11, 0
   br i1 %.not46, label %.loopexit, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call ptr @BN_new() #8
-  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 819, ptr noundef nonnull @.str.76, ptr noundef %13) #8
+  %13 = tail call ptr @BN_new() #9
+  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 819, ptr noundef nonnull @.str.76, ptr noundef %13) #9
   %.not47 = icmp eq i32 %14, 0
   br i1 %.not47, label %.loopexit, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call ptr @BN_new() #8
-  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 820, ptr noundef nonnull @.str.77, ptr noundef %16) #8
+  %16 = tail call ptr @BN_new() #9
+  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 820, ptr noundef nonnull @.str.77, ptr noundef %16) #9
   %.not48 = icmp eq i32 %17, 0
   br i1 %.not48, label %.loopexit, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call ptr @BN_new() #8
-  %20 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 821, ptr noundef nonnull @.str.514, ptr noundef %19) #8
+  %19 = tail call ptr @BN_new() #9
+  %20 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 821, ptr noundef nonnull @.str.514, ptr noundef %19) #9
   %.not49 = icmp eq i32 %20, 0
   br i1 %.not49, label %.loopexit, label %21
 
 21:                                               ; preds = %18
-  %22 = tail call ptr @BN_new() #8
-  %23 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 822, ptr noundef nonnull @.str.515, ptr noundef %22) #8
+  %22 = tail call ptr @BN_new() #9
+  %23 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 822, ptr noundef nonnull @.str.515, ptr noundef %22) #9
   %.not50 = icmp eq i32 %23, 0
   br i1 %.not50, label %.loopexit, label %24
 
 24:                                               ; preds = %21
-  %25 = tail call ptr @BN_new() #8
-  %26 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 823, ptr noundef nonnull @.str.516, ptr noundef %25) #8
+  %25 = tail call ptr @BN_new() #9
+  %26 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 823, ptr noundef nonnull @.str.516, ptr noundef %25) #9
   %.not51 = icmp eq i32 %26, 0
   br i1 %.not51, label %.loopexit, label %27
 
 27:                                               ; preds = %24
-  %28 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p0, ptr noundef %4) #8
+  %28 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p0, ptr noundef %4) #9
   %29 = icmp ne i32 %28, 0
   %30 = zext i1 %29 to i32
-  %31 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 826, ptr noundef nonnull @.str.509, i32 noundef %30) #8
+  %31 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 826, ptr noundef nonnull @.str.509, i32 noundef %30) #9
   %.not52 = icmp eq i32 %31, 0
   br i1 %.not52, label %.loopexit, label %32
 
 32:                                               ; preds = %27
-  %33 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p1, ptr noundef %7) #8
+  %33 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p1, ptr noundef %7) #9
   %34 = icmp ne i32 %33, 0
   %35 = zext i1 %34 to i32
-  %36 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 827, ptr noundef nonnull @.str.510, i32 noundef %35) #8
+  %36 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 827, ptr noundef nonnull @.str.510, i32 noundef %35) #9
   %.not53 = icmp eq i32 %36, 0
   br i1 %.not53, label %.loopexit, label %.preheader64
 
 .preheader64:                                     ; preds = %32, %87
   %.03767 = phi i32 [ %88, %87 ], [ 0, %32 ]
-  %37 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 1024, i32 noundef 0, i32 noundef 0) #8
+  %37 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 1024, i32 noundef 0, i32 noundef 0) #9
   %38 = icmp ne i32 %37, 0
   %39 = zext i1 %38 to i32
-  %40 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 831, ptr noundef nonnull @.str.97, i32 noundef %39) #8
+  %40 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 831, ptr noundef nonnull @.str.97, i32 noundef %39) #9
   %.not54 = icmp eq i32 %40, 0
   br i1 %.not54, label %.loopexit, label %41
 
 41:                                               ; preds = %.preheader64
-  %42 = tail call i32 @BN_bntest_rand(ptr noundef %10, i32 noundef 1024, i32 noundef 0, i32 noundef 0) #8
+  %42 = tail call i32 @BN_bntest_rand(ptr noundef %10, i32 noundef 1024, i32 noundef 0, i32 noundef 0) #9
   %43 = icmp ne i32 %42, 0
   %44 = zext i1 %43 to i32
-  %45 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 832, ptr noundef nonnull @.str.517, i32 noundef %44) #8
+  %45 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 832, ptr noundef nonnull @.str.517, i32 noundef %44) #9
   %.not55 = icmp eq i32 %45, 0
   br i1 %.not55, label %.loopexit, label %46
 
 46:                                               ; preds = %41
-  %47 = tail call i32 @BN_bntest_rand(ptr noundef %13, i32 noundef 1024, i32 noundef 0, i32 noundef 0) #8
+  %47 = tail call i32 @BN_bntest_rand(ptr noundef %13, i32 noundef 1024, i32 noundef 0, i32 noundef 0) #9
   %48 = icmp ne i32 %47, 0
   %49 = zext i1 %48 to i32
-  %50 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 833, ptr noundef nonnull @.str.518, i32 noundef %49) #8
+  %50 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 833, ptr noundef nonnull @.str.518, i32 noundef %49) #9
   %.not56 = icmp eq i32 %50, 0
   br i1 %.not56, label %.loopexit, label %.preheader
 
@@ -5447,57 +5447,57 @@ define internal range(i32 0, 2) i32 @test_gf2m_mul() #1 {
   %52 = phi i1 [ false, %51 ], [ true, %46 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %7, %51 ], [ %4, %46 ]
   %53 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %54 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %16, ptr noundef %1, ptr noundef %10, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %53) #8
+  %54 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %16, ptr noundef %1, ptr noundef %10, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %53) #9
   %55 = icmp ne i32 %54, 0
   %56 = zext i1 %55 to i32
-  %57 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 836, ptr noundef nonnull @.str.519, i32 noundef %56) #8
+  %57 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 836, ptr noundef nonnull @.str.519, i32 noundef %56) #9
   %.not57 = icmp eq i32 %57, 0
   br i1 %.not57, label %.loopexit, label %58
 
 58:                                               ; preds = %.preheader
-  %59 = tail call i32 @BN_GF2m_add(ptr noundef %19, ptr noundef %1, ptr noundef %13) #8
+  %59 = tail call i32 @BN_GF2m_add(ptr noundef %19, ptr noundef %1, ptr noundef %13) #9
   %60 = icmp ne i32 %59, 0
   %61 = zext i1 %60 to i32
-  %62 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 837, ptr noundef nonnull @.str.520, i32 noundef %61) #8
+  %62 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 837, ptr noundef nonnull @.str.520, i32 noundef %61) #9
   %.not58 = icmp eq i32 %62, 0
   br i1 %.not58, label %.loopexit, label %63
 
 63:                                               ; preds = %58
   %64 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %65 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %22, ptr noundef %19, ptr noundef %10, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %64) #8
+  %65 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %22, ptr noundef %19, ptr noundef %10, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %64) #9
   %66 = icmp ne i32 %65, 0
   %67 = zext i1 %66 to i32
-  %68 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 838, ptr noundef nonnull @.str.521, i32 noundef %67) #8
+  %68 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 838, ptr noundef nonnull @.str.521, i32 noundef %67) #9
   %.not59 = icmp eq i32 %68, 0
   br i1 %.not59, label %.loopexit, label %69
 
 69:                                               ; preds = %63
   %70 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %71 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %25, ptr noundef %13, ptr noundef %10, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %70) #8
+  %71 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %25, ptr noundef %13, ptr noundef %10, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %70) #9
   %72 = icmp ne i32 %71, 0
   %73 = zext i1 %72 to i32
-  %74 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 839, ptr noundef nonnull @.str.522, i32 noundef %73) #8
+  %74 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 839, ptr noundef nonnull @.str.522, i32 noundef %73) #9
   %.not60 = icmp eq i32 %74, 0
   br i1 %.not60, label %.loopexit, label %75
 
 75:                                               ; preds = %69
-  %76 = tail call i32 @BN_GF2m_add(ptr noundef %19, ptr noundef %16, ptr noundef %22) #8
+  %76 = tail call i32 @BN_GF2m_add(ptr noundef %19, ptr noundef %16, ptr noundef %22) #9
   %77 = icmp ne i32 %76, 0
   %78 = zext i1 %77 to i32
-  %79 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 840, ptr noundef nonnull @.str.523, i32 noundef %78) #8
+  %79 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 840, ptr noundef nonnull @.str.523, i32 noundef %78) #9
   %.not61 = icmp eq i32 %79, 0
   br i1 %.not61, label %.loopexit, label %80
 
 80:                                               ; preds = %75
-  %81 = tail call i32 @BN_GF2m_add(ptr noundef %19, ptr noundef %19, ptr noundef %25) #8
+  %81 = tail call i32 @BN_GF2m_add(ptr noundef %19, ptr noundef %19, ptr noundef %25) #9
   %82 = icmp ne i32 %81, 0
   %83 = zext i1 %82 to i32
-  %84 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 841, ptr noundef nonnull @.str.524, i32 noundef %83) #8
+  %84 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 841, ptr noundef nonnull @.str.524, i32 noundef %83) #9
   %.not62 = icmp eq i32 %84, 0
   br i1 %.not62, label %.loopexit, label %85
 
 85:                                               ; preds = %80
-  %86 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 843, ptr noundef nonnull @.str.525, ptr noundef %19) #8
+  %86 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 843, ptr noundef nonnull @.str.525, ptr noundef %19) #9
   %.not63 = icmp eq i32 %86, 0
   br i1 %.not63, label %.loopexit, label %51
 
@@ -5516,71 +5516,71 @@ define internal range(i32 0, 2) i32 @test_gf2m_mul() #1 {
   %.039 = phi ptr [ null, %0 ], [ null, %3 ], [ null, %6 ], [ null, %9 ], [ null, %12 ], [ null, %15 ], [ null, %18 ], [ %22, %21 ], [ %22, %24 ], [ %22, %27 ], [ %22, %32 ], [ %22, %85 ], [ %22, %80 ], [ %22, %75 ], [ %22, %69 ], [ %22, %63 ], [ %22, %58 ], [ %22, %.preheader ], [ %22, %46 ], [ %22, %41 ], [ %22, %.preheader64 ], [ %22, %87 ]
   %.038 = phi ptr [ null, %0 ], [ null, %3 ], [ null, %6 ], [ null, %9 ], [ null, %12 ], [ null, %15 ], [ null, %18 ], [ null, %21 ], [ %25, %24 ], [ %25, %27 ], [ %25, %32 ], [ %25, %85 ], [ %25, %80 ], [ %25, %75 ], [ %25, %69 ], [ %25, %63 ], [ %25, %58 ], [ %25, %.preheader ], [ %25, %46 ], [ %25, %41 ], [ %25, %.preheader64 ], [ %25, %87 ]
   %.0 = phi i32 [ 0, %0 ], [ 0, %3 ], [ 0, %6 ], [ 0, %9 ], [ 0, %12 ], [ 0, %15 ], [ 0, %18 ], [ 0, %21 ], [ 0, %24 ], [ 0, %27 ], [ 0, %32 ], [ 0, %85 ], [ 0, %80 ], [ 0, %75 ], [ 0, %69 ], [ 0, %63 ], [ 0, %58 ], [ 0, %.preheader ], [ 1, %87 ], [ 0, %.preheader64 ], [ 0, %41 ], [ 0, %46 ]
-  tail call void @BN_free(ptr noundef %1) #8
-  tail call void @BN_free(ptr noundef %.sroa.0.0) #8
-  tail call void @BN_free(ptr noundef %89) #8
-  tail call void @BN_free(ptr noundef %.043) #8
-  tail call void @BN_free(ptr noundef %.042) #8
-  tail call void @BN_free(ptr noundef %.041) #8
-  tail call void @BN_free(ptr noundef %.040) #8
-  tail call void @BN_free(ptr noundef %.039) #8
-  tail call void @BN_free(ptr noundef %.038) #8
+  tail call void @BN_free(ptr noundef %1) #9
+  tail call void @BN_free(ptr noundef %.sroa.0.0) #9
+  tail call void @BN_free(ptr noundef %89) #9
+  tail call void @BN_free(ptr noundef %.043) #9
+  tail call void @BN_free(ptr noundef %.042) #9
+  tail call void @BN_free(ptr noundef %.041) #9
+  tail call void @BN_free(ptr noundef %.040) #9
+  tail call void @BN_free(ptr noundef %.039) #9
+  tail call void @BN_free(ptr noundef %.038) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_gf2m_sqr() #1 {
-  %1 = tail call ptr @BN_new() #8
-  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 867, ptr noundef nonnull @.str.63, ptr noundef %1) #8
+  %1 = tail call ptr @BN_new() #9
+  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 867, ptr noundef nonnull @.str.63, ptr noundef %1) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @BN_new() #8
-  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 868, ptr noundef nonnull @.str.507, ptr noundef %4) #8
+  %4 = tail call ptr @BN_new() #9
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 868, ptr noundef nonnull @.str.507, ptr noundef %4) #9
   %.not25 = icmp eq i32 %5, 0
   br i1 %.not25, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @BN_new() #8
-  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 869, ptr noundef nonnull @.str.508, ptr noundef %7) #8
+  %7 = tail call ptr @BN_new() #9
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 869, ptr noundef nonnull @.str.508, ptr noundef %7) #9
   %.not26 = icmp eq i32 %8, 0
   br i1 %.not26, label %.loopexit, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @BN_new() #8
-  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 870, ptr noundef nonnull @.str.65, ptr noundef %10) #8
+  %10 = tail call ptr @BN_new() #9
+  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 870, ptr noundef nonnull @.str.65, ptr noundef %10) #9
   %.not27 = icmp eq i32 %11, 0
   br i1 %.not27, label %.loopexit, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call ptr @BN_new() #8
-  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 871, ptr noundef nonnull @.str.76, ptr noundef %13) #8
+  %13 = tail call ptr @BN_new() #9
+  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 871, ptr noundef nonnull @.str.76, ptr noundef %13) #9
   %.not28 = icmp eq i32 %14, 0
   br i1 %.not28, label %.loopexit, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p0, ptr noundef %4) #8
+  %16 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p0, ptr noundef %4) #9
   %17 = icmp ne i32 %16, 0
   %18 = zext i1 %17 to i32
-  %19 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 874, ptr noundef nonnull @.str.509, i32 noundef %18) #8
+  %19 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 874, ptr noundef nonnull @.str.509, i32 noundef %18) #9
   %.not29 = icmp eq i32 %19, 0
   br i1 %.not29, label %.loopexit, label %20
 
 20:                                               ; preds = %15
-  %21 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p1, ptr noundef %7) #8
+  %21 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p1, ptr noundef %7) #9
   %22 = icmp ne i32 %21, 0
   %23 = zext i1 %22 to i32
-  %24 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 875, ptr noundef nonnull @.str.510, i32 noundef %23) #8
+  %24 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 875, ptr noundef nonnull @.str.510, i32 noundef %23) #9
   %.not30 = icmp eq i32 %24, 0
   br i1 %.not30, label %.loopexit, label %.preheader37
 
 .preheader37:                                     ; preds = %20, %54
   %.02240 = phi i32 [ %55, %54 ], [ 0, %20 ]
-  %25 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 1024, i32 noundef 0, i32 noundef 0) #8
+  %25 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 1024, i32 noundef 0, i32 noundef 0) #9
   %26 = icmp ne i32 %25, 0
   %27 = zext i1 %26 to i32
-  %28 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 879, ptr noundef nonnull @.str.97, i32 noundef %27) #8
+  %28 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 879, ptr noundef nonnull @.str.97, i32 noundef %27) #9
   %.not31 = icmp eq i32 %28, 0
   br i1 %.not31, label %.loopexit, label %.preheader
 
@@ -5591,40 +5591,40 @@ define internal range(i32 0, 2) i32 @test_gf2m_sqr() #1 {
   %30 = phi i1 [ false, %29 ], [ true, %.preheader37 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %7, %29 ], [ %4, %.preheader37 ]
   %31 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %32 = tail call i32 @BN_GF2m_mod_sqr(ptr noundef %10, ptr noundef %1, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %31) #8
+  %32 = tail call i32 @BN_GF2m_mod_sqr(ptr noundef %10, ptr noundef %1, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %31) #9
   %33 = icmp ne i32 %32, 0
   %34 = zext i1 %33 to i32
-  %35 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 882, ptr noundef nonnull @.str.526, i32 noundef %34) #8
+  %35 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 882, ptr noundef nonnull @.str.526, i32 noundef %34) #9
   %.not32 = icmp eq i32 %35, 0
   br i1 %.not32, label %.loopexit, label %36
 
 36:                                               ; preds = %.preheader
-  %37 = tail call ptr @BN_copy(ptr noundef %13, ptr noundef %1) #8
+  %37 = tail call ptr @BN_copy(ptr noundef %13, ptr noundef %1) #9
   %38 = icmp ne ptr %37, null
   %39 = zext i1 %38 to i32
-  %40 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 883, ptr noundef nonnull @.str.527, i32 noundef %39) #8
+  %40 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 883, ptr noundef nonnull @.str.527, i32 noundef %39) #9
   %.not33 = icmp eq i32 %40, 0
   br i1 %.not33, label %.loopexit, label %41
 
 41:                                               ; preds = %36
   %42 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %43 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %13, ptr noundef %1, ptr noundef %13, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %42) #8
+  %43 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %13, ptr noundef %1, ptr noundef %13, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %42) #9
   %44 = icmp ne i32 %43, 0
   %45 = zext i1 %44 to i32
-  %46 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 884, ptr noundef nonnull @.str.528, i32 noundef %45) #8
+  %46 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 884, ptr noundef nonnull @.str.528, i32 noundef %45) #9
   %.not34 = icmp eq i32 %46, 0
   br i1 %.not34, label %.loopexit, label %47
 
 47:                                               ; preds = %41
-  %48 = tail call i32 @BN_GF2m_add(ptr noundef %13, ptr noundef %10, ptr noundef %13) #8
+  %48 = tail call i32 @BN_GF2m_add(ptr noundef %13, ptr noundef %10, ptr noundef %13) #9
   %49 = icmp ne i32 %48, 0
   %50 = zext i1 %49 to i32
-  %51 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 885, ptr noundef nonnull @.str.529, i32 noundef %50) #8
+  %51 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 885, ptr noundef nonnull @.str.529, i32 noundef %50) #9
   %.not35 = icmp eq i32 %51, 0
   br i1 %.not35, label %.loopexit, label %52
 
 52:                                               ; preds = %47
-  %53 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 887, ptr noundef nonnull @.str.88, ptr noundef %13) #8
+  %53 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 887, ptr noundef nonnull @.str.88, ptr noundef %13) #9
   %.not36 = icmp eq i32 %53, 0
   br i1 %.not36, label %.loopexit, label %29
 
@@ -5639,92 +5639,92 @@ define internal range(i32 0, 2) i32 @test_gf2m_sqr() #1 {
   %.024 = phi ptr [ null, %0 ], [ null, %3 ], [ null, %6 ], [ %10, %9 ], [ %10, %12 ], [ %10, %15 ], [ %10, %20 ], [ %10, %52 ], [ %10, %47 ], [ %10, %41 ], [ %10, %36 ], [ %10, %.preheader ], [ %10, %.preheader37 ], [ %10, %54 ]
   %.023 = phi ptr [ null, %0 ], [ null, %3 ], [ null, %6 ], [ null, %9 ], [ %13, %12 ], [ %13, %15 ], [ %13, %20 ], [ %13, %52 ], [ %13, %47 ], [ %13, %41 ], [ %13, %36 ], [ %13, %.preheader ], [ %13, %.preheader37 ], [ %13, %54 ]
   %.0 = phi i32 [ 0, %0 ], [ 0, %3 ], [ 0, %6 ], [ 0, %9 ], [ 0, %12 ], [ 0, %15 ], [ 0, %20 ], [ 0, %52 ], [ 0, %47 ], [ 0, %41 ], [ 0, %36 ], [ 0, %.preheader ], [ 1, %54 ], [ 0, %.preheader37 ]
-  tail call void @BN_free(ptr noundef %1) #8
-  tail call void @BN_free(ptr noundef %.sroa.0.0) #8
-  tail call void @BN_free(ptr noundef %56) #8
-  tail call void @BN_free(ptr noundef %.024) #8
-  tail call void @BN_free(ptr noundef %.023) #8
+  tail call void @BN_free(ptr noundef %1) #9
+  tail call void @BN_free(ptr noundef %.sroa.0.0) #9
+  tail call void @BN_free(ptr noundef %56) #9
+  tail call void @BN_free(ptr noundef %.024) #9
+  tail call void @BN_free(ptr noundef %.023) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_gf2m_modinv() #1 {
-  %1 = tail call ptr @BN_new() #8
-  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 906, ptr noundef nonnull @.str.63, ptr noundef %1) #8
+  %1 = tail call ptr @BN_new() #9
+  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 906, ptr noundef nonnull @.str.63, ptr noundef %1) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @BN_new() #8
-  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 907, ptr noundef nonnull @.str.507, ptr noundef %4) #8
+  %4 = tail call ptr @BN_new() #9
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 907, ptr noundef nonnull @.str.507, ptr noundef %4) #9
   %.not23 = icmp eq i32 %5, 0
   br i1 %.not23, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @BN_new() #8
-  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 908, ptr noundef nonnull @.str.508, ptr noundef %7) #8
+  %7 = tail call ptr @BN_new() #9
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 908, ptr noundef nonnull @.str.508, ptr noundef %7) #9
   %.not24 = icmp eq i32 %8, 0
   br i1 %.not24, label %.loopexit, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @BN_new() #8
-  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 909, ptr noundef nonnull @.str.65, ptr noundef %10) #8
+  %10 = tail call ptr @BN_new() #9
+  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 909, ptr noundef nonnull @.str.65, ptr noundef %10) #9
   %.not25 = icmp eq i32 %11, 0
   br i1 %.not25, label %.loopexit, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call ptr @BN_new() #8
-  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 910, ptr noundef nonnull @.str.76, ptr noundef %13) #8
+  %13 = tail call ptr @BN_new() #9
+  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 910, ptr noundef nonnull @.str.76, ptr noundef %13) #9
   %.not26 = icmp eq i32 %14, 0
   br i1 %.not26, label %.loopexit, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call i32 @BN_set_word(ptr noundef %4, i64 noundef 1) #8
+  %16 = tail call i32 @BN_set_word(ptr noundef %4, i64 noundef 1) #9
   %17 = icmp ne i32 %16, 0
   %18 = zext i1 %17 to i32
-  %19 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 914, ptr noundef nonnull @.str.530, i32 noundef %18) #8
+  %19 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 914, ptr noundef nonnull @.str.530, i32 noundef %18) #9
   %.not27 = icmp eq i32 %19, 0
   br i1 %.not27, label %.loopexit, label %20
 
 20:                                               ; preds = %15
-  %21 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 512, i32 noundef 0, i32 noundef 0) #8
+  %21 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 512, i32 noundef 0, i32 noundef 0) #9
   %22 = icmp ne i32 %21, 0
   %23 = zext i1 %22 to i32
-  %24 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 916, ptr noundef nonnull @.str.66, i32 noundef %23) #8
+  %24 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 916, ptr noundef nonnull @.str.66, i32 noundef %23) #9
   %.not28 = icmp eq i32 %24, 0
   br i1 %.not28, label %.loopexit, label %25
 
 25:                                               ; preds = %20
   %26 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %27 = tail call i32 @BN_GF2m_mod_inv(ptr noundef %10, ptr noundef %1, ptr noundef %4, ptr noundef %26) #8
+  %27 = tail call i32 @BN_GF2m_mod_inv(ptr noundef %10, ptr noundef %1, ptr noundef %4, ptr noundef %26) #9
   %28 = icmp ne i32 %27, 0
   %29 = zext i1 %28 to i32
-  %30 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 918, ptr noundef nonnull @.str.531, i32 noundef %29) #8
+  %30 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 918, ptr noundef nonnull @.str.531, i32 noundef %29) #9
   %.not29 = icmp eq i32 %30, 0
   br i1 %.not29, label %.loopexit, label %31
 
 31:                                               ; preds = %25
-  %32 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p0, ptr noundef %4) #8
+  %32 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p0, ptr noundef %4) #9
   %33 = icmp ne i32 %32, 0
   %34 = zext i1 %33 to i32
-  %35 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 921, ptr noundef nonnull @.str.509, i32 noundef %34) #8
+  %35 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 921, ptr noundef nonnull @.str.509, i32 noundef %34) #9
   %.not30 = icmp eq i32 %35, 0
   br i1 %.not30, label %.loopexit, label %36
 
 36:                                               ; preds = %31
-  %37 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p1, ptr noundef %7) #8
+  %37 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p1, ptr noundef %7) #9
   %38 = icmp ne i32 %37, 0
   %39 = zext i1 %38 to i32
-  %40 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 922, ptr noundef nonnull @.str.510, i32 noundef %39) #8
+  %40 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 922, ptr noundef nonnull @.str.510, i32 noundef %39) #9
   %.not31 = icmp eq i32 %40, 0
   br i1 %.not31, label %.loopexit, label %.preheader36
 
 .preheader36:                                     ; preds = %36, %60
   %.02039 = phi i32 [ %61, %60 ], [ 0, %36 ]
-  %41 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 512, i32 noundef 0, i32 noundef 0) #8
+  %41 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 512, i32 noundef 0, i32 noundef 0) #9
   %42 = icmp ne i32 %41, 0
   %43 = zext i1 %42 to i32
-  %44 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 926, ptr noundef nonnull @.str.66, i32 noundef %43) #8
+  %44 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 926, ptr noundef nonnull @.str.66, i32 noundef %43) #9
   %.not32 = icmp eq i32 %44, 0
   br i1 %.not32, label %.loopexit, label %.preheader
 
@@ -5735,24 +5735,24 @@ define internal range(i32 0, 2) i32 @test_gf2m_modinv() #1 {
   %46 = phi i1 [ false, %45 ], [ true, %.preheader36 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %7, %45 ], [ %4, %.preheader36 ]
   %47 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %48 = tail call i32 @BN_GF2m_mod_inv(ptr noundef %10, ptr noundef %1, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %47) #8
+  %48 = tail call i32 @BN_GF2m_mod_inv(ptr noundef %10, ptr noundef %1, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %47) #9
   %49 = icmp ne i32 %48, 0
   %50 = zext i1 %49 to i32
-  %51 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 929, ptr noundef nonnull @.str.532, i32 noundef %50) #8
+  %51 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 929, ptr noundef nonnull @.str.532, i32 noundef %50) #9
   %.not33 = icmp eq i32 %51, 0
   br i1 %.not33, label %.loopexit, label %52
 
 52:                                               ; preds = %.preheader
   %53 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %54 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %13, ptr noundef %1, ptr noundef %10, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %53) #8
+  %54 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %13, ptr noundef %1, ptr noundef %10, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %53) #9
   %55 = icmp ne i32 %54, 0
   %56 = zext i1 %55 to i32
-  %57 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 930, ptr noundef nonnull @.str.533, i32 noundef %56) #8
+  %57 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 930, ptr noundef nonnull @.str.533, i32 noundef %56) #9
   %.not34 = icmp eq i32 %57, 0
   br i1 %.not34, label %.loopexit, label %58
 
 58:                                               ; preds = %52
-  %59 = tail call i32 @test_BN_eq_one(ptr noundef nonnull @.str.17, i32 noundef 932, ptr noundef nonnull @.str.88, ptr noundef %13) #8
+  %59 = tail call i32 @test_BN_eq_one(ptr noundef nonnull @.str.17, i32 noundef 932, ptr noundef nonnull @.str.88, ptr noundef %13) #9
   %.not35 = icmp eq i32 %59, 0
   br i1 %.not35, label %.loopexit, label %45
 
@@ -5767,87 +5767,87 @@ define internal range(i32 0, 2) i32 @test_gf2m_modinv() #1 {
   %.022 = phi ptr [ null, %0 ], [ null, %3 ], [ null, %6 ], [ %10, %9 ], [ %10, %12 ], [ %10, %15 ], [ %10, %20 ], [ %10, %25 ], [ %10, %31 ], [ %10, %36 ], [ %10, %58 ], [ %10, %52 ], [ %10, %.preheader ], [ %10, %.preheader36 ], [ %10, %60 ]
   %.021 = phi ptr [ null, %0 ], [ null, %3 ], [ null, %6 ], [ null, %9 ], [ %13, %12 ], [ %13, %15 ], [ %13, %20 ], [ %13, %25 ], [ %13, %31 ], [ %13, %36 ], [ %13, %58 ], [ %13, %52 ], [ %13, %.preheader ], [ %13, %.preheader36 ], [ %13, %60 ]
   %.0 = phi i32 [ 0, %0 ], [ 0, %3 ], [ 0, %6 ], [ 0, %9 ], [ 0, %12 ], [ 0, %15 ], [ 0, %20 ], [ 0, %25 ], [ 0, %31 ], [ 0, %36 ], [ 0, %58 ], [ 0, %52 ], [ 0, %.preheader ], [ 1, %60 ], [ 0, %.preheader36 ]
-  tail call void @BN_free(ptr noundef %1) #8
-  tail call void @BN_free(ptr noundef %.sroa.0.0) #8
-  tail call void @BN_free(ptr noundef %62) #8
-  tail call void @BN_free(ptr noundef %.022) #8
-  tail call void @BN_free(ptr noundef %.021) #8
+  tail call void @BN_free(ptr noundef %1) #9
+  tail call void @BN_free(ptr noundef %.sroa.0.0) #9
+  tail call void @BN_free(ptr noundef %62) #9
+  tail call void @BN_free(ptr noundef %.022) #9
+  tail call void @BN_free(ptr noundef %.021) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_gf2m_moddiv() #1 {
-  %1 = tail call ptr @BN_new() #8
-  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 952, ptr noundef nonnull @.str.63, ptr noundef %1) #8
+  %1 = tail call ptr @BN_new() #9
+  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 952, ptr noundef nonnull @.str.63, ptr noundef %1) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @BN_new() #8
-  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 953, ptr noundef nonnull @.str.507, ptr noundef %4) #8
+  %4 = tail call ptr @BN_new() #9
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 953, ptr noundef nonnull @.str.507, ptr noundef %4) #9
   %.not30 = icmp eq i32 %5, 0
   br i1 %.not30, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @BN_new() #8
-  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 954, ptr noundef nonnull @.str.508, ptr noundef %7) #8
+  %7 = tail call ptr @BN_new() #9
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 954, ptr noundef nonnull @.str.508, ptr noundef %7) #9
   %.not31 = icmp eq i32 %8, 0
   br i1 %.not31, label %.loopexit, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @BN_new() #8
-  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 955, ptr noundef nonnull @.str.65, ptr noundef %10) #8
+  %10 = tail call ptr @BN_new() #9
+  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 955, ptr noundef nonnull @.str.65, ptr noundef %10) #9
   %.not32 = icmp eq i32 %11, 0
   br i1 %.not32, label %.loopexit, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call ptr @BN_new() #8
-  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 956, ptr noundef nonnull @.str.76, ptr noundef %13) #8
+  %13 = tail call ptr @BN_new() #9
+  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 956, ptr noundef nonnull @.str.76, ptr noundef %13) #9
   %.not33 = icmp eq i32 %14, 0
   br i1 %.not33, label %.loopexit, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call ptr @BN_new() #8
-  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 957, ptr noundef nonnull @.str.77, ptr noundef %16) #8
+  %16 = tail call ptr @BN_new() #9
+  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 957, ptr noundef nonnull @.str.77, ptr noundef %16) #9
   %.not34 = icmp eq i32 %17, 0
   br i1 %.not34, label %.loopexit, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call ptr @BN_new() #8
-  %20 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 958, ptr noundef nonnull @.str.514, ptr noundef %19) #8
+  %19 = tail call ptr @BN_new() #9
+  %20 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 958, ptr noundef nonnull @.str.514, ptr noundef %19) #9
   %.not35 = icmp eq i32 %20, 0
   br i1 %.not35, label %.loopexit, label %21
 
 21:                                               ; preds = %18
-  %22 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p0, ptr noundef %4) #8
+  %22 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p0, ptr noundef %4) #9
   %23 = icmp ne i32 %22, 0
   %24 = zext i1 %23 to i32
-  %25 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 961, ptr noundef nonnull @.str.509, i32 noundef %24) #8
+  %25 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 961, ptr noundef nonnull @.str.509, i32 noundef %24) #9
   %.not36 = icmp eq i32 %25, 0
   br i1 %.not36, label %.loopexit, label %26
 
 26:                                               ; preds = %21
-  %27 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p1, ptr noundef %7) #8
+  %27 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p1, ptr noundef %7) #9
   %28 = icmp ne i32 %27, 0
   %29 = zext i1 %28 to i32
-  %30 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 962, ptr noundef nonnull @.str.510, i32 noundef %29) #8
+  %30 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 962, ptr noundef nonnull @.str.510, i32 noundef %29) #9
   %.not37 = icmp eq i32 %30, 0
   br i1 %.not37, label %.loopexit, label %.preheader44
 
 .preheader44:                                     ; preds = %26, %61
   %.02547 = phi i32 [ %62, %61 ], [ 0, %26 ]
-  %31 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 512, i32 noundef 0, i32 noundef 0) #8
+  %31 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 512, i32 noundef 0, i32 noundef 0) #9
   %32 = icmp ne i32 %31, 0
   %33 = zext i1 %32 to i32
-  %34 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 966, ptr noundef nonnull @.str.66, i32 noundef %33) #8
+  %34 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 966, ptr noundef nonnull @.str.66, i32 noundef %33) #9
   %.not38 = icmp eq i32 %34, 0
   br i1 %.not38, label %.loopexit, label %35
 
 35:                                               ; preds = %.preheader44
-  %36 = tail call i32 @BN_bntest_rand(ptr noundef %10, i32 noundef 512, i32 noundef 0, i32 noundef 0) #8
+  %36 = tail call i32 @BN_bntest_rand(ptr noundef %10, i32 noundef 512, i32 noundef 0, i32 noundef 0) #9
   %37 = icmp ne i32 %36, 0
   %38 = zext i1 %37 to i32
-  %39 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 967, ptr noundef nonnull @.str.534, i32 noundef %38) #8
+  %39 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 967, ptr noundef nonnull @.str.534, i32 noundef %38) #9
   %.not39 = icmp eq i32 %39, 0
   br i1 %.not39, label %.loopexit, label %.preheader
 
@@ -5858,33 +5858,33 @@ define internal range(i32 0, 2) i32 @test_gf2m_moddiv() #1 {
   %41 = phi i1 [ false, %40 ], [ true, %35 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %7, %40 ], [ %4, %35 ]
   %42 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %43 = tail call i32 @BN_GF2m_mod_div(ptr noundef %13, ptr noundef %1, ptr noundef %10, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %42) #8
+  %43 = tail call i32 @BN_GF2m_mod_div(ptr noundef %13, ptr noundef %1, ptr noundef %10, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %42) #9
   %44 = icmp ne i32 %43, 0
   %45 = zext i1 %44 to i32
-  %46 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 970, ptr noundef nonnull @.str.535, i32 noundef %45) #8
+  %46 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 970, ptr noundef nonnull @.str.535, i32 noundef %45) #9
   %.not40 = icmp eq i32 %46, 0
   br i1 %.not40, label %.loopexit, label %47
 
 47:                                               ; preds = %.preheader
   %48 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %49 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %16, ptr noundef %13, ptr noundef %10, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %48) #8
+  %49 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %16, ptr noundef %13, ptr noundef %10, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %48) #9
   %50 = icmp ne i32 %49, 0
   %51 = zext i1 %50 to i32
-  %52 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 971, ptr noundef nonnull @.str.536, i32 noundef %51) #8
+  %52 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 971, ptr noundef nonnull @.str.536, i32 noundef %51) #9
   %.not41 = icmp eq i32 %52, 0
   br i1 %.not41, label %.loopexit, label %53
 
 53:                                               ; preds = %47
   %54 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %55 = tail call i32 @BN_GF2m_mod_div(ptr noundef %19, ptr noundef %1, ptr noundef %16, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %54) #8
+  %55 = tail call i32 @BN_GF2m_mod_div(ptr noundef %19, ptr noundef %1, ptr noundef %16, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %54) #9
   %56 = icmp ne i32 %55, 0
   %57 = zext i1 %56 to i32
-  %58 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 972, ptr noundef nonnull @.str.537, i32 noundef %57) #8
+  %58 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 972, ptr noundef nonnull @.str.537, i32 noundef %57) #9
   %.not42 = icmp eq i32 %58, 0
   br i1 %.not42, label %.loopexit, label %59
 
 59:                                               ; preds = %53
-  %60 = tail call i32 @test_BN_eq_one(ptr noundef nonnull @.str.17, i32 noundef 974, ptr noundef nonnull @.str.525, ptr noundef %19) #8
+  %60 = tail call i32 @test_BN_eq_one(ptr noundef nonnull @.str.17, i32 noundef 974, ptr noundef nonnull @.str.525, ptr noundef %19) #9
   %.not43 = icmp eq i32 %60, 0
   br i1 %.not43, label %.loopexit, label %40
 
@@ -5901,97 +5901,97 @@ define internal range(i32 0, 2) i32 @test_gf2m_moddiv() #1 {
   %.027 = phi ptr [ null, %0 ], [ null, %3 ], [ null, %6 ], [ null, %9 ], [ null, %12 ], [ %16, %15 ], [ %16, %18 ], [ %16, %21 ], [ %16, %26 ], [ %16, %59 ], [ %16, %53 ], [ %16, %47 ], [ %16, %.preheader ], [ %16, %35 ], [ %16, %.preheader44 ], [ %16, %61 ]
   %.026 = phi ptr [ null, %0 ], [ null, %3 ], [ null, %6 ], [ null, %9 ], [ null, %12 ], [ null, %15 ], [ %19, %18 ], [ %19, %21 ], [ %19, %26 ], [ %19, %59 ], [ %19, %53 ], [ %19, %47 ], [ %19, %.preheader ], [ %19, %35 ], [ %19, %.preheader44 ], [ %19, %61 ]
   %.0 = phi i32 [ 0, %0 ], [ 0, %3 ], [ 0, %6 ], [ 0, %9 ], [ 0, %12 ], [ 0, %15 ], [ 0, %18 ], [ 0, %21 ], [ 0, %26 ], [ 0, %59 ], [ 0, %53 ], [ 0, %47 ], [ 0, %.preheader ], [ 1, %61 ], [ 0, %.preheader44 ], [ 0, %35 ]
-  tail call void @BN_free(ptr noundef %1) #8
-  tail call void @BN_free(ptr noundef %.sroa.0.0) #8
-  tail call void @BN_free(ptr noundef %63) #8
-  tail call void @BN_free(ptr noundef %.029) #8
-  tail call void @BN_free(ptr noundef %.028) #8
-  tail call void @BN_free(ptr noundef %.027) #8
-  tail call void @BN_free(ptr noundef %.026) #8
+  tail call void @BN_free(ptr noundef %1) #9
+  tail call void @BN_free(ptr noundef %.sroa.0.0) #9
+  tail call void @BN_free(ptr noundef %63) #9
+  tail call void @BN_free(ptr noundef %.029) #9
+  tail call void @BN_free(ptr noundef %.028) #9
+  tail call void @BN_free(ptr noundef %.027) #9
+  tail call void @BN_free(ptr noundef %.026) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_gf2m_modexp() #1 {
-  %1 = tail call ptr @BN_new() #8
-  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 996, ptr noundef nonnull @.str.63, ptr noundef %1) #8
+  %1 = tail call ptr @BN_new() #9
+  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 996, ptr noundef nonnull @.str.63, ptr noundef %1) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @BN_new() #8
-  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 997, ptr noundef nonnull @.str.507, ptr noundef %4) #8
+  %4 = tail call ptr @BN_new() #9
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 997, ptr noundef nonnull @.str.507, ptr noundef %4) #9
   %.not41 = icmp eq i32 %5, 0
   br i1 %.not41, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @BN_new() #8
-  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 998, ptr noundef nonnull @.str.508, ptr noundef %7) #8
+  %7 = tail call ptr @BN_new() #9
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 998, ptr noundef nonnull @.str.508, ptr noundef %7) #9
   %.not42 = icmp eq i32 %8, 0
   br i1 %.not42, label %.loopexit, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @BN_new() #8
-  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 999, ptr noundef nonnull @.str.65, ptr noundef %10) #8
+  %10 = tail call ptr @BN_new() #9
+  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 999, ptr noundef nonnull @.str.65, ptr noundef %10) #9
   %.not43 = icmp eq i32 %11, 0
   br i1 %.not43, label %.loopexit, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call ptr @BN_new() #8
-  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1000, ptr noundef nonnull @.str.76, ptr noundef %13) #8
+  %13 = tail call ptr @BN_new() #9
+  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1000, ptr noundef nonnull @.str.76, ptr noundef %13) #9
   %.not44 = icmp eq i32 %14, 0
   br i1 %.not44, label %.loopexit, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call ptr @BN_new() #8
-  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1001, ptr noundef nonnull @.str.77, ptr noundef %16) #8
+  %16 = tail call ptr @BN_new() #9
+  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1001, ptr noundef nonnull @.str.77, ptr noundef %16) #9
   %.not45 = icmp eq i32 %17, 0
   br i1 %.not45, label %.loopexit, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call ptr @BN_new() #8
-  %20 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1002, ptr noundef nonnull @.str.514, ptr noundef %19) #8
+  %19 = tail call ptr @BN_new() #9
+  %20 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1002, ptr noundef nonnull @.str.514, ptr noundef %19) #9
   %.not46 = icmp eq i32 %20, 0
   br i1 %.not46, label %.loopexit, label %21
 
 21:                                               ; preds = %18
-  %22 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p0, ptr noundef %4) #8
+  %22 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p0, ptr noundef %4) #9
   %23 = icmp ne i32 %22, 0
   %24 = zext i1 %23 to i32
-  %25 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1005, ptr noundef nonnull @.str.509, i32 noundef %24) #8
+  %25 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1005, ptr noundef nonnull @.str.509, i32 noundef %24) #9
   %.not47 = icmp eq i32 %25, 0
   br i1 %.not47, label %.loopexit, label %26
 
 26:                                               ; preds = %21
-  %27 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p1, ptr noundef %7) #8
+  %27 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p1, ptr noundef %7) #9
   %28 = icmp ne i32 %27, 0
   %29 = zext i1 %28 to i32
-  %30 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1006, ptr noundef nonnull @.str.510, i32 noundef %29) #8
+  %30 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1006, ptr noundef nonnull @.str.510, i32 noundef %29) #9
   %.not48 = icmp eq i32 %30, 0
   br i1 %.not48, label %.loopexit, label %.preheader59
 
 .preheader59:                                     ; preds = %26, %82
   %.03662 = phi i32 [ %83, %82 ], [ 0, %26 ]
-  %31 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 512, i32 noundef 0, i32 noundef 0) #8
+  %31 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 512, i32 noundef 0, i32 noundef 0) #9
   %32 = icmp ne i32 %31, 0
   %33 = zext i1 %32 to i32
-  %34 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1010, ptr noundef nonnull @.str.66, i32 noundef %33) #8
+  %34 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1010, ptr noundef nonnull @.str.66, i32 noundef %33) #9
   %.not49 = icmp eq i32 %34, 0
   br i1 %.not49, label %.loopexit, label %35
 
 35:                                               ; preds = %.preheader59
-  %36 = tail call i32 @BN_bntest_rand(ptr noundef %10, i32 noundef 512, i32 noundef 0, i32 noundef 0) #8
+  %36 = tail call i32 @BN_bntest_rand(ptr noundef %10, i32 noundef 512, i32 noundef 0, i32 noundef 0) #9
   %37 = icmp ne i32 %36, 0
   %38 = zext i1 %37 to i32
-  %39 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1011, ptr noundef nonnull @.str.534, i32 noundef %38) #8
+  %39 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1011, ptr noundef nonnull @.str.534, i32 noundef %38) #9
   %.not50 = icmp eq i32 %39, 0
   br i1 %.not50, label %.loopexit, label %40
 
 40:                                               ; preds = %35
-  %41 = tail call i32 @BN_bntest_rand(ptr noundef %13, i32 noundef 512, i32 noundef 0, i32 noundef 0) #8
+  %41 = tail call i32 @BN_bntest_rand(ptr noundef %13, i32 noundef 512, i32 noundef 0, i32 noundef 0) #9
   %42 = icmp ne i32 %41, 0
   %43 = zext i1 %42 to i32
-  %44 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1012, ptr noundef nonnull @.str.538, i32 noundef %43) #8
+  %44 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1012, ptr noundef nonnull @.str.538, i32 noundef %43) #9
   %.not51 = icmp eq i32 %44, 0
   br i1 %.not51, label %.loopexit, label %.preheader
 
@@ -6002,58 +6002,58 @@ define internal range(i32 0, 2) i32 @test_gf2m_modexp() #1 {
   %46 = phi i1 [ false, %45 ], [ true, %40 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %7, %45 ], [ %4, %40 ]
   %47 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %48 = tail call i32 @BN_GF2m_mod_exp(ptr noundef %16, ptr noundef %1, ptr noundef %10, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %47) #8
+  %48 = tail call i32 @BN_GF2m_mod_exp(ptr noundef %16, ptr noundef %1, ptr noundef %10, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %47) #9
   %49 = icmp ne i32 %48, 0
   %50 = zext i1 %49 to i32
-  %51 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1015, ptr noundef nonnull @.str.539, i32 noundef %50) #8
+  %51 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1015, ptr noundef nonnull @.str.539, i32 noundef %50) #9
   %.not52 = icmp eq i32 %51, 0
   br i1 %.not52, label %.loopexit, label %52
 
 52:                                               ; preds = %.preheader
   %53 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %54 = tail call i32 @BN_GF2m_mod_exp(ptr noundef %19, ptr noundef %1, ptr noundef %13, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %53) #8
+  %54 = tail call i32 @BN_GF2m_mod_exp(ptr noundef %19, ptr noundef %1, ptr noundef %13, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %53) #9
   %55 = icmp ne i32 %54, 0
   %56 = zext i1 %55 to i32
-  %57 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1016, ptr noundef nonnull @.str.540, i32 noundef %56) #8
+  %57 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1016, ptr noundef nonnull @.str.540, i32 noundef %56) #9
   %.not53 = icmp eq i32 %57, 0
   br i1 %.not53, label %.loopexit, label %58
 
 58:                                               ; preds = %52
   %59 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %60 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %16, ptr noundef %16, ptr noundef %19, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %59) #8
+  %60 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %16, ptr noundef %16, ptr noundef %19, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %59) #9
   %61 = icmp ne i32 %60, 0
   %62 = zext i1 %61 to i32
-  %63 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1017, ptr noundef nonnull @.str.541, i32 noundef %62) #8
+  %63 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1017, ptr noundef nonnull @.str.541, i32 noundef %62) #9
   %.not54 = icmp eq i32 %63, 0
   br i1 %.not54, label %.loopexit, label %64
 
 64:                                               ; preds = %58
-  %65 = tail call i32 @BN_add(ptr noundef %19, ptr noundef %10, ptr noundef %13) #8
+  %65 = tail call i32 @BN_add(ptr noundef %19, ptr noundef %10, ptr noundef %13) #9
   %66 = icmp ne i32 %65, 0
   %67 = zext i1 %66 to i32
-  %68 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1018, ptr noundef nonnull @.str.542, i32 noundef %67) #8
+  %68 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1018, ptr noundef nonnull @.str.542, i32 noundef %67) #9
   %.not55 = icmp eq i32 %68, 0
   br i1 %.not55, label %.loopexit, label %69
 
 69:                                               ; preds = %64
   %70 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %71 = tail call i32 @BN_GF2m_mod_exp(ptr noundef %19, ptr noundef %1, ptr noundef %19, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %70) #8
+  %71 = tail call i32 @BN_GF2m_mod_exp(ptr noundef %19, ptr noundef %1, ptr noundef %19, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %70) #9
   %72 = icmp ne i32 %71, 0
   %73 = zext i1 %72 to i32
-  %74 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1019, ptr noundef nonnull @.str.543, i32 noundef %73) #8
+  %74 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1019, ptr noundef nonnull @.str.543, i32 noundef %73) #9
   %.not56 = icmp eq i32 %74, 0
   br i1 %.not56, label %.loopexit, label %75
 
 75:                                               ; preds = %69
-  %76 = tail call i32 @BN_GF2m_add(ptr noundef %19, ptr noundef %16, ptr noundef %19) #8
+  %76 = tail call i32 @BN_GF2m_add(ptr noundef %19, ptr noundef %16, ptr noundef %19) #9
   %77 = icmp ne i32 %76, 0
   %78 = zext i1 %77 to i32
-  %79 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1020, ptr noundef nonnull @.str.544, i32 noundef %78) #8
+  %79 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1020, ptr noundef nonnull @.str.544, i32 noundef %78) #9
   %.not57 = icmp eq i32 %79, 0
   br i1 %.not57, label %.loopexit, label %80
 
 80:                                               ; preds = %75
-  %81 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 1022, ptr noundef nonnull @.str.525, ptr noundef %19) #8
+  %81 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 1022, ptr noundef nonnull @.str.525, ptr noundef %19) #9
   %.not58 = icmp eq i32 %81, 0
   br i1 %.not58, label %.loopexit, label %45
 
@@ -6070,81 +6070,81 @@ define internal range(i32 0, 2) i32 @test_gf2m_modexp() #1 {
   %.038 = phi ptr [ null, %0 ], [ null, %3 ], [ null, %6 ], [ null, %9 ], [ null, %12 ], [ %16, %15 ], [ %16, %18 ], [ %16, %21 ], [ %16, %26 ], [ %16, %80 ], [ %16, %75 ], [ %16, %69 ], [ %16, %64 ], [ %16, %58 ], [ %16, %52 ], [ %16, %.preheader ], [ %16, %40 ], [ %16, %35 ], [ %16, %.preheader59 ], [ %16, %82 ]
   %.037 = phi ptr [ null, %0 ], [ null, %3 ], [ null, %6 ], [ null, %9 ], [ null, %12 ], [ null, %15 ], [ %19, %18 ], [ %19, %21 ], [ %19, %26 ], [ %19, %80 ], [ %19, %75 ], [ %19, %69 ], [ %19, %64 ], [ %19, %58 ], [ %19, %52 ], [ %19, %.preheader ], [ %19, %40 ], [ %19, %35 ], [ %19, %.preheader59 ], [ %19, %82 ]
   %.0 = phi i32 [ 0, %0 ], [ 0, %3 ], [ 0, %6 ], [ 0, %9 ], [ 0, %12 ], [ 0, %15 ], [ 0, %18 ], [ 0, %21 ], [ 0, %26 ], [ 0, %80 ], [ 0, %75 ], [ 0, %69 ], [ 0, %64 ], [ 0, %58 ], [ 0, %52 ], [ 0, %.preheader ], [ 1, %82 ], [ 0, %.preheader59 ], [ 0, %35 ], [ 0, %40 ]
-  tail call void @BN_free(ptr noundef %1) #8
-  tail call void @BN_free(ptr noundef %.sroa.0.0) #8
-  tail call void @BN_free(ptr noundef %84) #8
-  tail call void @BN_free(ptr noundef %.040) #8
-  tail call void @BN_free(ptr noundef %.039) #8
-  tail call void @BN_free(ptr noundef %.038) #8
-  tail call void @BN_free(ptr noundef %.037) #8
+  tail call void @BN_free(ptr noundef %1) #9
+  tail call void @BN_free(ptr noundef %.sroa.0.0) #9
+  tail call void @BN_free(ptr noundef %84) #9
+  tail call void @BN_free(ptr noundef %.040) #9
+  tail call void @BN_free(ptr noundef %.039) #9
+  tail call void @BN_free(ptr noundef %.038) #9
+  tail call void @BN_free(ptr noundef %.037) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_gf2m_modsqrt() #1 {
-  %1 = tail call ptr @BN_new() #8
-  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1044, ptr noundef nonnull @.str.63, ptr noundef %1) #8
+  %1 = tail call ptr @BN_new() #9
+  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1044, ptr noundef nonnull @.str.63, ptr noundef %1) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @BN_new() #8
-  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1045, ptr noundef nonnull @.str.507, ptr noundef %4) #8
+  %4 = tail call ptr @BN_new() #9
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1045, ptr noundef nonnull @.str.507, ptr noundef %4) #9
   %.not29 = icmp eq i32 %5, 0
   br i1 %.not29, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @BN_new() #8
-  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1046, ptr noundef nonnull @.str.508, ptr noundef %7) #8
+  %7 = tail call ptr @BN_new() #9
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1046, ptr noundef nonnull @.str.508, ptr noundef %7) #9
   %.not30 = icmp eq i32 %8, 0
   br i1 %.not30, label %.loopexit, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @BN_new() #8
-  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1047, ptr noundef nonnull @.str.65, ptr noundef %10) #8
+  %10 = tail call ptr @BN_new() #9
+  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1047, ptr noundef nonnull @.str.65, ptr noundef %10) #9
   %.not31 = icmp eq i32 %11, 0
   br i1 %.not31, label %.loopexit, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call ptr @BN_new() #8
-  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1048, ptr noundef nonnull @.str.76, ptr noundef %13) #8
+  %13 = tail call ptr @BN_new() #9
+  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1048, ptr noundef nonnull @.str.76, ptr noundef %13) #9
   %.not32 = icmp eq i32 %14, 0
   br i1 %.not32, label %.loopexit, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call ptr @BN_new() #8
-  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1049, ptr noundef nonnull @.str.77, ptr noundef %16) #8
+  %16 = tail call ptr @BN_new() #9
+  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1049, ptr noundef nonnull @.str.77, ptr noundef %16) #9
   %.not33 = icmp eq i32 %17, 0
   br i1 %.not33, label %.loopexit, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call ptr @BN_new() #8
-  %20 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1050, ptr noundef nonnull @.str.514, ptr noundef %19) #8
+  %19 = tail call ptr @BN_new() #9
+  %20 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1050, ptr noundef nonnull @.str.514, ptr noundef %19) #9
   %.not34 = icmp eq i32 %20, 0
   br i1 %.not34, label %.loopexit, label %21
 
 21:                                               ; preds = %18
-  %22 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p0, ptr noundef %4) #8
+  %22 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p0, ptr noundef %4) #9
   %23 = icmp ne i32 %22, 0
   %24 = zext i1 %23 to i32
-  %25 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1053, ptr noundef nonnull @.str.509, i32 noundef %24) #8
+  %25 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1053, ptr noundef nonnull @.str.509, i32 noundef %24) #9
   %.not35 = icmp eq i32 %25, 0
   br i1 %.not35, label %.loopexit, label %26
 
 26:                                               ; preds = %21
-  %27 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p1, ptr noundef %7) #8
+  %27 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p1, ptr noundef %7) #9
   %28 = icmp ne i32 %27, 0
   %29 = zext i1 %28 to i32
-  %30 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1054, ptr noundef nonnull @.str.510, i32 noundef %29) #8
+  %30 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1054, ptr noundef nonnull @.str.510, i32 noundef %29) #9
   %.not36 = icmp eq i32 %30, 0
   br i1 %.not36, label %.loopexit, label %.preheader43
 
 .preheader43:                                     ; preds = %26, %60
   %.02446 = phi i32 [ %61, %60 ], [ 0, %26 ]
-  %31 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 512, i32 noundef 0, i32 noundef 0) #8
+  %31 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 512, i32 noundef 0, i32 noundef 0) #9
   %32 = icmp ne i32 %31, 0
   %33 = zext i1 %32 to i32
-  %34 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1058, ptr noundef nonnull @.str.66, i32 noundef %33) #8
+  %34 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1058, ptr noundef nonnull @.str.66, i32 noundef %33) #9
   %.not37 = icmp eq i32 %34, 0
   br i1 %.not37, label %.loopexit, label %.preheader
 
@@ -6154,41 +6154,41 @@ define internal range(i32 0, 2) i32 @test_gf2m_modsqrt() #1 {
 .preheader:                                       ; preds = %.preheader43, %35
   %36 = phi i1 [ false, %35 ], [ true, %.preheader43 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %7, %35 ], [ %4, %.preheader43 ]
-  %37 = tail call i32 @BN_GF2m_mod(ptr noundef %10, ptr noundef %1, ptr noundef %indvars.iv.sroa.phi.sroa.speculated) #8
+  %37 = tail call i32 @BN_GF2m_mod(ptr noundef %10, ptr noundef %1, ptr noundef %indvars.iv.sroa.phi.sroa.speculated) #9
   %38 = icmp ne i32 %37, 0
   %39 = zext i1 %38 to i32
-  %40 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1062, ptr noundef nonnull @.str.511, i32 noundef %39) #8
+  %40 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1062, ptr noundef nonnull @.str.511, i32 noundef %39) #9
   %.not38 = icmp eq i32 %40, 0
   br i1 %.not38, label %.loopexit, label %41
 
 41:                                               ; preds = %.preheader
   %42 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %43 = tail call i32 @BN_GF2m_mod_sqrt(ptr noundef %13, ptr noundef %1, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %42) #8
+  %43 = tail call i32 @BN_GF2m_mod_sqrt(ptr noundef %13, ptr noundef %1, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %42) #9
   %44 = icmp ne i32 %43, 0
   %45 = zext i1 %44 to i32
-  %46 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1063, ptr noundef nonnull @.str.545, i32 noundef %45) #8
+  %46 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1063, ptr noundef nonnull @.str.545, i32 noundef %45) #9
   %.not39 = icmp eq i32 %46, 0
   br i1 %.not39, label %.loopexit, label %47
 
 47:                                               ; preds = %41
   %48 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %49 = tail call i32 @BN_GF2m_mod_sqr(ptr noundef %16, ptr noundef %13, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %48) #8
+  %49 = tail call i32 @BN_GF2m_mod_sqr(ptr noundef %16, ptr noundef %13, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %48) #9
   %50 = icmp ne i32 %49, 0
   %51 = zext i1 %50 to i32
-  %52 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1064, ptr noundef nonnull @.str.546, i32 noundef %51) #8
+  %52 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1064, ptr noundef nonnull @.str.546, i32 noundef %51) #9
   %.not40 = icmp eq i32 %52, 0
   br i1 %.not40, label %.loopexit, label %53
 
 53:                                               ; preds = %47
-  %54 = tail call i32 @BN_GF2m_add(ptr noundef %19, ptr noundef %10, ptr noundef %16) #8
+  %54 = tail call i32 @BN_GF2m_add(ptr noundef %19, ptr noundef %10, ptr noundef %16) #9
   %55 = icmp ne i32 %54, 0
   %56 = zext i1 %55 to i32
-  %57 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1065, ptr noundef nonnull @.str.547, i32 noundef %56) #8
+  %57 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1065, ptr noundef nonnull @.str.547, i32 noundef %56) #9
   %.not41 = icmp eq i32 %57, 0
   br i1 %.not41, label %.loopexit, label %58
 
 58:                                               ; preds = %53
-  %59 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 1067, ptr noundef nonnull @.str.525, ptr noundef %19) #8
+  %59 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 1067, ptr noundef nonnull @.str.525, ptr noundef %19) #9
   %.not42 = icmp eq i32 %59, 0
   br i1 %.not42, label %.loopexit, label %35
 
@@ -6205,76 +6205,76 @@ define internal range(i32 0, 2) i32 @test_gf2m_modsqrt() #1 {
   %.026 = phi ptr [ null, %0 ], [ null, %3 ], [ null, %6 ], [ null, %9 ], [ null, %12 ], [ %16, %15 ], [ %16, %18 ], [ %16, %21 ], [ %16, %26 ], [ %16, %58 ], [ %16, %53 ], [ %16, %47 ], [ %16, %41 ], [ %16, %.preheader ], [ %16, %.preheader43 ], [ %16, %60 ]
   %.025 = phi ptr [ null, %0 ], [ null, %3 ], [ null, %6 ], [ null, %9 ], [ null, %12 ], [ null, %15 ], [ %19, %18 ], [ %19, %21 ], [ %19, %26 ], [ %19, %58 ], [ %19, %53 ], [ %19, %47 ], [ %19, %41 ], [ %19, %.preheader ], [ %19, %.preheader43 ], [ %19, %60 ]
   %.0 = phi i32 [ 0, %0 ], [ 0, %3 ], [ 0, %6 ], [ 0, %9 ], [ 0, %12 ], [ 0, %15 ], [ 0, %18 ], [ 0, %21 ], [ 0, %26 ], [ 0, %58 ], [ 0, %53 ], [ 0, %47 ], [ 0, %41 ], [ 0, %.preheader ], [ 1, %60 ], [ 0, %.preheader43 ]
-  tail call void @BN_free(ptr noundef %1) #8
-  tail call void @BN_free(ptr noundef %.sroa.0.0) #8
-  tail call void @BN_free(ptr noundef %62) #8
-  tail call void @BN_free(ptr noundef %.028) #8
-  tail call void @BN_free(ptr noundef %.027) #8
-  tail call void @BN_free(ptr noundef %.026) #8
-  tail call void @BN_free(ptr noundef %.025) #8
+  tail call void @BN_free(ptr noundef %1) #9
+  tail call void @BN_free(ptr noundef %.sroa.0.0) #9
+  tail call void @BN_free(ptr noundef %62) #9
+  tail call void @BN_free(ptr noundef %.028) #9
+  tail call void @BN_free(ptr noundef %.027) #9
+  tail call void @BN_free(ptr noundef %.026) #9
+  tail call void @BN_free(ptr noundef %.025) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_gf2m_modsolvequad() #1 {
-  %1 = tail call ptr @BN_new() #8
-  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1089, ptr noundef nonnull @.str.63, ptr noundef %1) #8
+  %1 = tail call ptr @BN_new() #9
+  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1089, ptr noundef nonnull @.str.63, ptr noundef %1) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @BN_new() #8
-  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1090, ptr noundef nonnull @.str.507, ptr noundef %4) #8
+  %4 = tail call ptr @BN_new() #9
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1090, ptr noundef nonnull @.str.507, ptr noundef %4) #9
   %.not34 = icmp eq i32 %5, 0
   br i1 %.not34, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @BN_new() #8
-  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1091, ptr noundef nonnull @.str.508, ptr noundef %7) #8
+  %7 = tail call ptr @BN_new() #9
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1091, ptr noundef nonnull @.str.508, ptr noundef %7) #9
   %.not35 = icmp eq i32 %8, 0
   br i1 %.not35, label %.loopexit, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @BN_new() #8
-  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1092, ptr noundef nonnull @.str.65, ptr noundef %10) #8
+  %10 = tail call ptr @BN_new() #9
+  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1092, ptr noundef nonnull @.str.65, ptr noundef %10) #9
   %.not36 = icmp eq i32 %11, 0
   br i1 %.not36, label %.loopexit, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call ptr @BN_new() #8
-  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1093, ptr noundef nonnull @.str.76, ptr noundef %13) #8
+  %13 = tail call ptr @BN_new() #9
+  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1093, ptr noundef nonnull @.str.76, ptr noundef %13) #9
   %.not37 = icmp eq i32 %14, 0
   br i1 %.not37, label %.loopexit, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call ptr @BN_new() #8
-  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1094, ptr noundef nonnull @.str.77, ptr noundef %16) #8
+  %16 = tail call ptr @BN_new() #9
+  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1094, ptr noundef nonnull @.str.77, ptr noundef %16) #9
   %.not38 = icmp eq i32 %17, 0
   br i1 %.not38, label %.loopexit, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p0, ptr noundef %4) #8
+  %19 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p0, ptr noundef %4) #9
   %20 = icmp ne i32 %19, 0
   %21 = zext i1 %20 to i32
-  %22 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1097, ptr noundef nonnull @.str.509, i32 noundef %21) #8
+  %22 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1097, ptr noundef nonnull @.str.509, i32 noundef %21) #9
   %.not39 = icmp eq i32 %22, 0
   br i1 %.not39, label %.loopexit, label %23
 
 23:                                               ; preds = %18
-  %24 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p1, ptr noundef %7) #8
+  %24 = tail call i32 @BN_GF2m_arr2poly(ptr noundef nonnull @p1, ptr noundef %7) #9
   %25 = icmp ne i32 %24, 0
   %26 = zext i1 %25 to i32
-  %27 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1098, ptr noundef nonnull @.str.510, i32 noundef %26) #8
+  %27 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1098, ptr noundef nonnull @.str.510, i32 noundef %26) #9
   %.not40 = icmp eq i32 %27, 0
   br i1 %.not40, label %.loopexit, label %.preheader49
 
 .preheader49:                                     ; preds = %23, %60
   %.02857 = phi i32 [ %.2, %60 ], [ 0, %23 ]
   %.03056 = phi i32 [ %61, %60 ], [ 0, %23 ]
-  %28 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 512, i32 noundef 0, i32 noundef 0) #8
+  %28 = tail call i32 @BN_bntest_rand(ptr noundef %1, i32 noundef 512, i32 noundef 0, i32 noundef 0) #9
   %29 = icmp ne i32 %28, 0
   %30 = zext i1 %29 to i32
-  %31 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1102, ptr noundef nonnull @.str.66, i32 noundef %30) #8
+  %31 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1102, ptr noundef nonnull @.str.66, i32 noundef %30) #9
   %.not42 = icmp eq i32 %31, 0
   br i1 %.not42, label %.loopexit, label %.preheader
 
@@ -6283,46 +6283,46 @@ define internal range(i32 0, 2) i32 @test_gf2m_modsolvequad() #1 {
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %7, %59 ], [ %4, %.preheader49 ]
   %.155 = phi i32 [ %.2, %59 ], [ %.02857, %.preheader49 ]
   %33 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %34 = tail call i32 @BN_GF2m_mod_solve_quad(ptr noundef %10, ptr noundef %1, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %33) #8
+  %34 = tail call i32 @BN_GF2m_mod_solve_quad(ptr noundef %10, ptr noundef %1, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %33) #9
   %.not43 = icmp eq i32 %34, 0
   br i1 %.not43, label %59, label %35
 
 35:                                               ; preds = %.preheader
   %36 = add nsw i32 %.155, 1
   %37 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %38 = tail call i32 @BN_GF2m_mod_sqr(ptr noundef %13, ptr noundef %10, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %37) #8
+  %38 = tail call i32 @BN_GF2m_mod_sqr(ptr noundef %13, ptr noundef %10, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %37) #9
   %39 = icmp ne i32 %38, 0
   %40 = zext i1 %39 to i32
-  %41 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1108, ptr noundef nonnull @.str.548, i32 noundef %40) #8
+  %41 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1108, ptr noundef nonnull @.str.548, i32 noundef %40) #9
   %.not44 = icmp eq i32 %41, 0
   br i1 %.not44, label %.loopexit, label %42
 
 42:                                               ; preds = %35
-  %43 = tail call i32 @BN_GF2m_add(ptr noundef %13, ptr noundef %10, ptr noundef %13) #8
+  %43 = tail call i32 @BN_GF2m_add(ptr noundef %13, ptr noundef %10, ptr noundef %13) #9
   %44 = icmp ne i32 %43, 0
   %45 = zext i1 %44 to i32
-  %46 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1109, ptr noundef nonnull @.str.529, i32 noundef %45) #8
+  %46 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1109, ptr noundef nonnull @.str.529, i32 noundef %45) #9
   %.not45 = icmp eq i32 %46, 0
   br i1 %.not45, label %.loopexit, label %47
 
 47:                                               ; preds = %42
-  %48 = tail call i32 @BN_GF2m_mod(ptr noundef %16, ptr noundef %1, ptr noundef %indvars.iv.sroa.phi.sroa.speculated) #8
+  %48 = tail call i32 @BN_GF2m_mod(ptr noundef %16, ptr noundef %1, ptr noundef %indvars.iv.sroa.phi.sroa.speculated) #9
   %49 = icmp ne i32 %48, 0
   %50 = zext i1 %49 to i32
-  %51 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1110, ptr noundef nonnull @.str.549, i32 noundef %50) #8
+  %51 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1110, ptr noundef nonnull @.str.549, i32 noundef %50) #9
   %.not46 = icmp eq i32 %51, 0
   br i1 %.not46, label %.loopexit, label %52
 
 52:                                               ; preds = %47
-  %53 = tail call i32 @BN_GF2m_add(ptr noundef %16, ptr noundef %16, ptr noundef %13) #8
+  %53 = tail call i32 @BN_GF2m_add(ptr noundef %16, ptr noundef %16, ptr noundef %13) #9
   %54 = icmp ne i32 %53, 0
   %55 = zext i1 %54 to i32
-  %56 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1111, ptr noundef nonnull @.str.550, i32 noundef %55) #8
+  %56 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1111, ptr noundef nonnull @.str.550, i32 noundef %55) #9
   %.not47 = icmp eq i32 %56, 0
   br i1 %.not47, label %.loopexit, label %57
 
 57:                                               ; preds = %52
-  %58 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 1116, ptr noundef nonnull @.str.101, ptr noundef %16) #8
+  %58 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 1116, ptr noundef nonnull @.str.101, ptr noundef %16) #9
   %.not48 = icmp eq i32 %58, 0
   br i1 %.not48, label %.loopexit, label %59
 
@@ -6336,12 +6336,12 @@ define internal range(i32 0, 2) i32 @test_gf2m_modsolvequad() #1 {
   br i1 %exitcond.not, label %62, label %.preheader49, !llvm.loop !54
 
 62:                                               ; preds = %60
-  %63 = tail call i32 @test_int_ge(ptr noundef nonnull @.str.17, i32 noundef 1121, ptr noundef nonnull @.str.551, ptr noundef nonnull @.str.69, i32 noundef %.2, i32 noundef 0) #8
+  %63 = tail call i32 @test_int_ge(ptr noundef nonnull @.str.17, i32 noundef 1121, ptr noundef nonnull @.str.551, ptr noundef nonnull @.str.69, i32 noundef %.2, i32 noundef 0) #9
   %.not41 = icmp eq i32 %63, 0
   br i1 %.not41, label %64, label %.loopexit
 
 64:                                               ; preds = %62
-  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.17, i32 noundef 1122, ptr noundef nonnull @.str.552, i32 noundef 100) #8
+  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.17, i32 noundef 1122, ptr noundef nonnull @.str.552, i32 noundef 100) #9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader49, %35, %42, %47, %52, %57, %62, %18, %23, %0, %3, %6, %9, %12, %15, %64
@@ -6351,19 +6351,19 @@ define internal range(i32 0, 2) i32 @test_gf2m_modsolvequad() #1 {
   %.032 = phi ptr [ null, %0 ], [ null, %3 ], [ null, %6 ], [ null, %9 ], [ %13, %12 ], [ %13, %15 ], [ %13, %18 ], [ %13, %23 ], [ %13, %64 ], [ %13, %62 ], [ %13, %57 ], [ %13, %52 ], [ %13, %47 ], [ %13, %42 ], [ %13, %35 ], [ %13, %.preheader49 ]
   %.031 = phi ptr [ null, %0 ], [ null, %3 ], [ null, %6 ], [ null, %9 ], [ null, %12 ], [ %16, %15 ], [ %16, %18 ], [ %16, %23 ], [ %16, %64 ], [ %16, %62 ], [ %16, %57 ], [ %16, %52 ], [ %16, %47 ], [ %16, %42 ], [ %16, %35 ], [ %16, %.preheader49 ]
   %.0 = phi i32 [ 0, %0 ], [ 0, %3 ], [ 0, %6 ], [ 0, %9 ], [ 0, %12 ], [ 0, %15 ], [ 0, %18 ], [ 0, %23 ], [ 0, %64 ], [ 1, %62 ], [ 0, %57 ], [ 0, %52 ], [ 0, %47 ], [ 0, %42 ], [ 0, %35 ], [ 0, %.preheader49 ]
-  tail call void @BN_free(ptr noundef %1) #8
-  tail call void @BN_free(ptr noundef %.sroa.0.0) #8
-  tail call void @BN_free(ptr noundef %65) #8
-  tail call void @BN_free(ptr noundef %.033) #8
-  tail call void @BN_free(ptr noundef %.032) #8
-  tail call void @BN_free(ptr noundef %.031) #8
+  tail call void @BN_free(ptr noundef %1) #9
+  tail call void @BN_free(ptr noundef %.sroa.0.0) #9
+  tail call void @BN_free(ptr noundef %65) #9
+  tail call void @BN_free(ptr noundef %.033) #9
+  tail call void @BN_free(ptr noundef %.032) #9
+  tail call void @BN_free(ptr noundef %.031) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_is_prime(i32 noundef %0) #1 {
-  %2 = tail call ptr @BN_new() #8
-  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2677, ptr noundef nonnull @.str.108, ptr noundef %2) #8
+  %2 = tail call ptr @BN_new() #9
+  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2677, ptr noundef nonnull @.str.108, ptr noundef %2) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -6376,17 +6376,17 @@ define internal range(i32 0, 2) i32 @test_is_prime(i32 noundef %0) #1 {
 
 8:                                                ; preds = %13, %.preheader
   %.not10 = phi i1 [ false, %.preheader ], [ true, %13 ]
-  %9 = tail call i32 @BN_set_word(ptr noundef %2, i64 noundef %7) #8
+  %9 = tail call i32 @BN_set_word(ptr noundef %2, i64 noundef %7) #9
   %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i32
-  %12 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2681, ptr noundef nonnull @.str.553, i32 noundef %11) #8
+  %12 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2681, ptr noundef nonnull @.str.553, i32 noundef %11) #9
   %.not7 = icmp eq i32 %12, 0
   br i1 %.not7, label %.loopexit, label %13
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %15 = tail call i32 @BN_check_prime(ptr noundef %2, ptr noundef %14, ptr noundef null) #8
-  %16 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2683, ptr noundef nonnull @.str.554, ptr noundef nonnull @.str.123, i32 noundef %15, i32 noundef 1) #8
+  %15 = tail call i32 @BN_check_prime(ptr noundef %2, ptr noundef %14, ptr noundef null) #9
+  %16 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2683, ptr noundef nonnull @.str.554, ptr noundef nonnull @.str.123, i32 noundef %15, i32 noundef 1) #9
   %.not8 = icmp eq i32 %16, 0
   %brmerge = or i1 %.not8, %.not10
   br i1 %brmerge, label %.loopexit.loopexit.split.loop.exit, label %8
@@ -6398,14 +6398,14 @@ define internal range(i32 0, 2) i32 @test_is_prime(i32 noundef %0) #1 {
 
 .loopexit:                                        ; preds = %.loopexit.loopexit.split.loop.exit, %8, %1
   %.06 = phi i32 [ 0, %1 ], [ %.mux.le, %.loopexit.loopexit.split.loop.exit ], [ 0, %8 ]
-  tail call void @BN_free(ptr noundef %2) #8
+  tail call void @BN_free(ptr noundef %2) #9
   ret i32 %.06
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_not_prime(i32 noundef %0) #1 {
-  %2 = tail call ptr @BN_new() #8
-  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2701, ptr noundef nonnull @.str.108, ptr noundef %2) #8
+  %2 = tail call ptr @BN_new() #9
+  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2701, ptr noundef nonnull @.str.108, ptr noundef %2) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -6418,17 +6418,17 @@ define internal range(i32 0, 2) i32 @test_not_prime(i32 noundef %0) #1 {
 
 8:                                                ; preds = %13, %.preheader
   %.not10 = phi i1 [ false, %.preheader ], [ true, %13 ]
-  %9 = tail call i32 @BN_set_word(ptr noundef %2, i64 noundef %7) #8
+  %9 = tail call i32 @BN_set_word(ptr noundef %2, i64 noundef %7) #9
   %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i32
-  %12 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2705, ptr noundef nonnull @.str.555, i32 noundef %11) #8
+  %12 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2705, ptr noundef nonnull @.str.555, i32 noundef %11) #9
   %.not7 = icmp eq i32 %12, 0
   br i1 %.not7, label %.loopexit, label %13
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %15 = tail call i32 @BN_check_prime(ptr noundef %2, ptr noundef %14, ptr noundef null) #8
-  %16 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2706, ptr noundef nonnull @.str.554, ptr noundef nonnull @.str.69, i32 noundef %15, i32 noundef 0) #8
+  %15 = tail call i32 @BN_check_prime(ptr noundef %2, ptr noundef %14, ptr noundef null) #9
+  %16 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2706, ptr noundef nonnull @.str.554, ptr noundef nonnull @.str.69, i32 noundef %15, i32 noundef 0) #9
   %.not8 = icmp eq i32 %16, 0
   %brmerge = or i1 %.not8, %.not10
   br i1 %brmerge, label %.loopexit.loopexit.split.loop.exit, label %8
@@ -6440,34 +6440,34 @@ define internal range(i32 0, 2) i32 @test_not_prime(i32 noundef %0) #1 {
 
 .loopexit:                                        ; preds = %.loopexit.loopexit.split.loop.exit, %8, %1
   %.06 = phi i32 [ 0, %1 ], [ %.mux.le, %.loopexit.loopexit.split.loop.exit ], [ 0, %8 ]
-  tail call void @BN_free(ptr noundef %2) #8
+  tail call void @BN_free(ptr noundef %2) #9
   ret i32 %.06
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_gcd_prime() #1 {
-  %1 = tail call ptr @BN_new() #8
-  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2826, ptr noundef nonnull @.str.63, ptr noundef %1) #8
+  %1 = tail call ptr @BN_new() #9
+  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2826, ptr noundef nonnull @.str.63, ptr noundef %1) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @BN_new() #8
-  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2827, ptr noundef nonnull @.str.64, ptr noundef %4) #8
+  %4 = tail call ptr @BN_new() #9
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2827, ptr noundef nonnull @.str.64, ptr noundef %4) #9
   %.not16 = icmp eq i32 %5, 0
   br i1 %.not16, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @BN_new() #8
-  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2828, ptr noundef nonnull @.str.556, ptr noundef %7) #8
+  %7 = tail call ptr @BN_new() #9
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2828, ptr noundef nonnull @.str.556, ptr noundef %7) #9
   %.not17 = icmp eq i32 %8, 0
   br i1 %.not17, label %.loopexit, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call i32 @BN_generate_prime_ex(ptr noundef %1, i32 noundef 1024, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #8
+  %10 = tail call i32 @BN_generate_prime_ex(ptr noundef %1, i32 noundef 1024, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #9
   %11 = icmp ne i32 %10, 0
   %12 = zext i1 %11 to i32
-  %13 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2831, ptr noundef nonnull @.str.557, i32 noundef %12) #8
+  %13 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2831, ptr noundef nonnull @.str.557, i32 noundef %12) #9
   %.not18 = icmp eq i32 %13, 0
   br i1 %.not18, label %.loopexit, label %.preheader
 
@@ -6478,36 +6478,36 @@ define internal range(i32 0, 2) i32 @test_gcd_prime() #1 {
 
 .preheader:                                       ; preds = %9, %14
   %.01323 = phi i32 [ %15, %14 ], [ 0, %9 ]
-  %16 = tail call i32 @BN_generate_prime_ex(ptr noundef %4, i32 noundef 1024, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #8
+  %16 = tail call i32 @BN_generate_prime_ex(ptr noundef %4, i32 noundef 1024, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #9
   %17 = icmp ne i32 %16, 0
   %18 = zext i1 %17 to i32
-  %19 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2835, ptr noundef nonnull @.str.558, i32 noundef %18) #8
+  %19 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2835, ptr noundef nonnull @.str.558, i32 noundef %18) #9
   %.not19 = icmp eq i32 %19, 0
   br i1 %.not19, label %.loopexit, label %20
 
 20:                                               ; preds = %.preheader
   %21 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %22 = tail call i32 @BN_gcd(ptr noundef %7, ptr noundef %1, ptr noundef %4, ptr noundef %21) #8
+  %22 = tail call i32 @BN_gcd(ptr noundef %7, ptr noundef %1, ptr noundef %4, ptr noundef %21) #9
   %23 = icmp ne i32 %22, 0
   %24 = zext i1 %23 to i32
-  %25 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2836, ptr noundef nonnull @.str.559, i32 noundef %24) #8
+  %25 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2836, ptr noundef nonnull @.str.559, i32 noundef %24) #9
   %.not20 = icmp eq i32 %25, 0
   br i1 %.not20, label %.loopexit, label %26
 
 26:                                               ; preds = %20
-  %27 = tail call i32 @BN_is_one(ptr noundef %7) #8
+  %27 = tail call i32 @BN_is_one(ptr noundef %7) #9
   %28 = icmp ne i32 %27, 0
   %29 = zext i1 %28 to i32
-  %30 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2837, ptr noundef nonnull @.str.560, i32 noundef %29) #8
+  %30 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2837, ptr noundef nonnull @.str.560, i32 noundef %29) #9
   %.not21 = icmp eq i32 %30, 0
   br i1 %.not21, label %.loopexit, label %31
 
 31:                                               ; preds = %26
   %32 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %33 = tail call i32 @BN_are_coprime(ptr noundef %1, ptr noundef %4, ptr noundef %32) #8
+  %33 = tail call i32 @BN_are_coprime(ptr noundef %1, ptr noundef %4, ptr noundef %32) #9
   %34 = icmp ne i32 %33, 0
   %35 = zext i1 %34 to i32
-  %36 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2838, ptr noundef nonnull @.str.561, i32 noundef %35) #8
+  %36 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2838, ptr noundef nonnull @.str.561, i32 noundef %35) #9
   %.not22 = icmp eq i32 %36, 0
   br i1 %.not22, label %.loopexit, label %14
 
@@ -6515,74 +6515,74 @@ define internal range(i32 0, 2) i32 @test_gcd_prime() #1 {
   %.015 = phi ptr [ %4, %9 ], [ %4, %6 ], [ %4, %3 ], [ null, %0 ], [ %4, %31 ], [ %4, %26 ], [ %4, %20 ], [ %4, %.preheader ], [ %4, %14 ]
   %.014 = phi ptr [ %7, %9 ], [ %7, %6 ], [ null, %3 ], [ null, %0 ], [ %7, %31 ], [ %7, %26 ], [ %7, %20 ], [ %7, %.preheader ], [ %7, %14 ]
   %.0 = phi i32 [ 0, %9 ], [ 0, %6 ], [ 0, %3 ], [ 0, %0 ], [ 1, %14 ], [ 0, %.preheader ], [ 0, %20 ], [ 0, %26 ], [ 0, %31 ]
-  tail call void @BN_free(ptr noundef %1) #8
-  tail call void @BN_free(ptr noundef %.015) #8
-  tail call void @BN_free(ptr noundef %.014) #8
+  tail call void @BN_free(ptr noundef %1) #9
+  tail call void @BN_free(ptr noundef %.015) #9
+  tail call void @BN_free(ptr noundef %.014) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_coprime() #1 {
-  %1 = tail call ptr @BN_new() #8
-  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2807, ptr noundef nonnull @.str.63, ptr noundef %1) #8
+  %1 = tail call ptr @BN_new() #9
+  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2807, ptr noundef nonnull @.str.63, ptr noundef %1) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %39, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @BN_new() #8
-  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2808, ptr noundef nonnull @.str.64, ptr noundef %4) #8
+  %4 = tail call ptr @BN_new() #9
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2808, ptr noundef nonnull @.str.64, ptr noundef %4) #9
   %.not13 = icmp eq i32 %5, 0
   br i1 %.not13, label %39, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @BN_set_word(ptr noundef %1, i64 noundef 66) #8
+  %7 = tail call i32 @BN_set_word(ptr noundef %1, i64 noundef 66) #9
   %8 = icmp ne i32 %7, 0
   %9 = zext i1 %8 to i32
-  %10 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2809, ptr noundef nonnull @.str.562, i32 noundef %9) #8
+  %10 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2809, ptr noundef nonnull @.str.562, i32 noundef %9) #9
   %.not14 = icmp eq i32 %10, 0
   br i1 %.not14, label %39, label %11
 
 11:                                               ; preds = %6
-  %12 = tail call i32 @BN_set_word(ptr noundef %4, i64 noundef 99) #8
+  %12 = tail call i32 @BN_set_word(ptr noundef %4, i64 noundef 99) #9
   %13 = icmp ne i32 %12, 0
   %14 = zext i1 %13 to i32
-  %15 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2810, ptr noundef nonnull @.str.563, i32 noundef %14) #8
+  %15 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2810, ptr noundef nonnull @.str.563, i32 noundef %14) #9
   %.not15 = icmp eq i32 %15, 0
   br i1 %.not15, label %39, label %16
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %18 = tail call i32 @BN_are_coprime(ptr noundef %1, ptr noundef %4, ptr noundef %17) #8
-  %19 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2811, ptr noundef nonnull @.str.561, ptr noundef nonnull @.str.69, i32 noundef %18, i32 noundef 0) #8
+  %18 = tail call i32 @BN_are_coprime(ptr noundef %1, ptr noundef %4, ptr noundef %17) #9
+  %19 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2811, ptr noundef nonnull @.str.561, ptr noundef nonnull @.str.69, i32 noundef %18, i32 noundef 0) #9
   %.not16 = icmp eq i32 %19, 0
   br i1 %.not16, label %39, label %20
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %22 = tail call i32 @BN_are_coprime(ptr noundef %4, ptr noundef %1, ptr noundef %21) #8
-  %23 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2812, ptr noundef nonnull @.str.564, ptr noundef nonnull @.str.69, i32 noundef %22, i32 noundef 0) #8
+  %22 = tail call i32 @BN_are_coprime(ptr noundef %4, ptr noundef %1, ptr noundef %21) #9
+  %23 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2812, ptr noundef nonnull @.str.564, ptr noundef nonnull @.str.69, i32 noundef %22, i32 noundef 0) #9
   %.not17 = icmp eq i32 %23, 0
   br i1 %.not17, label %39, label %24
 
 24:                                               ; preds = %20
-  %25 = tail call i32 @BN_set_word(ptr noundef %1, i64 noundef 67) #8
+  %25 = tail call i32 @BN_set_word(ptr noundef %1, i64 noundef 67) #9
   %26 = icmp ne i32 %25, 0
   %27 = zext i1 %26 to i32
-  %28 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2813, ptr noundef nonnull @.str.565, i32 noundef %27) #8
+  %28 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2813, ptr noundef nonnull @.str.565, i32 noundef %27) #9
   %.not18 = icmp eq i32 %28, 0
   br i1 %.not18, label %39, label %29
 
 29:                                               ; preds = %24
   %30 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %31 = tail call i32 @BN_are_coprime(ptr noundef %1, ptr noundef %4, ptr noundef %30) #8
-  %32 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2814, ptr noundef nonnull @.str.561, ptr noundef nonnull @.str.123, i32 noundef %31, i32 noundef 1) #8
+  %31 = tail call i32 @BN_are_coprime(ptr noundef %1, ptr noundef %4, ptr noundef %30) #9
+  %32 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2814, ptr noundef nonnull @.str.561, ptr noundef nonnull @.str.123, i32 noundef %31, i32 noundef 1) #9
   %.not19 = icmp eq i32 %32, 0
   br i1 %.not19, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %35 = tail call i32 @BN_are_coprime(ptr noundef %4, ptr noundef %1, ptr noundef %34) #8
-  %36 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2815, ptr noundef nonnull @.str.564, ptr noundef nonnull @.str.123, i32 noundef %35, i32 noundef 1) #8
+  %35 = tail call i32 @BN_are_coprime(ptr noundef %4, ptr noundef %1, ptr noundef %34) #9
+  %36 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2815, ptr noundef nonnull @.str.564, ptr noundef nonnull @.str.123, i32 noundef %35, i32 noundef 1) #9
   %37 = icmp ne i32 %36, 0
   %38 = zext i1 %37 to i32
   br label %39
@@ -6590,8 +6590,8 @@ define internal range(i32 0, 2) i32 @test_coprime() #1 {
 39:                                               ; preds = %33, %29, %24, %20, %16, %11, %6, %3, %0
   %.0 = phi ptr [ %4, %33 ], [ %4, %29 ], [ %4, %24 ], [ %4, %20 ], [ %4, %16 ], [ %4, %11 ], [ %4, %6 ], [ %4, %3 ], [ null, %0 ]
   %40 = phi i32 [ %38, %33 ], [ 0, %29 ], [ 0, %24 ], [ 0, %20 ], [ 0, %16 ], [ 0, %11 ], [ 0, %6 ], [ 0, %3 ], [ 0, %0 ]
-  tail call void @BN_free(ptr noundef %1) #8
-  tail call void @BN_free(ptr noundef %.0) #8
+  tail call void @BN_free(ptr noundef %1) #9
+  tail call void @BN_free(ptr noundef %.0) #9
   ret i32 %40
 }
 
@@ -6608,37 +6608,37 @@ define internal range(i32 0, 2) i32 @test_mod_exp(i32 noundef %0) #1 {
   store ptr null, ptr %3, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !21
-  %7 = tail call ptr @BN_new() #8
-  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3067, ptr noundef nonnull @.str.566, ptr noundef %7) #8
+  %7 = tail call ptr @BN_new() #9
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3067, ptr noundef nonnull @.str.566, ptr noundef %7) #9
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %45, label %9
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr %6, align 16, !tbaa !56
-  %11 = call i32 @BN_dec2bn(ptr noundef nonnull %2, ptr noundef %10) #8
+  %11 = call i32 @BN_dec2bn(ptr noundef nonnull %2, ptr noundef %10) #9
   %12 = icmp ne i32 %11, 0
   %13 = zext i1 %12 to i32
-  %14 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3068, ptr noundef nonnull @.str.567, i32 noundef %13) #8
+  %14 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3068, ptr noundef nonnull @.str.567, i32 noundef %13) #9
   %.not13 = icmp eq i32 %14, 0
   br i1 %.not13, label %45, label %15
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !58
-  %18 = call i32 @BN_dec2bn(ptr noundef nonnull %3, ptr noundef %17) #8
+  %18 = call i32 @BN_dec2bn(ptr noundef nonnull %3, ptr noundef %17) #9
   %19 = icmp ne i32 %18, 0
   %20 = zext i1 %19 to i32
-  %21 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3069, ptr noundef nonnull @.str.568, i32 noundef %20) #8
+  %21 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3069, ptr noundef nonnull @.str.568, i32 noundef %20) #9
   %.not14 = icmp eq i32 %21, 0
   br i1 %.not14, label %45, label %22
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %24 = load ptr, ptr %23, align 16, !tbaa !59
-  %25 = call i32 @BN_dec2bn(ptr noundef nonnull %4, ptr noundef %24) #8
+  %25 = call i32 @BN_dec2bn(ptr noundef nonnull %4, ptr noundef %24) #9
   %26 = icmp ne i32 %25, 0
   %27 = zext i1 %26 to i32
-  %28 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3070, ptr noundef nonnull @.str.569, i32 noundef %27) #8
+  %28 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3070, ptr noundef nonnull @.str.569, i32 noundef %27) #9
   %.not15 = icmp eq i32 %28, 0
   br i1 %.not15, label %45, label %29
 
@@ -6647,23 +6647,23 @@ define internal range(i32 0, 2) i32 @test_mod_exp(i32 noundef %0) #1 {
   %31 = load ptr, ptr %3, align 8, !tbaa !21
   %32 = load ptr, ptr %4, align 8, !tbaa !21
   %33 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %34 = call i32 @BN_mod_exp(ptr noundef %7, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33) #8
-  %35 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 3073, ptr noundef nonnull @.str.570, ptr noundef nonnull @.str.123, i32 noundef %34, i32 noundef 1) #8
+  %34 = call i32 @BN_mod_exp(ptr noundef %7, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33) #9
+  %35 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 3073, ptr noundef nonnull @.str.570, ptr noundef nonnull @.str.123, i32 noundef %34, i32 noundef 1) #9
   %.not16 = icmp eq i32 %35, 0
   br i1 %.not16, label %45, label %36
 
 36:                                               ; preds = %29
-  %37 = call ptr @BN_bn2dec(ptr noundef %7) #8
-  %38 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3076, ptr noundef nonnull @.str.571, ptr noundef %37) #8
+  %37 = call ptr @BN_bn2dec(ptr noundef %7) #9
+  %38 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3076, ptr noundef nonnull @.str.571, ptr noundef %37) #9
   %.not17 = icmp eq i32 %38, 0
   br i1 %.not17, label %45, label %39
 
 39:                                               ; preds = %36
-  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #9
+  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #10
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !60
-  %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #9
-  %44 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 3079, ptr noundef nonnull @.str.551, ptr noundef nonnull @.str.572, ptr noundef nonnull %37, i64 noundef %40, ptr noundef nonnull %42, i64 noundef %43) #8
+  %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #10
+  %44 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 3079, ptr noundef nonnull @.str.551, ptr noundef nonnull @.str.572, ptr noundef nonnull %37, i64 noundef %40, ptr noundef nonnull %42, i64 noundef %43) #9
   %.not18 = icmp ne i32 %44, 0
   %spec.select = zext i1 %.not18 to i32
   br label %45
@@ -6671,14 +6671,14 @@ define internal range(i32 0, 2) i32 @test_mod_exp(i32 noundef %0) #1 {
 45:                                               ; preds = %39, %36, %29, %1, %9, %15, %22
   %.012 = phi i32 [ 0, %36 ], [ 0, %29 ], [ 0, %22 ], [ 0, %15 ], [ 0, %9 ], [ 0, %1 ], [ %spec.select, %39 ]
   %.0 = phi ptr [ %37, %36 ], [ null, %29 ], [ null, %22 ], [ null, %15 ], [ null, %9 ], [ null, %1 ], [ %37, %39 ]
-  call void @CRYPTO_free(ptr noundef %.0, ptr noundef nonnull @.str.17, i32 noundef 3085) #8
-  call void @BN_free(ptr noundef %7) #8
+  call void @CRYPTO_free(ptr noundef %.0, ptr noundef nonnull @.str.17, i32 noundef 3085) #9
+  call void @BN_free(ptr noundef %7) #9
   %46 = load ptr, ptr %2, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %46) #8
+  call void @BN_free(ptr noundef %46) #9
   %47 = load ptr, ptr %3, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %47) #8
+  call void @BN_free(ptr noundef %47) #9
   %48 = load ptr, ptr %4, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %48) #8
+  call void @BN_free(ptr noundef %48) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -6698,68 +6698,68 @@ define internal range(i32 0, 2) i32 @test_mod_exp_consttime(i32 noundef %0) #1 {
   store ptr null, ptr %3, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !21
-  %7 = tail call ptr @BN_new() #8
-  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3101, ptr noundef nonnull @.str.566, ptr noundef %7) #8
+  %7 = tail call ptr @BN_new() #9
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3101, ptr noundef nonnull @.str.566, ptr noundef %7) #9
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %48, label %9
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr %6, align 16, !tbaa !56
-  %11 = call i32 @BN_dec2bn(ptr noundef nonnull %2, ptr noundef %10) #8
+  %11 = call i32 @BN_dec2bn(ptr noundef nonnull %2, ptr noundef %10) #9
   %12 = icmp ne i32 %11, 0
   %13 = zext i1 %12 to i32
-  %14 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3102, ptr noundef nonnull @.str.567, i32 noundef %13) #8
+  %14 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3102, ptr noundef nonnull @.str.567, i32 noundef %13) #9
   %.not13 = icmp eq i32 %14, 0
   br i1 %.not13, label %48, label %15
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !58
-  %18 = call i32 @BN_dec2bn(ptr noundef nonnull %3, ptr noundef %17) #8
+  %18 = call i32 @BN_dec2bn(ptr noundef nonnull %3, ptr noundef %17) #9
   %19 = icmp ne i32 %18, 0
   %20 = zext i1 %19 to i32
-  %21 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3103, ptr noundef nonnull @.str.568, i32 noundef %20) #8
+  %21 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3103, ptr noundef nonnull @.str.568, i32 noundef %20) #9
   %.not14 = icmp eq i32 %21, 0
   br i1 %.not14, label %48, label %22
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %24 = load ptr, ptr %23, align 16, !tbaa !59
-  %25 = call i32 @BN_dec2bn(ptr noundef nonnull %4, ptr noundef %24) #8
+  %25 = call i32 @BN_dec2bn(ptr noundef nonnull %4, ptr noundef %24) #9
   %26 = icmp ne i32 %25, 0
   %27 = zext i1 %26 to i32
-  %28 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3104, ptr noundef nonnull @.str.569, i32 noundef %27) #8
+  %28 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3104, ptr noundef nonnull @.str.569, i32 noundef %27) #9
   %.not15 = icmp eq i32 %28, 0
   br i1 %.not15, label %48, label %29
 
 29:                                               ; preds = %22
   %30 = load ptr, ptr %2, align 8, !tbaa !21
-  call void @BN_set_flags(ptr noundef %30, i32 noundef 4) #8
+  call void @BN_set_flags(ptr noundef %30, i32 noundef 4) #9
   %31 = load ptr, ptr %3, align 8, !tbaa !21
-  call void @BN_set_flags(ptr noundef %31, i32 noundef 4) #8
+  call void @BN_set_flags(ptr noundef %31, i32 noundef 4) #9
   %32 = load ptr, ptr %4, align 8, !tbaa !21
-  call void @BN_set_flags(ptr noundef %32, i32 noundef 4) #8
+  call void @BN_set_flags(ptr noundef %32, i32 noundef 4) #9
   %33 = load ptr, ptr %2, align 8, !tbaa !21
   %34 = load ptr, ptr %3, align 8, !tbaa !21
   %35 = load ptr, ptr %4, align 8, !tbaa !21
   %36 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %37 = call i32 @BN_mod_exp(ptr noundef %7, ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36) #8
-  %38 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 3111, ptr noundef nonnull @.str.570, ptr noundef nonnull @.str.123, i32 noundef %37, i32 noundef 1) #8
+  %37 = call i32 @BN_mod_exp(ptr noundef %7, ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36) #9
+  %38 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 3111, ptr noundef nonnull @.str.570, ptr noundef nonnull @.str.123, i32 noundef %37, i32 noundef 1) #9
   %.not16 = icmp eq i32 %38, 0
   br i1 %.not16, label %48, label %39
 
 39:                                               ; preds = %29
-  %40 = call ptr @BN_bn2dec(ptr noundef %7) #8
-  %41 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3114, ptr noundef nonnull @.str.571, ptr noundef %40) #8
+  %40 = call ptr @BN_bn2dec(ptr noundef %7) #9
+  %41 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3114, ptr noundef nonnull @.str.571, ptr noundef %40) #9
   %.not17 = icmp eq i32 %41, 0
   br i1 %.not17, label %48, label %42
 
 42:                                               ; preds = %39
-  %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #9
+  %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #10
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !60
-  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #9
-  %47 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 3117, ptr noundef nonnull @.str.551, ptr noundef nonnull @.str.572, ptr noundef nonnull %40, i64 noundef %43, ptr noundef nonnull %45, i64 noundef %46) #8
+  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #10
+  %47 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 3117, ptr noundef nonnull @.str.551, ptr noundef nonnull @.str.572, ptr noundef nonnull %40, i64 noundef %43, ptr noundef nonnull %45, i64 noundef %46) #9
   %.not18 = icmp ne i32 %47, 0
   %spec.select = zext i1 %.not18 to i32
   br label %48
@@ -6767,14 +6767,14 @@ define internal range(i32 0, 2) i32 @test_mod_exp_consttime(i32 noundef %0) #1 {
 48:                                               ; preds = %42, %39, %29, %1, %9, %15, %22
   %.012 = phi i32 [ 0, %39 ], [ 0, %29 ], [ 0, %22 ], [ 0, %15 ], [ 0, %9 ], [ 0, %1 ], [ %spec.select, %42 ]
   %.0 = phi ptr [ %40, %39 ], [ null, %29 ], [ null, %22 ], [ null, %15 ], [ null, %9 ], [ null, %1 ], [ %40, %42 ]
-  call void @CRYPTO_free(ptr noundef %.0, ptr noundef nonnull @.str.17, i32 noundef 3123) #8
-  call void @BN_free(ptr noundef %7) #8
+  call void @CRYPTO_free(ptr noundef %.0, ptr noundef nonnull @.str.17, i32 noundef 3123) #9
+  call void @BN_free(ptr noundef %7) #9
   %49 = load ptr, ptr %2, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %49) #8
+  call void @BN_free(ptr noundef %49) #9
   %50 = load ptr, ptr %3, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %50) #8
+  call void @BN_free(ptr noundef %50) #9
   %51 = load ptr, ptr %4, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %51) #8
+  call void @BN_free(ptr noundef %51) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -6783,78 +6783,78 @@ define internal range(i32 0, 2) i32 @test_mod_exp_consttime(i32 noundef %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_mod_exp2_mont() #1 {
-  %1 = tail call ptr @BN_new() #8
-  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3142, ptr noundef nonnull @.str.601, ptr noundef %1) #8
+  %1 = tail call ptr @BN_new() #9
+  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3142, ptr noundef nonnull @.str.601, ptr noundef %1) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %42, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @BN_new() #8
-  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3143, ptr noundef nonnull @.str.602, ptr noundef %4) #8
+  %4 = tail call ptr @BN_new() #9
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3143, ptr noundef nonnull @.str.602, ptr noundef %4) #9
   %.not22 = icmp eq i32 %5, 0
   br i1 %.not22, label %42, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @BN_new() #8
-  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3144, ptr noundef nonnull @.str.603, ptr noundef %7) #8
+  %7 = tail call ptr @BN_new() #9
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3144, ptr noundef nonnull @.str.603, ptr noundef %7) #9
   %.not23 = icmp eq i32 %8, 0
   br i1 %.not23, label %42, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @BN_new() #8
-  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3145, ptr noundef nonnull @.str.604, ptr noundef %10) #8
+  %10 = tail call ptr @BN_new() #9
+  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3145, ptr noundef nonnull @.str.604, ptr noundef %10) #9
   %.not24 = icmp eq i32 %11, 0
   br i1 %.not24, label %42, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call ptr @BN_new() #8
-  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3146, ptr noundef nonnull @.str.605, ptr noundef %13) #8
+  %13 = tail call ptr @BN_new() #9
+  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3146, ptr noundef nonnull @.str.605, ptr noundef %13) #9
   %.not25 = icmp eq i32 %14, 0
   br i1 %.not25, label %42, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call ptr @BN_new() #8
-  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3147, ptr noundef nonnull @.str.606, ptr noundef %16) #8
+  %16 = tail call ptr @BN_new() #9
+  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3147, ptr noundef nonnull @.str.606, ptr noundef %16) #9
   %.not26 = icmp eq i32 %17, 0
   br i1 %.not26, label %42, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call i32 @BN_set_word(ptr noundef %4, i64 noundef 1) #8
+  %19 = tail call i32 @BN_set_word(ptr noundef %4, i64 noundef 1) #9
   %20 = icmp ne i32 %19, 0
   %21 = zext i1 %20 to i32
-  %22 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3150, ptr noundef nonnull @.str.607, i32 noundef %21) #8
+  %22 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3150, ptr noundef nonnull @.str.607, i32 noundef %21) #9
   %.not27 = icmp eq i32 %22, 0
   br i1 %.not27, label %42, label %23
 
 23:                                               ; preds = %18
-  %24 = tail call i32 @BN_set_word(ptr noundef %7, i64 noundef 1) #8
+  %24 = tail call i32 @BN_set_word(ptr noundef %7, i64 noundef 1) #9
   %25 = icmp ne i32 %24, 0
   %26 = zext i1 %25 to i32
-  %27 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3151, ptr noundef nonnull @.str.608, i32 noundef %26) #8
+  %27 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3151, ptr noundef nonnull @.str.608, i32 noundef %26) #9
   %.not28 = icmp eq i32 %27, 0
   br i1 %.not28, label %42, label %28
 
 28:                                               ; preds = %23
-  %29 = tail call i32 @BN_set_word(ptr noundef %10, i64 noundef 1) #8
+  %29 = tail call i32 @BN_set_word(ptr noundef %10, i64 noundef 1) #9
   %30 = icmp ne i32 %29, 0
   %31 = zext i1 %30 to i32
-  %32 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3152, ptr noundef nonnull @.str.609, i32 noundef %31) #8
+  %32 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3152, ptr noundef nonnull @.str.609, i32 noundef %31) #9
   %.not29 = icmp eq i32 %32, 0
   br i1 %.not29, label %42, label %33
 
 33:                                               ; preds = %28
-  %34 = tail call i32 @BN_set_word(ptr noundef %13, i64 noundef 1) #8
+  %34 = tail call i32 @BN_set_word(ptr noundef %13, i64 noundef 1) #9
   %35 = icmp ne i32 %34, 0
   %36 = zext i1 %35 to i32
-  %37 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3153, ptr noundef nonnull @.str.610, i32 noundef %36) #8
+  %37 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 3153, ptr noundef nonnull @.str.610, i32 noundef %36) #9
   %.not30 = icmp eq i32 %37, 0
   br i1 %.not30, label %42, label %38
 
 38:                                               ; preds = %33
-  tail call void @BN_zero_ex(ptr noundef %16) #8
+  tail call void @BN_zero_ex(ptr noundef %16) #9
   %39 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %40 = tail call i32 @BN_mod_exp2_mont(ptr noundef %1, ptr noundef %4, ptr noundef %7, ptr noundef %10, ptr noundef %13, ptr noundef %16, ptr noundef %39, ptr noundef null) #8
-  %41 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 3160, ptr noundef nonnull @.str.611, ptr noundef nonnull @.str.69, i32 noundef %40, i32 noundef 0) #8
+  %40 = tail call i32 @BN_mod_exp2_mont(ptr noundef %1, ptr noundef %4, ptr noundef %7, ptr noundef %10, ptr noundef %13, ptr noundef %16, ptr noundef %39, ptr noundef null) #9
+  %41 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 3160, ptr noundef nonnull @.str.611, ptr noundef nonnull @.str.69, i32 noundef %40, i32 noundef 0) #9
   %.not31 = icmp ne i32 %41, 0
   %spec.select = zext i1 %.not31 to i32
   br label %42
@@ -6866,12 +6866,12 @@ define internal range(i32 0, 2) i32 @test_mod_exp2_mont() #1 {
   %.018 = phi ptr [ %10, %33 ], [ %10, %28 ], [ %10, %23 ], [ %10, %18 ], [ %10, %15 ], [ %10, %12 ], [ %10, %9 ], [ null, %6 ], [ null, %3 ], [ null, %0 ], [ %10, %38 ]
   %.017 = phi ptr [ %13, %33 ], [ %13, %28 ], [ %13, %23 ], [ %13, %18 ], [ %13, %15 ], [ %13, %12 ], [ null, %9 ], [ null, %6 ], [ null, %3 ], [ null, %0 ], [ %13, %38 ]
   %.0 = phi ptr [ %16, %33 ], [ %16, %28 ], [ %16, %23 ], [ %16, %18 ], [ %16, %15 ], [ null, %12 ], [ null, %9 ], [ null, %6 ], [ null, %3 ], [ null, %0 ], [ %16, %38 ]
-  tail call void @BN_free(ptr noundef %1) #8
-  tail call void @BN_free(ptr noundef %.020) #8
-  tail call void @BN_free(ptr noundef %.019) #8
-  tail call void @BN_free(ptr noundef %.018) #8
-  tail call void @BN_free(ptr noundef %.017) #8
-  tail call void @BN_free(ptr noundef %.0) #8
+  tail call void @BN_free(ptr noundef %1) #9
+  tail call void @BN_free(ptr noundef %.020) #9
+  tail call void @BN_free(ptr noundef %.019) #9
+  tail call void @BN_free(ptr noundef %.018) #9
+  tail call void @BN_free(ptr noundef %.017) #9
+  tail call void @BN_free(ptr noundef %.0) #9
   ret i32 %.021
 }
 
@@ -6893,28 +6893,28 @@ define internal range(i32 0, 2) i32 @test_rand_range() #1 {
   %10 = fdiv double %8, %9
   %11 = zext i32 %3 to i64
   %12 = shl nuw nsw i64 %11, 3
-  %13 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %12, ptr noundef nonnull @.str.17, i32 noundef 2358) #8
-  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2358, ptr noundef nonnull @.str.615, ptr noundef %13) #8
+  %13 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %12, ptr noundef nonnull @.str.17, i32 noundef 2358) #9
+  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2358, ptr noundef nonnull @.str.615, ptr noundef %13) #9
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %test_rand_range_single.exit, label %15
 
 15:                                               ; preds = %1
-  %16 = tail call ptr @BN_new() #8
-  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2359, ptr noundef nonnull @.str.616, ptr noundef %16) #8
+  %16 = tail call ptr @BN_new() #9
+  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2359, ptr noundef nonnull @.str.616, ptr noundef %16) #9
   %.not46.i = icmp eq i32 %17, 0
   br i1 %.not46.i, label %test_rand_range_single.exit, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call ptr @BN_new() #8
-  %20 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2360, ptr noundef nonnull @.str.617, ptr noundef %19) #8
+  %19 = tail call ptr @BN_new() #9
+  %20 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2360, ptr noundef nonnull @.str.617, ptr noundef %19) #9
   %.not47.i = icmp eq i32 %20, 0
   br i1 %.not47.i, label %test_rand_range_single.exit, label %21
 
 21:                                               ; preds = %18
-  %22 = tail call i32 @BN_set_word(ptr noundef %16, i64 noundef %11) #8
+  %22 = tail call i32 @BN_set_word(ptr noundef %16, i64 noundef %11) #9
   %23 = icmp ne i32 %22, 0
   %24 = zext i1 %23 to i32
-  %25 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2361, ptr noundef nonnull @.str.618, i32 noundef %24) #8
+  %25 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2361, ptr noundef nonnull @.str.618, i32 noundef %24) #9
   %.not48.i = icmp eq i32 %25, 0
   br i1 %.not48.i, label %test_rand_range_single.exit, label %.lr.ph.preheader.i
 
@@ -6929,17 +6929,17 @@ define internal range(i32 0, 2) i32 @test_rand_range() #1 {
 
 .lr.ph.i:                                         ; preds = %34, %.lr.ph.preheader.i
   %.04052.i = phi i32 [ %39, %34 ], [ 0, %.lr.ph.preheader.i ]
-  %26 = tail call i32 @BN_rand_range(ptr noundef %19, ptr noundef %16) #8
+  %26 = tail call i32 @BN_rand_range(ptr noundef %19, ptr noundef %16) #9
   %27 = icmp ne i32 %26, 0
   %28 = zext i1 %27 to i32
-  %29 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2364, ptr noundef nonnull @.str.619, i32 noundef %28) #8
+  %29 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2364, ptr noundef nonnull @.str.619, i32 noundef %28) #9
   %.not49.i = icmp eq i32 %29, 0
   br i1 %.not49.i, label %test_rand_range_single.exit, label %30
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = tail call i64 @BN_get_word(ptr noundef %19) #8
+  %31 = tail call i64 @BN_get_word(ptr noundef %19) #9
   %32 = trunc i64 %31 to i32
-  %33 = tail call i32 @test_uint_lt(ptr noundef nonnull @.str.17, i32 noundef 2365, ptr noundef nonnull @.str.620, ptr noundef nonnull @.str.621, i32 noundef %32, i32 noundef %3) #8
+  %33 = tail call i32 @test_uint_lt(ptr noundef nonnull @.str.17, i32 noundef 2365, ptr noundef nonnull @.str.620, ptr noundef nonnull @.str.621, i32 noundef %32, i32 noundef %3) #9
   %.not50.i = icmp eq i32 %33, 0
   br i1 %.not50.i, label %test_rand_range_single.exit, label %34
 
@@ -6971,30 +6971,30 @@ define internal range(i32 0, 2) i32 @test_rand_range() #1 {
   br i1 %46, label %47, label %test_rand_range_single.exit
 
 47:                                               ; preds = %._crit_edge.i
-  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.17, i32 noundef 2377, ptr noundef nonnull @.str.622, double noundef %45, double noundef %7) #8
+  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.17, i32 noundef 2377, ptr noundef nonnull @.str.622, double noundef %45, double noundef %7) #9
   %48 = add nuw nsw i64 %.09, 1
-  tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.623, i64 noundef %48, i32 noundef %3, i32 noundef %5) #8
+  tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.623, i64 noundef %48, i32 noundef %3, i32 noundef %5) #9
   br label %test_rand_range_single.exit
 
 test_rand_range_single.exit:                      ; preds = %.lr.ph.i, %30, %1, %15, %18, %21, %._crit_edge.i, %47
   %.041.i = phi ptr [ %19, %47 ], [ %19, %21 ], [ %19, %18 ], [ null, %15 ], [ null, %1 ], [ %19, %._crit_edge.i ], [ %19, %30 ], [ %19, %.lr.ph.i ]
   %.039.i = phi ptr [ %16, %47 ], [ %16, %21 ], [ %16, %18 ], [ %16, %15 ], [ null, %1 ], [ %16, %._crit_edge.i ], [ %16, %30 ], [ %16, %.lr.ph.i ]
   %.038.i = phi i32 [ 0, %47 ], [ 0, %21 ], [ 0, %18 ], [ 0, %15 ], [ 0, %1 ], [ 1, %._crit_edge.i ], [ 0, %30 ], [ 0, %.lr.ph.i ]
-  tail call void @BN_free(ptr noundef %.039.i) #8
-  tail call void @BN_free(ptr noundef %.041.i) #8
-  tail call void @CRYPTO_free(ptr noundef %13, ptr noundef nonnull @.str.17, i32 noundef 2387) #8
+  tail call void @BN_free(ptr noundef %.039.i) #9
+  tail call void @BN_free(ptr noundef %.041.i) #9
+  tail call void @CRYPTO_free(ptr noundef %13, ptr noundef nonnull @.str.17, i32 noundef 2387) #9
   %49 = add nuw nsw i32 %.038.i, %.068
   %50 = add nuw nsw i64 %.09, 1
   %exitcond.not = icmp eq i64 %50, 37
   br i1 %exitcond.not, label %51, label %1, !llvm.loop !69
 
 51:                                               ; preds = %test_rand_range_single.exit
-  %52 = tail call i32 @test_int_ge(ptr noundef nonnull @.str.17, i32 noundef 2398, ptr noundef nonnull @.str.612, ptr noundef nonnull @.str.613, i32 noundef %49, i32 noundef 29) #8
+  %52 = tail call i32 @test_int_ge(ptr noundef nonnull @.str.17, i32 noundef 2398, ptr noundef nonnull @.str.612, ptr noundef nonnull @.str.613, i32 noundef %49, i32 noundef 29) #9
   %.not = icmp eq i32 %52, 0
   br i1 %.not, label %53, label %54
 
 53:                                               ; preds = %51
-  tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.614) #8
+  tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.614) #9
   br label %54
 
 54:                                               ; preds = %51, %53
@@ -7005,21 +7005,21 @@ test_rand_range_single.exit:                      ; preds = %.lr.ph.i, %30, %1, 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @run_file_tests(i32 noundef %0) #1 {
   %2 = sext i32 %0 to i64
-  %3 = tail call ptr @test_get_argument(i64 noundef %2) #8
-  %4 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 35216, ptr noundef nonnull @.str.17, i32 noundef 3316) #8
-  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3316, ptr noundef nonnull @.str.624, ptr noundef %4) #8
+  %3 = tail call ptr @test_get_argument(i64 noundef %2) #9
+  %4 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 35216, ptr noundef nonnull @.str.17, i32 noundef 3316) #9
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3316, ptr noundef nonnull @.str.624, ptr noundef %4) #9
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %62, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @test_start_file(ptr noundef %4, ptr noundef %3) #8
+  %7 = tail call i32 @test_start_file(ptr noundef %4, ptr noundef %3) #9
   %.not15 = icmp eq i32 %7, 0
   br i1 %.not15, label %17, label %.preheader
 
 .preheader:                                       ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !70
-  %10 = tail call i64 @BIO_ctrl(ptr noundef %9, i32 noundef 2, i64 noundef 0, ptr noundef null) #8
+  %10 = tail call i64 @BIO_ctrl(ptr noundef %9, i32 noundef 2, i64 noundef 0, ptr noundef null) #9
   %11 = and i64 %10, 4294967295
   %.not1624 = icmp eq i64 %11, 0
   br i1 %.not1624, label %.lr.ph, label %.critedge
@@ -7033,11 +7033,11 @@ define internal range(i32 0, 2) i32 @run_file_tests(i32 noundef %0) #1 {
   br label %18
 
 17:                                               ; preds = %6
-  tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str.17, i32 noundef 3319) #8
+  tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str.17, i32 noundef 3319) #9
   br label %62
 
 18:                                               ; preds = %.lr.ph, %.backedge
-  %19 = tail call i32 @test_readstanza(ptr noundef nonnull %4) #8
+  %19 = tail call i32 @test_readstanza(ptr noundef nonnull %4) #9
   %.not17 = icmp eq i32 %19, 0
   br i1 %.not17, label %.critedge, label %20
 
@@ -7068,7 +7068,7 @@ define internal range(i32 0, 2) i32 @run_file_tests(i32 noundef %0) #1 {
   %.in.i.i = phi i32 [ %35, %34 ], [ %27, %.split.i ]
   %.011.i.i = phi ptr [ %36, %34 ], [ %13, %.split.i ]
   %31 = load ptr, ptr %.011.i.i, align 8, !tbaa !76
-  %32 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %31, ptr noundef %29) #8
+  %32 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %31, ptr noundef %29) #9
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %findattr.exit.i, label %34
 
@@ -7087,14 +7087,14 @@ findattr.exit.i:                                  ; preds = %.lr.ph.i.i
 40:                                               ; preds = %findattr.exit.i
   %41 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !80
-  %43 = tail call i32 %42(ptr noundef nonnull %4) #8
+  %43 = tail call i32 %42(ptr noundef nonnull %4) #9
   %.not14.i = icmp eq i32 %43, 0
   br i1 %.not14.i, label %44, label %file_test_run.exit
 
 44:                                               ; preds = %40
   %45 = load ptr, ptr %4, align 8, !tbaa !81
   %46 = load i32, ptr %14, align 4, !tbaa !82
-  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.17, i32 noundef 3300, ptr noundef nonnull @.str.637, ptr noundef %45, i32 noundef %46, ptr noundef %29) #8
+  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.17, i32 noundef 3300, ptr noundef nonnull @.str.637, ptr noundef %45, i32 noundef %46, ptr noundef %29) #9
   br label %49
 
 findattr.exit.thread.i:                           ; preds = %34, %findattr.exit.i, %.split.i
@@ -7104,7 +7104,7 @@ findattr.exit.thread.i:                           ; preds = %34, %findattr.exit.
 .split21.us.i:                                    ; preds = %findattr.exit.thread.i, %23
   %47 = load ptr, ptr %4, align 8, !tbaa !81
   %48 = load i32, ptr %14, align 4, !tbaa !82
-  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.17, i32 noundef 3306, ptr noundef nonnull @.str.638, ptr noundef %47, i32 noundef %48) #8
+  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.17, i32 noundef 3306, ptr noundef nonnull @.str.638, ptr noundef %47, i32 noundef %48) #9
   br label %49
 
 49:                                               ; preds = %44, %.split21.us.i
@@ -7117,21 +7117,21 @@ file_test_run.exit:                               ; preds = %40, %49
   %52 = load i32, ptr %16, align 4, !tbaa !86
   %53 = add nsw i32 %52, 1
   store i32 %53, ptr %16, align 4, !tbaa !86
-  tail call void @test_clearstanza(ptr noundef nonnull %4) #8
+  tail call void @test_clearstanza(ptr noundef nonnull %4) #9
   br label %.backedge
 
 .backedge:                                        ; preds = %file_test_run.exit, %20
   %54 = load ptr, ptr %8, align 8, !tbaa !70
-  %55 = tail call i64 @BIO_ctrl(ptr noundef %54, i32 noundef 2, i64 noundef 0, ptr noundef null) #8
+  %55 = tail call i64 @BIO_ctrl(ptr noundef %54, i32 noundef 2, i64 noundef 0, ptr noundef null) #9
   %56 = and i64 %55, 4294967295
   %.not16 = icmp eq i64 %56, 0
   br i1 %.not16, label %18, label %.critedge, !llvm.loop !87
 
 .critedge:                                        ; preds = %18, %.backedge, %.preheader
-  %57 = tail call i32 @test_end_file(ptr noundef nonnull %4) #8
+  %57 = tail call i32 @test_end_file(ptr noundef nonnull %4) #9
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %59 = load i32, ptr %58, align 8, !tbaa !85
-  tail call void @CRYPTO_free(ptr noundef nonnull %4, ptr noundef nonnull @.str.17, i32 noundef 3334) #8
+  tail call void @CRYPTO_free(ptr noundef nonnull %4, ptr noundef nonnull @.str.17, i32 noundef 3334) #9
   %60 = icmp eq i32 %59, 0
   %61 = zext i1 %60 to i32
   br label %62
@@ -7144,7 +7144,7 @@ file_test_run.exit:                               ; preds = %40, %49
 ; Function Attrs: nounwind uwtable
 define dso_local void @cleanup_tests() local_unnamed_addr #1 {
   %1 = load ptr, ptr @ctx, align 8, !tbaa !6
-  tail call void @BN_CTX_free(ptr noundef %1) #8
+  tail call void @BN_CTX_free(ptr noundef %1) #9
   ret void
 }
 
@@ -7233,9 +7233,9 @@ declare i32 @BN_mod_mul_montgomery(ptr noundef, ptr noundef, ptr noundef, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @parse_bigBN(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #1 {
-  %3 = tail call ptr @glue_strings(ptr noundef %1, ptr noundef null) #8
-  %4 = tail call i32 @BN_hex2bn(ptr noundef nonnull %0, ptr noundef %3) #8
-  tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str.17, i32 noundef 77) #8
+  %3 = tail call ptr @glue_strings(ptr noundef %1, ptr noundef null) #9
+  %4 = tail call i32 @BN_hex2bn(ptr noundef nonnull %0, ptr noundef %3) #9
+  tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str.17, i32 noundef 77) #9
   ret i32 %4
 }
 
@@ -7342,13 +7342,13 @@ declare void @BN_swap(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @equalBN(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
-  %4 = tail call i32 @BN_cmp(ptr noundef %1, ptr noundef %2) #8
+  %4 = tail call i32 @BN_cmp(ptr noundef %1, ptr noundef %2) #9
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef %0) #8
-  %7 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %1, ptr noundef %2) #8
+  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef %0) #9
+  %7 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %1, ptr noundef %2) #9
   br label %8
 
 8:                                                ; preds = %3, %6
@@ -7415,7 +7415,7 @@ declare i32 @test_uint_lt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i3
 
 declare i64 @BN_get_word(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #5
 
 declare ptr @test_get_argument(i64 noundef) local_unnamed_addr #2
@@ -7433,69 +7433,69 @@ declare i32 @test_end_file(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @file_sum(ptr noundef readonly captures(none) %0) #1 {
   %2 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.640)
-  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1221, ptr noundef nonnull @.str.639, ptr noundef %2) #8
+  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1221, ptr noundef nonnull @.str.639, ptr noundef %2) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %238, label %4
 
 4:                                                ; preds = %1
   %5 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.642)
-  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1222, ptr noundef nonnull @.str.641, ptr noundef %5) #8
+  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1222, ptr noundef nonnull @.str.641, ptr noundef %5) #9
   %.not145 = icmp eq i32 %6, 0
   br i1 %.not145, label %238, label %7
 
 7:                                                ; preds = %4
   %8 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.625)
-  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1223, ptr noundef nonnull @.str.643, ptr noundef %8) #8
+  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1223, ptr noundef nonnull @.str.643, ptr noundef %8) #9
   %.not146 = icmp eq i32 %9, 0
   br i1 %.not146, label %238, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @BN_new() #8
-  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1224, ptr noundef nonnull @.str.644, ptr noundef %11) #8
+  %11 = tail call ptr @BN_new() #9
+  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1224, ptr noundef nonnull @.str.644, ptr noundef %11) #9
   %.not147 = icmp eq i32 %12, 0
   br i1 %.not147, label %238, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call i32 @BN_add(ptr noundef %11, ptr noundef %2, ptr noundef %5) #8
+  %14 = tail call i32 @BN_add(ptr noundef %11, ptr noundef %2, ptr noundef %5) #9
   %15 = icmp ne i32 %14, 0
   %16 = zext i1 %15 to i32
-  %17 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1227, ptr noundef nonnull @.str.645, i32 noundef %16) #8
+  %17 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1227, ptr noundef nonnull @.str.645, i32 noundef %16) #9
   %.not148 = icmp eq i32 %17, 0
   br i1 %.not148, label %238, label %18
 
 18:                                               ; preds = %13
-  %19 = tail call i32 @BN_cmp(ptr noundef %8, ptr noundef %11) #8
+  %19 = tail call i32 @BN_cmp(ptr noundef %8, ptr noundef %11) #9
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %equalBN.exit, label %equalBN.exit.thread
 
 equalBN.exit.thread:                              ; preds = %18
-  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.646) #8
-  %21 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %8, ptr noundef %11) #8
+  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.646) #9
+  %21 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %8, ptr noundef %11) #9
   br label %238
 
 equalBN.exit:                                     ; preds = %18
-  %22 = tail call i32 @BN_sub(ptr noundef %11, ptr noundef %8, ptr noundef %2) #8
+  %22 = tail call i32 @BN_sub(ptr noundef %11, ptr noundef %8, ptr noundef %2) #9
   %23 = icmp ne i32 %22, 0
   %24 = zext i1 %23 to i32
-  %25 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1229, ptr noundef nonnull @.str.647, i32 noundef %24) #8
+  %25 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1229, ptr noundef nonnull @.str.647, i32 noundef %24) #9
   %.not150 = icmp eq i32 %25, 0
   br i1 %.not150, label %238, label %26
 
 26:                                               ; preds = %equalBN.exit
-  %27 = tail call i32 @BN_cmp(ptr noundef %5, ptr noundef %11) #8
+  %27 = tail call i32 @BN_cmp(ptr noundef %5, ptr noundef %11) #9
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %equalBN.exit205, label %equalBN.exit205.thread
 
 equalBN.exit205.thread:                           ; preds = %26
-  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.648) #8
-  %29 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %5, ptr noundef %11) #8
+  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.648) #9
+  %29 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %5, ptr noundef %11) #9
   br label %238
 
 equalBN.exit205:                                  ; preds = %26
-  %30 = tail call i32 @BN_sub(ptr noundef %11, ptr noundef %8, ptr noundef %5) #8
+  %30 = tail call i32 @BN_sub(ptr noundef %11, ptr noundef %8, ptr noundef %5) #9
   %31 = icmp ne i32 %30, 0
   %32 = zext i1 %31 to i32
-  %33 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1231, ptr noundef nonnull @.str.649, i32 noundef %32) #8
+  %33 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1231, ptr noundef nonnull @.str.649, i32 noundef %32) #9
   %.not152 = icmp eq i32 %33, 0
   br i1 %.not152, label %238, label %34
 
@@ -7505,18 +7505,18 @@ equalBN.exit205:                                  ; preds = %26
   br i1 %.not153, label %238, label %36
 
 36:                                               ; preds = %34
-  %37 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %2) #8
+  %37 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %2) #9
   %38 = icmp ne ptr %37, null
   %39 = zext i1 %38 to i32
-  %40 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1240, ptr noundef nonnull @.str.651, i32 noundef %39) #8
+  %40 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1240, ptr noundef nonnull @.str.651, i32 noundef %39) #9
   %.not154 = icmp eq i32 %40, 0
   br i1 %.not154, label %238, label %41
 
 41:                                               ; preds = %36
-  %42 = tail call i32 @BN_add(ptr noundef %11, ptr noundef %11, ptr noundef %5) #8
+  %42 = tail call i32 @BN_add(ptr noundef %11, ptr noundef %11, ptr noundef %5) #9
   %43 = icmp ne i32 %42, 0
   %44 = zext i1 %43 to i32
-  %45 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1241, ptr noundef nonnull @.str.652, i32 noundef %44) #8
+  %45 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1241, ptr noundef nonnull @.str.652, i32 noundef %44) #9
   %.not155 = icmp eq i32 %45, 0
   br i1 %.not155, label %238, label %46
 
@@ -7526,18 +7526,18 @@ equalBN.exit205:                                  ; preds = %26
   br i1 %.not156, label %238, label %48
 
 48:                                               ; preds = %46
-  %49 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %5) #8
+  %49 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %5) #9
   %50 = icmp ne ptr %49, null
   %51 = zext i1 %50 to i32
-  %52 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1243, ptr noundef nonnull @.str.654, i32 noundef %51) #8
+  %52 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1243, ptr noundef nonnull @.str.654, i32 noundef %51) #9
   %.not157 = icmp eq i32 %52, 0
   br i1 %.not157, label %238, label %53
 
 53:                                               ; preds = %48
-  %54 = tail call i32 @BN_add(ptr noundef %11, ptr noundef %2, ptr noundef %11) #8
+  %54 = tail call i32 @BN_add(ptr noundef %11, ptr noundef %2, ptr noundef %11) #9
   %55 = icmp ne i32 %54, 0
   %56 = zext i1 %55 to i32
-  %57 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1244, ptr noundef nonnull @.str.655, i32 noundef %56) #8
+  %57 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1244, ptr noundef nonnull @.str.655, i32 noundef %56) #9
   %.not158 = icmp eq i32 %57, 0
   br i1 %.not158, label %238, label %58
 
@@ -7547,18 +7547,18 @@ equalBN.exit205:                                  ; preds = %26
   br i1 %.not159, label %238, label %60
 
 60:                                               ; preds = %58
-  %61 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %8) #8
+  %61 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %8) #9
   %62 = icmp ne ptr %61, null
   %63 = zext i1 %62 to i32
-  %64 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1246, ptr noundef nonnull @.str.657, i32 noundef %63) #8
+  %64 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1246, ptr noundef nonnull @.str.657, i32 noundef %63) #9
   %.not160 = icmp eq i32 %64, 0
   br i1 %.not160, label %238, label %65
 
 65:                                               ; preds = %60
-  %66 = tail call i32 @BN_sub(ptr noundef %11, ptr noundef %11, ptr noundef %2) #8
+  %66 = tail call i32 @BN_sub(ptr noundef %11, ptr noundef %11, ptr noundef %2) #9
   %67 = icmp ne i32 %66, 0
   %68 = zext i1 %67 to i32
-  %69 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1247, ptr noundef nonnull @.str.658, i32 noundef %68) #8
+  %69 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1247, ptr noundef nonnull @.str.658, i32 noundef %68) #9
   %.not161 = icmp eq i32 %69, 0
   br i1 %.not161, label %238, label %70
 
@@ -7568,18 +7568,18 @@ equalBN.exit205:                                  ; preds = %26
   br i1 %.not162, label %238, label %72
 
 72:                                               ; preds = %70
-  %73 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %2) #8
+  %73 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %2) #9
   %74 = icmp ne ptr %73, null
   %75 = zext i1 %74 to i32
-  %76 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1249, ptr noundef nonnull @.str.651, i32 noundef %75) #8
+  %76 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1249, ptr noundef nonnull @.str.651, i32 noundef %75) #9
   %.not163 = icmp eq i32 %76, 0
   br i1 %.not163, label %238, label %77
 
 77:                                               ; preds = %72
-  %78 = tail call i32 @BN_sub(ptr noundef %11, ptr noundef %8, ptr noundef %11) #8
+  %78 = tail call i32 @BN_sub(ptr noundef %11, ptr noundef %8, ptr noundef %11) #9
   %79 = icmp ne i32 %78, 0
   %80 = zext i1 %79 to i32
-  %81 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1250, ptr noundef nonnull @.str.660, i32 noundef %80) #8
+  %81 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1250, ptr noundef nonnull @.str.660, i32 noundef %80) #9
   %.not164 = icmp eq i32 %81, 0
   br i1 %.not164, label %238, label %82
 
@@ -7589,18 +7589,18 @@ equalBN.exit205:                                  ; preds = %26
   br i1 %.not165, label %238, label %84
 
 84:                                               ; preds = %82
-  %85 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %8) #8
+  %85 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %8) #9
   %86 = icmp ne ptr %85, null
   %87 = zext i1 %86 to i32
-  %88 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1252, ptr noundef nonnull @.str.657, i32 noundef %87) #8
+  %88 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1252, ptr noundef nonnull @.str.657, i32 noundef %87) #9
   %.not166 = icmp eq i32 %88, 0
   br i1 %.not166, label %238, label %89
 
 89:                                               ; preds = %84
-  %90 = tail call i32 @BN_sub(ptr noundef %11, ptr noundef %11, ptr noundef %5) #8
+  %90 = tail call i32 @BN_sub(ptr noundef %11, ptr noundef %11, ptr noundef %5) #9
   %91 = icmp ne i32 %90, 0
   %92 = zext i1 %91 to i32
-  %93 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1253, ptr noundef nonnull @.str.662, i32 noundef %92) #8
+  %93 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1253, ptr noundef nonnull @.str.662, i32 noundef %92) #9
   %.not167 = icmp eq i32 %93, 0
   br i1 %.not167, label %238, label %94
 
@@ -7610,18 +7610,18 @@ equalBN.exit205:                                  ; preds = %26
   br i1 %.not168, label %238, label %96
 
 96:                                               ; preds = %94
-  %97 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %5) #8
+  %97 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %5) #9
   %98 = icmp ne ptr %97, null
   %99 = zext i1 %98 to i32
-  %100 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1255, ptr noundef nonnull @.str.654, i32 noundef %99) #8
+  %100 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1255, ptr noundef nonnull @.str.654, i32 noundef %99) #9
   %.not169 = icmp eq i32 %100, 0
   br i1 %.not169, label %238, label %101
 
 101:                                              ; preds = %96
-  %102 = tail call i32 @BN_sub(ptr noundef %11, ptr noundef %8, ptr noundef %11) #8
+  %102 = tail call i32 @BN_sub(ptr noundef %11, ptr noundef %8, ptr noundef %11) #9
   %103 = icmp ne i32 %102, 0
   %104 = zext i1 %103 to i32
-  %105 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1256, ptr noundef nonnull @.str.660, i32 noundef %104) #8
+  %105 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1256, ptr noundef nonnull @.str.660, i32 noundef %104) #9
   %.not170 = icmp eq i32 %105, 0
   br i1 %.not170, label %238, label %106
 
@@ -7631,25 +7631,25 @@ equalBN.exit205:                                  ; preds = %26
   br i1 %.not171, label %238, label %108
 
 108:                                              ; preds = %106
-  %109 = tail call i32 @BN_is_negative(ptr noundef %2) #8
+  %109 = tail call i32 @BN_is_negative(ptr noundef %2) #9
   %.not172 = icmp eq i32 %109, 0
   br i1 %.not172, label %110, label %208
 
 110:                                              ; preds = %108
-  %111 = tail call i32 @BN_is_negative(ptr noundef %5) #8
+  %111 = tail call i32 @BN_is_negative(ptr noundef %5) #9
   %.not173 = icmp eq i32 %111, 0
   br i1 %.not173, label %112, label %208
 
 112:                                              ; preds = %110
-  %113 = tail call i32 @BN_cmp(ptr noundef %2, ptr noundef %5) #8
+  %113 = tail call i32 @BN_cmp(ptr noundef %2, ptr noundef %5) #9
   %114 = icmp sgt i32 %113, -1
   br i1 %114, label %115, label %208
 
 115:                                              ; preds = %112
-  %116 = tail call i32 @BN_uadd(ptr noundef %11, ptr noundef %2, ptr noundef %5) #8
+  %116 = tail call i32 @BN_uadd(ptr noundef %11, ptr noundef %2, ptr noundef %5) #9
   %117 = icmp ne i32 %116, 0
   %118 = zext i1 %117 to i32
-  %119 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1267, ptr noundef nonnull @.str.665, i32 noundef %118) #8
+  %119 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1267, ptr noundef nonnull @.str.665, i32 noundef %118) #9
   %.not174 = icmp eq i32 %119, 0
   br i1 %.not174, label %238, label %120
 
@@ -7659,10 +7659,10 @@ equalBN.exit205:                                  ; preds = %26
   br i1 %.not175, label %238, label %122
 
 122:                                              ; preds = %120
-  %123 = tail call i32 @BN_usub(ptr noundef %11, ptr noundef %8, ptr noundef %2) #8
+  %123 = tail call i32 @BN_usub(ptr noundef %11, ptr noundef %8, ptr noundef %2) #9
   %124 = icmp ne i32 %123, 0
   %125 = zext i1 %124 to i32
-  %126 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1269, ptr noundef nonnull @.str.667, i32 noundef %125) #8
+  %126 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1269, ptr noundef nonnull @.str.667, i32 noundef %125) #9
   %.not176 = icmp eq i32 %126, 0
   br i1 %.not176, label %238, label %127
 
@@ -7672,10 +7672,10 @@ equalBN.exit205:                                  ; preds = %26
   br i1 %.not177, label %238, label %129
 
 129:                                              ; preds = %127
-  %130 = tail call i32 @BN_usub(ptr noundef %11, ptr noundef %8, ptr noundef %5) #8
+  %130 = tail call i32 @BN_usub(ptr noundef %11, ptr noundef %8, ptr noundef %5) #9
   %131 = icmp ne i32 %130, 0
   %132 = zext i1 %131 to i32
-  %133 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1271, ptr noundef nonnull @.str.669, i32 noundef %132) #8
+  %133 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1271, ptr noundef nonnull @.str.669, i32 noundef %132) #9
   %.not178 = icmp eq i32 %133, 0
   br i1 %.not178, label %238, label %134
 
@@ -7685,18 +7685,18 @@ equalBN.exit205:                                  ; preds = %26
   br i1 %.not179, label %238, label %136
 
 136:                                              ; preds = %134
-  %137 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %2) #8
+  %137 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %2) #9
   %138 = icmp ne ptr %137, null
   %139 = zext i1 %138 to i32
-  %140 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1280, ptr noundef nonnull @.str.651, i32 noundef %139) #8
+  %140 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1280, ptr noundef nonnull @.str.651, i32 noundef %139) #9
   %.not180 = icmp eq i32 %140, 0
   br i1 %.not180, label %238, label %141
 
 141:                                              ; preds = %136
-  %142 = tail call i32 @BN_uadd(ptr noundef %11, ptr noundef %11, ptr noundef %5) #8
+  %142 = tail call i32 @BN_uadd(ptr noundef %11, ptr noundef %11, ptr noundef %5) #9
   %143 = icmp ne i32 %142, 0
   %144 = zext i1 %143 to i32
-  %145 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1281, ptr noundef nonnull @.str.671, i32 noundef %144) #8
+  %145 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1281, ptr noundef nonnull @.str.671, i32 noundef %144) #9
   %.not181 = icmp eq i32 %145, 0
   br i1 %.not181, label %238, label %146
 
@@ -7706,18 +7706,18 @@ equalBN.exit205:                                  ; preds = %26
   br i1 %.not182, label %238, label %148
 
 148:                                              ; preds = %146
-  %149 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %5) #8
+  %149 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %5) #9
   %150 = icmp ne ptr %149, null
   %151 = zext i1 %150 to i32
-  %152 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1283, ptr noundef nonnull @.str.654, i32 noundef %151) #8
+  %152 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1283, ptr noundef nonnull @.str.654, i32 noundef %151) #9
   %.not183 = icmp eq i32 %152, 0
   br i1 %.not183, label %238, label %153
 
 153:                                              ; preds = %148
-  %154 = tail call i32 @BN_uadd(ptr noundef %11, ptr noundef %2, ptr noundef %11) #8
+  %154 = tail call i32 @BN_uadd(ptr noundef %11, ptr noundef %2, ptr noundef %11) #9
   %155 = icmp ne i32 %154, 0
   %156 = zext i1 %155 to i32
-  %157 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1284, ptr noundef nonnull @.str.673, i32 noundef %156) #8
+  %157 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1284, ptr noundef nonnull @.str.673, i32 noundef %156) #9
   %.not184 = icmp eq i32 %157, 0
   br i1 %.not184, label %238, label %158
 
@@ -7727,18 +7727,18 @@ equalBN.exit205:                                  ; preds = %26
   br i1 %.not185, label %238, label %160
 
 160:                                              ; preds = %158
-  %161 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %8) #8
+  %161 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %8) #9
   %162 = icmp ne ptr %161, null
   %163 = zext i1 %162 to i32
-  %164 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1286, ptr noundef nonnull @.str.657, i32 noundef %163) #8
+  %164 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1286, ptr noundef nonnull @.str.657, i32 noundef %163) #9
   %.not186 = icmp eq i32 %164, 0
   br i1 %.not186, label %238, label %165
 
 165:                                              ; preds = %160
-  %166 = tail call i32 @BN_usub(ptr noundef %11, ptr noundef %11, ptr noundef %2) #8
+  %166 = tail call i32 @BN_usub(ptr noundef %11, ptr noundef %11, ptr noundef %2) #9
   %167 = icmp ne i32 %166, 0
   %168 = zext i1 %167 to i32
-  %169 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1287, ptr noundef nonnull @.str.675, i32 noundef %168) #8
+  %169 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1287, ptr noundef nonnull @.str.675, i32 noundef %168) #9
   %.not187 = icmp eq i32 %169, 0
   br i1 %.not187, label %238, label %170
 
@@ -7748,18 +7748,18 @@ equalBN.exit205:                                  ; preds = %26
   br i1 %.not188, label %238, label %172
 
 172:                                              ; preds = %170
-  %173 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %2) #8
+  %173 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %2) #9
   %174 = icmp ne ptr %173, null
   %175 = zext i1 %174 to i32
-  %176 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1289, ptr noundef nonnull @.str.651, i32 noundef %175) #8
+  %176 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1289, ptr noundef nonnull @.str.651, i32 noundef %175) #9
   %.not189 = icmp eq i32 %176, 0
   br i1 %.not189, label %238, label %177
 
 177:                                              ; preds = %172
-  %178 = tail call i32 @BN_usub(ptr noundef %11, ptr noundef %8, ptr noundef %11) #8
+  %178 = tail call i32 @BN_usub(ptr noundef %11, ptr noundef %8, ptr noundef %11) #9
   %179 = icmp ne i32 %178, 0
   %180 = zext i1 %179 to i32
-  %181 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1290, ptr noundef nonnull @.str.677, i32 noundef %180) #8
+  %181 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1290, ptr noundef nonnull @.str.677, i32 noundef %180) #9
   %.not190 = icmp eq i32 %181, 0
   br i1 %.not190, label %238, label %182
 
@@ -7769,18 +7769,18 @@ equalBN.exit205:                                  ; preds = %26
   br i1 %.not191, label %238, label %184
 
 184:                                              ; preds = %182
-  %185 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %8) #8
+  %185 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %8) #9
   %186 = icmp ne ptr %185, null
   %187 = zext i1 %186 to i32
-  %188 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1292, ptr noundef nonnull @.str.657, i32 noundef %187) #8
+  %188 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1292, ptr noundef nonnull @.str.657, i32 noundef %187) #9
   %.not192 = icmp eq i32 %188, 0
   br i1 %.not192, label %238, label %189
 
 189:                                              ; preds = %184
-  %190 = tail call i32 @BN_usub(ptr noundef %11, ptr noundef %11, ptr noundef %5) #8
+  %190 = tail call i32 @BN_usub(ptr noundef %11, ptr noundef %11, ptr noundef %5) #9
   %191 = icmp ne i32 %190, 0
   %192 = zext i1 %191 to i32
-  %193 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1293, ptr noundef nonnull @.str.679, i32 noundef %192) #8
+  %193 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1293, ptr noundef nonnull @.str.679, i32 noundef %192) #9
   %.not193 = icmp eq i32 %193, 0
   br i1 %.not193, label %238, label %194
 
@@ -7790,18 +7790,18 @@ equalBN.exit205:                                  ; preds = %26
   br i1 %.not194, label %238, label %196
 
 196:                                              ; preds = %194
-  %197 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %5) #8
+  %197 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %5) #9
   %198 = icmp ne ptr %197, null
   %199 = zext i1 %198 to i32
-  %200 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1295, ptr noundef nonnull @.str.654, i32 noundef %199) #8
+  %200 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1295, ptr noundef nonnull @.str.654, i32 noundef %199) #9
   %.not195 = icmp eq i32 %200, 0
   br i1 %.not195, label %238, label %201
 
 201:                                              ; preds = %196
-  %202 = tail call i32 @BN_usub(ptr noundef %11, ptr noundef %8, ptr noundef %11) #8
+  %202 = tail call i32 @BN_usub(ptr noundef %11, ptr noundef %8, ptr noundef %11) #9
   %203 = icmp ne i32 %202, 0
   %204 = zext i1 %203 to i32
-  %205 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1296, ptr noundef nonnull @.str.677, i32 noundef %204) #8
+  %205 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1296, ptr noundef nonnull @.str.677, i32 noundef %204) #9
   %.not196 = icmp eq i32 %205, 0
   br i1 %.not196, label %238, label %206
 
@@ -7811,26 +7811,26 @@ equalBN.exit205:                                  ; preds = %26
   br i1 %.not197, label %238, label %208
 
 208:                                              ; preds = %206, %112, %110, %108
-  %209 = tail call i64 @BN_get_word(ptr noundef %5) #8
-  %210 = tail call i32 @BN_is_negative(ptr noundef %5) #8
+  %209 = tail call i64 @BN_get_word(ptr noundef %5) #9
+  %210 = tail call i32 @BN_is_negative(ptr noundef %5) #9
   %211 = icmp eq i32 %210, 0
   %212 = icmp ne i64 %209, -1
   %or.cond = select i1 %211, i1 %212, i1 false
   br i1 %or.cond, label %213, label %237
 
 213:                                              ; preds = %208
-  %214 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %2) #8
+  %214 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %2) #9
   %215 = icmp ne ptr %214, null
   %216 = zext i1 %215 to i32
-  %217 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1306, ptr noundef nonnull @.str.651, i32 noundef %216) #8
+  %217 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1306, ptr noundef nonnull @.str.651, i32 noundef %216) #9
   %.not198 = icmp eq i32 %217, 0
   br i1 %.not198, label %238, label %218
 
 218:                                              ; preds = %213
-  %219 = tail call i32 @BN_add_word(ptr noundef %11, i64 noundef %209) #8
+  %219 = tail call i32 @BN_add_word(ptr noundef %11, i64 noundef %209) #9
   %220 = icmp ne i32 %219, 0
   %221 = zext i1 %220 to i32
-  %222 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1307, ptr noundef nonnull @.str.682, i32 noundef %221) #8
+  %222 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1307, ptr noundef nonnull @.str.682, i32 noundef %221) #9
   %.not199 = icmp eq i32 %222, 0
   br i1 %.not199, label %238, label %223
 
@@ -7840,18 +7840,18 @@ equalBN.exit205:                                  ; preds = %26
   br i1 %.not200, label %238, label %225
 
 225:                                              ; preds = %223
-  %226 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %8) #8
+  %226 = tail call ptr @BN_copy(ptr noundef %11, ptr noundef %8) #9
   %227 = icmp ne ptr %226, null
   %228 = zext i1 %227 to i32
-  %229 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1309, ptr noundef nonnull @.str.657, i32 noundef %228) #8
+  %229 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1309, ptr noundef nonnull @.str.657, i32 noundef %228) #9
   %.not201 = icmp eq i32 %229, 0
   br i1 %.not201, label %238, label %230
 
 230:                                              ; preds = %225
-  %231 = tail call i32 @BN_sub_word(ptr noundef %11, i64 noundef %209) #8
+  %231 = tail call i32 @BN_sub_word(ptr noundef %11, i64 noundef %209) #9
   %232 = icmp ne i32 %231, 0
   %233 = zext i1 %232 to i32
-  %234 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1310, ptr noundef nonnull @.str.684, i32 noundef %233) #8
+  %234 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1310, ptr noundef nonnull @.str.684, i32 noundef %233) #9
   %.not202 = icmp eq i32 %234, 0
   br i1 %.not202, label %238, label %235
 
@@ -7868,83 +7868,83 @@ equalBN.exit205:                                  ; preds = %26
   %.0142 = phi ptr [ %8, %237 ], [ %8, %235 ], [ %8, %230 ], [ %8, %225 ], [ %8, %223 ], [ %8, %218 ], [ %8, %213 ], [ %8, %206 ], [ %8, %201 ], [ %8, %196 ], [ %8, %194 ], [ %8, %189 ], [ %8, %184 ], [ %8, %182 ], [ %8, %177 ], [ %8, %172 ], [ %8, %170 ], [ %8, %165 ], [ %8, %160 ], [ %8, %158 ], [ %8, %153 ], [ %8, %148 ], [ %8, %146 ], [ %8, %141 ], [ %8, %136 ], [ %8, %134 ], [ %8, %129 ], [ %8, %127 ], [ %8, %122 ], [ %8, %120 ], [ %8, %115 ], [ %8, %106 ], [ %8, %101 ], [ %8, %96 ], [ %8, %94 ], [ %8, %89 ], [ %8, %84 ], [ %8, %82 ], [ %8, %77 ], [ %8, %72 ], [ %8, %70 ], [ %8, %65 ], [ %8, %60 ], [ %8, %58 ], [ %8, %53 ], [ %8, %48 ], [ %8, %46 ], [ %8, %41 ], [ %8, %36 ], [ %8, %34 ], [ %8, %equalBN.exit205 ], [ %8, %equalBN.exit ], [ %8, %13 ], [ %8, %10 ], [ %8, %7 ], [ null, %4 ], [ null, %1 ], [ %8, %equalBN.exit.thread ], [ %8, %equalBN.exit205.thread ]
   %.0141 = phi ptr [ %11, %237 ], [ %11, %235 ], [ %11, %230 ], [ %11, %225 ], [ %11, %223 ], [ %11, %218 ], [ %11, %213 ], [ %11, %206 ], [ %11, %201 ], [ %11, %196 ], [ %11, %194 ], [ %11, %189 ], [ %11, %184 ], [ %11, %182 ], [ %11, %177 ], [ %11, %172 ], [ %11, %170 ], [ %11, %165 ], [ %11, %160 ], [ %11, %158 ], [ %11, %153 ], [ %11, %148 ], [ %11, %146 ], [ %11, %141 ], [ %11, %136 ], [ %11, %134 ], [ %11, %129 ], [ %11, %127 ], [ %11, %122 ], [ %11, %120 ], [ %11, %115 ], [ %11, %106 ], [ %11, %101 ], [ %11, %96 ], [ %11, %94 ], [ %11, %89 ], [ %11, %84 ], [ %11, %82 ], [ %11, %77 ], [ %11, %72 ], [ %11, %70 ], [ %11, %65 ], [ %11, %60 ], [ %11, %58 ], [ %11, %53 ], [ %11, %48 ], [ %11, %46 ], [ %11, %41 ], [ %11, %36 ], [ %11, %34 ], [ %11, %equalBN.exit205 ], [ %11, %equalBN.exit ], [ %11, %13 ], [ %11, %10 ], [ null, %7 ], [ null, %4 ], [ null, %1 ], [ %11, %equalBN.exit.thread ], [ %11, %equalBN.exit205.thread ]
   %.0 = phi i32 [ 1, %237 ], [ 0, %235 ], [ 0, %230 ], [ 0, %225 ], [ 0, %223 ], [ 0, %218 ], [ 0, %213 ], [ 0, %206 ], [ 0, %201 ], [ 0, %196 ], [ 0, %194 ], [ 0, %189 ], [ 0, %184 ], [ 0, %182 ], [ 0, %177 ], [ 0, %172 ], [ 0, %170 ], [ 0, %165 ], [ 0, %160 ], [ 0, %158 ], [ 0, %153 ], [ 0, %148 ], [ 0, %146 ], [ 0, %141 ], [ 0, %136 ], [ 0, %134 ], [ 0, %129 ], [ 0, %127 ], [ 0, %122 ], [ 0, %120 ], [ 0, %115 ], [ 0, %106 ], [ 0, %101 ], [ 0, %96 ], [ 0, %94 ], [ 0, %89 ], [ 0, %84 ], [ 0, %82 ], [ 0, %77 ], [ 0, %72 ], [ 0, %70 ], [ 0, %65 ], [ 0, %60 ], [ 0, %58 ], [ 0, %53 ], [ 0, %48 ], [ 0, %46 ], [ 0, %41 ], [ 0, %36 ], [ 0, %34 ], [ 0, %equalBN.exit205 ], [ 0, %equalBN.exit ], [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ 0, %4 ], [ 0, %1 ], [ 0, %equalBN.exit.thread ], [ 0, %equalBN.exit205.thread ]
-  tail call void @BN_free(ptr noundef %2) #8
-  tail call void @BN_free(ptr noundef %.0143) #8
-  tail call void @BN_free(ptr noundef %.0142) #8
-  tail call void @BN_free(ptr noundef %.0141) #8
+  tail call void @BN_free(ptr noundef %2) #9
+  tail call void @BN_free(ptr noundef %.0143) #9
+  tail call void @BN_free(ptr noundef %.0142) #9
+  tail call void @BN_free(ptr noundef %.0141) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @file_lshift1(ptr noundef readonly captures(none) %0) #1 {
   %2 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.640)
-  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1330, ptr noundef nonnull @.str.639, ptr noundef %2) #8
+  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1330, ptr noundef nonnull @.str.639, ptr noundef %2) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %91, label %4
 
 4:                                                ; preds = %1
   %5 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.626)
-  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1331, ptr noundef nonnull @.str.688, ptr noundef %5) #8
+  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1331, ptr noundef nonnull @.str.688, ptr noundef %5) #9
   %.not55 = icmp eq i32 %6, 0
   br i1 %.not55, label %91, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @BN_new() #8
-  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1332, ptr noundef nonnull @.str.451, ptr noundef %8) #8
+  %8 = tail call ptr @BN_new() #9
+  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1332, ptr noundef nonnull @.str.451, ptr noundef %8) #9
   %.not56 = icmp eq i32 %9, 0
   br i1 %.not56, label %91, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @BN_new() #8
-  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1333, ptr noundef nonnull @.str.644, ptr noundef %11) #8
+  %11 = tail call ptr @BN_new() #9
+  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1333, ptr noundef nonnull @.str.644, ptr noundef %11) #9
   %.not57 = icmp eq i32 %12, 0
   br i1 %.not57, label %91, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call ptr @BN_new() #8
-  %15 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1334, ptr noundef nonnull @.str.689, ptr noundef %14) #8
+  %14 = tail call ptr @BN_new() #9
+  %15 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1334, ptr noundef nonnull @.str.689, ptr noundef %14) #9
   %.not58 = icmp eq i32 %15, 0
   br i1 %.not58, label %91, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call ptr @BN_new() #8
-  %18 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1335, ptr noundef nonnull @.str.690, ptr noundef %17) #8
+  %17 = tail call ptr @BN_new() #9
+  %18 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1335, ptr noundef nonnull @.str.690, ptr noundef %17) #9
   %.not59 = icmp eq i32 %18, 0
   br i1 %.not59, label %91, label %19
 
 19:                                               ; preds = %16
-  tail call void @BN_zero_ex(ptr noundef %8) #8
-  %20 = tail call i32 @BN_set_word(ptr noundef %14, i64 noundef 2) #8
+  tail call void @BN_zero_ex(ptr noundef %8) #9
+  %20 = tail call i32 @BN_set_word(ptr noundef %14, i64 noundef 2) #9
   %21 = icmp ne i32 %20, 0
   %22 = zext i1 %21 to i32
-  %23 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1340, ptr noundef nonnull @.str.691, i32 noundef %22) #8
+  %23 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1340, ptr noundef nonnull @.str.691, i32 noundef %22) #9
   %.not60 = icmp eq i32 %23, 0
   br i1 %.not60, label %91, label %24
 
 24:                                               ; preds = %19
-  %25 = tail call i32 @BN_add(ptr noundef %11, ptr noundef %2, ptr noundef %2) #8
+  %25 = tail call i32 @BN_add(ptr noundef %11, ptr noundef %2, ptr noundef %2) #9
   %26 = icmp ne i32 %25, 0
   %27 = zext i1 %26 to i32
-  %28 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1341, ptr noundef nonnull @.str.692, i32 noundef %27) #8
+  %28 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1341, ptr noundef nonnull @.str.692, i32 noundef %27) #9
   %.not61 = icmp eq i32 %28, 0
   br i1 %.not61, label %91, label %29
 
 29:                                               ; preds = %24
-  %30 = tail call i32 @BN_cmp(ptr noundef %5, ptr noundef %11) #8
+  %30 = tail call i32 @BN_cmp(ptr noundef %5, ptr noundef %11) #9
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %equalBN.exit, label %equalBN.exit.thread
 
 equalBN.exit.thread:                              ; preds = %29
-  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.693) #8
-  %32 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %5, ptr noundef %11) #8
+  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.693) #9
+  %32 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %5, ptr noundef %11) #9
   br label %91
 
 equalBN.exit:                                     ; preds = %29
   %33 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %34 = tail call i32 @BN_mul(ptr noundef %11, ptr noundef %2, ptr noundef %14, ptr noundef %33) #8
+  %34 = tail call i32 @BN_mul(ptr noundef %11, ptr noundef %2, ptr noundef %14, ptr noundef %33) #9
   %35 = icmp ne i32 %34, 0
   %36 = zext i1 %35 to i32
-  %37 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1343, ptr noundef nonnull @.str.694, i32 noundef %36) #8
+  %37 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1343, ptr noundef nonnull @.str.694, i32 noundef %36) #9
   %.not63 = icmp eq i32 %37, 0
   br i1 %.not63, label %91, label %38
 
@@ -7955,10 +7955,10 @@ equalBN.exit:                                     ; preds = %29
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %42 = tail call i32 @BN_div(ptr noundef %11, ptr noundef %17, ptr noundef %5, ptr noundef %14, ptr noundef %41) #8
+  %42 = tail call i32 @BN_div(ptr noundef %11, ptr noundef %17, ptr noundef %5, ptr noundef %14, ptr noundef %41) #9
   %43 = icmp ne i32 %42, 0
   %44 = zext i1 %43 to i32
-  %45 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1345, ptr noundef nonnull @.str.696, i32 noundef %44) #8
+  %45 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1345, ptr noundef nonnull @.str.696, i32 noundef %44) #9
   %.not65 = icmp eq i32 %45, 0
   br i1 %.not65, label %91, label %46
 
@@ -7973,10 +7973,10 @@ equalBN.exit:                                     ; preds = %29
   br i1 %.not67, label %91, label %50
 
 50:                                               ; preds = %48
-  %51 = tail call i32 @BN_lshift1(ptr noundef %11, ptr noundef %2) #8
+  %51 = tail call i32 @BN_lshift1(ptr noundef %11, ptr noundef %2) #9
   %52 = icmp ne i32 %51, 0
   %53 = zext i1 %52 to i32
-  %54 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1348, ptr noundef nonnull @.str.699, i32 noundef %53) #8
+  %54 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1348, ptr noundef nonnull @.str.699, i32 noundef %53) #9
   %.not68 = icmp eq i32 %54, 0
   br i1 %.not68, label %91, label %55
 
@@ -7986,10 +7986,10 @@ equalBN.exit:                                     ; preds = %29
   br i1 %.not69, label %91, label %57
 
 57:                                               ; preds = %55
-  %58 = tail call i32 @BN_rshift1(ptr noundef %11, ptr noundef %5) #8
+  %58 = tail call i32 @BN_rshift1(ptr noundef %11, ptr noundef %5) #9
   %59 = icmp ne i32 %58, 0
   %60 = zext i1 %59 to i32
-  %61 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1350, ptr noundef nonnull @.str.701, i32 noundef %60) #8
+  %61 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1350, ptr noundef nonnull @.str.701, i32 noundef %60) #9
   %.not70 = icmp eq i32 %61, 0
   br i1 %.not70, label %91, label %62
 
@@ -7999,10 +7999,10 @@ equalBN.exit:                                     ; preds = %29
   br i1 %.not71, label %91, label %64
 
 64:                                               ; preds = %62
-  %65 = tail call i32 @BN_rshift1(ptr noundef %11, ptr noundef %5) #8
+  %65 = tail call i32 @BN_rshift1(ptr noundef %11, ptr noundef %5) #9
   %66 = icmp ne i32 %65, 0
   %67 = zext i1 %66 to i32
-  %68 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1352, ptr noundef nonnull @.str.701, i32 noundef %67) #8
+  %68 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1352, ptr noundef nonnull @.str.701, i32 noundef %67) #9
   %.not72 = icmp eq i32 %68, 0
   br i1 %.not72, label %91, label %69
 
@@ -8012,19 +8012,19 @@ equalBN.exit:                                     ; preds = %29
   br i1 %.not73, label %91, label %71
 
 71:                                               ; preds = %69
-  %72 = tail call i32 @BN_set_bit(ptr noundef %5, i32 noundef 0) #8
+  %72 = tail call i32 @BN_set_bit(ptr noundef %5, i32 noundef 0) #9
   %73 = icmp ne i32 %72, 0
   %74 = zext i1 %73 to i32
-  %75 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1357, ptr noundef nonnull @.str.703, i32 noundef %74) #8
+  %75 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1357, ptr noundef nonnull @.str.703, i32 noundef %74) #9
   %.not74 = icmp eq i32 %75, 0
   br i1 %.not74, label %91, label %76
 
 76:                                               ; preds = %71
   %77 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %78 = tail call i32 @BN_div(ptr noundef %11, ptr noundef null, ptr noundef %5, ptr noundef %14, ptr noundef %77) #8
+  %78 = tail call i32 @BN_div(ptr noundef %11, ptr noundef null, ptr noundef %5, ptr noundef %14, ptr noundef %77) #9
   %79 = icmp ne i32 %78, 0
   %80 = zext i1 %79 to i32
-  %81 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1358, ptr noundef nonnull @.str.704, i32 noundef %80) #8
+  %81 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1358, ptr noundef nonnull @.str.704, i32 noundef %80) #9
   %.not75 = icmp eq i32 %81, 0
   br i1 %.not75, label %91, label %82
 
@@ -8034,10 +8034,10 @@ equalBN.exit:                                     ; preds = %29
   br i1 %.not76, label %91, label %84
 
 84:                                               ; preds = %82
-  %85 = tail call i32 @BN_rshift1(ptr noundef %11, ptr noundef %5) #8
+  %85 = tail call i32 @BN_rshift1(ptr noundef %11, ptr noundef %5) #9
   %86 = icmp ne i32 %85, 0
   %87 = zext i1 %86 to i32
-  %88 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1360, ptr noundef nonnull @.str.701, i32 noundef %87) #8
+  %88 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1360, ptr noundef nonnull @.str.701, i32 noundef %87) #9
   %.not77 = icmp eq i32 %88, 0
   br i1 %.not77, label %91, label %89
 
@@ -8052,151 +8052,151 @@ equalBN.exit:                                     ; preds = %29
   %.051 = phi ptr [ %14, %84 ], [ %14, %82 ], [ %14, %76 ], [ %14, %71 ], [ %14, %69 ], [ %14, %64 ], [ %14, %62 ], [ %14, %57 ], [ %14, %55 ], [ %14, %50 ], [ %14, %48 ], [ %14, %46 ], [ %14, %40 ], [ %14, %38 ], [ %14, %equalBN.exit ], [ %14, %24 ], [ %14, %19 ], [ %14, %16 ], [ %14, %13 ], [ null, %10 ], [ null, %7 ], [ null, %4 ], [ null, %1 ], [ %14, %89 ], [ %14, %equalBN.exit.thread ]
   %.050 = phi ptr [ %17, %84 ], [ %17, %82 ], [ %17, %76 ], [ %17, %71 ], [ %17, %69 ], [ %17, %64 ], [ %17, %62 ], [ %17, %57 ], [ %17, %55 ], [ %17, %50 ], [ %17, %48 ], [ %17, %46 ], [ %17, %40 ], [ %17, %38 ], [ %17, %equalBN.exit ], [ %17, %24 ], [ %17, %19 ], [ %17, %16 ], [ null, %13 ], [ null, %10 ], [ null, %7 ], [ null, %4 ], [ null, %1 ], [ %17, %89 ], [ %17, %equalBN.exit.thread ]
   %.0 = phi i32 [ 0, %84 ], [ 0, %82 ], [ 0, %76 ], [ 0, %71 ], [ 0, %69 ], [ 0, %64 ], [ 0, %62 ], [ 0, %57 ], [ 0, %55 ], [ 0, %50 ], [ 0, %48 ], [ 0, %46 ], [ 0, %40 ], [ 0, %38 ], [ 0, %equalBN.exit ], [ 0, %24 ], [ 0, %19 ], [ 0, %16 ], [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ 0, %4 ], [ 0, %1 ], [ %90, %89 ], [ 0, %equalBN.exit.thread ]
-  tail call void @BN_free(ptr noundef %2) #8
-  tail call void @BN_free(ptr noundef %.054) #8
-  tail call void @BN_free(ptr noundef %.053) #8
-  tail call void @BN_free(ptr noundef %.052) #8
-  tail call void @BN_free(ptr noundef %.051) #8
-  tail call void @BN_free(ptr noundef %.050) #8
+  tail call void @BN_free(ptr noundef %2) #9
+  tail call void @BN_free(ptr noundef %.054) #9
+  tail call void @BN_free(ptr noundef %.053) #9
+  tail call void @BN_free(ptr noundef %.052) #9
+  tail call void @BN_free(ptr noundef %.051) #9
+  tail call void @BN_free(ptr noundef %.050) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @file_lshift(ptr noundef readonly captures(none) %0) #1 {
   %2 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.640)
-  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1381, ptr noundef nonnull @.str.639, ptr noundef %2) #8
+  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1381, ptr noundef nonnull @.str.639, ptr noundef %2) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %equalBN.exit25, label %4
 
 4:                                                ; preds = %1
   %5 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.627)
-  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1382, ptr noundef nonnull @.str.707, ptr noundef %5) #8
+  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1382, ptr noundef nonnull @.str.707, ptr noundef %5) #9
   %.not16 = icmp eq i32 %6, 0
   br i1 %.not16, label %equalBN.exit25, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @BN_new() #8
-  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1383, ptr noundef nonnull @.str.644, ptr noundef %8) #8
+  %8 = tail call ptr @BN_new() #9
+  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1383, ptr noundef nonnull @.str.644, ptr noundef %8) #9
   %.not17 = icmp eq i32 %9, 0
   br i1 %.not17, label %equalBN.exit25, label %10
 
 10:                                               ; preds = %7
   %11 = tail call fastcc ptr @getBN(ptr noundef readonly %0, ptr noundef nonnull @.str.708)
-  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 119, ptr noundef nonnull @.str.713, ptr noundef %11) #8
+  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 119, ptr noundef nonnull @.str.713, ptr noundef %11) #9
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %getint.exit.thread, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call i64 @BN_get_word(ptr noundef %11) #8
-  %15 = tail call i32 @test_ulong_le(ptr noundef nonnull @.str.17, i32 noundef 120, ptr noundef nonnull @.str.714, ptr noundef nonnull @.str.715, i64 noundef %14, i64 noundef 2147483647) #8
+  %14 = tail call i64 @BN_get_word(ptr noundef %11) #9
+  %15 = tail call i32 @test_ulong_le(ptr noundef nonnull @.str.17, i32 noundef 120, ptr noundef nonnull @.str.714, ptr noundef nonnull @.str.715, i64 noundef %14, i64 noundef 2147483647) #9
   %.not6.i = icmp eq i32 %15, 0
   br i1 %.not6.i, label %getint.exit.thread, label %16
 
 getint.exit.thread:                               ; preds = %13, %10
-  tail call void @BN_free(ptr noundef %11) #8
+  tail call void @BN_free(ptr noundef %11) #9
   br label %equalBN.exit25
 
 16:                                               ; preds = %13
   %17 = trunc i64 %14 to i32
-  tail call void @BN_free(ptr noundef %11) #8
-  %18 = tail call i32 @BN_lshift(ptr noundef %8, ptr noundef %2, i32 noundef %17) #8
+  tail call void @BN_free(ptr noundef %11) #9
+  %18 = tail call i32 @BN_lshift(ptr noundef %8, ptr noundef %2, i32 noundef %17) #9
   %19 = icmp ne i32 %18, 0
   %20 = zext i1 %19 to i32
-  %21 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1387, ptr noundef nonnull @.str.709, i32 noundef %20) #8
+  %21 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1387, ptr noundef nonnull @.str.709, i32 noundef %20) #9
   %.not19 = icmp eq i32 %21, 0
   br i1 %.not19, label %equalBN.exit25, label %22
 
 22:                                               ; preds = %16
-  %23 = tail call i32 @BN_cmp(ptr noundef %5, ptr noundef %8) #8
+  %23 = tail call i32 @BN_cmp(ptr noundef %5, ptr noundef %8) #9
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %equalBN.exit, label %equalBN.exit.thread
 
 equalBN.exit.thread:                              ; preds = %22
-  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.710) #8
-  %25 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %5, ptr noundef %8) #8
+  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.710) #9
+  %25 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %5, ptr noundef %8) #9
   br label %equalBN.exit25
 
 equalBN.exit:                                     ; preds = %22
-  %26 = tail call i32 @BN_rshift(ptr noundef %8, ptr noundef %5, i32 noundef %17) #8
+  %26 = tail call i32 @BN_rshift(ptr noundef %8, ptr noundef %5, i32 noundef %17) #9
   %27 = icmp ne i32 %26, 0
   %28 = zext i1 %27 to i32
-  %29 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1389, ptr noundef nonnull @.str.711, i32 noundef %28) #8
+  %29 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1389, ptr noundef nonnull @.str.711, i32 noundef %28) #9
   %.not21 = icmp eq i32 %29, 0
   br i1 %.not21, label %equalBN.exit25, label %30
 
 30:                                               ; preds = %equalBN.exit
-  %31 = tail call i32 @BN_cmp(ptr noundef %2, ptr noundef %8) #8
+  %31 = tail call i32 @BN_cmp(ptr noundef %2, ptr noundef %8) #9
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %equalBN.exit25, label %33
 
 33:                                               ; preds = %30
-  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.712) #8
-  %34 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %2, ptr noundef %8) #8
+  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.712) #9
+  %34 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %2, ptr noundef %8) #9
   br label %equalBN.exit25
 
 equalBN.exit25:                                   ; preds = %33, %30, %equalBN.exit.thread, %getint.exit.thread, %16, %equalBN.exit, %1, %4, %7
   %.015 = phi ptr [ %5, %equalBN.exit ], [ %5, %16 ], [ %5, %7 ], [ %5, %4 ], [ null, %1 ], [ %5, %getint.exit.thread ], [ %5, %equalBN.exit.thread ], [ %5, %30 ], [ %5, %33 ]
   %.014 = phi ptr [ %8, %equalBN.exit ], [ %8, %16 ], [ %8, %7 ], [ null, %4 ], [ null, %1 ], [ %8, %getint.exit.thread ], [ %8, %equalBN.exit.thread ], [ %8, %30 ], [ %8, %33 ]
   %.0 = phi i32 [ 0, %equalBN.exit ], [ 0, %16 ], [ 0, %7 ], [ 0, %4 ], [ 0, %1 ], [ 0, %getint.exit.thread ], [ 0, %equalBN.exit.thread ], [ 1, %30 ], [ 0, %33 ]
-  tail call void @BN_free(ptr noundef %2) #8
-  tail call void @BN_free(ptr noundef %.015) #8
-  tail call void @BN_free(ptr noundef %.014) #8
+  tail call void @BN_free(ptr noundef %2) #9
+  tail call void @BN_free(ptr noundef %.015) #9
+  tail call void @BN_free(ptr noundef %.014) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @file_rshift(ptr noundef readonly captures(none) %0) #1 {
   %2 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.640)
-  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1406, ptr noundef nonnull @.str.639, ptr noundef %2) #8
+  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1406, ptr noundef nonnull @.str.639, ptr noundef %2) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %35, label %4
 
 4:                                                ; preds = %1
   %5 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.628)
-  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1407, ptr noundef nonnull @.str.716, ptr noundef %5) #8
+  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1407, ptr noundef nonnull @.str.716, ptr noundef %5) #9
   %.not16 = icmp eq i32 %6, 0
   br i1 %.not16, label %35, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @BN_new() #8
-  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1408, ptr noundef nonnull @.str.644, ptr noundef %8) #8
+  %8 = tail call ptr @BN_new() #9
+  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1408, ptr noundef nonnull @.str.644, ptr noundef %8) #9
   %.not17 = icmp eq i32 %9, 0
   br i1 %.not17, label %35, label %10
 
 10:                                               ; preds = %7
   %11 = tail call fastcc ptr @getBN(ptr noundef readonly %0, ptr noundef nonnull @.str.708)
-  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 119, ptr noundef nonnull @.str.713, ptr noundef %11) #8
+  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 119, ptr noundef nonnull @.str.713, ptr noundef %11) #9
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %getint.exit.thread, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call i64 @BN_get_word(ptr noundef %11) #8
-  %15 = tail call i32 @test_ulong_le(ptr noundef nonnull @.str.17, i32 noundef 120, ptr noundef nonnull @.str.714, ptr noundef nonnull @.str.715, i64 noundef %14, i64 noundef 2147483647) #8
+  %14 = tail call i64 @BN_get_word(ptr noundef %11) #9
+  %15 = tail call i32 @test_ulong_le(ptr noundef nonnull @.str.17, i32 noundef 120, ptr noundef nonnull @.str.714, ptr noundef nonnull @.str.715, i64 noundef %14, i64 noundef 2147483647) #9
   %.not6.i = icmp eq i32 %15, 0
   br i1 %.not6.i, label %getint.exit.thread, label %16
 
 getint.exit.thread:                               ; preds = %13, %10
-  tail call void @BN_free(ptr noundef %11) #8
+  tail call void @BN_free(ptr noundef %11) #9
   br label %35
 
 16:                                               ; preds = %13
   %17 = trunc i64 %14 to i32
-  tail call void @BN_free(ptr noundef %11) #8
-  %18 = tail call i32 @BN_rshift(ptr noundef %8, ptr noundef %2, i32 noundef %17) #8
+  tail call void @BN_free(ptr noundef %11) #9
+  %18 = tail call i32 @BN_rshift(ptr noundef %8, ptr noundef %2, i32 noundef %17) #9
   %19 = icmp ne i32 %18, 0
   %20 = zext i1 %19 to i32
-  %21 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1412, ptr noundef nonnull @.str.717, i32 noundef %20) #8
+  %21 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1412, ptr noundef nonnull @.str.717, i32 noundef %20) #9
   %.not19 = icmp eq i32 %21, 0
   br i1 %.not19, label %35, label %22
 
 22:                                               ; preds = %16
-  %23 = tail call i32 @BN_cmp(ptr noundef %5, ptr noundef %8) #8
+  %23 = tail call i32 @BN_cmp(ptr noundef %5, ptr noundef %8) #9
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %equalBN.exit, label %equalBN.exit.thread
 
 equalBN.exit.thread:                              ; preds = %22
-  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.712) #8
-  %25 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %5, ptr noundef %8) #8
+  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.712) #9
+  %25 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %5, ptr noundef %8) #9
   br label %35
 
 equalBN.exit:                                     ; preds = %22
@@ -8204,10 +8204,10 @@ equalBN.exit:                                     ; preds = %22
   br i1 %26, label %27, label %34
 
 27:                                               ; preds = %equalBN.exit
-  %28 = tail call i32 @BN_rshift1(ptr noundef %8, ptr noundef %2) #8
+  %28 = tail call i32 @BN_rshift1(ptr noundef %8, ptr noundef %2) #9
   %29 = icmp ne i32 %28, 0
   %30 = zext i1 %29 to i32
-  %31 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1418, ptr noundef nonnull @.str.718, i32 noundef %30) #8
+  %31 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1418, ptr noundef nonnull @.str.718, i32 noundef %30) #9
   %.not21 = icmp eq i32 %31, 0
   br i1 %.not21, label %35, label %32
 
@@ -8223,88 +8223,88 @@ equalBN.exit:                                     ; preds = %22
   %.015 = phi ptr [ %5, %34 ], [ %5, %32 ], [ %5, %27 ], [ %5, %16 ], [ %5, %7 ], [ %5, %4 ], [ null, %1 ], [ %5, %getint.exit.thread ], [ %5, %equalBN.exit.thread ]
   %.014 = phi ptr [ %8, %34 ], [ %8, %32 ], [ %8, %27 ], [ %8, %16 ], [ %8, %7 ], [ null, %4 ], [ null, %1 ], [ %8, %getint.exit.thread ], [ %8, %equalBN.exit.thread ]
   %.0 = phi i32 [ 1, %34 ], [ 0, %32 ], [ 0, %27 ], [ 0, %16 ], [ 0, %7 ], [ 0, %4 ], [ 0, %1 ], [ 0, %getint.exit.thread ], [ 0, %equalBN.exit.thread ]
-  tail call void @BN_free(ptr noundef %2) #8
-  tail call void @BN_free(ptr noundef %.015) #8
-  tail call void @BN_free(ptr noundef %.014) #8
+  tail call void @BN_free(ptr noundef %2) #9
+  tail call void @BN_free(ptr noundef %.015) #9
+  tail call void @BN_free(ptr noundef %.014) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @file_square(ptr noundef readonly captures(none) %0) #1 {
   %2 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.640)
-  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1437, ptr noundef nonnull @.str.639, ptr noundef %2) #8
+  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1437, ptr noundef nonnull @.str.639, ptr noundef %2) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %44, label %4
 
 4:                                                ; preds = %1
   %5 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.629)
-  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1438, ptr noundef nonnull @.str.720, ptr noundef %5) #8
+  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1438, ptr noundef nonnull @.str.720, ptr noundef %5) #9
   %.not30 = icmp eq i32 %6, 0
   br i1 %.not30, label %44, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @BN_new() #8
-  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1439, ptr noundef nonnull @.str.451, ptr noundef %8) #8
+  %8 = tail call ptr @BN_new() #9
+  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1439, ptr noundef nonnull @.str.451, ptr noundef %8) #9
   %.not31 = icmp eq i32 %9, 0
   br i1 %.not31, label %44, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @BN_new() #8
-  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1440, ptr noundef nonnull @.str.644, ptr noundef %11) #8
+  %11 = tail call ptr @BN_new() #9
+  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1440, ptr noundef nonnull @.str.644, ptr noundef %11) #9
   %.not32 = icmp eq i32 %12, 0
   br i1 %.not32, label %44, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call ptr @BN_new() #8
-  %15 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1441, ptr noundef nonnull @.str.690, ptr noundef %14) #8
+  %14 = tail call ptr @BN_new() #9
+  %15 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1441, ptr noundef nonnull @.str.690, ptr noundef %14) #9
   %.not33 = icmp eq i32 %15, 0
   br i1 %.not33, label %44, label %16
 
 16:                                               ; preds = %13
-  tail call void @BN_zero_ex(ptr noundef %8) #8
+  tail call void @BN_zero_ex(ptr noundef %8) #9
   %17 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %18 = tail call i32 @BN_sqr(ptr noundef %11, ptr noundef %2, ptr noundef %17) #8
+  %18 = tail call i32 @BN_sqr(ptr noundef %11, ptr noundef %2, ptr noundef %17) #9
   %19 = icmp ne i32 %18, 0
   %20 = zext i1 %19 to i32
-  %21 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1445, ptr noundef nonnull @.str.721, i32 noundef %20) #8
+  %21 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1445, ptr noundef nonnull @.str.721, i32 noundef %20) #9
   %.not34 = icmp eq i32 %21, 0
   br i1 %.not34, label %44, label %22
 
 22:                                               ; preds = %16
-  %23 = tail call i32 @BN_cmp(ptr noundef %5, ptr noundef %11) #8
+  %23 = tail call i32 @BN_cmp(ptr noundef %5, ptr noundef %11) #9
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %equalBN.exit, label %equalBN.exit.thread
 
 equalBN.exit.thread:                              ; preds = %22
-  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.722) #8
-  %25 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %5, ptr noundef %11) #8
+  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.722) #9
+  %25 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %5, ptr noundef %11) #9
   br label %44
 
 equalBN.exit:                                     ; preds = %22
   %26 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %27 = tail call i32 @BN_mul(ptr noundef %11, ptr noundef %2, ptr noundef %2, ptr noundef %26) #8
+  %27 = tail call i32 @BN_mul(ptr noundef %11, ptr noundef %2, ptr noundef %2, ptr noundef %26) #9
   %28 = icmp ne i32 %27, 0
   %29 = zext i1 %28 to i32
-  %30 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1447, ptr noundef nonnull @.str.723, i32 noundef %29) #8
+  %30 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1447, ptr noundef nonnull @.str.723, i32 noundef %29) #9
   %.not36 = icmp eq i32 %30, 0
   br i1 %.not36, label %44, label %31
 
 31:                                               ; preds = %equalBN.exit
-  %32 = tail call i32 @BN_cmp(ptr noundef %5, ptr noundef %11) #8
+  %32 = tail call i32 @BN_cmp(ptr noundef %5, ptr noundef %11) #9
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %equalBN.exit42, label %equalBN.exit42.thread
 
 equalBN.exit42.thread:                            ; preds = %31
-  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.724) #8
-  %34 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %5, ptr noundef %11) #8
+  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.724) #9
+  %34 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %5, ptr noundef %11) #9
   br label %44
 
 equalBN.exit42:                                   ; preds = %31
   %35 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %36 = tail call i32 @BN_div(ptr noundef %11, ptr noundef %14, ptr noundef %5, ptr noundef %2, ptr noundef %35) #8
+  %36 = tail call i32 @BN_div(ptr noundef %11, ptr noundef %14, ptr noundef %5, ptr noundef %2, ptr noundef %35) #9
   %37 = icmp ne i32 %36, 0
   %38 = zext i1 %37 to i32
-  %39 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1449, ptr noundef nonnull @.str.725, i32 noundef %38) #8
+  %39 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1449, ptr noundef nonnull @.str.725, i32 noundef %38) #9
   %.not38 = icmp eq i32 %39, 0
   br i1 %.not38, label %44, label %40
 
@@ -8323,78 +8323,78 @@ equalBN.exit42:                                   ; preds = %31
   %.027 = phi ptr [ %11, %40 ], [ %11, %equalBN.exit42 ], [ %11, %equalBN.exit ], [ %11, %16 ], [ %11, %13 ], [ %11, %10 ], [ null, %7 ], [ null, %4 ], [ null, %1 ], [ %11, %42 ], [ %11, %equalBN.exit.thread ], [ %11, %equalBN.exit42.thread ]
   %.026 = phi ptr [ %14, %40 ], [ %14, %equalBN.exit42 ], [ %14, %equalBN.exit ], [ %14, %16 ], [ %14, %13 ], [ null, %10 ], [ null, %7 ], [ null, %4 ], [ null, %1 ], [ %14, %42 ], [ %14, %equalBN.exit.thread ], [ %14, %equalBN.exit42.thread ]
   %.0 = phi i32 [ 0, %40 ], [ 0, %equalBN.exit42 ], [ 0, %equalBN.exit ], [ 0, %16 ], [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ 0, %4 ], [ 0, %1 ], [ %43, %42 ], [ 0, %equalBN.exit.thread ], [ 0, %equalBN.exit42.thread ]
-  tail call void @BN_free(ptr noundef %2) #8
-  tail call void @BN_free(ptr noundef %.029) #8
-  tail call void @BN_free(ptr noundef %.028) #8
-  tail call void @BN_free(ptr noundef %.027) #8
-  tail call void @BN_free(ptr noundef %.026) #8
-  tail call void @BN_free(ptr noundef null) #8
+  tail call void @BN_free(ptr noundef %2) #9
+  tail call void @BN_free(ptr noundef %.029) #9
+  tail call void @BN_free(ptr noundef %.028) #9
+  tail call void @BN_free(ptr noundef %.027) #9
+  tail call void @BN_free(ptr noundef %.026) #9
+  tail call void @BN_free(ptr noundef null) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @file_product(ptr noundef readonly captures(none) %0) #1 {
   %2 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.640)
-  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1497, ptr noundef nonnull @.str.639, ptr noundef %2) #8
+  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1497, ptr noundef nonnull @.str.639, ptr noundef %2) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %48, label %4
 
 4:                                                ; preds = %1
   %5 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.642)
-  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1498, ptr noundef nonnull @.str.641, ptr noundef %5) #8
+  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1498, ptr noundef nonnull @.str.641, ptr noundef %5) #9
   %.not36 = icmp eq i32 %6, 0
   br i1 %.not36, label %48, label %7
 
 7:                                                ; preds = %4
   %8 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.630)
-  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1499, ptr noundef nonnull @.str.728, ptr noundef %8) #8
+  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1499, ptr noundef nonnull @.str.728, ptr noundef %8) #9
   %.not37 = icmp eq i32 %9, 0
   br i1 %.not37, label %48, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @BN_new() #8
-  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1500, ptr noundef nonnull @.str.644, ptr noundef %11) #8
+  %11 = tail call ptr @BN_new() #9
+  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1500, ptr noundef nonnull @.str.644, ptr noundef %11) #9
   %.not38 = icmp eq i32 %12, 0
   br i1 %.not38, label %48, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call ptr @BN_new() #8
-  %15 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1501, ptr noundef nonnull @.str.690, ptr noundef %14) #8
+  %14 = tail call ptr @BN_new() #9
+  %15 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1501, ptr noundef nonnull @.str.690, ptr noundef %14) #9
   %.not39 = icmp eq i32 %15, 0
   br i1 %.not39, label %48, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call ptr @BN_new() #8
-  %18 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1502, ptr noundef nonnull @.str.451, ptr noundef %17) #8
+  %17 = tail call ptr @BN_new() #9
+  %18 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1502, ptr noundef nonnull @.str.451, ptr noundef %17) #9
   %.not40 = icmp eq i32 %18, 0
   br i1 %.not40, label %48, label %19
 
 19:                                               ; preds = %16
-  tail call void @BN_zero_ex(ptr noundef %17) #8
+  tail call void @BN_zero_ex(ptr noundef %17) #9
   %20 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %21 = tail call i32 @BN_mul(ptr noundef %11, ptr noundef %2, ptr noundef %5, ptr noundef %20) #8
+  %21 = tail call i32 @BN_mul(ptr noundef %11, ptr noundef %2, ptr noundef %5, ptr noundef %20) #9
   %22 = icmp ne i32 %21, 0
   %23 = zext i1 %22 to i32
-  %24 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1507, ptr noundef nonnull @.str.729, i32 noundef %23) #8
+  %24 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1507, ptr noundef nonnull @.str.729, i32 noundef %23) #9
   %.not41 = icmp eq i32 %24, 0
   br i1 %.not41, label %48, label %25
 
 25:                                               ; preds = %19
-  %26 = tail call i32 @BN_cmp(ptr noundef %8, ptr noundef %11) #8
+  %26 = tail call i32 @BN_cmp(ptr noundef %8, ptr noundef %11) #9
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %equalBN.exit, label %equalBN.exit.thread
 
 equalBN.exit.thread:                              ; preds = %25
-  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.730) #8
-  %28 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %8, ptr noundef %11) #8
+  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.730) #9
+  %28 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %8, ptr noundef %11) #9
   br label %48
 
 equalBN.exit:                                     ; preds = %25
   %29 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %30 = tail call i32 @BN_div(ptr noundef %11, ptr noundef %14, ptr noundef %8, ptr noundef %2, ptr noundef %29) #8
+  %30 = tail call i32 @BN_div(ptr noundef %11, ptr noundef %14, ptr noundef %8, ptr noundef %2, ptr noundef %29) #9
   %31 = icmp ne i32 %30, 0
   %32 = zext i1 %31 to i32
-  %33 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1509, ptr noundef nonnull @.str.731, i32 noundef %32) #8
+  %33 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1509, ptr noundef nonnull @.str.731, i32 noundef %32) #9
   %.not43 = icmp eq i32 %33, 0
   br i1 %.not43, label %48, label %34
 
@@ -8410,10 +8410,10 @@ equalBN.exit:                                     ; preds = %25
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %40 = tail call i32 @BN_div(ptr noundef %11, ptr noundef %14, ptr noundef %8, ptr noundef %5, ptr noundef %39) #8
+  %40 = tail call i32 @BN_div(ptr noundef %11, ptr noundef %14, ptr noundef %8, ptr noundef %5, ptr noundef %39) #9
   %41 = icmp ne i32 %40, 0
   %42 = zext i1 %41 to i32
-  %43 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1512, ptr noundef nonnull @.str.734, i32 noundef %42) #8
+  %43 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1512, ptr noundef nonnull @.str.734, i32 noundef %42) #9
   %.not46 = icmp eq i32 %43, 0
   br i1 %.not46, label %48, label %44
 
@@ -8433,75 +8433,75 @@ equalBN.exit:                                     ; preds = %25
   %.032 = phi ptr [ %14, %44 ], [ %14, %38 ], [ %14, %36 ], [ %14, %34 ], [ %14, %equalBN.exit ], [ %14, %19 ], [ %14, %16 ], [ %14, %13 ], [ null, %10 ], [ null, %7 ], [ null, %4 ], [ null, %1 ], [ %14, %46 ], [ %14, %equalBN.exit.thread ]
   %.031 = phi ptr [ %17, %44 ], [ %17, %38 ], [ %17, %36 ], [ %17, %34 ], [ %17, %equalBN.exit ], [ %17, %19 ], [ %17, %16 ], [ null, %13 ], [ null, %10 ], [ null, %7 ], [ null, %4 ], [ null, %1 ], [ %17, %46 ], [ %17, %equalBN.exit.thread ]
   %.0 = phi i32 [ 0, %44 ], [ 0, %38 ], [ 0, %36 ], [ 0, %34 ], [ 0, %equalBN.exit ], [ 0, %19 ], [ 0, %16 ], [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ 0, %4 ], [ 0, %1 ], [ %47, %46 ], [ 0, %equalBN.exit.thread ]
-  tail call void @BN_free(ptr noundef %2) #8
-  tail call void @BN_free(ptr noundef %.035) #8
-  tail call void @BN_free(ptr noundef %.034) #8
-  tail call void @BN_free(ptr noundef %.033) #8
-  tail call void @BN_free(ptr noundef %.032) #8
-  tail call void @BN_free(ptr noundef %.031) #8
+  tail call void @BN_free(ptr noundef %2) #9
+  tail call void @BN_free(ptr noundef %.035) #9
+  tail call void @BN_free(ptr noundef %.034) #9
+  tail call void @BN_free(ptr noundef %.033) #9
+  tail call void @BN_free(ptr noundef %.032) #9
+  tail call void @BN_free(ptr noundef %.031) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @file_quotient(ptr noundef readonly captures(none) %0) #1 {
   %2 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.640)
-  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1535, ptr noundef nonnull @.str.639, ptr noundef %2) #8
+  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1535, ptr noundef nonnull @.str.639, ptr noundef %2) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.thread, label %4
 
 4:                                                ; preds = %1
   %5 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.642)
-  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1536, ptr noundef nonnull @.str.641, ptr noundef %5) #8
+  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1536, ptr noundef nonnull @.str.641, ptr noundef %5) #9
   %.not68 = icmp eq i32 %6, 0
   br i1 %.not68, label %.thread, label %7
 
 7:                                                ; preds = %4
   %8 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.631)
-  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1537, ptr noundef nonnull @.str.737, ptr noundef %8) #8
+  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1537, ptr noundef nonnull @.str.737, ptr noundef %8) #9
   %.not69 = icmp eq i32 %9, 0
   br i1 %.not69, label %.thread, label %10
 
 10:                                               ; preds = %7
   %11 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.739)
-  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1538, ptr noundef nonnull @.str.738, ptr noundef %11) #8
+  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1538, ptr noundef nonnull @.str.738, ptr noundef %11) #9
   %.not70 = icmp eq i32 %12, 0
   br i1 %.not70, label %.thread, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call ptr @BN_new() #8
-  %15 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1539, ptr noundef nonnull @.str.644, ptr noundef %14) #8
+  %14 = tail call ptr @BN_new() #9
+  %15 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1539, ptr noundef nonnull @.str.644, ptr noundef %14) #9
   %.not71 = icmp eq i32 %15, 0
   br i1 %.not71, label %.thread, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call ptr @BN_new() #8
-  %18 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1540, ptr noundef nonnull @.str.740, ptr noundef %17) #8
+  %17 = tail call ptr @BN_new() #9
+  %18 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1540, ptr noundef nonnull @.str.740, ptr noundef %17) #9
   %.not72 = icmp eq i32 %18, 0
   br i1 %.not72, label %.thread, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call ptr @BN_new() #8
-  %21 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1541, ptr noundef nonnull @.str.741, ptr noundef %20) #8
+  %20 = tail call ptr @BN_new() #9
+  %21 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1541, ptr noundef nonnull @.str.741, ptr noundef %20) #9
   %.not73 = icmp eq i32 %21, 0
   br i1 %.not73, label %.thread, label %22
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %24 = tail call i32 @BN_div(ptr noundef %14, ptr noundef %17, ptr noundef %2, ptr noundef %5, ptr noundef %23) #8
+  %24 = tail call i32 @BN_div(ptr noundef %14, ptr noundef %17, ptr noundef %2, ptr noundef %5, ptr noundef %23) #9
   %25 = icmp ne i32 %24, 0
   %26 = zext i1 %25 to i32
-  %27 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1544, ptr noundef nonnull @.str.742, i32 noundef %26) #8
+  %27 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1544, ptr noundef nonnull @.str.742, i32 noundef %26) #9
   %.not74 = icmp eq i32 %27, 0
   br i1 %.not74, label %.thread, label %28
 
 28:                                               ; preds = %22
-  %29 = tail call i32 @BN_cmp(ptr noundef %8, ptr noundef %14) #8
+  %29 = tail call i32 @BN_cmp(ptr noundef %8, ptr noundef %14) #9
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %equalBN.exit, label %equalBN.exit.thread
 
 equalBN.exit.thread:                              ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.743) #8
-  %31 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %8, ptr noundef %14) #8
+  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.743) #9
+  %31 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %8, ptr noundef %14) #9
   br label %.thread
 
 equalBN.exit:                                     ; preds = %28
@@ -8511,18 +8511,18 @@ equalBN.exit:                                     ; preds = %28
 
 33:                                               ; preds = %equalBN.exit
   %34 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %35 = tail call i32 @BN_mul(ptr noundef %14, ptr noundef %8, ptr noundef %5, ptr noundef %34) #8
+  %35 = tail call i32 @BN_mul(ptr noundef %14, ptr noundef %8, ptr noundef %5, ptr noundef %34) #9
   %36 = icmp ne i32 %35, 0
   %37 = zext i1 %36 to i32
-  %38 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1547, ptr noundef nonnull @.str.745, i32 noundef %37) #8
+  %38 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1547, ptr noundef nonnull @.str.745, i32 noundef %37) #9
   %.not77 = icmp eq i32 %38, 0
   br i1 %.not77, label %.thread, label %39
 
 39:                                               ; preds = %33
-  %40 = tail call i32 @BN_add(ptr noundef %14, ptr noundef %14, ptr noundef %11) #8
+  %40 = tail call i32 @BN_add(ptr noundef %14, ptr noundef %14, ptr noundef %11) #9
   %41 = icmp ne i32 %40, 0
   %42 = zext i1 %41 to i32
-  %43 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1548, ptr noundef nonnull @.str.746, i32 noundef %42) #8
+  %43 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1548, ptr noundef nonnull @.str.746, i32 noundef %42) #9
   %.not78 = icmp eq i32 %43, 0
   br i1 %.not78, label %.thread, label %44
 
@@ -8532,27 +8532,27 @@ equalBN.exit:                                     ; preds = %28
   br i1 %.not79, label %.thread, label %46
 
 46:                                               ; preds = %44
-  %47 = tail call i64 @BN_get_word(ptr noundef %5) #8
-  %48 = tail call i32 @BN_is_negative(ptr noundef %5) #8
+  %47 = tail call i64 @BN_get_word(ptr noundef %5) #9
+  %48 = tail call i32 @BN_is_negative(ptr noundef %5) #9
   %49 = icmp eq i32 %48, 0
   %50 = icmp ne i64 %47, -1
   %or.cond = select i1 %49, i1 %50, i1 false
   br i1 %or.cond, label %51, label %63
 
 51:                                               ; preds = %46
-  %52 = tail call i64 @BN_get_word(ptr noundef %11) #8
-  %53 = tail call ptr @BN_copy(ptr noundef %14, ptr noundef %2) #8
-  %54 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1561, ptr noundef nonnull @.str.651, ptr noundef %53) #8
+  %52 = tail call i64 @BN_get_word(ptr noundef %11) #9
+  %53 = tail call ptr @BN_copy(ptr noundef %14, ptr noundef %2) #9
+  %54 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1561, ptr noundef nonnull @.str.651, ptr noundef %53) #9
   %.not80 = icmp eq i32 %54, 0
   br i1 %.not80, label %.thread, label %55
 
 55:                                               ; preds = %51
-  %56 = tail call i64 @BN_div_word(ptr noundef %14, i64 noundef %47) #8
+  %56 = tail call i64 @BN_div_word(ptr noundef %14, i64 noundef %47) #9
   %.not81 = icmp eq i64 %56, %52
   br i1 %.not81, label %58, label %57
 
 57:                                               ; preds = %55
-  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 1570, ptr noundef nonnull @.str.748) #8
+  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 1570, ptr noundef nonnull @.str.748) #9
   br label %.thread
 
 58:                                               ; preds = %55
@@ -8561,46 +8561,46 @@ equalBN.exit:                                     ; preds = %28
   br i1 %.not82, label %.thread, label %60
 
 60:                                               ; preds = %58
-  %61 = tail call i64 @BN_mod_word(ptr noundef %2, i64 noundef %47) #8
+  %61 = tail call i64 @BN_mod_word(ptr noundef %2, i64 noundef %47) #9
   %.not83 = icmp eq i64 %61, %52
   br i1 %.not83, label %63, label %62
 
 62:                                               ; preds = %60
-  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 1584, ptr noundef nonnull @.str.748) #8
+  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 1584, ptr noundef nonnull @.str.748) #9
   br label %.thread
 
 63:                                               ; preds = %60, %46
-  %64 = tail call i32 @BN_is_negative(ptr noundef %5) #8
+  %64 = tail call i32 @BN_is_negative(ptr noundef %5) #9
   %.not84 = icmp eq i32 %64, 0
   br i1 %.not84, label %65, label %85
 
 65:                                               ; preds = %63
-  %66 = tail call ptr @BN_copy(ptr noundef %20, ptr noundef %11) #8
+  %66 = tail call ptr @BN_copy(ptr noundef %20, ptr noundef %11) #9
   %67 = icmp ne ptr %66, null
   %68 = zext i1 %67 to i32
-  %69 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1592, ptr noundef nonnull @.str.750, i32 noundef %68) #8
+  %69 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1592, ptr noundef nonnull @.str.750, i32 noundef %68) #9
   %.not85 = icmp eq i32 %69, 0
   br i1 %.not85, label %.thread, label %70
 
 70:                                               ; preds = %65
-  %71 = tail call i32 @BN_is_negative(ptr noundef %20) #8
+  %71 = tail call i32 @BN_is_negative(ptr noundef %20) #9
   %.not86 = icmp eq i32 %71, 0
   br i1 %.not86, label %77, label %72
 
 72:                                               ; preds = %70
-  %73 = tail call i32 @BN_add(ptr noundef %20, ptr noundef %20, ptr noundef %5) #8
+  %73 = tail call i32 @BN_add(ptr noundef %20, ptr noundef %20, ptr noundef %5) #9
   %74 = icmp ne i32 %73, 0
   %75 = zext i1 %74 to i32
-  %76 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1594, ptr noundef nonnull @.str.751, i32 noundef %75) #8
+  %76 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1594, ptr noundef nonnull @.str.751, i32 noundef %75) #9
   %.not87 = icmp eq i32 %76, 0
   br i1 %.not87, label %.thread, label %77
 
 77:                                               ; preds = %72, %70
   %78 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %79 = tail call i32 @BN_nnmod(ptr noundef %14, ptr noundef %2, ptr noundef %5, ptr noundef %78) #8
+  %79 = tail call i32 @BN_nnmod(ptr noundef %14, ptr noundef %2, ptr noundef %5, ptr noundef %78) #9
   %80 = icmp ne i32 %79, 0
   %81 = zext i1 %80 to i32
-  %82 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1595, ptr noundef nonnull @.str.752, i32 noundef %81) #8
+  %82 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1595, ptr noundef nonnull @.str.752, i32 noundef %81) #9
   %.not88 = icmp eq i32 %82, 0
   br i1 %.not88, label %.thread, label %83
 
@@ -8620,75 +8620,75 @@ equalBN.exit:                                     ; preds = %28
   %.061 = phi ptr [ %17, %85 ], [ %17, %83 ], [ %17, %77 ], [ %17, %72 ], [ %17, %65 ], [ %17, %44 ], [ %17, %39 ], [ %17, %33 ], [ %17, %equalBN.exit ], [ %17, %22 ], [ %17, %19 ], [ %17, %16 ], [ null, %13 ], [ null, %10 ], [ null, %7 ], [ null, %4 ], [ null, %1 ], [ %17, %equalBN.exit.thread ], [ %17, %57 ], [ %17, %62 ], [ %17, %51 ], [ %17, %58 ]
   %.060 = phi ptr [ %20, %85 ], [ %20, %83 ], [ %20, %77 ], [ %20, %72 ], [ %20, %65 ], [ %20, %44 ], [ %20, %39 ], [ %20, %33 ], [ %20, %equalBN.exit ], [ %20, %22 ], [ %20, %19 ], [ null, %16 ], [ null, %13 ], [ null, %10 ], [ null, %7 ], [ null, %4 ], [ null, %1 ], [ %20, %equalBN.exit.thread ], [ %20, %57 ], [ %20, %62 ], [ %20, %51 ], [ %20, %58 ]
   %.059 = phi i32 [ 1, %85 ], [ 0, %83 ], [ 0, %77 ], [ 0, %72 ], [ 0, %65 ], [ 0, %44 ], [ 0, %39 ], [ 0, %33 ], [ 0, %equalBN.exit ], [ 0, %22 ], [ 0, %19 ], [ 0, %16 ], [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ 0, %4 ], [ 0, %1 ], [ 0, %equalBN.exit.thread ], [ 0, %57 ], [ 0, %62 ], [ 0, %51 ], [ 0, %58 ]
-  tail call void @BN_free(ptr noundef %2) #8
-  tail call void @BN_free(ptr noundef %.065) #8
-  tail call void @BN_free(ptr noundef %.064) #8
-  tail call void @BN_free(ptr noundef %.063) #8
-  tail call void @BN_free(ptr noundef %.062) #8
-  tail call void @BN_free(ptr noundef %.061) #8
-  tail call void @BN_free(ptr noundef %.060) #8
+  tail call void @BN_free(ptr noundef %2) #9
+  tail call void @BN_free(ptr noundef %.065) #9
+  tail call void @BN_free(ptr noundef %.064) #9
+  tail call void @BN_free(ptr noundef %.063) #9
+  tail call void @BN_free(ptr noundef %.062) #9
+  tail call void @BN_free(ptr noundef %.061) #9
+  tail call void @BN_free(ptr noundef %.060) #9
   ret i32 %.059
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @file_modmul(ptr noundef readonly captures(none) %0) #1 {
   %2 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.640)
-  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1617, ptr noundef nonnull @.str.639, ptr noundef %2) #8
+  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1617, ptr noundef nonnull @.str.639, ptr noundef %2) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %81, label %4
 
 4:                                                ; preds = %1
   %5 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.642)
-  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1618, ptr noundef nonnull @.str.641, ptr noundef %5) #8
+  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1618, ptr noundef nonnull @.str.641, ptr noundef %5) #9
   %.not60 = icmp eq i32 %6, 0
   br i1 %.not60, label %81, label %7
 
 7:                                                ; preds = %4
   %8 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.755)
-  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1619, ptr noundef nonnull @.str.754, ptr noundef %8) #8
+  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1619, ptr noundef nonnull @.str.754, ptr noundef %8) #9
   %.not61 = icmp eq i32 %9, 0
   br i1 %.not61, label %81, label %10
 
 10:                                               ; preds = %7
   %11 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.632)
-  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1620, ptr noundef nonnull @.str.756, ptr noundef %11) #8
+  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1620, ptr noundef nonnull @.str.756, ptr noundef %11) #9
   %.not62 = icmp eq i32 %12, 0
   br i1 %.not62, label %81, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call ptr @BN_new() #8
-  %15 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1621, ptr noundef nonnull @.str.644, ptr noundef %14) #8
+  %14 = tail call ptr @BN_new() #9
+  %15 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1621, ptr noundef nonnull @.str.644, ptr noundef %14) #9
   %.not63 = icmp eq i32 %15, 0
   br i1 %.not63, label %81, label %16
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %18 = tail call i32 @BN_mod_mul(ptr noundef %14, ptr noundef %2, ptr noundef %5, ptr noundef %8, ptr noundef %17) #8
+  %18 = tail call i32 @BN_mod_mul(ptr noundef %14, ptr noundef %2, ptr noundef %5, ptr noundef %8, ptr noundef %17) #9
   %19 = icmp ne i32 %18, 0
   %20 = zext i1 %19 to i32
-  %21 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1624, ptr noundef nonnull @.str.757, i32 noundef %20) #8
+  %21 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1624, ptr noundef nonnull @.str.757, i32 noundef %20) #9
   %.not64 = icmp eq i32 %21, 0
   br i1 %.not64, label %81, label %22
 
 22:                                               ; preds = %16
-  %23 = tail call i32 @BN_cmp(ptr noundef %11, ptr noundef %14) #8
+  %23 = tail call i32 @BN_cmp(ptr noundef %11, ptr noundef %14) #9
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %equalBN.exit, label %equalBN.exit.thread
 
 equalBN.exit.thread:                              ; preds = %22
-  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.758) #8
-  %25 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %11, ptr noundef %14) #8
+  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.758) #9
+  %25 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %11, ptr noundef %14) #9
   br label %81
 
 equalBN.exit:                                     ; preds = %22
-  %26 = tail call i32 @BN_is_odd(ptr noundef %8) #8
+  %26 = tail call i32 @BN_is_odd(ptr noundef %8) #9
   %.not66 = icmp eq i32 %26, 0
   br i1 %.not66, label %80, label %27
 
 27:                                               ; preds = %equalBN.exit
-  %28 = tail call ptr @BN_MONT_CTX_new() #8
-  %29 = tail call ptr @BN_new() #8
-  %30 = tail call ptr @BN_new() #8
+  %28 = tail call ptr @BN_MONT_CTX_new() #9
+  %29 = tail call ptr @BN_new() #9
+  %30 = tail call ptr @BN_new() #9
   %31 = icmp eq ptr %28, null
   %32 = icmp eq ptr %29, null
   %or.cond = select i1 %31, i1 true, i1 %32
@@ -8698,64 +8698,64 @@ equalBN.exit:                                     ; preds = %22
 
 34:                                               ; preds = %27
   %35 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %36 = tail call i32 @BN_MONT_CTX_set(ptr noundef nonnull %28, ptr noundef %8, ptr noundef %35) #8
+  %36 = tail call i32 @BN_MONT_CTX_set(ptr noundef nonnull %28, ptr noundef %8, ptr noundef %35) #9
   %37 = icmp ne i32 %36, 0
   %38 = zext i1 %37 to i32
-  %39 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1635, ptr noundef nonnull @.str.217, i32 noundef %38) #8
+  %39 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1635, ptr noundef nonnull @.str.217, i32 noundef %38) #9
   %.not67 = icmp eq i32 %39, 0
   br i1 %.not67, label %78, label %40
 
 40:                                               ; preds = %34
   %41 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %42 = tail call i32 @BN_nnmod(ptr noundef nonnull %29, ptr noundef %2, ptr noundef %8, ptr noundef %41) #8
+  %42 = tail call i32 @BN_nnmod(ptr noundef nonnull %29, ptr noundef %2, ptr noundef %8, ptr noundef %41) #9
   %43 = icmp ne i32 %42, 0
   %44 = zext i1 %43 to i32
-  %45 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1636, ptr noundef nonnull @.str.759, i32 noundef %44) #8
+  %45 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1636, ptr noundef nonnull @.str.759, i32 noundef %44) #9
   %.not68 = icmp eq i32 %45, 0
   br i1 %.not68, label %78, label %46
 
 46:                                               ; preds = %40
   %47 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %48 = tail call i32 @BN_nnmod(ptr noundef nonnull %30, ptr noundef %5, ptr noundef %8, ptr noundef %47) #8
+  %48 = tail call i32 @BN_nnmod(ptr noundef nonnull %30, ptr noundef %5, ptr noundef %8, ptr noundef %47) #9
   %49 = icmp ne i32 %48, 0
   %50 = zext i1 %49 to i32
-  %51 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1637, ptr noundef nonnull @.str.760, i32 noundef %50) #8
+  %51 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1637, ptr noundef nonnull @.str.760, i32 noundef %50) #9
   %.not69 = icmp eq i32 %51, 0
   br i1 %.not69, label %78, label %52
 
 52:                                               ; preds = %46
   %53 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %54 = tail call i32 @BN_to_montgomery(ptr noundef nonnull %29, ptr noundef nonnull %29, ptr noundef nonnull %28, ptr noundef %53) #8
+  %54 = tail call i32 @BN_to_montgomery(ptr noundef nonnull %29, ptr noundef nonnull %29, ptr noundef nonnull %28, ptr noundef %53) #9
   %55 = icmp ne i32 %54, 0
   %56 = zext i1 %55 to i32
-  %57 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1638, ptr noundef nonnull @.str.761, i32 noundef %56) #8
+  %57 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1638, ptr noundef nonnull @.str.761, i32 noundef %56) #9
   %.not70 = icmp eq i32 %57, 0
   br i1 %.not70, label %78, label %58
 
 58:                                               ; preds = %52
   %59 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %60 = tail call i32 @BN_to_montgomery(ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull %28, ptr noundef %59) #8
+  %60 = tail call i32 @BN_to_montgomery(ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull %28, ptr noundef %59) #9
   %61 = icmp ne i32 %60, 0
   %62 = zext i1 %61 to i32
-  %63 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1639, ptr noundef nonnull @.str.762, i32 noundef %62) #8
+  %63 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1639, ptr noundef nonnull @.str.762, i32 noundef %62) #9
   %.not71 = icmp eq i32 %63, 0
   br i1 %.not71, label %78, label %64
 
 64:                                               ; preds = %58
   %65 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %66 = tail call i32 @BN_mod_mul_montgomery(ptr noundef %14, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %28, ptr noundef %65) #8
+  %66 = tail call i32 @BN_mod_mul_montgomery(ptr noundef %14, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %28, ptr noundef %65) #9
   %67 = icmp ne i32 %66, 0
   %68 = zext i1 %67 to i32
-  %69 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1641, ptr noundef nonnull @.str.763, i32 noundef %68) #8
+  %69 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1641, ptr noundef nonnull @.str.763, i32 noundef %68) #9
   %.not72 = icmp eq i32 %69, 0
   br i1 %.not72, label %78, label %70
 
 70:                                               ; preds = %64
   %71 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %72 = tail call i32 @BN_from_montgomery(ptr noundef %14, ptr noundef %14, ptr noundef nonnull %28, ptr noundef %71) #8
+  %72 = tail call i32 @BN_from_montgomery(ptr noundef %14, ptr noundef %14, ptr noundef nonnull %28, ptr noundef %71) #9
   %73 = icmp ne i32 %72, 0
   %74 = zext i1 %73 to i32
-  %75 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1642, ptr noundef nonnull @.str.764, i32 noundef %74) #8
+  %75 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1642, ptr noundef nonnull @.str.764, i32 noundef %74) #9
   %.not73 = icmp eq i32 %75, 0
   br i1 %.not73, label %78, label %76
 
@@ -8769,9 +8769,9 @@ equalBN.exit:                                     ; preds = %22
 78:                                               ; preds = %76, %27, %34, %40, %46, %52, %58, %64, %70
   %79 = phi i1 [ true, %70 ], [ true, %64 ], [ true, %58 ], [ true, %52 ], [ true, %46 ], [ true, %40 ], [ true, %34 ], [ true, %27 ], [ %.not74, %76 ]
   %.1 = phi i32 [ 0, %70 ], [ 0, %64 ], [ 0, %58 ], [ 0, %52 ], [ 0, %46 ], [ 0, %40 ], [ 0, %34 ], [ 0, %27 ], [ %spec.select75, %76 ]
-  tail call void @BN_MONT_CTX_free(ptr noundef %28) #8
-  tail call void @BN_free(ptr noundef %29) #8
-  tail call void @BN_free(ptr noundef %30) #8
+  tail call void @BN_MONT_CTX_free(ptr noundef %28) #9
+  tail call void @BN_free(ptr noundef %29) #9
+  tail call void @BN_free(ptr noundef %30) #9
   br i1 %79, label %81, label %80
 
 80:                                               ; preds = %78, %equalBN.exit
@@ -8783,11 +8783,11 @@ equalBN.exit:                                     ; preds = %22
   %.054 = phi ptr [ %14, %80 ], [ %14, %78 ], [ %14, %16 ], [ %14, %13 ], [ null, %10 ], [ null, %7 ], [ null, %4 ], [ null, %1 ], [ %14, %equalBN.exit.thread ]
   %.053 = phi i32 [ 1, %80 ], [ %.1, %78 ], [ 0, %16 ], [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ 0, %4 ], [ 0, %1 ], [ 0, %equalBN.exit.thread ]
   %.052 = phi ptr [ %5, %80 ], [ %5, %78 ], [ %5, %16 ], [ %5, %13 ], [ %5, %10 ], [ %5, %7 ], [ %5, %4 ], [ null, %1 ], [ %5, %equalBN.exit.thread ]
-  tail call void @BN_free(ptr noundef %2) #8
-  tail call void @BN_free(ptr noundef %.052) #8
-  tail call void @BN_free(ptr noundef %.056) #8
-  tail call void @BN_free(ptr noundef %.055) #8
-  tail call void @BN_free(ptr noundef %.054) #8
+  tail call void @BN_free(ptr noundef %2) #9
+  tail call void @BN_free(ptr noundef %.052) #9
+  tail call void @BN_free(ptr noundef %.056) #9
+  tail call void @BN_free(ptr noundef %.055) #9
+  tail call void @BN_free(ptr noundef %.054) #9
   ret i32 %.053
 }
 
@@ -8803,70 +8803,70 @@ define internal range(i32 0, 2) i32 @file_modexp(ptr noundef readonly captures(n
   store ptr null, ptr %4, align 8, !tbaa !21
   %5 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.640)
   store ptr %5, ptr %2, align 8, !tbaa !21
-  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1670, ptr noundef nonnull @.str.639, ptr noundef %5) #8
+  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1670, ptr noundef nonnull @.str.639, ptr noundef %5) #9
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %70, label %7
 
 7:                                                ; preds = %1
   %8 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.767)
-  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1671, ptr noundef nonnull @.str.766, ptr noundef %8) #8
+  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1671, ptr noundef nonnull @.str.766, ptr noundef %8) #9
   %.not34 = icmp eq i32 %9, 0
   br i1 %.not34, label %70, label %10
 
 10:                                               ; preds = %7
   %11 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.755)
-  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1672, ptr noundef nonnull @.str.754, ptr noundef %11) #8
+  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1672, ptr noundef nonnull @.str.754, ptr noundef %11) #9
   %.not35 = icmp eq i32 %12, 0
   br i1 %.not35, label %70, label %13
 
 13:                                               ; preds = %10
   %14 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.633)
-  %15 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1673, ptr noundef nonnull @.str.768, ptr noundef %14) #8
+  %15 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1673, ptr noundef nonnull @.str.768, ptr noundef %14) #9
   %.not36 = icmp eq i32 %15, 0
   br i1 %.not36, label %70, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call ptr @BN_new() #8
-  %18 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1674, ptr noundef nonnull @.str.644, ptr noundef %17) #8
+  %17 = tail call ptr @BN_new() #9
+  %18 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1674, ptr noundef nonnull @.str.644, ptr noundef %17) #9
   %.not37 = icmp eq i32 %18, 0
   br i1 %.not37, label %70, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call ptr @BN_new() #8
-  %21 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1675, ptr noundef nonnull @.str.76, ptr noundef %20) #8
+  %20 = tail call ptr @BN_new() #9
+  %21 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1675, ptr noundef nonnull @.str.76, ptr noundef %20) #9
   %.not38 = icmp eq i32 %21, 0
   br i1 %.not38, label %70, label %22
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %24 = tail call i32 @BN_mod_exp(ptr noundef %17, ptr noundef %5, ptr noundef %8, ptr noundef %11, ptr noundef %23) #8
+  %24 = tail call i32 @BN_mod_exp(ptr noundef %17, ptr noundef %5, ptr noundef %8, ptr noundef %11, ptr noundef %23) #9
   %25 = icmp ne i32 %24, 0
   %26 = zext i1 %25 to i32
-  %27 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1678, ptr noundef nonnull @.str.769, i32 noundef %26) #8
+  %27 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1678, ptr noundef nonnull @.str.769, i32 noundef %26) #9
   %.not39 = icmp eq i32 %27, 0
   br i1 %.not39, label %70, label %28
 
 28:                                               ; preds = %22
-  %29 = tail call i32 @BN_cmp(ptr noundef %14, ptr noundef %17) #8
+  %29 = tail call i32 @BN_cmp(ptr noundef %14, ptr noundef %17) #9
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %equalBN.exit, label %equalBN.exit.thread
 
 equalBN.exit.thread:                              ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.770) #8
-  %31 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %14, ptr noundef %17) #8
+  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.770) #9
+  %31 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %14, ptr noundef %17) #9
   br label %70
 
 equalBN.exit:                                     ; preds = %28
-  %32 = tail call i32 @BN_is_odd(ptr noundef %11) #8
+  %32 = tail call i32 @BN_is_odd(ptr noundef %11) #9
   %.not41 = icmp eq i32 %32, 0
   br i1 %.not41, label %49, label %33
 
 33:                                               ; preds = %equalBN.exit
   %34 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %35 = tail call i32 @BN_mod_exp_mont(ptr noundef %17, ptr noundef %5, ptr noundef %8, ptr noundef %11, ptr noundef %34, ptr noundef null) #8
+  %35 = tail call i32 @BN_mod_exp_mont(ptr noundef %17, ptr noundef %5, ptr noundef %8, ptr noundef %11, ptr noundef %34, ptr noundef null) #9
   %36 = icmp ne i32 %35, 0
   %37 = zext i1 %36 to i32
-  %38 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1683, ptr noundef nonnull @.str.771, i32 noundef %37) #8
+  %38 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1683, ptr noundef nonnull @.str.771, i32 noundef %37) #9
   %.not42 = icmp eq i32 %38, 0
   br i1 %.not42, label %70, label %39
 
@@ -8877,10 +8877,10 @@ equalBN.exit:                                     ; preds = %28
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %43 = tail call i32 @BN_mod_exp_mont_consttime(ptr noundef %17, ptr noundef %5, ptr noundef %8, ptr noundef %11, ptr noundef %42, ptr noundef null) #8
+  %43 = tail call i32 @BN_mod_exp_mont_consttime(ptr noundef %17, ptr noundef %5, ptr noundef %8, ptr noundef %11, ptr noundef %42, ptr noundef null) #9
   %44 = icmp ne i32 %43, 0
   %45 = zext i1 %44 to i32
-  %46 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1686, ptr noundef nonnull @.str.773, i32 noundef %45) #8
+  %46 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1686, ptr noundef nonnull @.str.773, i32 noundef %45) #9
   %.not44 = icmp eq i32 %46, 0
   br i1 %.not44, label %70, label %47
 
@@ -8890,32 +8890,32 @@ equalBN.exit:                                     ; preds = %28
   br i1 %.not45, label %70, label %49
 
 49:                                               ; preds = %47, %equalBN.exit
-  %50 = call i32 @BN_hex2bn(ptr noundef nonnull %2, ptr noundef nonnull @.str.775) #8
-  %51 = call i32 @BN_hex2bn(ptr noundef nonnull %3, ptr noundef nonnull @.str.776) #8
-  %52 = call i32 @BN_hex2bn(ptr noundef nonnull %4, ptr noundef nonnull @.str.777) #8
+  %50 = call i32 @BN_hex2bn(ptr noundef nonnull %2, ptr noundef nonnull @.str.775) #9
+  %51 = call i32 @BN_hex2bn(ptr noundef nonnull %3, ptr noundef nonnull @.str.776) #9
+  %52 = call i32 @BN_hex2bn(ptr noundef nonnull %4, ptr noundef nonnull @.str.777) #9
   %53 = load ptr, ptr %2, align 8, !tbaa !21
   %54 = load ptr, ptr %3, align 8, !tbaa !21
   %55 = load ptr, ptr %4, align 8, !tbaa !21
   %56 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %57 = call i32 @BN_mod_exp(ptr noundef %20, ptr noundef %53, ptr noundef %54, ptr noundef %55, ptr noundef %56) #8
+  %57 = call i32 @BN_mod_exp(ptr noundef %20, ptr noundef %53, ptr noundef %54, ptr noundef %55, ptr noundef %56) #9
   %58 = icmp ne i32 %57, 0
   %59 = zext i1 %58 to i32
-  %60 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1701, ptr noundef nonnull @.str.778, i32 noundef %59) #8
+  %60 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1701, ptr noundef nonnull @.str.778, i32 noundef %59) #9
   %.not46 = icmp eq i32 %60, 0
   br i1 %.not46, label %70, label %61
 
 61:                                               ; preds = %49
   %62 = load ptr, ptr %2, align 8, !tbaa !21
   %63 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %64 = call i32 @BN_mul(ptr noundef %8, ptr noundef %62, ptr noundef %62, ptr noundef %63) #8
+  %64 = call i32 @BN_mul(ptr noundef %8, ptr noundef %62, ptr noundef %62, ptr noundef %63) #9
   %65 = icmp ne i32 %64, 0
   %66 = zext i1 %65 to i32
-  %67 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1702, ptr noundef nonnull @.str.779, i32 noundef %66) #8
+  %67 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1702, ptr noundef nonnull @.str.779, i32 noundef %66) #9
   %.not47 = icmp eq i32 %67, 0
   br i1 %.not47, label %70, label %68
 
 68:                                               ; preds = %61
-  %69 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 1703, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.101, ptr noundef %20, ptr noundef %8) #8
+  %69 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 1703, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.101, ptr noundef %20, ptr noundef %8) #9
   %.not48 = icmp ne i32 %69, 0
   %spec.select = zext i1 %.not48 to i32
   br label %70
@@ -8928,16 +8928,16 @@ equalBN.exit:                                     ; preds = %28
   %.029 = phi ptr [ %20, %61 ], [ %20, %49 ], [ %20, %47 ], [ %20, %41 ], [ %20, %39 ], [ %20, %33 ], [ %20, %22 ], [ %20, %19 ], [ null, %16 ], [ null, %13 ], [ null, %10 ], [ null, %7 ], [ null, %1 ], [ %20, %68 ], [ %20, %equalBN.exit.thread ]
   %.0 = phi i32 [ 0, %61 ], [ 0, %49 ], [ 0, %47 ], [ 0, %41 ], [ 0, %39 ], [ 0, %33 ], [ 0, %22 ], [ 0, %19 ], [ 0, %16 ], [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ 0, %1 ], [ %spec.select, %68 ], [ 0, %equalBN.exit.thread ]
   %71 = load ptr, ptr %2, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %71) #8
+  call void @BN_free(ptr noundef %71) #9
   %72 = load ptr, ptr %3, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %72) #8
+  call void @BN_free(ptr noundef %72) #9
   %73 = load ptr, ptr %4, align 8, !tbaa !21
-  call void @BN_free(ptr noundef %73) #8
-  call void @BN_free(ptr noundef %.029) #8
-  call void @BN_free(ptr noundef %.033) #8
-  call void @BN_free(ptr noundef %.032) #8
-  call void @BN_free(ptr noundef %.031) #8
-  call void @BN_free(ptr noundef %.030) #8
+  call void @BN_free(ptr noundef %73) #9
+  call void @BN_free(ptr noundef %.029) #9
+  call void @BN_free(ptr noundef %.033) #9
+  call void @BN_free(ptr noundef %.032) #9
+  call void @BN_free(ptr noundef %.031) #9
+  call void @BN_free(ptr noundef %.030) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -8947,45 +8947,45 @@ equalBN.exit:                                     ; preds = %28
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @file_exp(ptr noundef readonly captures(none) %0) #1 {
   %2 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.640)
-  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1724, ptr noundef nonnull @.str.639, ptr noundef %2) #8
+  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1724, ptr noundef nonnull @.str.639, ptr noundef %2) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %equalBN.exit, label %4
 
 4:                                                ; preds = %1
   %5 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.767)
-  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1725, ptr noundef nonnull @.str.766, ptr noundef %5) #8
+  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1725, ptr noundef nonnull @.str.766, ptr noundef %5) #9
   %.not15 = icmp eq i32 %6, 0
   br i1 %.not15, label %equalBN.exit, label %7
 
 7:                                                ; preds = %4
   %8 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.634)
-  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1726, ptr noundef nonnull @.str.780, ptr noundef %8) #8
+  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1726, ptr noundef nonnull @.str.780, ptr noundef %8) #9
   %.not16 = icmp eq i32 %9, 0
   br i1 %.not16, label %equalBN.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @BN_new() #8
-  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1727, ptr noundef nonnull @.str.644, ptr noundef %11) #8
+  %11 = tail call ptr @BN_new() #9
+  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1727, ptr noundef nonnull @.str.644, ptr noundef %11) #9
   %.not17 = icmp eq i32 %12, 0
   br i1 %.not17, label %equalBN.exit, label %13
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %15 = tail call i32 @BN_exp(ptr noundef %11, ptr noundef %2, ptr noundef %5, ptr noundef %14) #8
+  %15 = tail call i32 @BN_exp(ptr noundef %11, ptr noundef %2, ptr noundef %5, ptr noundef %14) #9
   %16 = icmp ne i32 %15, 0
   %17 = zext i1 %16 to i32
-  %18 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1730, ptr noundef nonnull @.str.781, i32 noundef %17) #8
+  %18 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1730, ptr noundef nonnull @.str.781, i32 noundef %17) #9
   %.not18 = icmp eq i32 %18, 0
   br i1 %.not18, label %equalBN.exit, label %19
 
 19:                                               ; preds = %13
-  %20 = tail call i32 @BN_cmp(ptr noundef %8, ptr noundef %11) #8
+  %20 = tail call i32 @BN_cmp(ptr noundef %8, ptr noundef %11) #9
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %equalBN.exit, label %22
 
 22:                                               ; preds = %19
-  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.782) #8
-  %23 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %8, ptr noundef %11) #8
+  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.782) #9
+  %23 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %8, ptr noundef %11) #9
   br label %equalBN.exit
 
 equalBN.exit:                                     ; preds = %22, %19, %13, %1, %4, %7, %10
@@ -8993,72 +8993,72 @@ equalBN.exit:                                     ; preds = %22, %19, %13, %1, %
   %.013 = phi ptr [ %8, %13 ], [ %8, %10 ], [ %8, %7 ], [ null, %4 ], [ null, %1 ], [ %8, %19 ], [ %8, %22 ]
   %.012 = phi ptr [ %11, %13 ], [ %11, %10 ], [ null, %7 ], [ null, %4 ], [ null, %1 ], [ %11, %19 ], [ %11, %22 ]
   %.0 = phi i32 [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ 0, %4 ], [ 0, %1 ], [ 1, %19 ], [ 0, %22 ]
-  tail call void @BN_free(ptr noundef %2) #8
-  tail call void @BN_free(ptr noundef %.014) #8
-  tail call void @BN_free(ptr noundef %.013) #8
-  tail call void @BN_free(ptr noundef %.012) #8
+  tail call void @BN_free(ptr noundef %2) #9
+  tail call void @BN_free(ptr noundef %.014) #9
+  tail call void @BN_free(ptr noundef %.013) #9
+  tail call void @BN_free(ptr noundef %.012) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @file_modsqrt(ptr noundef readonly captures(none) %0) #1 {
   %2 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.640)
-  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1748, ptr noundef nonnull @.str.639, ptr noundef %2) #8
+  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1748, ptr noundef nonnull @.str.639, ptr noundef %2) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %34, label %4
 
 4:                                                ; preds = %1
   %5 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.784)
-  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1749, ptr noundef nonnull @.str.783, ptr noundef %5) #8
+  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1749, ptr noundef nonnull @.str.783, ptr noundef %5) #9
   %.not26 = icmp eq i32 %6, 0
   br i1 %.not26, label %34, label %7
 
 7:                                                ; preds = %4
   %8 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.635)
-  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1750, ptr noundef nonnull @.str.785, ptr noundef %8) #8
+  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1750, ptr noundef nonnull @.str.785, ptr noundef %8) #9
   %.not27 = icmp eq i32 %9, 0
   br i1 %.not27, label %34, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @BN_new() #8
-  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1751, ptr noundef nonnull @.str.644, ptr noundef %11) #8
+  %11 = tail call ptr @BN_new() #9
+  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1751, ptr noundef nonnull @.str.644, ptr noundef %11) #9
   %.not28 = icmp eq i32 %12, 0
   br i1 %.not28, label %34, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call ptr @BN_new() #8
-  %15 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1752, ptr noundef nonnull @.str.740, ptr noundef %14) #8
+  %14 = tail call ptr @BN_new() #9
+  %15 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1752, ptr noundef nonnull @.str.740, ptr noundef %14) #9
   %.not29 = icmp eq i32 %15, 0
   br i1 %.not29, label %34, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call i32 @BN_is_negative(ptr noundef %8) #8
+  %17 = tail call i32 @BN_is_negative(ptr noundef %8) #9
   %.not30 = icmp eq i32 %17, 0
   %18 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %19 = tail call ptr @BN_mod_sqrt(ptr noundef %11, ptr noundef %2, ptr noundef %5, ptr noundef %18) #8
+  %19 = tail call ptr @BN_mod_sqrt(ptr noundef %11, ptr noundef %2, ptr noundef %5, ptr noundef %18) #9
   br i1 %.not30, label %22, label %20
 
 20:                                               ; preds = %16
-  %21 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.17, i32 noundef 1757, ptr noundef nonnull @.str.786, ptr noundef %19) #8
+  %21 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.17, i32 noundef 1757, ptr noundef nonnull @.str.786, ptr noundef %19) #9
   %.not35 = icmp ne i32 %21, 0
   %spec.select = zext i1 %.not35 to i32
   br label %34
 
 22:                                               ; preds = %16
-  %23 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1765, ptr noundef nonnull @.str.786, ptr noundef %19) #8
+  %23 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1765, ptr noundef nonnull @.str.786, ptr noundef %19) #9
   %.not31 = icmp eq i32 %23, 0
   br i1 %.not31, label %34, label %24
 
 24:                                               ; preds = %22
-  %25 = tail call i32 @BN_sub(ptr noundef %14, ptr noundef %5, ptr noundef %11) #8
+  %25 = tail call i32 @BN_sub(ptr noundef %14, ptr noundef %5, ptr noundef %11) #9
   %26 = icmp ne i32 %25, 0
   %27 = zext i1 %26 to i32
-  %28 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1766, ptr noundef nonnull @.str.787, i32 noundef %27) #8
+  %28 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1766, ptr noundef nonnull @.str.787, i32 noundef %27) #9
   %.not32 = icmp eq i32 %28, 0
   br i1 %.not32, label %34, label %29
 
 29:                                               ; preds = %24
-  %30 = tail call i32 @BN_cmp(ptr noundef %14, ptr noundef %8) #8
+  %30 = tail call i32 @BN_cmp(ptr noundef %14, ptr noundef %8) #9
   %.not33 = icmp eq i32 %30, 0
   br i1 %.not33, label %33, label %31
 
@@ -9076,56 +9076,56 @@ define internal range(i32 0, 2) i32 @file_modsqrt(ptr noundef readonly captures(
   %.023 = phi ptr [ %11, %33 ], [ %11, %31 ], [ %11, %24 ], [ %11, %22 ], [ %11, %13 ], [ %11, %10 ], [ null, %7 ], [ null, %4 ], [ null, %1 ], [ %11, %20 ]
   %.022 = phi ptr [ %14, %33 ], [ %14, %31 ], [ %14, %24 ], [ %14, %22 ], [ %14, %13 ], [ null, %10 ], [ null, %7 ], [ null, %4 ], [ null, %1 ], [ %14, %20 ]
   %.0 = phi i32 [ 1, %33 ], [ 0, %31 ], [ 0, %24 ], [ 0, %22 ], [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ 0, %4 ], [ 0, %1 ], [ %spec.select, %20 ]
-  tail call void @BN_free(ptr noundef %2) #8
-  tail call void @BN_free(ptr noundef %.025) #8
-  tail call void @BN_free(ptr noundef %.024) #8
-  tail call void @BN_free(ptr noundef %.023) #8
-  tail call void @BN_free(ptr noundef %.022) #8
+  tail call void @BN_free(ptr noundef %2) #9
+  tail call void @BN_free(ptr noundef %.025) #9
+  tail call void @BN_free(ptr noundef %.024) #9
+  tail call void @BN_free(ptr noundef %.023) #9
+  tail call void @BN_free(ptr noundef %.022) #9
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @file_gcd(ptr noundef readonly captures(none) %0) #1 {
   %2 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.640)
-  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1789, ptr noundef nonnull @.str.639, ptr noundef %2) #8
+  %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1789, ptr noundef nonnull @.str.639, ptr noundef %2) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %equalBN.exit, label %4
 
 4:                                                ; preds = %1
   %5 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.642)
-  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1790, ptr noundef nonnull @.str.641, ptr noundef %5) #8
+  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1790, ptr noundef nonnull @.str.641, ptr noundef %5) #9
   %.not15 = icmp eq i32 %6, 0
   br i1 %.not15, label %equalBN.exit, label %7
 
 7:                                                ; preds = %4
   %8 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.636)
-  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1791, ptr noundef nonnull @.str.789, ptr noundef %8) #8
+  %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1791, ptr noundef nonnull @.str.789, ptr noundef %8) #9
   %.not16 = icmp eq i32 %9, 0
   br i1 %.not16, label %equalBN.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @BN_new() #8
-  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1792, ptr noundef nonnull @.str.644, ptr noundef %11) #8
+  %11 = tail call ptr @BN_new() #9
+  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1792, ptr noundef nonnull @.str.644, ptr noundef %11) #9
   %.not17 = icmp eq i32 %12, 0
   br i1 %.not17, label %equalBN.exit, label %13
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr @ctx, align 8, !tbaa !6
-  %15 = tail call i32 @BN_gcd(ptr noundef %11, ptr noundef %2, ptr noundef %5, ptr noundef %14) #8
+  %15 = tail call i32 @BN_gcd(ptr noundef %11, ptr noundef %2, ptr noundef %5, ptr noundef %14) #9
   %16 = icmp ne i32 %15, 0
   %17 = zext i1 %16 to i32
-  %18 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1795, ptr noundef nonnull @.str.790, i32 noundef %17) #8
+  %18 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1795, ptr noundef nonnull @.str.790, i32 noundef %17) #9
   %.not18 = icmp eq i32 %18, 0
   br i1 %.not18, label %equalBN.exit, label %19
 
 19:                                               ; preds = %13
-  %20 = tail call i32 @BN_cmp(ptr noundef %8, ptr noundef %11) #8
+  %20 = tail call i32 @BN_cmp(ptr noundef %8, ptr noundef %11) #9
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %equalBN.exit, label %22
 
 22:                                               ; preds = %19
-  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.791) #8
-  %23 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %8, ptr noundef %11) #8
+  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 135, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.791) #9
+  %23 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %8, ptr noundef %11) #9
   br label %equalBN.exit
 
 equalBN.exit:                                     ; preds = %22, %19, %13, %1, %4, %7, %10
@@ -9133,10 +9133,10 @@ equalBN.exit:                                     ; preds = %22, %19, %13, %1, %
   %.013 = phi ptr [ %8, %13 ], [ %8, %10 ], [ %8, %7 ], [ null, %4 ], [ null, %1 ], [ %8, %19 ], [ %8, %22 ]
   %.012 = phi ptr [ %11, %13 ], [ %11, %10 ], [ null, %7 ], [ null, %4 ], [ null, %1 ], [ %11, %19 ], [ %11, %22 ]
   %.0 = phi i32 [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ 0, %4 ], [ 0, %1 ], [ 1, %19 ], [ 0, %22 ]
-  tail call void @BN_free(ptr noundef %2) #8
-  tail call void @BN_free(ptr noundef %.014) #8
-  tail call void @BN_free(ptr noundef %.013) #8
-  tail call void @BN_free(ptr noundef %.012) #8
+  tail call void @BN_free(ptr noundef %2) #9
+  tail call void @BN_free(ptr noundef %.014) #9
+  tail call void @BN_free(ptr noundef %.013) #9
+  tail call void @BN_free(ptr noundef %.012) #9
   ret i32 %.0
 }
 
@@ -9157,7 +9157,7 @@ define internal fastcc ptr @getBN(ptr noundef readonly captures(none) %0, ptr no
   %.in.i = phi i32 [ %12, %11 ], [ %5, %.lr.ph.preheader.i ]
   %.011.i = phi ptr [ %13, %11 ], [ %7, %.lr.ph.preheader.i ]
   %8 = load ptr, ptr %.011.i, align 8, !tbaa !76
-  %9 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %8, ptr noundef %1) #8
+  %9 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %8, ptr noundef %1) #9
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %findattr.exit, label %11
 
@@ -9177,19 +9177,19 @@ findattr.exit.thread:                             ; preds = %11, %2, %findattr.e
   %18 = load ptr, ptr %0, align 8, !tbaa !81
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4, !tbaa !82
-  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 102, ptr noundef nonnull @.str.686, ptr noundef %18, i32 noundef %20, ptr noundef %1) #8
+  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 102, ptr noundef nonnull @.str.686, ptr noundef %18, i32 noundef %20, ptr noundef %1) #9
   br label %28
 
 21:                                               ; preds = %findattr.exit
   store ptr null, ptr %3, align 8, !tbaa !21
-  %22 = call i32 @BN_hex2bn(ptr noundef nonnull %3, ptr noundef nonnull %16) #8
-  %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #9
+  %22 = call i32 @BN_hex2bn(ptr noundef nonnull %3, ptr noundef nonnull %16) #9
+  %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #10
   %24 = trunc i64 %23 to i32
   %.not = icmp eq i32 %22, %24
   br i1 %.not, label %26, label %25
 
 25:                                               ; preds = %21
-  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 107, ptr noundef nonnull @.str.687, ptr noundef nonnull %16) #8
+  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 107, ptr noundef nonnull @.str.687, ptr noundef nonnull %16) #9
   br label %28
 
 26:                                               ; preds = %21
@@ -9237,19 +9237,20 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #7
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
+attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -95,12 +95,12 @@ define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EEC2Ei10UErrorCode(ptr no
 9:                                                ; preds = %16, %11
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7715MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %0) #19
+  tail call void @_ZN6icu_7715MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %0) #20
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %3
   %12 = zext nneg i32 %1 to i64
-  %13 = invoke noalias ptr @uprv_malloc_77(i64 noundef %12) #20
+  %13 = invoke noalias ptr @uprv_malloc_77(i64 noundef %12) #21
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %11
@@ -136,7 +136,7 @@ define weak_odr noundef ptr @_ZN6icu_7715MaybeStackArrayIcLi40EE6resizeEii(ptr n
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %1 to i64
-  %7 = tail call noalias ptr @uprv_malloc_77(i64 noundef %6) #20
+  %7 = tail call noalias ptr @uprv_malloc_77(i64 noundef %6) #21
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %21, label %8
 
@@ -196,7 +196,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %1, %4
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #21
+  tail call void @__clang_call_terminate(ptr %8) #22
   unreachable
 }
 
@@ -218,8 +218,8 @@ define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv(ptr no
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
-  tail call void @_ZSt9terminatev() #21
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #20
+  tail call void @_ZSt9terminatev() #22
   unreachable
 }
 
@@ -321,7 +321,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %2, %5
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #21
+  tail call void @__clang_call_terminate(ptr %22) #22
   unreachable
 }
 
@@ -414,7 +414,7 @@ define weak_odr noundef ptr @_ZN6icu_7715MaybeStackArrayIcLi40EE13orphanOrCloneE
   %12 = load i32, ptr %11, align 8, !tbaa !10
   %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %12)
   %13 = sext i32 %spec.select to i64
-  %14 = tail call noalias ptr @uprv_malloc_77(i64 noundef %13) #20
+  %14 = tail call noalias ptr @uprv_malloc_77(i64 noundef %13) #21
   %15 = icmp eq ptr %14, null
   br i1 %15, label %21, label %16
 
@@ -453,7 +453,7 @@ define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErro
 
 10:                                               ; preds = %6
   %11 = zext nneg i32 %8 to i64
-  %12 = tail call noalias ptr @uprv_malloc_77(i64 noundef %11) #20
+  %12 = tail call noalias ptr @uprv_malloc_77(i64 noundef %11) #21
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %18, label %13
 
@@ -603,7 +603,7 @@ _ZNK6icu_7716BytesTrieElement9getStringERKNS_10CharStringE.exit16: ; preds = %29
   %54 = icmp slt i32 %53, 1
   %spec.select = select i1 %54, i32 %.0.i, i32 %.0.i13
   %55 = zext nneg i32 %spec.select to i64
-  %56 = tail call i32 @memcmp(ptr noundef nonnull %50, ptr noundef %52, i64 noundef %55) #22
+  %56 = tail call i32 @memcmp(ptr noundef nonnull %50, ptr noundef %52, i64 noundef %55) #23
   %.not = icmp eq i32 %56, 0
   %57 = select i1 %.not, i32 %53, i32 %56
   ret i32 %57
@@ -623,7 +623,7 @@ define void @_ZN6icu_7716BytesTrieBuilderC2ER10UErrorCode(ptr noundef nonnull al
   br i1 %5, label %6, label %16
 
 6:                                                ; preds = %2
-  %7 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #19
+  %7 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #20
   %8 = icmp eq ptr %7, null
   br i1 %8, label %13, label %9
 
@@ -647,8 +647,8 @@ define void @_ZN6icu_7716BytesTrieBuilderC2ER10UErrorCode(ptr noundef nonnull al
 14:                                               ; preds = %9
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %7) #19
-  tail call void @_ZN6icu_7717StringTrieBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %7) #20
+  tail call void @_ZN6icu_7717StringTrieBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
   resume { ptr, i32 } %15
 
 16:                                               ; preds = %10, %2, %13
@@ -675,8 +675,8 @@ define void @_ZN6icu_7716BytesTrieBuilderD2Ev(ptr noundef nonnull align 8 derefe
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %3) #19
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %3) #19
+  tail call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %3) #20
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %3) #20
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -686,7 +686,7 @@ define void @_ZN6icu_7716BytesTrieBuilderD2Ev(ptr noundef nonnull align 8 derefe
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %6
-  tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %8) #19
+  tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %8) #20
   br label %11
 
 11:                                               ; preds = %10, %6
@@ -696,14 +696,14 @@ define void @_ZN6icu_7716BytesTrieBuilderD2Ev(ptr noundef nonnull align 8 derefe
           to label %14 unwind label %15
 
 14:                                               ; preds = %11
-  tail call void @_ZN6icu_7717StringTrieBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
+  tail call void @_ZN6icu_7717StringTrieBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
   ret void
 
 15:                                               ; preds = %11
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #21
+  tail call void @__clang_call_terminate(ptr %17) #22
   unreachable
 }
 
@@ -712,8 +712,8 @@ declare void @_ZN6icu_777UMemorydaEPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7716BytesTrieBuilderD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN6icu_7716BytesTrieBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #19
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #19
+  tail call void @_ZN6icu_7716BytesTrieBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #20
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #20
   ret void
 }
 
@@ -758,7 +758,7 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7716BytesTrieBui
   %26 = icmp slt i32 %.014, 0
   %27 = shl nsw i64 %25, 3
   %28 = select i1 %26, i64 -1, i64 %27
-  %29 = tail call noundef ptr @_ZN6icu_777UMemorynaEm(i64 noundef %28) #19
+  %29 = tail call noundef ptr @_ZN6icu_777UMemorynaEm(i64 noundef %28) #20
   %30 = icmp eq ptr %29, null
   br i1 %30, label %44, label %31
 
@@ -782,7 +782,7 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7716BytesTrieBui
   br i1 %42, label %45, label %43
 
 43:                                               ; preds = %39
-  tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %41) #19
+  tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %41) #20
   br label %45
 
 44:                                               ; preds = %22
@@ -850,7 +850,7 @@ define noundef ptr @_ZN6icu_7716BytesTrieBuilder5buildE22UStringTrieBuildOptionR
   br i1 %5, label %23, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 32) #19
+  %7 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 32) #20
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
@@ -1056,7 +1056,7 @@ _ZNK6icu_7716BytesTrieElement9getStringERKNS_10CharStringE.exit37: ; preds = %64
   %100 = load ptr, ptr %9, align 8, !tbaa !31
   call void @uprv_free_77(ptr noundef %100)
   %101 = zext nneg i32 %spec.store.select2 to i64
-  %102 = call noalias ptr @uprv_malloc_77(i64 noundef %101) #20
+  %102 = call noalias ptr @uprv_malloc_77(i64 noundef %101) #21
   store ptr %102, ptr %9, align 8, !tbaa !31
   %103 = icmp eq ptr %102, null
   br i1 %103, label %104, label %105
@@ -1188,7 +1188,7 @@ _ZNK6icu_7716BytesTrieElement15compareStringToERKS0_RKNS_10CharStringE.exit: ; p
   %54 = icmp slt i32 %53, 1
   %spec.select.i = select i1 %54, i32 %.0.i.i, i32 %.0.i13.i
   %55 = zext nneg i32 %spec.select.i to i64
-  %56 = tail call i32 @memcmp(ptr noundef nonnull %50, ptr noundef %52, i64 noundef %55) #22
+  %56 = tail call i32 @memcmp(ptr noundef nonnull %50, ptr noundef %52, i64 noundef %55) #23
   %.not.i = icmp eq i32 %56, 0
   %57 = select i1 %.not.i, i32 %53, i32 %56
   ret i32 %57
@@ -1540,7 +1540,7 @@ _ZN6icu_7717StringTrieBuilder15LinearMatchNodeC2EiPNS0_4NodeE.exit: ; preds = %4
 24:                                               ; preds = %_ZN6icu_7717StringTrieBuilder15LinearMatchNodeC2EiPNS0_4NodeE.exit
   %25 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_777UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #19
+  tail call void @_ZN6icu_777UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   resume { ptr, i32 } %25
 }
 
@@ -1608,7 +1608,7 @@ define void @_ZN6icu_7716BytesTrieBuilder17BTLinearMatchNode5writeERNS_17StringT
 
 23:                                               ; preds = %.preheader.i.i
   %24 = sext i32 %22 to i64
-  %25 = tail call noalias ptr @uprv_malloc_77(i64 noundef %24) #20
+  %25 = tail call noalias ptr @uprv_malloc_77(i64 noundef %24) #21
   %26 = icmp eq ptr %25, null
   br i1 %26, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread15.i, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.i
 
@@ -1688,7 +1688,7 @@ define noundef i32 @_ZN6icu_7716BytesTrieBuilder5writeEPKci(ptr noundef nonnull 
 
 15:                                               ; preds = %.preheader.i
   %16 = sext i32 %14 to i64
-  %17 = tail call noalias ptr @uprv_malloc_77(i64 noundef %16) #20
+  %17 = tail call noalias ptr @uprv_malloc_77(i64 noundef %16) #21
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread15, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit
 
@@ -1734,7 +1734,7 @@ _ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread: ; preds = %_ZN6icu_7
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_7716BytesTrieBuilder21createLinearMatchNodeEiiiPNS_17StringTrieBuilder4NodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %6 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 48) #19
+  %6 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 48) #20
   %7 = icmp eq ptr %6, null
   br i1 %7, label %21, label %8
 
@@ -1762,7 +1762,7 @@ define noundef ptr @_ZNK6icu_7716BytesTrieBuilder21createLinearMatchNodeEiiiPNS_
 22:                                               ; preds = %8
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %6) #19
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %6) #20
   resume { ptr, i32 } %23
 }
 
@@ -1787,7 +1787,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716BytesTrieBuilder14ensureCa
 
 11:                                               ; preds = %.preheader
   %12 = sext i32 %10 to i64
-  %13 = tail call noalias ptr @uprv_malloc_77(i64 noundef %12) #20
+  %13 = tail call noalias ptr @uprv_malloc_77(i64 noundef %12) #21
   %14 = icmp eq ptr %13, null
   br i1 %14, label %26, label %.thread
 
@@ -1849,7 +1849,7 @@ define noundef i32 @_ZN6icu_7716BytesTrieBuilder5writeEi(ptr noundef nonnull ali
 
 13:                                               ; preds = %.preheader.i
   %14 = sext i32 %12 to i64
-  %15 = tail call noalias ptr @uprv_malloc_77(i64 noundef %14) #20
+  %15 = tail call noalias ptr @uprv_malloc_77(i64 noundef %14) #21
   %16 = icmp eq ptr %15, null
   br i1 %16, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread13, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit
 
@@ -1932,7 +1932,7 @@ _ZNK6icu_7716BytesTrieElement9getStringERKNS_10CharStringE.exit:
 
 27:                                               ; preds = %.preheader.i.i
   %28 = sext i32 %26 to i64
-  %29 = tail call noalias ptr @uprv_malloc_77(i64 noundef %28) #20
+  %29 = tail call noalias ptr @uprv_malloc_77(i64 noundef %28) #21
   %30 = icmp eq ptr %29, null
   br i1 %30, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread15.i, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.i
 
@@ -2090,7 +2090,7 @@ define noundef i32 @_ZN6icu_7716BytesTrieBuilder18writeValueAndFinalEia(ptr noun
 
 68:                                               ; preds = %.preheader.i.i
   %69 = sext i32 %67 to i64
-  %70 = tail call noalias ptr @uprv_malloc_77(i64 noundef %69) #20
+  %70 = tail call noalias ptr @uprv_malloc_77(i64 noundef %69) #21
   %71 = icmp eq ptr %70, null
   br i1 %71, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread15.i, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.i
 
@@ -2259,7 +2259,7 @@ _ZN6icu_7716BytesTrieBuilder19internalEncodeDeltaEiPc.exit: ; preds = %15, %37
 
 56:                                               ; preds = %.preheader.i.i
   %57 = sext i32 %55 to i64
-  %58 = tail call noalias ptr @uprv_malloc_77(i64 noundef %57) #20
+  %58 = tail call noalias ptr @uprv_malloc_77(i64 noundef %57) #21
   %59 = icmp eq ptr %58, null
   br i1 %59, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread15.i, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.i
 
@@ -2414,8 +2414,8 @@ declare void @_ZN6icu_777UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7716BytesTrieBuilder17BTLinearMatchNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN6icu_777UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #19
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #19
+  tail call void @_ZN6icu_777UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #20
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #20
   ret void
 }
 
@@ -2429,20 +2429,20 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #16
+declare i32 @llvm.abs.i32(i32, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2460,13 +2460,14 @@ attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #19 = { nounwind }
-attributes #20 = { allocsize(0) }
-attributes #21 = { noreturn nounwind }
-attributes #22 = { nounwind willreturn memory(read) }
+attributes #16 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #20 = { nounwind }
+attributes #21 = { allocsize(0) }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

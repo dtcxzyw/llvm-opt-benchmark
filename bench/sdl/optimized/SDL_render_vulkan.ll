@@ -475,7 +475,7 @@ define internal zeroext i1 @VULKAN_CreateRenderer(ptr noundef %0, ptr noundef %1
   br label %64
 
 8:                                                ; preds = %3, %3
-  %9 = tail call noalias dereferenceable_or_null(10632) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 10632) #11
+  %9 = tail call noalias dereferenceable_or_null(10632) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 10632) #12
   %.not59 = icmp eq ptr %9, null
   br i1 %.not59, label %64, label %10
 
@@ -741,7 +741,7 @@ SDLPixelFormatToVkTextureFormat.exit:             ; preds = %3, %18, %19, %21, %
   br label %353
 
 42:                                               ; preds = %38
-  %43 = tail call noalias dereferenceable_or_null(160) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 160) #11
+  %43 = tail call noalias dereferenceable_or_null(160) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 160) #12
   %.not97 = icmp eq ptr %43, null
   br i1 %.not97, label %353, label %44
 
@@ -3551,7 +3551,7 @@ define internal noundef zeroext i1 @VULKAN_AddVulkanRenderSemaphores(ptr noundef
   %16 = add i32 %9, 2
   %17 = zext i32 %16 to i64
   %18 = shl nuw nsw i64 %17, 2
-  %19 = tail call ptr @SDL_realloc_REAL(ptr noundef %15, i64 noundef %18) #12
+  %19 = tail call ptr @SDL_realloc_REAL(ptr noundef %15, i64 noundef %18) #13
   %.not47 = icmp eq ptr %19, null
   br i1 %.not47, label %.critedge, label %20
 
@@ -3563,7 +3563,7 @@ define internal noundef zeroext i1 @VULKAN_AddVulkanRenderSemaphores(ptr noundef
   %24 = add i32 %23, 2
   %25 = zext i32 %24 to i64
   %26 = shl nuw nsw i64 %25, 3
-  %27 = tail call ptr @SDL_realloc_REAL(ptr noundef %22, i64 noundef %26) #12
+  %27 = tail call ptr @SDL_realloc_REAL(ptr noundef %22, i64 noundef %26) #13
   %.not48.not = icmp eq ptr %27, null
   br i1 %.not48.not, label %.critedge, label %28
 
@@ -3612,7 +3612,7 @@ define internal noundef zeroext i1 @VULKAN_AddVulkanRenderSemaphores(ptr noundef
   %55 = add i32 %48, 2
   %56 = zext i32 %55 to i64
   %57 = shl nuw nsw i64 %56, 3
-  %58 = tail call ptr @SDL_realloc_REAL(ptr noundef %53, i64 noundef %57) #12
+  %58 = tail call ptr @SDL_realloc_REAL(ptr noundef %53, i64 noundef %57) #13
   %.not50.not = icmp eq ptr %58, null
   br i1 %.not50.not, label %.critedge, label %59
 
@@ -4398,7 +4398,7 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
   %58 = load i32, ptr %56, align 8
   %59 = add i32 %58, 2
   %60 = zext i32 %59 to i64
-  %61 = call noalias ptr @SDL_calloc_REAL(i64 noundef %60, i64 noundef 8) #11
+  %61 = call noalias ptr @SDL_calloc_REAL(i64 noundef %60, i64 noundef 8) #12
   %62 = load i32, ptr %56, align 8
   %.not215 = icmp eq i32 %62, 0
   br i1 %.not215, label %._crit_edge, label %.lr.ph.preheader
@@ -5828,7 +5828,7 @@ thread-pre-split:                                 ; preds = %299, %305
 
 328:                                              ; preds = %326
   %329 = zext i32 %327 to i64
-  %330 = call noalias ptr @SDL_calloc_REAL(i64 noundef %329, i64 noundef 4) #11
+  %330 = call noalias ptr @SDL_calloc_REAL(i64 noundef %329, i64 noundef 4) #12
   %331 = load ptr, ptr @vkGetPhysicalDeviceSurfacePresentModesKHR, align 8
   %332 = load ptr, ptr %22, align 8
   %333 = load ptr, ptr %24, align 8
@@ -6090,14 +6090,14 @@ thread-pre-split:                                 ; preds = %299, %305
   store i32 1, ptr %440, align 8
   %441 = load i32, ptr %406, align 4
   %442 = zext i32 %441 to i64
-  %443 = call noalias ptr @SDL_calloc_REAL(i64 noundef %442, i64 noundef 8) #11
+  %443 = call noalias ptr @SDL_calloc_REAL(i64 noundef %442, i64 noundef 8) #12
   store ptr %443, ptr %36, align 8
   %444 = getelementptr inbounds nuw i8, ptr %20, i64 10408
   %445 = load ptr, ptr %444, align 8
   call void @SDL_free_REAL(ptr noundef %445) #7
   %446 = load i32, ptr %406, align 4
   %447 = zext i32 %446 to i64
-  %448 = call noalias ptr @SDL_calloc_REAL(i64 noundef %447, i64 noundef 4) #11
+  %448 = call noalias ptr @SDL_calloc_REAL(i64 noundef %447, i64 noundef 4) #12
   store ptr %448, ptr %444, align 8
   %449 = load i32, ptr %406, align 4
   %.not504.i108.not = icmp eq i32 %449, 0
@@ -6163,7 +6163,7 @@ thread-pre-split:                                 ; preds = %299, %305
   %476 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %471, ptr %476, align 4
   %477 = zext i32 %471 to i64
-  %478 = call noalias ptr @SDL_calloc_REAL(i64 noundef %477, i64 noundef 8) #11
+  %478 = call noalias ptr @SDL_calloc_REAL(i64 noundef %477, i64 noundef 8) #12
   store ptr %478, ptr %71, align 8
   %479 = load ptr, ptr @vkAllocateCommandBuffers, align 8
   %480 = load ptr, ptr %385, align 8
@@ -6190,7 +6190,7 @@ thread-pre-split:                                 ; preds = %299, %305
 489:                                              ; preds = %._crit_edge112
   %490 = load i32, ptr %406, align 4
   %491 = zext i32 %490 to i64
-  %492 = call noalias ptr @SDL_calloc_REAL(i64 noundef %491, i64 noundef 8) #11
+  %492 = call noalias ptr @SDL_calloc_REAL(i64 noundef %491, i64 noundef 8) #12
   store ptr %492, ptr %52, align 8
   %493 = load i32, ptr %406, align 4
   %.not507.i113.not = icmp eq i32 %493, 0
@@ -6246,7 +6246,7 @@ thread-pre-split:                                 ; preds = %299, %305
 511:                                              ; preds = %528
   %512 = load i32, ptr %406, align 4
   %513 = zext i32 %512 to i64
-  %514 = call noalias ptr @SDL_calloc_REAL(i64 noundef %513, i64 noundef 8) #11
+  %514 = call noalias ptr @SDL_calloc_REAL(i64 noundef %513, i64 noundef 8) #12
   store ptr %514, ptr %84, align 8
   %515 = load i32, ptr %292, align 8
   %516 = load i32, ptr %301, align 4
@@ -6295,11 +6295,11 @@ thread-pre-split:                                 ; preds = %299, %305
 536:                                              ; preds = %511
   %537 = load i32, ptr %406, align 4
   %538 = zext i32 %537 to i64
-  %539 = call noalias ptr @SDL_calloc_REAL(i64 noundef %538, i64 noundef 8) #11
+  %539 = call noalias ptr @SDL_calloc_REAL(i64 noundef %538, i64 noundef 8) #12
   store ptr %539, ptr %103, align 8
   %540 = load i32, ptr %406, align 4
   %541 = zext i32 %540 to i64
-  %542 = call noalias ptr @SDL_calloc_REAL(i64 noundef %541, i64 noundef 4) #11
+  %542 = call noalias ptr @SDL_calloc_REAL(i64 noundef %541, i64 noundef 4) #12
   %543 = getelementptr inbounds nuw i8, ptr %20, i64 10312
   store ptr %542, ptr %543, align 8
   %544 = load i32, ptr %406, align 4
@@ -6311,7 +6311,7 @@ thread-pre-split:                                 ; preds = %299, %305
   %545 = load ptr, ptr %543, align 8
   %546 = getelementptr inbounds nuw i32, ptr %545, i64 %indvars.iv215
   store i32 1, ptr %546, align 4
-  %547 = call noalias dereferenceable_or_null(8) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 8) #11
+  %547 = call noalias dereferenceable_or_null(8) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 8) #12
   %548 = load ptr, ptr %103, align 8
   %549 = getelementptr inbounds nuw ptr, ptr %548, i64 %indvars.iv215
   store ptr %547, ptr %549, align 8
@@ -6333,11 +6333,11 @@ thread-pre-split:                                 ; preds = %299, %305
 
 ._crit_edge121:                                   ; preds = %536, %._crit_edge121.loopexit
   %.lcssa62 = phi i64 [ %557, %._crit_edge121.loopexit ], [ 0, %536 ]
-  %558 = call noalias ptr @SDL_calloc_REAL(i64 noundef %.lcssa62, i64 noundef 8) #11
+  %558 = call noalias ptr @SDL_calloc_REAL(i64 noundef %.lcssa62, i64 noundef 8) #12
   store ptr %558, ptr %137, align 8
   %559 = load i32, ptr %406, align 4
   %560 = zext i32 %559 to i64
-  %561 = call noalias ptr @SDL_calloc_REAL(i64 noundef %560, i64 noundef 8) #11
+  %561 = call noalias ptr @SDL_calloc_REAL(i64 noundef %560, i64 noundef 8) #12
   store ptr %561, ptr %156, align 8
   %562 = load i32, ptr %406, align 4
   %.not509.i123.not = icmp eq i32 %562, 0
@@ -6389,7 +6389,7 @@ thread-pre-split:                                 ; preds = %299, %305
 
 ._crit_edge127:                                   ; preds = %._crit_edge121, %._crit_edge127.loopexit
   %584 = phi i64 [ %583, %._crit_edge127.loopexit ], [ 0, %._crit_edge121 ]
-  %585 = call noalias ptr @SDL_calloc_REAL(i64 noundef %584, i64 noundef 8) #11
+  %585 = call noalias ptr @SDL_calloc_REAL(i64 noundef %584, i64 noundef 8) #12
   store ptr %585, ptr %175, align 8
   %586 = load i32, ptr %406, align 4
   %.not149 = icmp eq i32 %586, 0
@@ -6401,15 +6401,15 @@ thread-pre-split:                                 ; preds = %299, %305
   call void @SDL_free_REAL(ptr noundef %588) #7
   %589 = load i32, ptr %406, align 4
   %590 = zext i32 %589 to i64
-  %591 = call noalias ptr @SDL_calloc_REAL(i64 noundef %590, i64 noundef 4) #11
+  %591 = call noalias ptr @SDL_calloc_REAL(i64 noundef %590, i64 noundef 4) #12
   store ptr %591, ptr %587, align 8
   %592 = load i32, ptr %406, align 4
   %593 = zext i32 %592 to i64
-  %594 = call noalias ptr @SDL_calloc_REAL(i64 noundef %593, i64 noundef 8) #11
+  %594 = call noalias ptr @SDL_calloc_REAL(i64 noundef %593, i64 noundef 8) #12
   store ptr %594, ptr %204, align 8
   %595 = load i32, ptr %406, align 4
   %596 = zext i32 %595 to i64
-  %597 = call noalias ptr @SDL_calloc_REAL(i64 noundef %596, i64 noundef 4) #11
+  %597 = call noalias ptr @SDL_calloc_REAL(i64 noundef %596, i64 noundef 4) #12
   %598 = getelementptr inbounds nuw i8, ptr %20, i64 10224
   store ptr %597, ptr %598, align 8
   %599 = load i32, ptr %406, align 4
@@ -6418,7 +6418,7 @@ thread-pre-split:                                 ; preds = %299, %305
 
 .lr.ph130:                                        ; preds = %._crit_edge127, %.lr.ph130
   %indvars.iv221 = phi i64 [ %indvars.iv.next222, %.lr.ph130 ], [ 0, %._crit_edge127 ]
-  %600 = call noalias dereferenceable_or_null(1024) ptr @SDL_calloc_REAL(i64 noundef 32, i64 noundef 32) #11
+  %600 = call noalias dereferenceable_or_null(1024) ptr @SDL_calloc_REAL(i64 noundef 32, i64 noundef 32) #12
   %601 = load ptr, ptr %175, align 8
   %602 = getelementptr inbounds nuw ptr, ptr %601, i64 %indvars.iv221
   store ptr %600, ptr %602, align 8
@@ -6440,7 +6440,7 @@ thread-pre-split:                                 ; preds = %299, %305
   %609 = load ptr, ptr %598, align 8
   %610 = getelementptr inbounds nuw i32, ptr %609, i64 %indvars.iv224
   store i32 1, ptr %610, align 4
-  %611 = call noalias dereferenceable_or_null(32) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 32) #11
+  %611 = call noalias dereferenceable_or_null(32) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 32) #12
   %612 = load ptr, ptr %204, align 8
   %613 = getelementptr inbounds nuw ptr, ptr %612, i64 %indvars.iv224
   store ptr %611, ptr %613, align 8
@@ -8278,7 +8278,7 @@ GetBlendFactor.exit64.i:                          ; preds = %GetBlendFactor.exit
   %223 = add nsw i32 %222, 1
   %224 = sext i32 %223 to i64
   %225 = mul nsw i64 %224, 88
-  %226 = call ptr @SDL_realloc_REAL(ptr noundef %220, i64 noundef %225) #12
+  %226 = call ptr @SDL_realloc_REAL(ptr noundef %220, i64 noundef %225) #13
   %.not58.i = icmp eq ptr %226, null
   br i1 %.not58.i, label %.thread9, label %228
 
@@ -8728,7 +8728,7 @@ thread-pre-split13:                               ; preds = %402
   %444 = load i32, ptr %443, align 4
   %445 = zext i32 %444 to i64
   %446 = shl nuw nsw i64 %445, 5
-  %447 = call ptr @SDL_realloc_REAL(ptr noundef %441, i64 noundef %446) #12
+  %447 = call ptr @SDL_realloc_REAL(ptr noundef %441, i64 noundef %446) #13
   %448 = load ptr, ptr %422, align 8
   %449 = load i32, ptr %389, align 8
   %450 = zext i32 %449 to i64
@@ -8964,7 +8964,7 @@ define internal fastcc ptr @VULKAN_AllocateDescriptorSet(ptr noundef readonly ca
   %78 = load i32, ptr %77, align 4
   %79 = zext i32 %78 to i64
   %80 = shl nuw nsw i64 %79, 3
-  %81 = call ptr @SDL_realloc_REAL(ptr noundef %75, i64 noundef %80) #12
+  %81 = call ptr @SDL_realloc_REAL(ptr noundef %75, i64 noundef %80) #13
   %82 = load ptr, ptr %41, align 8
   %83 = load i32, ptr %19, align 8
   %84 = zext i32 %83 to i64
@@ -10138,7 +10138,7 @@ define internal fastcc noundef zeroext i1 @VULKAN_InstanceExtensionFound(ptr nou
 
 14:                                               ; preds = %12
   %15 = zext i32 %13 to i64
-  %16 = call noalias ptr @SDL_calloc_REAL(i64 noundef %15, i64 noundef 260) #11
+  %16 = call noalias ptr @SDL_calloc_REAL(i64 noundef %15, i64 noundef 260) #12
   %17 = load ptr, ptr @vkEnumerateInstanceExtensionProperties, align 8
   %18 = call i32 %17(ptr noundef null, ptr noundef nonnull %2, ptr noundef %16) #7
   %.not25 = icmp eq i32 %18, 0
@@ -10210,7 +10210,7 @@ define internal fastcc noundef zeroext i1 @VULKAN_ValidationLayersFound() unname
 
 5:                                                ; preds = %0
   %6 = zext i32 %4 to i64
-  %7 = call noalias ptr @SDL_calloc_REAL(i64 noundef %6, i64 noundef 520) #11
+  %7 = call noalias ptr @SDL_calloc_REAL(i64 noundef %6, i64 noundef 520) #12
   %8 = load ptr, ptr @vkEnumerateInstanceLayerProperties, align 8
   %9 = call i32 %8(ptr noundef nonnull %1, ptr noundef %7) #7
   %10 = load i32, ptr %1, align 4
@@ -10659,7 +10659,7 @@ define internal fastcc noundef zeroext i1 @VULKAN_DeviceExtensionsFound(ptr noun
 
 16:                                               ; preds = %14
   %17 = zext i32 %15 to i64
-  %18 = call noalias ptr @SDL_calloc_REAL(i64 noundef %17, i64 noundef 260) #11
+  %18 = call noalias ptr @SDL_calloc_REAL(i64 noundef %17, i64 noundef 260) #12
   %19 = load ptr, ptr @vkEnumerateDeviceExtensionProperties, align 8
   %20 = load ptr, ptr %4, align 8
   %21 = call i32 %19(ptr noundef %20, ptr noundef null, ptr noundef nonnull %2, ptr noundef %18) #7
@@ -12347,19 +12347,19 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -12372,9 +12372,10 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #7 = { nounwind }
 attributes #8 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind allocsize(0,1) }
-attributes #12 = { nounwind allocsize(1) }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind allocsize(0,1) }
+attributes #13 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

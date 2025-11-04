@@ -589,9 +589,9 @@ proto_item_set_generated.exit:                    ; preds = %17, %30, %33
   %175 = shl nuw nsw i32 %172, 2
   %narrow.i = select i1 %174, i32 0, i32 %175
   %176 = zext nneg i32 %narrow.i to i64
-  %177 = call noalias ptr @wmem_alloc(ptr noundef %173, i64 noundef %176) #8
+  %177 = call noalias ptr @wmem_alloc(ptr noundef %173, i64 noundef %176) #9
   %178 = load ptr, ptr %97, align 8
-  %179 = call noalias ptr @wmem_alloc(ptr noundef %178, i64 noundef %176) #8
+  %179 = call noalias ptr @wmem_alloc(ptr noundef %178, i64 noundef %176) #9
   %180 = icmp sgt i32 %110, 7
   br i1 %180, label %.lr.ph134.preheader.i, label %._crit_edge.i
 
@@ -632,7 +632,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %30, %33
   br i1 %or.cond.i, label %200, label %201
 
 200:                                              ; preds = %.lr.ph134.i
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #9
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #10
   unreachable
 
 201:                                              ; preds = %.lr.ph134.i
@@ -650,14 +650,14 @@ proto_item_set_generated.exit:                    ; preds = %17, %30, %33
   %.0112.lcssa.i = phi i32 [ %202, %._crit_edge.loopexit.i ], [ 0, %157 ]
   %.0.lcssa.i = phi i32 [ %.1.i, %._crit_edge.loopexit.i ], [ 2147483647, %157 ]
   %203 = load ptr, ptr %97, align 8
-  %204 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %203, i64 noundef 24) #8
+  %204 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %203, i64 noundef 24) #9
   store i32 %.0112.lcssa.i, ptr %204, align 8
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
   store ptr null, ptr %205, align 8
   %206 = load ptr, ptr %97, align 8
   %207 = zext i32 %.0112.lcssa.i to i64
   %208 = shl nuw nsw i64 %207, 2
-  %209 = call noalias ptr @wmem_alloc(ptr noundef %206, i64 noundef %208) #8
+  %209 = call noalias ptr @wmem_alloc(ptr noundef %206, i64 noundef %208) #9
   %210 = getelementptr inbounds nuw i8, ptr %204, i64 16
   store ptr %209, ptr %210, align 8
   %211 = icmp sgt i32 %.0112.lcssa.i, 0
@@ -791,7 +791,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %30, %33
 
 280:                                              ; preds = %277
   %281 = call ptr @wmem_file_scope()
-  %282 = call noalias dereferenceable_or_null(48) ptr @wmem_alloc(ptr noundef %281, i64 noundef 48) #8
+  %282 = call noalias dereferenceable_or_null(48) ptr @wmem_alloc(ptr noundef %281, i64 noundef 48) #9
   store i64 %4, ptr %282, align 8
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 8
   store i32 %244, ptr %283, align 8
@@ -941,7 +941,7 @@ lbmpdm_definition_add.exit.i:                     ; preds = %280, %277
 
 lbmpdm_definition_field_add.exit.i:               ; preds = %359
   %361 = call ptr @wmem_file_scope()
-  %362 = call noalias dereferenceable_or_null(64) ptr @wmem_alloc0(ptr noundef %361, i64 noundef 64) #8
+  %362 = call noalias dereferenceable_or_null(64) ptr @wmem_alloc0(ptr noundef %361, i64 noundef 64) #9
   store i32 %356, ptr %362, align 8
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 56
   store ptr %.0271.i, ptr %363, align 8
@@ -1520,14 +1520,14 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #6
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #6
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1536,9 +1536,10 @@ attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "
 attributes #4 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { allocsize(1) }
-attributes #9 = { noreturn }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { allocsize(1) }
+attributes #10 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

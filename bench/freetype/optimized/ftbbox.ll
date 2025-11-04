@@ -103,7 +103,7 @@ define i32 @FT_Outline_Get_BBox(ptr noundef %0, ptr noundef writeonly captures(a
   store i64 %.sroa.11.1, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !23
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %.sroa.14.1, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !23
-  %36 = call i32 @FT_Outline_Decompose(ptr noundef nonnull %0, ptr noundef nonnull @bbox_interface, ptr noundef nonnull %3) #9
+  %36 = call i32 @FT_Outline_Decompose(ptr noundef nonnull %0, ptr noundef nonnull @bbox_interface, ptr noundef nonnull %3) #10
   %.not71 = icmp eq i32 %36, 0
   br i1 %.not71, label %37, label %.critedge
 
@@ -249,7 +249,7 @@ define internal noundef i32 @BBox_Conic_To(ptr noundef readonly captures(none) %
   %34 = sub nsw i64 %33, %29
   %35 = sub nsw i64 %4, %29
   %36 = add nsw i64 %34, %35
-  %37 = tail call i64 @FT_MulDiv(i64 noundef %34, i64 noundef %35, i64 noundef %36) #9
+  %37 = tail call i64 @FT_MulDiv(i64 noundef %34, i64 noundef %35, i64 noundef %36) #10
   %38 = add nsw i64 %37, %29
   %39 = load i64, ptr %5, align 8, !tbaa !23
   %40 = icmp slt i64 %38, %39
@@ -287,7 +287,7 @@ BBox_Conic_Check.exit:                            ; preds = %28, %45, %42
   %57 = sub nsw i64 %55, %47
   %58 = sub nsw i64 %56, %47
   %59 = add nsw i64 %58, %57
-  %60 = tail call i64 @FT_MulDiv(i64 noundef %57, i64 noundef %58, i64 noundef %59) #9
+  %60 = tail call i64 @FT_MulDiv(i64 noundef %57, i64 noundef %58, i64 noundef %59) #10
   %61 = add nsw i64 %60, %47
   %62 = load i64, ptr %19, align 8, !tbaa !23
   %63 = icmp slt i64 %61, %62
@@ -633,17 +633,17 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #7
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #7
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #7
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -653,8 +653,9 @@ attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nounwind }
+attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

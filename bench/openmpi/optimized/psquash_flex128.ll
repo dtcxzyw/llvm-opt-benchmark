@@ -51,7 +51,7 @@ define internal noundef i32 @flex128_init() #0 {
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %2
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %1, ptr noundef nonnull @.str.1) #6
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %1, ptr noundef nonnull @.str.1) #7
   br label %9
 
 9:                                                ; preds = %8, %2, %0
@@ -73,7 +73,7 @@ define internal void @flex128_finalize() #0 {
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %2
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %1, ptr noundef nonnull @.str.2) #6
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %1, ptr noundef nonnull @.str.2) #7
   br label %9
 
 9:                                                ; preds = %8, %2, %0
@@ -175,8 +175,8 @@ define internal range(i32 -27, 1) i32 @flex128_encode_int(i16 noundef zeroext %0
   br label %22
 
 20:                                               ; preds = %4
-  %21 = tail call ptr @PMIx_Error_string(i32 noundef -27) #6
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %21, ptr noundef nonnull @.str.4, i32 noundef 262) #6
+  %21 = tail call ptr @PMIx_Error_string(i32 noundef -27) #7
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %21, ptr noundef nonnull @.str.4, i32 noundef 262) #7
   br label %34
 
 22:                                               ; preds = %.preheader, %26
@@ -229,8 +229,8 @@ define internal range(i32 -27, 1) i32 @flex128_decode_int(i16 noundef zeroext %0
   br i1 %or.cond, label %switch.lookup, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call ptr @PMIx_Error_string(i32 noundef -27) #6
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %8, ptr noundef nonnull @.str.4, i32 noundef 280) #6
+  %8 = tail call ptr @PMIx_Error_string(i32 noundef -27) #7
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %8, ptr noundef nonnull @.str.4, i32 noundef 280) #7
   br label %.thread69
 
 switch.lookup:                                    ; preds = %5
@@ -299,8 +299,8 @@ flex_unpack_integer.exit:                         ; preds = %33, %.lr.ph.prehead
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %flex_unpack_integer.exit
-  %45 = tail call ptr @PMIx_Error_string(i32 noundef -20) #6
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %45, ptr noundef nonnull @.str.4, i32 noundef 287) #6
+  %45 = tail call ptr @PMIx_Error_string(i32 noundef -20) #7
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %45, ptr noundef nonnull @.str.4, i32 noundef 287) #7
   br label %.thread69
 
 46:                                               ; preds = %flex_unpack_integer.exit
@@ -361,8 +361,8 @@ flex_unpack_integer.exit:                         ; preds = %33, %.lr.ph.prehead
   br label %.thread69
 
 64:                                               ; preds = %46
-  %65 = tail call ptr @PMIx_Error_string(i32 noundef -27) #6
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %65, ptr noundef nonnull @.str.4, i32 noundef 292) #6
+  %65 = tail call ptr @PMIx_Error_string(i32 noundef -27) #7
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %65, ptr noundef nonnull @.str.4, i32 noundef 292) #7
   br label %.thread69
 
 .thread69:                                        ; preds = %63, %62, %59, %57, %53, %51, %47, %64, %44, %7
@@ -383,13 +383,13 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ctlz.i8(i8, i1 immarg) #5
+declare i8 @llvm.ctlz.i8(i8, i1 immarg) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -397,8 +397,9 @@ attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -162,7 +162,7 @@ define internal i32 @vaapi_encode_h265_init(ptr noundef %0) #0 {
   br i1 %or.cond, label %21, label %22
 
 21:                                               ; preds = %18
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.82, i32 noundef %19) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.82, i32 noundef %19) #10
   br label %31
 
 22:                                               ; preds = %18
@@ -179,7 +179,7 @@ define internal i32 @vaapi_encode_h265_init(ptr noundef %0) #0 {
   br label %29
 
 29:                                               ; preds = %27, %22
-  %30 = tail call i32 @ff_vaapi_encode_init(ptr noundef nonnull %0) #9
+  %30 = tail call i32 @ff_vaapi_encode_init(ptr noundef nonnull %0) #10
   br label %31
 
 31:                                               ; preds = %29, %21
@@ -194,12 +194,12 @@ define internal i32 @vaapi_encode_h265_close(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 7965752
-  tail call void @ff_cbs_fragment_free(ptr noundef nonnull %4) #9
+  tail call void @ff_cbs_fragment_free(ptr noundef nonnull %4) #10
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 7965744
-  tail call void @ff_cbs_close(ptr noundef nonnull %5) #9
+  tail call void @ff_cbs_close(ptr noundef nonnull %5) #10
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 7965736
-  tail call void @av_freep(ptr noundef nonnull %6) #9
-  %7 = tail call i32 @ff_vaapi_encode_close(ptr noundef %0) #9
+  tail call void @av_freep(ptr noundef nonnull %6) #10
+  %7 = tail call i32 @ff_vaapi_encode_close(ptr noundef %0) #10
   ret i32 %7
 }
 
@@ -223,7 +223,7 @@ define internal range(i32 -542398533, 1) i32 @vaapi_encode_h265_get_encoder_caps
   %9 = load i32, ptr %8, align 4, !tbaa !82
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 1248
   %11 = load i32, ptr %10, align 8, !tbaa !83
-  %12 = call i32 @vaGetConfigAttributes(ptr noundef %7, i32 noundef %9, i32 noundef %11, ptr noundef nonnull %2, i32 noundef 1) #9
+  %12 = call i32 @vaGetConfigAttributes(ptr noundef %7, i32 noundef %9, i32 noundef %11, ptr noundef nonnull %2, i32 noundef 1) #10
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %.critedge
 
@@ -234,7 +234,7 @@ define internal range(i32 -542398533, 1) i32 @vaapi_encode_h265_get_encoder_caps
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %13
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.85) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.85) #10
   br label %20
 
 18:                                               ; preds = %13
@@ -248,7 +248,7 @@ define internal range(i32 -542398533, 1) i32 @vaapi_encode_h265_get_encoder_caps
   %22 = load ptr, ptr %21, align 8, !tbaa !80
   %23 = load i32, ptr %8, align 4, !tbaa !82
   %24 = load i32, ptr %10, align 8, !tbaa !83
-  %25 = call i32 @vaGetConfigAttributes(ptr noundef %22, i32 noundef %23, i32 noundef %24, ptr noundef nonnull %2, i32 noundef 1) #9
+  %25 = call i32 @vaGetConfigAttributes(ptr noundef %22, i32 noundef %23, i32 noundef %24, ptr noundef nonnull %2, i32 noundef 1) #10
   %.not63 = icmp eq i32 %25, 0
   br i1 %.not63, label %26, label %.critedge
 
@@ -274,7 +274,7 @@ define internal range(i32 -542398533, 1) i32 @vaapi_encode_h265_get_encoder_caps
   br label %._crit_edge
 
 38:                                               ; preds = %26
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.87) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.87) #10
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 1984
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !87
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -299,7 +299,7 @@ define internal range(i32 -542398533, 1) i32 @vaapi_encode_h265_get_encoder_caps
   %44 = phi i32 [ %.pre67, %._crit_edge ], [ 16, %40 ]
   %45 = phi i32 [ %.pre6571, %._crit_edge ], [ 32, %40 ]
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 1988
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.88, i32 noundef %45, i32 noundef %45, i32 noundef %44, i32 noundef %44) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.88, i32 noundef %45, i32 noundef %45, i32 noundef %44, i32 noundef %44) #10
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %48 = load i32, ptr %47, align 8, !tbaa !89
   %49 = load i32, ptr %46, align 4, !tbaa !88
@@ -332,7 +332,7 @@ define internal range(i32 -542398533, 1) i32 @vaapi_encode_h265_get_encoder_caps
 
 .critedge:                                        ; preds = %20, %1
   %.str.86.sink = phi ptr [ @.str.84, %1 ], [ @.str.86, %20 ]
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.86.sink) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.86.sink) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %70
 
@@ -346,7 +346,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_configure(ptr n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 7965744
-  %5 = tail call i32 @ff_cbs_init(ptr noundef nonnull %4, i32 noundef 173, ptr noundef %0) #9
+  %5 = tail call i32 @ff_cbs_init(ptr noundef nonnull %4, i32 noundef 173, ptr noundef %0) #10
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %60, label %7
 
@@ -405,7 +405,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_configure(ptr n
   %.0.i.sink37 = phi i32 [ %45, %36 ], [ %15, %30 ]
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 2016
   store i32 %.0.i.sink37, ptr %47, align 8, !tbaa !105
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.89, i32 noundef %31, i32 noundef %15, i32 noundef %.0.i.sink37) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.89, i32 noundef %31, i32 noundef %15, i32 noundef %.0.i.sink37) #10
   br label %52
 
 48:                                               ; preds = %7
@@ -479,7 +479,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_sequence_p
   %36 = sext i32 %19 to i64
   %37 = shl nsw i64 %36, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 8 %35, i64 %37, i1 false)
-  %38 = tail call i32 @ff_hw_base_encode_init_params_h265(ptr noundef %3, ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %13) #9
+  %38 = tail call i32 @ff_hw_base_encode_init_params_h265(ptr noundef %3, ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %13) #10
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %.loopexit, label %40
 
@@ -965,8 +965,8 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_picture_pa
   br i1 %22, label %24, label %23
 
 23:                                               ; preds = %17
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.92, i32 noundef 472) #9
-  tail call void @abort() #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.92, i32 noundef 472) #10
+  tail call void @abort() #11
   unreachable
 
 24:                                               ; preds = %17
@@ -975,8 +975,8 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_picture_pa
   br label %54
 
 26:                                               ; preds = %16
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.92, i32 noundef 480) #9
-  tail call void @abort() #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.92, i32 noundef 480) #10
+  tail call void @abort() #11
   unreachable
 
 27:                                               ; preds = %.thread
@@ -1007,8 +1007,8 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_picture_pa
   br i1 %.not190, label %40, label %.preheader240
 
 40:                                               ; preds = %37, %34
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.92, i32 noundef 494) #9
-  tail call void @abort() #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.92, i32 noundef 494) #10
+  tail call void @abort() #11
   unreachable
 
 .preheader240:                                    ; preds = %37, %43
@@ -1088,7 +1088,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_picture_pa
 76:                                               ; preds = %74
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %78 = load ptr, ptr %77, align 8, !tbaa !207
-  %79 = tail call ptr @av_frame_get_side_data(ptr noundef %78, i32 noundef 11) #9
+  %79 = tail call ptr @av_frame_get_side_data(ptr noundef %78, i32 noundef 11) #10
   %.not194 = icmp eq ptr %79, null
   br i1 %.not194, label %155, label %80
 
@@ -1225,7 +1225,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_picture_pa
 160:                                              ; preds = %158
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %162 = load ptr, ptr %161, align 8, !tbaa !207
-  %163 = tail call ptr @av_frame_get_side_data(ptr noundef %162, i32 noundef 14) #9
+  %163 = tail call ptr @av_frame_get_side_data(ptr noundef %162, i32 noundef 14) #10
   %.not198 = icmp eq ptr %163, null
   br i1 %.not198, label %176, label %164
 
@@ -1257,10 +1257,10 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_picture_pa
 179:                                              ; preds = %176
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %180 = getelementptr inbounds nuw i8, ptr %5, i64 7965736
-  tail call void @av_freep(ptr noundef nonnull %180) #9
+  tail call void @av_freep(ptr noundef nonnull %180) #10
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %182 = load ptr, ptr %181, align 8, !tbaa !207
-  %183 = call i32 @ff_alloc_a53_sei(ptr noundef %182, i64 noundef 0, ptr noundef nonnull %180, ptr noundef nonnull %3) #9
+  %183 = call i32 @ff_alloc_a53_sei(ptr noundef %182, i64 noundef 0, ptr noundef nonnull %180, ptr noundef nonnull %3) #10
   %184 = icmp sgt i32 %183, -1
   br i1 %184, label %185, label %.critedge
 
@@ -1344,8 +1344,8 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_picture_pa
   br i1 %220, label %222, label %221
 
 221:                                              ; preds = %216, %213
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.92, i32 noundef 625) #9
-  call void @abort() #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.92, i32 noundef 625) #10
+  call void @abort() #11
   unreachable
 
 222:                                              ; preds = %216
@@ -1455,8 +1455,8 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_picture_pa
   br label %274
 
 273:                                              ; preds = %._crit_edge252
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.92, i32 noundef 669) #9
-  call void @abort() #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.92, i32 noundef 669) #10
+  call void @abort() #11
   unreachable
 
 .critedge:                                        ; preds = %179
@@ -1722,8 +1722,8 @@ define internal noundef i32 @vaapi_encode_h265_init_slice_params(ptr noundef %0,
   br i1 %.not292, label %119, label %120
 
 119:                                              ; preds = %118
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.92, i32 noundef 759) #9
-  tail call void @abort() #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.92, i32 noundef 759) #10
+  tail call void @abort() #11
   unreachable
 
 120:                                              ; preds = %118
@@ -1745,7 +1745,7 @@ define internal noundef i32 @vaapi_encode_h265_init_slice_params(ptr noundef %0,
 
 ._crit_edge322:                                   ; preds = %126, %.preheader300
   %128 = load i32, ptr %10, align 8, !tbaa !202
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.99, i32 noundef %128) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.99, i32 noundef %128) #10
   %129 = icmp sgt i32 %.2.lcssa, 0
   br i1 %129, label %.lr.ph325.preheader, label %._crit_edge330.thread
 
@@ -1759,19 +1759,19 @@ define internal noundef i32 @vaapi_encode_h265_init_slice_params(ptr noundef %0,
   %131 = load i32, ptr %130, align 4, !tbaa !157
   %132 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv371
   %133 = load i32, ptr %132, align 4, !tbaa !157
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.100, i32 noundef %131, i32 noundef %133) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.100, i32 noundef %131, i32 noundef %133) #10
   %indvars.iv.next372 = add nuw nsw i64 %indvars.iv371, 1
   %exitcond375.not = icmp eq i64 %indvars.iv.next372, %wide.trip.count374
   br i1 %exitcond375.not, label %.lr.ph329, label %.lr.ph325, !llvm.loop !267
 
 ._crit_edge330.thread:                            ; preds = %._crit_edge322
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.101) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.101) #10
   %134 = getelementptr inbounds nuw i8, ptr %7, i64 7953936
   store i8 0, ptr %134, align 2, !tbaa !268
   br label %._crit_edge338
 
 .lr.ph329:                                        ; preds = %.lr.ph325
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.101) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.101) #10
   %135 = load i32, ptr %10, align 8, !tbaa !202
   %wide.trip.count379 = zext nneg i32 %.2.lcssa to i64
   br label %136
@@ -1784,8 +1784,8 @@ define internal noundef i32 @vaapi_encode_h265_init_slice_params(ptr noundef %0,
   br i1 %.not283, label %139, label %140
 
 139:                                              ; preds = %136
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.92, i32 noundef 774) #9
-  tail call void @abort() #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.92, i32 noundef 774) #10
+  tail call void @abort() #11
   unreachable
 
 140:                                              ; preds = %136
@@ -2080,8 +2080,8 @@ define internal noundef i32 @vaapi_encode_h265_init_slice_params(ptr noundef %0,
   br i1 %switch, label %303, label %302
 
 302:                                              ; preds = %300
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.92, i32 noundef 876) #9
-  tail call void @abort() #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.92, i32 noundef 876) #10
+  tail call void @abort() #11
   unreachable
 
 303:                                              ; preds = %300
@@ -2112,8 +2112,8 @@ define internal noundef i32 @vaapi_encode_h265_init_slice_params(ptr noundef %0,
   br i1 %313, label %315, label %314
 
 314:                                              ; preds = %312
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.92, i32 noundef 884) #9
-  tail call void @abort() #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.92, i32 noundef 884) #10
+  tail call void @abort() #11
   unreachable
 
 315:                                              ; preds = %312
@@ -2169,14 +2169,14 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_write_sequence_
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 7953864
   %11 = load i8, ptr %10, align 1, !tbaa !299
   %12 = zext i8 %11 to i32
-  %13 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %6, i32 noundef -1, i32 noundef %12, ptr noundef nonnull %10, ptr noundef null) #9
+  %13 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %6, i32 noundef -1, i32 noundef %12, ptr noundef nonnull %10, ptr noundef null) #10
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %vaapi_encode_h265_add_nal.exit.thread, label %vaapi_encode_h265_add_nal.exit
 
 vaapi_encode_h265_add_nal.exit.thread:            ; preds = %9
   %15 = load i8, ptr %10, align 1, !tbaa !299
   %16 = zext i8 %15 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.105, i32 noundef %16) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.105, i32 noundef %16) #10
   br label %vaapi_encode_h265_write_access_unit.exit
 
 vaapi_encode_h265_add_nal.exit:                   ; preds = %9
@@ -2187,54 +2187,54 @@ vaapi_encode_h265_add_nal.exit:                   ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 2024
   %19 = load i8, ptr %18, align 1, !tbaa !299
   %20 = zext i8 %19 to i32
-  %21 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %6, i32 noundef -1, i32 noundef %20, ptr noundef nonnull %18, ptr noundef null) #9
+  %21 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %6, i32 noundef -1, i32 noundef %20, ptr noundef nonnull %18, ptr noundef null) #10
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %vaapi_encode_h265_add_nal.exit30.thread, label %vaapi_encode_h265_add_nal.exit30
 
 vaapi_encode_h265_add_nal.exit30.thread:          ; preds = %17
   %23 = load i8, ptr %18, align 1, !tbaa !299
   %24 = zext i8 %23 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.105, i32 noundef %24) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.105, i32 noundef %24) #10
   br label %vaapi_encode_h265_write_access_unit.exit
 
 vaapi_encode_h265_add_nal.exit30:                 ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 7926272
   %26 = load i8, ptr %25, align 1, !tbaa !299
   %27 = zext i8 %26 to i32
-  %28 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %6, i32 noundef -1, i32 noundef %27, ptr noundef nonnull %25, ptr noundef null) #9
+  %28 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %6, i32 noundef -1, i32 noundef %27, ptr noundef nonnull %25, ptr noundef null) #10
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %vaapi_encode_h265_add_nal.exit32.thread, label %vaapi_encode_h265_add_nal.exit32
 
 vaapi_encode_h265_add_nal.exit32.thread:          ; preds = %vaapi_encode_h265_add_nal.exit30
   %30 = load i8, ptr %25, align 1, !tbaa !299
   %31 = zext i8 %30 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.105, i32 noundef %31) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.105, i32 noundef %31) #10
   br label %vaapi_encode_h265_write_access_unit.exit
 
 vaapi_encode_h265_add_nal.exit32:                 ; preds = %vaapi_encode_h265_add_nal.exit30
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 7945792
   %33 = load i8, ptr %32, align 1, !tbaa !299
   %34 = zext i8 %33 to i32
-  %35 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %6, i32 noundef -1, i32 noundef %34, ptr noundef nonnull %32, ptr noundef null) #9
+  %35 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %6, i32 noundef -1, i32 noundef %34, ptr noundef nonnull %32, ptr noundef null) #10
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %vaapi_encode_h265_add_nal.exit34.thread, label %vaapi_encode_h265_add_nal.exit34
 
 vaapi_encode_h265_add_nal.exit34.thread:          ; preds = %vaapi_encode_h265_add_nal.exit32
   %37 = load i8, ptr %32, align 1, !tbaa !299
   %38 = zext i8 %37 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.105, i32 noundef %38) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.105, i32 noundef %38) #10
   br label %vaapi_encode_h265_write_access_unit.exit
 
 vaapi_encode_h265_add_nal.exit34:                 ; preds = %vaapi_encode_h265_add_nal.exit32
   %39 = load ptr, ptr %4, align 8, !tbaa !4
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 7965744
   %41 = load ptr, ptr %40, align 8, !tbaa !300
-  %42 = tail call i32 @ff_cbs_write_fragment_data(ptr noundef %41, ptr noundef nonnull %6) #9
+  %42 = tail call i32 @ff_cbs_write_fragment_data(ptr noundef %41, ptr noundef nonnull %6) #10
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %vaapi_encode_h265_add_nal.exit34
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.106) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.106) #10
   br label %vaapi_encode_h265_write_access_unit.exit
 
 45:                                               ; preds = %vaapi_encode_h265_add_nal.exit34
@@ -2249,7 +2249,7 @@ vaapi_encode_h265_add_nal.exit34:                 ; preds = %vaapi_encode_h265_a
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %45
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.107, i64 noundef %46, i64 noundef %52) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.107, i64 noundef %46, i64 noundef %52) #10
   br label %vaapi_encode_h265_write_access_unit.exit
 
 55:                                               ; preds = %45
@@ -2264,7 +2264,7 @@ vaapi_encode_h265_add_nal.exit34:                 ; preds = %vaapi_encode_h265_a
 
 vaapi_encode_h265_write_access_unit.exit:         ; preds = %55, %54, %44, %vaapi_encode_h265_add_nal.exit34.thread, %vaapi_encode_h265_add_nal.exit32.thread, %vaapi_encode_h265_add_nal.exit30.thread, %vaapi_encode_h265_add_nal.exit.thread
   %.0 = phi i32 [ %13, %vaapi_encode_h265_add_nal.exit.thread ], [ %21, %vaapi_encode_h265_add_nal.exit30.thread ], [ %28, %vaapi_encode_h265_add_nal.exit32.thread ], [ %35, %vaapi_encode_h265_add_nal.exit34.thread ], [ %42, %44 ], [ -28, %54 ], [ 0, %55 ]
-  tail call void @ff_cbs_fragment_reset(ptr noundef nonnull %6) #9
+  tail call void @ff_cbs_fragment_reset(ptr noundef nonnull %6) #10
   ret i32 %.0
 }
 
@@ -2282,14 +2282,14 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_write_slice_hea
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 7953864
   %13 = load i8, ptr %12, align 1, !tbaa !299
   %14 = zext i8 %13 to i32
-  %15 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %8, i32 noundef -1, i32 noundef %14, ptr noundef nonnull %12, ptr noundef null) #9
+  %15 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %8, i32 noundef -1, i32 noundef %14, ptr noundef nonnull %12, ptr noundef null) #10
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %vaapi_encode_h265_add_nal.exit.thread, label %vaapi_encode_h265_add_nal.exit
 
 vaapi_encode_h265_add_nal.exit.thread:            ; preds = %11
   %17 = load i8, ptr %12, align 1, !tbaa !299
   %18 = zext i8 %17 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.105, i32 noundef %18) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.105, i32 noundef %18) #10
   br label %vaapi_encode_h265_write_access_unit.exit
 
 vaapi_encode_h265_add_nal.exit:                   ; preds = %11
@@ -2300,26 +2300,26 @@ vaapi_encode_h265_add_nal.exit:                   ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 7953872
   %21 = load i8, ptr %20, align 1, !tbaa !299
   %22 = zext i8 %21 to i32
-  %23 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %8, i32 noundef -1, i32 noundef %22, ptr noundef nonnull %20, ptr noundef null) #9
+  %23 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %8, i32 noundef -1, i32 noundef %22, ptr noundef nonnull %20, ptr noundef null) #10
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %vaapi_encode_h265_add_nal.exit20.thread, label %vaapi_encode_h265_add_nal.exit20
 
 vaapi_encode_h265_add_nal.exit20.thread:          ; preds = %19
   %25 = load i8, ptr %20, align 1, !tbaa !299
   %26 = zext i8 %25 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.105, i32 noundef %26) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.105, i32 noundef %26) #10
   br label %vaapi_encode_h265_write_access_unit.exit
 
 vaapi_encode_h265_add_nal.exit20:                 ; preds = %19
   %27 = load ptr, ptr %6, align 8, !tbaa !4
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 7965744
   %29 = load ptr, ptr %28, align 8, !tbaa !300
-  %30 = tail call i32 @ff_cbs_write_fragment_data(ptr noundef %29, ptr noundef nonnull %8) #9
+  %30 = tail call i32 @ff_cbs_write_fragment_data(ptr noundef %29, ptr noundef nonnull %8) #10
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %vaapi_encode_h265_add_nal.exit20
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.106) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.106) #10
   br label %vaapi_encode_h265_write_access_unit.exit
 
 33:                                               ; preds = %vaapi_encode_h265_add_nal.exit20
@@ -2334,7 +2334,7 @@ vaapi_encode_h265_add_nal.exit20:                 ; preds = %19
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.107, i64 noundef %34, i64 noundef %40) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.107, i64 noundef %34, i64 noundef %40) #10
   br label %vaapi_encode_h265_write_access_unit.exit
 
 43:                                               ; preds = %33
@@ -2349,7 +2349,7 @@ vaapi_encode_h265_add_nal.exit20:                 ; preds = %19
 
 vaapi_encode_h265_write_access_unit.exit:         ; preds = %43, %42, %32, %vaapi_encode_h265_add_nal.exit20.thread, %vaapi_encode_h265_add_nal.exit.thread
   %.0 = phi i32 [ %15, %vaapi_encode_h265_add_nal.exit.thread ], [ %23, %vaapi_encode_h265_add_nal.exit20.thread ], [ %30, %32 ], [ -28, %42 ], [ 0, %43 ]
-  tail call void @ff_cbs_fragment_reset(ptr noundef nonnull %8) #9
+  tail call void @ff_cbs_fragment_reset(ptr noundef nonnull %8) #10
   ret i32 %.0
 }
 
@@ -2373,14 +2373,14 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_write_extra_hea
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 1996
   %17 = load i8, ptr %16, align 1, !tbaa !299
   %18 = zext i8 %17 to i32
-  %19 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %9, i32 noundef -1, i32 noundef %18, ptr noundef nonnull %16, ptr noundef null) #9
+  %19 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %9, i32 noundef -1, i32 noundef %18, ptr noundef nonnull %16, ptr noundef null) #10
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %vaapi_encode_h265_add_nal.exit.thread, label %vaapi_encode_h265_add_nal.exit
 
 vaapi_encode_h265_add_nal.exit.thread:            ; preds = %15
   %21 = load i8, ptr %16, align 1, !tbaa !299
   %22 = zext i8 %21 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.105, i32 noundef %22) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.105, i32 noundef %22) #10
   br label %vaapi_encode_h265_write_access_unit.exit.thread
 
 vaapi_encode_h265_add_nal.exit:                   ; preds = %15
@@ -2398,7 +2398,7 @@ vaapi_encode_h265_add_nal.exit:                   ; preds = %15
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 7965744
   %28 = load ptr, ptr %27, align 8, !tbaa !300
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 7965680
-  %30 = tail call i32 @ff_cbs_sei_add_message(ptr noundef %28, ptr noundef nonnull %9, i32 noundef 1, i32 noundef 137, ptr noundef nonnull %29, ptr noundef null) #9
+  %30 = tail call i32 @ff_cbs_sei_add_message(ptr noundef %28, ptr noundef nonnull %9, i32 noundef 1, i32 noundef 137, ptr noundef nonnull %29, ptr noundef null) #10
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %vaapi_encode_h265_write_access_unit.exit.thread, label %._crit_edge
 
@@ -2416,7 +2416,7 @@ vaapi_encode_h265_add_nal.exit:                   ; preds = %15
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 7965744
   %37 = load ptr, ptr %36, align 8, !tbaa !300
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 7965704
-  %39 = tail call i32 @ff_cbs_sei_add_message(ptr noundef %37, ptr noundef nonnull %9, i32 noundef 1, i32 noundef 144, ptr noundef nonnull %38, ptr noundef null) #9
+  %39 = tail call i32 @ff_cbs_sei_add_message(ptr noundef %37, ptr noundef nonnull %9, i32 noundef 1, i32 noundef 144, ptr noundef nonnull %38, ptr noundef null) #10
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %vaapi_encode_h265_write_access_unit.exit.thread, label %._crit_edge48
 
@@ -2434,7 +2434,7 @@ vaapi_encode_h265_add_nal.exit:                   ; preds = %15
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 7965744
   %46 = load ptr, ptr %45, align 8, !tbaa !300
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 7965712
-  %48 = tail call i32 @ff_cbs_sei_add_message(ptr noundef %46, ptr noundef nonnull %9, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %47, ptr noundef null) #9
+  %48 = tail call i32 @ff_cbs_sei_add_message(ptr noundef %46, ptr noundef nonnull %9, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %47, ptr noundef null) #10
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %vaapi_encode_h265_write_access_unit.exit.thread, label %50
 
@@ -2443,12 +2443,12 @@ vaapi_encode_h265_add_nal.exit:                   ; preds = %15
   %51 = load ptr, ptr %7, align 8, !tbaa !4
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 7965744
   %53 = load ptr, ptr %52, align 8, !tbaa !300
-  %54 = tail call i32 @ff_cbs_write_fragment_data(ptr noundef %53, ptr noundef nonnull %9) #9
+  %54 = tail call i32 @ff_cbs_write_fragment_data(ptr noundef %53, ptr noundef nonnull %9) #10
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %50
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.106) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.106) #10
   br label %vaapi_encode_h265_write_access_unit.exit.thread
 
 57:                                               ; preds = %50
@@ -2463,7 +2463,7 @@ vaapi_encode_h265_add_nal.exit:                   ; preds = %15
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %57
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.107, i64 noundef %58, i64 noundef %64) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.107, i64 noundef %58, i64 noundef %64) #10
   br label %vaapi_encode_h265_write_access_unit.exit.thread
 
 67:                                               ; preds = %57
@@ -2474,13 +2474,13 @@ vaapi_encode_h265_add_nal.exit:                   ; preds = %15
   %71 = load i64, ptr %62, align 8, !tbaa !302
   %72 = sub i64 %70, %71
   store i64 %72, ptr %5, align 8, !tbaa !227
-  tail call void @ff_cbs_fragment_reset(ptr noundef nonnull %9) #9
+  tail call void @ff_cbs_fragment_reset(ptr noundef nonnull %9) #10
   store i32 4, ptr %3, align 4, !tbaa !157
   br label %73
 
 vaapi_encode_h265_write_access_unit.exit.thread:  ; preds = %66, %56, %vaapi_encode_h265_add_nal.exit.thread, %44, %35, %26
   %.0 = phi i32 [ %30, %26 ], [ %39, %35 ], [ %48, %44 ], [ %19, %vaapi_encode_h265_add_nal.exit.thread ], [ -28, %66 ], [ %54, %56 ]
-  tail call void @ff_cbs_fragment_reset(ptr noundef nonnull %9) #9
+  tail call void @ff_cbs_fragment_reset(ptr noundef nonnull %9) #10
   br label %73
 
 73:                                               ; preds = %6, %vaapi_encode_h265_write_access_unit.exit.thread, %67
@@ -2492,7 +2492,7 @@ declare i32 @vaGetConfigAttributes(ptr noundef, i32 noundef, i32 noundef, ptr no
 
 declare i32 @ff_cbs_init(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -2508,7 +2508,7 @@ declare void @abort() local_unnamed_addr #6
 
 declare ptr @av_frame_get_side_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.lrint.i64.f64(double) #3
 
 declare void @av_freep(ptr noundef) local_unnamed_addr #1
@@ -2535,32 +2535,33 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #8
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
+attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

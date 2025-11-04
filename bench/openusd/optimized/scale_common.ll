@@ -915,7 +915,7 @@ define hidden void @ScalePlaneVertical(i32 noundef %0, i32 noundef %1, i32 nound
   %26 = mul nsw i32 %25, %3
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %21, i64 %27
-  tail call void @InterpolateRow_C(ptr noundef %.032.us, ptr noundef %28, i64 noundef %23, i32 noundef %13, i32 noundef 0) #6
+  tail call void @InterpolateRow_C(ptr noundef %.032.us, ptr noundef %28, i64 noundef %23, i32 noundef %13, i32 noundef 0) #7
   %29 = getelementptr inbounds i8, ptr %.032.us, i64 %24
   %30 = add nsw i32 %spec.select.us, %9
   %31 = add nuw nsw i32 %.02731.us, 1
@@ -933,7 +933,7 @@ define hidden void @ScalePlaneVertical(i32 noundef %0, i32 noundef %1, i32 nound
   %35 = mul nsw i32 %32, %3
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds i8, ptr %21, i64 %36
-  tail call void @InterpolateRow_C(ptr noundef %.032, ptr noundef %37, i64 noundef %23, i32 noundef %13, i32 noundef %34) #6
+  tail call void @InterpolateRow_C(ptr noundef %.032, ptr noundef %37, i64 noundef %23, i32 noundef %13, i32 noundef %34) #7
   %38 = getelementptr inbounds i8, ptr %.032, i64 %24
   %39 = add nsw i32 %spec.select, %9
   %40 = add nuw nsw i32 %.02731, 1
@@ -975,7 +975,7 @@ define hidden void @ScalePlaneVertical_16(i32 noundef %0, i32 noundef %1, i32 no
   %26 = mul nsw i32 %25, %3
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i16, ptr %21, i64 %27
-  tail call void @InterpolateRow_16_C(ptr noundef %.032.us, ptr noundef %28, i64 noundef %23, i32 noundef %13, i32 noundef 0) #6
+  tail call void @InterpolateRow_16_C(ptr noundef %.032.us, ptr noundef %28, i64 noundef %23, i32 noundef %13, i32 noundef 0) #7
   %29 = getelementptr inbounds i16, ptr %.032.us, i64 %24
   %30 = add nsw i32 %spec.select.us, %9
   %31 = add nuw nsw i32 %.02731.us, 1
@@ -993,7 +993,7 @@ define hidden void @ScalePlaneVertical_16(i32 noundef %0, i32 noundef %1, i32 no
   %35 = mul nsw i32 %32, %3
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds i16, ptr %21, i64 %36
-  tail call void @InterpolateRow_16_C(ptr noundef %.032, ptr noundef %37, i64 noundef %23, i32 noundef %13, i32 noundef %34) #6
+  tail call void @InterpolateRow_16_C(ptr noundef %.032, ptr noundef %37, i64 noundef %23, i32 noundef %13, i32 noundef %34) #7
   %38 = getelementptr inbounds i16, ptr %.032, i64 %24
   %39 = add nsw i32 %spec.select, %9
   %40 = add nuw nsw i32 %.02731, 1
@@ -1311,8 +1311,8 @@ define hidden void @ScaleSlope(i32 noundef %0, i32 noundef %1, i32 noundef %2, i
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #5
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #6
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1320,7 +1320,8 @@ attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -44,7 +44,7 @@ define range(i32 0, 3) i32 @CRYPTO_secure_malloc_init(i64 noundef %0, i64 nounde
   br i1 %.b, label %93, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call ptr @CRYPTO_THREAD_lock_new() #8
+  %4 = tail call ptr @CRYPTO_THREAD_lock_new() #9
   store ptr %4, ptr @sec_malloc_lock, align 8, !tbaa !3
   %5 = icmp eq ptr %4, null
   br i1 %5, label %93, label %6
@@ -55,7 +55,7 @@ define range(i32 0, 3) i32 @CRYPTO_secure_malloc_init(i64 noundef %0, i64 nounde
   br i1 %.not.i, label %7, label %8
 
 7:                                                ; preds = %6
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 444) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 444) #10
   unreachable
 
 8:                                                ; preds = %6
@@ -64,7 +64,7 @@ define range(i32 0, 3) i32 @CRYPTO_secure_malloc_init(i64 noundef %0, i64 nounde
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %8
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 445) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 445) #10
   unreachable
 
 12:                                               ; preds = %8
@@ -77,7 +77,7 @@ define range(i32 0, 3) i32 @CRYPTO_secure_malloc_init(i64 noundef %0, i64 nounde
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %14
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 466) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 466) #10
   unreachable
 
 18:                                               ; preds = %14, %12
@@ -102,48 +102,48 @@ define range(i32 0, 3) i32 @CRYPTO_secure_malloc_init(i64 noundef %0, i64 nounde
 26:                                               ; preds = %.preheader
   store i64 %24, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8, !tbaa !16
   %27 = shl i64 %24, 3
-  %28 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %27, ptr noundef nonnull @.str.1, i32 noundef 483) #8
+  %28 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %27, ptr noundef nonnull @.str.1, i32 noundef 483) #9
   store ptr %28, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
   %.not43.i = icmp eq ptr %28, null
   br i1 %.not43.i, label %29, label %30
 
 29:                                               ; preds = %26
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 484) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 484) #10
   unreachable
 
 30:                                               ; preds = %26
   %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8, !tbaa !13
   %32 = lshr i64 %31, 3
-  %33 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %32, ptr noundef nonnull @.str.1, i32 noundef 488) #8
+  %33 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %32, ptr noundef nonnull @.str.1, i32 noundef 488) #9
   store ptr %33, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
   %.not44.i = icmp eq ptr %33, null
   br i1 %.not44.i, label %34, label %35
 
 34:                                               ; preds = %30
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 489) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 489) #10
   unreachable
 
 35:                                               ; preds = %30
   %36 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8, !tbaa !13
   %37 = lshr i64 %36, 3
-  %38 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %37, ptr noundef nonnull @.str.1, i32 noundef 493) #8
+  %38 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %37, ptr noundef nonnull @.str.1, i32 noundef 493) #9
   store ptr %38, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
   %.not45.i = icmp eq ptr %38, null
   br i1 %.not45.i, label %39, label %40
 
 39:                                               ; preds = %35
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 494) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 494) #10
   unreachable
 
 40:                                               ; preds = %35
-  %41 = tail call i64 @sysconf(i32 noundef 30) #8
+  %41 = tail call i64 @sysconf(i32 noundef 30) #9
   %42 = icmp slt i64 %41, 1
   %..i = select i1 %42, i64 4096, i64 %41
   %43 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8, !tbaa !7
   %reass.add.i = shl i64 %..i, 1
   %44 = add i64 %reass.add.i, %43
   store i64 %44, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 8), align 8, !tbaa !20
-  %45 = tail call ptr @mmap(ptr noundef null, i64 noundef %44, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #8
+  %45 = tail call ptr @mmap(ptr noundef null, i64 noundef %44, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #9
   store ptr %45, ptr @sh, align 8, !tbaa !21
   %46 = icmp eq ptr %45, inttoptr (i64 -1 to ptr)
   br i1 %46, label %._crit_edge.i, label %47
@@ -161,7 +161,7 @@ define range(i32 0, 3) i32 @CRYPTO_secure_malloc_init(i64 noundef %0, i64 nounde
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   tail call fastcc void @sh_add_to_list(ptr noundef %50, ptr noundef %51)
   %52 = load ptr, ptr @sh, align 8, !tbaa !21
-  %53 = tail call i32 @mprotect(ptr noundef %52, i64 noundef %..i, i32 noundef 0) #8
+  %53 = tail call i32 @mprotect(ptr noundef %52, i64 noundef %..i, i32 noundef 0) #9
   %54 = icmp slt i32 %53, 0
   %55 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8, !tbaa !7
   %56 = add i64 %reass.add.i, -1
@@ -170,18 +170,18 @@ define range(i32 0, 3) i32 @CRYPTO_secure_malloc_init(i64 noundef %0, i64 nounde
   %59 = and i64 %57, %58
   %60 = load ptr, ptr @sh, align 8, !tbaa !21
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %59
-  %62 = tail call i32 @mprotect(ptr noundef %61, i64 noundef %..i, i32 noundef 0) #8
+  %62 = tail call i32 @mprotect(ptr noundef %61, i64 noundef %..i, i32 noundef 0) #9
   %63 = icmp slt i32 %62, 0
   %64 = select i1 %63, i1 true, i1 %54
   %.1.i = select i1 %64, i32 2, i32 1
   %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %66 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8, !tbaa !7
-  %67 = tail call i64 (i64, ...) @syscall(i64 noundef 325, ptr noundef %65, i64 noundef %66, i32 noundef 1) #8
+  %67 = tail call i64 (i64, ...) @syscall(i64 noundef 325, ptr noundef %65, i64 noundef %66, i32 noundef 1) #9
   %68 = icmp slt i64 %67, 0
   br i1 %68, label %69, label %sh_init.exit
 
 69:                                               ; preds = %47
-  %70 = tail call ptr @__errno_location() #10
+  %70 = tail call ptr @__errno_location() #11
   %71 = load i32, ptr %70, align 4, !tbaa !23
   %72 = icmp eq i32 %71, 38
   br i1 %72, label %73, label %sh_init.exit
@@ -189,18 +189,18 @@ define range(i32 0, 3) i32 @CRYPTO_secure_malloc_init(i64 noundef %0, i64 nounde
 73:                                               ; preds = %69
   %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %75 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8, !tbaa !7
-  %76 = tail call i32 @mlock(ptr noundef %74, i64 noundef %75) #8
+  %76 = tail call i32 @mlock(ptr noundef %74, i64 noundef %75) #9
   %77 = icmp slt i32 %76, 0
   %spec.select46.i = select i1 %77, i32 2, i32 %.1.i
   br label %sh_init.exit
 
 78:                                               ; preds = %._crit_edge.i, %18
   %79 = phi ptr [ %.pre.i, %._crit_edge.i ], [ null, %18 ]
-  tail call void @CRYPTO_free(ptr noundef %79, ptr noundef nonnull @.str.1, i32 noundef 600) #8
+  tail call void @CRYPTO_free(ptr noundef %79, ptr noundef nonnull @.str.1, i32 noundef 600) #9
   %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
-  tail call void @CRYPTO_free(ptr noundef %80, ptr noundef nonnull @.str.1, i32 noundef 601) #8
+  tail call void @CRYPTO_free(ptr noundef %80, ptr noundef nonnull @.str.1, i32 noundef 601) #9
   %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
-  tail call void @CRYPTO_free(ptr noundef %81, ptr noundef nonnull @.str.1, i32 noundef 602) #8
+  tail call void @CRYPTO_free(ptr noundef %81, ptr noundef nonnull @.str.1, i32 noundef 602) #9
   %82 = load ptr, ptr @sh, align 8, !tbaa !21
   %83 = icmp ne ptr %82, inttoptr (i64 -1 to ptr)
   %84 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 8), align 8
@@ -209,13 +209,13 @@ define range(i32 0, 3) i32 @CRYPTO_secure_malloc_init(i64 noundef %0, i64 nounde
   br i1 %or.cond.i.i, label %86, label %sh_init.exit.thread
 
 86:                                               ; preds = %78
-  %87 = tail call i32 @munmap(ptr noundef %82, i64 noundef %84) #8
+  %87 = tail call i32 @munmap(ptr noundef %82, i64 noundef %84) #9
   br label %sh_init.exit.thread
 
 sh_init.exit.thread:                              ; preds = %78, %86
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) @sh, i8 0, i64 80, i1 false)
   %88 = load ptr, ptr @sec_malloc_lock, align 8, !tbaa !3
-  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %88) #8
+  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %88) #9
   store ptr null, ptr @sec_malloc_lock, align 8, !tbaa !3
   br label %93
 
@@ -223,7 +223,7 @@ sh_init.exit:                                     ; preds = %47, %69, %73
   %.2.i = phi i32 [ %.1.i, %47 ], [ %spec.select46.i, %73 ], [ 2, %69 ]
   %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %90 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8, !tbaa !7
-  %91 = tail call i32 @madvise(ptr noundef %89, i64 noundef %90, i32 noundef 16) #8
+  %91 = tail call i32 @madvise(ptr noundef %89, i64 noundef %90, i32 noundef 16) #9
   %92 = icmp slt i32 %91, 0
   %spec.select47.i = select i1 %92, i32 2, i32 %.2.i
   store i1 true, ptr @secure_mem_initialized, align 4
@@ -246,11 +246,11 @@ define range(i32 0, 2) i32 @CRYPTO_secure_malloc_done() local_unnamed_addr #0 {
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
-  tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 600) #8
+  tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 600) #9
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
-  tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 601) #8
+  tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 601) #9
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
-  tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str.1, i32 noundef 602) #8
+  tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str.1, i32 noundef 602) #9
   %7 = load ptr, ptr @sh, align 8, !tbaa !21
   %8 = icmp ne ptr %7, inttoptr (i64 -1 to ptr)
   %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 8), align 8
@@ -259,14 +259,14 @@ define range(i32 0, 2) i32 @CRYPTO_secure_malloc_done() local_unnamed_addr #0 {
   br i1 %or.cond.i, label %11, label %sh_done.exit
 
 11:                                               ; preds = %3
-  %12 = tail call i32 @munmap(ptr noundef %7, i64 noundef %9) #8
+  %12 = tail call i32 @munmap(ptr noundef %7, i64 noundef %9) #9
   br label %sh_done.exit
 
 sh_done.exit:                                     ; preds = %3, %11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) @sh, i8 0, i64 80, i1 false)
   store i1 false, ptr @secure_mem_initialized, align 4
   %13 = load ptr, ptr @sec_malloc_lock, align 8, !tbaa !3
-  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %13) #8
+  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %13) #9
   store ptr null, ptr @sec_malloc_lock, align 8, !tbaa !3
   br label %14
 
@@ -288,12 +288,12 @@ define noalias ptr @CRYPTO_secure_malloc(i64 noundef %0, ptr noundef %1, i32 nou
   br i1 %.b, label %6, label %4
 
 4:                                                ; preds = %3
-  %5 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %0, ptr noundef %1, i32 noundef %2) #8
+  %5 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %0, ptr noundef %1, i32 noundef %2) #9
   br label %266
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @sec_malloc_lock, align 8, !tbaa !3
-  %8 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %7) #8
+  %8 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %7) #9
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %.thread, label %9
 
@@ -365,7 +365,7 @@ define noalias ptr @CRYPTO_secure_malloc(i64 noundef %0, ptr noundef %1, i32 nou
   br i1 %or.cond.i.i, label %36, label %35
 
 35:                                               ; preds = %.lr.ph
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 363) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 363) #10
   unreachable
 
 36:                                               ; preds = %.lr.ph
@@ -380,7 +380,7 @@ define noalias ptr @CRYPTO_secure_malloc(i64 noundef %0, ptr noundef %1, i32 nou
   br i1 %44, label %46, label %45
 
 45:                                               ; preds = %36
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 364) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 364) #10
   unreachable
 
 46:                                               ; preds = %36
@@ -394,7 +394,7 @@ define noalias ptr @CRYPTO_secure_malloc(i64 noundef %0, ptr noundef %1, i32 nou
   br i1 %or.cond15.i.i, label %sh_testbit.exit.i, label %52
 
 52:                                               ; preds = %46
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 366) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 366) #10
   unreachable
 
 sh_testbit.exit.i:                                ; preds = %46
@@ -409,7 +409,7 @@ sh_testbit.exit.i:                                ; preds = %46
   br i1 %.not65.i, label %61, label %60
 
 60:                                               ; preds = %sh_testbit.exit.i
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 659) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 659) #10
   unreachable
 
 61:                                               ; preds = %sh_testbit.exit.i
@@ -453,7 +453,7 @@ sh_testbit.exit.i:                                ; preds = %46
   br i1 %or.cond23.i.i, label %sh_remove_from_list.exit.i, label %79
 
 79:                                               ; preds = %74
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.1, i32 noundef 426) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.1, i32 noundef 426) #10
   unreachable
 
 sh_remove_from_list.exit.i:                       ; preds = %74, %68, %._crit_edge.i.i
@@ -463,7 +463,7 @@ sh_remove_from_list.exit.i:                       ; preds = %74, %68, %._crit_ed
   br i1 %.not66.i, label %82, label %83
 
 82:                                               ; preds = %sh_remove_from_list.exit.i
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 662) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 662) #10
   unreachable
 
 83:                                               ; preds = %sh_remove_from_list.exit.i
@@ -478,7 +478,7 @@ sh_remove_from_list.exit.i:                       ; preds = %74, %68, %._crit_ed
   br i1 %or.cond.i73.i, label %92, label %91
 
 91:                                               ; preds = %83
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 363) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 363) #10
   unreachable
 
 92:                                               ; preds = %83
@@ -493,7 +493,7 @@ sh_remove_from_list.exit.i:                       ; preds = %74, %68, %._crit_ed
   br i1 %100, label %102, label %101
 
 101:                                              ; preds = %92
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 364) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 364) #10
   unreachable
 
 102:                                              ; preds = %92
@@ -507,7 +507,7 @@ sh_remove_from_list.exit.i:                       ; preds = %74, %68, %._crit_ed
   br i1 %or.cond15.i75.i, label %sh_testbit.exit76.i, label %108
 
 108:                                              ; preds = %102
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 366) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 366) #10
   unreachable
 
 sh_testbit.exit76.i:                              ; preds = %102
@@ -522,7 +522,7 @@ sh_testbit.exit76.i:                              ; preds = %102
   br i1 %.not67.i, label %117, label %116
 
 116:                                              ; preds = %sh_testbit.exit76.i
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 668) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 668) #10
   unreachable
 
 117:                                              ; preds = %sh_testbit.exit76.i
@@ -538,7 +538,7 @@ sh_testbit.exit76.i:                              ; preds = %102
   br i1 %124, label %126, label %125
 
 125:                                              ; preds = %117
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.1, i32 noundef 671) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.1, i32 noundef 671) #10
   unreachable
 
 126:                                              ; preds = %117
@@ -551,7 +551,7 @@ sh_testbit.exit76.i:                              ; preds = %102
   br i1 %132, label %134, label %133
 
 133:                                              ; preds = %126
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 363) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 363) #10
   unreachable
 
 134:                                              ; preds = %126
@@ -566,7 +566,7 @@ sh_testbit.exit76.i:                              ; preds = %102
   br i1 %142, label %144, label %143
 
 143:                                              ; preds = %134
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 364) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 364) #10
   unreachable
 
 144:                                              ; preds = %134
@@ -579,7 +579,7 @@ sh_testbit.exit76.i:                              ; preds = %102
   br i1 %or.cond15.i79.i, label %sh_testbit.exit80.i, label %149
 
 149:                                              ; preds = %144
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 366) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 366) #10
   unreachable
 
 sh_testbit.exit80.i:                              ; preds = %144
@@ -594,7 +594,7 @@ sh_testbit.exit80.i:                              ; preds = %144
   br i1 %.not68.i, label %158, label %157
 
 157:                                              ; preds = %sh_testbit.exit80.i
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 675) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 675) #10
   unreachable
 
 158:                                              ; preds = %sh_testbit.exit80.i
@@ -610,7 +610,7 @@ sh_testbit.exit80.i:                              ; preds = %144
   br i1 %165, label %167, label %166
 
 166:                                              ; preds = %158
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.1, i32 noundef 678) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.1, i32 noundef 678) #10
   unreachable
 
 167:                                              ; preds = %158
@@ -654,7 +654,7 @@ sh_find_my_buddy.exit.i:                          ; preds = %187
   br i1 %197, label %.preheader.i, label %.critedge.i, !llvm.loop !29
 
 .critedge.i:                                      ; preds = %sh_find_my_buddy.exit.i, %187, %167
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.1, i32 noundef 680) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.1, i32 noundef 680) #10
   unreachable
 
 .preheader.i._crit_edge.loopexit:                 ; preds = %.preheader.i
@@ -676,7 +676,7 @@ sh_find_my_buddy.exit.i:                          ; preds = %187
   br i1 %or.cond.i82.i, label %207, label %206
 
 206:                                              ; preds = %.preheader.i._crit_edge
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 363) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 363) #10
   unreachable
 
 207:                                              ; preds = %.preheader.i._crit_edge
@@ -691,7 +691,7 @@ sh_find_my_buddy.exit.i:                          ; preds = %187
   br i1 %215, label %217, label %216
 
 216:                                              ; preds = %207
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 364) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 364) #10
   unreachable
 
 217:                                              ; preds = %207
@@ -705,7 +705,7 @@ sh_find_my_buddy.exit.i:                          ; preds = %187
   br i1 %or.cond15.i84.i, label %sh_testbit.exit85.i, label %223
 
 223:                                              ; preds = %217
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 366) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 366) #10
   unreachable
 
 sh_testbit.exit85.i:                              ; preds = %217
@@ -720,7 +720,7 @@ sh_testbit.exit85.i:                              ; preds = %217
   br i1 %.not63.i, label %231, label %232
 
 231:                                              ; preds = %sh_testbit.exit85.i
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.1, i32 noundef 685) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.1, i32 noundef 685) #10
   unreachable
 
 232:                                              ; preds = %sh_testbit.exit85.i
@@ -769,7 +769,7 @@ sh_testbit.exit85.i:                              ; preds = %217
   br i1 %or.cond23.i93.i, label %sh_remove_from_list.exit94.i, label %249
 
 249:                                              ; preds = %246
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.1, i32 noundef 426) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.1, i32 noundef 426) #10
   unreachable
 
 sh_remove_from_list.exit94.i:                     ; preds = %246, %239, %._crit_edge.i89.sh_remove_from_list.exit94_crit_edge.i
@@ -782,7 +782,7 @@ sh_remove_from_list.exit94.i:                     ; preds = %246, %239, %._crit_
   br i1 %or.cond.i, label %255, label %254
 
 254:                                              ; preds = %sh_remove_from_list.exit94.i
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 689) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 689) #10
   unreachable
 
 255:                                              ; preds = %sh_remove_from_list.exit94.i
@@ -797,7 +797,7 @@ sh_malloc.exit.thread:                            ; preds = %24, %18, %9, %255
   %259 = add i64 %258, %257
   store i64 %259, ptr @secure_mem_used, align 8, !tbaa !25
   %260 = load ptr, ptr @sec_malloc_lock, align 8, !tbaa !3
-  %261 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %260) #8
+  %261 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %260) #9
   %262 = icmp eq ptr %.0.i21, null
   br i1 %262, label %.thread, label %266
 
@@ -809,9 +809,9 @@ sh_malloc.exit.thread:                            ; preds = %24, %18, %9, %255
   br i1 %or.cond, label %265, label %266
 
 265:                                              ; preds = %.thread
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef %1, i32 noundef %2, ptr noundef null) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef %.025, ptr noundef null) #8
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef %1, i32 noundef %2, ptr noundef null) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef %.025, ptr noundef null) #9
   br label %266
 
 266:                                              ; preds = %sh_malloc.exit.thread, %265, %.thread, %4
@@ -834,7 +834,7 @@ define internal fastcc i64 @sh_actual_size(ptr noundef %0) unnamed_addr #0 {
   br i1 %or.cond, label %7, label %6
 
 6:                                                ; preds = %1
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 742) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 742) #10
   unreachable
 
 7:                                                ; preds = %1
@@ -878,7 +878,7 @@ define internal fastcc i64 @sh_actual_size(ptr noundef %0) unnamed_addr #0 {
   br i1 %27, label %15, label %28
 
 28:                                               ; preds = %25
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.1, i32 noundef 352) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.1, i32 noundef 352) #10
   unreachable
 
 sh_getlist.exit:                                  ; preds = %15, %17, %7
@@ -891,7 +891,7 @@ sh_getlist.exit:                                  ; preds = %15, %17, %7
   br i1 %or.cond.i, label %34, label %33
 
 33:                                               ; preds = %sh_getlist.exit
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 363) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 363) #10
   unreachable
 
 34:                                               ; preds = %sh_getlist.exit
@@ -904,7 +904,7 @@ sh_getlist.exit:                                  ; preds = %15, %17, %7
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %34
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 364) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 364) #10
   unreachable
 
 42:                                               ; preds = %34
@@ -918,7 +918,7 @@ sh_getlist.exit:                                  ; preds = %15, %17, %7
   br i1 %or.cond15.i, label %sh_testbit.exit, label %48
 
 48:                                               ; preds = %42
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 366) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 366) #10
   unreachable
 
 sh_testbit.exit:                                  ; preds = %42
@@ -933,7 +933,7 @@ sh_testbit.exit:                                  ; preds = %42
   br i1 %.not10, label %56, label %57
 
 56:                                               ; preds = %sh_testbit.exit
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.1, i32 noundef 746) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.1, i32 noundef 746) #10
   unreachable
 
 57:                                               ; preds = %sh_testbit.exit
@@ -960,7 +960,7 @@ define noalias ptr @CRYPTO_secure_zalloc(i64 noundef %0, ptr noundef %1, i32 nou
   br label %8
 
 6:                                                ; preds = %3
-  %7 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %0, ptr noundef %1, i32 noundef %2) #8
+  %7 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %0, ptr noundef %1, i32 noundef %2) #9
   br label %8
 
 8:                                                ; preds = %6, %4
@@ -989,24 +989,24 @@ CRYPTO_secure_allocated.exit:                     ; preds = %5
   br i1 %.not14, label %CRYPTO_secure_allocated.exit.thread, label %11
 
 CRYPTO_secure_allocated.exit.thread:              ; preds = %5, %CRYPTO_secure_allocated.exit
-  tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) #8
+  tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) #9
   br label %20
 
 11:                                               ; preds = %CRYPTO_secure_allocated.exit
   %12 = load ptr, ptr @sec_malloc_lock, align 8, !tbaa !3
-  %13 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %12) #8
+  %13 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %12) #9
   %.not9 = icmp eq i32 %13, 0
   br i1 %.not9, label %20, label %14
 
 14:                                               ; preds = %11
   %15 = tail call fastcc i64 @sh_actual_size(ptr noundef nonnull %0)
-  tail call void @OPENSSL_cleanse(ptr noundef nonnull %0, i64 noundef %15) #8
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %0, i64 noundef %15) #9
   %16 = load i64, ptr @secure_mem_used, align 8, !tbaa !25
   %17 = sub i64 %16, %15
   store i64 %17, ptr @secure_mem_used, align 8, !tbaa !25
   tail call fastcc void @sh_free(ptr noundef %0)
   %18 = load ptr, ptr @sec_malloc_lock, align 8, !tbaa !3
-  %19 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %18) #8
+  %19 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %18) #9
   br label %20
 
 20:                                               ; preds = %11, %3, %14, %CRYPTO_secure_allocated.exit.thread
@@ -1048,7 +1048,7 @@ define internal fastcc void @sh_free(ptr noundef nonnull %0) unnamed_addr #0 {
   br i1 %or.cond, label %7, label %6
 
 6:                                                ; preds = %1
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 704) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 704) #10
   unreachable
 
 7:                                                ; preds = %1
@@ -1092,7 +1092,7 @@ define internal fastcc void @sh_free(ptr noundef nonnull %0) unnamed_addr #0 {
   br i1 %27, label %15, label %28
 
 28:                                               ; preds = %25
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.1, i32 noundef 352) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.1, i32 noundef 352) #10
   unreachable
 
 sh_getlist.exit:                                  ; preds = %15, %17, %7
@@ -1105,7 +1105,7 @@ sh_getlist.exit:                                  ; preds = %15, %17, %7
   br i1 %or.cond.i, label %34, label %33
 
 33:                                               ; preds = %sh_getlist.exit
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 363) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 363) #10
   unreachable
 
 34:                                               ; preds = %sh_getlist.exit
@@ -1118,7 +1118,7 @@ sh_getlist.exit:                                  ; preds = %15, %17, %7
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %34
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 364) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 364) #10
   unreachable
 
 42:                                               ; preds = %34
@@ -1132,7 +1132,7 @@ sh_getlist.exit:                                  ; preds = %15, %17, %7
   br i1 %or.cond15.i, label %sh_testbit.exit, label %48
 
 48:                                               ; preds = %42
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 366) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 366) #10
   unreachable
 
 sh_testbit.exit:                                  ; preds = %42
@@ -1147,7 +1147,7 @@ sh_testbit.exit:                                  ; preds = %42
   br i1 %.not47, label %56, label %57
 
 56:                                               ; preds = %sh_testbit.exit
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.1, i32 noundef 709) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.1, i32 noundef 709) #10
   unreachable
 
 57:                                               ; preds = %sh_testbit.exit
@@ -1231,7 +1231,7 @@ sh_find_my_buddy.exit60:                          ; preds = %103
   br i1 %111, label %112, label %.critedge
 
 .critedge:                                        ; preds = %103, %92, %sh_find_my_buddy.exit60
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.1, i32 noundef 715) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.1, i32 noundef 715) #10
   unreachable
 
 112:                                              ; preds = %sh_find_my_buddy.exit60
@@ -1240,7 +1240,7 @@ sh_find_my_buddy.exit60:                          ; preds = %103
   br i1 %114, label %116, label %115
 
 115:                                              ; preds = %112
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 363) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 363) #10
   unreachable
 
 116:                                              ; preds = %112
@@ -1250,7 +1250,7 @@ sh_find_my_buddy.exit60:                          ; preds = %103
   br i1 %119, label %121, label %120
 
 120:                                              ; preds = %116
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 364) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 364) #10
   unreachable
 
 121:                                              ; preds = %116
@@ -1261,7 +1261,7 @@ sh_find_my_buddy.exit60:                          ; preds = %103
   br i1 %or.cond15.i63, label %sh_testbit.exit64, label %124
 
 124:                                              ; preds = %121
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 366) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 366) #10
   unreachable
 
 sh_testbit.exit64:                                ; preds = %121
@@ -1272,7 +1272,7 @@ sh_testbit.exit64:                                ; preds = %121
   br i1 %.not49, label %129, label %128
 
 128:                                              ; preds = %sh_testbit.exit64
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 717) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 717) #10
   unreachable
 
 129:                                              ; preds = %sh_testbit.exit64
@@ -1315,7 +1315,7 @@ sh_testbit.exit64:                                ; preds = %121
   br i1 %or.cond23.i, label %sh_remove_from_list.exit, label %146
 
 146:                                              ; preds = %141
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.1, i32 noundef 426) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.1, i32 noundef 426) #10
   unreachable
 
 sh_remove_from_list.exit:                         ; preds = %._crit_edge.i, %135, %141
@@ -1324,7 +1324,7 @@ sh_remove_from_list.exit:                         ; preds = %._crit_edge.i, %135
   br i1 %148, label %150, label %149
 
 149:                                              ; preds = %sh_remove_from_list.exit
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 363) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 363) #10
   unreachable
 
 150:                                              ; preds = %sh_remove_from_list.exit
@@ -1339,7 +1339,7 @@ sh_remove_from_list.exit:                         ; preds = %._crit_edge.i, %135
   br i1 %158, label %160, label %159
 
 159:                                              ; preds = %150
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 364) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 364) #10
   unreachable
 
 160:                                              ; preds = %150
@@ -1352,7 +1352,7 @@ sh_remove_from_list.exit:                         ; preds = %._crit_edge.i, %135
   br i1 %or.cond15.i69, label %sh_testbit.exit70, label %165
 
 165:                                              ; preds = %160
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 366) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 366) #10
   unreachable
 
 sh_testbit.exit70:                                ; preds = %160
@@ -1367,7 +1367,7 @@ sh_testbit.exit70:                                ; preds = %160
   br i1 %.not50, label %174, label %173
 
 173:                                              ; preds = %sh_testbit.exit70
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 720) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 720) #10
   unreachable
 
 174:                                              ; preds = %sh_testbit.exit70
@@ -1411,7 +1411,7 @@ sh_testbit.exit70:                                ; preds = %160
   br i1 %or.cond23.i78, label %sh_remove_from_list.exit79, label %192
 
 192:                                              ; preds = %187
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.1, i32 noundef 426) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.1, i32 noundef 426) #10
   unreachable
 
 sh_remove_from_list.exit79:                       ; preds = %._crit_edge.i74, %181, %187
@@ -1429,7 +1429,7 @@ sh_remove_from_list.exit79:                       ; preds = %._crit_edge.i74, %1
   br i1 %or.cond.i80, label %202, label %201
 
 201:                                              ; preds = %sh_remove_from_list.exit79
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 363) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 363) #10
   unreachable
 
 202:                                              ; preds = %sh_remove_from_list.exit79
@@ -1445,7 +1445,7 @@ sh_remove_from_list.exit79:                       ; preds = %._crit_edge.i74, %1
   br i1 %211, label %213, label %212
 
 212:                                              ; preds = %202
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 364) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 364) #10
   unreachable
 
 213:                                              ; preds = %202
@@ -1459,7 +1459,7 @@ sh_remove_from_list.exit79:                       ; preds = %._crit_edge.i74, %1
   br i1 %or.cond15.i82, label %sh_testbit.exit83, label %219
 
 219:                                              ; preds = %213
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 366) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 366) #10
   unreachable
 
 sh_testbit.exit83:                                ; preds = %213
@@ -1474,7 +1474,7 @@ sh_testbit.exit83:                                ; preds = %213
   br i1 %.not51, label %228, label %227
 
 227:                                              ; preds = %sh_testbit.exit83
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 731) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 731) #10
   unreachable
 
 228:                                              ; preds = %sh_testbit.exit83
@@ -1490,7 +1490,7 @@ sh_testbit.exit83:                                ; preds = %213
   br i1 %235, label %61, label %236, !llvm.loop !38
 
 236:                                              ; preds = %228
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.1, i32 noundef 734) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.1, i32 noundef 734) #10
   unreachable
 
 sh_find_my_buddy.exit.thread:                     ; preds = %61, %82, %sh_find_my_buddy.exit
@@ -1516,25 +1516,25 @@ CRYPTO_secure_allocated.exit:                     ; preds = %6
   br i1 %.not16, label %CRYPTO_secure_allocated.exit.thread, label %12
 
 CRYPTO_secure_allocated.exit.thread:              ; preds = %6, %CRYPTO_secure_allocated.exit
-  tail call void @OPENSSL_cleanse(ptr noundef nonnull %0, i64 noundef %1) #8
-  tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3) #8
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %0, i64 noundef %1) #9
+  tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3) #9
   br label %21
 
 12:                                               ; preds = %CRYPTO_secure_allocated.exit
   %13 = load ptr, ptr @sec_malloc_lock, align 8, !tbaa !3
-  %14 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %13) #8
+  %14 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %13) #9
   %.not11 = icmp eq i32 %14, 0
   br i1 %.not11, label %21, label %15
 
 15:                                               ; preds = %12
   %16 = tail call fastcc i64 @sh_actual_size(ptr noundef nonnull %0)
-  tail call void @OPENSSL_cleanse(ptr noundef nonnull %0, i64 noundef %16) #8
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %0, i64 noundef %16) #9
   %17 = load i64, ptr @secure_mem_used, align 8, !tbaa !25
   %18 = sub i64 %17, %16
   store i64 %18, ptr @secure_mem_used, align 8, !tbaa !25
   tail call fastcc void @sh_free(ptr noundef %0)
   %19 = load ptr, ptr @sec_malloc_lock, align 8, !tbaa !3
-  %20 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %19) #8
+  %20 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %19) #9
   br label %21
 
 21:                                               ; preds = %12, %4, %15, %CRYPTO_secure_allocated.exit.thread
@@ -1544,14 +1544,14 @@ CRYPTO_secure_allocated.exit.thread:              ; preds = %6, %CRYPTO_secure_a
 ; Function Attrs: nounwind uwtable
 define i64 @CRYPTO_secure_used() local_unnamed_addr #0 {
   %1 = load ptr, ptr @sec_malloc_lock, align 8, !tbaa !3
-  %2 = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %1) #8
+  %2 = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %1) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %0
   %4 = load i64, ptr @secure_mem_used, align 8, !tbaa !25
   %5 = load ptr, ptr @sec_malloc_lock, align 8, !tbaa !3
-  %6 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %5) #8
+  %6 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %5) #9
   br label %7
 
 7:                                                ; preds = %0, %3
@@ -1564,14 +1564,14 @@ declare i32 @CRYPTO_THREAD_read_lock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i64 @CRYPTO_secure_actual_size(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @sec_malloc_lock, align 8, !tbaa !3
-  %3 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %2) #8
+  %3 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %2) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = tail call fastcc i64 @sh_actual_size(ptr noundef %0)
   %6 = load ptr, ptr @sec_malloc_lock, align 8, !tbaa !3
-  %7 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %6) #8
+  %7 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %6) #9
   br label %8
 
 8:                                                ; preds = %1, %4
@@ -1601,7 +1601,7 @@ define internal fastcc void @sh_setbit(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %or.cond, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 386) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 386) #10
   unreachable
 
 9:                                                ; preds = %3
@@ -1617,7 +1617,7 @@ define internal fastcc void @sh_setbit(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %18, label %20, label %19
 
 19:                                               ; preds = %9
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 387) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 387) #10
   unreachable
 
 20:                                               ; preds = %9
@@ -1631,7 +1631,7 @@ define internal fastcc void @sh_setbit(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %or.cond19, label %27, label %26
 
 26:                                               ; preds = %20
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 389) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 389) #10
   unreachable
 
 27:                                               ; preds = %20
@@ -1646,7 +1646,7 @@ define internal fastcc void @sh_setbit(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not15, label %36, label %35
 
 35:                                               ; preds = %27
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 390) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 390) #10
   unreachable
 
 36:                                               ; preds = %27
@@ -1667,7 +1667,7 @@ define internal fastcc void @sh_add_to_list(ptr noundef %0, ptr noundef %1) unna
   br i1 %or.cond, label %8, label %7
 
 7:                                                ; preds = %2
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 398) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 398) #10
   unreachable
 
 8:                                                ; preds = %2
@@ -1680,7 +1680,7 @@ define internal fastcc void @sh_add_to_list(ptr noundef %0, ptr noundef %1) unna
   br i1 %or.cond32, label %14, label %13
 
 13:                                               ; preds = %8
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 399) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 399) #10
   unreachable
 
 14:                                               ; preds = %8
@@ -1701,7 +1701,7 @@ define internal fastcc void @sh_add_to_list(ptr noundef %0, ptr noundef %1) unna
   br i1 %or.cond35, label %21, label %20
 
 20:                                               ; preds = %18
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 403) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 403) #10
   unreachable
 
 21:                                               ; preds = %18
@@ -1713,7 +1713,7 @@ define internal fastcc void @sh_add_to_list(ptr noundef %0, ptr noundef %1) unna
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %21
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 407) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 407) #10
   unreachable
 
 27:                                               ; preds = %21
@@ -1753,7 +1753,7 @@ define internal fastcc void @sh_clearbit(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %or.cond, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 374) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 374) #10
   unreachable
 
 9:                                                ; preds = %3
@@ -1769,7 +1769,7 @@ define internal fastcc void @sh_clearbit(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %18, label %20, label %19
 
 19:                                               ; preds = %9
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 375) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 375) #10
   unreachable
 
 20:                                               ; preds = %9
@@ -1783,7 +1783,7 @@ define internal fastcc void @sh_clearbit(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %or.cond19, label %27, label %26
 
 26:                                               ; preds = %20
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 377) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 377) #10
   unreachable
 
 27:                                               ; preds = %20
@@ -1798,7 +1798,7 @@ define internal fastcc void @sh_clearbit(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %.not15, label %35, label %36
 
 35:                                               ; preds = %27
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.1, i32 noundef 378) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.1, i32 noundef 378) #10
   unreachable
 
 36:                                               ; preds = %27
@@ -1809,11 +1809,11 @@ define internal fastcc void @sh_clearbit(ptr noundef %0, i32 noundef %1, ptr nou
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #7
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1822,10 +1822,11 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { nounwind willreturn memory(none) }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

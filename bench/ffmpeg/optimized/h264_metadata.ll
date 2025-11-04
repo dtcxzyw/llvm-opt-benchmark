@@ -199,18 +199,18 @@ define internal i32 @h264_metadata_init(ptr noundef %0) #0 {
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 1
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 192
   store ptr %49, ptr %50, align 8, !tbaa !33
-  %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #8
+  %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #10
   %52 = add i64 %51, 1
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 200
   store i64 %52, ptr %53, align 8, !tbaa !34
   br label %54
 
 .critedge.thread:                                 ; preds = %12, %8, %43, %.critedge
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.78) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.78) #11
   br label %56
 
 54:                                               ; preds = %.critedge49, %1
-  %55 = tail call i32 @ff_cbs_bsf_generic_init(ptr noundef %0, ptr noundef nonnull @h264_metadata_type) #9
+  %55 = tail call i32 @ff_cbs_bsf_generic_init(ptr noundef %0, ptr noundef nonnull @h264_metadata_type) #11
   br label %56
 
 56:                                               ; preds = %.critedge.thread, %54
@@ -270,7 +270,7 @@ define internal range(i32 -2147483648, 1) i32 @h264_metadata_update_fragment(ptr
 
 28:                                               ; preds = %23
   %29 = trunc nuw nsw i64 %indvars.iv.next to i32
-  tail call void @ff_cbs_delete_unit(ptr noundef nonnull %2, i32 noundef %29) #9
+  tail call void @ff_cbs_delete_unit(ptr noundef nonnull %2, i32 noundef %29) #11
   br label %30
 
 30:                                               ; preds = %23, %28
@@ -364,14 +364,14 @@ define internal range(i32 -2147483648, 1) i32 @h264_metadata_update_fragment(ptr
   store i8 0, ptr %.sroa.4.0..sroa_idx.i, align 1, !tbaa !30
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 92
   store i8 %66, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !30
-  %67 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef %2, i32 noundef 0, i32 noundef 9, ptr noundef nonnull %65, ptr noundef null) #9
+  %67 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef %2, i32 noundef 0, i32 noundef 9, ptr noundef nonnull %65, ptr noundef null) #11
   %68 = icmp slt i32 %67, 0
   br i1 %68, label %h264_metadata_insert_aud.exit.thread, label %h264_metadata_insert_aud.exit
 
 h264_metadata_insert_aud.exit.thread:             ; preds = %62, %64
   %.str.84.sink.i = phi ptr [ @.str.84, %64 ], [ @.str.83, %62 ]
   %.0.ph.i = phi i32 [ %67, %64 ], [ -1094995529, %62 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.84.sink.i) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.84.sink.i) #11
   br label %.critedge
 
 h264_metadata_insert_aud.exit:                    ; preds = %30, %17, %64, %32
@@ -413,7 +413,7 @@ h264_metadata_insert_aud.exit:                    ; preds = %30, %17, %64, %32
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %88 = sext i32 %83 to i64
   %89 = sext i32 %86 to i64
-  %90 = call i32 @av_reduce(ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef %88, i64 noundef %89, i64 noundef 65535) #9
+  %90 = call i32 @av_reduce(ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef %88, i64 noundef %89, i64 noundef 65535) #11
   %91 = load i32, ptr %8, align 4, !tbaa !45
   %92 = load i32, ptr %9, align 4
   br label %93
@@ -617,7 +617,7 @@ h264_metadata_insert_aud.exit:                    ; preds = %30, %17, %64, %32
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %189 = sext i32 %184 to i64
   %190 = sext i32 %187 to i64
-  %191 = call i32 @av_reduce(ptr noundef nonnull %10, ptr noundef nonnull %11, i64 noundef %189, i64 noundef %190, i64 noundef 4294967295) #9
+  %191 = call i32 @av_reduce(ptr noundef nonnull %10, ptr noundef nonnull %11, i64 noundef %189, i64 noundef %190, i64 noundef 4294967295) #11
   %192 = load i32, ptr %10, align 4, !tbaa !45
   %193 = getelementptr inbounds nuw i8, ptr %80, i64 1884
   store i32 %192, ptr %193, align 4, !tbaa !82
@@ -704,7 +704,7 @@ h264_metadata_insert_aud.exit:                    ; preds = %30, %17, %64, %32
   br i1 %.not175.i, label %241, label %240
 
 240:                                              ; preds = %237
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86, i32 noundef %.0147.i) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86, i32 noundef %.0147.i) #11
   br label %.critedge
 
 241:                                              ; preds = %237
@@ -730,7 +730,7 @@ h264_metadata_insert_aud.exit:                    ; preds = %30, %17, %64, %32
   br i1 %.not176.i, label %255, label %254
 
 254:                                              ; preds = %251
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.87, i32 noundef %.0147.i) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.87, i32 noundef %.0147.i) #11
   br label %.critedge
 
 255:                                              ; preds = %251
@@ -756,7 +756,7 @@ h264_metadata_insert_aud.exit:                    ; preds = %30, %17, %64, %32
   br i1 %.not177.i, label %269, label %268
 
 268:                                              ; preds = %265
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.88, i32 noundef %.0149.i) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.88, i32 noundef %.0149.i) #11
   br label %.critedge
 
 269:                                              ; preds = %265
@@ -780,7 +780,7 @@ h264_metadata_insert_aud.exit:                    ; preds = %30, %17, %64, %32
   br i1 %.not178.i, label %281, label %280
 
 280:                                              ; preds = %277
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.89, i32 noundef %.0149.i) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.89, i32 noundef %.0149.i) #11
   br label %.critedge
 
 281:                                              ; preds = %277
@@ -884,7 +884,7 @@ h264_metadata_insert_aud.exit:                    ; preds = %30, %17, %64, %32
   %348 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %349 = load i8, ptr %348, align 4, !tbaa !111
   %350 = zext i8 %349 to i32
-  %351 = call ptr @ff_h264_guess_level(i32 noundef %350, i64 noundef %.0148.i, i32 noundef %.0.i80, i32 noundef %329, i32 noundef %337, i32 noundef %324) #9
+  %351 = call ptr @ff_h264_guess_level(i32 noundef %350, i64 noundef %.0148.i, i32 noundef %.0.i80, i32 noundef %329, i32 noundef %337, i32 noundef %324) #11
   %.not184.i = icmp eq ptr %351, null
   br i1 %.not184.i, label %.thread189.i, label %352
 
@@ -895,7 +895,7 @@ h264_metadata_insert_aud.exit:                    ; preds = %30, %17, %64, %32
   br label %356
 
 .thread189.i:                                     ; preds = %347
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.90) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.90) #11
   br label %363
 
 356:                                              ; preds = %352, %285
@@ -981,12 +981,12 @@ h264_metadata_update_sps.exit:                    ; preds = %367, %366, %73
   %387 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %388 = load ptr, ptr %387, align 8, !tbaa !121
   %389 = getelementptr inbounds nuw i8, ptr %13, i64 176
-  %390 = call i32 @ff_cbs_sei_add_message(ptr noundef %388, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 5, ptr noundef nonnull %389, ptr noundef null) #9
+  %390 = call i32 @ff_cbs_sei_add_message(ptr noundef %388, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 5, ptr noundef nonnull %389, ptr noundef null) #11
   %391 = icmp slt i32 %390, 0
   br i1 %391, label %392, label %.thread
 
 392:                                              ; preds = %386
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.82) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.82) #11
   br label %.critedge
 
 .thread:                                          ; preds = %._crit_edge, %386, %381
@@ -1017,7 +1017,7 @@ h264_metadata_update_sps.exit:                    ; preds = %367, %366, %73
 
 405:                                              ; preds = %400
   %406 = trunc nuw nsw i64 %indvars.iv.next135 to i32
-  call void @ff_cbs_delete_unit(ptr noundef nonnull %2, i32 noundef %406) #9
+  call void @ff_cbs_delete_unit(ptr noundef nonnull %2, i32 noundef %406) #11
   br label %407
 
 407:                                              ; preds = %400, %405
@@ -1027,7 +1027,7 @@ h264_metadata_update_sps.exit:                    ; preds = %367, %366, %73
 ._crit_edge120:                                   ; preds = %407, %395
   %409 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %410 = load ptr, ptr %409, align 8, !tbaa !121
-  call void @ff_cbs_sei_delete_message_type(ptr noundef %410, ptr noundef nonnull %2, i32 noundef 3) #9
+  call void @ff_cbs_sei_delete_message_type(ptr noundef %410, ptr noundef nonnull %2, i32 noundef 3) #11
   br label %411
 
 411:                                              ; preds = %._crit_edge120, %.thread
@@ -1048,7 +1048,7 @@ h264_metadata_update_sps.exit:                    ; preds = %367, %366, %73
 
 418:                                              ; preds = %429, %415
   %419 = load ptr, ptr %417, align 8, !tbaa !121
-  %420 = call i32 @ff_cbs_sei_find_message(ptr noundef %419, ptr noundef %2, i32 noundef 47, ptr noundef nonnull %4) #9
+  %420 = call i32 @ff_cbs_sei_find_message(ptr noundef %419, ptr noundef %2, i32 noundef 47, ptr noundef nonnull %4) #11
   %421 = icmp eq i32 %420, 0
   br i1 %421, label %422, label %448
 
@@ -1058,7 +1058,7 @@ h264_metadata_update_sps.exit:                    ; preds = %367, %366, %73
   %425 = load ptr, ptr %424, align 8, !tbaa !127
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 4
   %427 = load i16, ptr %426, align 2, !tbaa !129
-  %428 = call noalias ptr @av_malloc(i64 noundef 36) #9
+  %428 = call noalias ptr @av_malloc(i64 noundef 36) #11
   %.not101.i = icmp eq ptr %428, null
   br i1 %.not101.i, label %h264_metadata_handle_display_orientation.exit.thread, label %429
 
@@ -1076,19 +1076,19 @@ h264_metadata_update_sps.exit:                    ; preds = %367, %366, %73
   %.not103.i = icmp eq i8 %438, 0
   %439 = fneg nsz double %436
   %440 = select nsz i1 %.not103.i, double %436, double %439
-  call void @av_display_rotation_set(ptr noundef nonnull %428, double noundef %440) #9
+  call void @av_display_rotation_set(ptr noundef nonnull %428, double noundef %440) #11
   %441 = load i8, ptr %433, align 1, !tbaa !130
   %442 = zext i8 %441 to i32
   %443 = load i8, ptr %437, align 2, !tbaa !131
   %444 = zext i8 %443 to i32
-  call void @av_display_matrix_flip(ptr noundef nonnull %428, i32 noundef %442, i32 noundef %444) #9
-  %445 = call i32 @av_packet_add_side_data(ptr noundef nonnull %1, i32 noundef 5, ptr noundef nonnull %428, i64 noundef 36) #9
+  call void @av_display_matrix_flip(ptr noundef nonnull %428, i32 noundef %442, i32 noundef %444) #11
+  %445 = call i32 @av_packet_add_side_data(ptr noundef nonnull %1, i32 noundef 5, ptr noundef nonnull %428, i64 noundef 36) #11
   %446 = icmp slt i32 %445, 0
   br i1 %446, label %447, label %418, !llvm.loop !132
 
 447:                                              ; preds = %429
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.91) #9
-  call void @av_free(ptr noundef nonnull %428) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.91) #11
+  call void @av_free(ptr noundef nonnull %428) #11
   br label %h264_metadata_handle_display_orientation.exit.thread
 
 448:                                              ; preds = %418
@@ -1100,7 +1100,7 @@ h264_metadata_update_sps.exit:                    ; preds = %367, %366, %73
 
 451:                                              ; preds = %448
   %452 = load ptr, ptr %417, align 8, !tbaa !121
-  call void @ff_cbs_sei_delete_message_type(ptr noundef %452, ptr noundef %2, i32 noundef 47) #9
+  call void @ff_cbs_sei_delete_message_type(ptr noundef %452, ptr noundef %2, i32 noundef 47) #11
   %.pr.i = load i32, ptr %449, align 4, !tbaa !124
   %453 = icmp eq i32 %.pr.i, 1
   br i1 %453, label %454, label %h264_metadata_handle_display_orientation.exit
@@ -1108,7 +1108,7 @@ h264_metadata_update_sps.exit:                    ; preds = %367, %366, %73
 454:                                              ; preds = %451
   %455 = getelementptr inbounds nuw i8, ptr %416, i64 228
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %456 = call ptr @av_packet_get_side_data(ptr noundef nonnull %1, i32 noundef 5, ptr noundef nonnull %5) #9
+  %456 = call ptr @av_packet_get_side_data(ptr noundef nonnull %1, i32 noundef 5, ptr noundef nonnull %5) #11
   %457 = icmp ne ptr %456, null
   %458 = load i64, ptr %5, align 8
   %459 = icmp ugt i64 %458, 35
@@ -1137,12 +1137,12 @@ h264_metadata_update_sps.exit:                    ; preds = %367, %366, %73
   %468 = load double, ptr %7, align 16, !tbaa !133
   %469 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %470 = load double, ptr %469, align 8, !tbaa !133
-  %471 = call nsz double @hypot(double noundef %468, double noundef %470) #10
+  %471 = call nsz double @hypot(double noundef %468, double noundef %470) #12
   %472 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %473 = load double, ptr %472, align 8, !tbaa !133
   %474 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %475 = load double, ptr %474, align 16, !tbaa !133
-  %476 = call nsz double @hypot(double noundef %473, double noundef %475) #10
+  %476 = call nsz double @hypot(double noundef %473, double noundef %475) #12
   %477 = fcmp nsz olt double %468, 0.000000e+00
   %478 = fcmp nsz olt double %475, 0.000000e+00
   %479 = fneg nsz double %471
@@ -1190,7 +1190,7 @@ h264_metadata_update_sps.exit:                    ; preds = %367, %366, %73
   br i1 %or.cond111.i, label %503, label %502
 
 502:                                              ; preds = %489
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.92) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.92) #11
   br label %516
 
 503:                                              ; preds = %489
@@ -1267,7 +1267,7 @@ h264_metadata_update_sps.exit:                    ; preds = %367, %366, %73
   %542 = getelementptr inbounds nuw i8, ptr %416, i64 234
   store i16 1, ptr %542, align 2, !tbaa !138
   %543 = load ptr, ptr %417, align 8, !tbaa !121
-  %544 = call i32 @ff_cbs_sei_add_message(ptr noundef %543, ptr noundef %2, i32 noundef 1, i32 noundef 47, ptr noundef nonnull %455, ptr noundef null) #9
+  %544 = call i32 @ff_cbs_sei_add_message(ptr noundef %543, ptr noundef %2, i32 noundef 1, i32 noundef 47, ptr noundef nonnull %455, ptr noundef null) #11
   %545 = icmp slt i32 %544, 0
   br i1 %545, label %546, label %.thread115.i
 
@@ -1276,7 +1276,7 @@ h264_metadata_update_sps.exit:                    ; preds = %367, %366, %73
   br label %h264_metadata_handle_display_orientation.exit
 
 546:                                              ; preds = %541
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.93) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.93) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %h264_metadata_handle_display_orientation.exit.thread
 
@@ -1334,20 +1334,20 @@ declare double @hypot(double noundef, double noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.atan2.f64(double, double) #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.rint.f64(double) #5
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.rint.f64(double) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #7
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1355,11 +1355,13 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

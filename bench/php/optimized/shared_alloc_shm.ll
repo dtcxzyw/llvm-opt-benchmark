@@ -36,7 +36,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
 .lr.ph:                                           ; preds = %.preheader83, %15
   %.17486 = phi i64 [ %16, %15 ], [ %.073, %.preheader83 ]
   %13 = tail call i64 @llvm.umin.i64(i64 %0, i64 %.17486)
-  %14 = tail call i32 @shmget(i32 noundef -1, i64 noundef %13, i32 noundef 1920) #6
+  %14 = tail call i32 @shmget(i32 noundef -1, i64 noundef %13, i32 noundef 1920) #7
   %.not = icmp eq i32 %14, -1
   br i1 %.not, label %15, label %18
 
@@ -58,7 +58,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   store i32 %23, ptr %2, align 4, !tbaa !9
   %24 = sext i32 %23 to i64
   %25 = mul nsw i64 %24, 48
-  %26 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %25) #7
+  %26 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %25) #8
   store ptr %26, ptr %1, align 8, !tbaa !11
   %.not80 = icmp eq ptr %26, null
   br i1 %.not80, label %27, label %28
@@ -99,7 +99,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   br i1 %.not81, label %42, label %38
 
 38:                                               ; preds = %36
-  %39 = call i32 @shmget(i32 noundef 0, i64 noundef %37, i32 noundef 1920) #6
+  %39 = call i32 @shmget(i32 noundef 0, i64 noundef %37, i32 noundef 1920) #7
   %40 = getelementptr inbounds nuw %struct.zend_shared_segment_shm, ptr %30, i64 %indvars.iv99
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store i32 %39, ptr %41, align 8, !tbaa !12
@@ -117,7 +117,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   br i1 %47, label %.loopexit, label %48
 
 48:                                               ; preds = %43
-  %49 = call ptr @shmat(i32 noundef %44, ptr noundef null, i32 noundef 0) #6
+  %49 = call ptr @shmat(i32 noundef %44, ptr noundef null, i32 noundef 0) #7
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store ptr %49, ptr %50, align 8, !tbaa !16
   %51 = icmp eq ptr %49, inttoptr (i64 -1 to ptr)
@@ -126,12 +126,12 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
 52:                                               ; preds = %48
   store ptr @.str.2, ptr %3, align 8, !tbaa !4
   %53 = load i32, ptr %46, align 8, !tbaa !12
-  %54 = call i32 @shmctl(i32 noundef %53, i32 noundef 0, ptr noundef nonnull %5) #6
+  %54 = call i32 @shmctl(i32 noundef %53, i32 noundef 0, ptr noundef nonnull %5) #7
   br label %.loopexit
 
 55:                                               ; preds = %48
   %56 = load i32, ptr %46, align 8, !tbaa !12
-  %57 = call i32 @shmctl(i32 noundef %56, i32 noundef 0, ptr noundef nonnull %5) #6
+  %57 = call i32 @shmctl(i32 noundef %56, i32 noundef 0, ptr noundef nonnull %5) #7
   %58 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i64 0, ptr %58, align 8, !tbaa !17
   store i64 %37, ptr %45, align 8, !tbaa !18
@@ -152,7 +152,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
 define internal noundef i32 @detach_segment(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !16
-  %4 = tail call i32 @shmdt(ptr noundef %3) #6
+  %4 = tail call i32 @shmdt(ptr noundef %3) #7
   ret i32 0
 }
 
@@ -182,20 +182,21 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #5
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind allocsize(0,1) }
+attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

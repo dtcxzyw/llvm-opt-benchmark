@@ -588,7 +588,7 @@ define ptr @dcom_interface_new(ptr noundef readonly captures(none) %0, ptr nound
 
 16:                                               ; preds = %10
   %17 = tail call ptr @wmem_file_scope()
-  %18 = tail call noalias dereferenceable_or_null(56) ptr @wmem_alloc(ptr noundef %17, i64 noundef 56) #13
+  %18 = tail call noalias dereferenceable_or_null(56) ptr @wmem_alloc(ptr noundef %17, i64 noundef 56) #14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   %20 = load i32, ptr %19, align 4
@@ -635,7 +635,7 @@ cmp_address.exit.thread:                          ; preds = %28, %24, %cmp_addre
   br i1 %.not, label %._crit_edge, label %24, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %cmp_address.exit.thread, %.preheader
-  %40 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc(i64 noundef 40) #14
+  %40 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc(i64 noundef 40) #15
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i32, ptr %1, align 8
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -649,7 +649,7 @@ cmp_address.exit.thread:                          ; preds = %28, %24, %cmp_addre
 
 48:                                               ; preds = %._crit_edge
   %49 = sext i32 %44 to i64
-  %50 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %46, i64 noundef %49) #15
+  %50 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %46, i64 noundef %49) #16
   %51 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store ptr %50, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %40, i64 24
@@ -690,7 +690,7 @@ copy_address.exit:                                ; preds = %._crit_edge, %48
   br i1 %64, label %.loopexit137, label %59
 
 ._crit_edge147:                                   ; preds = %59, %.thread
-  %65 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc(i64 noundef 48) #14
+  %65 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc(i64 noundef 48) #15
   store ptr %.2111, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -729,7 +729,7 @@ copy_address.exit:                                ; preds = %._crit_edge, %48
   br i1 %79, label %.loopexit, label %75
 
 ._crit_edge153:                                   ; preds = %75, %.loopexit137
-  %80 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc(i64 noundef 56) #14
+  %80 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc(i64 noundef 56) #15
   store ptr %.2114, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr null, ptr %81, align 8
@@ -2411,7 +2411,7 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   br label %10
 
 9:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.334, ptr noundef nonnull @.str.335, i32 noundef 1582, ptr noundef nonnull @.str.336) #16
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.334, ptr noundef nonnull @.str.335, i32 noundef 1582, ptr noundef nonnull @.str.336) #17
   unreachable
 
 10:                                               ; preds = %.lr.ph, %29
@@ -2512,7 +2512,7 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   br i1 %58, label %60, label %59
 
 59:                                               ; preds = %.loopexit
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.334, ptr noundef nonnull @.str.335, i32 noundef 1626, ptr noundef nonnull @.str.338) #16
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.334, ptr noundef nonnull @.str.335, i32 noundef 1626, ptr noundef nonnull @.str.338) #17
   unreachable
 
 60:                                               ; preds = %.loopexit
@@ -2790,7 +2790,7 @@ dcom_get_routine_by_uuid.exit:                    ; preds = %.lr.ph.i
 
 dcom_get_routine_by_uuid.exit.thread:             ; preds = %4, %2, %dcom_get_routine_by_uuid.exit
   %11 = tail call ptr @wmem_file_scope()
-  %12 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %11, i64 noundef 40) #13
+  %12 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %11, i64 noundef 40) #14
   %.not10 = icmp eq ptr %12, null
   br i1 %.not10, label %18, label %13
 
@@ -2866,7 +2866,7 @@ define hidden i32 @dissect_dcom_OBJREF(ptr noundef %0, i32 noundef %1, ptr nound
   store i64 0, ptr %16, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, i8 noundef 0, i64 noundef 16, i1 noundef false) #17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, i8 noundef 0, i64 noundef 16, i1 noundef false) #18
   store i32 0, ptr %18, align 4
   %20 = load i32, ptr @hf_dcom_objref, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %20, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 0)
@@ -3282,14 +3282,14 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #11
+declare i64 @llvm.abs.i64(i64, i1 immarg) #13
 
 attributes #0 = { nofree norecurse nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3302,13 +3302,14 @@ attributes #7 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stac
 attributes #8 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { allocsize(1) }
-attributes #14 = { allocsize(0) }
-attributes #15 = { allocsize(2) }
-attributes #16 = { noreturn }
-attributes #17 = { nounwind }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { allocsize(1) }
+attributes #15 = { allocsize(0) }
+attributes #16 = { allocsize(2) }
+attributes #17 = { noreturn }
+attributes #18 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

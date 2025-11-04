@@ -11,7 +11,7 @@ define hidden void @jIIDCT(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call ptr %4(ptr noundef %0, i32 noundef 1, i64 noundef 128) #4
+  %5 = tail call ptr %4(ptr noundef %0, i32 noundef 1, i64 noundef 128) #5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 600
   store ptr %5, ptr %6, align 8
   store ptr @start_pass, ptr %5, align 8
@@ -31,7 +31,7 @@ define hidden void @jIIDCT(ptr noundef %0) local_unnamed_addr #0 {
   %.017 = phi ptr [ %11, %.lr.ph ], [ %19, %13 ]
   %14 = load ptr, ptr %2, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call ptr %15(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 256) #4
+  %16 = tail call ptr %15(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 256) #5
   %17 = getelementptr inbounds nuw i8, ptr %.017, i64 88
   store ptr %16, ptr %17, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %16, i8 0, i64 256, i1 false)
@@ -118,7 +118,7 @@ define internal void @start_pass(ptr noundef %0) #0 {
 31:                                               ; preds = %22, %25
   %32 = load ptr, ptr %0, align 8
   %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef nonnull %0) #4
+  tail call void %33(ptr noundef nonnull %0) #5
   %34 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv98
   store ptr %.06475, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.06177, i64 48
@@ -332,17 +332,18 @@ declare void @jRDifast(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 n
 
 declare void @jRDfloat(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #3
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #3 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

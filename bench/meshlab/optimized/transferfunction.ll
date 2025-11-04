@@ -134,7 +134,7 @@ define void @_ZN9TfChannelD2Ev(ptr noundef nonnull align 8 captures(none) derefe
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %.lr.ph
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #26
   %.pre = load ptr, ptr %4, align 8
   br label %10
 
@@ -159,7 +159,7 @@ _ZNSt6vectorIP6TF_KEYSaIS1_EE5clearEv.exit:       ; preds = %1, %._crit_edge, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorIP6TF_KEYSaIS1_EED2Ev.exit, label %16
 
 16:                                               ; preds = %_ZNSt6vectorIP6TF_KEYSaIS1_EE5clearEv.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %15) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %15) #26
   br label %_ZNSt6vectorIP6TF_KEYSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIP6TF_KEYSaIS1_EED2Ev.exit:           ; preds = %_ZNSt6vectorIP6TF_KEYSaIS1_EE5clearEv.exit, %16
@@ -176,8 +176,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #26
-  tail call void @_ZSt9terminatev() #27
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #27
+  tail call void @_ZSt9terminatev() #28
   unreachable
 }
 
@@ -200,7 +200,7 @@ define noundef i32 @_ZN9TfChannel7getTypeEv(ptr noundef nonnull readonly align 8
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN9TfChannel6addKeyEff(ptr noundef nonnull align 8 dereferenceable(32) %0, float noundef %1, float noundef %2) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %4 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
   store float %1, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float %2, ptr %5, align 4
@@ -261,7 +261,7 @@ define noundef ptr @_ZN9TfChannel6addKeyEP6TF_KEY(ptr noundef nonnull align 8 de
   br i1 %26, label %27, label %_ZNKSt6vectorIP6TF_KEYSaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 27:                                               ; preds = %22
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #29
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #30
   unreachable
 
 _ZNKSt6vectorIP6TF_KEYSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %22
@@ -274,7 +274,7 @@ _ZNKSt6vectorIP6TF_KEYSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %22
   %.not.i.i.i = icmp ne i64 %32, 0
   tail call void @llvm.assume(i1 %.not.i.i.i)
   %33 = shl nuw nsw i64 %32, 3
-  %34 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #28
+  %34 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #29
   %35 = getelementptr inbounds i8, ptr %34, i64 %25
   store ptr %1, ptr %35, align 8
   %36 = icmp sgt i64 %25, 0
@@ -290,7 +290,7 @@ _ZNSt6vectorIP6TF_KEYSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = 
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIP6TF_KEYSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %39
 
 39:                                               ; preds = %_ZNSt6vectorIP6TF_KEYSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #26
   br label %_ZNSt6vectorIP6TF_KEYSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIP6TF_KEYSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %39, %_ZNSt6vectorIP6TF_KEYSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
@@ -367,7 +367,7 @@ define linkonce_odr ptr @_ZNSt6vectorIP6TF_KEYSaIS1_EE6insertEN9__gnu_cxx17__nor
   br i1 %37, label %38, label %_ZNKSt6vectorIP6TF_KEYSaIS1_EE12_M_check_lenEmPKc.exit.i
 
 38:                                               ; preds = %33
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #29
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #30
   unreachable
 
 _ZNKSt6vectorIP6TF_KEYSaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %33
@@ -380,7 +380,7 @@ _ZNKSt6vectorIP6TF_KEYSaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %33
   %.not.i.i = icmp ne i64 %43, 0
   tail call void @llvm.assume(i1 %.not.i.i)
   %44 = shl nuw nsw i64 %43, 3
-  %45 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #28
+  %45 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #29
   %46 = getelementptr inbounds i8, ptr %45, i64 %7
   %47 = load ptr, ptr %2, align 8
   store ptr %47, ptr %46, align 8
@@ -406,7 +406,7 @@ _ZNSt6vectorIP6TF_KEYSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i: ; preds = %5
   br i1 %.not.i17.i, label %_ZNSt6vectorIP6TF_KEYSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %54
 
 54:                                               ; preds = %_ZNSt6vectorIP6TF_KEYSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #26
   br label %_ZNSt6vectorIP6TF_KEYSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit
 
 _ZNSt6vectorIP6TF_KEYSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit: ; preds = %_ZNSt6vectorIP6TF_KEYSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i, %54
@@ -456,7 +456,7 @@ define void @_ZN9TfChannel9removeKeyEi(ptr noundef nonnull align 8 captures(none
   br i1 %19, label %21, label %20
 
 20:                                               ; preds = %15
-  tail call void @_ZdlPv(ptr noundef nonnull %18) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %18) #26
   %.pre = load ptr, ptr %3, align 8
   %.pre7 = load ptr, ptr %7, align 8
   %.pre8 = ptrtoint ptr %.pre to i64
@@ -511,7 +511,7 @@ define void @_ZN9TfChannel9removeKeyEP6TF_KEY(ptr noundef nonnull align 8 captur
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %9
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #26
   %.pre = load ptr, ptr %3, align 8
   %.pre16 = load ptr, ptr %5, align 8
   br label %12
@@ -606,7 +606,7 @@ define noundef float @_ZN9TfChannel16getChannelValuefEf(ptr noundef nonnull read
   ret float %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #11
 
 ; Function Attrs: mustprogress uwtable
@@ -1447,7 +1447,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP6TF_KEYSt6vectorIS3_SaIS3_E
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #11
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @_ZN9TfChannelixEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, float noundef %1) local_unnamed_addr #10 align 2 {
@@ -1499,7 +1499,7 @@ define noundef ptr @_ZN9TfChannelixEm(ptr noundef nonnull readonly align 8 captu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #13 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #14 section ".text.startup" personality ptr @__gxx_personality_v0 {
   br label %2
 
 2:                                                ; preds = %_ZN7QStringD2Ev.exit, %1
@@ -1523,7 +1523,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i, %2
   %8 = phi ptr [ %.pre.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i ], [ %5, %2 ]
-  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %8, i64 noundef 2, i64 noundef 8) #26
+  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %8, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %2, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
@@ -1554,7 +1554,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2:      ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge, %1
   %5 = phi ptr [ %.pre, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge ], [ %2, %1 ]
-  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %5, i64 noundef 2, i64 noundef 8) #26
+  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %5, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %1, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2, %_ZN9QtPrivate8RefCount5derefEv.exit
@@ -1562,10 +1562,10 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %1, %_ZN9QtPrivate8R
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #14
+declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
-declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #15
+declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16TransferFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(16492) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
@@ -1611,7 +1611,7 @@ define void @_ZN16TransferFunctionC2Ev(ptr noundef nonnull align 8 dereferenceab
 .preheader13:                                     ; preds = %11, %.preheader13
   %14 = phi ptr [ %15, %.preheader13 ], [ %.ptr, %11 ]
   %15 = getelementptr inbounds i8, ptr %14, i64 -32
-  tail call void @_ZN9TfChannelD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #26
+  tail call void @_ZN9TfChannelD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #27
   %16 = icmp eq ptr %15, %0
   br i1 %16, label %.loopexit, label %.preheader13
 
@@ -1623,7 +1623,7 @@ define void @_ZN16TransferFunctionC2Ev(ptr noundef nonnull align 8 dereferenceab
 19:                                               ; preds = %19, %17
   %20 = phi ptr [ %2, %17 ], [ %21, %19 ]
   %21 = getelementptr inbounds i8, ptr %20, i64 -32
-  tail call void @_ZN9TfChannelD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
+  tail call void @_ZN9TfChannelD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #27
   %22 = icmp eq ptr %21, %0
   br i1 %22, label %.loopexit, label %19
 
@@ -1684,7 +1684,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i, %17
   %23 = phi ptr [ %.pre.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i ], [ %19, %17 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %23, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %23, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringaSEPKc.exit
 
 _ZN7QStringaSEPKc.exit:                           ; preds = %17, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
@@ -1712,7 +1712,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i6: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i9, %_ZN7QStringaSEPKc.exit
   %28 = phi ptr [ %.pre.i.i10, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i9 ], [ %24, %_ZN7QStringaSEPKc.exit ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %28, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %28, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringaSEPKc.exit11
 
 _ZN7QStringaSEPKc.exit11:                         ; preds = %_ZN7QStringaSEPKc.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i7, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i6
@@ -1740,7 +1740,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i12: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i15, %_ZN7QStringaSEPKc.exit11
   %33 = phi ptr [ %.pre.i.i16, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i15 ], [ %29, %_ZN7QStringaSEPKc.exit11 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %33, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %33, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringaSEPKc.exit17
 
 _ZN7QStringaSEPKc.exit17:                         ; preds = %_ZN7QStringaSEPKc.exit11, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i13, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i12
@@ -1768,7 +1768,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i18: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i21, %_ZN7QStringaSEPKc.exit17
   %38 = phi ptr [ %.pre.i.i22, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i21 ], [ %34, %_ZN7QStringaSEPKc.exit17 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %38, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %38, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringaSEPKc.exit23
 
 _ZN7QStringaSEPKc.exit23:                         ; preds = %_ZN7QStringaSEPKc.exit17, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i19, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i18
@@ -1796,7 +1796,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i24: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i27, %_ZN7QStringaSEPKc.exit23
   %43 = phi ptr [ %.pre.i.i28, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i27 ], [ %39, %_ZN7QStringaSEPKc.exit23 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %43, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %43, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringaSEPKc.exit29
 
 _ZN7QStringaSEPKc.exit29:                         ; preds = %_ZN7QStringaSEPKc.exit23, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i25, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i24
@@ -1824,7 +1824,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i30: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i33, %_ZN7QStringaSEPKc.exit29
   %48 = phi ptr [ %.pre.i.i34, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i33 ], [ %44, %_ZN7QStringaSEPKc.exit29 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %48, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %48, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringaSEPKc.exit35
 
 _ZN7QStringaSEPKc.exit35:                         ; preds = %_ZN7QStringaSEPKc.exit29, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i31, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i30
@@ -1852,7 +1852,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i36: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i39, %_ZN7QStringaSEPKc.exit35
   %53 = phi ptr [ %.pre.i.i40, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i39 ], [ %49, %_ZN7QStringaSEPKc.exit35 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %53, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %53, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringaSEPKc.exit41
 
 _ZN7QStringaSEPKc.exit41:                         ; preds = %_ZN7QStringaSEPKc.exit35, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i37, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i36
@@ -1880,7 +1880,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i42: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i45, %_ZN7QStringaSEPKc.exit41
   %58 = phi ptr [ %.pre.i.i46, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i45 ], [ %54, %_ZN7QStringaSEPKc.exit41 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %58, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %58, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringaSEPKc.exit47
 
 _ZN7QStringaSEPKc.exit47:                         ; preds = %_ZN7QStringaSEPKc.exit41, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i43, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i42
@@ -1908,7 +1908,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i48: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i51, %_ZN7QStringaSEPKc.exit47
   %63 = phi ptr [ %.pre.i.i52, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i51 ], [ %59, %_ZN7QStringaSEPKc.exit47 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %63, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %63, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringaSEPKc.exit53
 
 _ZN7QStringaSEPKc.exit53:                         ; preds = %_ZN7QStringaSEPKc.exit47, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i49, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i48
@@ -1936,7 +1936,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i54: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i57, %_ZN7QStringaSEPKc.exit53
   %68 = phi ptr [ %.pre.i.i58, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i57 ], [ %64, %_ZN7QStringaSEPKc.exit53 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %68, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %68, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringaSEPKc.exit59
 
 _ZN7QStringaSEPKc.exit59:                         ; preds = %_ZN7QStringaSEPKc.exit53, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i55, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i54
@@ -2008,7 +2008,7 @@ _ZN9TfChannel6addKeyEff.exit263.preheader:        ; preds = %11
 .preheader269:                                    ; preds = %16, %.preheader269
   %19 = phi ptr [ %20, %.preheader269 ], [ %.ptr, %16 ]
   %20 = getelementptr inbounds i8, ptr %19, i64 -32
-  tail call void @_ZN9TfChannelD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #26
+  tail call void @_ZN9TfChannelD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #27
   %21 = icmp eq ptr %20, %0
   br i1 %21, label %.loopexit, label %.preheader269
 
@@ -2032,7 +2032,7 @@ _ZN9TfChannel6addKeyEff.exit263.preheader:        ; preds = %11
   br label %285
 
 22:                                               ; preds = %11
-  %23 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %23 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %22
@@ -2043,7 +2043,7 @@ _ZN9TfChannel6addKeyEff.exit263.preheader:        ; preds = %11
           to label %_ZN9TfChannel6addKeyEff.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit:                     ; preds = %.noexc
-  %26 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %26 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc33 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc33:                                         ; preds = %_ZN9TfChannel6addKeyEff.exit
@@ -2055,7 +2055,7 @@ _ZN9TfChannel6addKeyEff.exit:                     ; preds = %.noexc
 
 _ZN9TfChannel6addKeyEff.exit35:                   ; preds = %.noexc33
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %30 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %30 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc36 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc36:                                         ; preds = %_ZN9TfChannel6addKeyEff.exit35
@@ -2066,7 +2066,7 @@ _ZN9TfChannel6addKeyEff.exit35:                   ; preds = %.noexc33
           to label %_ZN9TfChannel6addKeyEff.exit38 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit38:                   ; preds = %.noexc36
-  %33 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %33 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc39 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc39:                                         ; preds = %_ZN9TfChannel6addKeyEff.exit38
@@ -2078,7 +2078,7 @@ _ZN9TfChannel6addKeyEff.exit38:                   ; preds = %.noexc36
 
 _ZN9TfChannel6addKeyEff.exit41:                   ; preds = %.noexc39
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %37 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %37 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc42 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc42:                                         ; preds = %_ZN9TfChannel6addKeyEff.exit41
@@ -2089,11 +2089,11 @@ _ZN9TfChannel6addKeyEff.exit41:                   ; preds = %.noexc39
           to label %_ZN9TfChannel6addKeyEff.exit44 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit44:                   ; preds = %.noexc42
-  %40 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %40 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc225.invoke unwind label %.loopexit.split-lp.loopexit.split-lp
 
 41:                                               ; preds = %11
-  %42 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %42 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc48 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc48:                                         ; preds = %41
@@ -2104,7 +2104,7 @@ _ZN9TfChannel6addKeyEff.exit44:                   ; preds = %.noexc42
           to label %_ZN9TfChannel6addKeyEff.exit50 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit50:                   ; preds = %.noexc48
-  %45 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %45 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc51 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc51:                                         ; preds = %_ZN9TfChannel6addKeyEff.exit50
@@ -2115,7 +2115,7 @@ _ZN9TfChannel6addKeyEff.exit50:                   ; preds = %.noexc48
           to label %_ZN9TfChannel6addKeyEff.exit53 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit53:                   ; preds = %.noexc51
-  %48 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %48 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc54 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc54:                                         ; preds = %_ZN9TfChannel6addKeyEff.exit53
@@ -2126,7 +2126,7 @@ _ZN9TfChannel6addKeyEff.exit53:                   ; preds = %.noexc51
           to label %_ZN9TfChannel6addKeyEff.exit56 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit56:                   ; preds = %.noexc54
-  %51 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %51 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc57 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc57:                                         ; preds = %_ZN9TfChannel6addKeyEff.exit56
@@ -2137,7 +2137,7 @@ _ZN9TfChannel6addKeyEff.exit56:                   ; preds = %.noexc54
           to label %_ZN9TfChannel6addKeyEff.exit59 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit59:                   ; preds = %.noexc57
-  %54 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %54 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc60 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc60:                                         ; preds = %_ZN9TfChannel6addKeyEff.exit59
@@ -2148,7 +2148,7 @@ _ZN9TfChannel6addKeyEff.exit59:                   ; preds = %.noexc57
           to label %_ZN9TfChannel6addKeyEff.exit62 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit62:                   ; preds = %.noexc60
-  %57 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %57 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc63 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc63:                                         ; preds = %_ZN9TfChannel6addKeyEff.exit62
@@ -2160,7 +2160,7 @@ _ZN9TfChannel6addKeyEff.exit62:                   ; preds = %.noexc60
 
 _ZN9TfChannel6addKeyEff.exit65:                   ; preds = %.noexc63
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %61 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %61 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc66 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc66:                                         ; preds = %_ZN9TfChannel6addKeyEff.exit65
@@ -2171,7 +2171,7 @@ _ZN9TfChannel6addKeyEff.exit65:                   ; preds = %.noexc63
           to label %_ZN9TfChannel6addKeyEff.exit68 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit68:                   ; preds = %.noexc66
-  %64 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %64 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc69 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc69:                                         ; preds = %_ZN9TfChannel6addKeyEff.exit68
@@ -2182,7 +2182,7 @@ _ZN9TfChannel6addKeyEff.exit68:                   ; preds = %.noexc66
           to label %_ZN9TfChannel6addKeyEff.exit71 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit71:                   ; preds = %.noexc69
-  %67 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %67 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc72 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc72:                                         ; preds = %_ZN9TfChannel6addKeyEff.exit71
@@ -2193,7 +2193,7 @@ _ZN9TfChannel6addKeyEff.exit71:                   ; preds = %.noexc69
           to label %_ZN9TfChannel6addKeyEff.exit74 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit74:                   ; preds = %.noexc72
-  %70 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %70 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc75 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc75:                                         ; preds = %_ZN9TfChannel6addKeyEff.exit74
@@ -2204,7 +2204,7 @@ _ZN9TfChannel6addKeyEff.exit74:                   ; preds = %.noexc72
           to label %_ZN9TfChannel6addKeyEff.exit77 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit77:                   ; preds = %.noexc75
-  %73 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %73 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc78 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc78:                                         ; preds = %_ZN9TfChannel6addKeyEff.exit77
@@ -2215,7 +2215,7 @@ _ZN9TfChannel6addKeyEff.exit77:                   ; preds = %.noexc75
           to label %_ZN9TfChannel6addKeyEff.exit80 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit80:                   ; preds = %.noexc78
-  %76 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %76 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc81 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc81:                                         ; preds = %_ZN9TfChannel6addKeyEff.exit80
@@ -2227,7 +2227,7 @@ _ZN9TfChannel6addKeyEff.exit80:                   ; preds = %.noexc78
 
 _ZN9TfChannel6addKeyEff.exit83:                   ; preds = %.noexc81
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %80 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %80 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc84 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc84:                                         ; preds = %_ZN9TfChannel6addKeyEff.exit83
@@ -2238,7 +2238,7 @@ _ZN9TfChannel6addKeyEff.exit83:                   ; preds = %.noexc81
           to label %_ZN9TfChannel6addKeyEff.exit86 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit86:                   ; preds = %.noexc84
-  %83 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %83 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc87 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc87:                                         ; preds = %_ZN9TfChannel6addKeyEff.exit86
@@ -2249,7 +2249,7 @@ _ZN9TfChannel6addKeyEff.exit86:                   ; preds = %.noexc84
           to label %_ZN9TfChannel6addKeyEff.exit89 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit89:                   ; preds = %.noexc87
-  %86 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %86 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc90 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc90:                                         ; preds = %_ZN9TfChannel6addKeyEff.exit89
@@ -2260,7 +2260,7 @@ _ZN9TfChannel6addKeyEff.exit89:                   ; preds = %.noexc87
           to label %_ZN9TfChannel6addKeyEff.exit92 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit92:                   ; preds = %.noexc90
-  %89 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %89 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc93 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc93:                                         ; preds = %_ZN9TfChannel6addKeyEff.exit92
@@ -2271,7 +2271,7 @@ _ZN9TfChannel6addKeyEff.exit92:                   ; preds = %.noexc90
           to label %_ZN9TfChannel6addKeyEff.exit95 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit95:                   ; preds = %.noexc93
-  %92 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %92 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc96 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc96:                                         ; preds = %_ZN9TfChannel6addKeyEff.exit95
@@ -2282,11 +2282,11 @@ _ZN9TfChannel6addKeyEff.exit95:                   ; preds = %.noexc93
           to label %_ZN9TfChannel6addKeyEff.exit98 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit98:                   ; preds = %.noexc96
-  %95 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %95 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc225.invoke unwind label %.loopexit.split-lp.loopexit.split-lp
 
 96:                                               ; preds = %11
-  %97 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %97 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc102 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc102:                                        ; preds = %96
@@ -2297,7 +2297,7 @@ _ZN9TfChannel6addKeyEff.exit98:                   ; preds = %.noexc96
           to label %_ZN9TfChannel6addKeyEff.exit104 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit104:                  ; preds = %.noexc102
-  %100 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %100 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc105 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc105:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit104
@@ -2308,7 +2308,7 @@ _ZN9TfChannel6addKeyEff.exit104:                  ; preds = %.noexc102
           to label %_ZN9TfChannel6addKeyEff.exit107 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit107:                  ; preds = %.noexc105
-  %103 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %103 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc108 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc108:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit107
@@ -2320,7 +2320,7 @@ _ZN9TfChannel6addKeyEff.exit107:                  ; preds = %.noexc105
 
 _ZN9TfChannel6addKeyEff.exit110:                  ; preds = %.noexc108
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %107 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %107 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc111 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc111:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit110
@@ -2331,7 +2331,7 @@ _ZN9TfChannel6addKeyEff.exit110:                  ; preds = %.noexc108
           to label %_ZN9TfChannel6addKeyEff.exit113 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit113:                  ; preds = %.noexc111
-  %110 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %110 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc114 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc114:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit113
@@ -2342,7 +2342,7 @@ _ZN9TfChannel6addKeyEff.exit113:                  ; preds = %.noexc111
           to label %_ZN9TfChannel6addKeyEff.exit116 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit116:                  ; preds = %.noexc114
-  %113 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %113 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc117 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc117:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit116
@@ -2354,7 +2354,7 @@ _ZN9TfChannel6addKeyEff.exit116:                  ; preds = %.noexc114
 
 _ZN9TfChannel6addKeyEff.exit119:                  ; preds = %.noexc117
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %117 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %117 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc120 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc120:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit119
@@ -2365,7 +2365,7 @@ _ZN9TfChannel6addKeyEff.exit119:                  ; preds = %.noexc117
           to label %_ZN9TfChannel6addKeyEff.exit122 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit122:                  ; preds = %.noexc120
-  %120 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %120 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc123 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc123:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit122
@@ -2376,11 +2376,11 @@ _ZN9TfChannel6addKeyEff.exit122:                  ; preds = %.noexc120
           to label %_ZN9TfChannel6addKeyEff.exit125 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit125:                  ; preds = %.noexc123
-  %123 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %123 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc225.invoke unwind label %.loopexit.split-lp.loopexit.split-lp
 
 124:                                              ; preds = %11
-  %125 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %125 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc129 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc129:                                        ; preds = %124
@@ -2391,7 +2391,7 @@ _ZN9TfChannel6addKeyEff.exit125:                  ; preds = %.noexc123
           to label %_ZN9TfChannel6addKeyEff.exit131 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit131:                  ; preds = %.noexc129
-  %128 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %128 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc132 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc132:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit131
@@ -2402,7 +2402,7 @@ _ZN9TfChannel6addKeyEff.exit131:                  ; preds = %.noexc129
           to label %_ZN9TfChannel6addKeyEff.exit134 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit134:                  ; preds = %.noexc132
-  %131 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %131 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc135 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc135:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit134
@@ -2414,7 +2414,7 @@ _ZN9TfChannel6addKeyEff.exit134:                  ; preds = %.noexc132
 
 _ZN9TfChannel6addKeyEff.exit137:                  ; preds = %.noexc135
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %135 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %135 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc138 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc138:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit137
@@ -2425,7 +2425,7 @@ _ZN9TfChannel6addKeyEff.exit137:                  ; preds = %.noexc135
           to label %_ZN9TfChannel6addKeyEff.exit140 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit140:                  ; preds = %.noexc138
-  %138 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %138 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc141 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc141:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit140
@@ -2436,7 +2436,7 @@ _ZN9TfChannel6addKeyEff.exit140:                  ; preds = %.noexc138
           to label %_ZN9TfChannel6addKeyEff.exit143 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit143:                  ; preds = %.noexc141
-  %141 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %141 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc144 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc144:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit143
@@ -2448,7 +2448,7 @@ _ZN9TfChannel6addKeyEff.exit143:                  ; preds = %.noexc141
 
 _ZN9TfChannel6addKeyEff.exit146:                  ; preds = %.noexc144
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %145 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %145 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc147 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc147:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit146
@@ -2459,7 +2459,7 @@ _ZN9TfChannel6addKeyEff.exit146:                  ; preds = %.noexc144
           to label %_ZN9TfChannel6addKeyEff.exit149 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit149:                  ; preds = %.noexc147
-  %148 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %148 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc150 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc150:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit149
@@ -2470,11 +2470,11 @@ _ZN9TfChannel6addKeyEff.exit149:                  ; preds = %.noexc147
           to label %_ZN9TfChannel6addKeyEff.exit152 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit152:                  ; preds = %.noexc150
-  %151 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %151 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc225.invoke unwind label %.loopexit.split-lp.loopexit.split-lp
 
 152:                                              ; preds = %11
-  %153 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %153 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc156 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc156:                                        ; preds = %152
@@ -2485,7 +2485,7 @@ _ZN9TfChannel6addKeyEff.exit152:                  ; preds = %.noexc150
           to label %_ZN9TfChannel6addKeyEff.exit158 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit158:                  ; preds = %.noexc156
-  %156 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %156 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc159 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc159:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit158
@@ -2497,7 +2497,7 @@ _ZN9TfChannel6addKeyEff.exit158:                  ; preds = %.noexc156
 
 _ZN9TfChannel6addKeyEff.exit161:                  ; preds = %.noexc159
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %160 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %160 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc162 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc162:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit161
@@ -2508,7 +2508,7 @@ _ZN9TfChannel6addKeyEff.exit161:                  ; preds = %.noexc159
           to label %_ZN9TfChannel6addKeyEff.exit164 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit164:                  ; preds = %.noexc162
-  %163 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %163 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc165 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc165:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit164
@@ -2520,7 +2520,7 @@ _ZN9TfChannel6addKeyEff.exit164:                  ; preds = %.noexc162
 
 _ZN9TfChannel6addKeyEff.exit167:                  ; preds = %.noexc165
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %167 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %167 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc168 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc168:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit167
@@ -2531,11 +2531,11 @@ _ZN9TfChannel6addKeyEff.exit167:                  ; preds = %.noexc165
           to label %_ZN9TfChannel6addKeyEff.exit170 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit170:                  ; preds = %.noexc168
-  %170 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %170 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc225.invoke unwind label %.loopexit.split-lp.loopexit.split-lp
 
 171:                                              ; preds = %11
-  %172 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %172 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc174 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc174:                                        ; preds = %171
@@ -2546,7 +2546,7 @@ _ZN9TfChannel6addKeyEff.exit170:                  ; preds = %.noexc168
           to label %_ZN9TfChannel6addKeyEff.exit176 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit176:                  ; preds = %.noexc174
-  %175 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %175 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc177 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc177:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit176
@@ -2558,7 +2558,7 @@ _ZN9TfChannel6addKeyEff.exit176:                  ; preds = %.noexc174
 
 _ZN9TfChannel6addKeyEff.exit179:                  ; preds = %.noexc177
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %179 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %179 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc180 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc180:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit179
@@ -2569,7 +2569,7 @@ _ZN9TfChannel6addKeyEff.exit179:                  ; preds = %.noexc177
           to label %_ZN9TfChannel6addKeyEff.exit182 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit182:                  ; preds = %.noexc180
-  %182 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %182 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc183 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc183:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit182
@@ -2581,7 +2581,7 @@ _ZN9TfChannel6addKeyEff.exit182:                  ; preds = %.noexc180
 
 _ZN9TfChannel6addKeyEff.exit185:                  ; preds = %.noexc183
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %186 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %186 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc186 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc186:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit185
@@ -2592,11 +2592,11 @@ _ZN9TfChannel6addKeyEff.exit185:                  ; preds = %.noexc183
           to label %_ZN9TfChannel6addKeyEff.exit188 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit188:                  ; preds = %.noexc186
-  %189 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %189 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc225.invoke unwind label %.loopexit.split-lp.loopexit.split-lp
 
 190:                                              ; preds = %11
-  %191 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %191 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc192 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc192:                                        ; preds = %190
@@ -2607,7 +2607,7 @@ _ZN9TfChannel6addKeyEff.exit188:                  ; preds = %.noexc186
           to label %_ZN9TfChannel6addKeyEff.exit194 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit194:                  ; preds = %.noexc192
-  %194 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %194 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc195 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc195:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit194
@@ -2619,7 +2619,7 @@ _ZN9TfChannel6addKeyEff.exit194:                  ; preds = %.noexc192
 
 _ZN9TfChannel6addKeyEff.exit197:                  ; preds = %.noexc195
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %198 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %198 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc198 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc198:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit197
@@ -2630,7 +2630,7 @@ _ZN9TfChannel6addKeyEff.exit197:                  ; preds = %.noexc195
           to label %_ZN9TfChannel6addKeyEff.exit200 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit200:                  ; preds = %.noexc198
-  %201 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %201 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc201 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc201:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit200
@@ -2642,7 +2642,7 @@ _ZN9TfChannel6addKeyEff.exit200:                  ; preds = %.noexc198
 
 _ZN9TfChannel6addKeyEff.exit203:                  ; preds = %.noexc201
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %205 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %205 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc204 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc204:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit203
@@ -2653,11 +2653,11 @@ _ZN9TfChannel6addKeyEff.exit203:                  ; preds = %.noexc201
           to label %_ZN9TfChannel6addKeyEff.exit206 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit206:                  ; preds = %.noexc204
-  %208 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %208 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc225.invoke unwind label %.loopexit.split-lp.loopexit.split-lp
 
 209:                                              ; preds = %11
-  %210 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %210 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc210 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc210:                                        ; preds = %209
@@ -2668,7 +2668,7 @@ _ZN9TfChannel6addKeyEff.exit206:                  ; preds = %.noexc204
           to label %_ZN9TfChannel6addKeyEff.exit212 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit212:                  ; preds = %.noexc210
-  %213 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %213 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc213 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc213:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit212
@@ -2680,7 +2680,7 @@ _ZN9TfChannel6addKeyEff.exit212:                  ; preds = %.noexc210
 
 _ZN9TfChannel6addKeyEff.exit215:                  ; preds = %.noexc213
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %217 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %217 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc216 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc216:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit215
@@ -2691,7 +2691,7 @@ _ZN9TfChannel6addKeyEff.exit215:                  ; preds = %.noexc213
           to label %_ZN9TfChannel6addKeyEff.exit218 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit218:                  ; preds = %.noexc216
-  %220 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %220 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc219 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc219:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit218
@@ -2703,7 +2703,7 @@ _ZN9TfChannel6addKeyEff.exit218:                  ; preds = %.noexc216
 
 _ZN9TfChannel6addKeyEff.exit221:                  ; preds = %.noexc219
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %224 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %224 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc222 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc222:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit221
@@ -2714,7 +2714,7 @@ _ZN9TfChannel6addKeyEff.exit221:                  ; preds = %.noexc219
           to label %_ZN9TfChannel6addKeyEff.exit224 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9TfChannel6addKeyEff.exit224:                  ; preds = %.noexc222
-  %227 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %227 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc225.invoke unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc225.invoke:                                 ; preds = %_ZN9TfChannel6addKeyEff.exit224, %_ZN9TfChannel6addKeyEff.exit206, %_ZN9TfChannel6addKeyEff.exit188, %_ZN9TfChannel6addKeyEff.exit170, %_ZN9TfChannel6addKeyEff.exit152, %_ZN9TfChannel6addKeyEff.exit125, %_ZN9TfChannel6addKeyEff.exit98, %_ZN9TfChannel6addKeyEff.exit44
@@ -2735,7 +2735,7 @@ _ZN9TfChannel6addKeyEff.exit245:                  ; preds = %_ZN9TfChannel6addKe
 231:                                              ; preds = %_ZN9TfChannel6addKeyEff.exit245
   %232 = uitofp nneg i32 %.019 to float
   %233 = fmul float %232, 2.500000e-01
-  %234 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %234 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc228 unwind label %.loopexit.split-lp.loopexit
 
 .noexc228:                                        ; preds = %231
@@ -2752,7 +2752,7 @@ _ZN9TfChannel6addKeyEff.exit230:                  ; preds = %.noexc228
   %240 = fpext float %239 to double
   %241 = fadd double %240, -1.000000e-04
   %242 = fptrunc double %241 to float
-  %243 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %243 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc231 unwind label %.loopexit.split-lp.loopexit
 
 .noexc231:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit230
@@ -2763,7 +2763,7 @@ _ZN9TfChannel6addKeyEff.exit230:                  ; preds = %.noexc228
           to label %_ZN9TfChannel6addKeyEff.exit233 unwind label %.loopexit.split-lp.loopexit
 
 _ZN9TfChannel6addKeyEff.exit233:                  ; preds = %.noexc231
-  %246 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %246 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc234 unwind label %.loopexit.split-lp.loopexit
 
 .noexc234:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit233
@@ -2774,7 +2774,7 @@ _ZN9TfChannel6addKeyEff.exit233:                  ; preds = %.noexc231
           to label %_ZN9TfChannel6addKeyEff.exit236 unwind label %.loopexit.split-lp.loopexit
 
 _ZN9TfChannel6addKeyEff.exit236:                  ; preds = %.noexc234
-  %249 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %249 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc237 unwind label %.loopexit.split-lp.loopexit
 
 .noexc237:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit236
@@ -2785,7 +2785,7 @@ _ZN9TfChannel6addKeyEff.exit236:                  ; preds = %.noexc234
           to label %_ZN9TfChannel6addKeyEff.exit239 unwind label %.loopexit.split-lp.loopexit
 
 _ZN9TfChannel6addKeyEff.exit239:                  ; preds = %.noexc237
-  %252 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %252 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc240 unwind label %.loopexit.split-lp.loopexit
 
 .noexc240:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit239
@@ -2796,7 +2796,7 @@ _ZN9TfChannel6addKeyEff.exit239:                  ; preds = %.noexc237
           to label %_ZN9TfChannel6addKeyEff.exit242 unwind label %.loopexit.split-lp.loopexit
 
 _ZN9TfChannel6addKeyEff.exit242:                  ; preds = %.noexc240
-  %255 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %255 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc243 unwind label %.loopexit.split-lp.loopexit
 
 .noexc243:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit242
@@ -2814,7 +2814,7 @@ _ZN9TfChannel6addKeyEff.exit263:                  ; preds = %_ZN9TfChannel6addKe
 258:                                              ; preds = %_ZN9TfChannel6addKeyEff.exit263
   %259 = uitofp nneg i32 %.0 to float
   %260 = fmul float %259, 1.250000e-01
-  %261 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %261 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc246 unwind label %.loopexit264
 
 .noexc246:                                        ; preds = %258
@@ -2831,7 +2831,7 @@ _ZN9TfChannel6addKeyEff.exit248:                  ; preds = %.noexc246
   %267 = fpext float %266 to double
   %268 = fadd double %267, -1.000000e-04
   %269 = fptrunc double %268 to float
-  %270 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %270 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc249 unwind label %.loopexit264
 
 .noexc249:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit248
@@ -2842,7 +2842,7 @@ _ZN9TfChannel6addKeyEff.exit248:                  ; preds = %.noexc246
           to label %_ZN9TfChannel6addKeyEff.exit251 unwind label %.loopexit264
 
 _ZN9TfChannel6addKeyEff.exit251:                  ; preds = %.noexc249
-  %273 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %273 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc252 unwind label %.loopexit264
 
 .noexc252:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit251
@@ -2853,7 +2853,7 @@ _ZN9TfChannel6addKeyEff.exit251:                  ; preds = %.noexc249
           to label %_ZN9TfChannel6addKeyEff.exit254 unwind label %.loopexit264
 
 _ZN9TfChannel6addKeyEff.exit254:                  ; preds = %.noexc252
-  %276 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %276 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc255 unwind label %.loopexit264
 
 .noexc255:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit254
@@ -2864,7 +2864,7 @@ _ZN9TfChannel6addKeyEff.exit254:                  ; preds = %.noexc252
           to label %_ZN9TfChannel6addKeyEff.exit257 unwind label %.loopexit264
 
 _ZN9TfChannel6addKeyEff.exit257:                  ; preds = %.noexc255
-  %279 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %279 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc258 unwind label %.loopexit264
 
 .noexc258:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit257
@@ -2875,7 +2875,7 @@ _ZN9TfChannel6addKeyEff.exit257:                  ; preds = %.noexc255
           to label %_ZN9TfChannel6addKeyEff.exit260 unwind label %.loopexit264
 
 _ZN9TfChannel6addKeyEff.exit260:                  ; preds = %.noexc258
-  %282 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %282 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc261 unwind label %.loopexit264
 
 .noexc261:                                        ; preds = %_ZN9TfChannel6addKeyEff.exit260
@@ -2891,7 +2891,7 @@ _ZN9TfChannel6addKeyEff.exit47:                   ; preds = %_ZN9TfChannel6addKe
 285:                                              ; preds = %285, %.loopexit.split-lp
   %286 = phi ptr [ %3, %.loopexit.split-lp ], [ %287, %285 ]
   %287 = getelementptr inbounds i8, ptr %286, i64 -32
-  tail call void @_ZN9TfChannelD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %287) #26
+  tail call void @_ZN9TfChannelD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %287) #27
   %288 = icmp eq ptr %287, %0
   br i1 %288, label %.loopexit, label %285
 
@@ -2960,7 +2960,7 @@ define void @_ZN16TransferFunctionC2E7QString(ptr noundef nonnull align 8 derefe
 .preheader113:                                    ; preds = %23, %.preheader113
   %26 = phi ptr [ %27, %.preheader113 ], [ %.ptr, %23 ]
   %27 = getelementptr inbounds i8, ptr %26, i64 -32
-  tail call void @_ZN9TfChannelD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #26
+  tail call void @_ZN9TfChannelD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #27
   %28 = icmp eq ptr %27, %0
   br i1 %28, label %.loopexit, label %.preheader113
 
@@ -3010,7 +3010,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i, %36
   %41 = phi ptr [ %.pre.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i ], [ %37, %36 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %41, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %41, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %36, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
@@ -3041,7 +3041,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i30:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i33, %45
   %49 = phi ptr [ %.pre.i34, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i33 ], [ %46, %45 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %49, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %49, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringD2Ev.exit35
 
 _ZN7QStringD2Ev.exit35:                           ; preds = %45, %_ZN9QtPrivate8RefCount5derefEv.exit.i31, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i30
@@ -3109,7 +3109,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
   %71 = phi ptr [ %.pre.i.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i.i.i ], [ %68, %.lr.ph.i.i.i.i.i ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %71, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %71, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringD2Ev.exit.i.i.i.i.i
 
 _ZN7QStringD2Ev.exit.i.i.i.i.i:                   ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
@@ -3124,7 +3124,7 @@ _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i.i: ; preds = %_ZN7Q
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #27
+  call void @__clang_call_terminate(ptr %74) #28
   unreachable
 
 _ZN11QStringListaSEOS_.exit:                      ; preds = %53, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i, %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i.i
@@ -3182,7 +3182,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i.i, %.lr.ph.i.i.i.i
   %92 = phi ptr [ %.pre.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i.i ], [ %89, %.lr.ph.i.i.i.i ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %92, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %92, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringD2Ev.exit.i.i.i.i
 
 _ZN7QStringD2Ev.exit.i.i.i.i:                     ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i
@@ -3197,7 +3197,7 @@ _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i: ; preds = %_ZN7QSt
   %94 = landingpad { ptr, i32 }
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
-  call void @__clang_call_terminate(ptr %95) #27
+  call void @__clang_call_terminate(ptr %95) #28
   unreachable
 
 _ZN11QStringListD2Ev.exit:                        ; preds = %_ZN11QStringListaSEOS_.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i
@@ -3219,7 +3219,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i38:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i41, %_ZN11QStringListD2Ev.exit
   %99 = phi ptr [ %.pre.i42, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i41 ], [ %96, %_ZN11QStringListD2Ev.exit ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %99, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %99, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringD2Ev.exit43
 
 _ZN7QStringD2Ev.exit43:                           ; preds = %_ZN11QStringListD2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i39, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i38
@@ -3339,7 +3339,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i, %.lr.ph.i.i.i
   %151 = phi ptr [ %.pre.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i ], [ %148, %.lr.ph.i.i.i ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %151, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %151, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringD2Ev.exit.i.i.i
 
 _ZN7QStringD2Ev.exit.i.i.i:                       ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i, %.lr.ph.i.i.i
@@ -3468,7 +3468,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i99: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i102, %.lr.ph.i.i.i94
   %205 = phi ptr [ %.pre.i.i.i.i103, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i102 ], [ %202, %.lr.ph.i.i.i94 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %205, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %205, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringD2Ev.exit.i.i.i96
 
 _ZN7QStringD2Ev.exit.i.i.i96:                     ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i99, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i100, %.lr.ph.i.i.i94
@@ -3495,7 +3495,7 @@ _ZN5QListI7QStringE7deallocEPN9QListData4DataE.exit.i98: ; preds = %_ZN7QStringD
           to label %215 unwind label %.loopexit109
 
 215:                                              ; preds = %206
-  %216 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %216 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc48 unwind label %.loopexit109
 
 .noexc48:                                         ; preds = %215
@@ -3535,13 +3535,13 @@ _ZN9TfChannel6addKeyEff.exit:                     ; preds = %.noexc48
 227:                                              ; preds = %43
   %228 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #26
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #27
   br label %.loopexit.split-lp
 
 229:                                              ; preds = %52
   %230 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #26
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #27
   br label %.loopexit.split-lp
 
 ._crit_edge:                                      ; preds = %_ZN9TfChannel6addKeyEff.exit, %_ZN7QStringD2Ev.exit43
@@ -3615,7 +3615,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i58: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i.i61, %.lr.ph.i.i.i.i53
   %255 = phi ptr [ %.pre.i.i.i.i.i62, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i.i61 ], [ %252, %.lr.ph.i.i.i.i53 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %255, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %255, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringD2Ev.exit.i.i.i.i55
 
 _ZN7QStringD2Ev.exit.i.i.i.i55:                   ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i58, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i59, %.lr.ph.i.i.i.i53
@@ -3630,7 +3630,7 @@ _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i57: ; preds = %_ZN7Q
   %257 = landingpad { ptr, i32 }
           catch ptr null
   %258 = extractvalue { ptr, i32 } %257, 0
-  call void @__clang_call_terminate(ptr %258) #27
+  call void @__clang_call_terminate(ptr %258) #28
   unreachable
 
 _ZN11QStringListD2Ev.exit67:                      ; preds = %237, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i63, %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i57
@@ -3652,27 +3652,27 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i68:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i71, %_ZN11QStringListD2Ev.exit67
   %262 = phi ptr [ %.pre.i72, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i71 ], [ %259, %_ZN11QStringListD2Ev.exit67 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %262, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %262, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringD2Ev.exit73
 
 _ZN7QStringD2Ev.exit73:                           ; preds = %_ZN11QStringListD2Ev.exit67, %_ZN9QtPrivate8RefCount5derefEv.exit.i69, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i68
-  call void @_ZN11QTextStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
+  call void @_ZN11QTextStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
   br label %263
 
 263:                                              ; preds = %22, %_ZN7QStringD2Ev.exit73
-  call void @_ZN5QFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #26
+  call void @_ZN5QFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit109, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %229, %227
   %.pn = phi { ptr, i32 } [ %230, %229 ], [ %228, %227 ], [ %lpad.loopexit, %.loopexit109 ], [ %lpad.loopexit110, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp111, %.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN11QStringListD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #26
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #26
-  call void @_ZN11QTextStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
+  call void @_ZN11QStringListD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #27
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #27
+  call void @_ZN11QTextStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
   br label %264
 
 264:                                              ; preds = %.loopexit.split-lp, %31
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.loopexit.split-lp ], [ %32, %31 ]
-  call void @_ZN5QFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #26
+  call void @_ZN5QFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   br label %265
 
 265:                                              ; preds = %264, %29
@@ -3682,7 +3682,7 @@ _ZN7QStringD2Ev.exit73:                           ; preds = %_ZN11QStringListD2E
 266:                                              ; preds = %266, %265
   %267 = phi ptr [ %11, %265 ], [ %268, %266 ]
   %268 = getelementptr inbounds i8, ptr %267, i64 -32
-  call void @_ZN9TfChannelD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %268) #26
+  call void @_ZN9TfChannelD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %268) #27
   %269 = icmp eq ptr %268, %0
   br i1 %269, label %.loopexit, label %266
 
@@ -3759,7 +3759,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i, %.lr.ph.i.i.i
   %19 = phi ptr [ %.pre.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i ], [ %16, %.lr.ph.i.i.i ]
-  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %19, i64 noundef 2, i64 noundef 8) #26
+  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %19, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringD2Ev.exit.i.i.i
 
 _ZN7QStringD2Ev.exit.i.i.i:                       ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i, %.lr.ph.i.i.i
@@ -3774,7 +3774,7 @@ _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i: ; preds = %_ZN7QStri
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #27
+  tail call void @__clang_call_terminate(ptr %22) #28
   unreachable
 
 _ZN5QListI7QStringED2Ev.exit:                     ; preds = %1, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i
@@ -3786,15 +3786,15 @@ declare noundef float @_ZNK7QString7toFloatEPb(ptr noundef nonnull align 8 deref
 declare void @_ZN11QFileDevice5closeEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #12
 
 ; Function Attrs: nounwind
-declare void @_ZN11QTextStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #15
+declare void @_ZN11QTextStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare void @_ZN5QFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #15
+declare void @_ZN5QFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #16
 
 declare noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 declare void @_ZN9QListData7disposeEPNS_4DataE(ptr noundef) local_unnamed_addr #12
 
@@ -3808,7 +3808,7 @@ define void @_ZN16TransferFunctionD2Ev(ptr noundef nonnull align 8 dereferenceab
 3:                                                ; preds = %3, %1
   %4 = phi ptr [ %2, %1 ], [ %5, %3 ]
   %5 = getelementptr inbounds i8, ptr %4, i64 -32
-  tail call void @_ZN9TfChannelD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
+  tail call void @_ZN9TfChannelD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
   %6 = icmp eq ptr %5, %0
   br i1 %6, label %7, label %3
 
@@ -3817,7 +3817,7 @@ define void @_ZN16TransferFunctionD2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 declare void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef, i32 noundef) local_unnamed_addr #12
 
@@ -4209,7 +4209,7 @@ define i32 @_ZN16TransferFunction17getColorByQualityEfffff(ptr noundef nonnull r
   %13 = fsub float %3, %2
   %14 = fdiv float %12, %13
   %15 = fmul float %4, 2.000000e+00
-  %16 = tail call noundef float @powf(float noundef %14, float noundef %15) #26
+  %16 = tail call noundef float @powf(float noundef %14, float noundef %15) #27
   br label %17
 
 17:                                               ; preds = %9, %6, %11
@@ -4233,7 +4233,7 @@ define i32 @_ZN16TransferFunction17getColorByQualityEfffff(ptr noundef nonnull r
   %24 = load i8, ptr %23, align 1
   %25 = uitofp i8 %24 to float
   %26 = tail call noundef float @_Z21absolute2RelativeValfff(float noundef %25, float noundef 2.550000e+02)
-  %27 = tail call noundef float @powf(float noundef %26, float noundef %5) #26
+  %27 = tail call noundef float @powf(float noundef %26, float noundef %5) #27
   %28 = tail call noundef i32 @_Z21relative2AbsoluteValiff(float noundef %27, float noundef 2.550000e+02)
   %29 = trunc i32 %28 to i8
   store i8 %29, ptr %23, align 1
@@ -4248,7 +4248,7 @@ define i32 @_ZN16TransferFunction17getColorByQualityEfffff(ptr noundef nonnull r
   %33 = uitofp i8 %32 to float
   %34 = tail call noundef float @_Z21absolute2RelativeValfff(float noundef %33, float noundef 2.550000e+02)
   %35 = fsub float 1.000000e+00, %34
-  %36 = tail call noundef float @powf(float noundef %35, float noundef %22) #26
+  %36 = tail call noundef float @powf(float noundef %35, float noundef %22) #27
   %37 = fsub float 1.000000e+00, %36
   %38 = tail call noundef i32 @_Z21relative2AbsoluteValiff(float noundef %37, float noundef 2.550000e+02)
   %39 = trunc i32 %38 to i8
@@ -4263,7 +4263,7 @@ define i32 @_ZN16TransferFunction17getColorByQualityEfffff(ptr noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @powf(float noundef, float noundef) local_unnamed_addr #18
+declare float @powf(float noundef, float noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16TransferFunction8flipRampEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16492) %0) local_unnamed_addr #7 align 2 {
@@ -4397,7 +4397,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i, %35
   %39 = phi ptr [ %.pre.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i ], [ %36, %35 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %39, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %39, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %35, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
@@ -4419,7 +4419,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i46:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i49, %_ZN7QStringD2Ev.exit
   %43 = phi ptr [ %.pre.i50, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i49 ], [ %40, %_ZN7QStringD2Ev.exit ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %43, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %43, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringD2Ev.exit51
 
 _ZN7QStringD2Ev.exit51:                           ; preds = %_ZN7QStringD2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i47, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i46
@@ -4441,7 +4441,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i52:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i55, %_ZN7QStringD2Ev.exit51
   %47 = phi ptr [ %.pre.i56, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i55 ], [ %44, %_ZN7QStringD2Ev.exit51 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %47, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %47, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringD2Ev.exit57
 
 _ZN7QStringD2Ev.exit57:                           ; preds = %_ZN7QStringD2Ev.exit51, %_ZN9QtPrivate8RefCount5derefEv.exit.i53, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i52
@@ -4463,7 +4463,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i58:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i61, %_ZN7QStringD2Ev.exit57
   %51 = phi ptr [ %.pre.i62, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i61 ], [ %48, %_ZN7QStringD2Ev.exit57 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %51, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %51, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringD2Ev.exit63
 
 _ZN7QStringD2Ev.exit63:                           ; preds = %_ZN7QStringD2Ev.exit57, %_ZN9QtPrivate8RefCount5derefEv.exit.i59, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i58
@@ -4485,7 +4485,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i64:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i67, %_ZN7QStringD2Ev.exit63
   %55 = phi ptr [ %.pre.i68, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i67 ], [ %52, %_ZN7QStringD2Ev.exit63 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %55, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %55, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringD2Ev.exit69
 
 _ZN7QStringD2Ev.exit69:                           ; preds = %_ZN7QStringD2Ev.exit63, %_ZN9QtPrivate8RefCount5derefEv.exit.i65, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i64
@@ -4507,7 +4507,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i70:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i73, %_ZN7QStringD2Ev.exit69
   %59 = phi ptr [ %.pre.i74, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i73 ], [ %56, %_ZN7QStringD2Ev.exit69 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %59, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %59, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringD2Ev.exit75
 
 _ZN7QStringD2Ev.exit75:                           ; preds = %_ZN7QStringD2Ev.exit69, %_ZN9QtPrivate8RefCount5derefEv.exit.i71, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i70
@@ -4529,7 +4529,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i76:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i79, %_ZN7QStringD2Ev.exit75
   %63 = phi ptr [ %.pre.i80, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i79 ], [ %60, %_ZN7QStringD2Ev.exit75 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %63, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %63, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringD2Ev.exit81
 
 _ZN7QStringD2Ev.exit81:                           ; preds = %_ZN7QStringD2Ev.exit75, %_ZN9QtPrivate8RefCount5derefEv.exit.i77, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i76
@@ -4570,24 +4570,24 @@ _ZN7QStringD2Ev.exit81:                           ; preds = %_ZN7QStringD2Ev.exi
 
 .body43:                                          ; preds = %33, %75
   %.pn = phi { ptr, i32 } [ %76, %75 ], [ %34, %33 ]
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #26
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #26
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #27
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #27
   br label %.body
 
 .body:                                            ; preds = %73, %.body43, %24
   %.pn.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %.pn, %.body43 ], [ %74, %73 ]
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #26
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #26
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #27
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #27
   br label %77
 
 77:                                               ; preds = %.body, %71
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %.body ], [ %72, %71 ]
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #26
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #27
   br label %78
 
 78:                                               ; preds = %77, %69
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %77 ], [ %70, %69 ]
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #26
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #27
   br label %157
 
 79:                                               ; preds = %_ZN7QStringD2Ev.exit81
@@ -4689,7 +4689,7 @@ _ZN9TfChannelixEm.exit:                           ; preds = %.preheader, %113
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit86, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp87, %.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN11QTextStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #26
+  call void @_ZN11QTextStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #27
   br label %156
 
 ._crit_edge:                                      ; preds = %113, %.preheader
@@ -4761,22 +4761,22 @@ _ZlsR11QTextStreamPFS0_S0_E.exit85:               ; preds = %152
           to label %154 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 154:                                              ; preds = %_ZlsR11QTextStreamPFS0_S0_E.exit85
-  call void @_ZN11QTextStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #26
+  call void @_ZN11QTextStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #27
   br label %155
 
 155:                                              ; preds = %66, %154
-  call void @_ZN5QFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #26
+  call void @_ZN5QFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #27
   ret void
 
 156:                                              ; preds = %.loopexit.split-lp, %81
   %.pn34 = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %82, %81 ]
-  call void @_ZN5QFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #26
+  call void @_ZN5QFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #27
   br label %157
 
 157:                                              ; preds = %79, %156, %67, %78
   %.sink = phi ptr [ %5, %78 ], [ %5, %67 ], [ %0, %156 ], [ %0, %79 ]
   %.pn34.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %78 ], [ %68, %67 ], [ %.pn34, %156 ], [ %80, %79 ]
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #26
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #27
   resume { ptr, i32 } %.pn34.pn.pn
 }
 
@@ -4801,7 +4801,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %3, %7
   br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %_ZN7QStringC2ERKS_.exit
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #30, !noalias !42
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #31, !noalias !42
   %11 = trunc i64 %10 to i32
   br label %12
 
@@ -4833,7 +4833,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i, %_ZN7QStringpLERKS_.exit
   %18 = phi ptr [ %.pre.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i ], [ %15, %_ZN7QStringpLERKS_.exit ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %18, i64 noundef 2, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %18, i64 noundef 2, i64 noundef 8) #27
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QStringpLERKS_.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
@@ -4847,12 +4847,12 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QStringpLERKS_.
 21:                                               ; preds = %_ZN7QString8fromUtf8EPKci.exit
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #27
   br label %23
 
 23:                                               ; preds = %21, %19
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #27
   resume { ptr, i32 } %.pn
 }
 
@@ -4865,7 +4865,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEf(pt
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QString6appendERKS_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN16TransferFunction16moveChannelAheadE11TF_CHANNELS(ptr noundef nonnull align 8 captures(none) dereferenceable(16492) %0, i32 noundef %1) local_unnamed_addr #19 align 2 {
+define void @_ZN16TransferFunction16moveChannelAheadE11TF_CHANNELS(ptr noundef nonnull align 8 captures(none) dereferenceable(16492) %0, i32 noundef %1) local_unnamed_addr #20 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i32, ptr %4, align 8
@@ -4890,7 +4890,7 @@ define void @_ZN16TransferFunction16moveChannelAheadE11TF_CHANNELS(ptr noundef n
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @_GLOBAL__sub_I_transferfunction.cpp() #20 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_transferfunction.cpp() #21 section ".text.startup" {
   br label %1
 
 1:                                                ; preds = %1, %0
@@ -4902,27 +4902,27 @@ define internal void @_GLOBAL__sub_I_transferfunction.cpp() #20 section ".text.s
   br i1 %2, label %__cxx_global_var_init.exit, label %1
 
 __cxx_global_var_init.exit:                       ; preds = %1
-  %3 = tail call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor, ptr null, ptr nonnull @__dso_handle) #26
+  %3 = tail call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor, ptr null, ptr nonnull @__dso_handle) #27
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #21
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #22
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #21
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #22
+declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #23
+declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4935,26 +4935,27 @@ attributes #7 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind }
-attributes #15 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #24 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #25 = { builtin nounwind }
-attributes #26 = { nounwind }
-attributes #27 = { noreturn nounwind }
-attributes #28 = { builtin allocsize(0) }
-attributes #29 = { noreturn }
-attributes #30 = { nounwind willreturn memory(read) }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nounwind }
+attributes #16 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #26 = { builtin nounwind }
+attributes #27 = { nounwind }
+attributes #28 = { noreturn nounwind }
+attributes #29 = { builtin allocsize(0) }
+attributes #30 = { noreturn }
+attributes #31 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

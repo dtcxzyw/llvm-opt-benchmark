@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(inaccessiblemem: readwrite) uwtable
 define hidden noalias noundef ptr @FLAC__bitreader_new() local_unnamed_addr #0 {
-  %1 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #20
+  %1 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #21
   ret ptr %1
 }
 
@@ -21,11 +21,11 @@ define hidden void @FLAC__bitreader_delete(ptr noundef captures(none) %0) local_
   br i1 %.not.i, label %FLAC__bitreader_free.exit, label %3
 
 3:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %2) #21
+  tail call void @free(ptr noundef nonnull %2) #22
   br label %FLAC__bitreader_free.exit
 
 FLAC__bitreader_free.exit:                        ; preds = %1, %3
-  tail call void @free(ptr noundef nonnull %0) #21
+  tail call void @free(ptr noundef nonnull %0) #22
   ret void
 }
 
@@ -36,7 +36,7 @@ define hidden void @FLAC__bitreader_free(ptr noundef captures(none) initializes(
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %2) #21
+  tail call void @free(ptr noundef nonnull %2) #22
   br label %4
 
 4:                                                ; preds = %3, %1
@@ -61,7 +61,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_init(ptr noundef writeonly ca
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store i32 1024, ptr %5, align 8, !tbaa !13
-  %6 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #22
+  %6 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #23
   store ptr %6, ptr %0, align 8, !tbaa !3
   %7 = icmp eq ptr %6, null
   br i1 %7, label %14, label %8
@@ -228,7 +228,7 @@ crc16_update_word_.exit.i:                        ; preds = %.lr.ph.i.i, %10
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %45 = load i32, ptr %44, align 4, !tbaa !18
   %46 = trunc i32 %45 to i16
-  %47 = tail call zeroext i16 @FLAC__crc16_update_words64(ptr noundef %42, i32 noundef %43, i16 noundef zeroext %46) #21
+  %47 = tail call zeroext i16 @FLAC__crc16_update_words64(ptr noundef %42, i32 noundef %43, i16 noundef zeroext %46) #22
   %48 = zext i16 %47 to i32
   store i32 %48, ptr %44, align 4, !tbaa !18
   br label %crc16_update_block_.exit
@@ -650,7 +650,7 @@ crc16_update_word_.exit.i:                        ; preds = %.lr.ph.i.i, %13
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %46 = load i32, ptr %45, align 4, !tbaa !18
   %47 = trunc i32 %46 to i16
-  %48 = tail call zeroext i16 @FLAC__crc16_update_words64(ptr noundef %43, i32 noundef %44, i16 noundef zeroext %47) #21
+  %48 = tail call zeroext i16 @FLAC__crc16_update_words64(ptr noundef %43, i32 noundef %44, i16 noundef zeroext %47) #22
   %49 = zext i16 %48 to i32
   store i32 %49, ptr %45, align 4, !tbaa !18
   %.pre = load i32, ptr %3, align 4, !tbaa !16
@@ -673,7 +673,7 @@ crc16_update_block_.exit:                         ; preds = %38, %41
   %60 = add i32 %59, %56
   %61 = shl i32 %60, 3
   %62 = zext i32 %61 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %50, ptr noundef nonnull align 1 %58, i64 noundef range(i64 0, 4294967296) %62, i1 noundef false) #21
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %50, ptr noundef nonnull align 1 %58, i64 noundef range(i64 0, 4294967296) %62, i1 noundef false) #22
   %63 = load i32, ptr %52, align 4, !tbaa !28
   %64 = sub i32 %63, %51
   store i32 %64, ptr %52, align 4, !tbaa !28
@@ -715,7 +715,7 @@ crc16_update_block_.exit:                         ; preds = %38, %41
   %88 = load ptr, ptr %87, align 8, !tbaa !14
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %90 = load ptr, ptr %89, align 8, !tbaa !15
-  %91 = call i32 %88(ptr noundef nonnull %82, ptr noundef nonnull %2, ptr noundef %90) #21
+  %91 = call i32 %88(ptr noundef nonnull %82, ptr noundef nonnull %2, ptr noundef %90) #22
   %.not52 = icmp eq i32 %91, 0
   br i1 %.not52, label %92, label %97
 
@@ -2213,29 +2213,29 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint64(ptr noundef 
 
 declare zeroext i16 @FLAC__crc16_update_words64(ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #14
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #15
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #17
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #19
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #20
 
 attributes #0 = { mustprogress nofree nounwind sspstrong willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2252,14 +2252,15 @@ attributes #11 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-s
 attributes #12 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi2,+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #20 = { nounwind allocsize(0,1) }
-attributes #21 = { nounwind }
-attributes #22 = { nounwind allocsize(0) }
+attributes #15 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #21 = { nounwind allocsize(0,1) }
+attributes #22 = { nounwind }
+attributes #23 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

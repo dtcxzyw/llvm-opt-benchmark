@@ -604,7 +604,7 @@ define hidden noundef i32 @sharkd_session_main(i32 noundef %0) local_unnamed_add
 ._crit_edge118:                                   ; preds = %22, %28
   %.218 = phi ptr [ %29, %28 ], [ %.01670, %22 ]
   %.2 = phi i32 [ %23, %28 ], [ %.071, %22 ]
-  call void @llvm.memset.p0.i64(ptr noundef align 1 %.218, i8 noundef 0, i64 noundef range(i64 -34359738368, 34359738353) %27, i1 noundef false) #17
+  call void @llvm.memset.p0.i64(ptr noundef align 1 %.218, i8 noundef 0, i64 noundef range(i64 -34359738368, 34359738353) %27, i1 noundef false) #18
   %30 = call i32 @json_parse(ptr noundef nonnull %8, ptr noundef %.218, i32 noundef %23)
   %31 = icmp slt i32 %30, 1
   br i1 %31, label %32, label %34
@@ -721,7 +721,7 @@ json_find_attr.exit.i.i:                          ; preds = %.lr.ph.i.tail.i.i
   %78 = load i32, ptr %77, align 4
   %79 = sext i32 %78 to i64
   %80 = getelementptr i8, ptr %8, i64 %79
-  %81 = call i32 @strcmp(ptr noundef readonly %80, ptr noundef nonnull dereferenceable(7) @.str.11) #18
+  %81 = call i32 @strcmp(ptr noundef readonly %80, ptr noundef nonnull dereferenceable(7) @.str.11) #19
   %.not.not.i180.i.i = icmp eq i32 %81, 0
   br i1 %.not.not.i180.i.i, label %json_find_attr.exit184.i.i, label %74
 
@@ -744,12 +744,12 @@ json_find_attr.exit184.i.i:                       ; preds = %.lr.ph.i178.i.i
 88:                                               ; preds = %.preheader229.i.i
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %90 = load ptr, ptr %89, align 8
-  %91 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %85, ptr noundef %90) #18
+  %91 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %85, ptr noundef %90) #19
   %.not169.i.i = icmp eq i32 %91, 0
   br i1 %.not169.i.i, label %92, label %94
 
 92:                                               ; preds = %88
-  %93 = call i32 @strcmp(ptr noundef %87, ptr noundef nonnull dereferenceable(7) @.str.11) #18
+  %93 = call i32 @strcmp(ptr noundef %87, ptr noundef nonnull dereferenceable(7) @.str.11) #19
   %.not170.i.i = icmp eq i32 %93, 0
   %spec.select.i.i = select i1 %.not170.i.i, i1 true, i1 %.0124269.i.i
   br label %94
@@ -798,12 +798,12 @@ json_find_attr.exit184.i.i:                       ; preds = %.lr.ph.i178.i.i
   %112 = load i32, ptr %111, align 4
   %113 = sext i32 %112 to i64
   %114 = getelementptr i8, ptr %8, i64 %113
-  %115 = call i32 @strcmp(ptr noundef %109, ptr noundef nonnull dereferenceable(8) @.str.8) #18
+  %115 = call i32 @strcmp(ptr noundef %109, ptr noundef nonnull dereferenceable(8) @.str.8) #19
   %.not158.i.i = icmp eq i32 %115, 0
   br i1 %.not158.i.i, label %116, label %120
 
 116:                                              ; preds = %105
-  %117 = call i32 @strcmp(ptr noundef %114, ptr noundef nonnull dereferenceable(4) @.str.9) #18
+  %117 = call i32 @strcmp(ptr noundef %114, ptr noundef nonnull dereferenceable(4) @.str.9) #19
   %.not159.i.i = icmp eq i32 %117, 0
   br i1 %.not159.i.i, label %120, label %118
 
@@ -852,11 +852,11 @@ json_find_attr.exit184.i.i:                       ; preds = %.lr.ph.i178.i.i
   %137 = ptrtoint ptr %135 to i64
   %138 = ptrtoint ptr %134 to i64
   %139 = sub i64 %137, %138
-  %140 = call i32 @strncmp(ptr noundef readonly %109, ptr noundef %134, i64 noundef %139) #18
+  %140 = call i32 @strncmp(ptr noundef readonly %109, ptr noundef %134, i64 noundef %139) #19
   br label %is_param_match.exit.us.i.i
 
 141:                                              ; preds = %.preheader228.split.us.i.i
-  %142 = call i32 @strcmp(ptr noundef readonly %109, ptr noundef %134) #18
+  %142 = call i32 @strcmp(ptr noundef readonly %109, ptr noundef %134) #19
   br label %is_param_match.exit.us.i.i
 
 is_param_match.exit.us.i.i:                       ; preds = %141, %136
@@ -879,7 +879,7 @@ is_param_match.exit.us.i.i:                       ; preds = %141, %136
   %149 = load i32, ptr %106, align 4
   %150 = sext i32 %149 to i64
   %151 = getelementptr i8, ptr %8, i64 %150
-  %152 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2.i182208.i.i, ptr noundef %151) #18
+  %152 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2.i182208.i.i, ptr noundef %151) #19
   %.not163.us.i.i = icmp eq i32 %152, 0
   br i1 %.not163.us.i.i, label %.backedge.us.i.i, label %.split.us.i.i
 
@@ -903,11 +903,11 @@ is_param_match.exit.us.i.i:                       ; preds = %141, %136
   %160 = ptrtoint ptr %158 to i64
   %161 = ptrtoint ptr %157 to i64
   %162 = sub i64 %160, %161
-  %163 = call i32 @strncmp(ptr noundef readonly %109, ptr noundef %157, i64 noundef %162) #18
+  %163 = call i32 @strncmp(ptr noundef readonly %109, ptr noundef %157, i64 noundef %162) #19
   br label %is_param_match.exit.i.i
 
 164:                                              ; preds = %.preheader228.split.i.i
-  %165 = call i32 @strcmp(ptr noundef readonly %109, ptr noundef %157) #18
+  %165 = call i32 @strcmp(ptr noundef readonly %109, ptr noundef %157) #19
   br label %is_param_match.exit.i.i
 
 is_param_match.exit.i.i:                          ; preds = %164, %159
@@ -930,7 +930,7 @@ is_param_match.exit.i.i:                          ; preds = %164, %159
 
 171:                                              ; preds = %166
   %172 = load ptr, ptr %155, align 16
-  %173 = call i32 @strcmp(ptr noundef %172, ptr noundef nonnull dereferenceable(1) %.2.i182208.i.i) #18
+  %173 = call i32 @strcmp(ptr noundef %172, ptr noundef nonnull dereferenceable(1) %.2.i182208.i.i) #19
   %.not161.i.i = icmp eq i32 %173, 0
   br i1 %.not161.i.i, label %.split.us.i.i, label %.backedge.i.i
 
@@ -982,12 +982,12 @@ is_param_match.exit.i.i:                          ; preds = %164, %159
   br label %sharkd_session_process.exit
 
 191:                                              ; preds = %183
-  %192 = call i32 @strcmp(ptr noundef %114, ptr noundef nonnull dereferenceable(5) @.str.110) #18
+  %192 = call i32 @strcmp(ptr noundef %114, ptr noundef nonnull dereferenceable(5) @.str.110) #19
   %.not166.i.i = icmp eq i32 %192, 0
   br i1 %.not166.i.i, label %.loopexit.i.i, label %193
 
 193:                                              ; preds = %191
-  %194 = call i32 @strcmp(ptr noundef %114, ptr noundef nonnull dereferenceable(6) @.str.111) #18
+  %194 = call i32 @strcmp(ptr noundef %114, ptr noundef nonnull dereferenceable(6) @.str.111) #19
   %.not167.i.i = icmp eq i32 %194, 0
   br i1 %.not167.i.i, label %.loopexit.i.i, label %195
 
@@ -1045,7 +1045,7 @@ is_param_match.exit.i.i:                          ; preds = %164, %159
   %213 = load i32, ptr %212, align 4
   %214 = sext i32 %213 to i64
   %215 = getelementptr i8, ptr %8, i64 %214
-  %216 = call i32 @strcmp(ptr noundef readonly %215, ptr noundef readonly %208) #18
+  %216 = call i32 @strcmp(ptr noundef readonly %215, ptr noundef readonly %208) #19
   %.not.not.i190.i.i = icmp eq i32 %216, 0
   br i1 %.not.not.i190.i.i, label %json_find_attr.exit194.i.i, label %209
 
@@ -1083,7 +1083,7 @@ json_find_attr.exit194.thread.i.i:                ; preds = %json_find_attr.exit
 
 233:                                              ; preds = %.preheader.i.i
   %234 = load ptr, ptr %227, align 16
-  %235 = call i32 @strcmp(ptr noundef %.2.i182208.i.i, ptr noundef %234) #18
+  %235 = call i32 @strcmp(ptr noundef %.2.i182208.i.i, ptr noundef %234) #19
   %.not154.i.i = icmp eq i32 %235, 0
   br i1 %.not154.i.i, label %.lr.ph.i197.preheader.i.i, label %251
 
@@ -1104,7 +1104,7 @@ json_find_attr.exit194.thread.i.i:                ; preds = %json_find_attr.exit
   %242 = load i32, ptr %241, align 4
   %243 = sext i32 %242 to i64
   %244 = getelementptr i8, ptr %8, i64 %243
-  %245 = call i32 @strcmp(ptr noundef readonly %244, ptr noundef readonly %237) #18
+  %245 = call i32 @strcmp(ptr noundef readonly %244, ptr noundef readonly %237) #19
   %.not.not.i199.i.i = icmp eq i32 %245, 0
   br i1 %.not.not.i199.i.i, label %json_find_attr.exit203.i.i, label %238
 
@@ -1139,7 +1139,7 @@ json_find_attr.exit203.thread.i.i:                ; preds = %json_find_attr.exit
   %258 = load i32, ptr %257, align 4
   %259 = sext i32 %258 to i64
   %260 = getelementptr i8, ptr %8, i64 %259
-  %261 = call i32 @strcmp(ptr noundef readonly %260, ptr noundef nonnull dereferenceable(7) @.str.11) #18
+  %261 = call i32 @strcmp(ptr noundef readonly %260, ptr noundef nonnull dereferenceable(7) @.str.11) #19
   %.not.not.i.i = icmp eq i32 %261, 0
   br i1 %.not.not.i.i, label %json_find_attr.exit.i, label %254
 
@@ -1157,7 +1157,7 @@ json_find_attr.exit.thread.i:                     ; preds = %254, %json_find_att
   br label %sharkd_session_process.exit
 
 267:                                              ; preds = %json_find_attr.exit.i
-  %268 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(5) @.str.13) #18
+  %268 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(5) @.str.13) #19
   %.not65.i = icmp eq i32 %268, 0
   br i1 %.not65.i, label %269, label %270
 
@@ -1166,7 +1166,7 @@ json_find_attr.exit.thread.i:                     ; preds = %254, %json_find_att
   br label %sharkd_session_process.exit
 
 270:                                              ; preds = %267
-  %271 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(7) @.str.14) #18
+  %271 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(7) @.str.14) #19
   %.not66.i = icmp eq i32 %271, 0
   br i1 %.not66.i, label %272, label %316
 
@@ -1285,7 +1285,7 @@ sharkd_session_process_status.exit.i:             ; preds = %._crit_edge28.i.i, 
   br label %sharkd_session_process.exit
 
 316:                                              ; preds = %270
-  %317 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(8) @.str.15) #18
+  %317 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(8) @.str.15) #19
   %.not67.i = icmp eq i32 %317, 0
   br i1 %.not67.i, label %318, label %342
 
@@ -1370,7 +1370,7 @@ sharkd_session_process_analyse.exit.i:            ; preds = %336, %334
   br label %sharkd_session_process.exit
 
 342:                                              ; preds = %316
-  %343 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(5) @.str.16) #18
+  %343 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(5) @.str.16) #19
   %.not68.i = icmp eq i32 %343, 0
   br i1 %.not68.i, label %344, label %394
 
@@ -1477,7 +1477,7 @@ sharkd_session_print_capture_types.exit.i.i:      ; preds = %.lr.ph.i.i96.i, %36
   call void @json_dumper_begin_array(ptr noundef nonnull @dumper)
   %374 = call i32 @wtap_get_num_encap_types()
   %375 = sext i32 %374 to i64
-  %376 = call noalias ptr @g_malloc_n(i64 noundef %375, i64 noundef 16) #19
+  %376 = call noalias ptr @g_malloc_n(i64 noundef %375, i64 noundef 16) #20
   %377 = call i32 @wtap_get_num_encap_types()
   %378 = icmp sgt i32 %377, 0
   br i1 %378, label %.lr.ph.i12.i.i, label %sharkd_session_process_info.exit.i
@@ -1599,7 +1599,7 @@ sharkd_session_process_info.exit.i:               ; preds = %386, %sharkd_sessio
   br label %sharkd_session_process.exit
 
 394:                                              ; preds = %342
-  %395 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(6) @.str.17) #18
+  %395 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(6) @.str.17) #19
   %.not69.i = icmp eq i32 %395, 0
   br i1 %.not69.i, label %396, label %397
 
@@ -1608,7 +1608,7 @@ sharkd_session_process_info.exit.i:               ; preds = %386, %sharkd_sessio
   br label %sharkd_session_process.exit
 
 397:                                              ; preds = %394
-  %398 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(9) @.str.18) #18
+  %398 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(9) @.str.18) #19
   %.not70.i = icmp eq i32 %398, 0
   br i1 %.not70.i, label %399, label %400
 
@@ -1617,7 +1617,7 @@ sharkd_session_process_info.exit.i:               ; preds = %386, %sharkd_sessio
   br label %sharkd_session_process.exit
 
 400:                                              ; preds = %397
-  %401 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(7) @.str.19) #18
+  %401 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(7) @.str.19) #19
   %.not71.i = icmp eq i32 %401, 0
   br i1 %.not71.i, label %402, label %403
 
@@ -1626,7 +1626,7 @@ sharkd_session_process_info.exit.i:               ; preds = %386, %sharkd_sessio
   br label %sharkd_session_process.exit
 
 403:                                              ; preds = %400
-  %404 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(4) @.str.20) #18
+  %404 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(4) @.str.20) #19
   %.not72.i = icmp eq i32 %404, 0
   br i1 %.not72.i, label %405, label %406
 
@@ -1635,7 +1635,7 @@ sharkd_session_process_info.exit.i:               ; preds = %386, %sharkd_sessio
   br label %sharkd_session_process.exit
 
 406:                                              ; preds = %403
-  %407 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(7) @.str.21) #18
+  %407 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(7) @.str.21) #19
   %.not73.i = icmp eq i32 %407, 0
   br i1 %.not73.i, label %408, label %409
 
@@ -1644,7 +1644,7 @@ sharkd_session_process_info.exit.i:               ; preds = %386, %sharkd_sessio
   br label %sharkd_session_process.exit
 
 409:                                              ; preds = %406
-  %410 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(8) @.str.22) #18
+  %410 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(8) @.str.22) #19
   %.not74.i = icmp eq i32 %410, 0
   br i1 %.not74.i, label %411, label %412
 
@@ -1653,7 +1653,7 @@ sharkd_session_process_info.exit.i:               ; preds = %386, %sharkd_sessio
   br label %sharkd_session_process.exit
 
 412:                                              ; preds = %409
-  %413 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(10) @.str.23) #18
+  %413 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(10) @.str.23) #19
   %.not75.i = icmp eq i32 %413, 0
   br i1 %.not75.i, label %414, label %415
 
@@ -1662,7 +1662,7 @@ sharkd_session_process_info.exit.i:               ; preds = %386, %sharkd_sessio
   br label %sharkd_session_process.exit
 
 415:                                              ; preds = %412
-  %416 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(6) @.str.24) #18
+  %416 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(6) @.str.24) #19
   %.not76.i = icmp eq i32 %416, 0
   br i1 %.not76.i, label %417, label %418
 
@@ -1671,7 +1671,7 @@ sharkd_session_process_info.exit.i:               ; preds = %386, %sharkd_sessio
   br label %sharkd_session_process.exit
 
 418:                                              ; preds = %415
-  %419 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(11) @.str.25) #18
+  %419 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(11) @.str.25) #19
   %.not77.i = icmp eq i32 %419, 0
   br i1 %.not77.i, label %420, label %421
 
@@ -1680,7 +1680,7 @@ sharkd_session_process_info.exit.i:               ; preds = %386, %sharkd_sessio
   br label %sharkd_session_process.exit
 
 421:                                              ; preds = %418
-  %422 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(8) @.str.26) #18
+  %422 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(8) @.str.26) #19
   %.not78.i = icmp eq i32 %422, 0
   br i1 %.not78.i, label %423, label %424
 
@@ -1689,7 +1689,7 @@ sharkd_session_process_info.exit.i:               ; preds = %386, %sharkd_sessio
   br label %sharkd_session_process.exit
 
 424:                                              ; preds = %421
-  %425 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(9) @.str.27) #18
+  %425 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(9) @.str.27) #19
   %.not79.i = icmp eq i32 %425, 0
   br i1 %.not79.i, label %426, label %427
 
@@ -1698,7 +1698,7 @@ sharkd_session_process_info.exit.i:               ; preds = %386, %sharkd_sessio
   br label %sharkd_session_process.exit
 
 427:                                              ; preds = %424
-  %428 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(9) @.str.28) #18
+  %428 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(9) @.str.28) #19
   %.not80.i = icmp eq i32 %428, 0
   br i1 %.not80.i, label %429, label %430
 
@@ -1707,14 +1707,14 @@ sharkd_session_process_info.exit.i:               ; preds = %386, %sharkd_sessio
   br label %sharkd_session_process.exit
 
 430:                                              ; preds = %427
-  %431 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(4) @.str.29) #18
+  %431 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(4) @.str.29) #19
   %.not81.i = icmp eq i32 %431, 0
   %432 = load i32, ptr @rpcid, align 4
   br i1 %.not81.i, label %433, label %434
 
 433:                                              ; preds = %430
   call fastcc void @sharkd_json_simple_ok(i32 noundef %432)
-  call void @exit(i32 noundef 0) #20
+  call void @exit(i32 noundef 0) #21
   unreachable
 
 434:                                              ; preds = %430
@@ -1890,7 +1890,7 @@ define internal fastcc void @sharkd_session_process_load(ptr noundef %0, ptr nou
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
   %16 = getelementptr i8, ptr %0, i64 %15
-  %17 = call i32 @strcmp(ptr noundef readonly %16, ptr noundef nonnull dereferenceable(5) @.str.81) #18
+  %17 = call i32 @strcmp(ptr noundef readonly %16, ptr noundef nonnull dereferenceable(5) @.str.81) #19
   %.not.not.i = icmp eq i32 %17, 0
   br i1 %.not.not.i, label %json_find_attr.exit, label %10
 
@@ -1928,7 +1928,7 @@ json_find_attr.exit:                              ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @except_setup_try(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull @sharkd_session_process_load.catch_spec, i64 noundef 1)
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %30 = call i32 @_setjmp(ptr noundef nonnull %29) #21
+  %30 = call i32 @_setjmp(ptr noundef nonnull %29) #22
   %.not18 = icmp eq i32 %30, 0
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sink = select i1 %.not18, ptr null, ptr %31
@@ -2003,7 +2003,7 @@ json_find_attr.exit:                              ; preds = %.lr.ph.i
 
 57:                                               ; preds = %56
   %.0..0..0..0.11 = load volatile ptr, ptr %5, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.11) #22
+  call void @except_rethrow(ptr noundef %.0..0..0..0.11) #23
   unreachable
 
 58:                                               ; preds = %56, %54
@@ -2072,7 +2072,7 @@ define internal fastcc void @sharkd_session_process_check(ptr noundef %0, ptr no
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr i8, ptr %0, i64 %12
-  %14 = tail call i32 @strcmp(ptr noundef readonly %13, ptr noundef nonnull dereferenceable(7) @.str.34) #18
+  %14 = tail call i32 @strcmp(ptr noundef readonly %13, ptr noundef nonnull dereferenceable(7) @.str.34) #19
   %.not.not.i = icmp eq i32 %14, 0
   br i1 %.not.not.i, label %.thread.i, label %7
 
@@ -2099,7 +2099,7 @@ define internal fastcc void @sharkd_session_process_check(ptr noundef %0, ptr no
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   %25 = getelementptr i8, ptr %0, i64 %24
-  %26 = tail call i32 @strcmp(ptr noundef readonly %25, ptr noundef nonnull dereferenceable(6) @.str.33) #18
+  %26 = tail call i32 @strcmp(ptr noundef readonly %25, ptr noundef nonnull dereferenceable(6) @.str.33) #19
   %.not.not.i23 = icmp eq i32 %26, 0
   br i1 %.not.not.i23, label %json_find_attr.exit27, label %19
 
@@ -2226,7 +2226,7 @@ define internal fastcc void @sharkd_session_process_complete(ptr noundef %0, ptr
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr i8, ptr %0, i64 %13
-  %15 = tail call i32 @strcmp(ptr noundef readonly %14, ptr noundef nonnull dereferenceable(6) @.str.33) #18
+  %15 = tail call i32 @strcmp(ptr noundef readonly %14, ptr noundef nonnull dereferenceable(6) @.str.33) #19
   %.not.not.i = icmp eq i32 %15, 0
   br i1 %.not.not.i, label %.thread.i, label %8
 
@@ -2253,7 +2253,7 @@ define internal fastcc void @sharkd_session_process_complete(ptr noundef %0, ptr
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %24 to i64
   %26 = getelementptr i8, ptr %0, i64 %25
-  %27 = tail call i32 @strcmp(ptr noundef readonly %26, ptr noundef nonnull dereferenceable(5) @.str.35) #18
+  %27 = tail call i32 @strcmp(ptr noundef readonly %26, ptr noundef nonnull dereferenceable(5) @.str.35) #19
   %.not.not.i68 = icmp eq i32 %27, 0
   br i1 %.not.not.i68, label %.thread.i71, label %20
 
@@ -2283,8 +2283,8 @@ json_find_attr.exit72:                            ; preds = %20, %3, %.thread.i7
   br i1 %.not51, label %83, label %36
 
 36:                                               ; preds = %34
-  %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2.i74) #18
-  %38 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.2.i74, i32 noundef 46) #18
+  %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2.i74) #19
+  %38 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.2.i74, i32 noundef 46) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.33)
@@ -2307,7 +2307,7 @@ json_find_attr.exit72:                            ; preds = %20, %3, %.thread.i7
 42:                                               ; preds = %.lr.ph82.split.us
   %43 = call ptr @proto_get_protocol_long_name(ptr noundef %40)
   %44 = call ptr @proto_get_protocol_filter_name(i32 noundef %.081.us)
-  %45 = call i64 @strlen(ptr noundef %44) #18
+  %45 = call i64 @strlen(ptr noundef %44) #19
   %.not58.us = icmp ult i64 %45, %37
   br i1 %.not58.us, label %49, label %46
 
@@ -2340,7 +2340,7 @@ json_find_attr.exit72:                            ; preds = %20, %3, %.thread.i7
 53:                                               ; preds = %.lr.ph82.split
   %54 = call ptr @proto_get_protocol_long_name(ptr noundef %51)
   %55 = call ptr @proto_get_protocol_filter_name(i32 noundef %.081)
-  %56 = call i64 @strlen(ptr noundef %55) #18
+  %56 = call i64 @strlen(ptr noundef %55) #19
   %.not58 = icmp ult i64 %56, %37
   br i1 %.not58, label %60, label %57
 
@@ -2374,7 +2374,7 @@ json_find_attr.exit72:                            ; preds = %20, %3, %.thread.i7
 64:                                               ; preds = %.lr.ph
   %65 = getelementptr inbounds nuw i8, ptr %.04579, i64 8
   %66 = load ptr, ptr %65, align 8
-  %67 = call i64 @strlen(ptr noundef %66) #18
+  %67 = call i64 @strlen(ptr noundef %66) #19
   %.not62 = icmp ult i64 %67, %37
   br i1 %.not62, label %80, label %68
 
@@ -2438,7 +2438,7 @@ json_find_attr.exit72:                            ; preds = %20, %3, %.thread.i7
   store ptr %32, ptr %87, align 8
   call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.35)
   call void @json_dumper_begin_array(ptr noundef nonnull @dumper)
-  %88 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %32, i32 noundef 46) #18
+  %88 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %32, i32 noundef 46) #19
   %.not56 = icmp eq ptr %88, null
   br i1 %.not56, label %95, label %89
 
@@ -2510,7 +2510,7 @@ define internal fastcc void @sharkd_session_process_frames(ptr noundef %0, ptr n
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr i8, ptr %0, i64 %23
-  %25 = tail call i32 @strcmp(ptr noundef readonly %24, ptr noundef nonnull dereferenceable(7) @.str.34) #18
+  %25 = tail call i32 @strcmp(ptr noundef readonly %24, ptr noundef nonnull dereferenceable(7) @.str.34) #19
   %.not.not.i = icmp eq i32 %25, 0
   br i1 %.not.not.i, label %.thread.i, label %18
 
@@ -2537,7 +2537,7 @@ define internal fastcc void @sharkd_session_process_frames(ptr noundef %0, ptr n
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
   %36 = getelementptr i8, ptr %0, i64 %35
-  %37 = tail call i32 @strcmp(ptr noundef readonly %36, ptr noundef nonnull dereferenceable(8) @.str.190) #18
+  %37 = tail call i32 @strcmp(ptr noundef readonly %36, ptr noundef nonnull dereferenceable(8) @.str.190) #19
   %.not.not.i97 = icmp eq i32 %37, 0
   br i1 %.not.not.i97, label %.thread.i100, label %30
 
@@ -2565,7 +2565,7 @@ define internal fastcc void @sharkd_session_process_frames(ptr noundef %0, ptr n
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %47 to i64
   %49 = getelementptr i8, ptr %0, i64 %48
-  %50 = tail call i32 @strcmp(ptr noundef readonly %49, ptr noundef nonnull dereferenceable(5) @.str.46) #18
+  %50 = tail call i32 @strcmp(ptr noundef readonly %49, ptr noundef nonnull dereferenceable(5) @.str.46) #19
   %.not.not.i106 = icmp eq i32 %50, 0
   br i1 %.not.not.i106, label %.thread.i109, label %43
 
@@ -2592,7 +2592,7 @@ define internal fastcc void @sharkd_session_process_frames(ptr noundef %0, ptr n
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
   %61 = getelementptr i8, ptr %0, i64 %60
-  %62 = tail call i32 @strcmp(ptr noundef readonly %61, ptr noundef nonnull dereferenceable(6) @.str.47) #18
+  %62 = tail call i32 @strcmp(ptr noundef readonly %61, ptr noundef nonnull dereferenceable(6) @.str.47) #19
   %.not.not.i115 = icmp eq i32 %62, 0
   br i1 %.not.not.i115, label %.thread.i118, label %55
 
@@ -2633,7 +2633,7 @@ json_find_attr.exit119:                           ; preds = %55, %.thread.i118
   %71 = load i32, ptr %70, align 4
   %72 = sext i32 %71 to i64
   %73 = getelementptr i8, ptr %0, i64 %72
-  %74 = tail call i32 @strcmp(ptr noundef readonly %73, ptr noundef nonnull dereferenceable(5) @.str.48) #18
+  %74 = tail call i32 @strcmp(ptr noundef readonly %73, ptr noundef nonnull dereferenceable(5) @.str.48) #19
   %.not.not.i124 = icmp eq i32 %74, 0
   br i1 %.not.not.i124, label %.thread.i127, label %67
 
@@ -2656,7 +2656,7 @@ json_find_attr.exit128:                           ; preds = %67, %.thread.i127
   br i1 %.2.i99, label %134, label %79
 
 79:                                               ; preds = %json_find_attr.exit128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, i8 noundef 0, i64 noundef 72, i1 noundef false) #17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, i8 noundef 0, i64 noundef 72, i1 noundef false) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -2682,7 +2682,7 @@ json_find_attr.exit128:                           ; preds = %67, %.thread.i127
   %87 = load i32, ptr %86, align 4
   %88 = sext i32 %87 to i64
   %89 = getelementptr i8, ptr %0, i64 %88
-  %90 = call i32 @strcmp(ptr noundef readonly %89, ptr noundef nonnull readonly dereferenceable(1) %8) #18
+  %90 = call i32 @strcmp(ptr noundef readonly %89, ptr noundef nonnull readonly dereferenceable(1) %8) #19
   %.not.not.i.i = icmp eq i32 %90, 0
   br i1 %.not.not.i.i, label %json_find_attr.exit.i, label %83
 
@@ -2699,7 +2699,7 @@ json_find_attr.exit.i:                            ; preds = %.lr.ph.i.i
   store ptr null, ptr %97, align 8
   %98 = getelementptr i16, ptr %7, i64 %indvars.iv.i129
   store i16 0, ptr %98, align 2
-  %99 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %94, i32 noundef 58) #18
+  %99 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %94, i32 noundef 58) #19
   %.not.i132 = icmp eq ptr %99, null
   br i1 %.not.i132, label %104, label %100
 
@@ -2818,7 +2818,7 @@ sharkd_session_filter_data.exit.thread163:        ; preds = %138
   br label %.thread
 
 sharkd_session_filter_data.exit:                  ; preds = %138
-  %140 = call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #23
+  %140 = call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #24
   %141 = load ptr, ptr %4, align 8
   store ptr %141, ptr %140, align 8
   %142 = load ptr, ptr @filter_table, align 8
@@ -3106,7 +3106,7 @@ json_find_attr.exit.thread:                       ; preds = %3
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr i8, ptr %0, i64 %23
-  %25 = tail call i32 @strcmp(ptr noundef readonly %24, ptr noundef nonnull dereferenceable(7) @.str.34) #18
+  %25 = tail call i32 @strcmp(ptr noundef readonly %24, ptr noundef nonnull dereferenceable(7) @.str.34) #19
   %.not.not.i = icmp eq i32 %25, 0
   br i1 %.not.not.i, label %.thread.i, label %18
 
@@ -3147,7 +3147,7 @@ json_find_attr.exit:                              ; preds = %18, %.thread.i
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
   %37 = getelementptr i8, ptr %0, i64 %36
-  %38 = call i32 @strcmp(ptr noundef readonly %37, ptr noundef nonnull readonly dereferenceable(1) %8) #18
+  %38 = call i32 @strcmp(ptr noundef readonly %37, ptr noundef nonnull readonly dereferenceable(1) %8) #19
   %.not.not.i376 = icmp eq i32 %38, 0
   br i1 %.not.not.i376, label %json_find_attr.exit380, label %31
 
@@ -3160,7 +3160,7 @@ json_find_attr.exit380:                           ; preds = %.lr.ph.i374
   br i1 %.not, label %json_find_attr.exit380.thread, label %43
 
 43:                                               ; preds = %json_find_attr.exit380
-  %44 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(6) @.str.205, i64 noundef 5) #18
+  %44 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(6) @.str.205, i64 noundef 5) #19
   %.not330 = icmp eq i32 %44, 0
   br i1 %.not330, label %45, label %65
 
@@ -3205,12 +3205,12 @@ json_find_attr.exit380:                           ; preds = %.lr.ph.i374
   br label %304
 
 65:                                               ; preds = %43
-  %66 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(7) @.str.161) #18
+  %66 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(7) @.str.161) #19
   %.not334 = icmp eq i32 %66, 0
   br i1 %.not334, label %67, label %73
 
 67:                                               ; preds = %65
-  %68 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #23
+  %68 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
   %69 = call ptr @g_string_chunk_new(i64 noundef 100)
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store ptr %69, ptr %70, align 8
@@ -3221,7 +3221,7 @@ json_find_attr.exit380:                           ; preds = %.lr.ph.i374
   br label %304
 
 73:                                               ; preds = %65
-  %74 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(6) @.str.207, i64 noundef 5) #18
+  %74 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(6) @.str.207, i64 noundef 5) #19
   %.not335 = icmp eq i32 %74, 0
   br i1 %.not335, label %75, label %87
 
@@ -3251,12 +3251,12 @@ json_find_attr.exit380:                           ; preds = %.lr.ph.i374
   br label %304
 
 87:                                               ; preds = %73
-  %88 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(6) @.str.209, i64 noundef 5) #18
+  %88 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(6) @.str.209, i64 noundef 5) #19
   %.not337 = icmp eq i32 %88, 0
   br i1 %.not337, label %91, label %89
 
 89:                                               ; preds = %87
-  %90 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(7) @.str.210, i64 noundef 6) #18
+  %90 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(7) @.str.210, i64 noundef 6) #19
   %.not338 = icmp eq i32 %90, 0
   br i1 %.not338, label %99, label %117
 
@@ -3299,7 +3299,7 @@ json_find_attr.exit380:                           ; preds = %.lr.ph.i374
   %.0304 = phi ptr [ %102, %103 ], [ %94, %95 ]
   %108 = call i32 @get_conversation_proto_id(ptr noundef nonnull %.0304)
   %109 = call ptr @proto_get_protocol_filter_name(i32 noundef %108)
-  %110 = call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #23
+  %110 = call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #24
   store ptr %42, ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 24
@@ -3315,7 +3315,7 @@ json_find_attr.exit380:                           ; preds = %.lr.ph.i374
   br label %304
 
 117:                                              ; preds = %89
-  %118 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(7) @.str.214, i64 noundef 6) #18
+  %118 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(7) @.str.214, i64 noundef 6) #19
   %.not345 = icmp eq i32 %118, 0
   br i1 %.not345, label %119, label %134
 
@@ -3334,7 +3334,7 @@ json_find_attr.exit380:                           ; preds = %.lr.ph.i374
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 32
   %125 = load ptr, ptr %124, align 8
   call void %125(ptr noundef nonnull %121)
-  %126 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #23
+  %126 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
   store ptr %121, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store ptr null, ptr %127, align 8
@@ -3349,7 +3349,7 @@ json_find_attr.exit380:                           ; preds = %.lr.ph.i374
   br label %304
 
 134:                                              ; preds = %117
-  %135 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(5) @.str.216, i64 noundef 4) #18
+  %135 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(5) @.str.216, i64 noundef 4) #19
   %.not347 = icmp eq i32 %135, 0
   br i1 %.not347, label %136, label %153
 
@@ -3383,7 +3383,7 @@ json_find_attr.exit380:                           ; preds = %.lr.ph.i374
   br label %.thread416
 
 146:                                              ; preds = %141
-  %147 = call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #23
+  %147 = call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #24
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 24
   store ptr %138, ptr %148, align 8
   call void @rtd_table_dissector_init(ptr noundef nonnull %138, ptr noundef %147, ptr noundef null, ptr noundef null)
@@ -3397,7 +3397,7 @@ json_find_attr.exit380:                           ; preds = %.lr.ph.i374
   br label %304
 
 153:                                              ; preds = %134
-  %154 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(5) @.str.220, i64 noundef 4) #18
+  %154 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(5) @.str.220, i64 noundef 4) #19
   %.not350 = icmp eq i32 %154, 0
   br i1 %.not350, label %155, label %sub_0
 
@@ -3431,7 +3431,7 @@ json_find_attr.exit380:                           ; preds = %.lr.ph.i374
   br label %.thread416
 
 165:                                              ; preds = %160
-  %166 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #23
+  %166 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
   %167 = call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 8)
   store ptr %167, ptr %166, align 8
   %168 = getelementptr inbounds nuw i8, ptr %166, i64 8
@@ -3480,7 +3480,7 @@ sub_1:                                            ; preds = %sub_0
   br label %304
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
-  %186 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(12) @.str.153) #18
+  %186 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(12) @.str.153) #19
   %.not355 = icmp eq i32 %186, 0
   br i1 %.not355, label %187, label %190
 
@@ -3492,12 +3492,12 @@ sub_1:                                            ; preds = %sub_0
   br label %304
 
 190:                                              ; preds = %.tail.thread
-  %191 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(13) @.str.226, i64 noundef 12) #18
+  %191 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(13) @.str.226, i64 noundef 12) #19
   %.not356 = icmp eq i32 %191, 0
   br i1 %.not356, label %192, label %202
 
 192:                                              ; preds = %190
-  %193 = call noalias dereferenceable_or_null(5136) ptr @g_malloc0(i64 noundef 5136) #23
+  %193 = call noalias dereferenceable_or_null(5136) ptr @g_malloc0(i64 noundef 5136) #24
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %195 = getelementptr i8, ptr %42, i64 12
   %196 = call fastcc zeroext i1 @sharkd_rtp_match_init(ptr noundef nonnull %194, ptr noundef %195)
@@ -3521,12 +3521,12 @@ sub_1:                                            ; preds = %sub_0
   br label %319
 
 202:                                              ; preds = %190
-  %203 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(10) @.str.151) #18
+  %203 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(10) @.str.151) #19
   %.not357 = icmp eq i32 %203, 0
   br i1 %.not357, label %204, label %208
 
 204:                                              ; preds = %202
-  %205 = call noalias dereferenceable_or_null(56) ptr @g_malloc0(i64 noundef 56) #23
+  %205 = call noalias dereferenceable_or_null(56) ptr @g_malloc0(i64 noundef 56) #24
   %206 = load ptr, ptr %6, align 8
   %207 = call ptr @register_tap_listener(ptr noundef nonnull @.str.227, ptr noundef %205, ptr noundef %206, i32 noundef 0, ptr noundef null, ptr noundef nonnull @mcaststream_packet, ptr noundef nonnull @sharkd_session_process_tap_multicast_cb, ptr noundef null)
   store ptr %205, ptr %9, align 8
@@ -3534,7 +3534,7 @@ sub_1:                                            ; preds = %sub_0
   br label %304
 
 208:                                              ; preds = %202
-  %209 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(4) @.str.155) #18
+  %209 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(4) @.str.155) #19
   %.not358 = icmp eq i32 %209, 0
   br i1 %.not358, label %210, label %216
 
@@ -3550,7 +3550,7 @@ sub_1:                                            ; preds = %sub_0
   br label %304
 
 216:                                              ; preds = %208
-  %217 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(11) @.str.157) #18
+  %217 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(11) @.str.157) #19
   %.not359 = icmp eq i32 %217, 0
   br i1 %.not359, label %218, label %222
 
@@ -3566,7 +3566,7 @@ sub_1:                                            ; preds = %sub_0
   br label %304
 
 222:                                              ; preds = %216
-  %223 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(12) @.str.229, i64 noundef 11) #18
+  %223 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(12) @.str.229, i64 noundef 11) #19
   %.not360 = icmp eq i32 %223, 0
   br i1 %.not360, label %224, label %265
 
@@ -3580,11 +3580,11 @@ sub_1:                                            ; preds = %sub_0
   br i1 %227, label %228, label %229
 
 228:                                              ; preds = %224
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) @voip_conv_sel, i8 noundef -1, i64 noundef 8192, i1 noundef false) #17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) @voip_conv_sel, i8 noundef -1, i64 noundef 8192, i1 noundef false) #18
   br label %.loopexit430
 
 229:                                              ; preds = %224
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) @voip_conv_sel, i8 noundef 0, i64 noundef 8192, i1 noundef false) #17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) @voip_conv_sel, i8 noundef 0, i64 noundef 8192, i1 noundef false) #18
   br label %230
 
 .loopexit429:                                     ; preds = %.lr.ph
@@ -3605,7 +3605,7 @@ sub_1:                                            ; preds = %sub_0
 
 234:                                              ; preds = %230, %232
   %.1290 = phi ptr [ %233, %232 ], [ %.0289, %230 ]
-  %235 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.1290, ptr noundef nonnull @.str.230, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %13) #17
+  %235 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.1290, ptr noundef nonnull @.str.230, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %13) #18
   %236 = icmp eq i32 %235, 2
   br i1 %236, label %._crit_edge560, label %237
 
@@ -3615,7 +3615,7 @@ sub_1:                                            ; preds = %sub_0
   br label %244
 
 237:                                              ; preds = %234
-  %238 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.1290, ptr noundef nonnull @.str.231, ptr noundef nonnull %14, ptr noundef nonnull %13) #17
+  %238 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.1290, ptr noundef nonnull @.str.231, ptr noundef nonnull %14, ptr noundef nonnull %13) #18
   %239 = icmp eq i32 %238, 1
   br i1 %239, label %240, label %242
 
@@ -3668,7 +3668,7 @@ sub_1:                                            ; preds = %sub_0
 
 .loopexit430:                                     ; preds = %230, %228
   call void @voip_stat_init_tapinfo()
-  %260 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #23
+  %260 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
   store ptr @tapinfo_, ptr %260, align 8
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 8
   store ptr %42, ptr %261, align 8
@@ -3685,7 +3685,7 @@ sub_1:                                            ; preds = %sub_0
   br label %304
 
 265:                                              ; preds = %222
-  %266 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(7) @.str.234, i64 noundef 6) #18
+  %266 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(7) @.str.234, i64 noundef 6) #19
   %.not363 = icmp eq i32 %266, 0
   br i1 %.not363, label %267, label %302
 
@@ -3733,12 +3733,12 @@ sub_2427:                                         ; preds = %sub_1426
   br i1 %.not365, label %290, label %286
 
 286:                                              ; preds = %.tail424
-  %287 = call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.237, ptr noundef nonnull dereferenceable(1) %273) #18
+  %287 = call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.237, ptr noundef nonnull dereferenceable(1) %273) #19
   %.not366 = icmp eq i32 %287, 0
   br i1 %.not366, label %290, label %288
 
 288:                                              ; preds = %286
-  %289 = call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.238, ptr noundef nonnull dereferenceable(1) %273) #18
+  %289 = call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.238, ptr noundef nonnull dereferenceable(1) %273) #19
   %.not367 = icmp eq i32 %289, 0
   br i1 %.not367, label %290, label %300
 
@@ -3761,7 +3761,7 @@ sub_2427:                                         ; preds = %sub_1426
 .thread412:                                       ; preds = %._crit_edge, %267
   %.0286 = phi i8 [ %.1287.lcssa, %._crit_edge ], [ 1, %267 ]
   %.0283 = phi i8 [ %.1284.lcssa, %._crit_edge ], [ 1, %267 ]
-  %295 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #23
+  %295 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 8
   store i8 %.0286, ptr %296, align 8
   %297 = getelementptr inbounds nuw i8, ptr %295, i64 9
@@ -3932,7 +3932,7 @@ define internal fastcc void @sharkd_session_process_follow(ptr noundef %0, ptr n
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr i8, ptr %0, i64 %11
-  %13 = tail call i32 @strcmp(ptr noundef readonly %12, ptr noundef nonnull dereferenceable(7) @.str.21) #18
+  %13 = tail call i32 @strcmp(ptr noundef readonly %12, ptr noundef nonnull dereferenceable(7) @.str.21) #19
   %.not.not.i = icmp eq i32 %13, 0
   br i1 %.not.not.i, label %.thread.i, label %6
 
@@ -3959,7 +3959,7 @@ define internal fastcc void @sharkd_session_process_follow(ptr noundef %0, ptr n
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr i8, ptr %0, i64 %23
-  %25 = tail call i32 @strcmp(ptr noundef readonly %24, ptr noundef nonnull dereferenceable(7) @.str.34) #18
+  %25 = tail call i32 @strcmp(ptr noundef readonly %24, ptr noundef nonnull dereferenceable(7) @.str.34) #19
   %.not.not.i73 = icmp eq i32 %25, 0
   br i1 %.not.not.i73, label %.thread.i76, label %18
 
@@ -3986,7 +3986,7 @@ define internal fastcc void @sharkd_session_process_follow(ptr noundef %0, ptr n
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
   %36 = getelementptr i8, ptr %0, i64 %35
-  %37 = tail call i32 @strcmp(ptr noundef readonly %36, ptr noundef nonnull dereferenceable(11) @.str.37) #18
+  %37 = tail call i32 @strcmp(ptr noundef readonly %36, ptr noundef nonnull dereferenceable(11) @.str.37) #19
   %.not.not.i82 = icmp eq i32 %37, 0
   br i1 %.not.not.i82, label %.thread.i85, label %30
 
@@ -4021,7 +4021,7 @@ json_find_attr.exit86:                            ; preds = %30, %3, %.thread.i8
   br label %48
 
 48:                                               ; preds = %46, %45
-  %49 = call noalias dereferenceable_or_null(128) ptr @g_malloc0(i64 noundef 128) #23
+  %49 = call noalias dereferenceable_or_null(128) ptr @g_malloc0(i64 noundef 128) #24
   %50 = load i64, ptr %4, align 8
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 120
   store i64 %50, ptr %51, align 8
@@ -4173,7 +4173,7 @@ define internal fastcc void @sharkd_session_process_iograph(ptr noundef %0, ptr 
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr i8, ptr %0, i64 %13
-  %15 = tail call i32 @strcmp(ptr noundef readonly %14, ptr noundef nonnull dereferenceable(9) @.str.49) #18
+  %15 = tail call i32 @strcmp(ptr noundef readonly %14, ptr noundef nonnull dereferenceable(9) @.str.49) #19
   %.not.not.i = icmp eq i32 %15, 0
   br i1 %.not.not.i, label %.thread.i, label %8
 
@@ -4200,7 +4200,7 @@ define internal fastcc void @sharkd_session_process_iograph(ptr noundef %0, ptr 
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %24 to i64
   %26 = getelementptr i8, ptr %0, i64 %25
-  %27 = tail call i32 @strcmp(ptr noundef readonly %26, ptr noundef nonnull dereferenceable(15) @.str.50) #18
+  %27 = tail call i32 @strcmp(ptr noundef readonly %26, ptr noundef nonnull dereferenceable(15) @.str.50) #19
   %.not.not.i154 = icmp eq i32 %27, 0
   br i1 %.not.not.i154, label %.thread.i157, label %20
 
@@ -4353,7 +4353,7 @@ sub_1224:                                         ; preds = %sub_0218
   %80 = load i32, ptr %79, align 4
   %81 = sext i32 %80 to i64
   %82 = getelementptr i8, ptr %0, i64 %81
-  %83 = call i32 @strcmp(ptr noundef readonly %82, ptr noundef nonnull readonly dereferenceable(1) %6) #18
+  %83 = call i32 @strcmp(ptr noundef readonly %82, ptr noundef nonnull readonly dereferenceable(1) %6) #19
   %.not.not.i163 = icmp eq i32 %83, 0
   br i1 %.not.not.i163, label %json_find_attr.exit167, label %76
 
@@ -4381,7 +4381,7 @@ json_find_attr.exit167:                           ; preds = %.lr.ph.i161
   %93 = load i32, ptr %92, align 4
   %94 = sext i32 %93 to i64
   %95 = getelementptr i8, ptr %0, i64 %94
-  %96 = call i32 @strcmp(ptr noundef readonly %95, ptr noundef nonnull readonly dereferenceable(1) %6) #18
+  %96 = call i32 @strcmp(ptr noundef readonly %95, ptr noundef nonnull readonly dereferenceable(1) %6) #19
   %.not.not.i172 = icmp eq i32 %96, 0
   br i1 %.not.not.i172, label %.thread.i175, label %89
 
@@ -4394,17 +4394,17 @@ json_find_attr.exit167:                           ; preds = %.lr.ph.i161
 
 json_find_attr.exit176:                           ; preds = %89, %.thread.i175
   %.2.i174 = phi ptr [ %100, %.thread.i175 ], [ null, %89 ]
-  %101 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(8) @.str.362) #18
+  %101 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(8) @.str.362) #19
   %.not132 = icmp eq i32 %101, 0
   br i1 %.not132, label %.lr.ph.preheader.i178, label %102
 
 102:                                              ; preds = %json_find_attr.exit176
-  %103 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(6) @.str.43) #18
+  %103 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(6) @.str.43) #19
   %.not133 = icmp eq i32 %103, 0
   br i1 %.not133, label %.lr.ph.preheader.i178, label %104
 
 104:                                              ; preds = %102
-  %105 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(5) @.str.403) #18
+  %105 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(5) @.str.403) #19
   %.not134 = icmp eq i32 %105, 0
   br i1 %.not134, label %.lr.ph.preheader.i178, label %106
 
@@ -4452,7 +4452,7 @@ json_find_attr.exit176:                           ; preds = %89, %.thread.i175
   %.sink = phi i32 [ 0, %json_find_attr.exit176 ], [ 1, %102 ], [ 2, %104 ], [ 3, %106 ], [ 4, %108 ], [ 5, %110 ], [ 6, %112 ], [ 7, %114 ], [ 8, %116 ], [ 10, %118 ], [ 9, %120 ]
   %122 = getelementptr inbounds nuw i8, ptr %74, i64 4
   store i32 %.sink, ptr %122, align 4
-  %123 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %87, i32 noundef 58) #18
+  %123 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %87, i32 noundef 58) #19
   %.not143 = icmp eq ptr %123, null
   %124 = getelementptr i8, ptr %123, i64 1
   %spec.select = select i1 %.not143, ptr null, ptr %124
@@ -4479,7 +4479,7 @@ json_find_attr.exit176:                           ; preds = %89, %.thread.i175
   %134 = load i32, ptr %133, align 4
   %135 = sext i32 %134 to i64
   %136 = getelementptr i8, ptr %0, i64 %135
-  %137 = call i32 @strcmp(ptr noundef readonly %136, ptr noundef nonnull readonly dereferenceable(1) %6) #18
+  %137 = call i32 @strcmp(ptr noundef readonly %136, ptr noundef nonnull readonly dereferenceable(1) %6) #19
   %.not.not.i181 = icmp eq i32 %137, 0
   br i1 %.not.not.i181, label %json_find_attr.exit185, label %130
 
@@ -4492,7 +4492,7 @@ json_find_attr.exit185:                           ; preds = %.lr.ph.i179
   br i1 %.not144, label %json_find_attr.exit185.thread, label %142
 
 142:                                              ; preds = %json_find_attr.exit185
-  %143 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %141, ptr noundef nonnull dereferenceable(5) @.str.110) #18
+  %143 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %141, ptr noundef nonnull dereferenceable(5) @.str.110) #19
   %.not145 = icmp eq i32 %143, 0
   %144 = getelementptr inbounds nuw i8, ptr %74, i64 12
   %145 = zext i1 %.not145 to i8
@@ -4570,7 +4570,7 @@ json_find_attr.exit185.thread:                    ; preds = %130, %json_find_att
   %169 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %168, i32 noundef 2, ptr noundef nonnull @.str.414)
   %170 = load ptr, ptr %167, align 8
   %171 = call ptr @g_string_free(ptr noundef %170, i32 noundef 1)
-  call void @exit(i32 noundef -1) #24
+  call void @exit(i32 noundef -1) #25
   unreachable
 
 172:                                              ; preds = %.lr.ph263
@@ -4680,7 +4680,7 @@ define internal fastcc void @sharkd_session_process_intervals(ptr noundef %0, pt
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr i8, ptr %0, i64 %12
-  %14 = tail call i32 @strcmp(ptr noundef readonly %13, ptr noundef nonnull dereferenceable(9) @.str.49) #18
+  %14 = tail call i32 @strcmp(ptr noundef readonly %13, ptr noundef nonnull dereferenceable(9) @.str.49) #19
   %.not.not.i = icmp eq i32 %14, 0
   br i1 %.not.not.i, label %.thread.i, label %7
 
@@ -4707,7 +4707,7 @@ define internal fastcc void @sharkd_session_process_intervals(ptr noundef %0, pt
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   %25 = getelementptr i8, ptr %0, i64 %24
-  %26 = tail call i32 @strcmp(ptr noundef readonly %25, ptr noundef nonnull dereferenceable(7) @.str.34) #18
+  %26 = tail call i32 @strcmp(ptr noundef readonly %25, ptr noundef nonnull dereferenceable(7) @.str.34) #19
   %.not.not.i71 = icmp eq i32 %26, 0
   br i1 %.not.not.i71, label %.thread.i74, label %19
 
@@ -4751,7 +4751,7 @@ sharkd_session_filter_data.exit.thread90:         ; preds = %37
   br label %.thread94
 
 sharkd_session_filter_data.exit:                  ; preds = %37
-  %39 = call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #23
+  %39 = call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #24
   %40 = load ptr, ptr %4, align 8
   store ptr %40, ptr %39, align 8
   %41 = load ptr, ptr @filter_table, align 8
@@ -4995,7 +4995,7 @@ define internal fastcc void @sharkd_session_process_frame(ptr noundef %0, ptr no
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
   %18 = getelementptr i8, ptr %0, i64 %17
-  %19 = tail call i32 @strcmp(ptr noundef readonly %18, ptr noundef nonnull dereferenceable(6) @.str.24) #18
+  %19 = tail call i32 @strcmp(ptr noundef readonly %18, ptr noundef nonnull dereferenceable(6) @.str.24) #19
   %.not.not.i = icmp eq i32 %19, 0
   br i1 %.not.not.i, label %.thread.i, label %12
 
@@ -5022,7 +5022,7 @@ define internal fastcc void @sharkd_session_process_frame(ptr noundef %0, ptr no
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
   %30 = getelementptr i8, ptr %0, i64 %29
-  %31 = tail call i32 @strcmp(ptr noundef readonly %30, ptr noundef nonnull dereferenceable(10) @.str.39) #18
+  %31 = tail call i32 @strcmp(ptr noundef readonly %30, ptr noundef nonnull dereferenceable(10) @.str.39) #19
   %.not.not.i49 = icmp eq i32 %31, 0
   br i1 %.not.not.i49, label %.thread.i52, label %24
 
@@ -5049,7 +5049,7 @@ define internal fastcc void @sharkd_session_process_frame(ptr noundef %0, ptr no
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
   %42 = getelementptr i8, ptr %0, i64 %41
-  %43 = tail call i32 @strcmp(ptr noundef readonly %42, ptr noundef nonnull dereferenceable(11) @.str.40) #18
+  %43 = tail call i32 @strcmp(ptr noundef readonly %42, ptr noundef nonnull dereferenceable(11) @.str.40) #19
   %.not.not.i58 = icmp eq i32 %43, 0
   br i1 %.not.not.i58, label %.thread.i61, label %36
 
@@ -5129,7 +5129,7 @@ json_find_attr.exit62:                            ; preds = %36, %3, %.thread.i6
   %73 = load i32, ptr %72, align 4
   %74 = sext i32 %73 to i64
   %75 = getelementptr i8, ptr %0, i64 %74
-  %76 = call i32 @strcmp(ptr noundef readonly %75, ptr noundef nonnull dereferenceable(6) @.str.38) #18
+  %76 = call i32 @strcmp(ptr noundef readonly %75, ptr noundef nonnull dereferenceable(6) @.str.38) #19
   %.not.not.i67 = icmp eq i32 %76, 0
   br i1 %.not.not.i67, label %.thread.i70, label %69
 
@@ -5158,7 +5158,7 @@ json_find_attr.exit62:                            ; preds = %36, %3, %.thread.i6
   %87 = load i32, ptr %86, align 4
   %88 = sext i32 %87 to i64
   %89 = getelementptr i8, ptr %0, i64 %88
-  %90 = call i32 @strcmp(ptr noundef readonly %89, ptr noundef nonnull dereferenceable(6) @.str.43) #18
+  %90 = call i32 @strcmp(ptr noundef readonly %89, ptr noundef nonnull dereferenceable(6) @.str.43) #19
   %.not.not.i76 = icmp eq i32 %90, 0
   br i1 %.not.not.i76, label %.thread.i79, label %83
 
@@ -5188,7 +5188,7 @@ json_find_attr.exit80:                            ; preds = %83, %.thread.i79
   %101 = load i32, ptr %100, align 4
   %102 = sext i32 %101 to i64
   %103 = getelementptr i8, ptr %0, i64 %102
-  %104 = call i32 @strcmp(ptr noundef readonly %103, ptr noundef nonnull dereferenceable(8) @.str.41) #18
+  %104 = call i32 @strcmp(ptr noundef readonly %103, ptr noundef nonnull dereferenceable(8) @.str.41) #19
   %.not.not.i85 = icmp eq i32 %104, 0
   br i1 %.not.not.i85, label %json_find_attr.exit89, label %97
 
@@ -5222,7 +5222,7 @@ json_find_attr.exit89:                            ; preds = %.lr.ph.i83
   %118 = load i32, ptr %117, align 4
   %119 = sext i32 %118 to i64
   %120 = getelementptr i8, ptr %0, i64 %119
-  %121 = call i32 @strcmp(ptr noundef readonly %120, ptr noundef nonnull dereferenceable(6) @.str.42) #18
+  %121 = call i32 @strcmp(ptr noundef readonly %120, ptr noundef nonnull dereferenceable(6) @.str.42) #19
   %.not.not.i94 = icmp eq i32 %121, 0
   br i1 %.not.not.i94, label %json_find_attr.exit98, label %114
 
@@ -5342,7 +5342,7 @@ json_find_attr.exit29.thread:                     ; preds = %3
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr i8, ptr %0, i64 %11
-  %13 = tail call i32 @strcmp(ptr noundef readonly %12, ptr noundef nonnull dereferenceable(6) @.str.24) #18
+  %13 = tail call i32 @strcmp(ptr noundef readonly %12, ptr noundef nonnull dereferenceable(6) @.str.24) #19
   %.not.not.i = icmp eq i32 %13, 0
   br i1 %.not.not.i, label %.thread.i, label %6
 
@@ -5369,7 +5369,7 @@ json_find_attr.exit29.thread:                     ; preds = %3
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr i8, ptr %0, i64 %23
-  %25 = tail call i32 @strcmp(ptr noundef readonly %24, ptr noundef nonnull dereferenceable(8) @.str.82) #18
+  %25 = tail call i32 @strcmp(ptr noundef readonly %24, ptr noundef nonnull dereferenceable(8) @.str.82) #19
   %.not.not.i25 = icmp eq i32 %25, 0
   br i1 %.not.not.i25, label %.thread.i28, label %18
 
@@ -5410,7 +5410,7 @@ json_find_attr.exit29:                            ; preds = %18, %.thread.i28
 
 40:                                               ; preds = %36
   %41 = call ptr @sharkd_get_packet_block(ptr noundef nonnull %37)
-  %42 = call i64 @strlen(ptr noundef %.2.i27) #18
+  %42 = call i64 @strlen(ptr noundef %.2.i27) #19
   %43 = call i32 @wtap_block_add_string_option(ptr noundef %41, i32 noundef 1, ptr noundef %.2.i27, i64 noundef %42)
   %.not20 = icmp eq i32 %43, 0
   br i1 %.not20, label %46, label %44
@@ -5459,7 +5459,7 @@ json_find_attr.exit22.thread:                     ; preds = %3
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr i8, ptr %0, i64 %12
-  %14 = tail call i32 @strcmp(ptr noundef readonly %13, ptr noundef nonnull dereferenceable(5) @.str.83) #18
+  %14 = tail call i32 @strcmp(ptr noundef readonly %13, ptr noundef nonnull dereferenceable(5) @.str.83) #19
   %.not.not.i = icmp eq i32 %14, 0
   br i1 %.not.not.i, label %.thread.i, label %7
 
@@ -5486,7 +5486,7 @@ json_find_attr.exit22.thread:                     ; preds = %3
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   %25 = getelementptr i8, ptr %0, i64 %24
-  %26 = tail call i32 @strcmp(ptr noundef readonly %25, ptr noundef nonnull dereferenceable(6) @.str.84) #18
+  %26 = tail call i32 @strcmp(ptr noundef readonly %25, ptr noundef nonnull dereferenceable(6) @.str.84) #19
   %.not.not.i18 = icmp eq i32 %26, 0
   br i1 %.not.not.i18, label %.thread.i21, label %19
 
@@ -5589,7 +5589,7 @@ define internal fastcc void @sharkd_session_process_dumpconf(ptr noundef %0, ptr
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr i8, ptr %0, i64 %13
-  %15 = tail call i32 @strcmp(ptr noundef readonly %14, ptr noundef nonnull dereferenceable(5) @.str.35) #18
+  %15 = tail call i32 @strcmp(ptr noundef readonly %14, ptr noundef nonnull dereferenceable(5) @.str.35) #19
   %.not.not.i = icmp eq i32 %15, 0
   br i1 %.not.not.i, label %json_find_attr.exit, label %8
 
@@ -5624,7 +5624,7 @@ json_find_attr.exit.thread:                       ; preds = %8, %3, %json_find_a
   br label %50
 
 25:                                               ; preds = %json_find_attr.exit
-  %26 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %19, i32 noundef 46) #18
+  %26 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %19, i32 noundef 46) #19
   %.not23 = icmp eq ptr %26, null
   br i1 %.not23, label %40, label %27
 
@@ -5734,7 +5734,7 @@ define internal fastcc void @sharkd_session_process_download(ptr noundef %0, ptr
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
   %16 = getelementptr i8, ptr %0, i64 %15
-  %17 = tail call i32 @strcmp(ptr noundef readonly %16, ptr noundef nonnull dereferenceable(6) @.str.36) #18
+  %17 = tail call i32 @strcmp(ptr noundef readonly %16, ptr noundef nonnull dereferenceable(6) @.str.36) #19
   %.not.not.i = icmp eq i32 %17, 0
   br i1 %.not.not.i, label %json_find_attr.exit, label %10
 
@@ -5770,7 +5770,7 @@ sub_1:                                            ; preds = %sub_0
 
 29:                                               ; preds = %.tail
   %30 = tail call noalias ptr @g_strdup(ptr noundef nonnull %21)
-  %31 = tail call ptr @strrchr(ptr noundef %30, i32 noundef 95) #18
+  %31 = tail call ptr @strrchr(ptr noundef %30, i32 noundef 95) #19
   %.not64 = icmp eq ptr %31, null
   br i1 %.not64, label %33, label %32
 
@@ -5787,7 +5787,7 @@ sub_1:                                            ; preds = %sub_0
   %.010.i = phi ptr [ %39, %38 ], [ %34, %33 ]
   %35 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call i32 @strcmp(ptr noundef %36, ptr noundef readonly %30) #18
+  %37 = tail call i32 @strcmp(ptr noundef %36, ptr noundef readonly %30) #19
   %.not8.i = icmp eq i32 %37, 0
   br i1 %.not8.i, label %sharkd_eo_object_list_get_entry_by_type.exit, label %38
 
@@ -5863,8 +5863,8 @@ sharkd_eo_object_list_get_entry_by_type.exit:     ; preds = %.lr.ph.i79, %sharkd
   %.05295 = phi ptr [ %.052, %69 ], [ %.05293, %sharkd_eo_object_list_get_entry_by_type.exit ]
   %57 = getelementptr inbounds nuw i8, ptr %.05295, i64 8
   %58 = load ptr, ptr %57, align 8
-  %59 = tail call i64 @strlen(ptr noundef %58) #18
-  %60 = tail call i32 @strncmp(ptr noundef nonnull %21, ptr noundef %58, i64 noundef %59) #18
+  %59 = tail call i64 @strlen(ptr noundef %58) #19
+  %60 = tail call i32 @strncmp(ptr noundef nonnull %21, ptr noundef %58, i64 noundef %59) #19
   %.not67 = icmp eq i32 %60, 0
   br i1 %.not67, label %61, label %69
 
@@ -5878,7 +5878,7 @@ sharkd_eo_object_list_get_entry_by_type.exit:     ; preds = %.lr.ph.i79, %sharkd
   %66 = getelementptr i8, ptr %21, i64 %59
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %67 = getelementptr i8, ptr %66, i64 1
-  %68 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %67, ptr noundef nonnull @.str.5, ptr noundef nonnull %6) #17
+  %68 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %67, ptr noundef nonnull @.str.5, ptr noundef nonnull %6) #18
   %.not68 = icmp eq i32 %68, 1
   br i1 %.not68, label %.loopexit, label %.loopexit.thread114
 
@@ -5951,7 +5951,7 @@ sharkd_eo_object_list_get_entry_by_type.exit:     ; preds = %.lr.ph.i79, %sharkd
   br label %126
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
-  %92 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(12) @.str.458) #18
+  %92 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(12) @.str.458) #19
   %.not72 = icmp eq i32 %92, 0
   br i1 %.not72, label %93, label %102
 
@@ -5991,13 +5991,13 @@ sharkd_eo_object_list_get_entry_by_type.exit:     ; preds = %.lr.ph.i79, %sharkd
   br label %126
 
 102:                                              ; preds = %.tail.thread
-  %103 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(5) @.str.461, i64 noundef 4) #18
+  %103 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(5) @.str.461, i64 noundef 4) #19
   %.not74 = icmp eq i32 %103, 0
   br i1 %.not74, label %104, label %124
 
 104:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 noundef 0, i64 noundef 80, i1 noundef false) #17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 noundef 0, i64 noundef 80, i1 noundef false) #18
   %105 = getelementptr i8, ptr %21, i64 4
   %106 = call fastcc zeroext i1 @sharkd_rtp_match_init(ptr noundef nonnull %8, ptr noundef %105)
   br i1 %106, label %109, label %107
@@ -6596,8 +6596,8 @@ define internal noundef i32 @sharkd_session_process_complete_pref_option_cb(ptr 
   %4 = tail call ptr @prefs_get_title(ptr noundef %0)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i64 @strlen(ptr noundef %6) #18
-  %8 = tail call i32 @strncmp(ptr noundef %6, ptr noundef %3, i64 noundef %7) #18
+  %7 = tail call i64 @strlen(ptr noundef %6) #19
+  %8 = tail call i32 @strncmp(ptr noundef %6, ptr noundef %3, i64 noundef %7) #19
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %11
 
@@ -6622,8 +6622,8 @@ define internal noundef i32 @sharkd_session_process_complete_pref_cb(ptr noundef
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = tail call i64 @strlen(ptr noundef %4) #18
-  %7 = tail call i32 @strncmp(ptr noundef %4, ptr noundef %5, i64 noundef %6) #18
+  %6 = tail call i64 @strlen(ptr noundef %4) #19
+  %7 = tail call i32 @strncmp(ptr noundef %4, ptr noundef %5, i64 noundef %6) #19
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %12
 
@@ -6876,7 +6876,7 @@ define internal range(i32 0, 2) i32 @sharkd_session_packet_tap_expert_cb(ptr nou
   br i1 %6, label %20, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc(i64 noundef 40) #23
+  %8 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc(i64 noundef 40) #24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -7112,7 +7112,7 @@ define internal void @sharkd_session_process_tap_conv_cb(ptr noundef readonly ca
   tail call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.20)
   tail call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef %4)
   %5 = load ptr, ptr %3, align 8
-  %6 = tail call i32 @strncmp(ptr noundef %5, ptr noundef nonnull dereferenceable(6) @.str.209, i64 noundef 5) #18
+  %6 = tail call i32 @strncmp(ptr noundef %5, ptr noundef nonnull dereferenceable(6) @.str.209, i64 noundef 5) #19
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %10
 
@@ -7126,7 +7126,7 @@ define internal void @sharkd_session_process_tap_conv_cb(ptr noundef readonly ca
   br label %16
 
 10:                                               ; preds = %1
-  %11 = tail call i32 @strncmp(ptr noundef %5, ptr noundef nonnull dereferenceable(7) @.str.210, i64 noundef 6) #18
+  %11 = tail call i32 @strncmp(ptr noundef %5, ptr noundef nonnull dereferenceable(7) @.str.210, i64 noundef 6) #19
   %.not73 = icmp eq i32 %11, 0
   tail call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.244)
   br i1 %.not73, label %12, label %15
@@ -7145,17 +7145,17 @@ define internal void @sharkd_session_process_tap_conv_cb(ptr noundef readonly ca
 
 16:                                               ; preds = %12, %15, %7
   %.0 = phi ptr [ @.str.218, %15 ], [ %14, %12 ], [ %9, %7 ]
-  %17 = tail call i32 @strcmp(ptr noundef %.0, ptr noundef nonnull dereferenceable(4) @.str.272) #18
+  %17 = tail call i32 @strcmp(ptr noundef %.0, ptr noundef nonnull dereferenceable(4) @.str.272) #19
   %.not74 = icmp eq i32 %17, 0
   br i1 %.not74, label %22, label %18
 
 18:                                               ; preds = %16
-  %19 = tail call i32 @strcmp(ptr noundef %.0, ptr noundef nonnull dereferenceable(4) @.str.273) #18
+  %19 = tail call i32 @strcmp(ptr noundef %.0, ptr noundef nonnull dereferenceable(4) @.str.273) #19
   %.not75 = icmp eq i32 %19, 0
   br i1 %.not75, label %22, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call i32 @strcmp(ptr noundef %.0, ptr noundef nonnull dereferenceable(5) @.str.274) #18
+  %21 = tail call i32 @strcmp(ptr noundef %.0, ptr noundef nonnull dereferenceable(5) @.str.274) #19
   %.not76 = icmp eq i32 %21, 0
   br label %22
 
@@ -7168,7 +7168,7 @@ define internal void @sharkd_session_process_tap_conv_cb(ptr noundef readonly ca
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %3, align 8
-  %28 = tail call i32 @strncmp(ptr noundef %27, ptr noundef nonnull dereferenceable(6) @.str.209, i64 noundef 5) #18
+  %28 = tail call i32 @strncmp(ptr noundef %27, ptr noundef nonnull dereferenceable(6) @.str.209, i64 noundef 5) #19
   %.not78 = icmp eq i32 %28, 0
   br i1 %.not78, label %.preheader, label %83
 
@@ -7272,7 +7272,7 @@ define internal void @sharkd_session_process_tap_conv_cb(ptr noundef readonly ca
   br i1 %82, label %33, label %.thread, !llvm.loop !51
 
 83:                                               ; preds = %26
-  %84 = tail call i32 @strncmp(ptr noundef %27, ptr noundef nonnull dereferenceable(7) @.str.210, i64 noundef 6) #18
+  %84 = tail call i32 @strncmp(ptr noundef %27, ptr noundef nonnull dereferenceable(7) @.str.210, i64 noundef 6) #19
   %.not81 = icmp eq i32 %84, 0
   br i1 %.not81, label %.preheader86, label %.thread
 
@@ -7365,7 +7365,7 @@ define internal void @sharkd_session_free_tap_conv_cb(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 @strncmp(ptr noundef %4, ptr noundef nonnull dereferenceable(6) @.str.209, i64 noundef 5) #18
+  %5 = tail call i32 @strncmp(ptr noundef %4, ptr noundef nonnull dereferenceable(6) @.str.209, i64 noundef 5) #19
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %7
 
@@ -7374,7 +7374,7 @@ define internal void @sharkd_session_free_tap_conv_cb(ptr noundef %0) #0 {
   br label %10
 
 7:                                                ; preds = %1
-  %8 = tail call i32 @strncmp(ptr noundef %4, ptr noundef nonnull dereferenceable(7) @.str.210, i64 noundef 6) #18
+  %8 = tail call i32 @strncmp(ptr noundef %4, ptr noundef nonnull dereferenceable(7) @.str.210, i64 noundef 6) #19
   %.not7 = icmp eq i32 %8, 0
   br i1 %.not7, label %9, label %10
 
@@ -7933,7 +7933,7 @@ define internal fastcc ptr @sharkd_session_eo_register_tap_listener(ptr noundef 
   %.010.i = phi ptr [ %12, %11 ], [ %7, %6 ]
   %8 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @strcmp(ptr noundef %9, ptr noundef readonly %1) #18
+  %10 = tail call i32 @strcmp(ptr noundef %9, ptr noundef readonly %1) #19
   %.not8.i = icmp eq i32 %10, 0
   br i1 %.not8.i, label %sharkd_eo_object_list_get_entry_by_type.exit, label %11
 
@@ -7950,7 +7950,7 @@ sharkd_eo_object_list_get_entry_by_type.exit:     ; preds = %.lr.ph.i
   br label %24
 
 .loopexit:                                        ; preds = %11, %6
-  %15 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #23
+  %15 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #24
   %16 = tail call noalias ptr @g_strdup(ptr noundef %1)
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %16, ptr %17, align 8
@@ -7968,7 +7968,7 @@ sharkd_eo_object_list_get_entry_by_type.exit:     ; preds = %.lr.ph.i
 
 24:                                               ; preds = %.loopexit, %sharkd_eo_object_list_get_entry_by_type.exit
   %.0 = phi ptr [ %.010.i, %sharkd_eo_object_list_get_entry_by_type.exit ], [ %15, %.loopexit ]
-  %25 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #23
+  %25 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #24
   store ptr @sharkd_eo_object_list_add_entry, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr @sharkd_eo_object_list_get_entry, ptr %26, align 8
@@ -8194,7 +8194,7 @@ define internal fastcc noundef zeroext i1 @sharkd_rtp_match_init(ptr noundef %0,
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(64) %0, i8 noundef 0, i64 noundef 64, i1 noundef false) #17
+  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(64) %0, i8 noundef 0, i64 noundef 64, i1 noundef false) #18
   %5 = tail call ptr @g_strsplit(ptr noundef %1, ptr noundef nonnull @.str.337, i32 noundef 7)
   %6 = tail call i32 @g_strv_length(ptr noundef %5)
   %.not = icmp eq i32 %6, 5
@@ -8235,7 +8235,7 @@ define internal fastcc noundef zeroext i1 @sharkd_rtp_match_init(ptr noundef %0,
 copy_address.exit14:                              ; preds = %24
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i32 2, ptr %0, align 8
-  %29 = call dereferenceable_or_null(4) ptr @wmem_memdup(ptr noundef null, ptr noundef nonnull %3, i64 noundef 4) #25
+  %29 = call dereferenceable_or_null(4) ptr @wmem_memdup(ptr noundef null, ptr noundef nonnull %3, i64 noundef 4) #26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %29, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8245,7 +8245,7 @@ copy_address.exit14:                              ; preds = %24
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
   store i32 2, ptr %33, align 8
-  %34 = call dereferenceable_or_null(4) ptr @wmem_memdup(ptr noundef null, ptr noundef nonnull %4, i64 noundef 4) #25
+  %34 = call dereferenceable_or_null(4) ptr @wmem_memdup(ptr noundef null, ptr noundef nonnull %4, i64 noundef 4) #26
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %34, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -8274,7 +8274,7 @@ define internal noundef i32 @sharkd_session_packet_tap_rtp_analyse_cb(ptr nounde
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @rtppacket_analyse(ptr noundef nonnull %9, ptr noundef %1, ptr noundef %3)
-  %10 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc(i64 noundef 64) #23
+  %10 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc(i64 noundef 64) #24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
@@ -8802,7 +8802,7 @@ define internal void @sharkd_session_free_tap_voip_calls_cb(ptr noundef %0) #0 {
   br label %9
 
 9:                                                ; preds = %8, %5
-  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(240) %0, i8 noundef 0, i64 noundef 240, i1 noundef false) #17
+  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(240) %0, i8 noundef 0, i64 noundef 240, i1 noundef false) #18
   ret void
 }
 
@@ -8922,7 +8922,7 @@ define internal void @sharkd_session_free_tap_voip_convs_cb(ptr noundef %0) #0 {
   br label %10
 
 10:                                               ; preds = %9, %6
-  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(240) %2, i8 noundef 0, i64 noundef 240, i1 noundef false) #17
+  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(240) %2, i8 noundef 0, i64 noundef 240, i1 noundef false) #18
   tail call void @g_free(ptr noundef %0)
   ret void
 }
@@ -9743,7 +9743,7 @@ reset_io_graph_items.exit:                        ; preds = %.lr.ph.i, %18
 
 41:                                               ; preds = %37
   %42 = zext nneg i32 %17 to i64
-  %43 = tail call noalias ptr @g_malloc_n(i64 noundef %42, i64 noundef 88) #19
+  %43 = tail call noalias ptr @g_malloc_n(i64 noundef %42, i64 noundef 88) #20
   store ptr %43, ptr %38, align 8
   %44 = load i32, ptr %16, align 8
   %45 = sext i32 %44 to i64
@@ -10229,7 +10229,7 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
   br label %290
 
 289:                                              ; preds = %285
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.218, i32 noundef 7, ptr noundef nonnull @.str.416, i64 noundef 415, ptr noundef nonnull @__func__.update_io_graph_item, ptr noundef nonnull @.str.417) #22
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.218, i32 noundef 7, ptr noundef nonnull @.str.416, i64 noundef 415, ptr noundef nonnull @__func__.update_io_graph_item, ptr noundef nonnull @.str.417) #23
   unreachable
 
 290:                                              ; preds = %286, %282, %.thread.i, %218, %197, %173, %151, %129, %106
@@ -10390,7 +10390,7 @@ define internal void @sharkd_session_process_frame_cb(ptr noundef %0, ptr nounde
   %41 = add i32 %40, 1
   %42 = zext i32 %41 to i64
   %43 = shl nuw nsw i64 %42, 3
-  %44 = call noalias ptr @g_malloc0(i64 noundef %43) #23
+  %44 = call noalias ptr @g_malloc0(i64 noundef %43) #24
   %.not115 = icmp eq i32 %40, 0
   br i1 %.not115, label %._crit_edge104, label %.lr.ph103.preheader
 
@@ -11239,8 +11239,8 @@ define internal noundef i32 @sharkd_session_packet_download_tap_rtp_cb(ptr nound
   br i1 %10, label %11, label %49
 
 11:                                               ; preds = %9
-  %12 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #23
-  %13 = tail call dereferenceable_or_null(128) ptr @g_memdup2(ptr noundef %3, i64 noundef 128) #26
+  %12 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #24
+  %13 = tail call dereferenceable_or_null(128) ptr @g_memdup2(ptr noundef %3, i64 noundef 128) #27
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %13, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -11262,7 +11262,7 @@ define internal noundef i32 @sharkd_session_packet_download_tap_rtp_cb(ptr nound
   %26 = zext i32 %25 to i64
   %27 = getelementptr i8, ptr %23, i64 %26
   %28 = zext i32 %20 to i64
-  %29 = tail call ptr @g_memdup2(ptr noundef %27, i64 noundef %28) #26
+  %29 = tail call ptr @g_memdup2(ptr noundef %27, i64 noundef %28) #27
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %29, ptr %30, align 8
   br label %31
@@ -11311,7 +11311,7 @@ define internal fastcc void @sharkd_rtp_download_decode(ptr noundef readonly cap
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = tail call ptr @rtp_decoder_hash_table_new()
-  %11 = tail call noalias dereferenceable_or_null(4096) ptr @g_malloc(i64 noundef 4096) #23
+  %11 = tail call noalias dereferenceable_or_null(4096) ptr @g_malloc(i64 noundef 4096) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -11534,19 +11534,19 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #16
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #16
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -11565,17 +11565,18 @@ attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #13 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { allocsize(0,1) }
-attributes #20 = { noreturn nounwind }
-attributes #21 = { nounwind returns_twice }
-attributes #22 = { noreturn }
-attributes #23 = { allocsize(0) }
-attributes #24 = { cold noreturn nounwind }
-attributes #25 = { allocsize(2) }
-attributes #26 = { allocsize(1) }
+attributes #16 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nounwind }
+attributes #19 = { nounwind willreturn memory(read) }
+attributes #20 = { allocsize(0,1) }
+attributes #21 = { noreturn nounwind }
+attributes #22 = { nounwind returns_twice }
+attributes #23 = { noreturn }
+attributes #24 = { allocsize(0) }
+attributes #25 = { cold noreturn nounwind }
+attributes #26 = { allocsize(2) }
+attributes #27 = { allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

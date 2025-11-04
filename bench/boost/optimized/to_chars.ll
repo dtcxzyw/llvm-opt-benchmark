@@ -108,11 +108,11 @@ define hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_float_implIeEENS
   br i1 %or.cond78, label %10, label %_ZSt10fpclassifye.exit
 
 10:                                               ; preds = %5
-  call fastcc void @_ZN5boost8charconv6detail3ryuL20long_double_to_fd128Ee(ptr dead_on_unwind noalias writable align 16 %6, x86_fp80 noundef %2) #15
+  call fastcc void @_ZN5boost8charconv6detail3ryuL20long_double_to_fd128Ee(ptr dead_on_unwind noalias writable align 16 %6, x86_fp80 noundef %2) #17
   %11 = ptrtoint ptr %1 to i64
   %12 = ptrtoint ptr %0 to i64
   %13 = sub i64 %11, %12
-  %14 = tail call fastcc noundef i32 @_ZN5boost8charconv6detail3ryuL16generic_to_charsENS2_20floating_decimal_128EPclNS0_12chars_formatEi(ptr noundef nonnull byval(%"struct.boost::charconv::detail::ryu::floating_decimal_128") align 16 %6, ptr noundef %0, i64 noundef %13, i32 noundef %3, i32 noundef %4) #15
+  %14 = tail call fastcc noundef i32 @_ZN5boost8charconv6detail3ryuL16generic_to_charsENS2_20floating_decimal_128EPclNS0_12chars_formatEi(ptr noundef nonnull byval(%"struct.boost::charconv::detail::ryu::floating_decimal_128") align 16 %6, ptr noundef %0, i64 noundef %13, i32 noundef %3, i32 noundef %4) #17
   %15 = icmp sgt i32 %14, 0
   %16 = zext nneg i32 %14 to i64
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 %16
@@ -135,8 +135,8 @@ _ZSt10fpclassifye.exit:                           ; preds = %5
   br i1 %or.cond4, label %25, label %30
 
 25:                                               ; preds = %23
-  call fastcc void @_ZN5boost8charconv6detail3ryuL20long_double_to_fd128Ee(ptr dead_on_unwind noalias writable align 16 %7, x86_fp80 noundef %2) #15
-  %26 = tail call fastcc noundef i32 @_ZN5boost8charconv6detail3ryuL16generic_to_charsENS2_20floating_decimal_128EPclNS0_12chars_formatEi(ptr noundef nonnull byval(%"struct.boost::charconv::detail::ryu::floating_decimal_128") align 16 %7, ptr noundef %0, i64 noundef %20, i32 noundef %3, i32 noundef %4) #15
+  call fastcc void @_ZN5boost8charconv6detail3ryuL20long_double_to_fd128Ee(ptr dead_on_unwind noalias writable align 16 %7, x86_fp80 noundef %2) #17
+  %26 = tail call fastcc noundef i32 @_ZN5boost8charconv6detail3ryuL16generic_to_charsENS2_20floating_decimal_128EPclNS0_12chars_formatEi(ptr noundef nonnull byval(%"struct.boost::charconv::detail::ryu::floating_decimal_128") align 16 %7, ptr noundef %0, i64 noundef %20, i32 noundef %3, i32 noundef %4) #17
   %27 = icmp slt i32 %26, 1
   %28 = zext nneg i32 %26 to i64
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 %28
@@ -149,14 +149,14 @@ _ZSt10fpclassifye.exit:                           ; preds = %5
   ]
 
 31:                                               ; preds = %30
-  %32 = tail call { ptr, i32 } @_ZN5boost8charconv6detail12to_chars_hexIeEENS0_15to_chars_resultEPcS4_T_i(ptr noundef %0, ptr noundef %1, x86_fp80 noundef %2, i32 noundef %4) #15
+  %32 = tail call { ptr, i32 } @_ZN5boost8charconv6detail12to_chars_hexIeEENS0_15to_chars_resultEPcS4_T_i(ptr noundef %0, ptr noundef %1, x86_fp80 noundef %2, i32 noundef %4) #17
   %33 = extractvalue { ptr, i32 } %32, 0
   %34 = extractvalue { ptr, i32 } %32, 1
   br label %45
 
 35:                                               ; preds = %30
-  call fastcc void @_ZN5boost8charconv6detail3ryuL20long_double_to_fd128Ee(ptr dead_on_unwind noalias writable align 16 %8, x86_fp80 noundef %2) #15
-  %36 = tail call fastcc noundef i32 @_ZN5boost8charconv6detail3ryuL22generic_to_chars_fixedENS2_20floating_decimal_128EPcli(ptr noundef nonnull byval(%"struct.boost::charconv::detail::ryu::floating_decimal_128") align 16 %8, ptr noundef %0, i64 noundef %20, i32 noundef %4) #15
+  call fastcc void @_ZN5boost8charconv6detail3ryuL20long_double_to_fd128Ee(ptr dead_on_unwind noalias writable align 16 %8, x86_fp80 noundef %2) #17
+  %36 = tail call fastcc noundef i32 @_ZN5boost8charconv6detail3ryuL22generic_to_chars_fixedENS2_20floating_decimal_128EPcli(ptr noundef nonnull byval(%"struct.boost::charconv::detail::ryu::floating_decimal_128") align 16 %8, ptr noundef %0, i64 noundef %20, i32 noundef %4) #17
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %.thread, label %40
 
@@ -301,14 +301,14 @@ define internal fastcc void @_ZN5boost8charconv6detail3ryuL20long_double_to_fd12
   %.val.i.i = load i64, ptr %65, align 16, !tbaa !14, !noalias !3
   %82 = getelementptr i8, ptr %65, i64 8
   %.val25.i.i = load i64, ptr %82, align 8, !tbaa !14, !noalias !3
-  call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.val.i.i, i64 %.val25.i.i, ptr noundef nonnull %48, i32 noundef %70, i32 noundef %81, ptr noundef nonnull %9) #15, !noalias !3
+  call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.val.i.i, i64 %.val25.i.i, ptr noundef nonnull %48, i32 noundef %70, i32 noundef %81, ptr noundef nonnull %9) #17, !noalias !3
   br label %_ZN5boost8charconv6detail3ryuL22generic_computeInvPow5EjPm.exit.i
 
 _ZN5boost8charconv6detail3ryuL22generic_computeInvPow5EjPm.exit.i: ; preds = %62, %50
   %.sroa.055.0.extract.trunc.i = trunc i128 %27 to i64
   %.sroa.256.0.extract.shift.i = lshr i64 %.sroa.0.0.extract.trunc, 62
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !3
-  call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.sroa.055.0.extract.trunc.i, i64 %.sroa.256.0.extract.shift.i, ptr noundef nonnull readonly %9, i32 noundef range(i32 -261896, 267305) %43, i32 noundef 0, ptr noundef %8) #15, !noalias !3
+  call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.sroa.055.0.extract.trunc.i, i64 %.sroa.256.0.extract.shift.i, ptr noundef nonnull readonly %9, i32 noundef range(i32 -261896, 267305) %43, i32 noundef 0, ptr noundef %8) #17, !noalias !3
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %84 = load i64, ptr %83, align 8, !tbaa !14, !noalias !3
   %85 = load i64, ptr %8, align 16, !tbaa !14, !noalias !3
@@ -319,7 +319,7 @@ _ZN5boost8charconv6detail3ryuL22generic_computeInvPow5EjPm.exit.i: ; preds = %62
   %.sroa.053.0.insert.insert.i = or disjoint i128 %.sroa.254.0.insert.shift.i, %.sroa.053.0.insert.ext.i
   %.sroa.051.0.extract.trunc.i = or disjoint i64 %.sroa.055.0.extract.trunc.i, 2
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !3
-  call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.sroa.051.0.extract.trunc.i, i64 %.sroa.256.0.extract.shift.i, ptr noundef nonnull readonly %9, i32 noundef range(i32 -261896, 267305) %43, i32 noundef 0, ptr noundef %7) #15, !noalias !3
+  call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.sroa.051.0.extract.trunc.i, i64 %.sroa.256.0.extract.shift.i, ptr noundef nonnull readonly %9, i32 noundef range(i32 -261896, 267305) %43, i32 noundef 0, ptr noundef %7) #17, !noalias !3
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %87 = load i64, ptr %86, align 8, !tbaa !14, !noalias !3
   %88 = load i64, ptr %7, align 16, !tbaa !14, !noalias !3
@@ -335,7 +335,7 @@ _ZN5boost8charconv6detail3ryuL22generic_computeInvPow5EjPm.exit.i: ; preds = %62
   %.sroa.248.0.extract.shift.i = lshr i128 %90, 64
   %.sroa.248.0.extract.trunc.i = trunc nuw i128 %.sroa.248.0.extract.shift.i to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3
-  call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.sroa.047.0.extract.trunc.i, i64 %.sroa.248.0.extract.trunc.i, ptr noundef nonnull readonly %9, i32 noundef range(i32 -261896, 267305) %43, i32 noundef 0, ptr noundef %6) #15, !noalias !3
+  call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.sroa.047.0.extract.trunc.i, i64 %.sroa.248.0.extract.trunc.i, ptr noundef nonnull readonly %9, i32 noundef range(i32 -261896, 267305) %43, i32 noundef 0, ptr noundef %6) #17, !noalias !3
   %91 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %92 = load i64, ptr %91, align 8, !tbaa !14, !noalias !3
   %93 = load i64, ptr %6, align 16, !tbaa !14, !noalias !3
@@ -509,14 +509,14 @@ _ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit231.i: ; preds = %118,
   %.val.i232.i = load i64, ptr %157, align 16, !tbaa !14, !noalias !3
   %173 = getelementptr i8, ptr %157, i64 8
   %.val25.i233.i = load i64, ptr %173, align 8, !tbaa !14, !noalias !3
-  call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.val.i232.i, i64 %.val25.i233.i, ptr noundef nonnull %142, i32 noundef %162, i32 noundef %172, ptr noundef nonnull %10) #15, !noalias !3
+  call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.val.i232.i, i64 %.val25.i233.i, ptr noundef nonnull %142, i32 noundef %162, i32 noundef %172, ptr noundef nonnull %10) #17, !noalias !3
   br label %_ZN5boost8charconv6detail3ryuL19generic_computePow5EjPm.exit.i
 
 _ZN5boost8charconv6detail3ryuL19generic_computePow5EjPm.exit.i: ; preds = %155, %144
   %.sroa.025.0.extract.trunc.i = trunc i128 %27 to i64
   %.sroa.226.0.extract.shift.i = lshr i64 %.sroa.0.0.extract.trunc, 62
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3
-  call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.sroa.025.0.extract.trunc.i, i64 %.sroa.226.0.extract.shift.i, ptr noundef nonnull readonly %10, i32 noundef range(i32 -261896, 267305) %138, i32 noundef 0, ptr noundef %5) #15, !noalias !3
+  call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.sroa.025.0.extract.trunc.i, i64 %.sroa.226.0.extract.shift.i, ptr noundef nonnull readonly %10, i32 noundef range(i32 -261896, 267305) %138, i32 noundef 0, ptr noundef %5) #17, !noalias !3
   %174 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %175 = load i64, ptr %174, align 8, !tbaa !14, !noalias !3
   %176 = load i64, ptr %5, align 16, !tbaa !14, !noalias !3
@@ -527,7 +527,7 @@ _ZN5boost8charconv6detail3ryuL19generic_computePow5EjPm.exit.i: ; preds = %155, 
   %.sroa.023.0.insert.insert.i = or disjoint i128 %.sroa.224.0.insert.shift.i, %.sroa.023.0.insert.ext.i
   %.sroa.021.0.extract.trunc.i = or disjoint i64 %.sroa.025.0.extract.trunc.i, 2
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3
-  call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.sroa.021.0.extract.trunc.i, i64 %.sroa.226.0.extract.shift.i, ptr noundef nonnull readonly %10, i32 noundef range(i32 -261896, 267305) %138, i32 noundef 0, ptr noundef %4) #15, !noalias !3
+  call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.sroa.021.0.extract.trunc.i, i64 %.sroa.226.0.extract.shift.i, ptr noundef nonnull readonly %10, i32 noundef range(i32 -261896, 267305) %138, i32 noundef 0, ptr noundef %4) #17, !noalias !3
   %177 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %178 = load i64, ptr %177, align 8, !tbaa !14, !noalias !3
   %179 = load i64, ptr %4, align 16, !tbaa !14, !noalias !3
@@ -543,7 +543,7 @@ _ZN5boost8charconv6detail3ryuL19generic_computePow5EjPm.exit.i: ; preds = %155, 
   %.sroa.218.0.extract.shift.i = lshr i128 %181, 64
   %.sroa.218.0.extract.trunc.i = trunc nuw i128 %.sroa.218.0.extract.shift.i to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3
-  call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.sroa.017.0.extract.trunc.i, i64 %.sroa.218.0.extract.trunc.i, ptr noundef nonnull readonly %10, i32 noundef range(i32 -261896, 267305) %138, i32 noundef 0, ptr noundef %3) #15, !noalias !3
+  call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.sroa.017.0.extract.trunc.i, i64 %.sroa.218.0.extract.trunc.i, ptr noundef nonnull readonly %10, i32 noundef range(i32 -261896, 267305) %138, i32 noundef 0, ptr noundef %3) #17, !noalias !3
   %182 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %183 = load i64, ptr %182, align 8, !tbaa !14, !noalias !3
   %184 = load i64, ptr %3, align 16, !tbaa !14, !noalias !3
@@ -792,7 +792,7 @@ define internal fastcc noundef i32 @_ZN5boost8charconv6detail3ryuL16generic_to_c
   %.sroa.0.0.extract.trunc = trunc i128 %.sroa.0.0.copyload to i64
   %.sroa.2.0.extract.shift = lshr i128 %.sroa.0.0.copyload, 64
   %.sroa.2.0.extract.trunc = trunc nuw i128 %.sroa.2.0.extract.shift to i64
-  %30 = tail call noundef i32 @_ZN5boost8charconv6detail10num_digitsEo(i64 noundef %.sroa.0.0.extract.trunc, i64 noundef %.sroa.2.0.extract.trunc) #15
+  %30 = tail call noundef i32 @_ZN5boost8charconv6detail10num_digitsEo(i64 noundef %.sroa.0.0.extract.trunc, i64 noundef %.sroa.2.0.extract.trunc) #17
   %31 = icmp eq i32 %3, 3
   br i1 %31, label %32, label %.thread
 
@@ -805,7 +805,7 @@ define internal fastcc noundef i32 @_ZN5boost8charconv6detail3ryuL16generic_to_c
   br i1 %.not, label %.thread, label %37
 
 37:                                               ; preds = %32
-  %38 = tail call fastcc noundef i32 @_ZN5boost8charconv6detail3ryuL22generic_to_chars_fixedENS2_20floating_decimal_128EPcli(ptr noundef nonnull byval(%"struct.boost::charconv::detail::ryu::floating_decimal_128") align 16 %0, ptr noundef %1, i64 noundef %2, i32 noundef %4) #15
+  %38 = tail call fastcc noundef i32 @_ZN5boost8charconv6detail3ryuL22generic_to_chars_fixedENS2_20floating_decimal_128EPcli(ptr noundef nonnull byval(%"struct.boost::charconv::detail::ryu::floating_decimal_128") align 16 %0, ptr noundef %1, i64 noundef %2, i32 noundef %4) #17
   br label %_ZN5boost8charconv6detail3ryuL16copy_special_strEPclNS2_20floating_decimal_128E.exit
 
 .thread:                                          ; preds = %32, %29
@@ -1396,7 +1396,7 @@ define internal fastcc noundef i32 @_ZN5boost8charconv6detail3ryuL22generic_to_c
   %.sroa.0.0.extract.trunc = trunc i128 %35 to i64
   %.sroa.2.0.extract.shift = lshr i128 %35, 64
   %.sroa.2.0.extract.trunc = trunc nuw i128 %.sroa.2.0.extract.shift to i64
-  %37 = tail call { ptr, i32 } @_ZN5boost8charconv6detail24to_chars_128integer_implIoEENS0_15to_chars_resultEPcS4_T_(ptr noundef %.056, ptr noundef %36, i64 noundef %.sroa.0.0.extract.trunc, i64 noundef %.sroa.2.0.extract.trunc) #15
+  %37 = tail call { ptr, i32 } @_ZN5boost8charconv6detail24to_chars_128integer_implIoEENS0_15to_chars_resultEPcS4_T_(ptr noundef %.056, ptr noundef %36, i64 noundef %.sroa.0.0.extract.trunc, i64 noundef %.sroa.2.0.extract.trunc) #17
   %38 = extractvalue { ptr, i32 } %37, 0
   %39 = extractvalue { ptr, i32 } %37, 1
   %.not = icmp eq i32 %39, 0
@@ -1641,7 +1641,7 @@ _ZN5boost8charconv6detail12to_chars_intIiEENS0_15to_chars_resultEPcS4_T_i.exit: 
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.1.i.i, ptr noundef nonnull align 1 dereferenceable(1) %60, i64 %.0.i.i.i38, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #16
+  %61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #18
   br label %66
 
 62:                                               ; preds = %5
@@ -1683,12 +1683,12 @@ _ZN5boost8charconv6detail12to_chars_intIiEENS0_15to_chars_resultEPcS4_T_i.exit: 
   %73 = ptrtoint ptr %1 to i64
   %74 = ptrtoint ptr %0 to i64
   %75 = sub i64 %73, %74
-  %76 = call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %75, ptr noundef nonnull %7, x86_fp80 noundef %2) #15
+  %76 = call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %75, ptr noundef nonnull %7, x86_fp80 noundef %2) #17
   %77 = icmp slt i32 %76, 1
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %72
-  %79 = tail call ptr @__errno_location() #17
+  %79 = tail call ptr @__errno_location() #19
   %80 = load i32, ptr %79, align 4, !tbaa !32
   br label %84
 
@@ -2757,7 +2757,7 @@ _ZN5boost8charconv6detail15to_chars_detailL14print_9_digitsEjRiRPc.exit: ; preds
 
 ; Function Attrs: mustprogress nounwind uwtable
 define { ptr, i32 } @_ZN5boost8charconv8to_charsEPcS1_fNS0_12chars_formatE(ptr noundef %0, ptr noundef %1, float noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_float_implIfEENS0_15to_chars_resultEPcS4_T_NS0_12chars_formatEi(ptr noundef %0, ptr noundef %1, float noundef %2, i32 noundef %3, i32 noundef -1) #15
+  %5 = tail call { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_float_implIfEENS0_15to_chars_resultEPcS4_T_NS0_12chars_formatEi(ptr noundef %0, ptr noundef %1, float noundef %2, i32 noundef %3, i32 noundef -1) #17
   ret { ptr, i32 } %5
 }
 
@@ -2786,7 +2786,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_flo
   br i1 %or.cond, label %14, label %18
 
 14:                                               ; preds = %11
-  %15 = tail call { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_fixed_implIfEENS0_15to_chars_resultEPcS4_T_NS0_12chars_formatEi(ptr noundef %0, ptr noundef nonnull %1, float noundef %2, i32 noundef 3, i32 noundef -1) #15
+  %15 = tail call { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_fixed_implIfEENS0_15to_chars_resultEPcS4_T_NS0_12chars_formatEi(ptr noundef %0, ptr noundef nonnull %1, float noundef %2, i32 noundef 3, i32 noundef -1) #17
   %16 = extractvalue { ptr, i32 } %15, 0
   %17 = extractvalue { ptr, i32 } %15, 1
   br label %82
@@ -2809,27 +2809,27 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_flo
 25:                                               ; preds = %23, %21
   %.0 = phi ptr [ %24, %23 ], [ %0, %21 ]
   %26 = fptoui float %8 to i64
-  %27 = tail call { ptr, i32 } @_ZN5boost8charconv6detail21to_chars_integer_implImEENS0_15to_chars_resultEPcS4_T_(ptr noundef %.0, ptr noundef nonnull %1, i64 noundef %26) #15
+  %27 = tail call { ptr, i32 } @_ZN5boost8charconv6detail21to_chars_integer_implImEENS0_15to_chars_resultEPcS4_T_(ptr noundef %.0, ptr noundef nonnull %1, i64 noundef %26) #17
   %28 = extractvalue { ptr, i32 } %27, 0
   %29 = extractvalue { ptr, i32 } %27, 1
   br label %82
 
 30:                                               ; preds = %18
   %31 = bitcast float %2 to i32
-  %32 = tail call { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_detail15to_chars_n_implINS1_11policy_impl13policy_holderIJNS4_4sign11return_signENS4_13trailing_zero6removeENS4_26decimal_to_binary_rounding15nearest_to_evenENS4_26binary_to_decimal_rounding7to_evenENS4_5cache4fullEEEEfNS1_22dragonbox_float_traitsIfEEEENS0_15to_chars_resultENS1_20dragonbox_float_bitsIT0_T1_EEPcSO_NS0_12chars_formatE(i32 %31, ptr noundef %0, ptr noundef nonnull %1, i32 noundef 3) #15
+  %32 = tail call { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_detail15to_chars_n_implINS1_11policy_impl13policy_holderIJNS4_4sign11return_signENS4_13trailing_zero6removeENS4_26decimal_to_binary_rounding15nearest_to_evenENS4_26binary_to_decimal_rounding7to_evenENS4_5cache4fullEEEEfNS1_22dragonbox_float_traitsIfEEEENS0_15to_chars_resultENS1_20dragonbox_float_bitsIT0_T1_EEPcSO_NS0_12chars_formatE(i32 %31, ptr noundef %0, ptr noundef nonnull %1, i32 noundef 3) #17
   %33 = extractvalue { ptr, i32 } %32, 0
   %34 = extractvalue { ptr, i32 } %32, 1
   br label %82
 
 35:                                               ; preds = %10
   %36 = bitcast float %2 to i32
-  %37 = tail call { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_detail15to_chars_n_implINS1_11policy_impl13policy_holderIJNS4_4sign11return_signENS4_13trailing_zero6removeENS4_26decimal_to_binary_rounding15nearest_to_evenENS4_26binary_to_decimal_rounding7to_evenENS4_5cache4fullEEEEfNS1_22dragonbox_float_traitsIfEEEENS0_15to_chars_resultENS1_20dragonbox_float_bitsIT0_T1_EEPcSO_NS0_12chars_formatE(i32 %36, ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1) #15
+  %37 = tail call { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_detail15to_chars_n_implINS1_11policy_impl13policy_holderIJNS4_4sign11return_signENS4_13trailing_zero6removeENS4_26decimal_to_binary_rounding15nearest_to_evenENS4_26binary_to_decimal_rounding7to_evenENS4_5cache4fullEEEEfNS1_22dragonbox_float_traitsIfEEEENS0_15to_chars_resultENS1_20dragonbox_float_bitsIT0_T1_EEPcSO_NS0_12chars_formatE(i32 %36, ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1) #17
   %38 = extractvalue { ptr, i32 } %37, 0
   %39 = extractvalue { ptr, i32 } %37, 1
   br label %82
 
 40:                                               ; preds = %10
-  %41 = tail call { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_fixed_implIfEENS0_15to_chars_resultEPcS4_T_NS0_12chars_formatEi(ptr noundef %0, ptr noundef nonnull %1, float noundef %2, i32 noundef 2, i32 noundef -1) #15
+  %41 = tail call { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_fixed_implIfEENS0_15to_chars_resultEPcS4_T_NS0_12chars_formatEi(ptr noundef %0, ptr noundef nonnull %1, float noundef %2, i32 noundef 2, i32 noundef -1) #17
   %42 = extractvalue { ptr, i32 } %41, 0
   %43 = extractvalue { ptr, i32 } %41, 1
   br label %82
@@ -2845,7 +2845,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_flo
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %46 = fpext float %2 to double
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 117
-  %48 = call { ptr, i32 } @_ZN5boost8charconv6detail5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcS7_NS0_12chars_formatE(double noundef %46, i32 noundef %spec.store.select, ptr noundef nonnull %6, ptr noundef nonnull %47, i32 noundef 3) #15
+  %48 = call { ptr, i32 } @_ZN5boost8charconv6detail5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcS7_NS0_12chars_formatE(double noundef %46, i32 noundef %spec.store.select, ptr noundef nonnull %6, ptr noundef nonnull %47, i32 noundef 3) #17
   %49 = extractvalue { ptr, i32 } %48, 0
   %50 = ptrtoint ptr %49 to i64
   %51 = ptrtoint ptr %6 to i64
@@ -2869,7 +2869,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_flo
 
 60:                                               ; preds = %44
   %61 = fpext float %2 to double
-  %62 = tail call { ptr, i32 } @_ZN5boost8charconv6detail5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcS7_NS0_12chars_formatE(double noundef %61, i32 noundef %4, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3) #15
+  %62 = tail call { ptr, i32 } @_ZN5boost8charconv6detail5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcS7_NS0_12chars_formatE(double noundef %61, i32 noundef %4, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3) #17
   %63 = extractvalue { ptr, i32 } %62, 0
   %64 = extractvalue { ptr, i32 } %62, 1
   br label %82
@@ -2884,7 +2884,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_flo
 
 68:                                               ; preds = %67
   %69 = bitcast float %2 to i32
-  %70 = tail call { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_detail15to_chars_n_implINS1_11policy_impl13policy_holderIJNS4_4sign11return_signENS4_13trailing_zero6removeENS4_26decimal_to_binary_rounding15nearest_to_evenENS4_26binary_to_decimal_rounding7to_evenENS4_5cache4fullEEEEfNS1_22dragonbox_float_traitsIfEEEENS0_15to_chars_resultENS1_20dragonbox_float_bitsIT0_T1_EEPcSO_NS0_12chars_formatE(i32 %69, ptr noundef %0, ptr noundef nonnull %1, i32 noundef 3) #15
+  %70 = tail call { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_detail15to_chars_n_implINS1_11policy_impl13policy_holderIJNS4_4sign11return_signENS4_13trailing_zero6removeENS4_26decimal_to_binary_rounding15nearest_to_evenENS4_26binary_to_decimal_rounding7to_evenENS4_5cache4fullEEEEfNS1_22dragonbox_float_traitsIfEEEENS0_15to_chars_resultENS1_20dragonbox_float_bitsIT0_T1_EEPcSO_NS0_12chars_formatE(i32 %69, ptr noundef %0, ptr noundef nonnull %1, i32 noundef 3) #17
   %71 = extractvalue { ptr, i32 } %70, 0
   %72 = extractvalue { ptr, i32 } %70, 1
   br label %82
@@ -2906,7 +2906,7 @@ _ZSt10fpclassifyf.exit:                           ; preds = %65
   br label %82
 
 select.unfold:                                    ; preds = %67
-  %79 = tail call { ptr, i32 } @_ZN5boost8charconv6detail12to_chars_hexIfEENS0_15to_chars_resultEPcS4_T_i(ptr noundef %0, ptr noundef nonnull %1, float noundef %2, i32 noundef %4) #15
+  %79 = tail call { ptr, i32 } @_ZN5boost8charconv6detail12to_chars_hexIfEENS0_15to_chars_resultEPcS4_T_i(ptr noundef %0, ptr noundef nonnull %1, float noundef %2, i32 noundef %4) #17
   %80 = extractvalue { ptr, i32 } %79, 0
   %81 = extractvalue { ptr, i32 } %79, 1
   br label %82
@@ -2923,13 +2923,13 @@ select.unfold:                                    ; preds = %67
 define { ptr, i32 } @_ZN5boost8charconv8to_charsEPcS1_fNS0_12chars_formatEi(ptr noundef %0, ptr noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp slt i32 %4, 0
   %spec.store.select = select i1 %6, i32 6, i32 %4
-  %7 = tail call { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_float_implIfEENS0_15to_chars_resultEPcS4_T_NS0_12chars_formatEi(ptr noundef %0, ptr noundef %1, float noundef %2, i32 noundef %3, i32 noundef %spec.store.select) #15
+  %7 = tail call { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_float_implIfEENS0_15to_chars_resultEPcS4_T_NS0_12chars_formatEi(ptr noundef %0, ptr noundef %1, float noundef %2, i32 noundef %3, i32 noundef %spec.store.select) #17
   ret { ptr, i32 } %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define { ptr, i32 } @_ZN5boost8charconv8to_charsEPcS1_dNS0_12chars_formatE(ptr noundef %0, ptr noundef %1, double noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_float_implIdEENS0_15to_chars_resultEPcS4_T_NS0_12chars_formatEi(ptr noundef %0, ptr noundef %1, double noundef %2, i32 noundef %3, i32 noundef -1) #15
+  %5 = tail call { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_float_implIdEENS0_15to_chars_resultEPcS4_T_NS0_12chars_formatEi(ptr noundef %0, ptr noundef %1, double noundef %2, i32 noundef %3, i32 noundef -1) #17
   ret { ptr, i32 } %5
 }
 
@@ -2958,7 +2958,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_flo
   br i1 %or.cond, label %14, label %18
 
 14:                                               ; preds = %11
-  %15 = tail call { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_fixed_implIdEENS0_15to_chars_resultEPcS4_T_NS0_12chars_formatEi(ptr noundef %0, ptr noundef nonnull %1, double noundef %2, i32 noundef 3, i32 noundef -1) #15
+  %15 = tail call { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_fixed_implIdEENS0_15to_chars_resultEPcS4_T_NS0_12chars_formatEi(ptr noundef %0, ptr noundef nonnull %1, double noundef %2, i32 noundef 3, i32 noundef -1) #17
   %16 = extractvalue { ptr, i32 } %15, 0
   %17 = extractvalue { ptr, i32 } %15, 1
   br label %80
@@ -2981,27 +2981,27 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_flo
 25:                                               ; preds = %23, %21
   %.0 = phi ptr [ %24, %23 ], [ %0, %21 ]
   %26 = fptoui double %8 to i64
-  %27 = tail call { ptr, i32 } @_ZN5boost8charconv6detail21to_chars_integer_implImEENS0_15to_chars_resultEPcS4_T_(ptr noundef %.0, ptr noundef nonnull %1, i64 noundef %26) #15
+  %27 = tail call { ptr, i32 } @_ZN5boost8charconv6detail21to_chars_integer_implImEENS0_15to_chars_resultEPcS4_T_(ptr noundef %.0, ptr noundef nonnull %1, i64 noundef %26) #17
   %28 = extractvalue { ptr, i32 } %27, 0
   %29 = extractvalue { ptr, i32 } %27, 1
   br label %80
 
 30:                                               ; preds = %18
   %31 = bitcast double %2 to i64
-  %32 = tail call { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_detail15to_chars_n_implINS1_11policy_impl13policy_holderIJNS4_4sign11return_signENS4_13trailing_zero6removeENS4_26decimal_to_binary_rounding15nearest_to_evenENS4_26binary_to_decimal_rounding7to_evenENS4_5cache4fullEEEEdNS1_22dragonbox_float_traitsIdEEEENS0_15to_chars_resultENS1_20dragonbox_float_bitsIT0_T1_EEPcSO_NS0_12chars_formatE(i64 %31, ptr noundef %0, ptr noundef nonnull %1, i32 noundef 3) #15
+  %32 = tail call { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_detail15to_chars_n_implINS1_11policy_impl13policy_holderIJNS4_4sign11return_signENS4_13trailing_zero6removeENS4_26decimal_to_binary_rounding15nearest_to_evenENS4_26binary_to_decimal_rounding7to_evenENS4_5cache4fullEEEEdNS1_22dragonbox_float_traitsIdEEEENS0_15to_chars_resultENS1_20dragonbox_float_bitsIT0_T1_EEPcSO_NS0_12chars_formatE(i64 %31, ptr noundef %0, ptr noundef nonnull %1, i32 noundef 3) #17
   %33 = extractvalue { ptr, i32 } %32, 0
   %34 = extractvalue { ptr, i32 } %32, 1
   br label %80
 
 35:                                               ; preds = %10
   %36 = bitcast double %2 to i64
-  %37 = tail call { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_detail15to_chars_n_implINS1_11policy_impl13policy_holderIJNS4_4sign11return_signENS4_13trailing_zero6removeENS4_26decimal_to_binary_rounding15nearest_to_evenENS4_26binary_to_decimal_rounding7to_evenENS4_5cache4fullEEEEdNS1_22dragonbox_float_traitsIdEEEENS0_15to_chars_resultENS1_20dragonbox_float_bitsIT0_T1_EEPcSO_NS0_12chars_formatE(i64 %36, ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1) #15
+  %37 = tail call { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_detail15to_chars_n_implINS1_11policy_impl13policy_holderIJNS4_4sign11return_signENS4_13trailing_zero6removeENS4_26decimal_to_binary_rounding15nearest_to_evenENS4_26binary_to_decimal_rounding7to_evenENS4_5cache4fullEEEEdNS1_22dragonbox_float_traitsIdEEEENS0_15to_chars_resultENS1_20dragonbox_float_bitsIT0_T1_EEPcSO_NS0_12chars_formatE(i64 %36, ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1) #17
   %38 = extractvalue { ptr, i32 } %37, 0
   %39 = extractvalue { ptr, i32 } %37, 1
   br label %80
 
 40:                                               ; preds = %10
-  %41 = tail call { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_fixed_implIdEENS0_15to_chars_resultEPcS4_T_NS0_12chars_formatEi(ptr noundef %0, ptr noundef nonnull %1, double noundef %2, i32 noundef 2, i32 noundef -1) #15
+  %41 = tail call { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_fixed_implIdEENS0_15to_chars_resultEPcS4_T_NS0_12chars_formatEi(ptr noundef %0, ptr noundef nonnull %1, double noundef %2, i32 noundef 2, i32 noundef -1) #17
   %42 = extractvalue { ptr, i32 } %41, 0
   %43 = extractvalue { ptr, i32 } %41, 1
   br label %80
@@ -3016,7 +3016,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_flo
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %4, i32 767)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 773
-  %47 = call { ptr, i32 } @_ZN5boost8charconv6detail5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcS7_NS0_12chars_formatE(double noundef %2, i32 noundef %spec.store.select, ptr noundef nonnull %6, ptr noundef nonnull %46, i32 noundef 3) #15
+  %47 = call { ptr, i32 } @_ZN5boost8charconv6detail5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcS7_NS0_12chars_formatE(double noundef %2, i32 noundef %spec.store.select, ptr noundef nonnull %6, ptr noundef nonnull %46, i32 noundef 3) #17
   %48 = extractvalue { ptr, i32 } %47, 0
   %49 = ptrtoint ptr %48 to i64
   %50 = ptrtoint ptr %6 to i64
@@ -3039,7 +3039,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_flo
   br label %80
 
 59:                                               ; preds = %44
-  %60 = tail call { ptr, i32 } @_ZN5boost8charconv6detail5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcS7_NS0_12chars_formatE(double noundef %2, i32 noundef %4, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3) #15
+  %60 = tail call { ptr, i32 } @_ZN5boost8charconv6detail5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcS7_NS0_12chars_formatE(double noundef %2, i32 noundef %4, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3) #17
   %61 = extractvalue { ptr, i32 } %60, 0
   %62 = extractvalue { ptr, i32 } %60, 1
   br label %80
@@ -3054,7 +3054,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_flo
 
 66:                                               ; preds = %65
   %67 = bitcast double %2 to i64
-  %68 = tail call { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_detail15to_chars_n_implINS1_11policy_impl13policy_holderIJNS4_4sign11return_signENS4_13trailing_zero6removeENS4_26decimal_to_binary_rounding15nearest_to_evenENS4_26binary_to_decimal_rounding7to_evenENS4_5cache4fullEEEEdNS1_22dragonbox_float_traitsIdEEEENS0_15to_chars_resultENS1_20dragonbox_float_bitsIT0_T1_EEPcSO_NS0_12chars_formatE(i64 %67, ptr noundef %0, ptr noundef nonnull %1, i32 noundef 3) #15
+  %68 = tail call { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_detail15to_chars_n_implINS1_11policy_impl13policy_holderIJNS4_4sign11return_signENS4_13trailing_zero6removeENS4_26decimal_to_binary_rounding15nearest_to_evenENS4_26binary_to_decimal_rounding7to_evenENS4_5cache4fullEEEEdNS1_22dragonbox_float_traitsIdEEEENS0_15to_chars_resultENS1_20dragonbox_float_bitsIT0_T1_EEPcSO_NS0_12chars_formatE(i64 %67, ptr noundef %0, ptr noundef nonnull %1, i32 noundef 3) #17
   %69 = extractvalue { ptr, i32 } %68, 0
   %70 = extractvalue { ptr, i32 } %68, 1
   br label %80
@@ -3076,7 +3076,7 @@ _ZSt10fpclassifyd.exit:                           ; preds = %63
   br label %80
 
 select.unfold:                                    ; preds = %65
-  %77 = tail call { ptr, i32 } @_ZN5boost8charconv6detail12to_chars_hexIdEENS0_15to_chars_resultEPcS4_T_i(ptr noundef %0, ptr noundef nonnull %1, double noundef %2, i32 noundef %4) #15
+  %77 = tail call { ptr, i32 } @_ZN5boost8charconv6detail12to_chars_hexIdEENS0_15to_chars_resultEPcS4_T_i(ptr noundef %0, ptr noundef nonnull %1, double noundef %2, i32 noundef %4) #17
   %78 = extractvalue { ptr, i32 } %77, 0
   %79 = extractvalue { ptr, i32 } %77, 1
   br label %80
@@ -3093,13 +3093,13 @@ select.unfold:                                    ; preds = %65
 define { ptr, i32 } @_ZN5boost8charconv8to_charsEPcS1_dNS0_12chars_formatEi(ptr noundef %0, ptr noundef %1, double noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp slt i32 %4, 0
   %spec.store.select = select i1 %6, i32 6, i32 %4
-  %7 = tail call { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_float_implIdEENS0_15to_chars_resultEPcS4_T_NS0_12chars_formatEi(ptr noundef %0, ptr noundef %1, double noundef %2, i32 noundef %3, i32 noundef %spec.store.select) #15
+  %7 = tail call { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_float_implIdEENS0_15to_chars_resultEPcS4_T_NS0_12chars_formatEi(ptr noundef %0, ptr noundef %1, double noundef %2, i32 noundef %3, i32 noundef %spec.store.select) #17
   ret { ptr, i32 } %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define { ptr, i32 } @_ZN5boost8charconv8to_charsEPcS1_eNS0_12chars_formatE(ptr noundef %0, ptr noundef %1, x86_fp80 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_float_implIeEENS0_15to_chars_resultEPcS4_T_NS0_12chars_formatEi(ptr noundef %0, ptr noundef %1, x86_fp80 noundef %2, i32 noundef %3, i32 noundef -1) #15
+  %5 = tail call { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_float_implIeEENS0_15to_chars_resultEPcS4_T_NS0_12chars_formatEi(ptr noundef %0, ptr noundef %1, x86_fp80 noundef %2, i32 noundef %3, i32 noundef -1) #17
   ret { ptr, i32 } %5
 }
 
@@ -3107,11 +3107,11 @@ define { ptr, i32 } @_ZN5boost8charconv8to_charsEPcS1_eNS0_12chars_formatE(ptr n
 define { ptr, i32 } @_ZN5boost8charconv8to_charsEPcS1_eNS0_12chars_formatEi(ptr noundef %0, ptr noundef %1, x86_fp80 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp slt i32 %4, 0
   %spec.store.select = select i1 %6, i32 6, i32 %4
-  %7 = tail call { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_float_implIeEENS0_15to_chars_resultEPcS4_T_NS0_12chars_formatEi(ptr noundef %0, ptr noundef %1, x86_fp80 noundef %2, i32 noundef %3, i32 noundef %spec.store.select) #15
+  %7 = tail call { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_float_implIeEENS0_15to_chars_resultEPcS4_T_NS0_12chars_formatEi(ptr noundef %0, ptr noundef %1, x86_fp80 noundef %2, i32 noundef %3, i32 noundef %spec.store.select) #17
   ret { ptr, i32 } %7
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare x86_fp80 @llvm.fabs.f80(x86_fp80) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -3407,7 +3407,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost8charconv6detail10num_digitsEo(
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #5
+declare i64 @llvm.abs.i64(i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail24to_chars_128integer_implIoEENS0_15to_chars_resultEPcS4_T_(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 comdat {
@@ -3424,7 +3424,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail24to_chars_128
   %9 = ptrtoint ptr %1 to i64
   %10 = ptrtoint ptr %0 to i64
   %11 = sub i64 %9, %10
-  %12 = tail call noundef i32 @_ZN5boost8charconv6detail10num_digitsEo(i64 noundef %2, i64 noundef %3) #15
+  %12 = tail call noundef i32 @_ZN5boost8charconv6detail10num_digitsEo(i64 noundef %2, i64 noundef %3) #17
   %13 = sext i32 %12 to i64
   %14 = icmp slt i64 %11, %13
   br i1 %14, label %70, label %15
@@ -3434,7 +3434,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail24to_chars_128
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %15
-  %18 = tail call { ptr, i32 } @_ZN5boost8charconv6detail21to_chars_integer_implImEENS0_15to_chars_resultEPcS4_T_(ptr noundef %0, ptr noundef %1, i64 noundef %2) #15
+  %18 = tail call { ptr, i32 } @_ZN5boost8charconv6detail21to_chars_integer_implImEENS0_15to_chars_resultEPcS4_T_(ptr noundef %0, ptr noundef %1, i64 noundef %2) #17
   %19 = extractvalue { ptr, i32 } %18, 0
   %20 = extractvalue { ptr, i32 } %18, 1
   br label %70
@@ -3913,13 +3913,13 @@ _ZN5boost8charconv6detail11decompose32EjPc.exit107: ; preds = %156
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #9
+declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_fixed_implIfEENS0_15to_chars_resultEPcS4_T_NS0_12chars_formatEi(ptr noundef %0, ptr noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -5686,7 +5686,7 @@ _ZN5boost8charconv6detail22fixed_point_calculatorILm3EE26generate_and_discard_lo
   %818 = trunc nuw nsw i128 %sum.shift2405 to i32
   %.neg1095 = mul nuw nsw i64 %817, 4194967296
   %819 = add nuw nsw i64 %.neg1095, %814
-  tail call void @_ZN5boost8charconv6detail14print_8_digitsEjPc(i32 noundef %818, ptr noundef nonnull %.32045) #15
+  tail call void @_ZN5boost8charconv6detail14print_8_digitsEjPc(i32 noundef %818, ptr noundef nonnull %.32045) #17
   %820 = getelementptr inbounds nuw i8, ptr %.32045, i64 8
   %821 = and i64 %819, 4294967295
   %822 = mul nuw nsw i64 %821, 140737489
@@ -5882,9 +5882,9 @@ _ZN5boost8charconv6detail22fixed_point_calculatorILm3EE26generate_and_discard_lo
 
 ._crit_edge2528:                                  ; preds = %.lr.ph2527, %923
   %.37.lcssa = phi ptr [ %930, %923 ], [ %936, %.lr.ph2527 ]
-  tail call void @_ZN5boost8charconv6detail14print_8_digitsEjPc(i32 noundef %896, ptr noundef nonnull %.37.lcssa) #15
+  tail call void @_ZN5boost8charconv6detail14print_8_digitsEjPc(i32 noundef %896, ptr noundef nonnull %.37.lcssa) #17
   %939 = getelementptr inbounds nuw i8, ptr %.37.lcssa, i64 8
-  tail call void @_ZN5boost8charconv6detail14print_8_digitsEjPc(i32 noundef %898, ptr noundef nonnull %939) #15
+  tail call void @_ZN5boost8charconv6detail14print_8_digitsEjPc(i32 noundef %898, ptr noundef nonnull %939) #17
   %940 = getelementptr inbounds nuw i8, ptr %.37.lcssa, i64 16
   br label %.loopexit
 
@@ -8001,7 +8001,7 @@ _ZN5boost8charconv6detail22fixed_point_calculatorILm3EE26generate_and_discard_lo
   %2109 = trunc i64 %2105 to i32
   %.neg1100 = mul i32 %2108, -100000000
   %2110 = add i32 %.neg1100, %2109
-  tail call void @_ZN5boost8charconv6detail14print_8_digitsEjPc(i32 noundef %2108, ptr noundef nonnull %.68) #15
+  tail call void @_ZN5boost8charconv6detail14print_8_digitsEjPc(i32 noundef %2108, ptr noundef nonnull %.68) #17
   %2111 = getelementptr inbounds nuw i8, ptr %.68, i64 8
   %2112 = add nsw i32 %.28945, -8
   %2113 = and i32 %.28945, 1
@@ -9014,7 +9014,7 @@ _ZN5boost8charconv6detail12to_chars_intIjEENS0_15to_chars_resultEPcS4_T_i.exit: 
   ret { ptr, i32 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #5
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -9134,7 +9134,7 @@ _ZZZN5boost8charconv6detail10to_decimalIfNS1_22dragonbox_float_traitsIfEEJEEEDaN
   %.0 = phi i32 [ %63, %62 ], [ %4, %1 ]
   %65 = and i32 %3, 1
   %66 = icmp eq i32 %65, 0
-  %67 = tail call { i64, i8 } @_ZN5boost8charconv6detail4implIfNS1_22dragonbox_float_traitsIfEEE22compute_nearest_normalINS1_10decimal_fpIjLb1ELb0EEENS1_11policy_impl26decimal_to_binary_rounding13interval_type18symmetric_boundaryENS9_13trailing_zero6removeENS9_26binary_to_decimal_rounding7to_evenENS9_5cache4fullEJbEEET_jiDpT4_(i32 noundef %.0, i32 noundef %.019, i1 noundef zeroext %66) #15
+  %67 = tail call { i64, i8 } @_ZN5boost8charconv6detail4implIfNS1_22dragonbox_float_traitsIfEEE22compute_nearest_normalINS1_10decimal_fpIjLb1ELb0EEENS1_11policy_impl26decimal_to_binary_rounding13interval_type18symmetric_boundaryENS9_13trailing_zero6removeENS9_26binary_to_decimal_rounding7to_evenENS9_5cache4fullEJbEEET_jiDpT4_(i32 noundef %.0, i32 noundef %.019, i1 noundef zeroext %66) #17
   br label %68
 
 68:                                               ; preds = %64, %_ZZZN5boost8charconv6detail10to_decimalIfNS1_22dragonbox_float_traitsIfEEJEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_ENKUlNS1_11policy_impl26decimal_to_binary_rounding15nearest_to_evenEE_clESD_ENKUlvE_clEv.exit
@@ -9338,7 +9338,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_det
   %.sroa.06.0.extract.trunc = trunc i64 %.fca.0.extract to i32
   %.sroa.06.4.extract.shift = lshr i64 %.fca.0.extract, 32
   %.sroa.06.4.extract.trunc = trunc nuw i64 %.sroa.06.4.extract.shift to i32
-  %20 = call { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_detail22dragon_box_print_charsIfNS1_22dragonbox_float_traitsIfEEEENS0_15to_chars_resultENT0_12carrier_uintEiPcS9_NS0_12chars_formatE(i32 noundef %.sroa.06.0.extract.trunc, i32 noundef %.sroa.06.4.extract.trunc, ptr noundef %.044, ptr noundef %2, i32 noundef %3) #15
+  %20 = call { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_detail22dragon_box_print_charsIfNS1_22dragonbox_float_traitsIfEEEENS0_15to_chars_resultENT0_12carrier_uintEiPcS9_NS0_12chars_formatE(i32 noundef %.sroa.06.0.extract.trunc, i32 noundef %.sroa.06.4.extract.trunc, ptr noundef %.044, ptr noundef %2, i32 noundef %3) #17
   br label %61
 
 21:                                               ; preds = %17
@@ -9557,7 +9557,7 @@ _ZZZN5boost8charconv6detail10to_decimalIfNS1_22dragonbox_float_traitsIfEEJNS1_11
   %.0 = phi i32 [ %63, %62 ], [ %4, %1 ]
   %65 = and i32 %3, 1
   %66 = icmp eq i32 %65, 0
-  %67 = tail call { i64, i8 } @_ZN5boost8charconv6detail4implIfNS1_22dragonbox_float_traitsIfEEE22compute_nearest_normalINS1_10decimal_fpIjLb1ELb0EEENS1_11policy_impl26decimal_to_binary_rounding13interval_type18symmetric_boundaryENS9_13trailing_zero6removeENS9_26binary_to_decimal_rounding7to_evenENS9_5cache4fullEJbEEET_jiDpT4_(i32 noundef %.0, i32 noundef %.019, i1 noundef zeroext %66) #15
+  %67 = tail call { i64, i8 } @_ZN5boost8charconv6detail4implIfNS1_22dragonbox_float_traitsIfEEE22compute_nearest_normalINS1_10decimal_fpIjLb1ELb0EEENS1_11policy_impl26decimal_to_binary_rounding13interval_type18symmetric_boundaryENS9_13trailing_zero6removeENS9_26binary_to_decimal_rounding7to_evenENS9_5cache4fullEJbEEET_jiDpT4_(i32 noundef %.0, i32 noundef %.019, i1 noundef zeroext %66) #17
   br label %68
 
 68:                                               ; preds = %64, %_ZZZN5boost8charconv6detail10to_decimalIfNS1_22dragonbox_float_traitsIfEEJNS1_11policy_impl4sign6ignoreENS5_13trailing_zero6ignoreENS5_26decimal_to_binary_rounding15nearest_to_evenENS5_26binary_to_decimal_rounding7to_evenENS5_5cache4fullEEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_ENKUlSB_E_clESB_ENKUlvE_clEv.exit
@@ -9599,11 +9599,11 @@ define linkonce_odr hidden void @_ZN5boost8charconv6detail14print_8_digitsEjPc(i
   br i1 %exitcond.not, label %11, label %12, !llvm.loop !54
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #5
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #8
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZZN5boost8charconv6detail5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcS7_NS0_12chars_formatEENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #2 comdat align 2 {
@@ -9681,7 +9681,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_fix
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %22
-  %26 = tail call { i64, i64 } @_ZN5boost8charconv6detail4implIdNS1_22dragonbox_float_traitsIdEEE23compute_nearest_shorterINS1_10decimal_fpImLb1ELb0EEENS1_11policy_impl26decimal_to_binary_rounding13interval_type6closedENS9_13trailing_zero6removeENS9_26binary_to_decimal_rounding7to_evenENS9_5cache4fullEJEEET_iDpT4_(i32 noundef %23) #15
+  %26 = tail call { i64, i64 } @_ZN5boost8charconv6detail4implIdNS1_22dragonbox_float_traitsIdEEE23compute_nearest_shorterINS1_10decimal_fpImLb1ELb0EEENS1_11policy_impl26decimal_to_binary_rounding13interval_type6closedENS9_13trailing_zero6removeENS9_26binary_to_decimal_rounding7to_evenENS9_5cache4fullEJEEET_iDpT4_(i32 noundef %23) #17
   br label %_ZZN5boost8charconv6detail10to_decimalIdNS1_22dragonbox_float_traitsIdEEJEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_ENKUlNS1_11policy_impl26decimal_to_binary_rounding15nearest_to_evenEE_clESD_.exit
 
 27:                                               ; preds = %22
@@ -9693,7 +9693,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_fix
   %.0.i = phi i32 [ %23, %27 ], [ -1074, %14 ]
   %30 = and i64 %16, 1
   %31 = icmp eq i64 %30, 0
-  %32 = tail call { i64, i64 } @_ZN5boost8charconv6detail4implIdNS1_22dragonbox_float_traitsIdEEE22compute_nearest_normalINS1_10decimal_fpImLb1ELb0EEENS1_11policy_impl26decimal_to_binary_rounding13interval_type18symmetric_boundaryENS9_13trailing_zero6removeENS9_26binary_to_decimal_rounding7to_evenENS9_5cache4fullEJbEEET_miDpT4_(i64 noundef %.09.i, i32 noundef %.0.i, i1 noundef zeroext %31) #15
+  %32 = tail call { i64, i64 } @_ZN5boost8charconv6detail4implIdNS1_22dragonbox_float_traitsIdEEE22compute_nearest_normalINS1_10decimal_fpImLb1ELb0EEENS1_11policy_impl26decimal_to_binary_rounding13interval_type18symmetric_boundaryENS9_13trailing_zero6removeENS9_26binary_to_decimal_rounding7to_evenENS9_5cache4fullEJbEEET_miDpT4_(i64 noundef %.09.i, i32 noundef %.0.i, i1 noundef zeroext %31) #17
   br label %_ZZN5boost8charconv6detail10to_decimalIdNS1_22dragonbox_float_traitsIdEEJEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_ENKUlNS1_11policy_impl26decimal_to_binary_rounding15nearest_to_evenEE_clESD_.exit
 
 _ZZN5boost8charconv6detail10to_decimalIdNS1_22dragonbox_float_traitsIdEEJEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_ENKUlNS1_11policy_impl26decimal_to_binary_rounding15nearest_to_evenEE_clESD_.exit: ; preds = %25, %29
@@ -9921,7 +9921,7 @@ _ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit: ; preds = %.lr.ph.
 
 129:                                              ; preds = %124, %115
   %.2 = phi ptr [ %128, %124 ], [ %.0, %115 ]
-  %130 = tail call { ptr, i32 } @_ZN5boost8charconv6detail21to_chars_integer_implImEENS0_15to_chars_resultEPcS4_T_(ptr noundef %.2, ptr noundef %1, i64 noundef %.sroa.022.0) #15
+  %130 = tail call { ptr, i32 } @_ZN5boost8charconv6detail21to_chars_integer_implImEENS0_15to_chars_resultEPcS4_T_(ptr noundef %.2, ptr noundef %1, i64 noundef %.sroa.022.0) #17
   %131 = extractvalue { ptr, i32 } %130, 0
   %132 = extractvalue { ptr, i32 } %130, 1
   %.not123 = icmp eq i32 %132, 0
@@ -10217,7 +10217,7 @@ _ZN5boost8charconv6detail12to_chars_intIjEENS0_15to_chars_resultEPcS4_T_i.exit: 
   ret { ptr, i32 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10586,7 +10586,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_det
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %19
-  %23 = tail call { i64, i64 } @_ZN5boost8charconv6detail4implIdNS1_22dragonbox_float_traitsIdEEE23compute_nearest_shorterINS1_10decimal_fpImLb1ELb0EEENS1_11policy_impl26decimal_to_binary_rounding13interval_type6closedENS9_13trailing_zero6removeENS9_26binary_to_decimal_rounding7to_evenENS9_5cache4fullEJEEET_iDpT4_(i32 noundef %20) #15
+  %23 = tail call { i64, i64 } @_ZN5boost8charconv6detail4implIdNS1_22dragonbox_float_traitsIdEEE23compute_nearest_shorterINS1_10decimal_fpImLb1ELb0EEENS1_11policy_impl26decimal_to_binary_rounding13interval_type6closedENS9_13trailing_zero6removeENS9_26binary_to_decimal_rounding7to_evenENS9_5cache4fullEJEEET_iDpT4_(i32 noundef %20) #17
   br label %_ZZN5boost8charconv6detail10to_decimalIdNS1_22dragonbox_float_traitsIdEEJNS1_11policy_impl4sign6ignoreENS5_13trailing_zero6ignoreENS5_26decimal_to_binary_rounding15nearest_to_evenENS5_26binary_to_decimal_rounding7to_evenENS5_5cache4fullEEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_ENKUlSB_E_clESB_.exit
 
 24:                                               ; preds = %19
@@ -10598,7 +10598,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_det
   %.0.i = phi i32 [ %20, %24 ], [ -1074, %16 ]
   %27 = and i64 %0, 1
   %28 = icmp eq i64 %27, 0
-  %29 = tail call { i64, i64 } @_ZN5boost8charconv6detail4implIdNS1_22dragonbox_float_traitsIdEEE22compute_nearest_normalINS1_10decimal_fpImLb1ELb0EEENS1_11policy_impl26decimal_to_binary_rounding13interval_type18symmetric_boundaryENS9_13trailing_zero6removeENS9_26binary_to_decimal_rounding7to_evenENS9_5cache4fullEJbEEET_miDpT4_(i64 noundef %.09.i, i32 noundef %.0.i, i1 noundef zeroext %28) #15
+  %29 = tail call { i64, i64 } @_ZN5boost8charconv6detail4implIdNS1_22dragonbox_float_traitsIdEEE22compute_nearest_normalINS1_10decimal_fpImLb1ELb0EEENS1_11policy_impl26decimal_to_binary_rounding13interval_type18symmetric_boundaryENS9_13trailing_zero6removeENS9_26binary_to_decimal_rounding7to_evenENS9_5cache4fullEJbEEET_miDpT4_(i64 noundef %.09.i, i32 noundef %.0.i, i1 noundef zeroext %28) #17
   br label %_ZZN5boost8charconv6detail10to_decimalIdNS1_22dragonbox_float_traitsIdEEJNS1_11policy_impl4sign6ignoreENS5_13trailing_zero6ignoreENS5_26decimal_to_binary_rounding15nearest_to_evenENS5_26binary_to_decimal_rounding7to_evenENS5_5cache4fullEEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_ENKUlSB_E_clESB_.exit
 
 _ZZN5boost8charconv6detail10to_decimalIdNS1_22dragonbox_float_traitsIdEEJNS1_11policy_impl4sign6ignoreENS5_13trailing_zero6ignoreENS5_26decimal_to_binary_rounding15nearest_to_evenENS5_26binary_to_decimal_rounding7to_evenENS5_5cache4fullEEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_ENKUlSB_E_clESB_.exit: ; preds = %22, %26
@@ -10606,7 +10606,7 @@ _ZZN5boost8charconv6detail10to_decimalIdNS1_22dragonbox_float_traitsIdEEJNS1_11p
   %30 = extractvalue { i64, i64 } %.pn.i, 1
   %31 = extractvalue { i64, i64 } %.pn.i, 0
   %.sroa.4.8.extract.trunc = trunc i64 %30 to i32
-  %32 = tail call { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_detail22dragon_box_print_charsIdNS1_22dragonbox_float_traitsIdEEEENS0_15to_chars_resultENT0_12carrier_uintEiPcS9_NS0_12chars_formatE(i64 noundef %31, i32 noundef %.sroa.4.8.extract.trunc, ptr noundef %.043, ptr noundef %2, i32 noundef %3) #15
+  %32 = tail call { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_detail22dragon_box_print_charsIdNS1_22dragonbox_float_traitsIdEEEENS0_15to_chars_resultENT0_12carrier_uintEiPcS9_NS0_12chars_formatE(i64 noundef %31, i32 noundef %.sroa.4.8.extract.trunc, ptr noundef %.043, ptr noundef %2, i32 noundef %3) #17
   br label %69
 
 33:                                               ; preds = %15
@@ -10706,53 +10706,55 @@ _ZZN5boost8charconv6detail10to_decimalIdNS1_22dragonbox_float_traitsIdEEJNS1_11p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #14
+declare void @llvm.experimental.noalias.scope.decl(metadata) #15
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #12
+declare i32 @llvm.abs.i32(i32, i1 immarg) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #13
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind memory(argmem: write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind willreturn memory(read) }
-attributes #17 = { nounwind willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nounwind }
+attributes #18 = { nounwind willreturn memory(read) }
+attributes #19 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

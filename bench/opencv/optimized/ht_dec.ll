@@ -50,13 +50,13 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   br i1 %.not1740, label %.critedge, label %17
 
 17:                                               ; preds = %16
-  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #10
-  %18 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str) #10
-  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #10
+  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #11
+  %18 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str) #11
+  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #11
   br label %.critedge1742
 
 .critedge:                                        ; preds = %16
-  %19 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str) #10
+  %19 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str) #11
   br label %.critedge1742
 
 20:                                               ; preds = %8
@@ -79,10 +79,10 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   br i1 %34, label %37, label %41
 
 37:                                               ; preds = %20
-  tail call void @opj_aligned_free(ptr noundef %36) #10
+  tail call void @opj_aligned_free(ptr noundef %36) #11
   %38 = zext i32 %31 to i64
   %39 = shl nuw nsw i64 %38, 2
-  %40 = tail call ptr @opj_aligned_malloc(i64 noundef %39) #10
+  %40 = tail call ptr @opj_aligned_malloc(i64 noundef %39) #11
   store ptr %40, ptr %35, align 8, !tbaa !21
   %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %.critedge1742, label %.thread.i
@@ -115,8 +115,8 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   br i1 %47, label %50, label %52
 
 50:                                               ; preds = %44
-  tail call void @opj_aligned_free(ptr noundef %49) #10
-  %51 = tail call ptr @opj_aligned_malloc(i64 noundef 10560) #10
+  tail call void @opj_aligned_free(ptr noundef %49) #11
+  %51 = tail call ptr @opj_aligned_malloc(i64 noundef 10560) #11
   store ptr %51, ptr %48, align 8, !tbaa !23
   %.not33.i = icmp eq ptr %51, null
   br i1 %.not33.i, label %.critedge1742, label %52
@@ -191,7 +191,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %88 = load ptr, ptr %87, align 8, !tbaa !36
   %89 = zext i32 %68 to i64
-  %90 = tail call ptr @opj_realloc(ptr noundef %88, i64 noundef %89) #10
+  %90 = tail call ptr @opj_realloc(ptr noundef %88, i64 noundef %89) #11
   %91 = icmp eq ptr %90, null
   br i1 %91, label %.critedge1742, label %.thread2142
 
@@ -314,9 +314,9 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   br i1 %.not1620, label %.thread1788.thread, label %157
 
 157:                                              ; preds = %156
-  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #10
-  %158 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.1) #10
-  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #10
+  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #11
+  %158 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.1) #11
+  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #11
   br label %.thread1788
 
 159:                                              ; preds = %.thread1787
@@ -328,13 +328,13 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   br i1 %.not1739, label %.critedge1746, label %162
 
 162:                                              ; preds = %161
-  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #10
-  %163 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.2, i32 noundef %135) #10
-  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #10
+  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #11
+  %163 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.2, i32 noundef %135) #11
+  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #11
   br label %.critedge1742
 
 .critedge1746:                                    ; preds = %161
-  %164 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.2, i32 noundef %135) #10
+  %164 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.2, i32 noundef %135) #11
   br label %.critedge1742
 
 .thread1788:                                      ; preds = %157, %159
@@ -344,7 +344,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   br i1 %166, label %170, label %176
 
 .thread1788.thread:                               ; preds = %156
-  %167 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.1) #10
+  %167 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.1) #11
   %168 = load i32, ptr %56, align 8, !tbaa !26
   %169 = icmp ugt i32 %168, 30
   br i1 %169, label %.critedge1748, label %.thread1820
@@ -354,15 +354,15 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   br i1 %.not1738, label %.critedge1748, label %171
 
 171:                                              ; preds = %170
-  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #10
+  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #11
   %172 = load i32, ptr %56, align 8, !tbaa !26
-  %173 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.3, i32 noundef %172) #10
-  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #10
+  %173 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.3, i32 noundef %172) #11
+  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #11
   br label %.critedge1742
 
 .critedge1748:                                    ; preds = %.thread1788.thread, %170
   %174 = phi i32 [ %165, %170 ], [ %168, %.thread1788.thread ]
-  %175 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.3, i32 noundef %174) #10
+  %175 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.3, i32 noundef %174) #11
   br label %.critedge1742
 
 176:                                              ; preds = %.thread1788
@@ -378,15 +378,15 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   br i1 %.not1737, label %.critedge1750, label %180
 
 180:                                              ; preds = %179
-  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #10
+  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #11
   %181 = load i32, ptr %56, align 8, !tbaa !26
-  %182 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.4, i32 noundef %121, i32 noundef %181) #10
-  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #10
+  %182 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.4, i32 noundef %121, i32 noundef %181) #11
+  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #11
   br label %.critedge1742
 
 .critedge1750:                                    ; preds = %.thread1820, %179
   %183 = phi i32 [ %165, %179 ], [ %168, %.thread1820 ]
-  %184 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.4, i32 noundef %121, i32 noundef %183) #10
+  %184 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.4, i32 noundef %121, i32 noundef %183) #11
   br label %.critedge1742
 
 185:                                              ; preds = %176
@@ -405,21 +405,21 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
 
 .thread1794:                                      ; preds = %189
   store i1 true, ptr @only_cleanup_pass_is_decoded, align 4
-  %190 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.5, i32 noundef %.013491790) #10
+  %190 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.5, i32 noundef %.013491790) #11
   br label %.thread1825
 
 191:                                              ; preds = %189
-  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #10
+  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #11
   %.b.pr = load i1, ptr @only_cleanup_pass_is_decoded, align 4
   br i1 %.b.pr, label %.thread1793, label %192
 
 192:                                              ; preds = %191
   store i1 true, ptr @only_cleanup_pass_is_decoded, align 4
-  %193 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.5, i32 noundef %.013491790) #10
+  %193 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.5, i32 noundef %.013491790) #11
   br label %.thread1793
 
 .thread1793:                                      ; preds = %191, %192
-  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #10
+  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #11
   br label %.thread1825
 
 .thread1825:                                      ; preds = %.thread1820, %.thread1794, %188, %.thread1793, %185
@@ -439,13 +439,13 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   br i1 %.not1736, label %.critedge1755, label %201
 
 201:                                              ; preds = %200
-  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #10
-  %202 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.6) #10
-  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #10
+  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #11
+  %202 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.6) #11
+  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #11
   br label %.critedge1742
 
 .critedge1755:                                    ; preds = %200
-  %203 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.6) #10
+  %203 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.6) #11
   br label %.critedge1742
 
 204:                                              ; preds = %.thread1825
@@ -474,13 +474,13 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   br i1 %.not1735, label %.critedge1757, label %221
 
 221:                                              ; preds = %220
-  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #10
-  %222 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.7) #10
-  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #10
+  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #11
+  %222 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.7) #11
+  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #11
   br label %.critedge1742
 
 .critedge1757:                                    ; preds = %220
-  %223 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.7) #10
+  %223 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.7) #11
   br label %.critedge1742
 
 224:                                              ; preds = %217
@@ -493,13 +493,13 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   br i1 %.not1734, label %.critedge1759, label %228
 
 228:                                              ; preds = %227
-  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #10
-  %229 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.8) #10
-  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #10
+  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #11
+  %229 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.8) #11
+  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #11
   br label %.critedge1742
 
 .critedge1759:                                    ; preds = %227
-  %230 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.8) #10
+  %230 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.8) #11
   br label %.critedge1742
 
 231:                                              ; preds = %224
@@ -722,13 +722,13 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   br i1 %.not1733, label %.critedge1761, label %375
 
 375:                                              ; preds = %374
-  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #10
-  %376 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.9) #10
-  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #10
+  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #11
+  %376 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.9) #11
+  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #11
   br label %.thread1797
 
 .critedge1761:                                    ; preds = %374
-  %377 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.9) #10
+  %377 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.9) #11
   br label %.thread1797
 
 378:                                              ; preds = %368
@@ -758,13 +758,13 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   br i1 %.not1732, label %.critedge1763, label %395
 
 395:                                              ; preds = %394
-  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #10
-  %396 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.10) #10
-  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #10
+  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #11
+  %396 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.10) #11
+  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #11
   br label %.thread1797
 
 .critedge1763:                                    ; preds = %394
-  %397 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.10) #10
+  %397 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.10) #11
   br label %.thread1797
 
 398:                                              ; preds = %378
@@ -1427,13 +1427,13 @@ decode_noninit_uvlc.exit:                         ; preds = %730, %749, %768
   br i1 %.not1703, label %.critedge1766, label %831
 
 831:                                              ; preds = %830
-  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #10
-  %832 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.11) #10
-  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #10
+  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #11
+  %832 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.11) #11
+  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #11
   br label %.critedge1742
 
 .critedge1766:                                    ; preds = %830
-  %833 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.11) #10
+  %833 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.11) #11
   br label %.critedge1742
 
 834:                                              ; preds = %827
@@ -1461,13 +1461,13 @@ decode_noninit_uvlc.exit:                         ; preds = %730, %749, %768
   br i1 %.not1702, label %.critedge1768, label %849
 
 849:                                              ; preds = %848
-  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #10
-  %850 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.10) #10
-  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #10
+  tail call void @opj_mutex_lock(ptr noundef nonnull %6) #11
+  %850 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.10) #11
+  tail call void @opj_mutex_unlock(ptr noundef nonnull %6) #11
   br label %.critedge1742
 
 .critedge1768:                                    ; preds = %848
-  %851 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.10) #10
+  %851 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.10) #11
   br label %.critedge1742
 
 852:                                              ; preds = %834
@@ -4689,35 +4689,35 @@ declare ptr @opj_aligned_malloc(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #7
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.umax.i8(i8, i8) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
@@ -4727,9 +4727,10 @@ attributes #4 = { inlinehint nofree norecurse nosync nounwind memory(read, argme
 attributes #5 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
+attributes #8 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -192,7 +192,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_wide_intri
   %87 = fmul reassoc nsz arcp double %86, 0x3FE62E42FEFA39EF
   %88 = uitofp i32 %1 to double
   %89 = fdiv reassoc nsz arcp double %87, %88
-  %90 = tail call reassoc nsz arcp double @log(double noundef %89) #4, !tbaa !3
+  %90 = tail call reassoc nsz arcp double @log(double noundef %89) #5, !tbaa !3
   %91 = fmul reassoc nsz arcp double %90, 0x3FF71547652B82FE
   %92 = fptrunc reassoc nsz arcp double %91 to float
   br label %93
@@ -209,7 +209,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_wide_intri
   %97 = fmul reassoc nsz arcp double %96, 0x3FE62E42FEFA39EF
   %98 = uitofp i32 %1 to double
   %99 = fdiv reassoc nsz arcp double %97, %98
-  %100 = tail call reassoc nsz arcp double @log(double noundef %99) #4, !tbaa !3
+  %100 = tail call reassoc nsz arcp double @log(double noundef %99) #5, !tbaa !3
   %101 = fmul reassoc nsz arcp double %100, 0x3FF71547652B82FE
   %102 = fptrunc reassoc nsz arcp double %101 to float
   br label %103
@@ -226,7 +226,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_wide_intri
   %108 = fmul reassoc nsz arcp double %107, 0x3FE62E42FEFA39EF
   %109 = uitofp i32 %1 to double
   %110 = fdiv reassoc nsz arcp double %108, %109
-  %111 = tail call reassoc nsz arcp double @log(double noundef %110) #4, !tbaa !3
+  %111 = tail call reassoc nsz arcp double @log(double noundef %110) #5, !tbaa !3
   %112 = fmul reassoc nsz arcp double %111, 0x3FF71547652B82FE
   %113 = fptrunc reassoc nsz arcp double %112 to float
   br label %114
@@ -243,7 +243,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_wide_intri
   %119 = fmul reassoc nsz arcp double %118, 0x3FE62E42FEFA39EF
   %120 = uitofp i32 %1 to double
   %121 = fdiv reassoc nsz arcp double %119, %120
-  %122 = tail call reassoc nsz arcp double @log(double noundef %121) #4, !tbaa !3
+  %122 = tail call reassoc nsz arcp double @log(double noundef %121) #5, !tbaa !3
   %123 = fmul reassoc nsz arcp double %122, 0x3FF71547652B82FE
   %124 = fptrunc reassoc nsz arcp double %123 to float
   br label %125
@@ -260,7 +260,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_wide_intri
   %130 = fmul reassoc nsz arcp double %129, 0x3FE62E42FEFA39EF
   %131 = uitofp i32 %1 to double
   %132 = fdiv reassoc nsz arcp double %130, %131
-  %133 = tail call reassoc nsz arcp double @log(double noundef %132) #4, !tbaa !3
+  %133 = tail call reassoc nsz arcp double @log(double noundef %132) #5, !tbaa !3
   %134 = fmul reassoc nsz arcp double %133, 0x3FF71547652B82FE
   %135 = fptrunc reassoc nsz arcp double %134 to float
   br label %136
@@ -659,7 +659,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   %205 = fmul reassoc nsz arcp double %204, 0x3FE62E42FEFA39EF
   %206 = uitofp i32 %1 to double
   %207 = fdiv reassoc nsz arcp double %205, %206
-  %208 = tail call reassoc nsz arcp double @log(double noundef %207) #4, !tbaa !3
+  %208 = tail call reassoc nsz arcp double @log(double noundef %207) #5, !tbaa !3
   %209 = fmul reassoc nsz arcp double %208, 0x3FF71547652B82FE
   %210 = fptrunc reassoc nsz arcp double %209 to float
   br label %211
@@ -682,7 +682,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   %217 = fmul reassoc nsz arcp double %216, 0x3FE62E42FEFA39EF
   %218 = uitofp i32 %1 to double
   %219 = fdiv reassoc nsz arcp double %217, %218
-  %220 = tail call reassoc nsz arcp double @log(double noundef %219) #4, !tbaa !3
+  %220 = tail call reassoc nsz arcp double @log(double noundef %219) #5, !tbaa !3
   %221 = fmul reassoc nsz arcp double %220, 0x3FF71547652B82FE
   %222 = fptrunc reassoc nsz arcp double %221 to float
   br label %223
@@ -709,7 +709,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   %230 = fmul reassoc nsz arcp double %229, 0x3FE62E42FEFA39EF
   %231 = uitofp i32 %1 to double
   %232 = fdiv reassoc nsz arcp double %230, %231
-  %233 = tail call reassoc nsz arcp double @log(double noundef %232) #4, !tbaa !3
+  %233 = tail call reassoc nsz arcp double @log(double noundef %232) #5, !tbaa !3
   %234 = fmul reassoc nsz arcp double %233, 0x3FF71547652B82FE
   %235 = fptrunc reassoc nsz arcp double %234 to float
   br label %236
@@ -735,7 +735,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   %243 = fmul reassoc nsz arcp double %242, 0x3FE62E42FEFA39EF
   %244 = uitofp i32 %1 to double
   %245 = fdiv reassoc nsz arcp double %243, %244
-  %246 = tail call reassoc nsz arcp double @log(double noundef %245) #4, !tbaa !3
+  %246 = tail call reassoc nsz arcp double @log(double noundef %245) #5, !tbaa !3
   %247 = fmul reassoc nsz arcp double %246, 0x3FF71547652B82FE
   %248 = fptrunc reassoc nsz arcp double %247 to float
   br label %249
@@ -760,7 +760,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   %256 = fmul reassoc nsz arcp double %255, 0x3FE62E42FEFA39EF
   %257 = uitofp i32 %1 to double
   %258 = fdiv reassoc nsz arcp double %256, %257
-  %259 = tail call reassoc nsz arcp double @log(double noundef %258) #4, !tbaa !3
+  %259 = tail call reassoc nsz arcp double @log(double noundef %258) #5, !tbaa !3
   %260 = fmul reassoc nsz arcp double %259, 0x3FF71547652B82FE
   %261 = fptrunc reassoc nsz arcp double %260 to float
   br label %262
@@ -783,20 +783,21 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i64> @llvm.abs.v4i64(<4 x i64>, i1 immarg) #3
+declare <4 x i64> @llvm.abs.v4i64(<4 x i64>, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #3
+declare i64 @llvm.abs.i64(i64, i1 immarg) #4
 
 attributes #0 = { nofree norecurse nounwind sspstrong memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="256" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #3 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

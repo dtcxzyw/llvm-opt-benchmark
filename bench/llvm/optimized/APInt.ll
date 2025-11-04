@@ -64,7 +64,7 @@ define dso_local void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align
 9:                                                ; preds = %3
   %10 = lshr i64 %8, 6
   %11 = shl nuw nsw i64 %10, 3
-  %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #22
+  %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #23
   store ptr %12, ptr %0, align 8, !tbaa !8
   store i64 %1, ptr %12, align 8, !tbaa !9
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -102,7 +102,7 @@ define dso_local void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align
 32:                                               ; preds = %3
   %33 = lshr i64 %8, 3
   %34 = and i64 %33, 1073741816
-  %35 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %34) #22
+  %35 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %34) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %35, i8 0, i64 %34, i1 false)
   store ptr %35, ptr %0, align 8, !tbaa !8
   store i64 %1, ptr %35, align 8, !tbaa !9
@@ -123,7 +123,7 @@ define dso_local void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull al
   %6 = add nuw nsw i64 %5, 63
   %7 = lshr i64 %6, 3
   %8 = and i64 %7, 1073741816
-  %9 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #22
+  %9 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #23
   store ptr %9, ptr %0, align 8, !tbaa !8
   %10 = load ptr, ptr %1, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr align 8 %10, i64 %8, i1 false)
@@ -159,7 +159,7 @@ define dso_local void @_ZN4llvm5APInt13initFromArrayENS_8ArrayRefImEE(ptr nounde
   %18 = lshr i64 %17, 6
   %19 = trunc nuw nsw i64 %18 to i32
   %20 = shl nuw nsw i64 %18, 3
-  %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #22
+  %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %21, i8 0, i64 %20, i1 false)
   store ptr %21, ptr %0, align 8, !tbaa !8
   %22 = trunc i64 %2 to i32
@@ -213,7 +213,7 @@ define dso_local void @_ZN4llvm5APIntC2EjNS_8ArrayRefImEE(ptr noundef nonnull wr
   %18 = lshr i64 %17, 6
   %19 = trunc nuw nsw i64 %18 to i32
   %20 = shl nuw nsw i64 %18, 3
-  %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #22
+  %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %21, i8 0, i64 %20, i1 false)
   store ptr %21, ptr %0, align 8, !tbaa !8
   %22 = trunc i64 %3 to i32
@@ -264,7 +264,7 @@ define dso_local void @_ZN4llvm5APIntC2EjjPKm(ptr noundef nonnull writeonly alig
   %18 = lshr i64 %17, 6
   %19 = trunc nuw nsw i64 %18 to i32
   %20 = shl nuw nsw i64 %18, 3
-  %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #22
+  %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %21, i8 0, i64 %20, i1 false)
   store ptr %21, ptr %0, align 8, !tbaa !8
   %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %19, i32 %2)
@@ -316,7 +316,7 @@ define dso_local void @_ZN4llvm5APInt10fromStringEjNS_9StringRefEh(ptr noundef n
   %15 = add nuw nsw i64 %14, 63
   %16 = lshr i64 %15, 3
   %17 = and i64 %16, 1073741816
-  %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #22
+  %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %18, i8 0, i64 %17, i1 false)
   br label %19
 
@@ -590,7 +590,7 @@ define dso_local void @_ZN4llvm5APInt10reallocateEj(ptr noundef nonnull align 8 
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %15
-  tail call void @_ZdaPv(ptr noundef nonnull %16) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %16) #24
   br label %19
 
 19:                                               ; preds = %15, %18, %13
@@ -600,7 +600,7 @@ define dso_local void @_ZN4llvm5APInt10reallocateEj(ptr noundef nonnull align 8 
 
 21:                                               ; preds = %19
   %22 = shl nuw nsw i64 %10, 3
-  %23 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %22) #22
+  %23 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %22) #23
   store ptr %23, ptr %0, align 8, !tbaa !8
   br label %24
 
@@ -640,7 +640,7 @@ define dso_local void @_ZN4llvm5APInt14assignSlowCaseERKS0_(ptr noundef nonnull 
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %18
-  tail call void @_ZdaPv(ptr noundef nonnull %19) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %19) #24
   br label %22
 
 22:                                               ; preds = %21, %18, %16
@@ -650,7 +650,7 @@ define dso_local void @_ZN4llvm5APInt14assignSlowCaseERKS0_(ptr noundef nonnull 
 
 _ZN4llvm5APInt10reallocateEj.exit.thread9:        ; preds = %22
   %24 = shl nuw nsw i64 %14, 3
-  %25 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %24) #22
+  %25 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %24) #23
   store ptr %25, ptr %0, align 8, !tbaa !8
   br label %28
 
@@ -691,7 +691,7 @@ define dso_local void @_ZNK4llvm5APInt7ProfileERNS_16FoldingSetNodeIDE(ptr nound
   %10 = zext i32 %6 to i64
   %11 = add nuw nsw i64 %10, 1
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull %12, i64 noundef %11, i64 noundef 4) #24
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull %12, i64 noundef %11, i64 noundef 4) #25
   %.pre.i.i = load i32, ptr %5, align 8, !tbaa !18
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit
 
@@ -719,7 +719,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %2, %9
   %26 = zext i32 %18 to i64
   %27 = add nuw nsw i64 %26, 1
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull %28, i64 noundef %27, i64 noundef 4) #24
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull %28, i64 noundef %27, i64 noundef 4) #25
   %.pre.i.i.i.i = load i32, ptr %5, align 8, !tbaa !18
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i
 
@@ -740,7 +740,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %25, %21
   %37 = zext i32 %34 to i64
   %38 = add nuw nsw i64 %37, 1
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull %39, i64 noundef %38, i64 noundef 4) #24
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull %39, i64 noundef %38, i64 noundef 4) #25
   %.pre.i.i3.i.i = load i32, ptr %5, align 8, !tbaa !18
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit
 
@@ -778,7 +778,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit:    ; preds = %_ZN4llvm16FoldingSe
 59:                                               ; preds = %52
   %60 = zext i32 %53 to i64
   %61 = add nuw nsw i64 %60, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull %51, i64 noundef %61, i64 noundef 4) #24
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull %51, i64 noundef %61, i64 noundef 4) #25
   %.pre.i.i.i.i8 = load i32, ptr %5, align 8, !tbaa !18
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i9
 
@@ -798,7 +798,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i9: ; preds = %59, %52
 69:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i9
   %70 = zext i32 %67 to i64
   %71 = add nuw nsw i64 %70, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull %51, i64 noundef %71, i64 noundef 4) #24
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull %51, i64 noundef %71, i64 noundef 4) #25
   %.pre.i.i3.i.i11 = load i32, ptr %5, align 8, !tbaa !18
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit12
 
@@ -1474,7 +1474,7 @@ _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %3
   %20 = lshr i64 %19, 6
   %21 = trunc nuw nsw i64 %20 to i32
   %22 = shl nuw nsw i64 %20, 3
-  %23 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %22) #22
+  %23 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %22) #23
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %24, align 8, !tbaa !3
   store ptr %23, ptr %0, align 8, !tbaa !8
@@ -1653,7 +1653,7 @@ _ZNK4llvm5APIntmlERKS0_.exit.thread:              ; preds = %2
   %18 = lshr i64 %17, 6
   %19 = trunc nuw nsw i64 %18 to i32
   %20 = shl nuw nsw i64 %18, 3
-  %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #22, !noalias !34
+  %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #23, !noalias !34
   %22 = load ptr, ptr %0, align 8, !tbaa !8, !noalias !34
   %23 = load ptr, ptr %1, align 8, !tbaa !8, !noalias !34
   br label %.lr.ph.i.i
@@ -1688,7 +1688,7 @@ _ZNK4llvm5APIntmlERKS0_.exit.thread:              ; preds = %2
   br i1 %43, label %_ZN4llvm5APIntD2Ev.exit, label %44
 
 44:                                               ; preds = %31
-  tail call void @_ZdaPv(ptr noundef nonnull %22) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %22) #24
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %44, %31, %_ZNK4llvm5APIntmlERKS0_.exit.thread
@@ -2311,7 +2311,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %12
   %16 = add nuw nsw i64 %15, 63
   %17 = lshr i64 %16, 3
   %18 = and i64 %17, 1073741816
-  %19 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %18) #22, !noalias !42
+  %19 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %18) #23, !noalias !42
   store ptr %19, ptr %0, align 8, !tbaa !8, !alias.scope !42
   %20 = load ptr, ptr %2, align 8, !tbaa !8, !noalias !42
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr align 8 %20, i64 %18, i1 false), !noalias !42
@@ -2322,7 +2322,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %12
   %23 = add nuw nsw i64 %22, 63
   %24 = lshr i64 %23, 6
   %25 = shl nuw nsw i64 %24, 3
-  %26 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %25) #22, !noalias !42
+  %26 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %25) #23, !noalias !42
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %8, ptr %27, align 8, !tbaa !3, !alias.scope !42
   store ptr %26, ptr %0, align 8, !tbaa !8, !alias.scope !42
@@ -2371,7 +2371,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %7
   %13 = add nuw nsw i64 %12, 63
   %14 = lshr i64 %13, 3
   %15 = and i64 %14, 1073741816
-  %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #22
+  %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #23
   store ptr %16, ptr %0, align 8, !tbaa !8
   %17 = load ptr, ptr %1, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr align 8 %17, i64 %15, i1 false)
@@ -2382,7 +2382,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %7
   %20 = add nuw nsw i64 %19, 63
   %21 = lshr i64 %20, 6
   %22 = shl nuw nsw i64 %21, 3
-  %23 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %22) #22
+  %23 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %22) #23
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %24, align 8, !tbaa !3
   store ptr %23, ptr %0, align 8, !tbaa !8
@@ -2790,7 +2790,7 @@ define dso_local void @_ZNK4llvm5APInt11extractBitsEjj(ptr dead_on_unwind noalia
   %25 = add nuw nsw i64 %24, 63
   %26 = lshr i64 %25, 3
   %27 = and i64 %26, 1073741816
-  %28 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %27) #22
+  %28 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %27) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
   store ptr %28, ptr %0, align 8, !tbaa !8
   store i64 %12, ptr %28, align 8, !tbaa !9
@@ -2834,7 +2834,7 @@ define dso_local void @_ZNK4llvm5APInt11extractBitsEjj(ptr dead_on_unwind noalia
   %55 = add nuw nsw i64 %54, 63
   %56 = lshr i64 %55, 3
   %57 = and i64 %56, 1073741816
-  %58 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %57) #22
+  %58 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %57) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %58, i8 0, i64 %57, i1 false)
   store ptr %58, ptr %0, align 8, !tbaa !8
   store i64 %42, ptr %58, align 8, !tbaa !9
@@ -2851,7 +2851,7 @@ define dso_local void @_ZNK4llvm5APInt11extractBitsEjj(ptr dead_on_unwind noalia
   %reass.sub = sub nsw i32 %34, %31
   %65 = add nsw i32 %reass.sub, 1
   %66 = zext i32 %65 to i64
-  tail call void @_ZN4llvm5APIntC1EjNS_8ArrayRefImEE(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %2, ptr %64, i64 %66) #24
+  tail call void @_ZN4llvm5APIntC1EjNS_8ArrayRefImEE(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %2, ptr %64, i64 %66) #25
   br label %_ZN4llvm5APIntC2Ejmbb.exit
 
 67:                                               ; preds = %59
@@ -2864,7 +2864,7 @@ _ZN4llvm5APIntC2Ejmbb.exit39.thread:              ; preds = %67
   %70 = add nuw nsw i64 %69, 63
   %71 = lshr i64 %70, 3
   %72 = and i64 %71, 1073741816
-  %73 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %72) #22
+  %73 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %72) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %73, i8 0, i64 %72, i1 false)
   store i64 0, ptr %73, align 8, !tbaa !9
   store ptr %73, ptr %5, align 8, !tbaa !8
@@ -2920,10 +2920,10 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %_ZN4llvm5APIntC2Ejm
   store i32 %2, ptr %98, align 8, !tbaa !3
   %99 = lshr i64 %.pre-phi4455, 3
   %100 = and i64 %99, 1073741816
-  %101 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %100) #22
+  %101 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %100) #23
   store ptr %101, ptr %0, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %101, ptr align 8 %92, i64 %100, i1 false)
-  tail call void @_ZdaPv(ptr noundef nonnull %92) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %92) #24
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntC2ERKS0_.exit, %91
@@ -2978,7 +2978,7 @@ define linkonce_odr hidden void @_ZN4llvm5APIntC2ERKS0_(ptr noundef nonnull alig
   %11 = add nuw nsw i64 %10, 63
   %12 = lshr i64 %11, 3
   %13 = and i64 %12, 1073741816
-  %14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #22
+  %14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #23
   store ptr %14, ptr %0, align 8, !tbaa !8
   %15 = load ptr, ptr %1, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr align 8 %15, i64 %13, i1 false)
@@ -3178,7 +3178,7 @@ _ZN4llvm5APInt23getSufficientBitsNeededENS_9StringRefEh.exit: ; preds = %11, %13
   %.026.idx = zext i1 %or.cond.i to i64
   %.026 = getelementptr inbounds nuw i8, ptr %0, i64 %.026.idx
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @_ZN4llvm5APIntC1EjNS_9StringRefEh(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef %.019.i, ptr nonnull %.026, i64 %.018.i, i8 noundef zeroext %2) #24
+  call void @_ZN4llvm5APIntC1EjNS_9StringRefEh(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef %.019.i, ptr nonnull %.026, i64 %.018.i, i8 noundef zeroext %2) #25
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %38 = load i32, ptr %37, align 8, !tbaa !3
   %39 = icmp ult i32 %38, 65
@@ -3293,7 +3293,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread:        ; preds = %72, %_ZNK4llvm5APIn
   br i1 %or.cond52, label %_ZN4llvm5APIntD2Ev.exit, label %91
 
 91:                                               ; preds = %88
-  call void @_ZdaPv(ptr noundef nonnull %63) #23
+  call void @_ZdaPv(ptr noundef nonnull %63) #24
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %88, %91
@@ -3463,7 +3463,7 @@ _ZNK4llvm5APInteqERKS0_.exit:                     ; preds = %7, %12
   br i1 %or.cond, label %_ZN4llvm5APIntD2Ev.exit, label %23
 
 23:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit
-  call void @_ZdaPv(ptr noundef nonnull %18) #23
+  call void @_ZdaPv(ptr noundef nonnull %18) #24
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APInteqERKS0_.exit, %23
@@ -3503,7 +3503,7 @@ define dso_local void @_ZNK4llvm5APInt4rotlEj(ptr dead_on_unwind noalias writabl
   %18 = add nuw nsw i64 %17, 63
   %19 = lshr i64 %18, 3
   %20 = and i64 %19, 1073741816
-  %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #22
+  %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #23
   store ptr %21, ptr %0, align 8, !tbaa !8
   %22 = load ptr, ptr %1, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 8 %22, i64 %20, i1 false)
@@ -3518,7 +3518,7 @@ define dso_local void @_ZNK4llvm5APInt4rotlEj(ptr dead_on_unwind noalias writabl
   %27 = add nuw nsw i64 %26, 63
   %28 = lshr i64 %27, 3
   %29 = and i64 %28, 1073741816
-  %30 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %29) #22, !noalias !53
+  %30 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %29) #23, !noalias !53
   %31 = load ptr, ptr %1, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %30, ptr align 8 %31, i64 %29, i1 false), !noalias !53
   %32 = lshr i64 %27, 6
@@ -3625,7 +3625,7 @@ _ZN4llvm5APIntD2Ev.exit.thread:                   ; preds = %23
   %97 = add nuw nsw i64 %96, 63
   %98 = lshr i64 %97, 3
   %99 = and i64 %98, 1073741816
-  %100 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %99) #22, !noalias !59
+  %100 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %99) #23, !noalias !59
   %101 = ptrtoint ptr %100 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %100, ptr align 8 %31, i64 %99, i1 false), !noalias !59
   %102 = lshr i64 %97, 6
@@ -3711,7 +3711,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.lr.ph.i.i.i5
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %147, align 8, !tbaa !3, !alias.scope !56
   store i64 %101, ptr %0, align 8, !alias.scope !56
-  tail call void @_ZdaPv(ptr noundef nonnull %30) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %30) #24
   br label %_ZN4llvm5APIntC2ERKS0_.exit
 
 _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %_ZN4llvm5APIntD2Ev.exit.thread, %_ZN4llvm5APIntD2Ev.exit, %16, %14, %7
@@ -3749,7 +3749,7 @@ define dso_local void @_ZNK4llvm5APInt9getHiBitsEj(ptr dead_on_unwind noalias wr
   %18 = add nuw nsw i64 %17, 63
   %19 = lshr i64 %18, 3
   %20 = and i64 %19, 1073741816
-  %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #22, !noalias !62
+  %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #23, !noalias !62
   store ptr %21, ptr %0, align 8, !tbaa !8, !alias.scope !62
   %22 = load ptr, ptr %1, align 8, !tbaa !8, !noalias !62
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 8 %22, i64 %20, i1 false), !noalias !62
@@ -3842,7 +3842,7 @@ define dso_local void @_ZNK4llvm5APInt9getLoBitsEj(ptr dead_on_unwind noalias wr
   %10 = add nuw nsw i64 %9, 63
   %11 = lshr i64 %10, 3
   %12 = and i64 %11, 1073741816
-  %13 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %12) #22, !noalias !65
+  %13 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %12) #23, !noalias !65
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %13, i8 0, i64 %12, i1 false), !noalias !65
   store i64 0, ptr %13, align 8, !tbaa !9, !noalias !65
   br label %_ZN4llvm5APIntC2Ejmbb.exit.i
@@ -3960,7 +3960,7 @@ _ZNK4llvm5APInt4zextEj.exit.thread:               ; preds = %8
   %14 = add nuw nsw i64 %13, 63
   %15 = lshr i64 %14, 3
   %16 = and i64 %15, 1073741816
-  %17 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #22, !noalias !68
+  %17 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #23, !noalias !68
   store ptr %17, ptr %0, align 8, !tbaa !8, !alias.scope !68
   %18 = load ptr, ptr %2, align 8, !tbaa !8, !noalias !68
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr align 8 %18, i64 %16, i1 false), !noalias !68
@@ -3971,7 +3971,7 @@ _ZNK4llvm5APInt4zextEj.exit.thread:               ; preds = %8
   %21 = add nuw nsw i64 %20, 63
   %22 = lshr i64 %21, 6
   %23 = shl nuw nsw i64 %22, 3
-  %24 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %23) #22, !noalias !68
+  %24 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %23) #23, !noalias !68
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %25, align 8, !tbaa !3, !alias.scope !68
   store ptr %24, ptr %0, align 8, !tbaa !8, !alias.scope !68
@@ -4035,7 +4035,7 @@ _ZN4llvm5APIntoRERKS0_.exit.us:                   ; preds = %.lr.ph, %_ZN4llvm5A
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4llvm5APIntD2Ev.exit
   %.020 = phi i32 [ %110, %_ZN4llvm5APIntD2Ev.exit ], [ %38, %.lr.ph ]
-  %61 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %43) #22, !noalias !72
+  %61 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %43) #23, !noalias !72
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr align 8 %37, i64 %43, i1 false), !noalias !72
   %.not.i.i7 = icmp eq i32 %.020, 0
   br i1 %.not.i.i7, label %100, label %62
@@ -4128,7 +4128,7 @@ _ZN4llvm5APIntoRERKS0_.exit.us:                   ; preds = %.lr.ph, %_ZN4llvm5A
   br i1 %.not.i.i, label %_ZN4llvm5APIntD2Ev.exit, label %.lr.ph.i.i, !llvm.loop !32
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.lr.ph.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %61) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %61) #24
   %110 = shl i32 %.020, 1
   %111 = icmp ult i32 %110, %1
   br i1 %111, label %.lr.ph.split, label %._crit_edge, !llvm.loop !71
@@ -4490,7 +4490,7 @@ _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %16
 31:                                               ; preds = %24
   %32 = lshr exact i32 %29, 3
   %33 = zext nneg i32 %32 to i64
-  %34 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %33) #22
+  %34 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %33) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %34, i8 0, i64 %33, i1 false)
   store i64 0, ptr %34, align 8, !tbaa !9
   br label %.lr.ph
@@ -4636,7 +4636,7 @@ define dso_local void @_ZNK4llvm5APInt11reverseBitsEv(ptr dead_on_unwind noalias
   %14 = add nuw nsw i64 %13, 63
   %15 = lshr i64 %14, 3
   %16 = and i64 %15, 1073741816
-  %17 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #22
+  %17 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %17, i8 0, i64 %16, i1 false)
   store ptr %17, ptr %0, align 8, !tbaa !8
   store i64 %8, ptr %17, align 8, !tbaa !9
@@ -4661,7 +4661,7 @@ define dso_local void @_ZNK4llvm5APInt11reverseBitsEv(ptr dead_on_unwind noalias
   %28 = add nuw nsw i64 %27, 63
   %29 = lshr i64 %28, 3
   %30 = and i64 %29, 1073741816
-  %31 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %30) #22
+  %31 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %30) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %31, i8 0, i64 %30, i1 false)
   store ptr %31, ptr %0, align 8, !tbaa !8
   store i64 %22, ptr %31, align 8, !tbaa !9
@@ -4686,7 +4686,7 @@ define dso_local void @_ZNK4llvm5APInt11reverseBitsEv(ptr dead_on_unwind noalias
   %42 = add nuw nsw i64 %41, 63
   %43 = lshr i64 %42, 3
   %44 = and i64 %43, 1073741816
-  %45 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %44) #22
+  %45 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %44) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %45, i8 0, i64 %44, i1 false)
   store ptr %45, ptr %0, align 8, !tbaa !8
   store i64 %36, ptr %45, align 8, !tbaa !9
@@ -4711,7 +4711,7 @@ define dso_local void @_ZNK4llvm5APInt11reverseBitsEv(ptr dead_on_unwind noalias
   %56 = add nuw nsw i64 %55, 63
   %57 = lshr i64 %56, 3
   %58 = and i64 %57, 1073741816
-  %59 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %58) #22
+  %59 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %58) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %59, i8 0, i64 %58, i1 false)
   store ptr %59, ptr %0, align 8, !tbaa !8
   store i64 %50, ptr %59, align 8, !tbaa !9
@@ -4733,7 +4733,7 @@ define dso_local void @_ZNK4llvm5APInt11reverseBitsEv(ptr dead_on_unwind noalias
   %67 = add nuw nsw i64 %66, 63
   %68 = lshr i64 %67, 3
   %69 = and i64 %68, 1073741816
-  %70 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %69) #22
+  %70 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %69) #23
   store ptr %70, ptr %0, align 8, !tbaa !8
   %71 = load ptr, ptr %1, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %70, ptr align 8 %71, i64 %69, i1 false)
@@ -4754,11 +4754,11 @@ define dso_local void @_ZNK4llvm5APInt11reverseBitsEv(ptr dead_on_unwind noalias
   %78 = add nuw nsw i64 %77, 63
   %79 = lshr i64 %78, 3
   %80 = and i64 %79, 1073741816
-  %81 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %80) #22
+  %81 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %80) #23
   %82 = ptrtoint ptr %81 to i64
   %83 = load ptr, ptr %1, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %81, ptr align 8 %83, i64 %80, i1 false)
-  %84 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %80) #22
+  %84 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %80) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %84, i8 0, i64 %80, i1 false)
   store i64 0, ptr %84, align 8, !tbaa !9
   br label %_ZN4llvm5APIntC2Ejmbb.exit7
@@ -4934,7 +4934,7 @@ _ZN4llvm5APInt11lshrInPlaceEj.exit.loopexit:      ; preds = %.lr.ph.i.i
 
 160:                                              ; preds = %_ZNK4llvm5APIntneEm.exit
   tail call void @_ZN4llvm5APInt11shlSlowCaseEj(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %.0)
-  tail call void @_ZdaPv(ptr noundef nonnull %111) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %111) #24
   br label %_ZN4llvm5APIntC2Ejmbb.exit
 
 _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %160, %_ZN4llvm5APIntlSEj.exit13.split.us, %65, %63, %54, %53, %40, %39, %26, %25, %12, %11
@@ -5796,7 +5796,7 @@ define dso_local void @_ZN4llvm8APIntOps18RoundDoubleToAPIntEdj(ptr dead_on_unwi
   %14 = add nuw nsw i64 %13, 63
   %15 = lshr i64 %14, 3
   %16 = and i64 %15, 1073741816
-  %17 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #22
+  %17 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %17, i8 0, i64 %16, i1 false)
   store ptr %17, ptr %0, align 8, !tbaa !8
   store i64 0, ptr %17, align 8, !tbaa !9
@@ -5822,7 +5822,7 @@ define dso_local void @_ZN4llvm8APIntOps18RoundDoubleToAPIntEdj(ptr dead_on_unwi
   %29 = add nuw nsw i64 %28, 63
   %30 = lshr i64 %29, 3
   %31 = and i64 %30, 1073741816
-  %32 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %31) #22
+  %32 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %31) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %32, i8 0, i64 %31, i1 false)
   store i64 %24, ptr %32, align 8, !tbaa !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
@@ -5901,7 +5901,7 @@ _ZN4llvm5APInt11tcIncrementEPmj.exit.i.i.i:       ; preds = %.lr.ph.i.i.i1.i.i
   %69 = add nuw nsw i64 %68, 63
   %70 = lshr i64 %69, 3
   %71 = and i64 %70, 1073741816
-  %72 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %71) #22
+  %72 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %71) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %72, i8 0, i64 %71, i1 false)
   store ptr %72, ptr %0, align 8, !tbaa !8
   store i64 %24, ptr %72, align 8, !tbaa !9
@@ -5934,7 +5934,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APInt11tcI
   %82 = add nuw nsw i64 %75, 63
   %83 = lshr i64 %82, 3
   %84 = and i64 %83, 1073741816
-  %85 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %84) #22
+  %85 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %84) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %85, i8 0, i64 %84, i1 false)
   store ptr %85, ptr %0, align 8, !tbaa !8
   store i64 0, ptr %85, align 8, !tbaa !9
@@ -5948,7 +5948,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APInt11tcI
   %89 = add nuw nsw i64 %75, 63
   %90 = lshr i64 %89, 3
   %91 = and i64 %90, 1073741816
-  %92 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %91) #22
+  %92 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %91) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %92, i8 0, i64 %91, i1 false)
   store i64 %20, ptr %92, align 8, !tbaa !9
   %93 = trunc nuw nsw i64 %6 to i32
@@ -6055,7 +6055,7 @@ _ZN4llvm5APIntlSEj.exit.thread:                   ; preds = %.loopexit.i.i, %88
   br i1 %.not, label %.thread, label %_ZN4llvm5APIntC2ERKS0_.exit44.thread.thread
 
 .thread:                                          ; preds = %_ZN4llvm5APIntlSEj.exit.thread
-  %154 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %91) #22
+  %154 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %91) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %154, ptr nonnull align 8 %92, i64 %91, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
   br label %.lr.ph.i.i.i.i.i28
@@ -6108,7 +6108,7 @@ _ZN4llvm5APIntC2ERKS0_.exit44.thread.thread102:   ; preds = %_ZN4llvm5APIntlSEj.
 _ZN4llvm5APIntC2ERKS0_.exit44.thread.thread:      ; preds = %_ZN4llvm5APIntlSEj.exit.thread
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %169, align 8, !tbaa !3
-  %170 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %91) #22
+  %170 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %91) #23
   store ptr %170, ptr %0, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %170, ptr nonnull align 8 %92, i64 %91, i1 false)
   br label %175
@@ -6123,7 +6123,7 @@ _ZN4llvm5APIntC2ERKS0_.exit44.thread:             ; preds = %_ZN4llvm5APIntlSEj.
   br label %_ZN4llvm5APIntC2Ejmbb.exit
 
 175:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit44.thread.thread, %_ZN4llvm5APIntC2ERKS0_.exit44.thread.thread104
-  tail call void @_ZdaPv(ptr noundef nonnull %92) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %92) #24
   br label %_ZN4llvm5APIntC2Ejmbb.exit
 
 _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %_ZN4llvm5APIntC2ERKS0_.exit44.thread, %_ZN4llvm5APIntC2ERKS0_.exit44.thread.thread102, %66, %67, %175, %81, %80, %12, %11, %_ZN4llvm5APIntD2Ev.exit
@@ -6214,7 +6214,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit:            ; preds = %17, %.thread.i.i.i
 48:                                               ; preds = %38
   %49 = lshr i64 %7, 3
   %50 = and i64 %49, 1073741816
-  %51 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %50) #22
+  %51 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %50) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %51, ptr nonnull align 8 %9, i64 %50, i1 false)
   br label %.lr.ph.i.i.i.i.i
 
@@ -6257,7 +6257,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit:            ; preds = %17, %.thread.i.i.i
 .thread:                                          ; preds = %37, %38
   %68 = lshr i64 %7, 3
   %69 = and i64 %68, 1073741816
-  %70 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %69) #22
+  %70 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %69) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %70, ptr nonnull align 8 %9, i64 %69, i1 false)
   br label %.lr.ph.i.i.i34
 
@@ -6352,7 +6352,7 @@ _ZNK4llvm5APInt25countLeadingZerosSlowCaseEv.exit.i.i39: ; preds = %81, %.thread
 
 121:                                              ; preds = %87, %115, %88
   %.1 = phi double [ 0xFFF0000000000000, %88 ], [ %120, %115 ], [ 0x7FF0000000000000, %87 ]
-  tail call void @_ZdaPv(ptr noundef nonnull %.sroa.054.064.in) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %.sroa.054.064.in) #24
   br label %_ZN4llvm5APIntD2Ev.exit47
 
 _ZN4llvm5APIntD2Ev.exit47:                        ; preds = %121, %35, %27
@@ -6396,7 +6396,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %18
   %22 = add nuw nsw i64 %21, 63
   %23 = lshr i64 %22, 3
   %24 = and i64 %23, 1073741816
-  %25 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %24) #22
+  %25 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %24) #23
   store ptr %25, ptr %0, align 8, !tbaa !8
   %26 = load ptr, ptr %1, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr align 8 %26, i64 %24, i1 false)
@@ -6407,7 +6407,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %18
   %28 = add nuw nsw i64 %27, 63
   %29 = lshr i64 %28, 3
   %30 = and i64 %29, 1073741816
-  %31 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %30) #22
+  %31 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %30) #23
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %32, align 8, !tbaa !3
   store ptr %31, ptr %0, align 8, !tbaa !8
@@ -6533,7 +6533,7 @@ _ZNK4llvm5APInt6isIntNEj.exit:                    ; preds = %7, %_ZNK4llvm5APInt
   %44 = add nuw nsw i64 %43, 63
   %45 = lshr i64 %44, 6
   %46 = shl nuw nsw i64 %45, 3
-  %47 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %46) #22, !noalias !100
+  %47 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %46) #23, !noalias !100
   store i64 -1, ptr %47, align 8, !tbaa !9, !noalias !100
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = add nuw nsw i64 %46, 4294967288
@@ -6612,7 +6612,7 @@ define dso_local void @_ZNK4llvm5APInt9truncSSatEj(ptr dead_on_unwind noalias wr
   %34 = add nuw nsw i64 %33, 63
   %35 = lshr i64 %34, 3
   %36 = and i64 %35, 1073741816
-  %37 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %36) #22, !noalias !101
+  %37 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %36) #23, !noalias !101
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %37, i8 0, i64 %36, i1 false), !noalias !101
   store i64 0, ptr %37, align 8, !tbaa !9, !noalias !101
   %38 = add i32 %2, -1
@@ -6660,7 +6660,7 @@ _ZN4llvm5APInt17getSignedMinValueEj.exit:         ; preds = %26, %32
   %64 = add nuw nsw i64 %63, 63
   %65 = lshr i64 %64, 6
   %66 = shl nuw nsw i64 %65, 3
-  %67 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %66) #22, !noalias !110
+  %67 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %66) #23, !noalias !110
   store i64 -1, ptr %67, align 8, !tbaa !9, !noalias !110
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = add nuw nsw i64 %66, 4294967288
@@ -6740,7 +6740,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %21
   %27 = add nuw nsw i64 %26, 63
   %28 = lshr i64 %27, 3
   %29 = and i64 %28, 1073741816
-  %30 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %29) #22
+  %30 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %29) #23
   store ptr %30, ptr %0, align 8, !tbaa !8
   %31 = load ptr, ptr %1, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %30, ptr align 8 %31, i64 %29, i1 false)
@@ -6751,7 +6751,7 @@ _ZN4llvm5APInt15clearUnusedBitsEv.exit:           ; preds = %21
   %33 = add nuw nsw i64 %32, 63
   %34 = lshr i64 %33, 6
   %35 = shl nuw nsw i64 %34, 3
-  %36 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %35) #22
+  %36 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %35) #23
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %37, align 8, !tbaa !3
   store ptr %36, ptr %0, align 8, !tbaa !8
@@ -6832,7 +6832,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %7
   %13 = add nuw nsw i64 %12, 63
   %14 = lshr i64 %13, 6
   %15 = shl nuw nsw i64 %14, 3
-  %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #22, !noalias !111
+  %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #23, !noalias !111
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %17, align 8, !tbaa !3, !alias.scope !111
   store ptr %16, ptr %0, align 8, !tbaa !8, !alias.scope !111
@@ -6875,7 +6875,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %7
   %38 = add nuw nsw i64 %37, 63
   %39 = lshr i64 %38, 3
   %40 = and i64 %39, 1073741816
-  %41 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %40) #22
+  %41 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %40) #23
   store ptr %41, ptr %0, align 8, !tbaa !8
   %42 = load ptr, ptr %1, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %41, ptr align 8 %42, i64 %40, i1 false)
@@ -6920,7 +6920,7 @@ define dso_local void @_ZNK4llvm5APInt11sextOrTruncEj(ptr dead_on_unwind noalias
   %18 = add nuw nsw i64 %17, 63
   %19 = lshr i64 %18, 3
   %20 = and i64 %19, 1073741816
-  %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #22
+  %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #23
   store ptr %21, ptr %0, align 8, !tbaa !8
   %22 = load ptr, ptr %1, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 8 %22, i64 %20, i1 false)
@@ -7824,7 +7824,7 @@ define internal fastcc noundef i32 @_ZL12rotateModulojRKN4llvm5APIntE(i32 nounde
   %17 = add nuw nsw i64 %16, 63
   %18 = lshr i64 %17, 3
   %19 = and i64 %18, 1073741816
-  %20 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #22
+  %20 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #23
   %21 = load ptr, ptr %1, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr align 8 %21, i64 %19, i1 false)
   %22 = ptrtoint ptr %21 to i64
@@ -7847,7 +7847,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %12, %15
   %30 = add nuw nsw i64 %29, 63
   %31 = lshr i64 %30, 6
   %32 = shl nuw nsw i64 %31, 3
-  %33 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %32) #22, !noalias !115
+  %33 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %32) #23, !noalias !115
   %34 = ptrtoint ptr %33 to i64
   %35 = zext i32 %9 to i64
   %36 = add nuw nsw i64 %35, 63
@@ -7868,7 +7868,7 @@ _ZNK4llvm5APInt4zextEj.exit:                      ; preds = %26, %28
   br i1 %or.cond34, label %_ZN4llvm5APIntD2Ev.exit, label %44
 
 44:                                               ; preds = %_ZNK4llvm5APInt4zextEj.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %24) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %24) #24
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %44, %_ZNK4llvm5APInt4zextEj.exit
@@ -7893,7 +7893,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %44, %_ZNK4llvm5APIn
   %54 = add nuw nsw i64 %53, 63
   %55 = lshr i64 %54, 3
   %56 = and i64 %55, 1073741816
-  %57 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %56) #22
+  %57 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %56) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %57, i8 0, i64 %56, i1 false)
   store ptr %57, ptr %5, align 8, !tbaa !8
   store i64 %49, ptr %57, align 8, !tbaa !9
@@ -7911,7 +7911,7 @@ _ZN4llvm5APIntD2Ev.exit11:                        ; preds = %46
   br label %_ZN4llvm5APIntD2Ev.exit12
 
 62:                                               ; preds = %52
-  tail call void @_ZdaPv(ptr noundef nonnull %47) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %47) #24
   br label %_ZN4llvm5APIntD2Ev.exit12thread-pre-split
 
 _ZN4llvm5APIntD2Ev.exit12thread-pre-split:        ; preds = %52, %62
@@ -7919,7 +7919,7 @@ _ZN4llvm5APIntD2Ev.exit12thread-pre-split:        ; preds = %52, %62
   store i64 %63, ptr %3, align 8
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %65 = load i32, ptr %64, align 8, !tbaa !3
-  tail call void @_ZdaPv(ptr noundef nonnull %57) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %57) #24
   br label %_ZN4llvm5APIntD2Ev.exit12
 
 _ZN4llvm5APIntD2Ev.exit12:                        ; preds = %_ZN4llvm5APIntD2Ev.exit12thread-pre-split, %_ZN4llvm5APIntD2Ev.exit11
@@ -7990,7 +7990,7 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %_ZNK4llvm5APInt13ge
   br i1 %or.cond, label %_ZN4llvm5APIntD2Ev.exit14, label %90
 
 90:                                               ; preds = %_ZNK4llvm5APInt15getLimitedValueEm.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre.i.i) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre.i.i) #24
   br label %_ZN4llvm5APIntD2Ev.exit14
 
 _ZN4llvm5APIntD2Ev.exit14:                        ; preds = %_ZNK4llvm5APInt15getLimitedValueEm.exit, %90
@@ -8046,7 +8046,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %3
   %19 = add nuw nsw i64 %18, 63
   %20 = lshr i64 %19, 3
   %21 = and i64 %20, 1073741816
-  %22 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #22
+  %22 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #23
   store ptr %22, ptr %0, align 8, !tbaa !8
   %23 = load ptr, ptr %1, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr align 8 %23, i64 %21, i1 false)
@@ -8061,7 +8061,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %3
   %28 = add nuw nsw i64 %27, 63
   %29 = lshr i64 %28, 3
   %30 = and i64 %29, 1073741816
-  %31 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %30) #22, !noalias !118
+  %31 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %30) #23, !noalias !118
   %32 = load ptr, ptr %1, align 8, !tbaa !8, !noalias !118
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr align 8 %32, i64 %30, i1 false), !noalias !118
   %33 = lshr i64 %28, 6
@@ -8128,7 +8128,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %3
   %70 = shl nuw nsw i32 %.sroa.speculated.i.i.i.i, 3
   %71 = zext nneg i32 %70 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %69, i8 0, i64 %71, i1 false), !noalias !118
-  %72 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %30) #22, !noalias !121
+  %72 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %30) #23, !noalias !121
   %73 = ptrtoint ptr %72 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %72, ptr align 8 %32, i64 %30, i1 false), !noalias !121
   %74 = sub i32 %5, %10
@@ -8248,7 +8248,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %24
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %143, align 8, !tbaa !3, !alias.scope !124
   store i64 %73, ptr %0, align 8, !alias.scope !124
-  tail call void @_ZdaPv(ptr noundef nonnull %31) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %31) #24
   br label %_ZN4llvm5APIntC2ERKS0_.exit5
 
 _ZN4llvm5APIntC2ERKS0_.exit5:                     ; preds = %142, %_ZN4llvm5APIntD2Ev.exit, %17, %15, %_ZN4llvm5APIntC2ERKS0_.exit
@@ -8454,7 +8454,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.thread:     ; preds = %2
   %49 = add nuw nsw i64 %48, 63
   %50 = lshr i64 %49, 3
   %51 = and i64 %50, 1073741816
-  %52 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %51) #22
+  %52 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %51) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %52, i8 0, i64 %51, i1 false)
   store ptr %52, ptr %0, align 8, !tbaa !8
   store i64 %47, ptr %52, align 8, !tbaa !9
@@ -8488,7 +8488,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.thread:     ; preds = %2
   %65 = add nuw nsw i64 %64, 63
   %66 = lshr i64 %65, 3
   %67 = and i64 %66, 1073741816
-  %68 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %67) #22
+  %68 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %67) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %68, i8 0, i64 %67, i1 false)
   store ptr %68, ptr %0, align 8, !tbaa !8
   store i64 %60, ptr %68, align 8, !tbaa !9
@@ -8499,22 +8499,22 @@ _ZN4llvm5APIntC2Ejmbb.exit12.thread:              ; preds = %53
   %70 = add nuw nsw i64 %69, 63
   %71 = lshr i64 %70, 3
   %72 = and i64 %71, 1073741816
-  %73 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %72) #22
+  %73 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %72) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %73, i8 0, i64 %72, i1 false)
   %74 = ptrtoint ptr %73 to i64
   store i64 16, ptr %73, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %11, ptr %75, align 8, !tbaa !3
-  %76 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %72) #22
+  %76 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %72) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %76, i8 0, i64 %72, i1 false)
   store i64 1, ptr %76, align 8, !tbaa !9
-  %77 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %72) #22
+  %77 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %72) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %77, i8 0, i64 %72, i1 false)
   %78 = ptrtoint ptr %77 to i64
   store i64 0, ptr %77, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %79 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %72) #22
+  %79 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %72) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %79, i8 0, i64 %72, i1 false)
   store i64 2, ptr %79, align 8, !tbaa !9
   store ptr %76, ptr %3, align 8, !tbaa !8
@@ -8627,7 +8627,7 @@ _ZNK4llvm5APInt3shlEj.exit.thread:                ; preds = %_ZN4llvm5APIntC2Ejm
   %135 = add nuw nsw i64 %134, 63
   %136 = lshr i64 %135, 3
   %137 = and i64 %136, 1073741816
-  %138 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %137) #22, !noalias !127
+  %138 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %137) #23, !noalias !127
   %139 = ptrtoint ptr %138 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %138, ptr nonnull align 8 %87, i64 %137, i1 false), !noalias !127
   %140 = lshr i64 %135, 6
@@ -8717,7 +8717,7 @@ _ZNK4llvm5APInt3shlEj.exit.thread:                ; preds = %_ZN4llvm5APIntC2Ejm
   %189 = load i64, ptr %188, align 8, !tbaa !9
   %190 = and i64 %189, %185
   store i64 %190, ptr %188, align 8, !tbaa !9
-  tail call void @_ZdaPv(ptr noundef nonnull %87) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %87) #24
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %180, %_ZNK4llvm5APInt3shlEj.exit.thread
@@ -8744,7 +8744,7 @@ _ZNK4llvm5APInt3shlEj.exit18.thread:              ; preds = %197
   br label %_ZN4llvm5APIntD2Ev.exit20
 
 .lr.ph.i.i144:                                    ; preds = %197
-  %201 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %91) #22, !noalias !130
+  %201 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %91) #23, !noalias !130
   %202 = inttoptr i64 %.sroa.0233.0365 to ptr
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %201, ptr align 8 %202, i64 %91, i1 false), !noalias !130
   %203 = getelementptr inbounds nuw i64, ptr %201, i64 %indvars.iv.next.i1.i145
@@ -8783,7 +8783,7 @@ _ZNK4llvm5APInt3shlEj.exit18.thread:              ; preds = %197
   br i1 %221, label %_ZN4llvm5APIntD2Ev.exit20, label %222
 
 222:                                              ; preds = %216
-  tail call void @_ZdaPv(ptr noundef nonnull %202) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %202) #24
   br label %_ZN4llvm5APIntD2Ev.exit20
 
 _ZN4llvm5APIntD2Ev.exit20:                        ; preds = %222, %216, %_ZNK4llvm5APInt3shlEj.exit18.thread
@@ -8880,7 +8880,7 @@ _ZN4llvmplENS_5APIntERKS0_.exit:                  ; preds = %_ZN4llvm5APInt5tcAd
 
 270:                                              ; preds = %_ZN4llvmplENS_5APIntERKS0_.exit
   %271 = inttoptr i64 %.sroa.0223.0 to ptr
-  tail call void @_ZdaPv(ptr noundef nonnull %271) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %271) #24
   br label %_ZN4llvm5APIntD2Ev.exit25
 
 _ZN4llvm5APIntD2Ev.exit25:                        ; preds = %270, %_ZN4llvmplENS_5APIntERKS0_.exit
@@ -8892,7 +8892,7 @@ _ZN4llvm5APIntD2Ev.exit25:                        ; preds = %270, %_ZN4llvmplENS
   br i1 %or.cond525, label %_ZN4llvm5APIntD2Ev.exit27, label %276
 
 276:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit25
-  tail call void @_ZdaPv(ptr noundef nonnull %269) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %269) #24
   br label %_ZN4llvm5APIntD2Ev.exit27
 
 _ZN4llvm5APIntD2Ev.exit27:                        ; preds = %276, %_ZN4llvm5APIntD2Ev.exit25
@@ -8968,7 +8968,7 @@ _ZN4llvm5APIntaSERKS0_.exit.backedge:             ; preds = %292, %_ZN4llvm5APIn
   br label %_ZN4llvm5APInt10reallocateEj.exit.thread9.i.i
 
 301:                                              ; preds = %.thread260
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre.i33) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre.i33) #24
   store i32 %273, ptr %192, align 8, !tbaa !3
   %302 = icmp ult i32 %273, 65
   br i1 %302, label %_ZN4llvm5APInt10reallocateEj.exit.thread.i.i, label %_ZN4llvm5APInt10reallocateEj.exit.thread9.i.i
@@ -8977,7 +8977,7 @@ _ZN4llvm5APInt10reallocateEj.exit.thread9.i.i:    ; preds = %.thread262, %301
   %303 = phi i64 [ %300, %.thread262 ], [ %296, %301 ]
   %304 = phi i64 [ %299, %.thread262 ], [ %295, %301 ]
   %305 = shl nuw nsw i64 %303, 3
-  %306 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %305) #22
+  %306 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %305) #23
   store ptr %306, ptr %3, align 8, !tbaa !8
   %307 = ptrtoint ptr %306 to i64
   br label %310
@@ -9016,7 +9016,7 @@ _ZN4llvm5APInt10reallocateEj.exit.thread.i.i:     ; preds = %_ZN4llvm5APInt10rea
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK4llvm5APInt3uleERKS0_.exit32, %284
   %323 = trunc nuw nsw i64 %283 to i32
   %324 = shl nuw nsw i64 %283, 3
-  %325 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %324) #22, !noalias !138
+  %325 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %324) #23, !noalias !138
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -9046,7 +9046,7 @@ _ZN4llvm5APInt10reallocateEj.exit.thread.i.i:     ; preds = %_ZN4llvm5APInt10rea
   store i64 %342, ptr %340, align 8, !tbaa !9, !noalias !138
   %343 = lshr i64 %282, 3
   %344 = and i64 %343, 1073741816
-  %345 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %344) #22
+  %345 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %344) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %345, ptr align 8 %229, i64 %344, i1 false)
   br label %.lr.ph.i.i.i38
 
@@ -9067,7 +9067,7 @@ _ZN4llvm5APInt10reallocateEj.exit.thread.i.i:     ; preds = %_ZN4llvm5APInt10rea
   %350 = load i64, ptr %349, align 8, !tbaa !9, !noalias !141
   %351 = and i64 %350, %337
   store i64 %351, ptr %349, align 8, !tbaa !9, !noalias !141
-  %352 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %344) #22
+  %352 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %344) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %352, ptr align 8 %228, i64 %344, i1 false)
   br label %.lr.ph.i.i.i47
 
@@ -9088,7 +9088,7 @@ _ZN4llvm5APInt10reallocateEj.exit.thread.i.i:     ; preds = %_ZN4llvm5APInt10rea
   %357 = load i64, ptr %356, align 8, !tbaa !9, !noalias !144
   %358 = and i64 %357, %337
   store i64 %358, ptr %356, align 8, !tbaa !9, !noalias !144
-  %359 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %324) #22, !noalias !147
+  %359 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %324) #23, !noalias !147
   br label %.lr.ph.i.i59
 
 .lr.ph.i.i59:                                     ; preds = %.lr.ph.i.i59, %.lr.ph.preheader.i.i58
@@ -9127,8 +9127,8 @@ _ZN4llvm5APIntD2Ev.exit68.thread:                 ; preds = %278
   %383 = load i64, ptr %382, align 8, !tbaa !9, !noalias !147
   %384 = and i64 %383, %337
   store i64 %384, ptr %382, align 8, !tbaa !9, !noalias !147
-  tail call void @_ZdaPv(ptr noundef nonnull %352) #23
-  tail call void @_ZdaPv(ptr noundef nonnull %345) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %352) #24
+  tail call void @_ZdaPv(ptr noundef nonnull %345) #24
   br label %_ZN4llvm5APIntD2Ev.exit70
 
 _ZN4llvm5APIntD2Ev.exit70:                        ; preds = %379, %_ZN4llvm5APIntD2Ev.exit68.thread
@@ -9186,7 +9186,7 @@ _ZNK4llvm5APInt3ultERKS0_.exit.thread:            ; preds = %396, %387, %_ZNK4ll
   %406 = add nuw nsw i64 %405, 63
   %407 = lshr i64 %406, 3
   %408 = and i64 %407, 1073741816
-  %409 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %408) #22
+  %409 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %408) #23
   %410 = inttoptr i64 %.sroa.0197.0305311 to ptr
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %409, ptr align 8 %410, i64 %408, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !150)
@@ -9256,7 +9256,7 @@ _ZN4llvmmiENS_5APIntERKS0_.exit:                  ; preds = %423
   store i32 %.sroa.12.0, ptr %445, align 8, !tbaa !3, !alias.scope !150
   store i64 %434, ptr %9, align 8, !alias.scope !150
   call void @_ZNK4llvm5APInt4udivERKS0_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %8, ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(12) %4)
-  tail call void @_ZdaPv(ptr noundef nonnull %409) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %409) #24
   br label %_ZN4llvm5APIntD2Ev.exit88
 
 _ZN4llvm5APIntD2Ev.exit88:                        ; preds = %_ZN4llvmmiENS_5APIntERKS0_.exit.thread, %_ZN4llvmmiENS_5APIntERKS0_.exit
@@ -9270,7 +9270,7 @@ _ZN4llvm5APIntD2Ev.exit88:                        ; preds = %_ZN4llvmmiENS_5APIn
   %449 = add nuw nsw i64 %448, 63
   %450 = lshr i64 %449, 3
   %451 = and i64 %450, 1073741816
-  %452 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %451) #22
+  %452 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %451) #23
   %453 = load ptr, ptr %1, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %452, ptr align 8 %453, i64 %451, i1 false)
   %454 = inttoptr i64 %.sroa.0200.0265269274283289303312 to ptr
@@ -9375,7 +9375,7 @@ _ZNK4llvm5APInt3ultERKS0_.exit109.thread:         ; preds = %492, %_ZN4llvm5APIn
   %506 = add nuw nsw i64 %505, 63
   %507 = lshr i64 %506, 3
   %508 = and i64 %507, 1073741816
-  %509 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %508) #22
+  %509 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %508) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %509, ptr align 8 %226, i64 %508, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !156)
   %510 = lshr i64 %506, 6
@@ -9437,7 +9437,7 @@ _ZN4llvm5APIntD2Ev.exit123:                       ; preds = %_ZN4llvm5APInt9tcAd
 
 539:                                              ; preds = %534
   %540 = inttoptr i64 %536 to ptr
-  tail call void @_ZdaPv(ptr noundef nonnull %540) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %540) #24
   br label %_ZN4llvm5APIntD2Ev.exit124
 
 _ZN4llvm5APIntD2Ev.exit124:                       ; preds = %534, %539
@@ -9449,7 +9449,7 @@ _ZN4llvm5APIntD2Ev.exit124:                       ; preds = %534, %539
   br i1 %or.cond528, label %_ZN4llvm5APIntD2Ev.exit125, label %545
 
 545:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit124
-  tail call void @_ZdaPv(ptr noundef nonnull %535) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %535) #24
   br label %_ZN4llvm5APIntD2Ev.exit125
 
 _ZN4llvm5APIntD2Ev.exit125:                       ; preds = %_ZN4llvm5APIntD2Ev.exit124, %545
@@ -9466,7 +9466,7 @@ _ZN4llvm5APIntD2Ev.exit125:                       ; preds = %_ZN4llvm5APIntD2Ev.
 
 549:                                              ; preds = %547
   %550 = inttoptr i64 %.sroa.0197.0305311 to ptr
-  tail call void @_ZdaPv(ptr noundef nonnull %550) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %550) #24
   br label %551
 
 551:                                              ; preds = %547, %549
@@ -9475,14 +9475,14 @@ _ZN4llvm5APIntD2Ev.exit125:                       ; preds = %_ZN4llvm5APIntD2Ev.
 
 553:                                              ; preds = %551
   %554 = inttoptr i64 %.sroa.0200.0265269274283289303312 to ptr
-  tail call void @_ZdaPv(ptr noundef nonnull %554) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %554) #24
   br label %_ZN4llvm5APIntD2Ev.exit127
 
 _ZN4llvm5APIntD2Ev.exit127:                       ; preds = %546, %551, %553
   br i1 %12, label %_ZN4llvm5APIntD2Ev.exit128, label %555
 
 555:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit127
-  tail call void @_ZdaPv(ptr noundef nonnull %191) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %191) #24
   br label %_ZN4llvm5APIntD2Ev.exit128
 
 _ZN4llvm5APIntD2Ev.exit128:                       ; preds = %_ZN4llvm5APIntD2Ev.exit127, %555
@@ -9494,7 +9494,7 @@ _ZN4llvm5APIntD2Ev.exit128:                       ; preds = %_ZN4llvm5APIntD2Ev.
 
 558:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit128
   %559 = inttoptr i64 %272 to ptr
-  tail call void @_ZdaPv(ptr noundef nonnull %559) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %559) #24
   br label %_ZN4llvm5APIntD2Ev.exit129
 
 _ZN4llvm5APIntD2Ev.exit129:                       ; preds = %_ZN4llvm5APIntD2Ev.exit128, %558
@@ -9503,7 +9503,7 @@ _ZN4llvm5APIntD2Ev.exit129:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %or.cond530, label %_ZN4llvm5APIntD2Ev.exit130, label %561
 
 561:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit129
-  tail call void @_ZdaPv(ptr noundef nonnull %223) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %223) #24
   br label %_ZN4llvm5APIntD2Ev.exit130
 
 _ZN4llvm5APIntD2Ev.exit130:                       ; preds = %_ZN4llvm5APIntD2Ev.exit129, %561
@@ -9514,14 +9514,14 @@ _ZN4llvm5APIntD2Ev.exit130:                       ; preds = %_ZN4llvm5APIntD2Ev.
 
 563:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit130
   %564 = inttoptr i64 %.sroa.0233.0359463 to ptr
-  tail call void @_ZdaPv(ptr noundef nonnull %564) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %564) #24
   br label %_ZN4llvm5APIntC2Ejmbb.exit
 
 _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %563, %_ZN4llvm5APIntD2Ev.exit130, %63, %62, %42, %.thread446
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.round.f64(double) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9645,7 +9645,7 @@ _ZN4llvm5APIntC2Ejmbb.exit29:                     ; preds = %_ZNK4llvm5APInt13ge
   store i32 %5, ptr %63, align 8, !tbaa !3
   %64 = lshr i64 %12, 3
   %65 = and i64 %64, 1073741816
-  %66 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %65) #22
+  %66 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %65) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %66, i8 0, i64 %65, i1 false)
   store ptr %66, ptr %0, align 8, !tbaa !8
   store i64 0, ptr %66, align 8, !tbaa !9
@@ -9660,7 +9660,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %67
   store i32 %5, ptr %69, align 8, !tbaa !3
   %70 = lshr i64 %12, 3
   %71 = and i64 %70, 1073741816
-  %72 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %71) #22
+  %72 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %71) #23
   store ptr %72, ptr %0, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %72, ptr align 8 %14, i64 %71, i1 false)
   br label %97
@@ -9692,7 +9692,7 @@ _ZN4llvm5APIntC2Ejmbb.exit32:                     ; preds = %_ZNK4llvm5APInt3ult
   store i32 %5, ptr %81, align 8, !tbaa !3
   %82 = lshr i64 %12, 3
   %83 = and i64 %82, 1073741816
-  %84 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %83) #22
+  %84 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %83) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %84, i8 0, i64 %83, i1 false)
   store ptr %84, ptr %0, align 8, !tbaa !8
   store i64 0, ptr %84, align 8, !tbaa !9
@@ -9708,7 +9708,7 @@ _ZNK4llvm5APInteqERKS0_.exit:                     ; preds = %.preheader, %_ZNK4l
 _ZN4llvm5APIntC2Ejmbb.exit33:                     ; preds = %_ZNK4llvm5APInteqERKS0_.exit
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %86, align 8, !tbaa !3
-  %87 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.idx.i.i) #22
+  %87 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.idx.i.i) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %87, i8 0, i64 %.idx.i.i, i1 false)
   store ptr %87, ptr %0, align 8, !tbaa !8
   store i64 1, ptr %87, align 8, !tbaa !9
@@ -9724,7 +9724,7 @@ _ZN4llvm5APIntC2Ejmbb.exit34:                     ; preds = %88
   %92 = udiv i64 %90, %91
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %93, align 8, !tbaa !3
-  %94 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.idx.i.i) #22
+  %94 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.idx.i.i) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %94, i8 0, i64 %.idx.i.i, i1 false)
   store ptr %94, ptr %0, align 8, !tbaa !8
   store i64 %92, ptr %94, align 8, !tbaa !9
@@ -9733,7 +9733,7 @@ _ZN4llvm5APIntC2Ejmbb.exit34:                     ; preds = %88
 _ZN4llvm5APIntC2Ejmbb.exit35:                     ; preds = %88
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %95, align 8, !tbaa !3
-  %96 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.idx.i.i) #22
+  %96 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.idx.i.i) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %96, i8 0, i64 %.idx.i.i, i1 false)
   store ptr %96, ptr %0, align 8, !tbaa !8
   store i64 0, ptr %96, align 8, !tbaa !9
@@ -9764,7 +9764,7 @@ define dso_local void @_ZNK4llvm5APInt21multiplicativeInverseEv(ptr dead_on_unwi
   %13 = add nuw nsw i64 %12, 63
   %14 = lshr i64 %13, 3
   %15 = and i64 %14, 1073741816
-  %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #22
+  %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #23
   %17 = load ptr, ptr %1, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr align 8 %17, i64 %15, i1 false)
   br label %_ZN4llvm5APIntC2ERKS0_.exit
@@ -9801,7 +9801,7 @@ _ZN4llvm5APIntaSEOS0_.exit.thread:                ; preds = %19
   %35 = lshr i64 %34, 6
   %36 = trunc nuw nsw i64 %35 to i32
   %37 = shl nuw nsw i64 %35, 3
-  %38 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %37) #22, !noalias !159
+  %38 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %37) #23, !noalias !159
   %39 = load ptr, ptr %1, align 8, !tbaa !8, !noalias !159
   %40 = load ptr, ptr %0, align 8, !tbaa !8, !noalias !159
   br label %.lr.ph.i.i
@@ -10097,7 +10097,7 @@ _ZN4llvmmiEmNS_5APIntE.exit:                      ; preds = %.thread35, %_ZN4llv
 
 174:                                              ; preds = %_ZN4llvmmiEmNS_5APIntE.exit
   %175 = inttoptr i64 %.sroa.0.0 to ptr
-  tail call void @_ZdaPv(ptr noundef nonnull %175) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %175) #24
   br label %_ZN4llvm5APIntD2Ev.exit4
 
 _ZN4llvm5APIntD2Ev.exit4:                         ; preds = %174, %_ZN4llvmmiEmNS_5APIntE.exit
@@ -10106,7 +10106,7 @@ _ZN4llvm5APIntD2Ev.exit4:                         ; preds = %174, %_ZN4llvmmiEmN
   br label %19, !llvm.loop !165
 
 176:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %38) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %38) #24
   br label %_ZN4llvm5APIntD2Ev.exit5
 
 _ZN4llvm5APIntD2Ev.exit5:                         ; preds = %_ZN4llvm5APIntaSEOS0_.exit.thread, %176
@@ -10146,17 +10146,17 @@ define dso_local void @_ZN4llvm5APInt6divideEPKmjS2_jPmS3_(ptr noundef readonly 
 
 28:                                               ; preds = %6
   %29 = shl nuw nsw i64 %18, 2
-  %30 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %29) #22
+  %30 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %29) #23
   %31 = zext i32 %8 to i64
   %32 = shl nuw nsw i64 %31, 2
-  %33 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %32) #22
+  %33 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %32) #23
   %34 = zext i32 %9 to i64
   %35 = shl nuw nsw i64 %34, 2
-  %36 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %35) #22
+  %36 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %35) #23
   br i1 %.not, label %37, label %39
 
 37:                                               ; preds = %28
-  %38 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %32) #22
+  %38 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %32) #23
   br label %39
 
 39:                                               ; preds = %28, %37, %19, %24
@@ -10690,14 +10690,14 @@ _ZL8KnuthDivPjS_S_S_jj.exit:                      ; preds = %247, %.lr.ph197.i, 
   br i1 %.not161, label %290, label %287
 
 287:                                              ; preds = %.loopexit
-  call void @_ZdaPv(ptr noundef nonnull %.0145) #23
-  call void @_ZdaPv(ptr noundef %.0147) #23
-  call void @_ZdaPv(ptr noundef %.0150) #23
+  call void @_ZdaPv(ptr noundef nonnull %.0145) #24
+  call void @_ZdaPv(ptr noundef %.0147) #24
+  call void @_ZdaPv(ptr noundef %.0150) #24
   %288 = icmp eq ptr %.0149, null
   br i1 %288, label %290, label %289
 
 289:                                              ; preds = %287
-  call void @_ZdaPv(ptr noundef nonnull %.0149) #23
+  call void @_ZdaPv(ptr noundef nonnull %.0149) #24
   br label %290
 
 290:                                              ; preds = %287, %289, %.loopexit
@@ -10772,7 +10772,7 @@ _ZN4llvm5APIntC2Ejmbb.exit5:                      ; preds = %_ZNK4llvm5APInt13ge
   store i32 %6, ptr %32, align 8, !tbaa !3
   %33 = lshr i64 %12, 3
   %34 = and i64 %33, 1073741816
-  %35 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %34) #22
+  %35 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %34) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %35, i8 0, i64 %34, i1 false)
   store ptr %35, ptr %0, align 8, !tbaa !8
   store i64 0, ptr %35, align 8, !tbaa !9
@@ -10787,7 +10787,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %36
   store i32 %6, ptr %38, align 8, !tbaa !3
   %39 = lshr i64 %12, 3
   %40 = and i64 %39, 1073741816
-  %41 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %40) #22
+  %41 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %40) #23
   store ptr %41, ptr %0, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %41, ptr nonnull align 8 %14, i64 %40, i1 false)
   br label %87
@@ -10832,7 +10832,7 @@ _ZN4llvm5APIntC2Ejmbb.exit7:                      ; preds = %_ZNK4llvm5APInt3ult
   store i32 %6, ptr %55, align 8, !tbaa !3
   %56 = lshr i64 %12, 3
   %57 = and i64 %56, 1073741816
-  %58 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %57) #22
+  %58 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %57) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %58, i8 0, i64 %57, i1 false)
   store ptr %58, ptr %0, align 8, !tbaa !8
   store i64 0, ptr %58, align 8, !tbaa !9
@@ -10875,7 +10875,7 @@ _ZN4llvm5APIntC2Ejmbb.exit21:                     ; preds = %_ZNK4llvm5APInteqEm
   store i32 %6, ptr %72, align 8, !tbaa !3
   %73 = lshr i64 %12, 3
   %74 = and i64 %73, 1073741816
-  %75 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %74) #22
+  %75 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %74) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %75, i8 0, i64 %74, i1 false)
   store ptr %75, ptr %0, align 8, !tbaa !8
   store i64 1, ptr %75, align 8, !tbaa !9
@@ -10892,7 +10892,7 @@ _ZN4llvm5APIntC2Ejmbb.exit22:                     ; preds = %_ZNK4llvm5APInteqEm
   store i32 %6, ptr %79, align 8, !tbaa !3
   %80 = lshr i64 %12, 3
   %81 = and i64 %80, 1073741816
-  %82 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %81) #22
+  %82 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %81) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %82, i8 0, i64 %81, i1 false)
   store ptr %82, ptr %0, align 8, !tbaa !8
   store i64 %78, ptr %82, align 8, !tbaa !9
@@ -10903,7 +10903,7 @@ _ZN4llvm5APIntC2Ejmbb.exit23:                     ; preds = %_ZNK4llvm5APInteqEm
   store i32 %6, ptr %83, align 8, !tbaa !3
   %84 = lshr i64 %12, 3
   %85 = and i64 %84, 1073741816
-  %86 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %85) #22
+  %86 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %85) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %86, i8 0, i64 %85, i1 false)
   store ptr %86, ptr %0, align 8, !tbaa !8
   store i64 0, ptr %86, align 8, !tbaa !9
@@ -10968,7 +10968,7 @@ define dso_local void @_ZNK4llvm5APInt4sdivERKS0_(ptr dead_on_unwind noalias wri
   %42 = add nuw nsw i64 %41, 63
   %43 = lshr i64 %42, 3
   %44 = and i64 %43, 1073741816
-  %45 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %44) #22
+  %45 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %44) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %45, ptr align 8 %17, i64 %44, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !180)
   %46 = lshr i64 %42, 6
@@ -11045,7 +11045,7 @@ _ZN4llvmngENS_5APIntE.exit:                       ; preds = %_ZN4llvm5APInt11tcI
   %80 = add nuw nsw i64 %79, 63
   %81 = lshr i64 %80, 3
   %82 = and i64 %81, 1073741816
-  %83 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %82) #22
+  %83 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %82) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %83, ptr align 8 %31, i64 %82, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !183)
   %84 = lshr i64 %80, 6
@@ -11121,7 +11121,7 @@ _ZN4llvmngENS_5APIntE.exit24:                     ; preds = %_ZN4llvm5APInt11tcI
 
 117:                                              ; preds = %_ZN4llvmngENS_5APIntE.exit24
   %118 = inttoptr i64 %.sroa.0115.1 to ptr
-  tail call void @_ZdaPv(ptr noundef nonnull %118) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %118) #24
   br label %_ZN4llvm5APIntD2Ev.exit25
 
 _ZN4llvm5APIntD2Ev.exit25:                        ; preds = %117, %_ZN4llvmngENS_5APIntE.exit24
@@ -11132,7 +11132,7 @@ _ZN4llvm5APIntD2Ev.exit25:                        ; preds = %117, %_ZN4llvmngENS
   br i1 %or.cond159, label %_ZN4llvm5APIntD2Ev.exit27, label %121
 
 121:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit25
-  tail call void @_ZdaPv(ptr noundef nonnull %77) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %77) #24
   br label %_ZN4llvm5APIntD2Ev.exit27
 
 _ZN4llvm5APIntD2Ev.exit27:                        ; preds = %121, %_ZN4llvm5APIntD2Ev.exit25
@@ -11148,7 +11148,7 @@ _ZN4llvm5APIntD2Ev.exit27:                        ; preds = %121, %_ZN4llvm5APIn
   %125 = add nuw nsw i64 %124, 63
   %126 = lshr i64 %125, 3
   %127 = and i64 %126, 1073741816
-  %128 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %127) #22
+  %128 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %127) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %128, ptr align 8 %17, i64 %127, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !186)
   %129 = lshr i64 %125, 6
@@ -11300,7 +11300,7 @@ _ZN4llvm5APIntD2Ev.exit61:                        ; preds = %_ZN4llvm5APInt11tcI
   br i1 %or.cond160, label %_ZN4llvm5APIntD2Ev.exit63, label %203
 
 203:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit61
-  tail call void @_ZdaPv(ptr noundef nonnull %163) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %163) #24
   br label %_ZN4llvm5APIntD2Ev.exit63
 
 _ZN4llvm5APIntD2Ev.exit63:                        ; preds = %203, %_ZN4llvm5APIntD2Ev.exit61
@@ -11319,7 +11319,7 @@ _ZN4llvm5APIntD2Ev.exit63:                        ; preds = %203, %_ZN4llvm5APIn
   %208 = add nuw nsw i64 %207, 63
   %209 = lshr i64 %208, 3
   %210 = and i64 %209, 1073741816
-  %211 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %210) #22
+  %211 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %210) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %211, ptr align 8 %31, i64 %210, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
   %212 = lshr i64 %208, 6
@@ -11471,7 +11471,7 @@ _ZN4llvm5APIntD2Ev.exit98:                        ; preds = %_ZN4llvm5APInt11tcI
   br i1 %or.cond161, label %_ZN4llvm5APIntD2Ev.exit100, label %286
 
 286:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit98
-  tail call void @_ZdaPv(ptr noundef nonnull %246) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %246) #24
   br label %_ZN4llvm5APIntD2Ev.exit100
 
 _ZN4llvm5APIntD2Ev.exit100:                       ; preds = %286, %_ZN4llvm5APIntD2Ev.exit98
@@ -11523,7 +11523,7 @@ define dso_local void @_ZNK4llvm5APInt4sdivEl(ptr dead_on_unwind noalias writabl
   %27 = add nuw nsw i64 %26, 63
   %28 = lshr i64 %27, 3
   %29 = and i64 %28, 1073741816
-  %30 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %29) #22
+  %30 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %29) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %30, ptr align 8 %15, i64 %29, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !198)
   %31 = lshr i64 %27, 6
@@ -11600,7 +11600,7 @@ _ZN4llvmngENS_5APIntE.exit:                       ; preds = %_ZN4llvm5APInt11tcI
 
 65:                                               ; preds = %_ZN4llvmngENS_5APIntE.exit
   %66 = inttoptr i64 %.sroa.066.1 to ptr
-  tail call void @_ZdaPv(ptr noundef nonnull %66) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %66) #24
   br label %_ZN4llvm5APIntD2Ev.exit6
 
 _ZN4llvm5APIntD2Ev.exit6:                         ; preds = %65, %_ZN4llvmngENS_5APIntE.exit
@@ -11616,7 +11616,7 @@ _ZN4llvm5APIntD2Ev.exit6:                         ; preds = %65, %_ZN4llvmngENS_
   %70 = add nuw nsw i64 %69, 63
   %71 = lshr i64 %70, 3
   %72 = and i64 %71, 1073741816
-  %73 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %72) #22
+  %73 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %72) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %73, ptr align 8 %15, i64 %72, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !201)
   %74 = lshr i64 %70, 6
@@ -11768,7 +11768,7 @@ _ZN4llvm5APIntD2Ev.exit40:                        ; preds = %_ZN4llvm5APInt11tcI
   br i1 %or.cond92, label %_ZN4llvm5APIntD2Ev.exit42, label %148
 
 148:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit40
-  tail call void @_ZdaPv(ptr noundef nonnull %108) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %108) #24
   br label %_ZN4llvm5APIntD2Ev.exit42
 
 _ZN4llvm5APIntD2Ev.exit42:                        ; preds = %148, %_ZN4llvm5APIntD2Ev.exit40
@@ -11988,7 +11988,7 @@ _ZN4llvm5APIntC2Ejmbb.exit29:                     ; preds = %_ZNK4llvm5APInt13ge
   store i32 %5, ptr %64, align 8, !tbaa !3
   %65 = lshr i64 %12, 3
   %66 = and i64 %65, 1073741816
-  %67 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %66) #22
+  %67 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %66) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %67, i8 0, i64 %66, i1 false)
   store ptr %67, ptr %0, align 8, !tbaa !8
   store i64 0, ptr %67, align 8, !tbaa !9
@@ -12003,7 +12003,7 @@ _ZN4llvm5APIntC2Ejmbb.exit30:                     ; preds = %68
   store i32 %5, ptr %70, align 8, !tbaa !3
   %71 = lshr i64 %12, 3
   %72 = and i64 %71, 1073741816
-  %73 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %72) #22
+  %73 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %72) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %73, i8 0, i64 %72, i1 false)
   store ptr %73, ptr %0, align 8, !tbaa !8
   store i64 0, ptr %73, align 8, !tbaa !9
@@ -12036,7 +12036,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %_ZNK4llvm5APInt3ult
   store i32 %5, ptr %82, align 8, !tbaa !3
   %83 = lshr i64 %12, 3
   %84 = and i64 %83, 1073741816
-  %85 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %84) #22
+  %85 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %84) #23
   store ptr %85, ptr %0, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %85, ptr align 8 %14, i64 %84, i1 false)
   br label %98
@@ -12051,7 +12051,7 @@ _ZNK4llvm5APInteqERKS0_.exit:                     ; preds = %.preheader, %_ZNK4l
 _ZN4llvm5APIntC2Ejmbb.exit33:                     ; preds = %_ZNK4llvm5APInteqERKS0_.exit
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %87, align 8, !tbaa !3
-  %88 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.idx.i.i) #22
+  %88 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.idx.i.i) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %88, i8 0, i64 %.idx.i.i, i1 false)
   store ptr %88, ptr %0, align 8, !tbaa !8
   store i64 0, ptr %88, align 8, !tbaa !9
@@ -12067,7 +12067,7 @@ _ZN4llvm5APIntC2Ejmbb.exit34:                     ; preds = %89
   %93 = urem i64 %91, %92
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %94, align 8, !tbaa !3
-  %95 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.idx.i.i) #22
+  %95 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.idx.i.i) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %95, i8 0, i64 %.idx.i.i, i1 false)
   store ptr %95, ptr %0, align 8, !tbaa !8
   store i64 %93, ptr %95, align 8, !tbaa !9
@@ -12076,7 +12076,7 @@ _ZN4llvm5APIntC2Ejmbb.exit34:                     ; preds = %89
 _ZN4llvm5APIntC2Ejmbb.exit35:                     ; preds = %89
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %96, align 8, !tbaa !3
-  %97 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.idx.i.i) #22
+  %97 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.idx.i.i) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %97, i8 0, i64 %.idx.i.i, i1 false)
   store ptr %97, ptr %0, align 8, !tbaa !8
   store i64 0, ptr %97, align 8, !tbaa !9
@@ -12288,7 +12288,7 @@ define dso_local void @_ZNK4llvm5APInt4sremERKS0_(ptr dead_on_unwind noalias wri
   %42 = add nuw nsw i64 %41, 63
   %43 = lshr i64 %42, 3
   %44 = and i64 %43, 1073741816
-  %45 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %44) #22
+  %45 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %44) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %45, ptr align 8 %17, i64 %44, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !210)
   %46 = lshr i64 %42, 6
@@ -12365,7 +12365,7 @@ _ZN4llvmngENS_5APIntE.exit:                       ; preds = %_ZN4llvm5APInt11tcI
   %80 = add nuw nsw i64 %79, 63
   %81 = lshr i64 %80, 3
   %82 = and i64 %81, 1073741816
-  %83 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %82) #22
+  %83 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %82) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %83, ptr align 8 %31, i64 %82, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !213)
   %84 = lshr i64 %80, 6
@@ -12517,7 +12517,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APInt11tcI
   br i1 %or.cond, label %_ZN4llvm5APIntD2Ev.exit42, label %158
 
 158:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %118) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %118) #24
   br label %_ZN4llvm5APIntD2Ev.exit42
 
 _ZN4llvm5APIntD2Ev.exit42:                        ; preds = %158, %_ZN4llvm5APIntD2Ev.exit
@@ -12528,7 +12528,7 @@ _ZN4llvm5APIntD2Ev.exit42:                        ; preds = %158, %_ZN4llvm5APIn
   br i1 %or.cond159, label %_ZN4llvm5APIntD2Ev.exit44, label %161
 
 161:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit42
-  tail call void @_ZdaPv(ptr noundef nonnull %77) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %77) #24
   br label %_ZN4llvm5APIntD2Ev.exit44
 
 _ZN4llvm5APIntD2Ev.exit44:                        ; preds = %161, %_ZN4llvm5APIntD2Ev.exit42
@@ -12544,7 +12544,7 @@ _ZN4llvm5APIntD2Ev.exit44:                        ; preds = %161, %_ZN4llvm5APIn
   %165 = add nuw nsw i64 %164, 63
   %166 = lshr i64 %165, 3
   %167 = and i64 %166, 1073741816
-  %168 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %167) #22
+  %168 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %167) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %168, ptr align 8 %17, i64 %167, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !219)
   %169 = lshr i64 %165, 6
@@ -12696,7 +12696,7 @@ _ZN4llvm5APIntD2Ev.exit78:                        ; preds = %_ZN4llvm5APInt11tcI
   br i1 %or.cond160, label %_ZN4llvm5APIntD2Ev.exit80, label %243
 
 243:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit78
-  tail call void @_ZdaPv(ptr noundef nonnull %203) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %203) #24
   br label %_ZN4llvm5APIntD2Ev.exit80
 
 _ZN4llvm5APIntD2Ev.exit80:                        ; preds = %243, %_ZN4llvm5APIntD2Ev.exit78
@@ -12715,7 +12715,7 @@ _ZN4llvm5APIntD2Ev.exit80:                        ; preds = %243, %_ZN4llvm5APIn
   %248 = add nuw nsw i64 %247, 63
   %249 = lshr i64 %248, 3
   %250 = and i64 %249, 1073741816
-  %251 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %250) #22
+  %251 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %250) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %251, ptr align 8 %31, i64 %250, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !225)
   %252 = lshr i64 %248, 6
@@ -12791,7 +12791,7 @@ _ZN4llvmngENS_5APIntE.exit98:                     ; preds = %_ZN4llvm5APInt11tcI
 
 285:                                              ; preds = %_ZN4llvmngENS_5APIntE.exit98
   %286 = inttoptr i64 %.sroa.0.1 to ptr
-  tail call void @_ZdaPv(ptr noundef nonnull %286) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %286) #24
   br label %_ZN4llvm5APIntD2Ev.exit100
 
 _ZN4llvm5APIntD2Ev.exit100:                       ; preds = %285, %_ZN4llvmngENS_5APIntE.exit98
@@ -12841,7 +12841,7 @@ define dso_local noundef i64 @_ZNK4llvm5APInt4sremEl(ptr noundef nonnull readonl
   %24 = add nuw nsw i64 %23, 63
   %25 = lshr i64 %24, 3
   %26 = and i64 %25, 1073741816
-  %27 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %26) #22
+  %27 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %26) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %27, ptr align 8 %12, i64 %26, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !228)
   %28 = lshr i64 %24, 6
@@ -12919,7 +12919,7 @@ _ZN4llvmngENS_5APIntE.exit:                       ; preds = %_ZN4llvm5APInt11tcI
 
 64:                                               ; preds = %_ZN4llvmngENS_5APIntE.exit
   %65 = inttoptr i64 %.sroa.034.1 to ptr
-  tail call void @_ZdaPv(ptr noundef nonnull %65) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %65) #24
   br label %_ZN4llvm5APIntD2Ev.exit8
 
 _ZN4llvm5APIntD2Ev.exit8:                         ; preds = %64, %_ZN4llvmngENS_5APIntE.exit
@@ -12935,7 +12935,7 @@ _ZN4llvm5APIntD2Ev.exit8:                         ; preds = %64, %_ZN4llvmngENS_
   %69 = add nuw nsw i64 %68, 63
   %70 = lshr i64 %69, 3
   %71 = and i64 %70, 1073741816
-  %72 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %71) #22
+  %72 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %71) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %72, ptr align 8 %12, i64 %71, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !231)
   %73 = lshr i64 %69, 6
@@ -13012,7 +13012,7 @@ _ZN4llvmngENS_5APIntE.exit25:                     ; preds = %_ZN4llvm5APInt11tcI
 
 108:                                              ; preds = %_ZN4llvmngENS_5APIntE.exit25
   %109 = inttoptr i64 %.sroa.0.1 to ptr
-  tail call void @_ZdaPv(ptr noundef nonnull %109) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %109) #24
   br label %_ZN4llvm5APIntD2Ev.exit27
 
 _ZN4llvm5APIntD2Ev.exit27:                        ; preds = %108, %_ZN4llvmngENS_5APIntE.exit25
@@ -13059,7 +13059,7 @@ _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %4
   br i1 %17, label %_ZN4llvm5APIntC2Ejmbb.exit66, label %18
 
 18:                                               ; preds = %15
-  tail call void @_ZdaPv(ptr noundef nonnull %16) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %16) #24
   br label %_ZN4llvm5APIntC2Ejmbb.exit66
 
 _ZN4llvm5APIntC2Ejmbb.exit66:                     ; preds = %18, %15, %_ZN4llvm5APIntC2Ejmbb.exit
@@ -13076,7 +13076,7 @@ _ZN4llvm5APIntC2Ejmbb.exit66:                     ; preds = %18, %15, %_ZN4llvm5
   br i1 %24, label %_ZN4llvm5APIntD2Ev.exit68, label %25
 
 25:                                               ; preds = %22
-  tail call void @_ZdaPv(ptr noundef nonnull %23) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %23) #24
   br label %_ZN4llvm5APIntD2Ev.exit68
 
 _ZN4llvm5APIntD2Ev.exit68:                        ; preds = %25, %22, %_ZN4llvm5APIntC2Ejmbb.exit66
@@ -13185,7 +13185,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit81:          ; preds = %50, %_ZNK4llvm5APIn
 _ZN4llvm5APIntC2Ejmbb.exit82:                     ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit81
   %77 = lshr i64 %27, 3
   %78 = and i64 %77, 1073741816
-  %79 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %78) #22
+  %79 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %78) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %79, i8 0, i64 %78, i1 false)
   %80 = ptrtoint ptr %79 to i64
   store i64 0, ptr %79, align 8, !tbaa !9
@@ -13200,13 +13200,13 @@ _ZN4llvm5APIntC2Ejmbb.exit82:                     ; preds = %_ZNK4llvm5APInt13ge
   br i1 %86, label %_ZN4llvm5APIntC2Ejmbb.exit85, label %87
 
 87:                                               ; preds = %84
-  tail call void @_ZdaPv(ptr noundef nonnull %85) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %85) #24
   br label %_ZN4llvm5APIntC2Ejmbb.exit85
 
 _ZN4llvm5APIntC2Ejmbb.exit85:                     ; preds = %87, %84, %_ZN4llvm5APIntC2Ejmbb.exit82
   store i64 %80, ptr %2, align 8
   store i32 %6, ptr %81, align 8, !tbaa !3
-  %88 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %78) #22
+  %88 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %78) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %88, i8 0, i64 %78, i1 false)
   %89 = ptrtoint ptr %88 to i64
   store i64 0, ptr %88, align 8, !tbaa !9
@@ -13221,7 +13221,7 @@ _ZN4llvm5APIntC2Ejmbb.exit85:                     ; preds = %87, %84, %_ZN4llvm5
   br i1 %95, label %_ZN4llvm5APIntD2Ev.exit87, label %96
 
 96:                                               ; preds = %93
-  tail call void @_ZdaPv(ptr noundef nonnull %94) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %94) #24
   br label %_ZN4llvm5APIntD2Ev.exit87
 
 _ZN4llvm5APIntD2Ev.exit87:                        ; preds = %96, %93, %_ZN4llvm5APIntC2Ejmbb.exit85
@@ -13261,13 +13261,13 @@ _ZN4llvm5APIntD2Ev.exit87:                        ; preds = %96, %93, %_ZN4llvm5
   br i1 %112, label %_ZN4llvm5APInt10reallocateEj.exit.thread9.i.i, label %113
 
 113:                                              ; preds = %110
-  tail call void @_ZdaPv(ptr noundef nonnull %111) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %111) #24
   br label %_ZN4llvm5APInt10reallocateEj.exit.thread9.i.i
 
 _ZN4llvm5APInt10reallocateEj.exit.thread9.i.i:    ; preds = %109, %110, %113
   store i32 %6, ptr %100, align 8, !tbaa !3
   %114 = shl nuw nsw i64 %28, 3
-  %115 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %114) #22
+  %115 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %114) #23
   store ptr %115, ptr %2, align 8, !tbaa !8
   br label %116
 
@@ -13286,7 +13286,7 @@ _ZN4llvm5APInt10reallocateEj.exit.i._crit_edge.i: ; preds = %104
 
 _ZN4llvm5APIntC2Ejmbb.exit88:                     ; preds = %._ZN4llvm5APIntC2Ejmbb.exit88_crit_edge, %116
   %.pre-phi162 = phi i64 [ %.pre161, %._ZN4llvm5APIntC2Ejmbb.exit88_crit_edge ], [ %119, %116 ]
-  %120 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.pre-phi162) #22
+  %120 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.pre-phi162) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %120, i8 0, i64 %.pre-phi162, i1 false)
   %121 = ptrtoint ptr %120 to i64
   store i64 0, ptr %120, align 8, !tbaa !9
@@ -13301,7 +13301,7 @@ _ZN4llvm5APIntC2Ejmbb.exit88:                     ; preds = %._ZN4llvm5APIntC2Ej
   br i1 %127, label %_ZN4llvm5APIntD2Ev.exit90, label %128
 
 128:                                              ; preds = %125
-  tail call void @_ZdaPv(ptr noundef nonnull %126) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %126) #24
   br label %_ZN4llvm5APIntD2Ev.exit90
 
 _ZN4llvm5APIntD2Ev.exit90:                        ; preds = %128, %125, %_ZN4llvm5APIntC2Ejmbb.exit88
@@ -13389,7 +13389,7 @@ _ZNK4llvm5APInt3ultERKS0_.exit:                   ; preds = %144
   br i1 %171, label %173, label %172
 
 172:                                              ; preds = %169
-  tail call void @_ZdaPv(ptr noundef nonnull %170) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %170) #24
   br label %173
 
 173:                                              ; preds = %172, %169, %168
@@ -13398,7 +13398,7 @@ _ZNK4llvm5APInt3ultERKS0_.exit:                   ; preds = %144
 
 _ZN4llvm5APInt10reallocateEj.exit.thread9.i.i93:  ; preds = %173
   %174 = shl nuw nsw i64 %166, 3
-  %175 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %174) #22
+  %175 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %174) #23
   store ptr %175, ptr %3, align 8, !tbaa !8
   br label %177
 
@@ -13426,7 +13426,7 @@ _ZN4llvm5APInt10reallocateEj.exit.thread.i.i95:   ; preds = %_ZN4llvm5APInt10rea
 _ZN4llvm5APIntC2Ejmbb.exit100:                    ; preds = %155, %158, %_ZN4llvm5APInt10reallocateEj.exit.thread.i.i95, %177
   %181 = lshr i64 %27, 3
   %182 = and i64 %181, 1073741816
-  %183 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %182) #22
+  %183 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %182) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %183, i8 0, i64 %182, i1 false)
   %184 = ptrtoint ptr %183 to i64
   store i64 0, ptr %183, align 8, !tbaa !9
@@ -13441,7 +13441,7 @@ _ZN4llvm5APIntC2Ejmbb.exit100:                    ; preds = %155, %158, %_ZN4llv
   br i1 %190, label %_ZN4llvm5APIntD2Ev.exit102, label %191
 
 191:                                              ; preds = %188
-  tail call void @_ZdaPv(ptr noundef nonnull %189) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %189) #24
   br label %_ZN4llvm5APIntD2Ev.exit102
 
 _ZN4llvm5APIntD2Ev.exit102:                       ; preds = %191, %188, %_ZN4llvm5APIntC2Ejmbb.exit100
@@ -13463,7 +13463,7 @@ _ZNK4llvm5APInteqERKS0_.exit:                     ; preds = %143, %_ZNK4llvm5API
 _ZN4llvm5APIntC2Ejmbb.exit103:                    ; preds = %.thread, %_ZNK4llvm5APInteqERKS0_.exit
   %194 = lshr i64 %27, 3
   %195 = and i64 %194, 1073741816
-  %196 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %195) #22
+  %196 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %195) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %196, i8 0, i64 %195, i1 false)
   %197 = ptrtoint ptr %196 to i64
   store i64 1, ptr %196, align 8, !tbaa !9
@@ -13478,13 +13478,13 @@ _ZN4llvm5APIntC2Ejmbb.exit103:                    ; preds = %.thread, %_ZNK4llvm
   br i1 %203, label %_ZN4llvm5APIntC2Ejmbb.exit106, label %204
 
 204:                                              ; preds = %201
-  tail call void @_ZdaPv(ptr noundef nonnull %202) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %202) #24
   br label %_ZN4llvm5APIntC2Ejmbb.exit106
 
 _ZN4llvm5APIntC2Ejmbb.exit106:                    ; preds = %204, %201, %_ZN4llvm5APIntC2Ejmbb.exit103
   store i64 %197, ptr %2, align 8
   store i32 %6, ptr %198, align 8, !tbaa !3
-  %205 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %195) #22
+  %205 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %195) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %205, i8 0, i64 %195, i1 false)
   %206 = ptrtoint ptr %205 to i64
   store i64 0, ptr %205, align 8, !tbaa !9
@@ -13499,7 +13499,7 @@ _ZN4llvm5APIntC2Ejmbb.exit106:                    ; preds = %204, %201, %_ZN4llv
   br i1 %212, label %_ZN4llvm5APIntD2Ev.exit108, label %213
 
 213:                                              ; preds = %210
-  tail call void @_ZdaPv(ptr noundef nonnull %211) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %211) #24
   br label %_ZN4llvm5APIntD2Ev.exit108
 
 _ZN4llvm5APIntD2Ev.exit108:                       ; preds = %213, %210, %_ZN4llvm5APIntC2Ejmbb.exit106
@@ -13530,13 +13530,13 @@ _ZN4llvm5APIntD2Ev.exit108:                       ; preds = %213, %210, %_ZN4llv
   br i1 %226, label %228, label %227
 
 227:                                              ; preds = %224
-  tail call void @_ZdaPv(ptr noundef nonnull %225) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %225) #24
   br label %228
 
 228:                                              ; preds = %222, %224, %227
   store i32 %6, ptr %215, align 8, !tbaa !3
   %229 = shl nuw nsw i64 %28, 3
-  %230 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %229) #22
+  %230 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %229) #23
   store ptr %230, ptr %2, align 8, !tbaa !8
   br label %_ZN4llvm5APInt10reallocateEj.exit
 
@@ -13563,13 +13563,13 @@ _ZN4llvm5APInt10reallocateEj.exit:                ; preds = %221, %228
   br i1 %242, label %244, label %243
 
 243:                                              ; preds = %240
-  tail call void @_ZdaPv(ptr noundef nonnull %241) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %241) #24
   br label %244
 
 244:                                              ; preds = %238, %240, %243
   store i32 %6, ptr %231, align 8, !tbaa !3
   %245 = shl nuw nsw i64 %28, 3
-  %246 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %245) #22
+  %246 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %245) #23
   store ptr %246, ptr %3, align 8, !tbaa !8
   br label %_ZN4llvm5APInt10reallocateEj.exit109
 
@@ -13672,7 +13672,7 @@ _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %4
   br i1 %17, label %_ZN4llvm5APIntD2Ev.exit, label %18
 
 18:                                               ; preds = %15
-  tail call void @_ZdaPv(ptr noundef nonnull %16) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %16) #24
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %18, %15, %_ZN4llvm5APIntC2Ejmbb.exit
@@ -13725,7 +13725,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit:            ; preds = %30, %.thread.i.i.i
 _ZN4llvm5APIntC2Ejmbb.exit41:                     ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit
   %41 = lshr i64 %20, 3
   %42 = and i64 %41, 1073741816
-  %43 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %42) #22
+  %43 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %42) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %43, i8 0, i64 %42, i1 false)
   %44 = ptrtoint ptr %43 to i64
   store i64 0, ptr %43, align 8, !tbaa !9
@@ -13740,7 +13740,7 @@ _ZN4llvm5APIntC2Ejmbb.exit41:                     ; preds = %_ZNK4llvm5APInt13ge
   br i1 %50, label %_ZN4llvm5APIntD2Ev.exit43, label %51
 
 51:                                               ; preds = %48
-  tail call void @_ZdaPv(ptr noundef nonnull %49) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %49) #24
   br label %_ZN4llvm5APIntD2Ev.exit43
 
 _ZN4llvm5APIntD2Ev.exit43:                        ; preds = %51, %48, %_ZN4llvm5APIntC2Ejmbb.exit41
@@ -13776,13 +13776,13 @@ _ZN4llvm5APIntD2Ev.exit43:                        ; preds = %51, %48, %_ZN4llvm5
   br i1 %67, label %_ZN4llvm5APInt10reallocateEj.exit.thread9.i.i, label %68
 
 68:                                               ; preds = %65
-  tail call void @_ZdaPv(ptr noundef nonnull %66) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %66) #24
   br label %_ZN4llvm5APInt10reallocateEj.exit.thread9.i.i
 
 _ZN4llvm5APInt10reallocateEj.exit.thread9.i.i:    ; preds = %64, %65, %68
   store i32 %7, ptr %55, align 8, !tbaa !3
   %69 = shl nuw nsw i64 %21, 3
-  %70 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %69) #22
+  %70 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %69) #23
   store ptr %70, ptr %2, align 8, !tbaa !8
   br label %71
 
@@ -13842,7 +13842,7 @@ _ZN4llvm5APIntC2Ejmbb.exit46:                     ; preds = %_ZNK4llvm5APInt3ult
   store i64 %.0.i.i45, ptr %3, align 8, !tbaa !9
   %88 = lshr i64 %20, 3
   %89 = and i64 %88, 1073741816
-  %90 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %89) #22
+  %90 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %89) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %90, i8 0, i64 %89, i1 false)
   %91 = ptrtoint ptr %90 to i64
   store i64 0, ptr %90, align 8, !tbaa !9
@@ -13857,7 +13857,7 @@ _ZN4llvm5APIntC2Ejmbb.exit46:                     ; preds = %_ZNK4llvm5APInt3ult
   br i1 %97, label %_ZN4llvm5APIntD2Ev.exit48, label %98
 
 98:                                               ; preds = %95
-  tail call void @_ZdaPv(ptr noundef nonnull %96) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %96) #24
   br label %_ZN4llvm5APIntD2Ev.exit48
 
 _ZN4llvm5APIntD2Ev.exit48:                        ; preds = %98, %95, %_ZN4llvm5APIntC2Ejmbb.exit46
@@ -13900,7 +13900,7 @@ _ZNK4llvm5APInteqEm.exit:                         ; preds = %_ZNK4llvm5APInt13ge
 _ZN4llvm5APIntC2Ejmbb.exit62:                     ; preds = %_ZNK4llvm5APInteqEm.exit
   %112 = lshr i64 %20, 3
   %113 = and i64 %112, 1073741816
-  %114 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %113) #22
+  %114 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %113) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %114, i8 0, i64 %113, i1 false)
   %115 = ptrtoint ptr %114 to i64
   store i64 1, ptr %114, align 8, !tbaa !9
@@ -13915,7 +13915,7 @@ _ZN4llvm5APIntC2Ejmbb.exit62:                     ; preds = %_ZNK4llvm5APInteqEm
   br i1 %121, label %_ZN4llvm5APIntD2Ev.exit64, label %122
 
 122:                                              ; preds = %119
-  tail call void @_ZdaPv(ptr noundef nonnull %120) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %120) #24
   br label %_ZN4llvm5APIntD2Ev.exit64
 
 _ZN4llvm5APIntD2Ev.exit64:                        ; preds = %122, %119, %_ZN4llvm5APIntC2Ejmbb.exit62
@@ -13947,13 +13947,13 @@ _ZNK4llvm5APInteqEm.exit.thread:                  ; preds = %_ZNK4llvm5APInt13ge
   br i1 %134, label %136, label %135
 
 135:                                              ; preds = %132
-  tail call void @_ZdaPv(ptr noundef nonnull %133) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %133) #24
   br label %136
 
 136:                                              ; preds = %130, %132, %135
   store i32 %7, ptr %123, align 8, !tbaa !3
   %137 = shl nuw nsw i64 %21, 3
-  %138 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %137) #22
+  %138 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %137) #23
   store ptr %138, ptr %2, align 8, !tbaa !8
   br label %_ZN4llvm5APInt10reallocateEj.exit
 
@@ -14037,7 +14037,7 @@ define dso_local void @_ZN4llvm5APInt7sdivremERKS0_S2_RS0_S3_(ptr noundef nonnul
   %41 = add nuw nsw i64 %40, 63
   %42 = lshr i64 %41, 3
   %43 = and i64 %42, 1073741816
-  %44 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %43) #22
+  %44 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %43) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %44, ptr align 8 %16, i64 %43, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !234)
   %45 = lshr i64 %41, 6
@@ -14114,7 +14114,7 @@ _ZN4llvmngENS_5APIntE.exit:                       ; preds = %_ZN4llvm5APInt11tcI
   %79 = add nuw nsw i64 %78, 63
   %80 = lshr i64 %79, 3
   %81 = and i64 %80, 1073741816
-  %82 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %81) #22
+  %82 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %81) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %82, ptr align 8 %30, i64 %81, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
   %83 = lshr i64 %79, 6
@@ -14190,7 +14190,7 @@ _ZN4llvmngENS_5APIntE.exit39:                     ; preds = %_ZN4llvm5APInt11tcI
 
 116:                                              ; preds = %_ZN4llvmngENS_5APIntE.exit39
   %117 = inttoptr i64 %.sroa.0126.1 to ptr
-  call void @_ZdaPv(ptr noundef nonnull %117) #23
+  call void @_ZdaPv(ptr noundef nonnull %117) #24
   br label %_ZN4llvm5APIntD2Ev.exit40
 
 _ZN4llvm5APIntD2Ev.exit40:                        ; preds = %116, %_ZN4llvmngENS_5APIntE.exit39
@@ -14201,7 +14201,7 @@ _ZN4llvm5APIntD2Ev.exit40:                        ; preds = %116, %_ZN4llvmngENS
   br i1 %or.cond173, label %_ZN4llvm5APIntD2Ev.exit42, label %120
 
 120:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit40
-  call void @_ZdaPv(ptr noundef nonnull %76) #23
+  call void @_ZdaPv(ptr noundef nonnull %76) #24
   br label %_ZN4llvm5APIntD2Ev.exit42
 
 _ZN4llvm5APIntD2Ev.exit42:                        ; preds = %120, %_ZN4llvm5APIntD2Ev.exit40
@@ -14217,7 +14217,7 @@ _ZN4llvm5APIntD2Ev.exit42:                        ; preds = %120, %_ZN4llvm5APIn
   %124 = add nuw nsw i64 %123, 63
   %125 = lshr i64 %124, 3
   %126 = and i64 %125, 1073741816
-  %127 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %126) #22
+  %127 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %126) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %127, ptr align 8 %16, i64 %126, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
   %128 = lshr i64 %124, 6
@@ -14293,7 +14293,7 @@ _ZN4llvmngENS_5APIntE.exit59:                     ; preds = %_ZN4llvm5APInt11tcI
 
 161:                                              ; preds = %_ZN4llvmngENS_5APIntE.exit59
   %162 = inttoptr i64 %.sroa.0118.1 to ptr
-  call void @_ZdaPv(ptr noundef nonnull %162) #23
+  call void @_ZdaPv(ptr noundef nonnull %162) #24
   br label %_ZN4llvm5APIntD2Ev.exit61
 
 _ZN4llvm5APIntD2Ev.exit61:                        ; preds = %161, %_ZN4llvmngENS_5APIntE.exit59
@@ -14459,7 +14459,7 @@ _ZN4llvm5APInt11tcIncrementEPmj.exit.i.i73:       ; preds = %.lr.ph.i.i.i1.i67
   %249 = add nuw nsw i64 %248, 63
   %250 = lshr i64 %249, 3
   %251 = and i64 %250, 1073741816
-  %252 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %251) #22
+  %252 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %251) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %252, ptr align 8 %30, i64 %251, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !243)
   %253 = lshr i64 %249, 6
@@ -14535,7 +14535,7 @@ _ZN4llvmngENS_5APIntE.exit94:                     ; preds = %_ZN4llvm5APInt11tcI
 
 286:                                              ; preds = %_ZN4llvmngENS_5APIntE.exit94
   %287 = inttoptr i64 %.sroa.0.1 to ptr
-  tail call void @_ZdaPv(ptr noundef nonnull %287) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %287) #24
   br label %_ZN4llvm5APIntD2Ev.exit96
 
 _ZN4llvm5APIntD2Ev.exit96:                        ; preds = %286, %_ZN4llvmngENS_5APIntE.exit94
@@ -14661,7 +14661,7 @@ define dso_local void @_ZN4llvm5APInt7sdivremERKS0_lRS0_Rl(ptr noundef nonnull r
   %28 = add nuw nsw i64 %27, 63
   %29 = lshr i64 %28, 3
   %30 = and i64 %29, 1073741816
-  %31 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %30) #22
+  %31 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %30) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr align 8 %16, i64 %30, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !246)
   %32 = lshr i64 %28, 6
@@ -14738,7 +14738,7 @@ _ZN4llvmngENS_5APIntE.exit:                       ; preds = %_ZN4llvm5APInt11tcI
 
 66:                                               ; preds = %_ZN4llvmngENS_5APIntE.exit
   %67 = inttoptr i64 %.sroa.059.1 to ptr
-  call void @_ZdaPv(ptr noundef nonnull %67) #23
+  call void @_ZdaPv(ptr noundef nonnull %67) #24
   br label %_ZN4llvm5APIntD2Ev.exit18
 
 _ZN4llvm5APIntD2Ev.exit18:                        ; preds = %66, %_ZN4llvmngENS_5APIntE.exit
@@ -14754,7 +14754,7 @@ _ZN4llvm5APIntD2Ev.exit18:                        ; preds = %66, %_ZN4llvmngENS_
   %71 = add nuw nsw i64 %70, 63
   %72 = lshr i64 %71, 3
   %73 = and i64 %72, 1073741816
-  %74 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %73) #22
+  %74 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %73) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %74, ptr align 8 %16, i64 %73, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !249)
   %75 = lshr i64 %71, 6
@@ -14830,7 +14830,7 @@ _ZN4llvmngENS_5APIntE.exit35:                     ; preds = %_ZN4llvm5APInt11tcI
 
 108:                                              ; preds = %_ZN4llvmngENS_5APIntE.exit35
   %109 = inttoptr i64 %.sroa.0.1 to ptr
-  call void @_ZdaPv(ptr noundef nonnull %109) #23
+  call void @_ZdaPv(ptr noundef nonnull %109) #24
   br label %_ZN4llvm5APIntD2Ev.exit37
 
 _ZN4llvm5APIntD2Ev.exit37:                        ; preds = %108, %_ZN4llvmngENS_5APIntE.exit35
@@ -15018,7 +15018,7 @@ define dso_local void @_ZNK4llvm5APInt7sadd_ovERKS0_Rb(ptr dead_on_unwind noalia
   %9 = add nuw nsw i64 %8, 63
   %10 = lshr i64 %9, 3
   %11 = and i64 %10, 1073741816
-  %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #22
+  %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #23
   %13 = load ptr, ptr %1, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr align 8 %13, i64 %11, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
@@ -15139,7 +15139,7 @@ define dso_local void @_ZNK4llvm5APInt7uadd_ovERKS0_Rb(ptr dead_on_unwind noalia
   %9 = add nuw nsw i64 %8, 63
   %10 = lshr i64 %9, 3
   %11 = and i64 %10, 1073741816
-  %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #22
+  %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #23
   %13 = load ptr, ptr %1, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr align 8 %13, i64 %11, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !257)
@@ -15238,7 +15238,7 @@ define dso_local void @_ZNK4llvm5APInt7ssub_ovERKS0_Rb(ptr dead_on_unwind noalia
   %9 = add nuw nsw i64 %8, 63
   %10 = lshr i64 %9, 3
   %11 = and i64 %10, 1073741816
-  %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #22
+  %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #23
   %13 = load ptr, ptr %1, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr align 8 %13, i64 %11, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !260)
@@ -15370,7 +15370,7 @@ define dso_local void @_ZNK4llvm5APInt7usub_ovERKS0_Rb(ptr dead_on_unwind noalia
   %9 = add nuw nsw i64 %8, 63
   %10 = lshr i64 %9, 3
   %11 = and i64 %10, 1073741816
-  %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #22
+  %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #23
   %13 = load ptr, ptr %1, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr align 8 %13, i64 %11, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !263)
@@ -15636,7 +15636,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %4
   %23 = lshr i64 %22, 6
   %24 = trunc nuw nsw i64 %23 to i32
   %25 = shl nuw nsw i64 %23, 3
-  %26 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %25) #22, !noalias !266
+  %26 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %25) #23, !noalias !266
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %7, ptr %27, align 8, !tbaa !3, !alias.scope !266
   store ptr %26, ptr %0, align 8, !tbaa !8, !alias.scope !266
@@ -15897,7 +15897,7 @@ _ZNK4llvm5APInt16isMinSignedValueEv.exit.thread:  ; preds = %94, %90, %_ZNK4llvm
   br i1 %159, label %_ZN4llvm5APIntD2Ev.exit, label %160
 
 160:                                              ; preds = %157
-  tail call void @_ZdaPv(ptr noundef nonnull %158) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %158) #24
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APInt16isMinSignedValueEv.exit.thread.thread42, %_ZNK4llvm5APInt16isMinSignedValueEv.exit.thread, %157, %160
@@ -16057,7 +16057,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %63
   %77 = lshr i64 %76, 6
   %78 = trunc nuw nsw i64 %77 to i32
   %79 = shl nuw nsw i64 %77, 3
-  %80 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %79) #22, !noalias !269
+  %80 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %79) #23, !noalias !269
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %6, ptr %81, align 8, !tbaa !3, !alias.scope !269
   store ptr %80, ptr %0, align 8, !tbaa !8, !alias.scope !269
@@ -16119,7 +16119,7 @@ _ZNK4llvm5APIntmlERKS0_.exit32:                   ; preds = %101
   %115 = add nuw nsw i64 %114, 63
   %116 = lshr i64 %115, 3
   %117 = and i64 %116, 1073741816
-  %118 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %117) #22, !noalias !275
+  %118 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %117) #23, !noalias !275
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %118, ptr align 8 %32, i64 %117, i1 false), !noalias !275
   %119 = lshr i64 %115, 6
   %120 = load i64, ptr %118, align 8, !tbaa !9, !noalias !275
@@ -16150,7 +16150,7 @@ _ZNK4llvm5APIntmlERKS0_.exit32:                   ; preds = %101
   tail call void @llvm.experimental.noalias.scope.decl(metadata !272)
   %133 = trunc nuw nsw i64 %119 to i32
   %134 = shl nuw nsw i64 %119, 3
-  %135 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %134) #22, !noalias !272
+  %135 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %134) #23, !noalias !272
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %6, ptr %136, align 8, !tbaa !3, !alias.scope !272
   store ptr %135, ptr %0, align 8, !tbaa !8, !alias.scope !272
@@ -16182,7 +16182,7 @@ _ZNK4llvm5APIntmlERKS0_.exit32:                   ; preds = %101
   %154 = load i64, ptr %153, align 8, !tbaa !9, !noalias !272
   %155 = and i64 %154, %150
   store i64 %155, ptr %153, align 8, !tbaa !9, !noalias !272
-  tail call void @_ZdaPv(ptr noundef nonnull %118) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %118) #24
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APIntmlERKS0_.exit32, %144
@@ -16454,7 +16454,7 @@ define dso_local void @_ZNK4llvm5APInt7sshl_ovEjRb(ptr dead_on_unwind noalias wr
   %15 = add nuw nsw i64 %14, 63
   %16 = lshr i64 %15, 3
   %17 = and i64 %16, 1073741816
-  %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #22
+  %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %18, i8 0, i64 %17, i1 false)
   store ptr %18, ptr %0, align 8, !tbaa !8
   store i64 0, ptr %18, align 8, !tbaa !9
@@ -16631,7 +16631,7 @@ _ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i.i:     ; preds = %_ZNK4llvm5APInt11co
   %.pre-phi33 = phi i64 [ %.pre32, %_ZNK4llvm5APInt11countl_zeroEv.exit._crit_edge ], [ %64, %_ZNK4llvm5APInt11countl_zeroEv.exit.thread14 ]
   %102 = lshr i64 %.pre-phi33, 3
   %103 = and i64 %102, 1073741816
-  %104 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %103) #22, !noalias !290
+  %104 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %103) #23, !noalias !290
   store ptr %104, ptr %0, align 8, !tbaa !8, !alias.scope !290
   %105 = load ptr, ptr %1, align 8, !tbaa !8, !noalias !290
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %104, ptr align 8 %105, i64 %103, i1 false), !noalias !290
@@ -16736,7 +16736,7 @@ define dso_local void @_ZNK4llvm5APInt7ushl_ovEjRb(ptr dead_on_unwind noalias wr
   %15 = add nuw nsw i64 %14, 63
   %16 = lshr i64 %15, 3
   %17 = and i64 %16, 1073741816
-  %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #22
+  %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %18, i8 0, i64 %17, i1 false)
   store ptr %18, ptr %0, align 8, !tbaa !8
   store i64 0, ptr %18, align 8, !tbaa !9
@@ -16812,7 +16812,7 @@ _ZNK4llvm5APInt11countl_zeroEv.exit:              ; preds = %48, %.thread.i.i
   store i32 %6, ptr %55, align 8, !tbaa !3, !alias.scope !296
   %56 = lshr i64 %38, 3
   %57 = and i64 %56, 1073741816
-  %58 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %57) #22, !noalias !296
+  %58 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %57) #23, !noalias !296
   store ptr %58, ptr %0, align 8, !tbaa !8, !alias.scope !296
   %59 = load ptr, ptr %1, align 8, !tbaa !8, !noalias !296
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %58, ptr align 8 %59, i64 %57, i1 false), !noalias !296
@@ -16839,7 +16839,7 @@ define dso_local void @_ZNK4llvm5APInt12sfloordiv_ovERKS0_Rb(ptr dead_on_unwind 
   %11 = lshr i64 %10, 6
   %12 = trunc nuw nsw i64 %11 to i32
   %13 = shl nuw nsw i64 %11, 3
-  %14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #22, !noalias !301
+  %14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #23, !noalias !301
   %15 = load ptr, ptr %5, align 8
   %16 = load ptr, ptr %2, align 8, !tbaa !8, !noalias !301
   br label %.lr.ph.i.i
@@ -16937,7 +16937,7 @@ _ZNK4llvm5APIntneERKS0_.exit:                     ; preds = %.lr.ph.i.i
   br i1 %or.cond, label %_ZN4llvm5APIntD2Ev.exit, label %87
 
 87:                                               ; preds = %54
-  tail call void @_ZdaPv(ptr noundef nonnull %.sroa.014.02127) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %.sroa.014.02127) #24
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %54, %87
@@ -16951,7 +16951,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %54, %87
   %90 = add nuw nsw i64 %89, 63
   %91 = lshr i64 %90, 3
   %92 = and i64 %91, 1073741816
-  %93 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %92) #22
+  %93 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %92) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %93, ptr align 8 %57, i64 %92, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !304)
   %94 = lshr i64 %90, 6
@@ -16970,7 +16970,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %54, %87
   br i1 %or.cond.i.i, label %110, label %.lr.ph.i.i.i, !llvm.loop !27
 
 .critedge:                                        ; preds = %_ZNK4llvm5APIntneERKS0_.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %14) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %14) #24
   br label %.thread
 
 .thread:                                          ; preds = %24, %_ZN4llvm5APIntD2Ev.exit, %.critedge
@@ -17015,7 +17015,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %54, %87
   br i1 %123, label %_ZN4llvm5APIntD2Ev.exit9, label %124
 
 124:                                              ; preds = %110
-  tail call void @_ZdaPv(ptr noundef nonnull %57) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %57) #24
   br label %_ZN4llvm5APIntD2Ev.exit9
 
 _ZN4llvm5APIntD2Ev.exit9:                         ; preds = %100, %.thread, %110, %124
@@ -17081,7 +17081,7 @@ define dso_local void @_ZNK4llvm5APInt8sadd_satERKS0_(ptr dead_on_unwind noalias
   %37 = add nuw nsw i64 %36, 63
   %38 = lshr i64 %37, 3
   %39 = and i64 %38, 1073741816
-  %40 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %39) #22, !noalias !309
+  %40 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %39) #23, !noalias !309
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %40, i8 0, i64 %39, i1 false), !noalias !309
   store i64 0, ptr %40, align 8, !tbaa !9, !noalias !309
   %41 = getelementptr inbounds nuw i64, ptr %40, i64 %23
@@ -17122,7 +17122,7 @@ _ZN4llvm5APInt17getSignedMinValueEj.exit:         ; preds = %29, %35
   %60 = add nuw nsw i64 %59, 63
   %61 = lshr i64 %60, 6
   %62 = shl nuw nsw i64 %61, 3
-  %63 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %62) #22, !noalias !318
+  %63 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %62) #23, !noalias !318
   store i64 -1, ptr %63, align 8, !tbaa !9, !noalias !318
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = add nuw nsw i64 %62, 4294967288
@@ -17163,7 +17163,7 @@ _ZN4llvm5APInt17getSignedMaxValueEj.exit:         ; preds = %46, %58
   br i1 %87, label %_ZN4llvm5APIntD2Ev.exit, label %88
 
 88:                                               ; preds = %85
-  tail call void @_ZdaPv(ptr noundef nonnull %86) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %86) #24
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %81, %85, %88
@@ -17184,7 +17184,7 @@ define dso_local void @_ZNK4llvm5APInt8uadd_satERKS0_(ptr dead_on_unwind noalias
   %8 = add nuw nsw i64 %7, 63
   %9 = lshr i64 %8, 3
   %10 = and i64 %9, 1073741816
-  %11 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %10) #22, !noalias !319
+  %11 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %10) #23, !noalias !319
   %12 = load ptr, ptr %1, align 8, !tbaa !8, !noalias !319
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %11, ptr align 8 %12, i64 %10, i1 false), !noalias !319
   %13 = load ptr, ptr %2, align 8, !tbaa !8, !noalias !322
@@ -17278,7 +17278,7 @@ _ZNK4llvm5APInt7uadd_ovERKS0_Rb.exit:             ; preds = %51
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %59, align 8, !tbaa !3, !alias.scope !330
   %60 = shl nuw nsw i64 %14, 3
-  %61 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %60) #22, !noalias !330
+  %61 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %60) #23, !noalias !330
   store i64 -1, ptr %61, align 8, !tbaa !9, !noalias !330
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = add nuw nsw i64 %60, 4294967288
@@ -17289,7 +17289,7 @@ _ZNK4llvm5APInt7uadd_ovERKS0_Rb.exit:             ; preds = %51
   %67 = and i64 %66, %44
   store i64 %67, ptr %65, align 8, !tbaa !9, !noalias !330
   store ptr %61, ptr %0, align 8, !tbaa !8, !alias.scope !330
-  tail call void @_ZdaPv(ptr noundef nonnull %11) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %11) #24
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.thread, %.thread11, %58
@@ -17354,7 +17354,7 @@ define dso_local void @_ZNK4llvm5APInt8ssub_satERKS0_(ptr dead_on_unwind noalias
   %37 = add nuw nsw i64 %36, 63
   %38 = lshr i64 %37, 3
   %39 = and i64 %38, 1073741816
-  %40 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %39) #22, !noalias !335
+  %40 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %39) #23, !noalias !335
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %40, i8 0, i64 %39, i1 false), !noalias !335
   store i64 0, ptr %40, align 8, !tbaa !9, !noalias !335
   %41 = getelementptr inbounds nuw i64, ptr %40, i64 %23
@@ -17395,7 +17395,7 @@ _ZN4llvm5APInt17getSignedMinValueEj.exit:         ; preds = %29, %35
   %60 = add nuw nsw i64 %59, 63
   %61 = lshr i64 %60, 6
   %62 = shl nuw nsw i64 %61, 3
-  %63 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %62) #22, !noalias !344
+  %63 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %62) #23, !noalias !344
   store i64 -1, ptr %63, align 8, !tbaa !9, !noalias !344
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = add nuw nsw i64 %62, 4294967288
@@ -17436,7 +17436,7 @@ _ZN4llvm5APInt17getSignedMaxValueEj.exit:         ; preds = %46, %58
   br i1 %87, label %_ZN4llvm5APIntD2Ev.exit, label %88
 
 88:                                               ; preds = %85
-  tail call void @_ZdaPv(ptr noundef nonnull %86) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %86) #24
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %81, %85, %88
@@ -17483,7 +17483,7 @@ define dso_local void @_ZNK4llvm5APInt8usub_satERKS0_(ptr dead_on_unwind noalias
   %21 = add nuw nsw i64 %20, 63
   %22 = lshr i64 %21, 3
   %23 = and i64 %22, 1073741816
-  %24 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %23) #22
+  %24 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %23) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %24, i8 0, i64 %23, i1 false)
   store ptr %24, ptr %0, align 8, !tbaa !8
   store i64 0, ptr %24, align 8, !tbaa !9
@@ -17501,7 +17501,7 @@ _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %19, %18, %8
   br i1 %30, label %_ZN4llvm5APIntD2Ev.exit, label %31
 
 31:                                               ; preds = %28
-  tail call void @_ZdaPv(ptr noundef nonnull %29) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %29) #24
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntC2Ejmbb.exit, %28, %31
@@ -17584,7 +17584,7 @@ define dso_local void @_ZNK4llvm5APInt8smul_satERKS0_(ptr dead_on_unwind noalias
   %53 = add nuw nsw i64 %52, 63
   %54 = lshr i64 %53, 3
   %55 = and i64 %54, 1073741816
-  %56 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %55) #22, !noalias !345
+  %56 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %55) #23, !noalias !345
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %56, i8 0, i64 %55, i1 false), !noalias !345
   store i64 0, ptr %56, align 8, !tbaa !9, !noalias !345
   %57 = getelementptr inbounds nuw i64, ptr %56, i64 %23
@@ -17625,7 +17625,7 @@ _ZN4llvm5APInt17getSignedMinValueEj.exit:         ; preds = %45, %51
   %76 = add nuw nsw i64 %75, 63
   %77 = lshr i64 %76, 6
   %78 = shl nuw nsw i64 %77, 3
-  %79 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %78) #22, !noalias !354
+  %79 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %78) #23, !noalias !354
   store i64 -1, ptr %79, align 8, !tbaa !9, !noalias !354
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = add nuw nsw i64 %78, 4294967288
@@ -17666,7 +17666,7 @@ _ZN4llvm5APInt17getSignedMaxValueEj.exit:         ; preds = %62, %74
   br i1 %103, label %_ZN4llvm5APIntD2Ev.exit, label %104
 
 104:                                              ; preds = %101
-  tail call void @_ZdaPv(ptr noundef nonnull %102) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %102) #24
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %97, %101, %104
@@ -17721,7 +17721,7 @@ define dso_local void @_ZNK4llvm5APInt8umul_satERKS0_(ptr dead_on_unwind noalias
   %28 = add nuw nsw i64 %27, 63
   %29 = lshr i64 %28, 6
   %30 = shl nuw nsw i64 %29, 3
-  %31 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %30) #22, !noalias !361
+  %31 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %30) #23, !noalias !361
   store i64 -1, ptr %31, align 8, !tbaa !9, !noalias !361
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = add nuw nsw i64 %30, 4294967288
@@ -17754,7 +17754,7 @@ define dso_local void @_ZNK4llvm5APInt8umul_satERKS0_(ptr dead_on_unwind noalias
   br i1 %49, label %_ZN4llvm5APIntD2Ev.exit, label %50
 
 50:                                               ; preds = %47
-  tail call void @_ZdaPv(ptr noundef nonnull %48) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %48) #24
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.thread, %45, %47, %50
@@ -17891,7 +17891,7 @@ define dso_local void @_ZNK4llvm5APInt8sshl_satEj(ptr dead_on_unwind noalias wri
   %37 = add nuw nsw i64 %36, 63
   %38 = lshr i64 %37, 3
   %39 = and i64 %38, 1073741816
-  %40 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %39) #22, !noalias !362
+  %40 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %39) #23, !noalias !362
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %40, i8 0, i64 %39, i1 false), !noalias !362
   store i64 0, ptr %40, align 8, !tbaa !9, !noalias !362
   %41 = getelementptr inbounds nuw i64, ptr %40, i64 %23
@@ -17932,7 +17932,7 @@ _ZN4llvm5APInt17getSignedMinValueEj.exit:         ; preds = %29, %35
   %60 = add nuw nsw i64 %59, 63
   %61 = lshr i64 %60, 6
   %62 = shl nuw nsw i64 %61, 3
-  %63 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %62) #22, !noalias !371
+  %63 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %62) #23, !noalias !371
   store i64 -1, ptr %63, align 8, !tbaa !9, !noalias !371
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = add nuw nsw i64 %62, 4294967288
@@ -17973,7 +17973,7 @@ _ZN4llvm5APInt17getSignedMaxValueEj.exit:         ; preds = %46, %58
   br i1 %87, label %_ZN4llvm5APIntD2Ev.exit, label %88
 
 88:                                               ; preds = %85
-  tail call void @_ZdaPv(ptr noundef nonnull %86) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %86) #24
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %81, %85, %88
@@ -18098,7 +18098,7 @@ define dso_local void @_ZNK4llvm5APInt8ushl_satEj(ptr dead_on_unwind noalias wri
   %28 = add nuw nsw i64 %27, 63
   %29 = lshr i64 %28, 6
   %30 = shl nuw nsw i64 %29, 3
-  %31 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %30) #22, !noalias !378
+  %31 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %30) #23, !noalias !378
   store i64 -1, ptr %31, align 8, !tbaa !9, !noalias !378
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = add nuw nsw i64 %30, 4294967288
@@ -18131,7 +18131,7 @@ define dso_local void @_ZNK4llvm5APInt8ushl_satEj(ptr dead_on_unwind noalias wri
   br i1 %49, label %_ZN4llvm5APIntD2Ev.exit, label %50
 
 50:                                               ; preds = %47
-  tail call void @_ZdaPv(ptr noundef nonnull %48) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %48) #24
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.thread, %45, %47, %50
@@ -18240,7 +18240,7 @@ _ZNK4llvm5APInt6isZeroEv.exit:                    ; preds = %38, %.thread.i.i
   br i1 %.not.i.i.i, label %52, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit, !prof !11
 
 52:                                               ; preds = %47
-  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %46, i64 noundef %50, i64 noundef 1) #24
+  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %46, i64 noundef %50, i64 noundef 1) #25
   %.pre.i = load i64, ptr %.phi.trans.insert206, align 8, !tbaa !379
   br label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit
 
@@ -18268,7 +18268,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit: ; preds = %47, %52
 
 65:                                               ; preds = %._crit_edge182
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %66, i64 noundef %62, i64 noundef 1) #24
+  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %66, i64 noundef %62, i64 noundef 1) #25
   %.pre.i97 = load i64, ptr %61, align 8, !tbaa !379
   br label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit98
 
@@ -18290,7 +18290,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %_ZNK4llvm5APInt6isZ
   store i32 %20, ptr %74, align 8, !tbaa !3
   %75 = lshr i64 %28, 3
   %76 = and i64 %75, 1073741816
-  %77 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %76) #22
+  %77 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %76) #23
   store ptr %77, ptr %9, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %77, ptr nonnull align 8 %30, i64 %76, i1 false)
   br i1 %3, label %142, label %182
@@ -18316,7 +18316,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %.thread
 
 90:                                               ; preds = %84
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %91, i64 noundef %87, i64 noundef 1) #24
+  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %91, i64 noundef %87, i64 noundef 1) #25
   %.pre.i102 = load i64, ptr %85, align 8, !tbaa !379
   br label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit103
 
@@ -18362,7 +18362,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit103: ; preds = %84, %90
   br i1 %.not.i.i.i104, label %109, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit106, !prof !11
 
 109:                                              ; preds = %104
-  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %102, i64 noundef %107, i64 noundef 1) #24
+  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %102, i64 noundef %107, i64 noundef 1) #25
   %.pre.i105 = load i64, ptr %100, align 8, !tbaa !379
   br label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit106
 
@@ -18425,7 +18425,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit106: ; preds = %104, %1
 
 135:                                              ; preds = %._crit_edge177
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %136, i64 noundef %131, i64 noundef 1) #24
+  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %136, i64 noundef %131, i64 noundef 1) #25
   %.pre8.pre.i = load i64, ptr %129, align 8, !tbaa !379
   br label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i
 
@@ -18511,7 +18511,7 @@ _ZN4llvm5APInt6negateEv.exit:                     ; preds = %.lr.ph.i.i.i1.i
 
 175:                                              ; preds = %_ZN4llvm5APInt6negateEv.exit
   %176 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %176, i64 noundef %172, i64 noundef 1) #24
+  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %176, i64 noundef %172, i64 noundef 1) #25
   %.pre.i110 = load i64, ptr %170, align 8, !tbaa !379
   br label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit111
 
@@ -18551,7 +18551,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit111: ; preds = %_ZN4llv
   br i1 %.not.i.i.i112, label %191, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit114, !prof !11
 
 191:                                              ; preds = %186
-  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %185, i64 noundef %189, i64 noundef 1) #24
+  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %185, i64 noundef %189, i64 noundef 1) #25
   %.pre.i113 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !379
   br label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit114
 
@@ -18646,7 +18646,7 @@ _ZNK4llvm5APInt12getBoolValueEv.exit:             ; preds = %221, %.thread.i.i.i
   br i1 %.not.i.i.i118, label %237, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit120, !prof !11
 
 237:                                              ; preds = %234
-  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %210, i64 noundef %235, i64 noundef 1) #24
+  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %210, i64 noundef %235, i64 noundef 1) #25
   %.pre.i119 = load i64, ptr %200, align 8, !tbaa !379
   br label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit120
 
@@ -18671,7 +18671,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit120: ; preds = %234, %2
   br i1 %.not.i.i.i121, label %249, label %.lr.ph.i.i.i125, !prof !11
 
 249:                                              ; preds = %._crit_edge196
-  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %210, i64 noundef %247, i64 noundef 1) #24
+  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %210, i64 noundef %247, i64 noundef 1) #25
   %.pre.i122 = load i64, ptr %200, align 8, !tbaa !379
   br label %.lr.ph.i.i.i125
 
@@ -18784,7 +18784,7 @@ _ZNK4llvm5APInt12getBoolValueEv.exit138:          ; preds = %287, %.thread.i.i.i
   br i1 %.not.i.i.i139, label %301, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit141, !prof !11
 
 301:                                              ; preds = %298
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %203, i64 noundef %299, i64 noundef 1) #24
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %203, i64 noundef %299, i64 noundef 1) #25
   %.pre.i140 = load i64, ptr %200, align 8, !tbaa !379
   br label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit141
 
@@ -18809,7 +18809,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit141: ; preds = %298, %3
   br i1 %.not.i.i.i142, label %314, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit144, !prof !11
 
 314:                                              ; preds = %307
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %203, i64 noundef %312, i64 noundef 1) #24
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %203, i64 noundef %312, i64 noundef 1) #25
   %.pre.i143 = load i64, ptr %200, align 8, !tbaa !379
   br label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit144
 
@@ -18869,7 +18869,7 @@ _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %_ZSt7reverseIPcEvT_
   br i1 %337, label %_ZN4llvm5APIntD2Ev.exit, label %338
 
 338:                                              ; preds = %335
-  call void @_ZdaPv(ptr noundef nonnull %336) #23
+  call void @_ZdaPv(ptr noundef nonnull %336) #24
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZSt7reverseIPcEvT_S1_.exit, %335, %338
@@ -18893,13 +18893,13 @@ define dso_local void @_ZNK4llvm5APInt5printERNS_11raw_ostreamEb(ptr noundef non
   call void @_ZNK4llvm5APInt8toStringERNS_15SmallVectorImplIcEEjbbbb(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef 10, i1 noundef zeroext %2, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false)
   %8 = load ptr, ptr %4, align 8, !tbaa !382
   %9 = load i64, ptr %6, align 8, !tbaa !379
-  %10 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %8, i64 noundef %9) #24
+  %10 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %8, i64 noundef %9) #25
   %11 = load ptr, ptr %4, align 8, !tbaa !382
   %12 = icmp eq ptr %11, %5
   br i1 %12, label %_ZN4llvm11SmallVectorIcLj40EED2Ev.exit, label %13
 
 13:                                               ; preds = %3
-  call void @free(ptr noundef %11) #24
+  call void @free(ptr noundef %11) #25
   br label %_ZN4llvm11SmallVectorIcLj40EED2Ev.exit
 
 _ZN4llvm11SmallVectorIcLj40EED2Ev.exit:           ; preds = %3, %13
@@ -19652,7 +19652,7 @@ _ZNK4llvm5APInt6isZeroEv.exit:                    ; preds = %29, %.thread.i.i
   %45 = add nuw nsw i64 %44, 63
   %46 = lshr i64 %45, 3
   %47 = and i64 %46, 1073741816
-  %48 = call noalias noundef nonnull ptr @_Znam(i64 noundef %47) #22
+  %48 = call noalias noundef nonnull ptr @_Znam(i64 noundef %47) #23
   %49 = load ptr, ptr %5, align 8, !tbaa !8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %48, ptr align 8 %49, i64 %47, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !395)
@@ -19715,7 +19715,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APInt9tcAd
   br i1 %or.cond, label %_ZN4llvm5APIntD2Ev.exit4, label %80
 
 80:                                               ; preds = %75
-  call void @_ZdaPv(ptr noundef nonnull %77) #23
+  call void @_ZdaPv(ptr noundef nonnull %77) #24
   %.pre = load i32, ptr %10, align 8, !tbaa !3
   br label %_ZN4llvm5APIntD2Ev.exit4
 
@@ -19731,7 +19731,7 @@ _ZN4llvm5APIntD2Ev.exit4:                         ; preds = %75, %80
   br i1 %85, label %_ZN4llvm5APIntD2Ev.exit5, label %86
 
 86:                                               ; preds = %83
-  call void @_ZdaPv(ptr noundef nonnull %84) #23
+  call void @_ZdaPv(ptr noundef nonnull %84) #24
   br label %_ZN4llvm5APIntD2Ev.exit5
 
 _ZN4llvm5APIntD2Ev.exit5:                         ; preds = %_ZN4llvm5APIntD2Ev.exit4, %83, %86
@@ -19861,7 +19861,7 @@ _ZNK4llvm5APInt6isZeroEv.exit:                    ; preds = %28, %.thread.i.i
   %72 = add nuw nsw i64 %71, 63
   %73 = lshr i64 %72, 3
   %74 = and i64 %73, 1073741816
-  %75 = call noalias noundef nonnull ptr @_Znam(i64 noundef %74) #22
+  %75 = call noalias noundef nonnull ptr @_Znam(i64 noundef %74) #23
   %76 = load ptr, ptr %5, align 8, !tbaa !8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %75, ptr align 8 %76, i64 %74, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !398)
@@ -19946,7 +19946,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APInt14tcS
   %115 = add nuw nsw i64 %114, 63
   %116 = lshr i64 %115, 3
   %117 = and i64 %116, 1073741816
-  %118 = call noalias noundef nonnull ptr @_Znam(i64 noundef %117) #22
+  %118 = call noalias noundef nonnull ptr @_Znam(i64 noundef %117) #23
   %119 = load ptr, ptr %5, align 8, !tbaa !8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %118, ptr align 8 %119, i64 %117, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !401)
@@ -20009,7 +20009,7 @@ _ZN4llvm5APIntD2Ev.exit20:                        ; preds = %_ZN4llvm5APInt9tcAd
   br i1 %or.cond, label %_ZN4llvm5APIntD2Ev.exit21, label %150
 
 150:                                              ; preds = %145
-  call void @_ZdaPv(ptr noundef nonnull %147) #23
+  call void @_ZdaPv(ptr noundef nonnull %147) #24
   %.pre = load i32, ptr %9, align 8, !tbaa !3
   br label %_ZN4llvm5APIntD2Ev.exit21
 
@@ -20025,7 +20025,7 @@ _ZN4llvm5APIntD2Ev.exit21:                        ; preds = %145, %150
   br i1 %155, label %_ZN4llvm5APIntD2Ev.exit22, label %156
 
 156:                                              ; preds = %153
-  call void @_ZdaPv(ptr noundef nonnull %154) #23
+  call void @_ZdaPv(ptr noundef nonnull %154) #24
   br label %_ZN4llvm5APIntD2Ev.exit22
 
 _ZN4llvm5APIntD2Ev.exit22:                        ; preds = %_ZN4llvm5APIntD2Ev.exit21, %153, %156
@@ -20100,7 +20100,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i441:                  ; preds = %33
   %46 = add nuw nsw i64 %45, 63
   %47 = lshr i64 %46, 3
   %48 = and i64 %47, 1073741816
-  %49 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %48) #22, !noalias !407
+  %49 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %48) #23, !noalias !407
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %4, ptr %50, align 8, !tbaa !3, !alias.scope !407
   store ptr %49, ptr %6, align 8, !tbaa !8, !alias.scope !407
@@ -20148,7 +20148,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i441:                  ; preds = %33
   %73 = add nuw nsw i64 %72, 63
   %74 = lshr i64 %73, 3
   %75 = and i64 %74, 1073741816
-  %76 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %75) #22, !noalias !404
+  %76 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %75) #23, !noalias !404
   store ptr %76, ptr %6, align 8, !tbaa !8, !alias.scope !404
   %77 = load ptr, ptr %3, align 8, !tbaa !8, !noalias !404
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %76, ptr align 8 %77, i64 %75, i1 false), !noalias !404
@@ -20207,7 +20207,7 @@ _ZNK4llvm5APInt6isZeroEv.exit.thread:             ; preds = %_ZNK4llvm5APInt6isZ
   %.neg15.i.i = select i1 %.not.i.i, i32 0, i32 %.neg.i.i
   %97 = add i32 %.1.i.i, %.neg15.i.i
   %98 = icmp eq i32 %97, %81
-  tail call void @_ZdaPv(ptr noundef nonnull %85) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %85) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %98, label %99, label %110
 
@@ -20220,7 +20220,7 @@ _ZNK4llvm5APInt6isZeroEv.exit.thread:             ; preds = %_ZNK4llvm5APInt6isZ
   %103 = add nuw nsw i64 %102, 63
   %104 = lshr i64 %103, 3
   %105 = and i64 %104, 1073741816
-  %106 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %105) #22
+  %106 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %105) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %106, i8 0, i64 %105, i1 false)
   %107 = ptrtoint ptr %106 to i64
   store i64 0, ptr %106, align 8, !tbaa !9
@@ -20249,7 +20249,7 @@ _ZN4llvm5APIntD2Ev.exit12:                        ; preds = %101, %99
   br i1 %116, label %_ZN4llvm5APIntD2Ev.exit13, label %117
 
 117:                                              ; preds = %114
-  tail call void @_ZdaPv(ptr noundef nonnull %115) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %115) #24
   br label %_ZN4llvm5APIntD2Ev.exit13
 
 _ZN4llvm5APIntD2Ev.exit13:                        ; preds = %117, %114, %110
@@ -20272,7 +20272,7 @@ _ZN4llvm5APIntD2Ev.exit13:                        ; preds = %117, %114, %110
   br i1 %126, label %_ZN4llvm5APIntD2Ev.exit15, label %127
 
 127:                                              ; preds = %124
-  tail call void @_ZdaPv(ptr noundef nonnull %125) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %125) #24
   br label %_ZN4llvm5APIntD2Ev.exit15
 
 _ZN4llvm5APIntD2Ev.exit15:                        ; preds = %127, %124, %_ZN4llvm5APIntD2Ev.exit13
@@ -20294,7 +20294,7 @@ _ZN4llvm5APIntD2Ev.exit15:                        ; preds = %127, %124, %_ZN4llv
   br i1 %135, label %_ZN4llvm5APIntD2Ev.exit17, label %136
 
 136:                                              ; preds = %133
-  tail call void @_ZdaPv(ptr noundef nonnull %134) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %134) #24
   br label %_ZN4llvm5APIntD2Ev.exit17
 
 _ZN4llvm5APIntD2Ev.exit17:                        ; preds = %136, %133, %_ZN4llvm5APIntD2Ev.exit15
@@ -20559,7 +20559,7 @@ _ZN4llvm5APInt6negateEv.exit47:                   ; preds = %_ZN4llvm5APInt11tcI
   %279 = add nuw nsw i64 %278, 63
   %280 = lshr i64 %279, 3
   %281 = and i64 %280, 1073741816
-  %282 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %281) #22, !noalias !412
+  %282 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %281) #23, !noalias !412
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %282, i8 0, i64 %281, i1 false), !noalias !412
   store i64 0, ptr %282, align 8, !tbaa !9, !noalias !412
   %283 = and i32 %4, 63
@@ -20587,7 +20587,7 @@ _ZN4llvm5APInt12getOneBitSetEjj.exit:             ; preds = %272, %277
   %295 = add nuw nsw i64 %294, 63
   %296 = lshr i64 %295, 3
   %297 = and i64 %296, 1073741816
-  %298 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %297) #22
+  %298 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %297) #23
   %299 = load ptr, ptr %1, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %298, ptr align 8 %299, i64 %297, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !415)
@@ -20683,7 +20683,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %_ZN4llvm5APIntD2Ev.
   %346 = lshr i64 %345, 6
   %347 = trunc nuw nsw i64 %346 to i32
   %348 = shl nuw nsw i64 %346, 3
-  %349 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %348) #22, !noalias !418
+  %349 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %348) #23, !noalias !418
   %350 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %329, ptr %350, align 8, !tbaa !3, !alias.scope !418
   store ptr %349, ptr %12, align 8, !tbaa !8, !alias.scope !418
@@ -20748,7 +20748,7 @@ _ZNK4llvm5APIntmlERKS0_.exit:                     ; preds = %_ZN4llvm5APIntC2Ejm
   br i1 %387, label %_ZN4llvm5APIntD2Ev.exit52, label %388
 
 388:                                              ; preds = %385
-  tail call void @_ZdaPv(ptr noundef nonnull %386) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %386) #24
   br label %_ZN4llvm5APIntD2Ev.exit52
 
 _ZN4llvm5APIntD2Ev.exit52:                        ; preds = %388, %385, %382
@@ -20884,7 +20884,7 @@ _ZN4llvm5APInt10tcSubtractEPmPKmmj.exit.i:        ; preds = %429
   %452 = add nuw nsw i64 %451, 63
   %453 = lshr i64 %452, 3
   %454 = and i64 %453, 1073741816
-  %455 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %454) #22
+  %455 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %454) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %455, ptr align 8 %331, i64 %454, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !421)
   %456 = lshr i64 %452, 6
@@ -21059,7 +21059,7 @@ _ZN4llvm5APIntD2Ev.exit65:                        ; preds = %_ZN4llvm5APInt5tcAd
   br i1 %or.cond939, label %_ZN4llvm5APIntD2Ev.exit67, label %540
 
 540:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit65
-  tail call void @_ZdaPv(ptr noundef nonnull %486) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %486) #24
   br label %_ZN4llvm5APIntD2Ev.exit67
 
 _ZN4llvm5APIntD2Ev.exit67:                        ; preds = %540, %_ZN4llvm5APIntD2Ev.exit65
@@ -21077,7 +21077,7 @@ _ZN4llvm5APIntD2Ev.exit67:                        ; preds = %540, %_ZN4llvm5APIn
   br i1 %545, label %_ZN4llvm5APIntD2Ev.exit69, label %546
 
 546:                                              ; preds = %543
-  call void @_ZdaPv(ptr noundef nonnull %544) #23
+  call void @_ZdaPv(ptr noundef nonnull %544) #24
   br label %_ZN4llvm5APIntD2Ev.exit69
 
 _ZN4llvm5APIntD2Ev.exit69:                        ; preds = %546, %543, %_ZN4llvm5APIntD2Ev.exit67
@@ -21192,7 +21192,7 @@ _ZNK4llvm5APInt3sgtERKS0_.exit.thread661..lr.ph.preheader.i.i120_crit_edge: ; pr
   %.pre-phi813 = phi i64 [ %579, %604 ], [ %.pre812, %.thread663 ]
   %606 = lshr i64 %.pre-phi813, 3
   %607 = and i64 %606, 1073741816
-  %608 = call noalias noundef nonnull ptr @_Znam(i64 noundef %607) #22
+  %608 = call noalias noundef nonnull ptr @_Znam(i64 noundef %607) #23
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %608, ptr nonnull align 8 %558, i64 %607, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !427)
   br label %.lr.ph.i.i.i.i.i73
@@ -21397,7 +21397,7 @@ _ZN4llvm5APIntmIERKS0_.exit115:                   ; preds = %_ZN4llvm5APInt10tcS
 
 708:                                              ; preds = %_ZN4llvm5APIntmIERKS0_.exit115
   %709 = inttoptr i64 %667 to ptr
-  call void @_ZdaPv(ptr noundef nonnull %709) #23
+  call void @_ZdaPv(ptr noundef nonnull %709) #24
   br label %_ZN4llvm5APIntD2Ev.exit117
 
 _ZN4llvm5APIntD2Ev.exit117:                       ; preds = %708, %_ZN4llvm5APIntmIERKS0_.exit115
@@ -21411,7 +21411,7 @@ _ZN4llvm5APIntD2Ev.exit117:                       ; preds = %708, %_ZN4llvm5APIn
   br i1 %714, label %_ZN4llvm5APIntD2Ev.exit119, label %715
 
 715:                                              ; preds = %712
-  call void @_ZdaPv(ptr noundef nonnull %713) #23
+  call void @_ZdaPv(ptr noundef nonnull %713) #24
   br label %_ZN4llvm5APIntD2Ev.exit119
 
 _ZN4llvm5APIntD2Ev.exit119:                       ; preds = %715, %712, %_ZN4llvm5APIntD2Ev.exit117
@@ -21492,7 +21492,7 @@ _ZN4llvm5APIntmIERKS0_.exit133:                   ; preds = %_ZN4llvm5APInt10tcS
   br i1 %752, label %_ZN4llvm5APIntD2Ev.exit134, label %753
 
 753:                                              ; preds = %750
-  call void @_ZdaPv(ptr noundef nonnull %751) #23
+  call void @_ZdaPv(ptr noundef nonnull %751) #24
   br label %_ZN4llvm5APIntD2Ev.exit134
 
 _ZN4llvm5APIntD2Ev.exit134:                       ; preds = %_ZN4llvm5APIntmIERKS0_.exit133, %750, %753
@@ -21511,7 +21511,7 @@ _ZN4llvm5APIntmIERKS0_.exit:                      ; preds = %_ZN4llvm5APIntD2Ev.
   %757 = add nuw nsw i64 %756, 63
   %758 = lshr i64 %757, 3
   %759 = and i64 %758, 1073741816
-  %760 = call noalias noundef nonnull ptr @_Znam(i64 noundef %759) #22
+  %760 = call noalias noundef nonnull ptr @_Znam(i64 noundef %759) #23
   %761 = load ptr, ptr %1, align 8, !tbaa !8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %760, ptr align 8 %761, i64 %759, i1 false)
   %762 = lshr i64 %757, 6
@@ -21581,7 +21581,7 @@ _ZN4llvm5APIntmLEm.exit490:                       ; preds = %772
   store i64 %797, ptr %795, align 8, !tbaa !9, !noalias !433
   %798 = trunc nuw nsw i64 %762 to i32
   %799 = shl nuw nsw i64 %762, 3
-  %800 = call noalias noundef nonnull ptr @_Znam(i64 noundef %799) #22, !noalias !436
+  %800 = call noalias noundef nonnull ptr @_Znam(i64 noundef %799) #23, !noalias !436
   %801 = load ptr, ptr %3, align 8, !tbaa !8, !noalias !436
   br label %.lr.ph.i.i137
 
@@ -21666,7 +21666,7 @@ _ZN4llvm5APIntmLEm.exit490:                       ; preds = %772
   %835 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %754, ptr %835, align 8, !tbaa !3, !alias.scope !439
   store i64 %832, ptr %20, align 8, !alias.scope !439
-  call void @_ZdaPv(ptr noundef nonnull %760) #23
+  call void @_ZdaPv(ptr noundef nonnull %760) #24
   br label %_ZN4llvm5APIntD2Ev.exit171
 
 _ZN4llvm5APIntD2Ev.exit171:                       ; preds = %831, %_ZN4llvm5APIntmLEm.exit490.thread
@@ -21685,7 +21685,7 @@ _ZN4llvm5APIntD2Ev.exit171:                       ; preds = %831, %_ZN4llvm5APIn
   %843 = lshr i64 %842, 6
   %844 = trunc nuw nsw i64 %843 to i32
   %845 = shl nuw nsw i64 %843, 3
-  %846 = call noalias noundef nonnull ptr @_Znam(i64 noundef %845) #22, !noalias !442
+  %846 = call noalias noundef nonnull ptr @_Znam(i64 noundef %845) #23, !noalias !442
   %847 = load ptr, ptr %21, align 8
   br label %.lr.ph.i.i173
 
@@ -21842,7 +21842,7 @@ _ZN4llvm5APIntmIEm.exit:                          ; preds = %.preheader, %_ZN4ll
   %932 = add nuw nsw i64 %931, 63
   %933 = lshr i64 %932, 3
   %934 = and i64 %933, 1073741816
-  %935 = call noalias noundef nonnull ptr @_Znam(i64 noundef %934) #22
+  %935 = call noalias noundef nonnull ptr @_Znam(i64 noundef %934) #23
   %936 = load ptr, ptr %2, align 8, !tbaa !8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %935, ptr align 8 %936, i64 %934, i1 false)
   %937 = lshr i64 %932, 6
@@ -21915,7 +21915,7 @@ _ZN4llvmngENS_5APIntE.exit212:                    ; preds = %_ZN4llvm5APInt11tcI
   %969 = add nuw nsw i64 %968, 63
   %970 = lshr i64 %969, 3
   %971 = and i64 %970, 1073741816
-  %972 = call noalias noundef nonnull ptr @_Znam(i64 noundef %971) #22
+  %972 = call noalias noundef nonnull ptr @_Znam(i64 noundef %971) #23
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %972, ptr align 8 %922, i64 %971, i1 false)
   %973 = zext i1 %924 to i64
   %974 = lshr i64 %969, 6
@@ -22040,7 +22040,7 @@ _ZN4llvmmiERKNS_5APIntEOS0_.exit246:              ; preds = %_ZN4llvm5APInt5tcAd
 
 1028:                                             ; preds = %_ZN4llvmmiERKNS_5APIntEOS0_.exit246
   %1029 = inttoptr i64 %.sroa.0569.0 to ptr
-  call void @_ZdaPv(ptr noundef nonnull %1029) #23
+  call void @_ZdaPv(ptr noundef nonnull %1029) #24
   br label %_ZN4llvm5APIntD2Ev.exit249
 
 _ZN4llvm5APIntD2Ev.exit249:                       ; preds = %_ZN4llvmmiERKNS_5APIntEOS0_.exit246, %1028
@@ -22050,7 +22050,7 @@ _ZN4llvm5APIntD2Ev.exit249:                       ; preds = %_ZN4llvmmiERKNS_5AP
 
 1031:                                             ; preds = %_ZN4llvm5APIntD2Ev.exit249
   %1032 = inttoptr i64 %.sroa.0579.1 to ptr
-  call void @_ZdaPv(ptr noundef nonnull %1032) #23
+  call void @_ZdaPv(ptr noundef nonnull %1032) #24
   br label %_ZN4llvm5APIntD2Ev.exit251
 
 _ZN4llvm5APIntD2Ev.exit251:                       ; preds = %1031, %_ZN4llvm5APIntD2Ev.exit249
@@ -22068,7 +22068,7 @@ _ZN4llvm5APIntD2Ev.exit251:                       ; preds = %1031, %_ZN4llvm5API
   %1038 = add nuw nsw i64 %1037, 63
   %1039 = lshr i64 %1038, 3
   %1040 = and i64 %1039, 1073741816
-  %1041 = call noalias noundef nonnull ptr @_Znam(i64 noundef %1040) #22
+  %1041 = call noalias noundef nonnull ptr @_Znam(i64 noundef %1040) #23
   %1042 = load ptr, ptr %2, align 8, !tbaa !8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1041, ptr align 8 %1042, i64 %1040, i1 false)
   %1043 = lshr i64 %1038, 6
@@ -22172,7 +22172,7 @@ _ZN4llvmplENS_5APIntERKS0_.exit:                  ; preds = %_ZN4llvm5APInt5tcAd
 
 1089:                                             ; preds = %_ZN4llvmplENS_5APIntERKS0_.exit
   %1090 = inttoptr i64 %.sroa.0557.0 to ptr
-  call void @_ZdaPv(ptr noundef nonnull %1090) #23
+  call void @_ZdaPv(ptr noundef nonnull %1090) #24
   br label %_ZN4llvm5APIntD2Ev.exit283
 
 _ZN4llvm5APIntD2Ev.exit283:                       ; preds = %_ZN4llvmplENS_5APIntERKS0_.exit, %1089
@@ -22251,7 +22251,7 @@ _ZNK4llvm5APInt6isZeroEv.exit295:                 ; preds = %1109, %.thread.i.i2
   %1125 = lshr i64 %1124, 6
   %1126 = trunc nuw nsw i64 %1125 to i32
   %1127 = shl nuw nsw i64 %1125, 3
-  %1128 = call noalias noundef nonnull ptr @_Znam(i64 noundef %1127) #22, !noalias !460
+  %1128 = call noalias noundef nonnull ptr @_Znam(i64 noundef %1127) #23, !noalias !460
   %1129 = load ptr, ptr %1, align 8, !tbaa !8, !noalias !460
   %1130 = load ptr, ptr %22, align 8, !tbaa !8, !noalias !460
   br label %.lr.ph.i.i297
@@ -22306,7 +22306,7 @@ _ZNK4llvm5APInt6isZeroEv.exit295:                 ; preds = %1109, %.thread.i.i2
   %1157 = load i64, ptr %1145, align 8, !tbaa !9, !noalias !463
   %1158 = and i64 %1157, %1142
   store i64 %1158, ptr %1145, align 8, !tbaa !9, !noalias !463
-  %1159 = call noalias noundef nonnull ptr @_Znam(i64 noundef %1127) #22, !noalias !466
+  %1159 = call noalias noundef nonnull ptr @_Znam(i64 noundef %1127) #23, !noalias !466
   br label %.lr.ph.i.i319
 
 .lr.ph.i.i319:                                    ; preds = %.lr.ph.i.i319, %.lr.ph.preheader.i.i318
@@ -22375,7 +22375,7 @@ _ZN4llvm5APIntD2Ev.exit340:                       ; preds = %1120
   %1199 = load i64, ptr %1167, align 8, !tbaa !9, !noalias !469
   %1200 = and i64 %1199, %1142
   store i64 %1200, ptr %1167, align 8, !tbaa !9, !noalias !469
-  call void @_ZdaPv(ptr noundef nonnull %1128) #23
+  call void @_ZdaPv(ptr noundef nonnull %1128) #24
   br label %_ZN4llvm5APIntD2Ev.exit342
 
 _ZN4llvm5APIntD2Ev.exit342:                       ; preds = %1197, %_ZN4llvm5APIntD2Ev.exit340
@@ -22388,7 +22388,7 @@ _ZN4llvm5APIntD2Ev.exit342:                       ; preds = %1197, %_ZN4llvm5API
   %1204 = lshr i64 %1203, 6
   %1205 = trunc nuw nsw i64 %1204 to i32
   %1206 = shl nuw nsw i64 %1204, 3
-  %1207 = call noalias noundef nonnull ptr @_Znam(i64 noundef %1206) #22, !noalias !472
+  %1207 = call noalias noundef nonnull ptr @_Znam(i64 noundef %1206) #23, !noalias !472
   %1208 = load ptr, ptr %22, align 8
   br label %.lr.ph.i.i344
 
@@ -22723,7 +22723,7 @@ _ZN4llvm5APIntpLEm.exit:                          ; preds = %_ZN4llvm5APInt9tcAd
   br i1 %or.cond, label %_ZN4llvm5APIntD2Ev.exit428, label %1373
 
 1373:                                             ; preds = %1370
-  call void @_ZdaPv(ptr noundef nonnull %1295) #23
+  call void @_ZdaPv(ptr noundef nonnull %1295) #24
   br label %_ZN4llvm5APIntD2Ev.exit428
 
 _ZN4llvm5APIntD2Ev.exit428:                       ; preds = %1370, %1373
@@ -22732,7 +22732,7 @@ _ZN4llvm5APIntD2Ev.exit428:                       ; preds = %1370, %1373
   br i1 %or.cond746, label %_ZN4llvm5APIntD2Ev.exit429, label %1375
 
 1375:                                             ; preds = %_ZN4llvm5APIntD2Ev.exit428
-  call void @_ZdaPv(ptr noundef nonnull %.pre-phi) #23
+  call void @_ZdaPv(ptr noundef nonnull %.pre-phi) #24
   br label %_ZN4llvm5APIntD2Ev.exit429
 
 _ZN4llvm5APIntD2Ev.exit429:                       ; preds = %1375, %_ZN4llvm5APIntD2Ev.exit428, %1115
@@ -22746,7 +22746,7 @@ _ZN4llvm5APIntD2Ev.exit429:                       ; preds = %1375, %_ZN4llvm5API
   br i1 %1380, label %_ZN4llvm5APIntD2Ev.exit430, label %1381
 
 1381:                                             ; preds = %1378
-  call void @_ZdaPv(ptr noundef nonnull %1379) #23
+  call void @_ZdaPv(ptr noundef nonnull %1379) #24
   br label %_ZN4llvm5APIntD2Ev.exit430
 
 _ZN4llvm5APIntD2Ev.exit430:                       ; preds = %_ZN4llvm5APIntD2Ev.exit429, %1378, %1381
@@ -22761,7 +22761,7 @@ _ZN4llvm5APIntD2Ev.exit430:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %1386, label %_ZN4llvm5APIntD2Ev.exit431, label %1387
 
 1387:                                             ; preds = %1384
-  call void @_ZdaPv(ptr noundef nonnull %1385) #23
+  call void @_ZdaPv(ptr noundef nonnull %1385) #24
   br label %_ZN4llvm5APIntD2Ev.exit431
 
 _ZN4llvm5APIntD2Ev.exit431:                       ; preds = %_ZN4llvm5APIntD2Ev.exit430, %1384, %1387
@@ -22772,7 +22772,7 @@ _ZN4llvm5APIntD2Ev.exit431:                       ; preds = %_ZN4llvm5APIntD2Ev.
 
 _ZN4llvm5APIntD2Ev.exit432.thread:                ; preds = %_ZN4llvm5APIntD2Ev.exit431
   %1389 = inttoptr i64 %.sroa.0591.0687691694 to ptr
-  call void @_ZdaPv(ptr noundef nonnull %1389) #23
+  call void @_ZdaPv(ptr noundef nonnull %1389) #24
   %.old = icmp eq ptr %922, null
   br i1 %.old, label %_ZN4llvm5APIntD2Ev.exit433, label %1392
 
@@ -22783,7 +22783,7 @@ _ZN4llvm5APIntD2Ev.exit432:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %or.cond943, label %_ZN4llvm5APIntD2Ev.exit433, label %1392
 
 1392:                                             ; preds = %_ZN4llvm5APIntD2Ev.exit432, %_ZN4llvm5APIntD2Ev.exit432.thread
-  call void @_ZdaPv(ptr noundef nonnull %922) #23
+  call void @_ZdaPv(ptr noundef nonnull %922) #24
   br label %_ZN4llvm5APIntD2Ev.exit433
 
 _ZN4llvm5APIntD2Ev.exit433:                       ; preds = %_ZN4llvm5APIntD2Ev.exit432, %_ZN4llvm5APIntD2Ev.exit432.thread, %1392
@@ -22793,7 +22793,7 @@ _ZN4llvm5APIntD2Ev.exit433:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %or.cond945, label %_ZN4llvm5APIntD2Ev.exit434, label %1394
 
 1394:                                             ; preds = %_ZN4llvm5APIntD2Ev.exit433
-  call void @_ZdaPv(ptr noundef nonnull %836) #23
+  call void @_ZdaPv(ptr noundef nonnull %836) #24
   br label %_ZN4llvm5APIntD2Ev.exit434
 
 _ZN4llvm5APIntD2Ev.exit434:                       ; preds = %_ZN4llvm5APIntD2Ev.exit433, %1394
@@ -22807,7 +22807,7 @@ _ZN4llvm5APIntD2Ev.exit434:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %1398, label %_ZN4llvm5APIntD2Ev.exit435, label %1399
 
 1399:                                             ; preds = %1396
-  call void @_ZdaPv(ptr noundef nonnull %1397) #23
+  call void @_ZdaPv(ptr noundef nonnull %1397) #24
   br label %_ZN4llvm5APIntD2Ev.exit435
 
 _ZN4llvm5APIntD2Ev.exit435:                       ; preds = %_ZN4llvm5APIntD2Ev.exit434, %1396, %1399
@@ -22821,7 +22821,7 @@ _ZN4llvm5APIntD2Ev.exit435:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %1403, label %_ZN4llvm5APIntD2Ev.exit436, label %1404
 
 1404:                                             ; preds = %1401
-  call void @_ZdaPv(ptr noundef nonnull %1402) #23
+  call void @_ZdaPv(ptr noundef nonnull %1402) #24
   br label %_ZN4llvm5APIntD2Ev.exit436
 
 _ZN4llvm5APIntD2Ev.exit436:                       ; preds = %_ZN4llvm5APIntD2Ev.exit435, %1401, %1404
@@ -22830,7 +22830,7 @@ _ZN4llvm5APIntD2Ev.exit436:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %1405, label %1406, label %_ZN4llvm5APIntD2Ev.exit437
 
 1406:                                             ; preds = %_ZN4llvm5APIntD2Ev.exit436
-  call void @_ZdaPv(ptr noundef nonnull %.sink.i) #23
+  call void @_ZdaPv(ptr noundef nonnull %.sink.i) #24
   br label %_ZN4llvm5APIntD2Ev.exit437
 
 _ZN4llvm5APIntD2Ev.exit437:                       ; preds = %_ZN4llvm5APIntD2Ev.exit436, %1406
@@ -22860,7 +22860,7 @@ define internal fastcc void @"_ZZN4llvm8APIntOps26SolveQuadraticEquationWrapENS_
   br i1 %11, label %_ZN4llvm5APIntD2Ev.exit, label %12
 
 12:                                               ; preds = %9
-  call void @_ZdaPv(ptr noundef nonnull %10) #23
+  call void @_ZdaPv(ptr noundef nonnull %10) #24
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %3, %9, %12
@@ -22933,7 +22933,7 @@ _ZNK4llvm5APInt6isZeroEv.exit:                    ; preds = %32, %.thread.i.i
   %48 = add nuw nsw i64 %47, 63
   %49 = lshr i64 %48, 3
   %50 = and i64 %49, 1073741816
-  %51 = call noalias noundef nonnull ptr @_Znam(i64 noundef %50) #22
+  %51 = call noalias noundef nonnull ptr @_Znam(i64 noundef %50) #23
   store ptr %51, ptr %0, align 8, !tbaa !8
   %52 = load ptr, ptr %1, align 8, !tbaa !8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %51, ptr align 8 %52, i64 %50, i1 false)
@@ -22968,7 +22968,7 @@ _ZNK4llvm5APInt6isZeroEv.exit:                    ; preds = %32, %.thread.i.i
   %72 = add nuw nsw i64 %71, 63
   %73 = lshr i64 %72, 3
   %74 = and i64 %73, 1073741816
-  %75 = call noalias noundef nonnull ptr @_Znam(i64 noundef %74) #22
+  %75 = call noalias noundef nonnull ptr @_Znam(i64 noundef %74) #23
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %75, ptr align 8 %63, i64 %74, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !484)
   %76 = lshr i64 %72, 6
@@ -23037,7 +23037,7 @@ _ZN4llvm5APInt5tcAddEPmPKmmj.exit.i.i:            ; preds = %.lr.ph.i.i.i
   %110 = add nuw nsw i64 %109, 63
   %111 = lshr i64 %110, 3
   %112 = and i64 %111, 1073741816
-  %113 = call noalias noundef nonnull ptr @_Znam(i64 noundef %112) #22
+  %113 = call noalias noundef nonnull ptr @_Znam(i64 noundef %112) #23
   %114 = load ptr, ptr %2, align 8, !tbaa !8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %113, ptr align 8 %114, i64 %112, i1 false)
   %115 = lshr i64 %110, 6
@@ -23142,7 +23142,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %160, %.thread, %46,
   br i1 %or.cond, label %_ZN4llvm5APIntD2Ev.exit43, label %165
 
 165:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
-  call void @_ZdaPv(ptr noundef nonnull %162) #23
+  call void @_ZdaPv(ptr noundef nonnull %162) #24
   br label %_ZN4llvm5APIntD2Ev.exit43
 
 _ZN4llvm5APIntD2Ev.exit43:                        ; preds = %_ZN4llvm5APIntC2ERKS0_.exit, %165
@@ -23175,7 +23175,7 @@ _ZNK4llvm5APInteqERKS0_.exit:                     ; preds = %2
   br i1 %.not9.i.i.i.i.i.i, label %_ZN4llvm5APIntD2Ev.exit6, label %15
 
 15:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit
-  %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.idx.i.i) #22
+  %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.idx.i.i) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr align 8 %13, i64 %.idx.i.i, i1 false)
   %17 = lshr i64 %11, 6
   br label %.lr.ph.i.i.i
@@ -23228,7 +23228,7 @@ _ZNK4llvm5APInt11countl_zeroEv.exit:              ; preds = %34, %.thread.i.i
   %38 = add i32 %.1.i.i, %.neg15.i.i
   %.neg = xor i32 %38, -1
   %39 = add i32 %4, %.neg
-  tail call void @_ZdaPv(ptr noundef nonnull %16) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %16) #24
   br label %_ZN4llvm5APIntD2Ev.exit6
 
 _ZN4llvm5APIntD2Ev.exit6:                         ; preds = %_ZNK4llvm5APInt11countl_zeroEv.exit.thread, %_ZNK4llvm5APInt11countl_zeroEv.exit, %_ZNK4llvm5APInteqERKS0_.exit, %6
@@ -23264,7 +23264,7 @@ define dso_local void @_ZN4llvm8APIntOps12ScaleBitMaskERKNS_5APIntEjb(ptr dead_o
   %17 = add nuw nsw i64 %16, 63
   %18 = lshr i64 %17, 3
   %19 = and i64 %18, 1073741816
-  %20 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #22
+  %20 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #23
   store ptr %20, ptr %0, align 8, !tbaa !8
   %21 = load ptr, ptr %1, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr align 8 %21, i64 %19, i1 false)
@@ -23282,7 +23282,7 @@ define dso_local void @_ZN4llvm8APIntOps12ScaleBitMaskERKNS_5APIntEjb(ptr dead_o
   %27 = add nuw nsw i64 %26, 63
   %28 = lshr i64 %27, 3
   %29 = and i64 %28, 1073741816
-  %30 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %29) #22, !noalias !496
+  %30 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %29) #23, !noalias !496
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %30, i8 0, i64 %29, i1 false), !noalias !496
   store i64 0, ptr %30, align 8, !tbaa !9, !noalias !496
   br label %_ZN4llvm5APInt7getZeroEj.exit
@@ -23506,7 +23506,7 @@ _ZN4llvm5APInt7setBitsEjj.exit:                   ; preds = %.lr.ph.i.i42, %105,
 .loopexit:                                        ; preds = %143, %135
   %.1.i.i46.us = phi i32 [ %142, %135 ], [ %130, %143 ]
   %145 = icmp eq i32 %.1.i.i46.us, %121
-  call void @_ZdaPv(ptr noundef nonnull %129) #23
+  call void @_ZdaPv(ptr noundef nonnull %129) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %145, label %151, label %_ZN4llvm5APInt6setBitEj.exit.us
 
@@ -23603,7 +23603,7 @@ _ZNK4llvm5APInt6isZeroEv.exit61.thread:           ; preds = %.split
   %.neg15.i.i59 = select i1 %.not.i.i57, i32 0, i32 %.neg.i.i58
   %189 = add i32 %.1.i.i56, %.neg15.i.i59
   %190 = icmp eq i32 %189, %170
-  call void @_ZdaPv(ptr noundef nonnull %177) #23
+  call void @_ZdaPv(ptr noundef nonnull %177) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %190, label %_ZN4llvm5APInt6setBitEj.exit, label %191
 
@@ -23676,7 +23676,7 @@ define dso_local void @_ZN4llvm8APIntOps9avgFloorSERKNS_5APIntES3_(ptr dead_on_u
   %10 = add nuw nsw i64 %9, 63
   %11 = lshr i64 %10, 3
   %12 = and i64 %11, 1073741816
-  %13 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %12) #22
+  %13 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %12) #23
   %14 = load ptr, ptr %1, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr align 8 %14, i64 %12, i1 false)
   %15 = load ptr, ptr %2, align 8, !tbaa !8, !noalias !501
@@ -23697,7 +23697,7 @@ define dso_local void @_ZN4llvm8APIntOps9avgFloorSERKNS_5APIntES3_(ptr dead_on_u
 
 23:                                               ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %24 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %12) #22
+  %24 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %12) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 8 %14, i64 %12, i1 false)
   br label %.lr.ph.i.i.i5
 
@@ -23745,7 +23745,7 @@ _ZNK4llvm5APInt4ashrEj.exit:                      ; preds = %.lr.ph.i.i.i5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !507)
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %6, ptr %50, align 8, !tbaa !3, !alias.scope !507
-  %51 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %12) #22, !noalias !507
+  %51 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %12) #23, !noalias !507
   store ptr %51, ptr %4, align 8, !tbaa !8, !alias.scope !507
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %51, ptr nonnull align 8 %24, i64 %12, i1 false), !noalias !507
   call void @_ZN4llvm5APInt12ashrSlowCaseEj(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef 1)
@@ -23826,7 +23826,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APInt4ash
 94:                                               ; preds = %.thread, %92
   %95 = phi i64 [ %49, %.thread ], [ %77, %92 ]
   %96 = phi ptr [ %24, %.thread ], [ %78, %92 ]
-  tail call void @_ZdaPv(ptr noundef nonnull %96) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %96) #24
   br label %97
 
 _ZN4llvm5APIntD2Ev.exit13:                        ; preds = %_ZN4llvm5APIntD2Ev.exit
@@ -23841,7 +23841,7 @@ _ZN4llvm5APIntD2Ev.exit13:                        ; preds = %_ZN4llvm5APIntD2Ev.
 
 100:                                              ; preds = %97
   %101 = inttoptr i64 %98 to ptr
-  tail call void @_ZdaPv(ptr noundef nonnull %101) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %101) #24
   br label %_ZN4llvm5APIntD2Ev.exit15
 
 _ZN4llvm5APIntD2Ev.exit15:                        ; preds = %100, %97, %_ZN4llvm5APIntD2Ev.exit13
@@ -23860,7 +23860,7 @@ define dso_local void @_ZN4llvm8APIntOps9avgFloorUERKNS_5APIntES3_(ptr dead_on_u
   %9 = add nuw nsw i64 %8, 63
   %10 = lshr i64 %9, 3
   %11 = and i64 %10, 1073741816
-  %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #22
+  %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #23
   %13 = load ptr, ptr %1, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr align 8 %13, i64 %11, i1 false)
   %14 = load ptr, ptr %2, align 8, !tbaa !8, !noalias !513
@@ -23880,7 +23880,7 @@ define dso_local void @_ZN4llvm8APIntOps9avgFloorUERKNS_5APIntES3_(ptr dead_on_u
   br i1 %.not.i.i.i, label %22, label %.lr.ph.i.i.i, !llvm.loop !31
 
 22:                                               ; preds = %.lr.ph.i.i.i
-  %23 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #22
+  %23 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr align 8 %13, i64 %11, i1 false)
   br label %.lr.ph.i.i.i5
 
@@ -23919,7 +23919,7 @@ _ZN4llvm5APIntD2Ev.exit13.thread:                 ; preds = %3
   br label %_ZN4llvm5APIntD2Ev.exit15
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i5
-  %45 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #22, !noalias !522
+  %45 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #23, !noalias !522
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %45, ptr nonnull align 8 %23, i64 %11, i1 false), !noalias !522
   %46 = load i64, ptr %45, align 8, !tbaa !9, !noalias !522
   %47 = lshr i64 %46, 1
@@ -23983,8 +23983,8 @@ _ZN4llvm5APIntD2Ev.exit13.thread:                 ; preds = %3
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %79, align 8, !tbaa !3, !alias.scope !519
   store i64 %68, ptr %0, align 8, !alias.scope !519
-  tail call void @_ZdaPv(ptr noundef nonnull %23) #23
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %23) #24
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #24
   br label %_ZN4llvm5APIntD2Ev.exit15
 
 _ZN4llvm5APIntD2Ev.exit15:                        ; preds = %67, %_ZN4llvm5APIntD2Ev.exit13.thread
@@ -24004,7 +24004,7 @@ define dso_local void @_ZN4llvm8APIntOps8avgCeilSERKNS_5APIntES3_(ptr dead_on_un
   %10 = add nuw nsw i64 %9, 63
   %11 = lshr i64 %10, 3
   %12 = and i64 %11, 1073741816
-  %13 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %12) #22
+  %13 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %12) #23
   %14 = load ptr, ptr %1, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr align 8 %14, i64 %12, i1 false)
   %15 = load ptr, ptr %2, align 8, !tbaa !8, !noalias !525
@@ -24025,7 +24025,7 @@ define dso_local void @_ZN4llvm8APIntOps8avgCeilSERKNS_5APIntES3_(ptr dead_on_un
 
 23:                                               ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %24 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %12) #22
+  %24 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %12) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 8 %14, i64 %12, i1 false)
   br label %.lr.ph.i.i.i5
 
@@ -24073,7 +24073,7 @@ _ZNK4llvm5APInt4ashrEj.exit:                      ; preds = %.lr.ph.i.i.i5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !531)
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %6, ptr %50, align 8, !tbaa !3, !alias.scope !531
-  %51 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %12) #22, !noalias !531
+  %51 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %12) #23, !noalias !531
   store ptr %51, ptr %4, align 8, !tbaa !8, !alias.scope !531
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %51, ptr nonnull align 8 %24, i64 %12, i1 false), !noalias !531
   call void @_ZN4llvm5APInt12ashrSlowCaseEj(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef 1)
@@ -24192,7 +24192,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APInt4ash
 109:                                              ; preds = %.thread, %107
   %110 = phi i64 [ %49, %.thread ], [ %88, %107 ]
   %111 = phi ptr [ %24, %.thread ], [ %89, %107 ]
-  tail call void @_ZdaPv(ptr noundef nonnull %111) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %111) #24
   br label %112
 
 _ZN4llvm5APIntD2Ev.exit12:                        ; preds = %_ZN4llvm5APIntD2Ev.exit
@@ -24207,7 +24207,7 @@ _ZN4llvm5APIntD2Ev.exit12:                        ; preds = %_ZN4llvm5APIntD2Ev.
 
 115:                                              ; preds = %112
   %116 = inttoptr i64 %113 to ptr
-  tail call void @_ZdaPv(ptr noundef nonnull %116) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %116) #24
   br label %_ZN4llvm5APIntD2Ev.exit14
 
 _ZN4llvm5APIntD2Ev.exit14:                        ; preds = %115, %112, %_ZN4llvm5APIntD2Ev.exit12
@@ -24226,7 +24226,7 @@ define dso_local void @_ZN4llvm8APIntOps8avgCeilUERKNS_5APIntES3_(ptr dead_on_un
   %9 = add nuw nsw i64 %8, 63
   %10 = lshr i64 %9, 3
   %11 = and i64 %10, 1073741816
-  %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #22
+  %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #23
   %13 = load ptr, ptr %1, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr align 8 %13, i64 %11, i1 false)
   %14 = load ptr, ptr %2, align 8, !tbaa !8, !noalias !537
@@ -24246,7 +24246,7 @@ define dso_local void @_ZN4llvm8APIntOps8avgCeilUERKNS_5APIntES3_(ptr dead_on_un
   br i1 %.not.i.i.i, label %22, label %.lr.ph.i.i.i, !llvm.loop !32
 
 22:                                               ; preds = %.lr.ph.i.i.i
-  %23 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #22
+  %23 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr align 8 %13, i64 %11, i1 false)
   br label %.lr.ph.i.i.i5
 
@@ -24289,7 +24289,7 @@ _ZN4llvm5APIntD2Ev.exit13.thread:                 ; preds = %3
   br label %_ZN4llvm5APIntD2Ev.exit15
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i5
-  %50 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #22, !noalias !546
+  %50 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #23, !noalias !546
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %50, ptr nonnull align 8 %23, i64 %11, i1 false), !noalias !546
   %51 = load i64, ptr %50, align 8, !tbaa !9, !noalias !546
   %52 = lshr i64 %51, 1
@@ -24387,8 +24387,8 @@ _ZN4llvm5APIntD2Ev.exit13.thread:                 ; preds = %3
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %95, align 8, !tbaa !3, !alias.scope !543
   store i64 %92, ptr %0, align 8, !alias.scope !543
-  tail call void @_ZdaPv(ptr noundef nonnull %23) #23
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %23) #24
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #24
   br label %_ZN4llvm5APIntD2Ev.exit15
 
 _ZN4llvm5APIntD2Ev.exit15:                        ; preds = %91, %_ZN4llvm5APIntD2Ev.exit13.thread
@@ -24420,7 +24420,7 @@ define dso_local void @_ZN4llvm8APIntOps5mulhsERKNS_5APIntES3_(ptr dead_on_unwin
   %15 = lshr i64 %14, 6
   %16 = trunc nuw nsw i64 %15 to i32
   %17 = shl nuw nsw i64 %15, 3
-  %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #22, !noalias !549
+  %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #23, !noalias !549
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %11, ptr %19, align 8, !tbaa !3, !alias.scope !549
   store ptr %18, ptr %6, align 8, !tbaa !8, !alias.scope !549
@@ -24476,7 +24476,7 @@ _ZNK4llvm5APIntmlERKS0_.exit:                     ; preds = %3
   store i64 %53, ptr %51, align 8, !tbaa !9, !noalias !549
   %54 = load i32, ptr %7, align 8, !tbaa !3
   call void @_ZNK4llvm5APInt11extractBitsEjj(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %6, i32 noundef %54, i32 noundef %54)
-  tail call void @_ZdaPv(ptr noundef nonnull %18) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %18) #24
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APIntmlERKS0_.exit, %43
@@ -24491,7 +24491,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APIntmlER
   br i1 %or.cond, label %_ZN4llvm5APIntD2Ev.exit6, label %61
 
 61:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %56) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %56) #24
   br label %_ZN4llvm5APIntD2Ev.exit6
 
 _ZN4llvm5APIntD2Ev.exit6:                         ; preds = %_ZN4llvm5APIntD2Ev.exit, %61
@@ -24501,7 +24501,7 @@ _ZN4llvm5APIntD2Ev.exit6:                         ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %or.cond11, label %_ZN4llvm5APIntD2Ev.exit7, label %63
 
 63:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit6
-  tail call void @_ZdaPv(ptr noundef nonnull %55) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %55) #24
   br label %_ZN4llvm5APIntD2Ev.exit7
 
 _ZN4llvm5APIntD2Ev.exit7:                         ; preds = %_ZN4llvm5APIntD2Ev.exit6, %63
@@ -24523,7 +24523,7 @@ define dso_local void @_ZN4llvm8APIntOps5mulhuERKNS_5APIntES3_(ptr dead_on_unwin
   br i1 %10, label %_ZN4llvm5APIntC2ERKS0_.exit.i, label %12
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %9
-  %11 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef 0) #22, !noalias !552
+  %11 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef 0) #23, !noalias !552
   br label %28
 
 12:                                               ; preds = %9
@@ -24531,7 +24531,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %9
   %14 = add nuw nsw i64 %13, 63
   %15 = lshr i64 %14, 6
   %16 = shl nuw nsw i64 %15, 3
-  %17 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #22, !noalias !552
+  %17 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #23, !noalias !552
   %18 = icmp ult i32 %6, 65
   %19 = load ptr, ptr %1, align 8, !noalias !552
   %.0.i.i = select i1 %18, ptr %1, ptr %19
@@ -24559,7 +24559,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %9
 _ZN4llvm5APIntC2ERKS0_.exit.i7:                   ; preds = %28
   %34 = lshr i64 %33, 3
   %35 = and i64 %34, 1073741816
-  %36 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %35) #22, !noalias !555
+  %36 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %35) #23, !noalias !555
   %37 = load ptr, ptr %2, align 8, !tbaa !8, !noalias !555
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr align 8 %37, i64 %35, i1 false), !noalias !555
   %.pre = lshr i64 %33, 6
@@ -24569,7 +24569,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i7:                   ; preds = %28
 38:                                               ; preds = %28
   %39 = lshr i64 %33, 6
   %40 = shl nuw nsw i64 %39, 3
-  %41 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %40) #22, !noalias !555
+  %41 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %40) #23, !noalias !555
   %42 = icmp ult i32 %30, 65
   %43 = load ptr, ptr %2, align 8, !noalias !555
   %.0.i.i6 = select i1 %42, ptr %2, ptr %43
@@ -24591,7 +24591,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i7:                   ; preds = %28
   %.sroa.0.0.ph.in = phi ptr [ %36, %_ZN4llvm5APIntC2ERKS0_.exit.i7 ], [ %41, %38 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %52 = trunc nuw nsw i64 %.pre-phi40 to i32
-  %53 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.pre-phi42) #22, !noalias !558
+  %53 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.pre-phi42) #23, !noalias !558
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %7, ptr %54, align 8, !tbaa !3, !alias.scope !558
   store ptr %53, ptr %4, align 8, !tbaa !8, !alias.scope !558
@@ -24644,10 +24644,10 @@ _ZN4llvm5APIntD2Ev.exit11:                        ; preds = %.lr.ph.i.i
   %82 = and i64 %81, %77
   store i64 %82, ptr %80, align 8, !tbaa !9, !noalias !558
   call void @_ZNK4llvm5APInt11extractBitsEjj(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef %6, i32 noundef %6)
-  tail call void @_ZdaPv(ptr noundef nonnull %53) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %53) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  tail call void @_ZdaPv(ptr noundef nonnull %.sroa.0.0.ph.in) #23
-  tail call void @_ZdaPv(ptr noundef nonnull %.sroa.014.0.ph.in) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %.sroa.0.0.ph.in) #24
+  tail call void @_ZdaPv(ptr noundef nonnull %.sroa.014.0.ph.in) #24
   br label %_ZN4llvm5APIntD2Ev.exit12
 
 _ZN4llvm5APIntD2Ev.exit12:                        ; preds = %_ZN4llvm5APIntD2Ev.exit.thread, %_ZN4llvm5APIntD2Ev.exit11
@@ -24675,7 +24675,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.thread:                ; preds = %3
   %11 = add nuw nsw i64 %10, 63
   %12 = lshr i64 %11, 3
   %13 = and i64 %12, 1073741816
-  %14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #22
+  %14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %14, i8 0, i64 %13, i1 false)
   store ptr %14, ptr %0, align 8, !tbaa !8
   store i64 1, ptr %14, align 8, !tbaa !9
@@ -24695,7 +24695,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.thread:                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %.fr23, ptr %21, align 8, !tbaa !3
-  %22 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #22
+  %22 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #23
   store ptr %22, ptr %4, align 8, !tbaa !8
   %23 = load ptr, ptr %1, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr align 8 %23, i64 %13, i1 false)
@@ -24770,7 +24770,7 @@ _ZNK4llvm5APIntmlERKS0_.exit.thread.i.us.us:      ; preds = %.preheader.us, %_ZN
 .lr.ph.preheader.i.i.i:                           ; preds = %.preheader, %_ZN4llvm5APIntmLERKS0_.exit
   %60 = phi ptr [ %61, %_ZN4llvm5APIntmLERKS0_.exit ], [ %57, %.preheader ]
   %.117 = phi i64 [ %150, %_ZN4llvm5APIntmLERKS0_.exit ], [ %.019, %.preheader ]
-  %61 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %32) #22, !noalias !563
+  %61 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %32) #23, !noalias !563
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4llvm5APInt14tcMultiplyPartEPmPKmmmjjb.exit, %.lr.ph.preheader.i.i.i
@@ -24945,7 +24945,7 @@ _ZN4llvm5APIntmLERKS0_.exit:                      ; preds = %_ZN4llvm5APInt14tcM
   %148 = load i64, ptr %147, align 8, !tbaa !9, !noalias !563
   %149 = and i64 %148, %37
   store i64 %149, ptr %147, align 8, !tbaa !9, !noalias !563
-  tail call void @_ZdaPv(ptr noundef nonnull %60) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %60) #24
   store i64 %146, ptr %4, align 8
   store i32 %.fr23, ptr %26, align 8, !tbaa !3
   %150 = lshr exact i64 %.117, 1
@@ -24970,7 +24970,7 @@ _ZN4llvm5APIntmLERKS0_.exit:                      ; preds = %_ZN4llvm5APInt14tcM
   br i1 %or.cond, label %_ZN4llvm5APIntD2Ev.exit, label %161
 
 161:                                              ; preds = %._crit_edge20
-  tail call void @_ZdaPv(ptr noundef nonnull %158) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %158) #24
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %._crit_edge20, %161
@@ -24983,10 +24983,10 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %._crit_edge20, %161
 
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #16
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #11
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -25123,12 +25123,12 @@ _ZNK4llvm5APInt10countl_oneEv.exit:               ; preds = %46, %_ZNK4llvm5APIn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #11
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #17
 
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #17
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm5APInt3absEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::APInt") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1) local_unnamed_addr #0 comdat align 2 {
@@ -25158,7 +25158,7 @@ define linkonce_odr hidden void @_ZNK4llvm5APInt3absEv(ptr dead_on_unwind noalia
   %20 = add nuw nsw i64 %19, 63
   %21 = lshr i64 %20, 3
   %22 = and i64 %21, 1073741816
-  %23 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %22) #22
+  %23 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %22) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr align 8 %10, i64 %22, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !566)
   %24 = lshr i64 %20, 6
@@ -25242,7 +25242,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APInt11tcI
   %60 = add nuw nsw i64 %59, 63
   %61 = lshr i64 %60, 3
   %62 = and i64 %61, 1073741816
-  %63 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %62) #22
+  %63 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %62) #23
   store ptr %63, ptr %0, align 8, !tbaa !8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %63, ptr align 8 %10, i64 %62, i1 false)
   br label %_ZN4llvm5APIntC2ERKS0_.exit1
@@ -25252,13 +25252,13 @@ _ZN4llvm5APIntC2ERKS0_.exit1:                     ; preds = %58, %57, %_ZN4llvm5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #11
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #17
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #11
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden i64 @_ZN4llvm7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 comdat align 2 {
@@ -26003,61 +26003,61 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implImEENSt
   ret i64 %.sroa.056.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bitreverse.i64(i64) #11
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bitreverse.i32(i32) #11
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bitreverse.i16(i16) #11
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.bitreverse.i8(i8) #11
 
 declare void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64, i64) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64, i64) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.fshl.i8(i8, i8, i8) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.fshl.i8(i8, i8, i8) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.bswap.i16(i16) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #20
+declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshr.i64(i64, i64, i64) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshr.i64(i64, i64, i64) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #20
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -26070,20 +26070,21 @@ attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(read,
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #21 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #22 = { builtin nounwind allocsize(0) }
-attributes #23 = { builtin nounwind }
-attributes #24 = { nounwind }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #20 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #22 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #23 = { builtin nounwind allocsize(0) }
+attributes #24 = { builtin nounwind }
+attributes #25 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

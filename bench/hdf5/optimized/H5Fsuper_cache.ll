@@ -111,7 +111,7 @@ define internal range(i32 -1, 1) i32 @H5F__cache_superblock_get_final_load_size(
 16:                                               ; preds = %13
   %17 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %18 = load i64, ptr @H5E_CANTDECODE_g, align 8, !tbaa !10
-  %19 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_get_final_load_size, i32 noundef 341, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.3) #7
+  %19 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_get_final_load_size, i32 noundef 341, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.3) #8
   br label %44
 
 20:                                               ; preds = %13
@@ -185,14 +185,14 @@ define internal range(i32 -1, 2) i32 @H5F__cache_superblock_verify_chksum(ptr no
   br i1 %15, label %16, label %26
 
 16:                                               ; preds = %12
-  %17 = call i32 @H5F_get_checksums(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
+  %17 = call i32 @H5F_get_checksums(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %16
   %20 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %21 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
-  %22 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_verify_chksum, i32 noundef 383, i64 noundef %20, i64 noundef %21, ptr noundef nonnull @.str.11) #7
+  %22 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_verify_chksum, i32 noundef 383, i64 noundef %20, i64 noundef %21, ptr noundef nonnull @.str.11) #8
   br label %26
 
 23:                                               ; preds = %16
@@ -225,14 +225,14 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
   br i1 %13, label %14, label %.thread206, !prof !9
 
 14:                                               ; preds = %4
-  %15 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5F_super_t_reg_free_list) #7
+  %15 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5F_super_t_reg_free_list) #8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %14
   %18 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !10
   %19 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !10
-  %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 420, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.12) #7
+  %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 420, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.12) #8
   br label %.thread206
 
 21:                                               ; preds = %14
@@ -243,7 +243,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 24:                                               ; preds = %21
   %25 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %26 = load i64, ptr @H5E_CANTDECODE_g, align 8, !tbaa !10
-  %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 424, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.3) #7
+  %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 424, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.3) #8
   br label %.thread
 
 28:                                               ; preds = %21
@@ -267,7 +267,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 40:                                               ; preds = %33, %35
   %41 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %42 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %43 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 435, i64 noundef %41, i64 noundef %42, ptr noundef nonnull @.str.13) #7
+  %43 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 435, i64 noundef %41, i64 noundef %42, ptr noundef nonnull @.str.13) #8
   br label %.thread
 
 44:                                               ; preds = %35
@@ -280,7 +280,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 47:                                               ; preds = %44
   %48 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %49 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
-  %50 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 437, i64 noundef %48, i64 noundef %49, ptr noundef nonnull @.str.14) #7
+  %50 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 437, i64 noundef %48, i64 noundef %49, ptr noundef nonnull @.str.14) #8
   br label %.thread
 
 51:                                               ; preds = %44
@@ -294,7 +294,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 56:                                               ; preds = %51
   %57 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %58 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %59 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 441, i64 noundef %57, i64 noundef %58, ptr noundef nonnull @.str.13) #7
+  %59 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 441, i64 noundef %57, i64 noundef %58, ptr noundef nonnull @.str.13) #8
   br label %.thread
 
 60:                                               ; preds = %51
@@ -307,7 +307,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 63:                                               ; preds = %60
   %64 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %65 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
-  %66 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 443, i64 noundef %64, i64 noundef %65, ptr noundef nonnull @.str.15) #7
+  %66 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 443, i64 noundef %64, i64 noundef %65, ptr noundef nonnull @.str.15) #8
   br label %.thread
 
 67:                                               ; preds = %60
@@ -321,7 +321,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 72:                                               ; preds = %67
   %73 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %74 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %75 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 447, i64 noundef %73, i64 noundef %74, ptr noundef nonnull @.str.13) #7
+  %75 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 447, i64 noundef %73, i64 noundef %74, ptr noundef nonnull @.str.13) #8
   br label %.thread
 
 76:                                               ; preds = %67
@@ -337,7 +337,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 82:                                               ; preds = %76
   %83 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %84 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %85 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 452, i64 noundef %83, i64 noundef %84, ptr noundef nonnull @.str.13) #7
+  %85 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 452, i64 noundef %83, i64 noundef %84, ptr noundef nonnull @.str.13) #8
   br label %.thread
 
 86:                                               ; preds = %76
@@ -350,7 +350,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 89:                                               ; preds = %86
   %90 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %91 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
-  %92 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 454, i64 noundef %90, i64 noundef %91, ptr noundef nonnull @.str.16) #7
+  %92 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 454, i64 noundef %90, i64 noundef %91, ptr noundef nonnull @.str.16) #8
   br label %.thread
 
 93:                                               ; preds = %86
@@ -364,7 +364,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 98:                                               ; preds = %93
   %99 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %100 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %101 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 458, i64 noundef %99, i64 noundef %100, ptr noundef nonnull @.str.13) #7
+  %101 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 458, i64 noundef %99, i64 noundef %100, ptr noundef nonnull @.str.13) #8
   br label %.thread
 
 102:                                              ; preds = %93
@@ -387,7 +387,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 114:                                              ; preds = %102
   %115 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %116 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %117 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 464, i64 noundef %115, i64 noundef %116, ptr noundef nonnull @.str.13) #7
+  %117 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 464, i64 noundef %115, i64 noundef %116, ptr noundef nonnull @.str.13) #8
   br label %.thread
 
 118:                                              ; preds = %102
@@ -407,7 +407,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 127:                                              ; preds = %118
   %128 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %129 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %130 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 470, i64 noundef %128, i64 noundef %129, ptr noundef nonnull @.str.13) #7
+  %130 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 470, i64 noundef %128, i64 noundef %129, ptr noundef nonnull @.str.13) #8
   br label %.thread
 
 131:                                              ; preds = %118
@@ -426,7 +426,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 139:                                              ; preds = %131, %134
   %140 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %141 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %142 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 475, i64 noundef %140, i64 noundef %141, ptr noundef nonnull @.str.13) #7
+  %142 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 475, i64 noundef %140, i64 noundef %141, ptr noundef nonnull @.str.13) #8
   br label %.thread
 
 143:                                              ; preds = %134
@@ -445,7 +445,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 153:                                              ; preds = %143
   %154 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %155 = load i64, ptr @H5E_BADRANGE_g, align 8, !tbaa !10
-  %156 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 478, i64 noundef %154, i64 noundef %155, ptr noundef nonnull @.str.17) #7
+  %156 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 478, i64 noundef %154, i64 noundef %155, ptr noundef nonnull @.str.17) #8
   br label %.thread
 
 157:                                              ; preds = %143
@@ -461,7 +461,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 163:                                              ; preds = %157
   %164 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %165 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %166 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 483, i64 noundef %164, i64 noundef %165, ptr noundef nonnull @.str.13) #7
+  %166 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 483, i64 noundef %164, i64 noundef %165, ptr noundef nonnull @.str.13) #8
   br label %.thread
 
 167:                                              ; preds = %157
@@ -480,7 +480,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 177:                                              ; preds = %167
   %178 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %179 = load i64, ptr @H5E_BADRANGE_g, align 8, !tbaa !10
-  %180 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 486, i64 noundef %178, i64 noundef %179, ptr noundef nonnull @.str.18) #7
+  %180 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 486, i64 noundef %178, i64 noundef %179, ptr noundef nonnull @.str.18) #8
   br label %.thread
 
 181:                                              ; preds = %167
@@ -496,7 +496,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 187:                                              ; preds = %181
   %188 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %189 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %190 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 495, i64 noundef %188, i64 noundef %189, ptr noundef nonnull @.str.13) #7
+  %190 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 495, i64 noundef %188, i64 noundef %189, ptr noundef nonnull @.str.13) #8
   br label %.thread
 
 191:                                              ; preds = %181
@@ -517,7 +517,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 203:                                              ; preds = %191
   %204 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %205 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
-  %206 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 498, i64 noundef %204, i64 noundef %205, ptr noundef nonnull @.str.19) #7
+  %206 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 498, i64 noundef %204, i64 noundef %205, ptr noundef nonnull @.str.19) #8
   br label %.thread
 
 207:                                              ; preds = %191
@@ -529,7 +529,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 210:                                              ; preds = %207
   %211 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %212 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
-  %213 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 501, i64 noundef %211, i64 noundef %212, ptr noundef nonnull @.str.20) #7
+  %213 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 501, i64 noundef %211, i64 noundef %212, ptr noundef nonnull @.str.20) #8
   br label %.thread
 
 214:                                              ; preds = %207
@@ -547,7 +547,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 220:                                              ; preds = %215
   %221 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %222 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %223 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 508, i64 noundef %221, i64 noundef %222, ptr noundef nonnull @.str.13) #7
+  %223 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 508, i64 noundef %221, i64 noundef %222, ptr noundef nonnull @.str.13) #8
   br label %.thread
 
 224:                                              ; preds = %215
@@ -564,7 +564,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 231:                                              ; preds = %224
   %232 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %233 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %234 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 515, i64 noundef %232, i64 noundef %233, ptr noundef nonnull @.str.13) #7
+  %234 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 515, i64 noundef %232, i64 noundef %233, ptr noundef nonnull @.str.13) #8
   br label %.thread
 
 235:                                              ; preds = %224
@@ -578,7 +578,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
   %.0150 = phi i32 [ %236, %235 ], [ 32, %214 ]
   %240 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %.0150, ptr %240, align 4, !tbaa !30
-  %241 = tail call zeroext i8 @H5F_sizeof_addr(ptr noundef nonnull %106) #7
+  %241 = tail call zeroext i8 @H5F_sizeof_addr(ptr noundef nonnull %106) #8
   %.not180 = icmp eq i8 %241, 0
   br i1 %.not180, label %260, label %242
 
@@ -588,11 +588,11 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 
 244:                                              ; preds = %242
   %245 = load ptr, ptr %2, align 8, !tbaa !33
-  %246 = tail call zeroext i8 @H5F_sizeof_addr(ptr noundef %245) #7
+  %246 = tail call zeroext i8 @H5F_sizeof_addr(ptr noundef %245) #8
   %247 = load ptr, ptr %2, align 8, !tbaa !33
-  %248 = tail call zeroext i8 @H5F_sizeof_addr(ptr noundef %247) #7
+  %248 = tail call zeroext i8 @H5F_sizeof_addr(ptr noundef %247) #8
   %249 = load ptr, ptr %2, align 8, !tbaa !33
-  %250 = tail call zeroext i8 @H5F_sizeof_addr(ptr noundef %249) #7
+  %250 = tail call zeroext i8 @H5F_sizeof_addr(ptr noundef %249) #8
   %251 = zext i8 %250 to i64
   %252 = shl nuw nsw i64 %251, 2
   %253 = ptrtoint ptr %239 to i64
@@ -603,22 +603,22 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 256:                                              ; preds = %242, %244
   %257 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %258 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %259 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 525, i64 noundef %257, i64 noundef %258, ptr noundef nonnull @.str.13) #7
+  %259 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 525, i64 noundef %257, i64 noundef %258, ptr noundef nonnull @.str.13) #8
   br label %.thread
 
 260:                                              ; preds = %244, %238
   %261 = load ptr, ptr %2, align 8, !tbaa !33
   %262 = getelementptr inbounds nuw i8, ptr %15, i64 272
-  call void @H5F_addr_decode(ptr noundef %261, ptr noundef nonnull %5, ptr noundef nonnull %262) #7
+  call void @H5F_addr_decode(ptr noundef %261, ptr noundef nonnull %5, ptr noundef nonnull %262) #8
   %263 = load ptr, ptr %2, align 8, !tbaa !33
   %264 = getelementptr inbounds nuw i8, ptr %15, i64 280
-  call void @H5F_addr_decode(ptr noundef %263, ptr noundef nonnull %5, ptr noundef nonnull %264) #7
+  call void @H5F_addr_decode(ptr noundef %263, ptr noundef nonnull %5, ptr noundef nonnull %264) #8
   %265 = load ptr, ptr %2, align 8, !tbaa !33
   %266 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @H5F_addr_decode(ptr noundef %265, ptr noundef nonnull %5, ptr noundef nonnull %266) #7
+  call void @H5F_addr_decode(ptr noundef %265, ptr noundef nonnull %5, ptr noundef nonnull %266) #8
   %267 = load ptr, ptr %2, align 8, !tbaa !33
   %268 = getelementptr inbounds nuw i8, ptr %15, i64 288
-  call void @H5F_addr_decode(ptr noundef %267, ptr noundef nonnull %5, ptr noundef nonnull %268) #7
+  call void @H5F_addr_decode(ptr noundef %267, ptr noundef nonnull %5, ptr noundef nonnull %268) #8
   %269 = getelementptr inbounds nuw i8, ptr %15, i64 304
   %270 = load ptr, ptr %269, align 8, !tbaa !61
   %.not181 = icmp eq ptr %270, null
@@ -627,11 +627,11 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 271:                                              ; preds = %260
   %272 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %273 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
-  %274 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 533, i64 noundef %272, i64 noundef %273, ptr noundef nonnull @.str.21) #7
+  %274 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 533, i64 noundef %272, i64 noundef %273, ptr noundef nonnull @.str.21) #8
   br label %.thread
 
 275:                                              ; preds = %260
-  %276 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #8
+  %276 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #9
   store ptr %276, ptr %269, align 8, !tbaa !61
   %277 = icmp eq ptr %276, null
   br i1 %277, label %278, label %282
@@ -639,19 +639,19 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 278:                                              ; preds = %275
   %279 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %280 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !10
-  %281 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 536, i64 noundef %279, i64 noundef %280, ptr noundef nonnull @.str.22) #7
+  %281 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 536, i64 noundef %279, i64 noundef %280, ptr noundef nonnull @.str.22) #8
   br label %.thread
 
 282:                                              ; preds = %275
   %283 = load ptr, ptr %2, align 8, !tbaa !33
-  %284 = call i32 @H5G_ent_decode(ptr noundef %283, ptr noundef nonnull %5, ptr noundef nonnull %276, ptr noundef nonnull %7) #7
+  %284 = call i32 @H5G_ent_decode(ptr noundef %283, ptr noundef nonnull %5, ptr noundef nonnull %276, ptr noundef nonnull %7) #8
   %285 = icmp slt i32 %284, 0
   br i1 %285, label %286, label %290
 
 286:                                              ; preds = %282
   %287 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %288 = load i64, ptr @H5E_CANTDECODE_g, align 8, !tbaa !10
-  %289 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 540, i64 noundef %287, i64 noundef %288, ptr noundef nonnull @.str.23) #7
+  %289 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 540, i64 noundef %287, i64 noundef %288, ptr noundef nonnull @.str.23) #8
   br label %.thread
 
 290:                                              ; preds = %282
@@ -703,7 +703,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 319:                                              ; preds = %302, %314
   %320 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %321 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %322 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 570, i64 noundef %320, i64 noundef %321, ptr noundef nonnull @.str.13) #7
+  %322 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 570, i64 noundef %320, i64 noundef %321, ptr noundef nonnull @.str.13) #8
   br label %.thread
 
 323:                                              ; preds = %314
@@ -718,7 +718,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 328:                                              ; preds = %323
   %329 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %330 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
-  %331 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 575, i64 noundef %329, i64 noundef %330, ptr noundef nonnull @.str.20) #7
+  %331 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 575, i64 noundef %329, i64 noundef %330, ptr noundef nonnull @.str.20) #8
   br label %.thread
 
 332:                                              ; preds = %323
@@ -741,21 +741,21 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 342:                                              ; preds = %333, %335
   %343 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %344 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %345 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 579, i64 noundef %343, i64 noundef %344, ptr noundef nonnull @.str.13) #7
+  %345 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 579, i64 noundef %343, i64 noundef %344, ptr noundef nonnull @.str.13) #8
   br label %.thread
 
 346:                                              ; preds = %335, %332
   %347 = getelementptr inbounds nuw i8, ptr %15, i64 272
-  call void @H5F_addr_decode(ptr noundef nonnull %305, ptr noundef nonnull %5, ptr noundef nonnull %347) #7
+  call void @H5F_addr_decode(ptr noundef nonnull %305, ptr noundef nonnull %5, ptr noundef nonnull %347) #8
   %348 = load ptr, ptr %2, align 8, !tbaa !33
   %349 = getelementptr inbounds nuw i8, ptr %15, i64 280
-  call void @H5F_addr_decode(ptr noundef %348, ptr noundef nonnull %5, ptr noundef nonnull %349) #7
+  call void @H5F_addr_decode(ptr noundef %348, ptr noundef nonnull %5, ptr noundef nonnull %349) #8
   %350 = load ptr, ptr %2, align 8, !tbaa !33
   %351 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @H5F_addr_decode(ptr noundef %350, ptr noundef nonnull %5, ptr noundef nonnull %351) #7
+  call void @H5F_addr_decode(ptr noundef %350, ptr noundef nonnull %5, ptr noundef nonnull %351) #8
   %352 = load ptr, ptr %2, align 8, !tbaa !33
   %353 = getelementptr inbounds nuw i8, ptr %15, i64 296
-  call void @H5F_addr_decode(ptr noundef %352, ptr noundef nonnull %5, ptr noundef nonnull %353) #7
+  call void @H5F_addr_decode(ptr noundef %352, ptr noundef nonnull %5, ptr noundef nonnull %353) #8
   %354 = load ptr, ptr %5, align 8, !tbaa !12
   %355 = icmp ugt ptr %354, %7
   br i1 %355, label %361, label %356
@@ -770,7 +770,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 361:                                              ; preds = %346, %356
   %362 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %363 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %364 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 591, i64 noundef %362, i64 noundef %363, ptr noundef nonnull @.str.13) #7
+  %364 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 591, i64 noundef %362, i64 noundef %363, ptr noundef nonnull @.str.13) #8
   br label %.thread
 
 365:                                              ; preds = %356
@@ -791,18 +791,18 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 374:                                              ; preds = %368
   %375 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %376 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
-  %377 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 606, i64 noundef %375, i64 noundef %376, ptr noundef nonnull @.str.24) #7
+  %377 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 606, i64 noundef %375, i64 noundef %376, ptr noundef nonnull @.str.24) #8
   br label %.thread206
 
 .thread:                                          ; preds = %24, %40, %47, %56, %63, %72, %82, %89, %98, %114, %127, %139, %153, %163, %177, %187, %203, %210, %220, %231, %256, %271, %278, %286, %319, %328, %342, %361
-  %378 = call i32 @H5F__super_free(ptr noundef nonnull %15) #7
+  %378 = call i32 @H5F__super_free(ptr noundef nonnull %15) #8
   %379 = icmp slt i32 %378, 0
   br i1 %379, label %380, label %.thread206
 
 380:                                              ; preds = %.thread
   %381 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %382 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !10
-  %383 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 614, i64 noundef %381, i64 noundef %382, ptr noundef nonnull @.str.25) #7
+  %383 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 614, i64 noundef %381, i64 noundef %382, ptr noundef nonnull @.str.25) #8
   br label %.thread206
 
 .thread206:                                       ; preds = %17, %368, %374, %4, %.thread, %380
@@ -965,40 +965,40 @@ define internal range(i32 -1, 1) i32 @H5F__cache_superblock_serialize(ptr nounde
 66:                                               ; preds = %55, %20
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %68 = load i64, ptr %67, align 8, !tbaa !69
-  call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %68) #7
+  call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %68) #8
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 280
   %70 = load i64, ptr %69, align 8, !tbaa !70
-  call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %70) #7
+  call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %70) #8
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %72 = load ptr, ptr %71, align 8, !tbaa !34
   %73 = load ptr, ptr %72, align 8, !tbaa !71
-  %74 = call i64 @H5FD_get_eoa(ptr noundef %73, i32 noundef 1) #7
+  %74 = call i64 @H5FD_get_eoa(ptr noundef %73, i32 noundef 1) #8
   %75 = icmp eq i64 %74, -1
   br i1 %75, label %76, label %80
 
 76:                                               ; preds = %66
   %77 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !10
   %78 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
-  %79 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_serialize, i32 noundef 714, i64 noundef %77, i64 noundef %78, ptr noundef nonnull @.str.27) #7
+  %79 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_serialize, i32 noundef 714, i64 noundef %77, i64 noundef %78, ptr noundef nonnull @.str.27) #8
   br label %166
 
 80:                                               ; preds = %66
   %81 = load i64, ptr %67, align 8, !tbaa !69
   %82 = add i64 %81, %74
-  call void @H5F_addr_encode(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %82) #7
+  call void @H5F_addr_encode(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %82) #8
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 288
   %84 = load i64, ptr %83, align 8, !tbaa !66
-  call void @H5F_addr_encode(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %84) #7
+  call void @H5F_addr_encode(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %84) #8
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 304
   %86 = load ptr, ptr %85, align 8, !tbaa !61
-  %87 = call i32 @H5G_ent_encode(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %86) #7
+  %87 = call i32 @H5G_ent_encode(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %86) #8
   %88 = icmp slt i32 %87, 0
   br i1 %88, label %89, label %166
 
 89:                                               ; preds = %80
   %90 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %91 = load i64, ptr @H5E_CANTENCODE_g, align 8, !tbaa !10
-  %92 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_serialize, i32 noundef 722, i64 noundef %90, i64 noundef %91, ptr noundef nonnull @.str.28) #7
+  %92 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_serialize, i32 noundef 722, i64 noundef %90, i64 noundef %91, ptr noundef nonnull @.str.28) #8
   br label %166
 
 93:                                               ; preds = %12
@@ -1017,44 +1017,44 @@ define internal range(i32 -1, 1) i32 @H5F__cache_superblock_serialize(ptr nounde
   store i8 %101, ptr %99, align 1, !tbaa !31
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %104 = load i64, ptr %103, align 8, !tbaa !69
-  call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %104) #7
+  call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %104) #8
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 280
   %106 = load i64, ptr %105, align 8, !tbaa !70
-  call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %106) #7
+  call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %106) #8
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %108 = load ptr, ptr %107, align 8, !tbaa !34
   %109 = load ptr, ptr %108, align 8, !tbaa !71
-  %110 = call i64 @H5FD_get_eoa(ptr noundef %109, i32 noundef 1) #7
+  %110 = call i64 @H5FD_get_eoa(ptr noundef %109, i32 noundef 1) #8
   %111 = icmp eq i64 %110, -1
   br i1 %111, label %112, label %116
 
 112:                                              ; preds = %93
   %113 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !10
   %114 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
-  %115 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_serialize, i32 noundef 748, i64 noundef %113, i64 noundef %114, ptr noundef nonnull @.str.27) #7
+  %115 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_serialize, i32 noundef 748, i64 noundef %113, i64 noundef %114, ptr noundef nonnull @.str.27) #8
   br label %166
 
 116:                                              ; preds = %93
   %117 = load i64, ptr %103, align 8, !tbaa !69
   %118 = add i64 %117, %110
-  call void @H5F_addr_encode(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %118) #7
+  call void @H5F_addr_encode(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %118) #8
   %119 = load ptr, ptr %107, align 8, !tbaa !34
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 1456
   %121 = load ptr, ptr %120, align 8, !tbaa !72
-  %122 = call ptr @H5G_oloc(ptr noundef %121) #7
+  %122 = call ptr @H5G_oloc(ptr noundef %121) #8
   %123 = icmp eq ptr %122, null
   br i1 %123, label %124, label %128
 
 124:                                              ; preds = %116
   %125 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %126 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !10
-  %127 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_serialize, i32 noundef 753, i64 noundef %125, i64 noundef %126, ptr noundef nonnull @.str.29) #7
+  %127 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_serialize, i32 noundef 753, i64 noundef %125, i64 noundef %126, ptr noundef nonnull @.str.29) #8
   br label %166
 
 128:                                              ; preds = %116
   %129 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %130 = load i64, ptr %129, align 8, !tbaa !73
-  call void @H5F_addr_encode(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %130) #7
+  call void @H5F_addr_encode(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %130) #8
   %131 = load i32, ptr %14, align 8, !tbaa !15
   %132 = load i8, ptr %94, align 4, !tbaa !32
   %133 = zext i8 %132 to i32
@@ -1088,7 +1088,7 @@ define internal range(i32 -1, 1) i32 @H5F__cache_superblock_serialize(ptr nounde
   %148 = phi i32 [ %147, %146 ], [ %139, %.thread ], [ %145, %140 ]
   %149 = add nuw nsw i32 %148, 5
   %150 = zext nneg i32 %149 to i64
-  %151 = call i32 @H5_checksum_metadata(ptr noundef nonnull %1, i64 noundef %150, i32 noundef 0) #7
+  %151 = call i32 @H5_checksum_metadata(ptr noundef nonnull %1, i64 noundef %150, i32 noundef 0) #8
   %152 = trunc i32 %151 to i8
   %153 = load ptr, ptr %5, align 8, !tbaa !12
   store i8 %152, ptr %153, align 1, !tbaa !31
@@ -1128,14 +1128,14 @@ define internal range(i32 -1, 1) i32 @H5F__cache_superblock_free_icr(ptr noundef
   br i1 %7, label %8, label %15, !prof !9
 
 8:                                                ; preds = %1
-  %9 = tail call i32 @H5F__super_free(ptr noundef %0) #7
+  %9 = tail call i32 @H5F__super_free(ptr noundef %0) #8
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %8
   %12 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !10
   %13 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !10
-  %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_free_icr, i32 noundef 797, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.30) #7
+  %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_free_icr, i32 noundef 797, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.30) #8
   br label %15
 
 15:                                               ; preds = %11, %8, %1
@@ -1184,7 +1184,7 @@ define internal range(i32 -1, 1) i32 @H5F__cache_drvrinfo_get_final_load_size(pt
 16:                                               ; preds = %13
   %17 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %18 = load i64, ptr @H5E_CANTDECODE_g, align 8, !tbaa !10
-  %19 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_drvrinfo_get_final_load_size, i32 noundef 851, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.31) #7
+  %19 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_drvrinfo_get_final_load_size, i32 noundef 851, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.31) #8
   br label %24
 
 20:                                               ; preds = %13
@@ -1217,14 +1217,14 @@ define internal noundef ptr @H5F__cache_drvrinfo_deserialize(ptr noundef %0, i64
   br i1 %12, label %13, label %.thread, !prof !9
 
 13:                                               ; preds = %4
-  %14 = tail call noalias dereferenceable_or_null(280) ptr @calloc(i64 noundef 1, i64 noundef 280) #8
+  %14 = tail call noalias dereferenceable_or_null(280) ptr @calloc(i64 noundef 1, i64 noundef 280) #9
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %13
   %17 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %18 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !10
-  %19 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_drvrinfo_deserialize, i32 noundef 887, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.33) #7
+  %19 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_drvrinfo_deserialize, i32 noundef 887, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.33) #8
   br label %.thread
 
 20:                                               ; preds = %13
@@ -1235,7 +1235,7 @@ define internal noundef ptr @H5F__cache_drvrinfo_deserialize(ptr noundef %0, i64
 23:                                               ; preds = %20
   %24 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %25 = load i64, ptr @H5E_CANTDECODE_g, align 8, !tbaa !10
-  %26 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_drvrinfo_deserialize, i32 noundef 891, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.31) #7
+  %26 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_drvrinfo_deserialize, i32 noundef 891, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.31) #8
   br label %39
 
 27:                                               ; preds = %20
@@ -1244,18 +1244,18 @@ define internal noundef ptr @H5F__cache_drvrinfo_deserialize(ptr noundef %0, i64
   %30 = load ptr, ptr %29, align 8, !tbaa !34
   %31 = load ptr, ptr %30, align 8, !tbaa !71
   %32 = load ptr, ptr %5, align 8, !tbaa !12
-  %33 = call i32 @H5FD_sb_load(ptr noundef %31, ptr noundef nonnull %6, ptr noundef %32) #7
+  %33 = call i32 @H5FD_sb_load(ptr noundef %31, ptr noundef nonnull %6, ptr noundef %32) #8
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %35, label %.thread
 
 35:                                               ; preds = %27
   %36 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %37 = load i64, ptr @H5E_CANTDECODE_g, align 8, !tbaa !10
-  %38 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_drvrinfo_deserialize, i32 noundef 898, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.34) #7
+  %38 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_drvrinfo_deserialize, i32 noundef 898, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.34) #8
   br label %39
 
 39:                                               ; preds = %23, %35
-  %40 = call ptr @H5MM_xfree(ptr noundef nonnull %14) #7
+  %40 = call ptr @H5MM_xfree(ptr noundef nonnull %14) #8
   br label %.thread
 
 .thread:                                          ; preds = %16, %27, %39, %4
@@ -1323,14 +1323,14 @@ define internal range(i32 -1, 1) i32 @H5F__cache_drvrinfo_serialize(ptr noundef 
   %30 = load ptr, ptr %29, align 8, !tbaa !34
   %31 = load ptr, ptr %30, align 8, !tbaa !71
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %33 = tail call i32 @H5FD_sb_encode(ptr noundef %31, ptr noundef nonnull %28, ptr noundef nonnull %32) #7
+  %33 = tail call i32 @H5FD_sb_encode(ptr noundef %31, ptr noundef nonnull %28, ptr noundef nonnull %32) #8
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %11
   %36 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %37 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !10
-  %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_drvrinfo_serialize, i32 noundef 977, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.35) #7
+  %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_drvrinfo_serialize, i32 noundef 977, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.35) #8
   br label %39
 
 39:                                               ; preds = %11, %35, %4
@@ -1349,7 +1349,7 @@ define internal noundef i32 @H5F__cache_drvrinfo_free_icr(ptr noundef %0) #1 {
   br i1 %7, label %8, label %10, !prof !9
 
 8:                                                ; preds = %1
-  %9 = tail call ptr @H5MM_xfree(ptr noundef %0) #7
+  %9 = tail call ptr @H5MM_xfree(ptr noundef %0) #8
   br label %10
 
 10:                                               ; preds = %8, %1
@@ -1376,7 +1376,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
 16:                                               ; preds = %15
   %17 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %18 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %19 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 157, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.4) #7
+  %19 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 157, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.4) #8
   br label %.thread116
 
 20:                                               ; preds = %15
@@ -1389,7 +1389,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
 24:                                               ; preds = %20
   %25 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %26 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 162, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.4) #7
+  %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 162, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.4) #8
   br label %.thread116
 
 28:                                               ; preds = %20
@@ -1404,7 +1404,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
 34:                                               ; preds = %28
   %35 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %36 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
-  %37 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 165, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.5) #7
+  %37 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 165, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.5) #8
   br label %.thread116
 
 38:                                               ; preds = %28
@@ -1420,7 +1420,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
 43:                                               ; preds = %41
   %44 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %45 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %46 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 176, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.4) #7
+  %46 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 176, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.4) #8
   br label %.thread116
 
 47:                                               ; preds = %41
@@ -1435,7 +1435,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
 51:                                               ; preds = %49
   %52 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %53 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %54 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 182, i64 noundef %52, i64 noundef %53, ptr noundef nonnull @.str.4) #7
+  %54 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 182, i64 noundef %52, i64 noundef %53, ptr noundef nonnull @.str.4) #8
   br label %.thread116
 
 55:                                               ; preds = %49, %47
@@ -1461,7 +1461,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
 63:                                               ; preds = %.split, %55
   %64 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %65 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
-  %66 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 189, i64 noundef %64, i64 noundef %65, ptr noundef nonnull @.str.7) #7
+  %66 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 189, i64 noundef %64, i64 noundef %65, ptr noundef nonnull @.str.7) #8
   br label %.thread116
 
 67:                                               ; preds = %.split
@@ -1478,7 +1478,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
 71:                                               ; preds = %.split110, %67
   %72 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %73 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
-  %74 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 192, i64 noundef %72, i64 noundef %73, ptr noundef nonnull @.str.8) #7
+  %74 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 192, i64 noundef %72, i64 noundef %73, ptr noundef nonnull @.str.8) #8
   br label %.thread116
 
 75:                                               ; preds = %.split110
@@ -1515,14 +1515,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
   %91 = zext nneg i32 %90 to i64
   %92 = load ptr, ptr %3, align 8, !tbaa !33
   %93 = add nuw nsw i64 %91, 9
-  %94 = tail call i32 @H5F__set_eoa(ptr noundef %92, i32 noundef 1, i64 noundef %93) #7
+  %94 = tail call i32 @H5F__set_eoa(ptr noundef %92, i32 noundef 1, i64 noundef %93) #8
   %95 = icmp slt i32 %94, 0
   br i1 %95, label %96, label %100
 
 96:                                               ; preds = %.thread114
   %97 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %98 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !10
-  %99 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 206, i64 noundef %97, i64 noundef %98, ptr noundef nonnull @.str.10) #7
+  %99 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 206, i64 noundef %97, i64 noundef %98, ptr noundef nonnull @.str.10) #8
   br label %.thread116
 
 100:                                              ; preds = %.thread114, %75
@@ -1583,7 +1583,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__drvrinfo_prefix_decode(ptr nou
 18:                                               ; preds = %16
   %19 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %20 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %21 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__drvrinfo_prefix_decode, i32 noundef 243, i64 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.4) #7
+  %21 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__drvrinfo_prefix_decode, i32 noundef 243, i64 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.4) #8
   br label %106
 
 22:                                               ; preds = %16
@@ -1594,7 +1594,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__drvrinfo_prefix_decode(ptr nou
 24:                                               ; preds = %22
   %25 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %26 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
-  %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__drvrinfo_prefix_decode, i32 noundef 246, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.32) #7
+  %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__drvrinfo_prefix_decode, i32 noundef 246, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.32) #8
   br label %106
 
 28:                                               ; preds = %22
@@ -1607,7 +1607,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__drvrinfo_prefix_decode(ptr nou
 32:                                               ; preds = %28
   %33 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %34 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %35 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__drvrinfo_prefix_decode, i32 noundef 250, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.4) #7
+  %35 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__drvrinfo_prefix_decode, i32 noundef 250, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.4) #8
   br label %106
 
 36:                                               ; preds = %28
@@ -1621,7 +1621,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__drvrinfo_prefix_decode(ptr nou
 41:                                               ; preds = %36
   %42 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %43 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %44 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__drvrinfo_prefix_decode, i32 noundef 255, i64 noundef %42, i64 noundef %43, ptr noundef nonnull @.str.4) #7
+  %44 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__drvrinfo_prefix_decode, i32 noundef 255, i64 noundef %42, i64 noundef %43, ptr noundef nonnull @.str.4) #8
   br label %106
 
 45:                                               ; preds = %36
@@ -1661,7 +1661,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__drvrinfo_prefix_decode(ptr nou
 69:                                               ; preds = %65
   %70 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %71 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %72 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__drvrinfo_prefix_decode, i32 noundef 261, i64 noundef %70, i64 noundef %71, ptr noundef nonnull @.str.4) #7
+  %72 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__drvrinfo_prefix_decode, i32 noundef 261, i64 noundef %70, i64 noundef %71, ptr noundef nonnull @.str.4) #8
   br label %106
 
 73:                                               ; preds = %65
@@ -1681,14 +1681,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__drvrinfo_prefix_decode(ptr nou
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8, !tbaa !34
   %82 = load ptr, ptr %81, align 8, !tbaa !71
-  %83 = tail call i64 @H5FD_get_eoa(ptr noundef %82, i32 noundef 1) #7
+  %83 = tail call i64 @H5FD_get_eoa(ptr noundef %82, i32 noundef 1) #8
   %.not74 = icmp eq i64 %83, -1
   br i1 %.not74, label %84, label %88
 
 84:                                               ; preds = %78
   %85 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %86 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
-  %87 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__drvrinfo_prefix_decode, i32 noundef 275, i64 noundef %85, i64 noundef %86, ptr noundef nonnull @.str.27) #7
+  %87 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__drvrinfo_prefix_decode, i32 noundef 275, i64 noundef %85, i64 noundef %86, ptr noundef nonnull @.str.27) #8
   br label %106
 
 88:                                               ; preds = %78
@@ -1707,14 +1707,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__drvrinfo_prefix_decode(ptr nou
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load ptr, ptr %97, align 8, !tbaa !34
   %99 = load ptr, ptr %98, align 8, !tbaa !71
-  %100 = tail call i32 @H5FD_set_eoa(ptr noundef %99, i32 noundef 1, i64 noundef %93) #7
+  %100 = tail call i32 @H5FD_set_eoa(ptr noundef %99, i32 noundef 1, i64 noundef %93) #8
   %101 = icmp slt i32 %100, 0
   br i1 %101, label %102, label %.thread
 
 102:                                              ; preds = %95
   %103 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %104 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !10
-  %105 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__drvrinfo_prefix_decode, i32 noundef 283, i64 noundef %103, i64 noundef %104, ptr noundef nonnull @.str.10) #7
+  %105 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__drvrinfo_prefix_decode, i32 noundef 283, i64 noundef %103, i64 noundef %104, ptr noundef nonnull @.str.10) #8
   br label %106
 
 .thread:                                          ; preds = %88, %95, %77
@@ -1740,11 +1740,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.ctpop.i8(i8) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.cttz.i8(i8, i1 immarg) #6
+declare i8 @llvm.cttz.i8(i8, i1 immarg) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1752,9 +1752,10 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind allocsize(0,1) }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

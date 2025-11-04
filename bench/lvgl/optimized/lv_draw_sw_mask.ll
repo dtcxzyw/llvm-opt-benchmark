@@ -38,7 +38,7 @@ define range(i32 0, 3) i32 @lv_draw_sw_mask_apply(ptr noundef readonly captures(
   %.01627 = phi i32 [ %12, %10 ], [ 0, %5 ]
   %.01826 = phi i1 [ %spec.select, %10 ], [ false, %5 ]
   %8 = load ptr, ptr %7, align 8, !tbaa !7
-  %9 = tail call i32 %8(ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %7) #8
+  %9 = tail call i32 %8(ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %7) #9
   %.not23 = icmp eq i32 %9, 0
   br i1 %.not23, label %.loopexit, label %10
 
@@ -83,9 +83,9 @@ define void @lv_draw_sw_mask_free_param(ptr noundef readonly captures(none) %0) 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !21
-  tail call void @lv_free(ptr noundef %14) #8
+  tail call void @lv_free(ptr noundef %14) #9
   %15 = load ptr, ptr %6, align 8, !tbaa !13
-  tail call void @lv_free(ptr noundef %15) #8
+  tail call void @lv_free(ptr noundef %15) #9
   br label %20
 
 16:                                               ; preds = %8
@@ -113,11 +113,11 @@ define void @lv_draw_sw_mask_cleanup() local_unnamed_addr #1 {
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @lv_free(ptr noundef nonnull %3) #8
+  tail call void @lv_free(ptr noundef nonnull %3) #9
   br label %5
 
 5:                                                ; preds = %4, %1
-  tail call void @lv_memset(ptr noundef nonnull %2, i8 noundef zeroext 0, i64 noundef 48) #8
+  tail call void @lv_memset(ptr noundef nonnull %2, i8 noundef zeroext 0, i64 noundef 48) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %6, label %1, !llvm.loop !24
@@ -128,7 +128,7 @@ define void @lv_draw_sw_mask_cleanup() local_unnamed_addr #1 {
 
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_sw_mask_line_points_init(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
-  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 64) #8
+  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 64) #9
   %7 = icmp eq i32 %2, %4
   %8 = icmp eq i32 %5, 3
   %or.cond = and i1 %7, %8
@@ -147,9 +147,9 @@ define void @lv_draw_sw_mask_line_points_init(ptr noundef %0, i32 noundef %1, i3
   %.1 = phi i32 [ %.090, %11 ], [ %.088, %6 ]
   %.0 = phi i32 [ %3, %11 ], [ %1, %6 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @lv_point_set(ptr noundef nonnull %13, i32 noundef %.0, i32 noundef %.1) #8
+  tail call void @lv_point_set(ptr noundef nonnull %13, i32 noundef %.0, i32 noundef %.1) #9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @lv_point_set(ptr noundef nonnull %14, i32 noundef %.089, i32 noundef %.191) #8
+  tail call void @lv_point_set(ptr noundef nonnull %14, i32 noundef %.089, i32 noundef %.191) #9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = trunc i32 %5 to i8
   %17 = load i8, ptr %15, align 8
@@ -158,7 +158,7 @@ define void @lv_draw_sw_mask_line_points_init(ptr noundef %0, i32 noundef %1, i3
   %20 = or disjoint i8 %19, %18
   store i8 %20, ptr %15, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  tail call void @lv_point_set(ptr noundef nonnull %21, i32 noundef %.0, i32 noundef %.1) #8
+  tail call void @lv_point_set(ptr noundef nonnull %21, i32 noundef %.0, i32 noundef %.1) #9
   %22 = sub nsw i32 %.089, %.0
   %23 = tail call i32 @llvm.abs.i32(i32 %22, i1 true)
   %24 = sub nsw i32 %.191, %.1
@@ -359,7 +359,7 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_line(ptr noundef %0, i32 nound
   %44 = zext nneg i32 %40 to i64
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 %44
   %46 = zext nneg i32 %36 to i64
-  tail call void @lv_memset(ptr noundef %45, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %46) #8
+  tail call void @lv_memset(ptr noundef %45, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %46) #9
   br label %line_mask_flat.exit
 
 47:                                               ; preds = %34
@@ -373,7 +373,7 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_line(ptr noundef %0, i32 nound
 
 50:                                               ; preds = %48
   %51 = zext nneg i32 %spec.store.select to i64
-  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %51) #8
+  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %51) #9
   br label %line_mask_flat.exit
 
 52:                                               ; preds = %5
@@ -634,7 +634,7 @@ mask_mix.exit133.i:                               ; preds = %179, %177, %163
 
 192:                                              ; preds = %190
   %193 = zext nneg i32 %129 to i64
-  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %193) #8
+  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %193) #9
   br label %line_mask_flat.exit
 
 194:                                              ; preds = %185
@@ -649,7 +649,7 @@ mask_mix.exit133.i:                               ; preds = %179, %177, %163
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 %198
   %200 = sub nsw i32 %3, %197
   %201 = sext i32 %200 to i64
-  tail call void @lv_memset(ptr noundef %199, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %201) #8
+  tail call void @lv_memset(ptr noundef %199, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %201) #9
   br label %line_mask_flat.exit
 
 202:                                              ; preds = %52
@@ -763,7 +763,7 @@ mask_mix.exit.i71:                                ; preds = %247, %245, %235
 
 260:                                              ; preds = %258
   %261 = zext nneg i32 %257 to i64
-  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %261) #8
+  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %261) #9
   br label %line_mask_flat.exit
 
 262:                                              ; preds = %253
@@ -781,7 +781,7 @@ mask_mix.exit.i71:                                ; preds = %247, %245, %235
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 %268
   %270 = sub nsw i32 %3, %spec.select206.i
   %271 = sext i32 %270 to i64
-  tail call void @lv_memset(ptr noundef nonnull %269, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %271) #8
+  tail call void @lv_memset(ptr noundef nonnull %269, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %271) #9
   br label %line_mask_flat.exit
 
 272:                                              ; preds = %229
@@ -893,7 +893,7 @@ mask_mix.exit220.i:                               ; preds = %318, %316, %301
 
 333:                                              ; preds = %328
   %334 = zext nneg i32 %330 to i64
-  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %334) #8
+  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %334) #9
   br label %line_mask_flat.exit
 
 335:                                              ; preds = %324
@@ -908,7 +908,7 @@ mask_mix.exit220.i:                               ; preds = %318, %316, %301
   %340 = getelementptr inbounds nuw i8, ptr %0, i64 %339
   %341 = sub nsw i32 %3, %326
   %342 = sext i32 %341 to i64
-  tail call void @lv_memset(ptr noundef %340, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %342) #8
+  tail call void @lv_memset(ptr noundef %340, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %342) #9
   br label %line_mask_flat.exit
 
 343:                                              ; preds = %272
@@ -1010,7 +1010,7 @@ mask_mix.exit224.i:                               ; preds = %388, %386, %372
 
 399:                                              ; preds = %397
   %400 = zext nneg i32 %228 to i64
-  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %400) #8
+  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %400) #9
   br label %line_mask_flat.exit
 
 401:                                              ; preds = %394
@@ -1028,7 +1028,7 @@ mask_mix.exit224.i:                               ; preds = %388, %386, %372
   %408 = getelementptr inbounds nuw i8, ptr %0, i64 %407
   %409 = sub nsw i32 %3, %spec.select214.i
   %410 = sext i32 %409 to i64
-  tail call void @lv_memset(ptr noundef nonnull %408, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %410) #8
+  tail call void @lv_memset(ptr noundef nonnull %408, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %410) #9
   br label %line_mask_flat.exit
 
 line_mask_flat.exit:                              ; preds = %406, %404, %401, %399, %397, %338, %336, %335, %333, %328, %267, %265, %262, %260, %258, %256, %215, %210, %196, %194, %192, %190, %188, %79, %72, %65, %61, %29, %22, %50, %48, %47, %39, %43, %41, %38, %31, %26, %23
@@ -1042,10 +1042,10 @@ define void @lv_draw_sw_mask_line_angle_init(ptr noundef %0, i32 noundef %1, i32
   %7 = add nsw i16 %3, -180
   %spec.select = select i1 %6, i16 %7, i16 %3
   %8 = add nsw i16 %spec.select, 90
-  %9 = tail call i32 @lv_trigo_sin(i16 noundef signext %8) #8
+  %9 = tail call i32 @lv_trigo_sin(i16 noundef signext %8) #9
   %10 = ashr i32 %9, 5
   %11 = add nsw i32 %10, %1
-  %12 = tail call i32 @lv_trigo_sin(i16 noundef signext %spec.select) #8
+  %12 = tail call i32 @lv_trigo_sin(i16 noundef signext %spec.select) #9
   %13 = ashr i32 %12, 5
   %14 = add nsw i32 %13, %2
   tail call void @lv_draw_sw_mask_line_points_init(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %11, i32 noundef %14, i32 noundef %4)
@@ -1074,7 +1074,7 @@ define void @lv_draw_sw_mask_angle_init(ptr noundef initializes((24, 32), (160, 
   store i32 %.056, ptr %15, align 8, !tbaa !42
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.055, ptr %16, align 4, !tbaa !43
-  tail call void @lv_point_set(ptr noundef nonnull %14, i32 noundef %1, i32 noundef %2) #8
+  tail call void @lv_point_set(ptr noundef nonnull %14, i32 noundef %1, i32 noundef %2) #9
   store ptr @lv_draw_mask_angle, ptr %0, align 8, !tbaa !44
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %17, align 8, !tbaa !45
@@ -1088,10 +1088,10 @@ define void @lv_draw_sw_mask_angle_init(ptr noundef initializes((24, 32), (160, 
   %23 = add nsw i16 %21, -180
   %spec.select.i = select i1 %22, i16 %23, i16 %21
   %24 = add nuw nsw i16 %spec.select.i, 90
-  %25 = tail call i32 @lv_trigo_sin(i16 noundef signext %24) #8
+  %25 = tail call i32 @lv_trigo_sin(i16 noundef signext %24) #9
   %26 = ashr i32 %25, 5
   %27 = add nsw i32 %26, %1
-  %28 = tail call i32 @lv_trigo_sin(i16 noundef signext %spec.select.i) #8
+  %28 = tail call i32 @lv_trigo_sin(i16 noundef signext %spec.select.i) #9
   %29 = ashr i32 %28, 5
   %30 = add nsw i32 %29, %2
   tail call void @lv_draw_sw_mask_line_points_init(ptr noundef nonnull %20, i32 noundef %1, i32 noundef %2, i32 noundef %27, i32 noundef %30, i32 noundef %.054)
@@ -1101,10 +1101,10 @@ define void @lv_draw_sw_mask_angle_init(ptr noundef initializes((24, 32), (160, 
   %34 = add nsw i16 %32, -180
   %spec.select.i60 = select i1 %33, i16 %34, i16 %32
   %35 = add nuw nsw i16 %spec.select.i60, 90
-  %36 = tail call i32 @lv_trigo_sin(i16 noundef signext %35) #8
+  %36 = tail call i32 @lv_trigo_sin(i16 noundef signext %35) #9
   %37 = ashr i32 %36, 5
   %38 = add nsw i32 %37, %1
-  %39 = tail call i32 @lv_trigo_sin(i16 noundef signext %spec.select.i60) #8
+  %39 = tail call i32 @lv_trigo_sin(i16 noundef signext %spec.select.i60) #9
   %40 = ashr i32 %39, 5
   %41 = add nsw i32 %40, %2
   tail call void @lv_draw_sw_mask_line_points_init(ptr noundef nonnull %31, i32 noundef %1, i32 noundef %2, i32 noundef %38, i32 noundef %41, i32 noundef %.0)
@@ -1205,7 +1205,7 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_angle(ptr noundef %0, i32 noun
 
 57:                                               ; preds = %54
   %58 = zext nneg i32 %spec.select to i64
-  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %58) #8
+  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %58) #9
   br label %59
 
 59:                                               ; preds = %54, %57, %.thread263
@@ -1221,7 +1221,7 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_angle(ptr noundef %0, i32 noun
 
 66:                                               ; preds = %59
   %67 = sext i32 %63 to i64
-  tail call void @lv_memset(ptr noundef %61, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %67) #8
+  tail call void @lv_memset(ptr noundef %61, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %67) #9
   br label %68
 
 68:                                               ; preds = %66, %59
@@ -1306,7 +1306,7 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_angle(ptr noundef %0, i32 noun
 
 114:                                              ; preds = %111
   %115 = zext nneg i32 %spec.select257 to i64
-  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %115) #8
+  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %115) #9
   br label %116
 
 116:                                              ; preds = %111, %114, %105
@@ -1322,7 +1322,7 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_angle(ptr noundef %0, i32 noun
 
 123:                                              ; preds = %116
   %124 = sext i32 %120 to i64
-  tail call void @lv_memset(ptr noundef %118, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %124) #8
+  tail call void @lv_memset(ptr noundef %118, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %124) #9
   br label %125
 
 125:                                              ; preds = %123, %116
@@ -1427,8 +1427,8 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_angle(ptr noundef %0, i32 noun
 define void @lv_draw_sw_mask_radius_init(ptr noundef captures(none) initializes((0, 12), (16, 36)) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [4 x i32], align 16
-  %7 = tail call i32 @lv_area_get_width(ptr noundef %1) #8
-  %8 = tail call i32 @lv_area_get_height(ptr noundef %1) #8
+  %7 = tail call i32 @lv_area_get_width(ptr noundef %1) #9
+  %8 = tail call i32 @lv_area_get_height(ptr noundef %1) #9
   %9 = tail call i32 @llvm.smin.i32(i32 %7, i32 %8)
   %10 = ashr i32 %9, 1
   %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %10)
@@ -1530,7 +1530,7 @@ define void @lv_draw_sw_mask_radius_init(ptr noundef captures(none) initializes(
   br i1 %.not, label %61, label %65
 
 61:                                               ; preds = %60
-  %62 = tail call ptr @lv_malloc_zeroed(i64 noundef 48) #8
+  %62 = tail call ptr @lv_malloc_zeroed(i64 noundef 48) #9
   %.not65 = icmp eq ptr %62, null
   br i1 %.not65, label %.preheader, label %63
 
@@ -1566,14 +1566,14 @@ define void @lv_draw_sw_mask_radius_init(ptr noundef captures(none) initializes(
   br i1 %.not.i, label %78, label %77
 
 77:                                               ; preds = %73
-  tail call void @lv_free(ptr noundef nonnull %76) #8
+  tail call void @lv_free(ptr noundef nonnull %76) #9
   br label %78
 
 78:                                               ; preds = %77, %73
   %79 = mul nuw nsw i32 %spec.store.select, 6
   %80 = add nuw nsw i32 %79, 6
   %81 = zext nneg i32 %80 to i64
-  %82 = tail call ptr @lv_malloc(i64 noundef %81) #8
+  %82 = tail call ptr @lv_malloc(i64 noundef %81) #9
   store ptr %82, ptr %.2, align 8, !tbaa !23
   %.not195.i = icmp eq ptr %82, null
   br i1 %.not195.i, label %.preheader.i, label %83
@@ -1614,7 +1614,7 @@ define void @lv_draw_sw_mask_radius_init(ptr noundef captures(none) initializes(
   %102 = shl nsw i32 %101, 1
   %103 = sext i32 %102 to i64
   %104 = shl nsw i64 %103, 2
-  %105 = tail call ptr @lv_malloc_zeroed(i64 noundef %104) #8
+  %105 = tail call ptr @lv_malloc_zeroed(i64 noundef %104) #9
   %.not196.i = icmp eq ptr %105, null
   br i1 %.not196.i, label %.preheader223.i, label %106
 
@@ -1972,7 +1972,7 @@ circ_next.exit.i:                                 ; preds = %124, %120
   br i1 %309, label %283, label %._crit_edge256.i, !llvm.loop !68
 
 ._crit_edge256.i:                                 ; preds = %308, %._crit_edge.i
-  tail call void @lv_free(ptr noundef nonnull %105) #8
+  tail call void @lv_free(ptr noundef nonnull %105) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %circ_calc_aa4.exit
@@ -2049,7 +2049,7 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_radius(ptr noundef %0, i32 nou
 
 39:                                               ; preds = %37
   %40 = zext nneg i32 %34 to i64
-  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %40) #8
+  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %40) #9
   br label %41
 
 41:                                               ; preds = %39, %37
@@ -2067,7 +2067,7 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_radius(ptr noundef %0, i32 nou
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 %48
   %50 = sub nsw i32 %3, %43
   %51 = zext nneg i32 %50 to i64
-  tail call void @lv_memset(ptr noundef nonnull %49, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %51) #8
+  tail call void @lv_memset(ptr noundef nonnull %49, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %51) #9
   br label %52
 
 52:                                               ; preds = %45, %47
@@ -2097,13 +2097,13 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_radius(ptr noundef %0, i32 nou
   %64 = zext nneg i32 %spec.store.select to i64
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 %64
   %66 = zext nneg i32 %spec.select to i64
-  tail call void @lv_memset(ptr noundef %65, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %66) #8
+  tail call void @lv_memset(ptr noundef %65, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %66) #9
   br label %205
 
 67:                                               ; preds = %30
   %68 = sub nsw i32 %13, %1
-  %69 = call i32 @lv_area_get_width(ptr noundef nonnull %6) #8
-  %70 = call i32 @lv_area_get_height(ptr noundef nonnull %6) #8
+  %69 = call i32 @lv_area_get_width(ptr noundef nonnull %6) #9
+  %70 = call i32 @lv_area_get_height(ptr noundef nonnull %6) #9
   %71 = load i32, ptr %16, align 4, !tbaa !51
   %72 = sub nsw i32 %2, %71
   %73 = icmp slt i32 %72, %12
@@ -2246,12 +2246,12 @@ mask_mix.exit226:                                 ; preds = %138, %143, %145
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 %154
   %156 = sub nsw i32 %3, %spec.select219
   %157 = sext i32 %156 to i64
-  call void @lv_memset(ptr noundef %155, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %157) #8
+  call void @lv_memset(ptr noundef %155, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %157) #9
   %158 = sub i32 %102, %88
   %159 = call i32 @llvm.smin.i32(i32 %158, i32 %3)
   %spec.select236 = call i32 @llvm.smax.i32(i32 %159, i32 0)
   %160 = zext nneg i32 %spec.select236 to i64
-  call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %160) #8
+  call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %160) #9
   br label %205
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %198
@@ -2335,7 +2335,7 @@ mask_mix.exit230:                                 ; preds = %185, %190, %192
   %202 = zext nneg i32 %spec.select222 to i64
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 %202
   %204 = zext nneg i32 %201 to i64
-  call void @lv_memset(ptr noundef %203, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %204) #8
+  call void @lv_memset(ptr noundef %203, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %204) #9
   br label %205
 
 205:                                              ; preds = %5, %._crit_edge247, %._crit_edge, %52, %55, %63, %56, %35, %41
@@ -2606,7 +2606,7 @@ define internal range(i32 1, 3) i32 @lv_draw_mask_map(ptr noundef captures(none)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %24 = load ptr, ptr %23, align 8, !tbaa !86
   %25 = sub nsw i32 %2, %8
-  %26 = tail call i32 @lv_area_get_width(ptr noundef nonnull %6) #8
+  %26 = tail call i32 @lv_area_get_width(ptr noundef nonnull %6) #9
   %27 = mul nsw i32 %26, %25
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i8, ptr %24, i64 %28
@@ -2678,20 +2678,20 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #6
+declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2699,9 +2699,10 @@ attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

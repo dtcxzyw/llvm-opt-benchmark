@@ -745,7 +745,7 @@ define hidden void @mpd_del(ptr noundef %0) local_unnamed_addr #7 {
   %4 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !17
-  tail call void %4(ptr noundef %6) #33
+  tail call void %4(ptr noundef %6) #34
   %.pre = load i8, ptr %0, align 8, !tbaa !19
   br label %7
 
@@ -757,7 +757,7 @@ define hidden void @mpd_del(ptr noundef %0) local_unnamed_addr #7 {
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  tail call void %11(ptr noundef nonnull %0) #33
+  tail call void %11(ptr noundef nonnull %0) #34
   br label %12
 
 12:                                               ; preds = %10, %7
@@ -784,11 +784,11 @@ define hidden i32 @mpd_qresize(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %12
-  %15 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %5, ptr noundef %2) #33
+  %15 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %5, ptr noundef %2) #34
   br label %18
 
 16:                                               ; preds = %9
-  %17 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %5, ptr noundef %2) #33
+  %17 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %5, ptr noundef %2) #34
   br label %18
 
 18:                                               ; preds = %12, %3, %16, %14
@@ -820,11 +820,11 @@ define hidden i32 @mpd_qresize_zero(ptr noundef %0, i64 noundef %1, ptr noundef 
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @mpd_switch_to_dyn_zero(ptr noundef nonnull %0, i64 noundef %5, ptr noundef %2) #33
+  %14 = tail call i32 @mpd_switch_to_dyn_zero(ptr noundef nonnull %0, i64 noundef %5, ptr noundef %2) #34
   br label %mpd_uint_zero.exit
 
 15:                                               ; preds = %8
-  %16 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %5, ptr noundef %2) #33
+  %16 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %5, ptr noundef %2) #34
   %.not17 = icmp eq i32 %16, 0
   br i1 %.not17, label %mpd_uint_zero.exit, label %17
 
@@ -866,7 +866,7 @@ define hidden void @mpd_minalloc(ptr noundef captures(none) %0) local_unnamed_ad
   store i8 0, ptr %2, align 1, !tbaa !22
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !17
-  %13 = call ptr @mpd_realloc(ptr noundef %12, i64 noundef %8, i64 noundef 8, ptr noundef nonnull %2) #33
+  %13 = call ptr @mpd_realloc(ptr noundef %12, i64 noundef %8, i64 noundef 8, ptr noundef nonnull %2) #34
   store ptr %13, ptr %11, align 8, !tbaa !17
   %14 = load i8, ptr %2, align 1, !tbaa !22
   %.not5 = icmp eq i8 %14, 0
@@ -910,11 +910,11 @@ define hidden range(i32 0, 2) i32 @mpd_resize(ptr noundef %0, i64 noundef %1, pt
   br i1 %14, label %15, label %mpd_qresize.exit.thread
 
 15:                                               ; preds = %13
-  %16 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %6, ptr noundef nonnull %4) #33
+  %16 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %6, ptr noundef nonnull %4) #34
   br label %mpd_qresize.exit
 
 17:                                               ; preds = %10
-  %18 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %6, ptr noundef nonnull %4) #33
+  %18 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %6, ptr noundef nonnull %4) #34
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %15, %17
@@ -924,7 +924,7 @@ mpd_qresize.exit:                                 ; preds = %15, %17
 
 19:                                               ; preds = %mpd_qresize.exit
   %20 = load i32, ptr %4, align 4, !tbaa !23
-  call void @mpd_addstatus_raise(ptr noundef %2, i32 noundef %20) #33
+  call void @mpd_addstatus_raise(ptr noundef %2, i32 noundef %20) #34
   br label %mpd_qresize.exit.thread
 
 mpd_qresize.exit.thread:                          ; preds = %13, %3, %mpd_qresize.exit, %19
@@ -958,7 +958,7 @@ define hidden range(i32 0, 2) i32 @mpd_resize_zero(ptr noundef %0, i64 noundef %
   br i1 %13, label %mpd_qresize_zero.exit, label %16
 
 14:                                               ; preds = %9
-  %15 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %6, ptr noundef nonnull %4) #33
+  %15 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %6, ptr noundef nonnull %4) #34
   %.not17.i = icmp eq i32 %15, 0
   br i1 %.not17.i, label %mpd_qresize_zero.exit.thread, label %16
 
@@ -974,13 +974,13 @@ define hidden range(i32 0, 2) i32 @mpd_resize_zero(ptr noundef %0, i64 noundef %
   br label %mpd_qresize_zero.exit.thread5
 
 mpd_qresize_zero.exit:                            ; preds = %12
-  %20 = call i32 @mpd_switch_to_dyn_zero(ptr noundef nonnull %0, i64 noundef %6, ptr noundef nonnull %4) #33
+  %20 = call i32 @mpd_switch_to_dyn_zero(ptr noundef nonnull %0, i64 noundef %6, ptr noundef nonnull %4) #34
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %mpd_qresize_zero.exit.thread, label %mpd_qresize_zero.exit.thread5
 
 mpd_qresize_zero.exit.thread:                     ; preds = %14, %mpd_qresize_zero.exit
   %21 = load i32, ptr %4, align 4, !tbaa !23
-  call void @mpd_addstatus_raise(ptr noundef %2, i32 noundef %21) #33
+  call void @mpd_addstatus_raise(ptr noundef %2, i32 noundef %21) #34
   br label %mpd_qresize_zero.exit.thread5
 
 mpd_qresize_zero.exit.thread5:                    ; preds = %.lr.ph.preheader, %16, %mpd_qresize_zero.exit, %mpd_qresize_zero.exit.thread
@@ -1273,7 +1273,7 @@ define hidden void @mpd_zerocoeff(ptr noundef captures(none) initializes((16, 32
   store i8 0, ptr %2, align 1, !tbaa !22
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !17
-  %13 = call ptr @mpd_realloc(ptr noundef %12, i64 noundef %8, i64 noundef 8, ptr noundef nonnull %2) #33
+  %13 = call ptr @mpd_realloc(ptr noundef %12, i64 noundef %8, i64 noundef 8, ptr noundef nonnull %2) #34
   store ptr %13, ptr %11, align 8, !tbaa !17
   %14 = load i8, ptr %2, align 1, !tbaa !22
   %.not5.i = icmp eq i8 %14, 0
@@ -1326,11 +1326,11 @@ define hidden void @mpd_qmaxcoeff(ptr noundef %0, ptr noundef readonly captures(
   br i1 %19, label %20, label %mpd_qresize.exit.thread
 
 20:                                               ; preds = %18
-  %21 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %11, ptr noundef %2) #33
+  %21 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %11, ptr noundef %2) #34
   br label %mpd_qresize.exit
 
 22:                                               ; preds = %15
-  %23 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %11, ptr noundef %2) #33
+  %23 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %11, ptr noundef %2) #34
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %20, %22
@@ -1664,7 +1664,7 @@ define hidden void @mpd_setspecial(ptr noundef captures(none) initializes((8, 32
   store i8 0, ptr %4, align 1, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !17
-  %15 = call ptr @mpd_realloc(ptr noundef %14, i64 noundef %10, i64 noundef 8, ptr noundef nonnull %4) #33
+  %15 = call ptr @mpd_realloc(ptr noundef %14, i64 noundef %10, i64 noundef 8, ptr noundef nonnull %4) #34
   store ptr %15, ptr %13, align 8, !tbaa !17
   %16 = load i8, ptr %4, align 1, !tbaa !22
   %.not5.i = icmp eq i8 %16, 0
@@ -1711,7 +1711,7 @@ define hidden void @mpd_seterror(ptr noundef captures(none) initializes((8, 32))
   store i8 0, ptr %4, align 1, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !17
-  %15 = call ptr @mpd_realloc(ptr noundef %14, i64 noundef %10, i64 noundef 8, ptr noundef nonnull %4) #33
+  %15 = call ptr @mpd_realloc(ptr noundef %14, i64 noundef %10, i64 noundef 8, ptr noundef nonnull %4) #34
   store ptr %15, ptr %13, align 8, !tbaa !17
   %16 = load i8, ptr %4, align 1, !tbaa !22
   %.not5.i = icmp eq i8 %16, 0
@@ -2022,7 +2022,7 @@ _mpd_rnd_incr.exit.thread24.i.i:                  ; preds = %_mpd_rnd_incr.exit.
   %68 = load ptr, ptr %67, align 8, !tbaa !17
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %70 = load i64, ptr %69, align 8, !tbaa !18
-  %71 = tail call i64 @_mpd_baseincr(ptr noundef %68, i64 noundef %70) #33
+  %71 = tail call i64 @_mpd_baseincr(ptr noundef %68, i64 noundef %70) #34
   %.not21.i.i = icmp eq i64 %71, 0
   br i1 %.not21.i.i, label %80, label %72
 
@@ -2276,7 +2276,7 @@ define hidden void @mpd_qset_ssize(ptr noundef initializes((8, 32)) %0, i64 noun
   store i8 0, ptr %5, align 1, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !17
-  %16 = call ptr @mpd_realloc(ptr noundef %15, i64 noundef %11, i64 noundef 8, ptr noundef nonnull %5) #33
+  %16 = call ptr @mpd_realloc(ptr noundef %15, i64 noundef %11, i64 noundef 8, ptr noundef nonnull %5) #34
   store ptr %16, ptr %14, align 8, !tbaa !17
   %17 = load i8, ptr %5, align 1, !tbaa !22
   %.not5.i = icmp eq i8 %17, 0
@@ -2336,7 +2336,7 @@ define internal fastcc void @_settriple(ptr noundef captures(none) initializes((
   store i8 0, ptr %5, align 1, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !17
-  %16 = call ptr @mpd_realloc(ptr noundef %15, i64 noundef %11, i64 noundef 8, ptr noundef nonnull %5) #33
+  %16 = call ptr @mpd_realloc(ptr noundef %15, i64 noundef %11, i64 noundef 8, ptr noundef nonnull %5) #34
   store ptr %16, ptr %14, align 8, !tbaa !17
   %17 = load i8, ptr %5, align 1, !tbaa !22
   %.not5.i = icmp eq i8 %17, 0
@@ -2508,7 +2508,7 @@ define hidden void @mpd_qset_i32(ptr noundef initializes((8, 32)) %0, i32 nounde
   store i8 0, ptr %5, align 1, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !17
-  %17 = call ptr @mpd_realloc(ptr noundef %16, i64 noundef %12, i64 noundef 8, ptr noundef nonnull %5) #33
+  %17 = call ptr @mpd_realloc(ptr noundef %16, i64 noundef %12, i64 noundef 8, ptr noundef nonnull %5) #34
   store ptr %17, ptr %15, align 8, !tbaa !17
   %18 = load i8, ptr %5, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %18, 0
@@ -2569,7 +2569,7 @@ define hidden void @mpd_qset_i64(ptr noundef initializes((8, 32)) %0, i64 nounde
   store i8 0, ptr %5, align 1, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !17
-  %16 = call ptr @mpd_realloc(ptr noundef %15, i64 noundef %11, i64 noundef 8, ptr noundef nonnull %5) #33
+  %16 = call ptr @mpd_realloc(ptr noundef %15, i64 noundef %11, i64 noundef 8, ptr noundef nonnull %5) #34
   store ptr %16, ptr %14, align 8, !tbaa !17
   %17 = load i8, ptr %5, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %17, 0
@@ -2608,7 +2608,7 @@ define hidden void @mpd_qset_i64_exact(ptr noundef initializes((8, 32)) %0, i64 
   %5 = alloca i8, align 1
   %6 = alloca %struct.mpd_context_t, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @mpd_maxcontext(ptr noundef nonnull %6) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %6) #34
   %7 = load i8, ptr %0, align 8, !tbaa !19
   %8 = and i8 %7, 32
   %.not.i.i = icmp eq i8 %8, 0
@@ -2626,7 +2626,7 @@ define hidden void @mpd_qset_i64_exact(ptr noundef initializes((8, 32)) %0, i64 
   store i8 0, ptr %5, align 1, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !17
-  %17 = call ptr @mpd_realloc(ptr noundef %16, i64 noundef %12, i64 noundef 8, ptr noundef nonnull %5) #33
+  %17 = call ptr @mpd_realloc(ptr noundef %16, i64 noundef %12, i64 noundef 8, ptr noundef nonnull %5) #34
   store ptr %17, ptr %15, align 8, !tbaa !17
   %18 = load i8, ptr %5, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %18, 0
@@ -2679,7 +2679,7 @@ mpd_qset_ssize.exit:                              ; preds = %.split11.i.i, %.spl
   store i8 0, ptr %4, align 1, !tbaa !22
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load ptr, ptr %35, align 8, !tbaa !17
-  %37 = call ptr @mpd_realloc(ptr noundef %36, i64 noundef %32, i64 noundef 8, ptr noundef nonnull %4) #33
+  %37 = call ptr @mpd_realloc(ptr noundef %36, i64 noundef %32, i64 noundef 8, ptr noundef nonnull %4) #34
   store ptr %37, ptr %35, align 8, !tbaa !17
   %38 = load i8, ptr %4, align 1, !tbaa !22
   %.not5.i.i8 = icmp eq i8 %38, 0
@@ -2728,7 +2728,7 @@ define hidden void @mpd_qset_u64_exact(ptr noundef initializes((8, 32)) %0, i64 
   %4 = alloca i8, align 1
   %5 = alloca %struct.mpd_context_t, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @mpd_maxcontext(ptr noundef nonnull %5) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %5) #34
   call fastcc void @_settriple(ptr noundef %0, i8 noundef zeroext 0, i64 noundef %1, i64 noundef 0)
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef nonnull readonly %5, ptr noundef %2)
   %6 = load i32, ptr %2, align 4, !tbaa !23
@@ -2754,7 +2754,7 @@ define hidden void @mpd_qset_u64_exact(ptr noundef initializes((8, 32)) %0, i64 
   store i8 0, ptr %4, align 1, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8, !tbaa !17
-  %19 = call ptr @mpd_realloc(ptr noundef %18, i64 noundef %14, i64 noundef 8, ptr noundef nonnull %4) #33
+  %19 = call ptr @mpd_realloc(ptr noundef %18, i64 noundef %14, i64 noundef 8, ptr noundef nonnull %4) #34
   store ptr %19, ptr %17, align 8, !tbaa !17
   %20 = load i8, ptr %4, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %20, 0
@@ -3157,11 +3157,11 @@ define hidden range(i32 0, 2) i32 @mpd_qcheck_nan(ptr noundef %0, ptr noundef re
   br i1 %25, label %26, label %mpd_qresize.exit.thread.i
 
 26:                                               ; preds = %24
-  %27 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %18, ptr noundef nonnull %3) #33
+  %27 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %18, ptr noundef nonnull %3) #34
   br label %mpd_qresize.exit.i
 
 28:                                               ; preds = %22
-  %29 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %18, ptr noundef nonnull %3) #33
+  %29 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %18, ptr noundef nonnull %3) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %28, %26
@@ -3244,11 +3244,11 @@ define hidden range(i32 0, 2) i32 @mpd_qcopy(ptr noundef %0, ptr noundef readonl
   br i1 %16, label %17, label %mpd_qresize.exit.thread
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %9, ptr noundef %2) #33
+  %18 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %9, ptr noundef %2) #34
   br label %mpd_qresize.exit
 
 19:                                               ; preds = %13
-  %20 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %9, ptr noundef %2) #33
+  %20 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %9, ptr noundef %2) #34
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %17, %19
@@ -3333,7 +3333,7 @@ define internal fastcc void @_mpd_fix_nan(ptr noundef %0, i64 %.0.val, i32 %.40.
   store i8 0, ptr %2, align 1, !tbaa !22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8, !tbaa !17
-  %26 = call ptr @mpd_realloc(ptr noundef %25, i64 noundef %21, i64 noundef 8, ptr noundef nonnull %2) #33
+  %26 = call ptr @mpd_realloc(ptr noundef %25, i64 noundef %21, i64 noundef 8, ptr noundef nonnull %2) #34
   store ptr %26, ptr %24, align 8, !tbaa !17
   %27 = load i8, ptr %2, align 1, !tbaa !22
   %.not5.i = icmp eq i8 %27, 0
@@ -3414,11 +3414,11 @@ _mpd_real_size.exit:                              ; preds = %.lr.ph.i, %54, %46
   br i1 %66, label %67, label %mpd_qresize.exit
 
 67:                                               ; preds = %65
-  %68 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %58, ptr noundef nonnull %3) #33
+  %68 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %58, ptr noundef nonnull %3) #34
   br label %mpd_qresize.exit
 
 69:                                               ; preds = %62
-  %70 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %58, ptr noundef nonnull %3) #33
+  %70 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %58, ptr noundef nonnull %3) #34
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %65, %67, %69
@@ -3612,11 +3612,11 @@ define hidden range(i32 0, 2) i32 @mpd_qcheck_nans(ptr noundef %0, ptr noundef r
   br i1 %35, label %36, label %mpd_qresize.exit.thread.i
 
 36:                                               ; preds = %34
-  %37 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %28, ptr noundef %4) #33
+  %37 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %28, ptr noundef %4) #34
   br label %mpd_qresize.exit.i
 
 38:                                               ; preds = %32
-  %39 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %28, ptr noundef %4) #33
+  %39 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %28, ptr noundef %4) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %38, %36
@@ -3729,7 +3729,7 @@ define internal fastcc void @_mpd_check_exp(ptr noundef %0, ptr noundef readonly
 38:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !tbaa !22
-  %39 = call ptr @mpd_realloc(ptr noundef nonnull %18, i64 noundef %36, i64 noundef 8, ptr noundef nonnull %6) #33
+  %39 = call ptr @mpd_realloc(ptr noundef nonnull %18, i64 noundef %36, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %39, ptr %17, align 8, !tbaa !17
   %40 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %40, 0
@@ -3785,7 +3785,7 @@ mpd_zerocoeff.exit:                               ; preds = %30, %33, %43
 59:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !tbaa !22
-  %60 = call ptr @mpd_realloc(ptr noundef nonnull %18, i64 noundef %57, i64 noundef 8, ptr noundef nonnull %5) #33
+  %60 = call ptr @mpd_realloc(ptr noundef nonnull %18, i64 noundef %57, i64 noundef 8, ptr noundef nonnull %5) #34
   store ptr %60, ptr %17, align 8, !tbaa !17
   %61 = load i8, ptr %5, align 1, !tbaa !22
   %.not5.i.i93 = icmp eq i8 %61, 0
@@ -3836,11 +3836,11 @@ mpd_setspecial.exit:                              ; preds = %50, %54, %64
   br i1 %85, label %86, label %mpd_qresize.exit.thread.i
 
 86:                                               ; preds = %84
-  %87 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %77, ptr noundef %2) #33
+  %87 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %77, ptr noundef %2) #34
   br label %mpd_qresize.exit.i
 
 88:                                               ; preds = %81
-  %89 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %77, ptr noundef %2) #33
+  %89 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %77, ptr noundef %2) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %88, %86
@@ -3934,7 +3934,7 @@ mpd_qmaxcoeff.exit:                               ; preds = %103, %mpd_qresize.e
   br label %129
 
 128:                                              ; preds = %47
-  tail call void @abort() #34
+  tail call void @abort() #35
   unreachable
 
 129:                                              ; preds = %122, %127, %113, %118, %mpd_qmaxcoeff.exit, %mpd_setspecial.exit
@@ -4029,7 +4029,7 @@ mpd_qmaxcoeff.exit:                               ; preds = %103, %mpd_qresize.e
 184:                                              ; preds = %179
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !22
-  %185 = call ptr @mpd_realloc(ptr noundef nonnull %168, i64 noundef %182, i64 noundef 8, ptr noundef nonnull %4) #33
+  %185 = call ptr @mpd_realloc(ptr noundef nonnull %168, i64 noundef %182, i64 noundef 8, ptr noundef nonnull %4) #34
   store ptr %185, ptr %167, align 8, !tbaa !17
   %186 = load i8, ptr %4, align 1, !tbaa !22
   %.not5.i.i97 = icmp eq i8 %186, 0
@@ -4131,11 +4131,11 @@ define hidden range(i32 0, 2) i32 @mpd_qcopy_cxx(ptr noundef %0, ptr noundef rea
   br i1 %15, label %16, label %mpd_qresize_cxx.exit.thread
 
 16:                                               ; preds = %14
-  %17 = tail call i32 @mpd_switch_to_dyn_cxx(ptr noundef nonnull %0, i64 noundef %8) #33
+  %17 = tail call i32 @mpd_switch_to_dyn_cxx(ptr noundef nonnull %0, i64 noundef %8) #34
   br label %mpd_qresize_cxx.exit
 
 18:                                               ; preds = %12
-  %19 = tail call i32 @mpd_realloc_dyn_cxx(ptr noundef nonnull %0, i64 noundef %8) #33
+  %19 = tail call i32 @mpd_realloc_dyn_cxx(ptr noundef nonnull %0, i64 noundef %8) #34
   br label %mpd_qresize_cxx.exit
 
 mpd_qresize_cxx.exit:                             ; preds = %16, %18
@@ -4184,7 +4184,7 @@ mpd_qresize_cxx.exit.thread:                      ; preds = %mpd_qresize_cxx.exi
 define hidden ptr @mpd_qncopy(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !tbaa !18
-  %4 = tail call ptr @mpd_qnew_size(i64 noundef %3) #33
+  %4 = tail call ptr @mpd_qnew_size(i64 noundef %3) #34
   %5 = icmp eq ptr %4, null
   br i1 %5, label %26, label %6
 
@@ -4247,11 +4247,11 @@ define hidden range(i32 0, 2) i32 @mpd_qcopy_abs(ptr noundef %0, ptr noundef rea
   br i1 %16, label %17, label %mpd_qresize.exit.thread.i
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %9, ptr noundef %2) #33
+  %18 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %9, ptr noundef %2) #34
   br label %mpd_qresize.exit.i
 
 19:                                               ; preds = %13
-  %20 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %9, ptr noundef %2) #33
+  %20 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %9, ptr noundef %2) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %19, %17
@@ -4328,11 +4328,11 @@ define hidden range(i32 0, 2) i32 @mpd_qcopy_negate(ptr noundef %0, ptr noundef 
   br i1 %16, label %17, label %mpd_qresize.exit.thread.i
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %9, ptr noundef %2) #33
+  %18 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %9, ptr noundef %2) #34
   br label %mpd_qresize.exit.i
 
 19:                                               ; preds = %13
-  %20 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %9, ptr noundef %2) #33
+  %20 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %9, ptr noundef %2) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %19, %17
@@ -4411,11 +4411,11 @@ define hidden range(i32 0, 2) i32 @mpd_qcopy_sign(ptr noundef %0, ptr noundef re
   br i1 %19, label %20, label %mpd_qresize.exit.thread.i
 
 20:                                               ; preds = %18
-  %21 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %12, ptr noundef %3) #33
+  %21 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %12, ptr noundef %3) #34
   br label %mpd_qresize.exit.i
 
 22:                                               ; preds = %16
-  %23 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %12, ptr noundef %3) #33
+  %23 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %12, ptr noundef %3) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %22, %20
@@ -5221,11 +5221,11 @@ define hidden range(i32 0, 2) i32 @mpd_qshiftl(ptr noundef %0, ptr noundef reado
   br i1 %25, label %26, label %mpd_qresize.exit.thread.i
 
 26:                                               ; preds = %24
-  %27 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %18, ptr noundef %3) #33
+  %27 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %18, ptr noundef %3) #34
   br label %mpd_qresize.exit.i
 
 28:                                               ; preds = %22
-  %29 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %18, ptr noundef %3) #33
+  %29 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %18, ptr noundef %3) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %28, %26
@@ -5293,11 +5293,11 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br i1 %66, label %67, label %mpd_qresize.exit.thread
 
 67:                                               ; preds = %65
-  %68 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %58, ptr noundef %3) #33
+  %68 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %58, ptr noundef %3) #34
   br label %mpd_qresize.exit
 
 69:                                               ; preds = %62
-  %70 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %58, ptr noundef %3) #33
+  %70 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %58, ptr noundef %3) #34
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %67, %69
@@ -5315,7 +5315,7 @@ mpd_qresize.exit.thread:                          ; preds = %mpd_qresize.exit.mp
   %72 = phi ptr [ %.pre, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge ], [ %6, %65 ], [ %6, %48 ]
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %74 = load ptr, ptr %73, align 8, !tbaa !17
-  tail call void @_mpd_baseshiftl(ptr noundef %74, ptr noundef %72, i64 noundef %56, i64 noundef %71, i64 noundef %2) #33
+  tail call void @_mpd_baseshiftl(ptr noundef %74, ptr noundef %72, i64 noundef %56, i64 noundef %71, i64 noundef %2) #34
   %75 = load i8, ptr %1, align 8, !tbaa !19
   %76 = load i8, ptr %0, align 8, !tbaa !19
   %77 = and i8 %76, -16
@@ -5383,7 +5383,7 @@ define hidden i64 @mpd_qshiftr_inplace(ptr noundef %0, i64 noundef %1) local_unn
 28:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !22
-  %29 = call ptr @mpd_realloc(ptr noundef nonnull %6, i64 noundef %26, i64 noundef 8, ptr noundef nonnull %3) #33
+  %29 = call ptr @mpd_realloc(ptr noundef nonnull %6, i64 noundef %26, i64 noundef 8, ptr noundef nonnull %3) #34
   store ptr %29, ptr %5, align 8, !tbaa !17
   %30 = load i8, ptr %3, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %30, 0
@@ -5406,7 +5406,7 @@ mpd_zerocoeff.exit:                               ; preds = %17, %23, %33
   br label %58
 
 35:                                               ; preds = %14
-  %36 = tail call i64 @_mpd_baseshiftr(ptr noundef nonnull %6, ptr noundef nonnull %6, i64 noundef %8, i64 noundef %1) #33
+  %36 = tail call i64 @_mpd_baseshiftr(ptr noundef nonnull %6, ptr noundef nonnull %6, i64 noundef %8, i64 noundef %1) #34
   %37 = load i64, ptr %15, align 8, !tbaa !11
   %38 = sub i64 %37, %1
   store i64 %38, ptr %15, align 8, !tbaa !11
@@ -5434,11 +5434,11 @@ mpd_zerocoeff.exit:                               ; preds = %17, %23, %33
   br i1 %53, label %54, label %mpd_qresize.exit
 
 54:                                               ; preds = %52
-  %55 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %45, ptr noundef nonnull %4) #33
+  %55 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %45, ptr noundef nonnull %4) #34
   br label %mpd_qresize.exit
 
 56:                                               ; preds = %49
-  %57 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %45, ptr noundef nonnull %4) #33
+  %57 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %45, ptr noundef nonnull %4) #34
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %35, %52, %54, %56
@@ -5665,11 +5665,11 @@ define hidden i64 @mpd_qshiftr(ptr noundef %0, ptr noundef readonly captures(add
   br i1 %26, label %27, label %mpd_qresize.exit.thread.i
 
 27:                                               ; preds = %25
-  %28 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %19, ptr noundef %3) #33
+  %28 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %19, ptr noundef %3) #34
   br label %mpd_qresize.exit.i
 
 29:                                               ; preds = %23
-  %30 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %19, ptr noundef %3) #33
+  %30 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %19, ptr noundef %3) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %29, %27
@@ -5736,7 +5736,7 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   store i8 0, ptr %5, align 1, !tbaa !22
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %65 = load ptr, ptr %64, align 8, !tbaa !17
-  %66 = call ptr @mpd_realloc(ptr noundef %65, i64 noundef %61, i64 noundef 8, ptr noundef nonnull %5) #33
+  %66 = call ptr @mpd_realloc(ptr noundef %65, i64 noundef %61, i64 noundef 8, ptr noundef nonnull %5) #34
   store ptr %66, ptr %64, align 8, !tbaa !17
   %67 = load i8, ptr %5, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %67, 0
@@ -5777,7 +5777,7 @@ mpd_zerocoeff.exit:                               ; preds = %52, %58, %70
 84:                                               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %86 = load ptr, ptr %85, align 8, !tbaa !17
-  %87 = tail call i64 @_mpd_baseshiftr(ptr noundef %86, ptr noundef nonnull %7, i64 noundef %9, i64 noundef %2) #33
+  %87 = tail call i64 @_mpd_baseshiftr(ptr noundef %86, ptr noundef nonnull %7, i64 noundef %9, i64 noundef %2) #34
   %88 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
   %89 = tail call i64 @llvm.smax.i64(i64 %82, i64 %88)
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5796,11 +5796,11 @@ mpd_zerocoeff.exit:                               ; preds = %52, %58, %70
   br i1 %97, label %98, label %mpd_qresize.exit52
 
 98:                                               ; preds = %96
-  %99 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %89, ptr noundef %3) #33
+  %99 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %89, ptr noundef %3) #34
   br label %mpd_qresize.exit52
 
 100:                                              ; preds = %93
-  %101 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %89, ptr noundef %3) #33
+  %101 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %89, ptr noundef %3) #34
   br label %mpd_qresize.exit52
 
 102:                                              ; preds = %75
@@ -5822,11 +5822,11 @@ mpd_zerocoeff.exit:                               ; preds = %52, %58, %70
   br i1 %112, label %113, label %mpd_qresize.exit.thread
 
 113:                                              ; preds = %111
-  %114 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %104, ptr noundef %3) #33
+  %114 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %104, ptr noundef %3) #34
   br label %mpd_qresize.exit
 
 115:                                              ; preds = %108
-  %116 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %104, ptr noundef %3) #33
+  %116 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %104, ptr noundef %3) #34
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %113, %115
@@ -5844,7 +5844,7 @@ mpd_qresize.exit.thread:                          ; preds = %mpd_qresize.exit.mp
   %118 = phi ptr [ %.pre, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge ], [ %7, %111 ], [ %7, %102 ]
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %120 = load ptr, ptr %119, align 8, !tbaa !17
-  %121 = tail call i64 @_mpd_baseshiftr(ptr noundef %120, ptr noundef %118, i64 noundef %117, i64 noundef %2) #33
+  %121 = tail call i64 @_mpd_baseshiftr(ptr noundef %120, ptr noundef %118, i64 noundef %117, i64 noundef %2) #34
   br label %mpd_qresize.exit52
 
 mpd_qresize.exit52:                               ; preds = %100, %98, %96, %84, %mpd_qresize.exit.thread
@@ -5918,7 +5918,7 @@ define hidden void @mpd_qand(ptr noundef %0, ptr noundef readonly captures(none)
   store i8 0, ptr %6, align 1, !tbaa !22
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8, !tbaa !17
-  %31 = call ptr @mpd_realloc(ptr noundef %30, i64 noundef %26, i64 noundef 8, ptr noundef nonnull %6) #33
+  %31 = call ptr @mpd_realloc(ptr noundef %30, i64 noundef %26, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %31, ptr %29, align 8, !tbaa !17
   %32 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %32, 0
@@ -5974,11 +5974,11 @@ mpd_seterror.exit:                                ; preds = %20, %23, %35
   br i1 %59, label %60, label %.preheader125
 
 60:                                               ; preds = %58
-  %61 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %51, ptr noundef %4) #33
+  %61 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %51, ptr noundef %4) #34
   br label %mpd_qresize.exit118
 
 62:                                               ; preds = %55
-  %63 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %51, ptr noundef %4) #33
+  %63 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %51, ptr noundef %4) #34
   br label %mpd_qresize.exit118
 
 mpd_qresize.exit118:                              ; preds = %60, %62
@@ -6289,11 +6289,11 @@ _mpd_real_size.exit:                              ; preds = %.lr.ph.i, %214, %._
   br i1 %225, label %226, label %mpd_qresize.exit
 
 226:                                              ; preds = %224
-  %227 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %219, ptr noundef %4) #33
+  %227 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %219, ptr noundef %4) #34
   br label %mpd_qresize.exit
 
 228:                                              ; preds = %222
-  %229 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %219, ptr noundef %4) #33
+  %229 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %219, ptr noundef %4) #34
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %224, %226, %228
@@ -6391,11 +6391,11 @@ _mpd_real_size.exit:                              ; preds = %.lr.ph.i, %35, %27
   br i1 %47, label %48, label %mpd_qresize.exit
 
 48:                                               ; preds = %46
-  %49 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %39, ptr noundef nonnull %3) #33
+  %49 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %39, ptr noundef nonnull %3) #34
   br label %mpd_qresize.exit
 
 50:                                               ; preds = %43
-  %51 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %39, ptr noundef nonnull %3) #33
+  %51 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %39, ptr noundef nonnull %3) #34
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %46, %48, %50
@@ -6661,7 +6661,7 @@ define hidden void @mpd_qinvert(ptr noundef %0, ptr noundef readonly captures(no
   store i8 0, ptr %6, align 1, !tbaa !22
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !17
-  %23 = call ptr @mpd_realloc(ptr noundef %22, i64 noundef %18, i64 noundef 8, ptr noundef nonnull %6) #33
+  %23 = call ptr @mpd_realloc(ptr noundef %22, i64 noundef %18, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %23, ptr %21, align 8, !tbaa !17
   %24 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %24, 0
@@ -6718,11 +6718,11 @@ mpd_seterror.exit:                                ; preds = %12, %15, %27
   br i1 %52, label %53, label %.preheader
 
 53:                                               ; preds = %51
-  %54 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %44, ptr noundef %3) #33
+  %54 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %44, ptr noundef %3) #34
   br label %mpd_qresize.exit56
 
 55:                                               ; preds = %48
-  %56 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %44, ptr noundef %3) #33
+  %56 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %44, ptr noundef %3) #34
   br label %mpd_qresize.exit56
 
 mpd_qresize.exit56:                               ; preds = %53, %55
@@ -6840,11 +6840,11 @@ _mpd_real_size.exit:                              ; preds = %.lr.ph.i, %93, %._c
   br i1 %105, label %106, label %mpd_qresize.exit
 
 106:                                              ; preds = %104
-  %107 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %99, ptr noundef %3) #33
+  %107 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %99, ptr noundef %3) #34
   br label %mpd_qresize.exit
 
 108:                                              ; preds = %102
-  %109 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %99, ptr noundef %3) #33
+  %109 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %99, ptr noundef %3) #34
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %104, %106, %108
@@ -6868,7 +6868,7 @@ mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !tbaa !22
   %118 = load ptr, ptr %63, align 8, !tbaa !17
-  %119 = call ptr @mpd_realloc(ptr noundef %118, i64 noundef %115, i64 noundef 8, ptr noundef nonnull %5) #33
+  %119 = call ptr @mpd_realloc(ptr noundef %118, i64 noundef %115, i64 noundef 8, ptr noundef nonnull %5) #34
   store ptr %119, ptr %63, align 8, !tbaa !17
   %120 = load i8, ptr %5, align 1, !tbaa !22
   %.not5.i.i58 = icmp eq i8 %120, 0
@@ -6933,7 +6933,7 @@ define hidden void @mpd_qlogb(ptr noundef %0, ptr noundef readonly captures(addr
   store i8 0, ptr %7, align 1, !tbaa !22
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !17
-  %23 = call ptr @mpd_realloc(ptr noundef %22, i64 noundef %18, i64 noundef 8, ptr noundef nonnull %7) #33
+  %23 = call ptr @mpd_realloc(ptr noundef %22, i64 noundef %18, i64 noundef 8, ptr noundef nonnull %7) #34
   store ptr %23, ptr %21, align 8, !tbaa !17
   %24 = load i8, ptr %7, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %24, 0
@@ -6987,7 +6987,7 @@ mpd_setspecial.exit:                              ; preds = %12, %15, %27
   store i8 0, ptr %6, align 1, !tbaa !22
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %50 = load ptr, ptr %49, align 8, !tbaa !17
-  %51 = call ptr @mpd_realloc(ptr noundef %50, i64 noundef %46, i64 noundef 8, ptr noundef nonnull %6) #33
+  %51 = call ptr @mpd_realloc(ptr noundef %50, i64 noundef %46, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %51, ptr %49, align 8, !tbaa !17
   %52 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i16 = icmp eq i8 %52, 0
@@ -7039,7 +7039,7 @@ mpd_setspecial.exit18:                            ; preds = %40, %43, %55
   store i8 0, ptr %5, align 1, !tbaa !22
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %78 = load ptr, ptr %77, align 8, !tbaa !17
-  %79 = call ptr @mpd_realloc(ptr noundef %78, i64 noundef %74, i64 noundef 8, ptr noundef nonnull %5) #33
+  %79 = call ptr @mpd_realloc(ptr noundef %78, i64 noundef %74, i64 noundef 8, ptr noundef nonnull %5) #34
   store ptr %79, ptr %77, align 8, !tbaa !17
   %80 = load i8, ptr %5, align 1, !tbaa !22
   %.not5.i.i20 = icmp eq i8 %80, 0
@@ -7121,7 +7121,7 @@ define hidden void @mpd_qor(ptr noundef %0, ptr noundef readonly captures(none) 
   store i8 0, ptr %6, align 1, !tbaa !22
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8, !tbaa !17
-  %31 = call ptr @mpd_realloc(ptr noundef %30, i64 noundef %26, i64 noundef 8, ptr noundef nonnull %6) #33
+  %31 = call ptr @mpd_realloc(ptr noundef %30, i64 noundef %26, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %31, ptr %29, align 8, !tbaa !17
   %32 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %32, 0
@@ -7177,11 +7177,11 @@ mpd_seterror.exit:                                ; preds = %20, %23, %35
   br i1 %59, label %60, label %.preheader133
 
 60:                                               ; preds = %58
-  %61 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %51, ptr noundef %4) #33
+  %61 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %51, ptr noundef %4) #34
   br label %mpd_qresize.exit127
 
 62:                                               ; preds = %55
-  %63 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %51, ptr noundef %4) #33
+  %63 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %51, ptr noundef %4) #34
   br label %mpd_qresize.exit127
 
 mpd_qresize.exit127:                              ; preds = %60, %62
@@ -7501,11 +7501,11 @@ _mpd_real_size.exit:                              ; preds = %.lr.ph.i, %219, %._
   br i1 %230, label %231, label %mpd_qresize.exit
 
 231:                                              ; preds = %229
-  %232 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %224, ptr noundef %4) #33
+  %232 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %224, ptr noundef %4) #34
   br label %mpd_qresize.exit
 
 233:                                              ; preds = %227
-  %234 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %224, ptr noundef %4) #33
+  %234 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %224, ptr noundef %4) #34
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %229, %231, %233
@@ -7605,7 +7605,7 @@ define hidden void @mpd_qrotate(ptr noundef %0, ptr noundef readonly captures(ad
   store i8 0, ptr %8, align 1, !tbaa !22
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %47 = load ptr, ptr %46, align 8, !tbaa !17
-  %48 = call ptr @mpd_realloc(ptr noundef %47, i64 noundef %43, i64 noundef 8, ptr noundef nonnull %8) #33
+  %48 = call ptr @mpd_realloc(ptr noundef %47, i64 noundef %43, i64 noundef 8, ptr noundef nonnull %8) #34
   store ptr %48, ptr %46, align 8, !tbaa !17
   %49 = load i8, ptr %8, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %49, 0
@@ -7689,7 +7689,7 @@ mpd_qget_ssize.exit.thread87:                     ; preds = %59, %70
   store i8 0, ptr %6, align 1, !tbaa !22
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %85 = load ptr, ptr %84, align 8, !tbaa !17
-  %86 = call ptr @mpd_realloc(ptr noundef %85, i64 noundef %81, i64 noundef 8, ptr noundef nonnull %6) #33
+  %86 = call ptr @mpd_realloc(ptr noundef %85, i64 noundef %81, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %86, ptr %84, align 8, !tbaa !17
   %87 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i77 = icmp eq i8 %87, 0
@@ -7789,7 +7789,7 @@ mpd_seterror.exit79:                              ; preds = %mpd_qget_ssize.exit
 125:                                              ; preds = %123
   %126 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %127 = load ptr, ptr %17, align 8, !tbaa !17
-  call void %126(ptr noundef %127) #33
+  call void %126(ptr noundef %127) #34
   %.pre = load i8, ptr %10, align 8, !tbaa !19
   br label %128
 
@@ -7801,7 +7801,7 @@ mpd_seterror.exit79:                              ; preds = %mpd_qget_ssize.exit
 
 131:                                              ; preds = %128
   %132 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %132(ptr noundef nonnull %10) #33
+  call void %132(ptr noundef nonnull %10) #34
   br label %mpd_del.exit73
 
 mpd_del.exit73:                                   ; preds = %128, %131
@@ -7812,7 +7812,7 @@ mpd_del.exit73:                                   ; preds = %128, %131
 134:                                              ; preds = %mpd_del.exit73
   %135 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %136 = load ptr, ptr %20, align 8, !tbaa !17
-  call void %135(ptr noundef %136) #33
+  call void %135(ptr noundef %136) #34
   %.pre92 = load i8, ptr %12, align 8, !tbaa !19
   br label %137
 
@@ -7824,7 +7824,7 @@ mpd_del.exit73:                                   ; preds = %128, %131
 
 140:                                              ; preds = %137
   %141 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %141(ptr noundef nonnull %12) #33
+  call void %141(ptr noundef nonnull %12) #34
   br label %mpd_del.exit68
 
 mpd_del.exit68:                                   ; preds = %137, %140
@@ -7835,7 +7835,7 @@ mpd_del.exit68:                                   ; preds = %137, %140
 143:                                              ; preds = %mpd_del.exit68
   %144 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %145 = load ptr, ptr %23, align 8, !tbaa !17
-  call void %144(ptr noundef %145) #33
+  call void %144(ptr noundef %145) #34
   %.pre93 = load i8, ptr %14, align 8, !tbaa !19
   br label %146
 
@@ -7847,7 +7847,7 @@ mpd_del.exit68:                                   ; preds = %137, %140
 
 149:                                              ; preds = %146
   %150 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %150(ptr noundef nonnull %14) #33
+  call void %150(ptr noundef nonnull %14) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %149, %146, %29, %101, %97, %mpd_seterror.exit79, %mpd_seterror.exit
@@ -7916,7 +7916,7 @@ define hidden void @mpd_qscaleb(ptr noundef %0, ptr noundef readonly captures(ad
   store i8 0, ptr %7, align 1, !tbaa !22
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load ptr, ptr %31, align 8, !tbaa !17
-  %33 = call ptr @mpd_realloc(ptr noundef %32, i64 noundef %28, i64 noundef 8, ptr noundef nonnull %7) #33
+  %33 = call ptr @mpd_realloc(ptr noundef %32, i64 noundef %28, i64 noundef 8, ptr noundef nonnull %7) #34
   store ptr %33, ptr %31, align 8, !tbaa !17
   %34 = load i8, ptr %7, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %34, 0
@@ -7978,7 +7978,7 @@ mpd_seterror.exit:                                ; preds = %22, %25, %37
   store i8 0, ptr %6, align 1, !tbaa !22
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %65 = load ptr, ptr %64, align 8, !tbaa !17
-  %66 = call ptr @mpd_realloc(ptr noundef %65, i64 noundef %61, i64 noundef 8, ptr noundef nonnull %6) #33
+  %66 = call ptr @mpd_realloc(ptr noundef %65, i64 noundef %61, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %66, ptr %64, align 8, !tbaa !17
   %67 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i43 = icmp eq i8 %67, 0
@@ -8075,11 +8075,11 @@ define hidden void @mpd_qshiftn(ptr noundef %0, ptr noundef readonly captures(ad
   br i1 %23, label %24, label %mpd_qresize.exit.thread.i
 
 24:                                               ; preds = %22
-  %25 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %16, ptr noundef %4) #33
+  %25 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %16, ptr noundef %4) #34
   br label %mpd_qresize.exit.i
 
 26:                                               ; preds = %20
-  %27 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %16, ptr noundef %4) #33
+  %27 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %16, ptr noundef %4) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %26, %24
@@ -8163,11 +8163,11 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br i1 %68, label %69, label %mpd_qresize.exit.thread.i34
 
 69:                                               ; preds = %67
-  %70 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %61, ptr noundef %4) #33
+  %70 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %61, ptr noundef %4) #34
   br label %mpd_qresize.exit.i36
 
 71:                                               ; preds = %65
-  %72 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %61, ptr noundef %4) #33
+  %72 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %61, ptr noundef %4) #34
   br label %mpd_qresize.exit.i36
 
 mpd_qresize.exit.i36:                             ; preds = %71, %69
@@ -8232,7 +8232,7 @@ mpd_qresize.exit.thread.i34:                      ; preds = %mpd_qresize.exit.mp
   store i8 0, ptr %6, align 1, !tbaa !22
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %105 = load ptr, ptr %104, align 8, !tbaa !17
-  %106 = call ptr @mpd_realloc(ptr noundef %105, i64 noundef %101, i64 noundef 8, ptr noundef nonnull %6) #33
+  %106 = call ptr @mpd_realloc(ptr noundef %105, i64 noundef %101, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %106, ptr %104, align 8, !tbaa !17
   %107 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %107, 0
@@ -8315,7 +8315,7 @@ define hidden void @mpd_qshift(ptr noundef %0, ptr noundef readonly captures(add
   store i8 0, ptr %8, align 1, !tbaa !22
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load ptr, ptr %31, align 8, !tbaa !17
-  %33 = call ptr @mpd_realloc(ptr noundef %32, i64 noundef %28, i64 noundef 8, ptr noundef nonnull %8) #33
+  %33 = call ptr @mpd_realloc(ptr noundef %32, i64 noundef %28, i64 noundef 8, ptr noundef nonnull %8) #34
   store ptr %33, ptr %31, align 8, !tbaa !17
   %34 = load i8, ptr %8, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %34, 0
@@ -8399,7 +8399,7 @@ mpd_qget_ssize.exit.thread56:                     ; preds = %44, %55
   store i8 0, ptr %6, align 1, !tbaa !22
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %70 = load ptr, ptr %69, align 8, !tbaa !17
-  %71 = call ptr @mpd_realloc(ptr noundef %70, i64 noundef %66, i64 noundef 8, ptr noundef nonnull %6) #33
+  %71 = call ptr @mpd_realloc(ptr noundef %70, i64 noundef %66, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %71, ptr %69, align 8, !tbaa !17
   %72 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i47 = icmp eq i8 %72, 0
@@ -8511,7 +8511,7 @@ define hidden void @mpd_qxor(ptr noundef %0, ptr noundef readonly captures(none)
   store i8 0, ptr %6, align 1, !tbaa !22
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8, !tbaa !17
-  %31 = call ptr @mpd_realloc(ptr noundef %30, i64 noundef %26, i64 noundef 8, ptr noundef nonnull %6) #33
+  %31 = call ptr @mpd_realloc(ptr noundef %30, i64 noundef %26, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %31, ptr %29, align 8, !tbaa !17
   %32 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %32, 0
@@ -8567,11 +8567,11 @@ mpd_seterror.exit:                                ; preds = %20, %23, %35
   br i1 %59, label %60, label %.preheader133
 
 60:                                               ; preds = %58
-  %61 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %51, ptr noundef %4) #33
+  %61 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %51, ptr noundef %4) #34
   br label %mpd_qresize.exit127
 
 62:                                               ; preds = %55
-  %63 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %51, ptr noundef %4) #33
+  %63 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %51, ptr noundef %4) #34
   br label %mpd_qresize.exit127
 
 mpd_qresize.exit127:                              ; preds = %60, %62
@@ -8889,11 +8889,11 @@ _mpd_real_size.exit:                              ; preds = %.lr.ph.i, %217, %._
   br i1 %228, label %229, label %mpd_qresize.exit
 
 229:                                              ; preds = %227
-  %230 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %222, ptr noundef %4) #33
+  %230 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %222, ptr noundef %4) #34
   br label %mpd_qresize.exit
 
 231:                                              ; preds = %225
-  %232 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %222, ptr noundef %4) #33
+  %232 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %222, ptr noundef %4) #34
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %227, %229, %231
@@ -9005,11 +9005,11 @@ mpd_iszero.exit:                                  ; preds = %9
   br i1 %33, label %34, label %mpd_qresize.exit.thread.i.i
 
 34:                                               ; preds = %32
-  %35 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %26, ptr noundef %3) #33
+  %35 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %26, ptr noundef %3) #34
   br label %mpd_qresize.exit.i.i
 
 36:                                               ; preds = %30
-  %37 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %26, ptr noundef %3) #33
+  %37 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %26, ptr noundef %3) #34
   br label %mpd_qresize.exit.i.i
 
 mpd_qresize.exit.i.i:                             ; preds = %36, %34
@@ -9080,11 +9080,11 @@ mpd_iszero.exit.thread:                           ; preds = %9, %19, %mpd_iszero
   br i1 %71, label %72, label %mpd_qresize.exit.thread.i.i21
 
 72:                                               ; preds = %70
-  %73 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %64, ptr noundef %3) #33
+  %73 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %64, ptr noundef %3) #34
   br label %mpd_qresize.exit.i.i23
 
 74:                                               ; preds = %68
-  %75 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %64, ptr noundef %3) #33
+  %75 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %64, ptr noundef %3) #34
   br label %mpd_qresize.exit.i.i23
 
 mpd_qresize.exit.i.i23:                           ; preds = %74, %72
@@ -9205,11 +9205,11 @@ mpd_iszero.exit:                                  ; preds = %9
   br i1 %33, label %34, label %mpd_qresize.exit.thread.i.i
 
 34:                                               ; preds = %32
-  %35 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %26, ptr noundef %3) #33
+  %35 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %26, ptr noundef %3) #34
   br label %mpd_qresize.exit.i.i
 
 36:                                               ; preds = %30
-  %37 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %26, ptr noundef %3) #33
+  %37 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %26, ptr noundef %3) #34
   br label %mpd_qresize.exit.i.i
 
 mpd_qresize.exit.i.i:                             ; preds = %36, %34
@@ -9281,11 +9281,11 @@ mpd_iszero.exit.thread:                           ; preds = %9, %19, %mpd_iszero
   br i1 %71, label %72, label %mpd_qresize.exit.thread.i
 
 72:                                               ; preds = %70
-  %73 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %64, ptr noundef %3) #33
+  %73 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %64, ptr noundef %3) #34
   br label %mpd_qresize.exit.i
 
 74:                                               ; preds = %68
-  %75 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %64, ptr noundef %3) #33
+  %75 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %64, ptr noundef %3) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %74, %72
@@ -9407,7 +9407,7 @@ define internal fastcc void @_mpd_qaddsub_inf(ptr noundef captures(none) initial
   store i8 0, ptr %7, align 1, !tbaa !22
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8, !tbaa !17
-  %25 = call ptr @mpd_realloc(ptr noundef %24, i64 noundef %20, i64 noundef 8, ptr noundef nonnull %7) #33
+  %25 = call ptr @mpd_realloc(ptr noundef %24, i64 noundef %20, i64 noundef 8, ptr noundef nonnull %7) #34
   store ptr %25, ptr %23, align 8, !tbaa !17
   %26 = load i8, ptr %7, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %26, 0
@@ -9453,7 +9453,7 @@ mpd_seterror.exit:                                ; preds = %14, %17, %29
   store i8 0, ptr %6, align 1, !tbaa !22
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %46 = load ptr, ptr %45, align 8, !tbaa !17
-  %47 = call ptr @mpd_realloc(ptr noundef %46, i64 noundef %42, i64 noundef 8, ptr noundef nonnull %6) #33
+  %47 = call ptr @mpd_realloc(ptr noundef %46, i64 noundef %42, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %47, ptr %45, align 8, !tbaa !17
   %48 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i12 = icmp eq i8 %48, 0
@@ -9497,7 +9497,7 @@ mpd_setspecial.exit:                              ; preds = %36, %39, %51
   store i8 0, ptr %5, align 1, !tbaa !22
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %67 = load ptr, ptr %66, align 8, !tbaa !17
-  %68 = call ptr @mpd_realloc(ptr noundef %67, i64 noundef %63, i64 noundef 8, ptr noundef nonnull %5) #33
+  %68 = call ptr @mpd_realloc(ptr noundef %67, i64 noundef %63, i64 noundef 8, ptr noundef nonnull %5) #34
   store ptr %68, ptr %66, align 8, !tbaa !17
   %69 = load i8, ptr %5, align 1, !tbaa !22
   %.not5.i.i15 = icmp eq i8 %69, 0
@@ -9649,7 +9649,7 @@ define internal fastcc void @_mpd_qaddsub(ptr noundef initializes((8, 16)) %0, p
   store i8 0, ptr %7, align 1, !tbaa !22
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %83 = load ptr, ptr %82, align 8, !tbaa !17
-  %84 = call ptr @mpd_realloc(ptr noundef %83, i64 noundef %79, i64 noundef 8, ptr noundef nonnull %7) #33
+  %84 = call ptr @mpd_realloc(ptr noundef %83, i64 noundef %79, i64 noundef 8, ptr noundef nonnull %7) #34
   store ptr %84, ptr %82, align 8, !tbaa !17
   %85 = load i8, ptr %7, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %85, 0
@@ -9726,11 +9726,11 @@ mpd_seterror.exit:                                ; preds = %73, %76, %88
   br i1 %121, label %122, label %mpd_qresize.exit81.thread
 
 122:                                              ; preds = %120
-  %123 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %113, ptr noundef %5) #33
+  %123 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %113, ptr noundef %5) #34
   br label %mpd_qresize.exit81
 
 124:                                              ; preds = %117
-  %125 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %113, ptr noundef %5) #33
+  %125 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %113, ptr noundef %5) #34
   br label %mpd_qresize.exit81
 
 mpd_qresize.exit81:                               ; preds = %122, %124
@@ -9756,7 +9756,7 @@ mpd_qresize.exit81.thread:                        ; preds = %120, %104, %mpd_qre
   %134 = load i64, ptr %.2115.sroa.sel130, align 8, !tbaa !18
   %.3112.sroa.sel138 = select i1 %105, ptr %109, ptr %107
   %135 = load i64, ptr %.3112.sroa.sel138, align 8, !tbaa !18
-  %136 = call i64 @_mpd_baseadd(ptr noundef %131, ptr noundef %132, ptr noundef %133, i64 noundef %134, i64 noundef %135) #33
+  %136 = call i64 @_mpd_baseadd(ptr noundef %131, ptr noundef %132, ptr noundef %133, i64 noundef %134, i64 noundef %135) #34
   %.not73 = icmp eq i64 %136, 0
   br i1 %.not73, label %._crit_edge, label %137
 
@@ -9784,11 +9784,11 @@ mpd_qresize.exit81.thread:                        ; preds = %120, %104, %mpd_qre
   br i1 %148, label %149, label %mpd_qresize.exit78.thread
 
 149:                                              ; preds = %147
-  %150 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %141, ptr noundef %5) #33
+  %150 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %141, ptr noundef %5) #34
   br label %mpd_qresize.exit78
 
 151:                                              ; preds = %144
-  %152 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %141, ptr noundef %5) #33
+  %152 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %141, ptr noundef %5) #34
   br label %mpd_qresize.exit78
 
 mpd_qresize.exit78:                               ; preds = %149, %151
@@ -9868,7 +9868,7 @@ mpd_qresize.exit78.thread:                        ; preds = %147, %137, %mpd_qre
   %184 = load i64, ptr %183, align 8, !tbaa !18
   %185 = getelementptr inbounds nuw i8, ptr %.4, i64 24
   %186 = load i64, ptr %185, align 8, !tbaa !18
-  call void @_mpd_basesub(ptr noundef %178, ptr noundef %180, ptr noundef %182, i64 noundef %184, i64 noundef %186) #33
+  call void @_mpd_basesub(ptr noundef %178, ptr noundef %180, ptr noundef %182, i64 noundef %184, i64 noundef %186) #34
   %187 = load ptr, ptr %177, align 8, !tbaa !17
   %188 = load i64, ptr %183, align 8, !tbaa !18
   %189 = icmp sgt i64 %188, 1
@@ -9906,11 +9906,11 @@ _mpd_real_size.exit:                              ; preds = %.lr.ph.i, %194, %.l
   br i1 %205, label %206, label %mpd_qresize.exit
 
 206:                                              ; preds = %204
-  %207 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %198, ptr noundef %5) #33
+  %207 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %198, ptr noundef %5) #34
   br label %mpd_qresize.exit
 
 208:                                              ; preds = %201
-  %209 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %198, ptr noundef %5) #33
+  %209 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %198, ptr noundef %5) #34
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %204, %206, %208
@@ -10073,7 +10073,7 @@ mpd_setdigits.exit:                               ; preds = %240, %244, %251, %2
 303:                                              ; preds = %301
   %304 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %305 = load ptr, ptr %14, align 8, !tbaa !17
-  call void %304(ptr noundef %305) #33
+  call void %304(ptr noundef %305) #34
   %.pre145 = load i8, ptr %9, align 8, !tbaa !19
   br label %306
 
@@ -10085,7 +10085,7 @@ mpd_setdigits.exit:                               ; preds = %240, %244, %251, %2
 
 309:                                              ; preds = %306
   %310 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %310(ptr noundef nonnull %9) #33
+  call void %310(ptr noundef nonnull %9) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %306, %309
@@ -10148,7 +10148,7 @@ define hidden void @mpd_qadd_ssize(ptr noundef %0, ptr noundef readonly captures
   store i64 64, ptr %10, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %7, ptr %11, align 8, !tbaa !17
-  call void @mpd_maxcontext(ptr noundef nonnull %6) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %6) #34
   %12 = icmp slt i64 %2, 0
   br i1 %12, label %.split11.i, label %.split.i
 
@@ -10200,7 +10200,7 @@ mpd_qadd.exit:                                    ; preds = %19, %21, %24
 27:                                               ; preds = %mpd_qadd.exit
   %28 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %29 = load ptr, ptr %11, align 8, !tbaa !17
-  call void %28(ptr noundef %29) #33
+  call void %28(ptr noundef %29) #34
   %.pre = load i8, ptr %8, align 8, !tbaa !19
   br label %30
 
@@ -10212,7 +10212,7 @@ mpd_qadd.exit:                                    ; preds = %19, %21, %24
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %34(ptr noundef nonnull %8) #33
+  call void %34(ptr noundef nonnull %8) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %30, %33
@@ -10237,7 +10237,7 @@ define hidden void @mpd_qadd_uint(ptr noundef %0, ptr noundef readonly captures(
   store i64 64, ptr %10, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %7, ptr %11, align 8, !tbaa !17
-  call void @mpd_maxcontext(ptr noundef nonnull %6) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %6) #34
   call fastcc void @_ssettriple(ptr noundef nonnull %8, i8 noundef zeroext 0, i64 noundef %2, i64 noundef 0)
   call void @mpd_qfinalize(ptr noundef nonnull %8, ptr noundef nonnull readonly %6, ptr noundef %4)
   %12 = load i8, ptr %1, align 8, !tbaa !19
@@ -10277,7 +10277,7 @@ mpd_qadd.exit:                                    ; preds = %17, %19, %22
 25:                                               ; preds = %mpd_qadd.exit
   %26 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %27 = load ptr, ptr %11, align 8, !tbaa !17
-  call void %26(ptr noundef %27) #33
+  call void %26(ptr noundef %27) #34
   %.pre = load i8, ptr %8, align 8, !tbaa !19
   br label %28
 
@@ -10289,7 +10289,7 @@ mpd_qadd.exit:                                    ; preds = %17, %19, %22
 
 31:                                               ; preds = %28
   %32 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %32(ptr noundef nonnull %8) #33
+  call void %32(ptr noundef nonnull %8) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %28, %31
@@ -10314,7 +10314,7 @@ define hidden void @mpd_qsub_ssize(ptr noundef %0, ptr noundef readonly captures
   store i64 64, ptr %10, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %7, ptr %11, align 8, !tbaa !17
-  call void @mpd_maxcontext(ptr noundef nonnull %6) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %6) #34
   %12 = icmp slt i64 %2, 0
   br i1 %12, label %.split11.i, label %.split.i
 
@@ -10368,7 +10368,7 @@ mpd_qsub.exit:                                    ; preds = %19, %21, %25
 29:                                               ; preds = %mpd_qsub.exit
   %30 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %31 = load ptr, ptr %11, align 8, !tbaa !17
-  call void %30(ptr noundef %31) #33
+  call void %30(ptr noundef %31) #34
   %.pre = load i8, ptr %8, align 8, !tbaa !19
   br label %32
 
@@ -10380,7 +10380,7 @@ mpd_qsub.exit:                                    ; preds = %19, %21, %25
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %36(ptr noundef nonnull %8) #33
+  call void %36(ptr noundef nonnull %8) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %32, %35
@@ -10405,7 +10405,7 @@ define hidden void @mpd_qsub_uint(ptr noundef %0, ptr noundef readonly captures(
   store i64 64, ptr %10, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %7, ptr %11, align 8, !tbaa !17
-  call void @mpd_maxcontext(ptr noundef nonnull %6) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %6) #34
   call fastcc void @_ssettriple(ptr noundef nonnull %8, i8 noundef zeroext 0, i64 noundef %2, i64 noundef 0)
   call void @mpd_qfinalize(ptr noundef nonnull %8, ptr noundef nonnull readonly %6, ptr noundef %4)
   %12 = load i8, ptr %1, align 8, !tbaa !19
@@ -10447,7 +10447,7 @@ mpd_qsub.exit:                                    ; preds = %17, %19, %23
 27:                                               ; preds = %mpd_qsub.exit
   %28 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %29 = load ptr, ptr %11, align 8, !tbaa !17
-  call void %28(ptr noundef %29) #33
+  call void %28(ptr noundef %29) #34
   %.pre = load i8, ptr %8, align 8, !tbaa !19
   br label %30
 
@@ -10459,7 +10459,7 @@ mpd_qsub.exit:                                    ; preds = %17, %19, %23
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %34(ptr noundef nonnull %8) #33
+  call void %34(ptr noundef nonnull %8) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %30, %33
@@ -10577,7 +10577,7 @@ define hidden void @mpd_qdiv(ptr noundef %0, ptr noundef readonly captures(addre
   br i1 %36, label %mpd_qresize.exit.i, label %mpd_qresize.exit.thread.i
 
 mpd_qresize.exit.i:                               ; preds = %31
-  %37 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %10, i64 noundef %35, ptr noundef %4) #33
+  %37 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %10, i64 noundef %35, ptr noundef %4) #34
   %.not.i47 = icmp eq i32 %37, 0
   br i1 %.not.i47, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -10626,7 +10626,7 @@ mpd_qcopy.exit:                                   ; preds = %mpd_qresize.exit.i
   store i8 0, ptr %8, align 1, !tbaa !22
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %60 = load ptr, ptr %59, align 8, !tbaa !17
-  %61 = call ptr @mpd_realloc(ptr noundef %60, i64 noundef %56, i64 noundef 8, ptr noundef nonnull %8) #33
+  %61 = call ptr @mpd_realloc(ptr noundef %60, i64 noundef %56, i64 noundef 8, ptr noundef nonnull %8) #34
   store ptr %61, ptr %59, align 8, !tbaa !17
   %62 = load i8, ptr %8, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %62, 0
@@ -10684,11 +10684,11 @@ mpd_qcopy.exit.thread:                            ; preds = %29, %mpd_qresize.ex
   br i1 %85, label %86, label %mpd_qresize.exit.thread.i52
 
 86:                                               ; preds = %84
-  %87 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %12, i64 noundef %79, ptr noundef %4) #33
+  %87 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %12, i64 noundef %79, ptr noundef %4) #34
   br label %mpd_qresize.exit.i54
 
 88:                                               ; preds = %82
-  %89 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %12, i64 noundef %79, ptr noundef %4) #33
+  %89 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %12, i64 noundef %79, ptr noundef %4) #34
   br label %mpd_qresize.exit.i54
 
 mpd_qresize.exit.i54:                             ; preds = %88, %86
@@ -10740,7 +10740,7 @@ mpd_qcopy.exit60:                                 ; preds = %mpd_qresize.exit.i5
   store i8 0, ptr %7, align 1, !tbaa !22
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %112 = load ptr, ptr %111, align 8, !tbaa !17
-  %113 = call ptr @mpd_realloc(ptr noundef %112, i64 noundef %108, i64 noundef 8, ptr noundef nonnull %7) #33
+  %113 = call ptr @mpd_realloc(ptr noundef %112, i64 noundef %108, i64 noundef 8, ptr noundef nonnull %7) #34
   store ptr %113, ptr %111, align 8, !tbaa !17
   %114 = load i8, ptr %7, align 1, !tbaa !22
   %.not5.i.i62 = icmp eq i8 %114, 0
@@ -10825,7 +10825,7 @@ mpd_qcopy.exit60.thread:                          ; preds = %73, %mpd_qresize.ex
   store i8 0, ptr %6, align 1, !tbaa !22
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %151 = load ptr, ptr %150, align 8, !tbaa !17
-  %152 = call ptr @mpd_realloc(ptr noundef %151, i64 noundef %147, i64 noundef 8, ptr noundef nonnull %6) #33
+  %152 = call ptr @mpd_realloc(ptr noundef %151, i64 noundef %147, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %152, ptr %150, align 8, !tbaa !17
   %153 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i66 = icmp eq i8 %153, 0
@@ -10876,7 +10876,7 @@ mpd_seterror.exit68:                              ; preds = %136, %144, %156
 169:                                              ; preds = %167
   %170 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %171 = load ptr, ptr %21, align 8, !tbaa !17
-  call void %170(ptr noundef %171) #33
+  call void %170(ptr noundef %171) #34
   %.pre73 = load i8, ptr %10, align 8, !tbaa !19
   br label %172
 
@@ -10888,7 +10888,7 @@ mpd_seterror.exit68:                              ; preds = %136, %144, %156
 
 175:                                              ; preds = %172
   %176 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %176(ptr noundef nonnull %10) #33
+  call void %176(ptr noundef nonnull %10) #34
   br label %mpd_del.exit45
 
 mpd_del.exit45:                                   ; preds = %172, %175
@@ -10899,7 +10899,7 @@ mpd_del.exit45:                                   ; preds = %172, %175
 178:                                              ; preds = %mpd_del.exit45
   %179 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %180 = load ptr, ptr %27, align 8, !tbaa !17
-  call void %179(ptr noundef %180) #33
+  call void %179(ptr noundef %180) #34
   %.pre74 = load i8, ptr %12, align 8, !tbaa !19
   br label %181
 
@@ -10911,7 +10911,7 @@ mpd_del.exit45:                                   ; preds = %172, %175
 
 184:                                              ; preds = %181
   %185 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %185(ptr noundef nonnull %12) #33
+  call void %185(ptr noundef nonnull %12) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %181, %184
@@ -10993,7 +10993,7 @@ define internal fastcc void @_mpd_qdiv(i32 noundef range(i32 0, 2) %0, ptr nound
   store i8 0, ptr %10, align 1, !tbaa !22
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %42 = load ptr, ptr %41, align 8, !tbaa !17
-  %43 = call ptr @mpd_realloc(ptr noundef %42, i64 noundef %38, i64 noundef 8, ptr noundef nonnull %10) #33
+  %43 = call ptr @mpd_realloc(ptr noundef %42, i64 noundef %38, i64 noundef 8, ptr noundef nonnull %10) #34
   store ptr %43, ptr %41, align 8, !tbaa !17
   %44 = load i8, ptr %10, align 1, !tbaa !22
   %.not5.i.i.i = icmp eq i8 %44, 0
@@ -11040,7 +11040,7 @@ mpd_seterror.exit.i:                              ; preds = %47, %35, %32
   store i8 0, ptr %9, align 1, !tbaa !22
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %65 = load ptr, ptr %64, align 8, !tbaa !17
-  %66 = call ptr @mpd_realloc(ptr noundef %65, i64 noundef %61, i64 noundef 8, ptr noundef nonnull %9) #33
+  %66 = call ptr @mpd_realloc(ptr noundef %65, i64 noundef %61, i64 noundef 8, ptr noundef nonnull %9) #34
   store ptr %66, ptr %64, align 8, !tbaa !17
   %67 = load i8, ptr %9, align 1, !tbaa !22
   %.not5.i.i14.i = icmp eq i8 %67, 0
@@ -11116,7 +11116,7 @@ mpd_setspecial.exit.i:                            ; preds = %70, %58, %54
   store i8 0, ptr %8, align 1, !tbaa !22
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %107 = load ptr, ptr %106, align 8, !tbaa !17
-  %108 = call ptr @mpd_realloc(ptr noundef %107, i64 noundef %103, i64 noundef 8, ptr noundef nonnull %8) #33
+  %108 = call ptr @mpd_realloc(ptr noundef %107, i64 noundef %103, i64 noundef 8, ptr noundef nonnull %8) #34
   store ptr %108, ptr %106, align 8, !tbaa !17
   %109 = load i8, ptr %8, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %109, 0
@@ -11163,7 +11163,7 @@ mpd_seterror.exit:                                ; preds = %97, %100, %112
   store i8 0, ptr %7, align 1, !tbaa !22
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %130 = load ptr, ptr %129, align 8, !tbaa !17
-  %131 = call ptr @mpd_realloc(ptr noundef %130, i64 noundef %126, i64 noundef 8, ptr noundef nonnull %7) #33
+  %131 = call ptr @mpd_realloc(ptr noundef %130, i64 noundef %126, i64 noundef 8, ptr noundef nonnull %7) #34
   store ptr %131, ptr %129, align 8, !tbaa !17
   %132 = load i8, ptr %7, align 1, !tbaa !22
   %.not5.i.i218 = icmp eq i8 %132, 0
@@ -11283,11 +11283,11 @@ mpd_setspecial.exit:                              ; preds = %119, %123, %135
   br i1 %190, label %191, label %mpd_qresize.exit214.thread
 
 191:                                              ; preds = %189
-  %192 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %182, ptr noundef %5) #33
+  %192 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %182, ptr noundef %5) #34
   br label %mpd_qresize.exit214
 
 193:                                              ; preds = %186
-  %194 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %182, ptr noundef %5) #33
+  %194 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %182, ptr noundef %5) #34
   br label %mpd_qresize.exit214
 
 mpd_qresize.exit214:                              ; preds = %191, %193
@@ -11315,7 +11315,7 @@ mpd_qresize.exit214.thread:                       ; preds = %mpd_qresize.exit214
   %202 = load i64, ptr %.0.sroa.phi148, align 8, !tbaa !18
   %203 = load ptr, ptr %.0128.sroa.phi166, align 8, !tbaa !17
   %204 = load i64, ptr %203, align 8, !tbaa !3
-  %205 = call i64 @_mpd_shortdiv(ptr noundef %200, ptr noundef %201, i64 noundef %202, i64 noundef %204) #33
+  %205 = call i64 @_mpd_shortdiv(ptr noundef %200, ptr noundef %201, i64 noundef %202, i64 noundef %204) #34
   br label %255
 
 206:                                              ; preds = %mpd_qresize.exit214.thread
@@ -11328,7 +11328,7 @@ mpd_qresize.exit214.thread:                       ; preds = %mpd_qresize.exit214
   %211 = load ptr, ptr %.0.sroa.phi144, align 8, !tbaa !17
   %212 = load ptr, ptr %.0128.sroa.phi166, align 8, !tbaa !17
   %213 = load i64, ptr %.0.sroa.phi148, align 8, !tbaa !18
-  %214 = call i32 @_mpd_basedivmod(ptr noundef %210, ptr noundef null, ptr noundef %211, ptr noundef %212, i64 noundef %213, i64 noundef %196) #33
+  %214 = call i32 @_mpd_basedivmod(ptr noundef %210, ptr noundef null, ptr noundef %211, ptr noundef %212, i64 noundef %213, i64 noundef %196) #34
   %215 = icmp slt i32 %214, 0
   br i1 %215, label %217, label %.thread
 
@@ -11372,7 +11372,7 @@ mpd_qresize.exit214.thread:                       ; preds = %mpd_qresize.exit214
 230:                                              ; preds = %228
   %231 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %232 = load ptr, ptr %222, align 8, !tbaa !17
-  call void %231(ptr noundef %232) #33
+  call void %231(ptr noundef %232) #34
   %.pre234 = load i8, ptr %14, align 8, !tbaa !19
   br label %233
 
@@ -11384,7 +11384,7 @@ mpd_qresize.exit214.thread:                       ; preds = %mpd_qresize.exit214
 
 236:                                              ; preds = %233
   %237 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %237(ptr noundef nonnull %14) #33
+  call void %237(ptr noundef nonnull %14) #34
   br label %mpd_del.exit210.thread
 
 238:                                              ; preds = %225
@@ -11400,7 +11400,7 @@ mpd_qresize.exit214.thread:                       ; preds = %mpd_qresize.exit214
 
 246:                                              ; preds = %238
   %247 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %247(ptr noundef nonnull %239) #33
+  call void %247(ptr noundef nonnull %239) #34
   %.pre235 = load i8, ptr %14, align 8, !tbaa !19
   br label %248
 
@@ -11412,7 +11412,7 @@ mpd_qresize.exit214.thread:                       ; preds = %mpd_qresize.exit214
 
 251:                                              ; preds = %248
   %252 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %252(ptr noundef nonnull %14) #33
+  call void %252(ptr noundef nonnull %14) #34
   br label %mpd_del.exit210
 
 mpd_del.exit210.thread:                           ; preds = %233, %236
@@ -11468,11 +11468,11 @@ _mpd_real_size.exit:                              ; preds = %.lr.ph.i, %263, %25
   br i1 %275, label %276, label %mpd_qresize.exit
 
 276:                                              ; preds = %274
-  %277 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %267, ptr noundef %5) #33
+  %277 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %267, ptr noundef %5) #34
   br label %mpd_qresize.exit
 
 278:                                              ; preds = %271
-  %279 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %267, ptr noundef %5) #33
+  %279 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %267, ptr noundef %5) #34
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %274, %276, %278
@@ -11527,7 +11527,7 @@ mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit
 302:                                              ; preds = %300
   %303 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %304 = load ptr, ptr %18, align 8, !tbaa !17
-  call void %303(ptr noundef %304) #33
+  call void %303(ptr noundef %304) #34
   %.pre236 = load i8, ptr %12, align 8, !tbaa !19
   br label %305
 
@@ -11539,7 +11539,7 @@ mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit
 
 308:                                              ; preds = %305
   %309 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %309(ptr noundef nonnull %12) #33
+  call void %309(ptr noundef nonnull %12) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %305, %308
@@ -11603,11 +11603,11 @@ define hidden void @mpd_qdivmod(ptr noundef %0, ptr noundef %1, ptr noundef read
   br i1 %36, label %37, label %mpd_qresize.exit.thread.i
 
 37:                                               ; preds = %35
-  %38 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %29, ptr noundef %5) #33
+  %38 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %29, ptr noundef %5) #34
   br label %mpd_qresize.exit.i
 
 39:                                               ; preds = %33
-  %40 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %29, ptr noundef %5) #33
+  %40 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %29, ptr noundef %5) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %39, %37
@@ -11677,7 +11677,7 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   store i8 0, ptr %14, align 1, !tbaa !22
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %76 = load ptr, ptr %75, align 8, !tbaa !17
-  %77 = call ptr @mpd_realloc(ptr noundef %76, i64 noundef %72, i64 noundef 8, ptr noundef nonnull %14) #33
+  %77 = call ptr @mpd_realloc(ptr noundef %76, i64 noundef %72, i64 noundef 8, ptr noundef nonnull %14) #34
   store ptr %77, ptr %75, align 8, !tbaa !17
   %78 = load i8, ptr %14, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %78, 0
@@ -11714,7 +11714,7 @@ mpd_setspecial.exit:                              ; preds = %68, %69, %81
   store i8 0, ptr %13, align 1, !tbaa !22
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %93 = load ptr, ptr %92, align 8, !tbaa !17
-  %94 = call ptr @mpd_realloc(ptr noundef %93, i64 noundef %89, i64 noundef 8, ptr noundef nonnull %13) #33
+  %94 = call ptr @mpd_realloc(ptr noundef %93, i64 noundef %89, i64 noundef 8, ptr noundef nonnull %13) #34
   store ptr %94, ptr %92, align 8, !tbaa !17
   %95 = load i8, ptr %13, align 1, !tbaa !22
   %.not5.i.i61 = icmp eq i8 %95, 0
@@ -11759,7 +11759,7 @@ mpd_setspecial.exit63:                            ; preds = %85, %86, %98
   store i8 0, ptr %12, align 1, !tbaa !22
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %114 = load ptr, ptr %113, align 8, !tbaa !17
-  %115 = call ptr @mpd_realloc(ptr noundef %114, i64 noundef %110, i64 noundef 8, ptr noundef nonnull %12) #33
+  %115 = call ptr @mpd_realloc(ptr noundef %114, i64 noundef %110, i64 noundef 8, ptr noundef nonnull %12) #34
   store ptr %115, ptr %113, align 8, !tbaa !17
   %116 = load i8, ptr %12, align 1, !tbaa !22
   %.not5.i.i65 = icmp eq i8 %116, 0
@@ -11815,11 +11815,11 @@ mpd_setspecial.exit67:                            ; preds = %103, %107, %119
   br i1 %140, label %141, label %mpd_qresize.exit.thread.i70
 
 141:                                              ; preds = %139
-  %142 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %133, ptr noundef %5) #33
+  %142 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %133, ptr noundef %5) #34
   br label %mpd_qresize.exit.i72
 
 143:                                              ; preds = %137
-  %144 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %133, ptr noundef %5) #33
+  %144 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %133, ptr noundef %5) #34
   br label %mpd_qresize.exit.i72
 
 mpd_qresize.exit.i72:                             ; preds = %143, %141
@@ -11878,7 +11878,7 @@ mpd_qcopy.exit78:                                 ; preds = %mpd_qresize.exit.i7
   store i8 0, ptr %11, align 1, !tbaa !22
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %173 = load ptr, ptr %172, align 8, !tbaa !17
-  %174 = call ptr @mpd_realloc(ptr noundef %173, i64 noundef %169, i64 noundef 8, ptr noundef nonnull %11) #33
+  %174 = call ptr @mpd_realloc(ptr noundef %173, i64 noundef %169, i64 noundef 8, ptr noundef nonnull %11) #34
   store ptr %174, ptr %172, align 8, !tbaa !17
   %175 = load i8, ptr %11, align 1, !tbaa !22
   %.not5.i.i80 = icmp eq i8 %175, 0
@@ -11912,7 +11912,7 @@ mpd_seterror.exit:                                ; preds = %mpd_qcopy.exit78, %
   br label %mpd_qcopy.exit
 
 186:                                              ; preds = %126
-  tail call void @abort() #34
+  tail call void @abort() #35
   unreachable
 
 187:                                              ; preds = %6
@@ -11955,7 +11955,7 @@ mpd_seterror.exit:                                ; preds = %mpd_qcopy.exit78, %
   store i8 0, ptr %10, align 1, !tbaa !22
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %213 = load ptr, ptr %212, align 8, !tbaa !17
-  %214 = call ptr @mpd_realloc(ptr noundef %213, i64 noundef %209, i64 noundef 8, ptr noundef nonnull %10) #33
+  %214 = call ptr @mpd_realloc(ptr noundef %213, i64 noundef %209, i64 noundef 8, ptr noundef nonnull %10) #34
   store ptr %214, ptr %212, align 8, !tbaa !17
   %215 = load i8, ptr %10, align 1, !tbaa !22
   %.not5.i.i83 = icmp eq i8 %215, 0
@@ -11995,7 +11995,7 @@ mpd_setspecial.exit85:                            ; preds = %205, %206, %218
   store i8 0, ptr %9, align 1, !tbaa !22
   %231 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %232 = load ptr, ptr %231, align 8, !tbaa !17
-  %233 = call ptr @mpd_realloc(ptr noundef %232, i64 noundef %228, i64 noundef 8, ptr noundef nonnull %9) #33
+  %233 = call ptr @mpd_realloc(ptr noundef %232, i64 noundef %228, i64 noundef 8, ptr noundef nonnull %9) #34
   store ptr %233, ptr %231, align 8, !tbaa !17
   %234 = load i8, ptr %9, align 1, !tbaa !22
   %.not5.i.i87 = icmp eq i8 %234, 0
@@ -12025,7 +12025,7 @@ mpd_setspecial.exit85:                            ; preds = %205, %206, %218
   store i8 0, ptr %8, align 1, !tbaa !22
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %246 = load ptr, ptr %245, align 8, !tbaa !17
-  %247 = call ptr @mpd_realloc(ptr noundef %246, i64 noundef %242, i64 noundef 8, ptr noundef nonnull %8) #33
+  %247 = call ptr @mpd_realloc(ptr noundef %246, i64 noundef %242, i64 noundef 8, ptr noundef nonnull %8) #34
   store ptr %247, ptr %245, align 8, !tbaa !17
   %248 = load i8, ptr %8, align 1, !tbaa !22
   %.not5.i.i91 = icmp eq i8 %248, 0
@@ -12066,7 +12066,7 @@ mpd_setspecial.exit93:                            ; preds = %238, %239, %251
   store i8 0, ptr %7, align 1, !tbaa !22
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %266 = load ptr, ptr %265, align 8, !tbaa !17
-  %267 = call ptr @mpd_realloc(ptr noundef %266, i64 noundef %262, i64 noundef 8, ptr noundef nonnull %7) #33
+  %267 = call ptr @mpd_realloc(ptr noundef %266, i64 noundef %262, i64 noundef 8, ptr noundef nonnull %7) #34
   store ptr %267, ptr %265, align 8, !tbaa !17
   %268 = load i8, ptr %7, align 1, !tbaa !22
   %.not5.i.i95 = icmp eq i8 %268, 0
@@ -12174,11 +12174,11 @@ define internal fastcc void @_mpd_qdivmod(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %41, label %42, label %mpd_qresize.exit.thread.i
 
 42:                                               ; preds = %40
-  %43 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %34, ptr noundef %5) #33
+  %43 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %34, ptr noundef %5) #34
   br label %mpd_qresize.exit.i
 
 44:                                               ; preds = %38
-  %45 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %34, ptr noundef %5) #33
+  %45 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %34, ptr noundef %5) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %44, %42
@@ -12273,11 +12273,11 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br i1 %91, label %92, label %mpd_qresize.exit.thread.i232
 
 92:                                               ; preds = %90
-  %93 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %84, ptr noundef %5) #33
+  %93 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %84, ptr noundef %5) #34
   br label %mpd_qresize.exit.i234
 
 94:                                               ; preds = %88
-  %95 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %84, ptr noundef %5) #33
+  %95 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %84, ptr noundef %5) #34
   br label %mpd_qresize.exit.i234
 
 mpd_qresize.exit.i234:                            ; preds = %94, %92
@@ -12388,11 +12388,11 @@ mpd_qcopy.exit240.thread:                         ; preds = %80, %mpd_qresize.ex
   br i1 %144, label %145, label %mpd_qresize.exit226.thread
 
 145:                                              ; preds = %143
-  %146 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %136, ptr noundef %5) #33
+  %146 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %136, ptr noundef %5) #34
   br label %mpd_qresize.exit226
 
 147:                                              ; preds = %140
-  %148 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %136, ptr noundef %5) #33
+  %148 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %136, ptr noundef %5) #34
   br label %mpd_qresize.exit226
 
 mpd_qresize.exit226:                              ; preds = %145, %147
@@ -12433,11 +12433,11 @@ mpd_qresize.exit226.thread:                       ; preds = %mpd_qresize.exit226
   br i1 %164, label %165, label %thread-pre-split
 
 165:                                              ; preds = %163
-  %166 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %156, ptr noundef %5) #33
+  %166 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %156, ptr noundef %5) #34
   br label %mpd_qresize.exit223
 
 167:                                              ; preds = %160
-  %168 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %156, ptr noundef %5) #33
+  %168 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %156, ptr noundef %5) #34
   br label %mpd_qresize.exit223
 
 mpd_qresize.exit223:                              ; preds = %165, %167
@@ -12479,7 +12479,7 @@ thread-pre-split:                                 ; preds = %154, %163, %mpd_qre
   %186 = load ptr, ptr %.0.sroa.phi156, align 8, !tbaa !17
   %187 = load ptr, ptr %.0127.sroa.phi186, align 8, !tbaa !17
   %188 = load i64, ptr %187, align 8, !tbaa !3
-  %189 = call i64 @_mpd_shortdiv(ptr noundef %175, ptr noundef %186, i64 noundef %172, i64 noundef %188) #33
+  %189 = call i64 @_mpd_shortdiv(ptr noundef %175, ptr noundef %186, i64 noundef %172, i64 noundef %188) #34
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %191 = load ptr, ptr %190, align 8, !tbaa !17
   store i64 %189, ptr %191, align 8, !tbaa !3
@@ -12497,7 +12497,7 @@ thread-pre-split:                                 ; preds = %154, %163, %mpd_qre
   %199 = load ptr, ptr %.0.sroa.phi156, align 8, !tbaa !17
   %200 = load ptr, ptr %.0127.sroa.phi186, align 8, !tbaa !17
   %201 = load i64, ptr %.0.sroa.phi160, align 8, !tbaa !18
-  %202 = call i32 @_mpd_basedivmod(ptr noundef %196, ptr noundef %198, ptr noundef %199, ptr noundef %200, i64 noundef %201, i64 noundef %169) #33
+  %202 = call i32 @_mpd_basedivmod(ptr noundef %196, ptr noundef %198, ptr noundef %199, ptr noundef %200, i64 noundef %201, i64 noundef %169) #34
   %203 = icmp eq i32 %202, -1
   br i1 %203, label %mpd_qcopy.exit.sink.split, label %.thread
 
@@ -12562,11 +12562,11 @@ _mpd_real_size.exit:                              ; preds = %.lr.ph.i, %222, %.t
   br i1 %234, label %235, label %mpd_qresize.exit220
 
 235:                                              ; preds = %233
-  %236 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %226, ptr noundef %5) #33
+  %236 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %226, ptr noundef %5) #34
   br label %mpd_qresize.exit220
 
 237:                                              ; preds = %230
-  %238 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %226, ptr noundef %5) #33
+  %238 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %226, ptr noundef %5) #34
   br label %mpd_qresize.exit220
 
 mpd_qresize.exit220:                              ; preds = %_mpd_real_size.exit, %233, %235, %237
@@ -12735,11 +12735,11 @@ _mpd_real_size.exit245:                           ; preds = %.lr.ph.i243, %327, 
   br i1 %339, label %340, label %mpd_qresize.exit
 
 340:                                              ; preds = %338
-  %341 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %331, ptr noundef %5) #33
+  %341 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %331, ptr noundef %5) #34
   br label %mpd_qresize.exit
 
 342:                                              ; preds = %335
-  %343 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %331, ptr noundef %5) #33
+  %343 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %331, ptr noundef %5) #34
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit245, %338, %340, %342
@@ -12762,7 +12762,7 @@ mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit
 351:                                              ; preds = %349
   %352 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %353 = load ptr, ptr %14, align 8, !tbaa !17
-  call void %352(ptr noundef %353) #33
+  call void %352(ptr noundef %353) #34
   %.pre269 = load i8, ptr %10, align 8, !tbaa !19
   br label %354
 
@@ -12774,7 +12774,7 @@ mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit
 
 357:                                              ; preds = %354
   %358 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %358(ptr noundef nonnull %10) #33
+  call void %358(ptr noundef nonnull %10) #34
   br label %mpd_del.exit
 
 mpd_qcopy.exit.sink.split:                        ; preds = %mpd_setdigits.exit, %194, %112
@@ -12802,7 +12802,7 @@ mpd_qcopy.exit:                                   ; preds = %mpd_qcopy.exit.sink
   store i8 0, ptr %8, align 1, !tbaa !22
   %369 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %370 = load ptr, ptr %369, align 8, !tbaa !17
-  %371 = call ptr @mpd_realloc(ptr noundef %370, i64 noundef %366, i64 noundef 8, ptr noundef nonnull %8) #33
+  %371 = call ptr @mpd_realloc(ptr noundef %370, i64 noundef %366, i64 noundef 8, ptr noundef nonnull %8) #34
   store ptr %371, ptr %369, align 8, !tbaa !17
   %372 = load i8, ptr %8, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %372, 0
@@ -12842,7 +12842,7 @@ mpd_setspecial.exit:                              ; preds = %mpd_qcopy.exit, %36
   store i8 0, ptr %7, align 1, !tbaa !22
   %388 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %389 = load ptr, ptr %388, align 8, !tbaa !17
-  %390 = call ptr @mpd_realloc(ptr noundef %389, i64 noundef %385, i64 noundef 8, ptr noundef nonnull %7) #33
+  %390 = call ptr @mpd_realloc(ptr noundef %389, i64 noundef %385, i64 noundef 8, ptr noundef nonnull %7) #34
   store ptr %390, ptr %388, align 8, !tbaa !17
   %391 = load i8, ptr %7, align 1, !tbaa !22
   %.not5.i.i249 = icmp eq i8 %391, 0
@@ -12936,7 +12936,7 @@ define hidden void @mpd_qdivint(ptr noundef %0, ptr noundef readonly captures(ad
   store i8 0, ptr %9, align 1, !tbaa !22
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !17
-  %40 = call ptr @mpd_realloc(ptr noundef %39, i64 noundef %35, i64 noundef 8, ptr noundef nonnull %9) #33
+  %40 = call ptr @mpd_realloc(ptr noundef %39, i64 noundef %35, i64 noundef 8, ptr noundef nonnull %9) #34
   store ptr %40, ptr %38, align 8, !tbaa !17
   %41 = load i8, ptr %9, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %41, 0
@@ -12979,7 +12979,7 @@ mpd_seterror.exit:                                ; preds = %31, %32, %44
   store i8 0, ptr %8, align 1, !tbaa !22
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %59 = load ptr, ptr %58, align 8, !tbaa !17
-  %60 = call ptr @mpd_realloc(ptr noundef %59, i64 noundef %55, i64 noundef 8, ptr noundef nonnull %8) #33
+  %60 = call ptr @mpd_realloc(ptr noundef %59, i64 noundef %55, i64 noundef 8, ptr noundef nonnull %8) #34
   store ptr %60, ptr %58, align 8, !tbaa !17
   %61 = load i8, ptr %8, align 1, !tbaa !22
   %.not5.i.i43 = icmp eq i8 %61, 0
@@ -13013,7 +13013,7 @@ mpd_setspecial.exit:                              ; preds = %51, %52, %64
   br label %142
 
 72:                                               ; preds = %70
-  call void @abort() #34
+  call void @abort() #35
   unreachable
 
 73:                                               ; preds = %5
@@ -13056,7 +13056,7 @@ mpd_setspecial.exit:                              ; preds = %51, %52, %64
   store i8 0, ptr %7, align 1, !tbaa !22
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %99 = load ptr, ptr %98, align 8, !tbaa !17
-  %100 = call ptr @mpd_realloc(ptr noundef %99, i64 noundef %95, i64 noundef 8, ptr noundef nonnull %7) #33
+  %100 = call ptr @mpd_realloc(ptr noundef %99, i64 noundef %95, i64 noundef 8, ptr noundef nonnull %7) #34
   store ptr %100, ptr %98, align 8, !tbaa !17
   %101 = load i8, ptr %7, align 1, !tbaa !22
   %.not5.i.i46 = icmp eq i8 %101, 0
@@ -13099,7 +13099,7 @@ mpd_seterror.exit48:                              ; preds = %91, %92, %104
   store i8 0, ptr %6, align 1, !tbaa !22
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %119 = load ptr, ptr %118, align 8, !tbaa !17
-  %120 = call ptr @mpd_realloc(ptr noundef %119, i64 noundef %115, i64 noundef 8, ptr noundef nonnull %6) #33
+  %120 = call ptr @mpd_realloc(ptr noundef %119, i64 noundef %115, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %120, ptr %118, align 8, !tbaa !17
   %121 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i50 = icmp eq i8 %121, 0
@@ -13137,7 +13137,7 @@ mpd_setspecial.exit52:                            ; preds = %111, %112, %124
 134:                                              ; preds = %132
   %135 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %136 = load ptr, ptr %14, align 8, !tbaa !17
-  call void %135(ptr noundef %136) #33
+  call void %135(ptr noundef %136) #34
   %.pre = load i8, ptr %11, align 8, !tbaa !19
   br label %137
 
@@ -13149,7 +13149,7 @@ mpd_setspecial.exit52:                            ; preds = %111, %112, %124
 
 140:                                              ; preds = %137
   %141 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %141(ptr noundef nonnull %11) #33
+  call void %141(ptr noundef nonnull %11) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %137, %140
@@ -13177,7 +13177,7 @@ define hidden void @mpd_qdiv_ssize(ptr noundef %0, ptr noundef readonly captures
   store i64 64, ptr %10, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %7, ptr %11, align 8, !tbaa !17
-  call void @mpd_maxcontext(ptr noundef nonnull %6) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %6) #34
   %12 = icmp slt i64 %2, 0
   br i1 %12, label %.split11.i, label %.split.i
 
@@ -13200,7 +13200,7 @@ mpd_qsset_ssize.exit:                             ; preds = %.split11.i, %.split
 15:                                               ; preds = %mpd_qsset_ssize.exit
   %16 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %17 = load ptr, ptr %11, align 8, !tbaa !17
-  call void %16(ptr noundef %17) #33
+  call void %16(ptr noundef %17) #34
   %.pre = load i8, ptr %8, align 8, !tbaa !19
   br label %18
 
@@ -13212,7 +13212,7 @@ mpd_qsset_ssize.exit:                             ; preds = %.split11.i, %.split
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %22(ptr noundef nonnull %8) #33
+  call void %22(ptr noundef nonnull %8) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %18, %21
@@ -13237,7 +13237,7 @@ define hidden void @mpd_qdiv_uint(ptr noundef %0, ptr noundef readonly captures(
   store i64 64, ptr %10, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %7, ptr %11, align 8, !tbaa !17
-  call void @mpd_maxcontext(ptr noundef nonnull %6) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %6) #34
   call fastcc void @_ssettriple(ptr noundef nonnull %8, i8 noundef zeroext 0, i64 noundef %2, i64 noundef 0)
   call void @mpd_qfinalize(ptr noundef nonnull %8, ptr noundef nonnull readonly %6, ptr noundef %4)
   call void @mpd_qdiv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4)
@@ -13248,7 +13248,7 @@ define hidden void @mpd_qdiv_uint(ptr noundef %0, ptr noundef readonly captures(
 13:                                               ; preds = %5
   %14 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %15 = load ptr, ptr %11, align 8, !tbaa !17
-  call void %14(ptr noundef %15) #33
+  call void %14(ptr noundef %15) #34
   %.pre = load i8, ptr %8, align 8, !tbaa !19
   br label %16
 
@@ -13260,7 +13260,7 @@ define hidden void @mpd_qdiv_uint(ptr noundef %0, ptr noundef readonly captures(
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %20(ptr noundef nonnull %8) #33
+  call void %20(ptr noundef nonnull %8) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %16, %19
@@ -13293,7 +13293,7 @@ define hidden void @mpd_qdiv_u32(ptr noundef %0, ptr noundef readonly captures(a
   store i64 64, ptr %11, align 8, !tbaa !21
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %7, ptr %12, align 8, !tbaa !17
-  call void @mpd_maxcontext(ptr noundef nonnull %6) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %6) #34
   call fastcc void @_ssettriple(ptr noundef nonnull %8, i8 noundef zeroext 0, i64 noundef %9, i64 noundef 0)
   call void @mpd_qfinalize(ptr noundef nonnull %8, ptr noundef nonnull readonly %6, ptr noundef %4)
   call void @mpd_qdiv(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull %8, ptr noundef readonly %3, ptr noundef %4)
@@ -13304,7 +13304,7 @@ define hidden void @mpd_qdiv_u32(ptr noundef %0, ptr noundef readonly captures(a
 14:                                               ; preds = %5
   %15 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %16 = load ptr, ptr %12, align 8, !tbaa !17
-  call void %15(ptr noundef %16) #33
+  call void %15(ptr noundef %16) #34
   %.pre.i = load i8, ptr %8, align 8, !tbaa !19
   br label %17
 
@@ -13316,7 +13316,7 @@ define hidden void @mpd_qdiv_u32(ptr noundef %0, ptr noundef readonly captures(a
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %21(ptr noundef nonnull %8) #33
+  call void %21(ptr noundef nonnull %8) #34
   br label %mpd_qdiv_uint.exit
 
 mpd_qdiv_uint.exit:                               ; preds = %17, %20
@@ -13347,7 +13347,7 @@ define hidden void @mpd_qdiv_u64(ptr noundef %0, ptr noundef readonly captures(a
   store i64 64, ptr %10, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %7, ptr %11, align 8, !tbaa !17
-  call void @mpd_maxcontext(ptr noundef nonnull %6) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %6) #34
   call fastcc void @_ssettriple(ptr noundef nonnull %8, i8 noundef zeroext 0, i64 noundef %2, i64 noundef 0)
   call void @mpd_qfinalize(ptr noundef nonnull %8, ptr noundef nonnull readonly %6, ptr noundef %4)
   call void @mpd_qdiv(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull %8, ptr noundef readonly %3, ptr noundef %4)
@@ -13358,7 +13358,7 @@ define hidden void @mpd_qdiv_u64(ptr noundef %0, ptr noundef readonly captures(a
 13:                                               ; preds = %5
   %14 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %15 = load ptr, ptr %11, align 8, !tbaa !17
-  call void %14(ptr noundef %15) #33
+  call void %14(ptr noundef %15) #34
   %.pre.i = load i8, ptr %8, align 8, !tbaa !19
   br label %16
 
@@ -13370,7 +13370,7 @@ define hidden void @mpd_qdiv_u64(ptr noundef %0, ptr noundef readonly captures(a
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %20(ptr noundef nonnull %8) #33
+  call void %20(ptr noundef nonnull %8) #34
   br label %mpd_qdiv_uint.exit
 
 mpd_qdiv_uint.exit:                               ; preds = %16, %19
@@ -13432,7 +13432,7 @@ define hidden void @mpd_qexp(ptr noundef %0, ptr noundef readonly captures(addre
   store i8 0, ptr %5, align 1, !tbaa !22
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load ptr, ptr %33, align 8, !tbaa !17
-  %35 = call ptr @mpd_realloc(ptr noundef %34, i64 noundef %30, i64 noundef 8, ptr noundef nonnull %5) #33
+  %35 = call ptr @mpd_realloc(ptr noundef %34, i64 noundef %30, i64 noundef 8, ptr noundef nonnull %5) #34
   store ptr %35, ptr %33, align 8, !tbaa !17
   %36 = load i8, ptr %5, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %36, 0
@@ -13536,7 +13536,7 @@ mpd_setspecial.exit:                              ; preds = %24, %27, %39
   br i1 %79, label %mpd_qresize.exit.i, label %mpd_qresize.exit.thread.i
 
 mpd_qresize.exit.i:                               ; preds = %76
-  %80 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %14, i64 noundef %78, ptr noundef %3) #33
+  %80 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %14, i64 noundef %78, ptr noundef %3) #34
   %.not.i85 = icmp eq i32 %80, 0
   br i1 %.not.i85, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -13806,7 +13806,7 @@ mpd_check_underflow.exit:                         ; preds = %_mpd_zeropad.exit, 
 199:                                              ; preds = %mpd_check_underflow.exit
   %200 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %201 = load ptr, ptr %60, align 8, !tbaa !17
-  call void %200(ptr noundef %201) #33
+  call void %200(ptr noundef %201) #34
   %.pre118 = load i8, ptr %8, align 8, !tbaa !19
   br label %202
 
@@ -13818,7 +13818,7 @@ mpd_check_underflow.exit:                         ; preds = %_mpd_zeropad.exit, 
 
 205:                                              ; preds = %202
   %206 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %206(ptr noundef nonnull %8) #33
+  call void %206(ptr noundef nonnull %8) #34
   br label %mpd_del.exit77
 
 mpd_del.exit77:                                   ; preds = %202, %205
@@ -13829,7 +13829,7 @@ mpd_del.exit77:                                   ; preds = %202, %205
 208:                                              ; preds = %mpd_del.exit77
   %209 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %210 = load ptr, ptr %63, align 8, !tbaa !17
-  call void %209(ptr noundef %210) #33
+  call void %209(ptr noundef %210) #34
   %.pre119 = load i8, ptr %10, align 8, !tbaa !19
   br label %211
 
@@ -13841,7 +13841,7 @@ mpd_del.exit77:                                   ; preds = %202, %205
 
 214:                                              ; preds = %211
   %215 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %215(ptr noundef nonnull %10) #33
+  call void %215(ptr noundef nonnull %10) #34
   br label %mpd_del.exit72
 
 mpd_del.exit72:                                   ; preds = %211, %214
@@ -13852,7 +13852,7 @@ mpd_del.exit72:                                   ; preds = %211, %214
 217:                                              ; preds = %mpd_del.exit72
   %218 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %219 = load ptr, ptr %66, align 8, !tbaa !17
-  call void %218(ptr noundef %219) #33
+  call void %218(ptr noundef %219) #34
   br label %220
 
 220:                                              ; preds = %217, %mpd_del.exit72
@@ -13862,7 +13862,7 @@ mpd_del.exit72:                                   ; preds = %211, %214
 
 222:                                              ; preds = %220
   %223 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %223(ptr noundef nonnull %12) #33
+  call void %223(ptr noundef nonnull %12) #34
   br label %mpd_del.exit67
 
 mpd_del.exit67:                                   ; preds = %220, %222
@@ -13873,7 +13873,7 @@ mpd_del.exit67:                                   ; preds = %220, %222
 225:                                              ; preds = %mpd_del.exit67
   %226 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %227 = load ptr, ptr %72, align 8, !tbaa !17
-  call void %226(ptr noundef %227) #33
+  call void %226(ptr noundef %227) #34
   %.pre120 = load i8, ptr %14, align 8, !tbaa !19
   br label %228
 
@@ -13885,7 +13885,7 @@ mpd_del.exit67:                                   ; preds = %220, %222
 
 231:                                              ; preds = %228
   %232 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %232(ptr noundef nonnull %14) #33
+  call void %232(ptr noundef nonnull %14) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %228, %231
@@ -14083,7 +14083,7 @@ define internal fastcc void @_mpd_qexp(ptr noundef %0, ptr noundef readonly capt
   store i8 0, ptr %9, align 1, !tbaa !22
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %57 = load ptr, ptr %56, align 8, !tbaa !17
-  %58 = call ptr @mpd_realloc(ptr noundef %57, i64 noundef %53, i64 noundef 8, ptr noundef nonnull %9) #33
+  %58 = call ptr @mpd_realloc(ptr noundef %57, i64 noundef %53, i64 noundef 8, ptr noundef nonnull %9) #34
   store ptr %58, ptr %56, align 8, !tbaa !17
   %59 = load i8, ptr %9, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %59, 0
@@ -14180,7 +14180,7 @@ _mpd_qexp_check_one.exit:                         ; preds = %75
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @mpd_maxcontext(ptr noundef nonnull %10) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %10) #34
   %99 = load i64, ptr %2, align 8, !tbaa !15
   %100 = add nuw i64 %42, 2
   %101 = add i64 %100, %99
@@ -14211,11 +14211,11 @@ _mpd_qexp_check_one.exit:                         ; preds = %75
   br i1 %115, label %116, label %mpd_qresize.exit.thread.i
 
 116:                                              ; preds = %114
-  %117 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %108, ptr noundef %3) #33
+  %117 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %108, ptr noundef %3) #34
   br label %mpd_qresize.exit.i
 
 118:                                              ; preds = %112
-  %119 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %108, ptr noundef %3) #33
+  %119 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %108, ptr noundef %3) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %118, %116
@@ -14401,7 +14401,7 @@ _mpd_get_exp_iterations.exit.thread:              ; preds = %136, %_mpd_get_exp_
   store i8 0, ptr %5, align 1, !tbaa !22
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %230 = load ptr, ptr %229, align 8, !tbaa !17
-  %231 = call ptr @mpd_realloc(ptr noundef %230, i64 noundef %226, i64 noundef 8, ptr noundef nonnull %5) #33
+  %231 = call ptr @mpd_realloc(ptr noundef %230, i64 noundef %226, i64 noundef 8, ptr noundef nonnull %5) #34
   store ptr %231, ptr %229, align 8, !tbaa !17
   %232 = load i8, ptr %5, align 1, !tbaa !22
   %.not5.i.i55 = icmp eq i8 %232, 0
@@ -14559,7 +14559,7 @@ mpd_setdigits.exit:                               ; preds = %251, %255, %262, %2
 312:                                              ; preds = %._crit_edge
   %313 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %314 = load ptr, ptr %19, align 8, !tbaa !17
-  call void %313(ptr noundef %314) #33
+  call void %313(ptr noundef %314) #34
   %.pre = load i8, ptr %12, align 8, !tbaa !19
   br label %315
 
@@ -14571,7 +14571,7 @@ mpd_setdigits.exit:                               ; preds = %251, %255, %262, %2
 
 318:                                              ; preds = %315
   %319 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %319(ptr noundef nonnull %12) #33
+  call void %319(ptr noundef nonnull %12) #34
   br label %mpd_del.exit46
 
 mpd_del.exit46:                                   ; preds = %315, %318
@@ -14582,7 +14582,7 @@ mpd_del.exit46:                                   ; preds = %315, %318
 321:                                              ; preds = %mpd_del.exit46
   %322 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %323 = load ptr, ptr %22, align 8, !tbaa !17
-  call void %322(ptr noundef %323) #33
+  call void %322(ptr noundef %323) #34
   %.pre70 = load i8, ptr %14, align 8, !tbaa !19
   br label %324
 
@@ -14594,7 +14594,7 @@ mpd_del.exit46:                                   ; preds = %315, %318
 
 327:                                              ; preds = %324
   %328 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %328(ptr noundef nonnull %14) #33
+  call void %328(ptr noundef nonnull %14) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %324, %327
@@ -14674,7 +14674,7 @@ define hidden void @mpd_qfma(ptr noundef %0, ptr noundef readonly captures(addre
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load i64, ptr %11, align 8, !tbaa !18
-  %13 = tail call ptr @mpd_qnew_size(i64 noundef %12) #33
+  %13 = tail call ptr @mpd_qnew_size(i64 noundef %12) #34
   %14 = icmp eq ptr %13, null
   br i1 %14, label %34, label %mpd_qncopy.exit
 
@@ -14723,7 +14723,7 @@ mpd_qncopy.exit:                                  ; preds = %10
   store i8 0, ptr %7, align 1, !tbaa !22
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %44 = load ptr, ptr %43, align 8, !tbaa !17
-  %45 = call ptr @mpd_realloc(ptr noundef %44, i64 noundef %40, i64 noundef 8, ptr noundef nonnull %7) #33
+  %45 = call ptr @mpd_realloc(ptr noundef %44, i64 noundef %40, i64 noundef 8, ptr noundef nonnull %7) #34
   store ptr %45, ptr %43, align 8, !tbaa !17
   %46 = load i8, ptr %7, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %46, 0
@@ -14800,7 +14800,7 @@ mpd_qadd.exit:                                    ; preds = %68, %65, %63, %54
   %73 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %74 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   %75 = load ptr, ptr %74, align 8, !tbaa !17
-  call void %73(ptr noundef %75) #33
+  call void %73(ptr noundef %75) #34
   %.pre = load i8, ptr %.0, align 8, !tbaa !19
   br label %76
 
@@ -14812,7 +14812,7 @@ mpd_qadd.exit:                                    ; preds = %68, %65, %63, %54
 
 79:                                               ; preds = %76
   %80 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %80(ptr noundef nonnull %.0) #33
+  call void %80(ptr noundef nonnull %.0) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %79, %76, %mpd_qadd.exit
@@ -14895,7 +14895,7 @@ mpd_iszero.exit16.i:                              ; preds = %22
   store i8 0, ptr %9, align 1, !tbaa !22
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load ptr, ptr %41, align 8, !tbaa !17
-  %43 = call ptr @mpd_realloc(ptr noundef %42, i64 noundef %38, i64 noundef 8, ptr noundef nonnull %9) #33
+  %43 = call ptr @mpd_realloc(ptr noundef %42, i64 noundef %38, i64 noundef 8, ptr noundef nonnull %9) #34
   store ptr %43, ptr %41, align 8, !tbaa !17
   %44 = load i8, ptr %9, align 1, !tbaa !22
   %.not5.i.i.i = icmp eq i8 %44, 0
@@ -14943,7 +14943,7 @@ mpd_iszero.exit16.thread.i:                       ; preds = %mpd_iszero.exit16.i
   store i8 0, ptr %8, align 1, !tbaa !22
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %65 = load ptr, ptr %64, align 8, !tbaa !17
-  %66 = call ptr @mpd_realloc(ptr noundef %65, i64 noundef %61, i64 noundef 8, ptr noundef nonnull %8) #33
+  %66 = call ptr @mpd_realloc(ptr noundef %65, i64 noundef %61, i64 noundef 8, ptr noundef nonnull %8) #34
   store ptr %66, ptr %64, align 8, !tbaa !17
   %67 = load i8, ptr %8, align 1, !tbaa !22
   %.not5.i.i18.i = icmp eq i8 %67, 0
@@ -15003,7 +15003,7 @@ mpd_iszero.exit.i:                                ; preds = %76
   store i8 0, ptr %7, align 1, !tbaa !22
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %95 = load ptr, ptr %94, align 8, !tbaa !17
-  %96 = call ptr @mpd_realloc(ptr noundef %95, i64 noundef %91, i64 noundef 8, ptr noundef nonnull %7) #33
+  %96 = call ptr @mpd_realloc(ptr noundef %95, i64 noundef %91, i64 noundef 8, ptr noundef nonnull %7) #34
   store ptr %96, ptr %94, align 8, !tbaa !17
   %97 = load i8, ptr %7, align 1, !tbaa !22
   %.not5.i.i21.i = icmp eq i8 %97, 0
@@ -15052,7 +15052,7 @@ mpd_iszero.exit.thread.i:                         ; preds = %mpd_iszero.exit.i, 
   store i8 0, ptr %6, align 1, !tbaa !22
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %119 = load ptr, ptr %118, align 8, !tbaa !17
-  %120 = call ptr @mpd_realloc(ptr noundef %119, i64 noundef %115, i64 noundef 8, ptr noundef nonnull %6) #33
+  %120 = call ptr @mpd_realloc(ptr noundef %119, i64 noundef %115, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %120, ptr %118, align 8, !tbaa !17
   %121 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i25.i = icmp eq i8 %121, 0
@@ -15181,7 +15181,7 @@ mpd_uint_zero.exit:                               ; preds = %.lr.ph.preheader, %
   %200 = getelementptr inbounds nuw i8, ptr %spec.select84, i64 40
   %201 = load ptr, ptr %200, align 8, !tbaa !17
   %202 = load i64, ptr %201, align 8, !tbaa !3
-  call void @_mpd_shortmul(ptr noundef nonnull %10, ptr noundef %199, i64 noundef %137, i64 noundef %202) #33
+  call void @_mpd_shortmul(ptr noundef nonnull %10, ptr noundef %199, i64 noundef %137, i64 noundef %202) #34
   br label %208
 
 203:                                              ; preds = %mpd_uint_zero.exit
@@ -15189,7 +15189,7 @@ mpd_uint_zero.exit:                               ; preds = %.lr.ph.preheader, %
   %205 = load ptr, ptr %204, align 8, !tbaa !17
   %206 = getelementptr inbounds nuw i8, ptr %spec.select, i64 40
   %207 = load ptr, ptr %206, align 8, !tbaa !17
-  call void @_mpd_basemul(ptr noundef nonnull %10, ptr noundef %205, ptr noundef %207, i64 noundef %139, i64 noundef %137) #33
+  call void @_mpd_basemul(ptr noundef nonnull %10, ptr noundef %205, ptr noundef %207, i64 noundef %139, i64 noundef %137) #34
   br label %208
 
 208:                                              ; preds = %197, %203, %191
@@ -15211,11 +15211,11 @@ mpd_uint_zero.exit:                               ; preds = %.lr.ph.preheader, %
   br i1 %218, label %219, label %.preheader
 
 219:                                              ; preds = %217
-  %220 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %210, ptr noundef %4) #33
+  %220 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %210, ptr noundef %4) #34
   br label %mpd_qresize.exit59
 
 221:                                              ; preds = %214
-  %222 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %210, ptr noundef %4) #33
+  %222 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %210, ptr noundef %4) #34
   br label %mpd_qresize.exit59
 
 mpd_qresize.exit59:                               ; preds = %219, %221
@@ -15244,7 +15244,7 @@ mpd_qresize.exit59:                               ; preds = %219, %221
   br i1 %228, label %229, label %247
 
 229:                                              ; preds = %227
-  %230 = tail call ptr @mpd_calloc(i64 noundef %140, i64 noundef 8) #33
+  %230 = tail call ptr @mpd_calloc(i64 noundef %140, i64 noundef 8) #34
   %.not51 = icmp eq ptr %230, null
   br i1 %.not51, label %.thread82, label %231
 
@@ -15260,7 +15260,7 @@ mpd_qresize.exit59:                               ; preds = %219, %221
   %238 = getelementptr inbounds nuw i8, ptr %spec.select84, i64 40
   %239 = load ptr, ptr %238, align 8, !tbaa !17
   %240 = load i64, ptr %239, align 8, !tbaa !3
-  tail call void @_mpd_shortmul(ptr noundef nonnull %230, ptr noundef %236, i64 noundef %237, i64 noundef %240) #33
+  tail call void @_mpd_shortmul(ptr noundef nonnull %230, ptr noundef %236, i64 noundef %237, i64 noundef %240) #34
   br label %.thread
 
 241:                                              ; preds = %231
@@ -15269,7 +15269,7 @@ mpd_qresize.exit59:                               ; preds = %219, %221
   %244 = getelementptr inbounds nuw i8, ptr %spec.select, i64 40
   %245 = load ptr, ptr %244, align 8, !tbaa !17
   %246 = load i64, ptr %136, align 8, !tbaa !18
-  tail call void @_mpd_basemul(ptr noundef nonnull %230, ptr noundef %243, ptr noundef %245, i64 noundef %232, i64 noundef %246) #33
+  tail call void @_mpd_basemul(ptr noundef nonnull %230, ptr noundef %243, ptr noundef %245, i64 noundef %232, i64 noundef %246) #34
   br label %.thread
 
 247:                                              ; preds = %227
@@ -15319,7 +15319,7 @@ mpd_qresize.exit59:                               ; preds = %219, %221
   %269 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %271 = load ptr, ptr %270, align 8, !tbaa !17
-  tail call void %269(ptr noundef %271) #33
+  tail call void %269(ptr noundef %271) #34
   %.pre = load i8, ptr %0, align 8, !tbaa !19
   br label %272
 
@@ -15390,11 +15390,11 @@ _mpd_real_size.exit:                              ; preds = %.lr.ph.i, %299, %.l
   br i1 %311, label %312, label %mpd_qresize.exit
 
 312:                                              ; preds = %310
-  %313 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %304, ptr noundef %4) #33
+  %313 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %304, ptr noundef %4) #34
   br label %mpd_qresize.exit
 
 314:                                              ; preds = %308
-  %315 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %304, ptr noundef %4) #33
+  %315 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %304, ptr noundef %4) #34
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %310, %312, %314
@@ -15581,7 +15581,7 @@ define hidden void @mpd_qln10(ptr noundef %0, i64 noundef %1, ptr noundef %2) lo
   store i8 0, ptr %4, align 1, !tbaa !22
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load ptr, ptr %33, align 8, !tbaa !17
-  %35 = call ptr @mpd_realloc(ptr noundef %34, i64 noundef %30, i64 noundef 8, ptr noundef nonnull %4) #33
+  %35 = call ptr @mpd_realloc(ptr noundef %34, i64 noundef %30, i64 noundef 8, ptr noundef nonnull %4) #34
   store ptr %35, ptr %33, align 8, !tbaa !17
   %36 = load i8, ptr %4, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %36, 0
@@ -15615,7 +15615,7 @@ mpd_seterror.exit:                                ; preds = %24, %27, %39
   %49 = sub i64 1, %48
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %49, ptr %50, align 8, !tbaa !7
-  call void @mpd_maxcontext(ptr noundef nonnull %6) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %6) #34
   %51 = icmp slt i64 %1, 1216
   br i1 %51, label %52, label %56
 
@@ -15630,7 +15630,7 @@ mpd_seterror.exit:                                ; preds = %24, %27, %39
   br label %106
 
 56:                                               ; preds = %46
-  call void @mpd_maxcontext(ptr noundef nonnull %5) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %5) #34
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i32 8, ptr %57, align 4, !tbaa !29
   %58 = add nuw i64 %1, 2
@@ -15743,7 +15743,7 @@ mpd_qadd.exit._crit_edge:                         ; preds = %mpd_qadd.exit
 98:                                               ; preds = %mpd_qadd.exit._crit_edge
   %99 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %100 = load ptr, ptr %14, align 8, !tbaa !17
-  call void %99(ptr noundef %100) #33
+  call void %99(ptr noundef %100) #34
   %.pre44 = load i8, ptr %8, align 8, !tbaa !19
   br label %101
 
@@ -15755,7 +15755,7 @@ mpd_qadd.exit._crit_edge:                         ; preds = %mpd_qadd.exit
 
 104:                                              ; preds = %101
   %105 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %105(ptr noundef nonnull %8) #33
+  call void %105(ptr noundef nonnull %8) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %ln_schedule_prec.exit, %56, %101, %104
@@ -15861,7 +15861,7 @@ _mpd_rnd_incr.exit.thread3:                       ; preds = %7, %_mpd_rnd_incr.e
   %47 = load ptr, ptr %46, align 8, !tbaa !17
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = load i64, ptr %48, align 8, !tbaa !18
-  %50 = tail call i64 @_mpd_baseincr(ptr noundef %47, i64 noundef %49) #33
+  %50 = tail call i64 @_mpd_baseincr(ptr noundef %47, i64 noundef %49) #34
   %.not12 = icmp eq i64 %50, 0
   br i1 %.not12, label %_mpd_rnd_incr.exit.thread3._crit_edge, label %51
 
@@ -15891,11 +15891,11 @@ _mpd_rnd_incr.exit.thread3._crit_edge:            ; preds = %_mpd_rnd_incr.exit.
   br i1 %63, label %64, label %mpd_qresize.exit.thread
 
 64:                                               ; preds = %62
-  %65 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %55, ptr noundef %2) #33
+  %65 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %55, ptr noundef %2) #34
   br label %mpd_qresize.exit
 
 66:                                               ; preds = %59
-  %67 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %55, ptr noundef %2) #33
+  %67 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %55, ptr noundef %2) #34
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %64, %66
@@ -16096,7 +16096,7 @@ define hidden void @mpd_qln(ptr noundef %0, ptr noundef readonly captures(addres
   store i8 0, ptr %8, align 1, !tbaa !22
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load ptr, ptr %34, align 8, !tbaa !17
-  %36 = call ptr @mpd_realloc(ptr noundef %35, i64 noundef %31, i64 noundef 8, ptr noundef nonnull %8) #33
+  %36 = call ptr @mpd_realloc(ptr noundef %35, i64 noundef %31, i64 noundef 8, ptr noundef nonnull %8) #34
   store ptr %36, ptr %34, align 8, !tbaa !17
   %37 = load i8, ptr %8, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %37, 0
@@ -16139,7 +16139,7 @@ mpd_seterror.exit:                                ; preds = %27, %28, %40
   store i8 0, ptr %7, align 1, !tbaa !22
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %55 = load ptr, ptr %54, align 8, !tbaa !17
-  %56 = call ptr @mpd_realloc(ptr noundef %55, i64 noundef %51, i64 noundef 8, ptr noundef nonnull %7) #33
+  %56 = call ptr @mpd_realloc(ptr noundef %55, i64 noundef %51, i64 noundef 8, ptr noundef nonnull %7) #34
   store ptr %56, ptr %54, align 8, !tbaa !17
   %57 = load i8, ptr %7, align 1, !tbaa !22
   %.not5.i.i93 = icmp eq i8 %57, 0
@@ -16193,7 +16193,7 @@ mpd_setspecial.exit:                              ; preds = %47, %48, %60
   store i8 0, ptr %6, align 1, !tbaa !22
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %83 = load ptr, ptr %82, align 8, !tbaa !17
-  %84 = call ptr @mpd_realloc(ptr noundef %83, i64 noundef %79, i64 noundef 8, ptr noundef nonnull %6) #33
+  %84 = call ptr @mpd_realloc(ptr noundef %83, i64 noundef %79, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %84, ptr %82, align 8, !tbaa !17
   %85 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i96 = icmp eq i8 %85, 0
@@ -16241,7 +16241,7 @@ mpd_setspecial.exit98:                            ; preds = %73, %76, %88
   store i8 0, ptr %5, align 1, !tbaa !22
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %105 = load ptr, ptr %104, align 8, !tbaa !17
-  %106 = call ptr @mpd_realloc(ptr noundef %105, i64 noundef %101, i64 noundef 8, ptr noundef nonnull %5) #33
+  %106 = call ptr @mpd_realloc(ptr noundef %105, i64 noundef %101, i64 noundef 8, ptr noundef nonnull %5) #34
   store ptr %106, ptr %104, align 8, !tbaa !17
   %107 = load i8, ptr %5, align 1, !tbaa !22
   %.not5.i.i100 = icmp eq i8 %107, 0
@@ -16627,7 +16627,7 @@ mpd_qcmp.exit:                                    ; preds = %279, %284
 295:                                              ; preds = %.critedge
   %296 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %297 = load ptr, ptr %212, align 8, !tbaa !17
-  call void %296(ptr noundef %297) #33
+  call void %296(ptr noundef %297) #34
   %.pre = load i8, ptr %11, align 8, !tbaa !19
   br label %298
 
@@ -16639,7 +16639,7 @@ mpd_qcmp.exit:                                    ; preds = %279, %284
 
 301:                                              ; preds = %298
   %302 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %302(ptr noundef nonnull %11) #33
+  call void %302(ptr noundef nonnull %11) #34
   br label %mpd_del.exit87
 
 mpd_del.exit87:                                   ; preds = %298, %301
@@ -16650,7 +16650,7 @@ mpd_del.exit87:                                   ; preds = %298, %301
 304:                                              ; preds = %mpd_del.exit87
   %305 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %306 = load ptr, ptr %215, align 8, !tbaa !17
-  call void %305(ptr noundef %306) #33
+  call void %305(ptr noundef %306) #34
   %.pre111 = load i8, ptr %13, align 8, !tbaa !19
   br label %307
 
@@ -16662,7 +16662,7 @@ mpd_del.exit87:                                   ; preds = %298, %301
 
 310:                                              ; preds = %307
   %311 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %311(ptr noundef nonnull %13) #33
+  call void %311(ptr noundef nonnull %13) #34
   br label %mpd_del.exit82
 
 mpd_del.exit82:                                   ; preds = %307, %310
@@ -16673,7 +16673,7 @@ mpd_del.exit82:                                   ; preds = %307, %310
 313:                                              ; preds = %mpd_del.exit82
   %314 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %315 = load ptr, ptr %218, align 8, !tbaa !17
-  call void %314(ptr noundef %315) #33
+  call void %314(ptr noundef %315) #34
   br label %316
 
 316:                                              ; preds = %313, %mpd_del.exit82
@@ -16683,7 +16683,7 @@ mpd_del.exit82:                                   ; preds = %307, %310
 
 318:                                              ; preds = %316
   %319 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %319(ptr noundef nonnull %15) #33
+  call void %319(ptr noundef nonnull %15) #34
   br label %mpd_del.exit77
 
 mpd_del.exit77:                                   ; preds = %316, %318
@@ -16694,7 +16694,7 @@ mpd_del.exit77:                                   ; preds = %316, %318
 321:                                              ; preds = %mpd_del.exit77
   %322 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %323 = load ptr, ptr %221, align 8, !tbaa !17
-  call void %322(ptr noundef %323) #33
+  call void %322(ptr noundef %323) #34
   %.pre112 = load i8, ptr %17, align 8, !tbaa !19
   br label %324
 
@@ -16706,7 +16706,7 @@ mpd_del.exit77:                                   ; preds = %316, %318
 
 327:                                              ; preds = %324
   %328 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %328(ptr noundef nonnull %17) #33
+  call void %328(ptr noundef nonnull %17) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %324, %327
@@ -16800,7 +16800,7 @@ define internal fastcc void @_mpd_qln(ptr noundef initializes((8, 32)) %0, ptr n
   br i1 %38, label %mpd_qresize.exit.i, label %62
 
 mpd_qresize.exit.i:                               ; preds = %33
-  %39 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %11, i64 noundef %37, ptr noundef %3) #33
+  %39 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %11, i64 noundef %37, ptr noundef %3) #34
   %.not.i78 = icmp eq i32 %39, 0
   br i1 %.not.i78, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -16829,7 +16829,7 @@ mpd_qcopy.exit:                                   ; preds = %mpd_qresize.exit.i
   store i8 0, ptr %6, align 1, !tbaa !22
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %50 = load ptr, ptr %49, align 8, !tbaa !17
-  %51 = call ptr @mpd_realloc(ptr noundef %50, i64 noundef %46, i64 noundef 8, ptr noundef nonnull %6) #33
+  %51 = call ptr @mpd_realloc(ptr noundef %50, i64 noundef %46, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %51, ptr %49, align 8, !tbaa !17
   %52 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %52, 0
@@ -16968,7 +16968,7 @@ _mpd_get_msdigits.exit:                           ; preds = %95, %86, %93
   store i8 0, ptr %7, align 1, !tbaa !22
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %128 = load ptr, ptr %127, align 8, !tbaa !17
-  %129 = call ptr @mpd_realloc(ptr noundef %128, i64 noundef %124, i64 noundef 8, ptr noundef nonnull %7) #33
+  %129 = call ptr @mpd_realloc(ptr noundef %128, i64 noundef %124, i64 noundef 8, ptr noundef nonnull %7) #34
   store ptr %129, ptr %127, align 8, !tbaa !17
   %130 = load i8, ptr %7, align 1, !tbaa !22
   %.not5.i = icmp eq i8 %130, 0
@@ -17124,8 +17124,8 @@ mpd_setdigits.exit:                               ; preds = %152, %156, %163, %1
   %.059 = phi i64 [ %213, %212 ], [ %211, %214 ]
   %.sink = sub i64 %.pn, %116
   store i64 %.sink, ptr %18, align 8, !tbaa !7
-  call void @mpd_maxcontext(ptr noundef nonnull %9) #33
-  call void @mpd_maxcontext(ptr noundef nonnull %8) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %9) #34
+  call void @mpd_maxcontext(ptr noundef nonnull %8) #34
   %217 = getelementptr inbounds nuw i8, ptr %8, i64 36
   store i32 8, ptr %217, align 4, !tbaa !29
   %218 = load i64, ptr %2, align 8, !tbaa !15
@@ -17162,7 +17162,7 @@ mpd_setdigits.exit:                               ; preds = %152, %156, %163, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !tbaa !22
   %236 = load ptr, ptr %139, align 8, !tbaa !17
-  %237 = call ptr @mpd_realloc(ptr noundef %236, i64 noundef %233, i64 noundef 8, ptr noundef nonnull %5) #33
+  %237 = call ptr @mpd_realloc(ptr noundef %236, i64 noundef %233, i64 noundef 8, ptr noundef nonnull %5) #34
   store ptr %237, ptr %139, align 8, !tbaa !17
   %238 = load i8, ptr %5, align 1, !tbaa !22
   %.not5.i.i84 = icmp eq i8 %238, 0
@@ -17387,7 +17387,7 @@ mpd_qadd.exit96:                                  ; preds = %325, %322, %320, %m
 330:                                              ; preds = %mpd_qadd.exit96
   %331 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %332 = load ptr, ptr %22, align 8, !tbaa !17
-  call void %331(ptr noundef %332) #33
+  call void %331(ptr noundef %332) #34
   %.pre123 = load i8, ptr %11, align 8, !tbaa !19
   br label %333
 
@@ -17399,7 +17399,7 @@ mpd_qadd.exit96:                                  ; preds = %325, %322, %320, %m
 
 336:                                              ; preds = %333
   %337 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %337(ptr noundef nonnull %11) #33
+  call void %337(ptr noundef nonnull %11) #34
   br label %mpd_del.exit75
 
 mpd_del.exit75:                                   ; preds = %333, %336
@@ -17410,7 +17410,7 @@ mpd_del.exit75:                                   ; preds = %333, %336
 339:                                              ; preds = %mpd_del.exit75
   %340 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %341 = load ptr, ptr %26, align 8, !tbaa !17
-  call void %340(ptr noundef %341) #33
+  call void %340(ptr noundef %341) #34
   %.pre124 = load i8, ptr %13, align 8, !tbaa !19
   br label %342
 
@@ -17422,7 +17422,7 @@ mpd_del.exit75:                                   ; preds = %333, %336
 
 345:                                              ; preds = %342
   %346 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %346(ptr noundef nonnull %13) #33
+  call void %346(ptr noundef nonnull %13) #34
   br label %mpd_del.exit70
 
 mpd_del.exit70:                                   ; preds = %342, %345
@@ -17433,7 +17433,7 @@ mpd_del.exit70:                                   ; preds = %342, %345
 348:                                              ; preds = %mpd_del.exit70
   %349 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %350 = load ptr, ptr %31, align 8, !tbaa !17
-  call void %349(ptr noundef %350) #33
+  call void %349(ptr noundef %350) #34
   %.pre125 = load i8, ptr %15, align 8, !tbaa !19
   br label %351
 
@@ -17445,7 +17445,7 @@ mpd_del.exit70:                                   ; preds = %342, %345
 
 354:                                              ; preds = %351
   %355 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %355(ptr noundef nonnull %15) #33
+  call void %355(ptr noundef nonnull %15) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %351, %354
@@ -17514,7 +17514,7 @@ define hidden void @mpd_qlog10(ptr noundef %0, ptr noundef readonly captures(add
   store i8 0, ptr %8, align 1, !tbaa !22
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load ptr, ptr %35, align 8, !tbaa !17
-  %37 = call ptr @mpd_realloc(ptr noundef %36, i64 noundef %32, i64 noundef 8, ptr noundef nonnull %8) #33
+  %37 = call ptr @mpd_realloc(ptr noundef %36, i64 noundef %32, i64 noundef 8, ptr noundef nonnull %8) #34
   store ptr %37, ptr %35, align 8, !tbaa !17
   %38 = load i8, ptr %8, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %38, 0
@@ -17557,7 +17557,7 @@ mpd_seterror.exit:                                ; preds = %28, %29, %41
   store i8 0, ptr %7, align 1, !tbaa !22
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %56 = load ptr, ptr %55, align 8, !tbaa !17
-  %57 = call ptr @mpd_realloc(ptr noundef %56, i64 noundef %52, i64 noundef 8, ptr noundef nonnull %7) #33
+  %57 = call ptr @mpd_realloc(ptr noundef %56, i64 noundef %52, i64 noundef 8, ptr noundef nonnull %7) #34
   store ptr %57, ptr %55, align 8, !tbaa !17
   %58 = load i8, ptr %7, align 1, !tbaa !22
   %.not5.i.i105 = icmp eq i8 %58, 0
@@ -17611,7 +17611,7 @@ mpd_setspecial.exit:                              ; preds = %48, %49, %61
   store i8 0, ptr %6, align 1, !tbaa !22
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %84 = load ptr, ptr %83, align 8, !tbaa !17
-  %85 = call ptr @mpd_realloc(ptr noundef %84, i64 noundef %80, i64 noundef 8, ptr noundef nonnull %6) #33
+  %85 = call ptr @mpd_realloc(ptr noundef %84, i64 noundef %80, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %85, ptr %83, align 8, !tbaa !17
   %86 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i108 = icmp eq i8 %86, 0
@@ -17659,7 +17659,7 @@ mpd_setspecial.exit110:                           ; preds = %74, %77, %89
   store i8 0, ptr %5, align 1, !tbaa !22
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %106 = load ptr, ptr %105, align 8, !tbaa !17
-  %107 = call ptr @mpd_realloc(ptr noundef %106, i64 noundef %102, i64 noundef 8, ptr noundef nonnull %5) #33
+  %107 = call ptr @mpd_realloc(ptr noundef %106, i64 noundef %102, i64 noundef 8, ptr noundef nonnull %5) #34
   store ptr %107, ptr %105, align 8, !tbaa !17
   %108 = load i8, ptr %5, align 1, !tbaa !22
   %.not5.i.i112 = icmp eq i8 %108, 0
@@ -18078,7 +18078,7 @@ mpd_qcmp.exit:                                    ; preds = %294, %299
 310:                                              ; preds = %.critedge
   %311 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %312 = load ptr, ptr %227, align 8, !tbaa !17
-  call void %311(ptr noundef %312) #33
+  call void %311(ptr noundef %312) #34
   %.pre = load i8, ptr %11, align 8, !tbaa !19
   br label %313
 
@@ -18090,7 +18090,7 @@ mpd_qcmp.exit:                                    ; preds = %294, %299
 
 316:                                              ; preds = %313
   %317 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %317(ptr noundef nonnull %11) #33
+  call void %317(ptr noundef nonnull %11) #34
   br label %mpd_del.exit97
 
 mpd_del.exit97:                                   ; preds = %313, %316
@@ -18101,7 +18101,7 @@ mpd_del.exit97:                                   ; preds = %313, %316
 319:                                              ; preds = %mpd_del.exit97
   %320 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %321 = load ptr, ptr %230, align 8, !tbaa !17
-  call void %320(ptr noundef %321) #33
+  call void %320(ptr noundef %321) #34
   %.pre128 = load i8, ptr %13, align 8, !tbaa !19
   br label %322
 
@@ -18113,7 +18113,7 @@ mpd_del.exit97:                                   ; preds = %313, %316
 
 325:                                              ; preds = %322
   %326 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %326(ptr noundef nonnull %13) #33
+  call void %326(ptr noundef nonnull %13) #34
   br label %mpd_del.exit92
 
 mpd_del.exit92:                                   ; preds = %322, %325
@@ -18124,7 +18124,7 @@ mpd_del.exit92:                                   ; preds = %322, %325
 328:                                              ; preds = %mpd_del.exit92
   %329 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %330 = load ptr, ptr %233, align 8, !tbaa !17
-  call void %329(ptr noundef %330) #33
+  call void %329(ptr noundef %330) #34
   br label %331
 
 331:                                              ; preds = %328, %mpd_del.exit92
@@ -18134,7 +18134,7 @@ mpd_del.exit92:                                   ; preds = %322, %325
 
 333:                                              ; preds = %331
   %334 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %334(ptr noundef nonnull %15) #33
+  call void %334(ptr noundef nonnull %15) #34
   br label %mpd_del.exit87
 
 mpd_del.exit87:                                   ; preds = %331, %333
@@ -18145,7 +18145,7 @@ mpd_del.exit87:                                   ; preds = %331, %333
 336:                                              ; preds = %mpd_del.exit87
   %337 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %338 = load ptr, ptr %236, align 8, !tbaa !17
-  call void %337(ptr noundef %338) #33
+  call void %337(ptr noundef %338) #34
   %.pre129 = load i8, ptr %17, align 8, !tbaa !19
   br label %339
 
@@ -18157,7 +18157,7 @@ mpd_del.exit87:                                   ; preds = %331, %333
 
 342:                                              ; preds = %339
   %343 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %343(ptr noundef nonnull %17) #33
+  call void %343(ptr noundef nonnull %17) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %339, %342
@@ -18203,7 +18203,7 @@ define internal fastcc void @_mpd_qlog10(i32 noundef range(i32 0, 2) %0, ptr nou
   store i64 64, ptr %10, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %7, ptr %11, align 8, !tbaa !17
-  call void @mpd_maxcontext(ptr noundef nonnull %6) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %6) #34
   %12 = load i64, ptr %3, align 8, !tbaa !15
   %13 = add i64 %12, 3
   store i64 %13, ptr %6, align 8, !tbaa !15
@@ -18228,7 +18228,7 @@ define internal fastcc void @_mpd_qlog10(i32 noundef range(i32 0, 2) %0, ptr nou
 19:                                               ; preds = %17
   %20 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %21 = load ptr, ptr %11, align 8, !tbaa !17
-  call void %20(ptr noundef %21) #33
+  call void %20(ptr noundef %21) #34
   %.pre = load i8, ptr %8, align 8, !tbaa !19
   br label %22
 
@@ -18240,7 +18240,7 @@ define internal fastcc void @_mpd_qlog10(i32 noundef range(i32 0, 2) %0, ptr nou
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %26(ptr noundef nonnull %8) #33
+  call void %26(ptr noundef nonnull %8) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %22, %25
@@ -18286,11 +18286,11 @@ define hidden void @mpd_qmax(ptr noundef %0, ptr noundef readonly captures(addre
   br i1 %22, label %23, label %mpd_qresize.exit.thread.i
 
 23:                                               ; preds = %21
-  %24 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %4) #33
+  %24 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %4) #34
   br label %mpd_qresize.exit.i
 
 25:                                               ; preds = %19
-  %26 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %4) #33
+  %26 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %4) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %25, %23
@@ -18364,11 +18364,11 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br i1 %62, label %63, label %mpd_qresize.exit.thread.i36
 
 63:                                               ; preds = %61
-  %64 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %55, ptr noundef %4) #33
+  %64 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %55, ptr noundef %4) #34
   br label %mpd_qresize.exit.i38
 
 65:                                               ; preds = %59
-  %66 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %55, ptr noundef %4) #33
+  %66 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %55, ptr noundef %4) #34
   br label %mpd_qresize.exit.i38
 
 mpd_qresize.exit.i38:                             ; preds = %65, %63
@@ -18476,11 +18476,11 @@ _mpd_cmp_numequal.exit:                           ; preds = %100, %96, %88
   br i1 %125, label %126, label %mpd_qresize.exit.thread.i49
 
 126:                                              ; preds = %124
-  %127 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %118, ptr noundef %4) #33
+  %127 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %118, ptr noundef %4) #34
   br label %mpd_qresize.exit.i51
 
 128:                                              ; preds = %122
-  %129 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %118, ptr noundef %4) #33
+  %129 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %118, ptr noundef %4) #34
   br label %mpd_qresize.exit.i51
 
 mpd_qresize.exit.i51:                             ; preds = %128, %126
@@ -18545,11 +18545,11 @@ mpd_qresize.exit.thread.i49:                      ; preds = %mpd_qresize.exit.mp
   br i1 %162, label %163, label %mpd_qresize.exit.thread.i60
 
 163:                                              ; preds = %161
-  %164 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %155, ptr noundef %4) #33
+  %164 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %155, ptr noundef %4) #34
   br label %mpd_qresize.exit.i62
 
 165:                                              ; preds = %159
-  %166 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %155, ptr noundef %4) #33
+  %166 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %155, ptr noundef %4) #34
   br label %mpd_qresize.exit.i62
 
 mpd_qresize.exit.i62:                             ; preds = %165, %163
@@ -18633,11 +18633,11 @@ define hidden void @mpd_qmax_mag(ptr noundef %0, ptr noundef readonly captures(a
   br i1 %22, label %23, label %mpd_qresize.exit.thread.i
 
 23:                                               ; preds = %21
-  %24 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %4) #33
+  %24 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %4) #34
   br label %mpd_qresize.exit.i
 
 25:                                               ; preds = %19
-  %26 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %4) #33
+  %26 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %4) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %25, %23
@@ -18711,11 +18711,11 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br i1 %62, label %63, label %mpd_qresize.exit.thread.i36
 
 63:                                               ; preds = %61
-  %64 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %55, ptr noundef %4) #33
+  %64 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %55, ptr noundef %4) #34
   br label %mpd_qresize.exit.i38
 
 65:                                               ; preds = %59
-  %66 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %55, ptr noundef %4) #33
+  %66 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %55, ptr noundef %4) #34
   br label %mpd_qresize.exit.i38
 
 mpd_qresize.exit.i38:                             ; preds = %65, %63
@@ -18892,11 +18892,11 @@ _mpd_cmp_numequal.exit.thread:                    ; preds = %123, %94, %_mpd_cmp
   br i1 %160, label %161, label %mpd_qresize.exit.thread.i51
 
 161:                                              ; preds = %159
-  %162 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %153, ptr noundef %4) #33
+  %162 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %153, ptr noundef %4) #34
   br label %mpd_qresize.exit.i53
 
 163:                                              ; preds = %157
-  %164 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %153, ptr noundef %4) #33
+  %164 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %153, ptr noundef %4) #34
   br label %mpd_qresize.exit.i53
 
 mpd_qresize.exit.i53:                             ; preds = %163, %161
@@ -18962,11 +18962,11 @@ _mpd_cmp_numequal.exit.thread76:                  ; preds = %111, %123, %_mpd_cm
   br i1 %196, label %197, label %mpd_qresize.exit.thread.i62
 
 197:                                              ; preds = %195
-  %198 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %189, ptr noundef %4) #33
+  %198 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %189, ptr noundef %4) #34
   br label %mpd_qresize.exit.i64
 
 199:                                              ; preds = %193
-  %200 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %189, ptr noundef %4) #33
+  %200 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %189, ptr noundef %4) #34
   br label %mpd_qresize.exit.i64
 
 mpd_qresize.exit.i64:                             ; preds = %199, %197
@@ -19051,11 +19051,11 @@ define hidden void @mpd_qmin(ptr noundef %0, ptr noundef readonly captures(addre
   br i1 %22, label %23, label %mpd_qresize.exit.thread.i
 
 23:                                               ; preds = %21
-  %24 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %4) #33
+  %24 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %4) #34
   br label %mpd_qresize.exit.i
 
 25:                                               ; preds = %19
-  %26 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %4) #33
+  %26 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %4) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %25, %23
@@ -19129,11 +19129,11 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br i1 %62, label %63, label %mpd_qresize.exit.thread.i36
 
 63:                                               ; preds = %61
-  %64 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %55, ptr noundef %4) #33
+  %64 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %55, ptr noundef %4) #34
   br label %mpd_qresize.exit.i38
 
 65:                                               ; preds = %59
-  %66 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %55, ptr noundef %4) #33
+  %66 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %55, ptr noundef %4) #34
   br label %mpd_qresize.exit.i38
 
 mpd_qresize.exit.i38:                             ; preds = %65, %63
@@ -19241,11 +19241,11 @@ _mpd_cmp_numequal.exit:                           ; preds = %100, %96, %88
   br i1 %125, label %126, label %mpd_qresize.exit.thread.i49
 
 126:                                              ; preds = %124
-  %127 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %118, ptr noundef %4) #33
+  %127 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %118, ptr noundef %4) #34
   br label %mpd_qresize.exit.i51
 
 128:                                              ; preds = %122
-  %129 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %118, ptr noundef %4) #33
+  %129 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %118, ptr noundef %4) #34
   br label %mpd_qresize.exit.i51
 
 mpd_qresize.exit.i51:                             ; preds = %128, %126
@@ -19310,11 +19310,11 @@ mpd_qresize.exit.thread.i49:                      ; preds = %mpd_qresize.exit.mp
   br i1 %162, label %163, label %mpd_qresize.exit.thread.i60
 
 163:                                              ; preds = %161
-  %164 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %155, ptr noundef %4) #33
+  %164 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %155, ptr noundef %4) #34
   br label %mpd_qresize.exit.i62
 
 165:                                              ; preds = %159
-  %166 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %155, ptr noundef %4) #33
+  %166 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %155, ptr noundef %4) #34
   br label %mpd_qresize.exit.i62
 
 mpd_qresize.exit.i62:                             ; preds = %165, %163
@@ -19398,11 +19398,11 @@ define hidden void @mpd_qmin_mag(ptr noundef %0, ptr noundef readonly captures(a
   br i1 %22, label %23, label %mpd_qresize.exit.thread.i
 
 23:                                               ; preds = %21
-  %24 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %4) #33
+  %24 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %4) #34
   br label %mpd_qresize.exit.i
 
 25:                                               ; preds = %19
-  %26 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %4) #33
+  %26 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %4) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %25, %23
@@ -19476,11 +19476,11 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br i1 %62, label %63, label %mpd_qresize.exit.thread.i36
 
 63:                                               ; preds = %61
-  %64 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %55, ptr noundef %4) #33
+  %64 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %55, ptr noundef %4) #34
   br label %mpd_qresize.exit.i38
 
 65:                                               ; preds = %59
-  %66 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %55, ptr noundef %4) #33
+  %66 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %55, ptr noundef %4) #34
   br label %mpd_qresize.exit.i38
 
 mpd_qresize.exit.i38:                             ; preds = %65, %63
@@ -19657,11 +19657,11 @@ _mpd_cmp_numequal.exit.thread:                    ; preds = %123, %94, %_mpd_cmp
   br i1 %160, label %161, label %mpd_qresize.exit.thread.i51
 
 161:                                              ; preds = %159
-  %162 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %153, ptr noundef %4) #33
+  %162 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %153, ptr noundef %4) #34
   br label %mpd_qresize.exit.i53
 
 163:                                              ; preds = %157
-  %164 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %153, ptr noundef %4) #33
+  %164 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %153, ptr noundef %4) #34
   br label %mpd_qresize.exit.i53
 
 mpd_qresize.exit.i53:                             ; preds = %163, %161
@@ -19727,11 +19727,11 @@ _mpd_cmp_numequal.exit.thread76:                  ; preds = %111, %123, %_mpd_cm
   br i1 %196, label %197, label %mpd_qresize.exit.thread.i62
 
 197:                                              ; preds = %195
-  %198 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %189, ptr noundef %4) #33
+  %198 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %189, ptr noundef %4) #34
   br label %mpd_qresize.exit.i64
 
 199:                                              ; preds = %193
-  %200 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %189, ptr noundef %4) #33
+  %200 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %189, ptr noundef %4) #34
   br label %mpd_qresize.exit.i64
 
 mpd_qresize.exit.i64:                             ; preds = %199, %197
@@ -19795,7 +19795,7 @@ define hidden void @mpd_qmul_ssize(ptr noundef %0, ptr noundef readonly captures
   store i64 64, ptr %10, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %7, ptr %11, align 8, !tbaa !17
-  call void @mpd_maxcontext(ptr noundef nonnull %6) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %6) #34
   %12 = icmp slt i64 %2, 0
   br i1 %12, label %.split11.i, label %.split.i
 
@@ -19819,7 +19819,7 @@ mpd_qsset_ssize.exit:                             ; preds = %.split11.i, %.split
 15:                                               ; preds = %mpd_qsset_ssize.exit
   %16 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %17 = load ptr, ptr %11, align 8, !tbaa !17
-  call void %16(ptr noundef %17) #33
+  call void %16(ptr noundef %17) #34
   %.pre = load i8, ptr %8, align 8, !tbaa !19
   br label %18
 
@@ -19831,7 +19831,7 @@ mpd_qsset_ssize.exit:                             ; preds = %.split11.i, %.split
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %22(ptr noundef nonnull %8) #33
+  call void %22(ptr noundef nonnull %8) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %18, %21
@@ -19856,7 +19856,7 @@ define hidden void @mpd_qmul_uint(ptr noundef %0, ptr noundef readonly captures(
   store i64 64, ptr %10, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %7, ptr %11, align 8, !tbaa !17
-  call void @mpd_maxcontext(ptr noundef nonnull %6) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %6) #34
   call fastcc void @_ssettriple(ptr noundef nonnull %8, i8 noundef zeroext 0, i64 noundef %2, i64 noundef 0)
   call void @mpd_qfinalize(ptr noundef nonnull %8, ptr noundef nonnull readonly %6, ptr noundef %4)
   call fastcc void @_mpd_qmul(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull readonly %8, ptr noundef readonly %3, ptr noundef %4)
@@ -19868,7 +19868,7 @@ define hidden void @mpd_qmul_uint(ptr noundef %0, ptr noundef readonly captures(
 13:                                               ; preds = %5
   %14 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %15 = load ptr, ptr %11, align 8, !tbaa !17
-  call void %14(ptr noundef %15) #33
+  call void %14(ptr noundef %15) #34
   %.pre = load i8, ptr %8, align 8, !tbaa !19
   br label %16
 
@@ -19880,7 +19880,7 @@ define hidden void @mpd_qmul_uint(ptr noundef %0, ptr noundef readonly captures(
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %20(ptr noundef nonnull %8) #33
+  call void %20(ptr noundef nonnull %8) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %16, %19
@@ -19983,11 +19983,11 @@ define hidden void @mpd_qnext_minus(ptr noundef %0, ptr noundef readonly capture
   br i1 %38, label %39, label %mpd_qresize.exit.thread.i
 
 39:                                               ; preds = %37
-  %40 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %31, ptr noundef %3) #33
+  %40 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %31, ptr noundef %3) #34
   br label %mpd_qresize.exit.i
 
 41:                                               ; preds = %35
-  %42 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %31, ptr noundef %3) #33
+  %42 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %31, ptr noundef %3) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %41, %39
@@ -20056,11 +20056,11 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br i1 %79, label %80, label %mpd_qresize.exit.thread.i32
 
 80:                                               ; preds = %78
-  %81 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %72, ptr noundef %3) #33
+  %81 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %72, ptr noundef %3) #34
   br label %mpd_qresize.exit.i34
 
 82:                                               ; preds = %76
-  %83 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %72, ptr noundef %3) #33
+  %83 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %72, ptr noundef %3) #34
   br label %mpd_qresize.exit.i34
 
 mpd_qresize.exit.i34:                             ; preds = %82, %80
@@ -20175,11 +20175,11 @@ mpd_qmaxcoeff.exit:                               ; preds = %101, %mpd_qresize.e
   br i1 %139, label %140, label %mpd_qresize.exit.thread.i41
 
 140:                                              ; preds = %138
-  %141 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %132, ptr noundef %3) #33
+  %141 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %132, ptr noundef %3) #34
   br label %mpd_qresize.exit.i43
 
 142:                                              ; preds = %136
-  %143 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %132, ptr noundef %3) #33
+  %143 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %132, ptr noundef %3) #34
   br label %mpd_qresize.exit.i43
 
 mpd_qresize.exit.i43:                             ; preds = %142, %140
@@ -20338,11 +20338,11 @@ define hidden void @mpd_qnext_plus(ptr noundef %0, ptr noundef readonly captures
   br i1 %38, label %39, label %mpd_qresize.exit.thread.i
 
 39:                                               ; preds = %37
-  %40 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %31, ptr noundef %3) #33
+  %40 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %31, ptr noundef %3) #34
   br label %mpd_qresize.exit.i
 
 41:                                               ; preds = %35
-  %42 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %31, ptr noundef %3) #33
+  %42 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %31, ptr noundef %3) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %41, %39
@@ -20411,11 +20411,11 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br i1 %79, label %80, label %mpd_qresize.exit.thread.i33
 
 80:                                               ; preds = %78
-  %81 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %72, ptr noundef %3) #33
+  %81 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %72, ptr noundef %3) #34
   br label %mpd_qresize.exit.i35
 
 82:                                               ; preds = %76
-  %83 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %72, ptr noundef %3) #33
+  %83 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %72, ptr noundef %3) #34
   br label %mpd_qresize.exit.i35
 
 mpd_qresize.exit.i35:                             ; preds = %82, %80
@@ -20533,11 +20533,11 @@ mpd_qmaxcoeff.exit:                               ; preds = %101, %mpd_qresize.e
   br i1 %141, label %142, label %mpd_qresize.exit.thread.i42
 
 142:                                              ; preds = %140
-  %143 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %134, ptr noundef %3) #33
+  %143 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %134, ptr noundef %3) #34
   br label %mpd_qresize.exit.i44
 
 144:                                              ; preds = %138
-  %145 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %134, ptr noundef %3) #33
+  %145 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %134, ptr noundef %3) #34
   br label %mpd_qresize.exit.i44
 
 mpd_qresize.exit.i44:                             ; preds = %144, %142
@@ -20667,11 +20667,11 @@ define hidden void @mpd_qnext_toward(ptr noundef %0, ptr noundef readonly captur
   br i1 %25, label %26, label %mpd_qresize.exit.thread.i.i
 
 26:                                               ; preds = %24
-  %27 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %18, ptr noundef %4) #33
+  %27 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %18, ptr noundef %4) #34
   br label %mpd_qresize.exit.i.i
 
 28:                                               ; preds = %22
-  %29 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %18, ptr noundef %4) #33
+  %29 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %18, ptr noundef %4) #34
   br label %mpd_qresize.exit.i.i
 
 mpd_qresize.exit.i.i:                             ; preds = %28, %26
@@ -20951,7 +20951,7 @@ mpd_iszero.exit110:                               ; preds = %78
   store i8 0, ptr %9, align 1, !tbaa !22
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %96 = load ptr, ptr %95, align 8, !tbaa !17
-  %97 = call ptr @mpd_realloc(ptr noundef %96, i64 noundef %92, i64 noundef 8, ptr noundef nonnull %9) #33
+  %97 = call ptr @mpd_realloc(ptr noundef %96, i64 noundef %92, i64 noundef 8, ptr noundef nonnull %9) #34
   store ptr %97, ptr %95, align 8, !tbaa !17
   %98 = load i8, ptr %9, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %98, 0
@@ -21002,7 +21002,7 @@ mpd_iszero.exit110.thread:                        ; preds = %78, %mpd_iszero.exi
   store i8 0, ptr %8, align 1, !tbaa !22
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %119 = load ptr, ptr %118, align 8, !tbaa !17
-  %120 = call ptr @mpd_realloc(ptr noundef %119, i64 noundef %115, i64 noundef 8, ptr noundef nonnull %8) #33
+  %120 = call ptr @mpd_realloc(ptr noundef %119, i64 noundef %115, i64 noundef 8, ptr noundef nonnull %8) #34
   store ptr %120, ptr %118, align 8, !tbaa !17
   %121 = load i8, ptr %8, align 1, !tbaa !22
   %.not5.i.i118 = icmp eq i8 %121, 0
@@ -21061,7 +21061,7 @@ mpd_iszero.exit112.thread:                        ; preds = %mpd_isinteger.exit.
   store i8 0, ptr %7, align 1, !tbaa !22
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %143 = load ptr, ptr %142, align 8, !tbaa !17
-  %144 = call ptr @mpd_realloc(ptr noundef %143, i64 noundef %139, i64 noundef 8, ptr noundef nonnull %7) #33
+  %144 = call ptr @mpd_realloc(ptr noundef %143, i64 noundef %139, i64 noundef 8, ptr noundef nonnull %7) #34
   store ptr %144, ptr %142, align 8, !tbaa !17
   %145 = load i8, ptr %7, align 1, !tbaa !22
   %.not5.i.i121 = icmp eq i8 %145, 0
@@ -21145,7 +21145,7 @@ _qcheck_pow_one_inf.exit:                         ; preds = %157
   store i8 0, ptr %6, align 1, !tbaa !22
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %187 = load ptr, ptr %186, align 8, !tbaa !17
-  %188 = call ptr @mpd_realloc(ptr noundef %187, i64 noundef %183, i64 noundef 8, ptr noundef nonnull %6) #33
+  %188 = call ptr @mpd_realloc(ptr noundef %187, i64 noundef %183, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %188, ptr %186, align 8, !tbaa !17
   %189 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i125 = icmp eq i8 %189, 0
@@ -21815,7 +21815,7 @@ define internal fastcc range(i32 0, 2) i32 @_qcheck_pow_bounds(ptr noundef %0, p
   br label %_lower_bound_zeta.exit.thread38
 
 180:                                              ; preds = %111
-  call void @mpd_maxcontext(ptr noundef nonnull %8) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %8) #34
   %181 = and i8 %12, 14
   %.not.i18.i = icmp eq i8 %181, 0
   br i1 %.not.i18.i, label %182, label %183
@@ -21847,7 +21847,7 @@ mpd_qsub.exit.i:                                  ; preds = %185, %183, %182
 189:                                              ; preds = %188
   %190 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %191 = load ptr, ptr %41, align 8, !tbaa !17
-  call void %190(ptr noundef %191) #33
+  call void %190(ptr noundef %191) #34
   %.pre.i = load i8, ptr %10, align 8, !tbaa !19
   br label %192
 
@@ -21859,7 +21859,7 @@ mpd_qsub.exit.i:                                  ; preds = %185, %183, %182
 
 195:                                              ; preds = %192
   %196 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %196(ptr noundef nonnull %10) #33
+  call void %196(ptr noundef nonnull %10) #34
   br label %_lower_bound_zeta.exit.thread
 
 197:                                              ; preds = %mpd_qsub.exit.i
@@ -21871,7 +21871,7 @@ mpd_qsub.exit.i:                                  ; preds = %185, %183, %182
 200:                                              ; preds = %197
   %201 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %202 = load ptr, ptr %41, align 8, !tbaa !17
-  call void %201(ptr noundef %202) #33
+  call void %201(ptr noundef %202) #34
   %.pre19.i = load i8, ptr %10, align 8, !tbaa !19
   br label %203
 
@@ -21883,7 +21883,7 @@ mpd_qsub.exit.i:                                  ; preds = %185, %183, %182
 
 206:                                              ; preds = %203
   %207 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %207(ptr noundef nonnull %10) #33
+  call void %207(ptr noundef nonnull %10) #34
   br label %_lower_bound_zeta.exit
 
 _lower_bound_zeta.exit.thread:                    ; preds = %192, %195
@@ -21930,7 +21930,7 @@ _lower_bound_zeta.exit:                           ; preds = %203, %206
   store i8 0, ptr %7, align 1, !tbaa !22
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %223 = load ptr, ptr %222, align 8, !tbaa !17
-  %224 = call ptr @mpd_realloc(ptr noundef %223, i64 noundef %219, i64 noundef 8, ptr noundef nonnull %7) #33
+  %224 = call ptr @mpd_realloc(ptr noundef %223, i64 noundef %219, i64 noundef 8, ptr noundef nonnull %7) #34
   store ptr %224, ptr %222, align 8, !tbaa !17
   %225 = load i8, ptr %7, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %225, 0
@@ -22326,7 +22326,7 @@ define internal fastcc void @_mpd_qpow_int(ptr noundef %0, ptr noundef readonly 
   store i8 0, ptr %14, align 1, !tbaa !22
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %73 = load ptr, ptr %72, align 8, !tbaa !17
-  %74 = call ptr @mpd_realloc(ptr noundef %73, i64 noundef %69, i64 noundef 8, ptr noundef nonnull %14) #33
+  %74 = call ptr @mpd_realloc(ptr noundef %73, i64 noundef %69, i64 noundef 8, ptr noundef nonnull %14) #34
   store ptr %74, ptr %72, align 8, !tbaa !17
   %75 = load i8, ptr %14, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %75, 0
@@ -22365,7 +22365,7 @@ define internal fastcc void @_mpd_qpow_int(ptr noundef %0, ptr noundef readonly 
   br i1 %91, label %mpd_qresize.exit.i, label %mpd_qresize.exit.thread.i
 
 mpd_qresize.exit.i:                               ; preds = %86
-  %92 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %17, i64 noundef %90, ptr noundef %5) #33
+  %92 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %17, i64 noundef %90, ptr noundef %5) #34
   %.not.i39 = icmp eq i32 %92, 0
   br i1 %.not.i39, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -22415,7 +22415,7 @@ mpd_qcopy.exit:                                   ; preds = %mpd_qresize.exit.i
   store i8 0, ptr %13, align 1, !tbaa !22
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %116 = load ptr, ptr %115, align 8, !tbaa !17
-  %117 = call ptr @mpd_realloc(ptr noundef %116, i64 noundef %112, i64 noundef 8, ptr noundef nonnull %13) #33
+  %117 = call ptr @mpd_realloc(ptr noundef %116, i64 noundef %112, i64 noundef 8, ptr noundef nonnull %13) #34
   store ptr %117, ptr %115, align 8, !tbaa !17
   %118 = load i8, ptr %13, align 1, !tbaa !22
   %.not5.i.i42 = icmp eq i8 %118, 0
@@ -22471,11 +22471,11 @@ mpd_qcopy.exit.thread:                            ; preds = %84, %mpd_qresize.ex
   br i1 %141, label %142, label %mpd_qresize.exit.thread.i47
 
 142:                                              ; preds = %140
-  %143 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %19, i64 noundef %135, ptr noundef %5) #33
+  %143 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %19, i64 noundef %135, ptr noundef %5) #34
   br label %mpd_qresize.exit.i49
 
 144:                                              ; preds = %138
-  %145 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %19, i64 noundef %135, ptr noundef %5) #33
+  %145 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %19, i64 noundef %135, ptr noundef %5) #34
   br label %mpd_qresize.exit.i49
 
 mpd_qresize.exit.i49:                             ; preds = %144, %142
@@ -22526,7 +22526,7 @@ mpd_qcopy.exit55:                                 ; preds = %mpd_qresize.exit.i4
   store i8 0, ptr %12, align 1, !tbaa !22
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %167 = load ptr, ptr %166, align 8, !tbaa !17
-  %168 = call ptr @mpd_realloc(ptr noundef %167, i64 noundef %163, i64 noundef 8, ptr noundef nonnull %12) #33
+  %168 = call ptr @mpd_realloc(ptr noundef %167, i64 noundef %163, i64 noundef 8, ptr noundef nonnull %12) #34
   store ptr %168, ptr %166, align 8, !tbaa !17
   %169 = load i8, ptr %12, align 1, !tbaa !22
   %.not5.i.i57 = icmp eq i8 %169, 0
@@ -22569,7 +22569,7 @@ mpd_setspecial.exit59:                            ; preds = %mpd_qcopy.exit55, %
   store i64 1, ptr %181, align 8, !tbaa !21
   %182 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr %10, ptr %182, align 8, !tbaa !17
-  call void @mpd_maxcontext(ptr noundef nonnull %9) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %9) #34
   %183 = icmp eq ptr %0, @one
   br i1 %183, label %mpd_qcopy.exit.i, label %184
 
@@ -22592,11 +22592,11 @@ mpd_setspecial.exit59:                            ; preds = %mpd_qcopy.exit55, %
   br i1 %193, label %194, label %mpd_qresize.exit.thread.i.i
 
 194:                                              ; preds = %192
-  %195 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %186, ptr noundef %5) #33
+  %195 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %186, ptr noundef %5) #34
   br label %mpd_qresize.exit.i.i
 
 196:                                              ; preds = %190
-  %197 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %186, ptr noundef %5) #33
+  %197 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %186, ptr noundef %5) #34
   br label %mpd_qresize.exit.i.i
 
 mpd_qresize.exit.i.i:                             ; preds = %196, %194
@@ -22741,7 +22741,7 @@ mpd_isodd.exit.thread.i:                          ; preds = %235, %mpd_isodd.exi
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !22
   %259 = load ptr, ptr %206, align 8, !tbaa !17
-  %260 = call ptr @mpd_realloc(ptr noundef %259, i64 noundef %256, i64 noundef 8, ptr noundef nonnull %7) #33
+  %260 = call ptr @mpd_realloc(ptr noundef %259, i64 noundef %256, i64 noundef 8, ptr noundef nonnull %7) #34
   store ptr %260, ptr %206, align 8, !tbaa !17
   %261 = load i8, ptr %7, align 1, !tbaa !22
   %.not5.i.i.i = icmp eq i8 %261, 0
@@ -22807,7 +22807,7 @@ _mpd_qpow_mpd.exit:                               ; preds = %mpd_seterror.exit.i
 282:                                              ; preds = %280
   %283 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %284 = load ptr, ptr %26, align 8, !tbaa !17
-  call void %283(ptr noundef %284) #33
+  call void %283(ptr noundef %284) #34
   %.pre69 = load i8, ptr %17, align 8, !tbaa !19
   br label %285
 
@@ -22819,7 +22819,7 @@ _mpd_qpow_mpd.exit:                               ; preds = %mpd_seterror.exit.i
 
 288:                                              ; preds = %285
   %289 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %289(ptr noundef nonnull %17) #33
+  call void %289(ptr noundef nonnull %17) #34
   br label %mpd_del.exit36
 
 mpd_del.exit36:                                   ; preds = %285, %288
@@ -22830,7 +22830,7 @@ mpd_del.exit36:                                   ; preds = %285, %288
 291:                                              ; preds = %mpd_del.exit36
   %292 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %293 = load ptr, ptr %32, align 8, !tbaa !17
-  call void %292(ptr noundef %293) #33
+  call void %292(ptr noundef %293) #34
   %.pre70 = load i8, ptr %19, align 8, !tbaa !19
   br label %294
 
@@ -22842,7 +22842,7 @@ mpd_del.exit36:                                   ; preds = %285, %288
 
 297:                                              ; preds = %294
   %298 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %298(ptr noundef nonnull %19) #33
+  call void %298(ptr noundef nonnull %19) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %294, %297
@@ -22886,7 +22886,7 @@ define internal fastcc void @_mpd_qpow_real(ptr noundef %0, ptr noundef readonly
   br i1 %22, label %mpd_qresize.exit.i, label %mpd_qresize.exit.thread.i
 
 mpd_qresize.exit.i:                               ; preds = %17
-  %23 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %9, i64 noundef %21, ptr noundef %4) #33
+  %23 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %9, i64 noundef %21, ptr noundef %4) #34
   %.not.i20 = icmp eq i32 %23, 0
   br i1 %.not.i20, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -22936,7 +22936,7 @@ mpd_qcopy.exit:                                   ; preds = %mpd_qresize.exit.i
   store i8 0, ptr %6, align 1, !tbaa !22
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %47 = load ptr, ptr %46, align 8, !tbaa !17
-  %48 = call ptr @mpd_realloc(ptr noundef %47, i64 noundef %43, i64 noundef 8, ptr noundef nonnull %6) #33
+  %48 = call ptr @mpd_realloc(ptr noundef %47, i64 noundef %43, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %48, ptr %46, align 8, !tbaa !17
   %49 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %49, 0
@@ -22964,7 +22964,7 @@ mpd_seterror.exit:                                ; preds = %mpd_qcopy.exit, %40
   br label %83
 
 59:                                               ; preds = %mpd_qresize.exit.thread.i, %5
-  call void @mpd_maxcontext(ptr noundef nonnull %7) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %7) #34
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %61 = load i64, ptr %60, align 8, !tbaa !11
   %62 = load i64, ptr %3, align 8, !tbaa !15
@@ -22989,7 +22989,7 @@ mpd_seterror.exit:                                ; preds = %mpd_qcopy.exit, %40
 70:                                               ; preds = %59
   %71 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %72 = load ptr, ptr %15, align 8, !tbaa !17
-  call void %71(ptr noundef %72) #33
+  call void %71(ptr noundef %72) #34
   %.pre25 = load i8, ptr %9, align 8, !tbaa !19
   br label %73
 
@@ -23001,7 +23001,7 @@ mpd_seterror.exit:                                ; preds = %mpd_qcopy.exit, %40
 
 76:                                               ; preds = %73
   %77 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %77(ptr noundef nonnull %9) #33
+  call void %77(ptr noundef nonnull %9) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %73, %76
@@ -23189,11 +23189,11 @@ define hidden void @mpd_qpowmod(ptr noundef %0, ptr noundef readonly captures(ad
   br i1 %83, label %84, label %mpd_qresize.exit.thread.i.i
 
 84:                                               ; preds = %82
-  %85 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %76, ptr noundef %5) #33
+  %85 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %76, ptr noundef %5) #34
   br label %mpd_qresize.exit.i.i
 
 86:                                               ; preds = %80
-  %87 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %76, ptr noundef %5) #33
+  %87 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %76, ptr noundef %5) #34
   br label %mpd_qresize.exit.i.i
 
 mpd_qresize.exit.i.i:                             ; preds = %86, %84
@@ -23262,7 +23262,7 @@ mpd_qcheck_3nans.exit:                            ; preds = %70, %mpd_qresize.ex
   store i8 0, ptr %8, align 1, !tbaa !22
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %121 = load ptr, ptr %120, align 8, !tbaa !17
-  %122 = call ptr @mpd_realloc(ptr noundef %121, i64 noundef %117, i64 noundef 8, ptr noundef nonnull %8) #33
+  %122 = call ptr @mpd_realloc(ptr noundef %121, i64 noundef %117, i64 noundef 8, ptr noundef nonnull %8) #34
   store ptr %122, ptr %120, align 8, !tbaa !17
   %123 = load i8, ptr %8, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %123, 0
@@ -23458,7 +23458,7 @@ _mpd_isint.exit146:                               ; preds = %203, %.lr.ph19.i.i1
   store i8 0, ptr %7, align 1, !tbaa !22
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %219 = load ptr, ptr %218, align 8, !tbaa !17
-  %220 = call ptr @mpd_realloc(ptr noundef %219, i64 noundef %215, i64 noundef 8, ptr noundef nonnull %7) #33
+  %220 = call ptr @mpd_realloc(ptr noundef %219, i64 noundef %215, i64 noundef 8, ptr noundef nonnull %7) #34
   store ptr %220, ptr %218, align 8, !tbaa !17
   %221 = load i8, ptr %7, align 1, !tbaa !22
   %.not5.i.i148 = icmp eq i8 %221, 0
@@ -23547,7 +23547,7 @@ mpd_seterror.exit150:                             ; preds = %209, %212, %224
   br label %mpd_del.exit
 
 256:                                              ; preds = %254
-  call void @mpd_maxcontext(ptr noundef nonnull %9) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %9) #34
   %257 = getelementptr inbounds nuw i8, ptr %9, i64 28
   call fastcc void @_mpd_qrescale(ptr noundef nonnull %15, ptr noundef nonnull readonly %3, i64 noundef 0, ptr noundef nonnull readonly %9, ptr noundef nonnull %257)
   %258 = load i32, ptr %257, align 4, !tbaa !56
@@ -23686,7 +23686,7 @@ mpd_iszero.exit.thread:                           ; preds = %mpd_iszero.exit
 308:                                              ; preds = %306
   %309 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %310 = load ptr, ptr %24, align 8, !tbaa !17
-  call void %309(ptr noundef %310) #33
+  call void %309(ptr noundef %310) #34
   %.pre196 = load i8, ptr %11, align 8, !tbaa !19
   br label %311
 
@@ -23698,7 +23698,7 @@ mpd_iszero.exit.thread:                           ; preds = %mpd_iszero.exit
 
 314:                                              ; preds = %311
   %315 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %315(ptr noundef nonnull %11) #33
+  call void %315(ptr noundef nonnull %11) #34
   br label %mpd_del.exit116
 
 mpd_del.exit116:                                  ; preds = %311, %314
@@ -23709,7 +23709,7 @@ mpd_del.exit116:                                  ; preds = %311, %314
 317:                                              ; preds = %mpd_del.exit116
   %318 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %319 = load ptr, ptr %29, align 8, !tbaa !17
-  call void %318(ptr noundef %319) #33
+  call void %318(ptr noundef %319) #34
   %.pre197 = load i8, ptr %13, align 8, !tbaa !19
   br label %320
 
@@ -23721,7 +23721,7 @@ mpd_del.exit116:                                  ; preds = %311, %314
 
 323:                                              ; preds = %320
   %324 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %324(ptr noundef nonnull %13) #33
+  call void %324(ptr noundef nonnull %13) #34
   br label %mpd_del.exit111
 
 mpd_del.exit111:                                  ; preds = %320, %323
@@ -23732,7 +23732,7 @@ mpd_del.exit111:                                  ; preds = %320, %323
 326:                                              ; preds = %mpd_del.exit111
   %327 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %328 = load ptr, ptr %32, align 8, !tbaa !17
-  call void %327(ptr noundef %328) #33
+  call void %327(ptr noundef %328) #34
   %.pre198 = load i8, ptr %15, align 8, !tbaa !19
   br label %329
 
@@ -23744,7 +23744,7 @@ mpd_del.exit111:                                  ; preds = %320, %323
 
 332:                                              ; preds = %329
   %333 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %333(ptr noundef nonnull %15) #33
+  call void %333(ptr noundef nonnull %15) #34
   br label %mpd_del.exit106
 
 mpd_del.exit106:                                  ; preds = %329, %332
@@ -23755,7 +23755,7 @@ mpd_del.exit106:                                  ; preds = %329, %332
 335:                                              ; preds = %mpd_del.exit106
   %336 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %337 = load ptr, ptr %35, align 8, !tbaa !17
-  call void %336(ptr noundef %337) #33
+  call void %336(ptr noundef %337) #34
   %.pre199 = load i8, ptr %17, align 8, !tbaa !19
   br label %338
 
@@ -23767,7 +23767,7 @@ mpd_del.exit106:                                  ; preds = %329, %332
 
 341:                                              ; preds = %338
   %342 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %342(ptr noundef nonnull %17) #33
+  call void %342(ptr noundef nonnull %17) #34
   br label %mpd_del.exit
 
 .loopexit:                                        ; preds = %292, %281, %.critedge, %297, %300, %._crit_edge, %261, %271, %274
@@ -23815,7 +23815,7 @@ define hidden void @mpd_qrescale(ptr noundef %0, ptr noundef readonly captures(a
   store i8 0, ptr %6, align 1, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8, !tbaa !17
-  %19 = call ptr @mpd_realloc(ptr noundef %18, i64 noundef %14, i64 noundef 8, ptr noundef nonnull %6) #33
+  %19 = call ptr @mpd_realloc(ptr noundef %18, i64 noundef %14, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %19, ptr %17, align 8, !tbaa !17
   %20 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %20, 0
@@ -23913,7 +23913,7 @@ define hidden void @mpd_qrem(ptr noundef %0, ptr noundef readonly captures(addre
   store i8 0, ptr %8, align 1, !tbaa !22
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load ptr, ptr %33, align 8, !tbaa !17
-  %35 = call ptr @mpd_realloc(ptr noundef %34, i64 noundef %30, i64 noundef 8, ptr noundef nonnull %8) #33
+  %35 = call ptr @mpd_realloc(ptr noundef %34, i64 noundef %30, i64 noundef 8, ptr noundef nonnull %8) #34
   store ptr %35, ptr %33, align 8, !tbaa !17
   %36 = load i8, ptr %8, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %36, 0
@@ -23972,11 +23972,11 @@ mpd_seterror.exit:                                ; preds = %24, %27, %39
   br i1 %62, label %63, label %mpd_qresize.exit.thread.i
 
 63:                                               ; preds = %61
-  %64 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %55, ptr noundef %4) #33
+  %64 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %55, ptr noundef %4) #34
   br label %mpd_qresize.exit.i
 
 65:                                               ; preds = %59
-  %66 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %55, ptr noundef %4) #33
+  %66 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %55, ptr noundef %4) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %65, %63
@@ -24022,7 +24022,7 @@ mpd_qcopy.exit:                                   ; preds = %49, %mpd_qresize.ex
   br label %155
 
 86:                                               ; preds = %46
-  call void @abort() #34
+  call void @abort() #35
   unreachable
 
 87:                                               ; preds = %16
@@ -24065,7 +24065,7 @@ mpd_qcopy.exit:                                   ; preds = %49, %mpd_qresize.ex
   store i8 0, ptr %7, align 1, !tbaa !22
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %113 = load ptr, ptr %112, align 8, !tbaa !17
-  %114 = call ptr @mpd_realloc(ptr noundef %113, i64 noundef %109, i64 noundef 8, ptr noundef nonnull %7) #33
+  %114 = call ptr @mpd_realloc(ptr noundef %113, i64 noundef %109, i64 noundef 8, ptr noundef nonnull %7) #34
   store ptr %114, ptr %112, align 8, !tbaa !17
   %115 = load i8, ptr %7, align 1, !tbaa !22
   %.not5.i.i42 = icmp eq i8 %115, 0
@@ -24108,7 +24108,7 @@ mpd_seterror.exit44:                              ; preds = %105, %106, %118
   store i8 0, ptr %6, align 1, !tbaa !22
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %133 = load ptr, ptr %132, align 8, !tbaa !17
-  %134 = call ptr @mpd_realloc(ptr noundef %133, i64 noundef %129, i64 noundef 8, ptr noundef nonnull %6) #33
+  %134 = call ptr @mpd_realloc(ptr noundef %133, i64 noundef %129, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %134, ptr %132, align 8, !tbaa !17
   %135 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i46 = icmp eq i8 %135, 0
@@ -24145,7 +24145,7 @@ mpd_seterror.exit48:                              ; preds = %125, %126, %138
 147:                                              ; preds = %145
   %148 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %149 = load ptr, ptr %13, align 8, !tbaa !17
-  call void %148(ptr noundef %149) #33
+  call void %148(ptr noundef %149) #34
   %.pre51 = load i8, ptr %10, align 8, !tbaa !19
   br label %150
 
@@ -24157,7 +24157,7 @@ mpd_seterror.exit48:                              ; preds = %125, %126, %138
 
 153:                                              ; preds = %150
   %154 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %154(ptr noundef nonnull %10) #33
+  call void %154(ptr noundef nonnull %10) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %150, %153
@@ -24204,7 +24204,7 @@ define internal fastcc void @_mpd_qmul_exact(ptr noundef %0, ptr noundef readonl
   store i8 0, ptr %6, align 1, !tbaa !22
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !17
-  %23 = call ptr @mpd_realloc(ptr noundef %22, i64 noundef %18, i64 noundef 8, ptr noundef nonnull %6) #33
+  %23 = call ptr @mpd_realloc(ptr noundef %22, i64 noundef %18, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %23, ptr %21, align 8, !tbaa !17
   %24 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %24, 0
@@ -24241,7 +24241,7 @@ mpd_seterror.exit:                                ; preds = %12, %15, %27
 define internal fastcc void @_mpd_qpowmod_uint(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull readonly captures(address) %2, ptr noundef %3) unnamed_addr #15 {
   %5 = alloca %struct.mpd_context_t, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @mpd_maxcontext(ptr noundef nonnull %5) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %5) #34
   %6 = icmp eq ptr %0, @one
   br i1 %6, label %mpd_qcopy.exit.preheader, label %7
 
@@ -24264,11 +24264,11 @@ define internal fastcc void @_mpd_qpowmod_uint(ptr noundef nonnull %0, ptr nound
   br i1 %16, label %17, label %mpd_qresize.exit.thread.i
 
 17:                                               ; preds = %15
-  %18 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %9, ptr noundef %3) #33
+  %18 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %9, ptr noundef %3) #34
   br label %mpd_qresize.exit.i
 
 19:                                               ; preds = %13
-  %20 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %9, ptr noundef %3) #33
+  %20 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %9, ptr noundef %3) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %19, %17
@@ -24381,11 +24381,11 @@ define hidden void @mpd_qquantize(ptr noundef %0, ptr noundef readonly captures(
   br i1 %36, label %37, label %mpd_qresize.exit.thread.i
 
 37:                                               ; preds = %35
-  %38 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %29, ptr noundef %4) #33
+  %38 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %29, ptr noundef %4) #34
   br label %mpd_qresize.exit.i
 
 39:                                               ; preds = %33
-  %40 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %29, ptr noundef %4) #33
+  %40 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %29, ptr noundef %4) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %39, %37
@@ -24444,7 +24444,7 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   store i8 0, ptr %7, align 1, !tbaa !22
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %70 = load ptr, ptr %69, align 8, !tbaa !17
-  %71 = call ptr @mpd_realloc(ptr noundef %70, i64 noundef %66, i64 noundef 8, ptr noundef nonnull %7) #33
+  %71 = call ptr @mpd_realloc(ptr noundef %70, i64 noundef %66, i64 noundef 8, ptr noundef nonnull %7) #34
   store ptr %71, ptr %69, align 8, !tbaa !17
   %72 = load i8, ptr %7, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %72, 0
@@ -24505,7 +24505,7 @@ mpd_seterror.exit:                                ; preds = %60, %63, %75
   store i8 0, ptr %6, align 1, !tbaa !22
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %102 = load ptr, ptr %101, align 8, !tbaa !17
-  %103 = call ptr @mpd_realloc(ptr noundef %102, i64 noundef %98, i64 noundef 8, ptr noundef nonnull %6) #33
+  %103 = call ptr @mpd_realloc(ptr noundef %102, i64 noundef %98, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %103, ptr %101, align 8, !tbaa !17
   %104 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i83 = icmp eq i8 %104, 0
@@ -24721,7 +24721,7 @@ _mpd_rnd_incr.exit.thread24:                      ; preds = %10, %_mpd_rnd_incr.
   %50 = load ptr, ptr %49, align 8, !tbaa !17
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %52 = load i64, ptr %51, align 8, !tbaa !18
-  %53 = tail call i64 @_mpd_baseincr(ptr noundef %50, i64 noundef %52) #33
+  %53 = tail call i64 @_mpd_baseincr(ptr noundef %50, i64 noundef %52) #34
   %.not19 = icmp eq i64 %53, 0
   br i1 %.not19, label %_mpd_rnd_incr.exit.thread24._crit_edge, label %54
 
@@ -24751,11 +24751,11 @@ _mpd_rnd_incr.exit.thread24._crit_edge:           ; preds = %_mpd_rnd_incr.exit.
   br i1 %66, label %67, label %mpd_qresize.exit.thread
 
 67:                                               ; preds = %65
-  %68 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %58, ptr noundef %3) #33
+  %68 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %58, ptr noundef %3) #34
   br label %mpd_qresize.exit
 
 69:                                               ; preds = %62
-  %70 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %58, ptr noundef %3) #33
+  %70 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %58, ptr noundef %3) #34
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %67, %69
@@ -24913,7 +24913,7 @@ mpd_setdigits.exit:                               ; preds = %90, %94, %101, %105
 161:                                              ; preds = %156
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !tbaa !22
-  %162 = call ptr @mpd_realloc(ptr noundef nonnull %78, i64 noundef %159, i64 noundef 8, ptr noundef nonnull %5) #33
+  %162 = call ptr @mpd_realloc(ptr noundef nonnull %78, i64 noundef %159, i64 noundef 8, ptr noundef nonnull %5) #34
   store ptr %162, ptr %49, align 8, !tbaa !17
   %163 = load i8, ptr %5, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %163, 0
@@ -24982,11 +24982,11 @@ define hidden void @mpd_qreduce(ptr noundef %0, ptr noundef readonly captures(ad
   br i1 %22, label %23, label %mpd_qresize.exit.thread.i
 
 23:                                               ; preds = %21
-  %24 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %3) #33
+  %24 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %3) #34
   br label %mpd_qresize.exit.i
 
 25:                                               ; preds = %19
-  %26 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %3) #33
+  %26 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %3) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %25, %23
@@ -25051,11 +25051,11 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br i1 %59, label %60, label %mpd_qresize.exit.thread.i40
 
 60:                                               ; preds = %58
-  %61 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %52, ptr noundef %3) #33
+  %61 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %52, ptr noundef %3) #34
   br label %mpd_qresize.exit.i42
 
 62:                                               ; preds = %56
-  %63 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %52, ptr noundef %3) #33
+  %63 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %52, ptr noundef %3) #34
   br label %mpd_qresize.exit.i42
 
 mpd_qresize.exit.i42:                             ; preds = %62, %60
@@ -25255,7 +25255,7 @@ define hidden void @mpd_qrem_near(ptr noundef %0, ptr noundef readonly captures(
   store i8 0, ptr %8, align 1, !tbaa !22
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %44 = load ptr, ptr %43, align 8, !tbaa !17
-  %45 = call ptr @mpd_realloc(ptr noundef %44, i64 noundef %40, i64 noundef 8, ptr noundef nonnull %8) #33
+  %45 = call ptr @mpd_realloc(ptr noundef %44, i64 noundef %40, i64 noundef 8, ptr noundef nonnull %8) #34
   store ptr %45, ptr %43, align 8, !tbaa !17
   %46 = load i8, ptr %8, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %46, 0
@@ -25314,11 +25314,11 @@ mpd_seterror.exit:                                ; preds = %34, %37, %49
   br i1 %72, label %73, label %mpd_qresize.exit.thread.i
 
 73:                                               ; preds = %71
-  %74 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %65, ptr noundef %4) #33
+  %74 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %65, ptr noundef %4) #34
   br label %mpd_qresize.exit.i
 
 75:                                               ; preds = %69
-  %76 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %65, ptr noundef %4) #33
+  %76 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %65, ptr noundef %4) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %75, %73
@@ -25364,7 +25364,7 @@ mpd_qcopy.exit:                                   ; preds = %59, %mpd_qresize.ex
   br label %231
 
 96:                                               ; preds = %56
-  call void @abort() #34
+  call void @abort() #35
   unreachable
 
 97:                                               ; preds = %26
@@ -25407,7 +25407,7 @@ mpd_qcopy.exit:                                   ; preds = %59, %mpd_qresize.ex
   store i8 0, ptr %7, align 1, !tbaa !22
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %123 = load ptr, ptr %122, align 8, !tbaa !17
-  %124 = call ptr @mpd_realloc(ptr noundef %123, i64 noundef %119, i64 noundef 8, ptr noundef nonnull %7) #33
+  %124 = call ptr @mpd_realloc(ptr noundef %123, i64 noundef %119, i64 noundef 8, ptr noundef nonnull %7) #34
   store ptr %124, ptr %122, align 8, !tbaa !17
   %125 = load i8, ptr %7, align 1, !tbaa !22
   %.not5.i.i91 = icmp eq i8 %125, 0
@@ -25450,7 +25450,7 @@ mpd_seterror.exit93:                              ; preds = %115, %116, %128
   store i8 0, ptr %6, align 1, !tbaa !22
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %143 = load ptr, ptr %142, align 8, !tbaa !17
-  %144 = call ptr @mpd_realloc(ptr noundef %143, i64 noundef %139, i64 noundef 8, ptr noundef nonnull %6) #33
+  %144 = call ptr @mpd_realloc(ptr noundef %143, i64 noundef %139, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %144, ptr %142, align 8, !tbaa !17
   %145 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i95 = icmp eq i8 %145, 0
@@ -25538,7 +25538,7 @@ mpd_seterror.exit97:                              ; preds = %135, %136, %148
   %185 = call fastcc i32 @mpd_coeff_isallnine(i64 %.val, ptr %.val85)
   %186 = load i64, ptr %20, align 8, !tbaa !11
   %187 = call i32 @mpd_isodd(ptr noundef nonnull %13)
-  call void @mpd_maxcontext(ptr noundef nonnull %9) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %9) #34
   %188 = load i8, ptr %1, align 8, !tbaa !19
   %189 = and i8 %188, 1
   %190 = load i8, ptr %.0, align 8, !tbaa !19
@@ -25594,7 +25594,7 @@ mpd_seterror.exit97:                              ; preds = %135, %136, %148
 214:                                              ; preds = %212
   %215 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %216 = load ptr, ptr %18, align 8, !tbaa !17
-  call void %215(ptr noundef %216) #33
+  call void %215(ptr noundef %216) #34
   %.pre107 = load i8, ptr %11, align 8, !tbaa !19
   br label %217
 
@@ -25606,7 +25606,7 @@ mpd_seterror.exit97:                              ; preds = %135, %136, %148
 
 220:                                              ; preds = %217
   %221 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %221(ptr noundef nonnull %11) #33
+  call void %221(ptr noundef nonnull %11) #34
   br label %mpd_del.exit84
 
 mpd_del.exit84:                                   ; preds = %217, %220
@@ -25617,7 +25617,7 @@ mpd_del.exit84:                                   ; preds = %217, %220
 223:                                              ; preds = %mpd_del.exit84
   %224 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %225 = load ptr, ptr %23, align 8, !tbaa !17
-  call void %224(ptr noundef %225) #33
+  call void %224(ptr noundef %225) #34
   %.pre108 = load i8, ptr %13, align 8, !tbaa !19
   br label %226
 
@@ -25629,7 +25629,7 @@ mpd_del.exit84:                                   ; preds = %217, %220
 
 229:                                              ; preds = %226
   %230 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %230(ptr noundef nonnull %13) #33
+  call void %230(ptr noundef nonnull %13) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %226, %229
@@ -25815,11 +25815,11 @@ define internal fastcc void @_mpd_qrescale(ptr noundef %0, ptr noundef readonly 
   br i1 %22, label %23, label %mpd_qresize.exit.thread.i
 
 23:                                               ; preds = %21
-  %24 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %4) #33
+  %24 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %4) #34
   br label %mpd_qresize.exit.i
 
 25:                                               ; preds = %19
-  %26 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %4) #33
+  %26 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %15, ptr noundef %4) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %25, %23
@@ -25908,7 +25908,7 @@ mpd_iszero.exit:                                  ; preds = %5
   store i8 0, ptr %6, align 1, !tbaa !22
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %75 = load ptr, ptr %74, align 8, !tbaa !17
-  %76 = call ptr @mpd_realloc(ptr noundef %75, i64 noundef %71, i64 noundef 8, ptr noundef nonnull %6) #33
+  %76 = call ptr @mpd_realloc(ptr noundef %75, i64 noundef %71, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %76, ptr %74, align 8, !tbaa !17
   %77 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %77, 0
@@ -26033,7 +26033,7 @@ define hidden void @mpd_qrescale_fmt(ptr noundef %0, ptr noundef readonly captur
   store i8 0, ptr %6, align 1, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8, !tbaa !17
-  %19 = call ptr @mpd_realloc(ptr noundef %18, i64 noundef %14, i64 noundef 8, ptr noundef nonnull %6) #33
+  %19 = call ptr @mpd_realloc(ptr noundef %18, i64 noundef %14, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %19, ptr %17, align 8, !tbaa !17
   %20 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %20, 0
@@ -26110,11 +26110,11 @@ define internal fastcc void @_mpd_qround_to_integral(i32 noundef range(i32 0, 3)
   br i1 %22, label %23, label %mpd_qresize.exit.thread.i
 
 23:                                               ; preds = %21
-  %24 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %15, ptr noundef %4) #33
+  %24 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %15, ptr noundef %4) #34
   br label %mpd_qresize.exit.i
 
 25:                                               ; preds = %19
-  %26 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %15, ptr noundef %4) #33
+  %26 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %15, ptr noundef %4) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %25, %23
@@ -26185,11 +26185,11 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br i1 %63, label %64, label %mpd_qresize.exit.thread.i36
 
 64:                                               ; preds = %62
-  %65 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %56, ptr noundef %4) #33
+  %65 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %56, ptr noundef %4) #34
   br label %mpd_qresize.exit.i38
 
 66:                                               ; preds = %60
-  %67 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %56, ptr noundef %4) #33
+  %67 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %56, ptr noundef %4) #34
   br label %mpd_qresize.exit.i38
 
 mpd_qresize.exit.i38:                             ; preds = %66, %64
@@ -26307,7 +26307,7 @@ define hidden void @mpd_qtrunc(ptr noundef %0, ptr noundef readonly captures(add
   store i8 0, ptr %5, align 1, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8, !tbaa !17
-  %19 = call ptr @mpd_realloc(ptr noundef %18, i64 noundef %14, i64 noundef 8, ptr noundef nonnull %5) #33
+  %19 = call ptr @mpd_realloc(ptr noundef %18, i64 noundef %14, i64 noundef 8, ptr noundef nonnull %5) #34
   store ptr %19, ptr %17, align 8, !tbaa !17
   %20 = load i8, ptr %5, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %20, 0
@@ -26372,7 +26372,7 @@ define hidden void @mpd_qfloor(ptr noundef %0, ptr noundef readonly captures(add
   store i8 0, ptr %5, align 1, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !17
-  %20 = call ptr @mpd_realloc(ptr noundef %19, i64 noundef %15, i64 noundef 8, ptr noundef nonnull %5) #33
+  %20 = call ptr @mpd_realloc(ptr noundef %19, i64 noundef %15, i64 noundef 8, ptr noundef nonnull %5) #34
   store ptr %20, ptr %18, align 8, !tbaa !17
   %21 = load i8, ptr %5, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %21, 0
@@ -26440,7 +26440,7 @@ define hidden void @mpd_qceil(ptr noundef %0, ptr noundef readonly captures(addr
   store i8 0, ptr %5, align 1, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !17
-  %20 = call ptr @mpd_realloc(ptr noundef %19, i64 noundef %15, i64 noundef 8, ptr noundef nonnull %5) #33
+  %20 = call ptr @mpd_realloc(ptr noundef %19, i64 noundef %15, i64 noundef 8, ptr noundef nonnull %5) #34
   store ptr %20, ptr %18, align 8, !tbaa !17
   %21 = load i8, ptr %5, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %21, 0
@@ -26584,7 +26584,7 @@ define hidden void @mpd_qinvroot(ptr noundef %0, ptr noundef readonly captures(a
   store i8 0, ptr %23, align 1, !tbaa !22
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !17
-  %42 = call ptr @mpd_realloc(ptr noundef %41, i64 noundef %37, i64 noundef 8, ptr noundef nonnull %23) #33
+  %42 = call ptr @mpd_realloc(ptr noundef %41, i64 noundef %37, i64 noundef 8, ptr noundef nonnull %23) #34
   store ptr %42, ptr %40, align 8, !tbaa !17
   %43 = load i8, ptr %23, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %43, 0
@@ -26654,7 +26654,7 @@ mpd_iszero.exit:                                  ; preds = %4
   store i8 0, ptr %22, align 1, !tbaa !22
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %78 = load ptr, ptr %77, align 8, !tbaa !17
-  %79 = call ptr @mpd_realloc(ptr noundef %78, i64 noundef %74, i64 noundef 8, ptr noundef nonnull %22) #33
+  %79 = call ptr @mpd_realloc(ptr noundef %78, i64 noundef %74, i64 noundef 8, ptr noundef nonnull %22) #34
   store ptr %79, ptr %77, align 8, !tbaa !17
   %80 = load i8, ptr %22, align 1, !tbaa !22
   %.not5.i.i30 = icmp eq i8 %80, 0
@@ -26705,7 +26705,7 @@ mpd_setspecial.exit:                              ; preds = %68, %71, %83
   store i8 0, ptr %21, align 1, !tbaa !22
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %102 = load ptr, ptr %101, align 8, !tbaa !17
-  %103 = call ptr @mpd_realloc(ptr noundef %102, i64 noundef %98, i64 noundef 8, ptr noundef nonnull %21) #33
+  %103 = call ptr @mpd_realloc(ptr noundef %102, i64 noundef %98, i64 noundef 8, ptr noundef nonnull %21) #34
   store ptr %103, ptr %101, align 8, !tbaa !17
   %104 = load i8, ptr %21, align 1, !tbaa !22
   %.not5.i.i33 = icmp eq i8 %104, 0
@@ -26816,7 +26816,7 @@ mpd_seterror.exit35:                              ; preds = %92, %95, %107
   br i1 %148, label %149, label %190
 
 149:                                              ; preds = %114
-  %150 = call ptr @mpd_qnew_size(i64 noundef %63) #33
+  %150 = call ptr @mpd_qnew_size(i64 noundef %63) #34
   %151 = icmp eq ptr %150, null
   br i1 %151, label %168, label %mpd_qncopy.exit.i
 
@@ -26862,7 +26862,7 @@ mpd_qncopy.exit.i:                                ; preds = %149
   store i8 0, ptr %7, align 1, !tbaa !22
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %178 = load ptr, ptr %177, align 8, !tbaa !17
-  %179 = call ptr @mpd_realloc(ptr noundef %178, i64 noundef %174, i64 noundef 8, ptr noundef nonnull %7) #33
+  %179 = call ptr @mpd_realloc(ptr noundef %178, i64 noundef %174, i64 noundef 8, ptr noundef nonnull %7) #34
   store ptr %179, ptr %177, align 8, !tbaa !17
   %180 = load i8, ptr %7, align 1, !tbaa !22
   %.not5.i.i.i = icmp eq i8 %180, 0
@@ -27060,7 +27060,7 @@ _mpd_get_msdigits.exit99.i:                       ; preds = %243, %241, %236
   store i8 0, ptr %6, align 1, !tbaa !22
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %287 = load ptr, ptr %286, align 8, !tbaa !17
-  %288 = call ptr @mpd_realloc(ptr noundef %287, i64 noundef %283, i64 noundef 8, ptr noundef nonnull %6) #33
+  %288 = call ptr @mpd_realloc(ptr noundef %287, i64 noundef %283, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %288, ptr %286, align 8, !tbaa !17
   %289 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i102.i = icmp eq i8 %289, 0
@@ -27196,8 +27196,8 @@ _invroot_init_approx.exit.i:                      ; preds = %362, %358, %354, %3
   %.0.i.i.i.i = phi i64 [ %312, %309 ], [ %316, %313 ], [ %323, %320 ], [ %330, %327 ], [ %340, %337 ], [ %347, %344 ], [ %357, %354 ], [ %361, %358 ], [ %365, %362 ], [ 9, %324 ], [ 14, %341 ]
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.0.i.i.i.i, ptr %366, align 8, !tbaa !11
-  call void @mpd_maxcontext(ptr noundef nonnull %10) #33
-  call void @mpd_maxcontext(ptr noundef nonnull %9) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %10) #34
+  call void @mpd_maxcontext(ptr noundef nonnull %9) #34
   %367 = getelementptr inbounds nuw i8, ptr %9, i64 36
   store i32 8, ptr %367, align 4, !tbaa !29
   %368 = add i64 %.sroa.0.0.copyload, 3
@@ -27277,7 +27277,7 @@ invroot_schedule_prec.exit.i:                     ; preds = %.preheader.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !tbaa !22
   %404 = load ptr, ptr %133, align 8, !tbaa !17
-  %405 = call ptr @mpd_realloc(ptr noundef %404, i64 noundef %401, i64 noundef 8, ptr noundef nonnull %5) #33
+  %405 = call ptr @mpd_realloc(ptr noundef %404, i64 noundef %401, i64 noundef 8, ptr noundef nonnull %5) #34
   store ptr %405, ptr %133, align 8, !tbaa !17
   %406 = load i8, ptr %5, align 1, !tbaa !22
   %.not5.i.i15.i = icmp eq i8 %406, 0
@@ -27379,7 +27379,7 @@ mpd_trail_zeros.exit.i:                           ; preds = %434, %.lr.ph19.i.i,
 445:                                              ; preds = %443
   %446 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %447 = load ptr, ptr %129, align 8, !tbaa !17
-  call void %446(ptr noundef %447) #33
+  call void %446(ptr noundef %447) #34
   %.pre.i37 = load i8, ptr %13, align 8, !tbaa !19
   br label %448
 
@@ -27391,7 +27391,7 @@ mpd_trail_zeros.exit.i:                           ; preds = %434, %.lr.ph19.i.i,
 
 451:                                              ; preds = %448
   %452 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %452(ptr noundef nonnull %13) #33
+  call void %452(ptr noundef nonnull %13) #34
   br label %mpd_del.exit93.i
 
 mpd_del.exit93.i:                                 ; preds = %451, %448
@@ -27402,7 +27402,7 @@ mpd_del.exit93.i:                                 ; preds = %451, %448
 454:                                              ; preds = %mpd_del.exit93.i
   %455 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %456 = load ptr, ptr %133, align 8, !tbaa !17
-  call void %455(ptr noundef %456) #33
+  call void %455(ptr noundef %456) #34
   %.pre21.i = load i8, ptr %15, align 8, !tbaa !19
   br label %457
 
@@ -27414,7 +27414,7 @@ mpd_del.exit93.i:                                 ; preds = %451, %448
 
 460:                                              ; preds = %457
   %461 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %461(ptr noundef nonnull %15) #33
+  call void %461(ptr noundef nonnull %15) #34
   br label %mpd_del.exit88.i
 
 mpd_del.exit88.i:                                 ; preds = %460, %457
@@ -27429,7 +27429,7 @@ mpd_del.exit88.i:                                 ; preds = %460, %457
 464:                                              ; preds = %462
   %465 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %466 = load ptr, ptr %201, align 8, !tbaa !17
-  call void %465(ptr noundef %466) #33
+  call void %465(ptr noundef %466) #34
   %.pre22.i = load i8, ptr %.071.i, align 8, !tbaa !19
   br label %467
 
@@ -27441,7 +27441,7 @@ mpd_del.exit88.i:                                 ; preds = %460, %457
 
 470:                                              ; preds = %467
   %471 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %471(ptr noundef nonnull %.071.i) #33
+  call void %471(ptr noundef nonnull %.071.i) #34
   br label %mpd_del.exit.i
 
 mpd_del.exit.i:                                   ; preds = %470, %467, %mpd_del.exit88.i
@@ -27515,7 +27515,7 @@ define hidden void @mpd_qsqrt(ptr noundef %0, ptr noundef readonly captures(addr
   br i1 %26, label %mpd_qresize.exit.i, label %mpd_qresize.exit.thread.i
 
 mpd_qresize.exit.i:                               ; preds = %21
-  %27 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %8, i64 noundef %25, ptr noundef %3) #33
+  %27 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %8, i64 noundef %25, ptr noundef %3) #34
   %.not.i27 = icmp eq i32 %27, 0
   br i1 %.not.i27, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -27564,7 +27564,7 @@ mpd_qcopy.exit:                                   ; preds = %mpd_qresize.exit.i
   store i8 0, ptr %6, align 1, !tbaa !22
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %50 = load ptr, ptr %49, align 8, !tbaa !17
-  %51 = call ptr @mpd_realloc(ptr noundef %50, i64 noundef %46, i64 noundef 8, ptr noundef nonnull %6) #33
+  %51 = call ptr @mpd_realloc(ptr noundef %50, i64 noundef %46, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %51, ptr %49, align 8, !tbaa !17
   %52 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %52, 0
@@ -27648,7 +27648,7 @@ mpd_qcopy.exit.thread:                            ; preds = %19, %mpd_qresize.ex
   store i8 0, ptr %5, align 1, !tbaa !22
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %88 = load ptr, ptr %87, align 8, !tbaa !17
-  %89 = call ptr @mpd_realloc(ptr noundef %88, i64 noundef %84, i64 noundef 8, ptr noundef nonnull %5) #33
+  %89 = call ptr @mpd_realloc(ptr noundef %88, i64 noundef %84, i64 noundef 8, ptr noundef nonnull %5) #34
   store ptr %89, ptr %87, align 8, !tbaa !17
   %90 = load i8, ptr %5, align 1, !tbaa !22
   %.not5.i.i31 = icmp eq i8 %90, 0
@@ -27699,7 +27699,7 @@ mpd_seterror.exit33:                              ; preds = %73, %81, %93
 106:                                              ; preds = %104
   %107 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %108 = load ptr, ptr %17, align 8, !tbaa !17
-  call void %107(ptr noundef %108) #33
+  call void %107(ptr noundef %108) #34
   %.pre36 = load i8, ptr %8, align 8, !tbaa !19
   br label %109
 
@@ -27711,7 +27711,7 @@ mpd_seterror.exit33:                              ; preds = %73, %81, %93
 
 112:                                              ; preds = %109
   %113 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %113(ptr noundef nonnull %8) #33
+  call void %113(ptr noundef nonnull %8) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %109, %112
@@ -27818,7 +27818,7 @@ define internal fastcc void @_mpd_qsqrt(ptr noundef %0, ptr noundef readonly cap
   store i8 0, ptr %8, align 1, !tbaa !22
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %55 = load ptr, ptr %54, align 8, !tbaa !17
-  %56 = call ptr @mpd_realloc(ptr noundef %55, i64 noundef %51, i64 noundef 8, ptr noundef nonnull %8) #33
+  %56 = call ptr @mpd_realloc(ptr noundef %55, i64 noundef %51, i64 noundef 8, ptr noundef nonnull %8) #34
   store ptr %56, ptr %54, align 8, !tbaa !17
   %57 = load i8, ptr %8, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %57, 0
@@ -27861,7 +27861,7 @@ mpd_seterror.exit:                                ; preds = %47, %48, %60
   store i8 0, ptr %7, align 1, !tbaa !22
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %75 = load ptr, ptr %74, align 8, !tbaa !17
-  %76 = call ptr @mpd_realloc(ptr noundef %75, i64 noundef %71, i64 noundef 8, ptr noundef nonnull %7) #33
+  %76 = call ptr @mpd_realloc(ptr noundef %75, i64 noundef %71, i64 noundef 8, ptr noundef nonnull %7) #34
   store ptr %76, ptr %74, align 8, !tbaa !17
   %77 = load i8, ptr %7, align 1, !tbaa !22
   %.not5.i.i111 = icmp eq i8 %77, 0
@@ -27925,7 +27925,7 @@ mpd_iszero.exit:                                  ; preds = %4
   store i8 0, ptr %6, align 1, !tbaa !22
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %105 = load ptr, ptr %104, align 8, !tbaa !17
-  %106 = call ptr @mpd_realloc(ptr noundef %105, i64 noundef %101, i64 noundef 8, ptr noundef nonnull %6) #33
+  %106 = call ptr @mpd_realloc(ptr noundef %105, i64 noundef %101, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %106, ptr %104, align 8, !tbaa !17
   %107 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i114 = icmp eq i8 %107, 0
@@ -27954,7 +27954,7 @@ mpd_seterror.exit116:                             ; preds = %95, %98, %110
   br label %266
 
 117:                                              ; preds = %94
-  call void @mpd_maxcontext(ptr noundef nonnull %9) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %9) #34
   %118 = load i64, ptr %2, align 8, !tbaa !15
   %119 = add i64 %118, 1
   %120 = icmp eq ptr %11, %1
@@ -27979,11 +27979,11 @@ mpd_seterror.exit116:                             ; preds = %95, %98, %110
   br i1 %130, label %131, label %mpd_qresize.exit.thread.i
 
 131:                                              ; preds = %129
-  %132 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %11, i64 noundef %124, ptr noundef nonnull %3) #33
+  %132 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %11, i64 noundef %124, ptr noundef nonnull %3) #34
   br label %mpd_qresize.exit.i
 
 133:                                              ; preds = %127
-  %134 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %11, i64 noundef %124, ptr noundef nonnull %3) #33
+  %134 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %11, i64 noundef %124, ptr noundef nonnull %3) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %133, %131
@@ -28176,7 +28176,7 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
 218:                                              ; preds = %216
   %219 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %220 = load ptr, ptr %23, align 8, !tbaa !17
-  call void %219(ptr noundef %220) #33
+  call void %219(ptr noundef %220) #34
   %.pre = load i8, ptr %11, align 8, !tbaa !19
   br label %221
 
@@ -28188,7 +28188,7 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
 
 224:                                              ; preds = %221
   %225 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %225(ptr noundef nonnull %11) #33
+  call void %225(ptr noundef nonnull %11) #34
   br label %mpd_del.exit108
 
 mpd_del.exit108:                                  ; preds = %221, %224
@@ -28199,7 +28199,7 @@ mpd_del.exit108:                                  ; preds = %221, %224
 227:                                              ; preds = %mpd_del.exit108
   %228 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %229 = load ptr, ptr %26, align 8, !tbaa !17
-  call void %228(ptr noundef %229) #33
+  call void %228(ptr noundef %229) #34
   %.pre133 = load i8, ptr %13, align 8, !tbaa !19
   br label %230
 
@@ -28211,7 +28211,7 @@ mpd_del.exit108:                                  ; preds = %221, %224
 
 233:                                              ; preds = %230
   %234 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %234(ptr noundef nonnull %13) #33
+  call void %234(ptr noundef nonnull %13) #34
   br label %mpd_del.exit103
 
 mpd_del.exit103:                                  ; preds = %230, %233
@@ -28222,7 +28222,7 @@ mpd_del.exit103:                                  ; preds = %230, %233
 236:                                              ; preds = %mpd_del.exit103
   %237 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %238 = load ptr, ptr %29, align 8, !tbaa !17
-  call void %237(ptr noundef %238) #33
+  call void %237(ptr noundef %238) #34
   %.pre134 = load i8, ptr %15, align 8, !tbaa !19
   br label %239
 
@@ -28234,7 +28234,7 @@ mpd_del.exit103:                                  ; preds = %230, %233
 
 242:                                              ; preds = %239
   %243 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %243(ptr noundef nonnull %15) #33
+  call void %243(ptr noundef nonnull %15) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %239, %242
@@ -28262,7 +28262,7 @@ mpd_qcopy.exit:                                   ; preds = %mpd_qresize.exit.i,
   store i8 0, ptr %5, align 1, !tbaa !22
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %254 = load ptr, ptr %253, align 8, !tbaa !17
-  %255 = call ptr @mpd_realloc(ptr noundef %254, i64 noundef %250, i64 noundef 8, ptr noundef nonnull %5) #33
+  %255 = call ptr @mpd_realloc(ptr noundef %254, i64 noundef %250, i64 noundef 8, ptr noundef nonnull %5) #34
   store ptr %255, ptr %253, align 8, !tbaa !17
   %256 = load i8, ptr %5, align 1, !tbaa !22
   %.not5.i.i121 = icmp eq i8 %256, 0
@@ -28333,7 +28333,7 @@ mpd_iszero.exit.thread:                           ; preds = %2, %mpd_iszero.exit
 18:                                               ; preds = %mpd_iszero.exit.thread
   %19 = uitofp nneg i64 %16 to double
   %20 = uitofp i32 %1 to double
-  %21 = tail call double @log10(double noundef %20) #33, !tbaa !23
+  %21 = tail call double @log10(double noundef %20) #34, !tbaa !23
   %22 = fdiv double %19, %21
   %23 = fcmp ogt double %22, 0x433FFFFFFFFFFFFF
   %24 = fptoui double %22 to i64
@@ -28447,7 +28447,7 @@ mpd_iszero.exit.thread.i:                         ; preds = %_mpd_isint.exit.thr
 52:                                               ; preds = %mpd_iszero.exit.thread.i
   %53 = uitofp nneg i64 %50 to double
   %54 = uitofp i32 %2 to double
-  %55 = call double @log10(double noundef %54) #33, !tbaa !23
+  %55 = call double @log10(double noundef %54) #34, !tbaa !23
   %56 = fdiv double %53, %55
   %57 = fcmp ogt double %56, 0x433FFFFFFFFFFFFF
   %58 = fptoui double %56 to i64
@@ -28464,7 +28464,7 @@ mpd_sizeinbase.exit.thread:                       ; preds = %52, %mpd_iszero.exi
 
 mpd_sizeinbase.exit.thread52:                     ; preds = %_mpd_isint.exit.thread.thread, %52
   %.0.i4454 = phi i64 [ %59, %52 ], [ 1, %_mpd_isint.exit.thread.thread ]
-  %63 = call ptr @mpd_alloc(i64 noundef %.0.i4454, i64 noundef 2) #33
+  %63 = call ptr @mpd_alloc(i64 noundef %.0.i4454, i64 noundef 2) #34
   store ptr %63, ptr %0, align 8, !tbaa !75
   %64 = icmp eq ptr %63, null
   br i1 %64, label %.thread, label %mpd_sizeinbase.exit.thread52._crit_edge
@@ -28530,7 +28530,7 @@ mpd_iszero.exit.thread:                           ; preds = %65, %mpd_iszero.exi
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !tbaa !22
   %90 = load ptr, ptr %0, align 8, !tbaa !75
-  %91 = call ptr @mpd_realloc(ptr noundef %90, i64 noundef %.pre.i, i64 noundef 2, ptr noundef nonnull %6) #33
+  %91 = call ptr @mpd_realloc(ptr noundef %90, i64 noundef %.pre.i, i64 noundef 2, ptr noundef nonnull %6) #34
   store ptr %91, ptr %0, align 8, !tbaa !75
   %92 = load i8, ptr %6, align 1, !tbaa !22
   %.not.i.not.i = icmp eq i8 %92, 0
@@ -28539,7 +28539,7 @@ mpd_iszero.exit.thread:                           ; preds = %65, %mpd_iszero.exi
 
 ._crit_edge.i:                                    ; preds = %89, %88
   %.1.i = phi i64 [ %.pre.i, %89 ], [ %.018.i, %88 ]
-  %93 = call i64 @_mpd_shortdiv(ptr noundef %86, ptr noundef %86, i64 noundef %.016.i, i64 noundef range(i64 0, 4294967296) %85) #33
+  %93 = call i64 @_mpd_shortdiv(ptr noundef %86, ptr noundef %86, i64 noundef %.016.i, i64 noundef range(i64 0, 4294967296) %85) #34
   %94 = trunc i64 %93 to i16
   %95 = load ptr, ptr %0, align 8, !tbaa !75
   %96 = getelementptr i16, ptr %95, i64 %.0.i46
@@ -28581,7 +28581,7 @@ _baseconv_to_u16.exit:                            ; preds = %_mpd_real_size.exit
 111:                                              ; preds = %109
   %112 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %113 = load ptr, ptr %12, align 8, !tbaa !17
-  call void %112(ptr noundef %113) #33
+  call void %112(ptr noundef %113) #34
   %.pre71 = load i8, ptr %8, align 8, !tbaa !19
   br label %114
 
@@ -28593,7 +28593,7 @@ _baseconv_to_u16.exit:                            ; preds = %_mpd_real_size.exit
 
 117:                                              ; preds = %114
   %118 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %118(ptr noundef nonnull %8) #33
+  call void %118(ptr noundef nonnull %8) #34
   br label %mpd_del.exit
 
 _baseconv_to_u16.exit.thread:                     ; preds = %89, %_baseconv_to_u16.exit, %80, %78
@@ -28602,7 +28602,7 @@ _baseconv_to_u16.exit.thread:                     ; preds = %89, %_baseconv_to_u
 119:                                              ; preds = %_baseconv_to_u16.exit.thread
   %120 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %121 = load ptr, ptr %0, align 8, !tbaa !75
-  call void %120(ptr noundef %121) #33
+  call void %120(ptr noundef %121) #34
   store ptr null, ptr %0, align 8, !tbaa !75
   br label %.thread
 
@@ -28719,7 +28719,7 @@ mpd_iszero.exit.thread.i:                         ; preds = %_mpd_isint.exit.thr
 52:                                               ; preds = %mpd_iszero.exit.thread.i
   %53 = uitofp nneg i64 %50 to double
   %54 = uitofp i32 %2 to double
-  %55 = call double @log10(double noundef %54) #33, !tbaa !23
+  %55 = call double @log10(double noundef %54) #34, !tbaa !23
   %56 = fdiv double %53, %55
   %57 = fcmp ogt double %56, 0x433FFFFFFFFFFFFF
   %58 = fptoui double %56 to i64
@@ -28736,7 +28736,7 @@ mpd_sizeinbase.exit.thread:                       ; preds = %52, %mpd_iszero.exi
 
 mpd_sizeinbase.exit.thread52:                     ; preds = %_mpd_isint.exit.thread.thread, %52
   %.0.i4454 = phi i64 [ %59, %52 ], [ 1, %_mpd_isint.exit.thread.thread ]
-  %63 = call ptr @mpd_alloc(i64 noundef %.0.i4454, i64 noundef 4) #33
+  %63 = call ptr @mpd_alloc(i64 noundef %.0.i4454, i64 noundef 4) #34
   store ptr %63, ptr %0, align 8, !tbaa !78
   %64 = icmp eq ptr %63, null
   br i1 %64, label %.thread, label %mpd_sizeinbase.exit.thread52._crit_edge
@@ -28802,7 +28802,7 @@ mpd_iszero.exit.thread:                           ; preds = %65, %mpd_iszero.exi
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !tbaa !22
   %90 = load ptr, ptr %0, align 8, !tbaa !78
-  %91 = call ptr @mpd_realloc(ptr noundef %90, i64 noundef %.pre.i, i64 noundef 4, ptr noundef nonnull %6) #33
+  %91 = call ptr @mpd_realloc(ptr noundef %90, i64 noundef %.pre.i, i64 noundef 4, ptr noundef nonnull %6) #34
   store ptr %91, ptr %0, align 8, !tbaa !78
   %92 = load i8, ptr %6, align 1, !tbaa !22
   %.not.i.not.i = icmp eq i8 %92, 0
@@ -28811,7 +28811,7 @@ mpd_iszero.exit.thread:                           ; preds = %65, %mpd_iszero.exi
 
 ._crit_edge.i:                                    ; preds = %89, %88
   %.1.i = phi i64 [ %.pre.i, %89 ], [ %.019.i, %88 ]
-  %93 = call i64 @_mpd_shortdiv_b(ptr noundef %85, ptr noundef %85, i64 noundef %.018.i, i64 noundef %87, i64 noundef -8446744073709551616) #33
+  %93 = call i64 @_mpd_shortdiv_b(ptr noundef %85, ptr noundef %85, i64 noundef %.018.i, i64 noundef %87, i64 noundef -8446744073709551616) #34
   %94 = trunc i64 %93 to i32
   %95 = load ptr, ptr %0, align 8, !tbaa !78
   %96 = getelementptr i32, ptr %95, i64 %.0.i46
@@ -28853,7 +28853,7 @@ _baseconv_to_smaller.exit:                        ; preds = %_mpd_real_size.exit
 111:                                              ; preds = %109
   %112 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %113 = load ptr, ptr %12, align 8, !tbaa !17
-  call void %112(ptr noundef %113) #33
+  call void %112(ptr noundef %113) #34
   %.pre71 = load i8, ptr %8, align 8, !tbaa !19
   br label %114
 
@@ -28865,7 +28865,7 @@ _baseconv_to_smaller.exit:                        ; preds = %_mpd_real_size.exit
 
 117:                                              ; preds = %114
   %118 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %118(ptr noundef nonnull %8) #33
+  call void %118(ptr noundef nonnull %8) #34
   br label %mpd_del.exit
 
 _baseconv_to_smaller.exit.thread:                 ; preds = %89, %_baseconv_to_smaller.exit, %80, %78
@@ -28874,7 +28874,7 @@ _baseconv_to_smaller.exit.thread:                 ; preds = %89, %_baseconv_to_s
 119:                                              ; preds = %_baseconv_to_smaller.exit.thread
   %120 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %121 = load ptr, ptr %0, align 8, !tbaa !78
-  call void %120(ptr noundef %121) #33
+  call void %120(ptr noundef %121) #34
   store ptr null, ptr %0, align 8, !tbaa !78
   br label %.thread
 
@@ -28901,7 +28901,7 @@ define hidden void @mpd_qimport_u16(ptr noundef %0, ptr noundef readonly capture
 11:                                               ; preds = %7
   %12 = uitofp nneg i64 %2 to double
   %13 = uitofp i32 %4 to double
-  %14 = tail call double @log10(double noundef %13) #33, !tbaa !23
+  %14 = tail call double @log10(double noundef %13) #34, !tbaa !23
   %15 = fdiv double %14, 1.900000e+01
   %16 = fmul double %15, %12
   %17 = fcmp ogt double %16, 0x433FFFFFFFFFFFFF
@@ -28929,7 +28929,7 @@ _mpd_importsize.exit.thread:                      ; preds = %11, %7
   store i8 0, ptr %9, align 1, !tbaa !22
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8, !tbaa !17
-  %31 = call ptr @mpd_realloc(ptr noundef %30, i64 noundef %26, i64 noundef 8, ptr noundef nonnull %9) #33
+  %31 = call ptr @mpd_realloc(ptr noundef %30, i64 noundef %26, i64 noundef 8, ptr noundef nonnull %9) #34
   store ptr %31, ptr %29, align 8, !tbaa !17
   %32 = load i8, ptr %9, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %32, 0
@@ -28958,7 +28958,7 @@ mpd_seterror.exit:                                ; preds = %_mpd_importsize.exi
   br label %230
 
 42:                                               ; preds = %11
-  %43 = tail call ptr @mpd_alloc(i64 noundef %2, i64 noundef 8) #33
+  %43 = tail call ptr @mpd_alloc(i64 noundef %2, i64 noundef 8) #34
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %.preheader
 
@@ -28984,7 +28984,7 @@ mpd_seterror.exit:                                ; preds = %_mpd_importsize.exi
   store i8 0, ptr %8, align 1, !tbaa !22
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %55 = load ptr, ptr %54, align 8, !tbaa !17
-  %56 = call ptr @mpd_realloc(ptr noundef %55, i64 noundef %51, i64 noundef 8, ptr noundef nonnull %8) #33
+  %56 = call ptr @mpd_realloc(ptr noundef %55, i64 noundef %51, i64 noundef 8, ptr noundef nonnull %8) #34
   store ptr %56, ptr %54, align 8, !tbaa !17
   %57 = load i8, ptr %8, align 1, !tbaa !22
   %.not5.i.i47 = icmp eq i8 %57, 0
@@ -29042,11 +29042,11 @@ mpd_seterror.exit49:                              ; preds = %45, %48, %60
   br i1 %81, label %82, label %mpd_qresize.exit44.thread
 
 82:                                               ; preds = %80
-  %83 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %73, ptr noundef %6) #33
+  %83 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %73, ptr noundef %6) #34
   br label %mpd_qresize.exit44
 
 84:                                               ; preds = %77
-  %85 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %73, ptr noundef %6) #33
+  %85 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %73, ptr noundef %6) #34
   br label %mpd_qresize.exit44
 
 mpd_qresize.exit44:                               ; preds = %82, %84
@@ -29074,7 +29074,7 @@ mpd_qresize.exit44.thread:                        ; preds = %80, %._crit_edge, %
   %.057.i = phi i64 [ 1, %.lr.ph.i ], [ %.2.i, %136 ]
   %.03556.i = phi i64 [ %19, %.lr.ph.i ], [ %.3.i, %136 ]
   %95 = load ptr, ptr %89, align 8, !tbaa !17
-  %96 = tail call i64 @_mpd_shortmul_c(ptr noundef %95, ptr noundef %95, i64 noundef %.057.i, i64 noundef %92) #33
+  %96 = tail call i64 @_mpd_shortmul_c(ptr noundef %95, ptr noundef %95, i64 noundef %.057.i, i64 noundef %92) #34
   %.not42.i = icmp eq i64 %96, 0
   br i1 %.not42.i, label %._crit_edge60.i, label %97
 
@@ -29105,11 +29105,11 @@ mpd_qresize.exit44.thread:                        ; preds = %80, %._crit_edge, %
   br i1 %107, label %108, label %mpd_qresize.exit50.thread.i
 
 108:                                              ; preds = %106
-  %109 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %100, ptr noundef %6) #33
+  %109 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %100, ptr noundef %6) #34
   br label %mpd_qresize.exit50.i
 
 110:                                              ; preds = %103
-  %111 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %100, ptr noundef %6) #33
+  %111 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %100, ptr noundef %6) #34
   br label %mpd_qresize.exit50.i
 
 mpd_qresize.exit50.i:                             ; preds = %110, %108
@@ -29130,7 +29130,7 @@ mpd_qresize.exit50.thread.i:                      ; preds = %mpd_qresize.exit50.
   %.1.i = phi i64 [ %.pre62.i, %mpd_qresize.exit50.thread.i ], [ %.057.i, %._crit_edge60.i ]
   %116 = getelementptr i64, ptr %43, i64 %94
   %117 = load i64, ptr %116, align 8, !tbaa !3
-  %118 = tail call i64 @_mpd_shortadd(ptr noundef %115, i64 noundef %.1.i, i64 noundef %117) #33
+  %118 = tail call i64 @_mpd_shortadd(ptr noundef %115, i64 noundef %.1.i, i64 noundef %117) #34
   %.not45.i = icmp eq i64 %118, 0
   br i1 %.not45.i, label %136, label %119
 
@@ -29157,11 +29157,11 @@ mpd_qresize.exit50.thread.i:                      ; preds = %mpd_qresize.exit50.
   br i1 %129, label %130, label %mpd_qresize.exit.thread.i
 
 130:                                              ; preds = %128
-  %131 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %122, ptr noundef %6) #33
+  %131 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %122, ptr noundef %6) #34
   br label %mpd_qresize.exit.i
 
 132:                                              ; preds = %125
-  %133 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %122, ptr noundef %6) #33
+  %133 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %122, ptr noundef %6) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %132, %130
@@ -29331,11 +29331,11 @@ mpd_setdigits.exit:                               ; preds = %156, %160, %167, %1
   br i1 %224, label %225, label %mpd_qresize.exit
 
 225:                                              ; preds = %223
-  %226 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %218, ptr noundef %6) #33
+  %226 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %218, ptr noundef %6) #34
   br label %mpd_qresize.exit
 
 227:                                              ; preds = %221
-  %228 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %218, ptr noundef %6) #33
+  %228 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %218, ptr noundef %6) #34
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %mpd_setdigits.exit, %223, %225, %227
@@ -29344,7 +29344,7 @@ mpd_qresize.exit:                                 ; preds = %mpd_setdigits.exit,
 
 _coeff_from_u16.exit.thread:                      ; preds = %mpd_qresize.exit50.i, %mpd_qresize.exit.i, %_coeff_from_u16.exit, %mpd_qresize.exit44, %mpd_qresize.exit
   %229 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  tail call void %229(ptr noundef nonnull %43) #33
+  tail call void %229(ptr noundef nonnull %43) #34
   br label %230
 
 230:                                              ; preds = %_coeff_from_u16.exit.thread, %mpd_seterror.exit49, %mpd_seterror.exit
@@ -29360,7 +29360,7 @@ define hidden void @mpd_qimport_u32(ptr noundef %0, ptr noundef readonly capture
 10:                                               ; preds = %7
   %11 = uitofp nneg i64 %2 to double
   %12 = uitofp i32 %4 to double
-  %13 = tail call double @log10(double noundef %12) #33, !tbaa !23
+  %13 = tail call double @log10(double noundef %12) #34, !tbaa !23
   %14 = fdiv double %13, 1.900000e+01
   %15 = fmul double %14, %11
   %16 = fcmp ogt double %15, 0x433FFFFFFFFFFFFF
@@ -29388,7 +29388,7 @@ _mpd_importsize.exit.thread:                      ; preds = %10, %7
   store i8 0, ptr %8, align 1, !tbaa !22
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load ptr, ptr %28, align 8, !tbaa !17
-  %30 = call ptr @mpd_realloc(ptr noundef %29, i64 noundef %25, i64 noundef 8, ptr noundef nonnull %8) #33
+  %30 = call ptr @mpd_realloc(ptr noundef %29, i64 noundef %25, i64 noundef 8, ptr noundef nonnull %8) #34
   store ptr %30, ptr %28, align 8, !tbaa !17
   %31 = load i8, ptr %8, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %31, 0
@@ -29435,11 +29435,11 @@ mpd_seterror.exit:                                ; preds = %_mpd_importsize.exi
   br i1 %51, label %52, label %mpd_qresize.exit29.thread
 
 52:                                               ; preds = %50
-  %53 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %43, ptr noundef %6) #33
+  %53 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %43, ptr noundef %6) #34
   br label %mpd_qresize.exit29
 
 54:                                               ; preds = %47
-  %55 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %43, ptr noundef %6) #33
+  %55 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %43, ptr noundef %6) #34
   br label %mpd_qresize.exit29
 
 mpd_qresize.exit29:                               ; preds = %52, %54
@@ -29468,7 +29468,7 @@ mpd_qresize.exit29.thread:                        ; preds = %50, %41, %mpd_qresi
   %.059.i = phi i64 [ 1, %.lr.ph.i ], [ %.2.i, %108 ]
   %.03758.i = phi i64 [ %18, %.lr.ph.i ], [ %.3.i, %108 ]
   %66 = load ptr, ptr %61, align 8, !tbaa !17
-  %67 = tail call i64 @_mpd_shortmul_b(ptr noundef %66, ptr noundef %66, i64 noundef %.059.i, i64 noundef range(i64 0, 4294967296) %56, i64 noundef -8446744073709551616) #33
+  %67 = tail call i64 @_mpd_shortmul_b(ptr noundef %66, ptr noundef %66, i64 noundef %.059.i, i64 noundef range(i64 0, 4294967296) %56, i64 noundef -8446744073709551616) #34
   %.not44.i = icmp eq i64 %67, 0
   br i1 %.not44.i, label %._crit_edge62.i, label %68
 
@@ -29499,11 +29499,11 @@ mpd_qresize.exit29.thread:                        ; preds = %50, %41, %mpd_qresi
   br i1 %78, label %79, label %mpd_qresize.exit52.thread.i
 
 79:                                               ; preds = %77
-  %80 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %71, ptr noundef %6) #33
+  %80 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %71, ptr noundef %6) #34
   br label %mpd_qresize.exit52.i
 
 81:                                               ; preds = %74
-  %82 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %71, ptr noundef %6) #33
+  %82 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %71, ptr noundef %6) #34
   br label %mpd_qresize.exit52.i
 
 mpd_qresize.exit52.i:                             ; preds = %81, %79
@@ -29525,7 +29525,7 @@ mpd_qresize.exit52.thread.i:                      ; preds = %mpd_qresize.exit52.
   %87 = getelementptr i32, ptr %1, i64 %65
   %88 = load i32, ptr %87, align 4, !tbaa !23
   %89 = zext i32 %88 to i64
-  %90 = tail call i64 @_mpd_shortadd_b(ptr noundef %86, i64 noundef %.1.i, i64 noundef %89, i64 noundef -8446744073709551616) #33
+  %90 = tail call i64 @_mpd_shortadd_b(ptr noundef %86, i64 noundef %.1.i, i64 noundef %89, i64 noundef -8446744073709551616) #34
   %.not47.i = icmp eq i64 %90, 0
   br i1 %.not47.i, label %108, label %91
 
@@ -29552,11 +29552,11 @@ mpd_qresize.exit52.thread.i:                      ; preds = %mpd_qresize.exit52.
   br i1 %101, label %102, label %mpd_qresize.exit.thread.i
 
 102:                                              ; preds = %100
-  %103 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %94, ptr noundef %6) #33
+  %103 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %94, ptr noundef %6) #34
   br label %mpd_qresize.exit.i
 
 104:                                              ; preds = %97
-  %105 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %94, ptr noundef %6) #33
+  %105 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %94, ptr noundef %6) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %104, %102
@@ -29726,11 +29726,11 @@ mpd_setdigits.exit:                               ; preds = %128, %132, %139, %1
   br i1 %196, label %197, label %mpd_qresize.exit
 
 197:                                              ; preds = %195
-  %198 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %190, ptr noundef %6) #33
+  %198 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %190, ptr noundef %6) #34
   br label %mpd_qresize.exit
 
 199:                                              ; preds = %193
-  %200 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %190, ptr noundef %6) #33
+  %200 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %190, ptr noundef %6) #34
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %mpd_setdigits.exit, %195, %197, %199
@@ -29790,7 +29790,7 @@ define hidden range(i32 -1, 1) i32 @mpd_from_uint128_triple(ptr noundef %0, ptr 
   store i8 0, ptr %7, align 1, !tbaa !22
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load ptr, ptr %32, align 8, !tbaa !17
-  %34 = call ptr @mpd_realloc(ptr noundef %33, i64 noundef %29, i64 noundef 8, ptr noundef nonnull %7) #33
+  %34 = call ptr @mpd_realloc(ptr noundef %33, i64 noundef %29, i64 noundef 8, ptr noundef nonnull %7) #34
   store ptr %34, ptr %32, align 8, !tbaa !17
   %35 = load i8, ptr %7, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %35, 0
@@ -29852,7 +29852,7 @@ mpd_setspecial.exit:                              ; preds = %21, %26, %38
   store i8 0, ptr %6, align 1, !tbaa !22
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %64 = load ptr, ptr %63, align 8, !tbaa !17
-  %65 = call ptr @mpd_realloc(ptr noundef %64, i64 noundef %60, i64 noundef 8, ptr noundef nonnull %6) #33
+  %65 = call ptr @mpd_realloc(ptr noundef %64, i64 noundef %60, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %65, ptr %63, align 8, !tbaa !17
   %66 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i57 = icmp eq i8 %66, 0
@@ -29922,7 +29922,7 @@ mpd_setspecial.exit59:                            ; preds = %54, %57, %69
   store i8 0, ptr %5, align 1, !tbaa !22
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %96 = load ptr, ptr %95, align 8, !tbaa !17
-  %97 = call ptr @mpd_realloc(ptr noundef %96, i64 noundef %92, i64 noundef 8, ptr noundef nonnull %5) #33
+  %97 = call ptr @mpd_realloc(ptr noundef %96, i64 noundef %92, i64 noundef 8, ptr noundef nonnull %5) #34
   store ptr %97, ptr %95, align 8, !tbaa !17
   %98 = load i8, ptr %5, align 1, !tbaa !22
   %.not5.i.i61 = icmp eq i8 %98, 0
@@ -29968,7 +29968,7 @@ mpd_seterror.exit:                                ; preds = %.thread68, %89, %10
   store i8 0, ptr %4, align 1, !tbaa !22
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %118 = load ptr, ptr %117, align 8, !tbaa !17
-  %119 = call ptr @mpd_realloc(ptr noundef %118, i64 noundef %114, i64 noundef 8, ptr noundef nonnull %4) #33
+  %119 = call ptr @mpd_realloc(ptr noundef %118, i64 noundef %114, i64 noundef 8, ptr noundef nonnull %4) #34
   store ptr %119, ptr %117, align 8, !tbaa !17
   %120 = load i8, ptr %4, align 1, !tbaa !22
   %.not5.i.i64 = icmp eq i8 %120, 0
@@ -30049,11 +30049,11 @@ define internal fastcc range(i32 -1, 1) i32 @_set_uint128_coeff_exp(ptr noundef 
   br i1 %29, label %30, label %.preheader
 
 30:                                               ; preds = %28
-  %31 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %21, ptr noundef nonnull %6) #33
+  %31 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %21, ptr noundef nonnull %6) #34
   br label %mpd_qresize.exit
 
 32:                                               ; preds = %25
-  %33 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %21, ptr noundef nonnull %6) #33
+  %33 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %21, ptr noundef nonnull %6) #34
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %30, %32
@@ -30292,7 +30292,7 @@ mpd_qcmp.exit.i:                                  ; preds = %mpd_iszero.exit.i, 
   br label %55
 
 52:                                               ; preds = %40
-  call void @abort() #34
+  call void @abort() #35
   unreachable
 
 _coeff_as_uint128.exit:                           ; preds = %mpd_qcmp.exit.i
@@ -30405,7 +30405,7 @@ define internal fastcc void @mpd_qsshiftr(ptr noundef nonnull captures(address) 
   store i8 0, ptr %4, align 1, !tbaa !22
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %47 = load ptr, ptr %46, align 8, !tbaa !17
-  %48 = call ptr @mpd_realloc(ptr noundef %47, i64 noundef %43, i64 noundef 8, ptr noundef nonnull %4) #33
+  %48 = call ptr @mpd_realloc(ptr noundef %47, i64 noundef %43, i64 noundef 8, ptr noundef nonnull %4) #34
   store ptr %48, ptr %46, align 8, !tbaa !17
   %49 = load i8, ptr %4, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %49, 0
@@ -30442,7 +30442,7 @@ mpd_zerocoeff.exit:                               ; preds = %34, %40, %52
   %64 = add nsw i64 %60, %63
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %66 = load ptr, ptr %65, align 8, !tbaa !17
-  %67 = tail call i64 @_mpd_baseshiftr(ptr noundef %66, ptr noundef nonnull %6, i64 noundef %8, i64 noundef %2) #33
+  %67 = tail call i64 @_mpd_baseshiftr(ptr noundef %66, ptr noundef nonnull %6, i64 noundef %8, i64 noundef %2) #34
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %64, ptr %68, align 8, !tbaa !18
   br label %69
@@ -30967,7 +30967,7 @@ define internal fastcc void @_mpd_base_ndivmod(ptr noundef %0, ptr noundef %1, p
   br i1 %or.cond87, label %61, label %66
 
 61:                                               ; preds = %5
-  %62 = tail call ptr @mpd_qnew() #33
+  %62 = tail call ptr @mpd_qnew() #34
   %63 = icmp eq ptr %62, null
   br i1 %63, label %mpd_del.exit95.thread, label %66
 
@@ -30985,13 +30985,13 @@ mpd_del.exit95.thread:                            ; preds = %61
   br i1 %or.cond88, label %69, label %72
 
 69:                                               ; preds = %66
-  %70 = tail call ptr @mpd_qnew() #33
+  %70 = tail call ptr @mpd_qnew() #34
   %71 = icmp eq ptr %70, null
   br i1 %71, label %mpd_qcopy.exit.thread.sink.split, label %72
 
 72:                                               ; preds = %66, %69
   %.1 = phi ptr [ %70, %69 ], [ %1, %66 ]
-  call void @mpd_maxcontext(ptr noundef nonnull %24) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %24) #34
   %73 = load i64, ptr %29, align 8, !tbaa !11
   %74 = load i64, ptr %43, align 8, !tbaa !11
   %75 = sub i64 %73, %74
@@ -31217,17 +31217,17 @@ mpd_word_digits.exit.i.i:                         ; preds = %174, %172, %169, %1
   br i1 %190, label %191, label %mpd_qresize.exit.i.i
 
 191:                                              ; preds = %189
-  %192 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %.1, i64 noundef %182, ptr noundef nonnull %80) #33
+  %192 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %.1, i64 noundef %182, ptr noundef nonnull %80) #34
   br label %mpd_qresize.exit.i.i
 
 193:                                              ; preds = %186
-  %194 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %.1, i64 noundef %182, ptr noundef nonnull %80) #33
+  %194 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %.1, i64 noundef %182, ptr noundef nonnull %80) #34
   br label %mpd_qresize.exit.i.i
 
 mpd_qresize.exit.i.i:                             ; preds = %193, %191, %189, %mpd_word_digits.exit.i.i
   %195 = getelementptr inbounds nuw i8, ptr %.1, i64 40
   %196 = load ptr, ptr %195, align 8, !tbaa !17
-  %197 = call i64 @_mpd_shortdiv(ptr noundef %196, ptr noundef nonnull %13, i64 noundef 2, i64 noundef %180) #33
+  %197 = call i64 @_mpd_shortdiv(ptr noundef %196, ptr noundef nonnull %13, i64 noundef 2, i64 noundef %180) #34
   %198 = load i8, ptr %.1, align 8, !tbaa !19
   %199 = and i8 %198, -16
   store i8 %199, ptr %.1, align 8, !tbaa !19
@@ -31353,8 +31353,8 @@ _mpd_qreciprocal_approx.exit.i:                   ; preds = %269, %266, %262, %2
   %277 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   store i64 %276, ptr %277, align 8, !tbaa !11
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  call void @mpd_maxcontext(ptr noundef nonnull %14) #33
-  call void @mpd_maxcontext(ptr noundef nonnull %15) #33
+  call void @mpd_maxcontext(ptr noundef nonnull %14) #34
+  call void @mpd_maxcontext(ptr noundef nonnull %15) #34
   %278 = getelementptr inbounds nuw i8, ptr %15, i64 36
   store i32 8, ptr %278, align 4, !tbaa !29
   %279 = getelementptr inbounds nuw i8, ptr %14, i64 36
@@ -31424,7 +31424,7 @@ recpr_schedule_prec.exit.i:                       ; preds = %.preheader.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !tbaa !22
   %308 = load ptr, ptr %90, align 8, !tbaa !17
-  %309 = call ptr @mpd_realloc(ptr noundef %308, i64 noundef %305, i64 noundef 8, ptr noundef nonnull %6) #33
+  %309 = call ptr @mpd_realloc(ptr noundef %308, i64 noundef %305, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %309, ptr %90, align 8, !tbaa !17
   %310 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i.i137 = icmp eq i8 %310, 0
@@ -31502,7 +31502,7 @@ _mpd_qmul_exact.exit139:                          ; preds = %.lr.ph.i, %mpd_sete
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 0, ptr %8, align 1, !tbaa !22
   %342 = load ptr, ptr %90, align 8, !tbaa !17
-  %343 = call ptr @mpd_realloc(ptr noundef %342, i64 noundef %339, i64 noundef 8, ptr noundef nonnull %8) #33
+  %343 = call ptr @mpd_realloc(ptr noundef %342, i64 noundef %339, i64 noundef 8, ptr noundef nonnull %8) #34
   store ptr %343, ptr %90, align 8, !tbaa !17
   %344 = load i8, ptr %8, align 1, !tbaa !22
   %.not5.i.i.i132 = icmp eq i8 %344, 0
@@ -31559,7 +31559,7 @@ _mpd_qmul_exact.exit:                             ; preds = %329, %mpd_seterror.
 362:                                              ; preds = %360
   %363 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %364 = load ptr, ptr %90, align 8, !tbaa !17
-  call void %363(ptr noundef %364) #33
+  call void %363(ptr noundef %364) #34
   %.pre.i = load i8, ptr %18, align 8, !tbaa !19
   br label %365
 
@@ -31571,7 +31571,7 @@ _mpd_qmul_exact.exit:                             ; preds = %329, %mpd_seterror.
 
 368:                                              ; preds = %365
   %369 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %369(ptr noundef nonnull %18) #33
+  call void %369(ptr noundef nonnull %18) #34
   br label %mpd_del.exit50.i
 
 mpd_del.exit50.i:                                 ; preds = %368, %365
@@ -31582,7 +31582,7 @@ mpd_del.exit50.i:                                 ; preds = %368, %365
 371:                                              ; preds = %mpd_del.exit50.i
   %372 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %373 = load ptr, ptr %94, align 8, !tbaa !17
-  call void %372(ptr noundef %373) #33
+  call void %372(ptr noundef %373) #34
   %.pre57.i = load i8, ptr %20, align 8, !tbaa !19
   br label %374
 
@@ -31594,7 +31594,7 @@ mpd_del.exit50.i:                                 ; preds = %368, %365
 
 377:                                              ; preds = %374
   %378 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %378(ptr noundef nonnull %20) #33
+  call void %378(ptr noundef nonnull %20) #34
   br label %_mpd_qreciprocal.exit
 
 _mpd_qreciprocal.exit:                            ; preds = %374, %377
@@ -31632,7 +31632,7 @@ _mpd_qreciprocal.exit:                            ; preds = %374, %377
   store i8 0, ptr %12, align 1, !tbaa !22
   %389 = getelementptr inbounds nuw i8, ptr %.068, i64 40
   %390 = load ptr, ptr %389, align 8, !tbaa !17
-  %391 = call ptr @mpd_realloc(ptr noundef %390, i64 noundef %386, i64 noundef 8, ptr noundef nonnull %12) #33
+  %391 = call ptr @mpd_realloc(ptr noundef %390, i64 noundef %386, i64 noundef 8, ptr noundef nonnull %12) #34
   store ptr %391, ptr %389, align 8, !tbaa !17
   %392 = load i8, ptr %12, align 1, !tbaa !22
   %.not5.i.i.i = icmp eq i8 %392, 0
@@ -31725,9 +31725,9 @@ mpd_qtrunc.exit:                                  ; preds = %420, %416, %414, %4
 
 432:                                              ; preds = %431
   %433 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %434 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %433, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 7625) #35
+  %434 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %433, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 7625) #36
   %435 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %436 = call i64 @fwrite(ptr nonnull @.str.13, i64 60, i64 1, ptr %435) #36
+  %436 = call i64 @fwrite(ptr nonnull @.str.13, i64 60, i64 1, ptr %435) #37
   %437 = load ptr, ptr @stderr, align 8, !tbaa !94
   %438 = call i32 @fputc(i32 noundef 10, ptr noundef %437)
   br label %mpd_qcopy.exit.thread.sink.split
@@ -31784,11 +31784,11 @@ mpd_qtrunc.exit:                                  ; preds = %420, %416, %414, %4
   br i1 %463, label %464, label %468
 
 464:                                              ; preds = %462
-  %465 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %456, ptr noundef %4) #33
+  %465 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %456, ptr noundef %4) #34
   br label %mpd_qresize.exit.i
 
 466:                                              ; preds = %460
-  %467 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %456, ptr noundef %4) #33
+  %467 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %456, ptr noundef %4) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %466, %464
@@ -31834,7 +31834,7 @@ mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i: ; preds = %mpd_qresize.exi
 489:                                              ; preds = %468
   %490 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %491 = load ptr, ptr %484, align 8, !tbaa !17
-  call void %490(ptr noundef %491) #33
+  call void %490(ptr noundef %491) #34
   %.pre172 = load i8, ptr %.068, align 8, !tbaa !19
   br label %492
 
@@ -31846,7 +31846,7 @@ mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i: ; preds = %mpd_qresize.exi
 
 495:                                              ; preds = %492
   %496 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %496(ptr noundef nonnull %.068) #33
+  call void %496(ptr noundef nonnull %.068) #34
   br label %mpd_del.exit105
 
 mpd_del.exit105:                                  ; preds = %495, %492, %451
@@ -31873,11 +31873,11 @@ mpd_del.exit105:                                  ; preds = %495, %492, %451
   br i1 %507, label %508, label %512
 
 508:                                              ; preds = %506
-  %509 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %500, ptr noundef %4) #33
+  %509 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %500, ptr noundef %4) #34
   br label %mpd_qresize.exit.i116
 
 510:                                              ; preds = %504
-  %511 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %500, ptr noundef %4) #33
+  %511 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %500, ptr noundef %4) #34
   br label %mpd_qresize.exit.i116
 
 mpd_qresize.exit.i116:                            ; preds = %510, %508
@@ -31919,7 +31919,7 @@ mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i119: ; preds = %mpd_qresize.
 530:                                              ; preds = %512
   %531 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %532 = load ptr, ptr %195, align 8, !tbaa !17
-  call void %531(ptr noundef %532) #33
+  call void %531(ptr noundef %532) #34
   %.pre173 = load i8, ptr %.1, align 8, !tbaa !19
   br label %533
 
@@ -31931,7 +31931,7 @@ mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i119: ; preds = %mpd_qresize.
 
 536:                                              ; preds = %533
   %537 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %537(ptr noundef nonnull %.1) #33
+  call void %537(ptr noundef nonnull %.1) #34
   br label %mpd_del.exit100
 
 mpd_del.exit100:                                  ; preds = %536, %533, %mpd_del.exit105
@@ -31966,7 +31966,7 @@ mpd_qcopy.exit.thread:                            ; preds = %mpd_qcopy.exit.thre
   %547 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %548 = getelementptr inbounds nuw i8, ptr %.068, i64 40
   %549 = load ptr, ptr %548, align 8, !tbaa !17
-  call void %547(ptr noundef %549) #33
+  call void %547(ptr noundef %549) #34
   %.pre174 = load i8, ptr %.068, align 8, !tbaa !19
   br label %550
 
@@ -31978,7 +31978,7 @@ mpd_qcopy.exit.thread:                            ; preds = %mpd_qcopy.exit.thre
 
 553:                                              ; preds = %550
   %554 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %554(ptr noundef nonnull %.068) #33
+  call void %554(ptr noundef nonnull %.068) #34
   br label %mpd_del.exit95
 
 mpd_del.exit95:                                   ; preds = %553, %550, %mpd_qcopy.exit.thread
@@ -31996,7 +31996,7 @@ mpd_del.exit95:                                   ; preds = %553, %550, %mpd_qco
   %558 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   %559 = getelementptr inbounds nuw i8, ptr %.067, i64 40
   %560 = load ptr, ptr %559, align 8, !tbaa !17
-  call void %558(ptr noundef %560) #33
+  call void %558(ptr noundef %560) #34
   %.pre175 = load i8, ptr %.067, align 8, !tbaa !19
   br label %561
 
@@ -32008,7 +32008,7 @@ mpd_del.exit95:                                   ; preds = %553, %550, %mpd_qco
 
 564:                                              ; preds = %561
   %565 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %565(ptr noundef nonnull %.067) #33
+  call void %565(ptr noundef nonnull %.067) #34
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %564, %561, %mpd_del.exit95.thread, %mpd_del.exit95
@@ -32029,7 +32029,7 @@ mpd_del.exit:                                     ; preds = %564, %561, %mpd_del
   store i8 0, ptr %11, align 1, !tbaa !22
   %574 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %575 = load ptr, ptr %574, align 8, !tbaa !17
-  %576 = call ptr @mpd_realloc(ptr noundef %575, i64 noundef %571, i64 noundef 8, ptr noundef nonnull %11) #33
+  %576 = call ptr @mpd_realloc(ptr noundef %575, i64 noundef %571, i64 noundef 8, ptr noundef nonnull %11) #34
   store ptr %576, ptr %574, align 8, !tbaa !17
   %577 = load i8, ptr %11, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %577, 0
@@ -32069,7 +32069,7 @@ mpd_setspecial.exit:                              ; preds = %mpd_del.exit, %568,
   store i8 0, ptr %10, align 1, !tbaa !22
   %593 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %594 = load ptr, ptr %593, align 8, !tbaa !17
-  %595 = call ptr @mpd_realloc(ptr noundef %594, i64 noundef %590, i64 noundef 8, ptr noundef nonnull %10) #33
+  %595 = call ptr @mpd_realloc(ptr noundef %594, i64 noundef %590, i64 noundef 8, ptr noundef nonnull %10) #34
   store ptr %595, ptr %593, align 8, !tbaa !17
   %596 = load i8, ptr %10, align 1, !tbaa !22
   %.not5.i.i126 = icmp eq i8 %596, 0
@@ -32167,7 +32167,7 @@ mpd_qsub.exit:                                    ; preds = %13, %15, %19
   store i8 0, ptr %6, align 1, !tbaa !22
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load ptr, ptr %35, align 8, !tbaa !17
-  %37 = call ptr @mpd_realloc(ptr noundef %36, i64 noundef %32, i64 noundef 8, ptr noundef nonnull %6) #33
+  %37 = call ptr @mpd_realloc(ptr noundef %36, i64 noundef %32, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %37, ptr %35, align 8, !tbaa !17
   %38 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %38, 0
@@ -32268,7 +32268,7 @@ mpd_qadd.exit:                                    ; preds = %13, %15, %18
   store i8 0, ptr %6, align 1, !tbaa !22
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load ptr, ptr %33, align 8, !tbaa !17
-  %35 = call ptr @mpd_realloc(ptr noundef %34, i64 noundef %30, i64 noundef 8, ptr noundef nonnull %6) #33
+  %35 = call ptr @mpd_realloc(ptr noundef %34, i64 noundef %30, i64 noundef 8, ptr noundef nonnull %6) #34
   store ptr %35, ptr %33, align 8, !tbaa !17
   %36 = load i8, ptr %6, align 1, !tbaa !22
   %.not5.i.i = icmp eq i8 %36, 0
@@ -32338,11 +32338,11 @@ define internal fastcc void @_mpd_qpow_uint(ptr noundef %0, ptr noundef nonnull 
   br i1 %23, label %24, label %mpd_qresize.exit.thread.i
 
 24:                                               ; preds = %22
-  %25 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %16, ptr noundef %5) #33
+  %25 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %16, ptr noundef %5) #34
   br label %mpd_qresize.exit.i
 
 26:                                               ; preds = %20
-  %27 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %16, ptr noundef %5) #33
+  %27 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %16, ptr noundef %5) #34
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %26, %24
@@ -32494,10 +32494,10 @@ mpd_qcopy.exit:                                   ; preds = %mpd_qresize.exit.i,
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #27
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.ceil.f64(double) #27
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -32701,7 +32701,7 @@ declare hidden ptr @mpd_calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 define internal fastcc ptr @_mpd_kmul(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 2, 1) %2, i64 noundef range(i64 257, -9223372036854775808) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %4) unnamed_addr #9 {
   %6 = tail call fastcc i64 @_kmul_resultsize(i64 noundef %2, i64 noundef %3)
   store i64 %6, ptr %4, align 8, !tbaa !3
-  %7 = tail call ptr @mpd_calloc(i64 noundef %6, i64 noundef 8) #33
+  %7 = tail call ptr @mpd_calloc(i64 noundef %6, i64 noundef 8) #34
   %8 = icmp eq ptr %7, null
   br i1 %8, label %18, label %9
 
@@ -32715,19 +32715,19 @@ define internal fastcc ptr @_mpd_kmul(ptr noundef %0, ptr noundef %1, i64 nounde
   br label %18
 
 11:                                               ; preds = %9
-  %12 = tail call ptr @mpd_calloc(i64 noundef %10, i64 noundef 8) #33
+  %12 = tail call ptr @mpd_calloc(i64 noundef %10, i64 noundef 8) #34
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  tail call void %15(ptr noundef nonnull %7) #33
+  tail call void %15(ptr noundef nonnull %7) #34
   br label %18
 
 16:                                               ; preds = %11
   tail call fastcc void @_karatsuba_rec(ptr noundef nonnull %7, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %12, i64 noundef %2, i64 noundef %3)
   %17 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  tail call void %17(ptr noundef nonnull %12) #33
+  tail call void %17(ptr noundef nonnull %12) #34
   br label %18
 
 18:                                               ; preds = %.thread, %16, %5, %14
@@ -32743,12 +32743,12 @@ define internal fastcc ptr @_mpd_fntmul(ptr noundef readonly captures(address) %
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 597) #35
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 597) #36
   %11 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %12 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 41, i64 1, ptr %11) #36
+  %12 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 41, i64 1, ptr %11) #37
   %13 = load ptr, ptr @stderr, align 8, !tbaa !94
   %14 = tail call i32 @fputc(i32 noundef 10, ptr noundef %13)
-  tail call void @abort() #34
+  tail call void @abort() #35
   unreachable
 
 add_size_t.exit:                                  ; preds = %5
@@ -32825,17 +32825,17 @@ _mpd_get_transform_len.exit:                      ; preds = %38
 
 _mpd_get_transform_len.exit.thread:               ; preds = %32, %43, %41, %38, %_mpd_get_transform_len.exit
   %.0.i8891 = phi i64 [ %47, %_mpd_get_transform_len.exit ], [ 12884901888, %43 ], [ 6442450944, %41 ], [ %15, %38 ], [ %spec.select, %32 ]
-  %49 = tail call ptr @mpd_calloc(i64 noundef %.0.i8891, i64 noundef 8) #33
+  %49 = tail call ptr @mpd_calloc(i64 noundef %.0.i8891, i64 noundef 8) #34
   %50 = icmp eq ptr %49, null
   br i1 %50, label %.thread122, label %51
 
 51:                                               ; preds = %_mpd_get_transform_len.exit.thread
-  %52 = tail call ptr @mpd_calloc(i64 noundef %.0.i8891, i64 noundef 8) #33
+  %52 = tail call ptr @mpd_calloc(i64 noundef %.0.i8891, i64 noundef 8) #34
   %53 = icmp eq ptr %52, null
   br i1 %53, label %.thread122.sink.split, label %54
 
 54:                                               ; preds = %51
-  %55 = tail call ptr @mpd_calloc(i64 noundef %.0.i8891, i64 noundef 8) #33
+  %55 = tail call ptr @mpd_calloc(i64 noundef %.0.i8891, i64 noundef 8) #34
   %56 = icmp eq ptr %55, null
   br i1 %56, label %85, label %57
 
@@ -32848,29 +32848,29 @@ _mpd_get_transform_len.exit.thread:               ; preds = %32, %43, %41, %38, 
   br i1 %59, label %60, label %66
 
 60:                                               ; preds = %57
-  %61 = tail call i32 @fnt_autoconvolute(ptr noundef nonnull %49, i64 noundef %.0.i8891, i32 noundef 0) #33
+  %61 = tail call i32 @fnt_autoconvolute(ptr noundef nonnull %49, i64 noundef %.0.i8891, i32 noundef 0) #34
   %.not80 = icmp eq i32 %61, 0
   br i1 %.not80, label %85, label %62
 
 62:                                               ; preds = %60
-  %63 = tail call i32 @fnt_autoconvolute(ptr noundef nonnull %52, i64 noundef %.0.i8891, i32 noundef 1) #33
+  %63 = tail call i32 @fnt_autoconvolute(ptr noundef nonnull %52, i64 noundef %.0.i8891, i32 noundef 1) #34
   %.not81 = icmp eq i32 %63, 0
   br i1 %.not81, label %85, label %64
 
 64:                                               ; preds = %62
-  %65 = tail call i32 @fnt_autoconvolute(ptr noundef nonnull %55, i64 noundef %.0.i8891, i32 noundef 2) #33
+  %65 = tail call i32 @fnt_autoconvolute(ptr noundef nonnull %55, i64 noundef %.0.i8891, i32 noundef 2) #34
   %.not82 = icmp eq i32 %65, 0
   br i1 %.not82, label %85, label %.thread147
 
 66:                                               ; preds = %57
-  %67 = tail call ptr @mpd_calloc(i64 noundef %.0.i8891, i64 noundef 8) #33
+  %67 = tail call ptr @mpd_calloc(i64 noundef %.0.i8891, i64 noundef 8) #34
   %68 = icmp eq ptr %67, null
   br i1 %68, label %85, label %69
 
 69:                                               ; preds = %66
   %70 = shl i64 %3, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %67, ptr align 8 %1, i64 %70, i1 false)
-  %71 = tail call i32 @fnt_convolute(ptr noundef nonnull %49, ptr noundef nonnull %67, i64 noundef %.0.i8891, i32 noundef 0) #33
+  %71 = tail call i32 @fnt_convolute(ptr noundef nonnull %49, ptr noundef nonnull %67, i64 noundef %.0.i8891, i32 noundef 0) #34
   %.not = icmp eq i32 %71, 0
   br i1 %.not, label %.sink.split, label %72
 
@@ -32887,7 +32887,7 @@ _mpd_get_transform_len.exit.thread:               ; preds = %32, %43, %41, %38, 
   br label %mpd_uint_zero.exit87
 
 mpd_uint_zero.exit87:                             ; preds = %.lr.ph.preheader, %72
-  %76 = tail call i32 @fnt_convolute(ptr noundef nonnull %52, ptr noundef nonnull %67, i64 noundef %.0.i8891, i32 noundef 1) #33
+  %76 = tail call i32 @fnt_convolute(ptr noundef nonnull %52, ptr noundef nonnull %67, i64 noundef %.0.i8891, i32 noundef 1) #34
   %.not78 = icmp eq i32 %76, 0
   br i1 %.not78, label %.sink.split, label %77
 
@@ -32902,29 +32902,29 @@ mpd_uint_zero.exit87:                             ; preds = %.lr.ph.preheader, %
   br label %mpd_uint_zero.exit
 
 mpd_uint_zero.exit:                               ; preds = %.lr.ph129.preheader, %77
-  %80 = tail call i32 @fnt_convolute(ptr noundef nonnull %55, ptr noundef nonnull %67, i64 noundef %.0.i8891, i32 noundef 2) #33
+  %80 = tail call i32 @fnt_convolute(ptr noundef nonnull %55, ptr noundef nonnull %67, i64 noundef %.0.i8891, i32 noundef 2) #34
   %.not79 = icmp eq i32 %80, 0
   %81 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  tail call void %81(ptr noundef nonnull %67) #33
+  tail call void %81(ptr noundef nonnull %67) #34
   br i1 %.not79, label %85, label %.thread147
 
 .thread147:                                       ; preds = %mpd_uint_zero.exit, %64
   %82 = load i64, ptr %4, align 8, !tbaa !3
-  tail call void @crt3(ptr noundef nonnull %49, ptr noundef nonnull %52, ptr noundef nonnull %55, i64 noundef %82) #33
+  tail call void @crt3(ptr noundef nonnull %49, ptr noundef nonnull %52, ptr noundef nonnull %55, i64 noundef %82) #34
   %83 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  tail call void %83(ptr noundef nonnull %52) #33
+  tail call void %83(ptr noundef nonnull %52) #34
   br label %.thread122.sink.split
 
 .sink.split:                                      ; preds = %mpd_uint_zero.exit87, %69
   %84 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  tail call void %84(ptr noundef nonnull %67) #33
+  tail call void %84(ptr noundef nonnull %67) #34
   br label %85
 
 85:                                               ; preds = %.sink.split, %mpd_uint_zero.exit, %66, %60, %62, %64, %54
   %86 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  tail call void %86(ptr noundef nonnull %49) #33
+  tail call void %86(ptr noundef nonnull %49) #34
   %87 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  tail call void %87(ptr noundef nonnull %52) #33
+  tail call void %87(ptr noundef nonnull %52) #34
   %.not85 = icmp eq ptr %55, null
   br i1 %.not85, label %.thread122, label %.thread122.sink.split
 
@@ -32932,7 +32932,7 @@ mpd_uint_zero.exit:                               ; preds = %.lr.ph129.preheader
   %.sink = phi ptr [ %49, %51 ], [ %55, %.thread147 ], [ %55, %85 ]
   %.1102126.ph = phi ptr [ null, %51 ], [ %49, %.thread147 ], [ null, %85 ]
   %88 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  tail call void %88(ptr noundef nonnull %.sink) #33
+  tail call void %88(ptr noundef nonnull %.sink) #34
   br label %.thread122
 
 .thread122:                                       ; preds = %.thread122.sink.split, %43, %_mpd_get_transform_len.exit.thread, %_mpd_get_transform_len.exit, %85
@@ -32944,7 +32944,7 @@ mpd_uint_zero.exit:                               ; preds = %.lr.ph129.preheader
 define internal fastcc ptr @_mpd_kmul_fnt(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 2, 1) %2, i64 noundef range(i64 257, -9223372036854775808) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %4) unnamed_addr #9 {
   %6 = tail call fastcc i64 @_kmul_resultsize(i64 noundef %2, i64 noundef %3)
   store i64 %6, ptr %4, align 8, !tbaa !3
-  %7 = tail call ptr @mpd_calloc(i64 noundef %6, i64 noundef 8) #33
+  %7 = tail call ptr @mpd_calloc(i64 noundef %6, i64 noundef 8) #34
   %8 = icmp eq ptr %7, null
   br i1 %8, label %20, label %9
 
@@ -32954,7 +32954,7 @@ define internal fastcc ptr @_mpd_kmul_fnt(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %.not, label %14, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call ptr @mpd_calloc(i64 noundef %10, i64 noundef 8) #33
+  %12 = tail call ptr @mpd_calloc(i64 noundef %10, i64 noundef 8) #34
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.sink.split, label %14
 
@@ -32966,7 +32966,7 @@ define internal fastcc ptr @_mpd_kmul_fnt(ptr noundef %0, ptr noundef %1, i64 no
 
 16:                                               ; preds = %14
   %17 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  tail call void %17(ptr noundef nonnull %7) #33
+  tail call void %17(ptr noundef nonnull %7) #34
   br label %18
 
 18:                                               ; preds = %16, %14
@@ -32978,7 +32978,7 @@ define internal fastcc ptr @_mpd_kmul_fnt(ptr noundef %0, ptr noundef %1, i64 no
   %.018.sink = phi ptr [ %7, %11 ], [ %.018, %18 ]
   %.0.ph = phi ptr [ null, %11 ], [ %.019, %18 ]
   %19 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  tail call void %19(ptr noundef nonnull %.018.sink) #33
+  tail call void %19(ptr noundef nonnull %.018.sink) #34
   br label %20
 
 20:                                               ; preds = %.sink.split, %18, %5
@@ -32994,12 +32994,12 @@ define internal fastcc range(i64 3, 0) i64 @_kmul_resultsize(i64 noundef range(i
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 597) #35
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 597) #36
   %8 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %9 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 41, i64 1, ptr %8) #36
+  %9 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 41, i64 1, ptr %8) #37
   %10 = load ptr, ptr @stderr, align 8, !tbaa !94
   %11 = tail call i32 @fputc(i32 noundef 10, ptr noundef %10)
-  tail call void @abort() #34
+  tail call void @abort() #35
   unreachable
 
 add_size_t.exit:                                  ; preds = %2
@@ -33009,12 +33009,12 @@ add_size_t.exit:                                  ; preds = %2
 
 14:                                               ; preds = %add_size_t.exit
   %15 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 597) #35
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 597) #36
   %17 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %18 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 41, i64 1, ptr %17) #36
+  %18 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 41, i64 1, ptr %17) #37
   %19 = load ptr, ptr @stderr, align 8, !tbaa !94
   %20 = tail call i32 @fputc(i32 noundef 10, ptr noundef %19)
-  tail call void @abort() #34
+  tail call void @abort() #35
   unreachable
 
 add_size_t.exit9:                                 ; preds = %add_size_t.exit
@@ -33027,12 +33027,12 @@ add_size_t.exit9:                                 ; preds = %add_size_t.exit
 
 25:                                               ; preds = %add_size_t.exit9
   %26 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 622) #35
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 622) #36
   %28 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %29 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 41, i64 1, ptr %28) #36
+  %29 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 41, i64 1, ptr %28) #37
   %30 = load ptr, ptr @stderr, align 8, !tbaa !94
   %31 = tail call i32 @fputc(i32 noundef 10, ptr noundef %30)
-  tail call void @abort() #34
+  tail call void @abort() #35
   unreachable
 
 mul_size_t.exit:                                  ; preds = %add_size_t.exit9
@@ -33056,12 +33056,12 @@ define internal fastcc i64 @_kmul_worksize(i64 noundef %0, i64 noundef range(i64
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 622) #35
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 622) #36
   %11 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %12 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 41, i64 1, ptr %11) #36
+  %12 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 41, i64 1, ptr %11) #37
   %13 = load ptr, ptr @stderr, align 8, !tbaa !94
   %14 = tail call i32 @fputc(i32 noundef 10, ptr noundef %13)
-  tail call void @abort() #34
+  tail call void @abort() #35
   unreachable
 
 mul_size_t.exit:                                  ; preds = %3
@@ -33073,12 +33073,12 @@ mul_size_t.exit:                                  ; preds = %3
 
 18:                                               ; preds = %mul_size_t.exit
   %19 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 597) #35
+  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 597) #36
   %21 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %22 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 41, i64 1, ptr %21) #36
+  %22 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 41, i64 1, ptr %21) #37
   %23 = load ptr, ptr @stderr, align 8, !tbaa !94
   %24 = tail call i32 @fputc(i32 noundef 10, ptr noundef %23)
-  tail call void @abort() #34
+  tail call void @abort() #35
   unreachable
 
 add_size_t.exit:                                  ; preds = %mul_size_t.exit
@@ -33096,7 +33096,7 @@ define internal fastcc void @_karatsuba_rec(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %7, label %common.ret, label %8
 
 common.ret:                                       ; preds = %6
-  tail call void @_mpd_basemul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %4, i64 noundef %5) #33
+  tail call void @_mpd_basemul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %4, i64 noundef %5) #34
   br label %common.ret173
 
 8:                                                ; preds = %6
@@ -33141,14 +33141,14 @@ common.ret173:                                    ; preds = %mpd_uint_zero.exit1
 mpd_uint_zero.exit151:                            ; preds = %mpd_uint_zero.exit153, %mpd_uint_zero.exit155
   %27 = getelementptr i64, ptr %0, i64 %10
   %28 = add i64 %12, %5
-  tail call void @_mpd_baseaddto(ptr noundef %27, ptr noundef nonnull %3, i64 noundef %28) #33
+  tail call void @_mpd_baseaddto(ptr noundef %27, ptr noundef nonnull %3, i64 noundef %28) #34
   %29 = or i64 %9, 1
   %30 = shl nuw i64 %29, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %30, i1 false), !tbaa !3
   %31 = getelementptr i64, ptr %3, i64 %29
   tail call fastcc void @_karatsuba_rec(ptr noundef nonnull %3, ptr noundef %1, ptr noundef %2, ptr noundef %31, i64 noundef %10, i64 noundef %5)
   %32 = add nuw i64 %10, %5
-  tail call void @_mpd_baseaddto(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %32) #33
+  tail call void @_mpd_baseaddto(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %32) #34
   br label %common.ret173
 
 mpd_uint_zero.exit149:                            ; preds = %8
@@ -33158,7 +33158,7 @@ mpd_uint_zero.exit149:                            ; preds = %8
   store i64 0, ptr %34, align 8, !tbaa !3
   %35 = getelementptr i64, ptr %1, i64 %10
   %36 = sub i64 %4, %10
-  tail call void @_mpd_baseaddto(ptr noundef %3, ptr noundef %35, i64 noundef %36) #33
+  tail call void @_mpd_baseaddto(ptr noundef %3, ptr noundef %35, i64 noundef %36) #34
   %37 = add nuw i64 %10, 1
   %38 = getelementptr i64, ptr %3, i64 %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %38, ptr align 8 %2, i64 %33, i1 false)
@@ -33166,7 +33166,7 @@ mpd_uint_zero.exit149:                            ; preds = %8
   store i64 0, ptr %39, align 8, !tbaa !3
   %40 = getelementptr i64, ptr %2, i64 %10
   %41 = sub nuw i64 %5, %10
-  tail call void @_mpd_baseaddto(ptr noundef %38, ptr noundef %40, i64 noundef %41) #33
+  tail call void @_mpd_baseaddto(ptr noundef %38, ptr noundef %40, i64 noundef %41) #34
   %42 = getelementptr i64, ptr %0, i64 %10
   %.idx = shl i64 %37, 4
   %43 = getelementptr i8, ptr %3, i64 %.idx
@@ -33184,15 +33184,15 @@ mpd_uint_zero.exit149:                            ; preds = %8
   %51 = and i64 %9, -2
   %52 = getelementptr i64, ptr %0, i64 %51
   %53 = add i64 %36, %41
-  tail call void @_mpd_baseaddto(ptr noundef %52, ptr noundef nonnull %3, i64 noundef %53) #33
-  tail call void @_mpd_basesubfrom(ptr noundef %42, ptr noundef nonnull %3, i64 noundef %53) #33
+  tail call void @_mpd_baseaddto(ptr noundef %52, ptr noundef nonnull %3, i64 noundef %53) #34
+  tail call void @_mpd_basesubfrom(ptr noundef %42, ptr noundef nonnull %3, i64 noundef %53) #34
   %54 = or i64 %9, 1
   %55 = shl nuw i64 %54, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %55, i1 false), !tbaa !3
   %56 = getelementptr i64, ptr %3, i64 %54
   tail call fastcc void @_karatsuba_rec(ptr noundef nonnull %3, ptr noundef %1, ptr noundef %2, ptr noundef %56, i64 noundef %10, i64 noundef %10)
-  tail call void @_mpd_baseaddto(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %51) #33
-  tail call void @_mpd_basesubfrom(ptr noundef %42, ptr noundef nonnull %3, i64 noundef %51) #33
+  tail call void @_mpd_baseaddto(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %51) #34
+  tail call void @_mpd_basesubfrom(ptr noundef %42, ptr noundef nonnull %3, i64 noundef %51) #34
   br label %common.ret173
 }
 
@@ -33217,7 +33217,7 @@ define internal fastcc range(i32 0, 2) i32 @_karatsuba_rec_fnt(ptr noundef %0, p
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %9
-  tail call void @_mpd_basemul(ptr noundef %0, ptr noundef %2, ptr noundef %1, i64 noundef %5, i64 noundef %4) #33
+  tail call void @_mpd_basemul(ptr noundef %0, ptr noundef %2, ptr noundef %1, i64 noundef %5, i64 noundef %4) #34
   br label %76
 
 12:                                               ; preds = %9
@@ -33231,7 +33231,7 @@ define internal fastcc range(i32 0, 2) i32 @_karatsuba_rec_fnt(ptr noundef %0, p
   %16 = shl i64 %15, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr nonnull align 8 %13, i64 %16, i1 false)
   %17 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  tail call void %17(ptr noundef nonnull %13) #33
+  tail call void %17(ptr noundef nonnull %13) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %76
 
@@ -33276,7 +33276,7 @@ mpd_uint_zero.exit177:                            ; preds = %21
 mpd_uint_zero.exit175:                            ; preds = %mpd_uint_zero.exit177, %mpd_uint_zero.exit179
   %39 = getelementptr i64, ptr %0, i64 %20
   %40 = add i64 %22, %5
-  tail call void @_mpd_baseaddto(ptr noundef %39, ptr noundef nonnull %3, i64 noundef %40) #33
+  tail call void @_mpd_baseaddto(ptr noundef %39, ptr noundef nonnull %3, i64 noundef %40) #34
   %41 = or i64 %19, 1
   %42 = shl nuw i64 %41, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %42, i1 false), !tbaa !3
@@ -33287,7 +33287,7 @@ mpd_uint_zero.exit175:                            ; preds = %mpd_uint_zero.exit1
 
 45:                                               ; preds = %mpd_uint_zero.exit175
   %46 = add nuw i64 %20, %5
-  tail call void @_mpd_baseaddto(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %46) #33
+  tail call void @_mpd_baseaddto(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %46) #34
   br label %76
 
 47:                                               ; preds = %18
@@ -33297,7 +33297,7 @@ mpd_uint_zero.exit175:                            ; preds = %mpd_uint_zero.exit1
   store i64 0, ptr %49, align 8, !tbaa !3
   %50 = getelementptr i64, ptr %1, i64 %20
   %51 = sub i64 %4, %20
-  tail call void @_mpd_baseaddto(ptr noundef %3, ptr noundef %50, i64 noundef %51) #33
+  tail call void @_mpd_baseaddto(ptr noundef %3, ptr noundef %50, i64 noundef %51) #34
   %52 = add nuw i64 %20, 1
   %53 = getelementptr i64, ptr %3, i64 %52
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %53, ptr align 8 %2, i64 %48, i1 false)
@@ -33305,7 +33305,7 @@ mpd_uint_zero.exit175:                            ; preds = %mpd_uint_zero.exit1
   store i64 0, ptr %54, align 8, !tbaa !3
   %55 = getelementptr i64, ptr %2, i64 %20
   %56 = sub nuw i64 %5, %20
-  tail call void @_mpd_baseaddto(ptr noundef %53, ptr noundef %55, i64 noundef %56) #33
+  tail call void @_mpd_baseaddto(ptr noundef %53, ptr noundef %55, i64 noundef %56) #34
   %57 = getelementptr i64, ptr %0, i64 %20
   %.idx = shl i64 %52, 4
   %58 = getelementptr i8, ptr %3, i64 %.idx
@@ -33331,8 +33331,8 @@ mpd_uint_zero.exit:                               ; preds = %mpd_uint_zero.exit1
   %68 = and i64 %19, -2
   %69 = getelementptr i64, ptr %0, i64 %68
   %70 = add i64 %51, %56
-  tail call void @_mpd_baseaddto(ptr noundef %69, ptr noundef nonnull %3, i64 noundef %70) #33
-  tail call void @_mpd_basesubfrom(ptr noundef %57, ptr noundef nonnull %3, i64 noundef %70) #33
+  tail call void @_mpd_baseaddto(ptr noundef %69, ptr noundef nonnull %3, i64 noundef %70) #34
+  tail call void @_mpd_basesubfrom(ptr noundef %57, ptr noundef nonnull %3, i64 noundef %70) #34
   %71 = or i64 %19, 1
   %72 = shl nuw i64 %71, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %72, i1 false), !tbaa !3
@@ -33342,8 +33342,8 @@ mpd_uint_zero.exit:                               ; preds = %mpd_uint_zero.exit1
   br i1 %.not167, label %76, label %75
 
 75:                                               ; preds = %mpd_uint_zero.exit
-  tail call void @_mpd_baseaddto(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %68) #33
-  tail call void @_mpd_basesubfrom(ptr noundef %57, ptr noundef nonnull %3, i64 noundef %68) #33
+  tail call void @_mpd_baseaddto(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %68) #34
+  tail call void @_mpd_basesubfrom(ptr noundef %57, ptr noundef nonnull %3, i64 noundef %68) #34
   br label %76
 
 .critedge:                                        ; preds = %12
@@ -33374,20 +33374,20 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #30
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #31
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #31
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #32
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #31
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #32
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #32
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #33
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #31
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #32
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #31
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #32
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -33416,16 +33416,17 @@ attributes #23 = { mustprogress nocallback nofree nounwind willreturn memory(err
 attributes #24 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #26 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #27 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #28 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #29 = { inlinehint nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #30 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #31 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #32 = { nofree nounwind }
-attributes #33 = { nounwind }
-attributes #34 = { noreturn nounwind }
-attributes #35 = { cold nounwind }
-attributes #36 = { cold }
+attributes #32 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #33 = { nofree nounwind }
+attributes #34 = { nounwind }
+attributes #35 = { noreturn nounwind }
+attributes #36 = { cold nounwind }
+attributes #37 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2}
 

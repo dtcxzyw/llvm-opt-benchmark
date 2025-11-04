@@ -4138,7 +4138,7 @@ loadRoseDelay.exit:                               ; preds = %2084, %2088
 
 queue_prev_byte.exit1276:                         ; preds = %loadRoseDelay.exit, %2111
   %.0.i1275 = phi i8 [ %2117, %2111 ], [ 0, %loadRoseDelay.exit ]
-  %2118 = call signext i8 @nfaExpandState(ptr noundef %2101, ptr noundef %2103, ptr noundef %2105, i64 noundef %2108, i8 noundef zeroext %.0.i1275) #11
+  %2118 = call signext i8 @nfaExpandState(ptr noundef %2101, ptr noundef %2103, ptr noundef %2105, i64 noundef %2108, i8 noundef zeroext %.0.i1275) #12
   br label %mmbit_set_i.exit1584.thread3007
 
 2119:                                             ; preds = %mmbit_set_i.exit1584.thread
@@ -4153,7 +4153,7 @@ queue_prev_byte.exit1276:                         ; preds = %loadRoseDelay.exit,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2124, i8 0, i64 16, i1 false)
   store i32 2, ptr %2122, align 4, !alias.scope !14
   %2125 = load ptr, ptr %1863, align 8
-  %2126 = call signext i8 @nfaQueueInitState(ptr noundef %2125, ptr noundef nonnull %1863) #11
+  %2126 = call signext i8 @nfaQueueInitState(ptr noundef %2125, ptr noundef nonnull %1863) #12
   br label %mmbit_set_i.exit1584.thread3007
 
 mmbit_set_i.exit1584.thread3007:                  ; preds = %.thread3002, %2119, %queue_prev_byte.exit1276, %mmbit_set_i.exit1584
@@ -4336,7 +4336,7 @@ infixTooOld.exit:                                 ; preds = %2146
   %2219 = getelementptr inbounds nuw i8, ptr %1863, i64 112
   store i64 %.0.i1240, ptr %2219, align 8
   %2220 = load ptr, ptr %1863, align 8
-  %2221 = call signext i8 @nfaQueueInitState(ptr noundef %2220, ptr noundef nonnull %1863) #11
+  %2221 = call signext i8 @nfaQueueInitState(ptr noundef %2220, ptr noundef nonnull %1863) #12
   br label %reduceInfixQueue.exit
 
 reduceInfixQueue.exit:                            ; preds = %2178, %2176, %._crit_edge5261, %2218
@@ -4528,7 +4528,7 @@ q_skip_forward_to.exit:                           ; preds = %2291, %.critedge.i1
   %2323 = getelementptr inbounds nuw i8, ptr %2322, i64 112
   store i64 %2311, ptr %2323, align 8
   %2324 = load ptr, ptr %1863, align 8
-  %2325 = call signext i8 @nfaQueueInitState(ptr noundef %2324, ptr noundef nonnull %1863) #11
+  %2325 = call signext i8 @nfaQueueInitState(ptr noundef %2324, ptr noundef nonnull %1863) #12
   br label %roseLeftfixCheckMiracles.exit.thread3045
 
 roseLeftfixCheckMiracles.exit.thread3045:         ; preds = %2320, %.thread3038
@@ -4552,7 +4552,7 @@ roseLeftfixCheckMiracles.exit.thread:             ; preds = %reduceInfixQueue.ex
   %2332 = add i32 %2326, 1
   store i32 %2332, ptr %2222, align 4, !alias.scope !17
   %2333 = load ptr, ptr %1863, align 8
-  %2334 = call signext i8 @nfaQueueExecRose(ptr noundef %2333, ptr noundef nonnull %1863, i32 noundef %1849) #11
+  %2334 = call signext i8 @nfaQueueExecRose(ptr noundef %2333, ptr noundef nonnull %1863, i32 noundef %1849) #12
   %.not139.i1195 = icmp eq i8 %2334, 0
   br i1 %.not139.i1195, label %.thread3048, label %2335
 
@@ -4670,7 +4670,7 @@ mmbit_unset.exit:                                 ; preds = %.lr.ph8382, %2350, 
 
 roseTestLeftfix.exit1201:                         ; preds = %2338
   %2404 = load ptr, ptr %1863, align 8
-  %2405 = call signext i8 @nfaInAcceptState(ptr noundef %2404, i32 noundef %1849, ptr noundef nonnull %1863) #11
+  %2405 = call signext i8 @nfaInAcceptState(ptr noundef %2404, i32 noundef %1849, ptr noundef nonnull %1863) #12
   %2406 = icmp eq i8 %2405, 0
   br i1 %2406, label %roseTestLeftfix.exit1201.thread, label %roseTestLeftfix.exit1201.thread3053
 
@@ -5115,7 +5115,7 @@ loadRoseDelay.exit1227:                           ; preds = %2661, %2657, %2655
 
 queue_prev_byte.exit1274:                         ; preds = %2689, %2694, %2701
   %.0.i1273 = phi i8 [ %2700, %2694 ], [ %2706, %2701 ], [ 0, %2689 ]
-  %2707 = call signext i8 @nfaExpandState(ptr noundef %2680, ptr noundef %2682, ptr noundef %2684, i64 noundef %2687, i8 noundef zeroext %.0.i1273) #11
+  %2707 = call signext i8 @nfaExpandState(ptr noundef %2680, ptr noundef %2682, ptr noundef %2684, i64 noundef %2687, i8 noundef zeroext %.0.i1273) #12
   br label %mmbit_set_i.exit1587.thread3073
 
 2708:                                             ; preds = %2677, %loadRoseDelay.exit1227
@@ -5127,7 +5127,7 @@ queue_prev_byte.exit1274:                         ; preds = %2689, %2694, %2701
   store i64 0, ptr %2711, align 8, !alias.scope !26
   store i32 2, ptr %2674, align 4, !alias.scope !26
   %2712 = load ptr, ptr %2432, align 8
-  %2713 = call signext i8 @nfaQueueInitState(ptr noundef %2712, ptr noundef nonnull %2432) #11
+  %2713 = call signext i8 @nfaQueueInitState(ptr noundef %2712, ptr noundef nonnull %2432) #12
   br label %mmbit_set_i.exit1587.thread3073
 
 2714:                                             ; preds = %mmbit_set_i.exit1587.thread
@@ -5142,7 +5142,7 @@ queue_prev_byte.exit1274:                         ; preds = %2689, %2694, %2701
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2719, i8 0, i64 16, i1 false)
   store i32 2, ptr %2717, align 4, !alias.scope !32
   %2720 = load ptr, ptr %2432, align 8
-  %2721 = call signext i8 @nfaQueueInitState(ptr noundef %2720, ptr noundef nonnull %2432) #11
+  %2721 = call signext i8 @nfaQueueInitState(ptr noundef %2720, ptr noundef nonnull %2432) #12
   br label %mmbit_set_i.exit1587.thread3073
 
 mmbit_set_i.exit1587.thread3073:                  ; preds = %.thread3068, %2714, %2708, %queue_prev_byte.exit1274, %mmbit_set_i.exit1587
@@ -5184,7 +5184,7 @@ mmbit_set_i.exit1587.thread3073:                  ; preds = %.thread3068, %2714,
   store i64 0, ptr %2745, align 8, !alias.scope !38
   store i32 2, ptr %2739, align 4, !alias.scope !38
   %2746 = load ptr, ptr %2432, align 8
-  %2747 = call signext i8 @nfaQueueInitState(ptr noundef %2746, ptr noundef nonnull %2432) #11
+  %2747 = call signext i8 @nfaQueueInitState(ptr noundef %2746, ptr noundef nonnull %2432) #12
   br label %2748
 
 2748:                                             ; preds = %2738, %2728, %mmbit_set_i.exit1587.thread3073
@@ -5359,7 +5359,7 @@ roseMiracleOccurs.exit:                           ; preds = %2823
   store i64 0, ptr %2839, align 8, !alias.scope !44
   store i32 2, ptr %2833, align 4, !alias.scope !44
   %2840 = load ptr, ptr %2432, align 8
-  %2841 = call signext i8 @nfaQueueInitState(ptr noundef %2840, ptr noundef nonnull %2432) #11
+  %2841 = call signext i8 @nfaQueueInitState(ptr noundef %2840, ptr noundef nonnull %2432) #12
   br label %2842
 
 2842:                                             ; preds = %2832, %2830, %.thread3078
@@ -5380,7 +5380,7 @@ roseLeftfixCheckMiracles.exit1264:                ; preds = %2842, %2766, %2764
   %2850 = add i32 %2844, 1
   store i32 %2850, ptr %2843, align 4, !alias.scope !47
   %2851 = load ptr, ptr %2432, align 8
-  %2852 = call signext i8 @nfaQueueExecRose(ptr noundef %2851, ptr noundef nonnull %2432, i32 noundef %2418) #11
+  %2852 = call signext i8 @nfaQueueExecRose(ptr noundef %2851, ptr noundef nonnull %2432, i32 noundef %2418) #12
   %.not139.i = icmp eq i8 %2852, 0
   br i1 %.not139.i, label %2858, label %2853
 
@@ -5498,7 +5498,7 @@ mmbit_unset.exit1267:                             ; preds = %.lr.ph8376, %2869, 
 
 roseTestLeftfix.exit:                             ; preds = %2856
   %2923 = load ptr, ptr %2432, align 8
-  %2924 = call signext i8 @nfaInAcceptState(ptr noundef %2923, i32 noundef %2418, ptr noundef nonnull %2432) #11
+  %2924 = call signext i8 @nfaInAcceptState(ptr noundef %2923, i32 noundef %2418, ptr noundef nonnull %2432) #12
   %2925 = icmp eq i8 %2924, 0
   br i1 %2925, label %roseTestLeftfix.exit.thread, label %roseTestLeftfix.exit.thread3088
 
@@ -5734,7 +5734,7 @@ canSkipCatchUpMPV.exit1394.thread3100:            ; preds = %3053, %3034, %3031,
   br i1 %.not14.i, label %3071, label %3068
 
 3068:                                             ; preds = %canSkipCatchUpMPV.exit1394.thread3100
-  %3069 = call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %4) #11
+  %3069 = call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %4) #12
   %3070 = icmp eq i32 %3069, 0
   br i1 %3070, label %roseTriggerSuffix.exit, label %._crit_edge6282
 
@@ -5749,7 +5749,7 @@ canSkipCatchUpMPV.exit1394.thread3100:            ; preds = %3053, %3034, %3031,
   br label %roseCatchUpTo.exit.thread.sink.split
 
 canSkipCatchUpMPV.exit1394.thread3096:            ; preds = %3062, %canSkipCatchUpMPV.exit1394
-  %3073 = call i64 @roseCatchUpMPV_i(ptr noundef %0, i64 noundef %3028, ptr noundef %1) #11
+  %3073 = call i64 @roseCatchUpMPV_i(ptr noundef %0, i64 noundef %3028, ptr noundef %1) #12
   br label %roseCatchUpTo.exit
 
 3074:                                             ; preds = %3023
@@ -5848,7 +5848,7 @@ mmbit_any.exit1357:                               ; preds = %3102, %3094, %3091,
   br i1 %.not28.i, label %3124, label %3121
 
 3121:                                             ; preds = %3118
-  %3122 = call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %4) #11
+  %3122 = call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %4) #12
   %3123 = icmp eq i32 %3122, 0
   br i1 %3123, label %roseTriggerSuffix.exit, label %3124
 
@@ -5857,7 +5857,7 @@ mmbit_any.exit1357:                               ; preds = %3102, %3094, %3091,
   br label %roseCatchUpTo.exit.thread.sink.split
 
 mmbit_any.exit1357.thread:                        ; preds = %.lr.ph5218, %mmbit_any.exit1357
-  %3125 = call i64 @roseCatchUpAll(i64 noundef %3028, ptr noundef %1) #11
+  %3125 = call i64 @roseCatchUpAll(i64 noundef %3028, ptr noundef %1) #12
   br label %roseCatchUpTo.exit
 
 roseCatchUpTo.exit:                               ; preds = %canSkipCatchUpMPV.exit1394.thread3096, %mmbit_any.exit1357.thread
@@ -5950,7 +5950,7 @@ canSkipCatchUpMPV.exit.thread3116:                ; preds = %3157, %3136, %3130,
   br i1 %.not14.i955, label %roseCatchUpMPV.exit957.thread3121, label %3172
 
 3172:                                             ; preds = %canSkipCatchUpMPV.exit.thread3116
-  %3173 = call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %4) #11
+  %3173 = call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %4) #12
   %3174 = icmp eq i32 %3173, 0
   br i1 %3174, label %roseTriggerSuffix.exit, label %roseCatchUpMPV.exit957.thread3121
 
@@ -5964,7 +5964,7 @@ roseCatchUpMPV.exit957.thread3121:                ; preds = %canSkipCatchUpMPV.e
   br label %3180
 
 roseCatchUpMPV.exit957:                           ; preds = %3166, %canSkipCatchUpMPV.exit
-  %3178 = call i64 @roseCatchUpMPV_i(ptr noundef %0, i64 noundef %3133, ptr noundef %1) #11
+  %3178 = call i64 @roseCatchUpMPV_i(ptr noundef %0, i64 noundef %3133, ptr noundef %1) #12
   %3179 = icmp eq i64 %3178, 0
   br i1 %3179, label %roseTriggerSuffix.exit, label %3180
 
@@ -6000,7 +6000,7 @@ roseCatchUpMPV.exit957:                           ; preds = %3166, %canSkipCatch
   %3196 = getelementptr inbounds nuw i8, ptr %3194, i64 96
   store ptr %15, ptr %3196, align 8
   %3197 = load ptr, ptr %3194, align 8
-  %3198 = call signext i8 @nfaReportCurrentMatches(ptr noundef %3197, ptr noundef nonnull %3194) #11
+  %3198 = call signext i8 @nfaReportCurrentMatches(ptr noundef %3197, ptr noundef nonnull %3194) #12
   store ptr @roseNfaAdaptor, ptr %3195, align 8
   store ptr null, ptr %3196, align 8
   %3199 = load i64, ptr %15, align 8
@@ -6013,7 +6013,7 @@ roseCatchUpMPV.exit957:                           ; preds = %3166, %canSkipCatch
   %.25786 = phi ptr [ %.sink7622.in, %11184 ], [ %22, %6 ]
   %.24723 = phi ptr [ %.1700, %11184 ], [ %22, %6 ]
   %3202 = getelementptr inbounds nuw i8, ptr %.25786, i64 8
-  %3203 = call i64 @handleSomExternal(ptr noundef %1, ptr noundef nonnull %3202, i64 noundef %4) #11
+  %3203 = call i64 @handleSomExternal(ptr noundef %1, ptr noundef nonnull %3202, i64 noundef %4) #12
   %3204 = getelementptr inbounds nuw i8, ptr %.25786, i64 24
   br label %11184
 
@@ -6412,7 +6412,7 @@ mmbit_set_i.exit1614:                             ; preds = %.thread3143, %.lr.p
   %3475 = getelementptr inbounds nuw i8, ptr %3229, i64 12
   store i32 1, ptr %3475, align 4, !alias.scope !53
   %3476 = load ptr, ptr %3229, align 8
-  %3477 = call signext i8 @nfaQueueInitState(ptr noundef %3476, ptr noundef nonnull %3229) #11
+  %3477 = call signext i8 @nfaQueueInitState(ptr noundef %3476, ptr noundef nonnull %3229) #12
   br label %3719
 
 3478:                                             ; preds = %fatbit_isset.exit1212.thread3138
@@ -6615,7 +6615,7 @@ loadRoseDelay.exit1229:                           ; preds = %3580, %3584
 
 queue_prev_byte.exit:                             ; preds = %loadRoseDelay.exit1229, %3608
   %.0.i1270 = phi i8 [ %3614, %3608 ], [ 0, %loadRoseDelay.exit1229 ]
-  %3615 = call signext i8 @nfaExpandState(ptr noundef %3598, ptr noundef %3600, ptr noundef %3602, i64 noundef %3605, i8 noundef zeroext %.0.i1270) #11
+  %3615 = call signext i8 @nfaExpandState(ptr noundef %3598, ptr noundef %3600, ptr noundef %3602, i64 noundef %3605, i8 noundef zeroext %.0.i1270) #12
   br label %3719
 
 3616:                                             ; preds = %mmbit_set_i.exit1617.thread
@@ -6628,7 +6628,7 @@ queue_prev_byte.exit:                             ; preds = %loadRoseDelay.exit1
   %3620 = getelementptr inbounds nuw i8, ptr %3229, i64 12
   store i32 1, ptr %3620, align 4, !alias.scope !59
   %3621 = load ptr, ptr %3229, align 8
-  %3622 = call signext i8 @nfaQueueInitState(ptr noundef %3621, ptr noundef nonnull %3229) #11
+  %3622 = call signext i8 @nfaQueueInitState(ptr noundef %3621, ptr noundef nonnull %3229) #12
   br label %3719
 
 mmbit_set_i.exit1617.thread3151:                  ; preds = %.thread3146, %mmbit_set_i.exit1617
@@ -6646,7 +6646,7 @@ mmbit_set_i.exit1617.thread3151:                  ; preds = %.thread3146, %mmbit
   store i64 0, ptr %3628, align 8, !alias.scope !62
   store i32 1, ptr %3623, align 4, !alias.scope !62
   %3629 = load ptr, ptr %3229, align 8
-  %3630 = call signext i8 @nfaQueueInitState(ptr noundef %3629, ptr noundef nonnull %3229) #11
+  %3630 = call signext i8 @nfaQueueInitState(ptr noundef %3629, ptr noundef nonnull %3229) #12
   br label %3719
 
 3631:                                             ; preds = %mmbit_set_i.exit1617.thread3151
@@ -6800,7 +6800,7 @@ mmbit_set_i.exit1617.thread3151:                  ; preds = %.thread3146, %mmbit
   %3702 = getelementptr inbounds nuw i8, ptr %3229, i64 112
   store i64 %.0.i1253, ptr %3702, align 8
   %3703 = load ptr, ptr %3229, align 8
-  %3704 = call signext i8 @nfaQueueInitState(ptr noundef %3703, ptr noundef nonnull %3229) #11
+  %3704 = call signext i8 @nfaQueueInitState(ptr noundef %3703, ptr noundef nonnull %3229) #12
   %.pre6281 = load i32, ptr %3623, align 4
   br label %reduceInfixQueue.exit1256
 
@@ -6822,7 +6822,7 @@ reduceInfixQueue.exit1256:                        ; preds = %3657, %3655, %._cri
   %3714 = add nuw i32 %3705, 1
   store i32 %3714, ptr %3623, align 4, !alias.scope !65
   %3715 = load ptr, ptr %3229, align 8
-  %3716 = call signext i8 @nfaQueueExecRose(ptr noundef %3715, ptr noundef nonnull %3229, i32 noundef -1) #11
+  %3716 = call signext i8 @nfaQueueExecRose(ptr noundef %3715, ptr noundef nonnull %3229, i32 noundef -1) #12
   store i32 0, ptr %3640, align 8
   store i32 0, ptr %3709, align 8, !alias.scope !68
   %3717 = getelementptr inbounds nuw i8, ptr %3229, i64 112
@@ -7051,7 +7051,7 @@ mmbit_set_i.exit1620.thread:                      ; preds = %.lr.ph5164, %3800, 
   store ptr %1, ptr %3870, align 8
   %3871 = getelementptr inbounds nuw i8, ptr %3761, i64 80
   store i8 0, ptr %3871, align 8
-  %3872 = call signext i8 @nfaQueueInitState(ptr noundef %3769, ptr noundef %3761) #11
+  %3872 = call signext i8 @nfaQueueInitState(ptr noundef %3769, ptr noundef %3761) #12
   %3873 = getelementptr inbounds nuw i8, ptr %3761, i64 104
   store i32 0, ptr %3873, align 8, !alias.scope !74
   %3874 = getelementptr inbounds nuw i8, ptr %3761, i64 112
@@ -7307,7 +7307,7 @@ mmbit_set_i.exit1623.thread:                      ; preds = %.lr.ph5160, %3969, 
 
 queue_prev_byte.exit1272:                         ; preds = %mmbit_set_i.exit1623.thread, %4042
   %.0.i1271 = phi i8 [ %4045, %4042 ], [ 0, %mmbit_set_i.exit1623.thread ]
-  %4046 = call signext i8 @nfaExpandState(ptr noundef nonnull %3769, ptr noundef %4016, ptr noundef %4022, i64 noundef %4024, i8 noundef zeroext %.0.i1271) #11
+  %4046 = call signext i8 @nfaExpandState(ptr noundef nonnull %3769, ptr noundef %4016, ptr noundef %4022, i64 noundef %4024, i8 noundef zeroext %.0.i1271) #12
   %4047 = getelementptr inbounds nuw i8, ptr %3761, i64 104
   store i32 0, ptr %4047, align 8, !alias.scope !77
   %4048 = getelementptr inbounds nuw i8, ptr %3761, i64 112
@@ -7342,7 +7342,7 @@ mmbit_set_i.exit1623.thread3178:                  ; preds = %.thread3173, %mmbit
   %4063 = add nuw i32 %4050, 1
   store i32 %4063, ptr %4049, align 4, !alias.scope !80
   %4064 = load ptr, ptr %3761, align 8
-  %4065 = call signext i8 @nfaQueueExecRose(ptr noundef %4064, ptr noundef nonnull %3761, i32 noundef -1) #11
+  %4065 = call signext i8 @nfaQueueExecRose(ptr noundef %4064, ptr noundef nonnull %3761, i32 noundef -1) #12
   %4066 = getelementptr inbounds nuw i8, ptr %3761, i64 8
   store i32 0, ptr %4066, align 8
   store i32 0, ptr %4058, align 8, !alias.scope !83
@@ -7386,7 +7386,7 @@ mmbit_set_i.exit1623.thread3178:                  ; preds = %.thread3173, %mmbit
   %4094 = add i32 %4088, 1
   store i32 %4094, ptr %4087, align 4, !alias.scope !86
   %4095 = load ptr, ptr %4078, align 8
-  %4096 = call signext i8 @nfaQueueExec(ptr noundef %4095, ptr noundef nonnull %4078, i64 noundef %3772) #11
+  %4096 = call signext i8 @nfaQueueExec(ptr noundef %4095, ptr noundef nonnull %4078, i64 noundef %3772) #12
   store i32 0, ptr %4079, align 8
   store i32 0, ptr %4089, align 8, !alias.scope !89
   %4097 = getelementptr inbounds nuw i8, ptr %4078, i64 112
@@ -7466,7 +7466,7 @@ canSkipCatchUpMPV.exit.i.thread3187:              ; preds = %4123, %4110, %4107,
   br i1 %.not14.i.i, label %4141, label %4138
 
 4138:                                             ; preds = %canSkipCatchUpMPV.exit.i.thread3187
-  %4139 = call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %4101) #11
+  %4139 = call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %4101) #12
   %4140 = icmp eq i32 %4139, 0
   br i1 %4140, label %roseTriggerSuffix.exit, label %._crit_edge6275
 
@@ -7482,7 +7482,7 @@ canSkipCatchUpMPV.exit.i.thread3187:              ; preds = %4123, %4110, %4107,
   br label %roseCatchUpTo.exit.i.thread
 
 canSkipCatchUpMPV.exit.i.thread3183:              ; preds = %4132, %canSkipCatchUpMPV.exit.i
-  %4143 = call i64 @roseCatchUpMPV_i(ptr noundef %0, i64 noundef %3772, ptr noundef %1) #11
+  %4143 = call i64 @roseCatchUpMPV_i(ptr noundef %0, i64 noundef %3772, ptr noundef %1) #12
   br label %roseCatchUpTo.exit.i
 
 4144:                                             ; preds = %4104
@@ -7575,7 +7575,7 @@ mmbit_any.exit.i:                                 ; preds = %4152, %4155, %4158,
   br i1 %.not28.i.i, label %4188, label %4185
 
 4185:                                             ; preds = %4182
-  %4186 = call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %4101) #11
+  %4186 = call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %4101) #12
   %4187 = icmp eq i32 %4186, 0
   br i1 %4187, label %roseTriggerSuffix.exit, label %4188
 
@@ -7585,7 +7585,7 @@ mmbit_any.exit.i:                                 ; preds = %4152, %4155, %4158,
   br label %roseCatchUpTo.exit.i.thread
 
 mmbit_any.exit.i.thread:                          ; preds = %.lr.ph5134, %mmbit_any.exit.i
-  %4189 = call i64 @roseCatchUpAll(i64 noundef %3772, ptr noundef %1) #11
+  %4189 = call i64 @roseCatchUpAll(i64 noundef %3772, ptr noundef %1) #12
   br label %roseCatchUpTo.exit.i
 
 roseCatchUpTo.exit.i:                             ; preds = %canSkipCatchUpMPV.exit.i.thread3183, %mmbit_any.exit.i.thread
@@ -7734,7 +7734,7 @@ mmbit_set_i.exit1581.thread:                      ; preds = %.lr.ph5140, %4218, 
   store ptr %1, ptr %4287, align 8
   %4288 = getelementptr inbounds nuw i8, ptr %4078, i64 80
   store i8 0, ptr %4288, align 8
-  %4289 = call signext i8 @nfaQueueInitState(ptr noundef %4257, ptr noundef nonnull %4078) #11
+  %4289 = call signext i8 @nfaQueueInitState(ptr noundef %4257, ptr noundef nonnull %4078) #12
   %4290 = getelementptr inbounds nuw i8, ptr %4078, i64 104
   store i32 0, ptr %4290, align 8, !alias.scope !92
   %4291 = getelementptr inbounds nuw i8, ptr %4078, i64 112
@@ -8046,7 +8046,7 @@ pushQueueSom.exit:                                ; preds = %4437, %.thread3227
   store i64 0, ptr %4464, align 8, !alias.scope !98
   %4465 = add i32 %4446, 1
   store i32 %4465, ptr %4424, align 4, !alias.scope !98
-  %4466 = call signext i8 @nfaQueueExec(ptr noundef nonnull %3769, ptr noundef nonnull %3761, i64 noundef %3772) #11
+  %4466 = call signext i8 @nfaQueueExec(ptr noundef nonnull %3769, ptr noundef nonnull %3761, i64 noundef %3772) #12
   %.not81.i = icmp eq i8 %4466, 0
   br i1 %.not81.i, label %4470, label %4467
 
@@ -8306,7 +8306,7 @@ updateSeqPoint.exit:                              ; preds = %4593, %4596
   br i1 %.not.i1532, label %flushStoredSomMatches.exit1534.thread, label %flushStoredSomMatches.exit1534
 
 flushStoredSomMatches.exit1534:                   ; preds = %4619
-  %4622 = call i32 @flushStoredSomMatches_i(ptr noundef nonnull %1, i64 noundef %4) #11
+  %4622 = call i32 @flushStoredSomMatches_i(ptr noundef nonnull %1, i64 noundef %4) #12
   %.not53.i = icmp eq i32 %4622, 0
   br i1 %.not53.i, label %flushStoredSomMatches.exit1534.thread, label %roseTriggerSuffix.exit
 
@@ -8483,7 +8483,7 @@ updateSeqPoint.exit2811:                          ; preds = %4696, %4699
   br i1 %.not.i1529, label %flushStoredSomMatches.exit1531.thread, label %flushStoredSomMatches.exit1531
 
 flushStoredSomMatches.exit1531:                   ; preds = %4721
-  %4724 = call i32 @flushStoredSomMatches_i(ptr noundef nonnull %1, i64 noundef %4) #11
+  %4724 = call i32 @flushStoredSomMatches_i(ptr noundef nonnull %1, i64 noundef %4) #12
   %.not53.i970 = icmp eq i32 %4724, 0
   br i1 %.not53.i970, label %flushStoredSomMatches.exit1531.thread, label %roseTriggerSuffix.exit
 
@@ -8848,12 +8848,12 @@ mmbit_any.exit.i1545.thread:                      ; preds = %4888, %mmbit_any.ex
   br label %roseCatchUpAndHandleChainMatch.exit
 
 roseCatchUpMpvFeeders.exit:                       ; preds = %.lr.ph5108, %mmbit_any.exit.i1545
-  %4934 = call i64 @roseCatchUpSuf(i64 noundef %4885, ptr noundef %1) #11
+  %4934 = call i64 @roseCatchUpSuf(i64 noundef %4885, ptr noundef %1) #12
   %4935 = icmp eq i64 %4934, 0
   br i1 %4935, label %roseTriggerSuffix.exit, label %roseCatchUpAndHandleChainMatch.exit
 
 roseCatchUpAndHandleChainMatch.exit:              ; preds = %mmbit_any.exit.i1545.thread, %4882, %4879, %4874, %roseCatchUpMpvFeeders.exit
-  %4936 = call i64 @roseHandleChainMatch(ptr noundef %0, ptr noundef %1, i32 noundef %4876, i64 noundef %4878, i64 noundef %4, i8 noundef signext range(i8 0, 3) %19) #11
+  %4936 = call i64 @roseHandleChainMatch(ptr noundef %0, ptr noundef %1, i32 noundef %4876, i64 noundef %4878, i64 noundef %4, i8 noundef signext range(i8 0, 3) %19) #12
   %4937 = icmp eq i64 %4936, 0
   br i1 %4937, label %roseTriggerSuffix.exit, label %4938
 
@@ -8882,7 +8882,7 @@ updateSeqPoint.exit2815:                          ; preds = %4940, %4943
   %4945 = getelementptr inbounds nuw i8, ptr %.32793, i64 8
   %4946 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 %4, ptr %4946, align 8
-  call void @handleSomInternal(ptr noundef nonnull %1, ptr noundef nonnull %4945, i64 noundef %4) #11
+  call void @handleSomInternal(ptr noundef nonnull %1, ptr noundef nonnull %4945, i64 noundef %4) #12
   %4947 = getelementptr inbounds nuw i8, ptr %.32793, i64 24
   br label %11184
 
@@ -8907,7 +8907,7 @@ updateSeqPoint.exit2819:                          ; preds = %4948, %4951
   %4953 = getelementptr inbounds nuw i8, ptr %.33794, i64 8
   %4954 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 %4, ptr %4954, align 8
-  call void @setSomFromSomAware(ptr noundef nonnull %1, ptr noundef nonnull %4953, i64 noundef %.28, i64 noundef %4) #11
+  call void @setSomFromSomAware(ptr noundef nonnull %1, ptr noundef nonnull %4953, i64 noundef %.28, i64 noundef %4) #12
   %4955 = getelementptr inbounds nuw i8, ptr %.33794, i64 24
   br label %11184
 
@@ -8941,7 +8941,7 @@ updateSeqPoint.exit2823:                          ; preds = %4956, %4959
   %4969 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %4970 = load ptr, ptr %4969, align 8
   %4971 = load ptr, ptr %4966, align 8
-  %4972 = call i32 %4970(i32 noundef %4962, i64 noundef 0, i64 noundef %4968, i32 noundef 0, ptr noundef %4971) #11
+  %4972 = call i32 %4970(i32 noundef %4962, i64 noundef 0, i64 noundef %4968, i32 noundef 0, ptr noundef %4971) #12
   %.not.i1559 = icmp eq i32 %4972, 0
   br i1 %.not.i1559, label %roseReport.exit, label %roseReport.exit.thread
 
@@ -8988,7 +8988,7 @@ updateSeqPoint.exit2827:                          ; preds = %4977, %4980
   %4992 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %4993 = load ptr, ptr %4992, align 8
   %4994 = load ptr, ptr %4989, align 8
-  %4995 = call i32 %4993(i32 noundef %4983, i64 noundef 0, i64 noundef %4991, i32 noundef 0, ptr noundef %4994) #11
+  %4995 = call i32 %4993(i32 noundef %4983, i64 noundef 0, i64 noundef %4991, i32 noundef 0, ptr noundef %4994) #12
   %.not.i1555 = icmp eq i32 %4995, 0
   br i1 %.not.i1555, label %4996, label %roseDeliverReport.exit1558
 
@@ -9277,7 +9277,7 @@ updateSeqPoint.exit2831:                          ; preds = %5139, %5142
   %5152 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %5153 = load ptr, ptr %5152, align 8
   %5154 = load ptr, ptr %5149, align 8
-  %5155 = call i32 %5153(i32 noundef %5145, i64 noundef %.31, i64 noundef %5151, i32 noundef 0, ptr noundef %5154) #11
+  %5155 = call i32 %5153(i32 noundef %5145, i64 noundef %.31, i64 noundef %5151, i32 noundef 0, ptr noundef %5154) #12
   %.not.i1565 = icmp eq i32 %5155, 0
   br i1 %.not.i1565, label %roseReportSom.exit, label %roseReportSom.exit.thread
 
@@ -9324,7 +9324,7 @@ updateSeqPoint.exit2835:                          ; preds = %5160, %5163
   %5175 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %5176 = load ptr, ptr %5175, align 8
   %5177 = load ptr, ptr %5172, align 8
-  %5178 = call i32 %5176(i32 noundef %5166, i64 noundef %.32, i64 noundef %5174, i32 noundef 0, ptr noundef %5177) #11
+  %5178 = call i32 %5176(i32 noundef %5166, i64 noundef %.32, i64 noundef %5174, i32 noundef 0, ptr noundef %5177) #12
   %.not.i1562 = icmp eq i32 %5178, 0
   br i1 %.not.i1562, label %5179, label %roseDeliverSomReport.exit
 
@@ -9646,7 +9646,7 @@ updateSeqPoint.exit2839:                          ; preds = %5322, %5325
   br i1 %.not.i1527, label %flushStoredSomMatches.exit.thread, label %flushStoredSomMatches.exit
 
 flushStoredSomMatches.exit:                       ; preds = %5348
-  %5351 = call i32 @flushStoredSomMatches_i(ptr noundef nonnull %1, i64 noundef %4) #11
+  %5351 = call i32 @flushStoredSomMatches_i(ptr noundef nonnull %1, i64 noundef %4) #12
   %.not53.i981 = icmp eq i32 %5351, 0
   br i1 %.not53.i981, label %flushStoredSomMatches.exit.thread, label %roseTriggerSuffix.exit
 
@@ -9772,7 +9772,7 @@ mmbit_set_i.exit1638.thread3338:                  ; preds = %.thread3333, %mmbit
   %5431 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %5432 = load ptr, ptr %5431, align 8
   %5433 = load ptr, ptr %5428, align 8
-  %5434 = call i32 %5432(i32 noundef %5425, i64 noundef 0, i64 noundef %5430, i32 noundef 0, ptr noundef %5433) #11
+  %5434 = call i32 %5432(i32 noundef %5425, i64 noundef 0, i64 noundef %5430, i32 noundef 0, ptr noundef %5433) #12
   %.not.i1552 = icmp eq i32 %5434, 0
   br i1 %.not.i1552, label %roseReport.exit1000, label %roseReport.exit1000.thread
 
@@ -9815,7 +9815,7 @@ updateSeqPoint.exit2843:                          ; preds = %5439, %5442
   %5452 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %5453 = load ptr, ptr %5452, align 8
   %5454 = load ptr, ptr %5449, align 8
-  %5455 = call i32 %5453(i32 noundef %5445, i64 noundef 0, i64 noundef %5451, i32 noundef 0, ptr noundef %5454) #11
+  %5455 = call i32 %5453(i32 noundef %5445, i64 noundef 0, i64 noundef %5451, i32 noundef 0, ptr noundef %5454) #12
   %.not.i1550 = icmp eq i32 %5455, 0
   br i1 %.not.i1550, label %roseTriggerSuffix.exit, label %5456
 
@@ -11513,7 +11513,7 @@ mmbit_set_i.exit1596.thread3469:                  ; preds = %.thread3464, %mmbit
   %6475 = load ptr, ptr %6474, align 8
   %6476 = getelementptr inbounds nuw i8, ptr %6383, i64 24
   %6477 = load ptr, ptr %6476, align 8
-  %6478 = call signext i8 @nfaExpandState(ptr noundef %.pre6261, ptr noundef %6475, ptr noundef %6477, i64 noundef %4, i8 noundef zeroext %.048.i) #11
+  %6478 = call signext i8 @nfaExpandState(ptr noundef %.pre6261, ptr noundef %6475, ptr noundef %6477, i64 noundef %4, i8 noundef zeroext %.048.i) #12
   %.pre6260 = load ptr, ptr %6383, align 8
   br label %6479
 
@@ -11523,7 +11523,7 @@ mmbit_set_i.exit1596.thread3469:                  ; preds = %.thread3464, %mmbit
   %6482 = load ptr, ptr %6481, align 8
   %6483 = getelementptr inbounds nuw i8, ptr %6383, i64 24
   %6484 = load ptr, ptr %6483, align 8
-  %6485 = call signext i8 @nfaCheckFinalState(ptr noundef %6480, ptr noundef %6482, ptr noundef %6484, i64 noundef %4, ptr noundef nonnull @roseReportAdaptor, ptr noundef %1) #11
+  %6485 = call signext i8 @nfaCheckFinalState(ptr noundef %6480, ptr noundef %6482, ptr noundef %6484, i64 noundef %4, ptr noundef nonnull @roseReportAdaptor, ptr noundef %1) #12
   %.not53.i1023 = icmp eq i8 %6485, 0
   br i1 %.not53.i1023, label %roseEnginesEod.exit, label %6486
 
@@ -12028,7 +12028,7 @@ mmbit_iterate.exit2104:                           ; preds = %6721, %6660
   %6767 = getelementptr inbounds nuw i8, ptr %6757, i64 96
   store ptr null, ptr %6767, align 8
   %6768 = load ptr, ptr %6757, align 8
-  %6769 = call signext i8 @nfaQueueExecRose(ptr noundef %6768, ptr noundef nonnull %6757, i32 noundef -1) #11
+  %6769 = call signext i8 @nfaQueueExecRose(ptr noundef %6768, ptr noundef nonnull %6757, i32 noundef -1) #12
   %.not26.i1025 = icmp eq i8 %6769, 0
   br i1 %.not26.i1025, label %6778, label %6770
 
@@ -12038,7 +12038,7 @@ mmbit_iterate.exit2104:                           ; preds = %6721, %6660
   %6773 = load ptr, ptr %6772, align 8
   %6774 = getelementptr inbounds nuw i8, ptr %6757, i64 24
   %6775 = load ptr, ptr %6774, align 8
-  %6776 = call signext i8 @nfaCheckFinalState(ptr noundef %6771, ptr noundef %6773, ptr noundef %6775, i64 noundef %4, ptr noundef nonnull @roseReportAdaptor, ptr noundef nonnull %1) #11
+  %6776 = call signext i8 @nfaCheckFinalState(ptr noundef %6771, ptr noundef %6773, ptr noundef %6775, i64 noundef %4, ptr noundef nonnull @roseReportAdaptor, ptr noundef nonnull %1) #12
   %6777 = icmp eq i8 %6776, 0
   br i1 %6777, label %roseTriggerSuffix.exit, label %6778
 
@@ -12407,7 +12407,7 @@ mmbit_clear.exit:                                 ; preds = %mmbit_clear.exit235
   %6967 = getelementptr inbounds nuw i8, ptr %0, i64 %6966
   %6968 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6969 = load i64, ptr %6968, align 8
-  %6970 = call i32 @hwlmExec(ptr noundef %6967, ptr noundef %.034.i, i64 noundef %.033.i, i64 noundef %6963, ptr noundef nonnull @roseCallback, ptr noundef nonnull %1, i64 noundef %6969) #11
+  %6970 = call i32 @hwlmExec(ptr noundef %6967, ptr noundef %.034.i, i64 noundef %.033.i, i64 noundef %6963, ptr noundef nonnull @roseCallback, ptr noundef nonnull %1, i64 noundef %6969) #12
   %6971 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %6972 = load i8, ptr %6971, align 8
   %6973 = and i8 %6972, 11
@@ -12433,7 +12433,7 @@ mmbit_clear.exit:                                 ; preds = %mmbit_clear.exit235
   br i1 %.not11.i, label %flushQueuedLiterals.exit.thread, label %flushQueuedLiterals.exit
 
 flushQueuedLiterals.exit:                         ; preds = %6978, %6981
-  %6984 = call i64 @flushQueuedLiterals_i(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %4) #11
+  %6984 = call i64 @flushQueuedLiterals_i(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %4) #12
   %6985 = icmp eq i64 %6984, 0
   br i1 %6985, label %roseTriggerSuffix.exit, label %flushQueuedLiterals.exit.thread
 
@@ -15323,7 +15323,7 @@ getLogicalVal.exit.thread3653:                    ; preds = %8699, %getLogicalVa
   %8709 = load i32, ptr %8137, align 4
   %8710 = load ptr, ptr %8120, align 8
   %8711 = load ptr, ptr %8119, align 8
-  %8712 = call i32 %8710(i32 noundef %8708, i64 noundef 0, i64 noundef %7958, i32 noundef 0, ptr noundef %8711) #11
+  %8712 = call i32 %8710(i32 noundef %8708, i64 noundef 0, i64 noundef %7958, i32 noundef 0, ptr noundef %8711) #12
   %.not.i19.i2618 = icmp eq i32 %8712, 0
   br i1 %.not.i19.i2618, label %8713, label %roseDeliverReport.exit.i2619
 
@@ -17382,7 +17382,7 @@ getLogicalVal.exit2731.thread3797:                ; preds = %9913, %getLogicalVa
   %9923 = load i32, ptr %9351, align 4
   %9924 = load ptr, ptr %9334, align 8
   %9925 = load ptr, ptr %9333, align 8
-  %9926 = call i32 %9924(i32 noundef %9922, i64 noundef 0, i64 noundef %9215, i32 noundef 0, ptr noundef %9925) #11
+  %9926 = call i32 %9924(i32 noundef %9922, i64 noundef 0, i64 noundef %9215, i32 noundef 0, ptr noundef %9925) #12
   %.not.i19.i2567 = icmp eq i32 %9926, 0
   br i1 %.not.i19.i2567, label %9927, label %roseDeliverReport.exit.i2568
 
@@ -19173,7 +19173,7 @@ isPurelyNegativeMatch.exit.thread3924:            ; preds = %11025, %isPurelyNeg
   %11035 = load i32, ptr %10267, align 4
   %11036 = load ptr, ptr %10251, align 8
   %11037 = load ptr, ptr %10250, align 8
-  %11038 = call i32 %11036(i32 noundef %11034, i64 noundef 0, i64 noundef %4, i32 noundef 0, ptr noundef %11037) #11
+  %11038 = call i32 %11036(i32 noundef %11034, i64 noundef 0, i64 noundef %4, i32 noundef 0, ptr noundef %11037) #12
   %.not.i19.i = icmp eq i32 %11038, 0
   br i1 %.not.i19.i, label %11039, label %roseDeliverReport.exit.i
 
@@ -22935,7 +22935,7 @@ canSkipCatchUpMPV.exit651.thread1661:             ; preds = %719, %703, %701, %c
   br i1 %.not14.i, label %736, label %733
 
 733:                                              ; preds = %canSkipCatchUpMPV.exit651.thread1661
-  %734 = tail call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %4) #11
+  %734 = tail call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %4) #12
   %735 = icmp eq i32 %734, 0
   br i1 %735, label %roseReport.exit.thread2470, label %._crit_edge4099
 
@@ -22950,7 +22950,7 @@ canSkipCatchUpMPV.exit651.thread1661:             ; preds = %719, %703, %701, %c
   br label %roseCatchUpTo.exit.thread.sink.split
 
 canSkipCatchUpMPV.exit651.thread1657:             ; preds = %728, %canSkipCatchUpMPV.exit651
-  %738 = tail call i64 @roseCatchUpMPV_i(ptr noundef %0, i64 noundef %699, ptr noundef %1) #11
+  %738 = tail call i64 @roseCatchUpMPV_i(ptr noundef %0, i64 noundef %699, ptr noundef %1) #12
   br label %roseCatchUpTo.exit
 
 739:                                              ; preds = %696
@@ -23046,7 +23046,7 @@ mmbit_any.exit615:                                ; preds = %765, %757, %754, %7
   br i1 %.not28.i, label %786, label %783
 
 783:                                              ; preds = %781
-  %784 = tail call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %4) #11
+  %784 = tail call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %4) #12
   %785 = icmp eq i32 %784, 0
   br i1 %785, label %roseReport.exit.thread2470, label %786
 
@@ -23055,7 +23055,7 @@ mmbit_any.exit615:                                ; preds = %765, %757, %754, %7
   br label %roseCatchUpTo.exit.thread.sink.split
 
 mmbit_any.exit615.thread:                         ; preds = %.lr.ph3372, %mmbit_any.exit615
-  %787 = tail call i64 @roseCatchUpAll(i64 noundef %699, ptr noundef %1) #11
+  %787 = tail call i64 @roseCatchUpAll(i64 noundef %699, ptr noundef %1) #12
   br label %roseCatchUpTo.exit
 
 roseCatchUpTo.exit.thread.sink.split:             ; preds = %736, %786
@@ -23136,7 +23136,7 @@ canSkipCatchUpMPV.exit.thread1685:                ; preds = %812, %795, %791, %c
   br i1 %.not14.i485, label %roseCatchUpMPV.exit487.thread1690, label %826
 
 826:                                              ; preds = %canSkipCatchUpMPV.exit.thread1685
-  %827 = tail call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %4) #11
+  %827 = tail call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %4) #12
   %828 = icmp eq i32 %827, 0
   br i1 %828, label %roseReport.exit.thread2470, label %roseCatchUpMPV.exit487.thread1690
 
@@ -23148,7 +23148,7 @@ roseCatchUpMPV.exit487.thread1690:                ; preds = %canSkipCatchUpMPV.e
   br label %832
 
 roseCatchUpMPV.exit487:                           ; preds = %821, %canSkipCatchUpMPV.exit
-  %830 = tail call i64 @roseCatchUpMPV_i(ptr noundef %0, i64 noundef %793, ptr noundef %1) #11
+  %830 = tail call i64 @roseCatchUpMPV_i(ptr noundef %0, i64 noundef %793, ptr noundef %1) #12
   %831 = icmp eq i64 %830, 0
   br i1 %831, label %roseReport.exit.thread2470, label %832
 
@@ -23158,7 +23158,7 @@ roseCatchUpMPV.exit487:                           ; preds = %821, %canSkipCatchU
 
 834:                                              ; preds = %.backedge2621
   %835 = getelementptr inbounds nuw i8, ptr %.0363, i64 8
-  %836 = tail call i64 @handleSomExternal(ptr noundef %1, ptr noundef nonnull %835, i64 noundef %4) #11
+  %836 = tail call i64 @handleSomExternal(ptr noundef %1, ptr noundef nonnull %835, i64 noundef %4) #12
   %837 = getelementptr inbounds nuw i8, ptr %.0363, i64 24
   br label %.backedge2621.backedge
 
@@ -23321,7 +23321,7 @@ mmbit_set_i.exit802.thread:                       ; preds = %.lr.ph3350, %888, %
   store ptr %1, ptr %953, align 8
   %954 = getelementptr inbounds nuw i8, ptr %851, i64 80
   store i8 0, ptr %954, align 8
-  %955 = tail call signext i8 @nfaQueueInitState(ptr noundef %858, ptr noundef %851) #11
+  %955 = tail call signext i8 @nfaQueueInitState(ptr noundef %858, ptr noundef %851) #12
   %956 = getelementptr inbounds nuw i8, ptr %851, i64 104
   store i32 0, ptr %956, align 8, !alias.scope !107
   %957 = getelementptr inbounds nuw i8, ptr %851, i64 112
@@ -23570,7 +23570,7 @@ mmbit_set_i.exit805.thread:                       ; preds = %.lr.ph3346, %1050, 
 
 queue_prev_byte.exit:                             ; preds = %mmbit_set_i.exit805.thread, %1118
   %.0.i602 = phi i8 [ %1121, %1118 ], [ 0, %mmbit_set_i.exit805.thread ]
-  %1122 = tail call signext i8 @nfaExpandState(ptr noundef nonnull %858, ptr noundef %1096, ptr noundef %1102, i64 noundef %1104, i8 noundef zeroext %.0.i602) #11
+  %1122 = tail call signext i8 @nfaExpandState(ptr noundef nonnull %858, ptr noundef %1096, ptr noundef %1102, i64 noundef %1104, i8 noundef zeroext %.0.i602) #12
   %1123 = getelementptr inbounds nuw i8, ptr %851, i64 104
   store i32 0, ptr %1123, align 8, !alias.scope !110
   %1124 = getelementptr inbounds nuw i8, ptr %851, i64 112
@@ -23605,7 +23605,7 @@ mmbit_set_i.exit805.thread1713:                   ; preds = %.thread1708, %mmbit
   %1139 = add nuw i32 %1126, 1
   store i32 %1139, ptr %1125, align 4, !alias.scope !113
   %1140 = load ptr, ptr %851, align 8
-  %1141 = tail call signext i8 @nfaQueueExecRose(ptr noundef %1140, ptr noundef nonnull %851, i32 noundef -1) #11
+  %1141 = tail call signext i8 @nfaQueueExecRose(ptr noundef %1140, ptr noundef nonnull %851, i32 noundef -1) #12
   %1142 = getelementptr inbounds nuw i8, ptr %851, i64 8
   store i32 0, ptr %1142, align 8
   store i32 0, ptr %1134, align 8, !alias.scope !116
@@ -23649,7 +23649,7 @@ mmbit_set_i.exit805.thread1713:                   ; preds = %.thread1708, %mmbit
   %1170 = add i32 %1164, 1
   store i32 %1170, ptr %1163, align 4, !alias.scope !119
   %1171 = load ptr, ptr %1154, align 8
-  %1172 = tail call signext i8 @nfaQueueExec(ptr noundef %1171, ptr noundef nonnull %1154, i64 noundef %860) #11
+  %1172 = tail call signext i8 @nfaQueueExec(ptr noundef %1171, ptr noundef nonnull %1154, i64 noundef %860) #12
   store i32 0, ptr %1155, align 8
   store i32 0, ptr %1165, align 8, !alias.scope !122
   %1173 = getelementptr inbounds nuw i8, ptr %1154, i64 112
@@ -23724,7 +23724,7 @@ canSkipCatchUpMPV.exit.i.thread1722:              ; preds = %1195, %1183, %1181,
   br i1 %.not14.i.i, label %1212, label %1209
 
 1209:                                             ; preds = %canSkipCatchUpMPV.exit.i.thread1722
-  %1210 = tail call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %1177) #11
+  %1210 = tail call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %1177) #12
   %1211 = icmp eq i32 %1210, 0
   br i1 %1211, label %roseReport.exit.thread2470, label %._crit_edge4097
 
@@ -23740,7 +23740,7 @@ canSkipCatchUpMPV.exit.i.thread1722:              ; preds = %1195, %1183, %1181,
   br label %roseCatchUpTo.exit.i.thread
 
 canSkipCatchUpMPV.exit.i.thread1718:              ; preds = %1204, %canSkipCatchUpMPV.exit.i
-  %1214 = tail call i64 @roseCatchUpMPV_i(ptr noundef %0, i64 noundef %860, ptr noundef %1) #11
+  %1214 = tail call i64 @roseCatchUpMPV_i(ptr noundef %0, i64 noundef %860, ptr noundef %1) #12
   br label %roseCatchUpTo.exit.i
 
 1215:                                             ; preds = %1179
@@ -23832,7 +23832,7 @@ mmbit_any.exit.i:                                 ; preds = %1223, %1226, %1229,
   br i1 %.not28.i.i, label %1258, label %1255
 
 1255:                                             ; preds = %1253
-  %1256 = tail call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %1177) #11
+  %1256 = tail call i32 @roseRunFlushCombProgram(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %1177) #12
   %1257 = icmp eq i32 %1256, 0
   br i1 %1257, label %roseReport.exit.thread2470, label %1258
 
@@ -23842,7 +23842,7 @@ mmbit_any.exit.i:                                 ; preds = %1223, %1226, %1229,
   br label %roseCatchUpTo.exit.i.thread
 
 mmbit_any.exit.i.thread:                          ; preds = %.lr.ph3320, %mmbit_any.exit.i
-  %1259 = tail call i64 @roseCatchUpAll(i64 noundef %860, ptr noundef %1) #11
+  %1259 = tail call i64 @roseCatchUpAll(i64 noundef %860, ptr noundef %1) #12
   br label %roseCatchUpTo.exit.i
 
 roseCatchUpTo.exit.i:                             ; preds = %canSkipCatchUpMPV.exit.i.thread1718, %mmbit_any.exit.i.thread
@@ -23986,7 +23986,7 @@ mmbit_set_i.exit790.thread:                       ; preds = %.lr.ph3326, %1288, 
   store ptr %1, ptr %1352, align 8
   %1353 = getelementptr inbounds nuw i8, ptr %1154, i64 80
   store i8 0, ptr %1353, align 8
-  %1354 = tail call signext i8 @nfaQueueInitState(ptr noundef %1327, ptr noundef nonnull %1154) #11
+  %1354 = tail call signext i8 @nfaQueueInitState(ptr noundef %1327, ptr noundef nonnull %1154) #12
   %1355 = getelementptr inbounds nuw i8, ptr %1154, i64 104
   store i32 0, ptr %1355, align 8, !alias.scope !125
   %1356 = getelementptr inbounds nuw i8, ptr %1154, i64 112
@@ -24292,7 +24292,7 @@ pushQueueSom.exit:                                ; preds = %1496, %.thread1762
   store i64 0, ptr %1522, align 8, !alias.scope !131
   %1523 = add i32 %1505, 1
   store i32 %1523, ptr %1483, align 4, !alias.scope !131
-  %1524 = tail call signext i8 @nfaQueueExec(ptr noundef nonnull %858, ptr noundef nonnull %851, i64 noundef %860) #11
+  %1524 = tail call signext i8 @nfaQueueExec(ptr noundef nonnull %858, ptr noundef nonnull %851, i64 noundef %860) #12
   %.not81.i = icmp eq i8 %1524, 0
   br i1 %.not81.i, label %1528, label %1525
 
@@ -24528,7 +24528,7 @@ updateSeqPoint.exit:                              ; preds = %1644, %1645
   br i1 %.not.i743, label %flushStoredSomMatches.exit.thread, label %flushStoredSomMatches.exit
 
 flushStoredSomMatches.exit:                       ; preds = %1661
-  %1663 = tail call i32 @flushStoredSomMatches_i(ptr noundef nonnull %1, i64 noundef %4) #11
+  %1663 = tail call i32 @flushStoredSomMatches_i(ptr noundef nonnull %1, i64 noundef %4) #12
   %.not53.i505 = icmp eq i32 %1663, 0
   br i1 %.not53.i505, label %flushStoredSomMatches.exit.thread, label %roseReport.exit.thread2470
 
@@ -24688,7 +24688,7 @@ updateSeqPoint.exit1546:                          ; preds = %1736, %1737
   br i1 %.not.i745, label %flushStoredSomMatches.exit747.thread, label %flushStoredSomMatches.exit747
 
 flushStoredSomMatches.exit747:                    ; preds = %1753
-  %1755 = tail call i32 @flushStoredSomMatches_i(ptr noundef nonnull %1, i64 noundef %4) #11
+  %1755 = tail call i32 @flushStoredSomMatches_i(ptr noundef nonnull %1, i64 noundef %4) #12
   %.not53.i496 = icmp eq i32 %1755, 0
   br i1 %.not53.i496, label %flushStoredSomMatches.exit747.thread, label %roseReport.exit.thread2470
 
@@ -25038,12 +25038,12 @@ mmbit_any.exit.i761.thread:                       ; preds = %1911, %mmbit_any.ex
   br label %roseCatchUpAndHandleChainMatch.exit
 
 roseCatchUpMpvFeeders.exit:                       ; preds = %.lr.ph3294, %mmbit_any.exit.i761
-  %1954 = tail call i64 @roseCatchUpSuf(i64 noundef %1909, ptr noundef %1) #11
+  %1954 = tail call i64 @roseCatchUpSuf(i64 noundef %1909, ptr noundef %1) #12
   %1955 = icmp eq i64 %1954, 0
   br i1 %1955, label %roseReport.exit.thread2470, label %roseCatchUpAndHandleChainMatch.exit
 
 roseCatchUpAndHandleChainMatch.exit:              ; preds = %mmbit_any.exit.i761.thread, %1907, %1905, %1900, %roseCatchUpMpvFeeders.exit
-  %1956 = tail call i64 @roseHandleChainMatch(ptr noundef %0, ptr noundef %1, i32 noundef %1902, i64 noundef %1904, i64 noundef %4, i8 noundef signext range(i8 0, 3) %8) #11
+  %1956 = tail call i64 @roseHandleChainMatch(ptr noundef %0, ptr noundef %1, i32 noundef %1902, i64 noundef %1904, i64 noundef %4, i8 noundef signext range(i8 0, 3) %8) #12
   %.not442 = icmp eq i64 %1956, 0
   br i1 %.not442, label %roseReport.exit.thread2470, label %1957
 
@@ -25072,7 +25072,7 @@ updateSeqPoint.exit1550:                          ; preds = %1959, %1960
   %1967 = add i64 %4, %1966
   %1968 = load ptr, ptr %26, align 8
   %1969 = load ptr, ptr %25, align 8
-  %1970 = tail call i32 %1968(i32 noundef %1963, i64 noundef 0, i64 noundef %1967, i32 noundef 0, ptr noundef %1969) #11
+  %1970 = tail call i32 %1968(i32 noundef %1963, i64 noundef 0, i64 noundef %1967, i32 noundef 0, ptr noundef %1969) #12
   %.not.i766 = icmp eq i32 %1970, 0
   br i1 %.not.i766, label %1973, label %.thread1879
 
@@ -25109,7 +25109,7 @@ updateSeqPoint.exit1554:                          ; preds = %1975, %1976
   %1985 = add i64 %4, %1984
   %1986 = load ptr, ptr %26, align 8
   %1987 = load ptr, ptr %25, align 8
-  %1988 = tail call i32 %1986(i32 noundef %1979, i64 noundef 0, i64 noundef %1985, i32 noundef 0, ptr noundef %1987) #11
+  %1988 = tail call i32 %1986(i32 noundef %1979, i64 noundef 0, i64 noundef %1985, i32 noundef 0, ptr noundef %1987) #12
   %.not.i768 = icmp eq i32 %1988, 0
   br i1 %.not.i768, label %1989, label %roseDeliverReport.exit771
 
@@ -25382,7 +25382,7 @@ updateSeqPoint.exit1558:                          ; preds = %2124, %2125
   %2132 = add i64 %4, %2131
   %2133 = load ptr, ptr %26, align 8
   %2134 = load ptr, ptr %25, align 8
-  %2135 = tail call i32 %2133(i32 noundef %2128, i64 noundef %.0360, i64 noundef %2132, i32 noundef 0, ptr noundef %2134) #11
+  %2135 = tail call i32 %2133(i32 noundef %2128, i64 noundef %.0360, i64 noundef %2132, i32 noundef 0, ptr noundef %2134) #12
   %.not.i778 = icmp eq i32 %2135, 0
   br i1 %.not.i778, label %2138, label %.thread1925
 
@@ -25442,7 +25442,7 @@ updateSeqPoint.exit1562:                          ; preds = %2140, %2141
   br i1 %.not.i748, label %flushStoredSomMatches.exit750.thread, label %flushStoredSomMatches.exit750
 
 flushStoredSomMatches.exit750:                    ; preds = %2157
-  %2159 = tail call i32 @flushStoredSomMatches_i(ptr noundef nonnull %1, i64 noundef %4) #11
+  %2159 = tail call i32 @flushStoredSomMatches_i(ptr noundef nonnull %1, i64 noundef %4) #12
   %.not53.i = icmp eq i32 %2159, 0
   br i1 %.not53.i, label %flushStoredSomMatches.exit750.thread, label %roseReport.exit.thread2470
 
@@ -25564,7 +25564,7 @@ mmbit_set_i.exit811.thread1938:                   ; preds = %.thread1933, %mmbit
   %2235 = add i64 %4, %2234
   %2236 = load ptr, ptr %26, align 8
   %2237 = load ptr, ptr %25, align 8
-  %2238 = tail call i32 %2236(i32 noundef %2232, i64 noundef 0, i64 noundef %2235, i32 noundef 0, ptr noundef %2237) #11
+  %2238 = tail call i32 %2236(i32 noundef %2232, i64 noundef 0, i64 noundef %2235, i32 noundef 0, ptr noundef %2237) #12
   %.not.i772 = icmp eq i32 %2238, 0
   br i1 %.not.i772, label %dedupeCatchup.exit, label %select.unfold1946
 
@@ -25599,7 +25599,7 @@ updateSeqPoint.exit1566:                          ; preds = %2242, %2243
   %2250 = add i64 %4, %2249
   %2251 = load ptr, ptr %26, align 8
   %2252 = load ptr, ptr %25, align 8
-  %2253 = tail call i32 %2251(i32 noundef %2246, i64 noundef 0, i64 noundef %2250, i32 noundef 0, ptr noundef %2252) #11
+  %2253 = tail call i32 %2251(i32 noundef %2246, i64 noundef 0, i64 noundef %2250, i32 noundef 0, ptr noundef %2252) #12
   %.not.i775 = icmp eq i32 %2253, 0
   br i1 %.not.i775, label %roseReport.exit.thread2470, label %2254
 
@@ -27807,7 +27807,7 @@ getLogicalVal.exit1466.thread2141:                ; preds = %3595, %getLogicalVa
   %3605 = load i32, ptr %3033, align 4
   %3606 = load ptr, ptr %26, align 8
   %3607 = load ptr, ptr %25, align 8
-  %3608 = tail call i32 %3606(i32 noundef %3604, i64 noundef 0, i64 noundef %2871, i32 noundef 0, ptr noundef %3607) #11
+  %3608 = tail call i32 %3606(i32 noundef %3604, i64 noundef 0, i64 noundef %2871, i32 noundef 0, ptr noundef %3607) #12
   %.not.i19.i1302 = icmp eq i32 %3608, 0
   br i1 %.not.i19.i1302, label %3609, label %roseDeliverReport.exit.i1303
 
@@ -29830,7 +29830,7 @@ getLogicalVal.exit.thread2300:                    ; preds = %4779, %getLogicalVa
   %4789 = load i32, ptr %4217, align 4
   %4790 = load ptr, ptr %26, align 8
   %4791 = load ptr, ptr %25, align 8
-  %4792 = tail call i32 %4790(i32 noundef %4788, i64 noundef 0, i64 noundef %4096, i32 noundef 0, ptr noundef %4791) #11
+  %4792 = tail call i32 %4790(i32 noundef %4788, i64 noundef 0, i64 noundef %4096, i32 noundef 0, ptr noundef %4791) #12
   %.not.i19.i1353 = icmp eq i32 %4792, 0
   br i1 %.not.i19.i1353, label %4793, label %roseDeliverReport.exit.i1354
 
@@ -31601,7 +31601,7 @@ isPurelyNegativeMatch.exit.thread2427:            ; preds = %5873, %isPurelyNega
   %5883 = load i32, ptr %5115, align 4
   %5884 = load ptr, ptr %26, align 8
   %5885 = load ptr, ptr %25, align 8
-  %5886 = tail call i32 %5884(i32 noundef %5882, i64 noundef 0, i64 noundef %4, i32 noundef 0, ptr noundef %5885) #11
+  %5886 = tail call i32 %5884(i32 noundef %5882, i64 noundef 0, i64 noundef %4, i32 noundef 0, ptr noundef %5885) #12
   %.not.i19.i = icmp eq i32 %5886, 0
   br i1 %.not.i19.i, label %5887, label %roseDeliverReport.exit.i
 
@@ -32307,8 +32307,8 @@ declare void @handleSomInternal(ptr noundef, ptr noundef, i64 noundef) local_unn
 
 declare void @setSomFromSomAware(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #6
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #9
 
 declare signext i8 @nfaCheckFinalState(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -32324,31 +32324,31 @@ declare i64 @flushQueuedLiterals_i(ptr noundef, ptr noundef, i64 noundef) local_
 declare i64 @llvm.x86.bmi.pdep.64(i64, i64) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.ctpop.i16(i16) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.ctpop.i16(i16) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
@@ -32359,9 +32359,10 @@ attributes #5 = { nofree noinline norecurse nosync nounwind memory(readwrite, in
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
+attributes #9 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

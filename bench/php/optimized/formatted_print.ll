@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden range(i32 -2, 2147483647) i32 @php_sprintf_get_argnum(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !4
-  %5 = tail call ptr @__ctype_b_loc() #15
+  %5 = tail call ptr @__ctype_b_loc() #16
   %6 = load ptr, ptr %5, align 8, !tbaa !9
   br label %7
 
@@ -54,7 +54,7 @@ define hidden range(i32 -2, 2147483647) i32 @php_sprintf_get_argnum(ptr noundef 
 
 15:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %16 = call i64 @strtoll(ptr noundef %4, ptr noundef nonnull %3, i32 noundef 10) #16
+  %16 = call i64 @strtoll(ptr noundef %4, ptr noundef nonnull %3, i32 noundef 10) #17
   %17 = load ptr, ptr %3, align 8, !tbaa !4
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %php_sprintf_getnumber.exit, label %18
@@ -79,7 +79,7 @@ php_sprintf_getnumber.exit:                       ; preds = %15, %18
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %php_sprintf_getnumber.exit
-  tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str, i32 noundef 2147483647) #16
+  tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str, i32 noundef 2147483647) #17
   br label %33
 
 27:                                               ; preds = %php_sprintf_getnumber.exit
@@ -111,7 +111,7 @@ define hidden void @zif_sprintf(ptr noundef %0, ptr noundef writeonly captures(n
   br i1 %6, label %7, label %8, !prof !16
 
 7:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef -1) #16
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef -1) #17
   br label %21
 
 8:                                                ; preds = %2
@@ -123,7 +123,7 @@ define hidden void @zif_sprintf(ptr noundef %0, ptr noundef writeonly captures(n
   br i1 %12, label %zend_parse_arg_str_ex.exit.thread, label %zend_parse_arg_str_ex.exit, !prof !17
 
 zend_parse_arg_str_ex.exit:                       ; preds = %8
-  %13 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %9, ptr noundef nonnull %3, i32 noundef 1) #16
+  %13 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %9, ptr noundef nonnull %3, i32 noundef 1) #17
   br i1 %13, label %zend_parse_arg_str_ex.exit.thread, label %zend_parse_arg_string.exit
 
 zend_parse_arg_string.exit:                       ; preds = %zend_parse_arg_str_ex.exit
@@ -150,7 +150,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   %.057.ph = phi ptr [ %9, %zend_parse_arg_string.exit ], [ %9, %zend_parse_arg_str_ex.exit.thread ], [ null, %7 ]
   %.055.ph = phi i32 [ 9, %zend_parse_arg_string.exit ], [ 11, %zend_parse_arg_str_ex.exit.thread ], [ 1, %7 ]
   %.053.ph = phi i32 [ 1, %zend_parse_arg_string.exit ], [ %.154, %zend_parse_arg_str_ex.exit.thread ], [ 0, %7 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.055.ph, i32 noundef %.053.ph, ptr noundef null, i32 noundef %.058.ph, ptr noundef %.057.ph) #16
+  call void @zend_wrong_parameter_error(i32 noundef %.055.ph, i32 noundef %.053.ph, ptr noundef null, i32 noundef %.058.ph, ptr noundef %.057.ph) #17
   br label %32
 
 .critedge:                                        ; preds = %zend_parse_arg_str_ex.exit.thread
@@ -204,7 +204,7 @@ define internal fastcc ptr @php_formatted_print(ptr noundef %0, i64 noundef %1, 
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 0, ptr %20, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %22 = tail call noalias ptr @_emalloc_320() #16
+  %22 = tail call noalias ptr @_emalloc_320() #17
   store i32 1, ptr %22, align 4, !tbaa !22
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 22, ptr %23, align 4, !tbaa !11
@@ -231,7 +231,7 @@ define internal fastcc ptr @php_formatted_print(ptr noundef %0, i64 noundef %1, 
   %.0151526 = phi i32 [ 0, %.lr.ph ], [ %.1152, %.thread ]
   %.0347525 = phi i64 [ %1, %.lr.ph ], [ %.1348, %.thread ]
   %.0356524 = phi ptr [ %0, %.lr.ph ], [ %.1357, %.thread ]
-  %34 = call ptr @memchr(ptr noundef %.0356524, i32 noundef 37, i64 noundef %.0347525) #17
+  %34 = call ptr @memchr(ptr noundef %.0356524, i32 noundef 37, i64 noundef %.0347525) #18
   %.not175 = icmp eq ptr %34, null
   br i1 %.not175, label %35, label %80
 
@@ -267,7 +267,7 @@ define internal fastcc ptr @php_formatted_print(ptr noundef %0, i64 noundef %1, 
 50:                                               ; preds = %47
   %51 = and i64 %41, -8
   %52 = add i64 %51, 32
-  %53 = call ptr @_erealloc(ptr noundef nonnull %38, i64 noundef %52) #18
+  %53 = call ptr @_erealloc(ptr noundef nonnull %38, i64 noundef %52) #19
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store i64 %41, ptr %54, align 8, !tbaa !18
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -281,7 +281,7 @@ define internal fastcc ptr @php_formatted_print(ptr noundef %0, i64 noundef %1, 
 zend_string_alloc.exit.i.i:                       ; preds = %42, %47
   %59 = and i64 %41, -8
   %60 = add i64 %59, 32
-  %61 = call noalias ptr @_emalloc(i64 noundef %60) #19
+  %61 = call noalias ptr @_emalloc(i64 noundef %60) #20
   store i32 1, ptr %61, align 4, !tbaa !22
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   store i32 22, ptr %62, align 4, !tbaa !11
@@ -361,7 +361,7 @@ zend_string_extend.exit.i:                        ; preds = %71, %zend_string_al
 99:                                               ; preds = %96
   %100 = and i64 %90, -8
   %101 = add i64 %100, 32
-  %102 = call ptr @_erealloc(ptr noundef nonnull %87, i64 noundef %101) #18
+  %102 = call ptr @_erealloc(ptr noundef nonnull %87, i64 noundef %101) #19
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   store i64 %90, ptr %103, align 8, !tbaa !18
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
@@ -375,7 +375,7 @@ zend_string_extend.exit.i:                        ; preds = %71, %zend_string_al
 zend_string_alloc.exit.i.i208:                    ; preds = %91, %96
   %108 = and i64 %90, -8
   %109 = add i64 %108, 32
-  %110 = call noalias ptr @_emalloc(i64 noundef %109) #19
+  %110 = call noalias ptr @_emalloc(i64 noundef %109) #20
   store i32 1, ptr %110, align 4, !tbaa !22
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 22, ptr %111, align 4, !tbaa !11
@@ -454,7 +454,7 @@ php_sprintf_appendchars.exit213:                  ; preds = %81, %zend_string_ex
 150:                                              ; preds = %147
   %151 = and i64 %142, -8
   %152 = add i64 %151, 32
-  %153 = call ptr @_erealloc(ptr noundef nonnull %138, i64 noundef %152) #18
+  %153 = call ptr @_erealloc(ptr noundef nonnull %138, i64 noundef %152) #19
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
   store i64 %142, ptr %154, align 8, !tbaa !18
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 8
@@ -468,7 +468,7 @@ php_sprintf_appendchars.exit213:                  ; preds = %81, %zend_string_ex
 zend_string_alloc.exit.i.i216:                    ; preds = %141, %147
   %159 = and i64 %142, -8
   %160 = add i64 %159, 32
-  %161 = call noalias ptr @_emalloc(i64 noundef %160) #19
+  %161 = call noalias ptr @_emalloc(i64 noundef %160) #20
   store i32 1, ptr %161, align 4, !tbaa !22
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 4
   store i32 22, ptr %162, align 4, !tbaa !11
@@ -508,7 +508,7 @@ php_sprintf_appendchar.exit:                      ; preds = %135, %zend_string_e
   br label %zend_tmp_string_release.exit
 
 178:                                              ; preds = %130
-  %179 = tail call ptr @__ctype_b_loc() #15
+  %179 = tail call ptr @__ctype_b_loc() #16
   %180 = load ptr, ptr %179, align 8, !tbaa !9
   %181 = sext i8 %133 to i64
   %182 = getelementptr inbounds i16, ptr %180, i64 %181
@@ -534,7 +534,7 @@ php_sprintf_appendchar.exit:                      ; preds = %135, %zend_string_e
 
 php_sprintf_getnumber.exit.i:                     ; preds = %191
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %192 = call i64 @strtoll(ptr noundef nonnull %131, ptr noundef nonnull %19, i32 noundef 10) #16
+  %192 = call i64 @strtoll(ptr noundef nonnull %131, ptr noundef nonnull %19, i32 noundef 10) #17
   %193 = load ptr, ptr %19, align 8, !tbaa !4
   %or.cond.i.i = icmp ugt i64 %192, 2147483646
   %194 = trunc nuw nsw i64 %192 to i32
@@ -544,7 +544,7 @@ php_sprintf_getnumber.exit.i:                     ; preds = %191
   br i1 %195, label %php_sprintf_get_argnum.exit.thread, label %196
 
 php_sprintf_get_argnum.exit.thread:               ; preds = %php_sprintf_getnumber.exit.i
-  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str, i32 noundef 2147483647) #16
+  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str, i32 noundef 2147483647) #17
   br label %.thread422
 
 196:                                              ; preds = %php_sprintf_getnumber.exit.i
@@ -599,7 +599,7 @@ php_sprintf_get_argnum.exit:                      ; preds = %191, %196
   br label %214
 
 213:                                              ; preds = %207
-  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.2) #16
+  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.2) #17
   br label %.thread422
 
 214:                                              ; preds = %203, %205, %206, %209
@@ -634,7 +634,7 @@ php_sprintf_get_argnum.exit:                      ; preds = %191, %196
 
 php_sprintf_getnumber.exit.i231:                  ; preds = %227
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %228 = call i64 @strtoll(ptr noundef nonnull %218, ptr noundef nonnull %18, i32 noundef 10) #16
+  %228 = call i64 @strtoll(ptr noundef nonnull %218, ptr noundef nonnull %18, i32 noundef 10) #17
   %229 = load ptr, ptr %18, align 8, !tbaa !4
   %or.cond.i.i232 = icmp ugt i64 %228, 2147483646
   %230 = trunc nuw nsw i64 %228 to i32
@@ -644,7 +644,7 @@ php_sprintf_getnumber.exit.i231:                  ; preds = %227
   br i1 %231, label %php_sprintf_get_argnum.exit234.thread, label %php_sprintf_get_argnum.exit234
 
 php_sprintf_get_argnum.exit234.thread:            ; preds = %php_sprintf_getnumber.exit.i231
-  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str, i32 noundef 2147483647) #16
+  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str, i32 noundef 2147483647) #17
   br label %.thread422
 
 php_sprintf_get_argnum.exit234:                   ; preds = %php_sprintf_getnumber.exit.i231
@@ -699,7 +699,7 @@ php_sprintf_get_argnum.exit234.thread381:         ; preds = %227
   br i1 %.not180, label %255, label %254
 
 254:                                              ; preds = %252
-  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.3) #16
+  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.3) #17
   br label %.thread422
 
 255:                                              ; preds = %252
@@ -708,7 +708,7 @@ php_sprintf_get_argnum.exit234.thread381:         ; preds = %227
   br i1 %or.cond191, label %257, label %258
 
 257:                                              ; preds = %255
-  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.4, i32 noundef 2147483647) #16
+  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.4, i32 noundef 2147483647) #17
   br label %.thread422
 
 258:                                              ; preds = %255
@@ -726,7 +726,7 @@ php_sprintf_get_argnum.exit234.thread381:         ; preds = %227
 
 php_sprintf_getnumber.exit:                       ; preds = %260
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %266 = call i64 @strtoll(ptr noundef nonnull %.5361, ptr noundef nonnull %17, i32 noundef 10) #16
+  %266 = call i64 @strtoll(ptr noundef nonnull %.5361, ptr noundef nonnull %17, i32 noundef 10) #17
   %267 = load ptr, ptr %17, align 8, !tbaa !4
   %.not.i235 = icmp eq ptr %267, null
   %268 = ptrtoint ptr %267 to i64
@@ -741,7 +741,7 @@ php_sprintf_getnumber.exit:                       ; preds = %260
   br i1 %or.cond.i, label %272, label %273
 
 272:                                              ; preds = %php_sprintf_getnumber.exit
-  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.4, i32 noundef 2147483647) #16
+  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.4, i32 noundef 2147483647) #17
   br label %.thread422
 
 273:                                              ; preds = %258, %260, %php_sprintf_getnumber.exit
@@ -782,7 +782,7 @@ php_sprintf_getnumber.exit:                       ; preds = %260
 
 php_sprintf_getnumber.exit.i243:                  ; preds = %291
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %292 = call i64 @strtoll(ptr noundef nonnull %282, ptr noundef nonnull %16, i32 noundef 10) #16
+  %292 = call i64 @strtoll(ptr noundef nonnull %282, ptr noundef nonnull %16, i32 noundef 10) #17
   %293 = load ptr, ptr %16, align 8, !tbaa !4
   %or.cond.i.i244 = icmp ugt i64 %292, 2147483646
   %294 = trunc nuw nsw i64 %292 to i32
@@ -792,7 +792,7 @@ php_sprintf_getnumber.exit.i243:                  ; preds = %291
   br i1 %295, label %php_sprintf_get_argnum.exit246.thread, label %php_sprintf_get_argnum.exit246
 
 php_sprintf_get_argnum.exit246.thread:            ; preds = %php_sprintf_getnumber.exit.i243
-  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str, i32 noundef 2147483647) #16
+  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str, i32 noundef 2147483647) #17
   br label %.thread422
 
 php_sprintf_get_argnum.exit246:                   ; preds = %php_sprintf_getnumber.exit.i243
@@ -847,7 +847,7 @@ php_sprintf_get_argnum.exit246.thread402:         ; preds = %291
   br i1 %.not183, label %319, label %318
 
 318:                                              ; preds = %316
-  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.5) #16
+  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.5) #17
   br label %.thread422
 
 319:                                              ; preds = %316
@@ -857,7 +857,7 @@ php_sprintf_get_argnum.exit246.thread402:         ; preds = %291
   br i1 %or.cond192, label %322, label %323
 
 322:                                              ; preds = %319
-  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.6, i32 noundef 2147483647) #16
+  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.6, i32 noundef 2147483647) #17
   br label %.thread422
 
 323:                                              ; preds = %319
@@ -875,14 +875,14 @@ php_sprintf_get_argnum.exit246.thread402:         ; preds = %291
 
 php_sprintf_getnumber.exit251:                    ; preds = %325
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %331 = call i64 @strtoll(ptr noundef nonnull %277, ptr noundef nonnull %15, i32 noundef 10) #16
+  %331 = call i64 @strtoll(ptr noundef nonnull %277, ptr noundef nonnull %15, i32 noundef 10) #17
   %332 = load ptr, ptr %15, align 8, !tbaa !4
   %or.cond.i249 = icmp ugt i64 %331, 2147483646
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %or.cond.i249, label %333, label %334
 
 333:                                              ; preds = %php_sprintf_getnumber.exit251
-  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.7, i32 noundef 2147483647) #16
+  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.7, i32 noundef 2147483647) #17
   br label %.thread422
 
 334:                                              ; preds = %php_sprintf_getnumber.exit251
@@ -941,7 +941,7 @@ php_sprintf_getnumber.exit251:                    ; preds = %325
   ]
 
 352:                                              ; preds = %351
-  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.8) #16
+  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.8) #17
   br label %.thread422
 
 thread-pre-split:                                 ; preds = %348, %351, %351, %351, %351
@@ -979,7 +979,7 @@ thread-pre-split:                                 ; preds = %348, %351, %351, %3
   br label %zval_get_tmp_string.exit
 
 361:                                              ; preds = %355
-  %362 = call ptr @zval_get_string_func(ptr noundef nonnull %354) #16
+  %362 = call ptr @zval_get_string_func(ptr noundef nonnull %354) #17
   br label %zval_get_tmp_string.exit
 
 zval_get_tmp_string.exit:                         ; preds = %359, %361
@@ -1012,7 +1012,7 @@ zval_get_tmp_string.exit:                         ; preds = %359, %361
   br i1 %377, label %378, label %zend_tmp_string_release.exit
 
 378:                                              ; preds = %373
-  call void @_efree(ptr noundef nonnull %.0346) #16
+  call void @_efree(ptr noundef nonnull %.0346) #17
   br label %zend_tmp_string_release.exit
 
 379:                                              ; preds = %thread-pre-split
@@ -1026,7 +1026,7 @@ zval_get_tmp_string.exit:                         ; preds = %359, %361
   br label %zval_get_long.exit
 
 385:                                              ; preds = %379
-  %386 = call i64 @zval_get_long_func(ptr noundef nonnull %354, i1 noundef zeroext false) #16
+  %386 = call i64 @zval_get_long_func(ptr noundef nonnull %354, i1 noundef zeroext false) #17
   br label %zval_get_long.exit
 
 zval_get_long.exit:                               ; preds = %383, %385
@@ -1107,7 +1107,7 @@ php_sprintf_appendint.exit:                       ; preds = %403, %._crit_edge.i
   br label %zval_get_long.exit194
 
 423:                                              ; preds = %417
-  %424 = call i64 @zval_get_long_func(ptr noundef nonnull %354, i1 noundef zeroext false) #16
+  %424 = call i64 @zval_get_long_func(ptr noundef nonnull %354, i1 noundef zeroext false) #17
   br label %zval_get_long.exit194
 
 zval_get_long.exit194:                            ; preds = %421, %423
@@ -1157,7 +1157,7 @@ php_sprintf_appenduint.exit:                      ; preds = %426
   br label %zval_get_double.exit
 
 448:                                              ; preds = %442
-  %449 = call double @zval_get_double_func(ptr noundef nonnull %354) #16
+  %449 = call double @zval_get_double_func(ptr noundef nonnull %354) #17
   %.pre600 = load i8, ptr %.8364, align 1, !tbaa !11
   br label %zval_get_double.exit
 
@@ -1178,7 +1178,7 @@ zval_get_double.exit:                             ; preds = %446, %448
   br i1 %455, label %456, label %457
 
 456:                                              ; preds = %454
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str.14, i32 noundef %.3137, i32 noundef 53) #16
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str.14, i32 noundef %.3137, i32 noundef 53) #17
   br label %457
 
 457:                                              ; preds = %456, %454, %zval_get_double.exit
@@ -1191,7 +1191,7 @@ zval_get_double.exit:                             ; preds = %446, %448
   br label %php_sprintf_appenddouble.exit
 
 460:                                              ; preds = %457
-  %461 = call double @llvm.fabs.f64(double %451) #20
+  %461 = call double @llvm.fabs.f64(double %451) #21
   %462 = fcmp oeq double %461, 0x7FF0000000000000
   br i1 %462, label %463, label %467
 
@@ -1215,7 +1215,7 @@ zval_get_double.exit:                             ; preds = %446, %448
   ]
 
 468:                                              ; preds = %467, %467, %467, %467
-  %469 = call ptr @localeconv() #16
+  %469 = call ptr @localeconv() #17
   %470 = icmp eq i8 %450, 102
   %narrow.i = select i1 %470, i8 70, i8 %450
   br i1 %470, label %471, label %474
@@ -1227,7 +1227,7 @@ zval_get_double.exit:                             ; preds = %446, %448
 
 474:                                              ; preds = %471, %468
   %475 = phi i8 [ %473, %471 ], [ 46, %468 ]
-  %476 = call ptr @php_conv_fp(i8 noundef signext %narrow.i, double noundef %451, i1 noundef zeroext false, i32 noundef %.0.i262, i8 noundef signext %475, ptr noundef nonnull %12, ptr noundef nonnull %30, ptr noundef nonnull %11) #16
+  %476 = call ptr @php_conv_fp(i8 noundef signext %narrow.i, double noundef %451, i1 noundef zeroext false, i32 noundef %.0.i262, i8 noundef signext %475, ptr noundef nonnull %12, ptr noundef nonnull %30, ptr noundef nonnull %11) #17
   %477 = load i8, ptr %12, align 1, !tbaa !26, !range !30, !noundef !31
   %478 = trunc nuw i8 %477 to i1
   br i1 %478, label %479, label %482
@@ -1255,7 +1255,7 @@ zval_get_double.exit:                             ; preds = %446, %448
   br i1 %or.cond.i264, label %487, label %491
 
 487:                                              ; preds = %485
-  %488 = call ptr @localeconv() #16
+  %488 = call ptr @localeconv() #17
   %489 = load ptr, ptr %488, align 8, !tbaa !28
   %490 = load i8, ptr %489, align 1, !tbaa !11
   br label %491
@@ -1265,7 +1265,7 @@ zval_get_double.exit:                             ; preds = %446, %448
   %492 = add nsw i8 %450, -71
   %493 = icmp samesign ult i8 %492, 2
   %494 = select i1 %493, i8 69, i8 101
-  %495 = call ptr @zend_gcvt(double noundef %451, i32 noundef %spec.store.select.i263, i8 noundef signext %.049.i, i8 noundef signext %494, ptr noundef nonnull %30) #16
+  %495 = call ptr @zend_gcvt(double noundef %451, i32 noundef %spec.store.select.i263, i8 noundef signext %.049.i, i8 noundef signext %494, ptr noundef nonnull %30) #17
   store i8 0, ptr %12, align 1, !tbaa !26
   %496 = load i8, ptr %495, align 1, !tbaa !11
   %497 = icmp eq i8 %496, 45
@@ -1285,7 +1285,7 @@ zval_get_double.exit:                             ; preds = %446, %448
 
 501:                                              ; preds = %500, %499, %498
   %.1.i266 = phi ptr [ %30, %498 ], [ %10, %500 ], [ %495, %499 ]
-  %502 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1.i266) #17
+  %502 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1.i266) #18
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %501, %483, %479
@@ -1319,7 +1319,7 @@ php_sprintf_appenddouble.exit:                    ; preds = %459, %463, %503
   br label %zval_get_long.exit195
 
 512:                                              ; preds = %506
-  %513 = call i64 @zval_get_long_func(ptr noundef nonnull %354, i1 noundef zeroext false) #16
+  %513 = call i64 @zval_get_long_func(ptr noundef nonnull %354, i1 noundef zeroext false) #17
   br label %zval_get_long.exit195
 
 zval_get_long.exit195:                            ; preds = %510, %512
@@ -1351,7 +1351,7 @@ zval_get_long.exit195:                            ; preds = %510, %512
 530:                                              ; preds = %527
   %531 = and i64 %522, -8
   %532 = add i64 %531, 32
-  %533 = call ptr @_erealloc(ptr noundef nonnull %518, i64 noundef %532) #18
+  %533 = call ptr @_erealloc(ptr noundef nonnull %518, i64 noundef %532) #19
   %534 = getelementptr inbounds nuw i8, ptr %533, i64 16
   store i64 %522, ptr %534, align 8, !tbaa !18
   %535 = getelementptr inbounds nuw i8, ptr %533, i64 8
@@ -1365,7 +1365,7 @@ zval_get_long.exit195:                            ; preds = %510, %512
 zend_string_alloc.exit.i.i270:                    ; preds = %521, %527
   %539 = and i64 %522, -8
   %540 = add i64 %539, 32
-  %541 = call noalias ptr @_emalloc(i64 noundef %540) #19
+  %541 = call noalias ptr @_emalloc(i64 noundef %540) #20
   store i32 1, ptr %541, align 4, !tbaa !22
   %542 = getelementptr inbounds nuw i8, ptr %541, i64 4
   store i32 22, ptr %542, align 4, !tbaa !11
@@ -1415,7 +1415,7 @@ php_sprintf_appendchar.exit277:                   ; preds = %zval_get_long.exit1
   br label %zval_get_long.exit196
 
 564:                                              ; preds = %558
-  %565 = call i64 @zval_get_long_func(ptr noundef nonnull %354, i1 noundef zeroext false) #16
+  %565 = call i64 @zval_get_long_func(ptr noundef nonnull %354, i1 noundef zeroext false) #17
   br label %zval_get_long.exit196
 
 zval_get_long.exit196:                            ; preds = %562, %564
@@ -1457,7 +1457,7 @@ php_sprintf_append2n.exit:                        ; preds = %567
   br label %zval_get_long.exit197
 
 584:                                              ; preds = %578
-  %585 = call i64 @zval_get_long_func(ptr noundef nonnull %354, i1 noundef zeroext false) #16
+  %585 = call i64 @zval_get_long_func(ptr noundef nonnull %354, i1 noundef zeroext false) #17
   br label %zval_get_long.exit197
 
 zval_get_long.exit197:                            ; preds = %582, %584
@@ -1499,7 +1499,7 @@ php_sprintf_append2n.exit283:                     ; preds = %587
   br label %zval_get_long.exit198
 
 604:                                              ; preds = %598
-  %605 = call i64 @zval_get_long_func(ptr noundef nonnull %354, i1 noundef zeroext false) #16
+  %605 = call i64 @zval_get_long_func(ptr noundef nonnull %354, i1 noundef zeroext false) #17
   br label %zval_get_long.exit198
 
 zval_get_long.exit198:                            ; preds = %602, %604
@@ -1541,7 +1541,7 @@ php_sprintf_append2n.exit287:                     ; preds = %607
   br label %zval_get_long.exit199
 
 624:                                              ; preds = %618
-  %625 = call i64 @zval_get_long_func(ptr noundef nonnull %354, i1 noundef zeroext false) #16
+  %625 = call i64 @zval_get_long_func(ptr noundef nonnull %354, i1 noundef zeroext false) #17
   br label %zval_get_long.exit199
 
 zval_get_long.exit199:                            ; preds = %622, %624
@@ -1599,7 +1599,7 @@ php_sprintf_append2n.exit291:                     ; preds = %627
 653:                                              ; preds = %650
   %654 = and i64 %645, -8
   %655 = add i64 %654, 32
-  %656 = call ptr @_erealloc(ptr noundef nonnull %641, i64 noundef %655) #18
+  %656 = call ptr @_erealloc(ptr noundef nonnull %641, i64 noundef %655) #19
   %657 = getelementptr inbounds nuw i8, ptr %656, i64 16
   store i64 %645, ptr %657, align 8, !tbaa !18
   %658 = getelementptr inbounds nuw i8, ptr %656, i64 8
@@ -1613,7 +1613,7 @@ php_sprintf_append2n.exit291:                     ; preds = %627
 zend_string_alloc.exit.i.i294:                    ; preds = %644, %650
   %662 = and i64 %645, -8
   %663 = add i64 %662, 32
-  %664 = call noalias ptr @_emalloc(i64 noundef %663) #19
+  %664 = call noalias ptr @_emalloc(i64 noundef %663) #20
   store i32 1, ptr %664, align 4, !tbaa !22
   %665 = getelementptr inbounds nuw i8, ptr %664, i64 4
   store i32 22, ptr %665, align 4, !tbaa !11
@@ -1657,7 +1657,7 @@ php_sprintf_appendchar.exit301:                   ; preds = %638, %zend_string_e
   br i1 %.not189, label %682, label %.loopexit446
 
 682:                                              ; preds = %681
-  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.9) #16
+  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.9) #17
   br label %.thread422
 
 .loopexit446.loopexit:                            ; preds = %thread-pre-split
@@ -1666,7 +1666,7 @@ php_sprintf_appendchar.exit301:                   ; preds = %638, %zend_string_e
 
 .loopexit446:                                     ; preds = %.loopexit446.loopexit, %681
   %684 = phi i32 [ %683, %.loopexit446.loopexit ], [ 0, %681 ]
-  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.10, i32 noundef %684) #16
+  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.10, i32 noundef %684) #17
   br label %.thread422
 
 zend_tmp_string_release.exit:                     ; preds = %zval_get_tmp_string.exit, %369, %373, %378, %php_sprintf_appendint.exit, %php_sprintf_appenduint.exit, %php_sprintf_appenddouble.exit, %php_sprintf_appendchar.exit277, %php_sprintf_append2n.exit, %php_sprintf_append2n.exit283, %php_sprintf_append2n.exit287, %php_sprintf_append2n.exit291, %php_sprintf_appendchar.exit301, %php_sprintf_appendchar.exit
@@ -1696,14 +1696,14 @@ zend_tmp_string_release.exit:                     ; preds = %zval_get_tmp_string
 
 688:                                              ; preds = %686
   %689 = add nuw nsw i32 %.0122486, 1
-  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.11, i32 noundef %689, i32 noundef %3) #16
+  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.11, i32 noundef %689, i32 noundef %3) #17
   br label %.thread422
 
 690:                                              ; preds = %686
   %691 = add nuw nsw i32 %4, 1
   %692 = add nuw nsw i32 %691, %.0122486
   %693 = add nsw i32 %4, %3
-  call void (ptr, ...) @zend_argument_count_error(ptr noundef nonnull @.str.12, i32 noundef %692, i32 noundef %693) #16
+  call void (ptr, ...) @zend_argument_count_error(ptr noundef nonnull @.str.12, i32 noundef %692, i32 noundef %693) #17
   br label %.thread422
 
 .loopexit.thread:                                 ; preds = %5, %.loopexit
@@ -1718,7 +1718,7 @@ zend_tmp_string_release.exit:                     ; preds = %zval_get_tmp_string
 
 .thread422:                                       ; preds = %318, %322, %php_sprintf_get_argnum.exit246.thread, %254, %257, %php_sprintf_get_argnum.exit234.thread, %php_sprintf_get_argnum.exit.thread, %272, %333, %213, %682, %.loopexit446, %352, %688, %690
   %699 = load ptr, ptr %21, align 8, !tbaa !24
-  call void @_efree(ptr noundef %699) #16
+  call void @_efree(ptr noundef %699) #17
   br label %700
 
 700:                                              ; preds = %.thread422, %.loopexit.thread
@@ -1737,7 +1737,7 @@ define hidden void @zif_vsprintf(ptr noundef %0, ptr noundef writeonly captures(
   br i1 %.not, label %7, label %6, !prof !32
 
 6:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 2) #16
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 2) #17
   br label %.thread
 
 7:                                                ; preds = %2
@@ -1749,7 +1749,7 @@ define hidden void @zif_vsprintf(ptr noundef %0, ptr noundef writeonly captures(
   br i1 %11, label %zend_parse_arg_str_ex.exit.thread, label %zend_parse_arg_str_ex.exit, !prof !17
 
 zend_parse_arg_str_ex.exit:                       ; preds = %7
-  %12 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %8, ptr noundef nonnull %3, i32 noundef 1) #16
+  %12 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %8, ptr noundef nonnull %3, i32 noundef 1) #17
   br i1 %12, label %zend_parse_arg_str_ex.exit.thread, label %zend_parse_arg_string.exit, !prof !33
 
 zend_parse_arg_string.exit:                       ; preds = %zend_parse_arg_str_ex.exit
@@ -1774,7 +1774,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   %.05488 = phi i32 [ 9, %zend_parse_arg_string.exit ], [ 1, %6 ], [ 9, %zend_parse_arg_str_ex.exit.thread ]
   %.05587 = phi ptr [ %8, %zend_parse_arg_string.exit ], [ null, %6 ], [ %17, %zend_parse_arg_str_ex.exit.thread ]
   %.05686 = phi i32 [ 4, %zend_parse_arg_string.exit ], [ 0, %6 ], [ 6, %zend_parse_arg_str_ex.exit.thread ]
-  call void @zend_wrong_parameter_error(i32 noundef %.05488, i32 noundef %.089, ptr noundef null, i32 noundef %.05686, ptr noundef %.05587) #16
+  call void @zend_wrong_parameter_error(i32 noundef %.05488, i32 noundef %.089, ptr noundef null, i32 noundef %.05686, ptr noundef %.05587) #17
   br label %59
 
 .critedge:                                        ; preds = %zend_parse_arg_str_ex.exit.thread
@@ -1782,7 +1782,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 28
   %23 = load i32, ptr %22, align 4, !tbaa !34
   %24 = sext i32 %23 to i64
-  %25 = call noalias ptr @_safe_emalloc(i64 noundef %24, i64 noundef 16, i64 noundef 0) #16
+  %25 = call noalias ptr @_safe_emalloc(i64 noundef %24, i64 noundef 16, i64 noundef 0) #17
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !36
   %.not26.i = icmp eq i32 %27, 0
@@ -1830,7 +1830,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
 php_formatted_print_get_array.exit:               ; preds = %47, %.critedge
   %.0.lcssa.i = phi i32 [ 0, %.critedge ], [ %.1.i, %47 ]
   %51 = call fastcc ptr @php_formatted_print(ptr noundef nonnull %14, i64 noundef %16, ptr noundef %25, i32 noundef %.0.lcssa.i, i32 noundef -1)
-  call void @_efree(ptr noundef %25) #16
+  call void @_efree(ptr noundef %25) #17
   %52 = icmp eq ptr %51, null
   br i1 %52, label %59, label %53
 
@@ -1860,7 +1860,7 @@ define hidden void @zif_printf(ptr noundef %0, ptr noundef writeonly captures(no
   br i1 %6, label %7, label %8, !prof !16
 
 7:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef -1) #16
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef -1) #17
   br label %21
 
 8:                                                ; preds = %2
@@ -1872,7 +1872,7 @@ define hidden void @zif_printf(ptr noundef %0, ptr noundef writeonly captures(no
   br i1 %12, label %zend_parse_arg_str_ex.exit.thread, label %zend_parse_arg_str_ex.exit, !prof !17
 
 zend_parse_arg_str_ex.exit:                       ; preds = %8
-  %13 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %9, ptr noundef nonnull %3, i32 noundef 1) #16
+  %13 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %9, ptr noundef nonnull %3, i32 noundef 1) #17
   br i1 %13, label %zend_parse_arg_str_ex.exit.thread, label %zend_parse_arg_string.exit
 
 zend_parse_arg_string.exit:                       ; preds = %zend_parse_arg_str_ex.exit
@@ -1899,7 +1899,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   %.058.ph = phi ptr [ %9, %zend_parse_arg_string.exit ], [ %9, %zend_parse_arg_str_ex.exit.thread ], [ null, %7 ]
   %.056.ph = phi i32 [ 1, %zend_parse_arg_string.exit ], [ %.157, %zend_parse_arg_str_ex.exit.thread ], [ 0, %7 ]
   %.054.ph = phi i32 [ 9, %zend_parse_arg_string.exit ], [ 11, %zend_parse_arg_str_ex.exit.thread ], [ 1, %7 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.054.ph, i32 noundef %.056.ph, ptr noundef null, i32 noundef %.059.ph, ptr noundef %.058.ph) #16
+  call void @zend_wrong_parameter_error(i32 noundef %.054.ph, i32 noundef %.056.ph, ptr noundef null, i32 noundef %.059.ph, ptr noundef %.058.ph) #17
   br label %32
 
 .critedge:                                        ; preds = %zend_parse_arg_str_ex.exit.thread
@@ -1914,8 +1914,8 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %29 = load i64, ptr %28, align 8, !tbaa !18
-  %30 = call i64 @php_output_write(ptr noundef nonnull %27, i64 noundef %29) #16
-  call void @_efree(ptr noundef nonnull %24) #16
+  %30 = call i64 @php_output_write(ptr noundef nonnull %27, i64 noundef %29) #17
+  call void @_efree(ptr noundef nonnull %24) #17
   store i64 %30, ptr %1, align 8, !tbaa !11
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %31, align 8, !tbaa !11
@@ -1936,7 +1936,7 @@ define hidden void @zif_vprintf(ptr noundef %0, ptr noundef writeonly captures(n
   br i1 %.not, label %7, label %6, !prof !32
 
 6:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 2) #16
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 2) #17
   br label %.thread
 
 7:                                                ; preds = %2
@@ -1948,7 +1948,7 @@ define hidden void @zif_vprintf(ptr noundef %0, ptr noundef writeonly captures(n
   br i1 %11, label %zend_parse_arg_str_ex.exit.thread, label %zend_parse_arg_str_ex.exit, !prof !17
 
 zend_parse_arg_str_ex.exit:                       ; preds = %7
-  %12 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %8, ptr noundef nonnull %3, i32 noundef 1) #16
+  %12 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %8, ptr noundef nonnull %3, i32 noundef 1) #17
   br i1 %12, label %zend_parse_arg_str_ex.exit.thread, label %zend_parse_arg_string.exit, !prof !33
 
 zend_parse_arg_string.exit:                       ; preds = %zend_parse_arg_str_ex.exit
@@ -1973,7 +1973,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   %.05588 = phi i32 [ 9, %zend_parse_arg_string.exit ], [ 1, %6 ], [ 9, %zend_parse_arg_str_ex.exit.thread ]
   %.05687 = phi ptr [ %8, %zend_parse_arg_string.exit ], [ null, %6 ], [ %17, %zend_parse_arg_str_ex.exit.thread ]
   %.05786 = phi i32 [ 4, %zend_parse_arg_string.exit ], [ 0, %6 ], [ 6, %zend_parse_arg_str_ex.exit.thread ]
-  call void @zend_wrong_parameter_error(i32 noundef %.05588, i32 noundef %.089, ptr noundef null, i32 noundef %.05786, ptr noundef %.05687) #16
+  call void @zend_wrong_parameter_error(i32 noundef %.05588, i32 noundef %.089, ptr noundef null, i32 noundef %.05786, ptr noundef %.05687) #17
   br label %59
 
 .critedge:                                        ; preds = %zend_parse_arg_str_ex.exit.thread
@@ -1981,7 +1981,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 28
   %23 = load i32, ptr %22, align 4, !tbaa !34
   %24 = sext i32 %23 to i64
-  %25 = call noalias ptr @_safe_emalloc(i64 noundef %24, i64 noundef 16, i64 noundef 0) #16
+  %25 = call noalias ptr @_safe_emalloc(i64 noundef %24, i64 noundef 16, i64 noundef 0) #17
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !36
   %.not26.i = icmp eq i32 %27, 0
@@ -2029,7 +2029,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
 php_formatted_print_get_array.exit:               ; preds = %47, %.critedge
   %.0.lcssa.i = phi i32 [ 0, %.critedge ], [ %.1.i, %47 ]
   %51 = call fastcc ptr @php_formatted_print(ptr noundef nonnull %14, i64 noundef %16, ptr noundef %25, i32 noundef %.0.lcssa.i, i32 noundef -1)
-  call void @_efree(ptr noundef %25) #16
+  call void @_efree(ptr noundef %25) #17
   %52 = icmp eq ptr %51, null
   br i1 %52, label %59, label %53
 
@@ -2037,8 +2037,8 @@ php_formatted_print_get_array.exit:               ; preds = %47, %.critedge
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !18
-  %57 = call i64 @php_output_write(ptr noundef nonnull %54, i64 noundef %56) #16
-  call void @_efree(ptr noundef nonnull %51) #16
+  %57 = call i64 @php_output_write(ptr noundef nonnull %54, i64 noundef %56) #17
+  call void @_efree(ptr noundef nonnull %51) #17
   store i64 %57, ptr %1, align 8, !tbaa !11
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %58, align 8, !tbaa !11
@@ -2057,7 +2057,7 @@ define hidden void @zif_fprintf(ptr noundef %0, ptr noundef writeonly captures(n
   br i1 %6, label %7, label %zend_parse_arg_resource.exit, !prof !16
 
 7:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef -1) #16
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef -1) #17
   br label %27
 
 zend_parse_arg_resource.exit:                     ; preds = %2
@@ -2076,7 +2076,7 @@ zend_parse_arg_resource.exit:                     ; preds = %2
   br i1 %16, label %zend_parse_arg_str_ex.exit.thread, label %zend_parse_arg_str_ex.exit, !prof !17
 
 zend_parse_arg_str_ex.exit:                       ; preds = %12
-  %17 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %13, ptr noundef nonnull %3, i32 noundef 2) #16
+  %17 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %13, ptr noundef nonnull %3, i32 noundef 2) #17
   br i1 %17, label %zend_parse_arg_str_ex.exit.thread, label %zend_parse_arg_string.exit
 
 zend_parse_arg_string.exit:                       ; preds = %zend_parse_arg_str_ex.exit
@@ -2106,13 +2106,13 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   %.072.ph = phi ptr [ %13, %zend_parse_arg_string.exit ], [ %8, %zend_parse_arg_resource.exit ], [ %13, %zend_parse_arg_str_ex.exit.thread ], [ null, %7 ]
   %.070.ph = phi i32 [ 2, %zend_parse_arg_string.exit ], [ 1, %zend_parse_arg_resource.exit ], [ %.171, %zend_parse_arg_str_ex.exit.thread ], [ 0, %7 ]
   %.068.ph = phi i32 [ 9, %zend_parse_arg_string.exit ], [ 9, %zend_parse_arg_resource.exit ], [ 11, %zend_parse_arg_str_ex.exit.thread ], [ 1, %7 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.068.ph, i32 noundef %.070.ph, ptr noundef null, i32 noundef %.073.ph, ptr noundef %.072.ph) #16
+  call void @zend_wrong_parameter_error(i32 noundef %.068.ph, i32 noundef %.070.ph, ptr noundef null, i32 noundef %.073.ph, ptr noundef %.072.ph) #17
   br label %42
 
 .critedge:                                        ; preds = %zend_parse_arg_str_ex.exit.thread
-  %28 = call i32 @php_file_le_stream() #16
-  %29 = call i32 @php_file_le_pstream() #16
-  %30 = call ptr @zend_fetch_resource2_ex(ptr noundef nonnull %8, ptr noundef nonnull @.str.1, i32 noundef %28, i32 noundef %29) #16
+  %28 = call i32 @php_file_le_stream() #17
+  %29 = call i32 @php_file_le_pstream() #17
+  %30 = call ptr @zend_fetch_resource2_ex(ptr noundef nonnull %8, ptr noundef nonnull @.str.1, i32 noundef %28, i32 noundef %29) #17
   %31 = icmp eq ptr %30, null
   br i1 %31, label %42, label %32
 
@@ -2125,12 +2125,12 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !18
-  %39 = call i64 @_php_stream_write(ptr noundef nonnull %30, ptr noundef nonnull %36, i64 noundef %38) #16
+  %39 = call i64 @_php_stream_write(ptr noundef nonnull %30, ptr noundef nonnull %36, i64 noundef %38) #17
   %40 = load i64, ptr %37, align 8, !tbaa !18
   store i64 %40, ptr %1, align 8, !tbaa !11
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %41, align 8, !tbaa !11
-  call void @_efree(ptr noundef nonnull %33) #16
+  call void @_efree(ptr noundef nonnull %33) #17
   br label %42
 
 42:                                               ; preds = %32, %27, %.critedge, %35
@@ -2154,7 +2154,7 @@ define hidden void @zif_vfprintf(ptr noundef %0, ptr noundef writeonly captures(
   br i1 %.not, label %zend_parse_arg_resource.exit, label %6, !prof !32
 
 6:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 3, i32 noundef 3) #16
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 3, i32 noundef 3) #17
   br label %.thread
 
 zend_parse_arg_resource.exit:                     ; preds = %2
@@ -2173,7 +2173,7 @@ zend_parse_arg_resource.exit:                     ; preds = %2
   br i1 %15, label %zend_parse_arg_str_ex.exit.thread, label %zend_parse_arg_str_ex.exit, !prof !17
 
 zend_parse_arg_str_ex.exit:                       ; preds = %11
-  %16 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %12, ptr noundef nonnull %3, i32 noundef 2) #16
+  %16 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %12, ptr noundef nonnull %3, i32 noundef 2) #17
   br i1 %16, label %zend_parse_arg_str_ex.exit.thread, label %zend_parse_arg_string.exit, !prof !33
 
 zend_parse_arg_string.exit:                       ; preds = %zend_parse_arg_str_ex.exit
@@ -2198,14 +2198,14 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   %.069107 = phi i32 [ 9, %zend_parse_arg_string.exit ], [ 9, %zend_parse_arg_resource.exit ], [ 1, %6 ], [ 9, %zend_parse_arg_str_ex.exit.thread ]
   %.070106 = phi ptr [ %12, %zend_parse_arg_string.exit ], [ %7, %zend_parse_arg_resource.exit ], [ null, %6 ], [ %21, %zend_parse_arg_str_ex.exit.thread ]
   %.071105 = phi i32 [ 4, %zend_parse_arg_string.exit ], [ 14, %zend_parse_arg_resource.exit ], [ 0, %6 ], [ 6, %zend_parse_arg_str_ex.exit.thread ]
-  call void @zend_wrong_parameter_error(i32 noundef %.069107, i32 noundef %.0108, ptr noundef null, i32 noundef %.071105, ptr noundef %.070106) #16
+  call void @zend_wrong_parameter_error(i32 noundef %.069107, i32 noundef %.0108, ptr noundef null, i32 noundef %.071105, ptr noundef %.070106) #17
   br label %69
 
 .critedge:                                        ; preds = %zend_parse_arg_str_ex.exit.thread
   %25 = load ptr, ptr %21, align 8, !tbaa !11
-  %26 = call i32 @php_file_le_stream() #16
-  %27 = call i32 @php_file_le_pstream() #16
-  %28 = call ptr @zend_fetch_resource2_ex(ptr noundef nonnull %7, ptr noundef nonnull @.str.1, i32 noundef %26, i32 noundef %27) #16
+  %26 = call i32 @php_file_le_stream() #17
+  %27 = call i32 @php_file_le_pstream() #17
+  %28 = call ptr @zend_fetch_resource2_ex(ptr noundef nonnull %7, ptr noundef nonnull @.str.1, i32 noundef %26, i32 noundef %27) #17
   %29 = icmp eq ptr %28, null
   br i1 %29, label %69, label %30
 
@@ -2213,7 +2213,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 28
   %32 = load i32, ptr %31, align 4, !tbaa !34
   %33 = sext i32 %32 to i64
-  %34 = call noalias ptr @_safe_emalloc(i64 noundef %33, i64 noundef 16, i64 noundef 0) #16
+  %34 = call noalias ptr @_safe_emalloc(i64 noundef %33, i64 noundef 16, i64 noundef 0) #17
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %36 = load i32, ptr %35, align 8, !tbaa !36
   %.not26.i = icmp eq i32 %36, 0
@@ -2261,7 +2261,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
 php_formatted_print_get_array.exit:               ; preds = %56, %30
   %.0.lcssa.i = phi i32 [ 0, %30 ], [ %.1.i, %56 ]
   %60 = call fastcc ptr @php_formatted_print(ptr noundef nonnull %18, i64 noundef %20, ptr noundef %34, i32 noundef %.0.lcssa.i, i32 noundef -1)
-  call void @_efree(ptr noundef %34) #16
+  call void @_efree(ptr noundef %34) #17
   %61 = icmp eq ptr %60, null
   br i1 %61, label %69, label %62
 
@@ -2269,12 +2269,12 @@ php_formatted_print_get_array.exit:               ; preds = %56, %30
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %65 = load i64, ptr %64, align 8, !tbaa !18
-  %66 = call i64 @_php_stream_write(ptr noundef nonnull %28, ptr noundef nonnull %63, i64 noundef %65) #16
+  %66 = call i64 @_php_stream_write(ptr noundef nonnull %28, ptr noundef nonnull %63, i64 noundef %65) #17
   %67 = load i64, ptr %64, align 8, !tbaa !18
   store i64 %67, ptr %1, align 8, !tbaa !11
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %68, align 8, !tbaa !11
-  call void @_efree(ptr noundef nonnull %60) #16
+  call void @_efree(ptr noundef nonnull %60) #17
   br label %69
 
 69:                                               ; preds = %php_formatted_print_get_array.exit, %.thread, %.critedge, %62
@@ -2302,7 +2302,7 @@ define internal fastcc void @php_sprintf_appendstring(ptr noundef nonnull captur
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %11
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.13, i64 noundef %15) #21
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.13, i64 noundef %15) #22
   unreachable
 
 20:                                               ; preds = %11
@@ -2320,7 +2320,7 @@ define internal fastcc void @php_sprintf_appendstring(ptr noundef nonnull captur
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %.preheader71
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.13, i64 noundef %22) #21
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.13, i64 noundef %22) #22
   unreachable
 
 29:                                               ; preds = %.preheader71
@@ -2345,7 +2345,7 @@ define internal fastcc void @php_sprintf_appendstring(ptr noundef nonnull captur
 40:                                               ; preds = %37
   %41 = and i64 %30, -8
   %42 = add i64 %41, 32
-  %43 = tail call ptr @_erealloc(ptr noundef nonnull %23, i64 noundef %42) #18
+  %43 = tail call ptr @_erealloc(ptr noundef nonnull %23, i64 noundef %42) #19
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i64 %30, ptr %44, align 8, !tbaa !18
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -2359,7 +2359,7 @@ define internal fastcc void @php_sprintf_appendstring(ptr noundef nonnull captur
 zend_string_alloc.exit.i:                         ; preds = %32, %37
   %49 = and i64 %30, -8
   %50 = add i64 %49, 32
-  %51 = tail call noalias ptr @_emalloc(i64 noundef %50) #19
+  %51 = tail call noalias ptr @_emalloc(i64 noundef %50) #20
   store i32 1, ptr %51, align 4, !tbaa !22
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 22, ptr %52, align 4, !tbaa !11
@@ -2489,7 +2489,7 @@ declare i64 @zval_get_long_func(ptr noundef, i1 noundef zeroext) local_unnamed_a
 
 declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -2512,23 +2512,23 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #14
+declare i64 @llvm.abs.i64(i64, i1 immarg) #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2541,17 +2541,18 @@ attributes #7 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind willreturn memory(none) }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind willreturn memory(read) }
-attributes #18 = { nounwind allocsize(1) }
-attributes #19 = { nounwind allocsize(0) }
-attributes #20 = { memory(none) }
-attributes #21 = { noreturn nounwind }
+attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nounwind willreturn memory(none) }
+attributes #17 = { nounwind }
+attributes #18 = { nounwind willreturn memory(read) }
+attributes #19 = { nounwind allocsize(1) }
+attributes #20 = { nounwind allocsize(0) }
+attributes #21 = { memory(none) }
+attributes #22 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -78,7 +78,7 @@ define i32 @av_csp_primaries_id_from_desc(ptr noundef readonly captures(none) %0
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i64, ptr %2, align 4
   %16 = load i64, ptr %14, align 16
-  %17 = tail call i64 @av_sub_q(i64 %15, i64 %16) #7
+  %17 = tail call i64 @av_sub_q(i64 %15, i64 %16) #8
   %.sroa.0.0.extract.trunc.i = trunc i64 %17 to i32
   %.sroa.4.0.extract.shift.i = and i64 %17, -4294967296
   %18 = tail call i32 @llvm.abs.i32(i32 %.sroa.0.0.extract.trunc.i, i1 true)
@@ -87,72 +87,72 @@ define i32 @av_csp_primaries_id_from_desc(ptr noundef readonly captures(none) %0
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %20 = load i64, ptr %3, align 4
   %21 = load i64, ptr %19, align 8
-  %22 = tail call i64 @av_sub_q(i64 %20, i64 %21) #7
+  %22 = tail call i64 @av_sub_q(i64 %20, i64 %21) #8
   %.sroa.0.0.extract.trunc.i49 = trunc i64 %22 to i32
   %.sroa.4.0.extract.shift.i50 = and i64 %22, -4294967296
   %23 = tail call i32 @llvm.abs.i32(i32 %.sroa.0.0.extract.trunc.i49, i1 true)
   %.sroa.0.0.insert.ext.i72 = zext nneg i32 %23 to i64
   %.sroa.0.0.insert.insert.i73 = or disjoint i64 %.sroa.4.0.extract.shift.i50, %.sroa.0.0.insert.ext.i72
-  %24 = tail call i64 @av_add_q(i64 %.sroa.0.0.insert.insert.i, i64 %.sroa.0.0.insert.insert.i73) #7
+  %24 = tail call i64 @av_add_q(i64 %.sroa.0.0.insert.insert.i, i64 %.sroa.0.0.insert.insert.i73) #8
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %26 = load i64, ptr %4, align 4
   %27 = load i64, ptr %25, align 16
-  %28 = tail call i64 @av_sub_q(i64 %26, i64 %27) #7
+  %28 = tail call i64 @av_sub_q(i64 %26, i64 %27) #8
   %.sroa.0.0.extract.trunc.i52 = trunc i64 %28 to i32
   %.sroa.4.0.extract.shift.i53 = and i64 %28, -4294967296
   %29 = tail call i32 @llvm.abs.i32(i32 %.sroa.0.0.extract.trunc.i52, i1 true)
   %.sroa.0.0.insert.ext.i76 = zext nneg i32 %29 to i64
   %.sroa.0.0.insert.insert.i77 = or disjoint i64 %.sroa.4.0.extract.shift.i53, %.sroa.0.0.insert.ext.i76
-  %30 = tail call i64 @av_add_q(i64 %24, i64 %.sroa.0.0.insert.insert.i77) #7
+  %30 = tail call i64 @av_add_q(i64 %24, i64 %.sroa.0.0.insert.insert.i77) #8
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %32 = load i64, ptr %5, align 4
   %33 = load i64, ptr %31, align 8
-  %34 = tail call i64 @av_sub_q(i64 %32, i64 %33) #7
+  %34 = tail call i64 @av_sub_q(i64 %32, i64 %33) #8
   %.sroa.0.0.extract.trunc.i55 = trunc i64 %34 to i32
   %.sroa.4.0.extract.shift.i56 = and i64 %34, -4294967296
   %35 = tail call i32 @llvm.abs.i32(i32 %.sroa.0.0.extract.trunc.i55, i1 true)
   %.sroa.0.0.insert.ext.i80 = zext nneg i32 %35 to i64
   %.sroa.0.0.insert.insert.i81 = or disjoint i64 %.sroa.4.0.extract.shift.i56, %.sroa.0.0.insert.ext.i80
-  %36 = tail call i64 @av_add_q(i64 %30, i64 %.sroa.0.0.insert.insert.i81) #7
+  %36 = tail call i64 @av_add_q(i64 %30, i64 %.sroa.0.0.insert.insert.i81) #8
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %38 = load i64, ptr %6, align 4
   %39 = load i64, ptr %37, align 16
-  %40 = tail call i64 @av_sub_q(i64 %38, i64 %39) #7
+  %40 = tail call i64 @av_sub_q(i64 %38, i64 %39) #8
   %.sroa.0.0.extract.trunc.i58 = trunc i64 %40 to i32
   %.sroa.4.0.extract.shift.i59 = and i64 %40, -4294967296
   %41 = tail call i32 @llvm.abs.i32(i32 %.sroa.0.0.extract.trunc.i58, i1 true)
   %.sroa.0.0.insert.ext.i84 = zext nneg i32 %41 to i64
   %.sroa.0.0.insert.insert.i85 = or disjoint i64 %.sroa.4.0.extract.shift.i59, %.sroa.0.0.insert.ext.i84
-  %42 = tail call i64 @av_add_q(i64 %36, i64 %.sroa.0.0.insert.insert.i85) #7
+  %42 = tail call i64 @av_add_q(i64 %36, i64 %.sroa.0.0.insert.insert.i85) #8
   %43 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %44 = load i64, ptr %7, align 4
   %45 = load i64, ptr %43, align 8
-  %46 = tail call i64 @av_sub_q(i64 %44, i64 %45) #7
+  %46 = tail call i64 @av_sub_q(i64 %44, i64 %45) #8
   %.sroa.0.0.extract.trunc.i61 = trunc i64 %46 to i32
   %.sroa.4.0.extract.shift.i62 = and i64 %46, -4294967296
   %47 = tail call i32 @llvm.abs.i32(i32 %.sroa.0.0.extract.trunc.i61, i1 true)
   %.sroa.0.0.insert.ext.i88 = zext nneg i32 %47 to i64
   %.sroa.0.0.insert.insert.i89 = or disjoint i64 %.sroa.4.0.extract.shift.i62, %.sroa.0.0.insert.ext.i88
-  %48 = tail call i64 @av_add_q(i64 %42, i64 %.sroa.0.0.insert.insert.i89) #7
+  %48 = tail call i64 @av_add_q(i64 %42, i64 %.sroa.0.0.insert.insert.i89) #8
   %49 = load i64, ptr %0, align 4
   %50 = load i64, ptr %13, align 16
-  %51 = tail call i64 @av_sub_q(i64 %49, i64 %50) #7
+  %51 = tail call i64 @av_sub_q(i64 %49, i64 %50) #8
   %.sroa.0.0.extract.trunc.i64 = trunc i64 %51 to i32
   %.sroa.4.0.extract.shift.i65 = and i64 %51, -4294967296
   %52 = tail call i32 @llvm.abs.i32(i32 %.sroa.0.0.extract.trunc.i64, i1 true)
   %.sroa.0.0.insert.ext.i92 = zext nneg i32 %52 to i64
   %.sroa.0.0.insert.insert.i93 = or disjoint i64 %.sroa.4.0.extract.shift.i65, %.sroa.0.0.insert.ext.i92
-  %53 = tail call i64 @av_add_q(i64 %48, i64 %.sroa.0.0.insert.insert.i93) #7
+  %53 = tail call i64 @av_add_q(i64 %48, i64 %.sroa.0.0.insert.insert.i93) #8
   %54 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %55 = load i64, ptr %8, align 4
   %56 = load i64, ptr %54, align 8
-  %57 = tail call i64 @av_sub_q(i64 %55, i64 %56) #7
+  %57 = tail call i64 @av_sub_q(i64 %55, i64 %56) #8
   %.sroa.0.0.extract.trunc.i67 = trunc i64 %57 to i32
   %.sroa.4.0.extract.shift.i68 = and i64 %57, -4294967296
   %58 = tail call i32 @llvm.abs.i32(i32 %.sroa.0.0.extract.trunc.i67, i1 true)
   %.sroa.0.0.insert.ext.i96 = zext nneg i32 %58 to i64
   %.sroa.0.0.insert.insert.i97 = or disjoint i64 %.sroa.4.0.extract.shift.i68, %.sroa.0.0.insert.ext.i96
-  %59 = tail call i64 @av_add_q(i64 %53, i64 %.sroa.0.0.insert.insert.i97) #7
+  %59 = tail call i64 @av_add_q(i64 %53, i64 %.sroa.0.0.insert.insert.i97) #8
   %.sroa.011.0.extract.trunc.i = trunc i64 %59 to i32
   %sext.i = shl i64 %59, 32
   %60 = ashr exact i64 %sext.i, 32
@@ -539,20 +539,20 @@ define internal noundef double @trc_arib_std_b67(double noundef %0) #0 {
   ret double %13
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.pow.f64(double, double) #3
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.pow.f64(double, double) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #3
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.log10.f64(double) #3
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log10.f64(double) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #3
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.log.f64(double) #3
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef double @trc_bt709_inv(double noundef %0) #0 {
@@ -797,11 +797,11 @@ define internal double @trc_arib_std_b67_inv(double noundef %0) #0 {
   ret double %15
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.exp.f64(double) #3
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.exp.f64(double) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @eotf_bt1886(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #4 {
+define internal void @eotf_bt1886(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #5 {
   %4 = tail call nsz double @llvm.pow.f64(double %0, double 0x3FDAAAAAAAAAAAAB)
   %5 = tail call nsz double @llvm.pow.f64(double %1, double 0x3FDAAAAAAAAAAAAB)
   %6 = fsub nsz double %4, %5
@@ -835,7 +835,7 @@ define internal void @eotf_bt1886(double noundef %0, double noundef %1, ptr noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @eotf_gamma22(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #4 {
+define internal void @eotf_gamma22(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #5 {
   br label %4
 
 4:                                                ; preds = %4, %3
@@ -869,7 +869,7 @@ eotf_linear.exit:                                 ; preds = %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @eotf_gamma28(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #4 {
+define internal void @eotf_gamma28(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #5 {
   br label %4
 
 4:                                                ; preds = %4, %3
@@ -903,7 +903,7 @@ eotf_linear.exit:                                 ; preds = %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @eotf_linear(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #4 {
+define internal void @eotf_linear(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #5 {
   %4 = fsub nsz double %0, %1
   br label %6
 
@@ -922,7 +922,7 @@ define internal void @eotf_linear(double noundef %0, double noundef %1, ptr noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @eotf_iec61966_2_1(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #4 {
+define internal void @eotf_iec61966_2_1(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #5 {
   br label %4
 
 4:                                                ; preds = %trc_iec61966_2_1_inv.exit.i, %3
@@ -972,7 +972,7 @@ eotf_linear.exit:                                 ; preds = %18
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @eotf_smpte_st2084(double %0, double %1, ptr noundef captures(none) %2) #4 {
+define internal void @eotf_smpte_st2084(double %0, double %1, ptr noundef captures(none) %2) #5 {
   br label %5
 
 4:                                                ; preds = %trc_smpte_st2084_inv.exit
@@ -1003,7 +1003,7 @@ trc_smpte_st2084_inv.exit:                        ; preds = %5, %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @eotf_smpte_st428_1(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #4 {
+define internal void @eotf_smpte_st428_1(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #5 {
   %4 = alloca [3 x double], align 16
   %5 = alloca [3 x double], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1057,7 +1057,7 @@ define internal void @eotf_smpte_st428_1(double noundef %0, double noundef %1, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @eotf_arib_std_b67(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #4 {
+define internal void @eotf_arib_std_b67(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #5 {
   %4 = fdiv nsz double %0, 1.000000e+03
   %5 = tail call nsz double @llvm.log10.f64(double %4)
   %6 = tail call nsz double @llvm.fmuladd.f64(double %5, double 4.200000e-01, double 1.200000e+00)
@@ -1131,11 +1131,11 @@ trc_arib_std_b67_inv.exit:                        ; preds = %27, %34, %37
   br i1 %exitcond29.not, label %44, label %45, !llvm.loop !20
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.maxnum.f64(double, double) #3
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @eotf_bt1886_inv(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #4 {
+define internal void @eotf_bt1886_inv(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #5 {
   %4 = tail call nsz double @llvm.pow.f64(double %0, double 0x3FDAAAAAAAAAAAAB)
   %5 = tail call nsz double @llvm.pow.f64(double %1, double 0x3FDAAAAAAAAAAAAB)
   %6 = fsub nsz double %4, %5
@@ -1168,7 +1168,7 @@ define internal void @eotf_bt1886_inv(double noundef %0, double noundef %1, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @eotf_gamma22_inv(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #4 {
+define internal void @eotf_gamma22_inv(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #5 {
   %4 = fsub nsz double %0, %1
   br label %5
 
@@ -1200,7 +1200,7 @@ oetf_gamma22.exit:                                ; preds = %eotf_linear_inv.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @eotf_gamma28_inv(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #4 {
+define internal void @eotf_gamma28_inv(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #5 {
   %4 = fsub nsz double %0, %1
   br label %5
 
@@ -1232,7 +1232,7 @@ oetf_gamma28.exit:                                ; preds = %eotf_linear_inv.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @eotf_linear_inv(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #4 {
+define internal void @eotf_linear_inv(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #5 {
   %4 = fsub nsz double %0, %1
   br label %6
 
@@ -1252,7 +1252,7 @@ define internal void @eotf_linear_inv(double noundef %0, double noundef %1, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @eotf_iec61966_2_1_inv(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #4 {
+define internal void @eotf_iec61966_2_1_inv(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #5 {
   %4 = fsub nsz double %0, %1
   br label %5
 
@@ -1299,7 +1299,7 @@ oetf_iec61966_2_1.exit:                           ; preds = %trc_iec61966_2_1.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @eotf_smpte_st2084_inv(double %0, double %1, ptr noundef captures(none) %2) #4 {
+define internal void @eotf_smpte_st2084_inv(double %0, double %1, ptr noundef captures(none) %2) #5 {
   br label %5
 
 4:                                                ; preds = %trc_smpte_st2084.exit
@@ -1330,7 +1330,7 @@ trc_smpte_st2084.exit:                            ; preds = %5, %9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @eotf_smpte_st428_1_inv(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #4 {
+define internal void @eotf_smpte_st428_1_inv(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #5 {
   %4 = alloca [3 x double], align 16
   %5 = alloca [3 x double], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1385,7 +1385,7 @@ define internal void @eotf_smpte_st428_1_inv(double noundef %0, double noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @eotf_arib_std_b67_inv(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #4 {
+define internal void @eotf_arib_std_b67_inv(double noundef %0, double noundef %1, ptr noundef captures(none) %2) #5 {
   %4 = fdiv nsz double %0, 1.000000e+03
   %5 = tail call nsz double @llvm.log10.f64(double %4)
   %6 = tail call nsz double @llvm.fmuladd.f64(double %5, double 4.200000e-01, double 1.200000e+00)
@@ -1468,22 +1468,23 @@ trc_arib_std_b67.exit:                            ; preds = %35, %41, %44
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -66,7 +66,7 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_convolveBI(ptr noundef
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 208
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 %17(ptr noundef nonnull %0, i32 noundef 64) #14
+  %18 = tail call i32 %17(ptr noundef nonnull %0, i32 noundef 64) #15
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %258, label %20
 
@@ -80,7 +80,7 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_convolveBI(ptr noundef
 
 22:                                               ; preds = %21
   %23 = load ptr, ptr @start_timer, align 8
-  tail call void %23(i32 noundef 3600) #14
+  tail call void %23(i32 noundef 3600) #15
   br label %24
 
 24:                                               ; preds = %22, %21
@@ -88,25 +88,25 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_convolveBI(ptr noundef
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 800
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr @g_KernelWidthID, align 8
-  %29 = tail call i32 %27(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %28) #14
+  %29 = tail call i32 %27(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %28) #15
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 800
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr @g_KernelHeightID, align 8
-  %34 = tail call i32 %32(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %33) #14
+  %34 = tail call i32 %32(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %33) #15
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 760
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr @g_KernelDataID, align 8
-  %39 = tail call ptr %37(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %38) #14
+  %39 = tail call ptr %37(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %38) #15
   %40 = load ptr, ptr %0, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 1368
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call i32 %42(ptr noundef nonnull %0, ptr noundef %39) #14
+  %43 = tail call i32 %42(ptr noundef nonnull %0, ptr noundef %39) #15
   %44 = load ptr, ptr %0, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1776
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call ptr %46(ptr noundef nonnull %0, ptr noundef %39, ptr noundef null) #14
+  %47 = tail call ptr %46(ptr noundef nonnull %0, ptr noundef %39, ptr noundef null) #15
   %48 = icmp eq ptr %47, null
   br i1 %48, label %258, label %49
 
@@ -128,7 +128,7 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_convolveBI(ptr noundef
   %57 = mul nuw nsw i32 %.0143, %.0144
   %58 = zext nneg i32 %57 to i64
   %59 = shl nuw nsw i64 %58, 3
-  %60 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %59) #15
+  %60 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %59) #16
   %61 = icmp eq ptr %60, null
   br i1 %61, label %.thread, label %65
 
@@ -136,7 +136,7 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_convolveBI(ptr noundef
   %62 = load ptr, ptr %0, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 1784
   %64 = load ptr, ptr %63, align 8
-  tail call void %64(ptr noundef nonnull %0, ptr noundef %39, ptr noundef nonnull %47, i32 noundef 2) #14
+  tail call void %64(ptr noundef nonnull %0, ptr noundef %39, ptr noundef nonnull %47, i32 noundef 2) #15
   br label %258
 
 65:                                               ; preds = %56
@@ -192,32 +192,32 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_convolveBI(ptr noundef
   %82 = load ptr, ptr %0, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 1784
   %84 = load ptr, ptr %83, align 8
-  tail call void %84(ptr noundef nonnull %0, ptr noundef %39, ptr noundef nonnull %47, i32 noundef 2) #14
+  tail call void %84(ptr noundef nonnull %0, ptr noundef %39, ptr noundef nonnull %47, i32 noundef 2) #15
   %85 = fcmp ogt float %.0150.lcssa, 6.553600e+04
   br i1 %85, label %86, label %87
 
 86:                                               ; preds = %._crit_edge186
-  tail call void @free(ptr noundef nonnull %60) #14
+  tail call void @free(ptr noundef nonnull %60) #15
   br label %258
 
 87:                                               ; preds = %._crit_edge186
-  %88 = call i32 @awt_parseImage(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %12, i32 noundef 0) #14
+  %88 = call i32 @awt_parseImage(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %12, i32 noundef 0) #15
   %89 = icmp slt i32 %88, 1
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %87
-  call void @free(ptr noundef nonnull %60) #14
+  call void @free(ptr noundef nonnull %60) #15
   br label %258
 
 91:                                               ; preds = %87
-  %92 = call i32 @awt_parseImage(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %13, i32 noundef 0) #14
+  %92 = call i32 @awt_parseImage(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %13, i32 noundef 0) #15
   %93 = icmp slt i32 %92, 1
   %94 = load ptr, ptr %12, align 8
   br i1 %93, label %95, label %96
 
 95:                                               ; preds = %91
-  call void @awt_freeParsedImage(ptr noundef %94, i32 noundef 1) #14
-  call void @free(ptr noundef nonnull %60) #14
+  call void @awt_freeParsedImage(ptr noundef %94, i32 noundef 1) #15
+  call void @free(ptr noundef nonnull %60) #15
   br label %258
 
 96:                                               ; preds = %91
@@ -227,10 +227,10 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_convolveBI(ptr noundef
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %96
-  call void @awt_freeParsedImage(ptr noundef %94, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %94, i32 noundef 1) #15
   %101 = load ptr, ptr %13, align 8
-  call void @awt_freeParsedImage(ptr noundef %101, i32 noundef 1) #14
-  call void @free(ptr noundef nonnull %60) #14
+  call void @awt_freeParsedImage(ptr noundef %101, i32 noundef 1) #15
+  call void @free(ptr noundef nonnull %60) #15
   br label %258
 
 102:                                              ; preds = %96
@@ -244,10 +244,10 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_convolveBI(ptr noundef
 
 109:                                              ; preds = %102
   %110 = load ptr, ptr %12, align 8
-  call void @awt_freeParsedImage(ptr noundef %110, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %110, i32 noundef 1) #15
   %111 = load ptr, ptr %13, align 8
-  call void @awt_freeParsedImage(ptr noundef %111, i32 noundef 1) #14
-  call void @free(ptr noundef nonnull %60) #14
+  call void @awt_freeParsedImage(ptr noundef %111, i32 noundef 1) #15
+  call void @free(ptr noundef nonnull %60) #15
   br label %258
 
 112:                                              ; preds = %102
@@ -277,7 +277,7 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_convolveBI(ptr noundef
 
 127:                                              ; preds = %125
   %128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
-  call void %128(ptr noundef nonnull %120) #14
+  call void %128(ptr noundef nonnull %120) #15
   br label %129
 
 129:                                              ; preds = %127, %125
@@ -288,20 +288,20 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_convolveBI(ptr noundef
   %131 = load ptr, ptr %0, align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 1784
   %133 = load ptr, ptr %132, align 8
-  call void %133(ptr noundef nonnull %0, ptr noundef %126, ptr noundef nonnull %121, i32 noundef 2) #14
+  call void %133(ptr noundef nonnull %0, ptr noundef %126, ptr noundef nonnull %121, i32 noundef 2) #15
   br label %freeArray.exit
 
 freeArray.exit:                                   ; preds = %129, %130
   %134 = load ptr, ptr %12, align 8
-  call void @awt_freeParsedImage(ptr noundef %134, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %134, i32 noundef 1) #15
   %135 = load ptr, ptr %13, align 8
-  call void @awt_freeParsedImage(ptr noundef %135, i32 noundef 1) #14
-  call void @free(ptr noundef nonnull %60) #14
+  call void @awt_freeParsedImage(ptr noundef %135, i32 noundef 1) #15
+  call void @free(ptr noundef nonnull %60) #15
   br label %258
 
 136:                                              ; preds = %112
   %137 = shl nuw nsw i64 %58, 2
-  %138 = call noalias ptr @malloc(i64 noundef %137) #16
+  %138 = call noalias ptr @malloc(i64 noundef %137) #17
   %139 = icmp eq ptr %138, null
   %140 = load ptr, ptr %9, align 8
   br i1 %139, label %.thread175, label %148
@@ -314,16 +314,16 @@ freeArray.exit:                                   ; preds = %129, %130
   %145 = load ptr, ptr %8, align 8
   call fastcc void @freeArray(ptr noundef nonnull %0, ptr noundef %141, ptr noundef %140, ptr noundef %142, ptr noundef %143, ptr noundef %144, ptr noundef %145)
   %146 = load ptr, ptr %12, align 8
-  call void @awt_freeParsedImage(ptr noundef %146, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %146, i32 noundef 1) #15
   %147 = load ptr, ptr %13, align 8
-  call void @awt_freeParsedImage(ptr noundef %147, i32 noundef 1) #14
-  call void @free(ptr noundef nonnull %60) #14
+  call void @awt_freeParsedImage(ptr noundef %147, i32 noundef 1) #15
+  call void @free(ptr noundef nonnull %60) #15
   br label %258
 
 148:                                              ; preds = %136
   %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibFns, i64 48), align 16
   %.val172 = load i32, ptr %140, align 8
-  %150 = call i32 (ptr, ptr, ptr, i32, i32, i32, ...) %149(ptr noundef nonnull %138, ptr noundef nonnull %11, ptr noundef nonnull %60, i32 noundef %.0144, i32 noundef %.0143, i32 noundef %.val172) #14
+  %150 = call i32 (ptr, ptr, ptr, i32, i32, i32, ...) %149(ptr noundef nonnull %138, ptr noundef nonnull %11, ptr noundef nonnull %60, i32 noundef %.0144, i32 noundef %.0143, i32 noundef %.val172) #15
   %.not = icmp eq i32 %150, 0
   br i1 %.not, label %159, label %151
 
@@ -335,11 +335,11 @@ freeArray.exit:                                   ; preds = %129, %130
   %156 = load ptr, ptr %8, align 8
   call fastcc void @freeArray(ptr noundef nonnull %0, ptr noundef %152, ptr noundef nonnull %140, ptr noundef %153, ptr noundef %154, ptr noundef %155, ptr noundef %156)
   %157 = load ptr, ptr %12, align 8
-  call void @awt_freeParsedImage(ptr noundef %157, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %157, i32 noundef 1) #15
   %158 = load ptr, ptr %13, align 8
-  call void @awt_freeParsedImage(ptr noundef %158, i32 noundef 1) #14
-  call void @free(ptr noundef nonnull %60) #14
-  call void @free(ptr noundef nonnull %138) #14
+  call void @awt_freeParsedImage(ptr noundef %158, i32 noundef 1) #15
+  call void @free(ptr noundef nonnull %60) #15
+  call void @free(ptr noundef nonnull %138) #15
   br label %258
 
 159:                                              ; preds = %148
@@ -348,14 +348,14 @@ freeArray.exit:                                   ; preds = %129, %130
 
 160:                                              ; preds = %159
   %161 = load ptr, ptr @stderr, align 8
-  %162 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %161, ptr noundef nonnull @.str, i32 noundef %43) #17
+  %162 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %161, ptr noundef nonnull @.str, i32 noundef %43) #18
   %163 = add nsw i32 %34, -1
   br i1 %70, label %.preheader177.lr.ph, label %._crit_edge190.thread236
 
 ._crit_edge190.thread236:                         ; preds = %160
   %164 = load ptr, ptr @stderr, align 8
   %165 = load i32, ptr %11, align 4
-  %166 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %164, ptr noundef nonnull @.str.3, i32 noundef %165) #17
+  %166 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %164, ptr noundef nonnull @.str.3, i32 noundef %165) #18
   br label %.loopexit
 
 .preheader177.lr.ph:                              ; preds = %160
@@ -381,7 +381,7 @@ freeArray.exit:                                   ; preds = %129, %130
   %173 = load ptr, ptr @stderr, align 8
   %gep239 = getelementptr double, ptr %invariant.gep238, i64 %indvars.iv.next211
   %174 = load double, ptr %gep239, align 8
-  %175 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %173, ptr noundef nonnull @.str.1, double noundef %174) #17
+  %175 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %173, ptr noundef nonnull @.str.1, double noundef %174) #18
   %176 = icmp sgt i64 %indvars.iv210, 1
   br i1 %176, label %172, label %._crit_edge.us191, !llvm.loop !9
 
@@ -402,13 +402,13 @@ freeArray.exit:                                   ; preds = %129, %130
 .preheader.lr.ph.thread:                          ; preds = %.preheader177
   %181 = load ptr, ptr @stderr, align 8
   %182 = load i32, ptr %11, align 4
-  %183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %181, ptr noundef nonnull @.str.3, i32 noundef %182) #17
+  %183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %181, ptr noundef nonnull @.str.3, i32 noundef %182) #18
   br label %.preheader
 
 ._crit_edge190:                                   ; preds = %._crit_edge.us191
   %184 = load ptr, ptr @stderr, align 8
   %185 = load i32, ptr %11, align 4
-  %186 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.3, i32 noundef %185) #17
+  %186 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.3, i32 noundef %185) #18
   %187 = zext nneg i32 %29 to i64
   %188 = zext nneg i32 %34 to i64
   %189 = zext nneg i32 %.0144 to i64
@@ -427,7 +427,7 @@ freeArray.exit:                                   ; preds = %129, %130
   %192 = load ptr, ptr @stderr, align 8
   %gep241 = getelementptr i32, ptr %invariant.gep240, i64 %indvars.iv.next217
   %193 = load i32, ptr %gep241, align 4
-  %194 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %192, ptr noundef nonnull @.str.4, i32 noundef %193) #17
+  %194 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %192, ptr noundef nonnull @.str.4, i32 noundef %193) #18
   %195 = icmp sgt i64 %indvars.iv216, 1
   br i1 %195, label %191, label %._crit_edge.us194, !llvm.loop !11
 
@@ -457,7 +457,7 @@ freeArray.exit:                                   ; preds = %129, %130
   %207 = load i32, ptr %11, align 4
   %cond.i = icmp eq i32 %5, 1
   %..i = select i1 %cond.i, i32 2, i32 1
-  %208 = call i32 (ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, ...) %203(ptr noundef %204, ptr noundef nonnull %140, ptr noundef nonnull %138, i32 noundef %.0144, i32 noundef %.0143, i32 noundef %205, i32 noundef %206, i32 noundef %207, i32 noundef %202, i32 noundef %..i) #14
+  %208 = call i32 (ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, ...) %203(ptr noundef %204, ptr noundef nonnull %140, ptr noundef nonnull %138, i32 noundef %.0144, i32 noundef %.0143, i32 noundef %205, i32 noundef %206, i32 noundef %207, i32 noundef %202, i32 noundef %..i) #15
   %.not165 = icmp eq i32 %208, 0
   %spec.select = zext i1 %.not165 to i32
   %.b163 = load i1, ptr @s_printIt, align 4
@@ -555,17 +555,17 @@ freeArray.exit:                                   ; preds = %129, %130
   %253 = load ptr, ptr %13, align 8
   call fastcc void @freeArray(ptr noundef nonnull %0, ptr noundef %251, ptr noundef nonnull %140, ptr noundef %252, ptr noundef %253, ptr noundef %204, ptr noundef %243)
   %254 = load ptr, ptr %12, align 8
-  call void @awt_freeParsedImage(ptr noundef %254, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %254, i32 noundef 1) #15
   %255 = load ptr, ptr %13, align 8
-  call void @awt_freeParsedImage(ptr noundef %255, i32 noundef 1) #14
-  call void @free(ptr noundef %60) #14
-  call void @free(ptr noundef nonnull %138) #14
+  call void @awt_freeParsedImage(ptr noundef %255, i32 noundef 1) #15
+  call void @free(ptr noundef %60) #15
+  call void @free(ptr noundef nonnull %138) #15
   %.b161 = load i1, ptr @s_timeIt, align 4
   br i1 %.b161, label %256, label %258
 
 256:                                              ; preds = %250
   %257 = load ptr, ptr @stop_timer, align 8
-  call void %257(i32 noundef 3600, i32 noundef 1) #14
+  call void %257(i32 noundef 3600, i32 noundef 1) #15
   br label %258
 
 258:                                              ; preds = %250, %256, %24, %20, %6, %151, %.thread175, %freeArray.exit, %109, %100, %95, %90, %86, %.thread
@@ -881,7 +881,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateArray(ptr noundef %0, ptr n
 
 19:                                               ; preds = %7
   %20 = load ptr, ptr @sMlibSysFns, align 8
-  %21 = tail call ptr %20(i32 noundef 1, i32 noundef 4, i32 noundef %16, i32 noundef %18) #14
+  %21 = tail call ptr %20(i32 noundef 1, i32 noundef 4, i32 noundef %16, i32 noundef %18) #15
   store ptr %21, ptr %2, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %expandICM.exit, label %23
@@ -918,7 +918,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateArray(ptr noundef %0, ptr n
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1776
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %36, align 8
-  %43 = tail call ptr %41(ptr noundef nonnull %0, ptr noundef %42, ptr noundef null) #14
+  %43 = tail call ptr %41(ptr noundef nonnull %0, ptr noundef %42, ptr noundef null) #15
   %44 = icmp eq ptr %43, null
   br i1 %44, label %expandICM.exit, label %45
 
@@ -928,7 +928,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateArray(ptr noundef %0, ptr n
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call ptr %48(ptr noundef nonnull %0, ptr noundef %50, ptr noundef null) #14
+  %51 = tail call ptr %48(ptr noundef nonnull %0, ptr noundef %50, ptr noundef null) #15
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %58
 
@@ -937,7 +937,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateArray(ptr noundef %0, ptr n
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 1784
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %36, align 8
-  tail call void %56(ptr noundef nonnull %0, ptr noundef %57, ptr noundef nonnull %43, i32 noundef 2) #14
+  tail call void %56(ptr noundef nonnull %0, ptr noundef %57, ptr noundef nonnull %43, i32 noundef 2) #15
   br label %expandICM.exit
 
 58:                                               ; preds = %45
@@ -1054,12 +1054,12 @@ define internal fastcc range(i32 -1, 1) i32 @allocateArray(ptr noundef %0, ptr n
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 1784
   %113 = load ptr, ptr %112, align 8
   %114 = load ptr, ptr %36, align 8
-  tail call void %113(ptr noundef nonnull %0, ptr noundef %114, ptr noundef nonnull %43, i32 noundef 2) #14
+  tail call void %113(ptr noundef nonnull %0, ptr noundef %114, ptr noundef nonnull %43, i32 noundef 2) #15
   %115 = load ptr, ptr %0, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 1784
   %117 = load ptr, ptr %116, align 8
   %118 = load ptr, ptr %49, align 8
-  tail call void %117(ptr noundef nonnull %0, ptr noundef %118, ptr noundef nonnull %51, i32 noundef 2) #14
+  tail call void %117(ptr noundef nonnull %0, ptr noundef %118, ptr noundef nonnull %51, i32 noundef 2) #15
   br label %expandICM.exit
 
 119:                                              ; preds = %31
@@ -1094,11 +1094,11 @@ define internal fastcc range(i32 -1, 1) i32 @allocateArray(ptr noundef %0, ptr n
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %14, align 8
   %136 = load ptr, ptr @g_BCRdataID, align 8
-  %137 = tail call ptr %134(ptr noundef nonnull %0, ptr noundef %135, ptr noundef %136) #14
+  %137 = tail call ptr %134(ptr noundef nonnull %0, ptr noundef %135, ptr noundef %136) #15
   %138 = load ptr, ptr %0, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 1776
   %140 = load ptr, ptr %139, align 8
-  %141 = tail call ptr %140(ptr noundef nonnull %0, ptr noundef %137, ptr noundef null) #14
+  %141 = tail call ptr %140(ptr noundef nonnull %0, ptr noundef %137, ptr noundef null) #15
   %142 = icmp eq ptr %141, null
   br i1 %142, label %expandPackedBCRdefault.exit, label %143
 
@@ -1337,7 +1337,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateArray(ptr noundef %0, ptr n
   %257 = load ptr, ptr %0, align 8
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 1784
   %259 = load ptr, ptr %258, align 8
-  tail call void %259(ptr noundef nonnull %0, ptr noundef %137, ptr noundef nonnull %141, i32 noundef 2) #14
+  tail call void %259(ptr noundef nonnull %0, ptr noundef %137, ptr noundef nonnull %141, i32 noundef 2) #15
   br label %expandPackedBCRdefault.exit
 
 expandPackedBCRdefault.exit:                      ; preds = %124, %131, %.loopexit.i116
@@ -1365,11 +1365,11 @@ expandPackedBCRdefault.exit:                      ; preds = %124, %131, %.loopex
   %270 = load ptr, ptr %269, align 8
   %271 = load ptr, ptr %14, align 8
   %272 = load ptr, ptr @g_SCRdataID, align 8
-  %273 = tail call ptr %270(ptr noundef nonnull %0, ptr noundef %271, ptr noundef %272) #14
+  %273 = tail call ptr %270(ptr noundef nonnull %0, ptr noundef %271, ptr noundef %272) #15
   %274 = load ptr, ptr %0, align 8
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 1776
   %276 = load ptr, ptr %275, align 8
-  %277 = tail call ptr %276(ptr noundef nonnull %0, ptr noundef %273, ptr noundef null) #14
+  %277 = tail call ptr %276(ptr noundef nonnull %0, ptr noundef %273, ptr noundef null) #15
   %278 = icmp eq ptr %277, null
   br i1 %278, label %expandPackedSCRdefault.exit, label %279
 
@@ -1608,7 +1608,7 @@ expandPackedBCRdefault.exit:                      ; preds = %124, %131, %.loopex
   %393 = load ptr, ptr %0, align 8
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 1784
   %395 = load ptr, ptr %394, align 8
-  tail call void %395(ptr noundef nonnull %0, ptr noundef %273, ptr noundef nonnull %277, i32 noundef 2) #14
+  tail call void %395(ptr noundef nonnull %0, ptr noundef %273, ptr noundef nonnull %277, i32 noundef 2) #15
   br label %expandPackedSCRdefault.exit
 
 expandPackedSCRdefault.exit:                      ; preds = %260, %267, %.loopexit.i122
@@ -1638,11 +1638,11 @@ expandPackedSCRdefault.exit:                      ; preds = %260, %267, %.loopex
   %406 = load ptr, ptr %405, align 8
   %407 = load ptr, ptr %14, align 8
   %408 = load ptr, ptr @g_ICRdataID, align 8
-  %409 = tail call ptr %406(ptr noundef nonnull %0, ptr noundef %407, ptr noundef %408) #14
+  %409 = tail call ptr %406(ptr noundef nonnull %0, ptr noundef %407, ptr noundef %408) #15
   %410 = load ptr, ptr %0, align 8
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 1776
   %412 = load ptr, ptr %411, align 8
-  %413 = tail call ptr %412(ptr noundef nonnull %0, ptr noundef %409, ptr noundef null) #14
+  %413 = tail call ptr %412(ptr noundef nonnull %0, ptr noundef %409, ptr noundef null) #15
   %414 = icmp eq ptr %413, null
   br i1 %414, label %expandPackedICRdefault.exit, label %415
 
@@ -1925,7 +1925,7 @@ expandPackedSCRdefault.exit:                      ; preds = %260, %267, %.loopex
   %544 = load ptr, ptr %0, align 8
   %545 = getelementptr inbounds nuw i8, ptr %544, i64 1784
   %546 = load ptr, ptr %545, align 8
-  tail call void %546(ptr noundef nonnull %0, ptr noundef %409, ptr noundef nonnull %413, i32 noundef 2) #14
+  tail call void %546(ptr noundef nonnull %0, ptr noundef %409, ptr noundef nonnull %413, i32 noundef 2) #15
   br label %expandPackedICRdefault.exit
 
 expandPackedICRdefault.exit:                      ; preds = %396, %403, %.loopexit.i186
@@ -1944,7 +1944,7 @@ expandPackedICRdefault.exit:                      ; preds = %396, %403, %.loopex
   %552 = load ptr, ptr %551, align 8
   %553 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %554 = load ptr, ptr %553, align 8
-  %555 = tail call ptr %552(ptr noundef nonnull %0, ptr noundef %554, ptr noundef null) #14
+  %555 = tail call ptr %552(ptr noundef nonnull %0, ptr noundef %554, ptr noundef null) #15
   %556 = icmp eq ptr %555, null
   br i1 %556, label %expandICM.exit, label %557
 
@@ -1954,7 +1954,7 @@ expandPackedICRdefault.exit:                      ; preds = %396, %403, %.loopex
 
 558:                                              ; preds = %557
   %559 = load ptr, ptr @sMlibSysFns, align 8
-  %560 = tail call ptr %559(i32 noundef 1, i32 noundef 4, i32 noundef %16, i32 noundef %18) #14
+  %560 = tail call ptr %559(i32 noundef 1, i32 noundef 4, i32 noundef %16, i32 noundef %18) #15
   store ptr %560, ptr %2, align 8
   %.not110 = icmp ne ptr %560, null
   %561 = icmp sgt i32 %18, 0
@@ -2012,7 +2012,7 @@ expandPackedICRdefault.exit:                      ; preds = %396, %403, %.loopex
   %585 = getelementptr inbounds nuw i8, ptr %584, i64 1784
   %586 = load ptr, ptr %585, align 8
   %587 = load ptr, ptr %553, align 8
-  tail call void %586(ptr noundef nonnull %0, ptr noundef %587, ptr noundef nonnull %555, i32 noundef 2) #14
+  tail call void %586(ptr noundef nonnull %0, ptr noundef %587, ptr noundef nonnull %555, i32 noundef 2) #15
   br label %expandICM.exit
 
 588:                                              ; preds = %557
@@ -2042,7 +2042,7 @@ expandPackedICRdefault.exit:                      ; preds = %396, %403, %.loopex
   %605 = load i32, ptr %604, align 4
   %606 = sext i32 %605 to i64
   %607 = getelementptr inbounds i8, ptr %555, i64 %606
-  %608 = tail call ptr %601(i32 noundef 1, i32 noundef %600, i32 noundef %16, i32 noundef %18, i32 noundef %603, ptr noundef nonnull %607) #14
+  %608 = tail call ptr %601(i32 noundef 1, i32 noundef %600, i32 noundef %16, i32 noundef %18, i32 noundef %603, ptr noundef nonnull %607) #15
   br label %629
 
 609:                                              ; preds = %588
@@ -2061,7 +2061,7 @@ expandPackedICRdefault.exit:                      ; preds = %396, %403, %.loopex
   %620 = load i32, ptr %619, align 8
   %621 = sext i32 %620 to i64
   %622 = getelementptr inbounds i16, ptr %555, i64 %621
-  %623 = tail call ptr %613(i32 noundef 2, i32 noundef %615, i32 noundef %16, i32 noundef %18, i32 noundef %618, ptr noundef nonnull %622) #14
+  %623 = tail call ptr %613(i32 noundef 2, i32 noundef %615, i32 noundef %16, i32 noundef %18, i32 noundef %618, ptr noundef nonnull %622) #15
   br label %629
 
 624:                                              ; preds = %609
@@ -2069,7 +2069,7 @@ expandPackedICRdefault.exit:                      ; preds = %396, %403, %.loopex
   %626 = getelementptr inbounds nuw i8, ptr %625, i64 1784
   %627 = load ptr, ptr %626, align 8
   %628 = load ptr, ptr %553, align 8
-  tail call void %627(ptr noundef nonnull %0, ptr noundef %628, ptr noundef nonnull %555, i32 noundef 2) #14
+  tail call void %627(ptr noundef nonnull %0, ptr noundef %628, ptr noundef nonnull %555, i32 noundef 2) #15
   br label %expandICM.exit
 
 629:                                              ; preds = %599, %612
@@ -2110,7 +2110,7 @@ define internal fastcc void @freeArray(ptr noundef %0, ptr noundef readonly capt
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
-  tail call void %19(ptr noundef nonnull %2) #14
+  tail call void %19(ptr noundef nonnull %2) #15
   br label %20
 
 20:                                               ; preds = %18, %16
@@ -2121,7 +2121,7 @@ define internal fastcc void @freeArray(ptr noundef %0, ptr noundef readonly capt
   %22 = load ptr, ptr %0, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 1784
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull %0, ptr noundef %12, ptr noundef nonnull %3, i32 noundef 2) #14
+  tail call void %24(ptr noundef nonnull %0, ptr noundef %12, ptr noundef nonnull %3, i32 noundef 2) #15
   br label %25
 
 25:                                               ; preds = %21, %20
@@ -2130,7 +2130,7 @@ define internal fastcc void @freeArray(ptr noundef %0, ptr noundef readonly capt
 
 26:                                               ; preds = %25
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
-  tail call void %27(ptr noundef nonnull %5) #14
+  tail call void %27(ptr noundef nonnull %5) #15
   br label %28
 
 28:                                               ; preds = %26, %25
@@ -2141,7 +2141,7 @@ define internal fastcc void @freeArray(ptr noundef %0, ptr noundef readonly capt
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 1784
   %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull %0, ptr noundef %17, ptr noundef nonnull %6, i32 noundef 0) #14
+  tail call void %32(ptr noundef nonnull %0, ptr noundef %17, ptr noundef nonnull %6, i32 noundef 0) #15
   br label %freeDataArray.exit
 
 freeDataArray.exit:                               ; preds = %28, %29
@@ -2165,7 +2165,7 @@ define internal fastcc i32 @storeImageArray(ptr noundef %0, ptr noundef readonly
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %8(ptr noundef nonnull %0, ptr noundef %10) #14
+  %11 = tail call i32 %8(ptr noundef nonnull %0, ptr noundef %10) #15
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 536
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 3
@@ -2185,7 +2185,7 @@ define internal fastcc i32 @storeImageArray(ptr noundef %0, ptr noundef readonly
   br i1 %.not.i, label %24, label %23
 
 23:                                               ; preds = %19
-  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.24) #14
+  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.24) #15
   br label %storeICMarray.exit
 
 24:                                               ; preds = %19
@@ -2225,7 +2225,7 @@ switch.lookup:                                    ; preds = %24
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1776
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %9, align 8
-  %40 = tail call ptr %38(ptr noundef nonnull %0, ptr noundef %39, ptr noundef null) #14
+  %40 = tail call ptr %38(ptr noundef nonnull %0, ptr noundef %39, ptr noundef null) #15
   %41 = icmp eq ptr %40, null
   br i1 %41, label %storeICMarray.exit, label %42
 
@@ -2234,7 +2234,7 @@ switch.lookup:                                    ; preds = %24
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 1776
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %20, align 8
-  %47 = tail call ptr %45(ptr noundef nonnull %0, ptr noundef %46, ptr noundef null) #14
+  %47 = tail call ptr %45(ptr noundef nonnull %0, ptr noundef %46, ptr noundef null) #15
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %54
 
@@ -2243,7 +2243,7 @@ switch.lookup:                                    ; preds = %24
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 1784
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %9, align 8
-  tail call void %52(ptr noundef nonnull %0, ptr noundef %53, ptr noundef nonnull %40, i32 noundef 2) #14
+  tail call void %52(ptr noundef nonnull %0, ptr noundef %53, ptr noundef nonnull %40, i32 noundef 2) #15
   br label %storeICMarray.exit
 
 54:                                               ; preds = %42
@@ -2425,12 +2425,12 @@ colorMatch.exit.i:                                ; preds = %126, %124, %102, %9
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 1784
   %148 = load ptr, ptr %147, align 8
   %149 = load ptr, ptr %20, align 8
-  tail call void %148(ptr noundef nonnull %0, ptr noundef %149, ptr noundef nonnull %47, i32 noundef 2) #14
+  tail call void %148(ptr noundef nonnull %0, ptr noundef %149, ptr noundef nonnull %47, i32 noundef 2) #15
   %150 = load ptr, ptr %0, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 1784
   %152 = load ptr, ptr %151, align 8
   %153 = load ptr, ptr %9, align 8
-  tail call void %152(ptr noundef nonnull %0, ptr noundef %153, ptr noundef nonnull %40, i32 noundef 2) #14
+  tail call void %152(ptr noundef nonnull %0, ptr noundef %153, ptr noundef nonnull %40, i32 noundef 2) #15
   br label %storeICMarray.exit
 
 154:                                              ; preds = %15
@@ -2533,7 +2533,7 @@ colorMatch.exit.i:                                ; preds = %126, %124, %102, %9
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 1776
   %215 = load ptr, ptr %214, align 8
   %216 = load ptr, ptr %9, align 8
-  %217 = tail call ptr %215(ptr noundef nonnull %0, ptr noundef %216, ptr noundef null) #14
+  %217 = tail call ptr %215(ptr noundef nonnull %0, ptr noundef %216, ptr noundef null) #15
   %218 = icmp eq ptr %217, null
   br i1 %218, label %storeICMarray.exit, label %219
 
@@ -2572,7 +2572,7 @@ colorMatch.exit.i:                                ; preds = %126, %124, %102, %9
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 1784
   %240 = load ptr, ptr %239, align 8
   %241 = load ptr, ptr %9, align 8
-  tail call void %240(ptr noundef nonnull %0, ptr noundef %241, ptr noundef nonnull %217, i32 noundef 2) #14
+  tail call void %240(ptr noundef nonnull %0, ptr noundef %241, ptr noundef nonnull %217, i32 noundef 2) #15
   br label %storeICMarray.exit
 
 242:                                              ; preds = %157
@@ -2650,7 +2650,7 @@ colorMatch.exit.i:                                ; preds = %126, %124, %102, %9
 283:                                              ; preds = %280
   %284 = getelementptr i8, ptr %3, i64 24
   %.val.i128 = load ptr, ptr %284, align 8
-  %285 = tail call i32 @awt_setPixels(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %.val.i128) #14
+  %285 = tail call i32 @awt_setPixels(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %.val.i128) #15
   br label %storeICMarray.exit
 
 286:                                              ; preds = %242
@@ -2674,7 +2674,7 @@ define i32 @Java_sun_awt_image_ImagingLib_convolveRaster(ptr noundef %0, ptr nou
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 208
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 %14(ptr noundef nonnull %0, i32 noundef 64) #14
+  %15 = tail call i32 %14(ptr noundef nonnull %0, i32 noundef 64) #15
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %242, label %17
 
@@ -2688,7 +2688,7 @@ define i32 @Java_sun_awt_image_ImagingLib_convolveRaster(ptr noundef %0, ptr nou
 
 19:                                               ; preds = %18
   %20 = load ptr, ptr @start_timer, align 8
-  tail call void %20(i32 noundef 3600) #14
+  tail call void %20(i32 noundef 3600) #15
   br label %21
 
 21:                                               ; preds = %19, %18
@@ -2696,25 +2696,25 @@ define i32 @Java_sun_awt_image_ImagingLib_convolveRaster(ptr noundef %0, ptr nou
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 800
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr @g_KernelWidthID, align 8
-  %26 = tail call i32 %24(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %25) #14
+  %26 = tail call i32 %24(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %25) #15
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 800
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr @g_KernelHeightID, align 8
-  %31 = tail call i32 %29(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %30) #14
+  %31 = tail call i32 %29(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %30) #15
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 760
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr @g_KernelDataID, align 8
-  %36 = tail call ptr %34(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %35) #14
+  %36 = tail call ptr %34(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %35) #15
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1368
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call i32 %39(ptr noundef nonnull %0, ptr noundef %36) #14
+  %40 = tail call i32 %39(ptr noundef nonnull %0, ptr noundef %36) #15
   %41 = load ptr, ptr %0, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 1776
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call ptr %43(ptr noundef nonnull %0, ptr noundef %36, ptr noundef null) #14
+  %44 = tail call ptr %43(ptr noundef nonnull %0, ptr noundef %36, ptr noundef null) #15
   %45 = icmp eq ptr %44, null
   br i1 %45, label %242, label %46
 
@@ -2736,7 +2736,7 @@ define i32 @Java_sun_awt_image_ImagingLib_convolveRaster(ptr noundef %0, ptr nou
   %54 = mul nuw nsw i32 %.0177, %.0178
   %55 = zext nneg i32 %54 to i64
   %56 = shl nuw nsw i64 %55, 3
-  %57 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %56) #15
+  %57 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %56) #16
   %58 = icmp eq ptr %57, null
   br i1 %58, label %.thread, label %62
 
@@ -2744,7 +2744,7 @@ define i32 @Java_sun_awt_image_ImagingLib_convolveRaster(ptr noundef %0, ptr nou
   %59 = load ptr, ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 1784
   %61 = load ptr, ptr %60, align 8
-  tail call void %61(ptr noundef nonnull %0, ptr noundef %36, ptr noundef nonnull %44, i32 noundef 2) #14
+  tail call void %61(ptr noundef nonnull %0, ptr noundef %36, ptr noundef nonnull %44, i32 noundef 2) #15
   br label %242
 
 62:                                               ; preds = %53
@@ -2800,55 +2800,55 @@ define i32 @Java_sun_awt_image_ImagingLib_convolveRaster(ptr noundef %0, ptr nou
   %79 = load ptr, ptr %0, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 1784
   %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef nonnull %0, ptr noundef %36, ptr noundef nonnull %44, i32 noundef 2) #14
+  tail call void %81(ptr noundef nonnull %0, ptr noundef %36, ptr noundef nonnull %44, i32 noundef 2) #15
   %82 = fcmp ogt float %.0181.lcssa, 6.553600e+04
   br i1 %82, label %83, label %84
 
 83:                                               ; preds = %._crit_edge218
-  tail call void @free(ptr noundef nonnull %57) #14
+  tail call void @free(ptr noundef nonnull %57) #15
   br label %242
 
 84:                                               ; preds = %._crit_edge218
-  %85 = tail call noalias dereferenceable_or_null(496) ptr @calloc(i64 noundef 1, i64 noundef 496) #15
+  %85 = tail call noalias dereferenceable_or_null(496) ptr @calloc(i64 noundef 1, i64 noundef 496) #16
   %86 = icmp eq ptr %85, null
   br i1 %86, label %87, label %88
 
 87:                                               ; preds = %84
-  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #14
-  tail call void @free(ptr noundef nonnull %57) #14
+  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #15
+  tail call void @free(ptr noundef nonnull %57) #15
   br label %242
 
 88:                                               ; preds = %84
-  %89 = tail call noalias dereferenceable_or_null(496) ptr @calloc(i64 noundef 1, i64 noundef 496) #15
+  %89 = tail call noalias dereferenceable_or_null(496) ptr @calloc(i64 noundef 1, i64 noundef 496) #16
   %90 = icmp eq ptr %89, null
   br i1 %90, label %91, label %92
 
 91:                                               ; preds = %88
-  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #14
-  tail call void @free(ptr noundef nonnull %85) #14
-  tail call void @free(ptr noundef nonnull %57) #14
+  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #15
+  tail call void @free(ptr noundef nonnull %85) #15
+  tail call void @free(ptr noundef nonnull %57) #15
   br label %242
 
 92:                                               ; preds = %88
-  %93 = tail call i32 @awt_parseRaster(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %85) #14
+  %93 = tail call i32 @awt_parseRaster(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %85) #15
   %94 = icmp slt i32 %93, 1
   br i1 %94, label %95, label %96
 
 95:                                               ; preds = %92
-  tail call void @free(ptr noundef nonnull %85) #14
-  tail call void @free(ptr noundef nonnull %89) #14
-  tail call void @free(ptr noundef nonnull %57) #14
+  tail call void @free(ptr noundef nonnull %85) #15
+  tail call void @free(ptr noundef nonnull %89) #15
+  tail call void @free(ptr noundef nonnull %57) #15
   br label %242
 
 96:                                               ; preds = %92
-  %97 = tail call i32 @awt_parseRaster(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %89) #14
+  %97 = tail call i32 @awt_parseRaster(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %89) #15
   %98 = icmp slt i32 %97, 1
   br i1 %98, label %99, label %100
 
 99:                                               ; preds = %96
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %85, i32 noundef 1) #14
-  tail call void @free(ptr noundef nonnull %89) #14
-  tail call void @free(ptr noundef nonnull %57) #14
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %85, i32 noundef 1) #15
+  tail call void @free(ptr noundef nonnull %89) #15
+  tail call void @free(ptr noundef nonnull %57) #15
   br label %242
 
 100:                                              ; preds = %96
@@ -2857,9 +2857,9 @@ define i32 @Java_sun_awt_image_ImagingLib_convolveRaster(ptr noundef %0, ptr nou
   br i1 %102, label %103, label %104
 
 103:                                              ; preds = %100
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %85, i32 noundef 1) #14
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %89, i32 noundef 1) #14
-  tail call void @free(ptr noundef nonnull %57) #14
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %85, i32 noundef 1) #15
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %89, i32 noundef 1) #15
+  tail call void @free(ptr noundef nonnull %57) #15
   br label %242
 
 104:                                              ; preds = %100
@@ -2877,7 +2877,7 @@ define i32 @Java_sun_awt_image_ImagingLib_convolveRaster(ptr noundef %0, ptr nou
 
 112:                                              ; preds = %107
   %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
-  tail call void %113(ptr noundef nonnull %110) #14
+  tail call void %113(ptr noundef nonnull %110) #15
   br label %114
 
 114:                                              ; preds = %112, %107
@@ -2888,18 +2888,18 @@ define i32 @Java_sun_awt_image_ImagingLib_convolveRaster(ptr noundef %0, ptr nou
   %116 = load ptr, ptr %0, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 1784
   %118 = load ptr, ptr %117, align 8
-  tail call void %118(ptr noundef nonnull %0, ptr noundef %109, ptr noundef nonnull %111, i32 noundef 2) #14
+  tail call void %118(ptr noundef nonnull %0, ptr noundef %109, ptr noundef nonnull %111, i32 noundef 2) #15
   br label %freeDataArray.exit
 
 freeDataArray.exit:                               ; preds = %114, %115
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %85, i32 noundef 1) #14
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %89, i32 noundef 1) #14
-  tail call void @free(ptr noundef nonnull %57) #14
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %85, i32 noundef 1) #15
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %89, i32 noundef 1) #15
+  tail call void @free(ptr noundef nonnull %57) #15
   br label %242
 
 119:                                              ; preds = %104
   %120 = shl nuw nsw i64 %55, 2
-  %121 = tail call noalias ptr @malloc(i64 noundef %120) #16
+  %121 = tail call noalias ptr @malloc(i64 noundef %120) #17
   %122 = icmp eq ptr %121, null
   br i1 %122, label %.thread207, label %131
 
@@ -2913,16 +2913,16 @@ freeDataArray.exit:                               ; preds = %114, %115
   %129 = load ptr, ptr %8, align 8
   %130 = load ptr, ptr %11, align 8
   tail call fastcc void @freeDataArray(ptr noundef nonnull %0, ptr noundef %124, ptr noundef %125, ptr noundef %126, ptr noundef %128, ptr noundef %129, ptr noundef %130)
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %85, i32 noundef 1) #14
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %89, i32 noundef 1) #14
-  tail call void @free(ptr noundef nonnull %57) #14
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %85, i32 noundef 1) #15
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %89, i32 noundef 1) #15
+  tail call void @free(ptr noundef nonnull %57) #15
   br label %242
 
 131:                                              ; preds = %119
   %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibFns, i64 48), align 16
   %133 = load ptr, ptr %7, align 8
   %.val204 = load i32, ptr %133, align 8
-  %134 = call i32 (ptr, ptr, ptr, i32, i32, i32, ...) %132(ptr noundef nonnull %121, ptr noundef nonnull %9, ptr noundef nonnull %57, i32 noundef %.0178, i32 noundef %.0177, i32 noundef %.val204) #14
+  %134 = call i32 (ptr, ptr, ptr, i32, i32, i32, ...) %132(ptr noundef nonnull %121, ptr noundef nonnull %9, ptr noundef nonnull %57, i32 noundef %.0178, i32 noundef %.0177, i32 noundef %.val204) #15
   %.not = icmp eq i32 %134, 0
   br i1 %.not, label %143, label %135
 
@@ -2935,10 +2935,10 @@ freeDataArray.exit:                               ; preds = %114, %115
   %141 = load ptr, ptr %8, align 8
   %142 = load ptr, ptr %11, align 8
   call fastcc void @freeDataArray(ptr noundef nonnull %0, ptr noundef %137, ptr noundef nonnull %133, ptr noundef %138, ptr noundef %140, ptr noundef %141, ptr noundef %142)
-  call void @awt_freeParsedRaster(ptr noundef nonnull %85, i32 noundef 1) #14
-  call void @awt_freeParsedRaster(ptr noundef nonnull %89, i32 noundef 1) #14
-  call void @free(ptr noundef nonnull %57) #14
-  call void @free(ptr noundef nonnull %121) #14
+  call void @awt_freeParsedRaster(ptr noundef nonnull %85, i32 noundef 1) #15
+  call void @awt_freeParsedRaster(ptr noundef nonnull %89, i32 noundef 1) #15
+  call void @free(ptr noundef nonnull %57) #15
+  call void @free(ptr noundef nonnull %121) #15
   br label %242
 
 143:                                              ; preds = %131
@@ -2947,14 +2947,14 @@ freeDataArray.exit:                               ; preds = %114, %115
 
 144:                                              ; preds = %143
   %145 = load ptr, ptr @stderr, align 8
-  %146 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %145, ptr noundef nonnull @.str, i32 noundef %40) #17
+  %146 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %145, ptr noundef nonnull @.str, i32 noundef %40) #18
   %147 = add nsw i32 %31, -1
   br i1 %67, label %.preheader209.lr.ph, label %._crit_edge222.thread269
 
 ._crit_edge222.thread269:                         ; preds = %144
   %148 = load ptr, ptr @stderr, align 8
   %149 = load i32, ptr %9, align 4
-  %150 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef nonnull @.str.3, i32 noundef %149) #17
+  %150 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef nonnull @.str.3, i32 noundef %149) #18
   br label %.loopexit
 
 .preheader209.lr.ph:                              ; preds = %144
@@ -2980,7 +2980,7 @@ freeDataArray.exit:                               ; preds = %114, %115
   %157 = load ptr, ptr @stderr, align 8
   %gep272 = getelementptr double, ptr %invariant.gep271, i64 %indvars.iv.next243
   %158 = load double, ptr %gep272, align 8
-  %159 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %157, ptr noundef nonnull @.str.1, double noundef %158) #17
+  %159 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %157, ptr noundef nonnull @.str.1, double noundef %158) #18
   %160 = icmp sgt i64 %indvars.iv242, 1
   br i1 %160, label %156, label %._crit_edge.us223, !llvm.loop !51
 
@@ -3001,13 +3001,13 @@ freeDataArray.exit:                               ; preds = %114, %115
 .preheader.lr.ph.thread:                          ; preds = %.preheader209
   %165 = load ptr, ptr @stderr, align 8
   %166 = load i32, ptr %9, align 4
-  %167 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %165, ptr noundef nonnull @.str.3, i32 noundef %166) #17
+  %167 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %165, ptr noundef nonnull @.str.3, i32 noundef %166) #18
   br label %.preheader
 
 ._crit_edge222:                                   ; preds = %._crit_edge.us223
   %168 = load ptr, ptr @stderr, align 8
   %169 = load i32, ptr %9, align 4
-  %170 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %168, ptr noundef nonnull @.str.3, i32 noundef %169) #17
+  %170 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %168, ptr noundef nonnull @.str.3, i32 noundef %169) #18
   %171 = zext nneg i32 %26 to i64
   %172 = zext nneg i32 %31 to i64
   %173 = zext nneg i32 %.0178 to i64
@@ -3026,7 +3026,7 @@ freeDataArray.exit:                               ; preds = %114, %115
   %176 = load ptr, ptr @stderr, align 8
   %gep274 = getelementptr i32, ptr %invariant.gep273, i64 %indvars.iv.next249
   %177 = load i32, ptr %gep274, align 4
-  %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %176, ptr noundef nonnull @.str.4, i32 noundef %177) #17
+  %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %176, ptr noundef nonnull @.str.4, i32 noundef %177) #18
   %179 = icmp sgt i64 %indvars.iv248, 1
   br i1 %179, label %175, label %._crit_edge.us226, !llvm.loop !53
 
@@ -3056,7 +3056,7 @@ freeDataArray.exit:                               ; preds = %114, %115
   %191 = load i32, ptr %9, align 4
   %cond.i = icmp eq i32 %5, 1
   %..i = select i1 %cond.i, i32 2, i32 1
-  %192 = call i32 (ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, ...) %187(ptr noundef %188, ptr noundef nonnull %133, ptr noundef nonnull %121, i32 noundef %.0178, i32 noundef %.0177, i32 noundef %189, i32 noundef %190, i32 noundef %191, i32 noundef %186, i32 noundef %..i) #14
+  %192 = call i32 (ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, ...) %187(ptr noundef %188, ptr noundef nonnull %133, ptr noundef nonnull %121, i32 noundef %.0178, i32 noundef %.0177, i32 noundef %189, i32 noundef %190, i32 noundef %191, i32 noundef %186, i32 noundef %..i) #15
   %.not198 = icmp eq i32 %192, 0
   %spec.select = zext i1 %.not198 to i32
   %.b196 = load i1, ptr @s_printIt, align 4
@@ -3156,16 +3156,16 @@ freeDataArray.exit:                               ; preds = %114, %115
   %238 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %239 = load ptr, ptr %238, align 8
   call fastcc void @freeDataArray(ptr noundef nonnull %0, ptr noundef %236, ptr noundef nonnull %133, ptr noundef %237, ptr noundef %239, ptr noundef %188, ptr noundef %227)
-  call void @awt_freeParsedRaster(ptr noundef nonnull %85, i32 noundef 1) #14
-  call void @awt_freeParsedRaster(ptr noundef nonnull %89, i32 noundef 1) #14
-  call void @free(ptr noundef %57) #14
-  call void @free(ptr noundef nonnull %121) #14
+  call void @awt_freeParsedRaster(ptr noundef nonnull %85, i32 noundef 1) #15
+  call void @awt_freeParsedRaster(ptr noundef nonnull %89, i32 noundef 1) #15
+  call void @free(ptr noundef %57) #15
+  call void @free(ptr noundef nonnull %121) #15
   %.b194 = load i1, ptr @s_timeIt, align 4
   br i1 %.b194, label %240, label %242
 
 240:                                              ; preds = %234
   %241 = load ptr, ptr @stop_timer, align 8
-  call void %241(i32 noundef 3600, i32 noundef 1) #14
+  call void %241(i32 noundef 3600, i32 noundef 1) #15
   br label %242
 
 242:                                              ; preds = %234, %240, %21, %17, %6, %135, %.thread207, %freeDataArray.exit, %103, %99, %95, %91, %87, %83, %.thread
@@ -3250,7 +3250,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call i32 %44(ptr noundef nonnull %0, ptr noundef %46) #14
+  %47 = tail call i32 %44(ptr noundef nonnull %0, ptr noundef %46) #15
   %48 = shl nsw i32 %47, 2
   %.not217 = icmp slt i32 %41, %48
   br i1 %.not217, label %49, label %378
@@ -3274,7 +3274,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 1776
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %45, align 8
-  %64 = tail call ptr %62(ptr noundef nonnull %0, ptr noundef %63, ptr noundef null) #14
+  %64 = tail call ptr %62(ptr noundef nonnull %0, ptr noundef %63, ptr noundef null) #15
   %65 = icmp eq ptr %64, null
   br i1 %65, label %378, label %66
 
@@ -3284,7 +3284,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
   %69 = shl nsw i32 %68, 2
   %70 = zext nneg i32 %41 to i64
   %71 = getelementptr inbounds nuw i8, ptr %64, i64 %70
-  %72 = tail call ptr %67(i32 noundef 1, i32 noundef 4, i32 noundef %9, i32 noundef %11, i32 noundef %69, ptr noundef nonnull %71) #14
+  %72 = tail call ptr %67(i32 noundef 1, i32 noundef 4, i32 noundef %9, i32 noundef %11, i32 noundef %69, ptr noundef nonnull %71) #15
   store ptr %72, ptr %2, align 8
   store ptr %64, ptr %3, align 8
   br label %378
@@ -3322,7 +3322,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %96 = load ptr, ptr %95, align 8
-  %97 = tail call i32 %94(ptr noundef nonnull %0, ptr noundef %96) #14
+  %97 = tail call i32 %94(ptr noundef nonnull %0, ptr noundef %96) #15
   %98 = icmp sgt i32 %91, -1
   %.not216 = icmp slt i32 %91, %97
   %or.cond224 = select i1 %98, i1 %.not216, i1 false
@@ -3348,7 +3348,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 1776
   %113 = load ptr, ptr %112, align 8
   %114 = load ptr, ptr %95, align 8
-  %115 = tail call ptr %113(ptr noundef nonnull %0, ptr noundef %114, ptr noundef null) #14
+  %115 = tail call ptr %113(ptr noundef nonnull %0, ptr noundef %114, ptr noundef null) #15
   %116 = icmp eq ptr %115, null
   br i1 %116, label %378, label %117
 
@@ -3358,7 +3358,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
   %120 = load i32, ptr %80, align 8
   %121 = zext nneg i32 %91 to i64
   %122 = getelementptr inbounds nuw i8, ptr %115, i64 %121
-  %123 = tail call ptr %118(i32 noundef 1, i32 noundef %119, i32 noundef %9, i32 noundef %11, i32 noundef %120, ptr noundef nonnull %122) #14
+  %123 = tail call ptr %118(i32 noundef 1, i32 noundef %119, i32 noundef %9, i32 noundef %11, i32 noundef %120, ptr noundef nonnull %122) #15
   store ptr %123, ptr %2, align 8
   store ptr %115, ptr %3, align 8
   br label %378
@@ -3411,7 +3411,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %154 = load ptr, ptr %153, align 8
-  %155 = tail call i32 %152(ptr noundef nonnull %0, ptr noundef %154) #14
+  %155 = tail call i32 %152(ptr noundef nonnull %0, ptr noundef %154) #15
   %156 = shl nsw i32 %155, 1
   %.not215 = icmp slt i32 %149, %156
   br i1 %.not215, label %157, label %378
@@ -3437,7 +3437,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 1776
   %172 = load ptr, ptr %171, align 8
   %173 = load ptr, ptr %153, align 8
-  %174 = tail call ptr %172(ptr noundef nonnull %0, ptr noundef %173, ptr noundef null) #14
+  %174 = tail call ptr %172(ptr noundef nonnull %0, ptr noundef %173, ptr noundef null) #15
   %175 = icmp eq ptr %174, null
   br i1 %175, label %378, label %176
 
@@ -3448,14 +3448,14 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
   %180 = shl nsw i32 %179, 1
   %181 = zext nneg i32 %149 to i64
   %182 = getelementptr inbounds nuw i8, ptr %174, i64 %181
-  %183 = tail call ptr %177(i32 noundef 2, i32 noundef %178, i32 noundef %9, i32 noundef %11, i32 noundef %180, ptr noundef nonnull %182) #14
+  %183 = tail call ptr %177(i32 noundef 2, i32 noundef %178, i32 noundef %9, i32 noundef %11, i32 noundef %180, ptr noundef nonnull %182) #15
   store ptr %183, ptr %2, align 8
   store ptr %174, ptr %3, align 8
   br label %378
 
 184:                                              ; preds = %15
   %185 = load ptr, ptr @sMlibSysFns, align 8
-  %186 = tail call ptr %185(i32 noundef 1, i32 noundef %13, i32 noundef %9, i32 noundef %11) #14
+  %186 = tail call ptr %185(i32 noundef 1, i32 noundef %13, i32 noundef %9, i32 noundef %11) #15
   store ptr %186, ptr %2, align 8
   %187 = icmp eq ptr %186, null
   br i1 %187, label %378, label %188
@@ -3479,11 +3479,11 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
   %196 = load ptr, ptr %195, align 8
   %197 = load ptr, ptr %1, align 8
   %198 = load ptr, ptr @g_BCRdataID, align 8
-  %199 = tail call ptr %196(ptr noundef nonnull %0, ptr noundef %197, ptr noundef %198) #14
+  %199 = tail call ptr %196(ptr noundef nonnull %0, ptr noundef %197, ptr noundef %198) #15
   %200 = load ptr, ptr %0, align 8
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 1776
   %202 = load ptr, ptr %201, align 8
-  %203 = tail call ptr %202(ptr noundef nonnull %0, ptr noundef %199, ptr noundef null) #14
+  %203 = tail call ptr %202(ptr noundef nonnull %0, ptr noundef %199, ptr noundef null) #15
   %204 = icmp eq ptr %203, null
   br i1 %204, label %expandPackedBCR.exit, label %205
 
@@ -3715,7 +3715,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
   %324 = load ptr, ptr %0, align 8
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 1784
   %326 = load ptr, ptr %325, align 8
-  tail call void %326(ptr noundef nonnull %0, ptr noundef %199, ptr noundef nonnull %203, i32 noundef 2) #14
+  tail call void %326(ptr noundef nonnull %0, ptr noundef %199, ptr noundef nonnull %203, i32 noundef 2) #15
   br label %expandPackedBCR.exit
 
 expandPackedBCR.exit:                             ; preds = %189, %193, %.loopexit.i
@@ -3732,7 +3732,7 @@ expandPackedBCR.exit:                             ; preds = %189, %193, %.loopex
 
 331:                                              ; preds = %327
   %332 = load ptr, ptr @sMlibSysFns, align 8
-  %333 = tail call ptr %332(i32 noundef 1, i32 noundef %13, i32 noundef %9, i32 noundef %11) #14
+  %333 = tail call ptr %332(i32 noundef 1, i32 noundef %13, i32 noundef %9, i32 noundef %11) #15
   store ptr %333, ptr %2, align 8
   %334 = icmp eq ptr %333, null
   br i1 %334, label %378, label %335
@@ -3755,7 +3755,7 @@ expandPackedBCR.exit:                             ; preds = %189, %193, %.loopex
 
 343:                                              ; preds = %339
   %344 = load ptr, ptr @sMlibSysFns, align 8
-  %345 = tail call ptr %344(i32 noundef 1, i32 noundef %13, i32 noundef %9, i32 noundef %11) #14
+  %345 = tail call ptr %344(i32 noundef 1, i32 noundef %13, i32 noundef %9, i32 noundef %11) #15
   store ptr %345, ptr %2, align 8
   %346 = icmp eq ptr %345, null
   br i1 %346, label %378, label %347
@@ -3780,7 +3780,7 @@ expandPackedBCR.exit:                             ; preds = %189, %193, %.loopex
 
 354:                                              ; preds = %351
   %355 = load ptr, ptr @sMlibSysFns, align 8
-  %356 = tail call ptr %355(i32 noundef 1, i32 noundef %13, i32 noundef %9, i32 noundef %11) #14
+  %356 = tail call ptr %355(i32 noundef 1, i32 noundef %13, i32 noundef %9, i32 noundef %11) #15
   store ptr %356, ptr %2, align 8
   %357 = icmp eq ptr %356, null
   br i1 %357, label %378, label %358
@@ -3792,19 +3792,19 @@ expandPackedBCR.exit:                             ; preds = %189, %193, %.loopex
 359:                                              ; preds = %358
   %360 = getelementptr i8, ptr %356, i64 24
   %.val226 = load ptr, ptr %360, align 8
-  %361 = tail call i32 @awt_getPixels(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.val226) #14
+  %361 = tail call i32 @awt_getPixels(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.val226) #15
   %362 = icmp slt i32 %361, 0
   br i1 %362, label %363, label %378
 
 363:                                              ; preds = %359
   %364 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
   %365 = load ptr, ptr %2, align 8
-  tail call void %364(ptr noundef %365) #14
+  tail call void %364(ptr noundef %365) #15
   br label %378
 
 366:                                              ; preds = %351
   %367 = load ptr, ptr @sMlibSysFns, align 8
-  %368 = tail call ptr %367(i32 noundef 2, i32 noundef %13, i32 noundef %9, i32 noundef %11) #14
+  %368 = tail call ptr %367(i32 noundef 2, i32 noundef %13, i32 noundef %9, i32 noundef %11) #15
   store ptr %368, ptr %2, align 8
   %369 = icmp eq ptr %368, null
   br i1 %369, label %378, label %370
@@ -3816,14 +3816,14 @@ expandPackedBCR.exit:                             ; preds = %189, %193, %.loopex
 371:                                              ; preds = %370
   %372 = getelementptr i8, ptr %368, i64 24
   %.val = load ptr, ptr %372, align 8
-  %373 = tail call i32 @awt_getPixels(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.val) #14
+  %373 = tail call i32 @awt_getPixels(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.val) #15
   %374 = icmp slt i32 %373, 0
   br i1 %374, label %375, label %378
 
 375:                                              ; preds = %371
   %376 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
   %377 = load ptr, ptr %2, align 8
-  tail call void %376(ptr noundef %377) #14
+  tail call void %376(ptr noundef %377) #15
   br label %378
 
 378:                                              ; preds = %359, %358, %371, %370, %351, %366, %354, %347, %343, %335, %331, %188, %184, %169, %148, %157, %162, %129, %131, %134, %135, %139, %144, %110, %88, %99, %104, %73, %75, %79, %84, %59, %40, %49, %52, %23, %25, %29, %31, %36, %5, %375, %363, %348, %336, %expandPackedBCR.exit, %176, %117, %66
@@ -3838,7 +3838,7 @@ define internal fastcc void @freeDataArray(ptr noundef %0, ptr noundef %1, ptr n
 
 8:                                                ; preds = %7
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
-  tail call void %9(ptr noundef nonnull %2) #14
+  tail call void %9(ptr noundef nonnull %2) #15
   br label %10
 
 10:                                               ; preds = %8, %7
@@ -3849,7 +3849,7 @@ define internal fastcc void @freeDataArray(ptr noundef %0, ptr noundef %1, ptr n
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1784
   %14 = load ptr, ptr %13, align 8
-  tail call void %14(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3, i32 noundef 2) #14
+  tail call void %14(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3, i32 noundef 2) #15
   br label %15
 
 15:                                               ; preds = %11, %10
@@ -3858,7 +3858,7 @@ define internal fastcc void @freeDataArray(ptr noundef %0, ptr noundef %1, ptr n
 
 16:                                               ; preds = %15
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
-  tail call void %17(ptr noundef nonnull %5) #14
+  tail call void %17(ptr noundef nonnull %5) #15
   br label %18
 
 18:                                               ; preds = %16, %15
@@ -3869,7 +3869,7 @@ define internal fastcc void @freeDataArray(ptr noundef %0, ptr noundef %1, ptr n
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1784
   %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %6, i32 noundef 0) #14
+  tail call void %22(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %6, i32 noundef 0) #15
   br label %23
 
 23:                                               ; preds = %19, %18
@@ -3908,7 +3908,7 @@ define internal fastcc range(i32 -2, 1) i32 @storeRasterArray(ptr noundef %0, pt
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %1, align 8
   %22 = load ptr, ptr @g_BCRdataID, align 8
-  %23 = tail call ptr %20(ptr noundef nonnull %0, ptr noundef %21, ptr noundef %22) #14
+  %23 = tail call ptr %20(ptr noundef nonnull %0, ptr noundef %21, ptr noundef %22) #15
   %24 = icmp eq ptr %23, null
   br i1 %24, label %setPackedBCR.exit, label %25
 
@@ -3916,7 +3916,7 @@ define internal fastcc range(i32 -2, 1) i32 @storeRasterArray(ptr noundef %0, pt
   %26 = load ptr, ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 1368
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 %28(ptr noundef nonnull %0, ptr noundef nonnull %23) #14
+  %29 = tail call i32 %28(ptr noundef nonnull %0, ptr noundef nonnull %23) #15
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %31, align 4
@@ -3962,7 +3962,7 @@ define internal fastcc range(i32 -2, 1) i32 @storeRasterArray(ptr noundef %0, pt
   %57 = load ptr, ptr %0, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 1776
   %59 = load ptr, ptr %58, align 8
-  %60 = tail call ptr %59(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef null) #14
+  %60 = tail call ptr %59(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef null) #15
   %61 = icmp eq ptr %60, null
   br i1 %61, label %setPackedBCR.exit, label %62
 
@@ -4089,7 +4089,7 @@ define internal fastcc range(i32 -2, 1) i32 @storeRasterArray(ptr noundef %0, pt
   %122 = load ptr, ptr %0, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 1784
   %124 = load ptr, ptr %123, align 8
-  tail call void %124(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef nonnull %60, i32 noundef 2) #14
+  tail call void %124(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef nonnull %60, i32 noundef 2) #15
   br label %setPackedBCR.exit
 
 setPackedBCR.exit:                                ; preds = %12, %17, %25, %36, %41, %43, %48, %56, %._crit_edge148.i
@@ -4120,7 +4120,7 @@ setPackedBCR.exit:                                ; preds = %12, %17, %25, %36, 
   %137 = load ptr, ptr %136, align 8
   %138 = load ptr, ptr %1, align 8
   %139 = load ptr, ptr @g_SCRdataID, align 8
-  %140 = tail call ptr %137(ptr noundef nonnull %0, ptr noundef %138, ptr noundef %139) #14
+  %140 = tail call ptr %137(ptr noundef nonnull %0, ptr noundef %138, ptr noundef %139) #15
   %141 = icmp eq ptr %140, null
   br i1 %141, label %setPackedSCR.exit, label %142
 
@@ -4128,7 +4128,7 @@ setPackedBCR.exit:                                ; preds = %12, %17, %25, %36, 
   %143 = load ptr, ptr %0, align 8
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 1368
   %145 = load ptr, ptr %144, align 8
-  %146 = tail call i32 %145(ptr noundef nonnull %0, ptr noundef nonnull %140) #14
+  %146 = tail call i32 %145(ptr noundef nonnull %0, ptr noundef nonnull %140) #15
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %148 = load ptr, ptr %147, align 8
   %149 = load i32, ptr %148, align 4
@@ -4174,7 +4174,7 @@ setPackedBCR.exit:                                ; preds = %12, %17, %25, %36, 
   %174 = load ptr, ptr %0, align 8
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 1776
   %176 = load ptr, ptr %175, align 8
-  %177 = tail call ptr %176(ptr noundef nonnull %0, ptr noundef nonnull %140, ptr noundef null) #14
+  %177 = tail call ptr %176(ptr noundef nonnull %0, ptr noundef nonnull %140, ptr noundef null) #15
   %178 = icmp eq ptr %177, null
   br i1 %178, label %setPackedSCR.exit, label %179
 
@@ -4314,7 +4314,7 @@ setPackedBCR.exit:                                ; preds = %12, %17, %25, %36, 
   %247 = load ptr, ptr %0, align 8
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 1784
   %249 = load ptr, ptr %248, align 8
-  tail call void %249(ptr noundef nonnull %0, ptr noundef nonnull %140, ptr noundef nonnull %177, i32 noundef 2) #14
+  tail call void %249(ptr noundef nonnull %0, ptr noundef nonnull %140, ptr noundef nonnull %177, i32 noundef 2) #15
   br label %setPackedSCR.exit
 
 setPackedSCR.exit:                                ; preds = %129, %134, %142, %153, %158, %160, %165, %173, %._crit_edge147.i
@@ -4345,7 +4345,7 @@ setPackedSCR.exit:                                ; preds = %129, %134, %142, %1
   %262 = load ptr, ptr %261, align 8
   %263 = load ptr, ptr %1, align 8
   %264 = load ptr, ptr @g_ICRdataID, align 8
-  %265 = tail call ptr %262(ptr noundef nonnull %0, ptr noundef %263, ptr noundef %264) #14
+  %265 = tail call ptr %262(ptr noundef nonnull %0, ptr noundef %263, ptr noundef %264) #15
   %266 = icmp eq ptr %265, null
   br i1 %266, label %setPackedICR.exit, label %267
 
@@ -4353,7 +4353,7 @@ setPackedSCR.exit:                                ; preds = %129, %134, %142, %1
   %268 = load ptr, ptr %0, align 8
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 1368
   %270 = load ptr, ptr %269, align 8
-  %271 = tail call i32 %270(ptr noundef nonnull %0, ptr noundef nonnull %265) #14
+  %271 = tail call i32 %270(ptr noundef nonnull %0, ptr noundef nonnull %265) #15
   %272 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %273 = load ptr, ptr %272, align 8
   %274 = load i32, ptr %273, align 4
@@ -4399,7 +4399,7 @@ setPackedSCR.exit:                                ; preds = %129, %134, %142, %1
   %299 = load ptr, ptr %0, align 8
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 1776
   %301 = load ptr, ptr %300, align 8
-  %302 = tail call ptr %301(ptr noundef nonnull %0, ptr noundef nonnull %265, ptr noundef null) #14
+  %302 = tail call ptr %301(ptr noundef nonnull %0, ptr noundef nonnull %265, ptr noundef null) #15
   %303 = icmp eq ptr %302, null
   br i1 %303, label %setPackedICR.exit, label %304
 
@@ -4538,7 +4538,7 @@ setPackedSCR.exit:                                ; preds = %129, %134, %142, %1
   %371 = load ptr, ptr %0, align 8
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 1784
   %373 = load ptr, ptr %372, align 8
-  tail call void %373(ptr noundef nonnull %0, ptr noundef nonnull %265, ptr noundef nonnull %302, i32 noundef 2) #14
+  tail call void %373(ptr noundef nonnull %0, ptr noundef nonnull %265, ptr noundef nonnull %302, i32 noundef 2) #15
   br label %setPackedICR.exit
 
 setPackedICR.exit:                                ; preds = %254, %259, %267, %278, %283, %285, %290, %298, %._crit_edge147.i47
@@ -4600,7 +4600,7 @@ define internal fastcc i32 @setPixelsFormMlibImage(ptr noundef %0, ptr noundef %
 25:                                               ; preds = %23, %23, %21
   %26 = getelementptr i8, ptr %2, i64 24
   %.val = load ptr, ptr %26, align 8
-  %27 = tail call i32 @awt_setPixels(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.val) #14
+  %27 = tail call i32 @awt_setPixels(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.val) #15
   br label %28
 
 28:                                               ; preds = %18, %23, %21, %13, %3, %8, %25
@@ -4621,7 +4621,7 @@ define range(i32 -1, 2) i32 @Java_sun_awt_image_ImagingLib_transformBI(ptr nound
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 208
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 %17(ptr noundef nonnull %0, i32 noundef 64) #14
+  %18 = tail call i32 %17(ptr noundef nonnull %0, i32 noundef 64) #15
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %219, label %20
 
@@ -4635,7 +4635,7 @@ define range(i32 -1, 2) i32 @Java_sun_awt_image_ImagingLib_transformBI(ptr nound
 
 22:                                               ; preds = %21
   %23 = load ptr, ptr @start_timer, align 8
-  tail call void %23(i32 noundef 3600) #14
+  tail call void %23(i32 noundef 3600) #15
   br label %24
 
 24:                                               ; preds = %22, %21
@@ -4644,14 +4644,14 @@ define range(i32 -1, 2) i32 @Java_sun_awt_image_ImagingLib_transformBI(ptr nound
   br i1 %25, label %switch.lookup, label %26
 
 26:                                               ; preds = %24
-  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #14
+  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #15
   br label %219
 
 switch.lookup:                                    ; preds = %24
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1368
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call i32 %29(ptr noundef nonnull %0, ptr noundef %4) #14
+  %30 = tail call i32 %29(ptr noundef nonnull %0, ptr noundef %4) #15
   %31 = icmp slt i32 %30, 6
   br i1 %31, label %219, label %32
 
@@ -4659,7 +4659,7 @@ switch.lookup:                                    ; preds = %24
   %33 = load ptr, ptr %0, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 1776
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call ptr %35(ptr noundef nonnull %0, ptr noundef %4, ptr noundef null) #14
+  %36 = tail call ptr %35(ptr noundef nonnull %0, ptr noundef %4, ptr noundef null) #15
   %37 = icmp eq ptr %36, null
   br i1 %37, label %219, label %.preheader
 
@@ -4680,7 +4680,7 @@ switch.lookup:                                    ; preds = %24
   %43 = load ptr, ptr %0, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 1784
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %36, i32 noundef 2) #14
+  tail call void %45(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %36, i32 noundef 2) #15
   br label %219
 
 46:                                               ; preds = %38
@@ -4728,19 +4728,19 @@ switch.lookup:                                    ; preds = %24
   %77 = load ptr, ptr %0, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 1784
   %79 = load ptr, ptr %78, align 8
-  tail call void %79(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %36, i32 noundef 2) #14
-  %80 = call i32 @awt_parseImage(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %12, i32 noundef 0) #14
+  tail call void %79(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %36, i32 noundef 2) #15
+  %80 = call i32 @awt_parseImage(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %12, i32 noundef 0) #15
   %81 = icmp slt i32 %80, 1
   br i1 %81, label %219, label %82
 
 82:                                               ; preds = %60
-  %83 = call i32 @awt_parseImage(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %13, i32 noundef 0) #14
+  %83 = call i32 @awt_parseImage(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %13, i32 noundef 0) #15
   %84 = icmp slt i32 %83, 1
   %85 = load ptr, ptr %12, align 8
   br i1 %84, label %86, label %87
 
 86:                                               ; preds = %82
-  call void @awt_freeParsedImage(ptr noundef %85, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %85, i32 noundef 1) #15
   br label %219
 
 87:                                               ; preds = %82
@@ -4776,9 +4776,9 @@ switch.lookup:                                    ; preds = %24
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %104
-  call void @awt_freeParsedImage(ptr noundef nonnull %85, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef nonnull %85, i32 noundef 1) #15
   %109 = load ptr, ptr %13, align 8
-  call void @awt_freeParsedImage(ptr noundef %109, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %109, i32 noundef 1) #15
   br label %219
 
 110:                                              ; preds = %104
@@ -4792,9 +4792,9 @@ switch.lookup:                                    ; preds = %24
 
 117:                                              ; preds = %110
   %118 = load ptr, ptr %12, align 8
-  call void @awt_freeParsedImage(ptr noundef %118, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %118, i32 noundef 1) #15
   %119 = load ptr, ptr %13, align 8
-  call void @awt_freeParsedImage(ptr noundef %119, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %119, i32 noundef 1) #15
   br label %219
 
 120:                                              ; preds = %110
@@ -4824,7 +4824,7 @@ switch.lookup:                                    ; preds = %24
 
 135:                                              ; preds = %133
   %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
-  call void %136(ptr noundef nonnull %128) #14
+  call void %136(ptr noundef nonnull %128) #15
   br label %137
 
 137:                                              ; preds = %135, %133
@@ -4835,14 +4835,14 @@ switch.lookup:                                    ; preds = %24
   %139 = load ptr, ptr %0, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 1784
   %141 = load ptr, ptr %140, align 8
-  call void %141(ptr noundef nonnull %0, ptr noundef %134, ptr noundef nonnull %129, i32 noundef 2) #14
+  call void %141(ptr noundef nonnull %0, ptr noundef %134, ptr noundef nonnull %129, i32 noundef 2) #15
   br label %freeArray.exit
 
 freeArray.exit:                                   ; preds = %137, %138
   %142 = load ptr, ptr %12, align 8
-  call void @awt_freeParsedImage(ptr noundef %142, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %142, i32 noundef 1) #15
   %143 = load ptr, ptr %13, align 8
-  call void @awt_freeParsedImage(ptr noundef %143, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %143, i32 noundef 1) #15
   br label %219
 
 144:                                              ; preds = %120
@@ -4871,7 +4871,7 @@ freeArray.exit:                                   ; preds = %137, %138
 158:                                              ; preds = %149, %144
   %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibFns, i64 16), align 16
   %160 = load ptr, ptr %7, align 8
-  %161 = call i32 (ptr, ptr, ptr, i32, i32, ...) %159(ptr noundef %.pre100, ptr noundef %160, ptr noundef nonnull %9, i32 noundef %switch.tableidx, i32 noundef 5) #14
+  %161 = call i32 (ptr, ptr, ptr, i32, i32, ...) %159(ptr noundef %.pre100, ptr noundef %160, ptr noundef nonnull %9, i32 noundef %switch.tableidx, i32 noundef 5) #15
   %.not = icmp eq i32 %161, 0
   br i1 %.not, label %169, label %162
 
@@ -4882,9 +4882,9 @@ freeArray.exit:                                   ; preds = %137, %138
   %166 = load ptr, ptr %11, align 8
   call fastcc void @freeArray(ptr noundef nonnull %0, ptr noundef %163, ptr noundef %160, ptr noundef %164, ptr noundef %165, ptr noundef %.pre100, ptr noundef %166)
   %167 = load ptr, ptr %12, align 8
-  call void @awt_freeParsedImage(ptr noundef %167, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %167, i32 noundef 1) #15
   %168 = load ptr, ptr %13, align 8
-  call void @awt_freeParsedImage(ptr noundef %168, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %168, i32 noundef 1) #15
   br label %219
 
 169:                                              ; preds = %158
@@ -4963,7 +4963,7 @@ freeArray.exit:                                   ; preds = %137, %138
 
 199:                                              ; preds = %195
   %200 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
-  call void %200(ptr noundef nonnull %160) #14
+  call void %200(ptr noundef nonnull %160) #15
   br label %201
 
 201:                                              ; preds = %199, %195
@@ -4974,7 +4974,7 @@ freeArray.exit:                                   ; preds = %137, %138
   %203 = load ptr, ptr %0, align 8
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 1784
   %205 = load ptr, ptr %204, align 8
-  call void %205(ptr noundef nonnull %0, ptr noundef %197, ptr noundef nonnull %198, i32 noundef 2) #14
+  call void %205(ptr noundef nonnull %0, ptr noundef %197, ptr noundef nonnull %198, i32 noundef 2) #15
   br label %freeDataArray.exit
 
 freeDataArray.exit:                               ; preds = %201, %202
@@ -4987,7 +4987,7 @@ freeDataArray.exit:                               ; preds = %201, %202
 
 210:                                              ; preds = %freeDataArray.exit
   %211 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
-  call void %211(ptr noundef nonnull %.pre100) #14
+  call void %211(ptr noundef nonnull %.pre100) #15
   br label %freeDataArray.exit87
 
 212:                                              ; preds = %191
@@ -5000,15 +5000,15 @@ freeDataArray.exit87:                             ; preds = %210, %freeDataArray
   %.169.shrunk = phi i1 [ true, %212 ], [ %209, %freeDataArray.exit ], [ %209, %210 ]
   %.169 = zext i1 %.169.shrunk to i32
   %215 = load ptr, ptr %12, align 8
-  call void @awt_freeParsedImage(ptr noundef %215, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %215, i32 noundef 1) #15
   %216 = load ptr, ptr %13, align 8
-  call void @awt_freeParsedImage(ptr noundef %216, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %216, i32 noundef 1) #15
   %.b76 = load i1, ptr @s_timeIt, align 4
   br i1 %.b76, label %217, label %219
 
 217:                                              ; preds = %freeDataArray.exit87
   %218 = load ptr, ptr @stop_timer, align 8
-  call void %218(i32 noundef 3600, i32 noundef 1) #14
+  call void %218(i32 noundef 3600, i32 noundef 1) #15
   br label %219
 
 219:                                              ; preds = %freeDataArray.exit87, %217, %60, %32, %switch.lookup, %20, %6, %162, %freeArray.exit, %117, %108, %86, %42, %26
@@ -5031,7 +5031,7 @@ define i32 @Java_sun_awt_image_ImagingLib_transformRaster(ptr noundef %0, ptr no
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 208
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 %14(ptr noundef nonnull %0, i32 noundef 64) #14
+  %15 = tail call i32 %14(ptr noundef nonnull %0, i32 noundef 64) #15
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %163, label %17
 
@@ -5045,7 +5045,7 @@ define i32 @Java_sun_awt_image_ImagingLib_transformRaster(ptr noundef %0, ptr no
 
 19:                                               ; preds = %18
   %20 = load ptr, ptr @start_timer, align 8
-  tail call void %20(i32 noundef 3600) #14
+  tail call void %20(i32 noundef 3600) #15
   br label %21
 
 21:                                               ; preds = %19, %18
@@ -5054,52 +5054,52 @@ define i32 @Java_sun_awt_image_ImagingLib_transformRaster(ptr noundef %0, ptr no
   br i1 %22, label %switch.lookup, label %23
 
 23:                                               ; preds = %21
-  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #14
+  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #15
   br label %163
 
 switch.lookup:                                    ; preds = %21
-  %24 = tail call noalias dereferenceable_or_null(496) ptr @calloc(i64 noundef 1, i64 noundef 496) #15
+  %24 = tail call noalias dereferenceable_or_null(496) ptr @calloc(i64 noundef 1, i64 noundef 496) #16
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %switch.lookup
-  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #14
+  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #15
   br label %163
 
 27:                                               ; preds = %switch.lookup
-  %28 = tail call noalias dereferenceable_or_null(496) ptr @calloc(i64 noundef 1, i64 noundef 496) #15
+  %28 = tail call noalias dereferenceable_or_null(496) ptr @calloc(i64 noundef 1, i64 noundef 496) #16
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %27
-  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #14
-  tail call void @free(ptr noundef nonnull %24) #14
+  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #15
+  tail call void @free(ptr noundef nonnull %24) #15
   br label %163
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1368
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call i32 %34(ptr noundef nonnull %0, ptr noundef %4) #14
+  %35 = tail call i32 %34(ptr noundef nonnull %0, ptr noundef %4) #15
   %36 = icmp slt i32 %35, 6
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %31
-  tail call void @free(ptr noundef nonnull %24) #14
-  tail call void @free(ptr noundef nonnull %28) #14
+  tail call void @free(ptr noundef nonnull %24) #15
+  tail call void @free(ptr noundef nonnull %28) #15
   br label %163
 
 38:                                               ; preds = %31
   %39 = load ptr, ptr %0, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1776
   %41 = load ptr, ptr %40, align 8
-  %42 = tail call ptr %41(ptr noundef nonnull %0, ptr noundef %4, ptr noundef null) #14
+  %42 = tail call ptr %41(ptr noundef nonnull %0, ptr noundef %4, ptr noundef null) #15
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %.preheader
 
 44:                                               ; preds = %38
-  tail call void @free(ptr noundef nonnull %24) #14
-  tail call void @free(ptr noundef nonnull %28) #14
+  tail call void @free(ptr noundef nonnull %24) #15
+  tail call void @free(ptr noundef nonnull %28) #15
   br label %163
 
 45:                                               ; preds = %.preheader
@@ -5119,9 +5119,9 @@ switch.lookup:                                    ; preds = %21
   %50 = load ptr, ptr %0, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 1784
   %52 = load ptr, ptr %51, align 8
-  tail call void %52(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %42, i32 noundef 2) #14
-  tail call void @free(ptr noundef %24) #14
-  tail call void @free(ptr noundef %28) #14
+  tail call void %52(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %42, i32 noundef 2) #15
+  tail call void @free(ptr noundef %24) #15
+  tail call void @free(ptr noundef %28) #15
   br label %163
 
 53:                                               ; preds = %45
@@ -5169,24 +5169,24 @@ switch.lookup:                                    ; preds = %21
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 1784
   %86 = load ptr, ptr %85, align 8
-  tail call void %86(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %42, i32 noundef 2) #14
-  %87 = tail call i32 @awt_parseRaster(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %24) #14
+  tail call void %86(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %42, i32 noundef 2) #15
+  %87 = tail call i32 @awt_parseRaster(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %24) #15
   %88 = icmp slt i32 %87, 1
   br i1 %88, label %89, label %90
 
 89:                                               ; preds = %67
-  tail call void @free(ptr noundef nonnull %24) #14
-  tail call void @free(ptr noundef %28) #14
+  tail call void @free(ptr noundef nonnull %24) #15
+  tail call void @free(ptr noundef %28) #15
   br label %163
 
 90:                                               ; preds = %67
-  %91 = tail call i32 @awt_parseRaster(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %28) #14
+  %91 = tail call i32 @awt_parseRaster(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %28) #15
   %92 = icmp slt i32 %91, 1
   br i1 %92, label %93, label %94
 
 93:                                               ; preds = %90
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %24, i32 noundef 1) #14
-  tail call void @free(ptr noundef nonnull %28) #14
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %24, i32 noundef 1) #15
+  tail call void @free(ptr noundef nonnull %28) #15
   br label %163
 
 94:                                               ; preds = %90
@@ -5195,8 +5195,8 @@ switch.lookup:                                    ; preds = %21
   br i1 %96, label %97, label %98
 
 97:                                               ; preds = %94
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %24, i32 noundef 1) #14
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %28, i32 noundef 1) #14
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %24, i32 noundef 1) #15
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %28, i32 noundef 1) #15
   br label %163
 
 98:                                               ; preds = %94
@@ -5214,7 +5214,7 @@ switch.lookup:                                    ; preds = %21
 
 106:                                              ; preds = %101
   %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
-  tail call void %107(ptr noundef nonnull %104) #14
+  tail call void %107(ptr noundef nonnull %104) #15
   br label %108
 
 108:                                              ; preds = %106, %101
@@ -5225,12 +5225,12 @@ switch.lookup:                                    ; preds = %21
   %110 = load ptr, ptr %0, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 1784
   %112 = load ptr, ptr %111, align 8
-  tail call void %112(ptr noundef nonnull %0, ptr noundef %103, ptr noundef nonnull %105, i32 noundef 2) #14
+  tail call void %112(ptr noundef nonnull %0, ptr noundef %103, ptr noundef nonnull %105, i32 noundef 2) #15
   br label %freeDataArray.exit
 
 freeDataArray.exit:                               ; preds = %108, %109
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %24, i32 noundef 1) #14
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %28, i32 noundef 1) #14
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %24, i32 noundef 1) #15
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %28, i32 noundef 1) #15
   br label %163
 
 113:                                              ; preds = %98
@@ -5246,7 +5246,7 @@ freeDataArray.exit:                               ; preds = %108, %109
   tail call void @llvm.memset.p0.i64(ptr align 1 %.val108, i8 0, i64 %119, i1 false)
   %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibFns, i64 16), align 16
   %121 = load ptr, ptr %7, align 8
-  %122 = call i32 (ptr, ptr, ptr, i32, i32, ...) %120(ptr noundef %114, ptr noundef %121, ptr noundef nonnull %9, i32 noundef %switch.tableidx, i32 noundef 5) #14
+  %122 = call i32 (ptr, ptr, ptr, i32, i32, ...) %120(ptr noundef %114, ptr noundef %121, ptr noundef nonnull %9, i32 noundef %switch.tableidx, i32 noundef 5) #15
   %.not = icmp eq i32 %122, 0
   br i1 %.not, label %123, label %163
 
@@ -5324,7 +5324,7 @@ freeDataArray.exit:                               ; preds = %108, %109
   %151 = load ptr, ptr %0, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 136
   %153 = load ptr, ptr %152, align 8
-  call void %153(ptr noundef nonnull %0) #14
+  call void %153(ptr noundef nonnull %0) #15
   %154 = call fastcc i32 @setPixelsFormMlibImage(ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef nonnull %114)
   br label %155
 
@@ -5336,14 +5336,14 @@ freeDataArray.exit:                               ; preds = %108, %109
   %159 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %160 = load ptr, ptr %159, align 8
   call fastcc void @freeDataArray(ptr noundef nonnull %0, ptr noundef %157, ptr noundef %121, ptr noundef %158, ptr noundef %160, ptr noundef nonnull %114, ptr noundef %145)
-  call void @awt_freeParsedRaster(ptr noundef nonnull %24, i32 noundef 1) #14
-  call void @awt_freeParsedRaster(ptr noundef nonnull %28, i32 noundef 1) #14
+  call void @awt_freeParsedRaster(ptr noundef nonnull %24, i32 noundef 1) #15
+  call void @awt_freeParsedRaster(ptr noundef nonnull %28, i32 noundef 1) #15
   %.b101 = load i1, ptr @s_timeIt, align 4
   br i1 %.b101, label %161, label %163
 
 161:                                              ; preds = %155
   %162 = load ptr, ptr @stop_timer, align 8
-  call void %162(i32 noundef 3600, i32 noundef 1) #14
+  call void %162(i32 noundef 3600, i32 noundef 1) #15
   br label %163
 
 163:                                              ; preds = %155, %161, %113, %17, %6, %freeDataArray.exit, %97, %93, %89, %49, %44, %37, %30, %26, %23
@@ -5364,7 +5364,7 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_lookupByteBI(ptr nound
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 208
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef nonnull %0, i32 noundef 64) #14
+  %17 = tail call i32 %16(ptr noundef nonnull %0, i32 noundef 64) #15
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %218, label %19
 
@@ -5378,22 +5378,22 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_lookupByteBI(ptr nound
 
 21:                                               ; preds = %20
   %22 = load ptr, ptr @start_timer, align 8
-  tail call void %22(i32 noundef 3600) #14
+  tail call void %22(i32 noundef 3600) #15
   br label %23
 
 23:                                               ; preds = %21, %20
-  %24 = call i32 @awt_parseImage(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %11, i32 noundef 0) #14
+  %24 = call i32 @awt_parseImage(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %11, i32 noundef 0) #15
   %25 = icmp slt i32 %24, 1
   br i1 %25, label %218, label %26
 
 26:                                               ; preds = %23
-  %27 = call i32 @awt_parseImage(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %12, i32 noundef 0) #14
+  %27 = call i32 @awt_parseImage(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %12, i32 noundef 0) #15
   %28 = icmp slt i32 %27, 1
   %29 = load ptr, ptr %11, align 8
   br i1 %28, label %30, label %31
 
 30:                                               ; preds = %26
-  call void @awt_freeParsedImage(ptr noundef %29, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %29, i32 noundef 1) #15
   br label %218
 
 31:                                               ; preds = %26
@@ -5409,9 +5409,9 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_lookupByteBI(ptr nound
   br i1 %38, label %39, label %.lr.ph
 
 39:                                               ; preds = %35, %31
-  call void @awt_freeParsedImage(ptr noundef %29, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %29, i32 noundef 1) #15
   %40 = load ptr, ptr %12, align 8
-  call void @awt_freeParsedImage(ptr noundef %40, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %40, i32 noundef 1) #15
   br label %218
 
 .lr.ph:                                           ; preds = %35
@@ -5439,16 +5439,16 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_lookupByteBI(ptr nound
   br i1 %or.cond160, label %45, label %50
 
 50:                                               ; preds = %46
-  call void @awt_freeParsedImage(ptr noundef nonnull %29, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef nonnull %29, i32 noundef 1) #15
   %51 = load ptr, ptr %12, align 8
-  call void @awt_freeParsedImage(ptr noundef %51, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %51, i32 noundef 1) #15
   br label %218
 
 ._crit_edge:                                      ; preds = %45
   %52 = load ptr, ptr %0, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 1368
   %54 = load ptr, ptr %53, align 8
-  %55 = call i32 %54(ptr noundef nonnull %0, ptr noundef %4) #14
+  %55 = call i32 %54(ptr noundef nonnull %0, ptr noundef %4) #15
   %spec.select161 = call i32 @llvm.smin.i32(i32 %55, i32 %spec.select)
   %56 = icmp ult i32 %spec.select, 238609295
   br i1 %56, label %57, label %.thread178
@@ -5456,7 +5456,7 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_lookupByteBI(ptr nound
 57:                                               ; preds = %._crit_edge
   %58 = shl nuw nsw i32 %spec.select, 3
   %59 = zext nneg i32 %58 to i64
-  %60 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %59) #15
+  %60 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %59) #16
   %61 = add i32 %spec.select161, -1
   %or.cond162 = icmp ult i32 %61, 85899345
   br i1 %or.cond162, label %64, label %.thread
@@ -5474,7 +5474,7 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_lookupByteBI(ptr nound
   %.0136181 = phi ptr [ null, %.thread178 ], [ %60, %57 ]
   %narrow = mul nuw nsw i32 %spec.select161, 24
   %65 = zext nneg i32 %narrow to i64
-  %66 = call noalias ptr @malloc(i64 noundef %65) #16
+  %66 = call noalias ptr @malloc(i64 noundef %65) #17
   %67 = icmp eq ptr %.0136181, null
   %68 = icmp eq ptr %66, null
   %or.cond = or i1 %67, %68
@@ -5488,7 +5488,7 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_lookupByteBI(ptr nound
   br i1 %67, label %71, label %70
 
 70:                                               ; preds = %69
-  call void @free(ptr noundef nonnull %.0136181) #14
+  call void @free(ptr noundef nonnull %.0136181) #15
   br i1 %68, label %.thread174, label %.thread174.sink.split
 
 71:                                               ; preds = %69
@@ -5496,15 +5496,15 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_lookupByteBI(ptr nound
 
 .thread174.sink.split:                            ; preds = %71, %70, %.thread
   %.sink = phi ptr [ %60, %.thread ], [ %66, %70 ], [ %66, %71 ]
-  call void @free(ptr noundef nonnull %.sink) #14
+  call void @free(ptr noundef nonnull %.sink) #15
   br label %.thread174
 
 .thread174:                                       ; preds = %.thread174.sink.split, %.thread178, %.thread, %70, %71
   %72 = load ptr, ptr %11, align 8
-  call void @awt_freeParsedImage(ptr noundef %72, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %72, i32 noundef 1) #15
   %73 = load ptr, ptr %12, align 8
-  call void @awt_freeParsedImage(ptr noundef %73, i32 noundef 1) #14
-  call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #14
+  call void @awt_freeParsedImage(ptr noundef %73, i32 noundef 1) #15
+  call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #15
   br label %218
 
 74:                                               ; preds = %81
@@ -5518,7 +5518,7 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_lookupByteBI(ptr nound
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 1384
   %77 = load ptr, ptr %76, align 8
   %78 = trunc nuw nsw i64 %indvars.iv223 to i32
-  %79 = call ptr %77(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %78) #14
+  %79 = call ptr %77(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %78) #15
   %80 = getelementptr inbounds nuw %struct.LookupArrayInfo, ptr %66, i64 %indvars.iv223
   store ptr %79, ptr %80, align 8
   %.not156 = icmp eq ptr %79, null
@@ -5528,7 +5528,7 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_lookupByteBI(ptr nound
   %82 = load ptr, ptr %0, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 1368
   %84 = load ptr, ptr %83, align 8
-  %85 = call i32 %84(ptr noundef nonnull %0, ptr noundef nonnull %79) #14
+  %85 = call i32 %84(ptr noundef nonnull %0, ptr noundef nonnull %79) #15
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i32 %85, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %80, i64 16
@@ -5543,12 +5543,12 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_lookupByteBI(ptr nound
   br label %.thread177
 
 .thread177:                                       ; preds = %.lr.ph200, %89
-  call void @free(ptr noundef %.0136181) #14
-  call void @free(ptr noundef nonnull %66) #14
+  call void @free(ptr noundef %.0136181) #15
+  call void @free(ptr noundef nonnull %66) #15
   %91 = load ptr, ptr %11, align 8
-  call void @awt_freeParsedImage(ptr noundef %91, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %91, i32 noundef 1) #15
   %92 = load ptr, ptr %12, align 8
-  call void @awt_freeParsedImage(ptr noundef %92, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %92, i32 noundef 1) #15
   br label %218
 
 ._crit_edge201:                                   ; preds = %74
@@ -5558,12 +5558,12 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_lookupByteBI(ptr nound
   br i1 %95, label %96, label %99
 
 96:                                               ; preds = %._crit_edge201
-  call void @free(ptr noundef %.0136181) #14
-  call void @free(ptr noundef nonnull %66) #14
+  call void @free(ptr noundef %.0136181) #15
+  call void @free(ptr noundef nonnull %66) #15
   %97 = load ptr, ptr %11, align 8
-  call void @awt_freeParsedImage(ptr noundef %97, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %97, i32 noundef 1) #15
   %98 = load ptr, ptr %12, align 8
-  call void @awt_freeParsedImage(ptr noundef %98, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %98, i32 noundef 1) #15
   br label %218
 
 99:                                               ; preds = %._crit_edge201
@@ -5573,8 +5573,8 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_lookupByteBI(ptr nound
   br i1 %102, label %103, label %121
 
 103:                                              ; preds = %99
-  call void @free(ptr noundef %.0136181) #14
-  call void @free(ptr noundef nonnull %66) #14
+  call void @free(ptr noundef %.0136181) #15
+  call void @free(ptr noundef nonnull %66) #15
   %104 = load ptr, ptr %11, align 8
   %105 = load ptr, ptr %6, align 8
   %106 = load ptr, ptr %8, align 8
@@ -5593,7 +5593,7 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_lookupByteBI(ptr nound
 
 112:                                              ; preds = %110
   %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
-  call void %113(ptr noundef nonnull %105) #14
+  call void %113(ptr noundef nonnull %105) #15
   br label %114
 
 114:                                              ; preds = %112, %110
@@ -5604,14 +5604,14 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_lookupByteBI(ptr nound
   %116 = load ptr, ptr %0, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 1784
   %118 = load ptr, ptr %117, align 8
-  call void %118(ptr noundef nonnull %0, ptr noundef %111, ptr noundef nonnull %106, i32 noundef 2) #14
+  call void %118(ptr noundef nonnull %0, ptr noundef %111, ptr noundef nonnull %106, i32 noundef 2) #15
   br label %freeArray.exit
 
 freeArray.exit:                                   ; preds = %114, %115
   %119 = load ptr, ptr %11, align 8
-  call void @awt_freeParsedImage(ptr noundef %119, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %119, i32 noundef 1) #15
   %120 = load ptr, ptr %12, align 8
-  call void @awt_freeParsedImage(ptr noundef %120, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %120, i32 noundef 1) #15
   br label %218
 
 121:                                              ; preds = %99
@@ -5651,7 +5651,7 @@ freeArray.exit:                                   ; preds = %114, %115
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds nuw %struct.LookupArrayInfo, ptr %66, i64 %indvars.iv237
   %130 = load ptr, ptr %129, align 8
-  %131 = call ptr %128(ptr noundef nonnull %0, ptr noundef %130, ptr noundef null) #14
+  %131 = call ptr %128(ptr noundef nonnull %0, ptr noundef %130, ptr noundef null) #15
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 16
   store ptr %131, ptr %132, align 8
   %133 = icmp eq ptr %131, null
@@ -5674,14 +5674,14 @@ freeArray.exit:                                   ; preds = %114, %115
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %140 = load ptr, ptr %139, align 8
-  call void %136(ptr noundef nonnull %0, ptr noundef %138, ptr noundef %140, i32 noundef 2) #14
+  call void %136(ptr noundef nonnull %0, ptr noundef %138, ptr noundef %140, i32 noundef 2) #15
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
   %exitcond257.not = icmp eq i64 %indvars.iv.next251, %wide.trip.count256
   br i1 %exitcond257.not, label %._crit_edge217, label %.lr.ph216, !llvm.loop !86
 
 ._crit_edge217:                                   ; preds = %.lr.ph216, %.preheader
-  call void @free(ptr noundef %.0136181) #14
-  call void @free(ptr noundef nonnull %66) #14
+  call void @free(ptr noundef %.0136181) #15
+  call void @free(ptr noundef nonnull %66) #15
   %141 = load ptr, ptr %11, align 8
   %142 = load ptr, ptr %6, align 8
   %143 = load ptr, ptr %8, align 8
@@ -5700,7 +5700,7 @@ freeArray.exit:                                   ; preds = %114, %115
 
 149:                                              ; preds = %147
   %150 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
-  call void %150(ptr noundef nonnull %142) #14
+  call void %150(ptr noundef nonnull %142) #15
   br label %151
 
 151:                                              ; preds = %149, %147
@@ -5711,14 +5711,14 @@ freeArray.exit:                                   ; preds = %114, %115
   %153 = load ptr, ptr %0, align 8
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 1784
   %155 = load ptr, ptr %154, align 8
-  call void %155(ptr noundef nonnull %0, ptr noundef %148, ptr noundef nonnull %143, i32 noundef 2) #14
+  call void %155(ptr noundef nonnull %0, ptr noundef %148, ptr noundef nonnull %143, i32 noundef 2) #15
   br label %freeArray.exit168
 
 freeArray.exit168:                                ; preds = %151, %152
   %156 = load ptr, ptr %11, align 8
-  call void @awt_freeParsedImage(ptr noundef %156, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %156, i32 noundef 1) #15
   %157 = load ptr, ptr %12, align 8
-  call void @awt_freeParsedImage(ptr noundef %157, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %157, i32 noundef 1) #15
   br label %218
 
 158:                                              ; preds = %.lr.ph207
@@ -5789,7 +5789,7 @@ freeArray.exit168:                                ; preds = %151, %152
 192:                                              ; preds = %.loopexit
   %193 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibFns, i64 32), align 16
   %194 = load ptr, ptr %7, align 8
-  %195 = call i32 (ptr, ptr, ptr, ...) %193(ptr noundef %194, ptr noundef nonnull %182, ptr noundef nonnull %.0136181) #14
+  %195 = call i32 (ptr, ptr, ptr, ...) %193(ptr noundef %194, ptr noundef nonnull %182, ptr noundef nonnull %.0136181) #15
   %.not154 = icmp eq i32 %195, 0
   %spec.select163 = zext i1 %.not154 to i32
   br label %.lr.ph213.preheader
@@ -5809,14 +5809,14 @@ freeArray.exit168:                                ; preds = %151, %152
   %201 = load ptr, ptr %200, align 8
   %202 = getelementptr inbounds nuw i8, ptr %200, i64 16
   %203 = load ptr, ptr %202, align 8
-  call void %199(ptr noundef nonnull %0, ptr noundef %201, ptr noundef %203, i32 noundef 2) #14
+  call void %199(ptr noundef nonnull %0, ptr noundef %201, ptr noundef %203, i32 noundef 2) #15
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
   %exitcond249.not = icmp eq i64 %indvars.iv.next246, %wide.trip.count248
   br i1 %exitcond249.not, label %._crit_edge214, label %.lr.ph213, !llvm.loop !89
 
 ._crit_edge214:                                   ; preds = %.lr.ph213
-  call void @free(ptr noundef nonnull %66) #14
-  call void @free(ptr noundef nonnull %.0136181) #14
+  call void @free(ptr noundef nonnull %66) #15
+  call void @free(ptr noundef nonnull %.0136181) #15
   %204 = load ptr, ptr %9, align 8
   %205 = icmp eq ptr %204, null
   %.pre259 = load ptr, ptr %11, align 8
@@ -5837,15 +5837,15 @@ freeArray.exit168:                                ; preds = %151, %152
   %213 = load ptr, ptr %12, align 8
   call fastcc void @freeArray(ptr noundef nonnull %0, ptr noundef %211, ptr noundef nonnull %182, ptr noundef %212, ptr noundef %213, ptr noundef %196, ptr noundef %204)
   %214 = load ptr, ptr %11, align 8
-  call void @awt_freeParsedImage(ptr noundef %214, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %214, i32 noundef 1) #15
   %215 = load ptr, ptr %12, align 8
-  call void @awt_freeParsedImage(ptr noundef %215, i32 noundef 1) #14
+  call void @awt_freeParsedImage(ptr noundef %215, i32 noundef 1) #15
   %.b152 = load i1, ptr @s_timeIt, align 4
   br i1 %.b152, label %216, label %218
 
 216:                                              ; preds = %210
   %217 = load ptr, ptr @stop_timer, align 8
-  call void %217(i32 noundef 3600, i32 noundef 1) #14
+  call void %217(i32 noundef 3600, i32 noundef 1) #15
   br label %218
 
 218:                                              ; preds = %210, %216, %23, %19, %5, %freeArray.exit168, %freeArray.exit, %96, %.thread177, %.thread174, %50, %39, %30
@@ -6084,7 +6084,7 @@ define i32 @Java_sun_awt_image_ImagingLib_lookupByteRaster(ptr noundef %0, ptr n
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 208
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15(ptr noundef nonnull %0, i32 noundef 64) #14
+  %16 = tail call i32 %15(ptr noundef nonnull %0, i32 noundef 64) #15
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %186, label %18
 
@@ -6098,53 +6098,53 @@ define i32 @Java_sun_awt_image_ImagingLib_lookupByteRaster(ptr noundef %0, ptr n
 
 20:                                               ; preds = %19
   %21 = load ptr, ptr @start_timer, align 8
-  tail call void %21(i32 noundef 3600) #14
+  tail call void %21(i32 noundef 3600) #15
   br label %22
 
 22:                                               ; preds = %20, %19
-  %23 = tail call noalias dereferenceable_or_null(496) ptr @calloc(i64 noundef 1, i64 noundef 496) #15
+  %23 = tail call noalias dereferenceable_or_null(496) ptr @calloc(i64 noundef 1, i64 noundef 496) #16
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %22
-  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #14
+  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #15
   br label %186
 
 26:                                               ; preds = %22
-  %27 = tail call noalias dereferenceable_or_null(496) ptr @calloc(i64 noundef 1, i64 noundef 496) #15
+  %27 = tail call noalias dereferenceable_or_null(496) ptr @calloc(i64 noundef 1, i64 noundef 496) #16
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %26
-  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #14
-  tail call void @free(ptr noundef nonnull %23) #14
+  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #15
+  tail call void @free(ptr noundef nonnull %23) #15
   br label %186
 
 30:                                               ; preds = %26
-  %31 = tail call i32 @awt_parseRaster(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %23) #14
+  %31 = tail call i32 @awt_parseRaster(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %23) #15
   %32 = icmp slt i32 %31, 1
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %30
-  tail call void @free(ptr noundef nonnull %23) #14
-  tail call void @free(ptr noundef nonnull %27) #14
+  tail call void @free(ptr noundef nonnull %23) #15
+  tail call void @free(ptr noundef nonnull %27) #15
   br label %186
 
 34:                                               ; preds = %30
-  %35 = tail call i32 @awt_parseRaster(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %27) #14
+  %35 = tail call i32 @awt_parseRaster(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %27) #15
   %36 = icmp slt i32 %35, 1
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %34
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %23, i32 noundef 1) #14
-  tail call void @free(ptr noundef nonnull %27) #14
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %23, i32 noundef 1) #15
+  tail call void @free(ptr noundef nonnull %27) #15
   br label %186
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %0, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1368
   %41 = load ptr, ptr %40, align 8
-  %42 = tail call i32 %41(ptr noundef nonnull %0, ptr noundef %4) #14
+  %42 = tail call i32 %41(ptr noundef nonnull %0, ptr noundef %4) #15
   %43 = getelementptr inbounds nuw i8, ptr %23, i64 460
   %44 = load i32, ptr %43, align 4
   %45 = getelementptr inbounds nuw i8, ptr %27, i64 460
@@ -6168,8 +6168,8 @@ define i32 @Java_sun_awt_image_ImagingLib_lookupByteRaster(ptr noundef %0, ptr n
   br i1 %or.cond158, label %56, label %55
 
 55:                                               ; preds = %54, %38
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %23, i32 noundef 1) #14
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %27, i32 noundef 1) #14
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %23, i32 noundef 1) #15
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %27, i32 noundef 1) #15
   br label %186
 
 56:                                               ; preds = %54
@@ -6178,8 +6178,8 @@ define i32 @Java_sun_awt_image_ImagingLib_lookupByteRaster(ptr noundef %0, ptr n
   br i1 %58, label %59, label %60
 
 59:                                               ; preds = %56
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %23, i32 noundef 1) #14
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %27, i32 noundef 1) #14
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %23, i32 noundef 1) #15
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %27, i32 noundef 1) #15
   br label %186
 
 60:                                               ; preds = %56
@@ -6197,7 +6197,7 @@ define i32 @Java_sun_awt_image_ImagingLib_lookupByteRaster(ptr noundef %0, ptr n
 
 68:                                               ; preds = %63
   %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibSysFns, i64 16), align 8
-  tail call void %69(ptr noundef nonnull %66) #14
+  tail call void %69(ptr noundef nonnull %66) #15
   br label %70
 
 70:                                               ; preds = %68, %63
@@ -6208,12 +6208,12 @@ define i32 @Java_sun_awt_image_ImagingLib_lookupByteRaster(ptr noundef %0, ptr n
   %72 = load ptr, ptr %0, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 1784
   %74 = load ptr, ptr %73, align 8
-  tail call void %74(ptr noundef nonnull %0, ptr noundef %65, ptr noundef nonnull %67, i32 noundef 2) #14
+  tail call void %74(ptr noundef nonnull %0, ptr noundef %65, ptr noundef nonnull %67, i32 noundef 2) #15
   br label %freeDataArray.exit
 
 freeDataArray.exit:                               ; preds = %70, %71
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %23, i32 noundef 1) #14
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %27, i32 noundef 1) #14
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %23, i32 noundef 1) #15
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %27, i32 noundef 1) #15
   br label %186
 
 75:                                               ; preds = %60
@@ -6234,8 +6234,8 @@ freeDataArray.exit:                               ; preds = %70, %71
   %87 = load ptr, ptr %86, align 8
   %88 = load ptr, ptr %9, align 8
   tail call fastcc void @freeDataArray(ptr noundef nonnull %0, ptr noundef %84, ptr noundef nonnull %76, ptr noundef %85, ptr noundef %87, ptr noundef nonnull %79, ptr noundef %88)
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %23, i32 noundef 1) #14
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %27, i32 noundef 1) #14
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %23, i32 noundef 1) #15
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %27, i32 noundef 1) #15
   br label %186
 
 89:                                               ; preds = %75
@@ -6274,7 +6274,7 @@ freeDataArray.exit:                               ; preds = %70, %71
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 1384
   %97 = load ptr, ptr %96, align 8
   %98 = trunc nuw nsw i64 %indvars.iv190 to i32
-  %99 = tail call ptr %97(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %98) #14
+  %99 = tail call ptr %97(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %98) #15
   %100 = getelementptr inbounds nuw %struct.LookupArrayInfo, ptr %10, i64 %indvars.iv190
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
@@ -6286,7 +6286,7 @@ freeDataArray.exit:                               ; preds = %70, %71
   %103 = load ptr, ptr %0, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 1368
   %105 = load ptr, ptr %104, align 8
-  %106 = tail call i32 %105(ptr noundef nonnull %0, ptr noundef nonnull %99) #14
+  %106 = tail call i32 %105(ptr noundef nonnull %0, ptr noundef nonnull %99) #15
   %107 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store i32 %106, ptr %107, align 8
   %108 = icmp slt i32 %106, 256
@@ -6304,8 +6304,8 @@ freeDataArray.exit:                               ; preds = %70, %71
   %114 = load ptr, ptr %113, align 8
   %115 = load ptr, ptr %9, align 8
   tail call fastcc void @freeDataArray(ptr noundef nonnull %0, ptr noundef %111, ptr noundef %76, ptr noundef %112, ptr noundef %114, ptr noundef %79, ptr noundef %115)
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %23, i32 noundef 1) #14
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %27, i32 noundef 1) #14
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %23, i32 noundef 1) #15
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %27, i32 noundef 1) #15
   br label %186
 
 .preheader164:                                    ; preds = %141, %.loopexit
@@ -6326,7 +6326,7 @@ freeDataArray.exit:                               ; preds = %70, %71
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds nuw %struct.LookupArrayInfo, ptr %10, i64 %indvars.iv194
   %124 = load ptr, ptr %123, align 8
-  %125 = tail call ptr %122(ptr noundef nonnull %0, ptr noundef %124, ptr noundef null) #14
+  %125 = tail call ptr %122(ptr noundef nonnull %0, ptr noundef %124, ptr noundef null) #15
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store ptr %125, ptr %126, align 8
   %127 = icmp eq ptr %125, null
@@ -6349,7 +6349,7 @@ freeDataArray.exit:                               ; preds = %70, %71
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %134 = load ptr, ptr %133, align 8
-  tail call void %130(ptr noundef nonnull %0, ptr noundef %132, ptr noundef %134, i32 noundef 2) #14
+  tail call void %130(ptr noundef nonnull %0, ptr noundef %132, ptr noundef %134, i32 noundef 2) #15
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
   %exitcond217.not = icmp eq i64 %indvars.iv.next211, %wide.trip.count216
   br i1 %exitcond217.not, label %._crit_edge183, label %.lr.ph182, !llvm.loop !97
@@ -6362,8 +6362,8 @@ freeDataArray.exit:                               ; preds = %70, %71
   %139 = load ptr, ptr %138, align 8
   %140 = load ptr, ptr %9, align 8
   tail call fastcc void @freeDataArray(ptr noundef nonnull %0, ptr noundef %136, ptr noundef %76, ptr noundef %137, ptr noundef %139, ptr noundef %79, ptr noundef %140)
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %23, i32 noundef 1) #14
-  tail call void @awt_freeParsedRaster(ptr noundef nonnull %27, i32 noundef 1) #14
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %23, i32 noundef 1) #15
+  tail call void @awt_freeParsedRaster(ptr noundef nonnull %27, i32 noundef 1) #15
   br label %186
 
 141:                                              ; preds = %.lr.ph172
@@ -6422,7 +6422,7 @@ freeDataArray.exit:                               ; preds = %70, %71
 
 160:                                              ; preds = %._crit_edge
   %161 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sMlibFns, i64 32), align 16
-  %162 = call i32 (ptr, ptr, ptr, ...) %161(ptr noundef %79, ptr noundef nonnull %76, ptr noundef nonnull %11) #14
+  %162 = call i32 (ptr, ptr, ptr, ...) %161(ptr noundef %79, ptr noundef nonnull %76, ptr noundef nonnull %11) #15
   %.not156 = icmp eq i32 %162, 0
   %spec.select159 = zext i1 %.not156 to i32
   br label %163
@@ -6445,7 +6445,7 @@ freeDataArray.exit:                               ; preds = %70, %71
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %170 = load ptr, ptr %169, align 8
-  call void %166(ptr noundef nonnull %0, ptr noundef %168, ptr noundef %170, i32 noundef 2) #14
+  call void %166(ptr noundef nonnull %0, ptr noundef %168, ptr noundef %170, i32 noundef 2) #15
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count208
   br i1 %exitcond209.not, label %._crit_edge180, label %.lr.ph179, !llvm.loop !101
@@ -6473,14 +6473,14 @@ freeDataArray.exit:                               ; preds = %70, %71
   %182 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %183 = load ptr, ptr %182, align 8
   call fastcc void @freeDataArray(ptr noundef nonnull %0, ptr noundef %180, ptr noundef nonnull %76, ptr noundef %181, ptr noundef %183, ptr noundef %79, ptr noundef %171)
-  call void @awt_freeParsedRaster(ptr noundef nonnull %23, i32 noundef 1) #14
-  call void @awt_freeParsedRaster(ptr noundef nonnull %27, i32 noundef 1) #14
+  call void @awt_freeParsedRaster(ptr noundef nonnull %23, i32 noundef 1) #15
+  call void @awt_freeParsedRaster(ptr noundef nonnull %27, i32 noundef 1) #15
   %.b151 = load i1, ptr @s_timeIt, align 4
   br i1 %.b151, label %184, label %186
 
 184:                                              ; preds = %178
   %185 = load ptr, ptr @stop_timer, align 8
-  call void %185(i32 noundef 3600, i32 noundef 1) #14
+  call void %185(i32 noundef 3600, i32 noundef 1) #15
   br label %186
 
 186:                                              ; preds = %178, %184, %18, %5, %._crit_edge183, %.thread, %82, %freeDataArray.exit, %59, %55, %37, %33, %29, %25
@@ -6490,14 +6490,14 @@ freeDataArray.exit:                               ; preds = %70, %71
 
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImagingLib_init(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @getenv(ptr noundef nonnull @.str.14) #14
+  %3 = tail call ptr @getenv(ptr noundef nonnull @.str.14) #15
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call ptr (...) @awt_setMlibStartTimer() #14
+  %5 = tail call ptr (...) @awt_setMlibStartTimer() #15
   store ptr %5, ptr @start_timer, align 8
-  %6 = tail call ptr (...) @awt_setMlibStopTimer() #14
+  %6 = tail call ptr (...) @awt_setMlibStopTimer() #15
   store ptr %6, ptr @stop_timer, align 8
   %7 = load ptr, ptr @start_timer, align 8
   %8 = icmp ne ptr %7, null
@@ -6510,7 +6510,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImagingLib_init(ptr noundef
   br label %11
 
 11:                                               ; preds = %4, %10, %2
-  %12 = tail call ptr @getenv(ptr noundef nonnull @.str.15) #14
+  %12 = tail call ptr @getenv(ptr noundef nonnull @.str.15) #15
   %.not4 = icmp eq ptr %12, null
   br i1 %.not4, label %14, label %13
 
@@ -6519,21 +6519,21 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImagingLib_init(ptr noundef
   br label %14
 
 14:                                               ; preds = %13, %11
-  %15 = tail call ptr @getenv(ptr noundef nonnull @.str.16) #14
+  %15 = tail call ptr @getenv(ptr noundef nonnull @.str.16) #15
   %.not5 = icmp eq ptr %15, null
   br i1 %.not5, label %18, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %15, ptr noundef nonnull @.str.17, ptr noundef nonnull @s_startOff) #14
+  %17 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %15, ptr noundef nonnull @.str.17, ptr noundef nonnull @s_startOff) #15
   br label %18
 
 18:                                               ; preds = %16, %14
-  %19 = tail call ptr @getenv(ptr noundef nonnull @.str.18) #14
+  %19 = tail call ptr @getenv(ptr noundef nonnull @.str.18) #15
   %.not6 = icmp eq ptr %19, null
   br i1 %.not6, label %20, label %.sink.split
 
 20:                                               ; preds = %18
-  %21 = tail call i32 @awt_getImagingLib(ptr noundef %0, ptr noundef nonnull @sMlibFns, ptr noundef nonnull @sMlibSysFns) #14
+  %21 = tail call i32 @awt_getImagingLib(ptr noundef %0, ptr noundef nonnull @sMlibFns, ptr noundef nonnull @sMlibSysFns) #15
   %.not7 = icmp eq i32 %21, 0
   br i1 %.not7, label %22, label %.sink.split
 
@@ -6583,7 +6583,7 @@ define internal fastcc range(i32 -1, 1) i32 @cvtCustomToDefault(ptr noundef %0, 
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1432
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call ptr %19(ptr noundef nonnull %0, i32 noundef %16) #14
+  %20 = tail call ptr %19(ptr noundef nonnull %0, i32 noundef %16) #15
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %.lr.ph
 
@@ -6591,8 +6591,8 @@ define internal fastcc range(i32 -1, 1) i32 @cvtCustomToDefault(ptr noundef %0, 
   %23 = load ptr, ptr %0, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull %0) #14
-  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.23) #14
+  tail call void %25(ptr noundef nonnull %0) #15
+  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.23) #15
   br label %64
 
 .lr.ph:                                           ; preds = %15, %53
@@ -6611,11 +6611,11 @@ define internal fastcc range(i32 -1, 1) i32 @cvtCustomToDefault(ptr noundef %0, 
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %1, align 8
   %34 = load ptr, ptr @g_BImgGetRGBMID, align 8
-  %35 = tail call ptr (ptr, ptr, ptr, ...) %32(ptr noundef nonnull %0, ptr noundef %33, ptr noundef %34, i32 noundef 0, i32 noundef %.06874, i32 noundef %5, i32 noundef %.166, ptr noundef nonnull %20, i32 noundef 0, i32 noundef %5) #14
+  %35 = tail call ptr (ptr, ptr, ptr, ...) %32(ptr noundef nonnull %0, ptr noundef %33, ptr noundef %34, i32 noundef 0, i32 noundef %.06874, i32 noundef %5, i32 noundef %.166, ptr noundef nonnull %20, i32 noundef 0, i32 noundef %5) #15
   %36 = load ptr, ptr %0, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 120
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call ptr %38(ptr noundef nonnull %0) #14
+  %39 = tail call ptr %38(ptr noundef nonnull %0) #15
   %.not = icmp eq ptr %39, null
   %40 = load ptr, ptr %0, align 8
   br i1 %.not, label %44, label %41
@@ -6623,13 +6623,13 @@ define internal fastcc range(i32 -1, 1) i32 @cvtCustomToDefault(ptr noundef %0, 
 41:                                               ; preds = %.lr.ph
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 184
   %43 = load ptr, ptr %42, align 8
-  tail call void %43(ptr noundef nonnull %0, ptr noundef nonnull %20) #14
+  tail call void %43(ptr noundef nonnull %0, ptr noundef nonnull %20) #15
   br label %64
 
 44:                                               ; preds = %.lr.ph
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 1776
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call ptr %46(ptr noundef nonnull %0, ptr noundef nonnull %20, ptr noundef null) #14
+  %47 = tail call ptr %46(ptr noundef nonnull %0, ptr noundef nonnull %20, ptr noundef null) #15
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %53
 
@@ -6637,7 +6637,7 @@ define internal fastcc range(i32 -1, 1) i32 @cvtCustomToDefault(ptr noundef %0, 
   %50 = load ptr, ptr %0, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 184
   %52 = load ptr, ptr %51, align 8
-  tail call void %52(ptr noundef nonnull %0, ptr noundef nonnull %20) #14
+  tail call void %52(ptr noundef nonnull %0, ptr noundef nonnull %20) #15
   br label %64
 
 53:                                               ; preds = %44
@@ -6647,7 +6647,7 @@ define internal fastcc range(i32 -1, 1) i32 @cvtCustomToDefault(ptr noundef %0, 
   %56 = load ptr, ptr %0, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 1784
   %58 = load ptr, ptr %57, align 8
-  tail call void %58(ptr noundef nonnull %0, ptr noundef nonnull %20, ptr noundef nonnull %47, i32 noundef 2) #14
+  tail call void %58(ptr noundef nonnull %0, ptr noundef nonnull %20, ptr noundef nonnull %47, i32 noundef 2) #15
   %59 = add nsw i32 %.166, %.06874
   %60 = icmp slt i32 %59, %7
   br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !102
@@ -6656,7 +6656,7 @@ define internal fastcc range(i32 -1, 1) i32 @cvtCustomToDefault(ptr noundef %0, 
   %61 = load ptr, ptr %0, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 184
   %63 = load ptr, ptr %62, align 8
-  tail call void %63(ptr noundef nonnull %0, ptr noundef nonnull %20) #14
+  tail call void %63(ptr noundef nonnull %0, ptr noundef nonnull %20) #15
   br label %64
 
 64:                                               ; preds = %3, %12, %._crit_edge, %49, %41, %22
@@ -6682,11 +6682,11 @@ define internal fastcc range(i32 -1, 1) i32 @expandPackedSCR(ptr noundef %0, ptr
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %1, align 8
   %14 = load ptr, ptr @g_SCRdataID, align 8
-  %15 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %14) #14
+  %15 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %14) #15
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1776
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef %15, ptr noundef null) #14
+  %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef %15, ptr noundef null) #15
   %20 = icmp eq ptr %19, null
   br i1 %20, label %147, label %21
 
@@ -6922,7 +6922,7 @@ define internal fastcc range(i32 -1, 1) i32 @expandPackedSCR(ptr noundef %0, ptr
   %144 = load ptr, ptr %0, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 1784
   %146 = load ptr, ptr %145, align 8
-  tail call void %146(ptr noundef nonnull %0, ptr noundef %15, ptr noundef nonnull %19, i32 noundef 2) #14
+  tail call void %146(ptr noundef nonnull %0, ptr noundef %15, ptr noundef nonnull %19, i32 noundef 2) #15
   br label %147
 
 147:                                              ; preds = %9, %3, %.loopexit
@@ -6945,11 +6945,11 @@ define internal fastcc range(i32 -1, 1) i32 @expandPackedICR(ptr noundef %0, ptr
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %1, align 8
   %14 = load ptr, ptr @g_ICRdataID, align 8
-  %15 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %14) #14
+  %15 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %14) #15
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1776
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef %15, ptr noundef null) #14
+  %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef %15, ptr noundef null) #15
   %20 = icmp eq ptr %19, null
   br i1 %20, label %145, label %21
 
@@ -7183,7 +7183,7 @@ define internal fastcc range(i32 -1, 1) i32 @expandPackedICR(ptr noundef %0, ptr
   %142 = load ptr, ptr %0, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 1784
   %144 = load ptr, ptr %143, align 8
-  tail call void %144(ptr noundef nonnull %0, ptr noundef %15, ptr noundef nonnull %19, i32 noundef 2) #14
+  tail call void %144(ptr noundef nonnull %0, ptr noundef %15, ptr noundef nonnull %19, i32 noundef 2) #15
   br label %145
 
 145:                                              ; preds = %9, %3, %.loopexit
@@ -7216,7 +7216,7 @@ define internal fastcc range(i32 -1, 1) i32 @cvtDefaultToCustom(ptr noundef %0, 
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1432
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call ptr %19(ptr noundef nonnull %0, i32 noundef %16) #14
+  %20 = tail call ptr %19(ptr noundef nonnull %0, i32 noundef %16) #15
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %.lr.ph
 
@@ -7224,8 +7224,8 @@ define internal fastcc range(i32 -1, 1) i32 @cvtDefaultToCustom(ptr noundef %0, 
   %23 = load ptr, ptr %0, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull %0) #14
-  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.23) #14
+  tail call void %25(ptr noundef nonnull %0) #15
+  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.23) #15
   br label %64
 
 .lr.ph:                                           ; preds = %15, %57
@@ -7242,7 +7242,7 @@ define internal fastcc range(i32 -1, 1) i32 @cvtDefaultToCustom(ptr noundef %0, 
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 1776
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call ptr %32(ptr noundef nonnull %0, ptr noundef nonnull %20, ptr noundef null) #14
+  %33 = tail call ptr %32(ptr noundef nonnull %0, ptr noundef nonnull %20, ptr noundef null) #15
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %39
 
@@ -7250,7 +7250,7 @@ define internal fastcc range(i32 -1, 1) i32 @cvtDefaultToCustom(ptr noundef %0, 
   %36 = load ptr, ptr %0, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 184
   %38 = load ptr, ptr %37, align 8
-  tail call void %38(ptr noundef nonnull %0, ptr noundef nonnull %20) #14
+  tail call void %38(ptr noundef nonnull %0, ptr noundef nonnull %20) #15
   br label %64
 
 39:                                               ; preds = %.lr.ph
@@ -7259,17 +7259,17 @@ define internal fastcc range(i32 -1, 1) i32 @cvtDefaultToCustom(ptr noundef %0, 
   %41 = load ptr, ptr %0, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 1784
   %43 = load ptr, ptr %42, align 8
-  tail call void %43(ptr noundef nonnull %0, ptr noundef nonnull %20, ptr noundef nonnull %33, i32 noundef 0) #14
+  tail call void %43(ptr noundef nonnull %0, ptr noundef nonnull %20, ptr noundef nonnull %33, i32 noundef 0) #15
   %44 = load ptr, ptr %0, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 488
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %1, align 8
   %48 = load ptr, ptr @g_BImgSetRGBMID, align 8
-  tail call void (ptr, ptr, ptr, ...) %46(ptr noundef nonnull %0, ptr noundef %47, ptr noundef %48, i32 noundef 0, i32 noundef %.06874, i32 noundef %5, i32 noundef %.166, ptr noundef nonnull %20, i32 noundef 0, i32 noundef %5) #14
+  tail call void (ptr, ptr, ptr, ...) %46(ptr noundef nonnull %0, ptr noundef %47, ptr noundef %48, i32 noundef 0, i32 noundef %.06874, i32 noundef %5, i32 noundef %.166, ptr noundef nonnull %20, i32 noundef 0, i32 noundef %5) #15
   %49 = load ptr, ptr %0, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 120
   %51 = load ptr, ptr %50, align 8
-  %52 = tail call ptr %51(ptr noundef nonnull %0) #14
+  %52 = tail call ptr %51(ptr noundef nonnull %0) #15
   %.not = icmp eq ptr %52, null
   br i1 %.not, label %57, label %53
 
@@ -7277,7 +7277,7 @@ define internal fastcc range(i32 -1, 1) i32 @cvtDefaultToCustom(ptr noundef %0, 
   %54 = load ptr, ptr %0, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 184
   %56 = load ptr, ptr %55, align 8
-  tail call void %56(ptr noundef nonnull %0, ptr noundef nonnull %20) #14
+  tail call void %56(ptr noundef nonnull %0, ptr noundef nonnull %20) #15
   br label %64
 
 57:                                               ; preds = %39
@@ -7290,7 +7290,7 @@ define internal fastcc range(i32 -1, 1) i32 @cvtDefaultToCustom(ptr noundef %0, 
   %61 = load ptr, ptr %0, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 184
   %63 = load ptr, ptr %62, align 8
-  tail call void %63(ptr noundef nonnull %0, ptr noundef nonnull %20) #14
+  tail call void %63(ptr noundef nonnull %0, ptr noundef nonnull %20) #15
   br label %64
 
 64:                                               ; preds = %3, %12, %._crit_edge, %53, %35, %22
@@ -7314,7 +7314,7 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedBCRdefault(ptr noundef %0,
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %1, align 8
   %16 = load ptr, ptr @g_BCRdataID, align 8
-  %17 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %16) #14
+  %17 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %16) #15
   %18 = icmp eq ptr %17, null
   br i1 %18, label %170, label %19
 
@@ -7322,7 +7322,7 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedBCRdefault(ptr noundef %0,
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1368
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %17) #14
+  %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %17) #15
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %25, align 4
@@ -7368,7 +7368,7 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedBCRdefault(ptr noundef %0,
   %51 = load ptr, ptr %0, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 1776
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call ptr %53(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef null) #14
+  %54 = tail call ptr %53(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef null) #15
   %55 = icmp eq ptr %54, null
   br i1 %55, label %170, label %56
 
@@ -7593,7 +7593,7 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedBCRdefault(ptr noundef %0,
   %167 = load ptr, ptr %0, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 1784
   %169 = load ptr, ptr %168, align 8
-  tail call void %169(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %54, i32 noundef 2) #14
+  tail call void %169(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %54, i32 noundef 2) #15
   br label %170
 
 170:                                              ; preds = %50, %42, %37, %19, %30, %35, %11, %4, %.loopexit
@@ -7617,7 +7617,7 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedSCRdefault(ptr noundef %0,
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %1, align 8
   %16 = load ptr, ptr @g_SCRdataID, align 8
-  %17 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %16) #14
+  %17 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %16) #15
   %18 = icmp eq ptr %17, null
   br i1 %18, label %183, label %19
 
@@ -7625,7 +7625,7 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedSCRdefault(ptr noundef %0,
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1368
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %17) #14
+  %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %17) #15
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %25, align 4
@@ -7671,7 +7671,7 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedSCRdefault(ptr noundef %0,
   %51 = load ptr, ptr %0, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 1776
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call ptr %53(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef null) #14
+  %54 = tail call ptr %53(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef null) #15
   %55 = icmp eq ptr %54, null
   br i1 %55, label %183, label %56
 
@@ -7918,7 +7918,7 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedSCRdefault(ptr noundef %0,
   %180 = load ptr, ptr %0, align 8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 1784
   %182 = load ptr, ptr %181, align 8
-  tail call void %182(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %54, i32 noundef 2) #14
+  tail call void %182(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %54, i32 noundef 2) #15
   br label %183
 
 183:                                              ; preds = %50, %42, %37, %19, %30, %35, %11, %4, %.loopexit
@@ -7942,7 +7942,7 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedICRdefault(ptr noundef %0,
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %1, align 8
   %16 = load ptr, ptr @g_ICRdataID, align 8
-  %17 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %16) #14
+  %17 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %16) #15
   %18 = icmp eq ptr %17, null
   br i1 %18, label %180, label %19
 
@@ -7950,7 +7950,7 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedICRdefault(ptr noundef %0,
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1368
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %17) #14
+  %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %17) #15
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %25, align 4
@@ -7996,7 +7996,7 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedICRdefault(ptr noundef %0,
   %51 = load ptr, ptr %0, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 1776
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call ptr %53(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef null) #14
+  %54 = tail call ptr %53(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef null) #15
   %55 = icmp eq ptr %54, null
   br i1 %55, label %180, label %56
 
@@ -8240,7 +8240,7 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedICRdefault(ptr noundef %0,
   %177 = load ptr, ptr %0, align 8
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 1784
   %179 = load ptr, ptr %178, align 8
-  tail call void %179(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %54, i32 noundef 2) #14
+  tail call void %179(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %54, i32 noundef 2) #15
   br label %180
 
 180:                                              ; preds = %50, %42, %37, %19, %30, %35, %11, %4, %.loopexit
@@ -8257,7 +8257,7 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #11
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -8266,13 +8266,13 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #12
+declare i32 @llvm.abs.i32(i32, i1 immarg) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8287,12 +8287,13 @@ attributes #8 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 attributes #9 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nofree nounwind }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind allocsize(0,1) }
-attributes #16 = { nounwind allocsize(0) }
-attributes #17 = { cold nounwind }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind allocsize(0,1) }
+attributes #17 = { nounwind allocsize(0) }
+attributes #18 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

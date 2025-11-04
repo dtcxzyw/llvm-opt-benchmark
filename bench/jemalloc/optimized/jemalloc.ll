@@ -338,14 +338,14 @@ sz_size2index.exit:                               ; preds = %18, %16, %10
 36:                                               ; preds = %34, %sz_size2index.exit
   %.0.i10 = phi ptr [ %35, %34 ], [ %.0.i.i9, %sz_size2index.exit ]
   %37 = icmp ult i64 %0, 14337
-  %38 = tail call ptr @je_arena_malloc_hard(ptr noundef null, ptr noundef %.0.i10, i64 noundef %0, i32 noundef %.0.i, i1 noundef zeroext %1, i1 noundef zeroext %37) #20
+  %38 = tail call ptr @je_arena_malloc_hard(ptr noundef null, ptr noundef %.0.i10, i64 noundef %0, i32 noundef %.0.i, i1 noundef zeroext %1, i1 noundef zeroext %37) #21
   %.not.i = icmp ne ptr %38, null
   %or.cond.i.not = select i1 %2, i1 %.not.i, i1 false
   br i1 %or.cond.i.not, label %39, label %iallocztm_explicit_slab.exit, !prof !12
 
 39:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %5) #20
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %5) #21
   %40 = ptrtoint ptr %38 to i64
   %41 = lshr i64 %40, 30
   %42 = and i64 %41, 15
@@ -416,7 +416,7 @@ sz_size2index.exit:                               ; preds = %18, %16, %10
   br label %rtree_read.exit
 
 81:                                               ; preds = %65
-  %82 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef null, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %5, i64 noundef %40, i1 noundef zeroext true, i1 noundef zeroext false) #20, !noalias !18
+  %82 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef null, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %5, i64 noundef %40, i1 noundef zeroext true, i1 noundef zeroext false) #21, !noalias !18
   br label %rtree_read.exit
 
 rtree_read.exit:                                  ; preds = %47, %57, %69, %81
@@ -433,7 +433,7 @@ rtree_read.exit:                                  ; preds = %47, %57, %69, %81
   %90 = load atomic i64, ptr %89 monotonic, align 8
   %.0.i7 = inttoptr i64 %90 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %4) #20
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %4) #21
   %91 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %4, i64 %42
   %92 = load i64, ptr %91, align 8, !tbaa !13
   %93 = icmp eq i64 %92, %43
@@ -500,7 +500,7 @@ rtree_read.exit:                                  ; preds = %47, %57, %69, %81
   br label %rtree_metadata_read.exit
 
 128:                                              ; preds = %112
-  %129 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef null, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %4, i64 noundef %40, i1 noundef zeroext true, i1 noundef zeroext false) #20
+  %129 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef null, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %4, i64 noundef %40, i1 noundef zeroext true, i1 noundef zeroext false) #21
   br label %rtree_metadata_read.exit
 
 rtree_metadata_read.exit:                         ; preds = %94, %104, %116, %128
@@ -533,7 +533,7 @@ define internal fastcc void @a0idalloc(ptr noundef %0, i1 noundef zeroext %1) un
 
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %4) #20
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %4) #21
   %6 = ptrtoint ptr %0 to i64
   %7 = lshr i64 %6, 30
   %8 = and i64 %7, 15
@@ -604,7 +604,7 @@ define internal fastcc void @a0idalloc(ptr noundef %0, i1 noundef zeroext %1) un
   br label %rtree_read.exit
 
 47:                                               ; preds = %31
-  %48 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef null, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %4, i64 noundef %6, i1 noundef zeroext true, i1 noundef zeroext false) #20, !noalias !34
+  %48 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef null, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %4, i64 noundef %6, i1 noundef zeroext true, i1 noundef zeroext false) #21, !noalias !34
   br label %rtree_read.exit
 
 rtree_read.exit:                                  ; preds = %13, %23, %35, %47
@@ -621,7 +621,7 @@ rtree_read.exit:                                  ; preds = %13, %23, %35, %47
   %56 = load atomic i64, ptr %55 monotonic, align 8
   %.0.i13.i = inttoptr i64 %56 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %3) #20
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %3) #21
   %57 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %3, i64 %8
   %58 = load i64, ptr %57, align 8, !tbaa !13
   %59 = icmp eq i64 %58, %9
@@ -688,7 +688,7 @@ rtree_read.exit:                                  ; preds = %13, %23, %35, %47
   br label %rtree_metadata_read.exit
 
 94:                                               ; preds = %78
-  %95 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef null, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %3, i64 noundef %6, i1 noundef zeroext true, i1 noundef zeroext false) #20
+  %95 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef null, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %3, i64 noundef %6, i1 noundef zeroext true, i1 noundef zeroext false) #21
   br label %rtree_metadata_read.exit
 
 rtree_metadata_read.exit:                         ; preds = %60, %70, %82, %94
@@ -722,7 +722,7 @@ define hidden ptr @je_bootstrap_malloc(i64 noundef %0) local_unnamed_addr #2 {
   br i1 %6, label %malloc_init_a0.exit.i, label %malloc_init_a0.exit.thread.i, !prof !8
 
 malloc_init_a0.exit.i:                            ; preds = %4
-  %7 = tail call fastcc zeroext i1 @malloc_init_hard_a0() #21
+  %7 = tail call fastcc zeroext i1 @malloc_init_hard_a0() #22
   br i1 %7, label %a0ialloc.exit, label %malloc_init_a0.exit.thread.i, !prof !9
 
 malloc_init_a0.exit.thread.i:                     ; preds = %malloc_init_a0.exit.i, %4
@@ -772,7 +772,7 @@ sz_size2index.exit.i:                             ; preds = %17, %15, %9
 35:                                               ; preds = %33, %sz_size2index.exit.i
   %.0.i10.i = phi ptr [ %34, %33 ], [ %.0.i.i9.i, %sz_size2index.exit.i ]
   %36 = icmp ult i64 %.0, 14337
-  %37 = tail call ptr @je_arena_malloc_hard(ptr noundef null, ptr noundef %.0.i10.i, i64 noundef %.0, i32 noundef %.0.i.i, i1 noundef zeroext false, i1 noundef zeroext %36) #20
+  %37 = tail call ptr @je_arena_malloc_hard(ptr noundef null, ptr noundef %.0.i10.i, i64 noundef %.0, i32 noundef %.0.i.i, i1 noundef zeroext false, i1 noundef zeroext %36) #21
   br label %a0ialloc.exit
 
 a0ialloc.exit:                                    ; preds = %malloc_init_a0.exit.i, %35
@@ -796,7 +796,7 @@ define hidden ptr @je_bootstrap_calloc(i64 noundef %0, i64 noundef %1) local_unn
   br i1 %8, label %malloc_init_a0.exit.i, label %malloc_init_a0.exit.thread.i, !prof !8
 
 malloc_init_a0.exit.i:                            ; preds = %6
-  %9 = tail call fastcc zeroext i1 @malloc_init_hard_a0() #21
+  %9 = tail call fastcc zeroext i1 @malloc_init_hard_a0() #22
   br i1 %9, label %a0ialloc.exit, label %malloc_init_a0.exit.thread.i, !prof !9
 
 malloc_init_a0.exit.thread.i:                     ; preds = %malloc_init_a0.exit.i, %6
@@ -846,7 +846,7 @@ sz_size2index.exit.i:                             ; preds = %19, %17, %11
 37:                                               ; preds = %35, %sz_size2index.exit.i
   %.0.i10.i = phi ptr [ %36, %35 ], [ %.0.i.i9.i, %sz_size2index.exit.i ]
   %38 = icmp ult i64 %.0, 14337
-  %39 = tail call ptr @je_arena_malloc_hard(ptr noundef null, ptr noundef %.0.i10.i, i64 noundef %.0, i32 noundef %.0.i.i, i1 noundef zeroext true, i1 noundef zeroext %38) #20
+  %39 = tail call ptr @je_arena_malloc_hard(ptr noundef null, ptr noundef %.0.i10.i, i64 noundef %.0, i32 noundef %.0.i.i, i1 noundef zeroext true, i1 noundef zeroext %38) #21
   br label %a0ialloc.exit
 
 a0ialloc.exit:                                    ; preds = %malloc_init_a0.exit.i, %37
@@ -886,7 +886,7 @@ atomic_load_u.exit:
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @je_arena_init(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @arenas_lock, i64 72)) #20
+  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @arenas_lock, i64 72)) #21
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %malloc_mutex_trylock_final.exit.i, label %5
 
@@ -895,7 +895,7 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %3
   br label %6
 
 5:                                                ; preds = %3
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #20
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #21
   br label %6
 
 6:                                                ; preds = %5, %malloc_mutex_trylock_final.exit.i
@@ -919,7 +919,7 @@ malloc_mutex_lock.exit:                           ; preds = %6, %10
 
 arena_init_locked.exit.thread:                    ; preds = %malloc_mutex_lock.exit
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @arenas_lock, i64 64) monotonic, align 8
-  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @arenas_lock, i64 72)) #20
+  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @arenas_lock, i64 72)) #21
   br label %29
 
 15:                                               ; preds = %malloc_mutex_lock.exit
@@ -940,24 +940,24 @@ arena_init_locked.exit.thread:                    ; preds = %malloc_mutex_lock.e
   br i1 %24, label %25, label %arena_init_locked.exit, !prof !8
 
 25:                                               ; preds = %20
-  %26 = tail call ptr @je_arena_new(ptr noundef %0, i32 noundef %1, ptr noundef %2) #20
+  %26 = tail call ptr @je_arena_new(ptr noundef %0, i32 noundef %1, ptr noundef %2) #21
   br label %arena_init_locked.exit
 
 arena_init_locked.exit:                           ; preds = %20, %25
   %.0.i = phi ptr [ %26, %25 ], [ %.0.i.i, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @arenas_lock, i64 64) monotonic, align 8
-  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @arenas_lock, i64 72)) #20
+  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @arenas_lock, i64 72)) #21
   %28 = icmp eq i32 %1, 0
   br i1 %28, label %arena_new_create_background_thread.exit, label %29
 
 29:                                               ; preds = %arena_init_locked.exit.thread, %arena_init_locked.exit
   %.0.i12 = phi ptr [ null, %arena_init_locked.exit.thread ], [ %.0.i, %arena_init_locked.exit ]
-  %30 = tail call zeroext i1 @je_background_thread_create(ptr noundef %0, i32 noundef %1) #20
+  %30 = tail call zeroext i1 @je_background_thread_create(ptr noundef %0, i32 noundef %1) #21
   br i1 %30, label %31, label %arena_new_create_background_thread.exit
 
 31:                                               ; preds = %29
-  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.181, i32 noundef %1) #20
-  tail call void @abort() #22
+  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.181, i32 noundef %1) #21
+  tail call void @abort() #23
   unreachable
 
 arena_new_create_background_thread.exit:          ; preds = %arena_init_locked.exit, %29
@@ -967,16 +967,16 @@ arena_new_create_background_thread.exit:          ; preds = %arena_init_locked.e
 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_arena_migrate(ptr noundef initializes((152, 160)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
-  tail call void @je_arena_nthreads_dec(ptr noundef %1, i1 noundef zeroext false) #20
-  tail call void @je_arena_nthreads_inc(ptr noundef %2, i1 noundef zeroext false) #20
+  tail call void @je_arena_nthreads_dec(ptr noundef %1, i1 noundef zeroext false) #21
+  tail call void @je_arena_nthreads_inc(ptr noundef %2, i1 noundef zeroext false) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %2, ptr %4, align 8, !tbaa !50
-  %5 = tail call i32 @je_arena_nthreads_get(ptr noundef %1, i1 noundef zeroext false) #20
+  %5 = tail call i32 @je_arena_nthreads_get(ptr noundef %1, i1 noundef zeroext false) #21
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %3
-  tail call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext true) #20
+  tail call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext true) #21
   br label %8
 
 8:                                                ; preds = %7, %3
@@ -1002,7 +1002,7 @@ define hidden ptr @je_arena_choose_hard(ptr noundef %0, i1 noundef zeroext %1) l
   br i1 %4, label %5, label %44
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @sched_getcpu() #20
+  %6 = tail call i32 @sched_getcpu() #21
   %7 = load i32, ptr @je_opt_percpu_arena, align 4, !tbaa !4
   %8 = icmp eq i32 %7, 3
   br i1 %8, label %percpu_arena_choose.exit, label %9
@@ -1044,7 +1044,7 @@ arena_get.exit:                                   ; preds = %percpu_arena_choose
 
 arena_get.exit.i:                                 ; preds = %25, %arena_get.exit
   %.0.i.i85 = phi ptr [ null, %25 ], [ %.0.i.i.i, %arena_get.exit ]
-  tail call void @je_arena_nthreads_inc(ptr noundef %.0.i.i85, i1 noundef zeroext false) #20
+  tail call void @je_arena_nthreads_inc(ptr noundef %.0.i.i85, i1 noundef zeroext false) #21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %.0.i.i85, ptr %26, align 8, !tbaa !50
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i85, i64 8
@@ -1080,7 +1080,7 @@ arena_bind.exit:                                  ; preds = %31
 
 arena_bind.exit89:                                ; preds = %arena_bind.exit, %42
   %.0.i.i88 = phi ptr [ null, %42 ], [ %.0.i.i.i86, %arena_bind.exit ]
-  tail call void @je_arena_nthreads_inc(ptr noundef %.0.i.i88, i1 noundef zeroext true) #20
+  tail call void @je_arena_nthreads_inc(ptr noundef %.0.i.i88, i1 noundef zeroext true) #21
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %.0.i.i88, ptr %43, align 8, !tbaa !50
   br label %174
@@ -1099,7 +1099,7 @@ arena_bind.exit89:                                ; preds = %arena_bind.exit, %4
   store i32 0, ptr %.sroa.6, align 4
   store i8 0, ptr %.sroa.0, align 2
   store i8 0, ptr %.sroa.5, align 1
-  %48 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @arenas_lock, i64 72)) #20
+  %48 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @arenas_lock, i64 72)) #21
   %.not.i = icmp eq i32 %48, 0
   br i1 %.not.i, label %malloc_mutex_trylock_final.exit.i, label %49
 
@@ -1108,7 +1108,7 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %47
   br label %50
 
 49:                                               ; preds = %47
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #20
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #21
   br label %50
 
 50:                                               ; preds = %49, %malloc_mutex_trylock_final.exit.i
@@ -1168,7 +1168,7 @@ malloc_mutex_lock.exit:                           ; preds = %50, %54
 
 arena_get.exit95:                                 ; preds = %.preheader138, %73
   %.0.i94 = phi ptr [ null, %73 ], [ %.0.i.i93, %.preheader138 ]
-  %74 = tail call i32 @je_arena_nthreads_get(ptr noundef %.0.i94, i1 noundef zeroext %69) #20
+  %74 = tail call i32 @je_arena_nthreads_get(ptr noundef %.0.i94, i1 noundef zeroext %69) #21
   %75 = load i32, ptr %indvars.iv.sroa.phi, align 4, !tbaa !4
   %76 = zext i32 %75 to i64
   %77 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @je_arenas, i64 %76
@@ -1182,7 +1182,7 @@ arena_get.exit95:                                 ; preds = %.preheader138, %73
 
 arena_get.exit98:                                 ; preds = %arena_get.exit95, %80
   %.0.i97 = phi ptr [ null, %80 ], [ %.0.i.i96, %arena_get.exit95 ]
-  %81 = tail call i32 @je_arena_nthreads_get(ptr noundef %.0.i97, i1 noundef zeroext %69) #20
+  %81 = tail call i32 @je_arena_nthreads_get(ptr noundef %.0.i97, i1 noundef zeroext %69) #21
   %82 = icmp ult i32 %74, %81
   br i1 %82, label %83, label %84
 
@@ -1231,7 +1231,7 @@ arena_get.exit92.thread:                          ; preds = %.lr.ph
 
 arena_get.exit101:                                ; preds = %91, %98
   %.0.i100 = phi ptr [ null, %98 ], [ %.0.i.i99, %91 ]
-  %99 = tail call i32 @je_arena_nthreads_get(ptr noundef %.0.i100, i1 noundef zeroext %92) #20
+  %99 = tail call i32 @je_arena_nthreads_get(ptr noundef %.0.i100, i1 noundef zeroext %92) #21
   %100 = icmp eq i32 %99, 0
   %101 = load i32, ptr @je_narenas_auto, align 4
   %102 = icmp eq i32 %.064.lcssa, %101
@@ -1273,7 +1273,7 @@ arena_get.exit101:                                ; preds = %91, %98
   br i1 %.not.i106, label %arena_get.exit.thread.i, label %arena_init_locked.exit, !prof !105
 
 arena_get.exit.thread.i:                          ; preds = %117
-  %119 = tail call ptr @je_arena_new(ptr noundef %0, i32 noundef %.064.lcssa, ptr noundef nonnull @je_arena_config_default) #20
+  %119 = tail call ptr @je_arena_new(ptr noundef %0, i32 noundef %.064.lcssa, ptr noundef nonnull @je_arena_config_default) #21
   br label %arena_init_locked.exit
 
 arena_init_locked.exit:                           ; preds = %117, %arena_get.exit.thread.i
@@ -1283,7 +1283,7 @@ arena_init_locked.exit:                           ; preds = %117, %arena_get.exi
 
 .thread:                                          ; preds = %arena_init_locked.exit, %111
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @arenas_lock, i64 64) monotonic, align 8
-  %120 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @arenas_lock, i64 72)) #20
+  %120 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @arenas_lock, i64 72)) #21
   br label %.loopexit
 
 121:                                              ; preds = %arena_init_locked.exit
@@ -1306,7 +1306,7 @@ arena_get.exit104:                                ; preds = %121, %110, %104, %1
 
 arena_get.exit.i109:                              ; preds = %127, %arena_get.exit104
   %.0.i.i110 = phi ptr [ null, %127 ], [ %.0.i.i.i108, %arena_get.exit104 ]
-  tail call void @je_arena_nthreads_inc(ptr noundef %.0.i.i110, i1 noundef zeroext %92) #20
+  tail call void @je_arena_nthreads_inc(ptr noundef %.0.i.i110, i1 noundef zeroext %92) #21
   br i1 %92, label %139, label %128
 
 128:                                              ; preds = %arena_get.exit.i109
@@ -1335,7 +1335,7 @@ arena_bind.exit114:                               ; preds = %132
 139:                                              ; preds = %arena_get.exit.i109
   store ptr %.0.i.i110, ptr %64, align 8, !tbaa !50
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @arenas_lock, i64 64) monotonic, align 8
-  %140 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @arenas_lock, i64 72)) #20
+  %140 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @arenas_lock, i64 72)) #21
   br label %141
 
 141:                                              ; preds = %139, %arena_new_create_background_thread.exit
@@ -1352,12 +1352,12 @@ arena_bind.exit114:                               ; preds = %132
   br i1 %147, label %arena_new_create_background_thread.exit, label %148
 
 148:                                              ; preds = %145
-  %149 = tail call zeroext i1 @je_background_thread_create(ptr noundef %0, i32 noundef %146) #20
+  %149 = tail call zeroext i1 @je_background_thread_create(ptr noundef %0, i32 noundef %146) #21
   br i1 %149, label %150, label %arena_new_create_background_thread.exit
 
 150:                                              ; preds = %148
-  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.181, i32 noundef %146) #20
-  tail call void @abort() #22
+  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.181, i32 noundef %146) #21
+  tail call void @abort() #23
   unreachable
 
 arena_new_create_background_thread.exit:          ; preds = %148, %145, %141
@@ -1392,7 +1392,7 @@ arena_get.exit117:                                ; preds = %151, %154
 
 arena_get.exit.i119:                              ; preds = %157, %arena_get.exit117
   %.0.i.i120 = phi ptr [ null, %157 ], [ %.0.i.i.i118, %arena_get.exit117 ]
-  tail call void @je_arena_nthreads_inc(ptr noundef %.0.i.i120, i1 noundef zeroext false) #20
+  tail call void @je_arena_nthreads_inc(ptr noundef %.0.i.i120, i1 noundef zeroext false) #21
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %.0.i.i120, ptr %158, align 8, !tbaa !50
   %159 = getelementptr inbounds nuw i8, ptr %.0.i.i120, i64 8
@@ -1425,7 +1425,7 @@ arena_bind.exit124:                               ; preds = %163
 
 arena_bind.exit128:                               ; preds = %arena_bind.exit124, %172
   %.0.i.i127 = phi ptr [ null, %172 ], [ %.0.i.i.i125, %arena_bind.exit124 ]
-  tail call void @je_arena_nthreads_inc(ptr noundef %.0.i.i127, i1 noundef zeroext true) #20
+  tail call void @je_arena_nthreads_inc(ptr noundef %.0.i.i127, i1 noundef zeroext true) #21
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %.0.i.i127, ptr %173, align 8, !tbaa !50
   br label %174
@@ -1457,7 +1457,7 @@ define hidden void @je_iarena_cleanup(ptr noundef captures(none) %0) local_unnam
 
 arena_unbind.exit:                                ; preds = %4, %10
   %.0.i.i = phi ptr [ null, %10 ], [ %.0.i.i.i, %4 ]
-  tail call void @je_arena_nthreads_dec(ptr noundef %.0.i.i, i1 noundef zeroext true) #20
+  tail call void @je_arena_nthreads_dec(ptr noundef %.0.i.i, i1 noundef zeroext true) #21
   store ptr null, ptr %2, align 8, !tbaa !50
   br label %11
 
@@ -1487,7 +1487,7 @@ define hidden void @je_arena_cleanup(ptr noundef captures(none) %0) local_unname
 
 arena_unbind.exit:                                ; preds = %4, %10
   %.0.i.i = phi ptr [ null, %10 ], [ %.0.i.i.i, %4 ]
-  tail call void @je_arena_nthreads_dec(ptr noundef %.0.i.i, i1 noundef zeroext false) #20
+  tail call void @je_arena_nthreads_dec(ptr noundef %.0.i.i, i1 noundef zeroext false) #21
   store ptr null, ptr %2, align 8, !tbaa !50
   br label %11
 
@@ -1509,7 +1509,7 @@ define hidden ptr @je_malloc_default(i64 noundef %0) local_unnamed_addr #5 {
   br i1 %.not.i74, label %tsd_fetch_impl.exit.thread, label %tsd_fetch_impl.exit, !prof !10
 
 tsd_fetch_impl.exit:                              ; preds = %1
-  %10 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %7, i1 noundef zeroext false) #20
+  %10 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %7, i1 noundef zeroext false) #21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 888
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !11
   %11 = icmp eq i8 %.pre, 0
@@ -1604,7 +1604,7 @@ cache_bin_alloc_impl.exit.i55:                    ; preds = %52
   br i1 %61, label %62, label %64, !prof !8
 
 62:                                               ; preds = %60
-  %63 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %.0.i75282, ptr noundef nonnull %58, i64 noundef %0, i32 noundef %.0.i50.i, i1 noundef zeroext false, i1 noundef zeroext true) #20
+  %63 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %.0.i75282, ptr noundef nonnull %58, i64 noundef %0, i32 noundef %.0.i50.i, i1 noundef zeroext false, i1 noundef zeroext true) #21
   br label %.thread
 
 .thread:                                          ; preds = %62, %cache_bin_alloc_impl.exit.i55
@@ -1613,8 +1613,8 @@ cache_bin_alloc_impl.exit.i55:                    ; preds = %52
   br label %imalloc_no_sample.exit68
 
 64:                                               ; preds = %60
-  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %.0.i75282, ptr noundef nonnull %40, ptr noundef nonnull %43, i32 noundef %.0.i50.i, i1 noundef zeroext true) #20
-  %65 = call ptr @je_tcache_alloc_small_hard(ptr noundef nonnull %.0.i75282, ptr noundef nonnull %58, ptr noundef nonnull %40, ptr noundef nonnull %43, i32 noundef %.0.i50.i, ptr noundef nonnull %4) #20
+  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %.0.i75282, ptr noundef nonnull %40, ptr noundef nonnull %43, i32 noundef %.0.i50.i, i1 noundef zeroext true) #21
+  %65 = call ptr @je_tcache_alloc_small_hard(ptr noundef nonnull %.0.i75282, ptr noundef nonnull %58, ptr noundef nonnull %40, ptr noundef nonnull %43, i32 noundef %.0.i50.i, ptr noundef nonnull %4) #21
   %66 = load i8, ptr %4, align 1, !tbaa !108, !range !110, !noundef !111
   %.not269 = icmp eq i8 %66, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1675,7 +1675,7 @@ cache_bin_alloc_impl.exit31.i44:                  ; preds = %85
   br i1 %92, label %aligned_usize_get.exit.i.thread, label %93, !prof !8
 
 93:                                               ; preds = %cache_bin_alloc_impl.exit31.i44
-  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %.0.i75282, ptr noundef nonnull %40, ptr noundef nonnull %76, i32 noundef %.0.i50.i, i1 noundef zeroext false) #20
+  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %.0.i75282, ptr noundef nonnull %40, ptr noundef nonnull %76, i32 noundef %.0.i50.i, i1 noundef zeroext false) #21
   br i1 %12, label %94, label %sz_s2u_compute.exit.i47, !prof !10
 
 94:                                               ; preds = %93
@@ -1701,7 +1701,7 @@ sz_s2u_compute.exit.i47:                          ; preds = %93
 
 sz_s2u.exit.i49:                                  ; preds = %sz_s2u_compute.exit.i47, %94
   %.0.i32.i50 = phi i64 [ %101, %94 ], [ %108, %sz_s2u_compute.exit.i47 ]
-  %109 = tail call ptr @je_large_malloc(ptr noundef nonnull %.0.i75282, ptr noundef nonnull %91, i64 noundef %.0.i32.i50, i1 noundef zeroext false) #20
+  %109 = tail call ptr @je_large_malloc(ptr noundef nonnull %.0.i75282, ptr noundef nonnull %91, i64 noundef %.0.i32.i50, i1 noundef zeroext false) #21
   br label %imalloc_no_sample.exit68
 
 110:                                              ; preds = %84, %88
@@ -1712,7 +1712,7 @@ sz_s2u.exit.i49:                                  ; preds = %sz_s2u_compute.exit
   br label %imalloc_no_sample.exit68
 
 .critedge.i.i39:                                  ; preds = %74, %70
-  %114 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %.0.i75282, ptr noundef null, i64 noundef %0, i32 noundef %.0.i50.i, i1 noundef zeroext false, i1 noundef zeroext false) #20
+  %114 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %.0.i75282, ptr noundef null, i64 noundef %0, i32 noundef %.0.i50.i, i1 noundef zeroext false, i1 noundef zeroext false) #21
   br label %imalloc_no_sample.exit68
 
 imalloc_no_sample.exit68:                         ; preds = %.critedge.i.i39, %.thread, %cache_bin_alloc_impl.exit.i55.thread, %110, %sz_s2u.exit.i49
@@ -1744,7 +1744,7 @@ imalloc_no_sample.exit68:                         ; preds = %.critedge.i.i39, %.
   br i1 %129, label %131, label %130, !prof !10
 
 130:                                              ; preds = %116
-  call void @je_te_event_trigger(ptr noundef nonnull %.0.i75282, ptr noundef nonnull %2) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %.0.i75282, ptr noundef nonnull %2) #21
   br label %131
 
 131:                                              ; preds = %130, %116
@@ -1752,7 +1752,7 @@ imalloc_no_sample.exit68:                         ; preds = %.critedge.i.i39, %.
   br label %imalloc.exit
 
 aligned_usize_get.exit.i.thread:                  ; preds = %cache_bin_alloc_impl.exit31.i44, %64, %19, %sz_size2index.exit.i, %imalloc_no_sample.exit68
-  %132 = tail call ptr @__errno_location() #23
+  %132 = tail call ptr @__errno_location() #24
   store i32 12, ptr %132, align 4, !tbaa !4
   br label %imalloc.exit
 
@@ -1766,7 +1766,7 @@ aligned_usize_get.exit.i.thread:                  ; preds = %cache_bin_alloc_imp
   br i1 %137, label %imalloc_init_check.exit, label %139, !prof !141
 
 imalloc_init_check.exit:                          ; preds = %136
-  %138 = tail call ptr @__errno_location() #23
+  %138 = tail call ptr @__errno_location() #24
   store i32 12, ptr %138, align 4, !tbaa !4
   br label %imalloc.exit
 
@@ -1896,7 +1896,7 @@ cache_bin_alloc_impl.exit.i:                      ; preds = %197
   br i1 %206, label %207, label %209, !prof !8
 
 207:                                              ; preds = %205
-  %208 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %10, ptr noundef nonnull %203, i64 noundef %0, i32 noundef %.0.i50.i19, i1 noundef zeroext %141, i1 noundef zeroext true) #20
+  %208 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %10, ptr noundef nonnull %203, i64 noundef %0, i32 noundef %.0.i50.i19, i1 noundef zeroext %141, i1 noundef zeroext true) #21
   br label %.thread255
 
 .thread255:                                       ; preds = %207, %cache_bin_alloc_impl.exit.i
@@ -1905,8 +1905,8 @@ cache_bin_alloc_impl.exit.i:                      ; preds = %197
   br label %imalloc_no_sample.exit
 
 209:                                              ; preds = %205
-  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %10, ptr noundef nonnull %176, ptr noundef nonnull %188, i32 noundef %.0.i50.i19, i1 noundef zeroext true) #20
-  %210 = call ptr @je_tcache_alloc_small_hard(ptr noundef nonnull %10, ptr noundef nonnull %203, ptr noundef nonnull %176, ptr noundef nonnull %188, i32 noundef %.0.i50.i19, ptr noundef nonnull %5) #20
+  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %10, ptr noundef nonnull %176, ptr noundef nonnull %188, i32 noundef %.0.i50.i19, i1 noundef zeroext true) #21
+  %210 = call ptr @je_tcache_alloc_small_hard(ptr noundef nonnull %10, ptr noundef nonnull %203, ptr noundef nonnull %176, ptr noundef nonnull %188, i32 noundef %.0.i50.i19, ptr noundef nonnull %5) #21
   %211 = load i8, ptr %5, align 1, !tbaa !108, !range !110, !noundef !111
   %.not267 = icmp eq i8 %211, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1975,7 +1975,7 @@ cache_bin_alloc_impl.exit31.i:                    ; preds = %233
   br i1 %240, label %aligned_usize_get.exit.i12.thread, label %241, !prof !8
 
 241:                                              ; preds = %cache_bin_alloc_impl.exit31.i
-  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %10, ptr noundef nonnull %176, ptr noundef nonnull %224, i32 noundef %.0.i50.i19, i1 noundef zeroext false) #20
+  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %10, ptr noundef nonnull %176, ptr noundef nonnull %224, i32 noundef %.0.i50.i19, i1 noundef zeroext false) #21
   br i1 %142, label %242, label %sz_s2u_compute.exit.i, !prof !10
 
 242:                                              ; preds = %241
@@ -2001,7 +2001,7 @@ sz_s2u_compute.exit.i:                            ; preds = %241
 
 sz_s2u.exit.i:                                    ; preds = %sz_s2u_compute.exit.i, %242
   %.0.i32.i = phi i64 [ %249, %242 ], [ %256, %sz_s2u_compute.exit.i ]
-  %257 = tail call ptr @je_large_malloc(ptr noundef nonnull %10, ptr noundef nonnull %239, i64 noundef %.0.i32.i, i1 noundef zeroext %141) #20
+  %257 = tail call ptr @je_large_malloc(ptr noundef nonnull %10, ptr noundef nonnull %239, i64 noundef %.0.i32.i, i1 noundef zeroext %141) #21
   br label %imalloc_no_sample.exit
 
 258:                                              ; preds = %236, %232
@@ -2022,7 +2022,7 @@ sz_s2u.exit.i:                                    ; preds = %sz_s2u_compute.exit
 .critedge.i.i:                                    ; preds = %iallocztm_explicit_slab.exit.i.thread, %222, %218
   %.ph290 = phi i1 [ %.ph287, %iallocztm_explicit_slab.exit.i.thread ], [ false, %222 ], [ false, %218 ]
   %.1208.ph289 = phi ptr [ %.1208.ph.ph, %iallocztm_explicit_slab.exit.i.thread ], [ null, %222 ], [ null, %218 ]
-  %265 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %10, ptr noundef %.1208.ph289, i64 noundef %0, i32 noundef %.0.i50.i19, i1 noundef zeroext %141, i1 noundef zeroext %.ph290) #20
+  %265 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %10, ptr noundef %.1208.ph289, i64 noundef %0, i32 noundef %.0.i50.i19, i1 noundef zeroext %141, i1 noundef zeroext %.ph290) #21
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.thread255, %214, %261, %sz_s2u.exit.i
@@ -2054,7 +2054,7 @@ imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.th
   br i1 %280, label %282, label %281, !prof !10
 
 281:                                              ; preds = %267
-  call void @je_te_event_trigger(ptr noundef nonnull %10, ptr noundef nonnull %3) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %10, ptr noundef nonnull %3) #21
   br label %282
 
 282:                                              ; preds = %281, %267
@@ -2070,7 +2070,7 @@ imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.th
   br label %287
 
 aligned_usize_get.exit.i12.thread:                ; preds = %cache_bin_alloc_impl.exit31.i, %209, %183, %149, %sz_size2index.exit.i18, %imalloc_no_sample.exit
-  %286 = tail call ptr @__errno_location() #23
+  %286 = tail call ptr @__errno_location() #24
   store i32 12, ptr %286, align 4, !tbaa !4
   br label %287
 
@@ -2081,7 +2081,7 @@ aligned_usize_get.exit.i12.thread:                ; preds = %cache_bin_alloc_imp
   %scevgep = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep, i8 0, i64 16, i1 false), !tbaa !33
   %288 = ptrtoint ptr %.0216.ph to i64
-  call void @je_hook_invoke_alloc(i32 noundef 0, ptr noundef %.0216.ph, i64 noundef %288, ptr noundef nonnull %6) #20
+  call void @je_hook_invoke_alloc(i32 noundef 0, ptr noundef %.0216.ph, i64 noundef %288, ptr noundef nonnull %6) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %imalloc.exit
 
@@ -2186,7 +2186,7 @@ define dso_local noundef range(i32 0, 23) i32 @posix_memalign(ptr noundef nonnul
   br i1 %.not.i78, label %compute_size_with_overflow.exit31, label %tsd_fetch_impl.exit, !prof !10
 
 tsd_fetch_impl.exit:                              ; preds = %3
-  %10 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %7, i1 noundef zeroext false) #20
+  %10 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %7, i1 noundef zeroext false) #21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 888
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !11
   %11 = icmp eq i8 %.pre, 0
@@ -2293,7 +2293,7 @@ aligned_usize_get.exit.i:                         ; preds = %.thread219, %sz_s2u
 imalloc_no_sample.exit72:                         ; preds = %aligned_usize_get.exit.i
   %65 = icmp samesign ult i64 %.018.i100, 14337
   %66 = getelementptr inbounds nuw i8, ptr %.0.i79260, i64 928
-  %67 = tail call ptr @je_arena_palloc(ptr noundef nonnull %.0.i79260, ptr noundef null, i64 noundef %.018.i100, i64 noundef %1, i1 noundef zeroext false, i1 noundef zeroext %65, ptr noundef nonnull %66) #20
+  %67 = tail call ptr @je_arena_palloc(ptr noundef nonnull %.0.i79260, ptr noundef null, i64 noundef %.018.i100, i64 noundef %1, i1 noundef zeroext false, i1 noundef zeroext %65, ptr noundef nonnull %66) #21
   %68 = icmp eq ptr %67, null
   br i1 %68, label %imalloc.exit, label %69, !prof !8
 
@@ -2321,7 +2321,7 @@ imalloc_no_sample.exit72:                         ; preds = %aligned_usize_get.e
   br i1 %82, label %84, label %83, !prof !10
 
 83:                                               ; preds = %69
-  call void @je_te_event_trigger(ptr noundef nonnull %.0.i79260, ptr noundef nonnull %4) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %.0.i79260, ptr noundef nonnull %4) #21
   br label %84
 
 84:                                               ; preds = %83, %69
@@ -2339,7 +2339,7 @@ imalloc_no_sample.exit72:                         ; preds = %aligned_usize_get.e
   br i1 %89, label %imalloc_init_check.exit, label %compute_size_with_overflow.exit, !prof !141
 
 imalloc_init_check.exit:                          ; preds = %88
-  %90 = tail call ptr @__errno_location() #23
+  %90 = tail call ptr @__errno_location() #24
   store i32 12, ptr %90, align 4, !tbaa !4
   store ptr null, ptr %0, align 8, !tbaa !120
   br label %imalloc.exit
@@ -2480,7 +2480,7 @@ imalloc_no_sample.exit:                           ; preds = %150, %160, %arena_g
   %.0.i.i32237.ph = phi ptr [ null, %arena_get.exit129 ], [ null, %160 ], [ %spec.select, %150 ]
   %.1212.ph = phi ptr [ %.0.i128, %arena_get.exit129 ], [ null, %160 ], [ null, %150 ]
   %.ph = icmp samesign ult i64 %.018.i, 14337
-  %162 = tail call ptr @je_arena_palloc(ptr noundef nonnull %10, ptr noundef %.1212.ph, i64 noundef %.018.i, i64 noundef %1, i1 noundef zeroext %96, i1 noundef zeroext %.ph, ptr noundef %.0.i.i32237.ph) #20
+  %162 = tail call ptr @je_arena_palloc(ptr noundef nonnull %10, ptr noundef %.1212.ph, i64 noundef %.018.i, i64 noundef %1, i1 noundef zeroext %96, i1 noundef zeroext %.ph, ptr noundef %.0.i.i32237.ph) #21
   %163 = icmp eq ptr %162, null
   br i1 %163, label %aligned_usize_get.exit.i16.thread, label %164, !prof !148
 
@@ -2508,7 +2508,7 @@ imalloc_no_sample.exit:                           ; preds = %150, %160, %arena_g
   br i1 %177, label %179, label %178, !prof !10
 
 178:                                              ; preds = %164
-  call void @je_te_event_trigger(ptr noundef nonnull %10, ptr noundef nonnull %5) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %10, ptr noundef nonnull %5) #21
   br label %179
 
 179:                                              ; preds = %178, %164
@@ -2538,7 +2538,7 @@ aligned_usize_get.exit.i16.thread:                ; preds = %160, %128, %sz_s2u_
   store i64 %2, ptr %186, align 16, !tbaa !33
   %187 = load ptr, ptr %0, align 8, !tbaa !120
   %188 = zext nneg i32 %.1.i.ph to i64
-  call void @je_hook_invoke_alloc(i32 noundef 1, ptr noundef %187, i64 noundef %188, ptr noundef nonnull %6) #20
+  call void @je_hook_invoke_alloc(i32 noundef 1, ptr noundef %187, i64 noundef %188, ptr noundef nonnull %6) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %imalloc.exit
 
@@ -2559,7 +2559,7 @@ define dso_local noalias ptr @aligned_alloc(i64 noundef %0, i64 noundef %1) loca
   br i1 %.not.i76, label %compute_size_with_overflow.exit29, label %tsd_fetch_impl.exit, !prof !10
 
 tsd_fetch_impl.exit:                              ; preds = %2
-  %9 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %6, i1 noundef zeroext false) #20
+  %9 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %6, i1 noundef zeroext false) #21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 888
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !11
   %10 = icmp eq i8 %.pre, 0
@@ -2664,7 +2664,7 @@ aligned_usize_get.exit.i:                         ; preds = %.thread220, %sz_s2u
 imalloc_no_sample.exit70:                         ; preds = %aligned_usize_get.exit.i
   %62 = icmp samesign ult i64 %.018.i98, 14337
   %63 = getelementptr inbounds nuw i8, ptr %.0.i77262, i64 928
-  %64 = tail call ptr @je_arena_palloc(ptr noundef nonnull %.0.i77262, ptr noundef null, i64 noundef %.018.i98, i64 noundef %0, i1 noundef zeroext false, i1 noundef zeroext %62, ptr noundef nonnull %63) #20
+  %64 = tail call ptr @je_arena_palloc(ptr noundef nonnull %.0.i77262, ptr noundef null, i64 noundef %.018.i98, i64 noundef %0, i1 noundef zeroext false, i1 noundef zeroext %62, ptr noundef nonnull %63) #21
   %65 = icmp eq ptr %64, null
   br i1 %65, label %aligned_usize_get.exit.i.thread, label %66, !prof !8
 
@@ -2692,7 +2692,7 @@ imalloc_no_sample.exit70:                         ; preds = %aligned_usize_get.e
   br i1 %79, label %81, label %80, !prof !10
 
 80:                                               ; preds = %66
-  call void @je_te_event_trigger(ptr noundef nonnull %.0.i77262, ptr noundef nonnull %3) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %.0.i77262, ptr noundef nonnull %3) #21
   br label %81
 
 81:                                               ; preds = %80, %66
@@ -2700,12 +2700,12 @@ imalloc_no_sample.exit70:                         ; preds = %aligned_usize_get.e
   br label %imalloc.exit
 
 aligned_usize_get.exit.i.thread:                  ; preds = %44, %sz_s2u_compute.exit29.i92, %40, %aligned_usize_get.exit.i, %imalloc_no_sample.exit70
-  %82 = tail call ptr @__errno_location() #23
+  %82 = tail call ptr @__errno_location() #24
   store i32 12, ptr %82, align 4, !tbaa !4
   br label %imalloc.exit
 
 83:                                               ; preds = %compute_size_with_overflow.exit29
-  %84 = tail call ptr @__errno_location() #23
+  %84 = tail call ptr @__errno_location() #24
   store i32 22, ptr %84, align 4, !tbaa !4
   br label %imalloc.exit
 
@@ -2719,7 +2719,7 @@ aligned_usize_get.exit.i.thread:                  ; preds = %44, %sz_s2u_compute
   br i1 %89, label %imalloc_init_check.exit, label %compute_size_with_overflow.exit, !prof !141
 
 imalloc_init_check.exit:                          ; preds = %88
-  %90 = tail call ptr @__errno_location() #23
+  %90 = tail call ptr @__errno_location() #24
   store i32 12, ptr %90, align 4, !tbaa !4
   br label %imalloc.exit
 
@@ -2857,7 +2857,7 @@ imalloc_no_sample.exit:                           ; preds = %148, %158, %arena_g
   %.0.i.i30238.ph = phi ptr [ null, %arena_get.exit127 ], [ null, %158 ], [ %spec.select, %148 ]
   %.1210.ph = phi ptr [ %.0.i126, %arena_get.exit127 ], [ null, %158 ], [ null, %148 ]
   %.ph = icmp samesign ult i64 %.018.i, 14337
-  %160 = tail call ptr @je_arena_palloc(ptr noundef nonnull %9, ptr noundef %.1210.ph, i64 noundef %.018.i, i64 noundef %0, i1 noundef zeroext %94, i1 noundef zeroext %.ph, ptr noundef %.0.i.i30238.ph) #20
+  %160 = tail call ptr @je_arena_palloc(ptr noundef nonnull %9, ptr noundef %.1210.ph, i64 noundef %.018.i, i64 noundef %0, i1 noundef zeroext %94, i1 noundef zeroext %.ph, ptr noundef %.0.i.i30238.ph) #21
   %161 = icmp eq ptr %160, null
   br i1 %161, label %aligned_usize_get.exit.i14.thread, label %162, !prof !148
 
@@ -2885,7 +2885,7 @@ imalloc_no_sample.exit:                           ; preds = %148, %158, %arena_g
   br i1 %175, label %177, label %176, !prof !10
 
 176:                                              ; preds = %162
-  call void @je_te_event_trigger(ptr noundef nonnull %9, ptr noundef nonnull %4) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %9, ptr noundef nonnull %4) #21
   br label %177
 
 177:                                              ; preds = %176, %162
@@ -2901,12 +2901,12 @@ imalloc_no_sample.exit:                           ; preds = %148, %158, %arena_g
   br label %184
 
 aligned_usize_get.exit.i14.thread:                ; preds = %158, %126, %sz_s2u_compute.exit29.i, %122, %aligned_usize_get.exit.i14, %imalloc_no_sample.exit
-  %181 = tail call ptr @__errno_location() #23
+  %181 = tail call ptr @__errno_location() #24
   store i32 12, ptr %181, align 4, !tbaa !4
   br label %184
 
 182:                                              ; preds = %compute_size_with_overflow.exit
-  %183 = tail call ptr @__errno_location() #23
+  %183 = tail call ptr @__errno_location() #24
   store i32 22, ptr %183, align 4, !tbaa !4
   br label %184
 
@@ -2919,7 +2919,7 @@ aligned_usize_get.exit.i14.thread:                ; preds = %158, %126, %sz_s2u_
   %.ptr = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %.ptr, align 16, !tbaa !33
   %186 = ptrtoint ptr %.0218.ph to i64
-  call void @je_hook_invoke_alloc(i32 noundef 2, ptr noundef %.0218.ph, i64 noundef %186, ptr noundef nonnull %5) #20
+  call void @je_hook_invoke_alloc(i32 noundef 2, ptr noundef %.0218.ph, i64 noundef %186, ptr noundef nonnull %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %imalloc.exit
 
@@ -2942,7 +2942,7 @@ define dso_local noalias ptr @calloc(i64 noundef %0, i64 noundef %1) local_unnam
   br i1 %.not.i76, label %tsd_fetch_impl.exit.thread, label %tsd_fetch_impl.exit, !prof !10
 
 tsd_fetch_impl.exit:                              ; preds = %2
-  %11 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %8, i1 noundef zeroext false) #20
+  %11 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %8, i1 noundef zeroext false) #21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 888
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !11
   %12 = icmp eq i8 %.pre, 0
@@ -3058,7 +3058,7 @@ cache_bin_alloc_impl.exit.i57:                    ; preds = %58
   br i1 %67, label %68, label %70, !prof !8
 
 68:                                               ; preds = %66
-  %69 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %.0.i77292, ptr noundef nonnull %64, i64 noundef %mul.val275, i32 noundef %.0.i50.i, i1 noundef zeroext true, i1 noundef zeroext true) #20
+  %69 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %.0.i77292, ptr noundef nonnull %64, i64 noundef %mul.val275, i32 noundef %.0.i50.i, i1 noundef zeroext true, i1 noundef zeroext true) #21
   br label %.thread227
 
 .thread227:                                       ; preds = %68, %cache_bin_alloc_impl.exit.i57
@@ -3067,8 +3067,8 @@ cache_bin_alloc_impl.exit.i57:                    ; preds = %58
   br label %imalloc_no_sample.exit70
 
 70:                                               ; preds = %66
-  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %.0.i77292, ptr noundef nonnull %46, ptr noundef nonnull %49, i32 noundef %.0.i50.i, i1 noundef zeroext true) #20
-  %71 = call ptr @je_tcache_alloc_small_hard(ptr noundef nonnull %.0.i77292, ptr noundef nonnull %64, ptr noundef nonnull %46, ptr noundef nonnull %49, i32 noundef %.0.i50.i, ptr noundef nonnull %5) #20
+  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %.0.i77292, ptr noundef nonnull %46, ptr noundef nonnull %49, i32 noundef %.0.i50.i, i1 noundef zeroext true) #21
+  %71 = call ptr @je_tcache_alloc_small_hard(ptr noundef nonnull %.0.i77292, ptr noundef nonnull %64, ptr noundef nonnull %46, ptr noundef nonnull %49, i32 noundef %.0.i50.i, ptr noundef nonnull %5) #21
   %72 = load i8, ptr %5, align 1, !tbaa !108, !range !110, !noundef !111
   %.not278 = icmp eq i8 %72, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3135,7 +3135,7 @@ cache_bin_alloc_impl.exit31.i46:                  ; preds = %92
   br i1 %99, label %aligned_usize_get.exit.i.thread, label %100, !prof !8
 
 100:                                              ; preds = %cache_bin_alloc_impl.exit31.i46
-  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %.0.i77292, ptr noundef nonnull %46, ptr noundef nonnull %83, i32 noundef %.0.i50.i, i1 noundef zeroext false) #20
+  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %.0.i77292, ptr noundef nonnull %46, ptr noundef nonnull %83, i32 noundef %.0.i50.i, i1 noundef zeroext false) #21
   %101 = icmp samesign ult i64 %mul.val275, 4097
   br i1 %101, label %102, label %sz_s2u_compute.exit.i49, !prof !10
 
@@ -3162,7 +3162,7 @@ sz_s2u_compute.exit.i49:                          ; preds = %100
 
 sz_s2u.exit.i51:                                  ; preds = %sz_s2u_compute.exit.i49, %102
   %.0.i32.i52 = phi i64 [ %109, %102 ], [ %116, %sz_s2u_compute.exit.i49 ]
-  %117 = tail call ptr @je_large_malloc(ptr noundef nonnull %.0.i77292, ptr noundef nonnull %98, i64 noundef %.0.i32.i52, i1 noundef zeroext true) #20
+  %117 = tail call ptr @je_large_malloc(ptr noundef nonnull %.0.i77292, ptr noundef nonnull %98, i64 noundef %.0.i32.i52, i1 noundef zeroext true) #21
   br label %imalloc_no_sample.exit70
 
 118:                                              ; preds = %95, %91
@@ -3174,7 +3174,7 @@ sz_s2u.exit.i51:                                  ; preds = %sz_s2u_compute.exit
   br label %imalloc_no_sample.exit70
 
 .critedge.i.i41:                                  ; preds = %81, %77
-  %122 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %.0.i77292, ptr noundef null, i64 noundef %mul.val275, i32 noundef %.0.i50.i, i1 noundef zeroext true, i1 noundef zeroext false) #20
+  %122 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %.0.i77292, ptr noundef null, i64 noundef %mul.val275, i32 noundef %.0.i50.i, i1 noundef zeroext true, i1 noundef zeroext false) #21
   br label %imalloc_no_sample.exit70
 
 imalloc_no_sample.exit70:                         ; preds = %.critedge.i.i41, %.thread227, %cache_bin_alloc_impl.exit.i57.thread, %118, %sz_s2u.exit.i51
@@ -3206,7 +3206,7 @@ imalloc_no_sample.exit70:                         ; preds = %.critedge.i.i41, %.
   br i1 %137, label %139, label %138, !prof !10
 
 138:                                              ; preds = %124
-  call void @je_te_event_trigger(ptr noundef nonnull %.0.i77292, ptr noundef nonnull %3) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %.0.i77292, ptr noundef nonnull %3) #21
   br label %139
 
 139:                                              ; preds = %138, %124
@@ -3214,7 +3214,7 @@ imalloc_no_sample.exit70:                         ; preds = %.critedge.i.i41, %.
   br label %imalloc.exit.thread
 
 aligned_usize_get.exit.i.thread:                  ; preds = %14, %cache_bin_alloc_impl.exit31.i46, %70, %25, %sz_size2index.exit.i, %compute_size_with_overflow.exit29, %imalloc_no_sample.exit70
-  %140 = tail call ptr @__errno_location() #23
+  %140 = tail call ptr @__errno_location() #24
   store i32 12, ptr %140, align 4, !tbaa !4
   br label %imalloc.exit.thread
 
@@ -3228,7 +3228,7 @@ aligned_usize_get.exit.i.thread:                  ; preds = %14, %cache_bin_allo
   br i1 %145, label %imalloc_init_check.exit, label %147, !prof !141
 
 imalloc_init_check.exit:                          ; preds = %144
-  %146 = tail call ptr @__errno_location() #23
+  %146 = tail call ptr @__errno_location() #24
   store i32 12, ptr %146, align 4, !tbaa !4
   br label %imalloc.exit.thread
 
@@ -3377,7 +3377,7 @@ cache_bin_alloc_impl.exit.i:                      ; preds = %208
   br i1 %217, label %218, label %220, !prof !8
 
 218:                                              ; preds = %216
-  %219 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %11, ptr noundef nonnull %214, i64 noundef %mul.val, i32 noundef %.0.i50.i21, i1 noundef zeroext true, i1 noundef zeroext true) #20
+  %219 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %11, ptr noundef nonnull %214, i64 noundef %mul.val, i32 noundef %.0.i50.i21, i1 noundef zeroext true, i1 noundef zeroext true) #21
   br label %.thread261
 
 .thread261:                                       ; preds = %218, %cache_bin_alloc_impl.exit.i
@@ -3386,8 +3386,8 @@ cache_bin_alloc_impl.exit.i:                      ; preds = %208
   br label %imalloc_no_sample.exit
 
 220:                                              ; preds = %216
-  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %11, ptr noundef nonnull %187, ptr noundef nonnull %199, i32 noundef %.0.i50.i21, i1 noundef zeroext true) #20
-  %221 = call ptr @je_tcache_alloc_small_hard(ptr noundef nonnull %11, ptr noundef nonnull %214, ptr noundef nonnull %187, ptr noundef nonnull %199, i32 noundef %.0.i50.i21, ptr noundef nonnull %6) #20
+  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %11, ptr noundef nonnull %187, ptr noundef nonnull %199, i32 noundef %.0.i50.i21, i1 noundef zeroext true) #21
+  %221 = call ptr @je_tcache_alloc_small_hard(ptr noundef nonnull %11, ptr noundef nonnull %214, ptr noundef nonnull %187, ptr noundef nonnull %199, i32 noundef %.0.i50.i21, ptr noundef nonnull %6) #21
   %222 = load i8, ptr %6, align 1, !tbaa !108, !range !110, !noundef !111
   %.not273 = icmp eq i8 %222, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3450,7 +3450,7 @@ cache_bin_alloc_impl.exit31.i:                    ; preds = %242
   br i1 %249, label %aligned_usize_get.exit.i14.thread, label %250, !prof !8
 
 250:                                              ; preds = %cache_bin_alloc_impl.exit31.i
-  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %11, ptr noundef nonnull %187, ptr noundef nonnull %233, i32 noundef %.0.i50.i21, i1 noundef zeroext false) #20
+  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %11, ptr noundef nonnull %187, ptr noundef nonnull %233, i32 noundef %.0.i50.i21, i1 noundef zeroext false) #21
   %251 = icmp samesign ult i64 %mul.val, 4097
   br i1 %251, label %252, label %sz_s2u_compute.exit.i, !prof !10
 
@@ -3477,7 +3477,7 @@ sz_s2u_compute.exit.i:                            ; preds = %250
 
 sz_s2u.exit.i:                                    ; preds = %sz_s2u_compute.exit.i, %252
   %.0.i32.i = phi i64 [ %259, %252 ], [ %266, %sz_s2u_compute.exit.i ]
-  %267 = tail call ptr @je_large_malloc(ptr noundef nonnull %11, ptr noundef nonnull %248, i64 noundef %.0.i32.i, i1 noundef zeroext true) #20
+  %267 = tail call ptr @je_large_malloc(ptr noundef nonnull %11, ptr noundef nonnull %248, i64 noundef %.0.i32.i, i1 noundef zeroext true) #21
   br label %imalloc_no_sample.exit
 
 268:                                              ; preds = %245, %241
@@ -3492,7 +3492,7 @@ sz_s2u.exit.i:                                    ; preds = %sz_s2u_compute.exit
 .critedge.i.i:                                    ; preds = %iallocztm_explicit_slab.exit.i.thread, %231, %227
   %.ph300 = phi i1 [ %.ph297, %iallocztm_explicit_slab.exit.i.thread ], [ false, %231 ], [ false, %227 ]
   %.1210.ph299 = phi ptr [ %.1210.ph.ph, %iallocztm_explicit_slab.exit.i.thread ], [ null, %231 ], [ null, %227 ]
-  %273 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %11, ptr noundef %.1210.ph299, i64 noundef %mul.val, i32 noundef %.0.i50.i21, i1 noundef zeroext true, i1 noundef zeroext %.ph300) #20
+  %273 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %11, ptr noundef %.1210.ph299, i64 noundef %mul.val, i32 noundef %.0.i50.i21, i1 noundef zeroext true, i1 noundef zeroext %.ph300) #21
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.thread261, %cache_bin_alloc_impl.exit.i.thread, %268, %sz_s2u.exit.i
@@ -3524,7 +3524,7 @@ imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.th
   br i1 %288, label %290, label %289, !prof !10
 
 289:                                              ; preds = %275
-  call void @je_te_event_trigger(ptr noundef nonnull %11, ptr noundef nonnull %4) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %11, ptr noundef nonnull %4) #21
   br label %290
 
 290:                                              ; preds = %275, %289
@@ -3532,7 +3532,7 @@ imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.th
   br label %imalloc.exit
 
 aligned_usize_get.exit.i14.thread:                ; preds = %149, %cache_bin_alloc_impl.exit31.i, %220, %194, %160, %sz_size2index.exit.i20, %compute_size_with_overflow.exit, %imalloc_no_sample.exit
-  %291 = tail call ptr @__errno_location() #23
+  %291 = tail call ptr @__errno_location() #24
   store i32 12, ptr %291, align 4, !tbaa !4
   br label %imalloc.exit
 
@@ -3545,7 +3545,7 @@ imalloc.exit:                                     ; preds = %290, %aligned_usize
   %.ptr = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %.ptr, align 16, !tbaa !33
   %293 = ptrtoint ptr %.0218 to i64
-  call void @je_hook_invoke_alloc(i32 noundef 3, ptr noundef %.0218, i64 noundef %293, ptr noundef nonnull %7) #20
+  call void @je_hook_invoke_alloc(i32 noundef 3, ptr noundef %.0218, i64 noundef %293, ptr noundef nonnull %7) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %imalloc.exit.thread
 
@@ -3572,7 +3572,7 @@ define hidden void @je_free_default(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %.not.i, label %tsdn_rtree_ctx.exit44, label %tsd_fetch_impl.exit, !prof !10
 
 tsd_fetch_impl.exit:                              ; preds = %7
-  %11 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %8, i1 noundef zeroext true) #20
+  %11 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %8, i1 noundef zeroext true) #21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 888
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !11
   %12 = icmp eq i8 %.pre, 0
@@ -3652,7 +3652,7 @@ tsdn_rtree_ctx.exit44:                            ; preds = %7, %tsd_fetch_impl.
   br label %58
 
 56:                                               ; preds = %40
-  %57 = tail call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef nonnull %.0.i3894, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %14, i64 noundef %15, i1 noundef zeroext true, i1 noundef zeroext false) #20
+  %57 = tail call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef nonnull %.0.i3894, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %14, i64 noundef %15, i1 noundef zeroext true, i1 noundef zeroext false) #21
   br label %58
 
 58:                                               ; preds = %56, %44, %32, %22
@@ -3687,7 +3687,7 @@ cache_bin_dalloc_easy.exit27:                     ; preds = %64
   br i1 %74, label %75, label %76, !prof !8
 
 75:                                               ; preds = %cache_bin_dalloc_easy.exit27
-  tail call void @je_arena_dalloc_small(ptr noundef nonnull %.0.i3894, ptr noundef nonnull %0) #20
+  tail call void @je_arena_dalloc_small(ptr noundef nonnull %.0.i3894, ptr noundef nonnull %0) #21
   br label %arena_dalloc.exit
 
 76:                                               ; preds = %cache_bin_dalloc_easy.exit27
@@ -3696,7 +3696,7 @@ cache_bin_dalloc_easy.exit27:                     ; preds = %64
   %78 = zext i16 %.val63 to i32
   %79 = load i32, ptr @je_opt_lg_tcache_flush_small_div, align 4, !tbaa !4
   %80 = lshr i32 %78, %79
-  tail call void @je_tcache_bin_flush_small(ptr noundef nonnull %.0.i3894, ptr noundef nonnull %13, ptr noundef nonnull %66, i32 noundef %.sroa.074.0.extract.trunc, i32 noundef %80) #20
+  tail call void @je_tcache_bin_flush_small(ptr noundef nonnull %.0.i3894, ptr noundef nonnull %13, ptr noundef nonnull %66, i32 noundef %.sroa.074.0.extract.trunc, i32 noundef %80) #21
   %81 = load ptr, ptr %66, align 8, !tbaa !115
   %82 = ptrtoint ptr %81 to i64
   %83 = load i16, ptr %69, align 2, !tbaa !159
@@ -3744,7 +3744,7 @@ cache_bin_dalloc_easy.exit12.i:                   ; preds = %97
   %104 = zext i16 %.val62 to i32
   %105 = load i32, ptr @je_opt_lg_tcache_flush_large_div, align 4, !tbaa !4
   %106 = lshr i32 %104, %105
-  tail call void @je_tcache_bin_flush_large(ptr noundef nonnull %.0.i3894, ptr noundef nonnull %13, ptr noundef nonnull %94, i32 noundef %.sroa.074.0.extract.trunc, i32 noundef %106) #20
+  tail call void @je_tcache_bin_flush_large(ptr noundef nonnull %.0.i3894, ptr noundef nonnull %13, ptr noundef nonnull %94, i32 noundef %.sroa.074.0.extract.trunc, i32 noundef %106) #21
   %107 = load ptr, ptr %94, align 8, !tbaa !115
   %108 = ptrtoint ptr %107 to i64
   %109 = load i16, ptr %99, align 2, !tbaa !159
@@ -3763,7 +3763,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %92, %88
   call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull %.0.i3894, ptr noundef nonnull %14, i64 noundef %15)
   %114 = load ptr, ptr %4, align 8, !tbaa !161
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  tail call void @je_large_dalloc(ptr noundef nonnull %.0.i3894, ptr noundef %114) #20
+  tail call void @je_large_dalloc(ptr noundef nonnull %.0.i3894, ptr noundef %114) #21
   br label %arena_dalloc.exit
 
 arena_dalloc.exit:                                ; preds = %86, %76, %cache_bin_dalloc_easy.exit27.thread, %75, %cache_bin_dalloc_easy.exit12.i.thread, %112, %cache_bin_dalloc_easy.exit12.i, %tsdn_rtree_ctx.exit
@@ -3790,7 +3790,7 @@ arena_dalloc.exit:                                ; preds = %86, %76, %cache_bin
   br i1 %127, label %te_event_advance.exit, label %128, !prof !10
 
 128:                                              ; preds = %arena_dalloc.exit
-  call void @je_te_event_trigger(ptr noundef nonnull %.0.i3894, ptr noundef nonnull %3) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %.0.i3894, ptr noundef nonnull %3) #21
   br label %te_event_advance.exit
 
 te_event_advance.exit:                            ; preds = %arena_dalloc.exit, %128
@@ -3817,7 +3817,7 @@ tcache_get_from_ind.exit:                         ; preds = %133, %129
   store i64 %137, ptr %6, align 16, !tbaa !33
   %scevgep = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep, i8 0, i64 16, i1 false), !tbaa !33
-  call void @je_hook_invoke_dalloc(i32 noundef 0, ptr noundef nonnull %0, ptr noundef nonnull %6) #20
+  call void @je_hook_invoke_dalloc(i32 noundef 0, ptr noundef nonnull %0, ptr noundef nonnull %6) #21
   %138 = getelementptr inbounds nuw i8, ptr %11, i64 504
   %139 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %11, ptr noundef nonnull %138, i64 noundef %137)
   %.fca.0.extract.i = extractvalue { i64, i32 } %139, 0
@@ -3869,7 +3869,7 @@ cache_bin_dalloc_easy.exit31:                     ; preds = %150
   br i1 %160, label %161, label %162, !prof !8
 
 161:                                              ; preds = %cache_bin_dalloc_easy.exit31
-  call void @je_arena_dalloc_small(ptr noundef nonnull %11, ptr noundef nonnull %0) #20
+  call void @je_arena_dalloc_small(ptr noundef nonnull %11, ptr noundef nonnull %0) #21
   br label %arena_dalloc.exit22
 
 162:                                              ; preds = %cache_bin_dalloc_easy.exit31
@@ -3878,7 +3878,7 @@ cache_bin_dalloc_easy.exit31:                     ; preds = %150
   %164 = zext i16 %.val64 to i32
   %165 = load i32, ptr @je_opt_lg_tcache_flush_small_div, align 4, !tbaa !4
   %166 = lshr i32 %164, %165
-  call void @je_tcache_bin_flush_small(ptr noundef nonnull %11, ptr noundef nonnull %.0.i, ptr noundef nonnull %152, i32 noundef %.sroa.078.0.extract.trunc, i32 noundef %166) #20
+  call void @je_tcache_bin_flush_small(ptr noundef nonnull %11, ptr noundef nonnull %.0.i, ptr noundef nonnull %152, i32 noundef %.sroa.078.0.extract.trunc, i32 noundef %166) #21
   %167 = load ptr, ptr %152, align 8, !tbaa !115
   %168 = ptrtoint ptr %167 to i64
   %169 = load i16, ptr %155, align 2, !tbaa !159
@@ -3926,7 +3926,7 @@ cache_bin_dalloc_easy.exit12.i33:                 ; preds = %183
   %190 = zext i16 %.val61 to i32
   %191 = load i32, ptr @je_opt_lg_tcache_flush_large_div, align 4, !tbaa !4
   %192 = lshr i32 %190, %191
-  call void @je_tcache_bin_flush_large(ptr noundef nonnull %11, ptr noundef nonnull %.0.i, ptr noundef nonnull %180, i32 noundef %.sroa.078.0.extract.trunc, i32 noundef %192) #20
+  call void @je_tcache_bin_flush_large(ptr noundef nonnull %11, ptr noundef nonnull %.0.i, ptr noundef nonnull %180, i32 noundef %.sroa.078.0.extract.trunc, i32 noundef %192) #21
   %193 = load ptr, ptr %180, align 8, !tbaa !115
   %194 = ptrtoint ptr %193 to i64
   %195 = load i16, ptr %185, align 2, !tbaa !159
@@ -3945,7 +3945,7 @@ tsdn_rtree_ctx.exit42:                            ; preds = %178, %174
   call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull %11, ptr noundef nonnull %138, i64 noundef %137)
   %200 = load ptr, ptr %5, align 8, !tbaa !161
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @je_large_dalloc(ptr noundef nonnull %11, ptr noundef %200) #20
+  call void @je_large_dalloc(ptr noundef nonnull %11, ptr noundef %200) #21
   br label %arena_dalloc.exit22
 
 arena_dalloc.exit22:                              ; preds = %172, %162, %cache_bin_dalloc_easy.exit31.thread, %161, %cache_bin_dalloc_easy.exit12.i33.thread, %198, %cache_bin_dalloc_easy.exit12.i33, %tsdn_rtree_ctx.exit42, %147
@@ -3972,7 +3972,7 @@ arena_dalloc.exit22:                              ; preds = %172, %162, %cache_b
   br i1 %213, label %te_event_advance.exit47, label %214, !prof !10
 
 214:                                              ; preds = %arena_dalloc.exit22
-  call void @je_te_event_trigger(ptr noundef nonnull %11, ptr noundef nonnull %2) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %11, ptr noundef nonnull %2) #21
   br label %te_event_advance.exit47
 
 te_event_advance.exit47:                          ; preds = %arena_dalloc.exit22, %214
@@ -4242,7 +4242,7 @@ define dso_local noalias ptr @memalign(i64 noundef %0, i64 noundef %1) local_unn
   br i1 %.not.i76, label %compute_size_with_overflow.exit29, label %tsd_fetch_impl.exit, !prof !10
 
 tsd_fetch_impl.exit:                              ; preds = %2
-  %9 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %6, i1 noundef zeroext false) #20
+  %9 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %6, i1 noundef zeroext false) #21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 888
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !11
   %10 = icmp eq i8 %.pre, 0
@@ -4347,7 +4347,7 @@ aligned_usize_get.exit.i:                         ; preds = %.thread219, %sz_s2u
 imalloc_no_sample.exit70:                         ; preds = %aligned_usize_get.exit.i
   %62 = icmp samesign ult i64 %.018.i98, 14337
   %63 = getelementptr inbounds nuw i8, ptr %.0.i77261, i64 928
-  %64 = tail call ptr @je_arena_palloc(ptr noundef nonnull %.0.i77261, ptr noundef null, i64 noundef %.018.i98, i64 noundef %0, i1 noundef zeroext false, i1 noundef zeroext %62, ptr noundef nonnull %63) #20
+  %64 = tail call ptr @je_arena_palloc(ptr noundef nonnull %.0.i77261, ptr noundef null, i64 noundef %.018.i98, i64 noundef %0, i1 noundef zeroext false, i1 noundef zeroext %62, ptr noundef nonnull %63) #21
   %65 = icmp eq ptr %64, null
   br i1 %65, label %imalloc.exit, label %66, !prof !8
 
@@ -4375,7 +4375,7 @@ imalloc_no_sample.exit70:                         ; preds = %aligned_usize_get.e
   br i1 %79, label %81, label %80, !prof !10
 
 80:                                               ; preds = %66
-  call void @je_te_event_trigger(ptr noundef nonnull %.0.i77261, ptr noundef nonnull %3) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %.0.i77261, ptr noundef nonnull %3) #21
   br label %81
 
 81:                                               ; preds = %80, %66
@@ -4392,7 +4392,7 @@ imalloc_no_sample.exit70:                         ; preds = %aligned_usize_get.e
   br i1 %86, label %imalloc_init_check.exit, label %compute_size_with_overflow.exit, !prof !141
 
 imalloc_init_check.exit:                          ; preds = %85
-  %87 = tail call ptr @__errno_location() #23
+  %87 = tail call ptr @__errno_location() #24
   store i32 12, ptr %87, align 4, !tbaa !4
   br label %imalloc.exit
 
@@ -4530,7 +4530,7 @@ imalloc_no_sample.exit:                           ; preds = %145, %155, %arena_g
   %.0.i.i30237.ph = phi ptr [ null, %arena_get.exit127 ], [ null, %155 ], [ %spec.select, %145 ]
   %.1209.ph = phi ptr [ %.0.i126, %arena_get.exit127 ], [ null, %155 ], [ null, %145 ]
   %.ph = icmp samesign ult i64 %.018.i, 14337
-  %157 = tail call ptr @je_arena_palloc(ptr noundef nonnull %9, ptr noundef %.1209.ph, i64 noundef %.018.i, i64 noundef %0, i1 noundef zeroext %91, i1 noundef zeroext %.ph, ptr noundef %.0.i.i30237.ph) #20
+  %157 = tail call ptr @je_arena_palloc(ptr noundef nonnull %9, ptr noundef %.1209.ph, i64 noundef %.018.i, i64 noundef %0, i1 noundef zeroext %91, i1 noundef zeroext %.ph, ptr noundef %.0.i.i30237.ph) #21
   %158 = icmp eq ptr %157, null
   br i1 %158, label %aligned_usize_get.exit.i14.thread, label %159, !prof !148
 
@@ -4558,7 +4558,7 @@ imalloc_no_sample.exit:                           ; preds = %145, %155, %arena_g
   br i1 %172, label %174, label %173, !prof !10
 
 173:                                              ; preds = %159
-  call void @je_te_event_trigger(ptr noundef nonnull %9, ptr noundef nonnull %4) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %9, ptr noundef nonnull %4) #21
   br label %174
 
 174:                                              ; preds = %173, %159
@@ -4582,7 +4582,7 @@ aligned_usize_get.exit.i14.thread:                ; preds = %155, %123, %sz_s2u_
   %.ptr = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %.ptr, align 16, !tbaa !33
   %179 = ptrtoint ptr %.0217.ph to i64
-  call void @je_hook_invoke_alloc(i32 noundef 4, ptr noundef %.0217.ph, i64 noundef %179, ptr noundef nonnull %5) #20
+  call void @je_hook_invoke_alloc(i32 noundef 4, ptr noundef %.0217.ph, i64 noundef %179, ptr noundef nonnull %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %imalloc.exit
 
@@ -4603,7 +4603,7 @@ define dso_local noalias ptr @valloc(i64 noundef %0) local_unnamed_addr #2 {
   br i1 %.not.i74, label %tsd_fetch_impl.exit.thread, label %tsd_fetch_impl.exit, !prof !10
 
 tsd_fetch_impl.exit:                              ; preds = %1
-  %8 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %5, i1 noundef zeroext false) #20
+  %8 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %5, i1 noundef zeroext false) #21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 888
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !11
   %9 = icmp eq i8 %.pre, 0
@@ -4686,7 +4686,7 @@ aligned_usize_get.exit.i:                         ; preds = %.thread, %sz_s2u.ex
 imalloc_no_sample.exit68:                         ; preds = %aligned_usize_get.exit.i
   %47 = icmp samesign ult i64 %.018.i96, 14337
   %48 = getelementptr inbounds nuw i8, ptr %.0.i75252, i64 928
-  %49 = tail call ptr @je_arena_palloc(ptr noundef nonnull %.0.i75252, ptr noundef null, i64 noundef %.018.i96, i64 noundef 4096, i1 noundef zeroext false, i1 noundef zeroext %47, ptr noundef nonnull %48) #20
+  %49 = tail call ptr @je_arena_palloc(ptr noundef nonnull %.0.i75252, ptr noundef null, i64 noundef %.018.i96, i64 noundef 4096, i1 noundef zeroext false, i1 noundef zeroext %47, ptr noundef nonnull %48) #21
   %50 = icmp eq ptr %49, null
   br i1 %50, label %imalloc.exit, label %51, !prof !8
 
@@ -4714,7 +4714,7 @@ imalloc_no_sample.exit68:                         ; preds = %aligned_usize_get.e
   br i1 %64, label %66, label %65, !prof !10
 
 65:                                               ; preds = %51
-  call void @je_te_event_trigger(ptr noundef nonnull %.0.i75252, ptr noundef nonnull %2) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %.0.i75252, ptr noundef nonnull %2) #21
   br label %66
 
 66:                                               ; preds = %65, %51
@@ -4731,7 +4731,7 @@ imalloc_no_sample.exit68:                         ; preds = %aligned_usize_get.e
   br i1 %71, label %imalloc_init_check.exit, label %73, !prof !141
 
 imalloc_init_check.exit:                          ; preds = %70
-  %72 = tail call ptr @__errno_location() #23
+  %72 = tail call ptr @__errno_location() #24
   store i32 12, ptr %72, align 4, !tbaa !4
   br label %imalloc.exit
 
@@ -4847,7 +4847,7 @@ imalloc_no_sample.exit:                           ; preds = %117, %127, %arena_g
   %.0.i.i28232.ph = phi ptr [ null, %arena_get.exit125 ], [ null, %127 ], [ %spec.select, %117 ]
   %.1208.ph = phi ptr [ %.0.i124, %arena_get.exit125 ], [ null, %127 ], [ null, %117 ]
   %.ph = icmp samesign ult i64 %.018.i, 14337
-  %129 = tail call ptr @je_arena_palloc(ptr noundef nonnull %8, ptr noundef %.1208.ph, i64 noundef %.018.i, i64 noundef 4096, i1 noundef zeroext %75, i1 noundef zeroext %.ph, ptr noundef %.0.i.i28232.ph) #20
+  %129 = tail call ptr @je_arena_palloc(ptr noundef nonnull %8, ptr noundef %.1208.ph, i64 noundef %.018.i, i64 noundef 4096, i1 noundef zeroext %75, i1 noundef zeroext %.ph, ptr noundef %.0.i.i28232.ph) #21
   %130 = icmp eq ptr %129, null
   br i1 %130, label %aligned_usize_get.exit.i12.thread, label %131, !prof !148
 
@@ -4875,7 +4875,7 @@ imalloc_no_sample.exit:                           ; preds = %117, %127, %arena_g
   br i1 %144, label %146, label %145, !prof !10
 
 145:                                              ; preds = %131
-  call void @je_te_event_trigger(ptr noundef nonnull %8, ptr noundef nonnull %3) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %8, ptr noundef nonnull %3) #21
   br label %146
 
 146:                                              ; preds = %145, %131
@@ -4897,7 +4897,7 @@ aligned_usize_get.exit.i12.thread:                ; preds = %127, %sz_s2u_comput
   %scevgep = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep, i8 0, i64 16, i1 false), !tbaa !33
   %150 = ptrtoint ptr %.0216.ph to i64
-  call void @je_hook_invoke_alloc(i32 noundef 5, ptr noundef %.0216.ph, i64 noundef %150, ptr noundef nonnull %4) #20
+  call void @je_hook_invoke_alloc(i32 noundef 5, ptr noundef %.0216.ph, i64 noundef %150, ptr noundef nonnull %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %imalloc.exit
 
@@ -4920,7 +4920,7 @@ define dso_local noalias ptr @pvalloc(i64 noundef %0) local_unnamed_addr #2 {
   br i1 %.not.i74, label %tsd_fetch_impl.exit.thread, label %tsd_fetch_impl.exit, !prof !10
 
 tsd_fetch_impl.exit:                              ; preds = %1
-  %10 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %7, i1 noundef zeroext false) #20
+  %10 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %7, i1 noundef zeroext false) #21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 888
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !11
   %11 = icmp eq i8 %.pre, 0
@@ -4997,7 +4997,7 @@ aligned_usize_get.exit.i:                         ; preds = %sz_s2u.exit25.i100.
 imalloc_no_sample.exit68:                         ; preds = %aligned_usize_get.exit.i
   %46 = icmp samesign ult i64 %.018.i96, 14337
   %47 = getelementptr inbounds nuw i8, ptr %.0.i75248, i64 928
-  %48 = tail call ptr @je_arena_palloc(ptr noundef nonnull %.0.i75248, ptr noundef null, i64 noundef %.018.i96, i64 noundef 4096, i1 noundef zeroext false, i1 noundef zeroext %46, ptr noundef nonnull %47) #20
+  %48 = tail call ptr @je_arena_palloc(ptr noundef nonnull %.0.i75248, ptr noundef null, i64 noundef %.018.i96, i64 noundef 4096, i1 noundef zeroext false, i1 noundef zeroext %46, ptr noundef nonnull %47) #21
   %49 = icmp eq ptr %48, null
   br i1 %49, label %imalloc.exit, label %50, !prof !8
 
@@ -5025,7 +5025,7 @@ imalloc_no_sample.exit68:                         ; preds = %aligned_usize_get.e
   br i1 %63, label %65, label %64, !prof !10
 
 64:                                               ; preds = %50
-  call void @je_te_event_trigger(ptr noundef nonnull %.0.i75248, ptr noundef nonnull %2) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %.0.i75248, ptr noundef nonnull %2) #21
   br label %65
 
 65:                                               ; preds = %64, %50
@@ -5042,7 +5042,7 @@ imalloc_no_sample.exit68:                         ; preds = %aligned_usize_get.e
   br i1 %70, label %imalloc_init_check.exit, label %72, !prof !141
 
 imalloc_init_check.exit:                          ; preds = %69
-  %71 = tail call ptr @__errno_location() #23
+  %71 = tail call ptr @__errno_location() #24
   store i32 12, ptr %71, align 4, !tbaa !4
   br label %imalloc.exit
 
@@ -5152,7 +5152,7 @@ imalloc_no_sample.exit:                           ; preds = %113, %123, %arena_g
   %.0.i.i28232.ph = phi ptr [ null, %arena_get.exit125 ], [ null, %123 ], [ %spec.select, %113 ]
   %.1208.ph = phi ptr [ %.0.i124, %arena_get.exit125 ], [ null, %123 ], [ null, %113 ]
   %.ph = icmp samesign ult i64 %.018.i, 14337
-  %125 = tail call ptr @je_arena_palloc(ptr noundef nonnull %10, ptr noundef %.1208.ph, i64 noundef %.018.i, i64 noundef 4096, i1 noundef zeroext %74, i1 noundef zeroext %.ph, ptr noundef %.0.i.i28232.ph) #20
+  %125 = tail call ptr @je_arena_palloc(ptr noundef nonnull %10, ptr noundef %.1208.ph, i64 noundef %.018.i, i64 noundef 4096, i1 noundef zeroext %74, i1 noundef zeroext %.ph, ptr noundef %.0.i.i28232.ph) #21
   %126 = icmp eq ptr %125, null
   br i1 %126, label %aligned_usize_get.exit.i12.thread, label %127, !prof !148
 
@@ -5180,7 +5180,7 @@ imalloc_no_sample.exit:                           ; preds = %113, %123, %arena_g
   br i1 %140, label %142, label %141, !prof !10
 
 141:                                              ; preds = %127
-  call void @je_te_event_trigger(ptr noundef nonnull %10, ptr noundef nonnull %3) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %10, ptr noundef nonnull %3) #21
   br label %142
 
 142:                                              ; preds = %141, %127
@@ -5202,7 +5202,7 @@ aligned_usize_get.exit.i12.thread:                ; preds = %123, %sz_s2u_comput
   %scevgep = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep, i8 0, i64 16, i1 false), !tbaa !33
   %146 = ptrtoint ptr %.0216.ph to i64
-  call void @je_hook_invoke_alloc(i32 noundef 6, ptr noundef %.0216.ph, i64 noundef %146, ptr noundef nonnull %4) #20
+  call void @je_hook_invoke_alloc(i32 noundef 6, ptr noundef %.0216.ph, i64 noundef %146, ptr noundef nonnull %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %imalloc.exit
 
@@ -5265,7 +5265,7 @@ mallocx_arena_get.exit:                           ; preds = %21, %mallocx_tcache
   br i1 %.not.i83, label %compute_size_with_overflow.exit36, label %tsd_fetch_impl.exit, !prof !10
 
 tsd_fetch_impl.exit:                              ; preds = %mallocx_arena_get.exit
-  %27 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %24, i1 noundef zeroext false) #20
+  %27 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %24, i1 noundef zeroext false) #21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %27, i64 888
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !11
   %28 = icmp eq i8 %.pre, 0
@@ -5432,12 +5432,12 @@ aligned_usize_get.exit.i:                         ; preds = %.thread228, %sz_s2u
   ], !prof !171
 
 116:                                              ; preds = %111
-  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.182, i32 noundef range(i32 0, -2) %.sroa.54167.0) #20
-  tail call void @abort() #22
+  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.182, i32 noundef range(i32 0, -2) %.sroa.54167.0) #21
+  tail call void @abort() #23
   unreachable
 
 117:                                              ; preds = %111
-  %118 = tail call ptr @je_tcache_create_explicit(ptr noundef nonnull %.0.i84324) #20
+  %118 = tail call ptr @je_tcache_create_explicit(ptr noundef nonnull %.0.i84324) #21
   store ptr %118, ptr %114, align 8, !tbaa !11
   br label %tcache_get_from_ind.exit.i40
 
@@ -5473,7 +5473,7 @@ arena_get.exit:                                   ; preds = %120, %125
   br i1 %30, label %iallocztm_explicit_slab.exit.i46, label %ipallocztm_explicit_slab.exit82, !prof !10
 
 ipallocztm_explicit_slab.exit82:                  ; preds = %130
-  %131 = tail call ptr @je_arena_palloc(ptr noundef nonnull %.0.i84324, ptr noundef %.1.ph, i64 noundef %.0223236, i64 noundef %.sroa.32.0, i1 noundef zeroext %29, i1 noundef zeroext %108, ptr noundef %.0.i.i41) #20
+  %131 = tail call ptr @je_arena_palloc(ptr noundef nonnull %.0.i84324, ptr noundef %.1.ph, i64 noundef %.0223236, i64 noundef %.sroa.32.0, i1 noundef zeroext %29, i1 noundef zeroext %108, ptr noundef %.0.i.i41) #21
   br label %imalloc_no_sample.exit77
 
 iallocztm_explicit_slab.exit.i46:                 ; preds = %130
@@ -5526,7 +5526,7 @@ cache_bin_alloc_impl.exit.i64:                    ; preds = %145
   br i1 %154, label %155, label %157, !prof !8
 
 155:                                              ; preds = %153
-  %156 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %.0.i84324, ptr noundef nonnull %151, i64 noundef %0, i32 noundef %.0222237, i1 noundef zeroext %29, i1 noundef zeroext true) #20
+  %156 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %.0.i84324, ptr noundef nonnull %151, i64 noundef %0, i32 noundef %.0222237, i1 noundef zeroext %29, i1 noundef zeroext true) #21
   br label %.thread247
 
 .thread247:                                       ; preds = %155, %cache_bin_alloc_impl.exit.i64
@@ -5535,8 +5535,8 @@ cache_bin_alloc_impl.exit.i64:                    ; preds = %145
   br label %imalloc_no_sample.exit77
 
 157:                                              ; preds = %153
-  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %.0.i84324, ptr noundef nonnull %.0.i.i41, ptr noundef nonnull %136, i32 noundef %.0222237, i1 noundef zeroext true) #20
-  %158 = call ptr @je_tcache_alloc_small_hard(ptr noundef nonnull %.0.i84324, ptr noundef nonnull %151, ptr noundef nonnull %.0.i.i41, ptr noundef nonnull %136, i32 noundef %.0222237, ptr noundef nonnull %5) #20
+  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %.0.i84324, ptr noundef nonnull %.0.i.i41, ptr noundef nonnull %136, i32 noundef %.0222237, i1 noundef zeroext true) #21
+  %158 = call ptr @je_tcache_alloc_small_hard(ptr noundef nonnull %.0.i84324, ptr noundef nonnull %151, ptr noundef nonnull %.0.i.i41, ptr noundef nonnull %136, i32 noundef %.0222237, ptr noundef nonnull %5) #21
   %159 = load i8, ptr %5, align 1, !tbaa !108, !range !110, !noundef !111
   %.not306 = icmp eq i8 %159, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -5607,7 +5607,7 @@ cache_bin_alloc_impl.exit31.i53:                  ; preds = %183
   br i1 %190, label %imalloc.exit, label %191, !prof !8
 
 191:                                              ; preds = %cache_bin_alloc_impl.exit31.i53
-  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %.0.i84324, ptr noundef nonnull %.0.i.i41, ptr noundef nonnull %174, i32 noundef %.0222237, i1 noundef zeroext false) #20
+  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %.0.i84324, ptr noundef nonnull %.0.i.i41, ptr noundef nonnull %174, i32 noundef %.0222237, i1 noundef zeroext false) #21
   %192 = icmp samesign ult i64 %0, 4097
   br i1 %192, label %193, label %201, !prof !10
 
@@ -5638,7 +5638,7 @@ cache_bin_alloc_impl.exit31.i53:                  ; preds = %183
 
 sz_s2u.exit.i58:                                  ; preds = %201, %203, %193
   %.0.i32.i59 = phi i64 [ %200, %193 ], [ %210, %203 ], [ 0, %201 ]
-  %211 = tail call ptr @je_large_malloc(ptr noundef nonnull %.0.i84324, ptr noundef nonnull %189, i64 noundef %.0.i32.i59, i1 noundef zeroext %29) #20
+  %211 = tail call ptr @je_large_malloc(ptr noundef nonnull %.0.i84324, ptr noundef nonnull %189, i64 noundef %.0.i32.i59, i1 noundef zeroext %29) #21
   br label %imalloc_no_sample.exit77
 
 212:                                              ; preds = %186, %182
@@ -5658,7 +5658,7 @@ sz_s2u.exit.i58:                                  ; preds = %201, %203, %193
   br label %imalloc_no_sample.exit77
 
 .critedge.i.i48:                                  ; preds = %171, %167, %iallocztm_explicit_slab.exit.i46
-  %220 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %.0.i84324, ptr noundef %.1.ph, i64 noundef %0, i32 noundef %.0222237, i1 noundef zeroext %29, i1 noundef zeroext %108) #20
+  %220 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %.0.i84324, ptr noundef %.1.ph, i64 noundef %0, i32 noundef %.0222237, i1 noundef zeroext %29, i1 noundef zeroext %108) #21
   br label %imalloc_no_sample.exit77
 
 imalloc_no_sample.exit77:                         ; preds = %.critedge.i.i48, %.thread247, %163, %216, %sz_s2u.exit.i58, %ipallocztm_explicit_slab.exit82
@@ -5690,7 +5690,7 @@ imalloc_no_sample.exit77:                         ; preds = %.critedge.i.i48, %.
   br i1 %235, label %237, label %236, !prof !10
 
 236:                                              ; preds = %222
-  call void @je_te_event_trigger(ptr noundef nonnull %.0.i84324, ptr noundef nonnull %3) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %.0.i84324, ptr noundef nonnull %3) #21
   br label %237
 
 237:                                              ; preds = %236, %222
@@ -5707,7 +5707,7 @@ imalloc_no_sample.exit77:                         ; preds = %.critedge.i.i48, %.
   br i1 %242, label %imalloc_init_check.exit, label %compute_size_with_overflow.exit, !prof !141
 
 imalloc_init_check.exit:                          ; preds = %241
-  %243 = tail call ptr @__errno_location() #23
+  %243 = tail call ptr @__errno_location() #24
   store i32 12, ptr %243, align 4, !tbaa !4
   br label %imalloc.exit
 
@@ -5882,12 +5882,12 @@ aligned_usize_get.exit.i21:                       ; preds = %.thread259, %sz_s2u
   ], !prof !171
 
 338:                                              ; preds = %333
-  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.182, i32 noundef range(i32 0, -2) %.sroa.54167.0) #20
-  tail call void @abort() #22
+  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.182, i32 noundef range(i32 0, -2) %.sroa.54167.0) #21
+  tail call void @abort() #23
   unreachable
 
 339:                                              ; preds = %333
-  %340 = tail call ptr @je_tcache_create_explicit(ptr noundef nonnull %27) #20
+  %340 = tail call ptr @je_tcache_create_explicit(ptr noundef nonnull %27) #21
   store ptr %340, ptr %336, align 8, !tbaa !11
   br label %tcache_get_from_ind.exit.i
 
@@ -5926,7 +5926,7 @@ arena_get.exit134:                                ; preds = %tcache_get_from_ind
   br i1 %246, label %iallocztm_explicit_slab.exit.i, label %ipallocztm_explicit_slab.exit, !prof !10
 
 ipallocztm_explicit_slab.exit:                    ; preds = %351
-  %352 = tail call ptr @je_arena_palloc(ptr noundef nonnull %27, ptr noundef %.1217.ph, i64 noundef %.0220267, i64 noundef %.sroa.32.0, i1 noundef zeroext %spec.select.i.i17, i1 noundef zeroext %327, ptr noundef %.0.i.i37280.ph) #20
+  %352 = tail call ptr @je_arena_palloc(ptr noundef nonnull %27, ptr noundef %.1217.ph, i64 noundef %.0220267, i64 noundef %.sroa.32.0, i1 noundef zeroext %spec.select.i.i17, i1 noundef zeroext %327, ptr noundef %.0.i.i37280.ph) #21
   br label %imalloc_no_sample.exit
 
 iallocztm_explicit_slab.exit.i:                   ; preds = %351
@@ -5979,7 +5979,7 @@ cache_bin_alloc_impl.exit.i:                      ; preds = %366
   br i1 %375, label %376, label %378, !prof !8
 
 376:                                              ; preds = %374
-  %377 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %27, ptr noundef nonnull %372, i64 noundef %0, i32 noundef %.0219268, i1 noundef zeroext %spec.select.i.i17, i1 noundef zeroext true) #20
+  %377 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %27, ptr noundef nonnull %372, i64 noundef %0, i32 noundef %.0219268, i1 noundef zeroext %spec.select.i.i17, i1 noundef zeroext true) #21
   br label %.thread291
 
 .thread291:                                       ; preds = %376, %cache_bin_alloc_impl.exit.i
@@ -5988,8 +5988,8 @@ cache_bin_alloc_impl.exit.i:                      ; preds = %366
   br label %imalloc_no_sample.exit
 
 378:                                              ; preds = %374
-  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %27, ptr noundef nonnull %.0.i.i37280.ph, ptr noundef nonnull %357, i32 noundef %.0219268, i1 noundef zeroext true) #20
-  %379 = call ptr @je_tcache_alloc_small_hard(ptr noundef nonnull %27, ptr noundef nonnull %372, ptr noundef nonnull %.0.i.i37280.ph, ptr noundef nonnull %357, i32 noundef %.0219268, ptr noundef nonnull %6) #20
+  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %27, ptr noundef nonnull %.0.i.i37280.ph, ptr noundef nonnull %357, i32 noundef %.0219268, i1 noundef zeroext true) #21
+  %379 = call ptr @je_tcache_alloc_small_hard(ptr noundef nonnull %27, ptr noundef nonnull %372, ptr noundef nonnull %.0.i.i37280.ph, ptr noundef nonnull %357, i32 noundef %.0219268, ptr noundef nonnull %6) #21
   %380 = load i8, ptr %6, align 1, !tbaa !108, !range !110, !noundef !111
   %.not304 = icmp eq i8 %380, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -6060,7 +6060,7 @@ cache_bin_alloc_impl.exit31.i:                    ; preds = %404
   br i1 %411, label %aligned_usize_get.exit.i21.thread, label %412, !prof !8
 
 412:                                              ; preds = %cache_bin_alloc_impl.exit31.i
-  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %27, ptr noundef nonnull %.0.i.i37280.ph, ptr noundef nonnull %395, i32 noundef %.0219268, i1 noundef zeroext false) #20
+  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %27, ptr noundef nonnull %.0.i.i37280.ph, ptr noundef nonnull %395, i32 noundef %.0219268, i1 noundef zeroext false) #21
   %413 = icmp samesign ult i64 %0, 4097
   br i1 %413, label %414, label %422, !prof !10
 
@@ -6091,7 +6091,7 @@ cache_bin_alloc_impl.exit31.i:                    ; preds = %404
 
 sz_s2u.exit.i:                                    ; preds = %422, %424, %414
   %.0.i32.i = phi i64 [ %421, %414 ], [ %431, %424 ], [ 0, %422 ]
-  %432 = tail call ptr @je_large_malloc(ptr noundef nonnull %27, ptr noundef nonnull %410, i64 noundef %.0.i32.i, i1 noundef zeroext %spec.select.i.i17) #20
+  %432 = tail call ptr @je_large_malloc(ptr noundef nonnull %27, ptr noundef nonnull %410, i64 noundef %.0.i32.i, i1 noundef zeroext %spec.select.i.i17) #21
   br label %imalloc_no_sample.exit
 
 433:                                              ; preds = %407, %403
@@ -6111,7 +6111,7 @@ sz_s2u.exit.i:                                    ; preds = %422, %424, %414
   br label %imalloc_no_sample.exit
 
 .critedge.i.i:                                    ; preds = %392, %388, %iallocztm_explicit_slab.exit.i
-  %441 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %27, ptr noundef %.1217.ph, i64 noundef %0, i32 noundef %.0219268, i1 noundef zeroext %spec.select.i.i17, i1 noundef zeroext %327) #20
+  %441 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %27, ptr noundef %.1217.ph, i64 noundef %0, i32 noundef %.0219268, i1 noundef zeroext %spec.select.i.i17, i1 noundef zeroext %327) #21
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.thread291, %384, %437, %sz_s2u.exit.i, %ipallocztm_explicit_slab.exit
@@ -6143,7 +6143,7 @@ imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.th
   br i1 %456, label %458, label %457, !prof !10
 
 457:                                              ; preds = %443
-  call void @je_te_event_trigger(ptr noundef nonnull %27, ptr noundef nonnull %4) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %27, ptr noundef nonnull %4) #21
   br label %458
 
 458:                                              ; preds = %457, %443
@@ -6168,7 +6168,7 @@ aligned_usize_get.exit.i21.thread:                ; preds = %cache_bin_alloc_imp
   %.ptr = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %.ptr, align 16, !tbaa !33
   %464 = ptrtoint ptr %.0225.ph to i64
-  call void @je_hook_invoke_alloc(i32 noundef 7, ptr noundef %.0225.ph, i64 noundef %464, ptr noundef nonnull %7) #20
+  call void @je_hook_invoke_alloc(i32 noundef 7, ptr noundef %.0225.ph, i64 noundef %464, ptr noundef nonnull %7) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %imalloc.exit
 
@@ -6203,7 +6203,7 @@ define internal fastcc ptr @do_rallocx(ptr noundef %0, i64 noundef %1, i32 nound
   br i1 %.not.i51, label %tsd_fetch_impl.exit, label %19, !prof !10
 
 19:                                               ; preds = %4
-  %20 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %16, i1 noundef zeroext false) #20
+  %20 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %16, i1 noundef zeroext false) #21
   br label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %4, %19
@@ -6276,12 +6276,12 @@ mallocx_tcache_get.exit.thread:                   ; preds = %mallocx_arena_get.e
   ], !prof !171
 
 47:                                               ; preds = %42
-  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.182, i32 noundef range(i32 0, -2) %38) #20
-  tail call void @abort() #22
+  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.182, i32 noundef range(i32 0, -2) %38) #21
+  tail call void @abort() #23
   unreachable
 
 48:                                               ; preds = %42
-  %49 = tail call ptr @je_tcache_create_explicit(ptr noundef %.0.i52) #20
+  %49 = tail call ptr @je_tcache_create_explicit(ptr noundef %.0.i52) #21
   store ptr %49, ptr %45, align 8, !tbaa !11
   br label %tcache_get_from_ind.exit
 
@@ -6292,7 +6292,7 @@ tcache_get_from_ind.exit:                         ; preds = %48, %42, %mallocx_a
   br i1 %50, label %51, label %52, !prof !9
 
 51:                                               ; preds = %tcache_get_from_ind.exit
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %9) #20
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %9) #21
   br label %tsdn_rtree_ctx.exit81
 
 52:                                               ; preds = %mallocx_tcache_get.exit.thread, %tcache_get_from_ind.exit
@@ -6374,7 +6374,7 @@ tsdn_rtree_ctx.exit81:                            ; preds = %51, %52
   br label %rtree_metadata_read.exit
 
 96:                                               ; preds = %80
-  %97 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %.0.i52, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i80, i64 noundef %55, i1 noundef zeroext true, i1 noundef zeroext false) #20
+  %97 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %.0.i52, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i80, i64 noundef %55, i1 noundef zeroext true, i1 noundef zeroext false) #21
   br label %rtree_metadata_read.exit
 
 rtree_metadata_read.exit:                         ; preds = %62, %72, %84, %96
@@ -6606,7 +6606,7 @@ sz_sa2u.exit:                                     ; preds = %sz_s2u.exit25.i, %.
   br i1 %225, label %arena_get_from_ind.exit, label %ipallocztm_explicit_slab.exit.i, !prof !113
 
 ipallocztm_explicit_slab.exit.i:                  ; preds = %sz_sa2u.exit
-  %226 = call ptr @je_arena_palloc(ptr noundef %.0.i52, ptr noundef %.1.ph, i64 noundef %.018.i, i64 noundef range(i64 0, -9223372036854775807) %15, i1 noundef zeroext %spec.select.i, i1 noundef zeroext %177, ptr noundef %.0.i105) #20
+  %226 = call ptr @je_arena_palloc(ptr noundef %.0.i52, ptr noundef %.1.ph, i64 noundef %.018.i, i64 noundef range(i64 0, -9223372036854775807) %15, i1 noundef zeroext %spec.select.i, i1 noundef zeroext %177, ptr noundef %.0.i105) #21
   %227 = icmp eq ptr %226, null
   br i1 %227, label %arena_get_from_ind.exit, label %isdalloct.exit
 
@@ -6617,11 +6617,11 @@ isdalloct.exit:                                   ; preds = %ipallocztm_explicit
   %230 = trunc nuw i8 %229 to i1
   %231 = select i1 %230, i32 8, i32 9
   %232 = ptrtoint ptr %226 to i64
-  call void @je_hook_invoke_alloc(i32 noundef %231, ptr noundef nonnull %226, i64 noundef %232, ptr noundef nonnull %172) #20
+  call void @je_hook_invoke_alloc(i32 noundef %231, ptr noundef nonnull %226, i64 noundef %232, ptr noundef nonnull %172) #21
   %233 = load i8, ptr %10, align 8, !tbaa !176, !range !110, !noundef !111
   %234 = trunc nuw i8 %233 to i1
   %235 = select i1 %234, i32 3, i32 4
-  call void @je_hook_invoke_dalloc(i32 noundef %235, ptr noundef %0, ptr noundef nonnull %172) #20
+  call void @je_hook_invoke_dalloc(i32 noundef %235, ptr noundef %0, ptr noundef nonnull %172) #21
   %236 = icmp eq ptr %.0.i105, null
   br i1 %236, label %237, label %238, !prof !8
 
@@ -6690,7 +6690,7 @@ cache_bin_dalloc_easy.exit18.i:                   ; preds = %263
   br i1 %274, label %275, label %276, !prof !8
 
 275:                                              ; preds = %cache_bin_dalloc_easy.exit18.i
-  call void @je_arena_dalloc_small(ptr noundef %.0.i52, ptr noundef %0) #20
+  call void @je_arena_dalloc_small(ptr noundef %.0.i52, ptr noundef %0) #21
   br label %iralloct_explicit_slab.exit.thread
 
 276:                                              ; preds = %cache_bin_dalloc_easy.exit18.i
@@ -6699,7 +6699,7 @@ cache_bin_dalloc_easy.exit18.i:                   ; preds = %263
   %278 = zext i16 %.val89 to i32
   %279 = load i32, ptr @je_opt_lg_tcache_flush_small_div, align 4, !tbaa !4
   %280 = lshr i32 %278, %279
-  call void @je_tcache_bin_flush_small(ptr noundef %.0.i52, ptr noundef nonnull %.0.i105, ptr noundef nonnull %266, i32 noundef %.0.i.i77, i32 noundef %280) #20
+  call void @je_tcache_bin_flush_small(ptr noundef %.0.i52, ptr noundef nonnull %.0.i105, ptr noundef nonnull %266, i32 noundef %.0.i.i77, i32 noundef %280) #21
   %281 = load ptr, ptr %266, align 8, !tbaa !115
   %282 = ptrtoint ptr %281 to i64
   %283 = load i16, ptr %269, align 2, !tbaa !159
@@ -6749,7 +6749,7 @@ cache_bin_dalloc_easy.exit12.i.i:                 ; preds = %297
   %304 = zext i16 %.val90 to i32
   %305 = load i32, ptr @je_opt_lg_tcache_flush_large_div, align 4, !tbaa !4
   %306 = lshr i32 %304, %305
-  call void @je_tcache_bin_flush_large(ptr noundef %.0.i52, ptr noundef nonnull %.0.i105, ptr noundef nonnull %294, i32 noundef %.0.i.i77113, i32 noundef %306) #20
+  call void @je_tcache_bin_flush_large(ptr noundef %.0.i52, ptr noundef nonnull %.0.i105, ptr noundef nonnull %294, i32 noundef %.0.i.i77113, i32 noundef %306) #21
   %307 = load ptr, ptr %294, align 8, !tbaa !115
   %308 = ptrtoint ptr %307 to i64
   %309 = load i16, ptr %299, align 2, !tbaa !159
@@ -6769,7 +6769,7 @@ cache_bin_dalloc_easy.exit12.i.i:                 ; preds = %297
   br i1 %54, label %315, label %316, !prof !8
 
 315:                                              ; preds = %314
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %7) #20
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %7) #21
   br label %tsdn_rtree_ctx.exit
 
 316:                                              ; preds = %314
@@ -6782,11 +6782,11 @@ tsdn_rtree_ctx.exit:                              ; preds = %315, %316
   %318 = load ptr, ptr %8, align 8, !tbaa !161
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @je_large_dalloc(ptr noundef %.0.i52, ptr noundef %318) #20
+  call void @je_large_dalloc(ptr noundef %.0.i52, ptr noundef %318) #21
   br label %iralloct_explicit_slab.exit.thread
 
 iralloct_explicit_slab.exit:                      ; preds = %tsdn_witness_tsdp_get.exit.i, %178
-  %319 = call ptr @je_arena_ralloc(ptr noundef %.0.i52, ptr noundef %.1.ph, ptr noundef %0, i64 noundef %101, i64 noundef %1, i64 noundef range(i64 0, -9223372036854775807) %15, i1 noundef zeroext %spec.select.i, i1 noundef zeroext %177, ptr noundef %.0.i105, ptr noundef nonnull %10) #20
+  %319 = call ptr @je_arena_ralloc(ptr noundef %.0.i52, ptr noundef %.1.ph, ptr noundef %0, i64 noundef %101, i64 noundef %1, i64 noundef range(i64 0, -9223372036854775807) %15, i1 noundef zeroext %spec.select.i, i1 noundef zeroext %177, ptr noundef %.0.i105, ptr noundef nonnull %10) #21
   %320 = icmp eq ptr %319, null
   br i1 %320, label %arena_get_from_ind.exit, label %iralloct_explicit_slab.exit.thread, !prof !113
 
@@ -6815,7 +6815,7 @@ iralloct_explicit_slab.exit.thread:               ; preds = %237, %276, %286, %c
   br i1 %333, label %te_event_advance.exit82, label %334, !prof !10
 
 334:                                              ; preds = %iralloct_explicit_slab.exit.thread
-  call void @je_te_event_trigger(ptr noundef nonnull %.0.i52, ptr noundef nonnull %5) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %.0.i52, ptr noundef nonnull %5) #21
   br label %te_event_advance.exit82
 
 te_event_advance.exit82:                          ; preds = %iralloct_explicit_slab.exit.thread, %334
@@ -6843,7 +6843,7 @@ te_event_advance.exit82:                          ; preds = %iralloct_explicit_s
   br i1 %347, label %te_event_advance.exit, label %348, !prof !10
 
 348:                                              ; preds = %te_event_advance.exit82
-  call void @je_te_event_trigger(ptr noundef nonnull %.0.i52, ptr noundef nonnull %6) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %.0.i52, ptr noundef nonnull %6) #21
   br label %te_event_advance.exit
 
 te_event_advance.exit:                            ; preds = %te_event_advance.exit82, %348
@@ -6867,7 +6867,7 @@ arena_get_from_ind.exit:                          ; preds = %sz_s2u_compute.exit
   br i1 %3, label %356, label %358
 
 356:                                              ; preds = %arena_get_from_ind.exit
-  %357 = tail call ptr @__errno_location() #23
+  %357 = tail call ptr @__errno_location() #24
   store i32 12, ptr %357, align 4, !tbaa !4
   br label %358
 
@@ -6909,7 +6909,7 @@ define dso_local ptr @realloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr
   br i1 %.not.i87, label %tsd_fetch_impl.exit.thread, label %tsd_fetch_impl.exit, !prof !10
 
 tsd_fetch_impl.exit:                              ; preds = %17
-  %21 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %18, i1 noundef zeroext false) #20
+  %21 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %18, i1 noundef zeroext false) #21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %21, i64 888
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !11
   %22 = icmp eq i8 %.pre, 0
@@ -7004,7 +7004,7 @@ cache_bin_alloc_impl.exit.i68:                    ; preds = %63
   br i1 %72, label %73, label %75, !prof !8
 
 73:                                               ; preds = %71
-  %74 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %.0.i88299, ptr noundef nonnull %69, i64 noundef %1, i32 noundef %.0.i50.i, i1 noundef zeroext false, i1 noundef zeroext true) #20
+  %74 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %.0.i88299, ptr noundef nonnull %69, i64 noundef %1, i32 noundef %.0.i50.i, i1 noundef zeroext false, i1 noundef zeroext true) #21
   br label %.thread
 
 .thread:                                          ; preds = %73, %cache_bin_alloc_impl.exit.i68
@@ -7013,8 +7013,8 @@ cache_bin_alloc_impl.exit.i68:                    ; preds = %63
   br label %imalloc_no_sample.exit81
 
 75:                                               ; preds = %71
-  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %.0.i88299, ptr noundef nonnull %51, ptr noundef nonnull %54, i32 noundef %.0.i50.i, i1 noundef zeroext true) #20
-  %76 = call ptr @je_tcache_alloc_small_hard(ptr noundef nonnull %.0.i88299, ptr noundef nonnull %69, ptr noundef nonnull %51, ptr noundef nonnull %54, i32 noundef %.0.i50.i, ptr noundef nonnull %5) #20
+  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %.0.i88299, ptr noundef nonnull %51, ptr noundef nonnull %54, i32 noundef %.0.i50.i, i1 noundef zeroext true) #21
+  %76 = call ptr @je_tcache_alloc_small_hard(ptr noundef nonnull %.0.i88299, ptr noundef nonnull %69, ptr noundef nonnull %51, ptr noundef nonnull %54, i32 noundef %.0.i50.i, ptr noundef nonnull %5) #21
   %77 = load i8, ptr %5, align 1, !tbaa !108, !range !110, !noundef !111
   %.not283 = icmp eq i8 %77, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -7075,7 +7075,7 @@ cache_bin_alloc_impl.exit31.i57:                  ; preds = %96
   br i1 %103, label %aligned_usize_get.exit.i.thread, label %104, !prof !8
 
 104:                                              ; preds = %cache_bin_alloc_impl.exit31.i57
-  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %.0.i88299, ptr noundef nonnull %51, ptr noundef nonnull %87, i32 noundef %.0.i50.i, i1 noundef zeroext false) #20
+  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %.0.i88299, ptr noundef nonnull %51, ptr noundef nonnull %87, i32 noundef %.0.i50.i, i1 noundef zeroext false) #21
   br i1 %23, label %105, label %sz_s2u_compute.exit.i60, !prof !10
 
 105:                                              ; preds = %104
@@ -7101,7 +7101,7 @@ sz_s2u_compute.exit.i60:                          ; preds = %104
 
 sz_s2u.exit.i62:                                  ; preds = %sz_s2u_compute.exit.i60, %105
   %.0.i32.i63 = phi i64 [ %112, %105 ], [ %119, %sz_s2u_compute.exit.i60 ]
-  %120 = tail call ptr @je_large_malloc(ptr noundef nonnull %.0.i88299, ptr noundef nonnull %102, i64 noundef %.0.i32.i63, i1 noundef zeroext false) #20
+  %120 = tail call ptr @je_large_malloc(ptr noundef nonnull %.0.i88299, ptr noundef nonnull %102, i64 noundef %.0.i32.i63, i1 noundef zeroext false) #21
   br label %imalloc_no_sample.exit81
 
 121:                                              ; preds = %95, %99
@@ -7112,7 +7112,7 @@ sz_s2u.exit.i62:                                  ; preds = %sz_s2u_compute.exit
   br label %imalloc_no_sample.exit81
 
 .critedge.i.i52:                                  ; preds = %85, %81
-  %125 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %.0.i88299, ptr noundef null, i64 noundef %1, i32 noundef %.0.i50.i, i1 noundef zeroext false, i1 noundef zeroext false) #20
+  %125 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %.0.i88299, ptr noundef null, i64 noundef %1, i32 noundef %.0.i50.i, i1 noundef zeroext false, i1 noundef zeroext false) #21
   br label %imalloc_no_sample.exit81
 
 imalloc_no_sample.exit81:                         ; preds = %.critedge.i.i52, %.thread, %cache_bin_alloc_impl.exit.i68.thread, %121, %sz_s2u.exit.i62
@@ -7144,7 +7144,7 @@ imalloc_no_sample.exit81:                         ; preds = %.critedge.i.i52, %.
   br i1 %140, label %142, label %141, !prof !10
 
 141:                                              ; preds = %127
-  call void @je_te_event_trigger(ptr noundef nonnull %.0.i88299, ptr noundef nonnull %3) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %.0.i88299, ptr noundef nonnull %3) #21
   br label %142
 
 142:                                              ; preds = %141, %127
@@ -7152,7 +7152,7 @@ imalloc_no_sample.exit81:                         ; preds = %.critedge.i.i52, %.
   br label %imalloc.exit
 
 aligned_usize_get.exit.i.thread:                  ; preds = %cache_bin_alloc_impl.exit31.i57, %75, %30, %sz_size2index.exit.i, %imalloc_no_sample.exit81
-  %143 = tail call ptr @__errno_location() #23
+  %143 = tail call ptr @__errno_location() #24
   store i32 12, ptr %143, align 4, !tbaa !4
   br label %imalloc.exit
 
@@ -7166,7 +7166,7 @@ aligned_usize_get.exit.i.thread:                  ; preds = %cache_bin_alloc_imp
   br i1 %148, label %imalloc_init_check.exit, label %150, !prof !141
 
 imalloc_init_check.exit:                          ; preds = %147
-  %149 = tail call ptr @__errno_location() #23
+  %149 = tail call ptr @__errno_location() #24
   store i32 12, ptr %149, align 4, !tbaa !4
   br label %imalloc.exit
 
@@ -7296,7 +7296,7 @@ cache_bin_alloc_impl.exit.i:                      ; preds = %208
   br i1 %217, label %218, label %220, !prof !8
 
 218:                                              ; preds = %216
-  %219 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %21, ptr noundef nonnull %214, i64 noundef %1, i32 noundef %.0.i50.i32, i1 noundef zeroext %152, i1 noundef zeroext true) #20
+  %219 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %21, ptr noundef nonnull %214, i64 noundef %1, i32 noundef %.0.i50.i32, i1 noundef zeroext %152, i1 noundef zeroext true) #21
   br label %.thread269
 
 .thread269:                                       ; preds = %218, %cache_bin_alloc_impl.exit.i
@@ -7305,8 +7305,8 @@ cache_bin_alloc_impl.exit.i:                      ; preds = %208
   br label %imalloc_no_sample.exit
 
 220:                                              ; preds = %216
-  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %21, ptr noundef nonnull %187, ptr noundef nonnull %199, i32 noundef %.0.i50.i32, i1 noundef zeroext true) #20
-  %221 = call ptr @je_tcache_alloc_small_hard(ptr noundef nonnull %21, ptr noundef nonnull %214, ptr noundef nonnull %187, ptr noundef nonnull %199, i32 noundef %.0.i50.i32, ptr noundef nonnull %6) #20
+  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %21, ptr noundef nonnull %187, ptr noundef nonnull %199, i32 noundef %.0.i50.i32, i1 noundef zeroext true) #21
+  %221 = call ptr @je_tcache_alloc_small_hard(ptr noundef nonnull %21, ptr noundef nonnull %214, ptr noundef nonnull %187, ptr noundef nonnull %199, i32 noundef %.0.i50.i32, ptr noundef nonnull %6) #21
   %222 = load i8, ptr %6, align 1, !tbaa !108, !range !110, !noundef !111
   %.not281 = icmp eq i8 %222, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -7375,7 +7375,7 @@ cache_bin_alloc_impl.exit31.i:                    ; preds = %244
   br i1 %251, label %aligned_usize_get.exit.i25.thread, label %252, !prof !8
 
 252:                                              ; preds = %cache_bin_alloc_impl.exit31.i
-  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %21, ptr noundef nonnull %187, ptr noundef nonnull %235, i32 noundef %.0.i50.i32, i1 noundef zeroext false) #20
+  tail call void @je_tcache_bin_flush_stashed(ptr noundef nonnull %21, ptr noundef nonnull %187, ptr noundef nonnull %235, i32 noundef %.0.i50.i32, i1 noundef zeroext false) #21
   br i1 %153, label %253, label %sz_s2u_compute.exit.i, !prof !10
 
 253:                                              ; preds = %252
@@ -7401,7 +7401,7 @@ sz_s2u_compute.exit.i:                            ; preds = %252
 
 sz_s2u.exit.i:                                    ; preds = %sz_s2u_compute.exit.i, %253
   %.0.i32.i = phi i64 [ %260, %253 ], [ %267, %sz_s2u_compute.exit.i ]
-  %268 = tail call ptr @je_large_malloc(ptr noundef nonnull %21, ptr noundef nonnull %250, i64 noundef %.0.i32.i, i1 noundef zeroext %152) #20
+  %268 = tail call ptr @je_large_malloc(ptr noundef nonnull %21, ptr noundef nonnull %250, i64 noundef %.0.i32.i, i1 noundef zeroext %152) #21
   br label %imalloc_no_sample.exit
 
 269:                                              ; preds = %247, %243
@@ -7422,7 +7422,7 @@ sz_s2u.exit.i:                                    ; preds = %sz_s2u_compute.exit
 .critedge.i.i:                                    ; preds = %iallocztm_explicit_slab.exit.i.thread, %233, %229
   %.ph307 = phi i1 [ %.ph304, %iallocztm_explicit_slab.exit.i.thread ], [ false, %233 ], [ false, %229 ]
   %.1222.ph306 = phi ptr [ %.1222.ph.ph, %iallocztm_explicit_slab.exit.i.thread ], [ null, %233 ], [ null, %229 ]
-  %276 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %21, ptr noundef %.1222.ph306, i64 noundef %1, i32 noundef %.0.i50.i32, i1 noundef zeroext %152, i1 noundef zeroext %.ph307) #20
+  %276 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %21, ptr noundef %.1222.ph306, i64 noundef %1, i32 noundef %.0.i50.i32, i1 noundef zeroext %152, i1 noundef zeroext %.ph307) #21
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.thread269, %225, %272, %sz_s2u.exit.i
@@ -7454,7 +7454,7 @@ imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.th
   br i1 %291, label %293, label %292, !prof !10
 
 292:                                              ; preds = %278
-  call void @je_te_event_trigger(ptr noundef nonnull %21, ptr noundef nonnull %4) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %21, ptr noundef nonnull %4) #21
   br label %293
 
 293:                                              ; preds = %292, %278
@@ -7470,7 +7470,7 @@ imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.th
   br label %298
 
 aligned_usize_get.exit.i25.thread:                ; preds = %cache_bin_alloc_impl.exit31.i, %220, %194, %160, %sz_size2index.exit.i31, %imalloc_no_sample.exit
-  %297 = tail call ptr @__errno_location() #23
+  %297 = tail call ptr @__errno_location() #24
   store i32 12, ptr %297, align 4, !tbaa !4
   br label %298
 
@@ -7484,7 +7484,7 @@ aligned_usize_get.exit.i25.thread:                ; preds = %cache_bin_alloc_imp
   %.ptr = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %.ptr, align 16, !tbaa !33
   %301 = ptrtoint ptr %.0230.ph to i64
-  call void @je_hook_invoke_alloc(i32 noundef 8, ptr noundef %.0230.ph, i64 noundef %301, ptr noundef nonnull %7) #20
+  call void @je_hook_invoke_alloc(i32 noundef 8, ptr noundef %.0230.ph, i64 noundef %301, ptr noundef nonnull %7) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %imalloc.exit
 
@@ -7517,7 +7517,7 @@ define internal fastcc ptr @do_realloc_nonnull_zero(ptr noundef nonnull %0) unna
   br i1 %.not.i, label %tsd_fetch_impl.exit, label %13, !prof !10
 
 13:                                               ; preds = %9
-  %14 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %10, i1 noundef zeroext false) #20
+  %14 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %10, i1 noundef zeroext false) #21
   br label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %9, %13
@@ -7541,7 +7541,7 @@ tcache_get_from_ind.exit:                         ; preds = %18, %tsd_fetch_impl
   store i64 %22, ptr %4, align 16, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  call void @je_hook_invoke_dalloc(i32 noundef 3, ptr noundef nonnull %0, ptr noundef nonnull %4) #20
+  call void @je_hook_invoke_dalloc(i32 noundef 3, ptr noundef nonnull %0, ptr noundef nonnull %4) #21
   %24 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 504
   %25 = lshr i64 %22, 30
   %26 = and i64 %25, 15
@@ -7612,7 +7612,7 @@ tcache_get_from_ind.exit:                         ; preds = %18, %tsd_fetch_impl
   br label %rtree_metadata_read.exit
 
 65:                                               ; preds = %49
-  %66 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef nonnull %.0.i18, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %24, i64 noundef %22, i1 noundef zeroext true, i1 noundef zeroext false) #20
+  %66 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef nonnull %.0.i18, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %24, i64 noundef %22, i1 noundef zeroext true, i1 noundef zeroext false) #21
   br label %rtree_metadata_read.exit
 
 rtree_metadata_read.exit:                         ; preds = %31, %41, %53, %65
@@ -7664,7 +7664,7 @@ cache_bin_dalloc_easy.exit16:                     ; preds = %78
   br i1 %88, label %89, label %90, !prof !8
 
 89:                                               ; preds = %cache_bin_dalloc_easy.exit16
-  call void @je_arena_dalloc_small(ptr noundef nonnull %.0.i18, ptr noundef nonnull %0) #20
+  call void @je_arena_dalloc_small(ptr noundef nonnull %.0.i18, ptr noundef nonnull %0) #21
   br label %arena_dalloc.exit
 
 90:                                               ; preds = %cache_bin_dalloc_easy.exit16
@@ -7673,7 +7673,7 @@ cache_bin_dalloc_easy.exit16:                     ; preds = %78
   %92 = zext i16 %.val30 to i32
   %93 = load i32, ptr @je_opt_lg_tcache_flush_small_div, align 4, !tbaa !4
   %94 = lshr i32 %92, %93
-  call void @je_tcache_bin_flush_small(ptr noundef nonnull %.0.i18, ptr noundef nonnull %.0.i, ptr noundef nonnull %80, i32 noundef %.sroa.032.0.extract.trunc, i32 noundef %94) #20
+  call void @je_tcache_bin_flush_small(ptr noundef nonnull %.0.i18, ptr noundef nonnull %.0.i, ptr noundef nonnull %80, i32 noundef %.sroa.032.0.extract.trunc, i32 noundef %94) #21
   %95 = load ptr, ptr %80, align 8, !tbaa !115
   %96 = ptrtoint ptr %95 to i64
   %97 = load i16, ptr %83, align 2, !tbaa !159
@@ -7721,7 +7721,7 @@ cache_bin_dalloc_easy.exit12.i:                   ; preds = %111
   %118 = zext i16 %.val29 to i32
   %119 = load i32, ptr @je_opt_lg_tcache_flush_large_div, align 4, !tbaa !4
   %120 = lshr i32 %118, %119
-  call void @je_tcache_bin_flush_large(ptr noundef nonnull %.0.i18, ptr noundef nonnull %.0.i, ptr noundef nonnull %108, i32 noundef %.sroa.032.0.extract.trunc, i32 noundef %120) #20
+  call void @je_tcache_bin_flush_large(ptr noundef nonnull %.0.i18, ptr noundef nonnull %.0.i, ptr noundef nonnull %108, i32 noundef %.sroa.032.0.extract.trunc, i32 noundef %120) #21
   %121 = load ptr, ptr %108, align 8, !tbaa !115
   %122 = ptrtoint ptr %121 to i64
   %123 = load i16, ptr %113, align 2, !tbaa !159
@@ -7740,7 +7740,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %106, %102
   call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull %.0.i18, ptr noundef nonnull %24, i64 noundef %22)
   %128 = load ptr, ptr %3, align 8, !tbaa !161
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @je_large_dalloc(ptr noundef nonnull %.0.i18, ptr noundef %128) #20
+  call void @je_large_dalloc(ptr noundef nonnull %.0.i18, ptr noundef %128) #21
   br label %arena_dalloc.exit
 
 arena_dalloc.exit:                                ; preds = %100, %90, %cache_bin_dalloc_easy.exit16.thread, %89, %cache_bin_dalloc_easy.exit12.i.thread, %126, %cache_bin_dalloc_easy.exit12.i, %tsdn_rtree_ctx.exit, %75
@@ -7767,7 +7767,7 @@ arena_dalloc.exit:                                ; preds = %100, %90, %cache_bi
   br i1 %141, label %te_event_advance.exit, label %142, !prof !10
 
 142:                                              ; preds = %arena_dalloc.exit
-  call void @je_te_event_trigger(ptr noundef nonnull %.0.i18, ptr noundef nonnull %2) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %.0.i18, ptr noundef nonnull %2) #21
   br label %te_event_advance.exit
 
 te_event_advance.exit:                            ; preds = %arena_dalloc.exit, %142
@@ -7776,7 +7776,7 @@ te_event_advance.exit:                            ; preds = %arena_dalloc.exit, 
   br label %144
 
 143:                                              ; preds = %1
-  tail call void (ptr, ...) @je_safety_check_fail(ptr noundef nonnull @.str.183) #20
+  tail call void (ptr, ...) @je_safety_check_fail(ptr noundef nonnull @.str.183) #21
   br label %144
 
 144:                                              ; preds = %143, %te_event_advance.exit, %7
@@ -7812,13 +7812,13 @@ tsd_fetch_impl.exit.thread:                       ; preds = %4
   br label %25
 
 tsd_fetch_impl.exit:                              ; preds = %4
-  %22 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %19, i1 noundef zeroext false) #20
+  %22 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %19, i1 noundef zeroext false) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %25, !prof !9
 
 24:                                               ; preds = %tsd_fetch_impl.exit
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %9) #20
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %9) #21
   br label %tsdn_rtree_ctx.exit55
 
 25:                                               ; preds = %tsd_fetch_impl.exit.thread, %tsd_fetch_impl.exit
@@ -7900,7 +7900,7 @@ tsdn_rtree_ctx.exit55:                            ; preds = %24, %25
   br label %rtree_read.exit
 
 69:                                               ; preds = %53
-  %70 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %.0.i5268, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i54, i64 noundef %28, i1 noundef zeroext true, i1 noundef zeroext false) #20, !noalias !184
+  %70 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %.0.i5268, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i54, i64 noundef %28, i1 noundef zeroext true, i1 noundef zeroext false) #21, !noalias !184
   br label %rtree_read.exit
 
 rtree_read.exit:                                  ; preds = %35, %45, %57, %69
@@ -7911,7 +7911,7 @@ rtree_read.exit:                                  ; preds = %35, %45, %57, %69
   br i1 %27, label %72, label %73, !prof !8
 
 72:                                               ; preds = %rtree_read.exit
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %8) #20
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %8) #21
   br label %tsdn_rtree_ctx.exit
 
 73:                                               ; preds = %rtree_read.exit
@@ -7986,7 +7986,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %72, %73
   br label %rtree_metadata_read.exit
 
 112:                                              ; preds = %96
-  %113 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %.0.i5268, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i53, i64 noundef %28, i1 noundef zeroext true, i1 noundef zeroext false) #20
+  %113 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %.0.i5268, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i53, i64 noundef %28, i1 noundef zeroext true, i1 noundef zeroext false) #21
   br label %rtree_metadata_read.exit
 
 rtree_metadata_read.exit:                         ; preds = %78, %88, %100, %112
@@ -8020,7 +8020,7 @@ tsdn_witness_tsdp_get.exit.i:                     ; preds = %122, %119
   br i1 %.not14.i, label %ixalloc.exit, label %.thread
 
 ixalloc.exit:                                     ; preds = %tsdn_witness_tsdp_get.exit.i, %123
-  %126 = call zeroext i1 @je_arena_ralloc_no_move(ptr noundef %.0.i5268, ptr noundef %0, i64 noundef %117, i64 noundef range(i64 0, 8070450532247928833) %1, i64 noundef range(i64 0, 8070450532247928833) %.1, i1 noundef zeroext %spec.select.i, ptr noundef nonnull %7) #20
+  %126 = call zeroext i1 @je_arena_ralloc_no_move(ptr noundef %.0.i5268, ptr noundef %0, i64 noundef %117, i64 noundef range(i64 0, 8070450532247928833) %1, i64 noundef range(i64 0, 8070450532247928833) %.1, i1 noundef zeroext %spec.select.i, ptr noundef nonnull %7) #21
   %127 = load i64, ptr %7, align 8
   %cond.fr = freeze i1 %126
   br i1 %cond.fr, label %.thread, label %128
@@ -8058,7 +8058,7 @@ ixalloc.exit:                                     ; preds = %tsdn_witness_tsdp_g
   br i1 %143, label %te_event_advance.exit58, label %144, !prof !10
 
 144:                                              ; preds = %130
-  call void @je_te_event_trigger(ptr noundef nonnull %.0.i5268, ptr noundef nonnull %5) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %.0.i5268, ptr noundef nonnull %5) #21
   br label %te_event_advance.exit58
 
 te_event_advance.exit58:                          ; preds = %130, %144
@@ -8086,7 +8086,7 @@ te_event_advance.exit58:                          ; preds = %130, %144
   br i1 %157, label %te_event_advance.exit, label %158, !prof !10
 
 158:                                              ; preds = %te_event_advance.exit58
-  call void @je_te_event_trigger(ptr noundef nonnull %.0.i5268, ptr noundef nonnull %6) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %.0.i5268, ptr noundef nonnull %6) #21
   br label %te_event_advance.exit
 
 te_event_advance.exit:                            ; preds = %te_event_advance.exit58, %158
@@ -8124,7 +8124,7 @@ tsd_fast.exit:                                    ; preds = %.thread, %rtree_met
   %172 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %173 = sext i32 %3 to i64
   store i64 %173, ptr %172, align 8, !tbaa !33
-  call void @je_hook_invoke_expand(i32 noundef 2, ptr noundef %0, i64 noundef %117, i64 noundef %.045, i64 noundef %.045, ptr noundef nonnull %10) #20
+  call void @je_hook_invoke_expand(i32 noundef 2, ptr noundef %0, i64 noundef %117, i64 noundef %.045, i64 noundef %.045, ptr noundef nonnull %10) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %174
 
@@ -8157,13 +8157,13 @@ tsdn_fetch.exit.thread9:                          ; preds = %6
   br label %13
 
 tsdn_fetch.exit:                                  ; preds = %6
-  %10 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %7, i1 noundef zeroext false) #20
+  %10 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %7, i1 noundef zeroext false) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13, !prof !113
 
 12:                                               ; preds = %tsdn_fetch.exit.thread, %tsdn_fetch.exit
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %3) #20
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %3) #21
   br label %arena_salloc.exit
 
 13:                                               ; preds = %tsdn_fetch.exit.thread9, %tsdn_fetch.exit
@@ -8244,7 +8244,7 @@ arena_salloc.exit:                                ; preds = %12, %13
   br label %rtree_metadata_read.exit
 
 56:                                               ; preds = %40
-  %57 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %.0.i7, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i, i64 noundef %15, i1 noundef zeroext true, i1 noundef zeroext false) #20
+  %57 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %.0.i7, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i, i64 noundef %15, i1 noundef zeroext true, i1 noundef zeroext false) #21
   br label %rtree_metadata_read.exit
 
 rtree_metadata_read.exit:                         ; preds = %22, %32, %44, %56
@@ -8271,7 +8271,7 @@ define dso_local void @dallocx(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %.not.i, label %tsd_fetch_impl.exit, label %11, !prof !10
 
 11:                                               ; preds = %2
-  %12 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %8, i1 noundef zeroext true) #20
+  %12 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %8, i1 noundef zeroext true) #21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 888
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !11
   %13 = icmp eq i8 %.pre, 0
@@ -8329,12 +8329,12 @@ tcache_get_from_ind.exit.thread101:               ; preds = %17, %mallocx_tcache
   ], !prof !171
 
 32:                                               ; preds = %27
-  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.182, i32 noundef range(i32 0, -2) %16) #20
-  tail call void @abort() #22
+  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.182, i32 noundef range(i32 0, -2) %16) #21
+  tail call void @abort() #23
   unreachable
 
 33:                                               ; preds = %27
-  %34 = tail call ptr @je_tcache_create_explicit(ptr noundef nonnull %.0.i42) #20
+  %34 = tail call ptr @je_tcache_create_explicit(ptr noundef nonnull %.0.i42) #21
   store ptr %34, ptr %30, align 8, !tbaa !11
   br label %tcache_get_from_ind.exit
 
@@ -8415,7 +8415,7 @@ tsdn_rtree_ctx.exit50:                            ; preds = %tcache_get_from_ind
   br label %idalloctm.exit
 
 77:                                               ; preds = %61
-  %78 = tail call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef nonnull %.0.i42, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %35, i64 noundef %36, i1 noundef zeroext true, i1 noundef zeroext false) #20
+  %78 = tail call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef nonnull %.0.i42, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %35, i64 noundef %36, i1 noundef zeroext true, i1 noundef zeroext false) #21
   br label %idalloctm.exit
 
 idalloctm.exit:                                   ; preds = %43, %53, %65, %77
@@ -8458,7 +8458,7 @@ cache_bin_dalloc_easy.exit35:                     ; preds = %87
   br i1 %97, label %98, label %99, !prof !8
 
 98:                                               ; preds = %cache_bin_dalloc_easy.exit35
-  tail call void @je_arena_dalloc_small(ptr noundef nonnull %.0.i42, ptr noundef %0) #20
+  tail call void @je_arena_dalloc_small(ptr noundef nonnull %.0.i42, ptr noundef %0) #21
   br label %arena_dalloc.exit26
 
 99:                                               ; preds = %cache_bin_dalloc_easy.exit35
@@ -8467,7 +8467,7 @@ cache_bin_dalloc_easy.exit35:                     ; preds = %87
   %101 = zext i16 %.val68 to i32
   %102 = load i32, ptr @je_opt_lg_tcache_flush_small_div, align 4, !tbaa !4
   %103 = lshr i32 %101, %102
-  tail call void @je_tcache_bin_flush_small(ptr noundef nonnull %.0.i42, ptr noundef nonnull %.0.i103, ptr noundef nonnull %89, i32 noundef %.sroa.082.0.extract.trunc, i32 noundef %103) #20
+  tail call void @je_tcache_bin_flush_small(ptr noundef nonnull %.0.i42, ptr noundef nonnull %.0.i103, ptr noundef nonnull %89, i32 noundef %.sroa.082.0.extract.trunc, i32 noundef %103) #21
   %104 = load ptr, ptr %89, align 8, !tbaa !115
   %105 = ptrtoint ptr %104 to i64
   %106 = load i16, ptr %92, align 2, !tbaa !159
@@ -8515,7 +8515,7 @@ cache_bin_dalloc_easy.exit12.i37:                 ; preds = %120
   %127 = zext i16 %.val65 to i32
   %128 = load i32, ptr @je_opt_lg_tcache_flush_large_div, align 4, !tbaa !4
   %129 = lshr i32 %127, %128
-  tail call void @je_tcache_bin_flush_large(ptr noundef nonnull %.0.i42, ptr noundef nonnull %.0.i103, ptr noundef nonnull %117, i32 noundef %.sroa.082.0.extract.trunc, i32 noundef %129) #20
+  tail call void @je_tcache_bin_flush_large(ptr noundef nonnull %.0.i42, ptr noundef nonnull %.0.i103, ptr noundef nonnull %117, i32 noundef %.sroa.082.0.extract.trunc, i32 noundef %129) #21
   %130 = load ptr, ptr %117, align 8, !tbaa !115
   %131 = ptrtoint ptr %130 to i64
   %132 = load i16, ptr %122, align 2, !tbaa !159
@@ -8534,7 +8534,7 @@ tsdn_rtree_ctx.exit46:                            ; preds = %115, %111
   call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull %.0.i42, ptr noundef nonnull %35, i64 noundef %36)
   %137 = load ptr, ptr %6, align 8, !tbaa !161
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  tail call void @je_large_dalloc(ptr noundef nonnull %.0.i42, ptr noundef %137) #20
+  tail call void @je_large_dalloc(ptr noundef nonnull %.0.i42, ptr noundef %137) #21
   br label %arena_dalloc.exit26
 
 arena_dalloc.exit26:                              ; preds = %109, %99, %cache_bin_dalloc_easy.exit35.thread, %98, %cache_bin_dalloc_easy.exit12.i37.thread, %135, %cache_bin_dalloc_easy.exit12.i37, %tsdn_rtree_ctx.exit46, %84
@@ -8561,7 +8561,7 @@ arena_dalloc.exit26:                              ; preds = %109, %99, %cache_bi
   br i1 %150, label %te_event_advance.exit51, label %151, !prof !10
 
 151:                                              ; preds = %arena_dalloc.exit26
-  call void @je_te_event_trigger(ptr noundef nonnull %.0.i42, ptr noundef nonnull %3) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %.0.i42, ptr noundef nonnull %3) #21
   br label %te_event_advance.exit51
 
 te_event_advance.exit51:                          ; preds = %arena_dalloc.exit26, %151
@@ -8578,7 +8578,7 @@ tsdn_rtree_ctx.exit48:                            ; preds = %19, %23, %tcache_ge
   store i64 %154, ptr %153, align 8, !tbaa !33
   %.ptr = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %.ptr, align 16, !tbaa !33
-  call void @je_hook_invoke_dalloc(i32 noundef 1, ptr noundef %0, ptr noundef nonnull %7) #20
+  call void @je_hook_invoke_dalloc(i32 noundef 1, ptr noundef %0, ptr noundef nonnull %7) #21
   %155 = getelementptr inbounds nuw i8, ptr %.0.i42, i64 504
   %156 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %.0.i42, ptr noundef nonnull %155, i64 noundef %152)
   %.fca.0.extract.i20 = extractvalue { i64, i32 } %156, 0
@@ -8630,7 +8630,7 @@ cache_bin_dalloc_easy.exit31:                     ; preds = %167
   br i1 %177, label %178, label %179, !prof !8
 
 178:                                              ; preds = %cache_bin_dalloc_easy.exit31
-  call void @je_arena_dalloc_small(ptr noundef nonnull %.0.i42, ptr noundef %0) #20
+  call void @je_arena_dalloc_small(ptr noundef nonnull %.0.i42, ptr noundef %0) #21
   br label %arena_dalloc.exit
 
 179:                                              ; preds = %cache_bin_dalloc_easy.exit31
@@ -8639,7 +8639,7 @@ cache_bin_dalloc_easy.exit31:                     ; preds = %167
   %181 = zext i16 %.val67 to i32
   %182 = load i32, ptr @je_opt_lg_tcache_flush_small_div, align 4, !tbaa !4
   %183 = lshr i32 %181, %182
-  call void @je_tcache_bin_flush_small(ptr noundef nonnull %.0.i42, ptr noundef nonnull %.0.i100, ptr noundef nonnull %169, i32 noundef %.sroa.078.0.extract.trunc, i32 noundef %183) #20
+  call void @je_tcache_bin_flush_small(ptr noundef nonnull %.0.i42, ptr noundef nonnull %.0.i100, ptr noundef nonnull %169, i32 noundef %.sroa.078.0.extract.trunc, i32 noundef %183) #21
   %184 = load ptr, ptr %169, align 8, !tbaa !115
   %185 = ptrtoint ptr %184 to i64
   %186 = load i16, ptr %172, align 2, !tbaa !159
@@ -8687,7 +8687,7 @@ cache_bin_dalloc_easy.exit12.i:                   ; preds = %200
   %207 = zext i16 %.val66 to i32
   %208 = load i32, ptr @je_opt_lg_tcache_flush_large_div, align 4, !tbaa !4
   %209 = lshr i32 %207, %208
-  call void @je_tcache_bin_flush_large(ptr noundef nonnull %.0.i42, ptr noundef nonnull %.0.i100, ptr noundef nonnull %197, i32 noundef %.sroa.078.0.extract.trunc, i32 noundef %209) #20
+  call void @je_tcache_bin_flush_large(ptr noundef nonnull %.0.i42, ptr noundef nonnull %.0.i100, ptr noundef nonnull %197, i32 noundef %.sroa.078.0.extract.trunc, i32 noundef %209) #21
   %210 = load ptr, ptr %197, align 8, !tbaa !115
   %211 = ptrtoint ptr %210 to i64
   %212 = load i16, ptr %202, align 2, !tbaa !159
@@ -8706,7 +8706,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %195, %191
   call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull %.0.i42, ptr noundef nonnull %155, i64 noundef %152)
   %217 = load ptr, ptr %5, align 8, !tbaa !161
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @je_large_dalloc(ptr noundef nonnull %.0.i42, ptr noundef %217) #20
+  call void @je_large_dalloc(ptr noundef nonnull %.0.i42, ptr noundef %217) #21
   br label %arena_dalloc.exit
 
 arena_dalloc.exit:                                ; preds = %189, %179, %cache_bin_dalloc_easy.exit31.thread, %178, %cache_bin_dalloc_easy.exit12.i.thread, %215, %cache_bin_dalloc_easy.exit12.i, %tsdn_rtree_ctx.exit, %164
@@ -8733,7 +8733,7 @@ arena_dalloc.exit:                                ; preds = %189, %179, %cache_b
   br i1 %230, label %te_event_advance.exit, label %231, !prof !10
 
 231:                                              ; preds = %arena_dalloc.exit
-  call void @je_te_event_trigger(ptr noundef nonnull %.0.i42, ptr noundef nonnull %4) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %.0.i42, ptr noundef nonnull %4) #21
   br label %te_event_advance.exit
 
 te_event_advance.exit:                            ; preds = %arena_dalloc.exit, %231
@@ -8759,7 +8759,7 @@ define hidden void @je_sdallocx_default(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %.not.i, label %tsd_fetch_impl.exit, label %12, !prof !10
 
 12:                                               ; preds = %3
-  %13 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %9, i1 noundef zeroext true) #20
+  %13 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %9, i1 noundef zeroext true) #21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %13, i64 888
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !11
   %14 = icmp eq i8 %.pre, 0
@@ -8936,12 +8936,12 @@ tcache_get_from_ind.exit.thread105:               ; preds = %91, %mallocx_tcache
   ], !prof !171
 
 106:                                              ; preds = %101
-  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.182, i32 noundef range(i32 0, -2) %90) #20
-  tail call void @abort() #22
+  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.182, i32 noundef range(i32 0, -2) %90) #21
+  tail call void @abort() #23
   unreachable
 
 107:                                              ; preds = %101
-  %108 = tail call ptr @je_tcache_create_explicit(ptr noundef nonnull %.0.i30) #20
+  %108 = tail call ptr @je_tcache_create_explicit(ptr noundef nonnull %.0.i30) #21
   store ptr %108, ptr %104, align 8, !tbaa !11
   br label %tcache_get_from_ind.exit
 
@@ -9021,7 +9021,7 @@ cache_bin_dalloc_easy.exit18.i:                   ; preds = %134
   br i1 %145, label %146, label %147, !prof !8
 
 146:                                              ; preds = %cache_bin_dalloc_easy.exit18.i
-  tail call void @je_arena_dalloc_small(ptr noundef nonnull %.0.i30, ptr noundef %0) #20
+  tail call void @je_arena_dalloc_small(ptr noundef nonnull %.0.i30, ptr noundef %0) #21
   br label %arena_sdalloc.exit
 
 147:                                              ; preds = %cache_bin_dalloc_easy.exit18.i
@@ -9030,7 +9030,7 @@ cache_bin_dalloc_easy.exit18.i:                   ; preds = %134
   %149 = zext i16 %.val69 to i32
   %150 = load i32, ptr @je_opt_lg_tcache_flush_small_div, align 4, !tbaa !4
   %151 = lshr i32 %149, %150
-  tail call void @je_tcache_bin_flush_small(ptr noundef nonnull %.0.i30, ptr noundef nonnull %.0.i107, ptr noundef nonnull %137, i32 noundef %.0.i.i35, i32 noundef %151) #20
+  tail call void @je_tcache_bin_flush_small(ptr noundef nonnull %.0.i30, ptr noundef nonnull %.0.i107, ptr noundef nonnull %137, i32 noundef %.0.i.i35, i32 noundef %151) #21
   %152 = load ptr, ptr %137, align 8, !tbaa !115
   %153 = ptrtoint ptr %152 to i64
   %154 = load i16, ptr %140, align 2, !tbaa !159
@@ -9080,7 +9080,7 @@ cache_bin_dalloc_easy.exit12.i.i:                 ; preds = %168
   %175 = zext i16 %.val70 to i32
   %176 = load i32, ptr @je_opt_lg_tcache_flush_large_div, align 4, !tbaa !4
   %177 = lshr i32 %175, %176
-  tail call void @je_tcache_bin_flush_large(ptr noundef nonnull %.0.i30, ptr noundef nonnull %.0.i107, ptr noundef nonnull %165, i32 noundef %.0.i.i3590, i32 noundef %177) #20
+  tail call void @je_tcache_bin_flush_large(ptr noundef nonnull %.0.i30, ptr noundef nonnull %.0.i107, ptr noundef nonnull %165, i32 noundef %.0.i.i3590, i32 noundef %177) #21
   %178 = load ptr, ptr %165, align 8, !tbaa !115
   %179 = ptrtoint ptr %178 to i64
   %180 = load i16, ptr %170, align 2, !tbaa !159
@@ -9101,7 +9101,7 @@ tsdn_rtree_ctx.exit52:                            ; preds = %162, %sz_size2index
   call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull %.0.i30, ptr noundef nonnull %185, i64 noundef %186)
   %187 = load ptr, ptr %7, align 8, !tbaa !161
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  tail call void @je_large_dalloc(ptr noundef nonnull %.0.i30, ptr noundef %187) #20
+  tail call void @je_large_dalloc(ptr noundef nonnull %.0.i30, ptr noundef %187) #21
   br label %arena_sdalloc.exit
 
 arena_sdalloc.exit:                               ; preds = %tsdn_rtree_ctx.exit52, %cache_bin_dalloc_easy.exit12.i.i, %183, %cache_bin_dalloc_easy.exit12.i.i.thread, %146, %cache_bin_dalloc_easy.exit18.i.thread, %157, %147, %112
@@ -9128,7 +9128,7 @@ arena_sdalloc.exit:                               ; preds = %tsdn_rtree_ctx.exit
   br i1 %200, label %te_event_advance.exit53, label %201, !prof !10
 
 201:                                              ; preds = %arena_sdalloc.exit
-  call void @je_te_event_trigger(ptr noundef nonnull %.0.i30, ptr noundef nonnull %4) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %.0.i30, ptr noundef nonnull %4) #21
   br label %te_event_advance.exit53
 
 te_event_advance.exit53:                          ; preds = %arena_sdalloc.exit, %201
@@ -9145,7 +9145,7 @@ sz_size2index.exit:                               ; preds = %93, %97, %tcache_ge
   %204 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %205 = sext i32 %2 to i64
   store i64 %205, ptr %204, align 16, !tbaa !33
-  call void @je_hook_invoke_dalloc(i32 noundef 2, ptr noundef %0, ptr noundef nonnull %8) #20
+  call void @je_hook_invoke_dalloc(i32 noundef 2, ptr noundef %0, ptr noundef nonnull %8) #21
   %206 = icmp ult i64 %storemerge.i, 4097
   %207 = load i8, ptr @je_opt_junk_free, align 1, !range !110
   %208 = trunc nuw i8 %207 to i1
@@ -9222,7 +9222,7 @@ cache_bin_dalloc_easy.exit18.i44:                 ; preds = %235
   br i1 %246, label %247, label %248, !prof !8
 
 247:                                              ; preds = %cache_bin_dalloc_easy.exit18.i44
-  call void @je_arena_dalloc_small(ptr noundef nonnull %.0.i30, ptr noundef %0) #20
+  call void @je_arena_dalloc_small(ptr noundef nonnull %.0.i30, ptr noundef %0) #21
   br label %arena_sdalloc.exit49
 
 248:                                              ; preds = %cache_bin_dalloc_easy.exit18.i44
@@ -9231,7 +9231,7 @@ cache_bin_dalloc_easy.exit18.i44:                 ; preds = %235
   %250 = zext i16 %.val67 to i32
   %251 = load i32, ptr @je_opt_lg_tcache_flush_small_div, align 4, !tbaa !4
   %252 = lshr i32 %250, %251
-  call void @je_tcache_bin_flush_small(ptr noundef nonnull %.0.i30, ptr noundef nonnull %.0.i104, ptr noundef nonnull %238, i32 noundef %.0.i.i37, i32 noundef %252) #20
+  call void @je_tcache_bin_flush_small(ptr noundef nonnull %.0.i30, ptr noundef nonnull %.0.i104, ptr noundef nonnull %238, i32 noundef %.0.i.i37, i32 noundef %252) #21
   %253 = load ptr, ptr %238, align 8, !tbaa !115
   %254 = ptrtoint ptr %253 to i64
   %255 = load i16, ptr %241, align 2, !tbaa !159
@@ -9281,7 +9281,7 @@ cache_bin_dalloc_easy.exit12.i.i39:               ; preds = %269
   %276 = zext i16 %.val68 to i32
   %277 = load i32, ptr @je_opt_lg_tcache_flush_large_div, align 4, !tbaa !4
   %278 = lshr i32 %276, %277
-  call void @je_tcache_bin_flush_large(ptr noundef nonnull %.0.i30, ptr noundef nonnull %.0.i104, ptr noundef nonnull %266, i32 noundef %.0.i.i3794, i32 noundef %278) #20
+  call void @je_tcache_bin_flush_large(ptr noundef nonnull %.0.i30, ptr noundef nonnull %.0.i104, ptr noundef nonnull %266, i32 noundef %.0.i.i3794, i32 noundef %278) #21
   %279 = load ptr, ptr %266, align 8, !tbaa !115
   %280 = ptrtoint ptr %279 to i64
   %281 = load i16, ptr %271, align 2, !tbaa !159
@@ -9301,7 +9301,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %263, %sz_size2index
   call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull %.0.i30, ptr noundef nonnull %286, i64 noundef %202)
   %287 = load ptr, ptr %6, align 8, !tbaa !161
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @je_large_dalloc(ptr noundef nonnull %.0.i30, ptr noundef %287) #20
+  call void @je_large_dalloc(ptr noundef nonnull %.0.i30, ptr noundef %287) #21
   br label %arena_sdalloc.exit49
 
 arena_sdalloc.exit49:                             ; preds = %tsdn_rtree_ctx.exit, %cache_bin_dalloc_easy.exit12.i.i39, %284, %cache_bin_dalloc_easy.exit12.i.i39.thread, %247, %cache_bin_dalloc_easy.exit18.i44.thread, %258, %248, %211
@@ -9328,7 +9328,7 @@ arena_sdalloc.exit49:                             ; preds = %tsdn_rtree_ctx.exit
   br i1 %300, label %te_event_advance.exit, label %301, !prof !10
 
 301:                                              ; preds = %arena_sdalloc.exit49
-  call void @je_te_event_trigger(ptr noundef nonnull %.0.i30, ptr noundef nonnull %5) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %.0.i30, ptr noundef nonnull %5) #21
   br label %te_event_advance.exit
 
 te_event_advance.exit:                            ; preds = %arena_sdalloc.exit49, %301
@@ -9363,7 +9363,7 @@ malloc_init.exit:                                 ; preds = %5, %2
   br i1 %.not.i, label %tsdn_fetch.exit, label %13, !prof !10
 
 13:                                               ; preds = %9
-  %14 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %10, i1 noundef zeroext false) #20
+  %14 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %10, i1 noundef zeroext false) #21
   br label %tsdn_fetch.exit
 
 tsdn_fetch.exit:                                  ; preds = %13, %9, %malloc_init.exit
@@ -9511,12 +9511,12 @@ malloc_init.exit:                                 ; preds = %8, %5
   br i1 %.not.i, label %tsd_fetch_impl.exit, label %13, !prof !10
 
 13:                                               ; preds = %malloc_init.exit
-  %14 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %10, i1 noundef zeroext false) #20
+  %14 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %10, i1 noundef zeroext false) #21
   br label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %malloc_init.exit, %13
   %.0.i9 = phi ptr [ %14, %13 ], [ %10, %malloc_init.exit ]
-  %15 = tail call i32 @je_ctl_byname(ptr noundef %.0.i9, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #20
+  %15 = tail call i32 @je_ctl_byname(ptr noundef %.0.i9, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #21
   br label %malloc_init.exit.thread
 
 malloc_init.exit.thread:                          ; preds = %8, %tsd_fetch_impl.exit
@@ -9544,12 +9544,12 @@ malloc_init.exit:                                 ; preds = %6, %3
   br i1 %.not.i, label %tsd_fetch_impl.exit, label %11, !prof !10
 
 11:                                               ; preds = %malloc_init.exit
-  %12 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %8, i1 noundef zeroext false) #20
+  %12 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %8, i1 noundef zeroext false) #21
   br label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %malloc_init.exit, %11
   %.0.i7 = phi ptr [ %12, %11 ], [ %8, %malloc_init.exit ]
-  %13 = tail call i32 @je_ctl_nametomib(ptr noundef %.0.i7, ptr noundef %0, ptr noundef %1, ptr noundef %2) #20
+  %13 = tail call i32 @je_ctl_nametomib(ptr noundef %.0.i7, ptr noundef %0, ptr noundef %1, ptr noundef %2) #21
   br label %malloc_init.exit.thread
 
 malloc_init.exit.thread:                          ; preds = %6, %tsd_fetch_impl.exit
@@ -9577,12 +9577,12 @@ malloc_init.exit:                                 ; preds = %9, %6
   br i1 %.not.i, label %tsd_fetch_impl.exit, label %14, !prof !10
 
 14:                                               ; preds = %malloc_init.exit
-  %15 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %11, i1 noundef zeroext false) #20
+  %15 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %11, i1 noundef zeroext false) #21
   br label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %malloc_init.exit, %14
   %.0.i10 = phi ptr [ %15, %14 ], [ %11, %malloc_init.exit ]
-  %16 = tail call i32 @je_ctl_bymib(ptr noundef %.0.i10, ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) #20
+  %16 = tail call i32 @je_ctl_bymib(ptr noundef %.0.i10, ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) #21
   br label %malloc_init.exit.thread
 
 malloc_init.exit.thread:                          ; preds = %9, %tsd_fetch_impl.exit
@@ -9607,15 +9607,15 @@ define dso_local void @malloc_stats_print(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not.i, label %tsdn_fetch.exit, label %11, !prof !10
 
 11:                                               ; preds = %7
-  %12 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %8, i1 noundef zeroext false) #20
+  %12 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %8, i1 noundef zeroext false) #21
   br label %tsdn_fetch.exit
 
 tsdn_fetch.exit:                                  ; preds = %11, %7, %3
   %.0.i = phi ptr [ null, %3 ], [ %12, %11 ], [ %8, %7 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %13 = call zeroext i1 @je_buf_writer_init(ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %0, ptr noundef %1, ptr noundef null, i64 noundef 65536) #20
-  call void @je_stats_print(ptr noundef nonnull @je_buf_writer_cb, ptr noundef nonnull %4, ptr noundef %2) #20
-  call void @je_buf_writer_terminate(ptr noundef %.0.i, ptr noundef nonnull %4) #20
+  %13 = call zeroext i1 @je_buf_writer_init(ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %0, ptr noundef %1, ptr noundef null, i64 noundef 65536) #21
+  call void @je_stats_print(ptr noundef nonnull @je_buf_writer_cb, ptr noundef nonnull %4, ptr noundef %2) #21
+  call void @je_buf_writer_terminate(ptr noundef %.0.i, ptr noundef nonnull %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -9643,7 +9643,7 @@ define dso_local i64 @malloc_usable_size(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not.i, label %tsdn_fetch.exit.i, label %9, !prof !10
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %6, i1 noundef zeroext false) #20
+  %10 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %6, i1 noundef zeroext false) #21
   br label %tsdn_fetch.exit.i
 
 tsdn_fetch.exit.i:                                ; preds = %9, %5
@@ -9665,7 +9665,7 @@ tsdn_fetch.exit.i.thread:                         ; preds = %1
   br i1 %14, label %15, label %16, !prof !113
 
 15:                                               ; preds = %.thread, %13
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %2) #20
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %2) #21
   br label %arena_salloc.exit
 
 16:                                               ; preds = %13
@@ -9745,7 +9745,7 @@ arena_salloc.exit:                                ; preds = %15, %16
   br label %rtree_metadata_read.exit
 
 59:                                               ; preds = %43
-  %60 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %.0.i.i57, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i2, i64 noundef %18, i1 noundef zeroext true, i1 noundef zeroext false) #20
+  %60 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %.0.i.i57, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i2, i64 noundef %18, i1 noundef zeroext true, i1 noundef zeroext false) #21
   br label %rtree_metadata_read.exit
 
 rtree_metadata_read.exit:                         ; preds = %25, %35, %47, %59
@@ -9772,7 +9772,7 @@ define hidden i64 @je_batch_alloc(ptr noundef %0, i64 noundef %1, i64 noundef %2
   br i1 %.not.i131, label %tsd_fetch_impl.exit.thread, label %tsd_fetch_impl.exit, !prof !10
 
 tsd_fetch_impl.exit:                              ; preds = %4
-  %9 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %6, i1 noundef zeroext false) #20
+  %9 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %6, i1 noundef zeroext false) #21
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.critedge, label %tsd_fetch_impl.exit.thread, !prof !9
 
@@ -10025,7 +10025,7 @@ arena_get_from_ind.exit.thread167:                ; preds = %arena_get.exit, %ar
   %153 = urem i64 %141, %.099
   %154 = sub i64 %141, %153
   %155 = getelementptr inbounds nuw ptr, ptr %0, i64 %.1
-  %156 = call i64 @je_arena_fill_small_fresh(ptr noundef nonnull %.0.i132153, ptr noundef nonnull %.2148, i32 noundef %.0.i125, ptr noundef %155, i64 noundef %154, i1 noundef zeroext %spec.select.i) #20
+  %156 = call i64 @je_arena_fill_small_fresh(ptr noundef nonnull %.0.i132153, ptr noundef nonnull %.2148, i32 noundef %.0.i125, ptr noundef %155, i64 noundef %154, i1 noundef zeroext %spec.select.i) #21
   %157 = add i64 %156, %.1
   br label %158
 
@@ -10060,12 +10060,12 @@ mallocx_tcache_get.exit.thread:                   ; preds = %158, %mallocx_tcach
   ], !prof !171
 
 165:                                              ; preds = %161
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.182, i32 noundef range(i32 0, -2) %127) #20
-  call void @abort() #22
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.182, i32 noundef range(i32 0, -2) %127) #21
+  call void @abort() #23
   unreachable
 
 166:                                              ; preds = %161
-  %167 = call ptr @je_tcache_create_explicit(ptr noundef nonnull %.0.i132153) #20
+  %167 = call ptr @je_tcache_create_explicit(ptr noundef nonnull %.0.i132153) #21
   store ptr %167, ptr %163, align 8, !tbaa !11
   br label %tcache_get_from_ind.exit
 
@@ -10169,7 +10169,7 @@ cache_bin_low_water_adjust.exit:                  ; preds = %177, %198
   br i1 %213, label %te_event_advance.exit, label %214, !prof !10
 
 214:                                              ; preds = %.critedge119
-  call void @je_te_event_trigger(ptr noundef nonnull %.0.i132153, ptr noundef nonnull %5) #20
+  call void @je_te_event_trigger(ptr noundef nonnull %.0.i132153, ptr noundef nonnull %5) #21
   br label %te_event_advance.exit
 
 te_event_advance.exit:                            ; preds = %.critedge119, %214
@@ -10178,7 +10178,7 @@ te_event_advance.exit:                            ; preds = %.critedge119, %214
   br i1 %215, label %216, label %select.unfold
 
 216:                                              ; preds = %te_event_advance.exit
-  %217 = call noalias ptr @mallocx(i64 noundef %2, i32 noundef %3) #24
+  %217 = call noalias ptr @mallocx(i64 noundef %2, i32 noundef %3) #25
   %.not115 = icmp eq ptr %217, null
   br i1 %.not115, label %.critedge, label %218
 
@@ -10246,11 +10246,11 @@ define internal fastcc ptr @arena_choose(ptr noundef %0, ptr noundef readnone ca
   br i1 %.not44.i, label %28, label %26
 
 26:                                               ; preds = %25
-  tail call void @je_tcache_arena_reassociate(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef %17) #20
+  tail call void @je_tcache_arena_reassociate(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef %17) #21
   br label %28
 
 27:                                               ; preds = %20
-  tail call void @je_tcache_arena_associate(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef %17) #20
+  tail call void @je_tcache_arena_associate(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef %17) #21
   br label %28
 
 28:                                               ; preds = %27, %26, %25, %16, %12
@@ -10280,7 +10280,7 @@ percpu_arena_ind_limit.exit.i:                    ; preds = %28
   br i1 %.not45.i, label %arena_choose_impl.exit, label %41
 
 41:                                               ; preds = %38
-  %42 = tail call i32 @sched_getcpu() #20
+  %42 = tail call i32 @sched_getcpu() #21
   %43 = load i32, ptr @je_opt_percpu_arena, align 4, !tbaa !4
   %44 = icmp eq i32 %43, 3
   br i1 %44, label %percpu_arena_choose.exit.i, label %45
@@ -10320,15 +10320,15 @@ percpu_arena_choose.exit.i:                       ; preds = %45, %41
 
 arena_get.exit.i.i:                               ; preds = %58, %53
   %.0.i18.i.i = phi ptr [ %59, %58 ], [ %.0.i.i.i.i, %53 ]
-  tail call void @je_arena_nthreads_dec(ptr noundef nonnull %51, i1 noundef zeroext false) #20
-  tail call void @je_arena_nthreads_inc(ptr noundef %.0.i18.i.i, i1 noundef zeroext false) #20
+  tail call void @je_arena_nthreads_dec(ptr noundef nonnull %51, i1 noundef zeroext false) #21
+  tail call void @je_arena_nthreads_inc(ptr noundef %.0.i18.i.i, i1 noundef zeroext false) #21
   store ptr %.0.i18.i.i, ptr %13, align 8, !tbaa !50
-  %60 = tail call i32 @je_arena_nthreads_get(ptr noundef nonnull %51, i1 noundef zeroext false) #20
+  %60 = tail call i32 @je_arena_nthreads_get(ptr noundef nonnull %51, i1 noundef zeroext false) #21
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %je_arena_migrate.exit.i.i
 
 62:                                               ; preds = %arena_get.exit.i.i
-  tail call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef nonnull %51, i1 noundef zeroext false, i1 noundef zeroext true) #20
+  tail call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef nonnull %51, i1 noundef zeroext false, i1 noundef zeroext true) #21
   br label %je_arena_migrate.exit.i.i
 
 je_arena_migrate.exit.i.i:                        ; preds = %62, %arena_get.exit.i.i
@@ -10339,7 +10339,7 @@ je_arena_migrate.exit.i.i:                        ; preds = %62, %arena_get.exit
 65:                                               ; preds = %je_arena_migrate.exit.i.i
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  tail call void @je_tcache_arena_reassociate(ptr noundef nonnull %0, ptr noundef nonnull %67, ptr noundef nonnull %66, ptr noundef %.0.i18.i.i) #20
+  tail call void @je_tcache_arena_reassociate(ptr noundef nonnull %0, ptr noundef nonnull %67, ptr noundef nonnull %66, ptr noundef %.0.i18.i.i) #21
   br label %percpu_arena_update.exit.i
 
 percpu_arena_update.exit.i:                       ; preds = %65, %je_arena_migrate.exit.i.i, %50
@@ -10385,20 +10385,20 @@ define hidden void @je_jemalloc_prefork() #2 {
   br i1 %.not.i, label %tsd_fetch_impl.exit, label %4, !prof !10
 
 4:                                                ; preds = %0
-  %5 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #20
+  %5 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #21
   br label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %0, %4
   %.0.i = phi ptr [ %5, %4 ], [ %1, %0 ]
   %6 = load atomic i32, ptr @narenas_total acquire, align 4
   %7 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2688
-  tail call void @je_witness_prefork(ptr noundef nonnull %7) #20
-  tail call void @je_ctl_prefork(ptr noundef %.0.i) #20
-  tail call void @je_tcache_prefork(ptr noundef %.0.i) #20
-  tail call void @je_malloc_mutex_prefork(ptr noundef %.0.i, ptr noundef nonnull @arenas_lock) #20
-  tail call void @je_background_thread_prefork0(ptr noundef %.0.i) #20
-  tail call void @je_prof_prefork0(ptr noundef %.0.i) #20
-  tail call void @je_background_thread_prefork1(ptr noundef %.0.i) #20
+  tail call void @je_witness_prefork(ptr noundef nonnull %7) #21
+  tail call void @je_ctl_prefork(ptr noundef %.0.i) #21
+  tail call void @je_tcache_prefork(ptr noundef %.0.i) #21
+  tail call void @je_malloc_mutex_prefork(ptr noundef %.0.i, ptr noundef nonnull @arenas_lock) #21
+  tail call void @je_background_thread_prefork0(ptr noundef %.0.i) #21
+  tail call void @je_prof_prefork0(ptr noundef %.0.i) #21
+  tail call void @je_background_thread_prefork1(ptr noundef %.0.i) #21
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.split.us, label %.preheader.us.preheader
 
@@ -10432,39 +10432,39 @@ tsd_fetch_impl.exit:                              ; preds = %0, %4
   ]
 
 12:                                               ; preds = %11
-  tail call void @je_arena_prefork8(ptr noundef %.0.i, ptr noundef nonnull %.0.i.i.us) #20
+  tail call void @je_arena_prefork8(ptr noundef %.0.i, ptr noundef nonnull %.0.i.i.us) #21
   br label %arena_get.exit.thread.us
 
 13:                                               ; preds = %11
-  tail call void @je_arena_prefork7(ptr noundef %.0.i, ptr noundef nonnull %.0.i.i.us) #20
+  tail call void @je_arena_prefork7(ptr noundef %.0.i, ptr noundef nonnull %.0.i.i.us) #21
   br label %arena_get.exit.thread.us
 
 14:                                               ; preds = %11
-  tail call void @je_arena_prefork6(ptr noundef %.0.i, ptr noundef nonnull %.0.i.i.us) #20
+  tail call void @je_arena_prefork6(ptr noundef %.0.i, ptr noundef nonnull %.0.i.i.us) #21
   br label %arena_get.exit.thread.us
 
 15:                                               ; preds = %11
-  tail call void @je_arena_prefork5(ptr noundef %.0.i, ptr noundef nonnull %.0.i.i.us) #20
+  tail call void @je_arena_prefork5(ptr noundef %.0.i, ptr noundef nonnull %.0.i.i.us) #21
   br label %arena_get.exit.thread.us
 
 16:                                               ; preds = %11
-  tail call void @je_arena_prefork4(ptr noundef %.0.i, ptr noundef nonnull %.0.i.i.us) #20
+  tail call void @je_arena_prefork4(ptr noundef %.0.i, ptr noundef nonnull %.0.i.i.us) #21
   br label %arena_get.exit.thread.us
 
 17:                                               ; preds = %11
-  tail call void @je_arena_prefork3(ptr noundef %.0.i, ptr noundef nonnull %.0.i.i.us) #20
+  tail call void @je_arena_prefork3(ptr noundef %.0.i, ptr noundef nonnull %.0.i.i.us) #21
   br label %arena_get.exit.thread.us
 
 18:                                               ; preds = %11
-  tail call void @je_arena_prefork2(ptr noundef %.0.i, ptr noundef nonnull %.0.i.i.us) #20
+  tail call void @je_arena_prefork2(ptr noundef %.0.i, ptr noundef nonnull %.0.i.i.us) #21
   br label %arena_get.exit.thread.us
 
 19:                                               ; preds = %11
-  tail call void @je_arena_prefork1(ptr noundef %.0.i, ptr noundef nonnull %.0.i.i.us) #20
+  tail call void @je_arena_prefork1(ptr noundef %.0.i, ptr noundef nonnull %.0.i.i.us) #21
   br label %arena_get.exit.thread.us
 
 20:                                               ; preds = %11
-  tail call void @je_arena_prefork0(ptr noundef %.0.i, ptr noundef nonnull %.0.i.i.us) #20
+  tail call void @je_arena_prefork0(ptr noundef %.0.i, ptr noundef nonnull %.0.i.i.us) #21
   br label %arena_get.exit.thread.us
 
 arena_get.exit.thread.us:                         ; preds = %20, %19, %18, %17, %16, %15, %14, %13, %12, %8
@@ -10481,9 +10481,9 @@ default.unreachable:                              ; preds = %11
   unreachable
 
 .split.us:                                        ; preds = %._crit_edge.us, %tsd_fetch_impl.exit
-  tail call void @je_prof_prefork1(ptr noundef %.0.i) #20
-  tail call void @je_stats_prefork(ptr noundef %.0.i) #20
-  tail call void @je_tsd_prefork(ptr noundef %.0.i) #20
+  tail call void @je_prof_prefork1(ptr noundef %.0.i) #21
+  tail call void @je_stats_prefork(ptr noundef %.0.i) #21
+  tail call void @je_tsd_prefork(ptr noundef %.0.i) #21
   ret void
 }
 
@@ -10534,15 +10534,15 @@ define hidden void @je_jemalloc_postfork_parent() #2 {
   br i1 %.not.i, label %tsd_fetch_impl.exit, label %4, !prof !10
 
 4:                                                ; preds = %0
-  %5 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #20
+  %5 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #21
   br label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %0, %4
   %.0.i = phi ptr [ %5, %4 ], [ %1, %0 ]
-  tail call void @je_tsd_postfork_parent(ptr noundef %.0.i) #20
+  tail call void @je_tsd_postfork_parent(ptr noundef %.0.i) #21
   %6 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2688
-  tail call void @je_witness_postfork_parent(ptr noundef nonnull %6) #20
-  tail call void @je_stats_postfork_parent(ptr noundef %.0.i) #20
+  tail call void @je_witness_postfork_parent(ptr noundef nonnull %6) #21
+  tail call void @je_stats_postfork_parent(ptr noundef %.0.i) #21
   %7 = load atomic i32, ptr @narenas_total acquire, align 4
   %.not19 = icmp eq i32 %7, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph.preheader
@@ -10560,7 +10560,7 @@ tsd_fetch_impl.exit:                              ; preds = %0, %4
 
 10:                                               ; preds = %.lr.ph
   %.0.i.i = inttoptr i64 %9 to ptr
-  tail call void @je_arena_postfork_parent(ptr noundef %.0.i, ptr noundef nonnull %.0.i.i) #20
+  tail call void @je_arena_postfork_parent(ptr noundef %.0.i, ptr noundef nonnull %.0.i.i) #21
   br label %arena_get.exit.thread
 
 arena_get.exit.thread:                            ; preds = %.lr.ph, %10
@@ -10569,11 +10569,11 @@ arena_get.exit.thread:                            ; preds = %.lr.ph, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !211
 
 ._crit_edge:                                      ; preds = %arena_get.exit.thread, %tsd_fetch_impl.exit
-  tail call void @je_prof_postfork_parent(ptr noundef %.0.i) #20
-  tail call void @je_background_thread_postfork_parent(ptr noundef %.0.i) #20
-  tail call void @je_malloc_mutex_postfork_parent(ptr noundef %.0.i, ptr noundef nonnull @arenas_lock) #20
-  tail call void @je_tcache_postfork_parent(ptr noundef %.0.i) #20
-  tail call void @je_ctl_postfork_parent(ptr noundef %.0.i) #20
+  tail call void @je_prof_postfork_parent(ptr noundef %.0.i) #21
+  tail call void @je_background_thread_postfork_parent(ptr noundef %.0.i) #21
+  tail call void @je_malloc_mutex_postfork_parent(ptr noundef %.0.i, ptr noundef nonnull @arenas_lock) #21
+  tail call void @je_tcache_postfork_parent(ptr noundef %.0.i) #21
+  tail call void @je_ctl_postfork_parent(ptr noundef %.0.i) #21
   ret void
 }
 
@@ -10604,15 +10604,15 @@ define hidden void @je_jemalloc_postfork_child() #2 {
   br i1 %.not.i, label %tsd_fetch_impl.exit, label %4, !prof !10
 
 4:                                                ; preds = %0
-  %5 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #20
+  %5 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #21
   br label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %0, %4
   %.0.i = phi ptr [ %5, %4 ], [ %1, %0 ]
-  tail call void @je_tsd_postfork_child(ptr noundef %.0.i) #20
+  tail call void @je_tsd_postfork_child(ptr noundef %.0.i) #21
   %6 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2688
-  tail call void @je_witness_postfork_child(ptr noundef nonnull %6) #20
-  tail call void @je_stats_postfork_child(ptr noundef %.0.i) #20
+  tail call void @je_witness_postfork_child(ptr noundef nonnull %6) #21
+  tail call void @je_stats_postfork_child(ptr noundef %.0.i) #21
   %7 = load atomic i32, ptr @narenas_total acquire, align 4
   %.not19 = icmp eq i32 %7, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph.preheader
@@ -10630,7 +10630,7 @@ tsd_fetch_impl.exit:                              ; preds = %0, %4
 
 10:                                               ; preds = %.lr.ph
   %.0.i.i = inttoptr i64 %9 to ptr
-  tail call void @je_arena_postfork_child(ptr noundef %.0.i, ptr noundef nonnull %.0.i.i) #20
+  tail call void @je_arena_postfork_child(ptr noundef %.0.i, ptr noundef nonnull %.0.i.i) #21
   br label %arena_get.exit.thread
 
 arena_get.exit.thread:                            ; preds = %.lr.ph, %10
@@ -10639,11 +10639,11 @@ arena_get.exit.thread:                            ; preds = %.lr.ph, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !212
 
 ._crit_edge:                                      ; preds = %arena_get.exit.thread, %tsd_fetch_impl.exit
-  tail call void @je_prof_postfork_child(ptr noundef %.0.i) #20
-  tail call void @je_background_thread_postfork_child(ptr noundef %.0.i) #20
-  tail call void @je_malloc_mutex_postfork_child(ptr noundef %.0.i, ptr noundef nonnull @arenas_lock) #20
-  tail call void @je_tcache_postfork_child(ptr noundef %.0.i) #20
-  tail call void @je_ctl_postfork_child(ptr noundef %.0.i) #20
+  tail call void @je_prof_postfork_child(ptr noundef %.0.i) #21
+  tail call void @je_background_thread_postfork_child(ptr noundef %.0.i) #21
+  tail call void @je_malloc_mutex_postfork_child(ptr noundef %.0.i, ptr noundef nonnull @arenas_lock) #21
+  tail call void @je_tcache_postfork_child(ptr noundef %.0.i) #21
+  tail call void @je_ctl_postfork_child(ptr noundef %.0.i) #21
   ret void
 }
 
@@ -10667,7 +10667,7 @@ declare void @je_ctl_postfork_child(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @malloc_init_hard_a0() unnamed_addr #2 {
-  %1 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #20
+  %1 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #21
   %.not.i = icmp eq i32 %1, 0
   br i1 %.not.i, label %malloc_mutex_trylock_final.exit.i, label %2
 
@@ -10676,7 +10676,7 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %0
   br label %3
 
 2:                                                ; preds = %0
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @init_lock) #20
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @init_lock) #21
   br label %3
 
 3:                                                ; preds = %2, %malloc_mutex_trylock_final.exit.i
@@ -10697,7 +10697,7 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %0
 malloc_mutex_lock.exit:                           ; preds = %3, %7
   %10 = tail call fastcc zeroext i1 @malloc_init_hard_a0_locked()
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @init_lock, i64 64) monotonic, align 8
-  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #20
+  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #21
   ret i1 %10
 }
 
@@ -10713,13 +10713,13 @@ define internal fastcc noundef zeroext i1 @malloc_init_hard_a0_locked() unnamed_
   %8 = alloca [36 x i32], align 16
   %9 = alloca [4097 x i8], align 16
   %10 = alloca %struct.hpa_shard_opts_s, align 8
-  %11 = tail call i64 @pthread_self() #23
+  %11 = tail call i64 @pthread_self() #24
   store i64 %11, ptr @malloc_initializer, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6576) %7, i8 0, i64 6576, i1 false)
-  call void @je_sc_boot(ptr noundef nonnull %7) #20
+  call void @je_sc_boot(ptr noundef nonnull %7) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @je_bin_shard_sizes_boot(ptr noundef nonnull %8) #20
+  call void @je_bin_shard_sizes_boot(ptr noundef nonnull %8) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 16, !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -10743,9 +10743,9 @@ define internal fastcc noundef zeroext i1 @malloc_init_hard_a0_locked() unnamed_
   ]
 
 14:                                               ; preds = %12
-  %15 = tail call ptr @__errno_location() #23
+  %15 = tail call ptr @__errno_location() #24
   %16 = load i32, ptr %15, align 4, !tbaa !4
-  %17 = call i64 @readlink(ptr noundef nonnull @.str.170, ptr noundef nonnull %9, i64 noundef 4096) #20
+  %17 = call i64 @readlink(ptr noundef nonnull @.str.170, ptr noundef nonnull %9, i64 noundef 4096) #21
   %18 = icmp eq i64 %17, -1
   br i1 %18, label %19, label %20
 
@@ -10760,7 +10760,7 @@ define internal fastcc noundef zeroext i1 @malloc_init_hard_a0_locked() unnamed_
   br label %obtain_malloc_conf.exit.thread8.i.i
 
 22:                                               ; preds = %12
-  %23 = call ptr @secure_getenv(ptr noundef nonnull @.str.171) #20
+  %23 = call ptr @secure_getenv(ptr noundef nonnull @.str.171) #21
   %.not.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i, label %obtain_malloc_conf.exit.thread.i.i, label %25
 
@@ -10813,7 +10813,7 @@ obtain_malloc_conf.exit.i.i:                      ; preds = %26, %12
 
 38:                                               ; preds = %35
   %39 = load ptr, ptr %2, align 8, !tbaa !213
-  %40 = call i32 @strncmp(ptr noundef nonnull dereferenceable(13) @.str.97, ptr noundef nonnull dereferenceable(1) %39, i64 noundef 12) #25
+  %40 = call i32 @strncmp(ptr noundef nonnull dereferenceable(13) @.str.97, ptr noundef nonnull dereferenceable(1) %39, i64 noundef 12) #26
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %.thread.i.i, !llvm.loop !215
 
@@ -10826,13 +10826,13 @@ obtain_malloc_conf.exit.i.i:                      ; preds = %26, %12
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr %3, align 8, !tbaa !213
-  %46 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %45, i64 noundef 4) #25
+  %46 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %45, i64 noundef 4) #26
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %.thread.sink.split.i.i, label %.thread.i.i, !llvm.loop !215
 
 48:                                               ; preds = %42
   %49 = load ptr, ptr %3, align 8, !tbaa !213
-  %50 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %49, i64 noundef 5) #25
+  %50 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %49, i64 noundef 5) #26
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %.thread.i.i, !llvm.loop !215
 
@@ -10851,7 +10851,7 @@ obtain_malloc_conf.exit.i.i:                      ; preds = %26, %12
   br i1 %.not.i.i, label %.critedge.i.i, label %.lr.ph.i.i
 
 .critedge.i.i:                                    ; preds = %.thread.i.i, %.lr.ph.i.i, %.preheader.i.i
-  %55 = call zeroext i1 @je_hpa_supported() #20
+  %55 = call zeroext i1 @je_hpa_supported() #21
   %56 = load i8, ptr @je_opt_hpa, align 1, !range !110
   %57 = trunc nuw i8 %56 to i1
   %or.cond.i.i.i = select i1 %55, i1 %57, i1 false
@@ -10862,7 +10862,7 @@ obtain_malloc_conf.exit.i.i:                      ; preds = %26, %12
 
 60:                                               ; preds = %.critedge.i.i
   store i1 true, ptr @had_conf_error, align 1
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.178) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.178) #21
   br label %validate_hpa_settings.exit.i.i
 
 validate_hpa_settings.exit.i.i:                   ; preds = %60, %.critedge.i.i
@@ -10873,7 +10873,7 @@ validate_hpa_settings.exit.i.i:                   ; preds = %60, %.critedge.i.i
   br i1 %or.cond343.i.i, label %63, label %64
 
 63:                                               ; preds = %validate_hpa_settings.exit.i.i
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.180) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.180) #21
   call void @abort()
   unreachable
 
@@ -10903,66 +10903,66 @@ malloc_conf_init_check_deps.exit.thread.i:        ; preds = %malloc_conf_init_he
   br label %malloc_conf_init.exit
 
 malloc_conf_init_check_deps.exit.i:               ; preds = %malloc_conf_init_helper.specialized.1.exit.i
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.179) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.179) #21
   %69 = load i8, ptr @je_opt_abort_conf, align 1, !range !110
   %70 = trunc nuw i8 %69 to i1
   br i1 %70, label %71, label %malloc_conf_init.exit
 
 71:                                               ; preds = %malloc_conf_init_check_deps.exit.i
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.180) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.180) #21
   call void @abort()
   unreachable
 
 malloc_conf_init.exit:                            ; preds = %malloc_conf_init_check_deps.exit.thread.i, %malloc_conf_init_check_deps.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %72 = load i64, ptr @je_opt_lg_san_uaf_align, align 8, !tbaa !33
-  call void @je_san_init(i64 noundef %72) #20
+  call void @je_san_init(i64 noundef %72) #21
   %73 = load i8, ptr @je_opt_cache_oblivious, align 1, !tbaa !108, !range !110, !noundef !111
   %74 = trunc nuw i8 %73 to i1
-  call void @je_sz_boot(ptr noundef nonnull %7, i1 noundef zeroext %74) #20
-  call void @je_bin_info_boot(ptr noundef nonnull %7, ptr noundef nonnull %8) #20
+  call void @je_sz_boot(ptr noundef nonnull %7, i1 noundef zeroext %74) #21
+  call void @je_bin_info_boot(ptr noundef nonnull %7, ptr noundef nonnull %8) #21
   %75 = load i8, ptr @je_opt_stats_print, align 1, !tbaa !108, !range !110, !noundef !111
   %76 = trunc nuw i8 %75 to i1
   br i1 %76, label %77, label %83
 
 77:                                               ; preds = %malloc_conf_init.exit
-  %78 = call i32 @atexit(ptr noundef nonnull @stats_print_atexit) #20
+  %78 = call i32 @atexit(ptr noundef nonnull @stats_print_atexit) #21
   %.not = icmp eq i32 %78, 0
   br i1 %.not, label %83, label %79
 
 79:                                               ; preds = %77
-  call void @je_malloc_write(ptr noundef nonnull @.str.85) #20
+  call void @je_malloc_write(ptr noundef nonnull @.str.85) #21
   %80 = load i8, ptr @je_opt_abort, align 1, !tbaa !108, !range !110, !noundef !111
   %81 = trunc nuw i8 %80 to i1
   br i1 %81, label %82, label %83
 
 82:                                               ; preds = %79
-  call void @abort() #22
+  call void @abort() #23
   unreachable
 
 83:                                               ; preds = %77, %79, %malloc_conf_init.exit
-  %84 = call zeroext i1 @je_stats_boot() #20
+  %84 = call zeroext i1 @je_stats_boot() #21
   br i1 %84, label %153, label %85
 
 85:                                               ; preds = %83
-  %86 = call zeroext i1 @je_pages_boot() #20
+  %86 = call zeroext i1 @je_pages_boot() #21
   br i1 %86, label %153, label %87
 
 87:                                               ; preds = %85
-  %88 = call zeroext i1 @je_base_boot(ptr noundef null) #20
+  %88 = call zeroext i1 @je_base_boot(ptr noundef null) #21
   br i1 %88, label %153, label %89
 
 89:                                               ; preds = %87
-  %90 = call ptr @je_b0get() #20
-  %91 = call zeroext i1 @je_emap_init(ptr noundef nonnull @je_arena_emap_global, ptr noundef %90, i1 noundef zeroext true) #20
+  %90 = call ptr @je_b0get() #21
+  %91 = call zeroext i1 @je_emap_init(ptr noundef nonnull @je_arena_emap_global, ptr noundef %90, i1 noundef zeroext true) #21
   br i1 %91, label %153, label %92
 
 92:                                               ; preds = %89
-  %93 = call zeroext i1 @je_extent_boot() #20
+  %93 = call zeroext i1 @je_extent_boot() #21
   br i1 %93, label %153, label %94
 
 94:                                               ; preds = %92
-  %95 = call zeroext i1 @je_ctl_boot() #20
+  %95 = call zeroext i1 @je_ctl_boot() #21
   br i1 %95, label %153, label %96
 
 96:                                               ; preds = %94
@@ -10971,20 +10971,20 @@ malloc_conf_init.exit:                            ; preds = %malloc_conf_init_ch
   br i1 %98, label %99, label %109
 
 99:                                               ; preds = %96
-  %100 = call zeroext i1 @je_hpa_supported() #20
+  %100 = call zeroext i1 @je_hpa_supported() #21
   br i1 %100, label %109, label %101
 
 101:                                              ; preds = %99
   %102 = load i8, ptr @je_opt_abort_conf, align 1, !tbaa !108, !range !110, !noundef !111
   %103 = trunc nuw i8 %102 to i1
   %104 = select i1 %103, ptr @.str.87, ptr @.str.88
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.86, ptr noundef nonnull %104) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.86, ptr noundef nonnull %104) #21
   %105 = load i8, ptr @je_opt_abort_conf, align 1, !tbaa !108, !range !110, !noundef !111
   %106 = trunc nuw i8 %105 to i1
   br i1 %106, label %107, label %108
 
 107:                                              ; preds = %101
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.180) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.180) #21
   call void @abort()
   unreachable
 
@@ -10993,23 +10993,23 @@ malloc_conf_init.exit:                            ; preds = %malloc_conf_init_ch
   br label %109
 
 109:                                              ; preds = %108, %99, %96
-  %110 = call ptr @je_b0get() #20
+  %110 = call ptr @je_b0get() #21
   %111 = load i8, ptr @je_opt_hpa, align 1, !tbaa !108, !range !110, !noundef !111
   %112 = trunc nuw i8 %111 to i1
-  %113 = call zeroext i1 @je_arena_boot(ptr noundef nonnull %7, ptr noundef %110, i1 noundef zeroext %112) #20
+  %113 = call zeroext i1 @je_arena_boot(ptr noundef nonnull %7, ptr noundef %110, i1 noundef zeroext %112) #21
   br i1 %113, label %153, label %114
 
 114:                                              ; preds = %109
-  %115 = call ptr @je_b0get() #20
-  %116 = call zeroext i1 @je_tcache_boot(ptr noundef null, ptr noundef %115) #20
+  %115 = call ptr @je_b0get() #21
+  %116 = call zeroext i1 @je_tcache_boot(ptr noundef null, ptr noundef %115) #21
   br i1 %116, label %153, label %117
 
 117:                                              ; preds = %114
-  %118 = call zeroext i1 @je_malloc_mutex_init(ptr noundef nonnull @arenas_lock, ptr noundef nonnull @.str.89, i32 noundef 4, i32 noundef 0) #20
+  %118 = call zeroext i1 @je_malloc_mutex_init(ptr noundef nonnull @arenas_lock, ptr noundef nonnull @.str.89, i32 noundef 4, i32 noundef 0) #21
   br i1 %118, label %153, label %119
 
 119:                                              ; preds = %117
-  %120 = call zeroext i1 @je_hook_boot() #20
+  %120 = call zeroext i1 @je_hook_boot() #21
   store i32 1, ptr @je_narenas_auto, align 4, !tbaa !4
   store i32 2, ptr @je_manual_arena_base, align 4, !tbaa !4
   store i64 0, ptr @je_arenas, align 64
@@ -11034,20 +11034,20 @@ arena_get.exit:                                   ; preds = %123, %126
   br i1 %128, label %129, label %.thread
 
 129:                                              ; preds = %arena_get.exit
-  %130 = call zeroext i1 @je_hpa_supported() #20
+  %130 = call zeroext i1 @je_hpa_supported() #21
   br i1 %130, label %139, label %131
 
 131:                                              ; preds = %129
   %132 = load i8, ptr @je_opt_abort_conf, align 1, !tbaa !108, !range !110, !noundef !111
   %133 = trunc nuw i8 %132 to i1
   %134 = select i1 %133, ptr @.str.87, ptr @.str.88
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.86, ptr noundef nonnull %134) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.86, ptr noundef nonnull %134) #21
   %135 = load i8, ptr @je_opt_abort_conf, align 1, !tbaa !108, !range !110, !noundef !111
   %136 = trunc nuw i8 %135 to i1
   br i1 %136, label %137, label %138
 
 137:                                              ; preds = %131
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.180) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.180) #21
   call void @abort()
   unreachable
 
@@ -11069,13 +11069,13 @@ arena_get.exit:                                   ; preds = %123, %126
   store i8 %144, ptr %143, align 4, !tbaa !218
   %145 = load ptr, ptr @a0, align 8, !tbaa !50
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 10664
-  %147 = call zeroext i1 @je_pa_shard_enable_hpa(ptr noundef null, ptr noundef nonnull %146, ptr noundef nonnull %10, ptr noundef nonnull @je_opt_hpa_sec_opts) #20
+  %147 = call zeroext i1 @je_pa_shard_enable_hpa(ptr noundef null, ptr noundef nonnull %146, ptr noundef nonnull %10, ptr noundef nonnull @je_opt_hpa_sec_opts) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %147, label %153, label %.thread
 
 .thread:                                          ; preds = %arena_get.exit, %139, %141, %138
   store i32 2, ptr @je_malloc_init_state, align 4, !tbaa !4
-  %148 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #25
+  %148 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #26
   %.not10 = icmp eq i64 %148, 0
   br i1 %.not10, label %153, label %149
 
@@ -11129,7 +11129,7 @@ define internal void @stats_print_atexit() #2 {
   br i1 %.not.i, label %tsdn_fetch.exit, label %8, !prof !10
 
 8:                                                ; preds = %4
-  %9 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %5, i1 noundef zeroext false) #20
+  %9 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %5, i1 noundef zeroext false) #21
   br label %tsdn_fetch.exit
 
 tsdn_fetch.exit:                                  ; preds = %8, %4, %0
@@ -11152,7 +11152,7 @@ tsdn_fetch.exit:                                  ; preds = %8, %4, %0
 
 13:                                               ; preds = %.lr.ph32
   %14 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 10496
-  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %14) #20
+  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %14) #21
   %.not.i24 = icmp eq i32 %15, 0
   br i1 %.not.i24, label %malloc_mutex_trylock_final.exit.i, label %17
 
@@ -11163,7 +11163,7 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %13
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 10424
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %18) #20
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %18) #21
   br label %19
 
 19:                                               ; preds = %17, %malloc_mutex_trylock_final.exit.i
@@ -11194,7 +11194,7 @@ select.unfold:                                    ; preds = %malloc_mutex_lock.e
   %.030 = phi ptr [ %33, %select.unfold ], [ %30, %malloc_mutex_lock.exit ]
   %31 = getelementptr inbounds nuw i8, ptr %.030, i64 232
   %32 = load ptr, ptr %31, align 8, !tbaa !220
-  tail call void @je_tcache_stats_merge(ptr noundef %.0.i, ptr noundef %32, ptr noundef nonnull %.0.i.i) #20
+  tail call void @je_tcache_stats_merge(ptr noundef %.0.i, ptr noundef %32, ptr noundef nonnull %.0.i.i) #21
   %33 = load ptr, ptr %.030, align 8, !tbaa !221
   %34 = load ptr, ptr %29, align 8, !tbaa !219
   %.not21 = icmp eq ptr %33, %34
@@ -11205,7 +11205,7 @@ select.unfold:                                    ; preds = %malloc_mutex_lock.e
 select.unfold._crit_edge:                         ; preds = %select.unfold, %malloc_mutex_lock.exit
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 10488
   store atomic i8 0, ptr %35 monotonic, align 1
-  %36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %14) #20
+  %36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %14) #21
   br label %arena_get.exit.thread
 
 arena_get.exit.thread:                            ; preds = %.lr.ph32, %select.unfold._crit_edge
@@ -11226,15 +11226,15 @@ arena_get.exit.thread:                            ; preds = %.lr.ph32, %select.u
   br i1 %.not.i.i26, label %malloc_stats_print.exit, label %43, !prof !10
 
 43:                                               ; preds = %39
-  %44 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %40, i1 noundef zeroext false) #20
+  %44 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %40, i1 noundef zeroext false) #21
   br label %malloc_stats_print.exit
 
 malloc_stats_print.exit:                          ; preds = %._crit_edge, %39, %43
   %.0.i.i25 = phi ptr [ null, %._crit_edge ], [ %44, %43 ], [ %40, %39 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %45 = call zeroext i1 @je_buf_writer_init(ptr noundef %.0.i.i25, ptr noundef nonnull %1, ptr noundef null, ptr noundef null, ptr noundef null, i64 noundef 65536) #20
-  call void @je_stats_print(ptr noundef nonnull @je_buf_writer_cb, ptr noundef nonnull %1, ptr noundef nonnull @je_opt_stats_print_opts) #20
-  call void @je_buf_writer_terminate(ptr noundef %.0.i.i25, ptr noundef nonnull %1) #20
+  %45 = call zeroext i1 @je_buf_writer_init(ptr noundef %.0.i.i25, ptr noundef nonnull %1, ptr noundef null, ptr noundef null, ptr noundef null, i64 noundef 65536) #21
+  call void @je_stats_print(ptr noundef nonnull @je_buf_writer_cb, ptr noundef nonnull %1, ptr noundef nonnull @je_opt_stats_print_opts) #21
+  call void @je_buf_writer_terminate(ptr noundef %.0.i.i25, ptr noundef nonnull %1) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
@@ -11359,9 +11359,9 @@ define internal fastcc void @malloc_conf_init_helper(ptr noundef %0, ptr noundef
   br label %.thread
 
 66:                                               ; preds = %62
-  %67 = tail call ptr @__errno_location() #23
+  %67 = tail call ptr @__errno_location() #24
   %68 = load i32, ptr %67, align 4, !tbaa !4
-  %69 = call i64 @readlink(ptr noundef nonnull @.str.170, ptr noundef %4, i64 noundef 4096) #20
+  %69 = call i64 @readlink(ptr noundef nonnull @.str.170, ptr noundef %4, i64 noundef 4096) #21
   %70 = icmp eq i64 %69, -1
   br i1 %70, label %71, label %72
 
@@ -11376,7 +11376,7 @@ define internal fastcc void @malloc_conf_init_helper(ptr noundef %0, ptr noundef
   br label %.thread
 
 74:                                               ; preds = %62
-  %75 = call ptr @secure_getenv(ptr noundef nonnull @.str.171) #20
+  %75 = call ptr @secure_getenv(ptr noundef nonnull @.str.171) #21
   %.not.i = icmp eq ptr %75, null
   br i1 %.not.i, label %.thread, label %76
 
@@ -11413,7 +11413,7 @@ define internal fastcc void @malloc_conf_init_helper(ptr noundef %0, ptr noundef
   %89 = select i1 %.not832, ptr @.str.96, ptr %83
   %90 = trunc i64 %indvars.iv1358 to i32
   %91 = add i32 %90, 1
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %91, ptr noundef %88, ptr noundef nonnull %89) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %91, ptr noundef %88, ptr noundef nonnull %89) #21
   br label %92
 
 92:                                               ; preds = %.thread, %86, %81
@@ -11437,7 +11437,7 @@ define internal fastcc void @malloc_conf_init_helper(ptr noundef %0, ptr noundef
 
 100:                                              ; preds = %97
   %101 = load ptr, ptr %7, align 8, !tbaa !213
-  %102 = call i32 @strncmp(ptr noundef nonnull dereferenceable(13) @.str.97, ptr noundef nonnull dereferenceable(1) %101, i64 noundef 12) #25
+  %102 = call i32 @strncmp(ptr noundef nonnull dereferenceable(13) @.str.97, ptr noundef nonnull dereferenceable(1) %101, i64 noundef 12) #26
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %104, label %.thread969
 
@@ -11450,13 +11450,13 @@ define internal fastcc void @malloc_conf_init_helper(ptr noundef %0, ptr noundef
 
 106:                                              ; preds = %104
   %107 = load ptr, ptr %8, align 8, !tbaa !213
-  %108 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %107, i64 noundef 4) #25
+  %108 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %107, i64 noundef 4) #26
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %malloc_conf_error.exit, label %.thread965
 
 110:                                              ; preds = %104
   %111 = load ptr, ptr %8, align 8, !tbaa !213
-  %112 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %111, i64 noundef 5) #25
+  %112 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %111, i64 noundef 5) #26
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %114, label %.thread965
 
@@ -11470,8 +11470,8 @@ define internal fastcc void @malloc_conf_init_helper(ptr noundef %0, ptr noundef
 115:                                              ; preds = %.thread965
   %116 = load ptr, ptr %8, align 8, !tbaa !213
   %117 = trunc i64 %105 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef 12, ptr noundef nonnull %101, i32 noundef %117, ptr noundef %116) #20
-  %118 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef 12, ptr noundef nonnull %101, i32 noundef %117, ptr noundef %116) #21
+  %118 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %malloc_conf_error.exit.thread, label %120
 
@@ -11486,7 +11486,7 @@ malloc_conf_error.exit:                           ; preds = %106
 121:                                              ; preds = %malloc_conf_error.exit
   %122 = trunc nuw nsw i64 %105 to i32
   %123 = load ptr, ptr %8, align 8, !tbaa !213
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 12, ptr noundef nonnull %101, i32 noundef %122, ptr noundef %123) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 12, ptr noundef nonnull %101, i32 noundef %122, ptr noundef %123) #21
   br label %malloc_conf_error.exit.thread, !llvm.loop !223
 
 124:                                              ; preds = %97
@@ -11505,7 +11505,7 @@ malloc_conf_error.exit:                           ; preds = %106
   ]
 
 126:                                              ; preds = %125
-  %127 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.3, ptr noundef nonnull dereferenceable(1) %.pre1365, i64 noundef 5) #25
+  %127 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.3, ptr noundef nonnull dereferenceable(1) %.pre1365, i64 noundef 5) #26
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %129, label %.thread989
 
@@ -11518,19 +11518,19 @@ malloc_conf_error.exit:                           ; preds = %106
   ]
 
 131:                                              ; preds = %129
-  %132 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1364, i64 noundef 4) #25
+  %132 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1364, i64 noundef 4) #26
   %133 = icmp eq i32 %132, 0
   br i1 %133, label %malloc_conf_error.exit917, label %.thread971
 
 134:                                              ; preds = %129
-  %135 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1364, i64 noundef 5) #25
+  %135 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1364, i64 noundef 5) #26
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %malloc_conf_error.exit917, label %.thread971
 
 .thread971:                                       ; preds = %129, %131, %134
   %137 = trunc i64 %130 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef 5, ptr noundef nonnull %.pre1365, i32 noundef %137, ptr noundef %.pre1364) #20
-  %138 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.pre1365, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef 5, ptr noundef nonnull %.pre1365, i32 noundef %137, ptr noundef %.pre1364) #21
+  %138 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.pre1365, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %139 = icmp eq i32 %138, 0
   br i1 %139, label %malloc_conf_error.exit.thread, label %140
 
@@ -11547,11 +11547,11 @@ malloc_conf_error.exit917:                        ; preds = %134, %131
 
 143:                                              ; preds = %malloc_conf_error.exit917
   %144 = trunc nuw nsw i64 %130 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 5, ptr noundef nonnull %.pre1365, i32 noundef %144, ptr noundef nonnull %.pre1364) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 5, ptr noundef nonnull %.pre1365, i32 noundef %144, ptr noundef nonnull %.pre1364) #21
   br label %malloc_conf_error.exit.thread, !llvm.loop !223
 
 145:                                              ; preds = %125
-  %146 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.101, ptr noundef nonnull dereferenceable(1) %.pre1365, i64 noundef 10) #25
+  %146 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.101, ptr noundef nonnull dereferenceable(1) %.pre1365, i64 noundef 10) #26
   %147 = icmp eq i32 %146, 0
   br i1 %147, label %148, label %.thread989
 
@@ -11564,19 +11564,19 @@ malloc_conf_error.exit917:                        ; preds = %134, %131
   ]
 
 150:                                              ; preds = %148
-  %151 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1363, i64 noundef 4) #25
+  %151 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1363, i64 noundef 4) #26
   %152 = icmp eq i32 %151, 0
   br i1 %152, label %malloc_conf_error.exit918, label %.thread976
 
 153:                                              ; preds = %148
-  %154 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1363, i64 noundef 5) #25
+  %154 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1363, i64 noundef 5) #26
   %155 = icmp eq i32 %154, 0
   br i1 %155, label %malloc_conf_error.exit918, label %.thread976
 
 .thread976:                                       ; preds = %148, %150, %153
   %156 = trunc i64 %149 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef 10, ptr noundef nonnull %.pre1365, i32 noundef %156, ptr noundef %.pre1363) #20
-  %157 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.pre1365, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef 10, ptr noundef nonnull %.pre1365, i32 noundef %156, ptr noundef %.pre1363) #21
+  %157 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.pre1365, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %158 = icmp eq i32 %157, 0
   br i1 %158, label %malloc_conf_error.exit.thread, label %159
 
@@ -11593,11 +11593,11 @@ malloc_conf_error.exit918:                        ; preds = %153, %150
 
 162:                                              ; preds = %malloc_conf_error.exit918
   %163 = trunc nuw nsw i64 %149 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 10, ptr noundef nonnull %.pre1365, i32 noundef %163, ptr noundef nonnull %.pre1363) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 10, ptr noundef nonnull %.pre1365, i32 noundef %163, ptr noundef nonnull %.pre1363) #21
   br label %malloc_conf_error.exit.thread, !llvm.loop !223
 
 164:                                              ; preds = %125
-  %165 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.102, ptr noundef nonnull dereferenceable(1) %.pre1365, i64 noundef 15) #25
+  %165 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.102, ptr noundef nonnull dereferenceable(1) %.pre1365, i64 noundef 15) #26
   %166 = icmp eq i32 %165, 0
   br i1 %166, label %167, label %.thread989
 
@@ -11610,19 +11610,19 @@ malloc_conf_error.exit918:                        ; preds = %153, %150
   ]
 
 169:                                              ; preds = %167
-  %170 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1362, i64 noundef 4) #25
+  %170 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1362, i64 noundef 4) #26
   %171 = icmp eq i32 %170, 0
   br i1 %171, label %malloc_conf_error.exit919, label %.thread982
 
 172:                                              ; preds = %167
-  %173 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1362, i64 noundef 5) #25
+  %173 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1362, i64 noundef 5) #26
   %174 = icmp eq i32 %173, 0
   br i1 %174, label %malloc_conf_error.exit919, label %.thread982
 
 .thread982:                                       ; preds = %167, %169, %172
   %175 = trunc i64 %168 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef 15, ptr noundef nonnull %.pre1365, i32 noundef %175, ptr noundef %.pre1362) #20
-  %176 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.pre1365, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef 15, ptr noundef nonnull %.pre1365, i32 noundef %175, ptr noundef %.pre1362) #21
+  %176 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.pre1365, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %177 = icmp eq i32 %176, 0
   br i1 %177, label %malloc_conf_error.exit.thread, label %178
 
@@ -11639,11 +11639,11 @@ malloc_conf_error.exit919:                        ; preds = %172, %169
 
 181:                                              ; preds = %malloc_conf_error.exit919
   %182 = trunc nuw nsw i64 %168 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 15, ptr noundef nonnull %.pre1365, i32 noundef %182, ptr noundef nonnull %.pre1362) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 15, ptr noundef nonnull %.pre1365, i32 noundef %182, ptr noundef nonnull %.pre1362) #21
   br label %malloc_conf_error.exit.thread, !llvm.loop !223
 
 183:                                              ; preds = %125
-  %184 = call i32 @strncmp(ptr noundef nonnull dereferenceable(14) @.str.103, ptr noundef nonnull dereferenceable(1) %.pre1365, i64 noundef 13) #25
+  %184 = call i32 @strncmp(ptr noundef nonnull dereferenceable(14) @.str.103, ptr noundef nonnull dereferenceable(1) %.pre1365, i64 noundef 13) #26
   %185 = icmp eq i32 %184, 0
   br i1 %185, label %186, label %.thread989
 
@@ -11656,19 +11656,19 @@ malloc_conf_error.exit919:                        ; preds = %172, %169
   ]
 
 188:                                              ; preds = %186
-  %189 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre, i64 noundef 4) #25
+  %189 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre, i64 noundef 4) #26
   %190 = icmp eq i32 %189, 0
   br i1 %190, label %malloc_conf_error.exit920, label %.thread990
 
 191:                                              ; preds = %186
-  %192 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre, i64 noundef 5) #25
+  %192 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre, i64 noundef 5) #26
   %193 = icmp eq i32 %192, 0
   br i1 %193, label %malloc_conf_error.exit920, label %.thread990
 
 .thread990:                                       ; preds = %186, %188, %191
   %194 = trunc i64 %187 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef 13, ptr noundef nonnull %.pre1365, i32 noundef %194, ptr noundef %.pre) #20
-  %195 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.pre1365, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef 13, ptr noundef nonnull %.pre1365, i32 noundef %194, ptr noundef %.pre) #21
+  %195 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.pre1365, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %196 = icmp eq i32 %195, 0
   br i1 %196, label %malloc_conf_error.exit.thread, label %197
 
@@ -11685,7 +11685,7 @@ malloc_conf_error.exit920:                        ; preds = %191, %188
 
 200:                                              ; preds = %malloc_conf_error.exit920
   %201 = trunc nuw nsw i64 %187 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 13, ptr noundef nonnull %.pre1365, i32 noundef %201, ptr noundef nonnull %.pre) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 13, ptr noundef nonnull %.pre1365, i32 noundef %201, ptr noundef nonnull %.pre) #21
   br label %malloc_conf_error.exit.thread, !llvm.loop !223
 
 .thread989:                                       ; preds = %125, %164, %.thread969, %126, %145, %183
@@ -11693,7 +11693,7 @@ malloc_conf_error.exit920:                        ; preds = %191, %188
   %203 = phi i1 [ true, %183 ], [ false, %145 ], [ false, %126 ], [ false, %.thread969 ], [ false, %164 ], [ false, %125 ]
   %204 = phi i1 [ false, %183 ], [ true, %145 ], [ false, %126 ], [ false, %.thread969 ], [ false, %164 ], [ false, %125 ]
   %205 = phi i1 [ false, %183 ], [ false, %145 ], [ false, %126 ], [ false, %.thread969 ], [ true, %164 ], [ false, %125 ]
-  %206 = call i32 @strncmp(ptr noundef nonnull @.str.104, ptr noundef %202, i64 noundef %98) #25
+  %206 = call i32 @strncmp(ptr noundef nonnull @.str.104, ptr noundef %202, i64 noundef %98) #26
   %207 = icmp eq i32 %206, 0
   br i1 %207, label %.preheader, label %227
 
@@ -11706,7 +11706,7 @@ malloc_conf_error.exit920:                        ; preds = %191, %188
   %indvars.iv1354 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1355, %215 ]
   %211 = getelementptr inbounds nuw ptr, ptr @je_metadata_thp_mode_names, i64 %indvars.iv1354
   %212 = load ptr, ptr %211, align 8, !tbaa !213
-  %213 = call i32 @strncmp(ptr noundef %212, ptr noundef %208, i64 noundef %209) #25
+  %213 = call i32 @strncmp(ptr noundef %212, ptr noundef %208, i64 noundef %209) #26
   %214 = icmp eq i32 %213, 0
   br i1 %214, label %malloc_conf_error.exit921, label %215
 
@@ -11718,8 +11718,8 @@ malloc_conf_error.exit920:                        ; preds = %191, %188
 .critedge909:                                     ; preds = %215
   %216 = trunc i64 %98 to i32
   %217 = trunc i64 %209 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %216, ptr noundef %202, i32 noundef %217, ptr noundef %208) #20
-  %218 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %202, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %216, ptr noundef %202, i32 noundef %217, ptr noundef %208) #21
+  %218 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %202, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %219 = icmp eq i32 %218, 0
   br i1 %219, label %malloc_conf_error.exit.thread, label %220
 
@@ -11738,7 +11738,7 @@ malloc_conf_error.exit921:                        ; preds = %210
 224:                                              ; preds = %malloc_conf_error.exit921
   %225 = trunc i64 %98 to i32
   %226 = trunc i64 %209 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %225, ptr noundef %202, i32 noundef %226, ptr noundef %208) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %225, ptr noundef %202, i32 noundef %226, ptr noundef %208) #21
   br label %malloc_conf_error.exit.thread
 
 227:                                              ; preds = %.thread989
@@ -11746,7 +11746,7 @@ malloc_conf_error.exit921:                        ; preds = %210
   br i1 %228, label %229, label %248
 
 229:                                              ; preds = %227
-  %230 = call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str.105, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 6) #25
+  %230 = call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str.105, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 6) #26
   %231 = icmp eq i32 %230, 0
   br i1 %231, label %232, label %.thread1003
 
@@ -11759,19 +11759,19 @@ malloc_conf_error.exit921:                        ; preds = %210
   ]
 
 234:                                              ; preds = %232
-  %235 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1455, i64 noundef 4) #25
+  %235 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1455, i64 noundef 4) #26
   %236 = icmp eq i32 %235, 0
   br i1 %236, label %malloc_conf_error.exit922, label %.thread996
 
 237:                                              ; preds = %232
-  %238 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1455, i64 noundef 5) #25
+  %238 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1455, i64 noundef 5) #26
   %239 = icmp eq i32 %238, 0
   br i1 %239, label %malloc_conf_error.exit922, label %.thread996
 
 .thread996:                                       ; preds = %232, %234, %237
   %240 = trunc i64 %233 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef 6, ptr noundef nonnull %202, i32 noundef %240, ptr noundef %.pre1455) #20
-  %241 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %202, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef 6, ptr noundef nonnull %202, i32 noundef %240, ptr noundef %.pre1455) #21
+  %241 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %202, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %242 = icmp eq i32 %241, 0
   br i1 %242, label %malloc_conf_error.exit.thread, label %243
 
@@ -11788,16 +11788,16 @@ malloc_conf_error.exit922:                        ; preds = %237, %234
 
 246:                                              ; preds = %malloc_conf_error.exit922
   %247 = trunc nuw nsw i64 %233 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 6, ptr noundef nonnull %202, i32 noundef %247, ptr noundef nonnull %.pre1455) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 6, ptr noundef nonnull %202, i32 noundef %247, ptr noundef nonnull %.pre1455) #21
   br label %malloc_conf_error.exit.thread, !llvm.loop !223
 
 248:                                              ; preds = %227
-  %249 = call i32 @strncmp(ptr noundef nonnull @.str.106, ptr noundef %202, i64 noundef %98) #25
+  %249 = call i32 @strncmp(ptr noundef nonnull @.str.106, ptr noundef %202, i64 noundef %98) #26
   %250 = icmp eq i32 %249, 0
   br i1 %250, label %.preheader1321, label %290
 
 .thread1003:                                      ; preds = %229
-  %251 = call i32 @strncmp(ptr noundef nonnull dereferenceable(4) @.str.106, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 6) #25
+  %251 = call i32 @strncmp(ptr noundef nonnull dereferenceable(4) @.str.106, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 6) #26
   %252 = icmp eq i32 %251, 0
   br i1 %252, label %.preheader1321, label %.thread1004
 
@@ -11814,20 +11814,20 @@ malloc_conf_error.exit922:                        ; preds = %237, %234
   %258 = getelementptr inbounds nuw ptr, ptr @je_dss_prec_names, i64 %indvars.iv1351
   %259 = load ptr, ptr %258, align 8, !tbaa !213
   %260 = load ptr, ptr %8, align 8, !tbaa !213
-  %261 = call i32 @strncmp(ptr noundef %259, ptr noundef %260, i64 noundef %253) #25
+  %261 = call i32 @strncmp(ptr noundef %259, ptr noundef %260, i64 noundef %253) #26
   %262 = icmp eq i32 %261, 0
   br i1 %262, label %263, label %malloc_conf_error.exit923
 
 263:                                              ; preds = %257
   %264 = trunc nuw nsw i64 %indvars.iv1351 to i32
-  %265 = call zeroext i1 @je_extent_dss_prec_set(i32 noundef %264) #20
+  %265 = call zeroext i1 @je_extent_dss_prec_set(i32 noundef %264) #21
   br i1 %265, label %266, label %malloc_conf_error.exit924
 
 266:                                              ; preds = %263
   %267 = load ptr, ptr %7, align 8, !tbaa !213
   %268 = load ptr, ptr %8, align 8, !tbaa !213
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.107, i32 noundef %255, ptr noundef %267, i32 noundef %256, ptr noundef %268) #20
-  %269 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %267, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.107, i32 noundef %255, ptr noundef %267, i32 noundef %256, ptr noundef %268) #21
+  %269 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %267, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %270 = icmp eq i32 %269, 0
   br i1 %270, label %malloc_conf_error.exit923, label %271
 
@@ -11848,8 +11848,8 @@ malloc_conf_error.exit923:                        ; preds = %271, %266, %257
   %275 = load i64, ptr %10, align 8, !tbaa !33
   %276 = trunc i64 %273 to i32
   %277 = trunc i64 %275 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %276, ptr noundef %272, i32 noundef %277, ptr noundef %274) #20
-  %278 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %272, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %276, ptr noundef %272, i32 noundef %277, ptr noundef %274) #21
+  %278 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %272, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %279 = icmp eq i32 %278, 0
   br i1 %279, label %malloc_conf_error.exit.thread, label %280
 
@@ -11872,7 +11872,7 @@ malloc_conf_error.exit924:                        ; preds = %263
   %287 = load i64, ptr %10, align 8, !tbaa !33
   %288 = trunc i64 %287 to i32
   %289 = load ptr, ptr %8, align 8, !tbaa !213
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %285, ptr noundef %286, i32 noundef %288, ptr noundef %289) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %285, ptr noundef %286, i32 noundef %288, ptr noundef %289) #21
   br label %malloc_conf_error.exit.thread
 
 290:                                              ; preds = %248
@@ -11880,7 +11880,7 @@ malloc_conf_error.exit924:                        ; preds = %263
   br i1 %291, label %292, label %.thread1004
 
 292:                                              ; preds = %290
-  %293 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.108, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 7) #25
+  %293 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.108, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 7) #26
   %294 = icmp eq i32 %293, 0
   br i1 %294, label %295, label %.thread1004
 
@@ -11891,7 +11891,7 @@ malloc_conf_error.exit924:                        ; preds = %263
   br i1 %297, label %298, label %305
 
 298:                                              ; preds = %295
-  %299 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.109, ptr noundef nonnull dereferenceable(1) %.pre1366, i64 noundef 7) #25
+  %299 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.109, ptr noundef nonnull dereferenceable(1) %.pre1366, i64 noundef 7) #26
   %300 = icmp eq i32 %299, 0
   br i1 %300, label %301, label %305
 
@@ -11902,14 +11902,14 @@ malloc_conf_error.exit924:                        ; preds = %263
   br i1 %303, label %304, label %malloc_conf_error.exit.thread, !llvm.loop !223
 
 304:                                              ; preds = %301
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 7, ptr noundef nonnull %202, i32 noundef 7, ptr noundef nonnull %.pre1366) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 7, ptr noundef nonnull %202, i32 noundef 7, ptr noundef nonnull %.pre1366) #21
   br label %malloc_conf_error.exit.thread, !llvm.loop !223
 
 305:                                              ; preds = %298, %295
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %306 = tail call ptr @__errno_location() #23
+  %306 = tail call ptr @__errno_location() #24
   store i32 0, ptr %306, align 4, !tbaa !4
-  %307 = call i64 @je_malloc_strtoumax(ptr noundef %.pre1366, ptr noundef nonnull %11, i32 noundef 0) #20
+  %307 = call i64 @je_malloc_strtoumax(ptr noundef %.pre1366, ptr noundef nonnull %11, i32 noundef 0) #21
   %308 = load i32, ptr %306, align 4, !tbaa !4
   %.not906 = icmp eq i32 %308, 0
   %.pre1367 = load ptr, ptr %8, align 8, !tbaa !213
@@ -11929,8 +11929,8 @@ malloc_conf_error.exit924:                        ; preds = %263
   %316 = load i64, ptr %9, align 8, !tbaa !33
   %317 = trunc i64 %316 to i32
   %318 = trunc i64 %.pre1368 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %317, ptr noundef %315, i32 noundef %318, ptr noundef %.pre1367) #20
-  %319 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %315, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %317, ptr noundef %315, i32 noundef %318, ptr noundef %.pre1367) #21
+  %319 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %315, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %320 = icmp eq i32 %319, 0
   br i1 %320, label %malloc_conf_error.exit925.thread, label %321
 
@@ -11947,8 +11947,8 @@ malloc_conf_error.exit924:                        ; preds = %263
   %326 = load i64, ptr %9, align 8, !tbaa !33
   %327 = trunc i64 %326 to i32
   %328 = trunc i64 %.pre1368 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.110, i32 noundef %327, ptr noundef %325, i32 noundef %328, ptr noundef %.pre1367) #20
-  %329 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %325, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.110, i32 noundef %327, ptr noundef %325, i32 noundef %328, ptr noundef %.pre1367) #21
+  %329 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %325, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %330 = icmp eq i32 %329, 0
   br i1 %330, label %malloc_conf_error.exit925.thread, label %331
 
@@ -11968,7 +11968,7 @@ malloc_conf_error.exit925:                        ; preds = %322
   %337 = trunc i64 %336 to i32
   %338 = load ptr, ptr %7, align 8, !tbaa !213
   %339 = trunc i64 %.pre1368 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %337, ptr noundef %338, i32 noundef %339, ptr noundef %.pre1367) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %337, ptr noundef %338, i32 noundef %339, ptr noundef %.pre1367) #21
   br label %malloc_conf_error.exit925.thread
 
 malloc_conf_error.exit925.thread:                 ; preds = %331, %324, %321, %314, %335, %malloc_conf_error.exit925
@@ -11979,14 +11979,14 @@ malloc_conf_error.exit925.thread:                 ; preds = %331, %324, %321, %3
   br i1 %203, label %340, label %367
 
 340:                                              ; preds = %.thread1004
-  %341 = call i32 @strncmp(ptr noundef nonnull dereferenceable(14) @.str.111, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 13) #25
+  %341 = call i32 @strncmp(ptr noundef nonnull dereferenceable(14) @.str.111, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 13) #26
   %342 = icmp eq i32 %341, 0
   br i1 %342, label %343, label %367
 
 343:                                              ; preds = %340
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %344 = load ptr, ptr %8, align 8, !tbaa !213
-  %345 = call zeroext i1 @je_fxp_parse(ptr noundef nonnull @opt_narenas_ratio, ptr noundef %344, ptr noundef nonnull %12) #20
+  %345 = call zeroext i1 @je_fxp_parse(ptr noundef nonnull @opt_narenas_ratio, ptr noundef %344, ptr noundef nonnull %12) #21
   %.pre1453 = load ptr, ptr %8, align 8, !tbaa !213
   %.pre1454 = load i64, ptr %10, align 8, !tbaa !33
   br i1 %345, label %352, label %346
@@ -12004,8 +12004,8 @@ malloc_conf_error.exit925.thread:                 ; preds = %331, %324, %321, %3
   %354 = load i64, ptr %9, align 8, !tbaa !33
   %355 = trunc i64 %354 to i32
   %356 = trunc i64 %.pre1454 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %355, ptr noundef %353, i32 noundef %356, ptr noundef %.pre1453) #20
-  %357 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %353, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %355, ptr noundef %353, i32 noundef %356, ptr noundef %.pre1453) #21
+  %357 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %353, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %358 = icmp eq i32 %357, 0
   br i1 %358, label %malloc_conf_error.exit927.thread, label %359
 
@@ -12023,7 +12023,7 @@ malloc_conf_error.exit927:                        ; preds = %346
   %364 = trunc i64 %363 to i32
   %365 = load ptr, ptr %7, align 8, !tbaa !213
   %366 = trunc i64 %.pre1454 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %364, ptr noundef %365, i32 noundef %366, ptr noundef %.pre1453) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %364, ptr noundef %365, i32 noundef %366, ptr noundef %.pre1453) #21
   br label %malloc_conf_error.exit927.thread
 
 malloc_conf_error.exit927.thread:                 ; preds = %359, %352, %362, %malloc_conf_error.exit927
@@ -12034,7 +12034,7 @@ malloc_conf_error.exit927.thread:                 ; preds = %359, %352, %362, %m
   br i1 %204, label %368, label %403
 
 368:                                              ; preds = %367
-  %369 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.112, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 10) #25
+  %369 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.112, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 10) #26
   %370 = icmp eq i32 %369, 0
   br i1 %370, label %371, label %403
 
@@ -12051,14 +12051,14 @@ malloc_conf_error.exit927.thread:                 ; preds = %359, %352, %362, %m
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %375 = call zeroext i1 @je_multi_setting_parse_next(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17) #20
+  %375 = call zeroext i1 @je_multi_setting_parse_next(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17) #21
   br i1 %375, label %381, label %376
 
 376:                                              ; preds = %374
   %377 = load i64, ptr %15, align 8, !tbaa !33
   %378 = load i64, ptr %16, align 8, !tbaa !33
   %379 = load i64, ptr %17, align 8, !tbaa !33
-  %380 = call zeroext i1 @je_bin_update_shard_size(ptr noundef %1, i64 noundef %377, i64 noundef %378, i64 noundef %379) #20
+  %380 = call zeroext i1 @je_bin_update_shard_size(ptr noundef %1, i64 noundef %377, i64 noundef %378, i64 noundef %379) #21
   br i1 %380, label %381, label %malloc_conf_error.exit928
 
 381:                                              ; preds = %374, %376
@@ -12068,8 +12068,8 @@ malloc_conf_error.exit927.thread:                 ; preds = %359, %352, %362, %m
   %385 = load i64, ptr %10, align 8, !tbaa !33
   %386 = trunc i64 %383 to i32
   %387 = trunc i64 %385 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.113, i32 noundef %386, ptr noundef %382, i32 noundef %387, ptr noundef %384) #20
-  %388 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %382, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.113, i32 noundef %386, ptr noundef %382, i32 noundef %387, ptr noundef %384) #21
+  %388 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %382, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %389 = icmp eq i32 %388, 0
   br i1 %389, label %.thread1016, label %390
 
@@ -12104,7 +12104,7 @@ malloc_conf_error.exit928:                        ; preds = %376
   %399 = load i64, ptr %10, align 8, !tbaa !33
   %400 = trunc i64 %399 to i32
   %401 = load ptr, ptr %8, align 8, !tbaa !213
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %397, ptr noundef %398, i32 noundef %400, ptr noundef %401) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %397, ptr noundef %398, i32 noundef %400, ptr noundef %401) #21
   br label %402
 
 402:                                              ; preds = %.thread1016, %395, %392
@@ -12117,16 +12117,16 @@ malloc_conf_error.exit928:                        ; preds = %376
   br i1 %404, label %405, label %433
 
 405:                                              ; preds = %403
-  %406 = call i32 @strncmp(ptr noundef nonnull dereferenceable(17) @.str.114, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 16) #25
+  %406 = call i32 @strncmp(ptr noundef nonnull dereferenceable(17) @.str.114, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 16) #26
   %407 = icmp eq i32 %406, 0
   br i1 %407, label %408, label %.thread1023
 
 408:                                              ; preds = %405
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %409 = tail call ptr @__errno_location() #23
+  %409 = tail call ptr @__errno_location() #24
   store i32 0, ptr %409, align 4, !tbaa !4
   %410 = load ptr, ptr %8, align 8, !tbaa !213
-  %411 = call i64 @je_malloc_strtoumax(ptr noundef %410, ptr noundef nonnull %18, i32 noundef 0) #20
+  %411 = call i64 @je_malloc_strtoumax(ptr noundef %410, ptr noundef nonnull %18, i32 noundef 0) #21
   %412 = load i32, ptr %409, align 4, !tbaa !4
   %.not903 = icmp eq i32 %412, 0
   %.pre1451 = load ptr, ptr %8, align 8, !tbaa !213
@@ -12146,8 +12146,8 @@ malloc_conf_error.exit928:                        ; preds = %376
   %420 = load i64, ptr %9, align 8, !tbaa !33
   %421 = trunc i64 %420 to i32
   %422 = trunc i64 %.pre1452 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %421, ptr noundef %419, i32 noundef %422, ptr noundef %.pre1451) #20
-  %423 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %419, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %421, ptr noundef %419, i32 noundef %422, ptr noundef %.pre1451) #21
+  %423 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %419, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %424 = icmp eq i32 %423, 0
   br i1 %424, label %malloc_conf_error.exit929.thread, label %425
 
@@ -12166,7 +12166,7 @@ malloc_conf_error.exit929:                        ; preds = %413
   %430 = trunc i64 %429 to i32
   %431 = load ptr, ptr %7, align 8, !tbaa !213
   %432 = trunc i64 %.pre1452 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %430, ptr noundef %431, i32 noundef %432, ptr noundef %.pre1451) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %430, ptr noundef %431, i32 noundef %432, ptr noundef %.pre1451) #21
   br label %malloc_conf_error.exit929.thread
 
 malloc_conf_error.exit929.thread:                 ; preds = %425, %418, %428, %malloc_conf_error.exit929
@@ -12178,16 +12178,16 @@ malloc_conf_error.exit929.thread:                 ; preds = %425, %418, %428, %m
   br i1 %434, label %435, label %.thread1023
 
 435:                                              ; preds = %433
-  %436 = call i32 @strncmp(ptr noundef nonnull dereferenceable(22) @.str.115, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 21) #25
+  %436 = call i32 @strncmp(ptr noundef nonnull dereferenceable(22) @.str.115, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 21) #26
   %437 = icmp eq i32 %436, 0
   br i1 %437, label %438, label %.thread1023
 
 438:                                              ; preds = %435
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %439 = tail call ptr @__errno_location() #23
+  %439 = tail call ptr @__errno_location() #24
   store i32 0, ptr %439, align 4, !tbaa !4
   %440 = load ptr, ptr %8, align 8, !tbaa !213
-  %441 = call i64 @je_malloc_strtoumax(ptr noundef %440, ptr noundef nonnull %19, i32 noundef 0) #20
+  %441 = call i64 @je_malloc_strtoumax(ptr noundef %440, ptr noundef nonnull %19, i32 noundef 0) #21
   %442 = load i32, ptr %439, align 4, !tbaa !4
   %.not901 = icmp eq i32 %442, 0
   %.pre1369 = load ptr, ptr %8, align 8, !tbaa !213
@@ -12207,8 +12207,8 @@ malloc_conf_error.exit929.thread:                 ; preds = %425, %418, %428, %m
   %450 = load i64, ptr %9, align 8, !tbaa !33
   %451 = trunc i64 %450 to i32
   %452 = trunc i64 %.pre1370 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %451, ptr noundef %449, i32 noundef %452, ptr noundef %.pre1369) #20
-  %453 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %449, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %451, ptr noundef %449, i32 noundef %452, ptr noundef %.pre1369) #21
+  %453 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %449, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %454 = icmp eq i32 %453, 0
   br i1 %454, label %malloc_conf_error.exit930.thread, label %455
 
@@ -12228,7 +12228,7 @@ malloc_conf_error.exit930:                        ; preds = %443
   %460 = trunc i64 %459 to i32
   %461 = load ptr, ptr %7, align 8, !tbaa !213
   %462 = trunc i64 %.pre1370 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %460, ptr noundef %461, i32 noundef %462, ptr noundef %.pre1369) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %460, ptr noundef %461, i32 noundef %462, ptr noundef %.pre1369) #21
   br label %malloc_conf_error.exit930.thread
 
 malloc_conf_error.exit930.thread:                 ; preds = %455, %448, %458, %malloc_conf_error.exit930
@@ -12240,16 +12240,16 @@ malloc_conf_error.exit930.thread:                 ; preds = %455, %448, %458, %m
   br i1 %205, label %464, label %492
 
 464:                                              ; preds = %.thread1023
-  %465 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.116, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 15) #25
+  %465 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.116, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 15) #26
   %466 = icmp eq i32 %465, 0
   br i1 %466, label %467, label %492
 
 467:                                              ; preds = %464
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %468 = tail call ptr @__errno_location() #23
+  %468 = tail call ptr @__errno_location() #24
   store i32 0, ptr %468, align 4, !tbaa !4
   %469 = load ptr, ptr %8, align 8, !tbaa !213
-  %470 = call i64 @je_malloc_strtoumax(ptr noundef %469, ptr noundef nonnull %20, i32 noundef 0) #20
+  %470 = call i64 @je_malloc_strtoumax(ptr noundef %469, ptr noundef nonnull %20, i32 noundef 0) #21
   %471 = load i32, ptr %468, align 4, !tbaa !4
   %.not899 = icmp eq i32 %471, 0
   %.pre1449 = load ptr, ptr %8, align 8, !tbaa !213
@@ -12269,8 +12269,8 @@ malloc_conf_error.exit930.thread:                 ; preds = %455, %448, %458, %m
   %479 = load i64, ptr %9, align 8, !tbaa !33
   %480 = trunc i64 %479 to i32
   %481 = trunc i64 %.pre1450 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %480, ptr noundef %478, i32 noundef %481, ptr noundef %.pre1449) #20
-  %482 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %478, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %480, ptr noundef %478, i32 noundef %481, ptr noundef %.pre1449) #21
+  %482 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %478, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %483 = icmp eq i32 %482, 0
   br i1 %483, label %malloc_conf_error.exit931.thread, label %484
 
@@ -12290,7 +12290,7 @@ malloc_conf_error.exit931:                        ; preds = %472
   %489 = trunc i64 %488 to i32
   %490 = load ptr, ptr %7, align 8, !tbaa !213
   %491 = trunc i64 %.pre1450 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %489, ptr noundef %490, i32 noundef %491, ptr noundef %.pre1449) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %489, ptr noundef %490, i32 noundef %491, ptr noundef %.pre1449) #21
   br label %malloc_conf_error.exit931.thread
 
 malloc_conf_error.exit931.thread:                 ; preds = %484, %477, %487, %malloc_conf_error.exit931
@@ -12302,14 +12302,14 @@ malloc_conf_error.exit931.thread:                 ; preds = %484, %477, %487, %m
   br i1 %493, label %494, label %520
 
 494:                                              ; preds = %492
-  %495 = call i32 @strncmp(ptr noundef nonnull dereferenceable(19) @.str.117, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 18) #25
+  %495 = call i32 @strncmp(ptr noundef nonnull dereferenceable(19) @.str.117, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 18) #26
   %496 = icmp eq i32 %495, 0
   br i1 %496, label %497, label %.thread1104
 
 497:                                              ; preds = %494
   %498 = load ptr, ptr %8, align 8, !tbaa !213
   %499 = load i64, ptr %10, align 8, !tbaa !33
-  %500 = call zeroext i1 @je_tcache_bin_info_default_init(ptr noundef %498, i64 noundef %499) #20
+  %500 = call zeroext i1 @je_tcache_bin_info_default_init(ptr noundef %498, i64 noundef %499) #21
   br i1 %500, label %501, label %malloc_conf_error.exit932
 
 501:                                              ; preds = %497
@@ -12319,8 +12319,8 @@ malloc_conf_error.exit931.thread:                 ; preds = %484, %477, %487, %m
   %505 = load i64, ptr %10, align 8, !tbaa !33
   %506 = trunc i64 %503 to i32
   %507 = trunc i64 %505 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.118, i32 noundef %506, ptr noundef %502, i32 noundef %507, ptr noundef %504) #20
-  %508 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %502, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.118, i32 noundef %506, ptr noundef %502, i32 noundef %507, ptr noundef %504) #21
+  %508 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %502, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %509 = icmp eq i32 %508, 0
   br i1 %509, label %malloc_conf_error.exit.thread, label %510
 
@@ -12340,7 +12340,7 @@ malloc_conf_error.exit932:                        ; preds = %497
   %517 = load i64, ptr %10, align 8, !tbaa !33
   %518 = trunc i64 %517 to i32
   %519 = load ptr, ptr %8, align 8, !tbaa !213
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %515, ptr noundef %516, i32 noundef %518, ptr noundef %519) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %515, ptr noundef %516, i32 noundef %518, ptr noundef %519) #21
   br label %malloc_conf_error.exit.thread
 
 520:                                              ; preds = %492
@@ -12350,16 +12350,16 @@ malloc_conf_error.exit932:                        ; preds = %497
   ]
 
 521:                                              ; preds = %520
-  %522 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.119, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 14) #25
+  %522 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.119, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 14) #26
   %523 = icmp eq i32 %522, 0
   br i1 %523, label %524, label %559
 
 524:                                              ; preds = %521
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %525 = tail call ptr @__errno_location() #23
+  %525 = tail call ptr @__errno_location() #24
   store i32 0, ptr %525, align 4, !tbaa !4
   %526 = load ptr, ptr %8, align 8, !tbaa !213
-  %527 = call i64 @je_malloc_strtoumax(ptr noundef %526, ptr noundef nonnull %21, i32 noundef 0) #20
+  %527 = call i64 @je_malloc_strtoumax(ptr noundef %526, ptr noundef nonnull %21, i32 noundef 0) #21
   %528 = load i32, ptr %525, align 4, !tbaa !4
   %.not897 = icmp eq i32 %528, 0
   %.pre1378 = load ptr, ptr %8, align 8, !tbaa !213
@@ -12379,8 +12379,8 @@ malloc_conf_error.exit932:                        ; preds = %497
   %536 = load i64, ptr %9, align 8, !tbaa !33
   %537 = trunc i64 %536 to i32
   %538 = trunc i64 %.pre1379 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %537, ptr noundef %535, i32 noundef %538, ptr noundef %.pre1378) #20
-  %539 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %535, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %537, ptr noundef %535, i32 noundef %538, ptr noundef %.pre1378) #21
+  %539 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %535, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %540 = icmp eq i32 %539, 0
   br i1 %540, label %malloc_conf_error.exit933.thread, label %541
 
@@ -12397,8 +12397,8 @@ malloc_conf_error.exit932:                        ; preds = %497
   %546 = load i64, ptr %9, align 8, !tbaa !33
   %547 = trunc i64 %546 to i32
   %548 = trunc i64 %.pre1379 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.110, i32 noundef %547, ptr noundef %545, i32 noundef %548, ptr noundef %.pre1378) #20
-  %549 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %545, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.110, i32 noundef %547, ptr noundef %545, i32 noundef %548, ptr noundef %.pre1378) #21
+  %549 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %545, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %550 = icmp eq i32 %549, 0
   br i1 %550, label %malloc_conf_error.exit933.thread, label %551
 
@@ -12417,7 +12417,7 @@ malloc_conf_error.exit933:                        ; preds = %542
   %556 = trunc i64 %555 to i32
   %557 = load ptr, ptr %7, align 8, !tbaa !213
   %558 = trunc i64 %.pre1379 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %556, ptr noundef %557, i32 noundef %558, ptr noundef %.pre1378) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %556, ptr noundef %557, i32 noundef %558, ptr noundef %.pre1378) #21
   br label %malloc_conf_error.exit933.thread
 
 malloc_conf_error.exit933.thread:                 ; preds = %551, %544, %541, %534, %554, %malloc_conf_error.exit933
@@ -12425,16 +12425,16 @@ malloc_conf_error.exit933.thread:                 ; preds = %551, %544, %541, %5
   br label %malloc_conf_error.exit.thread
 
 559:                                              ; preds = %521
-  %560 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.120, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 14) #25
+  %560 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.120, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 14) #26
   %561 = icmp eq i32 %560, 0
   br i1 %561, label %562, label %597
 
 562:                                              ; preds = %559
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %563 = tail call ptr @__errno_location() #23
+  %563 = tail call ptr @__errno_location() #24
   store i32 0, ptr %563, align 4, !tbaa !4
   %564 = load ptr, ptr %8, align 8, !tbaa !213
-  %565 = call i64 @je_malloc_strtoumax(ptr noundef %564, ptr noundef nonnull %22, i32 noundef 0) #20
+  %565 = call i64 @je_malloc_strtoumax(ptr noundef %564, ptr noundef nonnull %22, i32 noundef 0) #21
   %566 = load i32, ptr %563, align 4, !tbaa !4
   %.not895 = icmp eq i32 %566, 0
   %.pre1376 = load ptr, ptr %8, align 8, !tbaa !213
@@ -12454,8 +12454,8 @@ malloc_conf_error.exit933.thread:                 ; preds = %551, %544, %541, %5
   %574 = load i64, ptr %9, align 8, !tbaa !33
   %575 = trunc i64 %574 to i32
   %576 = trunc i64 %.pre1377 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %575, ptr noundef %573, i32 noundef %576, ptr noundef %.pre1376) #20
-  %577 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %573, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %575, ptr noundef %573, i32 noundef %576, ptr noundef %.pre1376) #21
+  %577 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %573, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %578 = icmp eq i32 %577, 0
   br i1 %578, label %malloc_conf_error.exit935.thread, label %579
 
@@ -12473,8 +12473,8 @@ malloc_conf_error.exit933.thread:                 ; preds = %551, %544, %541, %5
   %584 = load i64, ptr %9, align 8, !tbaa !33
   %585 = trunc i64 %584 to i32
   %586 = trunc i64 %.pre1377 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.110, i32 noundef %585, ptr noundef %583, i32 noundef %586, ptr noundef %.pre1376) #20
-  %587 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %583, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.110, i32 noundef %585, ptr noundef %583, i32 noundef %586, ptr noundef %.pre1376) #21
+  %587 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %583, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %588 = icmp eq i32 %587, 0
   br i1 %588, label %malloc_conf_error.exit935.thread, label %589
 
@@ -12493,7 +12493,7 @@ malloc_conf_error.exit935:                        ; preds = %580
   %594 = trunc i64 %593 to i32
   %595 = load ptr, ptr %7, align 8, !tbaa !213
   %596 = trunc i64 %.pre1377 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %594, ptr noundef %595, i32 noundef %596, ptr noundef %.pre1376) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %594, ptr noundef %595, i32 noundef %596, ptr noundef %.pre1376) #21
   br label %malloc_conf_error.exit935.thread
 
 malloc_conf_error.exit935.thread:                 ; preds = %589, %582, %579, %572, %592, %malloc_conf_error.exit935
@@ -12501,16 +12501,16 @@ malloc_conf_error.exit935.thread:                 ; preds = %589, %582, %579, %5
   br label %malloc_conf_error.exit.thread
 
 597:                                              ; preds = %559
-  %598 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.121, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 14) #25
+  %598 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.121, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 14) #26
   %599 = icmp eq i32 %598, 0
   br i1 %599, label %600, label %677
 
 600:                                              ; preds = %597
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %601 = tail call ptr @__errno_location() #23
+  %601 = tail call ptr @__errno_location() #24
   store i32 0, ptr %601, align 4, !tbaa !4
   %602 = load ptr, ptr %8, align 8, !tbaa !213
-  %603 = call i64 @je_malloc_strtoumax(ptr noundef %602, ptr noundef nonnull %23, i32 noundef 0) #20
+  %603 = call i64 @je_malloc_strtoumax(ptr noundef %602, ptr noundef nonnull %23, i32 noundef 0) #21
   %604 = load i32, ptr %601, align 4, !tbaa !4
   %.not893 = icmp eq i32 %604, 0
   %.pre1374 = load ptr, ptr %8, align 8, !tbaa !213
@@ -12530,8 +12530,8 @@ malloc_conf_error.exit935.thread:                 ; preds = %589, %582, %579, %5
   %612 = load i64, ptr %9, align 8, !tbaa !33
   %613 = trunc i64 %612 to i32
   %614 = trunc i64 %.pre1375 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %613, ptr noundef %611, i32 noundef %614, ptr noundef %.pre1374) #20
-  %615 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %611, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %613, ptr noundef %611, i32 noundef %614, ptr noundef %.pre1374) #21
+  %615 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %611, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %616 = icmp eq i32 %615, 0
   br i1 %616, label %malloc_conf_error.exit937.thread, label %617
 
@@ -12549,8 +12549,8 @@ malloc_conf_error.exit935.thread:                 ; preds = %589, %582, %579, %5
   %622 = load i64, ptr %9, align 8, !tbaa !33
   %623 = trunc i64 %622 to i32
   %624 = trunc i64 %.pre1375 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.110, i32 noundef %623, ptr noundef %621, i32 noundef %624, ptr noundef %.pre1374) #20
-  %625 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %621, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.110, i32 noundef %623, ptr noundef %621, i32 noundef %624, ptr noundef %.pre1374) #21
+  %625 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %621, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %626 = icmp eq i32 %625, 0
   br i1 %626, label %malloc_conf_error.exit937.thread, label %627
 
@@ -12569,7 +12569,7 @@ malloc_conf_error.exit937:                        ; preds = %618
   %632 = trunc i64 %631 to i32
   %633 = load ptr, ptr %7, align 8, !tbaa !213
   %634 = trunc i64 %.pre1375 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %632, ptr noundef %633, i32 noundef %634, ptr noundef %.pre1374) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %632, ptr noundef %633, i32 noundef %634, ptr noundef %.pre1374) #21
   br label %malloc_conf_error.exit937.thread
 
 malloc_conf_error.exit937.thread:                 ; preds = %627, %620, %617, %610, %630, %malloc_conf_error.exit937
@@ -12577,7 +12577,7 @@ malloc_conf_error.exit937.thread:                 ; preds = %627, %620, %617, %6
   br label %malloc_conf_error.exit.thread
 
 635:                                              ; preds = %520
-  %636 = call i32 @strncmp(ptr noundef nonnull dereferenceable(12) @.str.122, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 11) #25
+  %636 = call i32 @strncmp(ptr noundef nonnull dereferenceable(12) @.str.122, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 11) #26
   %637 = icmp eq i32 %636, 0
   br i1 %637, label %638, label %.thread1104
 
@@ -12590,19 +12590,19 @@ malloc_conf_error.exit937.thread:                 ; preds = %627, %620, %617, %6
   ]
 
 640:                                              ; preds = %638
-  %641 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1371, i64 noundef 4) #25
+  %641 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1371, i64 noundef 4) #26
   %642 = icmp eq i32 %641, 0
   br i1 %642, label %malloc_conf_error.exit939, label %.thread1051
 
 643:                                              ; preds = %638
-  %644 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1371, i64 noundef 5) #25
+  %644 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1371, i64 noundef 5) #26
   %645 = icmp eq i32 %644, 0
   br i1 %645, label %malloc_conf_error.exit939, label %.thread1051
 
 .thread1051:                                      ; preds = %638, %640, %643
   %646 = trunc i64 %639 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef 11, ptr noundef nonnull %202, i32 noundef %646, ptr noundef %.pre1371) #20
-  %647 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %202, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef 11, ptr noundef nonnull %202, i32 noundef %646, ptr noundef %.pre1371) #21
+  %647 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %202, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %648 = icmp eq i32 %647, 0
   br i1 %648, label %malloc_conf_error.exit.thread, label %649
 
@@ -12619,14 +12619,14 @@ malloc_conf_error.exit939:                        ; preds = %643, %640
 
 652:                                              ; preds = %malloc_conf_error.exit939
   %653 = trunc nuw nsw i64 %639 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 11, ptr noundef nonnull %202, i32 noundef %653, ptr noundef nonnull %.pre1371) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 11, ptr noundef nonnull %202, i32 noundef %653, ptr noundef nonnull %.pre1371) #21
   br label %malloc_conf_error.exit.thread, !llvm.loop !223
 
 654:                                              ; preds = %520
   br i1 %404, label %655, label %715
 
 655:                                              ; preds = %654
-  %656 = call i32 @strncmp(ptr noundef nonnull dereferenceable(17) @.str.123, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 16) #25
+  %656 = call i32 @strncmp(ptr noundef nonnull dereferenceable(17) @.str.123, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 16) #26
   %657 = icmp eq i32 %656, 0
   br i1 %657, label %658, label %.thread1104
 
@@ -12637,7 +12637,7 @@ malloc_conf_error.exit939:                        ; preds = %643, %640
   br i1 %.not17.i, label %init_opt_stats_opts.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %658
-  %661 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @je_opt_stats_print_opts) #25
+  %661 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @je_opt_stats_print_opts) #26
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %671, %.lr.ph.preheader.i
@@ -12660,7 +12660,7 @@ malloc_conf_error.exit939:                        ; preds = %643, %640
 
 664:                                              ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %665 = zext nneg i8 %663 to i32
-  %666 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) @je_opt_stats_print_opts, i32 noundef %665) #25
+  %666 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) @je_opt_stats_print_opts, i32 noundef %665) #26
   %.not.i940 = icmp eq ptr %666, null
   br i1 %.not.i940, label %667, label %671
 
@@ -12686,20 +12686,20 @@ init_opt_stats_opts.exit:                         ; preds = %671, %658
 
 675:                                              ; preds = %init_opt_stats_opts.exit
   %676 = trunc i64 %660 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 16, ptr noundef %202, i32 noundef %676, ptr noundef %659) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 16, ptr noundef %202, i32 noundef %676, ptr noundef %659) #21
   br label %malloc_conf_error.exit.thread, !llvm.loop !223
 
 677:                                              ; preds = %597
-  %678 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.124, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 14) #25
+  %678 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.124, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 14) #26
   %679 = icmp eq i32 %678, 0
   br i1 %679, label %680, label %.thread1104
 
 680:                                              ; preds = %677
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %681 = tail call ptr @__errno_location() #23
+  %681 = tail call ptr @__errno_location() #24
   store i32 0, ptr %681, align 4, !tbaa !4
   %682 = load ptr, ptr %8, align 8, !tbaa !213
-  %683 = call i64 @je_malloc_strtoumax(ptr noundef %682, ptr noundef nonnull %24, i32 noundef 0) #20
+  %683 = call i64 @je_malloc_strtoumax(ptr noundef %682, ptr noundef nonnull %24, i32 noundef 0) #21
   %684 = load i32, ptr %681, align 4, !tbaa !4
   %.not891 = icmp eq i32 %684, 0
   %.pre1372 = load ptr, ptr %8, align 8, !tbaa !213
@@ -12719,8 +12719,8 @@ init_opt_stats_opts.exit:                         ; preds = %671, %658
   %692 = load i64, ptr %9, align 8, !tbaa !33
   %693 = trunc i64 %692 to i32
   %694 = trunc i64 %.pre1373 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %693, ptr noundef %691, i32 noundef %694, ptr noundef %.pre1372) #20
-  %695 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %691, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %693, ptr noundef %691, i32 noundef %694, ptr noundef %.pre1372) #21
+  %695 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %691, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %696 = icmp eq i32 %695, 0
   br i1 %696, label %malloc_conf_error.exit941.thread, label %697
 
@@ -12737,8 +12737,8 @@ init_opt_stats_opts.exit:                         ; preds = %671, %658
   %702 = load i64, ptr %9, align 8, !tbaa !33
   %703 = trunc i64 %702 to i32
   %704 = trunc i64 %.pre1373 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.110, i32 noundef %703, ptr noundef %701, i32 noundef %704, ptr noundef %.pre1372) #20
-  %705 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %701, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.110, i32 noundef %703, ptr noundef %701, i32 noundef %704, ptr noundef %.pre1372) #21
+  %705 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %701, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %706 = icmp eq i32 %705, 0
   br i1 %706, label %malloc_conf_error.exit941.thread, label %707
 
@@ -12757,7 +12757,7 @@ malloc_conf_error.exit941:                        ; preds = %698
   %712 = trunc i64 %711 to i32
   %713 = load ptr, ptr %7, align 8, !tbaa !213
   %714 = trunc i64 %.pre1373 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %712, ptr noundef %713, i32 noundef %714, ptr noundef %.pre1372) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %712, ptr noundef %713, i32 noundef %714, ptr noundef %.pre1372) #21
   br label %malloc_conf_error.exit941.thread
 
 malloc_conf_error.exit941.thread:                 ; preds = %707, %700, %697, %690, %710, %malloc_conf_error.exit941
@@ -12773,7 +12773,7 @@ malloc_conf_error.exit941.thread:                 ; preds = %707, %700, %697, %6
   ]
 
 716:                                              ; preds = %715
-  %717 = call i32 @strncmp(ptr noundef nonnull dereferenceable(20) @.str.125, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 19) #25
+  %717 = call i32 @strncmp(ptr noundef nonnull dereferenceable(20) @.str.125, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 19) #26
   %718 = icmp eq i32 %717, 0
   br i1 %718, label %719, label %.thread1104
 
@@ -12784,7 +12784,7 @@ malloc_conf_error.exit941.thread:                 ; preds = %707, %700, %697, %6
   br i1 %.not17.i943, label %init_opt_stats_opts.exit951, label %.lr.ph.preheader.i944
 
 .lr.ph.preheader.i944:                            ; preds = %719
-  %722 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @je_opt_stats_interval_opts) #25
+  %722 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @je_opt_stats_interval_opts) #26
   br label %.lr.ph.i945
 
 .lr.ph.i945:                                      ; preds = %732, %.lr.ph.preheader.i944
@@ -12807,7 +12807,7 @@ malloc_conf_error.exit941.thread:                 ; preds = %707, %700, %697, %6
 
 725:                                              ; preds = %.lr.ph.i945, %.lr.ph.i945, %.lr.ph.i945, %.lr.ph.i945, %.lr.ph.i945, %.lr.ph.i945, %.lr.ph.i945, %.lr.ph.i945, %.lr.ph.i945, %.lr.ph.i945
   %726 = zext nneg i8 %724 to i32
-  %727 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) @je_opt_stats_interval_opts, i32 noundef %726) #25
+  %727 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) @je_opt_stats_interval_opts, i32 noundef %726) #26
   %.not.i948 = icmp eq ptr %727, null
   br i1 %.not.i948, label %728, label %732
 
@@ -12833,11 +12833,11 @@ init_opt_stats_opts.exit951:                      ; preds = %732, %719
 
 736:                                              ; preds = %init_opt_stats_opts.exit951
   %737 = trunc i64 %721 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 19, ptr noundef %202, i32 noundef %737, ptr noundef %720) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 19, ptr noundef %202, i32 noundef %737, ptr noundef %720) #21
   br label %malloc_conf_error.exit.thread, !llvm.loop !223
 
 738:                                              ; preds = %715
-  %739 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.126, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 4) #25
+  %739 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.126, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 4) #26
   %740 = icmp eq i32 %739, 0
   br i1 %740, label %741, label %767
 
@@ -12850,7 +12850,7 @@ init_opt_stats_opts.exit951:                      ; preds = %732, %719
   ]
 
 743:                                              ; preds = %741
-  %744 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1383, i64 noundef 4) #25
+  %744 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1383, i64 noundef 4) #26
   %745 = icmp eq i32 %744, 0
   br i1 %745, label %746, label %755
 
@@ -12861,7 +12861,7 @@ init_opt_stats_opts.exit951:                      ; preds = %732, %719
   br label %malloc_conf_error.exit952
 
 747:                                              ; preds = %741
-  %748 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1383, i64 noundef 5) #25
+  %748 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1383, i64 noundef 5) #26
   %749 = icmp eq i32 %748, 0
   br i1 %749, label %750, label %751
 
@@ -12872,7 +12872,7 @@ init_opt_stats_opts.exit951:                      ; preds = %732, %719
   br label %malloc_conf_error.exit952
 
 751:                                              ; preds = %747
-  %752 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.1, ptr noundef nonnull dereferenceable(1) %.pre1383, i64 noundef 5) #25
+  %752 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.1, ptr noundef nonnull dereferenceable(1) %.pre1383, i64 noundef 5) #26
   %753 = icmp eq i32 %752, 0
   br i1 %753, label %754, label %.thread1078
 
@@ -12883,7 +12883,7 @@ init_opt_stats_opts.exit951:                      ; preds = %732, %719
   br label %malloc_conf_error.exit952
 
 755:                                              ; preds = %743
-  %756 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.2, ptr noundef nonnull dereferenceable(1) %.pre1383, i64 noundef 4) #25
+  %756 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.2, ptr noundef nonnull dereferenceable(1) %.pre1383, i64 noundef 4) #26
   %757 = icmp eq i32 %756, 0
   br i1 %757, label %758, label %.thread1078
 
@@ -12895,8 +12895,8 @@ init_opt_stats_opts.exit951:                      ; preds = %732, %719
 
 .thread1078:                                      ; preds = %741, %751, %755
   %759 = trunc i64 %742 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef 4, ptr noundef nonnull %202, i32 noundef %759, ptr noundef %.pre1383) #20
-  %760 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %202, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef 4, ptr noundef nonnull %202, i32 noundef %759, ptr noundef %.pre1383) #21
+  %760 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %202, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %761 = icmp eq i32 %760, 0
   br i1 %761, label %malloc_conf_error.exit.thread, label %762
 
@@ -12911,11 +12911,11 @@ malloc_conf_error.exit952:                        ; preds = %750, %758, %754, %7
 
 765:                                              ; preds = %malloc_conf_error.exit952
   %766 = trunc nuw nsw i64 %742 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 4, ptr noundef nonnull %202, i32 noundef %766, ptr noundef nonnull %.pre1383) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 4, ptr noundef nonnull %202, i32 noundef %766, ptr noundef nonnull %.pre1383) #21
   br label %malloc_conf_error.exit.thread, !llvm.loop !223
 
 767:                                              ; preds = %738
-  %768 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.127, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 4) #25
+  %768 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.127, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 4) #26
   %769 = icmp eq i32 %768, 0
   br i1 %769, label %770, label %.thread1104
 
@@ -12928,19 +12928,19 @@ malloc_conf_error.exit952:                        ; preds = %750, %758, %754, %7
   ]
 
 772:                                              ; preds = %770
-  %773 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1382, i64 noundef 4) #25
+  %773 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1382, i64 noundef 4) #26
   %774 = icmp eq i32 %773, 0
   br i1 %774, label %malloc_conf_error.exit953, label %.thread1084
 
 775:                                              ; preds = %770
-  %776 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1382, i64 noundef 5) #25
+  %776 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1382, i64 noundef 5) #26
   %777 = icmp eq i32 %776, 0
   br i1 %777, label %malloc_conf_error.exit953, label %.thread1084
 
 .thread1084:                                      ; preds = %770, %772, %775
   %778 = trunc i64 %771 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef 4, ptr noundef nonnull %202, i32 noundef %778, ptr noundef %.pre1382) #20
-  %779 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %202, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef 4, ptr noundef nonnull %202, i32 noundef %778, ptr noundef %.pre1382) #21
+  %779 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %202, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %780 = icmp eq i32 %779, 0
   br i1 %780, label %malloc_conf_error.exit.thread, label %781
 
@@ -12957,11 +12957,11 @@ malloc_conf_error.exit953:                        ; preds = %775, %772
 
 784:                                              ; preds = %malloc_conf_error.exit953
   %785 = trunc nuw nsw i64 %771 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 4, ptr noundef nonnull %202, i32 noundef %785, ptr noundef nonnull %.pre1382) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 4, ptr noundef nonnull %202, i32 noundef %785, ptr noundef nonnull %.pre1382) #21
   br label %malloc_conf_error.exit.thread, !llvm.loop !223
 
 786:                                              ; preds = %715
-  %787 = call i32 @strncmp(ptr noundef nonnull dereferenceable(28) @.str.128, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 27) #25
+  %787 = call i32 @strncmp(ptr noundef nonnull dereferenceable(28) @.str.128, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 27) #26
   %788 = icmp eq i32 %787, 0
   br i1 %788, label %789, label %.thread1104
 
@@ -12974,19 +12974,19 @@ malloc_conf_error.exit953:                        ; preds = %775, %772
   ]
 
 791:                                              ; preds = %789
-  %792 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1381, i64 noundef 4) #25
+  %792 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1381, i64 noundef 4) #26
   %793 = icmp eq i32 %792, 0
   br i1 %793, label %malloc_conf_error.exit954, label %.thread1092
 
 794:                                              ; preds = %789
-  %795 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1381, i64 noundef 5) #25
+  %795 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1381, i64 noundef 5) #26
   %796 = icmp eq i32 %795, 0
   br i1 %796, label %malloc_conf_error.exit954, label %.thread1092
 
 .thread1092:                                      ; preds = %789, %791, %794
   %797 = trunc i64 %790 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef 27, ptr noundef nonnull %202, i32 noundef %797, ptr noundef %.pre1381) #20
-  %798 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %202, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef 27, ptr noundef nonnull %202, i32 noundef %797, ptr noundef %.pre1381) #21
+  %798 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %202, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %799 = icmp eq i32 %798, 0
   br i1 %799, label %malloc_conf_error.exit.thread, label %800
 
@@ -13003,11 +13003,11 @@ malloc_conf_error.exit954:                        ; preds = %794, %791
 
 803:                                              ; preds = %malloc_conf_error.exit954
   %804 = trunc nuw nsw i64 %790 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 27, ptr noundef nonnull %202, i32 noundef %804, ptr noundef nonnull %.pre1381) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 27, ptr noundef nonnull %202, i32 noundef %804, ptr noundef nonnull %.pre1381) #21
   br label %malloc_conf_error.exit.thread, !llvm.loop !223
 
 805:                                              ; preds = %715
-  %806 = call i32 @strncmp(ptr noundef nonnull dereferenceable(23) @.str.129, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 22) #25
+  %806 = call i32 @strncmp(ptr noundef nonnull dereferenceable(23) @.str.129, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 22) #26
   %807 = icmp eq i32 %806, 0
   br i1 %807, label %808, label %.thread1104
 
@@ -13020,19 +13020,19 @@ malloc_conf_error.exit954:                        ; preds = %794, %791
   ]
 
 810:                                              ; preds = %808
-  %811 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1380, i64 noundef 4) #25
+  %811 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1380, i64 noundef 4) #26
   %812 = icmp eq i32 %811, 0
   br i1 %812, label %malloc_conf_error.exit955, label %.thread1100
 
 813:                                              ; preds = %808
-  %814 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1380, i64 noundef 5) #25
+  %814 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1380, i64 noundef 5) #26
   %815 = icmp eq i32 %814, 0
   br i1 %815, label %malloc_conf_error.exit955, label %.thread1100
 
 .thread1100:                                      ; preds = %808, %810, %813
   %816 = trunc i64 %809 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef 22, ptr noundef nonnull %202, i32 noundef %816, ptr noundef %.pre1380) #20
-  %817 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %202, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef 22, ptr noundef nonnull %202, i32 noundef %816, ptr noundef %.pre1380) #21
+  %817 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %202, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %818 = icmp eq i32 %817, 0
   br i1 %818, label %malloc_conf_error.exit.thread, label %819
 
@@ -13049,14 +13049,14 @@ malloc_conf_error.exit955:                        ; preds = %813, %810
 
 822:                                              ; preds = %malloc_conf_error.exit955
   %823 = trunc nuw nsw i64 %809 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 22, ptr noundef nonnull %202, i32 noundef %823, ptr noundef nonnull %.pre1380) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 22, ptr noundef nonnull %202, i32 noundef %823, ptr noundef nonnull %.pre1380) #21
   br label %malloc_conf_error.exit.thread, !llvm.loop !223
 
 .thread1099:                                      ; preds = %715
   br i1 %228, label %824, label %.thread1104
 
 824:                                              ; preds = %.thread1099
-  %825 = call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str.130, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 6) #25
+  %825 = call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str.130, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 6) #26
   %826 = icmp eq i32 %825, 0
   br i1 %826, label %827, label %.thread1104
 
@@ -13069,19 +13069,19 @@ malloc_conf_error.exit955:                        ; preds = %813, %810
   ]
 
 829:                                              ; preds = %827
-  %830 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1448, i64 noundef 4) #25
+  %830 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1448, i64 noundef 4) #26
   %831 = icmp eq i32 %830, 0
   br i1 %831, label %malloc_conf_error.exit956, label %.thread1105
 
 832:                                              ; preds = %827
-  %833 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1448, i64 noundef 5) #25
+  %833 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1448, i64 noundef 5) #26
   %834 = icmp eq i32 %833, 0
   br i1 %834, label %malloc_conf_error.exit956, label %.thread1105
 
 .thread1105:                                      ; preds = %827, %829, %832
   %835 = trunc i64 %828 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef 6, ptr noundef nonnull %202, i32 noundef %835, ptr noundef %.pre1448) #20
-  %836 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %202, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef 6, ptr noundef nonnull %202, i32 noundef %835, ptr noundef %.pre1448) #21
+  %836 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %202, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %837 = icmp eq i32 %836, 0
   br i1 %837, label %malloc_conf_error.exit.thread, label %838
 
@@ -13098,7 +13098,7 @@ malloc_conf_error.exit956:                        ; preds = %832, %829
 
 841:                                              ; preds = %malloc_conf_error.exit956
   %842 = trunc nuw nsw i64 %828 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 6, ptr noundef nonnull %202, i32 noundef %842, ptr noundef nonnull %.pre1448) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 6, ptr noundef nonnull %202, i32 noundef %842, ptr noundef nonnull %.pre1448) #21
   br label %malloc_conf_error.exit.thread, !llvm.loop !223
 
 .thread1104:                                      ; preds = %494, %635, %677, %655, %786, %716, %767, %805, %824, %.thread1099
@@ -13108,16 +13108,16 @@ malloc_conf_error.exit956:                        ; preds = %832, %829
   br i1 %204, label %846, label %874
 
 846:                                              ; preds = %.thread1104
-  %847 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.131, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 10) #25
+  %847 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.131, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 10) #26
   %848 = icmp eq i32 %847, 0
   br i1 %848, label %849, label %874
 
 849:                                              ; preds = %846
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %850 = tail call ptr @__errno_location() #23
+  %850 = tail call ptr @__errno_location() #24
   store i32 0, ptr %850, align 4, !tbaa !4
   %851 = load ptr, ptr %8, align 8, !tbaa !213
-  %852 = call i64 @je_malloc_strtoumax(ptr noundef %851, ptr noundef nonnull %25, i32 noundef 0) #20
+  %852 = call i64 @je_malloc_strtoumax(ptr noundef %851, ptr noundef nonnull %25, i32 noundef 0) #21
   %853 = load i32, ptr %850, align 4, !tbaa !4
   %.not889 = icmp eq i32 %853, 0
   %.pre1446 = load ptr, ptr %8, align 8, !tbaa !213
@@ -13137,8 +13137,8 @@ malloc_conf_error.exit956:                        ; preds = %832, %829
   %861 = load i64, ptr %9, align 8, !tbaa !33
   %862 = trunc i64 %861 to i32
   %863 = trunc i64 %.pre1447 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %862, ptr noundef %860, i32 noundef %863, ptr noundef %.pre1446) #20
-  %864 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %860, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %862, ptr noundef %860, i32 noundef %863, ptr noundef %.pre1446) #21
+  %864 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %860, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %865 = icmp eq i32 %864, 0
   br i1 %865, label %malloc_conf_error.exit957.thread, label %866
 
@@ -13158,7 +13158,7 @@ malloc_conf_error.exit957:                        ; preds = %854
   %871 = trunc i64 %870 to i32
   %872 = load ptr, ptr %7, align 8, !tbaa !213
   %873 = trunc i64 %.pre1447 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %871, ptr noundef %872, i32 noundef %873, ptr noundef %.pre1446) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %871, ptr noundef %872, i32 noundef %873, ptr noundef %.pre1446) #21
   br label %malloc_conf_error.exit957.thread
 
 malloc_conf_error.exit957.thread:                 ; preds = %866, %859, %869, %malloc_conf_error.exit957
@@ -13169,16 +13169,16 @@ malloc_conf_error.exit957.thread:                 ; preds = %866, %859, %869, %m
   br i1 %203, label %875, label %904
 
 875:                                              ; preds = %874
-  %876 = call i32 @strncmp(ptr noundef nonnull dereferenceable(14) @.str.132, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 13) #25
+  %876 = call i32 @strncmp(ptr noundef nonnull dereferenceable(14) @.str.132, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 13) #26
   %877 = icmp eq i32 %876, 0
   br i1 %877, label %878, label %904
 
 878:                                              ; preds = %875
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  %879 = tail call ptr @__errno_location() #23
+  %879 = tail call ptr @__errno_location() #24
   store i32 0, ptr %879, align 4, !tbaa !4
   %880 = load ptr, ptr %8, align 8, !tbaa !213
-  %881 = call i64 @je_malloc_strtoumax(ptr noundef %880, ptr noundef nonnull %26, i32 noundef 0) #20
+  %881 = call i64 @je_malloc_strtoumax(ptr noundef %880, ptr noundef nonnull %26, i32 noundef 0) #21
   %882 = load i32, ptr %879, align 4, !tbaa !4
   %.not887 = icmp eq i32 %882, 0
   %.pre1444 = load ptr, ptr %8, align 8, !tbaa !213
@@ -13198,8 +13198,8 @@ malloc_conf_error.exit957.thread:                 ; preds = %866, %859, %869, %m
   %890 = load i64, ptr %9, align 8, !tbaa !33
   %891 = trunc i64 %890 to i32
   %892 = trunc i64 %.pre1445 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %891, ptr noundef %889, i32 noundef %892, ptr noundef %.pre1444) #20
-  %893 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %889, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %891, ptr noundef %889, i32 noundef %892, ptr noundef %.pre1444) #21
+  %893 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %889, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %894 = icmp eq i32 %893, 0
   br i1 %894, label %malloc_conf_error.exit958.thread, label %895
 
@@ -13220,7 +13220,7 @@ malloc_conf_error.exit958:                        ; preds = %883
   %901 = trunc i64 %900 to i32
   %902 = load ptr, ptr %7, align 8, !tbaa !213
   %903 = trunc i64 %.pre1445 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %901, ptr noundef %902, i32 noundef %903, ptr noundef %.pre1444) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %901, ptr noundef %902, i32 noundef %903, ptr noundef %.pre1444) #21
   br label %malloc_conf_error.exit958.thread
 
 malloc_conf_error.exit958.thread:                 ; preds = %895, %888, %899, %malloc_conf_error.exit958
@@ -13232,16 +13232,16 @@ malloc_conf_error.exit958.thread:                 ; preds = %895, %888, %899, %m
   br i1 %905, label %906, label %939
 
 906:                                              ; preds = %904
-  %907 = call i32 @strncmp(ptr noundef nonnull dereferenceable(21) @.str.133, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 20) #25
+  %907 = call i32 @strncmp(ptr noundef nonnull dereferenceable(21) @.str.133, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 20) #26
   %908 = icmp eq i32 %907, 0
   br i1 %908, label %909, label %.thread1123
 
 909:                                              ; preds = %906
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %910 = tail call ptr @__errno_location() #23
+  %910 = tail call ptr @__errno_location() #24
   store i32 0, ptr %910, align 4, !tbaa !4
   %911 = load ptr, ptr %8, align 8, !tbaa !213
-  %912 = call i64 @je_malloc_strtoumax(ptr noundef %911, ptr noundef nonnull %27, i32 noundef 0) #20
+  %912 = call i64 @je_malloc_strtoumax(ptr noundef %911, ptr noundef nonnull %27, i32 noundef 0) #21
   %913 = load i32, ptr %910, align 4, !tbaa !4
   %.not885 = icmp eq i32 %913, 0
   %.pre1442 = load ptr, ptr %8, align 8, !tbaa !213
@@ -13261,8 +13261,8 @@ malloc_conf_error.exit958.thread:                 ; preds = %895, %888, %899, %m
   %921 = load i64, ptr %9, align 8, !tbaa !33
   %922 = trunc i64 %921 to i32
   %923 = trunc i64 %.pre1443 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %922, ptr noundef %920, i32 noundef %923, ptr noundef %.pre1442) #20
-  %924 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %920, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %922, ptr noundef %920, i32 noundef %923, ptr noundef %.pre1442) #21
+  %924 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %920, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %925 = icmp eq i32 %924, 0
   br i1 %925, label %malloc_conf_error.exit959.thread, label %926
 
@@ -13292,7 +13292,7 @@ malloc_conf_error.exit959:                        ; preds = %927
   %936 = trunc i64 %935 to i32
   %937 = load ptr, ptr %7, align 8, !tbaa !213
   %938 = trunc i64 %.pre1443 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %936, ptr noundef %937, i32 noundef %938, ptr noundef %.pre1442) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %936, ptr noundef %937, i32 noundef %938, ptr noundef %.pre1442) #21
   br label %malloc_conf_error.exit959.thread
 
 malloc_conf_error.exit959.thread:                 ; preds = %926, %919, %929, %934, %malloc_conf_error.exit959
@@ -13304,16 +13304,16 @@ malloc_conf_error.exit959.thread:                 ; preds = %926, %919, %929, %9
   br i1 %940, label %941, label %.thread1123
 
 941:                                              ; preds = %939
-  %942 = call i32 @strncmp(ptr noundef nonnull dereferenceable(24) @.str.134, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 23) #25
+  %942 = call i32 @strncmp(ptr noundef nonnull dereferenceable(24) @.str.134, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 23) #26
   %943 = icmp eq i32 %942, 0
   br i1 %943, label %944, label %970
 
 944:                                              ; preds = %941
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  %945 = tail call ptr @__errno_location() #23
+  %945 = tail call ptr @__errno_location() #24
   store i32 0, ptr %945, align 4, !tbaa !4
   %946 = load ptr, ptr %8, align 8, !tbaa !213
-  %947 = call i64 @je_malloc_strtoumax(ptr noundef %946, ptr noundef nonnull %28, i32 noundef 0) #20
+  %947 = call i64 @je_malloc_strtoumax(ptr noundef %946, ptr noundef nonnull %28, i32 noundef 0) #21
   %948 = load i32, ptr %945, align 4, !tbaa !4
   %.not883 = icmp eq i32 %948, 0
   %.pre1386 = load ptr, ptr %8, align 8, !tbaa !213
@@ -13333,8 +13333,8 @@ malloc_conf_error.exit959.thread:                 ; preds = %926, %919, %929, %9
   %956 = load i64, ptr %9, align 8, !tbaa !33
   %957 = trunc i64 %956 to i32
   %958 = trunc i64 %.pre1387 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %957, ptr noundef %955, i32 noundef %958, ptr noundef %.pre1386) #20
-  %959 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %955, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %957, ptr noundef %955, i32 noundef %958, ptr noundef %.pre1386) #21
+  %959 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %955, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %960 = icmp eq i32 %959, 0
   br i1 %960, label %malloc_conf_error.exit960.thread, label %961
 
@@ -13357,7 +13357,7 @@ malloc_conf_error.exit960:                        ; preds = %949
   %967 = trunc i64 %966 to i32
   %968 = load ptr, ptr %7, align 8, !tbaa !213
   %969 = trunc i64 %.pre1387 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %967, ptr noundef %968, i32 noundef %969, ptr noundef %.pre1386) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %967, ptr noundef %968, i32 noundef %969, ptr noundef %.pre1386) #21
   br label %malloc_conf_error.exit960.thread
 
 malloc_conf_error.exit960.thread:                 ; preds = %961, %954, %965, %malloc_conf_error.exit960
@@ -13365,16 +13365,16 @@ malloc_conf_error.exit960.thread:                 ; preds = %961, %954, %965, %m
   br label %malloc_conf_error.exit.thread
 
 970:                                              ; preds = %941
-  %971 = call i32 @strncmp(ptr noundef nonnull dereferenceable(24) @.str.135, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 23) #25
+  %971 = call i32 @strncmp(ptr noundef nonnull dereferenceable(24) @.str.135, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 23) #26
   %972 = icmp eq i32 %971, 0
   br i1 %972, label %973, label %.thread1123
 
 973:                                              ; preds = %970
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  %974 = tail call ptr @__errno_location() #23
+  %974 = tail call ptr @__errno_location() #24
   store i32 0, ptr %974, align 4, !tbaa !4
   %975 = load ptr, ptr %8, align 8, !tbaa !213
-  %976 = call i64 @je_malloc_strtoumax(ptr noundef %975, ptr noundef nonnull %29, i32 noundef 0) #20
+  %976 = call i64 @je_malloc_strtoumax(ptr noundef %975, ptr noundef nonnull %29, i32 noundef 0) #21
   %977 = load i32, ptr %974, align 4, !tbaa !4
   %.not881 = icmp eq i32 %977, 0
   %.pre1384 = load ptr, ptr %8, align 8, !tbaa !213
@@ -13394,8 +13394,8 @@ malloc_conf_error.exit960.thread:                 ; preds = %961, %954, %965, %m
   %985 = load i64, ptr %9, align 8, !tbaa !33
   %986 = trunc i64 %985 to i32
   %987 = trunc i64 %.pre1385 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %986, ptr noundef %984, i32 noundef %987, ptr noundef %.pre1384) #20
-  %988 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %984, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.99, i32 noundef %986, ptr noundef %984, i32 noundef %987, ptr noundef %.pre1384) #21
+  %988 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %984, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %989 = icmp eq i32 %988, 0
   br i1 %989, label %malloc_conf_error.exit961.thread, label %990
 
@@ -13418,7 +13418,7 @@ malloc_conf_error.exit961:                        ; preds = %978
   %996 = trunc i64 %995 to i32
   %997 = load ptr, ptr %7, align 8, !tbaa !213
   %998 = trunc i64 %.pre1385 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %996, ptr noundef %997, i32 noundef %998, ptr noundef %.pre1384) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %996, ptr noundef %997, i32 noundef %998, ptr noundef %.pre1384) #21
   br label %malloc_conf_error.exit961.thread
 
 malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %malloc_conf_error.exit961
@@ -13429,16 +13429,16 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
   br i1 %844, label %999, label %1024
 
 999:                                              ; preds = %.thread1123
-  %1000 = call i32 @strncmp(ptr noundef nonnull dereferenceable(20) @.str.136, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 19) #25
+  %1000 = call i32 @strncmp(ptr noundef nonnull dereferenceable(20) @.str.136, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 19) #26
   %1001 = icmp eq i32 %1000, 0
   br i1 %1001, label %1002, label %1024
 
 1002:                                             ; preds = %999
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  %1003 = tail call ptr @__errno_location() #23
+  %1003 = tail call ptr @__errno_location() #24
   store i32 0, ptr %1003, align 4, !tbaa !4
   %1004 = load ptr, ptr %8, align 8, !tbaa !213
-  %1005 = call i64 @je_malloc_strtoumax(ptr noundef %1004, ptr noundef nonnull %30, i32 noundef 0) #20
+  %1005 = call i64 @je_malloc_strtoumax(ptr noundef %1004, ptr noundef nonnull %30, i32 noundef 0) #21
   %1006 = load i32, ptr %1003, align 4, !tbaa !4
   %.not879 = icmp eq i32 %1006, 0
   %.pre1440 = load ptr, ptr %8, align 8, !tbaa !213
@@ -13474,7 +13474,7 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
   %1020 = trunc i64 %1019 to i32
   %1021 = load ptr, ptr %7, align 8, !tbaa !213
   %1022 = trunc i64 %.pre1441 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1020, ptr noundef %1021, i32 noundef %1022, ptr noundef %.pre1440) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1020, ptr noundef %1021, i32 noundef %1022, ptr noundef %.pre1440) #21
   br label %1023
 
 1023:                                             ; preds = %.thread1127, %1018, %1014
@@ -13485,16 +13485,16 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
   br i1 %905, label %1025, label %1049
 
 1025:                                             ; preds = %1024
-  %1026 = call i32 @strncmp(ptr noundef nonnull dereferenceable(21) @.str.137, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 20) #25
+  %1026 = call i32 @strncmp(ptr noundef nonnull dereferenceable(21) @.str.137, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 20) #26
   %1027 = icmp eq i32 %1026, 0
   br i1 %1027, label %1028, label %1049
 
 1028:                                             ; preds = %1025
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  %1029 = tail call ptr @__errno_location() #23
+  %1029 = tail call ptr @__errno_location() #24
   store i32 0, ptr %1029, align 4, !tbaa !4
   %1030 = load ptr, ptr %8, align 8, !tbaa !213
-  %1031 = call i64 @je_malloc_strtoumax(ptr noundef %1030, ptr noundef nonnull %31, i32 noundef 0) #20
+  %1031 = call i64 @je_malloc_strtoumax(ptr noundef %1030, ptr noundef nonnull %31, i32 noundef 0) #21
   %1032 = load i32, ptr %1029, align 4, !tbaa !4
   %.not877 = icmp eq i32 %1032, 0
   %.pre1438 = load ptr, ptr %8, align 8, !tbaa !213
@@ -13527,7 +13527,7 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
   %1045 = trunc i64 %1044 to i32
   %1046 = load ptr, ptr %7, align 8, !tbaa !213
   %1047 = trunc i64 %.pre1439 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1045, ptr noundef %1046, i32 noundef %1047, ptr noundef %.pre1438) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1045, ptr noundef %1046, i32 noundef %1047, ptr noundef %.pre1438) #21
   br label %1048
 
 1048:                                             ; preds = %.thread1131, %1043, %1040
@@ -13538,16 +13538,16 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
   br i1 %463, label %1050, label %1074
 
 1050:                                             ; preds = %1049
-  %1051 = call i32 @strncmp(ptr noundef nonnull dereferenceable(22) @.str.138, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 21) #25
+  %1051 = call i32 @strncmp(ptr noundef nonnull dereferenceable(22) @.str.138, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 21) #26
   %1052 = icmp eq i32 %1051, 0
   br i1 %1052, label %1053, label %1074
 
 1053:                                             ; preds = %1050
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  %1054 = tail call ptr @__errno_location() #23
+  %1054 = tail call ptr @__errno_location() #24
   store i32 0, ptr %1054, align 4, !tbaa !4
   %1055 = load ptr, ptr %8, align 8, !tbaa !213
-  %1056 = call i64 @je_malloc_strtoumax(ptr noundef %1055, ptr noundef nonnull %32, i32 noundef 0) #20
+  %1056 = call i64 @je_malloc_strtoumax(ptr noundef %1055, ptr noundef nonnull %32, i32 noundef 0) #21
   %1057 = load i32, ptr %1054, align 4, !tbaa !4
   %.not875 = icmp eq i32 %1057, 0
   %.pre1436 = load ptr, ptr %8, align 8, !tbaa !213
@@ -13579,7 +13579,7 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
   %1070 = trunc i64 %1069 to i32
   %1071 = load ptr, ptr %7, align 8, !tbaa !213
   %1072 = trunc i64 %.pre1437 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1070, ptr noundef %1071, i32 noundef %1072, ptr noundef %.pre1436) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1070, ptr noundef %1071, i32 noundef %1072, ptr noundef %.pre1436) #21
   br label %1073
 
 1073:                                             ; preds = %.thread1135, %1068, %1065
@@ -13591,16 +13591,16 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
   br i1 %1075, label %1076, label %1126
 
 1076:                                             ; preds = %1074
-  %1077 = call i32 @strncmp(ptr noundef nonnull dereferenceable(26) @.str.139, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 25) #25
+  %1077 = call i32 @strncmp(ptr noundef nonnull dereferenceable(26) @.str.139, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 25) #26
   %1078 = icmp eq i32 %1077, 0
   br i1 %1078, label %1079, label %1101
 
 1079:                                             ; preds = %1076
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
-  %1080 = tail call ptr @__errno_location() #23
+  %1080 = tail call ptr @__errno_location() #24
   store i32 0, ptr %1080, align 4, !tbaa !4
   %1081 = load ptr, ptr %8, align 8, !tbaa !213
-  %1082 = call i64 @je_malloc_strtoumax(ptr noundef %1081, ptr noundef nonnull %33, i32 noundef 0) #20
+  %1082 = call i64 @je_malloc_strtoumax(ptr noundef %1081, ptr noundef nonnull %33, i32 noundef 0) #21
   %1083 = load i32, ptr %1080, align 4, !tbaa !4
   %.not873 = icmp eq i32 %1083, 0
   %.pre1434 = load ptr, ptr %8, align 8, !tbaa !213
@@ -13636,7 +13636,7 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
   %1097 = trunc i64 %1096 to i32
   %1098 = load ptr, ptr %7, align 8, !tbaa !213
   %1099 = trunc i64 %.pre1435 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1097, ptr noundef %1098, i32 noundef %1099, ptr noundef %.pre1434) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1097, ptr noundef %1098, i32 noundef %1099, ptr noundef %.pre1434) #21
   br label %1100
 
 1100:                                             ; preds = %.thread1139, %1095, %1091
@@ -13644,16 +13644,16 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
   br label %malloc_conf_error.exit.thread
 
 1101:                                             ; preds = %1076
-  %1102 = call i32 @strncmp(ptr noundef nonnull dereferenceable(26) @.str.140, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 25) #25
+  %1102 = call i32 @strncmp(ptr noundef nonnull dereferenceable(26) @.str.140, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 25) #26
   %1103 = icmp eq i32 %1102, 0
   br i1 %1103, label %1104, label %.thread1171
 
 1104:                                             ; preds = %1101
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
-  %1105 = tail call ptr @__errno_location() #23
+  %1105 = tail call ptr @__errno_location() #24
   store i32 0, ptr %1105, align 4, !tbaa !4
   %1106 = load ptr, ptr %8, align 8, !tbaa !213
-  %1107 = call i64 @je_malloc_strtoumax(ptr noundef %1106, ptr noundef nonnull %34, i32 noundef 0) #20
+  %1107 = call i64 @je_malloc_strtoumax(ptr noundef %1106, ptr noundef nonnull %34, i32 noundef 0) #21
   %1108 = load i32, ptr %1105, align 4, !tbaa !4
   %.not871 = icmp eq i32 %1108, 0
   %.pre1432 = load ptr, ptr %8, align 8, !tbaa !213
@@ -13689,7 +13689,7 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
   %1122 = trunc i64 %1121 to i32
   %1123 = load ptr, ptr %7, align 8, !tbaa !213
   %1124 = trunc i64 %.pre1433 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1122, ptr noundef %1123, i32 noundef %1124, ptr noundef %.pre1432) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1122, ptr noundef %1123, i32 noundef %1124, ptr noundef %.pre1432) #21
   br label %1125
 
 1125:                                             ; preds = %.thread1144, %1120, %1116
@@ -13703,16 +13703,16 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
   ]
 
 1127:                                             ; preds = %1126
-  %1128 = call i32 @strncmp(ptr noundef nonnull dereferenceable(27) @.str.141, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 26) #25
+  %1128 = call i32 @strncmp(ptr noundef nonnull dereferenceable(27) @.str.141, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 26) #26
   %1129 = icmp eq i32 %1128, 0
   br i1 %1129, label %1130, label %.thread1171
 
 1130:                                             ; preds = %1127
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  %1131 = tail call ptr @__errno_location() #23
+  %1131 = tail call ptr @__errno_location() #24
   store i32 0, ptr %1131, align 4, !tbaa !4
   %1132 = load ptr, ptr %8, align 8, !tbaa !213
-  %1133 = call i64 @je_malloc_strtoumax(ptr noundef %1132, ptr noundef nonnull %35, i32 noundef 0) #20
+  %1133 = call i64 @je_malloc_strtoumax(ptr noundef %1132, ptr noundef nonnull %35, i32 noundef 0) #21
   %1134 = load i32, ptr %1131, align 4, !tbaa !4
   %.not869 = icmp eq i32 %1134, 0
   %.pre1392 = load ptr, ptr %8, align 8, !tbaa !213
@@ -13745,7 +13745,7 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
   %1148 = trunc i64 %1147 to i32
   %1149 = load ptr, ptr %7, align 8, !tbaa !213
   %1150 = trunc i64 %.pre1393 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1148, ptr noundef %1149, i32 noundef %1150, ptr noundef %.pre1392) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1148, ptr noundef %1149, i32 noundef %1150, ptr noundef %.pre1392) #21
   br label %1151
 
 1151:                                             ; preds = %.thread1149, %1146, %1142
@@ -13753,16 +13753,16 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
   br label %malloc_conf_error.exit.thread
 
 1152:                                             ; preds = %1126
-  %1153 = call i32 @strncmp(ptr noundef nonnull dereferenceable(25) @.str.142, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 24) #25
+  %1153 = call i32 @strncmp(ptr noundef nonnull dereferenceable(25) @.str.142, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 24) #26
   %1154 = icmp eq i32 %1153, 0
   br i1 %1154, label %1155, label %1211
 
 1155:                                             ; preds = %1152
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  %1156 = tail call ptr @__errno_location() #23
+  %1156 = tail call ptr @__errno_location() #24
   store i32 0, ptr %1156, align 4, !tbaa !4
   %1157 = load ptr, ptr %8, align 8, !tbaa !213
-  %1158 = call i64 @je_malloc_strtoumax(ptr noundef %1157, ptr noundef nonnull %36, i32 noundef 0) #20
+  %1158 = call i64 @je_malloc_strtoumax(ptr noundef %1157, ptr noundef nonnull %36, i32 noundef 0) #21
   %1159 = load i32, ptr %1156, align 4, !tbaa !4
   %.not867 = icmp eq i32 %1159, 0
   %.pre1390 = load ptr, ptr %8, align 8, !tbaa !213
@@ -13804,7 +13804,7 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
   %1178 = trunc i64 %1177 to i32
   %1179 = load ptr, ptr %7, align 8, !tbaa !213
   %1180 = trunc i64 %.pre1391 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1178, ptr noundef %1179, i32 noundef %1180, ptr noundef %.pre1390) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1178, ptr noundef %1179, i32 noundef %1180, ptr noundef %.pre1390) #21
   br label %.thread1157
 
 .thread1157:                                      ; preds = %1170, %1165, %1176, %1173
@@ -13815,16 +13815,16 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
   br i1 %493, label %1182, label %.thread1171
 
 1182:                                             ; preds = %1181
-  %1183 = call i32 @strncmp(ptr noundef nonnull dereferenceable(19) @.str.143, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 18) #25
+  %1183 = call i32 @strncmp(ptr noundef nonnull dereferenceable(19) @.str.143, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 18) #26
   %1184 = icmp eq i32 %1183, 0
   br i1 %1184, label %1185, label %.thread1171
 
 1185:                                             ; preds = %1182
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
-  %1186 = tail call ptr @__errno_location() #23
+  %1186 = tail call ptr @__errno_location() #24
   store i32 0, ptr %1186, align 4, !tbaa !4
   %1187 = load ptr, ptr %8, align 8, !tbaa !213
-  %1188 = call i64 @je_malloc_strtoumax(ptr noundef %1187, ptr noundef nonnull %37, i32 noundef 0) #20
+  %1188 = call i64 @je_malloc_strtoumax(ptr noundef %1187, ptr noundef nonnull %37, i32 noundef 0) #21
   %1189 = load i32, ptr %1186, align 4, !tbaa !4
   %.not865 = icmp eq i32 %1189, 0
   %.pre1394 = load ptr, ptr %8, align 8, !tbaa !213
@@ -13866,7 +13866,7 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
   %1208 = trunc i64 %1207 to i32
   %1209 = load ptr, ptr %7, align 8, !tbaa !213
   %1210 = trunc i64 %.pre1395 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1208, ptr noundef %1209, i32 noundef %1210, ptr noundef %.pre1394) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1208, ptr noundef %1209, i32 noundef %1210, ptr noundef %.pre1394) #21
   br label %.thread1166
 
 .thread1166:                                      ; preds = %1200, %1195, %1206, %1203
@@ -13874,16 +13874,16 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
   br label %malloc_conf_error.exit.thread
 
 1211:                                             ; preds = %1152
-  %1212 = call i32 @strncmp(ptr noundef nonnull dereferenceable(25) @.str.144, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 24) #25
+  %1212 = call i32 @strncmp(ptr noundef nonnull dereferenceable(25) @.str.144, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 24) #26
   %1213 = icmp eq i32 %1212, 0
   br i1 %1213, label %1214, label %.thread1171
 
 1214:                                             ; preds = %1211
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
-  %1215 = tail call ptr @__errno_location() #23
+  %1215 = tail call ptr @__errno_location() #24
   store i32 0, ptr %1215, align 4, !tbaa !4
   %1216 = load ptr, ptr %8, align 8, !tbaa !213
-  %1217 = call i64 @je_malloc_strtoumax(ptr noundef %1216, ptr noundef nonnull %38, i32 noundef 0) #20
+  %1217 = call i64 @je_malloc_strtoumax(ptr noundef %1216, ptr noundef nonnull %38, i32 noundef 0) #21
   %1218 = load i32, ptr %1215, align 4, !tbaa !4
   %.not863 = icmp eq i32 %1218, 0
   %.pre1388 = load ptr, ptr %8, align 8, !tbaa !213
@@ -13925,7 +13925,7 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
   %1237 = trunc i64 %1236 to i32
   %1238 = load ptr, ptr %7, align 8, !tbaa !213
   %1239 = trunc i64 %.pre1389 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1237, ptr noundef %1238, i32 noundef %1239, ptr noundef %.pre1388) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1237, ptr noundef %1238, i32 noundef %1239, ptr noundef %.pre1388) #21
   br label %.thread1178
 
 .thread1178:                                      ; preds = %1229, %1224, %1235, %1232
@@ -13935,7 +13935,7 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
 .thread1171:                                      ; preds = %1101, %1181, %1182, %1127, %1211
   %1240 = phi i1 [ true, %1211 ], [ false, %1127 ], [ false, %1182 ], [ false, %1181 ], [ false, %1101 ]
   %1241 = phi i1 [ false, %1211 ], [ true, %1127 ], [ false, %1182 ], [ false, %1181 ], [ false, %1101 ]
-  %1242 = call i32 @strncmp(ptr noundef nonnull @.str.145, ptr noundef %202, i64 noundef %98) #25
+  %1242 = call i32 @strncmp(ptr noundef nonnull @.str.145, ptr noundef %202, i64 noundef %98) #26
   %1243 = icmp eq i32 %1242, 0
   br i1 %1243, label %.preheader1322, label %1259
 
@@ -13948,7 +13948,7 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
   %indvars.iv1347 = phi i64 [ 0, %.preheader1322 ], [ %indvars.iv.next1348, %1251 ]
   %1247 = getelementptr inbounds nuw ptr, ptr @je_percpu_arena_mode_names, i64 %indvars.iv1347
   %1248 = load ptr, ptr %1247, align 8, !tbaa !213
-  %1249 = call i32 @strncmp(ptr noundef %1248, ptr noundef %1244, i64 noundef %1245) #25
+  %1249 = call i32 @strncmp(ptr noundef %1248, ptr noundef %1244, i64 noundef %1245) #26
   %1250 = icmp eq i32 %1249, 0
   br i1 %1250, label %1252, label %1251
 
@@ -13972,7 +13972,7 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
 1256:                                             ; preds = %1252
   %1257 = trunc i64 %98 to i32
   %1258 = trunc i64 %1245 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1257, ptr noundef %202, i32 noundef %1258, ptr noundef %1244) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1257, ptr noundef %202, i32 noundef %1258, ptr noundef %1244) #21
   br label %malloc_conf_error.exit.thread
 
 1259:                                             ; preds = %.thread1171
@@ -13980,7 +13980,7 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
   br i1 %1260, label %1261, label %1277
 
 1261:                                             ; preds = %1259
-  %1262 = call i32 @strncmp(ptr noundef nonnull dereferenceable(18) @.str.146, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 17) #25
+  %1262 = call i32 @strncmp(ptr noundef nonnull dereferenceable(18) @.str.146, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 17) #26
   %1263 = icmp eq i32 %1262, 0
   br i1 %1263, label %1264, label %1277
 
@@ -13993,12 +13993,12 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
   ]
 
 1266:                                             ; preds = %1264
-  %1267 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1431, i64 noundef 4) #25
+  %1267 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1431, i64 noundef 4) #26
   %1268 = icmp eq i32 %1267, 0
   br i1 %1268, label %1272, label %.thread1186
 
 1269:                                             ; preds = %1264
-  %1270 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1431, i64 noundef 5) #25
+  %1270 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1431, i64 noundef 5) #26
   %1271 = icmp eq i32 %1270, 0
   br i1 %1271, label %1272, label %.thread1186
 
@@ -14015,23 +14015,23 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
 
 1275:                                             ; preds = %1272
   %1276 = trunc nuw nsw i64 %1265 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 17, ptr noundef nonnull %202, i32 noundef %1276, ptr noundef nonnull %.pre1431) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 17, ptr noundef nonnull %202, i32 noundef %1276, ptr noundef nonnull %.pre1431) #21
   br label %malloc_conf_error.exit.thread, !llvm.loop !223
 
 1277:                                             ; preds = %1261, %1259
   br i1 %845, label %1278, label %1307
 
 1278:                                             ; preds = %1277
-  %1279 = call i32 @strncmp(ptr noundef nonnull dereferenceable(23) @.str.147, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 22) #25
+  %1279 = call i32 @strncmp(ptr noundef nonnull dereferenceable(23) @.str.147, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 22) #26
   %1280 = icmp eq i32 %1279, 0
   br i1 %1280, label %1281, label %1307
 
 1281:                                             ; preds = %1278
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
-  %1282 = tail call ptr @__errno_location() #23
+  %1282 = tail call ptr @__errno_location() #24
   store i32 0, ptr %1282, align 4, !tbaa !4
   %1283 = load ptr, ptr %8, align 8, !tbaa !213
-  %1284 = call i64 @je_malloc_strtoumax(ptr noundef %1283, ptr noundef nonnull %39, i32 noundef 0) #20
+  %1284 = call i64 @je_malloc_strtoumax(ptr noundef %1283, ptr noundef nonnull %39, i32 noundef 0) #21
   %1285 = load i32, ptr %1282, align 4, !tbaa !4
   %.not861 = icmp eq i32 %1285, 0
   %.pre1429 = load ptr, ptr %8, align 8, !tbaa !213
@@ -14076,7 +14076,7 @@ malloc_conf_error.exit961.thread:                 ; preds = %990, %983, %994, %m
   %1303 = trunc i64 %1302 to i32
   %1304 = load ptr, ptr %7, align 8, !tbaa !213
   %1305 = trunc i64 %.pre1430 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1303, ptr noundef %1304, i32 noundef %1305, ptr noundef %.pre1429) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1303, ptr noundef %1304, i32 noundef %1305, ptr noundef %.pre1429) #21
   br label %1306
 
 1306:                                             ; preds = %.thread1190, %1301, %1298
@@ -14123,12 +14123,12 @@ sub_2:                                            ; preds = %sub_1
   ]
 
 1324:                                             ; preds = %1322
-  %1325 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1428, i64 noundef 4) #25
+  %1325 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1428, i64 noundef 4) #26
   %1326 = icmp eq i32 %1325, 0
   br i1 %1326, label %1330, label %.thread1195
 
 1327:                                             ; preds = %1322
-  %1328 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1428, i64 noundef 5) #25
+  %1328 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1428, i64 noundef 5) #26
   %1329 = icmp eq i32 %1328, 0
   br i1 %1329, label %1330, label %.thread1195
 
@@ -14145,23 +14145,23 @@ sub_2:                                            ; preds = %sub_1
 
 1333:                                             ; preds = %1330
   %1334 = trunc nuw nsw i64 %1323 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 3, ptr noundef nonnull %202, i32 noundef %1334, ptr noundef nonnull %.pre1428) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 3, ptr noundef nonnull %202, i32 noundef %1334, ptr noundef nonnull %.pre1428) #21
   br label %malloc_conf_error.exit.thread, !llvm.loop !223
 
 1335:                                             ; preds = %1307
   br i1 %493, label %1336, label %.thread1199
 
 1336:                                             ; preds = %1335
-  %1337 = call i32 @strncmp(ptr noundef nonnull dereferenceable(19) @.str.149, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 18) #25
+  %1337 = call i32 @strncmp(ptr noundef nonnull dereferenceable(19) @.str.149, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 18) #26
   %1338 = icmp eq i32 %1337, 0
   br i1 %1338, label %1339, label %.thread1199
 
 1339:                                             ; preds = %1336
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
-  %1340 = tail call ptr @__errno_location() #23
+  %1340 = tail call ptr @__errno_location() #24
   store i32 0, ptr %1340, align 4, !tbaa !4
   %1341 = load ptr, ptr %8, align 8, !tbaa !213
-  %1342 = call i64 @je_malloc_strtoumax(ptr noundef %1341, ptr noundef nonnull %40, i32 noundef 0) #20
+  %1342 = call i64 @je_malloc_strtoumax(ptr noundef %1341, ptr noundef nonnull %40, i32 noundef 0) #21
   %1343 = load i32, ptr %1340, align 4, !tbaa !4
   %.not859 = icmp eq i32 %1343, 0
   %.pre1396 = load ptr, ptr %8, align 8, !tbaa !213
@@ -14195,7 +14195,7 @@ sub_2:                                            ; preds = %sub_1
   %1357 = trunc i64 %1356 to i32
   %1358 = load ptr, ptr %7, align 8, !tbaa !213
   %1359 = trunc i64 %.pre1397 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1357, ptr noundef %1358, i32 noundef %1359, ptr noundef %.pre1396) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1357, ptr noundef %1358, i32 noundef %1359, ptr noundef %.pre1396) #21
   br label %1360
 
 1360:                                             ; preds = %.thread1200, %1355, %1351
@@ -14206,16 +14206,16 @@ sub_2:                                            ; preds = %sub_1
   br i1 %1241, label %1361, label %1386
 
 1361:                                             ; preds = %.thread1199
-  %1362 = call i32 @strncmp(ptr noundef nonnull dereferenceable(27) @.str.150, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 26) #25
+  %1362 = call i32 @strncmp(ptr noundef nonnull dereferenceable(27) @.str.150, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 26) #26
   %1363 = icmp eq i32 %1362, 0
   br i1 %1363, label %1364, label %1386
 
 1364:                                             ; preds = %1361
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
-  %1365 = tail call ptr @__errno_location() #23
+  %1365 = tail call ptr @__errno_location() #24
   store i32 0, ptr %1365, align 4, !tbaa !4
   %1366 = load ptr, ptr %8, align 8, !tbaa !213
-  %1367 = call i64 @je_malloc_strtoumax(ptr noundef %1366, ptr noundef nonnull %41, i32 noundef 0) #20
+  %1367 = call i64 @je_malloc_strtoumax(ptr noundef %1366, ptr noundef nonnull %41, i32 noundef 0) #21
   %1368 = load i32, ptr %1365, align 4, !tbaa !4
   %.not857 = icmp eq i32 %1368, 0
   %.pre1426 = load ptr, ptr %8, align 8, !tbaa !213
@@ -14249,7 +14249,7 @@ sub_2:                                            ; preds = %sub_1
   %1382 = trunc i64 %1381 to i32
   %1383 = load ptr, ptr %7, align 8, !tbaa !213
   %1384 = trunc i64 %.pre1427 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1382, ptr noundef %1383, i32 noundef %1384, ptr noundef %.pre1426) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1382, ptr noundef %1383, i32 noundef %1384, ptr noundef %.pre1426) #21
   br label %1385
 
 1385:                                             ; preds = %.thread1204, %1380, %1376
@@ -14261,7 +14261,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %1387, label %1388, label %1415
 
 1388:                                             ; preds = %1386
-  %1389 = call i32 @strncmp(ptr noundef nonnull dereferenceable(33) @.str.151, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 32) #25
+  %1389 = call i32 @strncmp(ptr noundef nonnull dereferenceable(33) @.str.151, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 32) #26
   %1390 = icmp eq i32 %1389, 0
   br i1 %1390, label %1391, label %1415
 
@@ -14269,7 +14269,7 @@ sub_2:                                            ; preds = %sub_1
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %1392 = load ptr, ptr %8, align 8, !tbaa !213
-  %1393 = call zeroext i1 @je_fxp_parse(ptr noundef nonnull %42, ptr noundef %1392, ptr noundef nonnull %43) #20
+  %1393 = call zeroext i1 @je_fxp_parse(ptr noundef nonnull %42, ptr noundef %1392, ptr noundef nonnull %43) #21
   %.pre1424 = load ptr, ptr %8, align 8, !tbaa !213
   %.pre1425 = load i64, ptr %10, align 8, !tbaa !33
   br i1 %1393, label %.thread1208, label %1394
@@ -14304,7 +14304,7 @@ sub_2:                                            ; preds = %sub_1
   %1411 = trunc i64 %1410 to i32
   %1412 = load ptr, ptr %7, align 8, !tbaa !213
   %1413 = trunc i64 %.pre1425 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1411, ptr noundef %1412, i32 noundef %1413, ptr noundef %.pre1424) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1411, ptr noundef %1412, i32 noundef %1413, ptr noundef %.pre1424) #21
   br label %1414
 
 1414:                                             ; preds = %.thread1208, %1409, %1404
@@ -14316,16 +14316,16 @@ sub_2:                                            ; preds = %sub_1
   br i1 %844, label %1416, label %1440
 
 1416:                                             ; preds = %1415
-  %1417 = call i32 @strncmp(ptr noundef nonnull dereferenceable(20) @.str.152, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 19) #25
+  %1417 = call i32 @strncmp(ptr noundef nonnull dereferenceable(20) @.str.152, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 19) #26
   %1418 = icmp eq i32 %1417, 0
   br i1 %1418, label %1419, label %1440
 
 1419:                                             ; preds = %1416
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
-  %1420 = tail call ptr @__errno_location() #23
+  %1420 = tail call ptr @__errno_location() #24
   store i32 0, ptr %1420, align 4, !tbaa !4
   %1421 = load ptr, ptr %8, align 8, !tbaa !213
-  %1422 = call i64 @je_malloc_strtoumax(ptr noundef %1421, ptr noundef nonnull %44, i32 noundef 0) #20
+  %1422 = call i64 @je_malloc_strtoumax(ptr noundef %1421, ptr noundef nonnull %44, i32 noundef 0) #21
   %1423 = load i32, ptr %1420, align 4, !tbaa !4
   %.not855 = icmp eq i32 %1423, 0
   %.pre1422 = load ptr, ptr %8, align 8, !tbaa !213
@@ -14357,7 +14357,7 @@ sub_2:                                            ; preds = %sub_1
   %1436 = trunc i64 %1435 to i32
   %1437 = load ptr, ptr %7, align 8, !tbaa !213
   %1438 = trunc i64 %.pre1423 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1436, ptr noundef %1437, i32 noundef %1438, ptr noundef %.pre1422) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1436, ptr noundef %1437, i32 noundef %1438, ptr noundef %.pre1422) #21
   br label %1439
 
 1439:                                             ; preds = %.thread1212, %1434, %1431
@@ -14368,7 +14368,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %205, label %1441, label %1458
 
 1441:                                             ; preds = %1440
-  %1442 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.153, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 15) #25
+  %1442 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.153, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 15) #26
   %1443 = icmp eq i32 %1442, 0
   br i1 %1443, label %1444, label %1458
 
@@ -14381,12 +14381,12 @@ sub_2:                                            ; preds = %sub_1
   ]
 
 1446:                                             ; preds = %1444
-  %1447 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1421, i64 noundef 4) #25
+  %1447 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1421, i64 noundef 4) #26
   %1448 = icmp eq i32 %1447, 0
   br i1 %1448, label %1452, label %.thread1217
 
 1449:                                             ; preds = %1444
-  %1450 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1421, i64 noundef 5) #25
+  %1450 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1421, i64 noundef 5) #26
   %1451 = icmp eq i32 %1450, 0
   br i1 %1451, label %1452, label %.thread1217
 
@@ -14404,23 +14404,23 @@ sub_2:                                            ; preds = %sub_1
 1455:                                             ; preds = %1452
   %1456 = trunc i64 %98 to i32
   %1457 = trunc nuw nsw i64 %1445 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1456, ptr noundef nonnull %202, i32 noundef %1457, ptr noundef nonnull %.pre1421) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1456, ptr noundef nonnull %202, i32 noundef %1457, ptr noundef nonnull %.pre1421) #21
   br label %malloc_conf_error.exit.thread, !llvm.loop !223
 
 1458:                                             ; preds = %1441, %1440
   br i1 %1075, label %1459, label %1483
 
 1459:                                             ; preds = %1458
-  %1460 = call i32 @strncmp(ptr noundef nonnull dereferenceable(26) @.str.154, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 25) #25
+  %1460 = call i32 @strncmp(ptr noundef nonnull dereferenceable(26) @.str.154, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 25) #26
   %1461 = icmp eq i32 %1460, 0
   br i1 %1461, label %1462, label %.thread1225
 
 1462:                                             ; preds = %1459
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
-  %1463 = tail call ptr @__errno_location() #23
+  %1463 = tail call ptr @__errno_location() #24
   store i32 0, ptr %1463, align 4, !tbaa !4
   %1464 = load ptr, ptr %8, align 8, !tbaa !213
-  %1465 = call i64 @je_malloc_strtoumax(ptr noundef %1464, ptr noundef nonnull %45, i32 noundef 0) #20
+  %1465 = call i64 @je_malloc_strtoumax(ptr noundef %1464, ptr noundef nonnull %45, i32 noundef 0) #21
   %1466 = load i32, ptr %1463, align 4, !tbaa !4
   %.not853 = icmp eq i32 %1466, 0
   %.pre1419 = load ptr, ptr %8, align 8, !tbaa !213
@@ -14452,7 +14452,7 @@ sub_2:                                            ; preds = %sub_1
   %1479 = trunc i64 %1478 to i32
   %1480 = load ptr, ptr %7, align 8, !tbaa !213
   %1481 = trunc i64 %.pre1420 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1479, ptr noundef %1480, i32 noundef %1481, ptr noundef %.pre1419) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1479, ptr noundef %1480, i32 noundef %1481, ptr noundef %.pre1419) #21
   br label %1482
 
 1482:                                             ; preds = %.thread1221, %1477, %1474
@@ -14464,16 +14464,16 @@ sub_2:                                            ; preds = %sub_1
   br i1 %1484, label %1485, label %.thread1225
 
 1485:                                             ; preds = %1483
-  %1486 = call i32 @strncmp(ptr noundef nonnull dereferenceable(31) @.str.155, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 30) #25
+  %1486 = call i32 @strncmp(ptr noundef nonnull dereferenceable(31) @.str.155, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 30) #26
   %1487 = icmp eq i32 %1486, 0
   br i1 %1487, label %1488, label %.thread1225
 
 1488:                                             ; preds = %1485
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
-  %1489 = tail call ptr @__errno_location() #23
+  %1489 = tail call ptr @__errno_location() #24
   store i32 0, ptr %1489, align 4, !tbaa !4
   %1490 = load ptr, ptr %8, align 8, !tbaa !213
-  %1491 = call i64 @je_malloc_strtoumax(ptr noundef %1490, ptr noundef nonnull %46, i32 noundef 0) #20
+  %1491 = call i64 @je_malloc_strtoumax(ptr noundef %1490, ptr noundef nonnull %46, i32 noundef 0) #21
   %1492 = load i32, ptr %1489, align 4, !tbaa !4
   %.not851 = icmp eq i32 %1492, 0
   %.pre1398 = load ptr, ptr %8, align 8, !tbaa !213
@@ -14515,7 +14515,7 @@ sub_2:                                            ; preds = %sub_1
   %1511 = trunc i64 %1510 to i32
   %1512 = load ptr, ptr %7, align 8, !tbaa !213
   %1513 = trunc i64 %.pre1399 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1511, ptr noundef %1512, i32 noundef %1513, ptr noundef %.pre1398) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1511, ptr noundef %1512, i32 noundef %1513, ptr noundef %.pre1398) #21
   br label %.thread1227
 
 .thread1227:                                      ; preds = %1503, %1498, %1509, %1506
@@ -14526,7 +14526,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %843, label %1514, label %1553
 
 1514:                                             ; preds = %.thread1225
-  %1515 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.156, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 14) #25
+  %1515 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.156, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 14) #26
   %1516 = icmp eq i32 %1515, 0
   br i1 %1516, label %1517, label %1553
 
@@ -14563,13 +14563,13 @@ sub_11307:                                        ; preds = %sub_01306
 
 1532:                                             ; preds = %1529
   %1533 = trunc i64 %98 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1533, ptr noundef nonnull %202, i32 noundef 2, ptr noundef nonnull %.pre1416) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1533, ptr noundef nonnull %202, i32 noundef 2, ptr noundef nonnull %.pre1416) #21
   br label %malloc_conf_error.exit.thread, !llvm.loop !223
 
 1534:                                             ; preds = %.tail1305, %1517
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
-  %1535 = call zeroext i1 @je_fxp_parse(ptr noundef nonnull %47, ptr noundef %.pre1416, ptr noundef nonnull %48) #20
+  %1535 = call zeroext i1 @je_fxp_parse(ptr noundef nonnull %47, ptr noundef %.pre1416, ptr noundef nonnull %48) #21
   %.pre1417 = load ptr, ptr %8, align 8, !tbaa !213
   %.pre1418 = load i64, ptr %10, align 8, !tbaa !33
   br i1 %1535, label %.thread1231, label %1536
@@ -14600,7 +14600,7 @@ sub_11307:                                        ; preds = %sub_01306
   %1549 = trunc i64 %1548 to i32
   %1550 = load ptr, ptr %7, align 8, !tbaa !213
   %1551 = trunc i64 %.pre1418 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1549, ptr noundef %1550, i32 noundef %1551, ptr noundef %.pre1417) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1549, ptr noundef %1550, i32 noundef %1551, ptr noundef %.pre1417) #21
   br label %1552
 
 1552:                                             ; preds = %.thread1231, %1547, %1543
@@ -14612,16 +14612,16 @@ sub_11307:                                        ; preds = %sub_01306
   br i1 %205, label %1554, label %1578
 
 1554:                                             ; preds = %1553
-  %1555 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.158, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 15) #25
+  %1555 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.158, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 15) #26
   %1556 = icmp eq i32 %1555, 0
   br i1 %1556, label %1557, label %1578
 
 1557:                                             ; preds = %1554
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
-  %1558 = tail call ptr @__errno_location() #23
+  %1558 = tail call ptr @__errno_location() #24
   store i32 0, ptr %1558, align 4, !tbaa !4
   %1559 = load ptr, ptr %8, align 8, !tbaa !213
-  %1560 = call i64 @je_malloc_strtoumax(ptr noundef %1559, ptr noundef nonnull %49, i32 noundef 0) #20
+  %1560 = call i64 @je_malloc_strtoumax(ptr noundef %1559, ptr noundef nonnull %49, i32 noundef 0) #21
   %1561 = load i32, ptr %1558, align 4, !tbaa !4
   %.not848 = icmp eq i32 %1561, 0
   %.pre1414 = load ptr, ptr %8, align 8, !tbaa !213
@@ -14653,7 +14653,7 @@ sub_11307:                                        ; preds = %sub_01306
   %1574 = trunc i64 %1573 to i32
   %1575 = load ptr, ptr %7, align 8, !tbaa !213
   %1576 = trunc i64 %.pre1415 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1574, ptr noundef %1575, i32 noundef %1576, ptr noundef %.pre1414) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1574, ptr noundef %1575, i32 noundef %1576, ptr noundef %.pre1414) #21
   br label %1577
 
 1577:                                             ; preds = %.thread1235, %1572, %1569
@@ -14664,16 +14664,16 @@ sub_11307:                                        ; preds = %sub_01306
   br i1 %1260, label %1579, label %1627
 
 1579:                                             ; preds = %1578
-  %1580 = call i32 @strncmp(ptr noundef nonnull dereferenceable(18) @.str.159, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 17) #25
+  %1580 = call i32 @strncmp(ptr noundef nonnull dereferenceable(18) @.str.159, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 17) #26
   %1581 = icmp eq i32 %1580, 0
   br i1 %1581, label %1582, label %1603
 
 1582:                                             ; preds = %1579
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
-  %1583 = tail call ptr @__errno_location() #23
+  %1583 = tail call ptr @__errno_location() #24
   store i32 0, ptr %1583, align 4, !tbaa !4
   %1584 = load ptr, ptr %8, align 8, !tbaa !213
-  %1585 = call i64 @je_malloc_strtoumax(ptr noundef %1584, ptr noundef nonnull %50, i32 noundef 0) #20
+  %1585 = call i64 @je_malloc_strtoumax(ptr noundef %1584, ptr noundef nonnull %50, i32 noundef 0) #21
   %1586 = load i32, ptr %1583, align 4, !tbaa !4
   %.not846 = icmp eq i32 %1586, 0
   %.pre1412 = load ptr, ptr %8, align 8, !tbaa !213
@@ -14706,7 +14706,7 @@ sub_11307:                                        ; preds = %sub_01306
   %1599 = trunc i64 %1598 to i32
   %1600 = load ptr, ptr %7, align 8, !tbaa !213
   %1601 = trunc i64 %.pre1413 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1599, ptr noundef %1600, i32 noundef %1601, ptr noundef %.pre1412) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1599, ptr noundef %1600, i32 noundef %1601, ptr noundef %.pre1412) #21
   br label %1602
 
 1602:                                             ; preds = %.thread1239, %1597, %1594
@@ -14714,16 +14714,16 @@ sub_11307:                                        ; preds = %sub_01306
   br label %malloc_conf_error.exit.thread
 
 1603:                                             ; preds = %1579
-  %1604 = call i32 @strncmp(ptr noundef nonnull dereferenceable(18) @.str.160, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 17) #25
+  %1604 = call i32 @strncmp(ptr noundef nonnull dereferenceable(18) @.str.160, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 17) #26
   %1605 = icmp eq i32 %1604, 0
   br i1 %1605, label %1606, label %.thread1248
 
 1606:                                             ; preds = %1603
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
-  %1607 = tail call ptr @__errno_location() #23
+  %1607 = tail call ptr @__errno_location() #24
   store i32 0, ptr %1607, align 4, !tbaa !4
   %1608 = load ptr, ptr %8, align 8, !tbaa !213
-  %1609 = call i64 @je_malloc_strtoumax(ptr noundef %1608, ptr noundef nonnull %51, i32 noundef 0) #20
+  %1609 = call i64 @je_malloc_strtoumax(ptr noundef %1608, ptr noundef nonnull %51, i32 noundef 0) #21
   %1610 = load i32, ptr %1607, align 4, !tbaa !4
   %.not844 = icmp eq i32 %1610, 0
   %.pre1410 = load ptr, ptr %8, align 8, !tbaa !213
@@ -14756,7 +14756,7 @@ sub_11307:                                        ; preds = %sub_01306
   %1623 = trunc i64 %1622 to i32
   %1624 = load ptr, ptr %7, align 8, !tbaa !213
   %1625 = trunc i64 %.pre1411 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1623, ptr noundef %1624, i32 noundef %1625, ptr noundef %.pre1410) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1623, ptr noundef %1624, i32 noundef %1625, ptr noundef %.pre1410) #21
   br label %1626
 
 1626:                                             ; preds = %.thread1244, %1621, %1618
@@ -14767,16 +14767,16 @@ sub_11307:                                        ; preds = %sub_01306
   br i1 %1075, label %1628, label %.thread1248
 
 1628:                                             ; preds = %1627
-  %1629 = call i32 @strncmp(ptr noundef nonnull dereferenceable(26) @.str.161, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 25) #25
+  %1629 = call i32 @strncmp(ptr noundef nonnull dereferenceable(26) @.str.161, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 25) #26
   %1630 = icmp eq i32 %1629, 0
   br i1 %1630, label %1631, label %.thread1248
 
 1631:                                             ; preds = %1628
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
-  %1632 = tail call ptr @__errno_location() #23
+  %1632 = tail call ptr @__errno_location() #24
   store i32 0, ptr %1632, align 4, !tbaa !4
   %1633 = load ptr, ptr %8, align 8, !tbaa !213
-  %1634 = call i64 @je_malloc_strtoumax(ptr noundef %1633, ptr noundef nonnull %52, i32 noundef 0) #20
+  %1634 = call i64 @je_malloc_strtoumax(ptr noundef %1633, ptr noundef nonnull %52, i32 noundef 0) #21
   %1635 = load i32, ptr %1632, align 4, !tbaa !4
   %.not842 = icmp eq i32 %1635, 0
   %.pre1400 = load ptr, ptr %8, align 8, !tbaa !213
@@ -14809,7 +14809,7 @@ sub_11307:                                        ; preds = %sub_01306
   %1648 = trunc i64 %1647 to i32
   %1649 = load ptr, ptr %7, align 8, !tbaa !213
   %1650 = trunc i64 %.pre1401 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1648, ptr noundef %1649, i32 noundef %1650, ptr noundef %.pre1400) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1648, ptr noundef %1649, i32 noundef %1650, ptr noundef %.pre1400) #21
   br label %1651
 
 1651:                                             ; preds = %.thread1249, %1646, %1643
@@ -14820,16 +14820,16 @@ sub_11307:                                        ; preds = %sub_01306
   br i1 %1240, label %1652, label %1676
 
 1652:                                             ; preds = %.thread1248
-  %1653 = call i32 @strncmp(ptr noundef nonnull dereferenceable(25) @.str.162, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 24) #25
+  %1653 = call i32 @strncmp(ptr noundef nonnull dereferenceable(25) @.str.162, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 24) #26
   %1654 = icmp eq i32 %1653, 0
   br i1 %1654, label %1655, label %1676
 
 1655:                                             ; preds = %1652
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
-  %1656 = tail call ptr @__errno_location() #23
+  %1656 = tail call ptr @__errno_location() #24
   store i32 0, ptr %1656, align 4, !tbaa !4
   %1657 = load ptr, ptr %8, align 8, !tbaa !213
-  %1658 = call i64 @je_malloc_strtoumax(ptr noundef %1657, ptr noundef nonnull %53, i32 noundef 0) #20
+  %1658 = call i64 @je_malloc_strtoumax(ptr noundef %1657, ptr noundef nonnull %53, i32 noundef 0) #21
   %1659 = load i32, ptr %1656, align 4, !tbaa !4
   %.not840 = icmp eq i32 %1659, 0
   %.pre1408 = load ptr, ptr %8, align 8, !tbaa !213
@@ -14862,7 +14862,7 @@ sub_11307:                                        ; preds = %sub_01306
   %1672 = trunc i64 %1671 to i32
   %1673 = load ptr, ptr %7, align 8, !tbaa !213
   %1674 = trunc i64 %.pre1409 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1672, ptr noundef %1673, i32 noundef %1674, ptr noundef %.pre1408) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1672, ptr noundef %1673, i32 noundef %1674, ptr noundef %.pre1408) #21
   br label %1675
 
 1675:                                             ; preds = %.thread1253, %1670, %1667
@@ -14873,7 +14873,7 @@ sub_11307:                                        ; preds = %sub_01306
   br i1 %204, label %1677, label %1721
 
 1677:                                             ; preds = %1676
-  %1678 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.163, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 10) #25
+  %1678 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.163, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 10) #26
   %1679 = icmp eq i32 %1678, 0
   br i1 %1679, label %1680, label %1721
 
@@ -14884,12 +14884,12 @@ sub_11307:                                        ; preds = %sub_01306
   br i1 %1682, label %1683, label %1696
 
 1683:                                             ; preds = %1680
-  %1684 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.109, ptr noundef nonnull dereferenceable(1) %.pre1407, i64 noundef 7) #25
+  %1684 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.109, ptr noundef nonnull dereferenceable(1) %.pre1407, i64 noundef 7) #26
   %1685 = icmp eq i32 %1684, 0
   br i1 %1685, label %1686, label %1696
 
 1686:                                             ; preds = %1683
-  call void @je_sc_data_init(ptr noundef %0) #20
+  call void @je_sc_data_init(ptr noundef %0) #21
   %1687 = load i8, ptr @je_opt_confirm_conf, align 1, !range !110
   %1688 = trunc nuw i8 %1687 to i1
   br i1 %1688, label %1689, label %malloc_conf_error.exit.thread, !llvm.loop !223
@@ -14901,7 +14901,7 @@ sub_11307:                                        ; preds = %sub_01306
   %1693 = load i64, ptr %10, align 8, !tbaa !33
   %1694 = trunc i64 %1693 to i32
   %1695 = load ptr, ptr %8, align 8, !tbaa !213
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1691, ptr noundef %1692, i32 noundef %1694, ptr noundef %1695) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1691, ptr noundef %1692, i32 noundef %1694, ptr noundef %1695) #21
   br label %malloc_conf_error.exit.thread, !llvm.loop !223
 
 1696:                                             ; preds = %1683, %1680
@@ -14915,7 +14915,7 @@ sub_11307:                                        ; preds = %sub_01306
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
-  %1698 = call zeroext i1 @je_multi_setting_parse_next(ptr noundef nonnull %54, ptr noundef nonnull %55, ptr noundef nonnull %56, ptr noundef nonnull %57, ptr noundef nonnull %58) #20
+  %1698 = call zeroext i1 @je_multi_setting_parse_next(ptr noundef nonnull %54, ptr noundef nonnull %55, ptr noundef nonnull %56, ptr noundef nonnull %57, ptr noundef nonnull %58) #21
   br i1 %1698, label %.thread1261, label %1703
 
 .thread1261:                                      ; preds = %1697
@@ -14934,7 +14934,7 @@ sub_11307:                                        ; preds = %sub_01306
   %1705 = load i64, ptr %57, align 8, !tbaa !33
   %1706 = load i64, ptr %58, align 8, !tbaa !33
   %1707 = trunc i64 %1706 to i32
-  call void @je_sc_data_update_slab_size(ptr noundef %0, i64 noundef %1704, i64 noundef %1705, i32 noundef %1707) #20
+  call void @je_sc_data_update_slab_size(ptr noundef %0, i64 noundef %1704, i64 noundef %1705, i32 noundef %1707) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
@@ -14955,7 +14955,7 @@ sub_11307:                                        ; preds = %sub_01306
   %1717 = load i64, ptr %10, align 8, !tbaa !33
   %1718 = trunc i64 %1717 to i32
   %1719 = load ptr, ptr %8, align 8, !tbaa !213
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1715, ptr noundef %1716, i32 noundef %1718, ptr noundef %1719) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1715, ptr noundef %1716, i32 noundef %1718, ptr noundef %1719) #21
   br label %1720
 
 1720:                                             ; preds = %.thread1261, %1713, %1710
@@ -15002,7 +15002,7 @@ sub_21312:                                        ; preds = %sub_11311
   %indvars.iv = phi i64 [ 0, %.preheader1323 ], [ %indvars.iv.next, %1742 ]
   %1738 = getelementptr inbounds nuw ptr, ptr @je_thp_mode_names, i64 %indvars.iv
   %1739 = load ptr, ptr %1738, align 8, !tbaa !213
-  %1740 = call i32 @strncmp(ptr noundef %1739, ptr noundef %1735, i64 noundef %1736) #25
+  %1740 = call i32 @strncmp(ptr noundef %1739, ptr noundef %1735, i64 noundef %1736) #26
   %1741 = icmp eq i32 %1740, 0
   br i1 %1741, label %1743, label %1742
 
@@ -15025,14 +15025,14 @@ sub_21312:                                        ; preds = %sub_11311
 
 1747:                                             ; preds = %1743
   %1748 = trunc i64 %1736 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 3, ptr noundef %202, i32 noundef %1748, ptr noundef %1735) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 3, ptr noundef %202, i32 noundef %1748, ptr noundef %1735) #21
   br label %malloc_conf_error.exit.thread
 
 1749:                                             ; preds = %1721
   br i1 %99, label %1750, label %.thread1268
 
 1750:                                             ; preds = %1749
-  %1751 = call i32 @strncmp(ptr noundef nonnull dereferenceable(13) @.str.166, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 12) #25
+  %1751 = call i32 @strncmp(ptr noundef nonnull dereferenceable(13) @.str.166, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 12) #26
   %1752 = icmp eq i32 %1751, 0
   br i1 %1752, label %1753, label %.thread1268
 
@@ -15045,17 +15045,17 @@ sub_21312:                                        ; preds = %sub_11311
   ]
 
 1755:                                             ; preds = %1753
-  %1756 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.1, ptr noundef nonnull dereferenceable(1) %.pre1402, i64 noundef 5) #25
+  %1756 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.1, ptr noundef nonnull dereferenceable(1) %.pre1402, i64 noundef 5) #26
   %1757 = icmp eq i32 %1756, 0
   br i1 %1757, label %1764, label %1761
 
 1758:                                             ; preds = %1753
-  %1759 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.2, ptr noundef nonnull dereferenceable(1) %.pre1402, i64 noundef 4) #25
+  %1759 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.2, ptr noundef nonnull dereferenceable(1) %.pre1402, i64 noundef 4) #26
   %1760 = icmp eq i32 %1759, 0
   br i1 %1760, label %1764, label %.thread1272
 
 1761:                                             ; preds = %1755
-  %1762 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.3, ptr noundef nonnull dereferenceable(1) %.pre1402, i64 noundef 5) #25
+  %1762 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.3, ptr noundef nonnull dereferenceable(1) %.pre1402, i64 noundef 5) #26
   %1763 = icmp eq i32 %1762, 0
   br i1 %1763, label %1764, label %.thread1272
 
@@ -15072,23 +15072,23 @@ sub_21312:                                        ; preds = %sub_11311
 
 1767:                                             ; preds = %1764
   %1768 = trunc nuw nsw i64 %1754 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 12, ptr noundef nonnull %202, i32 noundef %1768, ptr noundef nonnull %.pre1402) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 12, ptr noundef nonnull %202, i32 noundef %1768, ptr noundef nonnull %.pre1402) #21
   br label %malloc_conf_error.exit.thread, !llvm.loop !223
 
 .thread1268:                                      ; preds = %.tail1309, %1750, %1749
   br i1 %205, label %1769, label %1817
 
 1769:                                             ; preds = %.thread1268
-  %1770 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.167, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 15) #25
+  %1770 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.167, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 15) #26
   %1771 = icmp eq i32 %1770, 0
   br i1 %1771, label %1772, label %1793
 
 1772:                                             ; preds = %1769
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
-  %1773 = tail call ptr @__errno_location() #23
+  %1773 = tail call ptr @__errno_location() #24
   store i32 0, ptr %1773, align 4, !tbaa !4
   %1774 = load ptr, ptr %8, align 8, !tbaa !213
-  %1775 = call i64 @je_malloc_strtoumax(ptr noundef %1774, ptr noundef nonnull %59, i32 noundef 0) #20
+  %1775 = call i64 @je_malloc_strtoumax(ptr noundef %1774, ptr noundef nonnull %59, i32 noundef 0) #21
   %1776 = load i32, ptr %1773, align 4, !tbaa !4
   %.not836 = icmp eq i32 %1776, 0
   %.pre1405 = load ptr, ptr %8, align 8, !tbaa !213
@@ -15120,7 +15120,7 @@ sub_21312:                                        ; preds = %sub_11311
   %1789 = trunc i64 %1788 to i32
   %1790 = load ptr, ptr %7, align 8, !tbaa !213
   %1791 = trunc i64 %.pre1406 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1789, ptr noundef %1790, i32 noundef %1791, ptr noundef %.pre1405) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1789, ptr noundef %1790, i32 noundef %1791, ptr noundef %.pre1405) #21
   br label %1792
 
 1792:                                             ; preds = %.thread1276, %1787, %1784
@@ -15128,16 +15128,16 @@ sub_21312:                                        ; preds = %sub_11311
   br label %malloc_conf_error.exit.thread
 
 1793:                                             ; preds = %1769
-  %1794 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.168, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 15) #25
+  %1794 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.168, ptr noundef nonnull dereferenceable(1) %202, i64 noundef 15) #26
   %1795 = icmp eq i32 %1794, 0
   br i1 %1795, label %1796, label %1817
 
 1796:                                             ; preds = %1793
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
-  %1797 = tail call ptr @__errno_location() #23
+  %1797 = tail call ptr @__errno_location() #24
   store i32 0, ptr %1797, align 4, !tbaa !4
   %1798 = load ptr, ptr %8, align 8, !tbaa !213
-  %1799 = call i64 @je_malloc_strtoumax(ptr noundef %1798, ptr noundef nonnull %60, i32 noundef 0) #20
+  %1799 = call i64 @je_malloc_strtoumax(ptr noundef %1798, ptr noundef nonnull %60, i32 noundef 0) #21
   %1800 = load i32, ptr %1797, align 4, !tbaa !4
   %.not834 = icmp eq i32 %1800, 0
   %.pre1403 = load ptr, ptr %8, align 8, !tbaa !213
@@ -15169,7 +15169,7 @@ sub_21312:                                        ; preds = %sub_11311
   %1813 = trunc i64 %1812 to i32
   %1814 = load ptr, ptr %7, align 8, !tbaa !213
   %1815 = trunc i64 %.pre1404 to i32
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1813, ptr noundef %1814, i32 noundef %1815, ptr noundef %.pre1403) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1813, ptr noundef %1814, i32 noundef %1815, ptr noundef %.pre1403) #21
   br label %1816
 
 1816:                                             ; preds = %.thread1281, %1811, %1808
@@ -15189,7 +15189,7 @@ malloc_conf_error.exit.thread:                    ; preds = %.thread965, %114, %
   br i1 %.not833, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph, %malloc_conf_error.exit.thread, %.preheader1324
-  %1822 = call zeroext i1 @je_hpa_supported() #20
+  %1822 = call zeroext i1 @je_hpa_supported() #21
   %1823 = load i8, ptr @je_opt_hpa, align 1, !range !110
   %1824 = trunc nuw i8 %1823 to i1
   %or.cond.i = select i1 %1822, i1 %1824, i1 false
@@ -15200,7 +15200,7 @@ malloc_conf_error.exit.thread:                    ; preds = %.thread965, %114, %
 
 1827:                                             ; preds = %.critedge
   store i1 true, ptr @had_conf_error, align 1
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.178) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.178) #21
   br label %validate_hpa_settings.exit
 
 validate_hpa_settings.exit:                       ; preds = %.critedge, %1827
@@ -15211,7 +15211,7 @@ validate_hpa_settings.exit:                       ; preds = %.critedge, %1827
   br i1 %or.cond343, label %1830, label %1831
 
 1830:                                             ; preds = %validate_hpa_settings.exit
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.180) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.180) #21
   call void @abort()
   unreachable
 
@@ -15331,7 +15331,7 @@ define internal fastcc noundef zeroext i1 @malloc_conf_next(ptr noundef nonnull 
   %21 = sub i64 %reass.sub.i, %20
   %22 = tail call i64 @llvm.umin.i64(i64 %21, i64 64)
   %23 = trunc nuw nsw i64 %22 to i32
-  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.172, i32 noundef %23, ptr noundef %16) #20
+  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.172, i32 noundef %23, ptr noundef %16) #21
   store i1 true, ptr @had_conf_error, align 1
   br label %60
 
@@ -15343,7 +15343,7 @@ define internal fastcc noundef zeroext i1 @malloc_conf_next(ptr noundef nonnull 
   %28 = sub i64 %reass.sub.i39, %27
   %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 64)
   %30 = trunc nuw nsw i64 %29 to i32
-  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.173, i32 noundef %30, ptr noundef %25) #20
+  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.173, i32 noundef %30, ptr noundef %25) #21
   store i1 true, ptr @had_conf_error, align 1
   br label %60
 
@@ -15373,7 +15373,7 @@ define internal fastcc noundef zeroext i1 @malloc_conf_next(ptr noundef nonnull 
   %43 = sub i64 %reass.sub.i40, %42
   %44 = tail call i64 @llvm.umin.i64(i64 %43, i64 64)
   %45 = trunc nuw nsw i64 %44 to i32
-  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.174, i32 noundef %45, ptr noundef %40) #20
+  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.174, i32 noundef %45, ptr noundef %40) #21
   store i1 true, ptr @had_conf_error, align 1
   br label %46
 
@@ -15415,8 +15415,8 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 define internal fastcc void @malloc_conf_error(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #2 {
   %6 = trunc i64 %2 to i32
   %7 = trunc i64 %4 to i32
-  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, ptr noundef %3) #20
-  %8 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #25
+  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.176, ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, ptr noundef %3) #21
+  %8 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.177, i64 noundef 13) #26
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %11, label %10
 
@@ -15477,7 +15477,7 @@ define internal fastcc void @arena_dalloc_no_tcache(ptr noundef %0, ptr noundef 
   br i1 %4, label %5, label %6, !prof !8
 
 5:                                                ; preds = %2
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %3) #20
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %3) #21
   br label %tsdn_rtree_ctx.exit
 
 6:                                                ; preds = %2
@@ -15556,7 +15556,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %5, %6
   br label %rtree_metadata_read.exit
 
 49:                                               ; preds = %33
-  %50 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i, i64 noundef %8, i1 noundef zeroext true, i1 noundef zeroext false) #20
+  %50 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i, i64 noundef %8, i1 noundef zeroext true, i1 noundef zeroext false) #21
   br label %rtree_metadata_read.exit
 
 rtree_metadata_read.exit:                         ; preds = %15, %25, %37, %49
@@ -15567,7 +15567,7 @@ rtree_metadata_read.exit:                         ; preds = %15, %25, %37, %49
   br i1 %52, label %53, label %54, !prof !10
 
 53:                                               ; preds = %rtree_metadata_read.exit
-  call void @je_arena_dalloc_small(ptr noundef %0, ptr noundef %1) #20
+  call void @je_arena_dalloc_small(ptr noundef %0, ptr noundef %1) #21
   br label %55
 
 54:                                               ; preds = %rtree_metadata_read.exit
@@ -15588,7 +15588,7 @@ define internal fastcc void @arena_dalloc_large_no_tcache(ptr noundef %0, ptr no
   br i1 %4, label %5, label %6, !prof !8
 
 5:                                                ; preds = %2
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %3) #20
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %3) #21
   br label %tsdn_rtree_ctx.exit
 
 6:                                                ; preds = %2
@@ -15667,7 +15667,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %5, %6
   br label %rtree_read.exit
 
 49:                                               ; preds = %33
-  %50 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i, i64 noundef %8, i1 noundef zeroext true, i1 noundef zeroext false) #20, !noalias !249
+  %50 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i, i64 noundef %8, i1 noundef zeroext true, i1 noundef zeroext false) #21, !noalias !249
   br label %rtree_read.exit
 
 rtree_read.exit:                                  ; preds = %15, %25, %37, %49
@@ -15678,7 +15678,7 @@ rtree_read.exit:                                  ; preds = %15, %25, %37, %49
   %54 = and i64 %53, -128
   %55 = inttoptr i64 %54 to ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @je_large_dalloc(ptr noundef %0, ptr noundef %55) #20
+  call void @je_large_dalloc(ptr noundef %0, ptr noundef %55) #21
   ret void
 }
 
@@ -15754,7 +15754,7 @@ sz_size2index.exit:                               ; preds = %13, %5
   br i1 %27, label %28, label %sz_size2index.exit.thread, !prof !178
 
 28:                                               ; preds = %sz_size2index.exit
-  tail call void @je_arena_dalloc_small(ptr noundef %0, ptr noundef %1) #20
+  tail call void @je_arena_dalloc_small(ptr noundef %0, ptr noundef %1) #21
   br label %29
 
 sz_size2index.exit.thread:                        ; preds = %11, %sz_size2index.exit
@@ -15838,7 +15838,7 @@ define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writa
   br label %rtree_leaf_elm_lookup.exit
 
 45:                                               ; preds = %29
-  %46 = tail call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %1, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %2, i64 noundef %3, i1 noundef zeroext true, i1 noundef zeroext false) #20
+  %46 = tail call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %1, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %2, i64 noundef %3, i1 noundef zeroext true, i1 noundef zeroext false) #21
   br label %rtree_leaf_elm_lookup.exit
 
 rtree_leaf_elm_lookup.exit:                       ; preds = %33, %11, %21, %45
@@ -15944,7 +15944,7 @@ define internal fastcc { i64, i32 } @rtree_metadata_read(ptr noundef %0, ptr nou
   br label %rtree_leaf_elm_lookup.exit
 
 44:                                               ; preds = %28
-  %45 = tail call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %1, i64 noundef %2, i1 noundef zeroext true, i1 noundef zeroext false) #20
+  %45 = tail call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %1, i64 noundef %2, i1 noundef zeroext true, i1 noundef zeroext false) #21
   br label %rtree_leaf_elm_lookup.exit
 
 rtree_leaf_elm_lookup.exit:                       ; preds = %32, %10, %20, %44
@@ -15976,7 +15976,7 @@ define internal fastcc noundef zeroext i1 @malloc_init_hard() unnamed_addr #2 {
   %1 = alloca %struct.cpu_set_t, align 8
   %2 = alloca %struct.cpu_set_t, align 8
   %3 = alloca i32, align 4
-  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #20
+  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #21
   %.not.i13 = icmp eq i32 %4, 0
   br i1 %.not.i13, label %malloc_mutex_trylock_final.exit.i, label %5
 
@@ -15985,7 +15985,7 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %0
   br label %6
 
 5:                                                ; preds = %0
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @init_lock) #20
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @init_lock) #21
   br label %6
 
 6:                                                ; preds = %5, %malloc_mutex_trylock_final.exit.i
@@ -16010,7 +16010,7 @@ malloc_mutex_lock.exit:                           ; preds = %6, %10
 
 15:                                               ; preds = %malloc_mutex_lock.exit
   %16 = load i64, ptr @malloc_initializer, align 8, !tbaa !33
-  %17 = tail call i64 @pthread_self() #23
+  %17 = tail call i64 @pthread_self() #24
   %18 = icmp eq i64 %16, %17
   %19 = icmp eq i32 %13, 1
   %or.cond.i = and i1 %19, %18
@@ -16024,7 +16024,7 @@ malloc_mutex_lock.exit:                           ; preds = %6, %10
 .preheader.i:                                     ; preds = %20, %malloc_mutex_lock.exit.i
   %.sroa.0.0.i = phi i32 [ %.sroa.0.1.i, %malloc_mutex_lock.exit.i ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @init_lock, i64 64) monotonic, align 8
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #20
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = icmp ult i32 %.sroa.0.0.i, 5
   br i1 %22, label %23, label %28
@@ -16037,7 +16037,7 @@ malloc_mutex_lock.exit:                           ; preds = %6, %10
   br i1 %24, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %23, %.lr.ph.i.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !268
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !268
   %.0..0..0..0..0..0..0..0.1.i.i = load volatile i32, ptr %3, align 4, !tbaa !4
   %25 = add i32 %.0..0..0..0..0..0..0..0.1.i.i, 1
   store volatile i32 %25, ptr %3, align 4, !tbaa !4
@@ -16051,13 +16051,13 @@ malloc_mutex_lock.exit:                           ; preds = %6, %10
   br label %spin_adaptive.exit.i
 
 28:                                               ; preds = %.preheader.i
-  %29 = tail call i32 @sched_yield() #20
+  %29 = tail call i32 @sched_yield() #21
   br label %spin_adaptive.exit.i
 
 spin_adaptive.exit.i:                             ; preds = %28, %._crit_edge.i.i
   %.sroa.0.1.i = phi i32 [ %27, %._crit_edge.i.i ], [ %.sroa.0.0.i, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %30 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #20
+  %30 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #21
   %.not.i.i15 = icmp eq i32 %30, 0
   br i1 %.not.i.i15, label %malloc_mutex_trylock_final.exit.i.i, label %31
 
@@ -16066,7 +16066,7 @@ malloc_mutex_trylock_final.exit.i.i:              ; preds = %spin_adaptive.exit.
   br label %32
 
 31:                                               ; preds = %spin_adaptive.exit.i
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @init_lock) #20
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @init_lock) #21
   br label %32
 
 32:                                               ; preds = %31, %malloc_mutex_trylock_final.exit.i.i
@@ -16091,7 +16091,7 @@ malloc_mutex_lock.exit.i:                         ; preds = %36, %32
 
 .loopexit:                                        ; preds = %malloc_mutex_lock.exit.i, %15, %malloc_mutex_lock.exit
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @init_lock, i64 64) monotonic, align 8
-  %41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #20
+  %41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #21
   br label %malloc_init_hard_cleanup.exit
 
 malloc_init_hard_needed.exit:                     ; preds = %20
@@ -16104,21 +16104,21 @@ malloc_init_hard_needed.exit:                     ; preds = %20
 
 44:                                               ; preds = %42
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @init_lock, i64 64) monotonic, align 8
-  %45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #20
+  %45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #21
   br label %malloc_init_hard_cleanup.exit
 
 46:                                               ; preds = %42, %malloc_init_hard_needed.exit
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @init_lock, i64 64) monotonic, align 8
-  %47 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #20
-  %48 = tail call ptr @je_malloc_tsd_boot0() #20
+  %47 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #21
+  %48 = tail call ptr @je_malloc_tsd_boot0() #21
   %49 = icmp eq ptr %48, null
   br i1 %49, label %malloc_init_hard_cleanup.exit, label %50
 
 50:                                               ; preds = %46
   store i32 1, ptr @je_malloc_init_state, align 4, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %51 = call i32 @sched_getaffinity(i32 noundef 0, i64 noundef 128, ptr noundef nonnull %2) #20
-  %52 = call i32 @__sched_cpucount(i64 noundef 128, ptr noundef nonnull %2) #20
+  %51 = call i32 @sched_getaffinity(i32 noundef 0, i64 noundef 128, ptr noundef nonnull %2) #21
+  %52 = call i32 @__sched_cpucount(i64 noundef 128, ptr noundef nonnull %2) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %53 = icmp eq i32 %52, -1
   %54 = select i1 %53, i32 1, i32 %52
@@ -16128,15 +16128,15 @@ malloc_init_hard_needed.exit:                     ; preds = %20
   br i1 %.not2.i, label %73, label %56
 
 56:                                               ; preds = %50
-  %57 = call i64 @sysconf(i32 noundef 84) #20
-  %58 = call i64 @sysconf(i32 noundef 83) #20
+  %57 = call i64 @sysconf(i32 noundef 84) #21
+  %58 = call i64 @sysconf(i32 noundef 83) #21
   %.not.i.i17 = icmp eq i64 %57, %58
   br i1 %.not.i.i17, label %59, label %malloc_cpu_count_is_deterministic.exit.i
 
 59:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %60 = call i32 @sched_getaffinity(i32 noundef 0, i64 noundef 128, ptr noundef nonnull %1) #20
-  %61 = call i32 @__sched_cpucount(i64 noundef 128, ptr noundef nonnull %1) #20
+  %60 = call i32 @sched_getaffinity(i32 noundef 0, i64 noundef 128, ptr noundef nonnull %1) #21
+  %61 = call i32 @__sched_cpucount(i64 noundef 128, ptr noundef nonnull %1) #21
   %62 = sext i32 %61 to i64
   %.not5.i.i = icmp eq i64 %57, %62
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -16151,13 +16151,13 @@ malloc_cpu_count_is_deterministic.exit.i:         ; preds = %59, %56
 
 65:                                               ; preds = %malloc_cpu_count_is_deterministic.exit.i
   store i32 2, ptr @je_opt_percpu_arena, align 4, !tbaa !4
-  call void @je_malloc_write(ptr noundef nonnull @.str.184) #20
+  call void @je_malloc_write(ptr noundef nonnull @.str.184) #21
   %66 = load i8, ptr @je_opt_abort_conf, align 1, !tbaa !108, !range !110, !noundef !111
   %67 = trunc nuw i8 %66 to i1
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %65
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.180) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.180) #21
   call void @abort()
   unreachable
 
@@ -16167,30 +16167,30 @@ malloc_cpu_count_is_deterministic.exit.i:         ; preds = %59, %56
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %69
-  call void @abort() #22
+  call void @abort() #23
   unreachable
 
 73:                                               ; preds = %69, %malloc_cpu_count_is_deterministic.exit.i, %50
-  %74 = call i32 @pthread_atfork(ptr noundef nonnull @je_jemalloc_prefork, ptr noundef nonnull @je_jemalloc_postfork_parent, ptr noundef nonnull @je_jemalloc_postfork_child) #20
+  %74 = call i32 @pthread_atfork(ptr noundef nonnull @je_jemalloc_prefork, ptr noundef nonnull @je_jemalloc_postfork_parent, ptr noundef nonnull @je_jemalloc_postfork_child) #21
   %.not.i18 = icmp eq i32 %74, 0
   br i1 %.not.i18, label %malloc_init_hard_recursible.exit, label %75
 
 75:                                               ; preds = %73
-  call void @je_malloc_write(ptr noundef nonnull @.str.185) #20
+  call void @je_malloc_write(ptr noundef nonnull @.str.185) #21
   %76 = load i8, ptr @je_opt_abort, align 1, !tbaa !108, !range !110, !noundef !111
   %77 = trunc nuw i8 %76 to i1
   br i1 %77, label %78, label %malloc_init_hard_cleanup.exit
 
 78:                                               ; preds = %75
-  call void @abort() #22
+  call void @abort() #23
   unreachable
 
 malloc_init_hard_recursible.exit:                 ; preds = %73
-  %79 = call zeroext i1 @je_background_thread_boot0() #20
+  %79 = call zeroext i1 @je_background_thread_boot0() #21
   br i1 %79, label %malloc_init_hard_cleanup.exit, label %80
 
 80:                                               ; preds = %malloc_init_hard_recursible.exit
-  %81 = call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #20
+  %81 = call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #21
   %.not.i20 = icmp eq i32 %81, 0
   br i1 %.not.i20, label %malloc_mutex_trylock_final.exit.i22, label %82
 
@@ -16199,7 +16199,7 @@ malloc_mutex_trylock_final.exit.i22:              ; preds = %80
   br label %83
 
 82:                                               ; preds = %80
-  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @init_lock) #20
+  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @init_lock) #21
   br label %83
 
 83:                                               ; preds = %82, %malloc_mutex_trylock_final.exit.i22
@@ -16228,7 +16228,7 @@ malloc_mutex_lock.exit23:                         ; preds = %83, %87
   br i1 %92, label %96, label %pre_reentrancy.exit
 
 96:                                               ; preds = %malloc_mutex_lock.exit23
-  call void @je_tsd_slow_update(ptr noundef nonnull %48) #20
+  call void @je_tsd_slow_update(ptr noundef nonnull %48) #21
   br label %pre_reentrancy.exit
 
 pre_reentrancy.exit:                              ; preds = %malloc_mutex_lock.exit23, %96
@@ -16237,7 +16237,7 @@ pre_reentrancy.exit:                              ; preds = %malloc_mutex_lock.e
   br i1 %.not.i24, label %thread-pre-split.i, label %98
 
 98:                                               ; preds = %pre_reentrancy.exit
-  %99 = call i32 @sched_getcpu() #20
+  %99 = call i32 @sched_getcpu() #21
   %100 = icmp slt i32 %99, 0
   br i1 %100, label %101, label %121
 
@@ -16269,13 +16269,13 @@ pre_reentrancy.exit:                              ; preds = %malloc_mutex_lock.e
 
 malloc_narenas_default.exit.i:                    ; preds = %106, %103, %101
   %117 = phi i32 [ %102, %101 ], [ %..i.i, %106 ], [ 1, %103 ]
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.186, i32 noundef %117) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.186, i32 noundef %117) #21
   %118 = load i8, ptr @je_opt_abort, align 1, !tbaa !108, !range !110, !noundef !111
   %119 = trunc nuw i8 %118 to i1
   br i1 %119, label %120, label %thread-pre-split.i
 
 120:                                              ; preds = %malloc_narenas_default.exit.i
-  call void @abort() #22
+  call void @abort() #23
   unreachable
 
 121:                                              ; preds = %98
@@ -16284,13 +16284,13 @@ malloc_narenas_default.exit.i:                    ; preds = %106, %103, %101
   br i1 %123, label %124, label %128
 
 124:                                              ; preds = %121
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.187, i32 noundef %122) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.187, i32 noundef %122) #21
   %125 = load i8, ptr @je_opt_abort, align 1, !tbaa !108, !range !110, !noundef !111
   %126 = trunc nuw i8 %125 to i1
   br i1 %126, label %127, label %malloc_init_narenas.exit.thread
 
 127:                                              ; preds = %124
-  call void @abort() #22
+  call void @abort() #23
   unreachable
 
 128:                                              ; preds = %121
@@ -16302,7 +16302,7 @@ malloc_narenas_default.exit.i:                    ; preds = %106, %103, %101
   br i1 %or.cond.i25, label %percpu_arena_ind_limit.exit.i, label %132
 
 132:                                              ; preds = %128
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.188, i32 noundef %122) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.188, i32 noundef %122) #21
   %133 = load i8, ptr @je_opt_abort, align 1, !tbaa !108, !range !110, !noundef !111
   %134 = trunc nuw i8 %133 to i1
   br i1 %134, label %135, label %._crit_edge.i
@@ -16314,7 +16314,7 @@ malloc_narenas_default.exit.i:                    ; preds = %106, %103, %101
   br label %percpu_arena_ind_limit.exit.i
 
 135:                                              ; preds = %132
-  call void @abort() #22
+  call void @abort() #23
   unreachable
 
 percpu_arena_ind_limit.exit.i:                    ; preds = %._crit_edge.i, %128
@@ -16373,7 +16373,7 @@ thread-pre-split14.i:                             ; preds = %thread-pre-split14.
 
 161:                                              ; preds = %thread-pre-split14.i
   store i32 4094, ptr @je_narenas_auto, align 4, !tbaa !4
-  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.189, i32 noundef 4094) #20
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.189, i32 noundef 4094) #21
   %.pre17.i = load i32, ptr @je_narenas_auto, align 4, !tbaa !4
   br label %162
 
@@ -16381,7 +16381,7 @@ thread-pre-split14.i:                             ; preds = %thread-pre-split14.
   %163 = phi i32 [ %.pre17.i, %161 ], [ %159, %thread-pre-split14.i ]
   store atomic i32 %163, ptr @narenas_total release, align 4
   %164 = load ptr, ptr @a0, align 8, !tbaa !50
-  %165 = call zeroext i1 @je_arena_init_huge(ptr noundef %164) #20
+  %165 = call zeroext i1 @je_arena_init_huge(ptr noundef %164) #21
   br i1 %165, label %166, label %168
 
 166:                                              ; preds = %162
@@ -16391,13 +16391,13 @@ thread-pre-split14.i:                             ; preds = %thread-pre-split14.
 168:                                              ; preds = %166, %162
   %169 = load atomic i32, ptr @narenas_total acquire, align 4
   store i32 %169, ptr @je_manual_arena_base, align 4, !tbaa !4
-  %170 = call ptr @je_b0get() #20
-  %171 = call zeroext i1 @je_background_thread_boot1(ptr noundef nonnull %48, ptr noundef %170) #20
+  %170 = call ptr @je_b0get() #21
+  %171 = call zeroext i1 @je_background_thread_boot1(ptr noundef nonnull %48, ptr noundef %170) #21
   br i1 %171, label %malloc_init_narenas.exit.thread, label %177
 
 malloc_init_narenas.exit.thread:                  ; preds = %124, %168
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @init_lock, i64 64) monotonic, align 8
-  %172 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #20
+  %172 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #21
   %173 = load i8, ptr %93, align 1, !tbaa !11
   %174 = add i8 %173, -1
   store i8 %174, ptr %93, align 1, !tbaa !11
@@ -16405,7 +16405,7 @@ malloc_init_narenas.exit.thread:                  ; preds = %124, %168
   br i1 %175, label %176, label %malloc_init_hard_cleanup.exit
 
 176:                                              ; preds = %malloc_init_narenas.exit.thread
-  call void @je_tsd_slow_update(ptr noundef nonnull %48) #20
+  call void @je_tsd_slow_update(ptr noundef nonnull %48) #21
   br label %malloc_init_hard_cleanup.exit
 
 177:                                              ; preds = %168
@@ -16414,7 +16414,7 @@ malloc_init_narenas.exit.thread:                  ; preds = %124, %168
   %179 = add i32 %178, 3
   %spec.select.i.i = select i1 %.not.i.i28, i32 2, i32 %179
   store i32 %spec.select.i.i, ptr @je_opt_percpu_arena, align 4, !tbaa !4
-  %180 = call zeroext i1 @je_malloc_mutex_boot() #20
+  %180 = call zeroext i1 @je_malloc_mutex_boot() #21
   br i1 %180, label %181, label %182
 
 181:                                              ; preds = %177
@@ -16449,13 +16449,13 @@ malloc_init_narenas.exit.thread:                  ; preds = %124, %168
   br i1 %202, label %203, label %post_reentrancy.exit
 
 203:                                              ; preds = %182
-  call void @je_tsd_slow_update(ptr noundef nonnull %48) #20
+  call void @je_tsd_slow_update(ptr noundef nonnull %48) #21
   br label %post_reentrancy.exit
 
 post_reentrancy.exit:                             ; preds = %182, %203
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @init_lock, i64 64) monotonic, align 8
-  %204 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #20
-  call void @je_malloc_tsd_boot1() #20
+  %204 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #21
+  call void @je_malloc_tsd_boot1() #21
   %205 = call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 888
   %207 = load i8, ptr %206, align 8, !tbaa !11
@@ -16463,7 +16463,7 @@ post_reentrancy.exit:                             ; preds = %182, %203
   br i1 %.not.i, label %tsd_fetch_impl.exit, label %208, !prof !10
 
 208:                                              ; preds = %post_reentrancy.exit
-  %209 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %205, i1 noundef zeroext false) #20
+  %209 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %205, i1 noundef zeroext false) #21
   br label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %post_reentrancy.exit, %208
@@ -16473,8 +16473,8 @@ tsd_fetch_impl.exit:                              ; preds = %post_reentrancy.exi
   br i1 %211, label %212, label %214
 
 212:                                              ; preds = %tsd_fetch_impl.exit
-  call void @je_background_thread_ctl_init(ptr noundef %.0.i) #20
-  %213 = call zeroext i1 @je_background_thread_create(ptr noundef %.0.i, i32 noundef 0) #20
+  call void @je_background_thread_ctl_init(ptr noundef %.0.i) #21
+  %213 = call zeroext i1 @je_background_thread_create(ptr noundef %.0.i, i32 noundef 0) #21
   br i1 %213, label %malloc_init_hard_cleanup.exit, label %214
 
 214:                                              ; preds = %212, %tsd_fetch_impl.exit
@@ -16488,7 +16488,7 @@ malloc_init_hard_cleanup.exit:                    ; preds = %75, %176, %malloc_i
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @malloc_init_hard_cleanup(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #2 {
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @init_lock, i64 64) monotonic, align 8
-  %3 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #20
+  %3 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #21
   br i1 %1, label %4, label %post_reentrancy.exit
 
 4:                                                ; preds = %2
@@ -16500,7 +16500,7 @@ define internal fastcc void @malloc_init_hard_cleanup(ptr noundef %0, i1 noundef
   br i1 %8, label %9, label %post_reentrancy.exit
 
 9:                                                ; preds = %4
-  tail call void @je_tsd_slow_update(ptr noundef nonnull %0) #20
+  tail call void @je_tsd_slow_update(ptr noundef nonnull %0) #21
   br label %post_reentrancy.exit
 
 post_reentrancy.exit:                             ; preds = %9, %4, %2
@@ -16551,20 +16551,20 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #19
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #20
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -16586,12 +16586,13 @@ attributes #16 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-si
 attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nounwind }
-attributes #21 = { "function-inline-cost-multiplier"="2" }
-attributes #22 = { noreturn nounwind }
-attributes #23 = { nounwind willreturn memory(none) }
-attributes #24 = { nounwind allocsize(0) }
-attributes #25 = { nounwind willreturn memory(read) }
+attributes #20 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nounwind }
+attributes #22 = { "function-inline-cost-multiplier"="2" }
+attributes #23 = { noreturn nounwind }
+attributes #24 = { nounwind willreturn memory(none) }
+attributes #25 = { nounwind allocsize(0) }
+attributes #26 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -554,7 +554,7 @@ define void @_ZN5draco23SetSymbolEncodingMethodEPNS_7OptionsENS_18SymbolCodingMe
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %10
   %13 = load i64, ptr %4, align 8, !tbaa !13
   %14 = add i64 %13, 1
-  call void @_ZdlPvm(ptr noundef %11, i64 noundef %14) #18
+  call void @_ZdlPvm(ptr noundef %11, i64 noundef %14) #19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -571,7 +571,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %10, %
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5: ; preds = %15
   %19 = load i64, ptr %4, align 8, !tbaa !13
   %20 = add i64 %19, 1
-  call void @_ZdlPvm(ptr noundef %17, i64 noundef %20) #18
+  call void @_ZdlPvm(ptr noundef %17, i64 noundef %20) #19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5
@@ -617,7 +617,7 @@ define noundef zeroext i1 @_ZN5draco33SetSymbolEncodingCompressionLevelEPNS_7Opt
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %10
   %13 = load i64, ptr %5, align 8, !tbaa !13
   %14 = add i64 %13, 1
-  call void @_ZdlPvm(ptr noundef %11, i64 noundef %14) #18
+  call void @_ZdlPvm(ptr noundef %11, i64 noundef %14) #19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -634,7 +634,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %10, %
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11: ; preds = %15
   %19 = load i64, ptr %5, align 8, !tbaa !13
   %20 = add i64 %19, 1
-  call void @_ZdlPvm(ptr noundef %17, i64 noundef %20) #18
+  call void @_ZdlPvm(ptr noundef %17, i64 noundef %20) #19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
@@ -669,7 +669,7 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i: ; preds = %15
   %17 = zext nneg i32 %1 to i64
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %19 = shl nuw nsw i64 %17, 2
-  %20 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #19
+  %20 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #20
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i
@@ -722,7 +722,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i.i.us: ; preds = %34
   %.not.i.i.i.i.i.us = icmp ne i64 %43, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i.i.us)
   %44 = shl nuw nsw i64 %43, 2
-  %45 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #19
+  %45 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #20
           to label %.noexc65.us unwind label %.loopexit.split.us
 
 .noexc65.us:                                      ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i.i.us
@@ -736,7 +736,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i.i.us: ; preds = %34
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i.us
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i.us: ; preds = %48, %.noexc65.us
-  tail call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef %37) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef %37) #19
   %49 = getelementptr inbounds nuw i32, ptr %45, i64 %43
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i.us
 
@@ -801,7 +801,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit.i.us:      ; preds = %_ZNSt6vectorIjSaIjE
   store ptr %.us-phi125, ptr %21, align 8
   store ptr %.us-phi124, ptr %10, align 8
   store ptr %.us-phi, ptr %18, align 8
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #20
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #21
           to label %.noexc64 unwind label %.loopexit.split-lp
 
 .noexc64:                                         ; preds = %.split.us
@@ -817,7 +817,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %68
   %.not.i.i.i.i.i = icmp ne i64 %77, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i.i)
   %78 = shl nuw nsw i64 %77, 2
-  %79 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %78) #19
+  %79 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %78) #20
           to label %.noexc65 unwind label %.loopexit.split
 
 .noexc65:                                         ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i.i
@@ -831,7 +831,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %68
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i: ; preds = %82, %.noexc65
-  tail call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef %71) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef %71) #19
   %83 = getelementptr inbounds nuw i32, ptr %79, i64 %77
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i
 
@@ -869,14 +869,14 @@ _ZN5dracoL17ComputeBitLengthsEPKjiiPSt6vectorIjSaIjEEPj.exit: ; preds = %_ZNSt6v
   br i1 %95, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i, !prof !20
 
 .noexc.i.i:                                       ; preds = %94
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #20
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #21
           to label %.noexc66 unwind label %181
 
 .noexc66:                                         ; preds = %.noexc.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i: ; preds = %94
-  %96 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %92) #19
+  %96 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %92) #20
           to label %97 unwind label %181
 
 97:                                               ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i
@@ -925,7 +925,7 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit:                ; preds = %97, %.noexc67.threa
   br i1 %.not.i.i.i73, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %120
 
 120:                                              ; preds = %112
-  call void @_ZdlPvm(ptr noundef nonnull %100, i64 noundef %103) #18
+  call void @_ZdlPvm(ptr noundef nonnull %100, i64 noundef %103) #19
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %112, %120
@@ -994,7 +994,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %112, %120
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %145
   %149 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %150 = load ptr, ptr %149, align 8, !tbaa !11
-  %151 = call i32 @memcmp(ptr noundef %150, ptr noundef %.pre, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #21
+  %151 = call i32 @memcmp(ptr noundef %150, ptr noundef %.pre, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #22
   %.not.i.i.i.i.i.i.i = icmp eq i32 %151, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i
 
@@ -1029,7 +1029,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %155
   %159 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %160 = load ptr, ptr %159, align 8, !tbaa !11
-  %161 = call i32 @memcmp(ptr noundef %.pre, ptr noundef %160, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #21
+  %161 = call i32 @memcmp(ptr noundef %.pre, ptr noundef %160, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #22
   %.not.i.i.i.i.i.i = icmp eq i32 %161, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
 
@@ -1053,7 +1053,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %.critedge
   %166 = load i64, ptr %135, align 8, !tbaa !13
   %167 = add i64 %166, 1
-  call void @_ZdlPvm(ptr noundef %.pre, i64 noundef %167) #18
+  call void @_ZdlPvm(ptr noundef %.pre, i64 noundef %167) #19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %.critedge, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -1091,7 +1091,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %.crit
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i81: ; preds = %175
   %178 = load i64, ptr %168, align 8, !tbaa !13
   %179 = add i64 %178, 1
-  call void @_ZdlPvm(ptr noundef %176, i64 noundef %179) #18
+  call void @_ZdlPvm(ptr noundef %176, i64 noundef %179) #19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83: ; preds = %175, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i81
@@ -1131,7 +1131,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83: ; preds = %175
   br i1 %.not.i.i.i84, label %_ZNSt6vectorIjSaIjEED2Ev.exit85, label %185
 
 185:                                              ; preds = %183
-  call void @_ZdlPvm(ptr noundef nonnull %100, i64 noundef %103) #18
+  call void @_ZdlPvm(ptr noundef nonnull %100, i64 noundef %103) #19
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit85
 
 186:                                              ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
@@ -1160,7 +1160,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83: ; preds = %175
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i89: ; preds = %192
   %196 = load i64, ptr %168, align 8, !tbaa !13
   %197 = add i64 %196, 1
-  call void @_ZdlPvm(ptr noundef %194, i64 noundef %197) #18
+  call void @_ZdlPvm(ptr noundef %194, i64 noundef %197) #19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91: ; preds = %192, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i89, %190
@@ -1239,7 +1239,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %200, %205
   %226 = ptrtoint ptr %225 to i64
   %227 = ptrtoint ptr %223 to i64
   %228 = sub i64 %226, %227
-  call void @_ZdlPvm(ptr noundef nonnull %223, i64 noundef %228) #18
+  call void @_ZdlPvm(ptr noundef nonnull %223, i64 noundef %228) #19
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit94
 
 _ZNSt6vectorIjSaIjEED2Ev.exit94:                  ; preds = %222, %224
@@ -1257,7 +1257,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit85:                  ; preds = %.loopexit, %.loopex
   %232 = ptrtoint ptr %231 to i64
   %233 = ptrtoint ptr %229 to i64
   %234 = sub i64 %232, %233
-  call void @_ZdlPvm(ptr noundef nonnull %229, i64 noundef %234) #18
+  call void @_ZdlPvm(ptr noundef nonnull %229, i64 noundef %234) #19
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit96
 
 _ZNSt6vectorIjSaIjEED2Ev.exit96:                  ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit85, %230
@@ -1534,7 +1534,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %128, %132
   %150 = ptrtoint ptr %149 to i64
   %151 = ptrtoint ptr %146 to i64
   %152 = sub i64 %150, %151
-  call void @_ZdlPvm(ptr noundef nonnull %146, i64 noundef %152) #18
+  call void @_ZdlPvm(ptr noundef nonnull %146, i64 noundef %152) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi5EED2Ev.exit
 
 _ZN5draco17RAnsSymbolEncoderILi5EED2Ev.exit:      ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit, %147
@@ -1545,7 +1545,7 @@ _ZN5draco17RAnsSymbolEncoderILi5EED2Ev.exit:      ; preds = %_ZN5draco13EncoderB
   br i1 %.not.i.i45, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %_ZN5draco17RAnsSymbolEncoderILi5EED2Ev.exit
-  call void @_ZdlPvm(ptr noundef nonnull %154, i64 noundef 16) #18
+  call void @_ZdlPvm(ptr noundef nonnull %154, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %_ZN5draco17RAnsSymbolEncoderILi5EED2Ev.exit
@@ -1560,7 +1560,7 @@ _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2E
   %159 = ptrtoint ptr %158 to i64
   %160 = ptrtoint ptr %155 to i64
   %161 = sub i64 %159, %160
-  call void @_ZdlPvm(ptr noundef nonnull %155, i64 noundef %161) #18
+  call void @_ZdlPvm(ptr noundef nonnull %155, i64 noundef %161) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
 _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %156
@@ -1574,12 +1574,12 @@ _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN
   %165 = ptrtoint ptr %164 to i64
   %166 = ptrtoint ptr %57 to i64
   %167 = sub i64 %165, %166
-  call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef %167) #18
+  call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef %167) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi5EED2Ev.exit48
 
 _ZN5draco17RAnsSymbolEncoderILi5EED2Ev.exit48:    ; preds = %162, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %7) #21
+  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %7) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %56
@@ -1645,7 +1645,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco16EncodeRawSymbolsINS_17RAnsSym
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %31 = load ptr, ptr %30, align 8, !tbaa !11
-  %32 = call i32 @memcmp(ptr noundef %31, ptr noundef %.pre, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #21
+  %32 = call i32 @memcmp(ptr noundef %31, ptr noundef %.pre, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #22
   %.not.i.i.i.i.i.i.i = icmp eq i32 %32, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i
 
@@ -1680,7 +1680,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !11
-  %42 = call i32 @memcmp(ptr noundef %.pre, ptr noundef %41, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #21
+  %42 = call i32 @memcmp(ptr noundef %.pre, ptr noundef %41, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #22
   %.not.i.i.i.i.i.i = icmp eq i32 %42, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
 
@@ -1704,7 +1704,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %.critedge
   %47 = load i64, ptr %17, align 8, !tbaa !13
   %48 = add i64 %47, 1
-  call void @_ZdlPvm(ptr noundef %.pre, i64 noundef %48) #18
+  call void @_ZdlPvm(ptr noundef %.pre, i64 noundef %48) #19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %.critedge, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -1738,7 +1738,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %.crit
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i116: ; preds = %55
   %58 = load i64, ptr %49, align 8, !tbaa !13
   %59 = add i64 %58, 1
-  call void @_ZdlPvm(ptr noundef %56, i64 noundef %59) #18
+  call void @_ZdlPvm(ptr noundef %56, i64 noundef %59) #19
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i117
 
 60:                                               ; preds = %.noexc.i113
@@ -1751,7 +1751,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i122: ; preds = %60
   %64 = load i64, ptr %49, align 8, !tbaa !13
   %65 = add i64 %64, 1
-  call void @_ZdlPvm(ptr noundef %62, i64 noundef %65) #18
+  call void @_ZdlPvm(ptr noundef %62, i64 noundef %65) #19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i122
@@ -2062,7 +2062,7 @@ _ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56: ; preds = %_ZSt2
   br i1 %61, label %62, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit
 
 62:                                               ; preds = %56
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #20
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
   unreachable
 
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit:    ; preds = %56
@@ -2075,7 +2075,7 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit:    ; preds = %56
   br i1 %.not.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit, label %67
 
 67:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit
-  %68 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %66) #19
+  %68 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %66) #20
   br label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit, %67
@@ -2119,7 +2119,7 @@ _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit69: ; preds = %.lr.p
 
 83:                                               ; preds = %81
   %84 = sub i64 %13, %58
-  tail call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef %84) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef %84) #19
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit
 
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit: ; preds = %81, %83
@@ -2231,7 +2231,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 .noexc:                                           ; preds = %30
   %42 = shl nuw nsw i64 %9, 2
-  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #19
+  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #20
   store i32 0, ptr %43, align 4, !tbaa !15
   %44 = getelementptr i8, ptr %43, i64 4
   %45 = icmp eq i32 %.0114.lcssa, 0
@@ -2265,7 +2265,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.010.i.i.in.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i, 1
   %.010.i.i.i.i = lshr i64 %.010.i.i.in.i.i, 1
   %56 = shl nuw nsw i64 %.010.i.i.i.i, 2
-  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
+  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
@@ -2283,8 +2283,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %58 = landingpad { ptr, i32 }
           cleanup
   %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   resume { ptr, i32 } %58
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
@@ -2295,7 +2295,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #21
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEvT_SB_T0_.exit
 
 61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
@@ -2385,11 +2385,11 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !88
 
 _ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %132
 
 _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %104
 
 104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
@@ -2439,7 +2439,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
   %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %127 = load i64, ptr %126, align 8, !tbaa !9
   %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #21, !tbaa !15
+  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
   %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
   br label %131
 
@@ -2572,7 +2572,7 @@ _ZN5draco11RAnsEncoderILi12EE9write_endEv.exit:   ; preds = %12, %23, %34, %49, 
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %76
-  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef 16) #18
+  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %76
@@ -2587,7 +2587,7 @@ _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2E
   %83 = ptrtoint ptr %82 to i64
   %84 = ptrtoint ptr %79 to i64
   %85 = sub i64 %83, %84
-  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #18
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
 _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %80
@@ -2606,7 +2606,7 @@ _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN
 
 90:                                               ; preds = %88, %86
   %.pn = phi { ptr, i32 } [ %89, %88 ], [ %87, %86 ]
-  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #21
+  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
@@ -2621,7 +2621,7 @@ define linkonce_odr void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i: ; preds = %1
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 16) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i
@@ -2636,24 +2636,24 @@ _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2E
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #19
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit, %5
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #8
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #12
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #8
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.floor.f64(double) #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log2(double noundef) local_unnamed_addr #12
+declare double @log2(double noundef) local_unnamed_addr #13
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.ceil.f64(double) #8
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.ceil.f64(double) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi5EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2809,7 +2809,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
   br i1 %79, label %80, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
 
 80:                                               ; preds = %78
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #20
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
   unreachable
 
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
@@ -2822,7 +2822,7 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i, label %85
 
 85:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
-  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #19
+  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #20
   br label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
@@ -2845,7 +2845,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vector
 
 93:                                               ; preds = %89
   %94 = sub i64 %76, %73
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #18
+  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #19
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
@@ -2927,7 +2927,7 @@ _ZSt27__uninitialized_default_n_aIPN5draco8rans_symEmS1_ET_S3_T0_RSaIT1_E.exit: 
   br i1 %28, label %29, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE12_M_check_lenEmPKc.exit
 
 29:                                               ; preds = %27
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #20
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %27
@@ -2935,7 +2935,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %27
   %30 = add nuw nsw i64 %.sroa.speculated.i, %10
   %31 = tail call i64 @llvm.umin.i64(i64 %30, i64 1152921504606846975)
   %32 = shl nuw nsw i64 %31, 3
-  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #19
+  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #20
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %9
   store i64 0, ptr %34, align 4
   %35 = add nsw i64 %1, -1
@@ -2970,7 +2970,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds
 
 44:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   %45 = sub i64 %13, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %45) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %45) #19
   br label %_ZNSt12_Vector_baseIN5draco8rans_symESaIS1_EE13_M_deallocateEPS1_m.exit38
 
 _ZNSt12_Vector_baseIN5draco8rans_symESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %44
@@ -3045,7 +3045,7 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_ite
 }
 
 ; Function Attrs: nobuiltin nounwind allocsize(0)
-declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #13
+declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEEvT_SE_T0_(ptr %0, ptr %1, ptr %2) local_unnamed_addr #3 comdat {
@@ -3077,7 +3077,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %16
 
 16:                                               ; preds = %7
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
@@ -3087,7 +3087,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %19
 
 19:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -3135,7 +3135,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i: ; preds = %_ZN9__gnu
 
 .split.us.i:                                      ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i
   %.us-phi.i = phi i64 [ %40, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %32, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #21
   unreachable
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.us.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -3183,7 +3183,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %23
 
 23:                                               ; preds = %14
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
@@ -3193,7 +3193,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %26
 
 26:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -3246,14 +3246,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %54
 
 54:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %55
 
 55:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -3313,11 +3313,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i64, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %86
 
 85:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #21
   unreachable
 
 86:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
@@ -3616,7 +3616,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
   br i1 %.not.i.i.i.i.i79, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %27
 
 27:                                               ; preds = %18
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
@@ -3626,7 +3626,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i, label %30
 
 30:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -3692,7 +3692,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i: ; preds = %46
 
 ._crit_edge.i:                                    ; preds = %78, %46
   %.lcssa35.i = phi i64 [ %55, %46 ], [ %80, %78 ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i
@@ -3707,7 +3707,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   br i1 %.not.i.i2.i.i.i83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i, label %61
 
 61:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
@@ -3798,14 +3798,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %107
 
 107:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %108
 
 108:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
@@ -3865,11 +3865,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %139
 
 138:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #21
   unreachable
 
 139:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
@@ -4070,7 +4070,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -4080,7 +4080,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -4163,7 +4163,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i27, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28, label %67
 
 67:                                               ; preds = %64
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
@@ -4173,7 +4173,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   br i1 %.not.i.i2.i.i.i29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30, label %70
 
 70:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
@@ -4286,7 +4286,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -4296,7 +4296,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -4379,7 +4379,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i35, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36, label %69
 
 69:                                               ; preds = %66
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
@@ -4389,7 +4389,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   br i1 %.not.i.i2.i.i.i37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38, label %72
 
 72:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
@@ -4563,7 +4563,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
 .noexc:                                           ; preds = %4
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 3
-  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #19
+  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
   %11 = getelementptr inbounds nuw i64, ptr %9, i64 %7
@@ -4658,7 +4658,7 @@ _ZN5draco17RAnsSymbolEncoderILi1EE13StartEncodingEPNS_13EncoderBufferE.exit: ; p
   %54 = ptrtoint ptr %53 to i64
   %55 = ptrtoint ptr %50 to i64
   %56 = sub i64 %54, %55
-  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %56) #18
+  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %56) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi1EED2Ev.exit
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %_ZN5draco17RAnsSymbolEncoderILi1EE12EncodeSymbolEj.exit
@@ -4715,7 +4715,7 @@ _ZN5draco17RAnsSymbolEncoderILi1EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i, 
   %87 = ptrtoint ptr %86 to i64
   %88 = ptrtoint ptr %83 to i64
   %89 = sub i64 %87, %88
-  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %89) #18
+  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %89) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi1EED2Ev.exit25
 
 _ZN5draco17RAnsSymbolEncoderILi1EED2Ev.exit25:    ; preds = %82, %84
@@ -4725,7 +4725,7 @@ _ZN5draco17RAnsSymbolEncoderILi1EED2Ev.exit25:    ; preds = %82, %84
 
 90:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi1EED2Ev.exit25
   %91 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %91) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %91) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymbolEncoderILi1EED2Ev.exit25, %90
@@ -4738,7 +4738,7 @@ _ZN5draco17RAnsSymbolEncoderILi1EED2Ev.exit:      ; preds = %51, %48
 
 92:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi1EED2Ev.exit
   %93 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %93) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %93) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit27
 
 _ZNSt6vectorImSaImEED2Ev.exit27:                  ; preds = %92, %_ZN5draco17RAnsSymbolEncoderILi1EED2Ev.exit
@@ -4755,7 +4755,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
 .noexc:                                           ; preds = %4
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 3
-  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #19
+  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
   %11 = getelementptr inbounds nuw i64, ptr %9, i64 %7
@@ -4850,7 +4850,7 @@ _ZN5draco17RAnsSymbolEncoderILi2EE13StartEncodingEPNS_13EncoderBufferE.exit: ; p
   %54 = ptrtoint ptr %53 to i64
   %55 = ptrtoint ptr %50 to i64
   %56 = sub i64 %54, %55
-  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %56) #18
+  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %56) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi2EED2Ev.exit
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %_ZN5draco17RAnsSymbolEncoderILi2EE12EncodeSymbolEj.exit
@@ -4907,7 +4907,7 @@ _ZN5draco17RAnsSymbolEncoderILi2EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i, 
   %87 = ptrtoint ptr %86 to i64
   %88 = ptrtoint ptr %83 to i64
   %89 = sub i64 %87, %88
-  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %89) #18
+  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %89) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi2EED2Ev.exit25
 
 _ZN5draco17RAnsSymbolEncoderILi2EED2Ev.exit25:    ; preds = %82, %84
@@ -4917,7 +4917,7 @@ _ZN5draco17RAnsSymbolEncoderILi2EED2Ev.exit25:    ; preds = %82, %84
 
 90:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi2EED2Ev.exit25
   %91 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %91) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %91) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymbolEncoderILi2EED2Ev.exit25, %90
@@ -4930,7 +4930,7 @@ _ZN5draco17RAnsSymbolEncoderILi2EED2Ev.exit:      ; preds = %51, %48
 
 92:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi2EED2Ev.exit
   %93 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %93) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %93) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit27
 
 _ZNSt6vectorImSaImEED2Ev.exit27:                  ; preds = %92, %_ZN5draco17RAnsSymbolEncoderILi2EED2Ev.exit
@@ -4947,7 +4947,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
 .noexc:                                           ; preds = %4
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 3
-  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #19
+  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
   %11 = getelementptr inbounds nuw i64, ptr %9, i64 %7
@@ -5042,7 +5042,7 @@ _ZN5draco17RAnsSymbolEncoderILi3EE13StartEncodingEPNS_13EncoderBufferE.exit: ; p
   %54 = ptrtoint ptr %53 to i64
   %55 = ptrtoint ptr %50 to i64
   %56 = sub i64 %54, %55
-  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %56) #18
+  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %56) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi3EED2Ev.exit
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %_ZN5draco17RAnsSymbolEncoderILi3EE12EncodeSymbolEj.exit
@@ -5099,7 +5099,7 @@ _ZN5draco17RAnsSymbolEncoderILi3EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i, 
   %87 = ptrtoint ptr %86 to i64
   %88 = ptrtoint ptr %83 to i64
   %89 = sub i64 %87, %88
-  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %89) #18
+  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %89) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi3EED2Ev.exit25
 
 _ZN5draco17RAnsSymbolEncoderILi3EED2Ev.exit25:    ; preds = %82, %84
@@ -5109,7 +5109,7 @@ _ZN5draco17RAnsSymbolEncoderILi3EED2Ev.exit25:    ; preds = %82, %84
 
 90:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi3EED2Ev.exit25
   %91 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %91) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %91) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymbolEncoderILi3EED2Ev.exit25, %90
@@ -5122,7 +5122,7 @@ _ZN5draco17RAnsSymbolEncoderILi3EED2Ev.exit:      ; preds = %51, %48
 
 92:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi3EED2Ev.exit
   %93 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %93) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %93) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit27
 
 _ZNSt6vectorImSaImEED2Ev.exit27:                  ; preds = %92, %_ZN5draco17RAnsSymbolEncoderILi3EED2Ev.exit
@@ -5139,7 +5139,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
 .noexc:                                           ; preds = %4
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 3
-  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #19
+  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
   %11 = getelementptr inbounds nuw i64, ptr %9, i64 %7
@@ -5234,7 +5234,7 @@ _ZN5draco17RAnsSymbolEncoderILi4EE13StartEncodingEPNS_13EncoderBufferE.exit: ; p
   %54 = ptrtoint ptr %53 to i64
   %55 = ptrtoint ptr %50 to i64
   %56 = sub i64 %54, %55
-  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %56) #18
+  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %56) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi4EED2Ev.exit
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %_ZN5draco17RAnsSymbolEncoderILi4EE12EncodeSymbolEj.exit
@@ -5291,7 +5291,7 @@ _ZN5draco17RAnsSymbolEncoderILi4EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i, 
   %87 = ptrtoint ptr %86 to i64
   %88 = ptrtoint ptr %83 to i64
   %89 = sub i64 %87, %88
-  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %89) #18
+  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %89) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi4EED2Ev.exit25
 
 _ZN5draco17RAnsSymbolEncoderILi4EED2Ev.exit25:    ; preds = %82, %84
@@ -5301,7 +5301,7 @@ _ZN5draco17RAnsSymbolEncoderILi4EED2Ev.exit25:    ; preds = %82, %84
 
 90:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi4EED2Ev.exit25
   %91 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %91) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %91) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymbolEncoderILi4EED2Ev.exit25, %90
@@ -5314,7 +5314,7 @@ _ZN5draco17RAnsSymbolEncoderILi4EED2Ev.exit:      ; preds = %51, %48
 
 92:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi4EED2Ev.exit
   %93 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %93) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %93) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit27
 
 _ZNSt6vectorImSaImEED2Ev.exit27:                  ; preds = %92, %_ZN5draco17RAnsSymbolEncoderILi4EED2Ev.exit
@@ -5331,7 +5331,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
 .noexc:                                           ; preds = %4
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 3
-  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #19
+  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
   %11 = getelementptr inbounds nuw i64, ptr %9, i64 %7
@@ -5474,7 +5474,7 @@ _ZN5draco17RAnsSymbolEncoderILi5EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i, 
   %81 = ptrtoint ptr %80 to i64
   %82 = ptrtoint ptr %77 to i64
   %83 = sub i64 %81, %82
-  call void @_ZdlPvm(ptr noundef nonnull %77, i64 noundef %83) #18
+  call void @_ZdlPvm(ptr noundef nonnull %77, i64 noundef %83) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi5EED2Ev.exit
 
 _ZN5draco17RAnsSymbolEncoderILi5EED2Ev.exit:      ; preds = %76, %78
@@ -5484,7 +5484,7 @@ _ZN5draco17RAnsSymbolEncoderILi5EED2Ev.exit:      ; preds = %76, %78
 
 84:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi5EED2Ev.exit
   %85 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %85) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %85) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymbolEncoderILi5EED2Ev.exit, %84
@@ -5496,7 +5496,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymb
   %89 = ptrtoint ptr %88 to i64
   %90 = ptrtoint ptr %50 to i64
   %91 = sub i64 %89, %90
-  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %91) #18
+  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %91) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi5EED2Ev.exit27
 
 _ZN5draco17RAnsSymbolEncoderILi5EED2Ev.exit27:    ; preds = %86, %48
@@ -5506,7 +5506,7 @@ _ZN5draco17RAnsSymbolEncoderILi5EED2Ev.exit27:    ; preds = %86, %48
 
 92:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi5EED2Ev.exit27
   %93 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %93) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %93) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit29
 
 _ZNSt6vectorImSaImEED2Ev.exit29:                  ; preds = %92, %_ZN5draco17RAnsSymbolEncoderILi5EED2Ev.exit27
@@ -5523,7 +5523,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
 .noexc:                                           ; preds = %4
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 3
-  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #19
+  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
   %11 = getelementptr inbounds nuw i64, ptr %9, i64 %7
@@ -5618,7 +5618,7 @@ _ZN5draco17RAnsSymbolEncoderILi6EE13StartEncodingEPNS_13EncoderBufferE.exit: ; p
   %54 = ptrtoint ptr %53 to i64
   %55 = ptrtoint ptr %50 to i64
   %56 = sub i64 %54, %55
-  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %56) #18
+  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %56) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi6EED2Ev.exit
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %_ZN5draco17RAnsSymbolEncoderILi6EE12EncodeSymbolEj.exit
@@ -5675,7 +5675,7 @@ _ZN5draco17RAnsSymbolEncoderILi6EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i, 
   %87 = ptrtoint ptr %86 to i64
   %88 = ptrtoint ptr %83 to i64
   %89 = sub i64 %87, %88
-  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %89) #18
+  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %89) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi6EED2Ev.exit25
 
 _ZN5draco17RAnsSymbolEncoderILi6EED2Ev.exit25:    ; preds = %82, %84
@@ -5685,7 +5685,7 @@ _ZN5draco17RAnsSymbolEncoderILi6EED2Ev.exit25:    ; preds = %82, %84
 
 90:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi6EED2Ev.exit25
   %91 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %91) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %91) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymbolEncoderILi6EED2Ev.exit25, %90
@@ -5698,7 +5698,7 @@ _ZN5draco17RAnsSymbolEncoderILi6EED2Ev.exit:      ; preds = %51, %48
 
 92:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi6EED2Ev.exit
   %93 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %93) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %93) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit27
 
 _ZNSt6vectorImSaImEED2Ev.exit27:                  ; preds = %92, %_ZN5draco17RAnsSymbolEncoderILi6EED2Ev.exit
@@ -5715,7 +5715,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
 .noexc:                                           ; preds = %4
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 3
-  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #19
+  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
   %11 = getelementptr inbounds nuw i64, ptr %9, i64 %7
@@ -5810,7 +5810,7 @@ _ZN5draco17RAnsSymbolEncoderILi7EE13StartEncodingEPNS_13EncoderBufferE.exit: ; p
   %54 = ptrtoint ptr %53 to i64
   %55 = ptrtoint ptr %50 to i64
   %56 = sub i64 %54, %55
-  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %56) #18
+  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %56) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi7EED2Ev.exit
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %_ZN5draco17RAnsSymbolEncoderILi7EE12EncodeSymbolEj.exit
@@ -5867,7 +5867,7 @@ _ZN5draco17RAnsSymbolEncoderILi7EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i, 
   %87 = ptrtoint ptr %86 to i64
   %88 = ptrtoint ptr %83 to i64
   %89 = sub i64 %87, %88
-  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %89) #18
+  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %89) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi7EED2Ev.exit25
 
 _ZN5draco17RAnsSymbolEncoderILi7EED2Ev.exit25:    ; preds = %82, %84
@@ -5877,7 +5877,7 @@ _ZN5draco17RAnsSymbolEncoderILi7EED2Ev.exit25:    ; preds = %82, %84
 
 90:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi7EED2Ev.exit25
   %91 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %91) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %91) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymbolEncoderILi7EED2Ev.exit25, %90
@@ -5890,7 +5890,7 @@ _ZN5draco17RAnsSymbolEncoderILi7EED2Ev.exit:      ; preds = %51, %48
 
 92:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi7EED2Ev.exit
   %93 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %93) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %93) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit27
 
 _ZNSt6vectorImSaImEED2Ev.exit27:                  ; preds = %92, %_ZN5draco17RAnsSymbolEncoderILi7EED2Ev.exit
@@ -5907,7 +5907,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
 .noexc:                                           ; preds = %4
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 3
-  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #19
+  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
   %11 = getelementptr inbounds nuw i64, ptr %9, i64 %7
@@ -6002,7 +6002,7 @@ _ZN5draco17RAnsSymbolEncoderILi8EE13StartEncodingEPNS_13EncoderBufferE.exit: ; p
   %54 = ptrtoint ptr %53 to i64
   %55 = ptrtoint ptr %50 to i64
   %56 = sub i64 %54, %55
-  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %56) #18
+  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %56) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi8EED2Ev.exit
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %_ZN5draco17RAnsSymbolEncoderILi8EE12EncodeSymbolEj.exit
@@ -6059,7 +6059,7 @@ _ZN5draco17RAnsSymbolEncoderILi8EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i, 
   %87 = ptrtoint ptr %86 to i64
   %88 = ptrtoint ptr %83 to i64
   %89 = sub i64 %87, %88
-  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %89) #18
+  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %89) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi8EED2Ev.exit25
 
 _ZN5draco17RAnsSymbolEncoderILi8EED2Ev.exit25:    ; preds = %82, %84
@@ -6069,7 +6069,7 @@ _ZN5draco17RAnsSymbolEncoderILi8EED2Ev.exit25:    ; preds = %82, %84
 
 90:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi8EED2Ev.exit25
   %91 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %91) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %91) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymbolEncoderILi8EED2Ev.exit25, %90
@@ -6082,7 +6082,7 @@ _ZN5draco17RAnsSymbolEncoderILi8EED2Ev.exit:      ; preds = %51, %48
 
 92:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi8EED2Ev.exit
   %93 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %93) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %93) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit27
 
 _ZNSt6vectorImSaImEED2Ev.exit27:                  ; preds = %92, %_ZN5draco17RAnsSymbolEncoderILi8EED2Ev.exit
@@ -6099,7 +6099,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
 .noexc:                                           ; preds = %4
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 3
-  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #19
+  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
   %11 = getelementptr inbounds nuw i64, ptr %9, i64 %7
@@ -6242,7 +6242,7 @@ _ZN5draco17RAnsSymbolEncoderILi9EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i, 
   %81 = ptrtoint ptr %80 to i64
   %82 = ptrtoint ptr %77 to i64
   %83 = sub i64 %81, %82
-  call void @_ZdlPvm(ptr noundef nonnull %77, i64 noundef %83) #18
+  call void @_ZdlPvm(ptr noundef nonnull %77, i64 noundef %83) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi9EED2Ev.exit
 
 _ZN5draco17RAnsSymbolEncoderILi9EED2Ev.exit:      ; preds = %76, %78
@@ -6252,7 +6252,7 @@ _ZN5draco17RAnsSymbolEncoderILi9EED2Ev.exit:      ; preds = %76, %78
 
 84:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi9EED2Ev.exit
   %85 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %85) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %85) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymbolEncoderILi9EED2Ev.exit, %84
@@ -6264,7 +6264,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymb
   %89 = ptrtoint ptr %88 to i64
   %90 = ptrtoint ptr %50 to i64
   %91 = sub i64 %89, %90
-  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %91) #18
+  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %91) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi9EED2Ev.exit27
 
 _ZN5draco17RAnsSymbolEncoderILi9EED2Ev.exit27:    ; preds = %86, %48
@@ -6274,7 +6274,7 @@ _ZN5draco17RAnsSymbolEncoderILi9EED2Ev.exit27:    ; preds = %86, %48
 
 92:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi9EED2Ev.exit27
   %93 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %93) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %93) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit29
 
 _ZNSt6vectorImSaImEED2Ev.exit29:                  ; preds = %92, %_ZN5draco17RAnsSymbolEncoderILi9EED2Ev.exit27
@@ -6291,7 +6291,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
 .noexc:                                           ; preds = %4
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 3
-  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #19
+  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
   %11 = getelementptr inbounds nuw i64, ptr %9, i64 %7
@@ -6434,7 +6434,7 @@ _ZN5draco17RAnsSymbolEncoderILi10EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i,
   %81 = ptrtoint ptr %80 to i64
   %82 = ptrtoint ptr %77 to i64
   %83 = sub i64 %81, %82
-  call void @_ZdlPvm(ptr noundef nonnull %77, i64 noundef %83) #18
+  call void @_ZdlPvm(ptr noundef nonnull %77, i64 noundef %83) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi10EED2Ev.exit
 
 _ZN5draco17RAnsSymbolEncoderILi10EED2Ev.exit:     ; preds = %76, %78
@@ -6444,7 +6444,7 @@ _ZN5draco17RAnsSymbolEncoderILi10EED2Ev.exit:     ; preds = %76, %78
 
 84:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi10EED2Ev.exit
   %85 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %85) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %85) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymbolEncoderILi10EED2Ev.exit, %84
@@ -6456,7 +6456,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymb
   %89 = ptrtoint ptr %88 to i64
   %90 = ptrtoint ptr %50 to i64
   %91 = sub i64 %89, %90
-  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %91) #18
+  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %91) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi10EED2Ev.exit27
 
 _ZN5draco17RAnsSymbolEncoderILi10EED2Ev.exit27:   ; preds = %86, %48
@@ -6466,7 +6466,7 @@ _ZN5draco17RAnsSymbolEncoderILi10EED2Ev.exit27:   ; preds = %86, %48
 
 92:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi10EED2Ev.exit27
   %93 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %93) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %93) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit29
 
 _ZNSt6vectorImSaImEED2Ev.exit29:                  ; preds = %92, %_ZN5draco17RAnsSymbolEncoderILi10EED2Ev.exit27
@@ -6483,7 +6483,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
 .noexc:                                           ; preds = %4
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 3
-  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #19
+  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
   %11 = getelementptr inbounds nuw i64, ptr %9, i64 %7
@@ -6626,7 +6626,7 @@ _ZN5draco17RAnsSymbolEncoderILi11EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i,
   %81 = ptrtoint ptr %80 to i64
   %82 = ptrtoint ptr %77 to i64
   %83 = sub i64 %81, %82
-  call void @_ZdlPvm(ptr noundef nonnull %77, i64 noundef %83) #18
+  call void @_ZdlPvm(ptr noundef nonnull %77, i64 noundef %83) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi11EED2Ev.exit
 
 _ZN5draco17RAnsSymbolEncoderILi11EED2Ev.exit:     ; preds = %76, %78
@@ -6636,7 +6636,7 @@ _ZN5draco17RAnsSymbolEncoderILi11EED2Ev.exit:     ; preds = %76, %78
 
 84:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi11EED2Ev.exit
   %85 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %85) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %85) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymbolEncoderILi11EED2Ev.exit, %84
@@ -6648,7 +6648,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymb
   %89 = ptrtoint ptr %88 to i64
   %90 = ptrtoint ptr %50 to i64
   %91 = sub i64 %89, %90
-  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %91) #18
+  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %91) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi11EED2Ev.exit27
 
 _ZN5draco17RAnsSymbolEncoderILi11EED2Ev.exit27:   ; preds = %86, %48
@@ -6658,7 +6658,7 @@ _ZN5draco17RAnsSymbolEncoderILi11EED2Ev.exit27:   ; preds = %86, %48
 
 92:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi11EED2Ev.exit27
   %93 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %93) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %93) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit29
 
 _ZNSt6vectorImSaImEED2Ev.exit29:                  ; preds = %92, %_ZN5draco17RAnsSymbolEncoderILi11EED2Ev.exit27
@@ -6675,7 +6675,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
 .noexc:                                           ; preds = %4
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 3
-  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #19
+  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
   %11 = getelementptr inbounds nuw i64, ptr %9, i64 %7
@@ -6818,7 +6818,7 @@ _ZN5draco17RAnsSymbolEncoderILi12EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i,
   %81 = ptrtoint ptr %80 to i64
   %82 = ptrtoint ptr %77 to i64
   %83 = sub i64 %81, %82
-  call void @_ZdlPvm(ptr noundef nonnull %77, i64 noundef %83) #18
+  call void @_ZdlPvm(ptr noundef nonnull %77, i64 noundef %83) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi12EED2Ev.exit
 
 _ZN5draco17RAnsSymbolEncoderILi12EED2Ev.exit:     ; preds = %76, %78
@@ -6828,7 +6828,7 @@ _ZN5draco17RAnsSymbolEncoderILi12EED2Ev.exit:     ; preds = %76, %78
 
 84:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi12EED2Ev.exit
   %85 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %85) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %85) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymbolEncoderILi12EED2Ev.exit, %84
@@ -6840,7 +6840,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymb
   %89 = ptrtoint ptr %88 to i64
   %90 = ptrtoint ptr %50 to i64
   %91 = sub i64 %89, %90
-  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %91) #18
+  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %91) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi12EED2Ev.exit27
 
 _ZN5draco17RAnsSymbolEncoderILi12EED2Ev.exit27:   ; preds = %86, %48
@@ -6850,7 +6850,7 @@ _ZN5draco17RAnsSymbolEncoderILi12EED2Ev.exit27:   ; preds = %86, %48
 
 92:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi12EED2Ev.exit27
   %93 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %93) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %93) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit29
 
 _ZNSt6vectorImSaImEED2Ev.exit29:                  ; preds = %92, %_ZN5draco17RAnsSymbolEncoderILi12EED2Ev.exit27
@@ -6867,7 +6867,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
 .noexc:                                           ; preds = %4
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 3
-  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #19
+  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
   %11 = getelementptr inbounds nuw i64, ptr %9, i64 %7
@@ -7010,7 +7010,7 @@ _ZN5draco17RAnsSymbolEncoderILi13EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i,
   %81 = ptrtoint ptr %80 to i64
   %82 = ptrtoint ptr %77 to i64
   %83 = sub i64 %81, %82
-  call void @_ZdlPvm(ptr noundef nonnull %77, i64 noundef %83) #18
+  call void @_ZdlPvm(ptr noundef nonnull %77, i64 noundef %83) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi13EED2Ev.exit
 
 _ZN5draco17RAnsSymbolEncoderILi13EED2Ev.exit:     ; preds = %76, %78
@@ -7020,7 +7020,7 @@ _ZN5draco17RAnsSymbolEncoderILi13EED2Ev.exit:     ; preds = %76, %78
 
 84:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi13EED2Ev.exit
   %85 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %85) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %85) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymbolEncoderILi13EED2Ev.exit, %84
@@ -7032,7 +7032,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymb
   %89 = ptrtoint ptr %88 to i64
   %90 = ptrtoint ptr %50 to i64
   %91 = sub i64 %89, %90
-  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %91) #18
+  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %91) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi13EED2Ev.exit27
 
 _ZN5draco17RAnsSymbolEncoderILi13EED2Ev.exit27:   ; preds = %86, %48
@@ -7042,7 +7042,7 @@ _ZN5draco17RAnsSymbolEncoderILi13EED2Ev.exit27:   ; preds = %86, %48
 
 92:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi13EED2Ev.exit27
   %93 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %93) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %93) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit29
 
 _ZNSt6vectorImSaImEED2Ev.exit29:                  ; preds = %92, %_ZN5draco17RAnsSymbolEncoderILi13EED2Ev.exit27
@@ -7059,7 +7059,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
 .noexc:                                           ; preds = %4
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 3
-  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #19
+  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
   %11 = getelementptr inbounds nuw i64, ptr %9, i64 %7
@@ -7202,7 +7202,7 @@ _ZN5draco17RAnsSymbolEncoderILi14EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i,
   %81 = ptrtoint ptr %80 to i64
   %82 = ptrtoint ptr %77 to i64
   %83 = sub i64 %81, %82
-  call void @_ZdlPvm(ptr noundef nonnull %77, i64 noundef %83) #18
+  call void @_ZdlPvm(ptr noundef nonnull %77, i64 noundef %83) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi14EED2Ev.exit
 
 _ZN5draco17RAnsSymbolEncoderILi14EED2Ev.exit:     ; preds = %76, %78
@@ -7212,7 +7212,7 @@ _ZN5draco17RAnsSymbolEncoderILi14EED2Ev.exit:     ; preds = %76, %78
 
 84:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi14EED2Ev.exit
   %85 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %85) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %85) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymbolEncoderILi14EED2Ev.exit, %84
@@ -7224,7 +7224,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymb
   %89 = ptrtoint ptr %88 to i64
   %90 = ptrtoint ptr %50 to i64
   %91 = sub i64 %89, %90
-  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %91) #18
+  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %91) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi14EED2Ev.exit27
 
 _ZN5draco17RAnsSymbolEncoderILi14EED2Ev.exit27:   ; preds = %86, %48
@@ -7234,7 +7234,7 @@ _ZN5draco17RAnsSymbolEncoderILi14EED2Ev.exit27:   ; preds = %86, %48
 
 92:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi14EED2Ev.exit27
   %93 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %93) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.030.0, i64 noundef %93) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit29
 
 _ZNSt6vectorImSaImEED2Ev.exit29:                  ; preds = %92, %_ZN5draco17RAnsSymbolEncoderILi14EED2Ev.exit27
@@ -7251,7 +7251,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
 .noexc:                                           ; preds = %4
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 3
-  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #19
+  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
   %11 = getelementptr inbounds nuw i64, ptr %9, i64 %7
@@ -7346,7 +7346,7 @@ _ZN5draco17RAnsSymbolEncoderILi15EE13StartEncodingEPNS_13EncoderBufferE.exit: ; 
   %54 = ptrtoint ptr %53 to i64
   %55 = ptrtoint ptr %50 to i64
   %56 = sub i64 %54, %55
-  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %56) #18
+  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %56) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi15EED2Ev.exit
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %_ZN5draco17RAnsSymbolEncoderILi15EE12EncodeSymbolEj.exit
@@ -7403,7 +7403,7 @@ _ZN5draco17RAnsSymbolEncoderILi15EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i,
   %87 = ptrtoint ptr %86 to i64
   %88 = ptrtoint ptr %83 to i64
   %89 = sub i64 %87, %88
-  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %89) #18
+  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %89) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi15EED2Ev.exit25
 
 _ZN5draco17RAnsSymbolEncoderILi15EED2Ev.exit25:   ; preds = %82, %84
@@ -7413,7 +7413,7 @@ _ZN5draco17RAnsSymbolEncoderILi15EED2Ev.exit25:   ; preds = %82, %84
 
 90:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi15EED2Ev.exit25
   %91 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %91) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %91) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymbolEncoderILi15EED2Ev.exit25, %90
@@ -7426,7 +7426,7 @@ _ZN5draco17RAnsSymbolEncoderILi15EED2Ev.exit:     ; preds = %51, %48
 
 92:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi15EED2Ev.exit
   %93 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %93) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %93) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit27
 
 _ZNSt6vectorImSaImEED2Ev.exit27:                  ; preds = %92, %_ZN5draco17RAnsSymbolEncoderILi15EED2Ev.exit
@@ -7443,7 +7443,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
 .noexc:                                           ; preds = %4
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 3
-  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #19
+  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
   %11 = getelementptr inbounds nuw i64, ptr %9, i64 %7
@@ -7538,7 +7538,7 @@ _ZN5draco17RAnsSymbolEncoderILi16EE13StartEncodingEPNS_13EncoderBufferE.exit: ; 
   %54 = ptrtoint ptr %53 to i64
   %55 = ptrtoint ptr %50 to i64
   %56 = sub i64 %54, %55
-  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %56) #18
+  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %56) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi16EED2Ev.exit
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %_ZN5draco17RAnsSymbolEncoderILi16EE12EncodeSymbolEj.exit
@@ -7595,7 +7595,7 @@ _ZN5draco17RAnsSymbolEncoderILi16EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i,
   %87 = ptrtoint ptr %86 to i64
   %88 = ptrtoint ptr %83 to i64
   %89 = sub i64 %87, %88
-  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %89) #18
+  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %89) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi16EED2Ev.exit25
 
 _ZN5draco17RAnsSymbolEncoderILi16EED2Ev.exit25:   ; preds = %82, %84
@@ -7605,7 +7605,7 @@ _ZN5draco17RAnsSymbolEncoderILi16EED2Ev.exit25:   ; preds = %82, %84
 
 90:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi16EED2Ev.exit25
   %91 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %91) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %91) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymbolEncoderILi16EED2Ev.exit25, %90
@@ -7618,7 +7618,7 @@ _ZN5draco17RAnsSymbolEncoderILi16EED2Ev.exit:     ; preds = %51, %48
 
 92:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi16EED2Ev.exit
   %93 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %93) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %93) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit27
 
 _ZNSt6vectorImSaImEED2Ev.exit27:                  ; preds = %92, %_ZN5draco17RAnsSymbolEncoderILi16EED2Ev.exit
@@ -7635,7 +7635,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
 .noexc:                                           ; preds = %4
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 3
-  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #19
+  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
   %11 = getelementptr inbounds nuw i64, ptr %9, i64 %7
@@ -7730,7 +7730,7 @@ _ZN5draco17RAnsSymbolEncoderILi17EE13StartEncodingEPNS_13EncoderBufferE.exit: ; 
   %54 = ptrtoint ptr %53 to i64
   %55 = ptrtoint ptr %50 to i64
   %56 = sub i64 %54, %55
-  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %56) #18
+  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %56) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi17EED2Ev.exit
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %_ZN5draco17RAnsSymbolEncoderILi17EE12EncodeSymbolEj.exit
@@ -7787,7 +7787,7 @@ _ZN5draco17RAnsSymbolEncoderILi17EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i,
   %87 = ptrtoint ptr %86 to i64
   %88 = ptrtoint ptr %83 to i64
   %89 = sub i64 %87, %88
-  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %89) #18
+  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %89) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi17EED2Ev.exit25
 
 _ZN5draco17RAnsSymbolEncoderILi17EED2Ev.exit25:   ; preds = %82, %84
@@ -7797,7 +7797,7 @@ _ZN5draco17RAnsSymbolEncoderILi17EED2Ev.exit25:   ; preds = %82, %84
 
 90:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi17EED2Ev.exit25
   %91 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %91) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %91) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymbolEncoderILi17EED2Ev.exit25, %90
@@ -7810,7 +7810,7 @@ _ZN5draco17RAnsSymbolEncoderILi17EED2Ev.exit:     ; preds = %51, %48
 
 92:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi17EED2Ev.exit
   %93 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %93) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %93) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit27
 
 _ZNSt6vectorImSaImEED2Ev.exit27:                  ; preds = %92, %_ZN5draco17RAnsSymbolEncoderILi17EED2Ev.exit
@@ -7827,7 +7827,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_1
 .noexc:                                           ; preds = %4
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 3
-  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #19
+  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false), !tbaa !9
   %11 = getelementptr inbounds nuw i64, ptr %9, i64 %7
@@ -7922,7 +7922,7 @@ _ZN5draco17RAnsSymbolEncoderILi18EE13StartEncodingEPNS_13EncoderBufferE.exit: ; 
   %54 = ptrtoint ptr %53 to i64
   %55 = ptrtoint ptr %50 to i64
   %56 = sub i64 %54, %55
-  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %56) #18
+  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %56) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi18EED2Ev.exit
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %_ZN5draco17RAnsSymbolEncoderILi18EE12EncodeSymbolEj.exit
@@ -7979,7 +7979,7 @@ _ZN5draco17RAnsSymbolEncoderILi18EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i,
   %87 = ptrtoint ptr %86 to i64
   %88 = ptrtoint ptr %83 to i64
   %89 = sub i64 %87, %88
-  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %89) #18
+  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %89) #19
   br label %_ZN5draco17RAnsSymbolEncoderILi18EED2Ev.exit25
 
 _ZN5draco17RAnsSymbolEncoderILi18EED2Ev.exit25:   ; preds = %82, %84
@@ -7989,7 +7989,7 @@ _ZN5draco17RAnsSymbolEncoderILi18EED2Ev.exit25:   ; preds = %82, %84
 
 90:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi18EED2Ev.exit25
   %91 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %91) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %91) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5draco17RAnsSymbolEncoderILi18EED2Ev.exit25, %90
@@ -8002,7 +8002,7 @@ _ZN5draco17RAnsSymbolEncoderILi18EED2Ev.exit:     ; preds = %51, %48
 
 92:                                               ; preds = %_ZN5draco17RAnsSymbolEncoderILi18EED2Ev.exit
   %93 = sub i64 %.sroa.13.0, %22
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %93) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %93) #19
   br label %_ZNSt6vectorImSaImEED2Ev.exit27
 
 _ZNSt6vectorImSaImEED2Ev.exit27:                  ; preds = %92, %_ZN5draco17RAnsSymbolEncoderILi18EED2Ev.exit
@@ -8102,7 +8102,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 .noexc:                                           ; preds = %30
   %42 = shl nuw nsw i64 %9, 2
-  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #19
+  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #20
   store i32 0, ptr %43, align 4, !tbaa !15
   %44 = getelementptr i8, ptr %43, i64 4
   %45 = icmp eq i32 %.0114.lcssa, 0
@@ -8136,7 +8136,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.010.i.i.in.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i, 1
   %.010.i.i.i.i = lshr i64 %.010.i.i.in.i.i, 1
   %56 = shl nuw nsw i64 %.010.i.i.i.i, 2
-  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
+  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
@@ -8154,8 +8154,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %58 = landingpad { ptr, i32 }
           cleanup
   %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   resume { ptr, i32 } %58
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
@@ -8166,7 +8166,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #21
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEvT_SB_T0_.exit
 
 61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
@@ -8256,11 +8256,11 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !225
 
 _ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %132
 
 _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %104
 
 104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
@@ -8310,7 +8310,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
   %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %127 = load i64, ptr %126, align 8, !tbaa !9
   %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #21, !tbaa !15
+  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
   %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
   br label %131
 
@@ -8441,7 +8441,7 @@ _ZN5draco11RAnsEncoderILi12EE9write_endEv.exit:   ; preds = %12, %23, %34, %49, 
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %76
-  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef 16) #18
+  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %76
@@ -8456,7 +8456,7 @@ _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2E
   %83 = ptrtoint ptr %82 to i64
   %84 = ptrtoint ptr %79 to i64
   %85 = sub i64 %83, %84
-  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #18
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
 _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %80
@@ -8475,7 +8475,7 @@ _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN
 
 90:                                               ; preds = %88, %86
   %.pn = phi { ptr, i32 } [ %89, %88 ], [ %87, %86 ]
-  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #21
+  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
@@ -8634,7 +8634,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
   br i1 %79, label %80, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
 
 80:                                               ; preds = %78
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #20
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
   unreachable
 
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
@@ -8647,7 +8647,7 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i, label %85
 
 85:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
-  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #19
+  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #20
   br label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
@@ -8670,7 +8670,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vector
 
 93:                                               ; preds = %89
   %94 = sub i64 %76, %73
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #18
+  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #19
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
@@ -8785,7 +8785,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %16
 
 16:                                               ; preds = %7
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
@@ -8795,7 +8795,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %19
 
 19:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -8843,7 +8843,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i: ; preds = %_ZN9__gnu
 
 .split.us.i:                                      ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i
   %.us-phi.i = phi i64 [ %40, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %32, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #21
   unreachable
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.us.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -8891,7 +8891,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %23
 
 23:                                               ; preds = %14
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
@@ -8901,7 +8901,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %26
 
 26:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -8954,14 +8954,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %54
 
 54:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %55
 
 55:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -9021,11 +9021,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i64, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %86
 
 85:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #21
   unreachable
 
 86:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
@@ -9159,7 +9159,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
   br i1 %.not.i.i.i.i.i79, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %27
 
 27:                                               ; preds = %18
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
@@ -9169,7 +9169,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i, label %30
 
 30:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -9235,7 +9235,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i: ; preds = %46
 
 ._crit_edge.i:                                    ; preds = %78, %46
   %.lcssa35.i = phi i64 [ %55, %46 ], [ %80, %78 ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i
@@ -9250,7 +9250,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   br i1 %.not.i.i2.i.i.i83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i, label %61
 
 61:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
@@ -9341,14 +9341,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %107
 
 107:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %108
 
 108:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
@@ -9408,11 +9408,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %139
 
 138:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #21
   unreachable
 
 139:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
@@ -9613,7 +9613,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -9623,7 +9623,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -9706,7 +9706,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i27, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28, label %67
 
 67:                                               ; preds = %64
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
@@ -9716,7 +9716,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   br i1 %.not.i.i2.i.i.i29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30, label %70
 
 70:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
@@ -9829,7 +9829,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -9839,7 +9839,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -9922,7 +9922,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i35, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36, label %69
 
 69:                                               ; preds = %66
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
@@ -9932,7 +9932,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   br i1 %.not.i.i2.i.i.i37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38, label %72
 
 72:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
@@ -10075,7 +10075,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 .noexc:                                           ; preds = %30
   %42 = shl nuw nsw i64 %9, 2
-  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #19
+  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #20
   store i32 0, ptr %43, align 4, !tbaa !15
   %44 = getelementptr i8, ptr %43, i64 4
   %45 = icmp eq i32 %.0114.lcssa, 0
@@ -10109,7 +10109,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.010.i.i.in.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i, 1
   %.010.i.i.i.i = lshr i64 %.010.i.i.in.i.i, 1
   %56 = shl nuw nsw i64 %.010.i.i.i.i, 2
-  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
+  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
@@ -10127,8 +10127,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %58 = landingpad { ptr, i32 }
           cleanup
   %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   resume { ptr, i32 } %58
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
@@ -10139,7 +10139,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #21
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEvT_SB_T0_.exit
 
 61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
@@ -10229,11 +10229,11 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !247
 
 _ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %132
 
 _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %104
 
 104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
@@ -10283,7 +10283,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
   %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %127 = load i64, ptr %126, align 8, !tbaa !9
   %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #21, !tbaa !15
+  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
   %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
   br label %131
 
@@ -10414,7 +10414,7 @@ _ZN5draco11RAnsEncoderILi12EE9write_endEv.exit:   ; preds = %12, %23, %34, %49, 
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %76
-  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef 16) #18
+  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %76
@@ -10429,7 +10429,7 @@ _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2E
   %83 = ptrtoint ptr %82 to i64
   %84 = ptrtoint ptr %79 to i64
   %85 = sub i64 %83, %84
-  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #18
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
 _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %80
@@ -10448,7 +10448,7 @@ _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN
 
 90:                                               ; preds = %88, %86
   %.pn = phi { ptr, i32 } [ %89, %88 ], [ %87, %86 ]
-  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #21
+  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
@@ -10607,7 +10607,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
   br i1 %79, label %80, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
 
 80:                                               ; preds = %78
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #20
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
   unreachable
 
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
@@ -10620,7 +10620,7 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i, label %85
 
 85:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
-  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #19
+  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #20
   br label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
@@ -10643,7 +10643,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vector
 
 93:                                               ; preds = %89
   %94 = sub i64 %76, %73
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #18
+  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #19
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
@@ -10758,7 +10758,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %16
 
 16:                                               ; preds = %7
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
@@ -10768,7 +10768,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %19
 
 19:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -10816,7 +10816,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i: ; preds = %_ZN9__gnu
 
 .split.us.i:                                      ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i
   %.us-phi.i = phi i64 [ %40, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %32, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #21
   unreachable
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.us.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -10864,7 +10864,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %23
 
 23:                                               ; preds = %14
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
@@ -10874,7 +10874,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %26
 
 26:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -10927,14 +10927,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %54
 
 54:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %55
 
 55:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -10994,11 +10994,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i64, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %86
 
 85:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #21
   unreachable
 
 86:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
@@ -11132,7 +11132,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
   br i1 %.not.i.i.i.i.i79, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %27
 
 27:                                               ; preds = %18
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
@@ -11142,7 +11142,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i, label %30
 
 30:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -11208,7 +11208,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i: ; preds = %46
 
 ._crit_edge.i:                                    ; preds = %78, %46
   %.lcssa35.i = phi i64 [ %55, %46 ], [ %80, %78 ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i
@@ -11223,7 +11223,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   br i1 %.not.i.i2.i.i.i83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i, label %61
 
 61:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
@@ -11314,14 +11314,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %107
 
 107:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %108
 
 108:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
@@ -11381,11 +11381,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %139
 
 138:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #21
   unreachable
 
 139:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
@@ -11586,7 +11586,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -11596,7 +11596,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -11679,7 +11679,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i27, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28, label %67
 
 67:                                               ; preds = %64
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
@@ -11689,7 +11689,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   br i1 %.not.i.i2.i.i.i29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30, label %70
 
 70:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
@@ -11802,7 +11802,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -11812,7 +11812,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -11895,7 +11895,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i35, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36, label %69
 
 69:                                               ; preds = %66
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
@@ -11905,7 +11905,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   br i1 %.not.i.i2.i.i.i37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38, label %72
 
 72:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
@@ -12048,7 +12048,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 .noexc:                                           ; preds = %30
   %42 = shl nuw nsw i64 %9, 2
-  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #19
+  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #20
   store i32 0, ptr %43, align 4, !tbaa !15
   %44 = getelementptr i8, ptr %43, i64 4
   %45 = icmp eq i32 %.0114.lcssa, 0
@@ -12082,7 +12082,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.010.i.i.in.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i, 1
   %.010.i.i.i.i = lshr i64 %.010.i.i.in.i.i, 1
   %56 = shl nuw nsw i64 %.010.i.i.i.i, 2
-  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
+  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
@@ -12100,8 +12100,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %58 = landingpad { ptr, i32 }
           cleanup
   %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   resume { ptr, i32 } %58
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
@@ -12112,7 +12112,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #21
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEvT_SB_T0_.exit
 
 61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
@@ -12202,11 +12202,11 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !269
 
 _ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %132
 
 _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %104
 
 104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
@@ -12256,7 +12256,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
   %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %127 = load i64, ptr %126, align 8, !tbaa !9
   %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #21, !tbaa !15
+  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
   %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
   br label %131
 
@@ -12387,7 +12387,7 @@ _ZN5draco11RAnsEncoderILi12EE9write_endEv.exit:   ; preds = %12, %23, %34, %49, 
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %76
-  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef 16) #18
+  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %76
@@ -12402,7 +12402,7 @@ _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2E
   %83 = ptrtoint ptr %82 to i64
   %84 = ptrtoint ptr %79 to i64
   %85 = sub i64 %83, %84
-  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #18
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
 _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %80
@@ -12421,7 +12421,7 @@ _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN
 
 90:                                               ; preds = %88, %86
   %.pn = phi { ptr, i32 } [ %89, %88 ], [ %87, %86 ]
-  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #21
+  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
@@ -12580,7 +12580,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
   br i1 %79, label %80, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
 
 80:                                               ; preds = %78
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #20
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
   unreachable
 
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
@@ -12593,7 +12593,7 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i, label %85
 
 85:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
-  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #19
+  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #20
   br label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
@@ -12616,7 +12616,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vector
 
 93:                                               ; preds = %89
   %94 = sub i64 %76, %73
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #18
+  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #19
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
@@ -12731,7 +12731,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %16
 
 16:                                               ; preds = %7
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
@@ -12741,7 +12741,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %19
 
 19:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -12789,7 +12789,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i: ; preds = %_ZN9__gnu
 
 .split.us.i:                                      ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i
   %.us-phi.i = phi i64 [ %40, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %32, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #21
   unreachable
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.us.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -12837,7 +12837,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %23
 
 23:                                               ; preds = %14
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
@@ -12847,7 +12847,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %26
 
 26:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -12900,14 +12900,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %54
 
 54:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %55
 
 55:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -12967,11 +12967,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i64, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %86
 
 85:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #21
   unreachable
 
 86:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
@@ -13105,7 +13105,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
   br i1 %.not.i.i.i.i.i79, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %27
 
 27:                                               ; preds = %18
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
@@ -13115,7 +13115,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i, label %30
 
 30:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -13181,7 +13181,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i: ; preds = %46
 
 ._crit_edge.i:                                    ; preds = %78, %46
   %.lcssa35.i = phi i64 [ %55, %46 ], [ %80, %78 ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i
@@ -13196,7 +13196,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   br i1 %.not.i.i2.i.i.i83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i, label %61
 
 61:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
@@ -13287,14 +13287,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %107
 
 107:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %108
 
 108:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
@@ -13354,11 +13354,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %139
 
 138:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #21
   unreachable
 
 139:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
@@ -13559,7 +13559,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -13569,7 +13569,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -13652,7 +13652,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i27, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28, label %67
 
 67:                                               ; preds = %64
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
@@ -13662,7 +13662,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   br i1 %.not.i.i2.i.i.i29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30, label %70
 
 70:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
@@ -13775,7 +13775,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -13785,7 +13785,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -13868,7 +13868,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i35, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36, label %69
 
 69:                                               ; preds = %66
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
@@ -13878,7 +13878,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   br i1 %.not.i.i2.i.i.i37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38, label %72
 
 72:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
@@ -14021,7 +14021,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 .noexc:                                           ; preds = %30
   %42 = shl nuw nsw i64 %9, 2
-  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #19
+  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #20
   store i32 0, ptr %43, align 4, !tbaa !15
   %44 = getelementptr i8, ptr %43, i64 4
   %45 = icmp eq i32 %.0114.lcssa, 0
@@ -14055,7 +14055,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.010.i.i.in.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i, 1
   %.010.i.i.i.i = lshr i64 %.010.i.i.in.i.i, 1
   %56 = shl nuw nsw i64 %.010.i.i.i.i, 2
-  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
+  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
@@ -14073,8 +14073,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %58 = landingpad { ptr, i32 }
           cleanup
   %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   resume { ptr, i32 } %58
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
@@ -14085,7 +14085,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #21
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEvT_SB_T0_.exit
 
 61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
@@ -14175,11 +14175,11 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !291
 
 _ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %132
 
 _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %104
 
 104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
@@ -14229,7 +14229,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
   %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %127 = load i64, ptr %126, align 8, !tbaa !9
   %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #21, !tbaa !15
+  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
   %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
   br label %131
 
@@ -14360,7 +14360,7 @@ _ZN5draco11RAnsEncoderILi12EE9write_endEv.exit:   ; preds = %12, %23, %34, %49, 
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %76
-  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef 16) #18
+  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %76
@@ -14375,7 +14375,7 @@ _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2E
   %83 = ptrtoint ptr %82 to i64
   %84 = ptrtoint ptr %79 to i64
   %85 = sub i64 %83, %84
-  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #18
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
 _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %80
@@ -14394,7 +14394,7 @@ _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN
 
 90:                                               ; preds = %88, %86
   %.pn = phi { ptr, i32 } [ %89, %88 ], [ %87, %86 ]
-  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #21
+  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
@@ -14553,7 +14553,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
   br i1 %79, label %80, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
 
 80:                                               ; preds = %78
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #20
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
   unreachable
 
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
@@ -14566,7 +14566,7 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i, label %85
 
 85:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
-  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #19
+  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #20
   br label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
@@ -14589,7 +14589,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vector
 
 93:                                               ; preds = %89
   %94 = sub i64 %76, %73
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #18
+  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #19
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
@@ -14704,7 +14704,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %16
 
 16:                                               ; preds = %7
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
@@ -14714,7 +14714,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %19
 
 19:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -14762,7 +14762,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i: ; preds = %_ZN9__gnu
 
 .split.us.i:                                      ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i
   %.us-phi.i = phi i64 [ %40, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %32, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #21
   unreachable
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.us.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -14810,7 +14810,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %23
 
 23:                                               ; preds = %14
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
@@ -14820,7 +14820,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %26
 
 26:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -14873,14 +14873,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %54
 
 54:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %55
 
 55:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -14940,11 +14940,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i64, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %86
 
 85:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #21
   unreachable
 
 86:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
@@ -15078,7 +15078,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
   br i1 %.not.i.i.i.i.i79, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %27
 
 27:                                               ; preds = %18
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
@@ -15088,7 +15088,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i, label %30
 
 30:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -15154,7 +15154,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i: ; preds = %46
 
 ._crit_edge.i:                                    ; preds = %78, %46
   %.lcssa35.i = phi i64 [ %55, %46 ], [ %80, %78 ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i
@@ -15169,7 +15169,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   br i1 %.not.i.i2.i.i.i83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i, label %61
 
 61:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
@@ -15260,14 +15260,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %107
 
 107:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %108
 
 108:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
@@ -15327,11 +15327,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %139
 
 138:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #21
   unreachable
 
 139:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
@@ -15532,7 +15532,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -15542,7 +15542,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -15625,7 +15625,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i27, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28, label %67
 
 67:                                               ; preds = %64
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
@@ -15635,7 +15635,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   br i1 %.not.i.i2.i.i.i29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30, label %70
 
 70:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
@@ -15748,7 +15748,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -15758,7 +15758,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -15841,7 +15841,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i35, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36, label %69
 
 69:                                               ; preds = %66
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
@@ -15851,7 +15851,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   br i1 %.not.i.i2.i.i.i37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38, label %72
 
 72:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
@@ -15994,7 +15994,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 .noexc:                                           ; preds = %30
   %42 = shl nuw nsw i64 %9, 2
-  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #19
+  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #20
   store i32 0, ptr %43, align 4, !tbaa !15
   %44 = getelementptr i8, ptr %43, i64 4
   %45 = icmp eq i32 %.0114.lcssa, 0
@@ -16028,7 +16028,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.010.i.i.in.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i, 1
   %.010.i.i.i.i = lshr i64 %.010.i.i.in.i.i, 1
   %56 = shl nuw nsw i64 %.010.i.i.i.i, 2
-  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
+  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
@@ -16046,8 +16046,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %58 = landingpad { ptr, i32 }
           cleanup
   %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   resume { ptr, i32 } %58
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
@@ -16058,7 +16058,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #21
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEvT_SB_T0_.exit
 
 61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
@@ -16148,11 +16148,11 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !313
 
 _ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %132
 
 _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %104
 
 104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
@@ -16202,7 +16202,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
   %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %127 = load i64, ptr %126, align 8, !tbaa !9
   %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #21, !tbaa !15
+  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
   %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
   br label %131
 
@@ -16333,7 +16333,7 @@ _ZN5draco11RAnsEncoderILi12EE9write_endEv.exit:   ; preds = %12, %23, %34, %49, 
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %76
-  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef 16) #18
+  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %76
@@ -16348,7 +16348,7 @@ _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2E
   %83 = ptrtoint ptr %82 to i64
   %84 = ptrtoint ptr %79 to i64
   %85 = sub i64 %83, %84
-  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #18
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
 _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %80
@@ -16367,7 +16367,7 @@ _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN
 
 90:                                               ; preds = %88, %86
   %.pn = phi { ptr, i32 } [ %89, %88 ], [ %87, %86 ]
-  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #21
+  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
@@ -16526,7 +16526,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
   br i1 %79, label %80, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
 
 80:                                               ; preds = %78
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #20
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
   unreachable
 
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
@@ -16539,7 +16539,7 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i, label %85
 
 85:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
-  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #19
+  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #20
   br label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
@@ -16562,7 +16562,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vector
 
 93:                                               ; preds = %89
   %94 = sub i64 %76, %73
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #18
+  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #19
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
@@ -16677,7 +16677,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %16
 
 16:                                               ; preds = %7
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
@@ -16687,7 +16687,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %19
 
 19:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -16735,7 +16735,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i: ; preds = %_ZN9__gnu
 
 .split.us.i:                                      ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i
   %.us-phi.i = phi i64 [ %40, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %32, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #21
   unreachable
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.us.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -16783,7 +16783,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %23
 
 23:                                               ; preds = %14
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
@@ -16793,7 +16793,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %26
 
 26:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -16846,14 +16846,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %54
 
 54:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %55
 
 55:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -16913,11 +16913,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i64, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %86
 
 85:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #21
   unreachable
 
 86:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
@@ -17051,7 +17051,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
   br i1 %.not.i.i.i.i.i79, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %27
 
 27:                                               ; preds = %18
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
@@ -17061,7 +17061,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i, label %30
 
 30:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -17127,7 +17127,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i: ; preds = %46
 
 ._crit_edge.i:                                    ; preds = %78, %46
   %.lcssa35.i = phi i64 [ %55, %46 ], [ %80, %78 ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i
@@ -17142,7 +17142,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   br i1 %.not.i.i2.i.i.i83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i, label %61
 
 61:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
@@ -17233,14 +17233,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %107
 
 107:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %108
 
 108:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
@@ -17300,11 +17300,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %139
 
 138:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #21
   unreachable
 
 139:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
@@ -17505,7 +17505,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -17515,7 +17515,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -17598,7 +17598,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i27, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28, label %67
 
 67:                                               ; preds = %64
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
@@ -17608,7 +17608,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   br i1 %.not.i.i2.i.i.i29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30, label %70
 
 70:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
@@ -17721,7 +17721,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -17731,7 +17731,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -17814,7 +17814,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i35, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36, label %69
 
 69:                                               ; preds = %66
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
@@ -17824,7 +17824,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   br i1 %.not.i.i2.i.i.i37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38, label %72
 
 72:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
@@ -17967,7 +17967,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 .noexc:                                           ; preds = %30
   %42 = shl nuw nsw i64 %9, 2
-  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #19
+  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #20
   store i32 0, ptr %43, align 4, !tbaa !15
   %44 = getelementptr i8, ptr %43, i64 4
   %45 = icmp eq i32 %.0114.lcssa, 0
@@ -18001,7 +18001,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.010.i.i.in.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i, 1
   %.010.i.i.i.i = lshr i64 %.010.i.i.in.i.i, 1
   %56 = shl nuw nsw i64 %.010.i.i.i.i, 2
-  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
+  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
@@ -18019,8 +18019,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %58 = landingpad { ptr, i32 }
           cleanup
   %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   resume { ptr, i32 } %58
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
@@ -18031,7 +18031,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #21
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEvT_SB_T0_.exit
 
 61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
@@ -18121,11 +18121,11 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !335
 
 _ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %132
 
 _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %104
 
 104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
@@ -18175,7 +18175,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
   %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %127 = load i64, ptr %126, align 8, !tbaa !9
   %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #21, !tbaa !15
+  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
   %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
   br label %131
 
@@ -18306,7 +18306,7 @@ _ZN5draco11RAnsEncoderILi12EE9write_endEv.exit:   ; preds = %12, %23, %34, %49, 
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %76
-  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef 16) #18
+  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %76
@@ -18321,7 +18321,7 @@ _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2E
   %83 = ptrtoint ptr %82 to i64
   %84 = ptrtoint ptr %79 to i64
   %85 = sub i64 %83, %84
-  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #18
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
 _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %80
@@ -18340,7 +18340,7 @@ _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN
 
 90:                                               ; preds = %88, %86
   %.pn = phi { ptr, i32 } [ %89, %88 ], [ %87, %86 ]
-  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #21
+  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
@@ -18499,7 +18499,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
   br i1 %79, label %80, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
 
 80:                                               ; preds = %78
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #20
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
   unreachable
 
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
@@ -18512,7 +18512,7 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i, label %85
 
 85:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
-  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #19
+  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #20
   br label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
@@ -18535,7 +18535,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vector
 
 93:                                               ; preds = %89
   %94 = sub i64 %76, %73
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #18
+  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #19
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
@@ -18650,7 +18650,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %16
 
 16:                                               ; preds = %7
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
@@ -18660,7 +18660,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %19
 
 19:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -18708,7 +18708,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i: ; preds = %_ZN9__gnu
 
 .split.us.i:                                      ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i
   %.us-phi.i = phi i64 [ %40, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %32, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #21
   unreachable
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.us.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -18756,7 +18756,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %23
 
 23:                                               ; preds = %14
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
@@ -18766,7 +18766,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %26
 
 26:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -18819,14 +18819,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %54
 
 54:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %55
 
 55:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -18886,11 +18886,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i64, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %86
 
 85:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #21
   unreachable
 
 86:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
@@ -19024,7 +19024,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
   br i1 %.not.i.i.i.i.i79, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %27
 
 27:                                               ; preds = %18
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
@@ -19034,7 +19034,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i, label %30
 
 30:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -19100,7 +19100,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i: ; preds = %46
 
 ._crit_edge.i:                                    ; preds = %78, %46
   %.lcssa35.i = phi i64 [ %55, %46 ], [ %80, %78 ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i
@@ -19115,7 +19115,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   br i1 %.not.i.i2.i.i.i83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i, label %61
 
 61:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
@@ -19206,14 +19206,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %107
 
 107:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %108
 
 108:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
@@ -19273,11 +19273,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %139
 
 138:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #21
   unreachable
 
 139:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
@@ -19478,7 +19478,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -19488,7 +19488,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -19571,7 +19571,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i27, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28, label %67
 
 67:                                               ; preds = %64
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
@@ -19581,7 +19581,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   br i1 %.not.i.i2.i.i.i29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30, label %70
 
 70:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
@@ -19694,7 +19694,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -19704,7 +19704,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -19787,7 +19787,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i35, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36, label %69
 
 69:                                               ; preds = %66
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
@@ -19797,7 +19797,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   br i1 %.not.i.i2.i.i.i37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38, label %72
 
 72:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
@@ -19940,7 +19940,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 .noexc:                                           ; preds = %30
   %42 = shl nuw nsw i64 %9, 2
-  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #19
+  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #20
   store i32 0, ptr %43, align 4, !tbaa !15
   %44 = getelementptr i8, ptr %43, i64 4
   %45 = icmp eq i32 %.0114.lcssa, 0
@@ -19974,7 +19974,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.010.i.i.in.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i, 1
   %.010.i.i.i.i = lshr i64 %.010.i.i.in.i.i, 1
   %56 = shl nuw nsw i64 %.010.i.i.i.i, 2
-  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
+  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
@@ -19992,8 +19992,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %58 = landingpad { ptr, i32 }
           cleanup
   %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   resume { ptr, i32 } %58
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
@@ -20004,7 +20004,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #21
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEvT_SB_T0_.exit
 
 61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
@@ -20094,11 +20094,11 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !357
 
 _ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %132
 
 _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %104
 
 104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
@@ -20148,7 +20148,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
   %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %127 = load i64, ptr %126, align 8, !tbaa !9
   %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #21, !tbaa !15
+  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
   %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
   br label %131
 
@@ -20279,7 +20279,7 @@ _ZN5draco11RAnsEncoderILi12EE9write_endEv.exit:   ; preds = %12, %23, %34, %49, 
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %76
-  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef 16) #18
+  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %76
@@ -20294,7 +20294,7 @@ _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2E
   %83 = ptrtoint ptr %82 to i64
   %84 = ptrtoint ptr %79 to i64
   %85 = sub i64 %83, %84
-  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #18
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
 _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %80
@@ -20313,7 +20313,7 @@ _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN
 
 90:                                               ; preds = %88, %86
   %.pn = phi { ptr, i32 } [ %89, %88 ], [ %87, %86 ]
-  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #21
+  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
@@ -20472,7 +20472,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
   br i1 %79, label %80, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
 
 80:                                               ; preds = %78
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #20
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
   unreachable
 
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
@@ -20485,7 +20485,7 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i, label %85
 
 85:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
-  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #19
+  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #20
   br label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
@@ -20508,7 +20508,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vector
 
 93:                                               ; preds = %89
   %94 = sub i64 %76, %73
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #18
+  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #19
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
@@ -20623,7 +20623,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %16
 
 16:                                               ; preds = %7
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
@@ -20633,7 +20633,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %19
 
 19:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -20681,7 +20681,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i: ; preds = %_ZN9__gnu
 
 .split.us.i:                                      ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i
   %.us-phi.i = phi i64 [ %40, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %32, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #21
   unreachable
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.us.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -20729,7 +20729,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %23
 
 23:                                               ; preds = %14
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
@@ -20739,7 +20739,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %26
 
 26:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -20792,14 +20792,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %54
 
 54:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %55
 
 55:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -20859,11 +20859,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i64, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %86
 
 85:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #21
   unreachable
 
 86:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
@@ -20997,7 +20997,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
   br i1 %.not.i.i.i.i.i79, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %27
 
 27:                                               ; preds = %18
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
@@ -21007,7 +21007,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i, label %30
 
 30:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -21073,7 +21073,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i: ; preds = %46
 
 ._crit_edge.i:                                    ; preds = %78, %46
   %.lcssa35.i = phi i64 [ %55, %46 ], [ %80, %78 ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i
@@ -21088,7 +21088,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   br i1 %.not.i.i2.i.i.i83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i, label %61
 
 61:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
@@ -21179,14 +21179,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %107
 
 107:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %108
 
 108:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
@@ -21246,11 +21246,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %139
 
 138:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #21
   unreachable
 
 139:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
@@ -21451,7 +21451,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -21461,7 +21461,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -21544,7 +21544,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i27, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28, label %67
 
 67:                                               ; preds = %64
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
@@ -21554,7 +21554,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   br i1 %.not.i.i2.i.i.i29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30, label %70
 
 70:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
@@ -21667,7 +21667,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -21677,7 +21677,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -21760,7 +21760,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i35, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36, label %69
 
 69:                                               ; preds = %66
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
@@ -21770,7 +21770,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   br i1 %.not.i.i2.i.i.i37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38, label %72
 
 72:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
@@ -21913,7 +21913,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 .noexc:                                           ; preds = %30
   %42 = shl nuw nsw i64 %9, 2
-  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #19
+  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #20
   store i32 0, ptr %43, align 4, !tbaa !15
   %44 = getelementptr i8, ptr %43, i64 4
   %45 = icmp eq i32 %.0114.lcssa, 0
@@ -21947,7 +21947,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.010.i.i.in.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i, 1
   %.010.i.i.i.i = lshr i64 %.010.i.i.in.i.i, 1
   %56 = shl nuw nsw i64 %.010.i.i.i.i, 2
-  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
+  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
@@ -21965,8 +21965,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %58 = landingpad { ptr, i32 }
           cleanup
   %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   resume { ptr, i32 } %58
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
@@ -21977,7 +21977,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #21
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEvT_SB_T0_.exit
 
 61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
@@ -22067,11 +22067,11 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !379
 
 _ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %132
 
 _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %104
 
 104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
@@ -22121,7 +22121,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
   %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %127 = load i64, ptr %126, align 8, !tbaa !9
   %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #21, !tbaa !15
+  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
   %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
   br label %131
 
@@ -22253,7 +22253,7 @@ _ZN5draco11RAnsEncoderILi13EE9write_endEv.exit:   ; preds = %12, %23, %35, %50, 
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %77
-  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #18
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %77
@@ -22268,7 +22268,7 @@ _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2E
   %84 = ptrtoint ptr %83 to i64
   %85 = ptrtoint ptr %80 to i64
   %86 = sub i64 %84, %85
-  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #18
+  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
 _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %81
@@ -22287,7 +22287,7 @@ _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN
 
 91:                                               ; preds = %89, %87
   %.pn = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ]
-  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #21
+  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
@@ -22446,7 +22446,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
   br i1 %79, label %80, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
 
 80:                                               ; preds = %78
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #20
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
   unreachable
 
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
@@ -22459,7 +22459,7 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i, label %85
 
 85:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
-  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #19
+  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #20
   br label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
@@ -22482,7 +22482,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vector
 
 93:                                               ; preds = %89
   %94 = sub i64 %76, %73
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #18
+  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #19
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
@@ -22597,7 +22597,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %16
 
 16:                                               ; preds = %7
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
@@ -22607,7 +22607,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %19
 
 19:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -22655,7 +22655,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i: ; preds = %_ZN9__gnu
 
 .split.us.i:                                      ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i
   %.us-phi.i = phi i64 [ %40, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %32, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #21
   unreachable
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.us.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -22703,7 +22703,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %23
 
 23:                                               ; preds = %14
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
@@ -22713,7 +22713,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %26
 
 26:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -22766,14 +22766,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %54
 
 54:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %55
 
 55:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -22833,11 +22833,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i64, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %86
 
 85:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #21
   unreachable
 
 86:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
@@ -22971,7 +22971,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
   br i1 %.not.i.i.i.i.i79, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %27
 
 27:                                               ; preds = %18
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
@@ -22981,7 +22981,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i, label %30
 
 30:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -23047,7 +23047,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i: ; preds = %46
 
 ._crit_edge.i:                                    ; preds = %78, %46
   %.lcssa35.i = phi i64 [ %55, %46 ], [ %80, %78 ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i
@@ -23062,7 +23062,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   br i1 %.not.i.i2.i.i.i83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i, label %61
 
 61:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
@@ -23153,14 +23153,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %107
 
 107:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %108
 
 108:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
@@ -23220,11 +23220,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %139
 
 138:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #21
   unreachable
 
 139:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
@@ -23425,7 +23425,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -23435,7 +23435,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -23518,7 +23518,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i27, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28, label %67
 
 67:                                               ; preds = %64
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
@@ -23528,7 +23528,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   br i1 %.not.i.i2.i.i.i29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30, label %70
 
 70:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
@@ -23641,7 +23641,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -23651,7 +23651,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -23734,7 +23734,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i35, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36, label %69
 
 69:                                               ; preds = %66
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
@@ -23744,7 +23744,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   br i1 %.not.i.i2.i.i.i37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38, label %72
 
 72:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
@@ -23887,7 +23887,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 .noexc:                                           ; preds = %30
   %42 = shl nuw nsw i64 %9, 2
-  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #19
+  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #20
   store i32 0, ptr %43, align 4, !tbaa !15
   %44 = getelementptr i8, ptr %43, i64 4
   %45 = icmp eq i32 %.0114.lcssa, 0
@@ -23921,7 +23921,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.010.i.i.in.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i, 1
   %.010.i.i.i.i = lshr i64 %.010.i.i.in.i.i, 1
   %56 = shl nuw nsw i64 %.010.i.i.i.i, 2
-  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
+  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
@@ -23939,8 +23939,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %58 = landingpad { ptr, i32 }
           cleanup
   %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   resume { ptr, i32 } %58
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
@@ -23951,7 +23951,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #21
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEvT_SB_T0_.exit
 
 61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
@@ -24041,11 +24041,11 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !401
 
 _ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %132
 
 _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %104
 
 104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
@@ -24095,7 +24095,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
   %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %127 = load i64, ptr %126, align 8, !tbaa !9
   %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #21, !tbaa !15
+  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
   %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
   br label %131
 
@@ -24227,7 +24227,7 @@ _ZN5draco11RAnsEncoderILi15EE9write_endEv.exit:   ; preds = %12, %23, %35, %50, 
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %77
-  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #18
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %77
@@ -24242,7 +24242,7 @@ _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2E
   %84 = ptrtoint ptr %83 to i64
   %85 = ptrtoint ptr %80 to i64
   %86 = sub i64 %84, %85
-  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #18
+  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
 _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %81
@@ -24261,7 +24261,7 @@ _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN
 
 91:                                               ; preds = %89, %87
   %.pn = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ]
-  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #21
+  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
@@ -24420,7 +24420,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
   br i1 %79, label %80, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
 
 80:                                               ; preds = %78
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #20
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
   unreachable
 
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
@@ -24433,7 +24433,7 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i, label %85
 
 85:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
-  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #19
+  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #20
   br label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
@@ -24456,7 +24456,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vector
 
 93:                                               ; preds = %89
   %94 = sub i64 %76, %73
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #18
+  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #19
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
@@ -24571,7 +24571,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %16
 
 16:                                               ; preds = %7
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
@@ -24581,7 +24581,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %19
 
 19:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -24629,7 +24629,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i: ; preds = %_ZN9__gnu
 
 .split.us.i:                                      ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i
   %.us-phi.i = phi i64 [ %40, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %32, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #21
   unreachable
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.us.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -24677,7 +24677,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %23
 
 23:                                               ; preds = %14
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
@@ -24687,7 +24687,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %26
 
 26:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -24740,14 +24740,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %54
 
 54:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %55
 
 55:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -24807,11 +24807,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i64, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %86
 
 85:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #21
   unreachable
 
 86:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
@@ -24945,7 +24945,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
   br i1 %.not.i.i.i.i.i79, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %27
 
 27:                                               ; preds = %18
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
@@ -24955,7 +24955,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i, label %30
 
 30:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -25021,7 +25021,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i: ; preds = %46
 
 ._crit_edge.i:                                    ; preds = %78, %46
   %.lcssa35.i = phi i64 [ %55, %46 ], [ %80, %78 ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i
@@ -25036,7 +25036,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   br i1 %.not.i.i2.i.i.i83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i, label %61
 
 61:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
@@ -25127,14 +25127,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %107
 
 107:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %108
 
 108:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
@@ -25194,11 +25194,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %139
 
 138:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #21
   unreachable
 
 139:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
@@ -25399,7 +25399,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -25409,7 +25409,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -25492,7 +25492,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i27, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28, label %67
 
 67:                                               ; preds = %64
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
@@ -25502,7 +25502,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   br i1 %.not.i.i2.i.i.i29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30, label %70
 
 70:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
@@ -25615,7 +25615,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -25625,7 +25625,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -25708,7 +25708,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i35, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36, label %69
 
 69:                                               ; preds = %66
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
@@ -25718,7 +25718,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   br i1 %.not.i.i2.i.i.i37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38, label %72
 
 72:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
@@ -25861,7 +25861,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 .noexc:                                           ; preds = %30
   %42 = shl nuw nsw i64 %9, 2
-  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #19
+  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #20
   store i32 0, ptr %43, align 4, !tbaa !15
   %44 = getelementptr i8, ptr %43, i64 4
   %45 = icmp eq i32 %.0114.lcssa, 0
@@ -25895,7 +25895,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.010.i.i.in.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i, 1
   %.010.i.i.i.i = lshr i64 %.010.i.i.in.i.i, 1
   %56 = shl nuw nsw i64 %.010.i.i.i.i, 2
-  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
+  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
@@ -25913,8 +25913,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %58 = landingpad { ptr, i32 }
           cleanup
   %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   resume { ptr, i32 } %58
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
@@ -25925,7 +25925,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #21
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEvT_SB_T0_.exit
 
 61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
@@ -26015,11 +26015,11 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !423
 
 _ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %132
 
 _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %104
 
 104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
@@ -26069,7 +26069,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
   %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %127 = load i64, ptr %126, align 8, !tbaa !9
   %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #21, !tbaa !15
+  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
   %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
   br label %131
 
@@ -26201,7 +26201,7 @@ _ZN5draco11RAnsEncoderILi16EE9write_endEv.exit:   ; preds = %12, %23, %35, %50, 
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %77
-  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #18
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %77
@@ -26216,7 +26216,7 @@ _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2E
   %84 = ptrtoint ptr %83 to i64
   %85 = ptrtoint ptr %80 to i64
   %86 = sub i64 %84, %85
-  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #18
+  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
 _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %81
@@ -26235,7 +26235,7 @@ _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN
 
 91:                                               ; preds = %89, %87
   %.pn = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ]
-  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #21
+  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
@@ -26394,7 +26394,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
   br i1 %79, label %80, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
 
 80:                                               ; preds = %78
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #20
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
   unreachable
 
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
@@ -26407,7 +26407,7 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i, label %85
 
 85:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
-  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #19
+  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #20
   br label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
@@ -26430,7 +26430,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vector
 
 93:                                               ; preds = %89
   %94 = sub i64 %76, %73
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #18
+  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #19
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
@@ -26545,7 +26545,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %16
 
 16:                                               ; preds = %7
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
@@ -26555,7 +26555,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %19
 
 19:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -26603,7 +26603,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i: ; preds = %_ZN9__gnu
 
 .split.us.i:                                      ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i
   %.us-phi.i = phi i64 [ %40, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %32, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #21
   unreachable
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.us.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -26651,7 +26651,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %23
 
 23:                                               ; preds = %14
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
@@ -26661,7 +26661,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %26
 
 26:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -26714,14 +26714,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %54
 
 54:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %55
 
 55:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -26781,11 +26781,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i64, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %86
 
 85:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #21
   unreachable
 
 86:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
@@ -26919,7 +26919,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
   br i1 %.not.i.i.i.i.i79, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %27
 
 27:                                               ; preds = %18
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
@@ -26929,7 +26929,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i, label %30
 
 30:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -26995,7 +26995,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i: ; preds = %46
 
 ._crit_edge.i:                                    ; preds = %78, %46
   %.lcssa35.i = phi i64 [ %55, %46 ], [ %80, %78 ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i
@@ -27010,7 +27010,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   br i1 %.not.i.i2.i.i.i83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i, label %61
 
 61:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
@@ -27101,14 +27101,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %107
 
 107:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %108
 
 108:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
@@ -27168,11 +27168,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %139
 
 138:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #21
   unreachable
 
 139:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
@@ -27373,7 +27373,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -27383,7 +27383,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -27466,7 +27466,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i27, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28, label %67
 
 67:                                               ; preds = %64
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
@@ -27476,7 +27476,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   br i1 %.not.i.i2.i.i.i29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30, label %70
 
 70:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
@@ -27589,7 +27589,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -27599,7 +27599,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -27682,7 +27682,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i35, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36, label %69
 
 69:                                               ; preds = %66
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
@@ -27692,7 +27692,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   br i1 %.not.i.i2.i.i.i37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38, label %72
 
 72:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
@@ -27835,7 +27835,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 .noexc:                                           ; preds = %30
   %42 = shl nuw nsw i64 %9, 2
-  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #19
+  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #20
   store i32 0, ptr %43, align 4, !tbaa !15
   %44 = getelementptr i8, ptr %43, i64 4
   %45 = icmp eq i32 %.0114.lcssa, 0
@@ -27869,7 +27869,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.010.i.i.in.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i, 1
   %.010.i.i.i.i = lshr i64 %.010.i.i.in.i.i, 1
   %56 = shl nuw nsw i64 %.010.i.i.i.i, 2
-  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
+  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
@@ -27887,8 +27887,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %58 = landingpad { ptr, i32 }
           cleanup
   %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   resume { ptr, i32 } %58
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
@@ -27899,7 +27899,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #21
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEvT_SB_T0_.exit
 
 61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
@@ -27989,11 +27989,11 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !445
 
 _ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %132
 
 _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %104
 
 104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
@@ -28043,7 +28043,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
   %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %127 = load i64, ptr %126, align 8, !tbaa !9
   %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #21, !tbaa !15
+  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
   %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
   br label %131
 
@@ -28175,7 +28175,7 @@ _ZN5draco11RAnsEncoderILi18EE9write_endEv.exit:   ; preds = %12, %23, %35, %50, 
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %77
-  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #18
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %77
@@ -28190,7 +28190,7 @@ _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2E
   %84 = ptrtoint ptr %83 to i64
   %85 = ptrtoint ptr %80 to i64
   %86 = sub i64 %84, %85
-  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #18
+  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
 _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %81
@@ -28209,7 +28209,7 @@ _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN
 
 91:                                               ; preds = %89, %87
   %.pn = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ]
-  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #21
+  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
@@ -28368,7 +28368,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
   br i1 %79, label %80, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
 
 80:                                               ; preds = %78
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #20
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
   unreachable
 
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
@@ -28381,7 +28381,7 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i, label %85
 
 85:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
-  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #19
+  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #20
   br label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
@@ -28404,7 +28404,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vector
 
 93:                                               ; preds = %89
   %94 = sub i64 %76, %73
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #18
+  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #19
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
@@ -28519,7 +28519,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %16
 
 16:                                               ; preds = %7
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
@@ -28529,7 +28529,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %19
 
 19:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -28577,7 +28577,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i: ; preds = %_ZN9__gnu
 
 .split.us.i:                                      ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i
   %.us-phi.i = phi i64 [ %40, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %32, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #21
   unreachable
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.us.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -28625,7 +28625,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %23
 
 23:                                               ; preds = %14
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
@@ -28635,7 +28635,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %26
 
 26:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -28688,14 +28688,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %54
 
 54:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %55
 
 55:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -28755,11 +28755,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i64, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %86
 
 85:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #21
   unreachable
 
 86:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
@@ -28893,7 +28893,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
   br i1 %.not.i.i.i.i.i79, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %27
 
 27:                                               ; preds = %18
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
@@ -28903,7 +28903,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i, label %30
 
 30:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -28969,7 +28969,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i: ; preds = %46
 
 ._crit_edge.i:                                    ; preds = %78, %46
   %.lcssa35.i = phi i64 [ %55, %46 ], [ %80, %78 ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i
@@ -28984,7 +28984,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   br i1 %.not.i.i2.i.i.i83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i, label %61
 
 61:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
@@ -29075,14 +29075,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %107
 
 107:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %108
 
 108:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
@@ -29142,11 +29142,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %139
 
 138:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #21
   unreachable
 
 139:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
@@ -29347,7 +29347,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -29357,7 +29357,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -29440,7 +29440,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i27, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28, label %67
 
 67:                                               ; preds = %64
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
@@ -29450,7 +29450,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   br i1 %.not.i.i2.i.i.i29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30, label %70
 
 70:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
@@ -29563,7 +29563,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -29573,7 +29573,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -29656,7 +29656,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i35, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36, label %69
 
 69:                                               ; preds = %66
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
@@ -29666,7 +29666,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   br i1 %.not.i.i2.i.i.i37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38, label %72
 
 72:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
@@ -29809,7 +29809,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 .noexc:                                           ; preds = %30
   %42 = shl nuw nsw i64 %9, 2
-  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #19
+  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #20
   store i32 0, ptr %43, align 4, !tbaa !15
   %44 = getelementptr i8, ptr %43, i64 4
   %45 = icmp eq i32 %.0114.lcssa, 0
@@ -29843,7 +29843,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.010.i.i.in.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i, 1
   %.010.i.i.i.i = lshr i64 %.010.i.i.in.i.i, 1
   %56 = shl nuw nsw i64 %.010.i.i.i.i, 2
-  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
+  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
@@ -29861,8 +29861,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %58 = landingpad { ptr, i32 }
           cleanup
   %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   resume { ptr, i32 } %58
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
@@ -29873,7 +29873,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #21
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEvT_SB_T0_.exit
 
 61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
@@ -29963,11 +29963,11 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !467
 
 _ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %132
 
 _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %104
 
 104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
@@ -30017,7 +30017,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
   %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %127 = load i64, ptr %126, align 8, !tbaa !9
   %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #21, !tbaa !15
+  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
   %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
   br label %131
 
@@ -30149,7 +30149,7 @@ _ZN5draco11RAnsEncoderILi19EE9write_endEv.exit:   ; preds = %12, %23, %35, %50, 
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %77
-  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #18
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %77
@@ -30164,7 +30164,7 @@ _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2E
   %84 = ptrtoint ptr %83 to i64
   %85 = ptrtoint ptr %80 to i64
   %86 = sub i64 %84, %85
-  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #18
+  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
 _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %81
@@ -30183,7 +30183,7 @@ _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN
 
 91:                                               ; preds = %89, %87
   %.pn = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ]
-  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #21
+  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
@@ -30342,7 +30342,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
   br i1 %79, label %80, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
 
 80:                                               ; preds = %78
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #20
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
   unreachable
 
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
@@ -30355,7 +30355,7 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i, label %85
 
 85:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
-  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #19
+  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #20
   br label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
@@ -30378,7 +30378,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vector
 
 93:                                               ; preds = %89
   %94 = sub i64 %76, %73
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #18
+  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #19
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
@@ -30493,7 +30493,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %16
 
 16:                                               ; preds = %7
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
@@ -30503,7 +30503,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %19
 
 19:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -30551,7 +30551,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i: ; preds = %_ZN9__gnu
 
 .split.us.i:                                      ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i
   %.us-phi.i = phi i64 [ %40, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %32, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #21
   unreachable
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.us.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -30599,7 +30599,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %23
 
 23:                                               ; preds = %14
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
@@ -30609,7 +30609,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %26
 
 26:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -30662,14 +30662,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %54
 
 54:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %55
 
 55:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -30729,11 +30729,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i64, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %86
 
 85:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #21
   unreachable
 
 86:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
@@ -30867,7 +30867,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
   br i1 %.not.i.i.i.i.i79, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %27
 
 27:                                               ; preds = %18
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
@@ -30877,7 +30877,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i, label %30
 
 30:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -30943,7 +30943,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i: ; preds = %46
 
 ._crit_edge.i:                                    ; preds = %78, %46
   %.lcssa35.i = phi i64 [ %55, %46 ], [ %80, %78 ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i
@@ -30958,7 +30958,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   br i1 %.not.i.i2.i.i.i83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i, label %61
 
 61:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
@@ -31049,14 +31049,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %107
 
 107:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %108
 
 108:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
@@ -31116,11 +31116,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %139
 
 138:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #21
   unreachable
 
 139:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
@@ -31321,7 +31321,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -31331,7 +31331,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -31414,7 +31414,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i27, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28, label %67
 
 67:                                               ; preds = %64
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
@@ -31424,7 +31424,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   br i1 %.not.i.i2.i.i.i29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30, label %70
 
 70:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
@@ -31537,7 +31537,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -31547,7 +31547,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -31630,7 +31630,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i35, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36, label %69
 
 69:                                               ; preds = %66
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
@@ -31640,7 +31640,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   br i1 %.not.i.i2.i.i.i37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38, label %72
 
 72:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
@@ -31783,7 +31783,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 .noexc:                                           ; preds = %30
   %42 = shl nuw nsw i64 %9, 2
-  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #19
+  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #20
   store i32 0, ptr %43, align 4, !tbaa !15
   %44 = getelementptr i8, ptr %43, i64 4
   %45 = icmp eq i32 %.0114.lcssa, 0
@@ -31817,7 +31817,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.010.i.i.in.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i, 1
   %.010.i.i.i.i = lshr i64 %.010.i.i.in.i.i, 1
   %56 = shl nuw nsw i64 %.010.i.i.i.i, 2
-  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
+  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
@@ -31835,8 +31835,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %58 = landingpad { ptr, i32 }
           cleanup
   %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   resume { ptr, i32 } %58
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
@@ -31847,7 +31847,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #21
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEvT_SB_T0_.exit
 
 61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
@@ -31937,11 +31937,11 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !489
 
 _ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %132
 
 _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %104
 
 104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
@@ -31991,7 +31991,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
   %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %127 = load i64, ptr %126, align 8, !tbaa !9
   %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #21, !tbaa !15
+  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
   %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
   br label %131
 
@@ -32123,7 +32123,7 @@ _ZN5draco11RAnsEncoderILi20EE9write_endEv.exit:   ; preds = %12, %23, %35, %50, 
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %77
-  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #18
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %77
@@ -32138,7 +32138,7 @@ _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2E
   %84 = ptrtoint ptr %83 to i64
   %85 = ptrtoint ptr %80 to i64
   %86 = sub i64 %84, %85
-  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #18
+  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
 _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %81
@@ -32157,7 +32157,7 @@ _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN
 
 91:                                               ; preds = %89, %87
   %.pn = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ]
-  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #21
+  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
@@ -32316,7 +32316,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
   br i1 %79, label %80, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
 
 80:                                               ; preds = %78
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #20
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
   unreachable
 
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
@@ -32329,7 +32329,7 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i, label %85
 
 85:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
-  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #19
+  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #20
   br label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
@@ -32352,7 +32352,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vector
 
 93:                                               ; preds = %89
   %94 = sub i64 %76, %73
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #18
+  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #19
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
@@ -32467,7 +32467,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %16
 
 16:                                               ; preds = %7
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
@@ -32477,7 +32477,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %19
 
 19:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -32525,7 +32525,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i: ; preds = %_ZN9__gnu
 
 .split.us.i:                                      ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i
   %.us-phi.i = phi i64 [ %40, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %32, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #21
   unreachable
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.us.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -32573,7 +32573,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %23
 
 23:                                               ; preds = %14
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
@@ -32583,7 +32583,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %26
 
 26:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -32636,14 +32636,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %54
 
 54:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %55
 
 55:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -32703,11 +32703,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i64, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %86
 
 85:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #21
   unreachable
 
 86:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
@@ -32841,7 +32841,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
   br i1 %.not.i.i.i.i.i79, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %27
 
 27:                                               ; preds = %18
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
@@ -32851,7 +32851,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i, label %30
 
 30:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -32917,7 +32917,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i: ; preds = %46
 
 ._crit_edge.i:                                    ; preds = %78, %46
   %.lcssa35.i = phi i64 [ %55, %46 ], [ %80, %78 ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i
@@ -32932,7 +32932,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   br i1 %.not.i.i2.i.i.i83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i, label %61
 
 61:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
@@ -33023,14 +33023,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %107
 
 107:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %108
 
 108:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
@@ -33090,11 +33090,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %139
 
 138:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #21
   unreachable
 
 139:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
@@ -33295,7 +33295,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -33305,7 +33305,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -33388,7 +33388,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i27, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28, label %67
 
 67:                                               ; preds = %64
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
@@ -33398,7 +33398,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   br i1 %.not.i.i2.i.i.i29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30, label %70
 
 70:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
@@ -33511,7 +33511,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -33521,7 +33521,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -33604,7 +33604,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i35, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36, label %69
 
 69:                                               ; preds = %66
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
@@ -33614,7 +33614,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   br i1 %.not.i.i2.i.i.i37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38, label %72
 
 72:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
@@ -33757,7 +33757,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 .noexc:                                           ; preds = %30
   %42 = shl nuw nsw i64 %9, 2
-  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #19
+  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #20
   store i32 0, ptr %43, align 4, !tbaa !15
   %44 = getelementptr i8, ptr %43, i64 4
   %45 = icmp eq i32 %.0114.lcssa, 0
@@ -33791,7 +33791,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.010.i.i.in.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i, 1
   %.010.i.i.i.i = lshr i64 %.010.i.i.in.i.i, 1
   %56 = shl nuw nsw i64 %.010.i.i.i.i, 2
-  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
+  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
@@ -33809,8 +33809,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %58 = landingpad { ptr, i32 }
           cleanup
   %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   resume { ptr, i32 } %58
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
@@ -33821,7 +33821,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #21
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEvT_SB_T0_.exit
 
 61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
@@ -33911,11 +33911,11 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !511
 
 _ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %132
 
 _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %104
 
 104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
@@ -33965,7 +33965,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
   %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %127 = load i64, ptr %126, align 8, !tbaa !9
   %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #21, !tbaa !15
+  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
   %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
   br label %131
 
@@ -34097,7 +34097,7 @@ _ZN5draco11RAnsEncoderILi20EE9write_endEv.exit:   ; preds = %12, %23, %35, %50, 
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %77
-  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #18
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %77
@@ -34112,7 +34112,7 @@ _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2E
   %84 = ptrtoint ptr %83 to i64
   %85 = ptrtoint ptr %80 to i64
   %86 = sub i64 %84, %85
-  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #18
+  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
 _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %81
@@ -34131,7 +34131,7 @@ _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN
 
 91:                                               ; preds = %89, %87
   %.pn = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ]
-  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #21
+  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
@@ -34290,7 +34290,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
   br i1 %79, label %80, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
 
 80:                                               ; preds = %78
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #20
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
   unreachable
 
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
@@ -34303,7 +34303,7 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i, label %85
 
 85:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
-  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #19
+  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #20
   br label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
@@ -34326,7 +34326,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vector
 
 93:                                               ; preds = %89
   %94 = sub i64 %76, %73
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #18
+  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #19
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
@@ -34441,7 +34441,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %16
 
 16:                                               ; preds = %7
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
@@ -34451,7 +34451,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %19
 
 19:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -34499,7 +34499,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i: ; preds = %_ZN9__gnu
 
 .split.us.i:                                      ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i
   %.us-phi.i = phi i64 [ %40, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %32, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #21
   unreachable
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.us.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -34547,7 +34547,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %23
 
 23:                                               ; preds = %14
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
@@ -34557,7 +34557,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %26
 
 26:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -34610,14 +34610,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %54
 
 54:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %55
 
 55:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -34677,11 +34677,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i64, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %86
 
 85:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #21
   unreachable
 
 86:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
@@ -34815,7 +34815,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
   br i1 %.not.i.i.i.i.i79, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %27
 
 27:                                               ; preds = %18
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
@@ -34825,7 +34825,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i, label %30
 
 30:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -34891,7 +34891,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i: ; preds = %46
 
 ._crit_edge.i:                                    ; preds = %78, %46
   %.lcssa35.i = phi i64 [ %55, %46 ], [ %80, %78 ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i
@@ -34906,7 +34906,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   br i1 %.not.i.i2.i.i.i83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i, label %61
 
 61:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
@@ -34997,14 +34997,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %107
 
 107:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %108
 
 108:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
@@ -35064,11 +35064,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %139
 
 138:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #21
   unreachable
 
 139:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
@@ -35269,7 +35269,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -35279,7 +35279,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -35362,7 +35362,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i27, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28, label %67
 
 67:                                               ; preds = %64
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
@@ -35372,7 +35372,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   br i1 %.not.i.i2.i.i.i29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30, label %70
 
 70:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
@@ -35485,7 +35485,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -35495,7 +35495,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -35578,7 +35578,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i35, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36, label %69
 
 69:                                               ; preds = %66
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
@@ -35588,7 +35588,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   br i1 %.not.i.i2.i.i.i37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38, label %72
 
 72:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
@@ -35731,7 +35731,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 .noexc:                                           ; preds = %30
   %42 = shl nuw nsw i64 %9, 2
-  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #19
+  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #20
   store i32 0, ptr %43, align 4, !tbaa !15
   %44 = getelementptr i8, ptr %43, i64 4
   %45 = icmp eq i32 %.0114.lcssa, 0
@@ -35765,7 +35765,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.010.i.i.in.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i, 1
   %.010.i.i.i.i = lshr i64 %.010.i.i.in.i.i, 1
   %56 = shl nuw nsw i64 %.010.i.i.i.i, 2
-  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
+  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
@@ -35783,8 +35783,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %58 = landingpad { ptr, i32 }
           cleanup
   %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   resume { ptr, i32 } %58
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
@@ -35795,7 +35795,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #21
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEvT_SB_T0_.exit
 
 61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
@@ -35885,11 +35885,11 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !533
 
 _ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %132
 
 _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %104
 
 104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
@@ -35939,7 +35939,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
   %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %127 = load i64, ptr %126, align 8, !tbaa !9
   %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #21, !tbaa !15
+  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
   %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
   br label %131
 
@@ -36071,7 +36071,7 @@ _ZN5draco11RAnsEncoderILi20EE9write_endEv.exit:   ; preds = %12, %23, %35, %50, 
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %77
-  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #18
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %77
@@ -36086,7 +36086,7 @@ _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2E
   %84 = ptrtoint ptr %83 to i64
   %85 = ptrtoint ptr %80 to i64
   %86 = sub i64 %84, %85
-  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #18
+  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
 _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %81
@@ -36105,7 +36105,7 @@ _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN
 
 91:                                               ; preds = %89, %87
   %.pn = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ]
-  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #21
+  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
@@ -36264,7 +36264,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
   br i1 %79, label %80, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
 
 80:                                               ; preds = %78
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #20
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
   unreachable
 
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
@@ -36277,7 +36277,7 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i, label %85
 
 85:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
-  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #19
+  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #20
   br label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
@@ -36300,7 +36300,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vector
 
 93:                                               ; preds = %89
   %94 = sub i64 %76, %73
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #18
+  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #19
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
@@ -36415,7 +36415,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %16
 
 16:                                               ; preds = %7
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
@@ -36425,7 +36425,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %19
 
 19:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -36473,7 +36473,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i: ; preds = %_ZN9__gnu
 
 .split.us.i:                                      ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i
   %.us-phi.i = phi i64 [ %40, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %32, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #21
   unreachable
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.us.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -36521,7 +36521,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %23
 
 23:                                               ; preds = %14
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
@@ -36531,7 +36531,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %26
 
 26:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -36584,14 +36584,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %54
 
 54:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %55
 
 55:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -36651,11 +36651,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i64, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %86
 
 85:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #21
   unreachable
 
 86:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
@@ -36789,7 +36789,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
   br i1 %.not.i.i.i.i.i79, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %27
 
 27:                                               ; preds = %18
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
@@ -36799,7 +36799,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i, label %30
 
 30:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -36865,7 +36865,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i: ; preds = %46
 
 ._crit_edge.i:                                    ; preds = %78, %46
   %.lcssa35.i = phi i64 [ %55, %46 ], [ %80, %78 ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i
@@ -36880,7 +36880,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   br i1 %.not.i.i2.i.i.i83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i, label %61
 
 61:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
@@ -36971,14 +36971,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %107
 
 107:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %108
 
 108:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
@@ -37038,11 +37038,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %139
 
 138:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #21
   unreachable
 
 139:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
@@ -37243,7 +37243,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -37253,7 +37253,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -37336,7 +37336,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i27, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28, label %67
 
 67:                                               ; preds = %64
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
@@ -37346,7 +37346,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   br i1 %.not.i.i2.i.i.i29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30, label %70
 
 70:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
@@ -37459,7 +37459,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -37469,7 +37469,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -37552,7 +37552,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i35, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36, label %69
 
 69:                                               ; preds = %66
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
@@ -37562,7 +37562,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   br i1 %.not.i.i2.i.i.i37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38, label %72
 
 72:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
@@ -37705,7 +37705,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 .noexc:                                           ; preds = %30
   %42 = shl nuw nsw i64 %9, 2
-  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #19
+  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #20
   store i32 0, ptr %43, align 4, !tbaa !15
   %44 = getelementptr i8, ptr %43, i64 4
   %45 = icmp eq i32 %.0114.lcssa, 0
@@ -37739,7 +37739,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.010.i.i.in.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i, 1
   %.010.i.i.i.i = lshr i64 %.010.i.i.in.i.i, 1
   %56 = shl nuw nsw i64 %.010.i.i.i.i, 2
-  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
+  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
@@ -37757,8 +37757,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %58 = landingpad { ptr, i32 }
           cleanup
   %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   resume { ptr, i32 } %58
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
@@ -37769,7 +37769,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #21
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEvT_SB_T0_.exit
 
 61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
@@ -37859,11 +37859,11 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !555
 
 _ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %132
 
 _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %104
 
 104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
@@ -37913,7 +37913,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
   %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %127 = load i64, ptr %126, align 8, !tbaa !9
   %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #21, !tbaa !15
+  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
   %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
   br label %131
 
@@ -38045,7 +38045,7 @@ _ZN5draco11RAnsEncoderILi20EE9write_endEv.exit:   ; preds = %12, %23, %35, %50, 
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %77
-  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #18
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %77
@@ -38060,7 +38060,7 @@ _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2E
   %84 = ptrtoint ptr %83 to i64
   %85 = ptrtoint ptr %80 to i64
   %86 = sub i64 %84, %85
-  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #18
+  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
 _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %81
@@ -38079,7 +38079,7 @@ _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN
 
 91:                                               ; preds = %89, %87
   %.pn = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ]
-  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #21
+  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
@@ -38238,7 +38238,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
   br i1 %79, label %80, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
 
 80:                                               ; preds = %78
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #20
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
   unreachable
 
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
@@ -38251,7 +38251,7 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i, label %85
 
 85:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
-  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #19
+  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #20
   br label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
@@ -38274,7 +38274,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vector
 
 93:                                               ; preds = %89
   %94 = sub i64 %76, %73
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #18
+  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #19
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
@@ -38389,7 +38389,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %16
 
 16:                                               ; preds = %7
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
@@ -38399,7 +38399,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %19
 
 19:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -38447,7 +38447,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i: ; preds = %_ZN9__gnu
 
 .split.us.i:                                      ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i
   %.us-phi.i = phi i64 [ %40, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %32, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #21
   unreachable
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.us.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -38495,7 +38495,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %23
 
 23:                                               ; preds = %14
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
@@ -38505,7 +38505,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %26
 
 26:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -38558,14 +38558,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %54
 
 54:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %55
 
 55:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -38625,11 +38625,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i64, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %86
 
 85:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #21
   unreachable
 
 86:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
@@ -38763,7 +38763,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
   br i1 %.not.i.i.i.i.i79, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %27
 
 27:                                               ; preds = %18
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
@@ -38773,7 +38773,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i, label %30
 
 30:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -38839,7 +38839,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i: ; preds = %46
 
 ._crit_edge.i:                                    ; preds = %78, %46
   %.lcssa35.i = phi i64 [ %55, %46 ], [ %80, %78 ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i
@@ -38854,7 +38854,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   br i1 %.not.i.i2.i.i.i83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i, label %61
 
 61:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
@@ -38945,14 +38945,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %107
 
 107:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %108
 
 108:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
@@ -39012,11 +39012,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %139
 
 138:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #21
   unreachable
 
 139:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
@@ -39217,7 +39217,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -39227,7 +39227,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -39310,7 +39310,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i27, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28, label %67
 
 67:                                               ; preds = %64
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
@@ -39320,7 +39320,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   br i1 %.not.i.i2.i.i.i29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30, label %70
 
 70:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
@@ -39433,7 +39433,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -39443,7 +39443,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -39526,7 +39526,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i35, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36, label %69
 
 69:                                               ; preds = %66
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
@@ -39536,7 +39536,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   br i1 %.not.i.i2.i.i.i37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38, label %72
 
 72:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
@@ -39679,7 +39679,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 .noexc:                                           ; preds = %30
   %42 = shl nuw nsw i64 %9, 2
-  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #19
+  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #20
   store i32 0, ptr %43, align 4, !tbaa !15
   %44 = getelementptr i8, ptr %43, i64 4
   %45 = icmp eq i32 %.0114.lcssa, 0
@@ -39713,7 +39713,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.010.i.i.in.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i, 1
   %.010.i.i.i.i = lshr i64 %.010.i.i.in.i.i, 1
   %56 = shl nuw nsw i64 %.010.i.i.i.i, 2
-  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
+  %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
@@ -39731,8 +39731,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %58 = landingpad { ptr, i32 }
           cleanup
   %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   resume { ptr, i32 } %58
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
@@ -39743,7 +39743,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #21
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEvT_SB_T0_.exit
 
 61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
@@ -39833,11 +39833,11 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !577
 
 _ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %132
 
 _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
   br label %104
 
 104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
@@ -39887,7 +39887,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
   %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %127 = load i64, ptr %126, align 8, !tbaa !9
   %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #21, !tbaa !15
+  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
   %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
   br label %131
 
@@ -40019,7 +40019,7 @@ _ZN5draco11RAnsEncoderILi20EE9write_endEv.exit:   ; preds = %12, %23, %35, %50, 
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i: ; preds = %77
-  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #18
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 16) #19
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i, %77
@@ -40034,7 +40034,7 @@ _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2E
   %84 = ptrtoint ptr %83 to i64
   %85 = ptrtoint ptr %80 to i64
   %86 = sub i64 %84, %85
-  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #18
+  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #19
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
 _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %81
@@ -40053,7 +40053,7 @@ _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN
 
 91:                                               ; preds = %89, %87
   %.pn = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ]
-  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #21
+  call void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
@@ -40212,7 +40212,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
   br i1 %79, label %80, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
 
 80:                                               ; preds = %78
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #20
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
   unreachable
 
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
@@ -40225,7 +40225,7 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %78
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i, label %85
 
 85:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
-  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #19
+  %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #20
   br label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
@@ -40248,7 +40248,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %85, %_ZNKSt6vector
 
 93:                                               ; preds = %89
   %94 = sub i64 %76, %73
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #18
+  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %94) #19
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i
 
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
@@ -40363,7 +40363,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %16
 
 16:                                               ; preds = %7
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %15) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
@@ -40373,7 +40373,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %7
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %19
 
 19:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %18, i64 noundef %15) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -40421,7 +40421,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i: ; preds = %_ZN9__gnu
 
 .split.us.i:                                      ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i
   %.us-phi.i = phi i64 [ %40, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.us.i ], [ %32, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.lr.ph.i ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi.i, i64 noundef %15) #21
   unreachable
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.us.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -40469,7 +40469,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
   br i1 %.not.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i, label %23
 
 23:                                               ; preds = %14
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %16, i64 noundef %22) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
@@ -40479,7 +40479,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i: ; preds = %14
   br i1 %.not.i.i2.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, label %26
 
 26:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %22) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i
@@ -40532,14 +40532,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %54
 
 54:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %46) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %55
 
 55:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %46) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -40599,11 +40599,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i64, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %86
 
 85:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i57
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %73, i64 noundef %79) #21
   unreachable
 
 86:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %84, i64 noundef %79) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i59
@@ -40737,7 +40737,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
   br i1 %.not.i.i.i.i.i79, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %27
 
 27:                                               ; preds = %18
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %20, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
@@ -40747,7 +40747,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %18
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i, label %30
 
 30:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -40813,7 +40813,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i: ; preds = %46
 
 ._crit_edge.i:                                    ; preds = %78, %46
   %.lcssa35.i = phi i64 [ %55, %46 ], [ %80, %78 ]
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.lcssa35.i, i64 noundef %53) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.preheader.i
@@ -40828,7 +40828,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82: ; preds = %78, %_ZNKS
   br i1 %.not.i.i2.i.i.i83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i, label %61
 
 61:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %60, i64 noundef %53) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIPiNS_17__normal_iteratorIS8_St6vectorIiSaIiEEEEEEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82
@@ -40919,14 +40919,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %107
 
 107:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %106, i64 noundef %99) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %108
 
 108:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %101, i64 noundef %99) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
@@ -40986,11 +40986,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
   br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %139
 
 138:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %126, i64 noundef %132) #21
   unreachable
 
 139:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %137, i64 noundef %132) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
@@ -41191,7 +41191,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -41201,7 +41201,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -41284,7 +41284,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i.i.i.i.i27, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28, label %67
 
 67:                                               ; preds = %64
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef %63) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
@@ -41294,7 +41294,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28: ; preds = %64
   br i1 %.not.i.i2.i.i.i29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30, label %70
 
 70:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %69, i64 noundef %63) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit.i30: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i28
@@ -41407,7 +41407,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %29, i64 noundef %26) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
@@ -41417,7 +41417,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %27
   br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %32, i64 noundef %26) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
@@ -41500,7 +41500,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
   br i1 %.not.i.i.i.i.i35, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36, label %69
 
 69:                                               ; preds = %66
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %68, i64 noundef %65) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
@@ -41510,7 +41510,7 @@ _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36: ; preds = %66
   br i1 %.not.i.i2.i.i.i37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38, label %72
 
 72:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #20
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef %65) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIPiS8_EEbT_T0_.exit.i38: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i36
@@ -41561,44 +41561,44 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_symbol_encoding.cc() #14 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_symbol_encoding.cc() #15 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #21
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #16
+declare void @llvm.assume(i1 noundef) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #17
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #17
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #17
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #17
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #17
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #17
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #18
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -41612,17 +41612,18 @@ attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nobuiltin nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { builtin nounwind }
-attributes #19 = { builtin allocsize(0) }
-attributes #20 = { noreturn }
-attributes #21 = { nounwind }
-attributes #22 = { nounwind allocsize(0) }
+attributes #12 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nobuiltin nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #18 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { builtin nounwind }
+attributes #20 = { builtin allocsize(0) }
+attributes #21 = { noreturn }
+attributes #22 = { nounwind }
+attributes #23 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

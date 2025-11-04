@@ -262,7 +262,7 @@ define dso_local noundef i64 @rb_obj_reveal(i64 noundef returned %0, i64 noundef
   br i1 %13, label %RBASIC_SET_CLASS.exit, label %14
 
 14:                                               ; preds = %7
-  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %1) #23
+  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %1) #24
   br label %RBASIC_SET_CLASS.exit
 
 RBASIC_SET_CLASS.exit:                            ; preds = %14, %7, %2
@@ -277,12 +277,12 @@ define hidden i64 @rb_class_allocate_instance(i64 noundef %0) #2 {
   %5 = zext i32 %4 to i64
   %6 = shl nuw nsw i64 %5, 3
   %7 = add nuw nsw i64 %6, 16
-  %8 = tail call zeroext i1 @rb_gc_size_allocatable_p(i64 noundef %7) #23
+  %8 = tail call zeroext i1 @rb_gc_size_allocatable_p(i64 noundef %7) #24
   %spec.select = select i1 %8, i64 %7, i64 24
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %10 = load ptr, ptr %9, align 8, !tbaa !22
-  %11 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %10, i64 noundef %0, i64 noundef 8193, i64 noundef %spec.select) #23
-  %12 = tail call i64 @rb_gc_heap_id_for_size(i64 noundef %spec.select) #23
+  %11 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %10, i64 noundef %0, i64 noundef 8193, i64 noundef %spec.select) #24
+  %12 = tail call i64 @rb_gc_heap_id_for_size(i64 noundef %spec.select) #24
   %13 = inttoptr i64 %11 to ptr
   %14 = load i64, ptr %13, align 8, !tbaa !24
   %15 = and i64 %14, 4294967295
@@ -316,7 +316,7 @@ define dso_local noundef i64 @rb_obj_setup(i64 noundef returned %0, i64 noundef 
   br i1 %13, label %RBASIC_SET_CLASS.exit, label %14
 
 14:                                               ; preds = %3
-  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %1) #23
+  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %1) #24
   br label %RBASIC_SET_CLASS.exit
 
 RBASIC_SET_CLASS.exit:                            ; preds = %3, %14
@@ -329,12 +329,12 @@ define dso_local range(i64 0, 21) i64 @rb_equal(i64 noundef %0, i64 noundef %1) 
   br i1 %3, label %12, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i64 @rb_equal_opt(i64 noundef %0, i64 noundef %1) #23
+  %5 = tail call i64 @rb_equal_opt(i64 noundef %0, i64 noundef %1) #24
   %6 = icmp eq i64 %5, 36
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef 140, i32 noundef 1, i64 noundef %1) #23
+  %8 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef 140, i32 noundef 1, i64 noundef %1) #24
   br label %9
 
 9:                                                ; preds = %7, %4
@@ -359,12 +359,12 @@ define dso_local range(i32 0, 2) i32 @rb_eql(i64 noundef %0, i64 noundef %1) loc
   br i1 %3, label %13, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i64 @rb_eql_opt(i64 noundef %0, i64 noundef %1) #23
+  %5 = tail call i64 @rb_eql_opt(i64 noundef %0, i64 noundef %1) #24
   %6 = icmp eq i64 %5, 36
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef 155, i32 noundef 1, i64 noundef %1) #23
+  %8 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef 155, i32 noundef 1, i64 noundef %1) #24
   br label %9
 
 9:                                                ; preds = %7, %4
@@ -398,7 +398,7 @@ define hidden noundef range(i64 0, 21) i64 @rb_obj_not(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden range(i64 0, 21) i64 @rb_obj_not_equal(i64 noundef %0, i64 noundef %1) #2 {
-  %3 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef 140, i32 noundef 1, i64 noundef %1) #23
+  %3 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef 140, i32 noundef 1, i64 noundef %1) #24
   %4 = and i64 %3, -5
   %.not.i = icmp eq i64 %4, 0
   %5 = select i1 %.not.i, i64 20, i64 0
@@ -553,33 +553,33 @@ define internal fastcc i64 @rb_class_of(i64 noundef %0) unnamed_addr #6 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_obj_copy_ivar(i64 noundef %0, i64 noundef %1) local_unnamed_addr #2 {
-  %3 = tail call ptr @rb_shape_get_shape(i64 noundef %1) #23
-  %4 = tail call zeroext i1 @rb_shape_obj_too_complex(i64 noundef %1) #23
+  %3 = tail call ptr @rb_shape_get_shape(i64 noundef %1) #24
+  %4 = tail call zeroext i1 @rb_shape_obj_too_complex(i64 noundef %1) #24
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
   %6 = inttoptr i64 %1 to ptr
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !28
-  %9 = tail call ptr @rb_st_copy(ptr noundef %8) #23
-  tail call void @rb_obj_convert_to_too_complex(i64 noundef %0, ptr noundef %9) #23
+  %9 = tail call ptr @rb_st_copy(ptr noundef %8) #24
+  tail call void @rb_obj_convert_to_too_complex(i64 noundef %0, ptr noundef %9) #24
   br label %66
 
 10:                                               ; preds = %2
-  %11 = tail call i32 @rb_shape_get_shape_id(i64 noundef %1) #23
-  %12 = tail call ptr @rb_shape_get_shape_by_id(i32 noundef %11) #23
+  %11 = tail call i32 @rb_shape_get_shape_id(i64 noundef %1) #24
+  %12 = tail call ptr @rb_shape_get_shape_by_id(i32 noundef %11) #24
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !29
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %66, label %15
 
 15:                                               ; preds = %10
-  %16 = tail call i32 @rb_shape_frozen_shape_p(ptr noundef %3) #23
+  %16 = tail call i32 @rb_shape_frozen_shape_p(ptr noundef %3) #24
   %.not44 = icmp eq i32 %16, 0
   br i1 %.not44, label %19, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call ptr @rb_shape_get_parent(ptr noundef %3) #23
+  %18 = tail call ptr @rb_shape_get_parent(ptr noundef %3) #24
   br label %19
 
 19:                                               ; preds = %17, %15
@@ -610,7 +610,7 @@ ROBJECT_IVPTR.exit:                               ; preds = %19, %24
 
 ROBJECT_IVPTR.exit48:                             ; preds = %ROBJECT_IVPTR.exit, %30
   %.0.i47 = phi ptr [ %31, %30 ], [ %29, %ROBJECT_IVPTR.exit ]
-  %32 = tail call ptr @rb_shape_get_shape(i64 noundef %0) #23
+  %32 = tail call ptr @rb_shape_get_shape(i64 noundef %0) #24
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 25
   %34 = load i8, ptr %33, align 1, !tbaa !32
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 25
@@ -619,16 +619,16 @@ ROBJECT_IVPTR.exit48:                             ; preds = %ROBJECT_IVPTR.exit,
   br i1 %.not45, label %44, label %37
 
 37:                                               ; preds = %ROBJECT_IVPTR.exit48
-  %38 = tail call ptr @rb_shape_rebuild_shape(ptr noundef nonnull %32, ptr noundef nonnull %3) #23
-  %39 = tail call i32 @rb_shape_id(ptr noundef %38) #23
+  %38 = tail call ptr @rb_shape_rebuild_shape(ptr noundef nonnull %32, ptr noundef nonnull %3) #24
+  %39 = tail call i32 @rb_shape_id(ptr noundef %38) #24
   %40 = icmp eq i32 %39, 2
   br i1 %40, label %41, label %44, !prof !33
 
 41:                                               ; preds = %37
   %42 = zext i32 %14 to i64
-  %43 = tail call ptr @rb_st_init_numtable_with_size(i64 noundef %42) #23
-  tail call void @rb_obj_copy_ivs_to_hash_table(i64 noundef %1, ptr noundef %43) #23
-  tail call void @rb_obj_convert_to_too_complex(i64 noundef %0, ptr noundef %43) #23
+  %43 = tail call ptr @rb_st_init_numtable_with_size(i64 noundef %42) #24
+  tail call void @rb_obj_copy_ivs_to_hash_table(i64 noundef %1, ptr noundef %43) #24
+  tail call void @rb_obj_convert_to_too_complex(i64 noundef %0, ptr noundef %43) #24
   br label %66
 
 44:                                               ; preds = %37, %ROBJECT_IVPTR.exit48
@@ -641,7 +641,7 @@ ROBJECT_IVPTR.exit48:                             ; preds = %ROBJECT_IVPTR.exit,
   br i1 %49, label %50, label %rbimpl_size_mul_or_raise.exit
 
 50:                                               ; preds = %44
-  tail call void @rb_ensure_iv_list_size(i64 noundef %0, i32 noundef %46, i32 noundef %48) #23
+  tail call void @rb_ensure_iv_list_size(i64 noundef %0, i32 noundef %46, i32 noundef %48) #24
   %51 = load i64, ptr %26, align 8, !tbaa !24
   %52 = and i64 %51, 8192
   %.not.i49 = icmp eq i64 %52, 0
@@ -655,11 +655,11 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %44, %50, %53
   %.040 = phi ptr [ %.0.i47, %44 ], [ %54, %53 ], [ %29, %50 ]
   %55 = zext i32 %14 to i64
   %56 = shl nuw nsw i64 %55, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.040, ptr noundef nonnull readonly align 1 %.0.i, i64 noundef range(i64 1, 0) %56, i1 noundef false) #23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.040, ptr noundef nonnull readonly align 1 %.0.i, i64 noundef range(i64 1, 0) %56, i1 noundef false) #24
   br label %58
 
 57:                                               ; preds = %rb_obj_written.exit
-  tail call void @rb_shape_set_shape(i64 noundef %0, ptr noundef %.1) #23
+  tail call void @rb_shape_set_shape(i64 noundef %0, ptr noundef %.1) #24
   br label %66
 
 58:                                               ; preds = %rbimpl_size_mul_or_raise.exit, %rb_obj_written.exit
@@ -673,7 +673,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %44, %50, %53
   br i1 %64, label %rb_obj_written.exit, label %65
 
 65:                                               ; preds = %58
-  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %60) #23
+  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %60) #24
   br label %rb_obj_written.exit
 
 rb_obj_written.exit:                              ; preds = %58, %65
@@ -718,7 +718,7 @@ define hidden noundef i64 @rb_immutable_obj_clone(i32 noundef %0, ptr noundef re
 6:                                                ; preds = %3
   %7 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
   %8 = tail call i64 @rb_obj_class(i64 noundef %2)
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.139, i64 noundef %8) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.139, i64 noundef %8) #25
   unreachable
 
 immutable_obj_clone.exit:                         ; preds = %3
@@ -740,7 +740,7 @@ define hidden i64 @rb_get_freeze_opt(i32 noundef %0, ptr noundef readonly captur
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
-  %6 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.1, i64 noundef 6) #23
+  %6 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.1, i64 noundef 6) #24
   store i64 %6, ptr @rb_get_freeze_opt.rbimpl_id, align 8, !tbaa !7
   %.not.i1 = icmp eq i64 %6, 0
   br i1 %.not.i1, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !36
@@ -759,7 +759,7 @@ rb_scan_args_n_opt.exit:                          ; preds = %2, %rbimpl_intern_c
   %10 = getelementptr i64, ptr %1, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -8
   %12 = load i64, ptr %11, align 8, !tbaa !7
-  %13 = tail call i32 @rb_keyword_given_p() #23
+  %13 = tail call i32 @rb_keyword_given_p() #24
   %.not2 = icmp eq i32 %13, 0
   br i1 %.not2, label %.thread14, label %16
 
@@ -768,14 +768,14 @@ rb_scan_args_n_opt.exit:                          ; preds = %2, %rbimpl_intern_c
   br i1 %15, label %.thread14, label %obj_freeze_opt.exit
 
 16:                                               ; preds = %8
-  %17 = tail call i64 @rb_hash_dup(i64 noundef %12) #23
+  %17 = tail call i64 @rb_hash_dup(i64 noundef %12) #24
   %18 = add nsw i32 %0, -1
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %rb_scan_args_set.exit, label %.thread14
 
 .thread14:                                        ; preds = %8, %16, %14
   %.0.i9 = phi i32 [ %18, %16 ], [ %0, %14 ], [ %0, %8 ]
-  tail call void @rb_error_arity(i32 noundef %.0.i9, i32 noundef 0, i32 noundef 0) #24
+  tail call void @rb_error_arity(i32 noundef %.0.i9, i32 noundef 0, i32 noundef 0) #25
   unreachable
 
 rb_scan_args_set.exit:                            ; preds = %16
@@ -783,7 +783,7 @@ rb_scan_args_set.exit:                            ; preds = %16
   br i1 %20, label %obj_freeze_opt.exit, label %21
 
 21:                                               ; preds = %rb_scan_args_set.exit
-  %22 = call i32 @rb_get_kwargs(i64 noundef %17, ptr noundef nonnull @rb_get_freeze_opt.keyword_ids, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3) #23
+  %22 = call i32 @rb_get_kwargs(i64 noundef %17, ptr noundef nonnull @rb_get_freeze_opt.keyword_ids, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3) #24
   %23 = load i64, ptr %3, align 8, !tbaa !7
   %24 = call i64 @llvm.fshl.i64(i64 %23, i64 %23, i64 62)
   switch i64 %24, label %25 [
@@ -796,7 +796,7 @@ rb_scan_args_set.exit:                            ; preds = %16
 25:                                               ; preds = %21
   %26 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
   %27 = call i64 @rb_obj_class(i64 noundef %23)
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %26, ptr noundef nonnull @.str.138, i64 noundef %27) #24
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %26, ptr noundef nonnull @.str.138, i64 noundef %27) #25
   unreachable
 
 obj_freeze_opt.exit:                              ; preds = %14, %21, %21, %21, %21, %rb_scan_args_set.exit
@@ -811,7 +811,7 @@ declare i32 @rb_get_kwargs(i64 noundef, ptr noundef, i32 noundef, i32 noundef, p
 define hidden noundef i64 @rb_obj_clone_setup(i64 noundef %0, i64 noundef returned %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [2 x i64], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = tail call i64 @rb_singleton_class_clone_and_attach(i64 noundef %0, i64 noundef %1) #23
+  %5 = tail call i64 @rb_singleton_class_clone_and_attach(i64 noundef %0, i64 noundef %1) #24
   %6 = inttoptr i64 %1 to ptr
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %5, ptr %7, align 8, !tbaa !7
@@ -822,7 +822,7 @@ define hidden noundef i64 @rb_obj_clone_setup(i64 noundef %0, i64 noundef return
   br i1 %11, label %RCLASS_SINGLETON_P.exit.thread, label %rbimpl_RB_TYPE_P_fastpath.exit.i
 
 rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %3
-  tail call void @rb_gc_writebarrier(i64 noundef %1, i64 noundef %5) #23
+  tail call void @rb_gc_writebarrier(i64 noundef %1, i64 noundef %5) #24
   %12 = inttoptr i64 %5 to ptr
   %13 = load i64, ptr %12, align 8, !tbaa !24
   %14 = and i64 %13, 8223
@@ -830,7 +830,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %3
   br i1 %or.cond, label %15, label %RCLASS_SINGLETON_P.exit.thread
 
 15:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
-  tail call void @rb_singleton_class_attached(i64 noundef %5, i64 noundef %1) #23
+  tail call void @rb_singleton_class_attached(i64 noundef %5, i64 noundef %1) #24
   br label %RCLASS_SINGLETON_P.exit.thread
 
 RCLASS_SINGLETON_P.exit.thread:                   ; preds = %3, %rbimpl_RB_TYPE_P_fastpath.exit.i, %15
@@ -842,7 +842,7 @@ RCLASS_SINGLETON_P.exit.thread:                   ; preds = %3, %rbimpl_RB_TYPE_
   ]
 
 16:                                               ; preds = %RCLASS_SINGLETON_P.exit.thread
-  %17 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1, i64 noundef 3201, i32 noundef 1, i64 noundef %0) #23
+  %17 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1, i64 noundef 3201, i32 noundef 1, i64 noundef %0) #24
   %18 = inttoptr i64 %0 to ptr
   %19 = load i64, ptr %18, align 8, !tbaa !24
   %20 = and i64 %19, 2048
@@ -879,8 +879,8 @@ RB_FL_ABLE.exit.i:                                ; preds = %30, %rbimpl_RB_TYPE
   br i1 %or.cond45, label %RB_OBJ_FROZEN.exit.thread, label %97
 
 RB_OBJ_FROZEN.exit.thread:                        ; preds = %16, %RB_FL_ABLE.exit.i
-  %36 = tail call ptr @rb_shape_transition_shape_frozen(i64 noundef %1) #23
-  %37 = tail call zeroext i1 @rb_shape_obj_too_complex(i64 noundef %1) #23
+  %36 = tail call ptr @rb_shape_transition_shape_frozen(i64 noundef %1) #24
+  %37 = tail call zeroext i1 @rb_shape_obj_too_complex(i64 noundef %1) #24
   br i1 %37, label %43, label %38
 
 38:                                               ; preds = %RB_OBJ_FROZEN.exit.thread
@@ -890,11 +890,11 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %16, %RB_FL_ABLE.exi
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %38
-  tail call void @rb_evict_ivars_to_hash(i64 noundef %1) #23
+  tail call void @rb_evict_ivars_to_hash(i64 noundef %1) #24
   br label %97
 
 43:                                               ; preds = %38, %RB_OBJ_FROZEN.exit.thread
-  tail call void @rb_shape_set_shape(i64 noundef %1, ptr noundef %36) #23
+  tail call void @rb_shape_set_shape(i64 noundef %1, ptr noundef %36) #24
   br label %97
 
 44:                                               ; preds = %RCLASS_SINGLETON_P.exit.thread
@@ -903,12 +903,12 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %16, %RB_FL_ABLE.exi
   br i1 %.not35, label %46, label %rb_obj_freeze.exit
 
 46:                                               ; preds = %44
-  %47 = tail call i64 @rb_hash_new() #23
+  %47 = tail call i64 @rb_hash_new() #24
   store i64 %47, ptr @rb_obj_clone_setup.freeze_true_hash, align 8, !tbaa !7
-  tail call void @rb_vm_register_global_object(i64 noundef %47) #23
+  tail call void @rb_vm_register_global_object(i64 noundef %47) #24
   %48 = load i64, ptr @rb_obj_clone_setup.freeze_true_hash, align 8, !tbaa !7
-  %49 = tail call i64 @rb_id2sym(i64 noundef 2785) #23
-  %50 = tail call i64 @rb_hash_aset(i64 noundef %48, i64 noundef %49, i64 noundef 20) #23
+  %49 = tail call i64 @rb_id2sym(i64 noundef 2785) #24
+  %50 = tail call i64 @rb_hash_aset(i64 noundef %48, i64 noundef %49, i64 noundef 20) #24
   %51 = load i64, ptr @rb_obj_clone_setup.freeze_true_hash, align 8, !tbaa !7
   %52 = icmp eq i64 %51, 0
   %53 = and i64 %51, 7
@@ -927,7 +927,7 @@ RB_FL_ABLE.exit.i.i:                              ; preds = %46
   br i1 %or.cond.i, label %rb_obj_freeze.exit, label %61
 
 61:                                               ; preds = %RB_FL_ABLE.exit.i.i
-  tail call void @rb_obj_freeze_inline(i64 noundef %51) #23
+  tail call void @rb_obj_freeze_inline(i64 noundef %51) #24
   %.pre46 = load i64, ptr @rb_obj_clone_setup.freeze_true_hash, align 8, !tbaa !7
   br label %rb_obj_freeze.exit
 
@@ -936,12 +936,12 @@ rb_obj_freeze.exit:                               ; preds = %61, %RB_FL_ABLE.exi
   store i64 %0, ptr %4, align 16, !tbaa !7
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %62, ptr %63, align 8, !tbaa !7
-  %64 = call i64 @rb_funcallv_kw(i64 noundef %1, i64 noundef 3201, i32 noundef 2, ptr noundef nonnull %4, i32 noundef 1) #23
+  %64 = call i64 @rb_funcallv_kw(i64 noundef %1, i64 noundef 3201, i32 noundef 2, ptr noundef nonnull %4, i32 noundef 1) #24
   %65 = load i64, ptr %6, align 8, !tbaa !24
   %66 = or i64 %65, 2048
   store i64 %66, ptr %6, align 8, !tbaa !24
-  %67 = call ptr @rb_shape_transition_shape_frozen(i64 noundef %1) #23
-  %68 = call zeroext i1 @rb_shape_obj_too_complex(i64 noundef %1) #23
+  %67 = call ptr @rb_shape_transition_shape_frozen(i64 noundef %1) #24
+  %68 = call zeroext i1 @rb_shape_obj_too_complex(i64 noundef %1) #24
   br i1 %68, label %74, label %69
 
 69:                                               ; preds = %rb_obj_freeze.exit
@@ -951,11 +951,11 @@ rb_obj_freeze.exit:                               ; preds = %61, %RB_FL_ABLE.exi
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %69
-  call void @rb_evict_ivars_to_hash(i64 noundef %1) #23
+  call void @rb_evict_ivars_to_hash(i64 noundef %1) #24
   br label %97
 
 74:                                               ; preds = %69, %rb_obj_freeze.exit
-  call void @rb_shape_set_shape(i64 noundef %1, ptr noundef %67) #23
+  call void @rb_shape_set_shape(i64 noundef %1, ptr noundef %67) #24
   br label %97
 
 75:                                               ; preds = %RCLASS_SINGLETON_P.exit.thread
@@ -964,12 +964,12 @@ rb_obj_freeze.exit:                               ; preds = %61, %RB_FL_ABLE.exi
   br i1 %.not, label %77, label %rb_obj_freeze.exit40
 
 77:                                               ; preds = %75
-  %78 = tail call i64 @rb_hash_new() #23
+  %78 = tail call i64 @rb_hash_new() #24
   store i64 %78, ptr @rb_obj_clone_setup.freeze_false_hash, align 8, !tbaa !7
-  tail call void @rb_vm_register_global_object(i64 noundef %78) #23
+  tail call void @rb_vm_register_global_object(i64 noundef %78) #24
   %79 = load i64, ptr @rb_obj_clone_setup.freeze_false_hash, align 8, !tbaa !7
-  %80 = tail call i64 @rb_id2sym(i64 noundef 2785) #23
-  %81 = tail call i64 @rb_hash_aset(i64 noundef %79, i64 noundef %80, i64 noundef 0) #23
+  %80 = tail call i64 @rb_id2sym(i64 noundef 2785) #24
+  %81 = tail call i64 @rb_hash_aset(i64 noundef %79, i64 noundef %80, i64 noundef 0) #24
   %82 = load i64, ptr @rb_obj_clone_setup.freeze_false_hash, align 8, !tbaa !7
   %83 = icmp eq i64 %82, 0
   %84 = and i64 %82, 7
@@ -988,7 +988,7 @@ RB_FL_ABLE.exit.i.i37:                            ; preds = %77
   br i1 %or.cond.i39, label %rb_obj_freeze.exit40, label %92
 
 92:                                               ; preds = %RB_FL_ABLE.exit.i.i37
-  tail call void @rb_obj_freeze_inline(i64 noundef %82) #23
+  tail call void @rb_obj_freeze_inline(i64 noundef %82) #24
   %.pre = load i64, ptr @rb_obj_clone_setup.freeze_false_hash, align 8, !tbaa !7
   br label %rb_obj_freeze.exit40
 
@@ -997,11 +997,11 @@ rb_obj_freeze.exit40:                             ; preds = %92, %RB_FL_ABLE.exi
   store i64 %0, ptr %4, align 16, !tbaa !7
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %93, ptr %94, align 8, !tbaa !7
-  %95 = call i64 @rb_funcallv_kw(i64 noundef %1, i64 noundef 3201, i32 noundef 2, ptr noundef nonnull %4, i32 noundef 1) #23
+  %95 = call i64 @rb_funcallv_kw(i64 noundef %1, i64 noundef 3201, i32 noundef 2, ptr noundef nonnull %4, i32 noundef 1) #24
   br label %97
 
 96:                                               ; preds = %RCLASS_SINGLETON_P.exit.thread
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.3) #25
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.3) #26
   unreachable
 
 97:                                               ; preds = %RB_FL_ABLE.exit.i, %73, %74, %42, %43, %rb_obj_freeze.exit40
@@ -1033,8 +1033,8 @@ RB_FL_ABLE.exit.i:                                ; preds = %2
 
 RB_OBJ_FROZEN.exit.thread:                        ; preds = %2, %RB_FL_ABLE.exit.i
   %12 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  %13 = tail call ptr @rb_obj_classname(i64 noundef %0) #23
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %12, ptr noundef nonnull @.str.140, ptr noundef %13) #24
+  %13 = tail call ptr @rb_obj_classname(i64 noundef %0) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %12, ptr noundef nonnull @.str.140, ptr noundef %13) #25
   unreachable
 
 14:                                               ; preds = %RB_FL_ABLE.exit.i
@@ -1045,8 +1045,8 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %2, %RB_FL_ABLE.exit
   %18 = and i64 %17, 1055
   %19 = or disjoint i64 %18, %15
   store i64 %19, ptr %7, align 8, !tbaa !24
-  tail call void @rb_gc_copy_attributes(i64 noundef %0, i64 noundef %1) #23
-  tail call void @rb_copy_generic_ivar(i64 noundef %0, i64 noundef %1) #23
+  tail call void @rb_gc_copy_attributes(i64 noundef %0, i64 noundef %1) #24
+  tail call void @rb_copy_generic_ivar(i64 noundef %0, i64 noundef %1) #24
   %20 = icmp eq i64 %1, 0
   %21 = and i64 %1, 7
   %22 = icmp ne i64 %21, 0
@@ -1098,7 +1098,7 @@ RB_FL_ABLE.exit.i:                                ; preds = %1
   br i1 %or.cond, label %RB_OBJ_FROZEN.exit.thread, label %11
 
 11:                                               ; preds = %RB_FL_ABLE.exit.i
-  tail call void @rb_obj_freeze_inline(i64 noundef %0) #23
+  tail call void @rb_obj_freeze_inline(i64 noundef %0) #24
   br label %RB_OBJ_FROZEN.exit.thread
 
 RB_OBJ_FROZEN.exit.thread:                        ; preds = %1, %RB_FL_ABLE.exit.i, %11
@@ -1210,7 +1210,7 @@ rb_obj_class.exit:                                ; preds = %.lr.ph.i.i
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %.critedge2.i.i, %rb_class_of.exit.i, %rb_obj_class.exit
   %.0.lcssa.i.i5 = phi i64 [ %.010.i.i, %rb_obj_class.exit ], [ 0, %rb_class_of.exit.i ], [ 0, %.critedge2.i.i ]
-  tail call void @rb_unexpected_type(i64 noundef %.0.lcssa.i.i5, i32 noundef 2) #25
+  tail call void @rb_unexpected_type(i64 noundef %.0.lcssa.i.i5, i32 noundef 2) #26
   unreachable
 
 rb_obj_alloc.exit:                                ; preds = %rb_obj_class.exit
@@ -1222,7 +1222,7 @@ rb_obj_alloc.exit:                                ; preds = %rb_obj_class.exit
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden noundef i64 @rb_obj_dup_setup(i64 noundef %0, i64 noundef returned %1) local_unnamed_addr #2 {
   tail call fastcc void @init_copy(i64 noundef %1, i64 noundef %0)
-  %3 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1, i64 noundef 3217, i32 noundef 1, i64 noundef %0) #23
+  %3 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1, i64 noundef 3217, i32 noundef 1, i64 noundef %0) #24
   ret i64 %1
 }
 
@@ -1280,13 +1280,13 @@ rb_obj_class.exit:                                ; preds = %.lr.ph.i.i
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %.critedge2.i.i, %rb_class_of.exit.i, %rb_obj_class.exit
   %.0.lcssa.i.i9 = phi i64 [ %.010.i.i, %rb_obj_class.exit ], [ 0, %rb_class_of.exit.i ], [ 0, %.critedge2.i.i ]
-  tail call void @rb_unexpected_type(i64 noundef %.0.lcssa.i.i9, i32 noundef 2) #25
+  tail call void @rb_unexpected_type(i64 noundef %.0.lcssa.i.i9, i32 noundef 2) #26
   unreachable
 
 rb_obj_alloc.exit:                                ; preds = %rb_obj_class.exit
   %20 = tail call fastcc i64 @rb_class_alloc(i64 noundef %.010.i.i)
   tail call fastcc void @init_copy(i64 noundef %20, i64 noundef %0)
-  %21 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %20, i64 noundef 3217, i32 noundef 1, i64 noundef %0) #23
+  %21 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %20, i64 noundef 3217, i32 noundef 1, i64 noundef %0) #24
   br label %special_object_p.exit.thread
 
 special_object_p.exit.thread:                     ; preds = %6, %6, %6, %6, %6, %1, %rb_obj_alloc.exit
@@ -1310,7 +1310,7 @@ define dso_local i64 @rb_obj_alloc(i64 noundef %0) local_unnamed_addr #2 {
   br i1 %10, label %Check_Type.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, !prof !40
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %6, %1
-  tail call void @rb_unexpected_type(i64 noundef %0, i32 noundef 2) #25
+  tail call void @rb_unexpected_type(i64 noundef %0, i32 noundef 2) #26
   unreachable
 
 Check_Type.exit:                                  ; preds = %6
@@ -1346,7 +1346,7 @@ RB_FL_ABLE.exit.i.i:                              ; preds = %4
   br i1 %or.cond.i, label %RB_OBJ_FROZEN.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i, !prof !41
 
 RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %RB_FL_ABLE.exit.i.i, %4
-  tail call void @rb_error_frozen_object(i64 noundef %0) #24
+  tail call void @rb_error_frozen_object(i64 noundef %0) #25
   unreachable
 
 rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
@@ -1357,7 +1357,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
   br i1 %or.cond9.i, label %rb_type.exit, label %16, !prof !42
 
 16:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
-  tail call void @rb_str_modify(i64 noundef %0) #23
+  tail call void @rb_str_modify(i64 noundef %0) #24
   %.pre = load i64, ptr %9, align 8, !tbaa !24
   br label %rb_type.exit
 
@@ -1500,7 +1500,7 @@ rb_obj_class.exit35:                              ; preds = %.lr.ph.i.i23, %.cri
 
 63:                                               ; preds = %rb_obj_class.exit35, %rb_type.exit16
   %64 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %64, ptr noundef nonnull @.str.4) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %64, ptr noundef nonnull @.str.4) #25
   unreachable
 
 65:                                               ; preds = %rb_obj_class.exit35, %2
@@ -1512,7 +1512,7 @@ declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden noundef i64 @rb_obj_init_dup_clone(i64 noundef returned %0, i64 noundef %1) #2 {
-  %3 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef 3185, i32 noundef 1, i64 noundef %1) #23
+  %3 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef 3185, i32 noundef 1, i64 noundef %1) #24
   ret i64 %0
 }
 
@@ -1556,9 +1556,9 @@ define dso_local i64 @rb_any_to_s(i64 noundef %0) #2 {
 rb_class_of.exit:                                 ; preds = %6, %9, %10, %11, %12, %14
   %.0.in.i = phi ptr [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ %8, %6 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select.i, %14 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !7
-  %17 = tail call i64 @rb_class_name(i64 noundef %.0.i) #23
+  %17 = tail call i64 @rb_class_name(i64 noundef %.0.i) #24
   %18 = inttoptr i64 %0 to ptr
-  %19 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.5, i64 noundef %17, ptr noundef %18) #23
+  %19 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.5, i64 noundef %17, ptr noundef %18) #24
   ret i64 %19
 }
 
@@ -1568,14 +1568,14 @@ declare i64 @rb_sprintf(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_inspect(i64 noundef %0) local_unnamed_addr #2 {
-  %2 = tail call i64 @rb_funcallv(i64 noundef %0, i64 noundef 2801, i32 noundef 0, ptr noundef null) #23
-  %3 = tail call i64 @rb_obj_as_string(i64 noundef %2) #23
-  %4 = tail call ptr @rb_default_internal_encoding() #23
+  %2 = tail call i64 @rb_funcallv(i64 noundef %0, i64 noundef 2801, i32 noundef 0, ptr noundef null) #24
+  %3 = tail call i64 @rb_obj_as_string(i64 noundef %2) #24
+  %4 = tail call ptr @rb_default_internal_encoding() #24
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
-  %7 = tail call ptr @rb_default_external_encoding() #23
+  %7 = tail call ptr @rb_default_external_encoding() #24
   br label %8
 
 8:                                                ; preds = %6, %1
@@ -1586,27 +1586,27 @@ define dso_local i64 @rb_inspect(i64 noundef %0) local_unnamed_addr #2 {
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %8
-  %10 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.0) #26
+  %10 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.0) #27
   %.not3.i = icmp eq i32 %10, 0
   br i1 %.not3.i, label %12, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit.thread:                   ; preds = %8, %rb_enc_asciicompat.exit
-  %11 = tail call i32 @rb_enc_str_asciionly_p(i64 noundef %3) #23
+  %11 = tail call i32 @rb_enc_str_asciionly_p(i64 noundef %3) #24
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %.sink.split, label %17
 
 12:                                               ; preds = %rb_enc_asciicompat.exit
-  %13 = tail call ptr @rb_enc_get(i64 noundef %3) #23
+  %13 = tail call ptr @rb_enc_get(i64 noundef %3) #24
   %.not13 = icmp eq ptr %13, %.0
   br i1 %.not13, label %17, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call i32 @rb_enc_str_asciionly_p(i64 noundef %3) #23
+  %15 = tail call i32 @rb_enc_str_asciionly_p(i64 noundef %3) #24
   %.not14 = icmp eq i32 %15, 0
   br i1 %.not14, label %.sink.split, label %17
 
 .sink.split:                                      ; preds = %14, %rb_enc_asciicompat.exit.thread
-  %16 = tail call i64 @rb_str_escape(i64 noundef %3) #23
+  %16 = tail call i64 @rb_str_escape(i64 noundef %3) #24
   br label %17
 
 17:                                               ; preds = %.sink.split, %12, %14, %rb_enc_asciicompat.exit.thread
@@ -1649,7 +1649,7 @@ define dso_local range(i64 0, 21) i64 @rb_obj_is_instance_of(i64 noundef %0, i64
 
 .thread.i:                                        ; preds = %7, %2
   %12 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %12, ptr noundef nonnull @.str.6) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %12, ptr noundef nonnull @.str.6) #25
   unreachable
 
 class_or_module_required.exit:                    ; preds = %7, %7, %7
@@ -1910,7 +1910,7 @@ class_search_ancestor.exit44:                     ; preds = %88, %93, %81
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fastpath.exit29, %19
   %98 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %98, ptr noundef nonnull @.str.6) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %98, ptr noundef nonnull @.str.6) #25
   unreachable
 
 class_search_class_ancestor.exit:                 ; preds = %59, %33, %27, %class_search_ancestor.exit, %40, %rb_class_of.exit, %class_search_ancestor.exit44
@@ -1939,7 +1939,7 @@ define hidden i64 @rb_class_search_ancestor(i64 noundef %0, i64 noundef %1) loca
 
 .thread.i:                                        ; preds = %7, %2
   %12 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %12, ptr noundef nonnull @.str.6) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %12, ptr noundef nonnull @.str.6) #25
   unreachable
 
 class_or_module_required.exit:                    ; preds = %7, %7, %7
@@ -1962,7 +1962,7 @@ class_or_module_required.exit:                    ; preds = %7, %7, %7
 
 .thread.i4:                                       ; preds = %17, %class_or_module_required.exit
   %22 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %22, ptr noundef nonnull @.str.6) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %22, ptr noundef nonnull @.str.6) #25
   unreachable
 
 class_or_module_required.exit5:                   ; preds = %17, %17, %17
@@ -2066,7 +2066,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %1
   br i1 %or.cond, label %9, label %RCLASS_SINGLETON_P.exit.thread
 
 9:                                                ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
-  %10 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @.str.8, i64 noundef 8) #23
+  %10 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @.str.8, i64 noundef 8) #24
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %12 = load i64, ptr %11, align 8, !tbaa !28
   %13 = icmp eq i64 %12, 0
@@ -2117,47 +2117,47 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %1
 rb_any_to_s.exit:                                 ; preds = %23, %25, %26, %27, %28, %30
   %.0.in.i.i = phi ptr [ @rb_cNilClass, %26 ], [ @rb_cTrueClass, %27 ], [ %24, %23 ], [ @rb_cFalseClass, %25 ], [ @rb_cInteger, %28 ], [ %spec.select.i.i, %30 ]
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !7
-  %33 = tail call i64 @rb_class_name(i64 noundef %.0.i.i) #23
+  %33 = tail call i64 @rb_class_name(i64 noundef %.0.i.i) #24
   %34 = inttoptr i64 %12 to ptr
-  %35 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.5, i64 noundef %33, ptr noundef %34) #23
+  %35 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.5, i64 noundef %33, ptr noundef %34) #24
   br label %36
 
 36:                                               ; preds = %rb_any_to_s.exit, %21
   %.sink = phi i64 [ %35, %rb_any_to_s.exit ], [ %22, %21 ]
-  %37 = tail call i64 @rb_str_append(i64 noundef %10, i64 noundef %.sink) #23
-  %38 = tail call i64 @rb_str_cat(i64 noundef %10, ptr noundef nonnull @.str.9, i64 noundef 1) #23
+  %37 = tail call i64 @rb_str_append(i64 noundef %10, i64 noundef %.sink) #24
+  %38 = tail call i64 @rb_str_cat(i64 noundef %10, ptr noundef nonnull @.str.9, i64 noundef 1) #24
   br label %53
 
 RCLASS_SINGLETON_P.exit.thread:                   ; preds = %1, %rbimpl_RB_TYPE_P_fastpath.exit.i
-  %39 = tail call i64 @rb_refinement_module_get_refined_class(i64 noundef %0) #23
+  %39 = tail call i64 @rb_refinement_module_get_refined_class(i64 noundef %0) #24
   %40 = icmp eq i64 %39, 4
   br i1 %40, label %51, label %41
 
 41:                                               ; preds = %RCLASS_SINGLETON_P.exit.thread
-  %42 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @.str.10, i64 noundef 13) #23
+  %42 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @.str.10, i64 noundef 13) #24
   %43 = tail call i64 @rb_inspect(i64 noundef %39)
-  %44 = tail call i64 @rb_str_concat(i64 noundef %42, i64 noundef %43) #23
-  %45 = tail call i64 @rb_str_cat(i64 noundef %42, ptr noundef nonnull @.str.11, i64 noundef 1) #23
+  %44 = tail call i64 @rb_str_concat(i64 noundef %42, i64 noundef %43) #24
+  %45 = tail call i64 @rb_str_cat(i64 noundef %42, ptr noundef nonnull @.str.11, i64 noundef 1) #24
   %.pr.i = load i64, ptr @rb_mod_to_s.rbimpl_id, align 8, !tbaa !7
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.i
-  %46 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.12, i64 noundef 14) #23
+  %46 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.12, i64 noundef 14) #24
   store i64 %46, ptr @rb_mod_to_s.rbimpl_id, align 8, !tbaa !7
   %.not.i = icmp eq i64 %46, 0
   br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !36
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %41
   %.lcssa.i = phi i64 [ %.pr.i, %41 ], [ %46, %.lr.ph.i ]
-  %47 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %.lcssa.i) #23
+  %47 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %.lcssa.i) #24
   %48 = tail call i64 @rb_inspect(i64 noundef %47)
-  %49 = tail call i64 @rb_str_concat(i64 noundef %42, i64 noundef %48) #23
-  %50 = tail call i64 @rb_str_cat(i64 noundef %42, ptr noundef nonnull @.str.9, i64 noundef 1) #23
+  %49 = tail call i64 @rb_str_concat(i64 noundef %42, i64 noundef %48) #24
+  %50 = tail call i64 @rb_str_cat(i64 noundef %42, ptr noundef nonnull @.str.9, i64 noundef 1) #24
   br label %53
 
 51:                                               ; preds = %RCLASS_SINGLETON_P.exit.thread
-  %52 = tail call i64 @rb_class_name(i64 noundef %0) #23
+  %52 = tail call i64 @rb_class_name(i64 noundef %0) #24
   br label %53
 
 53:                                               ; preds = %51, %rbimpl_intern_const.exit, %36
@@ -2245,7 +2245,7 @@ rbimpl_RB_TYPE_P_fastpath.exit33.thread:          ; preds = %13, %rbimpl_RB_TYPE
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fastpath.exit33.thread, %4
   %46 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %46, ptr noundef nonnull @.str.13) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %46, ptr noundef nonnull @.str.13) #25
   unreachable
 
 47:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit33.thread
@@ -2319,7 +2319,7 @@ class_search_ancestor.exit.thread:                ; preds = %54, %class_search_a
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define hidden void @rb_undefined_alloc(i64 noundef %0) local_unnamed_addr #11 {
   %2 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %2, ptr noundef nonnull @.str.14, i64 noundef %0) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %2, ptr noundef nonnull @.str.14, i64 noundef %0) #25
   unreachable
 }
 
@@ -2336,7 +2336,7 @@ define internal fastcc i64 @rb_class_alloc(i64 noundef %0) unnamed_addr #2 {
 
 7:                                                ; preds = %1
   %8 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.141) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.141) #25
   unreachable
 
 9:                                                ; preds = %1
@@ -2354,16 +2354,16 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %9
 
 16:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
   %17 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef nonnull @.str.142) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef nonnull @.str.142) #25
   unreachable
 
 RCLASS_SINGLETON_P.exit.thread.i:                 ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i, %9
-  %18 = tail call ptr @rb_get_alloc_func(i64 noundef %0) #23
+  %18 = tail call ptr @rb_get_alloc_func(i64 noundef %0) #24
   %.not6.i = icmp eq ptr %18, null
   br i1 %.not6.i, label %19, label %class_get_alloc_func.exit
 
 19:                                               ; preds = %RCLASS_SINGLETON_P.exit.thread.i
-  tail call void @rb_undefined_alloc(i64 noundef %0) #27
+  tail call void @rb_undefined_alloc(i64 noundef %0) #28
   unreachable
 
 class_get_alloc_func.exit:                        ; preds = %RCLASS_SINGLETON_P.exit.thread.i
@@ -2374,10 +2374,10 @@ class_get_alloc_func.exit:                        ; preds = %RCLASS_SINGLETON_P.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_class_new_instance_pass_kw(i32 noundef %0, ptr noundef %1, i64 noundef %2) #2 {
   %4 = tail call fastcc i64 @rb_class_alloc(i64 noundef %2)
-  %5 = tail call i32 @rb_keyword_given_p() #23
+  %5 = tail call i32 @rb_keyword_given_p() #24
   %6 = icmp ne i32 %5, 0
   %7 = zext i1 %6 to i32
-  tail call void @rb_obj_call_init_kw(i64 noundef %4, i32 noundef %0, ptr noundef %1, i32 noundef %7) #23
+  tail call void @rb_obj_call_init_kw(i64 noundef %4, i32 noundef %0, ptr noundef %1, i32 noundef %7) #24
   ret i64 %4
 }
 
@@ -2401,12 +2401,12 @@ define dso_local noundef i64 @rb_class_new_instance_kw(i32 noundef %0, ptr nound
   br i1 %13, label %Check_Type.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, !prof !40
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %9, %4
-  tail call void @rb_unexpected_type(i64 noundef %2, i32 noundef 2) #25
+  tail call void @rb_unexpected_type(i64 noundef %2, i32 noundef 2) #26
   unreachable
 
 Check_Type.exit:                                  ; preds = %9
   %14 = tail call fastcc i64 @rb_class_alloc(i64 noundef %2)
-  tail call void @rb_obj_call_init_kw(i64 noundef %14, i32 noundef %0, ptr noundef %1, i32 noundef %3) #23
+  tail call void @rb_obj_call_init_kw(i64 noundef %14, i32 noundef %0, ptr noundef %1, i32 noundef %3) #24
   ret i64 %14
 }
 
@@ -2426,12 +2426,12 @@ define dso_local noundef i64 @rb_class_new_instance(i32 noundef %0, ptr noundef 
   br i1 %12, label %rb_class_new_instance_kw.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, !prof !40
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %8, %3
-  tail call void @rb_unexpected_type(i64 noundef %2, i32 noundef 2) #25
+  tail call void @rb_unexpected_type(i64 noundef %2, i32 noundef 2) #26
   unreachable
 
 rb_class_new_instance_kw.exit:                    ; preds = %8
   %13 = tail call fastcc i64 @rb_class_alloc(i64 noundef %2)
-  tail call void @rb_obj_call_init_kw(i64 noundef %13, i32 noundef %0, ptr noundef %1, i32 noundef 0) #23
+  tail call void @rb_obj_call_init_kw(i64 noundef %13, i32 noundef %0, ptr noundef %1, i32 noundef 0) #24
   ret i64 %13
 }
 
@@ -2450,7 +2450,7 @@ define dso_local i64 @rb_class_superclass(i64 noundef %0) #10 {
 
 8:                                                ; preds = %5
   %9 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @.str.15) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @.str.15) #25
   unreachable
 
 10:                                               ; preds = %1
@@ -2487,7 +2487,7 @@ define hidden i64 @rb_mod_attr(i32 noundef %0, ptr noundef readonly captures(non
 
 .split:                                           ; preds = %3
   %5 = sext i32 %0 to i64
-  %6 = tail call i64 @rb_ary_new_capa(i64 noundef %5) #23
+  %6 = tail call i64 @rb_ary_new_capa(i64 noundef %5) #24
   %7 = icmp sgt i32 %0, 0
   br i1 %7, label %.lr.ph.preheader.i, label %rb_mod_attr_reader.exit
 
@@ -2500,9 +2500,9 @@ define hidden i64 @rb_mod_attr(i32 noundef %0, ptr noundef readonly captures(non
   %8 = getelementptr i64, ptr %1, i64 %indvars.iv.i
   %9 = load i64, ptr %8, align 8, !tbaa !7
   %10 = tail call fastcc i64 @id_for_attr(i64 noundef %2, i64 noundef %9)
-  tail call void @rb_attr(i64 noundef %2, i64 noundef %10, i32 noundef 1, i32 noundef 0, i32 noundef 1) #23
-  %11 = tail call i64 @rb_id2sym(i64 noundef %10) #23
-  %12 = tail call i64 @rb_ary_push(i64 noundef %6, i64 noundef %11) #23
+  tail call void @rb_attr(i64 noundef %2, i64 noundef %10, i32 noundef 1, i32 noundef 0, i32 noundef 1) #24
+  %11 = tail call i64 @rb_id2sym(i64 noundef %10) #24
+  %12 = tail call i64 @rb_ary_push(i64 noundef %6, i64 noundef %11) #24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %rb_mod_attr_reader.exit, label %.lr.ph.i, !llvm.loop !53
@@ -2516,7 +2516,7 @@ define hidden i64 @rb_mod_attr(i32 noundef %0, ptr noundef readonly captures(non
   ]
 
 .split17:                                         ; preds = %13
-  %16 = tail call i64 @rb_ary_new_capa(i64 noundef 2) #23
+  %16 = tail call i64 @rb_ary_new_capa(i64 noundef 2) #24
   br label %.lr.ph.i21
 
 .lr.ph.i21:                                       ; preds = %.lr.ph.i21, %.split17
@@ -2524,9 +2524,9 @@ define hidden i64 @rb_mod_attr(i32 noundef %0, ptr noundef readonly captures(non
   %17 = getelementptr i64, ptr %1, i64 %indvars.iv.i22
   %18 = load i64, ptr %17, align 8, !tbaa !7
   %19 = tail call fastcc i64 @id_for_attr(i64 noundef %2, i64 noundef %18)
-  tail call void @rb_attr(i64 noundef %2, i64 noundef %19, i32 noundef 1, i32 noundef 0, i32 noundef 1) #23
-  %20 = tail call i64 @rb_id2sym(i64 noundef %19) #23
-  %21 = tail call i64 @rb_ary_push(i64 noundef %16, i64 noundef %20) #23
+  tail call void @rb_attr(i64 noundef %2, i64 noundef %19, i32 noundef 1, i32 noundef 0, i32 noundef 1) #24
+  %20 = tail call i64 @rb_id2sym(i64 noundef %19) #24
+  %21 = tail call i64 @rb_ary_push(i64 noundef %16, i64 noundef %20) #24
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i22, 1
   %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i23, 2
   br i1 %exitcond.not.i24, label %rb_mod_attr_reader.exit, label %.lr.ph.i21, !llvm.loop !53
@@ -2534,23 +2534,23 @@ define hidden i64 @rb_mod_attr(i32 noundef %0, ptr noundef readonly captures(non
 22:                                               ; preds = %13, %13
   %23 = load i64, ptr %1, align 8, !tbaa !7
   %24 = tail call fastcc i64 @id_for_attr(i64 noundef %2, i64 noundef %23)
-  %25 = tail call i64 @rb_ary_new() #23
-  tail call void (i32, ptr, ...) @rb_category_warning(i32 noundef 1, ptr noundef nonnull @.str.16) #23
+  %25 = tail call i64 @rb_ary_new() #24
+  tail call void (i32, ptr, ...) @rb_category_warning(i32 noundef 1, ptr noundef nonnull @.str.16) #24
   %26 = load i64, ptr %14, align 8, !tbaa !7
   %27 = and i64 %26, -5
   %28 = icmp ne i64 %27, 0
   %29 = zext i1 %28 to i32
-  tail call void @rb_attr(i64 noundef %2, i64 noundef %24, i32 noundef 1, i32 noundef %29, i32 noundef 1) #23
-  %30 = tail call i64 @rb_id2sym(i64 noundef %24) #23
-  %31 = tail call i64 @rb_ary_push(i64 noundef %25, i64 noundef %30) #23
+  tail call void @rb_attr(i64 noundef %2, i64 noundef %24, i32 noundef 1, i32 noundef %29, i32 noundef 1) #24
+  %30 = tail call i64 @rb_id2sym(i64 noundef %24) #24
+  %31 = tail call i64 @rb_ary_push(i64 noundef %25, i64 noundef %30) #24
   %32 = load i64, ptr %14, align 8, !tbaa !7
   %33 = icmp eq i64 %32, 20
   br i1 %33, label %34, label %rb_mod_attr_reader.exit
 
 34:                                               ; preds = %22
-  %35 = tail call i64 @rb_id_attrset(i64 noundef %24) #23
-  %36 = tail call i64 @rb_id2sym(i64 noundef %35) #23
-  %37 = tail call i64 @rb_ary_push(i64 noundef %25, i64 noundef %36) #23
+  %35 = tail call i64 @rb_id_attrset(i64 noundef %24) #24
+  %36 = tail call i64 @rb_id2sym(i64 noundef %35) #24
+  %37 = tail call i64 @rb_ary_push(i64 noundef %25, i64 noundef %36) #24
   br label %rb_mod_attr_reader.exit
 
 rb_mod_attr_reader.exit:                          ; preds = %.lr.ph.i, %.lr.ph.i21, %.split, %22, %34
@@ -2562,39 +2562,39 @@ rb_mod_attr_reader.exit:                          ; preds = %.lr.ph.i, %.lr.ph.i
 define internal fastcc i64 @id_for_attr(i64 noundef %0, i64 noundef %1) unnamed_addr #2 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8, !tbaa !7
-  %4 = call i64 @rb_check_id(ptr noundef nonnull %3) #23
+  %4 = call i64 @rb_check_id(ptr noundef nonnull %3) #24
   %5 = load i64, ptr %3, align 8, !tbaa !7
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = call i32 @rb_is_local_id(i64 noundef %4) #28
+  %7 = call i32 @rb_is_local_id(i64 noundef %4) #29
   %.not.i5 = icmp eq i32 %7, 0
   br i1 %.not.i5, label %rb_is_attr_id.exit, label %check_setter_id.exit
 
 rb_is_attr_id.exit:                               ; preds = %6
-  %8 = call i32 @rb_is_const_id(i64 noundef %4) #28
+  %8 = call i32 @rb_is_const_id(i64 noundef %4) #29
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %12, label %check_setter_id.exit
 
 9:                                                ; preds = %2
-  %10 = call i32 @rb_is_local_name(i64 noundef %5) #23
+  %10 = call i32 @rb_is_local_name(i64 noundef %5) #24
   %.not.i4 = icmp eq i32 %10, 0
   br i1 %.not.i4, label %rb_is_attr_name.exit, label %rb_is_attr_name.exit.thread
 
 rb_is_attr_name.exit:                             ; preds = %9
-  %11 = call i32 @rb_is_const_name(i64 noundef %5) #23
+  %11 = call i32 @rb_is_const_name(i64 noundef %5) #24
   %.not8 = icmp eq i32 %11, 0
   br i1 %.not8, label %12, label %rb_is_attr_name.exit.thread
 
 12:                                               ; preds = %rb_is_attr_name.exit, %rb_is_attr_id.exit
-  %13 = call i64 @rb_fstring_new(ptr noundef nonnull @bad_attr_name, i64 noundef 29) #23
-  call fastcc void @rb_name_err_raise_str(i64 noundef %13, i64 noundef %0, i64 noundef %5) #27
+  %13 = call i64 @rb_fstring_new(ptr noundef nonnull @bad_attr_name, i64 noundef 29) #24
+  call fastcc void @rb_name_err_raise_str(i64 noundef %13, i64 noundef %0, i64 noundef %5) #28
   unreachable
 
 rb_is_attr_name.exit.thread:                      ; preds = %9, %rb_is_attr_name.exit
   %14 = load i64, ptr %3, align 8, !tbaa !7
-  %15 = call i64 @rb_intern_str(i64 noundef %14) #23
+  %15 = call i64 @rb_intern_str(i64 noundef %14) #24
   br label %check_setter_id.exit
 
 check_setter_id.exit:                             ; preds = %6, %rb_is_attr_id.exit, %rb_is_attr_name.exit.thread
@@ -2615,7 +2615,7 @@ declare i64 @rb_id_attrset(i64 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_mod_attr_reader(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = sext i32 %0 to i64
-  %5 = tail call i64 @rb_ary_new_capa(i64 noundef %4) #23
+  %5 = tail call i64 @rb_ary_new_capa(i64 noundef %4) #24
   %6 = icmp sgt i32 %0, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2628,9 +2628,9 @@ define internal i64 @rb_mod_attr_reader(i32 noundef %0, ptr noundef readonly cap
   %7 = getelementptr i64, ptr %1, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !7
   %9 = tail call fastcc i64 @id_for_attr(i64 noundef %2, i64 noundef %8)
-  tail call void @rb_attr(i64 noundef %2, i64 noundef %9, i32 noundef 1, i32 noundef 0, i32 noundef 1) #23
-  %10 = tail call i64 @rb_id2sym(i64 noundef %9) #23
-  %11 = tail call i64 @rb_ary_push(i64 noundef %5, i64 noundef %10) #23
+  tail call void @rb_attr(i64 noundef %2, i64 noundef %9, i32 noundef 1, i32 noundef 0, i32 noundef 1) #24
+  %10 = tail call i64 @rb_id2sym(i64 noundef %9) #24
+  %11 = tail call i64 @rb_ary_push(i64 noundef %5, i64 noundef %10) #24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
@@ -2724,7 +2724,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %40
-  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull readonly dereferenceable(1) %38) #26
+  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull readonly dereferenceable(1) %38) #27
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %conv_method_index.exit.i, label %47
 
@@ -2746,7 +2746,7 @@ conv_method_index.exit.i:                         ; preds = %44
 
 conv_method_index.exit.thread.i:                  ; preds = %47, %conv_method_index.exit.i, %.tail.i.i
   %.1.i10.i = phi i32 [ %48, %conv_method_index.exit.i ], [ 12, %.tail.i.i ], [ 12, %47 ]
-  %54 = tail call i64 @rb_intern(ptr noundef nonnull %3) #23
+  %54 = tail call i64 @rb_intern(ptr noundef nonnull %3) #24
   br label %convert_type.exit
 
 convert_type.exit:                                ; preds = %50, %conv_method_index.exit.thread.i
@@ -2797,7 +2797,7 @@ rb_type.exit17:                                   ; preds = %switch.lookup30, %6
   br i1 %.not, label %75, label %74
 
 74:                                               ; preds = %rb_type.exit17
-  tail call fastcc void @conversion_mismatch(i64 noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %56) #27
+  tail call fastcc void @conversion_mismatch(i64 noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %56) #28
   unreachable
 
 75:                                               ; preds = %rb_type.exit17, %rb_type.exit
@@ -2810,7 +2810,7 @@ define internal fastcc void @conversion_mismatch(i64 noundef %0, ptr noundef %1,
   %5 = tail call i64 @rb_obj_class(i64 noundef %0)
   %6 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
   %7 = tail call i64 @rb_obj_class(i64 noundef %3)
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %6, ptr noundef nonnull @.str.144, i64 noundef %5, ptr noundef %1, i64 noundef %5, ptr noundef %2, i64 noundef %7) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %6, ptr noundef nonnull @.str.144, i64 noundef %5, ptr noundef %1, i64 noundef %5, ptr noundef %2, i64 noundef %7) #25
   unreachable
 }
 
@@ -2905,7 +2905,7 @@ rb_type.exit17:                                   ; preds = %switch.lookup22, %2
   br i1 %.not, label %49, label %42
 
 42:                                               ; preds = %rb_type.exit17
-  %43 = tail call i64 @rb_id2str(i64 noundef %3) #23
+  %43 = tail call i64 @rb_id2str(i64 noundef %3) #24
   %44 = inttoptr i64 %43 to ptr
   %45 = load i64, ptr %44, align 8, !tbaa !24, !noalias !58
   %46 = and i64 %45, 8192
@@ -2919,7 +2919,7 @@ rb_type.exit17:                                   ; preds = %switch.lookup22, %2
 
 RSTRING_PTR.exit:                                 ; preds = %42, %48
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %48 ], [ %47, %42 ]
-  tail call fastcc void @conversion_mismatch(i64 noundef %0, ptr noundef %2, ptr noundef %.sroa.2.0.i, i64 noundef %24) #27
+  tail call fastcc void @conversion_mismatch(i64 noundef %0, ptr noundef %2, ptr noundef %.sroa.2.0.i, i64 noundef %24) #28
   unreachable
 
 49:                                               ; preds = %rb_type.exit17, %rb_type.exit
@@ -2929,7 +2929,7 @@ RSTRING_PTR.exit:                                 ; preds = %42, %48
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i64 37, 36) i64 @convert_type_with_id(i64 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4) unnamed_addr #2 {
-  %6 = tail call i64 @rb_check_funcall(i64 noundef %0, i64 noundef %2, i32 noundef 0, ptr noundef null) #23
+  %6 = tail call i64 @rb_check_funcall(i64 noundef %0, i64 noundef %2, i32 noundef 0, ptr noundef null) #24
   %7 = icmp eq i64 %6, 36
   br i1 %7, label %8, label %28
 
@@ -2942,7 +2942,7 @@ define internal fastcc range(i64 37, 36) i64 @convert_type_with_id(i64 noundef %
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
-  %12 = tail call ptr @rb_id2name(i64 noundef %2) #23
+  %12 = tail call ptr @rb_id2name(i64 noundef %2) #24
   %13 = tail call fastcc i32 @conv_method_index(ptr noundef %12)
   br label %14
 
@@ -2961,12 +2961,12 @@ define internal fastcc range(i64 37, 36) i64 @convert_type_with_id(i64 noundef %
   br i1 %.not20, label %26, label %25
 
 25:                                               ; preds = %14
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %24, ptr noundef nonnull @.str.148, ptr noundef nonnull %17, ptr noundef nonnull %23, ptr noundef %1) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %24, ptr noundef nonnull @.str.148, ptr noundef nonnull %17, ptr noundef nonnull %23, ptr noundef %1) #25
   unreachable
 
 26:                                               ; preds = %14
   %27 = tail call i64 @rb_obj_class(i64 noundef %0)
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %24, ptr noundef nonnull @.str.149, ptr noundef nonnull %17, i64 noundef %27, ptr noundef %1) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %24, ptr noundef nonnull @.str.149, ptr noundef nonnull %17, i64 noundef %27, ptr noundef %1) #25
   unreachable
 
 28:                                               ; preds = %5, %8
@@ -3063,7 +3063,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %41
-  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull readonly dereferenceable(1) %39) #26
+  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull readonly dereferenceable(1) %39) #27
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %conv_method_index.exit.i, label %48
 
@@ -3083,12 +3083,12 @@ conv_method_index.exit.i:                         ; preds = %45
   br label %convert_type.exit
 
 conv_method_index.exit.thread.i:                  ; preds = %48, %conv_method_index.exit.i, %.tail.i.i
-  %54 = tail call i64 @rb_intern(ptr noundef nonnull %3) #23
+  %54 = tail call i64 @rb_intern(ptr noundef nonnull %3) #24
   br label %convert_type.exit
 
 convert_type.exit:                                ; preds = %50, %conv_method_index.exit.thread.i
   %55 = phi i64 [ %53, %50 ], [ %54, %conv_method_index.exit.thread.i ]
-  %56 = tail call i64 @rb_check_funcall(i64 noundef %0, i64 noundef %55, i32 noundef 0, ptr noundef null) #23
+  %56 = tail call i64 @rb_check_funcall(i64 noundef %0, i64 noundef %55, i32 noundef 0, ptr noundef null) #24
   switch i64 %56, label %57 [
     i64 36, label %convert_type_with_id.exit.thread
     i64 4, label %convert_type_with_id.exit.thread
@@ -3139,7 +3139,7 @@ rb_type.exit19:                                   ; preds = %switch.lookup34, %6
   br i1 %.not, label %convert_type_with_id.exit.thread, label %75
 
 75:                                               ; preds = %rb_type.exit19
-  tail call fastcc void @conversion_mismatch(i64 noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %56) #27
+  tail call fastcc void @conversion_mismatch(i64 noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %56) #28
   unreachable
 
 convert_type_with_id.exit.thread:                 ; preds = %convert_type.exit, %convert_type.exit, %rb_type.exit19, %rb_type.exit
@@ -3195,7 +3195,7 @@ rb_type.exit:                                     ; preds = %switch.lookup, %9, 
   br i1 %or.cond, label %convert_type_with_id.exit.thread, label %24
 
 24:                                               ; preds = %rb_type.exit
-  %25 = tail call i64 @rb_check_funcall(i64 noundef %0, i64 noundef %3, i32 noundef 0, ptr noundef null) #23
+  %25 = tail call i64 @rb_check_funcall(i64 noundef %0, i64 noundef %3, i32 noundef 0, ptr noundef null) #24
   switch i64 %25, label %26 [
     i64 36, label %convert_type_with_id.exit.thread
     i64 4, label %convert_type_with_id.exit.thread
@@ -3246,7 +3246,7 @@ rb_type.exit20:                                   ; preds = %switch.lookup26, %3
   br i1 %.not, label %convert_type_with_id.exit.thread, label %44
 
 44:                                               ; preds = %rb_type.exit20
-  %45 = tail call i64 @rb_id2str(i64 noundef %3) #23
+  %45 = tail call i64 @rb_id2str(i64 noundef %3) #24
   %46 = inttoptr i64 %45 to ptr
   %47 = load i64, ptr %46, align 8, !tbaa !24, !noalias !61
   %48 = and i64 %47, 8192
@@ -3260,7 +3260,7 @@ rb_type.exit20:                                   ; preds = %switch.lookup26, %3
 
 RSTRING_PTR.exit:                                 ; preds = %44, %50
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %50 ], [ %49, %44 ]
-  tail call fastcc void @conversion_mismatch(i64 noundef %0, ptr noundef %2, ptr noundef %.sroa.2.0.i, i64 noundef %25) #27
+  tail call fastcc void @conversion_mismatch(i64 noundef %0, ptr noundef %2, ptr noundef %.sroa.2.0.i, i64 noundef %25) #28
   unreachable
 
 convert_type_with_id.exit.thread:                 ; preds = %24, %24, %rb_type.exit20, %rb_type.exit
@@ -3328,7 +3328,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %29
-  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull readonly dereferenceable(1) %27) #26
+  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull readonly dereferenceable(1) %27) #27
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %conv_method_index.exit.i, label %36
 
@@ -3348,12 +3348,12 @@ conv_method_index.exit.i:                         ; preds = %33
   br label %convert_type.exit
 
 conv_method_index.exit.thread.i:                  ; preds = %36, %conv_method_index.exit.i, %.tail.i.i
-  %42 = tail call i64 @rb_intern(ptr noundef nonnull %1) #23
+  %42 = tail call i64 @rb_intern(ptr noundef nonnull %1) #24
   br label %convert_type.exit
 
 convert_type.exit:                                ; preds = %38, %conv_method_index.exit.thread.i
   %43 = phi i64 [ %41, %38 ], [ %42, %conv_method_index.exit.thread.i ]
-  %44 = tail call i64 @rb_check_funcall(i64 noundef %0, i64 noundef %43, i32 noundef 0, ptr noundef null) #23
+  %44 = tail call i64 @rb_check_funcall(i64 noundef %0, i64 noundef %43, i32 noundef 0, ptr noundef null) #24
   %45 = icmp eq i64 %44, 36
   br i1 %45, label %rb_integer_type_p.exit.thread, label %convert_type_with_id.exit
 
@@ -3409,7 +3409,7 @@ rb_integer_type_p.exit.thread6:                   ; preds = %3, %rb_integer_type
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !64
   %16 = load ptr, ptr %15, align 8, !tbaa !72
-  tail call void @rb_yjit_lazy_push_frame(ptr noundef %16) #23
+  tail call void @rb_yjit_lazy_push_frame(ptr noundef %16) #24
   %17 = tail call fastcc i64 @convert_type_with_id(i64 noundef %0, ptr noundef nonnull @.str.17, i64 noundef 3233, i32 noundef 1, i32 noundef -1)
   %18 = and i64 %17, 1
   %.not.i2 = icmp eq i64 %18, 0
@@ -3430,7 +3430,7 @@ rb_integer_type_p.exit4:                          ; preds = %19
   br i1 %27, label %rb_integer_type_p.exit4.thread, label %rb_integer_type_p.exit4.thread9
 
 rb_integer_type_p.exit4.thread9:                  ; preds = %19, %rb_integer_type_p.exit4
-  tail call fastcc void @conversion_mismatch(i64 noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i64 noundef %17) #27
+  tail call fastcc void @conversion_mismatch(i64 noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i64 noundef %17) #28
   unreachable
 
 rb_integer_type_p.exit4.thread:                   ; preds = %rb_integer_type_p.exit.thread6, %rb_integer_type_p.exit4
@@ -3465,7 +3465,7 @@ rb_integer_type_p.exit:                           ; preds = %3
   br i1 %11, label %rb_integer_type_p.exit.thread, label %rb_integer_type_p.exit.thread11
 
 rb_integer_type_p.exit.thread11:                  ; preds = %3, %rb_integer_type_p.exit
-  %12 = tail call i64 @rb_check_funcall(i64 noundef %0, i64 noundef 3233, i32 noundef 0, ptr noundef null) #23
+  %12 = tail call i64 @rb_check_funcall(i64 noundef %0, i64 noundef 3233, i32 noundef 0, ptr noundef null) #24
   %13 = icmp eq i64 %12, 36
   br i1 %13, label %rb_integer_type_p.exit.thread, label %convert_type_with_id.exit
 
@@ -3507,7 +3507,7 @@ define internal fastcc i64 @rb_convert_to_integer(i64 noundef %0, i32 noundef %1
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %3
-  %5 = tail call i64 @rb_check_string_type(i64 noundef %0) #23
+  %5 = tail call i64 @rb_check_string_type(i64 noundef %0) #24
   %6 = icmp eq i64 %5, 4
   br i1 %6, label %7, label %10
 
@@ -3517,7 +3517,7 @@ define internal fastcc i64 @rb_convert_to_integer(i64 noundef %0, i32 noundef %1
 
 8:                                                ; preds = %7
   %9 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @.str.150) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @.str.150) #25
   unreachable
 
 10:                                               ; preds = %4, %3
@@ -3579,7 +3579,7 @@ rb_float_value_inline.exit:                       ; preds = %22, %23, %29
   br label %rb_to_integer_with_id_exception.exit
 
 41:                                               ; preds = %34
-  %42 = tail call i64 @rb_dbl2big(double noundef %.0.i43) #23
+  %42 = tail call i64 @rb_dbl2big(double noundef %.0.i43) #24
   br label %rb_to_integer_with_id_exception.exit
 
 RB_FLOAT_TYPE_P.exit.thread55:                    ; preds = %13, %RB_FLOAT_TYPE_P.exit
@@ -3608,7 +3608,7 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %rb_integer_type_p.e
   br i1 %55, label %56, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
 
 56:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit
-  %57 = tail call i64 @rb_str_convert_to_inum(i64 noundef %.033, i32 noundef %1, i32 noundef 1, i32 noundef %2) #23
+  %57 = tail call i64 @rb_str_convert_to_inum(i64 noundef %.033, i32 noundef %1, i32 noundef 1, i32 noundef %2) #24
   br label %rb_to_integer_with_id_exception.exit
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %44, %rbimpl_RB_TYPE_P_fastpath.exit
@@ -3621,11 +3621,11 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %44, %rbimpl_RB_TYPE
 
 60:                                               ; preds = %59
   %61 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %61, ptr noundef nonnull @.str.151) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %61, ptr noundef nonnull @.str.151) #25
   unreachable
 
 62:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread
-  %63 = tail call i64 @rb_protect(ptr noundef nonnull @rb_check_to_int, i64 noundef %.033, ptr noundef null) #23
+  %63 = tail call i64 @rb_protect(ptr noundef nonnull @rb_check_to_int, i64 noundef %.033, ptr noundef null) #24
   %64 = and i64 %63, 1
   %.not.i45 = icmp eq i64 %64, 0
   br i1 %.not.i45, label %65, label %rb_to_integer_with_id_exception.exit
@@ -3645,13 +3645,13 @@ rb_integer_type_p.exit47:                         ; preds = %65
   br i1 %73, label %rb_to_integer_with_id_exception.exit, label %rb_integer_type_p.exit47.thread62
 
 rb_integer_type_p.exit47.thread62:                ; preds = %65, %rb_integer_type_p.exit47
-  tail call void @rb_set_errinfo(i64 noundef 4) #23
-  %74 = tail call i64 @rb_check_string_type(i64 noundef %.033) #23
+  tail call void @rb_set_errinfo(i64 noundef 4) #24
+  %74 = tail call i64 @rb_check_string_type(i64 noundef %.033) #24
   %75 = icmp eq i64 %74, 4
   br i1 %75, label %78, label %76
 
 76:                                               ; preds = %rb_integer_type_p.exit47.thread62
-  %77 = tail call i64 @rb_str_convert_to_inum(i64 noundef %74, i32 noundef %1, i32 noundef 1, i32 noundef %2) #23
+  %77 = tail call i64 @rb_str_convert_to_inum(i64 noundef %74, i32 noundef %1, i32 noundef 1, i32 noundef %2) #24
   br label %rb_to_integer_with_id_exception.exit
 
 78:                                               ; preds = %rb_integer_type_p.exit47.thread62
@@ -3659,8 +3659,8 @@ rb_integer_type_p.exit47.thread62:                ; preds = %65, %rb_integer_typ
   br i1 %.not35, label %79, label %81
 
 79:                                               ; preds = %78
-  %80 = tail call i64 @rb_protect(ptr noundef nonnull @rb_check_to_i, i64 noundef %.033, ptr noundef null) #23
-  tail call void @rb_set_errinfo(i64 noundef 4) #23
+  %80 = tail call i64 @rb_protect(ptr noundef nonnull @rb_check_to_i, i64 noundef %.033, ptr noundef null) #24
+  tail call void @rb_set_errinfo(i64 noundef 4) #24
   br label %rb_to_integer_with_id_exception.exit
 
 81:                                               ; preds = %78
@@ -3679,7 +3679,7 @@ rb_integer_type_p.exit50.thread:                  ; preds = %81, %rb_integer_typ
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8, !tbaa !64
   %90 = load ptr, ptr %89, align 8, !tbaa !72
-  tail call void @rb_yjit_lazy_push_frame(ptr noundef %90) #23
+  tail call void @rb_yjit_lazy_push_frame(ptr noundef %90) #24
   %91 = tail call fastcc i64 @convert_type_with_id(i64 noundef %.033, ptr noundef nonnull @.str.17, i64 noundef 3377, i32 noundef 1, i32 noundef -1)
   %92 = and i64 %91, 1
   %.not.i51 = icmp eq i64 %92, 0
@@ -3700,7 +3700,7 @@ rb_integer_type_p.exit53:                         ; preds = %93
   br i1 %101, label %rb_integer_type_p.exit53.thread, label %rb_integer_type_p.exit53.thread66
 
 rb_integer_type_p.exit53.thread66:                ; preds = %93, %rb_integer_type_p.exit53
-  tail call fastcc void @conversion_mismatch(i64 noundef %.033, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.152, i64 noundef %91) #27
+  tail call fastcc void @conversion_mismatch(i64 noundef %.033, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.152, i64 noundef %91) #28
   unreachable
 
 rb_integer_type_p.exit53.thread:                  ; preds = %rb_integer_type_p.exit50.thread, %rb_integer_type_p.exit53
@@ -3740,8 +3740,8 @@ rb_integer_type_p.exit.thread7:                   ; preds = %3, %rb_integer_type
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !64
   %16 = load ptr, ptr %15, align 8, !tbaa !72
-  tail call void @rb_yjit_lazy_push_frame(ptr noundef %16) #23
-  %17 = tail call i64 @rb_check_funcall(i64 noundef %0, i64 noundef 3233, i32 noundef 0, ptr noundef null) #23
+  tail call void @rb_yjit_lazy_push_frame(ptr noundef %16) #24
+  %17 = tail call i64 @rb_check_funcall(i64 noundef %0, i64 noundef 3233, i32 noundef 0, ptr noundef null) #24
   switch i64 %17, label %18 [
     i64 36, label %rb_to_integer_with_id_exception.exit.sink.split
     i64 4, label %rb_to_integer_with_id_exception.exit.sink.split
@@ -3767,7 +3767,7 @@ rb_integer_type_p.exit5:                          ; preds = %20
   br i1 %28, label %rb_to_integer_with_id_exception.exit.sink.split, label %rb_integer_type_p.exit5.thread11
 
 rb_integer_type_p.exit5.thread11:                 ; preds = %20, %rb_integer_type_p.exit5
-  tail call fastcc void @conversion_mismatch(i64 noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i64 noundef %17) #27
+  tail call fastcc void @conversion_mismatch(i64 noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i64 noundef %17) #28
   unreachable
 
 rb_to_integer_with_id_exception.exit.sink.split:  ; preds = %rb_integer_type_p.exit5, %18, %rb_integer_type_p.exit.thread7, %rb_integer_type_p.exit.thread7
@@ -3798,11 +3798,11 @@ define hidden range(i32 0, 2) i32 @rb_bool_expected(i64 noundef %0, ptr noundef 
 
 6:                                                ; preds = %5
   %7 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @rb_bool_expected.message, ptr noundef %1, i64 noundef %0) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @rb_bool_expected.message, ptr noundef %1, i64 noundef %0) #25
   unreachable
 
 8:                                                ; preds = %5
-  tail call void (ptr, ...) @rb_warning(ptr noundef nonnull @rb_bool_expected.message, ptr noundef %1, i64 noundef %0) #23
+  tail call void (ptr, ...) @rb_warning(ptr noundef nonnull @rb_bool_expected.message, ptr noundef %1, i64 noundef %0) #24
   %9 = icmp ne i64 %0, 4
   %10 = zext i1 %9 to i32
   br label %11
@@ -3818,7 +3818,7 @@ declare void @rb_warning(ptr noundef, ...) local_unnamed_addr #3
 define dso_local noundef i32 @rb_opts_exception_p(i64 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call i32 @rb_get_kwargs(i64 noundef %0, ptr noundef nonnull @rb_opts_exception_p.kwds, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3) #23
+  %4 = call i32 @rb_get_kwargs(i64 noundef %0, ptr noundef nonnull @rb_opts_exception_p.kwds, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3) #24
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %rb_bool_expected.exit, label %5
 
@@ -3834,7 +3834,7 @@ define dso_local noundef i32 @rb_opts_exception_p(i64 noundef %0, i32 noundef %1
 
 8:                                                ; preds = %5
   %9 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @rb_bool_expected.message, ptr noundef nonnull @.str.19, i64 noundef %6) #24
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @rb_bool_expected.message, ptr noundef nonnull @.str.19, i64 noundef %6) #25
   unreachable
 
 rb_bool_expected.exit:                            ; preds = %7, %5, %2
@@ -3884,8 +3884,8 @@ define internal fastcc double @rb_cstr_to_dbl_raise(ptr noundef %0, ptr noundef 
   ]
 
 18:                                               ; preds = %16, %14
-  %19 = call double @ruby_strtod(ptr noundef nonnull %.0103, ptr noundef nonnull %6) #23
-  %20 = call ptr @rb_errno_ptr() #23
+  %19 = call double @ruby_strtod(ptr noundef nonnull %.0103, ptr noundef nonnull %6) #24
+  %20 = call ptr @rb_errno_ptr() #24
   %21 = load i32, ptr %20, align 4, !tbaa !79
   %22 = icmp eq i32 %21, 34
   br i1 %22, label %23, label %30
@@ -3899,8 +3899,8 @@ define internal fastcc double @rb_cstr_to_dbl_raise(ptr noundef %0, ptr noundef 
   %.0120 = select i1 %28, ptr @.str.153, ptr @.str.73
   %.0117176 = call i64 @llvm.smin.i64(i64 %27, i64 20)
   %.0117 = trunc i64 %.0117176 to i32
-  call void (ptr, ...) @rb_warning(ptr noundef nonnull @.str.154, i32 noundef %.0117, ptr noundef nonnull %.0103, ptr noundef nonnull %.0120) #23
-  %29 = call ptr @rb_errno_ptr() #23
+  call void (ptr, ...) @rb_warning(ptr noundef nonnull @.str.154, i32 noundef %.0117, ptr noundef nonnull %.0103, ptr noundef nonnull %.0120) #24
+  %29 = call ptr @rb_errno_ptr() #24
   store i32 0, ptr %29, align 4, !tbaa !79
   br label %30
 
@@ -4163,8 +4163,8 @@ thread-pre-split:                                 ; preds = %67, %60
   ]
 
 124:                                              ; preds = %121, %.critedge156, %118
-  %125 = call double @ruby_strtod(ptr noundef nonnull %7, ptr noundef nonnull %6) #23
-  %126 = call ptr @rb_errno_ptr() #23
+  %125 = call double @ruby_strtod(ptr noundef nonnull %7, ptr noundef nonnull %6) #24
+  %126 = call ptr @rb_errno_ptr() #24
   %127 = load i32, ptr %126, align 4, !tbaa !79
   %128 = icmp eq i32 %127, 34
   br i1 %128, label %129, label %136
@@ -4178,8 +4178,8 @@ thread-pre-split:                                 ; preds = %67, %60
   %.1121 = select i1 %134, ptr @.str.153, ptr @.str.73
   %.1118182 = call i64 @llvm.smin.i64(i64 %133, i64 20)
   %.1118 = trunc i64 %.1118182 to i32
-  call void (ptr, ...) @rb_warning(ptr noundef nonnull @.str.154, i32 noundef %.1118, ptr noundef nonnull %7, ptr noundef nonnull %.1121) #23
-  %135 = call ptr @rb_errno_ptr() #23
+  call void (ptr, ...) @rb_warning(ptr noundef nonnull @.str.154, i32 noundef %.1118, ptr noundef nonnull %7, ptr noundef nonnull %.1121) #24
+  %135 = call ptr @rb_errno_ptr() #24
   store i32 0, ptr %135, align 4, !tbaa !79
   br label %136
 
@@ -4230,13 +4230,13 @@ thread-pre-split:                                 ; preds = %67, %60
 150:                                              ; preds = %.critedge.thread170, %34
   %.0123 = phi double [ %19, %34 ], [ %125, %.critedge.thread170 ]
   %.1104 = phi ptr [ %.0103, %34 ], [ %7, %.critedge.thread170 ]
-  %151 = call ptr @rb_errno_ptr() #23
+  %151 = call ptr @rb_errno_ptr() #24
   %152 = load i32, ptr %151, align 4, !tbaa !79
   %153 = icmp eq i32 %152, 34
   br i1 %153, label %154, label %168
 
 154:                                              ; preds = %150
-  %155 = call ptr @rb_errno_ptr() #23
+  %155 = call ptr @rb_errno_ptr() #24
   store i32 0, ptr %155, align 4, !tbaa !79
   %156 = load ptr, ptr %6, align 8, !tbaa !80
   %157 = ptrtoint ptr %156 to i64
@@ -4247,7 +4247,7 @@ thread-pre-split:                                 ; preds = %67, %60
   %.2119185 = call i64 @llvm.smin.i64(i64 %159, i64 20)
   %.2119 = trunc i64 %.2119185 to i32
   %161 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %161, ptr noundef nonnull @.str.154, i32 noundef %.2119, ptr noundef nonnull %0, ptr noundef nonnull %.2122) #24
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %161, ptr noundef nonnull @.str.154, i32 noundef %.2119, ptr noundef nonnull %0, ptr noundef nonnull %.2122) #25
   unreachable
 
 162:                                              ; preds = %.critedge.thread165, %33
@@ -4255,9 +4255,9 @@ thread-pre-split:                                 ; preds = %67, %60
   br i1 %.not152, label %166, label %163
 
 163:                                              ; preds = %162
-  %164 = call i64 @rb_enc_str_new_cstr(ptr noundef nonnull %0, ptr noundef %1) #23
+  %164 = call i64 @rb_enc_str_new_cstr(ptr noundef nonnull %0, ptr noundef %1) #24
   %165 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %165, ptr noundef nonnull @.str.155, i64 noundef %164) #24
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %165, ptr noundef nonnull @.str.155, i64 noundef %164) #25
   unreachable
 
 166:                                              ; preds = %162
@@ -4288,9 +4288,9 @@ define internal fastcc double @rb_str_to_dbl_raise(i64 noundef %0, i32 noundef %
   store i64 %0, ptr %5, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !7
-  %8 = call i64 @rb_string_value(ptr noundef nonnull %5) #23
+  %8 = call i64 @rb_string_value(ptr noundef nonnull %5) #24
   %9 = load i64, ptr %5, align 8, !tbaa !7
-  call void @rb_must_asciicompat(i64 noundef %9) #23
+  call void @rb_must_asciicompat(i64 noundef %9) #24
   %10 = load i64, ptr %5, align 8, !tbaa !7
   %11 = inttoptr i64 %10 to ptr
   %12 = load i64, ptr %11, align 8, !tbaa !24, !noalias !87
@@ -4312,7 +4312,7 @@ RSTRING_PTR.exit.thread:                          ; preds = %4, %RSTRING_PTR.exi
   br i1 %.not29, label %23, label %16
 
 16:                                               ; preds = %RSTRING_PTR.exit.thread
-  %17 = call ptr @memchr(ptr noundef nonnull %.sroa.2.0.i37, i32 noundef 0, i64 noundef %15) #26
+  %17 = call ptr @memchr(ptr noundef nonnull %.sroa.2.0.i37, i32 noundef 0, i64 noundef %15) #27
   %.not30 = icmp eq ptr %17, null
   br i1 %.not30, label %23, label %18
 
@@ -4322,7 +4322,7 @@ RSTRING_PTR.exit.thread:                          ; preds = %4, %RSTRING_PTR.exi
 
 19:                                               ; preds = %18
   %20 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %20, ptr noundef nonnull @.str.156) #24
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %20, ptr noundef nonnull @.str.156) #25
   unreachable
 
 21:                                               ; preds = %18
@@ -4345,7 +4345,7 @@ RSTRING_PTR.exit.thread:                          ; preds = %4, %RSTRING_PTR.exi
   br i1 %28, label %30, label %.thread
 
 .thread:                                          ; preds = %26
-  %29 = call noalias nonnull ptr @rb_alloc_tmp_buffer(ptr noundef nonnull %6, i64 noundef %27) #29
+  %29 = call noalias nonnull ptr @rb_alloc_tmp_buffer(ptr noundef nonnull %6, i64 noundef %27) #30
   br label %32
 
 30:                                               ; preds = %26
@@ -4356,7 +4356,7 @@ RSTRING_PTR.exit.thread:                          ; preds = %4, %RSTRING_PTR.exi
 
 32:                                               ; preds = %.thread, %30
   %33 = phi ptr [ %29, %.thread ], [ %31, %30 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %33, ptr noundef nonnull readonly align 1 %.sroa.2.0.i37, i64 noundef range(i64 1, 0) %15, i1 noundef false) #23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %33, ptr noundef nonnull readonly align 1 %.sroa.2.0.i37, i64 noundef range(i64 1, 0) %15, i1 noundef false) #24
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %30, %32
@@ -4369,20 +4369,20 @@ ruby_nonempty_memcpy.exit:                        ; preds = %30, %32
 36:                                               ; preds = %23, %ruby_nonempty_memcpy.exit, %RSTRING_PTR.exit
   %37 = phi i64 [ %.pre, %ruby_nonempty_memcpy.exit ], [ %10, %23 ], [ %10, %RSTRING_PTR.exit ]
   %.024 = phi ptr [ %34, %ruby_nonempty_memcpy.exit ], [ %.sroa.2.0.i37, %23 ], [ null, %RSTRING_PTR.exit ]
-  %38 = call ptr @rb_enc_get(i64 noundef %37) #23
+  %38 = call ptr @rb_enc_get(i64 noundef %37) #24
   %39 = call fastcc double @rb_cstr_to_dbl_raise(ptr noundef %.024, ptr noundef %38, i32 noundef %1, i32 noundef %2, ptr noundef %3)
   %40 = load i64, ptr %6, align 8, !tbaa !7
   %.not32 = icmp eq i64 %40, 0
   br i1 %.not32, label %42, label %41
 
 41:                                               ; preds = %36
-  call void @rb_free_tmp_buffer(ptr noundef nonnull %6) #23
+  call void @rb_free_tmp_buffer(ptr noundef nonnull %6) #24
   br label %45
 
 42:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %5, ptr %7, align 8, !tbaa !92
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %7) #23, !srcloc !93
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %7) #24, !srcloc !93
   %43 = load ptr, ptr %7, align 8, !tbaa !92
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %44 = load volatile i64, ptr %43, align 8, !tbaa !7
@@ -4454,7 +4454,7 @@ define internal fastcc i64 @rb_convert_to_float(i64 noundef %0, i32 noundef rang
   br i1 %27, label %rb_float_new_inline.exit, label %28
 
 28:                                               ; preds = %26, %14
-  %29 = call i64 @rb_float_new_in_heap(double noundef %12) #23
+  %29 = call i64 @rb_float_new_in_heap(double noundef %12) #24
   br label %rb_float_new_inline.exit
 
 rb_float_new_inline.exit:                         ; preds = %28, %26, %22, %10
@@ -4488,7 +4488,7 @@ rb_float_new_inline.exit:                         ; preds = %28, %26, %22, %10
   br i1 %46, label %rb_float_new_inline.exit15, label %47
 
 47:                                               ; preds = %45, %31
-  %48 = tail call i64 @rb_float_new_in_heap(double noundef %33) #23
+  %48 = tail call i64 @rb_float_new_in_heap(double noundef %33) #24
   br label %rb_float_new_inline.exit15
 
 49:                                               ; preds = %2
@@ -4508,13 +4508,13 @@ rb_float_new_inline.exit:                         ; preds = %28, %26, %22, %10
 57:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %58 = load i64, ptr %3, align 8, !tbaa !7
-  %59 = call i64 @rb_protect(ptr noundef nonnull @convert_type_to_float_protected, i64 noundef %58, ptr noundef nonnull %5) #23
+  %59 = call i64 @rb_protect(ptr noundef nonnull @convert_type_to_float_protected, i64 noundef %58, ptr noundef nonnull %5) #24
   %60 = load i32, ptr %5, align 4, !tbaa !79
   %.not12 = icmp eq i32 %60, 0
   br i1 %.not12, label %62, label %61
 
 61:                                               ; preds = %57
-  call void @rb_set_errinfo(i64 noundef 4) #23
+  call void @rb_set_errinfo(i64 noundef 4) #24
   br label %62
 
 62:                                               ; preds = %61, %57
@@ -4549,7 +4549,7 @@ define dso_local i64 @rb_to_float(i64 noundef %0) local_unnamed_addr #2 {
 8:                                                ; preds = %5
   %9 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
   %10 = tail call i64 @rb_obj_class(i64 noundef %4)
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @.str.157, i64 noundef %10) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @.str.157, i64 noundef %10) #25
   unreachable
 
 numeric_to_float.exit:                            ; preds = %5
@@ -4601,7 +4601,7 @@ define internal fastcc range(i32 0, 6) i32 @to_float(ptr noundef nonnull capture
   br i1 %25, label %rb_float_new_inline.exit, label %26
 
 26:                                               ; preds = %24, %10
-  %27 = tail call i64 @rb_float_new_in_heap(double noundef %12) #23
+  %27 = tail call i64 @rb_float_new_in_heap(double noundef %12) #24
   br label %rb_float_new_inline.exit
 
 rb_float_new_inline.exit:                         ; preds = %20, %24, %26
@@ -4627,20 +4627,20 @@ rb_float_new_inline.exit:                         ; preds = %20, %24, %26
 
 32:                                               ; preds = %31
   %33 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  %34 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.158, i64 noundef 28) #23
-  tail call fastcc void @rb_raise_cstr_i(i64 noundef %33, i64 noundef %34) #27
+  %34 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.158, i64 noundef 28) #24
+  tail call fastcc void @rb_raise_cstr_i(i64 noundef %33, i64 noundef %34) #28
   unreachable
 
 35:                                               ; preds = %31
   %36 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  %37 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.159, i64 noundef 29) #23
-  tail call fastcc void @rb_raise_cstr_i(i64 noundef %36, i64 noundef %37) #27
+  %37 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.159, i64 noundef 29) #24
+  tail call fastcc void @rb_raise_cstr_i(i64 noundef %36, i64 noundef %37) #28
   unreachable
 
 38:                                               ; preds = %31
   %39 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  %40 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.160, i64 noundef 30) #23
-  tail call fastcc void @rb_raise_cstr_i(i64 noundef %39, i64 noundef %40) #27
+  %40 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.160, i64 noundef 30) #24
+  tail call fastcc void @rb_raise_cstr_i(i64 noundef %39, i64 noundef %40) #28
   unreachable
 
 41:                                               ; preds = %2
@@ -4656,7 +4656,7 @@ rb_float_new_inline.exit:                         ; preds = %20, %24, %26
   ]
 
 46:                                               ; preds = %41
-  %47 = tail call double @rb_big2dbl(i64 noundef %3) #23
+  %47 = tail call double @rb_big2dbl(i64 noundef %3) #24
   %48 = bitcast double %47 to i64
   %cond.i16 = icmp eq i64 %48, 3458764513820540928
   br i1 %cond.i16, label %61, label %49
@@ -4680,7 +4680,7 @@ rb_float_new_inline.exit:                         ; preds = %20, %24, %26
   br i1 %60, label %rb_float_new_inline.exit18, label %61
 
 61:                                               ; preds = %59, %46
-  %62 = tail call i64 @rb_float_new_in_heap(double noundef %47) #23
+  %62 = tail call i64 @rb_float_new_in_heap(double noundef %47) #24
   br label %rb_float_new_inline.exit18
 
 rb_float_new_inline.exit18:                       ; preds = %55, %59, %61
@@ -4713,7 +4713,7 @@ rb_float_new_inline.exit18:                       ; preds = %55, %59, %61
   br i1 %77, label %rb_float_new_inline.exit21, label %78
 
 78:                                               ; preds = %76, %63
-  %79 = tail call i64 @rb_float_new_in_heap(double noundef %64) #23
+  %79 = tail call i64 @rb_float_new_in_heap(double noundef %64) #24
   br label %rb_float_new_inline.exit21
 
 rb_float_new_inline.exit21:                       ; preds = %72, %76, %78
@@ -4779,7 +4779,7 @@ define hidden double @rb_num_to_dbl(i64 noundef %0) local_unnamed_addr #2 {
 
 8:                                                ; preds = %6
   %9 = load i64, ptr @rb_cInteger, align 8, !tbaa !7
-  %10 = tail call i32 @rb_method_basic_definition_p(i64 noundef %9, i64 noundef 3393) #23
+  %10 = tail call i32 @rb_method_basic_definition_p(i64 noundef %9, i64 noundef 3393) #24
   %.not13 = icmp eq i32 %10, 0
   br i1 %.not13, label %conversion_to_float.exit, label %11
 
@@ -4815,20 +4815,20 @@ define hidden double @rb_num_to_dbl(i64 noundef %0) local_unnamed_addr #2 {
 
 24:                                               ; preds = %23
   %25 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  %26 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.158, i64 noundef 28) #23
-  tail call fastcc void @rb_raise_cstr_i(i64 noundef %25, i64 noundef %26) #27
+  %26 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.158, i64 noundef 28) #24
+  tail call fastcc void @rb_raise_cstr_i(i64 noundef %25, i64 noundef %26) #28
   unreachable
 
 27:                                               ; preds = %23
   %28 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  %29 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.159, i64 noundef 29) #23
-  tail call fastcc void @rb_raise_cstr_i(i64 noundef %28, i64 noundef %29) #27
+  %29 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.159, i64 noundef 29) #24
+  tail call fastcc void @rb_raise_cstr_i(i64 noundef %28, i64 noundef %29) #28
   unreachable
 
 30:                                               ; preds = %23
   %31 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  %32 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.160, i64 noundef 30) #23
-  tail call fastcc void @rb_raise_cstr_i(i64 noundef %31, i64 noundef %32) #27
+  %32 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.160, i64 noundef 30) #24
+  tail call fastcc void @rb_raise_cstr_i(i64 noundef %31, i64 noundef %32) #28
   unreachable
 
 33:                                               ; preds = %1
@@ -4849,17 +4849,17 @@ define hidden double @rb_num_to_dbl(i64 noundef %0) local_unnamed_addr #2 {
 
 41:                                               ; preds = %33
   %42 = load i64, ptr @rb_cInteger, align 8, !tbaa !7
-  %43 = tail call i32 @rb_method_basic_definition_p(i64 noundef %42, i64 noundef 3393) #23
+  %43 = tail call i32 @rb_method_basic_definition_p(i64 noundef %42, i64 noundef 3393) #24
   %.not12 = icmp eq i32 %43, 0
   br i1 %.not12, label %conversion_to_float.exit, label %44
 
 44:                                               ; preds = %41
-  %45 = tail call double @rb_big2dbl(i64 noundef %0) #23
+  %45 = tail call double @rb_big2dbl(i64 noundef %0) #24
   br label %rb_float_flonum_value.exit
 
 46:                                               ; preds = %33
   %47 = load i64, ptr @rb_cRational, align 8, !tbaa !7
-  %48 = tail call i32 @rb_method_basic_definition_p(i64 noundef %47, i64 noundef 3393) #23
+  %48 = tail call i32 @rb_method_basic_definition_p(i64 noundef %47, i64 noundef 3393) #24
   %.not = icmp eq i32 %48, 0
   br i1 %.not, label %conversion_to_float.exit, label %49
 
@@ -4876,7 +4876,7 @@ conversion_to_float.exit:                         ; preds = %23, %41, %46, %33, 
 53:                                               ; preds = %conversion_to_float.exit
   %54 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
   %55 = tail call i64 @rb_obj_class(i64 noundef %0)
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %54, ptr noundef nonnull @.str.157, i64 noundef %55) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %54, ptr noundef nonnull @.str.157, i64 noundef %55) #25
   unreachable
 
 numeric_to_float.exit:                            ; preds = %conversion_to_float.exit
@@ -4913,8 +4913,8 @@ declare double @rb_big2dbl(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
 define internal fastcc double @rat2dbl_without_to_f(i64 noundef %0) unnamed_addr #12 {
-  %2 = tail call i64 @rb_rational_num(i64 noundef %0) #26
-  %3 = tail call i64 @rb_rational_den(i64 noundef %0) #26
+  %2 = tail call i64 @rb_rational_num(i64 noundef %0) #27
+  %3 = tail call i64 @rb_rational_den(i64 noundef %0) #27
   %4 = and i64 %2, 1
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %8, label %5
@@ -4941,7 +4941,7 @@ rbimpl_RB_TYPE_P_fastpath.exit15:                 ; preds = %8
   ], !prof !94
 
 16:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit15
-  %17 = tail call double @rb_big2dbl(i64 noundef %2) #23
+  %17 = tail call double @rb_big2dbl(i64 noundef %2) #24
   br label %rb_float_value_inline.exit
 
 rbimpl_RB_TYPE_P_fastpath.exit15.thread:          ; preds = %8
@@ -4950,7 +4950,7 @@ rbimpl_RB_TYPE_P_fastpath.exit15.thread:          ; preds = %8
   br i1 %.not28, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %19
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fastpath.exit15, %rbimpl_RB_TYPE_P_fastpath.exit15.thread
-  tail call void @rb_unexpected_type(i64 noundef %2, i32 noundef 4) #25
+  tail call void @rb_unexpected_type(i64 noundef %2, i32 noundef 4) #26
   unreachable
 
 19:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit15.thread
@@ -4999,7 +4999,7 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %33
   ], !prof !94
 
 41:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit
-  %42 = tail call double @rb_big2dbl(i64 noundef %3) #23
+  %42 = tail call double @rb_big2dbl(i64 noundef %3) #24
   br label %rb_float_value_inline.exit22
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %33
@@ -5008,7 +5008,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %33
   br i1 %.not30, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i17, label %44
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i17:        ; preds = %rbimpl_RB_TYPE_P_fastpath.exit, %rbimpl_RB_TYPE_P_fastpath.exit.thread
-  tail call void @rb_unexpected_type(i64 noundef %3, i32 noundef 4) #25
+  tail call void @rb_unexpected_type(i64 noundef %3, i32 noundef 4) #26
   unreachable
 
 44:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread
@@ -5080,20 +5080,20 @@ define dso_local double @rb_num2dbl(i64 noundef %0) local_unnamed_addr #2 {
 
 21:                                               ; preds = %20
   %22 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  %23 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.161, i64 noundef 40) #23
-  tail call fastcc void @rb_raise_cstr_i(i64 noundef %22, i64 noundef %23) #27
+  %23 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.161, i64 noundef 40) #24
+  tail call fastcc void @rb_raise_cstr_i(i64 noundef %22, i64 noundef %23) #28
   unreachable
 
 24:                                               ; preds = %20
   %25 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  %26 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.162, i64 noundef 41) #23
-  tail call fastcc void @rb_raise_cstr_i(i64 noundef %25, i64 noundef %26) #27
+  %26 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.162, i64 noundef 41) #24
+  tail call fastcc void @rb_raise_cstr_i(i64 noundef %25, i64 noundef %26) #28
   unreachable
 
 27:                                               ; preds = %20
   %28 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  %29 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.163, i64 noundef 42) #23
-  tail call fastcc void @rb_raise_cstr_i(i64 noundef %28, i64 noundef %29) #27
+  %29 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.163, i64 noundef 42) #24
+  tail call fastcc void @rb_raise_cstr_i(i64 noundef %28, i64 noundef %29) #28
   unreachable
 
 30:                                               ; preds = %1
@@ -5114,7 +5114,7 @@ define dso_local double @rb_num2dbl(i64 noundef %0) local_unnamed_addr #2 {
   br label %rb_float_flonum_value.exit
 
 38:                                               ; preds = %30
-  %39 = tail call double @rb_big2dbl(i64 noundef %0) #23
+  %39 = tail call double @rb_big2dbl(i64 noundef %0) #24
   br label %rb_float_flonum_value.exit
 
 40:                                               ; preds = %30
@@ -5123,7 +5123,7 @@ define dso_local double @rb_num2dbl(i64 noundef %0) local_unnamed_addr #2 {
 
 42:                                               ; preds = %30
   %43 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %43, ptr noundef nonnull @.str.21) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %43, ptr noundef nonnull @.str.21) #25
   unreachable
 
 implicit_conversion_to_float.exit:                ; preds = %20, %30
@@ -5158,7 +5158,7 @@ rb_float_flonum_value.exit:                       ; preds = %54, %48, %47, %14, 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_String(i64 noundef %0) local_unnamed_addr #2 {
-  %2 = tail call i64 @rb_check_string_type(i64 noundef %0) #23
+  %2 = tail call i64 @rb_check_string_type(i64 noundef %0) #24
   %3 = icmp eq i64 %2, 4
   br i1 %3, label %4, label %6
 
@@ -5175,17 +5175,17 @@ declare i64 @rb_check_string_type(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_Array(i64 noundef %0) local_unnamed_addr #2 {
-  %2 = tail call i64 @rb_check_array_type(i64 noundef %0) #23
+  %2 = tail call i64 @rb_check_array_type(i64 noundef %0) #24
   %3 = icmp eq i64 %2, 4
   br i1 %3, label %4, label %9
 
 4:                                                ; preds = %1
-  %5 = tail call i64 @rb_check_to_array(i64 noundef %0) #23
+  %5 = tail call i64 @rb_check_to_array(i64 noundef %0) #24
   %6 = icmp eq i64 %5, 4
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %0) #23
+  %8 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %0) #24
   br label %9
 
 9:                                                ; preds = %1, %4, %7
@@ -5205,7 +5205,7 @@ define dso_local i64 @rb_Hash(i64 noundef %0) local_unnamed_addr #2 {
   br i1 %2, label %.sink.split, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i64 @rb_check_hash_type(i64 noundef %0) #23
+  %4 = tail call i64 @rb_check_hash_type(i64 noundef %0) #24
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %27
 
@@ -5245,12 +5245,12 @@ rb_array_len.exit:                                ; preds = %17, %20
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %6, %rb_array_len.exit, %rbimpl_RB_TYPE_P_fastpath.exit
   %24 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  %25 = tail call ptr @rb_obj_classname(i64 noundef %0) #23
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %24, ptr noundef nonnull @.str.23, ptr noundef %25) #24
+  %25 = tail call ptr @rb_obj_classname(i64 noundef %0) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %24, ptr noundef nonnull @.str.23, ptr noundef %25) #25
   unreachable
 
 .sink.split:                                      ; preds = %rb_array_len.exit, %1
-  %26 = tail call i64 @rb_hash_new() #23
+  %26 = tail call i64 @rb_hash_new() #24
   br label %27
 
 27:                                               ; preds = %.sink.split, %3
@@ -5306,7 +5306,7 @@ define hidden i64 @rb_obj_dig(i32 noundef %0, ptr noundef %1, i64 noundef %2, i6
 
 20:                                               ; preds = %17
   %21 = load i64, ptr @id_dig, align 8, !tbaa !7
-  %22 = tail call i32 @rb_method_basic_definition_p(i64 noundef %19, i64 noundef %21) #23
+  %22 = tail call i32 @rb_method_basic_definition_p(i64 noundef %19, i64 noundef %21) #24
   br label %dig_basic_p.exit
 
 dig_basic_p.exit:                                 ; preds = %17, %20
@@ -5317,7 +5317,7 @@ dig_basic_p.exit:                                 ; preds = %17, %20
 
 23:                                               ; preds = %dig_basic_p.exit
   %24 = load i64, ptr %.02252, align 8, !tbaa !7
-  %25 = tail call i64 @rb_hash_aref(i64 noundef %.02153, i64 noundef %24) #23
+  %25 = tail call i64 @rb_hash_aref(i64 noundef %.02153, i64 noundef %24) #24
   br label %47
 
 26:                                               ; preds = %12
@@ -5328,7 +5328,7 @@ dig_basic_p.exit:                                 ; preds = %17, %20
 
 29:                                               ; preds = %26
   %30 = load i64, ptr @id_dig, align 8, !tbaa !7
-  %31 = tail call i32 @rb_method_basic_definition_p(i64 noundef %28, i64 noundef %30) #23
+  %31 = tail call i32 @rb_method_basic_definition_p(i64 noundef %28, i64 noundef %30) #24
   br label %dig_basic_p.exit30
 
 dig_basic_p.exit30:                               ; preds = %26, %29
@@ -5339,7 +5339,7 @@ dig_basic_p.exit30:                               ; preds = %26, %29
 
 32:                                               ; preds = %dig_basic_p.exit30
   %33 = load i64, ptr %.02252, align 8, !tbaa !7
-  %34 = tail call i64 @rb_ary_at(i64 noundef %.02153, i64 noundef %33) #23
+  %34 = tail call i64 @rb_ary_at(i64 noundef %.02153, i64 noundef %33) #24
   br label %47
 
 35:                                               ; preds = %12
@@ -5350,7 +5350,7 @@ dig_basic_p.exit30:                               ; preds = %26, %29
 
 38:                                               ; preds = %35
   %39 = load i64, ptr @id_dig, align 8, !tbaa !7
-  %40 = tail call i32 @rb_method_basic_definition_p(i64 noundef %37, i64 noundef %39) #23
+  %40 = tail call i32 @rb_method_basic_definition_p(i64 noundef %37, i64 noundef %39) #24
   br label %dig_basic_p.exit35
 
 dig_basic_p.exit35:                               ; preds = %35, %38
@@ -5361,12 +5361,12 @@ dig_basic_p.exit35:                               ; preds = %35, %38
 
 41:                                               ; preds = %dig_basic_p.exit35
   %42 = load i64, ptr %.02252, align 8, !tbaa !7
-  %43 = tail call i64 @rb_struct_lookup(i64 noundef %.02153, i64 noundef %42) #23
+  %43 = tail call i64 @rb_struct_lookup(i64 noundef %.02153, i64 noundef %42) #24
   br label %47
 
 44:                                               ; preds = %dig_basic_p.exit, %dig_basic_p.exit30, %dig_basic_p.exit35, %12, %7
   %45 = load i64, ptr @id_dig, align 8, !tbaa !7
-  %46 = tail call i64 @rb_check_funcall_with_hook_kw(i64 noundef %.02153, i64 noundef %45, i32 noundef %.02351, ptr noundef %.02252, ptr noundef nonnull @no_dig_method, i64 noundef %.02153, i32 noundef 0) #23
+  %46 = tail call i64 @rb_check_funcall_with_hook_kw(i64 noundef %.02153, i64 noundef %45, i32 noundef %.02351, ptr noundef %.02252, ptr noundef nonnull @no_dig_method, i64 noundef %.02153, i32 noundef 0) #24
   br label %.loopexit
 
 47:                                               ; preds = %41, %32, %23
@@ -5402,8 +5402,8 @@ define internal void @no_dig_method(i32 noundef %0, i64 %1, i64 %2, i32 %3, ptr 
 
 7:                                                ; preds = %6
   %8 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  %9 = tail call fastcc i64 @rb_class_of(i64 noundef %5) #26
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.164, i64 noundef %9) #24
+  %9 = tail call fastcc i64 @rb_class_of(i64 noundef %5) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.164, i64 noundef %9) #25
   unreachable
 
 10:                                               ; preds = %6
@@ -5412,135 +5412,135 @@ define internal void @no_dig_method(i32 noundef %0, i64 %1, i64 %2, i32 %3, ptr 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @InitVM_Object() local_unnamed_addr #2 {
-  tail call void @Init_class_hierarchy() #23
+  tail call void @Init_class_hierarchy() #24
   %1 = load i64, ptr @rb_cBasicObject, align 8, !tbaa !7
-  tail call void @rb_define_private_method(i64 noundef %1, ptr noundef nonnull @.str.24, ptr noundef nonnull @rb_obj_dummy0, i32 noundef 0) #23
+  tail call void @rb_define_private_method(i64 noundef %1, ptr noundef nonnull @.str.24, ptr noundef nonnull @rb_obj_dummy0, i32 noundef 0) #24
   %2 = load i64, ptr @rb_cBasicObject, align 8, !tbaa !7
-  tail call void @rb_define_alloc_func(i64 noundef %2, ptr noundef nonnull @rb_class_allocate_instance) #23
+  tail call void @rb_define_alloc_func(i64 noundef %2, ptr noundef nonnull @rb_class_allocate_instance) #24
   %3 = load i64, ptr @rb_cBasicObject, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %3, ptr noundef nonnull @.str.25, ptr noundef nonnull @rb_obj_equal, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %3, ptr noundef nonnull @.str.25, ptr noundef nonnull @rb_obj_equal, i32 noundef 1) #24
   %4 = load i64, ptr @rb_cBasicObject, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %4, ptr noundef nonnull @.str.26, ptr noundef nonnull @rb_obj_equal, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %4, ptr noundef nonnull @.str.26, ptr noundef nonnull @rb_obj_equal, i32 noundef 1) #24
   %5 = load i64, ptr @rb_cBasicObject, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %5, ptr noundef nonnull @.str.27, ptr noundef nonnull @rb_obj_not, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %5, ptr noundef nonnull @.str.27, ptr noundef nonnull @rb_obj_not, i32 noundef 0) #24
   %6 = load i64, ptr @rb_cBasicObject, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %6, ptr noundef nonnull @.str.28, ptr noundef nonnull @rb_obj_not_equal, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %6, ptr noundef nonnull @.str.28, ptr noundef nonnull @rb_obj_not_equal, i32 noundef 1) #24
   %7 = load i64, ptr @rb_cBasicObject, align 8, !tbaa !7
-  tail call void @rb_define_private_method(i64 noundef %7, ptr noundef nonnull @.str.29, ptr noundef nonnull @rb_obj_dummy1, i32 noundef 1) #23
+  tail call void @rb_define_private_method(i64 noundef %7, ptr noundef nonnull @.str.29, ptr noundef nonnull @rb_obj_dummy1, i32 noundef 1) #24
   %8 = load i64, ptr @rb_cBasicObject, align 8, !tbaa !7
-  tail call void @rb_define_private_method(i64 noundef %8, ptr noundef nonnull @.str.30, ptr noundef nonnull @rb_obj_dummy1, i32 noundef 1) #23
+  tail call void @rb_define_private_method(i64 noundef %8, ptr noundef nonnull @.str.30, ptr noundef nonnull @rb_obj_dummy1, i32 noundef 1) #24
   %9 = load i64, ptr @rb_cBasicObject, align 8, !tbaa !7
-  tail call void @rb_define_private_method(i64 noundef %9, ptr noundef nonnull @.str.31, ptr noundef nonnull @rb_obj_dummy1, i32 noundef 1) #23
-  %10 = tail call i64 @rb_define_module(ptr noundef nonnull @.str.32) #23
+  tail call void @rb_define_private_method(i64 noundef %9, ptr noundef nonnull @.str.31, ptr noundef nonnull @rb_obj_dummy1, i32 noundef 1) #24
+  %10 = tail call i64 @rb_define_module(ptr noundef nonnull @.str.32) #24
   store i64 %10, ptr @rb_mKernel, align 8, !tbaa !7
   %11 = load i64, ptr @rb_cObject, align 8, !tbaa !7
-  tail call void @rb_include_module(i64 noundef %11, i64 noundef %10) #23
+  tail call void @rb_include_module(i64 noundef %11, i64 noundef %10) #24
   %12 = load i64, ptr @rb_cClass, align 8, !tbaa !7
-  tail call void @rb_define_private_method(i64 noundef %12, ptr noundef nonnull @.str.33, ptr noundef nonnull @rb_obj_dummy1, i32 noundef 1) #23
+  tail call void @rb_define_private_method(i64 noundef %12, ptr noundef nonnull @.str.33, ptr noundef nonnull @rb_obj_dummy1, i32 noundef 1) #24
   %13 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_private_method(i64 noundef %13, ptr noundef nonnull @.str.34, ptr noundef nonnull @rb_obj_dummy1, i32 noundef 1) #23
+  tail call void @rb_define_private_method(i64 noundef %13, ptr noundef nonnull @.str.34, ptr noundef nonnull @rb_obj_dummy1, i32 noundef 1) #24
   %14 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_private_method(i64 noundef %14, ptr noundef nonnull @.str.35, ptr noundef nonnull @rb_obj_dummy1, i32 noundef 1) #23
+  tail call void @rb_define_private_method(i64 noundef %14, ptr noundef nonnull @.str.35, ptr noundef nonnull @rb_obj_dummy1, i32 noundef 1) #24
   %15 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_private_method(i64 noundef %15, ptr noundef nonnull @.str.36, ptr noundef nonnull @rb_obj_dummy1, i32 noundef 1) #23
+  tail call void @rb_define_private_method(i64 noundef %15, ptr noundef nonnull @.str.36, ptr noundef nonnull @rb_obj_dummy1, i32 noundef 1) #24
   %16 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_private_method(i64 noundef %16, ptr noundef nonnull @.str.37, ptr noundef nonnull @rb_obj_dummy1, i32 noundef 1) #23
+  tail call void @rb_define_private_method(i64 noundef %16, ptr noundef nonnull @.str.37, ptr noundef nonnull @rb_obj_dummy1, i32 noundef 1) #24
   %17 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_private_method(i64 noundef %17, ptr noundef nonnull @.str.38, ptr noundef nonnull @rb_obj_dummy1, i32 noundef 1) #23
+  tail call void @rb_define_private_method(i64 noundef %17, ptr noundef nonnull @.str.38, ptr noundef nonnull @rb_obj_dummy1, i32 noundef 1) #24
   %18 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_private_method(i64 noundef %18, ptr noundef nonnull @.str.39, ptr noundef nonnull @rb_obj_dummy1, i32 noundef 1) #23
+  tail call void @rb_define_private_method(i64 noundef %18, ptr noundef nonnull @.str.39, ptr noundef nonnull @rb_obj_dummy1, i32 noundef 1) #24
   %19 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_private_method(i64 noundef %19, ptr noundef nonnull @.str.40, ptr noundef nonnull @rb_obj_dummy1, i32 noundef 1) #23
+  tail call void @rb_define_private_method(i64 noundef %19, ptr noundef nonnull @.str.40, ptr noundef nonnull @rb_obj_dummy1, i32 noundef 1) #24
   %20 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %20, ptr noundef nonnull @.str.41, ptr noundef nonnull @rb_false, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %20, ptr noundef nonnull @.str.41, ptr noundef nonnull @rb_false, i32 noundef 0) #24
   %21 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %21, ptr noundef nonnull @.str.42, ptr noundef nonnull @rb_equal, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %21, ptr noundef nonnull @.str.42, ptr noundef nonnull @rb_equal, i32 noundef 1) #24
   %22 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %22, ptr noundef nonnull @.str.43, ptr noundef nonnull @rb_obj_not_match, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %22, ptr noundef nonnull @.str.43, ptr noundef nonnull @rb_obj_not_match, i32 noundef 1) #24
   %23 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %23, ptr noundef nonnull @.str.44, ptr noundef nonnull @rb_obj_equal, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %23, ptr noundef nonnull @.str.44, ptr noundef nonnull @rb_obj_equal, i32 noundef 1) #24
   %24 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %24, ptr noundef nonnull @.str.45, ptr noundef nonnull @rb_obj_hash, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %24, ptr noundef nonnull @.str.45, ptr noundef nonnull @rb_obj_hash, i32 noundef 0) #24
   %25 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %25, ptr noundef nonnull @.str.46, ptr noundef nonnull @rb_obj_cmp, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %25, ptr noundef nonnull @.str.46, ptr noundef nonnull @rb_obj_cmp, i32 noundef 1) #24
   %26 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %26, ptr noundef nonnull @.str.47, ptr noundef nonnull @rb_obj_singleton_class, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %26, ptr noundef nonnull @.str.47, ptr noundef nonnull @rb_obj_singleton_class, i32 noundef 0) #24
   %27 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %27, ptr noundef nonnull @.str.48, ptr noundef nonnull @rb_obj_dup, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %27, ptr noundef nonnull @.str.48, ptr noundef nonnull @rb_obj_dup, i32 noundef 0) #24
   %28 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %28, ptr noundef nonnull @.str.49, ptr noundef nonnull @rb_obj_itself, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %28, ptr noundef nonnull @.str.49, ptr noundef nonnull @rb_obj_itself, i32 noundef 0) #24
   %29 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %29, ptr noundef nonnull @.str.50, ptr noundef nonnull @rb_obj_init_copy, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %29, ptr noundef nonnull @.str.50, ptr noundef nonnull @rb_obj_init_copy, i32 noundef 1) #24
   %30 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %30, ptr noundef nonnull @.str.51, ptr noundef nonnull @rb_obj_init_dup_clone, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %30, ptr noundef nonnull @.str.51, ptr noundef nonnull @rb_obj_init_dup_clone, i32 noundef 1) #24
   %31 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %31, ptr noundef nonnull @.str.52, ptr noundef nonnull @rb_obj_init_clone, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %31, ptr noundef nonnull @.str.52, ptr noundef nonnull @rb_obj_init_clone, i32 noundef -1) #24
   %32 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %32, ptr noundef nonnull @.str.1, ptr noundef nonnull @rb_obj_freeze, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %32, ptr noundef nonnull @.str.1, ptr noundef nonnull @rb_obj_freeze, i32 noundef 0) #24
   %33 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %33, ptr noundef nonnull @.str.53, ptr noundef nonnull @rb_any_to_s, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %33, ptr noundef nonnull @.str.53, ptr noundef nonnull @rb_any_to_s, i32 noundef 0) #24
   %34 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %34, ptr noundef nonnull @.str.54, ptr noundef nonnull @rb_obj_inspect, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %34, ptr noundef nonnull @.str.54, ptr noundef nonnull @rb_obj_inspect, i32 noundef 0) #24
   %35 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %35, ptr noundef nonnull @.str.55, ptr noundef nonnull @rb_obj_methods, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %35, ptr noundef nonnull @.str.55, ptr noundef nonnull @rb_obj_methods, i32 noundef -1) #24
   %36 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %36, ptr noundef nonnull @.str.56, ptr noundef nonnull @rb_obj_singleton_methods, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %36, ptr noundef nonnull @.str.56, ptr noundef nonnull @rb_obj_singleton_methods, i32 noundef -1) #24
   %37 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %37, ptr noundef nonnull @.str.57, ptr noundef nonnull @rb_obj_protected_methods, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %37, ptr noundef nonnull @.str.57, ptr noundef nonnull @rb_obj_protected_methods, i32 noundef -1) #24
   %38 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %38, ptr noundef nonnull @.str.58, ptr noundef nonnull @rb_obj_private_methods, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %38, ptr noundef nonnull @.str.58, ptr noundef nonnull @rb_obj_private_methods, i32 noundef -1) #24
   %39 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %39, ptr noundef nonnull @.str.59, ptr noundef nonnull @rb_obj_public_methods, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %39, ptr noundef nonnull @.str.59, ptr noundef nonnull @rb_obj_public_methods, i32 noundef -1) #24
   %40 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %40, ptr noundef nonnull @.str.60, ptr noundef nonnull @rb_obj_instance_variables, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %40, ptr noundef nonnull @.str.60, ptr noundef nonnull @rb_obj_instance_variables, i32 noundef 0) #24
   %41 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %41, ptr noundef nonnull @.str.61, ptr noundef nonnull @rb_obj_ivar_get, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %41, ptr noundef nonnull @.str.61, ptr noundef nonnull @rb_obj_ivar_get, i32 noundef 1) #24
   %42 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %42, ptr noundef nonnull @.str.62, ptr noundef nonnull @rb_obj_ivar_set_m, i32 noundef 2) #23
+  tail call void @rb_define_method(i64 noundef %42, ptr noundef nonnull @.str.62, ptr noundef nonnull @rb_obj_ivar_set_m, i32 noundef 2) #24
   %43 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %43, ptr noundef nonnull @.str.63, ptr noundef nonnull @rb_obj_ivar_defined, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %43, ptr noundef nonnull @.str.63, ptr noundef nonnull @rb_obj_ivar_defined, i32 noundef 1) #24
   %44 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %44, ptr noundef nonnull @.str.64, ptr noundef nonnull @rb_obj_remove_instance_variable, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %44, ptr noundef nonnull @.str.64, ptr noundef nonnull @rb_obj_remove_instance_variable, i32 noundef 1) #24
   %45 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %45, ptr noundef nonnull @.str.65, ptr noundef nonnull @rb_obj_is_instance_of, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %45, ptr noundef nonnull @.str.65, ptr noundef nonnull @rb_obj_is_instance_of, i32 noundef 1) #24
   %46 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %46, ptr noundef nonnull @.str.66, ptr noundef nonnull @rb_obj_is_kind_of, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %46, ptr noundef nonnull @.str.66, ptr noundef nonnull @rb_obj_is_kind_of, i32 noundef 1) #24
   %47 = load i64, ptr @rb_mKernel, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %47, ptr noundef nonnull @.str.67, ptr noundef nonnull @rb_obj_is_kind_of, i32 noundef 1) #23
-  tail call void @rb_define_global_function(ptr noundef nonnull @.str.68, ptr noundef nonnull @f_sprintf, i32 noundef -1) #23
-  tail call void @rb_define_global_function(ptr noundef nonnull @.str.69, ptr noundef nonnull @f_sprintf, i32 noundef -1) #23
-  tail call void @rb_define_global_function(ptr noundef nonnull @.str.22, ptr noundef nonnull @rb_f_string, i32 noundef 1) #23
-  tail call void @rb_define_global_function(ptr noundef nonnull @.str.70, ptr noundef nonnull @rb_f_array, i32 noundef 1) #23
-  tail call void @rb_define_global_function(ptr noundef nonnull @.str.71, ptr noundef nonnull @rb_f_hash, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %47, ptr noundef nonnull @.str.67, ptr noundef nonnull @rb_obj_is_kind_of, i32 noundef 1) #24
+  tail call void @rb_define_global_function(ptr noundef nonnull @.str.68, ptr noundef nonnull @f_sprintf, i32 noundef -1) #24
+  tail call void @rb_define_global_function(ptr noundef nonnull @.str.69, ptr noundef nonnull @f_sprintf, i32 noundef -1) #24
+  tail call void @rb_define_global_function(ptr noundef nonnull @.str.22, ptr noundef nonnull @rb_f_string, i32 noundef 1) #24
+  tail call void @rb_define_global_function(ptr noundef nonnull @.str.70, ptr noundef nonnull @rb_f_array, i32 noundef 1) #24
+  tail call void @rb_define_global_function(ptr noundef nonnull @.str.71, ptr noundef nonnull @rb_f_hash, i32 noundef 1) #24
   %48 = load i64, ptr @rb_cObject, align 8, !tbaa !7
-  %49 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.72, i64 noundef %48) #23
+  %49 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.72, i64 noundef %48) #24
   store i64 %49, ptr @rb_cNilClass, align 8, !tbaa !7
-  %50 = tail call nonnull ptr @rb_usascii_encoding() #23
-  %51 = tail call i64 @rb_fstring_enc_new(ptr noundef nonnull @.str.73, i64 noundef 0, ptr noundef nonnull %50) #23
+  %50 = tail call nonnull ptr @rb_usascii_encoding() #24
+  %51 = tail call i64 @rb_fstring_enc_new(ptr noundef nonnull @.str.73, i64 noundef 0, ptr noundef nonnull %50) #24
   store i64 %51, ptr @rb_cNilClass_to_s, align 8, !tbaa !7
-  tail call void @rb_vm_register_global_object(i64 noundef %51) #23
+  tail call void @rb_vm_register_global_object(i64 noundef %51) #24
   %52 = load i64, ptr @rb_cNilClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %52, ptr noundef nonnull @.str.53, ptr noundef nonnull @rb_nil_to_s, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %52, ptr noundef nonnull @.str.53, ptr noundef nonnull @rb_nil_to_s, i32 noundef 0) #24
   %53 = load i64, ptr @rb_cNilClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %53, ptr noundef nonnull @.str.74, ptr noundef nonnull @nil_to_a, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %53, ptr noundef nonnull @.str.74, ptr noundef nonnull @nil_to_a, i32 noundef 0) #24
   %54 = load i64, ptr @rb_cNilClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %54, ptr noundef nonnull @.str.75, ptr noundef nonnull @nil_to_h, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %54, ptr noundef nonnull @.str.75, ptr noundef nonnull @nil_to_h, i32 noundef 0) #24
   %55 = load i64, ptr @rb_cNilClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %55, ptr noundef nonnull @.str.54, ptr noundef nonnull @nil_inspect, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %55, ptr noundef nonnull @.str.54, ptr noundef nonnull @nil_inspect, i32 noundef 0) #24
   %56 = load i64, ptr @rb_cNilClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %56, ptr noundef nonnull @.str.76, ptr noundef nonnull @nil_match, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %56, ptr noundef nonnull @.str.76, ptr noundef nonnull @nil_match, i32 noundef 1) #24
   %57 = load i64, ptr @rb_cNilClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %57, ptr noundef nonnull @.str.77, ptr noundef nonnull @false_and, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %57, ptr noundef nonnull @.str.77, ptr noundef nonnull @false_and, i32 noundef 1) #24
   %58 = load i64, ptr @rb_cNilClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %58, ptr noundef nonnull @.str.78, ptr noundef nonnull @true_and, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %58, ptr noundef nonnull @.str.78, ptr noundef nonnull @true_and, i32 noundef 1) #24
   %59 = load i64, ptr @rb_cNilClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %59, ptr noundef nonnull @.str.79, ptr noundef nonnull @true_and, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %59, ptr noundef nonnull @.str.79, ptr noundef nonnull @true_and, i32 noundef 1) #24
   %60 = load i64, ptr @rb_cNilClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %60, ptr noundef nonnull @.str.42, ptr noundef nonnull @rb_equal, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %60, ptr noundef nonnull @.str.42, ptr noundef nonnull @rb_equal, i32 noundef 1) #24
   %61 = load i64, ptr @rb_cNilClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %61, ptr noundef nonnull @.str.41, ptr noundef nonnull @rb_true, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %61, ptr noundef nonnull @.str.41, ptr noundef nonnull @rb_true, i32 noundef 0) #24
   %62 = load i64, ptr @rb_cNilClass, align 8, !tbaa !7
-  tail call void @rb_undef_alloc_func(i64 noundef %62) #23
+  tail call void @rb_undef_alloc_func(i64 noundef %62) #24
   %63 = load i64, ptr @rb_cNilClass, align 8, !tbaa !7
   %64 = icmp eq i64 %63, 0
   %65 = and i64 %63, 7
@@ -5580,142 +5580,142 @@ define hidden void @InitVM_Object() local_unnamed_addr #2 {
 rb_class_of.exit:                                 ; preds = %68, %71, %72, %73, %74, %76
   %.0.in.i = phi ptr [ @rb_cNilClass, %72 ], [ @rb_cTrueClass, %73 ], [ %70, %68 ], [ @rb_cFalseClass, %71 ], [ @rb_cInteger, %74 ], [ %spec.select.i, %76 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !7
-  tail call void @rb_undef_method(i64 noundef %.0.i, ptr noundef nonnull @.str.80) #23
+  tail call void @rb_undef_method(i64 noundef %.0.i, ptr noundef nonnull @.str.80) #24
   %79 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %79, ptr noundef nonnull @.str.1, ptr noundef nonnull @rb_mod_freeze, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %79, ptr noundef nonnull @.str.1, ptr noundef nonnull @rb_mod_freeze, i32 noundef 0) #24
   %80 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %80, ptr noundef nonnull @.str.42, ptr noundef nonnull @rb_mod_eqq, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %80, ptr noundef nonnull @.str.42, ptr noundef nonnull @rb_mod_eqq, i32 noundef 1) #24
   %81 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %81, ptr noundef nonnull @.str.25, ptr noundef nonnull @rb_obj_equal, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %81, ptr noundef nonnull @.str.25, ptr noundef nonnull @rb_obj_equal, i32 noundef 1) #24
   %82 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %82, ptr noundef nonnull @.str.46, ptr noundef nonnull @rb_mod_cmp, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %82, ptr noundef nonnull @.str.46, ptr noundef nonnull @rb_mod_cmp, i32 noundef 1) #24
   %83 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %83, ptr noundef nonnull @.str.81, ptr noundef nonnull @rb_mod_lt, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %83, ptr noundef nonnull @.str.81, ptr noundef nonnull @rb_mod_lt, i32 noundef 1) #24
   %84 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %84, ptr noundef nonnull @.str.82, ptr noundef nonnull @rb_class_inherited_p, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %84, ptr noundef nonnull @.str.82, ptr noundef nonnull @rb_class_inherited_p, i32 noundef 1) #24
   %85 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %85, ptr noundef nonnull @.str.9, ptr noundef nonnull @rb_mod_gt, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %85, ptr noundef nonnull @.str.9, ptr noundef nonnull @rb_mod_gt, i32 noundef 1) #24
   %86 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %86, ptr noundef nonnull @.str.83, ptr noundef nonnull @rb_mod_ge, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %86, ptr noundef nonnull @.str.83, ptr noundef nonnull @rb_mod_ge, i32 noundef 1) #24
   %87 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %87, ptr noundef nonnull @.str.50, ptr noundef nonnull @rb_mod_init_copy, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %87, ptr noundef nonnull @.str.50, ptr noundef nonnull @rb_mod_init_copy, i32 noundef 1) #24
   %88 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %88, ptr noundef nonnull @.str.53, ptr noundef nonnull @rb_mod_to_s, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %88, ptr noundef nonnull @.str.53, ptr noundef nonnull @rb_mod_to_s, i32 noundef 0) #24
   %89 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_alias(i64 noundef %89, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.53) #23
+  tail call void @rb_define_alias(i64 noundef %89, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.53) #24
   %90 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %90, ptr noundef nonnull @.str.84, ptr noundef nonnull @rb_mod_included_modules, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %90, ptr noundef nonnull @.str.84, ptr noundef nonnull @rb_mod_included_modules, i32 noundef 0) #24
   %91 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %91, ptr noundef nonnull @.str.85, ptr noundef nonnull @rb_mod_include_p, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %91, ptr noundef nonnull @.str.85, ptr noundef nonnull @rb_mod_include_p, i32 noundef 1) #24
   %92 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %92, ptr noundef nonnull @.str.86, ptr noundef nonnull @rb_mod_name, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %92, ptr noundef nonnull @.str.86, ptr noundef nonnull @rb_mod_name, i32 noundef 0) #24
   %93 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %93, ptr noundef nonnull @.str.87, ptr noundef nonnull @rb_mod_set_temporary_name, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %93, ptr noundef nonnull @.str.87, ptr noundef nonnull @rb_mod_set_temporary_name, i32 noundef 1) #24
   %94 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %94, ptr noundef nonnull @.str.88, ptr noundef nonnull @rb_mod_ancestors, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %94, ptr noundef nonnull @.str.88, ptr noundef nonnull @rb_mod_ancestors, i32 noundef 0) #24
   %95 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %95, ptr noundef nonnull @.str.89, ptr noundef nonnull @rb_mod_attr, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %95, ptr noundef nonnull @.str.89, ptr noundef nonnull @rb_mod_attr, i32 noundef -1) #24
   %96 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %96, ptr noundef nonnull @.str.90, ptr noundef nonnull @rb_mod_attr_reader, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %96, ptr noundef nonnull @.str.90, ptr noundef nonnull @rb_mod_attr_reader, i32 noundef -1) #24
   %97 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %97, ptr noundef nonnull @.str.91, ptr noundef nonnull @rb_mod_attr_writer, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %97, ptr noundef nonnull @.str.91, ptr noundef nonnull @rb_mod_attr_writer, i32 noundef -1) #24
   %98 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %98, ptr noundef nonnull @.str.92, ptr noundef nonnull @rb_mod_attr_accessor, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %98, ptr noundef nonnull @.str.92, ptr noundef nonnull @rb_mod_attr_accessor, i32 noundef -1) #24
   %99 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_alloc_func(i64 noundef %99, ptr noundef nonnull @rb_module_s_alloc) #23
+  tail call void @rb_define_alloc_func(i64 noundef %99, ptr noundef nonnull @rb_module_s_alloc) #24
   %100 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  %101 = tail call i64 @rb_singleton_class(i64 noundef %100) #23
-  tail call void @rb_undef_method(i64 noundef %101, ptr noundef nonnull @.str.93) #23
+  %101 = tail call i64 @rb_singleton_class(i64 noundef %100) #24
+  tail call void @rb_undef_method(i64 noundef %101, ptr noundef nonnull @.str.93) #24
   %102 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %102, ptr noundef nonnull @.str.24, ptr noundef nonnull @rb_mod_initialize, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %102, ptr noundef nonnull @.str.24, ptr noundef nonnull @rb_mod_initialize, i32 noundef 0) #24
   %103 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %103, ptr noundef nonnull @.str.52, ptr noundef nonnull @rb_mod_initialize_clone, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %103, ptr noundef nonnull @.str.52, ptr noundef nonnull @rb_mod_initialize_clone, i32 noundef -1) #24
   %104 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %104, ptr noundef nonnull @.str.94, ptr noundef nonnull @rb_class_instance_methods, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %104, ptr noundef nonnull @.str.94, ptr noundef nonnull @rb_class_instance_methods, i32 noundef -1) #24
   %105 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %105, ptr noundef nonnull @.str.95, ptr noundef nonnull @rb_class_public_instance_methods, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %105, ptr noundef nonnull @.str.95, ptr noundef nonnull @rb_class_public_instance_methods, i32 noundef -1) #24
   %106 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %106, ptr noundef nonnull @.str.96, ptr noundef nonnull @rb_class_protected_instance_methods, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %106, ptr noundef nonnull @.str.96, ptr noundef nonnull @rb_class_protected_instance_methods, i32 noundef -1) #24
   %107 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %107, ptr noundef nonnull @.str.97, ptr noundef nonnull @rb_class_private_instance_methods, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %107, ptr noundef nonnull @.str.97, ptr noundef nonnull @rb_class_private_instance_methods, i32 noundef -1) #24
   %108 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %108, ptr noundef nonnull @.str.98, ptr noundef nonnull @rb_class_undefined_instance_methods, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %108, ptr noundef nonnull @.str.98, ptr noundef nonnull @rb_class_undefined_instance_methods, i32 noundef 0) #24
   %109 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %109, ptr noundef nonnull @.str.99, ptr noundef nonnull @rb_mod_constants, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %109, ptr noundef nonnull @.str.99, ptr noundef nonnull @rb_mod_constants, i32 noundef -1) #24
   %110 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %110, ptr noundef nonnull @.str.100, ptr noundef nonnull @rb_mod_const_get, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %110, ptr noundef nonnull @.str.100, ptr noundef nonnull @rb_mod_const_get, i32 noundef -1) #24
   %111 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %111, ptr noundef nonnull @.str.101, ptr noundef nonnull @rb_mod_const_set, i32 noundef 2) #23
+  tail call void @rb_define_method(i64 noundef %111, ptr noundef nonnull @.str.101, ptr noundef nonnull @rb_mod_const_set, i32 noundef 2) #24
   %112 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %112, ptr noundef nonnull @.str.102, ptr noundef nonnull @rb_mod_const_defined, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %112, ptr noundef nonnull @.str.102, ptr noundef nonnull @rb_mod_const_defined, i32 noundef -1) #24
   %113 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %113, ptr noundef nonnull @.str.103, ptr noundef nonnull @rb_mod_const_source_location, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %113, ptr noundef nonnull @.str.103, ptr noundef nonnull @rb_mod_const_source_location, i32 noundef -1) #24
   %114 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_private_method(i64 noundef %114, ptr noundef nonnull @.str.104, ptr noundef nonnull @rb_mod_remove_const, i32 noundef 1) #23
+  tail call void @rb_define_private_method(i64 noundef %114, ptr noundef nonnull @.str.104, ptr noundef nonnull @rb_mod_remove_const, i32 noundef 1) #24
   %115 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %115, ptr noundef nonnull @.str.105, ptr noundef nonnull @rb_mod_const_missing, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %115, ptr noundef nonnull @.str.105, ptr noundef nonnull @rb_mod_const_missing, i32 noundef 1) #24
   %116 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %116, ptr noundef nonnull @.str.106, ptr noundef nonnull @rb_mod_class_variables, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %116, ptr noundef nonnull @.str.106, ptr noundef nonnull @rb_mod_class_variables, i32 noundef -1) #24
   %117 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %117, ptr noundef nonnull @.str.107, ptr noundef nonnull @rb_mod_remove_cvar, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %117, ptr noundef nonnull @.str.107, ptr noundef nonnull @rb_mod_remove_cvar, i32 noundef 1) #24
   %118 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %118, ptr noundef nonnull @.str.108, ptr noundef nonnull @rb_mod_cvar_get, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %118, ptr noundef nonnull @.str.108, ptr noundef nonnull @rb_mod_cvar_get, i32 noundef 1) #24
   %119 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %119, ptr noundef nonnull @.str.109, ptr noundef nonnull @rb_mod_cvar_set, i32 noundef 2) #23
+  tail call void @rb_define_method(i64 noundef %119, ptr noundef nonnull @.str.109, ptr noundef nonnull @rb_mod_cvar_set, i32 noundef 2) #24
   %120 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %120, ptr noundef nonnull @.str.110, ptr noundef nonnull @rb_mod_cvar_defined, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %120, ptr noundef nonnull @.str.110, ptr noundef nonnull @rb_mod_cvar_defined, i32 noundef 1) #24
   %121 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %121, ptr noundef nonnull @.str.111, ptr noundef nonnull @rb_mod_public_constant, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %121, ptr noundef nonnull @.str.111, ptr noundef nonnull @rb_mod_public_constant, i32 noundef -1) #24
   %122 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %122, ptr noundef nonnull @.str.112, ptr noundef nonnull @rb_mod_private_constant, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %122, ptr noundef nonnull @.str.112, ptr noundef nonnull @rb_mod_private_constant, i32 noundef -1) #24
   %123 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %123, ptr noundef nonnull @.str.113, ptr noundef nonnull @rb_mod_deprecate_constant, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %123, ptr noundef nonnull @.str.113, ptr noundef nonnull @rb_mod_deprecate_constant, i32 noundef -1) #24
   %124 = load i64, ptr @rb_cModule, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %124, ptr noundef nonnull @.str.114, ptr noundef nonnull @rb_mod_singleton_p, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %124, ptr noundef nonnull @.str.114, ptr noundef nonnull @rb_mod_singleton_p, i32 noundef 0) #24
   %125 = load i64, ptr @rb_cClass, align 8, !tbaa !7
-  %126 = tail call i64 @rb_singleton_class(i64 noundef %125) #23
-  tail call void @rb_define_method(i64 noundef %126, ptr noundef nonnull @.str.93, ptr noundef nonnull @rb_class_alloc_m, i32 noundef 0) #23
+  %126 = tail call i64 @rb_singleton_class(i64 noundef %125) #24
+  tail call void @rb_define_method(i64 noundef %126, ptr noundef nonnull @.str.93, ptr noundef nonnull @rb_class_alloc_m, i32 noundef 0) #24
   %127 = load i64, ptr @rb_cClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %127, ptr noundef nonnull @.str.93, ptr noundef nonnull @rb_class_alloc_m, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %127, ptr noundef nonnull @.str.93, ptr noundef nonnull @rb_class_alloc_m, i32 noundef 0) #24
   %128 = load i64, ptr @rb_cClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %128, ptr noundef nonnull @.str.80, ptr noundef nonnull @rb_class_new_instance_pass_kw, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %128, ptr noundef nonnull @.str.80, ptr noundef nonnull @rb_class_new_instance_pass_kw, i32 noundef -1) #24
   %129 = load i64, ptr @rb_cClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %129, ptr noundef nonnull @.str.24, ptr noundef nonnull @rb_class_initialize, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %129, ptr noundef nonnull @.str.24, ptr noundef nonnull @rb_class_initialize, i32 noundef -1) #24
   %130 = load i64, ptr @rb_cClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %130, ptr noundef nonnull @.str.115, ptr noundef nonnull @rb_class_superclass, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %130, ptr noundef nonnull @.str.115, ptr noundef nonnull @rb_class_superclass, i32 noundef 0) #24
   %131 = load i64, ptr @rb_cClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %131, ptr noundef nonnull @.str.116, ptr noundef nonnull @rb_class_subclasses, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %131, ptr noundef nonnull @.str.116, ptr noundef nonnull @rb_class_subclasses, i32 noundef 0) #24
   %132 = load i64, ptr @rb_cClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %132, ptr noundef nonnull @.str.117, ptr noundef nonnull @rb_class_attached_object, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %132, ptr noundef nonnull @.str.117, ptr noundef nonnull @rb_class_attached_object, i32 noundef 0) #24
   %133 = load i64, ptr @rb_cClass, align 8, !tbaa !7
-  tail call void @rb_define_alloc_func(i64 noundef %133, ptr noundef nonnull @rb_class_s_alloc) #23
+  tail call void @rb_define_alloc_func(i64 noundef %133, ptr noundef nonnull @rb_class_s_alloc) #24
   %134 = load i64, ptr @rb_cClass, align 8, !tbaa !7
-  tail call void @rb_undef_method(i64 noundef %134, ptr noundef nonnull @.str.118) #23
+  tail call void @rb_undef_method(i64 noundef %134, ptr noundef nonnull @.str.118) #24
   %135 = load i64, ptr @rb_cClass, align 8, !tbaa !7
-  tail call void @rb_undef_method(i64 noundef %135, ptr noundef nonnull @.str.119) #23
+  tail call void @rb_undef_method(i64 noundef %135, ptr noundef nonnull @.str.119) #24
   %136 = load i64, ptr @rb_cClass, align 8, !tbaa !7
-  tail call void @rb_undef_method(i64 noundef %136, ptr noundef nonnull @.str.120) #23
+  tail call void @rb_undef_method(i64 noundef %136, ptr noundef nonnull @.str.120) #24
   %137 = load i64, ptr @rb_cObject, align 8, !tbaa !7
-  %138 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.121, i64 noundef %137) #23
+  %138 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.121, i64 noundef %137) #24
   store i64 %138, ptr @rb_cTrueClass, align 8, !tbaa !7
-  %139 = tail call nonnull ptr @rb_usascii_encoding() #23
-  %140 = tail call i64 @rb_fstring_enc_new(ptr noundef nonnull @.str.122, i64 noundef 4, ptr noundef nonnull %139) #23
+  %139 = tail call nonnull ptr @rb_usascii_encoding() #24
+  %140 = tail call i64 @rb_fstring_enc_new(ptr noundef nonnull @.str.122, i64 noundef 4, ptr noundef nonnull %139) #24
   store i64 %140, ptr @rb_cTrueClass_to_s, align 8, !tbaa !7
-  tail call void @rb_vm_register_global_object(i64 noundef %140) #23
+  tail call void @rb_vm_register_global_object(i64 noundef %140) #24
   %141 = load i64, ptr @rb_cTrueClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %141, ptr noundef nonnull @.str.53, ptr noundef nonnull @rb_true_to_s, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %141, ptr noundef nonnull @.str.53, ptr noundef nonnull @rb_true_to_s, i32 noundef 0) #24
   %142 = load i64, ptr @rb_cTrueClass, align 8, !tbaa !7
-  tail call void @rb_define_alias(i64 noundef %142, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.53) #23
+  tail call void @rb_define_alias(i64 noundef %142, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.53) #24
   %143 = load i64, ptr @rb_cTrueClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %143, ptr noundef nonnull @.str.77, ptr noundef nonnull @true_and, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %143, ptr noundef nonnull @.str.77, ptr noundef nonnull @true_and, i32 noundef 1) #24
   %144 = load i64, ptr @rb_cTrueClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %144, ptr noundef nonnull @.str.78, ptr noundef nonnull @true_or, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %144, ptr noundef nonnull @.str.78, ptr noundef nonnull @true_or, i32 noundef 1) #24
   %145 = load i64, ptr @rb_cTrueClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %145, ptr noundef nonnull @.str.79, ptr noundef nonnull @true_xor, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %145, ptr noundef nonnull @.str.79, ptr noundef nonnull @true_xor, i32 noundef 1) #24
   %146 = load i64, ptr @rb_cTrueClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %146, ptr noundef nonnull @.str.42, ptr noundef nonnull @rb_equal, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %146, ptr noundef nonnull @.str.42, ptr noundef nonnull @rb_equal, i32 noundef 1) #24
   %147 = load i64, ptr @rb_cTrueClass, align 8, !tbaa !7
-  tail call void @rb_undef_alloc_func(i64 noundef %147) #23
+  tail call void @rb_undef_alloc_func(i64 noundef %147) #24
   %148 = load i64, ptr @rb_cTrueClass, align 8, !tbaa !7
   %149 = icmp eq i64 %148, 0
   %150 = and i64 %148, 7
@@ -5755,28 +5755,28 @@ rb_class_of.exit:                                 ; preds = %68, %71, %72, %73, 
 rb_class_of.exit5:                                ; preds = %153, %156, %157, %158, %159, %161
   %.0.in.i1 = phi ptr [ @rb_cNilClass, %157 ], [ @rb_cTrueClass, %158 ], [ %155, %153 ], [ @rb_cFalseClass, %156 ], [ @rb_cInteger, %159 ], [ %spec.select.i4, %161 ]
   %.0.i2 = load i64, ptr %.0.in.i1, align 8, !tbaa !7
-  tail call void @rb_undef_method(i64 noundef %.0.i2, ptr noundef nonnull @.str.80) #23
+  tail call void @rb_undef_method(i64 noundef %.0.i2, ptr noundef nonnull @.str.80) #24
   %164 = load i64, ptr @rb_cObject, align 8, !tbaa !7
-  %165 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.123, i64 noundef %164) #23
+  %165 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.123, i64 noundef %164) #24
   store i64 %165, ptr @rb_cFalseClass, align 8, !tbaa !7
-  %166 = tail call nonnull ptr @rb_usascii_encoding() #23
-  %167 = tail call i64 @rb_fstring_enc_new(ptr noundef nonnull @.str.124, i64 noundef 5, ptr noundef nonnull %166) #23
+  %166 = tail call nonnull ptr @rb_usascii_encoding() #24
+  %167 = tail call i64 @rb_fstring_enc_new(ptr noundef nonnull @.str.124, i64 noundef 5, ptr noundef nonnull %166) #24
   store i64 %167, ptr @rb_cFalseClass_to_s, align 8, !tbaa !7
-  tail call void @rb_vm_register_global_object(i64 noundef %167) #23
+  tail call void @rb_vm_register_global_object(i64 noundef %167) #24
   %168 = load i64, ptr @rb_cFalseClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %168, ptr noundef nonnull @.str.53, ptr noundef nonnull @rb_false_to_s, i32 noundef 0) #23
+  tail call void @rb_define_method(i64 noundef %168, ptr noundef nonnull @.str.53, ptr noundef nonnull @rb_false_to_s, i32 noundef 0) #24
   %169 = load i64, ptr @rb_cFalseClass, align 8, !tbaa !7
-  tail call void @rb_define_alias(i64 noundef %169, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.53) #23
+  tail call void @rb_define_alias(i64 noundef %169, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.53) #24
   %170 = load i64, ptr @rb_cFalseClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %170, ptr noundef nonnull @.str.77, ptr noundef nonnull @false_and, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %170, ptr noundef nonnull @.str.77, ptr noundef nonnull @false_and, i32 noundef 1) #24
   %171 = load i64, ptr @rb_cFalseClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %171, ptr noundef nonnull @.str.78, ptr noundef nonnull @true_and, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %171, ptr noundef nonnull @.str.78, ptr noundef nonnull @true_and, i32 noundef 1) #24
   %172 = load i64, ptr @rb_cFalseClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %172, ptr noundef nonnull @.str.79, ptr noundef nonnull @true_and, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %172, ptr noundef nonnull @.str.79, ptr noundef nonnull @true_and, i32 noundef 1) #24
   %173 = load i64, ptr @rb_cFalseClass, align 8, !tbaa !7
-  tail call void @rb_define_method(i64 noundef %173, ptr noundef nonnull @.str.42, ptr noundef nonnull @rb_equal, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %173, ptr noundef nonnull @.str.42, ptr noundef nonnull @rb_equal, i32 noundef 1) #24
   %174 = load i64, ptr @rb_cFalseClass, align 8, !tbaa !7
-  tail call void @rb_undef_alloc_func(i64 noundef %174) #23
+  tail call void @rb_undef_alloc_func(i64 noundef %174) #24
   %175 = load i64, ptr @rb_cFalseClass, align 8, !tbaa !7
   %176 = icmp eq i64 %175, 0
   %177 = and i64 %175, 7
@@ -5816,7 +5816,7 @@ rb_class_of.exit5:                                ; preds = %153, %156, %157, %1
 rb_class_of.exit10:                               ; preds = %180, %183, %184, %185, %186, %188
   %.0.in.i6 = phi ptr [ @rb_cNilClass, %184 ], [ @rb_cTrueClass, %185 ], [ %182, %180 ], [ @rb_cFalseClass, %183 ], [ @rb_cInteger, %186 ], [ %spec.select.i9, %188 ]
   %.0.i7 = load i64, ptr %.0.in.i6, align 8, !tbaa !7
-  tail call void @rb_undef_method(i64 noundef %.0.i7, ptr noundef nonnull @.str.80) #23
+  tail call void @rb_undef_method(i64 noundef %.0.i7, ptr noundef nonnull @.str.80) #24
   ret void
 }
 
@@ -5844,7 +5844,7 @@ declare void @rb_include_module(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_obj_not_match(i64 noundef %0, i64 noundef %1) #2 {
-  %3 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef 143, i32 noundef 1, i64 noundef %1) #23
+  %3 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef 143, i32 noundef 1, i64 noundef %1) #24
   %4 = and i64 %3, -5
   %.not.i = icmp eq i64 %4, 0
   %5 = select i1 %.not.i, i64 20, i64 0
@@ -5859,12 +5859,12 @@ define internal range(i64 1, 5) i64 @rb_obj_cmp(i64 noundef %0, i64 noundef %1) 
   br i1 %3, label %rb_equal.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i64 @rb_equal_opt(i64 noundef %0, i64 noundef %1) #23
+  %5 = tail call i64 @rb_equal_opt(i64 noundef %0, i64 noundef %1) #24
   %6 = icmp eq i64 %5, 36
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef 140, i32 noundef 1, i64 noundef %1) #23
+  %8 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef 140, i32 noundef 1, i64 noundef %1) #24
   br label %9
 
 9:                                                ; preds = %7, %4
@@ -5883,7 +5883,7 @@ rb_equal.exit:                                    ; preds = %9, %rb_equal.exit.t
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_obj_singleton_class(i64 noundef %0) #2 {
-  %2 = tail call i64 @rb_singleton_class(i64 noundef %0) #23
+  %2 = tail call i64 @rb_singleton_class(i64 noundef %0) #24
   ret i64 %2
 }
 
@@ -5905,12 +5905,12 @@ rb_scan_args_n_opt.exit:
   %7 = getelementptr i64, ptr %1, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -8
   %9 = load i64, ptr %8, align 8, !tbaa !7
-  %10 = tail call i32 @rb_keyword_given_p() #23
+  %10 = tail call i32 @rb_keyword_given_p() #24
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %.thread10, label %11
 
 11:                                               ; preds = %5
-  %12 = tail call i64 @rb_hash_dup(i64 noundef %9) #23
+  %12 = tail call i64 @rb_hash_dup(i64 noundef %9) #24
   %13 = add nsw i32 %0, -1
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %.thread, label %.thread10
@@ -5925,7 +5925,7 @@ rb_scan_args_n_opt.exit:
 
 .thread:                                          ; preds = %rb_scan_args_n_opt.exit, %.thread10, %11
   %.0.i6 = phi i32 [ %.0.i14, %.thread10 ], [ 0, %11 ], [ %0, %rb_scan_args_n_opt.exit ]
-  tail call void @rb_error_arity(i32 noundef %.0.i6, i32 noundef 1, i32 noundef 1) #24
+  tail call void @rb_error_arity(i32 noundef %.0.i6, i32 noundef 1, i32 noundef 1) #25
   unreachable
 
 rb_scan_args_set.exit:                            ; preds = %.thread10
@@ -5937,14 +5937,14 @@ rb_scan_args_set.exit:                            ; preds = %.thread10
   br label %19
 
 19:                                               ; preds = %17, %rb_scan_args_set.exit
-  %20 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %2, i64 noundef 3185, i32 noundef 1, i64 noundef %15) #23
+  %20 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %2, i64 noundef 3185, i32 noundef 1, i64 noundef %15) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_obj_inspect(i64 noundef %0) #2 {
-  %2 = tail call i64 @rb_ivar_count(i64 noundef %0) #23
+  %2 = tail call i64 @rb_ivar_count(i64 noundef %0) #24
   %.not = icmp eq i64 %2, 0
   %3 = icmp eq i64 %0, 0
   %4 = and i64 %0, 7
@@ -5987,10 +5987,10 @@ define internal i64 @rb_obj_inspect(i64 noundef %0) #2 {
 rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %14, %16
   %.0.in.i = phi ptr [ @rb_cNilClass, %12 ], [ @rb_cTrueClass, %13 ], [ %10, %8 ], [ @rb_cFalseClass, %11 ], [ @rb_cInteger, %14 ], [ %spec.select.i, %16 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !7
-  %19 = tail call i64 @rb_class_name(i64 noundef %.0.i) #23
+  %19 = tail call i64 @rb_class_name(i64 noundef %.0.i) #24
   %20 = inttoptr i64 %0 to ptr
-  %21 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.166, i64 noundef %19, ptr noundef %20) #23
-  %22 = tail call i64 @rb_exec_recursive(ptr noundef nonnull @inspect_obj, i64 noundef %0, i64 noundef %21) #23
+  %21 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.166, i64 noundef %19, ptr noundef %20) #24
+  %22 = tail call i64 @rb_exec_recursive(ptr noundef nonnull @inspect_obj, i64 noundef %0, i64 noundef %21) #24
   br label %38
 
 23:                                               ; preds = %1
@@ -6028,9 +6028,9 @@ rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %
 rb_any_to_s.exit:                                 ; preds = %24, %27, %28, %29, %30, %32
   %.0.in.i.i = phi ptr [ @rb_cNilClass, %28 ], [ @rb_cTrueClass, %29 ], [ %26, %24 ], [ @rb_cFalseClass, %27 ], [ @rb_cInteger, %30 ], [ %spec.select.i.i, %32 ]
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !7
-  %35 = tail call i64 @rb_class_name(i64 noundef %.0.i.i) #23
+  %35 = tail call i64 @rb_class_name(i64 noundef %.0.i.i) #24
   %36 = inttoptr i64 %0 to ptr
-  %37 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.5, i64 noundef %35, ptr noundef %36) #23
+  %37 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.5, i64 noundef %35, ptr noundef %36) #24
   br label %38
 
 38:                                               ; preds = %rb_any_to_s.exit, %rb_class_of.exit
@@ -6054,28 +6054,28 @@ declare i64 @rb_obj_instance_variables(i64 noundef) #3
 define internal i64 @rb_obj_ivar_get(i64 noundef %0, i64 noundef %1) #2 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8, !tbaa !7
-  %4 = call i64 @rb_check_id(ptr noundef nonnull %3) #23
+  %4 = call i64 @rb_check_id(ptr noundef nonnull %3) #24
   %5 = load i64, ptr %3, align 8, !tbaa !7
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = call i32 @rb_is_instance_id(i64 noundef %4) #23, !callees !97
+  %7 = call i32 @rb_is_instance_id(i64 noundef %4) #24, !callees !97
   %.not12.i = icmp eq i32 %7, 0
   br i1 %.not12.i, label %10, label %check_setter_id.exit
 
 8:                                                ; preds = %2
-  %9 = call i32 @rb_is_instance_name(i64 noundef %5) #23, !callees !98
+  %9 = call i32 @rb_is_instance_name(i64 noundef %5) #24, !callees !98
   %.not11.i = icmp eq i32 %9, 0
   br i1 %.not11.i, label %10, label %check_setter_id.exit.thread
 
 10:                                               ; preds = %8, %6
-  %11 = call i64 @rb_fstring_new(ptr noundef nonnull @bad_instance_name, i64 noundef 50) #23
-  call fastcc void @rb_name_err_raise_str(i64 noundef %11, i64 noundef %0, i64 noundef %5) #27
+  %11 = call i64 @rb_fstring_new(ptr noundef nonnull @bad_instance_name, i64 noundef 50) #24
+  call fastcc void @rb_name_err_raise_str(i64 noundef %11, i64 noundef %0, i64 noundef %5) #28
   unreachable
 
 check_setter_id.exit:                             ; preds = %6
-  %12 = call i64 @rb_ivar_get(i64 noundef %0, i64 noundef %4) #23
+  %12 = call i64 @rb_ivar_get(i64 noundef %0, i64 noundef %4) #24
   br label %check_setter_id.exit.thread
 
 check_setter_id.exit.thread:                      ; preds = %8, %check_setter_id.exit
@@ -6087,34 +6087,34 @@ check_setter_id.exit.thread:                      ; preds = %8, %check_setter_id
 define internal i64 @rb_obj_ivar_set_m(i64 noundef %0, i64 noundef %1, i64 noundef %2) #2 {
   %4 = alloca i64, align 8
   store i64 %1, ptr %4, align 8, !tbaa !7
-  %5 = call i64 @rb_check_id(ptr noundef nonnull %4) #23
+  %5 = call i64 @rb_check_id(ptr noundef nonnull %4) #24
   %6 = load i64, ptr %4, align 8, !tbaa !7
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %9, label %7
 
 7:                                                ; preds = %3
-  %8 = call i32 @rb_is_instance_id(i64 noundef %5) #23, !callees !97
+  %8 = call i32 @rb_is_instance_id(i64 noundef %5) #24, !callees !97
   %.not12.i = icmp eq i32 %8, 0
   br i1 %.not12.i, label %11, label %check_setter_id.exit
 
 9:                                                ; preds = %3
-  %10 = call i32 @rb_is_instance_name(i64 noundef %6) #23, !callees !98
+  %10 = call i32 @rb_is_instance_name(i64 noundef %6) #24, !callees !98
   %.not11.i = icmp eq i32 %10, 0
   br i1 %.not11.i, label %11, label %13
 
 11:                                               ; preds = %9, %7
-  %12 = call i64 @rb_fstring_new(ptr noundef nonnull @bad_instance_name, i64 noundef 50) #23
-  call fastcc void @rb_name_err_raise_str(i64 noundef %12, i64 noundef %0, i64 noundef %6) #27
+  %12 = call i64 @rb_fstring_new(ptr noundef nonnull @bad_instance_name, i64 noundef 50) #24
+  call fastcc void @rb_name_err_raise_str(i64 noundef %12, i64 noundef %0, i64 noundef %6) #28
   unreachable
 
 13:                                               ; preds = %9
   %14 = load i64, ptr %4, align 8, !tbaa !7
-  %15 = call i64 @rb_intern_str(i64 noundef %14) #23
+  %15 = call i64 @rb_intern_str(i64 noundef %14) #24
   br label %check_setter_id.exit
 
 check_setter_id.exit:                             ; preds = %7, %13
   %.0 = phi i64 [ %15, %13 ], [ %5, %7 ]
-  %16 = call i64 @rb_ivar_set(i64 noundef %0, i64 noundef %.0, i64 noundef %2) #23
+  %16 = call i64 @rb_ivar_set(i64 noundef %0, i64 noundef %.0, i64 noundef %2) #24
   ret i64 %16
 }
 
@@ -6122,28 +6122,28 @@ check_setter_id.exit:                             ; preds = %7, %13
 define internal i64 @rb_obj_ivar_defined(i64 noundef %0, i64 noundef %1) #2 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8, !tbaa !7
-  %4 = call i64 @rb_check_id(ptr noundef nonnull %3) #23
+  %4 = call i64 @rb_check_id(ptr noundef nonnull %3) #24
   %5 = load i64, ptr %3, align 8, !tbaa !7
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = call i32 @rb_is_instance_id(i64 noundef %4) #23, !callees !97
+  %7 = call i32 @rb_is_instance_id(i64 noundef %4) #24, !callees !97
   %.not12.i = icmp eq i32 %7, 0
   br i1 %.not12.i, label %10, label %check_setter_id.exit
 
 8:                                                ; preds = %2
-  %9 = call i32 @rb_is_instance_name(i64 noundef %5) #23, !callees !98
+  %9 = call i32 @rb_is_instance_name(i64 noundef %5) #24, !callees !98
   %.not11.i = icmp eq i32 %9, 0
   br i1 %.not11.i, label %10, label %check_setter_id.exit.thread
 
 10:                                               ; preds = %8, %6
-  %11 = call i64 @rb_fstring_new(ptr noundef nonnull @bad_instance_name, i64 noundef 50) #23
-  call fastcc void @rb_name_err_raise_str(i64 noundef %11, i64 noundef %0, i64 noundef %5) #27
+  %11 = call i64 @rb_fstring_new(ptr noundef nonnull @bad_instance_name, i64 noundef 50) #24
+  call fastcc void @rb_name_err_raise_str(i64 noundef %11, i64 noundef %0, i64 noundef %5) #28
   unreachable
 
 check_setter_id.exit:                             ; preds = %6
-  %12 = call i64 @rb_ivar_defined(i64 noundef %0, i64 noundef %4) #23
+  %12 = call i64 @rb_ivar_defined(i64 noundef %0, i64 noundef %4) #24
   br label %check_setter_id.exit.thread
 
 check_setter_id.exit.thread:                      ; preds = %8, %check_setter_id.exit
@@ -6157,13 +6157,13 @@ declare extern_weak void @rb_define_global_function(ptr noundef, ptr noundef, i3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @f_sprintf(i32 noundef %0, ptr noundef %1, i64 %2) #2 {
-  %4 = tail call i64 @rb_f_sprintf(i32 noundef %0, ptr noundef %1) #23
+  %4 = tail call i64 @rb_f_sprintf(i32 noundef %0, ptr noundef %1) #24
   ret i64 %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_f_string(i64 %0, i64 noundef %1) #2 {
-  %3 = tail call i64 @rb_check_string_type(i64 noundef %1) #23
+  %3 = tail call i64 @rb_check_string_type(i64 noundef %1) #24
   %4 = icmp eq i64 %3, 4
   br i1 %4, label %5, label %rb_String.exit
 
@@ -6178,17 +6178,17 @@ rb_String.exit:                                   ; preds = %2, %5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_f_array(i64 %0, i64 noundef %1) #2 {
-  %3 = tail call i64 @rb_check_array_type(i64 noundef %1) #23
+  %3 = tail call i64 @rb_check_array_type(i64 noundef %1) #24
   %4 = icmp eq i64 %3, 4
   br i1 %4, label %5, label %rb_Array.exit
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @rb_check_to_array(i64 noundef %1) #23
+  %6 = tail call i64 @rb_check_to_array(i64 noundef %1) #24
   %7 = icmp eq i64 %6, 4
   br i1 %7, label %8, label %rb_Array.exit
 
 8:                                                ; preds = %5
-  %9 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %1) #23
+  %9 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %1) #24
   br label %rb_Array.exit
 
 rb_Array.exit:                                    ; preds = %2, %5, %8
@@ -6202,7 +6202,7 @@ define internal i64 @rb_f_hash(i64 %0, i64 noundef %1) #2 {
   br i1 %3, label %.sink.split.i, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i64 @rb_check_hash_type(i64 noundef %1) #23
+  %5 = tail call i64 @rb_check_hash_type(i64 noundef %1) #24
   %6 = icmp eq i64 %5, 4
   br i1 %6, label %7, label %rb_Hash.exit
 
@@ -6242,12 +6242,12 @@ rb_array_len.exit.i:                              ; preds = %21, %18
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rb_array_len.exit.i, %rbimpl_RB_TYPE_P_fastpath.exit.i, %7
   %25 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  %26 = tail call ptr @rb_obj_classname(i64 noundef %1) #23
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %25, ptr noundef nonnull @.str.23, ptr noundef %26) #24
+  %26 = tail call ptr @rb_obj_classname(i64 noundef %1) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %25, ptr noundef nonnull @.str.23, ptr noundef %26) #25
   unreachable
 
 .sink.split.i:                                    ; preds = %rb_array_len.exit.i, %2
-  %27 = tail call i64 @rb_hash_new() #23
+  %27 = tail call i64 @rb_hash_new() #24
   br label %rb_Hash.exit
 
 rb_Hash.exit:                                     ; preds = %4, %.sink.split.i
@@ -6263,19 +6263,19 @@ declare nonnull ptr @rb_usascii_encoding() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @nil_to_a(i64 %0) #2 {
-  %2 = tail call i64 @rb_ary_new_capa(i64 noundef 0) #23
+  %2 = tail call i64 @rb_ary_new_capa(i64 noundef 0) #24
   ret i64 %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @nil_to_h(i64 %0) #2 {
-  %2 = tail call i64 @rb_hash_new() #23
+  %2 = tail call i64 @rb_hash_new() #24
   ret i64 %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @nil_inspect(i64 %0) #2 {
-  %2 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @.str.147, i64 noundef 3) #23
+  %2 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @.str.147, i64 noundef 3) #24
   ret i64 %2
 }
 
@@ -6308,7 +6308,7 @@ declare void @rb_undef_method(i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @rb_mod_freeze(i64 noundef returned %0) #2 {
-  %2 = tail call i64 @rb_class_name(i64 noundef %0) #23
+  %2 = tail call i64 @rb_class_name(i64 noundef %0) #24
   %3 = icmp eq i64 %0, 0
   %4 = and i64 %0, 7
   %5 = icmp ne i64 %4, 0
@@ -6326,7 +6326,7 @@ RB_FL_ABLE.exit.i.i:                              ; preds = %1
   br i1 %or.cond.i, label %rb_obj_freeze.exit, label %12
 
 12:                                               ; preds = %RB_FL_ABLE.exit.i.i
-  tail call void @rb_obj_freeze_inline(i64 noundef %0) #23
+  tail call void @rb_obj_freeze_inline(i64 noundef %0) #24
   br label %rb_obj_freeze.exit
 
 rb_obj_freeze.exit:                               ; preds = %1, %RB_FL_ABLE.exit.i.i, %12
@@ -6359,7 +6359,7 @@ define internal range(i64 -1, 5) i64 @rb_mod_cmp(i64 noundef %0, i64 noundef %1)
   br i1 %switch, label %13, label %17
 
 13:                                               ; preds = %9
-  %14 = tail call i64 @rb_class_inherited_p(i64 noundef %0, i64 noundef %1) #26
+  %14 = tail call i64 @rb_class_inherited_p(i64 noundef %0, i64 noundef %1) #27
   %15 = icmp eq i64 %14, 4
   br i1 %15, label %17, label %16
 
@@ -6379,7 +6379,7 @@ define internal range(i64 0, 21) i64 @rb_mod_lt(i64 noundef %0, i64 noundef %1) 
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i64 @rb_class_inherited_p(i64 noundef %0, i64 noundef %1) #26
+  %5 = tail call i64 @rb_class_inherited_p(i64 noundef %0, i64 noundef %1) #27
   br label %6
 
 6:                                                ; preds = %2, %4
@@ -6408,11 +6408,11 @@ define internal range(i64 0, 21) i64 @rb_mod_gt(i64 noundef %0, i64 noundef %1) 
 
 13:                                               ; preds = %9, %4
   %14 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %14, ptr noundef nonnull @.str.13) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %14, ptr noundef nonnull @.str.13) #25
   unreachable
 
 rb_mod_ge.exit:                                   ; preds = %9
-  %15 = tail call range(i64 0, 21) i64 @rb_class_inherited_p(i64 noundef %1, i64 noundef %0) #26
+  %15 = tail call range(i64 0, 21) i64 @rb_class_inherited_p(i64 noundef %1, i64 noundef %0) #27
   br label %16
 
 16:                                               ; preds = %2, %rb_mod_ge.exit
@@ -6437,11 +6437,11 @@ define internal range(i64 0, 21) i64 @rb_mod_ge(i64 noundef %0, i64 noundef %1) 
 
 11:                                               ; preds = %7, %2
   %12 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %12, ptr noundef nonnull @.str.13) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %12, ptr noundef nonnull @.str.13) #25
   unreachable
 
 13:                                               ; preds = %7
-  %14 = tail call i64 @rb_class_inherited_p(i64 noundef %1, i64 noundef %0) #26
+  %14 = tail call i64 @rb_class_inherited_p(i64 noundef %1, i64 noundef %0) #27
   ret i64 %14
 }
 
@@ -6462,7 +6462,7 @@ declare i64 @rb_mod_ancestors(i64 noundef) #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_mod_attr_writer(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = sext i32 %0 to i64
-  %5 = tail call i64 @rb_ary_new_capa(i64 noundef %4) #23
+  %5 = tail call i64 @rb_ary_new_capa(i64 noundef %4) #24
   %6 = icmp sgt i32 %0, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -6475,10 +6475,10 @@ define internal i64 @rb_mod_attr_writer(i32 noundef %0, ptr noundef readonly cap
   %7 = getelementptr i64, ptr %1, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !7
   %9 = tail call fastcc i64 @id_for_attr(i64 noundef %2, i64 noundef %8)
-  tail call void @rb_attr(i64 noundef %2, i64 noundef %9, i32 noundef 0, i32 noundef 1, i32 noundef 1) #23
-  %10 = tail call i64 @rb_id_attrset(i64 noundef %9) #23
-  %11 = tail call i64 @rb_id2sym(i64 noundef %10) #23
-  %12 = tail call i64 @rb_ary_push(i64 noundef %5, i64 noundef %11) #23
+  tail call void @rb_attr(i64 noundef %2, i64 noundef %9, i32 noundef 0, i32 noundef 1, i32 noundef 1) #24
+  %10 = tail call i64 @rb_id_attrset(i64 noundef %9) #24
+  %11 = tail call i64 @rb_id2sym(i64 noundef %10) #24
+  %12 = tail call i64 @rb_ary_push(i64 noundef %5, i64 noundef %11) #24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !99
@@ -6491,7 +6491,7 @@ define internal i64 @rb_mod_attr_writer(i32 noundef %0, ptr noundef readonly cap
 define internal i64 @rb_mod_attr_accessor(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = shl i32 %0, 1
   %5 = sext i32 %4 to i64
-  %6 = tail call i64 @rb_ary_new_capa(i64 noundef %5) #23
+  %6 = tail call i64 @rb_ary_new_capa(i64 noundef %5) #24
   %7 = icmp sgt i32 %0, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
@@ -6504,12 +6504,12 @@ define internal i64 @rb_mod_attr_accessor(i32 noundef %0, ptr noundef readonly c
   %8 = getelementptr i64, ptr %1, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8, !tbaa !7
   %10 = tail call fastcc i64 @id_for_attr(i64 noundef %2, i64 noundef %9)
-  tail call void @rb_attr(i64 noundef %2, i64 noundef %10, i32 noundef 1, i32 noundef 1, i32 noundef 1) #23
-  %11 = tail call i64 @rb_id2sym(i64 noundef %10) #23
-  %12 = tail call i64 @rb_ary_push(i64 noundef %6, i64 noundef %11) #23
-  %13 = tail call i64 @rb_id_attrset(i64 noundef %10) #23
-  %14 = tail call i64 @rb_id2sym(i64 noundef %13) #23
-  %15 = tail call i64 @rb_ary_push(i64 noundef %6, i64 noundef %14) #23
+  tail call void @rb_attr(i64 noundef %2, i64 noundef %10, i32 noundef 1, i32 noundef 1, i32 noundef 1) #24
+  %11 = tail call i64 @rb_id2sym(i64 noundef %10) #24
+  %12 = tail call i64 @rb_ary_push(i64 noundef %6, i64 noundef %11) #24
+  %13 = tail call i64 @rb_id_attrset(i64 noundef %10) #24
+  %14 = tail call i64 @rb_id2sym(i64 noundef %13) #24
+  %15 = tail call i64 @rb_ary_push(i64 noundef %6, i64 noundef %14) #24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
@@ -6527,12 +6527,12 @@ define internal noundef i64 @rb_mod_initialize(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %0, ptr %2, align 8, !tbaa !7
-  %3 = tail call i32 @rb_block_given_p() #23
+  %3 = tail call i32 @rb_block_given_p() #24
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %rb_mod_initialize_exec.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = call i64 @rb_mod_module_exec(i32 noundef 1, ptr noundef nonnull %2, i64 noundef %0) #23
+  %5 = call i64 @rb_mod_module_exec(i32 noundef 1, ptr noundef nonnull %2, i64 noundef %0) #24
   br label %rb_mod_initialize_exec.exit
 
 rb_mod_initialize_exec.exit:                      ; preds = %1, %4
@@ -6552,12 +6552,12 @@ rb_scan_args_n_opt.exit:
   %7 = getelementptr i64, ptr %1, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -8
   %9 = load i64, ptr %8, align 8, !tbaa !7
-  %10 = tail call i32 @rb_keyword_given_p() #23
+  %10 = tail call i32 @rb_keyword_given_p() #24
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %.thread18, label %11
 
 11:                                               ; preds = %5
-  %12 = tail call i64 @rb_hash_dup(i64 noundef %9) #23
+  %12 = tail call i64 @rb_hash_dup(i64 noundef %9) #24
   %13 = add nsw i32 %0, -1
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %.thread, label %.thread18
@@ -6570,18 +6570,18 @@ rb_scan_args_n_opt.exit:
 
 .thread:                                          ; preds = %rb_scan_args_n_opt.exit, %.thread18, %11
   %.0.i11 = phi i32 [ %.0.i20, %.thread18 ], [ 0, %11 ], [ %0, %rb_scan_args_n_opt.exit ]
-  tail call void @rb_error_arity(i32 noundef %.0.i11, i32 noundef 1, i32 noundef 1) #24
+  tail call void @rb_error_arity(i32 noundef %.0.i11, i32 noundef 1, i32 noundef 1) #25
   unreachable
 
 rb_scan_args_set.exit:                            ; preds = %.thread18
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = load i64, ptr %8, align 8, !tbaa !7
-  %18 = tail call i32 @rb_keyword_given_p() #23
+  %18 = tail call i32 @rb_keyword_given_p() #24
   %.not.i6 = icmp eq i32 %18, 0
   br i1 %.not.i6, label %.thread10.i, label %19
 
 19:                                               ; preds = %rb_scan_args_set.exit
-  %20 = tail call i64 @rb_hash_dup(i64 noundef %17) #23
+  %20 = tail call i64 @rb_hash_dup(i64 noundef %17) #24
   %21 = add nsw i32 %0, -1
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %.thread.i, label %.thread10.i
@@ -6596,7 +6596,7 @@ rb_scan_args_set.exit:                            ; preds = %.thread18
 
 .thread.i:                                        ; preds = %.thread10.i, %19
   %.0.i6.i = phi i32 [ %.0.i14.i, %.thread10.i ], [ 0, %19 ]
-  tail call void @rb_error_arity(i32 noundef %.0.i6.i, i32 noundef 1, i32 noundef 1) #24
+  tail call void @rb_error_arity(i32 noundef %.0.i6.i, i32 noundef 1, i32 noundef 1) #25
   unreachable
 
 rb_scan_args_set.exit.i:                          ; preds = %.thread10.i
@@ -6608,7 +6608,7 @@ rb_scan_args_set.exit.i:                          ; preds = %.thread10.i
   br label %rb_obj_init_clone.exit
 
 rb_obj_init_clone.exit:                           ; preds = %rb_scan_args_set.exit.i, %25
-  %27 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %2, i64 noundef 3185, i32 noundef 1, i64 noundef %23) #23
+  %27 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %2, i64 noundef 3185, i32 noundef 1, i64 noundef %23) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %28 = icmp eq i64 %15, 0
   %29 = and i64 %15, 7
@@ -6627,7 +6627,7 @@ RB_FL_ABLE.exit.i:                                ; preds = %rb_obj_init_clone.e
   br i1 %or.cond, label %RB_OBJ_FROZEN.exit.thread, label %38
 
 RB_OBJ_FROZEN.exit.thread:                        ; preds = %rb_obj_init_clone.exit, %RB_FL_ABLE.exit.i
-  %37 = tail call i64 @rb_class_name(i64 noundef %2) #23
+  %37 = tail call i64 @rb_class_name(i64 noundef %2) #24
   br label %38
 
 38:                                               ; preds = %RB_FL_ABLE.exit.i, %RB_OBJ_FROZEN.exit.thread
@@ -6655,7 +6655,7 @@ define internal i64 @rb_mod_const_get(i32 noundef %0, ptr noundef readonly captu
   br i1 %or.cond.i, label %6, label %rb_check_arity.exit
 
 6:                                                ; preds = %3
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #24
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #25
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
@@ -6692,48 +6692,48 @@ RB_SYMBOL_P.exit:                                 ; preds = %17
   br i1 %25, label %RB_SYMBOL_P.exit.thread, label %RB_SYMBOL_P.exit.thread106
 
 RB_SYMBOL_P.exit.thread:                          ; preds = %14, %RB_SYMBOL_P.exit
-  %26 = tail call i32 @rb_is_const_sym(i64 noundef %7) #26
+  %26 = tail call i32 @rb_is_const_sym(i64 noundef %7) #27
   %.not98 = icmp eq i32 %26, 0
   br i1 %.not98, label %.thread110, label %27
 
 27:                                               ; preds = %RB_SYMBOL_P.exit.thread
-  %28 = call i64 @rb_check_id(ptr noundef nonnull %4) #23
+  %28 = call i64 @rb_check_id(ptr noundef nonnull %4) #24
   %.not99 = icmp eq i64 %28, 0
   br i1 %.not99, label %29, label %32
 
 29:                                               ; preds = %27
   %30 = load i64, ptr %4, align 8, !tbaa !7
-  %31 = call i64 @rb_const_missing(i64 noundef %2, i64 noundef %30) #23
+  %31 = call i64 @rb_const_missing(i64 noundef %2, i64 noundef %30) #24
   br label %.loopexit
 
 32:                                               ; preds = %27
   br i1 %.not115, label %35, label %33
 
 33:                                               ; preds = %32
-  %34 = call i64 @rb_const_get(i64 noundef %2, i64 noundef %28) #23
+  %34 = call i64 @rb_const_get(i64 noundef %2, i64 noundef %28) #24
   br label %.loopexit
 
 35:                                               ; preds = %32
-  %36 = call i64 @rb_const_get_at(i64 noundef %2, i64 noundef %28) #23
+  %36 = call i64 @rb_const_get_at(i64 noundef %2, i64 noundef %28) #24
   br label %.loopexit
 
 RB_SYMBOL_P.exit.thread106:                       ; preds = %17, %RB_SYMBOL_P.exit
-  %37 = call ptr @rb_string_value_ptr(ptr noundef nonnull %4) #23
+  %37 = call ptr @rb_string_value_ptr(ptr noundef nonnull %4) #24
   %38 = load i64, ptr %4, align 8, !tbaa !7
-  %39 = call ptr @rb_enc_get(i64 noundef %38) #23
+  %39 = call ptr @rb_enc_get(i64 noundef %38) #24
   %40 = getelementptr i8, ptr %39, i64 20
   %.val.i = load i32, ptr %40, align 4, !tbaa !43
   %.not.i = icmp eq i32 %.val.i, 1
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %RB_SYMBOL_P.exit.thread106
-  %41 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %39) #26
+  %41 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %39) #27
   %.not3.i = icmp eq i32 %41, 0
   br i1 %.not3.i, label %43, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit.thread:                   ; preds = %RB_SYMBOL_P.exit.thread106, %rb_enc_asciicompat.exit
   %42 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %42, ptr noundef nonnull @.str.171) #24
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %42, ptr noundef nonnull @.str.171) #25
   unreachable
 
 43:                                               ; preds = %rb_enc_asciicompat.exit
@@ -6802,7 +6802,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %RB_SYMBOL_P.exit.th
   %70 = ptrtoint ptr %.280.lcssa to i64
   %71 = ptrtoint ptr %.175130 to i64
   %72 = sub i64 %70, %71
-  %73 = call i64 @rb_check_id_cstr(ptr noundef %.175130, i64 noundef %72, ptr noundef nonnull %39) #23
+  %73 = call i64 @rb_check_id_cstr(ptr noundef %.175130, i64 noundef %72, ptr noundef nonnull %39) #24
   %74 = sub i64 %71, %62
   br i1 %.not91, label %75, label %83
 
@@ -6842,7 +6842,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fa
   %91 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
   %92 = load i64, ptr %4, align 8, !tbaa !7
   %93 = call fastcc i64 @QUOTE(i64 noundef %92)
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %91, ptr noundef nonnull @.str.172, i64 noundef %93) #24
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %91, ptr noundef nonnull @.str.172, i64 noundef %93) #25
   unreachable
 
 94:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit102
@@ -6851,9 +6851,9 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fa
 
 95:                                               ; preds = %94
   %96 = load i64, ptr %4, align 8, !tbaa !7
-  %97 = call i64 @rb_str_subseq(i64 noundef %96, i64 noundef %74, i64 noundef %72) #23
-  call void @rb_obj_freeze_inline(i64 noundef %97) #23
-  %98 = call i32 @rb_is_const_name(i64 noundef %97) #23
+  %97 = call i64 @rb_str_subseq(i64 noundef %96, i64 noundef %74, i64 noundef %72) #24
+  call void @rb_obj_freeze_inline(i64 noundef %97) #24
+  %98 = call i32 @rb_is_const_name(i64 noundef %97) #24
   %.not95 = icmp eq i32 %98, 0
   br i1 %.not95, label %99, label %rb_class_of.exit
 
@@ -6864,26 +6864,26 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fa
 rb_class_of.exit:                                 ; preds = %95
   %100 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %.0.i104 = load i64, ptr %100, align 8, !tbaa !7
-  %101 = call i32 @rb_method_basic_definition_p(i64 noundef %.0.i104, i64 noundef 2881) #23
+  %101 = call i32 @rb_method_basic_definition_p(i64 noundef %.0.i104, i64 noundef 2881) #24
   %.not96 = icmp eq i32 %101, 0
   br i1 %.not96, label %102, label %105
 
 102:                                              ; preds = %rb_class_of.exit
-  %103 = call i64 @rb_str_intern(i64 noundef %97) #23
-  %104 = call i64 @rb_const_missing(i64 noundef %.2131, i64 noundef %103) #23
+  %103 = call i64 @rb_str_intern(i64 noundef %97) #24
+  %104 = call i64 @rb_const_missing(i64 noundef %.2131, i64 noundef %103) #24
   br label %120, !llvm.loop !102
 
 105:                                              ; preds = %rb_class_of.exit
-  %106 = call i64 @rb_mod_const_missing(i64 noundef %.2131, i64 noundef %97) #24
+  %106 = call i64 @rb_mod_const_missing(i64 noundef %.2131, i64 noundef %97) #25
   unreachable
 
 107:                                              ; preds = %94
-  %108 = call i32 @rb_is_const_id(i64 noundef %73) #28
+  %108 = call i32 @rb_is_const_id(i64 noundef %73) #29
   %.not97 = icmp eq i32 %108, 0
   br i1 %.not97, label %109, label %111
 
 109:                                              ; preds = %107
-  %110 = call i64 @rb_id2sym(i64 noundef %73) #23
+  %110 = call i64 @rb_id2sym(i64 noundef %73) #24
   store i64 %110, ptr %4, align 8, !tbaa !7
   br label %.thread110
 
@@ -6891,7 +6891,7 @@ rb_class_of.exit:                                 ; preds = %95
   br i1 %.not115, label %112, label %114
 
 112:                                              ; preds = %111
-  %113 = call i64 @rb_const_get_at(i64 noundef %.2131, i64 noundef %73) #23
+  %113 = call i64 @rb_const_get_at(i64 noundef %.2131, i64 noundef %73) #24
   br label %120
 
 114:                                              ; preds = %111
@@ -6899,11 +6899,11 @@ rb_class_of.exit:                                 ; preds = %95
   br i1 %115, label %116, label %118
 
 116:                                              ; preds = %114
-  %117 = call i64 @rb_const_get(i64 noundef %.2131, i64 noundef %73) #23
+  %117 = call i64 @rb_const_get(i64 noundef %.2131, i64 noundef %73) #24
   br label %120
 
 118:                                              ; preds = %114
-  %119 = call i64 @rb_const_get_from(i64 noundef %.2131, i64 noundef %73) #23
+  %119 = call i64 @rb_const_get_from(i64 noundef %.2131, i64 noundef %73) #24
   br label %120
 
 120:                                              ; preds = %112, %118, %116, %102
@@ -6918,7 +6918,7 @@ rb_class_of.exit:                                 ; preds = %95
 .thread110:                                       ; preds = %.thread110.loopexit, %99, %109, %43, %49, %RB_SYMBOL_P.exit.thread
   %122 = phi i64 [ %7, %RB_SYMBOL_P.exit.thread ], [ %44, %43 ], [ %44, %49 ], [ %110, %109 ], [ %97, %99 ], [ %.pre, %.thread110.loopexit ]
   %.072 = phi i64 [ %2, %RB_SYMBOL_P.exit.thread ], [ %2, %43 ], [ %2, %49 ], [ %.2131, %109 ], [ %.2131, %99 ], [ %.2131, %.thread110.loopexit ]
-  call fastcc void @rb_name_err_raise(ptr noundef nonnull @bad_const_name, i64 noundef %.072, i64 noundef %122) #27
+  call fastcc void @rb_name_err_raise(ptr noundef nonnull @bad_const_name, i64 noundef %.072, i64 noundef %122) #28
   unreachable
 
 .loopexit:                                        ; preds = %120, %60, %33, %35, %29
@@ -6931,34 +6931,34 @@ rb_class_of.exit:                                 ; preds = %95
 define internal noundef i64 @rb_mod_const_set(i64 noundef %0, i64 noundef %1, i64 noundef returned %2) #2 {
   %4 = alloca i64, align 8
   store i64 %1, ptr %4, align 8, !tbaa !7
-  %5 = call i64 @rb_check_id(ptr noundef nonnull %4) #23
+  %5 = call i64 @rb_check_id(ptr noundef nonnull %4) #24
   %6 = load i64, ptr %4, align 8, !tbaa !7
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %9, label %7
 
 7:                                                ; preds = %3
-  %8 = call i32 @rb_is_const_id(i64 noundef %5) #23, !callees !97
+  %8 = call i32 @rb_is_const_id(i64 noundef %5) #24, !callees !97
   %.not12.i = icmp eq i32 %8, 0
   br i1 %.not12.i, label %11, label %check_setter_id.exit
 
 9:                                                ; preds = %3
-  %10 = call i32 @rb_is_const_name(i64 noundef %6) #23, !callees !98
+  %10 = call i32 @rb_is_const_name(i64 noundef %6) #24, !callees !98
   %.not11.i = icmp eq i32 %10, 0
   br i1 %.not11.i, label %11, label %13
 
 11:                                               ; preds = %9, %7
-  %12 = call i64 @rb_fstring_new(ptr noundef nonnull @bad_const_name, i64 noundef 24) #23
-  call fastcc void @rb_name_err_raise_str(i64 noundef %12, i64 noundef %0, i64 noundef %6) #27
+  %12 = call i64 @rb_fstring_new(ptr noundef nonnull @bad_const_name, i64 noundef 24) #24
+  call fastcc void @rb_name_err_raise_str(i64 noundef %12, i64 noundef %0, i64 noundef %6) #28
   unreachable
 
 13:                                               ; preds = %9
   %14 = load i64, ptr %4, align 8, !tbaa !7
-  %15 = call i64 @rb_intern_str(i64 noundef %14) #23
+  %15 = call i64 @rb_intern_str(i64 noundef %14) #24
   br label %check_setter_id.exit
 
 check_setter_id.exit:                             ; preds = %7, %13
   %.0 = phi i64 [ %15, %13 ], [ %5, %7 ]
-  call void @rb_const_set(i64 noundef %0, i64 noundef %.0, i64 noundef %2) #23
+  call void @rb_const_set(i64 noundef %0, i64 noundef %.0, i64 noundef %2) #24
   ret i64 %2
 }
 
@@ -6971,7 +6971,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rb_mod_const_defined(i32
   br i1 %or.cond.i, label %6, label %rb_check_arity.exit
 
 6:                                                ; preds = %3
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #24
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #25
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
@@ -7009,12 +7009,12 @@ RB_SYMBOL_P.exit:                                 ; preds = %17
   br i1 %25, label %RB_SYMBOL_P.exit.thread, label %RB_SYMBOL_P.exit.thread114
 
 RB_SYMBOL_P.exit.thread:                          ; preds = %14, %RB_SYMBOL_P.exit
-  %26 = tail call i32 @rb_is_const_sym(i64 noundef %7) #26
+  %26 = tail call i32 @rb_is_const_sym(i64 noundef %7) #27
   %.not108 = icmp eq i32 %26, 0
   br i1 %.not108, label %.thread125, label %27
 
 27:                                               ; preds = %RB_SYMBOL_P.exit.thread
-  %28 = call i64 @rb_check_id(ptr noundef nonnull %4) #23
+  %28 = call i64 @rb_check_id(ptr noundef nonnull %4) #24
   %.not109 = icmp eq i64 %28, 0
   br i1 %.not109, label %.thread118, label %29
 
@@ -7022,11 +7022,11 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %14, %RB_SYMBOL_P.ex
   br i1 %.not131, label %32, label %30
 
 30:                                               ; preds = %29
-  %31 = call i32 @rb_const_defined(i64 noundef %2, i64 noundef %28) #23
+  %31 = call i32 @rb_const_defined(i64 noundef %2, i64 noundef %28) #24
   br label %34
 
 32:                                               ; preds = %29
-  %33 = call i32 @rb_const_defined_at(i64 noundef %2, i64 noundef %28) #23
+  %33 = call i32 @rb_const_defined_at(i64 noundef %2, i64 noundef %28) #24
   br label %34
 
 34:                                               ; preds = %32, %30
@@ -7035,22 +7035,22 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %14, %RB_SYMBOL_P.ex
   br label %.thread118
 
 RB_SYMBOL_P.exit.thread114:                       ; preds = %17, %RB_SYMBOL_P.exit
-  %37 = call ptr @rb_string_value_ptr(ptr noundef nonnull %4) #23
+  %37 = call ptr @rb_string_value_ptr(ptr noundef nonnull %4) #24
   %38 = load i64, ptr %4, align 8, !tbaa !7
-  %39 = call ptr @rb_enc_get(i64 noundef %38) #23
+  %39 = call ptr @rb_enc_get(i64 noundef %38) #24
   %40 = getelementptr i8, ptr %39, i64 20
   %.val.i = load i32, ptr %40, align 4, !tbaa !43
   %.not.i = icmp eq i32 %.val.i, 1
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %RB_SYMBOL_P.exit.thread114
-  %41 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %39) #26
+  %41 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %39) #27
   %.not3.i = icmp eq i32 %41, 0
   br i1 %.not3.i, label %43, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit.thread:                   ; preds = %RB_SYMBOL_P.exit.thread114, %rb_enc_asciicompat.exit
   %42 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %42, ptr noundef nonnull @.str.171) #24
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %42, ptr noundef nonnull @.str.171) #25
   unreachable
 
 43:                                               ; preds = %rb_enc_asciicompat.exit
@@ -7124,14 +7124,14 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %RB_SYMBOL_P.exit.th
   %69 = ptrtoint ptr %65 to i64
   %70 = ptrtoint ptr %.182150.us to i64
   %71 = sub i64 %69, %70
-  %72 = call i64 @rb_check_id_cstr(ptr noundef %.182150.us, i64 noundef %71, ptr noundef nonnull %39) #23
+  %72 = call i64 @rb_check_id_cstr(ptr noundef %.182150.us, i64 noundef %71, ptr noundef nonnull %39) #24
   br label %85
 
 73:                                               ; preds = %.critedge.us
   %74 = ptrtoint ptr %.288.lcssa.us to i64
   %75 = ptrtoint ptr %.182150.us to i64
   %76 = sub i64 %74, %75
-  %77 = call i64 @rb_check_id_cstr(ptr noundef %.182150.us, i64 noundef %76, ptr noundef nonnull %39) #23
+  %77 = call i64 @rb_check_id_cstr(ptr noundef %.182150.us, i64 noundef %76, ptr noundef nonnull %39) #24
   %78 = load i8, ptr %.288.lcssa.us, align 1, !tbaa !28
   %79 = icmp eq i8 %78, 58
   br i1 %79, label %80, label %85
@@ -7157,12 +7157,12 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %RB_SYMBOL_P.exit.th
   br i1 %.not102.us, label %.split.us, label %89
 
 89:                                               ; preds = %85
-  %90 = call i32 @rb_is_const_id(i64 noundef %86) #28
+  %90 = call i32 @rb_is_const_id(i64 noundef %86) #29
   %.not104.us = icmp eq i32 %90, 0
   br i1 %.not104.us, label %.split168.us, label %91
 
 91:                                               ; preds = %89
-  %92 = call i32 @rb_const_defined_at(i64 noundef %.280151.us, i64 noundef %86) #23
+  %92 = call i32 @rb_const_defined_at(i64 noundef %.280151.us, i64 noundef %86) #24
   %.not105.us = icmp eq i32 %92, 0
   br i1 %.not105.us, label %.thread118, label %93
 
@@ -7171,7 +7171,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %RB_SYMBOL_P.exit.th
   br i1 %94, label %.thread118, label %95
 
 95:                                               ; preds = %93
-  %96 = call i64 @rb_const_get_at(i64 noundef %.280151.us, i64 noundef %86) #23
+  %96 = call i64 @rb_const_get_at(i64 noundef %.280151.us, i64 noundef %86) #24
   %97 = icmp ult ptr %.490.us, %48
   br i1 %97, label %98, label %.thread118
 
@@ -7218,14 +7218,14 @@ rbimpl_RB_TYPE_P_fastpath.exit112.us:             ; preds = %98
   %113 = ptrtoint ptr %109 to i64
   %114 = ptrtoint ptr %.182150 to i64
   %115 = sub i64 %113, %114
-  %116 = call i64 @rb_check_id_cstr(ptr noundef %.182150, i64 noundef %115, ptr noundef nonnull %39) #23
+  %116 = call i64 @rb_check_id_cstr(ptr noundef %.182150, i64 noundef %115, ptr noundef nonnull %39) #24
   br label %129
 
 117:                                              ; preds = %.critedge
   %118 = ptrtoint ptr %.288146 to i64
   %119 = ptrtoint ptr %.182150 to i64
   %120 = sub i64 %118, %119
-  %121 = call i64 @rb_check_id_cstr(ptr noundef %.182150, i64 noundef %120, ptr noundef nonnull %39) #23
+  %121 = call i64 @rb_check_id_cstr(ptr noundef %.182150, i64 noundef %120, ptr noundef nonnull %39) #24
   %122 = load i8, ptr %.288146, align 1, !tbaa !28
   %123 = icmp eq i8 %122, 58
   br i1 %123, label %124, label %129
@@ -7257,21 +7257,21 @@ rbimpl_RB_TYPE_P_fastpath.exit112.us:             ; preds = %98
   %133 = ptrtoint ptr %37 to i64
   %134 = sub i64 %.us-phi164, %133
   %135 = load i64, ptr %4, align 8, !tbaa !7
-  %136 = call i64 @rb_str_subseq(i64 noundef %135, i64 noundef %134, i64 noundef %.us-phi165) #23
-  call void @rb_obj_freeze_inline(i64 noundef %136) #23
-  %137 = call i32 @rb_is_const_name(i64 noundef %136) #23
+  %136 = call i64 @rb_str_subseq(i64 noundef %135, i64 noundef %134, i64 noundef %.us-phi165) #24
+  call void @rb_obj_freeze_inline(i64 noundef %136) #24
+  %137 = call i32 @rb_is_const_name(i64 noundef %136) #24
   %.not103 = icmp eq i32 %137, 0
   br i1 %.not103, label %.thread125.sink.split, label %.thread118
 
 138:                                              ; preds = %129
-  %139 = call i32 @rb_is_const_id(i64 noundef %130) #28
+  %139 = call i32 @rb_is_const_id(i64 noundef %130) #29
   %.not104 = icmp eq i32 %139, 0
   br i1 %.not104, label %.split168.us, label %141
 
 .split168.us:                                     ; preds = %138, %89
   %.us-phi169 = phi i64 [ %86, %89 ], [ %130, %138 ]
   %.us-phi170 = phi i64 [ %.280151.us, %89 ], [ %.280151, %138 ]
-  %140 = call i64 @rb_id2sym(i64 noundef %.us-phi169) #23
+  %140 = call i64 @rb_id2sym(i64 noundef %.us-phi169) #24
   br label %.thread125.sink.split
 
 141:                                              ; preds = %138
@@ -7279,7 +7279,7 @@ rbimpl_RB_TYPE_P_fastpath.exit112.us:             ; preds = %98
   br i1 %142, label %143, label %149
 
 143:                                              ; preds = %141
-  %144 = call i32 @rb_const_defined(i64 noundef %.280151, i64 noundef %130) #23
+  %144 = call i32 @rb_const_defined(i64 noundef %.280151, i64 noundef %130) #24
   %.not107 = icmp eq i32 %144, 0
   br i1 %.not107, label %.thread118, label %145
 
@@ -7288,11 +7288,11 @@ rbimpl_RB_TYPE_P_fastpath.exit112.us:             ; preds = %98
   br i1 %146, label %.thread118, label %147
 
 147:                                              ; preds = %145
-  %148 = call i64 @rb_const_get(i64 noundef %.280151, i64 noundef %130) #23
+  %148 = call i64 @rb_const_get(i64 noundef %.280151, i64 noundef %130) #24
   br label %155
 
 149:                                              ; preds = %141
-  %150 = call i32 @rb_const_defined_from(i64 noundef %.280151, i64 noundef %130) #23
+  %150 = call i32 @rb_const_defined_from(i64 noundef %.280151, i64 noundef %130) #24
   %.not106 = icmp eq i32 %150, 0
   br i1 %.not106, label %.thread118, label %151
 
@@ -7301,7 +7301,7 @@ rbimpl_RB_TYPE_P_fastpath.exit112.us:             ; preds = %98
   br i1 %152, label %.thread118, label %153
 
 153:                                              ; preds = %151
-  %154 = call i64 @rb_const_get_from(i64 noundef %.280151, i64 noundef %130) #23
+  %154 = call i64 @rb_const_get_from(i64 noundef %.280151, i64 noundef %130) #24
   br label %155
 
 155:                                              ; preds = %147, %153
@@ -7327,7 +7327,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fa
   %165 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
   %166 = load i64, ptr %4, align 8, !tbaa !7
   %167 = call fastcc i64 @QUOTE(i64 noundef %166)
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %165, ptr noundef nonnull @.str.172, i64 noundef %167) #24
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %165, ptr noundef nonnull @.str.172, i64 noundef %167) #25
   unreachable
 
 .thread125.sink.split:                            ; preds = %.split.us, %.split168.us
@@ -7339,7 +7339,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fa
 .thread125:                                       ; preds = %.critedge, %126, %124, %.critedge.thread, %82, %80, %.critedge.us, %.critedge.us.thread, %.thread125.sink.split, %43, %49, %RB_SYMBOL_P.exit.thread
   %.078 = phi i64 [ %2, %RB_SYMBOL_P.exit.thread ], [ %2, %43 ], [ %2, %49 ], [ %.078.ph, %.thread125.sink.split ], [ %.280151.us, %.critedge.us.thread ], [ %.280151.us, %.critedge.us ], [ %.280151.us, %80 ], [ %.280151.us, %82 ], [ %.280151, %.critedge.thread ], [ %.280151, %124 ], [ %.280151, %126 ], [ %.280151, %.critedge ]
   %168 = load i64, ptr %4, align 8, !tbaa !7
-  call fastcc void @rb_name_err_raise(ptr noundef nonnull @bad_const_name, i64 noundef %.078, i64 noundef %168) #27
+  call fastcc void @rb_name_err_raise(ptr noundef nonnull @bad_const_name, i64 noundef %.078, i64 noundef %168) #28
   unreachable
 
 .thread118:                                       ; preds = %155, %143, %145, %149, %151, %95, %91, %93, %60, %.split.us, %27, %34
@@ -7357,7 +7357,7 @@ define internal i64 @rb_mod_const_source_location(i32 noundef %0, ptr noundef re
   br i1 %or.cond.i, label %6, label %rb_check_arity.exit
 
 6:                                                ; preds = %3
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #24
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #25
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
@@ -7394,12 +7394,12 @@ RB_SYMBOL_P.exit:                                 ; preds = %18
   br i1 %26, label %RB_SYMBOL_P.exit.thread, label %RB_SYMBOL_P.exit.thread108
 
 RB_SYMBOL_P.exit.thread:                          ; preds = %14, %RB_SYMBOL_P.exit
-  %27 = tail call i32 @rb_is_const_sym(i64 noundef %7) #26
+  %27 = tail call i32 @rb_is_const_sym(i64 noundef %7) #27
   %.not102 = icmp eq i32 %27, 0
   br i1 %.not102, label %.thread112, label %28
 
 28:                                               ; preds = %RB_SYMBOL_P.exit.thread
-  %29 = call i64 @rb_check_id(ptr noundef nonnull %4) #23
+  %29 = call i64 @rb_check_id(ptr noundef nonnull %4) #24
   %.not103 = icmp eq i64 %29, 0
   br i1 %.not103, label %.thread128, label %30
 
@@ -7407,30 +7407,30 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %14, %RB_SYMBOL_P.ex
   br i1 %15, label %33, label %31
 
 31:                                               ; preds = %30
-  %32 = call i64 @rb_const_source_location(i64 noundef %2, i64 noundef %29) #23
+  %32 = call i64 @rb_const_source_location(i64 noundef %2, i64 noundef %29) #24
   br label %.thread128
 
 33:                                               ; preds = %30
-  %34 = call i64 @rb_const_source_location_at(i64 noundef %2, i64 noundef %29) #23
+  %34 = call i64 @rb_const_source_location_at(i64 noundef %2, i64 noundef %29) #24
   br label %.thread128
 
 RB_SYMBOL_P.exit.thread108:                       ; preds = %18, %RB_SYMBOL_P.exit
-  %35 = call ptr @rb_string_value_ptr(ptr noundef nonnull %4) #23
+  %35 = call ptr @rb_string_value_ptr(ptr noundef nonnull %4) #24
   %36 = load i64, ptr %4, align 8, !tbaa !7
-  %37 = call ptr @rb_enc_get(i64 noundef %36) #23
+  %37 = call ptr @rb_enc_get(i64 noundef %36) #24
   %38 = getelementptr i8, ptr %37, i64 20
   %.val.i = load i32, ptr %38, align 4, !tbaa !43
   %.not.i = icmp eq i32 %.val.i, 1
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %RB_SYMBOL_P.exit.thread108
-  %39 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %37) #26
+  %39 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %37) #27
   %.not3.i = icmp eq i32 %39, 0
   br i1 %.not3.i, label %41, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit.thread:                   ; preds = %RB_SYMBOL_P.exit.thread108, %rb_enc_asciicompat.exit
   %40 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %40, ptr noundef nonnull @.str.171) #24
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %40, ptr noundef nonnull @.str.171) #25
   unreachable
 
 41:                                               ; preds = %rb_enc_asciicompat.exit
@@ -7499,14 +7499,14 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %RB_SYMBOL_P.exit.th
   %67 = ptrtoint ptr %63 to i64
   %68 = ptrtoint ptr %.180164 to i64
   %69 = sub i64 %67, %68
-  %70 = call i64 @rb_check_id_cstr(ptr noundef %.180164, i64 noundef %69, ptr noundef nonnull %37) #23
+  %70 = call i64 @rb_check_id_cstr(ptr noundef %.180164, i64 noundef %69, ptr noundef nonnull %37) #24
   br label %83
 
 71:                                               ; preds = %.critedge
   %72 = ptrtoint ptr %.285160 to i64
   %73 = ptrtoint ptr %.180164 to i64
   %74 = sub i64 %72, %73
-  %75 = call i64 @rb_check_id_cstr(ptr noundef %.180164, i64 noundef %74, ptr noundef nonnull %37) #23
+  %75 = call i64 @rb_check_id_cstr(ptr noundef %.180164, i64 noundef %74, ptr noundef nonnull %37) #24
   %76 = load i8, ptr %.285160, align 1, !tbaa !28
   %77 = icmp eq i8 %76, 58
   br i1 %77, label %78, label %83
@@ -7535,9 +7535,9 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %RB_SYMBOL_P.exit.th
   %88 = ptrtoint ptr %35 to i64
   %89 = sub i64 %86, %88
   %90 = load i64, ptr %4, align 8, !tbaa !7
-  %91 = call i64 @rb_str_subseq(i64 noundef %90, i64 noundef %89, i64 noundef %85) #23
-  call void @rb_obj_freeze_inline(i64 noundef %91) #23
-  %92 = call i32 @rb_is_const_name(i64 noundef %91) #23
+  %91 = call i64 @rb_str_subseq(i64 noundef %90, i64 noundef %89, i64 noundef %85) #24
+  call void @rb_obj_freeze_inline(i64 noundef %91) #24
+  %92 = call i32 @rb_is_const_name(i64 noundef %91) #24
   %.not100 = icmp eq i32 %92, 0
   br i1 %.not100, label %93, label %.thread128
 
@@ -7546,12 +7546,12 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %RB_SYMBOL_P.exit.th
   br label %.thread112
 
 94:                                               ; preds = %83
-  %95 = call i32 @rb_is_const_id(i64 noundef %84) #28
+  %95 = call i32 @rb_is_const_id(i64 noundef %84) #29
   %.not101 = icmp eq i32 %95, 0
   br i1 %.not101, label %96, label %98
 
 96:                                               ; preds = %94
-  %97 = call i64 @rb_id2sym(i64 noundef %84) #23
+  %97 = call i64 @rb_id2sym(i64 noundef %84) #24
   store i64 %97, ptr %4, align 8, !tbaa !7
   br label %.thread112
 
@@ -7563,11 +7563,11 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %RB_SYMBOL_P.exit.th
   br i1 %.072165, label %103, label %101
 
 101:                                              ; preds = %100
-  %102 = call i64 @rb_const_get(i64 noundef %.271166, i64 noundef %84) #23
+  %102 = call i64 @rb_const_get(i64 noundef %.271166, i64 noundef %84) #24
   br label %105
 
 103:                                              ; preds = %100
-  %104 = call i64 @rb_const_get_at(i64 noundef %.271166, i64 noundef %84) #23
+  %104 = call i64 @rb_const_get_at(i64 noundef %.271166, i64 noundef %84) #24
   br label %105
 
 105:                                              ; preds = %101, %103
@@ -7589,18 +7589,18 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fa
   %113 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
   %114 = load i64, ptr %4, align 8, !tbaa !7
   %115 = call fastcc i64 @QUOTE(i64 noundef %114)
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %113, ptr noundef nonnull @.str.172, i64 noundef %115) #24
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %113, ptr noundef nonnull @.str.172, i64 noundef %115) #25
   unreachable
 
 116:                                              ; preds = %98
   br i1 %.072165, label %119, label %117
 
 117:                                              ; preds = %116
-  %118 = call i64 @rb_const_source_location(i64 noundef %.271166, i64 noundef %84) #23
+  %118 = call i64 @rb_const_source_location(i64 noundef %.271166, i64 noundef %84) #24
   br label %.thread128
 
 119:                                              ; preds = %116
-  %120 = call i64 @rb_const_source_location_at(i64 noundef %.271166, i64 noundef %84) #23
+  %120 = call i64 @rb_const_source_location_at(i64 noundef %.271166, i64 noundef %84) #24
   br label %.thread128
 
 .thread112.loopexit:                              ; preds = %.critedge.thread, %.critedge, %80, %78
@@ -7610,7 +7610,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fa
 .thread112:                                       ; preds = %.thread112.loopexit, %93, %96, %41, %47, %RB_SYMBOL_P.exit.thread
   %121 = phi i64 [ %7, %RB_SYMBOL_P.exit.thread ], [ %42, %41 ], [ %42, %47 ], [ %97, %96 ], [ %91, %93 ], [ %.pre, %.thread112.loopexit ]
   %.069 = phi i64 [ %2, %RB_SYMBOL_P.exit.thread ], [ %2, %41 ], [ %2, %47 ], [ %.271166, %96 ], [ %.271166, %93 ], [ %.271166, %.thread112.loopexit ]
-  call fastcc void @rb_name_err_raise(ptr noundef nonnull @bad_const_name, i64 noundef %.069, i64 noundef %121) #27
+  call fastcc void @rb_name_err_raise(ptr noundef nonnull @bad_const_name, i64 noundef %.069, i64 noundef %121) #28
   unreachable
 
 .thread128:                                       ; preds = %58, %87, %117, %119, %31, %33, %28
@@ -7632,33 +7632,33 @@ declare i64 @rb_mod_remove_cvar(i64 noundef, i64 noundef) #3
 define internal i64 @rb_mod_cvar_get(i64 noundef %0, i64 noundef %1) #2 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8, !tbaa !7
-  %4 = call i64 @rb_check_id(ptr noundef nonnull %3) #23
+  %4 = call i64 @rb_check_id(ptr noundef nonnull %3) #24
   %5 = load i64, ptr %3, align 8, !tbaa !7
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = call i32 @rb_is_class_id(i64 noundef %4) #23, !callees !97
+  %7 = call i32 @rb_is_class_id(i64 noundef %4) #24, !callees !97
   %.not12.i = icmp eq i32 %7, 0
   br i1 %.not12.i, label %10, label %check_setter_id.exit
 
 8:                                                ; preds = %2
-  %9 = call i32 @rb_is_class_name(i64 noundef %5) #23, !callees !98
+  %9 = call i32 @rb_is_class_name(i64 noundef %5) #24, !callees !98
   %.not11.i = icmp eq i32 %9, 0
   br i1 %.not11.i, label %10, label %12
 
 10:                                               ; preds = %8, %6
-  %11 = call i64 @rb_fstring_new(ptr noundef nonnull @bad_class_name, i64 noundef 46) #23
-  call fastcc void @rb_name_err_raise_str(i64 noundef %11, i64 noundef %0, i64 noundef %5) #27
+  %11 = call i64 @rb_fstring_new(ptr noundef nonnull @bad_class_name, i64 noundef 46) #24
+  call fastcc void @rb_name_err_raise_str(i64 noundef %11, i64 noundef %0, i64 noundef %5) #28
   unreachable
 
 12:                                               ; preds = %8
   %13 = load i64, ptr %3, align 8, !tbaa !7
-  call fastcc void @rb_name_err_raise(ptr noundef nonnull @.str.173, i64 noundef %0, i64 noundef %13) #27
+  call fastcc void @rb_name_err_raise(ptr noundef nonnull @.str.173, i64 noundef %0, i64 noundef %13) #28
   unreachable
 
 check_setter_id.exit:                             ; preds = %6
-  %14 = call i64 @rb_cvar_get(i64 noundef %0, i64 noundef %4) #23
+  %14 = call i64 @rb_cvar_get(i64 noundef %0, i64 noundef %4) #24
   ret i64 %14
 }
 
@@ -7666,34 +7666,34 @@ check_setter_id.exit:                             ; preds = %6
 define internal noundef i64 @rb_mod_cvar_set(i64 noundef %0, i64 noundef %1, i64 noundef returned %2) #2 {
   %4 = alloca i64, align 8
   store i64 %1, ptr %4, align 8, !tbaa !7
-  %5 = call i64 @rb_check_id(ptr noundef nonnull %4) #23
+  %5 = call i64 @rb_check_id(ptr noundef nonnull %4) #24
   %6 = load i64, ptr %4, align 8, !tbaa !7
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %9, label %7
 
 7:                                                ; preds = %3
-  %8 = call i32 @rb_is_class_id(i64 noundef %5) #23, !callees !97
+  %8 = call i32 @rb_is_class_id(i64 noundef %5) #24, !callees !97
   %.not12.i = icmp eq i32 %8, 0
   br i1 %.not12.i, label %11, label %check_setter_id.exit
 
 9:                                                ; preds = %3
-  %10 = call i32 @rb_is_class_name(i64 noundef %6) #23, !callees !98
+  %10 = call i32 @rb_is_class_name(i64 noundef %6) #24, !callees !98
   %.not11.i = icmp eq i32 %10, 0
   br i1 %.not11.i, label %11, label %13
 
 11:                                               ; preds = %9, %7
-  %12 = call i64 @rb_fstring_new(ptr noundef nonnull @bad_class_name, i64 noundef 46) #23
-  call fastcc void @rb_name_err_raise_str(i64 noundef %12, i64 noundef %0, i64 noundef %6) #27
+  %12 = call i64 @rb_fstring_new(ptr noundef nonnull @bad_class_name, i64 noundef 46) #24
+  call fastcc void @rb_name_err_raise_str(i64 noundef %12, i64 noundef %0, i64 noundef %6) #28
   unreachable
 
 13:                                               ; preds = %9
   %14 = load i64, ptr %4, align 8, !tbaa !7
-  %15 = call i64 @rb_intern_str(i64 noundef %14) #23
+  %15 = call i64 @rb_intern_str(i64 noundef %14) #24
   br label %check_setter_id.exit
 
 check_setter_id.exit:                             ; preds = %7, %13
   %.0 = phi i64 [ %15, %13 ], [ %5, %7 ]
-  call void @rb_cvar_set(i64 noundef %0, i64 noundef %.0, i64 noundef %2) #23
+  call void @rb_cvar_set(i64 noundef %0, i64 noundef %.0, i64 noundef %2) #24
   ret i64 %2
 }
 
@@ -7701,28 +7701,28 @@ check_setter_id.exit:                             ; preds = %7, %13
 define internal i64 @rb_mod_cvar_defined(i64 noundef %0, i64 noundef %1) #2 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8, !tbaa !7
-  %4 = call i64 @rb_check_id(ptr noundef nonnull %3) #23
+  %4 = call i64 @rb_check_id(ptr noundef nonnull %3) #24
   %5 = load i64, ptr %3, align 8, !tbaa !7
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = call i32 @rb_is_class_id(i64 noundef %4) #23, !callees !97
+  %7 = call i32 @rb_is_class_id(i64 noundef %4) #24, !callees !97
   %.not12.i = icmp eq i32 %7, 0
   br i1 %.not12.i, label %10, label %check_setter_id.exit
 
 8:                                                ; preds = %2
-  %9 = call i32 @rb_is_class_name(i64 noundef %5) #23, !callees !98
+  %9 = call i32 @rb_is_class_name(i64 noundef %5) #24, !callees !98
   %.not11.i = icmp eq i32 %9, 0
   br i1 %.not11.i, label %10, label %check_setter_id.exit.thread
 
 10:                                               ; preds = %8, %6
-  %11 = call i64 @rb_fstring_new(ptr noundef nonnull @bad_class_name, i64 noundef 46) #23
-  call fastcc void @rb_name_err_raise_str(i64 noundef %11, i64 noundef %0, i64 noundef %5) #27
+  %11 = call i64 @rb_fstring_new(ptr noundef nonnull @bad_class_name, i64 noundef 46) #24
+  call fastcc void @rb_name_err_raise_str(i64 noundef %11, i64 noundef %0, i64 noundef %5) #28
   unreachable
 
 check_setter_id.exit:                             ; preds = %6
-  %12 = call i64 @rb_cvar_defined(i64 noundef %0, i64 noundef %4) #23
+  %12 = call i64 @rb_cvar_defined(i64 noundef %0, i64 noundef %4) #24
   br label %check_setter_id.exit.thread
 
 check_setter_id.exit.thread:                      ; preds = %8, %check_setter_id.exit
@@ -7776,7 +7776,7 @@ define internal i64 @rb_class_alloc_m(i64 noundef %0) #2 {
 
 7:                                                ; preds = %1
   %8 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.141) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.141) #25
   unreachable
 
 9:                                                ; preds = %1
@@ -7794,16 +7794,16 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %9
 
 16:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
   %17 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef nonnull @.str.142) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef nonnull @.str.142) #25
   unreachable
 
 RCLASS_SINGLETON_P.exit.thread.i:                 ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i, %9
-  %18 = tail call ptr @rb_get_alloc_func(i64 noundef %0) #23
+  %18 = tail call ptr @rb_get_alloc_func(i64 noundef %0) #24
   %.not6.i = icmp eq ptr %18, null
   br i1 %.not6.i, label %19, label %class_get_alloc_func.exit
 
 19:                                               ; preds = %RCLASS_SINGLETON_P.exit.thread.i
-  tail call void @rb_undefined_alloc(i64 noundef %0) #27
+  tail call void @rb_undefined_alloc(i64 noundef %0) #28
   unreachable
 
 class_get_alloc_func.exit:                        ; preds = %RCLASS_SINGLETON_P.exit.thread.i
@@ -7812,20 +7812,20 @@ class_get_alloc_func.exit:                        ; preds = %RCLASS_SINGLETON_P.
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
 .lr.ph.i:                                         ; preds = %class_get_alloc_func.exit, %.lr.ph.i
-  %20 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.93, i64 noundef 8) #23
+  %20 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.93, i64 noundef 8) #24
   store i64 %20, ptr @rb_class_alloc_m.rbimpl_id, align 8, !tbaa !7
   %.not.i5 = icmp eq i64 %20, 0
   br i1 %.not.i5, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !36
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %class_get_alloc_func.exit
   %.lcssa.i = phi i64 [ %.pr.i, %class_get_alloc_func.exit ], [ %20, %.lr.ph.i ]
-  %21 = tail call i32 @rb_obj_respond_to(i64 noundef %0, i64 noundef %.lcssa.i, i32 noundef 1) #23
+  %21 = tail call i32 @rb_obj_respond_to(i64 noundef %0, i64 noundef %.lcssa.i, i32 noundef 1) #24
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %22, label %24
 
 22:                                               ; preds = %rbimpl_intern_const.exit
   %23 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %23, ptr noundef nonnull @.str.174, i64 noundef %0) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %23, ptr noundef nonnull @.str.174, i64 noundef %0) #25
   unreachable
 
 24:                                               ; preds = %rbimpl_intern_const.exit
@@ -7847,7 +7847,7 @@ define internal noundef i64 @rb_class_initialize(i32 noundef %0, ptr noundef rea
 
 10:                                               ; preds = %3
   %11 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %11, ptr noundef nonnull @.str.175) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %11, ptr noundef nonnull @.str.175) #25
   unreachable
 
 12:                                               ; preds = %3
@@ -7855,7 +7855,7 @@ define internal noundef i64 @rb_class_initialize(i32 noundef %0, ptr noundef rea
   br i1 %or.cond.i, label %13, label %rb_check_arity.exit
 
 13:                                               ; preds = %12
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #24
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #25
   unreachable
 
 rb_check_arity.exit:                              ; preds = %12
@@ -7868,7 +7868,7 @@ rb_check_arity.exit:                              ; preds = %12
 
 17:                                               ; preds = %rb_check_arity.exit
   %18 = load i64, ptr %1, align 8, !tbaa !7
-  tail call void @rb_check_inheritable(i64 noundef %18) #23
+  tail call void @rb_check_inheritable(i64 noundef %18) #24
   %19 = load i64, ptr @rb_cBasicObject, align 8, !tbaa !7
   %.not16 = icmp eq i64 %18, %19
   br i1 %.not16, label %26, label %20
@@ -7882,7 +7882,7 @@ rb_check_arity.exit:                              ; preds = %12
 
 24:                                               ; preds = %20
   %25 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %25, ptr noundef nonnull @.str.176) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %25, ptr noundef nonnull @.str.176) #25
   unreachable
 
 26:                                               ; preds = %17, %20, %15
@@ -7895,32 +7895,32 @@ rb_check_arity.exit:                              ; preds = %12
   br label %RCLASS_SET_SUPER.exit
 
 .split10.i:                                       ; preds = %26
-  tail call void @rb_class_remove_from_super_subclasses(i64 noundef %2) #23
-  tail call void @rb_class_subclass_add(i64 noundef %.0, i64 noundef %2) #23
+  tail call void @rb_class_remove_from_super_subclasses(i64 noundef %2) #24
+  tail call void @rb_class_subclass_add(i64 noundef %.0, i64 noundef %2) #24
   store i64 %.0, ptr %6, align 8, !tbaa !7
   %27 = and i64 %.0, 7
   %.not11.i = icmp eq i64 %27, 0
   br i1 %.not11.i, label %28, label %RCLASS_SET_SUPER.exit
 
 28:                                               ; preds = %.split10.i
-  tail call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %.0) #23
+  tail call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %.0) #24
   br label %RCLASS_SET_SUPER.exit
 
 RCLASS_SET_SUPER.exit:                            ; preds = %.split.i, %.split10.i, %28
-  tail call void @rb_class_update_superclasses(i64 noundef %2) #23
+  tail call void @rb_class_update_superclasses(i64 noundef %2) #24
   %29 = inttoptr i64 %.0 to ptr
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !95
-  %32 = tail call i64 @rb_make_metaclass(i64 noundef %2, i64 noundef %31) #23
-  %33 = tail call i64 @rb_class_inherited(i64 noundef %.0, i64 noundef %2) #23
+  %32 = tail call i64 @rb_make_metaclass(i64 noundef %2, i64 noundef %31) #24
+  %33 = tail call i64 @rb_class_inherited(i64 noundef %.0, i64 noundef %2) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %2, ptr %4, align 8, !tbaa !7
-  %34 = tail call i32 @rb_block_given_p() #23
+  %34 = tail call i32 @rb_block_given_p() #24
   %.not.i19 = icmp eq i32 %34, 0
   br i1 %.not.i19, label %rb_mod_initialize_exec.exit, label %35
 
 35:                                               ; preds = %RCLASS_SET_SUPER.exit
-  %36 = call i64 @rb_mod_module_exec(i32 noundef 1, ptr noundef nonnull %4, i64 noundef %2) #23
+  %36 = call i64 @rb_mod_module_exec(i32 noundef 1, ptr noundef nonnull %4, i64 noundef %2) #24
   br label %rb_mod_initialize_exec.exit
 
 rb_mod_initialize_exec.exit:                      ; preds = %RCLASS_SET_SUPER.exit, %35
@@ -7949,7 +7949,7 @@ define internal noundef range(i64 0, 21) i64 @true_xor(i64 %0, i64 noundef %1) #
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @Init_builtin_kernel() local_unnamed_addr #2 {
-  tail call void @rb_load_with_builtin_functions(ptr noundef nonnull @.str.134, ptr noundef nonnull @Init_builtin_kernel.kernel_table) #23
+  tail call void @rb_load_with_builtin_functions(ptr noundef nonnull @.str.134, ptr noundef nonnull @Init_builtin_kernel.kernel_table) #24
   ret void
 }
 
@@ -8032,7 +8032,7 @@ define internal noundef i64 @rb_obj_clone2(ptr readnone captures(none) %0, i64 n
 4:                                                ; preds = %3
   %5 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
   %6 = tail call i64 @rb_obj_class(i64 noundef %2)
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %5, ptr noundef nonnull @.str.138, i64 noundef %6) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %5, ptr noundef nonnull @.str.138, i64 noundef %6) #25
   unreachable
 
 obj_freeze_opt.exit:                              ; preds = %3, %3, %3
@@ -8066,7 +8066,7 @@ special_object_p.exit:                            ; preds = %11
 19:                                               ; preds = %17
   %20 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
   %21 = tail call i64 @rb_obj_class(i64 noundef %1)
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %20, ptr noundef nonnull @.str.139, i64 noundef %21) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %20, ptr noundef nonnull @.str.139, i64 noundef %21) #25
   unreachable
 
 immutable_obj_clone.exit:                         ; preds = %17, %special_object_p.exit
@@ -8103,17 +8103,17 @@ rb_obj_frozen_p.exit:                             ; preds = %RB_FL_ABLE.exit.i.i
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_124(ptr readnone captures(none) %0, i64 noundef %1) #2 {
-  %3 = tail call i64 @rb_frame_this_func() #23
-  %4 = tail call i64 @rb_id2sym(i64 noundef %3) #23
-  %5 = tail call i64 @rb_enumeratorize_with_size(i64 noundef %1, i64 noundef %4, i32 noundef 0, ptr noundef null, ptr noundef nonnull @rb_obj_size) #23
+  %3 = tail call i64 @rb_frame_this_func() #24
+  %4 = tail call i64 @rb_id2sym(i64 noundef %3) #24
+  %5 = tail call i64 @rb_enumeratorize_with_size(i64 noundef %1, i64 noundef %4, i32 noundef 0, ptr noundef null, ptr noundef nonnull @rb_obj_size) #24
   ret i64 %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_163(ptr readnone captures(none) %0, i64 noundef %1) #2 {
-  %3 = tail call i64 @rb_frame_this_func() #23
-  %4 = tail call i64 @rb_id2sym(i64 noundef %3) #23
-  %5 = tail call i64 @rb_enumeratorize_with_size(i64 noundef %1, i64 noundef %4, i32 noundef 0, ptr noundef null, ptr noundef nonnull @rb_f_loop_size) #23
+  %3 = tail call i64 @rb_frame_this_func() #24
+  %4 = tail call i64 @rb_id2sym(i64 noundef %3) #24
+  %5 = tail call i64 @rb_enumeratorize_with_size(i64 noundef %1, i64 noundef %4, i32 noundef 0, ptr noundef null, ptr noundef nonnull @rb_f_loop_size) #24
   ret i64 %5
 }
 
@@ -8135,7 +8135,7 @@ define internal i64 @rb_f_float(ptr readnone captures(none) %0, i64 %1, i64 noun
 
 6:                                                ; preds = %4
   %7 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @rb_bool_expected.message, ptr noundef nonnull @.str.19, i64 noundef %3) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @rb_bool_expected.message, ptr noundef nonnull @.str.19, i64 noundef %3) #25
   unreachable
 
 rb_bool_expected.exit:                            ; preds = %4, %5
@@ -8162,7 +8162,7 @@ define internal i64 @rb_f_integer(ptr readnone captures(none) %0, i64 %1, i64 no
 
 7:                                                ; preds = %5
   %8 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @rb_bool_expected.message, ptr noundef nonnull @.str.19, i64 noundef %4) #24
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @rb_bool_expected.message, ptr noundef nonnull @.str.19, i64 noundef %4) #25
   unreachable
 
 rb_bool_expected.exit:                            ; preds = %5, %6
@@ -8172,11 +8172,11 @@ rb_bool_expected.exit:                            ; preds = %5, %6
   br i1 %.not.i, label %12, label %10
 
 10:                                               ; preds = %rb_bool_expected.exit
-  %11 = tail call i64 @rb_fix2int(i64 noundef %3) #23
+  %11 = tail call i64 @rb_fix2int(i64 noundef %3) #24
   br label %rb_num2int_inline.exit
 
 12:                                               ; preds = %rb_bool_expected.exit
-  %13 = tail call i64 @rb_num2int(i64 noundef %3) #23
+  %13 = tail call i64 @rb_num2int(i64 noundef %3) #24
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %10, %12
@@ -8190,13 +8190,13 @@ declare void @rb_load_with_builtin_functions(ptr noundef, ptr noundef) local_unn
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @Init_builtin_nilclass() local_unnamed_addr #2 {
-  tail call void @rb_load_with_builtin_functions(ptr noundef nonnull @.str.135, ptr noundef nonnull @Init_builtin_nilclass.nilclass_table) #23
+  tail call void @rb_load_with_builtin_functions(ptr noundef nonnull @.str.135, ptr noundef nonnull @Init_builtin_nilclass.nilclass_table) #24
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @Init_Object() local_unnamed_addr #2 {
-  %1 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.136, i64 noundef 3) #23
+  %1 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.136, i64 noundef 3) #24
   store i64 %1, ptr @id_dig, align 8, !tbaa !7
   tail call void @InitVM_Object()
   ret void
@@ -8246,19 +8246,19 @@ define internal fastcc i64 @class_call_alloc_func(ptr noundef nonnull readonly c
 
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %6 = call ptr @rb_source_location_cstr(ptr noundef nonnull %3) #23
+  %6 = call ptr @rb_source_location_cstr(ptr noundef nonnull %3) #24
   %.not7 = icmp eq ptr %6, null
   %spec.store.select = select i1 %.not7, ptr @.str.73, ptr %6
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_object__create_semaphore) #23, !srcloc !107
-  %7 = call ptr @rb_class2name(i64 noundef %1) #23
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_object__create_semaphore) #24, !srcloc !107
+  %7 = call ptr @rb_class2name(i64 noundef %1) #24
   %8 = load i32, ptr %3, align 4, !tbaa !79
-  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_object__create_semaphore\0A.asciz \22ruby\22\0A.asciz \22object__create\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %7, i32 -2053, ptr nonnull %spec.store.select, i32 1025, i32 %8) #23, !srcloc !108
-  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !109
+  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_object__create_semaphore\0A.asciz \22ruby\22\0A.asciz \22object__create\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %7, i32 -2053, ptr nonnull %spec.store.select, i32 1025, i32 %8) #24, !srcloc !108
+  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !109
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %9
 
 9:                                                ; preds = %5, %2
-  %10 = call i64 %0(i64 noundef %1) #23
+  %10 = call i64 %0(i64 noundef %1) #24
   %11 = icmp eq i64 %10, 0
   %12 = and i64 %10, 7
   %13 = icmp ne i64 %12, 0
@@ -8352,7 +8352,7 @@ rb_class_real.exit:                               ; preds = %.critedge2.i, %.lr.
 
 40:                                               ; preds = %rb_class_real.exit
   %41 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %41, ptr noundef nonnull @.str.143) #24
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %41, ptr noundef nonnull @.str.143) #25
   unreachable
 
 42:                                               ; preds = %rb_class_real.exit
@@ -8371,8 +8371,8 @@ declare i64 @rb_check_id(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint noreturn nounwind sspstrong uwtable
 define internal fastcc void @rb_name_err_raise_str(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #15 {
-  %4 = tail call i64 @rb_name_err_new(i64 noundef %0, i64 noundef %1, i64 noundef %2) #23
-  tail call void @rb_exc_raise(i64 noundef %4) #24
+  %4 = tail call i64 @rb_name_err_new(i64 noundef %0, i64 noundef %1, i64 noundef %2) #24
+  tail call void @rb_exc_raise(i64 noundef %4) #25
   unreachable
 }
 
@@ -8437,7 +8437,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %17
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %15) #26
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %15) #27
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %.thread.loopexit.split.loop.exit, label %24
 
@@ -8495,7 +8495,7 @@ rb_integer_type_p.exit:                           ; preds = %3
   br i1 %11, label %rb_integer_type_p.exit.thread, label %rb_integer_type_p.exit.thread11
 
 rb_integer_type_p.exit.thread11:                  ; preds = %3, %rb_integer_type_p.exit
-  %12 = tail call i64 @rb_check_funcall(i64 noundef %0, i64 noundef 3377, i32 noundef 0, ptr noundef null) #23
+  %12 = tail call i64 @rb_check_funcall(i64 noundef %0, i64 noundef 3377, i32 noundef 0, ptr noundef null) #24
   %13 = icmp eq i64 %12, 36
   br i1 %13, label %rb_integer_type_p.exit.thread, label %convert_type_with_id.exit
 
@@ -8551,15 +8551,15 @@ define internal i64 @convert_type_to_float_protected(i64 noundef %0) #2 {
 
 declare i64 @rb_float_new_in_heap(double noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #13
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #20
 
 declare i32 @rb_method_basic_definition_p(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint noreturn nounwind sspstrong uwtable
 define internal fastcc void @rb_raise_cstr_i(i64 noundef %0, i64 noundef %1) unnamed_addr #15 {
-  %3 = tail call i64 @rb_exc_new_str(i64 noundef %0, i64 noundef %1) #23
-  tail call void @rb_exc_raise(i64 noundef %3) #24
+  %3 = tail call i64 @rb_exc_new_str(i64 noundef %0, i64 noundef %1) #24
+  tail call void @rb_exc_raise(i64 noundef %3) #25
   unreachable
 }
 
@@ -8583,15 +8583,15 @@ define internal noundef i64 @inspect_obj(i64 noundef %0, i64 noundef returned %1
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %3
-  %5 = tail call i64 @rb_str_cat(i64 noundef %1, ptr noundef nonnull @.str.167, i64 noundef 4) #23
+  %5 = tail call i64 @rb_str_cat(i64 noundef %1, ptr noundef nonnull @.str.167, i64 noundef 4) #24
   br label %7
 
 6:                                                ; preds = %3
-  tail call void @rb_ivar_foreach(i64 noundef %0, ptr noundef nonnull @inspect_i, i64 noundef %1) #23
+  tail call void @rb_ivar_foreach(i64 noundef %0, ptr noundef nonnull @inspect_i, i64 noundef %1) #24
   br label %7
 
 7:                                                ; preds = %6, %4
-  %8 = tail call i64 @rb_str_cat(i64 noundef %1, ptr noundef nonnull @.str.9, i64 noundef 1) #23
+  %8 = tail call i64 @rb_str_cat(i64 noundef %1, ptr noundef nonnull @.str.9, i64 noundef 1) #24
   %9 = inttoptr i64 %1 to ptr
   %10 = load i64, ptr %9, align 8, !tbaa !24, !noalias !110
   %11 = and i64 %10, 8192
@@ -8655,7 +8655,7 @@ rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %
   br i1 %19, label %39, label %20
 
 20:                                               ; preds = %rb_class_of.exit
-  %21 = tail call i32 @rb_is_instance_id(i64 noundef %0) #28
+  %21 = tail call i32 @rb_is_instance_id(i64 noundef %0) #29
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %39, label %22
 
@@ -8681,18 +8681,18 @@ RSTRING_PTR.exit.thread:                          ; preds = %22
 RSTRING_PTR.exit15:                               ; preds = %RSTRING_PTR.exit.thread, %RSTRING_PTR.exit
   %.sroa.2.0.i14 = phi ptr [ %26, %RSTRING_PTR.exit ], [ %.sroa.2.0.copyload.i, %RSTRING_PTR.exit.thread ]
   store i8 35, ptr %.sroa.2.0.i14, align 1, !tbaa !28
-  %31 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.168, i64 noundef 1) #23
+  %31 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.168, i64 noundef 1) #24
   br label %34
 
 32:                                               ; preds = %RSTRING_PTR.exit.thread, %RSTRING_PTR.exit
-  %33 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.169, i64 noundef 2) #23
+  %33 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.169, i64 noundef 2) #24
   br label %34
 
 34:                                               ; preds = %32, %RSTRING_PTR.exit15
-  %35 = tail call i64 @rb_id2str(i64 noundef %0) #23
-  %36 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.170, i64 noundef %35) #23
+  %35 = tail call i64 @rb_id2str(i64 noundef %0) #24
+  %36 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.170, i64 noundef %35) #24
   %37 = tail call i64 @rb_inspect(i64 noundef %1)
-  %38 = tail call i64 @rb_str_buf_append(i64 noundef %2, i64 noundef %37) #23
+  %38 = tail call i64 @rb_str_buf_append(i64 noundef %2, i64 noundef %37) #24
   br label %39
 
 39:                                               ; preds = %20, %rb_class_of.exit, %34
@@ -8733,7 +8733,7 @@ declare i64 @rb_check_id_cstr(ptr noundef, i64 noundef, ptr noundef) local_unnam
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
 define internal fastcc i64 @QUOTE(i64 noundef %0) unnamed_addr #12 {
-  %2 = tail call i64 @rb_str_quote_unprintable(i64 noundef %0) #23
+  %2 = tail call i64 @rb_str_quote_unprintable(i64 noundef %0) #24
   ret i64 %2
 }
 
@@ -8745,8 +8745,8 @@ declare i64 @rb_const_get_from(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint noreturn nounwind sspstrong uwtable
 define internal fastcc void @rb_name_err_raise(ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #15 {
-  %4 = tail call i64 @rb_fstring_cstr(ptr noundef %0) #23
-  tail call fastcc void @rb_name_err_raise_str(i64 noundef %4, i64 noundef %1, i64 noundef %2) #27
+  %4 = tail call i64 @rb_fstring_cstr(ptr noundef %0) #24
+  tail call fastcc void @rb_name_err_raise_str(i64 noundef %4, i64 noundef %1, i64 noundef %2) #28
   unreachable
 }
 
@@ -8797,7 +8797,7 @@ declare i64 @rb_frame_this_func() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_f_loop_size(i64 %0, i64 %1, i64 %2) #2 {
-  %4 = tail call i64 @rb_float_new_in_heap(double noundef 0x7FF0000000000000) #23
+  %4 = tail call i64 @rb_float_new_in_heap(double noundef 0x7FF0000000000000) #24
   ret i64 %4
 }
 
@@ -8808,19 +8808,19 @@ declare i64 @rb_num2int(i64 noundef) local_unnamed_addr #3
 declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #21
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #22
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #21
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #22
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #23
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8842,16 +8842,17 @@ attributes #16 = { mustprogress nofree nosync nounwind willreturn memory(none) "
 attributes #17 = { nofree norecurse nounwind sspstrong memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #23 = { nounwind }
-attributes #24 = { noreturn nounwind }
-attributes #25 = { cold noreturn nounwind }
-attributes #26 = { nounwind willreturn memory(read) }
-attributes #27 = { noreturn }
-attributes #28 = { nounwind willreturn memory(none) }
-attributes #29 = { nounwind allocsize(1) }
+attributes #20 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #22 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #24 = { nounwind }
+attributes #25 = { noreturn nounwind }
+attributes #26 = { cold noreturn nounwind }
+attributes #27 = { nounwind willreturn memory(read) }
+attributes #28 = { noreturn }
+attributes #29 = { nounwind willreturn memory(none) }
+attributes #30 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

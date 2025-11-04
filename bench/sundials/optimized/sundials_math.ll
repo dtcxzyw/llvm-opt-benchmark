@@ -55,7 +55,7 @@ define double @SUNRpowerR(double noundef %0, double noundef %1) local_unnamed_ad
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call double @pow(double noundef %0, double noundef %1) #8, !tbaa !3
+  %5 = tail call double @pow(double noundef %0, double noundef %1) #9, !tbaa !3
   br label %6
 
 6:                                                ; preds = %2, %4
@@ -76,9 +76,9 @@ define range(i32 0, 2) i32 @SUNRCompare(double noundef %0, double noundef %1) lo
   br i1 %or.cond.i, label %SUNRCompareTol.exit, label %5
 
 5:                                                ; preds = %4
-  %6 = tail call double @llvm.fabs.f64(double %0) #9
+  %6 = tail call double @llvm.fabs.f64(double %0) #10
   %7 = fcmp oeq double %6, 0x7FF0000000000000
-  %8 = tail call double @llvm.fabs.f64(double %1) #9
+  %8 = tail call double @llvm.fabs.f64(double %1) #10
   %9 = fcmp oeq double %8, 0x7FF0000000000000
   %or.cond21.i = or i1 %7, %9
   br i1 %or.cond21.i, label %SUNRCompareTol.exit, label %10
@@ -112,9 +112,9 @@ define range(i32 0, 2) i32 @SUNRCompareTol(double noundef %0, double noundef %1,
   br i1 %or.cond, label %23, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call double @llvm.fabs.f64(double %0) #9
+  %7 = tail call double @llvm.fabs.f64(double %0) #10
   %8 = fcmp oeq double %7, 0x7FF0000000000000
-  %9 = tail call double @llvm.fabs.f64(double %1) #9
+  %9 = tail call double @llvm.fabs.f64(double %1) #10
   %10 = fcmp oeq double %9, 0x7FF0000000000000
   %or.cond21 = or i1 %8, %10
   br i1 %or.cond21, label %23, label %11
@@ -138,37 +138,38 @@ define range(i32 0, 2) i32 @SUNRCompareTol(double noundef %0, double noundef %1,
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #1
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #5
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define double @SUNStrToReal(ptr noundef %0) local_unnamed_addr #5 {
+define double @SUNStrToReal(ptr noundef %0) local_unnamed_addr #6 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %3 = call double @strtod(ptr noundef %0, ptr noundef nonnull %2) #8
+  %3 = call double @strtod(ptr noundef %0, ptr noundef nonnull %2) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret double %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #6
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind }
-attributes #9 = { memory(none) }
+attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nofree norecurse nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind }
+attributes #10 = { memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

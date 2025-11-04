@@ -44,7 +44,7 @@ define range(i32 -22, 1) i32 @ff_set_cmp(ptr noundef readonly captures(none) %0,
   br i1 %.not22.not, label %18, label %19
 
 18:                                               ; preds = %15, %10, %8
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str) #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str) #13
   br label %.loopexit
 
 19:                                               ; preds = %15, %14
@@ -155,7 +155,7 @@ define void @ff_me_cmp_init(ptr noundef initializes((0, 792)) %0, ptr noundef re
   store ptr @nsse16_c, ptr %39, align 8, !tbaa !4
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store ptr @nsse8_c, ptr %40, align 8, !tbaa !4
-  tail call void @ff_dsputil_init_dwt(ptr noundef %0) #12
+  tail call void @ff_dsputil_init_dwt(ptr noundef %0) #13
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 744
   store ptr @pix_median_abs16_c, ptr %41, align 8, !tbaa !4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 752
@@ -2052,23 +2052,23 @@ define internal i32 @dct_sad16_c(ptr noundef readonly captures(none) %0, ptr nou
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 5016
   %11 = load ptr, ptr %10, align 8, !tbaa !33
-  call void %11(ptr noundef nonnull %9, ptr noundef %1, ptr noundef %2, i64 noundef %3) #12
+  call void %11(ptr noundef nonnull %9, ptr noundef %1, ptr noundef %2, i64 noundef %3) #13
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %13 = load ptr, ptr %12, align 8, !tbaa !69
-  call void %13(ptr noundef nonnull %9) #12
+  call void %13(ptr noundef nonnull %9) #13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 6968
   %15 = load ptr, ptr %14, align 8, !tbaa !70
-  %16 = call i32 %15(ptr noundef nonnull %9) #12
+  %16 = call i32 %15(ptr noundef nonnull %9) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %19 = load ptr, ptr %10, align 8, !tbaa !33
-  call void %19(ptr noundef nonnull %8, ptr noundef nonnull %17, ptr noundef nonnull %18, i64 noundef %3) #12
+  call void %19(ptr noundef nonnull %8, ptr noundef nonnull %17, ptr noundef nonnull %18, i64 noundef %3) #13
   %20 = load ptr, ptr %12, align 8, !tbaa !69
-  call void %20(ptr noundef nonnull %8) #12
+  call void %20(ptr noundef nonnull %8) #13
   %21 = load ptr, ptr %14, align 8, !tbaa !70
-  %22 = call i32 %21(ptr noundef nonnull %8) #12
+  %22 = call i32 %21(ptr noundef nonnull %8) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %23 = add nsw i32 %22, %16
   %24 = icmp eq i32 %4, 16
@@ -2080,22 +2080,22 @@ define internal i32 @dct_sad16_c(ptr noundef readonly captures(none) %0, ptr nou
   %28 = getelementptr inbounds i8, ptr %2, i64 %26
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %29 = load ptr, ptr %10, align 8, !tbaa !33
-  call void %29(ptr noundef nonnull %7, ptr noundef %27, ptr noundef %28, i64 noundef %3) #12
+  call void %29(ptr noundef nonnull %7, ptr noundef %27, ptr noundef %28, i64 noundef %3) #13
   %30 = load ptr, ptr %12, align 8, !tbaa !69
-  call void %30(ptr noundef nonnull %7) #12
+  call void %30(ptr noundef nonnull %7) #13
   %31 = load ptr, ptr %14, align 8, !tbaa !70
-  %32 = call i32 %31(ptr noundef nonnull %7) #12
+  %32 = call i32 %31(ptr noundef nonnull %7) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %33 = add nsw i32 %32, %23
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %36 = load ptr, ptr %10, align 8, !tbaa !33
-  call void %36(ptr noundef nonnull %6, ptr noundef nonnull %34, ptr noundef nonnull %35, i64 noundef %3) #12
+  call void %36(ptr noundef nonnull %6, ptr noundef nonnull %34, ptr noundef nonnull %35, i64 noundef %3) #13
   %37 = load ptr, ptr %12, align 8, !tbaa !69
-  call void %37(ptr noundef nonnull %6) #12
+  call void %37(ptr noundef nonnull %6) #13
   %38 = load ptr, ptr %14, align 8, !tbaa !70
-  %39 = call i32 %38(ptr noundef nonnull %6) #12
+  %39 = call i32 %38(ptr noundef nonnull %6) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %40 = add nsw i32 %33, %39
   br label %41
@@ -2111,13 +2111,13 @@ define internal i32 @dct_sad8x8_c(ptr noundef readonly captures(none) %0, ptr no
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 5016
   %8 = load ptr, ptr %7, align 8, !tbaa !33
-  call void %8(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i64 noundef %3) #12
+  call void %8(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i64 noundef %3) #13
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %10 = load ptr, ptr %9, align 8, !tbaa !69
-  call void %10(ptr noundef nonnull %6) #12
+  call void %10(ptr noundef nonnull %6) #13
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 6968
   %12 = load ptr, ptr %11, align 8, !tbaa !70
-  %13 = call i32 %12(ptr noundef nonnull %6) #12
+  %13 = call i32 %12(ptr noundef nonnull %6) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %13
 }
@@ -2131,10 +2131,10 @@ define internal range(i32 0, 131073) i32 @dct_max16_c(ptr noundef readonly captu
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 5016
   %11 = load ptr, ptr %10, align 8, !tbaa !33
-  call void %11(ptr noundef nonnull %9, ptr noundef %1, ptr noundef %2, i64 noundef %3) #12
+  call void %11(ptr noundef nonnull %9, ptr noundef %1, ptr noundef %2, i64 noundef %3) #13
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %13 = load ptr, ptr %12, align 8, !tbaa !69
-  call void %13(ptr noundef nonnull %9) #12
+  call void %13(ptr noundef nonnull %9) #13
   br label %14
 
 14:                                               ; preds = %14, %5
@@ -2155,9 +2155,9 @@ dct_max8x8_c.exit:                                ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %21 = load ptr, ptr %10, align 8, !tbaa !33
-  call void %21(ptr noundef nonnull %8, ptr noundef nonnull %19, ptr noundef nonnull %20, i64 noundef %3) #12
+  call void %21(ptr noundef nonnull %8, ptr noundef nonnull %19, ptr noundef nonnull %20, i64 noundef %3) #13
   %22 = load ptr, ptr %12, align 8, !tbaa !69
-  call void %22(ptr noundef nonnull %8) #12
+  call void %22(ptr noundef nonnull %8) #13
   br label %23
 
 23:                                               ; preds = %23, %dct_max8x8_c.exit
@@ -2184,9 +2184,9 @@ dct_max8x8_c.exit30:                              ; preds = %23
   %33 = getelementptr inbounds i8, ptr %2, i64 %31
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %34 = load ptr, ptr %10, align 8, !tbaa !33
-  call void %34(ptr noundef nonnull %7, ptr noundef %32, ptr noundef %33, i64 noundef %3) #12
+  call void %34(ptr noundef nonnull %7, ptr noundef %32, ptr noundef %33, i64 noundef %3) #13
   %35 = load ptr, ptr %12, align 8, !tbaa !69
-  call void %35(ptr noundef nonnull %7) #12
+  call void %35(ptr noundef nonnull %7) #13
   br label %36
 
 36:                                               ; preds = %36, %30
@@ -2207,9 +2207,9 @@ dct_max8x8_c.exit36:                              ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %43 = load ptr, ptr %10, align 8, !tbaa !33
-  call void %43(ptr noundef nonnull %6, ptr noundef nonnull %41, ptr noundef nonnull %42, i64 noundef %3) #12
+  call void %43(ptr noundef nonnull %6, ptr noundef nonnull %41, ptr noundef nonnull %42, i64 noundef %3) #13
   %44 = load ptr, ptr %12, align 8, !tbaa !69
-  call void %44(ptr noundef nonnull %6) #12
+  call void %44(ptr noundef nonnull %6) #13
   br label %45
 
 45:                                               ; preds = %45, %dct_max8x8_c.exit36
@@ -2241,10 +2241,10 @@ define internal range(i32 0, 32769) i32 @dct_max8x8_c(ptr noundef readonly captu
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 5016
   %8 = load ptr, ptr %7, align 8, !tbaa !33
-  call void %8(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i64 noundef %3) #12
+  call void %8(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i64 noundef %3) #13
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %10 = load ptr, ptr %9, align 8, !tbaa !69
-  call void %10(ptr noundef nonnull %6) #12
+  call void %10(ptr noundef nonnull %6) #13
   br label %11
 
 11:                                               ; preds = %5, %11
@@ -2618,20 +2618,20 @@ define internal i32 @quant_psnr16_c(ptr noundef initializes((3360, 3364)) %0, pt
   store i32 0, ptr %15, align 8, !tbaa !75
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 5016
   %17 = load ptr, ptr %16, align 8, !tbaa !33
-  call void %17(ptr noundef nonnull %12, ptr noundef %1, ptr noundef %2, i64 noundef %3) #12
+  call void %17(ptr noundef nonnull %12, ptr noundef %1, ptr noundef %2, i64 noundef %3) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %14, ptr noundef nonnull align 16 dereferenceable(128) %12, i64 128, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 6896
   %19 = load ptr, ptr %18, align 8, !tbaa !76
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   %21 = load i32, ptr %20, align 8, !tbaa !77
-  %22 = call i32 %19(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 0, i32 noundef %21, ptr noundef nonnull %13) #12
+  %22 = call i32 %19(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 0, i32 noundef %21, ptr noundef nonnull %13) #13
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %22, ptr %23, align 4, !tbaa !27
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4320
   %25 = load ptr, ptr %24, align 8, !tbaa !78
   %26 = load i32, ptr %20, align 8, !tbaa !77
-  call void %25(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 0, i32 noundef %26) #12
-  call void @ff_simple_idct_int16_8bit(ptr noundef nonnull %12) #12
+  call void %25(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 0, i32 noundef %26) #13
+  call void @ff_simple_idct_int16_8bit(ptr noundef nonnull %12) #13
   br label %27
 
 27:                                               ; preds = %27, %5
@@ -2660,16 +2660,16 @@ quant_psnr8x8_c.exit:                             ; preds = %27
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %15, align 8, !tbaa !75
   %40 = load ptr, ptr %16, align 8, !tbaa !33
-  call void %40(ptr noundef nonnull %10, ptr noundef nonnull %37, ptr noundef nonnull %38, i64 noundef %3) #12
+  call void %40(ptr noundef nonnull %10, ptr noundef nonnull %37, ptr noundef nonnull %38, i64 noundef %3) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %39, ptr noundef nonnull align 16 dereferenceable(128) %10, i64 128, i1 false)
   %41 = load ptr, ptr %18, align 8, !tbaa !76
   %42 = load i32, ptr %20, align 8, !tbaa !77
-  %43 = call i32 %41(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef 0, i32 noundef %42, ptr noundef nonnull %11) #12
+  %43 = call i32 %41(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef 0, i32 noundef %42, ptr noundef nonnull %11) #13
   store i32 %43, ptr %23, align 4, !tbaa !27
   %44 = load ptr, ptr %24, align 8, !tbaa !78
   %45 = load i32, ptr %20, align 8, !tbaa !77
-  call void %44(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef 0, i32 noundef %45) #12
-  call void @ff_simple_idct_int16_8bit(ptr noundef nonnull %10) #12
+  call void %44(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef 0, i32 noundef %45) #13
+  call void @ff_simple_idct_int16_8bit(ptr noundef nonnull %10) #13
   br label %46
 
 46:                                               ; preds = %46, %quant_psnr8x8_c.exit
@@ -2704,16 +2704,16 @@ quant_psnr8x8_c.exit29:                           ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %15, align 8, !tbaa !75
   %63 = load ptr, ptr %16, align 8, !tbaa !33
-  call void %63(ptr noundef nonnull %8, ptr noundef %60, ptr noundef %61, i64 noundef %3) #12
+  call void %63(ptr noundef nonnull %8, ptr noundef %60, ptr noundef %61, i64 noundef %3) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %62, ptr noundef nonnull align 16 dereferenceable(128) %8, i64 128, i1 false)
   %64 = load ptr, ptr %18, align 8, !tbaa !76
   %65 = load i32, ptr %20, align 8, !tbaa !77
-  %66 = call i32 %64(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef 0, i32 noundef %65, ptr noundef nonnull %9) #12
+  %66 = call i32 %64(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef 0, i32 noundef %65, ptr noundef nonnull %9) #13
   store i32 %66, ptr %23, align 4, !tbaa !27
   %67 = load ptr, ptr %24, align 8, !tbaa !78
   %68 = load i32, ptr %20, align 8, !tbaa !77
-  call void %67(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef 0, i32 noundef %68) #12
-  call void @ff_simple_idct_int16_8bit(ptr noundef nonnull %8) #12
+  call void %67(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef 0, i32 noundef %68) #13
+  call void @ff_simple_idct_int16_8bit(ptr noundef nonnull %8) #13
   br label %69
 
 69:                                               ; preds = %69, %58
@@ -2742,16 +2742,16 @@ quant_psnr8x8_c.exit34:                           ; preds = %69
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %15, align 8, !tbaa !75
   %82 = load ptr, ptr %16, align 8, !tbaa !33
-  call void %82(ptr noundef nonnull %6, ptr noundef nonnull %79, ptr noundef nonnull %80, i64 noundef %3) #12
+  call void %82(ptr noundef nonnull %6, ptr noundef nonnull %79, ptr noundef nonnull %80, i64 noundef %3) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %81, ptr noundef nonnull align 16 dereferenceable(128) %6, i64 128, i1 false)
   %83 = load ptr, ptr %18, align 8, !tbaa !76
   %84 = load i32, ptr %20, align 8, !tbaa !77
-  %85 = call i32 %83(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %84, ptr noundef nonnull %7) #12
+  %85 = call i32 %83(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %84, ptr noundef nonnull %7) #13
   store i32 %85, ptr %23, align 4, !tbaa !27
   %86 = load ptr, ptr %24, align 8, !tbaa !78
   %87 = load i32, ptr %20, align 8, !tbaa !77
-  call void %86(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %87) #12
-  call void @ff_simple_idct_int16_8bit(ptr noundef nonnull %6) #12
+  call void %86(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %87) #13
+  call void @ff_simple_idct_int16_8bit(ptr noundef nonnull %6) #13
   br label %88
 
 88:                                               ; preds = %88, %quant_psnr8x8_c.exit34
@@ -2793,20 +2793,20 @@ define internal i32 @quant_psnr8x8_c(ptr noundef initializes((3360, 3364)) %0, p
   store i32 0, ptr %9, align 8, !tbaa !75
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 5016
   %11 = load ptr, ptr %10, align 8, !tbaa !33
-  call void %11(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i64 noundef %3) #12
+  call void %11(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i64 noundef %3) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %8, ptr noundef nonnull align 16 dereferenceable(128) %6, i64 128, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 6896
   %13 = load ptr, ptr %12, align 8, !tbaa !76
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   %15 = load i32, ptr %14, align 8, !tbaa !77
-  %16 = call i32 %13(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %15, ptr noundef nonnull %7) #12
+  %16 = call i32 %13(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %15, ptr noundef nonnull %7) #13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %16, ptr %17, align 4, !tbaa !27
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4320
   %19 = load ptr, ptr %18, align 8, !tbaa !78
   %20 = load i32, ptr %14, align 8, !tbaa !77
-  call void %19(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %20) #12
-  call void @ff_simple_idct_int16_8bit(ptr noundef nonnull %6) #12
+  call void %19(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %20) #13
+  call void @ff_simple_idct_int16_8bit(ptr noundef nonnull %6) #13
   br label %21
 
 21:                                               ; preds = %5, %21
@@ -2900,12 +2900,12 @@ copy_block8.exit86:                               ; preds = %copy_block8.exit
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 5008
   %23 = load ptr, ptr %22, align 8, !tbaa !82
-  call void %23(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef 8) #12
+  call void %23(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef 8) #13
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 6896
   %25 = load ptr, ptr %24, align 8, !tbaa !76
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   %27 = load i32, ptr %26, align 8, !tbaa !77
-  %28 = call i32 %25(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %27, ptr noundef nonnull %9) #12
+  %28 = call i32 %25(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %27, ptr noundef nonnull %9) #13
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %28, ptr %29, align 4, !tbaa !27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 3360
@@ -3043,16 +3043,16 @@ copy_block8.exit86:                               ; preds = %copy_block8.exit
   %. = select i1 %.not, i64 4320, i64 4312
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %93 = load ptr, ptr %92, align 8, !tbaa !4
-  call void %93(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %91) #12
+  call void %93(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %91) #13
   br label %94
 
 94:                                               ; preds = %.sink.split, %89
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 2048
   %96 = load ptr, ptr %95, align 8, !tbaa !86
-  call void %96(ptr noundef nonnull %8, i64 noundef 8, ptr noundef nonnull %6) #12
+  call void %96(ptr noundef nonnull %8, i64 noundef 8, ptr noundef nonnull %6) #13
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 6960
   %98 = load ptr, ptr %97, align 8, !tbaa !4
-  %99 = call i32 %98(ptr noundef null, ptr noundef nonnull %8, ptr noundef nonnull %7, i64 noundef 8, i32 noundef 8) #12
+  %99 = call i32 %98(ptr noundef null, ptr noundef nonnull %8, ptr noundef nonnull %7, i64 noundef 8, i32 noundef 8) #13
   %100 = load i32, ptr %26, align 8, !tbaa !77
   %101 = mul i32 %.174, 109
   %102 = mul i32 %101, %100
@@ -3084,12 +3084,12 @@ define internal i32 @bit16_c(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %16 = load i32, ptr %15, align 8, !tbaa !80
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 5016
   %18 = load ptr, ptr %17, align 8, !tbaa !33
-  call void %18(ptr noundef nonnull %12, ptr noundef %1, ptr noundef %2, i64 noundef %3) #12
+  call void %18(ptr noundef nonnull %12, ptr noundef %1, ptr noundef %2, i64 noundef %3) #13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 6896
   %20 = load ptr, ptr %19, align 8, !tbaa !76
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   %22 = load i32, ptr %21, align 8, !tbaa !77
-  %23 = call i32 %20(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 0, i32 noundef %22, ptr noundef nonnull %13) #12
+  %23 = call i32 %20(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 0, i32 noundef %22, ptr noundef nonnull %13) #13
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %23, ptr %24, align 4, !tbaa !27
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 3360
@@ -3227,10 +3227,10 @@ bit8x8_c.exit:                                    ; preds = %41, %75, %82
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %86 = load i32, ptr %15, align 8, !tbaa !80
   %87 = load ptr, ptr %17, align 8, !tbaa !33
-  call void %87(ptr noundef nonnull %10, ptr noundef nonnull %84, ptr noundef nonnull %85, i64 noundef %3) #12
+  call void %87(ptr noundef nonnull %10, ptr noundef nonnull %84, ptr noundef nonnull %85, i64 noundef %3) #13
   %88 = load ptr, ptr %19, align 8, !tbaa !76
   %89 = load i32, ptr %21, align 8, !tbaa !77
-  %90 = call i32 %88(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef 0, i32 noundef %89, ptr noundef nonnull %11) #12
+  %90 = call i32 %88(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef 0, i32 noundef %89, ptr noundef nonnull %11) #13
   store i32 %90, ptr %24, align 4, !tbaa !27
   %91 = load i32, ptr %25, align 8, !tbaa !75
   %.not.i25 = icmp eq i32 %91, 0
@@ -3372,10 +3372,10 @@ bit8x8_c.exit55:                                  ; preds = %106, %140, %147
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %155 = load i32, ptr %15, align 8, !tbaa !80
   %156 = load ptr, ptr %17, align 8, !tbaa !33
-  call void %156(ptr noundef nonnull %8, ptr noundef %153, ptr noundef %154, i64 noundef %3) #12
+  call void %156(ptr noundef nonnull %8, ptr noundef %153, ptr noundef %154, i64 noundef %3) #13
   %157 = load ptr, ptr %19, align 8, !tbaa !76
   %158 = load i32, ptr %21, align 8, !tbaa !77
-  %159 = call i32 %157(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef 0, i32 noundef %158, ptr noundef nonnull %9) #12
+  %159 = call i32 %157(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef 0, i32 noundef %158, ptr noundef nonnull %9) #13
   store i32 %159, ptr %24, align 4, !tbaa !27
   %160 = load i32, ptr %25, align 8, !tbaa !75
   %.not.i56 = icmp eq i32 %160, 0
@@ -3512,10 +3512,10 @@ bit8x8_c.exit86:                                  ; preds = %175, %209, %216
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %221 = load i32, ptr %15, align 8, !tbaa !80
   %222 = load ptr, ptr %17, align 8, !tbaa !33
-  call void %222(ptr noundef nonnull %6, ptr noundef nonnull %219, ptr noundef nonnull %220, i64 noundef %3) #12
+  call void %222(ptr noundef nonnull %6, ptr noundef nonnull %219, ptr noundef nonnull %220, i64 noundef %3) #13
   %223 = load ptr, ptr %19, align 8, !tbaa !76
   %224 = load i32, ptr %21, align 8, !tbaa !77
-  %225 = call i32 %223(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %224, ptr noundef nonnull %7) #12
+  %225 = call i32 %223(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %224, ptr noundef nonnull %7) #13
   store i32 %225, ptr %24, align 4, !tbaa !27
   %226 = load i32, ptr %25, align 8, !tbaa !75
   %.not.i87 = icmp eq i32 %226, 0
@@ -3664,12 +3664,12 @@ define internal i32 @bit8x8_c(ptr noundef %0, ptr noundef %1, ptr noundef %2, i6
   %10 = load i32, ptr %9, align 8, !tbaa !80
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 5016
   %12 = load ptr, ptr %11, align 8, !tbaa !33
-  call void %12(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i64 noundef %3) #12
+  call void %12(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i64 noundef %3) #13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 6896
   %14 = load ptr, ptr %13, align 8, !tbaa !76
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   %16 = load i32, ptr %15, align 8, !tbaa !77
-  %17 = call i32 %14(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %16, ptr noundef nonnull %7) #12
+  %17 = call i32 %14(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %16, ptr noundef nonnull %7) #13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %17, ptr %18, align 4, !tbaa !27
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 3360
@@ -4944,16 +4944,16 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.abs.i16(i16, i1 immarg) #11
+declare i16 @llvm.abs.i16(i16, i1 immarg) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4967,8 +4967,9 @@ attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem:
 attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -33,8 +33,8 @@ define void @_ZN7Imf_3_415DeepCompositingD2Ev(ptr nonnull readnone align 8 captu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7Imf_3_415DeepCompositingD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Imf_3_415DeepCompositingD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #10
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #11
+  tail call void @_ZN7Imf_3_415DeepCompositingD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #12
   ret void
 }
 
@@ -66,12 +66,12 @@ define void @_ZN7Imf_3_415DeepCompositing15composite_pixelEPfPPKfPPKciii(ptr nou
   br i1 %16, label %.noexc50, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
 
 .noexc50:                                         ; preds = %14
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #12
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #13
   unreachable
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i:  ; preds = %14
   %17 = shl nuw nsw i64 %15, 2
-  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #13
+  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #14
   store i32 0, ptr %18, align 4, !tbaa !9
   %19 = add nsw i64 %15, -1
   %20 = icmp eq i64 %19, 0
@@ -97,7 +97,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %_ZNKSt6vector
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge69
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %17) #11
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %17) #12
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
 .lr.ph68:                                         ; preds = %.lr.ph68.preheader, %.lr.ph68
@@ -194,7 +194,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge69
 
 .critedge.thread:                                 ; preds = %._crit_edge72.us.us, %.lr.ph75.split.us.split.us, %.lr.ph75
   %.idx = shl nuw nsw i64 %15, 2
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %.idx) #11
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %.idx) #12
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit49
 
 _ZNSt6vectorIiSaIiEED2Ev.exit49:                  ; preds = %.lr.ph75.split.us.split, %._crit_edge72.us, %.lr.ph75.thread, %27, %.critedge.thread, %._crit_edge
@@ -203,7 +203,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit49:                  ; preds = %.lr.ph75.split.us.s
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #5
 
 ; Function Attrs: mustprogress uwtable
@@ -943,25 +943,26 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.ex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #5
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nounwind }
-attributes #11 = { builtin nounwind }
-attributes #12 = { noreturn }
-attributes #13 = { builtin allocsize(0) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nounwind }
+attributes #12 = { builtin nounwind }
+attributes #13 = { noreturn }
+attributes #14 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

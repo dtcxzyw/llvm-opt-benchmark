@@ -93,7 +93,7 @@ $_ZN9LogPrefixILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 define hidden noundef range(i32 -2147483646, -2147483648) i32 @_ZN21CgroupV2CpuController10cpu_sharesEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = call noundef zeroext i1 @_ZN16CgroupController11read_numberEPKcPm(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str, ptr noundef nonnull %2) #8
+  %4 = call noundef zeroext i1 @_ZN16CgroupController11read_numberEPKcPm(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str, ptr noundef nonnull %2) #9
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not31 = icmp eq ptr %5, null
   br i1 %4, label %8, label %6
@@ -192,7 +192,7 @@ declare noundef zeroext i1 @_ZN16CgroupController11read_numberEPKcPm(ptr noundef
 define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef %0, ...) local_unnamed_addr #0 comdat align 2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i32 noundef 1, ptr noundef %0, ptr noundef nonnull %2) #8
+  call void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i32 noundef 1, ptr noundef %0, ptr noundef nonnull %2) #9
   call void @llvm.va_end.p0(ptr nonnull %2)
   ret void
 }
@@ -201,7 +201,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE105ELS1_25ELS1_0ELS1
 define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef %0, ...) local_unnamed_addr #0 comdat align 2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i32 noundef 2, ptr noundef %0, ptr noundef nonnull %2) #8
+  call void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i32 noundef 2, ptr noundef %0, ptr noundef nonnull %2) #9
   call void @llvm.va_end.p0(ptr nonnull %2)
   ret void
 }
@@ -210,7 +210,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE105ELS1_25ELS1_0ELS1
 define hidden noundef i32 @_ZN21CgroupV2CpuController9cpu_quotaEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = call noundef zeroext i1 @_ZN16CgroupController26read_numerical_tuple_valueEPKcbPl(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.9, i1 noundef zeroext true, ptr noundef nonnull %2) #8
+  %4 = call noundef zeroext i1 @_ZN16CgroupController26read_numerical_tuple_valueEPKcbPl(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.9, i1 noundef zeroext true, ptr noundef nonnull %2) #9
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
@@ -245,7 +245,7 @@ define hidden noundef zeroext i1 @_ZN17CgroupV2Subsystem16is_containerizedEv(ptr
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #8
+  %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #9
   br i1 %12, label %13, label %21
 
 13:                                               ; preds = %5
@@ -255,7 +255,7 @@ define hidden noundef zeroext i1 @_ZN17CgroupV2Subsystem16is_containerizedEv(ptr
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(8) %16) #8
+  %20 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(8) %16) #9
   br label %21
 
 21:                                               ; preds = %13, %5, %1
@@ -267,7 +267,7 @@ define hidden noundef zeroext i1 @_ZN17CgroupV2Subsystem16is_containerizedEv(ptr
 define hidden noundef ptr @_ZN17CgroupV2Subsystem15cpu_cpuset_cpusEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
   %2 = alloca [1024 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = call noundef zeroext i1 @_ZN16CgroupController11read_stringEPKcPcm(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.11, ptr noundef nonnull %2, i64 noundef 1024) #8
+  %4 = call noundef zeroext i1 @_ZN16CgroupController11read_stringEPKcPcm(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.11, ptr noundef nonnull %2, i64 noundef 1024) #9
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not2 = icmp eq ptr %5, null
   br i1 %4, label %8, label %6
@@ -287,7 +287,7 @@ define hidden noundef ptr @_ZN17CgroupV2Subsystem15cpu_cpuset_cpusEv(ptr noundef
   br label %10
 
 10:                                               ; preds = %8, %9
-  %11 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef nonnull %2, i8 noundef zeroext 9) #8
+  %11 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef nonnull %2, i8 noundef zeroext 9) #9
   br label %12
 
 12:                                               ; preds = %7, %6, %10
@@ -303,7 +303,7 @@ declare noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef, i8 noundef zeroext)
 define hidden noundef ptr @_ZN17CgroupV2Subsystem23cpu_cpuset_memory_nodesEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
   %2 = alloca [1024 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = call noundef zeroext i1 @_ZN16CgroupController11read_stringEPKcPcm(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.14, ptr noundef nonnull %2, i64 noundef 1024) #8
+  %4 = call noundef zeroext i1 @_ZN16CgroupController11read_stringEPKcPcm(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.14, ptr noundef nonnull %2, i64 noundef 1024) #9
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not2 = icmp eq ptr %5, null
   br i1 %4, label %8, label %6
@@ -323,7 +323,7 @@ define hidden noundef ptr @_ZN17CgroupV2Subsystem23cpu_cpuset_memory_nodesEv(ptr
   br label %10
 
 10:                                               ; preds = %8, %9
-  %11 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef nonnull %2, i8 noundef zeroext 9) #8
+  %11 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef nonnull %2, i8 noundef zeroext 9) #9
   br label %12
 
 12:                                               ; preds = %7, %6, %10
@@ -335,7 +335,7 @@ define hidden noundef ptr @_ZN17CgroupV2Subsystem23cpu_cpuset_memory_nodesEv(ptr
 define hidden noundef i32 @_ZN21CgroupV2CpuController10cpu_periodEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = call noundef zeroext i1 @_ZN16CgroupController26read_numerical_tuple_valueEPKcbPl(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.9, i1 noundef zeroext false, ptr noundef nonnull %2) #8
+  %4 = call noundef zeroext i1 @_ZN16CgroupController26read_numerical_tuple_valueEPKcbPl(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.9, i1 noundef zeroext false, ptr noundef nonnull %2) #9
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %1
@@ -367,7 +367,7 @@ define hidden noundef i32 @_ZN21CgroupV2CpuController10cpu_periodEv(ptr noundef 
 define hidden noundef i64 @_ZN24CgroupV2MemoryController21memory_usage_in_bytesEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = call noundef zeroext i1 @_ZN16CgroupController11read_numberEPKcPm(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.19, ptr noundef nonnull %2) #8
+  %4 = call noundef zeroext i1 @_ZN16CgroupController11read_numberEPKcPm(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.19, ptr noundef nonnull %2) #9
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not2 = icmp eq ptr %5, null
   br i1 %4, label %8, label %6
@@ -400,7 +400,7 @@ define hidden noundef i64 @_ZN24CgroupV2MemoryController21memory_usage_in_bytesE
 define hidden noundef i64 @_ZN24CgroupV2MemoryController26memory_soft_limit_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 %1) unnamed_addr #0 align 2 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = call noundef zeroext i1 @_ZN16CgroupController22read_number_handle_maxEPKcPl(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.22, ptr noundef nonnull %3) #8
+  %5 = call noundef zeroext i1 @_ZN16CgroupController22read_number_handle_maxEPKcPl(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.22, ptr noundef nonnull %3) #9
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not2 = icmp eq ptr %6, null
   br i1 %5, label %9, label %7
@@ -449,7 +449,7 @@ define hidden noundef i64 @_ZN24CgroupV2MemoryController25memory_max_usage_in_by
 define hidden noundef i64 @_ZN24CgroupV2MemoryController18rss_usage_in_bytesEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = call noundef zeroext i1 @_ZN16CgroupController24read_numerical_key_valueEPKcS1_Pm(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull %2) #8
+  %4 = call noundef zeroext i1 @_ZN16CgroupController24read_numerical_key_valueEPKcS1_Pm(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull %2) #9
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %1
@@ -477,7 +477,7 @@ declare noundef zeroext i1 @_ZN16CgroupController24read_numerical_key_valueEPKcS
 define hidden noundef i64 @_ZN24CgroupV2MemoryController20cache_usage_in_bytesEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = call noundef zeroext i1 @_ZN16CgroupController24read_numerical_key_valueEPKcS1_Pm(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.29, ptr noundef nonnull %2) #8
+  %4 = call noundef zeroext i1 @_ZN16CgroupController24read_numerical_key_valueEPKcS1_Pm(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.29, ptr noundef nonnull %2) #9
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %1
@@ -503,7 +503,7 @@ define hidden noundef i64 @_ZN24CgroupV2MemoryController20cache_usage_in_bytesEv
 define hidden noundef i64 @_ZN24CgroupV2MemoryController30memory_and_swap_limit_in_bytesEmm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = call noundef zeroext i1 @_ZN16CgroupController22read_number_handle_maxEPKcPl(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.31, ptr noundef nonnull %4) #8
+  %6 = call noundef zeroext i1 @_ZN16CgroupController22read_number_handle_maxEPKcPl(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.31, ptr noundef nonnull %4) #9
   %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not5 = icmp eq ptr %7, null
   br i1 %6, label %12, label %8
@@ -558,7 +558,7 @@ define hidden noundef i64 @_ZN24CgroupV2MemoryController26read_memory_limit_in_b
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %5 = call noundef zeroext i1 @_ZN16CgroupController22read_number_handle_maxEPKcPl(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.54, ptr noundef nonnull %3) #8
+  %5 = call noundef zeroext i1 @_ZN16CgroupController22read_number_handle_maxEPKcPl(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.54, ptr noundef nonnull %3) #9
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not2.i = icmp eq ptr %6, null
   br i1 %5, label %9, label %7
@@ -643,7 +643,7 @@ define hidden noundef i64 @_ZN24CgroupV2MemoryController30memory_and_swap_usage_
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = call noundef zeroext i1 @_ZN16CgroupController11read_numberEPKcPm(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.19, ptr noundef nonnull %5) #8
+  %7 = call noundef zeroext i1 @_ZN16CgroupController11read_numberEPKcPm(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.19, ptr noundef nonnull %5) #9
   %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not2.i = icmp eq ptr %8, null
   br i1 %7, label %11, label %9
@@ -675,7 +675,7 @@ _ZN24CgroupV2MemoryController21memory_usage_in_bytesEv.exit: ; preds = %11, %12
 
 16:                                               ; preds = %_ZN24CgroupV2MemoryController21memory_usage_in_bytesEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %17 = call noundef zeroext i1 @_ZN16CgroupController11read_numberEPKcPm(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.51, ptr noundef nonnull %4) #8
+  %17 = call noundef zeroext i1 @_ZN16CgroupController11read_numberEPKcPm(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.51, ptr noundef nonnull %4) #9
   %18 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not2.i7 = icmp eq ptr %18, null
   br i1 %17, label %21, label %19
@@ -717,7 +717,7 @@ define hidden void @_ZN24CgroupV2MemoryController27print_version_specific_infoEP
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %7 = call noundef zeroext i1 @_ZN16CgroupController11read_numberEPKcPm(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.51, ptr noundef nonnull %5) #8
+  %7 = call noundef zeroext i1 @_ZN16CgroupController11read_numberEPKcPm(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.51, ptr noundef nonnull %5) #9
   %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not2.i = icmp eq ptr %8, null
   br i1 %7, label %11, label %9
@@ -745,7 +745,7 @@ _ZL25memory_swap_current_valueP18CgroupV2Controller.exit: ; preds = %9, %10, %14
   %.0.i = phi i64 [ %15, %14 ], [ -2, %9 ], [ -2, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %16 = call noundef zeroext i1 @_ZN16CgroupController22read_number_handle_maxEPKcPl(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.31, ptr noundef nonnull %4) #8
+  %16 = call noundef zeroext i1 @_ZN16CgroupController22read_number_handle_maxEPKcPl(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.31, ptr noundef nonnull %4) #9
   %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not2.i4 = icmp eq ptr %17, null
   br i1 %16, label %20, label %18
@@ -772,8 +772,8 @@ _ZL25memory_swap_current_valueP18CgroupV2Controller.exit: ; preds = %9, %10, %14
 _ZL23memory_swap_limit_valueP18CgroupV2Controller.exit: ; preds = %18, %19, %23
   %.0.i5 = phi i64 [ %24, %23 ], [ -2, %18 ], [ -2, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @_ZN11OSContainer22print_container_helperEP12outputStreamlPKc(ptr noundef %1, i64 noundef %.0.i, ptr noundef nonnull @.str.41) #8
-  call void @_ZN11OSContainer22print_container_helperEP12outputStreamlPKc(ptr noundef %1, i64 noundef %.0.i5, ptr noundef nonnull @.str.42) #8
+  call void @_ZN11OSContainer22print_container_helperEP12outputStreamlPKc(ptr noundef %1, i64 noundef %.0.i, ptr noundef nonnull @.str.41) #9
+  call void @_ZN11OSContainer22print_container_helperEP12outputStreamlPKc(ptr noundef %1, i64 noundef %.0.i5, ptr noundef nonnull @.str.42) #9
   ret void
 }
 
@@ -783,9 +783,9 @@ declare void @_ZN11OSContainer22print_container_helperEP12outputStreamlPKc(ptr n
 define hidden noundef ptr @_ZN18CgroupV2Controller14construct_pathEPcS0_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
 sub_0:
   %2 = alloca %class.stringStream, align 8
-  call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %2, i64 noundef 0) #8
-  %3 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
-  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %0, i64 noundef %3) #8
+  call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %2, i64 noundef 0) #9
+  %3 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
+  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %0, i64 noundef %3) #9
   %4 = load i8, ptr %1, align 1
   %.not3 = icmp eq i8 %4, 47
   br i1 %.not3, label %.tail, label %.tail.thread
@@ -797,15 +797,15 @@ sub_0:
   br i1 %7, label %9, label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
-  %8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
-  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %1, i64 noundef %8) #8
+  %8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
+  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %1, i64 noundef %8) #9
   br label %9
 
 9:                                                ; preds = %.tail.thread, %.tail
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %11 = load ptr, ptr %10, align 8
-  %12 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %11, i8 noundef zeroext 9) #8
-  call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %2) #8
+  %12 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %11, i8 noundef zeroext 9) #9
+  call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %2) #9
   ret ptr %12
 }
 
@@ -818,7 +818,7 @@ declare void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(
 define hidden noundef i64 @_ZN17CgroupV2Subsystem8pids_maxEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = call noundef zeroext i1 @_ZN16CgroupController22read_number_handle_maxEPKcPl(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.44, ptr noundef nonnull %2) #8
+  %4 = call noundef zeroext i1 @_ZN16CgroupController22read_number_handle_maxEPKcPl(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.44, ptr noundef nonnull %2) #9
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not2 = icmp eq ptr %5, null
   br i1 %4, label %8, label %6
@@ -851,7 +851,7 @@ define hidden noundef i64 @_ZN17CgroupV2Subsystem8pids_maxEv(ptr noundef nonnull
 define hidden noundef i64 @_ZN17CgroupV2Subsystem12pids_currentEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = call noundef zeroext i1 @_ZN16CgroupController11read_numberEPKcPm(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.47, ptr noundef nonnull %2) #8
+  %4 = call noundef zeroext i1 @_ZN16CgroupController11read_numberEPKcPm(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.47, ptr noundef nonnull %2) #9
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not2 = icmp eq ptr %5, null
   br i1 %4, label %8, label %6
@@ -886,7 +886,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN21CgroupV2CpuController12is_re
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(40) %2) #8
+  %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(40) %2) #9
   ret i1 %6
 }
 
@@ -896,7 +896,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN24CgroupV2MemoryController12is
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(40) %2) #8
+  %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(40) %2) #9
   ret i1 %6
 }
 
@@ -927,7 +927,7 @@ define internal void @__cxx_global_var_init.50() #3 section ".text.startup" comd
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 105, i32 noundef 25, i32 noundef 0, i32 noundef 0, i32 noundef 0) #8
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 105, i32 noundef 25, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -954,17 +954,17 @@ declare void @llvm.va_end.p0(ptr) #5
 
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #6
+declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -972,10 +972,11 @@ attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

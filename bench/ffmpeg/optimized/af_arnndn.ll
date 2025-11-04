@@ -41,7 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 define internal range(i32 -1094995529, 1) i32 @init(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !4
-  %4 = tail call ptr @avpriv_float_dsp_alloc(i32 noundef 0) #11
+  %4 = tail call ptr @avpriv_float_dsp_alloc(i32 noundef 0) #12
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 6192
   store ptr %4, ptr %5, align 16, !tbaa !20
   %.not = icmp eq ptr %4, null
@@ -124,7 +124,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 6192
-  tail call void @av_freep(ptr noundef nonnull %4) #11
+  tail call void @av_freep(ptr noundef nonnull %4) #12
   %.val = load ptr, ptr %2, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 6176
   %6 = load ptr, ptr %5, align 8, !tbaa !30
@@ -145,15 +145,15 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
 12:                                               ; preds = %.lr.ph.i
   %13 = getelementptr inbounds nuw %struct.DenoiseState, ptr %11, i64 %indvars.iv.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 20408
-  tail call void @av_freep(ptr noundef nonnull %14) #11
+  tail call void @av_freep(ptr noundef nonnull %14) #12
   %15 = load ptr, ptr %7, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw %struct.DenoiseState, ptr %15, i64 %indvars.iv.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 20416
-  tail call void @av_freep(ptr noundef nonnull %17) #11
+  tail call void @av_freep(ptr noundef nonnull %17) #12
   %18 = load ptr, ptr %7, align 8, !tbaa !33
   %19 = getelementptr inbounds nuw %struct.DenoiseState, ptr %18, i64 %indvars.iv.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 20424
-  tail call void @av_freep(ptr noundef nonnull %20) #11
+  tail call void @av_freep(ptr noundef nonnull %20) #12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = load i32, ptr %8, align 4, !tbaa !32
   %22 = sext i32 %21 to i64
@@ -174,17 +174,17 @@ free_model.exit:                                  ; preds = %.lr.ph.i, %12, %1
   br i1 %.not, label %.critedge, label %29
 
 .critedge:                                        ; preds = %.lr.ph, %29, %free_model.exit
-  tail call void @av_freep(ptr noundef nonnull %24) #11
+  tail call void @av_freep(ptr noundef nonnull %24) #12
   ret void
 
 29:                                               ; preds = %.lr.ph
   %30 = getelementptr inbounds nuw %struct.DenoiseState, ptr %28, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 20472
-  tail call void @av_tx_uninit(ptr noundef nonnull %31) #11
+  tail call void @av_tx_uninit(ptr noundef nonnull %31) #12
   %32 = load ptr, ptr %24, align 8, !tbaa !33
   %33 = getelementptr inbounds nuw %struct.DenoiseState, ptr %32, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 20480
-  tail call void @av_tx_uninit(ptr noundef nonnull %34) #11
+  tail call void @av_tx_uninit(ptr noundef nonnull %34) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %25, align 4, !tbaa !32
   %36 = sext i32 %35 to i64
@@ -197,12 +197,12 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
   %4 = alloca [2 x i32], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 -4294919296, ptr %4, align 8
-  %5 = tail call i32 @ff_set_common_formats_from_list2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @query_formats.sample_fmts) #11
+  %5 = tail call i32 @ff_set_common_formats_from_list2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @query_formats.sample_fmts) #12
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %3
-  %8 = call i32 @ff_set_common_samplerates_from_list2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4) #11
+  %8 = call i32 @ff_set_common_samplerates_from_list2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4) #12
   br label %9
 
 9:                                                ; preds = %3, %7
@@ -217,7 +217,7 @@ define internal range(i32 -2147483648, 1) i32 @process_command(ptr noundef %0, p
   %8 = alloca %struct.RNNState, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8, !tbaa !4
-  %11 = tail call i32 @ff_filter_process_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #11
+  %11 = tail call i32 @ff_filter_process_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #12
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %free_model.exit, label %13
 
@@ -327,15 +327,15 @@ define internal range(i32 -2147483648, 1) i32 @process_command(ptr noundef %0, p
 65:                                               ; preds = %.lr.ph.i
   %66 = getelementptr inbounds nuw %struct.DenoiseState, ptr %64, i64 %indvars.iv.i
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 20440
-  tail call void @av_freep(ptr noundef nonnull %67) #11
+  tail call void @av_freep(ptr noundef nonnull %67) #12
   %68 = load ptr, ptr %60, align 8, !tbaa !33
   %69 = getelementptr inbounds nuw %struct.DenoiseState, ptr %68, i64 %indvars.iv.i
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 20448
-  tail call void @av_freep(ptr noundef nonnull %70) #11
+  tail call void @av_freep(ptr noundef nonnull %70) #12
   %71 = load ptr, ptr %60, align 8, !tbaa !33
   %72 = getelementptr inbounds nuw %struct.DenoiseState, ptr %71, i64 %indvars.iv.i
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 20456
-  tail call void @av_freep(ptr noundef nonnull %73) #11
+  tail call void @av_freep(ptr noundef nonnull %73) #12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %74 = load i32, ptr %61, align 4, !tbaa !32
   %75 = sext i32 %74 to i64
@@ -362,16 +362,16 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %12 = load ptr, ptr %11, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !45
-  %13 = tail call i32 @ff_outlink_get_status(ptr noundef %12) #11
+  %13 = tail call i32 @ff_outlink_get_status(ptr noundef %12) #12
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %.critedge, label %14
 
 14:                                               ; preds = %1
-  tail call void @ff_inlink_set_status(ptr noundef %9, i32 noundef %13) #11
+  tail call void @ff_inlink_set_status(ptr noundef %9, i32 noundef %13) #12
   br label %41
 
 .critedge:                                        ; preds = %1
-  %15 = call i32 @ff_inlink_consume_samples(ptr noundef %9, i32 noundef 480, i32 noundef 480, ptr noundef nonnull %4) #11
+  %15 = call i32 @ff_inlink_consume_samples(ptr noundef %9, i32 noundef 480, i32 noundef 480, ptr noundef nonnull %4) #12
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %41, label %17
 
@@ -389,26 +389,26 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %22 = load ptr, ptr %21, align 8, !tbaa !44
   %23 = load ptr, ptr %22, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %24 = call ptr @ff_get_audio_buffer(ptr noundef %23, i32 noundef 480) #11
+  %24 = call ptr @ff_get_audio_buffer(ptr noundef %23, i32 noundef 480) #12
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %25, label %26
 
 25:                                               ; preds = %18
-  call void @av_frame_free(ptr noundef nonnull %2) #11
+  call void @av_frame_free(ptr noundef nonnull %2) #12
   br label %filter_frame.exit
 
 26:                                               ; preds = %18
-  %27 = call i32 @av_frame_copy_props(ptr noundef nonnull %24, ptr noundef %19) #11
+  %27 = call i32 @av_frame_copy_props(ptr noundef nonnull %24, ptr noundef %19) #12
   store ptr %19, ptr %3, align 8, !tbaa !56
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %24, ptr %28, align 8, !tbaa !58
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 76
   %30 = load i32, ptr %29, align 4, !tbaa !59
-  %31 = call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %.val) #12
+  %31 = call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %.val) #13
   %..i = call i32 @llvm.smin.i32(i32 %30, i32 %31)
-  %32 = call i32 @ff_filter_execute(ptr noundef nonnull %.val, ptr noundef nonnull @rnnoise_channels, ptr noundef nonnull %3, ptr noundef null, i32 noundef %..i) #11
-  call void @av_frame_free(ptr noundef nonnull %2) #11
-  %33 = call i32 @ff_filter_frame(ptr noundef %23, ptr noundef nonnull %24) #11
+  %32 = call i32 @ff_filter_execute(ptr noundef nonnull %.val, ptr noundef nonnull @rnnoise_channels, ptr noundef nonnull %3, ptr noundef null, i32 noundef %..i) #12
+  call void @av_frame_free(ptr noundef nonnull %2) #12
+  %33 = call i32 @ff_filter_frame(ptr noundef %23, ptr noundef nonnull %24) #12
   br label %filter_frame.exit
 
 filter_frame.exit:                                ; preds = %25, %26
@@ -420,14 +420,14 @@ filter_frame.exit:                                ; preds = %25, %26
 34:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %35 = call i32 @ff_inlink_acknowledge_status(ptr noundef %9, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
+  %35 = call i32 @ff_inlink_acknowledge_status(ptr noundef %9, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
   %.not24 = icmp eq i32 %35, 0
   br i1 %.not24, label %.critedge27, label %36
 
 36:                                               ; preds = %34
   %37 = load i32, ptr %5, align 4, !tbaa !60
   %38 = load i64, ptr %6, align 8, !tbaa !61
-  call void @ff_avfilter_link_set_in_status(ptr noundef %12, i32 noundef %37, i64 noundef %38) #11
+  call void @ff_avfilter_link_set_in_status(ptr noundef %12, i32 noundef %37, i64 noundef %38) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %41
@@ -435,12 +435,12 @@ filter_frame.exit:                                ; preds = %25, %26
 .critedge27:                                      ; preds = %34
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %39 = call i32 @ff_outlink_frame_wanted(ptr noundef %12) #11
+  %39 = call i32 @ff_outlink_frame_wanted(ptr noundef %12) #12
   %.not25 = icmp eq i32 %39, 0
   br i1 %.not25, label %41, label %40
 
 40:                                               ; preds = %.critedge27
-  call void @ff_inlink_request_frame(ptr noundef %9) #11
+  call void @ff_inlink_request_frame(ptr noundef %9) #12
   br label %41
 
 41:                                               ; preds = %36, %14, %.critedge27, %.critedge, %40, %filter_frame.exit
@@ -467,7 +467,7 @@ define internal i32 @config_input(ptr noundef readonly captures(none) %0) #1 {
 
 12:                                               ; preds = %1
   %13 = sext i32 %8 to i64
-  %14 = tail call noalias ptr @av_calloc(i64 noundef %13, i64 noundef 20512) #11
+  %14 = tail call noalias ptr @av_calloc(i64 noundef %13, i64 noundef 20512) #12
   store ptr %14, ptr %10, align 8, !tbaa !33
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %..critedge78.preheader_crit_edge
@@ -509,7 +509,7 @@ define internal i32 @config_input(ptr noundef readonly captures(none) %0) #1 {
   %29 = add nsw i32 %28, 15
   %30 = and i32 %29, -16
   %31 = sext i32 %30 to i64
-  %32 = tail call noalias ptr @av_calloc(i64 noundef 4, i64 noundef %31) #11
+  %32 = tail call noalias ptr @av_calloc(i64 noundef 4, i64 noundef %31) #12
   store ptr %32, ptr %25, align 8, !tbaa !70
   %33 = load ptr, ptr %17, align 16, !tbaa !30
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
@@ -517,7 +517,7 @@ define internal i32 @config_input(ptr noundef readonly captures(none) %0) #1 {
   %36 = add nsw i32 %35, 15
   %37 = and i32 %36, -16
   %38 = sext i32 %37 to i64
-  %39 = tail call noalias ptr @av_calloc(i64 noundef 4, i64 noundef %38) #11
+  %39 = tail call noalias ptr @av_calloc(i64 noundef 4, i64 noundef %38) #12
   %40 = getelementptr inbounds nuw i8, ptr %23, i64 20416
   store ptr %39, ptr %40, align 8, !tbaa !72
   %41 = load ptr, ptr %17, align 16, !tbaa !30
@@ -526,7 +526,7 @@ define internal i32 @config_input(ptr noundef readonly captures(none) %0) #1 {
   %44 = add nsw i32 %43, 15
   %45 = and i32 %44, -16
   %46 = sext i32 %45 to i64
-  %47 = tail call noalias ptr @av_calloc(i64 noundef 4, i64 noundef %46) #11
+  %47 = tail call noalias ptr @av_calloc(i64 noundef 4, i64 noundef %46) #12
   %48 = getelementptr inbounds nuw i8, ptr %23, i64 20424
   store ptr %47, ptr %48, align 8, !tbaa !74
   %49 = load ptr, ptr %25, align 8, !tbaa !70
@@ -554,7 +554,7 @@ define internal i32 @config_input(ptr noundef readonly captures(none) %0) #1 {
 
 55:                                               ; preds = %.lr.ph86
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 20488
-  %57 = call i32 @av_tx_init(ptr noundef nonnull %53, ptr noundef nonnull %56, i32 noundef 0, i32 noundef 0, i32 noundef 960, ptr noundef nonnull %2, i64 noundef 0) #11
+  %57 = call i32 @av_tx_init(ptr noundef nonnull %53, ptr noundef nonnull %56, i32 noundef 0, i32 noundef 0, i32 noundef 960, ptr noundef nonnull %2, i64 noundef 0) #12
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %.thread, label %.thread97
 
@@ -575,7 +575,7 @@ define internal i32 @config_input(ptr noundef readonly captures(none) %0) #1 {
 
 61:                                               ; preds = %.thread97
   %62 = getelementptr inbounds nuw i8, ptr %52, i64 20496
-  %63 = call i32 @av_tx_init(ptr noundef nonnull %59, ptr noundef nonnull %62, i32 noundef 0, i32 noundef 1, i32 noundef 960, ptr noundef nonnull %2, i64 noundef 0) #11
+  %63 = call i32 @av_tx_init(ptr noundef nonnull %59, ptr noundef nonnull %62, i32 noundef 0, i32 noundef 1, i32 noundef 960, ptr noundef nonnull %2, i64 noundef 0) #12
   %64 = icmp sgt i32 %63, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %64, label %.critedge67, label %.loopexit
@@ -612,18 +612,18 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   br i1 %.not, label %587, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call ptr @avpriv_fopen_utf8(ptr noundef nonnull %7, ptr noundef nonnull @.str.10) #11
+  %9 = tail call ptr @avpriv_fopen_utf8(ptr noundef nonnull %7, ptr noundef nonnull @.str.10) #12
   %.not15 = icmp eq ptr %9, null
   br i1 %.not15, label %10, label %12
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr %6, align 8, !tbaa !80
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.11, ptr noundef %11) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.11, ptr noundef %11) #12
   br label %587
 
 12:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %13 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.12, ptr noundef nonnull %3) #11
+  %13 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.12, ptr noundef nonnull %3) #12
   %14 = icmp ne i32 %13, 1
   %15 = load i32, ptr %3, align 4
   %16 = icmp ne i32 %15, 1
@@ -631,12 +631,12 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   br i1 %or.cond.i, label %rnnoise_model_from_file.exit, label %17
 
 17:                                               ; preds = %12
-  %18 = call noalias ptr @av_calloc(i64 noundef 1, i64 noundef 96) #11
+  %18 = call noalias ptr @av_calloc(i64 noundef 1, i64 noundef 96) #12
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %rnnoise_model_from_file.exit, label %19
 
 19:                                               ; preds = %17
-  %20 = call noalias ptr @av_calloc(i64 noundef 1, i64 noundef 32) #11
+  %20 = call noalias ptr @av_calloc(i64 noundef 1, i64 noundef 32) #12
   %.not727.i = icmp eq ptr %20, null
   br i1 %.not727.i, label %21, label %22
 
@@ -647,7 +647,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %20, ptr %23, align 8, !tbaa !81
-  %24 = call noalias ptr @av_calloc(i64 noundef 1, i64 noundef 40) #11
+  %24 = call noalias ptr @av_calloc(i64 noundef 1, i64 noundef 40) #12
   %.not728.i = icmp eq ptr %24, null
   br i1 %.not728.i, label %25, label %26
 
@@ -658,7 +658,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %24, ptr %27, align 8, !tbaa !82
-  %28 = call noalias ptr @av_calloc(i64 noundef 1, i64 noundef 40) #11
+  %28 = call noalias ptr @av_calloc(i64 noundef 1, i64 noundef 40) #12
   %.not729.i = icmp eq ptr %28, null
   br i1 %.not729.i, label %29, label %30
 
@@ -669,7 +669,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store ptr %28, ptr %31, align 8, !tbaa !83
-  %32 = call noalias ptr @av_calloc(i64 noundef 1, i64 noundef 40) #11
+  %32 = call noalias ptr @av_calloc(i64 noundef 1, i64 noundef 40) #12
   %.not730.i = icmp eq ptr %32, null
   br i1 %.not730.i, label %33, label %34
 
@@ -680,7 +680,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 56
   store ptr %32, ptr %35, align 8, !tbaa !84
-  %36 = call noalias ptr @av_calloc(i64 noundef 1, i64 noundef 32) #11
+  %36 = call noalias ptr @av_calloc(i64 noundef 1, i64 noundef 32) #12
   %.not731.i = icmp eq ptr %36, null
   br i1 %.not731.i, label %37, label %38
 
@@ -691,7 +691,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %18, i64 72
   store ptr %36, ptr %39, align 8, !tbaa !85
-  %40 = call noalias ptr @av_calloc(i64 noundef 1, i64 noundef 32) #11
+  %40 = call noalias ptr @av_calloc(i64 noundef 1, i64 noundef 32) #12
   %.not732.i = icmp eq ptr %40, null
   br i1 %.not732.i, label %41, label %42
 
@@ -702,7 +702,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %18, i64 88
   store ptr %40, ptr %43, align 8, !tbaa !86
-  %44 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %44 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %45 = icmp ne i32 %44, 1
   %46 = load i32, ptr %3, align 4
   %47 = icmp ugt i32 %46, 128
@@ -716,7 +716,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 49:                                               ; preds = %42
   %50 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 %46, ptr %50, align 8, !tbaa !87
-  %51 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %51 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %52 = icmp ne i32 %51, 1
   %53 = load i32, ptr %3, align 4
   %54 = icmp ugt i32 %53, 128
@@ -731,7 +731,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   %57 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i32 %53, ptr %57, align 4, !tbaa !89
   store i32 %53, ptr %18, align 8, !tbaa !90
-  %58 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %58 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %59 = icmp eq i32 %58, 1
   %60 = load i32, ptr %3, align 4
   %61 = icmp ult i32 %60, 129
@@ -763,7 +763,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   %68 = load i32, ptr %57, align 4, !tbaa !89
   %69 = mul nsw i32 %68, %67
   %70 = sext i32 %69 to i64
-  %71 = call noalias ptr @av_calloc(i64 noundef %70, i64 noundef 4) #11
+  %71 = call noalias ptr @av_calloc(i64 noundef %70, i64 noundef 4) #12
   %.not735.i = icmp eq ptr %71, null
   br i1 %.not735.i, label %.thread816.i, label %72
 
@@ -782,7 +782,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 
 .lr.ph.i:                                         ; preds = %72, %78
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %78 ], [ 0, %72 ]
-  %77 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %77 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %.not736.i = icmp eq i32 %77, 1
   br i1 %.not736.i, label %78, label %.thread819.i
 
@@ -816,7 +816,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 87:                                               ; preds = %.preheader956.i, %.preheader956.i
   %88 = load i32, ptr %57, align 4, !tbaa !89
   %89 = sext i32 %88 to i64
-  %90 = call noalias ptr @av_calloc(i64 noundef %89, i64 noundef 4) #11
+  %90 = call noalias ptr @av_calloc(i64 noundef %89, i64 noundef 4) #12
   %.not738.i = icmp eq ptr %90, null
   br i1 %.not738.i, label %.thread821.i, label %91
 
@@ -832,7 +832,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 
 .lr.ph961.i:                                      ; preds = %91, %94
   %indvars.iv1038.i = phi i64 [ %indvars.iv.next1039.i, %94 ], [ 0, %91 ]
-  %93 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %93 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %.not739.i = icmp eq i32 %93, 1
   br i1 %.not739.i, label %94, label %.thread824.i
 
@@ -862,7 +862,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   ]
 
 101:                                              ; preds = %.preheader955.i, %.preheader955.i
-  %102 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %102 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %103 = icmp ne i32 %102, 1
   %104 = load i32, ptr %3, align 4
   %105 = icmp ugt i32 %104, 128
@@ -876,7 +876,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 107:                                              ; preds = %101
   %108 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i32 %104, ptr %108, align 8, !tbaa !96
-  %109 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %109 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %110 = icmp ne i32 %109, 1
   %111 = load i32, ptr %3, align 4
   %112 = icmp ugt i32 %111, 128
@@ -892,7 +892,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   store i32 %111, ptr %115, align 4, !tbaa !98
   %116 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 %111, ptr %116, align 8, !tbaa !66
-  %117 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %117 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %118 = icmp eq i32 %117, 1
   %119 = load i32, ptr %3, align 4
   %120 = icmp ult i32 %119, 129
@@ -929,7 +929,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   %132 = mul i32 %128, 3
   %133 = mul i32 %132, %131
   %134 = sext i32 %133 to i64
-  %135 = call noalias ptr @av_calloc(i64 noundef %134, i64 noundef 4) #11
+  %135 = call noalias ptr @av_calloc(i64 noundef %134, i64 noundef 4) #12
   %.not744.i = icmp eq ptr %135, null
   br i1 %.not744.i, label %.thread834.i, label %136
 
@@ -965,7 +965,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 
 .lr.ph964.i:                                      ; preds = %.preheader953.i, %146
   %.0667963.i = phi i32 [ %158, %146 ], [ 0, %.preheader953.i ]
-  %145 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %145 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %.not745.i = icmp eq i32 %145, 1
   br i1 %.not745.i, label %146, label %163
 
@@ -1023,7 +1023,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   %173 = mul i32 %172, 3
   %174 = mul i32 %173, %172
   %175 = zext nneg i32 %174 to i64
-  %176 = call noalias ptr @av_calloc(i64 noundef %175, i64 noundef 4) #11
+  %176 = call noalias ptr @av_calloc(i64 noundef %175, i64 noundef 4) #12
   %.not748.i = icmp eq ptr %176, null
   br i1 %.not748.i, label %.thread842.i, label %177
 
@@ -1053,7 +1053,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 
 .lr.ph970.i:                                      ; preds = %.preheader951.i, %185
   %.0671969.i = phi i32 [ %197, %185 ], [ 0, %.preheader951.i ]
-  %184 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %184 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %.not749.i = icmp eq i32 %184, 1
   br i1 %.not749.i, label %185, label %201
 
@@ -1105,7 +1105,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   %206 = load i32, ptr %115, align 4, !tbaa !98
   %207 = mul nsw i32 %206, 3
   %208 = sext i32 %207 to i64
-  %209 = call noalias ptr @av_calloc(i64 noundef %208, i64 noundef 4) #11
+  %209 = call noalias ptr @av_calloc(i64 noundef %208, i64 noundef 4) #12
   %.not752.i = icmp eq ptr %209, null
   br i1 %.not752.i, label %.thread845.i, label %210
 
@@ -1121,7 +1121,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 
 .lr.ph978.i:                                      ; preds = %210, %213
   %indvars.iv1042.i = phi i64 [ %indvars.iv.next1043.i, %213 ], [ 0, %210 ]
-  %212 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %212 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %.not753.i = icmp eq i32 %212, 1
   br i1 %.not753.i, label %213, label %.thread848.i
 
@@ -1152,7 +1152,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   ]
 
 221:                                              ; preds = %.preheader950.i, %.preheader950.i
-  %222 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %222 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %223 = icmp ne i32 %222, 1
   %224 = load i32, ptr %3, align 4
   %225 = icmp ugt i32 %224, 128
@@ -1166,7 +1166,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 227:                                              ; preds = %221
   %228 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store i32 %224, ptr %228, align 8, !tbaa !96
-  %229 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %229 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %230 = icmp ne i32 %229, 1
   %231 = load i32, ptr %3, align 4
   %232 = icmp ugt i32 %231, 128
@@ -1182,7 +1182,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   store i32 %231, ptr %235, align 4, !tbaa !98
   %236 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i32 %231, ptr %236, align 8, !tbaa !71
-  %237 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %237 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %238 = icmp eq i32 %237, 1
   %239 = load i32, ptr %3, align 4
   %240 = icmp ult i32 %239, 129
@@ -1219,7 +1219,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   %252 = mul i32 %248, 3
   %253 = mul i32 %252, %251
   %254 = sext i32 %253 to i64
-  %255 = call noalias ptr @av_calloc(i64 noundef %254, i64 noundef 4) #11
+  %255 = call noalias ptr @av_calloc(i64 noundef %254, i64 noundef 4) #12
   %.not758.i = icmp eq ptr %255, null
   br i1 %.not758.i, label %.thread858.i, label %256
 
@@ -1255,7 +1255,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 
 .lr.ph981.i:                                      ; preds = %.preheader948.i, %266
   %.0676980.i = phi i32 [ %278, %266 ], [ 0, %.preheader948.i ]
-  %265 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %265 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %.not759.i = icmp eq i32 %265, 1
   br i1 %.not759.i, label %266, label %283
 
@@ -1313,7 +1313,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   %293 = mul i32 %292, 3
   %294 = mul i32 %293, %292
   %295 = zext nneg i32 %294 to i64
-  %296 = call noalias ptr @av_calloc(i64 noundef %295, i64 noundef 4) #11
+  %296 = call noalias ptr @av_calloc(i64 noundef %295, i64 noundef 4) #12
   %.not762.i = icmp eq ptr %296, null
   br i1 %.not762.i, label %.thread866.i, label %297
 
@@ -1343,7 +1343,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 
 .lr.ph988.i:                                      ; preds = %.preheader946.i, %305
   %.0685987.i = phi i32 [ %317, %305 ], [ 0, %.preheader946.i ]
-  %304 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %304 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %.not763.i = icmp eq i32 %304, 1
   br i1 %.not763.i, label %305, label %321
 
@@ -1395,7 +1395,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   %326 = load i32, ptr %235, align 4, !tbaa !98
   %327 = mul nsw i32 %326, 3
   %328 = sext i32 %327 to i64
-  %329 = call noalias ptr @av_calloc(i64 noundef %328, i64 noundef 4) #11
+  %329 = call noalias ptr @av_calloc(i64 noundef %328, i64 noundef 4) #12
   %.not766.i = icmp eq ptr %329, null
   br i1 %.not766.i, label %.thread869.i, label %330
 
@@ -1411,7 +1411,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 
 .lr.ph996.i:                                      ; preds = %330, %333
   %indvars.iv1047.i = phi i64 [ %indvars.iv.next1048.i, %333 ], [ 0, %330 ]
-  %332 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %332 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %.not767.i = icmp eq i32 %332, 1
   br i1 %.not767.i, label %333, label %.thread872.i
 
@@ -1442,7 +1442,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   ]
 
 341:                                              ; preds = %.preheader945.i, %.preheader945.i
-  %342 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %342 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %343 = icmp ne i32 %342, 1
   %344 = load i32, ptr %3, align 4
   %345 = icmp ugt i32 %344, 128
@@ -1456,7 +1456,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 347:                                              ; preds = %341
   %348 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store i32 %344, ptr %348, align 8, !tbaa !96
-  %349 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %349 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %350 = icmp ne i32 %349, 1
   %351 = load i32, ptr %3, align 4
   %352 = icmp ugt i32 %351, 128
@@ -1472,7 +1472,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   store i32 %351, ptr %355, align 4, !tbaa !98
   %356 = getelementptr inbounds nuw i8, ptr %18, i64 48
   store i32 %351, ptr %356, align 8, !tbaa !73
-  %357 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %357 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %358 = icmp eq i32 %357, 1
   %359 = load i32, ptr %3, align 4
   %360 = icmp ult i32 %359, 129
@@ -1509,7 +1509,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   %372 = mul i32 %368, 3
   %373 = mul i32 %372, %371
   %374 = sext i32 %373 to i64
-  %375 = call noalias ptr @av_calloc(i64 noundef %374, i64 noundef 4) #11
+  %375 = call noalias ptr @av_calloc(i64 noundef %374, i64 noundef 4) #12
   %.not772.i = icmp eq ptr %375, null
   br i1 %.not772.i, label %.thread882.i, label %376
 
@@ -1545,7 +1545,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 
 .lr.ph999.i:                                      ; preds = %.preheader943.i, %386
   %.0682998.i = phi i32 [ %398, %386 ], [ 0, %.preheader943.i ]
-  %385 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %385 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %.not773.i = icmp eq i32 %385, 1
   br i1 %.not773.i, label %386, label %403
 
@@ -1603,7 +1603,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   %413 = mul i32 %412, 3
   %414 = mul i32 %413, %412
   %415 = zext nneg i32 %414 to i64
-  %416 = call noalias ptr @av_calloc(i64 noundef %415, i64 noundef 4) #11
+  %416 = call noalias ptr @av_calloc(i64 noundef %415, i64 noundef 4) #12
   %.not776.i = icmp eq ptr %416, null
   br i1 %.not776.i, label %.thread890.i, label %417
 
@@ -1633,7 +1633,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 
 .lr.ph1006.i:                                     ; preds = %.preheader941.i, %425
   %.06771005.i = phi i32 [ %437, %425 ], [ 0, %.preheader941.i ]
-  %424 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %424 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %.not777.i = icmp eq i32 %424, 1
   br i1 %.not777.i, label %425, label %441
 
@@ -1685,7 +1685,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   %446 = load i32, ptr %355, align 4, !tbaa !98
   %447 = mul nsw i32 %446, 3
   %448 = sext i32 %447 to i64
-  %449 = call noalias ptr @av_calloc(i64 noundef %448, i64 noundef 4) #11
+  %449 = call noalias ptr @av_calloc(i64 noundef %448, i64 noundef 4) #12
   %.not780.i = icmp eq ptr %449, null
   br i1 %.not780.i, label %.thread893.i, label %450
 
@@ -1701,7 +1701,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 
 .lr.ph1014.i:                                     ; preds = %450, %453
   %indvars.iv1052.i = phi i64 [ %indvars.iv.next1053.i, %453 ], [ 0, %450 ]
-  %452 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %452 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %.not781.i = icmp eq i32 %452, 1
   br i1 %.not781.i, label %453, label %.thread896.i
 
@@ -1732,7 +1732,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   ]
 
 461:                                              ; preds = %.preheader940.i, %.preheader940.i
-  %462 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %462 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %463 = icmp ne i32 %462, 1
   %464 = load i32, ptr %3, align 4
   %465 = icmp ugt i32 %464, 128
@@ -1746,7 +1746,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 467:                                              ; preds = %461
   %468 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i32 %464, ptr %468, align 8, !tbaa !87
-  %469 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %469 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %470 = icmp ne i32 %469, 1
   %471 = load i32, ptr %3, align 4
   %472 = icmp ugt i32 %471, 128
@@ -1762,7 +1762,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   store i32 %471, ptr %475, align 4, !tbaa !89
   %476 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store i32 %471, ptr %476, align 8, !tbaa !125
-  %477 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %477 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %478 = icmp eq i32 %477, 1
   %479 = load i32, ptr %3, align 4
   %480 = icmp ult i32 %479, 129
@@ -1794,7 +1794,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   %487 = load i32, ptr %475, align 4, !tbaa !89
   %488 = mul nsw i32 %487, %486
   %489 = sext i32 %488 to i64
-  %490 = call noalias ptr @av_calloc(i64 noundef %489, i64 noundef 4) #11
+  %490 = call noalias ptr @av_calloc(i64 noundef %489, i64 noundef 4) #12
   %.not786.i = icmp eq ptr %490, null
   br i1 %.not786.i, label %.thread901.i, label %491
 
@@ -1813,7 +1813,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 
 .lr.ph1018.i:                                     ; preds = %491, %497
   %indvars.iv1055.i = phi i64 [ %indvars.iv.next1056.i, %497 ], [ 0, %491 ]
-  %496 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %496 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %.not787.i = icmp eq i32 %496, 1
   br i1 %.not787.i, label %497, label %.thread904.i
 
@@ -1847,7 +1847,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 506:                                              ; preds = %.preheader939.i, %.preheader939.i
   %507 = load i32, ptr %475, align 4, !tbaa !89
   %508 = sext i32 %507 to i64
-  %509 = call noalias ptr @av_calloc(i64 noundef %508, i64 noundef 4) #11
+  %509 = call noalias ptr @av_calloc(i64 noundef %508, i64 noundef 4) #12
   %.not789.i = icmp eq ptr %509, null
   br i1 %.not789.i, label %.thread907.i, label %510
 
@@ -1863,7 +1863,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 
 .lr.ph1022.i:                                     ; preds = %510, %513
   %indvars.iv1058.i = phi i64 [ %indvars.iv.next1059.i, %513 ], [ 0, %510 ]
-  %512 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %512 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %.not790.i = icmp eq i32 %512, 1
   br i1 %.not790.i, label %513, label %.thread910.i
 
@@ -1893,7 +1893,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   ]
 
 520:                                              ; preds = %.preheader938.i, %.preheader938.i
-  %521 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %521 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %522 = icmp ne i32 %521, 1
   %523 = load i32, ptr %3, align 4
   %524 = icmp ugt i32 %523, 128
@@ -1907,7 +1907,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 526:                                              ; preds = %520
   %527 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i32 %523, ptr %527, align 8, !tbaa !87
-  %528 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %528 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %529 = icmp ne i32 %528, 1
   %530 = load i32, ptr %3, align 4
   %531 = icmp ugt i32 %530, 128
@@ -1923,7 +1923,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   store i32 %530, ptr %534, align 4, !tbaa !89
   %535 = getelementptr inbounds nuw i8, ptr %18, i64 80
   store i32 %530, ptr %535, align 8, !tbaa !128
-  %536 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %536 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %537 = icmp eq i32 %536, 1
   %538 = load i32, ptr %3, align 4
   %539 = icmp ult i32 %538, 129
@@ -1955,7 +1955,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   %546 = load i32, ptr %534, align 4, !tbaa !89
   %547 = mul nsw i32 %546, %545
   %548 = sext i32 %547 to i64
-  %549 = call noalias ptr @av_calloc(i64 noundef %548, i64 noundef 4) #11
+  %549 = call noalias ptr @av_calloc(i64 noundef %548, i64 noundef 4) #12
   %.not795.i = icmp eq ptr %549, null
   br i1 %.not795.i, label %.thread915.i, label %550
 
@@ -1974,7 +1974,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 
 .lr.ph1026.i:                                     ; preds = %550, %556
   %indvars.iv1061.i = phi i64 [ %indvars.iv.next1062.i, %556 ], [ 0, %550 ]
-  %555 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %555 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %.not796.i = icmp eq i32 %555, 1
   br i1 %.not796.i, label %556, label %.thread918.i
 
@@ -2008,7 +2008,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 565:                                              ; preds = %.preheader937.i, %.preheader937.i
   %566 = load i32, ptr %534, align 4, !tbaa !89
   %567 = sext i32 %566 to i64
-  %568 = call noalias ptr @av_calloc(i64 noundef %567, i64 noundef 4) #11
+  %568 = call noalias ptr @av_calloc(i64 noundef %567, i64 noundef 4) #12
   %.not798.i = icmp eq ptr %568, null
   br i1 %.not798.i, label %.thread921.i, label %569
 
@@ -2024,7 +2024,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
 
 .lr.ph1030.i:                                     ; preds = %569, %572
   %indvars.iv1064.i = phi i64 [ %indvars.iv.next1065.i, %572 ], [ 0, %569 ]
-  %571 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #11
+  %571 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #12
   %.not799.i = icmp eq i32 %571, 1
   br i1 %.not799.i, label %572, label %.thread924.i
 
@@ -2082,13 +2082,13 @@ rnnoise_model_from_file.exit:                     ; preds = %12, %17, %21, %25, 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sin.f64(double) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.cos.f32(float) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #3
 
 declare ptr @avpriv_fopen_utf8(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -2114,12 +2114,12 @@ define internal fastcc void @rnnoise_model_free(ptr noundef %0) unnamed_addr #1 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !92
-  tail call void @av_free(ptr noundef %7) #11
+  tail call void @av_free(ptr noundef %7) #12
   %8 = load ptr, ptr %3, align 8, !tbaa !81
   %9 = load ptr, ptr %8, align 8, !tbaa !94
-  tail call void @av_free(ptr noundef %9) #11
+  tail call void @av_free(ptr noundef %9) #12
   %10 = load ptr, ptr %3, align 8, !tbaa !81
-  tail call void @av_free(ptr noundef %10) #11
+  tail call void @av_free(ptr noundef %10) #12
   br label %11
 
 11:                                               ; preds = %5, %2
@@ -2131,16 +2131,16 @@ define internal fastcc void @rnnoise_model_free(ptr noundef %0) unnamed_addr #1 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !100
-  tail call void @av_free(ptr noundef %16) #11
+  tail call void @av_free(ptr noundef %16) #12
   %17 = load ptr, ptr %12, align 8, !tbaa !82
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !105
-  tail call void @av_free(ptr noundef %19) #11
+  tail call void @av_free(ptr noundef %19) #12
   %20 = load ptr, ptr %12, align 8, !tbaa !82
   %21 = load ptr, ptr %20, align 8, !tbaa !109
-  tail call void @av_free(ptr noundef %21) #11
+  tail call void @av_free(ptr noundef %21) #12
   %22 = load ptr, ptr %12, align 8, !tbaa !82
-  tail call void @av_free(ptr noundef %22) #11
+  tail call void @av_free(ptr noundef %22) #12
   br label %23
 
 23:                                               ; preds = %14, %11
@@ -2152,16 +2152,16 @@ define internal fastcc void @rnnoise_model_free(ptr noundef %0) unnamed_addr #1 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !100
-  tail call void @av_free(ptr noundef %28) #11
+  tail call void @av_free(ptr noundef %28) #12
   %29 = load ptr, ptr %24, align 8, !tbaa !83
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !105
-  tail call void @av_free(ptr noundef %31) #11
+  tail call void @av_free(ptr noundef %31) #12
   %32 = load ptr, ptr %24, align 8, !tbaa !83
   %33 = load ptr, ptr %32, align 8, !tbaa !109
-  tail call void @av_free(ptr noundef %33) #11
+  tail call void @av_free(ptr noundef %33) #12
   %34 = load ptr, ptr %24, align 8, !tbaa !83
-  tail call void @av_free(ptr noundef %34) #11
+  tail call void @av_free(ptr noundef %34) #12
   br label %35
 
 35:                                               ; preds = %26, %23
@@ -2173,16 +2173,16 @@ define internal fastcc void @rnnoise_model_free(ptr noundef %0) unnamed_addr #1 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !100
-  tail call void @av_free(ptr noundef %40) #11
+  tail call void @av_free(ptr noundef %40) #12
   %41 = load ptr, ptr %36, align 8, !tbaa !84
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !105
-  tail call void @av_free(ptr noundef %43) #11
+  tail call void @av_free(ptr noundef %43) #12
   %44 = load ptr, ptr %36, align 8, !tbaa !84
   %45 = load ptr, ptr %44, align 8, !tbaa !109
-  tail call void @av_free(ptr noundef %45) #11
+  tail call void @av_free(ptr noundef %45) #12
   %46 = load ptr, ptr %36, align 8, !tbaa !84
-  tail call void @av_free(ptr noundef %46) #11
+  tail call void @av_free(ptr noundef %46) #12
   br label %47
 
 47:                                               ; preds = %38, %35
@@ -2194,12 +2194,12 @@ define internal fastcc void @rnnoise_model_free(ptr noundef %0) unnamed_addr #1 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !92
-  tail call void @av_free(ptr noundef %52) #11
+  tail call void @av_free(ptr noundef %52) #12
   %53 = load ptr, ptr %48, align 8, !tbaa !85
   %54 = load ptr, ptr %53, align 8, !tbaa !94
-  tail call void @av_free(ptr noundef %54) #11
+  tail call void @av_free(ptr noundef %54) #12
   %55 = load ptr, ptr %48, align 8, !tbaa !85
-  tail call void @av_free(ptr noundef %55) #11
+  tail call void @av_free(ptr noundef %55) #12
   br label %56
 
 56:                                               ; preds = %50, %47
@@ -2211,16 +2211,16 @@ define internal fastcc void @rnnoise_model_free(ptr noundef %0) unnamed_addr #1 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !92
-  tail call void @av_free(ptr noundef %61) #11
+  tail call void @av_free(ptr noundef %61) #12
   %62 = load ptr, ptr %57, align 8, !tbaa !86
   %63 = load ptr, ptr %62, align 8, !tbaa !94
-  tail call void @av_free(ptr noundef %63) #11
+  tail call void @av_free(ptr noundef %63) #12
   %64 = load ptr, ptr %57, align 8, !tbaa !86
-  tail call void @av_free(ptr noundef %64) #11
+  tail call void @av_free(ptr noundef %64) #12
   br label %65
 
 65:                                               ; preds = %56, %59
-  tail call void @av_free(ptr noundef nonnull %0) #11
+  tail call void @av_free(ptr noundef nonnull %0) #12
   br label %66
 
 66:                                               ; preds = %1, %65
@@ -2424,7 +2424,7 @@ biquad.exit.i:                                    ; preds = %103
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1920) %93, ptr noundef nonnull readonly align 16 dereferenceable(1920) %37, i64 1920, i1 false)
   %115 = load ptr, ptr %63, align 16, !tbaa !20
   %116 = load ptr, ptr %115, align 8, !tbaa !140
-  call void %116(ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull %64, i32 noundef 960) #11
+  call void %116(ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull %64, i32 noundef 960) #12
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   br label %117
@@ -2446,7 +2446,7 @@ forward_transform.exit.i.i.i:                     ; preds = %117
   %123 = load ptr, ptr %122, align 8, !tbaa !146
   %124 = getelementptr inbounds nuw i8, ptr %93, i64 20472
   %125 = load ptr, ptr %124, align 8, !tbaa !75
-  call void %123(ptr noundef %125, ptr noundef nonnull %29, ptr noundef nonnull %28, i64 noundef 8) #11
+  call void %123(ptr noundef %125, ptr noundef nonnull %29, ptr noundef nonnull %28, i64 noundef 8) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(3848) %35, ptr noundef nonnull align 16 dereferenceable(3848) %29, i64 3848, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
@@ -3401,7 +3401,7 @@ remove_doubling.exit.i.i:                         ; preds = %597, %589
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(3840) %32, ptr noundef nonnull align 4 dereferenceable(3840) %scevgep.i.i, i64 3840, i1 false), !tbaa !25
   %614 = load ptr, ptr %63, align 16, !tbaa !20
   %615 = load ptr, ptr %614, align 8, !tbaa !140
-  call void %615(ptr noundef nonnull %32, ptr noundef nonnull %32, ptr noundef nonnull %64, i32 noundef 960) #11
+  call void %615(ptr noundef nonnull %32, ptr noundef nonnull %32, ptr noundef nonnull %64, i32 noundef 960) #12
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   br label %616
@@ -3421,7 +3421,7 @@ remove_doubling.exit.i.i:                         ; preds = %597, %589
 forward_transform.exit.i.i:                       ; preds = %616
   %621 = load ptr, ptr %122, align 8, !tbaa !146
   %622 = load ptr, ptr %124, align 8, !tbaa !75
-  call void %621(ptr noundef %622, ptr noundef nonnull %19, ptr noundef nonnull %18, i64 noundef 8) #11
+  call void %621(ptr noundef %622, ptr noundef nonnull %19, ptr noundef nonnull %18, i64 noundef 8) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(3848) %36, ptr noundef nonnull align 16 dereferenceable(3848) %19, i64 3848, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -3571,7 +3571,7 @@ compute_band_corr.exit.i.i:                       ; preds = %.loopexit.i233.i.i
   %694 = getelementptr inbounds nuw i8, ptr %693, i64 72
   %695 = load ptr, ptr %694, align 8, !tbaa !176
   %696 = getelementptr inbounds nuw [24 x float], ptr %82, i64 %indvars.iv.i243.i.i
-  %697 = call nsz float %695(ptr noundef nonnull %40, ptr noundef nonnull %696, i32 noundef 24) #11
+  %697 = call nsz float %695(ptr noundef nonnull %40, ptr noundef nonnull %696, i32 noundef 24) #12
   %698 = fmul nsz float %697, 0x3FD34BF640000000
   %699 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv.i243.i.i
   store float %698, ptr %699, align 4, !tbaa !25
@@ -3660,7 +3660,7 @@ dct.exit.preheader.i.i:                           ; preds = %.preheader
   %746 = getelementptr inbounds nuw i8, ptr %745, i64 72
   %747 = load ptr, ptr %746, align 8, !tbaa !176
   %748 = getelementptr inbounds nuw [24 x float], ptr %82, i64 %indvars.iv.i246.i.i
-  %749 = call nsz float %747(ptr noundef nonnull %31, ptr noundef nonnull %748, i32 noundef 24) #11
+  %749 = call nsz float %747(ptr noundef nonnull %31, ptr noundef nonnull %748, i32 noundef 24) #12
   %750 = fmul nsz float %749, 0x3FD34BF640000000
   %751 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv.i246.i.i
   store float %750, ptr %751, align 4, !tbaa !25
@@ -4227,7 +4227,7 @@ interp_band_gain.exit.i:                          ; preds = %.loopexit.i.i, %int
   %1053 = load ptr, ptr %1052, align 16, !tbaa !194
   %1054 = getelementptr inbounds nuw i8, ptr %93, i64 20480
   %1055 = load ptr, ptr %1054, align 16, !tbaa !78
-  call void %1053(ptr noundef %1055, ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef 8) #11
+  call void %1053(ptr noundef %1055, ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef 8) #12
   br label %1065
 
 1056:                                             ; preds = %1056, %.loopexit.i
@@ -4266,12 +4266,12 @@ inverse_transform.exit.i.i:                       ; preds = %1065
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %1074 = load ptr, ptr %63, align 16, !tbaa !20
   %1075 = load ptr, ptr %1074, align 8, !tbaa !140
-  call void %1075(ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %64, i32 noundef 960) #11
+  call void %1075(ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %64, i32 noundef 960) #12
   %1076 = load ptr, ptr %63, align 16, !tbaa !20
   %1077 = getelementptr inbounds nuw i8, ptr %1076, i64 8
   %1078 = load ptr, ptr %1077, align 8, !tbaa !197
   %1079 = getelementptr inbounds nuw i8, ptr %93, i64 2640
-  call void %1078(ptr noundef nonnull %7, ptr noundef nonnull %1079, float noundef 1.000000e+00, i32 noundef 480) #11
+  call void %1078(ptr noundef nonnull %7, ptr noundef nonnull %1079, float noundef 1.000000e+00, i32 noundef 480) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1920) %96, ptr noundef nonnull align 16 dereferenceable(1920) %7, i64 1920, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1920) %1079, ptr noundef nonnull align 16 dereferenceable(1920) %89, i64 1920, i1 false)
   br label %1080
@@ -4312,13 +4312,13 @@ declare i32 @ff_filter_get_nb_threads(ptr noundef) local_unnamed_addr #6
 
 declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.log10.f32(float) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -4510,8 +4510,8 @@ tansig_approx.exit:                               ; preds = %.lr.ph66, %58, %60
   br i1 %exitcond87.not, label %.loopexit, label %.lr.ph, !llvm.loop !204
 
 82:                                               ; preds = %._crit_edge63
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 1275) #11
-  tail call void @abort() #13
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 1275) #12
+  tail call void @abort() #14
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph, %tansig_approx.exit, %sigmoid_approx.exit, %.preheader56, %.preheader54, %.preheader
@@ -4571,7 +4571,7 @@ define internal fastcc void @compute_gru(ptr noundef readonly captures(none) %0,
   %39 = load ptr, ptr %20, align 8, !tbaa !100
   %40 = mul nsw i64 %indvars.iv, %22
   %41 = getelementptr inbounds float, ptr %39, i64 %40
-  %42 = tail call nsz float %38(ptr noundef %41, ptr noundef nonnull %3, i32 noundef %15) #11
+  %42 = tail call nsz float %38(ptr noundef %41, ptr noundef nonnull %3, i32 noundef %15) #12
   %43 = fadd nsz float %35, %42
   %44 = load ptr, ptr %19, align 16, !tbaa !20
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 72
@@ -4579,7 +4579,7 @@ define internal fastcc void @compute_gru(ptr noundef readonly captures(none) %0,
   %47 = load ptr, ptr %21, align 8, !tbaa !105
   %48 = mul nuw nsw i64 %indvars.iv, %23
   %49 = getelementptr inbounds nuw float, ptr %47, i64 %48
-  %50 = tail call nsz float %46(ptr noundef %49, ptr noundef %2, i32 noundef %13) #11
+  %50 = tail call nsz float %46(ptr noundef %49, ptr noundef %2, i32 noundef %13) #12
   %51 = fadd nsz float %43, %50
   %52 = fmul nsz float %51, 3.906250e-03
   %53 = fmul nsz float %52, 5.000000e-01
@@ -4649,7 +4649,7 @@ sigmoid_approx.exit:                              ; preds = %32, %55, %57
   %98 = getelementptr inbounds float, ptr %97, i64 %26
   %99 = mul nsw i64 %indvars.iv123, %30
   %100 = getelementptr inbounds float, ptr %98, i64 %99
-  %101 = tail call nsz float %96(ptr noundef %100, ptr noundef nonnull %3, i32 noundef %15) #11
+  %101 = tail call nsz float %96(ptr noundef %100, ptr noundef nonnull %3, i32 noundef %15) #12
   %102 = fadd nsz float %93, %101
   %103 = load ptr, ptr %24, align 16, !tbaa !20
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 72
@@ -4658,7 +4658,7 @@ sigmoid_approx.exit:                              ; preds = %32, %55, %57
   %107 = getelementptr inbounds nuw float, ptr %106, i64 %28
   %108 = mul nuw nsw i64 %indvars.iv123, %31
   %109 = getelementptr inbounds nuw float, ptr %107, i64 %108
-  %110 = tail call nsz float %105(ptr noundef %109, ptr noundef %2, i32 noundef %13) #11
+  %110 = tail call nsz float %105(ptr noundef %109, ptr noundef %2, i32 noundef %13) #12
   %111 = fadd nsz float %102, %110
   %112 = fmul nsz float %111, 3.906250e-03
   %113 = fmul nsz float %112, 5.000000e-01
@@ -4721,7 +4721,7 @@ sigmoid_approx.exit108:                           ; preds = %89, %115, %117
   %147 = getelementptr inbounds float, ptr %146, i64 %81
   %148 = mul nsw i64 %indvars.iv133, %86
   %149 = getelementptr inbounds float, ptr %147, i64 %148
-  %150 = tail call nsz float %145(ptr noundef %149, ptr noundef nonnull %3, i32 noundef %15) #11
+  %150 = tail call nsz float %145(ptr noundef %149, ptr noundef nonnull %3, i32 noundef %15) #12
   %151 = fadd nsz float %142, %150
   %152 = load ptr, ptr %82, align 8, !tbaa !105
   %153 = mul nuw nsw i64 %indvars.iv133, %87
@@ -4821,8 +4821,8 @@ sigmoid_approx.exit108:                           ; preds = %89, %115, %117
   br label %sigmoid_approx.exit111
 
 218:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 1323) #11
-  tail call void @abort() #13
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 1323) #12
+  tail call void @abort() #14
   unreachable
 
 sigmoid_approx.exit111:                           ; preds = %196, %194, %191, %172, %170, %166, %214
@@ -4852,35 +4852,36 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.floor.f32(float) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #10
+declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { noreturn nounwind }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

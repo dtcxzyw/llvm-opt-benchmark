@@ -12,7 +12,7 @@ define noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef %0, ptr noundef init
   %5 = alloca %struct.__mbstate_t, align 8
   %6 = alloca ptr, align 8
   store i8 0, ptr %1, align 1, !tbaa !3
-  %7 = tail call ptr @wcschr(ptr noundef readonly %0, i32 noundef signext 65534) #11
+  %7 = tail call ptr @wcschr(ptr noundef readonly %0, i32 noundef signext 65534) #12
   %.not28 = icmp eq ptr %7, null
   br i1 %.not28, label %_ZL13WideToCharMapPKwPcmRb.exit.thread, label %8
 
@@ -37,7 +37,7 @@ _ZL13WideToCharMapPKwPcmRb.exit.thread24:         ; preds = %8
 12:                                               ; preds = %20, %.lr.ph.i
   %13 = phi ptr [ %10, %.lr.ph.i ], [ %23, %20 ]
   %.03845.i = phi i32 [ %.038.ph50.i, %.lr.ph.i ], [ %21, %20 ]
-  %14 = call i64 @__ctype_get_mb_cur_max() #12
+  %14 = call i64 @__ctype_get_mb_cur_max() #13
   %15 = sub i64 %2, %14
   %16 = icmp ugt i64 %15, %11
   br i1 %16, label %17, label %_ZL13WideToCharMapPKwPcmRb.exit
@@ -70,7 +70,7 @@ _ZL13WideToCharMapPKwPcmRb.exit.thread24:         ; preds = %8
 31:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
-  %32 = call i64 @wcrtomb(ptr noundef nonnull %27, i32 noundef signext %18, ptr noundef nonnull %4) #12
+  %32 = call i64 @wcrtomb(ptr noundef nonnull %27, i32 noundef signext %18, ptr noundef nonnull %4) #13
   %33 = icmp eq i64 %32, -1
   br i1 %33, label %34, label %35
 
@@ -81,8 +81,8 @@ _ZL13WideToCharMapPKwPcmRb.exit.thread24:         ; preds = %8
 35:                                               ; preds = %34, %31
   %.4 = phi i1 [ false, %34 ], [ %.2, %31 ]
   store i64 0, ptr %4, align 8
-  %36 = call i64 @__ctype_get_mb_cur_max() #12
-  %37 = call i64 @mbrtowc(ptr noundef null, ptr noundef nonnull %27, i64 noundef %36, ptr noundef nonnull %4) #12
+  %36 = call i64 @__ctype_get_mb_cur_max() #13
+  %37 = call i64 @mbrtowc(ptr noundef null, ptr noundef nonnull %27, i64 noundef %36, ptr noundef nonnull %4) #13
   %38 = trunc i64 %37 to i32
   %39 = call i32 @llvm.smax.i32(i32 %38, i32 1)
   %40 = add i32 %39, %.037.ph51.i
@@ -117,12 +117,12 @@ _ZL13WideToCharMapPKwPcmRb.exit.thread:           ; preds = %3
   store i64 0, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !10
-  %47 = call i64 @wcsrtombs(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef %2, ptr noundef nonnull %5) #12
+  %47 = call i64 @wcsrtombs(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef %2, ptr noundef nonnull %5) #13
   %48 = icmp eq i64 %47, -1
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %_ZL13WideToCharMapPKwPcmRb.exit.thread
-  %50 = tail call ptr @__errno_location() #13
+  %50 = tail call ptr @__errno_location() #14
   %51 = load i32, ptr %50, align 4, !tbaa !13
   %52 = icmp eq i32 %51, 84
   br i1 %52, label %53, label %.thread
@@ -131,7 +131,7 @@ _ZL13WideToCharMapPKwPcmRb.exit.thread:           ; preds = %3
   store i64 0, ptr %5, align 8
   store ptr %0, ptr %6, align 8, !tbaa !10
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %1, i8 0, i64 %2, i1 false)
-  %54 = call i64 @wcsrtombs(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef %2, ptr noundef nonnull %5) #12
+  %54 = call i64 @wcsrtombs(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef %2, ptr noundef nonnull %5) #13
   br label %55
 
 55:                                               ; preds = %53, %_ZL13WideToCharMapPKwPcmRb.exit.thread
@@ -189,7 +189,7 @@ define noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef %0, ptr noundef init
   store i64 0, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !15
-  %7 = call i64 @mbsrtowcs(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef %2, ptr noundef nonnull %5) #12
+  %7 = call i64 @mbsrtowcs(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef %2, ptr noundef nonnull %5) #13
   switch i64 %7, label %.thread [
     i64 -1, label %10
     i64 0, label %8
@@ -219,8 +219,8 @@ define noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef %0, ptr noundef init
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %18 = getelementptr inbounds nuw i32, ptr %1, i64 %12
-  %19 = call i64 @__ctype_get_mb_cur_max() #12
-  %20 = call i64 @mbrtowc(ptr noundef nonnull %18, ptr noundef nonnull %14, i64 noundef %19, ptr noundef nonnull %4) #12
+  %19 = call i64 @__ctype_get_mb_cur_max() #13
+  %20 = call i64 @mbrtowc(ptr noundef nonnull %18, ptr noundef nonnull %14, i64 noundef %19, ptr noundef nonnull %4) #13
   %or.cond.i = icmp ugt i64 %20, -3
   br i1 %or.cond.i, label %21, label %34
 
@@ -260,8 +260,8 @@ define noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef %0, ptr noundef init
 
 34:                                               ; preds = %17
   store i64 0, ptr %4, align 8
-  %35 = call i64 @__ctype_get_mb_cur_max() #12
-  %36 = call i64 @mbrtowc(ptr noundef null, ptr noundef nonnull %14, i64 noundef %35, ptr noundef nonnull %4) #12
+  %35 = call i64 @__ctype_get_mb_cur_max() #13
+  %36 = call i64 @mbrtowc(ptr noundef null, ptr noundef nonnull %14, i64 noundef %35, ptr noundef nonnull %4) #13
   %37 = trunc i64 %36 to i32
   %38 = call i32 @llvm.smax.i32(i32 %37, i32 1)
   %39 = add i32 %38, %.03652.i
@@ -757,7 +757,7 @@ define noundef zeroext i1 @_Z9UtfToWidePKcPwm(ptr noundef readonly captures(none
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_Z10IsTextUtf8PKh(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
-  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
+  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
   %.not36.i = icmp eq i64 %2, 0
   br i1 %.not36.i, label %_Z10IsTextUtf8PKhm.exit, label %.lr.ph41.i
 
@@ -878,9 +878,9 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef range(i32 -1, 2) i32 @_Z8wcsicompPKwS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4, !tbaa !6
-  %4 = tail call i32 @towupper(i32 noundef %3) #12
+  %4 = tail call i32 @towupper(i32 noundef %3) #13
   %5 = load i32, ptr %1, align 4, !tbaa !6
-  %6 = tail call i32 @towupper(i32 noundef %5) #12
+  %6 = tail call i32 @towupper(i32 noundef %5) #13
   %.not29 = icmp eq i32 %4, %6
   br i1 %.not29, label %.lr.ph, label %.thread
 
@@ -902,9 +902,9 @@ define noundef range(i32 -1, 2) i32 @_Z8wcsicompPKwS0_(ptr noundef readonly capt
   %12 = getelementptr inbounds nuw i8, ptr %.01131, i64 4
   %13 = getelementptr inbounds nuw i8, ptr %.01330, i64 4
   %14 = load i32, ptr %12, align 4, !tbaa !6
-  %15 = tail call i32 @towupper(i32 noundef %14) #12
+  %15 = tail call i32 @towupper(i32 noundef %14) #13
   %16 = load i32, ptr %13, align 4, !tbaa !6
-  %17 = tail call i32 @towupper(i32 noundef %16) #12
+  %17 = tail call i32 @towupper(i32 noundef %16) #13
   %.not = icmp eq i32 %15, %17
   br i1 %.not, label %.lr.ph, label %.thread
 
@@ -923,9 +923,9 @@ define noundef range(i32 -1, 2) i32 @_Z9wcsnicompPKwS0_m(ptr noundef readonly ca
 
 .preheader:                                       ; preds = %3
   %5 = load i32, ptr %0, align 4, !tbaa !6
-  %6 = tail call i32 @towupper(i32 noundef %5) #12
+  %6 = tail call i32 @towupper(i32 noundef %5) #13
   %7 = load i32, ptr %1, align 4, !tbaa !6
-  %8 = tail call i32 @towupper(i32 noundef %7) #12
+  %8 = tail call i32 @towupper(i32 noundef %7) #13
   %.not39 = icmp eq i32 %6, %8
   br i1 %.not39, label %.lr.ph, label %.thread30
 
@@ -953,9 +953,9 @@ define noundef range(i32 -1, 2) i32 @_Z9wcsnicompPKwS0_m(ptr noundef readonly ca
   %17 = getelementptr inbounds nuw i8, ptr %.01342, i64 4
   %18 = getelementptr inbounds nuw i8, ptr %.01840, i64 4
   %19 = load i32, ptr %17, align 4, !tbaa !6
-  %20 = tail call i32 @towupper(i32 noundef %19) #12
+  %20 = tail call i32 @towupper(i32 noundef %19) #13
   %21 = load i32, ptr %18, align 4, !tbaa !6
-  %22 = tail call i32 @towupper(i32 noundef %21) #12
+  %22 = tail call i32 @towupper(i32 noundef %21) #13
   %.not = icmp eq i32 %20, %22
   br i1 %.not, label %.lr.ph, label %.thread30
 
@@ -989,9 +989,9 @@ define noundef ptr @_Z10wcscasestrPKwS0_(ptr noundef readonly captures(ret: addr
   %10 = getelementptr inbounds nuw i32, ptr %1, i64 %.029
   %11 = getelementptr i32, ptr %4, i64 %.029
   %12 = load i32, ptr %11, align 4, !tbaa !6
-  %13 = tail call noundef i32 @towlower(i32 noundef %12) #12
+  %13 = tail call noundef i32 @towlower(i32 noundef %12) #13
   %14 = load i32, ptr %10, align 4, !tbaa !6
-  %15 = tail call noundef i32 @towlower(i32 noundef %14) #12
+  %15 = tail call noundef i32 @towlower(i32 noundef %14) #13
   %.not19 = icmp eq i32 %13, %15
   br i1 %.not19, label %6, label %16
 
@@ -1009,7 +1009,7 @@ define noundef ptr @_Z10wcscasestrPKwS0_(ptr noundef readonly captures(ret: addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_Z8tolowerwi(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @towlower(i32 noundef %0) #12
+  %2 = tail call i32 @towlower(i32 noundef %0) #13
   ret i32 %2
 }
 
@@ -1025,7 +1025,7 @@ define noundef ptr @_Z8wcslowerPw(ptr noundef returned captures(ret: address, pr
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %3 = phi i32 [ %6, %.lr.ph ], [ %2, %1 ]
   %.08 = phi ptr [ %5, %.lr.ph ], [ %0, %1 ]
-  %4 = tail call i32 @towlower(i32 noundef %3) #12
+  %4 = tail call i32 @towlower(i32 noundef %3) #13
   store i32 %4, ptr %.08, align 4, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %.08, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !6
@@ -1048,7 +1048,7 @@ define noundef ptr @_Z8wcsupperPw(ptr noundef returned captures(ret: address, pr
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %3 = phi i32 [ %6, %.lr.ph ], [ %2, %1 ]
   %.08 = phi ptr [ %5, %.lr.ph ], [ %0, %1 ]
-  %4 = tail call i32 @towupper(i32 noundef %3) #12
+  %4 = tail call i32 @towupper(i32 noundef %3) #13
   store i32 %4, ptr %.08, align 4, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %.08, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !6
@@ -1058,7 +1058,7 @@ define noundef ptr @_Z8wcsupperPw(ptr noundef returned captures(ret: address, pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_Z8toupperwi(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @towupper(i32 noundef %0) #12
+  %2 = tail call i32 @towupper(i32 noundef %0) #13
   ret i32 %2
 }
 
@@ -1147,14 +1147,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #10
+declare i64 @llvm.abs.i64(i64, i1 immarg) #11
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -1166,10 +1166,11 @@ attributes #6 = { mustprogress nofree norecurse nounwind willreturn memory(argme
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind willreturn memory(read) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind willreturn memory(none) }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind willreturn memory(read) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

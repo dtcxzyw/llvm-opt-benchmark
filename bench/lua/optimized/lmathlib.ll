@@ -43,19 +43,19 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @luaopen_math(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @luaL_checkversion_(ptr noundef %0, double noundef 5.050000e+02, i64 noundef 136) #6
-  tail call void @lua_createtable(ptr noundef %0, i32 noundef 0, i32 noundef 27) #6
-  tail call void @luaL_setfuncs(ptr noundef %0, ptr noundef nonnull @mathlib, i32 noundef 0) #6
-  tail call void @lua_pushnumber(ptr noundef %0, double noundef 0x400921FB54442D18) #6
-  tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str) #6
-  tail call void @lua_pushnumber(ptr noundef %0, double noundef 0x7FF0000000000000) #6
-  tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.1) #6
-  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef 9223372036854775807) #6
-  tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.2) #6
-  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef -9223372036854775808) #6
-  tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.3) #6
-  %2 = tail call ptr @lua_newuserdatauv(ptr noundef %0, i64 noundef 32, i32 noundef 0) #6
-  %3 = tail call i32 @luaL_makeseed(ptr noundef %0) #6
+  tail call void @luaL_checkversion_(ptr noundef %0, double noundef 5.050000e+02, i64 noundef 136) #7
+  tail call void @lua_createtable(ptr noundef %0, i32 noundef 0, i32 noundef 27) #7
+  tail call void @luaL_setfuncs(ptr noundef %0, ptr noundef nonnull @mathlib, i32 noundef 0) #7
+  tail call void @lua_pushnumber(ptr noundef %0, double noundef 0x400921FB54442D18) #7
+  tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str) #7
+  tail call void @lua_pushnumber(ptr noundef %0, double noundef 0x7FF0000000000000) #7
+  tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.1) #7
+  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef 9223372036854775807) #7
+  tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.2) #7
+  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef -9223372036854775808) #7
+  tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.3) #7
+  %2 = tail call ptr @lua_newuserdatauv(ptr noundef %0, i64 noundef 32, i32 noundef 0) #7
+  %3 = tail call i32 @luaL_makeseed(ptr noundef %0) #7
   %4 = zext i32 %3 to i64
   br label %5
 
@@ -84,10 +84,10 @@ setrandfunc.exit:                                 ; preds = %5
   store i64 %13, ptr %18, align 8, !tbaa !4
   store i64 %15, ptr %19, align 8, !tbaa !4
   store i64 %16, ptr %20, align 8, !tbaa !4
-  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %4) #6
-  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef 0) #6
-  tail call void @lua_settop(ptr noundef %0, i32 noundef -3) #6
-  tail call void @luaL_setfuncs(ptr noundef %0, ptr noundef nonnull @randfuncs, i32 noundef 1) #6
+  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %4) #7
+  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef 0) #7
+  tail call void @lua_settop(ptr noundef %0, i32 noundef -3) #7
+  tail call void @luaL_setfuncs(ptr noundef %0, ptr noundef nonnull @randfuncs, i32 noundef 1) #7
   ret i32 1
 }
 
@@ -105,20 +105,20 @@ declare void @lua_pushinteger(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_abs(ptr noundef %0) #0 {
-  %2 = tail call i32 @lua_isinteger(ptr noundef %0, i32 noundef 1) #6
+  %2 = tail call i32 @lua_isinteger(ptr noundef %0, i32 noundef 1) #7
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i64 @lua_tointegerx(ptr noundef %0, i32 noundef 1, ptr noundef null) #6
+  %4 = tail call i64 @lua_tointegerx(ptr noundef %0, i32 noundef 1, ptr noundef null) #7
   %spec.select = tail call i64 @llvm.abs.i64(i64 %4, i1 false)
-  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %spec.select) #6
+  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %spec.select) #7
   br label %8
 
 5:                                                ; preds = %1
-  %6 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
+  %6 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #7
   %7 = tail call double @llvm.fabs.f64(double %6)
-  tail call void @lua_pushnumber(ptr noundef %0, double noundef %7) #6
+  tail call void @lua_pushnumber(ptr noundef %0, double noundef %7) #7
   br label %8
 
 8:                                                ; preds = %5, %3
@@ -127,41 +127,41 @@ define internal noundef i32 @math_abs(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_acos(ptr noundef %0) #0 {
-  %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
-  %3 = tail call double @acos(double noundef %2) #6, !tbaa !8
-  tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #6
+  %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #7
+  %3 = tail call double @acos(double noundef %2) #7, !tbaa !8
+  tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #7
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_asin(ptr noundef %0) #0 {
-  %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
-  %3 = tail call double @asin(double noundef %2) #6, !tbaa !8
-  tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #6
+  %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #7
+  %3 = tail call double @asin(double noundef %2) #7, !tbaa !8
+  tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #7
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_atan(ptr noundef %0) #0 {
-  %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
-  %3 = tail call double @luaL_optnumber(ptr noundef %0, i32 noundef 2, double noundef 1.000000e+00) #6
-  %4 = tail call double @atan2(double noundef %2, double noundef %3) #6, !tbaa !8
-  tail call void @lua_pushnumber(ptr noundef %0, double noundef %4) #6
+  %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #7
+  %3 = tail call double @luaL_optnumber(ptr noundef %0, i32 noundef 2, double noundef 1.000000e+00) #7
+  %4 = tail call double @atan2(double noundef %2, double noundef %3) #7, !tbaa !8
+  tail call void @lua_pushnumber(ptr noundef %0, double noundef %4) #7
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_ceil(ptr noundef %0) #0 {
-  %2 = tail call i32 @lua_isinteger(ptr noundef %0, i32 noundef 1) #6
+  %2 = tail call i32 @lua_isinteger(ptr noundef %0, i32 noundef 1) #7
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @lua_settop(ptr noundef %0, i32 noundef 1) #6
+  tail call void @lua_settop(ptr noundef %0, i32 noundef 1) #7
   br label %pushnumint.exit
 
 4:                                                ; preds = %1
-  %5 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
+  %5 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #7
   %6 = tail call double @llvm.ceil.f64(double %5)
   %7 = fcmp oge double %6, 0xC3E0000000000000
   %8 = fcmp olt double %6, 0x43E0000000000000
@@ -170,11 +170,11 @@ define internal noundef i32 @math_ceil(ptr noundef %0) #0 {
 
 9:                                                ; preds = %4
   %10 = fptosi double %6 to i64
-  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %10) #6
+  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %10) #7
   br label %pushnumint.exit
 
 11:                                               ; preds = %4
-  tail call void @lua_pushnumber(ptr noundef %0, double noundef %6) #6
+  tail call void @lua_pushnumber(ptr noundef %0, double noundef %6) #7
   br label %pushnumint.exit
 
 pushnumint.exit:                                  ; preds = %11, %9, %3
@@ -183,25 +183,25 @@ pushnumint.exit:                                  ; preds = %11, %9, %3
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_cos(ptr noundef %0) #0 {
-  %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
-  %3 = tail call double @cos(double noundef %2) #6, !tbaa !8
-  tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #6
+  %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #7
+  %3 = tail call double @cos(double noundef %2) #7, !tbaa !8
+  tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #7
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_deg(ptr noundef %0) #0 {
-  %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
+  %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #7
   %3 = fmul double %2, 0x404CA5DC1A63C1F8
-  tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #6
+  tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #7
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_exp(ptr noundef %0) #0 {
-  %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
-  %3 = tail call double @exp(double noundef %2) #6, !tbaa !8
-  tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #6
+  %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #7
+  %3 = tail call double @exp(double noundef %2) #7, !tbaa !8
+  tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #7
   ret i32 1
 }
 
@@ -209,18 +209,18 @@ define internal noundef i32 @math_exp(ptr noundef %0) #0 {
 define internal noundef i32 @math_toint(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %3 = call i64 @lua_tointegerx(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #6
+  %3 = call i64 @lua_tointegerx(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #7
   %4 = load i32, ptr %2, align 4, !tbaa !8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5, !prof !10
 
 5:                                                ; preds = %1
-  call void @lua_pushinteger(ptr noundef %0, i64 noundef %3) #6
+  call void @lua_pushinteger(ptr noundef %0, i64 noundef %3) #7
   br label %7
 
 6:                                                ; preds = %1
-  call void @luaL_checkany(ptr noundef %0, i32 noundef 1) #6
-  call void @lua_pushnil(ptr noundef %0) #6
+  call void @luaL_checkany(ptr noundef %0, i32 noundef 1) #7
+  call void @lua_pushnil(ptr noundef %0) #7
   br label %7
 
 7:                                                ; preds = %6, %5
@@ -230,16 +230,16 @@ define internal noundef i32 @math_toint(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_floor(ptr noundef %0) #0 {
-  %2 = tail call i32 @lua_isinteger(ptr noundef %0, i32 noundef 1) #6
+  %2 = tail call i32 @lua_isinteger(ptr noundef %0, i32 noundef 1) #7
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @lua_settop(ptr noundef %0, i32 noundef 1) #6
+  tail call void @lua_settop(ptr noundef %0, i32 noundef 1) #7
   br label %pushnumint.exit
 
 4:                                                ; preds = %1
-  %5 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
+  %5 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #7
   %6 = tail call double @llvm.floor.f64(double %5)
   %7 = fcmp oge double %6, 0xC3E0000000000000
   %8 = fcmp olt double %6, 0x43E0000000000000
@@ -248,11 +248,11 @@ define internal noundef i32 @math_floor(ptr noundef %0) #0 {
 
 9:                                                ; preds = %4
   %10 = fptosi double %6 to i64
-  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %10) #6
+  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %10) #7
   br label %pushnumint.exit
 
 11:                                               ; preds = %4
-  tail call void @lua_pushnumber(ptr noundef %0, double noundef %6) #6
+  tail call void @lua_pushnumber(ptr noundef %0, double noundef %6) #7
   br label %pushnumint.exit
 
 pushnumint.exit:                                  ; preds = %11, %9, %3
@@ -261,17 +261,17 @@ pushnumint.exit:                                  ; preds = %11, %9, %3
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_fmod(ptr noundef %0) #0 {
-  %2 = tail call i32 @lua_isinteger(ptr noundef %0, i32 noundef 1) #6
+  %2 = tail call i32 @lua_isinteger(ptr noundef %0, i32 noundef 1) #7
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %16, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @lua_isinteger(ptr noundef %0, i32 noundef 2) #6
+  %4 = tail call i32 @lua_isinteger(ptr noundef %0, i32 noundef 2) #7
   %.not12 = icmp eq i32 %4, 0
   br i1 %.not12, label %16, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i64 @lua_tointegerx(ptr noundef %0, i32 noundef 2, ptr noundef null) #6
+  %6 = tail call i64 @lua_tointegerx(ptr noundef %0, i32 noundef 2, ptr noundef null) #7
   %7 = add i64 %6, 1
   %8 = icmp ult i64 %7, 2
   br i1 %8, label %9, label %13
@@ -281,24 +281,24 @@ define internal noundef i32 @math_fmod(ptr noundef %0) #0 {
   br i1 %.not13, label %10, label %12, !prof !10
 
 10:                                               ; preds = %9
-  %11 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.27) #6
+  %11 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.27) #7
   br label %12
 
 12:                                               ; preds = %10, %9
-  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef 0) #6
+  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef 0) #7
   br label %20
 
 13:                                               ; preds = %5
-  %14 = tail call i64 @lua_tointegerx(ptr noundef %0, i32 noundef 1, ptr noundef null) #6
+  %14 = tail call i64 @lua_tointegerx(ptr noundef %0, i32 noundef 1, ptr noundef null) #7
   %15 = srem i64 %14, %6
-  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %15) #6
+  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %15) #7
   br label %20
 
 16:                                               ; preds = %3, %1
-  %17 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
-  %18 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 2) #6
-  %19 = tail call double @fmod(double noundef %17, double noundef %18) #6, !tbaa !8
-  tail call void @lua_pushnumber(ptr noundef %0, double noundef %19) #6
+  %17 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #7
+  %18 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 2) #7
+  %19 = tail call double @fmod(double noundef %17, double noundef %18) #7, !tbaa !8
+  tail call void @lua_pushnumber(ptr noundef %0, double noundef %19) #7
   br label %20
 
 20:                                               ; preds = %12, %13, %16
@@ -307,32 +307,32 @@ define internal noundef i32 @math_fmod(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_ult(ptr noundef %0) #0 {
-  %2 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef 1) #6
-  %3 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef 2) #6
+  %2 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef 1) #7
+  %3 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef 2) #7
   %4 = icmp ult i64 %2, %3
   %5 = zext i1 %4 to i32
-  tail call void @lua_pushboolean(ptr noundef %0, i32 noundef %5) #6
+  tail call void @lua_pushboolean(ptr noundef %0, i32 noundef %5) #7
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_log(ptr noundef %0) #0 {
-  %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
-  %3 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 2) #6
+  %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #7
+  %3 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 2) #7
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = tail call double @log(double noundef %2) #6, !tbaa !8
+  %6 = tail call double @log(double noundef %2) #7, !tbaa !8
   br label %20
 
 7:                                                ; preds = %1
-  %8 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 2) #6
+  %8 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 2) #7
   %9 = fcmp oeq double %8, 2.000000e+00
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
-  %11 = tail call double @log2(double noundef %2) #6, !tbaa !8
+  %11 = tail call double @log2(double noundef %2) #7, !tbaa !8
   br label %20
 
 12:                                               ; preds = %7
@@ -340,29 +340,29 @@ define internal noundef i32 @math_log(ptr noundef %0) #0 {
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
-  %15 = tail call double @log10(double noundef %2) #6, !tbaa !8
+  %15 = tail call double @log10(double noundef %2) #7, !tbaa !8
   br label %20
 
 16:                                               ; preds = %12
-  %17 = tail call double @log(double noundef %2) #6, !tbaa !8
-  %18 = tail call double @log(double noundef %8) #6, !tbaa !8
+  %17 = tail call double @log(double noundef %2) #7, !tbaa !8
+  %18 = tail call double @log(double noundef %8) #7, !tbaa !8
   %19 = fdiv double %17, %18
   br label %20
 
 20:                                               ; preds = %10, %16, %14, %5
   %.0 = phi double [ %6, %5 ], [ %11, %10 ], [ %15, %14 ], [ %19, %16 ]
-  tail call void @lua_pushnumber(ptr noundef %0, double noundef %.0) #6
+  tail call void @lua_pushnumber(ptr noundef %0, double noundef %.0) #7
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_max(ptr noundef %0) #0 {
-  %2 = tail call i32 @lua_gettop(ptr noundef %0) #6
+  %2 = tail call i32 @lua_gettop(ptr noundef %0) #7
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %5, label %.thread, !prof !11
 
 .thread:                                          ; preds = %1
-  %4 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.28) #6
+  %4 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.28) #7
   br label %._crit_edge
 
 5:                                                ; preds = %1
@@ -372,7 +372,7 @@ define internal noundef i32 @math_max(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.015 = phi i32 [ %7, %.lr.ph ], [ 2, %5 ]
   %.01114 = phi i32 [ %spec.select, %.lr.ph ], [ 1, %5 ]
-  %6 = tail call i32 @lua_compare(ptr noundef %0, i32 noundef %.01114, i32 noundef %.015, i32 noundef 1) #6
+  %6 = tail call i32 @lua_compare(ptr noundef %0, i32 noundef %.01114, i32 noundef %.015, i32 noundef 1) #7
   %.not12 = icmp eq i32 %6, 0
   %spec.select = select i1 %.not12, i32 %.01114, i32 %.015
   %7 = add nuw i32 %.015, 1
@@ -381,18 +381,18 @@ define internal noundef i32 @math_max(ptr noundef %0) #0 {
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.thread, %5
   %.011.lcssa = phi i32 [ 1, %5 ], [ 1, %.thread ], [ %spec.select, %.lr.ph ]
-  tail call void @lua_pushvalue(ptr noundef %0, i32 noundef %.011.lcssa) #6
+  tail call void @lua_pushvalue(ptr noundef %0, i32 noundef %.011.lcssa) #7
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_min(ptr noundef %0) #0 {
-  %2 = tail call i32 @lua_gettop(ptr noundef %0) #6
+  %2 = tail call i32 @lua_gettop(ptr noundef %0) #7
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %5, label %.thread, !prof !11
 
 .thread:                                          ; preds = %1
-  %4 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.28) #6
+  %4 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.28) #7
   br label %._crit_edge
 
 5:                                                ; preds = %1
@@ -402,7 +402,7 @@ define internal noundef i32 @math_min(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.015 = phi i32 [ %7, %.lr.ph ], [ 2, %5 ]
   %.01114 = phi i32 [ %spec.select, %.lr.ph ], [ 1, %5 ]
-  %6 = tail call i32 @lua_compare(ptr noundef %0, i32 noundef %.015, i32 noundef %.01114, i32 noundef 1) #6
+  %6 = tail call i32 @lua_compare(ptr noundef %0, i32 noundef %.015, i32 noundef %.01114, i32 noundef 1) #7
   %.not12 = icmp eq i32 %6, 0
   %spec.select = select i1 %.not12, i32 %.01114, i32 %.015
   %7 = add nuw i32 %.015, 1
@@ -411,22 +411,22 @@ define internal noundef i32 @math_min(ptr noundef %0) #0 {
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.thread, %5
   %.011.lcssa = phi i32 [ 1, %5 ], [ 1, %.thread ], [ %spec.select, %.lr.ph ]
-  tail call void @lua_pushvalue(ptr noundef %0, i32 noundef %.011.lcssa) #6
+  tail call void @lua_pushvalue(ptr noundef %0, i32 noundef %.011.lcssa) #7
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_modf(ptr noundef %0) #0 {
-  %2 = tail call i32 @lua_isinteger(ptr noundef %0, i32 noundef 1) #6
+  %2 = tail call i32 @lua_isinteger(ptr noundef %0, i32 noundef 1) #7
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @lua_settop(ptr noundef %0, i32 noundef 1) #6
+  tail call void @lua_settop(ptr noundef %0, i32 noundef 1) #7
   br label %18
 
 4:                                                ; preds = %1
-  %5 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
+  %5 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #7
   %6 = fcmp olt double %5, 0.000000e+00
   %7 = tail call double @llvm.ceil.f64(double %5)
   %8 = tail call double @llvm.floor.f64(double %5)
@@ -438,11 +438,11 @@ define internal noundef i32 @math_modf(ptr noundef %0) #0 {
 
 12:                                               ; preds = %4
   %13 = fptosi double %9 to i64
-  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %13) #6
+  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %13) #7
   br label %pushnumint.exit
 
 14:                                               ; preds = %4
-  tail call void @lua_pushnumber(ptr noundef %0, double noundef %9) #6
+  tail call void @lua_pushnumber(ptr noundef %0, double noundef %9) #7
   br label %pushnumint.exit
 
 pushnumint.exit:                                  ; preds = %12, %14
@@ -453,58 +453,58 @@ pushnumint.exit:                                  ; preds = %12, %14
 
 18:                                               ; preds = %pushnumint.exit, %3
   %.sink = phi double [ %17, %pushnumint.exit ], [ 0.000000e+00, %3 ]
-  tail call void @lua_pushnumber(ptr noundef %0, double noundef %.sink) #6
+  tail call void @lua_pushnumber(ptr noundef %0, double noundef %.sink) #7
   ret i32 2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_rad(ptr noundef %0) #0 {
-  %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
+  %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #7
   %3 = fmul double %2, 0x3F91DF46A2529D39
-  tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #6
+  tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #7
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_sin(ptr noundef %0) #0 {
-  %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
-  %3 = tail call double @sin(double noundef %2) #6, !tbaa !8
-  tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #6
+  %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #7
+  %3 = tail call double @sin(double noundef %2) #7, !tbaa !8
+  tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #7
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_sqrt(ptr noundef %0) #0 {
-  %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
-  %3 = tail call double @sqrt(double noundef %2) #6, !tbaa !8
-  tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #6
+  %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #7
+  %3 = tail call double @sqrt(double noundef %2) #7, !tbaa !8
+  tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #7
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_tan(ptr noundef %0) #0 {
-  %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
-  %3 = tail call double @tan(double noundef %2) #6, !tbaa !8
-  tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #6
+  %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #7
+  %3 = tail call double @tan(double noundef %2) #7, !tbaa !8
+  tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #7
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_type(ptr noundef %0) #0 {
-  %2 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 1) #6
+  %2 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 1) #7
   %3 = icmp eq i32 %2, 3
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @lua_isinteger(ptr noundef %0, i32 noundef 1) #6
+  %5 = tail call i32 @lua_isinteger(ptr noundef %0, i32 noundef 1) #7
   %.not = icmp eq i32 %5, 0
   %6 = select i1 %.not, ptr @.str.30, ptr @.str.29
-  %7 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef nonnull %6) #6
+  %7 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef nonnull %6) #7
   br label %9
 
 8:                                                ; preds = %1
-  tail call void @luaL_checkany(ptr noundef %0, i32 noundef 1) #6
-  tail call void @lua_pushnil(ptr noundef %0) #6
+  tail call void @luaL_checkany(ptr noundef %0, i32 noundef 1) #7
+  tail call void @lua_pushnil(ptr noundef %0) #7
   br label %9
 
 9:                                                ; preds = %8, %4
@@ -517,7 +517,7 @@ declare i64 @lua_tointegerx(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 
 declare double @luaL_checknumber(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
@@ -533,7 +533,7 @@ declare double @atan2(double noundef, double noundef) local_unnamed_addr #3
 
 declare void @lua_settop(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.ceil.f64(double) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
@@ -546,7 +546,7 @@ declare void @luaL_checkany(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @lua_pushnil(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #2
 
 declare i32 @luaL_argerror(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -592,7 +592,7 @@ declare i32 @luaL_makeseed(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @math_random(ptr noundef %0) #0 {
-  %2 = tail call ptr @lua_touserdata(ptr noundef %0, i32 noundef -1001001) #6
+  %2 = tail call ptr @lua_touserdata(ptr noundef %0, i32 noundef -1001001) #7
   %3 = load i64, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !4
@@ -616,7 +616,7 @@ define internal i32 @math_random(ptr noundef %0) #0 {
   store i64 %20, ptr %6, align 8, !tbaa !4
   %21 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 45)
   store i64 %21, ptr %9, align 8, !tbaa !4
-  %22 = tail call i32 @lua_gettop(ptr noundef %0) #6
+  %22 = tail call i32 @lua_gettop(ptr noundef %0) #7
   switch i32 %22, label %34 [
     i32 0, label %23
     i32 1, label %27
@@ -627,25 +627,25 @@ define internal i32 @math_random(ptr noundef %0) #0 {
   %24 = lshr i64 %16, 11
   %25 = uitofp nneg i64 %24 to double
   %26 = fmul double %25, 0x3CA0000000000000
-  tail call void @lua_pushnumber(ptr noundef %0, double noundef %26) #6
+  tail call void @lua_pushnumber(ptr noundef %0, double noundef %26) #7
   br label %81
 
 27:                                               ; preds = %1
-  %28 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef 1) #6
+  %28 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef 1) #7
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %30, label %36
 
 30:                                               ; preds = %27
-  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %16) #6
+  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %16) #7
   br label %81
 
 31:                                               ; preds = %1
-  %32 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef 1) #6
-  %33 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef 2) #6
+  %32 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef 1) #7
+  %33 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef 2) #7
   br label %36
 
 34:                                               ; preds = %1
-  %35 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.31) #6
+  %35 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.31) #7
   br label %81
 
 36:                                               ; preds = %27, %31
@@ -655,7 +655,7 @@ define internal i32 @math_random(ptr noundef %0) #0 {
   br i1 %.not, label %37, label %39, !prof !10
 
 37:                                               ; preds = %36
-  %38 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.32) #6
+  %38 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.32) #7
   br label %39
 
 39:                                               ; preds = %37, %36
@@ -724,7 +724,7 @@ define internal i32 @math_random(ptr noundef %0) #0 {
 project.exit:                                     ; preds = %44, %46, %..loopexit_crit_edge.i
   %.0.i = phi i64 [ %45, %44 ], [ %78, %..loopexit_crit_edge.i ], [ %59, %46 ]
   %80 = add nsw i64 %.0.i, %.022
-  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %80) #6
+  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %80) #7
   br label %81
 
 81:                                               ; preds = %project.exit, %34, %30, %23
@@ -734,13 +734,13 @@ project.exit:                                     ; preds = %44, %46, %..loopexi
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_randomseed(ptr noundef %0) #0 {
-  %2 = tail call ptr @lua_touserdata(ptr noundef %0, i32 noundef -1001001) #6
-  %3 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 1) #6
+  %2 = tail call ptr @lua_touserdata(ptr noundef %0, i32 noundef -1001001) #7
+  %3 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 1) #7
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %15
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @luaL_makeseed(ptr noundef %0) #6
+  %6 = tail call i32 @luaL_makeseed(ptr noundef %0) #7
   %7 = zext i32 %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !4
@@ -752,8 +752,8 @@ define internal noundef i32 @math_randomseed(ptr noundef %0) #0 {
   br label %18
 
 15:                                               ; preds = %1
-  %16 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef 1) #6
-  %17 = tail call i64 @luaL_optinteger(ptr noundef %0, i32 noundef 2, i64 noundef 0) #6
+  %16 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef 1) #7
+  %17 = tail call i64 @luaL_optinteger(ptr noundef %0, i32 noundef 2, i64 noundef 0) #7
   br label %18
 
 18:                                               ; preds = %15, %5
@@ -786,8 +786,8 @@ setseed.exit:                                     ; preds = %19
   store i64 %27, ptr %32, align 8, !tbaa !4
   store i64 %29, ptr %33, align 8, !tbaa !4
   store i64 %30, ptr %34, align 8, !tbaa !4
-  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %.09) #6
-  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %.0) #6
+  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %.09) #7
+  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %.0) #7
   ret i32 2
 }
 
@@ -803,19 +803,20 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #5
+declare i64 @llvm.abs.i64(i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -24,7 +24,7 @@ $_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocatorBlockEE6removeINS0_7Support7Com
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocatorC2EPKNS1_12CreateParamsE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
-  %3 = tail call i64 @_ZN6asmjit9_abi_1_107VirtMem4infoEv() #9
+  %3 = tail call i64 @_ZN6asmjit9_abi_1_107VirtMem4infoEv() #10
   %4 = icmp eq ptr %1, null
   %5 = select i1 %4, ptr @_ZN6asmjit9_abi_1_10L23JitAllocatorParams_noneE, ptr %1
   %6 = load i32, ptr %5, align 4, !tbaa !3
@@ -45,7 +45,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocatorC2EPKNS1_12CreateParams
   %21 = select i1 %20, i32 %10, i32 64
   %22 = mul nuw nsw i64 %15, 56
   %23 = add nuw nsw i64 %22, 96
-  %24 = tail call noalias ptr @malloc(i64 noundef %23) #10
+  %24 = tail call noalias ptr @malloc(i64 noundef %23) #11
   %25 = icmp eq ptr %24, null
   br i1 %25, label %75, label %26, !prof !13
 
@@ -62,7 +62,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocatorC2EPKNS1_12CreateParams
   %36 = trunc nuw i64 %35 to i32
   %37 = select i1 %34, i32 %8, i32 %36
   %38 = trunc i64 %3 to i32
-  %39 = tail call i32 @_ZN6asmjit9_abi_1_107VirtMem19hardenedRuntimeInfoEv() #9
+  %39 = tail call i32 @_ZN6asmjit9_abi_1_107VirtMem19hardenedRuntimeInfoEv() #10
   %40 = and i32 %39, 3
   %41 = icmp eq i32 %40, 1
   %42 = zext i1 %41 to i32
@@ -135,11 +135,11 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocatorD2Ev(ptr noundef nonnul
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolicyE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1) #9
+  tail call void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolicyE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1) #10
   %5 = load ptr, ptr %0, align 8, !tbaa !34
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %6) #9
-  tail call void @free(ptr noundef %5) #9
+  %7 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %6) #10
+  tail call void @free(ptr noundef %5) #10
   br label %8
 
 8:                                                ; preds = %4, %1
@@ -205,21 +205,21 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
 39:                                               ; preds = %.preheader19
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %41 = load i64, ptr %40, align 8, !tbaa !44
-  %42 = call noundef i32 @_ZN6asmjit9_abi_1_107VirtMem18releaseDualMappingEPNS1_11DualMappingEm(ptr noundef nonnull %38, i64 noundef %41) #9
+  %42 = call noundef i32 @_ZN6asmjit9_abi_1_107VirtMem18releaseDualMappingEPNS1_11DualMappingEm(ptr noundef nonnull %38, i64 noundef %41) #10
   br label %48
 
 43:                                               ; preds = %.preheader19
   %44 = load ptr, ptr %38, align 8, !tbaa !45
   %45 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %46 = load i64, ptr %45, align 8, !tbaa !44
-  %47 = call noundef i32 @_ZN6asmjit9_abi_1_107VirtMem7releaseEPvm(ptr noundef %44, i64 noundef %46) #9
+  %47 = call noundef i32 @_ZN6asmjit9_abi_1_107VirtMem7releaseEPvm(ptr noundef %44, i64 noundef %46) #10
   br label %48
 
 48:                                               ; preds = %43, %39
   %49 = getelementptr inbounds nuw i8, ptr %31, i64 88
   %50 = load ptr, ptr %49, align 8, !tbaa !46
-  call void @free(ptr noundef %50) #9
-  call void @free(ptr noundef nonnull %31) #9
+  call void @free(ptr noundef %50) #10
+  call void @free(ptr noundef nonnull %31) #10
   %51 = icmp eq ptr %33, null
   br i1 %51, label %.loopexit20, label %.preheader19, !llvm.loop !47
 
@@ -248,7 +248,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
   %66 = load i16, ptr %65, align 4, !tbaa !27
   %67 = zext i32 %64 to i64
   %68 = add nuw nsw i64 %67, 63
-  call void @_ZN6asmjit9_abi_1_107VirtMem16protectJitMemoryENS1_16ProtectJitAccessE(i32 noundef 0) #9
+  call void @_ZN6asmjit9_abi_1_107VirtMem16protectJitMemoryENS1_16ProtectJitAccessE(i32 noundef 0) #10
   %69 = load i32, ptr %4, align 8, !tbaa !22
   %70 = and i32 %69, 4
   %71 = icmp eq i32 %70, 0
@@ -414,11 +414,11 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
   br i1 %176, label %.loopexit, label %172, !llvm.loop !59
 
 .loopexit:                                        ; preds = %172, %170, %.loopexit16
-  call void @_ZN6asmjit9_abi_1_107VirtMem21flushInstructionCacheEPvm(ptr noundef %150, i64 noundef %152) #9
+  call void @_ZN6asmjit9_abi_1_107VirtMem21flushInstructionCacheEPvm(ptr noundef %150, i64 noundef %152) #10
   br label %88, !llvm.loop !60
 
 .loopexit18:                                      ; preds = %.preheader17, %60
-  call void @_ZN6asmjit9_abi_1_107VirtMem16protectJitMemoryENS1_16ProtectJitAccessE(i32 noundef 1) #9
+  call void @_ZN6asmjit9_abi_1_107VirtMem16protectJitMemoryENS1_16ProtectJitAccessE(i32 noundef 1) #10
   %177 = getelementptr inbounds nuw i8, ptr %29, i64 88
   %178 = load ptr, ptr %177, align 8, !tbaa !46
   %179 = lshr i64 %68, 3
@@ -455,7 +455,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
 
 197:                                              ; preds = %196, %190
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocatorBlockEE6insertINS0_7Support7CompareILNS5_9SortOrderE0EEEEEvPS2_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %3) #9
+  call void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocatorBlockEE6insertINS0_7Support7CompareILNS5_9SortOrderE0EEEEEvPS2_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %3) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %198 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %199 = load ptr, ptr %198, align 8, !tbaa !37
@@ -509,7 +509,7 @@ define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dea
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #9
+  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #10
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %10 = load i64, ptr %9, align 8, !tbaa !21
   %11 = icmp eq i64 %10, 0
@@ -732,7 +732,7 @@ define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dea
   %203 = load i64, ptr %202, align 8, !tbaa !79
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %203, ptr %204, align 8, !tbaa !80
-  %205 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #9
+  %205 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #10
   br label %233
 
 206:                                              ; preds = %.preheader, %206
@@ -795,7 +795,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %22 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %21) #9
+  %22 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %21) #10
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %24 = load ptr, ptr %23, align 8, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 88
@@ -1070,7 +1070,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   %211 = trunc i64 %210 to i32
   %212 = add i32 %211, 63
   %213 = lshr i32 %212, 6
-  %214 = tail call noalias dereferenceable_or_null(104) ptr @malloc(i64 noundef 104) #10
+  %214 = tail call noalias dereferenceable_or_null(104) ptr @malloc(i64 noundef 104) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %215 = icmp eq ptr %214, null
@@ -1079,7 +1079,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
 216:                                              ; preds = %206
   %217 = shl nuw nsw i32 %213, 4
   %218 = zext nneg i32 %217 to i64
-  %219 = tail call noalias ptr @malloc(i64 noundef %218) #10
+  %219 = tail call noalias ptr @malloc(i64 noundef %218) #11
   %220 = icmp eq ptr %219, null
   br i1 %220, label %236, label %221
 
@@ -1090,11 +1090,11 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   br i1 %224, label %227, label %225
 
 225:                                              ; preds = %221
-  %226 = call noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS1_11DualMappingEmNS1_11MemoryFlagsE(ptr noundef nonnull %6, i64 noundef %207, i32 noundef 7) #9
+  %226 = call noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS1_11DualMappingEmNS1_11MemoryFlagsE(ptr noundef nonnull %6, i64 noundef %207, i32 noundef 7) #10
   br label %231
 
 227:                                              ; preds = %221
-  %228 = call noundef i32 @_ZN6asmjit9_abi_1_107VirtMem5allocEPPvmNS1_11MemoryFlagsE(ptr noundef nonnull %6, i64 noundef %207, i32 noundef 7) #9
+  %228 = call noundef i32 @_ZN6asmjit9_abi_1_107VirtMem5allocEPPvmNS1_11MemoryFlagsE(ptr noundef nonnull %6, i64 noundef %207, i32 noundef 7) #10
   %229 = load ptr, ptr %6, align 16, !tbaa !85
   %230 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %229, ptr %230, align 8, !tbaa !86
@@ -1107,11 +1107,11 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   br i1 %234, label %237, label %235, !prof !87
 
 235:                                              ; preds = %231
-  call void @free(ptr noundef nonnull %219) #9
+  call void @free(ptr noundef nonnull %219) #10
   br label %236
 
 236:                                              ; preds = %235, %216
-  call void @free(ptr noundef nonnull %214) #9
+  call void @free(ptr noundef nonnull %214) #10
   br label %270
 
 237:                                              ; preds = %231
@@ -1123,7 +1123,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
 241:                                              ; preds = %237
   %242 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %243 = load ptr, ptr %242, align 8, !tbaa !86
-  call void @_ZN6asmjit9_abi_1_107VirtMem16protectJitMemoryENS1_16ProtectJitAccessE(i32 noundef 0) #9
+  call void @_ZN6asmjit9_abi_1_107VirtMem16protectJitMemoryENS1_16ProtectJitAccessE(i32 noundef 0) #10
   %244 = load ptr, ptr %242, align 8, !tbaa !86
   %245 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %246 = load i32, ptr %245, align 4, !tbaa !25
@@ -1172,8 +1172,8 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   br i1 %269, label %.loopexit, label %265, !llvm.loop !89
 
 .loopexit:                                        ; preds = %265, %263, %241
-  call void @_ZN6asmjit9_abi_1_107VirtMem16protectJitMemoryENS1_16ProtectJitAccessE(i32 noundef 1) #9
-  call void @_ZN6asmjit9_abi_1_107VirtMem21flushInstructionCacheEPvm(ptr noundef %243, i64 noundef %207) #9
+  call void @_ZN6asmjit9_abi_1_107VirtMem16protectJitMemoryENS1_16ProtectJitAccessE(i32 noundef 1) #10
+  call void @_ZN6asmjit9_abi_1_107VirtMem21flushInstructionCacheEPvm(ptr noundef %243, i64 noundef %207) #10
   br label %271
 
 270:                                              ; preds = %236, %206
@@ -1222,7 +1222,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
 291:                                              ; preds = %290, %271
   %292 = getelementptr inbounds nuw i8, ptr %7, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocatorBlockEE6insertINS0_7Support7CompareILNS5_9SortOrderE0EEEEEvPS2_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %292, ptr noundef %214, ptr noundef nonnull align 1 dereferenceable(1) %5) #9
+  call void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocatorBlockEE6insertINS0_7Support7CompareILNS5_9SortOrderE0EEEEEvPS2_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %292, ptr noundef %214, ptr noundef nonnull align 1 dereferenceable(1) %5) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %293 = load ptr, ptr %180, align 8, !tbaa !37
   %294 = getelementptr inbounds nuw i8, ptr %214, i64 16
@@ -1411,7 +1411,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
 
 419:                                              ; preds = %408, %270, %204, %196
   %420 = phi i32 [ 0, %408 ], [ 1, %204 ], [ 1, %270 ], [ 1, %196 ]
-  %421 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %21) #9
+  %421 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %21) #10
   br label %422
 
 422:                                              ; preds = %419, %18, %9, %4
@@ -1432,7 +1432,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %9) #9
+  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %9) #10
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %12 = load ptr, ptr %11, align 8, !tbaa !36
   %13 = icmp eq ptr %12, null
@@ -1629,7 +1629,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   %159 = getelementptr inbounds nuw i8, ptr %153, i64 %158
   %160 = mul i32 %74, %156
   %161 = zext i32 %160 to i64
-  tail call void @_ZN6asmjit9_abi_1_107VirtMem16protectJitMemoryENS1_16ProtectJitAccessE(i32 noundef 0) #9
+  tail call void @_ZN6asmjit9_abi_1_107VirtMem16protectJitMemoryENS1_16ProtectJitAccessE(i32 noundef 0) #10
   %162 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %163 = load i32, ptr %162, align 4, !tbaa !25
   %164 = lshr i64 %161, 2
@@ -1677,8 +1677,8 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   br i1 %186, label %.loopexit, label %182, !llvm.loop !92
 
 .loopexit:                                        ; preds = %182, %180, %151
-  tail call void @_ZN6asmjit9_abi_1_107VirtMem16protectJitMemoryENS1_16ProtectJitAccessE(i32 noundef 1) #9
-  tail call void @_ZN6asmjit9_abi_1_107VirtMem21flushInstructionCacheEPvm(ptr noundef %159, i64 noundef %161) #9
+  tail call void @_ZN6asmjit9_abi_1_107VirtMem16protectJitMemoryENS1_16ProtectJitAccessE(i32 noundef 1) #10
+  tail call void @_ZN6asmjit9_abi_1_107VirtMem21flushInstructionCacheEPvm(ptr noundef %159, i64 noundef %161) #10
   %187 = load i32, ptr %79, align 8, !tbaa !62
   br label %188
 
@@ -1724,7 +1724,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
 
 213:                                              ; preds = %211, %199
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocatorBlockEE6removeINS0_7Support7CompareILNS5_9SortOrderE0EEEEEvPNS0_12ZoneTreeNodeERKT_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %3) #9
+  call void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocatorBlockEE6removeINS0_7Support7CompareILNS5_9SortOrderE0EEEEEvPNS0_12ZoneTreeNodeERKT_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %3) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %214 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %215 = load ptr, ptr %214, align 8, !tbaa !37
@@ -1768,19 +1768,19 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
 
 246:                                              ; preds = %213
   %247 = load i64, ptr %36, align 8, !tbaa !44
-  %248 = call noundef i32 @_ZN6asmjit9_abi_1_107VirtMem18releaseDualMappingEPNS1_11DualMappingEm(ptr noundef nonnull %35, i64 noundef %247) #9
+  %248 = call noundef i32 @_ZN6asmjit9_abi_1_107VirtMem18releaseDualMappingEPNS1_11DualMappingEm(ptr noundef nonnull %35, i64 noundef %247) #10
   br label %253
 
 249:                                              ; preds = %213
   %250 = load ptr, ptr %35, align 8, !tbaa !45
   %251 = load i64, ptr %36, align 8, !tbaa !44
-  %252 = call noundef i32 @_ZN6asmjit9_abi_1_107VirtMem7releaseEPvm(ptr noundef %250, i64 noundef %251) #9
+  %252 = call noundef i32 @_ZN6asmjit9_abi_1_107VirtMem7releaseEPvm(ptr noundef %250, i64 noundef %251) #10
   br label %253
 
 253:                                              ; preds = %249, %246
   %254 = load ptr, ptr %88, align 8, !tbaa !46
-  call void @free(ptr noundef %254) #9
-  call void @free(ptr noundef nonnull %14) #9
+  call void @free(ptr noundef %254) #10
+  call void @free(ptr noundef nonnull %14) #10
   br label %.loopexit14
 
 255:                                              ; preds = %195
@@ -1789,7 +1789,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
 
 .loopexit14:                                      ; preds = %26, %255, %253, %188, %8
   %256 = phi i32 [ 0, %253 ], [ 0, %255 ], [ 0, %188 ], [ 3, %8 ], [ 3, %26 ]
-  %257 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %9) #9
+  %257 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %9) #10
   br label %258
 
 258:                                              ; preds = %.loopexit14, %6, %2
@@ -1812,12 +1812,12 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   br i1 %9, label %10, label %12, !prof !13
 
 10:                                               ; preds = %8
-  %11 = tail call noundef i32 @_ZN6asmjit9_abi_1_1012JitAllocator7releaseEPv(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1) #9
+  %11 = tail call noundef i32 @_ZN6asmjit9_abi_1_1012JitAllocator7releaseEPv(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1) #10
   br label %207
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %14 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %13) #9
+  %14 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %13) #10
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !36
   %17 = icmp eq ptr %16, null
@@ -2023,7 +2023,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   %176 = getelementptr inbounds nuw i8, ptr %172, i64 %175
   %177 = mul i32 %91, %173
   %178 = zext i32 %177 to i64
-  tail call void @_ZN6asmjit9_abi_1_107VirtMem16protectJitMemoryENS1_16ProtectJitAccessE(i32 noundef 0) #9
+  tail call void @_ZN6asmjit9_abi_1_107VirtMem16protectJitMemoryENS1_16ProtectJitAccessE(i32 noundef 0) #10
   %179 = load ptr, ptr %0, align 8, !tbaa !34
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 12
   %181 = load i32, ptr %180, align 4, !tbaa !25
@@ -2072,13 +2072,13 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   br i1 %204, label %.loopexit, label %200, !llvm.loop !94
 
 .loopexit:                                        ; preds = %200, %198, %170
-  tail call void @_ZN6asmjit9_abi_1_107VirtMem16protectJitMemoryENS1_16ProtectJitAccessE(i32 noundef 1) #9
-  tail call void @_ZN6asmjit9_abi_1_107VirtMem21flushInstructionCacheEPvm(ptr noundef %176, i64 noundef %178) #9
+  tail call void @_ZN6asmjit9_abi_1_107VirtMem16protectJitMemoryENS1_16ProtectJitAccessE(i32 noundef 1) #10
+  tail call void @_ZN6asmjit9_abi_1_107VirtMem21flushInstructionCacheEPvm(ptr noundef %176, i64 noundef %178) #10
   br label %.loopexit16
 
 .loopexit16:                                      ; preds = %30, %.loopexit, %147, %90, %.loopexit14, %38, %12
   %205 = phi i32 [ 0, %147 ], [ 0, %.loopexit ], [ 0, %90 ], [ 2, %38 ], [ 3, %.loopexit14 ], [ 2, %12 ], [ 2, %30 ]
-  %206 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #9
+  %206 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #10
   br label %207
 
 207:                                              ; preds = %.loopexit16, %10, %6, %3
@@ -2097,7 +2097,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZNK6asmjit9_abi_1_1012JitAllocato
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %9) #9
+  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %9) #10
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %12 = load ptr, ptr %11, align 8, !tbaa !36
   %13 = icmp eq ptr %12, null
@@ -2196,7 +2196,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZNK6asmjit9_abi_1_1012JitAllocato
 
 .loopexit6:                                       ; preds = %26, %.loopexit, %34, %8
   %86 = phi i32 [ 0, %.loopexit ], [ 2, %34 ], [ 2, %8 ], [ 2, %26 ]
-  %87 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %9) #9
+  %87 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %9) #10
   br label %88
 
 88:                                               ; preds = %.loopexit6, %5
@@ -2829,35 +2829,35 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #4
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #4
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #4
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #4
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #4
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.vector.reduce.add.v4i64(<4 x i64>) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
-declare <4 x i32> @llvm.masked.gather.v4i32.v4p0(<4 x ptr>, <4 x i1>, <4 x i32>) #8
+declare <4 x i32> @llvm.masked.gather.v4i32.v4p0(<4 x ptr>, <4 x i1>, <4 x i32>) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
-declare <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr>, <4 x i1>, <4 x i64>) #8
+declare <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr>, <4 x i1>, <4 x i64>) #9
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
@@ -2866,10 +2866,11 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind allocsize(0) }
+attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

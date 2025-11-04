@@ -6553,7 +6553,7 @@ define range(i32 -98, 1) i32 @sp_invmod_mont_ct(ptr noundef readonly captures(ad
 
 26:                                               ; preds = %.thread25, %.thread25.thread
   %narrow.i = phi i64 [ 320, %.thread25.thread ], [ %25, %.thread25 ]
-  %27 = tail call ptr @wolfSSL_Malloc(i64 noundef %narrow.i) #19
+  %27 = tail call ptr @wolfSSL_Malloc(i64 noundef %narrow.i) #20
   %28 = icmp eq ptr %27, null
   br i1 %28, label %_sp_invmod_mont_ct.exit, label %29
 
@@ -6992,7 +6992,7 @@ _sp_copy.exit149.i:                               ; preds = %207, %205
 
 .thread186.i:                                     ; preds = %72, %60, %.loopexit297.i, %.lr.ph212.i, %.lr.ph224.i, %_sp_copy.exit149.i, %202, %195
   %.17.i = phi i32 [ 0, %202 ], [ %200, %195 ], [ 0, %_sp_copy.exit149.i ], [ %189, %.lr.ph224.i ], [ %174, %.lr.ph212.i ], [ %183, %.loopexit297.i ], [ %70, %60 ], [ %73, %72 ]
-  tail call void @wolfSSL_Free(ptr noundef nonnull %27) #19
+  tail call void @wolfSSL_Free(ptr noundef nonnull %27) #20
   br label %_sp_invmod_mont_ct.exit
 
 _sp_invmod_mont_ct.exit:                          ; preds = %26, %.thread186.i
@@ -8436,7 +8436,7 @@ sp_count_bits.exit.i:                             ; preds = %.lr.ph36.i.i, %57, 
   %narrow.i = add nuw nsw i32 %71, 2
   %76 = zext nneg i32 %narrow.i to i64
   %77 = mul nuw nsw i64 %76, %75
-  %78 = tail call ptr @wolfSSL_Malloc(i64 noundef %77) #19
+  %78 = tail call ptr @wolfSSL_Malloc(i64 noundef %77) #20
   %79 = icmp eq ptr %78, null
   br i1 %79, label %_sp_exptmod_nct.exit, label %80
 
@@ -8940,7 +8940,7 @@ _sp_copy.exit.i:                                  ; preds = %131, %_sp_cmp_abs.e
 
 .thread374.i:                                     ; preds = %.lr.ph.i, %.lr.ph399.i, %286, %.lr.ph403.i, %306, %300, %.thread374.sink.split.i, %231, %156, %153, %136, %sp_mod.exit.i, %.loopexit.i
   %.3262380.i = phi i32 [ -98, %.loopexit.i ], [ %123, %sp_mod.exit.i ], [ %232, %231 ], [ %151, %136 ], [ %154, %153 ], [ %160, %156 ], [ 0, %.thread374.sink.split.i ], [ %301, %300 ], [ %307, %306 ], [ %255, %.lr.ph403.i ], [ %291, %286 ], [ %181, %.lr.ph399.i ], [ %173, %.lr.ph.i ]
-  tail call void @wolfSSL_Free(ptr noundef nonnull %78) #19
+  tail call void @wolfSSL_Free(ptr noundef nonnull %78) #20
   br label %_sp_exptmod_nct.exit
 
 _sp_exptmod_nct.exit:                             ; preds = %.thread.i, %73, %.thread374.i
@@ -11675,7 +11675,7 @@ define range(i32 -98, 1) i32 @sp_read_radix(ptr noundef captures(address_is_null
   ]
 
 10:                                               ; preds = %._crit_edge
-  %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.013.lcssa) #20
+  %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.013.lcssa) #21
   %12 = trunc i64 %11 to i32
   %.05074.i = add i32 %12, -1
   %13 = icmp sgt i32 %.05074.i, -1
@@ -13215,7 +13215,7 @@ _sp_sub_d.exit:                                   ; preds = %58, %.critedge.i96
 
 .lr.ph:                                           ; preds = %148, %.lr.ph.lr.ph
   %.077.ph220 = phi i32 [ %1, %.lr.ph.lr.ph ], [ %151, %148 ]
-  %87 = call i32 @wc_RNG_GenerateBlock(ptr noundef %3, ptr noundef nonnull %56, i32 noundef %29) #19
+  %87 = call i32 @wc_RNG_GenerateBlock(ptr noundef %3, ptr noundef nonnull %56, i32 noundef %29) #20
   %.not.us.us216 = icmp eq i32 %87, 0
   br i1 %.not87, label %.lr.ph.split.us.split.us, label %.lr.ph.split.preheader
 
@@ -13272,7 +13272,7 @@ _sp_sub_d.exit:                                   ; preds = %58, %.critedge.i96
   br i1 %110, label %_sp_cmp.exit, label %101, !llvm.loop !21
 
 sp_cmp_d.exit.us.us:                              ; preds = %101, %103, %95, %92, %90
-  %111 = call i32 @wc_RNG_GenerateBlock(ptr noundef %3, ptr noundef nonnull %56, i32 noundef %29) #19
+  %111 = call i32 @wc_RNG_GenerateBlock(ptr noundef %3, ptr noundef nonnull %56, i32 noundef %29) #20
   %.not.us.us = icmp eq i32 %111, 0
   br i1 %.not.us.us, label %.lr.ph217, label %.loopexit192
 
@@ -13351,7 +13351,7 @@ thread-pre-split:                                 ; preds = %118
   br i1 %145, label %_sp_cmp.exit, label %136, !llvm.loop !21
 
 sp_cmp_d.exit:                                    ; preds = %138, %136, %.lr.ph317, %thread-pre-split.thread267, %126, %129, %124
-  %146 = call i32 @wc_RNG_GenerateBlock(ptr noundef %3, ptr noundef nonnull %56, i32 noundef %29) #19
+  %146 = call i32 @wc_RNG_GenerateBlock(ptr noundef %3, ptr noundef nonnull %56, i32 noundef %29) #20
   %.not = icmp eq i32 %146, 0
   br i1 %.not, label %.lr.ph317, label %.loopexit192
 
@@ -15021,34 +15021,34 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smax.i16(i16, i16) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #18
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #19
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -15069,9 +15069,10 @@ attributes #14 = { nofree norecurse nosync nounwind uwtable "min-legal-vector-wi
 attributes #15 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nounwind }
-attributes #20 = { nounwind willreturn memory(read) }
+attributes #18 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { nounwind }
+attributes #21 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

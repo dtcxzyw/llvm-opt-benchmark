@@ -953,7 +953,7 @@ define hidden ptr @_PyHamt_Assoc(ptr noundef captures(ret: address, provenance) 
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !4
-  %5 = tail call i64 @PyObject_Hash(ptr noundef %1) #12
+  %5 = tail call i64 @PyObject_Hash(ptr noundef %1) #13
   %6 = icmp eq i64 %5, -1
   br i1 %6, label %_Py_NewRef.exit, label %hamt_hash.exit
 
@@ -985,7 +985,7 @@ hamt_hash.exit:                                   ; preds = %3
   br i1 %22, label %23, label %Py_DECREF.exit
 
 23:                                               ; preds = %20
-  tail call void @_Py_Dealloc(ptr noundef nonnull %13) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %13) #13
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %18, %20, %23
@@ -999,7 +999,7 @@ Py_DECREF.exit:                                   ; preds = %18, %20, %23
   br label %_Py_NewRef.exit
 
 28:                                               ; preds = %15
-  %29 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_Type) #12
+  %29 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_Type) #13
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %37
 
@@ -1015,13 +1015,13 @@ Py_DECREF.exit:                                   ; preds = %18, %20, %23
   br i1 %35, label %36, label %_Py_NewRef.exit
 
 36:                                               ; preds = %33
-  tail call void @_Py_Dealloc(ptr noundef nonnull %13) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %13) #13
   br label %_Py_NewRef.exit
 
 37:                                               ; preds = %28
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
-  tail call void @PyObject_GC_Track(ptr noundef nonnull %29) #12
+  tail call void @PyObject_GC_Track(ptr noundef nonnull %29) #13
   store ptr %13, ptr %38, align 8, !tbaa !8
   %39 = load i32, ptr %4, align 4, !tbaa !4
   %.not = icmp ne i32 %39, 0
@@ -1078,7 +1078,7 @@ define internal fastcc ptr @hamt_node_assoc(ptr noundef %0, i32 noundef %1, i32 
   br i1 %25, label %26, label %Py_DECREF.exit67.i
 
 26:                                               ; preds = %23
-  tail call void @_Py_Dealloc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 89016)) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 89016)) #13
   br label %Py_DECREF.exit67.i
 
 Py_DECREF.exit67.i:                               ; preds = %26, %23, %20
@@ -1088,7 +1088,7 @@ Py_DECREF.exit67.i:                               ; preds = %26, %23, %20
 28:                                               ; preds = %Py_DECREF.exit67.i
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %30 = load i64, ptr %29, align 8, !tbaa !19
-  %31 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_ArrayNode_Type) #12
+  %31 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_ArrayNode_Type) #13
   %32 = icmp eq ptr %31, null
   br i1 %32, label %59, label %hamt_node_array_new.exit
 
@@ -1139,7 +1139,7 @@ hamt_node_array_new.exit:                         ; preds = %28
   br i1 %63, label %64, label %hamt_node_array_assoc.exit
 
 64:                                               ; preds = %61
-  tail call void @_Py_Dealloc(ptr noundef nonnull %21) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %21) #13
   br label %hamt_node_array_assoc.exit
 
 65:                                               ; preds = %hamt_node_array_new.exit, %_Py_XNewRef.exit
@@ -1192,13 +1192,13 @@ _Py_XNewRef.exit:                                 ; preds = %65, %68, %71
   br i1 %86, label %87, label %hamt_node_array_assoc.exit
 
 87:                                               ; preds = %84
-  tail call void @_Py_Dealloc(ptr noundef nonnull %78) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %78) #13
   br label %hamt_node_array_assoc.exit
 
 88:                                               ; preds = %80
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %90 = load i64, ptr %89, align 8, !tbaa !19
-  %91 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_ArrayNode_Type) #12
+  %91 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_ArrayNode_Type) #13
   %92 = icmp eq ptr %91, null
   br i1 %92, label %128, label %hamt_node_array_new.exit.i
 
@@ -1272,7 +1272,7 @@ _Py_XNewRef.exit.i:                               ; preds = %124, %121, %118
   br i1 %132, label %133, label %hamt_node_array_assoc.exit
 
 133:                                              ; preds = %130
-  tail call void @_Py_Dealloc(ptr noundef nonnull %78) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %78) #13
   br label %hamt_node_array_assoc.exit
 
 hamt_node_array_clone.exit:                       ; preds = %_Py_XNewRef.exit.i
@@ -1290,7 +1290,7 @@ hamt_node_array_clone.exit:                       ; preds = %_Py_XNewRef.exit.i
   br i1 %139, label %140, label %hamt_node_array_assoc.exit
 
 140:                                              ; preds = %137
-  tail call void @_Py_Dealloc(ptr noundef nonnull %135) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %135) #13
   br label %hamt_node_array_assoc.exit
 
 141:                                              ; preds = %10
@@ -1313,7 +1313,7 @@ hamt_node_array_clone.exit:                       ; preds = %_Py_XNewRef.exit.i
   %.01319.i = phi i64 [ 0, %.lr.ph.i34 ], [ %157, %156 ]
   %150 = getelementptr ptr, ptr %148, i64 %.01319.i
   %151 = load ptr, ptr %150, align 8, !tbaa !110
-  %152 = tail call i32 @PyObject_RichCompareBool(ptr noundef %3, ptr noundef %151, i32 noundef 2) #12
+  %152 = tail call i32 @PyObject_RichCompareBool(ptr noundef %3, ptr noundef %151, i32 noundef 2) #13
   %153 = icmp slt i32 %152, 0
   br i1 %153, label %hamt_node_array_assoc.exit, label %154
 
@@ -1335,7 +1335,7 @@ hamt_node_array_clone.exit:                       ; preds = %_Py_XNewRef.exit.i
   %.val.i = phi i64 [ %.val.i35, %.loopexit.loopexit ], [ %.val18.i, %145 ]
   %159 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %2, %145 ]
   %160 = add i64 %.val.i, 2
-  %161 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_CollisionNode_Type, i64 noundef %160) #12
+  %161 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_CollisionNode_Type, i64 noundef %160) #13
   %162 = icmp eq ptr %161, null
   br i1 %162, label %hamt_node_array_assoc.exit, label %.preheader.i33
 
@@ -1463,7 +1463,7 @@ hamt_node_collision_find_index.exit:              ; preds = %154
 224:                                              ; preds = %hamt_node_collision_find_index.exit
   %225 = load i32, ptr %142, align 8, !tbaa !106
   %.val69.i = load i64, ptr %146, align 8, !tbaa !109
-  %226 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_CollisionNode_Type, i64 noundef %.val69.i) #12
+  %226 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_CollisionNode_Type, i64 noundef %.val69.i) #13
   %227 = icmp eq ptr %226, null
   br i1 %227, label %hamt_node_array_assoc.exit, label %.preheader.i
 
@@ -1566,11 +1566,11 @@ _Py_NewRef.exit27:                                ; preds = %._crit_edge51, %273
   br i1 %278, label %279, label %hamt_node_array_assoc.exit
 
 279:                                              ; preds = %276
-  tail call void @_Py_Dealloc(ptr noundef nonnull %270) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %270) #13
   br label %hamt_node_array_assoc.exit
 
 280:                                              ; preds = %141
-  %281 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef 2) #12
+  %281 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef 2) #13
   %282 = icmp eq ptr %281, null
   br i1 %282, label %hamt_node_array_assoc.exit, label %283
 
@@ -1637,7 +1637,7 @@ _Py_NewRef.exit:                                  ; preds = %283, %316
   br i1 %323, label %324, label %hamt_node_array_assoc.exit
 
 324:                                              ; preds = %321
-  tail call void @_Py_Dealloc(ptr noundef nonnull %281) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %281) #13
   br label %hamt_node_array_assoc.exit
 
 hamt_node_array_assoc.exit:                       ; preds = %149, %224, %280, %.loopexit, %_Py_NewRef.exit27, %276, %279, %222, %219, %_Py_NewRef.exit30, %324, %321, %_Py_NewRef.exit, %77, %75, %Py_DECREF.exit67.i, %64, %61, %59, %87, %84, %82, %133, %130, %128, %140, %137, %hamt_node_array_clone.exit, %8
@@ -1648,7 +1648,7 @@ hamt_node_array_assoc.exit:                       ; preds = %149, %224, %280, %.
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyHamt_Without(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = tail call i64 @PyObject_Hash(ptr noundef %1) #12
+  %4 = tail call i64 @PyObject_Hash(ptr noundef %1) #13
   %5 = icmp eq i64 %4, -1
   br i1 %5, label %hamt_hash.exit.thread, label %hamt_hash.exit
 
@@ -1695,7 +1695,7 @@ hamt_hash.exit:                                   ; preds = %2
   br label %_PyHamt_New.exit
 
 28:                                               ; preds = %hamt_hash.exit
-  %29 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_Type) #12
+  %29 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_Type) #13
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %38
 
@@ -1712,13 +1712,13 @@ hamt_hash.exit:                                   ; preds = %2
   br i1 %36, label %37, label %_PyHamt_New.exit
 
 37:                                               ; preds = %34
-  tail call void @_Py_Dealloc(ptr noundef nonnull %32) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %32) #13
   br label %_PyHamt_New.exit
 
 38:                                               ; preds = %28
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
-  tail call void @PyObject_GC_Track(ptr noundef nonnull %29) #12
+  tail call void @PyObject_GC_Track(ptr noundef nonnull %29) #13
   %40 = load ptr, ptr %3, align 8, !tbaa !18
   store ptr %40, ptr %39, align 8, !tbaa !8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1821,7 +1821,7 @@ define internal fastcc range(i32 0, 4) i32 @hamt_node_without(ptr noundef readon
   br i1 %52, label %53, label %Py_DECREF.exit71.i.thread
 
 53:                                               ; preds = %50
-  tail call void @_Py_Dealloc(ptr noundef nonnull %36) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %36) #13
   br label %Py_DECREF.exit71.i.thread
 
 54:                                               ; preds = %45
@@ -1867,7 +1867,7 @@ _Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit40, 
   br i1 %74, label %75, label %Py_DECREF.exit69.i
 
 75:                                               ; preds = %72
-  tail call void @_Py_Dealloc(ptr noundef nonnull %66) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %66) #13
   br label %Py_DECREF.exit69.i
 
 Py_DECREF.exit69.i:                               ; preds = %75, %72, %_Py_NewRef.exit
@@ -1882,7 +1882,7 @@ Py_DECREF.exit69.i:                               ; preds = %75, %72, %_Py_NewRe
   br i1 %79, label %80, label %Py_DECREF.exit67.i
 
 80:                                               ; preds = %77
-  tail call void @_Py_Dealloc(ptr noundef nonnull %36) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %36) #13
   br label %Py_DECREF.exit67.i
 
 Py_DECREF.exit67.i:                               ; preds = %80, %77, %Py_DECREF.exit69.i
@@ -1896,7 +1896,7 @@ Py_DECREF.exit71.i:                               ; preds = %38, %42, %35
   br i1 %82, label %.loopexit, label %83
 
 83:                                               ; preds = %Py_DECREF.exit71.i
-  %84 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %.val.i34) #12
+  %84 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %.val.i34) #13
   %85 = icmp eq ptr %84, null
   br i1 %85, label %Py_DECREF.exit71.i.thread, label %86
 
@@ -1997,7 +1997,7 @@ _Py_XNewRef.exit.i38:                             ; preds = %123, %120, %117
   br i1 %136, label %137, label %Py_DECREF.exit.i
 
 137:                                              ; preds = %134
-  tail call void @_Py_Dealloc(ptr noundef nonnull %132) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %132) #13
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %137, %134, %.loopexit
@@ -2010,7 +2010,7 @@ Py_DECREF.exit71.i.thread:                        ; preds = %83, %48, %50, %53, 
   br label %hamt_node_bitmap_without.exit
 
 138:                                              ; preds = %17
-  %139 = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %26, ptr noundef %3, i32 noundef 2) #12
+  %139 = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %26, ptr noundef %3, i32 noundef 2) #13
   %140 = icmp slt i32 %139, 0
   br i1 %140, label %hamt_node_bitmap_without.exit, label %141
 
@@ -2027,7 +2027,7 @@ Py_DECREF.exit71.i.thread:                        ; preds = %83, %48, %50, %53, 
 
 147:                                              ; preds = %143
   %148 = add i64 %.val76.i, -2
-  %149 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %148) #12
+  %149 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %148) #13
   %150 = icmp eq ptr %149, null
   br i1 %150, label %hamt_node_bitmap_clone_without.exit, label %151
 
@@ -2192,7 +2192,7 @@ hamt_node_bitmap_clone_without.exit:              ; preds = %147, %._crit_edge37
 228:                                              ; preds = %225
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %230 = load i64, ptr %229, align 8, !tbaa !19
-  %231 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_ArrayNode_Type) #12
+  %231 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_ArrayNode_Type) #13
   %232 = icmp eq ptr %231, null
   br i1 %232, label %268, label %hamt_node_array_new.exit.i
 
@@ -2267,7 +2267,7 @@ _Py_XNewRef.exit.i46:                             ; preds = %264, %261, %258
   br i1 %273, label %274, label %Py_DECREF.exit94.i
 
 274:                                              ; preds = %271
-  tail call void @_Py_Dealloc(ptr noundef nonnull %269) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %269) #13
   br label %Py_DECREF.exit94.i
 
 hamt_node_array_clone.exit:                       ; preds = %_Py_XNewRef.exit.i46
@@ -2286,7 +2286,7 @@ hamt_node_array_clone.exit:                       ; preds = %_Py_XNewRef.exit.i4
   br i1 %281, label %282, label %Py_DECREF.exit92.i
 
 282:                                              ; preds = %279
-  tail call void @_Py_Dealloc(ptr noundef nonnull %276) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %276) #13
   br label %Py_DECREF.exit92.i
 
 Py_DECREF.exit92.i:                               ; preds = %282, %279, %hamt_node_array_clone.exit
@@ -2331,7 +2331,7 @@ Py_DECREF.exit92.i:                               ; preds = %282, %279, %hamt_no
   br i1 %302, label %303, label %Py_DECREF.exit.i23
 
 303:                                              ; preds = %300
-  tail call void @_Py_Dealloc(ptr noundef nonnull %297) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %297) #13
   br label %Py_DECREF.exit.i23
 
 Py_DECREF.exit.i23:                               ; preds = %298, %300, %303, %293
@@ -2473,7 +2473,7 @@ Py_DECREF.exit94.i:                               ; preds = %268, %271, %274, %3
   %.01319.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %366, %365 ]
   %359 = getelementptr ptr, ptr %357, i64 %.01319.i.i
   %360 = load ptr, ptr %359, align 8, !tbaa !110
-  %361 = tail call i32 @PyObject_RichCompareBool(ptr noundef %3, ptr noundef %360, i32 noundef 2) #12
+  %361 = tail call i32 @PyObject_RichCompareBool(ptr noundef %3, ptr noundef %360, i32 noundef 2) #13
   %362 = icmp slt i32 %361, 0
   br i1 %362, label %hamt_node_bitmap_without.exit, label %363
 
@@ -2496,7 +2496,7 @@ hamt_node_collision_find_index.exit.i:            ; preds = %363
   ]
 
 369:                                              ; preds = %hamt_node_collision_find_index.exit.i
-  %370 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef 2) #12
+  %370 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef 2) #13
   %371 = icmp eq ptr %370, null
   br i1 %371, label %hamt_node_bitmap_without.exit, label %372
 
@@ -2596,7 +2596,7 @@ _Py_NewRef.exit50.i:                              ; preds = %_Py_NewRef.exit50.s
 426:                                              ; preds = %hamt_node_collision_find_index.exit.i
   %427 = load i32, ptr %352, align 8, !tbaa !106
   %428 = add i64 %.val48.i, -2
-  %429 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_CollisionNode_Type, i64 noundef %428) #12
+  %429 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_CollisionNode_Type, i64 noundef %428) #13
   %430 = icmp eq ptr %429, null
   br i1 %430, label %hamt_node_bitmap_without.exit, label %.preheader.i.i
 
@@ -2744,7 +2744,7 @@ define internal fastcc range(i32 0, 3) i32 @hamt_find(ptr noundef readonly captu
   br i1 %6, label %hamt_node_find.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call i64 @PyObject_Hash(ptr noundef %1) #12
+  %8 = tail call i64 @PyObject_Hash(ptr noundef %1) #13
   %9 = icmp eq i64 %8, -1
   br i1 %9, label %hamt_node_find.exit, label %hamt_hash.exit
 
@@ -2795,7 +2795,7 @@ tailrecurse.backedge.i:                           ; preds = %43, %25
   br label %tailrecurse.i
 
 37:                                               ; preds = %25
-  %38 = tail call i32 @PyObject_RichCompareBool(ptr noundef %1, ptr noundef nonnull %33, i32 noundef 2) #12
+  %38 = tail call i32 @PyObject_RichCompareBool(ptr noundef %1, ptr noundef nonnull %33, i32 noundef 2) #13
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %hamt_node_find.exit, label %40
 
@@ -2831,7 +2831,7 @@ tailrecurse.backedge.i:                           ; preds = %43, %25
   %.01319.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %63, %62 ]
   %56 = getelementptr ptr, ptr %54, i64 %.01319.i.i.i
   %57 = load ptr, ptr %56, align 8, !tbaa !110
-  %58 = tail call i32 @PyObject_RichCompareBool(ptr noundef %1, ptr noundef %57, i32 noundef 2) #12
+  %58 = tail call i32 @PyObject_RichCompareBool(ptr noundef %1, ptr noundef %57, i32 noundef 2) #13
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %hamt_node_find.exit, label %60
 
@@ -2907,7 +2907,7 @@ define hidden range(i32 -1, 2) i32 @_PyHamt_Eq(ptr noundef readonly captures(add
 23:                                               ; preds = %20
   %24 = load ptr, ptr %5, align 8, !tbaa !110
   %25 = load ptr, ptr %6, align 8, !tbaa !110
-  %26 = tail call i32 @PyObject_RichCompareBool(ptr noundef %24, ptr noundef %25, i32 noundef 2) #12
+  %26 = tail call i32 @PyObject_RichCompareBool(ptr noundef %24, ptr noundef %25, i32 noundef 2) #13
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %.thread19, label %28
 
@@ -3092,7 +3092,7 @@ define hidden i64 @_PyHamt_Len(ptr noundef readonly captures(none) %0) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal void @hamt_baseiter_tp_dealloc(ptr noundef %0) #0 {
-  tail call void @PyObject_GC_UnTrack(ptr noundef %0) #12
+  tail call void @PyObject_GC_UnTrack(ptr noundef %0) #13
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !18
   %.not.i = icmp eq ptr %3, null
@@ -3111,11 +3111,11 @@ define internal void @hamt_baseiter_tp_dealloc(ptr noundef %0) #0 {
   br i1 %8, label %9, label %hamt_baseiter_tp_clear.exit
 
 9:                                                ; preds = %6
-  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #13
   br label %hamt_baseiter_tp_clear.exit
 
 hamt_baseiter_tp_clear.exit:                      ; preds = %1, %4, %6, %9
-  tail call void @PyObject_GC_Del(ptr noundef nonnull %0) #12
+  tail call void @PyObject_GC_Del(ptr noundef nonnull %0) #13
   ret void
 }
 
@@ -3129,7 +3129,7 @@ define internal i32 @hamt_baseiter_tp_traverse(ptr noundef readonly captures(non
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i32 %1(ptr noundef nonnull %5, ptr noundef %2) #12
+  %7 = tail call i32 %1(ptr noundef nonnull %5, ptr noundef %2) #13
   %.not9.not = icmp eq i32 %7, 0
   br i1 %.not9.not, label %8, label %9
 
@@ -3161,7 +3161,7 @@ define internal noundef i32 @hamt_baseiter_tp_clear(ptr noundef captures(none) %
   br i1 %8, label %9, label %Py_DECREF.exit
 
 9:                                                ; preds = %6
-  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #13
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %9, %6, %4, %1
@@ -3183,7 +3183,7 @@ define internal ptr @hamt_baseiter_tp_iternext(ptr noundef captures(none) %0) #0
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr @PyExc_StopIteration, align 8, !tbaa !110
-  tail call void @PyErr_SetNone(ptr noundef %7) #12
+  tail call void @PyErr_SetNone(ptr noundef %7) #13
   br label %14
 
 8:                                                ; preds = %1
@@ -3191,7 +3191,7 @@ define internal ptr @hamt_baseiter_tp_iternext(ptr noundef captures(none) %0) #0
   %10 = load ptr, ptr %9, align 8, !tbaa !127
   %11 = load ptr, ptr %2, align 8, !tbaa !110
   %12 = load ptr, ptr %3, align 8, !tbaa !110
-  %13 = tail call ptr %10(ptr noundef %11, ptr noundef %12) #12
+  %13 = tail call ptr %10(ptr noundef %11, ptr noundef %12) #13
   br label %14
 
 14:                                               ; preds = %8, %6
@@ -3203,7 +3203,7 @@ define internal ptr @hamt_baseiter_tp_iternext(ptr noundef captures(none) %0) #0
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyHamt_NewIterItems(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamtItems_Type) #12
+  %2 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamtItems_Type) #13
   %3 = icmp eq ptr %2, null
   br i1 %3, label %hamt_baseiter_new.exit, label %4
 
@@ -3236,13 +3236,13 @@ hamt_baseiter_new.exit:                           ; preds = %1, %_Py_NewRef.exit
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @hamt_iter_yield_items(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = tail call ptr (i64, ...) @PyTuple_Pack(i64 noundef 2, ptr noundef %0, ptr noundef %1) #12
+  %3 = tail call ptr (i64, ...) @PyTuple_Pack(i64 noundef 2, ptr noundef %0, ptr noundef %1) #13
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyHamt_NewIterKeys(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamtKeys_Type) #12
+  %2 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamtKeys_Type) #13
   %3 = icmp eq ptr %2, null
   br i1 %3, label %hamt_baseiter_new.exit, label %4
 
@@ -3290,7 +3290,7 @@ _Py_NewRef.exit:                                  ; preds = %2, %5
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyHamt_NewIterValues(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamtValues_Type) #12
+  %2 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamtValues_Type) #13
   %3 = icmp eq ptr %2, null
   br i1 %3, label %hamt_baseiter_new.exit, label %4
 
@@ -3347,14 +3347,14 @@ define internal void @hamt_tp_dealloc(ptr noundef %0) #0 {
   br i1 %7, label %24, label %8
 
 8:                                                ; preds = %1
-  tail call void @PyObject_GC_UnTrack(ptr noundef %0) #12
+  tail call void @PyObject_GC_UnTrack(ptr noundef %0) #13
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !128
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %8
-  tail call void @PyObject_ClearWeakRefs(ptr noundef nonnull %0) #12
+  tail call void @PyObject_ClearWeakRefs(ptr noundef nonnull %0) #13
   br label %12
 
 12:                                               ; preds = %11, %8
@@ -3376,7 +3376,7 @@ define internal void @hamt_tp_dealloc(ptr noundef %0) #0 {
   br i1 %19, label %20, label %hamt_tp_clear.exit
 
 20:                                               ; preds = %17
-  tail call void @_Py_Dealloc(ptr noundef nonnull %14) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %14) #13
   br label %hamt_tp_clear.exit
 
 hamt_tp_clear.exit:                               ; preds = %12, %15, %17, %20
@@ -3384,7 +3384,7 @@ hamt_tp_clear.exit:                               ; preds = %12, %15, %17, %20
   %.val = load ptr, ptr %21, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %.val, i64 320
   %23 = load ptr, ptr %22, align 8, !tbaa !129
-  tail call void %23(ptr noundef nonnull %0) #12
+  tail call void %23(ptr noundef nonnull %0) #13
   br label %24
 
 24:                                               ; preds = %1, %hamt_tp_clear.exit
@@ -3401,7 +3401,7 @@ define internal i32 @hamt_tp_traverse(ptr noundef readonly captures(none) %0, pt
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i32 %1(ptr noundef nonnull %5, ptr noundef %2) #12
+  %7 = tail call i32 %1(ptr noundef nonnull %5, ptr noundef %2) #13
   %.not10 = icmp eq i32 %7, 0
   br i1 %.not10, label %8, label %9
 
@@ -3433,7 +3433,7 @@ define internal noundef i32 @hamt_tp_clear(ptr noundef captures(none) %0) #0 {
   br i1 %8, label %9, label %Py_DECREF.exit
 
 9:                                                ; preds = %6
-  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #13
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %9, %6, %4, %1
@@ -3501,7 +3501,7 @@ define internal ptr @hamt_tp_richcompare(ptr noundef readonly captures(address) 
 30:                                               ; preds = %27
   %31 = load ptr, ptr %6, align 8, !tbaa !110
   %32 = load ptr, ptr %7, align 8, !tbaa !110
-  %33 = tail call i32 @PyObject_RichCompareBool(ptr noundef %31, ptr noundef %32, i32 noundef 2) #12
+  %33 = tail call i32 @PyObject_RichCompareBool(ptr noundef %31, ptr noundef %32, i32 noundef 2) #13
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %_PyHamt_Eq.exit, label %35
 
@@ -3544,7 +3544,7 @@ _PyHamt_Eq.exit.thread:                           ; preds = %15, %13, %_PyHamt_E
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @hamt_tp_iter(ptr noundef %0) #0 {
-  %2 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamtKeys_Type) #12
+  %2 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamtKeys_Type) #13
   %3 = icmp eq ptr %2, null
   br i1 %3, label %_PyHamt_NewIterKeys.exit, label %4
 
@@ -3597,8 +3597,8 @@ _PyHamt_New.exit:                                 ; preds = %3, %11
 
 ; Function Attrs: nounwind uwtable
 define internal void @hamt_node_array_dealloc(ptr noundef %0) #0 {
-  tail call void @PyObject_GC_UnTrack(ptr noundef %0) #12
-  %2 = tail call ptr @PyThreadState_Get() #12
+  tail call void @PyObject_GC_UnTrack(ptr noundef %0) #13
+  %2 = tail call ptr @PyThreadState_Get() #13
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %4 = load i32, ptr %3, align 4, !tbaa !135
   %5 = icmp slt i32 %4, 51
@@ -3613,7 +3613,7 @@ define internal void @hamt_node_array_dealloc(ptr noundef %0) #0 {
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %6
-  tail call void @_PyTrash_thread_deposit_object(ptr noundef nonnull %2, ptr noundef nonnull %0) #12
+  tail call void @_PyTrash_thread_deposit_object(ptr noundef nonnull %2, ptr noundef nonnull %0) #13
   br label %35
 
 12:                                               ; preds = %6, %1
@@ -3627,7 +3627,7 @@ define internal void @hamt_node_array_dealloc(ptr noundef %0) #0 {
   %.val16 = load ptr, ptr %16, align 8, !tbaa !17
   %17 = getelementptr inbounds nuw i8, ptr %.val16, i64 320
   %18 = load ptr, ptr %17, align 8, !tbaa !129
-  tail call void %18(ptr noundef nonnull %0) #12
+  tail call void %18(ptr noundef nonnull %0) #13
   %19 = load i32, ptr %3, align 4, !tbaa !135
   %20 = add i32 %19, 1
   store i32 %20, ptr %3, align 4, !tbaa !135
@@ -3657,7 +3657,7 @@ define internal void @hamt_node_array_dealloc(ptr noundef %0) #0 {
   br i1 %31, label %32, label %Py_XDECREF.exit
 
 32:                                               ; preds = %29
-  tail call void @_Py_Dealloc(ptr noundef nonnull %26) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %26) #13
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %24, %27, %29, %32
@@ -3666,7 +3666,7 @@ Py_XDECREF.exit:                                  ; preds = %24, %27, %29, %32
   br i1 %exitcond.not, label %15, label %24, !llvm.loop !138
 
 34:                                               ; preds = %15
-  tail call void @_PyTrash_thread_destroy_chain(ptr noundef nonnull %2) #12
+  tail call void @_PyTrash_thread_destroy_chain(ptr noundef nonnull %2) #13
   br label %35
 
 35:                                               ; preds = %15, %34, %11
@@ -3686,7 +3686,7 @@ define internal i32 @hamt_node_array_traverse(ptr noundef readonly captures(none
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call i32 %1(ptr noundef nonnull %7, ptr noundef %2) #12
+  %9 = tail call i32 %1(ptr noundef nonnull %7, ptr noundef %2) #13
   %.not19 = icmp eq i32 %9, 0
   br i1 %.not19, label %10, label %12
 
@@ -3710,8 +3710,8 @@ define internal void @hamt_node_bitmap_dealloc(ptr noundef %0) #0 {
   br i1 %3, label %39, label %4
 
 4:                                                ; preds = %1
-  tail call void @PyObject_GC_UnTrack(ptr noundef nonnull %0) #12
-  %5 = tail call ptr @PyThreadState_Get() #12
+  tail call void @PyObject_GC_UnTrack(ptr noundef nonnull %0) #13
+  %5 = tail call ptr @PyThreadState_Get() #13
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 52
   %7 = load i32, ptr %6, align 4, !tbaa !135
   %8 = icmp slt i32 %7, 51
@@ -3726,7 +3726,7 @@ define internal void @hamt_node_bitmap_dealloc(ptr noundef %0) #0 {
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %9
-  tail call void @_PyTrash_thread_deposit_object(ptr noundef nonnull %5, ptr noundef nonnull %0) #12
+  tail call void @_PyTrash_thread_deposit_object(ptr noundef nonnull %5, ptr noundef nonnull %0) #13
   br label %39
 
 15:                                               ; preds = %9, %4
@@ -3759,7 +3759,7 @@ define internal void @hamt_node_bitmap_dealloc(ptr noundef %0) #0 {
   br i1 %27, label %28, label %Py_XDECREF.exit
 
 28:                                               ; preds = %25
-  tail call void @_Py_Dealloc(ptr noundef nonnull %22) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %22) #13
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %19, %23, %25, %28
@@ -3771,7 +3771,7 @@ Py_XDECREF.exit:                                  ; preds = %19, %23, %25, %28
   %.val21 = load ptr, ptr %30, align 8, !tbaa !17
   %31 = getelementptr inbounds nuw i8, ptr %.val21, i64 320
   %32 = load ptr, ptr %31, align 8, !tbaa !129
-  tail call void %32(ptr noundef nonnull %0) #12
+  tail call void %32(ptr noundef nonnull %0) #13
   %33 = load i32, ptr %6, align 4, !tbaa !135
   %34 = add i32 %33, 1
   store i32 %34, ptr %6, align 4, !tbaa !135
@@ -3783,7 +3783,7 @@ Py_XDECREF.exit:                                  ; preds = %19, %23, %25, %28
   br i1 %or.cond, label %38, label %39
 
 38:                                               ; preds = %.loopexit
-  tail call void @_PyTrash_thread_destroy_chain(ptr noundef nonnull %5) #12
+  tail call void @_PyTrash_thread_destroy_chain(ptr noundef nonnull %5) #13
   br label %39
 
 39:                                               ; preds = %14, %38, %.loopexit, %1
@@ -3810,7 +3810,7 @@ define internal i32 @hamt_node_bitmap_traverse(ptr noundef readonly captures(non
   br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call i32 %1(ptr noundef nonnull %11, ptr noundef %2) #12
+  %13 = tail call i32 %1(ptr noundef nonnull %11, ptr noundef %2) #13
   %.not20 = icmp eq i32 %13, 0
   br i1 %.not20, label %14, label %._crit_edge
 
@@ -3828,8 +3828,8 @@ define internal i32 @hamt_node_bitmap_traverse(ptr noundef readonly captures(non
 define internal void @hamt_node_collision_dealloc(ptr noundef %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 16
   %.val20 = load i64, ptr %2, align 8, !tbaa !109
-  tail call void @PyObject_GC_UnTrack(ptr noundef %0) #12
-  %3 = tail call ptr @PyThreadState_Get() #12
+  tail call void @PyObject_GC_UnTrack(ptr noundef %0) #13
+  %3 = tail call ptr @PyThreadState_Get() #13
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %5 = load i32, ptr %4, align 4, !tbaa !135
   %6 = icmp slt i32 %5, 51
@@ -3844,7 +3844,7 @@ define internal void @hamt_node_collision_dealloc(ptr noundef %0) #0 {
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %7
-  tail call void @_PyTrash_thread_deposit_object(ptr noundef nonnull %3, ptr noundef nonnull %0) #12
+  tail call void @_PyTrash_thread_deposit_object(ptr noundef nonnull %3, ptr noundef nonnull %0) #13
   br label %37
 
 13:                                               ; preds = %7, %1
@@ -3877,7 +3877,7 @@ define internal void @hamt_node_collision_dealloc(ptr noundef %0) #0 {
   br i1 %25, label %26, label %Py_XDECREF.exit
 
 26:                                               ; preds = %23
-  tail call void @_Py_Dealloc(ptr noundef nonnull %20) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %20) #13
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %17, %21, %23, %26
@@ -3889,7 +3889,7 @@ Py_XDECREF.exit:                                  ; preds = %17, %21, %23, %26
   %.val19 = load ptr, ptr %28, align 8, !tbaa !17
   %29 = getelementptr inbounds nuw i8, ptr %.val19, i64 320
   %30 = load ptr, ptr %29, align 8, !tbaa !129
-  tail call void %30(ptr noundef nonnull %0) #12
+  tail call void %30(ptr noundef nonnull %0) #13
   %31 = load i32, ptr %4, align 4, !tbaa !135
   %32 = add i32 %31, 1
   store i32 %32, ptr %4, align 4, !tbaa !135
@@ -3901,7 +3901,7 @@ Py_XDECREF.exit:                                  ; preds = %17, %21, %23, %26
   br i1 %or.cond, label %36, label %37
 
 36:                                               ; preds = %.loopexit
-  tail call void @_PyTrash_thread_destroy_chain(ptr noundef nonnull %3) #12
+  tail call void @_PyTrash_thread_destroy_chain(ptr noundef nonnull %3) #13
   br label %37
 
 37:                                               ; preds = %.loopexit, %36, %12
@@ -3928,7 +3928,7 @@ define internal i32 @hamt_node_collision_traverse(ptr noundef readonly captures(
   br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call i32 %1(ptr noundef nonnull %11, ptr noundef %2) #12
+  %13 = tail call i32 %1(ptr noundef nonnull %11, ptr noundef %2) #13
   %.not20 = icmp eq i32 %13, 0
   br i1 %.not20, label %14, label %._crit_edge
 
@@ -3994,7 +3994,7 @@ define internal fastcc ptr @hamt_node_bitmap_assoc(ptr noundef captures(ret: add
   br i1 %38, label %39, label %Py_DECREF.exit186
 
 39:                                               ; preds = %36
-  tail call void @_Py_Dealloc(ptr noundef nonnull %30) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %30) #13
   br label %Py_DECREF.exit186
 
 Py_DECREF.exit186:                                ; preds = %34, %36, %39
@@ -4014,7 +4014,7 @@ Py_DECREF.exit186:                                ; preds = %34, %36, %39
   br i1 %46, label %.loopexit, label %47
 
 47:                                               ; preds = %44
-  %48 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %.val.i) #12
+  %48 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %.val.i) #13
   %49 = icmp eq ptr %48, null
   br i1 %49, label %_Py_NewRef.exit, label %50
 
@@ -4115,11 +4115,11 @@ _Py_XNewRef.exit.i:                               ; preds = %87, %84, %81
   br i1 %100, label %101, label %_Py_NewRef.exit
 
 101:                                              ; preds = %98
-  tail call void @_Py_Dealloc(ptr noundef nonnull %96) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %96) #13
   br label %_Py_NewRef.exit
 
 102:                                              ; preds = %17
-  %103 = tail call i32 @PyObject_RichCompareBool(ptr noundef %3, ptr noundef nonnull %23, i32 noundef 2) #12
+  %103 = tail call i32 @PyObject_RichCompareBool(ptr noundef %3, ptr noundef nonnull %23, i32 noundef 2) #13
   %104 = icmp slt i32 %103, 0
   br i1 %104, label %_Py_NewRef.exit, label %105
 
@@ -4148,7 +4148,7 @@ _Py_XNewRef.exit.i:                               ; preds = %87, %84, %81
   br i1 %116, label %.loopexit278, label %117
 
 117:                                              ; preds = %114
-  %118 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %.val.i193) #12
+  %118 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %.val.i193) #13
   %119 = icmp eq ptr %118, null
   br i1 %119, label %_Py_NewRef.exit, label %120
 
@@ -4259,12 +4259,12 @@ _Py_NewRef.exit208:                               ; preds = %.loopexit278, %169
   br i1 %174, label %175, label %_Py_NewRef.exit
 
 175:                                              ; preds = %172
-  tail call void @_Py_Dealloc(ptr noundef nonnull %166) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %166) #13
   br label %_Py_NewRef.exit
 
 176:                                              ; preds = %105
   %177 = add i32 %1, 5
-  %178 = tail call i64 @PyObject_Hash(ptr noundef nonnull %23) #12
+  %178 = tail call i64 @PyObject_Hash(ptr noundef nonnull %23) #13
   %179 = icmp eq i64 %178, -1
   br i1 %179, label %_Py_NewRef.exit, label %hamt_hash.exit249
 
@@ -4277,7 +4277,7 @@ hamt_hash.exit249:                                ; preds = %176
   br i1 %184, label %185, label %234
 
 185:                                              ; preds = %hamt_hash.exit249
-  %186 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_CollisionNode_Type, i64 noundef 4) #12
+  %186 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_CollisionNode_Type, i64 noundef 4) #13
   %187 = icmp eq ptr %186, null
   br i1 %187, label %_Py_NewRef.exit, label %188
 
@@ -4378,7 +4378,7 @@ hamt_node_new_bitmap_or_collision.exit.thread254: ; preds = %231, %_Py_NewRef.ex
   br i1 %239, label %240, label %Py_DECREF.exit38.i
 
 240:                                              ; preds = %237
-  tail call void @_Py_Dealloc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 89016)) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 89016)) #13
   br label %Py_DECREF.exit38.i
 
 Py_DECREF.exit38.i:                               ; preds = %240, %237, %234
@@ -4402,7 +4402,7 @@ hamt_node_new_bitmap_or_collision.exit.thread257: ; preds = %Py_DECREF.exit38.i
   br i1 %247, label %248, label %hamt_node_new_bitmap_or_collision.exit
 
 248:                                              ; preds = %245
-  tail call void @_Py_Dealloc(ptr noundef nonnull %235) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %235) #13
   br label %hamt_node_new_bitmap_or_collision.exit
 
 hamt_node_new_bitmap_or_collision.exit:           ; preds = %248, %245, %242
@@ -4418,7 +4418,7 @@ hamt_node_new_bitmap_or_collision.exit:           ; preds = %248, %245, %242
   br i1 %252, label %.loopexit279, label %253
 
 253:                                              ; preds = %250
-  %254 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %.val.i209) #12
+  %254 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %.val.i209) #13
   %255 = icmp eq ptr %254, null
   br i1 %255, label %298, label %256
 
@@ -4511,7 +4511,7 @@ _Py_XNewRef.exit.i220:                            ; preds = %293, %290, %287
   br i1 %302, label %303, label %_Py_NewRef.exit
 
 303:                                              ; preds = %300
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.0.i256) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.0.i256) #13
   br label %_Py_NewRef.exit
 
 .loopexit279:                                     ; preds = %_Py_XNewRef.exit.i220, %hamt_node_bitmap_new.exit.i210, %250
@@ -4534,7 +4534,7 @@ _Py_XNewRef.exit.i220:                            ; preds = %293, %290, %287
   br i1 %312, label %313, label %Py_DECREF.exit178
 
 313:                                              ; preds = %310
-  tail call void @_Py_Dealloc(ptr noundef nonnull %308) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %308) #13
   br label %Py_DECREF.exit178
 
 Py_DECREF.exit178:                                ; preds = %.loopexit279, %310, %313
@@ -4552,7 +4552,7 @@ Py_DECREF.exit178:                                ; preds = %.loopexit279, %310,
   br i1 %319, label %320, label %Py_DECREF.exit
 
 320:                                              ; preds = %317
-  tail call void @_Py_Dealloc(ptr noundef nonnull %315) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %315) #13
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit178, %317, %320
@@ -4565,7 +4565,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit178, 
   br i1 %323, label %324, label %406
 
 324:                                              ; preds = %321
-  %325 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_ArrayNode_Type) #12
+  %325 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_ArrayNode_Type) #13
   %326 = icmp eq ptr %325, null
   br i1 %326, label %_Py_NewRef.exit, label %327
 
@@ -4649,7 +4649,7 @@ _Py_NewRef.exit224:                               ; preds = %370, %375
   br label %391
 
 378:                                              ; preds = %366
-  %379 = tail call i64 @PyObject_Hash(ptr noundef nonnull %368) #12
+  %379 = tail call i64 @PyObject_Hash(ptr noundef nonnull %368) #13
   %380 = icmp eq i64 %379, -1
   br i1 %380, label %.thread, label %hamt_hash.exit
 
@@ -4690,7 +4690,7 @@ hamt_hash.exit:                                   ; preds = %378
   br i1 %398, label %399, label %Py_XDECREF.exit
 
 399:                                              ; preds = %396
-  tail call void @_Py_Dealloc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 89016)) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 89016)) #13
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %.thread, %396, %399
@@ -4709,7 +4709,7 @@ Py_XDECREF.exit:                                  ; preds = %.thread, %396, %399
   br i1 %404, label %405, label %_Py_NewRef.exit
 
 405:                                              ; preds = %402
-  tail call void @_Py_Dealloc(ptr noundef nonnull %325) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %325) #13
   br label %_Py_NewRef.exit
 
 406:                                              ; preds = %321
@@ -4718,7 +4718,7 @@ Py_XDECREF.exit:                                  ; preds = %.thread, %396, %399
   %408 = shl nuw nsw i32 %322, 1
   %409 = add nuw nsw i32 %408, 2
   %410 = zext nneg i32 %409 to i64
-  %411 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %410) #12
+  %411 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %410) #13
   %412 = icmp eq ptr %411, null
   br i1 %412, label %_Py_NewRef.exit, label %hamt_node_bitmap_new.exit
 
@@ -4876,7 +4876,7 @@ define internal fastcc ptr @hamt_node_bitmap_clone(ptr noundef readonly captures
   br i1 %3, label %._crit_edge, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %.val) #12
+  %5 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %.val) #13
   %6 = icmp eq ptr %5, null
   br i1 %6, label %hamt_node_bitmap_new.exit.thread, label %7
 
@@ -4977,7 +4977,7 @@ define internal fastcc ptr @hamt_node_bitmap_new(i64 noundef %0) unnamed_addr #0
   br i1 %2, label %35, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %0) #12
+  %4 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %0) #13
   %5 = icmp eq ptr %4, null
   br i1 %5, label %35, label %6
 
@@ -5047,7 +5047,7 @@ define internal fastcc void @Py_XDECREF(ptr noundef %0) unnamed_addr #6 {
   br i1 %6, label %7, label %Py_DECREF.exit
 
 7:                                                ; preds = %4
-  tail call void @_Py_Dealloc(ptr noundef nonnull %0) #12
+  tail call void @_Py_Dealloc(ptr noundef nonnull %0) #13
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %7, %4, %2, %1
@@ -5056,7 +5056,7 @@ Py_DECREF.exit:                                   ; preds = %7, %4, %2, %1
 
 declare ptr @_PyObject_GC_NewVar(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #7
 
 declare ptr @_PyObject_GC_New(ptr noundef) local_unnamed_addr #3
@@ -5065,7 +5065,7 @@ declare ptr @_PyObject_GC_New(ptr noundef) local_unnamed_addr #3
 define internal fastcc ptr @hamt_node_array_clone(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load i64, ptr %2, align 8, !tbaa !19
-  %4 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_ArrayNode_Type) #12
+  %4 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_ArrayNode_Type) #13
   %5 = icmp eq ptr %4, null
   br i1 %5, label %hamt_node_array_new.exit.thread, label %hamt_node_array_new.exit
 
@@ -5137,12 +5137,12 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #3
 declare void @PyObject_GC_Track(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #7
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #8
 
 declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @hamt_baseiter_tp_len(ptr noundef readonly captures(none) %0) #8 {
+define internal i64 @hamt_baseiter_tp_len(ptr noundef readonly captures(none) %0) #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !125
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -5197,7 +5197,7 @@ define internal noundef ptr @hamt_tp_subscript(ptr noundef readonly captures(non
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr @PyExc_KeyError, align 8, !tbaa !110
-  tail call void @PyErr_SetObject(ptr noundef %12, ptr noundef %1) #12
+  tail call void @PyErr_SetObject(ptr noundef %12, ptr noundef %1) #13
   br label %_Py_NewRef.exit
 
 default.unreachable:                              ; preds = %2
@@ -5217,7 +5217,7 @@ define internal ptr @hamt_py_set(ptr noundef captures(ret: address, provenance) 
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = call i32 (ptr, ptr, i64, i64, ...) @PyArg_UnpackTuple(ptr noundef %1, ptr noundef nonnull @.str.7, i64 noundef 2, i64 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
+  %5 = call i32 (ptr, ptr, i64, i64, ...) @PyArg_UnpackTuple(ptr noundef %1, ptr noundef nonnull @.str.7, i64 noundef 2, i64 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %4) #13
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %6
 
@@ -5242,7 +5242,7 @@ define internal ptr @hamt_py_get(ptr noundef readonly captures(none) %0, ptr nou
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !110
-  %6 = call i32 (ptr, ptr, i64, i64, ...) @PyArg_UnpackTuple(ptr noundef %1, ptr noundef nonnull @.str.8, i64 noundef 1, i64 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
+  %6 = call i32 (ptr, ptr, i64, i64, ...) @PyArg_UnpackTuple(ptr noundef %1, ptr noundef nonnull @.str.8, i64 noundef 1, i64 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %4) #13
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %21, label %7
 
@@ -5303,7 +5303,7 @@ define internal ptr @hamt_py_delete(ptr noundef captures(ret: address, provenanc
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @hamt_py_items(ptr noundef %0, ptr readnone captures(none) %1) #0 {
-  %3 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamtItems_Type) #12
+  %3 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamtItems_Type) #13
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_PyHamt_NewIterItems.exit, label %5
 
@@ -5336,7 +5336,7 @@ _PyHamt_NewIterItems.exit:                        ; preds = %2, %_Py_NewRef.exit
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @hamt_py_keys(ptr noundef %0, ptr readnone captures(none) %1) #0 {
-  %3 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamtKeys_Type) #12
+  %3 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamtKeys_Type) #13
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_PyHamt_NewIterKeys.exit, label %5
 
@@ -5369,7 +5369,7 @@ _PyHamt_NewIterKeys.exit:                         ; preds = %2, %_Py_NewRef.exit
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @hamt_py_values(ptr noundef %0, ptr readnone captures(none) %1) #0 {
-  %3 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamtValues_Type) #12
+  %3 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamtValues_Type) #13
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_PyHamt_NewIterValues.exit, label %5
 
@@ -5409,16 +5409,16 @@ declare void @_PyTrash_thread_deposit_object(ptr noundef, ptr noundef) local_unn
 declare void @_PyTrash_thread_destroy_chain(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5427,12 +5427,13 @@ attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nounwind }
+attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

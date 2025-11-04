@@ -116,7 +116,7 @@ define void @_ZN14debug_module_tC2EP7simif_tRK21debug_module_config_t(ptr nounde
   br i1 %32, label %.noexc, label %_ZNSt6vectorI18hart_debug_state_tSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
 
 .noexc:                                           ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #24
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #25
   unreachable
 
 _ZNSt6vectorI18hart_debug_state_tSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
@@ -124,7 +124,7 @@ _ZNSt6vectorI18hart_debug_state_tSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; pr
   %34 = zext nneg i32 %33 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %35 = shl nuw nsw i64 %34, 2
-  %36 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %35) #25
+  %36 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %35) #26
   store ptr %36, ptr %19, align 8, !tbaa !49
   %37 = getelementptr inbounds nuw %struct.hart_debug_state_t, ptr %36, i64 %34
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -181,7 +181,7 @@ _ZNSt6vectorI18hart_debug_state_tSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; pr
   %63 = add i64 %56, 64
   %64 = lshr i64 %63, 3
   %65 = and i64 %64, 2305843009213693944
-  %66 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %65) #25
+  %66 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %65) #26
           to label %67 unwind label %76
 
 67:                                               ; preds = %62
@@ -207,7 +207,7 @@ _ZNSt6vectorI18hart_debug_state_tSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; pr
 76:                                               ; preds = %62
   %77 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %47) #26
+  tail call void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %47) #27
   br label %.body
 
 _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %67, %52
@@ -261,8 +261,8 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %67, %52
   %113 = load ptr, ptr %112, align 8, !tbaa !46
   %114 = getelementptr inbounds i8, ptr %113, i64 -8
   %115 = load i64, ptr %114, align 8, !tbaa !47
-  %116 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef nonnull @.str, i32 noundef 1023, i64 noundef %111, i64 noundef %115) #27
-  tail call void @exit(i32 noundef 1) #28
+  %116 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef nonnull @.str, i32 noundef 1023, i64 noundef %111, i64 noundef %115) #28
+  tail call void @exit(i32 noundef 1) #29
   unreachable
 
 117:                                              ; preds = %.loopexit
@@ -273,13 +273,13 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %67, %52
 119:                                              ; preds = %145, %121, %98, %92, %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit
   %120 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %47) #26
+  tail call void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %47) #27
   br label %.body
 
 121:                                              ; preds = %86
   %122 = load i32, ptr %5, align 8, !tbaa !17
   %123 = zext i32 %122 to i64
-  %124 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %123) #25
+  %124 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %123) #26
           to label %125 unwind label %119
 
 125:                                              ; preds = %121
@@ -384,7 +384,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %67, %52
   %189 = load ptr, ptr %188, align 8, !tbaa !82
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 12
   store i32 0, ptr %190, align 4, !tbaa !84
-  %191 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.06.015.i) #29
+  %191 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.06.015.i) #30
   %192 = icmp eq ptr %191, %169
   br i1 %192, label %._crit_edge.i, label %.lr.ph.i
 
@@ -428,7 +428,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %67, %52
   br label %207
 
 207:                                              ; preds = %205, %203, %._crit_edge.i
-  %208 = tail call i64 @random() #26
+  %208 = tail call i64 @random() #27
   %209 = trunc i64 %208 to i32
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   store i32 %209, ptr %210, align 8, !tbaa !196
@@ -445,7 +445,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %67, %52
   %214 = ptrtoint ptr %213 to i64
   %215 = ptrtoint ptr %211 to i64
   %216 = sub i64 %214, %215
-  tail call void @_ZdlPvm(ptr noundef nonnull %211, i64 noundef %216) #30
+  tail call void @_ZdlPvm(ptr noundef nonnull %211, i64 noundef %216) #31
   br label %_ZNSt6vectorI18hart_debug_state_tSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI18hart_debug_state_tSaIS0_EED2Ev.exit: ; preds = %212, %.body
@@ -529,7 +529,7 @@ define void @_ZN14debug_module_t5resetEv(ptr noundef nonnull align 8 captures(no
   %31 = load ptr, ptr %30, align 8, !tbaa !82
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store i32 0, ptr %32, align 4, !tbaa !84
-  %33 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.06.015) #29
+  %33 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.06.015) #30
   %34 = icmp eq ptr %33, %10
   br i1 %34, label %._crit_edge, label %.lr.ph
 
@@ -573,7 +573,7 @@ define void @_ZN14debug_module_t5resetEv(ptr noundef nonnull align 8 captures(no
   br label %.thread14
 
 .thread14:                                        ; preds = %._crit_edge, %47, %45
-  %49 = tail call i64 @random() #26
+  %49 = tail call i64 @random() #27
   %50 = trunc i64 %49 to i32
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   store i32 %50, ptr %51, align 8, !tbaa !196
@@ -595,7 +595,7 @@ define linkonce_odr void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef nonnull al
   %9 = ashr exact i64 %8, 3
   %10 = sub nsw i64 0, %9
   %11 = getelementptr inbounds i64, ptr %5, i64 %10
-  tail call void @_ZdlPvm(ptr noundef %11, i64 noundef %8) #30
+  tail call void @_ZdlPvm(ptr noundef %11, i64 noundef %8) #31
   store ptr null, ptr %0, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i, align 8
@@ -619,7 +619,7 @@ define void @_ZN14debug_module_tD2Ev(ptr noundef nonnull align 8 captures(none) 
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #30
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #31
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -637,7 +637,7 @@ define void @_ZN14debug_module_tD2Ev(ptr noundef nonnull align 8 captures(none) 
   %15 = ashr exact i64 %14, 3
   %16 = sub nsw i64 0, %15
   %17 = getelementptr inbounds i64, ptr %11, i64 %16
-  tail call void @_ZdlPvm(ptr noundef %17, i64 noundef %14) #30
+  tail call void @_ZdlPvm(ptr noundef %17, i64 noundef %14) #31
   store ptr null, ptr %7, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1248
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
@@ -660,7 +660,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %6, %9
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
   %25 = sub i64 %23, %24
-  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #30
+  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #31
   br label %_ZNSt6vectorI18hart_debug_state_tSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI18hart_debug_state_tSaIS0_EED2Ev.exit: ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, %20
@@ -672,8 +672,8 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN14debug_module_tD0Ev(ptr noundef nonnull align 8 dereferenceable(1372) %0) unnamed_addr #10 align 2 {
-  tail call void @_ZN14debug_module_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1372) %0) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 1376) #30
+  tail call void @_ZN14debug_module_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1372) %0) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 1376) #31
   ret void
 }
 
@@ -908,7 +908,7 @@ _ZNK14debug_module_t14hart_availableEj.exit.thread: ; preds = %70, %_ZNK14debug_
   br label %79
 
 79:                                               ; preds = %_ZNK14debug_module_t14hart_availableEj.exit.thread, %_ZNK14debug_module_t14hart_availableEj.exit, %65, %58
-  %80 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.045.050) #29
+  %80 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.045.050) #30
   %81 = icmp eq ptr %80, %52
   br i1 %81, label %.loopexit, label %58
 
@@ -934,7 +934,7 @@ _ZNK14debug_module_t14hart_availableEj.exit.thread: ; preds = %70, %_ZNK14debug_
   br i1 %.not.i.i.i, label %_ZNK14debug_module_t16selected_hart_idEv.exit, label %99
 
 99:                                               ; preds = %.loopexit
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %91, i64 noundef %98) #24
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %91, i64 noundef %98) #25
   unreachable
 
 _ZNK14debug_module_t16selected_hart_idEv.exit:    ; preds = %.loopexit
@@ -1043,7 +1043,7 @@ define noundef i64 @_ZNK14debug_module_t16selected_hart_idEv(ptr noundef nonnull
   br i1 %.not.i.i, label %_ZNKSt6vectorImSaImEE2atEm.exit, label %19
 
 19:                                               ; preds = %1
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %11, i64 noundef %18) #24
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %11, i64 noundef %18) #25
   unreachable
 
 _ZNKSt6vectorImSaImEE2atEm.exit:                  ; preds = %1
@@ -1076,7 +1076,7 @@ define noundef zeroext i1 @_ZNK14debug_module_t13hart_selectedEj(ptr noundef non
   br i1 %.not.i.i.i, label %_ZNK14debug_module_t16selected_hart_idEv.exit, label %21
 
 21:                                               ; preds = %2
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %13, i64 noundef %20) #24
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %13, i64 noundef %20) #25
   unreachable
 
 _ZNK14debug_module_t16selected_hart_idEv.exit:    ; preds = %2
@@ -1501,13 +1501,13 @@ define void @_ZN14debug_module_t7sb_readEv(ptr noundef nonnull align 8 captures(
 155:                                              ; preds = %153, %54
   %.pn = phi { ptr, i32 } [ %55, %54 ], [ %154, %153 ]
   %.033 = extractvalue { ptr, i32 } %.pn, 1
-  %156 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI10mem_trap_t) #26
+  %156 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI10mem_trap_t) #27
   %157 = icmp eq i32 %.033, %156
   br i1 %157, label %158, label %164
 
 158:                                              ; preds = %155
   %.0 = extractvalue { ptr, i32 } %.pn, 0
-  %159 = call ptr @__cxa_begin_catch(ptr %.0) #26
+  %159 = call ptr @__cxa_begin_catch(ptr %.0) #27
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   store i32 2, ptr %160, align 8, !tbaa !248
   call void @__cxa_end_catch()
@@ -1654,13 +1654,13 @@ define void @_ZN14debug_module_t8sb_writeEv(ptr noundef nonnull align 8 captures
           cleanup
           catch ptr @_ZTI10mem_trap_t
   %56 = extractvalue { ptr, i32 } %55, 1
-  %57 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI10mem_trap_t) #26
+  %57 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI10mem_trap_t) #27
   %58 = icmp eq i32 %56, %57
   br i1 %58, label %59, label %176
 
 59:                                               ; preds = %54
   %60 = extractvalue { ptr, i32 } %55, 0
-  %61 = call ptr @__cxa_begin_catch(ptr %60) #26
+  %61 = call ptr @__cxa_begin_catch(ptr %60) #27
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   store i32 2, ptr %62, align 8, !tbaa !248
   call void @__cxa_end_catch()
@@ -2125,7 +2125,7 @@ define noundef zeroext i1 @_ZN14debug_module_t8dmi_readEjPj(ptr noundef nonnull 
   br i1 %.not.i.i.i.i, label %_ZN14debug_module_t19selected_hart_stateEv.exit, label %156
 
 156:                                              ; preds = %._crit_edge
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %148, i64 noundef %155) #24
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %148, i64 noundef %155) #25
   unreachable
 
 _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %._crit_edge
@@ -2155,7 +2155,7 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %._crit_edge
   br i1 %.not.i.i.i.i124, label %_ZN14debug_module_t19selected_hart_stateEv.exit125, label %179
 
 179:                                              ; preds = %_ZN14debug_module_t19selected_hart_stateEv.exit
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %171, i64 noundef %178) #24
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %171, i64 noundef %178) #25
   unreachable
 
 _ZN14debug_module_t19selected_hart_stateEv.exit125: ; preds = %_ZN14debug_module_t19selected_hart_stateEv.exit
@@ -2252,7 +2252,7 @@ _ZN14debug_module_t19selected_hart_stateEv.exit125: ; preds = %_ZN14debug_module
   br i1 %.not.i.i.i.i126, label %_ZNK14debug_module_t16selected_hart_idEv.exit.i, label %257
 
 257:                                              ; preds = %239
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %249, i64 noundef %256) #24
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %249, i64 noundef %256) #25
   unreachable
 
 _ZNK14debug_module_t16selected_hart_idEv.exit.i:  ; preds = %239
@@ -2337,7 +2337,7 @@ _ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE11lower_boundERS5_.exit.i
   br i1 %298, label %.critedge.i, label %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE2atERS5_.exit
 
 .critedge.i:                                      ; preds = %295, %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE11lower_boundERS5_.exit.i, %280
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
 _ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE2atERS5_.exit: ; preds = %295
@@ -2378,7 +2378,7 @@ _ZNK14debug_module_t14hart_availableEj.exit.thread: ; preds = %_ZNKSt3mapImP11pr
   br label %_ZNK14debug_module_t13hart_selectedEj.exit.thread140
 
 _ZNK14debug_module_t13hart_selectedEj.exit.thread140: ; preds = %262, %305, %311, %310, %_ZNK14debug_module_t13hart_selectedEj.exit
-  %312 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0136.0152) #29
+  %312 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0136.0152) #30
   %313 = icmp eq ptr %312, %114
   br i1 %313, label %._crit_edge, label %239
 
@@ -2705,7 +2705,7 @@ _ZNK14debug_module_t13hart_selectedEj.exit.thread140: ; preds = %262, %305, %311
   br i1 %.not.i.i.i.i132, label %_ZN14debug_module_t19selected_hart_stateEv.exit134, label %549
 
 549:                                              ; preds = %531
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %541, i64 noundef %548) #24
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %541, i64 noundef %548) #25
   unreachable
 
 _ZN14debug_module_t19selected_hart_stateEv.exit134: ; preds = %531
@@ -2810,7 +2810,7 @@ _ZNK14debug_module_t14hart_availableEj.exit.thread: ; preds = %9, %_ZNK14debug_m
   br i1 %.not.i.i.i.i, label %_ZN14debug_module_t19selected_hart_stateEv.exit, label %43
 
 43:                                               ; preds = %22
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %35, i64 noundef %42) #24
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %35, i64 noundef %42) #25
   unreachable
 
 _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
@@ -3206,7 +3206,7 @@ define noundef nonnull align 1 dereferenceable(4) ptr @_ZN14debug_module_t19sele
   br i1 %.not.i.i.i, label %_ZNK14debug_module_t16selected_hart_idEv.exit, label %19
 
 19:                                               ; preds = %1
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %11, i64 noundef %18) #24
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %11, i64 noundef %18) #25
   unreachable
 
 _ZNK14debug_module_t16selected_hart_idEv.exit:    ; preds = %1
@@ -3590,7 +3590,7 @@ define noundef zeroext i1 @_ZN14debug_module_t9dmi_writeEjj(ptr noundef nonnull 
   br i1 %.not.i.i.i.i, label %_ZNK14debug_module_t16selected_hart_idEv.exit.i, label %160
 
 160:                                              ; preds = %141
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %152, i64 noundef %159) #24
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %152, i64 noundef %159) #25
   unreachable
 
 _ZNK14debug_module_t16selected_hart_idEv.exit.i:  ; preds = %141
@@ -3707,7 +3707,7 @@ _ZNK14debug_module_t14hart_availableEj.exit115.thread: ; preds = %214, %_ZNK14de
   br label %_ZNK14debug_module_t13hart_selectedEj.exit.thread131
 
 _ZNK14debug_module_t13hart_selectedEj.exit.thread131: ; preds = %165, %211, %_ZNK14debug_module_t14hart_availableEj.exit115, %_ZNK14debug_module_t14hart_availableEj.exit115.thread, %_ZNK14debug_module_t13hart_selectedEj.exit
-  %223 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0124.0142) #29
+  %223 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0124.0142) #30
   %224 = icmp eq ptr %223, %132
   br i1 %224, label %._crit_edge, label %141
 
@@ -3728,7 +3728,7 @@ _ZNK14debug_module_t13hart_selectedEj.exit.thread131: ; preds = %165, %211, %_ZN
   %235 = getelementptr inbounds nuw i8, ptr %.sroa.0120.0143, i64 40
   %236 = load ptr, ptr %235, align 8, !tbaa !82
   tail call void @_ZN11processor_t5resetEv(ptr noundef nonnull align 8 dereferenceable(266872) %236)
-  %237 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0120.0143) #29
+  %237 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0120.0143) #30
   %238 = icmp eq ptr %237, %233
   br i1 %238, label %_ZN14debug_module_t13sb_read_startEv.exit, label %.lr.ph145
 
@@ -4019,7 +4019,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %_ZNSt14_Bit_referen
 
 409:                                              ; preds = %401
   store i8 0, ptr %4, align 1, !tbaa !76
-  %410 = tail call i64 @random() #26
+  %410 = tail call i64 @random() #27
   %411 = trunc i64 %410 to i32
   store i32 %411, ptr %402, align 8, !tbaa !196
   br label %_ZN14debug_module_t13sb_read_startEv.exit
@@ -4124,7 +4124,7 @@ define linkonce_odr void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE17_M_realloc_inser
   br i1 %10, label %11, label %_ZNKSt6vectorISt5tupleIJmmhEESaIS1_EE12_M_check_lenEmPKc.exit
 
 11:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #24
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #25
   unreachable
 
 _ZNKSt6vectorISt5tupleIJmmhEESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
@@ -4139,7 +4139,7 @@ _ZNKSt6vectorISt5tupleIJmmhEESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
   %.not.i = icmp ne i64 %16, 0
   tail call void @llvm.assume(i1 %.not.i)
   %19 = mul nuw nsw i64 %16, 24
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #25
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #26
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
   %22 = load i8, ptr %2, align 8, !tbaa !67
   store i8 %22, ptr %21, align 1, !tbaa !67
@@ -4210,7 +4210,7 @@ _ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; preds
   %50 = load ptr, ptr %48, align 8, !tbaa !285
   %51 = ptrtoint ptr %50 to i64
   %52 = sub i64 %51, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %52) #30
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %52) #31
   br label %_ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %49
@@ -4232,7 +4232,7 @@ declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #17
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_debug_module.cc() #19 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #26
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #27
   ret void
 }
 
@@ -4242,23 +4242,23 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #21
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #22
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #22
+declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #23
+declare void @llvm.assume(i1 noundef) #24
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4281,16 +4281,17 @@ attributes #17 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-si
 attributes #18 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #24 = { noreturn }
-attributes #25 = { builtin allocsize(0) }
-attributes #26 = { nounwind }
-attributes #27 = { cold nounwind }
-attributes #28 = { cold noreturn nounwind }
-attributes #29 = { nounwind willreturn memory(read) }
-attributes #30 = { builtin nounwind }
+attributes #21 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #25 = { noreturn }
+attributes #26 = { builtin allocsize(0) }
+attributes #27 = { nounwind }
+attributes #28 = { cold nounwind }
+attributes #29 = { cold noreturn nounwind }
+attributes #30 = { nounwind willreturn memory(read) }
+attributes #31 = { builtin nounwind }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2}

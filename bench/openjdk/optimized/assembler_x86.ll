@@ -121,7 +121,7 @@ define hidden void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef n
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %1, ptr %17, align 8, !alias.scope !6
   %18 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV24external_word_Relocation, i64 32), align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %0) #18
+  call void %18(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %0) #19
   br label %45
 
 19:                                               ; preds = %3
@@ -135,7 +135,7 @@ define hidden void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef n
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 -1, ptr %23, align 8, !alias.scope !11
   %24 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV24internal_word_Relocation, i64 32), align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %0) #18
+  call void %24(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %0) #19
   br label %45
 
 25:                                               ; preds = %3
@@ -147,7 +147,7 @@ define hidden void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef n
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %28, align 4, !alias.scope !16
   %29 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV27opt_virtual_call_Relocation, i64 32), align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %0) #18
+  call void %29(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %0) #19
   br label %45
 
 30:                                               ; preds = %3
@@ -159,7 +159,7 @@ define hidden void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef n
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 0, ptr %33, align 4, !alias.scope !21
   %34 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV22static_call_Relocation, i64 32), align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %0) #18
+  call void %34(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %0) #19
   br label %45
 
 35:                                               ; preds = %3
@@ -169,21 +169,21 @@ define hidden void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef n
   store i32 6, ptr %37, align 8, !alias.scope !26
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV23runtime_call_Relocation, i64 16), ptr %8, align 8, !alias.scope !26
   %38 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV23runtime_call_Relocation, i64 32), align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %0) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %0) #19
   br label %45
 
 39:                                               ; preds = %3, %3
-  call void @_ZN10Relocation11spec_simpleEN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.RelocationHolder) align 8 %9, i32 noundef %2) #18
+  call void @_ZN10Relocation11spec_simpleEN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.RelocationHolder) align 8 %9, i32 noundef %2) #19
   %40 = load ptr, ptr %9, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
-  call void %42(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %0) #18
+  call void %42(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %0) #19
   br label %45
 
 43:                                               ; preds = %3
   %44 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %44, align 1
-  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 116) #19
+  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 116) #20
   unreachable
 
 45:                                               ; preds = %3, %3, %3, %39, %35, %30, %25, %19, %14
@@ -199,7 +199,7 @@ declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) loc
 define hidden void @_ZN7Address10make_arrayE12ArrayAddress(ptr dead_on_unwind noalias readnone sret(%class.Address) align 8 captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3, align 1
-  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 128) #19
+  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 128) #20
   unreachable
 }
 
@@ -244,7 +244,7 @@ define hidden void @_ZN7AddressC2EiPhN9relocInfo9relocTypeE(ptr noundef nonnull 
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %2, ptr %20, align 8, !alias.scope !31
   %21 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV24external_word_Relocation, i64 32), align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %21(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   br label %38
 
 22:                                               ; preds = %4
@@ -258,7 +258,7 @@ define hidden void @_ZN7AddressC2EiPhN9relocInfo9relocTypeE(ptr noundef nonnull 
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 -1, ptr %26, align 8, !alias.scope !36
   %27 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV24internal_word_Relocation, i64 32), align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   br label %38
 
 28:                                               ; preds = %4
@@ -268,21 +268,21 @@ define hidden void @_ZN7AddressC2EiPhN9relocInfo9relocTypeE(ptr noundef nonnull 
   store i32 6, ptr %30, align 8, !alias.scope !41
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV23runtime_call_Relocation, i64 16), ptr %7, align 8, !alias.scope !41
   %31 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV23runtime_call_Relocation, i64 32), align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %31(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   br label %38
 
 32:                                               ; preds = %4, %4
-  call void @_ZN10Relocation11spec_simpleEN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.RelocationHolder) align 8 %8, i32 noundef %3) #18
+  call void @_ZN10Relocation11spec_simpleEN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.RelocationHolder) align 8 %8, i32 noundef %3) #19
   %33 = load ptr, ptr %8, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   br label %38
 
 36:                                               ; preds = %4
   %37 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %37, align 1
-  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 158) #19
+  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 158) #20
   unreachable
 
 38:                                               ; preds = %4, %32, %28, %22, %17
@@ -299,16 +299,16 @@ define hidden void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_
   %9 = load ptr, ptr @_ZN16RelocationHolder4noneE, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(20) @_ZN16RelocationHolder4noneE, ptr noundef nonnull align 8 dereferenceable(40) %7) #18
+  call void %11(ptr noundef nonnull align 8 dereferenceable(20) @_ZN16RelocationHolder4noneE, ptr noundef nonnull align 8 dereferenceable(40) %7) #19
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  call void @_ZN10Relocation11spec_simpleEN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.RelocationHolder) align 8 %8, i32 noundef %5) #18
+  call void @_ZN10Relocation11spec_simpleEN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.RelocationHolder) align 8 %8, i32 noundef %5) #19
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %7) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %7) #19
   br label %16
 
 16:                                               ; preds = %12, %6
@@ -339,7 +339,7 @@ define hidden void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_
   %25 = load ptr, ptr %7, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %22) #18
+  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %22) #19
   ret void
 }
 
@@ -396,7 +396,7 @@ define hidden void @_ZN9Assembler6membarENS_16Membar_mask_bitsE(ptr noundef nonn
   br i1 %.not, label %63, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call noundef i32 @_ZN10VM_Version12L1_line_sizeEv() #18
+  %9 = tail call noundef i32 @_ZN10VM_Version12L1_line_sizeEv() #19
   %10 = sub i32 0, %9
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %10, i32 -128)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -433,14 +433,14 @@ define hidden void @_ZN9Assembler6membarENS_16Membar_mask_bitsE(ptr noundef nonn
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %29 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %28) #18
+  call void %29(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %28) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i1 noundef zeroext false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %31 = load ptr, ptr %21, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %30) #18
+  call void %33(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %30) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %34 = load ptr, ptr %11, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -453,7 +453,7 @@ define hidden void @_ZN9Assembler6membarENS_16Membar_mask_bitsE(ptr noundef nonn
   %39 = load ptr, ptr %30, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %38) #18
+  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %38) #19
   %.sroa.01.0.copyload.i.i = load i32, ptr %3, align 8
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.sroa.0.0.copyload.i.i = load i32, ptr %42, align 4
@@ -520,14 +520,14 @@ define hidden void @_ZN9Assembler4addlE7Addressi(ptr noundef nonnull readonly al
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i1 noundef zeroext false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = load ptr, ptr %12, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #19
   call void @_ZN9Assembler18emit_arith_operandEi8Register7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 129, i32 0, ptr noundef nonnull %5, i32 noundef %2)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -542,7 +542,7 @@ define hidden void @_ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi(ptr noundef
   br i1 %6, label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit, label %7
 
 7:                                                ; preds = %4
-  call void @_ZN10Relocation11spec_simpleEN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.RelocationHolder) align 8 %5, i32 noundef %2) #18
+  call void @_ZN10Relocation11spec_simpleEN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.RelocationHolder) align 8 %5, i32 noundef %2) #19
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load i32, ptr %8, align 8
   %.not.i = icmp eq i32 %9, 0
@@ -555,7 +555,7 @@ define hidden void @_ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi(ptr noundef
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %..i = select i1 %10, i32 1, i32 %3
-  call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %12, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef %..i) #18
+  call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %12, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef %..i) #19
   br label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit
 
 _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit: ; preds = %.sink.split.i, %7, %4
@@ -584,7 +584,7 @@ define hidden void @_ZN9Assembler9emit_dataEiRK16RelocationHolderi(ptr noundef n
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %. = select i1 %7, i32 1, i32 %3
-  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %.) #18
+  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %.) #19
   br label %12
 
 12:                                               ; preds = %.sink.split, %4
@@ -671,7 +671,7 @@ define hidden void @_ZN9Assembler10emit_arithEii8Registeri(ptr noundef nonnull r
 32:                                               ; preds = %28
   %33 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %33, align 1
-  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 327) #19
+  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 327) #20
   unreachable
 
 switch.lookup:                                    ; preds = %28
@@ -781,7 +781,7 @@ define hidden void @_ZN9Assembler18emit_arith_operandEi8Register7Addressi(ptr no
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %18) #18
+  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %18) #19
   %.sroa.01.0.copyload.i = load i32, ptr %6, align 8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %23, align 4
@@ -826,7 +826,7 @@ define hidden void @_ZN9Assembler18emit_arith_operandEi8Register7Addressi(ptr no
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %.sroa.01.0.copyload.i8 = load i32, ptr %7, align 8
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.0.0.copyload.i9 = load i32, ptr %57, align 4
@@ -909,7 +909,7 @@ define hidden void @_ZN9Assembler24emit_arith_operand_imm32Ei8Register7Addressi(
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %13) #18
+  call void %17(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %13) #19
   %.sroa.01.0.copyload.i = load i32, ptr %6, align 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %18, align 4
@@ -1355,7 +1355,7 @@ define hidden void @_ZN9Assembler19emit_operand_helperEiiiN7Address11ScaleFactor
   %74 = load ptr, ptr %62, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8
-  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %74, ptr noundef %76, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 1) #18
+  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %74, ptr noundef %76, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 1) #19
   br label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit
 
 _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit: ; preds = %56, %.sink.split.i
@@ -1442,7 +1442,7 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit: ; preds = %56, %.sink.split
   %124 = load ptr, ptr %113, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = load ptr, ptr %125, align 8
-  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %124, ptr noundef %126, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 1) #18
+  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %124, ptr noundef %126, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 1) #19
   br label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit66
 
 _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit66: ; preds = %112, %.sink.split.i65
@@ -1521,7 +1521,7 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit66: ; preds = %112, %.sink.sp
   %172 = load ptr, ptr %163, align 8
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %174 = load ptr, ptr %173, align 8
-  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %172, ptr noundef %174, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 1) #18
+  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %172, ptr noundef %174, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 1) #19
   br label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit69
 
 _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit69: ; preds = %159, %.sink.split.i68
@@ -1565,7 +1565,7 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit69: ; preds = %159, %.sink.sp
   %198 = load ptr, ptr %186, align 8
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %200 = load ptr, ptr %199, align 8
-  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %198, ptr noundef %200, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 1) #18
+  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %198, ptr noundef %200, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 1) #19
   br label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit72
 
 _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit72: ; preds = %181, %.sink.split.i71
@@ -1611,7 +1611,7 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit72: ; preds = %181, %.sink.sp
   br i1 %.not.i73, label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit75, label %.sink.split.i74
 
 .sink.split.i74:                                  ; preds = %214
-  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %216, ptr noundef %223, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 1) #18
+  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %216, ptr noundef %223, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 1) #19
   %.pre = load ptr, ptr %207, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre87 = load ptr, ptr %.phi.trans.insert, align 8
@@ -1641,7 +1641,7 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit75: ; preds = %214, %.sink.sp
   %238 = load ptr, ptr %207, align 8
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
   %240 = load ptr, ptr %239, align 8
-  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %238, ptr noundef %240, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 1) #18
+  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %238, ptr noundef %240, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 1) #19
   br label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit78
 
 _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit78: ; preds = %234, %.sink.split.i77
@@ -1961,7 +1961,7 @@ thread-pre-split.backedge.loopexit:               ; preds = %.loopexit89, %.loop
 16:                                               ; preds = %.outer
   %17 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %17, align 1
-  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 919) #19
+  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 919) #20
   unreachable
 
 18:                                               ; preds = %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89
@@ -2088,7 +2088,7 @@ thread-pre-split.backedge.loopexit:               ; preds = %.loopexit89, %.loop
   store i8 88, ptr %34, align 1
   %35 = load i8, ptr %23, align 1
   %36 = zext i8 %35 to i32
-  tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 1012, ptr noundef nonnull @.str.4, i32 noundef %36) #19
+  tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 1012, ptr noundef nonnull @.str.4, i32 noundef %36) #20
   unreachable
 
 37:                                               ; preds = %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89
@@ -2106,7 +2106,7 @@ thread-pre-split.backedge.loopexit:               ; preds = %.loopexit89, %.loop
 44:                                               ; preds = %41
   %45 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %45, align 1
-  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 1045) #19
+  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 1045) #20
   unreachable
 
 46:                                               ; preds = %.loopexit89
@@ -2222,7 +2222,7 @@ thread-pre-split.backedge.loopexit:               ; preds = %.loopexit89, %.loop
 85:                                               ; preds = %.loopexit89
   %86 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %86, align 1
-  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 1206) #19
+  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 1206) #20
   unreachable
 
 .loopexit.loopexit293:                            ; preds = %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89
@@ -2510,14 +2510,14 @@ define hidden void @_ZN9Assembler4adclE7Addressi(ptr noundef nonnull readonly al
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i1 noundef zeroext false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = load ptr, ptr %12, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #19
   call void @_ZN9Assembler18emit_arith_operandEi8Register7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 129, i32 2, ptr noundef nonnull %5, i32 noundef %2)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -2557,7 +2557,7 @@ define hidden void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull readonly 
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %22) #18
+  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %22) #19
   %.sroa.0.0.copyload.i.i = load i32, ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i5.i = load i32, ptr %27, align 4
@@ -2679,7 +2679,7 @@ define hidden void @_ZN9Assembler4adclE7Address8Register(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -2692,7 +2692,7 @@ define hidden void @_ZN9Assembler4adclE7Address8Register(ptr noundef nonnull rea
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -2763,7 +2763,7 @@ define hidden void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 8
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.0.copyload.i6.i = load i32, ptr %36, align 4
@@ -3104,7 +3104,7 @@ define hidden void @_ZN9Assembler4adclE8Register7Address(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -3117,7 +3117,7 @@ define hidden void @_ZN9Assembler4adclE8Register7Address(ptr noundef nonnull rea
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -3255,7 +3255,7 @@ define hidden void @_ZN9Assembler4addbE7Addressi(ptr noundef nonnull readonly al
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -3268,7 +3268,7 @@ define hidden void @_ZN9Assembler4addbE7Addressi(ptr noundef nonnull readonly al
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -3316,7 +3316,7 @@ define hidden void @_ZN9Assembler4addbE7Address8Register(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -3329,7 +3329,7 @@ define hidden void @_ZN9Assembler4addbE7Address8Register(ptr noundef nonnull rea
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -3617,7 +3617,7 @@ define hidden void @_ZN9Assembler4addwE7Addressi(ptr noundef nonnull readonly al
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i1 noundef zeroext false)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -3630,7 +3630,7 @@ define hidden void @_ZN9Assembler4addwE7Addressi(ptr noundef nonnull readonly al
   %25 = load ptr, ptr %16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #18
+  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %28, align 4
@@ -3685,7 +3685,7 @@ define hidden void @_ZN9Assembler4addwE7Address8Register(ptr noundef nonnull rea
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false, i1 noundef zeroext false)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -3698,7 +3698,7 @@ define hidden void @_ZN9Assembler4addwE7Address8Register(ptr noundef nonnull rea
   %25 = load ptr, ptr %16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #18
+  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %28, align 4
@@ -3744,7 +3744,7 @@ define hidden void @_ZN9Assembler4addlE7Address8Register(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -3757,7 +3757,7 @@ define hidden void @_ZN9Assembler4addlE7Address8Register(ptr noundef nonnull rea
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -3915,7 +3915,7 @@ define hidden void @_ZN9Assembler4addlE8Register7Address(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -3928,7 +3928,7 @@ define hidden void @_ZN9Assembler4addlE8Register7Address(ptr noundef nonnull rea
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -4325,7 +4325,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4)
   %37 = load ptr, ptr %7, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -4338,7 +4338,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %42 = load ptr, ptr %33, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
@@ -4434,7 +4434,7 @@ define hidden void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexS
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %25) #18
+  call void %29(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %25) #19
   call void @_ZN9Assembler10vex_prefixE7AddressiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %10, i32 noundef %spec.select, i32 noundef %19, i32 noundef %4, i32 noundef %5, ptr noundef %6)
   br label %79
 
@@ -4445,7 +4445,7 @@ define hidden void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexS
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   %36 = load i8, ptr %6, align 8
   %37 = trunc i8 %36 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4476,7 +4476,7 @@ define hidden void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexS
   %52 = load ptr, ptr %31, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(40) %51) #18
+  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(40) %51) #19
   call void @_ZN9Assembler7prefixqE7Address11XMMRegister(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull %8, i32 %1)
   br label %60
 
@@ -4486,7 +4486,7 @@ define hidden void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexS
   %57 = load ptr, ptr %31, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(40) %56) #18
+  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(40) %56) #19
   call void @_ZN9Assembler6prefixE7Address11XMMRegister(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull %9, i32 %1)
   br label %60
 
@@ -4668,7 +4668,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4)
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -4681,7 +4681,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
@@ -4775,7 +4775,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %24) #18
+  call void %28(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %3)
   %29 = load ptr, ptr %6, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -4788,7 +4788,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %34 = load ptr, ptr %25, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %38 = load i8, ptr %37, align 4
   %39 = trunc i8 %38 to i1
@@ -5265,7 +5265,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %24) #18
+  call void %28(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %3)
   %29 = load ptr, ptr %6, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -5278,7 +5278,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %34 = load ptr, ptr %25, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %38 = load i8, ptr %37, align 4
   %39 = trunc i8 %38 to i1
@@ -5525,7 +5525,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %24) #18
+  call void %28(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %3)
   %29 = load ptr, ptr %6, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -5538,7 +5538,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %34 = load ptr, ptr %25, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %38 = load i8, ptr %37, align 4
   %39 = trunc i8 %38 to i1
@@ -5785,7 +5785,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %24) #18
+  call void %28(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %3)
   %29 = load ptr, ptr %6, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -5798,7 +5798,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %34 = load ptr, ptr %25, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %38 = load i8, ptr %37, align 4
   %39 = trunc i8 %38 to i1
@@ -6016,7 +6016,7 @@ define hidden void @_ZN9Assembler4andbE7Address8Register(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext true, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -6029,7 +6029,7 @@ define hidden void @_ZN9Assembler4andbE7Address8Register(ptr noundef nonnull rea
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -6167,14 +6167,14 @@ define hidden void @_ZN9Assembler4andlE7Addressi(ptr noundef nonnull readonly al
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i1 noundef zeroext false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = load ptr, ptr %12, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #19
   call void @_ZN9Assembler18emit_arith_operandEi8Register7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 129, i32 4, ptr noundef nonnull %5, i32 noundef %2)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -6310,7 +6310,7 @@ define hidden void @_ZN9Assembler4andlE7Address8Register(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -6323,7 +6323,7 @@ define hidden void @_ZN9Assembler4andlE7Address8Register(ptr noundef nonnull rea
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -6369,7 +6369,7 @@ define hidden void @_ZN9Assembler4andlE8Register7Address(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -6382,7 +6382,7 @@ define hidden void @_ZN9Assembler4andlE8Register7Address(ptr noundef nonnull rea
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -6635,7 +6635,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %2 to i64
   %38 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -6658,7 +6658,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %52 = load ptr, ptr %33, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #18
+  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #19
   %.sroa.01.0.copyload.i = load i32, ptr %7, align 8
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %55, align 4
@@ -7480,7 +7480,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   %36 = sext i32 %1 to i64
   %37 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %36
   %38 = ptrtoint ptr %37 to i64
@@ -7498,7 +7498,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %46 = load ptr, ptr %32, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %.sroa.01.0.copyload.i = load i32, ptr %6, align 8
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %49, align 4
@@ -7659,7 +7659,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   %36 = sext i32 %1 to i64
   %37 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %36
   %38 = ptrtoint ptr %37 to i64
@@ -7677,7 +7677,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %46 = load ptr, ptr %32, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %.sroa.01.0.copyload.i = load i32, ptr %6, align 8
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %49, align 4
@@ -7838,7 +7838,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   %36 = sext i32 %1 to i64
   %37 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %36
   %38 = ptrtoint ptr %37 to i64
@@ -7856,7 +7856,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %46 = load ptr, ptr %32, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %.sroa.01.0.copyload.i = load i32, ptr %6, align 8
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %49, align 4
@@ -7904,7 +7904,7 @@ define hidden void @_ZN9Assembler4callER5LabelN9relocInfo9relocTypeE(ptr noundef
   br i1 %7, label %12, label %39
 
 12:                                               ; preds = %3
-  %13 = tail call noundef ptr @_ZN11CodeSection6targetER5LabelPh(ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %11) #18
+  %13 = tail call noundef ptr @_ZN11CodeSection6targetER5LabelPh(ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %11) #19
   %14 = load ptr, ptr %8, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
@@ -7926,7 +7926,7 @@ define hidden void @_ZN9Assembler4callER5LabelN9relocInfo9relocTypeE(ptr noundef
   br i1 %27, label %_ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi.exit, label %28
 
 28:                                               ; preds = %12
-  call void @_ZN10Relocation11spec_simpleEN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.RelocationHolder) align 8 %5, i32 noundef %2) #18
+  call void @_ZN10Relocation11spec_simpleEN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.RelocationHolder) align 8 %5, i32 noundef %2) #19
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %30 = load i32, ptr %29, align 8
   %.not.i.i = icmp eq i32 %30, 0
@@ -7936,7 +7936,7 @@ define hidden void @_ZN9Assembler4callER5LabelN9relocInfo9relocTypeE(ptr noundef
   %31 = load ptr, ptr %8, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
-  call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %31, ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 1) #18
+  call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %31, ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 1) #19
   br label %_ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi.exit
 
 _ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi.exit: ; preds = %12, %28, %.sink.split.i.i
@@ -7968,7 +7968,7 @@ _ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi.exit: ; preds = %12, %28, %.sin
   %53 = sext i8 %52 to i32
   %54 = shl i32 %50, 2
   %55 = or i32 %54, %53
-  tail call void @_ZN5Label12add_patch_atEP10CodeBufferiPKci(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %43, i32 noundef %55, ptr noundef null, i32 noundef 0) #18
+  tail call void @_ZN5Label12add_patch_atEP10CodeBufferiPKci(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %43, i32 noundef %55, ptr noundef null, i32 noundef 0) #19
   %56 = load ptr, ptr %8, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
@@ -7980,7 +7980,7 @@ _ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi.exit: ; preds = %12, %28, %.sin
   br i1 %60, label %_ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi.exit10, label %61
 
 61:                                               ; preds = %39
-  call void @_ZN10Relocation11spec_simpleEN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.RelocationHolder) align 8 %4, i32 noundef %2) #18
+  call void @_ZN10Relocation11spec_simpleEN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.RelocationHolder) align 8 %4, i32 noundef %2) #19
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %63 = load i32, ptr %62, align 8
   %.not.i.i8 = icmp eq i32 %63, 0
@@ -7990,7 +7990,7 @@ _ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi.exit: ; preds = %12, %28, %.sin
   %64 = load ptr, ptr %8, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
-  call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %64, ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 1) #18
+  call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %64, ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 1) #19
   br label %_ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi.exit10
 
 _ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi.exit10: ; preds = %39, %61, %.sink.split.i.i9
@@ -8092,7 +8092,7 @@ define hidden void @_ZN9Assembler4callE7Address(ptr noundef nonnull readonly ali
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %3, i1 noundef zeroext false)
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -8105,7 +8105,7 @@ define hidden void @_ZN9Assembler4callE7Address(ptr noundef nonnull readonly ali
   %20 = load ptr, ptr %11, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #18
+  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %23, align 4
@@ -8155,7 +8155,7 @@ define hidden void @_ZN9Assembler12call_literalEPhRK16RelocationHolder(ptr nound
 .sink.split.i:                                    ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %19 = load ptr, ptr %18, align 8
-  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %13, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef 1) #18
+  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %13, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef 1) #19
   %.pre = load ptr, ptr %4, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre4 = load ptr, ptr %.phi.trans.insert, align 8
@@ -8356,7 +8356,7 @@ define hidden void @_ZN9Assembler5cmovlENS_9ConditionE8Register7Address(ptr noun
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %12) #18
+  call void %16(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %12) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %5, i32 %2, i1 noundef zeroext false, i1 noundef zeroext true)
   %17 = load ptr, ptr %7, align 8
   %18 = trunc i32 %1 to i8
@@ -8371,7 +8371,7 @@ define hidden void @_ZN9Assembler5cmovlENS_9ConditionE8Register7Address(ptr noun
   %24 = load ptr, ptr %13, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %23) #18
+  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %23) #19
   %.sroa.01.0.copyload.i = load i32, ptr %6, align 8
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %27, align 4
@@ -8417,7 +8417,7 @@ define hidden void @_ZN9Assembler4cmpbE7Address8Register(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext true, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -8430,7 +8430,7 @@ define hidden void @_ZN9Assembler4cmpbE7Address8Register(ptr noundef nonnull rea
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -8476,7 +8476,7 @@ define hidden void @_ZN9Assembler4cmpbE8Register7Address(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext true, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -8489,7 +8489,7 @@ define hidden void @_ZN9Assembler4cmpbE8Register7Address(ptr noundef nonnull rea
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -8535,7 +8535,7 @@ define hidden void @_ZN9Assembler4cmpbE7Addressi(ptr noundef nonnull readonly al
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -8548,7 +8548,7 @@ define hidden void @_ZN9Assembler4cmpbE7Addressi(ptr noundef nonnull readonly al
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -8596,14 +8596,14 @@ define hidden void @_ZN9Assembler4cmplE7Addressi(ptr noundef nonnull readonly al
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i1 noundef zeroext false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = load ptr, ptr %12, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #19
   call void @_ZN9Assembler18emit_arith_operandEi8Register7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 129, i32 7, ptr noundef nonnull %5, i32 noundef %2)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -8829,7 +8829,7 @@ define hidden void @_ZN9Assembler4cmplE8Register7Address(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -8842,7 +8842,7 @@ define hidden void @_ZN9Assembler4cmplE8Register7Address(ptr noundef nonnull rea
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -8888,7 +8888,7 @@ define hidden void @_ZN9Assembler4cmplE7Address8Register(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -8901,7 +8901,7 @@ define hidden void @_ZN9Assembler4cmplE7Address8Register(ptr noundef nonnull rea
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -8948,14 +8948,14 @@ define hidden void @_ZN9Assembler10cmpl_imm32E7Addressi(ptr noundef nonnull read
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %12) #18
+  call void %16(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %12) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %5, i1 noundef zeroext false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %18 = load ptr, ptr %13, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %17) #18
+  call void %20(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %17) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = load ptr, ptr %7, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -8968,7 +8968,7 @@ define hidden void @_ZN9Assembler10cmpl_imm32E7Addressi(ptr noundef nonnull read
   %26 = load ptr, ptr %17, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %25) #18
+  call void %28(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %25) #19
   %.sroa.01.0.copyload.i.i = load i32, ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i.i = load i32, ptr %29, align 4
@@ -9023,7 +9023,7 @@ define hidden void @_ZN9Assembler4cmpwE7Addressi(ptr noundef nonnull readonly al
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i1 noundef zeroext false)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -9036,7 +9036,7 @@ define hidden void @_ZN9Assembler4cmpwE7Addressi(ptr noundef nonnull readonly al
   %25 = load ptr, ptr %16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #18
+  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %28, align 4
@@ -9091,7 +9091,7 @@ define hidden void @_ZN9Assembler4cmpwE7Address8Register(ptr noundef nonnull rea
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false, i1 noundef zeroext false)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -9104,7 +9104,7 @@ define hidden void @_ZN9Assembler4cmpwE7Address8Register(ptr noundef nonnull rea
   %25 = load ptr, ptr %16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #18
+  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %28, align 4
@@ -9150,7 +9150,7 @@ define hidden void @_ZN9Assembler8cmpxchglE8Register7Address(ptr noundef nonnull
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext true)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -9163,7 +9163,7 @@ define hidden void @_ZN9Assembler8cmpxchglE8Register7Address(ptr noundef nonnull
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -9215,7 +9215,7 @@ define hidden void @_ZN9Assembler8cmpxchgwE8Register7Address(ptr noundef nonnull
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext true)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -9228,7 +9228,7 @@ define hidden void @_ZN9Assembler8cmpxchgwE8Register7Address(ptr noundef nonnull
   %25 = load ptr, ptr %16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #18
+  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %28, align 4
@@ -9286,7 +9286,7 @@ define hidden void @_ZN9Assembler8cmpxchgbE8Register7Address(ptr noundef nonnull
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext true, i1 noundef zeroext true)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -9299,7 +9299,7 @@ define hidden void @_ZN9Assembler8cmpxchgbE8Register7Address(ptr noundef nonnull
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -9389,7 +9389,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 -1, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4)
   %37 = load ptr, ptr %7, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -9402,7 +9402,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %42 = load ptr, ptr %33, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
@@ -9594,7 +9594,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 -1, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -9607,7 +9607,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
@@ -10110,7 +10110,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %_ZN9Assembler11
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8
-  call void %60(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %56) #18
+  call void %60(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %56) #19
   %61 = icmp eq i8 %3, 2
   %62 = zext i1 %61 to i32
   call void @_ZN9Assembler10vex_prefixE7AddressiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %20, i32 noundef %62, i32 noundef 4, ptr noundef nonnull %5)
@@ -10127,7 +10127,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %_ZN9Assembler11
   %70 = load ptr, ptr %57, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
-  call void %72(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %69) #18
+  call void %72(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %69) #19
   %.sroa.01.0.copyload.i = load i32, ptr %7, align 8
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.0.0.copyload.i13 = load i32, ptr %73, align 4
@@ -10189,7 +10189,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %_ZN9Assembler11
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %107 = load ptr, ptr %106, align 8
-  call void %107(ptr noundef nonnull align 8 dereferenceable(40) %104, ptr noundef nonnull align 8 dereferenceable(40) %103) #18
+  call void %107(ptr noundef nonnull align 8 dereferenceable(40) %104, ptr noundef nonnull align 8 dereferenceable(40) %103) #19
   call void @_ZN9Assembler6prefixE8Register7AddressNS_6PrefixE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, ptr noundef nonnull %8, i32 noundef %.011)
   %108 = load ptr, ptr %10, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
@@ -10206,7 +10206,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %_ZN9Assembler11
   %115 = load ptr, ptr %104, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load ptr, ptr %116, align 8
-  call void %117(ptr noundef nonnull align 8 dereferenceable(40) %104, ptr noundef nonnull align 8 dereferenceable(40) %114) #18
+  call void %117(ptr noundef nonnull align 8 dereferenceable(40) %104, ptr noundef nonnull align 8 dereferenceable(40) %114) #19
   %.sroa.01.0.copyload.i15 = load i32, ptr %9, align 8
   %118 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.sroa.0.0.copyload.i16 = load i32, ptr %118, align 4
@@ -10275,7 +10275,7 @@ define hidden void @_ZN9Assembler6prefixE8Register7AddressNS_6PrefixE(ptr nounde
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(40) %30) #18
+  call void %34(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(40) %30) #19
   %.sroa.0.0.copyload.i.i = load i32, ptr %5, align 8
   %35 = sext i32 %.sroa.0.0.copyload.i.i to i64
   %36 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %35
@@ -10664,7 +10664,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %6, %33
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %45 = sext i32 %3 to i64
   %46 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %45
   %47 = ptrtoint ptr %46 to i64
@@ -10682,7 +10682,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %6, %33
   %55 = load ptr, ptr %41, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
-  call void %57(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %54) #18
+  call void %57(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %54) #19
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %59 = load i8, ptr %58, align 4
   %60 = trunc i8 %59 to i1
@@ -10790,7 +10790,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %2 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -10808,7 +10808,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %48 = load ptr, ptr %34, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
-  call void %50(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %47) #18
+  call void %50(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %47) #19
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %52 = load i8, ptr %51, align 4
   %53 = trunc i8 %52 to i1
@@ -10984,7 +10984,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %1 to i64
   %38 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -11002,7 +11002,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %47 = load ptr, ptr %33, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #19
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
@@ -11353,7 +11353,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4)
   %37 = load ptr, ptr %7, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -11366,7 +11366,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %42 = load ptr, ptr %33, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
@@ -11562,7 +11562,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4)
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -11575,7 +11575,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
@@ -11771,7 +11771,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4)
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -11784,7 +11784,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
@@ -12062,7 +12062,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4)
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -12075,7 +12075,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
@@ -14173,7 +14173,7 @@ define hidden void @_ZN9Assembler4declE7Address(ptr noundef nonnull readonly ali
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %3, i1 noundef zeroext false)
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -14186,7 +14186,7 @@ define hidden void @_ZN9Assembler4declE7Address(ptr noundef nonnull readonly ali
   %20 = load ptr, ptr %11, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #18
+  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %23, align 4
@@ -14271,7 +14271,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4)
   %37 = load ptr, ptr %7, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -14284,7 +14284,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %42 = load ptr, ptr %33, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
@@ -14478,7 +14478,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4)
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -14491,7 +14491,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
@@ -14972,7 +14972,7 @@ define hidden void @_ZN9Assembler5imullE8Register7Addressi(ptr noundef nonnull r
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %13) #18
+  call void %17(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %13) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %5, i32 %1, i1 noundef zeroext false, i1 noundef zeroext false)
   %18 = add i32 %3, 128
   %19 = icmp ult i32 %18, 256
@@ -14995,7 +14995,7 @@ define hidden void @_ZN9Assembler5imullE8Register7Addressi(ptr noundef nonnull r
   %31 = load ptr, ptr %14, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %30) #18
+  call void %33(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %30) #19
   %.sroa.01.0.copyload.i = load i32, ptr %6, align 8
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %34, align 4
@@ -15031,7 +15031,7 @@ define hidden void @_ZN9Assembler5imullE8Register7Addressi(ptr noundef nonnull r
   %56 = load ptr, ptr %14, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %55) #18
+  call void %58(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %55) #19
   %.sroa.01.0.copyload.i8 = load i32, ptr %7, align 8
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.0.0.copyload.i9 = load i32, ptr %59, align 4
@@ -15215,7 +15215,7 @@ define hidden void @_ZN9Assembler5imullE8Register7Address(ptr noundef nonnull re
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext true)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -15228,7 +15228,7 @@ define hidden void @_ZN9Assembler5imullE8Register7Address(ptr noundef nonnull re
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -15274,7 +15274,7 @@ define hidden void @_ZN9Assembler4inclE7Address(ptr noundef nonnull readonly ali
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %3, i1 noundef zeroext false)
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -15287,7 +15287,7 @@ define hidden void @_ZN9Assembler4inclE7Address(ptr noundef nonnull readonly ali
   %20 = load ptr, ptr %11, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #18
+  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %23, align 4
@@ -15328,7 +15328,7 @@ define hidden void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef ptr @_ZN11CodeSection6targetER5LabelPh(ptr noundef nonnull align 8 dereferenceable(88) %12, ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef %15) #18
+  %16 = tail call noundef ptr @_ZN11CodeSection6targetER5LabelPh(ptr noundef nonnull align 8 dereferenceable(88) %12, ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef %15) #19
   %17 = ptrtoint ptr %16 to i64
   %18 = load ptr, ptr %5, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -15385,7 +15385,7 @@ define hidden void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull
   %55 = sext i8 %54 to i32
   %56 = shl i32 %52, 2
   %57 = or i32 %56, %55
-  tail call void @_ZN5Label12add_patch_atEP10CodeBufferiPKci(ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef %45, i32 noundef %57, ptr noundef null, i32 noundef 0) #18
+  tail call void @_ZN5Label12add_patch_atEP10CodeBufferiPKci(ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef %45, i32 noundef %57, ptr noundef null, i32 noundef 0) #19
   %58 = load ptr, ptr %5, align 8
   %59 = trunc i32 %1 to i8
   %60 = or i8 %59, -128
@@ -15423,7 +15423,7 @@ define hidden void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef n
   br i1 %7, label %12, label %26
 
 12:                                               ; preds = %5
-  %13 = tail call noundef ptr @_ZN11CodeSection6targetER5LabelPh(ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef %11) #18
+  %13 = tail call noundef ptr @_ZN11CodeSection6targetER5LabelPh(ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef %11) #19
   %14 = ptrtoint ptr %13 to i64
   %15 = load ptr, ptr %8, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -15459,7 +15459,7 @@ define hidden void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef n
   %40 = sext i8 %39 to i32
   %41 = shl i32 %37, 2
   %42 = or i32 %41, %40
-  tail call void @_ZN5Label12add_patch_atEP10CodeBufferiPKci(ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef %30, i32 noundef %42, ptr noundef %3, i32 noundef %4) #18
+  tail call void @_ZN5Label12add_patch_atEP10CodeBufferiPKci(ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef %30, i32 noundef %42, ptr noundef %3, i32 noundef %4) #19
   %43 = load ptr, ptr %8, align 8
   %44 = trunc i32 %1 to i8
   %45 = or i8 %44, 112
@@ -15495,7 +15495,7 @@ define hidden void @_ZN9Assembler3jmpE7Address(ptr noundef nonnull readonly alig
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %3, i1 noundef zeroext false)
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -15508,7 +15508,7 @@ define hidden void @_ZN9Assembler3jmpE7Address(ptr noundef nonnull readonly alig
   %20 = load ptr, ptr %11, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #18
+  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %23, align 4
@@ -15544,7 +15544,7 @@ define hidden void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull readonly alig
   br i1 %5, label %10, label %38
 
 10:                                               ; preds = %3
-  %11 = tail call noundef ptr @_ZN11CodeSection6targetER5LabelPh(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %9) #18
+  %11 = tail call noundef ptr @_ZN11CodeSection6targetER5LabelPh(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %9) #19
   %12 = load ptr, ptr %6, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
@@ -15604,7 +15604,7 @@ define hidden void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull readonly alig
   %52 = sext i8 %51 to i32
   %53 = shl i32 %49, 2
   %54 = or i32 %53, %52
-  tail call void @_ZN5Label12add_patch_atEP10CodeBufferiPKci(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %42, i32 noundef %54, ptr noundef null, i32 noundef 0) #18
+  tail call void @_ZN5Label12add_patch_atEP10CodeBufferiPKci(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %42, i32 noundef %54, ptr noundef null, i32 noundef 0) #19
   %55 = load ptr, ptr %6, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
@@ -15715,7 +15715,7 @@ define hidden void @_ZN9Assembler11jmp_literalEPhRK16RelocationHolder(ptr nounde
 .sink.split.i:                                    ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %19 = load ptr, ptr %18, align 8
-  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %13, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef 1) #18
+  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %13, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef 1) #19
   %.pre = load ptr, ptr %4, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre3 = load ptr, ptr %.phi.trans.insert, align 8
@@ -15751,7 +15751,7 @@ define hidden void @_ZN9Assembler6jmpb_0ER5LabelPKci(ptr noundef nonnull readonl
   br i1 %6, label %11, label %23
 
 11:                                               ; preds = %4
-  %12 = tail call noundef ptr @_ZN11CodeSection6targetER5LabelPh(ptr noundef nonnull align 8 dereferenceable(88) %8, ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %10) #18
+  %12 = tail call noundef ptr @_ZN11CodeSection6targetER5LabelPh(ptr noundef nonnull align 8 dereferenceable(88) %8, ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %10) #19
   %13 = load ptr, ptr %7, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
@@ -15785,7 +15785,7 @@ define hidden void @_ZN9Assembler6jmpb_0ER5LabelPKci(ptr noundef nonnull readonl
   %37 = sext i8 %36 to i32
   %38 = shl i32 %34, 2
   %39 = or i32 %38, %37
-  tail call void @_ZN5Label12add_patch_atEP10CodeBufferiPKci(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %27, i32 noundef %39, ptr noundef %2, i32 noundef %3) #18
+  tail call void @_ZN5Label12add_patch_atEP10CodeBufferiPKci(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %27, i32 noundef %39, ptr noundef %2, i32 noundef %3) #19
   %40 = load ptr, ptr %7, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
@@ -15857,7 +15857,7 @@ define hidden void @_ZN9Assembler7ldmxcsrE7Address(ptr noundef nonnull align 8 d
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   call void @_ZN9Assembler10vex_prefixE7AddressiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3)
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -15870,7 +15870,7 @@ define hidden void @_ZN9Assembler7ldmxcsrE7Address(ptr noundef nonnull align 8 d
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %44, align 4
@@ -15905,7 +15905,7 @@ define hidden void @_ZN9Assembler7ldmxcsrE7Address(ptr noundef nonnull align 8 d
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
-  call void %67(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr noundef nonnull align 8 dereferenceable(40) %63) #18
+  call void %67(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr noundef nonnull align 8 dereferenceable(40) %63) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %6, i1 noundef zeroext true)
   %68 = load ptr, ptr %12, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
@@ -15918,7 +15918,7 @@ define hidden void @_ZN9Assembler7ldmxcsrE7Address(ptr noundef nonnull align 8 d
   %73 = load ptr, ptr %64, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8
-  call void %75(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr noundef nonnull align 8 dereferenceable(40) %72) #18
+  call void %75(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr noundef nonnull align 8 dereferenceable(40) %72) #19
   %.sroa.01.0.copyload.i3 = load i32, ptr %7, align 8
   %76 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.0.0.copyload.i4 = load i32, ptr %76, align 4
@@ -15962,7 +15962,7 @@ define hidden void @_ZN9Assembler4lealE8Register7Address(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -15975,7 +15975,7 @@ define hidden void @_ZN9Assembler4lealE8Register7Address(ptr noundef nonnull rea
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -16178,7 +16178,7 @@ define hidden void @_ZN9Assembler6lzcntlE8Register7Address(ptr noundef nonnull r
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext true)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -16191,7 +16191,7 @@ define hidden void @_ZN9Assembler6lzcntlE8Register7Address(ptr noundef nonnull r
   %25 = load ptr, ptr %16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #18
+  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %28, align 4
@@ -16733,7 +16733,7 @@ define hidden void @_ZN9Assembler4movbE8Register7Address(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext true, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -16746,7 +16746,7 @@ define hidden void @_ZN9Assembler4movbE8Register7Address(ptr noundef nonnull rea
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -16924,7 +16924,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 -1, ptr noundef nonnull %5, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4)
   %37 = load ptr, ptr %7, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -16937,7 +16937,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %42 = load ptr, ptr %33, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
@@ -17046,7 +17046,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 -1, ptr noundef nonnull %6, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %5)
   %38 = load ptr, ptr %8, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -17059,7 +17059,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %32
   %43 = load ptr, ptr %34, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %47 = load i8, ptr %46, align 4
   %48 = trunc i8 %47 to i1
@@ -17503,7 +17503,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   %36 = sext i32 %1 to i64
   %37 = getelementptr inbounds %"class.KRegister::KRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_KRegisterImpls, i64 1), i64 %36
   %38 = ptrtoint ptr %37 to i64
@@ -17521,7 +17521,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %46 = load ptr, ptr %32, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %.sroa.01.0.copyload.i = load i32, ptr %6, align 8
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %49, align 4
@@ -17614,7 +17614,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   %36 = sext i32 %2 to i64
   %37 = getelementptr inbounds %"class.KRegister::KRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_KRegisterImpls, i64 1), i64 %36
   %38 = ptrtoint ptr %37 to i64
@@ -17632,7 +17632,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %46 = load ptr, ptr %32, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %.sroa.01.0.copyload.i = load i32, ptr %6, align 8
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %49, align 4
@@ -17991,7 +17991,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   %36 = sext i32 %1 to i64
   %37 = getelementptr inbounds %"class.KRegister::KRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_KRegisterImpls, i64 1), i64 %36
   %38 = ptrtoint ptr %37 to i64
@@ -18009,7 +18009,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %46 = load ptr, ptr %32, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %.sroa.01.0.copyload.i = load i32, ptr %6, align 8
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %49, align 4
@@ -18102,7 +18102,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   %36 = sext i32 %2 to i64
   %37 = getelementptr inbounds %"class.KRegister::KRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_KRegisterImpls, i64 1), i64 %36
   %38 = ptrtoint ptr %37 to i64
@@ -18120,7 +18120,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %46 = load ptr, ptr %32, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %.sroa.01.0.copyload.i = load i32, ptr %6, align 8
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %49, align 4
@@ -20692,7 +20692,7 @@ define hidden void @_ZN9Assembler4movbE7Addressi(ptr noundef nonnull readonly al
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -20705,7 +20705,7 @@ define hidden void @_ZN9Assembler4movbE7Addressi(ptr noundef nonnull readonly al
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -20753,7 +20753,7 @@ define hidden void @_ZN9Assembler4movbE7Address8Register(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext true, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -20766,7 +20766,7 @@ define hidden void @_ZN9Assembler4movbE7Address8Register(ptr noundef nonnull rea
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -21028,7 +21028,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 -1, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4)
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -21041,7 +21041,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
@@ -21148,7 +21148,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 -1, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4)
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -21161,7 +21161,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
@@ -21347,7 +21347,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 -1, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4)
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -21360,7 +21360,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
@@ -21466,7 +21466,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 -1, ptr noundef nonnull %5, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4)
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -21479,7 +21479,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
@@ -21665,7 +21665,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 -1, ptr noundef nonnull %5, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4)
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -21678,7 +21678,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
@@ -21852,7 +21852,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   %36 = sext i32 %1 to i64
   %37 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %36
   %38 = ptrtoint ptr %37 to i64
@@ -21870,7 +21870,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %46 = load ptr, ptr %32, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
@@ -21971,7 +21971,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   %36 = sext i32 %2 to i64
   %37 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %36
   %38 = ptrtoint ptr %37 to i64
@@ -21989,7 +21989,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %46 = load ptr, ptr %32, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
@@ -22072,7 +22072,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %23) #18
+  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %23) #19
   %28 = sext i32 %2 to i64
   %29 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %28
   %30 = ptrtoint ptr %29 to i64
@@ -22095,7 +22095,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %43 = load ptr, ptr %24, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %47 = load i8, ptr %46, align 4
   %48 = trunc i8 %47 to i1
@@ -22178,7 +22178,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %23) #18
+  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %23) #19
   %28 = sext i32 %2 to i64
   %29 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %28
   %30 = ptrtoint ptr %29 to i64
@@ -22201,7 +22201,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %43 = load ptr, ptr %24, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %47 = load i8, ptr %46, align 4
   %48 = trunc i8 %47 to i1
@@ -22290,7 +22290,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %26) #18
+  call void %30(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %26) #19
   %31 = sext i32 %3 to i64
   %32 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %31
   %33 = ptrtoint ptr %32 to i64
@@ -22313,7 +22313,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %46 = load ptr, ptr %27, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
@@ -22402,7 +22402,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %26) #18
+  call void %30(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %26) #19
   %31 = sext i32 %3 to i64
   %32 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %31
   %33 = ptrtoint ptr %32 to i64
@@ -22425,7 +22425,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %46 = load ptr, ptr %27, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
@@ -22514,7 +22514,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %26) #18
+  call void %30(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %26) #19
   %31 = sext i32 %3 to i64
   %32 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %31
   %33 = ptrtoint ptr %32 to i64
@@ -22537,7 +22537,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %46 = load ptr, ptr %27, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
@@ -22626,7 +22626,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %26) #18
+  call void %30(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %26) #19
   %31 = sext i32 %3 to i64
   %32 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %31
   %33 = ptrtoint ptr %32 to i64
@@ -22649,7 +22649,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %46 = load ptr, ptr %27, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
@@ -22926,7 +22926,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %44, %_ZN15In
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %50 = sext i32 %1 to i64
   %51 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %50
   %52 = ptrtoint ptr %51 to i64
@@ -22944,7 +22944,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %44, %_ZN15In
   %60 = load ptr, ptr %46, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
-  call void %62(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %59) #18
+  call void %62(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %59) #19
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %64 = load i8, ptr %63, align 4
   %65 = trunc i8 %64 to i1
@@ -22997,7 +22997,7 @@ define hidden void @_ZN9Assembler9evmovdqubE11XMMRegister7Addressi(ptr noundef n
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #18
+  call void %10(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #19
   call void @_ZN9Assembler9evmovdqubE11XMMRegister9KRegister7Addressbi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 0, ptr noundef nonnull %5, i1 noundef zeroext false, i32 noundef %3)
   ret void
 }
@@ -23076,7 +23076,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %44, %_ZN15In
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %50 = sext i32 %3 to i64
   %51 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %50
   %52 = ptrtoint ptr %51 to i64
@@ -23094,7 +23094,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %44, %_ZN15In
   %60 = load ptr, ptr %46, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
-  call void %62(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %59) #18
+  call void %62(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %59) #19
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %64 = load i8, ptr %63, align 4
   %65 = trunc i8 %64 to i1
@@ -23147,7 +23147,7 @@ define hidden void @_ZN9Assembler9evmovdquwE11XMMRegister7Addressi(ptr noundef n
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #18
+  call void %10(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #19
   call void @_ZN9Assembler9evmovdquwE11XMMRegister9KRegister7Addressbi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 0, ptr noundef nonnull %5, i1 noundef zeroext false, i32 noundef %3)
   ret void
 }
@@ -23226,7 +23226,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %44, %_ZN15In
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %50 = sext i32 %1 to i64
   %51 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %50
   %52 = ptrtoint ptr %51 to i64
@@ -23244,7 +23244,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %44, %_ZN15In
   %60 = load ptr, ptr %46, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
-  call void %62(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %59) #18
+  call void %62(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %59) #19
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %64 = load i8, ptr %63, align 4
   %65 = trunc i8 %64 to i1
@@ -23297,7 +23297,7 @@ define hidden void @_ZN9Assembler9evmovdquwE7Address11XMMRegisteri(ptr noundef n
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #18
+  call void %10(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #19
   call void @_ZN9Assembler9evmovdquwE7Address9KRegister11XMMRegisterbi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %5, i32 0, i32 %2, i1 noundef zeroext false, i32 noundef %3)
   ret void
 }
@@ -23376,7 +23376,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %44, %_ZN15In
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %50 = sext i32 %3 to i64
   %51 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %50
   %52 = ptrtoint ptr %51 to i64
@@ -23394,7 +23394,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %44, %_ZN15In
   %60 = load ptr, ptr %46, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
-  call void %62(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %59) #18
+  call void %62(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %59) #19
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %64 = load i8, ptr %63, align 4
   %65 = trunc i8 %64 to i1
@@ -23598,7 +23598,7 @@ define hidden void @_ZN9Assembler9evmovdqulE11XMMRegister7Addressi(ptr noundef n
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #18
+  call void %10(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #19
   call void @_ZN9Assembler9evmovdqulE11XMMRegister9KRegister7Addressbi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 0, ptr noundef nonnull %5, i1 noundef zeroext false, i32 noundef %3)
   ret void
 }
@@ -23673,7 +23673,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %40, %_ZN15In
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %46 = sext i32 %1 to i64
   %47 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %46
   %48 = ptrtoint ptr %47 to i64
@@ -23691,7 +23691,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %40, %_ZN15In
   %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %55) #18
+  call void %58(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %55) #19
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %60 = load i8, ptr %59, align 4
   %61 = trunc i8 %60 to i1
@@ -23744,7 +23744,7 @@ define hidden void @_ZN9Assembler9evmovdqulE7Address11XMMRegisteri(ptr noundef n
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #18
+  call void %10(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #19
   call void @_ZN9Assembler9evmovdqulE7Address9KRegister11XMMRegisterbi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %5, i32 0, i32 %2, i1 noundef zeroext true, i32 noundef %3)
   ret void
 }
@@ -23819,7 +23819,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %40, %_ZN15In
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %46 = sext i32 %3 to i64
   %47 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %46
   %48 = ptrtoint ptr %47 to i64
@@ -23837,7 +23837,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %40, %_ZN15In
   %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %55) #18
+  call void %58(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %55) #19
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %60 = load i8, ptr %59, align 4
   %61 = trunc i8 %60 to i1
@@ -24041,7 +24041,7 @@ define hidden void @_ZN9Assembler9evmovdquqE11XMMRegister7Addressi(ptr noundef n
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #18
+  call void %10(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #19
   call void @_ZN9Assembler9evmovdquqE11XMMRegister9KRegister7Addressbi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 0, ptr noundef nonnull %5, i1 noundef zeroext false, i32 noundef %3)
   ret void
 }
@@ -24116,7 +24116,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %40, %_ZN15In
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %46 = sext i32 %1 to i64
   %47 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %46
   %48 = ptrtoint ptr %47 to i64
@@ -24134,7 +24134,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %40, %_ZN15In
   %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %55) #18
+  call void %58(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %55) #19
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %60 = load i8, ptr %59, align 4
   %61 = trunc i8 %60 to i1
@@ -24187,7 +24187,7 @@ define hidden void @_ZN9Assembler11evmovntdquqE7Address11XMMRegisteri(ptr nounde
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #18
+  call void %10(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #19
   call void @_ZN9Assembler11evmovntdquqE7Address9KRegister11XMMRegisterbi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %5, i32 0, i32 %2, i1 noundef zeroext true, i32 noundef %3)
   ret void
 }
@@ -24262,7 +24262,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %40, %_ZN15In
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %46 = sext i32 %3 to i64
   %47 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %46
   %48 = ptrtoint ptr %47 to i64
@@ -24280,7 +24280,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %40, %_ZN15In
   %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %55) #18
+  call void %58(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %55) #19
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %60 = load i8, ptr %59, align 4
   %61 = trunc i8 %60 to i1
@@ -24333,7 +24333,7 @@ define hidden void @_ZN9Assembler9evmovdquqE7Address11XMMRegisteri(ptr noundef n
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #18
+  call void %10(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #19
   call void @_ZN9Assembler9evmovdquqE7Address9KRegister11XMMRegisterbi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %5, i32 0, i32 %2, i1 noundef zeroext true, i32 noundef %3)
   ret void
 }
@@ -24408,7 +24408,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %40, %_ZN15In
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %46 = sext i32 %3 to i64
   %47 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %46
   %48 = ptrtoint ptr %47 to i64
@@ -24426,7 +24426,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %40, %_ZN15In
   %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %55) #18
+  call void %58(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %55) #19
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %60 = load i8, ptr %59, align 4
   %61 = trunc i8 %60 to i1
@@ -24659,7 +24659,7 @@ define hidden void @_ZN9Assembler4movlE8Register7Address(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -24672,7 +24672,7 @@ define hidden void @_ZN9Assembler4movlE8Register7Address(ptr noundef nonnull rea
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -24718,7 +24718,7 @@ define hidden void @_ZN9Assembler4movlE7Addressi(ptr noundef nonnull readonly al
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -24731,7 +24731,7 @@ define hidden void @_ZN9Assembler4movlE7Addressi(ptr noundef nonnull readonly al
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -24779,7 +24779,7 @@ define hidden void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -24792,7 +24792,7 @@ define hidden void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull rea
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -24882,7 +24882,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4)
   %37 = load ptr, ptr %7, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -24895,7 +24895,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %42 = load ptr, ptr %33, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
@@ -25004,7 +25004,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 -1, ptr noundef nonnull %5, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4)
   %37 = load ptr, ptr %7, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -25017,7 +25017,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %42 = load ptr, ptr %33, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
@@ -25126,7 +25126,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 -1, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4)
   %37 = load ptr, ptr %7, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -25139,7 +25139,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %42 = load ptr, ptr %33, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
@@ -25463,7 +25463,7 @@ define hidden void @_ZN9Assembler6movsblE8Register7Address(ptr noundef nonnull r
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext true)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -25476,7 +25476,7 @@ define hidden void @_ZN9Assembler6movsblE8Register7Address(ptr noundef nonnull r
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -25916,7 +25916,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 -1, ptr noundef nonnull %5, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4)
   %37 = load ptr, ptr %7, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -25929,7 +25929,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %42 = load ptr, ptr %33, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
@@ -26038,7 +26038,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 -1, ptr noundef nonnull %5, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4)
   %37 = load ptr, ptr %7, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -26051,7 +26051,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %42 = load ptr, ptr %33, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
@@ -26321,7 +26321,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 -1, ptr noundef nonnull %5, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4)
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -26334,7 +26334,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
@@ -26441,7 +26441,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 -1, ptr noundef nonnull %5, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4)
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -26454,7 +26454,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
@@ -26519,7 +26519,7 @@ define hidden void @_ZN9Assembler6movswlE8Register7Address(ptr noundef nonnull r
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext true)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -26532,7 +26532,7 @@ define hidden void @_ZN9Assembler6movswlE8Register7Address(ptr noundef nonnull r
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -26752,7 +26752,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 -1, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -26765,7 +26765,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
@@ -26871,7 +26871,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 -1, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %5)
   %37 = load ptr, ptr %8, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -26884,7 +26884,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %42 = load ptr, ptr %33, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
@@ -26990,7 +26990,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 -1, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -27003,7 +27003,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
@@ -27109,7 +27109,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 -1, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %5)
   %37 = load ptr, ptr %8, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -27122,7 +27122,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %42 = load ptr, ptr %33, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
@@ -27193,7 +27193,7 @@ define hidden void @_ZN9Assembler4movwE7Addressi(ptr noundef nonnull readonly al
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i1 noundef zeroext false)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -27206,7 +27206,7 @@ define hidden void @_ZN9Assembler4movwE7Addressi(ptr noundef nonnull readonly al
   %25 = load ptr, ptr %16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #18
+  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %28, align 4
@@ -27261,7 +27261,7 @@ define hidden void @_ZN9Assembler4movwE8Register7Address(ptr noundef nonnull rea
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext false)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -27274,7 +27274,7 @@ define hidden void @_ZN9Assembler4movwE8Register7Address(ptr noundef nonnull rea
   %25 = load ptr, ptr %16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #18
+  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %28, align 4
@@ -27326,7 +27326,7 @@ define hidden void @_ZN9Assembler4movwE7Address8Register(ptr noundef nonnull rea
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false, i1 noundef zeroext false)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -27339,7 +27339,7 @@ define hidden void @_ZN9Assembler4movwE7Address8Register(ptr noundef nonnull rea
   %25 = load ptr, ptr %16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #18
+  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %28, align 4
@@ -27385,7 +27385,7 @@ define hidden void @_ZN9Assembler6movzblE8Register7Address(ptr noundef nonnull r
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext true)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -27398,7 +27398,7 @@ define hidden void @_ZN9Assembler6movzblE8Register7Address(ptr noundef nonnull r
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -27591,7 +27591,7 @@ define hidden void @_ZN9Assembler6movzwlE8Register7Address(ptr noundef nonnull r
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext true)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -27604,7 +27604,7 @@ define hidden void @_ZN9Assembler6movzwlE8Register7Address(ptr noundef nonnull r
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -27783,7 +27783,7 @@ define hidden void @_ZN9Assembler4mullE7Address(ptr noundef nonnull readonly ali
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %3, i1 noundef zeroext false)
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -27796,7 +27796,7 @@ define hidden void @_ZN9Assembler4mullE7Address(ptr noundef nonnull readonly ali
   %20 = load ptr, ptr %11, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #18
+  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %23, align 4
@@ -27944,7 +27944,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4)
   %37 = load ptr, ptr %7, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -27957,7 +27957,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %42 = load ptr, ptr %33, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
@@ -28151,7 +28151,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4)
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -28164,7 +28164,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
@@ -28374,7 +28374,7 @@ define hidden void @_ZN9Assembler4neglE7Address(ptr noundef nonnull readonly ali
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %3, i1 noundef zeroext false)
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -28387,7 +28387,7 @@ define hidden void @_ZN9Assembler4neglE7Address(ptr noundef nonnull readonly ali
   %20 = load ptr, ptr %11, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #18
+  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %23, align 4
@@ -29644,14 +29644,14 @@ define hidden void @_ZN9Assembler3orlE7Addressi(ptr noundef nonnull readonly ali
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i1 noundef zeroext false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = load ptr, ptr %12, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #19
   call void @_ZN9Assembler18emit_arith_operandEi8Register7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 129, i32 1, ptr noundef nonnull %5, i32 noundef %2)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -29787,7 +29787,7 @@ define hidden void @_ZN9Assembler3orlE8Register7Address(ptr noundef nonnull read
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -29800,7 +29800,7 @@ define hidden void @_ZN9Assembler3orlE8Register7Address(ptr noundef nonnull read
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -29938,7 +29938,7 @@ define hidden void @_ZN9Assembler3orlE7Address8Register(ptr noundef nonnull read
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -29951,7 +29951,7 @@ define hidden void @_ZN9Assembler3orlE7Address8Register(ptr noundef nonnull read
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -29997,7 +29997,7 @@ define hidden void @_ZN9Assembler3orbE7Addressi(ptr noundef nonnull readonly ali
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -30010,7 +30010,7 @@ define hidden void @_ZN9Assembler3orbE7Addressi(ptr noundef nonnull readonly ali
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -30058,7 +30058,7 @@ define hidden void @_ZN9Assembler3orbE7Address8Register(ptr noundef nonnull read
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext true, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -30071,7 +30071,7 @@ define hidden void @_ZN9Assembler3orbE7Address8Register(ptr noundef nonnull read
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -30488,7 +30488,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %34
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4)
   %40 = load ptr, ptr %7, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -30501,7 +30501,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %34
   %45 = load ptr, ptr %36, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %44) #18
+  call void %47(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %44) #19
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %49 = load i8, ptr %48, align 4
   %50 = trunc i8 %49 to i1
@@ -31141,7 +31141,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %29) #18
+  call void %33(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %29) #19
   %34 = sext i32 %2 to i64
   %35 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %34
   %36 = ptrtoint ptr %35 to i64
@@ -31164,7 +31164,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %49 = load ptr, ptr %30, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %48) #18
+  call void %51(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %48) #19
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %53 = load i8, ptr %52, align 4
   %54 = trunc i8 %53 to i1
@@ -31406,7 +31406,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %29) #18
+  call void %33(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %29) #19
   %34 = sext i32 %2 to i64
   %35 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %34
   %36 = ptrtoint ptr %35 to i64
@@ -31429,7 +31429,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %49 = load ptr, ptr %30, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %48) #18
+  call void %51(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %48) #19
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %53 = load i8, ptr %52, align 4
   %54 = trunc i8 %53 to i1
@@ -32274,7 +32274,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %25) #18
+  call void %29(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %25) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 -1, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %4)
   %30 = load ptr, ptr %7, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -32287,7 +32287,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %35 = load ptr, ptr %26, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %34) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %34) #19
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %39 = load i8, ptr %38, align 4
   %40 = trunc i8 %39 to i1
@@ -32690,7 +32690,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %26) #18
+  call void %30(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %26) #19
   %31 = sext i32 %2 to i64
   %32 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %31
   %33 = ptrtoint ptr %32 to i64
@@ -32713,7 +32713,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %46 = load ptr, ptr %27, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
@@ -32892,7 +32892,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
-  call void %42(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %38) #18
+  call void %42(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %38) #19
   %43 = sext i32 %2 to i64
   %44 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %43
   %45 = ptrtoint ptr %44 to i64
@@ -32912,7 +32912,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %53 = load ptr, ptr %39, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %.sroa.01.0.copyload.i = load i32, ptr %8, align 8
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %56, align 4
@@ -33020,7 +33020,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %6, %33
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %50 = sext i32 %3 to i64
   %51 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %50
   %52 = ptrtoint ptr %51 to i64
@@ -33040,7 +33040,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %6, %33
   %60 = load ptr, ptr %46, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
-  call void %62(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %59) #18
+  call void %62(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %59) #19
   %.sroa.01.0.copyload.i = load i32, ptr %9, align 8
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %63, align 4
@@ -33294,7 +33294,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %6, %33
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %44 = sext i32 %2 to i64
   %45 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %44
   %46 = ptrtoint ptr %45 to i64
@@ -33314,7 +33314,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %6, %33
   %54 = load ptr, ptr %40, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %53) #18
+  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %53) #19
   %.sroa.01.0.copyload.i = load i32, ptr %9, align 8
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %57, align 4
@@ -33423,7 +33423,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
-  call void %42(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %38) #18
+  call void %42(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %38) #19
   %43 = sext i32 %2 to i64
   %44 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %43
   %45 = ptrtoint ptr %44 to i64
@@ -33443,7 +33443,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %53 = load ptr, ptr %39, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %.sroa.01.0.copyload.i = load i32, ptr %8, align 8
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %56, align 4
@@ -33546,7 +33546,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %6, %33
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %45 = sext i32 %3 to i64
   %46 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %45
   %47 = ptrtoint ptr %46 to i64
@@ -33571,7 +33571,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %6, %33
   %60 = load ptr, ptr %41, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
-  call void %62(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %59) #18
+  call void %62(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %59) #19
   %.sroa.01.0.copyload.i = load i32, ptr %9, align 8
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %63, align 4
@@ -33806,7 +33806,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %26) #18
+  call void %30(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %26) #19
   %31 = sext i32 %2 to i64
   %32 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %31
   %33 = ptrtoint ptr %32 to i64
@@ -33829,7 +33829,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %46 = load ptr, ptr %27, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
@@ -34008,7 +34008,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
-  call void %42(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %38) #18
+  call void %42(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %38) #19
   %43 = sext i32 %2 to i64
   %44 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %43
   %45 = ptrtoint ptr %44 to i64
@@ -34028,7 +34028,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %53 = load ptr, ptr %39, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %.sroa.01.0.copyload.i = load i32, ptr %8, align 8
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %56, align 4
@@ -34365,7 +34365,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %6, %33
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %50 = sext i32 %3 to i64
   %51 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %50
   %52 = ptrtoint ptr %51 to i64
@@ -34385,7 +34385,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %6, %33
   %60 = load ptr, ptr %46, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
-  call void %62(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %59) #18
+  call void %62(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %59) #19
   %.sroa.01.0.copyload.i = load i32, ptr %9, align 8
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %63, align 4
@@ -34860,7 +34860,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
-  call void %42(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %38) #18
+  call void %42(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %38) #19
   %43 = sext i32 %2 to i64
   %44 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %43
   %45 = ptrtoint ptr %44 to i64
@@ -34880,7 +34880,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %53 = load ptr, ptr %39, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %.sroa.01.0.copyload.i = load i32, ptr %8, align 8
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %56, align 4
@@ -35436,7 +35436,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %35
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #18
+  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 -1, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5)
   %41 = load ptr, ptr %8, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -35449,7 +35449,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %35
   %46 = load ptr, ptr %37, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
@@ -35661,7 +35661,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %35
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #18
+  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 -1, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5)
   %41 = load ptr, ptr %8, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -35674,7 +35674,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %35
   %46 = load ptr, ptr %37, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
@@ -35886,7 +35886,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %35
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #18
+  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 -1, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5)
   %41 = load ptr, ptr %8, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -35899,7 +35899,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %35
   %46 = load ptr, ptr %37, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
@@ -36111,7 +36111,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %35
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #18
+  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 -1, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5)
   %41 = load ptr, ptr %8, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -36124,7 +36124,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %35
   %46 = load ptr, ptr %37, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
@@ -36338,7 +36338,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %35
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #18
+  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5)
   %41 = load ptr, ptr %8, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -36351,7 +36351,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %35
   %46 = load ptr, ptr %37, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
@@ -36645,7 +36645,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %35
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #18
+  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5)
   %41 = load ptr, ptr %8, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -36658,7 +36658,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %35
   %46 = load ptr, ptr %37, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
@@ -36952,7 +36952,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %35
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #18
+  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %5)
   %41 = load ptr, ptr %8, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -36965,7 +36965,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %35
   %46 = load ptr, ptr %37, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
@@ -37163,7 +37163,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %35
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #18
+  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5)
   %41 = load ptr, ptr %8, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -37176,7 +37176,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %35
   %46 = load ptr, ptr %37, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
@@ -37630,7 +37630,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %34
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 -1, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4)
   %40 = load ptr, ptr %7, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -37643,7 +37643,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %34
   %45 = load ptr, ptr %36, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %44) #18
+  call void %47(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %44) #19
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %49 = load i8, ptr %48, align 4
   %50 = trunc i8 %49 to i1
@@ -38321,7 +38321,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %35
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #18
+  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #19
   %41 = sext i32 %1 to i64
   %42 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %41
   %43 = ptrtoint ptr %42 to i64
@@ -38339,7 +38339,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %35
   %51 = load ptr, ptr %37, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8
-  call void %53(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %50) #18
+  call void %53(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %50) #19
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %55 = load i8, ptr %54, align 4
   %56 = trunc i8 %55 to i1
@@ -38606,7 +38606,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %36
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %43) #18
+  call void %47(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %43) #19
   %48 = sext i32 %1 to i64
   %49 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %48
   %50 = ptrtoint ptr %49 to i64
@@ -38624,7 +38624,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %36
   %58 = load ptr, ptr %44, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8
-  call void %60(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %57) #18
+  call void %60(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %57) #19
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %62 = load i8, ptr %61, align 4
   %63 = trunc i8 %62 to i1
@@ -38735,7 +38735,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %36
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %43) #18
+  call void %47(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %43) #19
   %48 = sext i32 %1 to i64
   %49 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %48
   %50 = ptrtoint ptr %49 to i64
@@ -38753,7 +38753,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %36
   %58 = load ptr, ptr %44, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8
-  call void %60(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %57) #18
+  call void %60(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %57) #19
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %62 = load i8, ptr %61, align 4
   %63 = trunc i8 %62 to i1
@@ -38806,7 +38806,7 @@ define hidden void @_ZN9Assembler10evpmovzxbdE11XMMRegister7Addressi(ptr noundef
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #18
+  call void %10(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #19
   call void @_ZN9Assembler10evpmovzxbdE11XMMRegister9KRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 0, ptr noundef nonnull %5, i32 noundef %3)
   ret void
 }
@@ -39594,7 +39594,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %2 to i64
   %38 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -39612,7 +39612,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %47 = load ptr, ptr %33, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #19
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
@@ -39719,7 +39719,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %44 = sext i32 %3 to i64
   %45 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %44
   %46 = ptrtoint ptr %45 to i64
@@ -39737,7 +39737,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %54 = load ptr, ptr %40, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %53) #18
+  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %53) #19
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %58 = load i8, ptr %57, align 4
   %59 = trunc i8 %58 to i1
@@ -39838,7 +39838,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %2 to i64
   %38 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -39856,7 +39856,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %47 = load ptr, ptr %33, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #19
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
@@ -40367,7 +40367,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %34, %32, %5
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %40 = sext i32 %2 to i64
   %41 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %40
   %42 = ptrtoint ptr %41 to i64
@@ -40390,7 +40390,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %34, %32, %5
   %55 = load ptr, ptr %36, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
-  call void %57(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %54) #18
+  call void %57(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %54) #19
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %59 = load i8, ptr %58, align 4
   %60 = trunc i8 %59 to i1
@@ -40741,7 +40741,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %34, %32, %5
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %40 = sext i32 %2 to i64
   %41 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %40
   %42 = ptrtoint ptr %41 to i64
@@ -40764,7 +40764,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %34, %32, %5
   %55 = load ptr, ptr %36, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
-  call void %57(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %54) #18
+  call void %57(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %54) #19
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %59 = load i8, ptr %58, align 4
   %60 = trunc i8 %59 to i1
@@ -41208,7 +41208,7 @@ define hidden void @_ZN9Assembler7popcntlE8Register7Address(ptr noundef nonnull 
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext true)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -41221,7 +41221,7 @@ define hidden void @_ZN9Assembler7popcntlE8Register7Address(ptr noundef nonnull 
   %25 = load ptr, ptr %16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #18
+  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %28, align 4
@@ -41738,7 +41738,7 @@ define hidden void @_ZN9Assembler11prefetchntaE7Address(ptr noundef nonnull read
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %3, i1 noundef zeroext true)
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -41751,7 +41751,7 @@ define hidden void @_ZN9Assembler11prefetchntaE7Address(ptr noundef nonnull read
   %20 = load ptr, ptr %11, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #18
+  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %23, align 4
@@ -41792,7 +41792,7 @@ define hidden void @_ZN9Assembler9prefetchrE7Address(ptr noundef nonnull readonl
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %3, i1 noundef zeroext true)
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -41805,7 +41805,7 @@ define hidden void @_ZN9Assembler9prefetchrE7Address(ptr noundef nonnull readonl
   %20 = load ptr, ptr %11, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #18
+  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %23, align 4
@@ -41846,7 +41846,7 @@ define hidden void @_ZN9Assembler10prefetcht0E7Address(ptr noundef nonnull reado
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %3, i1 noundef zeroext true)
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -41859,7 +41859,7 @@ define hidden void @_ZN9Assembler10prefetcht0E7Address(ptr noundef nonnull reado
   %20 = load ptr, ptr %11, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #18
+  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %23, align 4
@@ -41900,7 +41900,7 @@ define hidden void @_ZN9Assembler10prefetcht1E7Address(ptr noundef nonnull reado
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %3, i1 noundef zeroext true)
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -41913,7 +41913,7 @@ define hidden void @_ZN9Assembler10prefetcht1E7Address(ptr noundef nonnull reado
   %20 = load ptr, ptr %11, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #18
+  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %23, align 4
@@ -41954,7 +41954,7 @@ define hidden void @_ZN9Assembler10prefetcht2E7Address(ptr noundef nonnull reado
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %3, i1 noundef zeroext true)
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -41967,7 +41967,7 @@ define hidden void @_ZN9Assembler10prefetcht2E7Address(ptr noundef nonnull reado
   %20 = load ptr, ptr %11, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #18
+  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %23, align 4
@@ -42008,7 +42008,7 @@ define hidden void @_ZN9Assembler9prefetchwE7Address(ptr noundef nonnull readonl
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %3, i1 noundef zeroext true)
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -42021,7 +42021,7 @@ define hidden void @_ZN9Assembler9prefetchwE7Address(ptr noundef nonnull readonl
   %20 = load ptr, ptr %11, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #18
+  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %23, align 4
@@ -42418,7 +42418,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %36
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %37) #18
+  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %37) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, ptr noundef nonnull %7, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %6)
   %42 = load ptr, ptr %9, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
@@ -42431,7 +42431,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %36
   %47 = load ptr, ptr %38, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %46) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %46) #19
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
@@ -42541,7 +42541,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %34
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4)
   %40 = load ptr, ptr %7, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -42554,7 +42554,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %34
   %45 = load ptr, ptr %36, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %44) #18
+  call void %47(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %44) #19
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %49 = load i8, ptr %48, align 4
   %50 = trunc i8 %49 to i1
@@ -42830,7 +42830,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 -1, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %5)
   %37 = load ptr, ptr %8, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -42843,7 +42843,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %42 = load ptr, ptr %33, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
@@ -43221,7 +43221,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %35
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #18
+  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 -1, ptr noundef nonnull %6, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %5)
   %41 = load ptr, ptr %8, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -43234,7 +43234,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %35
   %46 = load ptr, ptr %37, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
@@ -44251,7 +44251,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %24) #18
+  call void %28(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 -1, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %3)
   %29 = load ptr, ptr %6, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -44264,7 +44264,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %34 = load ptr, ptr %25, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %38 = load i8, ptr %37, align 4
   %39 = trunc i8 %38 to i1
@@ -44440,7 +44440,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %24) #18
+  call void %28(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   %29 = sext i32 %1 to i64
   %30 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %29
   %31 = ptrtoint ptr %30 to i64
@@ -44458,7 +44458,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %39 = load ptr, ptr %25, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %38) #18
+  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %38) #19
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %43 = load i8, ptr %42, align 4
   %44 = trunc i8 %43 to i1
@@ -44977,7 +44977,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %34
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4)
   %40 = load ptr, ptr %7, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -44990,7 +44990,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %34
   %45 = load ptr, ptr %36, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %44) #18
+  call void %47(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %44) #19
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %49 = load i8, ptr %48, align 4
   %50 = trunc i8 %49 to i1
@@ -45182,7 +45182,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4)
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -45195,7 +45195,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
@@ -47352,7 +47352,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %33, %34, %10
 define hidden void @_ZN9Assembler4sahfEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2, align 1
-  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 6132) #19
+  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 6132) #20
   unreachable
 }
 
@@ -47373,7 +47373,7 @@ define hidden void @_ZN9Assembler4sallE7Addressi(ptr noundef nonnull readonly al
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %12) #18
+  call void %16(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %12) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i1 noundef zeroext false)
   %17 = icmp eq i32 %2, 1
   %18 = load ptr, ptr %7, align 8
@@ -47390,7 +47390,7 @@ define hidden void @_ZN9Assembler4sallE7Addressi(ptr noundef nonnull readonly al
   %24 = load ptr, ptr %13, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %23) #18
+  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %23) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %27, align 4
@@ -47419,7 +47419,7 @@ define hidden void @_ZN9Assembler4sallE7Addressi(ptr noundef nonnull readonly al
   %44 = load ptr, ptr %13, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %43) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %43) #19
   %.sroa.01.0.copyload.i3 = load i32, ptr %6, align 8
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.0.copyload.i4 = load i32, ptr %47, align 4
@@ -47470,7 +47470,7 @@ define hidden void @_ZN9Assembler4sallE7Address(ptr noundef nonnull readonly ali
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %3, i1 noundef zeroext false)
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -47483,7 +47483,7 @@ define hidden void @_ZN9Assembler4sallE7Address(ptr noundef nonnull readonly ali
   %20 = load ptr, ptr %11, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #18
+  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %23, align 4
@@ -47671,7 +47671,7 @@ define hidden void @_ZN9Assembler4sarlE7Addressi(ptr noundef nonnull readonly al
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %12) #18
+  call void %16(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %12) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i1 noundef zeroext false)
   %17 = icmp eq i32 %2, 1
   %18 = load ptr, ptr %7, align 8
@@ -47688,7 +47688,7 @@ define hidden void @_ZN9Assembler4sarlE7Addressi(ptr noundef nonnull readonly al
   %24 = load ptr, ptr %13, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %23) #18
+  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %23) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %27, align 4
@@ -47717,7 +47717,7 @@ define hidden void @_ZN9Assembler4sarlE7Addressi(ptr noundef nonnull readonly al
   %44 = load ptr, ptr %13, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %43) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %43) #19
   %.sroa.01.0.copyload.i3 = load i32, ptr %6, align 8
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.0.copyload.i4 = load i32, ptr %47, align 4
@@ -47768,7 +47768,7 @@ define hidden void @_ZN9Assembler4sarlE7Address(ptr noundef nonnull readonly ali
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %3, i1 noundef zeroext false)
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -47781,7 +47781,7 @@ define hidden void @_ZN9Assembler4sarlE7Address(ptr noundef nonnull readonly ali
   %20 = load ptr, ptr %11, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #18
+  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %23, align 4
@@ -47966,14 +47966,14 @@ define hidden void @_ZN9Assembler4sbblE7Addressi(ptr noundef nonnull readonly al
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i1 noundef zeroext false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = load ptr, ptr %12, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #19
   call void @_ZN9Assembler18emit_arith_operandEi8Register7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 129, i32 3, ptr noundef nonnull %5, i32 noundef %2)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -48109,7 +48109,7 @@ define hidden void @_ZN9Assembler4sbblE8Register7Address(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -48122,7 +48122,7 @@ define hidden void @_ZN9Assembler4sbblE8Register7Address(ptr noundef nonnull rea
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -50039,7 +50039,7 @@ define hidden void @_ZN9Assembler4shrlE7Address(ptr noundef nonnull readonly ali
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %3, i1 noundef zeroext false)
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -50052,7 +50052,7 @@ define hidden void @_ZN9Assembler4shrlE7Address(ptr noundef nonnull readonly ali
   %20 = load ptr, ptr %11, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #18
+  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %23, align 4
@@ -50094,7 +50094,7 @@ define hidden void @_ZN9Assembler4shrlE7Addressi(ptr noundef nonnull readonly al
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %12) #18
+  call void %16(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %12) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i1 noundef zeroext false)
   %17 = icmp eq i32 %2, 1
   %18 = load ptr, ptr %7, align 8
@@ -50111,7 +50111,7 @@ define hidden void @_ZN9Assembler4shrlE7Addressi(ptr noundef nonnull readonly al
   %24 = load ptr, ptr %13, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %23) #18
+  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %23) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %27, align 4
@@ -50140,7 +50140,7 @@ define hidden void @_ZN9Assembler4shrlE7Addressi(ptr noundef nonnull readonly al
   %44 = load ptr, ptr %13, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %43) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %43) #19
   %.sroa.01.0.copyload.i3 = load i32, ptr %6, align 8
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.0.copyload.i4 = load i32, ptr %47, align 4
@@ -51224,7 +51224,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %25) #18
+  call void %29(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %25) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %4)
   %30 = load ptr, ptr %7, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -51237,7 +51237,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %35 = load ptr, ptr %26, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %34) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %34) #19
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %39 = load i8, ptr %38, align 4
   %40 = trunc i8 %39 to i1
@@ -51440,7 +51440,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4)
   %37 = load ptr, ptr %7, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -51453,7 +51453,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %42 = load ptr, ptr %33, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
@@ -51654,7 +51654,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4)
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -51667,7 +51667,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
@@ -51770,7 +51770,7 @@ define hidden void @_ZN9Assembler7stmxcsrE7Address(ptr noundef nonnull align 8 d
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   call void @_ZN9Assembler10vex_prefixE7AddressiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3)
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -51783,7 +51783,7 @@ define hidden void @_ZN9Assembler7stmxcsrE7Address(ptr noundef nonnull align 8 d
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %44, align 4
@@ -51818,7 +51818,7 @@ define hidden void @_ZN9Assembler7stmxcsrE7Address(ptr noundef nonnull align 8 d
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
-  call void %67(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr noundef nonnull align 8 dereferenceable(40) %63) #18
+  call void %67(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr noundef nonnull align 8 dereferenceable(40) %63) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %6, i1 noundef zeroext true)
   %68 = load ptr, ptr %12, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
@@ -51831,7 +51831,7 @@ define hidden void @_ZN9Assembler7stmxcsrE7Address(ptr noundef nonnull align 8 d
   %73 = load ptr, ptr %64, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8
-  call void %75(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr noundef nonnull align 8 dereferenceable(40) %72) #18
+  call void %75(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr noundef nonnull align 8 dereferenceable(40) %72) #19
   %.sroa.01.0.copyload.i3 = load i32, ptr %7, align 8
   %76 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.0.0.copyload.i4 = load i32, ptr %76, align 4
@@ -51875,14 +51875,14 @@ define hidden void @_ZN9Assembler4sublE7Addressi(ptr noundef nonnull readonly al
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i1 noundef zeroext false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = load ptr, ptr %12, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #19
   call void @_ZN9Assembler18emit_arith_operandEi8Register7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 129, i32 5, ptr noundef nonnull %5, i32 noundef %2)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -51906,7 +51906,7 @@ define hidden void @_ZN9Assembler4sublE7Address8Register(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -51919,7 +51919,7 @@ define hidden void @_ZN9Assembler4sublE7Address8Register(ptr noundef nonnull rea
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -52144,7 +52144,7 @@ define hidden void @_ZN9Assembler4sublE8Register7Address(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -52157,7 +52157,7 @@ define hidden void @_ZN9Assembler4sublE8Register7Address(ptr noundef nonnull rea
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -52426,7 +52426,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4)
   %37 = load ptr, ptr %7, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -52439,7 +52439,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %42 = load ptr, ptr %33, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
@@ -52628,7 +52628,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4)
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -52641,7 +52641,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
@@ -52822,7 +52822,7 @@ define hidden void @_ZN9Assembler5testbE7Addressi(ptr noundef nonnull readonly a
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -52835,7 +52835,7 @@ define hidden void @_ZN9Assembler5testbE7Addressi(ptr noundef nonnull readonly a
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -52883,7 +52883,7 @@ define hidden void @_ZN9Assembler5testlE7Addressi(ptr noundef nonnull readonly a
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -52896,7 +52896,7 @@ define hidden void @_ZN9Assembler5testlE7Addressi(ptr noundef nonnull readonly a
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -53124,7 +53124,7 @@ define hidden void @_ZN9Assembler5testlE8Register7Address(ptr noundef nonnull re
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -53137,7 +53137,7 @@ define hidden void @_ZN9Assembler5testlE8Register7Address(ptr noundef nonnull re
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -53324,7 +53324,7 @@ define hidden void @_ZN9Assembler6tzcntlE8Register7Address(ptr noundef nonnull r
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext true)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -53337,7 +53337,7 @@ define hidden void @_ZN9Assembler6tzcntlE8Register7Address(ptr noundef nonnull r
   %25 = load ptr, ptr %16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #18
+  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %28, align 4
@@ -53524,7 +53524,7 @@ define hidden void @_ZN9Assembler6tzcntqE8Register7Address(ptr noundef nonnull r
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #19
   call void @_ZN9Assembler7prefixqE7Address8Registerb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext true)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -53537,7 +53537,7 @@ define hidden void @_ZN9Assembler6tzcntqE8Register7Address(ptr noundef nonnull r
   %25 = load ptr, ptr %16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #18
+  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %28, align 4
@@ -53609,7 +53609,7 @@ define hidden void @_ZN9Assembler7prefixqE7Address8Registerb(ptr noundef nonnull
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   %.sroa.0.0.copyload.i.i = load i32, ptr %5, align 8
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i7.i = load i32, ptr %36, align 4
@@ -53673,7 +53673,7 @@ _ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit: ; preds = %30, %42
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load ptr, ptr %78, align 8
-  call void %79(ptr noundef nonnull align 8 dereferenceable(40) %76, ptr noundef nonnull align 8 dereferenceable(40) %75) #18
+  call void %79(ptr noundef nonnull align 8 dereferenceable(40) %76, ptr noundef nonnull align 8 dereferenceable(40) %75) #19
   %80 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %6, i32 %2, i1 noundef zeroext false)
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %82 = load ptr, ptr %81, align 8
@@ -53760,7 +53760,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 -1, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4)
   %37 = load ptr, ptr %7, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -53773,7 +53773,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %42 = load ptr, ptr %33, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
@@ -53965,7 +53965,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 -1, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -53978,7 +53978,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
@@ -54139,7 +54139,7 @@ define hidden void @_ZN9Assembler5xaddbE7Address8Register(ptr noundef nonnull re
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext true, i1 noundef zeroext true)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -54152,7 +54152,7 @@ define hidden void @_ZN9Assembler5xaddbE7Address8Register(ptr noundef nonnull re
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -54204,7 +54204,7 @@ define hidden void @_ZN9Assembler5xaddwE7Address8Register(ptr noundef nonnull re
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false, i1 noundef zeroext true)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -54217,7 +54217,7 @@ define hidden void @_ZN9Assembler5xaddwE7Address8Register(ptr noundef nonnull re
   %25 = load ptr, ptr %16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #18
+  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %28, align 4
@@ -54263,7 +54263,7 @@ define hidden void @_ZN9Assembler5xaddlE7Address8Register(ptr noundef nonnull re
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false, i1 noundef zeroext true)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -54276,7 +54276,7 @@ define hidden void @_ZN9Assembler5xaddlE7Address8Register(ptr noundef nonnull re
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -54317,7 +54317,7 @@ define hidden void @_ZN9Assembler6xbeginER5LabelN9relocInfo9relocTypeE(ptr nound
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
-  tail call void @_ZN11CodeSection8relocateEPhN9relocInfo9relocTypeEii(ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef %11, i32 noundef %2, i32 noundef 0, i32 noundef 0) #18
+  tail call void @_ZN11CodeSection8relocateEPhN9relocInfo9relocTypeEii(ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef %11, i32 noundef %2, i32 noundef 0, i32 noundef 0) #19
   %12 = load i32, ptr %1, align 8
   %13 = icmp sgt i32 %12, -1
   %14 = load ptr, ptr %4, align 8
@@ -54326,7 +54326,7 @@ define hidden void @_ZN9Assembler6xbeginER5LabelN9relocInfo9relocTypeE(ptr nound
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call noundef ptr @_ZN11CodeSection6targetER5LabelPh(ptr noundef nonnull align 8 dereferenceable(88) %14, ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %17) #18
+  %18 = tail call noundef ptr @_ZN11CodeSection6targetER5LabelPh(ptr noundef nonnull align 8 dereferenceable(88) %14, ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %17) #19
   %19 = load ptr, ptr %4, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
@@ -54357,7 +54357,7 @@ define hidden void @_ZN9Assembler6xbeginER5LabelN9relocInfo9relocTypeE(ptr nound
   %41 = sext i8 %40 to i32
   %42 = shl i32 %38, 2
   %43 = or i32 %42, %41
-  tail call void @_ZN5Label12add_patch_atEP10CodeBufferiPKci(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %31, i32 noundef %43, ptr noundef null, i32 noundef 0) #18
+  tail call void @_ZN5Label12add_patch_atEP10CodeBufferiPKci(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %31, i32 noundef %43, ptr noundef null, i32 noundef 0) #19
   %44 = load ptr, ptr %4, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
@@ -54399,7 +54399,7 @@ define hidden void @_ZN9Assembler5xchgbE8Register7Address(ptr noundef nonnull re
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext true, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -54412,7 +54412,7 @@ define hidden void @_ZN9Assembler5xchgbE8Register7Address(ptr noundef nonnull re
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -54464,7 +54464,7 @@ define hidden void @_ZN9Assembler5xchgwE8Register7Address(ptr noundef nonnull re
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext false)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -54477,7 +54477,7 @@ define hidden void @_ZN9Assembler5xchgwE8Register7Address(ptr noundef nonnull re
   %25 = load ptr, ptr %16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #18
+  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %28, align 4
@@ -54523,7 +54523,7 @@ define hidden void @_ZN9Assembler5xchglE8Register7Address(ptr noundef nonnull re
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -54536,7 +54536,7 @@ define hidden void @_ZN9Assembler5xchglE8Register7Address(ptr noundef nonnull re
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -54719,14 +54719,14 @@ define hidden void @_ZN9Assembler4xorlE7Addressi(ptr noundef nonnull readonly al
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i1 noundef zeroext false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = load ptr, ptr %12, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #19
   call void @_ZN9Assembler18emit_arith_operandEi8Register7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 129, i32 6, ptr noundef nonnull %5, i32 noundef %2)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -54862,7 +54862,7 @@ define hidden void @_ZN9Assembler4xorlE8Register7Address(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -54875,7 +54875,7 @@ define hidden void @_ZN9Assembler4xorlE8Register7Address(ptr noundef nonnull rea
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -55013,7 +55013,7 @@ define hidden void @_ZN9Assembler4xorlE7Address8Register(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -55026,7 +55026,7 @@ define hidden void @_ZN9Assembler4xorlE7Address8Register(ptr noundef nonnull rea
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -55072,7 +55072,7 @@ define hidden void @_ZN9Assembler4xorbE8Register7Address(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -55085,7 +55085,7 @@ define hidden void @_ZN9Assembler4xorbE8Register7Address(ptr noundef nonnull rea
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -55131,7 +55131,7 @@ define hidden void @_ZN9Assembler4xorbE7Address8Register(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext true, i1 noundef zeroext false)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -55144,7 +55144,7 @@ define hidden void @_ZN9Assembler4xorbE7Address8Register(ptr noundef nonnull rea
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #18
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %20) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %24, align 4
@@ -55288,7 +55288,7 @@ define hidden void @_ZN9Assembler4xorwE8Register7Address(ptr noundef nonnull rea
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #19
   call void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false, i1 noundef zeroext false)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -55301,7 +55301,7 @@ define hidden void @_ZN9Assembler4xorwE8Register7Address(ptr noundef nonnull rea
   %25 = load ptr, ptr %16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #18
+  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %28, align 4
@@ -55391,7 +55391,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %2 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -55414,7 +55414,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %32
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %57 = load i8, ptr %56, align 4
   %58 = trunc i8 %57 to i1
@@ -55593,7 +55593,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %2 to i64
   %38 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -55616,7 +55616,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %52 = load ptr, ptr %33, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #18
+  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #19
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %56 = load i8, ptr %55, align 4
   %57 = trunc i8 %56 to i1
@@ -55793,7 +55793,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %2 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -55816,7 +55816,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %32
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %57 = load i8, ptr %56, align 4
   %58 = trunc i8 %57 to i1
@@ -55995,7 +55995,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %2 to i64
   %38 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -56018,7 +56018,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %52 = load ptr, ptr %33, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #18
+  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #19
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %56 = load i8, ptr %55, align 4
   %57 = trunc i8 %56 to i1
@@ -56560,7 +56560,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %2 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -56583,7 +56583,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %32
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %57 = load i8, ptr %56, align 4
   %58 = trunc i8 %57 to i1
@@ -56762,7 +56762,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %2 to i64
   %38 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -56785,7 +56785,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %52 = load ptr, ptr %33, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #18
+  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #19
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %56 = load i8, ptr %55, align 4
   %57 = trunc i8 %56 to i1
@@ -56962,7 +56962,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %2 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -56985,7 +56985,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %32
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %57 = load i8, ptr %56, align 4
   %58 = trunc i8 %57 to i1
@@ -57164,7 +57164,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %2 to i64
   %38 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -57187,7 +57187,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %52 = load ptr, ptr %33, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #18
+  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #19
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %56 = load i8, ptr %55, align 4
   %57 = trunc i8 %56 to i1
@@ -57450,7 +57450,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4)
   %37 = load ptr, ptr %7, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -57463,7 +57463,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %42 = load ptr, ptr %33, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
@@ -57803,7 +57803,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %33
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %34) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %34) #19
   %39 = sext i32 %2 to i64
   %40 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %39
   %41 = ptrtoint ptr %40 to i64
@@ -57826,7 +57826,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %33
   %54 = load ptr, ptr %35, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %53) #18
+  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %53) #19
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %58 = load i8, ptr %57, align 4
   %59 = trunc i8 %58 to i1
@@ -57927,7 +57927,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %2 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -57950,7 +57950,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %57 = load i8, ptr %56, align 4
   %58 = trunc i8 %57 to i1
@@ -58372,7 +58372,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %33
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %34) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %34) #19
   %39 = sext i32 %2 to i64
   %40 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %39
   %41 = ptrtoint ptr %40 to i64
@@ -58395,7 +58395,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %33
   %54 = load ptr, ptr %35, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %53) #18
+  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %53) #19
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %58 = load i8, ptr %57, align 4
   %59 = trunc i8 %58 to i1
@@ -58496,7 +58496,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %2 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -58519,7 +58519,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %57 = load i8, ptr %56, align 4
   %58 = trunc i8 %57 to i1
@@ -58709,7 +58709,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4)
   %37 = load ptr, ptr %7, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -58722,7 +58722,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %31
   %42 = load ptr, ptr %33, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
@@ -59062,7 +59062,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %33
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %34) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %34) #19
   %39 = sext i32 %2 to i64
   %40 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %39
   %41 = ptrtoint ptr %40 to i64
@@ -59085,7 +59085,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %33
   %54 = load ptr, ptr %35, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %53) #18
+  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %53) #19
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %58 = load i8, ptr %57, align 4
   %59 = trunc i8 %58 to i1
@@ -59186,7 +59186,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %2 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -59209,7 +59209,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %57 = load i8, ptr %56, align 4
   %58 = trunc i8 %57 to i1
@@ -59456,7 +59456,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %2 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -59479,7 +59479,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %57 = load i8, ptr %56, align 4
   %58 = trunc i8 %57 to i1
@@ -59580,7 +59580,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %2 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -59603,7 +59603,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %57 = load i8, ptr %56, align 4
   %58 = trunc i8 %57 to i1
@@ -60025,7 +60025,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %33
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %34) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %34) #19
   %39 = sext i32 %2 to i64
   %40 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %39
   %41 = ptrtoint ptr %40 to i64
@@ -60048,7 +60048,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %33
   %54 = load ptr, ptr %35, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %53) #18
+  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %53) #19
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %58 = load i8, ptr %57, align 4
   %59 = trunc i8 %58 to i1
@@ -60149,7 +60149,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %2 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -60172,7 +60172,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %57 = load i8, ptr %56, align 4
   %58 = trunc i8 %57 to i1
@@ -60329,7 +60329,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %26) #18
+  call void %30(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %26) #19
   %31 = sext i32 %1 to i64
   %32 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %31
   %33 = ptrtoint ptr %32 to i64
@@ -60347,7 +60347,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %41 = load ptr, ptr %27, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
@@ -60678,7 +60678,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %1 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -60696,7 +60696,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %48 = load ptr, ptr %34, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
-  call void %50(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %47) #18
+  call void %50(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %47) #19
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %52 = load i8, ptr %51, align 4
   %53 = trunc i8 %52 to i1
@@ -60878,7 +60878,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %1 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -60896,7 +60896,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %32
   %48 = load ptr, ptr %34, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
-  call void %50(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %47) #18
+  call void %50(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %47) #19
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %52 = load i8, ptr %51, align 4
   %53 = trunc i8 %52 to i1
@@ -61065,7 +61065,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %1 to i64
   %38 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -61083,7 +61083,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %47 = load ptr, ptr %33, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #19
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
@@ -61362,7 +61362,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %34
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
   %40 = load ptr, ptr %7, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -61375,7 +61375,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %34
   %45 = load ptr, ptr %36, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %44) #18
+  call void %47(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %44) #19
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %49 = load i8, ptr %48, align 4
   %50 = trunc i8 %49 to i1
@@ -61487,7 +61487,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %36
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %37) #18
+  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %37) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4)
   %42 = load ptr, ptr %7, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
@@ -61500,7 +61500,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %36
   %47 = load ptr, ptr %38, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %46) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %46) #19
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
@@ -61768,7 +61768,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %38
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %44 = sext i32 %2 to i64
   %45 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %44
   %46 = ptrtoint ptr %45 to i64
@@ -61791,7 +61791,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %38
   %59 = load ptr, ptr %40, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #18
+  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #19
   %62 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %63 = load i8, ptr %62, align 4
   %64 = trunc i8 %63 to i1
@@ -61896,7 +61896,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %36
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %37) #18
+  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %37) #19
   %42 = sext i32 %2 to i64
   %43 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %42
   %44 = ptrtoint ptr %43 to i64
@@ -61919,7 +61919,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %36
   %57 = load ptr, ptr %38, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %56) #18
+  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %56) #19
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %61 = load i8, ptr %60, align 4
   %62 = trunc i8 %61 to i1
@@ -62378,7 +62378,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %36
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %37) #18
+  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %37) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4)
   %42 = load ptr, ptr %7, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
@@ -62391,7 +62391,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %36
   %47 = load ptr, ptr %38, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %46) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %46) #19
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
@@ -62501,7 +62501,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %34
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
   %40 = load ptr, ptr %7, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -62514,7 +62514,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %34
   %45 = load ptr, ptr %36, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %44) #18
+  call void %47(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %44) #19
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %49 = load i8, ptr %48, align 4
   %50 = trunc i8 %49 to i1
@@ -62782,7 +62782,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %38
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %44 = sext i32 %2 to i64
   %45 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %44
   %46 = ptrtoint ptr %45 to i64
@@ -62805,7 +62805,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %38
   %59 = load ptr, ptr %40, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #18
+  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #19
   %62 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %63 = load i8, ptr %62, align 4
   %64 = trunc i8 %63 to i1
@@ -62910,7 +62910,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %36
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %37) #18
+  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %37) #19
   %42 = sext i32 %2 to i64
   %43 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %42
   %44 = ptrtoint ptr %43 to i64
@@ -62933,7 +62933,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %36
   %57 = load ptr, ptr %38, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %56) #18
+  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %56) #19
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %61 = load i8, ptr %60, align 4
   %62 = trunc i8 %61 to i1
@@ -63419,7 +63419,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %27) #18
+  call void %31(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %27) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %3)
   %32 = load ptr, ptr %6, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -63432,7 +63432,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %37 = load ptr, ptr %28, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %36) #18
+  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %36) #19
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %41 = load i8, ptr %40, align 4
   %42 = trunc i8 %41 to i1
@@ -64093,7 +64093,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %36
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %37) #18
+  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %37) #19
   %42 = sext i32 %2 to i64
   %43 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %42
   %44 = ptrtoint ptr %43 to i64
@@ -64116,7 +64116,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %36
   %57 = load ptr, ptr %38, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %56) #18
+  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %56) #19
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %61 = load i8, ptr %60, align 4
   %62 = trunc i8 %61 to i1
@@ -64221,7 +64221,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %36
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %37) #18
+  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %37) #19
   %42 = sext i32 %2 to i64
   %43 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %42
   %44 = ptrtoint ptr %43 to i64
@@ -64244,7 +64244,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %36
   %57 = load ptr, ptr %38, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %56) #18
+  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %56) #19
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %61 = load i8, ptr %60, align 4
   %62 = trunc i8 %61 to i1
@@ -64345,7 +64345,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %2 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -64368,7 +64368,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %57 = load i8, ptr %56, align 4
   %58 = trunc i8 %57 to i1
@@ -64471,7 +64471,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %33
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %34) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %34) #19
   %39 = sext i32 %2 to i64
   %40 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %39
   %41 = ptrtoint ptr %40 to i64
@@ -64494,7 +64494,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %33
   %54 = load ptr, ptr %35, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %53) #18
+  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %53) #19
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %58 = load i8, ptr %57, align 4
   %59 = trunc i8 %58 to i1
@@ -65325,7 +65325,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %36
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %37) #18
+  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %37) #19
   %42 = sext i32 %2 to i64
   %43 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %42
   %44 = ptrtoint ptr %43 to i64
@@ -65348,7 +65348,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %36
   %57 = load ptr, ptr %38, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %56) #18
+  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %56) #19
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %61 = load i8, ptr %60, align 4
   %62 = trunc i8 %61 to i1
@@ -65453,7 +65453,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %36
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %37) #18
+  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %37) #19
   %42 = sext i32 %2 to i64
   %43 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %42
   %44 = ptrtoint ptr %43 to i64
@@ -65476,7 +65476,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %36
   %57 = load ptr, ptr %38, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %56) #18
+  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %56) #19
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %61 = load i8, ptr %60, align 4
   %62 = trunc i8 %61 to i1
@@ -65577,7 +65577,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %2 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -65600,7 +65600,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %57 = load i8, ptr %56, align 4
   %58 = trunc i8 %57 to i1
@@ -65703,7 +65703,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %33
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %34) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %34) #19
   %39 = sext i32 %2 to i64
   %40 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %39
   %41 = ptrtoint ptr %40 to i64
@@ -65726,7 +65726,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %33
   %54 = load ptr, ptr %35, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %53) #18
+  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %53) #19
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %58 = load i8, ptr %57, align 4
   %59 = trunc i8 %58 to i1
@@ -66462,7 +66462,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %36
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %37) #18
+  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %37) #19
   %42 = sext i32 %2 to i64
   %43 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %42
   %44 = ptrtoint ptr %43 to i64
@@ -66485,7 +66485,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %36
   %57 = load ptr, ptr %38, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %56) #18
+  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %56) #19
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %61 = load i8, ptr %60, align 4
   %62 = trunc i8 %61 to i1
@@ -66586,7 +66586,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %2 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -66609,7 +66609,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %57 = load i8, ptr %56, align 4
   %58 = trunc i8 %57 to i1
@@ -66714,7 +66714,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %36
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %37) #18
+  call void %41(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %37) #19
   %42 = sext i32 %2 to i64
   %43 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %42
   %44 = ptrtoint ptr %43 to i64
@@ -66737,7 +66737,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %36
   %57 = load ptr, ptr %38, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %56) #18
+  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %56) #19
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %61 = load i8, ptr %60, align 4
   %62 = trunc i8 %61 to i1
@@ -72098,7 +72098,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %2 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -72121,7 +72121,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %57 = load i8, ptr %56, align 4
   %58 = trunc i8 %57 to i1
@@ -72335,7 +72335,7 @@ define hidden void @_ZN9Assembler7evpandqE11XMMRegisterS0_7Addressi(ptr noundef 
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %7) #18
+  call void %11(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %7) #19
   call void @_ZN9Assembler7evpandqE11XMMRegister9KRegisterS0_7Addressbi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 0, i32 %2, ptr noundef nonnull %6, i1 noundef zeroext false, i32 noundef %4)
   ret void
 }
@@ -72410,7 +72410,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -72433,7 +72433,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -73506,7 +73506,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %2 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -73529,7 +73529,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %57 = load i8, ptr %56, align 4
   %58 = trunc i8 %57 to i1
@@ -73743,7 +73743,7 @@ define hidden void @_ZN9Assembler6evporqE11XMMRegisterS0_7Addressi(ptr noundef n
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %7) #18
+  call void %11(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %7) #19
   call void @_ZN9Assembler6evporqE11XMMRegister9KRegisterS0_7Addressbi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 0, i32 %2, ptr noundef nonnull %6, i1 noundef zeroext false, i32 noundef %4)
   ret void
 }
@@ -73818,7 +73818,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -73841,7 +73841,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -74041,7 +74041,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -74064,7 +74064,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -74320,7 +74320,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %2 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -74343,7 +74343,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %57 = load i8, ptr %56, align 4
   %58 = trunc i8 %57 to i1
@@ -74620,7 +74620,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -74643,7 +74643,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -74843,7 +74843,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -74866,7 +74866,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -74980,7 +74980,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -75003,7 +75003,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -75177,7 +75177,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %2 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -75200,7 +75200,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %57 = load i8, ptr %56, align 4
   %58 = trunc i8 %57 to i1
@@ -76123,7 +76123,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %6, %33
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %34) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %34) #19
   %39 = sext i32 %3 to i64
   %40 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %39
   %41 = ptrtoint ptr %40 to i64
@@ -76146,7 +76146,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %6, %33
   %54 = load ptr, ptr %35, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %53) #18
+  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %53) #19
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %58 = load i8, ptr %57, align 4
   %59 = trunc i8 %58 to i1
@@ -76338,7 +76338,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %6, %33
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %34) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %34) #19
   %39 = sext i32 %3 to i64
   %40 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %39
   %41 = ptrtoint ptr %40 to i64
@@ -76361,7 +76361,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %6, %33
   %54 = load ptr, ptr %35, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %53) #18
+  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %53) #19
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %58 = load i8, ptr %57, align 4
   %59 = trunc i8 %58 to i1
@@ -77032,7 +77032,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %2 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -77055,7 +77055,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %57 = load i8, ptr %56, align 4
   %58 = trunc i8 %57 to i1
@@ -77240,7 +77240,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %2 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -77263,7 +77263,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %57 = load i8, ptr %56, align 4
   %58 = trunc i8 %57 to i1
@@ -77524,7 +77524,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %2 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -77547,7 +77547,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %57 = load i8, ptr %56, align 4
   %58 = trunc i8 %57 to i1
@@ -77732,7 +77732,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %2 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -77755,7 +77755,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %57 = load i8, ptr %56, align 4
   %58 = trunc i8 %57 to i1
@@ -77940,7 +77940,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %2 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -77963,7 +77963,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %52) #19
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %57 = load i8, ptr %56, align 4
   %58 = trunc i8 %57 to i1
@@ -78143,7 +78143,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %2 to i64
   %38 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -78161,7 +78161,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %47 = load ptr, ptr %33, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #19
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
@@ -78341,7 +78341,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %2 to i64
   %38 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -78359,7 +78359,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %47 = load ptr, ptr %33, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #19
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
@@ -78610,7 +78610,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %2 to i64
   %38 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -78628,7 +78628,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %47 = load ptr, ptr %33, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #19
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
@@ -78808,7 +78808,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %2 to i64
   %38 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -78826,7 +78826,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %47 = load ptr, ptr %33, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #19
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
@@ -79006,7 +79006,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %2 to i64
   %38 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -79024,7 +79024,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %47 = load ptr, ptr %33, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #19
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
@@ -79275,7 +79275,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %2 to i64
   %38 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -79293,7 +79293,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %47 = load ptr, ptr %33, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #19
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
@@ -79568,7 +79568,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %35
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #18
+  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #19
   %41 = sext i32 %1 to i64
   %42 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %41
   %43 = ptrtoint ptr %42 to i64
@@ -79586,7 +79586,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %35
   %51 = load ptr, ptr %37, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8
-  call void %53(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %50) #18
+  call void %53(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %50) #19
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %55 = load i8, ptr %54, align 4
   %56 = trunc i8 %55 to i1
@@ -79764,7 +79764,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %35
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #18
+  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #19
   %41 = sext i32 %1 to i64
   %42 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %41
   %43 = ptrtoint ptr %42 to i64
@@ -79782,7 +79782,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %35
   %51 = load ptr, ptr %37, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8
-  call void %53(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %50) #18
+  call void %53(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %50) #19
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %55 = load i8, ptr %54, align 4
   %56 = trunc i8 %55 to i1
@@ -80497,7 +80497,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -80520,7 +80520,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -80720,7 +80720,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -80743,7 +80743,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -80943,7 +80943,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -80966,7 +80966,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -81166,7 +81166,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -81189,7 +81189,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -81389,7 +81389,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -81412,7 +81412,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -81612,7 +81612,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -81635,7 +81635,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -81835,7 +81835,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -81858,7 +81858,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -82058,7 +82058,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -82081,7 +82081,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -82281,7 +82281,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -82304,7 +82304,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -82504,7 +82504,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -82527,7 +82527,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -82727,7 +82727,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -82750,7 +82750,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -82950,7 +82950,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -82973,7 +82973,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -83173,7 +83173,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -83196,7 +83196,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -83396,7 +83396,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -83419,7 +83419,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -83619,7 +83619,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -83642,7 +83642,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -83842,7 +83842,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -83865,7 +83865,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -84065,7 +84065,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -84088,7 +84088,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -84283,7 +84283,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %1 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -84301,7 +84301,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %57 = load ptr, ptr %43, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %56) #18
+  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %56) #19
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %61 = load i8, ptr %60, align 4
   %62 = trunc i8 %61 to i1
@@ -84496,7 +84496,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %1 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -84514,7 +84514,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %57 = load ptr, ptr %43, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %56) #18
+  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %56) #19
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %61 = load i8, ptr %60, align 4
   %62 = trunc i8 %61 to i1
@@ -84714,7 +84714,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -84737,7 +84737,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -84937,7 +84937,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -84960,7 +84960,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -85238,7 +85238,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %40, %_ZN15In
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %46 = sext i32 %1 to i64
   %47 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %46
   %48 = ptrtoint ptr %47 to i64
@@ -85256,7 +85256,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %40, %_ZN15In
   %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %55) #18
+  call void %58(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %55) #19
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %60 = load i8, ptr %59, align 4
   %61 = trunc i8 %60 to i1
@@ -85461,7 +85461,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %40, %_ZN15In
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %46 = sext i32 %1 to i64
   %47 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %46
   %48 = ptrtoint ptr %47 to i64
@@ -85479,7 +85479,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %40, %_ZN15In
   %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %55) #18
+  call void %58(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %55) #19
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %60 = load i8, ptr %59, align 4
   %61 = trunc i8 %60 to i1
@@ -85684,7 +85684,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %40, %_ZN15In
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %46 = sext i32 %1 to i64
   %47 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %46
   %48 = ptrtoint ptr %47 to i64
@@ -85702,7 +85702,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %40, %_ZN15In
   %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %55) #18
+  call void %58(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %55) #19
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %60 = load i8, ptr %59, align 4
   %61 = trunc i8 %60 to i1
@@ -85907,7 +85907,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %40, %_ZN15In
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %41) #19
   %46 = sext i32 %1 to i64
   %47 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %46
   %48 = ptrtoint ptr %47 to i64
@@ -85925,7 +85925,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %40, %_ZN15In
   %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %55) #18
+  call void %58(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %55) #19
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %60 = load i8, ptr %59, align 4
   %61 = trunc i8 %60 to i1
@@ -86125,7 +86125,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -86148,7 +86148,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -86349,7 +86349,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %47 = sext i32 %3 to i64
   %48 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %47
   %49 = ptrtoint ptr %48 to i64
@@ -86372,7 +86372,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %41, %_ZN15In
   %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #18
+  call void %64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %61) #19
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -86562,7 +86562,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %38, %7
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %44 = sext i32 %3 to i64
   %45 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %44
   %46 = ptrtoint ptr %45 to i64
@@ -86585,7 +86585,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %38, %7
   %59 = load ptr, ptr %40, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #18
+  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #19
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %63 = load i8, ptr %62, align 4
   %64 = trunc i8 %63 to i1
@@ -86775,7 +86775,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %38, %7
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %44 = sext i32 %3 to i64
   %45 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %44
   %46 = ptrtoint ptr %45 to i64
@@ -86798,7 +86798,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %38, %7
   %59 = load ptr, ptr %40, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #18
+  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #19
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %63 = load i8, ptr %62, align 4
   %64 = trunc i8 %63 to i1
@@ -86988,7 +86988,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %38, %7
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %44 = sext i32 %3 to i64
   %45 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %44
   %46 = ptrtoint ptr %45 to i64
@@ -87011,7 +87011,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %38, %7
   %59 = load ptr, ptr %40, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #18
+  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #19
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %63 = load i8, ptr %62, align 4
   %64 = trunc i8 %63 to i1
@@ -87201,7 +87201,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %38, %7
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %44 = sext i32 %3 to i64
   %45 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %44
   %46 = ptrtoint ptr %45 to i64
@@ -87224,7 +87224,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %38, %7
   %59 = load ptr, ptr %40, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #18
+  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #19
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %63 = load i8, ptr %62, align 4
   %64 = trunc i8 %63 to i1
@@ -89718,7 +89718,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %38, %7
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %44 = sext i32 %3 to i64
   %45 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %44
   %46 = ptrtoint ptr %45 to i64
@@ -89741,7 +89741,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %38, %7
   %59 = load ptr, ptr %40, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #18
+  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #19
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %63 = load i8, ptr %62, align 4
   %64 = trunc i8 %63 to i1
@@ -89931,7 +89931,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %38, %7
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %44 = sext i32 %3 to i64
   %45 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %44
   %46 = ptrtoint ptr %45 to i64
@@ -89954,7 +89954,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %38, %7
   %59 = load ptr, ptr %40, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #18
+  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #19
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %63 = load i8, ptr %62, align 4
   %64 = trunc i8 %63 to i1
@@ -90144,7 +90144,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %38, %7
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %44 = sext i32 %3 to i64
   %45 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %44
   %46 = ptrtoint ptr %45 to i64
@@ -90167,7 +90167,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %38, %7
   %59 = load ptr, ptr %40, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #18
+  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #19
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %63 = load i8, ptr %62, align 4
   %64 = trunc i8 %63 to i1
@@ -90357,7 +90357,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %38, %7
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %44 = sext i32 %3 to i64
   %45 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %44
   %46 = ptrtoint ptr %45 to i64
@@ -90380,7 +90380,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %38, %7
   %59 = load ptr, ptr %40, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #18
+  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #19
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %63 = load i8, ptr %62, align 4
   %64 = trunc i8 %63 to i1
@@ -90570,7 +90570,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %38, %7
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %44 = sext i32 %3 to i64
   %45 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %44
   %46 = ptrtoint ptr %45 to i64
@@ -90593,7 +90593,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %38, %7
   %59 = load ptr, ptr %40, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #18
+  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #19
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %63 = load i8, ptr %62, align 4
   %64 = trunc i8 %63 to i1
@@ -90783,7 +90783,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %38, %7
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %44 = sext i32 %3 to i64
   %45 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %44
   %46 = ptrtoint ptr %45 to i64
@@ -90806,7 +90806,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %38, %7
   %59 = load ptr, ptr %40, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #18
+  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #19
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %63 = load i8, ptr %62, align 4
   %64 = trunc i8 %63 to i1
@@ -90996,7 +90996,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %38, %7
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %44 = sext i32 %3 to i64
   %45 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %44
   %46 = ptrtoint ptr %45 to i64
@@ -91019,7 +91019,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %38, %7
   %59 = load ptr, ptr %40, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #18
+  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #19
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %63 = load i8, ptr %62, align 4
   %64 = trunc i8 %63 to i1
@@ -91209,7 +91209,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %38, %7
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %44 = sext i32 %3 to i64
   %45 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %44
   %46 = ptrtoint ptr %45 to i64
@@ -91232,7 +91232,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %38, %7
   %59 = load ptr, ptr %40, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #18
+  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %58) #19
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %63 = load i8, ptr %62, align 4
   %64 = trunc i8 %63 to i1
@@ -91435,7 +91435,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %42, %_ZN15In
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %43) #18
+  call void %47(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %43) #19
   %48 = sext i32 %4 to i64
   %49 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %48
   %50 = ptrtoint ptr %49 to i64
@@ -91458,7 +91458,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %42, %_ZN15In
   %63 = load ptr, ptr %44, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8
-  call void %65(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %62) #18
+  call void %65(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %62) #19
   %66 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %67 = load i8, ptr %66, align 4
   %68 = trunc i8 %67 to i1
@@ -91668,7 +91668,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %42, %_ZN15In
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %43) #18
+  call void %47(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %43) #19
   %48 = sext i32 %4 to i64
   %49 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %48
   %50 = ptrtoint ptr %49 to i64
@@ -91691,7 +91691,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit: ; preds = %42, %_ZN15In
   %63 = load ptr, ptr %44, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8
-  call void %65(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %62) #18
+  call void %65(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %62) #19
   %66 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %67 = load i8, ptr %66, align 4
   %68 = trunc i8 %67 to i1
@@ -92029,7 +92029,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %1 to i64
   %38 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -92047,7 +92047,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %47 = load ptr, ptr %33, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #19
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
@@ -92223,7 +92223,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %1 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -92241,7 +92241,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %32
   %48 = load ptr, ptr %34, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
-  call void %50(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %47) #18
+  call void %50(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %47) #19
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %52 = load i8, ptr %51, align 4
   %53 = trunc i8 %52 to i1
@@ -92343,7 +92343,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %1 to i64
   %38 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -92361,7 +92361,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %47 = load ptr, ptr %33, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #19
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
@@ -92531,7 +92531,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %1 to i64
   %38 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -92549,7 +92549,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %47 = load ptr, ptr %33, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #19
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
@@ -92719,7 +92719,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %1 to i64
   %38 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -92737,7 +92737,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %47 = load ptr, ptr %33, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #19
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
@@ -92913,7 +92913,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #18
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #19
   %38 = sext i32 %1 to i64
   %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
@@ -92931,7 +92931,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %32
   %48 = load ptr, ptr %34, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
-  call void %50(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %47) #18
+  call void %50(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %47) #19
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %52 = load i8, ptr %51, align 4
   %53 = trunc i8 %52 to i1
@@ -93033,7 +93033,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %1 to i64
   %38 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -93051,7 +93051,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %47 = load ptr, ptr %33, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #19
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
@@ -93420,7 +93420,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %26) #18
+  call void %30(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %26) #19
   %31 = sext i32 %3 to i64
   %32 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %31
   %33 = ptrtoint ptr %32 to i64
@@ -93443,7 +93443,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %46 = load ptr, ptr %27, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
@@ -93532,7 +93532,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %26) #18
+  call void %30(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %26) #19
   %31 = sext i32 %3 to i64
   %32 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %31
   %33 = ptrtoint ptr %32 to i64
@@ -93555,7 +93555,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %46 = load ptr, ptr %27, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
@@ -93644,7 +93644,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %26) #18
+  call void %30(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %26) #19
   %31 = sext i32 %3 to i64
   %32 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %31
   %33 = ptrtoint ptr %32 to i64
@@ -93667,7 +93667,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %46 = load ptr, ptr %27, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
@@ -93750,7 +93750,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %23) #18
+  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %23) #19
   %28 = sext i32 %3 to i64
   %29 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %28
   %30 = ptrtoint ptr %29 to i64
@@ -93773,7 +93773,7 @@ _ZN9Assembler12emit_operandE11XMMRegister7Addressi.exit:
   %43 = load ptr, ptr %24, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
+  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %47 = load i8, ptr %46, align 4
   %48 = trunc i8 %47 to i1
@@ -93881,7 +93881,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %44 = sext i32 %1 to i64
   %45 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %44
   %46 = ptrtoint ptr %45 to i64
@@ -93899,7 +93899,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %54 = load ptr, ptr %40, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %53) #18
+  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %53) #19
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %58 = load i8, ptr %57, align 4
   %59 = trunc i8 %58 to i1
@@ -94007,7 +94007,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %44 = sext i32 %1 to i64
   %45 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %44
   %46 = ptrtoint ptr %45 to i64
@@ -94025,7 +94025,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %54 = load ptr, ptr %40, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %53) #18
+  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %53) #19
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %58 = load i8, ptr %57, align 4
   %59 = trunc i8 %58 to i1
@@ -94133,7 +94133,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %44 = sext i32 %1 to i64
   %45 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %44
   %46 = ptrtoint ptr %45 to i64
@@ -94151,7 +94151,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %54 = load ptr, ptr %40, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %53) #18
+  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %53) #19
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %58 = load i8, ptr %57, align 4
   %59 = trunc i8 %58 to i1
@@ -94259,7 +94259,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %44 = sext i32 %1 to i64
   %45 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %44
   %46 = ptrtoint ptr %45 to i64
@@ -94277,7 +94277,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %54 = load ptr, ptr %40, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %53) #18
+  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %53) #19
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %58 = load i8, ptr %57, align 4
   %59 = trunc i8 %58 to i1
@@ -94385,7 +94385,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %44 = sext i32 %3 to i64
   %45 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %44
   %46 = ptrtoint ptr %45 to i64
@@ -94403,7 +94403,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %54 = load ptr, ptr %40, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %53) #18
+  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %53) #19
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %58 = load i8, ptr %57, align 4
   %59 = trunc i8 %58 to i1
@@ -94511,7 +94511,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %44 = sext i32 %3 to i64
   %45 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %44
   %46 = ptrtoint ptr %45 to i64
@@ -94529,7 +94529,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %54 = load ptr, ptr %40, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %53) #18
+  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %53) #19
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %58 = load i8, ptr %57, align 4
   %59 = trunc i8 %58 to i1
@@ -94637,7 +94637,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %44 = sext i32 %3 to i64
   %45 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %44
   %46 = ptrtoint ptr %45 to i64
@@ -94655,7 +94655,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %54 = load ptr, ptr %40, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %53) #18
+  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %53) #19
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %58 = load i8, ptr %57, align 4
   %59 = trunc i8 %58 to i1
@@ -94763,7 +94763,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %44 = sext i32 %3 to i64
   %45 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %44
   %46 = ptrtoint ptr %45 to i64
@@ -94781,7 +94781,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %5, %32
   %54 = load ptr, ptr %40, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %53) #18
+  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %53) #19
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %58 = load i8, ptr %57, align 4
   %59 = trunc i8 %58 to i1
@@ -95267,7 +95267,7 @@ define hidden void @_ZN9Assembler5fld_xE7Address(ptr noundef nonnull readonly al
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %13) #18
+  call void %17(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %13) #19
   %.sroa.01.0.copyload.i = load i32, ptr %3, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %18, align 4
@@ -95342,7 +95342,7 @@ define hidden void @_ZN9Assembler6fstp_xE7Address(ptr noundef nonnull readonly a
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %13) #18
+  call void %17(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %13) #19
   %.sroa.01.0.copyload.i = load i32, ptr %3, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %18, align 4
@@ -95388,7 +95388,7 @@ define hidden void @_ZN9Assembler5fld_dE7Address(ptr noundef nonnull readonly al
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %13) #18
+  call void %17(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %13) #19
   %.sroa.01.0.copyload.i = load i32, ptr %3, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %18, align 4
@@ -95462,7 +95462,7 @@ define hidden void @_ZN9Assembler6fstp_dE7Address(ptr noundef nonnull readonly a
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %13) #18
+  call void %17(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %13) #19
   %.sroa.01.0.copyload.i = load i32, ptr %3, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %18, align 4
@@ -95551,7 +95551,7 @@ define hidden void @_ZN9Assembler10rex_prefixE7Address11XMMRegisterNS_13VexSimdP
   %24 = load ptr, ptr %21, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %23) #18
+  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %23) #19
   call void @_ZN9Assembler7prefixqE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %7, i32 %2)
   br label %32
 
@@ -95561,7 +95561,7 @@ define hidden void @_ZN9Assembler10rex_prefixE7Address11XMMRegisterNS_13VexSimdP
   %29 = load ptr, ptr %21, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %28) #18
+  call void %31(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %28) #19
   call void @_ZN9Assembler6prefixE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %8, i32 %2)
   br label %32
 
@@ -95639,7 +95639,7 @@ define hidden void @_ZN9Assembler7prefixqE7Address11XMMRegister(ptr noundef nonn
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %29) #18
+  call void %33(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %29) #19
   %.sroa.0.0.copyload.i.i = load i32, ptr %4, align 8
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i5.i = load i32, ptr %34, align 4
@@ -95812,7 +95812,7 @@ define hidden void @_ZN9Assembler6prefixE7Address11XMMRegister(ptr noundef nonnu
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %29) #18
+  call void %33(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %29) #19
   %.sroa.0.0.copyload.i.i = load i32, ptr %4, align 8
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i5.i = load i32, ptr %34, align 4
@@ -97692,7 +97692,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %8, %35
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(40) %47) #18
+  call void %51(ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(40) %47) #19
   %52 = sext i32 %3 to i64
   %53 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %52
   %54 = ptrtoint ptr %53 to i64
@@ -97713,7 +97713,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %8, %35
   %63 = load ptr, ptr %48, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8
-  call void %65(ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(40) %62) #18
+  call void %65(ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(40) %62) #19
   %.sroa.01.0.copyload.i = load i32, ptr %11, align 8
   %66 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %66, align 4
@@ -97911,7 +97911,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %8, %35
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(40) %47) #18
+  call void %51(ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(40) %47) #19
   %52 = sext i32 %3 to i64
   %53 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %52
   %54 = ptrtoint ptr %53 to i64
@@ -97932,7 +97932,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %8, %35
   %63 = load ptr, ptr %48, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8
-  call void %65(ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(40) %62) #18
+  call void %65(ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(40) %62) #19
   %.sroa.01.0.copyload.i = load i32, ptr %11, align 8
   %66 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %66, align 4
@@ -98138,7 +98138,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %8, %39
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(40) %51) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(40) %51) #19
   %56 = sext i32 %3 to i64
   %57 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %56
   %58 = ptrtoint ptr %57 to i64
@@ -98159,7 +98159,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %8, %39
   %67 = load ptr, ptr %52, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8
-  call void %69(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(40) %66) #18
+  call void %69(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(40) %66) #19
   %.sroa.01.0.copyload.i = load i32, ptr %11, align 8
   %70 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %70, align 4
@@ -98365,7 +98365,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %8, %39
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(40) %51) #18
+  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(40) %51) #19
   %56 = sext i32 %3 to i64
   %57 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %56
   %58 = ptrtoint ptr %57 to i64
@@ -98386,7 +98386,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %8, %39
   %67 = load ptr, ptr %52, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8
-  call void %69(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(40) %66) #18
+  call void %69(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(40) %66) #19
   %.sroa.01.0.copyload.i = load i32, ptr %11, align 8
   %70 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %70, align 4
@@ -100211,7 +100211,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %2 to i64
   %38 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -100234,7 +100234,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %52 = load ptr, ptr %33, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #18
+  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #19
   %.sroa.01.0.copyload.i = load i32, ptr %7, align 8
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %55, align 4
@@ -100327,7 +100327,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %2 to i64
   %38 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -100350,7 +100350,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %52 = load ptr, ptr %33, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #18
+  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #19
   %.sroa.01.0.copyload.i = load i32, ptr %7, align 8
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %55, align 4
@@ -100443,7 +100443,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %2 to i64
   %38 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -100466,7 +100466,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %52 = load ptr, ptr %33, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #18
+  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #19
   %.sroa.01.0.copyload.i = load i32, ptr %7, align 8
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %55, align 4
@@ -100559,7 +100559,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %2 to i64
   %38 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -100582,7 +100582,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %52 = load ptr, ptr %33, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #18
+  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #19
   %.sroa.01.0.copyload.i = load i32, ptr %7, align 8
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %55, align 4
@@ -100748,7 +100748,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %3 to i64
   %38 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -100771,7 +100771,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %52 = load ptr, ptr %33, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #18
+  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #19
   %.sroa.01.0.copyload.i = load i32, ptr %7, align 8
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %55, align 4
@@ -100937,7 +100937,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %3 to i64
   %38 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -100960,7 +100960,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %52 = load ptr, ptr %33, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #18
+  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #19
   %.sroa.01.0.copyload.i = load i32, ptr %7, align 8
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %55, align 4
@@ -101126,7 +101126,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %3 to i64
   %38 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -101149,7 +101149,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %52 = load ptr, ptr %33, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #18
+  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #19
   %.sroa.01.0.copyload.i = load i32, ptr %7, align 8
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %55, align 4
@@ -101315,7 +101315,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %3 to i64
   %38 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -101338,7 +101338,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %52 = load ptr, ptr %33, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #18
+  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #19
   %.sroa.01.0.copyload.i = load i32, ptr %7, align 8
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %55, align 4
@@ -101504,7 +101504,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %3 to i64
   %38 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -101527,7 +101527,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %52 = load ptr, ptr %33, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #18
+  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #19
   %.sroa.01.0.copyload.i = load i32, ptr %7, align 8
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %55, align 4
@@ -101693,7 +101693,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %3 to i64
   %38 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -101716,7 +101716,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %52 = load ptr, ptr %33, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #18
+  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #19
   %.sroa.01.0.copyload.i = load i32, ptr %7, align 8
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %55, align 4
@@ -102806,7 +102806,7 @@ define hidden noundef zeroext i1 @_ZN9Assembler9reachableE14AddressLiteral(ptr n
   ]
 
 _ZL19is_always_reachablePhN9relocInfo9relocTypeE.exit.i: ; preds = %6, %6, %6, %6
-  %11 = tail call noundef zeroext i1 @_ZN9CodeCache8containsEPv(ptr noundef %8) #18
+  %11 = tail call noundef zeroext i1 @_ZN9CodeCache8containsEPv(ptr noundef %8) #19
   br i1 %11, label %_ZL12is_reachablePhN9relocInfo9relocTypeE.exit, label %_ZL19is_always_reachablePhN9relocInfo9relocTypeE.exit.thread6.i
 
 _ZL19is_always_reachablePhN9relocInfo9relocTypeE.exit.thread6.i: ; preds = %_ZL19is_always_reachablePhN9relocInfo9relocTypeE.exit.i
@@ -102871,7 +102871,7 @@ define hidden noundef zeroext i1 @_ZN9Assembler16always_reachableE14AddressLiter
 9:                                                ; preds = %6, %6, %6, %6
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef zeroext i1 @_ZN9CodeCache8containsEPv(ptr noundef %11) #18
+  %12 = tail call noundef zeroext i1 @_ZN9CodeCache8containsEPv(ptr noundef %11) #19
   br label %_ZL19is_always_reachablePhN9relocInfo9relocTypeE.exit
 
 13:                                               ; preds = %6
@@ -102893,12 +102893,12 @@ define hidden void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noun
   br label %14
 
 9:                                                ; preds = %4
-  call void @_ZN10Relocation11spec_simpleEN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.RelocationHolder) align 8 %5, i32 noundef %2) #18
+  call void @_ZN10Relocation11spec_simpleEN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.RelocationHolder) align 8 %5, i32 noundef %2) #19
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %11, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef %3) #18
+  call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %11, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef %3) #19
   br label %14
 
 14:                                               ; preds = %9, %7
@@ -102919,7 +102919,7 @@ define hidden void @_ZN9Assembler11emit_data64ElRK16RelocationHolderi(ptr nounde
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %3) #18
+  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %3) #19
   %9 = load ptr, ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
@@ -103469,7 +103469,7 @@ define hidden noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull read
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %24) #18
+  call void %28(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   %.sroa.0.0.copyload.i.i = load i32, ptr %5, align 8
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i6.i = load i32, ptr %29, align 4
@@ -103514,7 +103514,7 @@ _ZN9Assembler16get_prefixq_rex2E7Addressb.exit:   ; preds = %23, %35
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
-  call void %57(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull align 8 dereferenceable(40) %53) #18
+  call void %57(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull align 8 dereferenceable(40) %53) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = load i32, ptr %6, align 8
   %59 = sext i32 %58 to i64
@@ -103554,7 +103554,7 @@ _ZN9Assembler16get_prefixq_rex2E7Addressb.exit:   ; preds = %23, %35
   %84 = load ptr, ptr %53, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load ptr, ptr %85, align 8
-  call void %86(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(40) %83) #18
+  call void %86(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(40) %83) #19
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %4, align 8
   %87 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i7.i.i = load i32, ptr %87, align 4
@@ -103652,7 +103652,7 @@ define hidden noundef range(i32 72, 54784) i32 @_ZN9Assembler11get_prefixqE7Addr
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(40) %30) #18
+  call void %34(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(40) %30) #19
   %.sroa.0.0.copyload.i.i = load i32, ptr %5, align 8
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i7.i = load i32, ptr %35, align 4
@@ -103806,7 +103806,7 @@ define hidden void @_ZN9Assembler7prefixqE7Address(ptr noundef nonnull readonly 
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %22) #18
+  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %22) #19
   %.sroa.0.0.copyload.i.i = load i32, ptr %3, align 8
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.sroa.0.0.copyload.i6.i = load i32, ptr %27, align 4
@@ -103857,7 +103857,7 @@ _ZN9Assembler16get_prefixq_rex2E7Addressb.exit:   ; preds = %21, %33
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %56, ptr noundef nonnull align 8 dereferenceable(40) %55) #18
+  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %56, ptr noundef nonnull align 8 dereferenceable(40) %55) #19
   %60 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i1 noundef zeroext false)
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %62
@@ -104087,7 +104087,7 @@ define hidden void @_ZN9Assembler4adcqE8Register7Address(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -104126,7 +104126,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -104264,14 +104264,14 @@ define hidden void @_ZN9Assembler4addqE7Addressi(ptr noundef nonnull readonly al
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler7prefixqE7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = load ptr, ptr %12, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #19
   call void @_ZN9Assembler18emit_arith_operandEi8Register7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 129, i32 0, ptr noundef nonnull %5, i32 noundef %2)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -104295,7 +104295,7 @@ define hidden void @_ZN9Assembler4addqE7Address8Register(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -104334,7 +104334,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -104499,7 +104499,7 @@ define hidden void @_ZN9Assembler4addqE8Register7Address(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -104538,7 +104538,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -105042,14 +105042,14 @@ define hidden void @_ZN9Assembler4andqE7Addressi(ptr noundef nonnull readonly al
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler7prefixqE7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = load ptr, ptr %12, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #19
   call void @_ZN9Assembler18emit_arith_operandEi8Register7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 129, i32 4, ptr noundef nonnull %5, i32 noundef %2)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -105192,7 +105192,7 @@ define hidden void @_ZN9Assembler4andqE8Register7Address(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -105231,7 +105231,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -105369,7 +105369,7 @@ define hidden void @_ZN9Assembler4andqE7Address8Register(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -105408,7 +105408,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -105569,7 +105569,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %2 to i64
   %38 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -105592,7 +105592,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %52 = load ptr, ptr %33, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #18
+  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %51) #19
   %.sroa.01.0.copyload.i = load i32, ptr %7, align 8
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %55, align 4
@@ -106103,7 +106103,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   %36 = sext i32 %1 to i64
   %37 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %36
   %38 = ptrtoint ptr %37 to i64
@@ -106121,7 +106121,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %46 = load ptr, ptr %32, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %.sroa.01.0.copyload.i = load i32, ptr %6, align 8
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %49, align 4
@@ -106282,7 +106282,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   %36 = sext i32 %1 to i64
   %37 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %36
   %38 = ptrtoint ptr %37 to i64
@@ -106300,7 +106300,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %46 = load ptr, ptr %32, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %.sroa.01.0.copyload.i = load i32, ptr %6, align 8
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %49, align 4
@@ -106461,7 +106461,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   %36 = sext i32 %1 to i64
   %37 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %36
   %38 = ptrtoint ptr %37 to i64
@@ -106479,7 +106479,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %46 = load ptr, ptr %32, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %45) #18
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %45) #19
   %.sroa.01.0.copyload.i = load i32, ptr %6, align 8
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %49, align 4
@@ -106552,7 +106552,7 @@ define hidden void @_ZN9Assembler7clflushE7Address(ptr noundef nonnull readonly 
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %5) #18
+  call void %9(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %5) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %3, i1 noundef zeroext true)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -106566,7 +106566,7 @@ define hidden void @_ZN9Assembler7clflushE7Address(ptr noundef nonnull readonly 
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %15) #18
+  call void %18(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %15) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %19, align 4
@@ -106605,7 +106605,7 @@ define hidden void @_ZN9Assembler10clflushoptE7Address(ptr noundef nonnull reado
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %3, i1 noundef zeroext true)
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -106618,7 +106618,7 @@ define hidden void @_ZN9Assembler10clflushoptE7Address(ptr noundef nonnull reado
   %20 = load ptr, ptr %11, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #18
+  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %23, align 4
@@ -106657,7 +106657,7 @@ define hidden void @_ZN9Assembler4clwbE7Address(ptr noundef nonnull readonly ali
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %3, i1 noundef zeroext true)
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -106670,7 +106670,7 @@ define hidden void @_ZN9Assembler4clwbE7Address(ptr noundef nonnull readonly ali
   %20 = load ptr, ptr %11, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #18
+  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %19) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %23, align 4
@@ -106843,7 +106843,7 @@ define hidden void @_ZN9Assembler5cmovqENS_9ConditionE8Register7Address(ptr noun
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %12) #18
+  call void %16(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %12) #19
   %17 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %5, i32 %2, i1 noundef zeroext true)
   %18 = or i32 %1, 64
   %19 = icmp samesign ult i32 %17, 256
@@ -106885,7 +106885,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %20, %28
   %40 = load ptr, ptr %13, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
-  call void %42(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %42(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %.sroa.01.0.copyload.i = load i32, ptr %6, align 8
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %43, align 4
@@ -106931,14 +106931,14 @@ define hidden void @_ZN9Assembler4cmpqE7Addressi(ptr noundef nonnull readonly al
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler7prefixqE7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = load ptr, ptr %12, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #19
   call void @_ZN9Assembler18emit_arith_operandEi8Register7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 129, i32 7, ptr noundef nonnull %5, i32 noundef %2)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -107079,7 +107079,7 @@ define hidden void @_ZN9Assembler4cmpqE7Address8Register(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -107118,7 +107118,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -107256,7 +107256,7 @@ define hidden void @_ZN9Assembler4cmpqE8Register7Address(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -107295,7 +107295,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -107341,7 +107341,7 @@ define hidden void @_ZN9Assembler8cmpxchgqE8Register7Address(ptr noundef nonnull
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext true)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -107380,7 +107380,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -107557,7 +107557,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4)
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -107570,7 +107570,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
@@ -107677,7 +107677,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #19
   call void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, ptr noundef nonnull %5, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4)
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -107690,7 +107690,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %3, %30
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
@@ -107761,7 +107761,7 @@ define hidden void @_ZN9Assembler10cvttsd2siqE8Register7Address(ptr noundef nonn
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #19
   call void @_ZN9Assembler7prefixqE7Address8Registerb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext true)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -107774,7 +107774,7 @@ define hidden void @_ZN9Assembler10cvttsd2siqE8Register7Address(ptr noundef nonn
   %25 = load ptr, ptr %16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #18
+  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %28, align 4
@@ -108213,7 +108213,7 @@ define hidden void @_ZN9Assembler4decqE7Address(ptr noundef nonnull readonly ali
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   %15 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %3, i1 noundef zeroext false)
   %16 = and i32 %15, 65280
   %17 = icmp eq i32 %16, 0
@@ -108253,7 +108253,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %11, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -108294,7 +108294,7 @@ define hidden void @_ZN9Assembler7fxrstorE7Address(ptr noundef nonnull readonly 
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   %15 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %3, i1 noundef zeroext false)
   %16 = load ptr, ptr %5, align 8
   %17 = trunc i32 %15 to i8
@@ -108312,7 +108312,7 @@ define hidden void @_ZN9Assembler7fxrstorE7Address(ptr noundef nonnull readonly 
   %24 = load ptr, ptr %11, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %23) #18
+  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %23) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %27, align 4
@@ -108353,7 +108353,7 @@ define hidden void @_ZN9Assembler6xrstorE7Address(ptr noundef nonnull readonly a
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   %15 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %3, i1 noundef zeroext false)
   %16 = load ptr, ptr %5, align 8
   %17 = trunc i32 %15 to i8
@@ -108371,7 +108371,7 @@ define hidden void @_ZN9Assembler6xrstorE7Address(ptr noundef nonnull readonly a
   %24 = load ptr, ptr %11, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %23) #18
+  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %23) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %27, align 4
@@ -108412,7 +108412,7 @@ define hidden void @_ZN9Assembler6fxsaveE7Address(ptr noundef nonnull readonly a
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   %15 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %3, i1 noundef zeroext false)
   %16 = load ptr, ptr %5, align 8
   %17 = trunc i32 %15 to i8
@@ -108430,7 +108430,7 @@ define hidden void @_ZN9Assembler6fxsaveE7Address(ptr noundef nonnull readonly a
   %24 = load ptr, ptr %11, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %23) #18
+  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %23) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %27, align 4
@@ -108471,7 +108471,7 @@ define hidden void @_ZN9Assembler5xsaveE7Address(ptr noundef nonnull readonly al
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   %15 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %3, i1 noundef zeroext false)
   %16 = load ptr, ptr %5, align 8
   %17 = trunc i32 %15 to i8
@@ -108489,7 +108489,7 @@ define hidden void @_ZN9Assembler5xsaveE7Address(ptr noundef nonnull readonly al
   %24 = load ptr, ptr %11, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %23) #18
+  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %23) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %27, align 4
@@ -108869,7 +108869,7 @@ define hidden void @_ZN9Assembler5imulqE8Register7Addressi(ptr noundef nonnull r
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %13) #18
+  call void %17(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %13) #19
   call void @_ZN9Assembler7prefixqE7Address8Registerb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %5, i32 %1, i1 noundef zeroext false)
   %18 = add i32 %3, 128
   %19 = icmp ult i32 %18, 256
@@ -108892,7 +108892,7 @@ define hidden void @_ZN9Assembler5imulqE8Register7Addressi(ptr noundef nonnull r
   %31 = load ptr, ptr %14, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %30) #18
+  call void %33(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %30) #19
   %.sroa.01.0.copyload.i = load i32, ptr %6, align 8
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %34, align 4
@@ -108928,7 +108928,7 @@ define hidden void @_ZN9Assembler5imulqE8Register7Addressi(ptr noundef nonnull r
   %56 = load ptr, ptr %14, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %55) #18
+  call void %58(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %55) #19
   %.sroa.01.0.copyload.i8 = load i32, ptr %7, align 8
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.0.0.copyload.i9 = load i32, ptr %59, align 4
@@ -109112,7 +109112,7 @@ define hidden void @_ZN9Assembler5imulqE8Register7Address(ptr noundef nonnull re
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext true)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -109151,7 +109151,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -109329,7 +109329,7 @@ define hidden void @_ZN9Assembler4incqE7Address(ptr noundef nonnull readonly ali
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   %15 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %3, i1 noundef zeroext false)
   %16 = and i32 %15, 65280
   %17 = icmp eq i32 %16, 0
@@ -109369,7 +109369,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %11, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -109403,7 +109403,7 @@ define hidden void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull read
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %5) #18
+  call void %9(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %5) #19
   call void @_ZN9Assembler4leaqE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, ptr noundef nonnull %4)
   ret void
 }
@@ -109424,7 +109424,7 @@ define hidden void @_ZN9Assembler4leaqE8Register7Address(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -109463,7 +109463,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -109646,11 +109646,11 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %39, %40, %18
   br i1 %48, label %_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi.exit, label %49
 
 49:                                               ; preds = %_ZN9Assembler18prefixq_and_encodeEib.exit
-  call void @_ZN10Relocation11spec_simpleEN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.RelocationHolder) align 8 %6, i32 noundef %3) #18
+  call void @_ZN10Relocation11spec_simpleEN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.RelocationHolder) align 8 %6, i32 noundef %3) #19
   %50 = load ptr, ptr %7, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
-  call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %50, ptr noundef %52, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %4) #18
+  call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %50, ptr noundef %52, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %4) #19
   br label %_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi.exit
 
 _ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi.exit: ; preds = %_ZN9Assembler18prefixq_and_encodeEib.exit, %49
@@ -109738,7 +109738,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %37, %38, %16
   %46 = load ptr, ptr %5, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
-  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %46, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef 0) #18
+  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %46, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef 0) #19
   %49 = load ptr, ptr %5, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
@@ -109822,7 +109822,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %32, %30, %16
   %46 = load ptr, ptr %5, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
-  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %46, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef 3) #18
+  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %46, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef 3) #19
   br label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit
 
 _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit: ; preds = %_ZN9Assembler17prefix_and_encodeEibb.exit, %.sink.split.i
@@ -109855,7 +109855,7 @@ define hidden void @_ZN9Assembler14mov_narrow_oopE7AddressiRK16RelocationHolder(
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %12) #18
+  call void %16(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %12) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %5, i1 noundef zeroext false)
   %17 = load ptr, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -109868,7 +109868,7 @@ define hidden void @_ZN9Assembler14mov_narrow_oopE7AddressiRK16RelocationHolder(
   %22 = load ptr, ptr %13, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %21) #18
+  call void %24(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %21) #19
   %.sroa.01.0.copyload.i = load i32, ptr %6, align 8
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %25, align 4
@@ -109896,7 +109896,7 @@ define hidden void @_ZN9Assembler14mov_narrow_oopE7AddressiRK16RelocationHolder(
   %42 = load ptr, ptr %7, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
-  call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %42, ptr noundef %44, ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef 3) #18
+  call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %42, ptr noundef %44, ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef 3) #19
   br label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit
 
 _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit: ; preds = %4, %.sink.split.i
@@ -109984,7 +109984,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %31, %29, %16
   %46 = load ptr, ptr %5, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
-  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %46, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef 3) #18
+  tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %46, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef 3) #19
   br label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit
 
 _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit: ; preds = %_ZN9Assembler17prefix_and_encodeEibb.exit, %.sink.split.i
@@ -110017,7 +110017,7 @@ define hidden void @_ZN9Assembler14cmp_narrow_oopE7AddressiRK16RelocationHolder(
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %12) #18
+  call void %16(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %12) #19
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %5, i1 noundef zeroext false)
   %17 = load ptr, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -110030,7 +110030,7 @@ define hidden void @_ZN9Assembler14cmp_narrow_oopE7AddressiRK16RelocationHolder(
   %22 = load ptr, ptr %13, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %21) #18
+  call void %24(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %21) #19
   %.sroa.01.0.copyload.i = load i32, ptr %6, align 8
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %25, align 4
@@ -110058,7 +110058,7 @@ define hidden void @_ZN9Assembler14cmp_narrow_oopE7AddressiRK16RelocationHolder(
   %42 = load ptr, ptr %7, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
-  call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %42, ptr noundef %44, ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef 3) #18
+  call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %42, ptr noundef %44, ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef 3) #19
   br label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit
 
 _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit: ; preds = %4, %.sink.split.i
@@ -110232,7 +110232,7 @@ define hidden void @_ZN9Assembler6lzcntqE8Register7Address(ptr noundef nonnull r
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #19
   call void @_ZN9Assembler7prefixqE7Address8Registerb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext true)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -110245,7 +110245,7 @@ define hidden void @_ZN9Assembler6lzcntqE8Register7Address(ptr noundef nonnull r
   %25 = load ptr, ptr %16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #18
+  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %28, align 4
@@ -110465,7 +110465,7 @@ define hidden void @_ZN9Assembler4movqE8Register7Address(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -110504,7 +110504,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -110550,7 +110550,7 @@ define hidden void @_ZN9Assembler4movqE7Address8Register(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -110589,7 +110589,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -110635,7 +110635,7 @@ define hidden void @_ZN9Assembler4movqE7Addressi(ptr noundef nonnull readonly al
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i1 noundef zeroext false)
   %17 = and i32 %16, 65280
   %18 = icmp eq i32 %17, 0
@@ -110675,7 +110675,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %19, %26
   %37 = load ptr, ptr %12, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %36) #18
+  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %36) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %40, align 4
@@ -110799,7 +110799,7 @@ define hidden void @_ZN9Assembler6movsbqE8Register7Address(ptr noundef nonnull r
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext true)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -110838,7 +110838,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -111016,7 +111016,7 @@ define hidden void @_ZN9Assembler6movslqE7Addressi(ptr noundef nonnull readonly 
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i1 noundef zeroext false)
   %17 = and i32 %16, 65280
   %18 = icmp eq i32 %17, 0
@@ -111056,7 +111056,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %19, %26
   %37 = load ptr, ptr %12, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %36) #18
+  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %36) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %40, align 4
@@ -111104,7 +111104,7 @@ define hidden void @_ZN9Assembler6movslqE8Register7Address(ptr noundef nonnull r
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -111143,7 +111143,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -111294,7 +111294,7 @@ define hidden void @_ZN9Assembler6movswqE8Register7Address(ptr noundef nonnull r
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext true)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -111333,7 +111333,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -111511,7 +111511,7 @@ define hidden void @_ZN9Assembler6movzbqE8Register7Address(ptr noundef nonnull r
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext true)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -111550,7 +111550,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -111728,7 +111728,7 @@ define hidden void @_ZN9Assembler6movzwqE8Register7Address(ptr noundef nonnull r
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext true)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -111767,7 +111767,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -111945,7 +111945,7 @@ define hidden void @_ZN9Assembler4mulqE7Address(ptr noundef nonnull readonly ali
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   %15 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %3, i1 noundef zeroext false)
   %16 = and i32 %15, 65280
   %17 = icmp eq i32 %16, 0
@@ -111985,7 +111985,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %11, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -112237,7 +112237,7 @@ define hidden void @_ZN9Assembler4negqE7Address(ptr noundef nonnull readonly ali
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   %15 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %3, i1 noundef zeroext false)
   %16 = and i32 %15, 65280
   %17 = icmp eq i32 %16, 0
@@ -112277,7 +112277,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %11, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -112617,7 +112617,7 @@ define hidden void @_ZN9Assembler4btsqE7Addressi(ptr noundef nonnull readonly al
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i1 noundef zeroext true)
   %17 = and i32 %16, 65280
   %18 = icmp eq i32 %17, 0
@@ -112657,7 +112657,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %19, %26
   %37 = load ptr, ptr %12, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %36) #18
+  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %36) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %40, align 4
@@ -112705,7 +112705,7 @@ define hidden void @_ZN9Assembler4btrqE7Addressi(ptr noundef nonnull readonly al
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i1 noundef zeroext true)
   %17 = and i32 %16, 65280
   %18 = icmp eq i32 %17, 0
@@ -112745,7 +112745,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %19, %26
   %37 = load ptr, ptr %12, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %36) #18
+  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %36) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %40, align 4
@@ -112793,14 +112793,14 @@ define hidden void @_ZN9Assembler3orqE7Addressi(ptr noundef nonnull readonly ali
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler7prefixqE7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = load ptr, ptr %12, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #19
   call void @_ZN9Assembler18emit_arith_operandEi8Register7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 129, i32 1, ptr noundef nonnull %5, i32 noundef %2)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -112824,7 +112824,7 @@ define hidden void @_ZN9Assembler3orqE7Address8Register(ptr noundef nonnull read
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -112863,7 +112863,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -113102,7 +113102,7 @@ define hidden void @_ZN9Assembler3orqE8Register7Address(ptr noundef nonnull read
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -113141,7 +113141,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -113285,7 +113285,7 @@ define hidden void @_ZN9Assembler7popcntqE8Register7Address(ptr noundef nonnull 
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #19
   %20 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext true)
   %21 = icmp samesign ult i32 %20, 256
   br i1 %21, label %22, label %29
@@ -113324,7 +113324,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %22, %29
   %40 = load ptr, ptr %16, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
-  call void %42(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %39) #18
+  call void %42(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %39) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %43, align 4
@@ -113505,7 +113505,7 @@ define hidden void @_ZN9Assembler4popqE7Address(ptr noundef nonnull readonly ali
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   %15 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %3, i1 noundef zeroext false)
   %16 = and i32 %15, 65280
   %17 = icmp eq i32 %16, 0
@@ -113545,7 +113545,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %11, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -113642,7 +113642,7 @@ define hidden void @_ZN9Assembler23precompute_instructionsEv() local_unnamed_add
 4:                                                ; preds = %0
   %5 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %5, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 14235, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #19
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 14235, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #20
   unreachable
 
 6:                                                ; preds = %0
@@ -113663,7 +113663,7 @@ define hidden void @_ZN9Assembler23precompute_instructionsEv() local_unnamed_add
   %20 = trunc i8 %19 to i1
   %21 = select i1 %20, i32 512, i32 256
   %22 = zext nneg i32 %21 to i64
-  %23 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %22, i32 noundef 0) #18
+  %23 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %22, i32 noundef 0) #19
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 76
   store i32 0, ptr %25, align 4
@@ -113677,7 +113677,7 @@ define hidden void @_ZN9Assembler23precompute_instructionsEv() local_unnamed_add
   store i32 0, ptr %29, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %28, i8 0, i64 66, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 312
-  call void @_ZN11OopRecorderC1EP5Arenab(ptr noundef nonnull align 8 dereferenceable(88) %30, ptr noundef null, i1 noundef zeroext false) #18
+  call void @_ZN11OopRecorderC1EP5Arenab(ptr noundef nonnull align 8 dereferenceable(88) %30, ptr noundef null, i1 noundef zeroext false) #19
   store ptr @.str.7, ptr %2, align 8
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 304
@@ -113713,7 +113713,7 @@ define hidden void @_ZN9Assembler23precompute_instructionsEv() local_unnamed_add
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store ptr %23, ptr %47, align 8
   store ptr %30, ptr %32, align 8
-  call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %2) #18
+  call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %2) #19
   %48 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %49 = and i64 %48, 4294967296
   %.not.i.i.i = icmp eq i64 %49, 0
@@ -113818,7 +113818,7 @@ _ZN9Assembler19vzeroupper_uncachedEv.exit:        ; preds = %6, %_ZN9Assembler21
   store i32 %103, ptr @_ZL8popa_len, align 4
   %sext = shl i64 %102, 32
   %104 = ashr exact i64 %sext, 32
-  %105 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %104, i8 noundef zeroext 9, i32 noundef 0) #18
+  %105 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %104, i8 noundef zeroext 9, i32 noundef 0) #19
   store ptr %105, ptr @_ZL9popa_code, align 8
   %106 = load i32, ptr @_ZL8popa_len, align 4
   %107 = sext i32 %106 to i64
@@ -113829,7 +113829,7 @@ _ZN9Assembler19vzeroupper_uncachedEv.exit:        ; preds = %6, %_ZN9Assembler21
   store i32 %110, ptr @_ZL9pusha_len, align 4
   %sext11 = shl i64 %109, 32
   %111 = ashr exact i64 %sext11, 32
-  %112 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %111, i8 noundef zeroext 9, i32 noundef 0) #18
+  %112 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %111, i8 noundef zeroext 9, i32 noundef 0) #19
   store ptr %112, ptr @_ZL10pusha_code, align 8
   %113 = load i32, ptr @_ZL9pusha_len, align 4
   %114 = sext i32 %113 to i64
@@ -113843,7 +113843,7 @@ _ZN9Assembler19vzeroupper_uncachedEv.exit:        ; preds = %6, %_ZN9Assembler21
 
 119:                                              ; preds = %_ZN9Assembler19vzeroupper_uncachedEv.exit
   %120 = and i64 %116, 2147483647
-  %121 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %120, i8 noundef zeroext 9, i32 noundef 0) #18
+  %121 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %120, i8 noundef zeroext 9, i32 noundef 0) #19
   store ptr %121, ptr @_ZL9vzup_code, align 8
   %122 = load i32, ptr @_ZL8vzup_len, align 4
   %123 = sext i32 %122 to i64
@@ -113855,14 +113855,14 @@ _ZN9Assembler19vzeroupper_uncachedEv.exit:        ; preds = %6, %_ZN9Assembler21
   br label %125
 
 125:                                              ; preds = %124, %119
-  call void @_ZN10CodeBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(448) %2) #18
+  call void @_ZN10CodeBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(448) %2) #19
   %126 = load ptr, ptr %12, align 8
   %.not.i.i.i.i = icmp eq ptr %126, null
   br i1 %.not.i.i.i.i, label %128, label %127
 
 127:                                              ; preds = %125
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %10, i64 noundef %18) #18
-  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %12) #18
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %10, i64 noundef %18) #19
+  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %12) #19
   br label %128
 
 128:                                              ; preds = %127, %125
@@ -116174,7 +116174,7 @@ define hidden void @_ZN9Assembler5pushqE7Address(ptr noundef nonnull readonly al
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   %15 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %3, i1 noundef zeroext false)
   %16 = and i32 %15, 65280
   %17 = icmp eq i32 %16, 0
@@ -116214,7 +116214,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %11, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -116546,7 +116546,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %1 to i64
   %38 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -116564,7 +116564,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %47 = load ptr, ptr %33, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #19
   %.sroa.01.0.copyload.i = load i32, ptr %7, align 8
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %50, align 4
@@ -116735,7 +116735,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #19
   %37 = sext i32 %1 to i64
   %38 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -116753,7 +116753,7 @@ _ZN15InstructionAttr22set_address_attributesEii.exit: ; preds = %4, %31
   %47 = load ptr, ptr %33, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %46) #19
   %.sroa.01.0.copyload.i = load i32, ptr %7, align 8
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %50, align 4
@@ -116817,7 +116817,7 @@ define hidden void @_ZN9Assembler4salqE7Addressi(ptr noundef nonnull readonly al
   %17 = load ptr, ptr %14, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %16) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %16) #19
   %20 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i1 noundef zeroext false)
   %21 = and i32 %20, 65280
   %22 = icmp eq i32 %21, 0
@@ -116857,7 +116857,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %23, %30
   %41 = load ptr, ptr %14, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %44, align 4
@@ -116884,7 +116884,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %23, %30
   %61 = load ptr, ptr %14, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
-  call void %63(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %60) #18
+  call void %63(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %60) #19
   %64 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %6, i1 noundef zeroext false)
   %65 = and i32 %64, 65280
   %66 = icmp eq i32 %65, 0
@@ -116924,7 +116924,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit3:     ; preds = %67, %74
   %85 = load ptr, ptr %14, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8
-  call void %87(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %84) #18
+  call void %87(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %84) #19
   %.sroa.01.0.copyload.i4 = load i32, ptr %7, align 8
   %88 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.0.0.copyload.i5 = load i32, ptr %88, align 4
@@ -116975,7 +116975,7 @@ define hidden void @_ZN9Assembler4salqE7Address(ptr noundef nonnull readonly ali
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   %15 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %3, i1 noundef zeroext false)
   %16 = and i32 %15, 65280
   %17 = icmp eq i32 %16, 0
@@ -117015,7 +117015,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %11, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -117220,7 +117220,7 @@ define hidden void @_ZN9Assembler4sarqE7Addressi(ptr noundef nonnull readonly al
   %17 = load ptr, ptr %14, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %16) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %16) #19
   %20 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i1 noundef zeroext false)
   %21 = and i32 %20, 65280
   %22 = icmp eq i32 %21, 0
@@ -117260,7 +117260,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %23, %30
   %41 = load ptr, ptr %14, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %44, align 4
@@ -117287,7 +117287,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %23, %30
   %61 = load ptr, ptr %14, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
-  call void %63(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %60) #18
+  call void %63(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %60) #19
   %64 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %6, i1 noundef zeroext false)
   %65 = and i32 %64, 65280
   %66 = icmp eq i32 %65, 0
@@ -117327,7 +117327,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit3:     ; preds = %67, %74
   %85 = load ptr, ptr %14, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8
-  call void %87(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %84) #18
+  call void %87(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %84) #19
   %.sroa.01.0.copyload.i4 = load i32, ptr %7, align 8
   %88 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.0.0.copyload.i5 = load i32, ptr %88, align 4
@@ -117378,7 +117378,7 @@ define hidden void @_ZN9Assembler4sarqE7Address(ptr noundef nonnull readonly ali
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   %15 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %3, i1 noundef zeroext false)
   %16 = and i32 %15, 65280
   %17 = icmp eq i32 %16, 0
@@ -117418,7 +117418,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %11, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -117615,14 +117615,14 @@ define hidden void @_ZN9Assembler4sbbqE7Addressi(ptr noundef nonnull readonly al
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler7prefixqE7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = load ptr, ptr %12, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #19
   call void @_ZN9Assembler18emit_arith_operandEi8Register7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 129, i32 3, ptr noundef nonnull %5, i32 noundef %2)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -117765,7 +117765,7 @@ define hidden void @_ZN9Assembler4sbbqE8Register7Address(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -117804,7 +117804,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -118258,7 +118258,7 @@ define hidden void @_ZN9Assembler4shrqE7Address(ptr noundef nonnull readonly ali
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #19
   %15 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %3, i1 noundef zeroext false)
   %16 = and i32 %15, 65280
   %17 = icmp eq i32 %16, 0
@@ -118298,7 +118298,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %11, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %4, align 8
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -118345,7 +118345,7 @@ define hidden void @_ZN9Assembler4shrqE7Addressi(ptr noundef nonnull readonly al
   %17 = load ptr, ptr %14, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %16) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %16) #19
   %20 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i1 noundef zeroext false)
   %21 = and i32 %20, 65280
   %22 = icmp eq i32 %21, 0
@@ -118385,7 +118385,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %23, %30
   %41 = load ptr, ptr %14, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %40) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %44, align 4
@@ -118412,7 +118412,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %23, %30
   %61 = load ptr, ptr %14, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
-  call void %63(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %60) #18
+  call void %63(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %60) #19
   %64 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %6, i1 noundef zeroext false)
   %65 = and i32 %64, 65280
   %66 = icmp eq i32 %65, 0
@@ -118452,7 +118452,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit3:     ; preds = %67, %74
   %85 = load ptr, ptr %14, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8
-  call void %87(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %84) #18
+  call void %87(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %84) #19
   %.sroa.01.0.copyload.i4 = load i32, ptr %7, align 8
   %88 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.0.0.copyload.i5 = load i32, ptr %88, align 4
@@ -118503,14 +118503,14 @@ define hidden void @_ZN9Assembler4subqE7Addressi(ptr noundef nonnull readonly al
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler7prefixqE7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = load ptr, ptr %12, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #19
   call void @_ZN9Assembler18emit_arith_operandEi8Register7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 129, i32 5, ptr noundef nonnull %5, i32 noundef %2)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -118534,7 +118534,7 @@ define hidden void @_ZN9Assembler4subqE7Address8Register(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -118573,7 +118573,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -118693,7 +118693,7 @@ define hidden void @_ZN9Assembler4subqE8Register7Address(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -118732,7 +118732,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -118870,7 +118870,7 @@ define hidden void @_ZN9Assembler5testqE7Addressi(ptr noundef nonnull readonly a
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i1 noundef zeroext false)
   %17 = and i32 %16, 65280
   %18 = icmp eq i32 %17, 0
@@ -118910,7 +118910,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %19, %26
   %37 = load ptr, ptr %12, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %36) #18
+  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %36) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %40, align 4
@@ -119150,7 +119150,7 @@ define hidden void @_ZN9Assembler5testqE8Register7Address(ptr noundef nonnull re
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -119189,7 +119189,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -119235,7 +119235,7 @@ define hidden void @_ZN9Assembler5xaddqE7Address8Register(ptr noundef nonnull re
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext true)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -119274,7 +119274,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -119320,7 +119320,7 @@ define hidden void @_ZN9Assembler5xchgqE8Register7Address(ptr noundef nonnull re
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -119359,7 +119359,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -119602,7 +119602,7 @@ define hidden void @_ZN9Assembler4xorqE8Register7Address(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %1, i1 noundef zeroext false)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -119641,7 +119641,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -119806,14 +119806,14 @@ define hidden void @_ZN9Assembler4xorqE7Addressi(ptr noundef nonnull readonly al
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   call void @_ZN9Assembler7prefixqE7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = load ptr, ptr %12, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #19
   call void @_ZN9Assembler18emit_arith_operandEi8Register7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 129, i32 6, ptr noundef nonnull %5, i32 noundef %2)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -119837,7 +119837,7 @@ define hidden void @_ZN9Assembler4xorqE7Address8Register(ptr noundef nonnull rea
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #19
   %16 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i32 %2, i1 noundef zeroext false)
   %17 = icmp samesign ult i32 %16, 256
   br i1 %17, label %18, label %25
@@ -119876,7 +119876,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %35) #19
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 4
@@ -119923,26 +119923,26 @@ declare void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 derefer
 
 declare void @_ZN5Chunk9next_chopEPS_(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #15
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -119959,11 +119959,12 @@ attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(readwrit
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #18 = { nounwind }
-attributes #19 = { noreturn nounwind }
+attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #19 = { nounwind }
+attributes #20 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -34,18 +34,18 @@ define noundef zeroext i1 @_ZN13LevmarMethods9calibrateEPN3vcg4ShotIfNS0_8Matrix
   %.sroa.414.0.copyload.i = load float, ptr %.sroa.414.0..sroa_idx.i, align 4
   %.sroa.515.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.sroa.515.0.copyload.i = load float, ptr %.sroa.515.0..sroa_idx.i, align 4
-  %6 = tail call noundef float @atan2f(float noundef %.sroa.414.0.copyload.i, float noundef %.sroa.515.0.copyload.i) #13
+  %6 = tail call noundef float @atan2f(float noundef %.sroa.414.0.copyload.i, float noundef %.sroa.515.0.copyload.i) #14
   %7 = tail call float @llvm.fabs.f32(float %.sroa.313.0.copyload.i)
   %8 = fcmp ogt float %7, 1.000000e+00
   br i1 %8, label %cdce.call, label %cdce.end, !prof !5
 
 cdce.call:                                        ; preds = %4
   %9 = fneg float %.sroa.313.0.copyload.i
-  %10 = tail call noundef float @asinf(float noundef %9) #13
+  %10 = tail call noundef float @asinf(float noundef %9) #14
   br label %cdce.end
 
 cdce.end:                                         ; preds = %4, %cdce.call
-  %11 = tail call noundef float @atan2f(float noundef %.sroa.2.0.copyload.i, float noundef %.sroa.012.0.copyload.i) #13
+  %11 = tail call noundef float @atan2f(float noundef %.sroa.2.0.copyload.i, float noundef %.sroa.012.0.copyload.i) #14
   br label %_ZN13LevmarMethods11Shot2LevmarEPN3vcg4ShotIfNS0_8Matrix44IfEEEEPdb.exit
 
 _ZN13LevmarMethods11Shot2LevmarEPN3vcg4ShotIfNS0_8Matrix44IfEEEEPdb.exit: ; preds = %3, %cdce.end
@@ -67,10 +67,10 @@ define void @_ZN13LevmarMethods11Shot2LevmarEPN3vcg4ShotIfNS0_8Matrix44IfEEEEPdb
   %.sroa.414.0.copyload = load float, ptr %.sroa.414.0..sroa_idx, align 4
   %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.sroa.515.0.copyload = load float, ptr %.sroa.515.0..sroa_idx, align 4
-  %6 = tail call noundef float @atan2f(float noundef %.sroa.414.0.copyload, float noundef %.sroa.515.0.copyload) #13
+  %6 = tail call noundef float @atan2f(float noundef %.sroa.414.0.copyload, float noundef %.sroa.515.0.copyload) #14
   %7 = fneg float %.sroa.313.0.copyload
-  %8 = tail call noundef float @asinf(float noundef %7) #13
-  %9 = tail call noundef float @atan2f(float noundef %.sroa.2.0.copyload, float noundef %.sroa.012.0.copyload) #13
+  %8 = tail call noundef float @asinf(float noundef %7) #14
+  %9 = tail call noundef float @atan2f(float noundef %.sroa.2.0.copyload, float noundef %.sroa.012.0.copyload) #14
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.sroa.01.0.copyload.i = load <2 x float>, ptr %10, align 4
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -126,12 +126,12 @@ define void @_ZN13LevmarMethods11Levmar2ShotEPN3vcg4ShotIfNS0_8Matrix44IfEEEEPdb
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load double, ptr %10, align 8
   %12 = fptrunc double %11 to float
-  %13 = tail call noundef float @cosf(float noundef %5) #13
-  %14 = tail call noundef float @cosf(float noundef %9) #13
-  %15 = tail call noundef float @cosf(float noundef %12) #13
-  %16 = tail call noundef float @sinf(float noundef %5) #13
-  %17 = tail call noundef float @sinf(float noundef %9) #13
-  %18 = tail call noundef float @sinf(float noundef %12) #13
+  %13 = tail call noundef float @cosf(float noundef %5) #14
+  %14 = tail call noundef float @cosf(float noundef %9) #14
+  %15 = tail call noundef float @cosf(float noundef %12) #14
+  %16 = tail call noundef float @sinf(float noundef %5) #14
+  %17 = tail call noundef float @sinf(float noundef %9) #14
+  %18 = tail call noundef float @sinf(float noundef %12) #14
   %19 = fmul float %14, %15
   %20 = fneg float %13
   %21 = fmul float %16, %17
@@ -208,7 +208,7 @@ declare float @atan2f(float noundef, float noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @asinf(float noundef) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
@@ -235,12 +235,12 @@ define void @_ZN13LevmarMethods12estimateExtrEPdS0_iiPv(ptr noundef readonly cap
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load double, ptr %14, align 8
   %16 = fptrunc double %15 to float
-  %17 = tail call noundef float @cosf(float noundef %10) #13
-  %18 = tail call noundef float @cosf(float noundef %13) #13
-  %19 = tail call noundef float @cosf(float noundef %16) #13
-  %20 = tail call noundef float @sinf(float noundef %10) #13
-  %21 = tail call noundef float @sinf(float noundef %13) #13
-  %22 = tail call noundef float @sinf(float noundef %16) #13
+  %17 = tail call noundef float @cosf(float noundef %10) #14
+  %18 = tail call noundef float @cosf(float noundef %13) #14
+  %19 = tail call noundef float @cosf(float noundef %16) #14
+  %20 = tail call noundef float @sinf(float noundef %10) #14
+  %21 = tail call noundef float @sinf(float noundef %13) #14
+  %22 = tail call noundef float @sinf(float noundef %16) #14
   %23 = fmul float %18, %19
   %24 = fneg float %17
   %25 = fmul float %20, %21
@@ -475,7 +475,7 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
   br i1 %38, label %94, label %39
 
 39:                                               ; preds = %35
-  %40 = tail call noundef float @hypotf(float noundef %31, float noundef %33) #13
+  %40 = tail call noundef float @hypotf(float noundef %31, float noundef %33) #14
   %41 = load float, ptr %36, align 4
   %42 = fdiv float 1.000000e+00, %41
   %43 = fdiv float %42, 3.000000e+00
@@ -483,10 +483,10 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
   %45 = fmul float %44, 5.000000e-01
   %46 = fcmp olt float %45, 0.000000e+00
   %47 = fpext float %43 to double
-  %48 = tail call noundef double @pow(double noundef %47, double noundef 3.000000e+00) #13
+  %48 = tail call noundef double @pow(double noundef %47, double noundef 3.000000e+00) #14
   %49 = fneg float %45
   %.sink = select i1 %46, float %49, float %45
-  %50 = tail call noundef float @sqrtf(float noundef %.sink) #13
+  %50 = tail call noundef float @sqrtf(float noundef %.sink) #14
   %51 = fpext float %50 to double
   %52 = fadd double %48, %51
   %.038 = fptrunc double %52 to float
@@ -494,22 +494,22 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
   br i1 %53, label %77, label %54
 
 54:                                               ; preds = %39
-  %55 = tail call noundef float @sqrtf(float noundef %.038) #13
+  %55 = tail call noundef float @sqrtf(float noundef %.038) #14
   %56 = fadd float %45, %55
-  %57 = tail call noundef float @powf(float noundef %56, float noundef 0x3FD5555560000000) #13
+  %57 = tail call noundef float @powf(float noundef %56, float noundef 0x3FD5555560000000) #14
   %58 = fcmp ult float %45, %55
   %59 = fsub float %45, %55
   br i1 %58, label %62, label %60
 
 60:                                               ; preds = %54
-  %61 = tail call noundef float @powf(float noundef %59, float noundef 0x3FD5555560000000) #13
+  %61 = tail call noundef float @powf(float noundef %59, float noundef 0x3FD5555560000000) #14
   br label %69
 
 62:                                               ; preds = %54
   %63 = fptosi float %59 to i32
   %64 = tail call i32 @llvm.abs.i32(i32 %63, i1 true)
   %65 = uitofp nneg i32 %64 to double
-  %66 = tail call noundef double @pow(double noundef %65, double noundef 0x3FD5555560000000) #13
+  %66 = tail call noundef double @pow(double noundef %65, double noundef 0x3FD5555560000000) #14
   %67 = fptrunc double %66 to float
   %68 = fneg float %67
   br label %69
@@ -524,18 +524,18 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
   %73 = load float, ptr %36, align 4
   %74 = fmul float %73, 3.000000e+00
   %75 = fdiv float -1.000000e+00, %74
-  %76 = tail call noundef float @sqrtf(float noundef %75) #13
+  %76 = tail call noundef float @sqrtf(float noundef %75) #14
   br label %90
 
 77:                                               ; preds = %39
   %78 = fneg float %.038
-  %79 = tail call noundef float @sqrtf(float noundef %78) #13
-  %80 = tail call noundef float @hypotf(float noundef %45, float noundef %79) #13
-  %81 = tail call noundef float @powf(float noundef %80, float noundef 0x3FD5555560000000) #13
-  %82 = tail call noundef float @atan2f(float noundef %79, float noundef %45) #13
+  %79 = tail call noundef float @sqrtf(float noundef %78) #14
+  %80 = tail call noundef float @hypotf(float noundef %45, float noundef %79) #14
+  %81 = tail call noundef float @powf(float noundef %80, float noundef 0x3FD5555560000000) #14
+  %82 = tail call noundef float @atan2f(float noundef %79, float noundef %45) #14
   %83 = fdiv float %82, 3.000000e+00
-  %84 = tail call noundef float @sinf(float noundef %83) #13
-  %85 = tail call noundef float @cosf(float noundef %83) #13
+  %84 = tail call noundef float @sinf(float noundef %83) #14
+  %85 = tail call noundef float @cosf(float noundef %83) #14
   %86 = fneg float %81
   %87 = fmul float %81, 0x3FFBB67AE0000000
   %88 = fmul float %87, %84
@@ -557,7 +557,7 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #9
+declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @hypotf(float noundef, float noundef) local_unnamed_addr #8
@@ -725,14 +725,14 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit: ; preds = %_ZNK3
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_levmarmethods.cpp() #11 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_levmarmethods.cpp() #12 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #13
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -743,11 +743,12 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

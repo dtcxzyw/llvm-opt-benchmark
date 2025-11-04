@@ -112,7 +112,7 @@ define range(i32 0, 2) i32 @cJSON_IsNumber(ptr noundef readonly captures(address
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define noundef nonnull ptr @cJSON_Version() local_unnamed_addr #2 {
-  %1 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @cJSON_Version.version, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 1, i32 noundef 7, i32 noundef 18) #32
+  %1 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @cJSON_Version.version, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 1, i32 noundef 7, i32 noundef 18) #33
   ret ptr @cJSON_Version.version
 }
 
@@ -198,7 +198,7 @@ define void @cJSON_Delete(ptr noundef %0) local_unnamed_addr #8 {
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8, !tbaa !22
-  tail call void %17(ptr noundef nonnull %15) #32
+  tail call void %17(ptr noundef nonnull %15) #33
   store ptr null, ptr %14, align 8, !tbaa !16
   %.pre26 = load i32, ptr %3, align 8, !tbaa !11
   br label %18
@@ -217,13 +217,13 @@ define void @cJSON_Delete(ptr noundef %0) local_unnamed_addr #8 {
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8, !tbaa !22
-  tail call void %25(ptr noundef nonnull %23) #32
+  tail call void %25(ptr noundef nonnull %23) #33
   store ptr null, ptr %22, align 8, !tbaa !26
   br label %26
 
 26:                                               ; preds = %24, %21, %18
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8, !tbaa !22
-  tail call void %27(ptr noundef nonnull %.025) #32
+  tail call void %27(ptr noundef nonnull %.025) #33
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -274,8 +274,8 @@ define ptr @cJSON_SetValuestring(ptr noundef captures(address_is_null) %0, ptr n
   br i1 %or.cond, label %cJSON_strdup.exit.thread, label %13
 
 13:                                               ; preds = %8
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #33
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #33
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #34
+  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #34
   %.not34 = icmp ugt i64 %14, %15
   br i1 %.not34, label %24, label %16
 
@@ -288,14 +288,14 @@ define ptr @cJSON_SetValuestring(ptr noundef captures(address_is_null) %0, ptr n
   br i1 %or.cond38, label %21, label %cJSON_strdup.exit.thread
 
 21:                                               ; preds = %16
-  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %1) #32
+  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %1) #33
   %23 = load ptr, ptr %9, align 8, !tbaa !16
   br label %cJSON_strdup.exit.thread
 
 24:                                               ; preds = %13
   %25 = add i64 %14, 1
   %26 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %27 = tail call ptr %26(i64 noundef %25) #32
+  %27 = tail call ptr %26(i64 noundef %25) #33
   %28 = icmp eq ptr %27, null
   br i1 %28, label %cJSON_strdup.exit.thread, label %29
 
@@ -307,7 +307,7 @@ define ptr @cJSON_SetValuestring(ptr noundef captures(address_is_null) %0, ptr n
 
 31:                                               ; preds = %29
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8, !tbaa !22
-  tail call void %32(ptr noundef nonnull %30) #32
+  tail call void %32(ptr noundef nonnull %30) #33
   br label %33
 
 33:                                               ; preds = %31, %29
@@ -328,7 +328,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef 
 ; Function Attrs: nounwind sspstrong uwtable
 define void @cJSON_free(ptr noundef %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8, !tbaa !22
-  tail call void %2(ptr noundef %0) #32
+  tail call void %2(ptr noundef %0) #33
   ret void
 }
 
@@ -338,7 +338,7 @@ define ptr @cJSON_ParseWithOpts(ptr noundef %0, ptr noundef writeonly captures(a
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #33
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #34
   %7 = add i64 %6, 1
   %8 = tail call ptr @cJSON_ParseWithLengthOpts(ptr noundef nonnull %0, i64 noundef %7, ptr noundef %1, i32 noundef %2)
   br label %9
@@ -368,7 +368,7 @@ define ptr @cJSON_ParseWithLengthOpts(ptr noundef %0, i64 noundef %1, ptr nounde
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) @global_hooks, i64 24, i1 false), !tbaa.struct !31
   %global_hooks.val = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %10 = tail call ptr %global_hooks.val(i64 noundef 64) #32
+  %10 = tail call ptr %global_hooks.val(i64 noundef 64) #33
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %.thread.thread, label %11
 
@@ -563,7 +563,7 @@ define internal fastcc i32 @parse_value(ptr noundef nonnull writeonly captures(n
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 %11
-  %17 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(5) @.str.2, i64 noundef 4) #33
+  %17 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(5) @.str.2, i64 noundef 4) #34
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %21
 
@@ -580,7 +580,7 @@ define internal fastcc i32 @parse_value(ptr noundef nonnull writeonly captures(n
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 %11
-  %25 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(6) @.str.3, i64 noundef 5) #33
+  %25 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(6) @.str.3, i64 noundef 5) #34
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %29
 
@@ -595,7 +595,7 @@ define internal fastcc i32 @parse_value(ptr noundef nonnull writeonly captures(n
 
 30:                                               ; preds = %29
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 %11
-  %32 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(5) @.str.4, i64 noundef 4) #33
+  %32 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(5) @.str.4, i64 noundef 4) #34
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %37
 
@@ -632,7 +632,7 @@ define internal fastcc i32 @parse_value(ptr noundef nonnull writeonly captures(n
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %49 = tail call ptr @localeconv() #32
+  %49 = tail call ptr @localeconv() #33
   %50 = load ptr, ptr %49, align 8, !tbaa !37
   %51 = load i8, ptr %50, align 1, !tbaa !34
   %52 = load ptr, ptr %1, align 8, !tbaa !28
@@ -687,7 +687,7 @@ define internal fastcc i32 @parse_value(ptr noundef nonnull writeonly captures(n
   %.0.lcssa.i = phi i64 [ %.033.i, %57 ], [ 63, %64 ], [ %.033.i, %60 ]
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.lcssa.i
   store i8 0, ptr %67, align 1, !tbaa !34
-  %68 = call double @strtod(ptr noundef nonnull %4, ptr noundef nonnull %3) #32
+  %68 = call double @strtod(ptr noundef nonnull %4, ptr noundef nonnull %3) #33
   %69 = load ptr, ptr %3, align 8, !tbaa !35
   %70 = icmp eq ptr %4, %69
   br i1 %70, label %parse_number.exit, label %71
@@ -782,7 +782,7 @@ parse_number.exit:                                ; preds = %48, %.critedge.i, %
   %.255.i = phi ptr [ null, %108 ], [ %.4.i, %125 ]
   %.1.i = phi ptr [ null, %108 ], [ %112, %125 ]
   %.val.i = load ptr, ptr %110, align 8, !tbaa !18
-  %112 = tail call ptr %.val.i(i64 noundef 64) #32
+  %112 = tail call ptr %.val.i(i64 noundef 64) #33
   %.not.i66 = icmp eq ptr %112, null
   br i1 %.not.i66, label %.critedge.i65, label %113
 
@@ -910,7 +910,7 @@ define ptr @cJSON_Parse(ptr noundef %0) local_unnamed_addr #8 {
   br i1 %2, label %cJSON_ParseWithOpts.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #33
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #34
   %5 = add i64 %4, 1
   %6 = tail call ptr @cJSON_ParseWithLengthOpts(ptr noundef nonnull %0, i64 noundef %5, ptr noundef null, i32 noundef 0)
   br label %cJSON_ParseWithOpts.exit
@@ -939,7 +939,7 @@ define internal fastcc ptr @print(ptr noundef readonly captures(address_is_null)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %5 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %6 = tail call ptr %5(i64 noundef 256) #32
+  %6 = tail call ptr %5(i64 noundef 256) #33
   store ptr %6, ptr %3, align 16, !tbaa !41
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 256, ptr %7, align 8, !tbaa !43
@@ -964,7 +964,7 @@ define internal fastcc ptr @print(ptr noundef readonly captures(address_is_null)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i64, ptr %17, align 16, !tbaa !45
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 %18
-  %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #33
+  %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #34
   %21 = add i64 %20, %18
   store i64 %21, ptr %17, align 16, !tbaa !45
   br label %update_offset.exit
@@ -978,7 +978,7 @@ update_offset.exit:                               ; preds = %13, %16
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %25 = load i64, ptr %24, align 16, !tbaa !45
   %26 = add i64 %25, 1
-  %27 = call ptr %22(ptr noundef %14, i64 noundef %26) #32
+  %27 = call ptr %22(ptr noundef %14, i64 noundef %26) #33
   %28 = icmp eq ptr %27, null
   br i1 %28, label %46, label %50
 
@@ -987,7 +987,7 @@ update_offset.exit:                               ; preds = %13, %16
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %32 = load i64, ptr %31, align 16, !tbaa !45
   %33 = add i64 %32, 1
-  %34 = call ptr %30(i64 noundef %33) #32
+  %34 = call ptr %30(i64 noundef %33) #33
   %35 = icmp eq ptr %34, null
   br i1 %35, label %46, label %36
 
@@ -1003,7 +1003,7 @@ update_offset.exit:                               ; preds = %13, %16
   store i8 0, ptr %43, align 1, !tbaa !34
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8, !tbaa !22
   %45 = load ptr, ptr %3, align 16, !tbaa !41
-  call void %44(ptr noundef %45) #32
+  call void %44(ptr noundef %45) #33
   br label %50
 
 46:                                               ; preds = %29, %23, %11, %2
@@ -1013,7 +1013,7 @@ update_offset.exit:                               ; preds = %13, %16
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8, !tbaa !22
-  call void %49(ptr noundef nonnull %47) #32
+  call void %49(ptr noundef nonnull %47) #33
   br label %50
 
 50:                                               ; preds = %36, %23, %48, %46
@@ -1040,7 +1040,7 @@ define ptr @cJSON_PrintBuffered(ptr noundef readonly captures(address_is_null) %
 7:                                                ; preds = %3
   %8 = load ptr, ptr @global_hooks, align 8, !tbaa !18
   %9 = zext nneg i32 %1 to i64
-  %10 = tail call ptr %8(i64 noundef %9) #32
+  %10 = tail call ptr %8(i64 noundef %9) #33
   store ptr %10, ptr %4, align 8, !tbaa !41
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %23, label %11
@@ -1063,7 +1063,7 @@ define ptr @cJSON_PrintBuffered(ptr noundef readonly captures(address_is_null) %
 18:                                               ; preds = %11
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8, !tbaa !22
   %20 = load ptr, ptr %4, align 8, !tbaa !41
-  call void %19(ptr noundef %20) #32
+  call void %19(ptr noundef %20) #33
   br label %23
 
 21:                                               ; preds = %11
@@ -1155,7 +1155,7 @@ define internal fastcc range(i32 0, 2) i32 @print_value(ptr noundef readonly cap
   br i1 %.not55.i, label %45, label %38
 
 38:                                               ; preds = %35
-  %39 = tail call ptr %37(ptr noundef nonnull %14, i64 noundef %.0.i) #32
+  %39 = tail call ptr %37(ptr noundef nonnull %14, i64 noundef %.0.i) #33
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %60
 
@@ -1163,14 +1163,14 @@ define internal fastcc range(i32 0, 2) i32 @print_value(ptr noundef readonly cap
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %43 = load ptr, ptr %42, align 8, !tbaa !49
   %44 = load ptr, ptr %1, align 8, !tbaa !41
-  tail call void %43(ptr noundef %44) #32
+  tail call void %43(ptr noundef %44) #33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   br label %print_array.exit
 
 45:                                               ; preds = %35
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %47 = load ptr, ptr %46, align 8, !tbaa !50
-  %48 = tail call ptr %47(i64 noundef %.0.i) #32
+  %48 = tail call ptr %47(i64 noundef %.0.i) #33
   %.not56.i = icmp eq ptr %48, null
   br i1 %.not56.i, label %49, label %53
 
@@ -1178,7 +1178,7 @@ define internal fastcc range(i32 0, 2) i32 @print_value(ptr noundef readonly cap
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %51 = load ptr, ptr %50, align 8, !tbaa !49
   %52 = load ptr, ptr %1, align 8, !tbaa !41
-  tail call void %51(ptr noundef %52) #32
+  tail call void %51(ptr noundef %52) #33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   br label %print_array.exit
 
@@ -1190,7 +1190,7 @@ define internal fastcc range(i32 0, 2) i32 @print_value(ptr noundef readonly cap
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %58 = load ptr, ptr %57, align 8, !tbaa !49
   %59 = load ptr, ptr %1, align 8, !tbaa !41
-  tail call void %58(ptr noundef %59) #32
+  tail call void %58(ptr noundef %59) #33
   br label %60
 
 60:                                               ; preds = %53, %38
@@ -1203,7 +1203,7 @@ define internal fastcc range(i32 0, 2) i32 @print_value(ptr noundef readonly cap
 
 ensure.exit:                                      ; preds = %60, %24
   %.044.i = phi ptr [ %25, %24 ], [ %62, %60 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.044.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.2, i64 5, i1 false) #32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.044.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.2, i64 5, i1 false) #33
   br label %print_array.exit
 
 63:                                               ; preds = %.split
@@ -1257,7 +1257,7 @@ ensure.exit:                                      ; preds = %60, %24
   br i1 %.not55.i42, label %95, label %88
 
 88:                                               ; preds = %85
-  %89 = tail call ptr %87(ptr noundef nonnull %64, i64 noundef %.0.i41) #32
+  %89 = tail call ptr %87(ptr noundef nonnull %64, i64 noundef %.0.i41) #33
   %90 = icmp eq ptr %89, null
   br i1 %90, label %91, label %110
 
@@ -1265,14 +1265,14 @@ ensure.exit:                                      ; preds = %60, %24
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %93 = load ptr, ptr %92, align 8, !tbaa !49
   %94 = load ptr, ptr %1, align 8, !tbaa !41
-  tail call void %93(ptr noundef %94) #32
+  tail call void %93(ptr noundef %94) #33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   br label %print_array.exit
 
 95:                                               ; preds = %85
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %97 = load ptr, ptr %96, align 8, !tbaa !50
-  %98 = tail call ptr %97(i64 noundef %.0.i41) #32
+  %98 = tail call ptr %97(i64 noundef %.0.i41) #33
   %.not56.i44 = icmp eq ptr %98, null
   br i1 %.not56.i44, label %99, label %103
 
@@ -1280,7 +1280,7 @@ ensure.exit:                                      ; preds = %60, %24
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %101 = load ptr, ptr %100, align 8, !tbaa !49
   %102 = load ptr, ptr %1, align 8, !tbaa !41
-  tail call void %101(ptr noundef %102) #32
+  tail call void %101(ptr noundef %102) #33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   br label %print_array.exit
 
@@ -1292,7 +1292,7 @@ ensure.exit:                                      ; preds = %60, %24
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %108 = load ptr, ptr %107, align 8, !tbaa !49
   %109 = load ptr, ptr %1, align 8, !tbaa !41
-  tail call void %108(ptr noundef %109) #32
+  tail call void %108(ptr noundef %109) #33
   br label %110
 
 110:                                              ; preds = %103, %88
@@ -1305,7 +1305,7 @@ ensure.exit:                                      ; preds = %60, %24
 
 ensure.exit47:                                    ; preds = %110, %74
   %.044.i39 = phi ptr [ %75, %74 ], [ %112, %110 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %.044.i39, ptr noundef nonnull align 1 dereferenceable(6) @.str.3, i64 6, i1 false) #32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %.044.i39, ptr noundef nonnull align 1 dereferenceable(6) @.str.3, i64 6, i1 false) #33
   br label %print_array.exit
 
 113:                                              ; preds = %.split
@@ -1359,7 +1359,7 @@ ensure.exit47:                                    ; preds = %110, %74
   br i1 %.not55.i54, label %145, label %138
 
 138:                                              ; preds = %135
-  %139 = tail call ptr %137(ptr noundef nonnull %114, i64 noundef %.0.i53) #32
+  %139 = tail call ptr %137(ptr noundef nonnull %114, i64 noundef %.0.i53) #33
   %140 = icmp eq ptr %139, null
   br i1 %140, label %141, label %160
 
@@ -1367,14 +1367,14 @@ ensure.exit47:                                    ; preds = %110, %74
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %143 = load ptr, ptr %142, align 8, !tbaa !49
   %144 = load ptr, ptr %1, align 8, !tbaa !41
-  tail call void %143(ptr noundef %144) #32
+  tail call void %143(ptr noundef %144) #33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   br label %print_array.exit
 
 145:                                              ; preds = %135
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %147 = load ptr, ptr %146, align 8, !tbaa !50
-  %148 = tail call ptr %147(i64 noundef %.0.i53) #32
+  %148 = tail call ptr %147(i64 noundef %.0.i53) #33
   %.not56.i56 = icmp eq ptr %148, null
   br i1 %.not56.i56, label %149, label %153
 
@@ -1382,7 +1382,7 @@ ensure.exit47:                                    ; preds = %110, %74
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %151 = load ptr, ptr %150, align 8, !tbaa !49
   %152 = load ptr, ptr %1, align 8, !tbaa !41
-  tail call void %151(ptr noundef %152) #32
+  tail call void %151(ptr noundef %152) #33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   br label %print_array.exit
 
@@ -1394,7 +1394,7 @@ ensure.exit47:                                    ; preds = %110, %74
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %158 = load ptr, ptr %157, align 8, !tbaa !49
   %159 = load ptr, ptr %1, align 8, !tbaa !41
-  tail call void %158(ptr noundef %159) #32
+  tail call void %158(ptr noundef %159) #33
   br label %160
 
 160:                                              ; preds = %153, %138
@@ -1407,7 +1407,7 @@ ensure.exit47:                                    ; preds = %110, %74
 
 ensure.exit59:                                    ; preds = %160, %124
   %.044.i51 = phi ptr [ %125, %124 ], [ %162, %160 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.044.i51, ptr noundef nonnull align 1 dereferenceable(5) @.str.4, i64 5, i1 false) #32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.044.i51, ptr noundef nonnull align 1 dereferenceable(5) @.str.4, i64 5, i1 false) #33
   br label %print_array.exit
 
 163:                                              ; preds = %.split
@@ -1415,7 +1415,7 @@ ensure.exit59:                                    ; preds = %160, %124
   %165 = load double, ptr %164, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %3, i8 0, i64 26, i1 false)
-  %166 = tail call ptr @localeconv() #32
+  %166 = tail call ptr @localeconv() #33
   %167 = load ptr, ptr %166, align 8, !tbaa !37
   %168 = load i8, ptr %167, align 1, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1436,12 +1436,12 @@ ensure.exit59:                                    ; preds = %160, %124
   br i1 %174, label %175, label %177
 
 175:                                              ; preds = %170
-  %176 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %172) #32
+  %176 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %172) #33
   br label %191
 
 177:                                              ; preds = %170
-  %178 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.6, double noundef %165) #32
-  %179 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.7, ptr noundef nonnull %4) #32
+  %178 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.6, double noundef %165) #33
+  %179 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.7, ptr noundef nonnull %4) #33
   %.not.i60 = icmp eq i32 %179, 1
   br i1 %.not.i60, label %180, label %189
 
@@ -1458,7 +1458,7 @@ ensure.exit59:                                    ; preds = %160, %124
   br i1 %188, label %189, label %191
 
 189:                                              ; preds = %180, %177
-  %190 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.8, double noundef %165) #32
+  %190 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.8, double noundef %165) #33
   br label %191
 
 191:                                              ; preds = %189, %180, %175
@@ -1512,7 +1512,7 @@ print_number.exit:                                ; preds = %191, %192, %._crit_
   br i1 %209, label %print_array.exit, label %210
 
 210:                                              ; preds = %206
-  %211 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %208) #33
+  %211 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %208) #34
   %212 = add i64 %211, 1
   %213 = tail call fastcc ptr @ensure(ptr noundef %1, i64 noundef %212)
   %214 = icmp eq ptr %213, null
@@ -1582,7 +1582,7 @@ print_number.exit:                                ; preds = %191, %192, %._crit_
   br i1 %.not55.i73, label %254, label %247
 
 247:                                              ; preds = %244
-  %248 = tail call ptr %246(ptr noundef nonnull %223, i64 noundef %.0.i72) #32
+  %248 = tail call ptr %246(ptr noundef nonnull %223, i64 noundef %.0.i72) #33
   %249 = icmp eq ptr %248, null
   br i1 %249, label %250, label %269
 
@@ -1590,14 +1590,14 @@ print_number.exit:                                ; preds = %191, %192, %._crit_
   %251 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %252 = load ptr, ptr %251, align 8, !tbaa !49
   %253 = load ptr, ptr %1, align 8, !tbaa !41
-  tail call void %252(ptr noundef %253) #32
+  tail call void %252(ptr noundef %253) #33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   br label %print_array.exit
 
 254:                                              ; preds = %244
   %255 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %256 = load ptr, ptr %255, align 8, !tbaa !50
-  %257 = tail call ptr %256(i64 noundef %.0.i72) #32
+  %257 = tail call ptr %256(i64 noundef %.0.i72) #33
   %.not56.i75 = icmp eq ptr %257, null
   br i1 %.not56.i75, label %258, label %262
 
@@ -1605,7 +1605,7 @@ print_number.exit:                                ; preds = %191, %192, %._crit_
   %259 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %260 = load ptr, ptr %259, align 8, !tbaa !49
   %261 = load ptr, ptr %1, align 8, !tbaa !41
-  tail call void %260(ptr noundef %261) #32
+  tail call void %260(ptr noundef %261) #33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   br label %print_array.exit
 
@@ -1617,7 +1617,7 @@ print_number.exit:                                ; preds = %191, %192, %._crit_
   %266 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %267 = load ptr, ptr %266, align 8, !tbaa !49
   %268 = load ptr, ptr %1, align 8, !tbaa !41
-  tail call void %267(ptr noundef %268) #32
+  tail call void %267(ptr noundef %268) #33
   br label %269
 
 269:                                              ; preds = %262, %247
@@ -1659,7 +1659,7 @@ ensure.exit79:                                    ; preds = %269, %233
 283:                                              ; preds = %280
   %284 = load i64, ptr %231, align 8, !tbaa !45
   %285 = getelementptr inbounds nuw i8, ptr %281, i64 %284
-  %286 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %285) #33
+  %286 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %285) #34
   %287 = add i64 %286, %284
   store i64 %287, ptr %231, align 8, !tbaa !45
   br label %update_offset.exit
@@ -1798,7 +1798,7 @@ update_offset.exit:                               ; preds = %280, %283
 347:                                              ; preds = %344
   %348 = load i64, ptr %326, align 8, !tbaa !45
   %349 = getelementptr inbounds nuw i8, ptr %345, i64 %348
-  %350 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %349) #33
+  %350 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %349) #34
   %351 = add i64 %350, %348
   store i64 %351, ptr %326, align 8, !tbaa !45
   br label %update_offset.exit81
@@ -1838,7 +1838,7 @@ update_offset.exit81:                             ; preds = %344, %347
 367:                                              ; preds = %364
   %368 = load i64, ptr %326, align 8, !tbaa !45
   %369 = getelementptr inbounds nuw i8, ptr %365, i64 %368
-  %370 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %369) #33
+  %370 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %369) #34
   %371 = add i64 %370, %368
   store i64 %371, ptr %326, align 8, !tbaa !45
   br label %update_offset.exit80
@@ -2049,7 +2049,7 @@ define ptr @cJSON_GetObjectItem(ptr noundef readonly captures(address_is_null) %
   br i1 %12, label %get_object_item.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %11
-  %13 = tail call ptr @__ctype_tolower_loc() #34
+  %13 = tail call ptr @__ctype_tolower_loc() #35
   %14 = load ptr, ptr %13, align 8, !tbaa !54
   %15 = load i8, ptr %1, align 1, !tbaa !34
   %16 = zext i8 %15 to i64
@@ -2114,7 +2114,7 @@ define ptr @cJSON_GetObjectItemCaseSensitive(ptr noundef readonly captures(addre
   br i1 %.not26.i, label %get_object_item.exit, label %10
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %9) #33
+  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %9) #34
   %.not27.i = icmp eq i32 %11, 0
   br i1 %.not27.i, label %get_object_item.exit, label %12
 
@@ -2153,7 +2153,7 @@ define range(i32 0, 2) i32 @cJSON_HasObjectItem(ptr noundef readonly captures(ad
   br i1 %12, label %cJSON_GetObjectItem.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %11
-  %13 = tail call ptr @__ctype_tolower_loc() #34
+  %13 = tail call ptr @__ctype_tolower_loc() #35
   %14 = load ptr, ptr %13, align 8, !tbaa !54
   %15 = load i8, ptr %1, align 1, !tbaa !34
   %16 = zext i8 %15 to i64
@@ -2249,10 +2249,10 @@ define range(i32 0, 2) i32 @cJSON_AddItemToObject(ptr noundef captures(address) 
   br i1 %or.cond34.i, label %add_item_to_object.exit, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #33
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #34
   %10 = add i64 %9, 1
   %11 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %12 = tail call ptr %11(i64 noundef %10) #32
+  %12 = tail call ptr %11(i64 noundef %10) #33
   %13 = icmp eq ptr %12, null
   br i1 %13, label %add_item_to_object.exit, label %14
 
@@ -2273,7 +2273,7 @@ define range(i32 0, 2) i32 @cJSON_AddItemToObject(ptr noundef captures(address) 
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8, !tbaa !22
-  tail call void %23(ptr noundef nonnull %21) #32
+  tail call void %23(ptr noundef nonnull %21) #33
   br label %24
 
 24:                                               ; preds = %22, %19, %14
@@ -2337,7 +2337,7 @@ define range(i32 0, 2) i32 @cJSON_AddItemToObjectCS(ptr noundef captures(address
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8, !tbaa !22
-  tail call void %17(ptr noundef nonnull %15) #32
+  tail call void %17(ptr noundef nonnull %15) #33
   br label %18
 
 18:                                               ; preds = %16, %13, %8
@@ -2383,7 +2383,7 @@ define range(i32 0, 2) i32 @cJSON_AddItemReferenceToArray(ptr noundef captures(a
 
 5:                                                ; preds = %2
   %global_hooks.val.i = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %6 = tail call ptr %global_hooks.val.i(i64 noundef 64) #32
+  %6 = tail call ptr %global_hooks.val.i(i64 noundef 64) #33
   %.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i, label %add_item_to_array.exit, label %create_reference.exit
 
@@ -2439,7 +2439,7 @@ define range(i32 0, 2) i32 @cJSON_AddItemReferenceToObject(ptr noundef captures(
 
 7:                                                ; preds = %3
   %global_hooks.val.i = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %8 = tail call ptr %global_hooks.val.i(i64 noundef 64) #32
+  %8 = tail call ptr %global_hooks.val.i(i64 noundef 64) #33
   %.not.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i, label %add_item_to_object.exit, label %create_reference.exit
 
@@ -2456,10 +2456,10 @@ create_reference.exit:                            ; preds = %7
   br i1 %13, label %add_item_to_object.exit, label %14
 
 14:                                               ; preds = %create_reference.exit
-  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #33
+  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #34
   %16 = add i64 %15, 1
   %17 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %18 = tail call ptr %17(i64 noundef %16) #32
+  %18 = tail call ptr %17(i64 noundef %16) #33
   %19 = icmp eq ptr %18, null
   br i1 %19, label %add_item_to_object.exit, label %20
 
@@ -2478,7 +2478,7 @@ create_reference.exit:                            ; preds = %7
 
 26:                                               ; preds = %24
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8, !tbaa !22
-  tail call void %27(ptr noundef nonnull %25) #32
+  tail call void %27(ptr noundef nonnull %25) #33
   br label %28
 
 28:                                               ; preds = %26, %24, %20
@@ -2517,7 +2517,7 @@ add_item_to_object.exit:                          ; preds = %7, %37, %34, %32, %
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_AddNullToObject(ptr noundef captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #8 {
   %global_hooks.val.i = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %3 = tail call ptr %global_hooks.val.i(i64 noundef 64) #32
+  %3 = tail call ptr %global_hooks.val.i(i64 noundef 64) #33
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %cJSON_CreateNull.exit.thread, label %cJSON_CreateNull.exit
 
@@ -2533,10 +2533,10 @@ cJSON_CreateNull.exit:                            ; preds = %2
   br i1 %or.cond34.i, label %cJSON_CreateNull.exit.thread, label %8
 
 8:                                                ; preds = %cJSON_CreateNull.exit
-  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #33
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #34
   %10 = add i64 %9, 1
   %11 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %12 = tail call ptr %11(i64 noundef %10) #32
+  %12 = tail call ptr %11(i64 noundef %10) #33
   %13 = icmp eq ptr %12, null
   br i1 %13, label %cJSON_CreateNull.exit.thread, label %14
 
@@ -2556,7 +2556,7 @@ cJSON_CreateNull.exit:                            ; preds = %2
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8, !tbaa !22
-  tail call void %22(ptr noundef nonnull %20) #32
+  tail call void %22(ptr noundef nonnull %20) #33
   br label %23
 
 23:                                               ; preds = %21, %18, %14
@@ -2600,7 +2600,7 @@ add_item_to_object.exit:                          ; preds = %33, %30, %28, %cJSO
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_CreateNull() local_unnamed_addr #8 {
   %global_hooks.val = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %1 = tail call ptr %global_hooks.val(i64 noundef 64) #32
+  %1 = tail call ptr %global_hooks.val(i64 noundef 64) #33
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %cJSON_New_Item.exit.thread, label %2
 
@@ -2617,7 +2617,7 @@ cJSON_New_Item.exit.thread:                       ; preds = %0, %2
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_AddTrueToObject(ptr noundef captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #8 {
   %global_hooks.val.i = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %3 = tail call ptr %global_hooks.val.i(i64 noundef 64) #32
+  %3 = tail call ptr %global_hooks.val.i(i64 noundef 64) #33
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %cJSON_CreateTrue.exit.thread, label %cJSON_CreateTrue.exit
 
@@ -2633,10 +2633,10 @@ cJSON_CreateTrue.exit:                            ; preds = %2
   br i1 %or.cond34.i, label %cJSON_CreateTrue.exit.thread, label %8
 
 8:                                                ; preds = %cJSON_CreateTrue.exit
-  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #33
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #34
   %10 = add i64 %9, 1
   %11 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %12 = tail call ptr %11(i64 noundef %10) #32
+  %12 = tail call ptr %11(i64 noundef %10) #33
   %13 = icmp eq ptr %12, null
   br i1 %13, label %cJSON_CreateTrue.exit.thread, label %14
 
@@ -2656,7 +2656,7 @@ cJSON_CreateTrue.exit:                            ; preds = %2
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8, !tbaa !22
-  tail call void %22(ptr noundef nonnull %20) #32
+  tail call void %22(ptr noundef nonnull %20) #33
   br label %23
 
 23:                                               ; preds = %21, %18, %14
@@ -2700,7 +2700,7 @@ add_item_to_object.exit:                          ; preds = %33, %30, %28, %cJSO
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_CreateTrue() local_unnamed_addr #8 {
   %global_hooks.val = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %1 = tail call ptr %global_hooks.val(i64 noundef 64) #32
+  %1 = tail call ptr %global_hooks.val(i64 noundef 64) #33
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %cJSON_New_Item.exit.thread, label %2
 
@@ -2717,7 +2717,7 @@ cJSON_New_Item.exit.thread:                       ; preds = %0, %2
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_AddFalseToObject(ptr noundef captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #8 {
   %global_hooks.val.i = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %3 = tail call ptr %global_hooks.val.i(i64 noundef 64) #32
+  %3 = tail call ptr %global_hooks.val.i(i64 noundef 64) #33
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %cJSON_CreateFalse.exit.thread, label %cJSON_CreateFalse.exit
 
@@ -2733,10 +2733,10 @@ cJSON_CreateFalse.exit:                           ; preds = %2
   br i1 %or.cond34.i, label %cJSON_CreateFalse.exit.thread, label %8
 
 8:                                                ; preds = %cJSON_CreateFalse.exit
-  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #33
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #34
   %10 = add i64 %9, 1
   %11 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %12 = tail call ptr %11(i64 noundef %10) #32
+  %12 = tail call ptr %11(i64 noundef %10) #33
   %13 = icmp eq ptr %12, null
   br i1 %13, label %cJSON_CreateFalse.exit.thread, label %14
 
@@ -2756,7 +2756,7 @@ cJSON_CreateFalse.exit:                           ; preds = %2
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8, !tbaa !22
-  tail call void %22(ptr noundef nonnull %20) #32
+  tail call void %22(ptr noundef nonnull %20) #33
   br label %23
 
 23:                                               ; preds = %21, %18, %14
@@ -2800,7 +2800,7 @@ add_item_to_object.exit:                          ; preds = %33, %30, %28, %cJSO
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_CreateFalse() local_unnamed_addr #8 {
   %global_hooks.val = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %1 = tail call ptr %global_hooks.val(i64 noundef 64) #32
+  %1 = tail call ptr %global_hooks.val(i64 noundef 64) #33
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %cJSON_New_Item.exit.thread, label %2
 
@@ -2817,7 +2817,7 @@ cJSON_New_Item.exit.thread:                       ; preds = %0, %2
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_AddBoolToObject(ptr noundef captures(address) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #8 {
   %global_hooks.val.i = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %4 = tail call ptr %global_hooks.val.i(i64 noundef 64) #32
+  %4 = tail call ptr %global_hooks.val.i(i64 noundef 64) #33
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %cJSON_CreateBool.exit.thread, label %cJSON_CreateBool.exit
 
@@ -2835,10 +2835,10 @@ cJSON_CreateBool.exit:                            ; preds = %3
   br i1 %or.cond34.i, label %cJSON_CreateBool.exit.thread, label %10
 
 10:                                               ; preds = %cJSON_CreateBool.exit
-  %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #33
+  %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #34
   %12 = add i64 %11, 1
   %13 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %14 = tail call ptr %13(i64 noundef %12) #32
+  %14 = tail call ptr %13(i64 noundef %12) #33
   %15 = icmp eq ptr %14, null
   br i1 %15, label %cJSON_CreateBool.exit.thread, label %16
 
@@ -2858,7 +2858,7 @@ cJSON_CreateBool.exit:                            ; preds = %3
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8, !tbaa !22
-  tail call void %24(ptr noundef nonnull %22) #32
+  tail call void %24(ptr noundef nonnull %22) #33
   br label %25
 
 25:                                               ; preds = %23, %20, %16
@@ -2902,7 +2902,7 @@ add_item_to_object.exit:                          ; preds = %35, %32, %30, %cJSO
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_CreateBool(i32 noundef %0) local_unnamed_addr #8 {
   %global_hooks.val = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %2 = tail call ptr %global_hooks.val(i64 noundef 64) #32
+  %2 = tail call ptr %global_hooks.val(i64 noundef 64) #33
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %cJSON_New_Item.exit.thread, label %3
 
@@ -2921,7 +2921,7 @@ cJSON_New_Item.exit.thread:                       ; preds = %1, %3
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_AddNumberToObject(ptr noundef captures(address) %0, ptr noundef readonly captures(address_is_null) %1, double noundef %2) local_unnamed_addr #8 {
   %global_hooks.val.i = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %4 = tail call ptr %global_hooks.val.i(i64 noundef 64) #32
+  %4 = tail call ptr %global_hooks.val.i(i64 noundef 64) #33
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %cJSON_CreateNumber.exit.thread, label %5
 
@@ -2954,10 +2954,10 @@ cJSON_CreateNumber.exit:                          ; preds = %5, %9, %11
   br i1 %or.cond34.i, label %cJSON_CreateNumber.exit.thread, label %17
 
 17:                                               ; preds = %cJSON_CreateNumber.exit
-  %18 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #33
+  %18 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #34
   %19 = add i64 %18, 1
   %20 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %21 = tail call ptr %20(i64 noundef %19) #32
+  %21 = tail call ptr %20(i64 noundef %19) #33
   %22 = icmp eq ptr %21, null
   br i1 %22, label %cJSON_CreateNumber.exit.thread, label %23
 
@@ -2977,7 +2977,7 @@ cJSON_CreateNumber.exit:                          ; preds = %5, %9, %11
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8, !tbaa !22
-  tail call void %31(ptr noundef nonnull %29) #32
+  tail call void %31(ptr noundef nonnull %29) #33
   br label %32
 
 32:                                               ; preds = %30, %27, %23
@@ -3021,7 +3021,7 @@ add_item_to_object.exit:                          ; preds = %42, %39, %37, %cJSO
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_CreateNumber(double noundef %0) local_unnamed_addr #8 {
   %global_hooks.val = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %2 = tail call ptr %global_hooks.val(i64 noundef 64) #32
+  %2 = tail call ptr %global_hooks.val(i64 noundef 64) #33
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %cJSON_New_Item.exit.thread, label %3
 
@@ -3055,7 +3055,7 @@ cJSON_New_Item.exit.thread:                       ; preds = %cJSON_New_Item.exit
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_AddStringToObject(ptr noundef captures(address) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #8 {
   %global_hooks.val.i = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %4 = tail call ptr %global_hooks.val.i(i64 noundef 64) #32
+  %4 = tail call ptr %global_hooks.val.i(i64 noundef 64) #33
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %cJSON_CreateString.exit, label %5
 
@@ -3067,10 +3067,10 @@ define ptr @cJSON_AddStringToObject(ptr noundef captures(address) %0, ptr nounde
   br i1 %7, label %15, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #33
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #34
   %10 = add i64 %9, 1
   %11 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %12 = tail call ptr %11(i64 noundef %10) #32
+  %12 = tail call ptr %11(i64 noundef %10) #33
   %13 = icmp eq ptr %12, null
   br i1 %13, label %15, label %cJSON_strdup.exit.i
 
@@ -3098,10 +3098,10 @@ cJSON_CreateString.exit:                          ; preds = %3, %cJSON_strdup.ex
   br i1 %or.cond34.i, label %add_item_to_object.exit, label %21
 
 21:                                               ; preds = %cJSON_CreateString.exit
-  %22 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #33
+  %22 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #34
   %23 = add i64 %22, 1
   %24 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %25 = tail call ptr %24(i64 noundef %23) #32
+  %25 = tail call ptr %24(i64 noundef %23) #33
   %26 = icmp eq ptr %25, null
   br i1 %26, label %add_item_to_object.exit, label %27
 
@@ -3122,7 +3122,7 @@ cJSON_CreateString.exit:                          ; preds = %3, %cJSON_strdup.ex
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8, !tbaa !22
-  tail call void %36(ptr noundef nonnull %34) #32
+  tail call void %36(ptr noundef nonnull %34) #33
   br label %37
 
 37:                                               ; preds = %35, %32, %27
@@ -3166,7 +3166,7 @@ add_item_to_object.exit.thread:                   ; preds = %47, %44, %42, %add_
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_CreateString(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %global_hooks.val = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %2 = tail call ptr %global_hooks.val(i64 noundef 64) #32
+  %2 = tail call ptr %global_hooks.val(i64 noundef 64) #33
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %cJSON_New_Item.exit.thread, label %3
 
@@ -3178,10 +3178,10 @@ define ptr @cJSON_CreateString(ptr noundef readonly captures(address_is_null) %0
   br i1 %5, label %13, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #33
+  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #34
   %8 = add i64 %7, 1
   %9 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %10 = tail call ptr %9(i64 noundef %8) #32
+  %10 = tail call ptr %9(i64 noundef %8) #33
   %11 = icmp eq ptr %10, null
   br i1 %11, label %13, label %cJSON_strdup.exit
 
@@ -3205,7 +3205,7 @@ cJSON_New_Item.exit.thread:                       ; preds = %1, %cJSON_strdup.ex
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_AddRawToObject(ptr noundef captures(address) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #8 {
   %global_hooks.val.i = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %4 = tail call ptr %global_hooks.val.i(i64 noundef 64) #32
+  %4 = tail call ptr %global_hooks.val.i(i64 noundef 64) #33
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %cJSON_CreateRaw.exit, label %5
 
@@ -3217,10 +3217,10 @@ define ptr @cJSON_AddRawToObject(ptr noundef captures(address) %0, ptr noundef r
   br i1 %7, label %15, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #33
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #34
   %10 = add i64 %9, 1
   %11 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %12 = tail call ptr %11(i64 noundef %10) #32
+  %12 = tail call ptr %11(i64 noundef %10) #33
   %13 = icmp eq ptr %12, null
   br i1 %13, label %15, label %cJSON_strdup.exit.i
 
@@ -3248,10 +3248,10 @@ cJSON_CreateRaw.exit:                             ; preds = %3, %cJSON_strdup.ex
   br i1 %or.cond34.i, label %add_item_to_object.exit, label %21
 
 21:                                               ; preds = %cJSON_CreateRaw.exit
-  %22 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #33
+  %22 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #34
   %23 = add i64 %22, 1
   %24 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %25 = tail call ptr %24(i64 noundef %23) #32
+  %25 = tail call ptr %24(i64 noundef %23) #33
   %26 = icmp eq ptr %25, null
   br i1 %26, label %add_item_to_object.exit, label %27
 
@@ -3272,7 +3272,7 @@ cJSON_CreateRaw.exit:                             ; preds = %3, %cJSON_strdup.ex
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8, !tbaa !22
-  tail call void %36(ptr noundef nonnull %34) #32
+  tail call void %36(ptr noundef nonnull %34) #33
   br label %37
 
 37:                                               ; preds = %35, %32, %27
@@ -3316,7 +3316,7 @@ add_item_to_object.exit.thread:                   ; preds = %47, %44, %42, %add_
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_CreateRaw(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %global_hooks.val = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %2 = tail call ptr %global_hooks.val(i64 noundef 64) #32
+  %2 = tail call ptr %global_hooks.val(i64 noundef 64) #33
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %cJSON_New_Item.exit.thread, label %3
 
@@ -3328,10 +3328,10 @@ define ptr @cJSON_CreateRaw(ptr noundef readonly captures(address_is_null) %0) l
   br i1 %5, label %13, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #33
+  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #34
   %8 = add i64 %7, 1
   %9 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %10 = tail call ptr %9(i64 noundef %8) #32
+  %10 = tail call ptr %9(i64 noundef %8) #33
   %11 = icmp eq ptr %10, null
   br i1 %11, label %13, label %cJSON_strdup.exit
 
@@ -3355,7 +3355,7 @@ cJSON_New_Item.exit.thread:                       ; preds = %1, %cJSON_strdup.ex
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_AddObjectToObject(ptr noundef captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #8 {
   %global_hooks.val.i = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %3 = tail call ptr %global_hooks.val.i(i64 noundef 64) #32
+  %3 = tail call ptr %global_hooks.val.i(i64 noundef 64) #33
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %cJSON_CreateObject.exit.thread, label %cJSON_CreateObject.exit
 
@@ -3371,10 +3371,10 @@ cJSON_CreateObject.exit:                          ; preds = %2
   br i1 %or.cond34.i, label %cJSON_CreateObject.exit.thread, label %8
 
 8:                                                ; preds = %cJSON_CreateObject.exit
-  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #33
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #34
   %10 = add i64 %9, 1
   %11 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %12 = tail call ptr %11(i64 noundef %10) #32
+  %12 = tail call ptr %11(i64 noundef %10) #33
   %13 = icmp eq ptr %12, null
   br i1 %13, label %cJSON_CreateObject.exit.thread, label %14
 
@@ -3394,7 +3394,7 @@ cJSON_CreateObject.exit:                          ; preds = %2
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8, !tbaa !22
-  tail call void %22(ptr noundef nonnull %20) #32
+  tail call void %22(ptr noundef nonnull %20) #33
   br label %23
 
 23:                                               ; preds = %21, %18, %14
@@ -3438,7 +3438,7 @@ add_item_to_object.exit:                          ; preds = %33, %30, %28, %cJSO
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_CreateObject() local_unnamed_addr #8 {
   %global_hooks.val = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %1 = tail call ptr %global_hooks.val(i64 noundef 64) #32
+  %1 = tail call ptr %global_hooks.val(i64 noundef 64) #33
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %cJSON_New_Item.exit.thread, label %2
 
@@ -3455,7 +3455,7 @@ cJSON_New_Item.exit.thread:                       ; preds = %0, %2
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_AddArrayToObject(ptr noundef captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #8 {
   %global_hooks.val.i = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %3 = tail call ptr %global_hooks.val.i(i64 noundef 64) #32
+  %3 = tail call ptr %global_hooks.val.i(i64 noundef 64) #33
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %cJSON_CreateArray.exit.thread, label %cJSON_CreateArray.exit
 
@@ -3471,10 +3471,10 @@ cJSON_CreateArray.exit:                           ; preds = %2
   br i1 %or.cond34.i, label %cJSON_CreateArray.exit.thread, label %8
 
 8:                                                ; preds = %cJSON_CreateArray.exit
-  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #33
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #34
   %10 = add i64 %9, 1
   %11 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %12 = tail call ptr %11(i64 noundef %10) #32
+  %12 = tail call ptr %11(i64 noundef %10) #33
   %13 = icmp eq ptr %12, null
   br i1 %13, label %cJSON_CreateArray.exit.thread, label %14
 
@@ -3494,7 +3494,7 @@ cJSON_CreateArray.exit:                           ; preds = %2
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8, !tbaa !22
-  tail call void %22(ptr noundef nonnull %20) #32
+  tail call void %22(ptr noundef nonnull %20) #33
   br label %23
 
 23:                                               ; preds = %21, %18, %14
@@ -3538,7 +3538,7 @@ add_item_to_object.exit:                          ; preds = %33, %30, %28, %cJSO
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_CreateArray() local_unnamed_addr #8 {
   %global_hooks.val = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %1 = tail call ptr %global_hooks.val(i64 noundef 64) #32
+  %1 = tail call ptr %global_hooks.val(i64 noundef 64) #33
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %cJSON_New_Item.exit.thread, label %2
 
@@ -3794,7 +3794,7 @@ define ptr @cJSON_DetachItemFromObject(ptr noundef captures(address_is_null) %0,
   br i1 %12, label %cJSON_GetObjectItem.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %11
-  %13 = tail call ptr @__ctype_tolower_loc() #34
+  %13 = tail call ptr @__ctype_tolower_loc() #35
   %14 = load ptr, ptr %13, align 8, !tbaa !54
   %15 = load i8, ptr %1, align 1, !tbaa !34
   %16 = zext i8 %15 to i64
@@ -3905,7 +3905,7 @@ define ptr @cJSON_DetachItemFromObjectCaseSensitive(ptr noundef captures(address
   br i1 %.not26.i.i, label %cJSON_DetachItemViaPointer.exit, label %10
 
 10:                                               ; preds = %.lr.ph.i.i
-  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %9) #33
+  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %9) #34
   %.not27.i.i = icmp eq i32 %11, 0
   br i1 %.not27.i.i, label %cJSON_GetObjectItemCaseSensitive.exit, label %12
 
@@ -3990,7 +3990,7 @@ define void @cJSON_DeleteItemFromObject(ptr noundef captures(address_is_null) %0
   br i1 %12, label %cJSON_GetObjectItem.exit.i, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %11
-  %13 = tail call ptr @__ctype_tolower_loc() #34
+  %13 = tail call ptr @__ctype_tolower_loc() #35
   %14 = load ptr, ptr %13, align 8, !tbaa !54
   %15 = load i8, ptr %1, align 1, !tbaa !34
   %16 = zext i8 %15 to i64
@@ -4102,7 +4102,7 @@ define void @cJSON_DeleteItemFromObjectCaseSensitive(ptr noundef captures(addres
   br i1 %.not26.i.i.i, label %cJSON_DetachItemFromObjectCaseSensitive.exit, label %10
 
 10:                                               ; preds = %.lr.ph.i.i.i
-  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %9) #33
+  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %9) #34
   %.not27.i.i.i = icmp eq i32 %11, 0
   br i1 %.not27.i.i.i, label %cJSON_GetObjectItemCaseSensitive.exit.i, label %12
 
@@ -4463,14 +4463,14 @@ define internal fastcc range(i32 0, 2) i32 @replace_item_in_object(ptr noundef c
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8, !tbaa !22
-  tail call void %15(ptr noundef nonnull %13) #32
+  tail call void %15(ptr noundef nonnull %13) #33
   br label %16
 
 16:                                               ; preds = %7, %11, %14
-  %17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #33
+  %17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #34
   %18 = add i64 %17, 1
   %19 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %20 = tail call ptr %19(i64 noundef %18) #32
+  %20 = tail call ptr %19(i64 noundef %18) #33
   %21 = icmp eq ptr %20, null
   br i1 %21, label %cJSON_strdup.exit.thread, label %23
 
@@ -4510,7 +4510,7 @@ cJSON_strdup.exit.thread:                         ; preds = %16
   br i1 %.not26.i, label %cJSON_ReplaceItemViaPointer.exit, label %33
 
 33:                                               ; preds = %.lr.ph.i
-  %34 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %32) #33
+  %34 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %32) #34
   %.not27.i = icmp eq i32 %34, 0
   br i1 %.not27.i, label %get_object_item.exit, label %35
 
@@ -4531,7 +4531,7 @@ cJSON_strdup.exit.thread:                         ; preds = %16
   br i1 %41, label %get_object_item.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %40
-  %42 = tail call ptr @__ctype_tolower_loc() #34
+  %42 = tail call ptr @__ctype_tolower_loc() #35
   %43 = load ptr, ptr %42, align 8, !tbaa !54
   %44 = load i8, ptr %1, align 1, !tbaa !34
   %45 = zext i8 %44 to i64
@@ -4650,7 +4650,7 @@ define range(i32 0, 2) i32 @cJSON_ReplaceItemInObjectCaseSensitive(ptr noundef c
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_CreateStringReference(ptr noundef %0) local_unnamed_addr #8 {
   %global_hooks.val = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %2 = tail call ptr %global_hooks.val(i64 noundef 64) #32
+  %2 = tail call ptr %global_hooks.val(i64 noundef 64) #33
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %cJSON_New_Item.exit.thread, label %3
 
@@ -4669,7 +4669,7 @@ cJSON_New_Item.exit.thread:                       ; preds = %1, %3
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_CreateObjectReference(ptr noundef %0) local_unnamed_addr #8 {
   %global_hooks.val = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %2 = tail call ptr %global_hooks.val(i64 noundef 64) #32
+  %2 = tail call ptr %global_hooks.val(i64 noundef 64) #33
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %cJSON_New_Item.exit.thread, label %3
 
@@ -4688,7 +4688,7 @@ cJSON_New_Item.exit.thread:                       ; preds = %1, %3
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_CreateArrayReference(ptr noundef %0) local_unnamed_addr #8 {
   %global_hooks.val = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %2 = tail call ptr %global_hooks.val(i64 noundef 64) #32
+  %2 = tail call ptr %global_hooks.val(i64 noundef 64) #33
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %cJSON_New_Item.exit.thread, label %3
 
@@ -4713,7 +4713,7 @@ define noundef ptr @cJSON_CreateIntArray(ptr noundef readonly captures(address_i
 
 5:                                                ; preds = %2
   %global_hooks.val.i = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %6 = tail call ptr %global_hooks.val.i(i64 noundef 64) #32
+  %6 = tail call ptr %global_hooks.val.i(i64 noundef 64) #33
   %.fr42 = freeze ptr %6
   %.not.i.i = icmp eq ptr %.fr42, null
   br i1 %.not.i.i, label %._crit_edge.split.us, label %cJSON_CreateArray.exit
@@ -4736,7 +4736,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
   %10 = getelementptr inbounds nuw i32, ptr %0, i64 %.02338
   %11 = load i32, ptr %10, align 4, !tbaa !56
   %global_hooks.val.i32 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %12 = tail call ptr %global_hooks.val.i32(i64 noundef 64) #32
+  %12 = tail call ptr %global_hooks.val.i32(i64 noundef 64) #33
   %.not.i.i33 = icmp eq ptr %12, null
   br i1 %.not.i.i33, label %.split.us, label %13
 
@@ -4797,7 +4797,7 @@ define noundef ptr @cJSON_CreateFloatArray(ptr noundef readonly captures(address
 
 5:                                                ; preds = %2
   %global_hooks.val.i = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %6 = tail call ptr %global_hooks.val.i(i64 noundef 64) #32
+  %6 = tail call ptr %global_hooks.val.i(i64 noundef 64) #33
   %.fr40 = freeze ptr %6
   %.not.i.i = icmp eq ptr %.fr40, null
   br i1 %.not.i.i, label %._crit_edge.split.us, label %cJSON_CreateArray.exit
@@ -4820,7 +4820,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
   %10 = getelementptr inbounds nuw float, ptr %0, i64 %.02336
   %11 = load float, ptr %10, align 4, !tbaa !57
   %global_hooks.val.i32 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %12 = tail call ptr %global_hooks.val.i32(i64 noundef 64) #32
+  %12 = tail call ptr %global_hooks.val.i32(i64 noundef 64) #33
   %.not.i.i33 = icmp eq ptr %12, null
   br i1 %.not.i.i33, label %.split.us, label %13
 
@@ -4894,7 +4894,7 @@ define noundef ptr @cJSON_CreateDoubleArray(ptr noundef readonly captures(addres
 
 5:                                                ; preds = %2
   %global_hooks.val.i = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %6 = tail call ptr %global_hooks.val.i(i64 noundef 64) #32
+  %6 = tail call ptr %global_hooks.val.i(i64 noundef 64) #33
   %.fr40 = freeze ptr %6
   %.not.i.i = icmp eq ptr %.fr40, null
   br i1 %.not.i.i, label %._crit_edge.split.us, label %cJSON_CreateArray.exit
@@ -4917,7 +4917,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
   %10 = getelementptr inbounds nuw double, ptr %0, i64 %.02336
   %11 = load double, ptr %10, align 8, !tbaa !51
   %global_hooks.val.i32 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %12 = tail call ptr %global_hooks.val.i32(i64 noundef 64) #32
+  %12 = tail call ptr %global_hooks.val.i32(i64 noundef 64) #33
   %.not.i.i33 = icmp eq ptr %12, null
   br i1 %.not.i.i33, label %.split.us, label %13
 
@@ -4990,7 +4990,7 @@ define noundef ptr @cJSON_CreateStringArray(ptr noundef readonly captures(addres
 
 5:                                                ; preds = %2
   %global_hooks.val.i = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %6 = tail call ptr %global_hooks.val.i(i64 noundef 64) #32
+  %6 = tail call ptr %global_hooks.val.i(i64 noundef 64) #33
   %.fr47 = freeze ptr %6
   %.not.i.i = icmp eq ptr %.fr47, null
   br i1 %.not.i.i, label %._crit_edge.split.us, label %cJSON_CreateArray.exit
@@ -5013,7 +5013,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
   %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %.02342
   %11 = load ptr, ptr %10, align 8, !tbaa !35
   %global_hooks.val.i32 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %12 = tail call ptr %global_hooks.val.i32(i64 noundef 64) #32
+  %12 = tail call ptr %global_hooks.val.i32(i64 noundef 64) #33
   %.not.i.i33 = icmp eq ptr %12, null
   br i1 %.not.i.i33, label %.loopexit, label %13
 
@@ -5025,10 +5025,10 @@ cJSON_CreateArray.exit:                           ; preds = %5
   br i1 %15, label %.split.us, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %11) #33
+  %17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %11) #34
   %18 = add i64 %17, 1
   %19 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %20 = tail call ptr %19(i64 noundef %18) #32
+  %20 = tail call ptr %19(i64 noundef %18) #33
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.split.us, label %23
 
@@ -5094,7 +5094,7 @@ define hidden ptr @cJSON_Duplicate_rec(ptr noundef readonly captures(address_is_
 
 4:                                                ; preds = %3
   %global_hooks.val = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %5 = tail call ptr %global_hooks.val(i64 noundef 64) #32
+  %5 = tail call ptr %global_hooks.val(i64 noundef 64) #33
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %.thread, label %6
 
@@ -5119,10 +5119,10 @@ define hidden ptr @cJSON_Duplicate_rec(ptr noundef readonly captures(address_is_
   br i1 %.not55, label %26, label %19
 
 19:                                               ; preds = %6
-  %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %18) #33
+  %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %18) #34
   %21 = add i64 %20, 1
   %22 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %23 = tail call ptr %22(i64 noundef %21) #32
+  %23 = tail call ptr %22(i64 noundef %21) #33
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.thread74.sink.split, label %cJSON_strdup.exit
 
@@ -5145,10 +5145,10 @@ cJSON_strdup.exit:                                ; preds = %19
   br i1 %.not58, label %32, label %cJSON_strdup.exit67.thread
 
 32:                                               ; preds = %29
-  %33 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %28) #33
+  %33 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %28) #34
   %34 = add i64 %33, 1
   %35 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %36 = tail call ptr %35(i64 noundef %34) #32
+  %36 = tail call ptr %35(i64 noundef %34) #33
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.thread74.sink.split, label %38
 
@@ -5581,7 +5581,7 @@ define range(i32 0, 2) i32 @cJSON_Compare(ptr noundef readonly captures(address)
   br i1 %36, label %get_object_item.exit.thread, label %37
 
 37:                                               ; preds = %33
-  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %35) #33
+  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %35) #34
   %39 = icmp eq i32 %38, 0
   br label %get_object_item.exit.thread
 
@@ -5644,7 +5644,7 @@ define range(i32 0, 2) i32 @cJSON_Compare(ptr noundef readonly captures(address)
   br i1 %62, label %get_object_item.exit.us, label %.preheader.i.i.us
 
 .preheader.i.i.us:                                ; preds = %61
-  %63 = tail call ptr @__ctype_tolower_loc() #34
+  %63 = tail call ptr @__ctype_tolower_loc() #35
   %64 = load ptr, ptr %63, align 8, !tbaa !54
   %65 = load i8, ptr %55, align 1, !tbaa !34
   %66 = zext i8 %65 to i64
@@ -5713,7 +5713,7 @@ case_insensitive_strcmp.exit.thread30.i.us:       ; preds = %76, %.preheader.i.i
   br i1 %.not26.i, label %get_object_item.exit.thread, label %97
 
 97:                                               ; preds = %.lr.ph.i
-  %98 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %92, ptr noundef nonnull dereferenceable(1) %96) #33
+  %98 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %92, ptr noundef nonnull dereferenceable(1) %96) #34
   %.not27.i = icmp eq i32 %98, 0
   br i1 %.not27.i, label %get_object_item.exit.loopexit111, label %99
 
@@ -5759,7 +5759,7 @@ get_object_item.exit.loopexit111:                 ; preds = %97
   br i1 %111, label %get_object_item.exit93.us, label %.preheader.i.i87.us
 
 .preheader.i.i87.us:                              ; preds = %110
-  %112 = tail call ptr @__ctype_tolower_loc() #34
+  %112 = tail call ptr @__ctype_tolower_loc() #35
   %113 = load ptr, ptr %112, align 8, !tbaa !54
   %114 = load i8, ptr %104, align 1, !tbaa !34
   %115 = zext i8 %114 to i64
@@ -5828,7 +5828,7 @@ case_insensitive_strcmp.exit.thread30.i88.us:     ; preds = %125, %.preheader.i.
   br i1 %.not26.i77, label %get_object_item.exit.thread, label %146
 
 146:                                              ; preds = %.lr.ph.i75
-  %147 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %141, ptr noundef nonnull dereferenceable(1) %145) #33
+  %147 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %141, ptr noundef nonnull dereferenceable(1) %145) #34
   %.not27.i78 = icmp eq i32 %147, 0
   br i1 %.not27.i78, label %get_object_item.exit93.loopexit106, label %148
 
@@ -5857,7 +5857,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_malloc(i64 noundef %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr @global_hooks, align 8, !tbaa !18
-  %3 = tail call ptr %2(i64 noundef %0) #32
+  %3 = tail call ptr %2(i64 noundef %0) #33
   ret ptr %3
 }
 
@@ -5921,7 +5921,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_string(ptr noundef nonnull wri
   %25 = add i64 %.059119, %22
   %reass.sub = sub i64 %21, %25
   %26 = add i64 %reass.sub, 1
-  %27 = tail call ptr %24(i64 noundef %26) #32
+  %27 = tail call ptr %24(i64 noundef %26) #33
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.thread105, label %.critedge.preheader
 
@@ -6161,7 +6161,7 @@ utf16_literal_to_utf8.exit:                       ; preds = %106, %.loopexit.i
 utf16_literal_to_utf8.exit.thread:                ; preds = %81, %76, %78, %71, %53, %parse_hex4.exit.i, %96, %38, %34
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %123 = load ptr, ptr %122, align 8, !tbaa !60
-  tail call void %123(ptr noundef nonnull %27) #32
+  tail call void %123(ptr noundef nonnull %27) #33
   br label %.thread105
 
 .thread105:                                       ; preds = %13, %17, %.preheader, %20, %2, %utf16_literal_to_utf8.exit.thread
@@ -6261,7 +6261,7 @@ buffer_skip_whitespace.exit:                      ; preds = %17, %.critedge.i, %
   %.274 = phi ptr [ null, %36 ], [ %.4, %108 ]
   %.1 = phi ptr [ null, %36 ], [ %40, %108 ]
   %.val = load ptr, ptr %38, align 8, !tbaa !18
-  %40 = tail call ptr %.val(i64 noundef 64) #32
+  %40 = tail call ptr %.val(i64 noundef 64) #33
   %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %.critedge, label %41
 
@@ -6587,7 +6587,7 @@ define internal fastcc ptr @ensure(ptr noundef nonnull captures(none) %0, i64 no
   br i1 %.not55, label %39, label %32
 
 32:                                               ; preds = %29
-  %33 = tail call ptr %31(ptr noundef nonnull %3, i64 noundef %.0) #32
+  %33 = tail call ptr %31(ptr noundef nonnull %3, i64 noundef %.0) #33
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %54
 
@@ -6595,14 +6595,14 @@ define internal fastcc ptr @ensure(ptr noundef nonnull captures(none) %0, i64 no
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %37 = load ptr, ptr %36, align 8, !tbaa !49
   %38 = load ptr, ptr %0, align 8, !tbaa !41
-  tail call void %37(ptr noundef %38) #32
+  tail call void %37(ptr noundef %38) #33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %57
 
 39:                                               ; preds = %29
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !50
-  %42 = tail call ptr %41(i64 noundef %.0) #32
+  %42 = tail call ptr %41(i64 noundef %.0) #33
   %.not56 = icmp eq ptr %42, null
   br i1 %.not56, label %43, label %47
 
@@ -6610,7 +6610,7 @@ define internal fastcc ptr @ensure(ptr noundef nonnull captures(none) %0, i64 no
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %45 = load ptr, ptr %44, align 8, !tbaa !49
   %46 = load ptr, ptr %0, align 8, !tbaa !41
-  tail call void %45(ptr noundef %46) #32
+  tail call void %45(ptr noundef %46) #33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %57
 
@@ -6622,7 +6622,7 @@ define internal fastcc ptr @ensure(ptr noundef nonnull captures(none) %0, i64 no
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %52 = load ptr, ptr %51, align 8, !tbaa !49
   %53 = load ptr, ptr %0, align 8, !tbaa !41
-  tail call void %52(ptr noundef %53) #32
+  tail call void %52(ptr noundef %53) #33
   br label %54
 
 54:                                               ; preds = %32, %47
@@ -6697,7 +6697,7 @@ define internal fastcc range(i32 0, 2) i32 @print_string_ptr(ptr noundef %0, ptr
   br i1 %.not55.i, label %36, label %29
 
 29:                                               ; preds = %26
-  %30 = tail call ptr %28(ptr noundef nonnull %5, i64 noundef %.0.i) #32
+  %30 = tail call ptr %28(ptr noundef nonnull %5, i64 noundef %.0.i) #33
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %51
 
@@ -6705,14 +6705,14 @@ define internal fastcc range(i32 0, 2) i32 @print_string_ptr(ptr noundef %0, ptr
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %34 = load ptr, ptr %33, align 8, !tbaa !49
   %35 = load ptr, ptr %1, align 8, !tbaa !41
-  tail call void %34(ptr noundef %35) #32
+  tail call void %34(ptr noundef %35) #33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   br label %ensure.exit.thread
 
 36:                                               ; preds = %26
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !50
-  %39 = tail call ptr %38(i64 noundef %.0.i) #32
+  %39 = tail call ptr %38(i64 noundef %.0.i) #33
   %.not56.i = icmp eq ptr %39, null
   br i1 %.not56.i, label %40, label %44
 
@@ -6720,7 +6720,7 @@ define internal fastcc range(i32 0, 2) i32 @print_string_ptr(ptr noundef %0, ptr
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %42 = load ptr, ptr %41, align 8, !tbaa !49
   %43 = load ptr, ptr %1, align 8, !tbaa !41
-  tail call void %42(ptr noundef %43) #32
+  tail call void %42(ptr noundef %43) #33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   br label %ensure.exit.thread
 
@@ -6732,7 +6732,7 @@ define internal fastcc range(i32 0, 2) i32 @print_string_ptr(ptr noundef %0, ptr
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %49 = load ptr, ptr %48, align 8, !tbaa !49
   %50 = load ptr, ptr %1, align 8, !tbaa !41
-  tail call void %49(ptr noundef %50) #32
+  tail call void %49(ptr noundef %50) #33
   br label %51
 
 51:                                               ; preds = %44, %29
@@ -6745,7 +6745,7 @@ define internal fastcc range(i32 0, 2) i32 @print_string_ptr(ptr noundef %0, ptr
 
 ensure.exit:                                      ; preds = %51, %15
   %.044.i = phi ptr [ %16, %15 ], [ %53, %51 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.044.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.9, i64 3, i1 false) #32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.044.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.9, i64 3, i1 false) #33
   br label %ensure.exit.thread
 
 .preheader:                                       ; preds = %2, %60
@@ -6871,7 +6871,7 @@ switch.early.test:                                ; preds = %.lr.ph
 
 91:                                               ; preds = %81
   %92 = zext i8 %83 to i32
-  %93 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %92) #32
+  %93 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %92) #33
   %94 = getelementptr inbounds nuw i8, ptr %.pn74, i64 6
   br label %95
 
@@ -6899,7 +6899,7 @@ ensure.exit.thread:                               ; preds = %7, %22, %17, %4, %4
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_tolower_loc() local_unnamed_addr #28
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #29
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -6908,16 +6908,16 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #30
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #30
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #31
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #32
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #31
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #31
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6949,12 +6949,13 @@ attributes #25 = { nofree norecurse nosync nounwind sspstrong memory(argmem: rea
 attributes #26 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #27 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #28 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #29 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #30 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #31 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #32 = { nounwind }
-attributes #33 = { nounwind willreturn memory(read) }
-attributes #34 = { nounwind willreturn memory(none) }
+attributes #31 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #32 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #33 = { nounwind }
+attributes #34 = { nounwind willreturn memory(read) }
+attributes #35 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

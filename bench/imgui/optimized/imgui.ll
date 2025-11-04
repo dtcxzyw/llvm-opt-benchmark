@@ -3352,7 +3352,7 @@ _Z18ImLineClosestPointRK6ImVec2S1_S1_.exit:       ; preds = %47, %46, %51
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -3707,7 +3707,7 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_Z8ImStrdupPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #63
+  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   %3 = add i64 %2, 1
   %4 = load ptr, ptr @_ZL21GImAllocatorAllocFunc, align 8, !tbaa !214
   %5 = load ptr, ptr @_ZL20GImAllocatorUserData, align 8, !tbaa !214
@@ -3855,13 +3855,13 @@ define noundef ptr @_Z11ImStrdupcpyPcPmPKc(ptr noundef %0, ptr noundef captures(
   br label %9
 
 6:                                                ; preds = %3
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #63
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   %8 = add i64 %7, 1
   br label %9
 
 9:                                                ; preds = %6, %4
   %10 = phi i64 [ %5, %4 ], [ %8, %6 ]
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #63
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #64
   %12 = add i64 %11, 1
   %13 = icmp ult i64 %10, %12
   br i1 %13, label %14, label %83
@@ -4066,7 +4066,7 @@ define noundef ptr @_Z13ImStrchrRangePKcS0_c(ptr noundef %0, ptr noundef %1, i8 
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %0 to i64
   %7 = sub i64 %5, %6
-  %8 = tail call noundef ptr @memchr(ptr noundef %0, i32 noundef %4, i64 noundef %7) #63
+  %8 = tail call noundef ptr @memchr(ptr noundef %0, i32 noundef %4, i64 noundef %7) #64
   ret ptr %8
 }
 
@@ -4098,7 +4098,7 @@ define noundef ptr @_Z13ImStreolRangePKcS0_(ptr noundef %0, ptr noundef %1) loca
   %3 = ptrtoint ptr %1 to i64
   %4 = ptrtoint ptr %0 to i64
   %5 = sub i64 %3, %4
-  %6 = tail call noundef ptr @memchr(ptr noundef %0, i32 noundef 10, i64 noundef %5) #63
+  %6 = tail call noundef ptr @memchr(ptr noundef %0, i32 noundef 10, i64 noundef %5) #64
   %.not = icmp eq ptr %6, null
   %7 = select i1 %.not, ptr %1, ptr %6
   ret ptr %7
@@ -4129,7 +4129,7 @@ define noundef ptr @_Z9ImStristrPKcS0_S0_S0_(ptr noundef readonly captures(addre
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %4
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #63
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #64
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 %6
   br label %8
 
@@ -4441,7 +4441,7 @@ define void @_Z27ImFormatStringToTempBufferVPPKcS1_S0_P13__va_list_tag(ptr nound
   br i1 %.not40, label %97, label %32
 
 32:                                               ; preds = %28
-  %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #63
+  %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #64
   %34 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 %33
   br label %.sink.split
 
@@ -5416,7 +5416,7 @@ define noundef i32 @_Z16ImTextCountLinesPKcS0_(ptr noundef %0, ptr noundef %1) l
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %2
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #63
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   br label %7
 
@@ -5434,7 +5434,7 @@ define noundef i32 @_Z16ImTextCountLinesPKcS0_(ptr noundef %0, ptr noundef %1) l
   %.01215 = phi i32 [ 0, %.lr.ph ], [ %16, %10 ]
   %11 = ptrtoint ptr %.016 to i64
   %12 = sub i64 %9, %11
-  %13 = tail call noundef ptr @memchr(ptr noundef %.016, i32 noundef 10, i64 noundef %12) #63
+  %13 = tail call noundef ptr @memchr(ptr noundef %.016, i32 noundef 10, i64 noundef %12) #64
   %.not = icmp eq ptr %13, null
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %15 = select i1 %.not, ptr %.013, ptr %14
@@ -5579,7 +5579,7 @@ define void @_ZN5ImGui20ColorConvertRGBtoHSVEfffRfS0_S0_(float noundef %0, float
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #15
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: write, errnomem: write) uwtable
@@ -6572,7 +6572,7 @@ define void @_ZN15ImGuiTextFilter5BuildEv(ptr noundef nonnull align 8 dereferenc
   %3 = alloca %"struct.ImGuiTextFilter::ImGuiTextRange", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   tail call void @_ZN8ImVectorIN15ImGuiTextFilter14ImGuiTextRangeEE6resizeEi(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 0)
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #63
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   tail call void @_ZN8ImVectorIN15ImGuiTextFilter14ImGuiTextRangeEE6resizeEi(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 0)
   %.not22 = icmp eq i64 %5, 0
@@ -6773,7 +6773,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -7268,7 +7268,7 @@ define void @_ZN15ImGuiTextBuffer6appendEPKcS1_(ptr noundef nonnull align 8 dere
   br label %10
 
 8:                                                ; preds = %3
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #63
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #64
   br label %10
 
 10:                                               ; preds = %8, %4
@@ -7591,7 +7591,7 @@ define void @_ZN14ImGuiTextIndex6appendEPKcii(ptr noundef nonnull align 8 derefe
   %22 = getelementptr inbounds i8, ptr %1, i64 %21
   %23 = ptrtoint ptr %20 to i64
   %gepdiff = sub nsw i64 %19, %21
-  %24 = tail call noundef ptr @memchr(ptr noundef %22, i32 noundef 10, i64 noundef %gepdiff) #63
+  %24 = tail call noundef ptr @memchr(ptr noundef %22, i32 noundef 10, i64 noundef %gepdiff) #64
   %.not20 = icmp eq ptr %24, null
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
@@ -7628,7 +7628,7 @@ define void @_ZN14ImGuiTextIndex6appendEPKcii(ptr noundef nonnull align 8 derefe
 36:                                               ; preds = %._crit_edge21, %32
   %.pre-phi = phi i64 [ %.pre, %._crit_edge21 ], [ %33, %32 ]
   %37 = sub i64 %23, %.pre-phi
-  %38 = call noundef ptr @memchr(ptr noundef nonnull %30, i32 noundef 10, i64 noundef %37) #63
+  %38 = call noundef ptr @memchr(ptr noundef nonnull %30, i32 noundef 10, i64 noundef %37) #64
   %.not = icmp eq ptr %38, null
   br i1 %.not, label %._crit_edge, label %28, !llvm.loop !306
 
@@ -7824,7 +7824,7 @@ define void @_ZN16ImGuiListClipperD2Ev(ptr noundef nonnull align 8 captures(none
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #64
+  tail call void @__clang_call_terminate(ptr %5) #65
   unreachable
 }
 
@@ -7971,7 +7971,7 @@ _ZN16ImGuiListClipper17SeekCursorForItemEi.exit:  ; preds = %62, %54, %14
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #36 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #44
-  tail call void @_ZSt9terminatev() #64
+  tail call void @_ZSt9terminatev() #65
   unreachable
 }
 
@@ -8119,7 +8119,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %57, 
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #64
+  call void @__clang_call_terminate(ptr %78) #65
   unreachable
 
 _ZN20ImGuiListClipperDataD2Ev.exit:               ; preds = %42, %73
@@ -8409,7 +8409,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %.
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 
 _ZN8ImVectorI21ImGuiListClipperRangeED2Ev.exit:   ; preds = %1, %32
@@ -8690,7 +8690,7 @@ _ZN8ImVectorI21ImGuiListClipperRangeE7reserveEi.exit: ; preds = %._ZN8ImVectorI2
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #15
 
 ; Function Attrs: mustprogress uwtable
@@ -10679,7 +10679,7 @@ define void @_ZN5ImGui10RenderTextE6ImVec2PKcS2_b(<2 x float> %0, ptr noundef %1
   br i1 %.not.i, label %19, label %_ZN5ImGui19FindRenderedTextEndEPKcS1_.exit
 
 19:                                               ; preds = %18
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #63
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #64
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %20
   br label %_ZN5ImGui19FindRenderedTextEndEPKcS1_.exit
 
@@ -10822,7 +10822,7 @@ _ZN5ImGui19FindRenderedTextEndEPKcS1_.exit:       ; preds = %.critedge2.i, %14, 
   br i1 %.not66, label %32, label %29
 
 29:                                               ; preds = %.thread68
-  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #63
+  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #64
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 %30
   tail call void @_ZN5ImGui15LogRenderedTextEPK6ImVec2PKcS4_(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %31)
   br label %32
@@ -10851,7 +10851,7 @@ _ZN5ImGui19FindRenderedTextEndEPKcS1_.exit:       ; preds = %.critedge2.i, %14, 
   %.056 = phi ptr [ %.tr70, %39 ], [ %63, %62 ]
   %46 = ptrtoint ptr %.056 to i64
   %47 = sub i64 %42, %46
-  %48 = tail call noundef ptr @memchr(ptr noundef %.056, i32 noundef 10, i64 noundef %47) #63
+  %48 = tail call noundef ptr @memchr(ptr noundef %.056, i32 noundef 10, i64 noundef %47) #64
   %.not.i = icmp eq ptr %48, null
   %49 = select i1 %.not.i, ptr %.055, ptr %48
   %50 = icmp eq ptr %49, %.055
@@ -10886,7 +10886,7 @@ _ZN5ImGui19FindRenderedTextEndEPKcS1_.exit:       ; preds = %.critedge2.i, %14, 
   br i1 %.not67, label %68, label %65
 
 65:                                               ; preds = %64
-  %66 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #63
+  %66 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #64
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 %66
   br label %tailrecurse
 
@@ -10905,7 +10905,7 @@ define void @_ZN5ImGui17RenderTextWrappedE6ImVec2PKcS2_f(<2 x float> %0, ptr nou
   br i1 %.not, label %9, label %12
 
 9:                                                ; preds = %4
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #63
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #64
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %10
   br label %12
 
@@ -15319,7 +15319,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -15390,7 +15390,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %.
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 
 _ZN8ImVectorI19ImGuiStackLevelInfoED2Ev.exit:     ; preds = %1, %32
@@ -15464,7 +15464,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %.
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 
 _ZN8ImVectorIiED2Ev.exit:                         ; preds = %1, %32
@@ -15538,7 +15538,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %.
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 
 _ZN8ImVectorIcED2Ev.exit:                         ; preds = %1, %32
@@ -15615,7 +15615,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -15686,7 +15686,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %.
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 
 _ZN8ImVectorIcED2Ev.exit:                         ; preds = %1, %32
@@ -15760,7 +15760,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %.
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 
 _ZN8ImVectorIcED2Ev.exit:                         ; preds = %1, %32
@@ -15837,7 +15837,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -15911,7 +15911,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -15985,7 +15985,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %.
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 
 _ZN8ImVectorIcED2Ev.exit:                         ; preds = %1, %32
@@ -16066,7 +16066,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %17, 
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #64
+  tail call void @__clang_call_terminate(ptr %38) #65
   unreachable
 
 _ZN12ImGuiStorageD2Ev.exit:                       ; preds = %2, %33
@@ -16135,7 +16135,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %53, %.
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  tail call void @__clang_call_terminate(ptr %74) #64
+  tail call void @__clang_call_terminate(ptr %74) #65
   unreachable
 
 _ZN8ImVectorI21ImGuiMultiSelectStateED2Ev.exit:   ; preds = %_ZN12ImGuiStorageD2Ev.exit, %69
@@ -16145,7 +16145,7 @@ _ZN8ImVectorI21ImGuiMultiSelectStateED2Ev.exit:   ; preds = %_ZN12ImGuiStorageD2
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  tail call void @__clang_call_terminate(ptr %77) #64
+  tail call void @__clang_call_terminate(ptr %77) #65
   unreachable
 }
 
@@ -16219,7 +16219,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -16293,7 +16293,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -16367,7 +16367,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -16442,7 +16442,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %17, 
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #64
+  tail call void @__clang_call_terminate(ptr %38) #65
   unreachable
 
 _ZN12ImGuiStorageD2Ev.exit:                       ; preds = %2, %33
@@ -16511,7 +16511,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %53, %.
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  tail call void @__clang_call_terminate(ptr %74) #64
+  tail call void @__clang_call_terminate(ptr %74) #65
   unreachable
 
 _ZN8ImVectorI11ImGuiTabBarED2Ev.exit:             ; preds = %_ZN12ImGuiStorageD2Ev.exit, %69
@@ -16521,7 +16521,7 @@ _ZN8ImVectorI11ImGuiTabBarED2Ev.exit:             ; preds = %_ZN12ImGuiStorageD2
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  tail call void @__clang_call_terminate(ptr %77) #64
+  tail call void @__clang_call_terminate(ptr %77) #65
   unreachable
 }
 
@@ -16595,7 +16595,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -16669,7 +16669,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -16744,7 +16744,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %17, 
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #64
+  tail call void @__clang_call_terminate(ptr %38) #65
   unreachable
 
 _ZN12ImGuiStorageD2Ev.exit:                       ; preds = %2, %33
@@ -16813,7 +16813,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %53, %.
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  tail call void @__clang_call_terminate(ptr %74) #64
+  tail call void @__clang_call_terminate(ptr %74) #65
   unreachable
 
 _ZN8ImVectorI10ImGuiTableED2Ev.exit:              ; preds = %_ZN12ImGuiStorageD2Ev.exit, %69
@@ -16823,7 +16823,7 @@ _ZN8ImVectorI10ImGuiTableED2Ev.exit:              ; preds = %_ZN12ImGuiStorageD2
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  tail call void @__clang_call_terminate(ptr %77) #64
+  tail call void @__clang_call_terminate(ptr %77) #65
   unreachable
 }
 
@@ -16897,7 +16897,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -16971,7 +16971,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -17045,7 +17045,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -17119,7 +17119,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -17193,7 +17193,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -17267,7 +17267,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -17341,7 +17341,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -17415,7 +17415,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -17489,7 +17489,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -17563,7 +17563,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -17637,7 +17637,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -17711,7 +17711,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -17782,7 +17782,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %.
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 
 _ZN8ImVectorI19ImGuiKeyRoutingDataED2Ev.exit:     ; preds = %1, %32
@@ -17851,7 +17851,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i4: ; preds = %52, %
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  tail call void @__clang_call_terminate(ptr %73) #64
+  tail call void @__clang_call_terminate(ptr %73) #65
   unreachable
 
 _ZN8ImVectorI19ImGuiKeyRoutingDataED2Ev.exit8:    ; preds = %_ZN8ImVectorI19ImGuiKeyRoutingDataED2Ev.exit, %68
@@ -17925,7 +17925,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %.
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 
 _ZN8ImVectorI16ImGuiStoragePairED2Ev.exit:        ; preds = %1, %32
@@ -18002,7 +18002,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -18076,7 +18076,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -18150,7 +18150,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -18221,7 +18221,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %.
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 
 _ZN8ImVectorI6ImVec2ED2Ev.exit:                   ; preds = %1, %32
@@ -18295,7 +18295,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %.
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 
 _ZN8ImVectorItED2Ev.exit:                         ; preds = %1, %32
@@ -19082,7 +19082,7 @@ _ZN5ImGui7MemFreeEPv.exit.i:                      ; preds = %_ZN5ImGui14DebugAll
   br label %_ZN8ImVectorIcE5clearEv.exit
 
 _ZN8ImVectorIcE5clearEv.exit:                     ; preds = %2, %_ZN5ImGui7MemFreeEPv.exit.i
-  %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #63
+  %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #64
   %38 = trunc i64 %37 to i32
   %39 = add nsw i32 %38, 1
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 9476
@@ -19138,7 +19138,7 @@ define internal noundef zeroext i1 @_ZL34Platform_OpenInShellFn_DefaultImplP12Im
 
 10:                                               ; preds = %9
   %11 = call i32 @execvp(ptr noundef nonnull @.str.700, ptr noundef nonnull %3) #44
-  call void @exit(i32 noundef -1) #65
+  call void @exit(i32 noundef -1) #66
   unreachable
 
 12:                                               ; preds = %9
@@ -20474,7 +20474,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %56, 
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  tail call void @__clang_call_terminate(ptr %77) #64
+  tail call void @__clang_call_terminate(ptr %77) #65
   unreachable
 
 _ZN20ImGuiListClipperDataD2Ev.exit:               ; preds = %._ZN20ImGuiListClipperDataD2Ev.exit_crit_edge, %38
@@ -20957,7 +20957,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i.i: ; preds = %56
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  tail call void @__clang_call_terminate(ptr %77) #64
+  tail call void @__clang_call_terminate(ptr %77) #65
   unreachable
 
 _ZN24ImGuiMultiSelectTempDataD2Ev.exit:           ; preds = %._ZN24ImGuiMultiSelectTempDataD2Ev.exit_crit_edge, %38
@@ -21355,7 +21355,7 @@ define void @_ZN11ImGuiWindowC2EP12ImGuiContextPKc(ptr noundef nonnull align 8 d
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1056) %15, i8 0, i64 1056, i1 false)
   store ptr %1, ptr %0, align 8, !tbaa !715
-  %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #63
+  %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #64
   %17 = add i64 %16, 1
   %18 = load ptr, ptr @_ZL21GImAllocatorAllocFunc, align 8, !tbaa !214
   %19 = load ptr, ptr @_ZL20GImAllocatorUserData, align 8, !tbaa !214
@@ -21425,7 +21425,7 @@ define void @_ZN11ImGuiWindowC2EP12ImGuiContextPKc(ptr noundef nonnull align 8 d
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr nonnull readonly align 1 %2, i64 %17, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %20, ptr %56, align 8, !tbaa !314
-  %57 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #63
+  %57 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #64
   %58 = trunc i64 %57 to i32
   %59 = add nsw i32 %58, 1
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -22021,7 +22021,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -22092,7 +22092,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %.
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 
 _ZN8ImVectorIfED2Ev.exit:                         ; preds = %1, %32
@@ -22161,7 +22161,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i4: ; preds = %52, %
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  tail call void @__clang_call_terminate(ptr %73) #64
+  tail call void @__clang_call_terminate(ptr %73) #65
   unreachable
 
 _ZN8ImVectorIfED2Ev.exit8:                        ; preds = %_ZN8ImVectorIfED2Ev.exit, %68
@@ -22230,7 +22230,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i12: ; preds = %88, 
   %108 = landingpad { ptr, i32 }
           catch ptr null
   %109 = extractvalue { ptr, i32 } %108, 0
-  tail call void @__clang_call_terminate(ptr %109) #64
+  tail call void @__clang_call_terminate(ptr %109) #65
   unreachable
 
 _ZN8ImVectorIP11ImGuiWindowED2Ev.exit:            ; preds = %_ZN8ImVectorIfED2Ev.exit8, %104
@@ -22457,7 +22457,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i5: ; preds = %91, %
   %111 = landingpad { ptr, i32 }
           catch ptr null
   %112 = extractvalue { ptr, i32 } %111, 0
-  tail call void @__clang_call_terminate(ptr %112) #64
+  tail call void @__clang_call_terminate(ptr %112) #65
   unreachable
 
 _ZN8ImVectorI15ImGuiOldColumnsED2Ev.exit:         ; preds = %_ZN8ImVectorI15ImGuiOldColumnsE14clear_destructEv.exit, %107
@@ -22526,7 +22526,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i13: ; preds = %12
   %147 = landingpad { ptr, i32 }
           catch ptr null
   %148 = extractvalue { ptr, i32 } %147, 0
-  tail call void @__clang_call_terminate(ptr %148) #64
+  tail call void @__clang_call_terminate(ptr %148) #65
   unreachable
 
 _ZN12ImGuiStorageD2Ev.exit:                       ; preds = %_ZN8ImVectorI15ImGuiOldColumnsED2Ev.exit, %143
@@ -22597,7 +22597,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i20: ; preds = %164,
   %184 = landingpad { ptr, i32 }
           catch ptr null
   %185 = extractvalue { ptr, i32 } %184, 0
-  tail call void @__clang_call_terminate(ptr %185) #64
+  tail call void @__clang_call_terminate(ptr %185) #65
   unreachable
 
 _ZN8ImVectorIjED2Ev.exit:                         ; preds = %_ZN12ImGuiStorageD2Ev.exit, %180
@@ -22607,7 +22607,7 @@ _ZN8ImVectorIjED2Ev.exit:                         ; preds = %_ZN12ImGuiStorageD2
   %187 = landingpad { ptr, i32 }
           catch ptr null
   %188 = extractvalue { ptr, i32 } %187, 0
-  tail call void @__clang_call_terminate(ptr %188) #64
+  tail call void @__clang_call_terminate(ptr %188) #65
   unreachable
 }
 
@@ -24582,7 +24582,7 @@ _ZN5ImGui10GetKeyNameE8ImGuiKey.exit:             ; preds = %29, %26, %24, %12
   br i1 %or.cond3, label %38, label %43
 
 38:                                               ; preds = %_ZN5ImGui10GetKeyNameE8ImGuiKey.exit
-  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #63
+  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #64
   %.not24 = icmp eq i64 %39, 0
   br i1 %.not24, label %43, label %40
 
@@ -37877,7 +37877,7 @@ _ZN5ImGui23UpdateWindowSkipRefreshEP11ImGuiWindow.exit: ; preds = %.lr.ph.i.i531
 722:                                              ; preds = %717
   %723 = getelementptr inbounds nuw i8, ptr %.pre1049, i64 8
   %724 = load ptr, ptr %723, align 8, !tbaa !314
-  %725 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %724) #63
+  %725 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %724) #64
   %.not410 = icmp eq i32 %725, 0
   br i1 %.not410, label %.thread965, label %726
 
@@ -43592,7 +43592,7 @@ _ZN5ImGui19FindRenderedTextEndEPKcS1_.exit.thread.i.i: ; preds = %_ZN5ImGui19Fin
   br i1 %.not4.i.i.i, label %206, label %203
 
 203:                                              ; preds = %201
-  %204 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %193, ptr noundef nonnull dereferenceable(14) @.str.689) #63
+  %204 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %193, ptr noundef nonnull dereferenceable(14) @.str.689) #64
   %205 = icmp eq i32 %204, 0
   br i1 %205, label %_ZL37GetFallbackWindowNameForWindowingListP11ImGuiWindow.exit.i.i, label %206
 
@@ -46500,7 +46500,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %66 = load ptr, ptr %65, align 8, !tbaa !657
   %67 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %66, i64 %14
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 7
-  %69 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #63
+  %69 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   %70 = trunc i64 %69 to i32
   %71 = tail call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %68, i64 noundef 57, ptr noundef nonnull @.str.505, i32 noundef %70, ptr noundef nonnull %0)
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 5
@@ -55532,7 +55532,7 @@ define void @_ZN5ImGui15DebugHookIdInfoEjiPKvS1_(i32 noundef %0, i32 noundef %1,
   br label %53
 
 51:                                               ; preds = %45
-  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #63
+  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #64
   br label %53
 
 53:                                               ; preds = %51, %47
@@ -55976,7 +55976,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %63 = load ptr, ptr %62, align 8, !tbaa !657
   %64 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %63, i64 %11
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 7
-  %66 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #63
+  %66 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   %67 = trunc i64 %66 to i32
   %68 = tail call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %65, i64 noundef 57, ptr noundef nonnull @.str.505, i32 noundef %67, ptr noundef nonnull %0)
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 5
@@ -56474,7 +56474,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %62 = load ptr, ptr %61, align 8, !tbaa !657
   %63 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %62, i64 %10
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 7
-  %65 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #63
+  %65 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   %66 = trunc i64 %65 to i32
   %67 = tail call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %64, i64 noundef 57, ptr noundef nonnull @.str.505, i32 noundef %66, ptr noundef nonnull %0)
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 5
@@ -60040,7 +60040,7 @@ _ZN5ImGui23SetKeyOwnersForKeyChordEiji.exit:      ; preds = %_ZN5ImGui13FixupKey
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN5ImGui30DebugCheckVersionAndDataLayoutEPKcmmmmmm(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #20 {
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(11) @.str.79) #63
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(11) @.str.79) #64
   %.not = icmp eq i32 %8, 0
   %.not13 = icmp eq i64 %1, 3016
   %.not14 = icmp eq i64 %2, 1164
@@ -62122,7 +62122,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %68 = load ptr, ptr %67, align 8, !tbaa !657
   %69 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %68, i64 %16
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 7
-  %71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #63
+  %71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   %72 = trunc i64 %71 to i32
   %73 = tail call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %70, i64 noundef 57, ptr noundef nonnull @.str.505, i32 noundef %72, ptr noundef nonnull %0)
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 5
@@ -62457,7 +62457,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %63 = load ptr, ptr %62, align 8, !tbaa !657
   %64 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %63, i64 %11
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 7
-  %66 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #63
+  %66 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   %67 = trunc i64 %66 to i32
   %68 = tail call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %65, i64 noundef 57, ptr noundef nonnull @.str.505, i32 noundef %67, ptr noundef nonnull %0)
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 5
@@ -63425,7 +63425,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %71 = load ptr, ptr %70, align 8, !tbaa !657
   %72 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %71, i64 %19
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 7
-  %74 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #63
+  %74 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   %75 = trunc i64 %74 to i32
   %76 = tail call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %73, i64 noundef 57, ptr noundef nonnull @.str.505, i32 noundef %75, ptr noundef nonnull %0)
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 5
@@ -63559,7 +63559,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %64 = load ptr, ptr %63, align 8, !tbaa !657
   %65 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %64, i64 %12
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 7
-  %67 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #63
+  %67 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   %68 = trunc i64 %67 to i32
   %69 = tail call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %66, i64 noundef 57, ptr noundef nonnull @.str.505, i32 noundef %68, ptr noundef nonnull %0)
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 5
@@ -63943,7 +63943,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %86 = sext i32 %58 to i64
   %87 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %85, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 7
-  %89 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #63
+  %89 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   %90 = trunc i64 %89 to i32
   %91 = tail call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %88, i64 noundef 57, ptr noundef nonnull @.str.505, i32 noundef %90, ptr noundef nonnull %0)
   %92 = getelementptr inbounds nuw i8, ptr %87, i64 5
@@ -64092,7 +64092,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %68 = load ptr, ptr %67, align 8, !tbaa !657
   %69 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %68, i64 %16
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 7
-  %71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #63
+  %71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   %72 = trunc i64 %71 to i32
   %73 = tail call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %70, i64 noundef 57, ptr noundef nonnull @.str.505, i32 noundef %72, ptr noundef nonnull %0)
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 5
@@ -64263,7 +64263,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %63 = load ptr, ptr %62, align 8, !tbaa !657
   %64 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %63, i64 %11
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 7
-  %66 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #63
+  %66 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #64
   %67 = trunc i64 %66 to i32
   %68 = tail call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %65, i64 noundef 57, ptr noundef nonnull @.str.505, i32 noundef %67, ptr noundef nonnull %spec.store.select)
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 5
@@ -64513,7 +64513,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %63 = load ptr, ptr %62, align 8, !tbaa !657
   %64 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %63, i64 %11
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 7
-  %66 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #63
+  %66 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #64
   %67 = trunc i64 %66 to i32
   %68 = tail call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %65, i64 noundef 57, ptr noundef nonnull @.str.505, i32 noundef %67, ptr noundef nonnull %spec.store.select)
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 5
@@ -67307,7 +67307,7 @@ define noundef ptr @_ZN5ImGui21AcceptDragDropPayloadEPKci(ptr noundef readonly c
 
 _ZNK12ImGuiPayload10IsDataTypeEPKc.exit:          ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8480
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %9) #63
+  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %9) #64
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %_ZNK12ImGuiPayload10IsDataTypeEPKc.exit.thread
 
@@ -69084,7 +69084,7 @@ define void @_ZN5ImGui25LoadIniSettingsFromMemoryEPKcm(ptr noundef readonly capt
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #63
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   br label %7
 
 7:                                                ; preds = %5, %2
@@ -69225,7 +69225,7 @@ _ZN8ImVectorIcE6resizeEi.exit:                    ; preds = %7, %_ZNK8ImVectorIc
   %55 = ptrtoint ptr %50 to i64
   %56 = ptrtoint ptr %54 to i64
   %57 = sub i64 %55, %56
-  %58 = tail call noundef ptr @memchr(ptr noundef nonnull %54, i32 noundef 93, i64 noundef %57) #63
+  %58 = tail call noundef ptr @memchr(ptr noundef nonnull %54, i32 noundef 93, i64 noundef %57) #64
   %.not114 = icmp eq ptr %58, null
   br i1 %.not114, label %.thread, label %59
 
@@ -69233,7 +69233,7 @@ _ZN8ImVectorIcE6resizeEi.exit:                    ; preds = %7, %_ZNK8ImVectorIc
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 1
   %61 = ptrtoint ptr %60 to i64
   %62 = sub i64 %55, %61
-  %63 = tail call noundef ptr @memchr(ptr noundef nonnull %60, i32 noundef 91, i64 noundef %62) #63
+  %63 = tail call noundef ptr @memchr(ptr noundef nonnull %60, i32 noundef 91, i64 noundef %62) #64
   %.not115 = icmp eq ptr %63, null
   br i1 %.not115, label %.thread, label %64
 
@@ -69429,14 +69429,14 @@ define noundef nonnull ptr @_ZN5ImGui23CreateNewWindowSettingsEPKc(ptr noundef r
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
-  %7 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.188) #63
+  %7 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.188) #64
   %.not = icmp eq ptr %7, null
   %spec.select = select i1 %.not, ptr %0, ptr %7
   br label %8
 
 8:                                                ; preds = %6, %1
   %.0 = phi ptr [ %spec.select, %6 ], [ %0, %1 ]
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #63
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #64
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 9680
   %11 = load i32, ptr %10, align 8, !tbaa !673
   %12 = trunc i64 %9 to i32
@@ -75366,7 +75366,7 @@ _ZN5ImGui10GetKeyNameE8ImGuiKey.exit.i:           ; preds = %2086, %2083, %2081,
   br i1 %or.cond3.i, label %2095, label %_ZN5ImGui15GetKeyChordNameEi.exit
 
 2095:                                             ; preds = %_ZN5ImGui10GetKeyNameE8ImGuiKey.exit.i
-  %2096 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2070) #63
+  %2096 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2070) #64
   %.not24.i = icmp eq i64 %2096, 0
   br i1 %.not24.i, label %_ZN5ImGui15GetKeyChordNameEi.exit, label %2097
 
@@ -79436,7 +79436,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %72 = load ptr, ptr %71, align 8, !tbaa !657
   %73 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %72, i64 %19
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 7
-  %75 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #63
+  %75 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   %76 = trunc i64 %75 to i32
   %77 = tail call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %74, i64 noundef 57, ptr noundef nonnull @.str.505, i32 noundef %76, ptr noundef nonnull %0)
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 5
@@ -80748,7 +80748,7 @@ define void @_ZN5ImGui9DebugLogVEPKcP13__va_list_tag(ptr noundef readonly captur
   %34 = getelementptr inbounds i8, ptr %spec.select.i17, i64 %33
   %35 = ptrtoint ptr %32 to i64
   %gepdiff.i = sub nsw i64 %31, %33
-  %36 = tail call noundef ptr @memchr(ptr noundef nonnull %34, i32 noundef 10, i64 noundef %gepdiff.i) #63
+  %36 = tail call noundef ptr @memchr(ptr noundef nonnull %34, i32 noundef 10, i64 noundef %gepdiff.i) #64
   %.not20.i = icmp eq ptr %36, null
   br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -80785,7 +80785,7 @@ define void @_ZN5ImGui9DebugLogVEPKcP13__va_list_tag(ptr noundef readonly captur
 48:                                               ; preds = %44, %._crit_edge21.i
   %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge21.i ], [ %45, %44 ]
   %49 = sub i64 %35, %.pre-phi.i
-  %50 = call noundef ptr @memchr(ptr noundef nonnull %42, i32 noundef 10, i64 noundef %49) #63
+  %50 = call noundef ptr @memchr(ptr noundef nonnull %42, i32 noundef 10, i64 noundef %49) #64
   %.not.i19 = icmp eq ptr %50, null
   br i1 %.not.i19, label %._crit_edge.i, label %40, !llvm.loop !306
 
@@ -81981,7 +81981,7 @@ _ZN8ImVectorI21ImGuiListClipperRangeE7reserveEi.exit: ; preds = %90, %3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define internal noalias noundef ptr @_ZL13MallocWrappermPv(i64 noundef %0, ptr readnone captures(none) %1) #54 {
-  %3 = tail call noalias ptr @malloc(i64 noundef %0) #66
+  %3 = tail call noalias ptr @malloc(i64 noundef %0) #67
   ret ptr %3
 }
 
@@ -82067,7 +82067,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -82143,7 +82143,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32, %1
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 }
 
@@ -84239,7 +84239,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %.
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 
 _ZN8ImVectorIcED2Ev.exit:                         ; preds = %1, %32
@@ -84308,7 +84308,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %52, 
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  tail call void @__clang_call_terminate(ptr %73) #64
+  tail call void @__clang_call_terminate(ptr %73) #65
   unreachable
 
 _ZN16ImGuiIDStackToolD2Ev.exit:                   ; preds = %_ZN8ImVectorIcED2Ev.exit, %68
@@ -84377,7 +84377,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i4: ; preds = %88,
   %108 = landingpad { ptr, i32 }
           catch ptr null
   %109 = extractvalue { ptr, i32 } %108, 0
-  tail call void @__clang_call_terminate(ptr %109) #64
+  tail call void @__clang_call_terminate(ptr %109) #65
   unreachable
 
 _ZN14ImGuiTextIndexD2Ev.exit:                     ; preds = %_ZN16ImGuiIDStackToolD2Ev.exit, %104
@@ -84446,7 +84446,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i11: ; preds = %12
   %144 = landingpad { ptr, i32 }
           catch ptr null
   %145 = extractvalue { ptr, i32 } %144, 0
-  tail call void @__clang_call_terminate(ptr %145) #64
+  tail call void @__clang_call_terminate(ptr %145) #65
   unreachable
 
 _ZN15ImGuiTextBufferD2Ev.exit:                    ; preds = %_ZN14ImGuiTextIndexD2Ev.exit, %140
@@ -84515,7 +84515,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i18: ; preds = %16
   %180 = landingpad { ptr, i32 }
           catch ptr null
   %181 = extractvalue { ptr, i32 } %180, 0
-  tail call void @__clang_call_terminate(ptr %181) #64
+  tail call void @__clang_call_terminate(ptr %181) #65
   unreachable
 
 _ZN15ImGuiTextBufferD2Ev.exit22:                  ; preds = %_ZN15ImGuiTextBufferD2Ev.exit, %176
@@ -84584,7 +84584,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i26: ; preds = %196,
   %216 = landingpad { ptr, i32 }
           catch ptr null
   %217 = extractvalue { ptr, i32 } %216, 0
-  tail call void @__clang_call_terminate(ptr %217) #64
+  tail call void @__clang_call_terminate(ptr %217) #65
   unreachable
 
 _ZN8ImVectorI16ImGuiContextHookED2Ev.exit:        ; preds = %_ZN15ImGuiTextBufferD2Ev.exit22, %212
@@ -84653,7 +84653,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i33: ; preds = %23
   %252 = landingpad { ptr, i32 }
           catch ptr null
   %253 = extractvalue { ptr, i32 } %252, 0
-  tail call void @__clang_call_terminate(ptr %253) #64
+  tail call void @__clang_call_terminate(ptr %253) #65
   unreachable
 
 _ZN13ImChunkStreamI18ImGuiTableSettingsED2Ev.exit: ; preds = %_ZN8ImVectorI16ImGuiContextHookED2Ev.exit, %248
@@ -84722,7 +84722,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i40: ; preds = %26
   %288 = landingpad { ptr, i32 }
           catch ptr null
   %289 = extractvalue { ptr, i32 } %288, 0
-  tail call void @__clang_call_terminate(ptr %289) #64
+  tail call void @__clang_call_terminate(ptr %289) #65
   unreachable
 
 _ZN13ImChunkStreamI19ImGuiWindowSettingsED2Ev.exit: ; preds = %_ZN13ImChunkStreamI18ImGuiTableSettingsED2Ev.exit, %284
@@ -84791,7 +84791,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i47: ; preds = %304,
   %324 = landingpad { ptr, i32 }
           catch ptr null
   %325 = extractvalue { ptr, i32 } %324, 0
-  tail call void @__clang_call_terminate(ptr %325) #64
+  tail call void @__clang_call_terminate(ptr %325) #65
   unreachable
 
 _ZN8ImVectorI20ImGuiSettingsHandlerED2Ev.exit:    ; preds = %_ZN13ImChunkStreamI19ImGuiWindowSettingsED2Ev.exit, %320
@@ -84860,7 +84860,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i54: ; preds = %34
   %360 = landingpad { ptr, i32 }
           catch ptr null
   %361 = extractvalue { ptr, i32 } %360, 0
-  tail call void @__clang_call_terminate(ptr %361) #64
+  tail call void @__clang_call_terminate(ptr %361) #65
   unreachable
 
 _ZN15ImGuiTextBufferD2Ev.exit58:                  ; preds = %_ZN8ImVectorI20ImGuiSettingsHandlerED2Ev.exit, %356
@@ -84929,7 +84929,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i62: ; preds = %376,
   %396 = landingpad { ptr, i32 }
           catch ptr null
   %397 = extractvalue { ptr, i32 } %396, 0
-  tail call void @__clang_call_terminate(ptr %397) #64
+  tail call void @__clang_call_terminate(ptr %397) #65
   unreachable
 
 _ZN8ImVectorIjED2Ev.exit:                         ; preds = %_ZN15ImGuiTextBufferD2Ev.exit58, %392
@@ -84998,7 +84998,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i69: ; preds = %412,
   %432 = landingpad { ptr, i32 }
           catch ptr null
   %433 = extractvalue { ptr, i32 } %432, 0
-  tail call void @__clang_call_terminate(ptr %433) #64
+  tail call void @__clang_call_terminate(ptr %433) #65
   unreachable
 
 _ZN8ImVectorIcED2Ev.exit73:                       ; preds = %_ZN8ImVectorIjED2Ev.exit, %428
@@ -85069,7 +85069,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i77: ; preds = %44
   %469 = landingpad { ptr, i32 }
           catch ptr null
   %470 = extractvalue { ptr, i32 } %469, 0
-  tail call void @__clang_call_terminate(ptr %470) #64
+  tail call void @__clang_call_terminate(ptr %470) #65
   unreachable
 
 _ZN30ImGuiInputTextDeactivatedStateD2Ev.exit:     ; preds = %_ZN8ImVectorIcED2Ev.exit73, %465
@@ -85142,7 +85142,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i84: ; preds = %487,
   %507 = landingpad { ptr, i32 }
           catch ptr null
   %508 = extractvalue { ptr, i32 } %507, 0
-  tail call void @__clang_call_terminate(ptr %508) #64
+  tail call void @__clang_call_terminate(ptr %508) #65
   unreachable
 
 _ZN8ImVectorI24ImGuiMultiSelectTempDataED2Ev.exit: ; preds = %_ZN30ImGuiInputTextDeactivatedStateD2Ev.exit, %503
@@ -85211,7 +85211,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i91: ; preds = %523,
   %543 = landingpad { ptr, i32 }
           catch ptr null
   %544 = extractvalue { ptr, i32 } %543, 0
-  tail call void @__clang_call_terminate(ptr %544) #64
+  tail call void @__clang_call_terminate(ptr %544) #65
   unreachable
 
 _ZN8ImVectorI20ImGuiShrinkWidthItemED2Ev.exit:    ; preds = %_ZN8ImVectorI24ImGuiMultiSelectTempDataED2Ev.exit, %539
@@ -85280,7 +85280,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i98: ; preds = %559,
   %579 = landingpad { ptr, i32 }
           catch ptr null
   %580 = extractvalue { ptr, i32 } %579, 0
-  tail call void @__clang_call_terminate(ptr %580) #64
+  tail call void @__clang_call_terminate(ptr %580) #65
   unreachable
 
 _ZN8ImVectorI15ImGuiPtrOrIndexED2Ev.exit:         ; preds = %_ZN8ImVectorI20ImGuiShrinkWidthItemED2Ev.exit, %575
@@ -85351,7 +85351,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i105: ; preds = %596
   %616 = landingpad { ptr, i32 }
           catch ptr null
   %617 = extractvalue { ptr, i32 } %616, 0
-  tail call void @__clang_call_terminate(ptr %617) #64
+  tail call void @__clang_call_terminate(ptr %617) #65
   unreachable
 
 _ZN8ImVectorI13ImDrawChannelED2Ev.exit:           ; preds = %_ZN8ImVectorI15ImGuiPtrOrIndexED2Ev.exit, %612
@@ -85420,7 +85420,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i112: ; preds = %632
   %652 = landingpad { ptr, i32 }
           catch ptr null
   %653 = extractvalue { ptr, i32 } %652, 0
-  tail call void @__clang_call_terminate(ptr %653) #64
+  tail call void @__clang_call_terminate(ptr %653) #65
   unreachable
 
 _ZN8ImVectorIfED2Ev.exit:                         ; preds = %_ZN8ImVectorI13ImDrawChannelED2Ev.exit, %648
@@ -85491,7 +85491,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i119: ; preds = %669
   %689 = landingpad { ptr, i32 }
           catch ptr null
   %690 = extractvalue { ptr, i32 } %689, 0
-  tail call void @__clang_call_terminate(ptr %690) #64
+  tail call void @__clang_call_terminate(ptr %690) #65
   unreachable
 
 _ZN8ImVectorI18ImGuiTableTempDataED2Ev.exit:      ; preds = %_ZN8ImVectorIfED2Ev.exit, %685
@@ -85560,7 +85560,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i126: ; preds = %705
   %725 = landingpad { ptr, i32 }
           catch ptr null
   %726 = extractvalue { ptr, i32 } %725, 0
-  tail call void @__clang_call_terminate(ptr %726) #64
+  tail call void @__clang_call_terminate(ptr %726) #65
   unreachable
 
 _ZN8ImVectorI20ImGuiListClipperDataED2Ev.exit:    ; preds = %_ZN8ImVectorI18ImGuiTableTempDataED2Ev.exit, %721
@@ -85629,7 +85629,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i133: ; preds = %741
   %761 = landingpad { ptr, i32 }
           catch ptr null
   %762 = extractvalue { ptr, i32 } %761, 0
-  tail call void @__clang_call_terminate(ptr %762) #64
+  tail call void @__clang_call_terminate(ptr %762) #65
   unreachable
 
 _ZN8ImVectorIhED2Ev.exit:                         ; preds = %_ZN8ImVectorI20ImGuiListClipperDataED2Ev.exit, %757
@@ -85698,7 +85698,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i140: ; preds = %777
   %797 = landingpad { ptr, i32 }
           catch ptr null
   %798 = extractvalue { ptr, i32 } %797, 0
-  tail call void @__clang_call_terminate(ptr %798) #64
+  tail call void @__clang_call_terminate(ptr %798) #65
   unreachable
 
 _ZN8ImVectorI19ImGuiFocusScopeDataED2Ev.exit:     ; preds = %_ZN8ImVectorIhED2Ev.exit, %793
@@ -85767,7 +85767,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i147: ; preds = %813
   %833 = landingpad { ptr, i32 }
           catch ptr null
   %834 = extractvalue { ptr, i32 } %833, 0
-  tail call void @__clang_call_terminate(ptr %834) #64
+  tail call void @__clang_call_terminate(ptr %834) #65
   unreachable
 
 _ZN8ImVectorIP14ImGuiViewportPED2Ev.exit:         ; preds = %_ZN8ImVectorI19ImGuiFocusScopeDataED2Ev.exit, %829
@@ -85836,7 +85836,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i154: ; preds = %849
   %869 = landingpad { ptr, i32 }
           catch ptr null
   %870 = extractvalue { ptr, i32 } %869, 0
-  tail call void @__clang_call_terminate(ptr %870) #64
+  tail call void @__clang_call_terminate(ptr %870) #65
   unreachable
 
 _ZN8ImVectorI22ImGuiTreeNodeStackDataED2Ev.exit:  ; preds = %_ZN8ImVectorIP14ImGuiViewportPED2Ev.exit, %865
@@ -85905,7 +85905,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i161: ; preds = %885
   %905 = landingpad { ptr, i32 }
           catch ptr null
   %906 = extractvalue { ptr, i32 } %905, 0
-  tail call void @__clang_call_terminate(ptr %906) #64
+  tail call void @__clang_call_terminate(ptr %906) #65
   unreachable
 
 _ZN8ImVectorI14ImGuiPopupDataED2Ev.exit:          ; preds = %_ZN8ImVectorI22ImGuiTreeNodeStackDataED2Ev.exit, %901
@@ -85974,7 +85974,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i168: ; preds = %921
   %941 = landingpad { ptr, i32 }
           catch ptr null
   %942 = extractvalue { ptr, i32 } %941, 0
-  tail call void @__clang_call_terminate(ptr %942) #64
+  tail call void @__clang_call_terminate(ptr %942) #65
   unreachable
 
 _ZN8ImVectorI14ImGuiPopupDataED2Ev.exit172:       ; preds = %_ZN8ImVectorI14ImGuiPopupDataED2Ev.exit, %937
@@ -86043,7 +86043,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i176: ; preds = %957
   %977 = landingpad { ptr, i32 }
           catch ptr null
   %978 = extractvalue { ptr, i32 } %977, 0
-  tail call void @__clang_call_terminate(ptr %978) #64
+  tail call void @__clang_call_terminate(ptr %978) #65
   unreachable
 
 _ZN8ImVectorI14ImGuiGroupDataED2Ev.exit:          ; preds = %_ZN8ImVectorI14ImGuiPopupDataED2Ev.exit172, %973
@@ -86112,7 +86112,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i183: ; preds = %993
   %1013 = landingpad { ptr, i32 }
           catch ptr null
   %1014 = extractvalue { ptr, i32 } %1013, 0
-  tail call void @__clang_call_terminate(ptr %1014) #64
+  tail call void @__clang_call_terminate(ptr %1014) #65
   unreachable
 
 _ZN8ImVectorIiED2Ev.exit:                         ; preds = %_ZN8ImVectorI14ImGuiGroupDataED2Ev.exit, %1009
@@ -86181,7 +86181,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i190: ; preds = %102
   %1049 = landingpad { ptr, i32 }
           catch ptr null
   %1050 = extractvalue { ptr, i32 } %1049, 0
-  tail call void @__clang_call_terminate(ptr %1050) #64
+  tail call void @__clang_call_terminate(ptr %1050) #65
   unreachable
 
 _ZN8ImVectorI19ImGuiFocusScopeDataED2Ev.exit194:  ; preds = %_ZN8ImVectorIiED2Ev.exit, %1045
@@ -86250,7 +86250,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i198: ; preds = %106
   %1085 = landingpad { ptr, i32 }
           catch ptr null
   %1086 = extractvalue { ptr, i32 } %1085, 0
-  tail call void @__clang_call_terminate(ptr %1086) #64
+  tail call void @__clang_call_terminate(ptr %1086) #65
   unreachable
 
 _ZN8ImVectorIP6ImFontED2Ev.exit:                  ; preds = %_ZN8ImVectorI19ImGuiFocusScopeDataED2Ev.exit194, %1081
@@ -86319,7 +86319,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i205: ; preds = %110
   %1121 = landingpad { ptr, i32 }
           catch ptr null
   %1122 = extractvalue { ptr, i32 } %1121, 0
-  tail call void @__clang_call_terminate(ptr %1122) #64
+  tail call void @__clang_call_terminate(ptr %1122) #65
   unreachable
 
 _ZN8ImVectorI13ImGuiStyleModED2Ev.exit:           ; preds = %_ZN8ImVectorIP6ImFontED2Ev.exit, %1117
@@ -86388,7 +86388,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i212: ; preds = %113
   %1157 = landingpad { ptr, i32 }
           catch ptr null
   %1158 = extractvalue { ptr, i32 } %1157, 0
-  tail call void @__clang_call_terminate(ptr %1158) #64
+  tail call void @__clang_call_terminate(ptr %1158) #65
   unreachable
 
 _ZN8ImVectorI13ImGuiColorModED2Ev.exit:           ; preds = %_ZN8ImVectorI13ImGuiStyleModED2Ev.exit, %1153
@@ -86459,7 +86459,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i219: ; preds = %1
   %1194 = landingpad { ptr, i32 }
           catch ptr null
   %1195 = extractvalue { ptr, i32 } %1194, 0
-  tail call void @__clang_call_terminate(ptr %1195) #64
+  tail call void @__clang_call_terminate(ptr %1195) #65
   unreachable
 
 _ZN12ImGuiStorageD2Ev.exit:                       ; preds = %_ZN8ImVectorI13ImGuiColorModED2Ev.exit, %1190
@@ -86528,7 +86528,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i226: ; preds = %121
   %1230 = landingpad { ptr, i32 }
           catch ptr null
   %1231 = extractvalue { ptr, i32 } %1230, 0
-  tail call void @__clang_call_terminate(ptr %1231) #64
+  tail call void @__clang_call_terminate(ptr %1231) #65
   unreachable
 
 _ZN8ImVectorI20ImGuiWindowStackDataED2Ev.exit:    ; preds = %_ZN12ImGuiStorageD2Ev.exit, %1226
@@ -86597,7 +86597,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i233: ; preds = %124
   %1266 = landingpad { ptr, i32 }
           catch ptr null
   %1267 = extractvalue { ptr, i32 } %1266, 0
-  tail call void @__clang_call_terminate(ptr %1267) #64
+  tail call void @__clang_call_terminate(ptr %1267) #65
   unreachable
 
 _ZN8ImVectorIP11ImGuiWindowED2Ev.exit:            ; preds = %_ZN8ImVectorI20ImGuiWindowStackDataED2Ev.exit, %1262
@@ -86666,7 +86666,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i240: ; preds = %128
   %1302 = landingpad { ptr, i32 }
           catch ptr null
   %1303 = extractvalue { ptr, i32 } %1302, 0
-  tail call void @__clang_call_terminate(ptr %1303) #64
+  tail call void @__clang_call_terminate(ptr %1303) #65
   unreachable
 
 _ZN8ImVectorIP11ImGuiWindowED2Ev.exit244:         ; preds = %_ZN8ImVectorIP11ImGuiWindowED2Ev.exit, %1298
@@ -86735,7 +86735,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i248: ; preds = %131
   %1338 = landingpad { ptr, i32 }
           catch ptr null
   %1339 = extractvalue { ptr, i32 } %1338, 0
-  tail call void @__clang_call_terminate(ptr %1339) #64
+  tail call void @__clang_call_terminate(ptr %1339) #65
   unreachable
 
 _ZN8ImVectorIP11ImGuiWindowED2Ev.exit252:         ; preds = %_ZN8ImVectorIP11ImGuiWindowED2Ev.exit244, %1334
@@ -86804,7 +86804,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i256: ; preds = %135
   %1374 = landingpad { ptr, i32 }
           catch ptr null
   %1375 = extractvalue { ptr, i32 } %1374, 0
-  tail call void @__clang_call_terminate(ptr %1375) #64
+  tail call void @__clang_call_terminate(ptr %1375) #65
   unreachable
 
 _ZN8ImVectorI15ImGuiInputEventED2Ev.exit:         ; preds = %_ZN8ImVectorIP11ImGuiWindowED2Ev.exit252, %1370
@@ -86873,7 +86873,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i263: ; preds = %139
   %1410 = landingpad { ptr, i32 }
           catch ptr null
   %1411 = extractvalue { ptr, i32 } %1410, 0
-  tail call void @__clang_call_terminate(ptr %1411) #64
+  tail call void @__clang_call_terminate(ptr %1411) #65
   unreachable
 
 _ZN8ImVectorI15ImGuiInputEventED2Ev.exit267:      ; preds = %_ZN8ImVectorI15ImGuiInputEventED2Ev.exit, %1406
@@ -86942,7 +86942,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i271: ; preds = %1
   %1446 = landingpad { ptr, i32 }
           catch ptr null
   %1447 = extractvalue { ptr, i32 } %1446, 0
-  tail call void @__clang_call_terminate(ptr %1447) #64
+  tail call void @__clang_call_terminate(ptr %1447) #65
   unreachable
 
 _ZN20ImDrawListSharedDataD2Ev.exit:               ; preds = %_ZN8ImVectorI15ImGuiInputEventED2Ev.exit267, %1442
@@ -87011,7 +87011,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i278: ; preds = %1
   %1482 = landingpad { ptr, i32 }
           catch ptr null
   %1483 = extractvalue { ptr, i32 } %1482, 0
-  tail call void @__clang_call_terminate(ptr %1483) #64
+  tail call void @__clang_call_terminate(ptr %1483) #65
   unreachable
 
 _ZN7ImGuiIOD2Ev.exit:                             ; preds = %_ZN20ImDrawListSharedDataD2Ev.exit, %1478
@@ -87214,7 +87214,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %80, 
   %100 = landingpad { ptr, i32 }
           catch ptr null
   %101 = extractvalue { ptr, i32 } %100, 0
-  tail call void @__clang_call_terminate(ptr %101) #64
+  tail call void @__clang_call_terminate(ptr %101) #65
   unreachable
 
 _ZN17ImDrawDataBuilderD2Ev.exit:                  ; preds = %_Z9IM_DELETEI10ImDrawListEvPT_.exit12, %96
@@ -87283,7 +87283,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i16: ; preds = %11
   %136 = landingpad { ptr, i32 }
           catch ptr null
   %137 = extractvalue { ptr, i32 } %136, 0
-  tail call void @__clang_call_terminate(ptr %137) #64
+  tail call void @__clang_call_terminate(ptr %137) #65
   unreachable
 
 _ZN10ImDrawDataD2Ev.exit:                         ; preds = %_ZN17ImDrawDataBuilderD2Ev.exit, %132
@@ -87293,7 +87293,7 @@ _ZN10ImDrawDataD2Ev.exit:                         ; preds = %_ZN17ImDrawDataBuil
   %139 = landingpad { ptr, i32 }
           catch ptr null
   %140 = extractvalue { ptr, i32 } %139, 0
-  tail call void @__clang_call_terminate(ptr %140) #64
+  tail call void @__clang_call_terminate(ptr %140) #65
   unreachable
 }
 
@@ -87364,7 +87364,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %16, 
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #64
+  tail call void @__clang_call_terminate(ptr %37) #65
   unreachable
 
 _ZN15ImGuiTextBufferD2Ev.exit:                    ; preds = %1, %32
@@ -87433,7 +87433,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %52, %.
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  tail call void @__clang_call_terminate(ptr %73) #64
+  tail call void @__clang_call_terminate(ptr %73) #65
   unreachable
 
 _ZN8ImVectorI12ImGuiTabItemED2Ev.exit:            ; preds = %_ZN15ImGuiTextBufferD2Ev.exit, %68
@@ -87569,7 +87569,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %49, %.
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  tail call void @__clang_call_terminate(ptr %70) #64
+  tail call void @__clang_call_terminate(ptr %70) #65
   unreachable
 
 _ZN8ImVectorI25ImGuiTableColumnSortSpecsED2Ev.exit: ; preds = %_ZN5ImGui7MemFreeEPv.exit, %65
@@ -87638,7 +87638,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i5: ; preds = %85, %
   %105 = landingpad { ptr, i32 }
           catch ptr null
   %106 = extractvalue { ptr, i32 } %105, 0
-  tail call void @__clang_call_terminate(ptr %106) #64
+  tail call void @__clang_call_terminate(ptr %106) #65
   unreachable
 
 _ZN8ImVectorI22ImGuiTableInstanceDataED2Ev.exit:  ; preds = %_ZN8ImVectorI25ImGuiTableColumnSortSpecsED2Ev.exit, %101
@@ -87707,7 +87707,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %121,
   %141 = landingpad { ptr, i32 }
           catch ptr null
   %142 = extractvalue { ptr, i32 } %141, 0
-  tail call void @__clang_call_terminate(ptr %142) #64
+  tail call void @__clang_call_terminate(ptr %142) #65
   unreachable
 
 _ZN15ImGuiTextBufferD2Ev.exit:                    ; preds = %_ZN8ImVectorI22ImGuiTableInstanceDataED2Ev.exit, %137
@@ -87717,7 +87717,7 @@ _ZN15ImGuiTextBufferD2Ev.exit:                    ; preds = %_ZN8ImVectorI22ImGu
   %144 = landingpad { ptr, i32 }
           catch ptr null
   %145 = extractvalue { ptr, i32 } %144, 0
-  tail call void @__clang_call_terminate(ptr %145) #64
+  tail call void @__clang_call_terminate(ptr %145) #65
   unreachable
 }
 
@@ -87793,14 +87793,14 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %18, 
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  tail call void @__clang_call_terminate(ptr %39) #64
+  tail call void @__clang_call_terminate(ptr %39) #65
   unreachable
 
 40:                                               ; preds = %1
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  tail call void @__clang_call_terminate(ptr %42) #64
+  tail call void @__clang_call_terminate(ptr %42) #65
   unreachable
 
 _ZN18ImDrawListSplitterD2Ev.exit:                 ; preds = %3, %34
@@ -87869,7 +87869,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %57, %.
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  tail call void @__clang_call_terminate(ptr %78) #64
+  tail call void @__clang_call_terminate(ptr %78) #65
   unreachable
 
 _ZN8ImVectorI20ImGuiTableHeaderDataED2Ev.exit:    ; preds = %_ZN18ImDrawListSplitterD2Ev.exit, %73
@@ -87950,14 +87950,14 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %18, 
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  tail call void @__clang_call_terminate(ptr %39) #64
+  tail call void @__clang_call_terminate(ptr %39) #65
   unreachable
 
 40:                                               ; preds = %1
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  tail call void @__clang_call_terminate(ptr %42) #64
+  tail call void @__clang_call_terminate(ptr %42) #65
   unreachable
 
 _ZN18ImDrawListSplitterD2Ev.exit:                 ; preds = %3, %34
@@ -88026,7 +88026,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %57, %.
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  tail call void @__clang_call_terminate(ptr %78) #64
+  tail call void @__clang_call_terminate(ptr %78) #65
   unreachable
 
 _ZN8ImVectorI18ImGuiOldColumnDataED2Ev.exit:      ; preds = %_ZN18ImDrawListSplitterD2Ev.exit, %73
@@ -88188,32 +88188,32 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #59
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #59
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #60
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #60
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #61
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #60
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #60
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #60
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #60
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #61
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #62
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #60
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #62
+declare void @llvm.assume(i1 noundef) #63
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -88230,7 +88230,7 @@ attributes #11 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trappi
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -88275,13 +88275,14 @@ attributes #56 = { mustprogress nounwind willreturn memory(argmem: readwrite, in
 attributes #57 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #58 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #59 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #60 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #61 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #62 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #63 = { nounwind willreturn memory(read) }
-attributes #64 = { noreturn nounwind }
-attributes #65 = { cold noreturn nounwind }
-attributes #66 = { nounwind allocsize(0) }
+attributes #60 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #61 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #62 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #63 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #64 = { nounwind willreturn memory(read) }
+attributes #65 = { noreturn nounwind }
+attributes #66 = { cold noreturn nounwind }
+attributes #67 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

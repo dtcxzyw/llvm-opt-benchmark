@@ -26,7 +26,7 @@ define hidden i64 @roseDelayRebuildCallback(i64 noundef %0, i32 noundef %1, ptr 
   %13 = add i64 %0, 1
   %14 = add i64 %13, %12
   %15 = sub i64 %14, %.
-  %16 = tail call i64 @roseRunProgram(ptr noundef %5, ptr noundef %2, i32 noundef %1, i64 noundef 0, i64 noundef %15, i8 noundef zeroext 0) #6
+  %16 = tail call i64 @roseRunProgram(ptr noundef %5, ptr noundef %2, i32 noundef %1, i64 noundef 0, i64 noundef %15, i8 noundef zeroext 0) #7
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %18 = load i64, ptr %17, align 8
   ret i64 %18
@@ -167,7 +167,7 @@ mmbit_set_i.exit82.thread:                        ; preds = %.lr.ph340, %45, %mm
   store ptr %1, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %20, i64 80
   store i8 0, ptr %96, align 8
-  %97 = tail call signext i8 @nfaQueueInitState(ptr noundef %64, ptr noundef nonnull %20) #6
+  %97 = tail call signext i8 @nfaQueueInitState(ptr noundef %64, ptr noundef nonnull %20) #7
   %98 = getelementptr inbounds nuw i8, ptr %20, i64 104
   store i32 0, ptr %98, align 8, !alias.scope !6
   %99 = getelementptr inbounds nuw i8, ptr %20, i64 112
@@ -359,7 +359,7 @@ mmbit_set_i.exit.thread:                          ; preds = %.lr.ph337, %152, %m
 
 queue_prev_byte.exit:                             ; preds = %mmbit_set_i.exit.thread, %205
   %.0.i100 = phi i8 [ %208, %205 ], [ 0, %mmbit_set_i.exit.thread ]
-  %209 = tail call signext i8 @nfaExpandState(ptr noundef nonnull %171, ptr noundef %179, ptr noundef %185, i64 noundef %187, i8 noundef zeroext %.0.i100) #6
+  %209 = tail call signext i8 @nfaExpandState(ptr noundef nonnull %171, ptr noundef %179, ptr noundef %185, i64 noundef %187, i8 noundef zeroext %.0.i100) #7
   %210 = getelementptr inbounds nuw i8, ptr %20, i64 104
   store i32 0, ptr %210, align 8, !alias.scope !9
   %211 = getelementptr inbounds nuw i8, ptr %20, i64 112
@@ -406,7 +406,7 @@ mmbit_set_i.exit.thread195:                       ; preds = %.thread190, %mmbit_
   %240 = add i32 %234, 1
   store i32 %240, ptr %233, align 4, !alias.scope !12
   %241 = load ptr, ptr %224, align 8
-  %242 = tail call signext i8 @nfaQueueExec(ptr noundef %241, ptr noundef nonnull %224, i64 noundef %27) #6
+  %242 = tail call signext i8 @nfaQueueExec(ptr noundef %241, ptr noundef nonnull %224, i64 noundef %27) #7
   store i32 0, ptr %225, align 8
   store i32 0, ptr %235, align 8, !alias.scope !15
   %243 = getelementptr inbounds nuw i8, ptr %224, i64 112
@@ -484,7 +484,7 @@ canSkipCatchUpMPV.exit124.thread:                 ; preds = %268, %252, %canSkip
   br i1 %.not14.i, label %roseCatchUpMPV.exit.thread209, label %283
 
 283:                                              ; preds = %canSkipCatchUpMPV.exit124.thread
-  %284 = tail call i64 @roseRunProgram(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %282, i64 noundef 0, i64 noundef %248, i8 noundef zeroext 0) #6
+  %284 = tail call i64 @roseRunProgram(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %282, i64 noundef 0, i64 noundef %248, i8 noundef zeroext 0) #7
   %.not266 = icmp eq i64 %284, 0
   br i1 %.not266, label %ensureQueueFlushed_i.exit.thread, label %.roseCatchUpMPV.exit.thread209_crit_edge
 
@@ -501,7 +501,7 @@ roseCatchUpMPV.exit.thread209:                    ; preds = %.roseCatchUpMPV.exi
   br label %roseCatchUpTo.exit.thread
 
 roseCatchUpMPV.exit:                              ; preds = %277, %canSkipCatchUpMPV.exit124
-  %287 = tail call i64 @roseCatchUpMPV_i(ptr noundef %0, i64 noundef %27, ptr noundef %1) #6
+  %287 = tail call i64 @roseCatchUpMPV_i(ptr noundef %0, i64 noundef %27, ptr noundef %1) #7
   %288 = icmp eq i64 %287, 0
   br i1 %288, label %ensureQueueFlushed_i.exit.thread, label %roseCatchUpTo.exit.thread
 
@@ -605,7 +605,7 @@ mmbit_any.exit:                                   ; preds = %318, %310, %307, %3
   br i1 %.not28.i, label %339, label %337
 
 337:                                              ; preds = %334
-  %338 = tail call i64 @roseRunProgram(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %336, i64 noundef 0, i64 noundef %248, i8 noundef zeroext 0) #6
+  %338 = tail call i64 @roseRunProgram(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %336, i64 noundef 0, i64 noundef %248, i8 noundef zeroext 0) #7
   %.not267 = icmp eq i64 %338, 0
   br i1 %.not267, label %ensureQueueFlushed_i.exit.thread, label %339
 
@@ -615,7 +615,7 @@ mmbit_any.exit:                                   ; preds = %318, %310, %307, %3
   br label %roseCatchUpTo.exit.thread
 
 roseCatchUpTo.exit:                               ; preds = %.lr.ph, %mmbit_any.exit
-  %340 = tail call i64 @roseCatchUpAll(i64 noundef %27, ptr noundef %1) #6
+  %340 = tail call i64 @roseCatchUpAll(i64 noundef %27, ptr noundef %1) #7
   %341 = icmp eq i64 %340, 0
   br i1 %341, label %ensureQueueFlushed_i.exit.thread, label %roseCatchUpTo.exit.thread
 
@@ -673,7 +673,7 @@ canSkipCatchUpMPV.exit120.thread:                 ; preds = %358, %342, %canSkip
   br i1 %.not14.i107, label %roseCatchUpMPV.exit109.thread227, label %373
 
 373:                                              ; preds = %canSkipCatchUpMPV.exit120.thread
-  %374 = tail call i64 @roseRunProgram(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %372, i64 noundef 0, i64 noundef %248, i8 noundef zeroext 0) #6
+  %374 = tail call i64 @roseRunProgram(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %372, i64 noundef 0, i64 noundef %248, i8 noundef zeroext 0) #7
   %.not265 = icmp eq i64 %374, 0
   br i1 %.not265, label %ensureQueueFlushed_i.exit.thread, label %roseCatchUpMPV.exit109.thread227
 
@@ -687,7 +687,7 @@ roseCatchUpMPV.exit109.thread227:                 ; preds = %canSkipCatchUpMPV.e
   br label %roseCatchUpTo.exit.thread
 
 roseCatchUpMPV.exit109:                           ; preds = %367, %canSkipCatchUpMPV.exit120
-  %378 = tail call i64 @roseCatchUpMPV_i(ptr noundef %0, i64 noundef %27, ptr noundef %1) #6
+  %378 = tail call i64 @roseCatchUpMPV_i(ptr noundef %0, i64 noundef %27, ptr noundef %1) #7
   %379 = icmp eq i64 %378, 0
   br i1 %379, label %ensureQueueFlushed_i.exit.thread, label %roseCatchUpTo.exit.thread
 
@@ -801,7 +801,7 @@ mmbit_set_i.exit57.i.thread:                      ; preds = %.lr.ph321, %397, %m
   store ptr %1, ptr %446, align 8
   %447 = getelementptr inbounds nuw i8, ptr %224, i64 80
   store i8 0, ptr %447, align 8
-  %448 = tail call signext i8 @nfaQueueInitState(ptr noundef %416, ptr noundef nonnull %224) #6
+  %448 = tail call signext i8 @nfaQueueInitState(ptr noundef %416, ptr noundef nonnull %224) #7
   %449 = getelementptr inbounds nuw i8, ptr %224, i64 104
   store i32 0, ptr %449, align 8, !alias.scope !18
   %450 = getelementptr inbounds nuw i8, ptr %224, i64 112
@@ -1107,7 +1107,7 @@ pushQueueSom.exit:                                ; preds = %.thread261, %581, %
   %606 = add i32 %589, 1
   store i32 %606, ptr %600, align 4, !alias.scope !24
   %607 = load ptr, ptr %20, align 8
-  %608 = tail call signext i8 @nfaQueueExec(ptr noundef %607, ptr noundef nonnull %20, i64 noundef %27) #6
+  %608 = tail call signext i8 @nfaQueueExec(ptr noundef %607, ptr noundef nonnull %20, i64 noundef %27) #7
   %.not74 = icmp eq i8 %608, 0
   br i1 %.not74, label %613, label %609
 
@@ -1739,7 +1739,7 @@ roseFlushLastByteHistory.exit:                    ; preds = %18, %21, %mmbit_spa
   br label %285
 
 285:                                              ; preds = %roseFlushLastByteHistory.exit, %14
-  %286 = tail call i64 @roseRunProgram(ptr noundef %7, ptr noundef nonnull %3, i32 noundef %2, i64 noundef %0, i64 noundef %10, i8 noundef zeroext 1) #6
+  %286 = tail call i64 @roseRunProgram(ptr noundef %7, ptr noundef nonnull %3, i32 noundef %2, i64 noundef %0, i64 noundef %10, i8 noundef zeroext 1) #7
   %287 = icmp ne i64 %286, 0
   %. = zext i1 %287 to i32
   br label %288
@@ -1861,7 +1861,7 @@ anchored_it_begin.exit:                           ; preds = %20, %14, %3
 75:                                               ; preds = %.lr.ph541, %.critedge.backedge
   %.1307539 = phi i32 [ %.0.i, %.lr.ph541 ], [ %.020.i.lcssa, %.critedge.backedge ]
   %.0308538 = phi i64 [ %.047, %.lr.ph541 ], [ %78, %.critedge.backedge ]
-  %76 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0308538) #7, !srcloc !30
+  %76 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0308538) #8, !srcloc !30
   %77 = extractvalue { i64, i64 } %76, 0
   %78 = extractvalue { i64, i64 } %76, 1
   %79 = and i64 %77, 4294967295
@@ -2588,7 +2588,7 @@ mmbit_iterate.exit.i205:                          ; preds = %453, %392
   %486 = zext i32 %.026.i207513 to i64
   %487 = getelementptr inbounds nuw i32, ptr %354, i64 %486
   %488 = load i32, ptr %487, align 4
-  %489 = tail call i64 @roseRunProgram(ptr noundef %0, ptr noundef %1, i32 noundef %488, i64 noundef 0, i64 noundef %87, i8 noundef zeroext 0) #6
+  %489 = tail call i64 @roseRunProgram(ptr noundef %0, ptr noundef %1, i32 noundef %488, i64 noundef 0, i64 noundef %87, i8 noundef zeroext 0) #7
   %490 = load i64, ptr %69, align 8
   %491 = and i64 %490, %485
   store i64 %491, ptr %69, align 8
@@ -3609,7 +3609,7 @@ mmbit_iterate.exit:                               ; preds = %1017, %956
   %1049 = zext i32 %.031.i534 to i64
   %1050 = getelementptr inbounds nuw i32, ptr %918, i64 %1049
   %1051 = load i32, ptr %1050, align 4
-  %1052 = tail call i64 @roseRunProgram(ptr noundef %0, ptr noundef %1, i32 noundef %1051, i64 noundef 0, i64 noundef %80, i8 noundef zeroext 0) #6
+  %1052 = tail call i64 @roseRunProgram(ptr noundef %0, ptr noundef %1, i32 noundef %1051, i64 noundef 0, i64 noundef %80, i8 noundef zeroext 0) #7
   %.not33.i = icmp eq i64 %1052, 0
   br i1 %.not33.i, label %playVictims.exit.thread, label %1053
 
@@ -4635,7 +4635,7 @@ mmbit_iterate.exit.i:                             ; preds = %1583, %1522
   %1616 = zext i32 %.026.i180558 to i64
   %1617 = getelementptr inbounds nuw i32, ptr %1484, i64 %1616
   %1618 = load i32, ptr %1617, align 4
-  %1619 = tail call i64 @roseRunProgram(ptr noundef %0, ptr noundef %1, i32 noundef %1618, i64 noundef 0, i64 noundef %1217, i8 noundef zeroext 0) #6
+  %1619 = tail call i64 @roseRunProgram(ptr noundef %0, ptr noundef %1, i32 noundef %1618, i64 noundef 0, i64 noundef %1217, i8 noundef zeroext 0) #7
   %1620 = load i64, ptr %1212, align 8
   %1621 = and i64 %1620, %1615
   store i64 %1621, ptr %1212, align 8
@@ -5477,11 +5477,11 @@ roseFlushLastByteHistory.exit.i:                  ; preds = %mmbit_sparse_iter_u
   br i1 %.not.i12, label %304, label %302
 
 302:                                              ; preds = %300
-  %303 = tail call i64 @roseRunProgram_l(ptr noundef nonnull %6, ptr noundef nonnull %2, i32 noundef %1, i64 noundef 0, i64 noundef %9, i8 noundef zeroext 0) #6
+  %303 = tail call i64 @roseRunProgram_l(ptr noundef nonnull %6, ptr noundef nonnull %2, i32 noundef %1, i64 noundef 0, i64 noundef %9, i8 noundef zeroext 0) #7
   br label %roseProcessMatchInline.exit
 
 304:                                              ; preds = %300
-  %305 = tail call i64 @roseRunProgram(ptr noundef nonnull %6, ptr noundef nonnull %2, i32 noundef %1, i64 noundef 0, i64 noundef %9, i8 noundef zeroext 0) #6
+  %305 = tail call i64 @roseRunProgram(ptr noundef nonnull %6, ptr noundef nonnull %2, i32 noundef %1, i64 noundef 0, i64 noundef %9, i8 noundef zeroext 0) #7
   br label %roseProcessMatchInline.exit
 
 roseProcessMatchInline.exit:                      ; preds = %302, %304
@@ -6027,11 +6027,11 @@ roseFlushLastByteHistory.exit.i:                  ; preds = %mmbit_sparse_iter_u
   br i1 %.not.i14, label %304, label %302
 
 302:                                              ; preds = %300
-  %303 = tail call i64 @roseRunProgram_l(ptr noundef nonnull %6, ptr noundef nonnull %2, i32 noundef %1, i64 noundef 0, i64 noundef %9, i8 noundef zeroext 0) #6
+  %303 = tail call i64 @roseRunProgram_l(ptr noundef nonnull %6, ptr noundef nonnull %2, i32 noundef %1, i64 noundef 0, i64 noundef %9, i8 noundef zeroext 0) #7
   br label %roseProcessMatchInline.exit
 
 304:                                              ; preds = %300
-  %305 = tail call i64 @roseRunProgram(ptr noundef nonnull %6, ptr noundef nonnull %2, i32 noundef %1, i64 noundef 0, i64 noundef %9, i8 noundef zeroext 0) #6
+  %305 = tail call i64 @roseRunProgram(ptr noundef nonnull %6, ptr noundef nonnull %2, i32 noundef %1, i64 noundef 0, i64 noundef %9, i8 noundef zeroext 0) #7
   br label %roseProcessMatchInline.exit
 
 roseProcessMatchInline.exit:                      ; preds = %302, %304
@@ -6086,7 +6086,7 @@ define hidden range(i32 0, 2) i32 @roseRunBoundaryProgram(ptr noundef %0, i32 no
 21:                                               ; preds = %15, %11, %8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i64 %2, ptr %22, align 8
-  %23 = tail call i64 @roseRunProgram(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef %1, i64 noundef 0, i64 noundef %2, i8 noundef zeroext 0) #6
+  %23 = tail call i64 @roseRunProgram(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef %1, i64 noundef 0, i64 noundef %2, i8 noundef zeroext 0) #7
   %24 = icmp ne i64 %23, 0
   %. = zext i1 %24 to i32
   br label %25
@@ -6100,7 +6100,7 @@ define hidden range(i32 0, 2) i32 @roseRunBoundaryProgram(ptr noundef %0, i32 no
 define hidden range(i32 0, 2) i32 @roseRunFlushCombProgram(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %5 = load i32, ptr %4, align 4
-  %6 = tail call i64 @roseRunProgram(ptr noundef %0, ptr noundef %1, i32 noundef %5, i64 noundef 0, i64 noundef %2, i8 noundef zeroext 0) #6
+  %6 = tail call i64 @roseRunProgram(ptr noundef %0, ptr noundef %1, i32 noundef %5, i64 noundef 0, i64 noundef %2, i8 noundef zeroext 0) #7
   %7 = icmp ne i64 %6, 0
   %. = zext i1 %7 to i32
   ret i32 %.
@@ -6110,7 +6110,7 @@ define hidden range(i32 0, 2) i32 @roseRunFlushCombProgram(ptr noundef %0, ptr n
 define hidden range(i32 0, 2) i32 @roseRunLastFlushCombProgram(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load i32, ptr %4, align 8
-  %6 = tail call i64 @roseRunProgram(ptr noundef %0, ptr noundef %1, i32 noundef %5, i64 noundef 0, i64 noundef %2, i8 noundef zeroext 0) #6
+  %6 = tail call i64 @roseRunProgram(ptr noundef %0, ptr noundef %1, i32 noundef %5, i64 noundef 0, i64 noundef %2, i8 noundef zeroext 0) #7
   %7 = icmp ne i64 %6, 0
   %. = zext i1 %7 to i32
   ret i32 %.
@@ -6125,11 +6125,11 @@ define hidden range(i32 0, 2) i32 @roseReportAdaptor(i64 noundef %0, i64 noundef
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %4
-  %9 = tail call i64 @roseRunProgram_l(ptr noundef nonnull %6, ptr noundef nonnull %3, i32 noundef %2, i64 noundef %0, i64 noundef %1, i8 noundef zeroext 8) #6
+  %9 = tail call i64 @roseRunProgram_l(ptr noundef nonnull %6, ptr noundef nonnull %3, i32 noundef %2, i64 noundef %0, i64 noundef %1, i8 noundef zeroext 8) #7
   br label %12
 
 10:                                               ; preds = %4
-  %11 = tail call i64 @roseRunProgram(ptr noundef nonnull %6, ptr noundef nonnull %3, i32 noundef %2, i64 noundef %0, i64 noundef %1, i8 noundef zeroext 8) #6
+  %11 = tail call i64 @roseRunProgram(ptr noundef nonnull %6, ptr noundef nonnull %3, i32 noundef %2, i64 noundef %0, i64 noundef %1, i8 noundef zeroext 8) #7
   br label %12
 
 12:                                               ; preds = %10, %8
@@ -6166,35 +6166,36 @@ declare i64 @roseCatchUpAll(i64 noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #2
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #5
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #5
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #5
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind memory(none) }
+attributes #3 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

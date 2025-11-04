@@ -147,12 +147,12 @@ define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EEC2Ei10UErrorCode(ptr no
 9:                                                ; preds = %16, %11
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7715MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %0) #24
+  tail call void @_ZN6icu_7715MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %0) #25
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %3
   %12 = zext nneg i32 %1 to i64
-  %13 = invoke noalias ptr @uprv_malloc_77(i64 noundef %12) #25
+  %13 = invoke noalias ptr @uprv_malloc_77(i64 noundef %12) #26
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %11
@@ -188,7 +188,7 @@ define weak_odr noundef ptr @_ZN6icu_7715MaybeStackArrayIcLi40EE6resizeEii(ptr n
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %1 to i64
-  %7 = tail call noalias ptr @uprv_malloc_77(i64 noundef %6) #25
+  %7 = tail call noalias ptr @uprv_malloc_77(i64 noundef %6) #26
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %21, label %8
 
@@ -248,7 +248,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %1, %4
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #26
+  tail call void @__clang_call_terminate(ptr %8) #27
   unreachable
 }
 
@@ -270,8 +270,8 @@ define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv(ptr no
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
-  tail call void @_ZSt9terminatev() #26
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #25
+  tail call void @_ZSt9terminatev() #27
   unreachable
 }
 
@@ -373,7 +373,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %2, %5
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #26
+  tail call void @__clang_call_terminate(ptr %22) #27
   unreachable
 }
 
@@ -466,7 +466,7 @@ define weak_odr noundef ptr @_ZN6icu_7715MaybeStackArrayIcLi40EE13orphanOrCloneE
   %12 = load i32, ptr %11, align 8, !tbaa !10
   %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %12)
   %13 = sext i32 %spec.select to i64
-  %14 = tail call noalias ptr @uprv_malloc_77(i64 noundef %13) #25
+  %14 = tail call noalias ptr @uprv_malloc_77(i64 noundef %13) #26
   %15 = icmp eq ptr %14, null
   br i1 %15, label %21, label %16
 
@@ -505,7 +505,7 @@ define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErro
 
 10:                                               ; preds = %6
   %11 = zext nneg i32 %8 to i64
-  %12 = tail call noalias ptr @uprv_malloc_77(i64 noundef %11) #25
+  %12 = tail call noalias ptr @uprv_malloc_77(i64 noundef %11) #26
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %18, label %13
 
@@ -546,7 +546,7 @@ define void @_ZN6icu_7715ValueNameGetterD2Ev(ptr nonnull readnone align 8 captur
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN6icu_7715ValueNameGetterD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #10 align 2 {
-  tail call void @llvm.trap() #26
+  tail call void @llvm.trap() #27
   unreachable
 }
 
@@ -563,8 +563,8 @@ define noalias noundef ptr @usrc_create(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %8, label %20, label %9
 
 9:                                                ; preds = %4
-  %10 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #24
-  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #27
+  %10 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #25
+  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #28
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 %11
   %.not.i = icmp eq i64 %11, 0
   br i1 %.not.i, label %18, label %13
@@ -582,7 +582,7 @@ define noalias noundef ptr @usrc_create(ptr noundef %0, ptr noundef %1, i32 noun
 
 18:                                               ; preds = %16, %13, %9
   %.016.i = phi ptr [ %17, %16 ], [ %12, %13 ], [ %12, %9 ]
-  %19 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.016.i, ptr noundef nonnull dereferenceable(1) %1) #24
+  %19 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.016.i, ptr noundef nonnull dereferenceable(1) %1) #25
   br label %20
 
 20:                                               ; preds = %18, %4
@@ -594,35 +594,35 @@ define noalias noundef ptr @usrc_create(ptr noundef %0, ptr noundef %1, i32 noun
 _ZL24usrc_createWithoutHeaderPKcS0_.exit.thread:  ; preds = %20
   %23 = load ptr, ptr @stderr, align 8, !tbaa !16
   %24 = select i1 %8, ptr @.str.10, ptr %0
-  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.42, ptr noundef nonnull %24, ptr noundef %1) #28
+  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.42, ptr noundef nonnull %24, ptr noundef %1) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %37
 
 26:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %21, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef %2, ptr noundef nonnull @.str) #24
+  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %21, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef %2, ptr noundef nonnull @.str) #25
   %28 = icmp slt i32 %2, 2017
   br i1 %28, label %29, label %usrc_writeCopyrightHeader.exit
 
 29:                                               ; preds = %26
-  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %21, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef nonnull @.str) #24
+  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %21, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef nonnull @.str) #25
   br label %usrc_writeCopyrightHeader.exit
 
 usrc_writeCopyrightHeader.exit:                   ; preds = %26, %29
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %31 = call i64 @time(ptr noundef nonnull %6) #24
-  %32 = call ptr @localtime(ptr noundef nonnull %6) #24
+  %31 = call i64 @time(ptr noundef nonnull %6) #25
+  %32 = call ptr @localtime(ptr noundef nonnull %6) #25
   %33 = icmp eq ptr %3, null
   br i1 %33, label %34, label %usrc_writeFileNameGeneratedBy.exit
 
 34:                                               ; preds = %usrc_writeCopyrightHeader.exit
-  %35 = call i64 @strftime(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.5, ptr noundef %32) #24
+  %35 = call i64 @strftime(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.5, ptr noundef %32) #25
   br label %usrc_writeFileNameGeneratedBy.exit
 
 usrc_writeFileNameGeneratedBy.exit:               ; preds = %usrc_writeCopyrightHeader.exit, %34
   %.sink.i = phi ptr [ %5, %34 ], [ %3, %usrc_writeCopyrightHeader.exit ]
-  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %21, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef nonnull %.sink.i) #24
+  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %21, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef nonnull %.sink.i) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %37
@@ -633,12 +633,12 @@ usrc_writeFileNameGeneratedBy.exit:               ; preds = %usrc_writeCopyright
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @usrc_writeCopyrightHeader(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #12 {
-  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %1, i32 noundef %2, ptr noundef %1) #24
+  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %1, i32 noundef %2, ptr noundef %1) #25
   %5 = icmp slt i32 %2, 2017
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %3
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %1, ptr noundef %1) #24
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %1, ptr noundef %1) #25
   br label %8
 
 8:                                                ; preds = %6, %3
@@ -651,18 +651,18 @@ define void @usrc_writeFileNameGeneratedBy(ptr noundef captures(none) %0, ptr no
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %7 = call i64 @time(ptr noundef nonnull %6) #24
-  %8 = call ptr @localtime(ptr noundef nonnull %6) #24
+  %7 = call i64 @time(ptr noundef nonnull %6) #25
+  %8 = call ptr @localtime(ptr noundef nonnull %6) #25
   %9 = icmp eq ptr %3, null
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %4
-  %11 = call i64 @strftime(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.5, ptr noundef %8) #24
+  %11 = call i64 @strftime(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.5, ptr noundef %8) #25
   br label %12
 
 12:                                               ; preds = %4, %10
   %.sink = phi ptr [ %5, %10 ], [ %3, %4 ]
-  %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef %1, ptr noundef %1, ptr noundef %2, ptr noundef %1, ptr noundef %1, ptr noundef nonnull %.sink) #24
+  %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef %1, ptr noundef %1, ptr noundef %2, ptr noundef %1, ptr noundef %1, ptr noundef nonnull %.sink) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -678,8 +678,8 @@ define noalias noundef ptr @usrc_createTextData(ptr noundef %0, ptr noundef %1, 
   br i1 %8, label %20, label %9
 
 9:                                                ; preds = %4
-  %10 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #24
-  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #27
+  %10 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #25
+  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #28
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 %11
   %.not.i = icmp eq i64 %11, 0
   br i1 %.not.i, label %18, label %13
@@ -697,7 +697,7 @@ define noalias noundef ptr @usrc_createTextData(ptr noundef %0, ptr noundef %1, 
 
 18:                                               ; preds = %16, %13, %9
   %.016.i = phi ptr [ %17, %16 ], [ %12, %13 ], [ %12, %9 ]
-  %19 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.016.i, ptr noundef nonnull dereferenceable(1) %1) #24
+  %19 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.016.i, ptr noundef nonnull dereferenceable(1) %1) #25
   br label %20
 
 20:                                               ; preds = %18, %4
@@ -709,35 +709,35 @@ define noalias noundef ptr @usrc_createTextData(ptr noundef %0, ptr noundef %1, 
 _ZL24usrc_createWithoutHeaderPKcS0_.exit.thread:  ; preds = %20
   %23 = load ptr, ptr @stderr, align 8, !tbaa !16
   %24 = select i1 %8, ptr @.str.10, ptr %0
-  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.42, ptr noundef nonnull %24, ptr noundef %1) #28
+  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.42, ptr noundef nonnull %24, ptr noundef %1) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %37
 
 26:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %21, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef %2, ptr noundef nonnull @.str.1) #24
+  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %21, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef %2, ptr noundef nonnull @.str.1) #25
   %28 = icmp slt i32 %2, 2017
   br i1 %28, label %29, label %usrc_writeCopyrightHeader.exit
 
 29:                                               ; preds = %26
-  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %21, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.1) #24
+  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %21, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.1) #25
   br label %usrc_writeCopyrightHeader.exit
 
 usrc_writeCopyrightHeader.exit:                   ; preds = %26, %29
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %31 = call i64 @time(ptr noundef nonnull %6) #24
-  %32 = call ptr @localtime(ptr noundef nonnull %6) #24
+  %31 = call i64 @time(ptr noundef nonnull %6) #25
+  %32 = call ptr @localtime(ptr noundef nonnull %6) #25
   %33 = icmp eq ptr %3, null
   br i1 %33, label %34, label %usrc_writeFileNameGeneratedBy.exit
 
 34:                                               ; preds = %usrc_writeCopyrightHeader.exit
-  %35 = call i64 @strftime(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.5, ptr noundef %32) #24
+  %35 = call i64 @strftime(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.5, ptr noundef %32) #25
   br label %usrc_writeFileNameGeneratedBy.exit
 
 usrc_writeFileNameGeneratedBy.exit:               ; preds = %usrc_writeCopyrightHeader.exit, %34
   %.sink.i = phi ptr [ %5, %34 ], [ %3, %usrc_writeCopyrightHeader.exit ]
-  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %21, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.1, ptr noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.1, ptr noundef nonnull %.sink.i) #24
+  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %21, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.1, ptr noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.1, ptr noundef nonnull %.sink.i) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %37
@@ -785,7 +785,7 @@ define void @usrc_writeArray(ptr noundef captures(none) %0, ptr noundef readonly
 14:                                               ; preds = %7, %.split
   %15 = load ptr, ptr @stderr, align 8, !tbaa !16
   %16 = sext i32 %3 to i64
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.6, i64 noundef %16) #28
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.6, i64 noundef %16) #29
   br label %53
 
 18:                                               ; preds = %.split, %13, %12, %11
@@ -798,7 +798,7 @@ define void @usrc_writeArray(ptr noundef captures(none) %0, ptr noundef readonly
 
 19:                                               ; preds = %18
   %20 = sext i32 %4 to i64
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %20) #24
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %20) #25
   br label %22
 
 22:                                               ; preds = %19, %18
@@ -869,7 +869,7 @@ define void @usrc_writeArray(ptr noundef captures(none) %0, ptr noundef readonly
 .thread:                                          ; preds = %46, %.split1
   %.03646 = phi i64 [ 0, %.split1 ], [ %.036, %46 ]
   %48 = phi ptr [ @.str.8, %.split1 ], [ %spec.select, %46 ]
-  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %48, i64 noundef %.03646) #24
+  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %48, i64 noundef %.03646) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = add nsw i32 %.1, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -941,11 +941,11 @@ define void @usrc_writeUTrie2Struct(ptr noundef captures(none) %0, ptr noundef r
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %15 = load i32, ptr %14, align 8, !tbaa !30
   %16 = sext i32 %15 to i64
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %3, ptr noundef %3, i64 noundef %16) #24
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %3, ptr noundef %3, i64 noundef %16) #25
   br label %20
 
 18:                                               ; preds = %9
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef %3, ptr noundef %4) #24
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef %3, ptr noundef %4) #25
   br label %20
 
 20:                                               ; preds = %18, %13
@@ -973,7 +973,7 @@ define void @usrc_writeUTrie2Struct(ptr noundef captures(none) %0, ptr noundef r
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %43 = load i32, ptr %42, align 8, !tbaa !37
   %44 = sext i32 %43 to i64
-  %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, i64 noundef %23, i64 noundef %26, i32 noundef %29, i32 noundef %32, i64 noundef %35, i64 noundef %38, i64 noundef %41, i64 noundef %44) #24
+  %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, i64 noundef %23, i64 noundef %26, i32 noundef %29, i32 noundef %32, i64 noundef %35, i64 noundef %38, i64 noundef %41, i64 noundef %44) #25
   %.not24 = icmp eq ptr %5, null
   br i1 %.not24, label %48, label %46
 
@@ -1032,7 +1032,7 @@ define void @usrc_writeUCPTrieStruct(ptr noundef captures(none) %0, ptr noundef 
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef %3, ptr noundef %4) #24
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef %3, ptr noundef %4) #25
   br label %14
 
 14:                                               ; preds = %12, %10
@@ -1064,7 +1064,7 @@ define void @usrc_writeUCPTrieStruct(ptr noundef captures(none) %0, ptr noundef 
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %41 = load i32, ptr %40, align 4, !tbaa !48
   %42 = zext i32 %41 to i64
-  %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %15, i64 noundef %18, i64 noundef %21, i64 noundef %24, i32 noundef %27, i32 noundef %30, i32 noundef %33, i32 noundef %36, i64 noundef %39, i64 noundef %42) #24
+  %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %15, i64 noundef %18, i64 noundef %21, i64 noundef %24, i32 noundef %27, i32 noundef %30, i32 noundef %33, i32 noundef %36, i64 noundef %39, i64 noundef %42) #25
   %.not22 = icmp eq ptr %5, null
   br i1 %.not22, label %46, label %44
 
@@ -1109,19 +1109,19 @@ define void @usrc_writeUCPTrie(ptr noundef captures(none) %0, ptr noundef %1, pt
   ]
 
 16:                                               ; preds = %14
-  %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef %1) #24
-  %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 100, ptr noundef nonnull @.str.19, i32 noundef %15, ptr noundef %1) #24
+  %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef %1) #25
+  %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 100, ptr noundef nonnull @.str.19, i32 noundef %15, ptr noundef %1) #25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %7, ptr noundef nonnull align 1 dereferenceable(6) @.str.20, i64 6, i1 false)
   br label %22
 
 19:                                               ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(13) %5, ptr noundef nonnull align 1 dereferenceable(13) @.str.21, i64 13, i1 false)
-  %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 100, ptr noundef nonnull @.str.22, i32 noundef %15) #24
+  %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 100, ptr noundef nonnull @.str.22, i32 noundef %15) #25
   store i32 679178, ptr %7, align 16
   br label %22
 
 21:                                               ; preds = %14
-  tail call void @abort() #26
+  tail call void @abort() #27
   unreachable
 
 22:                                               ; preds = %19, %16
@@ -1164,12 +1164,12 @@ usrc_writeUCPTrieArrays.exit:                     ; preds = %22, %29, %.fold.spl
   br label %usrc_writeUCPTrieStruct.exit
 
 40:                                               ; preds = %usrc_writeUCPTrieArrays.exit
-  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 100, ptr noundef nonnull @.str.24, ptr noundef %1) #24
-  %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 100, ptr noundef nonnull @.str.25, ptr noundef %1) #24
-  %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.26, ptr noundef %1) #24
+  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 100, ptr noundef nonnull @.str.24, ptr noundef %1) #25
+  %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 100, ptr noundef nonnull @.str.25, ptr noundef %1) #25
+  %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.26, ptr noundef %1) #25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %8, ptr noundef nonnull align 1 dereferenceable(5) @.str.27, i64 5, i1 false)
   %44 = call i32 @fputs(ptr noundef nonnull readonly %5, ptr noundef %0)
-  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef nonnull %6, ptr noundef nonnull %7) #24
+  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef nonnull %6, ptr noundef nonnull %7) #25
   br label %usrc_writeUCPTrieStruct.exit
 
 usrc_writeUCPTrieStruct.exit:                     ; preds = %38, %40
@@ -1198,7 +1198,7 @@ usrc_writeUCPTrieStruct.exit:                     ; preds = %38, %40
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %69 = load i32, ptr %68, align 4, !tbaa !48
   %70 = zext i32 %69 to i64
-  %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %46, i64 noundef %48, i64 noundef %50, i64 noundef %53, i32 noundef %56, i32 noundef %59, i32 noundef %61, i32 noundef %64, i64 noundef %67, i64 noundef %70) #24
+  %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %46, i64 noundef %48, i64 noundef %50, i64 noundef %53, i32 noundef %56, i32 noundef %59, i32 noundef %61, i32 noundef %64, i64 noundef %67, i64 noundef %70) #25
   %72 = call i32 @fputs(ptr noundef nonnull readonly %8, ptr noundef %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1301,18 +1301,18 @@ define void @usrc_writeUnicodeSet(ptr noundef captures(none) %0, ptr noundef non
 
 44:                                               ; preds = %12
   %45 = load i32, ptr %8, align 4, !tbaa !55
-  %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.31, i32 noundef %13, i32 noundef %45) #24
+  %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.31, i32 noundef %13, i32 noundef %45) #25
   br label %9, !llvm.loop !54
 
 47:                                               ; preds = %11
   %48 = call i64 @fwrite(ptr nonnull @.str.32, i64 2, i64 1, ptr %0)
-  call void @_ZN6icu_7718UnicodeSetIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #24
+  call void @_ZN6icu_7718UnicodeSetIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 49:                                               ; preds = %42, %17
   %.pn = phi { ptr, i32 } [ %43, %42 ], [ %18, %17 ]
-  call void @_ZN6icu_7718UnicodeSetIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #24
+  call void @_ZN6icu_7718UnicodeSetIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 }
@@ -1408,12 +1408,12 @@ define void @usrc_writeStringAsASCII(ptr noundef captures(none) %0, ptr noundef 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %42
   %46 = load i64, ptr %10, align 8, !tbaa !15
   %47 = add i64 %46, 1
-  call void @_ZdlPvm(ptr noundef %44, i64 noundef %47) #29
+  call void @_ZdlPvm(ptr noundef %44, i64 noundef %47) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #24
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %59
 
@@ -1432,7 +1432,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %42, %
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33: ; preds = %50
   %54 = load i64, ptr %10, align 8, !tbaa !15
   %55 = add i64 %54, 1
-  call void @_ZdlPvm(ptr noundef %52, i64 noundef %55) #29
+  call void @_ZdlPvm(ptr noundef %52, i64 noundef %55) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %50, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33
@@ -1441,7 +1441,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %50,
 
 56:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35, %48
   %.pn = phi { ptr, i32 } [ %51, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35 ], [ %49, %48 ]
-  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #24
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 
@@ -1485,7 +1485,7 @@ define void @usrc_writeUCPMap(ptr noundef captures(none) %0, ptr noundef %1, ptr
   %10 = phi i32 [ %14, %.lr.ph.split.us ], [ %8, %.lr.ph ]
   %.016.us = phi i32 [ %13, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %11 = load i32, ptr %5, align 4, !tbaa !12
-  %12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %.016.us, i32 noundef %10, i32 noundef %11) #24
+  %12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %.016.us, i32 noundef %10, i32 noundef %11) #25
   %13 = add nuw nsw i32 %10, 1
   %14 = call i32 @ucpmap_getRange_77(ptr noundef %1, i32 noundef %13, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef nonnull %5)
   %15 = icmp sgt i32 %14, -1
@@ -1500,7 +1500,7 @@ define void @usrc_writeUCPMap(ptr noundef captures(none) %0, ptr noundef %1, ptr
   %20 = load ptr, ptr %19, align 8
   %21 = call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %17)
   %22 = load i32, ptr %5, align 4, !tbaa !12
-  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.34, i32 noundef %.016, i32 noundef %16, i32 noundef %22, ptr noundef %21) #24
+  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.34, i32 noundef %.016, i32 noundef %16, i32 noundef %22, ptr noundef %21) #25
   %24 = add nuw nsw i32 %16, 1
   %25 = call i32 @ucpmap_getRange_77(ptr noundef %1, i32 noundef %24, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef nonnull %5)
   %26 = icmp sgt i32 %25, -1
@@ -1521,7 +1521,7 @@ define void @usrc_writeArrayOfMostlyInvChars(ptr noundef captures(none) %0, ptr 
 
 6:                                                ; preds = %5
   %7 = sext i32 %3 to i64
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %7) #24
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %7) #25
   br label %9
 
 9:                                                ; preds = %6, %5
@@ -1579,7 +1579,7 @@ define void @usrc_writeArrayOfMostlyInvChars(ptr noundef captures(none) %0, ptr 
   %.1 = phi i32 [ 0, %26 ], [ %.04045, %28 ], [ %.04045, %.lr.ph ]
   %31 = icmp ult i8 %12, 32
   %32 = select i1 %31, ptr @.str.36, ptr @.str.37
-  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %32, i32 noundef %13) #24
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %32, i32 noundef %13) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = add nsw i32 %.1, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1652,7 +1652,7 @@ common.resume:                                    ; preds = %32, %29
 29:                                               ; preds = %27
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_778ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
+  call void @_ZN6icu_778ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #25
   br label %common.resume
 
 _ZN6icu_7714StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPS6_i.exit: ; preds = %2, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, %27
@@ -1660,14 +1660,14 @@ _ZN6icu_7714StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
           to label %31 unwind label %32
 
 31:                                               ; preds = %_ZN6icu_7714StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPS6_i.exit
-  call void @_ZN6icu_778ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
+  call void @_ZN6icu_778ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %1
 
 32:                                               ; preds = %_ZN6icu_7714StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPS6_i.exit
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_778ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
+  call void @_ZN6icu_778ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 }
@@ -1698,8 +1698,8 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(pt
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7714StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN6icu_778ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #24
+  tail call void @_ZN6icu_778ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #25
   ret void
 }
 
@@ -1715,7 +1715,7 @@ define linkonce_odr void @_ZN6icu_7714StringByteSinkINSt7__cxx1112basic_stringIc
   br i1 %10, label %11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
 
 11:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.43) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.43) #31
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds = %3
@@ -1741,19 +1741,19 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #21
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #22
+declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #23
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #24
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #21
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1777,16 +1777,17 @@ attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #18 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #23 = { nofree nounwind }
-attributes #24 = { nounwind }
-attributes #25 = { allocsize(0) }
-attributes #26 = { noreturn nounwind }
-attributes #27 = { nounwind willreturn memory(read) }
-attributes #28 = { cold nounwind }
-attributes #29 = { builtin nounwind }
-attributes #30 = { noreturn }
+attributes #21 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #24 = { nofree nounwind }
+attributes #25 = { nounwind }
+attributes #26 = { allocsize(0) }
+attributes #27 = { noreturn nounwind }
+attributes #28 = { nounwind willreturn memory(read) }
+attributes #29 = { cold nounwind }
+attributes #30 = { builtin nounwind }
+attributes #31 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 

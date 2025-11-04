@@ -44,7 +44,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
 define noalias noundef ptr @ubidi_open_77() local_unnamed_addr #0 {
-  %1 = tail call noalias dereferenceable_or_null(464) ptr @uprv_malloc_77(i64 noundef 464) #16
+  %1 = tail call noalias dereferenceable_or_null(464) ptr @uprv_malloc_77(i64 noundef 464) #17
   %2 = icmp eq ptr %1, null
   br i1 %2, label %ubidi_openSized_77.exit, label %3
 
@@ -80,7 +80,7 @@ define noundef ptr @ubidi_openSized_77(i32 noundef %0, i32 noundef %1, ptr nound
   br label %43
 
 11:                                               ; preds = %8
-  %12 = tail call noalias dereferenceable_or_null(464) ptr @uprv_malloc_77(i64 noundef 464) #16
+  %12 = tail call noalias dereferenceable_or_null(464) ptr @uprv_malloc_77(i64 noundef 464) #17
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15
 
@@ -96,7 +96,7 @@ define noundef ptr @ubidi_openSized_77(i32 noundef %0, i32 noundef %1, ptr nound
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %19 = zext nneg i32 %0 to i64
-  %20 = tail call noalias ptr @uprv_malloc_77(i64 noundef %19) #16
+  %20 = tail call noalias ptr @uprv_malloc_77(i64 noundef %19) #17
   store ptr %20, ptr %18, align 8, !tbaa !24
   %.not22.i = icmp eq ptr %20, null
   br i1 %.not22.i, label %ubidi_getMemory_77.exit.thread, label %21
@@ -106,7 +106,7 @@ define noundef ptr @ubidi_openSized_77(i32 noundef %0, i32 noundef %1, ptr nound
   store i32 %0, ptr %22, align 4, !tbaa !25
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %24 = zext nneg i32 %0 to i64
-  %25 = tail call noalias ptr @uprv_malloc_77(i64 noundef %24) #16
+  %25 = tail call noalias ptr @uprv_malloc_77(i64 noundef %24) #17
   store ptr %25, ptr %23, align 8, !tbaa !24
   %.not22.i41 = icmp eq ptr %25, null
   br i1 %.not22.i41, label %ubidi_getMemory_77.exit.thread, label %.sink.split.i40
@@ -142,7 +142,7 @@ ubidi_getMemory_77.exit42:                        ; preds = %.sink.split.i40, %u
   %35 = mul i32 %1, 12
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %37 = sext i32 %35 to i64
-  %38 = tail call noalias ptr @uprv_malloc_77(i64 noundef %37) #16
+  %38 = tail call noalias ptr @uprv_malloc_77(i64 noundef %37) #17
   store ptr %38, ptr %36, align 8, !tbaa !24
   %.not22.i47 = icmp eq ptr %38, null
   br i1 %.not22.i47, label %ubidi_getMemory_77.exit48.thread, label %.sink.split.i46
@@ -192,7 +192,7 @@ define signext range(i8 0, 2) i8 @ubidi_getMemory_77(ptr noundef captures(none) 
 
 8:                                                ; preds = %7
   %9 = sext i32 %3 to i64
-  %10 = tail call noalias ptr @uprv_malloc_77(i64 noundef %9) #16
+  %10 = tail call noalias ptr @uprv_malloc_77(i64 noundef %9) #17
   store ptr %10, ptr %0, align 8, !tbaa !24
   %.not22 = icmp eq ptr %10, null
   br i1 %.not22, label %18, label %.sink.split
@@ -208,7 +208,7 @@ define signext range(i8 0, 2) i8 @ubidi_getMemory_77(ptr noundef captures(none) 
 
 14:                                               ; preds = %13
   %15 = sext i32 %3 to i64
-  %16 = tail call ptr @uprv_realloc_77(ptr noundef nonnull %5, i64 noundef %15) #17
+  %16 = tail call ptr @uprv_realloc_77(ptr noundef nonnull %5, i64 noundef %15) #18
   %.not20 = icmp eq ptr %16, null
   br i1 %.not20, label %18, label %17
 
@@ -652,7 +652,7 @@ define void @ubidi_setPara_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8
 30:                                               ; preds = %27
   %31 = sext i32 %.0 to i64
   %32 = mul nsw i64 %31, 7
-  %33 = tail call noalias ptr @uprv_malloc_77(i64 noundef %32) #16
+  %33 = tail call noalias ptr @uprv_malloc_77(i64 noundef %32) #17
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %36
 
@@ -1116,7 +1116,7 @@ _ZL15setParaRunsOnlyP5UBiDiPKDsihP10UErrorCode.exit: ; preds = %29, %35, %45, %2
 
 276:                                              ; preds = %275
   %277 = sext i32 %.0 to i64
-  %278 = tail call noalias ptr @uprv_malloc_77(i64 noundef %277) #16
+  %278 = tail call noalias ptr @uprv_malloc_77(i64 noundef %277) #17
   store ptr %278, ptr %269, align 8, !tbaa !24
   %.not22.i = icmp eq ptr %278, null
   br i1 %.not22.i, label %602, label %.sink.split.i
@@ -1132,7 +1132,7 @@ _ZL15setParaRunsOnlyP5UBiDiPKDsihP10UErrorCode.exit: ; preds = %29, %35, %45, %2
 
 282:                                              ; preds = %281
   %283 = sext i32 %.0 to i64
-  %284 = tail call ptr @uprv_realloc_77(ptr noundef nonnull %273, i64 noundef %283) #17
+  %284 = tail call ptr @uprv_realloc_77(ptr noundef nonnull %273, i64 noundef %283) #18
   %.not20.i = icmp eq ptr %284, null
   br i1 %.not20.i, label %602, label %285
 
@@ -1636,7 +1636,7 @@ switch.early.test.i:                              ; preds = %416
   br i1 %509, label %510, label %512
 
 510:                                              ; preds = %507
-  %511 = tail call noalias dereferenceable_or_null(160) ptr @uprv_malloc_77(i64 noundef 160) #16
+  %511 = tail call noalias dereferenceable_or_null(160) ptr @uprv_malloc_77(i64 noundef 160) #17
   store ptr %511, ptr %265, align 8, !tbaa !24
   %.not22.i.i.i = icmp eq ptr %511, null
   br i1 %.not22.i.i.i, label %601, label %.sink.split.i.i.i
@@ -1647,7 +1647,7 @@ switch.early.test.i:                              ; preds = %416
   br i1 %.not.i.i.i, label %514, label %ubidi_getMemory_77.exit.i.i
 
 514:                                              ; preds = %512
-  %515 = tail call dereferenceable_or_null(160) ptr @uprv_realloc_77(ptr noundef nonnull %508, i64 noundef 160) #17
+  %515 = tail call dereferenceable_or_null(160) ptr @uprv_realloc_77(ptr noundef nonnull %508, i64 noundef 160) #18
   %.not20.i.i.i = icmp eq ptr %515, null
   br i1 %.not20.i.i.i, label %601, label %516
 
@@ -1674,7 +1674,7 @@ ubidi_getMemory_77.exit.i.i:                      ; preds = %.sink.split.i.i.i, 
 
 523:                                              ; preds = %519
   %524 = sext i32 %520 to i64
-  %525 = tail call noalias ptr @uprv_malloc_77(i64 noundef %524) #16
+  %525 = tail call noalias ptr @uprv_malloc_77(i64 noundef %524) #17
   store ptr %525, ptr %265, align 8, !tbaa !24
   %.not22.i21.i.i = icmp eq ptr %525, null
   br i1 %.not22.i21.i.i, label %601, label %.sink.split.i20.i.i
@@ -1686,7 +1686,7 @@ ubidi_getMemory_77.exit.i.i:                      ; preds = %.sink.split.i.i.i, 
 
 528:                                              ; preds = %526
   %529 = sext i32 %520 to i64
-  %530 = tail call ptr @uprv_realloc_77(ptr noundef nonnull %521, i64 noundef %529) #17
+  %530 = tail call ptr @uprv_realloc_77(ptr noundef nonnull %521, i64 noundef %529) #18
   %.not20.i19.i.i = icmp eq ptr %530, null
   br i1 %.not20.i19.i.i, label %601, label %531
 
@@ -2027,7 +2027,7 @@ select.unfold.i:                                  ; preds = %.lr.ph354.i
   br label %673
 
 672:                                              ; preds = %650
-  tail call void @abort() #18
+  tail call void @abort() #19
   unreachable
 
 673:                                              ; preds = %670, %671, %664, %665, %658, %656, %654, %652
@@ -4328,7 +4328,7 @@ _ZL10lastL_R_ALP5UBiDi.exit:                      ; preds = %ubidi_getCustomized
   br label %194
 
 193:                                              ; preds = %186
-  tail call void @abort() #18
+  tail call void @abort() #19
   unreachable
 
 194:                                              ; preds = %186, %174, %192, %191, %190
@@ -4726,7 +4726,7 @@ define internal fastcc void @_ZL8addPointP5UBiDiii(ptr noundef nonnull captures(
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %3
-  %8 = tail call noalias dereferenceable_or_null(80) ptr @uprv_malloc_77(i64 noundef 80) #16
+  %8 = tail call noalias dereferenceable_or_null(80) ptr @uprv_malloc_77(i64 noundef 80) #17
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr %8, ptr %9, align 8, !tbaa !142
   %10 = icmp eq ptr %8, null
@@ -4754,7 +4754,7 @@ define internal fastcc void @_ZL8addPointP5UBiDiii(ptr noundef nonnull captures(
   %19 = shl nsw i32 %15, 1
   %20 = sext i32 %19 to i64
   %21 = shl nsw i64 %20, 3
-  %22 = tail call ptr @uprv_realloc_77(ptr noundef %.pre, i64 noundef %21) #17
+  %22 = tail call ptr @uprv_realloc_77(ptr noundef %.pre, i64 noundef %21) #18
   store ptr %22, ptr %.phi.trans.insert, align 8, !tbaa !142
   %.not23 = icmp eq ptr %22, null
   br i1 %.not23, label %.thread, label %24
@@ -5971,7 +5971,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL17bracketAddOpening
 
 20:                                               ; preds = %14
   %21 = zext nneg i32 %narrow to i64
-  %22 = tail call noalias ptr @uprv_malloc_77(i64 noundef %21) #16
+  %22 = tail call noalias ptr @uprv_malloc_77(i64 noundef %21) #17
   store ptr %22, ptr %16, align 8, !tbaa !24
   %.not22.i = icmp eq ptr %22, null
   br i1 %.not22.i, label %.critedge, label %.sink.split.i
@@ -5983,7 +5983,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL17bracketAddOpening
 
 25:                                               ; preds = %23
   %26 = zext nneg i32 %narrow to i64
-  %27 = tail call ptr @uprv_realloc_77(ptr noundef nonnull %18, i64 noundef %26) #17
+  %27 = tail call ptr @uprv_realloc_77(ptr noundef nonnull %18, i64 noundef %26) #18
   %.not20.i = icmp eq ptr %27, null
   br i1 %.not20.i, label %.critedge, label %28
 
@@ -6284,7 +6284,7 @@ define internal fastcc void @_ZL18processPropertySeqP5UBiDiP8LevStatehii(ptr nou
   br label %88
 
 81:                                               ; preds = %77
-  %82 = tail call noalias dereferenceable_or_null(80) ptr @uprv_malloc_77(i64 noundef 80) #16
+  %82 = tail call noalias dereferenceable_or_null(80) ptr @uprv_malloc_77(i64 noundef 80) #17
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr %82, ptr %83, align 8, !tbaa !142
   %84 = icmp eq ptr %82, null
@@ -6312,7 +6312,7 @@ define internal fastcc void @_ZL18processPropertySeqP5UBiDiP8LevStatehii(ptr nou
   %93 = shl nsw i32 %89, 1
   %94 = sext i32 %93 to i64
   %95 = shl nsw i64 %94, 3
-  %96 = tail call ptr @uprv_realloc_77(ptr noundef %.pre.i, i64 noundef %95) #17
+  %96 = tail call ptr @uprv_realloc_77(ptr noundef %.pre.i, i64 noundef %95) #18
   store ptr %96, ptr %.phi.trans.insert.i, align 8, !tbaa !142
   %.not23.i = icmp eq ptr %96, null
   br i1 %.not23.i, label %.thread.i, label %98
@@ -6388,7 +6388,7 @@ _ZL8addPointP5UBiDiii.exit:                       ; preds = %._crit_edge.i, %.th
   br label %134
 
 127:                                              ; preds = %126
-  %128 = tail call noalias dereferenceable_or_null(80) ptr @uprv_malloc_77(i64 noundef 80) #16
+  %128 = tail call noalias dereferenceable_or_null(80) ptr @uprv_malloc_77(i64 noundef 80) #17
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr %128, ptr %129, align 8, !tbaa !142
   %130 = icmp eq ptr %128, null
@@ -6416,7 +6416,7 @@ _ZL8addPointP5UBiDiii.exit:                       ; preds = %._crit_edge.i, %.th
   %139 = shl nsw i32 %135, 1
   %140 = sext i32 %139 to i64
   %141 = shl nsw i64 %140, 3
-  %142 = tail call ptr @uprv_realloc_77(ptr noundef %.pre.i223, i64 noundef %141) #17
+  %142 = tail call ptr @uprv_realloc_77(ptr noundef %.pre.i223, i64 noundef %141) #18
   store ptr %142, ptr %.phi.trans.insert.i222, align 8, !tbaa !142
   %.not23.i224 = icmp eq ptr %142, null
   br i1 %.not23.i224, label %.thread.i228, label %144
@@ -6607,7 +6607,7 @@ _ZL8addPointP5UBiDiii.exit229:                    ; preds = %131, %.thread.i228,
   br label %233
 
 226:                                              ; preds = %.critedge
-  %227 = tail call noalias dereferenceable_or_null(80) ptr @uprv_malloc_77(i64 noundef 80) #16
+  %227 = tail call noalias dereferenceable_or_null(80) ptr @uprv_malloc_77(i64 noundef 80) #17
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr %227, ptr %228, align 8, !tbaa !142
   %229 = icmp eq ptr %227, null
@@ -6635,7 +6635,7 @@ _ZL8addPointP5UBiDiii.exit229:                    ; preds = %131, %.thread.i228,
   %238 = shl nsw i32 %234, 1
   %239 = sext i32 %238 to i64
   %240 = shl nsw i64 %239, 3
-  %241 = tail call ptr @uprv_realloc_77(ptr noundef %.pre.i232, i64 noundef %240) #17
+  %241 = tail call ptr @uprv_realloc_77(ptr noundef %.pre.i232, i64 noundef %240) #18
   store ptr %241, ptr %.phi.trans.insert.i231, align 8, !tbaa !142
   %.not23.i233 = icmp eq ptr %241, null
   br i1 %.not23.i233, label %.thread.i237, label %243
@@ -6690,7 +6690,7 @@ _ZL8addPointP5UBiDiii.exit238:                    ; preds = %230, %.thread.i237,
   br label %267
 
 260:                                              ; preds = %256
-  %261 = tail call noalias dereferenceable_or_null(80) ptr @uprv_malloc_77(i64 noundef 80) #16
+  %261 = tail call noalias dereferenceable_or_null(80) ptr @uprv_malloc_77(i64 noundef 80) #17
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr %261, ptr %262, align 8, !tbaa !142
   %263 = icmp eq ptr %261, null
@@ -6718,7 +6718,7 @@ _ZL8addPointP5UBiDiii.exit238:                    ; preds = %230, %.thread.i237,
   %272 = shl nsw i32 %268, 1
   %273 = sext i32 %272 to i64
   %274 = shl nsw i64 %273, 3
-  %275 = tail call ptr @uprv_realloc_77(ptr noundef %.pre.i241, i64 noundef %274) #17
+  %275 = tail call ptr @uprv_realloc_77(ptr noundef %.pre.i241, i64 noundef %274) #18
   store ptr %275, ptr %.phi.trans.insert.i240, align 8, !tbaa !142
   %.not23.i242 = icmp eq ptr %275, null
   br i1 %.not23.i242, label %.thread.i246, label %277
@@ -6756,7 +6756,7 @@ _ZL8addPointP5UBiDiii.exit247:                    ; preds = %264, %.thread.i246,
   br i1 %287, label %288, label %295
 
 288:                                              ; preds = %_ZL8addPointP5UBiDiii.exit247
-  %289 = tail call noalias dereferenceable_or_null(80) ptr @uprv_malloc_77(i64 noundef 80) #16
+  %289 = tail call noalias dereferenceable_or_null(80) ptr @uprv_malloc_77(i64 noundef 80) #17
   %290 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr %289, ptr %290, align 8, !tbaa !142
   %291 = icmp eq ptr %289, null
@@ -6784,7 +6784,7 @@ _ZL8addPointP5UBiDiii.exit247:                    ; preds = %264, %.thread.i246,
   %300 = shl nsw i32 %296, 1
   %301 = sext i32 %300 to i64
   %302 = shl nsw i64 %301, 3
-  %303 = tail call ptr @uprv_realloc_77(ptr noundef %.pre.i250, i64 noundef %302) #17
+  %303 = tail call ptr @uprv_realloc_77(ptr noundef %.pre.i250, i64 noundef %302) #18
   store ptr %303, ptr %.phi.trans.insert.i249, align 8, !tbaa !142
   %.not23.i251 = icmp eq ptr %303, null
   br i1 %.not23.i251, label %.thread.i255, label %305
@@ -6835,7 +6835,7 @@ _ZL8addPointP5UBiDiii.exit247:                    ; preds = %264, %.thread.i246,
   br label %330
 
 323:                                              ; preds = %319
-  %324 = tail call noalias dereferenceable_or_null(80) ptr @uprv_malloc_77(i64 noundef 80) #16
+  %324 = tail call noalias dereferenceable_or_null(80) ptr @uprv_malloc_77(i64 noundef 80) #17
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr %324, ptr %325, align 8, !tbaa !142
   %326 = icmp eq ptr %324, null
@@ -6863,7 +6863,7 @@ _ZL8addPointP5UBiDiii.exit247:                    ; preds = %264, %.thread.i246,
   %334 = shl nsw i32 %332, 1
   %335 = sext i32 %334 to i64
   %336 = shl nsw i64 %335, 3
-  %337 = tail call ptr @uprv_realloc_77(ptr noundef %.pre.i259, i64 noundef %336) #17
+  %337 = tail call ptr @uprv_realloc_77(ptr noundef %.pre.i259, i64 noundef %336) #18
   store ptr %337, ptr %.phi.trans.insert.i258, align 8, !tbaa !142
   %.not23.i260 = icmp eq ptr %337, null
   br i1 %.not23.i260, label %.thread.i264, label %339
@@ -7044,7 +7044,7 @@ _ZL8addPointP5UBiDiii.exit265:                    ; preds = %327, %.thread.i264,
   br i1 %.not196.not, label %.lr.ph, label %_ZL24setLevelsOutsideIsolatesP5UBiDiiih.exit, !llvm.loop !167
 
 412:                                              ; preds = %5
-  tail call void @abort() #18
+  tail call void @abort() #19
   unreachable
 
 _ZL24setLevelsOutsideIsolatesP5UBiDiiih.exit:     ; preds = %409, %.loopexit, %70, %51, %396, %365, %._crit_edge.i253, %.thread.i255, %292, %54, %35, %5, %30, %32, %178, %199, %205, %211, %.critedge204, %._crit_edge, %_ZL8addPointP5UBiDiii.exit229, %124, %168, %._crit_edge300, %210, %206, %_ZL8addPointP5UBiDiii.exit265, %314
@@ -7124,19 +7124,19 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #15
+declare i32 @llvm.abs.i32(i32, i1 immarg) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #15
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -7154,10 +7154,11 @@ attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { allocsize(0) }
-attributes #17 = { allocsize(1) }
-attributes #18 = { noreturn nounwind }
+attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { allocsize(0) }
+attributes #18 = { allocsize(1) }
+attributes #19 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

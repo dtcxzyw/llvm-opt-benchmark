@@ -213,7 +213,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %2
   br i1 %.not.i.i362, label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_113TypeLocRangerENS_11SourceRangeEE5VisitENS_7TypeLocE.exit, label %30
 
 30:                                               ; preds = %27
-  %31 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %29) #15
+  %31 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %29) #16
   br label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_113TypeLocRangerENS_11SourceRangeEE5VisitENS_7TypeLocE.exit
 
 32:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -523,7 +523,7 @@ _ZN12_GLOBAL__N_113TypeLocRanger34VisitTemplateSpecializationTypeLocEN5clang29Te
 101:                                              ; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %103 = load ptr, ptr %102, align 8, !tbaa !30
-  %104 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %103) #15
+  %104 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %103) #16
   %.sroa.3.0.extract.shift.i.i = lshr i64 %104, 32
   %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
   br label %_ZN12_GLOBAL__N_113TypeLocRanger22VisitTypeOfExprTypeLocEN5clang17TypeOfExprTypeLocE.exit
@@ -1839,8 +1839,8 @@ _ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_28DependentAddressSpaceTypeLoc
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %303 = getelementptr inbounds nuw i8, ptr %.sroa.01161.0, i64 32
   %304 = load ptr, ptr %303, align 16, !tbaa !52
-  call void @_ZN5clang29NestedNameSpecifierLocBuilder11MakeTrivialERNS_10ASTContextEPNS_19NestedNameSpecifierENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef %304, i64 %.sroa.0.0.insert.insert.i701) #16
-  %305 = call { ptr, ptr } @_ZNK5clang29NestedNameSpecifierLocBuilder19getWithLocInContextERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(23216) %0) #16
+  call void @_ZN5clang29NestedNameSpecifierLocBuilder11MakeTrivialERNS_10ASTContextEPNS_19NestedNameSpecifierENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef %304, i64 %.sroa.0.0.insert.insert.i701) #17
+  %305 = call { ptr, ptr } @_ZNK5clang29NestedNameSpecifierLocBuilder19getWithLocInContextERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(23216) %0) #17
   %306 = extractvalue { ptr, ptr } %305, 1
   %307 = getelementptr inbounds nuw i8, ptr %.sroa.179.0, i64 8
   store ptr %306, ptr %307, align 8, !tbaa !55
@@ -1854,7 +1854,7 @@ _ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_28DependentAddressSpaceTypeLoc
 311:                                              ; preds = %302
   %312 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %313 = load ptr, ptr %312, align 8, !tbaa !60
-  call void @free(ptr noundef %313) #16
+  call void @free(ptr noundef %313) #17
   br label %_ZN5clang20DependentNameTypeLoc15initializeLocalERNS_10ASTContextENS_14SourceLocationE.exit
 
 _ZN5clang20DependentNameTypeLoc15initializeLocalERNS_10ASTContextENS_14SourceLocationE.exit: ; preds = %302, %311
@@ -1906,8 +1906,8 @@ _ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_30DependentSizedExtVectorTypeL
 335:                                              ; preds = %332
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  call void @_ZN5clang29NestedNameSpecifierLocBuilder11MakeTrivialERNS_10ASTContextEPNS_19NestedNameSpecifierENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull %334, i64 %.sroa.0.0.insert.insert.i701) #16
-  %336 = call { ptr, ptr } @_ZNK5clang29NestedNameSpecifierLocBuilder19getWithLocInContextERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(23216) %0) #16
+  call void @_ZN5clang29NestedNameSpecifierLocBuilder11MakeTrivialERNS_10ASTContextEPNS_19NestedNameSpecifierENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull %334, i64 %.sroa.0.0.insert.insert.i701) #17
+  %336 = call { ptr, ptr } @_ZNK5clang29NestedNameSpecifierLocBuilder19getWithLocInContextERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(23216) %0) #17
   %337 = extractvalue { ptr, ptr } %336, 0
   %338 = extractvalue { ptr, ptr } %336, 1
   %.not.i.i637 = icmp eq ptr %337, null
@@ -1922,7 +1922,7 @@ _ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_30DependentSizedExtVectorTypeL
 342:                                              ; preds = %335
   %343 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %344 = load ptr, ptr %343, align 8, !tbaa !60
-  call void @free(ptr noundef %344) #16
+  call void @free(ptr noundef %344) #17
   br label %_ZN5clang29NestedNameSpecifierLocBuilderD2Ev.exit.i
 
 _ZN5clang29NestedNameSpecifierLocBuilderD2Ev.exit.i: ; preds = %342, %335
@@ -2001,8 +2001,8 @@ _ZN5clang17ElaboratedTypeLoc23setElaboratedKeywordLocENS_14SourceLocationE.exit.
   store i32 %3, ptr %.sroa.179.0, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @_ZN5clang29NestedNameSpecifierLocBuilder11MakeTrivialERNS_10ASTContextEPNS_19NestedNameSpecifierENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef %380, i64 %.sroa.0.0.insert.insert.i701) #16
-  %381 = call { ptr, ptr } @_ZNK5clang29NestedNameSpecifierLocBuilder19getWithLocInContextERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(23216) %0) #16
+  call void @_ZN5clang29NestedNameSpecifierLocBuilder11MakeTrivialERNS_10ASTContextEPNS_19NestedNameSpecifierENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef %380, i64 %.sroa.0.0.insert.insert.i701) #17
+  %381 = call { ptr, ptr } @_ZNK5clang29NestedNameSpecifierLocBuilder19getWithLocInContextERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(23216) %0) #17
   %382 = extractvalue { ptr, ptr } %381, 1
   %383 = load i32, ptr %375, align 16
   %384 = and i32 %383, 133693440
@@ -2026,7 +2026,7 @@ _ZN5clang17ElaboratedTypeLoc15setQualifierLocENS_22NestedNameSpecifierLocE.exit.
 
 389:                                              ; preds = %_ZN5clang17ElaboratedTypeLoc15setQualifierLocENS_22NestedNameSpecifierLocE.exit.i
   %390 = load ptr, ptr %10, align 8, !tbaa !60
-  call void @free(ptr noundef %390) #16
+  call void @free(ptr noundef %390) #17
   br label %_ZN5clang29NestedNameSpecifierLocBuilderD2Ev.exit.i660
 
 _ZN5clang29NestedNameSpecifierLocBuilderD2Ev.exit.i660: ; preds = %389, %_ZN5clang17ElaboratedTypeLoc15setQualifierLocENS_22NestedNameSpecifierLocE.exit.i
@@ -2523,7 +2523,7 @@ _ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_24ObjCObjectPointerTypeLocENS_
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i798 ]
   %611 = getelementptr inbounds nuw %"class.clang::QualType", ptr %603, i64 %indvars.iv.i
   %.sroa.07.0.copyload.i = load i64, ptr %611, align 8, !tbaa !29
-  %612 = call noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216) %0, i64 %.sroa.07.0.copyload.i, i32 %3) #16
+  %612 = call noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216) %0, i64 %.sroa.07.0.copyload.i, i32 %3) #17
   %613 = getelementptr inbounds nuw ptr, ptr %604, i64 %indvars.iv.i
   store ptr %612, ptr %613, align 8, !tbaa !72
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2927,7 +2927,7 @@ _ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_16ReferenceTypeLocENS_13Refere
   store i32 %3, ptr %807, align 8, !tbaa !12
   %808 = getelementptr inbounds nuw i8, ptr %.sroa.01161.0, i64 24
   %.sroa.0.0.copyload.i.i.i956 = load i64, ptr %808, align 8, !tbaa !29
-  %809 = call noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216) %0, i64 %.sroa.0.0.copyload.i.i.i956, i32 %3) #16
+  %809 = call noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216) %0, i64 %.sroa.0.0.copyload.i.i.i956, i32 %3) #17
   %810 = getelementptr inbounds nuw i8, ptr %.sroa.179.0, i64 16
   store ptr %809, ptr %810, align 8, !tbaa !76
   br label %_ZN5clang14BuiltinTypeLoc15initializeLocalERNS_10ASTContextENS_14SourceLocationE.exit
@@ -2944,7 +2944,7 @@ _ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_16ReferenceTypeLocENS_13Refere
   store i32 %3, ptr %814, align 4, !tbaa !12
   %815 = getelementptr inbounds nuw i8, ptr %.sroa.01161.0, i64 24
   %.sroa.0.0.copyload.i.i = load i64, ptr %815, align 8, !tbaa !29
-  %816 = call noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216) %0, i64 %.sroa.0.0.copyload.i.i, i32 %3) #16
+  %816 = call noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216) %0, i64 %.sroa.0.0.copyload.i.i, i32 %3) #17
   %817 = getelementptr inbounds nuw i8, ptr %.sroa.179.0, i64 16
   store ptr %816, ptr %817, align 8, !tbaa !79
   br label %_ZN5clang14BuiltinTypeLoc15initializeLocalERNS_10ASTContextENS_14SourceLocationE.exit
@@ -3055,14 +3055,14 @@ define dso_local void @_ZN5clang11AutoTypeLoc15initializeLocalERNS_10ASTContextE
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %16, align 8, !tbaa !92
-  call void @_ZN5clang18DeclarationNameLocC1ENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 %.sroa.0.0.copyload.i.i) #16
+  call void @_ZN5clang18DeclarationNameLocC1ENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 %.sroa.0.0.copyload.i.i) #17
   %17 = load ptr, ptr %4, align 8
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %20 = load i32, ptr %19, align 4, !tbaa !29
   %21 = zext i32 %20 to i64
   %22 = shl nuw nsw i64 %21, 3
-  %23 = call noalias noundef nonnull ptr @_Znam(i64 noundef %22) #17
+  %23 = call noalias noundef nonnull ptr @_Znam(i64 noundef %22) #18
   %24 = icmp eq i32 %20, 0
   br i1 %24, label %.loopexit.i, label %.loopexit.loopexit.i
 
@@ -3097,15 +3097,15 @@ define dso_local void @_ZN5clang11AutoTypeLoc15initializeLocalERNS_10ASTContextE
   %.sroa.540.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %17, ptr %.sroa.540.0..sroa_idx.i, align 8, !tbaa !29
   %32 = load ptr, ptr %13, align 16, !tbaa !88
-  %33 = call noundef ptr @_ZN5clang27ASTTemplateArgumentListInfo6CreateERKNS_10ASTContextERKNS_24TemplateArgumentListInfoE(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull align 8 dereferenceable(280) %5) #16
-  %34 = call noundef ptr @_ZN5clang16ConceptReference6CreateERKNS_10ASTContextENS_22NestedNameSpecifierLocENS_14SourceLocationENS_19DeclarationNameInfoEPNS_9NamedDeclEPNS_11ConceptDeclEPKNS_27ASTTemplateArgumentListInfoE(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr null, ptr null, i32 %2, ptr noundef nonnull byval(%"struct.clang::DeclarationNameInfo") align 8 %7, ptr noundef null, ptr noundef %32, ptr noundef %33) #16
-  call void @_ZdaPv(ptr noundef nonnull %23) #18
+  %33 = call noundef ptr @_ZN5clang27ASTTemplateArgumentListInfo6CreateERKNS_10ASTContextERKNS_24TemplateArgumentListInfoE(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull align 8 dereferenceable(280) %5) #17
+  %34 = call noundef ptr @_ZN5clang16ConceptReference6CreateERKNS_10ASTContextENS_22NestedNameSpecifierLocENS_14SourceLocationENS_19DeclarationNameInfoEPNS_9NamedDeclEPNS_11ConceptDeclEPKNS_27ASTTemplateArgumentListInfoE(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr null, ptr null, i32 %2, ptr noundef nonnull byval(%"struct.clang::DeclarationNameInfo") align 8 %7, ptr noundef null, ptr noundef %32, ptr noundef %33) #17
+  call void @_ZdaPv(ptr noundef nonnull %23) #19
   %35 = load ptr, ptr %5, align 8, !tbaa !93
   %36 = icmp eq ptr %35, %25
   br i1 %36, label %_ZL29createTrivialConceptReferenceRN5clang10ASTContextENS_14SourceLocationEPKNS_8AutoTypeE.exit, label %37
 
 37:                                               ; preds = %._crit_edge.i
-  call void @free(ptr noundef %35) #16
+  call void @free(ptr noundef %35) #17
   br label %_ZL29createTrivialConceptReferenceRN5clang10ASTContextENS_14SourceLocationEPKNS_8AutoTypeE.exit
 
 38:                                               ; preds = %_ZN5clang24TemplateArgumentListInfo11addArgumentERKNS_19TemplateArgumentLocE.exit.i, %.lr.ph.i
@@ -3134,13 +3134,13 @@ define dso_local void @_ZN5clang11AutoTypeLoc15initializeLocalERNS_10ASTContextE
 49:                                               ; preds = %45
   %50 = ptrtoint ptr %.pre3.i.i.i to i64
   %51 = sub i64 %31, %50
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(280) %5, ptr noundef nonnull %25, i64 noundef %43, i64 noundef 32) #16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(280) %5, ptr noundef nonnull %25, i64 noundef %43, i64 noundef 32) #17
   %52 = load ptr, ptr %5, align 8, !tbaa !93
   %53 = getelementptr inbounds i8, ptr %52, i64 %51
   br label %_ZN5clang24TemplateArgumentListInfo11addArgumentERKNS_19TemplateArgumentLocE.exit.i
 
 .critedge.i.i.i.i.i:                              ; preds = %45
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(280) %5, ptr noundef nonnull %25, i64 noundef %43, i64 noundef 32) #16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(280) %5, ptr noundef nonnull %25, i64 noundef %43, i64 noundef 32) #17
   %.pre.i.i.i = load ptr, ptr %5, align 8, !tbaa !93
   br label %_ZN5clang24TemplateArgumentListInfo11addArgumentERKNS_19TemplateArgumentLocE.exit.i
 
@@ -3185,8 +3185,8 @@ define dso_local void @_ZN5clang20DependentNameTypeLoc15initializeLocalERNS_10AS
   %9 = load ptr, ptr %8, align 16, !tbaa !52
   %.sroa.2.0.insert.ext = zext i32 %2 to i64
   %.sroa.0.0.insert.insert = mul nuw i64 %.sroa.2.0.insert.ext, 4294967297
-  call void @_ZN5clang29NestedNameSpecifierLocBuilder11MakeTrivialERNS_10ASTContextEPNS_19NestedNameSpecifierENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef %9, i64 %.sroa.0.0.insert.insert) #16
-  %10 = call { ptr, ptr } @_ZNK5clang29NestedNameSpecifierLocBuilder19getWithLocInContextERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(23216) %1) #16
+  call void @_ZN5clang29NestedNameSpecifierLocBuilder11MakeTrivialERNS_10ASTContextEPNS_19NestedNameSpecifierENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef %9, i64 %.sroa.0.0.insert.insert) #17
+  %10 = call { ptr, ptr } @_ZNK5clang29NestedNameSpecifierLocBuilder19getWithLocInContextERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(23216) %1) #17
   %11 = extractvalue { ptr, ptr } %10, 1
   %12 = load ptr, ptr %5, align 8, !tbaa !81
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -3201,7 +3201,7 @@ define dso_local void @_ZN5clang20DependentNameTypeLoc15initializeLocalERNS_10AS
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !60
-  call void @free(ptr noundef %19) #16
+  call void @free(ptr noundef %19) #17
   br label %_ZN5clang29NestedNameSpecifierLocBuilderD2Ev.exit
 
 _ZN5clang29NestedNameSpecifierLocBuilderD2Ev.exit: ; preds = %3, %17
@@ -3226,8 +3226,8 @@ define dso_local void @_ZN5clang38DependentTemplateSpecializationTypeLoc15initia
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %.sroa.2.0.insert.ext = zext i32 %2 to i64
   %.sroa.025.0.insert.insert = mul nuw i64 %.sroa.2.0.insert.ext, 4294967297
-  call void @_ZN5clang29NestedNameSpecifierLocBuilder11MakeTrivialERNS_10ASTContextEPNS_19NestedNameSpecifierENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull %9, i64 %.sroa.025.0.insert.insert) #16
-  %11 = call { ptr, ptr } @_ZNK5clang29NestedNameSpecifierLocBuilder19getWithLocInContextERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(23216) %1) #16
+  call void @_ZN5clang29NestedNameSpecifierLocBuilder11MakeTrivialERNS_10ASTContextEPNS_19NestedNameSpecifierENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull %9, i64 %.sroa.025.0.insert.insert) #17
+  %11 = call { ptr, ptr } @_ZNK5clang29NestedNameSpecifierLocBuilder19getWithLocInContextERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(23216) %1) #17
   %12 = extractvalue { ptr, ptr } %11, 0
   %13 = extractvalue { ptr, ptr } %11, 1
   %.not.i = icmp eq ptr %12, null
@@ -3243,7 +3243,7 @@ define dso_local void @_ZN5clang38DependentTemplateSpecializationTypeLoc15initia
 18:                                               ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !60
-  call void @free(ptr noundef %20) #16
+  call void @free(ptr noundef %20) #17
   %.pre.pre = load ptr, ptr %5, align 8, !tbaa !81
   br label %_ZN5clang29NestedNameSpecifierLocBuilderD2Ev.exit
 
@@ -3300,8 +3300,8 @@ _ZN5clang17ElaboratedTypeLoc23setElaboratedKeywordLocENS_14SourceLocationE.exit:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %.sroa.2.0.insert.ext = zext i32 %2 to i64
   %.sroa.0.0.insert.insert = mul nuw i64 %.sroa.2.0.insert.ext, 4294967297
-  call void @_ZN5clang29NestedNameSpecifierLocBuilder11MakeTrivialERNS_10ASTContextEPNS_19NestedNameSpecifierENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef %11, i64 %.sroa.0.0.insert.insert) #16
-  %14 = call { ptr, ptr } @_ZNK5clang29NestedNameSpecifierLocBuilder19getWithLocInContextERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(23216) %1) #16
+  call void @_ZN5clang29NestedNameSpecifierLocBuilder11MakeTrivialERNS_10ASTContextEPNS_19NestedNameSpecifierENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef %11, i64 %.sroa.0.0.insert.insert) #17
+  %14 = call { ptr, ptr } @_ZNK5clang29NestedNameSpecifierLocBuilder19getWithLocInContextERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(23216) %1) #17
   %15 = extractvalue { ptr, ptr } %14, 1
   %16 = load ptr, ptr %0, align 8, !tbaa !87
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -3332,7 +3332,7 @@ _ZN5clang17ElaboratedTypeLoc15setQualifierLocENS_22NestedNameSpecifierLocE.exit:
 28:                                               ; preds = %_ZN5clang17ElaboratedTypeLoc15setQualifierLocENS_22NestedNameSpecifierLocE.exit
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !60
-  call void @free(ptr noundef %30) #16
+  call void @free(ptr noundef %30) #17
   br label %_ZN5clang29NestedNameSpecifierLocBuilderD2Ev.exit
 
 _ZN5clang29NestedNameSpecifierLocBuilderD2Ev.exit: ; preds = %_ZN5clang17ElaboratedTypeLoc15setQualifierLocENS_22NestedNameSpecifierLocE.exit, %28
@@ -3392,7 +3392,7 @@ define dso_local void @_ZN5clang17ObjCObjectTypeLoc15initializeLocalERNS_10ASTCo
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %25 = getelementptr inbounds nuw %"class.clang::QualType", ptr %24, i64 %indvars.iv
   %.sroa.07.0.copyload = load i64, ptr %25, align 8, !tbaa !29
-  %26 = tail call noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216) %1, i64 %.sroa.07.0.copyload, i32 %2) #16
+  %26 = tail call noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216) %1, i64 %.sroa.07.0.copyload, i32 %2) #17
   %27 = load ptr, ptr %4, align 8, !tbaa !81
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
@@ -3469,7 +3469,7 @@ define dso_local void @_ZN5clang13TypeOfTypeLoc15initializeLocalERNS_10ASTContex
   %8 = load ptr, ptr %0, align 8, !tbaa !87
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.0.0.copyload.i.i = load i64, ptr %9, align 8, !tbaa !29
-  %10 = tail call noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216) %1, i64 %.sroa.0.0.copyload.i.i, i32 %2) #16
+  %10 = tail call noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216) %1, i64 %.sroa.0.0.copyload.i.i, i32 %2) #17
   %11 = load ptr, ptr %4, align 8, !tbaa !81
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %10, ptr %12, align 8, !tbaa !76
@@ -3488,7 +3488,7 @@ define dso_local void @_ZN5clang21UnaryTransformTypeLoc15initializeLocalERNS_10A
   %8 = load ptr, ptr %0, align 8, !tbaa !87
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.0.0.copyload.i = load i64, ptr %9, align 8, !tbaa !29
-  %10 = tail call noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216) %1, i64 %.sroa.0.0.copyload.i, i32 %2) #16
+  %10 = tail call noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216) %1, i64 %.sroa.0.0.copyload.i, i32 %2) #17
   %11 = load ptr, ptr %4, align 8, !tbaa !81
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %10, ptr %12, align 8, !tbaa !79
@@ -4227,7 +4227,7 @@ _ZN5clang14TypeLocVisitorIN12_GLOBAL__N_110TSTCheckerEbE5VisitENS_7TypeLocE.exit
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang10TagTypeLoc12isDefinitionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !87
-  %3 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %2) #16
+  %3 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %2) #17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 74
   %5 = load i8, ptr %4, align 2
   %6 = and i8 %5, 1
@@ -4270,7 +4270,7 @@ define dso_local i64 @_ZNK5clang17TypeOfExprTypeLoc19getLocalSourceRangeEv(ptr n
   %6 = load ptr, ptr %0, align 8, !tbaa !87
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !30
-  %9 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
+  %9 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #16
   %.sroa.3.0.extract.shift = lshr i64 %9, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   br label %10
@@ -4511,7 +4511,7 @@ _ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_17AttributedTypeLocENS_14Attrib
   br i1 %37, label %38, label %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_13AtomicTypeLocENS_10AtomicTypeENS_17AtomicTypeLocInfoEE6isKindERKNS_7TypeLocE.exit.i
 
 38:                                               ; preds = %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_17AttributedTypeLocENS_14AttributedTypeENS_17AttributedLocInfoEE6isKindERKNS_7TypeLocE.exit.i
-  %39 = tail call noundef zeroext i1 @_ZNK5clang14AttributedType11isQualifierEv(ptr noundef nonnull align 16 dereferenceable(56) %.sroa.03.0.lcssa.i.pn.i) #16
+  %39 = tail call noundef zeroext i1 @_ZNK5clang14AttributedType11isQualifierEv(ptr noundef nonnull align 16 dereferenceable(56) %.sroa.03.0.lcssa.i.pn.i) #17
   br i1 %39, label %.critedge5, label %40
 
 40:                                               ; preds = %38
@@ -4598,7 +4598,7 @@ define dso_local i64 @_ZNK5clang22CountAttributedTypeLoc19getLocalSourceRangeEv(
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
+  %6 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
   br label %7
 
 7:                                                ; preds = %1, %5
@@ -4683,7 +4683,7 @@ define dso_local void @_ZN5clang29TemplateSpecializationTypeLoc17initializeArgLo
 26:                                               ; preds = %14
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !29
-  %29 = call noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216) %0, i64 %28, i32 %4) #16
+  %29 = call noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216) %0, i64 %28, i32 %4) #17
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, -4
   %32 = or disjoint i64 %31, 2
@@ -4698,16 +4698,16 @@ define dso_local void @_ZN5clang29TemplateSpecializationTypeLoc17initializeArgLo
   %35 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @_ZN5clang12TemplateNameC1EPv(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %36) #16
+  call void @_ZN5clang12TemplateNameC1EPv(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %36) #17
   %37 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %37, ptr %8, align 8
-  %38 = call noundef ptr @_ZNK5clang12TemplateName26getAsDependentTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #16
+  %38 = call noundef ptr @_ZNK5clang12TemplateName26getAsDependentTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
   %.not37 = icmp eq ptr %38, null
   br i1 %.not37, label %39, label %.sink.split
 
 39:                                               ; preds = %34
-  %40 = call noundef ptr @_ZNK5clang12TemplateName26getAsQualifiedTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #16
+  %40 = call noundef ptr @_ZNK5clang12TemplateName26getAsQualifiedTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
   %.not38 = icmp eq ptr %40, null
   br i1 %.not38, label %44, label %.sink.split
 
@@ -4717,19 +4717,19 @@ define dso_local void @_ZN5clang29TemplateSpecializationTypeLoc17initializeArgLo
   %.0.copyload.i.i.i.i39 = load i64, ptr %41, align 8
   %42 = and i64 %.0.copyload.i.i.i.i39, -8
   %43 = inttoptr i64 %42 to ptr
-  call void @_ZN5clang29NestedNameSpecifierLocBuilder11MakeTrivialERNS_10ASTContextEPNS_19NestedNameSpecifierENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef %43, i64 %.sroa.042.0.insert.insert) #16
+  call void @_ZN5clang29NestedNameSpecifierLocBuilder11MakeTrivialERNS_10ASTContextEPNS_19NestedNameSpecifierENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef %43, i64 %.sroa.042.0.insert.insert) #17
   br label %44
 
 44:                                               ; preds = %.sink.split, %39
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %45 = call { ptr, ptr } @_ZNK5clang29NestedNameSpecifierLocBuilder19getWithLocInContextERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(23216) %0) #16
+  %45 = call { ptr, ptr } @_ZNK5clang29NestedNameSpecifierLocBuilder19getWithLocInContextERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(23216) %0) #17
   %46 = extractvalue { ptr, ptr } %45, 0
   %47 = extractvalue { ptr, ptr } %45, 1
   %48 = load i32, ptr %15, align 8
   %49 = and i32 %48, 2147483647
   %50 = icmp eq i32 %49, 6
   %spec.select = select i1 %50, i32 0, i32 %4
-  call void @_ZN5clang23TemplateArgumentLocInfoC1ERNS_10ASTContextENS_22NestedNameSpecifierLocENS_14SourceLocationES4_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr %46, ptr %47, i32 %4, i32 %spec.select) #16
+  call void @_ZN5clang23TemplateArgumentLocInfoC1ERNS_10ASTContextENS_22NestedNameSpecifierLocENS_14SourceLocationES4_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr %46, ptr %47, i32 %4, i32 %spec.select) #17
   %51 = getelementptr inbounds nuw %"struct.clang::TemplateArgumentLocInfo", ptr %3, i64 %indvars.iv
   %52 = load i64, ptr %9, align 8
   store i64 %52, ptr %51, align 8
@@ -4741,7 +4741,7 @@ define dso_local void @_ZN5clang29TemplateSpecializationTypeLoc17initializeArgLo
 
 54:                                               ; preds = %44
   %55 = load ptr, ptr %12, align 8, !tbaa !60
-  call void @free(ptr noundef %55) #16
+  call void @free(ptr noundef %55) #17
   br label %_ZN5clang29NestedNameSpecifierLocBuilderD2Ev.exit
 
 _ZN5clang29NestedNameSpecifierLocBuilderD2Ev.exit: ; preds = %44, %54
@@ -5864,7 +5864,7 @@ _ZNK5clang11AutoTypeLoc25getNestedNameSpecifierLocEv.exit10.i: ; preds = %_ZNK5c
   store ptr %.sroa.0.0.copyload.i.i, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.sroa.4.0.copyload.i5.i, ptr %9, align 8
-  %10 = call i64 @_ZNK5clang22NestedNameSpecifierLoc14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
+  %10 = call i64 @_ZNK5clang22NestedNameSpecifierLoc14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %10 to i32
   br label %_ZNK5clang11AutoTypeLoc19getLocalSourceRangeEv.exit
 
@@ -5921,7 +5921,7 @@ define internal fastcc i64 @_ZN12_GLOBAL__N_113TypeLocRanger25VisitDependentName
   store ptr %8, ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = call i64 @_ZNK5clang22NestedNameSpecifierLoc14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
+  %12 = call i64 @_ZNK5clang22NestedNameSpecifierLoc14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %12 to i32
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i6.i = load i32, ptr %13, align 8, !tbaa !12
@@ -5967,7 +5967,7 @@ _ZNK5clang38DependentTemplateSpecializationTypeLoc15getQualifierLocEv.exit14.i: 
   store ptr %10, ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %11, align 8
-  %12 = call i64 @_ZNK5clang22NestedNameSpecifierLoc14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
+  %12 = call i64 @_ZNK5clang22NestedNameSpecifierLoc14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %12 to i32
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %.sroa.0.0.copyload.i15.i = load i32, ptr %13, align 4, !tbaa !12
@@ -6036,7 +6036,7 @@ _ZNK5clang17ElaboratedTypeLoc15getQualifierLocEv.exit18.i: ; preds = %_ZNK5clang
   store ptr %10, ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %14, ptr %15, align 8
-  %16 = call i64 @_ZNK5clang22NestedNameSpecifierLoc14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
+  %16 = call i64 @_ZNK5clang22NestedNameSpecifierLoc14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   %.sroa.3.0.extract.shift.i.i = lshr i64 %16, 32
   %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -6064,7 +6064,7 @@ _ZNK5clang17ElaboratedTypeLoc15getQualifierLocEv.exit31.i: ; preds = %_ZNK5clang
   store ptr %.sroa.0.0.i27.i, ptr %4, align 8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.sroa.4.0.i28.i, ptr %21, align 8
-  %22 = call i64 @_ZNK5clang22NestedNameSpecifierLoc14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
+  %22 = call i64 @_ZNK5clang22NestedNameSpecifierLoc14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
   %.sroa.033.0.extract.trunc.i = trunc i64 %22 to i32
   %.sroa.434.0.extract.shift.i = lshr i64 %22, 32
   %.sroa.434.0.extract.trunc.i = trunc nuw i64 %.sroa.434.0.extract.shift.i to i32
@@ -8245,8 +8245,8 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #14
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #14
@@ -8266,10 +8266,11 @@ attributes #11 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-prote
 attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { nounwind }
-attributes #17 = { builtin nounwind allocsize(0) }
-attributes #18 = { builtin nounwind }
+attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nounwind willreturn memory(read) }
+attributes #17 = { nounwind }
+attributes #18 = { builtin nounwind allocsize(0) }
+attributes #19 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

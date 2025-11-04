@@ -23,7 +23,7 @@ define internal range(i32 -22, 1) i32 @roq_dpcm_encode_init(ptr noundef %0) #0 {
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #5
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #6
   br label %25
 
 8:                                                ; preds = %1
@@ -33,7 +33,7 @@ define internal range(i32 -22, 1) i32 @roq_dpcm_encode_init(ptr noundef %0) #0 {
   br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %8
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3) #5
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3) #6
   br label %25
 
 12:                                               ; preds = %8
@@ -47,7 +47,7 @@ define internal range(i32 -22, 1) i32 @roq_dpcm_encode_init(ptr noundef %0) #0 {
   %18 = mul nsw i32 %5, 5880
   %19 = sext i32 %18 to i64
   %20 = shl nsw i64 %19, 1
-  %21 = tail call noalias ptr @av_malloc(i64 noundef %20) #5
+  %21 = tail call noalias ptr @av_malloc(i64 noundef %20) #6
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %21, ptr %22, align 8, !tbaa !31
   %.not15 = icmp eq ptr %21, null
@@ -193,7 +193,7 @@ define internal range(i32 -2147483648, 1) i32 @roq_dpcm_encode_frame(ptr noundef
   %.066 = mul nsw i32 %.pn, %77
   %82 = add nsw i32 %.066, 8
   %83 = sext i32 %82 to i64
-  %84 = tail call i32 @ff_get_encode_buffer(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %83, i32 noundef 0) #5
+  %84 = tail call i32 @ff_get_encode_buffer(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %83, i32 noundef 0) #6
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %169, label %86
 
@@ -362,7 +362,7 @@ define internal noundef i32 @roq_dpcm_encode_close(ptr noundef readonly captures
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  tail call void @av_freep(ptr noundef nonnull %4) #5
+  tail call void @av_freep(ptr noundef nonnull %4) #6
   ret i32 0
 }
 
@@ -380,15 +380,16 @@ declare void @av_freep(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #4
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #5
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

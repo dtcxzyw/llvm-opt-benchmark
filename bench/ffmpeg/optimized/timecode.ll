@@ -350,7 +350,7 @@ av_timecode_adjust_ntsc_framenum2.exit:           ; preds = %13, %18
   %60 = srem i64 %.1, %44
   %61 = trunc nuw nsw i64 %60 to i32
   %62 = or disjoint i32 %8, 58
-  %63 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 23, ptr noundef nonnull @.str, ptr noundef nonnull %.033, i32 noundef %.034, i32 noundef %56, i32 noundef %59, i32 noundef %62, i32 noundef %42, i32 noundef %61) #10
+  %63 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 23, ptr noundef nonnull @.str, ptr noundef nonnull %.033, i32 noundef %.034, i32 noundef %56, i32 noundef %59, i32 noundef %62, i32 noundef %42, i32 noundef %61) #11
   ret ptr %1
 }
 
@@ -369,7 +369,7 @@ define noundef ptr @av_timecode_make_smpte_tc_string2(ptr noundef returned write
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @ff_timecode_set_smpte(ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, i64 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #10
+  call void @ff_timecode_set_smpte(ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, i64 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #11
   %11 = load i32, ptr %6, align 4, !tbaa !12
   %12 = load i32, ptr %7, align 4, !tbaa !12
   %13 = load i32, ptr %8, align 4, !tbaa !12
@@ -377,7 +377,7 @@ define noundef ptr @av_timecode_make_smpte_tc_string2(ptr noundef returned write
   %.not = icmp eq i32 %14, 0
   %15 = select i1 %.not, i32 58, i32 59
   %16 = load i32, ptr %9, align 4, !tbaa !12
-  %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 23, ptr noundef nonnull @.str.3, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %15, i32 noundef %16) #10
+  %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 23, ptr noundef nonnull @.str.3, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %15, i32 noundef %16) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -400,7 +400,7 @@ define noundef ptr @av_timecode_make_smpte_tc_string(ptr noundef returned writeo
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @ff_timecode_set_smpte(ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i64 4294967326, i32 noundef %1, i32 noundef %2, i32 noundef 1) #10
+  call void @ff_timecode_set_smpte(ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i64 4294967326, i32 noundef %1, i32 noundef %2, i32 noundef 1) #11
   %9 = load i32, ptr %4, align 4, !tbaa !12
   %10 = load i32, ptr %5, align 4, !tbaa !12
   %11 = load i32, ptr %6, align 4, !tbaa !12
@@ -408,7 +408,7 @@ define noundef ptr @av_timecode_make_smpte_tc_string(ptr noundef returned writeo
   %.not.i = icmp eq i32 %12, 0
   %13 = select i1 %.not.i, i32 58, i32 59
   %14 = load i32, ptr %7, align 4, !tbaa !12
-  %15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 23, ptr noundef nonnull @.str.3, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %13, i32 noundef %14) #10
+  %15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 23, ptr noundef nonnull @.str.3, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %13, i32 noundef %14) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -429,7 +429,7 @@ define noundef ptr @av_timecode_make_mpeg_tc_string(ptr noundef returned writeon
   %.not = icmp eq i32 %9, 0
   %10 = select i1 %.not, i32 58, i32 59
   %11 = and i32 %1, 63
-  %12 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 23, ptr noundef nonnull @.str.3, i32 noundef %4, i32 noundef %6, i32 noundef %8, i32 noundef %10, i32 noundef %11) #10
+  %12 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 23, ptr noundef nonnull @.str.3, i32 noundef %4, i32 noundef %6, i32 noundef %8, i32 noundef %10, i32 noundef %11) #11
   ret ptr %0
 }
 
@@ -513,7 +513,7 @@ fps_from_frame_rate.exit:                         ; preds = %5
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %fps_from_frame_rate.exit.thread, %fps_from_frame_rate.exit
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %4, i32 noundef 16, ptr noundef nonnull @.str.6) #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %4, i32 noundef 16, ptr noundef nonnull @.str.6) #11
   br label %check_timecode.exit
 
 25:                                               ; preds = %fps_from_frame_rate.exit
@@ -525,7 +525,7 @@ fps_from_frame_rate.exit:                         ; preds = %5
   br i1 %or.cond.i8, label %.preheader.i, label %28
 
 28:                                               ; preds = %25
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %4, i32 noundef 16, ptr noundef nonnull @.str.7) #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %4, i32 noundef 16, ptr noundef nonnull @.str.7) #11
   br label %check_timecode.exit
 
 29:                                               ; preds = %.preheader.i
@@ -541,7 +541,7 @@ fps_from_frame_rate.exit:                         ; preds = %5
   br i1 %32, label %check_timecode.exit, label %29
 
 33:                                               ; preds = %29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %4, i32 noundef 24, ptr noundef nonnull @.str.8, i32 noundef %12, i32 noundef %14) #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %4, i32 noundef 24, ptr noundef nonnull @.str.8, i32 noundef %12, i32 noundef %14) #11
   br label %check_timecode.exit
 
 check_timecode.exit:                              ; preds = %.preheader.i, %24, %28, %33
@@ -589,7 +589,7 @@ fps_from_frame_rate.exit:                         ; preds = %8
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %fps_from_frame_rate.exit.thread, %fps_from_frame_rate.exit
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %7, i32 noundef 16, ptr noundef nonnull @.str.6) #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %7, i32 noundef 16, ptr noundef nonnull @.str.6) #11
   br label %check_timecode.exit.thread
 
 27:                                               ; preds = %fps_from_frame_rate.exit
@@ -601,7 +601,7 @@ fps_from_frame_rate.exit:                         ; preds = %8
   br i1 %or.cond.i23, label %.preheader.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %7, i32 noundef 16, ptr noundef nonnull @.str.7) #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %7, i32 noundef 16, ptr noundef nonnull @.str.7) #11
   br label %check_timecode.exit.thread
 
 31:                                               ; preds = %.preheader.i
@@ -617,7 +617,7 @@ fps_from_frame_rate.exit:                         ; preds = %8
   br i1 %34, label %check_timecode.exit, label %31
 
 35:                                               ; preds = %31
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %7, i32 noundef 24, ptr noundef nonnull @.str.8, i32 noundef %14, i32 noundef %16) #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %7, i32 noundef 24, ptr noundef nonnull @.str.8, i32 noundef %14, i32 noundef %16) #11
   %.pre = load i32, ptr %24, align 4, !tbaa !4
   %.pre27 = load i32, ptr %9, align 4, !tbaa !10
   %.pre28 = and i32 %.pre27, 1
@@ -665,12 +665,12 @@ define range(i32 -1094995529, 1) i32 @av_timecode_init_from_string(ptr noundef c
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %10 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %2, ptr noundef nonnull @.str.4, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull %9) #10
+  %10 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %2, ptr noundef nonnull @.str.4, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull %9) #11
   %.not = icmp eq i32 %10, 5
   br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %4
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 16, ptr noundef nonnull @.str.5) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 16, ptr noundef nonnull @.str.5) #11
   br label %20
 
 12:                                               ; preds = %4
@@ -705,14 +705,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #9
+declare i64 @llvm.abs.i64(i64, i1 immarg) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -723,8 +723,9 @@ attributes #5 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "st
 attributes #6 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

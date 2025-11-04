@@ -345,7 +345,7 @@ define void @_ZN14arrow_vendored17double_conversion6Bignum20MultiplyByPowerOfTen
   br i1 %28, label %29, label %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i
 
 29:                                               ; preds = %.lr.ph26.i
-  tail call void @abort() #11
+  tail call void @abort() #12
   unreachable
 
 _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i: ; preds = %.lr.ph26.i
@@ -404,7 +404,7 @@ _ZN14arrow_vendored17double_conversion6Bignum16MultiplyByUInt64Em.exit: ; preds 
   br i1 %51, label %52, label %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i17
 
 52:                                               ; preds = %.lr.ph20.i
-  tail call void @abort() #11
+  tail call void @abort() #12
   unreachable
 
 _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i17: ; preds = %.lr.ph20.i
@@ -494,7 +494,7 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i32.thread:
   br i1 %87, label %88, label %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i29
 
 88:                                               ; preds = %.lr.ph20.i27
-  tail call void @abort() #11
+  tail call void @abort() #12
   unreachable
 
 _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i29: ; preds = %.lr.ph20.i27
@@ -522,7 +522,7 @@ _ZN14arrow_vendored17double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread3
   br i1 %101, label %102, label %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i32
 
 102:                                              ; preds = %_ZN14arrow_vendored17double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread33
-  tail call void @abort() #11
+  tail call void @abort() #12
   unreachable
 
 _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i32: ; preds = %_ZN14arrow_vendored17double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread33
@@ -656,7 +656,7 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.preheader: 
   br label %10
 
 9:                                                ; preds = %3
-  tail call void @abort() #11
+  tail call void @abort() #12
   unreachable
 
 _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit._crit_edge: ; preds = %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit
@@ -802,7 +802,7 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.preheader.i
   br label %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i
 
 18:                                               ; preds = %8
-  tail call void @abort() #11
+  tail call void @abort() #12
   unreachable
 
 .lr.ph20.i:                                       ; preds = %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i, %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.preheader.i
@@ -845,7 +845,7 @@ _ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit: ; preds = %2, %.
   br i1 %38, label %39, label %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit
 
 39:                                               ; preds = %_ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit
-  tail call void @abort() #11
+  tail call void @abort() #12
   unreachable
 
 _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = %_ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit
@@ -982,7 +982,7 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.preheader: 
   br label %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit
 
 19:                                               ; preds = %8
-  tail call void @abort() #11
+  tail call void @abort() #12
   unreachable
 
 .preheader:                                       ; preds = %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit, %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.preheader
@@ -1048,7 +1048,7 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.preheader.i
   br label %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i
 
 19:                                               ; preds = %8
-  tail call void @abort() #11
+  tail call void @abort() #12
   unreachable
 
 .lr.ph20.i:                                       ; preds = %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i, %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.preheader.i
@@ -1186,7 +1186,7 @@ define void @_ZN14arrow_vendored17double_conversion6Bignum9ShiftLeftEi(ptr nound
   br i1 %12, label %13, label %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit
 
 13:                                               ; preds = %5
-  tail call void @abort() #11
+  tail call void @abort() #12
   unreachable
 
 _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = %5
@@ -1326,7 +1326,7 @@ define void @_ZN14arrow_vendored17double_conversion6Bignum16MultiplyByUInt32Ej(p
   br i1 %22, label %23, label %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit
 
 23:                                               ; preds = %20
-  tail call void @abort() #11
+  tail call void @abort() #12
   unreachable
 
 _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = %20
@@ -1411,7 +1411,7 @@ define void @_ZN14arrow_vendored17double_conversion6Bignum16MultiplyByUInt64Em(p
   br i1 %31, label %32, label %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit
 
 32:                                               ; preds = %29
-  tail call void @abort() #11
+  tail call void @abort() #12
   unreachable
 
 _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = %29
@@ -1449,7 +1449,7 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.preheader: 
   br label %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit
 
 9:                                                ; preds = %1
-  tail call void @abort() #11
+  tail call void @abort() #12
   unreachable
 
 .preheader51.lr.ph:                               ; preds = %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit
@@ -1643,7 +1643,7 @@ define void @_ZN14arrow_vendored17double_conversion6Bignum17AssignPowerUInt16Eti
   br i1 %21, label %22, label %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit
 
 22:                                               ; preds = %._crit_edge
-  tail call void @abort() #11
+  tail call void @abort() #12
   unreachable
 
 _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = %._crit_edge, %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit
@@ -1766,7 +1766,7 @@ _ZN14arrow_vendored17double_conversion6Bignum12AssignUInt64Em.exit: ; preds = %.
   br i1 %62, label %63, label %_ZN14arrow_vendored17double_conversion6Bignum16MultiplyByUInt32Ej.exit.loopexit
 
 63:                                               ; preds = %.lr.ph20.i
-  tail call void @abort() #11
+  tail call void @abort() #12
   unreachable
 
 _ZN14arrow_vendored17double_conversion6Bignum16MultiplyByUInt32Ej.exit.loopexit: ; preds = %.lr.ph20.i
@@ -1838,7 +1838,7 @@ _ZN14arrow_vendored17double_conversion6Bignum16MultiplyByUInt32Ej.exit: ; preds 
   br i1 %84, label %85, label %_ZN14arrow_vendored17double_conversion6Bignum16MultiplyByUInt32Ej.exit70.loopexit
 
 85:                                               ; preds = %.lr.ph20.i66
-  tail call void @abort() #11
+  tail call void @abort() #12
   unreachable
 
 _ZN14arrow_vendored17double_conversion6Bignum16MultiplyByUInt32Ej.exit70.loopexit: ; preds = %.lr.ph20.i66
@@ -1875,7 +1875,7 @@ _ZN14arrow_vendored17double_conversion6Bignum16MultiplyByUInt32Ej.exit70: ; pred
   br i1 %98, label %99, label %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i71
 
 99:                                               ; preds = %91
-  tail call void @abort() #11
+  tail call void @abort() #12
   unreachable
 
 _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i71: ; preds = %91
@@ -1959,7 +1959,7 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.preheader.i
   br label %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i
 
 25:                                               ; preds = %18
-  tail call void @abort() #11
+  tail call void @abort() #12
   unreachable
 
 .lr.ph20.i:                                       ; preds = %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i, %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.preheader.i
@@ -2686,13 +2686,13 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smin.i16(i16, i16) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
@@ -2705,8 +2705,9 @@ attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { noreturn nounwind }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

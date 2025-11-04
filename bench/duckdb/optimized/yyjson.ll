@@ -539,7 +539,7 @@ define internal void @_ZN13duckdb_yyjsonL9pool_freeEPvS0_(ptr noundef captures(n
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define noundef ptr @_ZN13duckdb_yyjson18yyjson_alc_dyn_newEv() local_unnamed_addr #4 {
-  %1 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #29
+  %1 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #30
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %2, !prof !3
 
@@ -561,19 +561,19 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_alc_dyn_newEv() local_unnamed_add
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define internal noalias noundef ptr @_ZN13duckdb_yyjsonL14default_mallocEPvm(ptr readnone captures(none) %0, i64 noundef %1) #5 {
-  %3 = tail call noalias ptr @malloc(i64 noundef %1) #29
+  %3 = tail call noalias ptr @malloc(i64 noundef %1) #30
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal noalias noundef ptr @_ZN13duckdb_yyjsonL15default_reallocEPvS0_mm(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i64 %2, i64 noundef %3) #6 {
-  %5 = tail call ptr @realloc(ptr noundef %1, i64 noundef %3) #30
+  %5 = tail call ptr @realloc(ptr noundef %1, i64 noundef %3) #31
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @_ZN13duckdb_yyjsonL12default_freeEPvS0_(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #6 {
-  tail call void @free(ptr noundef %1) #31
+  tail call void @free(ptr noundef %1) #32
   ret void
 }
 
@@ -591,7 +591,7 @@ define internal noundef ptr @_ZN13duckdb_yyjsonL10dyn_mallocEPvm(ptr noundef cap
   br i1 %.not, label %8, label %.preheader
 
 8:                                                ; preds = %5
-  %9 = tail call noalias noundef ptr @malloc(i64 noundef %4) #29
+  %9 = tail call noalias noundef ptr @malloc(i64 noundef %4) #30
   %.not32 = icmp eq ptr %9, null
   br i1 %.not32, label %_ZN13duckdb_yyjsonL14dyn_size_alignEPm.exit, label %10, !prof !3
 
@@ -631,7 +631,7 @@ define internal noundef ptr @_ZN13duckdb_yyjsonL10dyn_mallocEPvm(ptr noundef cap
   br i1 %.not34, label %27, label %.preheader, !llvm.loop !34
 
 27:                                               ; preds = %24
-  %28 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %15, i64 noundef %4) #30
+  %28 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %15, i64 noundef %4) #31
   %.not35 = icmp eq ptr %28, null
   br i1 %.not35, label %_ZN13duckdb_yyjsonL14dyn_size_alignEPm.exit, label %29, !prof !3
 
@@ -689,7 +689,7 @@ define internal noundef ptr @_ZN13duckdb_yyjsonL11dyn_reallocEPvS0_mm(ptr nounde
   br label %_ZN13duckdb_yyjsonL21dyn_chunk_list_removeEPNS_9dyn_chunkES1_.exit
 
 _ZN13duckdb_yyjsonL21dyn_chunk_list_removeEPNS_9dyn_chunkES1_.exit: ; preds = %12, %15
-  %18 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %5, i64 noundef %7) #30
+  %18 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %5, i64 noundef %7) #31
   %.not19 = icmp eq ptr %18, null
   br i1 %.not19, label %20, label %19, !prof !3
 
@@ -787,7 +787,7 @@ define void @_ZN13duckdb_yyjson19yyjson_alc_dyn_freeEPNS_10yyjson_alcE(ptr nound
   %.020 = phi ptr [ %6, %.lr.ph ], [ %4, %2 ]
   %5 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !33
-  tail call void @free(ptr noundef nonnull %.020) #31
+  tail call void @free(ptr noundef nonnull %.020) #32
   %.not17 = icmp eq ptr %6, null
   br i1 %.not17, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
@@ -801,12 +801,12 @@ define void @_ZN13duckdb_yyjson19yyjson_alc_dyn_freeEPNS_10yyjson_alcE(ptr nound
   %.122 = phi ptr [ %10, %.lr.ph24 ], [ %8, %._crit_edge ]
   %9 = getelementptr inbounds nuw i8, ptr %.122, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !33
-  tail call void @free(ptr noundef nonnull %.122) #31
+  tail call void @free(ptr noundef nonnull %.122) #32
   %.not18 = icmp eq ptr %10, null
   br i1 %.not18, label %._crit_edge25, label %.lr.ph24, !llvm.loop !39
 
 ._crit_edge25:                                    ; preds = %.lr.ph24, %._crit_edge
-  tail call void @free(ptr noundef nonnull %0) #31
+  tail call void @free(ptr noundef nonnull %0) #32
   br label %11
 
 11:                                               ; preds = %1, %._crit_edge25
@@ -61386,14 +61386,14 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #26
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #27
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #28
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #28
+declare i32 @llvm.abs.i32(i32, i1 immarg) #29
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -61423,10 +61423,11 @@ attributes #24 = { mustprogress nofree noinline norecurse nosync nounwind memory
 attributes #25 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #27 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #28 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #29 = { nounwind allocsize(0) }
-attributes #30 = { nounwind allocsize(1) }
-attributes #31 = { nounwind }
+attributes #28 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #29 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #30 = { nounwind allocsize(0) }
+attributes #31 = { nounwind allocsize(1) }
+attributes #32 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

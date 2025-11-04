@@ -312,7 +312,7 @@ define internal fastcc i32 @Abc_ZddUniqueCreate(ptr noundef captures(none) %0, i
 
 ; Function Attrs: nofree nounwind uwtable
 define noalias noundef ptr @Abc_ZddManAlloc(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #21
+  %3 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #22
   store i32 %0, ptr %3, align 8, !tbaa !29
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8, !tbaa !25
@@ -329,17 +329,17 @@ define noalias noundef ptr @Abc_ZddManAlloc(i32 noundef %0, i32 noundef %1) loca
   store i32 %9, ptr %11, align 4, !tbaa !30
   %12 = sub i32 0, %notmask
   %13 = zext i32 %12 to i64
-  %14 = tail call noalias ptr @calloc(i64 noundef %13, i64 noundef 4) #21
+  %14 = tail call noalias ptr @calloc(i64 noundef %13, i64 noundef 4) #22
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %14, ptr %15, align 8, !tbaa !10
   %16 = sext i32 %1 to i64
-  %17 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 4) #21
+  %17 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 4) #22
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %17, ptr %18, align 8, !tbaa !22
-  %19 = tail call noalias ptr @calloc(i64 noundef %13, i64 noundef 16) #21
+  %19 = tail call noalias ptr @calloc(i64 noundef %13, i64 noundef 16) #22
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %19, ptr %20, align 8, !tbaa !31
-  %21 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 12) #21
+  %21 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 12) #22
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %21, ptr %22, align 8, !tbaa !18
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -456,18 +456,18 @@ define void @Abc_ZddManCreatePerms(ptr noundef captures(none) initializes((12, 1
   %4 = load i32, ptr %0, align 8, !tbaa !29
   %5 = sext i32 %4 to i64
   %6 = shl nsw i64 %5, 2
-  %7 = tail call noalias ptr @malloc(i64 noundef %6) #22
+  %7 = tail call noalias ptr @malloc(i64 noundef %6) #23
   tail call void @llvm.memset.p0.i64(ptr align 1 %7, i8 -1, i64 %6, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %7, ptr %8, align 8, !tbaa !35
-  %9 = tail call noalias ptr @malloc(i64 noundef %6) #22
+  %9 = tail call noalias ptr @malloc(i64 noundef %6) #23
   tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 -1, i64 %6, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %9, ptr %10, align 8, !tbaa !36
   %11 = mul nsw i32 %1, %1
   %12 = zext nneg i32 %11 to i64
   %13 = shl nuw nsw i64 %12, 2
-  %14 = tail call noalias ptr @malloc(i64 noundef %13) #22
+  %14 = tail call noalias ptr @malloc(i64 noundef %13) #23
   tail call void @llvm.memset.p0.i64(ptr align 1 %14, i8 -1, i64 %13, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %14, ptr %15, align 8, !tbaa !37
@@ -552,7 +552,7 @@ define void @Abc_ZddManFree(ptr noundef captures(none) %0) local_unnamed_addr #6
   br i1 %.not, label %23, label %22
 
 22:                                               ; preds = %1
-  tail call void @free(ptr noundef nonnull %21) #23
+  tail call void @free(ptr noundef nonnull %21) #24
   store ptr null, ptr %20, align 8, !tbaa !37
   br label %23
 
@@ -563,7 +563,7 @@ define void @Abc_ZddManFree(ptr noundef captures(none) %0) local_unnamed_addr #6
   br i1 %.not36, label %27, label %26
 
 26:                                               ; preds = %23
-  tail call void @free(ptr noundef nonnull %25) #23
+  tail call void @free(ptr noundef nonnull %25) #24
   store ptr null, ptr %24, align 8, !tbaa !35
   br label %27
 
@@ -574,7 +574,7 @@ define void @Abc_ZddManFree(ptr noundef captures(none) %0) local_unnamed_addr #6
   br i1 %.not37, label %31, label %30
 
 30:                                               ; preds = %27
-  tail call void @free(ptr noundef nonnull %29) #23
+  tail call void @free(ptr noundef nonnull %29) #24
   store ptr null, ptr %28, align 8, !tbaa !36
   br label %31
 
@@ -585,7 +585,7 @@ define void @Abc_ZddManFree(ptr noundef captures(none) %0) local_unnamed_addr #6
   br i1 %.not38, label %35, label %34
 
 34:                                               ; preds = %31
-  tail call void @free(ptr noundef nonnull %33) #23
+  tail call void @free(ptr noundef nonnull %33) #24
   store ptr null, ptr %32, align 8, !tbaa !10
   br label %35
 
@@ -596,7 +596,7 @@ define void @Abc_ZddManFree(ptr noundef captures(none) %0) local_unnamed_addr #6
   br i1 %.not39, label %39, label %38
 
 38:                                               ; preds = %35
-  tail call void @free(ptr noundef nonnull %37) #23
+  tail call void @free(ptr noundef nonnull %37) #24
   store ptr null, ptr %36, align 8, !tbaa !22
   br label %39
 
@@ -607,7 +607,7 @@ define void @Abc_ZddManFree(ptr noundef captures(none) %0) local_unnamed_addr #6
   br i1 %.not40, label %43, label %42
 
 42:                                               ; preds = %39
-  tail call void @free(ptr noundef nonnull %41) #23
+  tail call void @free(ptr noundef nonnull %41) #24
   store ptr null, ptr %40, align 8, !tbaa !31
   br label %43
 
@@ -618,11 +618,11 @@ define void @Abc_ZddManFree(ptr noundef captures(none) %0) local_unnamed_addr #6
   br i1 %.not41, label %47, label %46
 
 46:                                               ; preds = %43
-  tail call void @free(ptr noundef nonnull %45) #23
+  tail call void @free(ptr noundef nonnull %45) #24
   br label %47
 
 47:                                               ; preds = %46, %43
-  tail call void @free(ptr noundef nonnull %0) #23
+  tail call void @free(ptr noundef nonnull %0) #24
   ret void
 }
 
@@ -3715,13 +3715,13 @@ Abc_ZddPermPrint.exit:                            ; preds = %.lr.ph.i39, %Abc_Zd
 define void @Abc_ZddPrint(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %0, align 8, !tbaa !29
   %4 = sext i32 %3 to i64
-  %5 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 4) #21
+  %5 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 4) #22
   tail call void @Abc_ZddPrint_rec(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %5, i32 noundef 0)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %2
-  tail call void @free(ptr noundef nonnull %5) #23
+  tail call void @free(ptr noundef nonnull %5) #24
   br label %7
 
 7:                                                ; preds = %2, %6
@@ -3763,13 +3763,13 @@ Abc_ZddPermPrint.exit:                            ; preds = %.lr.ph.i
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %11 = load i32, ptr %0, align 8, !tbaa !29
   %12 = sext i32 %11 to i64
-  %13 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 4) #21
+  %13 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 4) #22
   tail call void @Abc_ZddPrint_rec(ptr noundef nonnull readonly %0, i32 noundef %9, ptr noundef %13, i32 noundef 0)
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %Abc_ZddPrint.exit, label %14
 
 14:                                               ; preds = %10
-  tail call void @free(ptr noundef nonnull %13) #23
+  tail call void @free(ptr noundef nonnull %13) #24
   br label %Abc_ZddPrint.exit
 
 Abc_ZddPrint.exit:                                ; preds = %10, %14
@@ -3787,7 +3787,7 @@ define void @Abc_ZddGiaTest(ptr noundef %0) local_unnamed_addr #6 {
   %2 = getelementptr i8, ptr %0, i64 24
   %.val53 = load i32, ptr %2, align 8, !tbaa !60
   %3 = tail call ptr @Abc_ZddManAlloc(i32 noundef %.val53, i32 noundef 16777216)
-  tail call void @Gia_ManFillValue(ptr noundef %0) #23
+  tail call void @Gia_ManFillValue(ptr noundef %0) #24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8, !tbaa !78
   %6 = getelementptr i8, ptr %5, i64 4
@@ -3829,7 +3829,7 @@ define void @Abc_ZddGiaTest(ptr noundef %0) local_unnamed_addr #6 {
   %21 = add i32 %.val.i, %.val
   %22 = xor i32 %21, -1
   %23 = add i32 %17, %22
-  %24 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
+  %24 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #23
   %25 = add i32 %23, -1
   %or.cond.i = icmp ult i32 %25, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %23
@@ -3842,7 +3842,7 @@ define void @Abc_ZddGiaTest(ptr noundef %0) local_unnamed_addr #6 {
 27:                                               ; preds = %.critedge
   %28 = sext i32 %spec.store.select.i to i64
   %29 = shl nsw i64 %28, 2
-  %30 = tail call noalias ptr @malloc(i64 noundef %29) #22
+  %30 = tail call noalias ptr @malloc(i64 noundef %29) #23
   br label %Vec_IntAlloc.exit
 
 Vec_IntAlloc.exit:                                ; preds = %.critedge, %27
@@ -3902,11 +3902,11 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge, %27
   br i1 %.not9.i.i, label %66, label %64
 
 64:                                               ; preds = %63
-  %65 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %36, i64 noundef 64) #24
+  %65 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %36, i64 noundef 64) #25
   br label %Vec_IntPush.exit.sink.split
 
 66:                                               ; preds = %63
-  %67 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #22
+  %67 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #23
   br label %Vec_IntPush.exit.sink.split
 
 68:                                               ; preds = %61
@@ -3917,11 +3917,11 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge, %27
   br i1 %.not9.i9.i, label %74, label %72
 
 72:                                               ; preds = %68
-  %73 = tail call ptr @realloc(ptr noundef nonnull %36, i64 noundef %71) #24
+  %73 = tail call ptr @realloc(ptr noundef nonnull %36, i64 noundef %71) #25
   br label %Vec_IntPush.exit.sink.split
 
 74:                                               ; preds = %68
-  %75 = tail call noalias ptr @malloc(i64 noundef %71) #22
+  %75 = tail call noalias ptr @malloc(i64 noundef %71) #23
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %72, %74, %64, %66
@@ -4030,11 +4030,11 @@ Abc_ZddCountNodesArray.exit:                      ; preds = %.critedge4
   br i1 %.not.i65, label %Vec_IntFree.exit, label %112
 
 112:                                              ; preds = %Abc_ZddCountNodesArray.exit.thread, %Abc_ZddCountNodesArray.exit
-  tail call void @free(ptr noundef nonnull %101) #23
+  tail call void @free(ptr noundef nonnull %101) #24
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %Abc_ZddCountNodesArray.exit, %112
-  tail call void @free(ptr noundef nonnull %24) #23
+  tail call void @free(ptr noundef nonnull %24) #24
   tail call void @Abc_ZddManFree(ptr noundef %3)
   ret void
 }
@@ -4228,13 +4228,13 @@ Abc_ZddPermPrint.exit73:                          ; preds = %.lr.ph.i69, %._crit
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
   %61 = load i32, ptr %0, align 8, !tbaa !29
   %62 = sext i32 %61 to i64
-  %63 = tail call noalias ptr @calloc(i64 noundef %62, i64 noundef 4) #21
+  %63 = tail call noalias ptr @calloc(i64 noundef %62, i64 noundef 4) #22
   tail call void @Abc_ZddPrint_rec(ptr noundef nonnull readonly %0, i32 noundef %59, ptr noundef %63, i32 noundef 0)
   %.not.i74 = icmp eq ptr %63, null
   br i1 %.not.i74, label %Abc_ZddPrint.exit, label %64
 
 64:                                               ; preds = %60
-  tail call void @free(ptr noundef nonnull %63) #23
+  tail call void @free(ptr noundef nonnull %63) #24
   br label %Abc_ZddPrint.exit
 
 Abc_ZddPrint.exit:                                ; preds = %60, %64
@@ -4253,13 +4253,13 @@ Abc_ZddPrint.exit:                                ; preds = %60, %64
   %puts45 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
   %74 = load i32, ptr %0, align 8, !tbaa !29
   %75 = sext i32 %74 to i64
-  %76 = tail call noalias ptr @calloc(i64 noundef %75, i64 noundef 4) #21
+  %76 = tail call noalias ptr @calloc(i64 noundef %75, i64 noundef 4) #22
   tail call void @Abc_ZddPrint_rec(ptr noundef nonnull readonly %0, i32 noundef %73, ptr noundef %76, i32 noundef 0)
   %.not.i75 = icmp eq ptr %76, null
   br i1 %.not.i75, label %Abc_ZddPrint.exit76, label %77
 
 77:                                               ; preds = %Abc_ZddPrint.exit
-  tail call void @free(ptr noundef nonnull %76) #23
+  tail call void @free(ptr noundef nonnull %76) #24
   br label %Abc_ZddPrint.exit76
 
 Abc_ZddPrint.exit76:                              ; preds = %Abc_ZddPrint.exit, %77
@@ -4281,15 +4281,15 @@ define void @Abc_ZddPermTest() local_unnamed_addr #6 {
   %3 = load i32, ptr %1, align 8, !tbaa !29
   %4 = sext i32 %3 to i64
   %5 = shl nsw i64 %4, 2
-  %6 = tail call noalias ptr @malloc(i64 noundef %5) #22
+  %6 = tail call noalias ptr @malloc(i64 noundef %5) #23
   tail call void @llvm.memset.p0.i64(ptr align 1 %6, i8 -1, i64 %5, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %6, ptr %7, align 8, !tbaa !35
-  %8 = tail call noalias ptr @malloc(i64 noundef %5) #22
+  %8 = tail call noalias ptr @malloc(i64 noundef %5) #23
   tail call void @llvm.memset.p0.i64(ptr align 1 %8, i8 -1, i64 %5, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %8, ptr %9, align 8, !tbaa !36
-  %10 = tail call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #22
+  %10 = tail call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(100) %10, i8 -1, i64 100, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store ptr %10, ptr %11, align 8, !tbaa !37
@@ -4353,7 +4353,7 @@ define void @Abc_EnumerateCubeStatesZdd() local_unnamed_addr #6 {
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #23
+  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #24
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %Abc_Clock.exit, label %9
 
@@ -4376,15 +4376,15 @@ Abc_Clock.exit:                                   ; preds = %0, %9
   %18 = load i32, ptr %16, align 8, !tbaa !29
   %19 = sext i32 %18 to i64
   %20 = shl nsw i64 %19, 2
-  %21 = call noalias ptr @malloc(i64 noundef %20) #22
+  %21 = call noalias ptr @malloc(i64 noundef %20) #23
   call void @llvm.memset.p0.i64(ptr align 1 %21, i8 -1, i64 %20, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 72
   store ptr %21, ptr %22, align 8, !tbaa !35
-  %23 = call noalias ptr @malloc(i64 noundef %20) #22
+  %23 = call noalias ptr @malloc(i64 noundef %20) #23
   call void @llvm.memset.p0.i64(ptr align 1 %23, i8 -1, i64 %20, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 80
   store ptr %23, ptr %24, align 8, !tbaa !36
-  %25 = call noalias dereferenceable_or_null(2304) ptr @malloc(i64 noundef 2304) #22
+  %25 = call noalias dereferenceable_or_null(2304) ptr @malloc(i64 noundef 2304) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(2304) %25, i8 -1, i64 2304, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 88
   store ptr %25, ptr %26, align 8, !tbaa !37
@@ -4434,7 +4434,7 @@ Abc_Clock.exit:                                   ; preds = %0, %9
 Abc_ZddManCreatePerms.exit:                       ; preds = %.loopexit.i
   %36 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %37 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #23
+  %37 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #24
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %Abc_Clock.exit72, label %39
 
@@ -4584,7 +4584,7 @@ Abc_ZddPerm2Comb.exit:                            ; preds = %Abc_ZddPerm2Comb.ex
   %104 = load i32, ptr %103, align 4, !tbaa !24
   %105 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef 1, i32 noundef %101, i32 noundef %102, i32 noundef %104)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %106 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #23
+  %106 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #24
   %107 = icmp slt i32 %106, 0
   br i1 %107, label %Abc_Clock.exit78, label %108
 
@@ -4618,7 +4618,7 @@ Abc_Clock.exit78:                                 ; preds = %100, %108
   %123 = load i32, ptr %103, align 4, !tbaa !24
   %124 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %.188, i32 noundef %121, i32 noundef %122, i32 noundef %123)
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %125 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #23
+  %125 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #24
   %126 = icmp slt i32 %125, 0
   br i1 %126, label %Abc_Clock.exit80, label %127
 
@@ -4669,24 +4669,24 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #15 {
   br i1 %.not, label %18, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #23
+  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #24
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #23
+  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #24
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #23
+  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #24
   %10 = load ptr, ptr @stdout, align 8, !tbaa !26
-  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #25
+  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #26
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #23
-  call void @free(ptr noundef %9) #23
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #24
+  call void @free(ptr noundef %9) #24
   br label %17
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr @stdout, align 8, !tbaa !26, !noalias !98
-  %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #23
+  %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #24
   br label %17
 
 17:                                               ; preds = %14, %8
@@ -4722,10 +4722,10 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #19
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #19
 
 ; Function Attrs: nofree nounwind
@@ -4735,9 +4735,9 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #20
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #19
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #21
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #19
 
 attributes #0 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4759,13 +4759,14 @@ attributes #15 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-
 attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nofree nounwind }
-attributes #21 = { nounwind allocsize(0,1) }
-attributes #22 = { nounwind allocsize(0) }
-attributes #23 = { nounwind }
-attributes #24 = { nounwind allocsize(1) }
-attributes #25 = { nounwind willreturn memory(read) }
+attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nounwind allocsize(0,1) }
+attributes #23 = { nounwind allocsize(0) }
+attributes #24 = { nounwind }
+attributes #25 = { nounwind allocsize(1) }
+attributes #26 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

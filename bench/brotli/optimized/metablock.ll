@@ -119,7 +119,7 @@ define hidden void @BrotliBuildMetaBlock(ptr noundef %0, ptr noundef %1, i64 nou
   %.sroa.20255.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 72
   %.sroa.20255.0.copyload = load i64, ptr %.sroa.20255.0..sroa_idx, align 8, !tbaa !16
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 68
-  %14 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef 2192) #10
+  %14 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef 2192) #11
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 2176
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 2184
@@ -380,7 +380,7 @@ PrefixEncodeCopyDistance.exit.i:                  ; preds = %144
 
 .loopexit279:                                     ; preds = %.critedge.us.i, %.critedge.i, %.thread.i, %69
   %.032.lcssa.i = phi double [ 0.000000e+00, %69 ], [ 0.000000e+00, %.thread.i ], [ %.234.i, %.critedge.i ], [ %.234.us.i, %.critedge.us.i ]
-  %161 = tail call double @BrotliPopulationCostDistance(ptr noundef nonnull %14) #10
+  %161 = tail call double @BrotliPopulationCostDistance(ptr noundef nonnull %14) #11
   %162 = fadd double %.032.lcssa.i, %161
   %163 = fcmp ogt double %162, %.1288
   br i1 %163, label %.thread, label %164
@@ -469,7 +469,7 @@ PrefixEncodeCopyDistance.exit.i218:               ; preds = %179
 
 ComputeDistanceCost.exit219:                      ; preds = %.critedge.i215, %173
   %.032.lcssa.i197 = phi double [ 0.000000e+00, %173 ], [ %.234.i216, %.critedge.i215 ]
-  %196 = tail call double @BrotliPopulationCostDistance(ptr noundef nonnull %14) #10
+  %196 = tail call double @BrotliPopulationCostDistance(ptr noundef nonnull %14) #11
   %197 = fadd double %.032.lcssa.i197, %196
   %198 = fcmp olt double %197, %.1283365
   br i1 %198, label %199, label %ComputeDistanceCost.exit219.thread
@@ -482,7 +482,7 @@ ComputeDistanceCost.exit219:                      ; preds = %.critedge.i215, %17
   br label %ComputeDistanceCost.exit219.thread
 
 ComputeDistanceCost.exit219.thread:               ; preds = %ComputeDistanceCost.exit219, %199, %172
-  tail call void @BrotliFree(ptr noundef %0, ptr noundef %14) #10
+  tail call void @BrotliFree(ptr noundef %0, ptr noundef %14) #11
   %200 = load i32, ptr %12, align 8, !tbaa !3
   %201 = icmp eq i32 %.sroa.0237.0.copyload, %200
   br i1 %201, label %202, label %206
@@ -604,7 +604,7 @@ PrefixEncodeCopyDistance.exit.i224:               ; preds = %245, %243
 RecomputeDistancePrefixes.exit:                   ; preds = %276, %202, %206
   %278 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %279 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  tail call void @BrotliSplitBlock(ptr noundef %0, ptr noundef %7, i64 noundef %8, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %10, ptr noundef nonnull %278, ptr noundef nonnull %279) #10
+  tail call void @BrotliSplitBlock(ptr noundef %0, ptr noundef %7, i64 noundef %8, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %10, ptr noundef nonnull %278, ptr noundef nonnull %279) #11
   %280 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %281 = load i32, ptr %280, align 8, !tbaa !49
   %.not165 = icmp eq i32 %281, 0
@@ -617,7 +617,7 @@ RecomputeDistancePrefixes.exit:                   ; preds = %276, %202, %206
 
 283:                                              ; preds = %282
   %284 = shl i64 %.pre328, 2
-  %285 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %284) #10
+  %285 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %284) #11
   %.pre = load i64, ptr %10, align 8, !tbaa !50
   %.not312 = icmp eq i64 %.pre, 0
   br i1 %.not312, label %.loopexit278, label %.lr.ph301
@@ -640,7 +640,7 @@ RecomputeDistancePrefixes.exit:                   ; preds = %276, %202, %206
 
 .lr.ph303.preheader:                              ; preds = %.loopexit278
   %290 = mul i64 %289, 1040
-  %291 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %290) #10
+  %291 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %290) #11
   br label %.lr.ph303
 
 .lr.ph303:                                        ; preds = %.lr.ph303.preheader, %.lr.ph303
@@ -662,7 +662,7 @@ ClearHistogramsLiteral.exit:                      ; preds = %.lr.ph303, %.loopex
 
 .lr.ph305.preheader:                              ; preds = %ClearHistogramsLiteral.exit
   %298 = mul i64 %296, 8768
-  %299 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %298) #10
+  %299 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %298) #11
   br label %.lr.ph305
 
 .lr.ph305:                                        ; preds = %.lr.ph305.preheader, %.lr.ph305
@@ -690,7 +690,7 @@ ClearHistogramsDistance.exit:                     ; preds = %.lr.ph305, %ClearHi
 
 307:                                              ; preds = %ClearHistogramsDistance.exit
   %308 = mul i64 %304, 2832
-  %309 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %308) #10
+  %309 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %308) #11
   %.pre329 = load i64, ptr %305, align 8, !tbaa !64
   %310 = getelementptr inbounds nuw i8, ptr %10, i64 192
   store ptr %309, ptr %310, align 8, !tbaa !65
@@ -713,8 +713,8 @@ ClearHistogramsCommand.exit.loopexit:             ; preds = %.lr.ph307
 
 ClearHistogramsCommand.exit:                      ; preds = %.thread371, %ClearHistogramsCommand.exit.loopexit, %307
   %314 = phi ptr [ %.pre330, %ClearHistogramsCommand.exit.loopexit ], [ %309, %307 ], [ null, %.thread371 ]
-  tail call void @BrotliBuildHistogramsWithContext(ptr noundef %7, i64 noundef %8, ptr noundef nonnull %10, ptr noundef nonnull %278, ptr noundef nonnull %279, ptr noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %5, i8 noundef zeroext %6, ptr noundef %.0155, ptr noundef %295, ptr noundef %314, ptr noundef %303) #10
-  tail call void @BrotliFree(ptr noundef %0, ptr noundef %.0155) #10
+  tail call void @BrotliBuildHistogramsWithContext(ptr noundef %7, i64 noundef %8, ptr noundef nonnull %10, ptr noundef nonnull %278, ptr noundef nonnull %279, ptr noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %5, i8 noundef zeroext %6, ptr noundef %.0155, ptr noundef %295, ptr noundef %314, ptr noundef %303) #11
+  tail call void @BrotliFree(ptr noundef %0, ptr noundef %.0155) #11
   %315 = load i64, ptr %10, align 8, !tbaa !50
   %316 = shl i64 %315, 6
   %317 = getelementptr inbounds nuw i8, ptr %10, i64 152
@@ -731,7 +731,7 @@ ClearHistogramsCommand.exit:                      ; preds = %.thread371, %ClearH
 
 320:                                              ; preds = %ClearHistogramsCommand.exit
   %321 = shl i64 %315, 8
-  %322 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %321) #10
+  %322 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %321) #11
   %.pr = load i64, ptr %317, align 8, !tbaa !69
   %323 = getelementptr inbounds nuw i8, ptr %10, i64 144
   store ptr %322, ptr %323, align 8, !tbaa !70
@@ -742,7 +742,7 @@ ClearHistogramsCommand.exit:                      ; preds = %.thread371, %ClearH
 
 325:                                              ; preds = %320
   %326 = mul i64 %.pr, 1040
-  %327 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %326) #10
+  %327 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %326) #11
   %.pre331 = load ptr, ptr %323, align 8, !tbaa !70
   br label %328
 
@@ -753,8 +753,8 @@ ClearHistogramsCommand.exit:                      ; preds = %.thread371, %ClearH
   %332 = phi ptr [ %327, %325 ], [ null, %320 ], [ null, %.thread271 ]
   %333 = getelementptr inbounds nuw i8, ptr %10, i64 176
   store ptr %332, ptr %333, align 8, !tbaa !72
-  tail call void @BrotliClusterHistogramsLiteral(ptr noundef %0, ptr noundef %295, i64 noundef %289, i64 noundef 256, ptr noundef %332, ptr noundef nonnull %330, ptr noundef %329) #10
-  tail call void @BrotliFree(ptr noundef %0, ptr noundef %295) #10
+  tail call void @BrotliClusterHistogramsLiteral(ptr noundef %0, ptr noundef %295, i64 noundef %289, i64 noundef 256, ptr noundef %332, ptr noundef nonnull %330, ptr noundef %329) #11
+  tail call void @BrotliFree(ptr noundef %0, ptr noundef %295) #11
   %334 = load i32, ptr %280, align 8, !tbaa !49
   %.not172 = icmp eq i32 %334, 0
   br i1 %.not172, label %.loopexit277, label %335
@@ -806,7 +806,7 @@ ClearHistogramsCommand.exit:                      ; preds = %.thread371, %ClearH
 
 350:                                              ; preds = %.loopexit277
   %351 = shl i64 %345, 4
-  %352 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %351) #10
+  %352 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %351) #11
   %.pr273 = load i64, ptr %347, align 8, !tbaa !75
   %353 = getelementptr inbounds nuw i8, ptr %10, i64 160
   store ptr %352, ptr %353, align 8, !tbaa !76
@@ -817,7 +817,7 @@ ClearHistogramsCommand.exit:                      ; preds = %.thread371, %ClearH
 
 355:                                              ; preds = %350
   %356 = mul i64 %.pr273, 2192
-  %357 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %356) #10
+  %357 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %356) #11
   %.pre333 = load i64, ptr %347, align 8, !tbaa !75
   %.pre334 = load ptr, ptr %353, align 8, !tbaa !76
   br label %358
@@ -829,8 +829,8 @@ ClearHistogramsCommand.exit:                      ; preds = %.thread371, %ClearH
   %362 = phi ptr [ %357, %355 ], [ null, %350 ], [ null, %.thread274 ]
   %363 = getelementptr inbounds nuw i8, ptr %10, i64 208
   store ptr %362, ptr %363, align 8, !tbaa !78
-  tail call void @BrotliClusterHistogramsDistance(ptr noundef %0, ptr noundef %303, i64 noundef %360, i64 noundef 256, ptr noundef %362, ptr noundef nonnull %361, ptr noundef %359) #10
-  tail call void @BrotliFree(ptr noundef %0, ptr noundef %303) #10
+  tail call void @BrotliClusterHistogramsDistance(ptr noundef %0, ptr noundef %303, i64 noundef %360, i64 noundef 256, ptr noundef %362, ptr noundef nonnull %361, ptr noundef %359) #11
+  tail call void @BrotliFree(ptr noundef %0, ptr noundef %303) #11
   ret void
 }
 
@@ -851,7 +851,7 @@ declare hidden void @BrotliClusterHistogramsDistance(ptr noundef, ptr noundef, i
 
 ; Function Attrs: nounwind uwtable
 define hidden void @BrotliBuildMetaBlockGreedy(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, ptr noundef readonly captures(none) %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr noundef readonly captures(none) %9, i64 noundef %10, ptr noundef %11) local_unnamed_addr #1 {
-  %13 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef 12488) #10
+  %13 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef 12488) #11
   %14 = icmp eq i64 %7, 1
   %.not96 = icmp eq i64 %10, 0
   br i1 %14, label %.preheader, label %.preheader60
@@ -1089,7 +1089,7 @@ BrotliBuildMetaBlockGreedyInternal.exit:          ; preds = %BlockSplitterAddSym
   br i1 %.not89.i, label %130, label %128, !llvm.loop !115
 
 130:                                              ; preds = %128
-  %131 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %.0.i43) #10
+  %131 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %.0.i43) #11
   %132 = load i64, ptr %124, align 8, !tbaa !114
   %.not90.i = icmp eq i64 %132, 0
   br i1 %.not90.i, label %136, label %133
@@ -1103,7 +1103,7 @@ BrotliBuildMetaBlockGreedyInternal.exit:          ; preds = %BlockSplitterAddSym
 136:                                              ; preds = %133, %130
   %137 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %138 = load ptr, ptr %137, align 8, !tbaa !116
-  tail call void @BrotliFree(ptr noundef %0, ptr noundef %138) #10
+  tail call void @BrotliFree(ptr noundef %0, ptr noundef %138) #11
   store ptr %131, ptr %137, align 8, !tbaa !116
   store i64 %.0.i43, ptr %124, align 8, !tbaa !114
   br label %139
@@ -1127,7 +1127,7 @@ BrotliBuildMetaBlockGreedyInternal.exit:          ; preds = %BlockSplitterAddSym
 
 146:                                              ; preds = %144
   %147 = shl nuw nsw i64 %.082.i44, 2
-  %148 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %147) #10
+  %148 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %147) #11
   %149 = load i64, ptr %140, align 8, !tbaa !117
   %.not93.i = icmp eq i64 %149, 0
   br i1 %.not93.i, label %154, label %150
@@ -1142,7 +1142,7 @@ BrotliBuildMetaBlockGreedyInternal.exit:          ; preds = %BlockSplitterAddSym
 154:                                              ; preds = %150, %146
   %155 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %156 = load ptr, ptr %155, align 8, !tbaa !119
-  tail call void @BrotliFree(ptr noundef %0, ptr noundef %156) #10
+  tail call void @BrotliFree(ptr noundef %0, ptr noundef %156) #11
   store ptr %148, ptr %155, align 8, !tbaa !119
   store i64 %.082.i44, ptr %140, align 8, !tbaa !117
   br label %157
@@ -1157,7 +1157,7 @@ BrotliBuildMetaBlockGreedyInternal.exit:          ; preds = %BlockSplitterAddSym
 
 160:                                              ; preds = %157
   %161 = mul i64 %159, 1040
-  %162 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %161) #10
+  %162 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %161) #11
   br label %163
 
 163:                                              ; preds = %160, %157
@@ -1365,7 +1365,7 @@ BlockSplitterAddSymbolDistance.exit47:            ; preds = %269, %253, %243, %.
 
 274:                                              ; preds = %._crit_edge79
   %275 = shl i64 %271, 8
-  %276 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %275) #10
+  %276 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %275) #11
   %.pre.i = load i64, ptr %11, align 8, !tbaa !50
   br label %277
 
@@ -1402,7 +1402,7 @@ BlockSplitterAddSymbolDistance.exit47:            ; preds = %269, %253, %243, %.
   br i1 %exitcond23.not.i, label %BrotliBuildMetaBlockGreedyInternal.exit41, label %.lr.ph.i, !llvm.loop !126
 
 BrotliBuildMetaBlockGreedyInternal.exit41:        ; preds = %290, %277, %BrotliBuildMetaBlockGreedyInternal.exit
-  tail call void @BrotliFree(ptr noundef %0, ptr noundef %13) #10
+  tail call void @BrotliFree(ptr noundef %0, ptr noundef %13) #11
   ret void
 }
 
@@ -1433,7 +1433,7 @@ define hidden void @BrotliOptimizeHistograms(i32 noundef %0, ptr noundef readonl
   %.016 = phi i64 [ 0, %.lr.ph ], [ %13, %10 ]
   %11 = load ptr, ptr %6, align 8, !tbaa !72
   %12 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %11, i64 %.016
-  call void @BrotliOptimizeHuffmanCountsForRle(i64 noundef 256, ptr noundef %12, ptr noundef nonnull %3) #10
+  call void @BrotliOptimizeHuffmanCountsForRle(i64 noundef 256, ptr noundef %12, ptr noundef nonnull %3) #11
   %13 = add nuw i64 %.016, 1
   %14 = load i64, ptr %4, align 8, !tbaa !71
   %15 = icmp ult i64 %13, %14
@@ -1454,7 +1454,7 @@ define hidden void @BrotliOptimizeHistograms(i32 noundef %0, ptr noundef readonl
   %.117 = phi i64 [ 0, %.lr.ph18 ], [ %23, %20 ]
   %21 = load ptr, ptr %9, align 8, !tbaa !65
   %22 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %21, i64 %.117
-  call void @BrotliOptimizeHuffmanCountsForRle(i64 noundef 704, ptr noundef %22, ptr noundef nonnull %3) #10
+  call void @BrotliOptimizeHuffmanCountsForRle(i64 noundef 704, ptr noundef %22, ptr noundef nonnull %3) #11
   %23 = add nuw i64 %.117, 1
   %24 = load i64, ptr %7, align 8, !tbaa !64
   %25 = icmp ult i64 %23, %24
@@ -1464,7 +1464,7 @@ define hidden void @BrotliOptimizeHistograms(i32 noundef %0, ptr noundef readonl
   %.219 = phi i64 [ 0, %.lr.ph20 ], [ %29, %26 ]
   %27 = load ptr, ptr %19, align 8, !tbaa !78
   %28 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %27, i64 %.219
-  call void @BrotliOptimizeHuffmanCountsForRle(i64 noundef %18, ptr noundef %28, ptr noundef nonnull %3) #10
+  call void @BrotliOptimizeHuffmanCountsForRle(i64 noundef %18, ptr noundef %28, ptr noundef nonnull %3) #11
   %29 = add nuw i64 %.219, 1
   %30 = load i64, ptr %16, align 8, !tbaa !77
   %31 = icmp ult i64 %29, %30
@@ -1523,7 +1523,7 @@ define internal fastcc void @InitBlockSplitterLiteral(ptr noundef %0, ptr nounde
   br i1 %.not82, label %23, label %21, !llvm.loop !137
 
 23:                                               ; preds = %21
-  %24 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %.0) #10
+  %24 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %.0) #11
   %25 = load i64, ptr %17, align 8, !tbaa !114
   %.not83 = icmp eq i64 %25, 0
   br i1 %.not83, label %29, label %26
@@ -1537,7 +1537,7 @@ define internal fastcc void @InitBlockSplitterLiteral(ptr noundef %0, ptr nounde
 29:                                               ; preds = %26, %23
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !116
-  tail call void @BrotliFree(ptr noundef %0, ptr noundef %31) #10
+  tail call void @BrotliFree(ptr noundef %0, ptr noundef %31) #11
   store ptr %24, ptr %30, align 8, !tbaa !116
   store i64 %.0, ptr %17, align 8, !tbaa !114
   br label %32
@@ -1561,7 +1561,7 @@ define internal fastcc void @InitBlockSplitterLiteral(ptr noundef %0, ptr nounde
 
 39:                                               ; preds = %37
   %40 = shl nuw nsw i64 %.075, 2
-  %41 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %40) #10
+  %41 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %40) #11
   %42 = load i64, ptr %33, align 8, !tbaa !117
   %.not86 = icmp eq i64 %42, 0
   br i1 %.not86, label %47, label %43
@@ -1576,7 +1576,7 @@ define internal fastcc void @InitBlockSplitterLiteral(ptr noundef %0, ptr nounde
 47:                                               ; preds = %43, %39
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !119
-  tail call void @BrotliFree(ptr noundef %0, ptr noundef %49) #10
+  tail call void @BrotliFree(ptr noundef %0, ptr noundef %49) #11
   store ptr %41, ptr %48, align 8, !tbaa !119
   store i64 %.075, ptr %33, align 8, !tbaa !117
   br label %50
@@ -1588,7 +1588,7 @@ define internal fastcc void @InitBlockSplitterLiteral(ptr noundef %0, ptr nounde
   store i64 %8, ptr %53, align 8, !tbaa !120
   store i64 %51, ptr %5, align 8, !tbaa !16
   %54 = mul nuw nsw i64 %51, 1040
-  %55 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %54) #10
+  %55 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %54) #11
   store ptr %55, ptr %4, align 8, !tbaa !121
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %55, ptr %56, align 8, !tbaa !90
@@ -1638,7 +1638,7 @@ define internal fastcc void @InitBlockSplitterCommand(ptr noundef %0, ptr nounde
   br i1 %.not82, label %23, label %21, !llvm.loop !146
 
 23:                                               ; preds = %21
-  %24 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %.0) #10
+  %24 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %.0) #11
   %25 = load i64, ptr %17, align 8, !tbaa !114
   %.not83 = icmp eq i64 %25, 0
   br i1 %.not83, label %29, label %26
@@ -1652,7 +1652,7 @@ define internal fastcc void @InitBlockSplitterCommand(ptr noundef %0, ptr nounde
 29:                                               ; preds = %26, %23
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !116
-  tail call void @BrotliFree(ptr noundef %0, ptr noundef %31) #10
+  tail call void @BrotliFree(ptr noundef %0, ptr noundef %31) #11
   store ptr %24, ptr %30, align 8, !tbaa !116
   store i64 %.0, ptr %17, align 8, !tbaa !114
   br label %32
@@ -1676,7 +1676,7 @@ define internal fastcc void @InitBlockSplitterCommand(ptr noundef %0, ptr nounde
 
 39:                                               ; preds = %37
   %40 = shl nuw nsw i64 %.075, 2
-  %41 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %40) #10
+  %41 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %40) #11
   %42 = load i64, ptr %33, align 8, !tbaa !117
   %.not86 = icmp eq i64 %42, 0
   br i1 %.not86, label %47, label %43
@@ -1691,7 +1691,7 @@ define internal fastcc void @InitBlockSplitterCommand(ptr noundef %0, ptr nounde
 47:                                               ; preds = %43, %39
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !119
-  tail call void @BrotliFree(ptr noundef %0, ptr noundef %49) #10
+  tail call void @BrotliFree(ptr noundef %0, ptr noundef %49) #11
   store ptr %41, ptr %48, align 8, !tbaa !119
   store i64 %.075, ptr %33, align 8, !tbaa !117
   br label %50
@@ -1703,7 +1703,7 @@ define internal fastcc void @InitBlockSplitterCommand(ptr noundef %0, ptr nounde
   store i64 %8, ptr %53, align 8, !tbaa !120
   store i64 %51, ptr %5, align 8, !tbaa !16
   %54 = mul nuw nsw i64 %51, 2832
-  %55 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %54) #10
+  %55 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %54) #11
   store ptr %55, ptr %4, align 8, !tbaa !148
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %55, ptr %56, align 8, !tbaa !81
@@ -1753,7 +1753,7 @@ define internal fastcc void @InitBlockSplitterDistance(ptr noundef %0, ptr nound
   br i1 %.not82, label %23, label %21, !llvm.loop !156
 
 23:                                               ; preds = %21
-  %24 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %.0) #10
+  %24 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %.0) #11
   %25 = load i64, ptr %17, align 8, !tbaa !114
   %.not83 = icmp eq i64 %25, 0
   br i1 %.not83, label %29, label %26
@@ -1767,7 +1767,7 @@ define internal fastcc void @InitBlockSplitterDistance(ptr noundef %0, ptr nound
 29:                                               ; preds = %26, %23
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !116
-  tail call void @BrotliFree(ptr noundef %0, ptr noundef %31) #10
+  tail call void @BrotliFree(ptr noundef %0, ptr noundef %31) #11
   store ptr %24, ptr %30, align 8, !tbaa !116
   store i64 %.0, ptr %17, align 8, !tbaa !114
   br label %32
@@ -1791,7 +1791,7 @@ define internal fastcc void @InitBlockSplitterDistance(ptr noundef %0, ptr nound
 
 39:                                               ; preds = %37
   %40 = shl nuw nsw i64 %.075, 2
-  %41 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %40) #10
+  %41 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %40) #11
   %42 = load i64, ptr %33, align 8, !tbaa !117
   %.not86 = icmp eq i64 %42, 0
   br i1 %.not86, label %47, label %43
@@ -1806,7 +1806,7 @@ define internal fastcc void @InitBlockSplitterDistance(ptr noundef %0, ptr nound
 47:                                               ; preds = %43, %39
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !119
-  tail call void @BrotliFree(ptr noundef %0, ptr noundef %49) #10
+  tail call void @BrotliFree(ptr noundef %0, ptr noundef %49) #11
   store ptr %41, ptr %48, align 8, !tbaa !119
   store i64 %.075, ptr %33, align 8, !tbaa !117
   br label %50
@@ -1818,7 +1818,7 @@ define internal fastcc void @InitBlockSplitterDistance(ptr noundef %0, ptr nound
   store i64 %8, ptr %53, align 8, !tbaa !120
   store i64 %51, ptr %5, align 8, !tbaa !16
   %54 = mul nuw nsw i64 %51, 2192
-  %55 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %54) #10
+  %55 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %54) #11
   store ptr %55, ptr %4, align 8, !tbaa !158
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %55, ptr %56, align 8, !tbaa !97
@@ -1888,7 +1888,7 @@ define internal fastcc void @BlockSplitterFinishBlockLiteral(ptr noundef %0, i32
   br label %FastLog2.exit
 
 37:                                               ; preds = %27
-  %38 = tail call double @log2(double noundef %32) #10, !tbaa !15
+  %38 = tail call double @log2(double noundef %32) #11, !tbaa !15
   br label %FastLog2.exit
 
 FastLog2.exit:                                    ; preds = %34, %37
@@ -1915,7 +1915,7 @@ FastLog2.exit:                                    ; preds = %34, %37
   br label %FastLog2.exit155
 
 51:                                               ; preds = %41
-  %52 = tail call double @log2(double noundef %46) #10, !tbaa !15
+  %52 = tail call double @log2(double noundef %46) #11, !tbaa !15
   br label %FastLog2.exit155
 
 FastLog2.exit155:                                 ; preds = %48, %51
@@ -1939,7 +1939,7 @@ FastLog2.exit155:                                 ; preds = %48, %51
   br label %FastLog2.exit153
 
 62:                                               ; preds = %56
-  %63 = tail call double @log2(double noundef %57) #10, !tbaa !15
+  %63 = tail call double @log2(double noundef %57) #11, !tbaa !15
   br label %FastLog2.exit153
 
 FastLog2.exit153:                                 ; preds = %59, %62
@@ -2018,7 +2018,7 @@ ShannonEntropy.exit150:                           ; preds = %55, %FastLog2.exit1
   br label %FastLog2.exit157
 
 102:                                              ; preds = %92
-  %103 = tail call double @log2(double noundef %97) #10, !tbaa !15
+  %103 = tail call double @log2(double noundef %97) #11, !tbaa !15
   br label %FastLog2.exit157
 
 FastLog2.exit157:                                 ; preds = %99, %102
@@ -2045,7 +2045,7 @@ FastLog2.exit157:                                 ; preds = %99, %102
   br label %FastLog2.exit161
 
 116:                                              ; preds = %106
-  %117 = tail call double @log2(double noundef %111) #10, !tbaa !15
+  %117 = tail call double @log2(double noundef %111) #11, !tbaa !15
   br label %FastLog2.exit161
 
 FastLog2.exit161:                                 ; preds = %113, %116
@@ -2069,7 +2069,7 @@ FastLog2.exit161:                                 ; preds = %113, %116
   br label %FastLog2.exit159
 
 127:                                              ; preds = %121
-  %128 = tail call double @log2(double noundef %122) #10, !tbaa !15
+  %128 = tail call double @log2(double noundef %122) #11, !tbaa !15
   br label %FastLog2.exit159
 
 FastLog2.exit159:                                 ; preds = %124, %127
@@ -2148,7 +2148,7 @@ HistogramAddHistogramLiteral.exit:                ; preds = %146
   br label %FastLog2.exit163
 
 166:                                              ; preds = %156
-  %167 = tail call double @log2(double noundef %161) #10, !tbaa !15
+  %167 = tail call double @log2(double noundef %161) #11, !tbaa !15
   br label %FastLog2.exit163
 
 FastLog2.exit163:                                 ; preds = %163, %166
@@ -2175,7 +2175,7 @@ FastLog2.exit163:                                 ; preds = %163, %166
   br label %FastLog2.exit167
 
 180:                                              ; preds = %170
-  %181 = tail call double @log2(double noundef %175) #10, !tbaa !15
+  %181 = tail call double @log2(double noundef %175) #11, !tbaa !15
   br label %FastLog2.exit167
 
 FastLog2.exit167:                                 ; preds = %177, %180
@@ -2199,7 +2199,7 @@ FastLog2.exit167:                                 ; preds = %177, %180
   br label %FastLog2.exit165
 
 191:                                              ; preds = %185
-  %192 = tail call double @log2(double noundef %186) #10, !tbaa !15
+  %192 = tail call double @log2(double noundef %186) #11, !tbaa !15
   br label %FastLog2.exit165
 
 FastLog2.exit165:                                 ; preds = %188, %191
@@ -2485,7 +2485,7 @@ define internal fastcc void @ContextBlockSplitterFinishBlock(ptr noundef %0, ptr
   br label %FastLog2.exit
 
 48:                                               ; preds = %38
-  %49 = tail call double @log2(double noundef %43) #10, !tbaa !15
+  %49 = tail call double @log2(double noundef %43) #11, !tbaa !15
   br label %FastLog2.exit
 
 FastLog2.exit:                                    ; preds = %45, %48
@@ -2512,7 +2512,7 @@ FastLog2.exit:                                    ; preds = %45, %48
   br label %FastLog2.exit230
 
 62:                                               ; preds = %52
-  %63 = tail call double @log2(double noundef %57) #10, !tbaa !15
+  %63 = tail call double @log2(double noundef %57) #11, !tbaa !15
   br label %FastLog2.exit230
 
 FastLog2.exit230:                                 ; preds = %59, %62
@@ -2536,7 +2536,7 @@ FastLog2.exit230:                                 ; preds = %59, %62
   br label %FastLog2.exit228
 
 73:                                               ; preds = %67
-  %74 = tail call double @log2(double noundef %68) #10, !tbaa !15
+  %74 = tail call double @log2(double noundef %68) #11, !tbaa !15
   br label %FastLog2.exit228
 
 FastLog2.exit228:                                 ; preds = %70, %73
@@ -2607,7 +2607,7 @@ ClearHistogramsLiteral.exit200:                   ; preds = %.lr.ph269, %91, %._
 
 .thread:                                          ; preds = %99
   %100 = mul i64 %9, 2080
-  %101 = tail call ptr @BrotliAllocate(ptr noundef %1, i64 noundef %100) #10
+  %101 = tail call ptr @BrotliAllocate(ptr noundef %1, i64 noundef %100) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
@@ -2664,7 +2664,7 @@ ClearHistogramsLiteral.exit200:                   ; preds = %.lr.ph269, %91, %._
   br label %FastLog2.exit232
 
 125:                                              ; preds = %115
-  %126 = tail call double @log2(double noundef %120) #10, !tbaa !15
+  %126 = tail call double @log2(double noundef %120) #11, !tbaa !15
   br label %FastLog2.exit232
 
 FastLog2.exit232:                                 ; preds = %122, %125
@@ -2691,7 +2691,7 @@ FastLog2.exit232:                                 ; preds = %122, %125
   br label %FastLog2.exit236
 
 139:                                              ; preds = %129
-  %140 = tail call double @log2(double noundef %134) #10, !tbaa !15
+  %140 = tail call double @log2(double noundef %134) #11, !tbaa !15
   br label %FastLog2.exit236
 
 FastLog2.exit236:                                 ; preds = %136, %139
@@ -2715,7 +2715,7 @@ FastLog2.exit236:                                 ; preds = %136, %139
   br label %FastLog2.exit234
 
 150:                                              ; preds = %144
-  %151 = tail call double @log2(double noundef %145) #10, !tbaa !15
+  %151 = tail call double @log2(double noundef %145) #11, !tbaa !15
   br label %FastLog2.exit234
 
 FastLog2.exit234:                                 ; preds = %147, %150
@@ -2793,7 +2793,7 @@ HistogramAddHistogramLiteral.exit:                ; preds = %167
   br label %FastLog2.exit238
 
 189:                                              ; preds = %179
-  %190 = tail call double @log2(double noundef %184) #10, !tbaa !15
+  %190 = tail call double @log2(double noundef %184) #11, !tbaa !15
   br label %FastLog2.exit238
 
 FastLog2.exit238:                                 ; preds = %186, %189
@@ -2820,7 +2820,7 @@ FastLog2.exit238:                                 ; preds = %186, %189
   br label %FastLog2.exit242
 
 203:                                              ; preds = %193
-  %204 = tail call double @log2(double noundef %198) #10, !tbaa !15
+  %204 = tail call double @log2(double noundef %198) #11, !tbaa !15
   br label %FastLog2.exit242
 
 FastLog2.exit242:                                 ; preds = %200, %203
@@ -2844,7 +2844,7 @@ FastLog2.exit242:                                 ; preds = %200, %203
   br label %FastLog2.exit240
 
 214:                                              ; preds = %208
-  %215 = tail call double @log2(double noundef %209) #10, !tbaa !15
+  %215 = tail call double @log2(double noundef %209) #11, !tbaa !15
   br label %FastLog2.exit240
 
 FastLog2.exit240:                                 ; preds = %211, %214
@@ -3111,7 +3111,7 @@ ClearHistogramsLiteral.exit:                      ; preds = %.lr.ph262, %272, %.
   br label %359
 
 359:                                              ; preds = %._crit_edge255, %354, %._crit_edge251, %ClearHistogramsLiteral.exit
-  tail call void @BrotliFree(ptr noundef %1, ptr noundef %227) #10
+  tail call void @BrotliFree(ptr noundef %1, ptr noundef %227) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3195,7 +3195,7 @@ define internal fastcc void @BlockSplitterFinishBlockCommand(ptr noundef %0, i32
   br label %FastLog2.exit
 
 37:                                               ; preds = %27
-  %38 = tail call double @log2(double noundef %32) #10, !tbaa !15
+  %38 = tail call double @log2(double noundef %32) #11, !tbaa !15
   br label %FastLog2.exit
 
 FastLog2.exit:                                    ; preds = %34, %37
@@ -3222,7 +3222,7 @@ FastLog2.exit:                                    ; preds = %34, %37
   br label %FastLog2.exit154
 
 51:                                               ; preds = %41
-  %52 = tail call double @log2(double noundef %46) #10, !tbaa !15
+  %52 = tail call double @log2(double noundef %46) #11, !tbaa !15
   br label %FastLog2.exit154
 
 FastLog2.exit154:                                 ; preds = %48, %51
@@ -3246,7 +3246,7 @@ FastLog2.exit154:                                 ; preds = %48, %51
   br label %FastLog2.exit152
 
 62:                                               ; preds = %56
-  %63 = tail call double @log2(double noundef %57) #10, !tbaa !15
+  %63 = tail call double @log2(double noundef %57) #11, !tbaa !15
   br label %FastLog2.exit152
 
 FastLog2.exit152:                                 ; preds = %59, %62
@@ -3325,7 +3325,7 @@ ShannonEntropy.exit149:                           ; preds = %55, %FastLog2.exit1
   br label %FastLog2.exit156
 
 102:                                              ; preds = %92
-  %103 = tail call double @log2(double noundef %97) #10, !tbaa !15
+  %103 = tail call double @log2(double noundef %97) #11, !tbaa !15
   br label %FastLog2.exit156
 
 FastLog2.exit156:                                 ; preds = %99, %102
@@ -3352,7 +3352,7 @@ FastLog2.exit156:                                 ; preds = %99, %102
   br label %FastLog2.exit160
 
 116:                                              ; preds = %106
-  %117 = tail call double @log2(double noundef %111) #10, !tbaa !15
+  %117 = tail call double @log2(double noundef %111) #11, !tbaa !15
   br label %FastLog2.exit160
 
 FastLog2.exit160:                                 ; preds = %113, %116
@@ -3376,7 +3376,7 @@ FastLog2.exit160:                                 ; preds = %113, %116
   br label %FastLog2.exit158
 
 127:                                              ; preds = %121
-  %128 = tail call double @log2(double noundef %122) #10, !tbaa !15
+  %128 = tail call double @log2(double noundef %122) #11, !tbaa !15
   br label %FastLog2.exit158
 
 FastLog2.exit158:                                 ; preds = %124, %127
@@ -3455,7 +3455,7 @@ HistogramAddHistogramCommand.exit:                ; preds = %146
   br label %FastLog2.exit162
 
 166:                                              ; preds = %156
-  %167 = tail call double @log2(double noundef %161) #10, !tbaa !15
+  %167 = tail call double @log2(double noundef %161) #11, !tbaa !15
   br label %FastLog2.exit162
 
 FastLog2.exit162:                                 ; preds = %163, %166
@@ -3482,7 +3482,7 @@ FastLog2.exit162:                                 ; preds = %163, %166
   br label %FastLog2.exit166
 
 180:                                              ; preds = %170
-  %181 = tail call double @log2(double noundef %175) #10, !tbaa !15
+  %181 = tail call double @log2(double noundef %175) #11, !tbaa !15
   br label %FastLog2.exit166
 
 FastLog2.exit166:                                 ; preds = %177, %180
@@ -3506,7 +3506,7 @@ FastLog2.exit166:                                 ; preds = %177, %180
   br label %FastLog2.exit164
 
 191:                                              ; preds = %185
-  %192 = tail call double @log2(double noundef %186) #10, !tbaa !15
+  %192 = tail call double @log2(double noundef %186) #11, !tbaa !15
   br label %FastLog2.exit164
 
 FastLog2.exit164:                                 ; preds = %188, %191
@@ -3773,7 +3773,7 @@ define internal fastcc void @BlockSplitterFinishBlockDistance(ptr noundef %0, i3
   br label %FastLog2.exit
 
 37:                                               ; preds = %27
-  %38 = tail call double @log2(double noundef %32) #10, !tbaa !15
+  %38 = tail call double @log2(double noundef %32) #11, !tbaa !15
   br label %FastLog2.exit
 
 FastLog2.exit:                                    ; preds = %34, %37
@@ -3800,7 +3800,7 @@ FastLog2.exit:                                    ; preds = %34, %37
   br label %FastLog2.exit154
 
 51:                                               ; preds = %41
-  %52 = tail call double @log2(double noundef %46) #10, !tbaa !15
+  %52 = tail call double @log2(double noundef %46) #11, !tbaa !15
   br label %FastLog2.exit154
 
 FastLog2.exit154:                                 ; preds = %48, %51
@@ -3824,7 +3824,7 @@ FastLog2.exit154:                                 ; preds = %48, %51
   br label %FastLog2.exit152
 
 62:                                               ; preds = %56
-  %63 = tail call double @log2(double noundef %57) #10, !tbaa !15
+  %63 = tail call double @log2(double noundef %57) #11, !tbaa !15
   br label %FastLog2.exit152
 
 FastLog2.exit152:                                 ; preds = %59, %62
@@ -3903,7 +3903,7 @@ ShannonEntropy.exit149:                           ; preds = %55, %FastLog2.exit1
   br label %FastLog2.exit156
 
 102:                                              ; preds = %92
-  %103 = tail call double @log2(double noundef %97) #10, !tbaa !15
+  %103 = tail call double @log2(double noundef %97) #11, !tbaa !15
   br label %FastLog2.exit156
 
 FastLog2.exit156:                                 ; preds = %99, %102
@@ -3930,7 +3930,7 @@ FastLog2.exit156:                                 ; preds = %99, %102
   br label %FastLog2.exit160
 
 116:                                              ; preds = %106
-  %117 = tail call double @log2(double noundef %111) #10, !tbaa !15
+  %117 = tail call double @log2(double noundef %111) #11, !tbaa !15
   br label %FastLog2.exit160
 
 FastLog2.exit160:                                 ; preds = %113, %116
@@ -3954,7 +3954,7 @@ FastLog2.exit160:                                 ; preds = %113, %116
   br label %FastLog2.exit158
 
 127:                                              ; preds = %121
-  %128 = tail call double @log2(double noundef %122) #10, !tbaa !15
+  %128 = tail call double @log2(double noundef %122) #11, !tbaa !15
   br label %FastLog2.exit158
 
 FastLog2.exit158:                                 ; preds = %124, %127
@@ -4033,7 +4033,7 @@ HistogramAddHistogramDistance.exit:               ; preds = %146
   br label %FastLog2.exit162
 
 166:                                              ; preds = %156
-  %167 = tail call double @log2(double noundef %161) #10, !tbaa !15
+  %167 = tail call double @log2(double noundef %161) #11, !tbaa !15
   br label %FastLog2.exit162
 
 FastLog2.exit162:                                 ; preds = %163, %166
@@ -4060,7 +4060,7 @@ FastLog2.exit162:                                 ; preds = %163, %166
   br label %FastLog2.exit166
 
 180:                                              ; preds = %170
-  %181 = tail call double @log2(double noundef %175) #10, !tbaa !15
+  %181 = tail call double @log2(double noundef %175) #11, !tbaa !15
   br label %FastLog2.exit166
 
 FastLog2.exit166:                                 ; preds = %177, %180
@@ -4084,7 +4084,7 @@ FastLog2.exit166:                                 ; preds = %177, %180
   br label %FastLog2.exit164
 
 191:                                              ; preds = %185
-  %192 = tail call double @log2(double noundef %186) #10, !tbaa !15
+  %192 = tail call double @log2(double noundef %186) #11, !tbaa !15
   br label %FastLog2.exit164
 
 FastLog2.exit164:                                 ; preds = %188, %191
@@ -4293,23 +4293,23 @@ ShannonEntropy.exit:                              ; preds = %184, %FastLog2.exit
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #5
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log2(double noundef) local_unnamed_addr #7
+declare double @log2(double noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #10
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4318,10 +4318,11 @@ attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
+attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

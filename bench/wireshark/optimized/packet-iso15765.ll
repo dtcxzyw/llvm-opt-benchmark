@@ -351,7 +351,7 @@ define internal i32 @dissect_iso15765_lin(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.153, ptr noundef nonnull @.str.154, i32 noundef 1019, ptr noundef nonnull @.str.155) #12
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.153, ptr noundef nonnull @.str.154, i32 noundef 1019, ptr noundef nonnull @.str.155) #13
   unreachable
 
 6:                                                ; preds = %4
@@ -480,7 +480,7 @@ define internal void @config_can_addr_mappings_extended_address_tostr_cb(ptr nou
   %8 = select i1 %7, ptr @.str.182, ptr @.str.183
   %9 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.181, ptr noundef nonnull %8)
   store ptr %9, ptr %1, align 8
-  %10 = tail call i64 @strlen(ptr noundef %9) #13
+  %10 = tail call i64 @strlen(ptr noundef %9) #14
   %11 = trunc i64 %10 to i32
   store i32 %11, ptr %2, align 4
   ret void
@@ -505,7 +505,7 @@ define internal void @config_can_addr_mappings_can_id_tostr_cb(ptr noundef reado
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.184, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #13
+  %9 = tail call i64 @strlen(ptr noundef %8) #14
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -527,7 +527,7 @@ define internal void @config_can_addr_mappings_can_id_mask_tostr_cb(ptr noundef 
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.184, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #13
+  %9 = tail call i64 @strlen(ptr noundef %8) #14
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -549,7 +549,7 @@ define internal void @config_can_addr_mappings_source_addr_mask_tostr_cb(ptr nou
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.184, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #13
+  %9 = tail call i64 @strlen(ptr noundef %8) #14
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -571,7 +571,7 @@ define internal void @config_can_addr_mappings_target_addr_mask_tostr_cb(ptr nou
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.184, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #13
+  %9 = tail call i64 @strlen(ptr noundef %8) #14
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -593,7 +593,7 @@ define internal void @config_can_addr_mappings_ecu_addr_mask_tostr_cb(ptr nounde
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.184, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #13
+  %9 = tail call i64 @strlen(ptr noundef %8) #14
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -747,7 +747,7 @@ define internal void @config_pdu_transport_config_items_pdu_id_tostr_cb(ptr noun
   %6 = load i32, ptr %0, align 4
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.184, i32 noundef %6)
   store ptr %7, ptr %1, align 8
-  %8 = tail call i64 @strlen(ptr noundef %7) #13
+  %8 = tail call i64 @strlen(ptr noundef %7) #14
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
   ret void
@@ -772,7 +772,7 @@ define internal void @config_pdu_transport_config_items_source_address_size_tost
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.202, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #13
+  %9 = tail call i64 @strlen(ptr noundef %8) #14
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -794,7 +794,7 @@ define internal void @config_pdu_transport_config_items_source_address_fixed_tos
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.184, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #13
+  %9 = tail call i64 @strlen(ptr noundef %8) #14
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -816,7 +816,7 @@ define internal void @config_pdu_transport_config_items_target_address_size_tost
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.202, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #13
+  %9 = tail call i64 @strlen(ptr noundef %8) #14
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -838,7 +838,7 @@ define internal void @config_pdu_transport_config_items_target_address_fixed_tos
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.184, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #13
+  %9 = tail call i64 @strlen(ptr noundef %8) #14
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -860,7 +860,7 @@ define internal void @config_pdu_transport_config_items_ecu_address_size_tostr_c
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.202, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #13
+  %9 = tail call i64 @strlen(ptr noundef %8) #14
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -882,7 +882,7 @@ define internal void @config_pdu_transport_config_items_ecu_address_fixed_tostr_
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.184, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #13
+  %9 = tail call i64 @strlen(ptr noundef %8) #14
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -1131,7 +1131,7 @@ define internal i32 @dissect_iso15765_can(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.153, ptr noundef nonnull @.str.154, i32 noundef 995, ptr noundef nonnull @.str.155) #12
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.153, ptr noundef nonnull @.str.154, i32 noundef 995, ptr noundef nonnull @.str.155) #13
   unreachable
 
 6:                                                ; preds = %4
@@ -1154,7 +1154,7 @@ define internal i32 @dissect_iso15765_can(ptr noundef %0, ptr noundef %1, ptr no
   br label %.sink.split
 
 10:                                               ; preds = %8
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.154, i32 noundef 1012) #12
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.154, i32 noundef 1012) #13
   unreachable
 
 .sink.split:                                      ; preds = %8, %9
@@ -1173,7 +1173,7 @@ define internal i32 @dissect_iso15765_flexray(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.153, ptr noundef nonnull @.str.154, i32 noundef 1028, ptr noundef nonnull @.str.155) #12
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.153, ptr noundef nonnull @.str.154, i32 noundef 1028, ptr noundef nonnull @.str.155) #13
   unreachable
 
 6:                                                ; preds = %4
@@ -1200,7 +1200,7 @@ define internal i32 @dissect_iso15765_ipdum(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.153, ptr noundef nonnull @.str.154, i32 noundef 1039, ptr noundef nonnull @.str.155) #12
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.153, ptr noundef nonnull @.str.154, i32 noundef 1039, ptr noundef nonnull @.str.155) #13
   unreachable
 
 6:                                                ; preds = %4
@@ -1216,7 +1216,7 @@ define internal i32 @dissect_iso15765_pdu_transport(ptr noundef %0, ptr noundef 
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.153, ptr noundef nonnull @.str.154, i32 noundef 1048, ptr noundef nonnull @.str.155) #12
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.153, ptr noundef nonnull @.str.154, i32 noundef 1048, ptr noundef nonnull @.str.155) #13
   unreachable
 
 6:                                                ; preds = %4
@@ -1290,7 +1290,7 @@ define internal fastcc i32 @dissect_iso15765(ptr noundef %0, ptr noundef %1, ptr
 
 46:                                               ; preds = %38
   %47 = tail call ptr @wmem_file_scope()
-  %48 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %47, i64 noundef 16) #14
+  %48 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %47, i64 noundef 16) #15
   store i32 %4, ptr %48, align 4
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 10
   store i8 0, ptr %49, align 2
@@ -1799,7 +1799,7 @@ handle_pdu_transport_addresses.exit:              ; preds = %178, %find_pdu_tran
 
 305:                                              ; preds = %298
   %306 = call ptr @wmem_file_scope()
-  %307 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %306, i64 noundef 12) #14
+  %307 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %306, i64 noundef 12) #15
   store ptr %307, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(12) %307, ptr noundef nonnull align 4 dereferenceable(12) %17, i64 12, i1 false)
   br label %308
@@ -1812,7 +1812,7 @@ handle_pdu_transport_addresses.exit:              ; preds = %178, %find_pdu_tran
   %313 = inttoptr i64 %312 to ptr
   %314 = call ptr @wmem_map_insert(ptr noundef %310, ptr noundef %309, ptr noundef %313)
   %315 = call ptr @wmem_file_scope()
-  %316 = call noalias dereferenceable_or_null(36) ptr @wmem_alloc0(ptr noundef %315, i64 noundef 36) #14
+  %316 = call noalias dereferenceable_or_null(36) ptr @wmem_alloc0(ptr noundef %315, i64 noundef 36) #15
   %317 = load i32, ptr @dissect_iso15765.msg_seqid, align 4
   %318 = getelementptr inbounds nuw i8, ptr %.0321, i64 4
   store i32 %317, ptr %318, align 4
@@ -2033,7 +2033,7 @@ handle_pdu_transport_addresses.exit:              ; preds = %178, %find_pdu_tran
 
 440:                                              ; preds = %433
   %441 = call ptr @wmem_file_scope()
-  %442 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %441, i64 noundef 12) #14
+  %442 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %441, i64 noundef 12) #15
   store ptr %442, ptr %23, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(12) %442, ptr noundef nonnull align 4 dereferenceable(12) %25, i64 12, i1 false)
   br label %443
@@ -2046,7 +2046,7 @@ handle_pdu_transport_addresses.exit:              ; preds = %178, %find_pdu_tran
   %448 = inttoptr i64 %447 to ptr
   %449 = call ptr @wmem_map_insert(ptr noundef %445, ptr noundef %444, ptr noundef %448)
   %450 = call ptr @wmem_file_scope()
-  %451 = call noalias dereferenceable_or_null(36) ptr @wmem_alloc0(ptr noundef %450, i64 noundef 36) #14
+  %451 = call noalias dereferenceable_or_null(36) ptr @wmem_alloc0(ptr noundef %450, i64 noundef 36) #15
   %452 = load i32, ptr @dissect_iso15765.msg_seqid, align 4
   %453 = getelementptr inbounds nuw i8, ptr %.0321, i64 4
   store i32 %452, ptr %453, align 4
@@ -2140,7 +2140,7 @@ handle_pdu_transport_addresses.exit:              ; preds = %178, %find_pdu_tran
   br i1 %.not361, label %502, label %503
 
 502:                                              ; preds = %496
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.153, ptr noundef nonnull @.str.154, i32 noundef 890, ptr noundef nonnull @.str.168) #12
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.153, ptr noundef nonnull @.str.154, i32 noundef 890, ptr noundef nonnull @.str.168) #13
   unreachable
 
 503:                                              ; preds = %496
@@ -2481,11 +2481,11 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #12
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2499,9 +2499,10 @@ attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #9 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { noreturn }
-attributes #13 = { nounwind willreturn memory(read) }
-attributes #14 = { allocsize(1) }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { noreturn }
+attributes #14 = { nounwind willreturn memory(read) }
+attributes #15 = { allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

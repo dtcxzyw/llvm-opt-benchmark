@@ -117,8 +117,8 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal void @dm_mirror_exit() #0 section ".exit.text" align 16 {
   %1 = load ptr, ptr @dm_raid1_wq, align 8
-  tail call void @destroy_workqueue(ptr noundef %1) #13
-  tail call void @dm_unregister_target(ptr noundef nonnull @mirror_target) #13
+  tail call void @destroy_workqueue(ptr noundef %1) #14
+  tail call void @dm_unregister_target(ptr noundef nonnull @mirror_target) #14
   ret void
 }
 
@@ -130,23 +130,23 @@ declare dso_local void @dm_unregister_target(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal range(i32 -2147483648, 1) i32 @dm_mirror_init() #0 section ".init.text" align 16 {
-  %1 = tail call ptr (ptr, i32, i32, ...) @alloc_workqueue(ptr noundef nonnull @.str.55, i32 noundef 0, i32 noundef 0) #13
+  %1 = tail call ptr (ptr, i32, i32, ...) @alloc_workqueue(ptr noundef nonnull @.str.55, i32 noundef 0, i32 noundef 0) #14
   store ptr %1, ptr @dm_raid1_wq, align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %0
-  %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.56) #14
+  %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.56) #15
   br label %10
 
 5:                                                ; preds = %0
-  %6 = tail call i32 @dm_register_target(ptr noundef nonnull @mirror_target) #13
+  %6 = tail call i32 @dm_register_target(ptr noundef nonnull @mirror_target) #14
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr @dm_raid1_wq, align 8
-  tail call void @destroy_workqueue(ptr noundef %9) #13
+  tail call void @destroy_workqueue(ptr noundef %9) #14
   br label %10
 
 10:                                               ; preds = %8, %5, %3
@@ -192,7 +192,7 @@ define internal i32 @mirror_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %2, align 8
   %23 = getelementptr i8, ptr %2, i64 16
-  %24 = call ptr @dm_dirty_log_create(ptr noundef %22, ptr noundef %0, ptr noundef nonnull @mirror_flush, i32 noundef %18, ptr noundef %23) #13
+  %24 = call ptr @dm_dirty_log_create(ptr noundef %22, ptr noundef %0, ptr noundef nonnull @mirror_flush, i32 noundef %18, ptr noundef %23) #14
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.thread, label %28
 
@@ -225,7 +225,7 @@ define internal i32 @mirror_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
 40:                                               ; preds = %32, %28
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @.str.2, ptr %41, align 8
-  call void @dm_dirty_log_destroy(ptr noundef nonnull %24) #13
+  call void @dm_dirty_log_destroy(ptr noundef nonnull %24) #14
   br label %199
 
 42:                                               ; preds = %32
@@ -239,18 +239,18 @@ define internal i32 @mirror_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @.str.3, ptr %48, align 8
-  call void @dm_dirty_log_destroy(ptr noundef nonnull %24) #13
+  call void @dm_dirty_log_destroy(ptr noundef nonnull %24) #14
   br label %199
 
 49:                                               ; preds = %42
   %50 = load ptr, ptr %24, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 72
   %52 = load ptr, ptr %51, align 8
-  %53 = call i32 %52(ptr noundef nonnull %24) #13
+  %53 = call i32 %52(ptr noundef nonnull %24) #14
   %54 = mul nuw nsw i32 %36, 40
   %55 = add nuw nsw i32 %54, 288
   %56 = zext nneg i32 %55 to i64
-  %57 = call noalias align 8 ptr @__kmalloc(i64 noundef %56, i32 noundef 3520) #15
+  %57 = call noalias align 8 ptr @__kmalloc(i64 noundef %56, i32 noundef 3520) #16
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %61
 
@@ -285,7 +285,7 @@ define internal i32 @mirror_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   store volatile i32 0, ptr %75, align 4
   %76 = getelementptr inbounds nuw i8, ptr %57, i64 152
   store volatile i32 0, ptr %76, align 8
-  %77 = call ptr @dm_io_client_create() #13
+  %77 = call ptr @dm_io_client_create() #14
   %78 = getelementptr inbounds nuw i8, ptr %57, i64 120
   store ptr %77, ptr %78, align 8
   %79 = icmp ugt ptr %77, inttoptr (i64 -4096 to ptr)
@@ -294,7 +294,7 @@ define internal i32 @mirror_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
 80:                                               ; preds = %61
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @.str.14, ptr %81, align 8
-  call void @kfree(ptr noundef nonnull %57) #13
+  call void @kfree(ptr noundef nonnull %57) #14
   br label %99
 
 82:                                               ; preds = %61
@@ -302,7 +302,7 @@ define internal i32 @mirror_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %85 = load i64, ptr %84, align 8
   %86 = load i64, ptr %71, align 8
-  %87 = call ptr @dm_region_hash_create(ptr noundef nonnull %57, ptr noundef nonnull @dispatch_bios, ptr noundef nonnull @wakeup_mirrord, ptr noundef nonnull @wakeup_all_recovery_waiters, i64 noundef %85, i32 noundef 1, ptr noundef nonnull %24, i32 noundef %53, i64 noundef %86) #13
+  %87 = call ptr @dm_region_hash_create(ptr noundef nonnull %57, ptr noundef nonnull @dispatch_bios, ptr noundef nonnull @wakeup_mirrord, ptr noundef nonnull @wakeup_all_recovery_waiters, i64 noundef %85, i32 noundef 1, ptr noundef nonnull %24, i32 noundef %53, i64 noundef %86) #14
   %88 = getelementptr inbounds nuw i8, ptr %57, i64 104
   store ptr %87, ptr %88, align 8
   %89 = icmp ugt ptr %87, inttoptr (i64 -4096 to ptr)
@@ -312,8 +312,8 @@ define internal i32 @mirror_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @.str.15, ptr %91, align 8
   %92 = load ptr, ptr %78, align 8
-  call void @dm_io_client_destroy(ptr noundef %92) #13
-  call void @kfree(ptr noundef nonnull %57) #13
+  call void @dm_io_client_destroy(ptr noundef %92) #14
+  call void @kfree(ptr noundef nonnull %57) #14
   br label %99
 
 93:                                               ; preds = %82
@@ -327,7 +327,7 @@ define internal i32 @mirror_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   br label %100
 
 99:                                               ; preds = %80, %90, %59
-  call void @dm_dirty_log_destroy(ptr noundef nonnull %24) #13
+  call void @dm_dirty_log_destroy(ptr noundef nonnull %24) #14
   br label %199
 
 100:                                              ; preds = %126, %96
@@ -347,10 +347,10 @@ define internal i32 @mirror_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
 108:                                              ; preds = %100
   %109 = load ptr, ptr %103, align 8
   %110 = load ptr, ptr %0, align 8
-  %111 = call i32 @dm_table_get_mode(ptr noundef %110) #13
+  %111 = call i32 @dm_table_get_mode(ptr noundef %110) #14
   %112 = getelementptr %struct.mirror, ptr %98, i64 %101
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  %114 = call i32 @dm_get_device(ptr noundef %0, ptr noundef %109, i32 noundef %111, ptr noundef nonnull %113) #13
+  %114 = call i32 @dm_get_device(ptr noundef %0, ptr noundef %109, i32 noundef %111, ptr noundef nonnull %113) #14
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %126, label %116
 
@@ -370,16 +370,16 @@ define internal i32 @mirror_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %120 = getelementptr i8, ptr %98, i64 %.idx
   %121 = getelementptr i8, ptr %120, i64 24
   %122 = load ptr, ptr %121, align 8
-  call void @dm_put_device(ptr noundef %0, ptr noundef %122) #13
+  call void @dm_put_device(ptr noundef %0, ptr noundef %122) #14
   %123 = icmp eq i64 %119, 0
   br i1 %123, label %.loopexit20, label %.preheader, !llvm.loop !6
 
 .loopexit20:                                      ; preds = %.preheader, %116
   %124 = load ptr, ptr %78, align 8
-  call void @dm_io_client_destroy(ptr noundef %124) #13
+  call void @dm_io_client_destroy(ptr noundef %124) #14
   %125 = load ptr, ptr %88, align 8
-  call void @dm_region_hash_destroy(ptr noundef %125) #13
-  call void @kfree(ptr noundef nonnull %57) #13
+  call void @dm_region_hash_destroy(ptr noundef %125) #14
+  call void @kfree(ptr noundef nonnull %57) #14
   br label %199
 
 126:                                              ; preds = %108
@@ -411,8 +411,8 @@ define internal i32 @mirror_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %139 = phi i32 [ %44, %93 ], [ %132, %.loopexit21.loopexit ]
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %57, ptr %140, align 8
-  %141 = call i64 @dm_rh_get_region_size(ptr noundef %137) #13
-  %142 = call i32 @dm_set_target_max_io_len(ptr noundef %0, i64 noundef %141) #13
+  %141 = call i64 @dm_rh_get_region_size(ptr noundef %137) #14
+  %142 = call i32 @dm_set_target_max_io_len(ptr noundef %0, i64 noundef %141) #14
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %144, label %184
 
@@ -423,14 +423,14 @@ define internal i32 @mirror_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   store i32 1, ptr %146, align 8
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 72, ptr %147, align 4
-  %148 = call ptr (ptr, i32, i32, ...) @alloc_workqueue(ptr noundef nonnull @.str.4, i32 noundef 8, i32 noundef 0) #13
+  %148 = call ptr (ptr, i32, i32, ...) @alloc_workqueue(ptr noundef nonnull @.str.4, i32 noundef 8, i32 noundef 0) #14
   %149 = getelementptr inbounds nuw i8, ptr %57, i64 160
   store ptr %148, ptr %149, align 8
   %150 = icmp eq ptr %148, null
   br i1 %150, label %151, label %153
 
 151:                                              ; preds = %144
-  %152 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5) #14
+  %152 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5) #15
   br label %184
 
 153:                                              ; preds = %144
@@ -443,7 +443,7 @@ define internal i32 @mirror_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %157 = getelementptr inbounds nuw i8, ptr %57, i64 192
   store ptr @do_mirror, ptr %157, align 8
   %158 = getelementptr inbounds nuw i8, ptr %57, i64 200
-  call void @init_timer_key(ptr noundef nonnull %158, ptr noundef nonnull @delayed_wake_fn, i32 noundef 0, ptr noundef null, ptr noundef null) #13
+  call void @init_timer_key(ptr noundef nonnull %158, ptr noundef nonnull @delayed_wake_fn, i32 noundef 0, ptr noundef null, ptr noundef null) #14
   %159 = getelementptr inbounds nuw i8, ptr %57, i64 240
   store i64 0, ptr %159, align 8
   %160 = getelementptr inbounds nuw i8, ptr %57, i64 248
@@ -469,7 +469,7 @@ define internal i32 @mirror_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   br label %181
 
 171:                                              ; preds = %166
-  %172 = call ptr @dm_kcopyd_client_create(ptr noundef nonnull @dm_kcopyd_throttle) #13
+  %172 = call ptr @dm_kcopyd_client_create(ptr noundef nonnull @dm_kcopyd_throttle) #14
   %173 = getelementptr inbounds nuw i8, ptr %57, i64 112
   store ptr %172, ptr %173, align 8
   %174 = icmp ugt ptr %172, inttoptr (i64 -4096 to ptr)
@@ -482,13 +482,13 @@ define internal i32 @mirror_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
 
 178:                                              ; preds = %171
   %179 = load ptr, ptr %149, align 8
-  %180 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %179, ptr noundef nonnull %154) #13
+  %180 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %179, ptr noundef nonnull %154) #14
   br label %199
 
 181:                                              ; preds = %175, %169, %153
   %182 = phi i32 [ %164, %153 ], [ -22, %169 ], [ %177, %175 ]
   %183 = load ptr, ptr %149, align 8
-  call void @destroy_workqueue(ptr noundef %183) #13
+  call void @destroy_workqueue(ptr noundef %183) #14
   br label %184
 
 184:                                              ; preds = %181, %151, %.loopexit21
@@ -508,16 +508,16 @@ define internal i32 @mirror_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %.idx16 = mul nsw i64 %193, 40
   %194 = getelementptr i8, ptr %190, i64 %.idx16
   %195 = load ptr, ptr %194, align 8
-  call void @dm_put_device(ptr noundef %0, ptr noundef %195) #13
+  call void @dm_put_device(ptr noundef %0, ptr noundef %195) #14
   %196 = icmp eq i64 %193, 0
   br i1 %196, label %.loopexit, label %191, !llvm.loop !6
 
 .loopexit:                                        ; preds = %191, %184
   %197 = load ptr, ptr %78, align 8
-  call void @dm_io_client_destroy(ptr noundef %197) #13
+  call void @dm_io_client_destroy(ptr noundef %197) #14
   %198 = load ptr, ptr %88, align 8
-  call void @dm_region_hash_destroy(ptr noundef %198) #13
-  call void @kfree(ptr noundef nonnull %57) #13
+  call void @dm_region_hash_destroy(ptr noundef %198) #14
+  call void @kfree(ptr noundef nonnull %57) #14
   br label %199
 
 199:                                              ; preds = %.thread, %.loopexit, %178, %.loopexit20, %99, %47, %40
@@ -533,17 +533,17 @@ define internal void @mirror_dtr(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  %5 = tail call i32 @timer_delete_sync(ptr noundef nonnull %4) #13
+  %5 = tail call i32 @timer_delete_sync(ptr noundef nonnull %4) #14
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %7 = load ptr, ptr %6, align 8
-  tail call void @__flush_workqueue(ptr noundef %7) #13
+  tail call void @__flush_workqueue(ptr noundef %7) #14
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  %9 = tail call zeroext i1 @flush_work(ptr noundef nonnull %8) #13
+  %9 = tail call zeroext i1 @flush_work(ptr noundef nonnull %8) #14
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %11 = load ptr, ptr %10, align 8
-  tail call void @dm_kcopyd_client_destroy(ptr noundef %11) #13
+  tail call void @dm_kcopyd_client_destroy(ptr noundef %11) #14
   %12 = load ptr, ptr %6, align 8
-  tail call void @destroy_workqueue(ptr noundef %12) #13
+  tail call void @destroy_workqueue(ptr noundef %12) #14
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 280
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
@@ -560,18 +560,18 @@ define internal void @mirror_dtr(ptr noundef %0) #2 align 16 {
   %.idx = mul nsw i64 %21, 40
   %22 = getelementptr i8, ptr %18, i64 %.idx
   %23 = load ptr, ptr %22, align 8
-  tail call void @dm_put_device(ptr noundef %0, ptr noundef %23) #13
+  tail call void @dm_put_device(ptr noundef %0, ptr noundef %23) #14
   %24 = icmp eq i64 %21, 0
   br i1 %24, label %.loopexit, label %19, !llvm.loop !6
 
 .loopexit:                                        ; preds = %19, %1
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %26 = load ptr, ptr %25, align 8
-  tail call void @dm_io_client_destroy(ptr noundef %26) #13
+  tail call void @dm_io_client_destroy(ptr noundef %26) #14
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %28 = load ptr, ptr %27, align 8
-  tail call void @dm_region_hash_destroy(ptr noundef %28) #13
-  tail call void @kfree(ptr noundef %3) #13
+  tail call void @dm_region_hash_destroy(ptr noundef %28) #14
+  tail call void @kfree(ptr noundef %3) #14
   ret void
 }
 
@@ -585,20 +585,20 @@ define internal noundef range(i32 0, 5) i32 @mirror_map(ptr noundef readonly cap
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call ptr @dm_rh_dirty_log(ptr noundef %10) #13
-  %12 = tail call ptr @dm_per_bio_data(ptr noundef %1, i64 noundef 72) #13
+  %11 = tail call ptr @dm_rh_dirty_log(ptr noundef %10) #14
+  %12 = tail call ptr @dm_per_bio_data(ptr noundef %1, i64 noundef 72) #14
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr null, ptr %13, align 8
   br i1 %6, label %32, label %14
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr %9, align 8
-  %16 = tail call i64 @dm_rh_bio_to_region(ptr noundef %15, ptr noundef %1) #13
+  %16 = tail call i64 @dm_rh_bio_to_region(ptr noundef %15, ptr noundef %1) #14
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store i64 %16, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %20 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %19) #13
+  %20 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %19) #14
   %21 = load ptr, ptr %18, align 8
   %22 = icmp eq ptr %21, null
   store ptr null, ptr %1, align 8
@@ -608,14 +608,14 @@ define internal noundef range(i32 0, 5) i32 @mirror_map(ptr noundef readonly cap
   %26 = select i1 %25, ptr %18, ptr %24
   store ptr %1, ptr %26, align 8
   store ptr %1, ptr %23, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %19, i64 noundef %20) #13
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %19, i64 noundef %20) #14
   br i1 %22, label %27, label %.thread
 
 27:                                               ; preds = %14
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 168
-  %31 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %29, ptr noundef nonnull %30) #13
+  %31 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %29, ptr noundef nonnull %30) #14
   br label %.thread
 
 32:                                               ; preds = %2
@@ -623,8 +623,8 @@ define internal noundef range(i32 0, 5) i32 @mirror_map(ptr noundef readonly cap
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 88
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %9, align 8
-  %37 = tail call i64 @dm_rh_bio_to_region(ptr noundef %36, ptr noundef %1) #13
-  %38 = tail call i32 %35(ptr noundef %11, i64 noundef %37, i32 noundef 0) #13
+  %37 = tail call i64 @dm_rh_bio_to_region(ptr noundef %36, ptr noundef %1) #14
+  %38 = tail call i32 %35(ptr noundef %11, i64 noundef %37, i32 noundef 0) #14
   %39 = icmp slt i32 %38, 0
   %40 = icmp ne i32 %38, -11
   %41 = and i1 %39, %40
@@ -645,7 +645,7 @@ define internal noundef range(i32 0, 5) i32 @mirror_map(ptr noundef readonly cap
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %50 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %49) #13
+  %50 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %49) #14
   %51 = load ptr, ptr %48, align 8
   %52 = icmp eq ptr %51, null
   store ptr null, ptr %1, align 8
@@ -655,14 +655,14 @@ define internal noundef range(i32 0, 5) i32 @mirror_map(ptr noundef readonly cap
   %56 = select i1 %55, ptr %48, ptr %54
   store ptr %1, ptr %56, align 8
   store ptr %1, ptr %53, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %49, i64 noundef %50) #13
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %49, i64 noundef %50) #14
   br i1 %52, label %57, label %.thread
 
 57:                                               ; preds = %47
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 168
-  %61 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %59, ptr noundef nonnull %60) #13
+  %61 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %59, ptr noundef nonnull %60) #14
   br label %.thread
 
 62:                                               ; preds = %42
@@ -742,7 +742,7 @@ define internal noundef range(i32 0, 5) i32 @mirror_map(ptr noundef readonly cap
 
 113:                                              ; preds = %111, %90
   store ptr %106, ptr %91, align 8
-  tail call void @bio_associate_blkg(ptr noundef %1) #13
+  tail call void @bio_associate_blkg(ptr noundef %1) #14
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %115 = load i32, ptr %114, align 8
   %116 = icmp eq i32 %115, 0
@@ -778,7 +778,7 @@ define internal noundef range(i32 0, 2) i32 @mirror_end_io(ptr noundef readonly 
   %7 = icmp eq i32 %6, 0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call ptr @dm_per_bio_data(ptr noundef %1, i64 noundef 72) #13
+  %10 = tail call ptr @dm_per_bio_data(ptr noundef %1, i64 noundef 72) #14
   br i1 %7, label %23, label %11
 
 11:                                               ; preds = %3
@@ -795,7 +795,7 @@ define internal noundef range(i32 0, 2) i32 @mirror_end_io(ptr noundef readonly 
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %22 = load i64, ptr %21, align 8
-  tail call void @dm_rh_dec(ptr noundef %20, i64 noundef %22) #13
+  tail call void @dm_rh_dec(ptr noundef %20, i64 noundef %22) #14
   br label %78
 
 23:                                               ; preds = %3
@@ -818,12 +818,12 @@ define internal noundef range(i32 0, 2) i32 @mirror_end_io(ptr noundef readonly 
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %32
-  %37 = tail call i32 @___ratelimit(ptr noundef nonnull @mirror_end_io._rs, ptr noundef nonnull @__func__.mirror_end_io) #13
+  %37 = tail call i32 @___ratelimit(ptr noundef nonnull @mirror_end_io._rs, ptr noundef nonnull @__func__.mirror_end_io) #14
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %78, label %39
 
 39:                                               ; preds = %36
-  %40 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.33) #14
+  %40 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.33) #15
   br label %78
 
 41:                                               ; preds = %32
@@ -831,7 +831,7 @@ define internal noundef range(i32 0, 2) i32 @mirror_end_io(ptr noundef readonly 
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 28
-  %46 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.34, ptr noundef nonnull %45) #14
+  %46 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.34, ptr noundef nonnull %45) #15
   tail call fastcc void @fail_mirror(ptr noundef %42, i32 noundef 3)
   %47 = load ptr, ptr %42, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 152
@@ -876,7 +876,7 @@ define internal noundef range(i32 0, 2) i32 @mirror_end_io(ptr noundef readonly 
   br label %78
 
 74:                                               ; preds = %55
-  %75 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35) #14
+  %75 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35) #15
   br label %76
 
 76:                                               ; preds = %74, %26, %23
@@ -896,15 +896,15 @@ define internal void @mirror_presuspend(ptr noundef readonly captures(none) %0) 
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call ptr @dm_rh_dirty_log(ptr noundef %6) #13
+  %7 = tail call ptr @dm_rh_dirty_log(ptr noundef %6) #14
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 148
   store volatile i32 1, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %9) #13
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %9) #14
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %11 = load ptr, ptr %10, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %9) #13
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %9) #14
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %13 = icmp eq ptr %11, null
   br i1 %13, label %.critedge, label %.lr.ph
@@ -913,20 +913,20 @@ define internal void @mirror_presuspend(ptr noundef readonly captures(none) %0) 
   %14 = phi ptr [ %15, %24 ], [ %11, %1 ]
   %15 = load ptr, ptr %14, align 8
   store ptr null, ptr %14, align 8
-  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %9) #13
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %9) #14
   %16 = load volatile i32, ptr %8, align 4
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %26, label %18
 
 18:                                               ; preds = %.lr.ph
-  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %9) #13
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %9) #14
   %19 = load ptr, ptr %4, align 8
-  %20 = tail call i32 @dm_noflush_suspending(ptr noundef %19) #13
+  %20 = tail call i32 @dm_noflush_suspending(ptr noundef %19) #14
   %21 = icmp eq i32 %20, 0
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %23 = select i1 %21, i8 10, i8 11
   store i8 %23, ptr %22, align 8
-  tail call void @bio_endio(ptr noundef nonnull %14) #13
+  tail call void @bio_endio(ptr noundef nonnull %14) #14
   br label %24
 
 24:                                               ; preds = %26, %18
@@ -940,38 +940,38 @@ define internal void @mirror_presuspend(ptr noundef readonly captures(none) %0) 
   %29 = select i1 %28, ptr %10, ptr %27
   store ptr %14, ptr %29, align 8
   store ptr %14, ptr %12, align 8
-  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %9) #13
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %9) #14
   br label %24
 
 .critedge:                                        ; preds = %24, %1
   %30 = load ptr, ptr %5, align 8
-  tail call void @dm_rh_stop_recovery(ptr noundef %30) #13
-  %31 = tail call i32 @__SCT__might_resched() #13
+  tail call void @dm_rh_stop_recovery(ptr noundef %30) #14
+  %31 = tail call i32 @__SCT__might_resched() #14
   %32 = load ptr, ptr %5, align 8
-  %33 = tail call i32 @dm_rh_recovery_in_flight(ptr noundef %32) #13
+  %33 = tail call i32 @dm_rh_recovery_in_flight(ptr noundef %32) #14
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %44, label %35
 
 35:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false), !annotation !5
-  call void @init_wait_entry(ptr noundef nonnull %2, i32 noundef 0) #13
-  %36 = call i64 @prepare_to_wait_event(ptr noundef nonnull @_kmirrord_recovery_stopped, ptr noundef nonnull %2, i32 noundef 2) #13
+  call void @init_wait_entry(ptr noundef nonnull %2, i32 noundef 0) #14
+  %36 = call i64 @prepare_to_wait_event(ptr noundef nonnull @_kmirrord_recovery_stopped, ptr noundef nonnull %2, i32 noundef 2) #14
   %37 = load ptr, ptr %5, align 8
-  %38 = call i32 @dm_rh_recovery_in_flight(ptr noundef %37) #13
+  %38 = call i32 @dm_rh_recovery_in_flight(ptr noundef %37) #14
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %35, %.preheader
-  call void @schedule() #13
-  %40 = call i64 @prepare_to_wait_event(ptr noundef nonnull @_kmirrord_recovery_stopped, ptr noundef nonnull %2, i32 noundef 2) #13
+  call void @schedule() #14
+  %40 = call i64 @prepare_to_wait_event(ptr noundef nonnull @_kmirrord_recovery_stopped, ptr noundef nonnull %2, i32 noundef 2) #14
   %41 = load ptr, ptr %5, align 8
-  %42 = call i32 @dm_rh_recovery_in_flight(ptr noundef %41) #13
+  %42 = call i32 @dm_rh_recovery_in_flight(ptr noundef %41) #14
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %35
-  call void @finish_wait(ptr noundef nonnull @_kmirrord_recovery_stopped, ptr noundef nonnull %2) #13
+  call void @finish_wait(ptr noundef nonnull @_kmirrord_recovery_stopped, ptr noundef nonnull %2) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %44
 
@@ -983,18 +983,18 @@ define internal void @mirror_presuspend(ptr noundef readonly captures(none) %0) 
   br i1 %48, label %54, label %49
 
 49:                                               ; preds = %44
-  %50 = call i32 %47(ptr noundef %7) #13
+  %50 = call i32 %47(ptr noundef %7) #14
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %54, label %52
 
 52:                                               ; preds = %49
-  %53 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.36) #14
+  %53 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.36) #15
   br label %54
 
 54:                                               ; preds = %52, %49, %44
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %56 = load ptr, ptr %55, align 8
-  call void @__flush_workqueue(ptr noundef %56) #13
+  call void @__flush_workqueue(ptr noundef %56) #14
   ret void
 }
 
@@ -1004,7 +1004,7 @@ define internal void @mirror_postsuspend(ptr noundef readonly captures(none) %0)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr @dm_rh_dirty_log(ptr noundef %5) #13
+  %6 = tail call ptr @dm_rh_dirty_log(ptr noundef %5) #14
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8
@@ -1012,12 +1012,12 @@ define internal void @mirror_postsuspend(ptr noundef readonly captures(none) %0)
   br i1 %10, label %16, label %11
 
 11:                                               ; preds = %1
-  %12 = tail call i32 %9(ptr noundef %6) #13
+  %12 = tail call i32 %9(ptr noundef %6) #14
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.37) #14
+  %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.37) #15
   br label %16
 
 16:                                               ; preds = %14, %11, %1
@@ -1030,7 +1030,7 @@ define internal void @mirror_resume(ptr noundef readonly captures(none) %0) #2 a
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr @dm_rh_dirty_log(ptr noundef %5) #13
+  %6 = tail call ptr @dm_rh_dirty_log(ptr noundef %5) #14
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 148
   store volatile i32 0, ptr %7, align 4
   %8 = load ptr, ptr %6, align 8
@@ -1040,17 +1040,17 @@ define internal void @mirror_resume(ptr noundef readonly captures(none) %0) #2 a
   br i1 %11, label %17, label %12
 
 12:                                               ; preds = %1
-  %13 = tail call i32 %10(ptr noundef %6) #13
+  %13 = tail call i32 %10(ptr noundef %6) #14
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.38) #14
+  %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.38) #15
   br label %17
 
 17:                                               ; preds = %15, %12, %1
   %18 = load ptr, ptr %4, align 8
-  tail call void @dm_rh_start_recovery(ptr noundef %18) #13
+  tail call void @dm_rh_start_recovery(ptr noundef %18) #14
   ret void
 }
 
@@ -1061,7 +1061,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call ptr @dm_rh_dirty_log(ptr noundef %10) #13
+  %11 = tail call ptr @dm_rh_dirty_log(ptr noundef %10) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %6, i8 0, i64 10, i1 false), !annotation !5
   switch i32 %1, label %338 [
@@ -1078,7 +1078,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %15 = zext i32 %4 to i64
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 280
   %17 = load i32, ptr %16, align 8
-  %18 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %3, i64 noundef %15, ptr noundef nonnull @.str.39, i32 noundef %17) #13
+  %18 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %3, i64 noundef %15, ptr noundef nonnull @.str.39, i32 noundef %17) #14
   br label %19
 
 19:                                               ; preds = %14, %12
@@ -1108,7 +1108,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %36 = getelementptr i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 28
-  %39 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %32, i64 noundef %34, ptr noundef nonnull @.str.40, ptr noundef nonnull %38) #13
+  %39 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %32, i64 noundef %34, ptr noundef nonnull @.str.40, ptr noundef nonnull %38) #14
   br label %40
 
 40:                                               ; preds = %30, %26
@@ -1172,10 +1172,10 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %81 = load ptr, ptr %11, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 136
   %83 = load ptr, ptr %82, align 8
-  %84 = tail call i64 %83(ptr noundef %11) #13
+  %84 = tail call i64 %83(ptr noundef %11) #14
   %85 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %86 = load i64, ptr %85, align 8
-  %87 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %78, i64 noundef %80, ptr noundef nonnull @.str.41, i64 noundef %84, i64 noundef %86, ptr noundef nonnull %6) #13
+  %87 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %78, i64 noundef %80, ptr noundef nonnull @.str.41, i64 noundef %84, i64 noundef %86, ptr noundef nonnull %6) #14
   br label %88
 
 88:                                               ; preds = %76, %.loopexit
@@ -1187,14 +1187,14 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %94 = zext i32 %90 to i64
   %95 = getelementptr i8, ptr %3, i64 %94
   %96 = sub i32 %4, %90
-  %97 = call i32 %93(ptr noundef %11, i32 noundef 0, ptr noundef %95, i32 noundef %96) #13
+  %97 = call i32 %93(ptr noundef %11, i32 noundef 0, ptr noundef %95, i32 noundef %96) #14
   br label %338
 
 98:                                               ; preds = %5
   %99 = load ptr, ptr %11, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 144
   %101 = load ptr, ptr %100, align 8
-  %102 = tail call i32 %101(ptr noundef %11, i32 noundef 1, ptr noundef %3, i32 noundef %4) #13
+  %102 = tail call i32 %101(ptr noundef %11, i32 noundef 1, ptr noundef %3, i32 noundef %4) #14
   %103 = icmp ult i32 %102, %4
   br i1 %103, label %104, label %112
 
@@ -1205,7 +1205,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %108 = zext i32 %107 to i64
   %109 = getelementptr inbounds nuw i8, ptr %8, i64 280
   %110 = load i32, ptr %109, align 8
-  %111 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %106, i64 noundef %108, ptr noundef nonnull @.str.42, i32 noundef %110) #13
+  %111 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %106, i64 noundef %108, ptr noundef nonnull @.str.42, i32 noundef %110) #14
   br label %112
 
 112:                                              ; preds = %104, %98
@@ -1238,7 +1238,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 28
   %134 = getelementptr inbounds nuw i8, ptr %130, i64 32
   %135 = load i64, ptr %134, align 8
-  %136 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %127, i64 noundef %129, ptr noundef nonnull @.str.43, ptr noundef nonnull %133, i64 noundef %135) #13
+  %136 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %127, i64 noundef %129, ptr noundef nonnull @.str.43, ptr noundef nonnull %133, i64 noundef %135) #14
   %.pre = load i32, ptr %115, align 8
   br label %137
 
@@ -1272,7 +1272,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %157 = getelementptr i8, ptr %3, i64 %156
   %158 = sub nuw i32 %4, %144
   %159 = zext i32 %158 to i64
-  %160 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %157, i64 noundef %159, ptr noundef nonnull @.str.44, i32 noundef %151) #13
+  %160 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %157, i64 noundef %159, ptr noundef nonnull @.str.44, i32 noundef %151) #14
   %.pre32 = load i64, ptr %145, align 8
   br label %161
 
@@ -1293,7 +1293,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %171 = getelementptr i8, ptr %3, i64 %170
   %172 = sub nuw i32 %4, %164
   %173 = zext i32 %172 to i64
-  %174 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %171, i64 noundef %173, ptr noundef nonnull @.str.45) #13
+  %174 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %171, i64 noundef %173, ptr noundef nonnull @.str.45) #14
   %.pre33.pre = load i64, ptr %145, align 8
   br label %175
 
@@ -1317,7 +1317,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %187 = getelementptr i8, ptr %3, i64 %186
   %188 = sub nuw i32 %4, %180
   %189 = zext i32 %188 to i64
-  %190 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %187, i64 noundef %189, ptr noundef nonnull @.str.46) #13
+  %190 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %187, i64 noundef %189, ptr noundef nonnull @.str.46) #14
   br label %338
 
 191:                                              ; preds = %5
@@ -1336,7 +1336,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %202 = load i32, ptr %201, align 4
   %203 = getelementptr i8, ptr %196, i64 32
   %204 = load i32, ptr %203, align 8
-  %205 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %3, i64 noundef %194, ptr noundef nonnull @.str.47, ptr noundef %198, i32 noundef %200, i32 noundef %202, i32 noundef %204) #13
+  %205 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %3, i64 noundef %194, ptr noundef nonnull @.str.47, ptr noundef %198, i32 noundef %200, i32 noundef %202, i32 noundef %204) #14
   br label %206
 
 206:                                              ; preds = %193, %191
@@ -1351,7 +1351,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %213 = zext i32 %212 to i64
   %214 = getelementptr inbounds nuw i8, ptr %8, i64 280
   %215 = load i32, ptr %214, align 8
-  %216 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %211, i64 noundef %213, ptr noundef nonnull @.str.48, i32 noundef %215) #13
+  %216 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %211, i64 noundef %213, ptr noundef nonnull @.str.48, i32 noundef %215) #14
   br label %217
 
 217:                                              ; preds = %209, %206
@@ -1383,7 +1383,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %236 = load ptr, ptr %235, align 8
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 28
   %238 = trunc nuw i64 %226 to i32
-  %239 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %231, i64 noundef %233, ptr noundef nonnull @.str.49, i32 noundef %238, ptr noundef nonnull %237) #13
+  %239 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %231, i64 noundef %233, ptr noundef nonnull @.str.49, i32 noundef %238, ptr noundef nonnull %237) #14
   br label %240
 
 240:                                              ; preds = %229, %225
@@ -1432,7 +1432,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
 271:                                              ; preds = %266, %262, %258, %253, %244
   %272 = phi i32 [ 65, %244 ], [ 70, %253 ], [ 68, %258 ], [ %270, %266 ], [ 83, %262 ]
   %273 = trunc nuw i64 %226 to i32
-  %274 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %246, i64 noundef %248, ptr noundef nonnull @.str.50, i32 noundef %273, i32 noundef %272) #13
+  %274 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %246, i64 noundef %248, ptr noundef nonnull @.str.50, i32 noundef %273, i32 noundef %272) #14
   br label %275
 
 275:                                              ; preds = %271, %240
@@ -1459,7 +1459,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %291 = and i64 %290, 1
   %292 = icmp eq i64 %291, 0
   %293 = select i1 %292, i32 110, i32 121
-  %294 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %286, i64 noundef %288, ptr noundef nonnull @.str.51, i32 noundef %293) #13
+  %294 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %286, i64 noundef %288, ptr noundef nonnull @.str.51, i32 noundef %293) #14
   br label %295
 
 295:                                              ; preds = %284, %.loopexit25
@@ -1478,7 +1478,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %306 = and i64 %305, 2
   %307 = icmp eq i64 %306, 0
   %308 = select i1 %307, i32 110, i32 121
-  %309 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %301, i64 noundef %303, ptr noundef nonnull @.str.52, i32 noundef %308) #13
+  %309 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %301, i64 noundef %303, ptr noundef nonnull @.str.52, i32 noundef %308) #14
   br label %310
 
 310:                                              ; preds = %299, %295
@@ -1492,7 +1492,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %316 = getelementptr i8, ptr %3, i64 %315
   %317 = sub nuw i32 %4, %312
   %318 = zext i32 %317 to i64
-  %319 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %316, i64 noundef %318, ptr noundef nonnull @.str.53) #13
+  %319 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %316, i64 noundef %318, ptr noundef nonnull @.str.53) #14
   br label %320
 
 320:                                              ; preds = %314, %310
@@ -1504,7 +1504,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %326 = zext i32 %322 to i64
   %327 = getelementptr i8, ptr %3, i64 %326
   %328 = sub i32 %4, %322
-  %329 = tail call i32 %325(ptr noundef %11, i32 noundef 2, ptr noundef %327, i32 noundef %328) #13
+  %329 = tail call i32 %325(ptr noundef %11, i32 noundef 2, ptr noundef %327, i32 noundef %328) #14
   %330 = add i32 %329, %322
   %331 = icmp ult i32 %330, %4
   br i1 %331, label %332, label %338
@@ -1514,7 +1514,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %334 = getelementptr i8, ptr %3, i64 %333
   %335 = sub nuw i32 %4, %330
   %336 = zext i32 %335 to i64
-  %337 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %334, i64 noundef %336, ptr noundef nonnull @.str.54) #13
+  %337 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %334, i64 noundef %336, ptr noundef nonnull @.str.54) #14
   br label %338
 
 338:                                              ; preds = %332, %320, %185, %178, %.loopexit24, %88, %5
@@ -1548,7 +1548,7 @@ define internal i32 @mirror_iterate_devices(ptr noundef %0, ptr noundef readonly
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %21 = load i64, ptr %20, align 8
   %22 = load i64, ptr %8, align 8
-  %23 = tail call i32 %1(ptr noundef %0, ptr noundef %19, i64 noundef %21, i64 noundef %22, ptr noundef %2) #13
+  %23 = tail call i32 %1(ptr noundef %0, ptr noundef %19, i64 noundef %21, i64 noundef %22, ptr noundef %2) #14
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %11, label %.loopexit, !llvm.loop !21
 
@@ -1591,7 +1591,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %10 = alloca [8 x %struct.dm_io_region], align 16
   %11 = getelementptr i8, ptr %0, i64 -168
   %12 = getelementptr i8, ptr %0, i64 -136
-  %13 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %12) #13
+  %13 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %12) #14
   %14 = getelementptr i8, ptr %0, i64 -128
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr i8, ptr %0, i64 -112
@@ -1599,20 +1599,20 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %18 = getelementptr i8, ptr %0, i64 -96
   %19 = load ptr, ptr %18, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false)
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %12, i64 noundef %13) #13
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %12, i64 noundef %13) #14
   %20 = getelementptr i8, ptr %0, i64 -64
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr i8, ptr %0, i64 -144
   %23 = load i64, ptr %22, align 8
   %24 = trunc i64 %23 to i32
   %25 = and i32 %24, 1
-  tail call void @dm_rh_update_states(ptr noundef %21, i32 noundef %25) #13
+  tail call void @dm_rh_update_states(ptr noundef %21, i32 noundef %25) #14
   %26 = load ptr, ptr %20, align 8
-  %27 = tail call ptr @dm_rh_dirty_log(ptr noundef %26) #13
+  %27 = tail call ptr @dm_rh_dirty_log(ptr noundef %26) #14
   %28 = load ptr, ptr %20, align 8
-  tail call void @dm_rh_recovery_prepare(ptr noundef %28) #13
+  tail call void @dm_rh_recovery_prepare(ptr noundef %28) #14
   %29 = load ptr, ptr %20, align 8
-  %30 = tail call ptr @dm_rh_recovery_start(ptr noundef %29) #13
+  %30 = tail call ptr @dm_rh_recovery_start(ptr noundef %29) #14
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.loopexit55, label %32
 
@@ -1632,9 +1632,9 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %10, i8 0, i64 192, i1 false), !annotation !5
-  %42 = call i64 @dm_rh_get_region_key(ptr noundef nonnull %41) #13
+  %42 = call i64 @dm_rh_get_region_key(ptr noundef nonnull %41) #14
   %43 = load ptr, ptr %20, align 8
-  %44 = call i64 @dm_rh_get_region_size(ptr noundef %43) #13
+  %44 = call i64 @dm_rh_get_region_size(ptr noundef %43) #14
   %45 = load volatile i32, ptr %34, align 8
   %46 = sext i32 %45 to i64
   %47 = getelementptr %struct.mirror, ptr %33, i64 %46
@@ -1645,7 +1645,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %52 = load i64, ptr %51, align 8
   %53 = load ptr, ptr %20, align 8
-  %54 = call i64 @dm_rh_region_to_sector(ptr noundef %53, i64 noundef %42) #13
+  %54 = call i64 @dm_rh_region_to_sector(ptr noundef %53, i64 noundef %42) #14
   %55 = add i64 %54, %52
   store i64 %55, ptr %35, align 8
   %56 = load i64, ptr %36, align 8
@@ -1688,7 +1688,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %83 = load i64, ptr %82, align 8
   %84 = load ptr, ptr %20, align 8
-  %85 = call i64 @dm_rh_region_to_sector(ptr noundef %84, i64 noundef %42) #13
+  %85 = call i64 @dm_rh_region_to_sector(ptr noundef %84, i64 noundef %42) #14
   %86 = add i64 %85, %83
   %87 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i64 %86, ptr %87, align 8
@@ -1719,11 +1719,11 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %102 = and i32 %101, 2
   %103 = xor i32 %102, 2
   %104 = load ptr, ptr %39, align 8
-  call void @dm_kcopyd_copy(ptr noundef %104, ptr noundef nonnull %9, i32 noundef %98, ptr noundef nonnull %10, i32 noundef %103, ptr noundef nonnull @recovery_complete, ptr noundef nonnull %41) #13
+  call void @dm_kcopyd_copy(ptr noundef %104, ptr noundef nonnull %9, i32 noundef %98, ptr noundef nonnull %10, i32 noundef %103, ptr noundef nonnull @recovery_complete, ptr noundef nonnull %41) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %105 = load ptr, ptr %20, align 8
-  %106 = call ptr @dm_rh_recovery_start(ptr noundef %105) #13
+  %106 = call ptr @dm_rh_recovery_start(ptr noundef %105) #14
   %107 = icmp eq ptr %106, null
   br i1 %107, label %.loopexit55, label %40, !llvm.loop !23
 
@@ -1737,7 +1737,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %112 = load ptr, ptr %27, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 136
   %114 = load ptr, ptr %113, align 8
-  %115 = call i64 %114(ptr noundef %27) #13
+  %115 = call i64 %114(ptr noundef %27) #14
   %116 = getelementptr i8, ptr %0, i64 -40
   %117 = load i64, ptr %116, align 8
   %118 = icmp eq i64 %115, %117
@@ -1746,7 +1746,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
 119:                                              ; preds = %111
   %120 = load ptr, ptr %11, align 8
   %121 = load ptr, ptr %120, align 8
-  call void @dm_table_event(ptr noundef %121) #13
+  call void @dm_table_event(ptr noundef %121) #14
   store i32 1, ptr %108, align 8
   %122 = getelementptr i8, ptr %0, i64 -24
   store i32 0, ptr %122, align 8
@@ -1794,12 +1794,12 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %151 = icmp eq ptr %150, null
   store ptr null, ptr %149, align 8
   %152 = load ptr, ptr %20, align 8
-  %153 = call i64 @dm_rh_bio_to_region(ptr noundef %152, ptr noundef nonnull %149) #13
+  %153 = call i64 @dm_rh_bio_to_region(ptr noundef %152, ptr noundef nonnull %149) #14
   %154 = load volatile i32, ptr %139, align 8
   %155 = sext i32 %154 to i64
   %156 = getelementptr %struct.mirror, ptr %138, i64 %155
   %157 = load ptr, ptr %20, align 8
-  %158 = call i32 @dm_rh_get_state(ptr noundef %157, i64 noundef %153, i32 noundef 1) #13
+  %158 = call i32 @dm_rh_get_state(ptr noundef %157, i64 noundef %153, i32 noundef 1) #14
   %159 = add i32 %158, -3
   %160 = icmp ult i32 %159, -2
   br i1 %160, label %183, label %161, !prof !14
@@ -1892,13 +1892,13 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %214 = zext nneg i32 %213 to i64
   store i64 %214, ptr %147, align 8
   store ptr %191, ptr %149, align 8
-  %215 = call i32 @dm_io(ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %7, ptr noundef null) #13
+  %215 = call i32 @dm_io(ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %7, ptr noundef null) #14
   %216 = icmp eq i32 %215, 0
   br i1 %216, label %218, label %217, !prof !11
 
 217:                                              ; preds = %211
-  call void asm sideeffect "427: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 427b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 427) #13, !srcloc !26
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.23, i32 557, i32 0, i64 12) #13, !srcloc !27
+  call void asm sideeffect "427: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 427b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 427) #14, !srcloc !26
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.23, i32 557, i32 0, i64 12) #14, !srcloc !27
   unreachable
 
 218:                                              ; preds = %211
@@ -1909,7 +1909,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
 .thread:                                          ; preds = %177, %185, %183, %189
   %219 = getelementptr inbounds nuw i8, ptr %149, i64 24
   store i8 10, ptr %219, align 8
-  call void @bio_endio(ptr noundef nonnull %149) #13
+  call void @bio_endio(ptr noundef nonnull %149) #14
   br label %220
 
 220:                                              ; preds = %.thread, %218
@@ -1920,7 +1920,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %221 = load ptr, ptr %20, align 8
-  %222 = call ptr @dm_rh_dirty_log(ptr noundef %221) #13
+  %222 = call ptr @dm_rh_dirty_log(ptr noundef %221) #14
   %223 = icmp eq ptr %17, null
   br i1 %223, label %.loopexit45, label %224
 
@@ -1967,7 +1967,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
 
 248:                                              ; preds = %234
   %249 = load ptr, ptr %20, align 8
-  %250 = call i64 @dm_rh_bio_to_region(ptr noundef %249, ptr noundef nonnull %235) #13
+  %250 = call i64 @dm_rh_bio_to_region(ptr noundef %249, ptr noundef nonnull %235) #14
   %251 = load ptr, ptr %222, align 8
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 152
   %253 = load ptr, ptr %252, align 8
@@ -1975,7 +1975,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   br i1 %254, label %263, label %255
 
 255:                                              ; preds = %248
-  %256 = call i32 %253(ptr noundef %222, i64 noundef %250) #13
+  %256 = call i32 %253(ptr noundef %222, i64 noundef %250) #14
   %257 = icmp eq i32 %256, 0
   br i1 %257, label %263, label %258
 
@@ -1994,7 +1994,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
 
 263:                                              ; preds = %255, %248
   %264 = load ptr, ptr %20, align 8
-  %265 = call i32 @dm_rh_get_state(ptr noundef %264, i64 noundef %250, i32 noundef 1) #13
+  %265 = call i32 @dm_rh_get_state(ptr noundef %264, i64 noundef %250, i32 noundef 1) #14
   %266 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %265)
   %267 = icmp eq i32 %266, 1
   br i1 %267, label %.split, label %272
@@ -2035,24 +2035,24 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   br i1 %280, label %286, label %281, !prof !11
 
 281:                                              ; preds = %.loopexit48
-  call void @_raw_spin_lock_irq(ptr noundef %12) #13
+  call void @_raw_spin_lock_irq(ptr noundef %12) #14
   %282 = getelementptr i8, ptr %0, i64 -104
   %283 = load ptr, ptr %282, align 8
   %284 = icmp eq ptr %283, null
   %285 = select i1 %284, ptr %16, ptr %283
   store ptr %278, ptr %285, align 8
   store ptr %279, ptr %282, align 8
-  call void @_raw_spin_unlock_irq(ptr noundef %12) #13
+  call void @_raw_spin_unlock_irq(ptr noundef %12) #14
   call fastcc void @delayed_wake(ptr noundef %11)
   br label %286
 
 286:                                              ; preds = %281, %.loopexit48
   %287 = load ptr, ptr %20, align 8
-  call void @dm_rh_inc_pending(ptr noundef %287, ptr noundef nonnull %4) #13
+  call void @dm_rh_inc_pending(ptr noundef %287, ptr noundef nonnull %4) #14
   %288 = load ptr, ptr %20, align 8
-  call void @dm_rh_inc_pending(ptr noundef %288, ptr noundef nonnull %5) #13
+  call void @dm_rh_inc_pending(ptr noundef %288, ptr noundef nonnull %5) #14
   %289 = load ptr, ptr %20, align 8
-  %290 = call i32 @dm_rh_flush(ptr noundef %289) #13
+  %290 = call i32 @dm_rh_flush(ptr noundef %289) #14
   %291 = icmp eq i32 %290, 0
   %292 = getelementptr i8, ptr %0, i64 -28
   br i1 %291, label %293, label %.thread40
@@ -2073,7 +2073,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   br i1 %299, label %313, label %300
 
 300:                                              ; preds = %296
-  call void @_raw_spin_lock_irq(ptr noundef %12) #13
+  call void @_raw_spin_lock_irq(ptr noundef %12) #14
   %301 = load ptr, ptr %4, align 8
   %302 = icmp eq ptr %301, null
   br i1 %302, label %309, label %303
@@ -2089,10 +2089,10 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   br label %309
 
 309:                                              ; preds = %303, %300
-  call void @_raw_spin_unlock_irq(ptr noundef %12) #13
+  call void @_raw_spin_unlock_irq(ptr noundef %12) #14
   %310 = getelementptr i8, ptr %0, i64 -8
   %311 = load ptr, ptr %310, align 8
-  %312 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %311, ptr noundef %0) #13
+  %312 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %311, ptr noundef %0) #14
   br label %.loopexit47
 
 313:                                              ; preds = %296, %293
@@ -2218,13 +2218,13 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %387 = getelementptr %struct.mirror, ptr %324, i64 %386
   store ptr %387, ptr %328, align 8
   %388 = load i32, ptr %325, align 8
-  %389 = call i32 @dm_io(ptr noundef nonnull %3, i32 noundef %388, ptr noundef nonnull %2, ptr noundef null) #13
+  %389 = call i32 @dm_io(ptr noundef nonnull %3, i32 noundef %388, ptr noundef nonnull %2, ptr noundef null) #14
   %390 = icmp eq i32 %389, 0
   br i1 %390, label %392, label %391, !prof !11
 
 391:                                              ; preds = %.loopexit46
-  call void asm sideeffect "428: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 428b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 428) #13, !srcloc !32
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.23, i32 684, i32 0, i64 12) #13, !srcloc !33
+  call void asm sideeffect "428: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 428b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 428) #14, !srcloc !32
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.23, i32 684, i32 0, i64 12) #14, !srcloc !33
   unreachable
 
 392:                                              ; preds = %.loopexit46
@@ -2259,7 +2259,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %408 = icmp eq ptr %407, null
   store ptr null, ptr %406, align 8
   %409 = load ptr, ptr %20, align 8
-  call void @dm_rh_delay(ptr noundef %409, ptr noundef nonnull %406) #13
+  call void @dm_rh_delay(ptr noundef %409, ptr noundef nonnull %406) #14
   br i1 %408, label %.loopexit161, label %.preheader80, !llvm.loop !35
 
 410:                                              ; preds = %461, %399
@@ -2286,16 +2286,16 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   br i1 %421, label %422, label %428
 
 422:                                              ; preds = %418
-  call void @_raw_spin_lock_irq(ptr noundef %12) #13
+  call void @_raw_spin_lock_irq(ptr noundef %12) #14
   store ptr null, ptr %411, align 8
   %423 = load ptr, ptr %402, align 8
   %424 = icmp eq ptr %423, null
   %425 = select i1 %424, ptr %18, ptr %423
   store ptr %411, ptr %425, align 8
   store ptr %411, ptr %402, align 8
-  call void @_raw_spin_unlock_irq(ptr noundef %12) #13
+  call void @_raw_spin_unlock_irq(ptr noundef %12) #14
   %426 = load ptr, ptr %403, align 8
-  %427 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %426, ptr noundef %0) #13
+  %427 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %426, ptr noundef %0) #14
   br label %461
 
 428:                                              ; preds = %418, %415
@@ -2321,7 +2321,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
 
 443:                                              ; preds = %441, %428
   store ptr %434, ptr %438, align 8
-  call void @bio_associate_blkg(ptr noundef nonnull %411) #13
+  call void @bio_associate_blkg(ptr noundef nonnull %411) #14
   %444 = getelementptr inbounds nuw i8, ptr %411, i64 40
   %445 = load i32, ptr %444, align 8
   %446 = icmp eq i32 %445, 0
@@ -2344,7 +2344,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %459 = phi i64 [ %457, %447 ], [ 0, %443 ]
   %460 = getelementptr inbounds nuw i8, ptr %411, i64 32
   store i64 %459, ptr %460, align 8
-  call void @submit_bio_noacct(ptr noundef nonnull %411) #13
+  call void @submit_bio_noacct(ptr noundef nonnull %411) #14
   br label %461
 
 461:                                              ; preds = %458, %422
@@ -2377,7 +2377,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
 475:                                              ; preds = %469
   store i32 0, ptr %108, align 8
   %476 = load ptr, ptr %20, align 8
-  call void @dm_rh_mark_nosync(ptr noundef %476, ptr noundef nonnull %470) #13
+  call void @dm_rh_mark_nosync(ptr noundef %476, ptr noundef nonnull %470) #14
   br label %477
 
 477:                                              ; preds = %475, %469
@@ -2417,7 +2417,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
 .thread42:                                        ; preds = %486, %477, %495, %489
   %498 = getelementptr inbounds nuw i8, ptr %470, i64 24
   store i8 10, ptr %498, align 8
-  call void @bio_endio(ptr noundef nonnull %470) #13
+  call void @bio_endio(ptr noundef nonnull %470) #14
   br label %504
 
 499:                                              ; preds = %495, %491
@@ -2430,7 +2430,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   br label %504
 
 503:                                              ; preds = %499
-  call void @bio_endio(ptr noundef nonnull %470) #13
+  call void @bio_endio(ptr noundef nonnull %470) #14
   br label %504
 
 504:                                              ; preds = %503, %502, %.thread42
@@ -2446,11 +2446,11 @@ declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, pt
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @delayed_wake_fn(ptr noundef %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 40
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %2, i32 -2, ptr elementtype(i8) %2) #13, !srcloc !40
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %2, i32 -2, ptr elementtype(i8) %2) #14, !srcloc !40
   %3 = getelementptr i8, ptr %0, i64 -40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 -32
-  %6 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %4, ptr noundef %5) #13
+  %6 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %4, ptr noundef %5) #14
   ret void
 }
 
@@ -2459,7 +2459,7 @@ define internal void @trigger_event(ptr noundef readonly captures(none) %0) #2 a
   %2 = getelementptr i8, ptr %0, i64 -248
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  tail call void @dm_table_event(ptr noundef %4) #13
+  tail call void @dm_table_event(ptr noundef %4) #14
   ret void
 }
 
@@ -2504,12 +2504,12 @@ define internal fastcc noundef range(i32 -22, 1) i32 @parse_features(ptr noundef
   %25 = phi i32 [ 0, %21 ], [ %39, %33 ]
   %26 = getelementptr i8, ptr %24, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = call i32 @strcmp(ptr noundef nonnull dereferenceable(14) @.str.29, ptr noundef %27) #13
+  %28 = call i32 @strcmp(ptr noundef nonnull dereferenceable(14) @.str.29, ptr noundef %27) #14
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %33, label %30
 
 30:                                               ; preds = %23
-  %31 = call i32 @strcmp(ptr noundef nonnull dereferenceable(9) @.str.30, ptr noundef %27) #13
+  %31 = call i32 @strcmp(ptr noundef nonnull dereferenceable(9) @.str.30, ptr noundef %27) #14
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %.loopexit
 
@@ -2553,7 +2553,7 @@ define internal void @wakeup_mirrord(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %5 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %3, ptr noundef nonnull %4) #13
+  %5 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %3, ptr noundef nonnull %4) #14
   ret void
 }
 
@@ -2608,7 +2608,7 @@ define internal noundef range(i32 -5, 1) i32 @mirror_flush(ptr noundef readonly 
 
 .loopexit3:                                       ; preds = %.preheader2, %1
   store i64 -1, ptr %2, align 8
-  %27 = call i32 @dm_io(ptr noundef nonnull %4, i32 noundef %14, ptr noundef nonnull %3, ptr noundef nonnull %2) #13
+  %27 = call i32 @dm_io(ptr noundef nonnull %4, i32 noundef %14, ptr noundef nonnull %3, ptr noundef nonnull %2) #14
   %28 = load i64, ptr %2, align 8
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %.loopexit, label %30, !prof !11
@@ -2620,7 +2620,7 @@ define internal noundef range(i32 -5, 1) i32 @mirror_flush(ptr noundef readonly 
 
 .preheader:                                       ; preds = %30, %39
   %33 = phi i64 [ %40, %39 ], [ 0, %30 ]
-  %34 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %33) #13, !srcloc !43
+  %34 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %33) #14, !srcloc !43
   %35 = icmp ult i8 %34, 2
   call void @llvm.assume(i1 %35)
   %36 = icmp eq i8 %34, 0
@@ -2658,10 +2658,10 @@ define internal fastcc void @fail_mirror(ptr noundef %0, i32 noundef range(i32 0
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %5, ptr nonnull elementtype(i32) %5) #13, !srcloc !45
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %5, ptr nonnull elementtype(i32) %5) #14, !srcloc !45
   %6 = zext nneg i32 %1 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %6, ptr nonnull elementtype(i64) %7) #13, !srcloc !46
+  %8 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %6, ptr nonnull elementtype(i64) %7) #14, !srcloc !46
   %9 = icmp ult i8 %8, 2
   tail call void @llvm.assume(i1 %9)
   %10 = icmp eq i8 %8, 0
@@ -2696,7 +2696,7 @@ define internal fastcc void @fail_mirror(ptr noundef %0, i32 noundef range(i32 0
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 28
-  %34 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, ptr noundef nonnull %33) #14
+  %34 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, ptr noundef nonnull %33) #15
   br label %60
 
 35:                                               ; preds = %23
@@ -2736,13 +2736,13 @@ define internal fastcc void @fail_mirror(ptr noundef %0, i32 noundef range(i32 0
   br label %60
 
 .thread:                                          ; preds = %45, %35, %48
-  %59 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12) #14
+  %59 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12) #15
   br label %60
 
 60:                                               ; preds = %.thread, %50, %30, %16
   %61 = load ptr, ptr @dm_raid1_wq, align 8
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  %63 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %61, ptr noundef nonnull %62) #13
+  %63 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %61, ptr noundef nonnull %62) #14
   br label %64
 
 64:                                               ; preds = %60, %11, %2
@@ -2792,7 +2792,7 @@ define internal void @dispatch_bios(ptr noundef %0, ptr noundef captures(none) %
 
 17:                                               ; preds = %16, %12
   store ptr null, ptr %13, align 8
-  %18 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %8) #13
+  %18 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %8) #14
   %19 = load ptr, ptr %7, align 8
   %20 = icmp eq ptr %19, null
   store ptr null, ptr %13, align 8
@@ -2801,12 +2801,12 @@ define internal void @dispatch_bios(ptr noundef %0, ptr noundef captures(none) %
   %23 = select i1 %22, ptr %7, ptr %21
   store ptr %13, ptr %23, align 8
   store ptr %13, ptr %9, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %8, i64 noundef %18) #13
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %8, i64 noundef %18) #14
   br i1 %20, label %24, label %27
 
 24:                                               ; preds = %17
   %25 = load ptr, ptr %10, align 8
-  %26 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %25, ptr noundef nonnull %11) #13
+  %26 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %25, ptr noundef nonnull %11) #14
   br label %27
 
 27:                                               ; preds = %24, %17
@@ -2820,7 +2820,7 @@ define internal void @dispatch_bios(ptr noundef %0, ptr noundef captures(none) %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @wakeup_all_recovery_waiters(ptr readnone captures(none) %0) #2 align 16 {
-  %2 = tail call i32 @__wake_up(ptr noundef nonnull @_kmirrord_recovery_stopped, i32 noundef 3, i32 noundef 0, ptr noundef null) #13
+  %2 = tail call i32 @__wake_up(ptr noundef nonnull @_kmirrord_recovery_stopped, i32 noundef 3, i32 noundef 0, ptr noundef null) #14
   ret void
 }
 
@@ -2836,7 +2836,7 @@ define internal fastcc void @queue_bio(ptr noundef %0, ptr noundef initializes((
   %4 = select i1 %.not, i64 40, i64 56
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %6) #13
+  %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %6) #14
   %8 = load ptr, ptr %5, align 8
   %9 = icmp eq ptr %8, null
   store ptr null, ptr %1, align 8
@@ -2846,14 +2846,14 @@ define internal fastcc void @queue_bio(ptr noundef %0, ptr noundef initializes((
   %13 = select i1 %12, ptr %5, ptr %11
   store ptr %1, ptr %13, align 8
   store ptr %1, ptr %10, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %6, i64 noundef %7) #13
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %6, i64 noundef %7) #14
   br i1 %9, label %14, label %19
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %18 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %16, ptr noundef nonnull %17) #13
+  %18 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %16, ptr noundef nonnull %17) #14
   br label %19
 
 19:                                               ; preds = %14, %3
@@ -2909,17 +2909,17 @@ declare dso_local void @dm_kcopyd_copy(ptr noundef, ptr noundef, i32 noundef, pt
 define internal void @recovery_complete(i32 noundef %0, i64 noundef %1, ptr noundef %2) #2 align 16 {
   %4 = alloca i64, align 8
   store i64 %1, ptr %4, align 8
-  %5 = tail call ptr @dm_rh_region_context(ptr noundef %2) #13
+  %5 = tail call ptr @dm_rh_region_context(ptr noundef %2) #14
   %6 = icmp eq i32 %0, 0
   br i1 %6, label %18, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @___ratelimit(ptr noundef nonnull @recovery_complete._rs, ptr noundef nonnull @__func__.recovery_complete) #13
+  %8 = tail call i32 @___ratelimit(ptr noundef nonnull @recovery_complete._rs, ptr noundef nonnull @__func__.recovery_complete) #14
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20) #14
+  %11 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20) #15
   br label %12
 
 12:                                               ; preds = %10, %7
@@ -2936,12 +2936,12 @@ define internal void @recovery_complete(i32 noundef %0, i64 noundef %1, ptr noun
   br i1 %19, label %.loopexit, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call i32 @___ratelimit(ptr noundef nonnull @recovery_complete._rs.21, ptr noundef nonnull @__func__.recovery_complete) #13
+  %21 = tail call i32 @___ratelimit(ptr noundef nonnull @recovery_complete._rs.21, ptr noundef nonnull @__func__.recovery_complete) #14
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, i64 noundef %1) #14
+  %24 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, i64 noundef %1) #15
   br label %25
 
 25:                                               ; preds = %23, %20
@@ -2966,7 +2966,7 @@ define internal void @recovery_complete(i32 noundef %0, i64 noundef %1, ptr noun
 
 39:                                               ; preds = %32
   %40 = sext i32 %34 to i64
-  %41 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %40) #13, !srcloc !43
+  %41 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %40) #14, !srcloc !43
   %42 = icmp ult i8 %41, 2
   call void @llvm.assume(i1 %42)
   %43 = icmp eq i8 %41, 0
@@ -2998,7 +2998,7 @@ define internal void @recovery_complete(i32 noundef %0, i64 noundef %1, ptr noun
   %54 = phi i1 [ %53, %.loopexit.loopexit ], [ false, %25 ], [ true, %18 ]
   %55 = select i1 %6, i1 %54, i1 false
   %56 = zext i1 %55 to i32
-  call void @dm_rh_recovery_end(ptr noundef %2, i32 noundef %56) #13
+  call void @dm_rh_recovery_end(ptr noundef %2, i32 noundef %56) #14
   ret void
 }
 
@@ -3025,7 +3025,7 @@ define internal void @read_callback(i64 noundef %0, ptr noundef %1) #2 align 16 
   br i1 %4, label %5, label %6, !prof !11
 
 5:                                                ; preds = %2
-  tail call void @bio_endio(ptr noundef %1) #13
+  tail call void @bio_endio(ptr noundef %1) #14
   br label %41
 
 6:                                                ; preds = %2
@@ -3047,7 +3047,7 @@ define internal void @read_callback(i64 noundef %0, ptr noundef %1) #2 align 16 
   br i1 %17, label %31, label %18
 
 18:                                               ; preds = %15, %6
-  %19 = tail call i32 @___ratelimit(ptr noundef nonnull @read_callback._rs, ptr noundef nonnull @__func__.read_callback) #13
+  %19 = tail call i32 @___ratelimit(ptr noundef nonnull @read_callback._rs, ptr noundef nonnull @__func__.read_callback) #14
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %26, label %21
 
@@ -3055,7 +3055,7 @@ define internal void @read_callback(i64 noundef %0, ptr noundef %1) #2 align 16 
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 28
-  %25 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.24, ptr noundef nonnull %24) #14
+  %25 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.24, ptr noundef nonnull %24) #15
   br label %26
 
 26:                                               ; preds = %21, %18
@@ -3067,7 +3067,7 @@ define internal void @read_callback(i64 noundef %0, ptr noundef %1) #2 align 16 
   br label %41
 
 31:                                               ; preds = %15
-  %32 = tail call i32 @___ratelimit(ptr noundef nonnull @read_callback._rs.25, ptr noundef nonnull @__func__.read_callback) #13
+  %32 = tail call i32 @___ratelimit(ptr noundef nonnull @read_callback._rs.25, ptr noundef nonnull @__func__.read_callback) #14
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %39, label %34
 
@@ -3075,13 +3075,13 @@ define internal void @read_callback(i64 noundef %0, ptr noundef %1) #2 align 16 
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 28
-  %38 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26, ptr noundef nonnull %37) #14
+  %38 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26, ptr noundef nonnull %37) #15
   br label %39
 
 39:                                               ; preds = %34, %31
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 10, ptr %40, align 8
-  tail call void @bio_endio(ptr noundef %1) #13
+  tail call void @bio_endio(ptr noundef %1) #14
   br label %41
 
 41:                                               ; preds = %39, %26, %5
@@ -3095,13 +3095,13 @@ declare dso_local void @bio_endio(ptr noundef) local_unnamed_addr #1
 define internal fastcc range(i32 0, 2) i32 @mirror_available(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call ptr @dm_rh_dirty_log(ptr noundef %4) #13
+  %5 = tail call ptr @dm_rh_dirty_log(ptr noundef %4) #14
   %6 = load ptr, ptr %3, align 8
-  %7 = tail call i64 @dm_rh_bio_to_region(ptr noundef %6, ptr noundef %1) #13
+  %7 = tail call i64 @dm_rh_bio_to_region(ptr noundef %6, ptr noundef %1) #14
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %5, i64 noundef %7, i32 noundef 0) #13
+  %11 = tail call i32 %10(ptr noundef %5, i64 noundef %7, i32 noundef 0) #14
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %42, label %13
 
@@ -3154,7 +3154,7 @@ define internal fastcc range(i32 0, 2) i32 @mirror_available(ptr noundef %0, ptr
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @delayed_wake(ptr noundef %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %3 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 0, ptr nonnull elementtype(i64) %2) #13, !srcloc !46
+  %3 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 0, ptr nonnull elementtype(i64) %2) #14, !srcloc !46
   %4 = icmp ult i8 %3, 2
   tail call void @llvm.assume(i1 %4)
   %5 = icmp eq i8 %3, 0
@@ -3166,7 +3166,7 @@ define internal fastcc void @delayed_wake(ptr noundef %0) unnamed_addr #2 align 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i64 %8, ptr %10, align 8
-  tail call void @add_timer(ptr noundef nonnull %9) #13
+  tail call void @add_timer(ptr noundef nonnull %9) #14
   br label %11
 
 11:                                               ; preds = %6, %1
@@ -3205,7 +3205,7 @@ define internal void @write_callback(i64 noundef %0, ptr noundef %1) #2 align 16
   br i1 %6, label %7, label %8, !prof !11
 
 7:                                                ; preds = %2
-  tail call void @bio_endio(ptr noundef %1) #13
+  tail call void @bio_endio(ptr noundef %1) #14
   br label %47
 
 8:                                                ; preds = %2
@@ -3228,12 +3228,12 @@ define internal void @write_callback(i64 noundef %0, ptr noundef %1) #2 align 16
 19:                                               ; preds = %8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 1, ptr %20, align 8
-  tail call void @bio_endio(ptr noundef %1) #13
+  tail call void @bio_endio(ptr noundef %1) #14
   br label %47
 
 21:                                               ; preds = %28, %17
   %22 = phi i64 [ 0, %17 ], [ %29, %28 ]
-  %23 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %22) #13, !srcloc !43
+  %23 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %22) #14, !srcloc !43
   %24 = icmp ult i8 %23, 2
   call void @llvm.assume(i1 %24)
   %25 = icmp eq i8 %23, 0
@@ -3253,7 +3253,7 @@ define internal void @write_callback(i64 noundef %0, ptr noundef %1) #2 align 16
 
 .loopexit:                                        ; preds = %28, %13
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %34 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %33) #13
+  %34 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %33) #14
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
@@ -3264,14 +3264,14 @@ define internal void @write_callback(i64 noundef %0, ptr noundef %1) #2 align 16
   %41 = select i1 %40, ptr %35, ptr %39
   store ptr %1, ptr %41, align 8
   store ptr %1, ptr %38, align 8
-  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %33, i64 noundef %34) #13
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %33, i64 noundef %34) #14
   br i1 %37, label %42, label %47
 
 42:                                               ; preds = %.loopexit
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  %46 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %44, ptr noundef nonnull %45) #13
+  %46 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %44, ptr noundef nonnull %45) #14
   br label %47
 
 47:                                               ; preds = %42, %.loopexit, %19, %7
@@ -3287,21 +3287,21 @@ declare dso_local void @dm_rh_mark_nosync(ptr noundef, ptr noundef) local_unname
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @hold_bio(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %3) #13
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %3) #14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %5 = load volatile i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %2
-  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %3) #13
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %3) #14
   %8 = load ptr, ptr %0, align 8
-  %9 = tail call i32 @dm_noflush_suspending(ptr noundef %8) #13
+  %9 = tail call i32 @dm_noflush_suspending(ptr noundef %8) #14
   %10 = icmp eq i32 %9, 0
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = select i1 %10, i8 10, i8 11
   store i8 %12, ptr %11, align 8
-  tail call void @bio_endio(ptr noundef nonnull %1) #13
+  tail call void @bio_endio(ptr noundef nonnull %1) #14
   br label %19
 
 13:                                               ; preds = %2
@@ -3313,7 +3313,7 @@ define internal fastcc void @hold_bio(ptr noundef %0, ptr noundef nonnull %1) un
   %18 = select i1 %16, ptr %17, ptr %15
   store ptr %1, ptr %18, align 8
   store ptr %1, ptr %14, align 8
-  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %3) #13
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %3) #14
   br label %19
 
 19:                                               ; preds = %13, %7
@@ -3380,11 +3380,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #12
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #13
 
 attributes #0 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -3398,10 +3398,11 @@ attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #9 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { cold nounwind }
-attributes #15 = { nounwind allocsize(0) }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { cold nounwind }
+attributes #16 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

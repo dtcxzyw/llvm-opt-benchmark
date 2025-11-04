@@ -336,7 +336,7 @@ vpx_rac_get_prob_branchy.exit.i:                  ; preds = %vpx_rac_renorm.exit
 
 199:                                              ; preds = %196
   %200 = ashr i32 %1, 3
-  tail call void @ff_progress_frame_await(ptr noundef nonnull %193, i32 noundef %200) #6
+  tail call void @ff_progress_frame_await(ptr noundef nonnull %193, i32 noundef %200) #7
   br label %201
 
 201:                                              ; preds = %199, %196
@@ -4106,7 +4106,7 @@ vp89_rac_get_tree.exit1440.i:                     ; preds = %vpx_rac_renorm.exit
   %2667 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %2668 = load i8, ptr %2659, align 1, !tbaa !38
   %2669 = zext i8 %2668 to i32
-  tail call void @ff_vp9_fill_mv(ptr noundef nonnull %0, ptr noundef nonnull %2667, i32 noundef %2669, i32 noundef 0) #6
+  tail call void @ff_vp9_fill_mv(ptr noundef nonnull %0, ptr noundef nonnull %2667, i32 noundef %2669, i32 noundef 0) #7
   %2670 = load i32, ptr %56, align 4, !tbaa !56
   %.not1360.i = icmp eq i32 %2670, 10
   br i1 %.not1360.i, label %.thread1916.i, label %2671
@@ -4210,7 +4210,7 @@ vpx_rac_renorm.exit1536.i:                        ; preds = %2696, %2692, %2677
   %2736 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %2737 = load i8, ptr %2730, align 1, !tbaa !38
   %2738 = zext i8 %2737 to i32
-  tail call void @ff_vp9_fill_mv(ptr noundef nonnull %0, ptr noundef nonnull %2736, i32 noundef %2738, i32 noundef 1) #6
+  tail call void @ff_vp9_fill_mv(ptr noundef nonnull %0, ptr noundef nonnull %2736, i32 noundef %2738, i32 noundef 1) #7
   %.pre1772.i = load i32, ptr %56, align 4, !tbaa !56
   %2739 = icmp eq i32 %.pre1772.i, 11
   br i1 %2739, label %2869, label %2740
@@ -4301,7 +4301,7 @@ vp89_rac_get_tree.exit1444.i:                     ; preds = %vpx_rac_renorm.exit
   %2797 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %2798 = load i8, ptr %2791, align 1, !tbaa !38
   %2799 = zext i8 %2798 to i32
-  tail call void @ff_vp9_fill_mv(ptr noundef nonnull %0, ptr noundef nonnull %2797, i32 noundef %2799, i32 noundef 2) #6
+  tail call void @ff_vp9_fill_mv(ptr noundef nonnull %0, ptr noundef nonnull %2797, i32 noundef %2799, i32 noundef 2) #7
   %2800 = load i32, ptr %56, align 4, !tbaa !56
   %.not1362.i = icmp eq i32 %2800, 10
   br i1 %.not1362.i, label %2861, label %2801
@@ -4392,7 +4392,7 @@ vp89_rac_get_tree.exit1446.i:                     ; preds = %vpx_rac_renorm.exit
   %2858 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %2859 = load i8, ptr %2852, align 1, !tbaa !38
   %2860 = zext i8 %2859 to i32
-  tail call void @ff_vp9_fill_mv(ptr noundef nonnull %0, ptr noundef nonnull %2858, i32 noundef %2860, i32 noundef 3) #6
+  tail call void @ff_vp9_fill_mv(ptr noundef nonnull %0, ptr noundef nonnull %2858, i32 noundef %2860, i32 noundef 3) #7
   br label %2898
 
 2861:                                             ; preds = %vp89_rac_get_tree.exit1444.i
@@ -4436,7 +4436,7 @@ vp89_rac_get_tree.exit1446.i:                     ; preds = %vpx_rac_renorm.exit
   %2886 = getelementptr inbounds nuw i8, ptr %11, i64 5
   %2887 = load i8, ptr %2886, align 1, !tbaa !38
   %2888 = zext i8 %2887 to i32
-  tail call void @ff_vp9_fill_mv(ptr noundef nonnull %0, ptr noundef nonnull %2885, i32 noundef %2888, i32 noundef -1) #6
+  tail call void @ff_vp9_fill_mv(ptr noundef nonnull %0, ptr noundef nonnull %2885, i32 noundef %2888, i32 noundef -1) #7
   %2889 = load i32, ptr %2885, align 4, !tbaa !38
   %2890 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 %2889, ptr %2890, align 4, !tbaa !38
@@ -5646,7 +5646,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %3685 = getelementptr inbounds nuw ptr, ptr %3633, i64 %3682
   %3686 = load ptr, ptr %3685, align 8, !tbaa !125
   %.val.us.i = load ptr, ptr %3659, align 16, !tbaa !66
-  %3687 = tail call fastcc i32 @decode_coeffs_b_8bpp(ptr %.val.us.i, ptr noundef %3675, i32 noundef 16, ptr noundef nonnull %3598, ptr noundef nonnull %3601, ptr noundef nonnull %3595, i32 noundef %3681, ptr noundef %3684, ptr noundef %3686, ptr noundef nonnull %3651, ptr noundef nonnull %3625) #6
+  %3687 = tail call fastcc i32 @decode_coeffs_b_8bpp(ptr %.val.us.i, ptr noundef %3675, i32 noundef 16, ptr noundef nonnull %3598, ptr noundef nonnull %3601, ptr noundef nonnull %3595, i32 noundef %3681, ptr noundef %3684, ptr noundef %3686, ptr noundef nonnull %3651, ptr noundef nonnull %3625) #7
   %3688 = icmp ne i32 %3687, 0
   %3689 = zext i1 %3688 to i32
   %3690 = zext i1 %3688 to i8
@@ -5733,7 +5733,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %3724 = getelementptr inbounds nuw ptr, ptr %3633, i64 %3721
   %3725 = load ptr, ptr %3724, align 8, !tbaa !125
   %.val1.us.i = load ptr, ptr %3703, align 16, !tbaa !66
-  %3726 = tail call fastcc i32 @decode_coeffs_b_8bpp(ptr %.val1.us.i, ptr noundef %3714, i32 noundef 64, ptr noundef nonnull %3598, ptr noundef nonnull %3601, ptr noundef nonnull %3595, i32 noundef %3720, ptr noundef %3723, ptr noundef %3725, ptr noundef nonnull %3651, ptr noundef nonnull %3625) #6
+  %3726 = tail call fastcc i32 @decode_coeffs_b_8bpp(ptr %.val1.us.i, ptr noundef %3714, i32 noundef 64, ptr noundef nonnull %3598, ptr noundef nonnull %3601, ptr noundef nonnull %3595, i32 noundef %3720, ptr noundef %3723, ptr noundef %3725, ptr noundef nonnull %3651, ptr noundef nonnull %3625) #7
   %3727 = icmp ne i32 %3726, 0
   %3728 = zext i1 %3727 to i32
   %3729 = zext i1 %3727 to i8
@@ -5867,7 +5867,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %3778 = getelementptr inbounds nuw ptr, ptr %3633, i64 %3775
   %3779 = load ptr, ptr %3778, align 8, !tbaa !125
   %.val2.us.i = load ptr, ptr %3757, align 16, !tbaa !66
-  %3780 = tail call fastcc i32 @decode_coeffs_b_8bpp(ptr %.val2.us.i, ptr noundef %3768, i32 noundef 256, ptr noundef nonnull %3598, ptr noundef nonnull %3601, ptr noundef nonnull %3595, i32 noundef %3774, ptr noundef %3777, ptr noundef %3779, ptr noundef nonnull %3651, ptr noundef nonnull %3625) #6
+  %3780 = tail call fastcc i32 @decode_coeffs_b_8bpp(ptr %.val2.us.i, ptr noundef %3768, i32 noundef 256, ptr noundef nonnull %3598, ptr noundef nonnull %3601, ptr noundef nonnull %3595, i32 noundef %3774, ptr noundef %3777, ptr noundef %3779, ptr noundef nonnull %3651, ptr noundef nonnull %3625) #7
   %3781 = icmp ne i32 %3780, 0
   %3782 = zext i1 %3781 to i32
   %3783 = zext i1 %3781 to i8
@@ -6062,7 +6062,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %3855 = getelementptr inbounds nuw ptr, ptr %3633, i64 %3852
   %3856 = load ptr, ptr %3855, align 8, !tbaa !125
   %.val6.us.i = load ptr, ptr %3834, align 16, !tbaa !66
-  %3857 = tail call fastcc i32 @decode_coeffs_b32_8bpp(ptr %.val6.us.i, ptr noundef %3845, i32 noundef 1024, ptr noundef nonnull %3598, ptr noundef nonnull %3601, ptr noundef nonnull %3595, i32 noundef %3851, ptr noundef %3854, ptr noundef %3856, ptr noundef nonnull %3651, ptr noundef nonnull %3625) #6
+  %3857 = tail call fastcc i32 @decode_coeffs_b32_8bpp(ptr %.val6.us.i, ptr noundef %3845, i32 noundef 1024, ptr noundef nonnull %3598, ptr noundef nonnull %3601, ptr noundef nonnull %3595, i32 noundef %3851, ptr noundef %3854, ptr noundef %3856, ptr noundef nonnull %3651, ptr noundef nonnull %3625) #7
   %3858 = icmp ne i32 %3857, 0
   %3859 = zext i1 %3858 to i32
   %3860 = zext i1 %3858 to i8
@@ -6306,7 +6306,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %3967 = zext i8 %3966 to i32
   %3968 = add nuw nsw i32 %3967, %3965
   %.val3.i = load ptr, ptr %3932, align 16, !tbaa !66
-  %3969 = tail call fastcc i32 @decode_coeffs_b_8bpp(ptr %.val3.i, ptr noundef %3962, i32 noundef 16, ptr noundef nonnull %3914, ptr noundef nonnull %3917, ptr noundef nonnull %3911, i32 noundef %3968, ptr noundef %3638, ptr noundef %3640, ptr noundef nonnull %3652, ptr noundef nonnull %3931) #6
+  %3969 = tail call fastcc i32 @decode_coeffs_b_8bpp(ptr %.val3.i, ptr noundef %3962, i32 noundef 16, ptr noundef nonnull %3914, ptr noundef nonnull %3917, ptr noundef nonnull %3911, i32 noundef %3968, ptr noundef %3638, ptr noundef %3640, ptr noundef nonnull %3652, ptr noundef nonnull %3931) #7
   %3970 = icmp ne i32 %3969, 0
   %3971 = zext i1 %3970 to i32
   %3972 = zext i1 %3970 to i8
@@ -6395,7 +6395,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %3999 = zext i8 %3998 to i32
   %4000 = add nuw nsw i32 %3999, %3997
   %.val4.i = load ptr, ptr %3932, align 16, !tbaa !66
-  %4001 = tail call fastcc i32 @decode_coeffs_b_8bpp(ptr %.val4.i, ptr noundef %3994, i32 noundef 64, ptr noundef nonnull %3914, ptr noundef nonnull %3917, ptr noundef nonnull %3911, i32 noundef %4000, ptr noundef %3638, ptr noundef %3640, ptr noundef nonnull %3652, ptr noundef nonnull %3931) #6
+  %4001 = tail call fastcc i32 @decode_coeffs_b_8bpp(ptr %.val4.i, ptr noundef %3994, i32 noundef 64, ptr noundef nonnull %3914, ptr noundef nonnull %3917, ptr noundef nonnull %3911, i32 noundef %4000, ptr noundef %3638, ptr noundef %3640, ptr noundef nonnull %3652, ptr noundef nonnull %3931) #7
   %4002 = icmp ne i32 %4001, 0
   %4003 = zext i1 %4002 to i32
   %4004 = zext i1 %4002 to i8
@@ -6503,7 +6503,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %4041 = zext i8 %4040 to i32
   %4042 = add nuw nsw i32 %4041, %4039
   %.val5.i = load ptr, ptr %3932, align 16, !tbaa !66
-  %4043 = tail call fastcc i32 @decode_coeffs_b_8bpp(ptr %.val5.i, ptr noundef %4036, i32 noundef 256, ptr noundef nonnull %3914, ptr noundef nonnull %3917, ptr noundef nonnull %3911, i32 noundef %4042, ptr noundef %3638, ptr noundef %3640, ptr noundef nonnull %3652, ptr noundef nonnull %3931) #6
+  %4043 = tail call fastcc i32 @decode_coeffs_b_8bpp(ptr %.val5.i, ptr noundef %4036, i32 noundef 256, ptr noundef nonnull %3914, ptr noundef nonnull %3917, ptr noundef nonnull %3911, i32 noundef %4042, ptr noundef %3638, ptr noundef %3640, ptr noundef nonnull %3652, ptr noundef nonnull %3931) #7
   %4044 = icmp ne i32 %4043, 0
   %4045 = zext i1 %4044 to i32
   %4046 = zext i1 %4044 to i8
@@ -6659,7 +6659,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %4103 = zext i8 %4102 to i32
   %4104 = add nuw nsw i32 %4103, %4101
   %.val7.i = load ptr, ptr %3932, align 16, !tbaa !66
-  %4105 = tail call fastcc i32 @decode_coeffs_b32_8bpp(ptr %.val7.i, ptr noundef %4098, i32 noundef 1024, ptr noundef nonnull %3914, ptr noundef nonnull %3917, ptr noundef nonnull %3911, i32 noundef %4104, ptr noundef %3638, ptr noundef %3640, ptr noundef nonnull %3652, ptr noundef nonnull %3931) #6
+  %4105 = tail call fastcc i32 @decode_coeffs_b32_8bpp(ptr %.val7.i, ptr noundef %4098, i32 noundef 1024, ptr noundef nonnull %3914, ptr noundef nonnull %3917, ptr noundef nonnull %3911, i32 noundef %4104, ptr noundef %3638, ptr noundef %3640, ptr noundef nonnull %3652, ptr noundef nonnull %3931) #7
   %4106 = icmp ne i32 %4105, 0
   %4107 = zext i1 %4106 to i32
   %4108 = zext i1 %4106 to i8
@@ -6857,7 +6857,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %.val1.us.i613 = load ptr, ptr %4152, align 16, !tbaa !66
   %4183 = getelementptr i8, ptr %.val.us.i612, i64 1
   %.val.val.us.i = load i8, ptr %4183, align 1, !tbaa !178
-  %4184 = tail call fastcc i32 @decode_coeffs_b_16bpp(i8 %.val.val.us.i, ptr %.val1.us.i613, ptr noundef %4171, i32 noundef 16, ptr noundef nonnull %3598, ptr noundef nonnull %3601, ptr noundef nonnull %3595, i32 noundef %4177, ptr noundef %4180, ptr noundef %4182, ptr noundef nonnull %3651, ptr noundef nonnull %3625) #6
+  %4184 = tail call fastcc i32 @decode_coeffs_b_16bpp(i8 %.val.val.us.i, ptr %.val1.us.i613, ptr noundef %4171, i32 noundef 16, ptr noundef nonnull %3598, ptr noundef nonnull %3601, ptr noundef nonnull %3595, i32 noundef %4177, ptr noundef %4180, ptr noundef %4182, ptr noundef nonnull %3651, ptr noundef nonnull %3625) #7
   %4185 = icmp ne i32 %4184, 0
   %4186 = zext i1 %4185 to i32
   %4187 = zext i1 %4185 to i8
@@ -6949,7 +6949,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %.val3.us.i = load ptr, ptr %4200, align 16, !tbaa !66
   %4226 = getelementptr i8, ptr %.val2.us.i602, i64 1
   %.val2.val.us.i = load i8, ptr %4226, align 1, !tbaa !178
-  %4227 = tail call fastcc i32 @decode_coeffs_b_16bpp(i8 %.val2.val.us.i, ptr %.val3.us.i, ptr noundef %4214, i32 noundef 64, ptr noundef nonnull %3598, ptr noundef nonnull %3601, ptr noundef nonnull %3595, i32 noundef %4220, ptr noundef %4223, ptr noundef %4225, ptr noundef nonnull %3651, ptr noundef nonnull %3625) #6
+  %4227 = tail call fastcc i32 @decode_coeffs_b_16bpp(i8 %.val2.val.us.i, ptr %.val3.us.i, ptr noundef %4214, i32 noundef 64, ptr noundef nonnull %3598, ptr noundef nonnull %3601, ptr noundef nonnull %3595, i32 noundef %4220, ptr noundef %4223, ptr noundef %4225, ptr noundef nonnull %3651, ptr noundef nonnull %3625) #7
   %4228 = icmp ne i32 %4227, 0
   %4229 = zext i1 %4228 to i32
   %4230 = zext i1 %4228 to i8
@@ -7088,7 +7088,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %.val5.us.i = load ptr, ptr %4258, align 16, !tbaa !66
   %4284 = getelementptr i8, ptr %.val4.us.i, i64 1
   %.val4.val.us.i = load i8, ptr %4284, align 1, !tbaa !178
-  %4285 = tail call fastcc i32 @decode_coeffs_b_16bpp(i8 %.val4.val.us.i, ptr %.val5.us.i, ptr noundef %4272, i32 noundef 256, ptr noundef nonnull %3598, ptr noundef nonnull %3601, ptr noundef nonnull %3595, i32 noundef %4278, ptr noundef %4281, ptr noundef %4283, ptr noundef nonnull %3651, ptr noundef nonnull %3625) #6
+  %4285 = tail call fastcc i32 @decode_coeffs_b_16bpp(i8 %.val4.val.us.i, ptr %.val5.us.i, ptr noundef %4272, i32 noundef 256, ptr noundef nonnull %3598, ptr noundef nonnull %3601, ptr noundef nonnull %3595, i32 noundef %4278, ptr noundef %4281, ptr noundef %4283, ptr noundef nonnull %3651, ptr noundef nonnull %3625) #7
   %4286 = icmp ne i32 %4285, 0
   %4287 = zext i1 %4286 to i32
   %4288 = zext i1 %4286 to i8
@@ -7288,7 +7288,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %.val13.us.i = load ptr, ptr %4339, align 16, !tbaa !66
   %4365 = getelementptr i8, ptr %.val12.us.i, i64 1
   %.val12.val.us.i = load i8, ptr %4365, align 1, !tbaa !178
-  %4366 = tail call fastcc i32 @decode_coeffs_b32_16bpp(i8 %.val12.val.us.i, ptr %.val13.us.i, ptr noundef %4353, i32 noundef 1024, ptr noundef nonnull %3598, ptr noundef nonnull %3601, ptr noundef nonnull %3595, i32 noundef %4359, ptr noundef %4362, ptr noundef %4364, ptr noundef nonnull %3651, ptr noundef nonnull %3625) #6
+  %4366 = tail call fastcc i32 @decode_coeffs_b32_16bpp(i8 %.val12.val.us.i, ptr %.val13.us.i, ptr noundef %4353, i32 noundef 1024, ptr noundef nonnull %3598, ptr noundef nonnull %3601, ptr noundef nonnull %3595, i32 noundef %4359, ptr noundef %4362, ptr noundef %4364, ptr noundef nonnull %3651, ptr noundef nonnull %3625) #7
   %4367 = icmp ne i32 %4366, 0
   %4368 = zext i1 %4367 to i32
   %4369 = zext i1 %4367 to i8
@@ -7537,7 +7537,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %.val7.i574 = load ptr, ptr %4441, align 16, !tbaa !66
   %4481 = getelementptr i8, ptr %.val6.i, i64 1
   %.val6.val.i = load i8, ptr %4481, align 1, !tbaa !178
-  %4482 = tail call fastcc i32 @decode_coeffs_b_16bpp(i8 %.val6.val.i, ptr %.val7.i574, ptr noundef %4474, i32 noundef 16, ptr noundef nonnull %4423, ptr noundef nonnull %4426, ptr noundef nonnull %4420, i32 noundef %4480, ptr noundef %3638, ptr noundef %3640, ptr noundef nonnull %3652, ptr noundef nonnull %4440) #6
+  %4482 = tail call fastcc i32 @decode_coeffs_b_16bpp(i8 %.val6.val.i, ptr %.val7.i574, ptr noundef %4474, i32 noundef 16, ptr noundef nonnull %4423, ptr noundef nonnull %4426, ptr noundef nonnull %4420, i32 noundef %4480, ptr noundef %3638, ptr noundef %3640, ptr noundef nonnull %3652, ptr noundef nonnull %4440) #7
   %4483 = icmp ne i32 %4482, 0
   %4484 = zext i1 %4483 to i32
   %4485 = zext i1 %4483 to i8
@@ -7631,7 +7631,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %.val9.i = load ptr, ptr %4441, align 16, !tbaa !66
   %4517 = getelementptr i8, ptr %.val8.i, i64 1
   %.val8.val.i = load i8, ptr %4517, align 1, !tbaa !178
-  %4518 = tail call fastcc i32 @decode_coeffs_b_16bpp(i8 %.val8.val.i, ptr %.val9.i, ptr noundef %4510, i32 noundef 64, ptr noundef nonnull %4423, ptr noundef nonnull %4426, ptr noundef nonnull %4420, i32 noundef %4516, ptr noundef %3638, ptr noundef %3640, ptr noundef nonnull %3652, ptr noundef nonnull %4440) #6
+  %4518 = tail call fastcc i32 @decode_coeffs_b_16bpp(i8 %.val8.val.i, ptr %.val9.i, ptr noundef %4510, i32 noundef 64, ptr noundef nonnull %4423, ptr noundef nonnull %4426, ptr noundef nonnull %4420, i32 noundef %4516, ptr noundef %3638, ptr noundef %3640, ptr noundef nonnull %3652, ptr noundef nonnull %4440) #7
   %4519 = icmp ne i32 %4518, 0
   %4520 = zext i1 %4519 to i32
   %4521 = zext i1 %4519 to i8
@@ -7744,7 +7744,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %.val11.i = load ptr, ptr %4441, align 16, !tbaa !66
   %4563 = getelementptr i8, ptr %.val10.i, i64 1
   %.val10.val.i = load i8, ptr %4563, align 1, !tbaa !178
-  %4564 = tail call fastcc i32 @decode_coeffs_b_16bpp(i8 %.val10.val.i, ptr %.val11.i, ptr noundef %4556, i32 noundef 256, ptr noundef nonnull %4423, ptr noundef nonnull %4426, ptr noundef nonnull %4420, i32 noundef %4562, ptr noundef %3638, ptr noundef %3640, ptr noundef nonnull %3652, ptr noundef nonnull %4440) #6
+  %4564 = tail call fastcc i32 @decode_coeffs_b_16bpp(i8 %.val10.val.i, ptr %.val11.i, ptr noundef %4556, i32 noundef 256, ptr noundef nonnull %4423, ptr noundef nonnull %4426, ptr noundef nonnull %4420, i32 noundef %4562, ptr noundef %3638, ptr noundef %3640, ptr noundef nonnull %3652, ptr noundef nonnull %4440) #7
   %4565 = icmp ne i32 %4564, 0
   %4566 = zext i1 %4565 to i32
   %4567 = zext i1 %4565 to i8
@@ -7905,7 +7905,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   %.val15.i = load ptr, ptr %4441, align 16, !tbaa !66
   %4629 = getelementptr i8, ptr %.val14.i, i64 1
   %.val14.val.i = load i8, ptr %4629, align 1, !tbaa !178
-  %4630 = tail call fastcc i32 @decode_coeffs_b32_16bpp(i8 %.val14.val.i, ptr %.val15.i, ptr noundef %4622, i32 noundef 1024, ptr noundef nonnull %4423, ptr noundef nonnull %4426, ptr noundef nonnull %4420, i32 noundef %4628, ptr noundef %3638, ptr noundef %3640, ptr noundef nonnull %3652, ptr noundef nonnull %4440) #6
+  %4630 = tail call fastcc i32 @decode_coeffs_b32_16bpp(i8 %.val14.val.i, ptr %.val15.i, ptr noundef %4622, i32 noundef 1024, ptr noundef nonnull %4423, ptr noundef nonnull %4426, ptr noundef nonnull %4420, i32 noundef %4628, ptr noundef %3638, ptr noundef %3640, ptr noundef nonnull %3652, ptr noundef nonnull %4440) #7
   %4631 = icmp ne i32 %4630, 0
   %4632 = zext i1 %4631 to i32
   %4633 = zext i1 %4631 to i8
@@ -8442,22 +8442,22 @@ decode_coeffs_8bpp.exit:                          ; preds = %.loopexit.i539, %.l
   br i1 %4924, label %4926, label %4927
 
 4926:                                             ; preds = %4925
-  tail call void @ff_vp9_intra_recon_16bpp(ptr noundef nonnull %0, i64 noundef %4, i64 noundef %5) #6
+  tail call void @ff_vp9_intra_recon_16bpp(ptr noundef nonnull %0, i64 noundef %4, i64 noundef %5) #7
   br label %4931
 
 4927:                                             ; preds = %4925
-  tail call void @ff_vp9_intra_recon_8bpp(ptr noundef nonnull %0, i64 noundef %4, i64 noundef %5) #6
+  tail call void @ff_vp9_intra_recon_8bpp(ptr noundef nonnull %0, i64 noundef %4, i64 noundef %5) #7
   br label %4931
 
 4928:                                             ; preds = %4917
   br i1 %4924, label %4929, label %4930
 
 4929:                                             ; preds = %4928
-  tail call void @ff_vp9_inter_recon_16bpp(ptr noundef nonnull %0) #6
+  tail call void @ff_vp9_inter_recon_16bpp(ptr noundef nonnull %0) #7
   br label %4931
 
 4930:                                             ; preds = %4928
-  tail call void @ff_vp9_inter_recon_8bpp(ptr noundef nonnull %0) #6
+  tail call void @ff_vp9_inter_recon_8bpp(ptr noundef nonnull %0) #7
   br label %4931
 
 4931:                                             ; preds = %4929, %4930, %4926, %4927
@@ -8500,7 +8500,7 @@ decode_coeffs_8bpp.exit:                          ; preds = %.loopexit.i539, %.l
   %4954 = load i32, ptr %4874, align 8, !tbaa !92
   %4955 = sext i32 %4954 to i64
   %4956 = getelementptr inbounds i8, ptr %4941, i64 %4952
-  tail call void %4948(ptr noundef %4953, i64 noundef %4955, ptr noundef nonnull %4956, i64 noundef 128, i32 noundef %4939, i32 noundef 0, i32 noundef 0) #6
+  tail call void %4948(ptr noundef %4953, i64 noundef %4955, ptr noundef nonnull %4956, i64 noundef 128, i32 noundef %4939, i32 noundef 0, i32 noundef 0) #7
   %4957 = add nsw i32 %4944, %.0419732
   br label %4958
 
@@ -8562,7 +8562,7 @@ decode_coeffs_8bpp.exit:                          ; preds = %.loopexit.i539, %.l
   %4994 = load i32, ptr %4887, align 4, !tbaa !92
   %4995 = sext i32 %4994 to i64
   %4996 = getelementptr inbounds i8, ptr %4977, i64 %4992
-  tail call void %4988(ptr noundef %4993, i64 noundef %4995, ptr noundef nonnull %4996, i64 noundef 128, i32 noundef %4974, i32 noundef 0, i32 noundef 0) #6
+  tail call void %4988(ptr noundef %4993, i64 noundef %4995, ptr noundef nonnull %4996, i64 noundef 128, i32 noundef %4974, i32 noundef 0, i32 noundef 0) #7
   %4997 = load ptr, ptr %4987, align 8, !tbaa !182
   %4998 = load ptr, ptr %4978, align 8, !tbaa !72
   %4999 = getelementptr inbounds i8, ptr %4998, i64 %5
@@ -8570,7 +8570,7 @@ decode_coeffs_8bpp.exit:                          ; preds = %.loopexit.i539, %.l
   %5001 = load i32, ptr %4979, align 8, !tbaa !92
   %5002 = sext i32 %5001 to i64
   %5003 = getelementptr inbounds i8, ptr %4980, i64 %4992
-  tail call void %4997(ptr noundef %5000, i64 noundef %5002, ptr noundef nonnull %5003, i64 noundef 128, i32 noundef %4974, i32 noundef 0, i32 noundef 0) #6
+  tail call void %4997(ptr noundef %5000, i64 noundef %5002, ptr noundef nonnull %5003, i64 noundef 128, i32 noundef %4974, i32 noundef 0, i32 noundef 0) #7
   %5004 = add nsw i32 %4984, %.0421734
   br label %5005
 
@@ -18251,19 +18251,19 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #5
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -18271,8 +18271,9 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

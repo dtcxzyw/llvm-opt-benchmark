@@ -128,7 +128,7 @@ switch.lookup:                                    ; preds = %.split
 .preheader25:                                     ; preds = %switch.lookup, %21
   %17 = phi ptr [ %27, %21 ], [ %15, %switch.lookup ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %19 = tail call noundef i32 @memcmp(ptr noundef nonnull %18, ptr noundef %1, i64 noundef %14) #12
+  %19 = tail call noundef i32 @memcmp(ptr noundef nonnull %18, ptr noundef %1, i64 noundef %14) #13
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.thread, label %21
 
@@ -186,7 +186,7 @@ switch.lookup:                                    ; preds = %.split
 
 50:                                               ; preds = %42
   %51 = sub i64 %46, %2
-  tail call fastcc void @_ZN6asmjit9_abi_1_10L16ConstPool_addGapEPNS0_9ConstPoolEmm(ptr noundef nonnull %0, i64 noundef %44, i64 noundef %51) #13
+  tail call fastcc void @_ZN6asmjit9_abi_1_10L16ConstPool_addGapEPNS0_9ConstPoolEmm(ptr noundef nonnull %0, i64 noundef %44, i64 noundef %51) #14
   br label %52
 
 52:                                               ; preds = %50, %42, %.split29
@@ -211,7 +211,7 @@ switch.lookup:                                    ; preds = %.split
 
 64:                                               ; preds = %.split31.us.thread
   %65 = sub i64 %62, %58
-  tail call fastcc void @_ZN6asmjit9_abi_1_10L16ConstPool_addGapEPNS0_9ConstPoolEmm(ptr noundef nonnull %0, i64 noundef %58, i64 noundef %65) #13
+  tail call fastcc void @_ZN6asmjit9_abi_1_10L16ConstPool_addGapEPNS0_9ConstPoolEmm(ptr noundef nonnull %0, i64 noundef %58, i64 noundef %65) #14
   %66 = load i64, ptr %57, align 8, !tbaa !28
   %67 = add i64 %66, %65
   br label %68
@@ -241,7 +241,7 @@ switch.lookup:                                    ; preds = %.split
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %71
-  %88 = tail call noundef ptr @_ZN6asmjit9_abi_1_104Zone6_allocEmm(ptr noundef nonnull align 8 dereferenceable(32) %73, i64 noundef %74, i64 noundef 8) #13
+  %88 = tail call noundef ptr @_ZN6asmjit9_abi_1_104Zone6_allocEmm(ptr noundef nonnull align 8 dereferenceable(32) %73, i64 noundef %74, i64 noundef 8) #14
   br label %91
 
 89:                                               ; preds = %71
@@ -268,7 +268,7 @@ switch.lookup:                                    ; preds = %.split
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %101 = load i64, ptr %13, align 8, !tbaa !9
   store i64 %101, ptr %6, align 8, !tbaa !33
-  call void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4NodeEE6insertINS2_7CompareEEEvPS3_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %92, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
+  call void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4NodeEE6insertINS2_7CompareEEEvPS3_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %92, ptr noundef nonnull align 8 dereferenceable(8) %6) #14
   %102 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %103 = load i64, ptr %102, align 8, !tbaa !35
   %104 = add i64 %103, 1
@@ -314,7 +314,7 @@ switch.lookup:                                    ; preds = %.split
 .preheader:                                       ; preds = %122, %132
   %128 = phi ptr [ %138, %132 ], [ %126, %122 ]
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 24
-  %130 = call noundef i32 @memcmp(ptr noundef nonnull %129, ptr noundef %124, i64 noundef %125) #12
+  %130 = call noundef i32 @memcmp(ptr noundef nonnull %129, ptr noundef %124, i64 noundef %125) #13
   %131 = icmp eq i32 %130, 0
   br i1 %131, label %.thread21, label %132
 
@@ -347,7 +347,7 @@ switch.lookup:                                    ; preds = %.split
   br i1 %154, label %155, label %157
 
 155:                                              ; preds = %.loopexit
-  %156 = call noundef ptr @_ZN6asmjit9_abi_1_104Zone6_allocEmm(ptr noundef nonnull align 8 dereferenceable(32) %140, i64 noundef %120, i64 noundef 8) #13
+  %156 = call noundef ptr @_ZN6asmjit9_abi_1_104Zone6_allocEmm(ptr noundef nonnull align 8 dereferenceable(32) %140, i64 noundef %120, i64 noundef 8) #14
   br label %159
 
 157:                                              ; preds = %.loopexit
@@ -377,7 +377,7 @@ switch.lookup:                                    ; preds = %.split
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %170 = load i64, ptr %119, align 8, !tbaa !9
   store i64 %170, ptr %5, align 8, !tbaa !33
-  call void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4NodeEE6insertINS2_7CompareEEEvPS3_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef %160, ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  call void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4NodeEE6insertINS2_7CompareEEEvPS3_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef %160, ptr noundef nonnull align 8 dereferenceable(8) %5) #14
   %171 = load i64, ptr %121, align 8, !tbaa !35
   %172 = add i64 %171, 1
   store i64 %172, ptr %121, align 8, !tbaa !35
@@ -491,7 +491,7 @@ define internal fastcc void @_ZN6asmjit9_abi_1_10L16ConstPool_addGapEPNS0_9Const
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %44
-  %59 = tail call noundef ptr @_ZN6asmjit9_abi_1_104Zone6_allocEmm(ptr noundef nonnull align 8 dereferenceable(32) %45, i64 noundef 24, i64 noundef 8) #13
+  %59 = tail call noundef ptr @_ZN6asmjit9_abi_1_104Zone6_allocEmm(ptr noundef nonnull align 8 dereferenceable(32) %45, i64 noundef 24, i64 noundef 8) #14
   br label %64
 
 60:                                               ; preds = %44
@@ -816,7 +816,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4No
 130:                                              ; preds = %128
   %131 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %132 = load i64, ptr %2, align 8, !tbaa !33
-  %133 = tail call noundef i32 @memcmp(ptr noundef nonnull %131, ptr noundef nonnull %14, i64 noundef %132) #12
+  %133 = tail call noundef i32 @memcmp(ptr noundef nonnull %131, ptr noundef nonnull %14, i64 noundef %132) #13
   %134 = lshr i32 %133, 31
   %135 = zext nneg i32 %134 to i64
   %136 = icmp eq ptr %16, null
@@ -844,10 +844,10 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4No
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -856,11 +856,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #11
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
@@ -871,11 +871,12 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { nounwind }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

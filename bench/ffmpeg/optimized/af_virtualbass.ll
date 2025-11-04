@@ -34,7 +34,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef %0, ptr
   store ptr null, ptr %4, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !4
-  %8 = tail call i32 @ff_set_common_formats_from_list2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @query_formats.formats) #8
+  %8 = tail call i32 @ff_set_common_formats_from_list2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @query_formats.formats) #9
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %33, label %10
 
@@ -46,7 +46,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef %0, ptr
   store i64 3, ptr %12, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %13, align 8, !tbaa !14
-  %14 = call i32 @ff_add_channel_layout(ptr noundef nonnull %4, ptr noundef nonnull %6) #8
+  %14 = call i32 @ff_add_channel_layout(ptr noundef nonnull %4, ptr noundef nonnull %6) #9
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %33, label %16
 
@@ -54,7 +54,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef %0, ptr
   %17 = load ptr, ptr %4, align 8, !tbaa !4
   %18 = load ptr, ptr %1, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %20 = call i32 @ff_channel_layouts_ref(ptr noundef %17, ptr noundef nonnull %19) #8
+  %20 = call i32 @ff_channel_layouts_ref(ptr noundef %17, ptr noundef nonnull %19) #9
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %33, label %22
 
@@ -66,7 +66,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef %0, ptr
   store i64 11, ptr %24, align 8, !tbaa !13
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %25, align 8, !tbaa !14
-  %26 = call i32 @ff_add_channel_layout(ptr noundef nonnull %5, ptr noundef nonnull %7) #8
+  %26 = call i32 @ff_add_channel_layout(ptr noundef nonnull %5, ptr noundef nonnull %7) #9
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %33, label %28
 
@@ -74,7 +74,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef %0, ptr
   %29 = load ptr, ptr %5, align 8, !tbaa !4
   %30 = load ptr, ptr %2, align 8, !tbaa !15
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %32 = call i32 @ff_channel_layouts_ref(ptr noundef %29, ptr noundef nonnull %31) #8
+  %32 = call i32 @ff_channel_layouts_ref(ptr noundef %29, ptr noundef nonnull %31) #9
   %spec.select = call i32 @llvm.smin.i32(i32 %32, i32 0)
   br label %33
 
@@ -98,16 +98,16 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %8 = load ptr, ptr %7, align 8, !tbaa !38
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %10 = load i32, ptr %9, align 8, !tbaa !40
-  %11 = tail call ptr @ff_get_audio_buffer(ptr noundef %8, i32 noundef %10) #8
+  %11 = tail call ptr @ff_get_audio_buffer(ptr noundef %8, i32 noundef %10) #9
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %13
 
 12:                                               ; preds = %2
-  call void @av_frame_free(ptr noundef nonnull %3) #8
+  call void @av_frame_free(ptr noundef nonnull %3) #9
   br label %87
 
 13:                                               ; preds = %2
-  %14 = tail call i32 @av_frame_copy_props(ptr noundef nonnull %11, ptr noundef nonnull %1) #8
+  %14 = tail call i32 @av_frame_copy_props(ptr noundef nonnull %11, ptr noundef nonnull %1) #9
   %15 = getelementptr i8, ptr %5, i64 72
   %.val = load ptr, ptr %15, align 8, !tbaa !46
   %16 = getelementptr i8, ptr %11, i64 96
@@ -203,8 +203,8 @@ vb_stereo.exit:                                   ; preds = %.lr.ph.i, %13
   %.0.lcssa.i = phi double [ %43, %13 ], [ %66, %.lr.ph.i ]
   store double %.0.lcssa.i, ptr %42, align 8, !tbaa !52
   store double %.058.lcssa.i, ptr %44, align 8, !tbaa !52
-  call void @av_frame_free(ptr noundef nonnull %3) #8
-  %86 = call i32 @ff_filter_frame(ptr noundef %8, ptr noundef nonnull %11) #8
+  call void @av_frame_free(ptr noundef nonnull %3) #9
+  %86 = call i32 @ff_filter_frame(ptr noundef %8, ptr noundef nonnull %11) #9
   br label %87
 
 87:                                               ; preds = %vb_stereo.exit, %12
@@ -255,20 +255,20 @@ declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sin.f64(double) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.atan.f64(double) #4
+declare double @llvm.atan.f64(double) #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.tan.f64(double) #4
+declare double @llvm.tan.f64(double) #5
 
 declare ptr @av_default_item_name(ptr noundef) #1
 
@@ -279,26 +279,27 @@ declare i32 @ff_add_channel_layout(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @ff_channel_layouts_ref(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #6
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind }
+attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

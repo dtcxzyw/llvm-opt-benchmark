@@ -3905,7 +3905,7 @@ define hidden ptr @dissect_smb_fid(ptr noundef %0, ptr noundef readonly captures
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %10
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4118, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4118, ptr noundef nonnull @.str.2) #18
   unreachable
 
 12:                                               ; preds = %10
@@ -3948,7 +3948,7 @@ proto_item_set_generated.exit:                    ; preds = %21, %18, %12
 
 35:                                               ; preds = %proto_item_set_generated.exit
   %36 = tail call ptr @wmem_file_scope()
-  %37 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %36, i64 noundef 40) #18
+  %37 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %36, i64 noundef 40) #19
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %39 = load i32, ptr %38, align 4
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -4608,7 +4608,7 @@ define hidden i32 @dissect_get_dfs_request_data(ptr noundef %0, ptr noundef read
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %17, align 8
-  %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #19
+  %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #20
   %34 = call ptr @format_text(ptr noundef %32, ptr noundef nonnull %19, i64 noundef %33)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %31, i32 noundef 25, ptr noundef nonnull @.str.27, ptr noundef %34)
   store i16 %29, ptr %4, align 2
@@ -5650,7 +5650,7 @@ get_unicode_or_ascii_string.exit:                 ; preds = %54, %60
   store i16 %69, ptr %4, align 2
   %70 = load ptr, ptr %8, align 8
   %71 = load ptr, ptr %11, align 8
-  %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #19
+  %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #20
   %73 = call ptr @format_text(ptr noundef %71, ptr noundef nonnull %.0.i, i64 noundef %72)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef nonnull @.str.31, ptr noundef %73)
   %74 = load ptr, ptr %8, align 8
@@ -6448,7 +6448,7 @@ define internal i32 @dissect_smb(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noalias dereferenceable_or_null(56) ptr @wmem_alloc0(ptr noundef %9, i64 noundef 56) #18
+  %10 = tail call noalias dereferenceable_or_null(56) ptr @wmem_alloc0(ptr noundef %9, i64 noundef 56) #19
   store ptr %2, ptr @top_tree_global, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -6507,7 +6507,7 @@ define internal i32 @dissect_smb(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not374, label %49, label %72
 
 49:                                               ; preds = %4
-  %50 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc(i64 noundef 72) #20
+  %50 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc(i64 noundef 72) #21
   store ptr %50, ptr %48, align 8
   %51 = load ptr, ptr @conv_tables, align 8
   %52 = tail call ptr @g_slist_prepend(ptr noundef %51, ptr noundef %50)
@@ -6599,7 +6599,7 @@ define internal i32 @dissect_smb(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 102:                                              ; preds = %97
   %103 = tail call ptr @wmem_file_scope()
-  %104 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %103, i64 noundef 8) #18
+  %104 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %103, i64 noundef 8) #19
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %106 = load i32, ptr %105, align 4
   store i32 %106, ptr %104, align 4
@@ -6769,7 +6769,7 @@ proto_item_set_generated.exit.thread459:          ; preds = %170
   %177 = load i32, ptr %176, align 4
   store i32 %177, ptr %167, align 4
   %178 = tail call ptr @wmem_file_scope()
-  %179 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %178, i64 noundef 8) #18
+  %179 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %178, i64 noundef 8) #19
   %180 = load i32, ptr %167, align 4
   store i32 %180, ptr %179, align 4
   %181 = getelementptr inbounds nuw i8, ptr %179, i64 4
@@ -6834,7 +6834,7 @@ switch.lookup:                                    ; preds = %191
 
 204:                                              ; preds = %.critedge
   %205 = tail call ptr @wmem_file_scope()
-  %206 = tail call noalias dereferenceable_or_null(48) ptr @wmem_alloc(ptr noundef %205, i64 noundef 48) #18
+  %206 = tail call noalias dereferenceable_or_null(48) ptr @wmem_alloc(ptr noundef %205, i64 noundef 48) #19
   %207 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %208 = load i32, ptr %207, align 4
   store i32 %208, ptr %206, align 8
@@ -6874,7 +6874,7 @@ switch.lookup:                                    ; preds = %191
   %229 = load ptr, ptr %73, align 8
   %230 = tail call i32 @g_hash_table_insert(ptr noundef %229, ptr noundef %152, ptr noundef %206)
   %231 = tail call ptr @wmem_file_scope()
-  %232 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %231, i64 noundef 8) #18
+  %232 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %231, i64 noundef 8) #19
   %233 = load i32, ptr %206, align 8
   store i32 %233, ptr %232, align 4
   %234 = getelementptr inbounds nuw i8, ptr %232, i64 4
@@ -7522,10 +7522,10 @@ define internal noundef i32 @smb_eo_packet(ptr noundef readonly captures(none) %
   br i1 %41, label %.lr.ph.i, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %40, %21
-  %42 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc(i64 noundef 48) #20
+  %42 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc(i64 noundef 48) #21
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
-  %44 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc(i64 noundef 48) #20
+  %44 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc(i64 noundef 48) #21
   store i16 %24, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 2
   store i16 %27, ptr %45, align 2
@@ -8096,7 +8096,7 @@ define internal fastcc noundef i32 @dissect_smb_tid(ptr noundef %0, ptr noundef 
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %7
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3533, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3533, ptr noundef nonnull @.str.2) #18
   unreachable
 
 9:                                                ; preds = %7
@@ -8116,7 +8116,7 @@ define internal fastcc noundef i32 @dissect_smb_tid(ptr noundef %0, ptr noundef 
 
 21:                                               ; preds = %9
   %22 = tail call ptr @wmem_file_scope()
-  %23 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %22, i64 noundef 24) #18
+  %23 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %22, i64 noundef 24) #19
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %25 = load i32, ptr %24, align 4
   store i32 %25, ptr %23, align 8
@@ -8254,7 +8254,7 @@ define internal fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 17569, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 17569, ptr noundef nonnull @.str.2) #18
   unreachable
 
 10:                                               ; preds = %7
@@ -8325,7 +8325,7 @@ define internal fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1,
   br i1 %48, label %50, label %49
 
 49:                                               ; preds = %.thread
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 50:                                               ; preds = %.thread
@@ -8376,7 +8376,7 @@ define internal i32 @dissect_old_dir_request(ptr noundef %0, ptr noundef readonl
   br i1 %.not, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3281, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3281, ptr noundef nonnull @.str.2) #18
   unreachable
 
 11:                                               ; preds = %6
@@ -8446,7 +8446,7 @@ define internal i32 @dissect_old_dir_request(ptr noundef %0, ptr noundef readonl
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %28, align 8
-  %61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #19
+  %61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #20
   %62 = call ptr @format_text(ptr noundef %60, ptr noundef nonnull %33, i64 noundef %61)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %59, i32 noundef 25, ptr noundef nonnull @.str.2648, ptr noundef %62)
   %.not42 = icmp eq i16 %56, %57
@@ -8489,7 +8489,7 @@ define internal i32 @dissect_empty(ptr noundef %0, ptr readnone captures(none) %
   br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3322, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3322, ptr noundef nonnull @.str.2) #18
   unreachable
 
 8:                                                ; preds = %6
@@ -8571,7 +8571,7 @@ define internal i32 @dissect_open_file_request(ptr noundef %0, ptr noundef reado
   br i1 %.not, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3867, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3867, ptr noundef nonnull @.str.2) #18
   unreachable
 
 11:                                               ; preds = %6
@@ -8646,7 +8646,7 @@ define internal i32 @dissect_open_file_request(ptr noundef %0, ptr noundef reado
 
 64:                                               ; preds = %61
   %65 = call ptr @wmem_file_scope()
-  %66 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %65, i64 noundef 32) #18
+  %66 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %65, i64 noundef 32) #19
   %67 = call ptr @wmem_file_scope()
   %68 = call noalias ptr @wmem_strdup(ptr noundef %67, ptr noundef nonnull %45)
   store ptr %68, ptr %66, align 8
@@ -8662,7 +8662,7 @@ define internal i32 @dissect_open_file_request(ptr noundef %0, ptr noundef reado
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr %40, align 8
-  %77 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #19
+  %77 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #20
   %78 = call ptr @format_text(ptr noundef %76, ptr noundef nonnull %45, i64 noundef %77)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %75, i32 noundef 25, ptr noundef nonnull @.str.2649, ptr noundef %78)
   %.not51 = icmp eq i16 %53, %54
@@ -8819,7 +8819,7 @@ define internal i32 @dissect_create_file_request(ptr noundef %0, ptr noundef rea
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4426, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4426, ptr noundef nonnull @.str.2) #18
   unreachable
 
 12:                                               ; preds = %6
@@ -8922,7 +8922,7 @@ dissect_smb_UTIME.exit:                           ; preds = %31, %33
 
 78:                                               ; preds = %75
   %79 = call ptr @wmem_file_scope()
-  %80 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %79, i64 noundef 32) #18
+  %80 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %79, i64 noundef 32) #19
   %81 = call ptr @wmem_file_scope()
   %82 = call noalias ptr @wmem_strdup(ptr noundef %81, ptr noundef nonnull %59)
   store ptr %82, ptr %80, align 8
@@ -8940,7 +8940,7 @@ dissect_smb_UTIME.exit:                           ; preds = %31, %33
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = load ptr, ptr %54, align 8
-  %92 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #19
+  %92 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #20
   %93 = call ptr @format_text(ptr noundef %91, ptr noundef nonnull %59, i64 noundef %92)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %90, i32 noundef 25, ptr noundef nonnull @.str.2649, ptr noundef %93)
   %.not55 = icmp eq i16 %67, %68
@@ -9179,7 +9179,7 @@ define internal i32 @dissect_delete_file_request(ptr noundef %0, ptr noundef rea
   br i1 %.not, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4506, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4506, ptr noundef nonnull @.str.2) #18
   unreachable
 
 11:                                               ; preds = %6
@@ -9261,7 +9261,7 @@ define internal i32 @dissect_delete_file_request(ptr noundef %0, ptr noundef rea
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %36, align 8
-  %69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #19
+  %69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #20
   %70 = call ptr @format_text(ptr noundef %68, ptr noundef nonnull %41, i64 noundef %69)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %67, i32 noundef 25, ptr noundef nonnull @.str.2649, ptr noundef %70)
   %.not45 = icmp eq i16 %64, %65
@@ -9309,7 +9309,7 @@ define internal i32 @dissect_rename_file_request(ptr noundef %0, ptr noundef rea
   br i1 %.not, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4552, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4552, ptr noundef nonnull @.str.2) #18
   unreachable
 
 11:                                               ; preds = %6
@@ -9371,7 +9371,7 @@ define internal i32 @dissect_rename_file_request(ptr noundef %0, ptr noundef rea
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %36, align 8
-  %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #19
+  %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #20
   %57 = call ptr @format_text(ptr noundef %55, ptr noundef nonnull %41, i64 noundef %56)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.2651, ptr noundef %57)
   %58 = icmp eq i16 %50, %51
@@ -9405,7 +9405,7 @@ define internal i32 @dissect_rename_file_request(ptr noundef %0, ptr noundef rea
   store i16 %78, ptr %9, align 2
   %79 = load ptr, ptr %53, align 8
   %80 = load ptr, ptr %36, align 8
-  %81 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #19
+  %81 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #20
   %82 = call ptr @format_text(ptr noundef %80, ptr noundef nonnull %67, i64 noundef %81)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.2652, ptr noundef %82)
   %.not68 = icmp eq i16 %76, %77
@@ -9455,7 +9455,7 @@ thread-pre-split.thread:                          ; preds = %83, %thread-pre-spl
 
 102:                                              ; preds = %96
   %103 = call ptr @wmem_file_scope()
-  %104 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %103, i64 noundef 16) #18
+  %104 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %103, i64 noundef 16) #19
   %105 = call ptr @wmem_file_scope()
   %106 = call noalias ptr @wmem_strdup(ptr noundef %105, ptr noundef %.0)
   store ptr %106, ptr %104, align 8
@@ -9484,7 +9484,7 @@ define internal i32 @dissect_rename_file_response(ptr noundef %0, ptr readnone c
   br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3346, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3346, ptr noundef nonnull @.str.2) #18
   unreachable
 
 8:                                                ; preds = %6
@@ -9588,7 +9588,7 @@ define internal i32 @dissect_query_information_request(ptr noundef %0, ptr nound
   br i1 %.not, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4683, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4683, ptr noundef nonnull @.str.2) #18
   unreachable
 
 11:                                               ; preds = %6
@@ -9633,7 +9633,7 @@ define internal i32 @dissect_query_information_request(ptr noundef %0, ptr nound
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %28, align 8
-  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #19
+  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #20
   %47 = call ptr @format_text(ptr noundef %45, ptr noundef nonnull %33, i64 noundef %46)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %44, i32 noundef 25, ptr noundef nonnull @.str.2649, ptr noundef %47)
   %.not34 = icmp eq i16 %41, %42
@@ -9765,7 +9765,7 @@ define internal i32 @dissect_set_information_request(ptr noundef %0, ptr noundef
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4748, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4748, ptr noundef nonnull @.str.2) #18
   unreachable
 
 12:                                               ; preds = %6
@@ -9854,7 +9854,7 @@ dissect_smb_UTIME.exit:                           ; preds = %29, %31
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr %55, align 8
-  %73 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #19
+  %73 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #20
   %74 = call ptr @format_text(ptr noundef %72, ptr noundef nonnull %60, i64 noundef %73)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %71, i32 noundef 25, ptr noundef nonnull @.str.2649, ptr noundef %74)
   %.not41 = icmp eq i16 %68, %69
@@ -9938,7 +9938,7 @@ define internal i32 @dissect_read_file_request(ptr noundef %0, ptr noundef reado
 
 41:                                               ; preds = %35
   %42 = tail call ptr @wmem_file_scope()
-  %43 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %42, i64 noundef 16) #18
+  %43 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %42, i64 noundef 16) #19
   %44 = zext i32 %21 to i64
   store i64 %44, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -9990,7 +9990,7 @@ define internal i32 @dissect_read_file_response(ptr noundef %0, ptr noundef %1, 
   br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4931, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4931, ptr noundef nonnull @.str.2) #18
   unreachable
 
 8:                                                ; preds = %6
@@ -10155,7 +10155,7 @@ define internal i32 @dissect_write_file_request(ptr noundef %0, ptr noundef %1, 
   br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5042, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5042, ptr noundef nonnull @.str.2) #18
   unreachable
 
 8:                                                ; preds = %6
@@ -10201,7 +10201,7 @@ define internal i32 @dissect_write_file_request(ptr noundef %0, ptr noundef %1, 
 
 40:                                               ; preds = %34
   %41 = tail call ptr @wmem_file_scope()
-  %42 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %41, i64 noundef 16) #18
+  %42 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %41, i64 noundef 16) #19
   %43 = zext i32 %24 to i64
   store i64 %43, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -10350,7 +10350,7 @@ define internal i32 @dissect_write_file_response(ptr noundef %0, ptr noundef rea
   br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5131, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5131, ptr noundef nonnull @.str.2) #18
   unreachable
 
 8:                                                ; preds = %6
@@ -10527,7 +10527,7 @@ define internal i32 @dissect_create_temporary_request(ptr noundef %0, ptr nounde
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5199, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5199, ptr noundef nonnull @.str.2) #18
   unreachable
 
 12:                                               ; preds = %6
@@ -10612,7 +10612,7 @@ dissect_smb_UTIME.exit:                           ; preds = %28, %30
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %51, align 8
-  %69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %56) #19
+  %69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %56) #20
   %70 = call ptr @format_text(ptr noundef %68, ptr noundef nonnull %56, i64 noundef %69)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %67, i32 noundef 25, ptr noundef nonnull @.str.2649, ptr noundef %70)
   %.not39 = icmp eq i16 %64, %65
@@ -10657,7 +10657,7 @@ define internal i32 @dissect_create_temporary_response(ptr noundef %0, ptr nound
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5247, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5247, ptr noundef nonnull @.str.2) #18
   unreachable
 
 9:                                                ; preds = %6
@@ -11716,7 +11716,7 @@ define internal i32 @dissect_locking_andx_request(ptr noundef %0, ptr noundef %1
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6247, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6247, ptr noundef nonnull @.str.2) #18
   unreachable
 
 9:                                                ; preds = %6
@@ -11818,7 +11818,7 @@ define internal i32 @dissect_locking_andx_request(ptr noundef %0, ptr noundef %1
 
 80:                                               ; preds = %77
   %81 = tail call ptr @wmem_file_scope()
-  %82 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %81, i64 noundef 24) #18
+  %82 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %81, i64 noundef 24) #19
   store i8 %.0326, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 1
   store i8 %.0327, ptr %83, align 1
@@ -11948,7 +11948,7 @@ define internal i32 @dissect_locking_andx_request(ptr noundef %0, ptr noundef %1
 
 160:                                              ; preds = %148
   %161 = call ptr @wmem_file_scope()
-  %162 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %161, i64 noundef 32) #18
+  %162 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %161, i64 noundef 32) #19
   %163 = load ptr, ptr %97, align 8
   store ptr %163, ptr %162, align 8
   store ptr %162, ptr %97, align 8
@@ -12089,7 +12089,7 @@ define internal i32 @dissect_locking_andx_request(ptr noundef %0, ptr noundef %1
 
 240:                                              ; preds = %228
   %241 = call ptr @wmem_file_scope()
-  %242 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %241, i64 noundef 32) #18
+  %242 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %241, i64 noundef 32) #19
   %243 = load ptr, ptr %177, align 8
   store ptr %243, ptr %242, align 8
   store ptr %242, ptr %177, align 8
@@ -12161,7 +12161,7 @@ define internal i32 @dissect_locking_andx_request(ptr noundef %0, ptr noundef %1
   br i1 %266, label %267, label %268
 
 267:                                              ; preds = %265
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 268:                                              ; preds = %265
@@ -12179,7 +12179,7 @@ define internal i32 @dissect_locking_andx_response(ptr noundef %0, ptr noundef %
   br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6498, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6498, ptr noundef nonnull @.str.2) #18
   unreachable
 
 8:                                                ; preds = %6
@@ -12389,7 +12389,7 @@ proto_item_set_generated.exit:                    ; preds = %18, %23, %26
   br i1 %140, label %141, label %142
 
 141:                                              ; preds = %139
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 142:                                              ; preds = %139
@@ -12419,7 +12419,7 @@ define internal i32 @dissect_transaction_request(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %18, label %19
 
 18:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 14194, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 14194, ptr noundef nonnull @.str.2) #18
   unreachable
 
 19:                                               ; preds = %6
@@ -12669,7 +12669,7 @@ proto_item_set_generated.exit374:                 ; preds = %149, %146, %141, %9
 
 192:                                              ; preds = %189
   %193 = tail call ptr @wmem_file_scope()
-  %194 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %193, i64 noundef 24) #18
+  %194 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %193, i64 noundef 24) #19
   store i32 %171, ptr %194, align 8
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 4
   store i32 -1, ptr %195, align 4
@@ -12928,7 +12928,7 @@ proto_item_set_generated.exit374:                 ; preds = %149, %146, %141, %9
   %337 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %338 = load ptr, ptr %337, align 8
   %339 = load ptr, ptr %318, align 8
-  %340 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %323) #19
+  %340 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %323) #20
   %341 = call ptr @format_text(ptr noundef %339, ptr noundef nonnull %323, i64 noundef %340)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %338, i32 noundef 25, ptr noundef nonnull @.str.2649, ptr noundef %341)
   br label %thread-pre-split.i
@@ -13040,7 +13040,7 @@ proto_item_set_generated.exit374:                 ; preds = %149, %146, %141, %9
   %409 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %410 = load ptr, ptr %409, align 8
   %411 = load ptr, ptr %383, align 8
-  %412 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %388) #19
+  %412 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %388) #20
   %413 = call ptr @format_text(ptr noundef %411, ptr noundef nonnull %388, i64 noundef %412)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %410, i32 noundef 25, ptr noundef nonnull @.str.2678, ptr noundef %413)
   %414 = load ptr, ptr %409, align 8
@@ -13151,7 +13151,7 @@ proto_item_set_generated.exit374:                 ; preds = %149, %146, %141, %9
   %485 = trunc i32 %482 to i16
   %486 = sub i16 %484, %485
   store i16 %486, ptr %12, align 2
-  %487 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %473) #19
+  %487 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %473) #20
   %.not307.i = icmp eq i64 %487, 0
   %488 = load ptr, ptr %422, align 8
   br i1 %.not307.i, label %492, label %489
@@ -13333,7 +13333,7 @@ proto_item_set_generated.exit374:                 ; preds = %149, %146, %141, %9
 593:                                              ; preds = %590, %587, %578
   %594 = load ptr, ptr %561, align 8
   %595 = load ptr, ptr %570, align 8
-  %596 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %576) #19
+  %596 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %576) #20
   %597 = call ptr @format_text(ptr noundef %595, ptr noundef nonnull %576, i64 noundef %596)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %594, i32 noundef 25, ptr noundef nonnull @.str.2649, ptr noundef %597)
   br label %thread-pre-split.i
@@ -13408,7 +13408,7 @@ proto_item_set_generated.exit374:                 ; preds = %149, %146, %141, %9
   %642 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %643 = load ptr, ptr %642, align 8
   %644 = load ptr, ptr %623, align 8
-  %645 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %628) #19
+  %645 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %628) #20
   %646 = call ptr @format_text(ptr noundef %644, ptr noundef nonnull %628, i64 noundef %645)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %643, i32 noundef 25, ptr noundef nonnull @.str.2649, ptr noundef %646)
   br label %thread-pre-split.i
@@ -13601,7 +13601,7 @@ proto_item_set_generated.exit374:                 ; preds = %149, %146, %141, %9
   %764 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %765 = load ptr, ptr %764, align 8
   %766 = load ptr, ptr %745, align 8
-  %767 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %750) #19
+  %767 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %750) #20
   %768 = call ptr @format_text(ptr noundef %766, ptr noundef nonnull %750, i64 noundef %767)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %765, i32 noundef 25, ptr noundef nonnull @.str.2649, ptr noundef %768)
   br label %thread-pre-split.i
@@ -13665,7 +13665,7 @@ proto_item_set_generated.exit374:                 ; preds = %149, %146, %141, %9
   %807 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %808 = load ptr, ptr %807, align 8
   %809 = load ptr, ptr %788, align 8
-  %810 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %793) #19
+  %810 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %793) #20
   %811 = call ptr @format_text(ptr noundef %809, ptr noundef nonnull %793, i64 noundef %810)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %808, i32 noundef 25, ptr noundef nonnull @.str.2683, ptr noundef %811)
   br label %thread-pre-split.i
@@ -13707,7 +13707,7 @@ proto_item_set_generated.exit374:                 ; preds = %149, %146, %141, %9
   %837 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %838 = load ptr, ptr %837, align 8
   %839 = load ptr, ptr %818, align 8
-  %840 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %823) #19
+  %840 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %823) #20
   %841 = call ptr @format_text(ptr noundef %839, ptr noundef nonnull %823, i64 noundef %840)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %838, i32 noundef 25, ptr noundef nonnull @.str.27, ptr noundef %841)
   br label %thread-pre-split.i
@@ -14053,7 +14053,7 @@ dissect_transaction2_request_data.exit:           ; preds = %dissect_sfsi_reques
 
 1007:                                             ; preds = %1004
   %1008 = call ptr @wmem_file_scope()
-  %1009 = call noalias dereferenceable_or_null(48) ptr @wmem_alloc(ptr noundef %1008, i64 noundef 48) #18
+  %1009 = call noalias dereferenceable_or_null(48) ptr @wmem_alloc(ptr noundef %1008, i64 noundef 48) #19
   %1010 = getelementptr inbounds nuw i8, ptr %1009, i64 14
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(14) %1009, i8 -1, i64 14, i1 false)
   %1011 = getelementptr inbounds nuw i8, ptr %1009, i64 40
@@ -14073,7 +14073,7 @@ dissect_transaction2_request_data.exit:           ; preds = %dissect_sfsi_reques
   br i1 %1017, label %.thread382, label %1018
 
 1018:                                             ; preds = %1016
-  %1019 = call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str.2675, ptr noundef nonnull dereferenceable(1) %.0318, i64 noundef 6) #19
+  %1019 = call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str.2675, ptr noundef nonnull dereferenceable(1) %.0318, i64 noundef 6) #20
   %1020 = icmp eq i32 %1019, 0
   br i1 %1020, label %1021, label %1054
 
@@ -14124,7 +14124,7 @@ dissect_transaction2_request_data.exit:           ; preds = %dissect_sfsi_reques
   br i1 %1028, label %1064, label %.critedge
 
 1054:                                             ; preds = %1018
-  %1055 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.2676, ptr noundef nonnull dereferenceable(1) %.0318, i64 noundef 10) #19
+  %1055 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.2676, ptr noundef nonnull dereferenceable(1) %.0318, i64 noundef 10) #20
   %1056 = icmp eq i32 %1055, 0
   br i1 %1056, label %1057, label %.critedge
 
@@ -14216,7 +14216,7 @@ define internal i32 @dissect_transaction_response(ptr noundef %0, ptr noundef %1
   br i1 %.not, label %15, label %16
 
 15:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 16857, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 16857, ptr noundef nonnull @.str.2) #18
   unreachable
 
 16:                                               ; preds = %6
@@ -15928,7 +15928,7 @@ define internal i32 @dissect_copy_request(ptr noundef %0, ptr noundef readonly c
   br i1 %.not, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3766, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3766, ptr noundef nonnull @.str.2) #18
   unreachable
 
 11:                                               ; preds = %6
@@ -15984,7 +15984,7 @@ define internal i32 @dissect_copy_request(ptr noundef %0, ptr noundef readonly c
   %50 = load i32, ptr @hf_smb_file_name, align 4
   %51 = load i32, ptr %8, align 4
   %52 = load ptr, ptr %42, align 8
-  %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #19
+  %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #20
   %54 = call ptr @format_text(ptr noundef %52, ptr noundef nonnull %47, i64 noundef %53)
   %55 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %2, i32 noundef %50, ptr noundef %0, i32 noundef %.pre71, i32 noundef %51, ptr noundef nonnull %47, ptr noundef nonnull @.str.2705, ptr noundef %54)
   %56 = load i32, ptr %8, align 4
@@ -15994,7 +15994,7 @@ define internal i32 @dissect_copy_request(ptr noundef %0, ptr noundef readonly c
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr %42, align 8
-  %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #19
+  %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #20
   %64 = call ptr @format_text(ptr noundef %62, ptr noundef nonnull %47, i64 noundef %63)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %61, i32 noundef 25, ptr noundef nonnull @.str.2706, ptr noundef %64)
   %65 = icmp eq i16 %58, %59
@@ -16020,7 +16020,7 @@ define internal i32 @dissect_copy_request(ptr noundef %0, ptr noundef readonly c
   %78 = load i32, ptr @hf_smb_file_name, align 4
   %79 = load i32, ptr %8, align 4
   %80 = load ptr, ptr %42, align 8
-  %81 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #19
+  %81 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #20
   %82 = call ptr @format_text(ptr noundef %80, ptr noundef nonnull %75, i64 noundef %81)
   %83 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %2, i32 noundef %78, ptr noundef %0, i32 noundef %.pre, i32 noundef %79, ptr noundef nonnull %75, ptr noundef nonnull @.str.2707, ptr noundef %82)
   %84 = load i32, ptr %8, align 4
@@ -16029,7 +16029,7 @@ define internal i32 @dissect_copy_request(ptr noundef %0, ptr noundef readonly c
   %87 = trunc i32 %84 to i16
   %88 = load ptr, ptr %60, align 8
   %89 = load ptr, ptr %42, align 8
-  %90 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #19
+  %90 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #20
   %91 = call ptr @format_text(ptr noundef %89, ptr noundef nonnull %75, i64 noundef %90)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %88, i32 noundef 25, ptr noundef nonnull @.str.2708, ptr noundef %91)
   %.not69 = icmp eq i16 %86, %87
@@ -16077,7 +16077,7 @@ define internal i32 @dissect_move_copy_response(ptr noundef %0, ptr noundef read
   br i1 %.not, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3829, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3829, ptr noundef nonnull @.str.2) #18
   unreachable
 
 11:                                               ; preds = %6
@@ -16175,7 +16175,7 @@ define internal i32 @dissect_move_request(ptr noundef %0, ptr noundef readonly c
   br i1 %.not, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3702, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3702, ptr noundef nonnull @.str.2) #18
   unreachable
 
 11:                                               ; preds = %6
@@ -16231,7 +16231,7 @@ define internal i32 @dissect_move_request(ptr noundef %0, ptr noundef readonly c
   %50 = load i32, ptr @hf_smb_file_name, align 4
   %51 = load i32, ptr %8, align 4
   %52 = load ptr, ptr %42, align 8
-  %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #19
+  %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #20
   %54 = call ptr @format_text(ptr noundef %52, ptr noundef nonnull %47, i64 noundef %53)
   %55 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %2, i32 noundef %50, ptr noundef %0, i32 noundef %.pre71, i32 noundef %51, ptr noundef nonnull %47, ptr noundef nonnull @.str.2709, ptr noundef %54)
   %56 = load i32, ptr %8, align 4
@@ -16241,7 +16241,7 @@ define internal i32 @dissect_move_request(ptr noundef %0, ptr noundef readonly c
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr %42, align 8
-  %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #19
+  %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #20
   %64 = call ptr @format_text(ptr noundef %62, ptr noundef nonnull %47, i64 noundef %63)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %61, i32 noundef 25, ptr noundef nonnull @.str.2651, ptr noundef %64)
   %65 = icmp eq i16 %58, %59
@@ -16267,7 +16267,7 @@ define internal i32 @dissect_move_request(ptr noundef %0, ptr noundef readonly c
   %78 = load i32, ptr @hf_smb_file_name, align 4
   %79 = load i32, ptr %8, align 4
   %80 = load ptr, ptr %42, align 8
-  %81 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #19
+  %81 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #20
   %82 = call ptr @format_text(ptr noundef %80, ptr noundef nonnull %75, i64 noundef %81)
   %83 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %2, i32 noundef %78, ptr noundef %0, i32 noundef %.pre, i32 noundef %79, ptr noundef nonnull %75, ptr noundef nonnull @.str.2710, ptr noundef %82)
   %84 = load i32, ptr %8, align 4
@@ -16276,7 +16276,7 @@ define internal i32 @dissect_move_request(ptr noundef %0, ptr noundef readonly c
   %87 = trunc i32 %84 to i16
   %88 = load ptr, ptr %60, align 8
   %89 = load ptr, ptr %42, align 8
-  %90 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #19
+  %90 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #20
   %91 = call ptr @format_text(ptr noundef %89, ptr noundef nonnull %75, i64 noundef %90)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %88, i32 noundef 25, ptr noundef nonnull @.str.2652, ptr noundef %91)
   %.not69 = icmp eq i16 %86, %87
@@ -16500,7 +16500,7 @@ define internal i32 @dissect_open_andx_request(ptr noundef %0, ptr noundef %1, p
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6680, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6680, ptr noundef nonnull @.str.2) #18
   unreachable
 
 12:                                               ; preds = %6
@@ -16651,7 +16651,7 @@ dissect_smb_UTIME.exit:                           ; preds = %56, %58
 
 116:                                              ; preds = %113
   %117 = call ptr @wmem_file_scope()
-  %118 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %117, i64 noundef 32) #18
+  %118 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %117, i64 noundef 32) #19
   %119 = call ptr @wmem_file_scope()
   %120 = call noalias ptr @wmem_strdup(ptr noundef %119, ptr noundef nonnull %97)
   store ptr %120, ptr %118, align 8
@@ -16667,7 +16667,7 @@ dissect_smb_UTIME.exit:                           ; preds = %56, %58
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %127 = load ptr, ptr %126, align 8
   %128 = load ptr, ptr %92, align 8
-  %129 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %97) #19
+  %129 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %97) #20
   %130 = call ptr @format_text(ptr noundef %128, ptr noundef nonnull %97, i64 noundef %129)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %127, i32 noundef 25, ptr noundef nonnull @.str.2649, ptr noundef %130)
   %.not89 = icmp eq i16 %105, %106
@@ -16708,7 +16708,7 @@ thread-pre-split.thread:                          ; preds = %131, %thread-pre-sp
   br i1 %143, label %144, label %145
 
 144:                                              ; preds = %142
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 145:                                              ; preds = %142
@@ -16920,7 +16920,7 @@ dissect_smb_UTIME.exit:                           ; preds = %46, %48
   br i1 %131, label %132, label %133
 
 132:                                              ; preds = %129
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 133:                                              ; preds = %129
@@ -16937,7 +16937,7 @@ define internal i32 @dissect_read_andx_request(ptr noundef %0, ptr noundef %1, p
   br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6957, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6957, ptr noundef nonnull @.str.2) #18
   unreachable
 
 8:                                                ; preds = %6
@@ -17045,7 +17045,7 @@ define internal i32 @dissect_read_andx_request(ptr noundef %0, ptr noundef %1, p
 
 84:                                               ; preds = %78
   %85 = tail call ptr @wmem_file_scope()
-  %86 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %85, i64 noundef 16) #18
+  %86 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %85, i64 noundef 16) #19
   store i64 %71, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i32 %57, ptr %87, align 8
@@ -17159,7 +17159,7 @@ proto_item_set_generated.exit168:                 ; preds = %69, %118, %115, %pr
   br i1 %138, label %139, label %140
 
 139:                                              ; preds = %136
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 140:                                              ; preds = %136
@@ -17176,7 +17176,7 @@ define internal i32 @dissect_read_andx_response(ptr noundef %0, ptr noundef %1, 
   br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7114, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7114, ptr noundef nonnull @.str.2) #18
   unreachable
 
 8:                                                ; preds = %6
@@ -17395,7 +17395,7 @@ proto_item_set_generated.exit182:                 ; preds = %proto_item_set_gene
   br i1 %138, label %139, label %140
 
 139:                                              ; preds = %137
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 140:                                              ; preds = %137
@@ -17412,7 +17412,7 @@ define internal i32 @dissect_write_andx_request(ptr noundef %0, ptr noundef %1, 
   br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7255, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7255, ptr noundef nonnull @.str.2) #18
   unreachable
 
 8:                                                ; preds = %6
@@ -17520,7 +17520,7 @@ define internal i32 @dissect_write_andx_request(ptr noundef %0, ptr noundef %1, 
 
 89:                                               ; preds = %83
   %90 = tail call ptr @wmem_file_scope()
-  %91 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %90, i64 noundef 16) #18
+  %91 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %90, i64 noundef 16) #19
   store i64 %76, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store i32 %60, ptr %92, align 8
@@ -17744,7 +17744,7 @@ proto_item_set_generated.exit236:                 ; preds = %74, %123, %120, %pr
   br i1 %203, label %204, label %205
 
 204:                                              ; preds = %201
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 205:                                              ; preds = %201
@@ -17761,7 +17761,7 @@ define internal i32 @dissect_write_andx_response(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7431, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7431, ptr noundef nonnull @.str.2) #18
   unreachable
 
 8:                                                ; preds = %6
@@ -17921,7 +17921,7 @@ proto_item_set_generated.exit123:                 ; preds = %24, %36, %61, %58, 
   br i1 %103, label %104, label %105
 
 104:                                              ; preds = %102
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 105:                                              ; preds = %102
@@ -18045,7 +18045,7 @@ define internal i32 @dissect_tree_connect_request(ptr noundef %0, ptr noundef re
   br i1 %.not, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3426, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3426, ptr noundef nonnull @.str.2) #18
   unreachable
 
 11:                                               ; preds = %6
@@ -18090,7 +18090,7 @@ define internal i32 @dissect_tree_connect_request(ptr noundef %0, ptr noundef re
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %28, align 8
-  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #19
+  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #20
   %47 = call ptr @format_text(ptr noundef %45, ptr noundef nonnull %33, i64 noundef %46)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %44, i32 noundef 25, ptr noundef nonnull @.str.2649, ptr noundef %47)
   %48 = icmp eq i16 %41, %42
@@ -18231,7 +18231,7 @@ define internal i32 @dissect_negprot_request(ptr noundef %0, ptr noundef readonl
   br i1 %.not, label %9, label %10
 
 9:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2808, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2808, ptr noundef nonnull @.str.2) #18
   unreachable
 
 10:                                               ; preds = %6
@@ -18267,7 +18267,7 @@ define internal i32 @dissect_negprot_request(ptr noundef %0, ptr noundef readonl
 
 33:                                               ; preds = %30
   %34 = call ptr @wmem_file_scope()
-  %35 = call noalias dereferenceable_or_null(176) ptr @wmem_alloc(ptr noundef %34, i64 noundef 176) #18
+  %35 = call noalias dereferenceable_or_null(176) ptr @wmem_alloc(ptr noundef %34, i64 noundef 176) #19
   store i32 0, ptr %35, align 8
   %36 = load ptr, ptr %31, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
@@ -18376,7 +18376,7 @@ define internal i32 @dissect_negprot_response(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2883, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2883, ptr noundef nonnull @.str.2) #18
   unreachable
 
 11:                                               ; preds = %6
@@ -18815,7 +18815,7 @@ define internal i32 @dissect_session_setup_andx_request(ptr noundef %0, ptr noun
   br i1 %.not261, label %19, label %20
 
 19:                                               ; preds = %18
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7561, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7561, ptr noundef nonnull @.str.2) #18
   unreachable
 
 20:                                               ; preds = %18
@@ -19022,7 +19022,7 @@ define internal i32 @dissect_session_setup_andx_request(ptr noundef %0, ptr noun
 
 150:                                              ; preds = %147
   %151 = tail call ptr @wmem_file_scope()
-  %152 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %151, i64 noundef 24) #18
+  %152 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %151, i64 noundef 24) #19
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
   store i32 -1, ptr %153, align 8
   %154 = getelementptr inbounds nuw i8, ptr %152, i64 20
@@ -19245,10 +19245,10 @@ define internal i32 @dissect_session_setup_andx_request(ptr noundef %0, ptr noun
 290:                                              ; preds = %286, %274
   %291 = load ptr, ptr %283, align 8
   %292 = load ptr, ptr %253, align 8
-  %293 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %272) #19
+  %293 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %272) #20
   %294 = call ptr @format_text(ptr noundef %292, ptr noundef nonnull %272, i64 noundef %293)
   %295 = load ptr, ptr %253, align 8
-  %296 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %258) #19
+  %296 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %258) #20
   %297 = call ptr @format_text(ptr noundef %295, ptr noundef nonnull %258, i64 noundef %296)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %291, i32 noundef 25, ptr noundef nonnull @.str.2723, ptr noundef %294, ptr noundef %297)
   br label %298
@@ -19336,7 +19336,7 @@ thread-pre-split.thread:                          ; preds = %328, %thread-pre-sp
   br i1 %340, label %341, label %342
 
 341:                                              ; preds = %338
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 342:                                              ; preds = %338
@@ -19361,7 +19361,7 @@ define internal i32 @dissect_session_setup_andx_response(ptr noundef %0, ptr nou
   br i1 %.not, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7910, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7910, ptr noundef nonnull @.str.2) #18
   unreachable
 
 11:                                               ; preds = %6
@@ -19641,7 +19641,7 @@ thread-pre-split.thread:                          ; preds = %162, %thread-pre-sp
   br i1 %175, label %176, label %177
 
 176:                                              ; preds = %173
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 177:                                              ; preds = %173
@@ -19730,7 +19730,7 @@ define internal i32 @dissect_empty_andx(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %47
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 50:                                               ; preds = %47
@@ -19754,7 +19754,7 @@ define internal i32 @dissect_tree_connect_andx_request(ptr noundef %0, ptr nound
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8164, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8164, ptr noundef nonnull @.str.2) #18
   unreachable
 
 12:                                               ; preds = %6
@@ -19879,7 +19879,7 @@ define internal i32 @dissect_tree_connect_andx_request(ptr noundef %0, ptr nound
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %94 = load ptr, ptr %93, align 8
   %95 = load ptr, ptr %62, align 8
-  %96 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #19
+  %96 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #20
   %97 = call ptr @format_text(ptr noundef %95, ptr noundef nonnull %67, i64 noundef %96)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %94, i32 noundef 25, ptr noundef nonnull @.str.2649, ptr noundef %97)
   %98 = call i32 @tvb_strsize(ptr noundef %0, i32 noundef %74)
@@ -19936,7 +19936,7 @@ thread-pre-split.thread:                          ; preds = %109, %thread-pre-sp
   br i1 %121, label %122, label %123
 
 122:                                              ; preds = %120
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 123:                                              ; preds = %120
@@ -19963,7 +19963,7 @@ define internal i32 @dissect_tree_connect_andx_response(ptr noundef %0, ptr noun
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8258, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8258, ptr noundef nonnull @.str.2) #18
   unreachable
 
 12:                                               ; preds = %6
@@ -20095,7 +20095,7 @@ define internal i32 @dissect_tree_connect_andx_response(ptr noundef %0, ptr noun
 
 .sink.split:                                      ; preds = %95, %85
   %103 = load ptr, ptr %10, align 8
-  %104 = call i32 @strcmp(ptr noundef %103, ptr noundef nonnull dereferenceable(4) @.str.2726) #19
+  %104 = call i32 @strcmp(ptr noundef %103, ptr noundef nonnull dereferenceable(4) @.str.2726) #20
   %105 = icmp eq i32 %104, 0
   %106 = load ptr, ptr %86, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
@@ -20172,7 +20172,7 @@ thread-pre-split.thread:                          ; preds = %113, %thread-pre-sp
   br i1 %141, label %142, label %143
 
 142:                                              ; preds = %139
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 143:                                              ; preds = %139
@@ -20372,7 +20372,7 @@ define internal i32 @dissect_nt_transaction_request(ptr noundef %0, ptr noundef 
   br i1 %.not318, label %12, label %13
 
 12:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 9359, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 9359, ptr noundef nonnull @.str.2) #18
   unreachable
 
 13:                                               ; preds = %6
@@ -20486,7 +20486,7 @@ define internal i32 @dissect_nt_transaction_request(ptr noundef %0, ptr noundef 
 
 94:                                               ; preds = %88
   %95 = tail call ptr @wmem_file_scope()
-  %96 = tail call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %95, i64 noundef 12) #18
+  %96 = tail call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %95, i64 noundef 12) #19
   store i32 %78, ptr %96, align 4
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
   store i32 0, ptr %97, align 4
@@ -20779,7 +20779,7 @@ define internal i32 @dissect_nt_transaction_response(ptr noundef %0, ptr noundef
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 9989, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 9989, ptr noundef nonnull @.str.2) #18
   unreachable
 
 9:                                                ; preds = %6
@@ -21107,7 +21107,7 @@ define internal i32 @dissect_nt_create_andx_request(ptr noundef %0, ptr noundef 
   br i1 %.not, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 10597, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 10597, ptr noundef nonnull @.str.2) #18
   unreachable
 
 11:                                               ; preds = %6
@@ -21269,7 +21269,7 @@ define internal i32 @dissect_nt_create_andx_request(ptr noundef %0, ptr noundef 
 
 128:                                              ; preds = %125
   %129 = call ptr @wmem_file_scope()
-  %130 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %129, i64 noundef 32) #18
+  %130 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %129, i64 noundef 32) #19
   %131 = call ptr @wmem_file_scope()
   %132 = call noalias ptr @wmem_strdup(ptr noundef %131, ptr noundef nonnull %109)
   store ptr %132, ptr %130, align 8
@@ -21297,7 +21297,7 @@ define internal i32 @dissect_nt_create_andx_request(ptr noundef %0, ptr noundef 
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %145 = load ptr, ptr %144, align 8
   %146 = load ptr, ptr %104, align 8
-  %147 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %109) #19
+  %147 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %109) #20
   %148 = call ptr @format_text(ptr noundef %146, ptr noundef nonnull %109, i64 noundef %147)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %145, i32 noundef 25, ptr noundef nonnull @.str.2649, ptr noundef %148)
   %.not124 = icmp eq i16 %117, %118
@@ -21338,7 +21338,7 @@ thread-pre-split.thread:                          ; preds = %149, %thread-pre-sp
   br i1 %161, label %162, label %163
 
 162:                                              ; preds = %160
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 163:                                              ; preds = %160
@@ -21531,7 +21531,7 @@ define internal i32 @dissect_nt_create_andx_response(ptr noundef %0, ptr noundef
   br i1 %129, label %130, label %131
 
 130:                                              ; preds = %127
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 131:                                              ; preds = %127
@@ -21599,7 +21599,7 @@ define internal i32 @dissect_nt_rename_file_request(ptr noundef %0, ptr noundef 
   br i1 %.not, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4620, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4620, ptr noundef nonnull @.str.2) #18
   unreachable
 
 11:                                               ; preds = %6
@@ -21662,7 +21662,7 @@ define internal i32 @dissect_nt_rename_file_request(ptr noundef %0, ptr noundef 
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %42, align 8
-  %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #19
+  %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #20
   %61 = call ptr @format_text(ptr noundef %59, ptr noundef nonnull %47, i64 noundef %60)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.2651, ptr noundef %61)
   %62 = icmp eq i16 %55, %56
@@ -21694,7 +21694,7 @@ define internal i32 @dissect_nt_rename_file_request(ptr noundef %0, ptr noundef 
   %81 = trunc i32 %78 to i16
   %82 = load ptr, ptr %57, align 8
   %83 = load ptr, ptr %42, align 8
-  %84 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %72) #19
+  %84 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %72) #20
   %85 = call ptr @format_text(ptr noundef %83, ptr noundef nonnull %72, i64 noundef %84)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %82, i32 noundef 25, ptr noundef nonnull @.str.2652, ptr noundef %85)
   %.not59 = icmp eq i16 %80, %81
@@ -21742,7 +21742,7 @@ define internal i32 @dissect_open_print_file_request(ptr noundef %0, ptr noundef
   br i1 %.not, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 10171, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 10171, ptr noundef nonnull @.str.2) #18
   unreachable
 
 11:                                               ; preds = %6
@@ -22123,7 +22123,7 @@ define internal noundef i32 @dissect_get_print_queue_response(ptr noundef %0, pt
   br i1 %46, label %dissect_print_queue_element.exit.thread, label %48
 
 47:                                               ; preds = %.lr.ph
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 10281, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 10281, ptr noundef nonnull @.str.2) #18
   unreachable
 
 48:                                               ; preds = %.lr.ph.split
@@ -22641,7 +22641,7 @@ define internal fastcc i32 @TimeZoneFaster(i64 noundef range(i64 -2147483648, 64
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = tail call i64 @time(ptr noundef null) #21
+  %4 = tail call i64 @time(ptr noundef null) #22
   br label %5
 
 5:                                                ; preds = %3, %1
@@ -22691,7 +22691,7 @@ define internal fastcc i32 @TimeZoneFaster(i64 noundef range(i64 -2147483648, 64
   br i1 %23, label %27, label %29
 
 27:                                               ; preds = %._crit_edge
-  %28 = tail call noalias ptr @g_malloc(i64 noundef %26) #20
+  %28 = tail call noalias ptr @g_malloc(i64 noundef %26) #21
   br label %31
 
 29:                                               ; preds = %._crit_edge
@@ -22836,7 +22836,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #9
 define internal fastcc i32 @TimeZone(i64 noundef %0) unnamed_addr #10 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
-  %3 = call ptr @gmtime(ptr noundef nonnull %2) #21
+  %3 = call ptr @gmtime(ptr noundef nonnull %2) #22
   %4 = icmp eq ptr %3, null
   br i1 %4, label %40, label %5
 
@@ -22850,7 +22850,7 @@ define internal fastcc i32 @TimeZone(i64 noundef %0) unnamed_addr #10 {
   %.sroa.66.0.copyload = load i32, ptr %.sroa.66.0..sroa_idx, align 4
   %.sroa.77.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 28
   %.sroa.77.0.copyload = load i32, ptr %.sroa.77.0..sroa_idx, align 4
-  %6 = call ptr @localtime(ptr noundef nonnull %2) #21
+  %6 = call ptr @localtime(ptr noundef nonnull %2) #22
   %7 = icmp eq ptr %6, null
   br i1 %7, label %40, label %8
 
@@ -22968,7 +22968,7 @@ define internal fastcc void @feed_eo_smb(i16 noundef zeroext range(i16 10, 48) %
   %11 = tail call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %10, i32 noundef %5)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call noalias dereferenceable_or_null(96) ptr @wmem_alloc(ptr noundef %13, i64 noundef 96) #18
+  %14 = tail call noalias dereferenceable_or_null(96) ptr @wmem_alloc(ptr noundef %13, i64 noundef 96) #19
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
@@ -23181,7 +23181,7 @@ define internal fastcc ptr @smbext20_timeout_msecs_to_str(ptr noundef %0, i32 no
   br i1 %3, label %4, label %14
 
 4:                                                ; preds = %2
-  %5 = tail call noalias dereferenceable_or_null(61) ptr @wmem_alloc(ptr noundef %0, i64 noundef 61) #18
+  %5 = tail call noalias dereferenceable_or_null(61) ptr @wmem_alloc(ptr noundef %0, i64 noundef 61) #19
   switch i32 %1, label %12 [
     i32 0, label %6
     i32 -1, label %8
@@ -23392,7 +23392,7 @@ define internal fastcc noundef i32 @dissect_smb_datetime(ptr noundef %0, ptr nou
   br i1 %65, label %69, label %66
 
 66:                                               ; preds = %61, %56
-  %67 = call i64 @mktime(ptr noundef nonnull %8) #21
+  %67 = call i64 @mktime(ptr noundef nonnull %8) #22
   %68 = icmp eq i64 %67, -1
   br i1 %68, label %69, label %101
 
@@ -24964,7 +24964,7 @@ define internal fastcc ptr @smb_trans_defragment(ptr noundef %0, ptr noundef %1,
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %11, %7
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 15:                                               ; preds = %11
@@ -25313,7 +25313,7 @@ thread-pre-split.i:                               ; preds = %70, %56
   store i16 %157, ptr %4, align 2
   %158 = load ptr, ptr %36, align 8
   %159 = load ptr, ptr %143, align 8
-  %160 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %145) #19
+  %160 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %145) #20
   %161 = call ptr @format_text(ptr noundef %159, ptr noundef nonnull %145, i64 noundef %160)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %158, ptr noundef nonnull @.str.2701, ptr noundef %161)
   %162 = load ptr, ptr %36, align 8
@@ -25540,7 +25540,7 @@ thread-pre-split.i89:                             ; preds = %192, %178
   store i16 %287, ptr %4, align 2
   %288 = load ptr, ptr %33, align 8
   %289 = load ptr, ptr %270, align 8
-  %290 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %275) #19
+  %290 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %275) #20
   %291 = call ptr @format_text(ptr noundef %289, ptr noundef nonnull %275, i64 noundef %290)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %288, ptr noundef nonnull @.str.2701, ptr noundef %291)
   %292 = load i16, ptr %4, align 2
@@ -25785,7 +25785,7 @@ thread-pre-split.i92:                             ; preds = %323, %314
   store i16 %427, ptr %4, align 2
   %428 = load ptr, ptr %30, align 8
   %429 = load ptr, ptr %413, align 8
-  %430 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %415) #19
+  %430 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %415) #20
   %431 = call ptr @format_text(ptr noundef %429, ptr noundef nonnull %415, i64 noundef %430)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %428, ptr noundef nonnull @.str.2701, ptr noundef %431)
   %432 = load ptr, ptr %30, align 8
@@ -25977,7 +25977,7 @@ dissect_4_3_4_3.exit:                             ; preds = %322, %332, %341, %3
   %534 = phi i32 [ %518, %522 ], [ %530, %529 ], [ %518, %512 ]
   %535 = load ptr, ptr %27, align 8
   %536 = load ptr, ptr %503, align 8
-  %537 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %508) #19
+  %537 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %508) #20
   %538 = call ptr @format_text(ptr noundef %536, ptr noundef nonnull %508, i64 noundef %537)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %535, ptr noundef nonnull @.str.2701, ptr noundef %538)
   %539 = load ptr, ptr %27, align 8
@@ -26184,7 +26184,7 @@ dissect_4_3_4_4.exit:                             ; preds = %436, %452, %460, %4
   %649 = phi i32 [ %633, %637 ], [ %645, %644 ], [ %633, %627 ]
   %650 = load ptr, ptr %24, align 8
   %651 = load ptr, ptr %618, align 8
-  %652 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %623) #19
+  %652 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %623) #20
   %653 = call ptr @format_text(ptr noundef %651, ptr noundef nonnull %623, i64 noundef %652)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %650, ptr noundef nonnull @.str.2701, ptr noundef %653)
   %654 = load ptr, ptr %24, align 8
@@ -26334,7 +26334,7 @@ get_unicode_or_ascii_string.exit.i:               ; preds = %713, %707
   %.1.i = phi i32 [ %719, %716 ], [ %719, %723 ], [ %730, %729 ]
   %734 = load ptr, ptr %21, align 8
   %735 = load ptr, ptr %694, align 8
-  %736 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i) #19
+  %736 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i) #20
   %737 = call ptr @format_text(ptr noundef %735, ptr noundef nonnull %.0.i.i, i64 noundef %736)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %734, ptr noundef nonnull @.str.2701, ptr noundef %737)
   %738 = load ptr, ptr %21, align 8
@@ -26593,7 +26593,7 @@ dissect_4_3_4_7.exit:                             ; preds = %656, %663, %673, %6
   %880 = phi i32 [ %864, %868 ], [ %876, %875 ], [ %864, %858 ]
   %881 = load ptr, ptr %20, align 8
   %882 = load ptr, ptr %835, align 8
-  %883 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %854) #19
+  %883 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %854) #20
   %884 = call ptr @format_text(ptr noundef %882, ptr noundef nonnull %854, i64 noundef %883)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %881, ptr noundef nonnull @.str.2701, ptr noundef %884)
   %885 = load ptr, ptr %20, align 8
@@ -26815,7 +26815,7 @@ dissect_4_3_4_6.exit:                             ; preds = %742, %758, %766, %7
   %1003 = phi i32 [ %987, %991 ], [ %999, %998 ], [ %987, %981 ]
   %1004 = load ptr, ptr %16, align 8
   %1005 = load ptr, ptr %972, align 8
-  %1006 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %977) #19
+  %1006 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %977) #20
   %1007 = call ptr @format_text(ptr noundef %1005, ptr noundef nonnull %977, i64 noundef %1006)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1004, ptr noundef nonnull @.str.2701, ptr noundef %1007)
   %1008 = load ptr, ptr %16, align 8
@@ -27103,7 +27103,7 @@ dissect_4_3_4_6full.exit:                         ; preds = %889, %905, %913, %9
   %1166 = phi i32 [ %1150, %1154 ], [ %1162, %1161 ], [ %1150, %1144 ]
   %1167 = load ptr, ptr %13, align 8
   %1168 = load ptr, ptr %1105, align 8
-  %1169 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1140) #19
+  %1169 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1140) #20
   %1170 = call ptr @format_text(ptr noundef %1168, ptr noundef nonnull %1140, i64 noundef %1169)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1167, ptr noundef nonnull @.str.2701, ptr noundef %1170)
   %1171 = load ptr, ptr %13, align 8
@@ -27893,7 +27893,7 @@ define internal fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr noun
   br i1 %.not58, label %11, label %12
 
 11:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6030, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6030, ptr noundef nonnull @.str.2) #18
   unreachable
 
 12:                                               ; preds = %6
@@ -27954,7 +27954,7 @@ define internal fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr noun
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %40, align 8
-  %59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #19
+  %59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #20
   %60 = call ptr @format_text(ptr noundef %58, ptr noundef nonnull %45, i64 noundef %59)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %57, i32 noundef 25, ptr noundef nonnull @.str.27, ptr noundef %60)
   %61 = icmp eq i16 %53, %54
@@ -28169,7 +28169,7 @@ define internal fastcc noundef i32 @dissect_search_find_response(ptr noundef %0,
   br i1 %.not.us, label %.split4.us, label %.split6.us
 
 .split6.us:                                       ; preds = %.split.us
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5973, ptr noundef nonnull @.str.2) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5973, ptr noundef nonnull @.str.2) #18
   unreachable
 
 .lr.ph:                                           ; preds = %.split.preheader, %dissect_search_dir_info.exit
@@ -29007,7 +29007,7 @@ define internal fastcc void @insert_chunk(ptr noundef captures(none) %0, ptr nou
   br i1 %or.cond, label %.thread, label %27
 
 .thread:                                          ; preds = %3
-  %18 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #20
+  %18 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #21
   store i64 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8
@@ -29032,7 +29032,7 @@ define internal fastcc void @insert_chunk(ptr noundef captures(none) %0, ptr nou
   br i1 %31, label %32, label %39
 
 32:                                               ; preds = %27
-  %33 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #20
+  %33 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #21
   %34 = load i64, ptr %28, align 8
   store i64 %34, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -29111,7 +29111,7 @@ define internal fastcc void @insert_chunk(ptr noundef captures(none) %0, ptr nou
   br i1 %52, label %70, label %79
 
 70:                                               ; preds = %69
-  %71 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #20
+  %71 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #21
   store i64 %12, ptr %71, align 8
   %72 = load i64, ptr %50, align 8
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
@@ -29161,7 +29161,7 @@ define internal fastcc void @insert_chunk(ptr noundef captures(none) %0, ptr nou
   br label %94
 
 91:                                               ; preds = %89
-  %92 = tail call noalias ptr @g_try_malloc(i64 noundef %12) #20
+  %92 = tail call noalias ptr @g_try_malloc(i64 noundef %12) #21
   store ptr %92, ptr %87, align 8
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 %12, ptr %93, align 8
@@ -29219,7 +29219,7 @@ define internal fastcc void @insert_chunk(ptr noundef captures(none) %0, ptr nou
   %118 = load ptr, ptr %117, align 8
   %119 = load i32, ptr %9, align 8
   %120 = zext i32 %119 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %116, ptr noundef align 1 %118, i64 noundef range(i64 0, 4294967296) %120, i1 noundef false) #21
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %116, ptr noundef align 1 %118, i64 noundef range(i64 0, 4294967296) %120, i1 noundef false) #22
   br label %121
 
 121:                                              ; preds = %114, %110
@@ -29256,32 +29256,32 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #14
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #16
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #17
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -29297,14 +29297,15 @@ attributes #10 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-v
 attributes #11 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind null_pointer_is_valid willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { noreturn }
-attributes #18 = { allocsize(1) }
-attributes #19 = { nounwind willreturn memory(read) }
-attributes #20 = { allocsize(0) }
-attributes #21 = { nounwind }
+attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { noreturn }
+attributes #19 = { allocsize(1) }
+attributes #20 = { nounwind willreturn memory(read) }
+attributes #21 = { allocsize(0) }
+attributes #22 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

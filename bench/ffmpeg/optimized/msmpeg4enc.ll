@@ -80,7 +80,7 @@ define void @ff_msmpeg4_code012(ptr noundef captures(none) %0, i32 noundef %1) l
   br label %put_bits.exit
 
 25:                                               ; preds = %11
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit
 
 put_bits.exit:                                    ; preds = %20, %25, %9
@@ -130,7 +130,7 @@ put_bits.exit:                                    ; preds = %20, %25, %9
   br label %put_bits.exit6
 
 55:                                               ; preds = %38
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit6
 
 put_bits.exit6:                                   ; preds = %47, %55, %35
@@ -211,7 +211,7 @@ define void @ff_msmpeg4_encode_ext_header(ptr noundef captures(none) %0) local_u
   br label %put_bits.exit
 
 46:                                               ; preds = %29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit
 
 put_bits.exit:                                    ; preds = %38, %46, %26
@@ -258,7 +258,7 @@ put_bits.exit:                                    ; preds = %38, %46, %26
   br label %put_bits.exit22
 
 75:                                               ; preds = %58
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit22
 
 put_bits.exit22:                                  ; preds = %67, %75, %55
@@ -307,7 +307,7 @@ put_bits.exit22:                                  ; preds = %67, %75, %55
   br label %put_bits.exit26
 
 104:                                              ; preds = %87
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit26
 
 put_bits.exit26:                                  ; preds = %96, %104, %84
@@ -323,8 +323,8 @@ put_bits.exit26:                                  ; preds = %96, %104, %84
   br i1 %.not, label %108, label %107
 
 107:                                              ; preds = %106
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 302) #9
-  tail call void @abort() #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 302) #10
+  tail call void @abort() #11
   unreachable
 
 108:                                              ; preds = %106, %put_bits.exit26
@@ -400,7 +400,7 @@ define void @ff_msmpeg4_encode_motion(ptr noundef captures(none) %0, i32 noundef
   br label %52
 
 51:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %52
 
 52:                                               ; preds = %51, %43
@@ -443,7 +443,7 @@ define void @ff_msmpeg4_handle_slices(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %16, label %17, label %.sink.split
 
 17:                                               ; preds = %13
-  tail call void @ff_mpeg4_clean_buffers(ptr noundef nonnull %0) #9
+  tail call void @ff_mpeg4_clean_buffers(ptr noundef nonnull %0) #10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %8, %13, %17
@@ -472,7 +472,7 @@ define void @ff_msmpeg4_encode_block(ptr noundef %0, ptr noundef readonly captur
   %9 = load i16, ptr %1, align 2, !tbaa !83
   %10 = sext i16 %9 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %11 = call i32 @ff_msmpeg4_pred_dc(ptr noundef nonnull %0, i32 noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
+  %11 = call i32 @ff_msmpeg4_pred_dc(ptr noundef nonnull %0, i32 noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   %12 = icmp slt i32 %2, 4
   %13 = load ptr, ptr %4, align 8, !tbaa !84
   %14 = sub nsw i32 %10, %11
@@ -543,7 +543,7 @@ define void @ff_msmpeg4_encode_block(ptr noundef %0, ptr noundef readonly captur
   br label %63
 
 62:                                               ; preds = %45
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %63
 
 63:                                               ; preds = %62, %54
@@ -603,7 +603,7 @@ msmpeg4_encode_dc.exit.thread:                    ; preds = %41, %63
   br label %98
 
 97:                                               ; preds = %80
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %98
 
 98:                                               ; preds = %97, %89
@@ -672,7 +672,7 @@ msmpeg4_encode_dc.exit.thread235:                 ; preds = %76, %98
   br label %140
 
 139:                                              ; preds = %122
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %140
 
 140:                                              ; preds = %139, %131
@@ -721,7 +721,7 @@ put_bits.exit45.i:                                ; preds = %140, %118
   br label %.thread55.i
 
 165:                                              ; preds = %148
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %.thread55.i
 
 .thread55.i:                                      ; preds = %165, %157, %145
@@ -771,7 +771,7 @@ put_bits.exit45.i:                                ; preds = %140, %118
   br label %put_bits.exit53.i
 
 192:                                              ; preds = %175
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit53.i
 
 put_bits.exit53.i:                                ; preds = %192, %184, %172
@@ -1009,7 +1009,7 @@ get_rl_index.exit:                                ; preds = %279, %291, %298
   br label %332
 
 331:                                              ; preds = %316
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %332
 
 332:                                              ; preds = %331, %323
@@ -1080,7 +1080,7 @@ get_rl_index.exit161.thread:                      ; preds = %344, %get_rl_index.
   br label %put_bits.exit165
 
 368:                                              ; preds = %356
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit165
 
 put_bits.exit165:                                 ; preds = %363, %368, %354
@@ -1185,7 +1185,7 @@ get_rl_index.exit171.thread:                      ; preds = %get_rl_index.exit16
   br label %put_bits.exit175
 
 430:                                              ; preds = %418
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit175
 
 put_bits.exit175:                                 ; preds = %425, %430, %416
@@ -1224,7 +1224,7 @@ put_bits.exit175:                                 ; preds = %425, %430, %416
   br label %put_bits.exit179
 
 451:                                              ; preds = %436
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit179
 
 put_bits.exit179:                                 ; preds = %443, %451, %433
@@ -1280,7 +1280,7 @@ put_bits.exit179:                                 ; preds = %443, %451, %433
   br label %.sink.split
 
 481:                                              ; preds = %466
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %.sink.split
 
 482:                                              ; preds = %458
@@ -1314,7 +1314,7 @@ put_bits.exit179:                                 ; preds = %443, %451, %433
   br label %.sink.split
 
 502:                                              ; preds = %487
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %484, %502, %494, %463, %481, %473
@@ -1360,7 +1360,7 @@ put_bits.exit179:                                 ; preds = %443, %451, %433
   br label %529
 
 528:                                              ; preds = %513
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %529
 
 529:                                              ; preds = %528, %520
@@ -1403,7 +1403,7 @@ put_bits.exit191:                                 ; preds = %509, %529
   br label %put_bits.exit195
 
 550:                                              ; preds = %535
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit195
 
 put_bits.exit195:                                 ; preds = %542, %550, %532
@@ -1443,7 +1443,7 @@ put_bits.exit195:                                 ; preds = %542, %550, %532
   br label %573
 
 572:                                              ; preds = %557
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %573
 
 573:                                              ; preds = %572, %564
@@ -1487,7 +1487,7 @@ put_bits.exit199:                                 ; preds = %554, %573
   br label %put_bits.exit203
 
 594:                                              ; preds = %579
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit203
 
 put_bits.exit203:                                 ; preds = %586, %594, %576
@@ -1527,7 +1527,7 @@ put_bits.exit203:                                 ; preds = %586, %594, %576
   br label %put_sbits.exit
 
 616:                                              ; preds = %601
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_sbits.exit
 
 put_sbits.exit:                                   ; preds = %598, %608, %616
@@ -1567,7 +1567,7 @@ put_sbits.exit:                                   ; preds = %598, %608, %616
   br label %put_bits.exit210
 
 638:                                              ; preds = %623
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit210
 
 put_bits.exit210:                                 ; preds = %630, %638, %620
@@ -1614,7 +1614,7 @@ put_bits.exit210:                                 ; preds = %630, %638, %620
   br label %668
 
 667:                                              ; preds = %652
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %668
 
 668:                                              ; preds = %667, %659
@@ -1657,7 +1657,7 @@ put_bits.exit214:                                 ; preds = %649, %668
   br label %put_bits.exit218
 
 688:                                              ; preds = %673
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit218
 
 put_bits.exit218:                                 ; preds = %680, %688, %670
@@ -1697,7 +1697,7 @@ put_bits.exit218:                                 ; preds = %680, %688, %670
   br label %put_bits.exit222
 
 710:                                              ; preds = %695
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit222
 
 put_bits.exit222:                                 ; preds = %702, %710, %692
@@ -1744,7 +1744,7 @@ put_bits.exit222:                                 ; preds = %702, %710, %692
   br label %740
 
 739:                                              ; preds = %724
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %740
 
 740:                                              ; preds = %739, %731
@@ -1787,7 +1787,7 @@ put_bits.exit226:                                 ; preds = %721, %740
   br label %put_bits.exit230
 
 760:                                              ; preds = %745
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit230
 
 put_bits.exit230:                                 ; preds = %752, %760, %742
@@ -1827,7 +1827,7 @@ put_bits.exit230:                                 ; preds = %752, %760, %742
   br label %put_bits.exit234
 
 782:                                              ; preds = %767
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit234
 
 put_bits.exit234:                                 ; preds = %774, %782, %764
@@ -1856,7 +1856,7 @@ put_bits.exit234:                                 ; preds = %774, %782, %764
 
 ; Function Attrs: cold nounwind optsize uwtable
 define void @ff_msmpeg4_encode_init(ptr noundef %0) local_unnamed_addr #3 {
-  tail call void @ff_msmpeg4_common_init(ptr noundef %0) #9
+  tail call void @ff_msmpeg4_common_init(ptr noundef %0) #10
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4148
   %3 = load i32, ptr %2, align 4, !tbaa !73
   %4 = icmp ult i32 %3, 5
@@ -1878,7 +1878,7 @@ define void @ff_msmpeg4_encode_init(ptr noundef %0) local_unnamed_addr #3 {
   br label %11
 
 11:                                               ; preds = %.thread, %5
-  %12 = tail call i32 @pthread_once(ptr noundef nonnull @ff_msmpeg4_encode_init.init_static_once, ptr noundef nonnull @msmpeg4_encode_init_static) #9
+  %12 = tail call i32 @pthread_once(ptr noundef nonnull @ff_msmpeg4_encode_init.init_static_once, ptr noundef nonnull @msmpeg4_encode_init_static) #10
   ret void
 }
 
@@ -2111,7 +2111,7 @@ align_put_bits.exit.thread:                       ; preds = %find_best_tables.ex
   br label %align_put_bits.exit
 
 107:                                              ; preds = %93
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %align_put_bits.exit
 
 align_put_bits.exit:                              ; preds = %102, %107
@@ -2154,7 +2154,7 @@ align_put_bits.exit:                              ; preds = %102, %107
   br label %131
 
 130:                                              ; preds = %115
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %131
 
 131:                                              ; preds = %130, %124
@@ -2200,7 +2200,7 @@ put_bits.exit:                                    ; preds = %111, %131
   br label %put_bits.exit60
 
 156:                                              ; preds = %139
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit60
 
 put_bits.exit60:                                  ; preds = %148, %156, %136
@@ -2312,7 +2312,7 @@ put_bits.exit60:                                  ; preds = %148, %156, %136
   br label %222
 
 221:                                              ; preds = %204
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %222
 
 222:                                              ; preds = %221, %213
@@ -2372,7 +2372,7 @@ put_bits.exit64:                                  ; preds = %200, %222
   br label %put_bits.exit68
 
 255:                                              ; preds = %238
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit68
 
 put_bits.exit68:                                  ; preds = %247, %255, %235
@@ -2440,7 +2440,7 @@ thread-pre-split:                                 ; preds = %put_bits.exit68, %2
   br label %put_bits.exit72
 
 290:                                              ; preds = %273
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit72
 
 put_bits.exit72:                                  ; preds = %282, %290, %270
@@ -2483,7 +2483,7 @@ put_bits.exit72:                                  ; preds = %282, %290, %270
   br label %316
 
 315:                                              ; preds = %298
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %316
 
 316:                                              ; preds = %315, %307
@@ -2541,7 +2541,7 @@ put_bits.exit76:                                  ; preds = %294, %316
   br label %349
 
 348:                                              ; preds = %331
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %349
 
 349:                                              ; preds = %348, %340
@@ -2614,7 +2614,7 @@ thread-pre-split89.thread:                        ; preds = %320, %thread-pre-sp
   br label %put_bits.exit84
 
 385:                                              ; preds = %368
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit84
 
 put_bits.exit84:                                  ; preds = %377, %385, %365
@@ -2656,7 +2656,7 @@ put_bits.exit84:                                  ; preds = %377, %385, %365
   br label %put_bits.exit88
 
 409:                                              ; preds = %392
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit88
 
 put_bits.exit88:                                  ; preds = %401, %409, %389
@@ -2712,7 +2712,7 @@ define internal void @msmpeg4_encode_mb(ptr noundef %0, ptr noundef readonly cap
   br i1 %22, label %23, label %.sink.split.i
 
 23:                                               ; preds = %19
-  tail call void @ff_mpeg4_clean_buffers(ptr noundef nonnull %0) #9
+  tail call void @ff_mpeg4_clean_buffers(ptr noundef nonnull %0) #10
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %23, %19, %14, %11
@@ -2792,7 +2792,7 @@ ff_msmpeg4_handle_slices.exit:                    ; preds = %4, %.sink.split.i
   br label %put_bits.exit
 
 68:                                               ; preds = %51
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit
 
 put_bits.exit:                                    ; preds = %60, %68, %48
@@ -2839,7 +2839,7 @@ put_bits.exit:                                    ; preds = %60, %68, %48
   br label %put_bits.exit129
 
 93:                                               ; preds = %79
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit129
 
 put_bits.exit129:                                 ; preds = %88, %93, %77
@@ -2902,7 +2902,7 @@ put_bits.exit129:                                 ; preds = %88, %93, %77
   br label %134
 
 133:                                              ; preds = %116
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %134
 
 134:                                              ; preds = %133, %125
@@ -2958,7 +2958,7 @@ put_bits.exit133:                                 ; preds = %112, %134
   br label %168
 
 167:                                              ; preds = %150
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %168
 
 168:                                              ; preds = %167, %159
@@ -2990,7 +2990,7 @@ put_bits.exit137:                                 ; preds = %147, %168
   %182 = sub i32 %181, %179
   %183 = add i32 %182, %177
   store i32 %183, ptr %180, align 8, !tbaa !118
-  %184 = call ptr @ff_h263_pred_motion(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
+  %184 = call ptr @ff_h263_pred_motion(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
   %185 = load i32, ptr %5, align 4, !tbaa !77
   %186 = sub nsw i32 %2, %185
   call fastcc void @msmpeg4v2_encode_motion(ptr noundef nonnull %0, i32 noundef %186)
@@ -3043,7 +3043,7 @@ put_bits.exit137:                                 ; preds = %147, %168
   br label %222
 
 221:                                              ; preds = %204
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %222
 
 222:                                              ; preds = %221, %213
@@ -3075,7 +3075,7 @@ put_bits.exit141:                                 ; preds = %200, %222
   %237 = sub i32 %236, %234
   %238 = add i32 %237, %232
   store i32 %238, ptr %235, align 8, !tbaa !118
-  %239 = call ptr @ff_h263_pred_motion(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
+  %239 = call ptr @ff_h263_pred_motion(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
   %240 = load i32, ptr %5, align 4, !tbaa !77
   %241 = sub nsw i32 %2, %240
   %242 = load i32, ptr %6, align 4, !tbaa !77
@@ -3139,7 +3139,7 @@ put_bits.exit141:                                 ; preds = %200, %222
   br label %289
 
 288:                                              ; preds = %272
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %289
 
 289:                                              ; preds = %288, %280
@@ -3280,7 +3280,7 @@ ff_msmpeg4_encode_motion.exit:                    ; preds = %268, %289
   br label %378
 
 377:                                              ; preds = %360
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %378
 
 378:                                              ; preds = %377, %369
@@ -3334,7 +3334,7 @@ put_bits.exit152:                                 ; preds = %356, %378
   br label %put_bits.exit156
 
 401:                                              ; preds = %387
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit156
 
 put_bits.exit156:                                 ; preds = %396, %401, %385
@@ -3392,7 +3392,7 @@ put_bits.exit156:                                 ; preds = %396, %401, %385
   br label %439
 
 438:                                              ; preds = %421
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %439
 
 439:                                              ; preds = %438, %430
@@ -3440,7 +3440,7 @@ put_bits.exit160:                                 ; preds = %417, %439
   br label %put_bits.exit164
 
 463:                                              ; preds = %449
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit164
 
 put_bits.exit164:                                 ; preds = %458, %463, %447
@@ -3489,7 +3489,7 @@ put_bits.exit164:                                 ; preds = %458, %463, %447
   br label %495
 
 494:                                              ; preds = %477
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %495
 
 495:                                              ; preds = %494, %486
@@ -3556,7 +3556,7 @@ put_bits.exit168:                                 ; preds = %474, %495
   br label %534
 
 533:                                              ; preds = %516
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %534
 
 534:                                              ; preds = %533, %525
@@ -3576,7 +3576,7 @@ put_bits.exit172:                                 ; preds = %512, %534
   %.1114212 = phi i32 [ %498, %497 ], [ %549, %536 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %537 = trunc nuw nsw i64 %indvars.iv225 to i32
-  %538 = call i32 @ff_msmpeg4_coded_block_pred(ptr noundef nonnull %0, i32 noundef %537, ptr noundef nonnull %7) #9
+  %538 = call i32 @ff_msmpeg4_coded_block_pred(ptr noundef nonnull %0, i32 noundef %537, ptr noundef nonnull %7) #10
   %539 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv225
   %540 = load i32, ptr %539, align 4, !tbaa !77
   %541 = icmp sgt i32 %540, 0
@@ -3633,7 +3633,7 @@ put_bits.exit172:                                 ; preds = %512, %534
   br label %put_bits.exit176
 
 571:                                              ; preds = %557
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit176
 
 put_bits.exit176:                                 ; preds = %566, %571, %555
@@ -3687,7 +3687,7 @@ put_bits.exit176:                                 ; preds = %566, %571, %555
   br label %605
 
 604:                                              ; preds = %587
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %605
 
 605:                                              ; preds = %604, %596
@@ -3735,7 +3735,7 @@ put_bits.exit180:                                 ; preds = %583, %605
   br label %put_bits.exit184
 
 629:                                              ; preds = %615
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit184
 
 put_bits.exit184:                                 ; preds = %624, %629, %613
@@ -3788,7 +3788,7 @@ put_bits.exit184:                                 ; preds = %624, %629, %613
   br label %661
 
 660:                                              ; preds = %643
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %661
 
 661:                                              ; preds = %660, %652
@@ -3870,8 +3870,8 @@ declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
 define internal void @msmpeg4_encode_init_static() #4 {
-  tail call fastcc void @init_mv_table(ptr noundef nonnull @ff_msmp4_mv_table0, ptr noundef nonnull @ff_msmp4_mv_table0_lens, ptr noundef nonnull @mv_vector_tables, i32 noundef 0, i32 noundef 20) #11
-  tail call fastcc void @init_mv_table(ptr noundef nonnull @ff_msmp4_mv_table1, ptr noundef nonnull @ff_msmp4_mv_table1_lens, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mv_vector_tables, i64 16384), i32 noundef 11, i32 noundef 16) #11
+  tail call fastcc void @init_mv_table(ptr noundef nonnull @ff_msmp4_mv_table0, ptr noundef nonnull @ff_msmp4_mv_table0_lens, ptr noundef nonnull @mv_vector_tables, i32 noundef 0, i32 noundef 20) #12
+  tail call fastcc void @init_mv_table(ptr noundef nonnull @ff_msmp4_mv_table1, ptr noundef nonnull @ff_msmp4_mv_table1_lens, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mv_vector_tables, i64 16384), i32 noundef 11, i32 noundef 16) #12
   br label %.preheader20
 
 .preheader20:                                     ; preds = %0, %14
@@ -4100,7 +4100,7 @@ define internal fastcc void @msmpeg4v2_encode_motion(ptr noundef captures(none) 
   br label %put_bits.exit
 
 30:                                               ; preds = %13
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %put_bits.exit
 
 put_bits.exit:                                    ; preds = %22, %30, %10
@@ -4171,7 +4171,7 @@ put_bits.exit:                                    ; preds = %22, %30, %10
   br label %79
 
 78:                                               ; preds = %61
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %79
 
 79:                                               ; preds = %78, %70
@@ -4224,7 +4224,7 @@ put_bits.exit28:                                  ; preds = %57, %79
   br label %107
 
 106:                                              ; preds = %89
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %107
 
 107:                                              ; preds = %106, %98
@@ -4299,19 +4299,19 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #8
+declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4322,10 +4322,11 @@ attributes #4 = { cold nofree norecurse nosync nounwind optsize memory(readwrite
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { cold nofree norecurse nosync nounwind optsize memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { cold }
+attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

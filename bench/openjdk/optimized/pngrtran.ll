@@ -58,7 +58,7 @@ define hidden void @png_set_crc_action(ptr noalias noundef %0, i32 noundef %1, i
   br label %20
 
 15:                                               ; preds = %5
-  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str) #11
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str) #13
   br label %16
 
 16:                                               ; preds = %15, %5
@@ -125,7 +125,7 @@ define hidden void @png_set_background_fixed(ptr noalias noundef %0, ptr noundef
   br i1 %.not8.i, label %png_rtran_ok.exit, label %10
 
 10:                                               ; preds = %6
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #11
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #13
   br label %png_rtran_ok.exit.thread
 
 png_rtran_ok.exit:                                ; preds = %6
@@ -139,7 +139,7 @@ png_rtran_ok.exit:                                ; preds = %6
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %13
-  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #11
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #13
   br label %png_rtran_ok.exit.thread
 
 16:                                               ; preds = %13
@@ -177,7 +177,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nounwind uwtable
 define hidden void @png_set_background(ptr noalias noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, double noundef %4) local_unnamed_addr #0 {
-  %6 = tail call i32 @png_fixed(ptr noundef %0, double noundef %4, ptr noundef nonnull @.str.2) #11
+  %6 = tail call i32 @png_fixed(ptr noundef %0, double noundef %4, ptr noundef nonnull @.str.2) #13
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %png_set_background_fixed.exit, label %7
 
@@ -189,7 +189,7 @@ define hidden void @png_set_background(ptr noalias noundef %0, ptr noundef reado
   br i1 %.not8.i.i, label %png_rtran_ok.exit.i, label %11
 
 11:                                               ; preds = %7
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #11
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #13
   br label %png_set_background_fixed.exit
 
 png_rtran_ok.exit.i:                              ; preds = %7
@@ -203,7 +203,7 @@ png_rtran_ok.exit.i:                              ; preds = %7
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %14
-  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #11
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #13
   br label %png_set_background_fixed.exit
 
 17:                                               ; preds = %14
@@ -251,7 +251,7 @@ define hidden void @png_set_scale_16(ptr noalias noundef %0) local_unnamed_addr 
   br i1 %.not8.i, label %7, label %6
 
 6:                                                ; preds = %2
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #11
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #13
   br label %png_rtran_ok.exit.thread
 
 7:                                                ; preds = %2
@@ -280,7 +280,7 @@ define hidden void @png_set_strip_16(ptr noalias noundef %0) local_unnamed_addr 
   br i1 %.not8.i, label %7, label %6
 
 6:                                                ; preds = %2
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #11
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #13
   br label %png_rtran_ok.exit.thread
 
 7:                                                ; preds = %2
@@ -309,7 +309,7 @@ define hidden void @png_set_strip_alpha(ptr noalias noundef %0) local_unnamed_ad
   br i1 %.not8.i, label %7, label %6
 
 6:                                                ; preds = %2
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #11
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #13
   br label %png_rtran_ok.exit.thread
 
 7:                                                ; preds = %2
@@ -338,7 +338,7 @@ define hidden void @png_set_alpha_mode_fixed(ptr noalias noundef %0, i32 noundef
   br i1 %.not8.i, label %9, label %8
 
 8:                                                ; preds = %4
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #11
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #13
   br label %png_rtran_ok.exit.thread
 
 9:                                                ; preds = %4
@@ -362,12 +362,12 @@ translate_gamma_flags.exit:                       ; preds = %9
   br i1 %or.cond, label %14, label %translate_gamma_flags.exit.thread
 
 14:                                               ; preds = %translate_gamma_flags.exit
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #12
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #14
   unreachable
 
 translate_gamma_flags.exit.thread:                ; preds = %9, %9, %11, %translate_gamma_flags.exit
   %.0.i3539 = phi i32 [ %2, %translate_gamma_flags.exit ], [ 220000, %11 ], [ 151724, %9 ], [ 151724, %9 ]
-  %15 = tail call i32 @png_reciprocal(i32 noundef %.0.i3539) #11
+  %15 = tail call i32 @png_reciprocal(i32 noundef %.0.i3539) #13
   switch i32 %1, label %40 [
     i32 0, label %16
     i32 1, label %22
@@ -412,7 +412,7 @@ translate_gamma_flags.exit.thread:                ; preds = %9, %9, %11, %transl
   br label %41
 
 40:                                               ; preds = %translate_gamma_flags.exit.thread
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #12
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #14
   unreachable
 
 41:                                               ; preds = %34, %28, %22, %16
@@ -455,7 +455,7 @@ translate_gamma_flags.exit.thread:                ; preds = %9, %9, %11, %transl
   br i1 %.not34, label %61, label %60
 
 60:                                               ; preds = %53
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #12
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #14
   unreachable
 
 61:                                               ; preds = %53
@@ -489,7 +489,7 @@ define hidden void @png_set_alpha_mode(ptr noalias noundef %0, i32 noundef %1, d
   br i1 %or.cond3.i, label %10, label %convert_gamma_value.exit
 
 10:                                               ; preds = %3
-  tail call void @png_fixed_error(ptr noundef %0, ptr noundef nonnull @.str.21) #12
+  tail call void @png_fixed_error(ptr noundef %0, ptr noundef nonnull @.str.21) #14
   unreachable
 
 convert_gamma_value.exit:                         ; preds = %3
@@ -512,7 +512,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
   br i1 %.not8.i, label %13, label %12
 
 12:                                               ; preds = %8
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #11
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #13
   br label %png_rtran_ok.exit.thread
 
 13:                                               ; preds = %8
@@ -527,7 +527,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
 
 19:                                               ; preds = %13
   %20 = sext i32 %2 to i64
-  %21 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef %20) #11
+  %21 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef %20) #13
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 784
   store ptr %21, ptr %22, align 8
   %23 = icmp sgt i32 %2, 0
@@ -554,7 +554,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
 28:                                               ; preds = %.loopexit454
   %.not = icmp eq ptr %4, null
   %29 = sext i32 %2 to i64
-  %30 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef %29) #11
+  %30 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef %29) #13
   br i1 %.not, label %147, label %31
 
 31:                                               ; preds = %28
@@ -824,14 +824,14 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
 
 .loopexit446:                                     ; preds = %71, %145, %.preheader450, %.preheader445
   %146 = load ptr, ptr %32, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %146) #11
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %146) #13
   store ptr null, ptr %32, align 8
   br label %384
 
 147:                                              ; preds = %28
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store ptr %30, ptr %148, align 8
-  %149 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef %29) #11
+  %149 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef %29) #13
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store ptr %149, ptr %150, align 8
   %151 = icmp sgt i32 %2, 0
@@ -855,7 +855,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
   br i1 %exitcond573.not, label %.preheader443.lr.ph, label %.lr.ph484, !llvm.loop !44
 
 .preheader443.lr.ph:                              ; preds = %.lr.ph484, %147
-  %157 = tail call noalias ptr @png_calloc(ptr noundef nonnull %0, i64 noundef 6152) #11
+  %157 = tail call noalias ptr @png_calloc(ptr noundef nonnull %0, i64 noundef 6152) #13
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %wide.trip.count601 = zext nneg i32 %2 to i64
   br label %.preheader443
@@ -916,7 +916,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
   br i1 %.not411, label %199, label %189
 
 189:                                              ; preds = %165
-  %190 = tail call noalias ptr @png_malloc_warn(ptr noundef nonnull %0, i64 noundef 16) #11
+  %190 = tail call noalias ptr @png_malloc_warn(ptr noundef nonnull %0, i64 noundef 16) #13
   %191 = icmp eq ptr %190, null
   br i1 %191, label %.thread434, label %192
 
@@ -1272,7 +1272,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
 .preheader438:                                    ; preds = %375, %.preheader438
   %.0392500 = phi ptr [ %378, %.preheader438 ], [ %377, %375 ]
   %378 = load ptr, ptr %.0392500, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %.0392500) #11
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %.0392500) #13
   %.not420 = icmp eq ptr %378, null
   br i1 %.not420, label %.loopexit439, label %.preheader438, !llvm.loop !50
 
@@ -1290,11 +1290,11 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
   br i1 %381, label %.preheader443, label %._crit_edge509, !llvm.loop !52
 
 ._crit_edge509:                                   ; preds = %379
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %157) #11
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %157) #13
   %382 = load ptr, ptr %150, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %382) #11
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %382) #13
   %383 = load ptr, ptr %148, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %383) #11
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %383) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %148, i8 0, i64 16, i1 false)
   br label %384
 
@@ -1316,10 +1316,10 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
   br i1 %18, label %png_rtran_ok.exit.thread, label %392
 
 392:                                              ; preds = %389
-  %393 = tail call noalias ptr @png_calloc(ptr noundef nonnull %0, i64 noundef 32768) #11
+  %393 = tail call noalias ptr @png_calloc(ptr noundef nonnull %0, i64 noundef 32768) #13
   %394 = getelementptr inbounds nuw i8, ptr %0, i64 776
   store ptr %393, ptr %394, align 8
-  %395 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef 32768) #11
+  %395 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef 32768) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32768) %395, i8 -1, i64 32768, i1 false)
   %396 = icmp sgt i32 %.0, 0
   br i1 %396, label %.lr.ph515.preheader, label %._crit_edge516
@@ -1420,7 +1420,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
   br i1 %exitcond631.not, label %._crit_edge516, label %.lr.ph515, !llvm.loop !56
 
 ._crit_edge516:                                   ; preds = %451, %392
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %395) #11
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %395) #13
   br label %png_rtran_ok.exit.thread
 
 png_rtran_ok.exit.thread:                         ; preds = %6, %12, %._crit_edge516, %389
@@ -1451,7 +1451,7 @@ define hidden void @png_set_gamma_fixed(ptr noalias noundef %0, i32 noundef %1, 
   br i1 %.not8.i, label %9, label %8
 
 8:                                                ; preds = %4
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #11
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #13
   br label %png_rtran_ok.exit.thread
 
 9:                                                ; preds = %4
@@ -1492,7 +1492,7 @@ translate_gamma_flags.exit16:                     ; preds = %translate_gamma_fla
   br i1 %17, label %18, label %translate_gamma_flags.exit16.thread
 
 18:                                               ; preds = %translate_gamma_flags.exit16
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #12
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
   unreachable
 
 translate_gamma_flags.exit16.thread:              ; preds = %translate_gamma_flags.exit, %translate_gamma_flags.exit, %15, %translate_gamma_flags.exit16
@@ -1501,7 +1501,7 @@ translate_gamma_flags.exit16.thread:              ; preds = %translate_gamma_fla
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %translate_gamma_flags.exit16.thread
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #12
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #14
   unreachable
 
 21:                                               ; preds = %translate_gamma_flags.exit16.thread
@@ -1533,7 +1533,7 @@ define hidden void @png_set_gamma(ptr noalias noundef %0, double noundef %1, dou
   br i1 %or.cond3.i, label %10, label %convert_gamma_value.exit
 
 10:                                               ; preds = %3
-  tail call void @png_fixed_error(ptr noundef %0, ptr noundef nonnull @.str.21) #12
+  tail call void @png_fixed_error(ptr noundef %0, ptr noundef nonnull @.str.21) #14
   unreachable
 
 convert_gamma_value.exit:                         ; preds = %3
@@ -1549,7 +1549,7 @@ convert_gamma_value.exit:                         ; preds = %3
   br i1 %or.cond3.i7, label %17, label %convert_gamma_value.exit8
 
 17:                                               ; preds = %convert_gamma_value.exit
-  tail call void @png_fixed_error(ptr noundef %0, ptr noundef nonnull @.str.21) #12
+  tail call void @png_fixed_error(ptr noundef %0, ptr noundef nonnull @.str.21) #14
   unreachable
 
 convert_gamma_value.exit8:                        ; preds = %convert_gamma_value.exit
@@ -1572,7 +1572,7 @@ define hidden void @png_set_expand(ptr noalias noundef %0) local_unnamed_addr #0
   br i1 %.not8.i, label %7, label %6
 
 6:                                                ; preds = %2
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #11
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #13
   br label %png_rtran_ok.exit.thread
 
 7:                                                ; preds = %2
@@ -1601,7 +1601,7 @@ define hidden void @png_set_palette_to_rgb(ptr noalias noundef %0) local_unnamed
   br i1 %.not8.i, label %7, label %6
 
 6:                                                ; preds = %2
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #11
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #13
   br label %png_rtran_ok.exit.thread
 
 7:                                                ; preds = %2
@@ -1630,7 +1630,7 @@ define hidden void @png_set_expand_gray_1_2_4_to_8(ptr noalias noundef %0) local
   br i1 %.not8.i, label %7, label %6
 
 6:                                                ; preds = %2
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #11
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #13
   br label %png_rtran_ok.exit.thread
 
 7:                                                ; preds = %2
@@ -1659,7 +1659,7 @@ define hidden void @png_set_tRNS_to_alpha(ptr noalias noundef %0) local_unnamed_
   br i1 %.not8.i, label %7, label %6
 
 6:                                                ; preds = %2
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #11
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #13
   br label %png_rtran_ok.exit.thread
 
 7:                                                ; preds = %2
@@ -1688,7 +1688,7 @@ define hidden void @png_set_expand_16(ptr noalias noundef %0) local_unnamed_addr
   br i1 %.not8.i, label %7, label %6
 
 6:                                                ; preds = %2
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #11
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #13
   br label %png_rtran_ok.exit.thread
 
 7:                                                ; preds = %2
@@ -1717,7 +1717,7 @@ define hidden void @png_set_gray_to_rgb(ptr noalias noundef %0) local_unnamed_ad
   br i1 %.not8.i, label %png_set_expand_gray_1_2_4_to_8.exit, label %6
 
 6:                                                ; preds = %2
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #11
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #13
   br label %png_rtran_ok.exit.thread
 
 png_set_expand_gray_1_2_4_to_8.exit:              ; preds = %2
@@ -1746,7 +1746,7 @@ define hidden void @png_set_rgb_to_gray_fixed(ptr noalias noundef %0, i32 nounde
   br i1 %.not8.i, label %10, label %9
 
 9:                                                ; preds = %5
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #11
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #13
   br label %png_rtran_ok.exit.thread
 
 10:                                               ; preds = %5
@@ -1757,7 +1757,7 @@ define hidden void @png_set_rgb_to_gray_fixed(ptr noalias noundef %0, i32 nounde
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %10
-  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.20) #11
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.20) #13
   br label %png_rtran_ok.exit.thread
 
 16:                                               ; preds = %10
@@ -1768,7 +1768,7 @@ define hidden void @png_set_rgb_to_gray_fixed(ptr noalias noundef %0, i32 nounde
   br i1 %18, label %switch.lookup, label %19
 
 19:                                               ; preds = %16
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #12
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #14
   unreachable
 
 switch.lookup:                                    ; preds = %16
@@ -1816,7 +1816,7 @@ switch.lookup:                                    ; preds = %16
   br i1 %or.cond, label %45, label %46
 
 45:                                               ; preds = %44
-  tail call void @png_app_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #11
+  tail call void @png_app_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #13
   br label %46
 
 46:                                               ; preds = %45, %44
@@ -1844,8 +1844,8 @@ declare void @png_app_warning(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @png_set_rgb_to_gray(ptr noalias noundef %0, i32 noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @png_fixed(ptr noundef %0, double noundef %2, ptr noundef nonnull @.str.10) #11
-  %6 = tail call i32 @png_fixed(ptr noundef %0, double noundef %3, ptr noundef nonnull @.str.11) #11
+  %5 = tail call i32 @png_fixed(ptr noundef %0, double noundef %2, ptr noundef nonnull @.str.10) #13
+  %6 = tail call i32 @png_fixed(ptr noundef %0, double noundef %3, ptr noundef nonnull @.str.11) #13
   tail call void @png_set_rgb_to_gray_fixed(ptr noundef %0, i32 noundef %1, i32 noundef %5, i32 noundef %6)
   ret void
 }
@@ -1877,7 +1877,7 @@ define hidden void @png_init_read_transformations(ptr noalias noundef %0) local_
 
 8:                                                ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %9 = call i32 @png_muldiv(ptr noundef nonnull %2, i32 noundef range(i32 1, 0) %4, i32 noundef range(i32 1, 0) %6, i32 noundef 100000) #11
+  %9 = call i32 @png_muldiv(ptr noundef nonnull %2, i32 noundef range(i32 1, 0) %4, i32 noundef range(i32 1, 0) %6, i32 noundef 100000) #13
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %png_gamma_threshold.exit.thread, label %png_gamma_threshold.exit
 
@@ -1891,7 +1891,7 @@ png_gamma_threshold.exit.thread:                  ; preds = %8
 
 png_gamma_threshold.exit:                         ; preds = %8
   %13 = load i32, ptr %2, align 4
-  %14 = call i32 @png_gamma_significant(i32 noundef %13) #11
+  %14 = call i32 @png_gamma_significant(i32 noundef %13) #13
   %.not451 = icmp eq i32 %14, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1146
@@ -1901,7 +1901,7 @@ png_gamma_threshold.exit:                         ; preds = %8
   br i1 %.not451, label %31, label %24
 
 18:                                               ; preds = %7
-  %19 = tail call i32 @png_reciprocal(i32 noundef %4) #11
+  %19 = tail call i32 @png_reciprocal(i32 noundef %4) #13
   store i32 %19, ptr %5, align 8
   br label %.critedge
 
@@ -1909,7 +1909,7 @@ png_gamma_threshold.exit:                         ; preds = %8
   br i1 %.not398, label %23, label %21
 
 21:                                               ; preds = %20
-  %22 = tail call i32 @png_reciprocal(i32 noundef %6) #11
+  %22 = tail call i32 @png_reciprocal(i32 noundef %6) #13
   store i32 %22, ptr %3, align 8
   br label %.critedge
 
@@ -1960,7 +1960,7 @@ png_gamma_threshold.exit:                         ; preds = %8
 45:                                               ; preds = %39, %35
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %47 = load i32, ptr %46, align 8
-  %48 = call i32 @png_gamma_significant(i32 noundef %47) #11
+  %48 = call i32 @png_gamma_significant(i32 noundef %47) #13
   %49 = icmp eq i32 %48, 0
   %.pre = load i32, ptr %37, align 4
   br i1 %49, label %50, label %55
@@ -1981,7 +1981,7 @@ png_gamma_threshold.exit:                         ; preds = %8
   br i1 %.not402, label %59, label %58
 
 58:                                               ; preds = %55
-  call void @png_colorspace_set_rgb_coefficients(ptr noundef nonnull %0) #11
+  call void @png_colorspace_set_rgb_coefficients(ptr noundef nonnull %0) #13
   %.pre505 = load i32, ptr %37, align 4
   br label %59
 
@@ -2328,13 +2328,13 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
 
 246:                                              ; preds = %244
   %247 = load i32, ptr %3, align 8
-  %248 = call i32 @png_gamma_significant(i32 noundef %247) #11
+  %248 = call i32 @png_gamma_significant(i32 noundef %247) #13
   %.not413 = icmp eq i32 %248, 0
   br i1 %.not413, label %249, label %275
 
 249:                                              ; preds = %246
   %250 = load i32, ptr %46, align 8
-  %251 = call i32 @png_gamma_significant(i32 noundef %250) #11
+  %251 = call i32 @png_gamma_significant(i32 noundef %250) #13
   %.not414 = icmp eq i32 %251, 0
   br i1 %.not414, label %._crit_edge507, label %275
 
@@ -2350,13 +2350,13 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
 
 255:                                              ; preds = %252
   %256 = load i32, ptr %3, align 8
-  %257 = call i32 @png_gamma_significant(i32 noundef %256) #11
+  %257 = call i32 @png_gamma_significant(i32 noundef %256) #13
   %.not416 = icmp eq i32 %257, 0
   br i1 %.not416, label %258, label %275
 
 258:                                              ; preds = %255
   %259 = load i32, ptr %46, align 8
-  %260 = call i32 @png_gamma_significant(i32 noundef %259) #11
+  %260 = call i32 @png_gamma_significant(i32 noundef %259) #13
   %.not417 = icmp eq i32 %260, 0
   br i1 %.not417, label %261, label %275
 
@@ -2369,7 +2369,7 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
 265:                                              ; preds = %261
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 532
   %267 = load i32, ptr %266, align 4
-  %268 = call i32 @png_gamma_significant(i32 noundef %267) #11
+  %268 = call i32 @png_gamma_significant(i32 noundef %267) #13
   %.not418 = icmp eq i32 %268, 0
   br i1 %.not418, label %269, label %275
 
@@ -2381,7 +2381,7 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
 
 272:                                              ; preds = %269
   %273 = load i32, ptr %46, align 8
-  %274 = call i32 @png_gamma_significant(i32 noundef %273) #11
+  %274 = call i32 @png_gamma_significant(i32 noundef %273) #13
   %.not420 = icmp eq i32 %274, 0
   br i1 %.not420, label %._crit_edge510, label %275
 
@@ -2393,7 +2393,7 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %277 = load i8, ptr %276, align 8
   %278 = zext i8 %277 to i32
-  call void @png_build_gamma_table(ptr noundef nonnull %0, i32 noundef %278) #11
+  call void @png_build_gamma_table(ptr noundef nonnull %0, i32 noundef %278) #13
   %279 = load i32, ptr %37, align 4
   %280 = and i32 %279, 128
   %.not423 = icmp eq i32 %280, 0
@@ -2405,7 +2405,7 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
   br i1 %.not424, label %284, label %283
 
 283:                                              ; preds = %281
-  call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.12) #11
+  call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.12) #13
   br label %284
 
 284:                                              ; preds = %283, %281
@@ -2461,16 +2461,16 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
 322:                                              ; preds = %287
   %323 = getelementptr inbounds nuw i8, ptr %0, i64 532
   %324 = load i32, ptr %323, align 4
-  %325 = call i32 @png_reciprocal(i32 noundef %324) #11
+  %325 = call i32 @png_reciprocal(i32 noundef %324) #13
   %326 = load i32, ptr %323, align 4
   %327 = load i32, ptr %46, align 8
-  %328 = call i32 @png_reciprocal2(i32 noundef %326, i32 noundef %327) #11
+  %328 = call i32 @png_reciprocal2(i32 noundef %326, i32 noundef %327) #13
   br label %329
 
 329:                                              ; preds = %287, %322, %320
   %.0382 = phi i32 [ 100000, %320 ], [ %328, %322 ], [ 100000, %287 ]
   %.0381 = phi i32 [ %321, %320 ], [ %325, %322 ], [ 100000, %287 ]
-  %330 = call i32 @png_gamma_significant(i32 noundef %.0382) #11
+  %330 = call i32 @png_gamma_significant(i32 noundef %.0382) #13
   %.not430 = icmp eq i32 %330, 0
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 538
   %332 = load i16, ptr %331, align 2
@@ -2478,15 +2478,15 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
 
 333:                                              ; preds = %329
   %334 = zext i16 %332 to i32
-  %335 = call zeroext i8 @png_gamma_8bit_correct(i32 noundef %334, i32 noundef %.0382) #11
+  %335 = call zeroext i8 @png_gamma_8bit_correct(i32 noundef %334, i32 noundef %.0382) #13
   %336 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %337 = load i16, ptr %336, align 4
   %338 = zext i16 %337 to i32
-  %339 = call zeroext i8 @png_gamma_8bit_correct(i32 noundef %338, i32 noundef %.0382) #11
+  %339 = call zeroext i8 @png_gamma_8bit_correct(i32 noundef %338, i32 noundef %.0382) #13
   %340 = getelementptr inbounds nuw i8, ptr %0, i64 542
   %341 = load i16, ptr %340, align 2
   %342 = zext i16 %341 to i32
-  %343 = call zeroext i8 @png_gamma_8bit_correct(i32 noundef %342, i32 noundef %.0382) #11
+  %343 = call zeroext i8 @png_gamma_8bit_correct(i32 noundef %342, i32 noundef %.0382) #13
   br label %352
 
 344:                                              ; preds = %329
@@ -2503,7 +2503,7 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
   %.sroa.0153.1 = phi i8 [ %335, %333 ], [ %345, %344 ]
   %.sroa.4154.1 = phi i8 [ %339, %333 ], [ %348, %344 ]
   %.sroa.7.1 = phi i8 [ %343, %333 ], [ %351, %344 ]
-  %353 = call i32 @png_gamma_significant(i32 noundef %.0381) #11
+  %353 = call i32 @png_gamma_significant(i32 noundef %.0381) #13
   %.not431 = icmp eq i32 %353, 0
   %354 = getelementptr inbounds nuw i8, ptr %0, i64 538
   %355 = load i16, ptr %354, align 2
@@ -2511,15 +2511,15 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
 
 356:                                              ; preds = %352
   %357 = zext i16 %355 to i32
-  %358 = call zeroext i8 @png_gamma_8bit_correct(i32 noundef %357, i32 noundef %.0381) #11
+  %358 = call zeroext i8 @png_gamma_8bit_correct(i32 noundef %357, i32 noundef %.0381) #13
   %359 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %360 = load i16, ptr %359, align 4
   %361 = zext i16 %360 to i32
-  %362 = call zeroext i8 @png_gamma_8bit_correct(i32 noundef %361, i32 noundef %.0381) #11
+  %362 = call zeroext i8 @png_gamma_8bit_correct(i32 noundef %361, i32 noundef %.0381) #13
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 542
   %364 = load i16, ptr %363, align 2
   %365 = zext i16 %364 to i32
-  %366 = call zeroext i8 @png_gamma_8bit_correct(i32 noundef %365, i32 noundef %.0381) #11
+  %366 = call zeroext i8 @png_gamma_8bit_correct(i32 noundef %365, i32 noundef %.0381) #13
   br label %375
 
 367:                                              ; preds = %352
@@ -2710,30 +2710,30 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
 
 497:                                              ; preds = %492
   %498 = load i32, ptr %3, align 8
-  %499 = call i32 @png_reciprocal(i32 noundef %498) #11
+  %499 = call i32 @png_reciprocal(i32 noundef %498) #13
   %500 = load i32, ptr %3, align 8
   %501 = load i32, ptr %46, align 8
-  %502 = call i32 @png_reciprocal2(i32 noundef %500, i32 noundef %501) #11
+  %502 = call i32 @png_reciprocal2(i32 noundef %500, i32 noundef %501) #13
   br label %511
 
 503:                                              ; preds = %492
   %504 = getelementptr inbounds nuw i8, ptr %0, i64 532
   %505 = load i32, ptr %504, align 4
-  %506 = call i32 @png_reciprocal(i32 noundef %505) #11
+  %506 = call i32 @png_reciprocal(i32 noundef %505) #13
   %507 = load i32, ptr %504, align 4
   %508 = load i32, ptr %46, align 8
-  %509 = call i32 @png_reciprocal2(i32 noundef %507, i32 noundef %508) #11
+  %509 = call i32 @png_reciprocal2(i32 noundef %507, i32 noundef %508) #13
   br label %511
 
 510:                                              ; preds = %492
-  call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #12
+  call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #14
   unreachable
 
 511:                                              ; preds = %503, %497, %495
   %.0384 = phi i32 [ 100000, %495 ], [ %502, %497 ], [ %509, %503 ]
   %.0383 = phi i32 [ %496, %495 ], [ %499, %497 ], [ %506, %503 ]
-  %512 = call i32 @png_gamma_significant(i32 noundef %.0383) #11
-  %513 = call i32 @png_gamma_significant(i32 noundef %.0384) #11
+  %512 = call i32 @png_gamma_significant(i32 noundef %.0383) #13
+  %513 = call i32 @png_gamma_significant(i32 noundef %.0384) #13
   %.not425 = icmp eq i32 %512, 0
   br i1 %.not425, label %520, label %514
 
@@ -2741,7 +2741,7 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
   %515 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %516 = load i16, ptr %515, align 8
   %517 = zext i16 %516 to i32
-  %518 = call zeroext i16 @png_gamma_correct(ptr noundef nonnull %0, i32 noundef %517, i32 noundef %.0383) #11
+  %518 = call zeroext i16 @png_gamma_correct(ptr noundef nonnull %0, i32 noundef %517, i32 noundef %.0383) #13
   %519 = getelementptr inbounds nuw i8, ptr %0, i64 554
   store i16 %518, ptr %519, align 2
   br label %520
@@ -2754,7 +2754,7 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
   %522 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %523 = load i16, ptr %522, align 8
   %524 = zext i16 %523 to i32
-  %525 = call zeroext i16 @png_gamma_correct(ptr noundef nonnull %0, i32 noundef %524, i32 noundef %.0384) #11
+  %525 = call zeroext i16 @png_gamma_correct(ptr noundef nonnull %0, i32 noundef %524, i32 noundef %.0384) #13
   store i16 %525, ptr %522, align 8
   br label %526
 
@@ -2783,18 +2783,18 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
 
 538:                                              ; preds = %537
   %539 = zext i16 %528 to i32
-  %540 = call zeroext i16 @png_gamma_correct(ptr noundef nonnull %0, i32 noundef %539, i32 noundef %.0383) #11
+  %540 = call zeroext i16 @png_gamma_correct(ptr noundef nonnull %0, i32 noundef %539, i32 noundef %.0383) #13
   %541 = getelementptr inbounds nuw i8, ptr %0, i64 548
   store i16 %540, ptr %541, align 2
   %542 = load i16, ptr %529, align 4
   %543 = zext i16 %542 to i32
-  %544 = call zeroext i16 @png_gamma_correct(ptr noundef nonnull %0, i32 noundef %543, i32 noundef %.0383) #11
+  %544 = call zeroext i16 @png_gamma_correct(ptr noundef nonnull %0, i32 noundef %543, i32 noundef %.0383) #13
   %545 = getelementptr inbounds nuw i8, ptr %0, i64 550
   store i16 %544, ptr %545, align 2
   %546 = getelementptr inbounds nuw i8, ptr %0, i64 542
   %547 = load i16, ptr %546, align 2
   %548 = zext i16 %547 to i32
-  %549 = call zeroext i16 @png_gamma_correct(ptr noundef nonnull %0, i32 noundef %548, i32 noundef %.0383) #11
+  %549 = call zeroext i16 @png_gamma_correct(ptr noundef nonnull %0, i32 noundef %548, i32 noundef %.0383) #13
   %550 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store i16 %549, ptr %550, align 4
   br label %551
@@ -2805,16 +2805,16 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
 552:                                              ; preds = %551
   %553 = load i16, ptr %527, align 2
   %554 = zext i16 %553 to i32
-  %555 = call zeroext i16 @png_gamma_correct(ptr noundef nonnull %0, i32 noundef %554, i32 noundef %.0384) #11
+  %555 = call zeroext i16 @png_gamma_correct(ptr noundef nonnull %0, i32 noundef %554, i32 noundef %.0384) #13
   store i16 %555, ptr %527, align 2
   %556 = load i16, ptr %529, align 4
   %557 = zext i16 %556 to i32
-  %558 = call zeroext i16 @png_gamma_correct(ptr noundef nonnull %0, i32 noundef %557, i32 noundef %.0384) #11
+  %558 = call zeroext i16 @png_gamma_correct(ptr noundef nonnull %0, i32 noundef %557, i32 noundef %.0384) #13
   store i16 %558, ptr %529, align 4
   %559 = getelementptr inbounds nuw i8, ptr %0, i64 542
   %560 = load i16, ptr %559, align 2
   %561 = zext i16 %560 to i32
-  %562 = call zeroext i16 @png_gamma_correct(ptr noundef nonnull %0, i32 noundef %561, i32 noundef %.0384) #11
+  %562 = call zeroext i16 @png_gamma_correct(ptr noundef nonnull %0, i32 noundef %561, i32 noundef %.0384) #13
   store i16 %562, ptr %559, align 2
   br label %569
 
@@ -3172,7 +3172,7 @@ define hidden void @png_read_transform_info(ptr noalias noundef %0, ptr noalias 
   br i1 %17, label %18, label %30
 
 18:                                               ; preds = %12
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #12
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #14
   unreachable
 
 19:                                               ; preds = %6
@@ -3456,7 +3456,7 @@ define hidden void @png_do_read_transformations(ptr noalias noundef %0, ptr noun
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #12
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #14
   unreachable
 
 8:                                                ; preds = %2
@@ -3467,7 +3467,7 @@ define hidden void @png_do_read_transformations(ptr noalias noundef %0, ptr noun
   br i1 %or.cond, label %12, label %13
 
 12:                                               ; preds = %8
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.16) #12
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.16) #14
   unreachable
 
 13:                                               ; preds = %8
@@ -3789,7 +3789,7 @@ png_do_expand_palette.exit:                       ; preds = %.sink.split.i, %86,
 164:                                              ; preds = %161, %161
   %165 = load ptr, ptr %4, align 8
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 1
-  tail call void @png_do_strip_channel(ptr noundef nonnull %1, ptr noundef nonnull %166, i32 noundef 0) #11
+  tail call void @png_do_strip_channel(ptr noundef nonnull %1, ptr noundef nonnull %166, i32 noundef 0) #13
   %.pre = load i32, ptr %14, align 4
   br label %167
 
@@ -4276,7 +4276,7 @@ png_do_rgb_to_gray.exit:                          ; preds = %449, %453
   br i1 %463, label %464, label %465
 
 464:                                              ; preds = %460
-  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #11
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #13
   %.pre391 = load i32, ptr %14, align 4
   br label %465
 
@@ -4287,7 +4287,7 @@ png_do_rgb_to_gray.exit:                          ; preds = %449, %453
   br i1 %468, label %469, label %png_do_rgb_to_gray.exit.thread
 
 469:                                              ; preds = %465
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #12
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #14
   unreachable
 
 png_do_rgb_to_gray.exit.thread:                   ; preds = %170, %png_do_rgb_to_gray.exit, %465, %167
@@ -6533,7 +6533,7 @@ png_do_gamma.exit:                                ; preds = %.lr.ph232.i, %.lr.p
 1866:                                             ; preds = %1863, %1863
   %1867 = load ptr, ptr %4, align 8
   %1868 = getelementptr inbounds nuw i8, ptr %1867, i64 1
-  tail call void @png_do_strip_channel(ptr noundef nonnull %1, ptr noundef nonnull %1868, i32 noundef 0) #11
+  tail call void @png_do_strip_channel(ptr noundef nonnull %1, ptr noundef nonnull %1868, i32 noundef 0) #13
   %.pre395 = load i32, ptr %14, align 4
   br label %1869
 
@@ -6639,7 +6639,7 @@ png_do_gamma.exit:                                ; preds = %.lr.ph232.i, %.lr.p
   br i1 %.not41.i, label %png_do_encode_alpha.exit, label %.lr.ph.i219, !llvm.loop !160
 
 1924:                                             ; preds = %1898, %1883, %1876
-  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.22) #11
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.22) #13
   br label %png_do_encode_alpha.exit
 
 png_do_encode_alpha.exit:                         ; preds = %.lr.ph.i219, %.lr.ph52.i, %1924, %1903, %1886, %1872, %1869
@@ -6954,7 +6954,7 @@ png_do_quantize.exit._crit_edge:                  ; preds = %png_do_quantize.exi
   br label %2094
 
 2093:                                             ; preds = %png_do_quantize.exit
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.18) #12
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.18) #14
   unreachable
 
 2094:                                             ; preds = %png_do_quantize.exit._crit_edge, %png_do_chop.exit
@@ -7047,7 +7047,7 @@ png_do_expand_16.exit:                            ; preds = %._crit_edge.i237, %
 2135:                                             ; preds = %2132
   %2136 = load ptr, ptr %4, align 8
   %2137 = getelementptr inbounds nuw i8, ptr %2136, i64 1
-  tail call void @png_do_invert(ptr noundef %1, ptr noundef nonnull %2137) #11
+  tail call void @png_do_invert(ptr noundef %1, ptr noundef nonnull %2137) #13
   %.pre401 = load i32, ptr %14, align 4
   br label %2138
 
@@ -7538,7 +7538,7 @@ png_do_unpack.exit:                               ; preds = %.loopexit.i262, %23
   br i1 %2385, label %2386, label %2387
 
 2386:                                             ; preds = %2382
-  tail call void @png_do_check_palette_indexes(ptr noundef nonnull %0, ptr noundef nonnull %1) #11
+  tail call void @png_do_check_palette_indexes(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   br label %2387
 
 2387:                                             ; preds = %2386, %2382, %png_do_unpack.exit
@@ -7550,7 +7550,7 @@ png_do_unpack.exit:                               ; preds = %.loopexit.i262, %23
 2390:                                             ; preds = %2387
   %2391 = load ptr, ptr %4, align 8
   %2392 = getelementptr inbounds nuw i8, ptr %2391, i64 1
-  tail call void @png_do_bgr(ptr noundef nonnull %1, ptr noundef nonnull %2392) #11
+  tail call void @png_do_bgr(ptr noundef nonnull %1, ptr noundef nonnull %2392) #13
   %.pre403 = load i32, ptr %14, align 4
   br label %2393
 
@@ -7563,7 +7563,7 @@ png_do_unpack.exit:                               ; preds = %.loopexit.i262, %23
 2396:                                             ; preds = %2393
   %2397 = load ptr, ptr %4, align 8
   %2398 = getelementptr inbounds nuw i8, ptr %2397, i64 1
-  tail call void @png_do_packswap(ptr noundef nonnull %1, ptr noundef nonnull %2398) #11
+  tail call void @png_do_packswap(ptr noundef nonnull %1, ptr noundef nonnull %2398) #13
   %.pre404 = load i32, ptr %14, align 4
   br label %2399
 
@@ -8085,7 +8085,7 @@ png_do_read_swap_alpha.exit:                      ; preds = %.lr.ph.i280, %.lr.p
 2647:                                             ; preds = %png_do_read_swap_alpha.exit
   %2648 = load ptr, ptr %4, align 8
   %2649 = getelementptr inbounds nuw i8, ptr %2648, i64 1
-  tail call void @png_do_swap(ptr noundef nonnull %1, ptr noundef nonnull %2649) #11
+  tail call void @png_do_swap(ptr noundef nonnull %1, ptr noundef nonnull %2649) #13
   %.pre406 = load i32, ptr %14, align 4
   br label %2650
 
@@ -8104,7 +8104,7 @@ png_do_read_swap_alpha.exit:                      ; preds = %.lr.ph.i280, %.lr.p
 2656:                                             ; preds = %2653
   %2657 = load ptr, ptr %4, align 8
   %2658 = getelementptr inbounds nuw i8, ptr %2657, i64 1
-  tail call void %2655(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2658) #11
+  tail call void %2655(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2658) #13
   br label %2659
 
 2659:                                             ; preds = %2656, %2653
@@ -8903,40 +8903,40 @@ declare void @png_do_swap(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @png_app_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #5
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.floor.f64(double) #8
 
 ; Function Attrs: noreturn
 declare void @png_fixed_error(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 declare i32 @png_muldiv(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #8
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #9
+declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8946,11 +8946,13 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
+attributes #8 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

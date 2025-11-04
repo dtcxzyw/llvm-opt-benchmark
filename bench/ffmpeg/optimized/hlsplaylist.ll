@@ -56,8 +56,8 @@ define void @ff_hls_write_playlist_version(ptr noundef %0, i32 noundef %1) local
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str) #8
-  %5 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, i32 noundef %1) #8
+  %4 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str) #9
+  %5 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, i32 noundef %1) #9
   br label %6
 
 6:                                                ; preds = %2, %3
@@ -76,15 +76,15 @@ define void @ff_hls_write_audio_rendition(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %or.cond3, label %11, label %22
 
 11:                                               ; preds = %7
-  %12 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %1) #8
+  %12 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %1) #9
   %.not = icmp eq i32 %5, 0
   %13 = select i1 %.not, ptr @.str.5, ptr @.str.4
-  %14 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, i32 noundef %4, ptr noundef nonnull %13) #8
+  %14 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, i32 noundef %4, ptr noundef nonnull %13) #9
   %.not22 = icmp eq ptr %3, null
   br i1 %.not22, label %17, label %15
 
 15:                                               ; preds = %11
-  %16 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %3) #8
+  %16 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %3) #9
   br label %17
 
 17:                                               ; preds = %15, %11
@@ -92,11 +92,11 @@ define void @ff_hls_write_audio_rendition(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not23, label %20, label %18
 
 18:                                               ; preds = %17
-  %19 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, i32 noundef %6) #8
+  %19 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, i32 noundef %6) #9
   br label %20
 
 20:                                               ; preds = %18, %17
-  %21 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, ptr noundef nonnull %2) #8
+  %21 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, ptr noundef nonnull %2) #9
   br label %22
 
 22:                                               ; preds = %7, %20
@@ -111,31 +111,31 @@ define void @ff_hls_write_subtitle_rendition(ptr noundef %0, ptr noundef %1, ptr
   br i1 %or.cond, label %10, label %23
 
 10:                                               ; preds = %7
-  %11 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, ptr noundef %1) #8
+  %11 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, ptr noundef %1) #9
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef nonnull %4) #8
+  %13 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef nonnull %4) #9
   br label %16
 
 14:                                               ; preds = %10
-  %15 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, i32 noundef %5) #8
+  %15 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, i32 noundef %5) #9
   br label %16
 
 16:                                               ; preds = %14, %12
   %.not19 = icmp eq i32 %6, 0
   %17 = select i1 %.not19, ptr @.str.5, ptr @.str.4
-  %18 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %17) #8
+  %18 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %17) #9
   %.not20 = icmp eq ptr %3, null
   br i1 %.not20, label %21, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %3) #8
+  %20 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %3) #9
   br label %21
 
 21:                                               ; preds = %19, %16
-  %22 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, ptr noundef nonnull %2) #8
+  %22 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, ptr noundef nonnull %2) #9
   br label %23
 
 23:                                               ; preds = %7, %21
@@ -154,16 +154,16 @@ define void @ff_hls_write_stream_info(ptr noundef readonly captures(address_is_n
   br i1 %.not, label %13, label %14
 
 13:                                               ; preds = %12
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str.13) #8
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str.13) #9
   br label %53
 
 14:                                               ; preds = %12
-  %15 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %1, ptr noundef nonnull @.str.14, i32 noundef %2) #8
+  %15 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %1, ptr noundef nonnull @.str.14, i32 noundef %2) #9
   %.not42 = icmp eq i32 %3, 0
   br i1 %.not42, label %18, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %1, ptr noundef nonnull @.str.15, i32 noundef %3) #8
+  %17 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %1, ptr noundef nonnull @.str.15, i32 noundef %3) #9
   br label %18
 
 18:                                               ; preds = %16, %14
@@ -185,7 +185,7 @@ define void @ff_hls_write_stream_info(ptr noundef readonly captures(address_is_n
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %25
-  %30 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %1, ptr noundef nonnull @.str.16, i32 noundef %23, i32 noundef %27) #8
+  %30 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %1, ptr noundef nonnull @.str.16, i32 noundef %23, i32 noundef %27) #9
   br label %31
 
 31:                                               ; preds = %29, %25, %19, %18
@@ -198,7 +198,7 @@ define void @ff_hls_write_stream_info(ptr noundef readonly captures(address_is_n
   br i1 %.not45, label %36, label %34
 
 34:                                               ; preds = %32
-  %35 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %1, ptr noundef nonnull @.str.17, ptr noundef nonnull %6) #8
+  %35 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %1, ptr noundef nonnull @.str.17, ptr noundef nonnull %6) #9
   br label %36
 
 36:                                               ; preds = %34, %32, %31
@@ -211,7 +211,7 @@ define void @ff_hls_write_stream_info(ptr noundef readonly captures(address_is_n
   br i1 %.not47, label %41, label %39
 
 39:                                               ; preds = %37
-  %40 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %1, ptr noundef nonnull @.str.18, ptr noundef nonnull %5) #8
+  %40 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %1, ptr noundef nonnull @.str.18, ptr noundef nonnull %5) #9
   br label %41
 
 41:                                               ; preds = %39, %37, %36
@@ -224,7 +224,7 @@ define void @ff_hls_write_stream_info(ptr noundef readonly captures(address_is_n
   br i1 %.not49, label %46, label %44
 
 44:                                               ; preds = %42
-  %45 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %1, ptr noundef nonnull @.str.19, ptr noundef nonnull %7) #8
+  %45 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %1, ptr noundef nonnull @.str.19, ptr noundef nonnull %7) #9
   br label %46
 
 46:                                               ; preds = %44, %42, %41
@@ -237,11 +237,11 @@ define void @ff_hls_write_stream_info(ptr noundef readonly captures(address_is_n
   br i1 %.not51, label %51, label %49
 
 49:                                               ; preds = %47
-  %50 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %1, ptr noundef nonnull @.str.20, ptr noundef nonnull %8) #8
+  %50 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %1, ptr noundef nonnull @.str.20, ptr noundef nonnull %8) #9
   br label %51
 
 51:                                               ; preds = %49, %47, %46
-  %52 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %1, ptr noundef nonnull @.str.21, ptr noundef nonnull %4) #8
+  %52 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %1, ptr noundef nonnull @.str.21, ptr noundef nonnull %4) #9
   br label %53
 
 53:                                               ; preds = %9, %51, %13
@@ -256,21 +256,21 @@ define void @ff_hls_write_playlist_header(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %.not, label %22, label %ff_hls_write_playlist_version.exit
 
 ff_hls_write_playlist_version.exit:               ; preds = %7
-  %8 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str) #8
-  %9 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, i32 noundef %1) #8
+  %8 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str) #9
+  %9 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, i32 noundef %1) #9
   %or.cond = icmp ult i32 %2, 2
   br i1 %or.cond, label %10, label %14
 
 10:                                               ; preds = %ff_hls_write_playlist_version.exit
   %11 = icmp eq i32 %2, 0
   %12 = select i1 %11, ptr @.str.5, ptr @.str.4
-  %13 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.22, ptr noundef nonnull %12) #8
+  %13 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.22, ptr noundef nonnull %12) #9
   br label %14
 
 14:                                               ; preds = %ff_hls_write_playlist_version.exit, %10
-  %15 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %3) #8
-  %16 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, i64 noundef %4) #8
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 40, ptr noundef nonnull @.str.25, i64 noundef %4) #8
+  %15 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %3) #9
+  %16 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, i64 noundef %4) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 40, ptr noundef nonnull @.str.25, i64 noundef %4) #9
   switch i32 %5, label %19 [
     i32 1, label %.sink.split
     i32 2, label %17
@@ -281,7 +281,7 @@ ff_hls_write_playlist_version.exit:               ; preds = %7
 
 .sink.split:                                      ; preds = %14, %17
   %.str.27.sink = phi ptr [ @.str.27, %17 ], [ @.str.26, %14 ]
-  %18 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull %.str.27.sink) #8
+  %18 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull %.str.27.sink) #9
   br label %19
 
 19:                                               ; preds = %.sink.split, %14
@@ -289,7 +289,7 @@ ff_hls_write_playlist_version.exit:               ; preds = %7
   br i1 %.not19, label %22, label %20
 
 20:                                               ; preds = %19
-  %21 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.28) #8
+  %21 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.28) #9
   br label %22
 
 22:                                               ; preds = %7, %20, %19
@@ -298,16 +298,16 @@ ff_hls_write_playlist_version.exit:               ; preds = %7
 
 ; Function Attrs: nounwind uwtable
 define void @ff_hls_write_init_file(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
-  %6 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %0, ptr noundef nonnull @.str.29, ptr noundef %1) #8
+  %6 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %0, ptr noundef nonnull @.str.29, ptr noundef %1) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef %3, i64 noundef %4) #8
+  %8 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef %3, i64 noundef %4) #9
   br label %9
 
 9:                                                ; preds = %7, %5
-  %10 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %0, ptr noundef nonnull @.str.31) #8
+  %10 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %0, ptr noundef nonnull @.str.31) #9
   ret void
 }
 
@@ -327,7 +327,7 @@ define range(i32 -1313558101, 1) i32 @ff_hls_write_file_entry(ptr noundef %0, i3
   br i1 %.not, label %23, label %21
 
 21:                                               ; preds = %20
-  %22 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.32) #8
+  %22 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.32) #9
   br label %23
 
 23:                                               ; preds = %21, %20
@@ -336,11 +336,11 @@ define range(i32 -1313558101, 1) i32 @ff_hls_write_file_entry(ptr noundef %0, i3
 
 24:                                               ; preds = %23
   %25 = tail call i64 @llvm.lrint.i64.f64(double %3)
-  %26 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.33, i64 noundef %25) #8
+  %26 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.33, i64 noundef %25) #9
   br label %29
 
 27:                                               ; preds = %23
-  %28 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.34, double noundef %3) #8
+  %28 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.34, double noundef %3) #9
   br label %29
 
 29:                                               ; preds = %27, %24
@@ -351,7 +351,7 @@ define range(i32 -1313558101, 1) i32 @ff_hls_write_file_entry(ptr noundef %0, i3
   %.not59 = icmp eq i32 %12, 0
   %31 = select i1 %.not59, i64 %5, i64 %10
   %32 = select i1 %.not59, i64 %6, i64 %11
-  %33 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.35, i64 noundef %31, i64 noundef %32) #8
+  %33 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.35, i64 noundef %31, i64 noundef %32) #9
   br label %34
 
 34:                                               ; preds = %30, %29
@@ -373,13 +373,13 @@ define range(i32 -1313558101, 1) i32 @ff_hls_write_file_entry(ptr noundef %0, i3
   %42 = trunc i64 %41 to i32
   %43 = tail call i32 @llvm.smax.i32(i32 %42, i32 0)
   %44 = tail call i32 @llvm.umin.i32(i32 %43, i32 999)
-  %45 = call ptr @localtime_r(ptr noundef nonnull %14, ptr noundef nonnull %15) #8
-  %46 = call i64 @strftime(ptr noundef nonnull %16, i64 noundef 128, ptr noundef nonnull @.str.36, ptr noundef %45) #8
+  %45 = call ptr @localtime_r(ptr noundef nonnull %14, ptr noundef nonnull %15) #9
+  %46 = call i64 @strftime(ptr noundef nonnull %16, i64 noundef 128, ptr noundef nonnull @.str.36, ptr noundef %45) #9
   %.not61 = icmp eq i64 %46, 0
   br i1 %.not61, label %73, label %47
 
 47:                                               ; preds = %35
-  %48 = call i64 @strftime(ptr noundef nonnull %17, i64 noundef 128, ptr noundef nonnull @.str.38, ptr noundef %45) #8
+  %48 = call i64 @strftime(ptr noundef nonnull %17, i64 noundef 128, ptr noundef nonnull @.str.38, ptr noundef %45) #9
   %49 = icmp eq i64 %48, 0
   %50 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %51 = load i8, ptr %50, align 1
@@ -391,10 +391,10 @@ define range(i32 -1313558101, 1) i32 @ff_hls_write_file_entry(ptr noundef %0, i3
 54:                                               ; preds = %47
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %56 = load i32, ptr %55, align 8, !tbaa !27
-  %57 = call ptr @gmtime_r(ptr noundef nonnull %14, ptr noundef nonnull %15) #8
+  %57 = call ptr @gmtime_r(ptr noundef nonnull %14, ptr noundef nonnull %15) #9
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
   store i32 %56, ptr %58, align 8, !tbaa !27
-  %59 = call i64 @mktime(ptr noundef %57) #8
+  %59 = call i64 @mktime(ptr noundef %57) #9
   %60 = load i64, ptr %14, align 8, !tbaa !26
   %61 = sub nsw i64 %59, %60
   %62 = call i64 @llvm.abs.i64(i64 %61, i1 true)
@@ -405,11 +405,11 @@ define range(i32 -1313558101, 1) i32 @ff_hls_write_file_entry(ptr noundef %0, i3
   %66 = select i1 %.not62, i32 45, i32 43
   %67 = sdiv i32 %65, 60
   %68 = srem i32 %65, 60
-  %69 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %17, i64 noundef 128, ptr noundef nonnull @.str.39, i32 noundef %66, i32 noundef %67, i32 noundef %68) #8
+  %69 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %17, i64 noundef 128, ptr noundef nonnull @.str.39, i32 noundef %66, i32 noundef %67, i32 noundef %68) #9
   br label %.thread
 
 .thread:                                          ; preds = %54, %47
-  %70 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.40, ptr noundef nonnull %16, i32 noundef %44, ptr noundef nonnull %17) #8
+  %70 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.40, ptr noundef nonnull %16, i32 noundef %44, ptr noundef nonnull %17) #9
   %71 = load double, ptr %9, align 8, !tbaa !24
   %72 = fadd nsz double %3, %71
   store double %72, ptr %9, align 8, !tbaa !24
@@ -420,7 +420,7 @@ define range(i32 -1313558101, 1) i32 @ff_hls_write_file_entry(ptr noundef %0, i3
   br label %74
 
 73:                                               ; preds = %35
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 48, ptr noundef nonnull @.str.37) #8
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 48, ptr noundef nonnull @.str.37) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -432,11 +432,11 @@ define range(i32 -1313558101, 1) i32 @ff_hls_write_file_entry(ptr noundef %0, i3
   br i1 %.not63, label %77, label %75
 
 75:                                               ; preds = %74
-  %76 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.41, ptr noundef nonnull %7) #8
+  %76 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.41, ptr noundef nonnull %7) #9
   br label %77
 
 77:                                               ; preds = %75, %74
-  %78 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.42, ptr noundef nonnull %8) #8
+  %78 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.42, ptr noundef nonnull %8) #9
   br label %79
 
 79:                                               ; preds = %73, %13, %77
@@ -444,7 +444,7 @@ define range(i32 -1313558101, 1) i32 @ff_hls_write_file_entry(ptr noundef %0, i3
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.lrint.i64.f64(double) #2
 
 ; Function Attrs: nounwind
@@ -468,7 +468,7 @@ define void @ff_hls_write_end_list(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.43) #8
+  %3 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.43) #9
   br label %4
 
 4:                                                ; preds = %1, %2
@@ -481,24 +481,25 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #7
+declare i64 @llvm.abs.i64(i64, i1 immarg) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

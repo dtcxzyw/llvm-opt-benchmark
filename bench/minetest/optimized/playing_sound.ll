@@ -160,7 +160,7 @@ if.end35:                                         ; preds = %if.end35.sink.split
   %vtable = load ptr, ptr %5, align 8, !tbaa !38
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %12 = load ptr, ptr %vfn, align 8
-  %call38 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(72) %5) #15
+  %call38 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(72) %5) #16
   br i1 %call38, label %if.else62, label %if.then39
 
 if.then39:                                        ; preds = %if.end35
@@ -313,7 +313,7 @@ if.end112:                                        ; preds = %invoke.cont101, %in
 
 if.then115:                                       ; preds = %if.end112
   %second = getelementptr inbounds nuw i8, ptr %pos_vel_opt, i64 12
-  call void @_ZN5sound12PlayingSound12updatePosVelERKN3irr4core8vector3dIfEES6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 4 dereferenceable(12) %pos_vel_opt, ptr noundef nonnull align 4 dereferenceable(12) %second) #15
+  call void @_ZN5sound12PlayingSound12updatePosVelERKN3irr4core8vector3dIfEES6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 4 dereferenceable(12) %pos_vel_opt, ptr noundef nonnull align 4 dereferenceable(12) %second) #16
   br label %if.end127
 
 if.else118:                                       ; preds = %if.end112
@@ -348,7 +348,7 @@ terminate.lpad.i:                                 ; preds = %if.end127
   %47 = landingpad { ptr, i32 }
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
-  call void @__clang_call_terminate(ptr %48) #16
+  call void @__clang_call_terminate(ptr %48) #17
   unreachable
 
 _ZN5sound12PlayingSound7setGainEf.exit:           ; preds = %if.end127
@@ -360,7 +360,7 @@ terminate.lpad.i155:                              ; preds = %_ZN5sound12PlayingS
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #16
+  call void @__clang_call_terminate(ptr %51) #17
   unreachable
 
 cleanup:                                          ; preds = %_ZN5sound12PlayingSound7setGainEf.exit, %if.then14
@@ -368,13 +368,13 @@ cleanup:                                          ; preds = %_ZN5sound12PlayingS
 
 ehcleanup128:                                     ; preds = %ehcleanup110, %ehcleanup, %lpad
   %.pn148 = phi { ptr, i32 } [ %9, %lpad ], [ %.pn145.pn, %ehcleanup110 ], [ %.pn, %ehcleanup ]
-  call void @_ZNSt12__shared_ptrIN5sound14ISoundDataOpenELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_data) #15
+  call void @_ZNSt12__shared_ptrIN5sound14ISoundDataOpenELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_data) #16
   resume { ptr, i32 } %.pn148
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #4
 
 declare void @alSourcei(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
@@ -428,7 +428,7 @@ if.then.i.i11:                                    ; preds = %if.then.i
   br label %_ZN11StreamProxylsIRPKcEERS_OT_.exit
 
 if.else.i.i:                                      ; preds = %if.then.i
-  %call.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %desc) #15
+  %call.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %desc) #16
   %call1.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr, ptr noundef nonnull %desc, i64 noundef %call.i.i.i)
   br label %_ZN11StreamProxylsIRPKcEERS_OT_.exit
 
@@ -459,7 +459,7 @@ _ZN5sound16getAlErrorStringEi.exit:               ; preds = %switch.lookup, %_ZN
   br i1 %tobool.not.i16, label %cleanup, label %_ZN11StreamProxylsIPKcEERS_OT_.exit
 
 _ZN11StreamProxylsIPKcEERS_OT_.exit:              ; preds = %_ZN5sound16getAlErrorStringEi.exit
-  %call.i.i.i20 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #15
+  %call.i.i.i20 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #16
   %call1.i.i21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %retval.0.i, i64 noundef %call.i.i.i20)
   %.pr37 = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !51
   %tobool.not.i29 = icmp eq ptr %.pr37, null
@@ -476,7 +476,7 @@ if.then.i30:                                      ; preds = %_ZN11StreamProxylsI
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i30
-  tail call void @_ZSt16__throw_bad_castv() #17
+  tail call void @_ZSt16__throw_bad_castv() #18
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %if.then.i30
@@ -553,7 +553,7 @@ terminate.lpad:                                   ; preds = %invoke.cont10, %inv
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #16
+  tail call void @__clang_call_terminate(ptr %11) #17
   unreachable
 }
 
@@ -578,7 +578,7 @@ terminate.lpad:                                   ; preds = %entry
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #16
+  tail call void @__clang_call_terminate(ptr %3) #17
   unreachable
 }
 
@@ -604,11 +604,11 @@ if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %0, align 8, !tbaa !38
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
   %vtable3.i.i = load ptr, ptr %0, align 8, !tbaa !38
   %vfn4.i.i = getelementptr inbounds nuw i8, ptr %vtable3.i.i, i64 24
   %4 = load ptr, ptr %vfn4.i.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 if.end.i.i:                                       ; preds = %if.then.i
@@ -631,7 +631,7 @@ invoke.cont.i.i:                                  ; preds = %if.else.i.i.i, %if.
   br i1 %cmp6.i.i, label %if.then7.i.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !70
 
 if.then7.i.i:                                     ; preds = %invoke.cont.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.then7.i.i, %invoke.cont.i.i, %if.then.i.i, %entry
@@ -661,7 +661,7 @@ terminate.lpad.i.i:                               ; preds = %land.rhs.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #16
+  call void @__clang_call_terminate(ptr %4) #17
   unreachable
 
 _ZN5sound12PlayingSound6isDeadEv.exit:            ; preds = %land.rhs.i
@@ -684,7 +684,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end3
-  call void @_Z15sanity_check_fnPKcS0_jS0_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 143, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5sound12PlayingSound10stepStreamEv) #17
+  call void @_Z15sanity_check_fnPKcS0_jS0_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 143, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5sound12PlayingSound10stepStreamEv) #18
   unreachable
 
 cond.end:                                         ; preds = %if.end3
@@ -747,7 +747,7 @@ terminate.lpad.i:                                 ; preds = %if.end13
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #16
+  call void @__clang_call_terminate(ptr %21) #17
   unreachable
 
 _ZN5sound12PlayingSound8getStateEv.exit:          ; preds = %if.end13
@@ -765,7 +765,7 @@ terminate.lpad.i37:                               ; preds = %if.then24
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #16
+  call void @__clang_call_terminate(ptr %25) #17
   unreachable
 
 _ZN5sound12PlayingSound4playEv.exit:              ; preds = %if.then24
@@ -820,7 +820,7 @@ if.then.i42:                                      ; preds = %_ZN11StreamProxylsI
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i42
-  call void @_ZSt16__throw_bad_castv() #17
+  call void @_ZSt16__throw_bad_castv() #18
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %if.then.i42
@@ -892,7 +892,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #16
+  call void @__clang_call_terminate(ptr %3) #17
   unreachable
 
 _ZN5sound12PlayingSound7getGainEv.exit:           ; preds = %entry
@@ -949,14 +949,14 @@ terminate.lpad:                                   ; preds = %entry
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #16
+  call void @__clang_call_terminate(ptr %4) #17
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #16
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
+  tail call void @_ZSt9terminatev() #17
   unreachable
 }
 
@@ -993,7 +993,7 @@ terminate.lpad.i.i:                               ; preds = %land.rhs.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #16
+  call void @__clang_call_terminate(ptr %4) #17
   unreachable
 
 _ZN5sound12PlayingSound6isDeadEv.exit:            ; preds = %land.rhs.i
@@ -1012,7 +1012,7 @@ terminate.lpad.i:                                 ; preds = %if.end
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #16
+  call void @__clang_call_terminate(ptr %8) #17
   unreachable
 
 _ZN5sound12PlayingSound8getStateEv.exit:          ; preds = %if.end
@@ -1031,7 +1031,7 @@ terminate.lpad.i35:                               ; preds = %if.end5
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #16
+  call void @__clang_call_terminate(ptr %12) #17
   unreachable
 
 _ZN5sound12PlayingSound7getGainEv.exit:           ; preds = %if.end5
@@ -1076,7 +1076,7 @@ terminate.lpad.i43:                               ; preds = %if.end22
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #16
+  call void @__clang_call_terminate(ptr %22) #17
   unreachable
 
 _ZN5sound12PlayingSound7setGainEf.exit:           ; preds = %if.end22
@@ -1101,7 +1101,7 @@ terminate.lpad:                                   ; preds = %if.then18
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #16
+  call void @__clang_call_terminate(ptr %26) #17
   unreachable
 }
 
@@ -1111,10 +1111,10 @@ declare void @alSourcef(i32 noundef, i32 noundef, float noundef) local_unnamed_a
 
 declare void @alGetSourcef(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.maxnum.f32(float, float) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.floor.f32(float) #4
 
 declare i32 @alGetError() local_unnamed_addr #0
@@ -1132,7 +1132,7 @@ entry:
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !38
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this) #15
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this) #16
   %_M_weak_count.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %1 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !62
   %tobool.i.not.i = icmp eq i8 %1, 0
@@ -1157,7 +1157,7 @@ if.then.i:                                        ; preds = %invoke.cont.i
   %vtable2.i = load ptr, ptr %this, align 8, !tbaa !38
   %vfn3.i = getelementptr inbounds nuw i8, ptr %vtable2.i, i64 24
   %4 = load ptr, ptr %vfn3.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %this) #15
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %this) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit: ; preds = %if.then.i, %invoke.cont.i
@@ -1166,7 +1166,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 
 declare void @alSourcePlay(i32 noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #4
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #0
@@ -1182,29 +1182,29 @@ declare void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 deref
 define internal void @_GLOBAL__sub_I_playing_sound.cpp() #12 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
   ret void
 }
 
 declare extern_weak void @_ZTH13warningstream() #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
-declare ptr @llvm.load.relative.i64(ptr, i64) #13
+declare ptr @llvm.load.relative.i64(ptr, i64) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { inlinehint uwtable "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { uwtable "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1213,11 +1213,12 @@ attributes #9 = { noreturn nounwind uwtable "no-signed-zeros-fp-math"="true" "no
 attributes #10 = { cold nofree noreturn }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nounwind }
-attributes #16 = { noreturn nounwind }
-attributes #17 = { noreturn }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nounwind }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

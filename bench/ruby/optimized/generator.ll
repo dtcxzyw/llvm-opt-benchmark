@@ -164,203 +164,203 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define void @Init_generator() local_unnamed_addr #0 {
-  tail call void @rb_ext_ractor_safe(i1 noundef zeroext true) #22
-  %1 = tail call i64 @rb_require(ptr noundef nonnull @.str) #22
-  %2 = tail call i64 @rb_define_module(ptr noundef nonnull @.str.1) #22
+  tail call void @rb_ext_ractor_safe(i1 noundef zeroext true) #23
+  %1 = tail call i64 @rb_require(ptr noundef nonnull @.str) #23
+  %2 = tail call i64 @rb_define_module(ptr noundef nonnull @.str.1) #23
   store i64 %2, ptr @mJSON, align 8, !tbaa !6
-  tail call void @rb_global_variable(ptr noundef nonnull @cFragment) #22
+  tail call void @rb_global_variable(ptr noundef nonnull @cFragment) #23
   %3 = load i64, ptr @mJSON, align 8, !tbaa !6
-  %4 = tail call i64 @rb_intern(ptr noundef nonnull @.str.2) #22
-  %5 = tail call i64 @rb_const_get(i64 noundef %3, i64 noundef %4) #22
+  %4 = tail call i64 @rb_intern(ptr noundef nonnull @.str.2) #23
+  %5 = tail call i64 @rb_const_get(i64 noundef %3, i64 noundef %4) #23
   store i64 %5, ptr @cFragment, align 8, !tbaa !6
   %6 = load i64, ptr @mJSON, align 8, !tbaa !6
-  %7 = tail call i64 @rb_define_module_under(i64 noundef %6, ptr noundef nonnull @.str.3) #22
-  %8 = tail call i64 @rb_define_module_under(i64 noundef %7, ptr noundef nonnull @.str.4) #22
-  tail call void @rb_global_variable(ptr noundef nonnull @eGeneratorError) #22
-  %9 = tail call i64 @rb_path2class(ptr noundef nonnull @.str.5) #22
+  %7 = tail call i64 @rb_define_module_under(i64 noundef %6, ptr noundef nonnull @.str.3) #23
+  %8 = tail call i64 @rb_define_module_under(i64 noundef %7, ptr noundef nonnull @.str.4) #23
+  tail call void @rb_global_variable(ptr noundef nonnull @eGeneratorError) #23
+  %9 = tail call i64 @rb_path2class(ptr noundef nonnull @.str.5) #23
   store i64 %9, ptr @eGeneratorError, align 8, !tbaa !6
-  tail call void @rb_global_variable(ptr noundef nonnull @eNestingError) #22
-  %10 = tail call i64 @rb_path2class(ptr noundef nonnull @.str.6) #22
+  tail call void @rb_global_variable(ptr noundef nonnull @eNestingError) #23
+  %10 = tail call i64 @rb_path2class(ptr noundef nonnull @.str.6) #23
   store i64 %10, ptr @eNestingError, align 8, !tbaa !6
   %11 = load i64, ptr @rb_cObject, align 8, !tbaa !6
-  %12 = tail call i64 @rb_define_class_under(i64 noundef %8, ptr noundef nonnull @.str.7, i64 noundef %11) #22
+  %12 = tail call i64 @rb_define_class_under(i64 noundef %8, ptr noundef nonnull @.str.7, i64 noundef %11) #23
   store i64 %12, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_alloc_func(i64 noundef %12, ptr noundef nonnull @cState_s_allocate) #22
+  tail call void @rb_define_alloc_func(i64 noundef %12, ptr noundef nonnull @cState_s_allocate) #23
   %13 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %13, ptr noundef nonnull @.str.8, ptr noundef nonnull @cState_from_state_s, i32 noundef 1) #22
+  tail call void @rb_define_singleton_method(i64 noundef %13, ptr noundef nonnull @.str.8, ptr noundef nonnull @cState_from_state_s, i32 noundef 1) #23
   %14 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %14, ptr noundef nonnull @.str.9, ptr noundef nonnull @cState_initialize, i32 noundef -1) #22
+  tail call void @rb_define_method(i64 noundef %14, ptr noundef nonnull @.str.9, ptr noundef nonnull @cState_initialize, i32 noundef -1) #23
   %15 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_alias(i64 noundef %15, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.9) #22
+  tail call void @rb_define_alias(i64 noundef %15, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.9) #23
   %16 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_private_method(i64 noundef %16, ptr noundef nonnull @.str.10, ptr noundef nonnull @cState_configure, i32 noundef 1) #22
+  tail call void @rb_define_private_method(i64 noundef %16, ptr noundef nonnull @.str.10, ptr noundef nonnull @cState_configure, i32 noundef 1) #23
   %17 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %17, ptr noundef nonnull @.str.11, ptr noundef nonnull @cState_init_copy, i32 noundef 1) #22
+  tail call void @rb_define_method(i64 noundef %17, ptr noundef nonnull @.str.11, ptr noundef nonnull @cState_init_copy, i32 noundef 1) #23
   %18 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %18, ptr noundef nonnull @.str.12, ptr noundef nonnull @cState_indent, i32 noundef 0) #22
+  tail call void @rb_define_method(i64 noundef %18, ptr noundef nonnull @.str.12, ptr noundef nonnull @cState_indent, i32 noundef 0) #23
   %19 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %19, ptr noundef nonnull @.str.13, ptr noundef nonnull @cState_indent_set, i32 noundef 1) #22
+  tail call void @rb_define_method(i64 noundef %19, ptr noundef nonnull @.str.13, ptr noundef nonnull @cState_indent_set, i32 noundef 1) #23
   %20 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %20, ptr noundef nonnull @.str.14, ptr noundef nonnull @cState_space, i32 noundef 0) #22
+  tail call void @rb_define_method(i64 noundef %20, ptr noundef nonnull @.str.14, ptr noundef nonnull @cState_space, i32 noundef 0) #23
   %21 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %21, ptr noundef nonnull @.str.15, ptr noundef nonnull @cState_space_set, i32 noundef 1) #22
+  tail call void @rb_define_method(i64 noundef %21, ptr noundef nonnull @.str.15, ptr noundef nonnull @cState_space_set, i32 noundef 1) #23
   %22 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %22, ptr noundef nonnull @.str.16, ptr noundef nonnull @cState_space_before, i32 noundef 0) #22
+  tail call void @rb_define_method(i64 noundef %22, ptr noundef nonnull @.str.16, ptr noundef nonnull @cState_space_before, i32 noundef 0) #23
   %23 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %23, ptr noundef nonnull @.str.17, ptr noundef nonnull @cState_space_before_set, i32 noundef 1) #22
+  tail call void @rb_define_method(i64 noundef %23, ptr noundef nonnull @.str.17, ptr noundef nonnull @cState_space_before_set, i32 noundef 1) #23
   %24 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %24, ptr noundef nonnull @.str.18, ptr noundef nonnull @cState_object_nl, i32 noundef 0) #22
+  tail call void @rb_define_method(i64 noundef %24, ptr noundef nonnull @.str.18, ptr noundef nonnull @cState_object_nl, i32 noundef 0) #23
   %25 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %25, ptr noundef nonnull @.str.19, ptr noundef nonnull @cState_object_nl_set, i32 noundef 1) #22
+  tail call void @rb_define_method(i64 noundef %25, ptr noundef nonnull @.str.19, ptr noundef nonnull @cState_object_nl_set, i32 noundef 1) #23
   %26 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %26, ptr noundef nonnull @.str.20, ptr noundef nonnull @cState_array_nl, i32 noundef 0) #22
+  tail call void @rb_define_method(i64 noundef %26, ptr noundef nonnull @.str.20, ptr noundef nonnull @cState_array_nl, i32 noundef 0) #23
   %27 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %27, ptr noundef nonnull @.str.21, ptr noundef nonnull @cState_array_nl_set, i32 noundef 1) #22
+  tail call void @rb_define_method(i64 noundef %27, ptr noundef nonnull @.str.21, ptr noundef nonnull @cState_array_nl_set, i32 noundef 1) #23
   %28 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %28, ptr noundef nonnull @.str.22, ptr noundef nonnull @cState_as_json, i32 noundef 0) #22
+  tail call void @rb_define_method(i64 noundef %28, ptr noundef nonnull @.str.22, ptr noundef nonnull @cState_as_json, i32 noundef 0) #23
   %29 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %29, ptr noundef nonnull @.str.23, ptr noundef nonnull @cState_as_json_set, i32 noundef 1) #22
+  tail call void @rb_define_method(i64 noundef %29, ptr noundef nonnull @.str.23, ptr noundef nonnull @cState_as_json_set, i32 noundef 1) #23
   %30 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %30, ptr noundef nonnull @.str.24, ptr noundef nonnull @cState_max_nesting, i32 noundef 0) #22
+  tail call void @rb_define_method(i64 noundef %30, ptr noundef nonnull @.str.24, ptr noundef nonnull @cState_max_nesting, i32 noundef 0) #23
   %31 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %31, ptr noundef nonnull @.str.25, ptr noundef nonnull @cState_max_nesting_set, i32 noundef 1) #22
+  tail call void @rb_define_method(i64 noundef %31, ptr noundef nonnull @.str.25, ptr noundef nonnull @cState_max_nesting_set, i32 noundef 1) #23
   %32 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %32, ptr noundef nonnull @.str.26, ptr noundef nonnull @cState_script_safe, i32 noundef 0) #22
+  tail call void @rb_define_method(i64 noundef %32, ptr noundef nonnull @.str.26, ptr noundef nonnull @cState_script_safe, i32 noundef 0) #23
   %33 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %33, ptr noundef nonnull @.str.27, ptr noundef nonnull @cState_script_safe, i32 noundef 0) #22
+  tail call void @rb_define_method(i64 noundef %33, ptr noundef nonnull @.str.27, ptr noundef nonnull @cState_script_safe, i32 noundef 0) #23
   %34 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %34, ptr noundef nonnull @.str.28, ptr noundef nonnull @cState_script_safe_set, i32 noundef 1) #22
+  tail call void @rb_define_method(i64 noundef %34, ptr noundef nonnull @.str.28, ptr noundef nonnull @cState_script_safe_set, i32 noundef 1) #23
   %35 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_alias(i64 noundef %35, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.26) #22
+  tail call void @rb_define_alias(i64 noundef %35, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.26) #23
   %36 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_alias(i64 noundef %36, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.27) #22
+  tail call void @rb_define_alias(i64 noundef %36, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.27) #23
   %37 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_alias(i64 noundef %37, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.28) #22
+  tail call void @rb_define_alias(i64 noundef %37, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.28) #23
   %38 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %38, ptr noundef nonnull @.str.32, ptr noundef nonnull @cState_strict, i32 noundef 0) #22
+  tail call void @rb_define_method(i64 noundef %38, ptr noundef nonnull @.str.32, ptr noundef nonnull @cState_strict, i32 noundef 0) #23
   %39 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %39, ptr noundef nonnull @.str.33, ptr noundef nonnull @cState_strict, i32 noundef 0) #22
+  tail call void @rb_define_method(i64 noundef %39, ptr noundef nonnull @.str.33, ptr noundef nonnull @cState_strict, i32 noundef 0) #23
   %40 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %40, ptr noundef nonnull @.str.34, ptr noundef nonnull @cState_strict_set, i32 noundef 1) #22
+  tail call void @rb_define_method(i64 noundef %40, ptr noundef nonnull @.str.34, ptr noundef nonnull @cState_strict_set, i32 noundef 1) #23
   %41 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %41, ptr noundef nonnull @.str.35, ptr noundef nonnull @cState_check_circular_p, i32 noundef 0) #22
+  tail call void @rb_define_method(i64 noundef %41, ptr noundef nonnull @.str.35, ptr noundef nonnull @cState_check_circular_p, i32 noundef 0) #23
   %42 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %42, ptr noundef nonnull @.str.36, ptr noundef nonnull @cState_allow_nan_p, i32 noundef 0) #22
+  tail call void @rb_define_method(i64 noundef %42, ptr noundef nonnull @.str.36, ptr noundef nonnull @cState_allow_nan_p, i32 noundef 0) #23
   %43 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %43, ptr noundef nonnull @.str.37, ptr noundef nonnull @cState_allow_nan_set, i32 noundef 1) #22
+  tail call void @rb_define_method(i64 noundef %43, ptr noundef nonnull @.str.37, ptr noundef nonnull @cState_allow_nan_set, i32 noundef 1) #23
   %44 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %44, ptr noundef nonnull @.str.38, ptr noundef nonnull @cState_ascii_only_p, i32 noundef 0) #22
+  tail call void @rb_define_method(i64 noundef %44, ptr noundef nonnull @.str.38, ptr noundef nonnull @cState_ascii_only_p, i32 noundef 0) #23
   %45 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %45, ptr noundef nonnull @.str.39, ptr noundef nonnull @cState_ascii_only_set, i32 noundef 1) #22
+  tail call void @rb_define_method(i64 noundef %45, ptr noundef nonnull @.str.39, ptr noundef nonnull @cState_ascii_only_set, i32 noundef 1) #23
   %46 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %46, ptr noundef nonnull @.str.40, ptr noundef nonnull @cState_depth, i32 noundef 0) #22
+  tail call void @rb_define_method(i64 noundef %46, ptr noundef nonnull @.str.40, ptr noundef nonnull @cState_depth, i32 noundef 0) #23
   %47 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %47, ptr noundef nonnull @.str.41, ptr noundef nonnull @cState_depth_set, i32 noundef 1) #22
+  tail call void @rb_define_method(i64 noundef %47, ptr noundef nonnull @.str.41, ptr noundef nonnull @cState_depth_set, i32 noundef 1) #23
   %48 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %48, ptr noundef nonnull @.str.42, ptr noundef nonnull @cState_buffer_initial_length, i32 noundef 0) #22
+  tail call void @rb_define_method(i64 noundef %48, ptr noundef nonnull @.str.42, ptr noundef nonnull @cState_buffer_initial_length, i32 noundef 0) #23
   %49 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %49, ptr noundef nonnull @.str.43, ptr noundef nonnull @cState_buffer_initial_length_set, i32 noundef 1) #22
+  tail call void @rb_define_method(i64 noundef %49, ptr noundef nonnull @.str.43, ptr noundef nonnull @cState_buffer_initial_length_set, i32 noundef 1) #23
   %50 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %50, ptr noundef nonnull @.str.44, ptr noundef nonnull @cState_generate, i32 noundef -1) #22
+  tail call void @rb_define_method(i64 noundef %50, ptr noundef nonnull @.str.44, ptr noundef nonnull @cState_generate, i32 noundef -1) #23
   %51 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_alias(i64 noundef %51, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.44) #22
+  tail call void @rb_define_alias(i64 noundef %51, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.44) #23
   %52 = load i64, ptr @cState, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %52, ptr noundef nonnull @.str.44, ptr noundef nonnull @cState_m_generate, i32 noundef 3) #22
-  %53 = tail call i64 @rb_define_module_under(i64 noundef %8, ptr noundef nonnull @.str.46) #22
-  %54 = tail call i64 @rb_define_module_under(i64 noundef %53, ptr noundef nonnull @.str.47) #22
-  tail call void @rb_define_method(i64 noundef %54, ptr noundef nonnull @.str.48, ptr noundef nonnull @mObject_to_json, i32 noundef -1) #22
-  %55 = tail call i64 @rb_define_module_under(i64 noundef %53, ptr noundef nonnull @.str.49) #22
-  tail call void @rb_define_method(i64 noundef %55, ptr noundef nonnull @.str.48, ptr noundef nonnull @mHash_to_json, i32 noundef -1) #22
-  %56 = tail call i64 @rb_define_module_under(i64 noundef %53, ptr noundef nonnull @.str.50) #22
-  tail call void @rb_define_method(i64 noundef %56, ptr noundef nonnull @.str.48, ptr noundef nonnull @mArray_to_json, i32 noundef -1) #22
-  %57 = tail call i64 @rb_define_module_under(i64 noundef %53, ptr noundef nonnull @.str.51) #22
-  tail call void @rb_define_method(i64 noundef %57, ptr noundef nonnull @.str.48, ptr noundef nonnull @mInteger_to_json, i32 noundef -1) #22
-  %58 = tail call i64 @rb_define_module_under(i64 noundef %53, ptr noundef nonnull @.str.52) #22
-  tail call void @rb_define_method(i64 noundef %58, ptr noundef nonnull @.str.48, ptr noundef nonnull @mFloat_to_json, i32 noundef -1) #22
-  %59 = tail call i64 @rb_define_module_under(i64 noundef %53, ptr noundef nonnull @.str.53) #22
-  tail call void @rb_define_singleton_method(i64 noundef %59, ptr noundef nonnull @.str.54, ptr noundef nonnull @mString_included_s, i32 noundef 1) #22
-  tail call void @rb_define_method(i64 noundef %59, ptr noundef nonnull @.str.48, ptr noundef nonnull @mString_to_json, i32 noundef -1) #22
-  tail call void @rb_define_method(i64 noundef %59, ptr noundef nonnull @.str.55, ptr noundef nonnull @mString_to_json_raw, i32 noundef -1) #22
-  tail call void @rb_define_method(i64 noundef %59, ptr noundef nonnull @.str.56, ptr noundef nonnull @mString_to_json_raw_object, i32 noundef 0) #22
-  %60 = tail call i64 @rb_define_module_under(i64 noundef %59, ptr noundef nonnull @.str.57) #22
+  tail call void @rb_define_singleton_method(i64 noundef %52, ptr noundef nonnull @.str.44, ptr noundef nonnull @cState_m_generate, i32 noundef 3) #23
+  %53 = tail call i64 @rb_define_module_under(i64 noundef %8, ptr noundef nonnull @.str.46) #23
+  %54 = tail call i64 @rb_define_module_under(i64 noundef %53, ptr noundef nonnull @.str.47) #23
+  tail call void @rb_define_method(i64 noundef %54, ptr noundef nonnull @.str.48, ptr noundef nonnull @mObject_to_json, i32 noundef -1) #23
+  %55 = tail call i64 @rb_define_module_under(i64 noundef %53, ptr noundef nonnull @.str.49) #23
+  tail call void @rb_define_method(i64 noundef %55, ptr noundef nonnull @.str.48, ptr noundef nonnull @mHash_to_json, i32 noundef -1) #23
+  %56 = tail call i64 @rb_define_module_under(i64 noundef %53, ptr noundef nonnull @.str.50) #23
+  tail call void @rb_define_method(i64 noundef %56, ptr noundef nonnull @.str.48, ptr noundef nonnull @mArray_to_json, i32 noundef -1) #23
+  %57 = tail call i64 @rb_define_module_under(i64 noundef %53, ptr noundef nonnull @.str.51) #23
+  tail call void @rb_define_method(i64 noundef %57, ptr noundef nonnull @.str.48, ptr noundef nonnull @mInteger_to_json, i32 noundef -1) #23
+  %58 = tail call i64 @rb_define_module_under(i64 noundef %53, ptr noundef nonnull @.str.52) #23
+  tail call void @rb_define_method(i64 noundef %58, ptr noundef nonnull @.str.48, ptr noundef nonnull @mFloat_to_json, i32 noundef -1) #23
+  %59 = tail call i64 @rb_define_module_under(i64 noundef %53, ptr noundef nonnull @.str.53) #23
+  tail call void @rb_define_singleton_method(i64 noundef %59, ptr noundef nonnull @.str.54, ptr noundef nonnull @mString_included_s, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %59, ptr noundef nonnull @.str.48, ptr noundef nonnull @mString_to_json, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %59, ptr noundef nonnull @.str.55, ptr noundef nonnull @mString_to_json_raw, i32 noundef -1) #23
+  tail call void @rb_define_method(i64 noundef %59, ptr noundef nonnull @.str.56, ptr noundef nonnull @mString_to_json_raw_object, i32 noundef 0) #23
+  %60 = tail call i64 @rb_define_module_under(i64 noundef %59, ptr noundef nonnull @.str.57) #23
   store i64 %60, ptr @mString_Extend, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %60, ptr noundef nonnull @.str.58, ptr noundef nonnull @mString_Extend_json_create, i32 noundef 1) #22
-  %61 = tail call i64 @rb_define_module_under(i64 noundef %53, ptr noundef nonnull @.str.59) #22
-  tail call void @rb_define_method(i64 noundef %61, ptr noundef nonnull @.str.48, ptr noundef nonnull @mTrueClass_to_json, i32 noundef -1) #22
-  %62 = tail call i64 @rb_define_module_under(i64 noundef %53, ptr noundef nonnull @.str.60) #22
-  tail call void @rb_define_method(i64 noundef %62, ptr noundef nonnull @.str.48, ptr noundef nonnull @mFalseClass_to_json, i32 noundef -1) #22
-  %63 = tail call i64 @rb_define_module_under(i64 noundef %53, ptr noundef nonnull @.str.61) #22
-  tail call void @rb_define_method(i64 noundef %63, ptr noundef nonnull @.str.48, ptr noundef nonnull @mNilClass_to_json, i32 noundef -1) #22
-  tail call void @rb_global_variable(ptr noundef nonnull @Encoding_UTF_8) #22
-  %64 = tail call i64 @rb_path2class(ptr noundef nonnull @.str.62) #22
-  %65 = tail call i64 @rb_intern(ptr noundef nonnull @.str.63) #22
-  %66 = tail call i64 @rb_const_get(i64 noundef %64, i64 noundef %65) #22
+  tail call void @rb_define_method(i64 noundef %60, ptr noundef nonnull @.str.58, ptr noundef nonnull @mString_Extend_json_create, i32 noundef 1) #23
+  %61 = tail call i64 @rb_define_module_under(i64 noundef %53, ptr noundef nonnull @.str.59) #23
+  tail call void @rb_define_method(i64 noundef %61, ptr noundef nonnull @.str.48, ptr noundef nonnull @mTrueClass_to_json, i32 noundef -1) #23
+  %62 = tail call i64 @rb_define_module_under(i64 noundef %53, ptr noundef nonnull @.str.60) #23
+  tail call void @rb_define_method(i64 noundef %62, ptr noundef nonnull @.str.48, ptr noundef nonnull @mFalseClass_to_json, i32 noundef -1) #23
+  %63 = tail call i64 @rb_define_module_under(i64 noundef %53, ptr noundef nonnull @.str.61) #23
+  tail call void @rb_define_method(i64 noundef %63, ptr noundef nonnull @.str.48, ptr noundef nonnull @mNilClass_to_json, i32 noundef -1) #23
+  tail call void @rb_global_variable(ptr noundef nonnull @Encoding_UTF_8) #23
+  %64 = tail call i64 @rb_path2class(ptr noundef nonnull @.str.62) #23
+  %65 = tail call i64 @rb_intern(ptr noundef nonnull @.str.63) #23
+  %66 = tail call i64 @rb_const_get(i64 noundef %64, i64 noundef %65) #23
   store i64 %66, ptr @Encoding_UTF_8, align 8, !tbaa !6
-  %67 = tail call i64 @rb_intern(ptr noundef nonnull @.str.64) #22
+  %67 = tail call i64 @rb_intern(ptr noundef nonnull @.str.64) #23
   store i64 %67, ptr @i_to_s, align 8, !tbaa !6
-  %68 = tail call i64 @rb_intern(ptr noundef nonnull @.str.48) #22
+  %68 = tail call i64 @rb_intern(ptr noundef nonnull @.str.48) #23
   store i64 %68, ptr @i_to_json, align 8, !tbaa !6
-  %69 = tail call i64 @rb_intern(ptr noundef nonnull @.str.65) #22
+  %69 = tail call i64 @rb_intern(ptr noundef nonnull @.str.65) #23
   store i64 %69, ptr @i_new, align 8, !tbaa !6
-  %70 = tail call i64 @rb_intern(ptr noundef nonnull @.str.66) #22
+  %70 = tail call i64 @rb_intern(ptr noundef nonnull @.str.66) #23
   store i64 %70, ptr @i_pack, align 8, !tbaa !6
-  %71 = tail call i64 @rb_intern(ptr noundef nonnull @.str.67) #22
+  %71 = tail call i64 @rb_intern(ptr noundef nonnull @.str.67) #23
   store i64 %71, ptr @i_unpack, align 8, !tbaa !6
-  %72 = tail call i64 @rb_intern(ptr noundef nonnull @.str.68) #22
+  %72 = tail call i64 @rb_intern(ptr noundef nonnull @.str.68) #23
   store i64 %72, ptr @i_create_id, align 8, !tbaa !6
-  %73 = tail call i64 @rb_intern(ptr noundef nonnull @.str.69) #22
+  %73 = tail call i64 @rb_intern(ptr noundef nonnull @.str.69) #23
   store i64 %73, ptr @i_extend, align 8, !tbaa !6
-  %74 = tail call i64 @rb_intern(ptr noundef nonnull @.str.70) #22
+  %74 = tail call i64 @rb_intern(ptr noundef nonnull @.str.70) #23
   store i64 %74, ptr @i_encode, align 8, !tbaa !6
-  %75 = tail call i64 @rb_intern(ptr noundef nonnull @.str.12) #22
-  %76 = tail call i64 @rb_id2sym(i64 noundef %75) #22
+  %75 = tail call i64 @rb_intern(ptr noundef nonnull @.str.12) #23
+  %76 = tail call i64 @rb_id2sym(i64 noundef %75) #23
   store i64 %76, ptr @sym_indent, align 8, !tbaa !6
-  %77 = tail call i64 @rb_intern(ptr noundef nonnull @.str.14) #22
-  %78 = tail call i64 @rb_id2sym(i64 noundef %77) #22
+  %77 = tail call i64 @rb_intern(ptr noundef nonnull @.str.14) #23
+  %78 = tail call i64 @rb_id2sym(i64 noundef %77) #23
   store i64 %78, ptr @sym_space, align 8, !tbaa !6
-  %79 = tail call i64 @rb_intern(ptr noundef nonnull @.str.16) #22
-  %80 = tail call i64 @rb_id2sym(i64 noundef %79) #22
+  %79 = tail call i64 @rb_intern(ptr noundef nonnull @.str.16) #23
+  %80 = tail call i64 @rb_id2sym(i64 noundef %79) #23
   store i64 %80, ptr @sym_space_before, align 8, !tbaa !6
-  %81 = tail call i64 @rb_intern(ptr noundef nonnull @.str.18) #22
-  %82 = tail call i64 @rb_id2sym(i64 noundef %81) #22
+  %81 = tail call i64 @rb_intern(ptr noundef nonnull @.str.18) #23
+  %82 = tail call i64 @rb_id2sym(i64 noundef %81) #23
   store i64 %82, ptr @sym_object_nl, align 8, !tbaa !6
-  %83 = tail call i64 @rb_intern(ptr noundef nonnull @.str.20) #22
-  %84 = tail call i64 @rb_id2sym(i64 noundef %83) #22
+  %83 = tail call i64 @rb_intern(ptr noundef nonnull @.str.20) #23
+  %84 = tail call i64 @rb_id2sym(i64 noundef %83) #23
   store i64 %84, ptr @sym_array_nl, align 8, !tbaa !6
-  %85 = tail call i64 @rb_intern(ptr noundef nonnull @.str.24) #22
-  %86 = tail call i64 @rb_id2sym(i64 noundef %85) #22
+  %85 = tail call i64 @rb_intern(ptr noundef nonnull @.str.24) #23
+  %86 = tail call i64 @rb_id2sym(i64 noundef %85) #23
   store i64 %86, ptr @sym_max_nesting, align 8, !tbaa !6
-  %87 = tail call i64 @rb_intern(ptr noundef nonnull @.str.71) #22
-  %88 = tail call i64 @rb_id2sym(i64 noundef %87) #22
+  %87 = tail call i64 @rb_intern(ptr noundef nonnull @.str.71) #23
+  %88 = tail call i64 @rb_id2sym(i64 noundef %87) #23
   store i64 %88, ptr @sym_allow_nan, align 8, !tbaa !6
-  %89 = tail call i64 @rb_intern(ptr noundef nonnull @.str.72) #22
-  %90 = tail call i64 @rb_id2sym(i64 noundef %89) #22
+  %89 = tail call i64 @rb_intern(ptr noundef nonnull @.str.72) #23
+  %90 = tail call i64 @rb_id2sym(i64 noundef %89) #23
   store i64 %90, ptr @sym_ascii_only, align 8, !tbaa !6
-  %91 = tail call i64 @rb_intern(ptr noundef nonnull @.str.40) #22
-  %92 = tail call i64 @rb_id2sym(i64 noundef %91) #22
+  %91 = tail call i64 @rb_intern(ptr noundef nonnull @.str.40) #23
+  %92 = tail call i64 @rb_id2sym(i64 noundef %91) #23
   store i64 %92, ptr @sym_depth, align 8, !tbaa !6
-  %93 = tail call i64 @rb_intern(ptr noundef nonnull @.str.42) #22
-  %94 = tail call i64 @rb_id2sym(i64 noundef %93) #22
+  %93 = tail call i64 @rb_intern(ptr noundef nonnull @.str.42) #23
+  %94 = tail call i64 @rb_id2sym(i64 noundef %93) #23
   store i64 %94, ptr @sym_buffer_initial_length, align 8, !tbaa !6
-  %95 = tail call i64 @rb_intern(ptr noundef nonnull @.str.26) #22
-  %96 = tail call i64 @rb_id2sym(i64 noundef %95) #22
+  %95 = tail call i64 @rb_intern(ptr noundef nonnull @.str.26) #23
+  %96 = tail call i64 @rb_id2sym(i64 noundef %95) #23
   store i64 %96, ptr @sym_script_safe, align 8, !tbaa !6
-  %97 = tail call i64 @rb_intern(ptr noundef nonnull @.str.29) #22
-  %98 = tail call i64 @rb_id2sym(i64 noundef %97) #22
+  %97 = tail call i64 @rb_intern(ptr noundef nonnull @.str.29) #23
+  %98 = tail call i64 @rb_id2sym(i64 noundef %97) #23
   store i64 %98, ptr @sym_escape_slash, align 8, !tbaa !6
-  %99 = tail call i64 @rb_intern(ptr noundef nonnull @.str.32) #22
-  %100 = tail call i64 @rb_id2sym(i64 noundef %99) #22
+  %99 = tail call i64 @rb_intern(ptr noundef nonnull @.str.32) #23
+  %100 = tail call i64 @rb_id2sym(i64 noundef %99) #23
   store i64 %100, ptr @sym_strict, align 8, !tbaa !6
-  %101 = tail call i64 @rb_intern(ptr noundef nonnull @.str.22) #22
-  %102 = tail call i64 @rb_id2sym(i64 noundef %101) #22
+  %101 = tail call i64 @rb_intern(ptr noundef nonnull @.str.22) #23
+  %102 = tail call i64 @rb_id2sym(i64 noundef %101) #23
   store i64 %102, ptr @sym_as_json, align 8, !tbaa !6
-  %103 = tail call i32 @rb_usascii_encindex() #23
+  %103 = tail call i32 @rb_usascii_encindex() #24
   store i32 %103, ptr @usascii_encindex, align 4, !tbaa !10
-  %104 = tail call i32 @rb_utf8_encindex() #23
+  %104 = tail call i32 @rb_utf8_encindex() #24
   store i32 %104, ptr @utf8_encindex, align 4, !tbaa !10
-  %105 = tail call i32 @rb_ascii8bit_encindex() #23
+  %105 = tail call i32 @rb_ascii8bit_encindex() #24
   store i32 %105, ptr @binary_encindex, align 4, !tbaa !10
-  %106 = tail call i64 @rb_require(ptr noundef nonnull @.str.73) #22
+  %106 = tail call i64 @rb_require(ptr noundef nonnull @.str.73) #23
   ret void
 }
 
@@ -386,7 +386,7 @@ declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @cState_s_allocate(i64 noundef %0) #0 {
-  %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 80, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 80, ptr noundef nonnull @JSON_Generator_State_type) #23
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8, !tbaa !12
@@ -412,24 +412,24 @@ declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, p
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @cState_from_state_s(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call i64 @rb_obj_is_kind_of(i64 noundef %1, i64 noundef %0) #22
+  %3 = tail call i64 @rb_obj_is_kind_of(i64 noundef %1, i64 noundef %0) #23
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %13
 
 4:                                                ; preds = %2
   %5 = load i64, ptr @rb_cHash, align 8, !tbaa !6
-  %6 = tail call i64 @rb_obj_is_kind_of(i64 noundef %1, i64 noundef %5) #22
+  %6 = tail call i64 @rb_obj_is_kind_of(i64 noundef %1, i64 noundef %5) #23
   %.not7 = icmp eq i64 %6, 0
   br i1 %.not7, label %10, label %7
 
 7:                                                ; preds = %4
   %8 = load i64, ptr @i_new, align 8, !tbaa !6
-  %9 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %8, i32 noundef 1, i64 noundef %1) #22
+  %9 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %8, i32 noundef 1, i64 noundef %1) #23
   br label %13
 
 10:                                               ; preds = %4
   %11 = load i64, ptr @cState, align 8, !tbaa !6
-  %12 = tail call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %11) #22
+  %12 = tail call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %11) #23
   br label %13
 
 13:                                               ; preds = %2, %10, %7
@@ -441,7 +441,7 @@ declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: cold nounwind sspstrong uwtable
 define internal noundef i64 @cState_initialize(i32 %0, ptr readnone captures(none) %1, i64 noundef returned %2) #2 {
-  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.75) #24
+  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.75) #25
   ret i64 %2
 }
 
@@ -451,7 +451,7 @@ declare extern_weak void @rb_define_private_method(i64 noundef, ptr noundef, ptr
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @cState_configure(i64 noundef returned %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %4 = and i64 %1, -5
   %.not4.i = icmp eq i64 %4, 0
   br i1 %.not4.i, label %configure_state.exit, label %5
@@ -469,17 +469,17 @@ define internal noundef i64 @cState_configure(i64 noundef returned %0, i64 nound
   br i1 %11, label %Check_Type.exit.i, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, !prof !24
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %7, %5
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 8) #25
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 8) #26
   unreachable
 
 Check_Type.exit.i:                                ; preds = %7
-  %12 = tail call i64 @rb_hash_size_num(i64 noundef %1) #22
+  %12 = tail call i64 @rb_hash_size_num(i64 noundef %1) #23
   %.not.i = icmp eq i64 %12, 0
   br i1 %.not.i, label %configure_state.exit, label %13
 
 13:                                               ; preds = %Check_Type.exit.i
   %14 = ptrtoint ptr %3 to i64
-  tail call void @rb_hash_foreach(i64 noundef %1, ptr noundef nonnull @configure_state_i, i64 noundef %14) #22
+  tail call void @rb_hash_foreach(i64 noundef %1, ptr noundef nonnull @configure_state_i, i64 noundef %14) #23
   br label %configure_state.exit
 
 configure_state.exit:                             ; preds = %2, %Check_Type.exit.i, %13
@@ -492,18 +492,18 @@ define internal noundef i64 @cState_init_copy(i64 noundef returned %0, i64 nound
   br i1 %3, label %26, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
-  %6 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
+  %6 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @JSON_Generator_State_type) #23
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %4
   %8 = load i64, ptr @rb_eArgError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.78) #26
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.78) #27
   unreachable
 
 9:                                                ; preds = %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %5, ptr noundef nonnull readonly align 1 dereferenceable(80) %6, i64 noundef range(i64 1, 0) 80, i1 noundef false) #22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %5, ptr noundef nonnull readonly align 1 dereferenceable(80) %6, i64 noundef range(i64 1, 0) 80, i1 noundef false) #23
   %10 = load i64, ptr %6, align 8, !tbaa !25
   store i64 %10, ptr %5, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -534,14 +534,14 @@ define internal noundef i64 @cState_init_copy(i64 noundef returned %0, i64 nound
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @cState_indent(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %3 = load i64, ptr %2, align 8, !tbaa !25
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @.str.79, i64 noundef 0) #22
-  %6 = tail call i64 @rb_str_freeze(i64 noundef %5) #22
+  %5 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @.str.79, i64 noundef 0) #23
+  %6 = tail call i64 @rb_str_freeze(i64 noundef %5) #23
   br label %7
 
 7:                                                ; preds = %1, %4
@@ -551,7 +551,7 @@ define internal i64 @cState_indent(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @cState_indent_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %4 = and i64 %1, -5
   %.not5.i = icmp eq i64 %4, 0
   br i1 %.not5.i, label %string_config.exit.thread, label %5
@@ -569,7 +569,7 @@ define internal noundef i64 @cState_indent_set(i64 noundef %0, i64 noundef %1) #
   br i1 %11, label %Check_Type.exit.i, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, !prof !24
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %7, %5
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #25
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #26
   unreachable
 
 Check_Type.exit.i:                                ; preds = %7
@@ -583,7 +583,7 @@ string_config.exit.thread:                        ; preds = %Check_Type.exit.i, 
   br label %rb_obj_write.exit
 
 string_config.exit:                               ; preds = %Check_Type.exit.i
-  %14 = tail call i64 @rb_str_new_frozen(i64 noundef %1) #22
+  %14 = tail call i64 @rb_str_new_frozen(i64 noundef %1) #23
   store i64 %14, ptr %3, align 8, !tbaa !6
   %15 = icmp eq i64 %14, 0
   %16 = and i64 %14, 7
@@ -592,7 +592,7 @@ string_config.exit:                               ; preds = %Check_Type.exit.i
   br i1 %18, label %rb_obj_write.exit, label %19
 
 19:                                               ; preds = %string_config.exit
-  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %14) #22
+  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %14) #23
   br label %rb_obj_write.exit
 
 rb_obj_write.exit:                                ; preds = %string_config.exit.thread, %string_config.exit, %19
@@ -601,15 +601,15 @@ rb_obj_write.exit:                                ; preds = %string_config.exit.
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @cState_space(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !26
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @.str.79, i64 noundef 0) #22
-  %7 = tail call i64 @rb_str_freeze(i64 noundef %6) #22
+  %6 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @.str.79, i64 noundef 0) #23
+  %7 = tail call i64 @rb_str_freeze(i64 noundef %6) #23
   br label %8
 
 8:                                                ; preds = %1, %5
@@ -619,7 +619,7 @@ define internal i64 @cState_space(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @cState_space_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = and i64 %1, -5
   %.not5.i = icmp eq i64 %5, 0
@@ -638,7 +638,7 @@ define internal noundef i64 @cState_space_set(i64 noundef %0, i64 noundef %1) #0
   br i1 %12, label %Check_Type.exit.i, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, !prof !24
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %8, %6
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #25
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #26
   unreachable
 
 Check_Type.exit.i:                                ; preds = %8
@@ -652,7 +652,7 @@ string_config.exit.thread:                        ; preds = %Check_Type.exit.i, 
   br label %rb_obj_write.exit
 
 string_config.exit:                               ; preds = %Check_Type.exit.i
-  %15 = tail call i64 @rb_str_new_frozen(i64 noundef %1) #22
+  %15 = tail call i64 @rb_str_new_frozen(i64 noundef %1) #23
   store i64 %15, ptr %4, align 8, !tbaa !6
   %16 = icmp eq i64 %15, 0
   %17 = and i64 %15, 7
@@ -661,7 +661,7 @@ string_config.exit:                               ; preds = %Check_Type.exit.i
   br i1 %19, label %rb_obj_write.exit, label %20
 
 20:                                               ; preds = %string_config.exit
-  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %15) #22
+  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %15) #23
   br label %rb_obj_write.exit
 
 rb_obj_write.exit:                                ; preds = %string_config.exit.thread, %string_config.exit, %20
@@ -670,15 +670,15 @@ rb_obj_write.exit:                                ; preds = %string_config.exit.
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @cState_space_before(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !27
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @.str.79, i64 noundef 0) #22
-  %7 = tail call i64 @rb_str_freeze(i64 noundef %6) #22
+  %6 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @.str.79, i64 noundef 0) #23
+  %7 = tail call i64 @rb_str_freeze(i64 noundef %6) #23
   br label %8
 
 8:                                                ; preds = %1, %5
@@ -688,7 +688,7 @@ define internal i64 @cState_space_before(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @cState_space_before_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = and i64 %1, -5
   %.not5.i = icmp eq i64 %5, 0
@@ -707,7 +707,7 @@ define internal noundef i64 @cState_space_before_set(i64 noundef %0, i64 noundef
   br i1 %12, label %Check_Type.exit.i, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, !prof !24
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %8, %6
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #25
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #26
   unreachable
 
 Check_Type.exit.i:                                ; preds = %8
@@ -721,7 +721,7 @@ string_config.exit.thread:                        ; preds = %Check_Type.exit.i, 
   br label %rb_obj_write.exit
 
 string_config.exit:                               ; preds = %Check_Type.exit.i
-  %15 = tail call i64 @rb_str_new_frozen(i64 noundef %1) #22
+  %15 = tail call i64 @rb_str_new_frozen(i64 noundef %1) #23
   store i64 %15, ptr %4, align 8, !tbaa !6
   %16 = icmp eq i64 %15, 0
   %17 = and i64 %15, 7
@@ -730,7 +730,7 @@ string_config.exit:                               ; preds = %Check_Type.exit.i
   br i1 %19, label %rb_obj_write.exit, label %20
 
 20:                                               ; preds = %string_config.exit
-  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %15) #22
+  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %15) #23
   br label %rb_obj_write.exit
 
 rb_obj_write.exit:                                ; preds = %string_config.exit.thread, %string_config.exit, %20
@@ -739,15 +739,15 @@ rb_obj_write.exit:                                ; preds = %string_config.exit.
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @cState_object_nl(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load i64, ptr %3, align 8, !tbaa !28
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @.str.79, i64 noundef 0) #22
-  %7 = tail call i64 @rb_str_freeze(i64 noundef %6) #22
+  %6 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @.str.79, i64 noundef 0) #23
+  %7 = tail call i64 @rb_str_freeze(i64 noundef %6) #23
   br label %8
 
 8:                                                ; preds = %1, %5
@@ -757,7 +757,7 @@ define internal i64 @cState_object_nl(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @cState_object_nl_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = and i64 %1, -5
   %.not5.i = icmp eq i64 %5, 0
@@ -776,7 +776,7 @@ define internal noundef i64 @cState_object_nl_set(i64 noundef %0, i64 noundef %1
   br i1 %12, label %Check_Type.exit.i, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, !prof !24
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %8, %6
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #25
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #26
   unreachable
 
 Check_Type.exit.i:                                ; preds = %8
@@ -790,7 +790,7 @@ string_config.exit.thread:                        ; preds = %Check_Type.exit.i, 
   br label %rb_obj_write.exit
 
 string_config.exit:                               ; preds = %Check_Type.exit.i
-  %15 = tail call i64 @rb_str_new_frozen(i64 noundef %1) #22
+  %15 = tail call i64 @rb_str_new_frozen(i64 noundef %1) #23
   store i64 %15, ptr %4, align 8, !tbaa !6
   %16 = icmp eq i64 %15, 0
   %17 = and i64 %15, 7
@@ -799,7 +799,7 @@ string_config.exit:                               ; preds = %Check_Type.exit.i
   br i1 %19, label %rb_obj_write.exit, label %20
 
 20:                                               ; preds = %string_config.exit
-  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %15) #22
+  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %15) #23
   br label %rb_obj_write.exit
 
 rb_obj_write.exit:                                ; preds = %string_config.exit.thread, %string_config.exit, %20
@@ -808,15 +808,15 @@ rb_obj_write.exit:                                ; preds = %string_config.exit.
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @cState_array_nl(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load i64, ptr %3, align 8, !tbaa !29
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @.str.79, i64 noundef 0) #22
-  %7 = tail call i64 @rb_str_freeze(i64 noundef %6) #22
+  %6 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @.str.79, i64 noundef 0) #23
+  %7 = tail call i64 @rb_str_freeze(i64 noundef %6) #23
   br label %8
 
 8:                                                ; preds = %1, %5
@@ -826,7 +826,7 @@ define internal i64 @cState_array_nl(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @cState_array_nl_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = and i64 %1, -5
   %.not5.i = icmp eq i64 %5, 0
@@ -845,7 +845,7 @@ define internal noundef i64 @cState_array_nl_set(i64 noundef %0, i64 noundef %1)
   br i1 %12, label %Check_Type.exit.i, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, !prof !24
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %8, %6
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #25
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #26
   unreachable
 
 Check_Type.exit.i:                                ; preds = %8
@@ -859,7 +859,7 @@ string_config.exit.thread:                        ; preds = %Check_Type.exit.i, 
   br label %rb_obj_write.exit
 
 string_config.exit:                               ; preds = %Check_Type.exit.i
-  %15 = tail call i64 @rb_str_new_frozen(i64 noundef %1) #22
+  %15 = tail call i64 @rb_str_new_frozen(i64 noundef %1) #23
   store i64 %15, ptr %4, align 8, !tbaa !6
   %16 = icmp eq i64 %15, 0
   %17 = and i64 %15, 7
@@ -868,7 +868,7 @@ string_config.exit:                               ; preds = %Check_Type.exit.i
   br i1 %19, label %rb_obj_write.exit, label %20
 
 20:                                               ; preds = %string_config.exit
-  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %15) #22
+  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %15) #23
   br label %rb_obj_write.exit
 
 rb_obj_write.exit:                                ; preds = %string_config.exit.thread, %string_config.exit, %20
@@ -877,7 +877,7 @@ rb_obj_write.exit:                                ; preds = %string_config.exit.
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @cState_as_json(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !30
   ret i64 %4
@@ -885,9 +885,9 @@ define internal i64 @cState_as_json(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @cState_as_json_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %5 = tail call i64 @rb_convert_type(i64 noundef %1, i32 noundef 12, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77) #22
+  %5 = tail call i64 @rb_convert_type(i64 noundef %1, i32 noundef 12, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77) #23
   store i64 %5, ptr %4, align 8, !tbaa !6
   %6 = icmp eq i64 %5, 0
   %7 = and i64 %5, 7
@@ -896,7 +896,7 @@ define internal noundef i64 @cState_as_json_set(i64 noundef %0, i64 noundef %1) 
   br i1 %9, label %rb_obj_write.exit, label %10
 
 10:                                               ; preds = %2
-  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %5) #22
+  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %5) #23
   br label %rb_obj_write.exit
 
 rb_obj_write.exit:                                ; preds = %2, %10
@@ -905,7 +905,7 @@ rb_obj_write.exit:                                ; preds = %2, %10
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 0) i64 @cState_max_nesting(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load i64, ptr %3, align 8, !tbaa !18
   %5 = shl i64 %4, 1
@@ -915,7 +915,7 @@ define internal range(i64 1, 0) i64 @cState_max_nesting(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @cState_max_nesting_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %4 = and i64 %1, -5
   %.not.i = icmp eq i64 %4, 0
   %5 = ashr i64 %1, 1
@@ -927,7 +927,7 @@ define internal noundef i64 @cState_max_nesting_set(i64 noundef %0, i64 noundef 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @cState_script_safe(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 74
   %4 = load i8, ptr %3, align 2, !tbaa !33, !range !34, !noundef !35
   %5 = trunc nuw i8 %4 to i1
@@ -937,7 +937,7 @@ define internal range(i64 0, 21) i64 @cState_script_safe(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @cState_script_safe_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %4 = and i64 %1, -5
   %5 = icmp ne i64 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 74
@@ -948,7 +948,7 @@ define internal noundef i64 @cState_script_safe_set(i64 noundef %0, i64 noundef 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @cState_strict(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 75
   %4 = load i8, ptr %3, align 1, !tbaa !36, !range !34, !noundef !35
   %5 = trunc nuw i8 %4 to i1
@@ -958,7 +958,7 @@ define internal range(i64 0, 21) i64 @cState_strict(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @cState_strict_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %4 = and i64 %1, -5
   %5 = icmp ne i64 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 75
@@ -969,7 +969,7 @@ define internal noundef i64 @cState_strict_set(i64 noundef %0, i64 noundef %1) #
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @cState_check_circular_p(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load i64, ptr %3, align 8, !tbaa !18
   %.not = icmp eq i64 %4, 0
@@ -979,7 +979,7 @@ define internal range(i64 0, 21) i64 @cState_check_circular_p(i64 noundef %0) #0
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @cState_allow_nan_p(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load i8, ptr %3, align 8, !tbaa !37, !range !34, !noundef !35
   %5 = trunc nuw i8 %4 to i1
@@ -989,7 +989,7 @@ define internal range(i64 0, 21) i64 @cState_allow_nan_p(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @cState_allow_nan_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %4 = and i64 %1, -5
   %5 = icmp ne i64 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -1000,7 +1000,7 @@ define internal noundef i64 @cState_allow_nan_set(i64 noundef %0, i64 noundef %1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @cState_ascii_only_p(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 73
   %4 = load i8, ptr %3, align 1, !tbaa !38, !range !34, !noundef !35
   %5 = trunc nuw i8 %4 to i1
@@ -1010,7 +1010,7 @@ define internal range(i64 0, 21) i64 @cState_ascii_only_p(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @cState_ascii_only_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %4 = and i64 %1, -5
   %5 = icmp ne i64 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 73
@@ -1021,7 +1021,7 @@ define internal noundef i64 @cState_ascii_only_set(i64 noundef %0, i64 noundef %
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 0) i64 @cState_depth(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load i64, ptr %3, align 8, !tbaa !39
   %5 = shl i64 %4, 1
@@ -1031,7 +1031,7 @@ define internal range(i64 1, 0) i64 @cState_depth(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @cState_depth_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %4 = and i64 %1, -5
   %.not.i = icmp eq i64 %4, 0
   %5 = ashr i64 %1, 1
@@ -1043,7 +1043,7 @@ define internal noundef i64 @cState_depth_set(i64 noundef %0, i64 noundef %1) #0
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 0) i64 @cState_buffer_initial_length(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4 = load i64, ptr %3, align 8, !tbaa !21
   %5 = shl i64 %4, 1
@@ -1053,13 +1053,13 @@ define internal range(i64 1, 0) i64 @cState_buffer_initial_length(i64 noundef %0
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @cState_buffer_initial_length_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   %4 = and i64 %1, 1
   %.not15.i.i = icmp eq i64 %4, 0
   br i1 %.not15.i.i, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, label %Check_Type.exit.i, !prof !40
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %2
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 21) #25
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 21) #26
   unreachable
 
 Check_Type.exit.i:                                ; preds = %2
@@ -1083,7 +1083,7 @@ define internal i64 @cState_generate(i32 noundef %0, ptr noundef readonly captur
   br i1 %or.cond.i, label %5, label %rb_check_arity.exit
 
 5:                                                ; preds = %3
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #26
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #27
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
@@ -1099,7 +1099,7 @@ rb_check_arity.exit:                              ; preds = %3
 11:                                               ; preds = %rb_check_arity.exit, %8
   %12 = phi i64 [ %10, %8 ], [ 4, %rb_check_arity.exit ]
   %13 = tail call fastcc i64 @cState_partial_generate(i64 noundef %2, i64 noundef %6, ptr noundef nonnull @generate_json, i64 noundef %12)
-  %14 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %14 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @JSON_Generator_State_type) #23
   ret i64 %13
 }
 
@@ -1132,17 +1132,17 @@ define internal i64 @cState_m_generate(i64 %0, i64 noundef %1, i64 noundef %2, i
   br i1 %18, label %Check_Type.exit.i, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, !prof !24
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %14, %12
-  tail call void @rb_unexpected_type(i64 noundef %2, i32 noundef 8) #25
+  tail call void @rb_unexpected_type(i64 noundef %2, i32 noundef 8) #26
   unreachable
 
 Check_Type.exit.i:                                ; preds = %14
-  %19 = tail call i64 @rb_hash_size_num(i64 noundef %2) #22
+  %19 = tail call i64 @rb_hash_size_num(i64 noundef %2) #23
   %.not.i = icmp eq i64 %19, 0
   br i1 %.not.i, label %configure_state.exit, label %20
 
 20:                                               ; preds = %Check_Type.exit.i
   %21 = ptrtoint ptr %5 to i64
-  call void @rb_hash_foreach(i64 noundef %2, ptr noundef nonnull @configure_state_i, i64 noundef %21) #22
+  call void @rb_hash_foreach(i64 noundef %2, ptr noundef nonnull @configure_state_i, i64 noundef %21) #23
   %.pre = load i64, ptr %10, align 8, !tbaa !21
   %22 = freeze i64 %.pre
   br label %configure_state.exit
@@ -1177,17 +1177,17 @@ configure_state.exit:                             ; preds = %4, %Check_Type.exit
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr @generate_json, ptr %32, align 8, !tbaa !55
   %33 = ptrtoint ptr %8 to i64
-  %34 = call i64 @rb_rescue(ptr noundef nonnull @generate_json_try, i64 noundef %33, ptr noundef nonnull @generate_json_rescue, i64 noundef %33) #22
+  %34 = call i64 @rb_rescue(ptr noundef nonnull @generate_json_try, i64 noundef %33, ptr noundef nonnull @generate_json_rescue, i64 noundef %33) #23
   %35 = load i64, ptr %23, align 8, !tbaa !41
   %.not.i5 = icmp eq i64 %35, 0
   %36 = load ptr, ptr %27, align 8, !tbaa !46
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !56
-  %39 = call i64 @rb_utf8_str_new(ptr noundef %36, i64 noundef %38) #22
+  %39 = call i64 @rb_utf8_str_new(ptr noundef %36, i64 noundef %38) #23
   br i1 %.not.i5, label %49, label %40
 
 40:                                               ; preds = %configure_state.exit
-  %41 = call i64 @rb_io_write(i64 noundef %35, i64 noundef %39) #22
+  %41 = call i64 @rb_io_write(i64 noundef %35, i64 noundef %39) #23
   store i64 0, ptr %37, align 8, !tbaa !56
   %42 = load ptr, ptr %27, align 8, !tbaa !46
   %.not.i.i = icmp ne ptr %42, null
@@ -1197,12 +1197,12 @@ configure_state.exit:                             ; preds = %4, %Check_Type.exit
   br i1 %or.cond, label %45, label %fbuffer_free.exit.i
 
 45:                                               ; preds = %40
-  call void @ruby_xfree(ptr noundef nonnull %42) #22
+  call void @ruby_xfree(ptr noundef nonnull %42) #23
   br label %fbuffer_free.exit.i
 
 fbuffer_free.exit.i:                              ; preds = %45, %40
   %46 = load i64, ptr %23, align 8, !tbaa !41
-  %47 = call i64 @rb_io_flush(i64 noundef %46) #22
+  %47 = call i64 @rb_io_flush(i64 noundef %46) #23
   %48 = load i64, ptr %23, align 8, !tbaa !41
   br label %fbuffer_finalize.exit
 
@@ -1215,7 +1215,7 @@ fbuffer_free.exit.i:                              ; preds = %45, %40
   br i1 %or.cond8, label %53, label %fbuffer_finalize.exit
 
 53:                                               ; preds = %49
-  call void @ruby_xfree(ptr noundef nonnull %50) #22
+  call void @ruby_xfree(ptr noundef nonnull %50) #23
   br label %fbuffer_finalize.exit
 
 fbuffer_finalize.exit:                            ; preds = %fbuffer_free.exit.i, %49, %53
@@ -1230,7 +1230,7 @@ fbuffer_finalize.exit:                            ; preds = %fbuffer_free.exit.i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @mObject_to_json(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = load i64, ptr @i_to_s, align 8, !tbaa !6
-  %5 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %2, i64 noundef %4, i32 noundef 0) #22
+  %5 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %2, i64 noundef %4, i32 noundef 0) #23
   %6 = icmp slt i32 %0, 0
   br i1 %6, label %9, label %.preheader.split.split
 
@@ -1244,7 +1244,7 @@ define internal i64 @mObject_to_json(i32 noundef %0, ptr noundef readonly captur
   br i1 %8, label %rb_scan_args_set.exit, label %9
 
 9:                                                ; preds = %.split.us, %3
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #26
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #27
   unreachable
 
 rb_scan_args_set.exit:                            ; preds = %.preheader.split.split, %.split.us
@@ -1263,29 +1263,29 @@ rb_scan_args_set.exit:                            ; preds = %.preheader.split.sp
   br i1 %19, label %Check_Type.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, !prof !24
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %15, %rb_scan_args_set.exit
-  tail call void @rb_unexpected_type(i64 noundef %5, i32 noundef 5) #25
+  tail call void @rb_unexpected_type(i64 noundef %5, i32 noundef 5) #26
   unreachable
 
 Check_Type.exit:                                  ; preds = %15
   %20 = load i64, ptr @cState, align 8, !tbaa !6
-  %21 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %20) #22
+  %21 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %20) #23
   %.not.i4 = icmp eq i64 %21, 0
   br i1 %.not.i4, label %22, label %cState_from_state_s.exit
 
 22:                                               ; preds = %Check_Type.exit
   %23 = load i64, ptr @rb_cHash, align 8, !tbaa !6
-  %24 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %23) #22
+  %24 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %23) #23
   %.not7.i = icmp eq i64 %24, 0
   br i1 %.not7.i, label %28, label %25
 
 25:                                               ; preds = %22
   %26 = load i64, ptr @i_new, align 8, !tbaa !6
-  %27 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %20, i64 noundef %26, i32 noundef 1, i64 noundef %10) #22
+  %27 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %20, i64 noundef %26, i32 noundef 1, i64 noundef %10) #23
   br label %cState_from_state_s.exit
 
 28:                                               ; preds = %22
   %29 = load i64, ptr @cState, align 8, !tbaa !6
-  %30 = tail call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %29) #22
+  %30 = tail call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %29) #23
   br label %cState_from_state_s.exit
 
 cState_from_state_s.exit:                         ; preds = %Check_Type.exit, %25, %28
@@ -1300,7 +1300,7 @@ define internal i64 @mHash_to_json(i32 noundef %0, ptr noundef readonly captures
   br i1 %or.cond.i, label %4, label %rb_check_arity.exit
 
 4:                                                ; preds = %3
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #26
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #27
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
@@ -1314,24 +1314,24 @@ rb_check_arity.exit:                              ; preds = %3
 
 9:                                                ; preds = %rb_check_arity.exit, %7
   %10 = phi i64 [ %8, %7 ], [ 4, %rb_check_arity.exit ]
-  %11 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %5) #22
+  %11 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %5) #23
   %.not.i = icmp eq i64 %11, 0
   br i1 %.not.i, label %12, label %cState_from_state_s.exit
 
 12:                                               ; preds = %9
   %13 = load i64, ptr @rb_cHash, align 8, !tbaa !6
-  %14 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %13) #22
+  %14 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %13) #23
   %.not7.i = icmp eq i64 %14, 0
   br i1 %.not7.i, label %18, label %15
 
 15:                                               ; preds = %12
   %16 = load i64, ptr @i_new, align 8, !tbaa !6
-  %17 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %5, i64 noundef %16, i32 noundef 1, i64 noundef %10) #22
+  %17 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %5, i64 noundef %16, i32 noundef 1, i64 noundef %10) #23
   br label %cState_from_state_s.exit
 
 18:                                               ; preds = %12
   %19 = load i64, ptr @cState, align 8, !tbaa !6
-  %20 = tail call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %19) #22
+  %20 = tail call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %19) #23
   br label %cState_from_state_s.exit
 
 cState_from_state_s.exit:                         ; preds = %9, %15, %18
@@ -1346,7 +1346,7 @@ define internal i64 @mArray_to_json(i32 noundef %0, ptr noundef readonly capture
   br i1 %or.cond.i, label %4, label %rb_check_arity.exit
 
 4:                                                ; preds = %3
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #26
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #27
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
@@ -1360,24 +1360,24 @@ rb_check_arity.exit:                              ; preds = %3
 
 9:                                                ; preds = %rb_check_arity.exit, %7
   %10 = phi i64 [ %8, %7 ], [ 4, %rb_check_arity.exit ]
-  %11 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %5) #22
+  %11 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %5) #23
   %.not.i = icmp eq i64 %11, 0
   br i1 %.not.i, label %12, label %cState_from_state_s.exit
 
 12:                                               ; preds = %9
   %13 = load i64, ptr @rb_cHash, align 8, !tbaa !6
-  %14 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %13) #22
+  %14 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %13) #23
   %.not7.i = icmp eq i64 %14, 0
   br i1 %.not7.i, label %18, label %15
 
 15:                                               ; preds = %12
   %16 = load i64, ptr @i_new, align 8, !tbaa !6
-  %17 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %5, i64 noundef %16, i32 noundef 1, i64 noundef %10) #22
+  %17 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %5, i64 noundef %16, i32 noundef 1, i64 noundef %10) #23
   br label %cState_from_state_s.exit
 
 18:                                               ; preds = %12
   %19 = load i64, ptr @cState, align 8, !tbaa !6
-  %20 = tail call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %19) #22
+  %20 = tail call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %19) #23
   br label %cState_from_state_s.exit
 
 cState_from_state_s.exit:                         ; preds = %9, %15, %18
@@ -1392,7 +1392,7 @@ define internal i64 @mInteger_to_json(i32 noundef %0, ptr noundef readonly captu
   br i1 %or.cond.i, label %4, label %rb_check_arity.exit
 
 4:                                                ; preds = %3
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #26
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #27
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
@@ -1406,24 +1406,24 @@ rb_check_arity.exit:                              ; preds = %3
 
 9:                                                ; preds = %rb_check_arity.exit, %7
   %10 = phi i64 [ %8, %7 ], [ 4, %rb_check_arity.exit ]
-  %11 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %5) #22
+  %11 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %5) #23
   %.not.i = icmp eq i64 %11, 0
   br i1 %.not.i, label %12, label %cState_from_state_s.exit
 
 12:                                               ; preds = %9
   %13 = load i64, ptr @rb_cHash, align 8, !tbaa !6
-  %14 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %13) #22
+  %14 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %13) #23
   %.not7.i = icmp eq i64 %14, 0
   br i1 %.not7.i, label %18, label %15
 
 15:                                               ; preds = %12
   %16 = load i64, ptr @i_new, align 8, !tbaa !6
-  %17 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %5, i64 noundef %16, i32 noundef 1, i64 noundef %10) #22
+  %17 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %5, i64 noundef %16, i32 noundef 1, i64 noundef %10) #23
   br label %cState_from_state_s.exit
 
 18:                                               ; preds = %12
   %19 = load i64, ptr @cState, align 8, !tbaa !6
-  %20 = tail call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %19) #22
+  %20 = tail call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %19) #23
   br label %cState_from_state_s.exit
 
 cState_from_state_s.exit:                         ; preds = %9, %15, %18
@@ -1438,7 +1438,7 @@ define internal i64 @mFloat_to_json(i32 noundef %0, ptr noundef readonly capture
   br i1 %or.cond.i, label %4, label %rb_check_arity.exit
 
 4:                                                ; preds = %3
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #26
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #27
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
@@ -1452,24 +1452,24 @@ rb_check_arity.exit:                              ; preds = %3
 
 9:                                                ; preds = %rb_check_arity.exit, %7
   %10 = phi i64 [ %8, %7 ], [ 4, %rb_check_arity.exit ]
-  %11 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %5) #22
+  %11 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %5) #23
   %.not.i = icmp eq i64 %11, 0
   br i1 %.not.i, label %12, label %cState_from_state_s.exit
 
 12:                                               ; preds = %9
   %13 = load i64, ptr @rb_cHash, align 8, !tbaa !6
-  %14 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %13) #22
+  %14 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %13) #23
   %.not7.i = icmp eq i64 %14, 0
   br i1 %.not7.i, label %18, label %15
 
 15:                                               ; preds = %12
   %16 = load i64, ptr @i_new, align 8, !tbaa !6
-  %17 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %5, i64 noundef %16, i32 noundef 1, i64 noundef %10) #22
+  %17 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %5, i64 noundef %16, i32 noundef 1, i64 noundef %10) #23
   br label %cState_from_state_s.exit
 
 18:                                               ; preds = %12
   %19 = load i64, ptr @cState, align 8, !tbaa !6
-  %20 = tail call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %19) #22
+  %20 = tail call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %19) #23
   br label %cState_from_state_s.exit
 
 cState_from_state_s.exit:                         ; preds = %9, %15, %18
@@ -1484,8 +1484,8 @@ define internal i64 @mString_included_s(i64 %0, i64 noundef %1) #0 {
   store i64 %1, ptr %3, align 8, !tbaa !6
   %4 = load i64, ptr @i_extend, align 8, !tbaa !6
   %5 = load i64, ptr @mString_Extend, align 8, !tbaa !6
-  %6 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1, i64 noundef %4, i32 noundef 1, i64 noundef %5) #22
-  %7 = call i64 @rb_call_super(i32 noundef 1, ptr noundef nonnull %3) #22
+  %6 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1, i64 noundef %4, i32 noundef 1, i64 noundef %5) #23
+  %7 = call i64 @rb_call_super(i32 noundef 1, ptr noundef nonnull %3) #23
   ret i64 %6
 }
 
@@ -1495,7 +1495,7 @@ define internal i64 @mString_to_json(i32 noundef %0, ptr noundef readonly captur
   br i1 %or.cond.i, label %4, label %rb_check_arity.exit
 
 4:                                                ; preds = %3
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #26
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #27
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
@@ -1509,24 +1509,24 @@ rb_check_arity.exit:                              ; preds = %3
 
 9:                                                ; preds = %rb_check_arity.exit, %7
   %10 = phi i64 [ %8, %7 ], [ 4, %rb_check_arity.exit ]
-  %11 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %5) #22
+  %11 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %5) #23
   %.not.i = icmp eq i64 %11, 0
   br i1 %.not.i, label %12, label %cState_from_state_s.exit
 
 12:                                               ; preds = %9
   %13 = load i64, ptr @rb_cHash, align 8, !tbaa !6
-  %14 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %13) #22
+  %14 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %13) #23
   %.not7.i = icmp eq i64 %14, 0
   br i1 %.not7.i, label %18, label %15
 
 15:                                               ; preds = %12
   %16 = load i64, ptr @i_new, align 8, !tbaa !6
-  %17 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %5, i64 noundef %16, i32 noundef 1, i64 noundef %10) #22
+  %17 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %5, i64 noundef %16, i32 noundef 1, i64 noundef %10) #23
   br label %cState_from_state_s.exit
 
 18:                                               ; preds = %12
   %19 = load i64, ptr @cState, align 8, !tbaa !6
-  %20 = tail call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %19) #22
+  %20 = tail call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %19) #23
   br label %cState_from_state_s.exit
 
 cState_from_state_s.exit:                         ; preds = %9, %15, %18
@@ -1537,18 +1537,18 @@ cState_from_state_s.exit:                         ; preds = %9, %15, %18
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @mString_to_json_raw(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
-  %4 = tail call i64 @rb_hash_new() #22
+  %4 = tail call i64 @rb_hash_new() #23
   %5 = load i64, ptr @mJSON, align 8, !tbaa !6
   %6 = load i64, ptr @i_create_id, align 8, !tbaa !6
-  %7 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %5, i64 noundef %6, i32 noundef 0) #22
-  %8 = tail call i64 @rb_obj_class(i64 noundef %2) #22
-  %9 = tail call i64 @rb_class_name(i64 noundef %8) #22
-  %10 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %7, i64 noundef %9) #22
+  %7 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %5, i64 noundef %6, i32 noundef 0) #23
+  %8 = tail call i64 @rb_obj_class(i64 noundef %2) #23
+  %9 = tail call i64 @rb_class_name(i64 noundef %8) #23
+  %10 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %7, i64 noundef %9) #23
   %11 = load i64, ptr @i_unpack, align 8, !tbaa !6
-  %12 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.106, i64 noundef 2) #22
-  %13 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %2, i64 noundef %11, i32 noundef 1, i64 noundef %12) #22
-  %14 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @.str.107, i64 noundef 3) #22
-  %15 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %14, i64 noundef %13) #22
+  %12 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.106, i64 noundef 2) #23
+  %13 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %2, i64 noundef %11, i32 noundef 1, i64 noundef %12) #23
+  %14 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @.str.107, i64 noundef 3) #23
+  %15 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %14, i64 noundef %13) #23
   %16 = icmp eq i64 %4, 0
   %17 = and i64 %4, 7
   %18 = icmp ne i64 %17, 0
@@ -1563,7 +1563,7 @@ define internal i64 @mString_to_json_raw(i32 noundef %0, ptr noundef readonly ca
   br i1 %24, label %Check_Type.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, !prof !24
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %20, %3
-  tail call void @rb_unexpected_type(i64 noundef %4, i32 noundef 8) #25
+  tail call void @rb_unexpected_type(i64 noundef %4, i32 noundef 8) #26
   unreachable
 
 Check_Type.exit:                                  ; preds = %20
@@ -1573,18 +1573,18 @@ Check_Type.exit:                                  ; preds = %20
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @mString_to_json_raw_object(i64 noundef %0) #0 {
-  %2 = tail call i64 @rb_hash_new() #22
+  %2 = tail call i64 @rb_hash_new() #23
   %3 = load i64, ptr @mJSON, align 8, !tbaa !6
   %4 = load i64, ptr @i_create_id, align 8, !tbaa !6
-  %5 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef %4, i32 noundef 0) #22
-  %6 = tail call i64 @rb_obj_class(i64 noundef %0) #22
-  %7 = tail call i64 @rb_class_name(i64 noundef %6) #22
-  %8 = tail call i64 @rb_hash_aset(i64 noundef %2, i64 noundef %5, i64 noundef %7) #22
+  %5 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef %4, i32 noundef 0) #23
+  %6 = tail call i64 @rb_obj_class(i64 noundef %0) #23
+  %7 = tail call i64 @rb_class_name(i64 noundef %6) #23
+  %8 = tail call i64 @rb_hash_aset(i64 noundef %2, i64 noundef %5, i64 noundef %7) #23
   %9 = load i64, ptr @i_unpack, align 8, !tbaa !6
-  %10 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.106, i64 noundef 2) #22
-  %11 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %9, i32 noundef 1, i64 noundef %10) #22
-  %12 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @.str.107, i64 noundef 3) #22
-  %13 = tail call i64 @rb_hash_aset(i64 noundef %2, i64 noundef %12, i64 noundef %11) #22
+  %10 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.106, i64 noundef 2) #23
+  %11 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %9, i32 noundef 1, i64 noundef %10) #23
+  %12 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @.str.107, i64 noundef 3) #23
+  %13 = tail call i64 @rb_hash_aset(i64 noundef %2, i64 noundef %12, i64 noundef %11) #23
   ret i64 %2
 }
 
@@ -1604,15 +1604,15 @@ define internal i64 @mString_Extend_json_create(i64 %0, i64 noundef %1) #0 {
   br i1 %11, label %Check_Type.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, !prof !24
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %7, %2
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 8) #25
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 8) #26
   unreachable
 
 Check_Type.exit:                                  ; preds = %7
-  %12 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.107, i64 noundef 3) #22
-  %13 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %12) #22
+  %12 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.107, i64 noundef 3) #23
+  %13 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %12) #23
   %14 = load i64, ptr @i_pack, align 8, !tbaa !6
-  %15 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.106, i64 noundef 2) #22
-  %16 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %13, i64 noundef %14, i32 noundef 1, i64 noundef %15) #22
+  %15 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.106, i64 noundef 2) #23
+  %16 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %13, i64 noundef %14, i32 noundef 1, i64 noundef %15) #23
   ret i64 %16
 }
 
@@ -1622,11 +1622,11 @@ define internal i64 @mTrueClass_to_json(i32 noundef %0, ptr readnone captures(no
   br i1 %or.cond.i, label %4, label %rb_check_arity.exit
 
 4:                                                ; preds = %3
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #26
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #27
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
-  %5 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @.str.84, i64 noundef 4) #22
+  %5 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @.str.84, i64 noundef 4) #23
   ret i64 %5
 }
 
@@ -1636,11 +1636,11 @@ define internal i64 @mFalseClass_to_json(i32 noundef %0, ptr readnone captures(n
   br i1 %or.cond.i, label %4, label %rb_check_arity.exit
 
 4:                                                ; preds = %3
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #26
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #27
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
-  %5 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @.str.83, i64 noundef 5) #22
+  %5 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @.str.83, i64 noundef 5) #23
   ret i64 %5
 }
 
@@ -1650,11 +1650,11 @@ define internal i64 @mNilClass_to_json(i32 noundef %0, ptr readnone captures(non
   br i1 %or.cond.i, label %4, label %rb_check_arity.exit
 
 4:                                                ; preds = %3
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #26
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #27
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
-  %5 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @.str.82, i64 noundef 4) #22
+  %5 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @.str.82, i64 noundef 4) #23
   ret i64 %5
 }
 
@@ -1674,28 +1674,28 @@ declare i64 @rb_data_typed_object_zalloc(i64 noundef, i64 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @State_mark(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i64, ptr %0, align 8, !tbaa !25
-  tail call void @rb_gc_mark_movable(i64 noundef %2) #22
+  tail call void @rb_gc_mark_movable(i64 noundef %2) #23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !26
-  tail call void @rb_gc_mark_movable(i64 noundef %4) #22
+  tail call void @rb_gc_mark_movable(i64 noundef %4) #23
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !27
-  tail call void @rb_gc_mark_movable(i64 noundef %6) #22
+  tail call void @rb_gc_mark_movable(i64 noundef %6) #23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8, !tbaa !28
-  tail call void @rb_gc_mark_movable(i64 noundef %8) #22
+  tail call void @rb_gc_mark_movable(i64 noundef %8) #23
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8, !tbaa !29
-  tail call void @rb_gc_mark_movable(i64 noundef %10) #22
+  tail call void @rb_gc_mark_movable(i64 noundef %10) #23
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i64, ptr %11, align 8, !tbaa !30
-  tail call void @rb_gc_mark_movable(i64 noundef %12) #22
+  tail call void @rb_gc_mark_movable(i64 noundef %12) #23
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @State_free(ptr noundef %0) #0 {
-  tail call void @ruby_xfree(ptr noundef %0) #22
+  tail call void @ruby_xfree(ptr noundef %0) #23
   ret void
 }
 
@@ -1707,27 +1707,27 @@ define internal noundef i64 @State_memsize(ptr readnone captures(none) %0) #4 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @State_compact(ptr noundef captures(none) %0) #0 {
   %2 = load i64, ptr %0, align 8, !tbaa !25
-  %3 = tail call i64 @rb_gc_location(i64 noundef %2) #22
+  %3 = tail call i64 @rb_gc_location(i64 noundef %2) #23
   store i64 %3, ptr %0, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !26
-  %6 = tail call i64 @rb_gc_location(i64 noundef %5) #22
+  %6 = tail call i64 @rb_gc_location(i64 noundef %5) #23
   store i64 %6, ptr %4, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !27
-  %9 = tail call i64 @rb_gc_location(i64 noundef %8) #22
+  %9 = tail call i64 @rb_gc_location(i64 noundef %8) #23
   store i64 %9, ptr %7, align 8, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8, !tbaa !28
-  %12 = tail call i64 @rb_gc_location(i64 noundef %11) #22
+  %12 = tail call i64 @rb_gc_location(i64 noundef %11) #23
   store i64 %12, ptr %10, align 8, !tbaa !28
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8, !tbaa !29
-  %15 = tail call i64 @rb_gc_location(i64 noundef %14) #22
+  %15 = tail call i64 @rb_gc_location(i64 noundef %14) #23
   store i64 %15, ptr %13, align 8, !tbaa !29
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i64, ptr %16, align 8, !tbaa !30
-  %18 = tail call i64 @rb_gc_location(i64 noundef %17) #22
+  %18 = tail call i64 @rb_gc_location(i64 noundef %17) #23
   store i64 %18, ptr %16, align 8, !tbaa !30
   ret void
 }
@@ -1778,7 +1778,7 @@ define internal noundef i32 @configure_state_i(i64 noundef %0, i64 noundef %1, i
   br i1 %15, label %Check_Type.exit.i, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, !prof !24
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %11, %9
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #25
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #26
   unreachable
 
 Check_Type.exit.i:                                ; preds = %11
@@ -1788,7 +1788,7 @@ Check_Type.exit.i:                                ; preds = %11
   br i1 %.not.i, label %string_config.exit, label %18
 
 18:                                               ; preds = %Check_Type.exit.i
-  %19 = tail call i64 @rb_str_new_frozen(i64 noundef %1) #22
+  %19 = tail call i64 @rb_str_new_frozen(i64 noundef %1) #23
   br label %string_config.exit
 
 string_config.exit:                               ; preds = %7, %Check_Type.exit.i, %18
@@ -1819,7 +1819,7 @@ string_config.exit:                               ; preds = %7, %Check_Type.exit
   br i1 %31, label %Check_Type.exit.i46, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i45, !prof !24
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i45:      ; preds = %27, %25
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #25
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #26
   unreachable
 
 Check_Type.exit.i46:                              ; preds = %27
@@ -1829,7 +1829,7 @@ Check_Type.exit.i46:                              ; preds = %27
   br i1 %.not.i47, label %string_config.exit49, label %34
 
 34:                                               ; preds = %Check_Type.exit.i46
-  %35 = tail call i64 @rb_str_new_frozen(i64 noundef %1) #22
+  %35 = tail call i64 @rb_str_new_frozen(i64 noundef %1) #23
   br label %string_config.exit49
 
 string_config.exit49:                             ; preds = %23, %Check_Type.exit.i46, %34
@@ -1861,7 +1861,7 @@ string_config.exit49:                             ; preds = %23, %Check_Type.exi
   br i1 %48, label %Check_Type.exit.i53, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i52, !prof !24
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i52:      ; preds = %44, %42
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #25
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #26
   unreachable
 
 Check_Type.exit.i53:                              ; preds = %44
@@ -1871,7 +1871,7 @@ Check_Type.exit.i53:                              ; preds = %44
   br i1 %.not.i54, label %string_config.exit56, label %51
 
 51:                                               ; preds = %Check_Type.exit.i53
-  %52 = tail call i64 @rb_str_new_frozen(i64 noundef %1) #22
+  %52 = tail call i64 @rb_str_new_frozen(i64 noundef %1) #23
   br label %string_config.exit56
 
 string_config.exit56:                             ; preds = %40, %Check_Type.exit.i53, %51
@@ -1903,7 +1903,7 @@ string_config.exit56:                             ; preds = %40, %Check_Type.exi
   br i1 %65, label %Check_Type.exit.i60, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i59, !prof !24
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i59:      ; preds = %61, %59
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #25
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #26
   unreachable
 
 Check_Type.exit.i60:                              ; preds = %61
@@ -1913,7 +1913,7 @@ Check_Type.exit.i60:                              ; preds = %61
   br i1 %.not.i61, label %string_config.exit63, label %68
 
 68:                                               ; preds = %Check_Type.exit.i60
-  %69 = tail call i64 @rb_str_new_frozen(i64 noundef %1) #22
+  %69 = tail call i64 @rb_str_new_frozen(i64 noundef %1) #23
   br label %string_config.exit63
 
 string_config.exit63:                             ; preds = %57, %Check_Type.exit.i60, %68
@@ -1945,7 +1945,7 @@ string_config.exit63:                             ; preds = %57, %Check_Type.exi
   br i1 %82, label %Check_Type.exit.i67, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i66, !prof !24
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i66:      ; preds = %78, %76
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #25
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #26
   unreachable
 
 Check_Type.exit.i67:                              ; preds = %78
@@ -1955,7 +1955,7 @@ Check_Type.exit.i67:                              ; preds = %78
   br i1 %.not.i68, label %string_config.exit70, label %85
 
 85:                                               ; preds = %Check_Type.exit.i67
-  %86 = tail call i64 @rb_str_new_frozen(i64 noundef %1) #22
+  %86 = tail call i64 @rb_str_new_frozen(i64 noundef %1) #23
   br label %string_config.exit70
 
 string_config.exit70:                             ; preds = %74, %Check_Type.exit.i67, %85
@@ -2029,7 +2029,7 @@ string_config.exit70:                             ; preds = %74, %Check_Type.exi
   br i1 %.not15.i.i, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i75, label %Check_Type.exit.i74, !prof !40
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i75:      ; preds = %121
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 21) #25
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 21) #26
   unreachable
 
 Check_Type.exit.i74:                              ; preds = %121
@@ -2092,7 +2092,7 @@ Check_Type.exit.i74:                              ; preds = %121
   br i1 %.not, label %158, label %156
 
 156:                                              ; preds = %154
-  %157 = tail call i64 @rb_convert_type(i64 noundef %1, i32 noundef 12, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77) #22
+  %157 = tail call i64 @rb_convert_type(i64 noundef %1, i32 noundef 12, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77) #23
   br label %158
 
 158:                                              ; preds = %154, %156
@@ -2129,7 +2129,7 @@ define internal fastcc i64 @cState_partial_generate(i64 noundef %0, i64 noundef 
   %5 = alloca [512 x i8], align 16
   %6 = alloca %struct.FBufferStruct, align 8
   %7 = alloca %struct.generate_json_data, align 8
-  %8 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %8 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #23
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 24, i1 false)
@@ -2160,17 +2160,17 @@ define internal fastcc i64 @cState_partial_generate(i64 noundef %0, i64 noundef 
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %2, ptr %21, align 8, !tbaa !55
   %22 = ptrtoint ptr %7 to i64
-  %23 = call i64 @rb_rescue(ptr noundef nonnull @generate_json_try, i64 noundef %22, ptr noundef nonnull @generate_json_rescue, i64 noundef %22) #22
+  %23 = call i64 @rb_rescue(ptr noundef nonnull @generate_json_try, i64 noundef %22, ptr noundef nonnull @generate_json_rescue, i64 noundef %22) #23
   %24 = load i64, ptr %9, align 8, !tbaa !41
   %.not.i7 = icmp eq i64 %24, 0
   %25 = load ptr, ptr %16, align 8, !tbaa !46
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %27 = load i64, ptr %26, align 8, !tbaa !56
-  %28 = call i64 @rb_utf8_str_new(ptr noundef %25, i64 noundef %27) #22
+  %28 = call i64 @rb_utf8_str_new(ptr noundef %25, i64 noundef %27) #23
   br i1 %.not.i7, label %38, label %29
 
 29:                                               ; preds = %4
-  %30 = call i64 @rb_io_write(i64 noundef %24, i64 noundef %28) #22
+  %30 = call i64 @rb_io_write(i64 noundef %24, i64 noundef %28) #23
   store i64 0, ptr %26, align 8, !tbaa !56
   %31 = load ptr, ptr %16, align 8, !tbaa !46
   %.not.i.i = icmp ne ptr %31, null
@@ -2180,12 +2180,12 @@ define internal fastcc i64 @cState_partial_generate(i64 noundef %0, i64 noundef 
   br i1 %or.cond, label %34, label %fbuffer_free.exit.i
 
 34:                                               ; preds = %29
-  call void @ruby_xfree(ptr noundef nonnull %31) #22
+  call void @ruby_xfree(ptr noundef nonnull %31) #23
   br label %fbuffer_free.exit.i
 
 fbuffer_free.exit.i:                              ; preds = %34, %29
   %35 = load i64, ptr %9, align 8, !tbaa !41
-  %36 = call i64 @rb_io_flush(i64 noundef %35) #22
+  %36 = call i64 @rb_io_flush(i64 noundef %35) #23
   %37 = load i64, ptr %9, align 8, !tbaa !41
   br label %fbuffer_finalize.exit
 
@@ -2198,7 +2198,7 @@ fbuffer_free.exit.i:                              ; preds = %34, %29
   br i1 %or.cond10, label %42, label %fbuffer_finalize.exit
 
 42:                                               ; preds = %38
-  call void @ruby_xfree(ptr noundef nonnull %39) #22
+  call void @ruby_xfree(ptr noundef nonnull %39) #23
   br label %fbuffer_finalize.exit
 
 fbuffer_finalize.exit:                            ; preds = %fbuffer_free.exit.i, %38, %42
@@ -2271,7 +2271,7 @@ generate_json_false.exit:                         ; preds = %24, %31
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !46
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %35, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.83, i64 noundef range(i64 1, 0) 5, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %35, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.83, i64 noundef range(i64 1, 0) 5, i1 noundef false) #23
   %36 = load i64, ptr %27, align 8, !tbaa !56
   %37 = add i64 %36, 5
   store i64 %37, ptr %27, align 8, !tbaa !56
@@ -2370,7 +2370,7 @@ ruby_nonempty_memcpy.exit.i.i.i:                  ; preds = %78, %71
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %81 = load ptr, ptr %80, align 8, !tbaa !46
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 %79
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %82, ptr noundef nonnull readonly align 1 %70, i64 noundef range(i64 1, 0) %gepdiff.i.i, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %82, ptr noundef nonnull readonly align 1 %70, i64 noundef range(i64 1, 0) %gepdiff.i.i, i1 noundef false) #23
   %83 = load i64, ptr %74, align 8, !tbaa !56
   %84 = add i64 %83, %gepdiff.i.i
   store i64 %84, ptr %74, align 8, !tbaa !56
@@ -2400,7 +2400,7 @@ generate_json_fixnum.exit:                        ; preds = %fltoa.exit.i.i, %ru
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %91
-  %95 = call i64 @rb_sym2str(i64 noundef range(i64 5, 4) %storemerge) #22
+  %95 = call i64 @rb_sym2str(i64 noundef range(i64 5, 4) %storemerge) #23
   call void @generate_json_string(ptr noundef %0, ptr poison, ptr noundef nonnull readonly %2, i64 noundef %95)
   br label %generate_json_symbol.exit
 
@@ -2491,12 +2491,12 @@ generate_json_fixnum.exit:                        ; preds = %fltoa.exit.i.i, %ru
   br i1 %or.cond.not, label %128, label %130
 
 128:                                              ; preds = %124
-  %129 = call i64 @rb_proc_call_with_block(i64 noundef %125, i32 noundef 1, ptr noundef nonnull %6, i64 noundef 4) #22
+  %129 = call i64 @rb_proc_call_with_block(i64 noundef %125, i32 noundef 1, ptr noundef nonnull %6, i64 noundef 4) #23
   br label %9
 
 130:                                              ; preds = %124
-  %131 = call fastcc i64 @rb_class_of(i64 noundef %storemerge) #27
-  call void (i64, ptr, ...) @raise_generator_error(i64 noundef %storemerge, ptr noundef nonnull @.str.81, i64 noundef %131) #28
+  %131 = call fastcc i64 @rb_class_of(i64 noundef %storemerge) #28
+  call void (i64, ptr, ...) @raise_generator_error(i64 noundef %storemerge, ptr noundef nonnull @.str.81, i64 noundef %131) #29
   unreachable
 
 132:                                              ; preds = %121
@@ -2522,7 +2522,7 @@ define internal noundef i64 @generate_json_try(i64 noundef %0) #0 {
   %7 = load ptr, ptr %6, align 8, !tbaa !53
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i64, ptr %8, align 8, !tbaa !54
-  tail call void %4(ptr noundef %5, ptr noundef nonnull %2, ptr noundef %7, i64 noundef %9) #22
+  tail call void %4(ptr noundef %5, ptr noundef nonnull %2, ptr noundef %7, i64 noundef %9) #23
   ret i64 4
 }
 
@@ -2531,7 +2531,7 @@ define internal noundef i64 @generate_json_rescue(i64 noundef %0, i64 noundef %1
   %3 = inttoptr i64 %0 to ptr
   %4 = load ptr, ptr %3, align 8, !tbaa !48
   tail call fastcc void @fbuffer_free(ptr noundef %4)
-  tail call void @rb_exc_raise(i64 noundef %1) #26
+  tail call void @rb_exc_raise(i64 noundef %1) #27
   unreachable
 }
 
@@ -2548,7 +2548,7 @@ define internal fastcc void @fbuffer_free(ptr noundef readonly captures(none) %0
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %4
-  tail call void @ruby_xfree(ptr noundef nonnull %3) #22
+  tail call void @ruby_xfree(ptr noundef nonnull %3) #23
   br label %8
 
 8:                                                ; preds = %7, %4, %1
@@ -2566,8 +2566,8 @@ define internal fastcc void @fbuffer_flush(ptr noundef captures(none) %0) unname
   %5 = load ptr, ptr %4, align 8, !tbaa !46
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !56
-  %8 = tail call i64 @rb_utf8_str_new(ptr noundef %5, i64 noundef %7) #22
-  %9 = tail call i64 @rb_io_write(i64 noundef %3, i64 noundef %8) #22
+  %8 = tail call i64 @rb_utf8_str_new(ptr noundef %5, i64 noundef %7) #23
+  %9 = tail call i64 @rb_io_write(i64 noundef %3, i64 noundef %8) #23
   store i64 0, ptr %6, align 8, !tbaa !56
   ret void
 }
@@ -2590,7 +2590,7 @@ define internal void @generate_json_float(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %10, label %38, label %11
 
 11:                                               ; preds = %4
-  %12 = tail call double @rb_float_value(i64 noundef %3) #27
+  %12 = tail call double @rb_float_value(i64 noundef %3) #28
   %13 = tail call double @llvm.fabs.f64(double %12)
   %or.cond = fcmp ueq double %13, 0x7FF0000000000000
   br i1 %or.cond, label %14, label %38
@@ -2608,7 +2608,7 @@ define internal void @generate_json_float(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not, label %.critedge, label %21
 
 21:                                               ; preds = %18
-  %22 = call i64 @rb_proc_call_with_block(i64 noundef %20, i32 noundef 1, ptr noundef nonnull %7, i64 noundef 4) #22
+  %22 = call i64 @rb_proc_call_with_block(i64 noundef %20, i32 noundef 1, ptr noundef nonnull %7, i64 noundef 4) #23
   %23 = load i64, ptr %7, align 8, !tbaa !6
   %.not17 = icmp eq i64 %22, %23
   br i1 %.not17, label %.critedge, label %24
@@ -2628,7 +2628,7 @@ define internal void @generate_json_float(ptr noundef %0, ptr noundef %1, ptr no
 31:                                               ; preds = %24
   %32 = load i64, ptr @eNestingError, align 8, !tbaa !6
   store i64 %26, ptr %25, align 8, !tbaa !39
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %32, ptr noundef nonnull @.str.85, i64 noundef %26) #26
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %32, ptr noundef nonnull @.str.85, i64 noundef %26) #27
   unreachable
 
 increase_depth.exit:                              ; preds = %24
@@ -2641,23 +2641,23 @@ increase_depth.exit:                              ; preds = %24
 .critedge:                                        ; preds = %21, %18, %14
   %35 = phi i64 [ %22, %21 ], [ %3, %18 ], [ %3, %14 ]
   %36 = load i64, ptr @i_to_s, align 8, !tbaa !6
-  %37 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %35, i64 noundef %36, i32 noundef 0) #22
-  call void (i64, ptr, ...) @raise_generator_error(i64 noundef %35, ptr noundef nonnull @.str.81, i64 noundef %37) #28
+  %37 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %35, i64 noundef %36, i32 noundef 0) #23
+  call void (i64, ptr, ...) @raise_generator_error(i64 noundef %35, ptr noundef nonnull @.str.81, i64 noundef %37) #29
   unreachable
 
 38:                                               ; preds = %11, %4
   %39 = load i64, ptr @i_to_s, align 8, !tbaa !6
-  %40 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef %39, i32 noundef 0) #22
+  %40 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef %39, i32 noundef 0) #23
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %40, ptr %5, align 8, !tbaa !6
-  %41 = call ptr @rb_string_value_ptr(ptr noundef nonnull %5) #22
+  %41 = call ptr @rb_string_value_ptr(ptr noundef nonnull %5) #23
   %42 = load i64, ptr %5, align 8, !tbaa !6
   %43 = inttoptr i64 %42 to ptr
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i64, ptr %44, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %5, ptr %6, align 8, !tbaa !61
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #22, !srcloc !63
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #23, !srcloc !63
   %46 = load ptr, ptr %6, align 8, !tbaa !61
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %47 = load volatile i64, ptr %46, align 8, !tbaa !6
@@ -2683,7 +2683,7 @@ ruby_nonempty_memcpy.exit.i.i:                    ; preds = %55, %48
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %58 = load ptr, ptr %57, align 8, !tbaa !46
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 %56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %59, ptr noundef nonnull readonly align 1 %41, i64 noundef range(i64 1, 0) %45, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %59, ptr noundef nonnull readonly align 1 %41, i64 noundef range(i64 1, 0) %45, i1 noundef false) #23
   %60 = load i64, ptr %51, align 8, !tbaa !56
   %61 = add i64 %60, %45
   store i64 %61, ptr %51, align 8, !tbaa !56
@@ -2705,7 +2705,7 @@ define internal fastcc void @generate_json_symbol(ptr noundef %0, ptr noundef ca
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %4
-  %9 = tail call i64 @rb_sym2str(i64 noundef %3) #22
+  %9 = tail call i64 @rb_sym2str(i64 noundef %3) #23
   tail call void @generate_json_string(ptr noundef %0, ptr poison, ptr noundef nonnull %2, i64 noundef %9)
   br label %11
 
@@ -2722,17 +2722,17 @@ define internal fastcc void @generate_json_bignum(ptr noundef captures(none) %0,
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = load i64, ptr @i_to_s, align 8, !tbaa !6
-  %6 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1, i64 noundef %5, i32 noundef 0) #22
+  %6 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1, i64 noundef %5, i32 noundef 0) #23
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %6, ptr %3, align 8, !tbaa !6
-  %7 = call ptr @rb_string_value_ptr(ptr noundef nonnull %3) #22
+  %7 = call ptr @rb_string_value_ptr(ptr noundef nonnull %3) #23
   %8 = load i64, ptr %3, align 8, !tbaa !6
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %3, ptr %4, align 8, !tbaa !61
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %4) #22, !srcloc !63
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %4) #23, !srcloc !63
   %12 = load ptr, ptr %4, align 8, !tbaa !61
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %13 = load volatile i64, ptr %12, align 8, !tbaa !6
@@ -2758,7 +2758,7 @@ ruby_nonempty_memcpy.exit.i.i:                    ; preds = %21, %14
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8, !tbaa !46
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %25, ptr noundef nonnull readonly align 1 %7, i64 noundef range(i64 1, 0) %11, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %25, ptr noundef nonnull readonly align 1 %7, i64 noundef range(i64 1, 0) %11, i1 noundef false) #23
   %26 = load i64, ptr %17, align 8, !tbaa !56
   %27 = add i64 %26, %11
   store i64 %27, ptr %17, align 8, !tbaa !56
@@ -2786,11 +2786,11 @@ define internal void @generate_json_object(ptr noundef captures(none) %0, ptr no
 12:                                               ; preds = %4
   %13 = load i64, ptr @eNestingError, align 8, !tbaa !6
   store i64 %7, ptr %6, align 8, !tbaa !39
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %13, ptr noundef nonnull @.str.85, i64 noundef %7) #26
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %13, ptr noundef nonnull @.str.85, i64 noundef %7) #27
   unreachable
 
 increase_depth.exit:                              ; preds = %4
-  %14 = tail call i64 @rb_hash_size_num(i64 noundef %3) #22
+  %14 = tail call i64 @rb_hash_size_num(i64 noundef %3) #23
   %15 = icmp eq i64 %14, 0
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load i64, ptr %16, align 8, !tbaa !47
@@ -2847,7 +2847,7 @@ fbuffer_append_char.exit:                         ; preds = %32, %34
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %42, align 4
   %43 = ptrtoint ptr %5 to i64
-  call void @rb_hash_foreach(i64 noundef %3, ptr noundef nonnull @json_object_i, i64 noundef %43) #22
+  call void @rb_hash_foreach(i64 noundef %3, ptr noundef nonnull @json_object_i, i64 noundef %43) #23
   %44 = load i64, ptr %6, align 8, !tbaa !39
   %45 = add i64 %44, -1
   store i64 %45, ptr %6, align 8, !tbaa !39
@@ -2918,7 +2918,7 @@ define internal void @generate_json_array(ptr noundef %0, ptr noundef %1, ptr no
 13:                                               ; preds = %4
   %14 = load i64, ptr @eNestingError, align 8, !tbaa !6
   store i64 %8, ptr %7, align 8, !tbaa !39
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %14, ptr noundef nonnull @.str.85, i64 noundef %8) #26
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %14, ptr noundef nonnull @.str.85, i64 noundef %8) #27
   unreachable
 
 increase_depth.exit:                              ; preds = %4
@@ -3069,14 +3069,14 @@ fbuffer_append_char.exit54:                       ; preds = %66, %70
   %80 = load i64, ptr %2, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %80, ptr %5, align 8, !tbaa !6
-  %81 = call ptr @rb_string_value_ptr(ptr noundef nonnull %5) #22
+  %81 = call ptr @rb_string_value_ptr(ptr noundef nonnull %5) #23
   %82 = load i64, ptr %5, align 8, !tbaa !6
   %83 = inttoptr i64 %82 to ptr
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %85 = load i64, ptr %84, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %5, ptr %6, align 8, !tbaa !61
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #22, !srcloc !63
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #23, !srcloc !63
   %86 = load ptr, ptr %6, align 8, !tbaa !61
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %87 = load volatile i64, ptr %86, align 8, !tbaa !6
@@ -3099,7 +3099,7 @@ ruby_nonempty_memcpy.exit.i.i:                    ; preds = %93, %88
   %94 = phi i64 [ %90, %88 ], [ %.pre.i.i, %93 ]
   %95 = load ptr, ptr %45, align 8, !tbaa !46
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 %94
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %96, ptr noundef nonnull readonly align 1 %81, i64 noundef range(i64 1, 0) %85, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %96, ptr noundef nonnull readonly align 1 %81, i64 noundef range(i64 1, 0) %85, i1 noundef false) #23
   %97 = load i64, ptr %27, align 8, !tbaa !56
   %98 = add i64 %97, %85
   store i64 %98, ptr %27, align 8, !tbaa !56
@@ -3190,7 +3190,7 @@ define internal void @generate_json_string(ptr noundef %0, ptr readnone captures
   br i1 %11, label %12, label %RB_ENCODING_GET.exit.i
 
 12:                                               ; preds = %4
-  %13 = tail call i32 @rb_enc_get_index(i64 noundef %3) #22
+  %13 = tail call i32 @rb_enc_get_index(i64 noundef %3) #23
   br label %RB_ENCODING_GET.exit.i
 
 RB_ENCODING_GET.exit.i:                           ; preds = %12, %4
@@ -3208,21 +3208,21 @@ RB_ENCODING_GET.exit.i:                           ; preds = %12, %4
   br i1 %20, label %21, label %27
 
 21:                                               ; preds = %18
-  %22 = tail call i64 @rb_str_dup(i64 noundef %3) #22
+  %22 = tail call i64 @rb_str_dup(i64 noundef %3) #23
   %23 = load i32, ptr @utf8_encindex, align 4, !tbaa !10
-  %24 = tail call i64 @rb_enc_associate_index(i64 noundef %22, i32 noundef %23) #22
-  %25 = tail call i32 @rb_enc_str_coderange(i64 noundef %24) #22
+  %24 = tail call i64 @rb_enc_associate_index(i64 noundef %22, i32 noundef %23) #23
+  %25 = tail call i32 @rb_enc_str_coderange(i64 noundef %24) #23
   switch i32 %25, label %27 [
     i32 1048576, label %ensure_valid_encoding.exit
     i32 2097152, label %26
   ]
 
 26:                                               ; preds = %21
-  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.89) #24
+  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.89) #25
   br label %ensure_valid_encoding.exit
 
 27:                                               ; preds = %21, %18
-  %28 = tail call i64 @rb_rescue(ptr noundef nonnull @encode_json_string_try, i64 noundef %3, ptr noundef nonnull @encode_json_string_rescue, i64 noundef %3) #22
+  %28 = tail call i64 @rb_rescue(ptr noundef nonnull @encode_json_string_try, i64 noundef %3, ptr noundef nonnull @encode_json_string_rescue, i64 noundef %3) #23
   br label %ensure_valid_encoding.exit
 
 ensure_valid_encoding.exit:                       ; preds = %RB_ENCODING_GET.exit.i, %21, %26, %27
@@ -3272,7 +3272,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %fbuffer_append_char
   %48 = getelementptr inbounds i8, ptr %.promoted15, i64 %.sroa.3.0
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %48, ptr %49, align 8, !tbaa !76
-  %50 = tail call i32 @rb_enc_str_coderange(i64 noundef %.0.i) #22
+  %50 = tail call i32 @rb_enc_str_coderange(i64 noundef %.0.i) #23
   switch i32 %50, label %212 [
     i32 1048576, label %51
     i32 2097152, label %51
@@ -3339,7 +3339,7 @@ ruby_nonempty_memcpy.exit.i.i.i:                  ; preds = %79, %74
   %80 = phi i64 [ %76, %74 ], [ %.pre.i.i5.i, %79 ]
   %81 = load ptr, ptr %36, align 8, !tbaa !46
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 %80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %82, ptr noundef nonnull readonly align 1 %64, i64 noundef range(i64 1, 0) %73, i1 noundef false) #22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %82, ptr noundef nonnull readonly align 1 %64, i64 noundef range(i64 1, 0) %73, i1 noundef false) #23
   %83 = load i64, ptr %31, align 8, !tbaa !56
   %84 = add i64 %83, %73
   store i64 %84, ptr %31, align 8, !tbaa !56
@@ -3374,7 +3374,7 @@ ruby_nonempty_memcpy.exit.i.i.i.i:                ; preds = %94, %89
   %95 = phi i64 [ %91, %89 ], [ %.pre.i.i.i.i, %94 ]
   %96 = load ptr, ptr %36, align 8, !tbaa !46
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 %95
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %97, ptr noundef nonnull readonly align 1 %64, i64 noundef range(i64 1, 0) %88, i1 noundef false) #22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %97, ptr noundef nonnull readonly align 1 %64, i64 noundef range(i64 1, 0) %88, i1 noundef false) #23
   %98 = load i64, ptr %31, align 8, !tbaa !56
   %99 = add i64 %98, %88
   store i64 %99, ptr %31, align 8, !tbaa !56
@@ -3613,7 +3613,7 @@ escape_UTF8_char_basic.exit.i:                    ; preds = %fbuffer_append.exit
   br i1 %211, label %.lr.ph.preheader.i.i, label %convert_UTF8_to_JSON.exit
 
 212:                                              ; preds = %rbimpl_rstring_getmem.exit
-  tail call void (i64, ptr, ...) @raise_generator_error(i64 noundef %.0.i, ptr noundef nonnull @.str.88) #28
+  tail call void (i64, ptr, ...) @raise_generator_error(i64 noundef %.0.i, ptr noundef nonnull @.str.88) #29
   unreachable
 
 convert_UTF8_to_JSON.exit:                        ; preds = %escape_UTF8_char_basic.exit.i, %ruby_nonempty_memcpy.exit.i.i.i.i, %._crit_edge.i.i, %62, %58, %61
@@ -3643,7 +3643,7 @@ fbuffer_append_char.exit11:                       ; preds = %convert_UTF8_to_JSO
 define internal fastcc void @generate_json_fragment(ptr noundef captures(none) %0, i64 noundef range(i64 5, 4) %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = tail call i64 @rb_struct_aref(i64 noundef range(i64 5, 4) %1, i64 noundef 1) #22
+  %5 = tail call i64 @rb_struct_aref(i64 noundef range(i64 5, 4) %1, i64 noundef 1) #23
   %6 = icmp eq i64 %5, 0
   %7 = and i64 %5, 7
   %8 = icmp ne i64 %7, 0
@@ -3658,20 +3658,20 @@ define internal fastcc void @generate_json_fragment(ptr noundef captures(none) %
   br i1 %14, label %Check_Type.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, !prof !24
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %10, %2
-  tail call void @rb_unexpected_type(i64 noundef %5, i32 noundef 5) #25
+  tail call void @rb_unexpected_type(i64 noundef %5, i32 noundef 5) #26
   unreachable
 
 Check_Type.exit:                                  ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %5, ptr %3, align 8, !tbaa !6
-  %15 = call ptr @rb_string_value_ptr(ptr noundef nonnull %3) #22
+  %15 = call ptr @rb_string_value_ptr(ptr noundef nonnull %3) #23
   %16 = load i64, ptr %3, align 8, !tbaa !6
   %17 = inttoptr i64 %16 to ptr
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %3, ptr %4, align 8, !tbaa !61
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %4) #22, !srcloc !63
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %4) #23, !srcloc !63
   %20 = load ptr, ptr %4, align 8, !tbaa !61
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = load volatile i64, ptr %20, align 8, !tbaa !6
@@ -3697,7 +3697,7 @@ ruby_nonempty_memcpy.exit.i.i:                    ; preds = %29, %22
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load ptr, ptr %31, align 8, !tbaa !46
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %33, ptr noundef nonnull readonly align 1 %15, i64 noundef range(i64 1, 0) %19, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %33, ptr noundef nonnull readonly align 1 %15, i64 noundef range(i64 1, 0) %19, i1 noundef false) #23
   %34 = load i64, ptr %25, align 8, !tbaa !56
   %35 = add i64 %34, %19
   store i64 %35, ptr %25, align 8, !tbaa !56
@@ -3715,9 +3715,9 @@ define internal void @raise_generator_error(i64 noundef %0, ptr noundef %1, ...)
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = call i64 @rb_vsprintf(ptr noundef %1, ptr noundef nonnull %3) #22
+  %4 = call i64 @rb_vsprintf(ptr noundef %1, ptr noundef nonnull %3) #23
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call fastcc void @raise_generator_error_str(i64 noundef %0, i64 noundef %4) #28
+  call fastcc void @raise_generator_error_str(i64 noundef %0, i64 noundef %4) #29
   unreachable
 }
 
@@ -3769,7 +3769,7 @@ define internal fastcc void @generate_json_fallback(ptr noundef %0, ptr noundef 
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = load i64, ptr @i_to_json, align 8, !tbaa !6
-  %8 = tail call i32 @rb_respond_to(i64 noundef %3, i64 noundef %7) #22
+  %8 = tail call i32 @rb_respond_to(i64 noundef %3, i64 noundef %7) #23
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %46, label %9
 
@@ -3787,7 +3787,7 @@ define internal fastcc void @generate_json_fallback(ptr noundef %0, ptr noundef 
 
 vstate_get.exit:                                  ; preds = %9, %13
   %14 = phi i64 [ %.pre.i, %13 ], [ %12, %9 ]
-  %15 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef %10, i32 noundef 1, i64 noundef %14) #22
+  %15 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef %10, i32 noundef 1, i64 noundef %14) #23
   %16 = icmp eq i64 %15, 0
   %17 = and i64 %15, 7
   %18 = icmp ne i64 %17, 0
@@ -3802,20 +3802,20 @@ vstate_get.exit:                                  ; preds = %9, %13
   br i1 %24, label %Check_Type.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, !prof !24
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %20, %vstate_get.exit
-  tail call void @rb_unexpected_type(i64 noundef %15, i32 noundef 5) #25
+  tail call void @rb_unexpected_type(i64 noundef %15, i32 noundef 5) #26
   unreachable
 
 Check_Type.exit:                                  ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %15, ptr %5, align 8, !tbaa !6
-  %25 = call ptr @rb_string_value_ptr(ptr noundef nonnull %5) #22
+  %25 = call ptr @rb_string_value_ptr(ptr noundef nonnull %5) #23
   %26 = load i64, ptr %5, align 8, !tbaa !6
   %27 = inttoptr i64 %26 to ptr
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i64, ptr %28, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %5, ptr %6, align 8, !tbaa !61
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #22, !srcloc !63
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #23, !srcloc !63
   %30 = load ptr, ptr %6, align 8, !tbaa !61
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %31 = load volatile i64, ptr %30, align 8, !tbaa !6
@@ -3841,7 +3841,7 @@ ruby_nonempty_memcpy.exit.i.i:                    ; preds = %39, %32
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = load ptr, ptr %41, align 8, !tbaa !46
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %43, ptr noundef nonnull readonly align 1 %25, i64 noundef range(i64 1, 0) %29, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %43, ptr noundef nonnull readonly align 1 %25, i64 noundef range(i64 1, 0) %29, i1 noundef false) #23
   %44 = load i64, ptr %35, align 8, !tbaa !56
   %45 = add i64 %44, %29
   store i64 %45, ptr %35, align 8, !tbaa !56
@@ -3853,7 +3853,7 @@ fbuffer_append_str.exit:                          ; preds = %Check_Type.exit, %r
 
 46:                                               ; preds = %4
   %47 = load i64, ptr @i_to_s, align 8, !tbaa !6
-  %48 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef %47, i32 noundef 0) #22
+  %48 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef %47, i32 noundef 0) #23
   %49 = icmp eq i64 %48, 0
   %50 = and i64 %48, 7
   %51 = icmp ne i64 %50, 0
@@ -3868,7 +3868,7 @@ fbuffer_append_str.exit:                          ; preds = %Check_Type.exit, %r
   br i1 %57, label %Check_Type.exit12, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i11, !prof !24
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i11:        ; preds = %53, %46
-  tail call void @rb_unexpected_type(i64 noundef %48, i32 noundef 5) #25
+  tail call void @rb_unexpected_type(i64 noundef %48, i32 noundef 5) #26
   unreachable
 
 Check_Type.exit12:                                ; preds = %53
@@ -3919,7 +3919,7 @@ define internal fastcc void @fbuffer_do_inc_capa(ptr noundef captures(none) %0, 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !44
-  %20 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %19, i64 noundef 1) #29
+  %20 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %19, i64 noundef 1) #30
   store ptr %20, ptr %15, align 8, !tbaa !46
   %21 = load i64, ptr %18, align 8, !tbaa !44
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3951,7 +3951,7 @@ define internal fastcc void @fbuffer_do_inc_capa(ptr noundef captures(none) %0, 
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %35
-  %39 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %.0, i64 noundef 1) #29
+  %39 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %.0, i64 noundef 1) #30
   store ptr %39, ptr %15, align 8, !tbaa !46
   store i32 0, ptr %0, align 8, !tbaa !45
   %40 = load i64, ptr %26, align 8, !tbaa !56
@@ -3959,11 +3959,11 @@ define internal fastcc void @fbuffer_do_inc_capa(ptr noundef captures(none) %0, 
   br i1 %.not.i.i, label %ruby_nonempty_memcpy.exit.i, label %41
 
 41:                                               ; preds = %38
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %39, ptr noundef nonnull readonly align 1 %24, i64 noundef range(i64 1, 0) %40, i1 noundef false) #22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %39, ptr noundef nonnull readonly align 1 %24, i64 noundef range(i64 1, 0) %40, i1 noundef false) #23
   br label %ruby_nonempty_memcpy.exit.i
 
 42:                                               ; preds = %35
-  %43 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %24, i64 noundef %.0, i64 noundef 1) #30
+  %43 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %24, i64 noundef %.0, i64 noundef 1) #31
   store ptr %43, ptr %15, align 8, !tbaa !46
   br label %ruby_nonempty_memcpy.exit.i
 
@@ -3990,7 +3990,7 @@ define internal fastcc void @fbuffer_realloc(ptr noundef captures(none) %0, i64 
   br i1 %8, label %11, label %16
 
 11:                                               ; preds = %6
-  %12 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %1, i64 noundef 1) #29
+  %12 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %1, i64 noundef 1) #30
   store ptr %12, ptr %9, align 8, !tbaa !46
   store i32 0, ptr %0, align 8, !tbaa !45
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3999,11 +3999,11 @@ define internal fastcc void @fbuffer_realloc(ptr noundef captures(none) %0, i64 
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %15
 
 15:                                               ; preds = %11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %12, ptr noundef nonnull readonly align 1 %10, i64 noundef range(i64 1, 0) %14, i1 noundef false) #22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %12, ptr noundef nonnull readonly align 1 %10, i64 noundef range(i64 1, 0) %14, i1 noundef false) #23
   br label %ruby_nonempty_memcpy.exit
 
 16:                                               ; preds = %6
-  %17 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %10, i64 noundef %1, i64 noundef 1) #30
+  %17 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %10, i64 noundef %1, i64 noundef 1) #31
   store ptr %17, ptr %9, align 8, !tbaa !46
   br label %ruby_nonempty_memcpy.exit
 
@@ -4024,7 +4024,7 @@ declare nonnull ptr @ruby_xrealloc2(ptr noundef, i64 noundef, i64 noundef) local
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare double @rb_float_value(i64 noundef) local_unnamed_addr #14
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #15
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4032,14 +4032,14 @@ define internal fastcc void @fbuffer_append_str(ptr noundef captures(none) %0, i
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   store i64 %1, ptr %3, align 8, !tbaa !6
-  %5 = call ptr @rb_string_value_ptr(ptr noundef nonnull %3) #22
+  %5 = call ptr @rb_string_value_ptr(ptr noundef nonnull %3) #23
   %6 = load i64, ptr %3, align 8, !tbaa !6
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %3, ptr %4, align 8, !tbaa !61
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %4) #22, !srcloc !63
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %4) #23, !srcloc !63
   %10 = load ptr, ptr %4, align 8, !tbaa !61
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %11 = load volatile i64, ptr %10, align 8, !tbaa !6
@@ -4065,7 +4065,7 @@ ruby_nonempty_memcpy.exit.i:                      ; preds = %19, %12
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !46
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %23, ptr noundef nonnull readonly align 1 %5, i64 noundef range(i64 1, 0) %9, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %23, ptr noundef nonnull readonly align 1 %5, i64 noundef range(i64 1, 0) %9, i1 noundef false) #23
   %24 = load i64, ptr %15, align 8, !tbaa !56
   %25 = add i64 %24, %9
   store i64 %25, ptr %15, align 8, !tbaa !56
@@ -4184,15 +4184,15 @@ rb_type.exit:                                     ; preds = %.loopexit
 
 52:                                               ; preds = %47
   %53 = load i64, ptr @i_to_s, align 8, !tbaa !6
-  %54 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %53, i32 noundef 0) #22
+  %54 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %53, i32 noundef 0) #23
   br label %57
 
 rb_type.exit.thread52:                            ; preds = %41, %rb_type.exit
-  %55 = tail call i64 @rb_sym2str(i64 noundef %0) #22
+  %55 = tail call i64 @rb_sym2str(i64 noundef %0) #23
   br label %57
 
 rb_type.exit.thread:                              ; preds = %39, %39, %39, %41, %39, %rb_type.exit
-  %56 = tail call i64 @rb_convert_type(i64 noundef %0, i32 noundef 5, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.64) #22
+  %56 = tail call i64 @rb_convert_type(i64 noundef %0, i32 noundef 5, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.64) #23
   br label %57
 
 57:                                               ; preds = %47, %52, %rb_type.exit.thread, %rb_type.exit.thread52
@@ -4318,7 +4318,7 @@ ruby_nonempty_memcpy.exit.i.i:                    ; preds = %26, %19
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !46
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %30, ptr noundef nonnull readonly align 1 %15, i64 noundef range(i64 1, 0) %18, i1 noundef false) #22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %30, ptr noundef nonnull readonly align 1 %15, i64 noundef range(i64 1, 0) %18, i1 noundef false) #23
   %31 = load i64, ptr %22, align 8, !tbaa !56
   %32 = add i64 %31, %18
   store i64 %32, ptr %22, align 8, !tbaa !56
@@ -4374,7 +4374,7 @@ ruby_nonempty_memcpy.exit.i.i.i:                  ; preds = %50, %43
   %52 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %53 = load ptr, ptr %52, align 8, !tbaa !46
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 %51
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %54, ptr noundef nonnull readonly align 1 %40, i64 noundef range(i64 1, 0) %42, i1 noundef false) #22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %54, ptr noundef nonnull readonly align 1 %40, i64 noundef range(i64 1, 0) %42, i1 noundef false) #23
   %55 = load i64, ptr %46, align 8, !tbaa !56
   %56 = add i64 %55, %42
   store i64 %56, ptr %46, align 8, !tbaa !56
@@ -4920,7 +4920,7 @@ ruby_nonempty_memcpy.exit.i.i:                    ; preds = %37, %30
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %40 = load ptr, ptr %39, align 8, !tbaa !46
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %38
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %41, ptr noundef nonnull readonly align 1 %26, i64 noundef range(i64 1, 0) %29, i1 noundef false) #22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %41, ptr noundef nonnull readonly align 1 %26, i64 noundef range(i64 1, 0) %29, i1 noundef false) #23
   %42 = load i64, ptr %33, align 8, !tbaa !56
   %43 = add i64 %42, %29
   store i64 %43, ptr %33, align 8, !tbaa !56
@@ -4969,7 +4969,7 @@ ruby_nonempty_memcpy.exit.i.i.i:                  ; preds = %63, %56
   %65 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %66 = load ptr, ptr %65, align 8, !tbaa !46
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 %64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %67, ptr noundef nonnull readonly align 1 %52, i64 noundef range(i64 1, 0) %55, i1 noundef false) #22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %67, ptr noundef nonnull readonly align 1 %52, i64 noundef range(i64 1, 0) %55, i1 noundef false) #23
   %68 = load i64, ptr %59, align 8, !tbaa !56
   %69 = add i64 %68, %55
   store i64 %69, ptr %59, align 8, !tbaa !56
@@ -5278,7 +5278,7 @@ fbuffer_append.exit38.i:                          ; preds = %231, %230
   %233 = getelementptr inbounds nuw i8, ptr %223, i64 32
   %234 = load ptr, ptr %233, align 8, !tbaa !46
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 %232
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %235, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.102, i64 noundef range(i64 1, 0) 6, i1 noundef false) #22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %235, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.102, i64 noundef range(i64 1, 0) 6, i1 noundef false) #23
   %236 = load i64, ptr %226, align 8, !tbaa !56
   %237 = add i64 %236, 6
   store i64 %237, ptr %226, align 8, !tbaa !56
@@ -5297,7 +5297,7 @@ fbuffer_append.exit40.i:                          ; preds = %239, %238
   %241 = getelementptr inbounds nuw i8, ptr %223, i64 32
   %242 = load ptr, ptr %241, align 8, !tbaa !46
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 %240
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %243, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.103, i64 noundef range(i64 1, 0) 6, i1 noundef false) #22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %243, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.103, i64 noundef range(i64 1, 0) 6, i1 noundef false) #23
   %244 = load i64, ptr %226, align 8, !tbaa !56
   %245 = add i64 %244, 6
   store i64 %245, ptr %226, align 8, !tbaa !56
@@ -5325,15 +5325,15 @@ declare i64 @rb_str_dup(i64 noundef) local_unnamed_addr #1
 define internal i64 @encode_json_string_try(i64 noundef %0) #0 {
   %2 = load i64, ptr @i_encode, align 8, !tbaa !6
   %3 = load i64, ptr @Encoding_UTF_8, align 8, !tbaa !6
-  %4 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %2, i32 noundef 1, i64 noundef %3) #22
+  %4 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %2, i32 noundef 1, i64 noundef %3) #23
   ret i64 %4
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal noundef i64 @encode_json_string_rescue(i64 noundef %0, i64 noundef %1) #9 {
-  %3 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @encode_json_string_rescue.rbimpl_id, ptr noundef @.str.90) #31
-  %4 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1, i64 noundef %3, i32 noundef 0) #22
-  tail call fastcc void @raise_generator_error_str(i64 noundef %0, i64 noundef %4) #28
+  %3 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @encode_json_string_rescue.rbimpl_id, ptr noundef @.str.90) #32
+  %4 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1, i64 noundef %3, i32 noundef 0) #23
+  tail call fastcc void @raise_generator_error_str(i64 noundef %0, i64 noundef %4) #29
   unreachable
 }
 
@@ -5342,10 +5342,10 @@ declare i32 @rb_enc_get_index(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal fastcc void @raise_generator_error_str(i64 noundef %0, i64 noundef %1) unnamed_addr #9 {
   %3 = load i64, ptr @eGeneratorError, align 8, !tbaa !6
-  %4 = tail call i64 @rb_exc_new_str(i64 noundef %3, i64 noundef %1) #22
-  %5 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @raise_generator_error_str.rbimpl_id, ptr noundef @.str.91) #31
-  %6 = tail call i64 @rb_ivar_set(i64 noundef %4, i64 noundef %5, i64 noundef %0) #22
-  tail call void @rb_exc_raise(i64 noundef %4) #26
+  %4 = tail call i64 @rb_exc_new_str(i64 noundef %3, i64 noundef %1) #23
+  %5 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @raise_generator_error_str.rbimpl_id, ptr noundef @.str.91) #32
+  %6 = tail call i64 @rb_ivar_set(i64 noundef %4, i64 noundef %5, i64 noundef %0) #23
+  tail call void @rb_exc_raise(i64 noundef %4) #27
   unreachable
 }
 
@@ -5356,8 +5356,8 @@ define internal fastcc range(i64 1, 0) i64 @rbimpl_intern_const(ptr noundef nonn
   br i1 %.not4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #27
-  %4 = tail call i64 @rb_intern2(ptr noundef nonnull %1, i64 noundef %3) #22
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #28
+  %4 = tail call i64 @rb_intern2(ptr noundef nonnull %1, i64 noundef %3) #23
   store i64 %4, ptr %0, align 8, !tbaa !6
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %.lr.ph, label %._crit_edge
@@ -5394,7 +5394,7 @@ declare i32 @rb_respond_to(i64 noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @vstate_spill(ptr noundef captures(none) initializes((8, 16)) %0) unnamed_addr #0 {
   %2 = load i64, ptr @cState, align 8, !tbaa !6
-  %3 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %2, i64 noundef 80, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %3 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %2, i64 noundef 80, ptr noundef nonnull @JSON_Generator_State_type) #23
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !12
@@ -5413,10 +5413,10 @@ cState_s_allocate.exit:                           ; preds = %1, %9
   store i64 100, ptr %12, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i64 1024, ptr %13, align 8, !tbaa !21
-  %14 = tail call ptr @rb_check_typeddata(i64 noundef %3, ptr noundef nonnull @JSON_Generator_State_type) #22
+  %14 = tail call ptr @rb_check_typeddata(i64 noundef %3, ptr noundef nonnull @JSON_Generator_State_type) #23
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !53
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %14, ptr noundef nonnull readonly align 1 dereferenceable(80) %16, i64 noundef range(i64 1, 0) 80, i1 noundef false) #22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %14, ptr noundef nonnull readonly align 1 dereferenceable(80) %16, i64 noundef range(i64 1, 0) 80, i1 noundef false) #23
   store ptr %14, ptr %15, align 8, !tbaa !53
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %3, ptr %17, align 8, !tbaa !52
@@ -5428,7 +5428,7 @@ cState_s_allocate.exit:                           ; preds = %1, %9
   br i1 %22, label %rb_obj_written.exit, label %23
 
 23:                                               ; preds = %cState_s_allocate.exit
-  tail call void @rb_gc_writebarrier(i64 noundef %3, i64 noundef %18) #22
+  tail call void @rb_gc_writebarrier(i64 noundef %3, i64 noundef %18) #23
   br label %rb_obj_written.exit
 
 rb_obj_written.exit:                              ; preds = %cState_s_allocate.exit, %23
@@ -5441,7 +5441,7 @@ rb_obj_written.exit:                              ; preds = %cState_s_allocate.e
   br i1 %29, label %rb_obj_written.exit18, label %30
 
 30:                                               ; preds = %rb_obj_written.exit
-  tail call void @rb_gc_writebarrier(i64 noundef %3, i64 noundef %25) #22
+  tail call void @rb_gc_writebarrier(i64 noundef %3, i64 noundef %25) #23
   br label %rb_obj_written.exit18
 
 rb_obj_written.exit18:                            ; preds = %rb_obj_written.exit, %30
@@ -5454,7 +5454,7 @@ rb_obj_written.exit18:                            ; preds = %rb_obj_written.exit
   br i1 %36, label %rb_obj_written.exit19, label %37
 
 37:                                               ; preds = %rb_obj_written.exit18
-  tail call void @rb_gc_writebarrier(i64 noundef %3, i64 noundef %32) #22
+  tail call void @rb_gc_writebarrier(i64 noundef %3, i64 noundef %32) #23
   br label %rb_obj_written.exit19
 
 rb_obj_written.exit19:                            ; preds = %rb_obj_written.exit18, %37
@@ -5467,7 +5467,7 @@ rb_obj_written.exit19:                            ; preds = %rb_obj_written.exit
   br i1 %43, label %rb_obj_written.exit20, label %44
 
 44:                                               ; preds = %rb_obj_written.exit19
-  tail call void @rb_gc_writebarrier(i64 noundef %3, i64 noundef %39) #22
+  tail call void @rb_gc_writebarrier(i64 noundef %3, i64 noundef %39) #23
   br label %rb_obj_written.exit20
 
 rb_obj_written.exit20:                            ; preds = %rb_obj_written.exit19, %44
@@ -5480,7 +5480,7 @@ rb_obj_written.exit20:                            ; preds = %rb_obj_written.exit
   br i1 %50, label %rb_obj_written.exit21, label %51
 
 51:                                               ; preds = %rb_obj_written.exit20
-  tail call void @rb_gc_writebarrier(i64 noundef %3, i64 noundef %46) #22
+  tail call void @rb_gc_writebarrier(i64 noundef %3, i64 noundef %46) #23
   br label %rb_obj_written.exit21
 
 rb_obj_written.exit21:                            ; preds = %rb_obj_written.exit20, %51
@@ -5493,7 +5493,7 @@ rb_obj_written.exit21:                            ; preds = %rb_obj_written.exit
   br i1 %57, label %rb_obj_written.exit22, label %58
 
 58:                                               ; preds = %rb_obj_written.exit21
-  tail call void @rb_gc_writebarrier(i64 noundef %3, i64 noundef %53) #22
+  tail call void @rb_gc_writebarrier(i64 noundef %3, i64 noundef %53) #23
   br label %rb_obj_written.exit22
 
 rb_obj_written.exit22:                            ; preds = %rb_obj_written.exit21, %58
@@ -5565,7 +5565,7 @@ ruby_nonempty_memcpy.exit.i.i.i:                  ; preds = %28, %21
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8, !tbaa !46
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %32, ptr noundef nonnull readonly align 1 %20, i64 noundef range(i64 1, 0) %gepdiff.i.i, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %32, ptr noundef nonnull readonly align 1 %20, i64 noundef range(i64 1, 0) %gepdiff.i.i, i1 noundef false) #23
   %33 = load i64, ptr %24, align 8, !tbaa !56
   %34 = add i64 %33, %gepdiff.i.i
   store i64 %34, ptr %24, align 8, !tbaa !56
@@ -5577,17 +5577,17 @@ generate_json_fixnum.exit:                        ; preds = %fltoa.exit.i.i, %ru
 
 35:                                               ; preds = %4
   %36 = load i64, ptr @i_to_s, align 8, !tbaa !6
-  %37 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef %36, i32 noundef 0) #22
+  %37 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef %36, i32 noundef 0) #23
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %37, ptr %5, align 8, !tbaa !6
-  %38 = call ptr @rb_string_value_ptr(ptr noundef nonnull %5) #22
+  %38 = call ptr @rb_string_value_ptr(ptr noundef nonnull %5) #23
   %39 = load i64, ptr %5, align 8, !tbaa !6
   %40 = inttoptr i64 %39 to ptr
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i64, ptr %41, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %5, ptr %6, align 8, !tbaa !61
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #22, !srcloc !63
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #23, !srcloc !63
   %43 = load ptr, ptr %6, align 8, !tbaa !61
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %44 = load volatile i64, ptr %43, align 8, !tbaa !6
@@ -5613,7 +5613,7 @@ ruby_nonempty_memcpy.exit.i.i.i9:                 ; preds = %52, %45
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %55 = load ptr, ptr %54, align 8, !tbaa !46
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 %53
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %56, ptr noundef nonnull readonly align 1 %38, i64 noundef range(i64 1, 0) %42, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %56, ptr noundef nonnull readonly align 1 %38, i64 noundef range(i64 1, 0) %42, i1 noundef false) #23
   %57 = load i64, ptr %48, align 8, !tbaa !56
   %58 = add i64 %57, %42
   store i64 %58, ptr %48, align 8, !tbaa !56
@@ -5647,11 +5647,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #21
+declare i64 @llvm.abs.i64(i64, i1 immarg) #22
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5668,23 +5668,24 @@ attributes #11 = { inlinehint mustprogress nofree norecurse nosync nounwind ssps
 attributes #12 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { allocsize(1,2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { inlinehint nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nounwind }
-attributes #23 = { nounwind willreturn memory(none) }
-attributes #24 = { cold nounwind }
-attributes #25 = { cold noreturn nounwind }
-attributes #26 = { noreturn nounwind }
-attributes #27 = { nounwind willreturn memory(read) }
-attributes #28 = { noreturn }
-attributes #29 = { nounwind allocsize(0,1) }
-attributes #30 = { nounwind allocsize(1,2) }
-attributes #31 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) }
+attributes #21 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nounwind }
+attributes #24 = { nounwind willreturn memory(none) }
+attributes #25 = { cold nounwind }
+attributes #26 = { cold noreturn nounwind }
+attributes #27 = { noreturn nounwind }
+attributes #28 = { nounwind willreturn memory(read) }
+attributes #29 = { noreturn }
+attributes #30 = { nounwind allocsize(0,1) }
+attributes #31 = { nounwind allocsize(1,2) }
+attributes #32 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

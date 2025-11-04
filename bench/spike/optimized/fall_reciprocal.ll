@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i16 @bf16_rsqrte7(i16 %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @bf16_classify(i16 %0) #4
+  %2 = tail call i64 @bf16_classify(i16 %0) #5
   %3 = trunc i64 %2 to i32
   %4 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %3)
   %5 = icmp eq i32 %4, 1
@@ -116,7 +116,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #2
 
 ; Function Attrs: nounwind uwtable
 define i16 @f16_rsqrte7(i16 %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @f16_classify(i16 %0) #4
+  %2 = tail call i64 @f16_classify(i16 %0) #5
   %3 = trunc i64 %2 to i32
   %4 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %3)
   %5 = icmp eq i32 %4, 1
@@ -221,7 +221,7 @@ declare i64 @f16_classify(i16) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @f32_rsqrte7(i32 %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @f32_classify(i32 %0) #4
+  %2 = tail call i64 @f32_classify(i32 %0) #5
   %3 = trunc i64 %2 to i32
   %4 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %3)
   %5 = icmp eq i32 %4, 1
@@ -326,7 +326,7 @@ declare i64 @f32_classify(i32) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i64 @f64_rsqrte7(i64 %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @f64_classify(i64 %0) #4
+  %2 = tail call i64 @f64_classify(i64 %0) #5
   %3 = trunc i64 %2 to i32
   %4 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %3)
   %5 = icmp eq i32 %4, 1
@@ -427,7 +427,7 @@ declare i64 @f64_classify(i64) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i16 @bf16_recip7(i16 %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @bf16_classify(i16 %0) #4
+  %2 = tail call i64 @bf16_classify(i16 %0) #5
   %3 = trunc i64 %2 to i32
   %4 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %3)
   %5 = icmp eq i32 %4, 1
@@ -572,7 +572,7 @@ recip7.exit:                                      ; preds = %47, %54
 
 ; Function Attrs: nounwind uwtable
 define i16 @f16_recip7(i16 %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @f16_classify(i16 %0) #4
+  %2 = tail call i64 @f16_classify(i16 %0) #5
   %3 = trunc i64 %2 to i32
   %4 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %3)
   %5 = icmp eq i32 %4, 1
@@ -719,7 +719,7 @@ recip7.exit:                                      ; preds = %47, %56
 
 ; Function Attrs: nounwind uwtable
 define i32 @f32_recip7(i32 %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @f32_classify(i32 %0) #4
+  %2 = tail call i64 @f32_classify(i32 %0) #5
   %3 = trunc i64 %2 to i32
   %4 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %3)
   %5 = icmp eq i32 %4, 1
@@ -865,7 +865,7 @@ recip7.exit:                                      ; preds = %45, %54
 
 ; Function Attrs: nounwind uwtable
 define i64 @f64_recip7(i64 %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @f64_classify(i64 %0) #4
+  %2 = tail call i64 @f64_classify(i64 %0) #5
   %3 = trunc i64 %2 to i32
   %4 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %3)
   %5 = icmp eq i32 %4, 1
@@ -1005,17 +1005,18 @@ recip7.exit:                                      ; preds = %43, %52
   ret i64 %.sroa.0.0
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #3
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #3 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

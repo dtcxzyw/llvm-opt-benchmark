@@ -544,7 +544,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %56, %54, %52, %50
   br i1 %94, label %.noexc.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i
 
 .noexc.i:                                         ; preds = %92
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
   unreachable
 
 _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %92
@@ -557,7 +557,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIfS
 
 .noexc55.i:                                       ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i
   %95 = shl nuw nsw i64 %93, 2
-  %96 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %95) #28
+  %96 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %95) #29
   store ptr %96, ptr %11, align 8, !tbaa !28
   %97 = getelementptr inbounds nuw float, ptr %96, i64 %93
   %98 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -610,7 +610,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc55.i
 
 ._crit_edge70.i:                                  ; preds = %._crit_edge.us.i, %103
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %116 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %116 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %117 unwind label %135
 
 117:                                              ; preds = %._crit_edge70.i
@@ -633,7 +633,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc55.i
   %125 = ptrtoint ptr %124 to i64
   %126 = ptrtoint ptr %122 to i64
   %127 = sub i64 %125, %126
-  call void @_ZdlPvm(ptr noundef nonnull %122, i64 noundef %127) #29
+  call void @_ZdlPvm(ptr noundef nonnull %122, i64 noundef %127) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %123, %117
@@ -648,7 +648,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %123, %117
   %132 = ptrtoint ptr %131 to i64
   %133 = ptrtoint ptr %128 to i64
   %134 = sub i64 %132, %133
-  call void @_ZdlPvm(ptr noundef nonnull %128, i64 noundef %134) #29
+  call void @_ZdlPvm(ptr noundef nonnull %128, i64 noundef %134) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit62.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit62.i:                ; preds = %129, %_ZNSt6vectorIfSaIfEED2Ev.exit.i
@@ -666,7 +666,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit62.i:                ; preds = %129, %_ZNSt6vectorI
   %138 = ptrtoint ptr %104 to i64
   %139 = ptrtoint ptr %105 to i64
   %140 = sub i64 %138, %139
-  tail call void @_ZdlPvm(ptr noundef nonnull %105, i64 noundef %140) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %105, i64 noundef %140) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit64.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit64.i:                ; preds = %137, %135
@@ -714,7 +714,7 @@ _ZNKSt14default_deleteIN5faiss15ScalarQuantizer10SQuantizerEEclEPS2_.exit.i: ; p
   %14 = load ptr, ptr %13, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13) #16
+  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13) #17
   br label %_ZNSt10unique_ptrIN5faiss15ScalarQuantizer10SQuantizerESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5faiss15ScalarQuantizer10SQuantizerESt14default_deleteIS2_EED2Ev.exit: ; preds = %4, %_ZNKSt14default_deleteIN5faiss15ScalarQuantizer10SQuantizerEEclEPS2_.exit.i
@@ -743,7 +743,7 @@ _ZNKSt14default_deleteIN5faiss15ScalarQuantizer10SQuantizerEEclEPS2_.exit.i: ; p
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #16
+  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #17
   br label %_ZNSt10unique_ptrIN5faiss15ScalarQuantizer10SQuantizerESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5faiss15ScalarQuantizer10SQuantizerESt14default_deleteIS2_EED2Ev.exit: ; preds = %4, %_ZNKSt14default_deleteIN5faiss15ScalarQuantizer10SQuantizerEEclEPS2_.exit.i
@@ -765,7 +765,7 @@ define linkonce_odr void @_ZN5faiss15ScalarQuantizerD2Ev(ptr noundef nonnull ali
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -786,11 +786,11 @@ define linkonce_odr void @_ZN5faiss15ScalarQuantizerD0Ev(ptr noundef nonnull ali
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss15ScalarQuantizerD2Ev.exit
 
 _ZN5faiss15ScalarQuantizerD2Ev.exit:              ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #30
   ret void
 }
 
@@ -916,8 +916,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
-  tail call void @_ZSt9terminatev() #30
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
+  tail call void @_ZSt9terminatev() #31
   unreachable
 }
 
@@ -1069,7 +1069,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %17, %19, %20, %22
 
 62:                                               ; preds = %._crit_edge275
   %63 = fptrunc double %52 to float
-  %sqrtf = tail call float @sqrtf(float noundef %63) #31
+  %sqrtf = tail call float @sqrtf(float noundef %63) #32
   br label %64
 
 64:                                               ; preds = %._crit_edge275, %62
@@ -1086,14 +1086,14 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %17, %19, %20, %22
   br i1 %70, label %.noexc, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 
 .noexc:                                           ; preds = %69
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
   unreachable
 
 _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %69
   %.not.i.i.i.i = icmp ne i64 %2, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i)
   %71 = shl nuw nsw i64 %2, 2
-  %72 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %71) #28
+  %72 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %71) #29
   store float 0.000000e+00, ptr %72, align 4, !tbaa !23
   %73 = getelementptr i8, ptr %72, i64 4
   %74 = add nsw i64 %2, -1
@@ -1254,7 +1254,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZSt25__unguarded_l
   %129 = getelementptr float, ptr %128, i64 %127
   %130 = load float, ptr %129, align 4, !tbaa !23
   store float %130, ptr %24, align 4, !tbaa !23
-  tail call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef %71) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef %71) #30
   %.pre301 = load float, ptr %23, align 4, !tbaa !23
   %.pre302 = load float, ptr %24, align 4, !tbaa !23
   br label %208
@@ -1262,7 +1262,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZSt25__unguarded_l
 _ZNSt6vectorIfSaIfEED2Ev.exit212:                 ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.thread229
   %131 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef %71) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef %71) #30
   br label %212
 
 132:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -1395,7 +1395,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit212:                 ; preds = %_ZNSt6vectorIfSaIfE
   br label %208
 
 195:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %196 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  %196 = tail call ptr @__cxa_allocate_exception(i64 40) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %8)
@@ -1406,7 +1406,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit212:                 ; preds = %_ZNSt6vectorIfSaIfE
           to label %198 unwind label %200
 
 198:                                              ; preds = %197
-  invoke void @__cxa_throw(ptr nonnull %196, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #27
+  invoke void @__cxa_throw(ptr nonnull %196, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #28
           to label %213 unwind label %200
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %195
@@ -1433,14 +1433,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %200
   %205 = load i64, ptr %203, align 8, !tbaa !56
   %206 = add i64 %205, 1
-  call void @_ZdlPvm(ptr noundef %202, i64 noundef %206) #29
+  call void @_ZdlPvm(ptr noundef %202, i64 noundef %206) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.0, label %207, label %212
 
 207:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn248 = phi { ptr, i32 } [ %199, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %201, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %201, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %196) #16
+  call void @__cxa_free_exception(ptr %196) #17
   br label %212
 
 208:                                              ; preds = %64, %193, %_ZNSt6vectorIfSaIfEED2Ev.exit, %._crit_edge281
@@ -1458,13 +1458,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %200
   unreachable
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #7
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -1478,11 +1478,11 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %3
-  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.6) #27
+  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.6) #28
   unreachable
 
 8:                                                ; preds = %3
-  %9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
+  %9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %9, ptr %4, align 8, !tbaa !24
   %10 = icmp ugt i64 %9, 15
@@ -1536,11 +1536,11 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
   %6 = load i64, ptr %4, align 8, !tbaa !56
   %7 = add i64 %6, 1
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %7) #29
+  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %7) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
   ret void
 }
 
@@ -1598,7 +1598,7 @@ _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_Z
   br i1 %25, label %26, label %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
 
 26:                                               ; preds = %24
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #28
   unreachable
 
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %24
@@ -1606,7 +1606,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %24
   %27 = add nuw nsw i64 %.sroa.speculated.i, %10
   %28 = tail call i64 @llvm.umin.i64(i64 %27, i64 2305843009213693951)
   %29 = shl nuw nsw i64 %28, 2
-  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #28
+  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %9
   store float 0.000000e+00, ptr %31, align 4, !tbaa !23
   %32 = add nsw i64 %1, -1
@@ -1633,7 +1633,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 37:                                               ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
   %38 = sub i64 %13, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %38) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %38) #30
   br label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
@@ -2196,21 +2196,21 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #7
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #13
 
 ; Function Attrs: noreturn
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #14
+declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #15
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_116train_NonUniformENS_15ScalarQuantizer9RangeStatEfliiPKfRSt6vectorIfSaIfEE.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10) #15 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_116train_NonUniformENS_15ScalarQuantizer9RangeStatEfliiPKfRSt6vectorIfSaIfEE.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10) #16 personality ptr @__gxx_personality_v0 {
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
@@ -2286,18 +2286,18 @@ define internal void @_ZN5faiss12_GLOBAL__N_116train_NonUniformENS_15ScalarQuant
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #30
+  call void @__clang_call_terminate(ptr %46) #31
   unreachable
 }
 
 ; Function Attrs: nounwind
-declare void @__kmpc_for_static_init_4(ptr, i32, i32, ptr, ptr, ptr, ptr, i32, i32) local_unnamed_addr #16
+declare void @__kmpc_for_static_init_4(ptr, i32, i32, ptr, ptr, ptr, ptr, i32, i32) local_unnamed_addr #17
 
 ; Function Attrs: nounwind
-declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #16
+declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #17
 
 ; Function Attrs: nounwind
-declare !callback !68 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #16
+declare !callback !68 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define noalias noundef nonnull ptr @_ZNK5faiss15ScalarQuantizer16select_quantizerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -2322,7 +2322,7 @@ define noalias noundef nonnull ptr @_ZNK5faiss15ScalarQuantizer16select_quantize
   ]
 
 9:                                                ; preds = %1
-  %10 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
+  %10 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEE, i64 16), ptr %10, align 8, !tbaa !42
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %7, ptr %11, align 8, !tbaa !70
@@ -2334,7 +2334,7 @@ define noalias noundef nonnull ptr @_ZNK5faiss15ScalarQuantizer16select_quantize
   br label %_ZN5faiss12_GLOBAL__N_118select_quantizer_1ILi1EEEPNS_15ScalarQuantizer10SQuantizerENS2_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 15:                                               ; preds = %1
-  %16 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
+  %16 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEE, i64 16), ptr %16, align 8, !tbaa !42
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %7, ptr %17, align 8, !tbaa !75
@@ -2346,7 +2346,7 @@ define noalias noundef nonnull ptr @_ZNK5faiss15ScalarQuantizer16select_quantize
   br label %_ZN5faiss12_GLOBAL__N_118select_quantizer_1ILi1EEEPNS_15ScalarQuantizer10SQuantizerENS2_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 21:                                               ; preds = %1
-  %22 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
+  %22 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEE, i64 16), ptr %22, align 8, !tbaa !42
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %7, ptr %23, align 8, !tbaa !79
@@ -2358,7 +2358,7 @@ define noalias noundef nonnull ptr @_ZNK5faiss15ScalarQuantizer16select_quantize
   br label %_ZN5faiss12_GLOBAL__N_118select_quantizer_1ILi1EEEPNS_15ScalarQuantizer10SQuantizerENS2_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 27:                                               ; preds = %1
-  %28 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
+  %28 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEE, i64 16), ptr %28, align 8, !tbaa !42
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 %7, ptr %29, align 8, !tbaa !83
@@ -2372,7 +2372,7 @@ define noalias noundef nonnull ptr @_ZNK5faiss15ScalarQuantizer16select_quantize
   br label %_ZN5faiss12_GLOBAL__N_118select_quantizer_1ILi1EEEPNS_15ScalarQuantizer10SQuantizerENS2_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 35:                                               ; preds = %1
-  %36 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
+  %36 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEE, i64 16), ptr %36, align 8, !tbaa !42
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 %7, ptr %37, align 8, !tbaa !87
@@ -2386,35 +2386,35 @@ define noalias noundef nonnull ptr @_ZNK5faiss15ScalarQuantizer16select_quantize
   br label %_ZN5faiss12_GLOBAL__N_118select_quantizer_1ILi1EEEPNS_15ScalarQuantizer10SQuantizerENS2_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 43:                                               ; preds = %1
-  %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
+  %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_113QuantizerFP16ILi1EEE, i64 16), ptr %44, align 8, !tbaa !42
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i64 %7, ptr %45, align 8, !tbaa !91
   br label %_ZN5faiss12_GLOBAL__N_118select_quantizer_1ILi1EEEPNS_15ScalarQuantizer10SQuantizerENS2_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 46:                                               ; preds = %1
-  %47 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
+  %47 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_113QuantizerBF16ILi1EEE, i64 16), ptr %47, align 8, !tbaa !42
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 %7, ptr %48, align 8, !tbaa !93
   br label %_ZN5faiss12_GLOBAL__N_118select_quantizer_1ILi1EEEPNS_15ScalarQuantizer10SQuantizerENS2_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 49:                                               ; preds = %1
-  %50 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
+  %50 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_119Quantizer8bitDirectILi1EEE, i64 16), ptr %50, align 8, !tbaa !42
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i64 %7, ptr %51, align 8, !tbaa !95
   br label %_ZN5faiss12_GLOBAL__N_118select_quantizer_1ILi1EEEPNS_15ScalarQuantizer10SQuantizerENS2_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 52:                                               ; preds = %1
-  %53 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
+  %53 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_125Quantizer8bitDirectSignedILi1EEE, i64 16), ptr %53, align 8, !tbaa !42
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %7, ptr %54, align 8, !tbaa !97
   br label %_ZN5faiss12_GLOBAL__N_118select_quantizer_1ILi1EEEPNS_15ScalarQuantizer10SQuantizerENS2_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 55:                                               ; preds = %1
-  %56 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  %56 = tail call ptr @__cxa_allocate_exception(i64 40) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %3)
@@ -2425,7 +2425,7 @@ define noalias noundef nonnull ptr @_ZNK5faiss15ScalarQuantizer16select_quantize
           to label %58 unwind label %60
 
 58:                                               ; preds = %57
-  invoke void @__cxa_throw(ptr nonnull %56, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #27
+  invoke void @__cxa_throw(ptr nonnull %56, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #28
           to label %69 unwind label %60
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds = %55
@@ -2452,14 +2452,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %60
   %65 = load i64, ptr %63, align 8, !tbaa !56
   %66 = add i64 %65, 1
-  call void @_ZdlPvm(ptr noundef %62, i64 noundef %66) #29
+  call void @_ZdlPvm(ptr noundef %62, i64 noundef %66) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.0.i, label %67, label %68
 
 67:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i
   %.pn4.i = phi { ptr, i32 } [ %59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %61, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ]
-  call void @__cxa_free_exception(ptr %56) #16
+  call void @__cxa_free_exception(ptr %56) #17
   br label %68
 
 68:                                               ; preds = %67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
@@ -2475,7 +2475,7 @@ _ZN5faiss12_GLOBAL__N_118select_quantizer_1ILi1EEEPNS_15ScalarQuantizer10SQuanti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EE13encode_vectorEPKfPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #17 align 2 {
+define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EE13encode_vectorEPKfPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !70
   %.not = icmp eq i64 %5, 0
@@ -2529,7 +2529,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EE13decode_vectorEPKhPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #17 align 2 {
+define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EE13decode_vectorEPKhPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !70
   %.not = icmp eq i64 %5, 0
@@ -2568,12 +2568,12 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bit
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE13encode_vectorEPKfPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #17 align 2 {
+define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE13encode_vectorEPKfPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !75
   %.not = icmp eq i64 %5, 0
@@ -2685,7 +2685,7 @@ _ZN5faiss12_GLOBAL__N_19Codec6bit16encode_componentEfPhi.exit: ; preds = %34, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE13decode_vectorEPKhPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #17 align 2 {
+define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE13decode_vectorEPKhPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !75
   %.not = icmp eq i64 %5, 0
@@ -2770,12 +2770,12 @@ _ZN5faiss12_GLOBAL__N_19Codec6bit16decode_componentEPKhi.exit: ; preds = %17, %2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EE13encode_vectorEPKfPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #17 align 2 {
+define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EE13encode_vectorEPKfPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !79
   %.not = icmp eq i64 %5, 0
@@ -2836,7 +2836,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EE13decode_vectorEPKhPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #17 align 2 {
+define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EE13decode_vectorEPKhPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !79
   %.not = icmp eq i64 %5, 0
@@ -2881,12 +2881,12 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bit
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EE13encode_vectorEPKfPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #18 align 2 {
+define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EE13encode_vectorEPKfPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #19 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !83
   %.not = icmp eq i64 %5, 0
@@ -2936,7 +2936,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EE13decode_vectorEPKhPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #18 align 2 {
+define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EE13decode_vectorEPKhPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #19 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !83
   %.not = icmp eq i64 %5, 0
@@ -2971,12 +2971,12 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bit
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EE13encode_vectorEPKfPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #18 align 2 {
+define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EE13encode_vectorEPKfPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #19 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !87
   %.not = icmp eq i64 %5, 0
@@ -3033,7 +3033,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EE13decode_vectorEPKhPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #18 align 2 {
+define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EE13decode_vectorEPKhPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #19 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !87
   %.not = icmp eq i64 %5, 0
@@ -3074,12 +3074,12 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bit
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZNK5faiss12_GLOBAL__N_113QuantizerFP16ILi1EE13encode_vectorEPKfPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #18 align 2 {
+define internal void @_ZNK5faiss12_GLOBAL__N_113QuantizerFP16ILi1EE13encode_vectorEPKfPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #19 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !91
   %.not = icmp eq i64 %5, 0
@@ -3119,7 +3119,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113QuantizerFP16ILi1EE13encode_vect
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZNK5faiss12_GLOBAL__N_113QuantizerFP16ILi1EE13decode_vectorEPKhPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #18 align 2 {
+define internal void @_ZNK5faiss12_GLOBAL__N_113QuantizerFP16ILi1EE13decode_vectorEPKhPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #19 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !91
   %.not = icmp eq i64 %5, 0
@@ -3158,12 +3158,12 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113QuantizerFP16ILi1EE13decode_vect
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_113QuantizerFP16ILi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZNK5faiss12_GLOBAL__N_113QuantizerBF16ILi1EE13encode_vectorEPKfPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #18 align 2 {
+define internal void @_ZNK5faiss12_GLOBAL__N_113QuantizerBF16ILi1EE13encode_vectorEPKfPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #19 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !93
   %.not = icmp eq i64 %5, 0
@@ -3187,7 +3187,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113QuantizerBF16ILi1EE13encode_vect
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZNK5faiss12_GLOBAL__N_113QuantizerBF16ILi1EE13decode_vectorEPKhPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #18 align 2 {
+define internal void @_ZNK5faiss12_GLOBAL__N_113QuantizerBF16ILi1EE13decode_vectorEPKhPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #19 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !93
   %.not = icmp eq i64 %5, 0
@@ -3211,12 +3211,12 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113QuantizerBF16ILi1EE13decode_vect
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_113QuantizerBF16ILi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZNK5faiss12_GLOBAL__N_119Quantizer8bitDirectILi1EE13encode_vectorEPKfPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #18 align 2 {
+define internal void @_ZNK5faiss12_GLOBAL__N_119Quantizer8bitDirectILi1EE13encode_vectorEPKfPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #19 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !95
   %.not = icmp eq i64 %5, 0
@@ -3239,7 +3239,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_119Quantizer8bitDirectILi1EE13encod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZNK5faiss12_GLOBAL__N_119Quantizer8bitDirectILi1EE13decode_vectorEPKhPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #18 align 2 {
+define internal void @_ZNK5faiss12_GLOBAL__N_119Quantizer8bitDirectILi1EE13decode_vectorEPKhPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #19 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !95
   %.not = icmp eq i64 %5, 0
@@ -3262,12 +3262,12 @@ define internal void @_ZNK5faiss12_GLOBAL__N_119Quantizer8bitDirectILi1EE13decod
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_119Quantizer8bitDirectILi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZNK5faiss12_GLOBAL__N_125Quantizer8bitDirectSignedILi1EE13encode_vectorEPKfPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #18 align 2 {
+define internal void @_ZNK5faiss12_GLOBAL__N_125Quantizer8bitDirectSignedILi1EE13encode_vectorEPKfPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #19 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !97
   %.not = icmp eq i64 %5, 0
@@ -3291,7 +3291,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_125Quantizer8bitDirectSignedILi1EE1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZNK5faiss12_GLOBAL__N_125Quantizer8bitDirectSignedILi1EE13decode_vectorEPKhPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #18 align 2 {
+define internal void @_ZNK5faiss12_GLOBAL__N_125Quantizer8bitDirectSignedILi1EE13decode_vectorEPKhPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #19 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !97
   %.not = icmp eq i64 %5, 0
@@ -3315,21 +3315,21 @@ define internal void @_ZNK5faiss12_GLOBAL__N_125Quantizer8bitDirectSignedILi1EE1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5faiss15ScalarQuantizer10SQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #19 comdat align 2 {
+define linkonce_odr void @_ZN5faiss15ScalarQuantizer10SQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #20 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_125Quantizer8bitDirectSignedILi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
-define internal void @_ZNK5faiss15ScalarQuantizer13compute_codesEPKfPhm.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef readonly captures(none) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6) #15 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5faiss15ScalarQuantizer13compute_codesEPKfPhm.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef readonly captures(none) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6) #16 personality ptr @__gxx_personality_v0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -3400,15 +3400,15 @@ define internal void @_ZNK5faiss15ScalarQuantizer13compute_codesEPKfPhm.omp_outl
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #30
+  call void @__clang_call_terminate(ptr %41) #31
   unreachable
 }
 
 ; Function Attrs: nounwind
-declare void @__kmpc_for_static_init_8u(ptr, i32, i32, ptr, ptr, ptr, ptr, i64, i64) local_unnamed_addr #16
+declare void @__kmpc_for_static_init_8u(ptr, i32, i32, ptr, ptr, ptr, ptr, i64, i64) local_unnamed_addr #17
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
-define internal void @_ZNK5faiss15ScalarQuantizer6decodeEPKhPfm.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef readonly captures(none) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6) #15 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5faiss15ScalarQuantizer6decodeEPKhPfm.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef readonly captures(none) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6) #16 personality ptr @__gxx_personality_v0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -3480,7 +3480,7 @@ define internal void @_ZNK5faiss15ScalarQuantizer6decodeEPKhPfm.omp_outlined(ptr
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #30
+  call void @__clang_call_terminate(ptr %42) #31
   unreachable
 }
 
@@ -3501,7 +3501,7 @@ define noalias noundef nonnull ptr @_ZNK5faiss15ScalarQuantizer21get_distance_co
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %10, align 8, !tbaa !58
   store i8 0, ptr %9, align 8, !tbaa !56
-  %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #16
+  %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #17
   %12 = add nsw i32 %11, 1
   %13 = sext i32 %12 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %13, i8 noundef signext 0)
@@ -3510,13 +3510,13 @@ define noalias noundef nonnull ptr @_ZNK5faiss15ScalarQuantizer21get_distance_co
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %8
   %14 = load ptr, ptr %7, align 8, !tbaa !53
   %15 = load i64, ptr %10, align 8, !tbaa !58
-  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %14, i64 noundef %15, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #16
-  %17 = call ptr @__cxa_allocate_exception(i64 40) #16
+  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %14, i64 noundef %15, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #17
+  %17 = call ptr @__cxa_allocate_exception(i64 40) #17
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5faiss15ScalarQuantizer21get_distance_computerENS_10MetricTypeE, ptr noundef nonnull @.str.3, i32 noundef 2083)
           to label %18 unwind label %21
 
 18:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
-  invoke void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #27
+  invoke void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #28
           to label %193 unwind label %19
 
 19:                                               ; preds = %8, %18
@@ -3527,7 +3527,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 21:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %17) #16
+  call void @__cxa_free_exception(ptr nonnull %17) #17
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -3539,7 +3539,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %23
   %26 = load i64, ptr %9, align 8, !tbaa !56
   %27 = add i64 %26, 1
-  call void @_ZdlPvm(ptr noundef %24, i64 noundef %27) #29
+  call void @_ZdlPvm(ptr noundef %24, i64 noundef %27) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 common.resume:                                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i17, %191, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %112, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -3574,7 +3574,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %23, %
   ]
 
 36:                                               ; preds = %35
-  %37 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
+  %37 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #29
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %37, align 8, !tbaa !42
@@ -3592,7 +3592,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %23, %
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 46:                                               ; preds = %35
-  %47 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
+  %47 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #29
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %47, align 8, !tbaa !42
@@ -3610,7 +3610,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %23, %
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 56:                                               ; preds = %35
-  %57 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
+  %57 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %57, align 8, !tbaa !42
@@ -3626,7 +3626,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %23, %
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 64:                                               ; preds = %35
-  %65 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
+  %65 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %65, align 8, !tbaa !42
@@ -3642,7 +3642,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %23, %
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 72:                                               ; preds = %35
-  %73 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
+  %73 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %73, align 8, !tbaa !42
@@ -3658,7 +3658,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %23, %
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 80:                                               ; preds = %35
-  %81 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
+  %81 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %81, align 8, !tbaa !42
@@ -3669,7 +3669,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %23, %
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 85:                                               ; preds = %35
-  %86 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
+  %86 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %86, align 8, !tbaa !42
@@ -3680,7 +3680,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %23, %
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 90:                                               ; preds = %35
-  %91 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
+  %91 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %91, align 8, !tbaa !42
@@ -3691,7 +3691,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %23, %
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 95:                                               ; preds = %35
-  %96 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
+  %96 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %96, align 8, !tbaa !42
@@ -3702,7 +3702,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %23, %
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 100:                                              ; preds = %35
-  %101 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  %101 = tail call ptr @__cxa_allocate_exception(i64 40) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %6)
@@ -3713,7 +3713,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %23, %
           to label %103 unwind label %105
 
 103:                                              ; preds = %102
-  invoke void @__cxa_throw(ptr nonnull %101, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #27
+  invoke void @__cxa_throw(ptr nonnull %101, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #28
           to label %113 unwind label %105
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds = %100
@@ -3740,14 +3740,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %105
   %110 = load i64, ptr %108, align 8, !tbaa !56
   %111 = add i64 %110, 1
-  call void @_ZdlPvm(ptr noundef %107, i64 noundef %111) #29
+  call void @_ZdlPvm(ptr noundef %107, i64 noundef %111) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.0.i, label %112, label %common.resume
 
 112:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i
   %.pn3.i = phi { ptr, i32 } [ %104, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %106, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %106, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ]
-  call void @__cxa_free_exception(ptr %101) #16
+  call void @__cxa_free_exception(ptr %101) #17
   br label %common.resume
 
 113:                                              ; preds = %103
@@ -3767,7 +3767,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %105
   ]
 
 115:                                              ; preds = %114
-  %116 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
+  %116 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #29
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %117, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %116, align 8, !tbaa !42
@@ -3785,7 +3785,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %105
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 125:                                              ; preds = %114
-  %126 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
+  %126 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #29
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %126, align 8, !tbaa !42
@@ -3803,7 +3803,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %105
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 135:                                              ; preds = %114
-  %136 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
+  %136 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %137, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %136, align 8, !tbaa !42
@@ -3819,7 +3819,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %105
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 143:                                              ; preds = %114
-  %144 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
+  %144 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %145, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %144, align 8, !tbaa !42
@@ -3835,7 +3835,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %105
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 151:                                              ; preds = %114
-  %152 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
+  %152 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %153, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %152, align 8, !tbaa !42
@@ -3851,7 +3851,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %105
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 159:                                              ; preds = %114
-  %160 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
+  %160 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %161, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %160, align 8, !tbaa !42
@@ -3862,7 +3862,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %105
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 164:                                              ; preds = %114
-  %165 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
+  %165 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %166, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %165, align 8, !tbaa !42
@@ -3873,7 +3873,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %105
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 169:                                              ; preds = %114
-  %170 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
+  %170 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %171, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %170, align 8, !tbaa !42
@@ -3884,7 +3884,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %105
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 174:                                              ; preds = %114
-  %175 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
+  %175 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %176, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %175, align 8, !tbaa !42
@@ -3895,7 +3895,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %105
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 179:                                              ; preds = %114
-  %180 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  %180 = tail call ptr @__cxa_allocate_exception(i64 40) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -3906,7 +3906,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %105
           to label %182 unwind label %184
 
 182:                                              ; preds = %181
-  invoke void @__cxa_throw(ptr nonnull %180, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #27
+  invoke void @__cxa_throw(ptr nonnull %180, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #28
           to label %192 unwind label %184
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i13: ; preds = %179
@@ -3933,14 +3933,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i17: ; preds = %184
   %189 = load i64, ptr %187, align 8, !tbaa !56
   %190 = add i64 %189, 1
-  call void @_ZdlPvm(ptr noundef %186, i64 noundef %190) #29
+  call void @_ZdlPvm(ptr noundef %186, i64 noundef %190) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.0.i16, label %191, label %common.resume
 
 191:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i13
   %.pn3.i14 = phi { ptr, i32 } [ %183, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i13 ], [ %185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i17 ], [ %185, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i18 ]
-  call void @__cxa_free_exception(ptr %180) #16
+  call void @__cxa_free_exception(ptr %180) #17
   br label %common.resume
 
 192:                                              ; preds = %182
@@ -3955,7 +3955,7 @@ _ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #21
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #22
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #9
 
@@ -4007,7 +4007,7 @@ define linkonce_odr void @_ZN5faiss16DistanceComputer17distances_batch_4EllllRfS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4057,13 +4057,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #30
   ret void
 }
 
@@ -4077,7 +4077,7 @@ define linkonce_odr noundef float @_ZN5faiss15ScalarQuantizer18SQDistanceCompute
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !125
   %.not.i = icmp eq i64 %4, 0
@@ -4125,7 +4125,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4184,18 +4184,18 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !129
   %.not.i = icmp eq i64 %4, 0
@@ -4249,7 +4249,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4303,18 +4303,18 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !133
   %.not.i = icmp eq i64 %4, 0
@@ -4366,7 +4366,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4523,18 +4523,18 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !137
   %.not.i = icmp eq i64 %4, 0
@@ -4634,7 +4634,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4699,18 +4699,18 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !141
   %.not.i = icmp eq i64 %4, 0
@@ -4770,7 +4770,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4841,18 +4841,18 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.val, 0
@@ -4910,7 +4910,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4951,18 +4951,18 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.val, 0
@@ -5005,7 +5005,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDir
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5042,18 +5042,18 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.val, 0
@@ -5094,7 +5094,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDir
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5132,18 +5132,18 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.val, 0
@@ -5186,7 +5186,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5235,18 +5235,18 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !153
   %.not.i = icmp eq i64 %4, 0
@@ -5293,7 +5293,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5351,18 +5351,18 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !157
   %.not.i = icmp eq i64 %4, 0
@@ -5415,7 +5415,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5468,18 +5468,18 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !161
   %.not.i = icmp eq i64 %4, 0
@@ -5530,7 +5530,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5686,18 +5686,18 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !165
   %.not.i = icmp eq i64 %4, 0
@@ -5796,7 +5796,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5860,18 +5860,18 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !169
   %.not.i = icmp eq i64 %4, 0
@@ -5930,7 +5930,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6000,18 +6000,18 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityI
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.val, 0
@@ -6068,7 +6068,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6108,18 +6108,18 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityI
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.val, 0
@@ -6161,7 +6161,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDir
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6197,18 +6197,18 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.val, 0
@@ -6248,7 +6248,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDir
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6288,18 +6288,18 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.val, 0
@@ -6363,7 +6363,7 @@ define noundef nonnull ptr @_ZNK5faiss15ScalarQuantizer26select_InvertedListScan
 
 16:                                               ; preds = %13
   %.not.i.i.i.i = icmp eq ptr %4, null
-  %17 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #28
+  %17 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #29
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !21
   %20 = trunc i64 %19 to i32
@@ -6415,7 +6415,7 @@ define noundef nonnull ptr @_ZNK5faiss15ScalarQuantizer26select_InvertedListScan
   br i1 %41, label %.noexc.i.i.i.i.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i:                               ; preds = %42
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i.i.i.i.i unwind label %54
 
 .noexc.i.i.i.i.i:                                 ; preds = %.noexc.i.i.i.i.i.i
@@ -6428,7 +6428,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i: ; preds = %42
 
 .noexc12.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i
   %46 = lshr exact i64 %sext.i.i.i.i.i, 30
-  %47 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %46) #28
+  %47 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %46) #29
           to label %.noexc8.i.i.i.i.i unwind label %54
 
 .noexc8.i.i.i.i.i:                                ; preds = %.noexc12.i.i.i.i.i.i
@@ -6454,7 +6454,7 @@ common.resume.i:                                  ; preds = %1117, %_ZNSt7__cxx1
 
 common.resume.i.i.i.i:                            ; preds = %99, %70, %54
   %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %55, %54 ], [ %71, %70 ], [ %100, %99 ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef 144) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef 144) #30
   br label %common.resume.i
 
 54:                                               ; preds = %.noexc12.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i
@@ -6490,7 +6490,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
   br i1 %41, label %.noexc.i.i29.i.i.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i22.i.i.i.i
 
 .noexc.i.i29.i.i.i.i:                             ; preds = %58
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i30.i.i.i.i unwind label %70
 
 .noexc.i30.i.i.i.i:                               ; preds = %.noexc.i.i29.i.i.i.i
@@ -6503,7 +6503,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i22.i.i.i.i: ; preds = %
 
 .noexc12.i.i24.i.i.i.i:                           ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i22.i.i.i.i
   %62 = lshr exact i64 %sext.i.i.i.i.i, 30
-  %63 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %62) #28
+  %63 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %62) #29
           to label %.noexc8.i25.i.i.i.i unwind label %70
 
 .noexc8.i25.i.i.i.i:                              ; preds = %.noexc12.i.i24.i.i.i.i
@@ -6570,7 +6570,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
   br i1 %90, label %.noexc.i.i40.i.i.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i33.i.i.i.i
 
 .noexc.i.i40.i.i.i.i:                             ; preds = %74
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i41.i.i.i.i unwind label %99
 
 .noexc.i41.i.i.i.i:                               ; preds = %.noexc.i.i40.i.i.i.i
@@ -6583,7 +6583,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i33.i.i.i.i: ; preds = %
 
 .noexc12.i.i35.i.i.i.i:                           ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i33.i.i.i.i
   %91 = lshr exact i64 %sext.i31.i.i.i.i, 30
-  %92 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %91) #28
+  %92 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %91) #29
           to label %.noexc8.i36.i.i.i.i unwind label %99
 
 .noexc8.i36.i.i.i.i:                              ; preds = %.noexc12.i.i35.i.i.i.i
@@ -6621,7 +6621,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
 
 104:                                              ; preds = %13
   %.not.i.i53.i.i = icmp eq ptr %4, null
-  %105 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #28
+  %105 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #29
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %107 = load i64, ptr %106, align 8, !tbaa !21
   %108 = trunc i64 %107 to i32
@@ -6673,7 +6673,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
   br i1 %129, label %.noexc.i.i.i.i75.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i68.i.i
 
 .noexc.i.i.i.i75.i.i:                             ; preds = %130
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i.i.i76.i.i unwind label %142
 
 .noexc.i.i.i76.i.i:                               ; preds = %.noexc.i.i.i.i75.i.i
@@ -6686,7 +6686,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i68.i.i: ; preds = %
 
 .noexc12.i.i.i.i70.i.i:                           ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i68.i.i
   %134 = lshr exact i64 %sext.i.i.i54.i.i, 30
-  %135 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %134) #28
+  %135 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %134) #29
           to label %.noexc8.i.i.i71.i.i unwind label %142
 
 .noexc8.i.i.i71.i.i:                              ; preds = %.noexc12.i.i.i.i70.i.i
@@ -6708,7 +6708,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i72.i.i: ; preds = 
 
 common.resume.i.i59.i.i:                          ; preds = %187, %158, %142
   %common.resume.op.i.i60.i.i = phi { ptr, i32 } [ %143, %142 ], [ %159, %158 ], [ %188, %187 ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %105, i64 noundef 144) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %105, i64 noundef 144) #30
   br label %common.resume.i
 
 142:                                              ; preds = %.noexc12.i.i.i.i70.i.i, %.noexc.i.i.i.i75.i.i
@@ -6744,7 +6744,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
   br i1 %129, label %.noexc.i.i29.i.i65.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i22.i.i56.i.i
 
 .noexc.i.i29.i.i65.i.i:                           ; preds = %146
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i30.i.i66.i.i unwind label %158
 
 .noexc.i30.i.i66.i.i:                             ; preds = %.noexc.i.i29.i.i65.i.i
@@ -6757,7 +6757,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i22.i.i56.i.i: ; preds =
 
 .noexc12.i.i24.i.i58.i.i:                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i22.i.i56.i.i
   %150 = lshr exact i64 %sext.i.i.i54.i.i, 30
-  %151 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %150) #28
+  %151 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %150) #29
           to label %.noexc8.i25.i.i61.i.i unwind label %158
 
 .noexc8.i25.i.i61.i.i:                            ; preds = %.noexc12.i.i24.i.i58.i.i
@@ -6824,7 +6824,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
   br i1 %178, label %.noexc.i.i40.i.i86.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i33.i.i79.i.i
 
 .noexc.i.i40.i.i86.i.i:                           ; preds = %162
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i41.i.i87.i.i unwind label %187
 
 .noexc.i41.i.i87.i.i:                             ; preds = %.noexc.i.i40.i.i86.i.i
@@ -6837,7 +6837,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i33.i.i79.i.i: ; preds =
 
 .noexc12.i.i35.i.i81.i.i:                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i33.i.i79.i.i
   %179 = lshr exact i64 %sext.i31.i.i77.i.i, 30
-  %180 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %179) #28
+  %180 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %179) #29
           to label %.noexc8.i36.i.i82.i.i unwind label %187
 
 .noexc8.i36.i.i82.i.i:                            ; preds = %.noexc12.i.i35.i.i81.i.i
@@ -6875,7 +6875,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
 
 192:                                              ; preds = %13
   %.not.i.i88.i.i = icmp eq ptr %4, null
-  %193 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #28
+  %193 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #29
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %195 = load i64, ptr %194, align 8, !tbaa !21
   %196 = trunc i64 %195 to i32
@@ -6925,7 +6925,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
   br i1 %217, label %.noexc.i.i.i.i110.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i103.i.i
 
 .noexc.i.i.i.i110.i.i:                            ; preds = %218
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i.i.i111.i.i unwind label %228
 
 .noexc.i.i.i111.i.i:                              ; preds = %.noexc.i.i.i.i110.i.i
@@ -6938,7 +6938,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i103.i.i: ; preds = 
 
 .noexc12.i.i.i.i105.i.i:                          ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i103.i.i
   %220 = lshr exact i64 %sext.i.i.i89.i.i, 30
-  %221 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %220) #28
+  %221 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %220) #29
           to label %.noexc8.i.i.i106.i.i unwind label %228
 
 .noexc8.i.i.i106.i.i:                             ; preds = %.noexc12.i.i.i.i105.i.i
@@ -6960,7 +6960,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i107.i.i: ; preds =
 
 common.resume.i.i94.i.i:                          ; preds = %269, %242, %228
   %common.resume.op.i.i95.i.i = phi { ptr, i32 } [ %229, %228 ], [ %243, %242 ], [ %270, %269 ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %193, i64 noundef 152) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %193, i64 noundef 152) #30
   br label %common.resume.i
 
 228:                                              ; preds = %.noexc12.i.i.i.i105.i.i, %.noexc.i.i.i.i110.i.i
@@ -6994,7 +6994,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
   br i1 %217, label %.noexc.i.i29.i.i100.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i22.i.i91.i.i
 
 .noexc.i.i29.i.i100.i.i:                          ; preds = %232
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i30.i.i101.i.i unwind label %242
 
 .noexc.i30.i.i101.i.i:                            ; preds = %.noexc.i.i29.i.i100.i.i
@@ -7007,7 +7007,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i22.i.i91.i.i: ; preds =
 
 .noexc12.i.i24.i.i93.i.i:                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i22.i.i91.i.i
   %234 = lshr exact i64 %sext.i.i.i89.i.i, 30
-  %235 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %234) #28
+  %235 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %234) #29
           to label %.noexc8.i25.i.i96.i.i unwind label %242
 
 .noexc8.i25.i.i96.i.i:                            ; preds = %.noexc12.i.i24.i.i93.i.i
@@ -7072,7 +7072,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
   br i1 %260, label %.noexc.i.i40.i.i121.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i33.i.i114.i.i
 
 .noexc.i.i40.i.i121.i.i:                          ; preds = %246
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i41.i.i122.i.i unwind label %269
 
 .noexc.i41.i.i122.i.i:                            ; preds = %.noexc.i.i40.i.i121.i.i
@@ -7085,7 +7085,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i33.i.i114.i.i: ; preds 
 
 .noexc12.i.i35.i.i116.i.i:                        ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i33.i.i114.i.i
   %261 = lshr exact i64 %sext.i31.i.i112.i.i, 30
-  %262 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %261) #28
+  %262 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %261) #29
           to label %.noexc8.i36.i.i117.i.i unwind label %269
 
 .noexc8.i36.i.i117.i.i:                           ; preds = %.noexc12.i.i35.i.i116.i.i
@@ -7123,7 +7123,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
 
 274:                                              ; preds = %13
   %.not.i.i123.i.i = icmp eq ptr %4, null
-  %275 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #28
+  %275 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #29
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %277 = load i64, ptr %276, align 8, !tbaa !21
   %278 = trunc i64 %277 to i32
@@ -7173,7 +7173,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
   br i1 %299, label %.noexc.i.i.i.i145.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i138.i.i
 
 .noexc.i.i.i.i145.i.i:                            ; preds = %300
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i.i.i146.i.i unwind label %310
 
 .noexc.i.i.i146.i.i:                              ; preds = %.noexc.i.i.i.i145.i.i
@@ -7186,7 +7186,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i138.i.i: ; preds = 
 
 .noexc12.i.i.i.i140.i.i:                          ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i138.i.i
   %302 = lshr exact i64 %sext.i.i.i124.i.i, 30
-  %303 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %302) #28
+  %303 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %302) #29
           to label %.noexc8.i.i.i141.i.i unwind label %310
 
 .noexc8.i.i.i141.i.i:                             ; preds = %.noexc12.i.i.i.i140.i.i
@@ -7208,7 +7208,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i142.i.i: ; preds =
 
 common.resume.i.i129.i.i:                         ; preds = %351, %324, %310
   %common.resume.op.i.i130.i.i = phi { ptr, i32 } [ %311, %310 ], [ %325, %324 ], [ %352, %351 ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %275, i64 noundef 152) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %275, i64 noundef 152) #30
   br label %common.resume.i
 
 310:                                              ; preds = %.noexc12.i.i.i.i140.i.i, %.noexc.i.i.i.i145.i.i
@@ -7242,7 +7242,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
   br i1 %299, label %.noexc.i.i29.i.i135.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i22.i.i126.i.i
 
 .noexc.i.i29.i.i135.i.i:                          ; preds = %314
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i30.i.i136.i.i unwind label %324
 
 .noexc.i30.i.i136.i.i:                            ; preds = %.noexc.i.i29.i.i135.i.i
@@ -7255,7 +7255,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i22.i.i126.i.i: ; preds 
 
 .noexc12.i.i24.i.i128.i.i:                        ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i22.i.i126.i.i
   %316 = lshr exact i64 %sext.i.i.i124.i.i, 30
-  %317 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %316) #28
+  %317 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %316) #29
           to label %.noexc8.i25.i.i131.i.i unwind label %324
 
 .noexc8.i25.i.i131.i.i:                           ; preds = %.noexc12.i.i24.i.i128.i.i
@@ -7320,7 +7320,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
   br i1 %342, label %.noexc.i.i40.i.i156.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i33.i.i149.i.i
 
 .noexc.i.i40.i.i156.i.i:                          ; preds = %328
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i41.i.i157.i.i unwind label %351
 
 .noexc.i41.i.i157.i.i:                            ; preds = %.noexc.i.i40.i.i156.i.i
@@ -7333,7 +7333,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i33.i.i149.i.i: ; preds 
 
 .noexc12.i.i35.i.i151.i.i:                        ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i33.i.i149.i.i
   %343 = lshr exact i64 %sext.i31.i.i147.i.i, 30
-  %344 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %343) #28
+  %344 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %343) #29
           to label %.noexc8.i36.i.i152.i.i unwind label %351
 
 .noexc8.i36.i.i152.i.i:                           ; preds = %.noexc12.i.i35.i.i151.i.i
@@ -7371,7 +7371,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
 
 356:                                              ; preds = %13
   %.not.i.i158.i.i = icmp eq ptr %4, null
-  %357 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #28
+  %357 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #29
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %359 = load i64, ptr %358, align 8, !tbaa !21
   %360 = trunc i64 %359 to i32
@@ -7421,7 +7421,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
   br i1 %381, label %.noexc.i.i.i.i180.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i173.i.i
 
 .noexc.i.i.i.i180.i.i:                            ; preds = %382
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i.i.i181.i.i unwind label %392
 
 .noexc.i.i.i181.i.i:                              ; preds = %.noexc.i.i.i.i180.i.i
@@ -7434,7 +7434,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i173.i.i: ; preds = 
 
 .noexc12.i.i.i.i175.i.i:                          ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i173.i.i
   %384 = lshr exact i64 %sext.i.i.i159.i.i, 30
-  %385 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %384) #28
+  %385 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %384) #29
           to label %.noexc8.i.i.i176.i.i unwind label %392
 
 .noexc8.i.i.i176.i.i:                             ; preds = %.noexc12.i.i.i.i175.i.i
@@ -7456,7 +7456,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i177.i.i: ; preds =
 
 common.resume.i.i164.i.i:                         ; preds = %433, %406, %392
   %common.resume.op.i.i165.i.i = phi { ptr, i32 } [ %393, %392 ], [ %407, %406 ], [ %434, %433 ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %357, i64 noundef 152) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %357, i64 noundef 152) #30
   br label %common.resume.i
 
 392:                                              ; preds = %.noexc12.i.i.i.i175.i.i, %.noexc.i.i.i.i180.i.i
@@ -7490,7 +7490,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
   br i1 %381, label %.noexc.i.i29.i.i170.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i22.i.i161.i.i
 
 .noexc.i.i29.i.i170.i.i:                          ; preds = %396
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i30.i.i171.i.i unwind label %406
 
 .noexc.i30.i.i171.i.i:                            ; preds = %.noexc.i.i29.i.i170.i.i
@@ -7503,7 +7503,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i22.i.i161.i.i: ; preds 
 
 .noexc12.i.i24.i.i163.i.i:                        ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i22.i.i161.i.i
   %398 = lshr exact i64 %sext.i.i.i159.i.i, 30
-  %399 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %398) #28
+  %399 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %398) #29
           to label %.noexc8.i25.i.i166.i.i unwind label %406
 
 .noexc8.i25.i.i166.i.i:                           ; preds = %.noexc12.i.i24.i.i163.i.i
@@ -7568,7 +7568,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
   br i1 %424, label %.noexc.i.i40.i.i191.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i33.i.i184.i.i
 
 .noexc.i.i40.i.i191.i.i:                          ; preds = %410
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i41.i.i192.i.i unwind label %433
 
 .noexc.i41.i.i192.i.i:                            ; preds = %.noexc.i.i40.i.i191.i.i
@@ -7581,7 +7581,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i33.i.i184.i.i: ; preds 
 
 .noexc12.i.i35.i.i186.i.i:                        ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i33.i.i184.i.i
   %425 = lshr exact i64 %sext.i31.i.i182.i.i, 30
-  %426 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %425) #28
+  %426 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %425) #29
           to label %.noexc8.i36.i.i187.i.i unwind label %433
 
 .noexc8.i36.i.i187.i.i:                           ; preds = %.noexc12.i.i35.i.i186.i.i
@@ -7619,7 +7619,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
 
 438:                                              ; preds = %13
   %.not.i.i.i = icmp eq ptr %4, null
-  %439 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #28
+  %439 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #29
   %440 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %441 = load i64, ptr %440, align 8, !tbaa !21
   %442 = trunc i64 %441 to i32
@@ -7662,7 +7662,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
   br i1 %460, label %.noexc.i.i.i193.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i
 
 .noexc.i.i.i193.i.i:                              ; preds = %461
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i.i.i.i unwind label %470
 
 .noexc.i.i.i.i:                                   ; preds = %.noexc.i.i.i193.i.i
@@ -7675,7 +7675,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i: ; preds = %461
 
 .noexc12.i.i.i.i.i:                               ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i
   %462 = lshr exact i64 %sext.i.i.i.i, 30
-  %463 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %462) #28
+  %463 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %462) #29
           to label %.noexc8.i.i.i.i unwind label %470
 
 .noexc8.i.i.i.i:                                  ; preds = %.noexc12.i.i.i.i.i
@@ -7697,7 +7697,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i: ; preds = %.no
 
 common.resume.i.i.i:                              ; preds = %507, %483, %470
   %common.resume.op.i.i.i = phi { ptr, i32 } [ %471, %470 ], [ %484, %483 ], [ %508, %507 ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %439, i64 noundef 136) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %439, i64 noundef 136) #30
   br label %common.resume.i
 
 470:                                              ; preds = %.noexc12.i.i.i.i.i, %.noexc.i.i.i193.i.i
@@ -7727,7 +7727,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_13Quantiz
   br i1 %460, label %.noexc.i.i28.i.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i.i
 
 .noexc.i.i28.i.i.i:                               ; preds = %474
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i29.i.i.i unwind label %483
 
 .noexc.i29.i.i.i:                                 ; preds = %.noexc.i.i28.i.i.i
@@ -7740,7 +7740,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i.i: ; preds = %47
 
 .noexc12.i.i23.i.i.i:                             ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i.i
   %475 = lshr exact i64 %sext.i.i.i.i, 30
-  %476 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %475) #28
+  %476 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %475) #29
           to label %.noexc8.i24.i.i.i unwind label %483
 
 .noexc8.i24.i.i.i:                                ; preds = %.noexc12.i.i23.i.i.i
@@ -7799,7 +7799,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_13Quantiz
   br i1 %498, label %.noexc.i.i38.i.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i31.i.i.i
 
 .noexc.i.i38.i.i.i:                               ; preds = %487
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i39.i.i.i unwind label %507
 
 .noexc.i39.i.i.i:                                 ; preds = %.noexc.i.i38.i.i.i
@@ -7812,7 +7812,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i31.i.i.i: ; preds = %48
 
 .noexc12.i.i33.i.i.i:                             ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i31.i.i.i
   %499 = lshr exact i64 %sext.i30.i.i.i, 30
-  %500 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %499) #28
+  %500 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %499) #29
           to label %.noexc8.i34.i.i.i unwind label %507
 
 .noexc8.i34.i.i.i:                                ; preds = %.noexc12.i.i33.i.i.i
@@ -7850,7 +7850,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_13Quantiz
 
 512:                                              ; preds = %13
   %.not.i194.i.i = icmp eq ptr %4, null
-  %513 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #28
+  %513 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #29
   %514 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %515 = load i64, ptr %514, align 8, !tbaa !21
   %516 = trunc i64 %515 to i32
@@ -7893,7 +7893,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_13Quantiz
   br i1 %534, label %.noexc.i.i.i214.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i207.i.i
 
 .noexc.i.i.i214.i.i:                              ; preds = %535
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i.i215.i.i unwind label %544
 
 .noexc.i.i215.i.i:                                ; preds = %.noexc.i.i.i214.i.i
@@ -7906,7 +7906,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i207.i.i: ; preds = %5
 
 .noexc12.i.i.i209.i.i:                            ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i207.i.i
   %536 = lshr exact i64 %sext.i.i195.i.i, 30
-  %537 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %536) #28
+  %537 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %536) #29
           to label %.noexc8.i.i210.i.i unwind label %544
 
 .noexc8.i.i210.i.i:                               ; preds = %.noexc12.i.i.i209.i.i
@@ -7928,7 +7928,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i211.i.i: ; preds = %
 
 common.resume.i199.i.i:                           ; preds = %581, %557, %544
   %common.resume.op.i200.i.i = phi { ptr, i32 } [ %545, %544 ], [ %558, %557 ], [ %582, %581 ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %513, i64 noundef 136) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %513, i64 noundef 136) #30
   br label %common.resume.i
 
 544:                                              ; preds = %.noexc12.i.i.i209.i.i, %.noexc.i.i.i214.i.i
@@ -7958,7 +7958,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_13Quantiz
   br i1 %534, label %.noexc.i.i28.i205.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i196.i.i
 
 .noexc.i.i28.i205.i.i:                            ; preds = %548
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i29.i206.i.i unwind label %557
 
 .noexc.i29.i206.i.i:                              ; preds = %.noexc.i.i28.i205.i.i
@@ -7971,7 +7971,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i196.i.i: ; preds = 
 
 .noexc12.i.i23.i198.i.i:                          ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i196.i.i
   %549 = lshr exact i64 %sext.i.i195.i.i, 30
-  %550 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %549) #28
+  %550 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %549) #29
           to label %.noexc8.i24.i201.i.i unwind label %557
 
 .noexc8.i24.i201.i.i:                             ; preds = %.noexc12.i.i23.i198.i.i
@@ -8030,7 +8030,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_13Quantiz
   br i1 %572, label %.noexc.i.i38.i224.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i31.i217.i.i
 
 .noexc.i.i38.i224.i.i:                            ; preds = %561
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i39.i225.i.i unwind label %581
 
 .noexc.i39.i225.i.i:                              ; preds = %.noexc.i.i38.i224.i.i
@@ -8043,7 +8043,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i31.i217.i.i: ; preds = 
 
 .noexc12.i.i33.i219.i.i:                          ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i31.i217.i.i
   %573 = lshr exact i64 %sext.i30.i216.i.i, 30
-  %574 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %573) #28
+  %574 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %573) #29
           to label %.noexc8.i34.i220.i.i unwind label %581
 
 .noexc8.i34.i220.i.i:                             ; preds = %.noexc12.i.i33.i219.i.i
@@ -8081,7 +8081,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_13Quantiz
 
 586:                                              ; preds = %13
   %.not.i226.i.i = icmp eq ptr %4, null
-  %587 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #28
+  %587 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #29
   %588 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %589 = load i64, ptr %588, align 8, !tbaa !21
   %590 = trunc i64 %589 to i32
@@ -8124,7 +8124,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_13Quantiz
   br i1 %608, label %.noexc.i.i.i246.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i239.i.i
 
 .noexc.i.i.i246.i.i:                              ; preds = %609
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i.i247.i.i unwind label %618
 
 .noexc.i.i247.i.i:                                ; preds = %.noexc.i.i.i246.i.i
@@ -8137,7 +8137,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i239.i.i: ; preds = %6
 
 .noexc12.i.i.i241.i.i:                            ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i239.i.i
   %610 = lshr exact i64 %sext.i.i227.i.i, 30
-  %611 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %610) #28
+  %611 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %610) #29
           to label %.noexc8.i.i242.i.i unwind label %618
 
 .noexc8.i.i242.i.i:                               ; preds = %.noexc12.i.i.i241.i.i
@@ -8159,7 +8159,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i243.i.i: ; preds = %
 
 common.resume.i231.i.i:                           ; preds = %655, %631, %618
   %common.resume.op.i232.i.i = phi { ptr, i32 } [ %619, %618 ], [ %632, %631 ], [ %656, %655 ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %587, i64 noundef 136) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %587, i64 noundef 136) #30
   br label %common.resume.i
 
 618:                                              ; preds = %.noexc12.i.i.i241.i.i, %.noexc.i.i.i246.i.i
@@ -8189,7 +8189,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_19Quantiz
   br i1 %608, label %.noexc.i.i28.i237.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i228.i.i
 
 .noexc.i.i28.i237.i.i:                            ; preds = %622
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i29.i238.i.i unwind label %631
 
 .noexc.i29.i238.i.i:                              ; preds = %.noexc.i.i28.i237.i.i
@@ -8202,7 +8202,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i228.i.i: ; preds = 
 
 .noexc12.i.i23.i230.i.i:                          ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i228.i.i
   %623 = lshr exact i64 %sext.i.i227.i.i, 30
-  %624 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %623) #28
+  %624 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %623) #29
           to label %.noexc8.i24.i233.i.i unwind label %631
 
 .noexc8.i24.i233.i.i:                             ; preds = %.noexc12.i.i23.i230.i.i
@@ -8261,7 +8261,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_19Quantiz
   br i1 %646, label %.noexc.i.i38.i256.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i31.i249.i.i
 
 .noexc.i.i38.i256.i.i:                            ; preds = %635
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i39.i257.i.i unwind label %655
 
 .noexc.i39.i257.i.i:                              ; preds = %.noexc.i.i38.i256.i.i
@@ -8274,7 +8274,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i31.i249.i.i: ; preds = 
 
 .noexc12.i.i33.i251.i.i:                          ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i31.i249.i.i
   %647 = lshr exact i64 %sext.i30.i248.i.i, 30
-  %648 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %647) #28
+  %648 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %647) #29
           to label %.noexc8.i34.i252.i.i unwind label %655
 
 .noexc8.i34.i252.i.i:                             ; preds = %.noexc12.i.i33.i251.i.i
@@ -8312,7 +8312,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_19Quantiz
 
 660:                                              ; preds = %13
   %.not.i258.i.i = icmp eq ptr %4, null
-  %661 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #28
+  %661 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #29
   %662 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %663 = load i64, ptr %662, align 8, !tbaa !21
   %664 = trunc i64 %663 to i32
@@ -8355,7 +8355,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_19Quantiz
   br i1 %682, label %.noexc.i.i.i278.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i271.i.i
 
 .noexc.i.i.i278.i.i:                              ; preds = %683
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i.i279.i.i unwind label %692
 
 .noexc.i.i279.i.i:                                ; preds = %.noexc.i.i.i278.i.i
@@ -8368,7 +8368,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i271.i.i: ; preds = %6
 
 .noexc12.i.i.i273.i.i:                            ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i271.i.i
   %684 = lshr exact i64 %sext.i.i259.i.i, 30
-  %685 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %684) #28
+  %685 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %684) #29
           to label %.noexc8.i.i274.i.i unwind label %692
 
 .noexc8.i.i274.i.i:                               ; preds = %.noexc12.i.i.i273.i.i
@@ -8390,7 +8390,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i275.i.i: ; preds = %
 
 common.resume.i263.i.i:                           ; preds = %729, %705, %692
   %common.resume.op.i264.i.i = phi { ptr, i32 } [ %693, %692 ], [ %706, %705 ], [ %730, %729 ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %661, i64 noundef 136) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %661, i64 noundef 136) #30
   br label %common.resume.i
 
 692:                                              ; preds = %.noexc12.i.i.i273.i.i, %.noexc.i.i.i278.i.i
@@ -8420,7 +8420,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_25Quantiz
   br i1 %682, label %.noexc.i.i28.i269.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i260.i.i
 
 .noexc.i.i28.i269.i.i:                            ; preds = %696
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i29.i270.i.i unwind label %705
 
 .noexc.i29.i270.i.i:                              ; preds = %.noexc.i.i28.i269.i.i
@@ -8433,7 +8433,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i260.i.i: ; preds = 
 
 .noexc12.i.i23.i262.i.i:                          ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i260.i.i
   %697 = lshr exact i64 %sext.i.i259.i.i, 30
-  %698 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %697) #28
+  %698 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %697) #29
           to label %.noexc8.i24.i265.i.i unwind label %705
 
 .noexc8.i24.i265.i.i:                             ; preds = %.noexc12.i.i23.i262.i.i
@@ -8492,7 +8492,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_25Quantiz
   br i1 %720, label %.noexc.i.i38.i288.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i31.i281.i.i
 
 .noexc.i.i38.i288.i.i:                            ; preds = %709
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
           to label %.noexc.i39.i289.i.i unwind label %729
 
 .noexc.i39.i289.i.i:                              ; preds = %.noexc.i.i38.i288.i.i
@@ -8505,7 +8505,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i31.i281.i.i: ; preds = 
 
 .noexc12.i.i33.i283.i.i:                          ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i31.i281.i.i
   %721 = lshr exact i64 %sext.i30.i280.i.i, 30
-  %722 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %721) #28
+  %722 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %721) #29
           to label %.noexc8.i34.i284.i.i unwind label %729
 
 .noexc8.i34.i284.i.i:                             ; preds = %.noexc12.i.i33.i283.i.i
@@ -8542,7 +8542,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_25Quantiz
   br label %_ZN5faiss12_GLOBAL__N_124sel0_InvertedListScannerILi1EEEPNS_19InvertedListScannerENS_10MetricTypeEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit
 
 734:                                              ; preds = %13
-  %735 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  %735 = tail call ptr @__cxa_allocate_exception(i64 40) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %10)
@@ -8553,7 +8553,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_25Quantiz
           to label %737 unwind label %739
 
 737:                                              ; preds = %736
-  invoke void @__cxa_throw(ptr nonnull %735, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #27
+  invoke void @__cxa_throw(ptr nonnull %735, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #28
           to label %747 unwind label %739
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i.i: ; preds = %734
@@ -8580,14 +8580,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %739
   %744 = load i64, ptr %742, align 8, !tbaa !56
   %745 = add i64 %744, 1
-  call void @_ZdlPvm(ptr noundef %741, i64 noundef %745) #29
+  call void @_ZdlPvm(ptr noundef %741, i64 noundef %745) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.0.i.i, label %746, label %common.resume.i
 
 746:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i.i
   %.pn293.i.i = phi { ptr, i32 } [ %738, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i.i ], [ %740, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ], [ %740, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ]
-  call void @__cxa_free_exception(ptr %735) #16
+  call void @__cxa_free_exception(ptr %735) #17
   br label %common.resume.i
 
 747:                                              ; preds = %737
@@ -8610,7 +8610,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %7
 
 751:                                              ; preds = %748
   %.not.i.i.i26.i = icmp eq ptr %4, null
-  %752 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #28
+  %752 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #29
   %753 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %754 = load i64, ptr %753, align 8, !tbaa !21
   %755 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -8711,7 +8711,7 @@ _ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_
 
 797:                                              ; preds = %748
   %.not.i.i53.i23.i = icmp eq ptr %4, null
-  %798 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #28
+  %798 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #29
   %799 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %800 = load i64, ptr %799, align 8, !tbaa !21
   %801 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -8812,7 +8812,7 @@ _ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_
 
 843:                                              ; preds = %748
   %.not.i.i59.i.i = icmp eq ptr %4, null
-  %844 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #28
+  %844 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #29
   %845 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %846 = load i64, ptr %845, align 8, !tbaa !21
   %847 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -8907,7 +8907,7 @@ _ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_
 
 883:                                              ; preds = %748
   %.not.i.i65.i.i = icmp eq ptr %4, null
-  %884 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #28
+  %884 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #29
   %885 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %886 = load i64, ptr %885, align 8, !tbaa !21
   %887 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -9002,7 +9002,7 @@ _ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_
 
 923:                                              ; preds = %748
   %.not.i.i71.i.i = icmp eq ptr %4, null
-  %924 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #28
+  %924 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #29
   %925 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %926 = load i64, ptr %925, align 8, !tbaa !21
   %927 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -9097,7 +9097,7 @@ _ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_
 
 963:                                              ; preds = %748
   %.not.i.i21.i = icmp eq ptr %4, null
-  %964 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #28
+  %964 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #29
   %965 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %966 = load i64, ptr %965, align 8, !tbaa !21
   %967 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9172,7 +9172,7 @@ _ZN5faiss12_GLOBAL__N_124sel2_InvertedListScannerINS0_10DCTemplateINS0_13Quantiz
 
 995:                                              ; preds = %748
   %.not.i77.i.i = icmp eq ptr %4, null
-  %996 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #28
+  %996 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #29
   %997 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %998 = load i64, ptr %997, align 8, !tbaa !21
   %999 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9247,7 +9247,7 @@ _ZN5faiss12_GLOBAL__N_124sel2_InvertedListScannerINS0_10DCTemplateINS0_13Quantiz
 
 1027:                                             ; preds = %748
   %.not.i82.i.i = icmp eq ptr %4, null
-  %1028 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #28
+  %1028 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #29
   %1029 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1030 = load i64, ptr %1029, align 8, !tbaa !21
   %1031 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9322,7 +9322,7 @@ _ZN5faiss12_GLOBAL__N_124sel2_InvertedListScannerINS0_10DCTemplateINS0_19Quantiz
 
 1059:                                             ; preds = %748
   %.not.i87.i.i = icmp eq ptr %4, null
-  %1060 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #28
+  %1060 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #29
   %1061 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1062 = load i64, ptr %1061, align 8, !tbaa !21
   %1063 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9396,7 +9396,7 @@ _ZN5faiss12_GLOBAL__N_124sel2_InvertedListScannerINS0_10DCTemplateINS0_25Quantiz
   br label %_ZN5faiss12_GLOBAL__N_124sel0_InvertedListScannerILi1EEEPNS_19InvertedListScannerENS_10MetricTypeEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit
 
 1091:                                             ; preds = %748
-  %1092 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  %1092 = tail call ptr @__cxa_allocate_exception(i64 40) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %8)
@@ -9407,7 +9407,7 @@ _ZN5faiss12_GLOBAL__N_124sel2_InvertedListScannerINS0_10DCTemplateINS0_25Quantiz
           to label %1094 unwind label %1096
 
 1094:                                             ; preds = %1093
-  invoke void @__cxa_throw(ptr nonnull %1092, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #27
+  invoke void @__cxa_throw(ptr nonnull %1092, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #28
           to label %1104 unwind label %1096
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i30.i: ; preds = %1091
@@ -9434,21 +9434,21 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i32.i: ; preds = %1096
   %1101 = load i64, ptr %1099, align 8, !tbaa !56
   %1102 = add i64 %1101, 1
-  call void @_ZdlPvm(ptr noundef %1098, i64 noundef %1102) #29
+  call void @_ZdlPvm(ptr noundef %1098, i64 noundef %1102) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.0.i31.i, label %1103, label %common.resume.i
 
 1103:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i32.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i33.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i30.i
   %.pn4.i.i = phi { ptr, i32 } [ %1095, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i30.i ], [ %1097, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i32.i ], [ %1097, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i33.i ]
-  call void @__cxa_free_exception(ptr %1092) #16
+  call void @__cxa_free_exception(ptr %1092) #17
   br label %common.resume.i
 
 1104:                                             ; preds = %1094
   unreachable
 
 1105:                                             ; preds = %6
-  %1106 = tail call ptr @__cxa_allocate_exception(i64 40) #16
+  %1106 = tail call ptr @__cxa_allocate_exception(i64 40) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.10, ptr noundef nonnull align 1 dereferenceable(1) %12)
@@ -9459,7 +9459,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i32.i: ; preds = 
           to label %1108 unwind label %1110
 
 1108:                                             ; preds = %1107
-  invoke void @__cxa_throw(ptr nonnull %1106, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #27
+  invoke void @__cxa_throw(ptr nonnull %1106, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #28
           to label %1118 unwind label %1110
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds = %1105
@@ -9486,14 +9486,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %1110
   %1115 = load i64, ptr %1113, align 8, !tbaa !56
   %1116 = add i64 %1115, 1
-  call void @_ZdlPvm(ptr noundef %1112, i64 noundef %1116) #29
+  call void @_ZdlPvm(ptr noundef %1112, i64 noundef %1116) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.0.i, label %1117, label %common.resume.i
 
 1117:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i
   %.pn37.i = phi { ptr, i32 } [ %1109, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %1111, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %1111, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ]
-  call void @__cxa_free_exception(ptr %1106) #16
+  call void @__cxa_free_exception(ptr %1106) #17
   br label %common.resume.i
 
 1118:                                             ; preds = %1108
@@ -9557,7 +9557,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !125
   %.not.i.i = icmp eq i64 %4, 0
@@ -9882,7 +9882,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -9903,11 +9903,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #30
   ret void
 }
 
@@ -9966,7 +9966,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !125
   %.not.i.i = icmp eq i64 %4, 0
@@ -10289,7 +10289,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -10310,11 +10310,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #30
   ret void
 }
 
@@ -10371,7 +10371,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !125
   %.not.i.i = icmp eq i64 %4, 0
@@ -10412,7 +10412,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #17 align 2 {
+define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -10791,7 +10791,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -10812,11 +10812,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #30
   ret void
 }
 
@@ -10873,7 +10873,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !129
   %.not.i.i = icmp eq i64 %4, 0
@@ -11212,7 +11212,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -11233,11 +11233,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #30
   ret void
 }
 
@@ -11294,7 +11294,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !129
   %.not.i.i = icmp eq i64 %4, 0
@@ -11635,7 +11635,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -11656,11 +11656,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #30
   ret void
 }
 
@@ -11717,7 +11717,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !129
   %.not.i.i = icmp eq i64 %4, 0
@@ -11764,7 +11764,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #17 align 2 {
+define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -12040,7 +12040,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -12061,11 +12061,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #30
   ret void
 }
 
@@ -12122,7 +12122,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !133
   %.not.i.i = icmp eq i64 %4, 0
@@ -12455,7 +12455,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -12476,11 +12476,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #30
   ret void
 }
 
@@ -12537,7 +12537,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !133
   %.not.i.i = icmp eq i64 %4, 0
@@ -12872,7 +12872,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -12893,11 +12893,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #30
   ret void
 }
 
@@ -12954,7 +12954,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !133
   %.not.i.i = icmp eq i64 %4, 0
@@ -12999,7 +12999,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #17 align 2 {
+define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -13384,7 +13384,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -13405,11 +13405,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #30
   ret void
 }
 
@@ -13466,7 +13466,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !141
   %.not.i.i = icmp eq i64 %4, 0
@@ -13823,7 +13823,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -13844,11 +13844,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #30
   ret void
 }
 
@@ -13905,7 +13905,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !141
   %.not.i.i = icmp eq i64 %4, 0
@@ -14264,7 +14264,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -14285,11 +14285,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #30
   ret void
 }
 
@@ -14346,7 +14346,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !141
   %.not.i.i = icmp eq i64 %4, 0
@@ -14399,7 +14399,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #17 align 2 {
+define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -14684,7 +14684,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -14705,11 +14705,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #30
   ret void
 }
 
@@ -14766,7 +14766,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !137
   %.not.i.i = icmp eq i64 %4, 0
@@ -15243,7 +15243,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -15264,11 +15264,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #30
   ret void
 }
 
@@ -15325,7 +15325,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !137
   %.not.i.i = icmp eq i64 %4, 0
@@ -15804,7 +15804,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -15825,11 +15825,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #30
   ret void
 }
 
@@ -15886,7 +15886,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !137
   %.not.i.i = icmp eq i64 %4, 0
@@ -15979,7 +15979,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #17 align 2 {
+define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -16347,7 +16347,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -16368,11 +16368,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #30
   ret void
 }
 
@@ -16429,7 +16429,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
@@ -16780,7 +16780,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -16801,11 +16801,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #30
   ret void
 }
 
@@ -16862,7 +16862,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
@@ -17215,7 +17215,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -17236,11 +17236,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #30
   ret void
 }
 
@@ -17297,7 +17297,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
@@ -17348,7 +17348,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #17 align 2 {
+define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -17629,7 +17629,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -17650,11 +17650,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #30
   ret void
 }
 
@@ -17711,7 +17711,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
@@ -18092,7 +18092,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -18113,11 +18113,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #30
   ret void
 }
 
@@ -18174,7 +18174,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
@@ -18558,7 +18558,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -18579,11 +18579,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #30
   ret void
 }
 
@@ -18640,7 +18640,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
@@ -18676,7 +18676,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #17 align 2 {
+define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -19030,7 +19030,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -19051,11 +19051,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #30
   ret void
 }
 
@@ -19112,7 +19112,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
@@ -19485,7 +19485,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -19506,11 +19506,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #30
   ret void
 }
 
@@ -19567,7 +19567,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
@@ -19943,7 +19943,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -19964,11 +19964,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #30
   ret void
 }
 
@@ -20025,7 +20025,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
@@ -20059,7 +20059,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #17 align 2 {
+define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -20405,7 +20405,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -20426,11 +20426,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #30
   ret void
 }
 
@@ -20487,7 +20487,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
@@ -20868,7 +20868,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -20889,11 +20889,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #30
   ret void
 }
 
@@ -20950,7 +20950,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
@@ -21334,7 +21334,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -21355,11 +21355,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #30
   ret void
 }
 
@@ -21416,7 +21416,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
@@ -21452,7 +21452,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #17 align 2 {
+define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -21806,7 +21806,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -21827,11 +21827,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit
 
 _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #30
   ret void
 }
 
@@ -21856,7 +21856,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %4 = load float, ptr %3, align 4, !tbaa !304
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -22170,13 +22170,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 104) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 104) #30
   ret void
 }
 
@@ -22201,7 +22201,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %4 = load float, ptr %3, align 4, !tbaa !307
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -22517,13 +22517,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 104) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 104) #30
   ret void
 }
 
@@ -22548,7 +22548,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %4 = load float, ptr %3, align 4, !tbaa !310
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -22591,7 +22591,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #17 align 2 {
+define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -22963,13 +22963,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 104) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 104) #30
   ret void
 }
 
@@ -22994,7 +22994,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %4 = load float, ptr %3, align 4, !tbaa !313
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -23326,13 +23326,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 104) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 104) #30
   ret void
 }
 
@@ -23357,7 +23357,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %4 = load float, ptr %3, align 4, !tbaa !316
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -23691,13 +23691,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 104) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 104) #30
   ret void
 }
 
@@ -23722,7 +23722,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %4 = load float, ptr %3, align 4, !tbaa !319
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -23771,7 +23771,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #17 align 2 {
+define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -24038,13 +24038,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 104) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 104) #30
   ret void
 }
 
@@ -24069,7 +24069,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4, !tbaa !322
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -24395,13 +24395,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #30
   ret void
 }
 
@@ -24426,7 +24426,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4, !tbaa !325
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -24754,13 +24754,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #30
   ret void
 }
 
@@ -24785,7 +24785,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4, !tbaa !328
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -24832,7 +24832,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #17 align 2 {
+define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -25207,13 +25207,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #30
   ret void
 }
 
@@ -25238,7 +25238,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4, !tbaa !331
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -25588,13 +25588,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #30
   ret void
 }
 
@@ -25619,7 +25619,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4, !tbaa !334
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -25971,13 +25971,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #30
   ret void
 }
 
@@ -26002,7 +26002,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4, !tbaa !337
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -26057,7 +26057,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #17 align 2 {
+define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -26333,13 +26333,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #30
   ret void
 }
 
@@ -26364,7 +26364,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4, !tbaa !340
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -26834,13 +26834,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #30
   ret void
 }
 
@@ -26865,7 +26865,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4, !tbaa !343
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -27337,13 +27337,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #30
   ret void
 }
 
@@ -27368,7 +27368,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4, !tbaa !346
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -27463,7 +27463,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #17 align 2 {
+define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -27822,13 +27822,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #30
   ret void
 }
 
@@ -27853,7 +27853,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4, !tbaa !350
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -28197,13 +28197,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityI
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #30
   ret void
 }
 
@@ -28228,7 +28228,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4, !tbaa !353
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -28574,13 +28574,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityI
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #30
   ret void
 }
 
@@ -28605,7 +28605,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4, !tbaa !356
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -28658,7 +28658,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #17 align 2 {
+define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -28930,13 +28930,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityI
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #30
   ret void
 }
 
@@ -28961,7 +28961,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4, !tbaa !360
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -29336,13 +29336,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityI
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #30
   ret void
 }
 
@@ -29367,7 +29367,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4, !tbaa !363
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -29745,13 +29745,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityI
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #30
   ret void
 }
 
@@ -29776,7 +29776,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4, !tbaa !366
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -29814,7 +29814,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #17 align 2 {
+define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -30161,13 +30161,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityI
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #30
   ret void
 }
 
@@ -30192,7 +30192,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4, !tbaa !370
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -30559,13 +30559,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #30
   ret void
 }
 
@@ -30590,7 +30590,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4, !tbaa !373
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -30960,13 +30960,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #30
   ret void
 }
 
@@ -30991,7 +30991,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4, !tbaa !376
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -31027,7 +31027,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #17 align 2 {
+define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -31366,13 +31366,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #30
   ret void
 }
 
@@ -31397,7 +31397,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4, !tbaa !380
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -31772,13 +31772,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #30
   ret void
 }
 
@@ -31803,7 +31803,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4, !tbaa !383
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -32181,13 +32181,13 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #30
   ret void
 }
 
@@ -32212,7 +32212,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #22 align 2 {
+define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4, !tbaa !386
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -32250,7 +32250,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #17 align 2 {
+define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -32597,41 +32597,41 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #24 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #25
+declare void @llvm.assume(i1 noundef) #26
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #26
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #27
 
 declare float @sqrtf(float) local_unnamed_addr
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #26
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #27
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #26
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #27
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #26
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #27
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #26
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #27
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -32640,31 +32640,32 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { cold nofree noreturn }
 attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { cold noreturn }
 attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { alwaysinline norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nounwind }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #21 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #26 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #27 = { noreturn }
-attributes #28 = { builtin allocsize(0) }
-attributes #29 = { builtin nounwind }
-attributes #30 = { noreturn nounwind }
-attributes #31 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { alwaysinline norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nounwind }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #22 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #26 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #27 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #28 = { noreturn }
+attributes #29 = { builtin allocsize(0) }
+attributes #30 = { builtin nounwind }
+attributes #31 = { noreturn nounwind }
+attributes #32 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -106,23 +106,23 @@ define internal i32 @vorbis_decode_init(ptr noundef %0) #0 {
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %5, align 8, !tbaa !29
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  tail call void @ff_vorbisdsp_init(ptr noundef nonnull %11) #11
+  tail call void @ff_vorbisdsp_init(ptr noundef nonnull %11) #13
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 348
   store i32 8, ptr %12, align 4, !tbaa !42
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %13, label %14
 
 13:                                               ; preds = %1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #13
   br label %71
 
 14:                                               ; preds = %1
-  %15 = call i32 @avpriv_split_xiph_headers(ptr noundef %7, i32 noundef %9, i32 noundef 30, ptr noundef nonnull %2, ptr noundef nonnull %3) #11
+  %15 = call i32 @avpriv_split_xiph_headers(ptr noundef %7, i32 noundef %9, i32 noundef 30, ptr noundef nonnull %2, ptr noundef nonnull %3) #13
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %14
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3) #13
   br label %71
 
 18:                                               ; preds = %14
@@ -154,7 +154,7 @@ define internal i32 @vorbis_decode_init(ptr noundef %0) #0 {
   br i1 %.not45, label %34, label %33
 
 33:                                               ; preds = %18
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.4) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.4) #13
   br label %71
 
 34:                                               ; preds = %18
@@ -163,7 +163,7 @@ define internal i32 @vorbis_decode_init(ptr noundef %0) #0 {
   br i1 %.not46, label %37, label %36
 
 36:                                               ; preds = %34
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.5) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.5) #13
   call fastcc void @vorbis_free(ptr noundef nonnull %5)
   br label %71
 
@@ -194,7 +194,7 @@ define internal i32 @vorbis_decode_init(ptr noundef %0) #0 {
   br i1 %.not47, label %51, label %50
 
 50:                                               ; preds = %37
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.6) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.6) #13
   call fastcc void @vorbis_free(ptr noundef nonnull %5)
   br label %71
 
@@ -204,13 +204,13 @@ define internal i32 @vorbis_decode_init(ptr noundef %0) #0 {
   br i1 %.not48, label %54, label %53
 
 53:                                               ; preds = %51
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.7) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.7) #13
   call fastcc void @vorbis_free(ptr noundef nonnull %5)
   br label %71
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  call void @av_channel_layout_uninit(ptr noundef nonnull %55) #11
+  call void @av_channel_layout_uninit(ptr noundef nonnull %55) #13
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %57 = load i8, ptr %56, align 8, !tbaa !51
   %58 = icmp ugt i8 %57, 8
@@ -227,7 +227,7 @@ define internal i32 @vorbis_decode_init(ptr noundef %0) #0 {
   %63 = zext nneg i8 %57 to i64
   %64 = getelementptr %struct.AVChannelLayout, ptr @ff_vorbis_ch_layouts, i64 %63
   %65 = getelementptr i8, ptr %64, i64 -24
-  %66 = call i32 @av_channel_layout_copy(ptr noundef nonnull %55, ptr noundef %65) #11
+  %66 = call i32 @av_channel_layout_copy(ptr noundef nonnull %55, ptr noundef %65) #13
   br label %67
 
 67:                                               ; preds = %62, %59
@@ -295,13 +295,13 @@ define internal i32 @vorbis_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not102, label %35, label %34
 
 34:                                               ; preds = %32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.5) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.5) #13
   tail call fastcc void @vorbis_free(ptr noundef nonnull %14)
   br label %1779
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  tail call void @av_channel_layout_uninit(ptr noundef nonnull %36) #11
+  tail call void @av_channel_layout_uninit(ptr noundef nonnull %36) #13
   %37 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %38 = load i8, ptr %37, align 8, !tbaa !51
   %39 = icmp ugt i8 %38, 8
@@ -318,7 +318,7 @@ define internal i32 @vorbis_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   %44 = zext nneg i8 %38 to i64
   %45 = getelementptr %struct.AVChannelLayout, ptr @ff_vorbis_ch_layouts, i64 %44
   %46 = getelementptr i8, ptr %45, i64 -24
-  %47 = tail call i32 @av_channel_layout_copy(ptr noundef nonnull %36, ptr noundef %46) #11
+  %47 = tail call i32 @av_channel_layout_copy(ptr noundef nonnull %36, ptr noundef %46) #13
   br label %48
 
 48:                                               ; preds = %43, %40
@@ -334,7 +334,7 @@ define internal i32 @vorbis_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %or.cond3, label %54, label %55
 
 54:                                               ; preds = %52
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.52) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.52) #13
   br label %1779
 
 55:                                               ; preds = %52
@@ -384,7 +384,7 @@ define internal i32 @vorbis_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not98, label %1779, label %78
 
 78:                                               ; preds = %76
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.7) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.7) #13
   tail call fastcc void @vorbis_free(ptr noundef nonnull %14)
   br label %1779
 
@@ -399,7 +399,7 @@ define internal i32 @vorbis_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not100, label %.thread, label %83
 
 .thread:                                          ; preds = %59, %.thread243, %79
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.53) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.53) #13
   br label %1779
 
 83:                                               ; preds = %.thread243
@@ -408,7 +408,7 @@ define internal i32 @vorbis_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   %86 = lshr i32 %85, 1
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i32 %86, ptr %87, align 8, !tbaa !61
-  %88 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #11
+  %88 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #13
   %89 = icmp slt i32 %88, 0
   br i1 %89, label %1779, label %90
 
@@ -491,7 +491,7 @@ define internal i32 @vorbis_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
 
 128:                                              ; preds = %120
   %129 = load ptr, ptr %14, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %129, i32 noundef 16, ptr noundef nonnull @.str.54) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %129, i32 noundef 16, ptr noundef nonnull @.str.54) #13
   br label %vorbis_parse_audio_packet.exit.thread
 
 130:                                              ; preds = %120
@@ -532,7 +532,7 @@ define internal i32 @vorbis_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
 154:                                              ; preds = %134
   %155 = load ptr, ptr %14, align 8, !tbaa !29
   %156 = add nsw i32 %135, -1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %155, i32 noundef 16, ptr noundef nonnull @idx_err_str, i32 noundef %151, i32 noundef %156, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.31, i32 noundef 1633) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %155, i32 noundef 16, ptr noundef nonnull @idx_err_str, i32 noundef %151, i32 noundef %156, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.31, i32 noundef 1633) #13
   br label %vorbis_parse_audio_packet.exit.thread
 
 157:                                              ; preds = %134, %130
@@ -641,13 +641,13 @@ define internal i32 @vorbis_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   %222 = getelementptr inbounds nuw i8, ptr %219, i64 16
   %223 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv393.i
   %224 = load ptr, ptr %223, align 8, !tbaa !68
-  %225 = tail call i32 %221(ptr noundef nonnull %14, ptr noundef nonnull %222, ptr noundef %224) #11
+  %225 = tail call i32 %221(ptr noundef nonnull %14, ptr noundef nonnull %222, ptr noundef %224) #13
   %226 = icmp sgt i32 %225, -1
   br i1 %226, label %229, label %227
 
 227:                                              ; preds = %217
   %228 = load ptr, ptr %14, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %228, i32 noundef 16, ptr noundef nonnull @.str.56) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %228, i32 noundef 16, ptr noundef nonnull @.str.56) #13
   br label %vorbis_parse_audio_packet.exit.thread
 
 229:                                              ; preds = %217
@@ -778,7 +778,7 @@ define internal i32 @vorbis_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
 
 289:                                              ; preds = %._crit_edge320.i
   %290 = load ptr, ptr %14, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %290, i32 noundef 16, ptr noundef nonnull @.str.57) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %290, i32 noundef 16, ptr noundef nonnull @.str.57) #13
   br label %vorbis_parse_audio_packet.exit.thread
 
 291:                                              ; preds = %._crit_edge320.i
@@ -858,7 +858,7 @@ define internal i32 @vorbis_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
 
 329:                                              ; preds = %322
   %330 = load ptr, ptr %14, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %330, i32 noundef 16, ptr noundef nonnull @.str.59) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %330, i32 noundef 16, ptr noundef nonnull @.str.59) #13
   br label %vorbis_parse_audio_packet.exit.thread
 
 331:                                              ; preds = %327, %314
@@ -1053,7 +1053,7 @@ get_vlc2.exit.i145.i.i:                           ; preds = %404, %383, %346
 
 setup_classifs.exit156.i.i:                       ; preds = %get_vlc2.exit.i145.i.i
   %452 = load ptr, ptr %14, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %452, i32 noundef 16, ptr noundef nonnull @.str.63, i32 noundef 0) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %452, i32 noundef 16, ptr noundef nonnull @.str.63, i32 noundef 0) #13
   br label %vorbis_parse_audio_packet.exit.thread
 
 setup_classifs.exit156.thread.i.i:                ; preds = %451, %435, %436, %429, %345
@@ -1778,7 +1778,7 @@ get_vlc2.exit.i.i.i:                              ; preds = %898, %877, %850
 
 949:                                              ; preds = %941
   %950 = load ptr, ptr %14, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %950, i32 noundef 16, ptr noundef nonnull @.str.59) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %950, i32 noundef 16, ptr noundef nonnull @.str.59) #13
   br label %vorbis_parse_audio_packet.exit.thread
 
 951:                                              ; preds = %947, %922
@@ -1992,7 +1992,7 @@ get_vlc2.exit.i129.i.i:                           ; preds = %1025, %1004, %981
 setup_classifs.exit140.i.i:                       ; preds = %get_vlc2.exit.i129.i.i
   %1077 = trunc nuw nsw i64 %indvars.iv519.i.i to i32
   %1078 = load ptr, ptr %14, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1078, i32 noundef 16, ptr noundef nonnull @.str.63, i32 noundef %1077) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1078, i32 noundef 16, ptr noundef nonnull @.str.63, i32 noundef %1077) #13
   br label %vorbis_parse_audio_packet.exit.thread
 
 setup_classifs.exit140.thread.i.i:                ; preds = %.loopexit229.i.i, %962
@@ -2343,7 +2343,7 @@ get_vlc2.exit.i41.i.i:                            ; preds = %1249, %1228, %1201
 
 1301:                                             ; preds = %1293
   %1302 = load ptr, ptr %14, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1302, i32 noundef 16, ptr noundef nonnull @.str.59) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1302, i32 noundef 16, ptr noundef nonnull @.str.59) #13
   br label %vorbis_parse_audio_packet.exit.thread
 
 1303:                                             ; preds = %1299, %1274
@@ -2557,7 +2557,7 @@ get_vlc2.exit.i120.i.i:                           ; preds = %1377, %1356, %1333
 setup_classifs.exit.i.i:                          ; preds = %get_vlc2.exit.i120.i.i
   %1429 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %1430 = load ptr, ptr %14, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1430, i32 noundef 16, ptr noundef nonnull @.str.63, i32 noundef %1429) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1430, i32 noundef 16, ptr noundef nonnull @.str.63, i32 noundef %1429) #13
   br label %vorbis_parse_audio_packet.exit.thread
 
 setup_classifs.exit.thread.i.i:                   ; preds = %.loopexit237.i.i, %1314
@@ -2873,14 +2873,14 @@ get_vlc2.exit.i87.i.i:                            ; preds = %1605, %1584, %1557
 
 1630:                                             ; preds = %292
   %1631 = load ptr, ptr %14, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1631, i32 noundef 16, ptr noundef nonnull @.str.58) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1631, i32 noundef 16, ptr noundef nonnull @.str.58) #13
   br label %vorbis_parse_audio_packet.exit.thread
 
 .loopexit.sink.split.i:                           ; preds = %469, %1448, %1096
   %.lcssa.sink.i = phi i32 [ %1110, %1096 ], [ %1462, %1448 ], [ %482, %469 ]
   %1632 = load ptr, ptr %14, align 8, !tbaa !29
   %1633 = sub nsw i32 0, %.lcssa.sink.i
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1632, i32 noundef 16, ptr noundef nonnull @.str.60, i32 noundef %1633) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1632, i32 noundef 16, ptr noundef nonnull @.str.60, i32 noundef %1633) #13
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.thread212.i.i, %.thread198.i.i, %.thread184.i.i, %.loopexit.sink.split.i, %310, %291, %.preheader.i
@@ -2940,7 +2940,7 @@ get_vlc2.exit.i87.i.i:                            ; preds = %1605, %1584, %1557
   %1669 = zext nneg i32 %1668 to i64
   %1670 = getelementptr inbounds nuw float, ptr %1648, i64 %1669
   %1671 = load ptr, ptr %1645, align 8, !tbaa !134
-  tail call void %1671(ptr noundef %1659, ptr noundef %1670, i64 noundef %193) #11
+  tail call void %1671(ptr noundef %1659, ptr noundef %1670, i64 noundef %193) #13
   %1672 = icmp samesign ugt i64 %indvars.iv403.i, 1
   br i1 %1672, label %1647, label %._crit_edge337.i, !llvm.loop !135
 
@@ -2981,8 +2981,8 @@ get_vlc2.exit.i87.i.i:                            ; preds = %1605, %1584, %1557
   %1695 = load ptr, ptr %1694, align 8, !tbaa !139
   %1696 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next407.i
   %1697 = load ptr, ptr %1696, align 8, !tbaa !68
-  tail call void %1695(ptr noundef %1697, ptr noundef %1697, ptr noundef %1693, i32 noundef %176) #11
-  tail call void %1678(ptr noundef %1675, ptr noundef %1693, ptr noundef %1697, i64 noundef 4) #11
+  tail call void %1695(ptr noundef %1697, ptr noundef %1697, ptr noundef %1693, i32 noundef %176) #13
+  tail call void %1678(ptr noundef %1675, ptr noundef %1693, ptr noundef %1697, i64 noundef 4) #13
   %1698 = icmp samesign ugt i64 %indvars.iv406.i, 1
   br i1 %1698, label %1685, label %._crit_edge341.i, !llvm.loop !141
 
@@ -3034,7 +3034,7 @@ get_vlc2.exit.i87.i.i:                            ; preds = %1605, %1584, %1557
   %1734 = load ptr, ptr %1683, align 8, !tbaa !138
   %1735 = getelementptr inbounds nuw i8, ptr %1734, i64 40
   %1736 = load ptr, ptr %1735, align 8, !tbaa !143
-  tail call void %1736(ptr noundef %1731, ptr noundef %1729, ptr noundef %1723, ptr noundef %1732, i32 noundef %1710) #11
+  tail call void %1736(ptr noundef %1731, ptr noundef %1729, ptr noundef %1723, ptr noundef %1732, i32 noundef %1710) #13
   br label %1762
 
 1737:                                             ; preds = %1713
@@ -3045,7 +3045,7 @@ get_vlc2.exit.i87.i.i:                            ; preds = %1605, %1584, %1557
   %1740 = getelementptr inbounds nuw i8, ptr %1739, i64 40
   %1741 = load ptr, ptr %1740, align 8, !tbaa !143
   %1742 = lshr i32 %1714, 2
-  tail call void %1741(ptr noundef %1731, ptr noundef %1729, ptr noundef %1723, ptr noundef %1732, i32 noundef %1742) #11
+  tail call void %1741(ptr noundef %1731, ptr noundef %1729, ptr noundef %1723, ptr noundef %1732, i32 noundef %1742) #13
   %1743 = lshr i32 %1714, 1
   %1744 = zext nneg i32 %1743 to i64
   %1745 = getelementptr inbounds nuw float, ptr %1731, i64 %1744
@@ -3069,7 +3069,7 @@ get_vlc2.exit.i87.i.i:                            ; preds = %1605, %1584, %1557
   %1759 = getelementptr inbounds nuw float, ptr %1731, i64 %1754
   %1760 = getelementptr inbounds nuw float, ptr %1729, i64 %1754
   %1761 = lshr i32 %1714, 2
-  tail call void %1758(ptr noundef %1759, ptr noundef %1760, ptr noundef %1723, ptr noundef %1732, i32 noundef %1761) #11
+  tail call void %1758(ptr noundef %1759, ptr noundef %1760, ptr noundef %1723, ptr noundef %1732, i32 noundef %1761) #13
   br label %1762
 
 1762:                                             ; preds = %1751, %1738, %1733
@@ -3264,7 +3264,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vorbis_parse_id_hdr(ptr no
 
 68:                                               ; preds = %58, %48, %38, %28, %18, %1
   %69 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %69, i32 noundef 16, ptr noundef nonnull @.str.8) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %69, i32 noundef 16, ptr noundef nonnull @.str.8) #13
   br label %197
 
 70:                                               ; preds = %58
@@ -3292,7 +3292,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vorbis_parse_id_hdr(ptr no
 
 88:                                               ; preds = %70
   %89 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %89, i32 noundef 16, ptr noundef nonnull @.str.9) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %89, i32 noundef 16, ptr noundef nonnull @.str.9) #13
   br label %197
 
 90:                                               ; preds = %70
@@ -3304,7 +3304,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vorbis_parse_id_hdr(ptr no
 
 94:                                               ; preds = %90
   %95 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %95, i32 noundef 16, ptr noundef nonnull @.str.10) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %95, i32 noundef 16, ptr noundef nonnull @.str.10) #13
   br label %197
 
 96:                                               ; preds = %90
@@ -3351,7 +3351,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vorbis_parse_id_hdr(ptr no
 
 128:                                              ; preds = %96
   %129 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %129, i32 noundef 16, ptr noundef nonnull @.str.11) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %129, i32 noundef 16, ptr noundef nonnull @.str.11) #13
   br label %197
 
 130:                                              ; preds = %96
@@ -3390,7 +3390,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vorbis_parse_id_hdr(ptr no
 
 156:                                              ; preds = %130
   %157 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %157, i32 noundef 16, ptr noundef nonnull @.str.12) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %157, i32 noundef 16, ptr noundef nonnull @.str.12) #13
   br label %197
 
 158:                                              ; preds = %130
@@ -3399,7 +3399,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vorbis_parse_id_hdr(ptr no
   %161 = load i8, ptr %86, align 8, !tbaa !51
   %162 = zext i8 %161 to i64
   %163 = shl nuw nsw i64 %162, 2
-  %164 = tail call ptr @av_malloc_array(i64 noundef %160, i64 noundef %163) #11
+  %164 = tail call ptr @av_malloc_array(i64 noundef %160, i64 noundef %163) #13
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %164, ptr %165, align 8, !tbaa !59
   %166 = load i32, ptr %134, align 8, !tbaa !44
@@ -3408,7 +3408,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vorbis_parse_id_hdr(ptr no
   %169 = load i8, ptr %86, align 8, !tbaa !51
   %170 = zext i8 %169 to i64
   %171 = shl nuw nsw i64 %170, 2
-  %172 = tail call noalias ptr @av_calloc(i64 noundef %168, i64 noundef %171) #11
+  %172 = tail call noalias ptr @av_calloc(i64 noundef %168, i64 noundef %171) #13
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %172, ptr %173, align 8, !tbaa !142
   %174 = load ptr, ptr %165, align 8, !tbaa !59
@@ -3424,7 +3424,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vorbis_parse_id_hdr(ptr no
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %179 = load i32, ptr %132, align 4, !tbaa !44
   %180 = lshr i32 %179, 1
-  %181 = call i32 @av_tx_init(ptr noundef nonnull %177, ptr noundef nonnull %178, i32 noundef 1, i32 noundef 1, i32 noundef %180, ptr noundef nonnull %2, i64 noundef 0) #11
+  %181 = call i32 @av_tx_init(ptr noundef nonnull %177, ptr noundef nonnull %178, i32 noundef 1, i32 noundef 1, i32 noundef %180, ptr noundef nonnull %2, i64 noundef 0) #13
   %182 = icmp slt i32 %181, 0
   br i1 %182, label %197, label %183
 
@@ -3433,7 +3433,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vorbis_parse_id_hdr(ptr no
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %186 = load i32, ptr %134, align 4, !tbaa !44
   %187 = lshr i32 %186, 1
-  %188 = call i32 @av_tx_init(ptr noundef nonnull %184, ptr noundef nonnull %185, i32 noundef 1, i32 noundef 1, i32 noundef %187, ptr noundef nonnull %2, i64 noundef 0) #11
+  %188 = call i32 @av_tx_init(ptr noundef nonnull %184, ptr noundef nonnull %185, i32 noundef 1, i32 noundef 1, i32 noundef %187, ptr noundef nonnull %2, i64 noundef 0) #13
   %189 = icmp slt i32 %188, 0
   br i1 %189, label %197, label %190
 
@@ -3442,7 +3442,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vorbis_parse_id_hdr(ptr no
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 64
   %193 = load i32, ptr %192, align 8, !tbaa !158
   %194 = and i32 %193, 8388608
-  %195 = call ptr @avpriv_float_dsp_alloc(i32 noundef %194) #11
+  %195 = call ptr @avpriv_float_dsp_alloc(i32 noundef %194) #13
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %195, ptr %196, align 8, !tbaa !138
   %.not81 = icmp eq ptr %195, null
@@ -3458,11 +3458,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vorbis_parse_id_hdr(ptr no
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @vorbis_free(ptr noundef %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  tail call void @av_freep(ptr noundef nonnull %2) #11
+  tail call void @av_freep(ptr noundef nonnull %2) #13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  tail call void @av_freep(ptr noundef nonnull %3) #11
+  tail call void @av_freep(ptr noundef nonnull %3) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @av_freep(ptr noundef nonnull %4) #11
+  tail call void @av_freep(ptr noundef nonnull %4) #13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = load ptr, ptr %5, align 8, !tbaa !91
   %.not = icmp eq ptr %6, null
@@ -3479,7 +3479,7 @@ define internal fastcc void @vorbis_free(ptr noundef %0) unnamed_addr #1 {
   %9 = load ptr, ptr %5, align 8, !tbaa !91
   %10 = getelementptr inbounds nuw %struct.vorbis_residue, ptr %9, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1048
-  tail call void @av_freep(ptr noundef nonnull %11) #11
+  tail call void @av_freep(ptr noundef nonnull %11) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i8, ptr %7, align 8, !tbaa !159
   %13 = zext i8 %12 to i64
@@ -3487,13 +3487,13 @@ define internal fastcc void @vorbis_free(ptr noundef %0) unnamed_addr #1 {
   br i1 %14, label %.lr.ph, label %.loopexit57, !llvm.loop !160
 
 .loopexit57:                                      ; preds = %.lr.ph, %.preheader56, %1
-  tail call void @av_freep(ptr noundef nonnull %5) #11
+  tail call void @av_freep(ptr noundef nonnull %5) #13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  tail call void @av_freep(ptr noundef nonnull %15) #11
+  tail call void @av_freep(ptr noundef nonnull %15) #13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @av_tx_uninit(ptr noundef nonnull %16) #11
+  tail call void @av_tx_uninit(ptr noundef nonnull %16) #13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  tail call void @av_tx_uninit(ptr noundef nonnull %17) #11
+  tail call void @av_tx_uninit(ptr noundef nonnull %17) #13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %19 = load ptr, ptr %18, align 8, !tbaa !94
   %.not49 = icmp eq ptr %19, null
@@ -3510,11 +3510,11 @@ define internal fastcc void @vorbis_free(ptr noundef %0) unnamed_addr #1 {
   %22 = load ptr, ptr %18, align 8, !tbaa !94
   %23 = getelementptr inbounds nuw %struct.vorbis_codebook, ptr %22, i64 %indvars.iv70
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  tail call void @av_freep(ptr noundef nonnull %24) #11
+  tail call void @av_freep(ptr noundef nonnull %24) #13
   %25 = load ptr, ptr %18, align 8, !tbaa !94
   %26 = getelementptr inbounds nuw %struct.vorbis_codebook, ptr %25, i64 %indvars.iv70
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  tail call void @ff_vlc_free(ptr noundef nonnull %27) #11
+  tail call void @ff_vlc_free(ptr noundef nonnull %27) #13
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %28 = load i16, ptr %20, align 8, !tbaa !161
   %29 = zext i16 %28 to i64
@@ -3522,7 +3522,7 @@ define internal fastcc void @vorbis_free(ptr noundef %0) unnamed_addr #1 {
   br i1 %30, label %.lr.ph60, label %.loopexit55, !llvm.loop !162
 
 .loopexit55:                                      ; preds = %.lr.ph60, %.preheader54, %.loopexit57
-  tail call void @av_freep(ptr noundef nonnull %18) #11
+  tail call void @av_freep(ptr noundef nonnull %18) #13
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %32 = load ptr, ptr %31, align 8, !tbaa !81
   %.not50 = icmp eq ptr %32, null
@@ -3544,15 +3544,15 @@ define internal fastcc void @vorbis_free(ptr noundef %0) unnamed_addr #1 {
 
 39:                                               ; preds = %.lr.ph62
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  tail call void @av_freep(ptr noundef nonnull %40) #11
+  tail call void @av_freep(ptr noundef nonnull %40) #13
   %41 = load ptr, ptr %31, align 8, !tbaa !81
   %42 = getelementptr inbounds nuw %struct.vorbis_floor, ptr %41, i64 %indvars.iv73
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  tail call void @av_freep(ptr noundef nonnull %43) #11
+  tail call void @av_freep(ptr noundef nonnull %43) #13
   %44 = load ptr, ptr %31, align 8, !tbaa !81
   %45 = getelementptr inbounds nuw %struct.vorbis_floor, ptr %44, i64 %indvars.iv73
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 56
-  tail call void @av_freep(ptr noundef nonnull %46) #11
+  tail call void @av_freep(ptr noundef nonnull %46) #13
   %47 = load ptr, ptr %31, align 8, !tbaa !81
   %48 = getelementptr inbounds nuw %struct.vorbis_floor, ptr %47, i64 %indvars.iv73
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 64
@@ -3564,7 +3564,7 @@ define internal fastcc void @vorbis_free(ptr noundef %0) unnamed_addr #1 {
 
 52:                                               ; preds = %39, %50
   %.sink = phi ptr [ %49, %39 ], [ %51, %50 ]
-  tail call void @av_freep(ptr noundef nonnull %.sink) #11
+  tail call void @av_freep(ptr noundef nonnull %.sink) #13
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %53 = load i8, ptr %33, align 8, !tbaa !163
   %54 = zext i8 %53 to i64
@@ -3572,7 +3572,7 @@ define internal fastcc void @vorbis_free(ptr noundef %0) unnamed_addr #1 {
   br i1 %55, label %.lr.ph62, label %.loopexit53, !llvm.loop !165
 
 .loopexit53:                                      ; preds = %52, %.preheader52, %.loopexit55
-  tail call void @av_freep(ptr noundef nonnull %31) #11
+  tail call void @av_freep(ptr noundef nonnull %31) #13
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %57 = load ptr, ptr %56, align 8, !tbaa !74
   %.not51 = icmp eq ptr %57, null
@@ -3589,15 +3589,15 @@ define internal fastcc void @vorbis_free(ptr noundef %0) unnamed_addr #1 {
   %60 = load ptr, ptr %56, align 8, !tbaa !74
   %61 = getelementptr inbounds nuw %struct.vorbis_mapping, ptr %60, i64 %indvars.iv76
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  tail call void @av_freep(ptr noundef nonnull %62) #11
+  tail call void @av_freep(ptr noundef nonnull %62) #13
   %63 = load ptr, ptr %56, align 8, !tbaa !74
   %64 = getelementptr inbounds nuw %struct.vorbis_mapping, ptr %63, i64 %indvars.iv76
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  tail call void @av_freep(ptr noundef nonnull %65) #11
+  tail call void @av_freep(ptr noundef nonnull %65) #13
   %66 = load ptr, ptr %56, align 8, !tbaa !74
   %67 = getelementptr inbounds nuw %struct.vorbis_mapping, ptr %66, i64 %indvars.iv76
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  tail call void @av_freep(ptr noundef nonnull %68) #11
+  tail call void @av_freep(ptr noundef nonnull %68) #13
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %69 = load i8, ptr %58, align 8, !tbaa !166
   %70 = zext i8 %69 to i64
@@ -3605,7 +3605,7 @@ define internal fastcc void @vorbis_free(ptr noundef %0) unnamed_addr #1 {
   br i1 %71, label %.lr.ph64, label %.loopexit, !llvm.loop !167
 
 .loopexit:                                        ; preds = %.lr.ph64, %.preheader, %.loopexit53
-  tail call void @av_freep(ptr noundef nonnull %56) #11
+  tail call void @av_freep(ptr noundef nonnull %56) #13
   ret void
 }
 
@@ -3753,7 +3753,7 @@ define internal fastcc i32 @vorbis_parse_setup_hdr(ptr noundef captures(none) %0
   %.str.20.sink = phi ptr [ @.str.13, %57 ], [ @.str.13, %47 ], [ @.str.13, %37 ], [ @.str.13, %27 ], [ @.str.13, %17 ], [ @.str.13, %1 ], [ @.str.14, %67 ], [ @.str.15, %69 ], [ @.str.16, %71 ], [ @.str.17, %73 ], [ @.str.18, %75 ], [ @.str.19, %77 ], [ @.str.20, %79 ]
   %.0.ph = phi i32 [ -1094995529, %57 ], [ -1094995529, %47 ], [ -1094995529, %37 ], [ -1094995529, %27 ], [ -1094995529, %17 ], [ -1094995529, %1 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ -1094995529, %79 ]
   %93 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %93, i32 noundef 16, ptr noundef nonnull %.str.20.sink) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %93, i32 noundef 16, ptr noundef nonnull %.str.20.sink) #13
   br label %94
 
 94:                                               ; preds = %.sink.split, %79
@@ -3855,12 +3855,12 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
   store i16 %18, ptr %19, align 8, !tbaa !161
   %narrow = mul nuw nsw i16 %18, 48
   %20 = zext nneg i16 %narrow to i64
-  %21 = tail call noalias ptr @av_mallocz(i64 noundef %20) #11
+  %21 = tail call noalias ptr @av_mallocz(i64 noundef %20) #13
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %21, ptr %22, align 8, !tbaa !94
-  %23 = tail call noalias ptr @av_mallocz(i64 noundef 65536) #11
-  %24 = tail call noalias ptr @av_mallocz(i64 noundef 262144) #11
-  %25 = tail call noalias ptr @av_malloc(i64 noundef 131072) #11
+  %23 = tail call noalias ptr @av_mallocz(i64 noundef 65536) #13
+  %24 = tail call noalias ptr @av_mallocz(i64 noundef 262144) #13
+  %25 = tail call noalias ptr @av_malloc(i64 noundef 131072) #13
   %26 = load ptr, ptr %22, align 8, !tbaa !94
   %27 = icmp ne ptr %26, null
   %28 = icmp ne ptr %23, null
@@ -3899,7 +3899,7 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
 46:                                               ; preds = %.lr.ph327
   %47 = trunc nuw nsw i64 %indvars.iv403 to i32
   %48 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %48, i32 noundef 16, ptr noundef nonnull @.str.21, i32 noundef %47) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %48, i32 noundef 16, ptr noundef nonnull @.str.21, i32 noundef %47) #13
   br label %._crit_edge328
 
 49:                                               ; preds = %.lr.ph327
@@ -3922,7 +3922,7 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
 61:                                               ; preds = %49
   %62 = trunc nuw nsw i64 %indvars.iv403 to i32
   %63 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %63, i32 noundef 16, ptr noundef nonnull @.str.22, i32 noundef %62, i32 noundef %59) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %63, i32 noundef 16, ptr noundef nonnull @.str.22, i32 noundef %62, i32 noundef %59) #13
   br label %._crit_edge328
 
 64:                                               ; preds = %49
@@ -3942,7 +3942,7 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
 75:                                               ; preds = %64
   %76 = trunc nuw nsw i64 %indvars.iv403 to i32
   %77 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %77, i32 noundef 16, ptr noundef nonnull @.str.23, i32 noundef %76, i32 noundef %71) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %77, i32 noundef 16, ptr noundef nonnull @.str.23, i32 noundef %76, i32 noundef %71) #13
   br label %._crit_edge328
 
 78:                                               ; preds = %64
@@ -4143,7 +4143,7 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
 
 .thread:                                          ; preds = %._crit_edge
   %185 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %185, i32 noundef 16, ptr noundef nonnull @.str.24) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %185, i32 noundef 16, ptr noundef nonnull @.str.24) #13
   br label %._crit_edge328
 
 .loopexit260:                                     ; preds = %124, %126, %140, %.preheader261, %.preheader259, %._crit_edge
@@ -4170,7 +4170,7 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
 198:                                              ; preds = %.loopexit260
   %199 = load i8, ptr %33, align 8, !tbaa !96
   %200 = zext i8 %199 to i32
-  %201 = tail call i32 @ff_vorbis_nth_root(i32 noundef %71, i32 noundef %200) #11
+  %201 = tail call i32 @ff_vorbis_nth_root(i32 noundef %71, i32 noundef %200) #13
   %202 = load i32, ptr %3, align 8, !tbaa !49
   %203 = load i32, ptr %5, align 8, !tbaa !47
   %204 = load ptr, ptr %2, align 8, !tbaa !45
@@ -4203,7 +4203,7 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
   %226 = lshr i32 %222, 21
   %227 = and i32 %226, 1023
   %228 = add nsw i32 %227, -788
-  %229 = tail call nsz float @ldexpf(float noundef %.0.i, i32 noundef %228) #12
+  %229 = tail call nsz float @ldexpf(float noundef %.0.i, i32 noundef %228) #14
   %230 = lshr i32 %221, 3
   %231 = zext nneg i32 %230 to i64
   %232 = getelementptr inbounds nuw i8, ptr %204, i64 %231
@@ -4233,7 +4233,7 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
   %251 = lshr i32 %247, 21
   %252 = and i32 %251, 1023
   %253 = add nsw i32 %252, -788
-  %254 = tail call nsz float @ldexpf(float noundef %.0.i244, i32 noundef %253) #12
+  %254 = tail call nsz float @ldexpf(float noundef %.0.i244, i32 noundef %253) #14
   %255 = lshr i32 %246, 3
   %256 = zext nneg i32 %255 to i64
   %257 = getelementptr inbounds nuw i8, ptr %204, i64 %256
@@ -4302,7 +4302,7 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
   %294 = load i8, ptr %33, align 8, !tbaa !96
   %295 = zext i8 %294 to i64
   %296 = shl nuw nsw i64 %295, 2
-  %297 = tail call noalias ptr @av_calloc(i64 noundef %293, i64 noundef %296) #11
+  %297 = tail call noalias ptr @av_calloc(i64 noundef %293, i64 noundef %296) #13
   %298 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr %297, ptr %298, align 8, !tbaa !113
   %.not229 = icmp eq ptr %297, null
@@ -4408,23 +4408,23 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
 
 341:                                              ; preds = %._crit_edge319
   %342 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %342, i32 noundef 16, ptr noundef nonnull @.str.25) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %342, i32 noundef 16, ptr noundef nonnull @.str.25) #13
   br label %._crit_edge328
 
 343:                                              ; preds = %.loopexit260
   %344 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %344, i32 noundef 16, ptr noundef nonnull @.str.26) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %344, i32 noundef 16, ptr noundef nonnull @.str.26) #13
   br label %._crit_edge328
 
 345:                                              ; preds = %._crit_edge319, %.loopexit260
   %.1200 = phi i32 [ %71, %.loopexit260 ], [ %.3207, %._crit_edge319 ]
-  %346 = tail call i32 @ff_vorbis_len2vlc(ptr noundef nonnull %23, ptr noundef nonnull %24, i32 noundef %.1200) #11
+  %346 = tail call i32 @ff_vorbis_len2vlc(ptr noundef nonnull %23, ptr noundef nonnull %24, i32 noundef %.1200) #13
   %.not231 = icmp eq i32 %346, 0
   br i1 %.not231, label %349, label %347
 
 347:                                              ; preds = %345
   %348 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %348, i32 noundef 16, ptr noundef nonnull @.str.27) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %348, i32 noundef 16, ptr noundef nonnull @.str.27) #13
   br label %._crit_edge328
 
 349:                                              ; preds = %345
@@ -4474,13 +4474,13 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
   %365 = trunc i16 %364 to i8
   store i8 %365, ptr %350, align 2, !tbaa !176
   %366 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %367 = tail call i32 @ff_vlc_init_sparse(ptr noundef nonnull %366, i32 noundef %.sink406, i32 noundef %.1200, ptr noundef nonnull %23, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %24, i32 noundef 4, i32 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 12) #11
+  %367 = tail call i32 @ff_vlc_init_sparse(ptr noundef nonnull %366, i32 noundef %.sink406, i32 noundef %.1200, ptr noundef nonnull %23, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %24, i32 noundef 4, i32 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 12) #13
   %.not232 = icmp eq i32 %367, 0
   br i1 %.not232, label %370, label %368
 
 368:                                              ; preds = %._crit_edge324.thread
   %369 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %369, i32 noundef 16, ptr noundef nonnull @.str.28) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %369, i32 noundef 16, ptr noundef nonnull @.str.28) #13
   br label %._crit_edge328
 
 370:                                              ; preds = %._crit_edge324.thread
@@ -4492,9 +4492,9 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
 
 ._crit_edge328:                                   ; preds = %198, %292, %370, %1, %46, %61, %75, %347, %368, %343, %.thread, %341, %.preheader263
   %.0 = phi i32 [ 0, %.preheader263 ], [ -12, %1 ], [ -1094995529, %.thread ], [ -1094995529, %343 ], [ %367, %368 ], [ -1094995529, %347 ], [ -1094995529, %75 ], [ -1094995529, %61 ], [ -1094995529, %46 ], [ -1094995529, %341 ], [ 0, %370 ], [ -1094995529, %198 ], [ -12, %292 ]
-  tail call void @av_free(ptr noundef %23) #11
-  tail call void @av_free(ptr noundef %24) #11
-  tail call void @av_free(ptr noundef %25) #11
+  tail call void @av_free(ptr noundef %23) #13
+  tail call void @av_free(ptr noundef %24) #13
+  tail call void @av_free(ptr noundef %25) #13
   ret i32 %.0
 }
 
@@ -4541,7 +4541,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_tdt
 
 29:                                               ; preds = %.critedge
   %30 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %30, i32 noundef 16, ptr noundef nonnull @.str.29) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %30, i32 noundef 16, ptr noundef nonnull @.str.29) #13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %29
@@ -4573,7 +4573,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_flo
   store i8 %18, ptr %19, align 8, !tbaa !163
   %20 = zext nneg i8 %18 to i64
   %21 = mul nuw nsw i64 %20, 368
-  %22 = tail call noalias ptr @av_mallocz(i64 noundef %21) #11
+  %22 = tail call noalias ptr @av_mallocz(i64 noundef %21) #13
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %22, ptr %23, align 8, !tbaa !81
   %.not = icmp eq ptr %22, null
@@ -4736,7 +4736,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_flo
 129:                                              ; preds = %112
   %130 = load ptr, ptr %0, align 8, !tbaa !29
   %131 = add nsw i32 %128, -1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %130, i32 noundef 16, ptr noundef nonnull @idx_err_str, i32 noundef %122, i32 noundef %131, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef 559) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %130, i32 noundef 16, ptr noundef nonnull @idx_err_str, i32 noundef %122, i32 noundef %131, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef 559) #13
   br label %.thread231
 
 132:                                              ; preds = %112
@@ -4778,7 +4778,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_flo
   %154 = zext nneg i16 %149 to i32
   %155 = load ptr, ptr %0, align 8, !tbaa !29
   %156 = add nsw i32 %153, -1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %155, i32 noundef 16, ptr noundef nonnull @idx_err_str, i32 noundef %154, i32 noundef %156, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.31, i32 noundef 567) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %155, i32 noundef 16, ptr noundef nonnull @idx_err_str, i32 noundef %154, i32 noundef %156, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.31, i32 noundef 567) #13
   br label %.thread231
 
 157:                                              ; preds = %135, %150
@@ -4848,7 +4848,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_flo
 
 ._crit_edge266:                                   ; preds = %._crit_edge266.loopexit, %._crit_edge262
   %195 = phi i64 [ %194, %._crit_edge266.loopexit ], [ 2, %._crit_edge262 ]
-  %196 = tail call noalias ptr @av_calloc(i64 noundef %195, i64 noundef 8) #11
+  %196 = tail call noalias ptr @av_calloc(i64 noundef %195, i64 noundef 8) #13
   %197 = getelementptr inbounds nuw i8, ptr %31, i64 360
   store ptr %196, ptr %197, align 8, !tbaa !50
   %.not208 = icmp eq ptr %196, null
@@ -4878,7 +4878,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_flo
 
 213:                                              ; preds = %211
   %214 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %214, i32 noundef 16, ptr noundef nonnull @.str.33) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %214, i32 noundef 16, ptr noundef nonnull @.str.33) #13
   br label %.thread231
 
 215:                                              ; preds = %211, %198
@@ -4890,7 +4890,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_flo
 
 220:                                              ; preds = %215
   %221 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %221, i32 noundef 16, ptr noundef nonnull @.str.34, i32 noundef %216, i32 noundef %218) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %221, i32 noundef 16, ptr noundef nonnull @.str.34, i32 noundef %216, i32 noundef %218) #13
   br label %.thread231
 
 222:                                              ; preds = %215
@@ -4971,7 +4971,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_flo
   %266 = load ptr, ptr %197, align 8, !tbaa !50
   %267 = load i16, ptr %179, align 4, !tbaa !50
   %268 = zext i16 %267 to i32
-  %269 = tail call i32 @ff_vorbis_ready_floor1_list(ptr noundef %265, ptr noundef %266, i32 noundef %268) #11
+  %269 = tail call i32 @ff_vorbis_ready_floor1_list(ptr noundef %265, ptr noundef %266, i32 noundef %268) #13
   %.not211 = icmp eq i32 %269, 0
   br i1 %.not211, label %.loopexit, label %.thread231
 
@@ -4995,7 +4995,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_flo
 
 282:                                              ; preds = %270
   %283 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %283, i32 noundef 16, ptr noundef nonnull @.str.35) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %283, i32 noundef 16, ptr noundef nonnull @.str.35) #13
   br label %.thread231
 
 284:                                              ; preds = %270
@@ -5019,7 +5019,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_flo
 
 298:                                              ; preds = %284
   %299 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %299, i32 noundef 16, ptr noundef nonnull @.str.36) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %299, i32 noundef 16, ptr noundef nonnull @.str.36) #13
   br label %.thread231
 
 300:                                              ; preds = %284
@@ -5043,7 +5043,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_flo
 
 314:                                              ; preds = %300
   %315 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %315, i32 noundef 16, ptr noundef nonnull @.str.37) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %315, i32 noundef 16, ptr noundef nonnull @.str.37) #13
   br label %.thread231
 
 316:                                              ; preds = %300
@@ -5096,7 +5096,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_flo
   %358 = getelementptr inbounds nuw i8, ptr %31, i64 50
   store i8 %357, ptr %358, align 2, !tbaa !50
   %359 = zext nneg i8 %357 to i64
-  %360 = tail call noalias ptr @av_malloc(i64 noundef %359) #11
+  %360 = tail call noalias ptr @av_malloc(i64 noundef %359) #13
   %361 = getelementptr inbounds nuw i8, ptr %31, i64 56
   store ptr %360, ptr %361, align 8, !tbaa !50
   %.not203 = icmp eq ptr %360, null
@@ -5131,7 +5131,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_flo
 .thread223:                                       ; preds = %.lr.ph
   %377 = load ptr, ptr %0, align 8, !tbaa !29
   %378 = add nsw i32 %376, -1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %377, i32 noundef 16, ptr noundef nonnull @idx_err_str, i32 noundef %372, i32 noundef %378, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.31, i32 noundef 651) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %377, i32 noundef 16, ptr noundef nonnull @idx_err_str, i32 noundef %372, i32 noundef %378, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.31, i32 noundef 651) #13
   br label %.thread231
 
 379:                                              ; preds = %.lr.ph
@@ -5173,7 +5173,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_flo
   %401 = lshr i32 %400, 1
   %402 = add nuw nsw i32 %401, 1
   %403 = zext nneg i32 %402 to i64
-  %404 = tail call ptr @av_malloc_array(i64 noundef %403, i64 noundef 4) #11
+  %404 = tail call ptr @av_malloc_array(i64 noundef %403, i64 noundef 4) #13
   %405 = getelementptr inbounds nuw ptr, ptr %393, i64 %indvars.iv71.i
   store ptr %404, ptr %405, align 8, !tbaa !50
   %.not60.i = icmp eq ptr %404, null
@@ -5255,7 +5255,7 @@ create_map.exit:                                  ; preds = %._crit_edge.i
   %453 = zext i8 %452 to i32
   %454 = add nuw nsw i32 %.0168.lcssa, %453
   %455 = zext nneg i32 %454 to i64
-  %456 = tail call ptr @av_malloc_array(i64 noundef %455, i64 noundef 4) #11
+  %456 = tail call ptr @av_malloc_array(i64 noundef %455, i64 noundef 4) #13
   %457 = getelementptr inbounds nuw i8, ptr %31, i64 64
   store ptr %456, ptr %457, align 8, !tbaa !50
   %.not206 = icmp eq ptr %456, null
@@ -5263,7 +5263,7 @@ create_map.exit:                                  ; preds = %._crit_edge.i
 
 458:                                              ; preds = %29
   %459 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %459, i32 noundef 16, ptr noundef nonnull @.str.39) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %459, i32 noundef 16, ptr noundef nonnull @.str.39) #13
   br label %.thread231
 
 .loopexit:                                        ; preds = %create_map.exit, %._crit_edge274
@@ -5303,7 +5303,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_res
   store i8 %19, ptr %20, align 8, !tbaa !159
   %21 = zext nneg i8 %19 to i64
   %22 = mul nuw nsw i64 %21, 1056
-  %23 = tail call noalias ptr @av_mallocz(i64 noundef %22) #11
+  %23 = tail call noalias ptr @av_mallocz(i64 noundef %22) #13
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %23, ptr %24, align 8, !tbaa !91
   %.not = icmp eq ptr %23, null
@@ -5390,7 +5390,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_res
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %83 = load i32, ptr %82, align 8, !tbaa !44
   %84 = lshr i32 %83, 1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %80, i32 noundef 16, ptr noundef nonnull @.str.41, i32 noundef %81, i32 noundef %49, i32 noundef %59, i32 noundef %72, i32 noundef %84) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %80, i32 noundef 16, ptr noundef nonnull @.str.41, i32 noundef %81, i32 noundef %49, i32 noundef %59, i32 noundef %72, i32 noundef %84) #13
   br label %.thread
 
 85:                                               ; preds = %75
@@ -5429,7 +5429,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_res
 111:                                              ; preds = %85
   %112 = load ptr, ptr %0, align 8, !tbaa !29
   %113 = add nsw i32 %110, -1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %112, i32 noundef 16, ptr noundef nonnull @idx_err_str, i32 noundef %104, i32 noundef %113, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.31, i32 noundef 734) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %112, i32 noundef 16, ptr noundef nonnull @idx_err_str, i32 noundef %104, i32 noundef %113, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.31, i32 noundef 734) #13
   br label %.thread
 
 114:                                              ; preds = %85
@@ -5439,7 +5439,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_res
   %117 = zext nneg i32 %77 to i64
   %118 = load i8, ptr %27, align 8, !tbaa !51
   %119 = zext i8 %118 to i64
-  %120 = tail call ptr @av_malloc_array(i64 noundef %117, i64 noundef %119) #11
+  %120 = tail call ptr @av_malloc_array(i64 noundef %117, i64 noundef %119) #13
   %121 = getelementptr inbounds nuw i8, ptr %30, i64 1048
   store ptr %120, ptr %121, align 8, !tbaa !100
   %.not98 = icmp eq ptr %120, null
@@ -5565,7 +5565,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_res
 192:                                              ; preds = %175
   %193 = load ptr, ptr %0, align 8, !tbaa !29
   %194 = add nsw i32 %191, -1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %193, i32 noundef 16, ptr noundef nonnull @idx_err_str, i32 noundef %185, i32 noundef %194, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.31, i32 noundef 762) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %193, i32 noundef 16, ptr noundef nonnull @idx_err_str, i32 noundef %185, i32 noundef %194, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.31, i32 noundef 762) #13
   br label %.thread
 
 195:                                              ; preds = %175
@@ -5636,7 +5636,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_map
   store i8 %18, ptr %19, align 8, !tbaa !166
   %20 = zext nneg i8 %18 to i64
   %21 = shl nuw nsw i64 %20, 6
-  %22 = tail call noalias ptr @av_mallocz(i64 noundef %21) #11
+  %22 = tail call noalias ptr @av_mallocz(i64 noundef %21) #13
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %22, ptr %23, align 8, !tbaa !74
   %.not = icmp eq ptr %22, null
@@ -5675,7 +5675,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_map
 
 43:                                               ; preds = %28
   %44 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %44, i32 noundef 16, ptr noundef nonnull @.str.44) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %44, i32 noundef 16, ptr noundef nonnull @.str.44) #13
   br label %.thread
 
 45:                                               ; preds = %28
@@ -5749,17 +5749,17 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_map
 
 95:                                               ; preds = %80
   %96 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %96, i32 noundef 16, ptr noundef nonnull @.str.45) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %96, i32 noundef 16, ptr noundef nonnull @.str.45) #13
   br label %.thread
 
 97:                                               ; preds = %80
   %98 = zext nneg i16 %91 to i64
-  %99 = tail call noalias ptr @av_mallocz(i64 noundef %98) #11
+  %99 = tail call noalias ptr @av_mallocz(i64 noundef %98) #13
   %100 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %99, ptr %100, align 8, !tbaa !87
   %101 = load i16, ptr %92, align 2, !tbaa !86
   %102 = zext i16 %101 to i64
-  %103 = tail call noalias ptr @av_mallocz(i64 noundef %102) #11
+  %103 = tail call noalias ptr @av_mallocz(i64 noundef %102) #13
   %104 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %103, ptr %104, align 8, !tbaa !88
   %.not109 = icmp eq ptr %103, null
@@ -5837,7 +5837,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_map
   %148 = zext i8 %144 to i32
   %149 = load ptr, ptr %0, align 8, !tbaa !29
   %150 = add nsw i32 %146, -1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %149, i32 noundef 16, ptr noundef nonnull @idx_err_str, i32 noundef %148, i32 noundef %150, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.31, i32 noundef 820) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %149, i32 noundef 16, ptr noundef nonnull @idx_err_str, i32 noundef %148, i32 noundef %150, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.31, i32 noundef 820) #13
   br label %.thread
 
 151:                                              ; preds = %.lr.ph
@@ -5883,7 +5883,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_map
   %183 = zext i8 %179 to i32
   %184 = load ptr, ptr %0, align 8, !tbaa !29
   %185 = add nsw i32 %182, -1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %184, i32 noundef 16, ptr noundef nonnull @idx_err_str, i32 noundef %183, i32 noundef %185, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.31, i32 noundef 821) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %184, i32 noundef 16, ptr noundef nonnull @idx_err_str, i32 noundef %183, i32 noundef %185, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.31, i32 noundef 821) #13
   br label %.thread
 
 186:                                              ; preds = %68
@@ -5911,7 +5911,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_map
 200:                                              ; preds = %.loopexit127
   %201 = trunc nuw nsw i64 %indvars.iv197 to i32
   %202 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %202, i32 noundef 16, ptr noundef nonnull @.str.48, i32 noundef %201) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %202, i32 noundef 16, ptr noundef nonnull @.str.48, i32 noundef %201) #13
   br label %.thread
 
 203:                                              ; preds = %.loopexit127
@@ -5922,7 +5922,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_map
 206:                                              ; preds = %203
   %207 = load i8, ptr %25, align 8, !tbaa !51
   %208 = zext i8 %207 to i64
-  %209 = tail call noalias ptr @av_calloc(i64 noundef %208, i64 noundef 1) #11
+  %209 = tail call noalias ptr @av_calloc(i64 noundef %208, i64 noundef 1) #13
   %210 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store ptr %209, ptr %210, align 8, !tbaa !82
   %.not112 = icmp eq ptr %209, null
@@ -6007,7 +6007,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_map
 255:                                              ; preds = %236
   %256 = load ptr, ptr %0, align 8, !tbaa !29
   %257 = add nsw i32 %254, -1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %256, i32 noundef 16, ptr noundef nonnull @idx_err_str, i32 noundef %248, i32 noundef %257, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.31, i32 noundef 847) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %256, i32 noundef 16, ptr noundef nonnull @idx_err_str, i32 noundef %248, i32 noundef %257, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.31, i32 noundef 847) #13
   br label %.thread
 
 258:                                              ; preds = %236
@@ -6035,7 +6035,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_map
 275:                                              ; preds = %258
   %276 = load ptr, ptr %0, align 8, !tbaa !29
   %277 = add nsw i32 %274, -1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %276, i32 noundef 16, ptr noundef nonnull @idx_err_str, i32 noundef %268, i32 noundef %277, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.31, i32 noundef 848) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %276, i32 noundef 16, ptr noundef nonnull @idx_err_str, i32 noundef %268, i32 noundef %277, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.31, i32 noundef 848) #13
   br label %.thread
 
 ._crit_edge:                                      ; preds = %234, %.loopexit
@@ -6074,7 +6074,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_mod
   store i8 %18, ptr %19, align 8, !tbaa !72
   %20 = zext nneg i8 %18 to i64
   %21 = shl nuw nsw i64 %20, 3
-  %22 = tail call noalias ptr @av_mallocz(i64 noundef %21) #11
+  %22 = tail call noalias ptr @av_mallocz(i64 noundef %21) #13
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %22, ptr %23, align 8, !tbaa !60
   %.not = icmp eq ptr %22, null
@@ -6161,7 +6161,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_mod
 74:                                               ; preds = %.critedge
   %75 = load ptr, ptr %0, align 8, !tbaa !29
   %76 = add nsw i32 %29, -1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %75, i32 noundef 16, ptr noundef nonnull @idx_err_str, i32 noundef %69, i32 noundef %76, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.31, i32 noundef 913) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %75, i32 noundef 16, ptr noundef nonnull @idx_err_str, i32 noundef %69, i32 noundef %76, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.31, i32 noundef 913) #13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %.preheader, %74, %1
@@ -6175,7 +6175,7 @@ declare noalias ptr @av_malloc(i64 noundef) local_unnamed_addr #3
 
 declare i32 @ff_vorbis_nth_root(i32 noundef, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #5
 
 declare i32 @ff_vorbis_len2vlc(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -6651,7 +6651,7 @@ get_vlc2.exit140:                                 ; preds = %165, %190, %211
   %319 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %320 = load i16, ptr %319, align 2, !tbaa !184
   %321 = zext i16 %320 to i32
-  call void @ff_vorbis_floor1_render_list(ptr noundef %253, i32 noundef %250, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %318, ptr noundef %2, i32 noundef %321) #11
+  call void @ff_vorbis_floor1_render_list(ptr noundef %253, i32 noundef %250, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %318, ptr noundef %2, i32 noundef %321) #13
   br label %.critedge
 
 .critedge:                                        ; preds = %get_vlc2.exit140, %3, %._crit_edge165
@@ -6853,7 +6853,7 @@ get_bits64.exit:                                  ; preds = %get_bits_long.exit.
 
 145:                                              ; preds = %121
   %146 = load ptr, ptr %0, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %146, i32 noundef 16, ptr noundef nonnull @.str.40) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %146, i32 noundef 16, ptr noundef nonnull @.str.40) #13
   br label %147
 
 147:                                              ; preds = %121, %145
@@ -7164,66 +7164,68 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 declare void @ff_vorbis_floor1_render_list(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.cos.f64(double) #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.exp.f64(double) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.atan.f64(double) #5
+declare double @llvm.atan.f64(double) #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #5
 
 declare i32 @ff_get_buffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #11
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #10
+declare i32 @llvm.abs.i32(i32, i1 immarg) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #11
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

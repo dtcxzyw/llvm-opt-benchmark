@@ -120,7 +120,7 @@ define dso_local noalias noundef ptr @zslCreateNode(i32 noundef %0, double nound
   %4 = sext i32 %0 to i64
   %5 = shl nsw i64 %4, 4
   %6 = add nsw i64 %5, 24
-  %7 = tail call noalias ptr @zmalloc(i64 noundef %6) #17
+  %7 = tail call noalias ptr @zmalloc(i64 noundef %6) #18
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %1, ptr %8, align 8, !tbaa !5
   store ptr %2, ptr %7, align 8, !tbaa !9
@@ -132,12 +132,12 @@ declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @zslCreate() local_unnamed_addr #0 {
-  %1 = tail call noalias dereferenceable_or_null(32) ptr @zmalloc(i64 noundef 32) #17
+  %1 = tail call noalias dereferenceable_or_null(32) ptr @zmalloc(i64 noundef 32) #18
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 1, ptr %2, align 8, !tbaa !12
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 0, ptr %3, align 8, !tbaa !17
-  %4 = tail call noalias noundef dereferenceable_or_null(536) ptr @zmalloc(i64 noundef 536) #17
+  %4 = tail call noalias noundef dereferenceable_or_null(536) ptr @zmalloc(i64 noundef 536) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr %4, ptr %1, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -150,8 +150,8 @@ define dso_local noalias noundef ptr @zslCreate() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @zslFreeNode(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !9
-  tail call void @sdsfree(ptr noundef %2) #18
-  tail call void @zfree(ptr noundef nonnull %0) #18
+  tail call void @sdsfree(ptr noundef %2) #19
+  tail call void @zfree(ptr noundef nonnull %0) #19
   ret void
 }
 
@@ -164,7 +164,7 @@ define dso_local void @zslFree(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !18
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !20
-  tail call void @zfree(ptr noundef %2) #18
+  tail call void @zfree(ptr noundef %2) #19
   %.not7 = icmp eq ptr %4, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -173,13 +173,13 @@ define dso_local void @zslFree(ptr noundef %0) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %.08, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !20
   %7 = load ptr, ptr %.08, align 8, !tbaa !9
-  tail call void @sdsfree(ptr noundef %7) #18
-  tail call void @zfree(ptr noundef nonnull %.08) #18
+  tail call void @sdsfree(ptr noundef %7) #19
+  tail call void @zfree(ptr noundef nonnull %.08) #19
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  tail call void @zfree(ptr noundef nonnull %0) #18
+  tail call void @zfree(ptr noundef nonnull %0) #19
   ret void
 }
 
@@ -189,7 +189,7 @@ define dso_local range(i32 0, 33) i32 @zslRandomLevel() local_unnamed_addr #0 {
 
 1:                                                ; preds = %1, %0
   %.0 = phi i32 [ 1, %0 ], [ %4, %1 ]
-  %2 = tail call i64 @random() #18
+  %2 = tail call i64 @random() #19
   %3 = icmp slt i64 %2, 536870911
   %4 = add nuw nsw i32 %.0, 1
   br i1 %3, label %1, label %5, !llvm.loop !24
@@ -212,8 +212,8 @@ define dso_local noundef ptr @zslInsert(ptr noundef captures(none) %0, double no
   br i1 %6, label %8, label %7, !prof !25
 
 7:                                                ; preds = %3
-  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 126) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 126) #19
+  tail call void @abort() #20
   unreachable
 
 8:                                                ; preds = %3
@@ -267,7 +267,7 @@ define dso_local noundef ptr @zslInsert(ptr noundef captures(none) %0, double no
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr %27, align 8, !tbaa !9
-  %36 = tail call i32 @sdscmp(ptr noundef %35, ptr noundef %2) #18
+  %36 = tail call i32 @sdscmp(ptr noundef %35, ptr noundef %2) #19
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %..critedge2_crit_edge, label %.critedge
 
@@ -300,7 +300,7 @@ define dso_local noundef ptr @zslInsert(ptr noundef captures(none) %0, double no
 .preheader91:                                     ; preds = %.preheader91.preheader, %.preheader91
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.preheader91 ], [ 1, %.preheader91.preheader ]
   %.0.i = phi i32 [ %49, %.preheader91 ], [ 1, %.preheader91.preheader ]
-  %47 = tail call i64 @random() #18
+  %47 = tail call i64 @random() #19
   %48 = icmp slt i64 %47, 536870911
   %49 = add nuw nsw i32 %.0.i, 1
   %indvars.iv.next116 = add nuw i64 %indvars.iv115, 1
@@ -347,7 +347,7 @@ zslRandomLevel.exit:                              ; preds = %.preheader91
   %71 = shl nuw nsw i32 %50, 4
   %narrow = add nuw nsw i32 %71, 24
   %72 = zext nneg i32 %narrow to i64
-  %73 = tail call noalias noundef ptr @zmalloc(i64 noundef %72) #17
+  %73 = tail call noalias noundef ptr @zmalloc(i64 noundef %72) #18
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store double %1, ptr %74, align 8, !tbaa !5
   store ptr %2, ptr %73, align 8, !tbaa !9
@@ -578,7 +578,7 @@ define dso_local range(i32 0, 2) i32 @zslDelete(ptr noundef captures(none) %0, d
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr %14, align 8, !tbaa !9
-  %23 = tail call i32 @sdscmp(ptr noundef %22, ptr noundef %2) #18
+  %23 = tail call i32 @sdscmp(ptr noundef %22, ptr noundef %2) #19
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %..critedge2_crit_edge, label %.critedge
 
@@ -616,7 +616,7 @@ define dso_local range(i32 0, 2) i32 @zslDelete(ptr noundef captures(none) %0, d
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %32, align 8, !tbaa !9
-  %39 = tail call i32 @sdscmp(ptr noundef %38, ptr noundef %2) #18
+  %39 = tail call i32 @sdscmp(ptr noundef %38, ptr noundef %2) #19
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %93
 
@@ -716,8 +716,8 @@ zslDeleteNode.exit:                               ; preds = %77, %84, %74
 
 90:                                               ; preds = %zslDeleteNode.exit
   %91 = load ptr, ptr %32, align 8, !tbaa !9
-  tail call void @sdsfree(ptr noundef %91) #18
-  tail call void @zfree(ptr noundef nonnull %32) #18
+  tail call void @sdsfree(ptr noundef %91) #19
+  tail call void @zfree(ptr noundef nonnull %32) #19
   br label %93
 
 92:                                               ; preds = %zslDeleteNode.exit
@@ -769,7 +769,7 @@ define dso_local ptr @zslUpdateScore(ptr noundef captures(none) %0, double nound
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr %14, align 8, !tbaa !9
-  %23 = tail call i32 @sdscmp(ptr noundef %22, ptr noundef %2) #18
+  %23 = tail call i32 @sdscmp(ptr noundef %22, ptr noundef %2) #19
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %..critedge2_crit_edge, label %.critedge
 
@@ -807,13 +807,13 @@ define dso_local ptr @zslUpdateScore(ptr noundef captures(none) %0, double nound
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %32, align 8, !tbaa !9
-  %39 = tail call i32 @sdscmp(ptr noundef %38, ptr noundef %2) #18
+  %39 = tail call i32 @sdscmp(ptr noundef %38, ptr noundef %2) #19
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %.critedge54, !prof !25
 
 .critedge54:                                      ; preds = %33, %._crit_edge, %37
-  tail call void @_serverAssert(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 269) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 269) #19
+  tail call void @abort() #20
   unreachable
 
 41:                                               ; preds = %37
@@ -941,8 +941,8 @@ zslDeleteNode.exit:                               ; preds = %93, %100, %90
   %106 = load ptr, ptr %32, align 8, !tbaa !9
   %107 = tail call ptr @zslInsert(ptr noundef nonnull %0, double noundef %3, ptr noundef %106)
   store ptr null, ptr %32, align 8, !tbaa !9
-  tail call void @sdsfree(ptr noundef null) #18
-  tail call void @zfree(ptr noundef nonnull %32) #18
+  tail call void @sdsfree(ptr noundef null) #19
+  tail call void @zfree(ptr noundef nonnull %32) #19
   br label %108
 
 108:                                              ; preds = %zslDeleteNode.exit, %57
@@ -1610,10 +1610,10 @@ zslDeleteNode.exit:                               ; preds = %72, %79, %69
   %83 = add i64 %82, -1
   store i64 %83, ptr %29, align 8, !tbaa !17
   %84 = load ptr, ptr %.241, align 8, !tbaa !9
-  %85 = tail call i32 @dictDelete(ptr noundef %2, ptr noundef %84) #18
+  %85 = tail call i32 @dictDelete(ptr noundef %2, ptr noundef %84) #19
   %86 = load ptr, ptr %.241, align 8, !tbaa !9
-  tail call void @sdsfree(ptr noundef %86) #18
-  tail call void @zfree(ptr noundef nonnull %.241) #18
+  tail call void @sdsfree(ptr noundef %86) #19
+  tail call void @zfree(ptr noundef nonnull %.241) #19
   %87 = add i64 %.02840, 1
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %.critedge2, label %30, !llvm.loop !57
@@ -1702,7 +1702,7 @@ define dso_local i64 @zslDeleteRangeByLex(ptr noundef captures(none) %0, ptr nou
 
 zslLexValueGteMin.exit:                           ; preds = %27, %37
   %.sink14.i = phi i32 [ 0, %27 ], [ -1, %37 ]
-  %40 = tail call i32 @sdscmp(ptr noundef %16, ptr noundef %18) #18
+  %40 = tail call i32 @sdscmp(ptr noundef %16, ptr noundef %18) #19
   %.not47 = icmp sgt i32 %40, %.sink14.i
   br i1 %.not47, label %.critedge, label %zslLexValueGteMin.exit.zslLexValueGteMin.exit.thread_crit_edge
 
@@ -1769,7 +1769,7 @@ zslLexValueGteMin.exit.thread:                    ; preds = %zslLexValueGteMin.e
   br i1 %or.cond.i.i34, label %.critedge2, label %68
 
 68:                                               ; preds = %65
-  %69 = tail call i32 @sdscmp(ptr noundef %54, ptr noundef %56) #18
+  %69 = tail call i32 @sdscmp(ptr noundef %54, ptr noundef %56) #19
   %70 = icmp sgt i32 %69, -1
   br i1 %70, label %.critedge2, label %zslLexValueLteMax.exit.thread
 
@@ -1793,7 +1793,7 @@ zslLexValueGteMin.exit.thread:                    ; preds = %zslLexValueGteMin.e
   br i1 %or.cond.i5.i35, label %.critedge2, label %zslLexValueLteMax.exit
 
 zslLexValueLteMax.exit:                           ; preds = %78
-  %81 = tail call i32 @sdscmp(ptr noundef %54, ptr noundef %56) #18
+  %81 = tail call i32 @sdscmp(ptr noundef %54, ptr noundef %56) #19
   %82 = icmp sgt i32 %81, 0
   br i1 %82, label %.critedge2, label %zslLexValueLteMax.exit.thread
 
@@ -1891,10 +1891,10 @@ zslDeleteNode.exit:                               ; preds = %117, %124, %114
   %128 = add i64 %127, -1
   store i64 %128, ptr %52, align 8, !tbaa !17
   %129 = load ptr, ptr %.268, align 8, !tbaa !9
-  %130 = tail call i32 @dictDelete(ptr noundef %2, ptr noundef %129) #18
+  %130 = tail call i32 @dictDelete(ptr noundef %2, ptr noundef %129) #19
   %131 = load ptr, ptr %.268, align 8, !tbaa !9
-  tail call void @sdsfree(ptr noundef %131) #18
-  tail call void @zfree(ptr noundef nonnull %.268) #18
+  tail call void @sdsfree(ptr noundef %131) #19
+  tail call void @zfree(ptr noundef nonnull %.268) #19
   %132 = add i64 %.02867, 1
   %.not = icmp eq ptr %84, null
   br i1 %.not, label %.critedge2, label %53, !llvm.loop !69
@@ -1954,7 +1954,7 @@ define dso_local range(i32 0, 2) i32 @zslLexValueGteMin(ptr noundef %0, ptr noun
 
 sdscmplex.exit.sink.split:                        ; preds = %24, %14
   %.sink14 = phi i32 [ 0, %14 ], [ -1, %24 ]
-  %27 = tail call i32 @sdscmp(ptr noundef %0, ptr noundef %5) #18
+  %27 = tail call i32 @sdscmp(ptr noundef %0, ptr noundef %5) #19
   %28 = icmp sgt i32 %27, %.sink14
   %29 = zext i1 %28 to i32
   br label %sdscmplex.exit
@@ -1994,7 +1994,7 @@ define dso_local range(i32 0, 2) i32 @zslLexValueLteMax(ptr noundef %0, ptr noun
   br i1 %or.cond.i, label %sdscmplex.exit, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call i32 @sdscmp(ptr noundef %0, ptr noundef %6) #18
+  %19 = tail call i32 @sdscmp(ptr noundef %0, ptr noundef %6) #19
   %20 = lshr i32 %19, 31
   br label %sdscmplex.exit
 
@@ -2018,7 +2018,7 @@ define dso_local range(i32 0, 2) i32 @zslLexValueLteMax(ptr noundef %0, ptr noun
   br i1 %or.cond.i5, label %sdscmplex.exit, label %31
 
 31:                                               ; preds = %28
-  %32 = tail call i32 @sdscmp(ptr noundef %0, ptr noundef %6) #18
+  %32 = tail call i32 @sdscmp(ptr noundef %0, ptr noundef %6) #19
   %33 = icmp slt i32 %32, 1
   %34 = zext i1 %33 to i32
   br label %sdscmplex.exit
@@ -2186,10 +2186,10 @@ zslDeleteNode.exit:                               ; preds = %66, %73, %63
   %77 = add i64 %76, -1
   store i64 %77, ptr %30, align 8, !tbaa !17
   %78 = load ptr, ptr %.245, align 8, !tbaa !9
-  %79 = tail call i32 @dictDelete(ptr noundef %3, ptr noundef %78) #18
+  %79 = tail call i32 @dictDelete(ptr noundef %3, ptr noundef %78) #19
   %80 = load ptr, ptr %.245, align 8, !tbaa !9
-  tail call void @sdsfree(ptr noundef %80) #18
-  tail call void @zfree(ptr noundef nonnull %.245) #18
+  tail call void @sdsfree(ptr noundef %80) #19
+  tail call void @zfree(ptr noundef nonnull %.245) #19
   %81 = add nuw nsw i64 %.03244, 1
   %82 = icmp ne ptr %33, null
   %83 = icmp ult i64 %.235, %25
@@ -2241,7 +2241,7 @@ define dso_local i64 @zslGetRank(ptr noundef readonly captures(none) %0, double 
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %12, align 8, !tbaa !9
-  %21 = tail call i32 @sdscmp(ptr noundef %20, ptr noundef %2) #18
+  %21 = tail call i32 @sdscmp(ptr noundef %20, ptr noundef %2) #19
   %22 = icmp slt i32 %21, 1
   br i1 %22, label %..critedge2_crit_edge, label %.critedge
 
@@ -2274,7 +2274,7 @@ define dso_local i64 @zslGetRank(ptr noundef readonly captures(none) %0, double 
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %31
-  %36 = tail call i32 @sdscmp(ptr noundef nonnull %30, ptr noundef %2) #18
+  %36 = tail call i32 @sdscmp(ptr noundef nonnull %30, ptr noundef %2) #19
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %._crit_edge, label %38
 
@@ -2416,7 +2416,7 @@ define dso_local range(i32 -1, 1) i32 @zslParseLexRangeItem(ptr noundef readonly
 sdslen.exit:                                      ; preds = %17, %23, %26, %30, %34, %38
   %.0.i = phi i64 [ %25, %23 ], [ %29, %26 ], [ %33, %30 ], [ %37, %34 ], [ %40, %38 ], [ 0, %17 ]
   %41 = add i64 %.0.i, -1
-  %42 = tail call ptr @sdsnewlen(ptr noundef nonnull %18, i64 noundef %41) #18
+  %42 = tail call ptr @sdsnewlen(ptr noundef nonnull %18, i64 noundef %41) #19
   br label %.sink.split
 
 43:                                               ; preds = %3
@@ -2465,7 +2465,7 @@ sdslen.exit:                                      ; preds = %17, %23, %26, %30, 
 sdslen.exit18:                                    ; preds = %43, %49, %52, %56, %60, %64
   %.0.i17 = phi i64 [ %51, %49 ], [ %55, %52 ], [ %59, %56 ], [ %63, %60 ], [ %66, %64 ], [ 0, %43 ]
   %67 = add i64 %.0.i17, -1
-  %68 = tail call ptr @sdsnewlen(ptr noundef nonnull %44, i64 noundef %67) #18
+  %68 = tail call ptr @sdsnewlen(ptr noundef nonnull %44, i64 noundef %67) #19
   br label %.sink.split
 
 .sink.split:                                      ; preds = %10, %15, %sdslen.exit, %sdslen.exit18
@@ -2538,7 +2538,7 @@ define dso_local void @zslFreeLexRange(ptr noundef readonly captures(none) %0) l
   br i1 %or.cond, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @sdsfree(ptr noundef %2) #18
+  tail call void @sdsfree(ptr noundef %2) #19
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81904), align 8, !tbaa !61
   %.pre11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81912), align 8
   br label %6
@@ -2554,7 +2554,7 @@ define dso_local void @zslFreeLexRange(ptr noundef readonly captures(none) %0) l
   br i1 %or.cond10, label %12, label %11
 
 11:                                               ; preds = %6
-  tail call void @sdsfree(ptr noundef %10) #18
+  tail call void @sdsfree(ptr noundef %10) #19
   br label %12
 
 12:                                               ; preds = %11, %6
@@ -2598,7 +2598,7 @@ define dso_local range(i32 -1, 1) i32 @zslParseLexRange(ptr noundef readonly cap
   br i1 %or.cond.i, label %25, label %24
 
 24:                                               ; preds = %20
-  tail call void @sdsfree(ptr noundef %21) #18
+  tail call void @sdsfree(ptr noundef %21) #19
   %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81904), align 8, !tbaa !61
   %.pre11.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81912), align 8
   br label %25
@@ -2613,7 +2613,7 @@ define dso_local range(i32 -1, 1) i32 @zslParseLexRange(ptr noundef readonly cap
   br i1 %or.cond10.i, label %zslFreeLexRange.exit, label %29
 
 29:                                               ; preds = %25
-  tail call void @sdsfree(ptr noundef %28) #18
+  tail call void @sdsfree(ptr noundef %28) #19
   br label %zslFreeLexRange.exit
 
 zslFreeLexRange.exit:                             ; preds = %29, %25, %16, %3, %7
@@ -2643,7 +2643,7 @@ define dso_local i32 @sdscmplex(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %or.cond, label %15, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call i32 @sdscmp(ptr noundef %0, ptr noundef %1) #18
+  %14 = tail call i32 @sdscmp(ptr noundef %0, ptr noundef %1) #19
   br label %15
 
 15:                                               ; preds = %10, %4, %7, %2, %13
@@ -2676,7 +2676,7 @@ define dso_local range(i32 0, 2) i32 @zslIsInLexRange(ptr noundef readonly captu
   br i1 %or.cond.i, label %sdscmplex.exit.thread25, label %sdscmplex.exit
 
 sdscmplex.exit:                                   ; preds = %13
-  %16 = tail call i32 @sdscmp(ptr noundef %3, ptr noundef %5) #18
+  %16 = tail call i32 @sdscmp(ptr noundef %3, ptr noundef %5) #19
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %sdscmplex.exit.thread25, label %sdscmplex.exit.thread
 
@@ -2751,7 +2751,7 @@ sdscmplex.exit.thread.thread:                     ; preds = %10, %7, %21, %sdscm
 
 zslLexValueGteMin.exit:                           ; preds = %40, %50
   %.sink14.i = phi i32 [ 0, %40 ], [ -1, %50 ]
-  %53 = tail call i32 @sdscmp(ptr noundef %28, ptr noundef %31) #18
+  %53 = tail call i32 @sdscmp(ptr noundef %28, ptr noundef %31) #19
   %.not42 = icmp sgt i32 %53, %.sink14.i
   br i1 %.not42, label %zslLexValueGteMin.exit.thread30, label %sdscmplex.exit.thread25
 
@@ -2791,7 +2791,7 @@ zslLexValueGteMin.exit.thread30:                  ; preds = %50, %43, %40, %zslL
   br i1 %or.cond.i.i21, label %zslLexValueLteMax.exit.thread36, label %74
 
 74:                                               ; preds = %71
-  %75 = tail call i32 @sdscmp(ptr noundef %59, ptr noundef %62) #18
+  %75 = tail call i32 @sdscmp(ptr noundef %59, ptr noundef %62) #19
   %.fr = freeze i32 %75
   %76 = icmp sgt i32 %.fr, -1
   br i1 %76, label %zslLexValueLteMax.exit.thread36, label %sdscmplex.exit.thread25
@@ -2816,7 +2816,7 @@ zslLexValueGteMin.exit.thread30:                  ; preds = %50, %43, %40, %zslL
   br i1 %or.cond.i5.i22, label %zslLexValueLteMax.exit.thread36, label %zslLexValueLteMax.exit
 
 zslLexValueLteMax.exit:                           ; preds = %84
-  %87 = tail call i32 @sdscmp(ptr noundef %59, ptr noundef %62) #18
+  %87 = tail call i32 @sdscmp(ptr noundef %59, ptr noundef %62) #19
   %.fr65 = freeze i32 %87
   %88 = icmp sgt i32 %.fr65, 0
   br i1 %88, label %zslLexValueLteMax.exit.thread36, label %sdscmplex.exit.thread25
@@ -2902,7 +2902,7 @@ define dso_local noundef ptr @zslNthInLexRange(ptr noundef readonly captures(non
 
 zslLexValueGteMin.exit:                           ; preds = %27, %37
   %.sink14.i = phi i32 [ 0, %27 ], [ -1, %37 ]
-  %40 = tail call i32 @sdscmp(ptr noundef %16, ptr noundef %18) #18
+  %40 = tail call i32 @sdscmp(ptr noundef %16, ptr noundef %18) #19
   %.not182 = icmp sgt i32 %40, %.sink14.i
   br i1 %.not182, label %.critedge, label %zslLexValueGteMin.exit.zslLexValueGteMin.exit.thread_crit_edge
 
@@ -3001,7 +3001,7 @@ zslLexValueGteMin.exit.thread:                    ; preds = %zslLexValueGteMin.e
 
 zslLexValueGteMin.exit115:                        ; preds = %71, %81
   %.sink14.i112 = phi i32 [ 0, %71 ], [ -1, %81 ]
-  %84 = tail call i32 @sdscmp(ptr noundef %60, ptr noundef %62) #18
+  %84 = tail call i32 @sdscmp(ptr noundef %60, ptr noundef %62) #19
   %.not184 = icmp sgt i32 %84, %.sink14.i112
   br i1 %.not184, label %.critedge2, label %zslLexValueGteMin.exit115.zslLexValueGteMin.exit115.thread_crit_edge
 
@@ -3128,7 +3128,7 @@ zslGetElementByRankFromNode.exit.thread158:       ; preds = %.critedge.i, %zslGe
   br i1 %or.cond.i.i118, label %zslLexValueLteMax.exit.thread164, label %135
 
 135:                                              ; preds = %132
-  %136 = tail call i32 @sdscmp(ptr noundef %119, ptr noundef %123) #18
+  %136 = tail call i32 @sdscmp(ptr noundef %119, ptr noundef %123) #19
   %137 = icmp sgt i32 %136, -1
   br i1 %137, label %zslLexValueLteMax.exit.thread164, label %zslGetElementByRankFromNode.exit.thread
 
@@ -3152,7 +3152,7 @@ zslGetElementByRankFromNode.exit.thread158:       ; preds = %.critedge.i, %zslGe
   br i1 %or.cond.i5.i119, label %zslLexValueLteMax.exit.thread164, label %zslLexValueLteMax.exit
 
 zslLexValueLteMax.exit:                           ; preds = %145
-  %148 = tail call i32 @sdscmp(ptr noundef %119, ptr noundef %123) #18
+  %148 = tail call i32 @sdscmp(ptr noundef %119, ptr noundef %123) #19
   %149 = icmp sgt i32 %148, 0
   br i1 %149, label %zslLexValueLteMax.exit.thread164, label %zslGetElementByRankFromNode.exit.thread
 
@@ -3209,7 +3209,7 @@ zslLexValueLteMax.exit:                           ; preds = %145
   br i1 %or.cond.i.i121, label %.critedge4, label %174
 
 174:                                              ; preds = %171
-  %175 = tail call i32 @sdscmp(ptr noundef %160, ptr noundef %162) #18
+  %175 = tail call i32 @sdscmp(ptr noundef %160, ptr noundef %162) #19
   %176 = icmp sgt i32 %175, -1
   br i1 %176, label %.critedge4, label %zslLexValueLteMax.exit123.zslLexValueLteMax.exit123.thread_crit_edge
 
@@ -3233,7 +3233,7 @@ zslLexValueLteMax.exit:                           ; preds = %145
   br i1 %or.cond.i5.i122, label %.critedge4, label %zslLexValueLteMax.exit123
 
 zslLexValueLteMax.exit123:                        ; preds = %184
-  %187 = tail call i32 @sdscmp(ptr noundef %160, ptr noundef %162) #18
+  %187 = tail call i32 @sdscmp(ptr noundef %160, ptr noundef %162) #19
   %188 = icmp sgt i32 %187, 0
   br i1 %188, label %.critedge4, label %zslLexValueLteMax.exit123.zslLexValueLteMax.exit123.thread_crit_edge
 
@@ -3381,7 +3381,7 @@ zslGetElementByRankFromNode.exit136.thread172:    ; preds = %.critedge.i134, %.p
 
 zslLexValueGteMin.exit143:                        ; preds = %235, %245
   %.sink14.i140 = phi i32 [ 0, %235 ], [ -1, %245 ]
-  %248 = tail call i32 @sdscmp(ptr noundef %223, ptr noundef %226) #18
+  %248 = tail call i32 @sdscmp(ptr noundef %223, ptr noundef %226) #19
   %.not183 = icmp sgt i32 %248, %.sink14.i140
   br i1 %.not183, label %zslGetElementByRankFromNode.exit.thread, label %zslLexValueLteMax.exit.thread164
 
@@ -3403,7 +3403,7 @@ define dso_local double @zzlStrtod(ptr noundef readonly captures(none) %0, i32 n
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %0, i64 %4, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 %4
   store i8 0, ptr %5, align 1, !tbaa !77
-  %6 = call double @fast_float_strtod(ptr noundef nonnull %3, ptr noundef null) #18
+  %6 = call double @fast_float_strtod(ptr noundef nonnull %3, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret double %6
 }
@@ -3424,12 +3424,12 @@ define dso_local double @zzlGetScore(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %5, label %6, !prof !40
 
 5:                                                ; preds = %1
-  tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 785) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 785) #19
+  tail call void @abort() #20
   unreachable
 
 6:                                                ; preds = %1
-  %7 = call ptr @lpGetValue(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #18
+  %7 = call ptr @lpGetValue(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #19
   %.not7 = icmp eq ptr %7, null
   br i1 %.not7, label %13, label %8
 
@@ -3441,7 +3441,7 @@ define dso_local double @zzlGetScore(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull readonly align 1 %7, i64 %10, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 %10
   store i8 0, ptr %11, align 1, !tbaa !77
-  %12 = call double @fast_float_strtod(ptr noundef nonnull %2, ptr noundef null) #18
+  %12 = call double @fast_float_strtod(ptr noundef nonnull %2, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %16
 
@@ -3469,24 +3469,24 @@ define dso_local ptr @lpGetObject(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %4, label %5, !prof !40
 
 4:                                                ; preds = %1
-  tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 803) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 803) #19
+  tail call void @abort() #20
   unreachable
 
 5:                                                ; preds = %1
-  %6 = call ptr @lpGetValue(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #18
+  %6 = call ptr @lpGetValue(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #19
   %.not7 = icmp eq ptr %6, null
   br i1 %.not7, label %11, label %7
 
 7:                                                ; preds = %5
   %8 = load i32, ptr %2, align 4, !tbaa !78
   %9 = zext i32 %8 to i64
-  %10 = call ptr @sdsnewlen(ptr noundef nonnull %6, i64 noundef %9) #18
+  %10 = call ptr @sdsnewlen(ptr noundef nonnull %6, i64 noundef %9) #19
   br label %14
 
 11:                                               ; preds = %5
   %12 = load i64, ptr %3, align 8, !tbaa !88
-  %13 = call ptr @sdsfromlonglong(i64 noundef %12) #18
+  %13 = call ptr @sdsfromlonglong(i64 noundef %12) #19
   br label %14
 
 14:                                               ; preds = %11, %7
@@ -3506,7 +3506,7 @@ define dso_local i32 @zzlCompareElements(ptr noundef %0, ptr noundef readonly ca
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %7 = call ptr @lpGetValue(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #18
+  %7 = call ptr @lpGetValue(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #19
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %._crit_edge
 
@@ -3516,7 +3516,7 @@ define dso_local i32 @zzlCompareElements(ptr noundef %0, ptr noundef readonly ca
 
 9:                                                ; preds = %3
   %10 = load i64, ptr %5, align 8, !tbaa !88
-  %11 = call i32 @ll2string(ptr noundef nonnull %6, i64 noundef 32, i64 noundef %10) #18
+  %11 = call i32 @ll2string(ptr noundef nonnull %6, i64 noundef 32, i64 noundef %10) #19
   store i32 %11, ptr %4, align 4, !tbaa !78
   br label %12
 
@@ -3525,7 +3525,7 @@ define dso_local i32 @zzlCompareElements(ptr noundef %0, ptr noundef readonly ca
   %.010 = phi ptr [ %6, %9 ], [ %7, %._crit_edge ]
   %14 = call i32 @llvm.umin.i32(i32 %13, i32 %2)
   %15 = sext i32 %14 to i64
-  %16 = call i32 @memcmp(ptr noundef nonnull %.010, ptr noundef %1, i64 noundef %15) #20
+  %16 = call i32 @memcmp(ptr noundef nonnull %.010, ptr noundef %1, i64 noundef %15) #21
   %17 = icmp eq i32 %16, 0
   %18 = sub i32 %13, %2
   %.0 = select i1 %17, i32 %18, i32 %16
@@ -3542,7 +3542,7 @@ declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @zzlLength(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @lpLength(ptr noundef %0) #18
+  %2 = tail call i64 @lpLength(ptr noundef %0) #19
   %3 = lshr i64 %2, 1
   %4 = trunc i64 %3 to i32
   ret i32 %4
@@ -3562,23 +3562,23 @@ define dso_local void @zzlNext(ptr noundef %0, ptr noundef captures(none) %1, pt
   br i1 %.not16, label %.critedge, label %7, !prof !40
 
 .critedge:                                        ; preds = %3, %5
-  tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 842) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 842) #19
+  tail call void @abort() #20
   unreachable
 
 7:                                                ; preds = %5
-  %8 = tail call ptr @lpNext(ptr noundef %0, ptr noundef nonnull %6) #18
+  %8 = tail call ptr @lpNext(ptr noundef %0, ptr noundef nonnull %6) #19
   %.not14 = icmp eq ptr %8, null
   br i1 %.not14, label %12, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call ptr @lpNext(ptr noundef %0, ptr noundef nonnull %8) #18
+  %10 = tail call ptr @lpNext(ptr noundef %0, ptr noundef nonnull %8) #19
   %.not15 = icmp eq ptr %10, null
   br i1 %.not15, label %11, label %12, !prof !40
 
 11:                                               ; preds = %9
-  tail call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 847) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 847) #19
+  tail call void @abort() #20
   unreachable
 
 12:                                               ; preds = %7, %9
@@ -3602,23 +3602,23 @@ define dso_local void @zzlPrev(ptr noundef %0, ptr noundef captures(none) %1, pt
   br i1 %.not16, label %.critedge, label %7, !prof !40
 
 .critedge:                                        ; preds = %3, %5
-  tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 861) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 861) #19
+  tail call void @abort() #20
   unreachable
 
 7:                                                ; preds = %5
-  %8 = tail call ptr @lpPrev(ptr noundef %0, ptr noundef nonnull %4) #18
+  %8 = tail call ptr @lpPrev(ptr noundef %0, ptr noundef nonnull %4) #19
   %.not14 = icmp eq ptr %8, null
   br i1 %.not14, label %12, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call ptr @lpPrev(ptr noundef %0, ptr noundef nonnull %8) #18
+  %10 = tail call ptr @lpPrev(ptr noundef %0, ptr noundef nonnull %8) #19
   %.not15 = icmp eq ptr %10, null
   br i1 %.not15, label %11, label %12, !prof !40
 
 11:                                               ; preds = %9
-  tail call void @_serverAssert(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 866) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 866) #19
+  tail call void @abort() #20
   unreachable
 
 12:                                               ; preds = %7, %9
@@ -3661,14 +3661,14 @@ define dso_local range(i32 0, 2) i32 @zzlIsInRange(ptr noundef %0, ptr noundef r
   br i1 %.not20, label %21, label %57
 
 21:                                               ; preds = %18, %13
-  %22 = tail call ptr @lpSeek(ptr noundef %0, i64 noundef -1) #18
+  %22 = tail call ptr @lpSeek(ptr noundef %0, i64 noundef -1) #19
   %23 = icmp eq ptr %22, null
   br i1 %23, label %57, label %24
 
 24:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %25 = call ptr @lpGetValue(ptr noundef nonnull %22, ptr noundef nonnull %7, ptr noundef nonnull %8) #18
+  %25 = call ptr @lpGetValue(ptr noundef nonnull %22, ptr noundef nonnull %7, ptr noundef nonnull %8) #19
   %.not7.i = icmp eq ptr %25, null
   br i1 %.not7.i, label %31, label %26
 
@@ -3680,7 +3680,7 @@ define dso_local range(i32 0, 2) i32 @zzlIsInRange(ptr noundef %0, ptr noundef r
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull readonly align 1 %25, i64 %28, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 %28
   store i8 0, ptr %29, align 1, !tbaa !77
-  %30 = call double @fast_float_strtod(ptr noundef nonnull %6, ptr noundef null) #18
+  %30 = call double @fast_float_strtod(ptr noundef nonnull %6, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %zzlGetScore.exit
 
@@ -3703,19 +3703,19 @@ zzlGetScore.exit:                                 ; preds = %26, %31
   br i1 %.in.i, label %57, label %39
 
 39:                                               ; preds = %zzlGetScore.exit
-  %40 = call ptr @lpSeek(ptr noundef %0, i64 noundef 1) #18
+  %40 = call ptr @lpSeek(ptr noundef %0, i64 noundef 1) #19
   %.not22 = icmp eq ptr %40, null
   br i1 %.not22, label %41, label %42, !prof !40
 
 41:                                               ; preds = %39
-  call void @_serverAssert(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 894) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 894) #19
+  call void @abort() #20
   unreachable
 
 42:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %43 = call ptr @lpGetValue(ptr noundef nonnull %40, ptr noundef nonnull %4, ptr noundef nonnull %5) #18
+  %43 = call ptr @lpGetValue(ptr noundef nonnull %40, ptr noundef nonnull %4, ptr noundef nonnull %5) #19
   %.not7.i26 = icmp eq ptr %43, null
   br i1 %.not7.i26, label %49, label %44
 
@@ -3727,7 +3727,7 @@ zzlGetScore.exit:                                 ; preds = %26, %31
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull readonly align 1 %43, i64 %46, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 %46
   store i8 0, ptr %47, align 1, !tbaa !77
-  %48 = call double @fast_float_strtod(ptr noundef nonnull %3, ptr noundef null) #18
+  %48 = call double @fast_float_strtod(ptr noundef nonnull %3, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %zzlGetScore.exit29
 
@@ -3762,7 +3762,7 @@ define dso_local ptr @zzlFirstInRange(ptr noundef %0, ptr noundef readonly captu
   %3 = alloca [128 x i8], align 16
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
-  %6 = tail call ptr @lpSeek(ptr noundef %0, i64 noundef 0) #18
+  %6 = tail call ptr @lpSeek(ptr noundef %0, i64 noundef 0) #19
   %7 = tail call i32 @zzlIsInRange(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %7, 0
   %.not1827 = icmp eq ptr %6, null
@@ -3775,19 +3775,19 @@ define dso_local ptr @zzlFirstInRange(ptr noundef %0, ptr noundef readonly captu
 
 9:                                                ; preds = %.lr.ph, %33
   %.01628 = phi ptr [ %6, %.lr.ph ], [ %34, %33 ]
-  %10 = call ptr @lpNext(ptr noundef %0, ptr noundef nonnull %.01628) #18
+  %10 = call ptr @lpNext(ptr noundef %0, ptr noundef nonnull %.01628) #19
   %.not19 = icmp eq ptr %10, null
   br i1 %.not19, label %11, label %12, !prof !40
 
 11:                                               ; preds = %9
-  call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 913) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 913) #19
+  call void @abort() #20
   unreachable
 
 12:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %13 = call ptr @lpGetValue(ptr noundef nonnull %10, ptr noundef nonnull %4, ptr noundef nonnull %5) #18
+  %13 = call ptr @lpGetValue(ptr noundef nonnull %10, ptr noundef nonnull %4, ptr noundef nonnull %5) #19
   %.not7.i = icmp eq ptr %13, null
   br i1 %.not7.i, label %19, label %14
 
@@ -3799,7 +3799,7 @@ define dso_local ptr @zzlFirstInRange(ptr noundef %0, ptr noundef readonly captu
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull readonly align 1 %13, i64 %16, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 %16
   store i8 0, ptr %17, align 1, !tbaa !77
-  %18 = call double @fast_float_strtod(ptr noundef nonnull %3, ptr noundef null) #18
+  %18 = call double @fast_float_strtod(ptr noundef nonnull %3, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %zzlGetScore.exit
 
@@ -3833,7 +3833,7 @@ zzlGetScore.exit:                                 ; preds = %14, %19
   br label %.loopexit
 
 33:                                               ; preds = %zzlGetScore.exit
-  %34 = call ptr @lpNext(ptr noundef %0, ptr noundef nonnull %10) #18
+  %34 = call ptr @lpNext(ptr noundef %0, ptr noundef nonnull %10) #19
   %.not18 = icmp eq ptr %34, null
   br i1 %.not18, label %.loopexit, label %9, !llvm.loop !90
 
@@ -3847,7 +3847,7 @@ define dso_local ptr @zzlLastInRange(ptr noundef %0, ptr noundef readonly captur
   %3 = alloca [128 x i8], align 16
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
-  %6 = tail call ptr @lpSeek(ptr noundef %0, i64 noundef -2) #18
+  %6 = tail call ptr @lpSeek(ptr noundef %0, i64 noundef -2) #19
   %7 = tail call i32 @zzlIsInRange(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %7, 0
   %.not2336 = icmp eq ptr %6, null
@@ -3861,19 +3861,19 @@ define dso_local ptr @zzlLastInRange(ptr noundef %0, ptr noundef readonly captur
 
 10:                                               ; preds = %35, %.lr.ph
   %.01937 = phi ptr [ %6, %.lr.ph ], [ %36, %35 ]
-  %11 = call ptr @lpNext(ptr noundef %0, ptr noundef nonnull %.01937) #18
+  %11 = call ptr @lpNext(ptr noundef %0, ptr noundef nonnull %.01937) #19
   %.not24 = icmp eq ptr %11, null
   br i1 %.not24, label %12, label %13, !prof !40
 
 12:                                               ; preds = %10
-  call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 941) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 941) #19
+  call void @abort() #20
   unreachable
 
 13:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %14 = call ptr @lpGetValue(ptr noundef nonnull %11, ptr noundef nonnull %4, ptr noundef nonnull %5) #18
+  %14 = call ptr @lpGetValue(ptr noundef nonnull %11, ptr noundef nonnull %4, ptr noundef nonnull %5) #19
   %.not7.i = icmp eq ptr %14, null
   br i1 %.not7.i, label %20, label %15
 
@@ -3885,7 +3885,7 @@ define dso_local ptr @zzlLastInRange(ptr noundef %0, ptr noundef readonly captur
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull readonly align 1 %14, i64 %17, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 %17
   store i8 0, ptr %18, align 1, !tbaa !77
-  %19 = call double @fast_float_strtod(ptr noundef nonnull %3, ptr noundef null) #18
+  %19 = call double @fast_float_strtod(ptr noundef nonnull %3, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %zzlGetScore.exit
 
@@ -3918,18 +3918,18 @@ zzlGetScore.exit:                                 ; preds = %15, %20
   br label %.loopexit
 
 33:                                               ; preds = %zzlGetScore.exit
-  %34 = call ptr @lpPrev(ptr noundef %0, ptr noundef nonnull %.01937) #18
+  %34 = call ptr @lpPrev(ptr noundef %0, ptr noundef nonnull %.01937) #19
   %.not26 = icmp eq ptr %34, null
   br i1 %.not26, label %.loopexit, label %35
 
 35:                                               ; preds = %33
-  %36 = call ptr @lpPrev(ptr noundef %0, ptr noundef nonnull %34) #18
+  %36 = call ptr @lpPrev(ptr noundef %0, ptr noundef nonnull %34) #19
   %.not27 = icmp eq ptr %36, null
   br i1 %.not27, label %37, label %10, !prof !40, !llvm.loop !91
 
 37:                                               ; preds = %35
-  call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 955) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 955) #19
+  call void @abort() #20
   unreachable
 
 .loopexit:                                        ; preds = %33, %27, %2
@@ -3947,24 +3947,24 @@ define dso_local range(i32 0, 2) i32 @zzlLexValueGteMin(ptr noundef %0, ptr noun
   br i1 %.not.i, label %5, label %6, !prof !40
 
 5:                                                ; preds = %2
-  tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 803) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 803) #19
+  tail call void @abort() #20
   unreachable
 
 6:                                                ; preds = %2
-  %7 = call ptr @lpGetValue(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #18
+  %7 = call ptr @lpGetValue(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #19
   %.not7.i = icmp eq ptr %7, null
   br i1 %.not7.i, label %12, label %8
 
 8:                                                ; preds = %6
   %9 = load i32, ptr %3, align 4, !tbaa !78
   %10 = zext i32 %9 to i64
-  %11 = call ptr @sdsnewlen(ptr noundef nonnull %7, i64 noundef %10) #18
+  %11 = call ptr @sdsnewlen(ptr noundef nonnull %7, i64 noundef %10) #19
   br label %lpGetObject.exit
 
 12:                                               ; preds = %6
   %13 = load i64, ptr %4, align 8, !tbaa !88
-  %14 = call ptr @sdsfromlonglong(i64 noundef %13) #18
+  %14 = call ptr @sdsfromlonglong(i64 noundef %13) #19
   br label %lpGetObject.exit
 
 lpGetObject.exit:                                 ; preds = %8, %12
@@ -4018,14 +4018,14 @@ lpGetObject.exit:                                 ; preds = %8, %12
 
 sdscmplex.exit.sink.split.i:                      ; preds = %36, %26
   %.sink14.i = phi i32 [ 0, %26 ], [ -1, %36 ]
-  %39 = call i32 @sdscmp(ptr noundef %.0.i, ptr noundef %17) #18
+  %39 = call i32 @sdscmp(ptr noundef %.0.i, ptr noundef %17) #19
   %40 = icmp sgt i32 %39, %.sink14.i
   %41 = zext i1 %40 to i32
   br label %zslLexValueGteMin.exit
 
 zslLexValueGteMin.exit:                           ; preds = %19, %20, %23, %26, %29, %30, %33, %36, %sdscmplex.exit.sink.split.i
   %.in.i = phi i32 [ 0, %19 ], [ 0, %23 ], [ 0, %20 ], [ 1, %26 ], [ 1, %29 ], [ 0, %33 ], [ 0, %30 ], [ 1, %36 ], [ %41, %sdscmplex.exit.sink.split.i ]
-  call void @sdsfree(ptr noundef %.0.i) #18
+  call void @sdsfree(ptr noundef %.0.i) #19
   ret i32 %.in.i
 }
 
@@ -4039,24 +4039,24 @@ define dso_local range(i32 0, 2) i32 @zzlLexValueLteMax(ptr noundef %0, ptr noun
   br i1 %.not.i, label %5, label %6, !prof !40
 
 5:                                                ; preds = %2
-  tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 803) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 803) #19
+  tail call void @abort() #20
   unreachable
 
 6:                                                ; preds = %2
-  %7 = call ptr @lpGetValue(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #18
+  %7 = call ptr @lpGetValue(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #19
   %.not7.i = icmp eq ptr %7, null
   br i1 %.not7.i, label %12, label %8
 
 8:                                                ; preds = %6
   %9 = load i32, ptr %3, align 4, !tbaa !78
   %10 = zext i32 %9 to i64
-  %11 = call ptr @sdsnewlen(ptr noundef nonnull %7, i64 noundef %10) #18
+  %11 = call ptr @sdsnewlen(ptr noundef nonnull %7, i64 noundef %10) #19
   br label %lpGetObject.exit
 
 12:                                               ; preds = %6
   %13 = load i64, ptr %4, align 8, !tbaa !88
-  %14 = call ptr @sdsfromlonglong(i64 noundef %13) #18
+  %14 = call ptr @sdsfromlonglong(i64 noundef %13) #19
   br label %lpGetObject.exit
 
 lpGetObject.exit:                                 ; preds = %8, %12
@@ -4091,7 +4091,7 @@ lpGetObject.exit:                                 ; preds = %8, %12
   br i1 %or.cond.i.i, label %zslLexValueLteMax.exit, label %30
 
 30:                                               ; preds = %27
-  %31 = call i32 @sdscmp(ptr noundef %.0.i, ptr noundef %18) #18
+  %31 = call i32 @sdscmp(ptr noundef %.0.i, ptr noundef %18) #19
   %32 = lshr i32 %31, 31
   br label %zslLexValueLteMax.exit
 
@@ -4115,14 +4115,14 @@ lpGetObject.exit:                                 ; preds = %8, %12
   br i1 %or.cond.i5.i, label %zslLexValueLteMax.exit, label %43
 
 43:                                               ; preds = %40
-  %44 = call i32 @sdscmp(ptr noundef %.0.i, ptr noundef %18) #18
+  %44 = call i32 @sdscmp(ptr noundef %.0.i, ptr noundef %18) #19
   %45 = icmp slt i32 %44, 1
   %46 = zext i1 %45 to i32
   br label %zslLexValueLteMax.exit
 
 zslLexValueLteMax.exit:                           ; preds = %20, %21, %24, %27, %30, %33, %34, %37, %40, %43
   %47 = phi i32 [ %32, %30 ], [ 0, %20 ], [ 1, %24 ], [ 1, %21 ], [ 0, %27 ], [ %46, %43 ], [ 1, %33 ], [ 1, %37 ], [ 1, %34 ], [ 0, %40 ]
-  call void @sdsfree(ptr noundef %.0.i) #18
+  call void @sdsfree(ptr noundef %.0.i) #19
   ret i32 %47
 }
 
@@ -4151,7 +4151,7 @@ define dso_local range(i32 0, 2) i32 @zzlIsInLexRange(ptr noundef %0, ptr nounde
   br i1 %or.cond.i, label %sdscmplex.exit.thread23, label %sdscmplex.exit
 
 sdscmplex.exit:                                   ; preds = %13
-  %16 = tail call i32 @sdscmp(ptr noundef %3, ptr noundef %5) #18
+  %16 = tail call i32 @sdscmp(ptr noundef %3, ptr noundef %5) #19
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %sdscmplex.exit.thread23, label %sdscmplex.exit.thread
 
@@ -4172,7 +4172,7 @@ sdscmplex.exit.thread.thread26:                   ; preds = %2, %sdscmplex.exit.
   br i1 %.not17, label %sdscmplex.exit.thread.thread, label %sdscmplex.exit.thread23
 
 sdscmplex.exit.thread.thread:                     ; preds = %10, %7, %21, %sdscmplex.exit.thread
-  %24 = tail call ptr @lpSeek(ptr noundef %0, i64 noundef -2) #18
+  %24 = tail call ptr @lpSeek(ptr noundef %0, i64 noundef -2) #19
   %25 = icmp eq ptr %24, null
   br i1 %25, label %sdscmplex.exit.thread23, label %26
 
@@ -4182,13 +4182,13 @@ sdscmplex.exit.thread.thread:                     ; preds = %10, %7, %21, %sdscm
   br i1 %.not18, label %sdscmplex.exit.thread23, label %28
 
 28:                                               ; preds = %26
-  %29 = tail call ptr @lpSeek(ptr noundef %0, i64 noundef 0) #18
+  %29 = tail call ptr @lpSeek(ptr noundef %0, i64 noundef 0) #19
   %.not19 = icmp eq ptr %29, null
   br i1 %.not19, label %30, label %31, !prof !40
 
 30:                                               ; preds = %28
-  tail call void @_serverAssert(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 993) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 993) #19
+  tail call void @abort() #20
   unreachable
 
 31:                                               ; preds = %28
@@ -4202,7 +4202,7 @@ sdscmplex.exit.thread23:                          ; preds = %13, %31, %26, %sdsc
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @zzlFirstInLexRange(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @lpSeek(ptr noundef %0, i64 noundef 0) #18
+  %3 = tail call ptr @lpSeek(ptr noundef %0, i64 noundef 0) #19
   %4 = tail call i32 @zzlIsInLexRange(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %4, 0
   %.not1723 = icmp eq ptr %3, null
@@ -4222,17 +4222,17 @@ define dso_local ptr @zzlFirstInLexRange(ptr noundef %0, ptr noundef readonly ca
   br label %.loopexit
 
 8:                                                ; preds = %.lr.ph
-  %9 = tail call ptr @lpNext(ptr noundef %0, ptr noundef nonnull %.01524) #18
+  %9 = tail call ptr @lpNext(ptr noundef %0, ptr noundef nonnull %.01524) #19
   %.not19 = icmp eq ptr %9, null
   br i1 %.not19, label %10, label %11, !prof !40
 
 10:                                               ; preds = %8
-  tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 1018) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 1018) #19
+  tail call void @abort() #20
   unreachable
 
 11:                                               ; preds = %8
-  %12 = tail call ptr @lpNext(ptr noundef %0, ptr noundef nonnull %9) #18
+  %12 = tail call ptr @lpNext(ptr noundef %0, ptr noundef nonnull %9) #19
   %.not17 = icmp eq ptr %12, null
   br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !92
 
@@ -4243,7 +4243,7 @@ define dso_local ptr @zzlFirstInLexRange(ptr noundef %0, ptr noundef readonly ca
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @zzlLastInLexRange(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @lpSeek(ptr noundef %0, i64 noundef -2) #18
+  %3 = tail call ptr @lpSeek(ptr noundef %0, i64 noundef -2) #19
   %4 = tail call i32 @zzlIsInLexRange(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %4, 0
   %.not1825 = icmp eq ptr %3, null
@@ -4263,18 +4263,18 @@ define dso_local ptr @zzlLastInLexRange(ptr noundef %0, ptr noundef readonly cap
   br label %.loopexit
 
 8:                                                ; preds = %.lr.ph
-  %9 = tail call ptr @lpPrev(ptr noundef %0, ptr noundef nonnull %.01526) #18
+  %9 = tail call ptr @lpPrev(ptr noundef %0, ptr noundef nonnull %.01526) #19
   %.not20 = icmp eq ptr %9, null
   br i1 %.not20, label %.loopexit, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call ptr @lpPrev(ptr noundef %0, ptr noundef nonnull %9) #18
+  %11 = tail call ptr @lpPrev(ptr noundef %0, ptr noundef nonnull %9) #19
   %.not21 = icmp eq ptr %11, null
   br i1 %.not21, label %12, label %.lr.ph, !prof !40, !llvm.loop !93
 
 12:                                               ; preds = %10
-  tail call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 1045) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 1045) #19
+  tail call void @abort() #20
   unreachable
 
 .loopexit:                                        ; preds = %8, %6, %2
@@ -4287,7 +4287,7 @@ define dso_local ptr @zzlFind(ptr noundef %0, ptr noundef %1, ptr noundef writeo
   %4 = alloca [128 x i8], align 16
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
-  %7 = tail call ptr @lpFirst(ptr noundef %0) #18
+  %7 = tail call ptr @lpFirst(ptr noundef %0) #19
   %8 = icmp eq ptr %7, null
   br i1 %8, label %48, label %9
 
@@ -4335,18 +4335,18 @@ define dso_local ptr @zzlFind(ptr noundef %0, ptr noundef %1, ptr noundef writeo
 sdslen.exit:                                      ; preds = %9, %14, %17, %21, %25, %29
   %.0.i = phi i64 [ %16, %14 ], [ %20, %17 ], [ %24, %21 ], [ %28, %25 ], [ %31, %29 ], [ 0, %9 ]
   %32 = trunc i64 %.0.i to i32
-  %33 = tail call ptr @lpFind(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %1, i32 noundef %32, i32 noundef 1) #18
+  %33 = tail call ptr @lpFind(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %1, i32 noundef %32, i32 noundef 1) #19
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %48, label %34
 
 34:                                               ; preds = %sdslen.exit
-  %35 = tail call ptr @lpNext(ptr noundef %0, ptr noundef nonnull %33) #18
+  %35 = tail call ptr @lpNext(ptr noundef %0, ptr noundef nonnull %33) #19
   %.not18 = icmp eq ptr %35, null
   br i1 %.not18, label %36, label %37, !prof !40
 
 36:                                               ; preds = %34
-  tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 1060) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 1060) #19
+  tail call void @abort() #20
   unreachable
 
 37:                                               ; preds = %34
@@ -4356,7 +4356,7 @@ sdslen.exit:                                      ; preds = %9, %14, %17, %21, %
 38:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %39 = call ptr @lpGetValue(ptr noundef nonnull %35, ptr noundef nonnull %5, ptr noundef nonnull %6) #18
+  %39 = call ptr @lpGetValue(ptr noundef nonnull %35, ptr noundef nonnull %5, ptr noundef nonnull %6) #19
   %.not7.i = icmp eq ptr %39, null
   br i1 %.not7.i, label %45, label %40
 
@@ -4368,7 +4368,7 @@ sdslen.exit:                                      ; preds = %9, %14, %17, %21, %
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull readonly align 1 %39, i64 %42, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 %42
   store i8 0, ptr %43, align 1, !tbaa !77
-  %44 = call double @fast_float_strtod(ptr noundef nonnull %4, ptr noundef null) #18
+  %44 = call double @fast_float_strtod(ptr noundef nonnull %4, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %zzlGetScore.exit
 
@@ -4397,7 +4397,7 @@ declare ptr @lpFind(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noun
 define dso_local ptr @zzlDelete(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8, !tbaa !9
-  %4 = call ptr @lpDeleteRangeWithEntry(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 2) #18
+  %4 = call ptr @lpDeleteRangeWithEntry(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 2) #19
   ret ptr %4
 }
 
@@ -4411,12 +4411,12 @@ define dso_local ptr @zzlInsertAt(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %8 = call i32 @double2ll(double noundef %3, ptr noundef nonnull %7) #18
+  %8 = call i32 @double2ll(double noundef %3, ptr noundef nonnull %7) #19
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %11
 
 9:                                                ; preds = %4
-  %10 = call i32 @d2string(ptr noundef nonnull %6, i64 noundef 128, double noundef %3) #18
+  %10 = call i32 @d2string(ptr noundef nonnull %6, i64 noundef 128, double noundef %3) #19
   br label %11
 
 11:                                               ; preds = %9, %4
@@ -4468,16 +4468,16 @@ define dso_local ptr @zzlInsertAt(ptr noundef %0, ptr noundef %1, ptr noundef %2
 sdslen.exit:                                      ; preds = %17, %18, %21, %25, %29, %33
   %.0.i = phi i64 [ %20, %18 ], [ %24, %21 ], [ %28, %25 ], [ %32, %29 ], [ %35, %33 ], [ 0, %17 ]
   %36 = trunc i64 %.0.i to i32
-  %37 = call ptr @lpAppend(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %36) #18
+  %37 = call ptr @lpAppend(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %36) #19
   br i1 %.not, label %41, label %38
 
 38:                                               ; preds = %sdslen.exit
   %39 = load i64, ptr %7, align 8, !tbaa !88
-  %40 = call ptr @lpAppendInteger(ptr noundef %37, i64 noundef %39) #18
+  %40 = call ptr @lpAppendInteger(ptr noundef %37, i64 noundef %39) #19
   br label %71
 
 41:                                               ; preds = %sdslen.exit
-  %42 = call ptr @lpAppend(ptr noundef %37, ptr noundef nonnull %6, i32 noundef %.019) #18
+  %42 = call ptr @lpAppend(ptr noundef %37, ptr noundef nonnull %6, i32 noundef %.019) #19
   br label %71
 
 43:                                               ; preds = %11
@@ -4520,18 +4520,18 @@ sdslen.exit:                                      ; preds = %17, %18, %21, %25, 
 sdslen.exit22:                                    ; preds = %43, %44, %47, %51, %55, %59
   %.0.i21 = phi i64 [ %46, %44 ], [ %50, %47 ], [ %54, %51 ], [ %58, %55 ], [ %61, %59 ], [ 0, %43 ]
   %62 = trunc i64 %.0.i21 to i32
-  %63 = call ptr @lpInsertString(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %62, ptr noundef nonnull %1, i32 noundef 0, ptr noundef nonnull %5) #18
+  %63 = call ptr @lpInsertString(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %62, ptr noundef nonnull %1, i32 noundef 0, ptr noundef nonnull %5) #19
   br i1 %.not, label %68, label %64
 
 64:                                               ; preds = %sdslen.exit22
   %65 = load i64, ptr %7, align 8, !tbaa !88
   %66 = load ptr, ptr %5, align 8, !tbaa !9
-  %67 = call ptr @lpInsertInteger(ptr noundef %63, i64 noundef %65, ptr noundef %66, i32 noundef 1, ptr noundef null) #18
+  %67 = call ptr @lpInsertInteger(ptr noundef %63, i64 noundef %65, ptr noundef %66, i32 noundef 1, ptr noundef null) #19
   br label %71
 
 68:                                               ; preds = %sdslen.exit22
   %69 = load ptr, ptr %5, align 8, !tbaa !9
-  %70 = call ptr @lpInsertString(ptr noundef %63, ptr noundef nonnull %6, i32 noundef %.019, ptr noundef %69, i32 noundef 1, ptr noundef null) #18
+  %70 = call ptr @lpInsertString(ptr noundef %63, ptr noundef nonnull %6, i32 noundef %.019, ptr noundef %69, i32 noundef 1, ptr noundef null) #19
   br label %71
 
 71:                                               ; preds = %64, %68, %38, %41
@@ -4562,7 +4562,7 @@ define dso_local ptr @zzlInsert(ptr noundef %0, ptr noundef %1, double noundef %
   %7 = alloca [128 x i8], align 16
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
-  %10 = tail call ptr @lpSeek(ptr noundef %0, i64 noundef 0) #18
+  %10 = tail call ptr @lpSeek(ptr noundef %0, i64 noundef 0) #19
   %.not40 = icmp eq ptr %10, null
   br i1 %.not40, label %.thread, label %.lr.ph
 
@@ -4576,19 +4576,19 @@ define dso_local ptr @zzlInsert(ptr noundef %0, ptr noundef %1, double noundef %
 
 16:                                               ; preds = %.lr.ph, %63
   %.02841 = phi ptr [ %10, %.lr.ph ], [ %64, %63 ]
-  %17 = call ptr @lpNext(ptr noundef %0, ptr noundef nonnull %.02841) #18
+  %17 = call ptr @lpNext(ptr noundef %0, ptr noundef nonnull %.02841) #19
   %.not33 = icmp eq ptr %17, null
   br i1 %.not33, label %18, label %19, !prof !40
 
 18:                                               ; preds = %16
-  call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 1111) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 1111) #19
+  call void @abort() #20
   unreachable
 
 19:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %20 = call ptr @lpGetValue(ptr noundef nonnull %17, ptr noundef nonnull %8, ptr noundef nonnull %9) #18
+  %20 = call ptr @lpGetValue(ptr noundef nonnull %17, ptr noundef nonnull %8, ptr noundef nonnull %9) #19
   %.not7.i = icmp eq ptr %20, null
   br i1 %.not7.i, label %26, label %21
 
@@ -4600,7 +4600,7 @@ define dso_local ptr @zzlInsert(ptr noundef %0, ptr noundef %1, double noundef %
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull readonly align 1 %20, i64 %23, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 %23
   store i8 0, ptr %24, align 1, !tbaa !77
-  %25 = call double @fast_float_strtod(ptr noundef nonnull %7, ptr noundef null) #18
+  %25 = call double @fast_float_strtod(ptr noundef nonnull %7, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %zzlGetScore.exit
 
@@ -4662,7 +4662,7 @@ sdslen.exit:                                      ; preds = %32, %36, %39, %42, 
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %51 = call ptr @lpGetValue(ptr noundef nonnull %.02841, ptr noundef nonnull %4, ptr noundef nonnull %5) #18
+  %51 = call ptr @lpGetValue(ptr noundef nonnull %.02841, ptr noundef nonnull %4, ptr noundef nonnull %5) #19
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %._crit_edge.i
 
@@ -4672,7 +4672,7 @@ sdslen.exit:                                      ; preds = %32, %36, %39, %42, 
 
 53:                                               ; preds = %sdslen.exit
   %54 = load i64, ptr %5, align 8, !tbaa !88
-  %55 = call i32 @ll2string(ptr noundef nonnull %6, i64 noundef 32, i64 noundef %54) #18
+  %55 = call i32 @ll2string(ptr noundef nonnull %6, i64 noundef 32, i64 noundef %54) #19
   store i32 %55, ptr %4, align 4, !tbaa !78
   br label %zzlCompareElements.exit
 
@@ -4681,7 +4681,7 @@ zzlCompareElements.exit:                          ; preds = %._crit_edge.i, %53
   %.010.i = phi ptr [ %6, %53 ], [ %51, %._crit_edge.i ]
   %57 = call i32 @llvm.umin.i32(i32 %56, i32 %50)
   %58 = sext i32 %57 to i64
-  %59 = call i32 @memcmp(ptr noundef nonnull %.010.i, ptr noundef nonnull readonly %1, i64 noundef %58) #20
+  %59 = call i32 @memcmp(ptr noundef nonnull %.010.i, ptr noundef nonnull readonly %1, i64 noundef %58) #21
   %60 = icmp eq i32 %59, 0
   %61 = sub i32 %56, %50
   %.0.i35 = select i1 %60, i32 %61, i32 %59
@@ -4692,7 +4692,7 @@ zzlCompareElements.exit:                          ; preds = %._crit_edge.i, %53
   br i1 %62, label %.thread, label %63
 
 63:                                               ; preds = %30, %zzlCompareElements.exit
-  %64 = call ptr @lpNext(ptr noundef %0, ptr noundef nonnull %17) #18
+  %64 = call ptr @lpNext(ptr noundef %0, ptr noundef nonnull %17) #19
   %.not = icmp eq ptr %64, null
   br i1 %.not, label %.thread, label %16, !llvm.loop !94
 
@@ -4731,14 +4731,14 @@ define dso_local ptr @zzlDeleteRangeByScore(ptr noundef %0, ptr noundef readonly
   %.025 = phi i64 [ 0, %.preheader ], [ %33, %31 ]
   %.01624 = phi ptr [ %0, %.preheader ], [ %32, %31 ]
   %15 = phi ptr [ %10, %.preheader ], [ %.pr, %31 ]
-  %16 = call ptr @lpNext(ptr noundef %.01624, ptr noundef nonnull %15) #18
+  %16 = call ptr @lpNext(ptr noundef %.01624, ptr noundef nonnull %15) #19
   %.not21 = icmp eq ptr %16, null
   br i1 %.not21, label %.critedge, label %17
 
 17:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %18 = call ptr @lpGetValue(ptr noundef nonnull %16, ptr noundef nonnull %5, ptr noundef nonnull %6) #18
+  %18 = call ptr @lpGetValue(ptr noundef nonnull %16, ptr noundef nonnull %5, ptr noundef nonnull %6) #19
   %.not7.i = icmp eq ptr %18, null
   br i1 %.not7.i, label %24, label %19
 
@@ -4750,7 +4750,7 @@ define dso_local ptr @zzlDeleteRangeByScore(ptr noundef %0, ptr noundef readonly
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull readonly align 1 %18, i64 %21, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 %21
   store i8 0, ptr %22, align 1, !tbaa !77
-  %23 = call double @fast_float_strtod(ptr noundef nonnull %4, ptr noundef null) #18
+  %23 = call double @fast_float_strtod(ptr noundef nonnull %4, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %zzlGetScore.exit
 
@@ -4772,7 +4772,7 @@ zzlGetScore.exit:                                 ; preds = %19, %24
   br i1 %.in.i, label %.critedge, label %31
 
 31:                                               ; preds = %zzlGetScore.exit
-  %32 = call ptr @lpDeleteRangeWithEntry(ptr noundef %.01624, ptr noundef nonnull %7, i64 noundef 2) #18
+  %32 = call ptr @lpDeleteRangeWithEntry(ptr noundef %.01624, ptr noundef nonnull %7, i64 noundef 2) #19
   %33 = add i64 %.025, 1
   %.pr = load ptr, ptr %7, align 8, !tbaa !9
   %.not20 = icmp eq ptr %.pr, null
@@ -4814,7 +4814,7 @@ define dso_local ptr @zzlDeleteRangeByLex(ptr noundef %0, ptr noundef readonly c
   %.021 = phi i64 [ %16, %14 ], [ 0, %6 ]
   %.01420 = phi ptr [ %15, %14 ], [ %0, %6 ]
   %9 = phi ptr [ %.pr, %14 ], [ %7, %6 ]
-  %10 = call ptr @lpNext(ptr noundef %.01420, ptr noundef nonnull %9) #18
+  %10 = call ptr @lpNext(ptr noundef %.01420, ptr noundef nonnull %9) #19
   %.not18 = icmp eq ptr %10, null
   br i1 %.not18, label %.critedge, label %11
 
@@ -4825,7 +4825,7 @@ define dso_local ptr @zzlDeleteRangeByLex(ptr noundef %0, ptr noundef readonly c
   br i1 %.not19, label %.critedge, label %14
 
 14:                                               ; preds = %11
-  %15 = call ptr @lpDeleteRangeWithEntry(ptr noundef %.01420, ptr noundef nonnull %4, i64 noundef 2) #18
+  %15 = call ptr @lpDeleteRangeWithEntry(ptr noundef %.01420, ptr noundef nonnull %4, i64 noundef 2) #19
   %16 = add i64 %.021, 1
   %.pr = load ptr, ptr %4, align 8, !tbaa !9
   %.not17 = icmp eq ptr %.pr, null
@@ -4864,7 +4864,7 @@ define dso_local ptr @zzlDeleteRangeByRank(ptr noundef %0, i32 noundef %1, i32 n
   %12 = zext i32 %11 to i64
   %13 = shl i32 %6, 1
   %14 = zext i32 %13 to i64
-  %15 = tail call ptr @lpDeleteRange(ptr noundef %0, i64 noundef %12, i64 noundef %14) #18
+  %15 = tail call ptr @lpDeleteRange(ptr noundef %0, i64 noundef %12, i64 noundef %14) #19
   ret ptr %15
 }
 
@@ -4883,7 +4883,7 @@ define dso_local i64 @zsetLength(ptr noundef readonly captures(none) %0) local_u
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !75
-  %8 = tail call i64 @lpLength(ptr noundef %7) #18
+  %8 = tail call i64 @lpLength(ptr noundef %7) #19
   %9 = lshr i64 %8, 1
   %10 = and i64 %9, 4294967295
   br label %19
@@ -4898,8 +4898,8 @@ define dso_local i64 @zsetLength(ptr noundef readonly captures(none) %0) local_u
   br label %19
 
 18:                                               ; preds = %1
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 19:                                               ; preds = %11, %5
@@ -4919,15 +4919,15 @@ define dso_local ptr @zsetTypeCreate(i64 noundef %0, i64 noundef %1) local_unnam
   br i1 %or.cond, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @createZsetListpackObject() #18
+  %6 = tail call ptr @createZsetListpackObject() #19
   br label %13
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @createZsetObject() #18
+  %8 = tail call ptr @createZsetObject() #19
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !75
   %11 = load ptr, ptr %10, align 8, !tbaa !125
-  %12 = tail call i32 @dictExpand(ptr noundef %11, i64 noundef %0) #18
+  %12 = tail call i32 @dictExpand(ptr noundef %11, i64 noundef %0) #19
   br label %13
 
 13:                                               ; preds = %7, %5
@@ -4987,20 +4987,20 @@ define dso_local void @zsetConvertAndExpand(ptr noundef %0, i32 noundef %1, i64 
   br i1 %.not49, label %18, label %17
 
 17:                                               ; preds = %14
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1269, ptr noundef nonnull @.str.10) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1269, ptr noundef nonnull @.str.10) #19
+  tail call void @abort() #20
   unreachable
 
 18:                                               ; preds = %14
-  %19 = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #17
-  %20 = tail call ptr @dictCreate(ptr noundef nonnull @zsetDictType) #18
+  %19 = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #18
+  %20 = tail call ptr @dictCreate(ptr noundef nonnull @zsetDictType) #19
   store ptr %20, ptr %19, align 8, !tbaa !125
-  %21 = tail call noalias dereferenceable_or_null(32) ptr @zmalloc(i64 noundef 32) #17
+  %21 = tail call noalias dereferenceable_or_null(32) ptr @zmalloc(i64 noundef 32) #18
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i32 1, ptr %22, align 8, !tbaa !12
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 0, ptr %23, align 8, !tbaa !17
-  %24 = tail call noalias noundef dereferenceable_or_null(536) ptr @zmalloc(i64 noundef 536) #17
+  %24 = tail call noalias noundef dereferenceable_or_null(536) ptr @zmalloc(i64 noundef 536) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   store ptr %24, ptr %21, align 8, !tbaa !18
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -5009,19 +5009,19 @@ define dso_local void @zsetConvertAndExpand(ptr noundef %0, i32 noundef %1, i64 
   store ptr null, ptr %26, align 8, !tbaa !19
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %21, ptr %27, align 8, !tbaa !97
-  %28 = tail call i32 @dictExpand(ptr noundef %20, i64 noundef %2) #18
-  %29 = tail call ptr @lpSeek(ptr noundef %16, i64 noundef 0) #18
+  %28 = tail call i32 @dictExpand(ptr noundef %20, i64 noundef %2) #19
+  %29 = tail call ptr @lpSeek(ptr noundef %16, i64 noundef 0) #19
   %.not50 = icmp eq ptr %29, null
   br i1 %.not50, label %._crit_edge69, label %30
 
 30:                                               ; preds = %18
-  %31 = tail call ptr @lpNext(ptr noundef %16, ptr noundef nonnull %29) #18
+  %31 = tail call ptr @lpNext(ptr noundef %16, ptr noundef nonnull %29) #19
   %.not51 = icmp eq ptr %31, null
   br i1 %.not51, label %32, label %.lr.ph68.preheader, !prof !40
 
 32:                                               ; preds = %30
-  tail call void @_serverAssertWithInfo(ptr noundef null, ptr noundef nonnull %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 1281) #18
-  tail call void @abort() #19
+  tail call void @_serverAssertWithInfo(ptr noundef null, ptr noundef nonnull %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 1281) #19
+  tail call void @abort() #20
   unreachable
 
 .lr.ph68.preheader:                               ; preds = %30, %61
@@ -5029,7 +5029,7 @@ define dso_local void @zsetConvertAndExpand(ptr noundef %0, i32 noundef %1, i64 
   %.06065 = phi ptr [ %60, %61 ], [ %29, %30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %33 = call ptr @lpGetValue(ptr noundef nonnull %.166, ptr noundef nonnull %5, ptr noundef nonnull %6) #18
+  %33 = call ptr @lpGetValue(ptr noundef nonnull %.166, ptr noundef nonnull %5, ptr noundef nonnull %6) #19
   %.not7.i = icmp eq ptr %33, null
   br i1 %.not7.i, label %39, label %34
 
@@ -5041,7 +5041,7 @@ define dso_local void @zsetConvertAndExpand(ptr noundef %0, i32 noundef %1, i64 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull readonly align 1 %33, i64 %36, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 %36
   store i8 0, ptr %37, align 1, !tbaa !77
-  %38 = call double @fast_float_strtod(ptr noundef nonnull %4, ptr noundef null) #18
+  %38 = call double @fast_float_strtod(ptr noundef nonnull %4, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %zzlGetScore.exit
 
@@ -5054,19 +5054,19 @@ zzlGetScore.exit:                                 ; preds = %34, %39
   %.0.i = phi double [ %38, %34 ], [ %41, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %42 = call ptr @lpGetValue(ptr noundef nonnull %.06065, ptr noundef nonnull %7, ptr noundef nonnull %8) #18
+  %42 = call ptr @lpGetValue(ptr noundef nonnull %.06065, ptr noundef nonnull %7, ptr noundef nonnull %8) #19
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %zzlGetScore.exit
   %45 = load i64, ptr %8, align 8, !tbaa !88
-  %46 = call ptr @sdsfromlonglong(i64 noundef %45) #18
+  %46 = call ptr @sdsfromlonglong(i64 noundef %45) #19
   br label %51
 
 47:                                               ; preds = %zzlGetScore.exit
   %48 = load i32, ptr %7, align 4, !tbaa !78
   %49 = zext i32 %48 to i64
-  %50 = call ptr @sdsnewlen(ptr noundef nonnull %42, i64 noundef %49) #18
+  %50 = call ptr @sdsnewlen(ptr noundef nonnull %42, i64 noundef %49) #19
   br label %51
 
 51:                                               ; preds = %47, %44
@@ -5075,33 +5075,33 @@ zzlGetScore.exit:                                 ; preds = %34, %39
   %53 = call ptr @zslInsert(ptr noundef %52, double noundef %.0.i, ptr noundef %.043)
   %54 = load ptr, ptr %19, align 8, !tbaa !125
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %56 = call i32 @dictAdd(ptr noundef %54, ptr noundef %.043, ptr noundef nonnull %55) #18
+  %56 = call i32 @dictAdd(ptr noundef %54, ptr noundef %.043, ptr noundef nonnull %55) #19
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %59, label %58, !prof !25
 
 58:                                               ; preds = %51
-  call void @_serverAssert(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 1293) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 1293) #19
+  call void @abort() #20
   unreachable
 
 59:                                               ; preds = %51
-  %60 = call ptr @lpNext(ptr noundef %16, ptr noundef nonnull %.166) #18
+  %60 = call ptr @lpNext(ptr noundef %16, ptr noundef nonnull %.166) #19
   %.not14.i = icmp eq ptr %60, null
   br i1 %.not14.i, label %._crit_edge69, label %61
 
 61:                                               ; preds = %59
-  %62 = call ptr @lpNext(ptr noundef %16, ptr noundef nonnull %60) #18
+  %62 = call ptr @lpNext(ptr noundef %16, ptr noundef nonnull %60) #19
   %.not15.i = icmp eq ptr %62, null
   br i1 %.not15.i, label %63, label %.lr.ph68.preheader, !prof !40, !llvm.loop !126
 
 63:                                               ; preds = %61
-  call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 847) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 847) #19
+  call void @abort() #20
   unreachable
 
 ._crit_edge69:                                    ; preds = %59, %18
   %64 = load ptr, ptr %15, align 8, !tbaa !75
-  call void @zfree(ptr noundef %64) #18
+  call void @zfree(ptr noundef %64) #19
   store ptr %19, ptr %15, align 8, !tbaa !75
   %65 = load i32, ptr %0, align 8
   %66 = and i32 %65, -241
@@ -5112,28 +5112,28 @@ zzlGetScore.exit:                                 ; preds = %34, %39
   br label %92
 
 68:                                               ; preds = %13
-  %69 = tail call ptr @lpNew(i64 noundef 0) #18
+  %69 = tail call ptr @lpNew(i64 noundef 0) #19
   %.not = icmp eq i32 %1, 11
   br i1 %.not, label %71, label %70
 
 70:                                               ; preds = %68
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1304, ptr noundef nonnull @.str.10) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1304, ptr noundef nonnull @.str.10) #19
+  tail call void @abort() #20
   unreachable
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !75
   %74 = load ptr, ptr %73, align 8, !tbaa !125
-  tail call void @dictRelease(ptr noundef %74) #18
+  tail call void @dictRelease(ptr noundef %74) #19
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %76 = load ptr, ptr %75, align 8, !tbaa !97
   %77 = load ptr, ptr %76, align 8, !tbaa !18
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %79 = load ptr, ptr %78, align 8, !tbaa !20
-  tail call void @zfree(ptr noundef %77) #18
+  tail call void @zfree(ptr noundef %77) #19
   %80 = load ptr, ptr %75, align 8, !tbaa !97
-  tail call void @zfree(ptr noundef %80) #18
+  tail call void @zfree(ptr noundef %80) #19
   %.not4861 = icmp eq ptr %79, null
   br i1 %.not4861, label %._crit_edge, label %.lr.ph
 
@@ -5147,14 +5147,14 @@ zzlGetScore.exit:                                 ; preds = %34, %39
   %85 = getelementptr inbounds nuw i8, ptr %.04262, i64 24
   %86 = load ptr, ptr %85, align 8, !tbaa !20
   %87 = load ptr, ptr %.04262, align 8, !tbaa !9
-  tail call void @sdsfree(ptr noundef %87) #18
-  tail call void @zfree(ptr noundef nonnull %.04262) #18
+  tail call void @sdsfree(ptr noundef %87) #19
+  tail call void @zfree(ptr noundef nonnull %.04262) #19
   %.not48 = icmp eq ptr %86, null
   br i1 %.not48, label %._crit_edge, label %.lr.ph, !llvm.loop !127
 
 ._crit_edge:                                      ; preds = %.lr.ph, %71
   %.0.lcssa = phi ptr [ %69, %71 ], [ %84, %.lr.ph ]
-  tail call void @zfree(ptr noundef nonnull %73) #18
+  tail call void @zfree(ptr noundef nonnull %73) #19
   store ptr %.0.lcssa, ptr %72, align 8, !tbaa !75
   %88 = load i32, ptr %0, align 8
   %89 = and i32 %88, -241
@@ -5163,8 +5163,8 @@ zzlGetScore.exit:                                 ; preds = %34, %39
   br label %92
 
 91:                                               ; preds = %13
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1325, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1325, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 92:                                               ; preds = %._crit_edge69, %._crit_edge, %3
@@ -5184,7 +5184,7 @@ define dso_local void @zsetConvert(ptr noundef %0, i32 noundef %1) local_unnamed
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !75
-  %9 = tail call i64 @lpLength(ptr noundef %8) #18
+  %9 = tail call i64 @lpLength(ptr noundef %8) #19
   %10 = lshr i64 %9, 1
   %11 = and i64 %10, 4294967295
   br label %zsetLength.exit
@@ -5199,8 +5199,8 @@ define dso_local void @zsetConvert(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %zsetLength.exit
 
 19:                                               ; preds = %2
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 zsetLength.exit:                                  ; preds = %6, %12
@@ -5241,7 +5241,7 @@ define dso_local void @zsetConvertToListpackIfNeeded(ptr noundef %0, i64 noundef
   br i1 %or.cond, label %34, label %16
 
 16:                                               ; preds = %7
-  %17 = tail call i32 @lpSafeToAdd(ptr noundef null, i64 noundef %2) #18
+  %17 = tail call i32 @lpSafeToAdd(ptr noundef null, i64 noundef %2) #19
   %.not6 = icmp eq i32 %17, 0
   br i1 %.not6, label %34, label %18
 
@@ -5256,7 +5256,7 @@ define dso_local void @zsetConvertToListpackIfNeeded(ptr noundef %0, i64 noundef
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %8, align 8, !tbaa !75
-  %24 = tail call i64 @lpLength(ptr noundef %23) #18
+  %24 = tail call i64 @lpLength(ptr noundef %23) #19
   %25 = lshr i64 %24, 1
   %26 = and i64 %25, 4294967295
   br label %zsetConvert.exit
@@ -5270,8 +5270,8 @@ define dso_local void @zsetConvertToListpackIfNeeded(ptr noundef %0, i64 noundef
   br label %zsetConvert.exit
 
 33:                                               ; preds = %18
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 zsetConvert.exit:                                 ; preds = %22, %27
@@ -5312,19 +5312,19 @@ define dso_local range(i32 -1, 1) i32 @zsetScore(ptr noundef readonly captures(a
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !75
   %18 = load ptr, ptr %17, align 8, !tbaa !125
-  %19 = tail call ptr @dictFind(ptr noundef %18, ptr noundef nonnull %1) #18
+  %19 = tail call ptr @dictFind(ptr noundef %18, ptr noundef nonnull %1) #19
   %20 = icmp eq ptr %19, null
   br i1 %20, label %25, label %.thread
 
 .thread:                                          ; preds = %15
-  %21 = tail call ptr @dictGetVal(ptr noundef nonnull %19) #18
+  %21 = tail call ptr @dictGetVal(ptr noundef nonnull %19) #19
   %22 = load double, ptr %21, align 8, !tbaa !5
   store double %22, ptr %2, align 8, !tbaa !5
   br label %24
 
 23:                                               ; preds = %6
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1359, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1359, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 24:                                               ; preds = %.thread, %10
@@ -5430,7 +5430,7 @@ define dso_local range(i32 0, 2) i32 @zsetAdd(ptr noundef %0, double noundef %1,
   %46 = load ptr, ptr %21, align 8, !tbaa !75
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %23, ptr %7, align 8, !tbaa !9
-  %47 = call ptr @lpDeleteRangeWithEntry(ptr noundef %46, ptr noundef nonnull %7, i64 noundef 2) #18
+  %47 = call ptr @lpDeleteRangeWithEntry(ptr noundef %46, ptr noundef nonnull %7, i64 noundef 2) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %47, ptr %21, align 8, !tbaa !75
   %48 = call ptr @zzlInsert(ptr noundef %47, ptr noundef %2, double noundef %.294)
@@ -5445,7 +5445,7 @@ define dso_local range(i32 0, 2) i32 @zsetAdd(ptr noundef %0, double noundef %1,
 
 52:                                               ; preds = %51
   %53 = load ptr, ptr %21, align 8, !tbaa !75
-  %54 = call i64 @lpLength(ptr noundef %53) #18
+  %54 = call i64 @lpLength(ptr noundef %53) #19
   %55 = lshr i64 %54, 1
   %56 = add nuw i64 %55, 1
   %57 = and i64 %56, 4294967295
@@ -5540,7 +5540,7 @@ sdslen.exit.thread:                               ; preds = %60, %sdslen.exit
 
 sdslen.exit122:                                   ; preds = %sdslen.exit.thread, %86, %89, %93, %97, %101
   %.0.i121 = phi i64 [ %88, %86 ], [ %92, %89 ], [ %96, %93 ], [ %100, %97 ], [ %103, %101 ], [ 0, %sdslen.exit.thread ]
-  %104 = call i32 @lpSafeToAdd(ptr noundef %85, i64 noundef %.0.i121) #18
+  %104 = call i32 @lpSafeToAdd(ptr noundef %85, i64 noundef %.0.i121) #19
   %.not108 = icmp eq i32 %104, 0
   br i1 %.not108, label %105, label %121
 
@@ -5555,7 +5555,7 @@ sdslen.exit122:                                   ; preds = %sdslen.exit.thread,
 
 109:                                              ; preds = %105
   %110 = load ptr, ptr %21, align 8, !tbaa !75
-  %111 = call i64 @lpLength(ptr noundef %110) #18
+  %111 = call i64 @lpLength(ptr noundef %110) #19
   %112 = lshr i64 %111, 1
   %113 = and i64 %112, 4294967295
   br label %131
@@ -5569,8 +5569,8 @@ sdslen.exit122:                                   ; preds = %sdslen.exit.thread,
   br label %131
 
 120:                                              ; preds = %105
-  call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #18
-  call void @abort() #19
+  call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #19
+  call void @abort() #20
   unreachable
 
 121:                                              ; preds = %sdslen.exit122
@@ -5613,7 +5613,7 @@ sdslen.exit122:                                   ; preds = %sdslen.exit.thread,
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %139 = load ptr, ptr %138, align 8, !tbaa !75
   %140 = load ptr, ptr %139, align 8, !tbaa !125
-  %141 = call ptr @dictFind(ptr noundef %140, ptr noundef %2) #18
+  %141 = call ptr @dictFind(ptr noundef %140, ptr noundef %2) #19
   %.not111 = icmp eq ptr %141, null
   br i1 %.not111, label %173, label %142
 
@@ -5627,7 +5627,7 @@ sdslen.exit122:                                   ; preds = %sdslen.exit.thread,
   br label %.thread
 
 146:                                              ; preds = %142
-  %147 = call ptr @dictGetVal(ptr noundef nonnull %141) #18
+  %147 = call ptr @dictGetVal(ptr noundef nonnull %141) #19
   %148 = load double, ptr %147, align 8, !tbaa !5
   br i1 %.not, label %155, label %149
 
@@ -5675,7 +5675,7 @@ sdslen.exit122:                                   ; preds = %sdslen.exit.thread,
   %168 = call ptr @zslUpdateScore(ptr noundef %167, double noundef %148, ptr noundef %2, double noundef %.3)
   %169 = load ptr, ptr %139, align 8, !tbaa !125
   %170 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  call void @dictSetVal(ptr noundef %169, ptr noundef nonnull %141, ptr noundef nonnull %170) #18
+  call void @dictSetVal(ptr noundef %169, ptr noundef nonnull %141, ptr noundef nonnull %170) #19
   %171 = load i32, ptr %4, align 4, !tbaa !78
   %172 = or i32 %171, 8
   store i32 %172, ptr %4, align 4, !tbaa !78
@@ -5685,19 +5685,19 @@ sdslen.exit122:                                   ; preds = %sdslen.exit.thread,
   br i1 %.not104, label %174, label %188
 
 174:                                              ; preds = %173
-  %175 = call ptr @sdsdup(ptr noundef %2) #18
+  %175 = call ptr @sdsdup(ptr noundef %2) #19
   %176 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %177 = load ptr, ptr %176, align 8, !tbaa !97
   %178 = call ptr @zslInsert(ptr noundef %177, double noundef %1, ptr noundef %175)
   %179 = load ptr, ptr %139, align 8, !tbaa !125
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  %181 = call i32 @dictAdd(ptr noundef %179, ptr noundef %175, ptr noundef nonnull %180) #18
+  %181 = call i32 @dictAdd(ptr noundef %179, ptr noundef %175, ptr noundef nonnull %180) #19
   %182 = icmp eq i32 %181, 0
   br i1 %182, label %184, label %183, !prof !25
 
 183:                                              ; preds = %174
-  call void @_serverAssert(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 1527) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 1527) #19
+  call void @abort() #20
   unreachable
 
 184:                                              ; preds = %174
@@ -5718,8 +5718,8 @@ sdslen.exit122:                                   ; preds = %sdslen.exit.thread,
   br label %.thread
 
 191:                                              ; preds = %133
-  call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1536, ptr noundef nonnull @.str.9) #18
-  call void @abort() #19
+  call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1536, ptr noundef nonnull @.str.9) #19
+  call void @abort() #20
   unreachable
 
 .thread:                                          ; preds = %43, %45, %125, %128, %38, %32, %25, %143, %152, %158, %188, %165, %163, %187, %184, %15
@@ -5754,7 +5754,7 @@ define dso_local range(i32 0, 2) i32 @zsetDel(ptr noundef captures(none) %0, ptr
   %12 = load ptr, ptr %8, align 8, !tbaa !75
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %10, ptr %3, align 8, !tbaa !9
-  %13 = call ptr @lpDeleteRangeWithEntry(ptr noundef %12, ptr noundef nonnull %3, i64 noundef 2) #18
+  %13 = call ptr @lpDeleteRangeWithEntry(ptr noundef %12, ptr noundef nonnull %3, i64 noundef 2) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %13, ptr %8, align 8, !tbaa !75
   br label %.thread
@@ -5763,15 +5763,15 @@ define dso_local range(i32 0, 2) i32 @zsetDel(ptr noundef captures(none) %0, ptr
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !75
   %17 = load ptr, ptr %16, align 8, !tbaa !125
-  %18 = tail call ptr @dictUnlink(ptr noundef %17, ptr noundef %1) #18
+  %18 = tail call ptr @dictUnlink(ptr noundef %17, ptr noundef %1) #19
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %.thread, label %19
 
 19:                                               ; preds = %14
-  %20 = tail call ptr @dictGetVal(ptr noundef nonnull %18) #18
+  %20 = tail call ptr @dictGetVal(ptr noundef nonnull %18) #19
   %21 = load double, ptr %20, align 8, !tbaa !5
   %22 = load ptr, ptr %16, align 8, !tbaa !125
-  tail call void @dictFreeUnlinkedEntry(ptr noundef %22, ptr noundef nonnull %18) #18
+  tail call void @dictFreeUnlinkedEntry(ptr noundef %22, ptr noundef nonnull %18) #19
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !97
   %25 = tail call i32 @zslDelete(ptr noundef %24, double noundef %21, ptr noundef %1, ptr noundef null)
@@ -5779,13 +5779,13 @@ define dso_local range(i32 0, 2) i32 @zsetDel(ptr noundef captures(none) %0, ptr
   br i1 %.not11.i, label %26, label %.thread, !prof !40
 
 26:                                               ; preds = %19
-  tail call void @_serverAssert(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.1, i32 noundef 1563) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.1, i32 noundef 1563) #19
+  tail call void @abort() #20
   unreachable
 
 27:                                               ; preds = %2
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1587, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1587, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 .thread:                                          ; preds = %19, %14, %7, %11
@@ -5809,7 +5809,7 @@ define dso_local i64 @zsetRank(ptr noundef readonly captures(none) %0, ptr nound
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !75
-  %14 = tail call i64 @lpLength(ptr noundef %13) #18
+  %14 = tail call i64 @lpLength(ptr noundef %13) #19
   %15 = lshr i64 %14, 1
   %16 = and i64 %15, 4294967295
   %.pre = load i32, ptr %0, align 8
@@ -5826,8 +5826,8 @@ define dso_local i64 @zsetRank(ptr noundef readonly captures(none) %0, ptr nound
   br label %zsetLength.exit
 
 24:                                               ; preds = %4
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 zsetLength.exit:                                  ; preds = %11, %17
@@ -5842,17 +5842,17 @@ zsetLength.exit:                                  ; preds = %11, %17
 26:                                               ; preds = %zsetLength.exit
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !75
-  %29 = tail call ptr @lpSeek(ptr noundef %28, i64 noundef 0) #18
+  %29 = tail call ptr @lpSeek(ptr noundef %28, i64 noundef 0) #19
   %.not44 = icmp eq ptr %29, null
   br i1 %.not44, label %30, label %31, !prof !40
 
 30:                                               ; preds = %26
-  tail call void @_serverAssert(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 1614) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 1614) #19
+  tail call void @abort() #20
   unreachable
 
 31:                                               ; preds = %26
-  %32 = tail call ptr @lpNext(ptr noundef %28, ptr noundef nonnull %29) #18
+  %32 = tail call ptr @lpNext(ptr noundef %28, ptr noundef nonnull %29) #19
   %.not45 = icmp eq ptr %32, null
   br i1 %.not45, label %38, label %.preheader, !prof !40
 
@@ -5865,8 +5865,8 @@ zsetLength.exit:                                  ; preds = %11, %17
   br label %zzlNext.exit
 
 38:                                               ; preds = %31
-  tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 1616) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 1616) #19
+  tail call void @abort() #20
   unreachable
 
 zzlNext.exit:                                     ; preds = %60, %.preheader
@@ -5911,24 +5911,24 @@ zzlNext.exit:                                     ; preds = %60, %.preheader
 sdslen.exit:                                      ; preds = %zzlNext.exit, %42, %45, %48, %51, %54
   %.0.i51 = phi i64 [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %53, %51 ], [ %55, %54 ], [ 0, %zzlNext.exit ]
   %56 = trunc i64 %.0.i51 to i32
-  %57 = tail call i32 @lpCompare(ptr noundef nonnull %.06272, ptr noundef nonnull %1, i32 noundef %56) #18
+  %57 = tail call i32 @lpCompare(ptr noundef nonnull %.06272, ptr noundef nonnull %1, i32 noundef %56) #19
   %.not47 = icmp eq i32 %57, 0
   br i1 %.not47, label %58, label %64
 
 58:                                               ; preds = %sdslen.exit
-  %59 = tail call ptr @lpNext(ptr noundef %28, ptr noundef nonnull %.06173) #18
+  %59 = tail call ptr @lpNext(ptr noundef %28, ptr noundef nonnull %.06173) #19
   %.not14.i = icmp eq ptr %59, null
   br i1 %.not14.i, label %.thread, label %60
 
 60:                                               ; preds = %58
   %61 = add i64 %.03374, 1
-  %62 = tail call ptr @lpNext(ptr noundef %28, ptr noundef nonnull %59) #18
+  %62 = tail call ptr @lpNext(ptr noundef %28, ptr noundef nonnull %59) #19
   %.not15.i = icmp eq ptr %62, null
   br i1 %.not15.i, label %63, label %zzlNext.exit, !prof !40, !llvm.loop !129
 
 63:                                               ; preds = %60
-  tail call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 847) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 847) #19
+  tail call void @abort() #20
   unreachable
 
 64:                                               ; preds = %sdslen.exit
@@ -5938,7 +5938,7 @@ sdslen.exit:                                      ; preds = %zzlNext.exit, %42, 
 65:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %66 = call ptr @lpGetValue(ptr noundef nonnull %.06173, ptr noundef nonnull %6, ptr noundef nonnull %7) #18
+  %66 = call ptr @lpGetValue(ptr noundef nonnull %.06173, ptr noundef nonnull %6, ptr noundef nonnull %7) #19
   %.not7.i = icmp eq ptr %66, null
   br i1 %.not7.i, label %72, label %67
 
@@ -5950,7 +5950,7 @@ sdslen.exit:                                      ; preds = %zzlNext.exit, %42, 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull readonly align 1 %66, i64 %69, i1 false)
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 %69
   store i8 0, ptr %70, align 1, !tbaa !77
-  %71 = call double @fast_float_strtod(ptr noundef nonnull %5, ptr noundef null) #18
+  %71 = call double @fast_float_strtod(ptr noundef nonnull %5, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %zzlGetScore.exit
 
@@ -5984,12 +5984,12 @@ zzlGetScore.exit:                                 ; preds = %67, %72
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !97
   %85 = load ptr, ptr %82, align 8, !tbaa !125
-  %86 = tail call ptr @dictFind(ptr noundef %85, ptr noundef %1) #18
+  %86 = tail call ptr @dictFind(ptr noundef %85, ptr noundef %1) #19
   %.not = icmp eq ptr %86, null
   br i1 %.not, label %.thread, label %87
 
 87:                                               ; preds = %80
-  %88 = tail call ptr @dictGetVal(ptr noundef nonnull %86) #18
+  %88 = tail call ptr @dictGetVal(ptr noundef nonnull %86) #19
   %89 = load double, ptr %88, align 8, !tbaa !5
   %90 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %91 = load i32, ptr %90, align 8, !tbaa !12
@@ -6028,7 +6028,7 @@ zzlGetScore.exit:                                 ; preds = %67, %72
 
 105:                                              ; preds = %103
   %106 = load ptr, ptr %98, align 8, !tbaa !9
-  %107 = tail call i32 @sdscmp(ptr noundef %106, ptr noundef %1) #18
+  %107 = tail call i32 @sdscmp(ptr noundef %106, ptr noundef %1) #19
   %108 = icmp slt i32 %107, 1
   br i1 %108, label %..critedge2_crit_edge.i, label %.critedge.i55
 
@@ -6061,7 +6061,7 @@ zzlGetScore.exit:                                 ; preds = %67, %72
   br i1 %120, label %121, label %124
 
 121:                                              ; preds = %117
-  %122 = tail call i32 @sdscmp(ptr noundef nonnull %116, ptr noundef %1) #18
+  %122 = tail call i32 @sdscmp(ptr noundef nonnull %116, ptr noundef %1) #19
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %zslGetRank.exit, label %124
 
@@ -6074,8 +6074,8 @@ zslGetRank.exit:                                  ; preds = %121
   br i1 %.not41, label %zslGetRank.exit.thread, label %126, !prof !130
 
 zslGetRank.exit.thread:                           ; preds = %124, %87, %zslGetRank.exit
-  tail call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 1647) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 1647) #19
+  tail call void @abort() #20
   unreachable
 
 126:                                              ; preds = %zslGetRank.exit
@@ -6099,8 +6099,8 @@ zslGetRank.exit.thread:                           ; preds = %124, %87, %zslGetRa
   br label %.thread
 
 133:                                              ; preds = %zsetLength.exit
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1658, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1658, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 .thread:                                          ; preds = %58, %76, %78, %129, %131, %80
@@ -6118,8 +6118,8 @@ define dso_local ptr @zsetDup(ptr noundef readonly captures(none) %0) local_unna
   br i1 %4, label %6, label %5, !prof !25
 
 5:                                                ; preds = %1
-  tail call void @_serverAssert(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 1672) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 1672) #19
+  tail call void @abort() #20
   unreachable
 
 6:                                                ; preds = %1
@@ -6133,10 +6133,10 @@ define dso_local ptr @zsetDup(ptr noundef readonly captures(none) %0) local_unna
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !75
-  %12 = tail call i64 @lpBytes(ptr noundef %11) #18
-  %13 = tail call noalias ptr @zmalloc(i64 noundef %12) #17
+  %12 = tail call i64 @lpBytes(ptr noundef %11) #19
+  %13 = tail call noalias ptr @zmalloc(i64 noundef %12) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %11, i64 %12, i1 false)
-  %14 = tail call ptr @createObject(i32 noundef 3, ptr noundef %13) #18
+  %14 = tail call ptr @createObject(i32 noundef 3, ptr noundef %13) #19
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, -241
   %17 = or disjoint i32 %16, 176
@@ -6144,7 +6144,7 @@ define dso_local ptr @zsetDup(ptr noundef readonly captures(none) %0) local_unna
   br label %.loopexit
 
 18:                                               ; preds = %6
-  %19 = tail call ptr @createZsetObject() #18
+  %19 = tail call ptr @createZsetObject() #19
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !75
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -6156,7 +6156,7 @@ define dso_local ptr @zsetDup(ptr noundef readonly captures(none) %0) local_unna
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %29 = load i64, ptr %28, align 8, !tbaa !26
   %30 = add i64 %29, %27
-  %31 = tail call i32 @dictExpand(ptr noundef %24, i64 noundef %30) #18
+  %31 = tail call i32 @dictExpand(ptr noundef %24, i64 noundef %30) #19
   %32 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !97
   %34 = load i32, ptr %0, align 8
@@ -6169,7 +6169,7 @@ define dso_local ptr @zsetDup(ptr noundef readonly captures(none) %0) local_unna
 
 37:                                               ; preds = %18
   %38 = load ptr, ptr %20, align 8, !tbaa !75
-  %39 = tail call i64 @lpLength(ptr noundef %38) #18
+  %39 = tail call i64 @lpLength(ptr noundef %38) #19
   %40 = lshr i64 %39, 1
   %41 = and i64 %40, 4294967295
   br label %zsetLength.exit
@@ -6183,8 +6183,8 @@ define dso_local ptr @zsetDup(ptr noundef readonly captures(none) %0) local_unna
   br label %zsetLength.exit
 
 48:                                               ; preds = %18
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 zsetLength.exit:                                  ; preds = %37, %42
@@ -6203,21 +6203,21 @@ zsetLength.exit:                                  ; preds = %37, %42
   %52 = add nsw i64 %.03033, -1
   %.029 = load ptr, ptr %.029.in34, align 8, !tbaa !29
   %53 = load ptr, ptr %.029, align 8, !tbaa !9
-  %54 = tail call ptr @sdsdup(ptr noundef %53) #18
+  %54 = tail call ptr @sdsdup(ptr noundef %53) #19
   %55 = load ptr, ptr %50, align 8, !tbaa !97
   %56 = getelementptr inbounds nuw i8, ptr %.029, i64 8
   %57 = load double, ptr %56, align 8, !tbaa !5
   %58 = tail call ptr @zslInsert(ptr noundef %55, double noundef %57, ptr noundef %54)
   %59 = load ptr, ptr %23, align 8, !tbaa !125
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %61 = tail call i32 @dictAdd(ptr noundef %59, ptr noundef %54, ptr noundef nonnull %60) #18
+  %61 = tail call i32 @dictAdd(ptr noundef %59, ptr noundef %54, ptr noundef nonnull %60) #19
   %62 = getelementptr inbounds nuw i8, ptr %.029, i64 16
   %.not = icmp eq i64 %52, 0
   br i1 %.not, label %.loopexit, label %51, !llvm.loop !131
 
 63:                                               ; preds = %6
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1707, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1707, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 .loopexit:                                        ; preds = %51, %zsetLength.exit, %9
@@ -6239,13 +6239,13 @@ define dso_local ptr @zsetSdsFromListpackEntry(ptr noundef readonly captures(non
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !134
   %6 = zext i32 %5 to i64
-  %7 = tail call ptr @sdsnewlen(ptr noundef nonnull %2, i64 noundef %6) #18
+  %7 = tail call ptr @sdsnewlen(ptr noundef nonnull %2, i64 noundef %6) #19
   br label %12
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !135
-  %11 = tail call ptr @sdsfromlonglong(i64 noundef %10) #18
+  %11 = tail call ptr @sdsfromlonglong(i64 noundef %10) #19
   br label %12
 
 12:                                               ; preds = %8, %3
@@ -6263,13 +6263,13 @@ define dso_local void @zsetReplyFromListpackEntry(ptr noundef %0, ptr noundef re
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !134
   %7 = zext i32 %6 to i64
-  tail call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %7) #18
+  tail call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %7) #19
   br label %11
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !135
-  tail call void @addReplyBulkLongLong(ptr noundef %0, i64 noundef %10) #18
+  tail call void @addReplyBulkLongLong(ptr noundef %0, i64 noundef %10) #19
   br label %11
 
 11:                                               ; preds = %8, %4
@@ -6296,8 +6296,8 @@ define dso_local void @zsetTypeRandomElement(ptr noundef readonly captures(none)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !75
   %13 = load ptr, ptr %12, align 8, !tbaa !125
-  %14 = tail call ptr @dictGetFairRandomKey(ptr noundef %13) #18
-  %15 = tail call ptr @dictGetKey(ptr noundef %14) #18
+  %14 = tail call ptr @dictGetFairRandomKey(ptr noundef %13) #19
+  %15 = tail call ptr @dictGetKey(ptr noundef %14) #19
   store ptr %15, ptr %2, align 8, !tbaa !132
   %16 = getelementptr inbounds i8, ptr %15, i64 -1
   %17 = load i8, ptr %16, align 1, !tbaa !77
@@ -6348,7 +6348,7 @@ sdslen.exit:                                      ; preds = %10, %20, %23, %27, 
   br i1 %.not20, label %60, label %40
 
 40:                                               ; preds = %sdslen.exit
-  %41 = tail call ptr @dictGetVal(ptr noundef %14) #18
+  %41 = tail call ptr @dictGetVal(ptr noundef %14) #19
   %42 = load double, ptr %41, align 8, !tbaa !5
   store double %42, ptr %3, align 8, !tbaa !5
   br label %60
@@ -6357,7 +6357,7 @@ sdslen.exit:                                      ; preds = %10, %20, %23, %27, 
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !75
-  call void @lpRandomPair(ptr noundef %45, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %6, i32 noundef 2) #18
+  call void @lpRandomPair(ptr noundef %45, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %6, i32 noundef 2) #19
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %58, label %46
 
@@ -6375,7 +6375,7 @@ sdslen.exit:                                      ; preds = %10, %20, %23, %27, 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull readonly align 1 %47, i64 %51, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 %51
   store i8 0, ptr %52, align 1, !tbaa !77
-  %53 = call double @fast_float_strtod(ptr noundef nonnull %5, ptr noundef null) #18
+  %53 = call double @fast_float_strtod(ptr noundef nonnull %5, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.sink.split
 
@@ -6395,8 +6395,8 @@ sdslen.exit:                                      ; preds = %10, %20, %23, %27, 
   br label %60
 
 59:                                               ; preds = %4
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1750, ptr noundef nonnull @.str.16) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1750, ptr noundef nonnull @.str.16) #19
+  tail call void @abort() #20
   unreachable
 
 60:                                               ; preds = %sdslen.exit, %40, %58
@@ -6434,7 +6434,7 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
   %13 = load ptr, ptr %12, align 8, !tbaa !146
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !75
-  %16 = tail call i32 @strcasecmp(ptr noundef %15, ptr noundef nonnull @.str.18) #20
+  %16 = tail call i32 @strcasecmp(ptr noundef %15, ptr noundef nonnull @.str.18) #21
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %19
 
@@ -6443,7 +6443,7 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
   br label %37
 
 19:                                               ; preds = %.lr.ph
-  %20 = tail call i32 @strcasecmp(ptr noundef %15, ptr noundef nonnull @.str.19) #20
+  %20 = tail call i32 @strcasecmp(ptr noundef %15, ptr noundef nonnull @.str.19) #21
   %.not154 = icmp eq i32 %20, 0
   br i1 %.not154, label %21, label %23
 
@@ -6452,12 +6452,12 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
   br label %37
 
 23:                                               ; preds = %19
-  %24 = tail call i32 @strcasecmp(ptr noundef %15, ptr noundef nonnull @.str.20) #20
+  %24 = tail call i32 @strcasecmp(ptr noundef %15, ptr noundef nonnull @.str.20) #21
   %.not155 = icmp eq i32 %24, 0
   br i1 %.not155, label %37, label %25
 
 25:                                               ; preds = %23
-  %26 = tail call i32 @strcasecmp(ptr noundef %15, ptr noundef nonnull @.str.21) #20
+  %26 = tail call i32 @strcasecmp(ptr noundef %15, ptr noundef nonnull @.str.21) #21
   %.not156 = icmp eq i32 %26, 0
   br i1 %.not156, label %27, label %29
 
@@ -6466,7 +6466,7 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
   br label %37
 
 29:                                               ; preds = %25
-  %30 = tail call i32 @strcasecmp(ptr noundef %15, ptr noundef nonnull @.str.22) #20
+  %30 = tail call i32 @strcasecmp(ptr noundef %15, ptr noundef nonnull @.str.22) #21
   %.not157 = icmp eq i32 %30, 0
   br i1 %.not157, label %31, label %33
 
@@ -6475,7 +6475,7 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
   br label %37
 
 33:                                               ; preds = %29
-  %34 = tail call i32 @strcasecmp(ptr noundef %15, ptr noundef nonnull @.str.23) #20
+  %34 = tail call i32 @strcasecmp(ptr noundef %15, ptr noundef nonnull @.str.23) #21
   %.not158 = icmp eq i32 %34, 0
   br i1 %.not158, label %35, label %.thread.loopexit.split.loop.exit
 
@@ -6518,7 +6518,7 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
 
 47:                                               ; preds = %.thread
   %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !148
-  tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %48) #18
+  tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %48) #19
   br label %150
 
 49:                                               ; preds = %.thread
@@ -6528,7 +6528,7 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
   br i1 %or.cond3, label %52, label %53
 
 52:                                               ; preds = %49
-  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.24) #18
+  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.24) #19
   br label %150
 
 53:                                               ; preds = %49
@@ -6543,7 +6543,7 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
   br i1 %or.cond168, label %57, label %58
 
 57:                                               ; preds = %53
-  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #18
+  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #19
   br label %150
 
 58:                                               ; preds = %53
@@ -6552,13 +6552,13 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
   br i1 %or.cond11, label %60, label %61
 
 60:                                               ; preds = %58
-  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.26) #18
+  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.26) #19
   br label %150
 
 61:                                               ; preds = %58
   %62 = sext i32 %50 to i64
   %63 = shl nsw i64 %62, 3
-  %64 = tail call noalias ptr @zmalloc(i64 noundef %63) #17
+  %64 = tail call noalias ptr @zmalloc(i64 noundef %63) #18
   %65 = icmp sgt i32 %50, 0
   br i1 %65, label %.lr.ph217.preheader, label %._crit_edge
 
@@ -6580,15 +6580,15 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
   %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %66
   %71 = load ptr, ptr %70, align 8, !tbaa !146
   %72 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv231
-  %73 = tail call i32 @getDoubleFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %71, ptr noundef %72, ptr noundef null) #18
+  %73 = tail call i32 @getDoubleFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %71, ptr noundef %72, ptr noundef null) #19
   %.not166 = icmp eq i32 %73, 0
   br i1 %.not166, label %67, label %.loopexit
 
 ._crit_edge:                                      ; preds = %67, %61
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %75 = load ptr, ptr %74, align 8, !tbaa !150
-  %76 = tail call ptr @lookupKeyWrite(ptr noundef %75, ptr noundef %8) #18
-  %77 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef %76, i32 noundef 3) #18
+  %76 = tail call ptr @lookupKeyWrite(ptr noundef %75, ptr noundef %8) #19
+  %77 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef %76, i32 noundef 3) #19
   %.not160 = icmp eq i32 %77, 0
   br i1 %.not160, label %78, label %.loopexit
 
@@ -6610,7 +6610,7 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
   %89 = tail call fastcc i64 @sdslen(ptr noundef %88)
   %90 = tail call ptr @zsetTypeCreate(i64 noundef %62, i64 noundef %89)
   %91 = load ptr, ptr %74, align 8, !tbaa !150
-  %92 = tail call ptr @dbAdd(ptr noundef %91, ptr noundef %8, ptr noundef %90) #18
+  %92 = tail call ptr @dbAdd(ptr noundef %91, ptr noundef %8, ptr noundef %90) #19
   br label %zsetTypeMaybeConvert.exit
 
 93:                                               ; preds = %78
@@ -6658,7 +6658,7 @@ zsetTypeMaybeConvert.exit:                        ; preds = %99, %93, %81
   br i1 %113, label %114, label %115
 
 114:                                              ; preds = %103
-  call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #18
+  call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
@@ -6698,10 +6698,10 @@ zsetTypeMaybeConvert.exit:                        ; preds = %99, %93, %81
   %129 = load ptr, ptr %74, align 8, !tbaa !150
   %130 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %131 = load ptr, ptr %130, align 8, !tbaa !75
-  %132 = call i32 @getKeySlot(ptr noundef %131) #18
+  %132 = call i32 @getKeySlot(ptr noundef %131) #19
   %133 = zext nneg i32 %.2148.lcssa to i64
   %134 = add i64 %100, %133
-  call void @updateKeysizesHist(ptr noundef %129, i32 noundef %132, i32 noundef 3, i64 noundef %100, i64 noundef %134) #18
+  call void @updateKeysizesHist(ptr noundef %129, i32 noundef %132, i32 noundef 3, i64 noundef %100, i64 noundef %134) #19
   br i1 %41, label %135, label %137
 
 .thread183:                                       ; preds = %80
@@ -6711,13 +6711,13 @@ zsetTypeMaybeConvert.exit:                        ; preds = %99, %93, %81
   br i1 %.1139.lcssa, label %.thread194, label %136
 
 136:                                              ; preds = %135
-  call void @addReplyDouble(ptr noundef nonnull %0, double noundef %.1125.lcssa) #18
+  call void @addReplyDouble(ptr noundef nonnull %0, double noundef %.1125.lcssa) #19
   br label %.loopexit
 
 .thread194:                                       ; preds = %.thread183, %135
   %.1147188200 = phi i32 [ %.2148.lcssa, %135 ], [ 0, %.thread183 ]
   %.1143190199 = phi i32 [ %.2144.lcssa, %135 ], [ 0, %.thread183 ]
-  call void @addReplyNull(ptr noundef nonnull %0) #18
+  call void @addReplyNull(ptr noundef nonnull %0) #19
   br label %.loopexit
 
 137:                                              ; preds = %.thread183, %._crit_edge223
@@ -6726,13 +6726,13 @@ zsetTypeMaybeConvert.exit:                        ; preds = %99, %93, %81
   %138 = select i1 %.0129.lcssa, i32 0, i32 %.1143191
   %139 = add nsw i32 %.1147189, %138
   %140 = sext i32 %139 to i64
-  call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %140) #18
+  call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %140) #19
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph217, %114, %137, %.thread194, %136, %._crit_edge
   %.0146 = phi i32 [ 0, %._crit_edge ], [ %.2148.lcssa, %136 ], [ %.1147188200, %.thread194 ], [ %.1147189, %137 ], [ %.2148218, %114 ], [ 0, %.lr.ph217 ]
   %.0142 = phi i32 [ 0, %._crit_edge ], [ %.2144.lcssa, %136 ], [ %.1143190199, %.thread194 ], [ %.1143191, %137 ], [ %.2144219, %114 ], [ 0, %.lr.ph217 ]
-  call void @zfree(ptr noundef %64) #18
+  call void @zfree(ptr noundef %64) #19
   %141 = icmp ne i32 %.0146, 0
   %142 = icmp ne i32 %.0142, 0
   %or.cond13 = select i1 %141, i1 true, i1 %142
@@ -6741,12 +6741,12 @@ zsetTypeMaybeConvert.exit:                        ; preds = %99, %93, %81
 143:                                              ; preds = %.loopexit
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %145 = load ptr, ptr %144, align 8, !tbaa !150
-  call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %145, ptr noundef %8) #18
+  call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %145, ptr noundef %8) #19
   %146 = select i1 %41, ptr @.str.27, ptr @.str.28
   %147 = load ptr, ptr %144, align 8, !tbaa !150
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 56
   %149 = load i32, ptr %148, align 8, !tbaa !153
-  call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef nonnull %146, ptr noundef %8, i32 noundef %149) #18
+  call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef nonnull %146, ptr noundef %8, i32 noundef %149) #19
   br label %150
 
 150:                                              ; preds = %143, %.loopexit, %60, %57, %52, %47
@@ -6801,12 +6801,12 @@ define dso_local void @zremCommand(ptr noundef %0) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !146
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !155
-  %7 = tail call ptr @lookupKeyWriteOrReply(ptr noundef %0, ptr noundef %5, ptr noundef %6) #18
+  %7 = tail call ptr @lookupKeyWriteOrReply(ptr noundef %0, ptr noundef %5, ptr noundef %6) #19
   %8 = icmp eq ptr %7, null
   br i1 %8, label %81, label %9
 
 9:                                                ; preds = %1
-  %10 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef 3) #18
+  %10 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef 3) #19
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %.preheader, label %81
 
@@ -6847,7 +6847,7 @@ define dso_local void @zremCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 27:                                               ; preds = %17
   %28 = load ptr, ptr %13, align 8, !tbaa !75
-  %29 = tail call i64 @lpLength(ptr noundef %28) #18
+  %29 = tail call i64 @lpLength(ptr noundef %28) #19
   %30 = lshr i64 %29, 1
   %31 = and i64 %30, 4294967295
   br label %zsetLength.exit
@@ -6861,8 +6861,8 @@ define dso_local void @zremCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %zsetLength.exit
 
 38:                                               ; preds = %17
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 zsetLength.exit:                                  ; preds = %27, %32
@@ -6873,7 +6873,7 @@ zsetLength.exit:                                  ; preds = %27, %32
 40:                                               ; preds = %zsetLength.exit
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = load ptr, ptr %41, align 8, !tbaa !150
-  %43 = tail call i32 @dbDelete(ptr noundef %42, ptr noundef %5) #18
+  %43 = tail call i32 @dbDelete(ptr noundef %42, ptr noundef %5) #19
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %40
@@ -6885,14 +6885,14 @@ zsetLength.exit:                                  ; preds = %27, %32
   %46 = load ptr, ptr %45, align 8, !tbaa !150
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 56
   %48 = load i32, ptr %47, align 8, !tbaa !153
-  tail call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef nonnull @.str.29, ptr noundef %5, i32 noundef %48) #18
+  tail call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef nonnull @.str.29, ptr noundef %5, i32 noundef %48) #19
   br i1 %39, label %49, label %53
 
 49:                                               ; preds = %44
   %50 = load ptr, ptr %45, align 8, !tbaa !150
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
   %52 = load i32, ptr %51, align 8, !tbaa !153
-  tail call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.30, ptr noundef %5, i32 noundef %52) #18
+  tail call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.30, ptr noundef %5, i32 noundef %52) #19
   %.pre = zext nneg i32 %spec.select to i64
   br label %77
 
@@ -6908,7 +6908,7 @@ zsetLength.exit:                                  ; preds = %27, %32
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !75
-  %60 = tail call i64 @lpLength(ptr noundef %59) #18
+  %60 = tail call i64 @lpLength(ptr noundef %59) #19
   %61 = lshr i64 %60, 1
   %62 = and i64 %61, 4294967295
   br label %zsetLength.exit40
@@ -6923,8 +6923,8 @@ zsetLength.exit:                                  ; preds = %27, %32
   br label %zsetLength.exit40
 
 70:                                               ; preds = %53
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 zsetLength.exit40:                                ; preds = %57, %63
@@ -6932,16 +6932,16 @@ zsetLength.exit40:                                ; preds = %57, %63
   %71 = load ptr, ptr %45, align 8, !tbaa !150
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !75
-  %74 = tail call i32 @getKeySlot(ptr noundef %73) #18
+  %74 = tail call i32 @getKeySlot(ptr noundef %73) #19
   %75 = zext nneg i32 %spec.select to i64
   %76 = add i64 %.0.i39, %75
-  tail call void @updateKeysizesHist(ptr noundef %71, i32 noundef %74, i32 noundef 3, i64 noundef %76, i64 noundef %.0.i39) #18
+  tail call void @updateKeysizesHist(ptr noundef %71, i32 noundef %74, i32 noundef 3, i64 noundef %76, i64 noundef %.0.i39) #19
   br label %77
 
 77:                                               ; preds = %zsetLength.exit40, %49
   %.pre-phi = phi i64 [ %75, %zsetLength.exit40 ], [ %.pre, %49 ]
   %78 = load ptr, ptr %45, align 8, !tbaa !150
-  tail call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %78, ptr noundef %5) #18
+  tail call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %78, ptr noundef %5) #19
   %79 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !152
   %80 = add nsw i64 %79, %.pre-phi
   store i64 %80, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !152
@@ -6949,7 +6949,7 @@ zsetLength.exit40:                                ; preds = %57, %63
 
 .loopexit._crit_edge:                             ; preds = %.preheader, %.loopexit, %77
   %.pre-phi56 = phi i64 [ %.pre-phi, %77 ], [ 0, %.loopexit ], [ 0, %.preheader ]
-  tail call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.pre-phi56) #18
+  tail call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.pre-phi56) #19
   br label %81
 
 81:                                               ; preds = %1, %9, %.loopexit._crit_edge
@@ -6983,7 +6983,7 @@ define dso_local void @zremrangeGenericCommand(ptr noundef %0, i32 noundef %1) l
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !146
-  %16 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %15, ptr noundef nonnull %6, ptr noundef null) #18
+  %16 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %15, ptr noundef nonnull %6, ptr noundef null) #19
   %.not79 = icmp eq i32 %16, 0
   br i1 %.not79, label %17, label %zslFreeLexRange.exit
 
@@ -6991,7 +6991,7 @@ define dso_local void @zremrangeGenericCommand(ptr noundef %0, i32 noundef %1) l
   %18 = load ptr, ptr %8, align 8, !tbaa !136
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !146
-  %21 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %20, ptr noundef nonnull %7, ptr noundef null) #18
+  %21 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %20, ptr noundef nonnull %7, ptr noundef null) #19
   %.not80 = icmp eq i32 %21, 0
   br i1 %.not80, label %38, label %zslFreeLexRange.exit
 
@@ -7011,7 +7011,7 @@ define dso_local void @zremrangeGenericCommand(ptr noundef %0, i32 noundef %1) l
   br i1 %.not78, label %38, label %29
 
 29:                                               ; preds = %23
-  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.33) #18
+  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.33) #19
   br label %zslFreeLexRange.exit
 
 30:                                               ; preds = %22
@@ -7024,23 +7024,23 @@ define dso_local void @zremrangeGenericCommand(ptr noundef %0, i32 noundef %1) l
   br i1 %.not, label %38, label %36
 
 36:                                               ; preds = %30
-  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.35) #18
+  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.35) #19
   br label %zslFreeLexRange.exit
 
 37:                                               ; preds = %22
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1962, ptr noundef nonnull @.str.36, i32 noundef %1) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1962, ptr noundef nonnull @.str.36, i32 noundef %1) #19
+  tail call void @abort() #20
   unreachable
 
 38:                                               ; preds = %23, %30, %17
   %.069 = phi ptr [ @.str.31, %17 ], [ @.str.32, %23 ], [ @.str.34, %30 ]
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !155
-  %40 = call ptr @lookupKeyWriteOrReply(ptr noundef nonnull %0, ptr noundef %11, ptr noundef %39) #18
+  %40 = call ptr @lookupKeyWriteOrReply(ptr noundef nonnull %0, ptr noundef %11, ptr noundef %39) #19
   %41 = icmp eq ptr %40, null
   br i1 %41, label %176, label %42
 
 42:                                               ; preds = %38
-  %43 = call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %40, i32 noundef 3) #18
+  %43 = call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %40, i32 noundef 3) #19
   %.not81 = icmp eq i32 %43, 0
   br i1 %.not81, label %44, label %176
 
@@ -7059,7 +7059,7 @@ define dso_local void @zremrangeGenericCommand(ptr noundef %0, i32 noundef %1) l
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !75
-  %52 = call i64 @lpLength(ptr noundef %51) #18
+  %52 = call i64 @lpLength(ptr noundef %51) #19
   %53 = lshr i64 %52, 1
   %54 = and i64 %53, 4294967295
   br label %zsetLength.exit
@@ -7074,8 +7074,8 @@ define dso_local void @zremrangeGenericCommand(ptr noundef %0, i32 noundef %1) l
   br label %zsetLength.exit
 
 62:                                               ; preds = %45
-  call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #18
-  call void @abort() #19
+  call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #19
+  call void @abort() #20
   unreachable
 
 zsetLength.exit:                                  ; preds = %49, %55
@@ -7118,7 +7118,7 @@ zsetLength.exit:                                  ; preds = %49, %55
 
 .thread:                                          ; preds = %77
   %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !155
-  call void @addReply(ptr noundef nonnull %0, ptr noundef %80) #18
+  call void @addReply(ptr noundef nonnull %0, ptr noundef %80) #19
   br label %zslFreeLexRange.exit
 
 81:                                               ; preds = %77
@@ -7161,7 +7161,7 @@ zsetLength.exit:                                  ; preds = %49, %55
   %100 = and i64 %99, 4294967294
   %101 = shl i32 %97, 1
   %102 = zext i32 %101 to i64
-  %103 = call ptr @lpDeleteRange(ptr noundef %90, i64 noundef %100, i64 noundef %102) #18
+  %103 = call ptr @lpDeleteRange(ptr noundef %90, i64 noundef %100, i64 noundef %102) #19
   br label %108
 
 104:                                              ; preds = %88
@@ -7178,7 +7178,7 @@ default.unreachable:                              ; preds = %88
 108:                                              ; preds = %106, %104, %91
   %.sink = phi ptr [ %107, %106 ], [ %105, %104 ], [ %103, %91 ]
   store ptr %.sink, ptr %89, align 8, !tbaa !75
-  %109 = call i64 @lpLength(ptr noundef %.sink) #18
+  %109 = call i64 @lpLength(ptr noundef %.sink) #19
   %110 = and i64 %109, 8589934590
   %111 = icmp eq i64 %110, 0
   br i1 %111, label %112, label %154
@@ -7186,7 +7186,7 @@ default.unreachable:                              ; preds = %88
 112:                                              ; preds = %108
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %114 = load ptr, ptr %113, align 8, !tbaa !150
-  %115 = call i32 @dbDelete(ptr noundef %114, ptr noundef %11) #18
+  %115 = call i32 @dbDelete(ptr noundef %114, ptr noundef %11) #19
   br label %154
 
 116:                                              ; preds = %84
@@ -7245,16 +7245,16 @@ default.unreachable86:                            ; preds = %116
 147:                                              ; preds = %137
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %149 = load ptr, ptr %148, align 8, !tbaa !150
-  %150 = call i32 @dbDelete(ptr noundef %149, ptr noundef %11) #18
+  %150 = call i32 @dbDelete(ptr noundef %149, ptr noundef %11) #19
   br label %154
 
 151:                                              ; preds = %137
-  %152 = call i32 @dictShrinkIfNeeded(ptr noundef nonnull %138) #18
+  %152 = call i32 @dictShrinkIfNeeded(ptr noundef nonnull %138) #19
   br label %154
 
 153:                                              ; preds = %84
-  call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2026, ptr noundef nonnull @.str.9) #18
-  call void @abort() #19
+  call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2026, ptr noundef nonnull @.str.9) #19
+  call void @abort() #20
   unreachable
 
 154:                                              ; preds = %147, %151, %108, %112
@@ -7266,18 +7266,18 @@ default.unreachable86:                            ; preds = %116
 156:                                              ; preds = %154
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %158 = load ptr, ptr %157, align 8, !tbaa !150
-  call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %158, ptr noundef %11) #18
+  call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %158, ptr noundef %11) #19
   %159 = load ptr, ptr %157, align 8, !tbaa !150
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 56
   %161 = load i32, ptr %160, align 8, !tbaa !153
-  call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef nonnull %.069, ptr noundef %11, i32 noundef %161) #18
+  call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef nonnull %.069, ptr noundef %11, i32 noundef %161) #19
   br i1 %.0, label %166, label %162
 
 162:                                              ; preds = %156
   %163 = load ptr, ptr %157, align 8, !tbaa !150
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 56
   %165 = load i32, ptr %164, align 8, !tbaa !153
-  call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.30, ptr noundef %11, i32 noundef %165) #18
+  call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.30, ptr noundef %11, i32 noundef %165) #19
   br label %173
 
 166:                                              ; preds = %156
@@ -7285,16 +7285,16 @@ default.unreachable86:                            ; preds = %116
   %168 = load ptr, ptr %157, align 8, !tbaa !150
   %169 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %170 = load ptr, ptr %169, align 8, !tbaa !75
-  %171 = call i32 @getKeySlot(ptr noundef %170) #18
+  %171 = call i32 @getKeySlot(ptr noundef %170) #19
   %172 = add i64 %167, %155
-  call void @updateKeysizesHist(ptr noundef %168, i32 noundef %171, i32 noundef 3, i64 noundef %172, i64 noundef %167) #18
+  call void @updateKeysizesHist(ptr noundef %168, i32 noundef %171, i32 noundef 3, i64 noundef %172, i64 noundef %167) #19
   br label %173
 
 173:                                              ; preds = %162, %166, %154
   %174 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !152
   %175 = add i64 %174, %155
   store i64 %175, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !152
-  call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %155) #18
+  call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %155) #19
   br label %176
 
 176:                                              ; preds = %38, %42, %173
@@ -7311,7 +7311,7 @@ default.unreachable86:                            ; preds = %116
   br i1 %or.cond.i, label %183, label %182
 
 182:                                              ; preds = %178
-  call void @sdsfree(ptr noundef %179) #18
+  call void @sdsfree(ptr noundef %179) #19
   %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81904), align 8, !tbaa !61
   %.pre11.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81912), align 8
   br label %183
@@ -7327,7 +7327,7 @@ default.unreachable86:                            ; preds = %116
   br i1 %or.cond10.i, label %zslFreeLexRange.exit, label %188
 
 188:                                              ; preds = %183
-  call void @sdsfree(ptr noundef %187) #18
+  call void @sdsfree(ptr noundef %187) #19
   br label %zslFreeLexRange.exit
 
 zslFreeLexRange.exit:                             ; preds = %188, %183, %.thread, %176, %13, %17, %36, %29
@@ -7369,7 +7369,7 @@ define internal fastcc range(i32 -1, 1) i32 @zslParseRange(ptr noundef readonly 
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %20 = call double @fast_float_strtod(ptr noundef nonnull %19, ptr noundef nonnull %4) #18
+  %20 = call double @fast_float_strtod(ptr noundef nonnull %19, ptr noundef nonnull %4) #19
   store double %20, ptr %2, align 8, !tbaa !43
   %21 = load ptr, ptr %4, align 8, !tbaa !9
   %22 = load i8, ptr %21, align 1, !tbaa !77
@@ -7383,7 +7383,7 @@ define internal fastcc range(i32 -1, 1) i32 @zslParseRange(ptr noundef readonly 
   br label %30
 
 25:                                               ; preds = %15
-  %26 = call double @fast_float_strtod(ptr noundef nonnull %11, ptr noundef nonnull %4) #18
+  %26 = call double @fast_float_strtod(ptr noundef nonnull %11, ptr noundef nonnull %4) #19
   store double %26, ptr %2, align 8, !tbaa !43
   %27 = load ptr, ptr %4, align 8, !tbaa !9
   %28 = load i8, ptr %27, align 1, !tbaa !77
@@ -7414,7 +7414,7 @@ define internal fastcc range(i32 -1, 1) i32 @zslParseRange(ptr noundef readonly 
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 1
-  %45 = call double @fast_float_strtod(ptr noundef nonnull %44, ptr noundef nonnull %4) #18
+  %45 = call double @fast_float_strtod(ptr noundef nonnull %44, ptr noundef nonnull %4) #19
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %45, ptr %46, align 8, !tbaa !45
   %47 = load ptr, ptr %4, align 8, !tbaa !9
@@ -7429,7 +7429,7 @@ define internal fastcc range(i32 -1, 1) i32 @zslParseRange(ptr noundef readonly 
   br label %57
 
 51:                                               ; preds = %40
-  %52 = call double @fast_float_strtod(ptr noundef nonnull %35, ptr noundef nonnull %4) #18
+  %52 = call double @fast_float_strtod(ptr noundef nonnull %35, ptr noundef nonnull %4) #19
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %52, ptr %53, align 8, !tbaa !45
   %54 = load ptr, ptr %4, align 8, !tbaa !9
@@ -7506,10 +7506,10 @@ define dso_local void @zuiInitIterator(ptr noundef captures(none) %0) local_unna
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !75
   store ptr %17, ptr %8, align 8, !tbaa !77
-  %18 = tail call ptr @dictGetIterator(ptr noundef %17) #18
+  %18 = tail call ptr @dictGetIterator(ptr noundef %17) #19
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %18, ptr %19, align 8, !tbaa !77
-  %20 = tail call ptr @dictNext(ptr noundef %18) #18
+  %20 = tail call ptr @dictNext(ptr noundef %18) #19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %20, ptr %21, align 8, !tbaa !77
   br label %52
@@ -7518,14 +7518,14 @@ define dso_local void @zuiInitIterator(ptr noundef captures(none) %0) local_unna
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !75
   store ptr %24, ptr %8, align 8, !tbaa !77
-  %25 = tail call ptr @lpFirst(ptr noundef %24) #18
+  %25 = tail call ptr @lpFirst(ptr noundef %24) #19
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %25, ptr %26, align 8, !tbaa !77
   br label %52
 
 27:                                               ; preds = %7
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2140, ptr noundef nonnull @.str.37) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2140, ptr noundef nonnull @.str.37) #19
+  tail call void @abort() #20
   unreachable
 
 28:                                               ; preds = %4
@@ -7541,7 +7541,7 @@ define dso_local void @zuiInitIterator(ptr noundef captures(none) %0) local_unna
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !75
   store ptr %34, ptr %29, align 8, !tbaa !77
-  %35 = tail call ptr @lpSeek(ptr noundef %34, i64 noundef -2) #18
+  %35 = tail call ptr @lpSeek(ptr noundef %34, i64 noundef -2) #19
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %35, ptr %36, align 8, !tbaa !77
   %.not = icmp eq ptr %35, null
@@ -7549,15 +7549,15 @@ define dso_local void @zuiInitIterator(ptr noundef captures(none) %0) local_unna
 
 37:                                               ; preds = %32
   %38 = load ptr, ptr %29, align 8, !tbaa !77
-  %39 = tail call ptr @lpNext(ptr noundef %38, ptr noundef nonnull %35) #18
+  %39 = tail call ptr @lpNext(ptr noundef %38, ptr noundef nonnull %35) #19
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %39, ptr %40, align 8, !tbaa !77
   %.not40 = icmp eq ptr %39, null
   br i1 %.not40, label %41, label %52, !prof !40
 
 41:                                               ; preds = %37
-  tail call void @_serverAssert(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.1, i32 noundef 2152) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.1, i32 noundef 2152) #19
+  tail call void @abort() #20
   unreachable
 
 42:                                               ; preds = %28
@@ -7573,13 +7573,13 @@ define dso_local void @zuiInitIterator(ptr noundef captures(none) %0) local_unna
   br label %52
 
 50:                                               ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2158, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2158, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 51:                                               ; preds = %4
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2161, ptr noundef nonnull @.str.39) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2161, ptr noundef nonnull @.str.39) #19
+  tail call void @abort() #20
   unreachable
 
 52:                                               ; preds = %42, %37, %32, %11, %22, %15, %1
@@ -7616,12 +7616,12 @@ define dso_local void @zuiClearIterator(ptr noundef readonly captures(none) %0) 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !77
-  tail call void @dictReleaseIterator(ptr noundef %12) #18
+  tail call void @dictReleaseIterator(ptr noundef %12) #19
   br label %19
 
 13:                                               ; preds = %7
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2178, ptr noundef nonnull @.str.37) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2178, ptr noundef nonnull @.str.37) #19
+  tail call void @abort() #20
   unreachable
 
 14:                                               ; preds = %4
@@ -7633,13 +7633,13 @@ define dso_local void @zuiClearIterator(ptr noundef readonly captures(none) %0) 
   ]
 
 17:                                               ; preds = %14
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2187, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2187, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 18:                                               ; preds = %4
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2190, ptr noundef nonnull @.str.39) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2190, ptr noundef nonnull @.str.39) #19
+  tail call void @abort() #20
   unreachable
 
 19:                                               ; preds = %14, %14, %10, %7, %7, %1
@@ -7658,7 +7658,7 @@ define dso_local void @zuiDiscardDirtyValue(ptr noundef captures(none) %0) local
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !163
-  tail call void @sdsfree(ptr noundef %6) #18
+  tail call void @sdsfree(ptr noundef %6) #19
   store ptr null, ptr %5, align 8, !tbaa !163
   %7 = load i32, ptr %0, align 8, !tbaa !161
   %8 = and i32 %7, -2
@@ -7684,7 +7684,7 @@ define dso_local i64 @zuiLength(ptr noundef readonly captures(none) %0) local_un
   ]
 
 7:                                                ; preds = %4
-  %8 = tail call i64 @setTypeSize(ptr noundef nonnull %2) #18
+  %8 = tail call i64 @setTypeSize(ptr noundef nonnull %2) #19
   br label %27
 
 9:                                                ; preds = %4
@@ -7698,7 +7698,7 @@ define dso_local i64 @zuiLength(ptr noundef readonly captures(none) %0) local_un
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !75
-  %15 = tail call i64 @lpLength(ptr noundef %14) #18
+  %15 = tail call i64 @lpLength(ptr noundef %14) #19
   %16 = lshr i64 %15, 1
   %17 = and i64 %16, 4294967295
   br label %27
@@ -7713,13 +7713,13 @@ define dso_local i64 @zuiLength(ptr noundef readonly captures(none) %0) local_un
   br label %27
 
 25:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2215, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2215, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 26:                                               ; preds = %4
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2218, ptr noundef nonnull @.str.39) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2218, ptr noundef nonnull @.str.39) #19
+  tail call void @abort() #20
   unreachable
 
 27:                                               ; preds = %1, %18, %12, %7
@@ -7748,7 +7748,7 @@ define dso_local range(i32 0, 2) i32 @zuiNext(ptr noundef captures(none) %0, ptr
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !163
-  tail call void @sdsfree(ptr noundef %14) #18
+  tail call void @sdsfree(ptr noundef %14) #19
   br label %zuiDiscardDirtyValue.exit
 
 zuiDiscardDirtyValue.exit:                        ; preds = %9, %12
@@ -7775,7 +7775,7 @@ zuiDiscardDirtyValue.exit:                        ; preds = %9, %12
   %22 = load ptr, ptr %18, align 8, !tbaa !77
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load i32, ptr %23, align 8, !tbaa !77
-  %25 = call zeroext i8 @intsetGet(ptr noundef %22, i32 noundef %24, ptr noundef nonnull %6) #18
+  %25 = call zeroext i8 @intsetGet(ptr noundef %22, i32 noundef %24, ptr noundef nonnull %6) #19
   %.not.not = icmp eq i8 %25, 0
   br i1 %.not.not, label %.critedge, label %26
 
@@ -7798,14 +7798,14 @@ zuiDiscardDirtyValue.exit:                        ; preds = %9, %12
   br i1 %35, label %.thread, label %36
 
 36:                                               ; preds = %32
-  %37 = tail call ptr @dictGetKey(ptr noundef nonnull %34) #18
+  %37 = tail call ptr @dictGetKey(ptr noundef nonnull %34) #19
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %37, ptr %38, align 8, !tbaa !163
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store double 1.000000e+00, ptr %39, align 8, !tbaa !165
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !77
-  %42 = tail call ptr @dictNext(ptr noundef %41) #18
+  %42 = tail call ptr @dictNext(ptr noundef %41) #19
   store ptr %42, ptr %33, align 8, !tbaa !77
   br label %.thread
 
@@ -7818,20 +7818,20 @@ zuiDiscardDirtyValue.exit:                        ; preds = %9, %12
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %50 = tail call ptr @lpGetValue(ptr noundef nonnull %45, ptr noundef nonnull %48, ptr noundef nonnull %49) #18
+  %50 = tail call ptr @lpGetValue(ptr noundef nonnull %45, ptr noundef nonnull %48, ptr noundef nonnull %49) #19
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %50, ptr %51, align 8, !tbaa !166
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store double 1.000000e+00, ptr %52, align 8, !tbaa !165
   %53 = load ptr, ptr %18, align 8, !tbaa !77
   %54 = load ptr, ptr %44, align 8, !tbaa !77
-  %55 = tail call ptr @lpNext(ptr noundef %53, ptr noundef %54) #18
+  %55 = tail call ptr @lpNext(ptr noundef %53, ptr noundef %54) #19
   store ptr %55, ptr %44, align 8, !tbaa !77
   br label %.thread
 
 56:                                               ; preds = %17
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2262, ptr noundef nonnull @.str.37) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2262, ptr noundef nonnull @.str.37) #19
+  tail call void @abort() #20
   unreachable
 
 .critedge:                                        ; preds = %21
@@ -7862,7 +7862,7 @@ zuiDiscardDirtyValue.exit:                        ; preds = %9, %12
 69:                                               ; preds = %65
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %72 = tail call ptr @lpGetValue(ptr noundef nonnull %63, ptr noundef nonnull %70, ptr noundef nonnull %71) #18
+  %72 = tail call ptr @lpGetValue(ptr noundef nonnull %63, ptr noundef nonnull %70, ptr noundef nonnull %71) #19
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %72, ptr %73, align 8, !tbaa !166
   %74 = load ptr, ptr %66, align 8, !tbaa !77
@@ -7872,12 +7872,12 @@ zuiDiscardDirtyValue.exit:                        ; preds = %9, %12
   br i1 %.not.i64, label %75, label %76, !prof !40
 
 75:                                               ; preds = %69
-  tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 785) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 785) #19
+  tail call void @abort() #20
   unreachable
 
 76:                                               ; preds = %69
-  %77 = call ptr @lpGetValue(ptr noundef nonnull %74, ptr noundef nonnull %4, ptr noundef nonnull %5) #18
+  %77 = call ptr @lpGetValue(ptr noundef nonnull %74, ptr noundef nonnull %4, ptr noundef nonnull %5) #19
   %.not7.i = icmp eq ptr %77, null
   br i1 %.not7.i, label %83, label %78
 
@@ -7889,7 +7889,7 @@ zuiDiscardDirtyValue.exit:                        ; preds = %9, %12
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull readonly align 1 %77, i64 %80, i1 false)
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 %80
   store i8 0, ptr %81, align 1, !tbaa !77
-  %82 = call double @fast_float_strtod(ptr noundef nonnull %3, ptr noundef null) #18
+  %82 = call double @fast_float_strtod(ptr noundef nonnull %3, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %zzlGetScore.exit
 
@@ -7915,23 +7915,23 @@ zzlGetScore.exit:                                 ; preds = %78, %83
   br i1 %.not16.i, label %.critedge.i, label %91, !prof !40
 
 .critedge.i:                                      ; preds = %89, %zzlGetScore.exit
-  call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 861) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 861) #19
+  call void @abort() #20
   unreachable
 
 91:                                               ; preds = %89
-  %92 = call ptr @lpPrev(ptr noundef %87, ptr noundef nonnull %88) #18
+  %92 = call ptr @lpPrev(ptr noundef %87, ptr noundef nonnull %88) #19
   %.not14.i = icmp eq ptr %92, null
   br i1 %.not14.i, label %zzlPrev.exit, label %93
 
 93:                                               ; preds = %91
-  %94 = call ptr @lpPrev(ptr noundef %87, ptr noundef nonnull %92) #18
+  %94 = call ptr @lpPrev(ptr noundef %87, ptr noundef nonnull %92) #19
   %.not15.i = icmp eq ptr %94, null
   br i1 %.not15.i, label %95, label %zzlPrev.exit, !prof !40
 
 95:                                               ; preds = %93
-  call void @_serverAssert(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 866) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 866) #19
+  call void @abort() #20
   unreachable
 
 zzlPrev.exit:                                     ; preds = %91, %93
@@ -7962,13 +7962,13 @@ zzlPrev.exit:                                     ; preds = %91, %93
   br label %.thread
 
 110:                                              ; preds = %57
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2284, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2284, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 111:                                              ; preds = %zuiDiscardDirtyValue.exit
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2287, ptr noundef nonnull @.str.39) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2287, ptr noundef nonnull @.str.39) #19
+  tail call void @abort() #20
   unreachable
 
 .thread:                                          ; preds = %96, %61, %65, %47, %36, %26, %zzlPrev.exit, %100, %.critedge, %32, %43, %2
@@ -8040,7 +8040,7 @@ define dso_local range(i32 0, 5) i32 @zuiLongLongFromValue(ptr noundef %0) local
 sdslen.exit:                                      ; preds = %8, %13, %16, %20, %24, %28
   %.0.i = phi i64 [ %15, %13 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %30, %28 ], [ 0, %8 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %32 = tail call i32 @string2ll(ptr noundef nonnull %7, i64 noundef %.0.i, ptr noundef nonnull %31) #18
+  %32 = tail call i32 @string2ll(ptr noundef nonnull %7, i64 noundef %.0.i, ptr noundef nonnull %31) #19
   %.not18 = icmp eq i32 %32, 0
   %.pre = load i32, ptr %0, align 8, !tbaa !161
   br i1 %.not18, label %48, label %33
@@ -8060,7 +8060,7 @@ sdslen.exit:                                      ; preds = %8, %13, %16, %20, %
   %40 = load i32, ptr %39, align 8, !tbaa !167
   %41 = zext i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %43 = tail call i32 @string2ll(ptr noundef nonnull %37, i64 noundef %41, ptr noundef nonnull %42) #18
+  %43 = tail call i32 @string2ll(ptr noundef nonnull %37, i64 noundef %41, ptr noundef nonnull %42) #19
   %.not17 = icmp eq i32 %43, 0
   %.pre19 = load i32, ptr %0, align 8, !tbaa !161
   br i1 %.not17, label %48, label %44
@@ -8103,13 +8103,13 @@ define dso_local ptr @zuiSdsFromValue(ptr noundef captures(none) %0) local_unnam
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load i32, ptr %9, align 8, !tbaa !167
   %11 = zext i32 %10 to i64
-  %12 = tail call ptr @sdsnewlen(ptr noundef nonnull %7, i64 noundef %11) #18
+  %12 = tail call ptr @sdsnewlen(ptr noundef nonnull %7, i64 noundef %11) #19
   br label %17
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load i64, ptr %14, align 8, !tbaa !164
-  %16 = tail call ptr @sdsfromlonglong(i64 noundef %15) #18
+  %16 = tail call ptr @sdsfromlonglong(i64 noundef %15) #19
   br label %17
 
 17:                                               ; preds = %13, %8
@@ -8145,7 +8145,7 @@ define dso_local ptr @zuiNewSdsFromValue(ptr noundef captures(none) %0) local_un
   br i1 %.not14, label %11, label %9
 
 9:                                                ; preds = %8
-  %10 = tail call ptr @sdsdup(ptr noundef nonnull %5) #18
+  %10 = tail call ptr @sdsdup(ptr noundef nonnull %5) #19
   br label %23
 
 11:                                               ; preds = %8
@@ -8158,13 +8158,13 @@ define dso_local ptr @zuiNewSdsFromValue(ptr noundef captures(none) %0) local_un
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load i32, ptr %15, align 8, !tbaa !167
   %17 = zext i32 %16 to i64
-  %18 = tail call ptr @sdsnewlen(ptr noundef nonnull %13, i64 noundef %17) #18
+  %18 = tail call ptr @sdsnewlen(ptr noundef nonnull %13, i64 noundef %17) #19
   br label %23
 
 19:                                               ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load i64, ptr %20, align 8, !tbaa !164
-  %22 = tail call ptr @sdsfromlonglong(i64 noundef %21) #18
+  %22 = tail call ptr @sdsfromlonglong(i64 noundef %21) #19
   br label %23
 
 23:                                               ; preds = %19, %14, %9, %6
@@ -8235,7 +8235,7 @@ sdslen.exit:                                      ; preds = %8, %13, %16, %20, %
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %35 = load i64, ptr %34, align 8, !tbaa !164
-  %36 = tail call i32 @ll2string(ptr noundef nonnull %33, i64 noundef 32, i64 noundef %35) #18
+  %36 = tail call i32 @ll2string(ptr noundef nonnull %33, i64 noundef 32, i64 noundef %35) #19
   br label %.sink.split
 
 .sink.split:                                      ; preds = %32, %sdslen.exit
@@ -8326,7 +8326,7 @@ sdslen.exit:                                      ; preds = %32, %28, %24, %20, 
   %44 = load i64, ptr %43, align 8, !tbaa !164
   %45 = icmp ne ptr %11, null
   %46 = zext i1 %45 to i32
-  %47 = tail call i32 @setTypeIsMemberAux(ptr noundef nonnull %4, ptr noundef %41, i64 noundef %42, i64 noundef %44, i32 noundef %46) #18
+  %47 = tail call i32 @setTypeIsMemberAux(ptr noundef nonnull %4, ptr noundef %41, i64 noundef %42, i64 noundef %44, i32 noundef %46) #19
   %.not34 = icmp eq i32 %47, 0
   br i1 %.not34, label %87, label %48
 
@@ -8350,13 +8350,13 @@ sdslen.exit:                                      ; preds = %32, %28, %24, %20, 
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %58 = load i32, ptr %57, align 8, !tbaa !167
   %59 = zext i32 %58 to i64
-  %60 = tail call ptr @sdsnewlen(ptr noundef nonnull %55, i64 noundef %59) #18
+  %60 = tail call ptr @sdsnewlen(ptr noundef nonnull %55, i64 noundef %59) #19
   br label %65
 
 61:                                               ; preds = %53
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %63 = load i64, ptr %62, align 8, !tbaa !164
-  %64 = tail call ptr @sdsfromlonglong(i64 noundef %63) #18
+  %64 = tail call ptr @sdsfromlonglong(i64 noundef %63) #19
   br label %65
 
 65:                                               ; preds = %61, %56
@@ -8390,24 +8390,24 @@ zuiSdsFromValue.exit:                             ; preds = %49, %65
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8, !tbaa !75
   %80 = load ptr, ptr %79, align 8, !tbaa !125
-  %81 = tail call ptr @dictFind(ptr noundef %80, ptr noundef %68) #18
+  %81 = tail call ptr @dictFind(ptr noundef %80, ptr noundef %68) #19
   %.not = icmp eq ptr %81, null
   br i1 %.not, label %87, label %82
 
 82:                                               ; preds = %76
-  %83 = tail call ptr @dictGetVal(ptr noundef nonnull %81) #18
+  %83 = tail call ptr @dictGetVal(ptr noundef nonnull %81) #19
   %84 = load double, ptr %83, align 8, !tbaa !5
   store double %84, ptr %2, align 8, !tbaa !5
   br label %87
 
 85:                                               ; preds = %zuiSdsFromValue.exit
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2388, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2388, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 86:                                               ; preds = %6
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2391, ptr noundef nonnull @.str.39) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2391, ptr noundef nonnull @.str.39) #19
+  tail call void @abort() #20
   unreachable
 
 87:                                               ; preds = %82, %76, %71, %48, %sdslen.exit, %3
@@ -8447,7 +8447,7 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
   %15 = sext i32 %2 to i64
   %16 = getelementptr inbounds ptr, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !146
-  %18 = call i32 @getLongFromObjectOrReply(ptr noundef %0, ptr noundef %17, ptr noundef nonnull %6, ptr noundef null) #18
+  %18 = call i32 @getLongFromObjectOrReply(ptr noundef %0, ptr noundef %17, ptr noundef nonnull %6, ptr noundef null) #19
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %19, label %544
 
@@ -8461,7 +8461,7 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
   %24 = load ptr, ptr %23, align 8, !tbaa !168
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 216
   %26 = load ptr, ptr %25, align 8, !tbaa !169
-  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.40, ptr noundef %26) #18
+  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.40, ptr noundef %26) #19
   br label %544
 
 27:                                               ; preds = %19
@@ -8475,12 +8475,12 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
 
 34:                                               ; preds = %27
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !148
-  call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %35) #18
+  call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %35) #19
   br label %544
 
 36:                                               ; preds = %27
   %37 = mul nuw nsw i64 %20, 48
-  %38 = call noalias ptr @ztrycalloc(i64 noundef %37) #17
+  %38 = call noalias ptr @ztrycalloc(i64 noundef %37) #18
   %39 = icmp eq ptr %38, null
   br i1 %39, label %44, label %.preheader382
 
@@ -8495,7 +8495,7 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
   br label %45
 
 44:                                               ; preds = %36
-  call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.41) #18
+  call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.41) #19
   br label %544
 
 45:                                               ; preds = %.lr.ph, %66
@@ -8505,7 +8505,7 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
   %47 = load ptr, ptr %13, align 8, !tbaa !136
   %48 = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv471
   %49 = load ptr, ptr %48, align 8, !tbaa !146
-  %50 = call ptr @lookupKeyRead(ptr noundef %46, ptr noundef %49) #18
+  %50 = call ptr @lookupKeyRead(ptr noundef %46, ptr noundef %49) #19
   %.not307 = icmp eq ptr %50, null
   br i1 %.not307, label %64, label %51
 
@@ -8516,9 +8516,9 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
   br i1 %switch, label %55, label %.critedge
 
 .critedge:                                        ; preds = %51
-  call void @zfree(ptr noundef nonnull %38) #18
+  call void @zfree(ptr noundef nonnull %38) #19
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 200), align 8, !tbaa !175
-  call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %54) #18
+  call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %54) #19
   br label %544
 
 55:                                               ; preds = %51
@@ -8597,7 +8597,7 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
   %88 = load ptr, ptr %87, align 8, !tbaa !146
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !75
-  %91 = call i32 @strcasecmp(ptr noundef %90, ptr noundef nonnull @.str.42) #20
+  %91 = call i32 @strcasecmp(ptr noundef %90, ptr noundef nonnull @.str.42) #21
   %.not281 = icmp eq i32 %91, 0
   br i1 %.not281, label %.preheader, label %104
 
@@ -8628,12 +8628,12 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
   %99 = load ptr, ptr %98, align 8, !tbaa !146
   %100 = getelementptr inbounds nuw %struct.zsetopsrc, ptr %38, i64 %indvars.iv478
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  %102 = call i32 @getDoubleFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %99, ptr noundef nonnull %101, ptr noundef nonnull @.str.43) #18
+  %102 = call i32 @getDoubleFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %99, ptr noundef nonnull %101, ptr noundef nonnull @.str.43) #19
   %.not282 = icmp eq i32 %102, 0
   br i1 %.not282, label %94, label %103
 
 103:                                              ; preds = %.lr.ph404
-  call void @zfree(ptr noundef nonnull %38) #18
+  call void @zfree(ptr noundef nonnull %38) #19
   br label %544
 
 104:                                              ; preds = %84, %81
@@ -8647,7 +8647,7 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
   %110 = load ptr, ptr %109, align 8, !tbaa !146
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load ptr, ptr %111, align 8, !tbaa !75
-  %113 = call i32 @strcasecmp(ptr noundef %112, ptr noundef nonnull @.str.44) #20
+  %113 = call i32 @strcasecmp(ptr noundef %112, ptr noundef nonnull @.str.44) #21
   %.not283 = icmp eq i32 %113, 0
   br i1 %.not283, label %114, label %129
 
@@ -8656,24 +8656,24 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
   %116 = load ptr, ptr %115, align 8, !tbaa !146
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8, !tbaa !75
-  %119 = call i32 @strcasecmp(ptr noundef %118, ptr noundef nonnull @.str.45) #20
+  %119 = call i32 @strcasecmp(ptr noundef %118, ptr noundef nonnull @.str.45) #21
   %.not284 = icmp eq i32 %119, 0
   br i1 %.not284, label %126, label %120
 
 120:                                              ; preds = %114
-  %121 = call i32 @strcasecmp(ptr noundef %118, ptr noundef nonnull @.str.46) #20
+  %121 = call i32 @strcasecmp(ptr noundef %118, ptr noundef nonnull @.str.46) #21
   %.not285 = icmp eq i32 %121, 0
   br i1 %.not285, label %126, label %122
 
 122:                                              ; preds = %120
-  %123 = call i32 @strcasecmp(ptr noundef %118, ptr noundef nonnull @.str.47) #20
+  %123 = call i32 @strcasecmp(ptr noundef %118, ptr noundef nonnull @.str.47) #21
   %.not286 = icmp eq i32 %123, 0
   br i1 %.not286, label %126, label %124
 
 124:                                              ; preds = %122
-  call void @zfree(ptr noundef %38) #18
+  call void @zfree(ptr noundef %38) #19
   %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !148
-  call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %125) #18
+  call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %125) #19
   br label %544
 
 126:                                              ; preds = %122, %120, %114
@@ -8695,7 +8695,7 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
   %136 = load ptr, ptr %135, align 8, !tbaa !146
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %138 = load ptr, ptr %137, align 8, !tbaa !75
-  %139 = call i32 @strcasecmp(ptr noundef %138, ptr noundef nonnull @.str.48) #20
+  %139 = call i32 @strcasecmp(ptr noundef %138, ptr noundef nonnull @.str.48) #21
   %.not287 = icmp eq i32 %139, 0
   br i1 %.not287, label %140, label %.thread356
 
@@ -8715,19 +8715,19 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
   %148 = load ptr, ptr %147, align 8, !tbaa !146
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %150 = load ptr, ptr %149, align 8, !tbaa !75
-  %151 = call i32 @strcasecmp(ptr noundef %150, ptr noundef nonnull @.str.49) #20
+  %151 = call i32 @strcasecmp(ptr noundef %150, ptr noundef nonnull @.str.49) #21
   %.not288 = icmp eq i32 %151, 0
   br i1 %.not288, label %152, label %.thread356
 
 152:                                              ; preds = %144
   %153 = getelementptr i8, ptr %147, i64 8
   %154 = load ptr, ptr %153, align 8, !tbaa !146
-  %155 = call i32 @getPositiveLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %154, ptr noundef nonnull %10, ptr noundef nonnull @.str.50) #18
+  %155 = call i32 @getPositiveLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %154, ptr noundef nonnull %10, ptr noundef nonnull @.str.50) #19
   %.not289 = icmp eq i32 %155, 0
   br i1 %.not289, label %157, label %156
 
 156:                                              ; preds = %152
-  call void @zfree(ptr noundef %38) #18
+  call void @zfree(ptr noundef %38) #19
   br label %544
 
 157:                                              ; preds = %152
@@ -8736,9 +8736,9 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
   br label %.loopexit381
 
 .thread356:                                       ; preds = %132, %144, %143
-  call void @zfree(ptr noundef %38) #18
+  call void @zfree(ptr noundef %38) #19
   %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !148
-  call void @addReplyErrorObject(ptr noundef %0, ptr noundef %160) #18
+  call void @addReplyErrorObject(ptr noundef %0, ptr noundef %160) #19
   br label %544
 
 .loopexit381.loopexit:                            ; preds = %94
@@ -8765,7 +8765,7 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
 
 163:                                              ; preds = %.critedge311
   %164 = load i64, ptr %6, align 8, !tbaa !26
-  call void @qsort(ptr noundef %38, i64 noundef %164, i64 noundef 48, ptr noundef nonnull @zuiCompareByCardinality) #18
+  call void @qsort(ptr noundef %38, i64 noundef %164, i64 noundef 48, ptr noundef nonnull @zuiCompareByCardinality) #19
   br label %165
 
 165:                                              ; preds = %163, %.critedge311
@@ -8773,7 +8773,7 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
   br i1 %166, label %171, label %167
 
 167:                                              ; preds = %165
-  %168 = call ptr @createZsetObject() #18
+  %168 = call ptr @createZsetObject() #19
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %170 = load ptr, ptr %169, align 8, !tbaa !75
   br label %171
@@ -8928,7 +8928,7 @@ zunionInterAggregate.exit:                        ; preds = %.sink.split.i316, %
 
 232:                                              ; preds = %229
   %233 = load ptr, ptr %179, align 8, !tbaa !163
-  call void @sdsfree(ptr noundef %233) #18
+  call void @sdsfree(ptr noundef %233) #19
   store ptr null, ptr %179, align 8, !tbaa !163
   %234 = load i32, ptr %7, align 8, !tbaa !161
   %235 = and i32 %234, -2
@@ -8956,7 +8956,7 @@ zunionInterAggregate.exit:                        ; preds = %.sink.split.i316, %
   br i1 %.not14.i, label %246, label %244
 
 244:                                              ; preds = %243
-  %245 = call ptr @sdsdup(ptr noundef nonnull %240) #18
+  %245 = call ptr @sdsdup(ptr noundef nonnull %240) #19
   br label %zuiNewSdsFromValue.exit
 
 246:                                              ; preds = %243
@@ -8967,12 +8967,12 @@ zunionInterAggregate.exit:                        ; preds = %.sink.split.i316, %
 248:                                              ; preds = %246
   %249 = load i32, ptr %181, align 8, !tbaa !167
   %250 = zext i32 %249 to i64
-  %251 = call ptr @sdsnewlen(ptr noundef nonnull %247, i64 noundef %250) #18
+  %251 = call ptr @sdsnewlen(ptr noundef nonnull %247, i64 noundef %250) #19
   br label %zuiNewSdsFromValue.exit
 
 252:                                              ; preds = %246
   %253 = load i64, ptr %182, align 8, !tbaa !164
-  %254 = call ptr @sdsfromlonglong(i64 noundef %253) #18
+  %254 = call ptr @sdsfromlonglong(i64 noundef %253) #19
   br label %zuiNewSdsFromValue.exit
 
 zuiNewSdsFromValue.exit:                          ; preds = %241, %244, %248, %252
@@ -8981,7 +8981,7 @@ zuiNewSdsFromValue.exit:                          ; preds = %241, %244, %248, %2
   %256 = call ptr @zslInsert(ptr noundef %255, double noundef %.0352.lcssa, ptr noundef %.0.i)
   %257 = load ptr, ptr %.0250, align 8, !tbaa !125
   %258 = getelementptr inbounds nuw i8, ptr %256, i64 8
-  %259 = call i32 @dictAdd(ptr noundef %257, ptr noundef %.0.i, ptr noundef nonnull %258) #18
+  %259 = call i32 @dictAdd(ptr noundef %257, ptr noundef %.0.i, ptr noundef nonnull %258) #19
   %260 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   %261 = load i8, ptr %260, align 1, !tbaa !77
   %262 = zext i8 %261 to i32
@@ -9111,7 +9111,7 @@ zuiDiscardDirtyValue.exit:                        ; preds = %295, %291, %287, %2
   %306 = getelementptr %struct.zsetopsrc, ptr %38, i64 %303
   %307 = getelementptr i8, ptr %306, i64 -48
   %308 = call i64 @zuiLength(ptr noundef %307)
-  %309 = call i32 @dictExpand(ptr noundef %305, i64 noundef %308) #18
+  %309 = call i32 @dictExpand(ptr noundef %305, i64 noundef %308) #19
   %.pre = load i64, ptr %6, align 8, !tbaa !26
   %310 = icmp sgt i64 %.pre, 0
   br i1 %310, label %.lr.ph425, label %._crit_edge426
@@ -9160,12 +9160,12 @@ zuiDiscardDirtyValue.exit:                        ; preds = %295, %291, %287, %2
 332:                                              ; preds = %330
   %333 = load i32, ptr %314, align 8, !tbaa !167
   %334 = zext i32 %333 to i64
-  %335 = call ptr @sdsnewlen(ptr noundef nonnull %331, i64 noundef %334) #18
+  %335 = call ptr @sdsnewlen(ptr noundef nonnull %331, i64 noundef %334) #19
   br label %339
 
 336:                                              ; preds = %330
   %337 = load i64, ptr %315, align 8, !tbaa !164
-  %338 = call ptr @sdsfromlonglong(i64 noundef %337) #18
+  %338 = call ptr @sdsfromlonglong(i64 noundef %337) #19
   br label %339
 
 339:                                              ; preds = %336, %332
@@ -9178,7 +9178,7 @@ zuiDiscardDirtyValue.exit:                        ; preds = %295, %291, %287, %2
 
 zuiSdsFromValue.exit:                             ; preds = %323, %339
   %342 = phi ptr [ %storemerge.i328, %339 ], [ %328, %323 ]
-  %343 = call ptr @dictAddRaw(ptr noundef %327, ptr noundef %342, ptr noundef nonnull %12) #18
+  %343 = call ptr @dictAddRaw(ptr noundef %327, ptr noundef %342, ptr noundef nonnull %12) #19
   %344 = load ptr, ptr %12, align 8, !tbaa !181
   %.not294 = icmp eq ptr %344, null
   br i1 %.not294, label %345, label %404
@@ -9201,7 +9201,7 @@ zuiSdsFromValue.exit:                             ; preds = %323, %339
   br i1 %.not14.i331, label %354, label %352
 
 352:                                              ; preds = %351
-  %353 = call ptr @sdsdup(ptr noundef nonnull %348) #18
+  %353 = call ptr @sdsdup(ptr noundef nonnull %348) #19
   br label %zuiNewSdsFromValue.exit333
 
 354:                                              ; preds = %351
@@ -9212,12 +9212,12 @@ zuiSdsFromValue.exit:                             ; preds = %323, %339
 356:                                              ; preds = %354
   %357 = load i32, ptr %314, align 8, !tbaa !167
   %358 = zext i32 %357 to i64
-  %359 = call ptr @sdsnewlen(ptr noundef nonnull %355, i64 noundef %358) #18
+  %359 = call ptr @sdsnewlen(ptr noundef nonnull %355, i64 noundef %358) #19
   br label %zuiNewSdsFromValue.exit333
 
 360:                                              ; preds = %354
   %361 = load i64, ptr %315, align 8, !tbaa !164
-  %362 = call ptr @sdsfromlonglong(i64 noundef %361) #18
+  %362 = call ptr @sdsfromlonglong(i64 noundef %361) #19
   br label %zuiNewSdsFromValue.exit333
 
 zuiNewSdsFromValue.exit333:                       ; preds = %349, %352, %356, %360
@@ -9318,12 +9318,12 @@ sdslen.exit339:                                   ; preds = %385, %388, %392, %3
 
 sdslen.exit337.thread:                            ; preds = %zuiNewSdsFromValue.exit333, %sdslen.exit339, %sdslen.exit337
   %403 = load ptr, ptr %.0250, align 8, !tbaa !125
-  call void @dictSetKey(ptr noundef %403, ptr noundef %343, ptr noundef nonnull %.0.i330) #18
-  call void @dictSetDoubleVal(ptr noundef %343, double noundef %spec.store.select15) #18
+  call void @dictSetKey(ptr noundef %403, ptr noundef %343, ptr noundef nonnull %.0.i330) #19
+  call void @dictSetDoubleVal(ptr noundef %343, double noundef %spec.store.select15) #19
   br label %414
 
 404:                                              ; preds = %zuiSdsFromValue.exit
-  %405 = call ptr @dictGetDoubleValPtr(ptr noundef nonnull %344) #18
+  %405 = call ptr @dictGetDoubleValPtr(ptr noundef nonnull %344) #19
   %406 = load double, ptr %405, align 8, !tbaa !5
   switch i32 %.0242, label %412 [
     i32 1, label %407
@@ -9370,8 +9370,8 @@ zunionInterAggregate.exit345:                     ; preds = %410, %412, %407, %.
 
 ._crit_edge426:                                   ; preds = %416, %302, %304
   %419 = load ptr, ptr %.0250, align 8, !tbaa !125
-  %420 = call ptr @dictGetIterator(ptr noundef %419) #18
-  %421 = call ptr @dictNext(ptr noundef %420) #18
+  %420 = call ptr @dictGetIterator(ptr noundef %419) #19
+  %421 = call ptr @dictNext(ptr noundef %420) #19
   %.not292427 = icmp eq ptr %421, null
   br i1 %.not292427, label %._crit_edge430, label %.lr.ph429
 
@@ -9381,19 +9381,19 @@ zunionInterAggregate.exit345:                     ; preds = %410, %412, %407, %.
 
 423:                                              ; preds = %.lr.ph429, %423
   %424 = phi ptr [ %421, %.lr.ph429 ], [ %431, %423 ]
-  %425 = call ptr @dictGetKey(ptr noundef nonnull %424) #18
-  %426 = call double @dictGetDoubleVal(ptr noundef nonnull %424) #18
+  %425 = call ptr @dictGetKey(ptr noundef nonnull %424) #19
+  %426 = call double @dictGetDoubleVal(ptr noundef nonnull %424) #19
   %427 = load ptr, ptr %422, align 8, !tbaa !97
   %428 = call ptr @zslInsert(ptr noundef %427, double noundef %426, ptr noundef %425)
   %429 = load ptr, ptr %.0250, align 8, !tbaa !125
   %430 = getelementptr inbounds nuw i8, ptr %428, i64 8
-  call void @dictSetVal(ptr noundef %429, ptr noundef nonnull %424, ptr noundef nonnull %430) #18
-  %431 = call ptr @dictNext(ptr noundef %420) #18
+  call void @dictSetVal(ptr noundef %429, ptr noundef nonnull %424, ptr noundef nonnull %430) #19
+  %431 = call ptr @dictNext(ptr noundef %420) #19
   %.not292 = icmp eq ptr %431, null
   br i1 %.not292, label %._crit_edge430, label %423, !llvm.loop !184
 
 ._crit_edge430:                                   ; preds = %423, %._crit_edge426
-  call void @dictReleaseIterator(ptr noundef %420) #18
+  call void @dictReleaseIterator(ptr noundef %420) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %435
 
@@ -9403,8 +9403,8 @@ zunionInterAggregate.exit345:                     ; preds = %410, %412, %407, %.
   br label %435
 
 434:                                              ; preds = %301
-  call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2866, ptr noundef nonnull @.str.51) #18
-  call void @abort() #19
+  call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2866, ptr noundef nonnull @.str.51) #19
+  call void @abort() #20
   unreachable
 
 435:                                              ; preds = %._crit_edge430, %432, %173, %300
@@ -9426,34 +9426,34 @@ zunionInterAggregate.exit345:                     ; preds = %410, %412, %407, %.
   call void @zsetConvertToListpackIfNeeded(ptr noundef %.0246, i64 noundef %442, i64 noundef %443)
   %444 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %445 = load ptr, ptr %444, align 8, !tbaa !150
-  call void @setKey(ptr noundef %0, ptr noundef %445, ptr noundef nonnull %1, ptr noundef %.0246, i32 noundef 0) #18
+  call void @setKey(ptr noundef %0, ptr noundef %445, ptr noundef nonnull %1, ptr noundef %.0246, i32 noundef 0) #19
   %446 = call i64 @zsetLength(ptr noundef %.0246)
-  call void @addReplyLongLong(ptr noundef %0, i64 noundef %446) #18
+  call void @addReplyLongLong(ptr noundef %0, i64 noundef %446) #19
   %447 = icmp eq i32 %3, 0
   %448 = select i1 %172, ptr @.str.53, ptr @.str.54
   %449 = select i1 %447, ptr @.str.52, ptr %448
   %450 = load ptr, ptr %444, align 8, !tbaa !150
   %451 = getelementptr inbounds nuw i8, ptr %450, i64 56
   %452 = load i32, ptr %451, align 8, !tbaa !153
-  call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef nonnull %449, ptr noundef nonnull %1, i32 noundef %452) #18
+  call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef nonnull %449, ptr noundef nonnull %1, i32 noundef %452) #19
   br label %.sink.split
 
 453:                                              ; preds = %436
   %454 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !155
-  call void @addReply(ptr noundef %0, ptr noundef %454) #18
+  call void @addReply(ptr noundef %0, ptr noundef %454) #19
   %455 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %456 = load ptr, ptr %455, align 8, !tbaa !150
-  %457 = call i32 @dbDelete(ptr noundef %456, ptr noundef nonnull %1) #18
+  %457 = call i32 @dbDelete(ptr noundef %456, ptr noundef nonnull %1) #19
   %.not306 = icmp eq i32 %457, 0
   br i1 %.not306, label %465, label %458
 
 458:                                              ; preds = %453
   %459 = load ptr, ptr %455, align 8, !tbaa !150
-  call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %459, ptr noundef nonnull %1) #18
+  call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %459, ptr noundef nonnull %1) #19
   %460 = load ptr, ptr %455, align 8, !tbaa !150
   %461 = getelementptr inbounds nuw i8, ptr %460, i64 56
   %462 = load i32, ptr %461, align 8, !tbaa !153
-  call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.30, ptr noundef nonnull %1, i32 noundef %462) #18
+  call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.30, ptr noundef nonnull %1, i32 noundef %462) #19
   br label %.sink.split
 
 .sink.split:                                      ; preds = %441, %458
@@ -9463,14 +9463,14 @@ zunionInterAggregate.exit345:                     ; preds = %410, %412, %407, %.
   br label %465
 
 465:                                              ; preds = %.sink.split, %453
-  call void @decrRefCount(ptr noundef %.0246) #18
+  call void @decrRefCount(ptr noundef %.0246) #19
   br label %543
 
 466:                                              ; preds = %435
   br i1 %166, label %467, label %468
 
 467:                                              ; preds = %466
-  call void @addReplyLongLong(ptr noundef %0, i64 noundef %.4258) #18
+  call void @addReplyLongLong(ptr noundef %0, i64 noundef %.4258) #19
   br label %543
 
 468:                                              ; preds = %466
@@ -9490,18 +9490,18 @@ zunionInterAggregate.exit345:                     ; preds = %410, %412, %407, %.
   br i1 %479, label %.thread517, label %.thread519
 
 480:                                              ; preds = %468
-  call void @addReplyArrayLen(ptr noundef %0, i64 noundef %472) #18
+  call void @addReplyArrayLen(ptr noundef %0, i64 noundef %472) #19
   %.not303457 = icmp eq ptr %475, null
   br i1 %.not303457, label %._crit_edge461, label %.critedge314.us
 
 .thread519:                                       ; preds = %476
-  call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %472) #18
+  call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %472) #19
   %.not303457520 = icmp eq ptr %475, null
   br i1 %.not303457520, label %._crit_edge461, label %.lr.ph460.split.preheader
 
 .thread517:                                       ; preds = %476
   %481 = shl i64 %472, 1
-  call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %481) #18
+  call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %481) #19
   %.not303457518 = icmp eq ptr %475, null
   br i1 %.not303457518, label %._crit_edge461, label %.lr.ph460.split.preheader
 
@@ -9554,7 +9554,7 @@ zunionInterAggregate.exit345:                     ; preds = %410, %412, %407, %.
 
 sdslen.exit349.us:                                ; preds = %503, %499, %495, %491, %488, %.critedge314.us
   %.0.i348.us = phi i64 [ %505, %503 ], [ %502, %499 ], [ %498, %495 ], [ %494, %491 ], [ %490, %488 ], [ 0, %.critedge314.us ]
-  call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %483, i64 noundef %.0.i348.us) #18
+  call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %483, i64 noundef %.0.i348.us) #19
   %506 = getelementptr inbounds nuw i8, ptr %.0458.us, i64 24
   %507 = load ptr, ptr %506, align 8, !tbaa !20
   %.not303.us = icmp eq ptr %507, null
@@ -9567,7 +9567,7 @@ sdslen.exit349.us:                                ; preds = %503, %499, %495, %4
   br i1 %509, label %510, label %511
 
 510:                                              ; preds = %.lr.ph460.split
-  call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 2) #18
+  call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 2) #19
   br label %511
 
 511:                                              ; preds = %510, %.lr.ph460.split
@@ -9614,10 +9614,10 @@ sdslen.exit349.us:                                ; preds = %503, %499, %495, %4
 
 535:                                              ; preds = %532, %528, %524, %520, %517, %511
   %.0.i346 = phi i64 [ %519, %517 ], [ %523, %520 ], [ %527, %524 ], [ %531, %528 ], [ %534, %532 ], [ 0, %511 ]
-  call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %512, i64 noundef %.0.i346) #18
+  call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %512, i64 noundef %.0.i346) #19
   %536 = getelementptr inbounds nuw i8, ptr %.0458, i64 8
   %537 = load double, ptr %536, align 8, !tbaa !5
-  call void @addReplyDouble(ptr noundef nonnull %0, double noundef %537) #18
+  call void @addReplyDouble(ptr noundef nonnull %0, double noundef %537) #19
   %538 = getelementptr inbounds nuw i8, ptr %.0458, i64 24
   %539 = load ptr, ptr %538, align 8, !tbaa !20
   %.not303 = icmp eq ptr %539, null
@@ -9629,15 +9629,15 @@ sdslen.exit349.us:                                ; preds = %503, %499, %495, %4
   br i1 %.not304, label %542, label %541
 
 541:                                              ; preds = %._crit_edge461
-  call void @freeObjAsync(ptr noundef null, ptr noundef %.0246, i32 noundef -1) #18
+  call void @freeObjAsync(ptr noundef null, ptr noundef %.0246, i32 noundef -1) #19
   br label %543
 
 542:                                              ; preds = %._crit_edge461
-  call void @decrRefCount(ptr noundef %.0246) #18
+  call void @decrRefCount(ptr noundef %.0246) #19
   br label %543
 
 543:                                              ; preds = %541, %542, %467, %465
-  call void @zfree(ptr noundef %38) #18
+  call void @zfree(ptr noundef %38) #19
   br label %544
 
 544:                                              ; preds = %103, %124, %156, %.thread356, %.critedge, %5, %543, %44, %34, %22
@@ -9718,7 +9718,7 @@ define internal fastcc void @zdiff(ptr noundef nonnull %0, i64 noundef %1, ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = add nsw i64 %1, -1
-  tail call void @qsort(ptr noundef nonnull %27, i64 noundef %28, i64 noundef 48, ptr noundef nonnull @zuiCompareByRevCardinality) #18
+  tail call void @qsort(ptr noundef nonnull %27, i64 noundef %28, i64 noundef 48, ptr noundef nonnull @zuiCompareByRevCardinality) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 80, i1 false)
   tail call void @zuiInitIterator(ptr noundef nonnull %0)
   %29 = call i32 @zuiNext(ptr noundef nonnull %0, ptr noundef nonnull %8)
@@ -9775,7 +9775,7 @@ define internal fastcc void @zdiff(ptr noundef nonnull %0, i64 noundef %1, ptr n
   br i1 %.not14.i.i, label %52, label %50
 
 50:                                               ; preds = %49
-  %51 = call ptr @sdsdup(ptr noundef nonnull %46) #18
+  %51 = call ptr @sdsdup(ptr noundef nonnull %46) #19
   br label %zuiNewSdsFromValue.exit.i
 
 52:                                               ; preds = %49
@@ -9786,12 +9786,12 @@ define internal fastcc void @zdiff(ptr noundef nonnull %0, i64 noundef %1, ptr n
 54:                                               ; preds = %52
   %55 = load i32, ptr %32, align 8, !tbaa !167
   %56 = zext i32 %55 to i64
-  %57 = call ptr @sdsnewlen(ptr noundef nonnull %53, i64 noundef %56) #18
+  %57 = call ptr @sdsnewlen(ptr noundef nonnull %53, i64 noundef %56) #19
   br label %zuiNewSdsFromValue.exit.i
 
 58:                                               ; preds = %52
   %59 = load i64, ptr %33, align 8, !tbaa !164
-  %60 = call ptr @sdsfromlonglong(i64 noundef %59) #18
+  %60 = call ptr @sdsfromlonglong(i64 noundef %59) #19
   br label %zuiNewSdsFromValue.exit.i
 
 zuiNewSdsFromValue.exit.i:                        ; preds = %58, %54, %50, %47
@@ -9801,7 +9801,7 @@ zuiNewSdsFromValue.exit.i:                        ; preds = %58, %54, %50, %47
   %63 = call ptr @zslInsert(ptr noundef %61, double noundef %62, ptr noundef %.0.i.i)
   %64 = load ptr, ptr %2, align 8, !tbaa !125
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %66 = call i32 @dictAdd(ptr noundef %64, ptr noundef %.0.i.i, ptr noundef nonnull %65) #18
+  %66 = call i32 @dictAdd(ptr noundef %64, ptr noundef %.0.i.i, ptr noundef nonnull %65) #19
   %67 = getelementptr inbounds i8, ptr %.0.i.i, i64 -1
   %68 = load i8, ptr %67, align 1, !tbaa !77
   %69 = zext i8 %68 to i32
@@ -10001,7 +10001,7 @@ zdiffAlgorithm1.exit:                             ; preds = %.loopexit.i, %26
   br i1 %.not14.i.us.i, label %155, label %153
 
 153:                                              ; preds = %152
-  %154 = call ptr @sdsdup(ptr noundef nonnull %149) #18
+  %154 = call ptr @sdsdup(ptr noundef nonnull %149) #19
   br label %zuiNewSdsFromValue.exit.us.i
 
 155:                                              ; preds = %152
@@ -10012,12 +10012,12 @@ zdiffAlgorithm1.exit:                             ; preds = %.loopexit.i, %26
 157:                                              ; preds = %155
   %158 = load i32, ptr %134, align 8, !tbaa !167
   %159 = zext i32 %158 to i64
-  %160 = call ptr @sdsnewlen(ptr noundef nonnull %156, i64 noundef %159) #18
+  %160 = call ptr @sdsnewlen(ptr noundef nonnull %156, i64 noundef %159) #19
   br label %zuiNewSdsFromValue.exit.us.i
 
 161:                                              ; preds = %155
   %162 = load i64, ptr %135, align 8, !tbaa !164
-  %163 = call ptr @sdsfromlonglong(i64 noundef %162) #18
+  %163 = call ptr @sdsfromlonglong(i64 noundef %162) #19
   br label %zuiNewSdsFromValue.exit.us.i
 
 zuiNewSdsFromValue.exit.us.i:                     ; preds = %161, %157, %153, %150
@@ -10027,7 +10027,7 @@ zuiNewSdsFromValue.exit.us.i:                     ; preds = %161, %157, %153, %1
   %166 = call ptr @zslInsert(ptr noundef %164, double noundef %165, ptr noundef %.0.i.us.i)
   %167 = load ptr, ptr %2, align 8, !tbaa !125
   %168 = getelementptr inbounds nuw i8, ptr %166, i64 8
-  %169 = call i32 @dictAdd(ptr noundef %167, ptr noundef %.0.i.us.i, ptr noundef nonnull %168) #18
+  %169 = call i32 @dictAdd(ptr noundef %167, ptr noundef %.0.i.us.i, ptr noundef nonnull %168) #19
   %170 = add nsw i32 %.2.us.i, 1
   %171 = icmp eq i32 %170, 0
   br i1 %171, label %.thread.i, label %.split.us.i, !llvm.loop !191
@@ -10056,12 +10056,12 @@ zuiNewSdsFromValue.exit.us.i:                     ; preds = %161, %157, %153, %1
 182:                                              ; preds = %180
   %183 = load i32, ptr %134, align 8, !tbaa !167
   %184 = zext i32 %183 to i64
-  %185 = call ptr @sdsnewlen(ptr noundef nonnull %181, i64 noundef %184) #18
+  %185 = call ptr @sdsnewlen(ptr noundef nonnull %181, i64 noundef %184) #19
   br label %189
 
 186:                                              ; preds = %180
   %187 = load i64, ptr %135, align 8, !tbaa !164
-  %188 = call ptr @sdsfromlonglong(i64 noundef %187) #18
+  %188 = call ptr @sdsfromlonglong(i64 noundef %187) #19
   br label %189
 
 189:                                              ; preds = %186, %182
@@ -10076,15 +10076,15 @@ zuiNewSdsFromValue.exit.us.i:                     ; preds = %161, %157, %153, %1
 zuiSdsFromValue.exit.i:                           ; preds = %189, %173
   %192 = phi ptr [ %.pre.i23, %189 ], [ %174, %173 ]
   %193 = phi ptr [ %storemerge.i.i, %189 ], [ %178, %173 ]
-  %194 = call ptr @dictUnlink(ptr noundef %192, ptr noundef %193) #18
+  %194 = call ptr @dictUnlink(ptr noundef %192, ptr noundef %193) #19
   %.not.i32.i = icmp eq ptr %194, null
   br i1 %.not.i32.i, label %287, label %195
 
 195:                                              ; preds = %zuiSdsFromValue.exit.i
-  %196 = call ptr @dictGetVal(ptr noundef nonnull %194) #18
+  %196 = call ptr @dictGetVal(ptr noundef nonnull %194) #19
   %197 = load double, ptr %196, align 8, !tbaa !5
   %198 = load ptr, ptr %2, align 8, !tbaa !125
-  call void @dictFreeUnlinkedEntry(ptr noundef %198, ptr noundef nonnull %194) #18
+  call void @dictFreeUnlinkedEntry(ptr noundef %198, ptr noundef nonnull %194) #19
   %199 = load ptr, ptr %136, align 8, !tbaa !97
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %200 = load ptr, ptr %199, align 8, !tbaa !18
@@ -10122,7 +10122,7 @@ zuiSdsFromValue.exit.i:                           ; preds = %189, %173
 
 215:                                              ; preds = %213
   %216 = load ptr, ptr %208, align 8, !tbaa !9
-  %217 = call i32 @sdscmp(ptr noundef %216, ptr noundef %193) #18
+  %217 = call i32 @sdscmp(ptr noundef %216, ptr noundef %193) #19
   %218 = icmp slt i32 %217, 0
   br i1 %218, label %..critedge2_crit_edge.i.i, label %.critedge.i.i
 
@@ -10160,7 +10160,7 @@ zuiSdsFromValue.exit.i:                           ; preds = %189, %173
 
 231:                                              ; preds = %227
   %232 = load ptr, ptr %226, align 8, !tbaa !9
-  %233 = call i32 @sdscmp(ptr noundef %232, ptr noundef %193) #18
+  %233 = call i32 @sdscmp(ptr noundef %232, ptr noundef %193) #19
   %234 = icmp eq i32 %233, 0
   br i1 %234, label %235, label %281
 
@@ -10252,8 +10252,8 @@ zuiSdsFromValue.exit.i:                           ; preds = %189, %173
 
 281:                                              ; preds = %231, %227, %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @_serverAssert(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.1, i32 noundef 1563) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.1, i32 noundef 1563) #19
+  call void @abort() #20
   unreachable
 
 zsetRemoveFromSkiplist.exit.i:                    ; preds = %278, %271, %268
@@ -10262,8 +10262,8 @@ zsetRemoveFromSkiplist.exit.i:                    ; preds = %278, %271, %268
   %284 = add i64 %283, -1
   store i64 %284, ptr %282, align 8, !tbaa !17
   %285 = load ptr, ptr %226, align 8, !tbaa !9
-  call void @sdsfree(ptr noundef %285) #18
-  call void @zfree(ptr noundef nonnull %226) #18
+  call void @sdsfree(ptr noundef %285) #19
+  call void @zfree(ptr noundef nonnull %226) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %286 = add nsw i32 %.2.i, -1
   br label %287
@@ -10297,17 +10297,17 @@ zsetRemoveFromSkiplist.exit.i:                    ; preds = %278, %271, %268
 
 .loopexit.i20:                                    ; preds = %295, %.split48.us.i, %.thread.i
   %299 = load ptr, ptr %2, align 8, !tbaa !125
-  %300 = call i32 @dictShrinkIfNeeded(ptr noundef %299) #18
+  %300 = call i32 @dictShrinkIfNeeded(ptr noundef %299) #19
   %301 = load ptr, ptr %2, align 8, !tbaa !125
-  %302 = call ptr @dictGetIterator(ptr noundef %301) #18
-  %303 = call ptr @dictNext(ptr noundef %302) #18
+  %302 = call ptr @dictGetIterator(ptr noundef %301) #19
+  %303 = call ptr @dictNext(ptr noundef %302) #19
   %.not33.i.i = icmp eq ptr %303, null
   br i1 %.not33.i.i, label %zdiffAlgorithm2.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.loopexit.i20, %sdslen.exit15.i.i
   %304 = phi ptr [ %345, %sdslen.exit15.i.i ], [ %303, %.loopexit.i20 ]
   %.034.i.i = phi i64 [ %.119.i.i, %sdslen.exit15.i.i ], [ 0, %.loopexit.i20 ]
-  %305 = call ptr @dictGetKey(ptr noundef nonnull %304) #18
+  %305 = call ptr @dictGetKey(ptr noundef nonnull %304) #19
   %306 = getelementptr inbounds i8, ptr %305, i64 -1
   %307 = load i8, ptr %306, align 1, !tbaa !77
   %308 = zext i8 %307 to i32
@@ -10439,13 +10439,13 @@ sdslen.exit15.i.i:                                ; preds = %sdslen.exit13._crit
   %343 = load i64, ptr %4, align 8, !tbaa !26
   %344 = add i64 %343, %.0.i14.i.i
   store i64 %344, ptr %4, align 8, !tbaa !26
-  %345 = call ptr @dictNext(ptr noundef %302) #18
+  %345 = call ptr @dictNext(ptr noundef %302) #19
   %.not.i34.i = icmp eq ptr %345, null
   br i1 %.not.i34.i, label %zdiffAlgorithm2.exit, label %.lr.ph.i.i, !llvm.loop !193
 
 zdiffAlgorithm2.exit:                             ; preds = %sdslen.exit15.i.i, %.loopexit.i20
   %.0.lcssa.i.i = phi i64 [ 0, %.loopexit.i20 ], [ %.119.i.i, %sdslen.exit15.i.i ]
-  call void @dictReleaseIterator(ptr noundef %302) #18
+  call void @dictReleaseIterator(ptr noundef %302) #19
   store i64 %.0.lcssa.i.i, ptr %3, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %zsetChooseDiffAlgorithm.exit
@@ -10536,7 +10536,7 @@ define dso_local void @genericZrangebyrankCommand(ptr noundef %0, ptr noundef %1
 17:                                               ; preds = %6
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !75
-  %20 = tail call i64 @lpLength(ptr noundef %19) #18
+  %20 = tail call i64 @lpLength(ptr noundef %19) #19
   %21 = lshr i64 %20, 1
   %22 = and i64 %21, 4294967295
   br label %zsetLength.exit
@@ -10551,8 +10551,8 @@ define dso_local void @genericZrangebyrankCommand(ptr noundef %0, ptr noundef %1
   br label %zsetLength.exit
 
 30:                                               ; preds = %6
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 zsetLength.exit:                                  ; preds = %17, %23
@@ -10572,10 +10572,10 @@ zsetLength.exit:                                  ; preds = %17, %23
 36:                                               ; preds = %zsetLength.exit
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %38 = load ptr, ptr %37, align 8, !tbaa !196
-  tail call void %38(ptr noundef nonnull %0, i64 noundef 0) #18
+  tail call void %38(ptr noundef nonnull %0, i64 noundef 0) #19
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %40 = load ptr, ptr %39, align 8, !tbaa !197
-  tail call void %40(ptr noundef nonnull %0, i64 noundef 0) #18
+  tail call void %40(ptr noundef nonnull %0, i64 noundef 0) #19
   br label %185
 
 41:                                               ; preds = %zsetLength.exit
@@ -10586,7 +10586,7 @@ zsetLength.exit:                                  ; preds = %17, %23
   %44 = add nsw i64 %43, 1
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %46 = load ptr, ptr %45, align 8, !tbaa !196
-  tail call void %46(ptr noundef nonnull %0, i64 noundef %44) #18
+  tail call void %46(ptr noundef nonnull %0, i64 noundef %44) #19
   %47 = load i32, ptr %1, align 8
   %48 = lshr i32 %47, 4
   %49 = and i32 %48, 15
@@ -10604,17 +10604,17 @@ zsetLength.exit:                                  ; preds = %17, %23
   %53 = shl nuw nsw i64 %spec.store.select, 1
   %54 = sub nuw nsw i64 -2, %53
   %.sink = select i1 %.not101, i64 %53, i64 %54
-  %55 = tail call ptr @lpSeek(ptr noundef %52, i64 noundef %.sink) #18
+  %55 = tail call ptr @lpSeek(ptr noundef %52, i64 noundef %.sink) #19
   %.not102 = icmp eq ptr %55, null
   br i1 %.not102, label %56, label %57, !prof !40
 
 56:                                               ; preds = %50
-  tail call void @_serverAssertWithInfo(ptr noundef %13, ptr noundef nonnull %1, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 3176) #18
-  tail call void @abort() #19
+  tail call void @_serverAssertWithInfo(ptr noundef %13, ptr noundef nonnull %1, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 3176) #19
+  tail call void @abort() #20
   unreachable
 
 57:                                               ; preds = %50
-  %58 = tail call ptr @lpNext(ptr noundef %52, ptr noundef nonnull %55) #18
+  %58 = tail call ptr @lpNext(ptr noundef %52, ptr noundef nonnull %55) #19
   %.not103142 = icmp eq i64 %44, 0
   br i1 %.not103142, label %._crit_edge, label %.lr.ph146
 
@@ -10635,18 +10635,18 @@ zsetLength.exit:                                  ; preds = %17, %23
   br i1 %65, label %67, label %66, !prof !25
 
 66:                                               ; preds = %61
-  call void @_serverAssertWithInfo(ptr noundef %13, ptr noundef nonnull %1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.1, i32 noundef 3180) #18
-  call void @abort() #19
+  call void @_serverAssertWithInfo(ptr noundef %13, ptr noundef nonnull %1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.1, i32 noundef 3180) #19
+  call void @abort() #20
   unreachable
 
 67:                                               ; preds = %61
-  %68 = call ptr @lpGetValue(ptr noundef nonnull %.0136143, ptr noundef nonnull %10, ptr noundef nonnull %11) #18
+  %68 = call ptr @lpGetValue(ptr noundef nonnull %.0136143, ptr noundef nonnull %10, ptr noundef nonnull %11) #19
   br i1 %.not104, label %79, label %69
 
 69:                                               ; preds = %67
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %70 = call ptr @lpGetValue(ptr noundef nonnull %.0144, ptr noundef nonnull %8, ptr noundef nonnull %9) #18
+  %70 = call ptr @lpGetValue(ptr noundef nonnull %.0144, ptr noundef nonnull %8, ptr noundef nonnull %9) #19
   %.not7.i = icmp eq ptr %70, null
   br i1 %.not7.i, label %76, label %71
 
@@ -10658,7 +10658,7 @@ zsetLength.exit:                                  ; preds = %17, %23
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull readonly align 1 %70, i64 %73, i1 false)
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 %73
   store i8 0, ptr %74, align 1, !tbaa !77
-  %75 = call double @fast_float_strtod(ptr noundef nonnull %7, ptr noundef null) #18
+  %75 = call double @fast_float_strtod(ptr noundef nonnull %7, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %zzlGetScore.exit
 
@@ -10681,47 +10681,47 @@ zzlGetScore.exit:                                 ; preds = %71, %76
 81:                                               ; preds = %79
   %82 = load ptr, ptr %60, align 8, !tbaa !198
   %83 = load i64, ptr %11, align 8, !tbaa !88
-  call void %82(ptr noundef nonnull %0, i64 noundef %83, double noundef %.185) #18
+  call void %82(ptr noundef nonnull %0, i64 noundef %83, double noundef %.185) #19
   br label %88
 
 84:                                               ; preds = %79
   %85 = load ptr, ptr %59, align 8, !tbaa !199
   %86 = load i32, ptr %10, align 4, !tbaa !78
   %87 = zext i32 %86 to i64
-  call void %85(ptr noundef nonnull %0, ptr noundef nonnull %68, i64 noundef %87, double noundef %.185) #18
+  call void %85(ptr noundef nonnull %0, ptr noundef nonnull %68, i64 noundef %87, double noundef %.185) #19
   br label %88
 
 88:                                               ; preds = %84, %81
   br i1 %.not101, label %94, label %89
 
 89:                                               ; preds = %88
-  %90 = call ptr @lpPrev(ptr noundef %52, ptr noundef nonnull %.0136143) #18
+  %90 = call ptr @lpPrev(ptr noundef %52, ptr noundef nonnull %.0136143) #19
   %.not14.i = icmp eq ptr %90, null
   br i1 %.not14.i, label %zzlPrev.exit, label %91
 
 91:                                               ; preds = %89
-  %92 = call ptr @lpPrev(ptr noundef %52, ptr noundef nonnull %90) #18
+  %92 = call ptr @lpPrev(ptr noundef %52, ptr noundef nonnull %90) #19
   %.not15.i = icmp eq ptr %92, null
   br i1 %.not15.i, label %93, label %zzlPrev.exit, !prof !40
 
 93:                                               ; preds = %91
-  call void @_serverAssert(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 866) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 866) #19
+  call void @abort() #20
   unreachable
 
 94:                                               ; preds = %88
-  %95 = call ptr @lpNext(ptr noundef %52, ptr noundef nonnull %.0144) #18
+  %95 = call ptr @lpNext(ptr noundef %52, ptr noundef nonnull %.0144) #19
   %.not14.i111 = icmp eq ptr %95, null
   br i1 %.not14.i111, label %zzlPrev.exit, label %96
 
 96:                                               ; preds = %94
-  %97 = call ptr @lpNext(ptr noundef %52, ptr noundef nonnull %95) #18
+  %97 = call ptr @lpNext(ptr noundef %52, ptr noundef nonnull %95) #19
   %.not15.i112 = icmp eq ptr %97, null
   br i1 %.not15.i112, label %98, label %zzlPrev.exit, !prof !40
 
 98:                                               ; preds = %96
-  call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 847) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 847) #19
+  call void @abort() #20
   unreachable
 
 zzlPrev.exit:                                     ; preds = %96, %94, %91, %89
@@ -10861,8 +10861,8 @@ zslGetElementByRank.exit:                         ; preds = %.critedge.i.i, %116
   br i1 %.not100, label %152, label %153, !prof !40
 
 152:                                              ; preds = %150
-  tail call void @_serverAssertWithInfo(ptr noundef %13, ptr noundef nonnull %1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 3215) #18
-  tail call void @abort() #19
+  tail call void @_serverAssertWithInfo(ptr noundef %13, ptr noundef nonnull %1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 3215) #19
+  tail call void @abort() #20
   unreachable
 
 153:                                              ; preds = %150
@@ -10912,7 +10912,7 @@ sdslen.exit:                                      ; preds = %153, %160, %163, %1
   %.0.i128 = phi i64 [ %162, %160 ], [ %166, %163 ], [ %170, %167 ], [ %174, %171 ], [ %177, %175 ], [ 0, %153 ]
   %178 = getelementptr inbounds nuw i8, ptr %.1141, i64 8
   %179 = load double, ptr %178, align 8, !tbaa !5
-  tail call void %155(ptr noundef nonnull %0, ptr noundef nonnull %154, i64 noundef %.0.i128, double noundef %179) #18
+  tail call void %155(ptr noundef nonnull %0, ptr noundef nonnull %154, i64 noundef %.0.i128, double noundef %179) #19
   %.in = getelementptr inbounds nuw i8, ptr %.1141, i64 %.in.v
   %180 = load ptr, ptr %.in, align 8, !tbaa !29
   %181 = add nsw i64 %151, -1
@@ -10920,14 +10920,14 @@ sdslen.exit:                                      ; preds = %153, %160, %163, %1
   br i1 %.not99, label %.loopexit, label %150, !llvm.loop !201
 
 182:                                              ; preds = %41
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 3221, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 3221, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 .loopexit:                                        ; preds = %sdslen.exit, %zslGetElementByRank.exit, %._crit_edge
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %184 = load ptr, ptr %183, align 8, !tbaa !197
-  call void %184(ptr noundef nonnull %0, i64 noundef %44) #18
+  call void %184(ptr noundef nonnull %0, i64 noundef %44) #19
   br label %185
 
 185:                                              ; preds = %.loopexit, %36
@@ -11017,12 +11017,12 @@ define dso_local void @zrangeGenericCommand(ptr noundef %0, i32 noundef %1, i32 
   br i1 %.not, label %32, label %._crit_edge171
 
 32:                                               ; preds = %25
-  %33 = call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.48) #20
+  %33 = call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.48) #21
   %.not122 = icmp eq i32 %33, 0
   br i1 %.not122, label %.thread, label %._crit_edge171
 
 ._crit_edge171:                                   ; preds = %25, %32
-  %34 = call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.49) #20
+  %34 = call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.49) #21
   %35 = icmp eq i32 %34, 0
   %36 = sub i32 %.0111166, %26
   %37 = icmp slt i32 %36, -2
@@ -11033,7 +11033,7 @@ define dso_local void @zrangeGenericCommand(ptr noundef %0, i32 noundef %1, i32 
   %39 = getelementptr inbounds ptr, ptr %.pre, i64 %27
   %40 = getelementptr i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !146
-  %42 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %13, ptr noundef %41, ptr noundef nonnull %10, ptr noundef null) #18
+  %42 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %13, ptr noundef %41, ptr noundef nonnull %10, ptr noundef null) #19
   %.not126 = icmp eq i32 %42, 0
   br i1 %.not126, label %54, label %zslFreeLexRange.exit
 
@@ -11042,7 +11042,7 @@ define dso_local void @zrangeGenericCommand(ptr noundef %0, i32 noundef %1, i32 
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.59) #20
+  %46 = call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.59) #21
   %.not123 = icmp eq i32 %46, 0
   br i1 %.not123, label %.thread, label %47
 
@@ -11051,18 +11051,18 @@ define dso_local void @zrangeGenericCommand(ptr noundef %0, i32 noundef %1, i32 
   br i1 %48, label %49, label %.critedge
 
 49:                                               ; preds = %47
-  %50 = call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.60) #20
+  %50 = call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.60) #21
   %.not124 = icmp eq i32 %50, 0
   br i1 %.not124, label %.thread, label %51
 
 51:                                               ; preds = %49
-  %52 = call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.61) #20
+  %52 = call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.61) #21
   %.not125 = icmp eq i32 %52, 0
   br i1 %.not125, label %.thread, label %.critedge
 
 .critedge:                                        ; preds = %47, %51
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !148
-  call void @addReplyErrorObject(ptr noundef nonnull %13, ptr noundef %53) #18
+  call void @addReplyErrorObject(ptr noundef nonnull %13, ptr noundef %53) #19
   br label %zslFreeLexRange.exit
 
 54:                                               ; preds = %38
@@ -11071,7 +11071,7 @@ define dso_local void @zrangeGenericCommand(ptr noundef %0, i32 noundef %1, i32 
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds ptr, ptr %55, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !146
-  %60 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %13, ptr noundef %59, ptr noundef nonnull %11, ptr noundef null) #18
+  %60 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %13, ptr noundef %59, ptr noundef nonnull %11, ptr noundef null) #19
   %.not127 = icmp eq i32 %60, 0
   br i1 %.not127, label %..thread_crit_edge, label %zslFreeLexRange.exit
 
@@ -11097,7 +11097,7 @@ define dso_local void @zrangeGenericCommand(ptr noundef %0, i32 noundef %1, i32 
   br i1 %or.cond4, label %65, label %66
 
 65:                                               ; preds = %._crit_edge
-  call void @addReplyError(ptr noundef nonnull %13, ptr noundef nonnull @.str.62) #18
+  call void @addReplyError(ptr noundef nonnull %13, ptr noundef nonnull @.str.62) #19
   br label %zslFreeLexRange.exit
 
 66:                                               ; preds = %._crit_edge
@@ -11108,7 +11108,7 @@ define dso_local void @zrangeGenericCommand(ptr noundef %0, i32 noundef %1, i32 
   br i1 %or.cond6, label %69, label %70
 
 69:                                               ; preds = %66
-  call void @addReplyError(ptr noundef nonnull %13, ptr noundef nonnull @.str.63) #18
+  call void @addReplyError(ptr noundef nonnull %13, ptr noundef nonnull @.str.63) #19
   br label %zslFreeLexRange.exit
 
 70:                                               ; preds = %.thread193, %66
@@ -11134,7 +11134,7 @@ define dso_local void @zrangeGenericCommand(ptr noundef %0, i32 noundef %1, i32 
   %76 = sext i32 %.0119 to i64
   %77 = getelementptr inbounds ptr, ptr %75, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !146
-  %79 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %13, ptr noundef %78, ptr noundef nonnull %8, ptr noundef null) #18
+  %79 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %13, ptr noundef %78, ptr noundef nonnull %8, ptr noundef null) #19
   %.not131 = icmp eq i32 %79, 0
   br i1 %.not131, label %80, label %zslFreeLexRange.exit
 
@@ -11143,7 +11143,7 @@ define dso_local void @zrangeGenericCommand(ptr noundef %0, i32 noundef %1, i32 
   %82 = sext i32 %.0118 to i64
   %83 = getelementptr inbounds ptr, ptr %81, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !146
-  %85 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %13, ptr noundef %84, ptr noundef nonnull %9, ptr noundef null) #18
+  %85 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %13, ptr noundef %84, ptr noundef nonnull %9, ptr noundef null) #19
   %.not132 = icmp eq i32 %85, 0
   br i1 %.not132, label %106, label %zslFreeLexRange.exit
 
@@ -11160,7 +11160,7 @@ define dso_local void @zrangeGenericCommand(ptr noundef %0, i32 noundef %1, i32 
   br i1 %.not130, label %106, label %95
 
 95:                                               ; preds = %86
-  call void @addReplyError(ptr noundef nonnull %13, ptr noundef nonnull @.str.33) #18
+  call void @addReplyError(ptr noundef nonnull %13, ptr noundef nonnull @.str.33) #19
   br label %zslFreeLexRange.exit
 
 96:                                               ; preds = %70
@@ -11176,7 +11176,7 @@ define dso_local void @zrangeGenericCommand(ptr noundef %0, i32 noundef %1, i32 
   br i1 %.not129, label %106, label %105
 
 105:                                              ; preds = %96
-  call void @addReplyError(ptr noundef nonnull %13, ptr noundef nonnull @.str.35) #18
+  call void @addReplyError(ptr noundef nonnull %13, ptr noundef nonnull @.str.35) #19
   br label %zslFreeLexRange.exit
 
 106:                                              ; preds = %96, %86, %80, %70
@@ -11200,7 +11200,7 @@ define dso_local void @zrangeGenericCommand(ptr noundef %0, i32 noundef %1, i32 
 116:                                              ; preds = %106, %108
   %117 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %118 = load ptr, ptr %117, align 8, !tbaa !150
-  %119 = call ptr @lookupKeyRead(ptr noundef %118, ptr noundef %18) #18
+  %119 = call ptr @lookupKeyRead(ptr noundef %118, ptr noundef %18) #19
   %120 = icmp eq ptr %119, null
   br i1 %120, label %121, label %129
 
@@ -11210,19 +11210,19 @@ define dso_local void @zrangeGenericCommand(ptr noundef %0, i32 noundef %1, i32 
 122:                                              ; preds = %121
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %124 = load ptr, ptr %123, align 8, !tbaa !196
-  call void %124(ptr noundef %0, i64 noundef -1) #18
+  call void %124(ptr noundef %0, i64 noundef -1) #19
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %126 = load ptr, ptr %125, align 8, !tbaa !197
-  call void %126(ptr noundef %0, i64 noundef 0) #18
+  call void %126(ptr noundef %0, i64 noundef 0) #19
   br label %146
 
 127:                                              ; preds = %121
   %128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 192), align 8, !tbaa !206
-  call void @addReply(ptr noundef nonnull %13, ptr noundef %128) #18
+  call void @addReply(ptr noundef nonnull %13, ptr noundef %128) #19
   br label %146
 
 129:                                              ; preds = %116
-  %130 = call i32 @checkType(ptr noundef nonnull %13, ptr noundef nonnull %119, i32 noundef 3) #18
+  %130 = call i32 @checkType(ptr noundef nonnull %13, ptr noundef nonnull %119, i32 noundef 3) #19
   %.not134 = icmp eq i32 %130, 0
   br i1 %.not134, label %131, label %146
 
@@ -11269,7 +11269,7 @@ define dso_local void @zrangeGenericCommand(ptr noundef %0, i32 noundef %1, i32 
   br i1 %or.cond.i, label %152, label %151
 
 151:                                              ; preds = %147
-  call void @sdsfree(ptr noundef %148) #18
+  call void @sdsfree(ptr noundef %148) #19
   %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81904), align 8, !tbaa !61
   %.pre11.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81912), align 8
   br label %152
@@ -11285,7 +11285,7 @@ define dso_local void @zrangeGenericCommand(ptr noundef %0, i32 noundef %1, i32 
   br i1 %or.cond10.i, label %zslFreeLexRange.exit, label %157
 
 157:                                              ; preds = %152
-  call void @sdsfree(ptr noundef %156) #18
+  call void @sdsfree(ptr noundef %156) #19
   br label %zslFreeLexRange.exit
 
 zslFreeLexRange.exit:                             ; preds = %38, %54, %.critedge, %157, %152, %146, %74, %80, %105, %95, %69, %65
@@ -11347,7 +11347,7 @@ define dso_local void @genericZrangebyscoreCommand(ptr noundef %0, ptr noundef r
   %11 = alloca i64, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !196
-  tail call void %13(ptr noundef %0, i64 noundef -1) #18
+  tail call void %13(ptr noundef %0, i64 noundef -1) #19
   %14 = icmp sgt i64 %3, 0
   %.pre207 = load i32, ptr %2, align 8
   br i1 %14, label %15, label %35
@@ -11363,7 +11363,7 @@ define dso_local void @genericZrangebyscoreCommand(ptr noundef %0, ptr noundef r
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !75
-  %21 = tail call i64 @lpLength(ptr noundef %20) #18
+  %21 = tail call i64 @lpLength(ptr noundef %20) #19
   %22 = lshr i64 %21, 1
   %23 = and i64 %22, 4294967295
   br label %zsetLength.exit
@@ -11378,8 +11378,8 @@ define dso_local void @genericZrangebyscoreCommand(ptr noundef %0, ptr noundef r
   br label %zsetLength.exit
 
 31:                                               ; preds = %15
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 zsetLength.exit:                                  ; preds = %18, %24
@@ -11394,7 +11394,7 @@ zsetLength.exit._crit_edge:                       ; preds = %zsetLength.exit
 32:                                               ; preds = %zsetLength.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = load ptr, ptr %33, align 8, !tbaa !197
-  tail call void %34(ptr noundef nonnull %0, i64 noundef 0) #18
+  tail call void %34(ptr noundef nonnull %0, i64 noundef 0) #19
   br label %193
 
 35:                                               ; preds = %zsetLength.exit._crit_edge, %6
@@ -11425,11 +11425,11 @@ zsetLength.exit._crit_edge:                       ; preds = %zsetLength.exit
   br i1 %.not87223, label %.critedge2, label %.lr.ph176.split.preheader
 
 .lr.ph176.split.preheader:                        ; preds = %.thread221
-  %45 = tail call ptr @lpNext(ptr noundef %41, ptr noundef nonnull %44) #18
+  %45 = tail call ptr @lpNext(ptr noundef %41, ptr noundef nonnull %44) #19
   br label %.lr.ph176.split
 
 .lr.ph176.split.us:                               ; preds = %42
-  %46 = tail call ptr @lpNext(ptr noundef %41, ptr noundef nonnull %43) #18
+  %46 = tail call ptr @lpNext(ptr noundef %41, ptr noundef nonnull %43) #19
   %.not89.us186 = icmp eq i64 %3, 0
   br i1 %.not89.us186, label %.lr.ph196, label %.lr.ph188
 
@@ -11445,12 +11445,12 @@ zzlPrev.exit.us:                                  ; preds = %50
   br i1 %.not16.i96.us, label %.critedge.i100, label %48, !prof !40
 
 48:                                               ; preds = %.lr.ph188
-  %49 = tail call ptr @lpNext(ptr noundef %41, ptr noundef nonnull %.1137174.us187) #18
+  %49 = tail call ptr @lpNext(ptr noundef %41, ptr noundef nonnull %.1137174.us187) #19
   %.not14.i97.us = icmp eq ptr %49, null
   br i1 %.not14.i97.us, label %.critedge2, label %50
 
 50:                                               ; preds = %48
-  %51 = tail call ptr @lpNext(ptr noundef %41, ptr noundef nonnull %49) #18
+  %51 = tail call ptr @lpNext(ptr noundef %41, ptr noundef nonnull %49) #19
   %.not15.i98.us = icmp eq ptr %51, null
   br i1 %.not15.i98.us, label %.split.us, label %zzlPrev.exit.us, !prof !40
 
@@ -11467,33 +11467,33 @@ zzlPrev.exit.us:                                  ; preds = %50
   br i1 %.not16.i, label %.critedge.i, label %54, !prof !40
 
 .critedge.i:                                      ; preds = %53
-  tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 861) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 861) #19
+  tail call void @abort() #20
   unreachable
 
 54:                                               ; preds = %53
-  %55 = tail call ptr @lpPrev(ptr noundef %41, ptr noundef nonnull %.0141173) #18
+  %55 = tail call ptr @lpPrev(ptr noundef %41, ptr noundef nonnull %.0141173) #19
   %.not14.i = icmp eq ptr %55, null
   br i1 %.not14.i, label %.critedge2, label %56
 
 56:                                               ; preds = %54
-  %57 = tail call ptr @lpPrev(ptr noundef %41, ptr noundef nonnull %55) #18
+  %57 = tail call ptr @lpPrev(ptr noundef %41, ptr noundef nonnull %55) #19
   %.not15.i = icmp eq ptr %57, null
   br i1 %.not15.i, label %58, label %.lr.ph176.split, !prof !40, !llvm.loop !207
 
 58:                                               ; preds = %56
-  tail call void @_serverAssert(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 866) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 866) #19
+  tail call void @abort() #20
   unreachable
 
 .critedge.i100:                                   ; preds = %.lr.ph188
-  tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 842) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 842) #19
+  tail call void @abort() #20
   unreachable
 
 .split.us:                                        ; preds = %50
-  tail call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 847) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 847) #19
+  tail call void @abort() #20
   unreachable
 
 .lr.ph196:                                        ; preds = %.lr.ph176.split, %zzlPrev.exit.us, %.lr.ph176.split.us
@@ -11519,12 +11519,12 @@ zzlPrev.exit.us:                                  ; preds = %50
   br i1 %.not.i101, label %65, label %66, !prof !40
 
 65:                                               ; preds = %.lr.ph
-  call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 785) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 785) #19
+  call void @abort() #20
   unreachable
 
 66:                                               ; preds = %.lr.ph
-  %67 = call ptr @lpGetValue(ptr noundef nonnull %.3139193280, ptr noundef nonnull %8, ptr noundef nonnull %9) #18
+  %67 = call ptr @lpGetValue(ptr noundef nonnull %.3139193280, ptr noundef nonnull %8, ptr noundef nonnull %9) #19
   %.not7.i = icmp eq ptr %67, null
   br i1 %.not7.i, label %73, label %68
 
@@ -11536,7 +11536,7 @@ zzlPrev.exit.us:                                  ; preds = %50
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull readonly align 1 %67, i64 %70, i1 false)
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 %70
   store i8 0, ptr %71, align 1, !tbaa !77
-  %72 = call double @fast_float_strtod(ptr noundef nonnull %7, ptr noundef null) #18
+  %72 = call double @fast_float_strtod(ptr noundef nonnull %7, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %zzlGetScore.exit
 
@@ -11570,7 +11570,7 @@ zzlGetScore.exit:                                 ; preds = %68, %73
   br i1 %.in.i105, label %.critedge2, label %86
 
 86:                                               ; preds = %81, %76
-  %87 = call ptr @lpGetValue(ptr noundef nonnull %.2143192281, ptr noundef nonnull %10, ptr noundef nonnull %11) #18
+  %87 = call ptr @lpGetValue(ptr noundef nonnull %.2143192281, ptr noundef nonnull %10, ptr noundef nonnull %11) #19
   %88 = add i64 %.073194279, 1
   %89 = icmp eq ptr %87, null
   br i1 %89, label %90, label %93
@@ -11578,47 +11578,47 @@ zzlGetScore.exit:                                 ; preds = %68, %73
 90:                                               ; preds = %86
   %91 = load ptr, ptr %63, align 8, !tbaa !198
   %92 = load i64, ptr %11, align 8, !tbaa !88
-  call void %91(ptr noundef %0, i64 noundef %92, double noundef %.0.i102) #18
+  call void %91(ptr noundef %0, i64 noundef %92, double noundef %.0.i102) #19
   br label %97
 
 93:                                               ; preds = %86
   %94 = load ptr, ptr %62, align 8, !tbaa !199
   %95 = load i32, ptr %10, align 4, !tbaa !78
   %96 = zext i32 %95 to i64
-  call void %94(ptr noundef %0, ptr noundef nonnull %87, i64 noundef %96, double noundef %.0.i102) #18
+  call void %94(ptr noundef %0, ptr noundef nonnull %87, i64 noundef %96, double noundef %.0.i102) #19
   br label %97
 
 97:                                               ; preds = %93, %90
   br i1 %.not86, label %103, label %98
 
 98:                                               ; preds = %97
-  %99 = call ptr @lpPrev(ptr noundef %41, ptr noundef nonnull %.2143192281) #18
+  %99 = call ptr @lpPrev(ptr noundef %41, ptr noundef nonnull %.2143192281) #19
   %.not14.i108 = icmp eq ptr %99, null
   br i1 %.not14.i108, label %.critedge2, label %100
 
 100:                                              ; preds = %98
-  %101 = call ptr @lpPrev(ptr noundef %41, ptr noundef nonnull %99) #18
+  %101 = call ptr @lpPrev(ptr noundef %41, ptr noundef nonnull %99) #19
   %.not15.i109 = icmp eq ptr %101, null
   br i1 %.not15.i109, label %102, label %zzlPrev.exit112, !prof !40
 
 102:                                              ; preds = %100
-  call void @_serverAssert(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 866) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 866) #19
+  call void @abort() #20
   unreachable
 
 103:                                              ; preds = %97
-  %104 = call ptr @lpNext(ptr noundef %41, ptr noundef nonnull %.3139193280) #18
+  %104 = call ptr @lpNext(ptr noundef %41, ptr noundef nonnull %.3139193280) #19
   %.not14.i115 = icmp eq ptr %104, null
   br i1 %.not14.i115, label %.critedge2, label %105
 
 105:                                              ; preds = %103
-  %106 = call ptr @lpNext(ptr noundef %41, ptr noundef nonnull %104) #18
+  %106 = call ptr @lpNext(ptr noundef %41, ptr noundef nonnull %104) #19
   %.not15.i116 = icmp eq ptr %106, null
   br i1 %.not15.i116, label %107, label %zzlPrev.exit112, !prof !40
 
 107:                                              ; preds = %105
-  call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 847) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 847) #19
+  call void @abort() #20
   unreachable
 
 zzlPrev.exit112:                                  ; preds = %105, %100
@@ -11728,7 +11728,7 @@ zzlPrev.exit112:                                  ; preds = %105, %100
 
 sdslen.exit.us:                                   ; preds = %153, %149, %145, %141, %138, %130
   %.0.i124.us = phi i64 [ %155, %153 ], [ %152, %149 ], [ %148, %145 ], [ %144, %141 ], [ %140, %138 ], [ 0, %130 ]
-  tail call void %132(ptr noundef nonnull %0, ptr noundef nonnull %133, i64 noundef %.0.i124.us, double noundef %125) #18
+  tail call void %132(ptr noundef nonnull %0, ptr noundef nonnull %133, i64 noundef %.0.i124.us, double noundef %125) #19
   %.2.in.us = getelementptr inbounds nuw i8, ptr %.1163.us, i64 24
   %.2.us = load ptr, ptr %.2.in.us, align 8, !tbaa !29
   %.not82.us = icmp eq ptr %.2.us, null
@@ -11799,22 +11799,22 @@ sdslen.exit.us:                                   ; preds = %153, %149, %145, %1
 
 sdslen.exit:                                      ; preds = %164, %172, %175, %179, %183, %187
   %.0.i124 = phi i64 [ %174, %172 ], [ %178, %175 ], [ %182, %179 ], [ %186, %183 ], [ %189, %187 ], [ 0, %164 ]
-  tail call void %166(ptr noundef nonnull %0, ptr noundef nonnull %167, i64 noundef %.0.i124, double noundef %159) #18
+  tail call void %166(ptr noundef nonnull %0, ptr noundef nonnull %167, i64 noundef %.0.i124, double noundef %159) #19
   %.2.in = getelementptr inbounds nuw i8, ptr %.1163, i64 16
   %.2 = load ptr, ptr %.2.in, align 8, !tbaa !29
   %.not82 = icmp eq ptr %.2, null
   br i1 %.not82, label %.critedge4, label %.lr.ph.split, !llvm.loop !208
 
 190:                                              ; preds = %35
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 3348, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 3348, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 .critedge4:                                       ; preds = %sdslen.exit, %157, %.lr.ph.split, %sdslen.exit.us, %123, %.lr.ph.split.us, %.thread240, %113, %.critedge2
   %.3 = phi i64 [ %.073.lcssa, %.critedge2 ], [ 0, %113 ], [ 0, %.thread240 ], [ %131, %sdslen.exit.us ], [ %.4161.us, %123 ], [ %4, %.lr.ph.split.us ], [ %165, %sdslen.exit ], [ %.4161, %157 ], [ %4, %.lr.ph.split ]
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %192 = load ptr, ptr %191, align 8, !tbaa !197
-  call void %192(ptr noundef %0, i64 noundef %.3) #18
+  call void %192(ptr noundef %0, i64 noundef %.3) #19
   br label %193
 
 193:                                              ; preds = %.critedge4, %32
@@ -11884,17 +11884,17 @@ define dso_local void @zcountCommand(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %19, label %18
 
 18:                                               ; preds = %1
-  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.33) #18
+  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.33) #19
   br label %131
 
 19:                                               ; preds = %1
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !155
-  %21 = tail call ptr @lookupKeyReadOrReply(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %20) #18
+  %21 = tail call ptr @lookupKeyReadOrReply(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %20) #19
   %22 = icmp eq ptr %21, null
   br i1 %22, label %131, label %23
 
 23:                                               ; preds = %19
-  %24 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %21, i32 noundef 3) #18
+  %24 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %21, i32 noundef 3) #19
   %.not45 = icmp eq i32 %24, 0
   br i1 %.not45, label %25, label %131
 
@@ -11916,23 +11916,23 @@ define dso_local void @zcountCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 .thread:                                          ; preds = %29
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !155
-  tail call void @addReply(ptr noundef nonnull %0, ptr noundef %33) #18
+  tail call void @addReply(ptr noundef nonnull %0, ptr noundef %33) #19
   br label %131
 
 34:                                               ; preds = %29
-  %35 = tail call ptr @lpNext(ptr noundef %31, ptr noundef nonnull %32) #18
+  %35 = tail call ptr @lpNext(ptr noundef %31, ptr noundef nonnull %32) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %36, label %37, !prof !40
 
 36:                                               ; preds = %34
-  tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 785) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 785) #19
+  tail call void @abort() #20
   unreachable
 
 37:                                               ; preds = %34
-  %38 = call ptr @lpGetValue(ptr noundef nonnull %35, ptr noundef nonnull %6, ptr noundef nonnull %7) #18
+  %38 = call ptr @lpGetValue(ptr noundef nonnull %35, ptr noundef nonnull %6, ptr noundef nonnull %7) #19
   %.not7.i = icmp eq ptr %38, null
   br i1 %.not7.i, label %44, label %39
 
@@ -11944,7 +11944,7 @@ define dso_local void @zcountCommand(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull readonly align 1 %38, i64 %41, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 %41
   store i8 0, ptr %42, align 1, !tbaa !77
-  %43 = call double @fast_float_strtod(ptr noundef nonnull %5, ptr noundef null) #18
+  %43 = call double @fast_float_strtod(ptr noundef nonnull %5, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %zzlGetScore.exit
 
@@ -11974,8 +11974,8 @@ zzlGetScore.exit:                                 ; preds = %39, %44
   br label %zzlNext.exit
 
 55:                                               ; preds = %zzlGetScore.exit
-  call void @_serverAssertWithInfo(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.1, i32 noundef 3401) #18
-  call void @abort() #19
+  call void @_serverAssertWithInfo(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.1, i32 noundef 3401) #19
+  call void @abort() #20
   unreachable
 
 zzlNext.exit:                                     ; preds = %70, %.preheader.preheader
@@ -11983,7 +11983,7 @@ zzlNext.exit:                                     ; preds = %70, %.preheader.pre
   %.06774 = phi ptr [ %35, %.preheader.preheader ], [ %71, %70 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %56 = call ptr @lpGetValue(ptr noundef nonnull %.06774, ptr noundef nonnull %3, ptr noundef nonnull %4) #18
+  %56 = call ptr @lpGetValue(ptr noundef nonnull %.06774, ptr noundef nonnull %3, ptr noundef nonnull %4) #19
   %.not7.i54 = icmp eq ptr %56, null
   br i1 %.not7.i54, label %62, label %57
 
@@ -11995,7 +11995,7 @@ zzlNext.exit:                                     ; preds = %70, %.preheader.pre
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull readonly align 1 %56, i64 %59, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 %59
   store i8 0, ptr %60, align 1, !tbaa !77
-  %61 = call double @fast_float_strtod(ptr noundef nonnull %2, ptr noundef null) #18
+  %61 = call double @fast_float_strtod(ptr noundef nonnull %2, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %zzlGetScore.exit57
 
@@ -12015,18 +12015,18 @@ zzlGetScore.exit57:                               ; preds = %57, %62
 
 67:                                               ; preds = %zzlGetScore.exit57
   %68 = add i64 %.175, 1
-  %69 = call ptr @lpNext(ptr noundef %31, ptr noundef nonnull %.06774) #18
+  %69 = call ptr @lpNext(ptr noundef %31, ptr noundef nonnull %.06774) #19
   %.not14.i = icmp eq ptr %69, null
   br i1 %.not14.i, label %.loopexit, label %70
 
 70:                                               ; preds = %67
-  %71 = call ptr @lpNext(ptr noundef %31, ptr noundef nonnull %69) #18
+  %71 = call ptr @lpNext(ptr noundef %31, ptr noundef nonnull %69) #19
   %.not15.i = icmp eq ptr %71, null
   br i1 %.not15.i, label %72, label %zzlNext.exit, !prof !40, !llvm.loop !209
 
 72:                                               ; preds = %70
-  call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 847) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 847) #19
+  call void @abort() #20
   unreachable
 
 73:                                               ; preds = %25
@@ -12079,7 +12079,7 @@ zzlGetScore.exit57:                               ; preds = %57, %62
 
 98:                                               ; preds = %96
   %99 = load ptr, ptr %91, align 8, !tbaa !9
-  %100 = tail call i32 @sdscmp(ptr noundef %99, ptr noundef %82) #18
+  %100 = tail call i32 @sdscmp(ptr noundef %99, ptr noundef %82) #19
   %101 = icmp slt i32 %100, 1
   br i1 %101, label %..critedge2_crit_edge.i, label %.critedge.i62
 
@@ -12112,7 +12112,7 @@ zzlGetScore.exit57:                               ; preds = %57, %62
   br i1 %113, label %114, label %117
 
 114:                                              ; preds = %110
-  %115 = tail call i32 @sdscmp(ptr noundef nonnull %109, ptr noundef %82) #18
+  %115 = tail call i32 @sdscmp(ptr noundef nonnull %109, ptr noundef %82) #19
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %zslGetRank.exit, label %117
 
@@ -12141,13 +12141,13 @@ zslGetRank.exit:                                  ; preds = %114, %117, %79
   br label %.loopexit
 
 130:                                              ; preds = %25
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 3439, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 3439, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 .loopexit:                                        ; preds = %67, %zzlGetScore.exit57, %73, %123, %zslGetRank.exit
   %.2 = phi i64 [ %129, %123 ], [ %121, %zslGetRank.exit ], [ 0, %73 ], [ %68, %67 ], [ %.175, %zzlGetScore.exit57 ]
-  call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.2) #18
+  call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.2) #19
   br label %131
 
 131:                                              ; preds = %.thread, %19, %23, %.loopexit, %18
@@ -12174,17 +12174,17 @@ define dso_local void @zlexcountCommand(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %1
-  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.35) #18
+  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.35) #19
   br label %zslFreeLexRange.exit
 
 13:                                               ; preds = %1
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !155
-  %15 = tail call ptr @lookupKeyReadOrReply(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %14) #18
+  %15 = tail call ptr @lookupKeyReadOrReply(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %14) #19
   %16 = icmp eq ptr %15, null
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %13
-  %18 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %15, i32 noundef 3) #18
+  %18 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %15, i32 noundef 3) #19
   %.not44 = icmp eq i32 %18, 0
   br i1 %.not44, label %30, label %19
 
@@ -12198,7 +12198,7 @@ define dso_local void @zlexcountCommand(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond.i, label %24, label %23
 
 23:                                               ; preds = %19
-  tail call void @sdsfree(ptr noundef %20) #18
+  tail call void @sdsfree(ptr noundef %20) #19
   %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81904), align 8, !tbaa !61
   %.pre11.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81912), align 8
   br label %24
@@ -12214,7 +12214,7 @@ define dso_local void @zlexcountCommand(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond10.i, label %zslFreeLexRange.exit, label %29
 
 29:                                               ; preds = %24
-  tail call void @sdsfree(ptr noundef %28) #18
+  tail call void @sdsfree(ptr noundef %28) #19
   br label %zslFreeLexRange.exit
 
 30:                                               ; preds = %17
@@ -12236,18 +12236,18 @@ define dso_local void @zlexcountCommand(ptr noundef %0) local_unnamed_addr #0 {
 .thread:                                          ; preds = %34
   call void @zslFreeLexRange(ptr noundef nonnull %2)
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !155
-  tail call void @addReply(ptr noundef nonnull %0, ptr noundef %38) #18
+  tail call void @addReply(ptr noundef nonnull %0, ptr noundef %38) #19
   br label %zslFreeLexRange.exit
 
 39:                                               ; preds = %34
-  %40 = tail call ptr @lpNext(ptr noundef %36, ptr noundef nonnull %37) #18
+  %40 = tail call ptr @lpNext(ptr noundef %36, ptr noundef nonnull %37) #19
   %41 = call i32 @zzlLexValueLteMax(ptr noundef nonnull %37, ptr noundef nonnull %2)
   %.not47 = icmp eq i32 %41, 0
   br i1 %.not47, label %42, label %.preheader, !prof !40
 
 42:                                               ; preds = %39
-  tail call void @_serverAssertWithInfo(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.1, i32 noundef 3481) #18
-  tail call void @abort() #19
+  tail call void @_serverAssertWithInfo(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.1, i32 noundef 3481) #19
+  tail call void @abort() #20
   unreachable
 
 .preheader:                                       ; preds = %39, %48
@@ -12264,23 +12264,23 @@ define dso_local void @zlexcountCommand(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not16.i, label %.critedge.i, label %46, !prof !40
 
 .critedge.i:                                      ; preds = %44
-  tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 842) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 842) #19
+  tail call void @abort() #20
   unreachable
 
 46:                                               ; preds = %44
-  %47 = tail call ptr @lpNext(ptr noundef %36, ptr noundef nonnull %.06775) #18
+  %47 = tail call ptr @lpNext(ptr noundef %36, ptr noundef nonnull %.06775) #19
   %.not14.i = icmp eq ptr %47, null
   br i1 %.not14.i, label %.loopexit, label %48
 
 48:                                               ; preds = %46
-  %49 = tail call ptr @lpNext(ptr noundef %36, ptr noundef nonnull %47) #18
+  %49 = tail call ptr @lpNext(ptr noundef %36, ptr noundef nonnull %47) #19
   %.not15.i = icmp eq ptr %49, null
   br i1 %.not15.i, label %50, label %.preheader, !prof !40, !llvm.loop !210
 
 50:                                               ; preds = %48
-  tail call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 847) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 847) #19
+  tail call void @abort() #20
   unreachable
 
 51:                                               ; preds = %30
@@ -12333,7 +12333,7 @@ define dso_local void @zlexcountCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 76:                                               ; preds = %74
   %77 = load ptr, ptr %69, align 8, !tbaa !9
-  %78 = tail call i32 @sdscmp(ptr noundef %77, ptr noundef %60) #18
+  %78 = tail call i32 @sdscmp(ptr noundef %77, ptr noundef %60) #19
   %79 = icmp slt i32 %78, 1
   br i1 %79, label %..critedge2_crit_edge.i, label %.critedge.i52
 
@@ -12366,7 +12366,7 @@ define dso_local void @zlexcountCommand(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %91, label %92, label %95
 
 92:                                               ; preds = %88
-  %93 = tail call i32 @sdscmp(ptr noundef nonnull %87, ptr noundef %60) #18
+  %93 = tail call i32 @sdscmp(ptr noundef nonnull %87, ptr noundef %60) #19
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %zslGetRank.exit, label %95
 
@@ -12395,8 +12395,8 @@ zslGetRank.exit:                                  ; preds = %92, %95, %57
   br label %.loopexit
 
 108:                                              ; preds = %30
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 3517, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 3517, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 .loopexit:                                        ; preds = %46, %.preheader, %51, %101, %zslGetRank.exit
@@ -12410,7 +12410,7 @@ zslGetRank.exit:                                  ; preds = %92, %95, %57
   br i1 %or.cond.i57, label %113, label %112
 
 112:                                              ; preds = %.loopexit
-  tail call void @sdsfree(ptr noundef %109) #18
+  tail call void @sdsfree(ptr noundef %109) #19
   %.pre.i58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81904), align 8, !tbaa !61
   %.pre11.i59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81912), align 8
   br label %113
@@ -12426,11 +12426,11 @@ zslGetRank.exit:                                  ; preds = %92, %95, %57
   br i1 %or.cond10.i62, label %zslFreeLexRange.exit63, label %118
 
 118:                                              ; preds = %113
-  tail call void @sdsfree(ptr noundef %117) #18
+  tail call void @sdsfree(ptr noundef %117) #19
   br label %zslFreeLexRange.exit63
 
 zslFreeLexRange.exit63:                           ; preds = %113, %118
-  tail call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.2) #18
+  tail call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.2) #19
   br label %zslFreeLexRange.exit
 
 zslFreeLexRange.exit:                             ; preds = %.thread, %29, %24, %zslFreeLexRange.exit63, %12
@@ -12447,7 +12447,7 @@ define dso_local void @genericZrangebylexCommand(ptr noundef %0, ptr noundef rea
   %12 = alloca i64, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8, !tbaa !196
-  tail call void %14(ptr noundef %0, i64 noundef -1) #18
+  tail call void %14(ptr noundef %0, i64 noundef -1) #19
   %15 = load i32, ptr %2, align 8
   %16 = lshr i32 %15, 4
   %17 = and i32 %16, 15
@@ -12475,11 +12475,11 @@ define dso_local void @genericZrangebylexCommand(ptr noundef %0, ptr noundef rea
   br i1 %.not80261, label %.critedge2, label %.lr.ph198.split.preheader
 
 .lr.ph198.split.preheader:                        ; preds = %.thread259
-  %24 = tail call ptr @lpNext(ptr noundef %20, ptr noundef nonnull %23) #18
+  %24 = tail call ptr @lpNext(ptr noundef %20, ptr noundef nonnull %23) #19
   br label %.lr.ph198.split
 
 .lr.ph198.split.us:                               ; preds = %21
-  %25 = tail call ptr @lpNext(ptr noundef %20, ptr noundef nonnull %22) #18
+  %25 = tail call ptr @lpNext(ptr noundef %20, ptr noundef nonnull %22) #19
   %.not82.us208 = icmp eq i64 %4, 0
   br i1 %.not82.us208, label %.lr.ph218, label %.lr.ph210
 
@@ -12495,12 +12495,12 @@ zzlPrev.exit.us:                                  ; preds = %29
   br i1 %.not16.i89.us, label %.critedge.i93, label %27, !prof !40
 
 27:                                               ; preds = %.lr.ph210
-  %28 = tail call ptr @lpNext(ptr noundef %20, ptr noundef nonnull %.1129196.us209) #18
+  %28 = tail call ptr @lpNext(ptr noundef %20, ptr noundef nonnull %.1129196.us209) #19
   %.not14.i90.us = icmp eq ptr %28, null
   br i1 %.not14.i90.us, label %.critedge2, label %29
 
 29:                                               ; preds = %27
-  %30 = tail call ptr @lpNext(ptr noundef %20, ptr noundef nonnull %28) #18
+  %30 = tail call ptr @lpNext(ptr noundef %20, ptr noundef nonnull %28) #19
   %.not15.i91.us = icmp eq ptr %30, null
   br i1 %.not15.i91.us, label %.split.us, label %zzlPrev.exit.us, !prof !40
 
@@ -12517,33 +12517,33 @@ zzlPrev.exit.us:                                  ; preds = %29
   br i1 %.not16.i, label %.critedge.i, label %33, !prof !40
 
 .critedge.i:                                      ; preds = %32
-  tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 861) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 861) #19
+  tail call void @abort() #20
   unreachable
 
 33:                                               ; preds = %32
-  %34 = tail call ptr @lpPrev(ptr noundef %20, ptr noundef nonnull %.0133195) #18
+  %34 = tail call ptr @lpPrev(ptr noundef %20, ptr noundef nonnull %.0133195) #19
   %.not14.i = icmp eq ptr %34, null
   br i1 %.not14.i, label %.critedge2, label %35
 
 35:                                               ; preds = %33
-  %36 = tail call ptr @lpPrev(ptr noundef %20, ptr noundef nonnull %34) #18
+  %36 = tail call ptr @lpPrev(ptr noundef %20, ptr noundef nonnull %34) #19
   %.not15.i = icmp eq ptr %36, null
   br i1 %.not15.i, label %37, label %.lr.ph198.split, !prof !40, !llvm.loop !211
 
 37:                                               ; preds = %35
-  tail call void @_serverAssert(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 866) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 866) #19
+  tail call void @abort() #20
   unreachable
 
 .critedge.i93:                                    ; preds = %.lr.ph210
-  tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 842) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 842) #19
+  tail call void @abort() #20
   unreachable
 
 .split.us:                                        ; preds = %29
-  tail call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 847) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 847) #19
+  tail call void @abort() #20
   unreachable
 
 .lr.ph218:                                        ; preds = %.lr.ph198.split, %zzlPrev.exit.us, %.lr.ph198.split.us
@@ -12570,12 +12570,12 @@ zzlPrev.exit.us:                                  ; preds = %29
   br i1 %.not.i94, label %42, label %43, !prof !40
 
 42:                                               ; preds = %41
-  call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 785) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 785) #19
+  call void @abort() #20
   unreachable
 
 43:                                               ; preds = %41
-  %44 = call ptr @lpGetValue(ptr noundef nonnull %.3131215318, ptr noundef nonnull %9, ptr noundef nonnull %10) #18
+  %44 = call ptr @lpGetValue(ptr noundef nonnull %.3131215318, ptr noundef nonnull %9, ptr noundef nonnull %10) #19
   %.not7.i = icmp eq ptr %44, null
   br i1 %.not7.i, label %50, label %45
 
@@ -12587,7 +12587,7 @@ zzlPrev.exit.us:                                  ; preds = %29
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr nonnull readonly align 1 %44, i64 %47, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 %47
   store i8 0, ptr %48, align 1, !tbaa !77
-  %49 = call double @fast_float_strtod(ptr noundef nonnull %8, ptr noundef null) #18
+  %49 = call double @fast_float_strtod(ptr noundef nonnull %8, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %zzlGetScore.exit
 
@@ -12617,7 +12617,7 @@ zzlGetScore.exit:                                 ; preds = %45, %50
   br i1 %.not86, label %.critedge2, label %58
 
 58:                                               ; preds = %56, %54
-  %59 = call ptr @lpGetValue(ptr noundef nonnull %.2135214319, ptr noundef nonnull %11, ptr noundef nonnull %12) #18
+  %59 = call ptr @lpGetValue(ptr noundef nonnull %.2135214319, ptr noundef nonnull %11, ptr noundef nonnull %12) #19
   %60 = add i64 %.069216317, 1
   %61 = icmp eq ptr %59, null
   br i1 %61, label %62, label %65
@@ -12625,14 +12625,14 @@ zzlGetScore.exit:                                 ; preds = %45, %50
 62:                                               ; preds = %58
   %63 = load ptr, ptr %39, align 8, !tbaa !198
   %64 = load i64, ptr %12, align 8, !tbaa !88
-  call void %63(ptr noundef %0, i64 noundef %64, double noundef %.068) #18
+  call void %63(ptr noundef %0, i64 noundef %64, double noundef %.068) #19
   br label %69
 
 65:                                               ; preds = %58
   %66 = load ptr, ptr %38, align 8, !tbaa !199
   %67 = load i32, ptr %11, align 4, !tbaa !78
   %68 = zext i32 %67 to i64
-  call void %66(ptr noundef %0, ptr noundef nonnull %59, i64 noundef %68, double noundef %.068) #18
+  call void %66(ptr noundef %0, ptr noundef nonnull %59, i64 noundef %68, double noundef %.068) #19
   br label %69
 
 69:                                               ; preds = %65, %62
@@ -12643,46 +12643,46 @@ zzlGetScore.exit:                                 ; preds = %45, %50
   br i1 %.not16.i104, label %.critedge.i101, label %71, !prof !40
 
 .critedge.i101:                                   ; preds = %70
-  call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 861) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 861) #19
+  call void @abort() #20
   unreachable
 
 71:                                               ; preds = %70
-  %72 = call ptr @lpPrev(ptr noundef %20, ptr noundef nonnull %.2135214319) #18
+  %72 = call ptr @lpPrev(ptr noundef %20, ptr noundef nonnull %.2135214319) #19
   %.not14.i98 = icmp eq ptr %72, null
   br i1 %.not14.i98, label %.critedge2, label %73
 
 73:                                               ; preds = %71
-  %74 = call ptr @lpPrev(ptr noundef %20, ptr noundef nonnull %72) #18
+  %74 = call ptr @lpPrev(ptr noundef %20, ptr noundef nonnull %72) #19
   %.not15.i99 = icmp eq ptr %74, null
   br i1 %.not15.i99, label %75, label %zzlPrev.exit102, !prof !40
 
 75:                                               ; preds = %73
-  call void @_serverAssert(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 866) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 866) #19
+  call void @abort() #20
   unreachable
 
 76:                                               ; preds = %69
   br i1 %.not16.i104, label %.critedge.i108, label %77, !prof !40
 
 .critedge.i108:                                   ; preds = %76
-  call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 842) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 842) #19
+  call void @abort() #20
   unreachable
 
 77:                                               ; preds = %76
-  %78 = call ptr @lpNext(ptr noundef %20, ptr noundef nonnull %.3131215318) #18
+  %78 = call ptr @lpNext(ptr noundef %20, ptr noundef nonnull %.3131215318) #19
   %.not14.i105 = icmp eq ptr %78, null
   br i1 %.not14.i105, label %.critedge2, label %79
 
 79:                                               ; preds = %77
-  %80 = call ptr @lpNext(ptr noundef %20, ptr noundef nonnull %78) #18
+  %80 = call ptr @lpNext(ptr noundef %20, ptr noundef nonnull %78) #19
   %.not15.i106 = icmp eq ptr %80, null
   br i1 %.not15.i106, label %81, label %zzlPrev.exit102, !prof !40
 
 81:                                               ; preds = %79
-  call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 847) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 847) #19
+  call void @abort() #20
   unreachable
 
 zzlPrev.exit102:                                  ; preds = %79, %73
@@ -12763,7 +12763,7 @@ zzlPrev.exit102:                                  ; preds = %79, %73
   br i1 %or.cond.i.i112.us, label %.critedge4, label %112
 
 112:                                              ; preds = %109
-  %113 = tail call i32 @sdscmp(ptr noundef %98, ptr noundef %100) #18
+  %113 = tail call i32 @sdscmp(ptr noundef %98, ptr noundef %100) #19
   %114 = icmp sgt i32 %113, -1
   br i1 %114, label %.critedge4, label %zslLexValueLteMax.exit.us.zslLexValueGteMin.exit.thread144.us_crit_edge
 
@@ -12787,7 +12787,7 @@ zzlPrev.exit102:                                  ; preds = %79, %73
   br i1 %or.cond.i5.i113.us, label %.critedge4, label %zslLexValueLteMax.exit.us
 
 zslLexValueLteMax.exit.us:                        ; preds = %122
-  %125 = tail call i32 @sdscmp(ptr noundef %98, ptr noundef %100) #18
+  %125 = tail call i32 @sdscmp(ptr noundef %98, ptr noundef %100) #19
   %126 = icmp sgt i32 %125, 0
   br i1 %126, label %.critedge4, label %zslLexValueLteMax.exit.us.zslLexValueGteMin.exit.thread144.us_crit_edge
 
@@ -12843,7 +12843,7 @@ sdslen.exit.us:                                   ; preds = %149, %145, %141, %1
   %.0.i114.us = phi i64 [ %151, %149 ], [ %148, %145 ], [ %144, %141 ], [ %140, %137 ], [ %136, %134 ], [ 0, %zslLexValueGteMin.exit.thread144.us ]
   %152 = getelementptr inbounds nuw i8, ptr %.1168.us, i64 8
   %153 = load double, ptr %152, align 8, !tbaa !5
-  tail call void %129(ptr noundef nonnull %0, ptr noundef nonnull %127, i64 noundef %.0.i114.us, double noundef %153) #18
+  tail call void %129(ptr noundef nonnull %0, ptr noundef nonnull %127, i64 noundef %.0.i114.us, double noundef %153) #19
   %.2.in.us = getelementptr inbounds nuw i8, ptr %.1168.us, i64 24
   %.2.us = load ptr, ptr %.2.in.us, align 8, !tbaa !29
   %.not75.us = icmp eq ptr %.2.us, null
@@ -12905,7 +12905,7 @@ sdslen.exit.us:                                   ; preds = %149, %145, %141, %1
 
 zslLexValueGteMin.exit:                           ; preds = %167, %177
   %.sink14.i = phi i32 [ 0, %167 ], [ -1, %177 ]
-  %180 = tail call i32 @sdscmp(ptr noundef %156, ptr noundef %158) #18
+  %180 = tail call i32 @sdscmp(ptr noundef %156, ptr noundef %158) #19
   %.not151 = icmp sgt i32 %180, %.sink14.i
   br i1 %.not151, label %zslLexValueGteMin.exit.zslLexValueGteMin.exit.thread144_crit_edge, label %.critedge4
 
@@ -12961,22 +12961,22 @@ sdslen.exit:                                      ; preds = %zslLexValueGteMin.e
   %.0.i114 = phi i64 [ %190, %188 ], [ %194, %191 ], [ %198, %195 ], [ %202, %199 ], [ %205, %203 ], [ 0, %zslLexValueGteMin.exit.thread144 ]
   %206 = getelementptr inbounds nuw i8, ptr %.1168, i64 8
   %207 = load double, ptr %206, align 8, !tbaa !5
-  tail call void %183(ptr noundef nonnull %0, ptr noundef nonnull %181, i64 noundef %.0.i114, double noundef %207) #18
+  tail call void %183(ptr noundef nonnull %0, ptr noundef nonnull %181, i64 noundef %.0.i114, double noundef %207) #19
   %.2.in = getelementptr inbounds nuw i8, ptr %.1168, i64 16
   %.2 = load ptr, ptr %.2.in, align 8, !tbaa !29
   %.not75 = icmp eq ptr %.2, null
   br i1 %.not75, label %.critedge4, label %.lr.ph.split, !llvm.loop !212
 
 208:                                              ; preds = %7
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 3619, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 3619, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 .critedge4:                                       ; preds = %sdslen.exit, %zslLexValueGteMin.exit, %.lr.ph.split, %160, %164, %161, %174, %171, %sdslen.exit.us, %zslLexValueLteMax.exit.us, %.lr.ph.split.us, %102, %109, %122, %112, %.thread278, %87, %.critedge2
   %.3 = phi i64 [ %.069.lcssa, %.critedge2 ], [ 0, %87 ], [ 0, %.thread278 ], [ %.4166.us, %112 ], [ %128, %sdslen.exit.us ], [ %.4166.us, %zslLexValueLteMax.exit.us ], [ %5, %.lr.ph.split.us ], [ %.4166.us, %102 ], [ %.4166.us, %109 ], [ %.4166.us, %122 ], [ %182, %sdslen.exit ], [ %.4166, %zslLexValueGteMin.exit ], [ %5, %.lr.ph.split ], [ %.4166, %160 ], [ %.4166, %164 ], [ %.4166, %161 ], [ %.4166, %174 ], [ %.4166, %171 ]
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %210 = load ptr, ptr %209, align 8, !tbaa !197
-  call void %210(ptr noundef %0, i64 noundef %.3) #18
+  call void %210(ptr noundef %0, i64 noundef %.3) #19
   ret void
 }
 
@@ -13027,12 +13027,12 @@ define dso_local void @zcardCommand(ptr noundef %0) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !146
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !155
-  %7 = tail call ptr @lookupKeyReadOrReply(ptr noundef %0, ptr noundef %5, ptr noundef %6) #18
+  %7 = tail call ptr @lookupKeyReadOrReply(ptr noundef %0, ptr noundef %5, ptr noundef %6) #19
   %8 = icmp eq ptr %7, null
   br i1 %8, label %29, label %9
 
 9:                                                ; preds = %1
-  %10 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef 3) #18
+  %10 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef 3) #19
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %29
 
@@ -13048,7 +13048,7 @@ define dso_local void @zcardCommand(ptr noundef %0) local_unnamed_addr #0 {
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !75
-  %18 = tail call i64 @lpLength(ptr noundef %17) #18
+  %18 = tail call i64 @lpLength(ptr noundef %17) #19
   %19 = lshr i64 %18, 1
   %20 = and i64 %19, 4294967295
   br label %zsetLength.exit
@@ -13063,13 +13063,13 @@ define dso_local void @zcardCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %zsetLength.exit
 
 28:                                               ; preds = %11
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 zsetLength.exit:                                  ; preds = %15, %21
   %.0.i = phi i64 [ %20, %15 ], [ %27, %21 ]
-  tail call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.0.i) #18
+  tail call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.0.i) #19
   br label %29
 
 29:                                               ; preds = %1, %9, %zsetLength.exit
@@ -13089,12 +13089,12 @@ define dso_local void @zscoreCommand(ptr noundef %0) local_unnamed_addr #0 {
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !146
-  %12 = tail call ptr @lookupKeyReadOrReply(ptr noundef %0, ptr noundef %6, ptr noundef %11) #18
+  %12 = tail call ptr @lookupKeyReadOrReply(ptr noundef %0, ptr noundef %6, ptr noundef %11) #19
   %13 = icmp eq ptr %12, null
   br i1 %13, label %40, label %14
 
 14:                                               ; preds = %1
-  %15 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %12, i32 noundef 3) #18
+  %15 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %12, i32 noundef 3) #19
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %40
 
@@ -13127,27 +13127,27 @@ define dso_local void @zscoreCommand(ptr noundef %0) local_unnamed_addr #0 {
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !75
   %34 = load ptr, ptr %33, align 8, !tbaa !125
-  %35 = tail call ptr @dictFind(ptr noundef %34, ptr noundef nonnull %21) #18
+  %35 = tail call ptr @dictFind(ptr noundef %34, ptr noundef nonnull %21) #19
   %36 = icmp eq ptr %35, null
   br i1 %36, label %39, label %.thread.i
 
 .thread.i:                                        ; preds = %31
-  %37 = tail call ptr @dictGetVal(ptr noundef nonnull %35) #18
+  %37 = tail call ptr @dictGetVal(ptr noundef nonnull %35) #19
   br label %zsetScore.exit
 
 38:                                               ; preds = %22
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1359, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1359, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 39:                                               ; preds = %16, %26, %31
-  call void @addReplyNull(ptr noundef nonnull %0) #18
+  call void @addReplyNull(ptr noundef nonnull %0) #19
   br label %40
 
 zsetScore.exit:                                   ; preds = %26, %.thread.i
   %.sink = phi ptr [ %37, %.thread.i ], [ %2, %26 ]
   %.pre = load double, ptr %.sink, align 8, !tbaa !5
-  call void @addReplyDouble(ptr noundef nonnull %0, double noundef %.pre) #18
+  call void @addReplyDouble(ptr noundef nonnull %0, double noundef %.pre) #19
   br label %40
 
 40:                                               ; preds = %39, %zsetScore.exit, %1, %14
@@ -13165,8 +13165,8 @@ define dso_local void @zmscoreCommand(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !150
-  %9 = tail call ptr @lookupKeyRead(ptr noundef %8, ptr noundef %6) #18
-  %10 = tail call i32 @checkType(ptr noundef %0, ptr noundef %9, i32 noundef 3) #18
+  %9 = tail call ptr @lookupKeyRead(ptr noundef %8, ptr noundef %6) #19
+  %10 = tail call i32 @checkType(ptr noundef %0, ptr noundef %9, i32 noundef 3) #19
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %.loopexit
 
@@ -13175,7 +13175,7 @@ define dso_local void @zmscoreCommand(ptr noundef %0) local_unnamed_addr #0 {
   %13 = load i32, ptr %12, align 8, !tbaa !147
   %14 = add nsw i32 %13, -2
   %15 = sext i32 %14 to i64
-  tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %15) #18
+  tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %15) #19
   %16 = load i32, ptr %12, align 8, !tbaa !147
   %17 = icmp sgt i32 %16, 2
   br i1 %17, label %.lr.ph, label %.loopexit
@@ -13187,7 +13187,7 @@ define dso_local void @zmscoreCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 zsetScore.exit.thread.us:                         ; preds = %.lr.ph, %zsetScore.exit.thread.us
   %.018.us = phi i32 [ %20, %zsetScore.exit.thread.us ], [ 2, %.lr.ph ]
-  tail call void @addReplyNull(ptr noundef nonnull %0) #18
+  tail call void @addReplyNull(ptr noundef nonnull %0) #19
   %20 = add nuw nsw i32 %.018.us, 1
   %21 = load i32, ptr %12, align 8, !tbaa !147
   %22 = icmp slt i32 %20, %21
@@ -13225,28 +13225,28 @@ zsetScore.exit.thread.us:                         ; preds = %.lr.ph, %zsetScore.
 36:                                               ; preds = %28
   %37 = load ptr, ptr %19, align 8, !tbaa !75
   %38 = load ptr, ptr %37, align 8, !tbaa !125
-  %39 = call ptr @dictFind(ptr noundef %38, ptr noundef nonnull %27) #18
+  %39 = call ptr @dictFind(ptr noundef %38, ptr noundef nonnull %27) #19
   %40 = icmp eq ptr %39, null
   br i1 %40, label %zsetScore.exit.thread, label %.thread.i
 
 .thread.i:                                        ; preds = %36
-  %41 = call ptr @dictGetVal(ptr noundef nonnull %39) #18
+  %41 = call ptr @dictGetVal(ptr noundef nonnull %39) #19
   %42 = load double, ptr %41, align 8, !tbaa !5
   store double %42, ptr %2, align 8, !tbaa !5
   br label %zsetScore.exit
 
 43:                                               ; preds = %28
-  call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1359, ptr noundef nonnull @.str.9) #18
-  call void @abort() #19
+  call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1359, ptr noundef nonnull @.str.9) #19
+  call void @abort() #20
   unreachable
 
 zsetScore.exit.thread:                            ; preds = %36, %32, %.lr.ph.split
-  call void @addReplyNull(ptr noundef nonnull %0) #18
+  call void @addReplyNull(ptr noundef nonnull %0) #19
   br label %45
 
 zsetScore.exit:                                   ; preds = %.zsetScore.exit_crit_edge, %.thread.i
   %44 = phi double [ %.pre, %.zsetScore.exit_crit_edge ], [ %42, %.thread.i ]
-  call void @addReplyDouble(ptr noundef nonnull %0, double noundef %44) #18
+  call void @addReplyDouble(ptr noundef nonnull %0, double noundef %44) #19
   br label %45
 
 45:                                               ; preds = %zsetScore.exit.thread, %zsetScore.exit
@@ -13277,7 +13277,7 @@ define dso_local void @zrankGenericCommand(ptr noundef %0, i32 noundef %1) local
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %2
-  tail call void @addReplyErrorArity(ptr noundef nonnull %0) #18
+  tail call void @addReplyErrorArity(ptr noundef nonnull %0) #19
   br label %48
 
 14:                                               ; preds = %2
@@ -13289,13 +13289,13 @@ define dso_local void @zrankGenericCommand(ptr noundef %0, i32 noundef %1) local
   %17 = load ptr, ptr %16, align 8, !tbaa !146
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !75
-  %20 = tail call i32 @strcasecmp(ptr noundef %19, ptr noundef nonnull @.str.64) #20
+  %20 = tail call i32 @strcasecmp(ptr noundef %19, ptr noundef nonnull @.str.64) #21
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %.critedge, label %21
 
 21:                                               ; preds = %15
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !148
-  tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %22) #18
+  tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %22) #19
   br label %48
 
 .critedge:                                        ; preds = %14, %15
@@ -13305,12 +13305,12 @@ define dso_local void @zrankGenericCommand(ptr noundef %0, i32 noundef %1) local
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds ptr, ptr %.sink, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !146
-  %28 = tail call ptr @lookupKeyReadOrReply(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %27) #18
+  %28 = tail call ptr @lookupKeyReadOrReply(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %27) #19
   %29 = icmp eq ptr %28, null
   br i1 %29, label %48, label %30
 
 30:                                               ; preds = %.critedge
-  %31 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %28, i32 noundef 3) #18
+  %31 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %28, i32 noundef 3) #19
   %.not38 = icmp eq i32 %31, 0
   br i1 %.not38, label %32, label %48
 
@@ -13324,8 +13324,8 @@ define dso_local void @zrankGenericCommand(ptr noundef %0, i32 noundef %1) local
   ], !prof !214
 
 36:                                               ; preds = %32
-  tail call void @_serverAssertWithInfo(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.1, i32 noundef 3865) #18
-  tail call void @abort() #19
+  tail call void @_serverAssertWithInfo(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.1, i32 noundef 3865) #19
+  tail call void @abort() #20
   unreachable
 
 37:                                               ; preds = %32, %32
@@ -13340,25 +13340,25 @@ define dso_local void @zrankGenericCommand(ptr noundef %0, i32 noundef %1) local
   br i1 %.not37, label %43, label %.critedge40
 
 43:                                               ; preds = %42
-  call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 2) #18
-  call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %40) #18
+  call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 2) #19
+  call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %40) #19
   %44 = load double, ptr %3, align 8, !tbaa !5
-  call void @addReplyDouble(ptr noundef nonnull %0, double noundef %44) #18
+  call void @addReplyDouble(ptr noundef nonnull %0, double noundef %44) #19
   br label %48
 
 45:                                               ; preds = %37
   br i1 %.not37, label %46, label %47
 
 46:                                               ; preds = %45
-  call void @addReplyNullArray(ptr noundef nonnull %0) #18
+  call void @addReplyNullArray(ptr noundef nonnull %0) #19
   br label %48
 
 47:                                               ; preds = %45
-  call void @addReplyNull(ptr noundef nonnull %0) #18
+  call void @addReplyNull(ptr noundef nonnull %0) #19
   br label %48
 
 .critedge40:                                      ; preds = %42
-  call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %40) #18
+  call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %40) #19
   br label %48
 
 48:                                               ; preds = %43, %47, %46, %.critedge40, %.critedge, %30, %21, %13
@@ -13390,7 +13390,7 @@ define dso_local void @zscanCommand(ptr noundef %0) local_unnamed_addr #0 {
   %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !146
-  %7 = call i32 @parseScanCursorOrReply(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %2) #18
+  %7 = call i32 @parseScanCursorOrReply(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %2) #19
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %20, label %9
 
@@ -13399,18 +13399,18 @@ define dso_local void @zscanCommand(ptr noundef %0) local_unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !146
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 480), align 8, !tbaa !215
-  %14 = call ptr @lookupKeyReadOrReply(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %13) #18
+  %14 = call ptr @lookupKeyReadOrReply(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %13) #19
   %15 = icmp eq ptr %14, null
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %9
-  %17 = call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %14, i32 noundef 3) #18
+  %17 = call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %14, i32 noundef 3) #19
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %18, label %20
 
 18:                                               ; preds = %16
   %19 = load i64, ptr %2, align 8, !tbaa !88
-  call void @scanGenericCommand(ptr noundef nonnull %0, ptr noundef nonnull %14, i64 noundef %19) #18
+  call void @scanGenericCommand(ptr noundef nonnull %0, ptr noundef nonnull %14, i64 noundef %19) #19
   br label %20
 
 20:                                               ; preds = %9, %16, %1, %18
@@ -13452,12 +13452,12 @@ define dso_local void @genericZpopCommand(ptr noundef %0, ptr noundef readonly c
   %20 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !146
   %22 = load ptr, ptr %17, align 8, !tbaa !150
-  %23 = tail call ptr @lookupKeyWrite(ptr noundef %22, ptr noundef %21) #18
+  %23 = tail call ptr @lookupKeyWrite(ptr noundef %22, ptr noundef %21) #19
   %.not139 = icmp eq ptr %23, null
   br i1 %.not139, label %18, label %24, !llvm.loop !216
 
 24:                                               ; preds = %19
-  %25 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %23, i32 noundef 3) #18
+  %25 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %23, i32 noundef 3) #19
   %.not140 = icmp eq i32 %25, 0
   br i1 %.not140, label %30, label %205
 
@@ -13466,12 +13466,12 @@ define dso_local void @genericZpopCommand(ptr noundef %0, ptr noundef readonly c
   br i1 %.not142, label %28, label %27
 
 27:                                               ; preds = %26
-  tail call void @addReplyNullArray(ptr noundef %0) #18
+  tail call void @addReplyNullArray(ptr noundef %0) #19
   br label %205
 
 28:                                               ; preds = %26
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 192), align 8, !tbaa !206
-  tail call void @addReply(ptr noundef %0, ptr noundef %29) #18
+  tail call void @addReply(ptr noundef %0, ptr noundef %29) #19
   br label %205
 
 30:                                               ; preds = %24
@@ -13480,7 +13480,7 @@ define dso_local void @genericZpopCommand(ptr noundef %0, ptr noundef readonly c
 
 32:                                               ; preds = %30
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 192), align 8, !tbaa !206
-  tail call void @addReply(ptr noundef nonnull %0, ptr noundef %33) #18
+  tail call void @addReply(ptr noundef nonnull %0, ptr noundef %33) #19
   br label %205
 
 34:                                               ; preds = %30
@@ -13497,7 +13497,7 @@ define dso_local void @genericZpopCommand(ptr noundef %0, ptr noundef readonly c
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !75
-  %42 = tail call i64 @lpLength(ptr noundef %41) #18
+  %42 = tail call i64 @lpLength(ptr noundef %41) #19
   %43 = lshr i64 %42, 1
   %44 = and i64 %43, 4294967295
   br label %zsetLength.exit
@@ -13512,8 +13512,8 @@ define dso_local void @genericZpopCommand(ptr noundef %0, ptr noundef readonly c
   br label %zsetLength.exit
 
 52:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 zsetLength.exit:                                  ; preds = %39, %45
@@ -13527,7 +13527,7 @@ zsetLength.exit:                                  ; preds = %39, %45
 
 57:                                               ; preds = %zsetLength.exit
   %58 = shl nsw i64 %53, 1
-  tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %58) #18
+  tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %58) #19
   br label %68
 
 59:                                               ; preds = %zsetLength.exit
@@ -13536,7 +13536,7 @@ zsetLength.exit:                                  ; preds = %39, %45
   br i1 %or.cond3, label %62, label %61
 
 61:                                               ; preds = %59
-  tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %53) #18
+  tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %53) #19
   br label %68
 
 62:                                               ; preds = %59
@@ -13546,8 +13546,8 @@ zsetLength.exit:                                  ; preds = %39, %45
 63:                                               ; preds = %62
   %64 = shl nsw i64 %53, 1
   %65 = or disjoint i64 %64, 1
-  tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %65) #18
-  tail call void @addReplyBulk(ptr noundef nonnull %0, ptr noundef %21) #18
+  tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %65) #19
+  tail call void @addReplyBulk(ptr noundef nonnull %0, ptr noundef %21) #19
   br label %68
 
 66:                                               ; preds = %62
@@ -13555,9 +13555,9 @@ zsetLength.exit:                                  ; preds = %39, %45
   br i1 %or.cond7, label %67, label %68
 
 67:                                               ; preds = %66
-  tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 2) #18
-  tail call void @addReplyBulk(ptr noundef nonnull %0, ptr noundef %21) #18
-  tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %53) #18
+  tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 2) #19
+  tail call void @addReplyBulk(ptr noundef nonnull %0, ptr noundef %21) #19
+  tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %53) #19
   br label %68
 
 68:                                               ; preds = %61, %66, %67, %63, %57
@@ -13583,46 +13583,46 @@ zsetLength.exit:                                  ; preds = %39, %45
   %79 = load ptr, ptr %69, align 8, !tbaa !75
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %80 = call ptr @lpSeek(ptr noundef %79, i64 noundef %71) #18
+  %80 = call ptr @lpSeek(ptr noundef %79, i64 noundef %71) #19
   %.not144 = icmp eq ptr %80, null
   br i1 %.not144, label %81, label %82, !prof !40
 
 81:                                               ; preds = %78
-  call void @_serverAssertWithInfo(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 3995) #18
-  call void @abort() #19
+  call void @_serverAssertWithInfo(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 3995) #19
+  call void @abort() #20
   unreachable
 
 82:                                               ; preds = %78
-  %83 = call ptr @lpGetValue(ptr noundef nonnull %80, ptr noundef nonnull %13, ptr noundef nonnull %14) #18
+  %83 = call ptr @lpGetValue(ptr noundef nonnull %80, ptr noundef nonnull %13, ptr noundef nonnull %14) #19
   %84 = icmp eq ptr %83, null
   br i1 %84, label %85, label %88
 
 85:                                               ; preds = %82
   %86 = load i64, ptr %14, align 8, !tbaa !88
-  %87 = call ptr @sdsfromlonglong(i64 noundef %86) #18
+  %87 = call ptr @sdsfromlonglong(i64 noundef %86) #19
   br label %92
 
 88:                                               ; preds = %82
   %89 = load i32, ptr %13, align 4, !tbaa !78
   %90 = zext i32 %89 to i64
-  %91 = call ptr @sdsnewlen(ptr noundef nonnull %83, i64 noundef %90) #18
+  %91 = call ptr @sdsnewlen(ptr noundef nonnull %83, i64 noundef %90) #19
   br label %92
 
 92:                                               ; preds = %88, %85
   %.0123 = phi ptr [ %87, %85 ], [ %91, %88 ]
-  %93 = call ptr @lpNext(ptr noundef %79, ptr noundef nonnull %80) #18
+  %93 = call ptr @lpNext(ptr noundef %79, ptr noundef nonnull %80) #19
   %.not145 = icmp eq ptr %93, null
   br i1 %.not145, label %94, label %95, !prof !40
 
 94:                                               ; preds = %92
-  call void @_serverAssertWithInfo(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 4004) #18
-  call void @abort() #19
+  call void @_serverAssertWithInfo(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 4004) #19
+  call void @abort() #20
   unreachable
 
 95:                                               ; preds = %92
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %96 = call ptr @lpGetValue(ptr noundef nonnull %93, ptr noundef nonnull %11, ptr noundef nonnull %12) #18
+  %96 = call ptr @lpGetValue(ptr noundef nonnull %93, ptr noundef nonnull %11, ptr noundef nonnull %12) #19
   %.not7.i = icmp eq ptr %96, null
   br i1 %.not7.i, label %102, label %97
 
@@ -13634,7 +13634,7 @@ zsetLength.exit:                                  ; preds = %39, %45
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull readonly align 1 %96, i64 %99, i1 false)
   %100 = getelementptr inbounds nuw i8, ptr %10, i64 %99
   store i8 0, ptr %100, align 1, !tbaa !77
-  %101 = call double @fast_float_strtod(ptr noundef nonnull %10, ptr noundef null) #18
+  %101 = call double @fast_float_strtod(ptr noundef nonnull %10, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %zzlGetScore.exit
 
@@ -13673,20 +13673,20 @@ zzlGetScore.exit:                                 ; preds = %97, %102
   br i1 %.not143, label %116, label %117, !prof !40
 
 116:                                              ; preds = %114
-  call void @_serverAssertWithInfo(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.1, i32 noundef 4016) #18
-  call void @abort() #19
+  call void @_serverAssertWithInfo(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.1, i32 noundef 4016) #19
+  call void @abort() #20
   unreachable
 
 117:                                              ; preds = %114
   %118 = load ptr, ptr %115, align 8, !tbaa !9
-  %119 = call ptr @sdsdup(ptr noundef %118) #18
+  %119 = call ptr @sdsdup(ptr noundef %118) #19
   %120 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %121 = load double, ptr %120, align 8, !tbaa !5
   br label %123
 
 122:                                              ; preds = %74
-  call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 4020, ptr noundef nonnull @.str.9) #18
-  call void @abort() #19
+  call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 4020, ptr noundef nonnull @.str.9) #19
+  call void @abort() #20
   unreachable
 
 123:                                              ; preds = %117, %zzlGetScore.exit
@@ -13697,8 +13697,8 @@ zzlGetScore.exit:                                 ; preds = %97, %102
   br i1 %.not146, label %125, label %126, !prof !40
 
 125:                                              ; preds = %123
-  call void @_serverAssertWithInfo(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 4023) #18
-  call void @abort() #19
+  call void @_serverAssertWithInfo(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 4023) #19
+  call void @abort() #20
   unreachable
 
 126:                                              ; preds = %123
@@ -13713,14 +13713,14 @@ zzlGetScore.exit:                                 ; preds = %97, %102
   %132 = load ptr, ptr %17, align 8, !tbaa !150
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 56
   %134 = load i32, ptr %133, align 8, !tbaa !153
-  call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef %131, ptr noundef %21, i32 noundef %134) #18
+  call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef %131, ptr noundef %21, i32 noundef %134) #19
   br label %135
 
 135:                                              ; preds = %130, %126
   br i1 %54, label %136, label %137
 
 136:                                              ; preds = %135
-  call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 2) #18
+  call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 2) #19
   br label %137
 
 137:                                              ; preds = %136, %135
@@ -13766,9 +13766,9 @@ zzlGetScore.exit:                                 ; preds = %97, %102
 
 sdslen.exit:                                      ; preds = %137, %142, %145, %149, %153, %157
   %.0.i149 = phi i64 [ %144, %142 ], [ %148, %145 ], [ %152, %149 ], [ %156, %153 ], [ %159, %157 ], [ 0, %137 ]
-  call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %.1124, i64 noundef %.0.i149) #18
-  call void @addReplyDouble(ptr noundef nonnull %0, double noundef %.0125) #18
-  call void @sdsfree(ptr noundef nonnull %.1124) #18
+  call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %.1124, i64 noundef %.0.i149) #19
+  call void @addReplyDouble(ptr noundef nonnull %0, double noundef %.0125) #19
+  call void @sdsfree(ptr noundef nonnull %.1124) #19
   %160 = add nuw nsw i64 %.0126, 1
   %161 = add nsw i64 %.0127, -1
   %.not147 = icmp eq i64 %161, 0
@@ -13785,7 +13785,7 @@ sdslen.exit:                                      ; preds = %137, %142, %145, %1
 
 166:                                              ; preds = %162
   %167 = load ptr, ptr %69, align 8, !tbaa !75
-  %168 = call i64 @lpLength(ptr noundef %167) #18
+  %168 = call i64 @lpLength(ptr noundef %167) #19
   %169 = lshr i64 %168, 1
   %170 = and i64 %169, 4294967295
   br label %zsetLength.exit151
@@ -13799,8 +13799,8 @@ sdslen.exit:                                      ; preds = %137, %142, %145, %1
   br label %zsetLength.exit151
 
 177:                                              ; preds = %162
-  call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #18
-  call void @abort() #19
+  call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #19
+  call void @abort() #20
   unreachable
 
 zsetLength.exit151:                               ; preds = %166, %171
@@ -13817,25 +13817,25 @@ zsetLength.exit151:                               ; preds = %166, %171
 
 181:                                              ; preds = %180, %179
   %182 = load ptr, ptr %17, align 8, !tbaa !150
-  %183 = call i32 @dbDelete(ptr noundef %182, ptr noundef %21) #18
+  %183 = call i32 @dbDelete(ptr noundef %182, ptr noundef %21) #19
   %184 = load ptr, ptr %17, align 8, !tbaa !150
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 56
   %186 = load i32, ptr %185, align 8, !tbaa !153
-  call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.30, ptr noundef %21, i32 noundef %186) #18
+  call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.30, ptr noundef %21, i32 noundef %186) #19
   br label %193
 
 187:                                              ; preds = %zsetLength.exit151
   %188 = load ptr, ptr %17, align 8, !tbaa !150
   %189 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %190 = load ptr, ptr %189, align 8, !tbaa !75
-  %191 = call i32 @getKeySlot(ptr noundef %190) #18
+  %191 = call i32 @getKeySlot(ptr noundef %190) #19
   %192 = sub nsw i64 %.0.i, %53
-  call void @updateKeysizesHist(ptr noundef %188, i32 noundef %191, i32 noundef 3, i64 noundef %.0.i, i64 noundef %192) #18
+  call void @updateKeysizesHist(ptr noundef %188, i32 noundef %191, i32 noundef 3, i64 noundef %.0.i, i64 noundef %192) #19
   br label %193
 
 193:                                              ; preds = %187, %181
   %194 = load ptr, ptr %17, align 8, !tbaa !150
-  call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %194, ptr noundef %21) #18
+  call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %194, ptr noundef %21) #19
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %196 = load ptr, ptr %195, align 8, !tbaa !168
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 96
@@ -13844,12 +13844,12 @@ zsetLength.exit151:                               ; preds = %166, %171
   br i1 %199, label %200, label %205
 
 200:                                              ; preds = %193
-  %201 = call ptr @createStringObjectFromLongLong(i64 noundef %53) #18
+  %201 = call ptr @createStringObjectFromLongLong(i64 noundef %53) #19
   %202 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 472), align 8
   %203 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 464), align 8
   %204 = select i1 %70, ptr %202, ptr %203
-  call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %0, i32 noundef 3, ptr noundef %204, ptr noundef %21, ptr noundef %201) #18
-  call void @decrRefCount(ptr noundef %201) #18
+  call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %0, i32 noundef 3, ptr noundef %204, ptr noundef %21, ptr noundef %201) #19
+  call void @decrRefCount(ptr noundef %201) #19
   br label %205
 
 205:                                              ; preds = %193, %200, %27, %28, %24, %32
@@ -13878,7 +13878,7 @@ define dso_local void @zpopMinMaxCommand(ptr noundef %0, i32 noundef %1) local_u
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !148
-  tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %8) #18
+  tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %8) #19
   br label %29
 
 9:                                                ; preds = %2
@@ -13892,7 +13892,7 @@ define dso_local void @zpopMinMaxCommand(ptr noundef %0, i32 noundef %1) local_u
   %13 = load ptr, ptr %12, align 8, !tbaa !136
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !146
-  %16 = call i32 @getPositiveLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %15, ptr noundef nonnull %3, ptr noundef null) #18
+  %16 = call i32 @getPositiveLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %15, ptr noundef nonnull %3, ptr noundef null) #19
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %._crit_edge, label %28
 
@@ -13932,7 +13932,7 @@ define dso_local void @zpopminCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !148
-  tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %7) #18
+  tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %7) #19
   br label %zpopMinMaxCommand.exit
 
 8:                                                ; preds = %1
@@ -13946,7 +13946,7 @@ define dso_local void @zpopminCommand(ptr noundef %0) local_unnamed_addr #0 {
   %12 = load ptr, ptr %11, align 8, !tbaa !136
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !146
-  %15 = call i32 @getPositiveLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %14, ptr noundef nonnull %2, ptr noundef null) #18
+  %15 = call i32 @getPositiveLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %14, ptr noundef nonnull %2, ptr noundef null) #19
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %._crit_edge.i, label %27
 
@@ -13986,7 +13986,7 @@ define dso_local void @zpopmaxCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !148
-  tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %7) #18
+  tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %7) #19
   br label %zpopMinMaxCommand.exit
 
 8:                                                ; preds = %1
@@ -14000,7 +14000,7 @@ define dso_local void @zpopmaxCommand(ptr noundef %0) local_unnamed_addr #0 {
   %12 = load ptr, ptr %11, align 8, !tbaa !136
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !146
-  %15 = call i32 @getPositiveLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %14, ptr noundef nonnull %2, ptr noundef null) #18
+  %15 = call i32 @getPositiveLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %14, ptr noundef nonnull %2, ptr noundef null) #19
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %._crit_edge.i, label %27
 
@@ -14041,7 +14041,7 @@ define dso_local void @blockingGenericZpopCommand(ptr noundef %0, ptr noundef %1
   %13 = sext i32 %4 to i64
   %14 = getelementptr inbounds ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !146
-  %16 = call i32 @getTimeoutFromObjectOrReply(ptr noundef %0, ptr noundef %15, ptr noundef nonnull %10, i32 noundef 0) #18
+  %16 = call i32 @getTimeoutFromObjectOrReply(ptr noundef %0, ptr noundef %15, ptr noundef nonnull %10, i32 noundef 0) #19
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %.preheader, label %.loopexit
 
@@ -14059,12 +14059,12 @@ define dso_local void @blockingGenericZpopCommand(ptr noundef %0, ptr noundef %1
   %20 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !146
   %22 = load ptr, ptr %18, align 8, !tbaa !150
-  %23 = call ptr @lookupKeyWrite(ptr noundef %22, ptr noundef %21) #18
+  %23 = call ptr @lookupKeyWrite(ptr noundef %22, ptr noundef %21) #19
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.critedge, label %25
 
 25:                                               ; preds = %19
-  %26 = call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %23, i32 noundef 3) #18
+  %26 = call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %23, i32 noundef 3) #19
   %.not41 = icmp eq i32 %26, 0
   br i1 %.not41, label %27, label %.loopexit
 
@@ -14080,7 +14080,7 @@ define dso_local void @blockingGenericZpopCommand(ptr noundef %0, ptr noundef %1
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !75
-  %34 = call i64 @lpLength(ptr noundef %33) #18
+  %34 = call i64 @lpLength(ptr noundef %33) #19
   %35 = lshr i64 %34, 1
   %36 = and i64 %35, 4294967295
   br label %zsetLength.exit
@@ -14095,8 +14095,8 @@ define dso_local void @blockingGenericZpopCommand(ptr noundef %0, ptr noundef %1
   br label %zsetLength.exit
 
 44:                                               ; preds = %27
-  call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #18
-  call void @abort() #19
+  call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #19
+  call void @abort() #20
   unreachable
 
 zsetLength.exit:                                  ; preds = %31, %37
@@ -14115,18 +14115,18 @@ zsetLength.exit:                                  ; preds = %31, %37
   %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 472), align 8
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 464), align 8
   %52 = select i1 %49, ptr %50, ptr %51
-  call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %0, i32 noundef 2, ptr noundef %52, ptr noundef %21) #18
+  call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %0, i32 noundef 2, ptr noundef %52, ptr noundef %21) #19
   br label %.loopexit
 
 53:                                               ; preds = %46
   %54 = call i64 @llvm.smin.i64(i64 %5, i64 %.0.i)
-  %55 = call ptr @createStringObjectFromLongLong(i64 noundef %54) #18
+  %55 = call ptr @createStringObjectFromLongLong(i64 noundef %54) #19
   %56 = icmp eq i32 %3, 1
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 472), align 8
   %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 464), align 8
   %59 = select i1 %56, ptr %57, ptr %58
-  call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %0, i32 noundef 3, ptr noundef %59, ptr noundef %21, ptr noundef %55) #18
-  call void @decrRefCount(ptr noundef %55) #18
+  call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %0, i32 noundef 3, ptr noundef %59, ptr noundef %21, ptr noundef %55) #19
+  call void @decrRefCount(ptr noundef %55) #19
   br label %.loopexit
 
 .critedge:                                        ; preds = %zsetLength.exit, %19
@@ -14142,12 +14142,12 @@ zsetLength.exit:                                  ; preds = %31, %37
   br i1 %.not40, label %64, label %63
 
 63:                                               ; preds = %._crit_edge
-  call void @addReplyNullArray(ptr noundef nonnull %0) #18
+  call void @addReplyNullArray(ptr noundef nonnull %0) #19
   br label %.loopexit
 
 64:                                               ; preds = %._crit_edge
   %65 = load i64, ptr %10, align 8, !tbaa !88
-  call void @blockForKeys(ptr noundef nonnull %0, i32 noundef 6, ptr noundef %1, i32 noundef %2, i64 noundef %65, i32 noundef 0) #18
+  call void @blockForKeys(ptr noundef nonnull %0, i32 noundef 6, ptr noundef %1, i32 noundef %2, i64 noundef %65, i32 noundef 0) #19
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %53, %48, %8, %64, %63
@@ -14197,12 +14197,12 @@ define dso_local void @zrandmemberWithCountCommand(ptr noundef %0, i64 noundef %
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !146
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 192), align 8, !tbaa !206
-  %13 = tail call ptr @lookupKeyReadOrReply(ptr noundef %0, ptr noundef %11, ptr noundef %12) #18
+  %13 = tail call ptr @lookupKeyReadOrReply(ptr noundef %0, ptr noundef %11, ptr noundef %12) #19
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %3
-  %16 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %13, i32 noundef 3) #18
+  %16 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %13, i32 noundef 3) #19
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %.loopexit
 
@@ -14218,7 +14218,7 @@ define dso_local void @zrandmemberWithCountCommand(ptr noundef %0, i64 noundef %
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !75
-  %24 = tail call i64 @lpLength(ptr noundef %23) #18
+  %24 = tail call i64 @lpLength(ptr noundef %23) #19
   %25 = lshr i64 %24, 1
   %26 = and i64 %25, 4294967295
   br label %zsetLength.exit
@@ -14233,8 +14233,8 @@ define dso_local void @zrandmemberWithCountCommand(ptr noundef %0, i64 noundef %
   br label %zsetLength.exit
 
 34:                                               ; preds = %17
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 zsetLength.exit:                                  ; preds = %21, %27
@@ -14245,7 +14245,7 @@ zsetLength.exit:                                  ; preds = %21, %27
 
 36:                                               ; preds = %zsetLength.exit
   %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 192), align 8, !tbaa !206
-  tail call void @addReply(ptr noundef nonnull %0, ptr noundef %37) #18
+  tail call void @addReply(ptr noundef nonnull %0, ptr noundef %37) #19
   br label %.loopexit
 
 38:                                               ; preds = %zsetLength.exit
@@ -14268,7 +14268,7 @@ zsetLength.exit:                                  ; preds = %21, %27
 
 47:                                               ; preds = %42, %41
   %.0.sink = phi i64 [ %.0, %41 ], [ %spec.select, %42 ]
-  tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %.0.sink) #18
+  tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %.0.sink) #19
   %48 = load i32, ptr %13, align 8
   %49 = lshr i32 %48, 4
   %50 = and i32 %49, 15
@@ -14292,8 +14292,8 @@ zsetLength.exit:                                  ; preds = %21, %27
 
 58:                                               ; preds = %56
   %59 = load ptr, ptr %53, align 8, !tbaa !125
-  %60 = tail call ptr @dictGetFairRandomKey(ptr noundef %59) #18
-  %61 = tail call ptr @dictGetKey(ptr noundef %60) #18
+  %60 = tail call ptr @dictGetFairRandomKey(ptr noundef %59) #19
+  %61 = tail call ptr @dictGetKey(ptr noundef %60) #19
   br i1 %.not169, label %.critedge, label %62
 
 62:                                               ; preds = %58
@@ -14302,7 +14302,7 @@ zsetLength.exit:                                  ; preds = %21, %27
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %62
-  tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 2) #18
+  tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 2) #19
   br label %66
 
 66:                                               ; preds = %65, %62
@@ -14348,10 +14348,10 @@ zsetLength.exit:                                  ; preds = %21, %27
 
 89:                                               ; preds = %86, %82, %78, %74, %71, %66
   %.0.i179 = phi i64 [ %73, %71 ], [ %77, %74 ], [ %81, %78 ], [ %85, %82 ], [ %88, %86 ], [ 0, %66 ]
-  tail call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %61, i64 noundef %.0.i179) #18
-  %90 = tail call ptr @dictGetVal(ptr noundef %60) #18
+  tail call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %61, i64 noundef %.0.i179) #19
+  %90 = tail call ptr @dictGetVal(ptr noundef %60) #19
   %91 = load double, ptr %90, align 8, !tbaa !5
-  tail call void @addReplyDouble(ptr noundef nonnull %0, double noundef %91) #18
+  tail call void @addReplyDouble(ptr noundef nonnull %0, double noundef %91) #19
   br label %114
 
 .critedge:                                        ; preds = %58
@@ -14397,7 +14397,7 @@ zsetLength.exit:                                  ; preds = %21, %27
 
 sdslen.exit181:                                   ; preds = %.critedge, %96, %99, %103, %107, %111
   %.0.i180 = phi i64 [ %98, %96 ], [ %102, %99 ], [ %106, %103 ], [ %110, %107 ], [ %113, %111 ], [ 0, %.critedge ]
-  tail call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %61, i64 noundef %.0.i180) #18
+  tail call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %61, i64 noundef %.0.i180) #19
   br label %114
 
 114:                                              ; preds = %sdslen.exit181, %89
@@ -14409,11 +14409,11 @@ sdslen.exit181:                                   ; preds = %.critedge, %96, %99
 117:                                              ; preds = %47
   %118 = tail call i64 @llvm.umin.i64(i64 %.0, i64 1000)
   %119 = mul nuw nsw i64 %118, 24
-  %120 = tail call noalias ptr @zmalloc(i64 noundef %119) #17
+  %120 = tail call noalias ptr @zmalloc(i64 noundef %119) #18
   br i1 %.not169, label %123, label %121
 
 121:                                              ; preds = %117
-  %122 = tail call noalias ptr @zmalloc(i64 noundef %119) #17
+  %122 = tail call noalias ptr @zmalloc(i64 noundef %119) #18
   br label %123
 
 123:                                              ; preds = %121, %117
@@ -14428,7 +14428,7 @@ sdslen.exit181:                                   ; preds = %.critedge, %96, %99
   %128 = sub i64 %.2, %127
   %129 = load ptr, ptr %124, align 8, !tbaa !75
   %130 = trunc nuw nsw i64 %127 to i32
-  tail call void @lpRandomPairs(ptr noundef %129, i32 noundef %130, ptr noundef %120, ptr noundef %.0153, i32 noundef 2) #18
+  tail call void @lpRandomPairs(ptr noundef %129, i32 noundef %130, ptr noundef %120, ptr noundef %.0153, i32 noundef 2) #19
   tail call fastcc void @zrandmemberReplyWithListpack(ptr noundef nonnull %0, i32 noundef %130, ptr noundef %120, ptr noundef %.0153)
   %131 = load i64, ptr %125, align 8, !tbaa !220
   %132 = and i64 %131, 1024
@@ -14438,8 +14438,8 @@ sdslen.exit181:                                   ; preds = %.critedge, %96, %99
   br i1 %or.cond3, label %126, label %135, !llvm.loop !221
 
 135:                                              ; preds = %126
-  tail call void @zfree(ptr noundef %120) #18
-  tail call void @zfree(ptr noundef %.0153) #18
+  tail call void @zfree(ptr noundef %120) #19
+  tail call void @zfree(ptr noundef %.0153) #19
   br label %.loopexit
 
 136:                                              ; preds = %38
@@ -14470,7 +14470,7 @@ sdslen.exit181:                                   ; preds = %.critedge, %96, %99
 
 149:                                              ; preds = %144, %136
   %.sink = phi i64 [ %143, %136 ], [ %spec.select230, %144 ]
-  tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %.sink) #18
+  tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %.sink) #19
   %.not163 = icmp ult i64 %1, %.0.i
   br i1 %.not163, label %199, label %.preheader197
 
@@ -14506,7 +14506,7 @@ sdslen.exit181:                                   ; preds = %.critedge, %96, %99
   br i1 %.not14.i185.us, label %165, label %163
 
 163:                                              ; preds = %162
-  %164 = call ptr @sdsdup(ptr noundef nonnull %159) #18
+  %164 = call ptr @sdsdup(ptr noundef nonnull %159) #19
   br label %zuiNewSdsFromValue.exit187.us
 
 165:                                              ; preds = %162
@@ -14517,17 +14517,17 @@ sdslen.exit181:                                   ; preds = %.critedge, %96, %99
 167:                                              ; preds = %165
   %168 = load i32, ptr %154, align 8, !tbaa !167
   %169 = zext i32 %168 to i64
-  %170 = call ptr @sdsnewlen(ptr noundef nonnull %166, i64 noundef %169) #18
+  %170 = call ptr @sdsnewlen(ptr noundef nonnull %166, i64 noundef %169) #19
   br label %zuiNewSdsFromValue.exit187.us
 
 171:                                              ; preds = %165
   %172 = load i64, ptr %155, align 8, !tbaa !164
-  %173 = call ptr @sdsfromlonglong(i64 noundef %172) #18
+  %173 = call ptr @sdsfromlonglong(i64 noundef %172) #19
   br label %zuiNewSdsFromValue.exit187.us
 
 zuiNewSdsFromValue.exit187.us:                    ; preds = %171, %167, %163, %160
   %.0.i184.us = phi ptr [ %159, %160 ], [ %164, %163 ], [ %170, %167 ], [ %173, %171 ]
-  call void @addReplyBulkSds(ptr noundef nonnull %0, ptr noundef %.0.i184.us) #18
+  call void @addReplyBulkSds(ptr noundef nonnull %0, ptr noundef %.0.i184.us) #19
   %174 = call i32 @zuiNext(ptr noundef nonnull %4, ptr noundef nonnull %5)
   %.not168.us = icmp eq i32 %174, 0
   br i1 %.not168.us, label %._crit_edge, label %.critedge174.us, !llvm.loop !222
@@ -14538,7 +14538,7 @@ zuiNewSdsFromValue.exit187.us:                    ; preds = %171, %167, %163, %1
   br i1 %176, label %177, label %178
 
 177:                                              ; preds = %.lr.ph.split
-  call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 2) #18
+  call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 2) #19
   br label %178
 
 178:                                              ; preds = %177, %.lr.ph.split
@@ -14559,7 +14559,7 @@ zuiNewSdsFromValue.exit187.us:                    ; preds = %171, %167, %163, %1
   br i1 %.not14.i, label %187, label %185
 
 185:                                              ; preds = %184
-  %186 = call ptr @sdsdup(ptr noundef nonnull %181) #18
+  %186 = call ptr @sdsdup(ptr noundef nonnull %181) #19
   br label %196
 
 187:                                              ; preds = %184
@@ -14570,19 +14570,19 @@ zuiNewSdsFromValue.exit187.us:                    ; preds = %171, %167, %163, %1
 189:                                              ; preds = %187
   %190 = load i32, ptr %154, align 8, !tbaa !167
   %191 = zext i32 %190 to i64
-  %192 = call ptr @sdsnewlen(ptr noundef nonnull %188, i64 noundef %191) #18
+  %192 = call ptr @sdsnewlen(ptr noundef nonnull %188, i64 noundef %191) #19
   br label %196
 
 193:                                              ; preds = %187
   %194 = load i64, ptr %155, align 8, !tbaa !164
-  %195 = call ptr @sdsfromlonglong(i64 noundef %194) #18
+  %195 = call ptr @sdsfromlonglong(i64 noundef %194) #19
   br label %196
 
 196:                                              ; preds = %193, %189, %185, %182
   %.0.i182 = phi ptr [ %181, %182 ], [ %186, %185 ], [ %192, %189 ], [ %195, %193 ]
-  call void @addReplyBulkSds(ptr noundef nonnull %0, ptr noundef %.0.i182) #18
+  call void @addReplyBulkSds(ptr noundef nonnull %0, ptr noundef %.0.i182) #19
   %197 = load double, ptr %156, align 8, !tbaa !165
-  call void @addReplyDouble(ptr noundef nonnull %0, double noundef %197) #18
+  call void @addReplyDouble(ptr noundef nonnull %0, double noundef %197) #19
   %198 = call i32 @zuiNext(ptr noundef nonnull %4, ptr noundef nonnull %5)
   %.not168 = icmp eq i32 %198, 0
   br i1 %.not168, label %._crit_edge, label %.lr.ph.split, !llvm.loop !222
@@ -14595,11 +14595,11 @@ zuiNewSdsFromValue.exit187.us:                    ; preds = %171, %167, %163, %1
 
 203:                                              ; preds = %199
   %204 = mul i64 %1, 24
-  %205 = tail call noalias ptr @zmalloc(i64 noundef %204) #17
+  %205 = tail call noalias ptr @zmalloc(i64 noundef %204) #18
   br i1 %.not162, label %208, label %206
 
 206:                                              ; preds = %203
-  %207 = tail call noalias ptr @zmalloc(i64 noundef %204) #17
+  %207 = tail call noalias ptr @zmalloc(i64 noundef %204) #18
   br label %208
 
 208:                                              ; preds = %206, %203
@@ -14607,20 +14607,20 @@ zuiNewSdsFromValue.exit187.us:                    ; preds = %171, %167, %163, %1
   %209 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %210 = load ptr, ptr %209, align 8, !tbaa !75
   %211 = trunc i64 %1 to i32
-  %212 = tail call i32 @lpRandomPairsUnique(ptr noundef %210, i32 noundef %211, ptr noundef %205, ptr noundef %.0154, i32 noundef 2) #18
+  %212 = tail call i32 @lpRandomPairsUnique(ptr noundef %210, i32 noundef %211, ptr noundef %205, ptr noundef %.0154, i32 noundef 2) #19
   %213 = zext i32 %212 to i64
   %214 = icmp eq i64 %1, %213
   br i1 %214, label %216, label %215, !prof !25
 
 215:                                              ; preds = %208
-  tail call void @_serverAssert(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.1, i32 noundef 4302) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.1, i32 noundef 4302) #19
+  tail call void @abort() #20
   unreachable
 
 216:                                              ; preds = %208
   tail call fastcc void @zrandmemberReplyWithListpack(ptr noundef nonnull %0, i32 noundef %211, ptr noundef %205, ptr noundef %.0154)
-  tail call void @zfree(ptr noundef %205) #18
-  tail call void @zfree(ptr noundef %.0154) #18
+  tail call void @zfree(ptr noundef %205) #19
+  tail call void @zfree(ptr noundef %.0154) #19
   br label %._crit_edge
 
 217:                                              ; preds = %199
@@ -14629,8 +14629,8 @@ zuiNewSdsFromValue.exit187.us:                    ; preds = %171, %167, %163, %1
   br i1 %219, label %220, label %282
 
 220:                                              ; preds = %217
-  %221 = tail call ptr @dictCreate(ptr noundef nonnull @sdsReplyDictType) #18
-  %222 = tail call i32 @dictExpand(ptr noundef %221, i64 noundef %.0.i) #18
+  %221 = tail call ptr @dictCreate(ptr noundef nonnull @sdsReplyDictType) #19
+  %222 = tail call i32 @dictExpand(ptr noundef %221, i64 noundef %.0.i) #19
   %223 = call i32 @zuiNext(ptr noundef nonnull %4, ptr noundef nonnull %5)
   %.not165200 = icmp eq i32 %223, 0
   br i1 %.not165200, label %._crit_edge203, label %.lr.ph202
@@ -14661,7 +14661,7 @@ zuiNewSdsFromValue.exit187.us:                    ; preds = %171, %167, %163, %1
   br i1 %.not14.i190, label %238, label %236
 
 236:                                              ; preds = %235
-  %237 = call ptr @sdsdup(ptr noundef nonnull %232) #18
+  %237 = call ptr @sdsdup(ptr noundef nonnull %232) #19
   br label %zuiNewSdsFromValue.exit192
 
 238:                                              ; preds = %235
@@ -14672,23 +14672,23 @@ zuiNewSdsFromValue.exit187.us:                    ; preds = %171, %167, %163, %1
 240:                                              ; preds = %238
   %241 = load i32, ptr %226, align 8, !tbaa !167
   %242 = zext i32 %241 to i64
-  %243 = call ptr @sdsnewlen(ptr noundef nonnull %239, i64 noundef %242) #18
+  %243 = call ptr @sdsnewlen(ptr noundef nonnull %239, i64 noundef %242) #19
   br label %zuiNewSdsFromValue.exit192
 
 244:                                              ; preds = %238
   %245 = load i64, ptr %227, align 8, !tbaa !164
-  %246 = call ptr @sdsfromlonglong(i64 noundef %245) #18
+  %246 = call ptr @sdsfromlonglong(i64 noundef %245) #19
   br label %zuiNewSdsFromValue.exit192
 
 zuiNewSdsFromValue.exit192:                       ; preds = %233, %236, %240, %244
   %.0.i189 = phi ptr [ %232, %233 ], [ %237, %236 ], [ %243, %240 ], [ %246, %244 ]
-  %247 = call ptr @dictAddRaw(ptr noundef %221, ptr noundef %.0.i189, ptr noundef null) #18
+  %247 = call ptr @dictAddRaw(ptr noundef %221, ptr noundef %.0.i189, ptr noundef null) #19
   %.not167 = icmp eq ptr %247, null
   br i1 %.not167, label %248, label %249, !prof !40
 
 248:                                              ; preds = %zuiNewSdsFromValue.exit192
-  call void @_serverAssert(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.1, i32 noundef 4327) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.1, i32 noundef 4327) #19
+  call void @abort() #20
   unreachable
 
 249:                                              ; preds = %zuiNewSdsFromValue.exit192
@@ -14696,7 +14696,7 @@ zuiNewSdsFromValue.exit192:                       ; preds = %233, %236, %240, %2
 
 250:                                              ; preds = %249
   %251 = load double, ptr %228, align 8, !tbaa !165
-  call void @dictSetDoubleVal(ptr noundef nonnull %247, double noundef %251) #18
+  call void @dictSetDoubleVal(ptr noundef nonnull %247, double noundef %251) #19
   br label %252
 
 252:                                              ; preds = %250, %249
@@ -14718,25 +14718,25 @@ zuiNewSdsFromValue.exit192:                       ; preds = %233, %236, %240, %2
   br i1 %260, label %.lr.ph205, label %._crit_edge206
 
 261:                                              ; preds = %._crit_edge203
-  call void @_serverAssert(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.1, i32 noundef 4331) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.1, i32 noundef 4331) #19
+  call void @abort() #20
   unreachable
 
 .lr.ph205:                                        ; preds = %.preheader, %.lr.ph205
   %.0148204 = phi i64 [ %266, %.lr.ph205 ], [ %.0.i, %.preheader ]
-  %262 = call ptr @dictGetFairRandomKey(ptr noundef nonnull %221) #18
-  %263 = call ptr @dictGetKey(ptr noundef %262) #18
-  %264 = call ptr @dictUnlink(ptr noundef nonnull %221, ptr noundef %263) #18
-  %265 = call ptr @dictGetKey(ptr noundef %262) #18
-  call void @sdsfree(ptr noundef %265) #18
-  call void @dictFreeUnlinkedEntry(ptr noundef nonnull %221, ptr noundef %262) #18
+  %262 = call ptr @dictGetFairRandomKey(ptr noundef nonnull %221) #19
+  %263 = call ptr @dictGetKey(ptr noundef %262) #19
+  %264 = call ptr @dictUnlink(ptr noundef nonnull %221, ptr noundef %263) #19
+  %265 = call ptr @dictGetKey(ptr noundef %262) #19
+  call void @sdsfree(ptr noundef %265) #19
+  call void @dictFreeUnlinkedEntry(ptr noundef nonnull %221, ptr noundef %262) #19
   %266 = add i64 %.0148204, -1
   %267 = icmp ugt i64 %266, %.0
   br i1 %267, label %.lr.ph205, label %._crit_edge206, !llvm.loop !224
 
 ._crit_edge206:                                   ; preds = %.lr.ph205, %.preheader
-  %268 = call ptr @dictGetIterator(ptr noundef nonnull %221) #18
-  %269 = call ptr @dictNext(ptr noundef %268) #18
+  %268 = call ptr @dictGetIterator(ptr noundef nonnull %221) #19
+  %269 = call ptr @dictNext(ptr noundef %268) #19
   %.not166207 = icmp eq ptr %269, null
   br i1 %.not166207, label %._crit_edge210, label %.lr.ph209
 
@@ -14746,9 +14746,9 @@ zuiNewSdsFromValue.exit192:                       ; preds = %233, %236, %240, %2
 
 .critedge176.us:                                  ; preds = %.lr.ph209, %.critedge176.us
   %271 = phi ptr [ %273, %.critedge176.us ], [ %269, %.lr.ph209 ]
-  %272 = call ptr @dictGetKey(ptr noundef nonnull %271) #18
-  call void @addReplyBulkSds(ptr noundef nonnull %0, ptr noundef %272) #18
-  %273 = call ptr @dictNext(ptr noundef %268) #18
+  %272 = call ptr @dictGetKey(ptr noundef nonnull %271) #19
+  call void @addReplyBulkSds(ptr noundef nonnull %0, ptr noundef %272) #19
+  %273 = call ptr @dictNext(ptr noundef %268) #19
   %.not166.us = icmp eq ptr %273, null
   br i1 %.not166.us, label %._crit_edge210, label %.critedge176.us, !llvm.loop !225
 
@@ -14759,25 +14759,25 @@ zuiNewSdsFromValue.exit192:                       ; preds = %233, %236, %240, %2
   br i1 %276, label %277, label %278
 
 277:                                              ; preds = %.lr.ph209.split
-  call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 2) #18
+  call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 2) #19
   br label %278
 
 278:                                              ; preds = %.lr.ph209.split, %277
-  %279 = call ptr @dictGetKey(ptr noundef nonnull %274) #18
-  call void @addReplyBulkSds(ptr noundef nonnull %0, ptr noundef %279) #18
-  %280 = call double @dictGetDoubleVal(ptr noundef nonnull %274) #18
-  call void @addReplyDouble(ptr noundef nonnull %0, double noundef %280) #18
-  %281 = call ptr @dictNext(ptr noundef %268) #18
+  %279 = call ptr @dictGetKey(ptr noundef nonnull %274) #19
+  call void @addReplyBulkSds(ptr noundef nonnull %0, ptr noundef %279) #19
+  %280 = call double @dictGetDoubleVal(ptr noundef nonnull %274) #19
+  call void @addReplyDouble(ptr noundef nonnull %0, double noundef %280) #19
+  %281 = call ptr @dictNext(ptr noundef %268) #19
   %.not166 = icmp eq ptr %281, null
   br i1 %.not166, label %._crit_edge210, label %.lr.ph209.split, !llvm.loop !225
 
 ._crit_edge210:                                   ; preds = %278, %.critedge176.us, %._crit_edge206
-  call void @dictReleaseIterator(ptr noundef %268) #18
+  call void @dictReleaseIterator(ptr noundef %268) #19
   br label %.loopexit232
 
 282:                                              ; preds = %217
-  %283 = tail call ptr @dictCreate(ptr noundef nonnull @hashDictType) #18
-  %284 = tail call i32 @dictExpand(ptr noundef %283, i64 noundef %1) #18
+  %283 = tail call ptr @dictCreate(ptr noundef nonnull @hashDictType) #19
+  %284 = tail call i32 @dictExpand(ptr noundef %283, i64 noundef %1) #19
   %. = select i1 %.not162, ptr null, ptr %7
   %285 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %286 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -14796,22 +14796,22 @@ zuiNewSdsFromValue.exit192:                       ; preds = %233, %236, %240, %2
 290:                                              ; preds = %288
   %291 = load i32, ptr %285, align 8, !tbaa !134
   %292 = zext i32 %291 to i64
-  %293 = call ptr @sdsnewlen(ptr noundef nonnull %289, i64 noundef %292) #18
+  %293 = call ptr @sdsnewlen(ptr noundef nonnull %289, i64 noundef %292) #19
   br label %zsetSdsFromListpackEntry.exit
 
 294:                                              ; preds = %288
   %295 = load i64, ptr %286, align 8, !tbaa !135
-  %296 = call ptr @sdsfromlonglong(i64 noundef %295) #18
+  %296 = call ptr @sdsfromlonglong(i64 noundef %295) #19
   br label %zsetSdsFromListpackEntry.exit
 
 zsetSdsFromListpackEntry.exit:                    ; preds = %290, %294
   %297 = phi ptr [ %293, %290 ], [ %296, %294 ]
-  %298 = call i32 @dictAdd(ptr noundef %283, ptr noundef %297, ptr noundef null) #18
+  %298 = call i32 @dictAdd(ptr noundef %283, ptr noundef %297, ptr noundef null) #19
   %.not164 = icmp eq i32 %298, 0
   br i1 %.not164, label %300, label %299
 
 299:                                              ; preds = %zsetSdsFromListpackEntry.exit
-  call void @sdsfree(ptr noundef %297) #18
+  call void @sdsfree(ptr noundef %297) #19
   br label %zsetReplyFromListpackEntry.exit196, !llvm.loop !226
 
 300:                                              ; preds = %zsetSdsFromListpackEntry.exit
@@ -14824,7 +14824,7 @@ zsetSdsFromListpackEntry.exit:                    ; preds = %290, %294
   br i1 %304, label %305, label %306
 
 305:                                              ; preds = %302
-  call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 2) #18
+  call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 2) #19
   br label %306
 
 306:                                              ; preds = %305, %302
@@ -14835,17 +14835,17 @@ zsetSdsFromListpackEntry.exit:                    ; preds = %290, %294
 308:                                              ; preds = %306
   %309 = load i32, ptr %285, align 8, !tbaa !134
   %310 = zext i32 %309 to i64
-  call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %307, i64 noundef %310) #18
+  call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %307, i64 noundef %310) #19
   br label %zsetReplyFromListpackEntry.exit
 
 311:                                              ; preds = %306
   %312 = load i64, ptr %286, align 8, !tbaa !135
-  call void @addReplyBulkLongLong(ptr noundef nonnull %0, i64 noundef %312) #18
+  call void @addReplyBulkLongLong(ptr noundef nonnull %0, i64 noundef %312) #19
   br label %zsetReplyFromListpackEntry.exit
 
 zsetReplyFromListpackEntry.exit:                  ; preds = %311, %308
   %313 = load double, ptr %7, align 8, !tbaa !5
-  call void @addReplyDouble(ptr noundef nonnull %0, double noundef %313) #18
+  call void @addReplyDouble(ptr noundef nonnull %0, double noundef %313) #19
   br label %zsetReplyFromListpackEntry.exit196
 
 .critedge178:                                     ; preds = %300
@@ -14856,12 +14856,12 @@ zsetReplyFromListpackEntry.exit:                  ; preds = %311, %308
 315:                                              ; preds = %.critedge178
   %316 = load i32, ptr %285, align 8, !tbaa !134
   %317 = zext i32 %316 to i64
-  call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %314, i64 noundef %317) #18
+  call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %314, i64 noundef %317) #19
   br label %zsetReplyFromListpackEntry.exit196
 
 318:                                              ; preds = %.critedge178
   %319 = load i64, ptr %286, align 8, !tbaa !135
-  call void @addReplyBulkLongLong(ptr noundef nonnull %0, i64 noundef %319) #18
+  call void @addReplyBulkLongLong(ptr noundef nonnull %0, i64 noundef %319) #19
   br label %zsetReplyFromListpackEntry.exit196
 
 zsetReplyFromListpackEntry.exit196:               ; preds = %318, %315, %zsetReplyFromListpackEntry.exit, %299
@@ -14873,7 +14873,7 @@ zsetReplyFromListpackEntry.exit196:               ; preds = %318, %315, %zsetRep
 
 .loopexit232:                                     ; preds = %zsetReplyFromListpackEntry.exit196, %._crit_edge210
   %.sink229 = phi ptr [ %221, %._crit_edge210 ], [ %283, %zsetReplyFromListpackEntry.exit196 ]
-  call void @dictRelease(ptr noundef %.sink229) #18
+  call void @dictRelease(ptr noundef %.sink229) #19
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %196, %zuiNewSdsFromValue.exit187.us, %.preheader197, %.loopexit232, %216
@@ -14911,13 +14911,13 @@ define internal fastcc void @zrandmemberReplyWithListpack(ptr noundef %0, i32 no
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !134
   %13 = zext i32 %12 to i64
-  tail call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %9, i64 noundef %13) #18
+  tail call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %9, i64 noundef %13) #19
   br label %17
 
 14:                                               ; preds = %.lr.ph.split.us
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !135
-  tail call void @addReplyBulkLongLong(ptr noundef %0, i64 noundef %16) #18
+  tail call void @addReplyBulkLongLong(ptr noundef %0, i64 noundef %16) #19
   br label %17
 
 17:                                               ; preds = %14, %10
@@ -14935,7 +14935,7 @@ define internal fastcc void @zrandmemberReplyWithListpack(ptr noundef %0, i32 no
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %.lr.ph.split
-  call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 2) #18
+  call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 2) #19
   br label %22
 
 22:                                               ; preds = %21, %.lr.ph.split
@@ -14948,13 +14948,13 @@ define internal fastcc void @zrandmemberReplyWithListpack(ptr noundef %0, i32 no
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !134
   %28 = zext i32 %27 to i64
-  call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %24, i64 noundef %28) #18
+  call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %24, i64 noundef %28) #19
   br label %32
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %31 = load i64, ptr %30, align 8, !tbaa !135
-  call void @addReplyBulkLongLong(ptr noundef nonnull %0, i64 noundef %31) #18
+  call void @addReplyBulkLongLong(ptr noundef nonnull %0, i64 noundef %31) #19
   br label %32
 
 32:                                               ; preds = %29, %25
@@ -14972,7 +14972,7 @@ define internal fastcc void @zrandmemberReplyWithListpack(ptr noundef %0, i32 no
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull readonly align 1 %34, i64 %38, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 %38
   store i8 0, ptr %39, align 1, !tbaa !77
-  %40 = call double @fast_float_strtod(ptr noundef nonnull %5, ptr noundef null) #18
+  %40 = call double @fast_float_strtod(ptr noundef nonnull %5, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %45
 
@@ -14984,7 +14984,7 @@ define internal fastcc void @zrandmemberReplyWithListpack(ptr noundef %0, i32 no
 
 45:                                               ; preds = %41, %35
   %.sink = phi double [ %44, %41 ], [ %40, %35 ]
-  call void @addReplyDouble(ptr noundef nonnull %0, double noundef %.sink) #18
+  call void @addReplyDouble(ptr noundef nonnull %0, double noundef %.sink) #19
   %46 = add nuw nsw i64 %.031, 1
   %exitcond.not = icmp eq i64 %46, %6
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !227
@@ -15014,7 +15014,7 @@ define dso_local void @zrandmemberCommand(ptr noundef %0) local_unnamed_addr #0 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !146
-  %12 = call i32 @getRangeLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %11, i64 noundef -9223372036854775807, i64 noundef 9223372036854775807, ptr noundef nonnull %2, ptr noundef null) #18
+  %12 = call i32 @getRangeLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %11, i64 noundef -9223372036854775807, i64 noundef 9223372036854775807, ptr noundef nonnull %2, ptr noundef null) #19
   %.not21 = icmp eq i32 %12, 0
   br i1 %.not21, label %13, label %zsetReplyFromListpackEntry.exit
 
@@ -15037,13 +15037,13 @@ define dso_local void @zrandmemberCommand(ptr noundef %0) local_unnamed_addr #0 
   %21 = load ptr, ptr %20, align 8, !tbaa !146
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !75
-  %24 = call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.48) #20
+  %24 = call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.48) #21
   %.not22 = icmp eq i32 %24, 0
   br i1 %.not22, label %27, label %25
 
 25:                                               ; preds = %18, %13
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !148
-  call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %26) #18
+  call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %26) #19
   br label %zsetReplyFromListpackEntry.exit
 
 27:                                               ; preds = %18
@@ -15053,7 +15053,7 @@ define dso_local void @zrandmemberCommand(ptr noundef %0) local_unnamed_addr #0 
   br i1 %or.cond, label %30, label %31
 
 30:                                               ; preds = %27
-  call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.73) #18
+  call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.73) #19
   br label %zsetReplyFromListpackEntry.exit
 
 31:                                               ; preds = %._crit_edge, %27
@@ -15070,12 +15070,12 @@ define dso_local void @zrandmemberCommand(ptr noundef %0) local_unnamed_addr #0 
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !146
-  %41 = tail call ptr @lookupKeyReadOrReply(ptr noundef nonnull %0, ptr noundef %35, ptr noundef %40) #18
+  %41 = tail call ptr @lookupKeyReadOrReply(ptr noundef nonnull %0, ptr noundef %35, ptr noundef %40) #19
   %42 = icmp eq ptr %41, null
   br i1 %42, label %zsetReplyFromListpackEntry.exit, label %43
 
 43:                                               ; preds = %33
-  %44 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %41, i32 noundef 3) #18
+  %44 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %41, i32 noundef 3) #19
   %.not = icmp eq i32 %44, 0
   br i1 %.not, label %45, label %zsetReplyFromListpackEntry.exit
 
@@ -15091,7 +15091,7 @@ define dso_local void @zrandmemberCommand(ptr noundef %0) local_unnamed_addr #0 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !75
-  %52 = tail call i64 @lpLength(ptr noundef %51) #18
+  %52 = tail call i64 @lpLength(ptr noundef %51) #19
   %53 = lshr i64 %52, 1
   %54 = and i64 %53, 4294967295
   br label %zsetLength.exit
@@ -15106,8 +15106,8 @@ define dso_local void @zrandmemberCommand(ptr noundef %0) local_unnamed_addr #0 
   br label %zsetLength.exit
 
 62:                                               ; preds = %45
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #18
-  tail call void @abort() #19
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.9) #19
+  tail call void @abort() #20
   unreachable
 
 zsetLength.exit:                                  ; preds = %49, %55
@@ -15121,13 +15121,13 @@ zsetLength.exit:                                  ; preds = %49, %55
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %66 = load i32, ptr %65, align 8, !tbaa !134
   %67 = zext i32 %66 to i64
-  call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %63, i64 noundef %67) #18
+  call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %63, i64 noundef %67) #19
   br label %zsetReplyFromListpackEntry.exit
 
 68:                                               ; preds = %zsetLength.exit
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %70 = load i64, ptr %69, align 8, !tbaa !135
-  call void @addReplyBulkLongLong(ptr noundef nonnull %0, i64 noundef %70) #18
+  call void @addReplyBulkLongLong(ptr noundef nonnull %0, i64 noundef %70) #19
   br label %zsetReplyFromListpackEntry.exit
 
 zsetReplyFromListpackEntry.exit:                  ; preds = %68, %64, %33, %43, %9, %31, %30, %25
@@ -15151,7 +15151,7 @@ define dso_local void @zmpopGenericCommand(ptr noundef %0, i32 noundef %1, i32 n
   %8 = sext i32 %1 to i64
   %9 = getelementptr inbounds ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !146
-  %11 = call i32 @getRangeLongFromObjectOrReply(ptr noundef %0, ptr noundef %10, i64 noundef 1, i64 noundef 9223372036854775807, ptr noundef nonnull %4, ptr noundef nonnull @.str.74) #18
+  %11 = call i32 @getRangeLongFromObjectOrReply(ptr noundef %0, ptr noundef %10, i64 noundef 1, i64 noundef 9223372036854775807, ptr noundef nonnull %4, ptr noundef nonnull @.str.74) #19
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %.loopexit
 
@@ -15167,7 +15167,7 @@ define dso_local void @zmpopGenericCommand(ptr noundef %0, i32 noundef %1, i32 n
 
 19:                                               ; preds = %12
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !148
-  call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %20) #18
+  call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %20) #19
   br label %.loopexit
 
 21:                                               ; preds = %12
@@ -15176,18 +15176,18 @@ define dso_local void @zmpopGenericCommand(ptr noundef %0, i32 noundef %1, i32 n
   %24 = load ptr, ptr %23, align 8, !tbaa !146
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !75
-  %27 = call i32 @strcasecmp(ptr noundef %26, ptr noundef nonnull @.str.75) #20
+  %27 = call i32 @strcasecmp(ptr noundef %26, ptr noundef nonnull @.str.75) #21
   %.not41 = icmp eq i32 %27, 0
   br i1 %.not41, label %32, label %28
 
 28:                                               ; preds = %21
-  %29 = call i32 @strcasecmp(ptr noundef %26, ptr noundef nonnull @.str.76) #20
+  %29 = call i32 @strcasecmp(ptr noundef %26, ptr noundef nonnull @.str.76) #21
   %.not42 = icmp eq i32 %29, 0
   br i1 %.not42, label %32, label %30
 
 30:                                               ; preds = %28
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !148
-  call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %31) #18
+  call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %31) #19
   br label %.loopexit
 
 32:                                               ; preds = %28, %21
@@ -15215,7 +15215,7 @@ define dso_local void @zmpopGenericCommand(ptr noundef %0, i32 noundef %1, i32 n
   %44 = load ptr, ptr %43, align 8, !tbaa !146
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !75
-  %47 = call i32 @strcasecmp(ptr noundef %46, ptr noundef nonnull @.str.77) #20
+  %47 = call i32 @strcasecmp(ptr noundef %46, ptr noundef nonnull @.str.77) #21
   %48 = icmp eq i32 %47, 0
   %49 = icmp ne i32 %34, %.neg
   %or.cond = and i1 %49, %48
@@ -15224,13 +15224,13 @@ define dso_local void @zmpopGenericCommand(ptr noundef %0, i32 noundef %1, i32 n
 50:                                               ; preds = %40
   %51 = getelementptr i8, ptr %43, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !146
-  %53 = call i32 @getRangeLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %52, i64 noundef 1, i64 noundef 9223372036854775807, ptr noundef nonnull %5, ptr noundef nonnull @.str.78) #18
+  %53 = call i32 @getRangeLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %52, i64 noundef 1, i64 noundef 9223372036854775807, ptr noundef nonnull %5, ptr noundef nonnull @.str.78) #19
   %.not44 = icmp eq i32 %53, 0
   br i1 %.not44, label %33, label %.loopexit, !llvm.loop !228
 
 .critedge:                                        ; preds = %40, %39
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !148
-  call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %54) #18
+  call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %54) #19
   br label %.loopexit
 
 55:                                               ; preds = %33
@@ -15301,13 +15301,13 @@ define internal void @zrangeResultBeginClient(ptr noundef captures(none) initial
 
 ._crit_edge:                                      ; preds = %4, %7
   %.0 = phi i64 [ %spec.select, %7 ], [ %1, %4 ]
-  tail call void @addReplyArrayLen(ptr noundef %.pre, i64 noundef %.0) #18
+  tail call void @addReplyArrayLen(ptr noundef %.pre, i64 noundef %.0) #19
   br label %16
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !194
-  %15 = tail call ptr @addReplyDeferredLen(ptr noundef %14) #18
+  %15 = tail call ptr @addReplyDeferredLen(ptr noundef %14) #19
   br label %16
 
 16:                                               ; preds = %12, %._crit_edge
@@ -15342,7 +15342,7 @@ define internal void @zrangeResultFinalizeClient(ptr noundef readonly captures(n
 
 ._crit_edge:                                      ; preds = %5, %8
   %.0 = phi i64 [ %spec.select, %8 ], [ %1, %5 ]
-  tail call void @setDeferredArrayLen(ptr noundef %.pre, ptr noundef nonnull %4, i64 noundef %.0) #18
+  tail call void @setDeferredArrayLen(ptr noundef %.pre, ptr noundef nonnull %4, i64 noundef %.0) #19
   br label %13
 
 13:                                               ; preds = %2, %._crit_edge
@@ -15359,13 +15359,13 @@ define internal void @zrangeResultEmitCBufferToClient(ptr noundef readonly captu
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !194
-  tail call void @addReplyArrayLen(ptr noundef %9, i64 noundef 2) #18
+  tail call void @addReplyArrayLen(ptr noundef %9, i64 noundef 2) #19
   br label %10
 
 10:                                               ; preds = %7, %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !194
-  tail call void @addReplyBulkCBuffer(ptr noundef %12, ptr noundef %1, i64 noundef %2) #18
+  tail call void @addReplyBulkCBuffer(ptr noundef %12, ptr noundef %1, i64 noundef %2) #19
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i32, ptr %13, align 8, !tbaa !204
   %.not7 = icmp eq i32 %14, 0
@@ -15373,7 +15373,7 @@ define internal void @zrangeResultEmitCBufferToClient(ptr noundef readonly captu
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %11, align 8, !tbaa !194
-  tail call void @addReplyDouble(ptr noundef %16, double noundef %3) #18
+  tail call void @addReplyDouble(ptr noundef %16, double noundef %3) #19
   br label %17
 
 17:                                               ; preds = %15, %10
@@ -15390,13 +15390,13 @@ define internal void @zrangeResultEmitLongLongToClient(ptr noundef readonly capt
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !194
-  tail call void @addReplyArrayLen(ptr noundef %8, i64 noundef 2) #18
+  tail call void @addReplyArrayLen(ptr noundef %8, i64 noundef 2) #19
   br label %9
 
 9:                                                ; preds = %6, %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !194
-  tail call void @addReplyBulkLongLong(ptr noundef %11, i64 noundef %1) #18
+  tail call void @addReplyBulkLongLong(ptr noundef %11, i64 noundef %1) #19
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i32, ptr %12, align 8, !tbaa !204
   %.not6 = icmp eq i32 %13, 0
@@ -15404,7 +15404,7 @@ define internal void @zrangeResultEmitLongLongToClient(ptr noundef readonly capt
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr %10, align 8, !tbaa !194
-  tail call void @addReplyDouble(ptr noundef %15, double noundef %2) #18
+  tail call void @addReplyDouble(ptr noundef %15, double noundef %2) #19
   br label %16
 
 16:                                               ; preds = %14, %9
@@ -15419,15 +15419,15 @@ define internal void @zrangeResultBeginStore(ptr noundef writeonly captures(none
   br i1 %.not.i, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @createZsetListpackObject() #18
+  %6 = tail call ptr @createZsetListpackObject() #19
   br label %zsetTypeCreate.exit
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @createZsetObject() #18
+  %8 = tail call ptr @createZsetObject() #19
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !75
   %11 = load ptr, ptr %10, align 8, !tbaa !125
-  %12 = tail call i32 @dictExpand(ptr noundef %11, i64 noundef %3) #18
+  %12 = tail call i32 @dictExpand(ptr noundef %11, i64 noundef %3) #19
   br label %zsetTypeCreate.exit
 
 zsetTypeCreate.exit:                              ; preds = %5, %7
@@ -15451,27 +15451,27 @@ define internal void @zrangeResultFinalizeStore(ptr noundef readonly captures(no
   %9 = load ptr, ptr %8, align 8, !tbaa !202
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !230
-  tail call void @setKey(ptr noundef %4, ptr noundef %7, ptr noundef %9, ptr noundef %11, i32 noundef 0) #18
+  tail call void @setKey(ptr noundef %4, ptr noundef %7, ptr noundef %9, ptr noundef %11, i32 noundef 0) #19
   %12 = load ptr, ptr %3, align 8, !tbaa !194
-  tail call void @addReplyLongLong(ptr noundef %12, i64 noundef %1) #18
+  tail call void @addReplyLongLong(ptr noundef %12, i64 noundef %1) #19
   %13 = load ptr, ptr %8, align 8, !tbaa !202
   %14 = load ptr, ptr %3, align 8, !tbaa !194
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !150
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %18 = load i32, ptr %17, align 8, !tbaa !153
-  tail call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef nonnull @.str.82, ptr noundef %13, i32 noundef %18) #18
+  tail call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef nonnull @.str.82, ptr noundef %13, i32 noundef %18) #19
   br label %.sink.split
 
 19:                                               ; preds = %2
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !155
-  tail call void @addReply(ptr noundef %4, ptr noundef %20) #18
+  tail call void @addReply(ptr noundef %4, ptr noundef %20) #19
   %21 = load ptr, ptr %3, align 8, !tbaa !194
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !150
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !202
-  %26 = tail call i32 @dbDelete(ptr noundef %23, ptr noundef %25) #18
+  %26 = tail call i32 @dbDelete(ptr noundef %23, ptr noundef %25) #19
   %.not17 = icmp eq i32 %26, 0
   br i1 %.not17, label %40, label %27
 
@@ -15480,14 +15480,14 @@ define internal void @zrangeResultFinalizeStore(ptr noundef readonly captures(no
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load ptr, ptr %29, align 8, !tbaa !150
   %31 = load ptr, ptr %24, align 8, !tbaa !202
-  tail call void @signalModifiedKey(ptr noundef %28, ptr noundef %30, ptr noundef %31) #18
+  tail call void @signalModifiedKey(ptr noundef %28, ptr noundef %30, ptr noundef %31) #19
   %32 = load ptr, ptr %24, align 8, !tbaa !202
   %33 = load ptr, ptr %3, align 8, !tbaa !194
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8, !tbaa !150
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %37 = load i32, ptr %36, align 8, !tbaa !153
-  tail call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.30, ptr noundef %32, i32 noundef %37) #18
+  tail call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.30, ptr noundef %32, i32 noundef %37) #19
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %27
@@ -15499,7 +15499,7 @@ define internal void @zrangeResultFinalizeStore(ptr noundef readonly captures(no
 40:                                               ; preds = %.sink.split, %19
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !230
-  tail call void @decrRefCount(ptr noundef %42) #18
+  tail call void @decrRefCount(ptr noundef %42) #19
   ret void
 }
 
@@ -15509,17 +15509,17 @@ define internal void @zrangeResultEmitCBufferForStore(ptr noundef readonly captu
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %7 = tail call ptr @sdsnewlen(ptr noundef %1, i64 noundef %2) #18
+  %7 = tail call ptr @sdsnewlen(ptr noundef %1, i64 noundef %2) #19
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !230
   %10 = call i32 @zsetAdd(ptr noundef %9, double noundef %3, ptr noundef %7, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %5)
-  call void @sdsfree(ptr noundef %7) #18
+  call void @sdsfree(ptr noundef %7) #19
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %12, !prof !40
 
 11:                                               ; preds = %4
-  call void @_serverAssert(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.1, i32 noundef 3067) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.1, i32 noundef 3067) #19
+  call void @abort() #20
   unreachable
 
 12:                                               ; preds = %4
@@ -15534,17 +15534,17 @@ define internal void @zrangeResultEmitLongLongForStore(ptr noundef readonly capt
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = tail call ptr @sdsfromlonglong(i64 noundef %1) #18
+  %6 = tail call ptr @sdsfromlonglong(i64 noundef %1) #19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !230
   %9 = call i32 @zsetAdd(ptr noundef %8, double noundef %2, ptr noundef %6, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %4)
-  call void @sdsfree(ptr noundef %6) #18
+  call void @sdsfree(ptr noundef %6) #19
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %11, !prof !40
 
 10:                                               ; preds = %3
-  call void @_serverAssert(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.1, i32 noundef 3078) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.1, i32 noundef 3078) #19
+  call void @abort() #20
   unreachable
 
 11:                                               ; preds = %3
@@ -15563,29 +15563,29 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #16
+declare i64 @llvm.abs.i64(i64, i1 immarg) #17
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -15603,11 +15603,12 @@ attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(rea
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind allocsize(0) }
-attributes #18 = { nounwind }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { nounwind willreturn memory(read) }
+attributes #16 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nounwind allocsize(0) }
+attributes #19 = { nounwind }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -26,15 +26,15 @@ define internal void @lv_switch_constructor(ptr readnone captures(none) %0, ptr 
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, -8
   store i8 %6, ptr %4, align 4
-  tail call void @lv_obj_remove_flag(ptr noundef %1, i32 noundef 16) #5
-  tail call void @lv_obj_add_flag(ptr noundef %1, i32 noundef 8) #5
-  tail call void @lv_obj_add_flag(ptr noundef %1, i32 noundef 1024) #5
+  tail call void @lv_obj_remove_flag(ptr noundef %1, i32 noundef 16) #6
+  tail call void @lv_obj_add_flag(ptr noundef %1, i32 noundef 8) #6
+  tail call void @lv_obj_add_flag(ptr noundef %1, i32 noundef 1024) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @lv_switch_destructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call zeroext i1 @lv_anim_delete(ptr noundef %1, ptr noundef null) #5
+  %3 = tail call zeroext i1 @lv_anim_delete(ptr noundef %1, ptr noundef null) #6
   ret void
 }
 
@@ -45,13 +45,13 @@ define internal void @lv_switch_event(ptr readnone captures(none) %0, ptr nounde
   %5 = alloca %struct.lv_area_t, align 4
   %6 = alloca %struct.lv_draw_rect_dsc_t, align 8
   %7 = alloca %struct._lv_anim_t, align 8
-  %8 = tail call i32 @lv_obj_event_base(ptr noundef nonnull @lv_switch_class, ptr noundef %1) #5
+  %8 = tail call i32 @lv_obj_event_base(ptr noundef nonnull @lv_switch_class, ptr noundef %1) #6
   %.not = icmp eq i32 %8, 1
   br i1 %.not, label %9, label %136
 
 9:                                                ; preds = %2
-  %10 = tail call i32 @lv_event_get_code(ptr noundef %1) #5
-  %11 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #5
+  %10 = tail call i32 @lv_event_get_code(ptr noundef %1) #6
+  %11 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #6
   switch i32 %10, label %136 [
     i32 27, label %12
     i32 35, label %37
@@ -59,29 +59,29 @@ define internal void @lv_switch_event(ptr readnone captures(none) %0, ptr nounde
   ]
 
 12:                                               ; preds = %9
-  %13 = tail call ptr @lv_obj_get_style_prop(ptr noundef %11, i32 noundef 196608, i8 noundef zeroext 18) #5
+  %13 = tail call ptr @lv_obj_get_style_prop(ptr noundef %11, i32 noundef 196608, i8 noundef zeroext 18) #6
   %14 = ptrtoint ptr %13 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %14 to i32
-  %15 = tail call ptr @lv_obj_get_style_prop(ptr noundef %11, i32 noundef 196608, i8 noundef zeroext 19) #5
+  %15 = tail call ptr @lv_obj_get_style_prop(ptr noundef %11, i32 noundef 196608, i8 noundef zeroext 19) #6
   %16 = ptrtoint ptr %15 to i64
   %.sroa.0.0.extract.trunc.i47 = trunc i64 %16 to i32
-  %17 = tail call ptr @lv_obj_get_style_prop(ptr noundef %11, i32 noundef 196608, i8 noundef zeroext 16) #5
+  %17 = tail call ptr @lv_obj_get_style_prop(ptr noundef %11, i32 noundef 196608, i8 noundef zeroext 16) #6
   %18 = ptrtoint ptr %17 to i64
   %.sroa.0.0.extract.trunc.i48 = trunc i64 %18 to i32
-  %19 = tail call ptr @lv_obj_get_style_prop(ptr noundef %11, i32 noundef 196608, i8 noundef zeroext 17) #5
+  %19 = tail call ptr @lv_obj_get_style_prop(ptr noundef %11, i32 noundef 196608, i8 noundef zeroext 17) #6
   %20 = ptrtoint ptr %19 to i64
   %.sroa.0.0.extract.trunc.i49 = trunc i64 %20 to i32
   %21 = tail call i32 @llvm.smax.i32(i32 %.sroa.0.0.extract.trunc.i, i32 %.sroa.0.0.extract.trunc.i47)
   %22 = tail call i32 @llvm.smax.i32(i32 %.sroa.0.0.extract.trunc.i49, i32 %.sroa.0.0.extract.trunc.i48)
   %. = tail call i32 @llvm.smax.i32(i32 %21, i32 %22)
-  %23 = tail call i32 @lv_obj_calculate_ext_draw_size(ptr noundef %11, i32 noundef 196608) #5
+  %23 = tail call i32 @lv_obj_calculate_ext_draw_size(ptr noundef %11, i32 noundef 196608) #6
   %24 = add i32 %23, 2
   %25 = add i32 %24, %.
-  %26 = tail call ptr @lv_event_get_param(ptr noundef %1) #5
+  %26 = tail call ptr @lv_event_get_param(ptr noundef %1) #6
   %27 = load i32, ptr %26, align 4, !tbaa !16
   %28 = tail call i32 @llvm.smax.i32(i32 %27, i32 %25)
   store i32 %28, ptr %26, align 4, !tbaa !16
-  %29 = tail call i32 @lv_obj_calculate_ext_draw_size(ptr noundef %11, i32 noundef 131072) #5
+  %29 = tail call i32 @lv_obj_calculate_ext_draw_size(ptr noundef %11, i32 noundef 131072) #6
   %30 = icmp sgt i32 %28, %29
   br i1 %30, label %31, label %33
 
@@ -90,7 +90,7 @@ define internal void @lv_switch_event(ptr readnone captures(none) %0, ptr nounde
   br label %35
 
 33:                                               ; preds = %12
-  %34 = tail call i32 @lv_obj_calculate_ext_draw_size(ptr noundef %11, i32 noundef 131072) #5
+  %34 = tail call i32 @lv_obj_calculate_ext_draw_size(ptr noundef %11, i32 noundef 131072) #6
   br label %35
 
 35:                                               ; preds = %33, %31
@@ -106,14 +106,14 @@ define internal void @lv_switch_event(ptr readnone captures(none) %0, ptr nounde
   br label %.preheader.i
 
 38:                                               ; preds = %37
-  %39 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %11, i32 noundef 0, i8 noundef zeroext 100) #5
+  %39 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %11, i32 noundef 0, i8 noundef zeroext 100) #6
   %40 = ptrtoint ptr %39 to i64
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %40 to i32
   %.not26.i = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, 0
   br i1 %.not26.i, label %lv_switch_trigger_anim.exit, label %41
 
 41:                                               ; preds = %38
-  %42 = tail call zeroext i16 @lv_obj_get_state(ptr noundef nonnull %11) #5
+  %42 = tail call zeroext i16 @lv_obj_get_state(ptr noundef nonnull %11) #6
   %43 = and i16 %42, 1
   %.not27.i = icmp eq i16 %43, 0
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 64
@@ -126,33 +126,33 @@ define internal void @lv_switch_event(ptr readnone captures(none) %0, ptr nounde
   %50 = tail call i32 @llvm.abs.i32(i32 %49, i1 true)
   %51 = mul i32 %50, %.sroa.0.0.extract.trunc.i.i
   %52 = lshr i32 %51, 8
-  %53 = tail call zeroext i1 @lv_anim_delete(ptr noundef nonnull %11, ptr noundef null) #5
+  %53 = tail call zeroext i1 @lv_anim_delete(ptr noundef nonnull %11, ptr noundef null) #6
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @lv_anim_init(ptr noundef nonnull %7) #5
-  call void @lv_anim_set_var(ptr noundef nonnull %7, ptr noundef nonnull %11) #5
-  call void @lv_anim_set_exec_cb(ptr noundef nonnull %7, ptr noundef nonnull @lv_switch_anim_exec_cb) #5
-  call void @lv_anim_set_values(ptr noundef nonnull %7, i32 noundef %.0.i, i32 noundef %48) #5
-  call void @lv_anim_set_completed_cb(ptr noundef nonnull %7, ptr noundef nonnull @lv_switch_anim_completed) #5
-  call void @lv_anim_set_duration(ptr noundef nonnull %7, i32 noundef %52) #5
-  %54 = call ptr @lv_anim_start(ptr noundef nonnull %7) #5
+  call void @lv_anim_init(ptr noundef nonnull %7) #6
+  call void @lv_anim_set_var(ptr noundef nonnull %7, ptr noundef nonnull %11) #6
+  call void @lv_anim_set_exec_cb(ptr noundef nonnull %7, ptr noundef nonnull @lv_switch_anim_exec_cb) #6
+  call void @lv_anim_set_values(ptr noundef nonnull %7, i32 noundef %.0.i, i32 noundef %48) #6
+  call void @lv_anim_set_completed_cb(ptr noundef nonnull %7, ptr noundef nonnull @lv_switch_anim_completed) #6
+  call void @lv_anim_set_duration(ptr noundef nonnull %7, i32 noundef %52) #6
+  %54 = call ptr @lv_anim_start(ptr noundef nonnull %7) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %lv_switch_trigger_anim.exit
 
 lv_switch_trigger_anim.exit:                      ; preds = %38, %41
-  call void @lv_obj_invalidate(ptr noundef nonnull %11) #5
+  call void @lv_obj_invalidate(ptr noundef nonnull %11) #6
   br label %136
 
 55:                                               ; preds = %9
-  %56 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #5
-  %57 = tail call ptr @lv_event_get_layer(ptr noundef %1) #5
+  %56 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #6
+  %57 = tail call ptr @lv_event_get_layer(ptr noundef %1) #6
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @lv_obj_get_content_coords(ptr noundef %56, ptr noundef nonnull %3) #5
+  call void @lv_obj_get_content_coords(ptr noundef %56, ptr noundef nonnull %3) #6
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @lv_draw_rect_dsc_init(ptr noundef nonnull %4) #5
+  call void @lv_draw_rect_dsc_init(ptr noundef nonnull %4) #6
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %57, ptr %58, align 8, !tbaa !17
-  call void @lv_obj_init_draw_rect_dsc(ptr noundef %56, i32 noundef 131072, ptr noundef nonnull %4) #5
-  call void @lv_draw_rect(ptr noundef %57, ptr noundef nonnull %4, ptr noundef nonnull %3) #5
+  call void @lv_obj_init_draw_rect_dsc(ptr noundef %56, i32 noundef 131072, ptr noundef nonnull %4) #6
+  call void @lv_draw_rect(ptr noundef %57, ptr noundef nonnull %4, ptr noundef nonnull %3) #6
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %60 = load i32, ptr %59, align 4, !tbaa !24
@@ -162,8 +162,8 @@ lv_switch_trigger_anim.exit:                      ; preds = %38, %41
   %64 = load i32, ptr %63, align 4, !tbaa !26
   %65 = getelementptr inbounds nuw i8, ptr %56, i64 52
   %66 = load i32, ptr %65, align 4, !tbaa !27
-  %67 = call i32 @lv_area_get_width(ptr noundef nonnull %59) #5
-  %68 = call i32 @lv_area_get_height(ptr noundef nonnull %59) #5
+  %67 = call i32 @lv_area_get_width(ptr noundef nonnull %59) #6
+  %68 = call i32 @lv_area_get_height(ptr noundef nonnull %59) #6
   %69 = getelementptr inbounds nuw i8, ptr %56, i64 68
   %70 = load i8, ptr %69, align 4
   %71 = and i8 %70, 7
@@ -177,8 +177,8 @@ lv_switch_trigger_anim.exit:                      ; preds = %38, %41
   br i1 %.not70.i, label %.critedge.i, label %.critedge63.i
 
 .critedge63.i:                                    ; preds = %72, %55
-  %73 = call i32 @lv_obj_get_height(ptr noundef nonnull %56) #5
-  %74 = call i32 @lv_area_get_width(ptr noundef nonnull %59) #5
+  %73 = call i32 @lv_obj_get_height(ptr noundef nonnull %56) #6
+  %74 = call i32 @lv_area_get_width(ptr noundef nonnull %59) #6
   %75 = sub nsw i32 %74, %73
   %76 = getelementptr inbounds nuw i8, ptr %56, i64 64
   %77 = load i32, ptr %76, align 8, !tbaa !3
@@ -191,7 +191,7 @@ lv_switch_trigger_anim.exit:                      ; preds = %38, %41
   br label %85
 
 81:                                               ; preds = %.critedge63.i
-  %82 = call zeroext i16 @lv_obj_get_state(ptr noundef nonnull %56) #5
+  %82 = call zeroext i16 @lv_obj_get_state(ptr noundef nonnull %56) #6
   %83 = and i16 %82, 1
   %.not61.i = icmp eq i16 %83, 0
   %84 = select i1 %.not61.i, i32 0, i32 %75
@@ -199,7 +199,7 @@ lv_switch_trigger_anim.exit:                      ; preds = %38, %41
 
 85:                                               ; preds = %81, %78
   %.054.i = phi i32 [ %80, %78 ], [ %84, %81 ]
-  %86 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %56, i32 noundef 0, i8 noundef zeroext 39) #5
+  %86 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %56, i32 noundef 0, i8 noundef zeroext 39) #6
   %87 = ptrtoint ptr %86 to i64
   %88 = and i64 %87, 4294967295
   %89 = icmp eq i64 %88, 1
@@ -212,8 +212,8 @@ lv_switch_trigger_anim.exit:                      ; preds = %38, %41
   br label %draw_main.exit
 
 .critedge.i:                                      ; preds = %72, %55
-  %95 = call i32 @lv_obj_get_width(ptr noundef nonnull %56) #5
-  %96 = call i32 @lv_area_get_height(ptr noundef nonnull %59) #5
+  %95 = call i32 @lv_obj_get_width(ptr noundef nonnull %56) #6
+  %96 = call i32 @lv_area_get_height(ptr noundef nonnull %59) #6
   %97 = sub nsw i32 %96, %95
   %98 = getelementptr inbounds nuw i8, ptr %56, i64 64
   %99 = load i32, ptr %98, align 8, !tbaa !3
@@ -226,7 +226,7 @@ lv_switch_trigger_anim.exit:                      ; preds = %38, %41
   br label %107
 
 103:                                              ; preds = %.critedge.i
-  %104 = call zeroext i16 @lv_obj_get_state(ptr noundef nonnull %56) #5
+  %104 = call zeroext i16 @lv_obj_get_state(ptr noundef nonnull %56) #6
   %105 = and i16 %104, 1
   %.not59.i = icmp eq i16 %105, 0
   %106 = select i1 %.not59.i, i32 0, i32 %97
@@ -234,7 +234,7 @@ lv_switch_trigger_anim.exit:                      ; preds = %38, %41
 
 107:                                              ; preds = %103, %100
   %.055.i = phi i32 [ %102, %100 ], [ %106, %103 ]
-  %108 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %56, i32 noundef 0, i8 noundef zeroext 39) #5
+  %108 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %56, i32 noundef 0, i8 noundef zeroext 39) #6
   %109 = ptrtoint ptr %108 to i64
   %110 = and i64 %109, 4294967295
   %111 = icmp eq i64 %110, 1
@@ -254,16 +254,16 @@ draw_main.exit:                                   ; preds = %85, %107
   %120 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %121 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %122 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %123 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %56, i32 noundef 196608, i8 noundef zeroext 18) #5
+  %123 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %56, i32 noundef 196608, i8 noundef zeroext 18) #6
   %124 = ptrtoint ptr %123 to i64
   %.sroa.0.0.extract.trunc.i66.i = trunc i64 %124 to i32
-  %125 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %56, i32 noundef 196608, i8 noundef zeroext 19) #5
+  %125 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %56, i32 noundef 196608, i8 noundef zeroext 19) #6
   %126 = ptrtoint ptr %125 to i64
   %.sroa.0.0.extract.trunc.i67.i = trunc i64 %126 to i32
-  %127 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %56, i32 noundef 196608, i8 noundef zeroext 16) #5
+  %127 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %56, i32 noundef 196608, i8 noundef zeroext 16) #6
   %128 = ptrtoint ptr %127 to i64
   %.sroa.0.0.extract.trunc.i68.i = trunc i64 %128 to i32
-  %129 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %56, i32 noundef 196608, i8 noundef zeroext 17) #5
+  %129 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %56, i32 noundef 196608, i8 noundef zeroext 17) #6
   %130 = ptrtoint ptr %129 to i64
   %.sroa.0.0.extract.trunc.i69.i = trunc i64 %130 to i32
   %131 = sub nsw i32 %119, %.sroa.0.0.extract.trunc.i66.i
@@ -275,11 +275,11 @@ draw_main.exit:                                   ; preds = %85, %107
   %134 = add nsw i32 %116, %.sroa.0.0.extract.trunc.i69.i
   store i32 %134, ptr %120, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @lv_draw_rect_dsc_init(ptr noundef nonnull %6) #5
+  call void @lv_draw_rect_dsc_init(ptr noundef nonnull %6) #6
   %135 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %57, ptr %135, align 8, !tbaa !17
-  call void @lv_obj_init_draw_rect_dsc(ptr noundef nonnull %56, i32 noundef 196608, ptr noundef nonnull %6) #5
-  call void @lv_draw_rect(ptr noundef %57, ptr noundef nonnull %6, ptr noundef nonnull %5) #5
+  call void @lv_obj_init_draw_rect_dsc(ptr noundef nonnull %56, i32 noundef 196608, ptr noundef nonnull %6) #6
+  call void @lv_draw_rect(ptr noundef %57, ptr noundef nonnull %6, ptr noundef nonnull %5) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -292,8 +292,8 @@ draw_main.exit:                                   ; preds = %85, %107
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @lv_switch_create(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @lv_obj_class_create_obj(ptr noundef nonnull @lv_switch_class, ptr noundef %0) #5
-  tail call void @lv_obj_class_init_obj(ptr noundef %2) #5
+  %2 = tail call ptr @lv_obj_class_create_obj(ptr noundef nonnull @lv_switch_class, ptr noundef %0) #6
+  tail call void @lv_obj_class_init_obj(ptr noundef %2) #6
   ret ptr %2
 }
 
@@ -317,7 +317,7 @@ define void @lv_switch_set_orientation(ptr noundef %0, i32 noundef %1) local_unn
   %8 = and i8 %6, -8
   %9 = or disjoint i8 %8, %7
   store i8 %9, ptr %4, align 4
-  tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #5
+  tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #6
   ret void
 }
 
@@ -369,7 +369,7 @@ declare void @lv_anim_set_exec_cb(ptr noundef, ptr noundef) local_unnamed_addr #
 define internal void @lv_switch_anim_exec_cb(ptr noundef initializes((64, 68)) %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %1, ptr %3, align 8, !tbaa !3
-  tail call void @lv_obj_invalidate(ptr noundef %0) #5
+  tail call void @lv_obj_invalidate(ptr noundef %0) #6
   ret void
 }
 
@@ -382,7 +382,7 @@ define internal void @lv_switch_anim_completed(ptr noundef readonly captures(non
   %2 = load ptr, ptr %0, align 8, !tbaa !28
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 -1, ptr %3, align 8, !tbaa !3
-  tail call void @lv_obj_invalidate(ptr noundef %2) #5
+  tail call void @lv_obj_invalidate(ptr noundef %2) #6
   ret void
 }
 
@@ -414,18 +414,19 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #4
+declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

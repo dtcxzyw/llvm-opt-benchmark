@@ -335,7 +335,7 @@ define dso_local void @_ZN17b3PgsJacobiSolverD2Ev(ptr noundef nonnull align 8 de
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #21
+  tail call void @__clang_call_terminate(ptr %10) #22
   unreachable
 
 _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit:   ; preds = %1, %7
@@ -362,7 +362,7 @@ _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit:   ; preds = %1, %7
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #21
+  tail call void @__clang_call_terminate(ptr %21) #22
   unreachable
 
 _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit3:  ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit, %18
@@ -389,7 +389,7 @@ _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit3:  ; preds = %_ZN20b3AlignedObjec
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #21
+  tail call void @__clang_call_terminate(ptr %32) #22
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit3, %29
@@ -416,7 +416,7 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20b3AlignedObjec
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #21
+  tail call void @__clang_call_terminate(ptr %43) #22
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit8:           ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit, %40
@@ -443,7 +443,7 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit8:           ; preds = %_ZN20b3AlignedObjec
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  tail call void @__clang_call_terminate(ptr %54) #21
+  tail call void @__clang_call_terminate(ptr %54) #22
   unreachable
 
 _ZN20b3AlignedObjectArrayIN17b3TypedConstraint17b3ConstraintInfo1EED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit8, %51
@@ -470,7 +470,7 @@ _ZN20b3AlignedObjectArrayIN17b3TypedConstraint17b3ConstraintInfo1EED2Ev.exit: ; 
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  tail call void @__clang_call_terminate(ptr %65) #21
+  tail call void @__clang_call_terminate(ptr %65) #22
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit13:          ; preds = %_ZN20b3AlignedObjectArrayIN17b3TypedConstraint17b3ConstraintInfo1EED2Ev.exit, %62
@@ -497,7 +497,7 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit13:          ; preds = %_ZN20b3AlignedObjec
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  tail call void @__clang_call_terminate(ptr %76) #21
+  tail call void @__clang_call_terminate(ptr %76) #22
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit16:          ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit13, %73
@@ -524,7 +524,7 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit16:          ; preds = %_ZN20b3AlignedObjec
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
-  tail call void @__clang_call_terminate(ptr %87) #21
+  tail call void @__clang_call_terminate(ptr %87) #22
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit19:          ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit16, %84
@@ -551,7 +551,7 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit19:          ; preds = %_ZN20b3AlignedObjec
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  tail call void @__clang_call_terminate(ptr %98) #21
+  tail call void @__clang_call_terminate(ptr %98) #22
   unreachable
 
 _ZN20b3AlignedObjectArrayI18b3SolverConstraintED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit19, %95
@@ -578,7 +578,7 @@ _ZN20b3AlignedObjectArrayI18b3SolverConstraintED2Ev.exit: ; preds = %_ZN20b3Alig
   %108 = landingpad { ptr, i32 }
           catch ptr null
   %109 = extractvalue { ptr, i32 } %108, 0
-  tail call void @__clang_call_terminate(ptr %109) #21
+  tail call void @__clang_call_terminate(ptr %109) #22
   unreachable
 
 _ZN20b3AlignedObjectArrayI18b3SolverConstraintED2Ev.exit24: ; preds = %_ZN20b3AlignedObjectArrayI18b3SolverConstraintED2Ev.exit, %106
@@ -605,7 +605,7 @@ _ZN20b3AlignedObjectArrayI18b3SolverConstraintED2Ev.exit24: ; preds = %_ZN20b3Al
   %119 = landingpad { ptr, i32 }
           catch ptr null
   %120 = extractvalue { ptr, i32 } %119, 0
-  tail call void @__clang_call_terminate(ptr %120) #21
+  tail call void @__clang_call_terminate(ptr %120) #22
   unreachable
 
 _ZN20b3AlignedObjectArrayI18b3SolverConstraintED2Ev.exit27: ; preds = %_ZN20b3AlignedObjectArrayI18b3SolverConstraintED2Ev.exit24, %117
@@ -632,7 +632,7 @@ _ZN20b3AlignedObjectArrayI18b3SolverConstraintED2Ev.exit27: ; preds = %_ZN20b3Al
   %130 = landingpad { ptr, i32 }
           catch ptr null
   %131 = extractvalue { ptr, i32 } %130, 0
-  tail call void @__clang_call_terminate(ptr %131) #21
+  tail call void @__clang_call_terminate(ptr %131) #22
   unreachable
 
 _ZN20b3AlignedObjectArrayI18b3SolverConstraintED2Ev.exit30: ; preds = %_ZN20b3AlignedObjectArrayI18b3SolverConstraintED2Ev.exit27, %128
@@ -659,7 +659,7 @@ _ZN20b3AlignedObjectArrayI18b3SolverConstraintED2Ev.exit30: ; preds = %_ZN20b3Al
   %141 = landingpad { ptr, i32 }
           catch ptr null
   %142 = extractvalue { ptr, i32 } %141, 0
-  tail call void @__clang_call_terminate(ptr %142) #21
+  tail call void @__clang_call_terminate(ptr %142) #22
   unreachable
 
 _ZN20b3AlignedObjectArrayI12b3SolverBodyED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayI18b3SolverConstraintED2Ev.exit30, %139
@@ -674,7 +674,7 @@ _ZN20b3AlignedObjectArrayI12b3SolverBodyED2Ev.exit: ; preds = %_ZN20b3AlignedObj
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17b3PgsJacobiSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(448) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN17b3PgsJacobiSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %0) #22
+  tail call void @_ZN17b3PgsJacobiSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %0) #23
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %0)
           to label %_ZN17b3PgsJacobiSolverdlEPv.exit unwind label %2
 
@@ -682,7 +682,7 @@ define dso_local void @_ZN17b3PgsJacobiSolverD0Ev(ptr noundef nonnull align 8 de
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #21
+  tail call void @__clang_call_terminate(ptr %4) #22
   unreachable
 
 _ZN17b3PgsJacobiSolverdlEPv.exit:                 ; preds = %1
@@ -762,7 +762,7 @@ define dso_local void @_ZN17b3PgsJacobiSolver13solveContactsEiP15b3RigidBodyData
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #21
+  call void @__clang_call_terminate(ptr %46) #22
   unreachable
 
 47:                                               ; preds = %38, %33, %8
@@ -775,7 +775,7 @@ define dso_local void @_ZN17b3PgsJacobiSolver13solveContactsEiP15b3RigidBodyData
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #21
+  call void @__clang_call_terminate(ptr %51) #22
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit17.i:                  ; preds = %47
@@ -816,7 +816,7 @@ define dso_local noundef float @_ZN17b3PgsJacobiSolver10solveGroupEP15b3RigidBod
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #21
+  tail call void @__clang_call_terminate(ptr %26) #22
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit:                      ; preds = %23
@@ -832,7 +832,7 @@ _ZN13b3ProfileZoneD2Ev.exit:                      ; preds = %23
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #21
+  tail call void @__clang_call_terminate(ptr %31) #22
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit17:                    ; preds = %27
@@ -1063,7 +1063,7 @@ define dso_local void @_ZN17b3PgsJacobiSolver33resolveSingleConstraintRowGeneric
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -6322,7 +6322,7 @@ _ZN20b3AlignedObjectArrayIiE18resizeNoInitializeEi.exit550: ; preds = %768, %772
   %814 = landingpad { ptr, i32 }
           catch ptr null
   %815 = extractvalue { ptr, i32 } %814, 0
-  call void @__clang_call_terminate(ptr %815) #21
+  call void @__clang_call_terminate(ptr %815) #22
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit:                      ; preds = %._crit_edge635
@@ -6337,7 +6337,7 @@ _ZN13b3ProfileZoneD2Ev.exit:                      ; preds = %._crit_edge635
   %818 = landingpad { ptr, i32 }
           catch ptr null
   %819 = extractvalue { ptr, i32 } %818, 0
-  call void @__clang_call_terminate(ptr %819) #21
+  call void @__clang_call_terminate(ptr %819) #22
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit551:                   ; preds = %816
@@ -7507,7 +7507,7 @@ _ZNK9b3Vector36isZeroEv.exit.thread:              ; preds = %112, %_ZNK9b3Vector
   %167 = landingpad { ptr, i32 }
           catch ptr null
   %168 = extractvalue { ptr, i32 } %167, 0
-  tail call void @__clang_call_terminate(ptr %168) #21
+  tail call void @__clang_call_terminate(ptr %168) #22
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit:                      ; preds = %._crit_edge
@@ -7597,7 +7597,7 @@ _ZNK9b3Vector36isZeroEv.exit84.thread:            ; preds = %169, %_ZNK9b3Vector
   %220 = landingpad { ptr, i32 }
           catch ptr null
   %221 = extractvalue { ptr, i32 } %220, 0
-  tail call void @__clang_call_terminate(ptr %221) #21
+  tail call void @__clang_call_terminate(ptr %221) #22
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit90:                    ; preds = %218
@@ -7773,7 +7773,7 @@ define dso_local noundef float @_ZN17b3PgsJacobiSolver33solveGroupCacheFriendlyI
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #21
+  tail call void @__clang_call_terminate(ptr %17) #22
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit:                      ; preds = %._crit_edge
@@ -7817,7 +7817,7 @@ _ZN13b3ProfileZoneD2Ev.exit:                      ; preds = %._crit_edge
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #21
+  tail call void @__clang_call_terminate(ptr %33) #22
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit19:                    ; preds = %30
@@ -8311,7 +8311,7 @@ _ZN13b3ProfileZoneC2EPKc.exit:                    ; preds = %331, %339, %225
   %348 = landingpad { ptr, i32 }
           catch ptr null
   %349 = extractvalue { ptr, i32 } %348, 0
-  call void @__clang_call_terminate(ptr %349) #21
+  call void @__clang_call_terminate(ptr %349) #22
   unreachable
 
 _ZN13b3ProfileZoneC2EPKc.exit._crit_edge:         ; preds = %_ZN13b3ProfileZoneC2EPKc.exit, %_ZN13b3ProfileZoneC2EPKc.exit.preheader
@@ -8322,7 +8322,7 @@ _ZN13b3ProfileZoneC2EPKc.exit._crit_edge:         ; preds = %_ZN13b3ProfileZoneC
   %351 = landingpad { ptr, i32 }
           catch ptr null
   %352 = extractvalue { ptr, i32 } %351, 0
-  call void @__clang_call_terminate(ptr %352) #21
+  call void @__clang_call_terminate(ptr %352) #22
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit166:                   ; preds = %_ZN13b3ProfileZoneC2EPKc.exit._crit_edge
@@ -8540,7 +8540,7 @@ _ZN20b3AlignedObjectArrayI12b3SolverBodyE10deallocateEv.exit.i.i: ; preds = %423
   %426 = landingpad { ptr, i32 }
           catch ptr null
   %427 = extractvalue { ptr, i32 } %426, 0
-  call void @__clang_call_terminate(ptr %427) #21
+  call void @__clang_call_terminate(ptr %427) #22
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit195:                   ; preds = %424
@@ -8555,7 +8555,7 @@ _ZN13b3ProfileZoneD2Ev.exit:                      ; preds = %240, %346, %201
   %429 = landingpad { ptr, i32 }
           catch ptr null
   %430 = extractvalue { ptr, i32 } %429, 0
-  call void @__clang_call_terminate(ptr %430) #21
+  call void @__clang_call_terminate(ptr %430) #22
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit196:                   ; preds = %_ZN13b3ProfileZoneD2Ev.exit
@@ -8689,8 +8689,8 @@ declare void @_Z21b3AlignedFreeInternalPv(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #16 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
-  tail call void @_ZSt9terminatev() #21
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #23
+  tail call void @_ZSt9terminatev() #22
   unreachable
 }
 
@@ -8704,12 +8704,12 @@ declare void @b3EnterProfileZone(ptr noundef) local_unnamed_addr #15
 declare void @b3LeaveProfileZone() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #7
+declare i32 @llvm.abs.i32(i32, i1 immarg) #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #18
+declare float @sqrtf(float noundef) local_unnamed_addr #19
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #7
 
 ; Function Attrs: mustprogress uwtable
@@ -8771,7 +8771,7 @@ define linkonce_odr dso_local void @_ZN15b3TransformUtil18integrateTransformERK1
 48:                                               ; preds = %5
   %49 = fmul float %.0, 5.000000e-01
   %50 = fmul float %3, %49
-  %51 = tail call noundef float @sinf(float noundef %50) #22, !tbaa !110
+  %51 = tail call noundef float @sinf(float noundef %50) #23, !tbaa !110
   %52 = fdiv float %51, %.0
   %53 = load float, ptr %2, align 16, !tbaa !20
   %54 = fmul float %53, %52
@@ -8787,7 +8787,7 @@ define linkonce_odr dso_local void @_ZN15b3TransformUtil18integrateTransformERK1
   %.sink = phi float [ %58, %48 ], [ %47, %37 ]
   %60 = fmul float %3, %.0
   %61 = fmul float %60, 5.000000e-01
-  %62 = tail call noundef float @cosf(float noundef %61) #22, !tbaa !110
+  %62 = tail call noundef float @cosf(float noundef %61) #23, !tbaa !110
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK11b3Matrix3x311getRotationER12b3Quaternion(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(16) %6)
   %.fca.0.load.i = load <2 x float>, ptr %6, align 16
@@ -8884,10 +8884,10 @@ define linkonce_odr dso_local void @_ZN15b3TransformUtil18integrateTransformERK1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sinf(float noundef) local_unnamed_addr #18
+declare float @sinf(float noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @cosf(float noundef) local_unnamed_addr #18
+declare float @cosf(float noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK11b3Matrix3x311getRotationER12b3Quaternion(ptr noundef nonnull align 16 dereferenceable(48) %0, ptr noundef nonnull align 16 dereferenceable(16) %1) local_unnamed_addr #5 comdat align 2 {
@@ -8910,7 +8910,7 @@ define linkonce_odr dso_local void @_ZNK11b3Matrix3x311getRotationER12b3Quaterni
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = fadd float %10, 1.000000e+00
-  %16 = tail call noundef float @sqrtf(float noundef %15) #22, !tbaa !110
+  %16 = tail call noundef float @sqrtf(float noundef %15) #23, !tbaa !110
   %17 = fmul float %16, 5.000000e-01
   %18 = fdiv float 5.000000e-01, %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -8959,7 +8959,7 @@ define linkonce_odr dso_local void @_ZNK11b3Matrix3x311getRotationER12b3Quaterni
   %58 = load float, ptr %57, align 4, !tbaa !112
   %59 = fsub float %54, %58
   %60 = fadd float %59, 1.000000e+00
-  %61 = tail call noundef float @sqrtf(float noundef %60) #22, !tbaa !110
+  %61 = tail call noundef float @sqrtf(float noundef %60) #23, !tbaa !110
   %62 = fmul float %61, 5.000000e-01
   %63 = getelementptr inbounds nuw float, ptr %3, i64 %46
   store float %62, ptr %63, align 4, !tbaa !112
@@ -9017,16 +9017,16 @@ declare void @b3OutputErrorMessageVarArgsInternal(ptr noundef, ...) local_unname
 declare noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #20
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #21
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #20
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #21
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -9035,7 +9035,7 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -9046,11 +9046,12 @@ attributes #14 = { mustprogress nofree norecurse nosync nounwind memory(readwrit
 attributes #15 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { cold nofree noreturn }
-attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { noreturn nounwind }
-attributes #22 = { nounwind }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #21 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

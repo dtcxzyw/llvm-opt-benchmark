@@ -154,7 +154,7 @@ if.then:                                          ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.then
   call void @_ZN18SerializationErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI18SerializationError, ptr nonnull @_ZN13BaseExceptionD2Ev) #21
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI18SerializationError, ptr nonnull @_ZN13BaseExceptionD2Ev) #22
           to label %unreachable unwind label %lpad2
 
 lpad2:                                            ; preds = %invoke.cont
@@ -166,7 +166,7 @@ lpad2:                                            ; preds = %invoke.cont
   br i1 %cmp.i.i.i, label %ehcleanup.thread, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad2
-  call void @_ZdlPv(ptr noundef %1) #22
+  call void @_ZdlPv(ptr noundef %1) #23
   br label %ehcleanup.thread
 
 ehcleanup.thread:                                 ; preds = %lpad2, %if.then.i.i
@@ -217,7 +217,7 @@ invoke.cont15:                                    ; preds = %if.then14
 
 invoke.cont20:                                    ; preds = %invoke.cont15
   call void @_ZN18SerializationErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17)
-  invoke void @__cxa_throw(ptr nonnull %exception16, ptr nonnull @_ZTI18SerializationError, ptr nonnull @_ZN13BaseExceptionD2Ev) #21
+  invoke void @__cxa_throw(ptr nonnull %exception16, ptr nonnull @_ZTI18SerializationError, ptr nonnull @_ZN13BaseExceptionD2Ev) #22
           to label %unreachable unwind label %lpad21
 
 lpad7.loopexit:                                   ; preds = %for.cond
@@ -239,7 +239,7 @@ lpad21:                                           ; preds = %invoke.cont20
   br i1 %cmp.i.i.i64, label %ehcleanup25.thread, label %if.then.i.i65
 
 if.then.i.i65:                                    ; preds = %lpad21
-  call void @_ZdlPv(ptr noundef %5) #22
+  call void @_ZdlPv(ptr noundef %5) #23
   br label %ehcleanup25.thread
 
 ehcleanup25.thread:                               ; preds = %lpad21, %if.then.i.i65
@@ -283,7 +283,7 @@ terminate.lpad.i:                                 ; preds = %for.end
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #23
+  call void @__clang_call_terminate(ptr %11) #24
   unreachable
 
 _ZN15ZlibAutoDeleterIXadL_Z10deflateEndEEED2Ev.exit: ; preds = %for.end
@@ -300,7 +300,7 @@ terminate.lpad.i71:                               ; preds = %ehcleanup45
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #23
+  call void @__clang_call_terminate(ptr %13) #24
   unreachable
 
 ehcleanup47:                                      ; preds = %ehcleanup45, %cleanup.action, %ehcleanup.thread
@@ -327,7 +327,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.22) #21
+  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.22) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -419,7 +419,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #23
+  call void @__clang_call_terminate(ptr %7) #24
   unreachable
 
 _ZN13BaseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i, %if.end.i.i.i
@@ -445,7 +445,7 @@ entry:
   br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #22
+  tail call void @_ZdlPv(ptr noundef %0) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %entry, %if.then.i.i
@@ -536,7 +536,7 @@ if.then.i:                                        ; preds = %_ZN9LogStreamlsIRA2
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #22
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %if.then.i
@@ -605,7 +605,7 @@ if.then.i44:                                      ; preds = %_ZN9LogStreamlsIRA2
   br i1 %tobool.not.i.i.i122, label %if.then.i.i.i134, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i123
 
 if.then.i.i.i134:                                 ; preds = %if.then.i44
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #22
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i123: ; preds = %if.then.i44
@@ -667,7 +667,7 @@ if.then.i57:                                      ; preds = %_ZN9LogStreamlsIRA2
   br i1 %tobool.not.i.i.i141, label %if.then.i.i.i154, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i142
 
 if.then.i.i.i154:                                 ; preds = %if.then.i57
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #22
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i142: ; preds = %if.then.i57
@@ -729,7 +729,7 @@ if.then.i70:                                      ; preds = %_ZN9LogStreamlsIRA3
   br i1 %tobool.not.i.i.i161, label %if.then.i.i.i174, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i162
 
 if.then.i.i.i174:                                 ; preds = %if.then.i70
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #22
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i162: ; preds = %if.then.i70
@@ -791,7 +791,7 @@ if.then.i83:                                      ; preds = %_ZN9LogStreamlsIRA1
   br i1 %tobool.not.i.i.i181, label %if.then.i.i.i194, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i182
 
 if.then.i.i.i194:                                 ; preds = %if.then.i83
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #22
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i182: ; preds = %if.then.i83
@@ -853,7 +853,7 @@ if.then.i96:                                      ; preds = %_ZN9LogStreamlsIRA2
   br i1 %tobool.not.i.i.i201, label %if.then.i.i.i214, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i202
 
 if.then.i.i.i214:                                 ; preds = %if.then.i96
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #22
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i202: ; preds = %if.then.i96
@@ -921,7 +921,7 @@ if.then.i112:                                     ; preds = %_ZN11StreamProxylsI
   br i1 %tobool.not.i.i.i221, label %if.then.i.i.i234, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i222
 
 if.then.i.i.i234:                                 ; preds = %if.then.i112
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #22
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i222: ; preds = %if.then.i112
@@ -989,7 +989,7 @@ if.then:                                          ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.then
   call void @_ZN18SerializationErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI18SerializationError, ptr nonnull @_ZN13BaseExceptionD2Ev) #21
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI18SerializationError, ptr nonnull @_ZN13BaseExceptionD2Ev) #22
           to label %unreachable unwind label %lpad2
 
 lpad2:                                            ; preds = %invoke.cont
@@ -1001,7 +1001,7 @@ lpad2:                                            ; preds = %invoke.cont
   br i1 %cmp.i.i.i, label %ehcleanup.thread, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad2
-  call void @_ZdlPv(ptr noundef %1) #22
+  call void @_ZdlPv(ptr noundef %1) #23
   br label %ehcleanup.thread
 
 ehcleanup.thread:                                 ; preds = %lpad2, %if.then.i.i
@@ -1151,7 +1151,7 @@ invoke.cont41:                                    ; preds = %if.then40
 
 invoke.cont46:                                    ; preds = %invoke.cont41
   call void @_ZN18SerializationErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception42, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43)
-  invoke void @__cxa_throw(ptr nonnull %exception42, ptr nonnull @_ZTI18SerializationError, ptr nonnull @_ZN13BaseExceptionD2Ev) #21
+  invoke void @__cxa_throw(ptr nonnull %exception42, ptr nonnull @_ZTI18SerializationError, ptr nonnull @_ZN13BaseExceptionD2Ev) #22
           to label %unreachable unwind label %lpad47
 
 lpad47:                                           ; preds = %invoke.cont46
@@ -1163,7 +1163,7 @@ lpad47:                                           ; preds = %invoke.cont46
   br i1 %cmp.i.i.i199, label %ehcleanup51.thread, label %if.then.i.i200
 
 if.then.i.i200:                                   ; preds = %lpad47
-  call void @_ZdlPv(ptr noundef %11) #22
+  call void @_ZdlPv(ptr noundef %11) #23
   br label %ehcleanup51.thread
 
 ehcleanup51.thread:                               ; preds = %lpad47, %if.then.i.i200
@@ -1337,7 +1337,7 @@ invoke.cont125:                                   ; preds = %if.then.i231, %invo
 
 invoke.cont133:                                   ; preds = %invoke.cont125
   call void @_ZN18SerializationErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception129, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp130)
-  invoke void @__cxa_throw(ptr nonnull %exception129, ptr nonnull @_ZTI18SerializationError, ptr nonnull @_ZN13BaseExceptionD2Ev) #21
+  invoke void @__cxa_throw(ptr nonnull %exception129, ptr nonnull @_ZTI18SerializationError, ptr nonnull @_ZN13BaseExceptionD2Ev) #22
           to label %unreachable unwind label %lpad134
 
 lpad75.loopexit:                                  ; preds = %for.body
@@ -1369,7 +1369,7 @@ lpad134:                                          ; preds = %invoke.cont133
   br i1 %cmp.i.i.i235, label %ehcleanup138.thread, label %if.then.i.i236
 
 if.then.i.i236:                                   ; preds = %lpad134
-  call void @_ZdlPv(ptr noundef %30) #22
+  call void @_ZdlPv(ptr noundef %30) #23
   br label %ehcleanup138.thread
 
 ehcleanup138.thread:                              ; preds = %lpad134, %if.then.i.i236
@@ -1400,7 +1400,7 @@ terminate.lpad.i:                                 ; preds = %ehcleanup154
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #23
+  call void @__clang_call_terminate(ptr %35) #24
   unreachable
 
 for.end155:                                       ; preds = %if.end29, %for.cond, %if.end29.us, %for.inc, %for.cond72.preheader
@@ -1411,7 +1411,7 @@ terminate.lpad.i242:                              ; preds = %for.end155
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #23
+  call void @__clang_call_terminate(ptr %37) #24
   unreachable
 
 _ZN15ZlibAutoDeleterIXadL_Z10inflateEndEEED2Ev.exit243: ; preds = %for.end155
@@ -1601,7 +1601,7 @@ _ZN11StreamProxylsEPFRSoS0_E.exit:                ; preds = %if.then.i, %_ZTW7ds
 
 invoke.cont:                                      ; preds = %_ZN11StreamProxylsEPFRSoS0_E.exit
   call void @_ZN18SerializationErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13)
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI18SerializationError, ptr nonnull @_ZN13BaseExceptionD2Ev) #21
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI18SerializationError, ptr nonnull @_ZN13BaseExceptionD2Ev) #22
           to label %unreachable unwind label %lpad15
 
 lpad15:                                           ; preds = %invoke.cont
@@ -1613,7 +1613,7 @@ lpad15:                                           ; preds = %invoke.cont
   br i1 %cmp.i.i.i, label %ehcleanup.thread, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad15
-  call void @_ZdlPv(ptr noundef %8) #22
+  call void @_ZdlPv(ptr noundef %8) #23
   br label %ehcleanup.thread
 
 ehcleanup.thread:                                 ; preds = %lpad15, %if.then.i.i
@@ -1687,7 +1687,7 @@ _ZN11StreamProxylsEPFRSoS0_E.exit84:              ; preds = %if.then.i82, %_ZTW7
 
 invoke.cont43:                                    ; preds = %_ZN11StreamProxylsEPFRSoS0_E.exit84
   call void @_ZN18SerializationErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception39, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40)
-  invoke void @__cxa_throw(ptr nonnull %exception39, ptr nonnull @_ZTI18SerializationError, ptr nonnull @_ZN13BaseExceptionD2Ev) #21
+  invoke void @__cxa_throw(ptr nonnull %exception39, ptr nonnull @_ZTI18SerializationError, ptr nonnull @_ZN13BaseExceptionD2Ev) #22
           to label %unreachable unwind label %lpad44
 
 lpad44:                                           ; preds = %invoke.cont43
@@ -1699,7 +1699,7 @@ lpad44:                                           ; preds = %invoke.cont43
   br i1 %cmp.i.i.i85, label %ehcleanup48.thread, label %if.then.i.i86
 
 if.then.i.i86:                                    ; preds = %lpad44
-  call void @_ZdlPv(ptr noundef %19) #22
+  call void @_ZdlPv(ptr noundef %19) #23
   br label %ehcleanup48.thread
 
 ehcleanup48.thread:                               ; preds = %lpad44, %if.then.i.i86
@@ -1767,7 +1767,7 @@ terminate.lpad:                                   ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #23
+  tail call void @__clang_call_terminate(ptr %2) #24
   unreachable
 }
 
@@ -1919,7 +1919,7 @@ _ZN11StreamProxylsEPFRSoS0_E.exit:                ; preds = %if.then.i, %_ZTW7ds
 
 invoke.cont:                                      ; preds = %_ZN11StreamProxylsEPFRSoS0_E.exit
   call void @_ZN18SerializationErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20)
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI18SerializationError, ptr nonnull @_ZN13BaseExceptionD2Ev) #21
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI18SerializationError, ptr nonnull @_ZN13BaseExceptionD2Ev) #22
           to label %unreachable unwind label %lpad22
 
 lpad22:                                           ; preds = %invoke.cont
@@ -1931,7 +1931,7 @@ lpad22:                                           ; preds = %invoke.cont
   br i1 %cmp.i.i.i, label %ehcleanup.thread, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad22
-  call void @_ZdlPv(ptr noundef %11) #22
+  call void @_ZdlPv(ptr noundef %11) #23
   br label %ehcleanup.thread
 
 ehcleanup.thread:                                 ; preds = %lpad22, %if.then.i.i
@@ -2010,7 +2010,7 @@ if.then51:                                        ; preds = %for.body
 
 invoke.cont56:                                    ; preds = %if.then51
   call void @_ZN18SerializationErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception52, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53)
-  invoke void @__cxa_throw(ptr nonnull %exception52, ptr nonnull @_ZTI18SerializationError, ptr nonnull @_ZN13BaseExceptionD2Ev) #21
+  invoke void @__cxa_throw(ptr nonnull %exception52, ptr nonnull @_ZTI18SerializationError, ptr nonnull @_ZN13BaseExceptionD2Ev) #22
           to label %unreachable unwind label %lpad57
 
 lpad57:                                           ; preds = %invoke.cont56
@@ -2022,7 +2022,7 @@ lpad57:                                           ; preds = %invoke.cont56
   br i1 %cmp.i.i.i92, label %ehcleanup61.thread, label %if.then.i.i93
 
 if.then.i.i93:                                    ; preds = %lpad57
-  call void @_ZdlPv(ptr noundef %22) #22
+  call void @_ZdlPv(ptr noundef %22) #23
   br label %ehcleanup61.thread
 
 ehcleanup61.thread:                               ; preds = %lpad57, %if.then.i.i93
@@ -2071,7 +2071,7 @@ terminate.lpad:                                   ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #23
+  tail call void @__clang_call_terminate(ptr %2) #24
   unreachable
 }
 
@@ -2223,7 +2223,7 @@ if.then10:                                        ; preds = %for.cond
 
 invoke.cont:                                      ; preds = %if.then10
   call void @_ZN18SerializationErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI18SerializationError, ptr nonnull @_ZN13BaseExceptionD2Ev) #21
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI18SerializationError, ptr nonnull @_ZN13BaseExceptionD2Ev) #22
           to label %unreachable unwind label %lpad12
 
 lpad12:                                           ; preds = %invoke.cont
@@ -2235,7 +2235,7 @@ lpad12:                                           ; preds = %invoke.cont
   br i1 %cmp.i.i.i, label %ehcleanup.thread, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad12
-  call void @_ZdlPv(ptr noundef %2) #22
+  call void @_ZdlPv(ptr noundef %2) #23
   br label %ehcleanup.thread
 
 ehcleanup.thread:                                 ; preds = %lpad12, %if.then.i.i
@@ -2297,12 +2297,12 @@ entry:
   br i1 %cmp.i.i.i.i, label %_ZN13BaseExceptionD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #22
+  tail call void @_ZdlPv(ptr noundef %0) #23
   br label %_ZN13BaseExceptionD2Ev.exit
 
 _ZN13BaseExceptionD2Ev.exit:                      ; preds = %entry, %if.then.i.i.i
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -2317,7 +2317,7 @@ entry:
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #8
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 }
 
@@ -2337,12 +2337,12 @@ entry:
   br i1 %cmp.i.i.i.i, label %_ZN13BaseExceptionD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #22
+  tail call void @_ZdlPv(ptr noundef %0) #23
   br label %_ZN13BaseExceptionD2Ev.exit
 
 _ZN13BaseExceptionD2Ev.exit:                      ; preds = %entry, %if.then.i.i.i
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -2401,17 +2401,17 @@ entry:
 
 declare extern_weak void @_ZTH7dstream() #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #9
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.bswap.i32(i32) #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 attributes #0 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2432,11 +2432,12 @@ attributes #15 = { nofree nounwind memory(read) "no-signed-zeros-fp-math"="true"
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { noreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { noreturn }
-attributes #22 = { builtin nounwind }
-attributes #23 = { noreturn nounwind }
+attributes #19 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #22 = { noreturn }
+attributes #23 = { builtin nounwind }
+attributes #24 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

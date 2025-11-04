@@ -87,12 +87,12 @@ define dso_local noundef i64 @json_in(ptr noundef captures(none) %0) local_unnam
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call ptr @cstring_to_text(ptr noundef %5) #10
+  %6 = tail call ptr @cstring_to_text(ptr noundef %5) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %7 = call ptr @makeJsonLexContext(ptr noundef nonnull %2, ptr noundef %6, i1 noundef zeroext false) #10
+  %7 = call ptr @makeJsonLexContext(ptr noundef nonnull %2, ptr noundef %6, i1 noundef zeroext false) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = call zeroext i1 @pg_parse_json_or_errsave(ptr noundef nonnull %2, ptr noundef nonnull @nullSemAction, ptr noundef %9) #10
+  %10 = call zeroext i1 @pg_parse_json_or_errsave(ptr noundef nonnull %2, ptr noundef nonnull @nullSemAction, ptr noundef %9) #11
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %1
@@ -121,7 +121,7 @@ define dso_local i64 @json_out(ptr noundef readonly captures(none) %0) local_unn
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @text_to_cstring(ptr noundef %4) #10
+  %5 = tail call ptr @text_to_cstring(ptr noundef %4) #11
   %6 = ptrtoint ptr %5 to i64
   ret i64 %6
 }
@@ -134,9 +134,9 @@ define dso_local i64 @json_send(ptr noundef readonly captures(none) %0) local_un
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call ptr @pg_detoast_datum_packed(ptr noundef %5) #10
+  %6 = tail call ptr @pg_detoast_datum_packed(ptr noundef %5) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @pq_begintypsend(ptr noundef nonnull %2) #10
+  call void @pq_begintypsend(ptr noundef nonnull %2) #11
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = and i32 %8, 1
@@ -172,8 +172,8 @@ define dso_local i64 @json_send(ptr noundef readonly captures(none) %0) local_un
   %27 = phi i32 [ %17, %12 ], [ %21, %19 ], [ %25, %22 ]
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %29 = select i1 %.not, ptr %28, ptr %10
-  call void @pq_sendtext(ptr noundef nonnull %2, ptr noundef nonnull %29, i32 noundef %27) #10
-  %30 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #10
+  call void @pq_sendtext(ptr noundef nonnull %2, ptr noundef nonnull %29, i32 noundef %27) #11
+  %30 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #11
   %31 = ptrtoint ptr %30 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %31
@@ -201,14 +201,14 @@ define dso_local i64 @json_recv(ptr noundef readonly captures(none) %0) local_un
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = sub i32 %8, %10
-  %12 = call ptr @pq_getmsgtext(ptr noundef %6, i32 noundef %11, ptr noundef nonnull %2) #10
+  %12 = call ptr @pq_getmsgtext(ptr noundef %6, i32 noundef %11, ptr noundef nonnull %2) #11
   %13 = load i32, ptr %2, align 4
   %14 = sext i32 %13 to i64
-  %15 = call i32 @GetDatabaseEncoding() #10
-  %16 = call ptr @makeJsonLexContextCstringLen(ptr noundef nonnull %3, ptr noundef %12, i64 noundef %14, i32 noundef %15, i1 noundef zeroext false) #10
-  %17 = call zeroext i1 @pg_parse_json_or_errsave(ptr noundef nonnull %3, ptr noundef nonnull @nullSemAction, ptr noundef null) #10
+  %15 = call i32 @GetDatabaseEncoding() #11
+  %16 = call ptr @makeJsonLexContextCstringLen(ptr noundef nonnull %3, ptr noundef %12, i64 noundef %14, i32 noundef %15, i1 noundef zeroext false) #11
+  %17 = call zeroext i1 @pg_parse_json_or_errsave(ptr noundef nonnull %3, ptr noundef nonnull @nullSemAction, ptr noundef null) #11
   %18 = load i32, ptr %2, align 4
-  %19 = call ptr @cstring_to_text_with_len(ptr noundef %12, i32 noundef %18) #10
+  %19 = call ptr @cstring_to_text_with_len(ptr noundef %12, i32 noundef %18) #11
   %20 = ptrtoint ptr %19 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -241,7 +241,7 @@ define dso_local ptr @JsonEncodeDateTime(ptr noundef %0, i64 noundef %1, i32 nou
   br i1 %.not, label %17, label %19
 
 17:                                               ; preds = %4
-  %18 = tail call ptr @palloc(i64 noundef 129) #10
+  %18 = tail call ptr @palloc(i64 noundef 129) #11
   br label %19
 
 19:                                               ; preds = %17, %4
@@ -262,7 +262,7 @@ define dso_local ptr @JsonEncodeDateTime(ptr noundef %0, i64 noundef %1, i32 nou
   br i1 %or.cond, label %23, label %24
 
 23:                                               ; preds = %20
-  tail call void @EncodeSpecialDate(i32 noundef %21, ptr noundef %.046) #10
+  tail call void @EncodeSpecialDate(i32 noundef %21, ptr noundef %.046) #11
   br label %29
 
 24:                                               ; preds = %20
@@ -270,8 +270,8 @@ define dso_local ptr @JsonEncodeDateTime(ptr noundef %0, i64 noundef %1, i32 nou
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  call void @j2date(i32 noundef %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28) #10
-  call void @EncodeDateOnly(ptr noundef nonnull %5, i32 noundef 4, ptr noundef %.046) #10
+  call void @j2date(i32 noundef %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28) #11
+  call void @EncodeDateOnly(ptr noundef nonnull %5, i32 noundef 4, ptr noundef %.046) #11
   br label %29
 
 29:                                               ; preds = %24, %23
@@ -281,9 +281,9 @@ define dso_local ptr @JsonEncodeDateTime(ptr noundef %0, i64 noundef %1, i32 nou
 30:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %31 = call i32 @time2tm(i64 noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
+  %31 = call i32 @time2tm(i64 noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   %32 = load i32, ptr %7, align 4
-  call void @EncodeTimeOnly(ptr noundef nonnull %6, i32 noundef %32, i1 noundef zeroext false, i32 noundef 0, i32 noundef 4, ptr noundef %.046) #10
+  call void @EncodeTimeOnly(ptr noundef nonnull %6, i32 noundef %32, i1 noundef zeroext false, i32 noundef 0, i32 noundef 4, ptr noundef %.046) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %78
@@ -293,10 +293,10 @@ define dso_local ptr @JsonEncodeDateTime(ptr noundef %0, i64 noundef %1, i32 nou
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %35 = call i32 @timetz2tm(ptr noundef %34, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #10
+  %35 = call i32 @timetz2tm(ptr noundef %34, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #11
   %36 = load i32, ptr %9, align 4
   %37 = load i32, ptr %10, align 4
-  call void @EncodeTimeOnly(ptr noundef nonnull %8, i32 noundef %36, i1 noundef zeroext true, i32 noundef %37, i32 noundef 4, ptr noundef %.046) #10
+  call void @EncodeTimeOnly(ptr noundef nonnull %8, i32 noundef %36, i1 noundef zeroext true, i32 noundef %37, i32 noundef 4, ptr noundef %.046) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -310,24 +310,24 @@ define dso_local ptr @JsonEncodeDateTime(ptr noundef %0, i64 noundef %1, i32 nou
   br i1 %or.cond3, label %40, label %41
 
 40:                                               ; preds = %38
-  tail call void @EncodeSpecialTimestamp(i64 noundef %1, ptr noundef %.046) #10
+  tail call void @EncodeSpecialTimestamp(i64 noundef %1, ptr noundef %.046) #11
   br label %50
 
 41:                                               ; preds = %38
-  %42 = call i32 @timestamp2tm(i64 noundef %1, ptr noundef null, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef null, ptr noundef null) #10
+  %42 = call i32 @timestamp2tm(i64 noundef %1, ptr noundef null, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef null, ptr noundef null) #11
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %41
   %45 = load i32, ptr %12, align 4
-  call void @EncodeDateTime(ptr noundef nonnull %11, i32 noundef %45, i1 noundef zeroext false, i32 noundef 0, ptr noundef null, i32 noundef 4, ptr noundef %.046) #10
+  call void @EncodeDateTime(ptr noundef nonnull %11, i32 noundef %45, i1 noundef zeroext false, i32 noundef 0, ptr noundef null, i32 noundef 4, ptr noundef %.046) #11
   br label %50
 
 46:                                               ; preds = %41
-  %47 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %48 = call i32 @errcode(i32 noundef 134217858) #10
-  %49 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 375, ptr noundef nonnull @__func__.JsonEncodeDateTime) #10
+  %47 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %48 = call i32 @errcode(i32 noundef 134217858) #11
+  %49 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 375, ptr noundef nonnull @__func__.JsonEncodeDateTime) #11
   unreachable
 
 50:                                               ; preds = %44, %40
@@ -359,13 +359,13 @@ define dso_local ptr @JsonEncodeDateTime(ptr noundef %0, i64 noundef %1, i32 nou
   br i1 %or.cond5, label %58, label %59
 
 58:                                               ; preds = %56
-  tail call void @EncodeSpecialTimestamp(i64 noundef %.0, ptr noundef %.046) #10
+  tail call void @EncodeSpecialTimestamp(i64 noundef %.0, ptr noundef %.046) #11
   br label %74
 
 59:                                               ; preds = %56
   %. = select i1 %.not51, ptr %14, ptr null
   %60 = select i1 %.not51, ptr %16, ptr null
-  %61 = call i32 @timestamp2tm(i64 noundef %.0, ptr noundef %., ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef %60, ptr noundef null) #10
+  %61 = call i32 @timestamp2tm(i64 noundef %.0, ptr noundef %., ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef %60, ptr noundef null) #11
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %70
 
@@ -381,14 +381,14 @@ define dso_local ptr @JsonEncodeDateTime(ptr noundef %0, i64 noundef %1, i32 nou
   %67 = load i32, ptr %15, align 4
   %68 = load i32, ptr %14, align 4
   %69 = load ptr, ptr %16, align 8
-  call void @EncodeDateTime(ptr noundef nonnull %13, i32 noundef %67, i1 noundef zeroext true, i32 noundef %68, ptr noundef %69, i32 noundef 4, ptr noundef %.046) #10
+  call void @EncodeDateTime(ptr noundef nonnull %13, i32 noundef %67, i1 noundef zeroext true, i32 noundef %68, ptr noundef %69, i32 noundef 4, ptr noundef %.046) #11
   br label %74
 
 70:                                               ; preds = %59
-  %71 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %72 = call i32 @errcode(i32 noundef 134217858) #10
-  %73 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 414, ptr noundef nonnull @__func__.JsonEncodeDateTime) #10
+  %71 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %72 = call i32 @errcode(i32 noundef 134217858) #11
+  %73 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 414, ptr noundef nonnull @__func__.JsonEncodeDateTime) #11
   unreachable
 
 74:                                               ; preds = %66, %58
@@ -399,9 +399,9 @@ define dso_local ptr @JsonEncodeDateTime(ptr noundef %0, i64 noundef %1, i32 nou
   br label %78
 
 75:                                               ; preds = %19
-  %76 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %77 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %2) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 418, ptr noundef nonnull @__func__.JsonEncodeDateTime) #10
+  %76 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %77 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %2) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 418, ptr noundef nonnull @__func__.JsonEncodeDateTime) #11
   unreachable
 
 78:                                               ; preds = %74, %50, %33, %30, %29
@@ -443,12 +443,12 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 define dso_local i64 @array_to_json(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @makeStringInfo() #10
+  %4 = tail call ptr @makeStringInfo() #11
   tail call fastcc void @array_to_json_internal(i64 noundef %3, ptr noundef %4, i1 noundef zeroext false)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = tail call ptr @cstring_to_text_with_len(ptr noundef %5, i32 noundef %7) #10
+  %8 = tail call ptr @cstring_to_text_with_len(ptr noundef %5, i32 noundef %7) #11
   %9 = ptrtoint ptr %8 to i64
   ret i64 %9
 }
@@ -467,7 +467,7 @@ define internal fastcc void @array_to_json_internal(i64 noundef %0, ptr noundef 
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = inttoptr i64 %0 to ptr
-  %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #10
+  %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #11
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %16 = load i32, ptr %15, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -483,33 +483,33 @@ define internal fastcc void @array_to_json_internal(i64 noundef %0, ptr noundef 
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %20 = tail call i32 @ArrayGetNItems(i32 noundef %18, ptr noundef nonnull %19) #10
+  %20 = tail call i32 @ArrayGetNItems(i32 noundef %18, ptr noundef nonnull %19) #11
   store i32 %20, ptr %4, align 4
   %21 = icmp slt i32 %20, 1
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %3
-  tail call void @appendStringInfoString(ptr noundef %1, ptr noundef nonnull @.str.15) #10
+  tail call void @appendStringInfoString(ptr noundef %1, ptr noundef nonnull @.str.15) #11
   br label %35
 
 23:                                               ; preds = %3
-  call void @get_typlenbyvalalign(i32 noundef %16, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #10
-  call void @json_categorize_type(i32 noundef %16, i1 noundef zeroext false, ptr noundef nonnull %11, ptr noundef nonnull %12) #10
+  call void @get_typlenbyvalalign(i32 noundef %16, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #11
+  call void @json_categorize_type(i32 noundef %16, i1 noundef zeroext false, ptr noundef nonnull %11, ptr noundef nonnull %12) #11
   %24 = load i16, ptr %8, align 2
   %25 = sext i16 %24 to i32
   %26 = load i8, ptr %9, align 1, !range !4, !noundef !5
   %27 = trunc nuw i8 %26 to i1
   %28 = load i8, ptr %10, align 1
-  call void @deconstruct_array(ptr noundef nonnull %14, i32 noundef %16, i32 noundef %25, i1 noundef zeroext %27, i8 noundef signext %28, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %4) #10
+  call void @deconstruct_array(ptr noundef nonnull %14, i32 noundef %16, i32 noundef %25, i1 noundef zeroext %27, i8 noundef signext %28, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %4) #11
   %29 = load ptr, ptr %6, align 8
   %30 = load ptr, ptr %7, align 8
   %31 = load i32, ptr %11, align 4
   %32 = load i32, ptr %12, align 4
   call fastcc void @array_dim_to_json(ptr noundef %1, i32 noundef 0, i32 noundef %18, ptr noundef nonnull %19, ptr noundef %29, ptr noundef %30, ptr noundef %5, i32 noundef %31, i32 noundef %32, i1 noundef zeroext %2)
   %33 = load ptr, ptr %6, align 8
-  call void @pfree(ptr noundef %33) #10
+  call void @pfree(ptr noundef %33) #11
   %34 = load ptr, ptr %7, align 8
-  call void @pfree(ptr noundef %34) #10
+  call void @pfree(ptr noundef %34) #11
   br label %35
 
 35:                                               ; preds = %23, %22
@@ -532,12 +532,12 @@ define dso_local i64 @array_to_json_pretty(ptr noundef readonly captures(none) %
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = icmp ne i64 %5, 0
-  %7 = tail call ptr @makeStringInfo() #10
+  %7 = tail call ptr @makeStringInfo() #11
   tail call fastcc void @array_to_json_internal(i64 noundef %3, ptr noundef %7, i1 noundef zeroext %6)
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = tail call ptr @cstring_to_text_with_len(ptr noundef %8, i32 noundef %10) #10
+  %11 = tail call ptr @cstring_to_text_with_len(ptr noundef %8, i32 noundef %10) #11
   %12 = ptrtoint ptr %11 to i64
   ret i64 %12
 }
@@ -546,12 +546,12 @@ define dso_local i64 @array_to_json_pretty(ptr noundef readonly captures(none) %
 define dso_local i64 @row_to_json(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @makeStringInfo() #10
+  %4 = tail call ptr @makeStringInfo() #11
   tail call fastcc void @composite_to_json(i64 noundef %3, ptr noundef %4, i1 noundef zeroext false)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = tail call ptr @cstring_to_text_with_len(ptr noundef %5, i32 noundef %7) #10
+  %8 = tail call ptr @cstring_to_text_with_len(ptr noundef %5, i32 noundef %7) #11
   %9 = ptrtoint ptr %8 to i64
   ret i64 %9
 }
@@ -566,18 +566,18 @@ define internal fastcc void @composite_to_json(i64 noundef %0, ptr noundef %1, i
   %8 = select i1 %2, ptr @.str.28, ptr @.str.29
   %9 = select i1 %2, i32 3, i32 1
   %10 = inttoptr i64 %0 to ptr
-  %11 = tail call ptr @pg_detoast_datum(ptr noundef %10) #10
+  %11 = tail call ptr @pg_detoast_datum(ptr noundef %10) #11
   %12 = getelementptr i8, ptr %11, i64 8
   %.val = load i32, ptr %12, align 4
   %13 = getelementptr i8, ptr %11, i64 4
   %.val33 = load i32, ptr %13, align 4
-  %14 = tail call ptr @lookup_rowtype_tupdesc(i32 noundef %.val, i32 noundef %.val33) #10
+  %14 = tail call ptr @lookup_rowtype_tupdesc(i32 noundef %.val, i32 noundef %.val33) #11
   %.val34 = load i32, ptr %11, align 4
   %15 = lshr i32 %.val34, 2
   store i32 %15, ptr %4, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %11, ptr %16, align 8
-  tail call void @appendStringInfoChar(ptr noundef %1, i8 noundef signext 123) #10
+  tail call void @appendStringInfoChar(ptr noundef %1, i8 noundef signext 123) #11
   %17 = load i32, ptr %14, align 8
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph, label %._crit_edge
@@ -607,13 +607,13 @@ define internal fastcc void @composite_to_json(i64 noundef %0, ptr noundef %1, i
   br i1 %.03235, label %29, label %30
 
 29:                                               ; preds = %28
-  call void @appendBinaryStringInfo(ptr noundef %1, ptr noundef nonnull %8, i32 noundef %9) #10
+  call void @appendBinaryStringInfo(ptr noundef %1, ptr noundef nonnull %8, i32 noundef %9) #11
   br label %30
 
 30:                                               ; preds = %28, %29
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 4
   call void @escape_json(ptr noundef %1, ptr noundef nonnull %31)
-  call void @appendStringInfoChar(ptr noundef %1, i8 noundef signext 58) #10
+  call void @appendStringInfoChar(ptr noundef %1, i8 noundef signext 58) #11
   %32 = add nuw nsw i64 %indvars.iv, 1
   %33 = load ptr, ptr %16, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 18
@@ -625,7 +625,7 @@ define internal fastcc void @composite_to_json(i64 noundef %0, ptr noundef %1, i
 
 38:                                               ; preds = %30
   %39 = trunc nuw nsw i64 %32 to i32
-  %40 = call i64 @getmissingattr(ptr noundef nonnull %14, i32 noundef %39, ptr noundef nonnull %5) #10
+  %40 = call i64 @getmissingattr(ptr noundef nonnull %14, i32 noundef %39, ptr noundef nonnull %5) #11
   br label %heap_getattr.exit
 
 41:                                               ; preds = %30
@@ -692,9 +692,9 @@ define internal fastcc void @composite_to_json(i64 noundef %0, ptr noundef %1, i
   br label %heap_getattr.exit
 
 77:                                               ; preds = %.split.i.i.i, %62
-  %78 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %79 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, i32 noundef range(i32 -32768, 32768) %61) #10
-  call void @errfinish(ptr noundef nonnull @.str.31, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #10
+  %78 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %79 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, i32 noundef range(i32 -32768, 32768) %61) #11
+  call void @errfinish(ptr noundef nonnull @.str.31, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #11
   unreachable
 
 80:                                               ; preds = %49
@@ -703,7 +703,7 @@ define internal fastcc void @composite_to_json(i64 noundef %0, ptr noundef %1, i
 
 82:                                               ; preds = %44
   %83 = trunc nuw nsw i64 %32 to i32
-  %84 = call i64 @nocachegetattr(ptr noundef nonnull %4, i32 noundef range(i32 1, 2048) %83, ptr noundef nonnull %14) #10
+  %84 = call i64 @nocachegetattr(ptr noundef nonnull %4, i32 noundef range(i32 1, 2048) %83, ptr noundef nonnull %14) #11
   br label %heap_getattr.exit
 
 85:                                               ; preds = %41
@@ -725,7 +725,7 @@ define internal fastcc void @composite_to_json(i64 noundef %0, ptr noundef %1, i
 
 96:                                               ; preds = %85
   %97 = trunc nuw nsw i64 %32 to i32
-  %98 = call i64 @nocachegetattr(ptr noundef nonnull %4, i32 noundef range(i32 1, 2048) %97, ptr noundef nonnull %14) #10
+  %98 = call i64 @nocachegetattr(ptr noundef nonnull %4, i32 noundef range(i32 1, 2048) %97, ptr noundef nonnull %14) #11
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %38, %66, %69, %72, %75, %80, %82, %95, %96
@@ -742,7 +742,7 @@ heap_getattr.exit:                                ; preds = %38, %66, %69, %72, 
 102:                                              ; preds = %heap_getattr.exit
   %103 = getelementptr inbounds nuw i8, ptr %24, i64 68
   %104 = load i32, ptr %103, align 4
-  call void @json_categorize_type(i32 noundef %104, i1 noundef zeroext false, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
+  call void @json_categorize_type(i32 noundef %104, i1 noundef zeroext false, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   %.pre = load i8, ptr %5, align 1, !range !4
   %.pre38 = load i32, ptr %6, align 4
   %.pre39 = load i32, ptr %7, align 4
@@ -770,14 +770,14 @@ heap_getattr.exit:                                ; preds = %38, %66, %69, %72, 
   br i1 %112, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %110, %3
-  call void @appendStringInfoChar(ptr noundef %1, i8 noundef signext 125) #10
+  call void @appendStringInfoChar(ptr noundef %1, i8 noundef signext 125) #11
   %113 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %114 = load i32, ptr %113, align 4
   %115 = icmp sgt i32 %114, -1
   br i1 %115, label %116, label %117
 
 116:                                              ; preds = %._crit_edge
-  call void @DecrTupleDescRefCount(ptr noundef nonnull %14) #10
+  call void @DecrTupleDescRefCount(ptr noundef nonnull %14) #11
   br label %117
 
 117:                                              ; preds = %116, %._crit_edge
@@ -792,12 +792,12 @@ define dso_local i64 @row_to_json_pretty(ptr noundef readonly captures(none) %0)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = icmp ne i64 %5, 0
-  %7 = tail call ptr @makeStringInfo() #10
+  %7 = tail call ptr @makeStringInfo() #11
   tail call fastcc void @composite_to_json(i64 noundef %3, ptr noundef %7, i1 noundef zeroext %6)
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = tail call ptr @cstring_to_text_with_len(ptr noundef %8, i32 noundef %10) #10
+  %11 = tail call ptr @cstring_to_text_with_len(ptr noundef %8, i32 noundef %10) #11
   %12 = ptrtoint ptr %11 to i64
   ret i64 %12
 }
@@ -808,7 +808,7 @@ define dso_local zeroext i1 @to_json_is_immutable(i32 noundef %0) local_unnamed_
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @json_categorize_type(i32 noundef %0, i1 noundef zeroext false, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
+  call void @json_categorize_type(i32 noundef %0, i1 noundef zeroext false, ptr noundef nonnull %2, ptr noundef nonnull %3) #11
   %4 = load i32, ptr %2, align 4
   switch i32 %4, label %9 [
     i32 1, label %10
@@ -822,7 +822,7 @@ define dso_local zeroext i1 @to_json_is_immutable(i32 noundef %0) local_unnamed_
 
 5:                                                ; preds = %1, %1, %1
   %6 = load i32, ptr %3, align 4
-  %7 = call signext i8 @func_volatile(i32 noundef %6) #10
+  %7 = call signext i8 @func_volatile(i32 noundef %6) #11
   %8 = icmp eq i8 %7, 105
   br label %10
 
@@ -847,29 +847,29 @@ define dso_local i64 @to_json(ptr noundef readonly captures(none) %0) local_unna
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = tail call i32 @get_fn_expr_argtype(ptr noundef %6, i32 noundef 0) #10
+  %7 = tail call i32 @get_fn_expr_argtype(ptr noundef %6, i32 noundef 0) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %1
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %11 = tail call i32 @errcode(i32 noundef 50856066) #10
-  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 749, ptr noundef nonnull @__func__.to_json) #10
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %11 = tail call i32 @errcode(i32 noundef 50856066) #11
+  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 749, ptr noundef nonnull @__func__.to_json) #11
   unreachable
 
 13:                                               ; preds = %1
-  call void @json_categorize_type(i32 noundef %7, i1 noundef zeroext false, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
+  call void @json_categorize_type(i32 noundef %7, i1 noundef zeroext false, ptr noundef nonnull %2, ptr noundef nonnull %3) #11
   %14 = load i32, ptr %2, align 4
   %15 = load i32, ptr %3, align 4
-  %16 = call ptr @makeStringInfo() #10
+  %16 = call ptr @makeStringInfo() #11
   call fastcc void @datum_to_json_internal(i64 noundef %5, i1 noundef zeroext false, ptr noundef %16, i32 noundef %14, i32 noundef %15, i1 noundef zeroext false)
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i32, ptr %18, align 8
-  %20 = call ptr @cstring_to_text_with_len(ptr noundef %17, i32 noundef %19) #10
+  %20 = call ptr @cstring_to_text_with_len(ptr noundef %17, i32 noundef %19) #11
   %21 = ptrtoint ptr %20 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -880,12 +880,12 @@ declare i32 @get_fn_expr_argtype(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @datum_to_json(i64 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @makeStringInfo() #10
+  %4 = tail call ptr @makeStringInfo() #11
   tail call fastcc void @datum_to_json_internal(i64 noundef %0, i1 noundef zeroext false, ptr noundef %4, i32 noundef %1, i32 noundef %2, i1 noundef zeroext false)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = tail call ptr @cstring_to_text_with_len(ptr noundef %5, i32 noundef %7) #10
+  %8 = tail call ptr @cstring_to_text_with_len(ptr noundef %5, i32 noundef %7) #11
   %9 = ptrtoint ptr %8 to i64
   ret i64 %9
 }
@@ -896,11 +896,11 @@ define internal fastcc void @datum_to_json_internal(i64 noundef %0, i1 noundef z
   %8 = alloca [129 x i8], align 16
   %9 = alloca [129 x i8], align 16
   %10 = alloca [129 x i8], align 16
-  tail call void @check_stack_depth() #10
+  tail call void @check_stack_depth() #11
   br i1 %1, label %11, label %12
 
 11:                                               ; preds = %6
-  tail call void @appendBinaryStringInfo(ptr noundef %2, ptr noundef nonnull @.str.19, i32 noundef 4) #10
+  tail call void @appendBinaryStringInfo(ptr noundef %2, ptr noundef nonnull @.str.19, i32 noundef 4) #11
   br label %escape_json_text.exit
 
 12:                                               ; preds = %6
@@ -920,14 +920,14 @@ define internal fastcc void @datum_to_json_internal(i64 noundef %0, i1 noundef z
   ]
 
 .thread91:                                        ; preds = %13
-  %14 = tail call ptr @OidOutputFunctionCall(i32 noundef %4, i64 noundef %0) #10
+  %14 = tail call ptr @OidOutputFunctionCall(i32 noundef %4, i64 noundef %0) #11
   br label %39
 
 15:                                               ; preds = %13, %13, %13, %13
-  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %17 = tail call i32 @errcode(i32 noundef 50856066) #10
-  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 204, ptr noundef nonnull @__func__.datum_to_json_internal) #10
+  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %17 = tail call i32 @errcode(i32 noundef 50856066) #11
+  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 204, ptr noundef nonnull @__func__.datum_to_json_internal) #11
   unreachable
 
 19:                                               ; preds = %12
@@ -952,7 +952,7 @@ define internal fastcc void @datum_to_json_internal(i64 noundef %0, i1 noundef z
   br label %escape_json_text.exit
 
 22:                                               ; preds = %13
-  tail call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #10
+  tail call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #11
   br label %23
 
 23:                                               ; preds = %19, %22
@@ -960,22 +960,22 @@ define internal fastcc void @datum_to_json_internal(i64 noundef %0, i1 noundef z
   br i1 %.not92, label %25, label %24
 
 24:                                               ; preds = %23
-  tail call void @appendBinaryStringInfo(ptr noundef %2, ptr noundef nonnull @.str.33, i32 noundef 4) #10
+  tail call void @appendBinaryStringInfo(ptr noundef %2, ptr noundef nonnull @.str.33, i32 noundef 4) #11
   br label %26
 
 25:                                               ; preds = %23
-  tail call void @appendBinaryStringInfo(ptr noundef %2, ptr noundef nonnull @.str.34, i32 noundef 5) #10
+  tail call void @appendBinaryStringInfo(ptr noundef %2, ptr noundef nonnull @.str.34, i32 noundef 5) #11
   br label %26
 
 26:                                               ; preds = %25, %24
   br i1 %5, label %27, label %escape_json_text.exit
 
 27:                                               ; preds = %26
-  tail call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #10
+  tail call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #11
   br label %escape_json_text.exit
 
 28:                                               ; preds = %19
-  %29 = tail call ptr @OidOutputFunctionCall(i32 noundef %4, i64 noundef %0) #10
+  %29 = tail call ptr @OidOutputFunctionCall(i32 noundef %4, i64 noundef %0) #11
   %30 = load i8, ptr %29, align 1
   %31 = add i8 %30, -48
   %or.cond = icmp ult i8 %31, 10
@@ -993,19 +993,19 @@ define internal fastcc void @datum_to_json_internal(i64 noundef %0, i1 noundef z
   br i1 %or.cond87, label %38, label %39
 
 38:                                               ; preds = %34, %28
-  tail call void @appendStringInfoString(ptr noundef %2, ptr noundef nonnull %29) #10
+  tail call void @appendStringInfoString(ptr noundef %2, ptr noundef nonnull %29) #11
   br label %41
 
 39:                                               ; preds = %.thread91, %34, %32
   %40 = phi ptr [ %14, %.thread91 ], [ %29, %34 ], [ %29, %32 ]
-  tail call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #10
-  tail call void @appendStringInfoString(ptr noundef %2, ptr noundef %40) #10
-  tail call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #10
+  tail call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #11
+  tail call void @appendStringInfoString(ptr noundef %2, ptr noundef %40) #11
+  tail call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #11
   br label %41
 
 41:                                               ; preds = %39, %38
   %42 = phi ptr [ %40, %39 ], [ %29, %38 ]
-  tail call void @pfree(ptr noundef %42) #10
+  tail call void @pfree(ptr noundef %42) #11
   br label %escape_json_text.exit
 
 43:                                               ; preds = %13, %19
@@ -1017,7 +1017,7 @@ define internal fastcc void @datum_to_json_internal(i64 noundef %0, i1 noundef z
   br i1 %or.cond.i, label %46, label %47
 
 46:                                               ; preds = %43
-  call void @EncodeSpecialDate(i32 noundef %44, ptr noundef nonnull %8) #10
+  call void @EncodeSpecialDate(i32 noundef %44, ptr noundef nonnull %8) #11
   br label %JsonEncodeDateTime.exit
 
 47:                                               ; preds = %43
@@ -1025,46 +1025,46 @@ define internal fastcc void @datum_to_json_internal(i64 noundef %0, i1 noundef z
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  call void @j2date(i32 noundef %48, ptr noundef nonnull %49, ptr noundef nonnull %50, ptr noundef nonnull %51) #10
-  call void @EncodeDateOnly(ptr noundef nonnull %7, i32 noundef 4, ptr noundef nonnull %8) #10
+  call void @j2date(i32 noundef %48, ptr noundef nonnull %49, ptr noundef nonnull %50, ptr noundef nonnull %51) #11
+  call void @EncodeDateOnly(ptr noundef nonnull %7, i32 noundef 4, ptr noundef nonnull %8) #11
   br label %JsonEncodeDateTime.exit
 
 JsonEncodeDateTime.exit:                          ; preds = %46, %47
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #10
-  call void @appendStringInfoString(ptr noundef %2, ptr noundef nonnull %8) #10
-  call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #10
+  call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #11
+  call void @appendStringInfoString(ptr noundef %2, ptr noundef nonnull %8) #11
+  call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %escape_json_text.exit
 
 52:                                               ; preds = %13, %19
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %53 = call ptr @JsonEncodeDateTime(ptr noundef nonnull %9, i64 noundef %0, i32 noundef 1114, ptr noundef null)
-  call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #10
-  call void @appendStringInfoString(ptr noundef %2, ptr noundef nonnull %9) #10
-  call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #10
+  call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #11
+  call void @appendStringInfoString(ptr noundef %2, ptr noundef nonnull %9) #11
+  call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %escape_json_text.exit
 
 54:                                               ; preds = %13, %19
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %55 = call ptr @JsonEncodeDateTime(ptr noundef nonnull %10, i64 noundef %0, i32 noundef 1184, ptr noundef null)
-  call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #10
-  call void @appendStringInfoString(ptr noundef %2, ptr noundef nonnull %10) #10
-  call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #10
+  call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #11
+  call void @appendStringInfoString(ptr noundef %2, ptr noundef nonnull %10) #11
+  call void @appendStringInfoChar(ptr noundef %2, i8 noundef signext 34) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %escape_json_text.exit
 
 56:                                               ; preds = %19
-  %57 = tail call ptr @OidOutputFunctionCall(i32 noundef %4, i64 noundef %0) #10
-  tail call void @appendStringInfoString(ptr noundef %2, ptr noundef %57) #10
-  tail call void @pfree(ptr noundef %57) #10
+  %57 = tail call ptr @OidOutputFunctionCall(i32 noundef %4, i64 noundef %0) #11
+  tail call void @appendStringInfoString(ptr noundef %2, ptr noundef %57) #11
+  tail call void @pfree(ptr noundef %57) #11
   br label %escape_json_text.exit
 
 58:                                               ; preds = %19
-  %59 = tail call i64 @OidFunctionCall1Coll(i32 noundef %4, i32 noundef 0, i64 noundef %0) #10
+  %59 = tail call i64 @OidFunctionCall1Coll(i32 noundef %4, i32 noundef 0, i64 noundef %0) #11
   %60 = inttoptr i64 %59 to ptr
-  %61 = tail call ptr @pg_detoast_datum_packed(ptr noundef %60) #10
+  %61 = tail call ptr @pg_detoast_datum_packed(ptr noundef %60) #11
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
   %64 = and i32 %63, 1
@@ -1100,8 +1100,8 @@ JsonEncodeDateTime.exit:                          ; preds = %46, %47
 
 83:                                               ; preds = %76, %79, %69
   %84 = phi i32 [ %74, %69 ], [ %78, %76 ], [ %82, %79 ]
-  tail call void @appendBinaryStringInfo(ptr noundef %2, ptr noundef nonnull %67, i32 noundef %84) #10
-  tail call void @pfree(ptr noundef nonnull %61) #10
+  tail call void @appendBinaryStringInfo(ptr noundef %2, ptr noundef nonnull %67, i32 noundef %84) #11
+  tail call void @pfree(ptr noundef nonnull %61) #11
   br label %escape_json_text.exit
 
 85:                                               ; preds = %13, %19
@@ -1113,7 +1113,7 @@ JsonEncodeDateTime.exit:                          ; preds = %46, %47
 
 86:                                               ; preds = %85, %85, %85
   %87 = inttoptr i64 %0 to ptr
-  %88 = tail call ptr @pg_detoast_datum_packed(ptr noundef %87) #10
+  %88 = tail call ptr @pg_detoast_datum_packed(ptr noundef %87) #11
   %89 = load i8, ptr %88, align 1
   %90 = zext i8 %89 to i32
   %91 = icmp eq i8 %89, 1
@@ -1156,13 +1156,13 @@ JsonEncodeDateTime.exit:                          ; preds = %46, %47
   br i1 %.not19.i, label %escape_json_text.exit, label %112
 
 112:                                              ; preds = %108
-  tail call void @pfree(ptr noundef nonnull %88) #10
+  tail call void @pfree(ptr noundef nonnull %88) #11
   br label %escape_json_text.exit
 
 113:                                              ; preds = %85
-  %114 = tail call ptr @OidOutputFunctionCall(i32 noundef %4, i64 noundef %0) #10
+  %114 = tail call ptr @OidOutputFunctionCall(i32 noundef %4, i64 noundef %0) #11
   tail call void @escape_json(ptr noundef %2, ptr noundef %114)
-  tail call void @pfree(ptr noundef %114) #10
+  tail call void @pfree(ptr noundef %114) #11
   br label %escape_json_text.exit
 
 escape_json_text.exit:                            ; preds = %112, %108, %20, %21, %41, %JsonEncodeDateTime.exit, %52, %54, %56, %83, %27, %26, %113, %11
@@ -1179,14 +1179,14 @@ define dso_local i64 @json_agg_transfn(ptr noundef %0) local_unnamed_addr #0 {
 define internal fastcc i64 @json_agg_transfn_worker(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call i32 @AggCheckCallContext(ptr noundef %0, ptr noundef nonnull %3) #10
+  %4 = call i32 @AggCheckCallContext(ptr noundef %0, ptr noundef nonnull %3) #11
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %7 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.35) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 789, ptr noundef nonnull @__func__.json_agg_transfn_worker) #10
+  %6 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %7 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.35) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 789, ptr noundef nonnull @__func__.json_agg_transfn_worker) #11
   unreachable
 
 8:                                                ; preds = %2
@@ -1197,30 +1197,30 @@ define internal fastcc i64 @json_agg_transfn_worker(ptr noundef %0, i1 noundef z
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %0, align 8
-  %14 = call i32 @get_fn_expr_argtype(ptr noundef %13, i32 noundef 1) #10
+  %14 = call i32 @get_fn_expr_argtype(ptr noundef %13, i32 noundef 1) #11
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %12
-  %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %18 = call i32 @errcode(i32 noundef 50856066) #10
-  %19 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 799, ptr noundef nonnull @__func__.json_agg_transfn_worker) #10
+  %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %18 = call i32 @errcode(i32 noundef 50856066) #11
+  %19 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 799, ptr noundef nonnull @__func__.json_agg_transfn_worker) #11
   unreachable
 
 20:                                               ; preds = %12
   %21 = load ptr, ptr %3, align 8
   %22 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %21, ptr @CurrentMemoryContext, align 8
-  %23 = call ptr @palloc(i64 noundef 64) #10
-  %24 = call ptr @makeStringInfo() #10
+  %23 = call ptr @palloc(i64 noundef 64) #11
+  %24 = call ptr @makeStringInfo() #11
   store ptr %24, ptr %23, align 8
   store ptr %22, ptr @CurrentMemoryContext, align 8
   %25 = load ptr, ptr %23, align 8
-  call void @appendStringInfoChar(ptr noundef %25, i8 noundef signext 91) #10
+  call void @appendStringInfoChar(ptr noundef %25, i8 noundef signext 91) #11
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 20
-  call void @json_categorize_type(i32 noundef %14, i1 noundef zeroext false, ptr noundef nonnull %26, ptr noundef nonnull %27) #10
+  call void @json_categorize_type(i32 noundef %14, i1 noundef zeroext false, ptr noundef nonnull %26, ptr noundef nonnull %27) #11
   br label %32
 
 28:                                               ; preds = %8
@@ -1247,7 +1247,7 @@ define internal fastcc i64 @json_agg_transfn_worker(ptr noundef %0, i1 noundef z
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %37
-  call void @appendStringInfoString(ptr noundef nonnull %38, ptr noundef nonnull @.str.10) #10
+  call void @appendStringInfoString(ptr noundef nonnull %38, ptr noundef nonnull @.str.10) #11
   br label %43
 
 43:                                               ; preds = %42, %37
@@ -1258,8 +1258,8 @@ define internal fastcc i64 @json_agg_transfn_worker(ptr noundef %0, i1 noundef z
 
 47:                                               ; preds = %43
   %48 = load ptr, ptr %.030, align 8
-  call void @check_stack_depth() #10
-  call void @appendBinaryStringInfo(ptr noundef %48, ptr noundef nonnull @.str.19, i32 noundef 4) #10
+  call void @check_stack_depth() #11
+  call void @appendBinaryStringInfo(ptr noundef %48, ptr noundef nonnull @.str.19, i32 noundef 4) #11
   br label %69
 
 49:                                               ; preds = %43
@@ -1284,7 +1284,7 @@ define internal fastcc i64 @json_agg_transfn_worker(ptr noundef %0, i1 noundef z
   br i1 %switch, label %62, label %63
 
 62:                                               ; preds = %58
-  call void @appendStringInfoString(ptr noundef nonnull %.pre33, ptr noundef nonnull @.str.36) #10
+  call void @appendStringInfoString(ptr noundef nonnull %.pre33, ptr noundef nonnull @.str.36) #11
   %.pre = load ptr, ptr %.030, align 8
   br label %63
 
@@ -1334,7 +1334,7 @@ define dso_local noundef i64 @json_agg_finalfn(ptr noundef captures(none) %0) lo
   %14 = load i32, ptr %13, align 8
   %15 = add i32 %14, 5
   %16 = sext i32 %15 to i64
-  %17 = tail call ptr @palloc(i64 noundef %16) #10
+  %17 = tail call ptr @palloc(i64 noundef %16) #11
   %18 = shl i32 %15, 2
   store i32 %18, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 4
@@ -1364,14 +1364,14 @@ define internal fastcc i64 @json_object_agg_transfn_worker(ptr noundef %0, i1 no
   %6 = alloca %struct.HASHCTL, align 8
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %8 = call i32 @AggCheckCallContext(ptr noundef %0, ptr noundef nonnull %7) #10
+  %8 = call i32 @AggCheckCallContext(ptr noundef %0, ptr noundef nonnull %7) #11
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %12
 
 9:                                                ; preds = %3
-  %10 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %11 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.37) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1016, ptr noundef nonnull @__func__.json_object_agg_transfn_worker) #10
+  %10 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %11 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.37) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1016, ptr noundef nonnull @__func__.json_object_agg_transfn_worker) #11
   unreachable
 
 12:                                               ; preds = %3
@@ -1384,8 +1384,8 @@ define internal fastcc i64 @json_object_agg_transfn_worker(ptr noundef %0, i1 no
   %17 = load ptr, ptr %7, align 8
   %18 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %17, ptr @CurrentMemoryContext, align 8
-  %19 = call ptr @palloc(i64 noundef 64) #10
-  %20 = call ptr @makeStringInfo() #10
+  %19 = call ptr @palloc(i64 noundef 64) #11
+  %20 = call ptr @makeStringInfo() #11
   store ptr %20, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 24
   br i1 %2, label %22, label %33
@@ -1404,7 +1404,7 @@ define internal fastcc i64 @json_object_agg_transfn_worker(ptr noundef %0, i1 no
   store ptr @json_unique_hash, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr @json_unique_hash_match, ptr %28, align 8
-  %29 = call ptr @hash_create(ptr noundef nonnull @.str.48, i64 noundef 32, ptr noundef nonnull %6, i32 noundef 1224) #10
+  %29 = call ptr @hash_create(ptr noundef nonnull @.str.48, i64 noundef 32, ptr noundef nonnull %6, i32 noundef 1224) #11
   store ptr %29, ptr %21, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %30 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -1421,39 +1421,39 @@ define internal fastcc i64 @json_object_agg_transfn_worker(ptr noundef %0, i1 no
 34:                                               ; preds = %33, %22
   store ptr %18, ptr @CurrentMemoryContext, align 8
   %35 = load ptr, ptr %0, align 8
-  %36 = call i32 @get_fn_expr_argtype(ptr noundef %35, i32 noundef 1) #10
+  %36 = call i32 @get_fn_expr_argtype(ptr noundef %35, i32 noundef 1) #11
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %34
-  %39 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %40 = call i32 @errcode(i32 noundef 50856066) #10
-  %41 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, i32 noundef 1) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1043, ptr noundef nonnull @__func__.json_object_agg_transfn_worker) #10
+  %39 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %40 = call i32 @errcode(i32 noundef 50856066) #11
+  %41 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, i32 noundef 1) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1043, ptr noundef nonnull @__func__.json_object_agg_transfn_worker) #11
   unreachable
 
 42:                                               ; preds = %34
   %43 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  call void @json_categorize_type(i32 noundef %36, i1 noundef zeroext false, ptr noundef nonnull %43, ptr noundef nonnull %44) #10
+  call void @json_categorize_type(i32 noundef %36, i1 noundef zeroext false, ptr noundef nonnull %43, ptr noundef nonnull %44) #11
   %45 = load ptr, ptr %0, align 8
-  %46 = call i32 @get_fn_expr_argtype(ptr noundef %45, i32 noundef 2) #10
+  %46 = call i32 @get_fn_expr_argtype(ptr noundef %45, i32 noundef 2) #11
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %52
 
 48:                                               ; preds = %42
-  %49 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %50 = call i32 @errcode(i32 noundef 50856066) #10
-  %51 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, i32 noundef 2) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1053, ptr noundef nonnull @__func__.json_object_agg_transfn_worker) #10
+  %49 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %50 = call i32 @errcode(i32 noundef 50856066) #11
+  %51 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, i32 noundef 2) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1053, ptr noundef nonnull @__func__.json_object_agg_transfn_worker) #11
   unreachable
 
 52:                                               ; preds = %42
   %53 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %19, i64 20
-  call void @json_categorize_type(i32 noundef %46, i1 noundef zeroext false, ptr noundef nonnull %53, ptr noundef nonnull %54) #10
+  call void @json_categorize_type(i32 noundef %46, i1 noundef zeroext false, ptr noundef nonnull %53, ptr noundef nonnull %54) #11
   %55 = load ptr, ptr %19, align 8
-  call void @appendStringInfoString(ptr noundef %55, ptr noundef nonnull @.str.39) #10
+  call void @appendStringInfoString(ptr noundef %55, ptr noundef nonnull @.str.39) #11
   br label %60
 
 56:                                               ; preds = %12
@@ -1471,10 +1471,10 @@ define internal fastcc i64 @json_object_agg_transfn_worker(ptr noundef %0, i1 no
   br i1 %64, label %65, label %69
 
 65:                                               ; preds = %60
-  %66 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %67 = call i32 @errcode(i32 noundef 67108994) #10
-  %68 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1076, ptr noundef nonnull @__func__.json_object_agg_transfn_worker) #10
+  %66 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %67 = call i32 @errcode(i32 noundef 67108994) #11
+  %68 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1076, ptr noundef nonnull @__func__.json_object_agg_transfn_worker) #11
   unreachable
 
 69:                                               ; preds = %60
@@ -1500,7 +1500,7 @@ define internal fastcc i64 @json_object_agg_transfn_worker(ptr noundef %0, i1 no
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %80, ptr @CurrentMemoryContext, align 8
-  call void @initStringInfo(ptr noundef nonnull %76) #10
+  call void @initStringInfo(ptr noundef nonnull %76) #11
   store ptr %81, ptr @CurrentMemoryContext, align 8
   br label %json_unique_builder_get_throwawaybuf.exit
 
@@ -1517,7 +1517,7 @@ define internal fastcc i64 @json_object_agg_transfn_worker(ptr noundef %0, i1 no
   br i1 %87, label %88, label %json_unique_builder_get_throwawaybuf.exit
 
 88:                                               ; preds = %.thread
-  call void @appendStringInfoString(ptr noundef nonnull %84, ptr noundef nonnull @.str.10) #10
+  call void @appendStringInfoString(ptr noundef nonnull %84, ptr noundef nonnull @.str.10) #11
   br label %json_unique_builder_get_throwawaybuf.exit
 
 json_unique_builder_get_throwawaybuf.exit:        ; preds = %82, %78, %.thread, %88
@@ -1538,19 +1538,19 @@ json_unique_builder_get_throwawaybuf.exit:        ; preds = %82, %78, %.thread, 
   %99 = load ptr, ptr %.055, align 8
   %100 = sext i32 %92 to i64
   %101 = getelementptr inbounds i8, ptr %99, i64 %100
-  %102 = call ptr @MemoryContextStrdup(ptr noundef %98, ptr noundef %101) #10
+  %102 = call ptr @MemoryContextStrdup(ptr noundef %98, ptr noundef %101) #11
   %103 = getelementptr inbounds nuw i8, ptr %.054, i64 24
   %.val = load ptr, ptr %103, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %102, ptr %4, align 8
-  %104 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %102) #12
+  %104 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %102) #13
   %105 = trunc i64 %104 to i32
   %106 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %107, align 4
-  %108 = call ptr @hash_search(ptr noundef %.val, ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %5) #10
+  %108 = call ptr @hash_search(ptr noundef %.val, ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %5) #11
   %109 = load i8, ptr %5, align 1, !range !4, !noundef !5
   %110 = trunc nuw i8 %109 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1558,10 +1558,10 @@ json_unique_builder_get_throwawaybuf.exit:        ; preds = %82, %78, %.thread, 
   br i1 %110, label %111, label %115
 
 111:                                              ; preds = %97
-  %112 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %113 = call i32 @errcode(i32 noundef 786562) #10
-  %114 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %102) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1126, ptr noundef nonnull @__func__.json_object_agg_transfn_worker) #10
+  %112 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %113 = call i32 @errcode(i32 noundef 786562) #11
+  %114 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %102) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1126, ptr noundef nonnull @__func__.json_object_agg_transfn_worker) #11
   unreachable
 
 115:                                              ; preds = %97
@@ -1569,7 +1569,7 @@ json_unique_builder_get_throwawaybuf.exit:        ; preds = %82, %78, %.thread, 
 
 116:                                              ; preds = %115, %json_unique_builder_get_throwawaybuf.exit
   %117 = load ptr, ptr %.054, align 8
-  call void @appendStringInfoString(ptr noundef %117, ptr noundef nonnull @.str.13) #10
+  call void @appendStringInfoString(ptr noundef %117, ptr noundef nonnull @.str.13) #11
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %119 = load i8, ptr %118, align 8, !range !4, !noundef !5
   %120 = trunc nuw i8 %119 to i1
@@ -1639,7 +1639,7 @@ define dso_local noundef i64 @json_object_agg_finalfn(ptr noundef captures(none)
   %14 = load i32, ptr %13, align 8
   %15 = add i32 %14, 6
   %16 = sext i32 %15 to i64
-  %17 = tail call ptr @palloc(i64 noundef %16) #10
+  %17 = tail call ptr @palloc(i64 noundef %16) #11
   %18 = shl i32 %15, 2
   store i32 %18, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 4
@@ -1670,16 +1670,16 @@ define dso_local i64 @json_build_object_worker(i32 noundef %0, ptr noundef reado
   br i1 %.not, label %19, label %14
 
 14:                                               ; preds = %6
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %16 = tail call i32 @errcode(i32 noundef 50856066) #10
-  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #10
-  %18 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1238, ptr noundef nonnull @__func__.json_build_object_worker) #10
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %16 = tail call i32 @errcode(i32 noundef 50856066) #11
+  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #11
+  %18 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1238, ptr noundef nonnull @__func__.json_build_object_worker) #11
   unreachable
 
 19:                                               ; preds = %6
-  %20 = tail call ptr @makeStringInfo() #10
-  tail call void @appendStringInfoChar(ptr noundef %20, i8 noundef signext 123) #10
+  %20 = tail call ptr @makeStringInfo() #11
+  tail call void @appendStringInfoChar(ptr noundef %20, i8 noundef signext 123) #11
   br i1 %5, label %21, label %32
 
 21:                                               ; preds = %19
@@ -1696,7 +1696,7 @@ define dso_local i64 @json_build_object_worker(i32 noundef %0, ptr noundef reado
   store ptr @json_unique_hash, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr @json_unique_hash_match, ptr %27, align 8
-  %28 = call ptr @hash_create(ptr noundef nonnull @.str.48, i64 noundef 32, ptr noundef nonnull %11, i32 noundef 1224) #10
+  %28 = call ptr @hash_create(ptr noundef nonnull @.str.48, i64 noundef 32, ptr noundef nonnull %11, i32 noundef 1224) #11
   store ptr %28, ptr %12, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %29 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -1743,7 +1743,7 @@ define dso_local i64 @json_build_object_worker(i32 noundef %0, ptr noundef reado
   %50 = load ptr, ptr %36, align 8
   %51 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %50, ptr @CurrentMemoryContext, align 8
-  call void @initStringInfo(ptr noundef nonnull %34) #10
+  call void @initStringInfo(ptr noundef nonnull %34) #11
   store ptr %51, ptr @CurrentMemoryContext, align 8
   br label %json_unique_builder_get_throwawaybuf.exit
 
@@ -1752,7 +1752,7 @@ define dso_local i64 @json_build_object_worker(i32 noundef %0, ptr noundef reado
   br label %json_unique_builder_get_throwawaybuf.exit
 
 .thread:                                          ; preds = %39, %41
-  call void @appendStringInfoString(ptr noundef %20, ptr noundef %.04042) #10
+  call void @appendStringInfoString(ptr noundef %20, ptr noundef %.04042) #11
   br label %json_unique_builder_get_throwawaybuf.exit
 
 json_unique_builder_get_throwawaybuf.exit:        ; preds = %52, %49, %.thread
@@ -1765,10 +1765,10 @@ json_unique_builder_get_throwawaybuf.exit:        ; preds = %52, %49, %.thread
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %json_unique_builder_get_throwawaybuf.exit
-  %58 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %59 = call i32 @errcode(i32 noundef 67108994) #10
-  %60 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1275, ptr noundef nonnull @__func__.json_build_object_worker) #10
+  %58 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %59 = call i32 @errcode(i32 noundef 67108994) #11
+  %60 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1275, ptr noundef nonnull @__func__.json_build_object_worker) #11
   unreachable
 
 61:                                               ; preds = %json_unique_builder_get_throwawaybuf.exit
@@ -1784,14 +1784,14 @@ json_unique_builder_get_throwawaybuf.exit:        ; preds = %52, %49, %.thread
   br i1 %68, label %69, label %add_json.exit
 
 69:                                               ; preds = %61
-  %70 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %71 = call i32 @errcode(i32 noundef 50856066) #10
-  %72 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 611, ptr noundef nonnull @__func__.add_json) #10
+  %70 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %71 = call i32 @errcode(i32 noundef 50856066) #11
+  %72 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 611, ptr noundef nonnull @__func__.add_json) #11
   unreachable
 
 add_json.exit:                                    ; preds = %61
-  call void @json_categorize_type(i32 noundef %67, i1 noundef zeroext false, ptr noundef nonnull %9, ptr noundef nonnull %10) #10
+  call void @json_categorize_type(i32 noundef %67, i1 noundef zeroext false, ptr noundef nonnull %9, ptr noundef nonnull %10) #11
   %.pre.i = load i32, ptr %9, align 4
   %.pre6.i = load i32, ptr %10, align 4
   call fastcc void @datum_to_json_internal(i64 noundef %65, i1 noundef zeroext false, ptr noundef nonnull %.041, i32 noundef %.pre.i, i32 noundef %.pre6.i, i1 noundef zeroext true)
@@ -1803,16 +1803,16 @@ add_json.exit:                                    ; preds = %61
   %74 = load ptr, ptr %.041, align 8
   %75 = sext i32 %63 to i64
   %76 = getelementptr inbounds i8, ptr %74, i64 %75
-  %77 = call ptr @pstrdup(ptr noundef %76) #10
+  %77 = call ptr @pstrdup(ptr noundef %76) #11
   %.val = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %77, ptr %7, align 8
-  %78 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #12
+  %78 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #13
   %79 = trunc i64 %78 to i32
   store i32 %79, ptr %37, align 8
   store i32 0, ptr %38, align 4
-  %80 = call ptr @hash_search(ptr noundef %.val, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %8) #10
+  %80 = call ptr @hash_search(ptr noundef %.val, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %8) #11
   %81 = load i8, ptr %8, align 1, !range !4, !noundef !5
   %82 = trunc nuw i8 %81 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1820,17 +1820,17 @@ add_json.exit:                                    ; preds = %61
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %73
-  %84 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %85 = call i32 @errcode(i32 noundef 786562) #10
-  %86 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %77) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1297, ptr noundef nonnull @__func__.json_build_object_worker) #10
+  %84 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %85 = call i32 @errcode(i32 noundef 786562) #11
+  %86 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %77) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1297, ptr noundef nonnull @__func__.json_build_object_worker) #11
   unreachable
 
 87:                                               ; preds = %73
   br i1 %53, label %98, label %88
 
 88:                                               ; preds = %87, %add_json.exit
-  call void @appendStringInfoString(ptr noundef %20, ptr noundef nonnull @.str.13) #10
+  call void @appendStringInfoString(ptr noundef %20, ptr noundef nonnull @.str.13) #11
   %89 = or disjoint i32 %.043, 1
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds i64, ptr %1, i64 %90
@@ -1850,11 +1850,11 @@ add_json.exit:                                    ; preds = %61
   br i1 %100, label %39, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %98, %32
-  call void @appendStringInfoChar(ptr noundef %20, i8 noundef signext 125) #10
+  call void @appendStringInfoChar(ptr noundef %20, i8 noundef signext 125) #11
   %101 = load ptr, ptr %20, align 8
   %102 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %103 = load i32, ptr %102, align 8
-  %104 = call ptr @cstring_to_text_with_len(ptr noundef %101, i32 noundef %103) #10
+  %104 = call ptr @cstring_to_text_with_len(ptr noundef %101, i32 noundef %103) #11
   %105 = ptrtoint ptr %104 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i64 %105
@@ -1876,10 +1876,10 @@ define internal fastcc void @add_json(i64 noundef %0, i1 noundef zeroext %1, ptr
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %5
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %11 = tail call i32 @errcode(i32 noundef 50856066) #10
-  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 611, ptr noundef nonnull @__func__.add_json) #10
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %11 = tail call i32 @errcode(i32 noundef 50856066) #11
+  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 611, ptr noundef nonnull @__func__.add_json) #11
   unreachable
 
 13:                                               ; preds = %5
@@ -1891,7 +1891,7 @@ define internal fastcc void @add_json(i64 noundef %0, i1 noundef zeroext %1, ptr
   br label %16
 
 15:                                               ; preds = %13
-  call void @json_categorize_type(i32 noundef %3, i1 noundef zeroext false, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
+  call void @json_categorize_type(i32 noundef %3, i1 noundef zeroext false, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   %.pre = load i32, ptr %6, align 4
   %.pre6 = load i32, ptr %7, align 4
   br label %16
@@ -1915,7 +1915,7 @@ define dso_local i64 @json_build_object(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = call i32 @extract_variadic_args(ptr noundef %0, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %3) #10
+  %5 = call i32 @extract_variadic_args(ptr noundef %0, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %3) #11
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %9
 
@@ -1943,15 +1943,15 @@ declare i32 @extract_variadic_args(ptr noundef, i32 noundef, i1 noundef zeroext,
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @json_build_object_noargs(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @cstring_to_text_with_len(ptr noundef nonnull @.str.14, i32 noundef 2) #10
+  %2 = tail call ptr @cstring_to_text_with_len(ptr noundef nonnull @.str.14, i32 noundef 2) #11
   %3 = ptrtoint ptr %2 to i64
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @json_build_array_worker(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
-  %6 = tail call ptr @makeStringInfo() #10
-  tail call void @appendStringInfoChar(ptr noundef %6, i8 noundef signext 91) #10
+  %6 = tail call ptr @makeStringInfo() #11
+  tail call void @appendStringInfoChar(ptr noundef %6, i8 noundef signext 91) #11
   %7 = icmp sgt i32 %0, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -1968,7 +1968,7 @@ define dso_local i64 @json_build_array_worker(i32 noundef %0, ptr noundef readon
   br i1 %10, label %18, label %11
 
 11:                                               ; preds = %.lr.ph.split.us
-  tail call void @appendStringInfoString(ptr noundef %6, ptr noundef %.01819.us) #10
+  tail call void @appendStringInfoString(ptr noundef %6, ptr noundef %.01819.us) #11
   %12 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv23
   %13 = load i64, ptr %12, align 8
   %14 = load i8, ptr %8, align 1, !range !4, !noundef !5
@@ -1987,7 +1987,7 @@ define dso_local i64 @json_build_array_worker(i32 noundef %0, ptr noundef readon
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.01819 = phi ptr [ @.str.10, %.lr.ph.split ], [ @.str.6, %.lr.ph ]
-  tail call void @appendStringInfoString(ptr noundef %6, ptr noundef nonnull %.01819) #10
+  tail call void @appendStringInfoString(ptr noundef %6, ptr noundef nonnull %.01819) #11
   %19 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
@@ -2001,11 +2001,11 @@ define dso_local i64 @json_build_array_worker(i32 noundef %0, ptr noundef readon
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %18, %5
-  tail call void @appendStringInfoChar(ptr noundef %6, i8 noundef signext 93) #10
+  tail call void @appendStringInfoChar(ptr noundef %6, i8 noundef signext 93) #11
   %26 = load ptr, ptr %6, align 8
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %28 = load i32, ptr %27, align 8
-  %29 = tail call ptr @cstring_to_text_with_len(ptr noundef %26, i32 noundef %28) #10
+  %29 = tail call ptr @cstring_to_text_with_len(ptr noundef %26, i32 noundef %28) #11
   %30 = ptrtoint ptr %29 to i64
   ret i64 %30
 }
@@ -2018,7 +2018,7 @@ define dso_local i64 @json_build_array(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = call i32 @extract_variadic_args(ptr noundef %0, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %3) #10
+  %5 = call i32 @extract_variadic_args(ptr noundef %0, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %3) #11
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %9
 
@@ -2031,8 +2031,8 @@ define dso_local i64 @json_build_array(ptr noundef %0) local_unnamed_addr #0 {
   %10 = load ptr, ptr %2, align 8
   %11 = load ptr, ptr %3, align 8
   %12 = load ptr, ptr %4, align 8
-  %13 = call ptr @makeStringInfo() #10
-  call void @appendStringInfoChar(ptr noundef %13, i8 noundef signext 91) #10
+  %13 = call ptr @makeStringInfo() #11
+  call void @appendStringInfoChar(ptr noundef %13, i8 noundef signext 91) #11
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %json_build_array_worker.exit, label %.lr.ph.i
 
@@ -2043,7 +2043,7 @@ define dso_local i64 @json_build_array(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
   %.01819.i = phi ptr [ @.str.10, %.lr.ph.split.i ], [ @.str.6, %.lr.ph.i ]
-  call void @appendStringInfoString(ptr noundef %13, ptr noundef nonnull %.01819.i) #10
+  call void @appendStringInfoString(ptr noundef %13, ptr noundef nonnull %.01819.i) #11
   %14 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv.i
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i
@@ -2057,11 +2057,11 @@ define dso_local i64 @json_build_array(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not.i, label %json_build_array_worker.exit, label %.lr.ph.split.i, !llvm.loop !9
 
 json_build_array_worker.exit:                     ; preds = %.lr.ph.split.i, %9
-  call void @appendStringInfoChar(ptr noundef %13, i8 noundef signext 93) #10
+  call void @appendStringInfoChar(ptr noundef %13, i8 noundef signext 93) #11
   %21 = load ptr, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %23 = load i32, ptr %22, align 8
-  %24 = call ptr @cstring_to_text_with_len(ptr noundef %21, i32 noundef %23) #10
+  %24 = call ptr @cstring_to_text_with_len(ptr noundef %21, i32 noundef %23) #11
   %25 = ptrtoint ptr %24 to i64
   br label %26
 
@@ -2075,7 +2075,7 @@ json_build_array_worker.exit:                     ; preds = %.lr.ph.split.i, %9
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @json_build_array_noargs(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @cstring_to_text_with_len(ptr noundef nonnull @.str.15, i32 noundef 2) #10
+  %2 = tail call ptr @cstring_to_text_with_len(ptr noundef nonnull @.str.15, i32 noundef 2) #11
   %3 = ptrtoint ptr %2 to i64
   ret i64 %3
 }
@@ -2089,7 +2089,7 @@ define dso_local i64 @json_object(ptr noundef readonly captures(none) %0) local_
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #10
+  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #11
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -2103,7 +2103,7 @@ define dso_local i64 @json_object(ptr noundef readonly captures(none) %0) local_
   ]
 
 12:                                               ; preds = %1
-  %13 = tail call ptr @cstring_to_text(ptr noundef nonnull @.str.14) #10
+  %13 = tail call ptr @cstring_to_text(ptr noundef nonnull @.str.14) #11
   br label %121
 
 14:                                               ; preds = %1
@@ -2114,10 +2114,10 @@ define dso_local i64 @json_object(ptr noundef readonly captures(none) %0) local_
   br i1 %.not16, label %33, label %18
 
 18:                                               ; preds = %14
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %20 = tail call i32 @errcode(i32 noundef 352845954) #10
-  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1428, ptr noundef nonnull @__func__.json_object) #10
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %20 = tail call i32 @errcode(i32 noundef 352845954) #11
+  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1428, ptr noundef nonnull @__func__.json_object) #11
   unreachable
 
 22:                                               ; preds = %1
@@ -2127,24 +2127,24 @@ define dso_local i64 @json_object(ptr noundef readonly captures(none) %0) local_
   br i1 %.not, label %33, label %25
 
 25:                                               ; preds = %22
-  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %27 = tail call i32 @errcode(i32 noundef 352845954) #10
-  %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1435, ptr noundef nonnull @__func__.json_object) #10
+  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %27 = tail call i32 @errcode(i32 noundef 352845954) #11
+  %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1435, ptr noundef nonnull @__func__.json_object) #11
   unreachable
 
 29:                                               ; preds = %1
-  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %31 = tail call i32 @errcode(i32 noundef 352845954) #10
-  %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1441, ptr noundef nonnull @__func__.json_object) #10
+  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %31 = tail call i32 @errcode(i32 noundef 352845954) #11
+  %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1441, ptr noundef nonnull @__func__.json_object) #11
   unreachable
 
 33:                                               ; preds = %22, %14
-  call void @deconstruct_array_builtin(ptr noundef nonnull %9, i32 noundef 25, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
+  call void @deconstruct_array_builtin(ptr noundef nonnull %9, i32 noundef 25, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
   %34 = load i32, ptr %5, align 4
-  call void @initStringInfo(ptr noundef nonnull %2) #10
-  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 123) #10
+  call void @initStringInfo(ptr noundef nonnull %2) #11
+  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 123) #11
   %35 = icmp sgt i32 %34, 1
   br i1 %35, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2163,10 +2163,10 @@ define dso_local i64 @json_object(ptr noundef readonly captures(none) %0) local_
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %.lr.ph
-  %43 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %44 = call i32 @errcode(i32 noundef 67108994) #10
-  %45 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1457, ptr noundef nonnull @__func__.json_object) #10
+  %43 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %44 = call i32 @errcode(i32 noundef 67108994) #11
+  %45 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1457, ptr noundef nonnull @__func__.json_object) #11
   unreachable
 
 46:                                               ; preds = %.lr.ph
@@ -2174,7 +2174,7 @@ define dso_local i64 @json_object(ptr noundef readonly captures(none) %0) local_
   br i1 %.not17, label %48, label %47
 
 47:                                               ; preds = %46
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.10) #10
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.10) #11
   br label %48
 
 48:                                               ; preds = %47, %46
@@ -2182,7 +2182,7 @@ define dso_local i64 @json_object(ptr noundef readonly captures(none) %0) local_
   %50 = getelementptr inbounds i64, ptr %49, i64 %38
   %51 = load i64, ptr %50, align 8
   %52 = inttoptr i64 %51 to ptr
-  %53 = call ptr @pg_detoast_datum_packed(ptr noundef %52) #10
+  %53 = call ptr @pg_detoast_datum_packed(ptr noundef %52) #11
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
   %56 = icmp eq i8 %54, 1
@@ -2225,11 +2225,11 @@ define dso_local i64 @json_object(ptr noundef readonly captures(none) %0) local_
   br i1 %.not19.i, label %escape_json_text.exit, label %77
 
 77:                                               ; preds = %73
-  call void @pfree(ptr noundef nonnull %53) #10
+  call void @pfree(ptr noundef nonnull %53) #11
   br label %escape_json_text.exit
 
 escape_json_text.exit:                            ; preds = %73, %77
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.13) #10
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.13) #11
   %78 = load ptr, ptr %4, align 8
   %79 = or disjoint i64 %38, 1
   %80 = getelementptr inbounds i8, ptr %78, i64 %79
@@ -2238,7 +2238,7 @@ escape_json_text.exit:                            ; preds = %73, %77
   br i1 %82, label %83, label %84
 
 83:                                               ; preds = %escape_json_text.exit
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.19) #10
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.19) #11
   br label %escape_json_text.exit23
 
 84:                                               ; preds = %escape_json_text.exit
@@ -2246,7 +2246,7 @@ escape_json_text.exit:                            ; preds = %73, %77
   %86 = getelementptr inbounds i64, ptr %85, i64 %79
   %87 = load i64, ptr %86, align 8
   %88 = inttoptr i64 %87 to ptr
-  %89 = call ptr @pg_detoast_datum_packed(ptr noundef %88) #10
+  %89 = call ptr @pg_detoast_datum_packed(ptr noundef %88) #11
   %90 = load i8, ptr %89, align 1
   %91 = zext i8 %90 to i32
   %92 = icmp eq i8 %90, 1
@@ -2289,7 +2289,7 @@ escape_json_text.exit:                            ; preds = %73, %77
   br i1 %.not19.i21, label %escape_json_text.exit23, label %113
 
 113:                                              ; preds = %109
-  call void @pfree(ptr noundef nonnull %89) #10
+  call void @pfree(ptr noundef nonnull %89) #11
   br label %escape_json_text.exit23
 
 escape_json_text.exit23:                          ; preds = %113, %109, %83
@@ -2298,17 +2298,17 @@ escape_json_text.exit23:                          ; preds = %113, %109, %83
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %escape_json_text.exit23, %33
-  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 125) #10
+  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 125) #11
   %114 = load ptr, ptr %3, align 8
-  call void @pfree(ptr noundef %114) #10
+  call void @pfree(ptr noundef %114) #11
   %115 = load ptr, ptr %4, align 8
-  call void @pfree(ptr noundef %115) #10
+  call void @pfree(ptr noundef %115) #11
   %116 = load ptr, ptr %2, align 8
   %117 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %118 = load i32, ptr %117, align 8
-  %119 = call ptr @cstring_to_text_with_len(ptr noundef %116, i32 noundef %118) #10
+  %119 = call ptr @cstring_to_text_with_len(ptr noundef %116, i32 noundef %118) #11
   %120 = load ptr, ptr %2, align 8
-  call void @pfree(ptr noundef %120) #10
+  call void @pfree(ptr noundef %120) #11
   br label %121
 
 121:                                              ; preds = %._crit_edge, %12
@@ -2329,7 +2329,7 @@ declare void @initStringInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @escape_json_text(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @pg_detoast_datum_packed(ptr noundef %1) #10
+  %3 = tail call ptr @pg_detoast_datum_packed(ptr noundef %1) #11
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
   %6 = icmp eq i8 %4, 1
@@ -2372,7 +2372,7 @@ define dso_local void @escape_json_text(ptr noundef %0, ptr noundef %1) local_un
   br i1 %.not19, label %28, label %27
 
 27:                                               ; preds = %23
-  tail call void @pfree(ptr noundef nonnull %3) #10
+  tail call void @pfree(ptr noundef nonnull %3) #11
   br label %28
 
 28:                                               ; preds = %27, %23
@@ -2393,11 +2393,11 @@ define dso_local i64 @json_object_two_arg(ptr noundef readonly captures(none) %0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @pg_detoast_datum(ptr noundef %11) #10
+  %12 = tail call ptr @pg_detoast_datum(ptr noundef %11) #11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load i64, ptr %13, align 8
   %15 = inttoptr i64 %14 to ptr
-  %16 = tail call ptr @pg_detoast_datum(ptr noundef %15) #10
+  %16 = tail call ptr @pg_detoast_datum(ptr noundef %15) #11
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -2415,10 +2415,10 @@ define dso_local i64 @json_object_two_arg(ptr noundef readonly captures(none) %0
   br i1 %or.cond, label %26, label %22
 
 22:                                               ; preds = %1
-  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %24 = tail call i32 @errcode(i32 noundef 352845954) #10
-  %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1509, ptr noundef nonnull @__func__.json_object_two_arg) #10
+  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %24 = tail call i32 @errcode(i32 noundef 352845954) #11
+  %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1509, ptr noundef nonnull @__func__.json_object_two_arg) #11
   unreachable
 
 26:                                               ; preds = %1
@@ -2426,27 +2426,27 @@ define dso_local i64 @json_object_two_arg(ptr noundef readonly captures(none) %0
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %26
-  %29 = tail call ptr @cstring_to_text(ptr noundef nonnull @.str.14) #10
+  %29 = tail call ptr @cstring_to_text(ptr noundef nonnull @.str.14) #11
   br label %127
 
 30:                                               ; preds = %26
-  call void @deconstruct_array_builtin(ptr noundef nonnull %12, i32 noundef 25, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %7) #10
-  call void @deconstruct_array_builtin(ptr noundef nonnull %16, i32 noundef 25, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %8) #10
+  call void @deconstruct_array_builtin(ptr noundef nonnull %12, i32 noundef 25, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %7) #11
+  call void @deconstruct_array_builtin(ptr noundef nonnull %16, i32 noundef 25, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %8) #11
   %31 = load i32, ptr %7, align 4
   %32 = load i32, ptr %8, align 4
   %.not20 = icmp eq i32 %31, %32
   br i1 %.not20, label %37, label %33
 
 33:                                               ; preds = %30
-  %34 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %35 = call i32 @errcode(i32 noundef 352845954) #10
-  %36 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1520, ptr noundef nonnull @__func__.json_object_two_arg) #10
+  %34 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %35 = call i32 @errcode(i32 noundef 352845954) #11
+  %36 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1520, ptr noundef nonnull @__func__.json_object_two_arg) #11
   unreachable
 
 37:                                               ; preds = %30
-  call void @initStringInfo(ptr noundef nonnull %2) #10
-  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 123) #10
+  call void @initStringInfo(ptr noundef nonnull %2) #11
+  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 123) #11
   %38 = load i32, ptr %7, align 4
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.lr.ph, label %._crit_edge
@@ -2460,10 +2460,10 @@ define dso_local i64 @json_object_two_arg(ptr noundef readonly captures(none) %0
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %.lr.ph
-  %45 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %46 = call i32 @errcode(i32 noundef 67108994) #10
-  %47 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1531, ptr noundef nonnull @__func__.json_object_two_arg) #10
+  %45 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %46 = call i32 @errcode(i32 noundef 67108994) #11
+  %47 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1531, ptr noundef nonnull @__func__.json_object_two_arg) #11
   unreachable
 
 48:                                               ; preds = %.lr.ph
@@ -2471,7 +2471,7 @@ define dso_local i64 @json_object_two_arg(ptr noundef readonly captures(none) %0
   br i1 %.not32, label %50, label %49
 
 49:                                               ; preds = %48
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.10) #10
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.10) #11
   br label %50
 
 50:                                               ; preds = %49, %48
@@ -2479,7 +2479,7 @@ define dso_local i64 @json_object_two_arg(ptr noundef readonly captures(none) %0
   %52 = getelementptr inbounds nuw i64, ptr %51, i64 %indvars.iv
   %53 = load i64, ptr %52, align 8
   %54 = inttoptr i64 %53 to ptr
-  %55 = call ptr @pg_detoast_datum_packed(ptr noundef %54) #10
+  %55 = call ptr @pg_detoast_datum_packed(ptr noundef %54) #11
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = icmp eq i8 %56, 1
@@ -2522,11 +2522,11 @@ define dso_local i64 @json_object_two_arg(ptr noundef readonly captures(none) %0
   br i1 %.not19.i, label %escape_json_text.exit, label %79
 
 79:                                               ; preds = %75
-  call void @pfree(ptr noundef nonnull %55) #10
+  call void @pfree(ptr noundef nonnull %55) #11
   br label %escape_json_text.exit
 
 escape_json_text.exit:                            ; preds = %75, %79
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.13) #10
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.13) #11
   %80 = load ptr, ptr %6, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 %indvars.iv
   %82 = load i8, ptr %81, align 1, !range !4, !noundef !5
@@ -2534,7 +2534,7 @@ escape_json_text.exit:                            ; preds = %75, %79
   br i1 %83, label %84, label %85
 
 84:                                               ; preds = %escape_json_text.exit
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.19) #10
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.19) #11
   br label %escape_json_text.exit26
 
 85:                                               ; preds = %escape_json_text.exit
@@ -2542,7 +2542,7 @@ escape_json_text.exit:                            ; preds = %75, %79
   %87 = getelementptr inbounds nuw i64, ptr %86, i64 %indvars.iv
   %88 = load i64, ptr %87, align 8
   %89 = inttoptr i64 %88 to ptr
-  %90 = call ptr @pg_detoast_datum_packed(ptr noundef %89) #10
+  %90 = call ptr @pg_detoast_datum_packed(ptr noundef %89) #11
   %91 = load i8, ptr %90, align 1
   %92 = zext i8 %91 to i32
   %93 = icmp eq i8 %91, 1
@@ -2585,7 +2585,7 @@ escape_json_text.exit:                            ; preds = %75, %79
   br i1 %.not19.i24, label %escape_json_text.exit26, label %114
 
 114:                                              ; preds = %110
-  call void @pfree(ptr noundef nonnull %90) #10
+  call void @pfree(ptr noundef nonnull %90) #11
   br label %escape_json_text.exit26
 
 escape_json_text.exit26:                          ; preds = %114, %110, %84
@@ -2596,21 +2596,21 @@ escape_json_text.exit26:                          ; preds = %114, %110, %84
   br i1 %117, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %escape_json_text.exit26, %37
-  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 125) #10
+  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 125) #11
   %118 = load ptr, ptr %3, align 8
-  call void @pfree(ptr noundef %118) #10
+  call void @pfree(ptr noundef %118) #11
   %119 = load ptr, ptr %5, align 8
-  call void @pfree(ptr noundef %119) #10
+  call void @pfree(ptr noundef %119) #11
   %120 = load ptr, ptr %4, align 8
-  call void @pfree(ptr noundef %120) #10
+  call void @pfree(ptr noundef %120) #11
   %121 = load ptr, ptr %6, align 8
-  call void @pfree(ptr noundef %121) #10
+  call void @pfree(ptr noundef %121) #11
   %122 = load ptr, ptr %2, align 8
   %123 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %124 = load i32, ptr %123, align 8
-  %125 = call ptr @cstring_to_text_with_len(ptr noundef %122, i32 noundef %124) #10
+  %125 = call ptr @cstring_to_text_with_len(ptr noundef %122, i32 noundef %124) #11
   %126 = load ptr, ptr %2, align 8
-  call void @pfree(ptr noundef %126) #10
+  call void @pfree(ptr noundef %126) #11
   br label %127
 
 127:                                              ; preds = %._crit_edge, %28
@@ -2637,7 +2637,7 @@ define dso_local void @escape_json(ptr noundef %0, ptr noundef readonly captures
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %2
-  tail call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 34) #10
+  tail call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 34) #11
   br label %18
 
 9:                                                ; preds = %2
@@ -2674,31 +2674,31 @@ define dso_local void @escape_json(ptr noundef %0, ptr noundef readonly captures
   ]
 
 22:                                               ; preds = %.lr.ph
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.40) #10
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.40) #11
   br label %escape_json_char.exit
 
 23:                                               ; preds = %.lr.ph
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.41) #10
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.41) #11
   br label %escape_json_char.exit
 
 24:                                               ; preds = %.lr.ph
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.42) #10
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.42) #11
   br label %escape_json_char.exit
 
 25:                                               ; preds = %.lr.ph
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.43) #10
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.43) #11
   br label %escape_json_char.exit
 
 26:                                               ; preds = %.lr.ph
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.44) #10
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.44) #11
   br label %escape_json_char.exit
 
 27:                                               ; preds = %.lr.ph
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.45) #10
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.45) #11
   br label %escape_json_char.exit
 
 28:                                               ; preds = %.lr.ph
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.46) #10
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.46) #11
   br label %escape_json_char.exit
 
 29:                                               ; preds = %.lr.ph
@@ -2706,7 +2706,7 @@ define dso_local void @escape_json(ptr noundef %0, ptr noundef readonly captures
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %29
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.47, i32 noundef %21) #10
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.47, i32 noundef %21) #11
   br label %escape_json_char.exit
 
 32:                                               ; preds = %29
@@ -2717,7 +2717,7 @@ define dso_local void @escape_json(ptr noundef %0, ptr noundef readonly captures
   br i1 %.not.i, label %37, label %36
 
 36:                                               ; preds = %32
-  tail call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext %20) #10
+  tail call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext %20) #11
   br label %escape_json_char.exit
 
 37:                                               ; preds = %32
@@ -2748,7 +2748,7 @@ escape_json_char.exit:                            ; preds = %22, %23, %24, %25, 
   br i1 %.not19, label %52, label %51
 
 51:                                               ; preds = %._crit_edge
-  tail call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 34) #10
+  tail call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 34) #11
   br label %61
 
 52:                                               ; preds = %._crit_edge
@@ -2772,7 +2772,7 @@ escape_json_char.exit:                            ; preds = %22, %23, %24, %25, 
 ; Function Attrs: nounwind uwtable
 define dso_local void @escape_json_with_len(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = add i32 %2, 2
-  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef %4) #10
+  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef %4) #11
   %5 = and i32 %2, -16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
@@ -2783,7 +2783,7 @@ define dso_local void @escape_json_with_len(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %3
-  tail call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 34) #10
+  tail call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 34) #11
   br label %21
 
 12:                                               ; preds = %3
@@ -2839,7 +2839,7 @@ define dso_local void @escape_json_with_len(ptr noundef %0, ptr noundef %1, i32 
 36:                                               ; preds = %33
   %37 = sext i32 %.14967 to i64
   %38 = getelementptr inbounds i8, ptr %1, i64 %37
-  tail call void @appendBinaryStringInfo(ptr noundef %0, ptr noundef %38, i32 noundef %34) #10
+  tail call void @appendBinaryStringInfo(ptr noundef %0, ptr noundef %38, i32 noundef %34) #11
   br label %39
 
 39:                                               ; preds = %36, %33
@@ -2862,7 +2862,7 @@ define dso_local void @escape_json_with_len(ptr noundef %0, ptr noundef %1, i32 
   %43 = sext i32 %.149.lcssa to i64
   %44 = getelementptr inbounds i8, ptr %1, i64 %43
   %45 = sub i32 %.151.lcssa, %.149.lcssa
-  tail call void @appendBinaryStringInfo(ptr noundef %0, ptr noundef %44, i32 noundef %45) #10
+  tail call void @appendBinaryStringInfo(ptr noundef %0, ptr noundef %44, i32 noundef %45) #11
   br label %.thread.thread.preheader
 
 .thread.thread.preheader:                         ; preds = %.critedge, %42, %.thread
@@ -2892,31 +2892,31 @@ define dso_local void @escape_json_with_len(ptr noundef %0, ptr noundef %1, i32 
   ]
 
 53:                                               ; preds = %47
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.40) #10
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.40) #11
   br label %escape_json_char.exit
 
 54:                                               ; preds = %47
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.41) #10
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.41) #11
   br label %escape_json_char.exit
 
 55:                                               ; preds = %47
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.42) #10
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.42) #11
   br label %escape_json_char.exit
 
 56:                                               ; preds = %47
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.43) #10
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.43) #11
   br label %escape_json_char.exit
 
 57:                                               ; preds = %47
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.44) #10
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.44) #11
   br label %escape_json_char.exit
 
 58:                                               ; preds = %47
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.45) #10
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.45) #11
   br label %escape_json_char.exit
 
 59:                                               ; preds = %47
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.46) #10
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.46) #11
   br label %escape_json_char.exit
 
 60:                                               ; preds = %47
@@ -2924,7 +2924,7 @@ define dso_local void @escape_json_with_len(ptr noundef %0, ptr noundef %1, i32 
   br i1 %61, label %62, label %63
 
 62:                                               ; preds = %60
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.47, i32 noundef %52) #10
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.47, i32 noundef %52) #11
   br label %escape_json_char.exit
 
 63:                                               ; preds = %60
@@ -2935,7 +2935,7 @@ define dso_local void @escape_json_with_len(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.not.i, label %68, label %67
 
 67:                                               ; preds = %63
-  tail call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext %51) #10
+  tail call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext %51) #11
   br label %escape_json_char.exit
 
 68:                                               ; preds = %63
@@ -2965,7 +2965,7 @@ escape_json_char.exit:                            ; preds = %53, %54, %55, %56, 
   br i1 %.not54, label %83, label %82
 
 82:                                               ; preds = %78
-  tail call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 34) #10
+  tail call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 34) #11
   br label %92
 
 83:                                               ; preds = %78
@@ -3000,7 +3000,7 @@ define dso_local noundef zeroext i1 @json_validate(ptr noundef %0, i1 noundef ze
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %8 = call ptr @makeJsonLexContext(ptr noundef nonnull %5, ptr noundef %0, i1 noundef zeroext %1) #10
+  %8 = call ptr @makeJsonLexContext(ptr noundef nonnull %5, ptr noundef %0, i1 noundef zeroext %1) #11
   br i1 %1, label %9, label %24
 
 9:                                                ; preds = %3
@@ -3025,7 +3025,7 @@ define dso_local noundef zeroext i1 @json_validate(ptr noundef %0, i1 noundef ze
   store ptr @json_unique_hash, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr @json_unique_hash_match, ptr %19, align 8
-  %20 = call ptr @hash_create(ptr noundef nonnull @.str.48, i64 noundef 32, ptr noundef nonnull %4, i32 noundef 1224) #10
+  %20 = call ptr @hash_create(ptr noundef nonnull @.str.48, i64 noundef 32, ptr noundef nonnull %4, i32 noundef 1224) #11
   store ptr %20, ptr %13, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %7, ptr %6, align 8
@@ -3039,7 +3039,7 @@ define dso_local noundef zeroext i1 @json_validate(ptr noundef %0, i1 noundef ze
 
 24:                                               ; preds = %9, %3
   %.nullSemAction = phi ptr [ %6, %9 ], [ @nullSemAction, %3 ]
-  %25 = call i32 @pg_parse_json(ptr noundef nonnull %5, ptr noundef nonnull %.nullSemAction) #10
+  %25 = call i32 @pg_parse_json(ptr noundef nonnull %5, ptr noundef nonnull %.nullSemAction) #11
   %.not13 = icmp eq i32 %25, 0
   br i1 %.not13, label %28, label %26
 
@@ -3047,7 +3047,7 @@ define dso_local noundef zeroext i1 @json_validate(ptr noundef %0, i1 noundef ze
   br i1 %2, label %27, label %39
 
 27:                                               ; preds = %26
-  call void @json_errsave_error(i32 noundef %25, ptr noundef nonnull %5, ptr noundef null) #10
+  call void @json_errsave_error(i32 noundef %25, ptr noundef nonnull %5, ptr noundef null) #11
   br label %39
 
 28:                                               ; preds = %24
@@ -3062,17 +3062,17 @@ define dso_local noundef zeroext i1 @json_validate(ptr noundef %0, i1 noundef ze
   br i1 %2, label %33, label %39
 
 33:                                               ; preds = %32
-  %34 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %35 = call i32 @errcode(i32 noundef 786562) #10
-  %36 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1850, ptr noundef nonnull @__func__.json_validate) #10
+  %34 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %35 = call i32 @errcode(i32 noundef 786562) #11
+  %36 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1850, ptr noundef nonnull @__func__.json_validate) #11
   unreachable
 
 37:                                               ; preds = %28
   br i1 %1, label %38, label %39
 
 38:                                               ; preds = %37
-  call void @freeJsonLexContext(ptr noundef nonnull %5) #10
+  call void @freeJsonLexContext(ptr noundef nonnull %5) #11
   br label %39
 
 39:                                               ; preds = %37, %38, %32, %26, %27
@@ -3094,7 +3094,7 @@ define internal noundef i32 @json_unique_object_start(ptr noundef captures(none)
   br i1 %4, label %5, label %13
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @palloc(i64 noundef 16) #10
+  %6 = tail call ptr @palloc(i64 noundef 16) #11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, 1
@@ -3130,13 +3130,13 @@ define internal noundef i32 @json_unique_object_field_start(ptr noundef captures
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %4, align 8
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
+  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %16 = trunc i64 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %16, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %14, ptr %18, align 4
-  %19 = call ptr @hash_search(ptr noundef %.val, ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %5) #10
+  %19 = call ptr @hash_search(ptr noundef %.val, ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %5) #11
   %20 = load i8, ptr %5, align 1, !range !4, !noundef !5
   %21 = trunc nuw i8 %20 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3153,7 +3153,7 @@ define internal noundef i32 @json_unique_object_field_start(ptr noundef captures
   %24 = phi ptr [ %26, %.lr.ph ], [ %23, %22 ]
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %11, align 8
-  call void @pfree(ptr noundef nonnull %24) #10
+  call void @pfree(ptr noundef nonnull %24) #11
   %26 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
@@ -3174,7 +3174,7 @@ define internal noundef i32 @json_unique_object_end(ptr noundef captures(none) %
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  tail call void @pfree(ptr noundef nonnull %7) #10
+  tail call void @pfree(ptr noundef nonnull %7) #11
   br label %9
 
 9:                                                ; preds = %1, %5
@@ -3193,15 +3193,15 @@ define dso_local i64 @json_typeof(ptr noundef readonly captures(none) %0) local_
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call ptr @pg_detoast_datum_packed(ptr noundef %5) #10
+  %6 = tail call ptr @pg_detoast_datum_packed(ptr noundef %5) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %7 = call ptr @makeJsonLexContext(ptr noundef nonnull %2, ptr noundef %6, i1 noundef zeroext false) #10
-  %8 = call i32 @json_lex(ptr noundef nonnull %2) #10
+  %7 = call ptr @makeJsonLexContext(ptr noundef nonnull %2, ptr noundef %6, i1 noundef zeroext false) #11
+  %8 = call i32 @json_lex(ptr noundef nonnull %2) #11
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %1
-  call void @json_errsave_error(i32 noundef %8, ptr noundef nonnull %2, ptr noundef null) #10
+  call void @json_errsave_error(i32 noundef %8, ptr noundef nonnull %2, ptr noundef null) #11
   br label %10
 
 10:                                               ; preds = %9, %1
@@ -3216,17 +3216,17 @@ define dso_local i64 @json_typeof(ptr noundef readonly captures(none) %0) local_
   br i1 %or.cond, label %switch.lookup, label %14
 
 14:                                               ; preds = %10
-  %15 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %15 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   %16 = load i32, ptr %11, align 4
-  %17 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, i32 noundef %16) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1909, ptr noundef nonnull @__func__.json_typeof) #10
+  %17 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, i32 noundef %16) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1909, ptr noundef nonnull @__func__.json_typeof) #11
   unreachable
 
 switch.lookup:                                    ; preds = %10
   %18 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.json_typeof, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %19 = call ptr @cstring_to_text(ptr noundef nonnull %switch.load) #10
+  %19 = call ptr @cstring_to_text(ptr noundef nonnull %switch.load) #11
   %20 = ptrtoint ptr %19 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %20
@@ -3243,7 +3243,7 @@ declare void @deconstruct_array(ptr noundef, i32 noundef, i32 noundef, i1 nounde
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @array_dim_to_json(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef nonnull captures(none) %6, i32 noundef %7, i32 noundef %8, i1 noundef zeroext %9) unnamed_addr #0 {
   %11 = select i1 %9, ptr @.str.28, ptr @.str.29
-  tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 91) #10
+  tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 91) #11
   %12 = sext i32 %1 to i64
   %13 = getelementptr inbounds i32, ptr %3, i64 %12
   %14 = load i32, ptr %13, align 4
@@ -3261,7 +3261,7 @@ define internal fastcc void @array_dim_to_json(ptr noundef %0, i32 noundef %1, i
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %.lr.ph.split.us
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %11) #10
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %11) #11
   br label %19
 
 19:                                               ; preds = %18, %.lr.ph.split.us
@@ -3287,7 +3287,7 @@ define internal fastcc void @array_dim_to_json(ptr noundef %0, i32 noundef %1, i
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %.lr.ph.split
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %11) #10
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %11) #11
   br label %33
 
 33:                                               ; preds = %32, %.lr.ph.split
@@ -3298,7 +3298,7 @@ define internal fastcc void @array_dim_to_json(ptr noundef %0, i32 noundef %1, i
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %33, %19, %10
-  tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 93) #10
+  tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 93) #11
   ret void
 }
 
@@ -3334,11 +3334,11 @@ declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr
 define internal i32 @json_unique_hash(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
-  %5 = tail call i32 @hash_bytes_uint32(i32 noundef %4) #10
+  %5 = tail call i32 @hash_bytes_uint32(i32 noundef %4) #11
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
-  %9 = tail call i32 @hash_bytes(ptr noundef %6, i32 noundef %8) #10
+  %9 = tail call i32 @hash_bytes(ptr noundef %6, i32 noundef %8) #11
   %10 = xor i32 %9, %5
   ret i32 %10
 }
@@ -3374,7 +3374,7 @@ define internal i32 @json_unique_hash_match(ptr noundef readonly captures(none) 
   %20 = load ptr, ptr %0, align 8
   %21 = load ptr, ptr %1, align 8
   %22 = sext i32 %13 to i64
-  %23 = tail call i32 @strncmp(ptr noundef %20, ptr noundef %21, i64 noundef %22) #12
+  %23 = tail call i32 @strncmp(ptr noundef %20, ptr noundef %21, i64 noundef %22) #13
   br label %24
 
 24:                                               ; preds = %19, %16, %8
@@ -3397,11 +3397,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3412,10 +3412,11 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { cold nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

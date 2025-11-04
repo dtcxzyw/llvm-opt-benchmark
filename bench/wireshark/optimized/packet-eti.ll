@@ -1817,7 +1817,7 @@ define internal i32 @dissect_eti_message(ptr noundef %0, ptr noundef %1, ptr nou
 
 51:                                               ; preds = %46
   %52 = sext i16 %48 to i64
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1442, ptr noundef nonnull @.str.1443, i32 noundef 11674, i64 noundef %52, i64 noundef 0) #7
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1442, ptr noundef nonnull @.str.1443, i32 noundef 11674, i64 noundef %52, i64 noundef 0) #8
   unreachable
 
 53:                                               ; preds = %46
@@ -1826,7 +1826,7 @@ define internal i32 @dissect_eti_message(ptr noundef %0, ptr noundef %1, ptr nou
 
 55:                                               ; preds = %53
   %56 = zext nneg i32 %49 to i64
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1444, ptr noundef nonnull @.str.1443, i32 noundef 11675, i64 noundef %56, i64 noundef 3319) #7
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1444, ptr noundef nonnull @.str.1443, i32 noundef 11675, i64 noundef %56, i64 noundef 3319) #8
   unreachable
 
 57:                                               ; preds = %53
@@ -1849,7 +1849,7 @@ define internal i32 @dissect_eti_message(ptr noundef %0, ptr noundef %1, ptr nou
 
 60:                                               ; preds = %58
   %61 = sext i32 %.0473637 to i64
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1445, ptr noundef nonnull @.str.1443, i32 noundef 11686, i64 noundef %61, i64 noundef 0) #7
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1445, ptr noundef nonnull @.str.1443, i32 noundef 11686, i64 noundef %61, i64 noundef 0) #8
   unreachable
 
 62:                                               ; preds = %58
@@ -1858,7 +1858,7 @@ define internal i32 @dissect_eti_message(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %64, label %66, label %65
 
 65:                                               ; preds = %62
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1446, ptr noundef nonnull @.str.1443, i32 noundef 11687, i64 noundef %63, i64 noundef 2827) #7
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1446, ptr noundef nonnull @.str.1443, i32 noundef 11687, i64 noundef %63, i64 noundef 2827) #8
   unreachable
 
 66:                                               ; preds = %62
@@ -1867,7 +1867,7 @@ define internal i32 @dissect_eti_message(ptr noundef %0, ptr noundef %1, ptr nou
 
 68:                                               ; preds = %66
   %69 = sext i32 %.0475636 to i64
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1442, ptr noundef nonnull @.str.1443, i32 noundef 11688, i64 noundef %69, i64 noundef 0) #7
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1442, ptr noundef nonnull @.str.1443, i32 noundef 11688, i64 noundef %69, i64 noundef 0) #8
   unreachable
 
 70:                                               ; preds = %66
@@ -1876,7 +1876,7 @@ define internal i32 @dissect_eti_message(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %72, label %74, label %73
 
 73:                                               ; preds = %70
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1444, ptr noundef nonnull @.str.1443, i32 noundef 11689, i64 noundef %71, i64 noundef 3319) #7
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1444, ptr noundef nonnull @.str.1443, i32 noundef 11689, i64 noundef %71, i64 noundef 3319) #8
   unreachable
 
 74:                                               ; preds = %70
@@ -1945,7 +1945,7 @@ define internal i32 @dissect_eti_message(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %105, label %107, label %106
 
 106:                                              ; preds = %101
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1449, ptr noundef nonnull @.str.1443, i32 noundef 11711, i64 noundef %104, i64 noundef 8) #7
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1449, ptr noundef nonnull @.str.1443, i32 noundef 11711, i64 noundef %104, i64 noundef 8) #8
   unreachable
 
 107:                                              ; preds = %101
@@ -1974,7 +1974,7 @@ define internal i32 @dissect_eti_message(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %123, label %125, label %124
 
 124:                                              ; preds = %.thread
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1450, ptr noundef nonnull @.str.1443, i32 noundef 11720, i64 noundef 2, i64 noundef 1) #7
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1450, ptr noundef nonnull @.str.1443, i32 noundef 11720, i64 noundef 2, i64 noundef 1) #8
   unreachable
 
 125:                                              ; preds = %.thread
@@ -2053,7 +2053,7 @@ define internal i32 @dissect_eti_message(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %177, label %179, label %178
 
 178:                                              ; preds = %173
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1449, ptr noundef nonnull @.str.1443, i32 noundef 11752, i64 noundef %176, i64 noundef 8) #7
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1449, ptr noundef nonnull @.str.1443, i32 noundef 11752, i64 noundef %176, i64 noundef 8) #8
   unreachable
 
 179:                                              ; preds = %173
@@ -2079,7 +2079,7 @@ define internal i32 @dissect_eti_message(ptr noundef %0, ptr noundef %1, ptr nou
 
 196:                                              ; preds = %192
   %197 = zext i8 %194 to i64
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1449, ptr noundef nonnull @.str.1443, i32 noundef 11759, i64 noundef %197, i64 noundef 8) #7
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1449, ptr noundef nonnull @.str.1443, i32 noundef 11759, i64 noundef %197, i64 noundef 8) #8
   unreachable
 
 198:                                              ; preds = %192
@@ -2090,7 +2090,7 @@ define internal i32 @dissect_eti_message(ptr noundef %0, ptr noundef %1, ptr nou
 
 202:                                              ; preds = %198
   %203 = zext i16 %200 to i64
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1453, ptr noundef nonnull @.str.1443, i32 noundef 11760, i64 noundef %203, i64 noundef 2) #7
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1453, ptr noundef nonnull @.str.1443, i32 noundef 11760, i64 noundef %203, i64 noundef 2) #8
   unreachable
 
 204:                                              ; preds = %198
@@ -2527,7 +2527,7 @@ define internal i32 @dissect_eti_message(ptr noundef %0, ptr noundef %1, ptr nou
 
 487:                                              ; preds = %483
   %488 = zext i16 %485 to i64
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1468, ptr noundef nonnull @.str.1443, i32 noundef 11937, i64 noundef %488, i64 noundef 8) #7
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1468, ptr noundef nonnull @.str.1443, i32 noundef 11937, i64 noundef %488, i64 noundef 8) #8
   unreachable
 
 489:                                              ; preds = %483
@@ -2537,7 +2537,7 @@ define internal i32 @dissect_eti_message(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not542, label %492, label %493
 
 492:                                              ; preds = %489
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1469, ptr noundef nonnull @.str.1443, i32 noundef 11938, i64 noundef 0, i64 noundef 0) #7
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1469, ptr noundef nonnull @.str.1443, i32 noundef 11938, i64 noundef 0, i64 noundef 0) #8
   unreachable
 
 493:                                              ; preds = %489
@@ -2546,7 +2546,7 @@ define internal i32 @dissect_eti_message(ptr noundef %0, ptr noundef %1, ptr nou
 
 495:                                              ; preds = %493
   %496 = zext i8 %491 to i64
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1470, ptr noundef nonnull @.str.1443, i32 noundef 11939, i64 noundef %496, i64 noundef 16) #7
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1470, ptr noundef nonnull @.str.1443, i32 noundef 11939, i64 noundef %496, i64 noundef 16) #8
   unreachable
 
 497:                                              ; preds = %493
@@ -2582,7 +2582,7 @@ define internal i32 @dissect_eti_message(ptr noundef %0, ptr noundef %1, ptr nou
 
 516:                                              ; preds = %511
   %517 = sext i32 %514 to i64
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1472, ptr noundef nonnull @.str.1443, i32 noundef 11952, i64 noundef %517, i64 noundef 0) #7
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1472, ptr noundef nonnull @.str.1443, i32 noundef 11952, i64 noundef %517, i64 noundef 0) #8
   unreachable
 
 518:                                              ; preds = %511
@@ -2612,7 +2612,7 @@ define internal i32 @dissect_eti_message(ptr noundef %0, ptr noundef %1, ptr nou
 
 536:                                              ; preds = %532
   %537 = zext i16 %534 to i64
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1468, ptr noundef nonnull @.str.1443, i32 noundef 11962, i64 noundef %537, i64 noundef 8) #7
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1468, ptr noundef nonnull @.str.1443, i32 noundef 11962, i64 noundef %537, i64 noundef 8) #8
   unreachable
 
 538:                                              ; preds = %532
@@ -2635,7 +2635,7 @@ define internal i32 @dissect_eti_message(ptr noundef %0, ptr noundef %1, ptr nou
 
 552:                                              ; preds = %548
   %553 = zext i16 %550 to i64
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1474, ptr noundef nonnull @.str.1443, i32 noundef 11969, i64 noundef %553, i64 noundef 1) #7
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1474, ptr noundef nonnull @.str.1443, i32 noundef 11969, i64 noundef %553, i64 noundef 1) #8
   unreachable
 
 554:                                              ; preds = %548
@@ -2767,11 +2767,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #6
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2779,8 +2779,9 @@ attributes #2 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stac
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { noreturn }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -358,7 +358,7 @@ $_ZNK2OT20MarkGlyphSetsFormat116collect_coverageI24hb_set_digest_combiner_tI28hb
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, argmem: read) uwtable
 define hidden noalias noundef ptr @_Z18data_create_arabicPK18hb_ot_shape_plan_t(ptr noundef readonly captures(none) %0) #0 {
-  %2 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #27
+  %2 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #28
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -582,14 +582,14 @@ define hidden void @_Z19data_destroy_arabicPv(ptr noundef captures(none) %0) #2 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8
-  tail call void @free(ptr noundef %16) #28
+  tail call void @free(ptr noundef %16) #29
   %17 = load i8, ptr %10, align 4
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %12, align 8
-  tail call void @free(ptr noundef %20) #28
+  tail call void @free(ptr noundef %20) #29
   br label %21
 
 21:                                               ; preds = %19, %14, %11
@@ -600,11 +600,11 @@ define hidden void @_Z19data_destroy_arabicPv(ptr noundef captures(none) %0) #2 
   br i1 %24, label %11, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %21
-  tail call void @free(ptr noundef nonnull %4) #28
+  tail call void @free(ptr noundef nonnull %4) #29
   br label %_ZL28arabic_fallback_plan_destroyP22arabic_fallback_plan_t.exit
 
 _ZL28arabic_fallback_plan_destroyP22arabic_fallback_plan_t.exit: ; preds = %1, %5, %._crit_edge.i
-  tail call void @free(ptr noundef %0) #28
+  tail call void @free(ptr noundef %0) #29
   ret void
 }
 
@@ -2809,7 +2809,7 @@ define internal noundef zeroext i1 @_ZL21arabic_fallback_shapePK18hb_ot_shape_pl
   br label %149
 
 149:                                              ; preds = %.lr.ph, %_ZL28arabic_fallback_plan_destroyP22arabic_fallback_plan_t.exit
-  %150 = call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #27
+  %150 = call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #28
   %.not.i = icmp eq ptr %150, null
   br i1 %.not.i, label %_ZL27arabic_fallback_plan_createPK18hb_ot_shape_plan_tP9hb_font_t.exit, label %151
 
@@ -3039,7 +3039,7 @@ _ZL14hb_stable_sortIN2OT11HBGlyphID16ENS0_7IntTypeItLj2EEES1_EvPT_jPFiPKT0_S8_EP
 239:                                              ; preds = %_ZL14hb_stable_sortIN2OT11HBGlyphID16ENS0_7IntTypeItLj2EEES1_EvPT_jPFiPKT0_S8_EPT1_.exit.i.i.i.i
   %240 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %134) #28
+  call void @_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %134) #29
   %241 = load i32, ptr %133, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %241, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EED2Ev.exit.i.i.i.i.i, label %242
@@ -3048,7 +3048,7 @@ _ZL14hb_stable_sortIN2OT11HBGlyphID16ENS0_7IntTypeItLj2EEES1_EvPT_jPFiPKT0_S8_EP
   store i32 0, ptr %148, align 4
   %243 = getelementptr inbounds nuw i8, ptr %53, i64 88
   %244 = load ptr, ptr %243, align 8
-  call void @free(ptr noundef %244) #28
+  call void @free(ptr noundef %244) #29
   br label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EED2Ev.exit.i.i.i.i.i
 
 common.resume:                                    ; preds = %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EED2Ev.exit.i.i.i.i.i, %297, %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EED2Ev.exit.i.i16.i.i.i, %392, %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EED2Ev.exit.i.i63.i.i.i, %532, %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EED2Ev.exit.i.i130.i.i.i, %621, %712
@@ -3057,7 +3057,7 @@ common.resume:                                    ; preds = %_ZN11hb_vector_tIPN
 
 _ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EED2Ev.exit.i.i.i.i.i: ; preds = %242, %239
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %133, i8 0, i64 16, i1 false)
-  call void @_ZN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %132) #28
+  call void @_ZN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %132) #29
   br label %common.resume
 
 _ZN22hb_serialize_context_tC2EPvj.exit.i.i.i.i:   ; preds = %_ZL14hb_stable_sortIN2OT11HBGlyphID16ENS0_7IntTypeItLj2EEES1_EvPT_jPFiPKT0_S8_EPT1_.exit.i.i.i.i
@@ -3179,7 +3179,7 @@ _ZN22hb_serialize_context_t13end_serializeEv.exit.i.i.i.i: ; preds = %.noexc35._
   br i1 %.not.i.i37.i.i.i.i, label %_ZNK22hb_serialize_context_t4copyIN2OT6Layout9GSUB_impl11SubstLookupEEEPT_v.exit.i.i.i.i, label %290
 
 290:                                              ; preds = %277
-  %291 = call noalias ptr @malloc(i64 noundef %289) #29
+  %291 = call noalias ptr @malloc(i64 noundef %289) #30
   %.not8.i.i38.i.i.i.i = icmp eq ptr %291, null
   br i1 %.not8.i.i38.i.i.i.i, label %_ZNK22hb_serialize_context_t4copyIN2OT6Layout9GSUB_impl11SubstLookupEEEPT_v.exit.i.i.i.i, label %292
 
@@ -3202,13 +3202,13 @@ _ZL9hb_memcpyPvPKvm.exit.i.i.i.i.i.i:             ; preds = %293, %292
 
 _ZNK22hb_serialize_context_t4copyIN2OT6Layout9GSUB_impl11SubstLookupEEEPT_v.exit.i.i.i.i: ; preds = %294, %_ZL9hb_memcpyPvPKvm.exit.i.i.i.i.i.i, %290, %277, %_ZN22hb_serialize_context_t13end_serializeEv.exit.i.i.i.i, %271, %_ZN22hb_serialize_context_t15propagate_errorIR11hb_vector_tIPNS_8object_tELb0EEJR12hb_hashmap_tIPKS2_jLb0EEEEEbOT_DpOT0_.exit.thread.i.i.i.i.i, %_ZN22hb_serialize_context_t15propagate_errorIR11hb_vector_tIPNS_8object_tELb0EEJR12hb_hashmap_tIPKS2_jLb0EEEEEbOT_DpOT0_.exit.i.i.i.i.i
   %296 = phi ptr [ null, %_ZN22hb_serialize_context_t13end_serializeEv.exit.i.i.i.i ], [ null, %277 ], [ null, %290 ], [ %291, %_ZL9hb_memcpyPvPKvm.exit.i.i.i.i.i.i ], [ %291, %294 ], [ null, %271 ], [ null, %_ZN22hb_serialize_context_t15propagate_errorIR11hb_vector_tIPNS_8object_tELb0EEJR12hb_hashmap_tIPKS2_jLb0EEEEEbOT_DpOT0_.exit.thread.i.i.i.i.i ], [ null, %_ZN22hb_serialize_context_t15propagate_errorIR11hb_vector_tIPNS_8object_tELb0EEJR12hb_hashmap_tIPKS2_jLb0EEEEEbOT_DpOT0_.exit.i.i.i.i.i ]
-  call void @_ZN22hb_serialize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %53) #28
+  call void @_ZN22hb_serialize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %53) #29
   br label %_ZL40arabic_fallback_synthesize_lookup_singlePK18hb_ot_shape_plan_tP9hb_font_tj.exit.i.i.i
 
 297:                                              ; preds = %.noexc35.i.i.i.i, %273, %257, %246
   %298 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN22hb_serialize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %53) #28
+  call void @_ZN22hb_serialize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %53) #29
   br label %common.resume
 
 _ZL40arabic_fallback_synthesize_lookup_singlePK18hb_ot_shape_plan_tP9hb_font_tj.exit.i.i.i: ; preds = %_ZNK22hb_serialize_context_t4copyIN2OT6Layout9GSUB_impl11SubstLookupEEEPT_v.exit.i.i.i.i, %209
@@ -3345,7 +3345,7 @@ _ZL40arabic_fallback_synthesize_lookup_singlePK18hb_ot_shape_plan_tP9hb_font_tj.
 334:                                              ; preds = %333
   %335 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %112) #28
+  call void @_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %112) #29
   %336 = load i32, ptr %111, align 8
   %.not.i.i.i.i15.i.i.i = icmp eq i32 %336, 0
   br i1 %.not.i.i.i.i15.i.i.i, label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EED2Ev.exit.i.i16.i.i.i, label %337
@@ -3354,12 +3354,12 @@ _ZL40arabic_fallback_synthesize_lookup_singlePK18hb_ot_shape_plan_tP9hb_font_tj.
   store i32 0, ptr %129, align 4
   %338 = getelementptr inbounds nuw i8, ptr %43, i64 88
   %339 = load ptr, ptr %338, align 8
-  call void @free(ptr noundef %339) #28
+  call void @free(ptr noundef %339) #29
   br label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EED2Ev.exit.i.i16.i.i.i
 
 _ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EED2Ev.exit.i.i16.i.i.i: ; preds = %337, %334
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, i8 0, i64 16, i1 false)
-  call void @_ZN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %110) #28
+  call void @_ZN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %110) #29
   br label %common.resume
 
 _ZN22hb_serialize_context_tC2EPvj.exit.i19.i.i.i: ; preds = %333
@@ -3487,7 +3487,7 @@ _ZN22hb_serialize_context_t13end_serializeEv.exit.i33.i.i.i: ; preds = %.noexc98
   br i1 %.not.i.i100.i.i.i.i, label %_ZNK22hb_serialize_context_t4copyIN2OT6Layout9GSUB_impl11SubstLookupEEEPT_v.exit.i26.i.i.i, label %385
 
 385:                                              ; preds = %372
-  %386 = call noalias ptr @malloc(i64 noundef %384) #29
+  %386 = call noalias ptr @malloc(i64 noundef %384) #30
   %.not8.i.i101.i.i.i.i = icmp eq ptr %386, null
   br i1 %.not8.i.i101.i.i.i.i, label %_ZNK22hb_serialize_context_t4copyIN2OT6Layout9GSUB_impl11SubstLookupEEEPT_v.exit.i26.i.i.i, label %387
 
@@ -3510,13 +3510,13 @@ _ZL9hb_memcpyPvPKvm.exit.i.i.i34.i.i.i:           ; preds = %388, %387
 
 _ZNK22hb_serialize_context_t4copyIN2OT6Layout9GSUB_impl11SubstLookupEEEPT_v.exit.i26.i.i.i: ; preds = %389, %_ZL9hb_memcpyPvPKvm.exit.i.i.i34.i.i.i, %385, %372, %_ZN22hb_serialize_context_t13end_serializeEv.exit.i33.i.i.i, %366, %_ZN22hb_serialize_context_t15propagate_errorIR11hb_vector_tIPNS_8object_tELb0EEJR12hb_hashmap_tIPKS2_jLb0EEEEEbOT_DpOT0_.exit.thread.i.i25.i.i.i, %_ZN22hb_serialize_context_t15propagate_errorIR11hb_vector_tIPNS_8object_tELb0EEJR12hb_hashmap_tIPKS2_jLb0EEEEEbOT_DpOT0_.exit.i.i36.i.i.i
   %391 = phi ptr [ null, %_ZN22hb_serialize_context_t13end_serializeEv.exit.i33.i.i.i ], [ null, %372 ], [ null, %385 ], [ %386, %_ZL9hb_memcpyPvPKvm.exit.i.i.i34.i.i.i ], [ %386, %389 ], [ null, %366 ], [ null, %_ZN22hb_serialize_context_t15propagate_errorIR11hb_vector_tIPNS_8object_tELb0EEJR12hb_hashmap_tIPKS2_jLb0EEEEEbOT_DpOT0_.exit.thread.i.i25.i.i.i ], [ null, %_ZN22hb_serialize_context_t15propagate_errorIR11hb_vector_tIPNS_8object_tELb0EEJR12hb_hashmap_tIPKS2_jLb0EEEEEbOT_DpOT0_.exit.i.i36.i.i.i ]
-  call void @_ZN22hb_serialize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %43) #28
+  call void @_ZN22hb_serialize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %43) #29
   br label %_ZL42arabic_fallback_synthesize_lookup_ligatureIA1_16ligature_3_set_tEPN2OT6Layout9GSUB_impl11SubstLookupEPK18hb_ot_shape_plan_tP9hb_font_tRKT_j.exit.i.i.i
 
 392:                                              ; preds = %.noexc98.i.i.i.i, %368, %352, %341
   %393 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN22hb_serialize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %43) #28
+  call void @_ZN22hb_serialize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %43) #29
   br label %common.resume
 
 _ZL42arabic_fallback_synthesize_lookup_ligatureIA1_16ligature_3_set_tEPN2OT6Layout9GSUB_impl11SubstLookupEPK18hb_ot_shape_plan_tP9hb_font_tRKT_j.exit.i.i.i: ; preds = %_ZNK22hb_serialize_context_t4copyIN2OT6Layout9GSUB_impl11SubstLookupEEEPT_v.exit.i26.i.i.i, %._crit_edge.i.i.i.i, %301
@@ -3756,7 +3756,7 @@ _ZL14hb_stable_sortIN2OT11HBGlyphID16ENS0_7IntTypeItLj2EEEjEvPT_jPFiPKT0_S8_EPT1
 474:                                              ; preds = %473
   %475 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %90) #28
+  call void @_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %90) #29
   %476 = load i32, ptr %89, align 8
   %.not.i.i.i.i62.i.i.i = icmp eq i32 %476, 0
   br i1 %.not.i.i.i.i62.i.i.i, label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EED2Ev.exit.i.i63.i.i.i, label %477
@@ -3765,12 +3765,12 @@ _ZL14hb_stable_sortIN2OT11HBGlyphID16ENS0_7IntTypeItLj2EEEjEvPT_jPFiPKT0_S8_EPT1
   store i32 0, ptr %107, align 4
   %478 = getelementptr inbounds nuw i8, ptr %29, i64 88
   %479 = load ptr, ptr %478, align 8
-  call void @free(ptr noundef %479) #28
+  call void @free(ptr noundef %479) #29
   br label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EED2Ev.exit.i.i63.i.i.i
 
 _ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EED2Ev.exit.i.i63.i.i.i: ; preds = %477, %474
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, i8 0, i64 16, i1 false)
-  call void @_ZN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %88) #28
+  call void @_ZN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %88) #29
   br label %common.resume
 
 _ZN22hb_serialize_context_tC2EPvj.exit.i66.i.i.i: ; preds = %473
@@ -3898,7 +3898,7 @@ _ZN22hb_serialize_context_t13end_serializeEv.exit.i85.i.i.i: ; preds = %.noexc98
   br i1 %.not.i.i100.i87.i.i.i, label %_ZNK22hb_serialize_context_t4copyIN2OT6Layout9GSUB_impl11SubstLookupEEEPT_v.exit.i75.i.i.i, label %525
 
 525:                                              ; preds = %512
-  %526 = call noalias ptr @malloc(i64 noundef %524) #29
+  %526 = call noalias ptr @malloc(i64 noundef %524) #30
   %.not8.i.i101.i88.i.i.i = icmp eq ptr %526, null
   br i1 %.not8.i.i101.i88.i.i.i, label %_ZNK22hb_serialize_context_t4copyIN2OT6Layout9GSUB_impl11SubstLookupEEEPT_v.exit.i75.i.i.i, label %527
 
@@ -3921,13 +3921,13 @@ _ZL9hb_memcpyPvPKvm.exit.i.i.i90.i.i.i:           ; preds = %528, %527
 
 _ZNK22hb_serialize_context_t4copyIN2OT6Layout9GSUB_impl11SubstLookupEEEPT_v.exit.i75.i.i.i: ; preds = %529, %_ZL9hb_memcpyPvPKvm.exit.i.i.i90.i.i.i, %525, %512, %_ZN22hb_serialize_context_t13end_serializeEv.exit.i85.i.i.i, %506, %_ZN22hb_serialize_context_t15propagate_errorIR11hb_vector_tIPNS_8object_tELb0EEJR12hb_hashmap_tIPKS2_jLb0EEEEEbOT_DpOT0_.exit.thread.i.i74.i.i.i, %_ZN22hb_serialize_context_t15propagate_errorIR11hb_vector_tIPNS_8object_tELb0EEJR12hb_hashmap_tIPKS2_jLb0EEEEEbOT_DpOT0_.exit.i.i92.i.i.i
   %531 = phi ptr [ null, %_ZN22hb_serialize_context_t13end_serializeEv.exit.i85.i.i.i ], [ null, %512 ], [ null, %525 ], [ %526, %_ZL9hb_memcpyPvPKvm.exit.i.i.i90.i.i.i ], [ %526, %529 ], [ null, %506 ], [ null, %_ZN22hb_serialize_context_t15propagate_errorIR11hb_vector_tIPNS_8object_tELb0EEJR12hb_hashmap_tIPKS2_jLb0EEEEEbOT_DpOT0_.exit.thread.i.i74.i.i.i ], [ null, %_ZN22hb_serialize_context_t15propagate_errorIR11hb_vector_tIPNS_8object_tELb0EEJR12hb_hashmap_tIPKS2_jLb0EEEEEbOT_DpOT0_.exit.i.i92.i.i.i ]
-  call void @_ZN22hb_serialize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %29) #28
+  call void @_ZN22hb_serialize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %29) #29
   br label %_ZL42arabic_fallback_synthesize_lookup_ligatureIA18_14ligature_set_tEPN2OT6Layout9GSUB_impl11SubstLookupEPK18hb_ot_shape_plan_tP9hb_font_tRKT_j.exit.i.i.i
 
 532:                                              ; preds = %.noexc98.i82.i.i.i, %508, %492, %481
   %533 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN22hb_serialize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %29) #28
+  call void @_ZN22hb_serialize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %29) #29
   br label %common.resume
 
 _ZL42arabic_fallback_synthesize_lookup_ligatureIA18_14ligature_set_tEPN2OT6Layout9GSUB_impl11SubstLookupEPK18hb_ot_shape_plan_tP9hb_font_tRKT_j.exit.i.i.i: ; preds = %_ZNK22hb_serialize_context_t4copyIN2OT6Layout9GSUB_impl11SubstLookupEEEPT_v.exit.i75.i.i.i, %._crit_edge.i60.i.i.i, %_ZL14hb_stable_sortIN2OT11HBGlyphID16ENS0_7IntTypeItLj2EEEjEvPT_jPFiPKT0_S8_EPT1_.exit.i.i.i.i
@@ -4049,7 +4049,7 @@ _ZL42arabic_fallback_synthesize_lookup_ligatureIA18_14ligature_set_tEPN2OT6Layou
 563:                                              ; preds = %562
   %564 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %68) #28
+  call void @_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %68) #29
   %565 = load i32, ptr %67, align 8
   %.not.i.i.i.i129.i.i.i = icmp eq i32 %565, 0
   br i1 %.not.i.i.i.i129.i.i.i, label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EED2Ev.exit.i.i130.i.i.i, label %566
@@ -4058,12 +4058,12 @@ _ZL42arabic_fallback_synthesize_lookup_ligatureIA18_14ligature_set_tEPN2OT6Layou
   store i32 0, ptr %85, align 4
   %567 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %568 = load ptr, ptr %567, align 8
-  call void @free(ptr noundef %568) #28
+  call void @free(ptr noundef %568) #29
   br label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EED2Ev.exit.i.i130.i.i.i
 
 _ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EED2Ev.exit.i.i130.i.i.i: ; preds = %566, %563
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
-  call void @_ZN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %66) #28
+  call void @_ZN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %66) #29
   br label %common.resume
 
 _ZN22hb_serialize_context_tC2EPvj.exit.i133.i.i.i: ; preds = %562
@@ -4191,7 +4191,7 @@ _ZN22hb_serialize_context_t13end_serializeEv.exit.i151.i.i.i: ; preds = %.noexc9
   br i1 %.not.i.i100.i153.i.i.i, label %_ZNK22hb_serialize_context_t4copyIN2OT6Layout9GSUB_impl11SubstLookupEEEPT_v.exit.i141.i.i.i, label %614
 
 614:                                              ; preds = %601
-  %615 = call noalias ptr @malloc(i64 noundef %613) #29
+  %615 = call noalias ptr @malloc(i64 noundef %613) #30
   %.not8.i.i101.i154.i.i.i = icmp eq ptr %615, null
   br i1 %.not8.i.i101.i154.i.i.i, label %_ZNK22hb_serialize_context_t4copyIN2OT6Layout9GSUB_impl11SubstLookupEEEPT_v.exit.i141.i.i.i, label %616
 
@@ -4214,13 +4214,13 @@ _ZL9hb_memcpyPvPKvm.exit.i.i.i156.i.i.i:          ; preds = %617, %616
 
 _ZNK22hb_serialize_context_t4copyIN2OT6Layout9GSUB_impl11SubstLookupEEEPT_v.exit.i141.i.i.i: ; preds = %618, %_ZL9hb_memcpyPvPKvm.exit.i.i.i156.i.i.i, %614, %601, %_ZN22hb_serialize_context_t13end_serializeEv.exit.i151.i.i.i, %595, %_ZN22hb_serialize_context_t15propagate_errorIR11hb_vector_tIPNS_8object_tELb0EEJR12hb_hashmap_tIPKS2_jLb0EEEEEbOT_DpOT0_.exit.thread.i.i140.i.i.i, %_ZN22hb_serialize_context_t15propagate_errorIR11hb_vector_tIPNS_8object_tELb0EEJR12hb_hashmap_tIPKS2_jLb0EEEEEbOT_DpOT0_.exit.i.i158.i.i.i
   %620 = phi ptr [ null, %_ZN22hb_serialize_context_t13end_serializeEv.exit.i151.i.i.i ], [ null, %601 ], [ null, %614 ], [ %615, %_ZL9hb_memcpyPvPKvm.exit.i.i.i156.i.i.i ], [ %615, %618 ], [ null, %595 ], [ null, %_ZN22hb_serialize_context_t15propagate_errorIR11hb_vector_tIPNS_8object_tELb0EEJR12hb_hashmap_tIPKS2_jLb0EEEEEbOT_DpOT0_.exit.thread.i.i140.i.i.i ], [ null, %_ZN22hb_serialize_context_t15propagate_errorIR11hb_vector_tIPNS_8object_tELb0EEJR12hb_hashmap_tIPKS2_jLb0EEEEEbOT_DpOT0_.exit.i.i158.i.i.i ]
-  call void @_ZN22hb_serialize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %14) #28
+  call void @_ZN22hb_serialize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %14) #29
   br label %_ZL42arabic_fallback_synthesize_lookup_ligatureIA1_19ligature_mark_set_tEPN2OT6Layout9GSUB_impl11SubstLookupEPK18hb_ot_shape_plan_tP9hb_font_tRKT_j.exit.i.i.i
 
 621:                                              ; preds = %.noexc98.i148.i.i.i, %597, %581, %570
   %622 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN22hb_serialize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %14) #28
+  call void @_ZN22hb_serialize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %14) #29
   br label %common.resume
 
 _ZL42arabic_fallback_synthesize_lookup_ligatureIA1_19ligature_mark_set_tEPN2OT6Layout9GSUB_impl11SubstLookupEPK18hb_ot_shape_plan_tP9hb_font_tRKT_j.exit.i.i.i: ; preds = %_ZNK22hb_serialize_context_t4copyIN2OT6Layout9GSUB_impl11SubstLookupEEEPT_v.exit.i141.i.i.i, %._crit_edge.i127.i.i.i, %534
@@ -4271,7 +4271,7 @@ _ZL33arabic_fallback_plan_init_unicodeP22arabic_fallback_plan_tPK18hb_ot_shape_p
   br i1 %.not14.i, label %_ZL33arabic_fallback_plan_init_unicodeP22arabic_fallback_plan_tPK18hb_ot_shape_plan_tP9hb_font_t.exit.thread.i, label %_ZL27arabic_fallback_plan_createPK18hb_ot_shape_plan_tP9hb_font_t.exit
 
 _ZL33arabic_fallback_plan_init_unicodeP22arabic_fallback_plan_tPK18hb_ot_shape_plan_tP9hb_font_t.exit.thread.i: ; preds = %_ZL33arabic_fallback_plan_init_unicodeP22arabic_fallback_plan_tPK18hb_ot_shape_plan_tP9hb_font_t.exit.i, %151
-  call void @free(ptr noundef nonnull %150) #28
+  call void @free(ptr noundef nonnull %150) #29
   br label %_ZL27arabic_fallback_plan_createPK18hb_ot_shape_plan_tP9hb_font_t.exit
 
 _ZL27arabic_fallback_plan_createPK18hb_ot_shape_plan_tP9hb_font_t.exit: ; preds = %149, %_ZL33arabic_fallback_plan_init_unicodeP22arabic_fallback_plan_tPK18hb_ot_shape_plan_tP9hb_font_t.exit.i, %_ZL33arabic_fallback_plan_init_unicodeP22arabic_fallback_plan_tPK18hb_ot_shape_plan_tP9hb_font_t.exit.thread.i
@@ -4302,14 +4302,14 @@ _ZL27arabic_fallback_plan_createPK18hb_ot_shape_plan_tP9hb_font_t.exit: ; preds 
 641:                                              ; preds = %638
   %642 = getelementptr inbounds nuw ptr, ptr %636, i64 %indvars.iv.i
   %643 = load ptr, ptr %642, align 8
-  call void @free(ptr noundef %643) #28
+  call void @free(ptr noundef %643) #29
   %644 = load i8, ptr %637, align 4
   %645 = trunc i8 %644 to i1
   br i1 %645, label %646, label %648
 
 646:                                              ; preds = %641
   %647 = load ptr, ptr %639, align 8
-  call void @free(ptr noundef %647) #28
+  call void @free(ptr noundef %647) #29
   br label %648
 
 648:                                              ; preds = %646, %641, %638
@@ -4320,7 +4320,7 @@ _ZL27arabic_fallback_plan_createPK18hb_ot_shape_plan_tP9hb_font_t.exit: ; preds 
   br i1 %651, label %638, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %648
-  call void @free(ptr noundef nonnull %.0.i) #28
+  call void @free(ptr noundef nonnull %.0.i) #29
   br label %_ZL28arabic_fallback_plan_destroyP22arabic_fallback_plan_t.exit
 
 _ZL28arabic_fallback_plan_destroyP22arabic_fallback_plan_t.exit: ; preds = %632, %._crit_edge.i
@@ -4440,7 +4440,7 @@ _ZL28arabic_fallback_plan_destroyP22arabic_fallback_plan_t.exit: ; preds = %632,
 712:                                              ; preds = %711
   %713 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2OT21hb_ot_apply_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %4) #28
+  call void @_ZN2OT21hb_ot_apply_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %4) #29
   br label %common.resume
 
 714:                                              ; preds = %._crit_edge21.i, %690, %686
@@ -4453,7 +4453,7 @@ _ZL28arabic_fallback_plan_destroyP22arabic_fallback_plan_t.exit: ; preds = %632,
 ._crit_edge.i21:                                  ; preds = %714, %.split.loop.exit
   %718 = getelementptr inbounds nuw i8, ptr %4, i64 264
   %719 = load ptr, ptr %718, align 8
-  call void @free(ptr noundef %719) #28
+  call void @free(ptr noundef %719) #29
   %720 = getelementptr inbounds nuw i8, ptr %4, i64 216
   %721 = load ptr, ptr %720, align 8
   %.not.i.i.i = icmp eq ptr %721, null
@@ -4467,7 +4467,7 @@ _ZL28arabic_fallback_plan_destroyP22arabic_fallback_plan_t.exit: ; preds = %632,
   %724 = landingpad { ptr, i32 }
           catch ptr null
   %725 = extractvalue { ptr, i32 } %724, 0
-  call void @__clang_call_terminate(ptr %725) #30
+  call void @__clang_call_terminate(ptr %725) #31
   unreachable
 
 _ZL26arabic_fallback_plan_shapeP22arabic_fallback_plan_tP9hb_font_tP11hb_buffer_t.exit: ; preds = %._crit_edge.i21, %722
@@ -4496,7 +4496,7 @@ define linkonce_odr hidden noundef ptr @_ZN2OT33hb_ot_layout_lookup_accelerator_
   %11 = mul nuw nsw i32 %10, 56
   %12 = add nuw nsw i32 %11, 32
   %13 = zext nneg i32 %12 to i64
-  %14 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %13) #27
+  %14 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %13) #28
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %.loopexit, label %15
 
@@ -4538,7 +4538,7 @@ define linkonce_odr hidden noundef ptr @_ZN2OT33hb_ot_layout_lookup_accelerator_
   br i1 %.not.i.i.i.i, label %36, label %38
 
 36:                                               ; preds = %29
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.88", ptr %28, i64 %indvars.iv.i.i
   br label %38
 
@@ -4702,7 +4702,7 @@ _ZN22hb_serialize_context_t4pushIN2OT6Layout9GSUB_impl19SubstLookupSubTableEEEPT
   br label %_ZN2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl19SubstLookupSubTableENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit
 
 39:                                               ; preds = %30
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !89
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !89
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 6
   br label %_ZN2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl19SubstLookupSubTableENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit
 
@@ -4767,7 +4767,7 @@ _ZN22hb_serialize_context_t6revertEPcS0_.exit.i:  ; preds = %56, %54
   store i32 0, ptr %63, align 4
   %64 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %65 = load ptr, ptr %64, align 8
-  tail call void @free(ptr noundef %65) #28
+  tail call void @free(ptr noundef %65) #29
   br label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i
 
 _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i: ; preds = %62, %_ZN22hb_serialize_context_t6revertEPcS0_.exit.i
@@ -4782,7 +4782,7 @@ _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i
   store i32 0, ptr %69, align 4
   %70 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %71 = load ptr, ptr %70, align 8
-  tail call void @free(ptr noundef %71) #28
+  tail call void @free(ptr noundef %71) #29
   br label %_ZN22hb_serialize_context_t8object_t4finiEv.exit.i
 
 _ZN22hb_serialize_context_t8object_t4finiEv.exit.i: ; preds = %68, %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i
@@ -4818,8 +4818,8 @@ define linkonce_odr hidden void @_ZN22hb_serialize_context_tD2Ev(ptr noundef non
           to label %.noexc.i unwind label %13
 
 .noexc.i:                                         ; preds = %6
-  %9 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %7) #28
-  tail call void @free(ptr noundef nonnull %7) #28
+  %9 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %7) #29
+  tail call void @free(ptr noundef nonnull %7) #29
   store atomic i64 0, ptr %4 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EEEvPT_.exit.i.i
 
@@ -4830,7 +4830,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EEEv
   br i1 %.not.i.i, label %_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EEEvPT_.exit.i.i
-  tail call void @free(ptr noundef nonnull %11) #28
+  tail call void @free(ptr noundef nonnull %11) #29
   store ptr null, ptr %10, align 8
   br label %_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EED2Ev.exit
 
@@ -4838,7 +4838,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EEEv
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #30
+  tail call void @__clang_call_terminate(ptr %15) #31
   unreachable
 
 _ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EED2Ev.exit: ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EEEvPT_.exit.i.i, %12
@@ -4858,7 +4858,7 @@ _ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EED2Ev.exit: ; preds 
   store i32 0, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %25 = load ptr, ptr %24, align 8
-  tail call void @free(ptr noundef %25) #28
+  tail call void @free(ptr noundef %25) #29
   br label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EED2Ev.exit
 
 _ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EED2Ev.exit: ; preds = %_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EED2Ev.exit, %22
@@ -4894,7 +4894,7 @@ _ZorI10hb_array_tIKPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_
 33:                                               ; preds = %_ZorI10hb_array_tIKPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tEE10hb_apply_tIRFvPvEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELSA_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSK_.exit.i
   store i32 0, ptr %28, align 4
   %34 = load ptr, ptr %29, align 8
-  tail call void @free(ptr noundef %34) #28
+  tail call void @free(ptr noundef %34) #29
   br label %_ZN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EED2Ev.exit
 
 _ZN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EED2Ev.exit: ; preds = %_ZorI10hb_array_tIKPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tEE10hb_apply_tIRFvPvEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELSA_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSK_.exit.i, %33
@@ -4905,7 +4905,7 @@ _ZN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EED2Ev.exit: ; preds = %_Zo
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #30
+  tail call void @__clang_call_terminate(ptr %37) #31
   unreachable
 }
 
@@ -4964,7 +4964,7 @@ _ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE14realloc_vectorIS2_Tn
   %24 = load ptr, ptr %23, align 8
   %25 = shl nuw i32 %20, 3
   %26 = zext i32 %25 to i64
-  %27 = tail call ptr @realloc(ptr noundef %24, i64 noundef %26) #31
+  %27 = tail call ptr @realloc(ptr noundef %24, i64 noundef %26) #32
   %.not42.i.i = icmp eq ptr %27, null
   br i1 %.not42.i.i, label %28, label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE5allocEjb.exit.i
 
@@ -5037,8 +5037,8 @@ define linkonce_odr hidden void @_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8o
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %4
-  %7 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %5) #28
-  tail call void @free(ptr noundef nonnull %5) #28
+  %7 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %5) #29
+  tail call void @free(ptr noundef nonnull %5) #29
   store atomic i64 0, ptr %2 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EEEvPT_.exit.i
 
@@ -5049,7 +5049,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EEEv
   br i1 %.not.i, label %11, label %10
 
 10:                                               ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EEEvPT_.exit.i
-  tail call void @free(ptr noundef nonnull %9) #28
+  tail call void @free(ptr noundef nonnull %9) #29
   store ptr null, ptr %8, align 8
   br label %11
 
@@ -5066,7 +5066,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EEEv
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #30
+  tail call void @__clang_call_terminate(ptr %18) #31
   unreachable
 }
 
@@ -5102,7 +5102,7 @@ _ZorI10hb_array_tIKPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_
 8:                                                ; preds = %_ZorI10hb_array_tIKPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tEE10hb_apply_tIRFvPvEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELSA_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSK_.exit
   store i32 0, ptr %3, align 4
   %9 = load ptr, ptr %4, align 8
-  tail call void @free(ptr noundef %9) #28
+  tail call void @free(ptr noundef %9) #29
   br label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EED2Ev.exit
 
 _ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EED2Ev.exit: ; preds = %_ZorI10hb_array_tIKPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tEE10hb_apply_tIRFvPvEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELSA_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSK_.exit, %8
@@ -5140,7 +5140,7 @@ _ZNO9hb_iter_tI10hb_array_tIKPN22hb_serialize_context_t8object_tEERS4_EppEv.exit
   store i32 0, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %10 = load ptr, ptr %9, align 8
-  tail call void @free(ptr noundef %10) #28
+  tail call void @free(ptr noundef %10) #29
   br label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i
 
 _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i: ; preds = %7, %.lr.ph
@@ -5155,7 +5155,7 @@ _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i: 
   store i32 0, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %16 = load ptr, ptr %15, align 8
-  tail call void @free(ptr noundef %16) #28
+  tail call void @free(ptr noundef %16) #29
   br label %_ZN22hb_serialize_context_t8object_t4finiEv.exit
 
 _ZN22hb_serialize_context_t8object_t4finiEv.exit: ; preds = %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i, %13
@@ -5173,7 +5173,7 @@ _ZN22hb_serialize_context_t8object_t4finiEv.exit: ; preds = %_ZN11hb_vector_tIN2
 20:                                               ; preds = %._crit_edge
   store i32 0, ptr %1, align 4
   %21 = load ptr, ptr %2, align 8
-  tail call void @free(ptr noundef %21) #28
+  tail call void @free(ptr noundef %21) #29
   br label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE4finiEv.exit
 
 _ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE4finiEv.exit: ; preds = %._crit_edge, %20
@@ -5189,8 +5189,8 @@ _ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE4finiEv.exit: ; preds 
   %26 = inttoptr i64 %24 to ptr
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(56) %26)
-  %28 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %26) #28
-  tail call void @free(ptr noundef nonnull %26) #28
+  %28 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %26) #29
+  tail call void @free(ptr noundef nonnull %26) #29
   store atomic i64 0, ptr %23 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EEEvPT_.exit.i
 
@@ -5201,7 +5201,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EEEv
   br i1 %.not.i14, label %_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE4finiEv.exit, label %31
 
 31:                                               ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EEEvPT_.exit.i
-  tail call void @free(ptr noundef nonnull %30) #28
+  tail call void @free(ptr noundef nonnull %30) #29
   store ptr null, ptr %29, align 8
   br label %_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE4finiEv.exit
 
@@ -5232,7 +5232,7 @@ _ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE4finiEv.exit: ; pre
   store i32 0, ptr %44, align 4
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %46 = load ptr, ptr %45, align 8
-  tail call void @free(ptr noundef %46) #28
+  tail call void @free(ptr noundef %46) #29
   br label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i16
 
 _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i16: ; preds = %43, %.lr.ph25
@@ -5247,7 +5247,7 @@ _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i16
   store i32 0, ptr %50, align 4
   %51 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %52 = load ptr, ptr %51, align 8
-  tail call void @free(ptr noundef %52) #28
+  tail call void @free(ptr noundef %52) #29
   br label %_ZN22hb_serialize_context_t8object_t4finiEv.exit18
 
 _ZN22hb_serialize_context_t8object_t4finiEv.exit18: ; preds = %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i16, %49
@@ -5276,7 +5276,7 @@ define linkonce_odr hidden void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t1
   store i32 0, ptr %3, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  tail call void @free(ptr noundef %9) #28
+  tail call void @free(ptr noundef %9) #29
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit: ; preds = %5, %7
@@ -5284,7 +5284,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit:
   br label %28
 
 10:                                               ; preds = %2
-  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #28
+  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #29
   %12 = load i32, ptr %3, align 4
   %.not510 = icmp eq i32 %12, 0
   br i1 %.not510, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph
@@ -5304,7 +5304,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   %.sroa.2.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..0.i.i.sroa_idx, align 8
   store i32 %15, ptr %3, align 4, !noalias !93
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #28
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #29
   %.not.i7 = icmp eq ptr %.sroa.2.0.copyload, null
   br i1 %.not.i7, label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, label %20
 
@@ -5313,7 +5313,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, %20
-  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #28
+  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #29
   %22 = load i32, ptr %3, align 4
   %.not5 = icmp eq i32 %22, 0
   br i1 %.not5, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, !llvm.loop !96
@@ -5327,12 +5327,12 @@ _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_v
   store i32 0, ptr %3, align 4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
-  tail call void @free(ptr noundef %26) #28
+  tail call void @free(ptr noundef %26) #29
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9: ; preds = %._crit_edge, %24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #28
+  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #29
   br label %28
 
 28:                                               ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit
@@ -5348,7 +5348,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #10
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare { i32, i1 } @llvm.umul.with.overflow.i32(i32, i32) #11
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -5356,8 +5356,8 @@ declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 no
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #13 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #28
-  tail call void @_ZSt9terminatev() #30
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #29
+  tail call void @_ZSt9terminatev() #31
   unreachable
 }
 
@@ -5402,7 +5402,7 @@ _ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tE
   %17 = load ptr, ptr %16, align 8
   %18 = shl nuw i32 %13, 3
   %19 = zext i32 %18 to i64
-  %20 = tail call ptr @realloc(ptr noundef %17, i64 noundef %19) #31
+  %20 = tail call ptr @realloc(ptr noundef %17, i64 noundef %19) #32
   %.not42.i = icmp eq ptr %20, null
   br i1 %.not42.i, label %21, label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit
 
@@ -5424,7 +5424,7 @@ _ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tE
 
 _ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread: ; preds = %21, %10, %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit
   %23 = phi i32 [ %22, %21 ], [ %8, %10 ], [ %13, %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit ]
-  %24 = tail call noalias dereferenceable_or_null(1792) ptr @malloc(i64 noundef 1792) #29
+  %24 = tail call noalias dereferenceable_or_null(1792) ptr @malloc(i64 noundef 1792) #30
   %.not4 = icmp eq ptr %24, null
   br i1 %.not4, label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread9, label %25
 
@@ -5459,7 +5459,7 @@ _ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tE
   %37 = load ptr, ptr %36, align 8
   %38 = shl nuw i32 %33, 3
   %39 = zext i32 %38 to i64
-  %40 = tail call ptr @realloc(ptr noundef %37, i64 noundef %39) #31
+  %40 = tail call ptr @realloc(ptr noundef %37, i64 noundef %39) #32
   %.not42.i.i = icmp eq ptr %40, null
   br i1 %.not42.i.i, label %41, label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.i
 
@@ -5991,7 +5991,7 @@ define linkonce_odr hidden void @_ZN22hb_serialize_context_t8add_linkIN2OT8Offse
   %28 = load ptr, ptr %27, align 8
   %29 = zext nneg i32 %23 to i64
   %30 = mul nuw nsw i64 %29, 12
-  %31 = tail call ptr @realloc(ptr noundef %28, i64 noundef %30) #31
+  %31 = tail call ptr @realloc(ptr noundef %28, i64 noundef %30) #32
   %.not42.i.i.i = icmp eq ptr %31, null
   br i1 %.not42.i.i.i, label %32, label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE5allocEjb.exit.i.i
 
@@ -6286,7 +6286,7 @@ _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE14realloc_vector
   %103 = load ptr, ptr %90, align 8
   %104 = zext nneg i32 %100 to i64
   %105 = mul nuw nsw i64 %104, 12
-  %106 = call ptr @realloc(ptr noundef %103, i64 noundef %105) #31
+  %106 = call ptr @realloc(ptr noundef %103, i64 noundef %105) #32
   %.not42.i.i.i = icmp eq ptr %106, null
   br i1 %.not42.i.i.i, label %107, label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE5allocEjb.exit.i.i
 
@@ -6341,7 +6341,7 @@ _ZN22hb_serialize_context_t19merge_virtual_linksEPKNS_8object_tEj.exit: ; preds 
   store i32 0, ptr %119, align 4
   %120 = getelementptr inbounds nuw i8, ptr %115, i64 24
   %121 = load ptr, ptr %120, align 8
-  call void @free(ptr noundef %121) #28
+  call void @free(ptr noundef %121) #29
   br label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i
 
 _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i: ; preds = %118, %_ZN22hb_serialize_context_t19merge_virtual_linksEPKNS_8object_tEj.exit
@@ -6356,7 +6356,7 @@ _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i: 
   store i32 0, ptr %125, align 4
   %126 = getelementptr inbounds nuw i8, ptr %115, i64 40
   %127 = load ptr, ptr %126, align 8
-  call void @free(ptr noundef %127) #28
+  call void @free(ptr noundef %127) #29
   br label %_ZN22hb_serialize_context_t8object_t4finiEv.exit
 
 _ZN22hb_serialize_context_t8object_t4finiEv.exit: ; preds = %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i, %124
@@ -6422,7 +6422,7 @@ _ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE14realloc_vectorIS2_Tn
   %156 = load ptr, ptr %155, align 8
   %157 = shl nuw i32 %152, 3
   %158 = zext i32 %157 to i64
-  %159 = call ptr @realloc(ptr noundef %156, i64 noundef %158) #31
+  %159 = call ptr @realloc(ptr noundef %156, i64 noundef %158) #32
   %.not42.i.i = icmp eq ptr %159, null
   br i1 %.not42.i.i, label %160, label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE5allocEjb.exit.i
 
@@ -6488,7 +6488,7 @@ _ZN22hb_serialize_context_t15propagate_errorIR11hb_vector_tIPNS_8object_tELb0EEE
   store i32 0, ptr %179, align 4
   %180 = getelementptr inbounds nuw i8, ptr %175, i64 24
   %181 = load ptr, ptr %180, align 8
-  call void @free(ptr noundef %181) #28
+  call void @free(ptr noundef %181) #29
   br label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i25
 
 _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i25: ; preds = %178, %174
@@ -6503,7 +6503,7 @@ _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i25
   store i32 0, ptr %185, align 4
   %186 = getelementptr inbounds nuw i8, ptr %175, i64 40
   %187 = load ptr, ptr %186, align 8
-  call void @free(ptr noundef %187) #28
+  call void @free(ptr noundef %187) #29
   br label %_ZN22hb_serialize_context_t8object_t4finiEv.exit27
 
 _ZN22hb_serialize_context_t8object_t4finiEv.exit27: ; preds = %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i25, %184
@@ -7378,7 +7378,7 @@ _ZN22hb_serialize_context_t6revertEPcS0_.exit.i:  ; preds = %229, %227
   store i32 0, ptr %236, align 4
   %237 = getelementptr inbounds nuw i8, ptr %217, i64 24
   %238 = load ptr, ptr %237, align 8
-  tail call void @free(ptr noundef %238) #28
+  tail call void @free(ptr noundef %238) #29
   br label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i
 
 _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i: ; preds = %235, %_ZN22hb_serialize_context_t6revertEPcS0_.exit.i
@@ -7393,7 +7393,7 @@ _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i
   store i32 0, ptr %242, align 4
   %243 = getelementptr inbounds nuw i8, ptr %217, i64 40
   %244 = load ptr, ptr %243, align 8
-  tail call void @free(ptr noundef %244) #28
+  tail call void @free(ptr noundef %244) #29
   br label %_ZN22hb_serialize_context_t8object_t4finiEv.exit.i
 
 _ZN22hb_serialize_context_t8object_t4finiEv.exit.i: ; preds = %241, %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i
@@ -7451,7 +7451,7 @@ define linkonce_odr hidden void @_ZN22hb_serialize_context_t8add_linkIN2OT8Offse
   %28 = load ptr, ptr %27, align 8
   %29 = zext nneg i32 %23 to i64
   %30 = mul nuw nsw i64 %29, 12
-  %31 = tail call ptr @realloc(ptr noundef %28, i64 noundef %30) #31
+  %31 = tail call ptr @realloc(ptr noundef %28, i64 noundef %30) #32
   %.not42.i.i.i = icmp eq ptr %31, null
   br i1 %.not42.i.i.i, label %32, label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE5allocEjb.exit.i.i
 
@@ -8545,7 +8545,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIPKN22hb_seriali
   %18 = shl nuw i32 1, %.0.i
   %19 = zext i32 %18 to i64
   %20 = shl nuw nsw i64 %19, 4
-  %21 = tail call noalias ptr @malloc(i64 noundef %20) #29
+  %21 = tail call noalias ptr @malloc(i64 noundef %20) #30
   %.not26 = icmp eq ptr %21, null
   br i1 %.not26, label %22, label %24
 
@@ -8622,7 +8622,7 @@ _ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit: 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !170
 
 ._crit_edge:                                      ; preds = %51, %_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit
-  tail call void @free(ptr noundef %32) #28
+  tail call void @free(ptr noundef %32) #29
   br label %52
 
 52:                                               ; preds = %7, %2, %._crit_edge, %22
@@ -8824,7 +8824,7 @@ _ZNK12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE6item_teqERKS3_.ex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #11
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN22hb_serialize_context_t21discard_stale_objectsEv(ptr noundef nonnull align 8 dereferenceable(144) %0) local_unnamed_addr #4 comdat align 2 {
@@ -8947,7 +8947,7 @@ _ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE4tailEv.exit6: ; preds
   store i32 0, ptr %70, align 4
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %72 = load ptr, ptr %71, align 8
-  call void @free(ptr noundef %72) #28
+  call void @free(ptr noundef %72) #29
   br label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i
 
 _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i: ; preds = %69, %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE4tailEv.exit6
@@ -8962,7 +8962,7 @@ _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i: 
   store i32 0, ptr %76, align 4
   %77 = getelementptr inbounds nuw i8, ptr %66, i64 40
   %78 = load ptr, ptr %77, align 8
-  call void @free(ptr noundef %78) #28
+  call void @free(ptr noundef %78) #29
   br label %_ZN22hb_serialize_context_t8object_t4finiEv.exit
 
 _ZN22hb_serialize_context_t8object_t4finiEv.exit: ; preds = %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i, %75
@@ -9310,7 +9310,7 @@ _ZN2OT6Layout9GSUB_impl13LigatureSubst9serializeEP22hb_serialize_context_t17hb_s
   br label %_ZN2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl19SubstLookupSubTableENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit
 
 50:                                               ; preds = %41
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !89
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !89
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 6
   br label %_ZN2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl19SubstLookupSubTableENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit
 
@@ -9375,7 +9375,7 @@ _ZN22hb_serialize_context_t6revertEPcS0_.exit.i:  ; preds = %66, %64
   store i32 0, ptr %73, align 4
   %74 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %75 = load ptr, ptr %74, align 8
-  tail call void @free(ptr noundef %75) #28
+  tail call void @free(ptr noundef %75) #29
   br label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i
 
 _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i: ; preds = %72, %_ZN22hb_serialize_context_t6revertEPcS0_.exit.i
@@ -9390,7 +9390,7 @@ _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i
   store i32 0, ptr %79, align 4
   %80 = getelementptr inbounds nuw i8, ptr %54, i64 40
   %81 = load ptr, ptr %80, align 8
-  tail call void @free(ptr noundef %81) #28
+  tail call void @free(ptr noundef %81) #29
   br label %_ZN22hb_serialize_context_t8object_t4finiEv.exit.i
 
 _ZN22hb_serialize_context_t8object_t4finiEv.exit.i: ; preds = %78, %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i
@@ -9601,7 +9601,7 @@ _ZN2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11LigatureSetINS2_10SmallTypesEE
   br label %_ZN2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11LigatureSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit
 
 103:                                              ; preds = %89
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !89
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !89
   %104 = getelementptr inbounds nuw %"struct.OT::OffsetTo.70", ptr %18, i64 %indvars.iv
   br label %_ZN2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11LigatureSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit
 
@@ -9747,7 +9747,7 @@ _ZN22hb_serialize_context_t6revertEPcS0_.exit.i:  ; preds = %40, %38
   store i32 0, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %49 = load ptr, ptr %48, align 8
-  tail call void @free(ptr noundef %49) #28
+  tail call void @free(ptr noundef %49) #29
   br label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i
 
 _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i: ; preds = %46, %_ZN22hb_serialize_context_t6revertEPcS0_.exit.i
@@ -9762,7 +9762,7 @@ _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i
   store i32 0, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %55 = load ptr, ptr %54, align 8
-  tail call void @free(ptr noundef %55) #28
+  tail call void @free(ptr noundef %55) #29
   br label %_ZN22hb_serialize_context_t8object_t4finiEv.exit.i
 
 _ZN22hb_serialize_context_t8object_t4finiEv.exit.i: ; preds = %52, %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i
@@ -9884,7 +9884,7 @@ _ZN22hb_serialize_context_t6revertEPcS0_.exit.i:  ; preds = %38, %36
   store i32 0, ptr %45, align 4
   %46 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %47 = load ptr, ptr %46, align 8
-  tail call void @free(ptr noundef %47) #28
+  tail call void @free(ptr noundef %47) #29
   br label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i
 
 _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i: ; preds = %44, %_ZN22hb_serialize_context_t6revertEPcS0_.exit.i
@@ -9899,7 +9899,7 @@ _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i
   store i32 0, ptr %51, align 4
   %52 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %53 = load ptr, ptr %52, align 8
-  tail call void @free(ptr noundef %53) #28
+  tail call void @free(ptr noundef %53) #29
   br label %_ZN22hb_serialize_context_t8object_t4finiEv.exit.i
 
 _ZN22hb_serialize_context_t8object_t4finiEv.exit.i: ; preds = %50, %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i
@@ -10083,7 +10083,7 @@ _ZN2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl8LigatureINS2_10SmallTypesEEENS_
   br label %_ZN2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl8LigatureINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit
 
 88:                                               ; preds = %77
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !89
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !89
   %89 = getelementptr inbounds nuw %"struct.OT::OffsetTo.135", ptr %12, i64 %indvars.iv
   br label %_ZN2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl8LigatureINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit
 
@@ -10167,7 +10167,7 @@ define linkonce_odr hidden void @_ZN22hb_serialize_context_t8add_linkIN2OT8Offse
   %28 = load ptr, ptr %27, align 8
   %29 = zext nneg i32 %23 to i64
   %30 = mul nuw nsw i64 %29, 12
-  %31 = tail call ptr @realloc(ptr noundef %28, i64 noundef %30) #31
+  %31 = tail call ptr @realloc(ptr noundef %28, i64 noundef %30) #32
   %.not42.i.i.i = icmp eq ptr %31, null
   br i1 %.not42.i.i.i, label %32, label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE5allocEjb.exit.i.i
 
@@ -10376,7 +10376,7 @@ _ZN22hb_serialize_context_t6revertEPcS0_.exit.i:  ; preds = %46, %44
   store i32 0, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %55 = load ptr, ptr %54, align 8
-  tail call void @free(ptr noundef %55) #28
+  tail call void @free(ptr noundef %55) #29
   br label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i
 
 _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i: ; preds = %52, %_ZN22hb_serialize_context_t6revertEPcS0_.exit.i
@@ -10391,7 +10391,7 @@ _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i
   store i32 0, ptr %59, align 4
   %60 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %61 = load ptr, ptr %60, align 8
-  tail call void @free(ptr noundef %61) #28
+  tail call void @free(ptr noundef %61) #29
   br label %_ZN22hb_serialize_context_t8object_t4finiEv.exit.i
 
 _ZN22hb_serialize_context_t8object_t4finiEv.exit.i: ; preds = %58, %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i
@@ -10606,7 +10606,7 @@ define linkonce_odr hidden void @_ZN22hb_serialize_context_t8add_linkIN2OT8Offse
   %28 = load ptr, ptr %27, align 8
   %29 = zext nneg i32 %23 to i64
   %30 = mul nuw nsw i64 %29, 12
-  %31 = tail call ptr @realloc(ptr noundef %28, i64 noundef %30) #31
+  %31 = tail call ptr @realloc(ptr noundef %28, i64 noundef %30) #32
   %.not42.i.i.i = icmp eq ptr %31, null
   br i1 %.not42.i.i.i, label %32, label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE5allocEjb.exit.i.i
 
@@ -11632,7 +11632,7 @@ define linkonce_odr hidden void @_ZNK2OT12ChainContext8dispatchINS_33hb_accelera
   br i1 %61, label %_ZN2OT33hb_accelerate_subtables_context_t8dispatchINS_19ChainContextFormat3EEE10hb_empty_tRKT_.exit, label %62
 
 62:                                               ; preds = %34
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %63 = getelementptr inbounds nuw i8, ptr %55, i64 4
   br label %_ZN2OT33hb_accelerate_subtables_context_t8dispatchINS_19ChainContextFormat3EEE10hb_empty_tRKT_.exit
 
@@ -12234,12 +12234,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11hb_buffer_t7messageEP9hb_fon
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #17
+declare void @llvm.va_start.p0(ptr) #18
 
 declare noundef zeroext i1 @_ZN11hb_buffer_t12message_implEP9hb_font_tPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(220), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #17
+declare void @llvm.va_end.p0(ptr) #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2OT21hb_ot_apply_context_t16_set_glyph_classEjjbb(ptr noundef nonnull align 8 dereferenceable(340) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #4 comdat align 2 {
@@ -12464,7 +12464,7 @@ _ZNK2OT4GDEF19get_glyph_class_defEv.exit:         ; preds = %2, %10
   br i1 %.not.i.i.i, label %46, label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 46:                                               ; preds = %28
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 6
   %48 = zext nneg i32 %38 to i64
   %49 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %47, i64 %48
@@ -12626,7 +12626,7 @@ _ZNK2OT4GDEF25get_mark_attach_class_defEv.exit:   ; preds = %2, %10
   br i1 %.not.i.i.i, label %46, label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 46:                                               ; preds = %28
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 6
   %48 = zext nneg i32 %38 to i64
   %49 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %47, i64 %48
@@ -12810,7 +12810,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GSUB_impl20SingleS
   br i1 %46, label %.thread, label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit
 
 .thread:                                          ; preds = %34, %38
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %48 = zext nneg i32 %23 to i64
   %49 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %47, i64 %48
@@ -12937,7 +12937,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   br i1 %.not.i.i, label %34, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl8SequenceINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i
 
 34:                                               ; preds = %25
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %36 = zext nneg i32 %23 to i64
   %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.64", ptr %35, i64 %36
@@ -13004,7 +13004,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   br i1 %.not.i.i.i, label %34, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl8SequenceINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i.i
 
 34:                                               ; preds = %25
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %36 = zext nneg i32 %23 to i64
   %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.64", ptr %35, i64 %36
@@ -13345,8 +13345,8 @@ _ZN2OT21hb_ot_apply_context_t26output_glyph_for_componentEjj.exit: ; preds = %12
   %.1 = phi ptr [ %184, %183 ], [ %.05779, %181 ]
   %186 = ptrtoint ptr %.1 to i64
   %187 = sub i64 %.neg, %186
-  %188 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.1, i64 noundef %187, ptr noundef nonnull @.str.13, i32 noundef %.080) #28
-  %189 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #32
+  %188 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.1, i64 noundef %187, ptr noundef nonnull @.str.13, i32 noundef %.080) #29
+  %189 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #33
   %190 = getelementptr inbounds i8, ptr %.1, i64 %189
   %191 = add nuw i32 %.080, 1
   %192 = load ptr, ptr %11, align 8
@@ -13369,10 +13369,10 @@ _ZN2OT21hb_ot_apply_context_t26output_glyph_for_componentEjj.exit: ; preds = %12
 declare void @_ZN11hb_buffer_t12delete_glyphEv(ptr noundef nonnull align 8 dereferenceable(220)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #18
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #19
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_context_t8apply_toINS_6Layout9GSUB_impl23AlternateSubstFormat1_2INS2_10SmallTypesEEEEEbPKvPNS_21hb_ot_apply_context_tE(ptr noundef %0, ptr noundef %1) #4 comdat align 2 {
@@ -13414,7 +13414,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   br i1 %.not.i.i, label %34, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl12AlternateSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i
 
 34:                                               ; preds = %25
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %36 = zext nneg i32 %23 to i64
   %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.67", ptr %35, i64 %36
@@ -13481,7 +13481,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   br i1 %.not.i.i.i, label %34, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl12AlternateSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i.i
 
 34:                                               ; preds = %25
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %36 = zext nneg i32 %23 to i64
   %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.67", ptr %35, i64 %36
@@ -13597,7 +13597,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GSUB_impl12Alterna
   br i1 %.not.i, label %61, label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit
 
 61:                                               ; preds = %54
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %63 = zext nneg i32 %41 to i64
   %64 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %62, i64 %63
@@ -13685,7 +13685,7 @@ _ZN2OT21hb_ot_apply_context_t13replace_glyphEj.exit: ; preds = %_ZNK2OT7ArrayOfI
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_context_t8apply_toINS_6Layout9GSUB_impl22LigatureSubstFormat1_2INS2_10SmallTypesEEEEEbPKvPNS_21hb_ot_apply_context_tE(ptr noundef %0, ptr noundef %1) #4 comdat align 2 {
@@ -13727,7 +13727,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   br i1 %.not.i.i, label %34, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11LigatureSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i
 
 34:                                               ; preds = %25
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %36 = zext nneg i32 %23 to i64
   %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.70", ptr %35, i64 %36
@@ -13794,7 +13794,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   br i1 %.not.i.i.i, label %34, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11LigatureSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i.i
 
 34:                                               ; preds = %25
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %36 = zext nneg i32 %23 to i64
   %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.70", ptr %35, i64 %36
@@ -14401,7 +14401,7 @@ _ZN2OT21hb_ot_apply_context_t13replace_glyphEj.exit: ; preds = %26, %.lr.ph.i.i.
   br label %_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit
 
 _ZNK2OT15HeadlessArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit: ; preds = %2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !185
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !185
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %74 = icmp samesign ugt i32 %12, 64
   br i1 %74, label %_ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit260.thread, label %75
@@ -14884,8 +14884,8 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit2
   %.1 = phi ptr [ %315, %314 ], [ %.0175335, %310 ]
   %318 = ptrtoint ptr %.1 to i64
   %319 = sub i64 %.neg, %318
-  %320 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.1, i64 noundef %319, ptr noundef nonnull @.str.13, i32 noundef %317) #28
-  %321 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #32
+  %320 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.1, i64 noundef %319, ptr noundef nonnull @.str.13, i32 noundef %317) #29
+  %321 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #33
   %322 = getelementptr inbounds i8, ptr %.1, i64 %321
   %indvars.iv.next353 = add nuw nsw i64 %indvars.iv352, 1
   %exitcond356.not = icmp eq i64 %indvars.iv.next353, %wide.trip.count355
@@ -15337,12 +15337,12 @@ _ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit:    ; preds = %293, %_ZN2OTL12liga
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN2OTL12match_alwaysER15hb_glyph_info_tjPKv(ptr nonnull readnone align 4 captures(none) %0, i32 %1, ptr readnone captures(none) %2) #20 {
+define internal noundef zeroext i1 @_ZN2OTL12match_alwaysER15hb_glyph_info_tjPKv(ptr nonnull readnone align 4 captures(none) %0, i32 %1, ptr readnone captures(none) %2) #21 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZN2OTL11match_glyphER15hb_glyph_info_tjPKv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr readnone captures(none) %2) #21 {
+define internal noundef zeroext i1 @_ZN2OTL11match_glyphER15hb_glyph_info_tjPKv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr readnone captures(none) %2) #22 {
   %4 = load i32, ptr %0, align 4
   %5 = icmp eq i32 %4, %1
   ret i1 %5
@@ -15492,7 +15492,7 @@ _ZNK2OT4GDEF19get_mark_glyph_setsEv.exit.i:       ; preds = %58, %44, %30
   br i1 %.not.i.i.i.i5, label %86, label %_ZNK2OT20MarkGlyphSetsFormat16coversEjj.exit.i.i
 
 86:                                               ; preds = %77
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %87 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %88 = getelementptr inbounds nuw %"struct.OT::OffsetTo.162", ptr %87, i64 %8
   br label %_ZNK2OT20MarkGlyphSetsFormat16coversEjj.exit.i.i
@@ -15677,7 +15677,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   br i1 %.not.i.i, label %35, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit.i
 
 35:                                               ; preds = %26
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %37 = zext nneg i32 %24 to i64
   %38 = getelementptr inbounds nuw %"struct.OT::OffsetTo.73", ptr %36, i64 %37
@@ -15748,7 +15748,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   br i1 %.not.i.i.i, label %35, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit.i.i
 
 35:                                               ; preds = %26
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %37 = zext nneg i32 %24 to i64
   %38 = getelementptr inbounds nuw %"struct.OT::OffsetTo.73", ptr %36, i64 %37
@@ -17502,7 +17502,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT16ContextFormat2_5INS_6Lay
   br i1 %.not.i.i.i, label %77, label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 77:                                               ; preds = %59
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %78 = getelementptr inbounds nuw i8, ptr %.0.i.i14, i64 6
   %79 = zext nneg i32 %69 to i64
   %80 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %78, i64 %79
@@ -17610,7 +17610,7 @@ _ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %_ZNK2OT17ClassDefFo
   br i1 %.not.i, label %142, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
 
 142:                                              ; preds = %_ZNK2OT8ClassDef9get_classEj.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %144 = zext nneg i32 %.013 to i64
   %145 = getelementptr inbounds nuw %"struct.OT::OffsetTo.73", ptr %143, i64 %144
@@ -17685,7 +17685,7 @@ define internal noundef zeroext i1 @_ZN2OTL18match_class_cachedER15hb_glyph_info
   br i1 %.not.i.i.i, label %35, label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 35:                                               ; preds = %17
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %37 = zext nneg i32 %27 to i64
   %38 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %36, i64 %37
@@ -17832,7 +17832,7 @@ define internal noundef zeroext i1 @_ZN2OTL11match_classER15hb_glyph_info_tjPKv(
   br i1 %.not.i.i.i, label %29, label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 29:                                               ; preds = %11
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %31 = zext nneg i32 %21 to i64
   %32 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %30, i64 %31
@@ -18564,7 +18564,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   br i1 %.not.i.i, label %35, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit.i
 
 35:                                               ; preds = %26
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %37 = zext nneg i32 %24 to i64
   %38 = getelementptr inbounds nuw %"struct.OT::OffsetTo.77", ptr %36, i64 %37
@@ -18635,7 +18635,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   br i1 %.not.i.i.i, label %35, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit.i.i
 
 35:                                               ; preds = %26
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %37 = zext nneg i32 %24 to i64
   %38 = getelementptr inbounds nuw %"struct.OT::OffsetTo.77", ptr %36, i64 %37
@@ -20809,7 +20809,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT21ChainContextFormat2_5INS
   br i1 %.not.i.i.i, label %107, label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 107:                                              ; preds = %89
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %108 = getelementptr inbounds nuw i8, ptr %.0.i.i21, i64 6
   %109 = zext nneg i32 %99 to i64
   %110 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %108, i64 %109
@@ -20917,7 +20917,7 @@ _ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %_ZNK2OT17ClassDefFo
   br i1 %.not.i, label %172, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
 
 172:                                              ; preds = %_ZNK2OT8ClassDef9get_classEj.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %174 = zext nneg i32 %.019 to i64
   %175 = getelementptr inbounds nuw %"struct.OT::OffsetTo.77", ptr %173, i64 %174
@@ -20993,7 +20993,7 @@ define internal noundef zeroext i1 @_ZN2OTL19match_class_cached1ER15hb_glyph_inf
   br i1 %.not.i.i.i, label %36, label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 36:                                               ; preds = %18
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %38 = zext nneg i32 %28 to i64
   %39 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %37, i64 %38
@@ -21159,7 +21159,7 @@ define internal noundef zeroext i1 @_ZN2OTL19match_class_cached2ER15hb_glyph_inf
   br i1 %.not.i.i.i, label %36, label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 36:                                               ; preds = %18
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %38 = zext nneg i32 %28 to i64
   %39 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %37, i64 %38
@@ -21316,7 +21316,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT19ChainContextFormat35appl
   br i1 %19, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit, label %20
 
 20:                                               ; preds = %2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 4
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit
 
@@ -22911,7 +22911,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit2
   br i1 %.not.i226, label %327, label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit
 
 327:                                              ; preds = %320
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !83
   %328 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %329 = zext nneg i32 %26 to i64
   %330 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %328, i64 %329
@@ -23136,7 +23136,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit.i: ; preds = %40, %30
 
 common.resume:                                    ; preds = %233, %44
   %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %234, %233 ]
-  tail call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %20) #28
+  tail call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %20) #29
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %5
@@ -23277,7 +23277,7 @@ _ZNK2OT4GDEF13get_var_storeEv.exit:               ; preds = %84, %70, %_ZNK16hb_
   %147 = or disjoint i32 %143, %146
   %148 = shl nuw nsw i32 %147, 2
   %149 = zext nneg i32 %148 to i64
-  %150 = tail call noalias ptr @malloc(i64 noundef %149) #29
+  %150 = tail call noalias ptr @malloc(i64 noundef %149) #30
   %.not.i9 = icmp ne ptr %150, null
   %151 = icmp ne i32 %147, 0
   %or.cond.i = and i1 %.not.i9, %151
@@ -23459,7 +23459,7 @@ declare void @_Z30hb_ot_layout_substitute_lookupPN2OT21hb_ot_apply_context_tERKN
 define linkonce_odr hidden void @_ZN2OT21hb_ot_apply_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
-  tail call void @free(ptr noundef %3) #28
+  tail call void @free(ptr noundef %3) #29
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -23479,7 +23479,7 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit.i: ; preds = %6
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #30
+  tail call void @__clang_call_terminate(ptr %10) #31
   unreachable
 
 _ZN21hb_sanitize_context_tD2Ev.exit:              ; preds = %1, %_ZN21hb_sanitize_context_t14end_processingEv.exit.i
@@ -23510,7 +23510,7 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %4
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #30
+  tail call void @__clang_call_terminate(ptr %9) #31
   unreachable
 }
 
@@ -23534,7 +23534,7 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18GDEF_accele
   br i1 %.not.i, label %.split.loop.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call noalias dereferenceable_or_null(536) ptr @calloc(i64 noundef 1, i64 noundef 536) #27
+  %7 = tail call noalias dereferenceable_or_null(536) ptr @calloc(i64 noundef 1, i64 noundef 536) #28
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %.thread, label %8
 
@@ -23571,18 +23571,18 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18GDEF_accele
   store i32 0, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %23 = load ptr, ptr %22, align 8
-  tail call void @free(ptr noundef %23) #28
+  tail call void @free(ptr noundef %23) #29
   br label %_ZN16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_E7destroyEPS1_.exit.i
 
 24:                                               ; preds = %15
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #30
+  tail call void @__clang_call_terminate(ptr %26) #31
   unreachable
 
 _ZN16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_E7destroyEPS1_.exit.i: ; preds = %20, %17
-  tail call void @free(ptr noundef nonnull %7) #28
+  tail call void @free(ptr noundef nonnull %7) #29
   br label %_ZN16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_E10do_destroyEPS1_.exit
 
 _ZN16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_E10do_destroyEPS1_.exit: ; preds = %.thread, %14, %_ZN16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_E7destroyEPS1_.exit.i
@@ -23663,7 +23663,7 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit.i: ; preds = %19
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #30
+  call void @__clang_call_terminate(ptr %22) #31
   unreachable
 
 23:                                               ; preds = %17, %_ZN21hb_sanitize_context_t14end_processingEv.exit.i
@@ -23703,7 +23703,7 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit.i: ; preds = %19
 38:                                               ; preds = %.noexc6, %14, %5
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %3) #28
+  call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %3) #29
   br label %88
 
 40:                                               ; preds = %31, %35
@@ -23787,7 +23787,7 @@ _ZNK2OT13MarkGlyphSets16collect_coverageI24hb_set_digest_combiner_tI28hb_set_dig
   store i32 0, ptr %91, align 4
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %93 = load ptr, ptr %92, align 8
-  call void @free(ptr noundef %93) #28
+  call void @free(ptr noundef %93) #29
   br label %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EED2Ev.exit
 
 _ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EED2Ev.exit: ; preds = %88, %90
@@ -25880,7 +25880,7 @@ define linkonce_odr hidden void @_ZNK2OT20MarkGlyphSetsFormat116collect_coverage
   %49 = load ptr, ptr %13, align 8
   %50 = zext nneg i32 %45 to i64
   %51 = mul nuw nsw i64 %50, 24
-  %52 = tail call ptr @realloc(ptr noundef %49, i64 noundef %51) #31
+  %52 = tail call ptr @realloc(ptr noundef %49, i64 noundef %51) #32
   %.not42.i.i.i = icmp eq ptr %52, null
   br i1 %.not42.i.i.i, label %53, label %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.i.i
 
@@ -25944,47 +25944,47 @@ _ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4E
 
 declare noundef zeroext i1 @_ZN11hb_buffer_t7enlargeEj(ptr noundef nonnull align 8 dereferenceable(220), i32 noundef) local_unnamed_addr #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #22
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #23
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #22
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #23
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #22
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #23
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #22
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.umax.i8(i8, i8) #23
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #22
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #23
+declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #22
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.bswap.i16(i16) #23
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #22
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #25
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #26
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #22
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #23
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #22
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.bswap.i32(i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #26
+declare void @llvm.assume(i1 noundef) #27
 
 attributes #0 = { mustprogress nofree nounwind memory(readwrite, argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -25997,28 +25997,29 @@ attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { cold nofree noreturn }
 attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #18 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #24 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #25 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #26 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #27 = { nounwind allocsize(0,1) }
-attributes #28 = { nounwind }
-attributes #29 = { nounwind allocsize(0) }
-attributes #30 = { noreturn nounwind }
-attributes #31 = { nounwind allocsize(1) }
-attributes #32 = { nounwind willreturn memory(read) }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #19 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #26 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #27 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #28 = { nounwind allocsize(0,1) }
+attributes #29 = { nounwind }
+attributes #30 = { nounwind allocsize(0) }
+attributes #31 = { noreturn nounwind }
+attributes #32 = { nounwind allocsize(1) }
+attributes #33 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

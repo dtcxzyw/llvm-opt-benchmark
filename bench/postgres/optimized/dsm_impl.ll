@@ -56,7 +56,7 @@ define dso_local noundef zeroext i1 @dsm_impl_op(i32 noundef %0, i32 noundef %1,
 
 16:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %17 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 64, ptr noundef nonnull @.str.5, i32 noundef %1) #10
+  %17 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 64, ptr noundef nonnull @.str.5, i32 noundef %1) #11
   %18 = icmp eq i32 %0, 3
   %19 = and i32 %0, -2
   %or.cond.i = icmp eq i32 %19, 2
@@ -69,16 +69,16 @@ define dso_local noundef zeroext i1 @dsm_impl_op(i32 noundef %0, i32 noundef %1,
 
 22:                                               ; preds = %20
   %23 = load i64, ptr %5, align 8
-  %24 = call i32 @munmap(ptr noundef nonnull %21, i64 noundef %23) #10
+  %24 = call i32 @munmap(ptr noundef nonnull %21, i64 noundef %23) #11
   %.not105.i = icmp eq i32 %24, 0
   br i1 %.not105.i, label %35, label %25
 
 25:                                               ; preds = %22
-  %26 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #10
+  %26 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
   br i1 %26, label %27, label %dsm_impl_posix.exit
 
 27:                                               ; preds = %25
-  %28 = tail call ptr @__errno_location() #11
+  %28 = tail call ptr @__errno_location() #12
   %29 = load i32, ptr %28, align 4
   switch i32 %29, label %32 [
     i32 27, label %30
@@ -86,16 +86,16 @@ define dso_local noundef zeroext i1 @dsm_impl_op(i32 noundef %0, i32 noundef %1,
   ]
 
 30:                                               ; preds = %27, %27
-  %31 = call i32 @errcode(i32 noundef 8389) #10
+  %31 = call i32 @errcode(i32 noundef 8389) #11
   br label %errcode_for_dynamic_shared_memory.exit.i
 
 32:                                               ; preds = %27
-  %33 = call i32 @errcode_for_file_access() #10
+  %33 = call i32 @errcode_for_file_access() #11
   br label %errcode_for_dynamic_shared_memory.exit.i
 
 errcode_for_dynamic_shared_memory.exit.i:         ; preds = %32, %30
-  %34 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %13) #10
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 232, ptr noundef nonnull @__func__.dsm_impl_posix) #10
+  %34 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %13) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 232, ptr noundef nonnull @__func__.dsm_impl_posix) #11
   br label %dsm_impl_posix.exit
 
 35:                                               ; preds = %22, %20
@@ -104,16 +104,16 @@ errcode_for_dynamic_shared_memory.exit.i:         ; preds = %32, %30
   br i1 %18, label %36, label %dsm_impl_posix.exit
 
 36:                                               ; preds = %35
-  %37 = call i32 @shm_unlink(ptr noundef nonnull %13) #10
+  %37 = call i32 @shm_unlink(ptr noundef nonnull %13) #11
   %.not106.i = icmp eq i32 %37, 0
   br i1 %.not106.i, label %dsm_impl_posix.exit, label %38
 
 38:                                               ; preds = %36
-  %39 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #10
+  %39 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
   br i1 %39, label %40, label %dsm_impl_posix.exit
 
 40:                                               ; preds = %38
-  %41 = tail call ptr @__errno_location() #11
+  %41 = tail call ptr @__errno_location() #12
   %42 = load i32, ptr %41, align 4
   switch i32 %42, label %45 [
     i32 27, label %43
@@ -121,43 +121,43 @@ errcode_for_dynamic_shared_memory.exit.i:         ; preds = %32, %30
   ]
 
 43:                                               ; preds = %40, %40
-  %44 = call i32 @errcode(i32 noundef 8389) #10
+  %44 = call i32 @errcode(i32 noundef 8389) #11
   br label %errcode_for_dynamic_shared_memory.exit108.i
 
 45:                                               ; preds = %40
-  %46 = call i32 @errcode_for_file_access() #10
+  %46 = call i32 @errcode_for_file_access() #11
   br label %errcode_for_dynamic_shared_memory.exit108.i
 
 errcode_for_dynamic_shared_memory.exit108.i:      ; preds = %45, %43
-  %47 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %13) #10
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 242, ptr noundef nonnull @__func__.dsm_impl_posix) #10
+  %47 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %13) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 242, ptr noundef nonnull @__func__.dsm_impl_posix) #11
   br label %dsm_impl_posix.exit
 
 48:                                               ; preds = %16
-  call void @ReserveExternalFD() #10
+  call void @ReserveExternalFD() #11
   %49 = icmp eq i32 %0, 0
   %50 = select i1 %49, i32 194, i32 2
-  %51 = call i32 @shm_open(ptr noundef nonnull %13, i32 noundef %50, i32 noundef 384) #10
+  %51 = call i32 @shm_open(ptr noundef nonnull %13, i32 noundef %50, i32 noundef 384) #11
   %52 = icmp eq i32 %51, -1
   br i1 %52, label %53, label %68
 
 53:                                               ; preds = %48
-  call void @ReleaseExternalFD() #10
+  call void @ReleaseExternalFD() #11
   %54 = icmp eq i32 %0, 1
   br i1 %54, label %58, label %55
 
 55:                                               ; preds = %53
-  %56 = tail call ptr @__errno_location() #11
+  %56 = tail call ptr @__errno_location() #12
   %57 = load i32, ptr %56, align 4
   %.not103.i = icmp eq i32 %57, 17
   br i1 %.not103.i, label %dsm_impl_posix.exit, label %58
 
 58:                                               ; preds = %53, %55
-  %59 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #10
+  %59 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
   br i1 %59, label %60, label %dsm_impl_posix.exit
 
 60:                                               ; preds = %58
-  %61 = tail call ptr @__errno_location() #11
+  %61 = tail call ptr @__errno_location() #12
   %62 = load i32, ptr %61, align 4
   switch i32 %62, label %65 [
     i32 27, label %63
@@ -165,16 +165,16 @@ errcode_for_dynamic_shared_memory.exit108.i:      ; preds = %45, %43
   ]
 
 63:                                               ; preds = %60, %60
-  %64 = call i32 @errcode(i32 noundef 8389) #10
+  %64 = call i32 @errcode(i32 noundef 8389) #11
   br label %errcode_for_dynamic_shared_memory.exit110.i
 
 65:                                               ; preds = %60
-  %66 = call i32 @errcode_for_file_access() #10
+  %66 = call i32 @errcode_for_file_access() #11
   br label %errcode_for_dynamic_shared_memory.exit110.i
 
 errcode_for_dynamic_shared_memory.exit110.i:      ; preds = %65, %63
-  %67 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %13) #10
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 266, ptr noundef nonnull @__func__.dsm_impl_posix) #10
+  %67 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %13) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 266, ptr noundef nonnull @__func__.dsm_impl_posix) #11
   br label %dsm_impl_posix.exit
 
 68:                                               ; preds = %48
@@ -183,17 +183,17 @@ errcode_for_dynamic_shared_memory.exit110.i:      ; preds = %65, %63
 
 70:                                               ; preds = %68
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %71 = call i32 @fstat(i32 noundef %51, ptr noundef nonnull %14) #10
+  %71 = call i32 @fstat(i32 noundef %51, ptr noundef nonnull %14) #11
   %.not102.i = icmp eq i32 %71, 0
   br i1 %.not102.i, label %.thread.i, label %72
 
 72:                                               ; preds = %70
-  %73 = tail call ptr @__errno_location() #11
+  %73 = tail call ptr @__errno_location() #12
   %74 = load i32, ptr %73, align 4
-  %75 = call i32 @close(i32 noundef %51) #10
-  call void @ReleaseExternalFD() #10
+  %75 = call i32 @close(i32 noundef %51) #11
+  call void @ReleaseExternalFD() #11
   store i32 %74, ptr %73, align 4
-  %76 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #10
+  %76 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
   br i1 %76, label %77, label %86
 
 77:                                               ; preds = %72
@@ -204,16 +204,16 @@ errcode_for_dynamic_shared_memory.exit110.i:      ; preds = %65, %63
   ]
 
 79:                                               ; preds = %77, %77
-  %80 = call i32 @errcode(i32 noundef 8389) #10
+  %80 = call i32 @errcode(i32 noundef 8389) #11
   br label %errcode_for_dynamic_shared_memory.exit112.i
 
 81:                                               ; preds = %77
-  %82 = call i32 @errcode_for_file_access() #10
+  %82 = call i32 @errcode_for_file_access() #11
   br label %errcode_for_dynamic_shared_memory.exit112.i
 
 errcode_for_dynamic_shared_memory.exit112.i:      ; preds = %81, %79
-  %83 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %13) #10
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 291, ptr noundef nonnull @__func__.dsm_impl_posix) #10
+  %83 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %13) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 291, ptr noundef nonnull @__func__.dsm_impl_posix) #11
   br label %86
 
 .thread.i:                                        ; preds = %70
@@ -233,7 +233,7 @@ errcode_for_dynamic_shared_memory.exit112.i:      ; preds = %81, %79
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %87
-  %91 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @BlockSig, ptr noundef nonnull %12) #10
+  %91 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @BlockSig, ptr noundef nonnull %12) #11
   br label %92
 
 92:                                               ; preds = %90, %87
@@ -242,12 +242,12 @@ errcode_for_dynamic_shared_memory.exit112.i:      ; preds = %81, %79
   br label %94
 
 94:                                               ; preds = %94, %92
-  %95 = call i32 @posix_fallocate(i32 noundef range(i32 0, -1) %51, i64 noundef 0, i64 noundef %2) #10
+  %95 = call i32 @posix_fallocate(i32 noundef range(i32 0, -1) %51, i64 noundef 0, i64 noundef %2) #11
   %96 = icmp eq i32 %95, 4
   br i1 %96, label %94, label %97, !llvm.loop !6
 
 97:                                               ; preds = %94
-  %98 = tail call ptr @__errno_location() #11
+  %98 = tail call ptr @__errno_location() #12
   store i32 %95, ptr %98, align 4
   %99 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %99, align 4
@@ -257,7 +257,7 @@ errcode_for_dynamic_shared_memory.exit112.i:      ; preds = %81, %79
 
 102:                                              ; preds = %97
   %103 = load i32, ptr %98, align 4
-  %104 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %12, ptr noundef null) #10
+  %104 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %12, ptr noundef null) #11
   store i32 %103, ptr %98, align 4
   br label %dsm_impl_posix_resize.exit.i
 
@@ -268,11 +268,11 @@ dsm_impl_posix_resize.exit.i:                     ; preds = %102, %97
 
 105:                                              ; preds = %dsm_impl_posix_resize.exit.i
   %106 = load i32, ptr %98, align 4
-  %107 = call i32 @close(i32 noundef %51) #10
-  call void @ReleaseExternalFD() #10
-  %108 = call i32 @shm_unlink(ptr noundef nonnull %13) #10
+  %107 = call i32 @close(i32 noundef %51) #11
+  call void @ReleaseExternalFD() #11
+  %108 = call i32 @shm_unlink(ptr noundef nonnull %13) #11
   store i32 %106, ptr %98, align 4
-  %109 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #10
+  %109 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
   br i1 %109, label %110, label %dsm_impl_posix.exit
 
 110:                                              ; preds = %105
@@ -283,38 +283,38 @@ dsm_impl_posix_resize.exit.i:                     ; preds = %102, %97
   ]
 
 112:                                              ; preds = %110, %110
-  %113 = call i32 @errcode(i32 noundef 8389) #10
+  %113 = call i32 @errcode(i32 noundef 8389) #11
   br label %errcode_for_dynamic_shared_memory.exit114.i
 
 114:                                              ; preds = %110
-  %115 = call i32 @errcode_for_file_access() #10
+  %115 = call i32 @errcode_for_file_access() #11
   br label %errcode_for_dynamic_shared_memory.exit114.i
 
 errcode_for_dynamic_shared_memory.exit114.i:      ; preds = %114, %112
-  %116 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %13, i64 noundef %2) #10
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 310, ptr noundef nonnull @__func__.dsm_impl_posix) #10
+  %116 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %13, i64 noundef %2) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 310, ptr noundef nonnull @__func__.dsm_impl_posix) #11
   br label %dsm_impl_posix.exit
 
 117:                                              ; preds = %dsm_impl_posix_resize.exit.i, %.thread.i
   %.195.i = phi i64 [ %2, %dsm_impl_posix_resize.exit.i ], [ %85, %.thread.i ]
-  %118 = call ptr @mmap(ptr noundef null, i64 noundef %.195.i, i32 noundef 3, i32 noundef 1, i32 noundef %51, i64 noundef 0) #10
+  %118 = call ptr @mmap(ptr noundef null, i64 noundef %.195.i, i32 noundef 3, i32 noundef 1, i32 noundef %51, i64 noundef 0) #11
   %119 = icmp eq ptr %118, inttoptr (i64 -1 to ptr)
   br i1 %119, label %120, label %135
 
 120:                                              ; preds = %117
-  %121 = tail call ptr @__errno_location() #11
+  %121 = tail call ptr @__errno_location() #12
   %122 = load i32, ptr %121, align 4
-  %123 = call i32 @close(i32 noundef %51) #10
-  call void @ReleaseExternalFD() #10
+  %123 = call i32 @close(i32 noundef %51) #11
+  call void @ReleaseExternalFD() #11
   br i1 %49, label %124, label %126
 
 124:                                              ; preds = %120
-  %125 = call i32 @shm_unlink(ptr noundef nonnull %13) #10
+  %125 = call i32 @shm_unlink(ptr noundef nonnull %13) #11
   br label %126
 
 126:                                              ; preds = %124, %120
   store i32 %122, ptr %121, align 4
-  %127 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #10
+  %127 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
   br i1 %127, label %128, label %dsm_impl_posix.exit
 
 128:                                              ; preds = %126
@@ -325,23 +325,23 @@ errcode_for_dynamic_shared_memory.exit114.i:      ; preds = %114, %112
   ]
 
 130:                                              ; preds = %128, %128
-  %131 = call i32 @errcode(i32 noundef 8389) #10
+  %131 = call i32 @errcode(i32 noundef 8389) #11
   br label %errcode_for_dynamic_shared_memory.exit116.i
 
 132:                                              ; preds = %128
-  %133 = call i32 @errcode_for_file_access() #10
+  %133 = call i32 @errcode_for_file_access() #11
   br label %errcode_for_dynamic_shared_memory.exit116.i
 
 errcode_for_dynamic_shared_memory.exit116.i:      ; preds = %132, %130
-  %134 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull %13) #10
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 332, ptr noundef nonnull @__func__.dsm_impl_posix) #10
+  %134 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull %13) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 332, ptr noundef nonnull @__func__.dsm_impl_posix) #11
   br label %dsm_impl_posix.exit
 
 135:                                              ; preds = %117
   store ptr %118, ptr %4, align 8
   store i64 %.195.i, ptr %5, align 8
-  %136 = call i32 @close(i32 noundef %51) #10
-  call void @ReleaseExternalFD() #10
+  %136 = call i32 @close(i32 noundef %51) #11
+  call void @ReleaseExternalFD() #11
   br label %dsm_impl_posix.exit
 
 dsm_impl_posix.exit:                              ; preds = %126, %errcode_for_dynamic_shared_memory.exit116.i, %105, %errcode_for_dynamic_shared_memory.exit114.i, %58, %errcode_for_dynamic_shared_memory.exit110.i, %38, %errcode_for_dynamic_shared_memory.exit108.i, %25, %errcode_for_dynamic_shared_memory.exit.i, %35, %36, %55, %86, %135
@@ -351,7 +351,7 @@ dsm_impl_posix.exit:                              ; preds = %126, %errcode_for_d
 
 137:                                              ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %138 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 64, ptr noundef nonnull @.str.12, i32 noundef %1) #10
+  %138 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 64, ptr noundef nonnull @.str.12, i32 noundef %1) #11
   %spec.select.i = call i32 @llvm.abs.i32(i32 %1, i1 false)
   %139 = icmp eq i32 %1, 0
   br i1 %139, label %140, label %147
@@ -361,16 +361,16 @@ dsm_impl_posix.exit:                              ; preds = %126, %errcode_for_d
   br i1 %.not119.i, label %145, label %141
 
 141:                                              ; preds = %140
-  %142 = call zeroext i1 @errstart(i32 noundef 11, ptr noundef null) #10
+  %142 = call zeroext i1 @errstart(i32 noundef 11, ptr noundef null) #11
   br i1 %142, label %143, label %145
 
 143:                                              ; preds = %141
-  %144 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #10
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 470, ptr noundef nonnull @__func__.dsm_impl_sysv) #10
+  %144 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 470, ptr noundef nonnull @__func__.dsm_impl_sysv) #11
   br label %145
 
 145:                                              ; preds = %143, %141, %140
-  %146 = tail call ptr @__errno_location() #11
+  %146 = tail call ptr @__errno_location() #12
   store i32 17, ptr %146, align 4
   br label %dsm_impl_sysv.exit
 
@@ -385,26 +385,26 @@ dsm_impl_posix.exit:                              ; preds = %126, %errcode_for_d
 
 151:                                              ; preds = %147
   %152 = load ptr, ptr @TopMemoryContext, align 8
-  %153 = call ptr @MemoryContextAlloc(ptr noundef %152, i64 noundef 4) #10
+  %153 = call ptr @MemoryContextAlloc(ptr noundef %152, i64 noundef 4) #11
   %154 = icmp eq i32 %0, 0
   %spec.select120.i = select i1 %154, i32 1920, i32 384
   %spec.select121.i = select i1 %154, i64 %2, i64 0
-  %155 = call i32 @shmget(i32 noundef %spec.select.i, i64 noundef %spec.select121.i, i32 noundef %spec.select120.i) #10
+  %155 = call i32 @shmget(i32 noundef %spec.select.i, i64 noundef %spec.select121.i, i32 noundef %spec.select120.i) #11
   %.not115.i = icmp eq i32 %155, -1
   br i1 %.not115.i, label %156, label %166
 
 156:                                              ; preds = %151
   %157 = icmp ne i32 %0, 1
-  %.pre.i = tail call ptr @__errno_location() #11
+  %.pre.i = tail call ptr @__errno_location() #12
   %.pre = load i32, ptr %.pre.i, align 4
   %.not114.i = icmp eq i32 %.pre, 17
   %or.cond = select i1 %157, i1 %.not114.i, i1 false
   br i1 %or.cond, label %dsm_impl_sysv.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %156
-  call void @pfree(ptr noundef %153) #10
+  call void @pfree(ptr noundef %153) #11
   store i32 %.pre, ptr %.pre.i, align 4
-  %158 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #10
+  %158 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
   br i1 %158, label %159, label %dsm_impl_sysv.exit
 
 159:                                              ; preds = %._crit_edge.i
@@ -415,16 +415,16 @@ dsm_impl_posix.exit:                              ; preds = %126, %errcode_for_d
   ]
 
 161:                                              ; preds = %159, %159
-  %162 = call i32 @errcode(i32 noundef 8389) #10
+  %162 = call i32 @errcode(i32 noundef 8389) #11
   br label %errcode_for_dynamic_shared_memory.exit.i25
 
 163:                                              ; preds = %159
-  %164 = call i32 @errcode_for_file_access() #10
+  %164 = call i32 @errcode_for_file_access() #11
   br label %errcode_for_dynamic_shared_memory.exit.i25
 
 errcode_for_dynamic_shared_memory.exit.i25:       ; preds = %163, %161
-  %165 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #10
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 519, ptr noundef nonnull @__func__.dsm_impl_sysv) #10
+  %165 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 519, ptr noundef nonnull @__func__.dsm_impl_sysv) #11
   br label %dsm_impl_sysv.exit
 
 166:                                              ; preds = %151
@@ -441,23 +441,23 @@ errcode_for_dynamic_shared_memory.exit.i25:       ; preds = %163, %161
   br i1 %or.cond6.i, label %170, label %192
 
 170:                                              ; preds = %167
-  call void @pfree(ptr noundef nonnull %.0103.i) #10
+  call void @pfree(ptr noundef nonnull %.0103.i) #11
   store ptr null, ptr %3, align 8
   %171 = load ptr, ptr %4, align 8
   %.not117.i = icmp eq ptr %171, null
   br i1 %.not117.i, label %184, label %172
 
 172:                                              ; preds = %170
-  %173 = call i32 @shmdt(ptr noundef nonnull %171) #10
+  %173 = call i32 @shmdt(ptr noundef nonnull %171) #11
   %.not118.i = icmp eq i32 %173, 0
   br i1 %.not118.i, label %184, label %174
 
 174:                                              ; preds = %172
-  %175 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #10
+  %175 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
   br i1 %175, label %176, label %dsm_impl_sysv.exit
 
 176:                                              ; preds = %174
-  %177 = tail call ptr @__errno_location() #11
+  %177 = tail call ptr @__errno_location() #12
   %178 = load i32, ptr %177, align 4
   switch i32 %178, label %181 [
     i32 27, label %179
@@ -465,16 +465,16 @@ errcode_for_dynamic_shared_memory.exit.i25:       ; preds = %163, %161
   ]
 
 179:                                              ; preds = %176, %176
-  %180 = call i32 @errcode(i32 noundef 8389) #10
+  %180 = call i32 @errcode(i32 noundef 8389) #11
   br label %errcode_for_dynamic_shared_memory.exit123.i
 
 181:                                              ; preds = %176
-  %182 = call i32 @errcode_for_file_access() #10
+  %182 = call i32 @errcode_for_file_access() #11
   br label %errcode_for_dynamic_shared_memory.exit123.i
 
 errcode_for_dynamic_shared_memory.exit123.i:      ; preds = %181, %179
-  %183 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %10) #10
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 538, ptr noundef nonnull @__func__.dsm_impl_sysv) #10
+  %183 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %10) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 538, ptr noundef nonnull @__func__.dsm_impl_sysv) #11
   br label %dsm_impl_sysv.exit
 
 184:                                              ; preds = %172, %170
@@ -483,18 +483,18 @@ errcode_for_dynamic_shared_memory.exit123.i:      ; preds = %181, %179
   br i1 %168, label %185, label %dsm_impl_sysv.exit
 
 185:                                              ; preds = %184
-  %186 = call i32 @shmctl(i32 noundef %.0105.i, i32 noundef 0, ptr noundef null) #10
+  %186 = call i32 @shmctl(i32 noundef %.0105.i, i32 noundef 0, ptr noundef null) #11
   %187 = icmp slt i32 %186, 0
   br i1 %187, label %188, label %dsm_impl_sysv.exit
 
 188:                                              ; preds = %185
-  %189 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #10
+  %189 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
   br i1 %189, label %190, label %dsm_impl_sysv.exit
 
 190:                                              ; preds = %188
   call fastcc void @errcode_for_dynamic_shared_memory()
-  %191 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %10) #10
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 548, ptr noundef nonnull @__func__.dsm_impl_sysv) #10
+  %191 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %10) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 548, ptr noundef nonnull @__func__.dsm_impl_sysv) #11
   br label %dsm_impl_sysv.exit
 
 192:                                              ; preds = %167
@@ -503,16 +503,16 @@ errcode_for_dynamic_shared_memory.exit123.i:      ; preds = %181, %179
 
 194:                                              ; preds = %192
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %195 = call i32 @shmctl(i32 noundef %.0105.i, i32 noundef 2, ptr noundef nonnull %11) #10
+  %195 = call i32 @shmctl(i32 noundef %.0105.i, i32 noundef 2, ptr noundef nonnull %11) #11
   %.not116.i = icmp eq i32 %195, 0
   br i1 %.not116.i, label %.thread128.i, label %196
 
 196:                                              ; preds = %194
-  %197 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #10
+  %197 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
   br i1 %197, label %198, label %208
 
 198:                                              ; preds = %196
-  %199 = tail call ptr @__errno_location() #11
+  %199 = tail call ptr @__errno_location() #12
   %200 = load i32, ptr %199, align 4
   switch i32 %200, label %203 [
     i32 27, label %201
@@ -520,16 +520,16 @@ errcode_for_dynamic_shared_memory.exit123.i:      ; preds = %181, %179
   ]
 
 201:                                              ; preds = %198, %198
-  %202 = call i32 @errcode(i32 noundef 8389) #10
+  %202 = call i32 @errcode(i32 noundef 8389) #11
   br label %errcode_for_dynamic_shared_memory.exit125.i
 
 203:                                              ; preds = %198
-  %204 = call i32 @errcode_for_file_access() #10
+  %204 = call i32 @errcode_for_file_access() #11
   br label %errcode_for_dynamic_shared_memory.exit125.i
 
 errcode_for_dynamic_shared_memory.exit125.i:      ; preds = %203, %201
-  %205 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %10) #10
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 564, ptr noundef nonnull @__func__.dsm_impl_sysv) #10
+  %205 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %10) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 564, ptr noundef nonnull @__func__.dsm_impl_sysv) #11
   br label %208
 
 .thread128.i:                                     ; preds = %194
@@ -544,23 +544,23 @@ errcode_for_dynamic_shared_memory.exit125.i:      ; preds = %203, %201
 
 209:                                              ; preds = %.thread128.i, %192
   %.097.i = phi i64 [ %2, %192 ], [ %207, %.thread128.i ]
-  %210 = call ptr @shmat(i32 noundef %.0105.i, ptr noundef null, i32 noundef 0) #10
+  %210 = call ptr @shmat(i32 noundef %.0105.i, ptr noundef null, i32 noundef 0) #11
   %211 = icmp eq ptr %210, inttoptr (i64 -1 to ptr)
   br i1 %211, label %212, label %227
 
 212:                                              ; preds = %209
-  %213 = tail call ptr @__errno_location() #11
+  %213 = tail call ptr @__errno_location() #12
   %214 = load i32, ptr %213, align 4
   %215 = icmp eq i32 %0, 0
   br i1 %215, label %216, label %218
 
 216:                                              ; preds = %212
-  %217 = call i32 @shmctl(i32 noundef %.0105.i, i32 noundef 0, ptr noundef null) #10
+  %217 = call i32 @shmctl(i32 noundef %.0105.i, i32 noundef 0, ptr noundef null) #11
   br label %218
 
 218:                                              ; preds = %216, %212
   store i32 %214, ptr %213, align 4
-  %219 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #10
+  %219 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
   br i1 %219, label %220, label %dsm_impl_sysv.exit
 
 220:                                              ; preds = %218
@@ -571,16 +571,16 @@ errcode_for_dynamic_shared_memory.exit125.i:      ; preds = %203, %201
   ]
 
 222:                                              ; preds = %220, %220
-  %223 = call i32 @errcode(i32 noundef 8389) #10
+  %223 = call i32 @errcode(i32 noundef 8389) #11
   br label %errcode_for_dynamic_shared_memory.exit127.i
 
 224:                                              ; preds = %220
-  %225 = call i32 @errcode_for_file_access() #10
+  %225 = call i32 @errcode_for_file_access() #11
   br label %errcode_for_dynamic_shared_memory.exit127.i
 
 errcode_for_dynamic_shared_memory.exit127.i:      ; preds = %224, %222
-  %226 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull %10) #10
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 585, ptr noundef nonnull @__func__.dsm_impl_sysv) #10
+  %226 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull %10) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 585, ptr noundef nonnull @__func__.dsm_impl_sysv) #11
   br label %dsm_impl_sysv.exit
 
 227:                                              ; preds = %209
@@ -595,7 +595,7 @@ dsm_impl_sysv.exit:                               ; preds = %218, %errcode_for_d
 
 228:                                              ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %229 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 64, ptr noundef nonnull @.str.15, i32 noundef %1) #10
+  %229 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 64, ptr noundef nonnull @.str.15, i32 noundef %1) #11
   %230 = icmp eq i32 %0, 3
   %231 = and i32 %0, -2
   %or.cond.i26 = icmp eq i32 %231, 2
@@ -608,16 +608,16 @@ dsm_impl_sysv.exit:                               ; preds = %218, %errcode_for_d
 
 234:                                              ; preds = %232
   %235 = load i64, ptr %5, align 8
-  %236 = call i32 @munmap(ptr noundef nonnull %233, i64 noundef %235) #10
+  %236 = call i32 @munmap(ptr noundef nonnull %233, i64 noundef %235) #11
   %.not134.i = icmp eq i32 %236, 0
   br i1 %.not134.i, label %247, label %237
 
 237:                                              ; preds = %234
-  %238 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #10
+  %238 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
   br i1 %238, label %239, label %dsm_impl_mmap.exit
 
 239:                                              ; preds = %237
-  %240 = tail call ptr @__errno_location() #11
+  %240 = tail call ptr @__errno_location() #12
   %241 = load i32, ptr %240, align 4
   switch i32 %241, label %244 [
     i32 27, label %242
@@ -625,16 +625,16 @@ dsm_impl_sysv.exit:                               ; preds = %218, %errcode_for_d
   ]
 
 242:                                              ; preds = %239, %239
-  %243 = call i32 @errcode(i32 noundef 8389) #10
+  %243 = call i32 @errcode(i32 noundef 8389) #11
   br label %errcode_for_dynamic_shared_memory.exit.i39
 
 244:                                              ; preds = %239
-  %245 = call i32 @errcode_for_file_access() #10
+  %245 = call i32 @errcode_for_file_access() #11
   br label %errcode_for_dynamic_shared_memory.exit.i39
 
 errcode_for_dynamic_shared_memory.exit.i39:       ; preds = %244, %242
-  %246 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %8) #10
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 813, ptr noundef nonnull @__func__.dsm_impl_mmap) #10
+  %246 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %8) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 813, ptr noundef nonnull @__func__.dsm_impl_mmap) #11
   br label %dsm_impl_mmap.exit
 
 247:                                              ; preds = %234, %232
@@ -643,16 +643,16 @@ errcode_for_dynamic_shared_memory.exit.i39:       ; preds = %244, %242
   br i1 %230, label %248, label %dsm_impl_mmap.exit
 
 248:                                              ; preds = %247
-  %249 = call i32 @unlink(ptr noundef nonnull %8) #10
+  %249 = call i32 @unlink(ptr noundef nonnull %8) #11
   %.not135.i = icmp eq i32 %249, 0
   br i1 %.not135.i, label %dsm_impl_mmap.exit, label %250
 
 250:                                              ; preds = %248
-  %251 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #10
+  %251 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
   br i1 %251, label %252, label %dsm_impl_mmap.exit
 
 252:                                              ; preds = %250
-  %253 = tail call ptr @__errno_location() #11
+  %253 = tail call ptr @__errno_location() #12
   %254 = load i32, ptr %253, align 4
   switch i32 %254, label %257 [
     i32 27, label %255
@@ -660,22 +660,22 @@ errcode_for_dynamic_shared_memory.exit.i39:       ; preds = %244, %242
   ]
 
 255:                                              ; preds = %252, %252
-  %256 = call i32 @errcode(i32 noundef 8389) #10
+  %256 = call i32 @errcode(i32 noundef 8389) #11
   br label %errcode_for_dynamic_shared_memory.exit137.i
 
 257:                                              ; preds = %252
-  %258 = call i32 @errcode_for_file_access() #10
+  %258 = call i32 @errcode_for_file_access() #11
   br label %errcode_for_dynamic_shared_memory.exit137.i
 
 errcode_for_dynamic_shared_memory.exit137.i:      ; preds = %257, %255
-  %259 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %8) #10
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 823, ptr noundef nonnull @__func__.dsm_impl_mmap) #10
+  %259 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %8) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 823, ptr noundef nonnull @__func__.dsm_impl_mmap) #11
   br label %dsm_impl_mmap.exit
 
 260:                                              ; preds = %228
   %261 = icmp eq i32 %0, 0
   %262 = select i1 %261, i32 194, i32 2
-  %263 = call i32 @OpenTransientFile(ptr noundef nonnull %8, i32 noundef %262) #10
+  %263 = call i32 @OpenTransientFile(ptr noundef nonnull %8, i32 noundef %262) #11
   %264 = icmp eq i32 %263, -1
   %265 = icmp eq i32 %0, 1
   br i1 %264, label %266, label %280
@@ -684,17 +684,17 @@ errcode_for_dynamic_shared_memory.exit137.i:      ; preds = %257, %255
   br i1 %265, label %270, label %267
 
 267:                                              ; preds = %266
-  %268 = tail call ptr @__errno_location() #11
+  %268 = tail call ptr @__errno_location() #12
   %269 = load i32, ptr %268, align 4
   %.not132.i = icmp eq i32 %269, 17
   br i1 %.not132.i, label %dsm_impl_mmap.exit, label %270
 
 270:                                              ; preds = %266, %267
-  %271 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #10
+  %271 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
   br i1 %271, label %272, label %dsm_impl_mmap.exit
 
 272:                                              ; preds = %270
-  %273 = tail call ptr @__errno_location() #11
+  %273 = tail call ptr @__errno_location() #12
   %274 = load i32, ptr %273, align 4
   switch i32 %274, label %277 [
     i32 27, label %275
@@ -702,16 +702,16 @@ errcode_for_dynamic_shared_memory.exit137.i:      ; preds = %257, %255
   ]
 
 275:                                              ; preds = %272, %272
-  %276 = call i32 @errcode(i32 noundef 8389) #10
+  %276 = call i32 @errcode(i32 noundef 8389) #11
   br label %errcode_for_dynamic_shared_memory.exit139.i
 
 277:                                              ; preds = %272
-  %278 = call i32 @errcode_for_file_access() #10
+  %278 = call i32 @errcode_for_file_access() #11
   br label %errcode_for_dynamic_shared_memory.exit139.i
 
 errcode_for_dynamic_shared_memory.exit139.i:      ; preds = %277, %275
-  %279 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %8) #10
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 837, ptr noundef nonnull @__func__.dsm_impl_mmap) #10
+  %279 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %8) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 837, ptr noundef nonnull @__func__.dsm_impl_mmap) #11
   br label %dsm_impl_mmap.exit
 
 280:                                              ; preds = %260
@@ -719,16 +719,16 @@ errcode_for_dynamic_shared_memory.exit139.i:      ; preds = %277, %275
 
 281:                                              ; preds = %280
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %282 = call i32 @fstat(i32 noundef %263, ptr noundef nonnull %9) #10
+  %282 = call i32 @fstat(i32 noundef %263, ptr noundef nonnull %9) #11
   %.not130.i = icmp eq i32 %282, 0
   br i1 %.not130.i, label %.thread.i34, label %283
 
 283:                                              ; preds = %281
-  %284 = tail call ptr @__errno_location() #11
+  %284 = tail call ptr @__errno_location() #12
   %285 = load i32, ptr %284, align 4
-  %286 = call i32 @CloseTransientFile(i32 noundef %263) #10
+  %286 = call i32 @CloseTransientFile(i32 noundef %263) #11
   store i32 %285, ptr %284, align 4
-  %287 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #10
+  %287 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
   br i1 %287, label %288, label %297
 
 288:                                              ; preds = %283
@@ -739,16 +739,16 @@ errcode_for_dynamic_shared_memory.exit139.i:      ; preds = %277, %275
   ]
 
 290:                                              ; preds = %288, %288
-  %291 = call i32 @errcode(i32 noundef 8389) #10
+  %291 = call i32 @errcode(i32 noundef 8389) #11
   br label %errcode_for_dynamic_shared_memory.exit141.i
 
 292:                                              ; preds = %288
-  %293 = call i32 @errcode_for_file_access() #10
+  %293 = call i32 @errcode_for_file_access() #11
   br label %errcode_for_dynamic_shared_memory.exit141.i
 
 errcode_for_dynamic_shared_memory.exit141.i:      ; preds = %292, %290
-  %294 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %8) #10
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 861, ptr noundef nonnull @__func__.dsm_impl_mmap) #10
+  %294 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %8) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 861, ptr noundef nonnull @__func__.dsm_impl_mmap) #11
   br label %297
 
 .thread.i34:                                      ; preds = %281
@@ -762,7 +762,7 @@ errcode_for_dynamic_shared_memory.exit141.i:      ; preds = %292, %290
   br label %dsm_impl_mmap.exit
 
 298:                                              ; preds = %280
-  %299 = call ptr @palloc0(i64 noundef 8192) #10
+  %299 = call ptr @palloc0(i64 noundef 8192) #11
   %.not4.i = icmp eq i64 %2, 0
   br i1 %.not4.i, label %.critedge.i, label %.lr.ph.i
 
@@ -771,7 +771,7 @@ errcode_for_dynamic_shared_memory.exit141.i:      ; preds = %292, %290
   %spec.store.select.i = call i64 @llvm.umin.i64(i64 %.01212.i, i64 8192)
   %300 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772182, ptr %300, align 4
-  %301 = call i64 @write(i32 noundef %263, ptr noundef %299, i64 noundef %spec.store.select.i) #10
+  %301 = call i64 @write(i32 noundef %263, ptr noundef %299, i64 noundef %spec.store.select.i) #11
   %302 = icmp eq i64 %301, %spec.store.select.i
   %303 = select i1 %302, i64 %spec.store.select.i, i64 0
   %.1122.i = sub i64 %.01212.i, %303
@@ -785,14 +785,14 @@ errcode_for_dynamic_shared_memory.exit141.i:      ; preds = %292, %290
   br i1 %302, label %.critedge.i, label %307
 
 307:                                              ; preds = %._crit_edge.i27
-  %308 = tail call ptr @__errno_location() #11
+  %308 = tail call ptr @__errno_location() #12
   %309 = load i32, ptr %308, align 4
-  %310 = call i32 @CloseTransientFile(i32 noundef %263) #10
-  %311 = call i32 @unlink(ptr noundef nonnull %8) #10
+  %310 = call i32 @CloseTransientFile(i32 noundef %263) #11
+  %311 = call i32 @unlink(ptr noundef nonnull %8) #11
   %.not.i28 = icmp eq i32 %309, 0
   %312 = select i1 %.not.i28, i32 28, i32 %309
   store i32 %312, ptr %308, align 4
-  %313 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #10
+  %313 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
   br i1 %313, label %314, label %dsm_impl_mmap.exit
 
 314:                                              ; preds = %307
@@ -803,37 +803,37 @@ errcode_for_dynamic_shared_memory.exit141.i:      ; preds = %292, %290
   ]
 
 316:                                              ; preds = %314, %314
-  %317 = call i32 @errcode(i32 noundef 8389) #10
+  %317 = call i32 @errcode(i32 noundef 8389) #11
   br label %errcode_for_dynamic_shared_memory.exit143.i
 
 318:                                              ; preds = %314
-  %319 = call i32 @errcode_for_file_access() #10
+  %319 = call i32 @errcode_for_file_access() #11
   br label %errcode_for_dynamic_shared_memory.exit143.i
 
 errcode_for_dynamic_shared_memory.exit143.i:      ; preds = %318, %316
-  %320 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %8, i64 noundef %2) #10
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 912, ptr noundef nonnull @__func__.dsm_impl_mmap) #10
+  %320 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %8, i64 noundef %2) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 912, ptr noundef nonnull @__func__.dsm_impl_mmap) #11
   br label %dsm_impl_mmap.exit
 
 .critedge.i:                                      ; preds = %._crit_edge.i27, %298, %.thread.i34
   %.1118.i = phi i64 [ %2, %._crit_edge.i27 ], [ %296, %.thread.i34 ], [ 0, %298 ]
-  %321 = call ptr @mmap(ptr noundef null, i64 noundef %.1118.i, i32 noundef 3, i32 noundef 1, i32 noundef %263, i64 noundef 0) #10
+  %321 = call ptr @mmap(ptr noundef null, i64 noundef %.1118.i, i32 noundef 3, i32 noundef 1, i32 noundef %263, i64 noundef 0) #11
   %322 = icmp eq ptr %321, inttoptr (i64 -1 to ptr)
   br i1 %322, label %323, label %338
 
 323:                                              ; preds = %.critedge.i
-  %324 = tail call ptr @__errno_location() #11
+  %324 = tail call ptr @__errno_location() #12
   %325 = load i32, ptr %324, align 4
-  %326 = call i32 @CloseTransientFile(i32 noundef %263) #10
+  %326 = call i32 @CloseTransientFile(i32 noundef %263) #11
   br i1 %261, label %327, label %329
 
 327:                                              ; preds = %323
-  %328 = call i32 @unlink(ptr noundef nonnull %8) #10
+  %328 = call i32 @unlink(ptr noundef nonnull %8) #11
   br label %329
 
 329:                                              ; preds = %327, %323
   store i32 %325, ptr %324, align 4
-  %330 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #10
+  %330 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
   br i1 %330, label %331, label %dsm_impl_mmap.exit
 
 331:                                              ; preds = %329
@@ -844,33 +844,33 @@ errcode_for_dynamic_shared_memory.exit143.i:      ; preds = %318, %316
   ]
 
 333:                                              ; preds = %331, %331
-  %334 = call i32 @errcode(i32 noundef 8389) #10
+  %334 = call i32 @errcode(i32 noundef 8389) #11
   br label %errcode_for_dynamic_shared_memory.exit145.i
 
 335:                                              ; preds = %331
-  %336 = call i32 @errcode_for_file_access() #10
+  %336 = call i32 @errcode_for_file_access() #11
   br label %errcode_for_dynamic_shared_memory.exit145.i
 
 errcode_for_dynamic_shared_memory.exit145.i:      ; preds = %335, %333
-  %337 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull %8) #10
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 934, ptr noundef nonnull @__func__.dsm_impl_mmap) #10
+  %337 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull %8) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 934, ptr noundef nonnull @__func__.dsm_impl_mmap) #11
   br label %dsm_impl_mmap.exit
 
 338:                                              ; preds = %.critedge.i
   store ptr %321, ptr %4, align 8
   store i64 %.1118.i, ptr %5, align 8
-  %339 = call i32 @CloseTransientFile(i32 noundef %263) #10
+  %339 = call i32 @CloseTransientFile(i32 noundef %263) #11
   %.not131.i = icmp eq i32 %339, 0
   br i1 %.not131.i, label %dsm_impl_mmap.exit, label %340
 
 340:                                              ; preds = %338
-  %341 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #10
+  %341 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
   br i1 %341, label %342, label %dsm_impl_mmap.exit
 
 342:                                              ; preds = %340
-  %343 = call i32 @errcode_for_file_access() #10
-  %344 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %8) #10
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 945, ptr noundef nonnull @__func__.dsm_impl_mmap) #10
+  %343 = call i32 @errcode_for_file_access() #11
+  %344 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %8) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 945, ptr noundef nonnull @__func__.dsm_impl_mmap) #11
   br label %dsm_impl_mmap.exit
 
 dsm_impl_mmap.exit:                               ; preds = %340, %342, %329, %errcode_for_dynamic_shared_memory.exit145.i, %307, %errcode_for_dynamic_shared_memory.exit143.i, %270, %errcode_for_dynamic_shared_memory.exit139.i, %250, %errcode_for_dynamic_shared_memory.exit137.i, %237, %errcode_for_dynamic_shared_memory.exit.i39, %247, %248, %267, %297, %338
@@ -879,10 +879,10 @@ dsm_impl_mmap.exit:                               ; preds = %340, %342, %329, %e
   br label %349
 
 345:                                              ; preds = %7
-  %346 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %346 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   %347 = load i32, ptr @dynamic_shared_memory_type, align 4
-  %348 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %347) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 191, ptr noundef nonnull @__func__.dsm_impl_op) #10
+  %348 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %347) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 191, ptr noundef nonnull @__func__.dsm_impl_op) #11
   unreachable
 
 349:                                              ; preds = %dsm_impl_mmap.exit, %dsm_impl_sysv.exit, %dsm_impl_posix.exit
@@ -916,7 +916,7 @@ declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @errcode_for_dynamic_shared_memory() unnamed_addr #0 {
-  %1 = tail call ptr @__errno_location() #11
+  %1 = tail call ptr @__errno_location() #12
   %2 = load i32, ptr %1, align 4
   switch i32 %2, label %5 [
     i32 27, label %3
@@ -924,11 +924,11 @@ define internal fastcc void @errcode_for_dynamic_shared_memory() unnamed_addr #0
   ]
 
 3:                                                ; preds = %0, %0
-  %4 = tail call i32 @errcode(i32 noundef 8389) #10
+  %4 = tail call i32 @errcode(i32 noundef 8389) #11
   br label %7
 
 5:                                                ; preds = %0
-  %6 = tail call i32 @errcode_for_file_access() #10
+  %6 = tail call i32 @errcode_for_file_access() #11
   br label %7
 
 7:                                                ; preds = %5, %3
@@ -999,11 +999,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #9
+declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1014,10 +1014,11 @@ attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "n
 attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(none) }
-attributes #12 = { cold nounwind }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(none) }
+attributes #13 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

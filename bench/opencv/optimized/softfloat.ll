@@ -5038,7 +5038,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   br i1 %34, label %35, label %39, !prof !118
 
 35:                                               ; preds = %32
-  %36 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A4) #14
+  %36 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A4) #15
   %.not = icmp eq i32 %36, 0
   br i1 %.not, label %39, label %37
 
@@ -5048,7 +5048,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f32_expENS_9softfloatEE2A4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %38 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f32_expENS_9softfloatEE2A4)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A4) #14
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A4) #15
   br label %39
 
 39:                                               ; preds = %37, %35, %32
@@ -5057,7 +5057,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   br i1 %41, label %42, label %46, !prof !118
 
 42:                                               ; preds = %39
-  %43 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A3) #14
+  %43 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A3) #15
   %.not8 = icmp eq i32 %43, 0
   br i1 %.not8, label %46, label %44
 
@@ -5067,7 +5067,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f32_expENS_9softfloatEE2A3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f32_expENS_9softfloatEE2A3)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A3) #14
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A3) #15
   br label %46
 
 46:                                               ; preds = %44, %42, %39
@@ -5076,7 +5076,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   br i1 %48, label %49, label %53, !prof !118
 
 49:                                               ; preds = %46
-  %50 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A2) #14
+  %50 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A2) #15
   %.not9 = icmp eq i32 %50, 0
   br i1 %.not9, label %53, label %51
 
@@ -5086,7 +5086,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f32_expENS_9softfloatEE2A2, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %52 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f32_expENS_9softfloatEE2A2)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A2) #14
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A2) #15
   br label %53
 
 53:                                               ; preds = %51, %49, %46
@@ -5095,7 +5095,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   br i1 %55, label %56, label %60, !prof !118
 
 56:                                               ; preds = %53
-  %57 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A1) #14
+  %57 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A1) #15
   %.not10 = icmp eq i32 %57, 0
   br i1 %.not10, label %60, label %58
 
@@ -5105,7 +5105,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f32_expENS_9softfloatEE2A1, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %59 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f32_expENS_9softfloatEE2A1)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A1) #14
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A1) #15
   br label %60
 
 60:                                               ; preds = %58, %56, %53
@@ -5529,7 +5529,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   br i1 %36, label %37, label %41, !prof !118
 
 37:                                               ; preds = %34
-  %38 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A5) #14
+  %38 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A5) #15
   %.not = icmp eq i32 %38, 0
   br i1 %.not, label %41, label %39
 
@@ -5539,7 +5539,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_expENS_10softdoubleEE2A5, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %40 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_expENS_10softdoubleEE2A5)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A5) #14
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A5) #15
   br label %41
 
 41:                                               ; preds = %39, %37, %34
@@ -5548,7 +5548,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   br i1 %43, label %44, label %48, !prof !118
 
 44:                                               ; preds = %41
-  %45 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A4) #14
+  %45 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A4) #15
   %.not8 = icmp eq i32 %45, 0
   br i1 %.not8, label %48, label %46
 
@@ -5558,7 +5558,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_expENS_10softdoubleEE2A4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %47 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_expENS_10softdoubleEE2A4)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A4) #14
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A4) #15
   br label %48
 
 48:                                               ; preds = %46, %44, %41
@@ -5567,7 +5567,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   br i1 %50, label %51, label %55, !prof !118
 
 51:                                               ; preds = %48
-  %52 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A3) #14
+  %52 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A3) #15
   %.not9 = icmp eq i32 %52, 0
   br i1 %.not9, label %55, label %53
 
@@ -5577,7 +5577,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_expENS_10softdoubleEE2A3, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_expENS_10softdoubleEE2A3)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A3) #14
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A3) #15
   br label %55
 
 55:                                               ; preds = %53, %51, %48
@@ -5586,7 +5586,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   br i1 %57, label %58, label %62, !prof !118
 
 58:                                               ; preds = %55
-  %59 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A2) #14
+  %59 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A2) #15
   %.not10 = icmp eq i32 %59, 0
   br i1 %.not10, label %62, label %60
 
@@ -5596,7 +5596,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_expENS_10softdoubleEE2A2, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %61 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_expENS_10softdoubleEE2A2)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A2) #14
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A2) #15
   br label %62
 
 62:                                               ; preds = %60, %58, %55
@@ -5605,7 +5605,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   br i1 %64, label %65, label %69, !prof !118
 
 65:                                               ; preds = %62
-  %66 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A1) #14
+  %66 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A1) #15
   %.not11 = icmp eq i32 %66, 0
   br i1 %.not11, label %69, label %67
 
@@ -5615,7 +5615,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_expENS_10softdoubleEE2A1, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %68 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_expENS_10softdoubleEE2A1)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A1) #14
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A1) #15
   br label %69
 
 69:                                               ; preds = %67, %65, %62
@@ -5624,7 +5624,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   br i1 %71, label %72, label %76, !prof !118
 
 72:                                               ; preds = %69
-  %73 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A0) #14
+  %73 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A0) #15
   %.not12 = icmp eq i32 %73, 0
   br i1 %.not12, label %76, label %74
 
@@ -5634,7 +5634,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_expENS_10softdoubleEE2A0, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %75 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_expENS_10softdoubleEE2A0)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A0) #14
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A0) #15
   br label %76
 
 76:                                               ; preds = %74, %72, %69
@@ -6260,7 +6260,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   br i1 %54, label %55, label %60, !prof !118
 
 55:                                               ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit.thread
-  %56 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A7) #14
+  %56 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A7) #15
   %.not = icmp eq i32 %56, 0
   br i1 %.not, label %60, label %57
 
@@ -6270,7 +6270,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
 
 58:                                               ; preds = %57
   %59 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A7)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A7) #14
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A7) #15
   br label %60
 
 60:                                               ; preds = %58, %55, %_ZNK2cv10softdoubleeqERKS0_.exit.thread
@@ -6279,7 +6279,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   br i1 %62, label %63, label %68, !prof !118
 
 63:                                               ; preds = %60
-  %64 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A6) #14
+  %64 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A6) #15
   %.not12 = icmp eq i32 %64, 0
   br i1 %.not12, label %68, label %65
 
@@ -6295,7 +6295,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %67 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A6)
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A6) #14
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A6) #15
   br label %68
 
 68:                                               ; preds = %66, %63, %60
@@ -6304,7 +6304,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   br i1 %70, label %71, label %76, !prof !118
 
 71:                                               ; preds = %68
-  %72 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A5) #14
+  %72 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A5) #15
   %.not14 = icmp eq i32 %72, 0
   br i1 %.not14, label %76, label %73
 
@@ -6320,7 +6320,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %75 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A5)
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A5) #14
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A5) #15
   br label %76
 
 76:                                               ; preds = %74, %71, %68
@@ -6329,7 +6329,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   br i1 %78, label %79, label %84, !prof !118
 
 79:                                               ; preds = %76
-  %80 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A4) #14
+  %80 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A4) #15
   %.not17 = icmp eq i32 %80, 0
   br i1 %.not17, label %84, label %81
 
@@ -6345,7 +6345,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %83 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A4)
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A4) #14
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A4) #15
   br label %84
 
 84:                                               ; preds = %82, %79, %76
@@ -6354,7 +6354,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   br i1 %86, label %87, label %92, !prof !118
 
 87:                                               ; preds = %84
-  %88 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A3) #14
+  %88 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A3) #15
   %.not20 = icmp eq i32 %88, 0
   br i1 %.not20, label %92, label %89
 
@@ -6370,7 +6370,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %91 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A3)
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A3) #14
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A3) #15
   br label %92
 
 92:                                               ; preds = %90, %87, %84
@@ -6379,7 +6379,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   br i1 %94, label %95, label %100, !prof !118
 
 95:                                               ; preds = %92
-  %96 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A2) #14
+  %96 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A2) #15
   %.not23 = icmp eq i32 %96, 0
   br i1 %.not23, label %100, label %97
 
@@ -6395,7 +6395,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %99 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A2)
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A2) #14
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A2) #15
   br label %100
 
 100:                                              ; preds = %98, %95, %92
@@ -6404,7 +6404,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   br i1 %102, label %103, label %108, !prof !118
 
 103:                                              ; preds = %100
-  %104 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A1) #14
+  %104 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A1) #15
   %.not26 = icmp eq i32 %104, 0
   br i1 %.not26, label %108, label %105
 
@@ -6420,7 +6420,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %107 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A1)
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A1) #14
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A1) #15
   br label %108
 
 108:                                              ; preds = %106, %103, %100
@@ -6429,7 +6429,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   br i1 %110, label %111, label %_ZN2cv10softdoublemIERKS0_.exit, !prof !118
 
 111:                                              ; preds = %108
-  %112 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A0) #14
+  %112 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A0) #15
   %.not29 = icmp eq i32 %112, 0
   br i1 %.not29, label %_ZN2cv10softdoublemIERKS0_.exit, label %113
 
@@ -6445,7 +6445,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %115 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A0)
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A0) #14
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A0) #15
   br label %_ZN2cv10softdoublemIERKS0_.exit
 
 _ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %114, %111, %108
@@ -6507,7 +6507,7 @@ _ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %134, %135
 137:                                              ; preds = %57
   %138 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A7) #14
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A7) #15
   br label %212
 
 139:                                              ; preds = %65
@@ -6515,7 +6515,7 @@ _ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %134, %135
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A6) #14
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A6) #15
   br label %212
 
 141:                                              ; preds = %73
@@ -6523,7 +6523,7 @@ _ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %134, %135
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A5) #14
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A5) #15
   br label %212
 
 143:                                              ; preds = %81
@@ -6531,7 +6531,7 @@ _ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %134, %135
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A4) #14
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A4) #15
   br label %212
 
 145:                                              ; preds = %89
@@ -6539,7 +6539,7 @@ _ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %134, %135
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A3) #14
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A3) #15
   br label %212
 
 147:                                              ; preds = %97
@@ -6547,7 +6547,7 @@ _ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %134, %135
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A2) #14
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A2) #15
   br label %212
 
 149:                                              ; preds = %105
@@ -6555,7 +6555,7 @@ _ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %134, %135
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A1) #14
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A1) #15
   br label %212
 
 151:                                              ; preds = %113
@@ -6563,7 +6563,7 @@ _ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %134, %135
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A0) #14
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A0) #15
   br label %212
 
 153:                                              ; preds = %_ZN2cv10softdoublepLERKS0_.exit, %_ZN2cv10softdoublemIERKS0_.exit
@@ -6812,14 +6812,14 @@ define void @_ZN2cv3powERKNS_9softfloatES2_(ptr dead_on_unwind noalias writable 
   br i1 %19, label %20, label %24, !prof !118
 
 20:                                               ; preds = %3
-  %21 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E4zero) #14, !noalias !385
+  %21 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E4zero) #15, !noalias !385
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %24, label %22
 
 22:                                               ; preds = %20
   store i32 0, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero, align 4, !tbaa !12, !alias.scope !388, !noalias !385
   %23 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero), !noalias !385
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E4zero) #14, !noalias !385
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E4zero) #15, !noalias !385
   br label %24
 
 24:                                               ; preds = %22, %20, %3
@@ -6828,14 +6828,14 @@ define void @_ZN2cv3powERKNS_9softfloatES2_(ptr dead_on_unwind noalias writable 
   br i1 %26, label %27, label %31, !prof !118
 
 27:                                               ; preds = %24
-  %28 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3one) #14, !noalias !385
+  %28 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3one) #15, !noalias !385
   %.not9.i = icmp eq i32 %28, 0
   br i1 %.not9.i, label %31, label %29
 
 29:                                               ; preds = %27
   store i32 1065353216, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3one, align 4, !tbaa !12, !alias.scope !393, !noalias !385
   %30 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZZN2cvL7f32_powENS_9softfloatES0_E3one), !noalias !385
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3one) #14, !noalias !385
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3one) #15, !noalias !385
   br label %31
 
 31:                                               ; preds = %29, %27, %24
@@ -6844,14 +6844,14 @@ define void @_ZN2cv3powERKNS_9softfloatES2_(ptr dead_on_unwind noalias writable 
   br i1 %33, label %34, label %38, !prof !118
 
 34:                                               ; preds = %31
-  %35 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3inf) #14, !noalias !385
+  %35 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3inf) #15, !noalias !385
   %.not10.i = icmp eq i32 %35, 0
   br i1 %.not10.i, label %38, label %36
 
 36:                                               ; preds = %34
   store i32 2139095040, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, align 4, !tbaa !12, !alias.scope !398, !noalias !385
   %37 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf), !noalias !385
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3inf) #14, !noalias !385
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3inf) #15, !noalias !385
   br label %38
 
 38:                                               ; preds = %36, %34, %31
@@ -6860,14 +6860,14 @@ define void @_ZN2cv3powERKNS_9softfloatES2_(ptr dead_on_unwind noalias writable 
   br i1 %40, label %41, label %45, !prof !118
 
 41:                                               ; preds = %38
-  %42 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3nan) #14, !noalias !385
+  %42 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3nan) #15, !noalias !385
   %.not11.i = icmp eq i32 %42, 0
   br i1 %.not11.i, label %45, label %43
 
 43:                                               ; preds = %41
   store i32 2147483647, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3nan, align 4, !tbaa !12, !alias.scope !403, !noalias !385
   %44 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZZN2cvL7f32_powENS_9softfloatES0_E3nan), !noalias !385
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3nan) #14, !noalias !385
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3nan) #15, !noalias !385
   br label %45
 
 45:                                               ; preds = %43, %41, %38
@@ -7437,14 +7437,14 @@ define void @_ZN2cv3powERKNS_10softdoubleES2_(ptr dead_on_unwind noalias writabl
   br i1 %19, label %20, label %24, !prof !118
 
 20:                                               ; preds = %3
-  %21 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E4zero) #14, !noalias !422
+  %21 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E4zero) #15, !noalias !422
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %24, label %22
 
 22:                                               ; preds = %20
   store i64 0, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero, align 8, !tbaa !27, !alias.scope !425, !noalias !422
   %23 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero), !noalias !422
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E4zero) #14, !noalias !422
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E4zero) #15, !noalias !422
   br label %24
 
 24:                                               ; preds = %22, %20, %3
@@ -7453,14 +7453,14 @@ define void @_ZN2cv3powERKNS_10softdoubleES2_(ptr dead_on_unwind noalias writabl
   br i1 %26, label %27, label %31, !prof !118
 
 27:                                               ; preds = %24
-  %28 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3one) #14, !noalias !422
+  %28 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3one) #15, !noalias !422
   %.not9.i = icmp eq i32 %28, 0
   br i1 %.not9.i, label %31, label %29
 
 29:                                               ; preds = %27
   store i64 4607182418800017408, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3one, align 8, !tbaa !27, !alias.scope !430, !noalias !422
   %30 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_powENS_10softdoubleES0_E3one), !noalias !422
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3one) #14, !noalias !422
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3one) #15, !noalias !422
   br label %31
 
 31:                                               ; preds = %29, %27, %24
@@ -7469,14 +7469,14 @@ define void @_ZN2cv3powERKNS_10softdoubleES2_(ptr dead_on_unwind noalias writabl
   br i1 %33, label %34, label %38, !prof !118
 
 34:                                               ; preds = %31
-  %35 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3inf) #14, !noalias !422
+  %35 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3inf) #15, !noalias !422
   %.not10.i = icmp eq i32 %35, 0
   br i1 %.not10.i, label %38, label %36
 
 36:                                               ; preds = %34
   store i64 9218868437227405312, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, align 8, !tbaa !27, !alias.scope !435, !noalias !422
   %37 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf), !noalias !422
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3inf) #14, !noalias !422
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3inf) #15, !noalias !422
   br label %38
 
 38:                                               ; preds = %36, %34, %31
@@ -7485,14 +7485,14 @@ define void @_ZN2cv3powERKNS_10softdoubleES2_(ptr dead_on_unwind noalias writabl
   br i1 %40, label %41, label %45, !prof !118
 
 41:                                               ; preds = %38
-  %42 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3nan) #14, !noalias !422
+  %42 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3nan) #15, !noalias !422
   %.not11.i = icmp eq i32 %42, 0
   br i1 %.not11.i, label %45, label %43
 
 43:                                               ; preds = %41
   store i64 9223372036854775807, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3nan, align 8, !tbaa !27, !alias.scope !440, !noalias !422
   %44 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_powENS_10softdoubleES0_E3nan), !noalias !422
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3nan) #14, !noalias !422
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3nan) #15, !noalias !422
   br label %45
 
 45:                                               ; preds = %43, %41, %38
@@ -9774,23 +9774,23 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #13
+declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
@@ -9805,8 +9805,9 @@ attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #10 = { nofree nounwind }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #14 = { nounwind }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #15 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -222,15 +222,15 @@ skip_prefix.exit:                                 ; preds = %9, %skip_prefix.exi
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %21, %25
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.016) #18
-  tail call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull %.016, i64 noundef %26) #19
+  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.016) #19
+  tail call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull %.016, i64 noundef %26) #20
   %27 = load i32, ptr %4, align 4, !tbaa !16
   %28 = or i32 %27, 1
   store i32 %28, ptr %4, align 4, !tbaa !16
   br label %44
 
 29:                                               ; preds = %10
-  %30 = call i32 @parse_oid_hex_algop(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %0) #19
+  %30 = call i32 @parse_oid_hex_algop(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %0) #20
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %31, label %39
 
@@ -274,27 +274,27 @@ declare i32 @parse_oid_hex_algop(ptr noundef, ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @files_ref_store_init(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca %struct.strbuf, align 8
-  %5 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 64) #19
+  %5 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 64) #20
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_fsck_refs_dir.sb, i64 24, i1 false)
-  tail call void @base_ref_store_init(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef nonnull @refs_be_files) #19
+  tail call void @base_ref_store_init(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef nonnull @refs_be_files) #20
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %2, ptr %6, align 8, !tbaa !19
-  %7 = call i32 @get_common_dir_noenv(ptr noundef nonnull %4, ptr noundef %1) #19
-  %8 = call ptr @strbuf_detach(ptr noundef nonnull %4, ptr noundef null) #19
+  %7 = call i32 @get_common_dir_noenv(ptr noundef nonnull %4, ptr noundef %1) #20
+  %8 = call ptr @strbuf_detach(ptr noundef nonnull %4, ptr noundef null) #20
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %8, ptr %9, align 8, !tbaa !26
-  %10 = call ptr @packed_ref_store_init(ptr noundef %0, ptr noundef %8, i32 noundef %2) #19
+  %10 = call ptr @packed_ref_store_init(ptr noundef %0, ptr noundef %8, i32 noundef %2) #20
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %10, ptr %11, align 8, !tbaa !27
-  %12 = call i32 @repo_settings_get_log_all_ref_updates(ptr noundef %0) #19
+  %12 = call i32 @repo_settings_get_log_all_ref_updates(ptr noundef %0) #20
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 %12, ptr %13, align 8, !tbaa !28
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  %15 = call i32 @repo_config_get_bool(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull %14) #19
+  %15 = call i32 @repo_config_get_bool(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull %14) #20
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @chdir_notify_reparent(ptr noundef nonnull @.str.5, ptr noundef nonnull %16) #19
-  call void @chdir_notify_reparent(ptr noundef nonnull @.str.6, ptr noundef nonnull %9) #19
+  call void @chdir_notify_reparent(ptr noundef nonnull @.str.5, ptr noundef nonnull %16) #20
+  call void @chdir_notify_reparent(ptr noundef nonnull @.str.6, ptr noundef nonnull %9) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %5
 }
@@ -307,21 +307,21 @@ define internal void @files_ref_store_release(ptr noundef readonly captures(none
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %2, align 8, !tbaa !30
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %4, ptr noundef nonnull @.str.7) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %4, ptr noundef nonnull @.str.7) #21
   unreachable
 
 files_downcast.exit:                              ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !32
-  tail call void @free_ref_cache(ptr noundef %6) #19
+  tail call void @free_ref_cache(ptr noundef %6) #20
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !26
-  tail call void @free(ptr noundef %8) #19
+  tail call void @free(ptr noundef %8) #20
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !27
-  tail call void @ref_store_release(ptr noundef %10) #19
+  tail call void @ref_store_release(ptr noundef %10) #20
   %11 = load ptr, ptr %9, align 8, !tbaa !27
-  tail call void @free(ptr noundef %11) #19
+  tail call void @free(ptr noundef %11) #20
   ret void
 }
 
@@ -334,7 +334,7 @@ define internal noundef i32 @files_ref_store_create_on_disk(ptr noundef readonly
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %5, align 8, !tbaa !30
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %7, ptr noundef nonnull @.str.11) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %7, ptr noundef nonnull @.str.11) #21
   unreachable
 
 8:                                                ; preds = %3
@@ -345,7 +345,7 @@ define internal noundef i32 @files_ref_store_create_on_disk(ptr noundef readonly
   br i1 %.not11.i.not, label %12, label %files_downcast.exit
 
 12:                                               ; preds = %8
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 2, i32 noundef %10) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 2, i32 noundef %10) #21
   unreachable
 
 files_downcast.exit:                              ; preds = %8
@@ -353,12 +353,12 @@ files_downcast.exit:                              ; preds = %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_fsck_refs_dir.sb, i64 24, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !33
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.12, ptr noundef %14) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.12, ptr noundef %14) #20
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !15
-  call void @safe_create_dir(ptr noundef %16, i32 noundef 1) #19
+  call void @safe_create_dir(ptr noundef %16, i32 noundef 1) #20
   %17 = load ptr, ptr %15, align 8, !tbaa !15
-  %18 = call i32 @adjust_shared_perm(ptr noundef %17) #19
+  %18 = call i32 @adjust_shared_perm(ptr noundef %17) #20
   %19 = and i32 %1, 1
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %20, label %28
@@ -377,7 +377,7 @@ files_downcast.exit:                              ; preds = %8
 strbuf_setlen.exit:                               ; preds = %20, %23
   call fastcc void @files_ref_path(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull @.str.13)
   %24 = load ptr, ptr %15, align 8, !tbaa !15
-  call void @safe_create_dir(ptr noundef %24, i32 noundef 1) #19
+  call void @safe_create_dir(ptr noundef %24, i32 noundef 1) #20
   store i64 0, ptr %21, align 8, !tbaa !10
   %25 = load ptr, ptr %15, align 8, !tbaa !15
   %.not9.i5 = icmp eq ptr %25, @strbuf_slopbuf
@@ -390,11 +390,11 @@ strbuf_setlen.exit:                               ; preds = %20, %23
 strbuf_setlen.exit6:                              ; preds = %strbuf_setlen.exit, %26
   call fastcc void @files_ref_path(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull @.str.14)
   %27 = load ptr, ptr %15, align 8, !tbaa !15
-  call void @safe_create_dir(ptr noundef %27, i32 noundef 1) #19
+  call void @safe_create_dir(ptr noundef %27, i32 noundef 1) #20
   br label %28
 
 28:                                               ; preds = %strbuf_setlen.exit6, %files_downcast.exit
-  call void @strbuf_release(ptr noundef nonnull %4) #19
+  call void @strbuf_release(ptr noundef nonnull %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }
@@ -409,7 +409,7 @@ define internal range(i32 -1, 1) i32 @files_ref_store_remove_on_disk(ptr noundef
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %5, align 8, !tbaa !30
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %7, ptr noundef nonnull @.str.18) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %7, ptr noundef nonnull @.str.18) #21
   unreachable
 
 8:                                                ; preds = %2
@@ -420,7 +420,7 @@ define internal range(i32 -1, 1) i32 @files_ref_store_remove_on_disk(ptr noundef
   br i1 %.not11.i.not, label %12, label %files_downcast.exit
 
 12:                                               ; preds = %8
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.18, i32 noundef 2, i32 noundef %10) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.18, i32 noundef 2, i32 noundef %10) #21
   unreachable
 
 files_downcast.exit:                              ; preds = %8
@@ -432,16 +432,16 @@ files_downcast.exit:                              ; preds = %8
   store ptr %1, ptr %15, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_fsck_refs_dir.sb, i64 24, i1 false)
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.12, ptr noundef %14) #19
-  %16 = call i32 @remove_dir_recursively(ptr noundef nonnull %4, i32 noundef 0) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.12, ptr noundef %14) #20
+  %16 = call i32 @remove_dir_recursively(ptr noundef nonnull %4, i32 noundef 0) #20
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %files_downcast.exit
-  %19 = tail call ptr @__errno_location() #21
+  %19 = tail call ptr @__errno_location() #22
   %20 = load i32, ptr %19, align 4, !tbaa !16
-  %21 = call ptr @strerror(i32 noundef %20) #19
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %1, ptr noundef nonnull @.str.19, ptr noundef %21) #19
+  %21 = call ptr @strerror(i32 noundef %20) #20
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %1, ptr noundef nonnull @.str.19, ptr noundef %21) #20
   br label %22
 
 22:                                               ; preds = %18, %files_downcast.exit
@@ -459,16 +459,16 @@ files_downcast.exit:                              ; preds = %8
 
 strbuf_setlen.exit:                               ; preds = %22, %26
   %27 = load ptr, ptr %13, align 8, !tbaa !34
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.20, ptr noundef %27) #19
-  %28 = call i32 @remove_dir_recursively(ptr noundef nonnull %4, i32 noundef 0) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.20, ptr noundef %27) #20
+  %28 = call i32 @remove_dir_recursively(ptr noundef nonnull %4, i32 noundef 0) #20
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %strbuf_setlen.exit
-  %31 = tail call ptr @__errno_location() #21
+  %31 = tail call ptr @__errno_location() #22
   %32 = load i32, ptr %31, align 4, !tbaa !16
-  %33 = call ptr @strerror(i32 noundef %32) #19
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %1, ptr noundef nonnull @.str.21, ptr noundef %33) #19
+  %33 = call ptr @strerror(i32 noundef %32) #20
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %1, ptr noundef nonnull @.str.21, ptr noundef %33) #20
   br label %34
 
 34:                                               ; preds = %30, %strbuf_setlen.exit
@@ -487,11 +487,11 @@ strbuf_setlen.exit12:                             ; preds = %34, %36
   %.inv = icmp sgt i32 %37, -1
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %39 = load ptr, ptr %38, align 8, !tbaa !27
-  %40 = call i32 @ref_store_remove_on_disk(ptr noundef %39, ptr noundef %1) #19
+  %40 = call i32 @ref_store_remove_on_disk(ptr noundef %39, ptr noundef %1) #20
   %.inv13 = icmp sgt i32 %40, -1
   %41 = select i1 %.inv13, i1 %.inv, i1 false
   %.3 = select i1 %41, i32 %.1, i32 -1
-  call void @strbuf_release(ptr noundef nonnull %4) #19
+  call void @strbuf_release(ptr noundef nonnull %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.3
@@ -510,7 +510,7 @@ define internal i32 @files_transaction_prepare(ptr noundef %0, ptr noundef %1, p
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %9, align 8, !tbaa !30
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %11, ptr noundef nonnull @.str.24) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %11, ptr noundef nonnull @.str.24) #21
   unreachable
 
 12:                                               ; preds = %3
@@ -521,7 +521,7 @@ define internal i32 @files_transaction_prepare(ptr noundef %0, ptr noundef %1, p
   br i1 %.not11.i.not, label %16, label %files_downcast.exit
 
 16:                                               ; preds = %12
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.24, i32 noundef 2, i32 noundef %14) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.24, i32 noundef 2, i32 noundef %14) #21
   unreachable
 
 files_downcast.exit:                              ; preds = %12
@@ -541,9 +541,9 @@ files_downcast.exit:                              ; preds = %12
   br i1 %.not83, label %select.unfold, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 80) #19
+  %24 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 80) #20
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  tail call void @strmap_init(ptr noundef nonnull %25) #19
+  tail call void @strmap_init(ptr noundef nonnull %25) #20
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %24, ptr %26, align 8, !tbaa !43
   %27 = load i64, ptr %21, align 8, !tbaa !42
@@ -567,7 +567,7 @@ files_downcast.exit:                              ; preds = %12
   br i1 %or.cond, label %37, label %38
 
 37:                                               ; preds = %29
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 2844, ptr noundef nonnull @.str.25) #20
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 2844, ptr noundef nonnull @.str.25) #21
   unreachable
 
 38:                                               ; preds = %29
@@ -577,7 +577,7 @@ files_downcast.exit:                              ; preds = %12
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 144
-  %42 = call ptr @string_list_append(ptr noundef nonnull %7, ptr noundef nonnull %41) #19
+  %42 = call ptr @string_list_append(ptr noundef nonnull %7, ptr noundef nonnull %41) #20
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %33, ptr %43, align 8, !tbaa !47
   %.pre = load i64, ptr %21, align 8, !tbaa !42
@@ -590,13 +590,13 @@ files_downcast.exit:                              ; preds = %12
   br i1 %47, label %29, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %44, %23
-  call void @string_list_sort(ptr noundef nonnull %7) #19
-  %48 = call i32 @ref_update_reject_duplicates(ptr noundef nonnull %7, ptr noundef %2) #19
+  call void @string_list_sort(ptr noundef nonnull %7) #20
+  %48 = call i32 @ref_update_reject_duplicates(ptr noundef nonnull %7, ptr noundef %2) #20
   %.not84 = icmp eq i32 %48, 0
   br i1 %.not84, label %49, label %select.unfold
 
 49:                                               ; preds = %._crit_edge
-  %50 = call ptr @refs_resolve_refdup(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, i32 noundef 2, ptr noundef null, ptr noundef nonnull %8) #19
+  %50 = call ptr @refs_resolve_refdup(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, i32 noundef 2, ptr noundef null, ptr noundef nonnull %8) #20
   %.not85 = icmp eq ptr %50, null
   br i1 %.not85, label %55, label %51
 
@@ -607,7 +607,7 @@ files_downcast.exit:                              ; preds = %12
   br i1 %.not86, label %54, label %55
 
 54:                                               ; preds = %51
-  call void @free(ptr noundef nonnull %50) #19
+  call void @free(ptr noundef nonnull %50) #20
   br label %55
 
 55:                                               ; preds = %54, %51, %49
@@ -632,14 +632,14 @@ files_downcast.exit:                              ; preds = %12
   %64 = load ptr, ptr %63, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_fsck_refs_dir.sb, i64 24, i1 false)
-  %65 = call i32 @ref_update_expects_existing_old_ref(ptr noundef %64) #19
+  %65 = call i32 @ref_update_expects_existing_old_ref(ptr noundef %64) #20
   %.val.i = load i32, ptr %13, align 8, !tbaa !19
   %66 = and i32 %.val.i, 8
   %.not.i.i = icmp eq i32 %66, 0
   br i1 %.not.i.i, label %67, label %files_assert_main_repository.exit.i
 
 67:                                               ; preds = %61
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 137, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.27) #20
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 137, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.27) #21
   unreachable
 
 files_assert_main_repository.exit.i:              ; preds = %61
@@ -651,7 +651,7 @@ files_assert_main_repository.exit.i:              ; preds = %61
   br i1 %.not.i105, label %77, label %72
 
 72:                                               ; preds = %files_assert_main_repository.exit.i
-  %73 = call i32 @ref_update_has_null_new_value(ptr noundef nonnull %64) #19
+  %73 = call i32 @ref_update_has_null_new_value(ptr noundef nonnull %64) #20
   %.not106.i = icmp eq i32 %73, 0
   br i1 %.not106.i, label %77, label %74
 
@@ -672,12 +672,12 @@ files_assert_main_repository.exit.i:              ; preds = %61
 
 81:                                               ; preds = %78
   %82 = getelementptr inbounds nuw i8, ptr %64, i64 144
-  %83 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull readonly dereferenceable(1) %.174) #18
+  %83 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull readonly dereferenceable(1) %.174) #19
   %.not24.i.i = icmp eq i32 %83, 0
   br i1 %.not24.i.i, label %84, label %split_head_update.exit.thread.i
 
 84:                                               ; preds = %81
-  %85 = call i32 @string_list_has_string(ptr noundef nonnull %7, ptr noundef nonnull @.str.26) #19
+  %85 = call i32 @string_list_has_string(ptr noundef nonnull %7, ptr noundef nonnull @.str.26) #20
   %.not25.i.i = icmp eq i32 %85, 0
   br i1 %.not25.i.i, label %86, label %split_head_update.exit.i
 
@@ -689,30 +689,30 @@ files_assert_main_repository.exit.i:              ; preds = %61
   %91 = load ptr, ptr %90, align 8, !tbaa !18
   %92 = getelementptr inbounds nuw i8, ptr %64, i64 112
   %93 = load ptr, ptr %92, align 8, !tbaa !18
-  %94 = call ptr @ref_transaction_add_update(ptr noundef nonnull %1, ptr noundef nonnull @.str.26, i32 noundef %88, ptr noundef nonnull %64, ptr noundef nonnull %89, ptr noundef null, ptr noundef null, ptr noundef %91, ptr noundef %93) #19
+  %94 = call ptr @ref_transaction_add_update(ptr noundef nonnull %1, ptr noundef nonnull @.str.26, i32 noundef %88, ptr noundef nonnull %64, ptr noundef nonnull %89, ptr noundef null, ptr noundef null, ptr noundef %91, ptr noundef %93) #20
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 144
-  %96 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %95, ptr noundef nonnull dereferenceable(5) @.str.26) #18
+  %96 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %95, ptr noundef nonnull dereferenceable(5) @.str.26) #19
   %.not26.i.i = icmp eq i32 %96, 0
   br i1 %.not26.i.i, label %98, label %97
 
 97:                                               ; preds = %86
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 2428, ptr noundef nonnull @.str.35, ptr noundef nonnull %95) #20
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 2428, ptr noundef nonnull @.str.35, ptr noundef nonnull %95) #21
   unreachable
 
 98:                                               ; preds = %86
-  %99 = call ptr @string_list_insert(ptr noundef nonnull %7, ptr noundef nonnull %95) #19
+  %99 = call ptr @string_list_insert(ptr noundef nonnull %7, ptr noundef nonnull %95) #20
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store ptr %94, ptr %100, align 8, !tbaa !47
   br label %split_head_update.exit.thread.i
 
 split_head_update.exit.i:                         ; preds = %84
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.34, ptr noundef nonnull %82) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.34, ptr noundef nonnull %82) #20
   br label %lock_ref_for_update.exit.thread
 
 split_head_update.exit.thread.i:                  ; preds = %98, %81, %78, %77
   %101 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %102 = getelementptr inbounds nuw i8, ptr %64, i64 144
-  %103 = call ptr @strmap_get(ptr noundef nonnull %101, ptr noundef nonnull %102) #19
+  %103 = call ptr @strmap_get(ptr noundef nonnull %101, ptr noundef nonnull %102) #20
   %.not109.i = icmp eq ptr %103, null
   br i1 %.not109.i, label %108, label %104
 
@@ -734,13 +734,13 @@ split_head_update.exit.thread.i:                  ; preds = %98, %81, %78, %77
   br i1 %.not.i.i.i, label %111, label %files_assert_main_repository.exit.i.i
 
 111:                                              ; preds = %108
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 137, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.36) #20
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 137, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.36) #21
   unreachable
 
 files_assert_main_repository.exit.i.i:            ; preds = %108
   store i32 0, ptr %109, align 4, !tbaa !16
-  %112 = call ptr @xcalloc(i64 noundef 1, i64 noundef 56) #19
-  %113 = call ptr @xstrdup(ptr noundef nonnull %102) #19
+  %112 = call ptr @xcalloc(i64 noundef 1, i64 noundef 56) #20
+  %113 = call ptr @xstrdup(ptr noundef nonnull %102) #20
   store ptr %113, ptr %112, align 8, !tbaa !55
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 52
   store i32 1, ptr %114, align 4, !tbaa !50
@@ -751,7 +751,7 @@ files_assert_main_repository.exit.i.i:            ; preds = %108
 116:                                              ; preds = %.backedge.i.i, %files_assert_main_repository.exit.i.i
   %.056.i.i = phi i32 [ 3, %files_assert_main_repository.exit.i.i ], [ %.056.be.i.i, %.backedge.i.i ]
   %117 = load ptr, ptr %58, align 8, !tbaa !15
-  %118 = call i32 @safe_create_leading_directories(ptr noundef %117) #19
+  %118 = call i32 @safe_create_leading_directories(ptr noundef %117) #20
   switch i32 %118, label %132 [
     i32 0, label %135
     i32 -3, label %119
@@ -760,7 +760,7 @@ files_assert_main_repository.exit.i.i:            ; preds = %108
 
 119:                                              ; preds = %116
   %120 = getelementptr inbounds nuw i8, ptr %112, i64 52
-  %121 = call i32 @refs_verify_refname_available(ptr noundef nonnull %0, ptr noundef nonnull %102, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0, ptr noundef %2) #19
+  %121 = call i32 @refs_verify_refname_available(ptr noundef nonnull %0, ptr noundef nonnull %102, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0, ptr noundef %2) #20
   %.not.i138.i = icmp eq i32 %121, 0
   br i1 %.not.i138.i, label %128, label %122
 
@@ -781,12 +781,12 @@ files_assert_main_repository.exit.i.i:            ; preds = %108
   br label %strbuf_setlen.exit.i.i
 
 strbuf_setlen.exit.i.i:                           ; preds = %127, %123
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %2, ptr noundef nonnull @.str.37, ptr noundef nonnull %102) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %2, ptr noundef nonnull @.str.37, ptr noundef nonnull %102) #20
   br label %.loopexit113
 
 128:                                              ; preds = %119
   %129 = load ptr, ptr %58, align 8, !tbaa !15
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.38, ptr noundef %129) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.38, ptr noundef %129) #20
   br label %.loopexit113
 
 130:                                              ; preds = %116
@@ -800,18 +800,18 @@ strbuf_setlen.exit.i.i:                           ; preds = %127, %123
 132:                                              ; preds = %130, %116
   %133 = getelementptr inbounds nuw i8, ptr %112, i64 52
   %134 = load ptr, ptr %58, align 8, !tbaa !15
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.39, ptr noundef %134) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.39, ptr noundef %134) #20
   br label %.loopexit113
 
 135:                                              ; preds = %116
   %136 = load ptr, ptr %58, align 8, !tbaa !15
-  %137 = call i64 @get_files_ref_lock_timeout_ms() #19
-  %138 = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %115, ptr noundef %136, i32 noundef 2, i64 noundef %137, i32 noundef 438) #19
+  %137 = call i64 @get_files_ref_lock_timeout_ms() #20
+  %138 = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %115, ptr noundef %136, i32 noundef 2, i64 noundef %137, i32 noundef 438) #20
   %139 = icmp slt i32 %138, 0
   br i1 %139, label %140, label %147
 
 140:                                              ; preds = %135
-  %141 = tail call ptr @__errno_location() #21
+  %141 = tail call ptr @__errno_location() #22
   %142 = load i32, ptr %141, align 4, !tbaa !16
   store i32 0, ptr %141, align 4, !tbaa !16
   %143 = icmp eq i32 %142, 2
@@ -822,7 +822,7 @@ strbuf_setlen.exit.i.i:                           ; preds = %127, %123
 .thread.i.i:                                      ; preds = %140
   %145 = getelementptr inbounds nuw i8, ptr %112, i64 52
   %146 = load ptr, ptr %58, align 8, !tbaa !15
-  call void @unable_to_lock_message(ptr noundef %146, i32 noundef %142, ptr noundef %2) #19
+  call void @unable_to_lock_message(ptr noundef %146, i32 noundef %142, ptr noundef %2) #20
   br label %.loopexit113
 
 147:                                              ; preds = %135
@@ -845,7 +845,7 @@ strbuf_setlen.exit.i.i:                           ; preds = %127, %123
 
 153:                                              ; preds = %152
   %154 = getelementptr inbounds nuw i8, ptr %112, i64 52
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.37, ptr noundef nonnull %102) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.37, ptr noundef nonnull %102) #20
   br label %.loopexit113
 
 155:                                              ; preds = %150
@@ -854,23 +854,23 @@ strbuf_setlen.exit.i.i:                           ; preds = %127, %123
 
 156:                                              ; preds = %155
   %157 = getelementptr inbounds nuw i8, ptr %112, i64 52
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.37, ptr noundef nonnull %102) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.37, ptr noundef nonnull %102) #20
   br label %.loopexit113
 
 158:                                              ; preds = %155
-  %159 = call i32 @remove_dir_recursively(ptr noundef nonnull %4, i32 noundef 1) #19
+  %159 = call i32 @remove_dir_recursively(ptr noundef nonnull %4, i32 noundef 1) #20
   %.not66.i.i = icmp eq i32 %159, 0
   br i1 %.not66.i.i, label %173, label %160
 
 160:                                              ; preds = %158
   %161 = getelementptr inbounds nuw i8, ptr %112, i64 52
-  %162 = call i32 @refs_verify_refname_available(ptr noundef nonnull %0, ptr noundef nonnull %102, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0, ptr noundef %2) #19
+  %162 = call i32 @refs_verify_refname_available(ptr noundef nonnull %0, ptr noundef nonnull %102, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0, ptr noundef %2) #20
   %.not67.i.i = icmp eq i32 %162, 0
   br i1 %.not67.i.i, label %163, label %.loopexit113
 
 163:                                              ; preds = %160
   %164 = load ptr, ptr %58, align 8, !tbaa !15
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.40, ptr noundef %164, ptr noundef nonnull %102) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.40, ptr noundef %164, ptr noundef nonnull %102) #20
   br label %.loopexit113
 
 165:                                              ; preds = %150
@@ -881,7 +881,7 @@ strbuf_setlen.exit.i.i:                           ; preds = %127, %123
   br i1 %.not64.i.i, label %.loopexit, label %169
 
 169:                                              ; preds = %165
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.41, ptr noundef nonnull %102) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.41, ptr noundef nonnull %102) #20
   br label %.loopexit113
 
 .loopexit.loopexit:                               ; preds = %150
@@ -890,13 +890,13 @@ strbuf_setlen.exit.i.i:                           ; preds = %127, %123
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %165
   %171 = phi ptr [ %170, %.loopexit.loopexit ], [ %166, %165 ]
-  %172 = call ptr @strerror(i32 noundef %151) #19
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.42, ptr noundef nonnull %102, ptr noundef %172) #19
+  %172 = call ptr @strerror(i32 noundef %151) #20
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.42, ptr noundef nonnull %102, ptr noundef %172) #20
   br label %.loopexit113
 
 173:                                              ; preds = %158, %152
   %174 = load ptr, ptr %59, align 8, !tbaa !27
-  %175 = call i32 @refs_verify_refname_available(ptr noundef %174, ptr noundef nonnull %102, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0, ptr noundef %2) #19
+  %175 = call i32 @refs_verify_refname_available(ptr noundef %174, ptr noundef nonnull %102, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0, ptr noundef %2) #20
   %.not69.i.i = icmp eq i32 %175, 0
   br i1 %.not69.i.i, label %186, label %.loopexit113.loopexit
 
@@ -914,27 +914,27 @@ strbuf_setlen.exit.i.i:                           ; preds = %127, %123
   br i1 %.not.i70.i.i, label %180, label %183
 
 180:                                              ; preds = %.loopexit113
-  %181 = call i32 @delete_tempfile(ptr noundef nonnull %115) #19
+  %181 = call i32 @delete_tempfile(ptr noundef nonnull %115) #20
   %182 = load ptr, ptr %112, align 8, !tbaa !55
-  call void @free(ptr noundef %182) #19
-  call void @free(ptr noundef nonnull %112) #19
+  call void @free(ptr noundef %182) #20
+  call void @free(ptr noundef nonnull %112) #20
   br label %183
 
 183:                                              ; preds = %180, %.loopexit113
-  call void @strbuf_release(ptr noundef nonnull %4) #19
+  call void @strbuf_release(ptr noundef nonnull %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %184 = call ptr @strbuf_detach(ptr noundef %2, ptr noundef null) #19
-  %185 = call ptr @ref_update_original_update_refname(ptr noundef %64) #19
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.28, ptr noundef %185, ptr noundef %184) #19
-  call void @free(ptr noundef %184) #19
+  %184 = call ptr @strbuf_detach(ptr noundef %2, ptr noundef null) #20
+  %185 = call ptr @ref_update_original_update_refname(ptr noundef %64) #20
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.28, ptr noundef %185, ptr noundef %184) #20
+  call void @free(ptr noundef %184) #20
   br label %lock_ref_for_update.exit.thread
 
 186:                                              ; preds = %173, %147
-  call void @strbuf_release(ptr noundef nonnull %4) #19
+  call void @strbuf_release(ptr noundef nonnull %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %187 = call ptr @strmap_put(ptr noundef nonnull %101, ptr noundef nonnull %102, ptr noundef nonnull %112) #19
+  %187 = call ptr @strmap_put(ptr noundef nonnull %101, ptr noundef nonnull %102, ptr noundef nonnull %112) #20
   br label %188
 
 188:                                              ; preds = %186, %104
@@ -956,7 +956,7 @@ strbuf_setlen.exit.i.i:                           ; preds = %127, %123
 
 197:                                              ; preds = %193
   %198 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %199 = call ptr @refs_resolve_ref_unsafe(ptr noundef nonnull %0, ptr noundef %196, i32 noundef 0, ptr noundef nonnull %198, ptr noundef null) #19
+  %199 = call ptr @refs_resolve_ref_unsafe(ptr noundef nonnull %0, ptr noundef %196, i32 noundef 0, ptr noundef nonnull %198, ptr noundef null) #20
   %.not117.i = icmp eq ptr %199, null
   br i1 %.not117.i, label %200, label %205
 
@@ -967,8 +967,8 @@ strbuf_setlen.exit.i.i:                           ; preds = %127, %123
   br i1 %.not118.i, label %205, label %203
 
 203:                                              ; preds = %200
-  %204 = call ptr @ref_update_original_update_refname(ptr noundef nonnull %64) #19
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.29, ptr noundef %204) #19
+  %204 = call ptr @ref_update_original_update_refname(ptr noundef nonnull %64) #20
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.29, ptr noundef %204) #20
   br label %lock_ref_for_update.exit.thread
 
 205:                                              ; preds = %200, %197
@@ -979,7 +979,7 @@ strbuf_setlen.exit.i.i:                           ; preds = %127, %123
 
 208:                                              ; preds = %205
   %209 = load ptr, ptr %60, align 8, !tbaa !15
-  %210 = call i32 @ref_update_check_old_target(ptr noundef %209, ptr noundef nonnull %64, ptr noundef %2) #19
+  %210 = call i32 @ref_update_check_old_target(ptr noundef %209, ptr noundef nonnull %64, ptr noundef %2) #20
   %.not121.i = icmp eq i32 %210, 0
   br i1 %.not121.i, label %.loopexit.i, label %lock_ref_for_update.exit.thread
 
@@ -989,13 +989,13 @@ strbuf_setlen.exit.i.i:                           ; preds = %127, %123
   br i1 %.not120.i, label %.loopexit.i, label %lock_ref_for_update.exit.thread
 
 213:                                              ; preds = %193
-  %214 = call i32 @string_list_has_string(ptr noundef nonnull %7, ptr noundef %196) #19
+  %214 = call i32 @string_list_has_string(ptr noundef nonnull %7, ptr noundef %196) #20
   %.not.i139.i = icmp eq i32 %214, 0
   br i1 %.not.i139.i, label %215, label %split_symref_update.exit.i
 
 215:                                              ; preds = %213
   %216 = load i32, ptr %69, align 8, !tbaa !16
-  %217 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(5) @.str.26) #18
+  %217 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(5) @.str.26) #19
   %.not29.i.i = icmp eq i32 %217, 0
   %218 = or i32 %216, 256
   %spec.select.i.i = select i1 %.not29.i.i, i32 %218, i32 %216
@@ -1010,7 +1010,7 @@ strbuf_setlen.exit.i.i:                           ; preds = %127, %123
   %225 = select i1 %.not31.i.i, ptr %224, ptr null
   %226 = getelementptr inbounds nuw i8, ptr %64, i64 112
   %227 = load ptr, ptr %226, align 8, !tbaa !18
-  %228 = call ptr @ref_transaction_add_update(ptr noundef %1, ptr noundef %196, i32 noundef %spec.select.i.i, ptr noundef %221, ptr noundef %225, ptr noundef %220, ptr noundef %223, ptr noundef null, ptr noundef %227) #19
+  %228 = call ptr @ref_transaction_add_update(ptr noundef %1, ptr noundef %196, i32 noundef %spec.select.i.i, ptr noundef %221, ptr noundef %225, ptr noundef %220, ptr noundef %223, ptr noundef null, ptr noundef %227) #20
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 136
   store ptr %64, ptr %229, align 8, !tbaa !45
   %230 = load i32, ptr %69, align 8, !tbaa !16
@@ -1018,14 +1018,14 @@ strbuf_setlen.exit.i.i:                           ; preds = %127, %123
   %232 = or disjoint i32 %231, 129
   store i32 %232, ptr %69, align 8, !tbaa !16
   %233 = getelementptr inbounds nuw i8, ptr %228, i64 144
-  %234 = call ptr @string_list_insert(ptr noundef nonnull %7, ptr noundef nonnull %233) #19
+  %234 = call ptr @string_list_insert(ptr noundef nonnull %7, ptr noundef nonnull %233) #20
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
   %236 = load ptr, ptr %235, align 8, !tbaa !47
   %.not32.i.i = icmp eq ptr %236, null
   br i1 %.not32.i.i, label %split_symref_update.exit.thread.i, label %237
 
 237:                                              ; preds = %215
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 2507, ptr noundef nonnull @.str.47, ptr noundef nonnull %233) #20
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 2507, ptr noundef nonnull @.str.47, ptr noundef nonnull %233) #21
   unreachable
 
 split_symref_update.exit.thread.i:                ; preds = %215
@@ -1033,7 +1033,7 @@ split_symref_update.exit.thread.i:                ; preds = %215
   br label %.loopexit.i
 
 split_symref_update.exit.i:                       ; preds = %213
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.46, ptr noundef %196, ptr noundef nonnull %102) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.46, ptr noundef %196, ptr noundef nonnull %102) #20
   br label %lock_ref_for_update.exit.thread
 
 238:                                              ; preds = %188
@@ -1049,14 +1049,14 @@ split_symref_update.exit.i:                       ; preds = %213
   br i1 %.not4.i.i, label %_.exit.i, label %244
 
 244:                                              ; preds = %241
-  %245 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.30, i32 noundef 5) #19
+  %245 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.30, i32 noundef 5) #20
   br label %_.exit.i
 
 _.exit.i:                                         ; preds = %244, %241
   %.0.i140.i = phi ptr [ %245, %244 ], [ @.str.30, %241 ]
-  %246 = call ptr @ref_update_original_update_refname(ptr noundef nonnull %64) #19
+  %246 = call ptr @ref_update_original_update_refname(ptr noundef nonnull %64) #20
   %247 = load ptr, ptr %242, align 8, !tbaa !18
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef %.0.i140.i, ptr noundef %246, ptr noundef %247) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef %.0.i140.i, ptr noundef %246, ptr noundef %247) #20
   br label %lock_ref_for_update.exit.thread
 
 248:                                              ; preds = %238
@@ -1102,14 +1102,14 @@ _.exit.i:                                         ; preds = %244, %241
 261:                                              ; preds = %.loopexit.i
   %262 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %.val.i141.i = load ptr, ptr %262, align 8, !tbaa !59
-  %263 = call ptr @fdopen_tempfile(ptr noundef %.val.i141.i, ptr noundef nonnull @.str.49) #19
+  %263 = call ptr @fdopen_tempfile(ptr noundef %.val.i141.i, ptr noundef nonnull @.str.49) #20
   %.not.i142.i = icmp eq ptr %263, null
   %.val7.i.i = load ptr, ptr %262, align 8, !tbaa !59
   br i1 %.not.i142.i, label %create_symref_lock.exit.i, label %264
 
 264:                                              ; preds = %261
-  %265 = call ptr @get_tempfile_fp(ptr noundef %.val7.i.i) #19
-  %266 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %265, ptr noundef nonnull @.str.51, ptr noundef nonnull %259) #19
+  %265 = call ptr @get_tempfile_fp(ptr noundef %.val7.i.i) #20
+  %266 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %265, ptr noundef nonnull @.str.51, ptr noundef nonnull %259) #20
   %267 = icmp slt i32 %266, 0
   %.val8.i.i = load ptr, ptr %262, align 8, !tbaa !59
   br i1 %267, label %create_symref_lock.exit.i, label %272
@@ -1117,20 +1117,20 @@ _.exit.i:                                         ; preds = %244, %241
 create_symref_lock.exit.i:                        ; preds = %264, %261
   %.val8.sink.i.i = phi ptr [ %.val7.i.i, %261 ], [ %.val8.i.i, %264 ]
   %.str.52.sink.i.i = phi ptr [ @.str.50, %261 ], [ @.str.52, %264 ]
-  %268 = call ptr @get_tempfile_path(ptr noundef %.val8.sink.i.i) #19
-  %269 = tail call ptr @__errno_location() #21
+  %268 = call ptr @get_tempfile_path(ptr noundef %.val8.sink.i.i) #20
+  %269 = tail call ptr @__errno_location() #22
   %270 = load i32, ptr %269, align 4, !tbaa !16
-  %271 = call ptr @strerror(i32 noundef %270) #19
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull %.str.52.sink.i.i, ptr noundef %268, ptr noundef %271) #19
+  %271 = call ptr @strerror(i32 noundef %270) #20
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull %.str.52.sink.i.i, ptr noundef %268, ptr noundef %271) #20
   br label %lock_ref_for_update.exit.thread
 
 272:                                              ; preds = %264
-  %273 = call i32 @close_tempfile_gently(ptr noundef %.val8.i.i) #19
+  %273 = call i32 @close_tempfile_gently(ptr noundef %.val8.i.i) #20
   %.not.i144.not.i = icmp eq i32 %273, 0
   br i1 %.not.i144.not.i, label %.sink.split.i, label %274
 
 274:                                              ; preds = %272
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.31, ptr noundef nonnull %102) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.31, ptr noundef nonnull %102) #20
   br label %lock_ref_for_update.exit.thread
 
 275:                                              ; preds = %.loopexit.i
@@ -1158,10 +1158,10 @@ create_symref_lock.exit.i:                        ; preds = %264, %261
 
 285:                                              ; preds = %282
   %286 = getelementptr inbounds nuw i8, ptr %64, i64 96
-  %287 = call ptr @strbuf_detach(ptr noundef %2, ptr noundef null) #19
+  %287 = call ptr @strbuf_detach(ptr noundef %2, ptr noundef null) #20
   store ptr null, ptr %286, align 8, !tbaa !56
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.32, ptr noundef nonnull %102, ptr noundef %287) #19
-  call void @free(ptr noundef %287) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.32, ptr noundef nonnull %102, ptr noundef %287) #20
+  call void @free(ptr noundef %287) #20
   br label %lock_ref_for_update.exit.thread
 
 .sink.split.i:                                    ; preds = %282, %272
@@ -1179,22 +1179,22 @@ create_symref_lock.exit.i:                        ; preds = %264, %261
 293:                                              ; preds = %290
   %294 = getelementptr i8, ptr %.0.i, i64 8
   %.val137.i = load ptr, ptr %294, align 8, !tbaa !59
-  %295 = call i32 @close_tempfile_gently(ptr noundef %.val137.i) #19
+  %295 = call i32 @close_tempfile_gently(ptr noundef %.val137.i) #20
   %.not.i146.not.i = icmp eq i32 %295, 0
   br i1 %.not.i146.not.i, label %297, label %296
 
 296:                                              ; preds = %293
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.31, ptr noundef nonnull %102) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.31, ptr noundef nonnull %102) #20
   br label %lock_ref_for_update.exit.thread
 
 lock_ref_for_update.exit.thread:                  ; preds = %211, %208, %248, %split_head_update.exit.i, %296, %285, %274, %203, %split_symref_update.exit.i, %183, %create_symref_lock.exit.i, %_.exit.i
   %.1.i.ph = phi i32 [ -3, %_.exit.i ], [ -3, %create_symref_lock.exit.i ], [ %.055.i.i, %183 ], [ -1, %split_symref_update.exit.i ], [ -3, %203 ], [ -3, %274 ], [ -3, %285 ], [ -3, %296 ], [ -1, %split_head_update.exit.i ], [ %212, %211 ], [ -3, %208 ], [ %250, %248 ]
-  call void @strbuf_release(ptr noundef nonnull %6) #19
+  call void @strbuf_release(ptr noundef nonnull %6) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %select.unfold
 
 297:                                              ; preds = %293, %290
-  call void @strbuf_release(ptr noundef nonnull %6) #19
+  call void @strbuf_release(ptr noundef nonnull %6) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %298 = load i32, ptr %69, align 8, !tbaa !16
   %299 = and i32 %298, 176
@@ -1208,7 +1208,7 @@ lock_ref_for_update.exit.thread:                  ; preds = %211, %208, %248, %s
 301:                                              ; preds = %300
   %302 = load ptr, ptr %59, align 8, !tbaa !27
   %303 = load i32, ptr %17, align 8, !tbaa !39
-  %304 = call ptr @ref_store_transaction_begin(ptr noundef %302, i32 noundef %303, ptr noundef %2) #19
+  %304 = call ptr @ref_store_transaction_begin(ptr noundef %302, i32 noundef %303, ptr noundef %2) #20
   %.not97 = icmp eq ptr %304, null
   br i1 %.not97, label %select.unfold, label %305
 
@@ -1218,7 +1218,7 @@ lock_ref_for_update.exit.thread:                  ; preds = %211, %208, %248, %s
 
 306:                                              ; preds = %305, %300
   %.3 = phi ptr [ %.070285, %300 ], [ %304, %305 ]
-  %307 = call ptr @ref_transaction_add_update(ptr noundef nonnull %.3, ptr noundef nonnull %102, i32 noundef 5, ptr noundef nonnull %64, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #19
+  %307 = call ptr @ref_transaction_add_update(ptr noundef nonnull %.3, ptr noundef nonnull %102, i32 noundef 5, ptr noundef nonnull %64, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #20
   br label %308
 
 308:                                              ; preds = %306, %297
@@ -1235,7 +1235,7 @@ lock_ref_for_update.exit.thread:                  ; preds = %211, %208, %248, %s
 312:                                              ; preds = %._crit_edge289
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %314 = load ptr, ptr %313, align 8, !tbaa !27
-  %315 = call i32 @packed_refs_lock(ptr noundef %314, i32 noundef 0, ptr noundef %2) #19
+  %315 = call i32 @packed_refs_lock(ptr noundef %314, i32 noundef 0, ptr noundef %2) #20
   %.not88 = icmp eq i32 %315, 0
   br i1 %.not88, label %316, label %select.unfold
 
@@ -1243,23 +1243,23 @@ lock_ref_for_update.exit.thread:                  ; preds = %211, %208, %248, %s
   %317 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 1, ptr %317, align 8, !tbaa !68
   %318 = load ptr, ptr %313, align 8, !tbaa !27
-  %319 = call i32 @is_packed_transaction_needed(ptr noundef %318, ptr noundef nonnull %.171.ph) #19
+  %319 = call i32 @is_packed_transaction_needed(ptr noundef %318, ptr noundef nonnull %.171.ph) #20
   %.not89 = icmp eq i32 %319, 0
   br i1 %.not89, label %323, label %320
 
 320:                                              ; preds = %316
-  %321 = call i32 @ref_transaction_prepare(ptr noundef nonnull %.171.ph, ptr noundef %2) #19
+  %321 = call i32 @ref_transaction_prepare(ptr noundef nonnull %.171.ph, ptr noundef %2) #20
   %.not91 = icmp eq i32 %321, 0
   br i1 %.not91, label %select.unfold, label %322
 
 322:                                              ; preds = %320
-  call void @ref_transaction_free(ptr noundef nonnull %.171.ph) #19
+  call void @ref_transaction_free(ptr noundef nonnull %.171.ph) #20
   store ptr null, ptr %24, align 8, !tbaa !60
   br label %select.unfold
 
 323:                                              ; preds = %316
   store ptr null, ptr %24, align 8, !tbaa !60
-  %324 = call i32 @ref_transaction_abort(ptr noundef nonnull %.171.ph, ptr noundef %2) #19
+  %324 = call i32 @ref_transaction_abort(ptr noundef nonnull %.171.ph, ptr noundef %2) #20
   %.not90 = icmp eq i32 %324, 0
   %spec.select = select i1 %.not90, i32 0, i32 -3
   br label %select.unfold
@@ -1267,8 +1267,8 @@ lock_ref_for_update.exit.thread:                  ; preds = %211, %208, %248, %s
 select.unfold:                                    ; preds = %301, %323, %55, %lock_ref_for_update.exit.thread, %312, %._crit_edge, %._crit_edge289, %320, %322, %20, %files_downcast.exit
   %.073 = phi ptr [ null, %files_downcast.exit ], [ %.174, %322 ], [ %.174, %320 ], [ %.174, %._crit_edge289 ], [ null, %20 ], [ null, %._crit_edge ], [ %.174, %312 ], [ %.174, %lock_ref_for_update.exit.thread ], [ %.174, %55 ], [ %.174, %323 ], [ %.174, %301 ]
   %.068 = phi i32 [ 0, %files_downcast.exit ], [ %321, %322 ], [ 0, %320 ], [ 0, %._crit_edge289 ], [ 0, %20 ], [ -3, %._crit_edge ], [ -3, %312 ], [ %.1.i.ph, %lock_ref_for_update.exit.thread ], [ 0, %55 ], [ %spec.select, %323 ], [ -3, %301 ]
-  call void @free(ptr noundef %.073) #19
-  call void @string_list_clear(ptr noundef nonnull %7, i32 noundef 0) #19
+  call void @free(ptr noundef %.073) #20
+  call void @string_list_clear(ptr noundef nonnull %7, i32 noundef 0) #20
   %.not101 = icmp eq i32 %.068, 0
   br i1 %.not101, label %326, label %325
 
@@ -1297,7 +1297,7 @@ define internal i32 @files_transaction_finish(ptr noundef %0, ptr noundef captur
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %6, align 8, !tbaa !30
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %8, ptr noundef nonnull @.str.57) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %8, ptr noundef nonnull @.str.57) #21
   unreachable
 
 files_downcast.exit:                              ; preds = %3
@@ -1328,7 +1328,7 @@ files_downcast.exit:                              ; preds = %3
   br label %19
 
 18:                                               ; preds = %12
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 3045, ptr noundef nonnull @.str.59) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 3045, ptr noundef nonnull @.str.59) #21
   unreachable
 
 19:                                               ; preds = %30, %.lr.ph.i
@@ -1345,7 +1345,7 @@ files_downcast.exit:                              ; preds = %3
 
 27:                                               ; preds = %19
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 144
-  %29 = call ptr @string_list_append(ptr noundef nonnull %4, ptr noundef nonnull %28) #19
+  %29 = call ptr @string_list_append(ptr noundef nonnull %4, ptr noundef nonnull %28) #20
   %.pre.i = load i64, ptr %15, align 8, !tbaa !42
   br label %30
 
@@ -1356,25 +1356,25 @@ files_downcast.exit:                              ; preds = %3
   br i1 %33, label %19, label %._crit_edge.i, !llvm.loop !70
 
 ._crit_edge.i:                                    ; preds = %30, %.preheader135.i
-  call void @string_list_sort(ptr noundef nonnull %4) #19
-  %34 = call i32 @ref_update_reject_duplicates(ptr noundef nonnull %4, ptr noundef %2) #19
+  call void @string_list_sort(ptr noundef nonnull %4) #20
+  %34 = call i32 @ref_update_reject_duplicates(ptr noundef nonnull %4, ptr noundef %2) #20
   %.not81.i = icmp eq i32 %34, 0
   br i1 %.not81.i, label %35, label %files_transaction_finish_initial.exit
 
 35:                                               ; preds = %._crit_edge.i
-  %36 = call i32 @refs_for_each_rawref(ptr noundef nonnull %0, ptr noundef nonnull @ref_present, ptr noundef nonnull %4) #19
+  %36 = call i32 @refs_for_each_rawref(ptr noundef nonnull %0, ptr noundef nonnull @ref_present, ptr noundef nonnull %4) #20
   %.not82.i = icmp eq i32 %36, 0
   br i1 %.not82.i, label %38, label %37
 
 37:                                               ; preds = %35
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 3072, ptr noundef nonnull @.str.60) #20
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 3072, ptr noundef nonnull @.str.60) #21
   unreachable
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %40 = load ptr, ptr %39, align 8, !tbaa !27
   %41 = load i32, ptr %9, align 8, !tbaa !39
-  %42 = call ptr @ref_store_transaction_begin(ptr noundef %40, i32 noundef %41, ptr noundef %2) #19
+  %42 = call ptr @ref_store_transaction_begin(ptr noundef %40, i32 noundef %41, ptr noundef %2) #20
   %.not83.i = icmp eq ptr %42, null
   br i1 %.not83.i, label %files_transaction_finish_initial.exit, label %.preheader.i
 
@@ -1406,12 +1406,12 @@ files_downcast.exit:                              ; preds = %3
   br i1 %.not.i.not.i, label %55, label %54
 
 54:                                               ; preds = %52
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 3086, ptr noundef nonnull @.str.61) #20
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 3086, ptr noundef nonnull @.str.61) #21
   unreachable
 
 55:                                               ; preds = %52, %45
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 144
-  %57 = call i32 @refs_verify_refname_available(ptr noundef nonnull %0, ptr noundef nonnull %56, ptr noundef nonnull %4, ptr noundef null, i32 noundef 1, ptr noundef %2) #19
+  %57 = call i32 @refs_verify_refname_available(ptr noundef nonnull %0, ptr noundef nonnull %56, ptr noundef nonnull %4, ptr noundef null, i32 noundef 1, ptr noundef %2) #20
   %.not91.i = icmp eq i32 %57, 0
   br i1 %.not91.i, label %58, label %.loopexit.i
 
@@ -1422,7 +1422,7 @@ files_downcast.exit:                              ; preds = %3
   br i1 %.not92.i, label %61, label %66
 
 61:                                               ; preds = %58
-  %62 = call i32 @is_root_ref(ptr noundef nonnull %56) #19
+  %62 = call i32 @is_root_ref(ptr noundef nonnull %56) #20
   %.not93.i = icmp eq i32 %62, 0
   br i1 %.not93.i, label %63, label %66
 
@@ -1437,7 +1437,7 @@ files_downcast.exit:                              ; preds = %3
   br i1 %.not95.i, label %67, label %69
 
 67:                                               ; preds = %66
-  %68 = call ptr @ref_store_transaction_begin(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %2) #19
+  %68 = call ptr @ref_store_transaction_begin(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %2) #20
   %.not96.i = icmp eq ptr %68, null
   br i1 %.not96.i, label %.thread108.thread129.i, label %69
 
@@ -1454,7 +1454,7 @@ files_downcast.exit:                              ; preds = %3
   %75 = load ptr, ptr %74, align 8, !tbaa !18
   %76 = getelementptr inbounds nuw i8, ptr %48, i64 112
   %77 = load ptr, ptr %76, align 8, !tbaa !18
-  %78 = call ptr @ref_transaction_add_update(ptr noundef nonnull %.3.i, ptr noundef nonnull %56, i32 noundef %70, ptr noundef nonnull %48, ptr noundef nonnull %73, ptr noundef null, ptr noundef null, ptr noundef %75, ptr noundef %77) #19
+  %78 = call ptr @ref_transaction_add_update(ptr noundef nonnull %.3.i, ptr noundef nonnull %56, i32 noundef %70, ptr noundef nonnull %48, ptr noundef nonnull %73, ptr noundef null, ptr noundef null, ptr noundef %75, ptr noundef %77) #20
   br label %92
 
 79:                                               ; preds = %69
@@ -1464,7 +1464,7 @@ files_downcast.exit:                              ; preds = %3
   %82 = select i1 %.not98.i, ptr %48, ptr null
   %83 = getelementptr inbounds nuw i8, ptr %48, i64 120
   %84 = load ptr, ptr %83, align 8, !tbaa !18
-  %85 = call ptr @ref_transaction_add_update(ptr noundef nonnull %.3.i, ptr noundef nonnull %56, i32 noundef %80, ptr noundef %82, ptr noundef null, ptr noundef %81, ptr noundef null, ptr noundef %84, ptr noundef null) #19
+  %85 = call ptr @ref_transaction_add_update(ptr noundef nonnull %.3.i, ptr noundef nonnull %56, i32 noundef %80, ptr noundef %82, ptr noundef null, ptr noundef %81, ptr noundef null, ptr noundef %84, ptr noundef null) #20
   br label %92
 
 86:                                               ; preds = %63
@@ -1472,7 +1472,7 @@ files_downcast.exit:                              ; preds = %3
   %88 = getelementptr inbounds nuw i8, ptr %48, i64 36
   %89 = getelementptr inbounds nuw i8, ptr %48, i64 120
   %90 = load ptr, ptr %89, align 8, !tbaa !18
-  %91 = call ptr @ref_transaction_add_update(ptr noundef nonnull %42, ptr noundef nonnull %56, i32 noundef %87, ptr noundef nonnull %48, ptr noundef nonnull %88, ptr noundef null, ptr noundef null, ptr noundef %90, ptr noundef null) #19
+  %91 = call ptr @ref_transaction_add_update(ptr noundef nonnull %42, ptr noundef nonnull %56, i32 noundef %87, ptr noundef nonnull %48, ptr noundef nonnull %88, ptr noundef null, ptr noundef null, ptr noundef %90, ptr noundef null) #20
   br label %92
 
 92:                                               ; preds = %86, %79, %72
@@ -1485,28 +1485,28 @@ files_downcast.exit:                              ; preds = %3
 ._crit_edge145.i:                                 ; preds = %92, %.preheader.i
   %.1.lcssa.i = phi ptr [ null, %.preheader.i ], [ %.2.ph.i, %92 ]
   %96 = load ptr, ptr %39, align 8, !tbaa !27
-  %97 = call i32 @packed_refs_lock(ptr noundef %96, i32 noundef 0, ptr noundef %2) #19
+  %97 = call i32 @packed_refs_lock(ptr noundef %96, i32 noundef 0, ptr noundef %2) #20
   %.not84.i = icmp eq i32 %97, 0
   br i1 %.not84.i, label %98, label %.loopexit.i
 
 98:                                               ; preds = %._crit_edge145.i
-  %99 = call i32 @ref_transaction_commit(ptr noundef nonnull %42, ptr noundef %2) #19
+  %99 = call i32 @ref_transaction_commit(ptr noundef nonnull %42, ptr noundef %2) #20
   %.not85.i = icmp eq i32 %99, 0
   br i1 %.not85.i, label %100, label %.loopexit.i
 
 100:                                              ; preds = %98
   %101 = load ptr, ptr %39, align 8, !tbaa !27
-  call void @packed_refs_unlock(ptr noundef %101) #19
+  call void @packed_refs_unlock(ptr noundef %101) #20
   %.not86.i = icmp eq ptr %.1.lcssa.i, null
   br i1 %.not86.i, label %.thread108.thread129.i, label %102
 
 102:                                              ; preds = %100
-  %103 = call i32 @ref_transaction_prepare(ptr noundef nonnull %.1.lcssa.i, ptr noundef %2) #19
+  %103 = call i32 @ref_transaction_prepare(ptr noundef nonnull %.1.lcssa.i, ptr noundef %2) #20
   %.not87.i = icmp eq i32 %103, 0
   br i1 %.not87.i, label %104, label %106
 
 104:                                              ; preds = %102
-  %105 = call i32 @ref_transaction_commit(ptr noundef nonnull %.1.lcssa.i, ptr noundef %2) #19
+  %105 = call i32 @ref_transaction_commit(ptr noundef nonnull %.1.lcssa.i, ptr noundef %2) #20
   %.not88.i = icmp eq i32 %105, 0
   br i1 %.not88.i, label %.thread117.i, label %106
 
@@ -1522,18 +1522,18 @@ files_downcast.exit:                              ; preds = %3
 .thread117.i:                                     ; preds = %.loopexit.i, %106, %104
   %.1139.i = phi ptr [ %.1140.i, %.loopexit.i ], [ %.1.lcssa.i, %104 ], [ %.1.lcssa.i, %106 ]
   %.072122.i = phi i32 [ %.072.i, %.loopexit.i ], [ 0, %104 ], [ -3, %106 ]
-  call void @ref_transaction_free(ptr noundef nonnull %.1139.i) #19
+  call void @ref_transaction_free(ptr noundef nonnull %.1139.i) #20
   br label %.thread108.thread129.i
 
 .thread108.thread129.i:                           ; preds = %67, %.thread117.i, %.loopexit.i, %100
   %.072113134.i = phi i32 [ 0, %100 ], [ %.072122.i, %.thread117.i ], [ %.072.i, %.loopexit.i ], [ -3, %67 ]
-  call void @ref_transaction_free(ptr noundef nonnull %42) #19
+  call void @ref_transaction_free(ptr noundef nonnull %42) #20
   br label %files_transaction_finish_initial.exit
 
 files_transaction_finish_initial.exit:            ; preds = %._crit_edge.i, %38, %.thread108.thread129.i
   %.072113128.i = phi i32 [ %.072113134.i, %.thread108.thread129.i ], [ -3, %38 ], [ -3, %._crit_edge.i ]
   store i32 2, ptr %13, align 8, !tbaa !69
-  call void @string_list_clear(ptr noundef nonnull %4, i32 noundef 0) #19
+  call void @string_list_clear(ptr noundef nonnull %4, i32 noundef 0) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %256
 
@@ -1587,7 +1587,7 @@ files_transaction_finish_initial.exit:            ; preds = %._crit_edge.i, %38,
   br i1 %.not.i115, label %135, label %133
 
 133:                                              ; preds = %130
-  %134 = tail call ptr @refs_resolve_ref_unsafe(ptr noundef nonnull %0, ptr noundef nonnull %132, i32 noundef 1, ptr noundef nonnull %124, ptr noundef null) #19
+  %134 = tail call ptr @refs_resolve_ref_unsafe(ptr noundef nonnull %0, ptr noundef nonnull %132, i32 noundef 1, ptr noundef nonnull %124, ptr noundef null) #20
   %.not20.i = icmp eq ptr %134, null
   br i1 %.not20.i, label %parse_and_write_reflog.exit.thread, label %._crit_edge163
 
@@ -1609,10 +1609,10 @@ files_transaction_finish_initial.exit:            ; preds = %._crit_edge.i, %38,
 
 144:                                              ; preds = %135
   %145 = getelementptr inbounds nuw i8, ptr %124, i64 96
-  %146 = tail call ptr @strbuf_detach(ptr noundef %2, ptr noundef null) #19
+  %146 = tail call ptr @strbuf_detach(ptr noundef %2, ptr noundef null) #20
   %147 = load ptr, ptr %126, align 8, !tbaa !55
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.62, ptr noundef %147, ptr noundef %146) #19
-  tail call void @free(ptr noundef %146) #19
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.62, ptr noundef %147, ptr noundef %146) #20
+  tail call void @free(ptr noundef %146) #20
   %148 = getelementptr inbounds nuw i8, ptr %126, i64 52
   %149 = load i32, ptr %148, align 4, !tbaa !50
   %150 = add i32 %149, -1
@@ -1622,10 +1622,10 @@ files_transaction_finish_initial.exit:            ; preds = %._crit_edge.i, %38,
 
 151:                                              ; preds = %144
   %152 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %153 = tail call i32 @delete_tempfile(ptr noundef nonnull %152) #19
+  %153 = tail call i32 @delete_tempfile(ptr noundef nonnull %152) #20
   %154 = load ptr, ptr %126, align 8, !tbaa !55
-  tail call void @free(ptr noundef %154) #19
-  tail call void @free(ptr noundef nonnull %126) #19
+  tail call void @free(ptr noundef %154) #20
+  tail call void @free(ptr noundef nonnull %126) #20
   br label %parse_and_write_reflog.exit
 
 parse_and_write_reflog.exit:                      ; preds = %144, %151
@@ -1645,16 +1645,16 @@ parse_and_write_reflog.exit.thread:               ; preds = %135, %133, %121
 
 159:                                              ; preds = %157
   %160 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %161 = tail call ptr @get_locked_file_path(ptr noundef nonnull %160) #19
-  %162 = tail call i32 @unlink(ptr noundef %161) #19
-  %163 = tail call i32 @symlink(ptr noundef nonnull %156, ptr noundef %161) #19
-  tail call void @free(ptr noundef %161) #19
+  %161 = tail call ptr @get_locked_file_path(ptr noundef nonnull %160) #20
+  %162 = tail call i32 @unlink(ptr noundef %161) #20
+  %163 = tail call i32 @symlink(ptr noundef nonnull %156, ptr noundef %161) #20
+  tail call void @free(ptr noundef %161) #20
   %.not.i116 = icmp eq i32 %163, 0
   br i1 %.not.i116, label %create_ref_symlink.exit.thread, label %create_ref_symlink.exit
 
 create_ref_symlink.exit:                          ; preds = %159
   %164 = load ptr, ptr @stderr, align 8, !tbaa !73
-  %165 = tail call i64 @fwrite(ptr nonnull @.str.68, i64 42, i64 1, ptr %164) #22
+  %165 = tail call i64 @fwrite(ptr nonnull @.str.68, i64 42, i64 1, ptr %164) #23
   br label %166
 
 166:                                              ; preds = %create_ref_symlink.exit, %157, %parse_and_write_reflog.exit.thread
@@ -1669,7 +1669,7 @@ create_ref_symlink.exit:                          ; preds = %159
   br i1 %.not.i117, label %clear_loose_ref_cache.exit, label %171
 
 171:                                              ; preds = %169
-  tail call void @free_ref_cache(ptr noundef nonnull %170) #19
+  tail call void @free_ref_cache(ptr noundef nonnull %170) #20
   store ptr null, ptr %117, align 8, !tbaa !32
   br label %clear_loose_ref_cache.exit
 
@@ -1681,7 +1681,7 @@ clear_loose_ref_cache.exit:                       ; preds = %169, %171
 173:                                              ; preds = %clear_loose_ref_cache.exit
   %174 = getelementptr inbounds nuw i8, ptr %124, i64 96
   %175 = load ptr, ptr %126, align 8, !tbaa !55
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.58, ptr noundef %175) #19
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.58, ptr noundef %175) #20
   %176 = getelementptr inbounds nuw i8, ptr %126, i64 52
   %177 = load i32, ptr %176, align 4, !tbaa !50
   %178 = add i32 %177, -1
@@ -1691,10 +1691,10 @@ clear_loose_ref_cache.exit:                       ; preds = %169, %171
 
 179:                                              ; preds = %173
   %180 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %181 = tail call i32 @delete_tempfile(ptr noundef nonnull %180) #19
+  %181 = tail call i32 @delete_tempfile(ptr noundef nonnull %180) #20
   %182 = load ptr, ptr %126, align 8, !tbaa !55
-  tail call void @free(ptr noundef %182) #19
-  tail call void @free(ptr noundef nonnull %126) #19
+  tail call void @free(ptr noundef %182) #20
+  tail call void @free(ptr noundef nonnull %126) #20
   br label %unlock_ref.exit
 
 unlock_ref.exit:                                  ; preds = %173, %179
@@ -1732,7 +1732,7 @@ strbuf_setlen.exit:                               ; preds = %193, %195
   %196 = getelementptr inbounds nuw i8, ptr %189, i64 144
   call fastcc void @files_reflog_path(ptr noundef nonnull %0, ptr noundef %5, ptr noundef nonnull %196)
   %197 = load ptr, ptr %120, align 8, !tbaa !15
-  %198 = call i32 @unlink_or_warn(ptr noundef %197) #19
+  %198 = call i32 @unlink_or_warn(ptr noundef %197) #20
   %.not100 = icmp eq i32 %198, 0
   br i1 %.not100, label %199, label %200
 
@@ -1752,8 +1752,8 @@ strbuf_setlen.exit:                               ; preds = %193, %195
   br i1 %.not90, label %207, label %205
 
 205:                                              ; preds = %._crit_edge
-  %206 = call i32 @ref_transaction_commit(ptr noundef nonnull %114, ptr noundef %2) #19
-  call void @ref_transaction_free(ptr noundef nonnull %114) #19
+  %206 = call i32 @ref_transaction_commit(ptr noundef nonnull %114, ptr noundef %2) #20
+  call void @ref_transaction_free(ptr noundef nonnull %114) #20
   store ptr null, ptr %113, align 8, !tbaa !60
   %.not91 = icmp eq i32 %206, 0
   br i1 %.not91, label %._crit_edge164, label %clear_loose_ref_cache.exit123
@@ -1810,7 +1810,7 @@ strbuf_setlen.exit121:                            ; preds = %227, %229
   %230 = load ptr, ptr %218, align 8, !tbaa !55
   call fastcc void @files_ref_path(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %230)
   %231 = load ptr, ptr %211, align 8, !tbaa !15
-  %232 = call i32 @unlink_or_msg(ptr noundef %231, ptr noundef %2) #19
+  %232 = call i32 @unlink_or_msg(ptr noundef %231, ptr noundef %2) #20
   %.not96 = icmp eq i32 %232, 0
   br i1 %.not96, label %strbuf_setlen.exit121._crit_edge, label %clear_loose_ref_cache.exit123
 
@@ -1831,7 +1831,7 @@ strbuf_setlen.exit121._crit_edge:                 ; preds = %strbuf_setlen.exit1
   br i1 %.not.i122, label %clear_loose_ref_cache.exit123, label %239
 
 239:                                              ; preds = %._crit_edge147
-  call void @free_ref_cache(ptr noundef nonnull %238) #19
+  call void @free_ref_cache(ptr noundef nonnull %238) #20
   store ptr null, ptr %237, align 8, !tbaa !32
   br label %clear_loose_ref_cache.exit123
 
@@ -1871,7 +1871,7 @@ clear_loose_ref_cache.exit123:                    ; preds = %strbuf_setlen.exit1
   br i1 %255, label %242, label %._crit_edge150, !llvm.loop !78
 
 ._crit_edge150:                                   ; preds = %252, %clear_loose_ref_cache.exit123
-  call void @strbuf_release(ptr noundef nonnull %5) #19
+  call void @strbuf_release(ptr noundef nonnull %5) #20
   br label %256
 
 256:                                              ; preds = %._crit_edge150, %110, %files_transaction_finish_initial.exit
@@ -1888,7 +1888,7 @@ define internal noundef i32 @files_transaction_abort(ptr noundef readonly captur
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %4, align 8, !tbaa !30
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %6, ptr noundef nonnull @.str.71) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %6, ptr noundef nonnull @.str.71) #21
   unreachable
 
 files_downcast.exit:                              ; preds = %3
@@ -1907,7 +1907,7 @@ define internal range(i32 -1, 1) i32 @files_pack_refs(ptr noundef %0, ptr nounde
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %6, align 8, !tbaa !30
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %8, ptr noundef nonnull @.str.72) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %8, ptr noundef nonnull @.str.72) #21
   unreachable
 
 9:                                                ; preds = %2
@@ -1918,7 +1918,7 @@ define internal range(i32 -1, 1) i32 @files_pack_refs(ptr noundef %0, ptr nounde
   br i1 %.not11.i, label %files_downcast.exit, label %13
 
 13:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.72, i32 noundef 6, i32 noundef %11) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.72, i32 noundef 6, i32 noundef %11) #21
   unreachable
 
 files_downcast.exit:                              ; preds = %9
@@ -1933,12 +1933,12 @@ files_downcast.exit:                              ; preds = %9
 16:                                               ; preds = %files_downcast.exit
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8, !tbaa !27
-  %19 = call i32 @packed_refs_size(ptr noundef %18, ptr noundef nonnull %4) #19
+  %19 = call i32 @packed_refs_size(ptr noundef %18, ptr noundef nonnull %4) #20
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %16
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.76) #20
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.76) #21
   unreachable
 
 22:                                               ; preds = %16
@@ -1965,7 +1965,7 @@ log2u.exit.i:                                     ; preds = %.preheader.preheade
   br i1 %.not.i22.i, label %34, label %get_loose_ref_cache.exit.i
 
 34:                                               ; preds = %log2u.exit.i
-  %35 = call ptr @create_ref_cache(ptr noundef nonnull %0, ptr noundef nonnull @loose_fill_ref_dir) #19
+  %35 = call ptr @create_ref_cache(ptr noundef nonnull %0, ptr noundef nonnull @loose_fill_ref_dir) #20
   store ptr %35, ptr %32, align 8, !tbaa !32
   %36 = load ptr, ptr %35, align 8, !tbaa !84
   %37 = load i8, ptr %36, align 8, !tbaa !4
@@ -1973,10 +1973,10 @@ log2u.exit.i:                                     ; preds = %.preheader.preheade
   store i8 %38, ptr %36, align 8, !tbaa !4
   %39 = load ptr, ptr %32, align 8, !tbaa !32
   %40 = load ptr, ptr %39, align 8, !tbaa !84
-  %41 = call ptr @get_ref_dir(ptr noundef %40) #19
+  %41 = call ptr @get_ref_dir(ptr noundef %40) #20
   %42 = load ptr, ptr %32, align 8, !tbaa !32
-  %43 = call ptr @create_dir_entry(ptr noundef %42, ptr noundef nonnull @.str.77, i64 noundef 5) #19
-  call void @add_entry_to_dir(ptr noundef %41, ptr noundef %43) #19
+  %43 = call ptr @create_dir_entry(ptr noundef %42, ptr noundef nonnull @.str.77, i64 noundef 5) #20
+  call void @add_entry_to_dir(ptr noundef %41, ptr noundef %43) #20
   %.pre.i.i = load ptr, ptr %32, align 8, !tbaa !32
   br label %get_loose_ref_cache.exit.i
 
@@ -1984,7 +1984,7 @@ get_loose_ref_cache.exit.i:                       ; preds = %34, %log2u.exit.i
   %44 = phi ptr [ %.pre.i.i, %34 ], [ %33, %log2u.exit.i ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !87
-  %47 = call ptr @cache_ref_iterator_begin(ptr noundef %44, ptr noundef null, ptr noundef %46, i32 noundef 0) #19
+  %47 = call ptr @cache_ref_iterator_begin(ptr noundef %44, ptr noundef null, ptr noundef %46, i32 noundef 0) #20
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 32
@@ -1992,7 +1992,7 @@ get_loose_ref_cache.exit.i:                       ; preds = %34, %log2u.exit.i
 
 51:                                               ; preds = %53, %get_loose_ref_cache.exit.i
   %.0.i = phi i64 [ 0, %get_loose_ref_cache.exit.i ], [ %spec.select.i, %53 ]
-  %52 = call i32 @ref_iterator_advance(ptr noundef %47) #19
+  %52 = call i32 @ref_iterator_advance(ptr noundef %47) #20
   switch i32 %52, label %61 [
     i32 0, label %53
     i32 -1, label %should_pack_refs.exit
@@ -2009,11 +2009,11 @@ get_loose_ref_cache.exit.i:                       ; preds = %34, %log2u.exit.i
   br i1 %.not21.i, label %51, label %59, !llvm.loop !94
 
 59:                                               ; preds = %53
-  %60 = call i32 @ref_iterator_abort(ptr noundef nonnull %47) #19
+  %60 = call i32 @ref_iterator_abort(ptr noundef nonnull %47) #20
   br label %62
 
 61:                                               ; preds = %51
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.74) #20
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.74) #21
   unreachable
 
 should_pack_refs.exit:                            ; preds = %51
@@ -2024,20 +2024,20 @@ should_pack_refs.exit:                            ; preds = %51
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %64 = load ptr, ptr %63, align 8, !tbaa !27
-  %65 = call ptr @ref_store_transaction_begin(ptr noundef %64, i32 noundef 0, ptr noundef nonnull %5) #19
+  %65 = call ptr @ref_store_transaction_begin(ptr noundef %64, i32 noundef 0, ptr noundef nonnull %5) #20
   %.not35 = icmp eq ptr %65, null
   br i1 %.not35, label %146, label %66
 
 66:                                               ; preds = %62
   %67 = load ptr, ptr %63, align 8, !tbaa !27
-  %68 = call i32 @packed_refs_lock(ptr noundef %67, i32 noundef 1, ptr noundef nonnull %5) #19
+  %68 = call i32 @packed_refs_lock(ptr noundef %67, i32 noundef 1, ptr noundef nonnull %5) #20
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %70 = load ptr, ptr %69, align 8, !tbaa !32
   %.not.i42 = icmp eq ptr %70, null
   br i1 %.not.i42, label %71, label %get_loose_ref_cache.exit
 
 71:                                               ; preds = %66
-  %72 = call ptr @create_ref_cache(ptr noundef nonnull %0, ptr noundef nonnull @loose_fill_ref_dir) #19
+  %72 = call ptr @create_ref_cache(ptr noundef nonnull %0, ptr noundef nonnull @loose_fill_ref_dir) #20
   store ptr %72, ptr %69, align 8, !tbaa !32
   %73 = load ptr, ptr %72, align 8, !tbaa !84
   %74 = load i8, ptr %73, align 8, !tbaa !4
@@ -2045,10 +2045,10 @@ should_pack_refs.exit:                            ; preds = %51
   store i8 %75, ptr %73, align 8, !tbaa !4
   %76 = load ptr, ptr %69, align 8, !tbaa !32
   %77 = load ptr, ptr %76, align 8, !tbaa !84
-  %78 = call ptr @get_ref_dir(ptr noundef %77) #19
+  %78 = call ptr @get_ref_dir(ptr noundef %77) #20
   %79 = load ptr, ptr %69, align 8, !tbaa !32
-  %80 = call ptr @create_dir_entry(ptr noundef %79, ptr noundef nonnull @.str.77, i64 noundef 5) #19
-  call void @add_entry_to_dir(ptr noundef %78, ptr noundef %80) #19
+  %80 = call ptr @create_dir_entry(ptr noundef %79, ptr noundef nonnull @.str.77, i64 noundef 5) #20
+  call void @add_entry_to_dir(ptr noundef %78, ptr noundef %80) #20
   %.pre.i = load ptr, ptr %69, align 8, !tbaa !32
   br label %get_loose_ref_cache.exit
 
@@ -2056,7 +2056,7 @@ get_loose_ref_cache.exit:                         ; preds = %66, %71
   %81 = phi ptr [ %.pre.i, %71 ], [ %70, %66 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !87
-  %84 = call ptr @cache_ref_iterator_begin(ptr noundef %81, ptr noundef null, ptr noundef %83, i32 noundef 0) #19
+  %84 = call ptr @cache_ref_iterator_begin(ptr noundef %81, ptr noundef null, ptr noundef %83, i32 noundef 0) #20
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 32
@@ -2070,7 +2070,7 @@ get_loose_ref_cache.exit:                         ; preds = %66, %71
   br label %88
 
 88:                                               ; preds = %.outer, %90
-  %89 = call i32 @ref_iterator_advance(ptr noundef %84) #19
+  %89 = call i32 @ref_iterator_advance(ptr noundef %84) #20
   switch i32 %89, label %122 [
     i32 0, label %90
     i32 -1, label %123
@@ -2087,7 +2087,7 @@ get_loose_ref_cache.exit:                         ; preds = %66, %71
 95:                                               ; preds = %90
   %96 = load ptr, ptr %85, align 8, !tbaa !88
   %97 = load ptr, ptr %86, align 8, !tbaa !92
-  %98 = call i32 @ref_transaction_update(ptr noundef nonnull %65, ptr noundef %96, ptr noundef %97, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 1, ptr noundef null, ptr noundef nonnull %5) #19
+  %98 = call i32 @ref_transaction_update(ptr noundef nonnull %65, ptr noundef %96, ptr noundef %97, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 1, ptr noundef null, ptr noundef nonnull %5) #20
   %.not39 = icmp eq i32 %98, 0
   br i1 %.not39, label %103, label %99
 
@@ -2095,7 +2095,7 @@ get_loose_ref_cache.exit:                         ; preds = %66, %71
   %100 = load ptr, ptr %85, align 8, !tbaa !88
   %101 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %102 = load ptr, ptr %101, align 8, !tbaa !15
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.73, ptr noundef %100, ptr noundef %102) #20
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.73, ptr noundef %100, ptr noundef %102) #21
   unreachable
 
 103:                                              ; preds = %95
@@ -2106,12 +2106,12 @@ get_loose_ref_cache.exit:                         ; preds = %66, %71
 
 106:                                              ; preds = %103
   %107 = load ptr, ptr %85, align 8, !tbaa !88
-  %108 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %107) #18
+  %108 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %107) #19
   %109 = icmp ugt i64 %108, -49
   br i1 %109, label %110, label %st_add.exit
 
 110:                                              ; preds = %106
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.83, i64 noundef 48, i64 noundef %108) #20
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.83, i64 noundef 48, i64 noundef %108) #21
   unreachable
 
 st_add.exit:                                      ; preds = %106
@@ -2119,12 +2119,12 @@ st_add.exit:                                      ; preds = %106
   br i1 %111, label %112, label %st_add.exit43
 
 112:                                              ; preds = %st_add.exit
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.83, i64 noundef -1, i64 noundef 1) #20
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.83, i64 noundef -1, i64 noundef 1) #21
   unreachable
 
 st_add.exit43:                                    ; preds = %st_add.exit
   %113 = add nuw i64 %108, 49
-  %114 = call ptr @xcalloc(i64 noundef 1, i64 noundef %113) #19
+  %114 = call ptr @xcalloc(i64 noundef 1, i64 noundef %113) #20
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 44
   %116 = load ptr, ptr %85, align 8, !tbaa !88
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %115, ptr align 1 %116, i64 %108, i1 false)
@@ -2139,24 +2139,24 @@ st_add.exit43:                                    ; preds = %st_add.exit
   br label %.outer.outer, !llvm.loop !95
 
 122:                                              ; preds = %88
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.74) #20
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.74) #21
   unreachable
 
 123:                                              ; preds = %88
-  %124 = call i32 @ref_transaction_commit(ptr noundef nonnull %65, ptr noundef nonnull %5) #19
+  %124 = call i32 @ref_transaction_commit(ptr noundef nonnull %65, ptr noundef nonnull %5) #20
   %.not37 = icmp eq i32 %124, 0
   br i1 %.not37, label %128, label %125
 
 125:                                              ; preds = %123
   %126 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %127 = load ptr, ptr %126, align 8, !tbaa !15
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.75, ptr noundef %127) #20
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.75, ptr noundef %127) #21
   unreachable
 
 128:                                              ; preds = %123
-  call void @ref_transaction_free(ptr noundef nonnull %65) #19
+  call void @ref_transaction_free(ptr noundef nonnull %65) #20
   %129 = load ptr, ptr %63, align 8, !tbaa !27
-  call void @packed_refs_unlock(ptr noundef %129) #19
+  call void @packed_refs_unlock(ptr noundef %129) #20
   %.not7.i = icmp eq ptr %.048.ph.ph, null
   br i1 %.not7.i, label %prune_refs.exit, label %.lr.ph.i
 
@@ -2170,41 +2170,41 @@ st_add.exit43:                                    ; preds = %st_add.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_fsck_refs_dir.sb, i64 24, i1 false)
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 44
-  %135 = call i32 @check_refname_format(ptr noundef nonnull %134, i32 noundef 0) #19
+  %135 = call i32 @check_refname_format(ptr noundef nonnull %134, i32 noundef 0) #20
   %.not.i.i44 = icmp eq i32 %135, 0
   br i1 %.not.i.i44, label %136, label %prune_ref.exit.i
 
 136:                                              ; preds = %131
-  %137 = call ptr @ref_store_transaction_begin(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %3) #19
+  %137 = call ptr @ref_store_transaction_begin(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %3) #20
   %.not9.i.i = icmp eq ptr %137, null
   br i1 %.not9.i.i, label %.critedge.i.i, label %138
 
 138:                                              ; preds = %136
-  %139 = call ptr @null_oid() #19
+  %139 = call ptr @null_oid() #20
   %140 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  %141 = call ptr @ref_transaction_add_update(ptr noundef nonnull %137, ptr noundef nonnull %134, i32 noundef 29, ptr noundef %139, ptr noundef nonnull %140, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #19
-  %142 = call i32 @ref_transaction_commit(ptr noundef nonnull %137, ptr noundef nonnull %3) #19
+  %141 = call ptr @ref_transaction_add_update(ptr noundef nonnull %137, ptr noundef nonnull %134, i32 noundef 29, ptr noundef %139, ptr noundef nonnull %140, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #20
+  %142 = call i32 @ref_transaction_commit(ptr noundef nonnull %137, ptr noundef nonnull %3) #20
   %.not10.i.i = icmp eq i32 %142, 0
   br i1 %.not10.i.i, label %145, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %138, %136
   %143 = load ptr, ptr %130, align 8, !tbaa !15
-  %144 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.84, ptr noundef %143) #19
+  %144 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.84, ptr noundef %143) #20
   br label %145
 
 145:                                              ; preds = %.critedge.i.i, %138
-  call void @strbuf_release(ptr noundef nonnull %3) #19
-  call void @ref_transaction_free(ptr noundef %137) #19
+  call void @strbuf_release(ptr noundef nonnull %3) #20
+  call void @ref_transaction_free(ptr noundef %137) #20
   br label %prune_ref.exit.i
 
 prune_ref.exit.i:                                 ; preds = %145, %131
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @free(ptr noundef nonnull %132) #19
+  call void @free(ptr noundef nonnull %132) #20
   %.not.i45 = icmp eq ptr %133, null
   br i1 %.not.i45, label %prune_refs.exit, label %131, !llvm.loop !98
 
 prune_refs.exit:                                  ; preds = %prune_ref.exit.i, %128
-  call void @strbuf_release(ptr noundef nonnull %5) #19
+  call void @strbuf_release(ptr noundef nonnull %5) #20
   br label %146
 
 146:                                              ; preds = %should_pack_refs.exit, %62, %prune_refs.exit
@@ -2239,7 +2239,7 @@ define internal noundef ptr @files_ref_iterator_begin(ptr noundef %0, ptr nounde
 
 8:                                                ; preds = %.split21
   %9 = load ptr, ptr %7, align 8, !tbaa !30
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %9, ptr noundef nonnull @.str.106) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %9, ptr noundef nonnull @.str.106) #21
   unreachable
 
 10:                                               ; preds = %.split21
@@ -2250,7 +2250,7 @@ define internal noundef ptr @files_ref_iterator_begin(ptr noundef %0, ptr nounde
   br i1 %.not11.i.not, label %14, label %files_downcast.exit
 
 14:                                               ; preds = %10
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.106, i32 noundef 1, i32 noundef %12) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.106, i32 noundef 1, i32 noundef %12) #21
   unreachable
 
 .split:                                           ; preds = %4
@@ -2258,7 +2258,7 @@ define internal noundef ptr @files_ref_iterator_begin(ptr noundef %0, ptr nounde
 
 15:                                               ; preds = %.split
   %16 = load ptr, ptr %7, align 8, !tbaa !30
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %16, ptr noundef nonnull @.str.106) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %16, ptr noundef nonnull @.str.106) #21
   unreachable
 
 17:                                               ; preds = %.split
@@ -2269,7 +2269,7 @@ define internal noundef ptr @files_ref_iterator_begin(ptr noundef %0, ptr nounde
   br i1 %.not11.i23, label %files_downcast.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.106, i32 noundef 5, i32 noundef %19) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.106, i32 noundef 5, i32 noundef %19) #21
   unreachable
 
 files_downcast.exit:                              ; preds = %17, %10
@@ -2279,7 +2279,7 @@ files_downcast.exit:                              ; preds = %17, %10
   br i1 %.not.i25, label %24, label %get_loose_ref_cache.exit
 
 24:                                               ; preds = %files_downcast.exit
-  %25 = tail call ptr @create_ref_cache(ptr noundef nonnull %0, ptr noundef nonnull @loose_fill_ref_dir) #19
+  %25 = tail call ptr @create_ref_cache(ptr noundef nonnull %0, ptr noundef nonnull @loose_fill_ref_dir) #20
   store ptr %25, ptr %22, align 8, !tbaa !32
   %26 = load ptr, ptr %25, align 8, !tbaa !84
   %27 = load i8, ptr %26, align 8, !tbaa !4
@@ -2287,7 +2287,7 @@ files_downcast.exit:                              ; preds = %17, %10
   store i8 %28, ptr %26, align 8, !tbaa !4
   %29 = load ptr, ptr %22, align 8, !tbaa !32
   %30 = load ptr, ptr %29, align 8, !tbaa !84
-  %31 = tail call ptr @get_ref_dir(ptr noundef %30) #19
+  %31 = tail call ptr @get_ref_dir(ptr noundef %30) #20
   %32 = and i32 %3, 8
   %.not10.i = icmp eq i32 %32, 0
   br i1 %.not10.i, label %36, label %33
@@ -2303,8 +2303,8 @@ files_downcast.exit:                              ; preds = %17, %10
 
 36:                                               ; preds = %33, %24
   %37 = load ptr, ptr %22, align 8, !tbaa !32
-  %38 = call ptr @create_dir_entry(ptr noundef %37, ptr noundef nonnull @.str.77, i64 noundef 5) #19
-  call void @add_entry_to_dir(ptr noundef %31, ptr noundef %38) #19
+  %38 = call ptr @create_dir_entry(ptr noundef %37, ptr noundef nonnull @.str.77, i64 noundef 5) #20
+  call void @add_entry_to_dir(ptr noundef %31, ptr noundef %38) #20
   %.pre.i = load ptr, ptr %22, align 8, !tbaa !32
   br label %get_loose_ref_cache.exit
 
@@ -2312,13 +2312,13 @@ get_loose_ref_cache.exit:                         ; preds = %files_downcast.exit
   %39 = phi ptr [ %.pre.i, %36 ], [ %23, %files_downcast.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !104
-  %42 = call ptr @cache_ref_iterator_begin(ptr noundef %39, ptr noundef %1, ptr noundef %41, i32 noundef 1) #19
+  %42 = call ptr @cache_ref_iterator_begin(ptr noundef %39, ptr noundef %1, ptr noundef %41, i32 noundef 1) #20
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %44 = load ptr, ptr %43, align 8, !tbaa !27
-  %45 = call ptr @refs_ref_iterator_begin(ptr noundef %44, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 1) #19
-  %46 = call ptr @overlay_ref_iterator_begin(ptr noundef %42, ptr noundef %45) #19
-  %47 = call ptr @xcalloc(i64 noundef 1, i64 noundef 64) #19
-  call void @base_ref_iterator_init(ptr noundef %47, ptr noundef nonnull @files_ref_iterator_vtable) #19
+  %45 = call ptr @refs_ref_iterator_begin(ptr noundef %44, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 1) #20
+  %46 = call ptr @overlay_ref_iterator_begin(ptr noundef %42, ptr noundef %45) #20
+  %47 = call ptr @xcalloc(i64 noundef 1, i64 noundef 64) #20
+  call void @base_ref_iterator_init(ptr noundef %47, ptr noundef nonnull @files_ref_iterator_vtable) #20
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
   store ptr %46, ptr %48, align 8, !tbaa !105
   %49 = load ptr, ptr %40, align 8, !tbaa !104
@@ -2372,7 +2372,7 @@ define internal ptr @files_reflog_iterator_begin(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %2, align 8, !tbaa !30
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %4, ptr noundef nonnull @.str.109) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %4, ptr noundef nonnull @.str.109) #21
   unreachable
 
 5:                                                ; preds = %1
@@ -2383,7 +2383,7 @@ define internal ptr @files_reflog_iterator_begin(ptr noundef %0) #0 {
   br i1 %.not11.i.not, label %9, label %files_downcast.exit
 
 9:                                                ; preds = %5
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.109, i32 noundef 1, i32 noundef %7) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.109, i32 noundef 1, i32 noundef %7) #21
   unreachable
 
 files_downcast.exit:                              ; preds = %5
@@ -2391,7 +2391,7 @@ files_downcast.exit:                              ; preds = %5
   %11 = load ptr, ptr %10, align 8, !tbaa !34
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !26
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %13) #18
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %13) #19
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %17
 
@@ -2403,7 +2403,7 @@ files_downcast.exit:                              ; preds = %5
   %18 = tail call fastcc ptr @reflog_iterator_begin(ptr noundef nonnull %0, ptr noundef nonnull %11)
   %19 = load ptr, ptr %12, align 8, !tbaa !26
   %20 = tail call fastcc ptr @reflog_iterator_begin(ptr noundef nonnull %0, ptr noundef %19)
-  %21 = tail call ptr @merge_ref_iterator_begin(ptr noundef %18, ptr noundef %20, ptr noundef nonnull @ref_iterator_select, ptr noundef nonnull %0) #19
+  %21 = tail call ptr @merge_ref_iterator_begin(ptr noundef %18, ptr noundef %20, ptr noundef nonnull @ref_iterator_select, ptr noundef nonnull %0) #20
   br label %22
 
 22:                                               ; preds = %17, %15
@@ -2420,7 +2420,7 @@ define internal i32 @files_for_each_reflog_ent(ptr noundef readonly captures(non
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %6, align 8, !tbaa !30
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %8, ptr noundef nonnull @.str.111) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %8, ptr noundef nonnull @.str.111) #21
   unreachable
 
 9:                                                ; preds = %4
@@ -2431,7 +2431,7 @@ define internal i32 @files_for_each_reflog_ent(ptr noundef readonly captures(non
   br i1 %.not11.i.not, label %13, label %files_downcast.exit
 
 13:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.111, i32 noundef 1, i32 noundef %11) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.111, i32 noundef 1, i32 noundef %11) #21
   unreachable
 
 files_downcast.exit:                              ; preds = %9
@@ -2440,8 +2440,8 @@ files_downcast.exit:                              ; preds = %9
   call fastcc void @files_reflog_path(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %1)
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !15
-  %16 = call ptr @git_fopen(ptr noundef %15, ptr noundef nonnull @.str.112) #19
-  call void @strbuf_release(ptr noundef nonnull %5) #19
+  %16 = call ptr @git_fopen(ptr noundef %15, ptr noundef nonnull @.str.112) #20
+  call void @strbuf_release(ptr noundef nonnull %5) #20
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %23, label %.preheader
 
@@ -2450,7 +2450,7 @@ files_downcast.exit:                              ; preds = %9
   br label %18
 
 18:                                               ; preds = %.preheader, %20
-  %19 = call i32 @strbuf_getwholeline(ptr noundef nonnull %5, ptr noundef nonnull %16, i32 noundef 10) #19
+  %19 = call i32 @strbuf_getwholeline(ptr noundef nonnull %5, ptr noundef nonnull %16, i32 noundef 10) #20
   %.not13 = icmp eq i32 %19, 0
   br i1 %.not13, label %20, label %.critedge
 
@@ -2464,7 +2464,7 @@ files_downcast.exit:                              ; preds = %9
 .critedge:                                        ; preds = %20, %18
   %.0.lcssa = phi i32 [ %21, %20 ], [ 0, %18 ]
   %22 = call i32 @fclose(ptr noundef nonnull %16)
-  call void @strbuf_release(ptr noundef nonnull %5) #19
+  call void @strbuf_release(ptr noundef nonnull %5) #20
   br label %23
 
 23:                                               ; preds = %files_downcast.exit, %.critedge
@@ -2483,7 +2483,7 @@ define internal i32 @files_for_each_reflog_ent_reverse(ptr noundef readonly capt
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %7, align 8, !tbaa !30
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %9, ptr noundef nonnull @.str.113) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %9, ptr noundef nonnull @.str.113) #21
   unreachable
 
 10:                                               ; preds = %4
@@ -2494,7 +2494,7 @@ define internal i32 @files_for_each_reflog_ent_reverse(ptr noundef readonly capt
   br i1 %.not11.i.not, label %14, label %files_downcast.exit
 
 14:                                               ; preds = %10
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.113, i32 noundef 1, i32 noundef %12) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.113, i32 noundef 1, i32 noundef %12) #21
   unreachable
 
 files_downcast.exit:                              ; preds = %10
@@ -2503,8 +2503,8 @@ files_downcast.exit:                              ; preds = %10
   call fastcc void @files_reflog_path(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %1)
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !15
-  %17 = call ptr @git_fopen(ptr noundef %16, ptr noundef nonnull @.str.112) #19
-  call void @strbuf_release(ptr noundef nonnull %5) #19
+  %17 = call ptr @git_fopen(ptr noundef %16, ptr noundef nonnull @.str.112) #20
+  call void @strbuf_release(ptr noundef nonnull %5) #20
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %99, label %18
 
@@ -2514,10 +2514,10 @@ files_downcast.exit:                              ; preds = %10
   br i1 %20, label %26, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %18
-  %21 = tail call ptr @__errno_location() #21
+  %21 = tail call ptr @__errno_location() #22
   %22 = load i32, ptr %21, align 4, !tbaa !16
-  %23 = call ptr @strerror(i32 noundef %22) #19
-  %24 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.114, ptr noundef %1, ptr noundef %23) #19
+  %23 = call ptr @strerror(i32 noundef %22) #20
+  %24 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.114, ptr noundef %1, ptr noundef %23) #20
   %25 = call i64 @ftell(ptr noundef nonnull %17)
   br label %97
 
@@ -2542,10 +2542,10 @@ files_downcast.exit:                              ; preds = %10
   br i1 %.not71, label %40, label %35
 
 35:                                               ; preds = %31
-  %36 = tail call ptr @__errno_location() #21
+  %36 = tail call ptr @__errno_location() #22
   %37 = load i32, ptr %36, align 4, !tbaa !16
-  %38 = call ptr @strerror(i32 noundef %37) #19
-  %39 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.114, ptr noundef %1, ptr noundef %38) #19
+  %38 = call ptr @strerror(i32 noundef %37) #20
+  %39 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.114, ptr noundef %1, ptr noundef %38) #20
   br label %.thread95
 
 40:                                               ; preds = %31
@@ -2555,10 +2555,10 @@ files_downcast.exit:                              ; preds = %10
 
 42:                                               ; preds = %40
   %43 = trunc nuw nsw i64 %32 to i32
-  %44 = tail call ptr @__errno_location() #21
+  %44 = tail call ptr @__errno_location() #22
   %45 = load i32, ptr %44, align 4, !tbaa !16
-  %46 = call ptr @strerror(i32 noundef %45) #19
-  %47 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.115, i32 noundef %43, ptr noundef %1, ptr noundef %46) #19
+  %46 = call ptr @strerror(i32 noundef %45) #20
+  %47 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.115, i32 noundef %43, ptr noundef %1, ptr noundef %46) #20
   br label %.thread95
 
 48:                                               ; preds = %40
@@ -2596,7 +2596,7 @@ find_beginning_of_line.exit.us:                   ; preds = %.preheader.us
 .split107.us:                                     ; preds = %find_beginning_of_line.exit.us
   %58 = ptrtoint ptr %.053.us to i64
   %59 = sub i64 %58, %30
-  call void @strbuf_splice(ptr noundef nonnull %5, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %6, i64 noundef %59) #19
+  call void @strbuf_splice(ptr noundef nonnull %5, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %6, i64 noundef %59) #20
   %.val78 = load i64, ptr %29, align 8, !tbaa !10
   %.val79 = load ptr, ptr %15, align 8, !tbaa !15
   %60 = call fastcc i32 @show_one_reflog_ent(ptr noundef nonnull %0, i64 %.val78, ptr %.val79, ptr noundef %2, ptr noundef %3)
@@ -2617,7 +2617,7 @@ find_beginning_of_line.exit.thread.us:            ; preds = %62, %find_beginning
   %66 = ptrtoint ptr %.053.us to i64
   %67 = ptrtoint ptr %65 to i64
   %68 = sub i64 %66, %67
-  call void @strbuf_splice(ptr noundef nonnull %5, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %65, i64 noundef %68) #19
+  call void @strbuf_splice(ptr noundef nonnull %5, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %65, i64 noundef %68) #20
   %.val.us = load i64, ptr %29, align 8, !tbaa !10
   %.val77.us = load ptr, ptr %15, align 8, !tbaa !15
   %69 = call fastcc i32 @show_one_reflog_ent(ptr noundef nonnull %0, i64 %.val.us, ptr %.val77.us, ptr noundef %2, ptr noundef %3)
@@ -2666,7 +2666,7 @@ find_beginning_of_line.exit.thread:               ; preds = %76, %find_beginning
   %81 = ptrtoint ptr %.053 to i64
   %82 = ptrtoint ptr %80 to i64
   %83 = sub i64 %81, %82
-  call void @strbuf_splice(ptr noundef nonnull %5, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %80, i64 noundef %83) #19
+  call void @strbuf_splice(ptr noundef nonnull %5, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %80, i64 noundef %83) #20
   %.val = load i64, ptr %29, align 8, !tbaa !10
   %.val77 = load ptr, ptr %15, align 8, !tbaa !15
   %84 = call fastcc i32 @show_one_reflog_ent(ptr noundef nonnull %0, i64 %.val, ptr %.val77, ptr noundef %2, ptr noundef %3)
@@ -2701,7 +2701,7 @@ strbuf_setlen.exit:                               ; preds = %find_beginning_of_l
 .split110.us:                                     ; preds = %72, %.split110.us.loopexit120
   %.pre-phi = phi i64 [ %.pre, %.split110.us.loopexit120 ], [ %67, %72 ]
   %90 = sub i64 %.pre-phi, %30
-  call void @strbuf_splice(ptr noundef nonnull %5, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %6, i64 noundef %90) #19
+  call void @strbuf_splice(ptr noundef nonnull %5, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %6, i64 noundef %90) #20
   br label %strbuf_setlen.exit83.thread
 
 .thread95:                                        ; preds = %42, %35
@@ -2728,13 +2728,13 @@ strbuf_setlen.exit83.thread:                      ; preds = %strbuf_setlen.exit8
   br i1 %or.cond, label %96, label %97
 
 96:                                               ; preds = %._crit_edge
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 2251, ptr noundef nonnull @.str.116) #20
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 2251, ptr noundef nonnull @.str.116) #21
   unreachable
 
 97:                                               ; preds = %._crit_edge.thread, %.thread95, %._crit_edge
   %.26098 = phi i32 [ -1, %.thread95 ], [ %.159.lcssa, %._crit_edge ], [ -1, %._crit_edge.thread ]
   %98 = call i32 @fclose(ptr noundef nonnull %17)
-  call void @strbuf_release(ptr noundef nonnull %5) #19
+  call void @strbuf_release(ptr noundef nonnull %5) #20
   br label %99
 
 99:                                               ; preds = %files_downcast.exit, %97
@@ -2753,7 +2753,7 @@ define internal range(i32 0, 2) i32 @files_reflog_exists(ptr noundef readonly ca
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %5, align 8, !tbaa !30
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %7, ptr noundef nonnull @.str.117) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %7, ptr noundef nonnull @.str.117) #21
   unreachable
 
 8:                                                ; preds = %2
@@ -2764,7 +2764,7 @@ define internal range(i32 0, 2) i32 @files_reflog_exists(ptr noundef readonly ca
   br i1 %.not11.i.not, label %12, label %files_downcast.exit
 
 12:                                               ; preds = %8
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.117, i32 noundef 1, i32 noundef %10) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.117, i32 noundef 1, i32 noundef %10) #21
   unreachable
 
 files_downcast.exit:                              ; preds = %8
@@ -2774,7 +2774,7 @@ files_downcast.exit:                              ; preds = %8
   call fastcc void @files_reflog_path(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %1)
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !15
-  %15 = call i32 @lstat64(ptr noundef %14, ptr noundef nonnull %4) #19
+  %15 = call i32 @lstat64(ptr noundef %14, ptr noundef nonnull %4) #20
   %.not = icmp eq i32 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %17 = load i32, ptr %16, align 8
@@ -2782,7 +2782,7 @@ files_downcast.exit:                              ; preds = %8
   %19 = icmp eq i32 %18, 32768
   %20 = select i1 %.not, i1 %19, i1 false
   %21 = zext i1 %20 to i32
-  call void @strbuf_release(ptr noundef nonnull %3) #19
+  call void @strbuf_release(ptr noundef nonnull %3) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %21
@@ -2797,7 +2797,7 @@ define internal range(i32 -1, 1) i32 @files_create_reflog(ptr noundef readonly c
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %5, align 8, !tbaa !30
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %7, ptr noundef nonnull @.str.118) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %7, ptr noundef nonnull @.str.118) #21
   unreachable
 
 8:                                                ; preds = %3
@@ -2808,7 +2808,7 @@ define internal range(i32 -1, 1) i32 @files_create_reflog(ptr noundef readonly c
   br i1 %.not11.i.not, label %12, label %files_downcast.exit
 
 12:                                               ; preds = %8
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.118, i32 noundef 2, i32 noundef %10) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.118, i32 noundef 2, i32 noundef %10) #21
   unreachable
 
 files_downcast.exit:                              ; preds = %8
@@ -2823,7 +2823,7 @@ files_downcast.exit:                              ; preds = %8
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %14
-  %18 = call i32 @close(i32 noundef %15) #19
+  %18 = call i32 @close(i32 noundef %15) #20
   br label %19
 
 19:                                               ; preds = %14, %17, %files_downcast.exit
@@ -2841,7 +2841,7 @@ define internal i32 @files_delete_reflog(ptr noundef readonly captures(none) %0,
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %4, align 8, !tbaa !30
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %6, ptr noundef nonnull @.str.119) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %6, ptr noundef nonnull @.str.119) #21
   unreachable
 
 7:                                                ; preds = %2
@@ -2852,7 +2852,7 @@ define internal i32 @files_delete_reflog(ptr noundef readonly captures(none) %0,
   br i1 %.not11.i.not, label %11, label %files_downcast.exit
 
 11:                                               ; preds = %7
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.119, i32 noundef 2, i32 noundef %9) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.119, i32 noundef 2, i32 noundef %9) #21
   unreachable
 
 files_downcast.exit:                              ; preds = %7
@@ -2861,8 +2861,8 @@ files_downcast.exit:                              ; preds = %7
   call fastcc void @files_reflog_path(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %1)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !15
-  %14 = call i32 @remove_path(ptr noundef %13) #19
-  call void @strbuf_release(ptr noundef nonnull %3) #19
+  %14 = call i32 @remove_path(ptr noundef %13) #20
+  call void @strbuf_release(ptr noundef nonnull %3) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %14
 }
@@ -2881,7 +2881,7 @@ define internal range(i32 -1, 1) i32 @files_reflog_expire(ptr noundef %0, ptr no
 
 15:                                               ; preds = %7
   %16 = load ptr, ptr %14, align 8, !tbaa !30
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %16, ptr noundef nonnull @.str.120) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %16, ptr noundef nonnull @.str.120) #21
   unreachable
 
 17:                                               ; preds = %7
@@ -2892,7 +2892,7 @@ define internal range(i32 -1, 1) i32 @files_reflog_expire(ptr noundef %0, ptr no
   br i1 %.not11.i.not, label %21, label %files_downcast.exit
 
 21:                                               ; preds = %17
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.120, i32 noundef 2, i32 noundef %19) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.120, i32 noundef 2, i32 noundef %19) #21
   unreachable
 
 files_downcast.exit:                              ; preds = %17
@@ -2923,13 +2923,13 @@ files_downcast.exit:                              ; preds = %17
 32:                                               ; preds = %files_downcast.exit
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !15
-  %35 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.28, ptr noundef %1, ptr noundef %34) #19
-  call void @strbuf_release(ptr noundef nonnull %11) #19
+  %35 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.28, ptr noundef %1, ptr noundef %34) #20
+  call void @strbuf_release(ptr noundef nonnull %11) #20
   br label %unlock_ref.exit
 
 36:                                               ; preds = %files_downcast.exit
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %38 = call i32 @refs_reflog_exists(ptr noundef nonnull %0, ptr noundef %1) #19
+  %38 = call i32 @refs_reflog_exists(ptr noundef nonnull %0, ptr noundef %1) #20
   %.not51 = icmp eq i32 %38, 0
   br i1 %.not51, label %39, label %47
 
@@ -2943,39 +2943,39 @@ files_downcast.exit:                              ; preds = %17
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %45 = call i32 @delete_tempfile(ptr noundef nonnull %44) #19
+  %45 = call i32 @delete_tempfile(ptr noundef nonnull %44) #20
   %46 = load ptr, ptr %31, align 8, !tbaa !55
-  call void @free(ptr noundef %46) #19
-  call void @free(ptr noundef nonnull %31) #19
+  call void @free(ptr noundef %46) #20
+  call void @free(ptr noundef nonnull %31) #20
   br label %unlock_ref.exit
 
 47:                                               ; preds = %36
   call fastcc void @files_reflog_path(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %1)
-  %48 = call ptr @strbuf_detach(ptr noundef nonnull %10, ptr noundef null) #19
+  %48 = call ptr @strbuf_detach(ptr noundef nonnull %10, ptr noundef null) #20
   %.not52 = icmp eq i8 %28, 0
   br i1 %.not52, label %49, label %67
 
 49:                                               ; preds = %47
-  %50 = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %8, ptr noundef %48, i32 noundef 0, i64 noundef 0, i32 noundef 438) #19
+  %50 = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %8, ptr noundef %48, i32 noundef 0, i64 noundef 0, i32 noundef 438) #20
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %52, label %58
 
 52:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_fsck_refs_dir.sb, i64 24, i1 false)
-  %53 = tail call ptr @__errno_location() #21
+  %53 = tail call ptr @__errno_location() #22
   %54 = load i32, ptr %53, align 4, !tbaa !16
-  call void @unable_to_lock_message(ptr noundef %48, i32 noundef %54, ptr noundef nonnull %12) #19
+  call void @unable_to_lock_message(ptr noundef %48, i32 noundef %54, ptr noundef nonnull %12) #20
   %55 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !15
-  %57 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.84, ptr noundef %56) #19
-  call void @strbuf_release(ptr noundef nonnull %12) #19
+  %57 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.84, ptr noundef %56) #20
+  call void @strbuf_release(ptr noundef nonnull %12) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %134
 
 58:                                               ; preds = %49
   %.val = load ptr, ptr %8, align 8, !tbaa !59
-  %59 = call ptr @fdopen_tempfile(ptr noundef %.val, ptr noundef nonnull @.str.49) #19
+  %59 = call ptr @fdopen_tempfile(ptr noundef %.val, ptr noundef nonnull @.str.49) #20
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %59, ptr %60, align 8, !tbaa !115
   %.not53 = icmp eq ptr %59, null
@@ -2983,18 +2983,18 @@ files_downcast.exit:                              ; preds = %17
 
 61:                                               ; preds = %58
   %.val64 = load ptr, ptr %8, align 8, !tbaa !59
-  %62 = call ptr @get_tempfile_path(ptr noundef %.val64) #19
-  %63 = tail call ptr @__errno_location() #21
+  %62 = call ptr @get_tempfile_path(ptr noundef %.val64) #20
+  %63 = tail call ptr @__errno_location() #22
   %64 = load i32, ptr %63, align 4, !tbaa !16
-  %65 = call ptr @strerror(i32 noundef %64) #19
-  %66 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.122, ptr noundef %62, ptr noundef %65) #19
+  %65 = call ptr @strerror(i32 noundef %64) #20
+  %66 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.122, ptr noundef %62, ptr noundef %65) #20
   br label %134
 
 67:                                               ; preds = %58, %47
-  call void %3(ptr noundef %1, ptr noundef nonnull %37, ptr noundef %6) #19
-  %68 = call i32 @refs_for_each_reflog_ent(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @expire_reflog_ent, ptr noundef nonnull %9) #19
+  call void %3(ptr noundef %1, ptr noundef nonnull %37, ptr noundef %6) #20
+  %68 = call i32 @refs_for_each_reflog_ent(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @expire_reflog_ent, ptr noundef nonnull %9) #20
   %69 = load ptr, ptr %30, align 8, !tbaa !112
-  call void %5(ptr noundef %69) #19
+  call void %5(ptr noundef %69) #20
   %70 = load i8, ptr %23, align 4
   %71 = and i8 %70, 2
   %.not54 = icmp eq i8 %71, 0
@@ -3013,7 +3013,7 @@ files_downcast.exit:                              ; preds = %17
 
 76:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %77 = call ptr @refs_resolve_ref_unsafe(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 2, ptr noundef null, ptr noundef nonnull %13) #19
+  %77 = call ptr @refs_resolve_ref_unsafe(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 2, ptr noundef null, ptr noundef nonnull %13) #20
   %78 = icmp eq ptr %77, null
   %79 = load i32, ptr %13, align 4
   %80 = and i32 %79, 1
@@ -3025,16 +3025,16 @@ files_downcast.exit:                              ; preds = %17
 81:                                               ; preds = %76, %74, %72
   %.048 = phi i1 [ true, %74 ], [ %.not61, %76 ], [ true, %72 ]
   %.val66 = load ptr, ptr %8, align 8, !tbaa !59
-  %82 = call i32 @close_tempfile_gently(ptr noundef %.val66) #19
+  %82 = call i32 @close_tempfile_gently(ptr noundef %.val66) #20
   %.not58 = icmp eq i32 %82, 0
   br i1 %.not58, label %89, label %83
 
 83:                                               ; preds = %81
-  %84 = tail call ptr @__errno_location() #21
+  %84 = tail call ptr @__errno_location() #22
   %85 = load i32, ptr %84, align 4, !tbaa !16
-  %86 = call ptr @strerror(i32 noundef %85) #19
-  %87 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.123, ptr noundef %48, ptr noundef %86) #19
-  %88 = call i32 @delete_tempfile(ptr noundef nonnull %8) #19
+  %86 = call ptr @strerror(i32 noundef %85) #20
+  %87 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.123, ptr noundef %48, ptr noundef %86) #20
+  %88 = call i32 @delete_tempfile(ptr noundef nonnull %8) #20
   br label %126
 
 89:                                               ; preds = %81
@@ -3043,54 +3043,54 @@ files_downcast.exit:                              ; preds = %17
 90:                                               ; preds = %89
   %91 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.val67 = load ptr, ptr %91, align 8, !tbaa !59
-  %92 = call i32 @get_tempfile_fd(ptr noundef %.val67) #19
+  %92 = call i32 @get_tempfile_fd(ptr noundef %.val67) #20
   %93 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %94 = call ptr @oid_to_hex(ptr noundef nonnull %93) #19
+  %94 = call ptr @oid_to_hex(ptr noundef nonnull %93) #20
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %96 = load ptr, ptr %95, align 8, !tbaa !87
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 400
   %98 = load ptr, ptr %97, align 8, !tbaa !116
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %100 = load i64, ptr %99, align 8, !tbaa !129
-  %101 = call i64 @write_in_full(i32 noundef %92, ptr noundef %94, i64 noundef %100) #19
+  %101 = call i64 @write_in_full(i32 noundef %92, ptr noundef %94, i64 noundef %100) #20
   %102 = icmp slt i64 %101, 0
   br i1 %102, label %109, label %103
 
 103:                                              ; preds = %90
   %.val68 = load ptr, ptr %91, align 8, !tbaa !59
-  %104 = call i32 @get_tempfile_fd(ptr noundef %.val68) #19
-  %105 = call i64 @write_in_full(i32 noundef %104, ptr noundef nonnull @.str.124, i64 noundef 1) #19
+  %104 = call i32 @get_tempfile_fd(ptr noundef %.val68) #20
+  %105 = call i64 @write_in_full(i32 noundef %104, ptr noundef nonnull @.str.124, i64 noundef 1) #20
   %106 = icmp slt i64 %105, 0
   br i1 %106, label %109, label %107
 
 107:                                              ; preds = %103
   %.val69 = load ptr, ptr %91, align 8, !tbaa !59
-  %108 = call i32 @close_tempfile_gently(ptr noundef %.val69) #19
+  %108 = call i32 @close_tempfile_gently(ptr noundef %.val69) #20
   %.not.i72.not = icmp eq i32 %108, 0
   br i1 %.not.i72.not, label %.thread, label %109
 
 109:                                              ; preds = %107, %103, %90
   %.val65 = load ptr, ptr %91, align 8, !tbaa !59
-  %110 = call ptr @get_tempfile_path(ptr noundef %.val65) #19
-  %111 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.125, ptr noundef %110) #19
-  %112 = call i32 @delete_tempfile(ptr noundef nonnull %8) #19
+  %110 = call ptr @get_tempfile_path(ptr noundef %.val65) #20
+  %111 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.125, ptr noundef %110) #20
+  %112 = call i32 @delete_tempfile(ptr noundef nonnull %8) #20
   br label %126
 
 113:                                              ; preds = %89
-  %114 = call i32 @commit_lock_file(ptr noundef nonnull %8) #19
+  %114 = call i32 @commit_lock_file(ptr noundef nonnull %8) #20
   %.not62 = icmp eq i32 %114, 0
   br i1 %.not62, label %126, label %116
 
 .thread:                                          ; preds = %107
-  %115 = call i32 @commit_lock_file(ptr noundef nonnull %8) #19
+  %115 = call i32 @commit_lock_file(ptr noundef nonnull %8) #20
   %.not6277 = icmp eq i32 %115, 0
   br i1 %.not6277, label %121, label %116
 
 116:                                              ; preds = %.thread, %113
-  %117 = tail call ptr @__errno_location() #21
+  %117 = tail call ptr @__errno_location() #22
   %118 = load i32, ptr %117, align 4, !tbaa !16
-  %119 = call ptr @strerror(i32 noundef %118) #19
-  %120 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.126, ptr noundef %48, ptr noundef %119) #19
+  %119 = call ptr @strerror(i32 noundef %118) #20
+  %120 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.126, ptr noundef %48, ptr noundef %119) #20
   br label %126
 
 121:                                              ; preds = %.thread
@@ -3100,12 +3100,12 @@ files_downcast.exit:                              ; preds = %17
 
 123:                                              ; preds = %121
   %124 = load ptr, ptr %31, align 8, !tbaa !55
-  %125 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.127, ptr noundef %124) #19
+  %125 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.127, ptr noundef %124) #20
   br label %126
 
 126:                                              ; preds = %113, %83, %116, %123, %121, %109, %67
   %.049 = phi i32 [ 0, %67 ], [ -1, %83 ], [ -1, %109 ], [ -1, %116 ], [ -1, %123 ], [ 0, %121 ], [ 0, %113 ]
-  call void @free(ptr noundef %48) #19
+  call void @free(ptr noundef %48) #20
   %127 = getelementptr inbounds nuw i8, ptr %31, i64 52
   %128 = load i32, ptr %127, align 4, !tbaa !50
   %129 = add i32 %128, -1
@@ -3115,15 +3115,15 @@ files_downcast.exit:                              ; preds = %17
 
 130:                                              ; preds = %126
   %131 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %132 = call i32 @delete_tempfile(ptr noundef nonnull %131) #19
+  %132 = call i32 @delete_tempfile(ptr noundef nonnull %131) #20
   %133 = load ptr, ptr %31, align 8, !tbaa !55
-  call void @free(ptr noundef %133) #19
-  call void @free(ptr noundef nonnull %31) #19
+  call void @free(ptr noundef %133) #20
+  call void @free(ptr noundef nonnull %31) #20
   br label %unlock_ref.exit
 
 134:                                              ; preds = %52, %61
-  %135 = call i32 @delete_tempfile(ptr noundef nonnull %8) #19
-  call void @free(ptr noundef %48) #19
+  %135 = call i32 @delete_tempfile(ptr noundef nonnull %8) #20
+  call void @free(ptr noundef %48) #20
   %136 = getelementptr inbounds nuw i8, ptr %31, i64 52
   %137 = load i32, ptr %136, align 4, !tbaa !50
   %138 = add i32 %137, -1
@@ -3133,10 +3133,10 @@ files_downcast.exit:                              ; preds = %17
 
 139:                                              ; preds = %134
   %140 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %141 = call i32 @delete_tempfile(ptr noundef nonnull %140) #19
+  %141 = call i32 @delete_tempfile(ptr noundef nonnull %140) #20
   %142 = load ptr, ptr %31, align 8, !tbaa !55
-  call void @free(ptr noundef %142) #19
-  call void @free(ptr noundef nonnull %31) #19
+  call void @free(ptr noundef %142) #20
+  call void @free(ptr noundef nonnull %31) #20
   br label %unlock_ref.exit
 
 unlock_ref.exit:                                  ; preds = %139, %134, %130, %126, %43, %39, %32
@@ -3159,7 +3159,7 @@ define internal i32 @files_fsck(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %7, align 8, !tbaa !30
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %9, ptr noundef nonnull @.str.129) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %9, ptr noundef nonnull @.str.129) #21
   unreachable
 
 10:                                               ; preds = %3
@@ -3170,7 +3170,7 @@ define internal i32 @files_fsck(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %.not11.i.not, label %14, label %files_downcast.exit
 
 14:                                               ; preds = %10
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.129, i32 noundef 1, i32 noundef %12) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.129, i32 noundef 1, i32 noundef %12) #21
   unreachable
 
 files_downcast.exit:                              ; preds = %10
@@ -3186,12 +3186,12 @@ files_downcast.exit:                              ; preds = %10
   br i1 %.not4.i.i, label %_.exit.i, label %20
 
 20:                                               ; preds = %17
-  %21 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.130, i32 noundef 5) #19
+  %21 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.130, i32 noundef 5) #20
   br label %_.exit.i
 
 _.exit.i:                                         ; preds = %20, %17
   %.0.i.i = phi ptr [ %21, %20 ], [ @.str.130, %17 ]
-  %22 = tail call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %18, ptr noundef %.0.i.i) #19
+  %22 = tail call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %18, ptr noundef %.0.i.i) #20
   br label %23
 
 23:                                               ; preds = %_.exit.i, %files_downcast.exit
@@ -3201,10 +3201,10 @@ _.exit.i:                                         ; preds = %20, %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_fsck_refs_dir.sb, i64 24, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !33
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %5, ptr noundef nonnull @.str.15, ptr noundef %25, ptr noundef nonnull @.str.131) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %5, ptr noundef nonnull @.str.15, ptr noundef %25, ptr noundef nonnull @.str.131) #20
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !15
-  %28 = call ptr @dir_iterator_begin(ptr noundef %27, i32 noundef 0) #19
+  %28 = call ptr @dir_iterator_begin(ptr noundef %27, i32 noundef 0) #20
   %.not.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i, label %36, label %.preheader.i.i
 
@@ -3224,17 +3224,17 @@ _.exit.i:                                         ; preds = %20, %17
   br i1 %.not4.i.i.i, label %_.exit.i.i, label %38
 
 38:                                               ; preds = %36
-  %39 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.141, i32 noundef 5) #19
+  %39 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.141, i32 noundef 5) #20
   br label %_.exit.i.i
 
 _.exit.i.i:                                       ; preds = %38, %36
   %.0.i.i.i = phi ptr [ %39, %38 ], [ @.str.141, %36 ]
   %40 = load ptr, ptr %26, align 8, !tbaa !15
-  %41 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i.i.i, ptr noundef %40) #19
+  %41 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i.i.i, ptr noundef %40) #20
   br label %files_fsck_refs.exit
 
 42:                                               ; preds = %.outer.i.i, %44
-  %43 = call i32 @dir_iterator_advance(ptr noundef nonnull %28) #19
+  %43 = call i32 @dir_iterator_advance(ptr noundef nonnull %28) #20
   switch i32 %43, label %69 [
     i32 0, label %44
     i32 -1, label %files_fsck_refs.exit
@@ -3261,18 +3261,18 @@ _.exit.i.i:                                       ; preds = %38, %36
   br label %strbuf_setlen.exit.i.i
 
 strbuf_setlen.exit.i.i:                           ; preds = %49, %47
-  %50 = call i32 @is_main_worktree(ptr noundef %2) #19
+  %50 = call i32 @is_main_worktree(ptr noundef %2) #20
   %.not29.i.i = icmp eq i32 %50, 0
   br i1 %.not29.i.i, label %51, label %53
 
 51:                                               ; preds = %strbuf_setlen.exit.i.i
   %52 = load ptr, ptr %32, align 8, !tbaa !141
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.142, ptr noundef %52) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.142, ptr noundef %52) #20
   br label %53
 
 53:                                               ; preds = %51, %strbuf_setlen.exit.i.i
   %54 = load ptr, ptr %33, align 8, !tbaa !143
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.131, ptr noundef %54) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.131, ptr noundef %54) #20
   %55 = load i32, ptr %15, align 4, !tbaa !131
   %.not30.i.i = icmp eq i32 %55, 0
   br i1 %.not30.i.i, label %.lr.ph.i.i.preheader, label %56
@@ -3280,7 +3280,7 @@ strbuf_setlen.exit.i.i:                           ; preds = %49, %47
 56:                                               ; preds = %53
   %57 = load ptr, ptr @stderr, align 8, !tbaa !73
   %58 = load ptr, ptr %31, align 8, !tbaa !15
-  %59 = call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %57, ptr noundef nonnull @.str.143, ptr noundef %58) #19
+  %59 = call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %57, ptr noundef nonnull @.str.143, ptr noundef %58) #20
   br label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %56, %53
@@ -3291,7 +3291,7 @@ strbuf_setlen.exit.i.i:                           ; preds = %49, %47
   %.05.i.i = phi i64 [ %63, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
   %.24.i.i = phi i32 [ %spec.select.i.i, %.lr.ph.i.i ], [ %.1.ph.i.i, %.lr.ph.i.i.preheader ]
   %61 = load ptr, ptr %31, align 8, !tbaa !15
-  %62 = call i32 %60(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %61, ptr noundef nonnull %28) #19
+  %62 = call i32 %60(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %61, ptr noundef nonnull %28) #20
   %.not32.i.i = icmp eq i32 %62, 0
   %spec.select.i.i = select i1 %.not32.i.i, i32 %.24.i.i, i32 -1
   %63 = add nuw nsw i64 %.05.i.i, 1
@@ -3305,7 +3305,7 @@ strbuf_setlen.exit.i.i:                           ; preds = %49, %47
   %67 = load ptr, ptr %34, align 8, !tbaa !145
   store ptr %67, ptr %6, align 8, !tbaa !146
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
-  %68 = call i32 (ptr, ptr, i32, ptr, ...) @fsck_report_ref(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 9, ptr noundef nonnull @.str.144) #19
+  %68 = call i32 (ptr, ptr, i32, ptr, ...) @fsck_report_ref(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 9, ptr noundef nonnull @.str.144) #20
   %.not28.i.i = icmp eq i32 %68, 0
   %spec.select33.i.i = select i1 %.not28.i.i, i32 %.1.ph.i.i, i32 -1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3325,19 +3325,19 @@ strbuf_setlen.exit.i.i:                           ; preds = %49, %47
   br i1 %.not4.i34.i.i, label %_.exit36.i.i, label %71
 
 71:                                               ; preds = %69
-  %72 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.145, i32 noundef 5) #19
+  %72 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.145, i32 noundef 5) #20
   br label %_.exit36.i.i
 
 _.exit36.i.i:                                     ; preds = %71, %69
   %.0.i35.i.i = phi ptr [ %72, %71 ], [ @.str.145, %69 ]
   %73 = load ptr, ptr %26, align 8, !tbaa !15
-  %74 = call i32 (ptr, ...) @error(ptr noundef %.0.i35.i.i, ptr noundef %73) #19
+  %74 = call i32 (ptr, ...) @error(ptr noundef %.0.i35.i.i, ptr noundef %73) #20
   br label %files_fsck_refs.exit
 
 files_fsck_refs.exit:                             ; preds = %42, %_.exit.i.i, %_.exit36.i.i
   %.023.i.i = phi i32 [ -1, %_.exit36.i.i ], [ -1, %_.exit.i.i ], [ %.1.ph.i.i, %42 ]
-  call void @strbuf_release(ptr noundef nonnull %5) #19
-  call void @strbuf_release(ptr noundef nonnull %4) #19
+  call void @strbuf_release(ptr noundef nonnull %5) #20
+  call void @strbuf_release(ptr noundef nonnull %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -3345,7 +3345,7 @@ files_fsck_refs.exit:                             ; preds = %42, %_.exit.i.i, %_
   %77 = load ptr, ptr %76, align 8, !tbaa !29
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 168
   %79 = load ptr, ptr %78, align 8, !tbaa !149
-  %80 = call i32 %79(ptr noundef nonnull %76, ptr noundef %1, ptr noundef %2) #19
+  %80 = call i32 %79(ptr noundef nonnull %76, ptr noundef %1, ptr noundef %2) #20
   %81 = or i32 %80, %.023.i.i
   ret i32 %81
 }
@@ -3398,7 +3398,7 @@ define internal fastcc void @files_ref_path(ptr noundef readonly captures(none) 
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %7 = call i32 @parse_worktree_ref(ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4) #19
+  %7 = call i32 @parse_worktree_ref(ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4) #20
   switch i32 %7, label %21 [
     i32 0, label %8
     i32 2, label %11
@@ -3409,7 +3409,7 @@ define internal fastcc void @files_ref_path(ptr noundef readonly captures(none) 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !34
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %1, ptr noundef nonnull @.str.15, ptr noundef %10, ptr noundef %2) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %1, ptr noundef nonnull @.str.15, ptr noundef %10, ptr noundef %2) #20
   br label %22
 
 11:                                               ; preds = %3
@@ -3418,18 +3418,18 @@ define internal fastcc void @files_ref_path(ptr noundef readonly captures(none) 
   %14 = load i32, ptr %6, align 4, !tbaa !16
   %15 = load ptr, ptr %5, align 8, !tbaa !18
   %16 = load ptr, ptr %4, align 8, !tbaa !18
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %1, ptr noundef nonnull @.str.16, ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %1, ptr noundef nonnull @.str.16, ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16) #20
   br label %22
 
 17:                                               ; preds = %3, %3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !26
   %20 = load ptr, ptr %4, align 8, !tbaa !18
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %1, ptr noundef nonnull @.str.15, ptr noundef %19, ptr noundef %20) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %1, ptr noundef nonnull @.str.15, ptr noundef %19, ptr noundef %20) #20
   br label %22
 
 21:                                               ; preds = %3
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 223, ptr noundef nonnull @.str.17, i32 noundef %7, ptr noundef %2) #20
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 223, ptr noundef nonnull @.str.17, i32 noundef %7, ptr noundef %2) #21
   unreachable
 
 22:                                               ; preds = %17, %11, %8
@@ -3471,15 +3471,15 @@ define internal fastcc i32 @for_each_root_ref(ptr noundef readonly captures(none
   br i1 %.not, label %13, label %14
 
 13:                                               ; preds = %3
-  call void @strbuf_release(ptr noundef nonnull %4) #19
+  call void @strbuf_release(ptr noundef nonnull %4) #20
   br label %47
 
 14:                                               ; preds = %3
-  %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #18
-  call void @strbuf_add(ptr noundef nonnull %5, ptr noundef nonnull %9, i64 noundef %15) #19
+  %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #19
+  call void @strbuf_add(ptr noundef nonnull %5, ptr noundef nonnull %9, i64 noundef %15) #20
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !10
-  %18 = call ptr @readdir64(ptr noundef nonnull %12) #19
+  %18 = call ptr @readdir64(ptr noundef nonnull %12) #20
   %.not2533 = icmp eq ptr %18, null
   br i1 %.not2533, label %strbuf_setlen.exit.thread, label %.lr.ph
 
@@ -3495,7 +3495,7 @@ define internal fastcc i32 @for_each_root_ref(ptr noundef readonly captures(none
   br i1 %24, label %strbuf_setlen.exit, label %25, !llvm.loop !150
 
 25:                                               ; preds = %20
-  %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #18
+  %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #19
   %27 = icmp ult i64 %26, 5
   br i1 %27, label %ends_with.exit.thread, label %ends_with.exit
 
@@ -3507,19 +3507,19 @@ ends_with.exit:                                   ; preds = %25
   br i1 %.not.i.i.i.not, label %strbuf_setlen.exit, label %ends_with.exit.thread, !llvm.loop !150
 
 ends_with.exit.thread:                            ; preds = %25, %ends_with.exit
-  call void @strbuf_add(ptr noundef nonnull %5, ptr noundef nonnull %22, i64 noundef %26) #19
-  %30 = call zeroext i8 @get_dtype(ptr noundef nonnull %21, ptr noundef nonnull %4, i32 noundef 1) #19
+  call void @strbuf_add(ptr noundef nonnull %5, ptr noundef nonnull %22, i64 noundef %26) #20
+  %30 = call zeroext i8 @get_dtype(ptr noundef nonnull %21, ptr noundef nonnull %4, i32 noundef 1) #20
   %31 = icmp eq i8 %30, 8
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %ends_with.exit.thread
-  %33 = call i32 @is_root_ref(ptr noundef nonnull %22) #19
+  %33 = call i32 @is_root_ref(ptr noundef nonnull %22) #20
   %.not27 = icmp eq i32 %33, 0
   br i1 %.not27, label %37, label %34
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr %19, align 8, !tbaa !15
-  %36 = call i32 %1(ptr noundef %35, ptr noundef nonnull %2) #19, !callees !151
+  %36 = call i32 %1(ptr noundef %35, ptr noundef nonnull %2) #20, !callees !151
   %.not28 = icmp eq i32 %36, 0
   br i1 %.not28, label %37, label %strbuf_setlen.exit.thread
 
@@ -3530,7 +3530,7 @@ ends_with.exit.thread:                            ; preds = %25, %ends_with.exit
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %37
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.2, i32 noundef 167, ptr noundef nonnull @.str.3) #20
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.2, i32 noundef 167, ptr noundef nonnull @.str.3) #21
   unreachable
 
 41:                                               ; preds = %37
@@ -3545,14 +3545,14 @@ ends_with.exit.thread:                            ; preds = %25, %ends_with.exit
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %43, %41, %ends_with.exit, %20
-  %45 = call ptr @readdir64(ptr noundef nonnull %12) #19
+  %45 = call ptr @readdir64(ptr noundef nonnull %12) #20
   %.not25 = icmp eq ptr %45, null
   br i1 %.not25, label %strbuf_setlen.exit.thread, label %20
 
 strbuf_setlen.exit.thread:                        ; preds = %strbuf_setlen.exit, %34, %14
   %.3 = phi i32 [ 0, %14 ], [ %36, %34 ], [ 0, %strbuf_setlen.exit ]
-  call void @strbuf_release(ptr noundef nonnull %5) #19
-  call void @strbuf_release(ptr noundef nonnull %4) #19
+  call void @strbuf_release(ptr noundef nonnull %5) #20
+  call void @strbuf_release(ptr noundef nonnull %4) #20
   %46 = call i32 @closedir(ptr noundef nonnull %12)
   br label %47
 
@@ -3569,24 +3569,24 @@ define internal noundef i32 @remove_one_root_ref(ptr noundef %0, ptr noundef rea
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_fsck_refs_dir.sb, i64 24, i1 false)
   %4 = load ptr, ptr %1, align 8, !tbaa !35
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.15, ptr noundef %4, ptr noundef %0) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.15, ptr noundef %4, ptr noundef %0) #20
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !15
-  %7 = call i32 @unlink(ptr noundef %6) #19
+  %7 = call i32 @unlink(ptr noundef %6) #20
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !38
-  %12 = tail call ptr @__errno_location() #21
+  %12 = tail call ptr @__errno_location() #22
   %13 = load i32, ptr %12, align 4, !tbaa !16
-  %14 = call ptr @strerror(i32 noundef %13) #19
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %11, ptr noundef nonnull @.str.23, ptr noundef %0, ptr noundef %14) #19
+  %14 = call ptr @strerror(i32 noundef %13) #20
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %11, ptr noundef nonnull @.str.23, ptr noundef %0, ptr noundef %14) #20
   br label %15
 
 15:                                               ; preds = %9, %2
-  call void @strbuf_release(ptr noundef nonnull %3) #19
+  call void @strbuf_release(ptr noundef nonnull %3) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %7
 }
@@ -3675,10 +3675,10 @@ define internal fastcc void @files_transaction_cleanup(ptr noundef readonly capt
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %22 = tail call i32 @delete_tempfile(ptr noundef nonnull %21) #19
+  %22 = tail call i32 @delete_tempfile(ptr noundef nonnull %21) #20
   %23 = load ptr, ptr %15, align 8, !tbaa !55
-  tail call void @free(ptr noundef %23) #19
-  tail call void @free(ptr noundef nonnull %15) #19
+  tail call void @free(ptr noundef %23) #20
+  tail call void @free(ptr noundef nonnull %15) #20
   %.pre.pre = load i64, ptr %6, align 8, !tbaa !42
   br label %unlock_ref.exit
 
@@ -3704,15 +3704,15 @@ unlock_ref.exit:                                  ; preds = %16, %20
   br i1 %.not20, label %36, label %30
 
 30:                                               ; preds = %28
-  %31 = call i32 @ref_transaction_abort(ptr noundef nonnull %29, ptr noundef nonnull %3) #19
+  %31 = call i32 @ref_transaction_abort(ptr noundef nonnull %29, ptr noundef nonnull %3) #20
   %.not21 = icmp eq i32 %31, 0
   br i1 %.not21, label %36, label %32
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !15
-  %35 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.56, ptr noundef %34) #19
-  call void @strbuf_release(ptr noundef nonnull %3) #19
+  %35 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.56, ptr noundef %34) #20
+  call void @strbuf_release(ptr noundef nonnull %3) #20
   br label %36
 
 36:                                               ; preds = %32, %30, %28
@@ -3724,13 +3724,13 @@ unlock_ref.exit:                                  ; preds = %16, %20
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %41 = load ptr, ptr %40, align 8, !tbaa !27
-  call void @packed_refs_unlock(ptr noundef %41) #19
+  call void @packed_refs_unlock(ptr noundef %41) #20
   br label %42
 
 42:                                               ; preds = %39, %36
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @strmap_clear(ptr noundef nonnull %43, i32 noundef 0) #19
-  call void @free(ptr noundef nonnull %5) #19
+  call void @strmap_clear(ptr noundef nonnull %43, i32 noundef 0) #20
+  call void @free(ptr noundef nonnull %5) #20
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge
@@ -3774,25 +3774,25 @@ define internal fastcc range(i32 -3, 1) i32 @check_old_oid(ptr noundef %0, ptr n
   br i1 %.not.i20.not, label %10, label %12
 
 10:                                               ; preds = %9
-  %11 = tail call ptr @ref_update_original_update_refname(ptr noundef nonnull %0) #19
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.43, ptr noundef %11) #19
+  %11 = tail call ptr @ref_update_original_update_refname(ptr noundef nonnull %0) #20
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.43, ptr noundef %11) #20
   br label %19
 
 12:                                               ; preds = %9
   %bcmp.i21 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %1, ptr noundef nonnull dereferenceable(32) @is_null_oid.null_hash, i64 32)
   %.not.i22.not = icmp eq i32 %bcmp.i21, 0
-  %13 = tail call ptr @ref_update_original_update_refname(ptr noundef nonnull %0) #19
+  %13 = tail call ptr @ref_update_original_update_refname(ptr noundef nonnull %0) #20
   br i1 %.not.i22.not, label %14, label %16
 
 14:                                               ; preds = %12
-  %15 = tail call ptr @oid_to_hex(ptr noundef nonnull %8) #19
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.44, ptr noundef %13, ptr noundef %15) #19
+  %15 = tail call ptr @oid_to_hex(ptr noundef nonnull %8) #20
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.44, ptr noundef %13, ptr noundef %15) #20
   br label %19
 
 16:                                               ; preds = %12
-  %17 = tail call ptr @oid_to_hex(ptr noundef nonnull %1) #19
-  %18 = tail call ptr @oid_to_hex(ptr noundef nonnull %8) #19
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.45, ptr noundef %13, ptr noundef %17, ptr noundef %18) #19
+  %17 = tail call ptr @oid_to_hex(ptr noundef nonnull %1) #20
+  %18 = tail call ptr @oid_to_hex(ptr noundef nonnull %8) #20
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.45, ptr noundef %13, ptr noundef %17, ptr noundef %18) #20
   br label %19
 
 19:                                               ; preds = %10, %16, %14, %3, %7
@@ -3808,14 +3808,14 @@ define internal fastcc range(i32 -1, 1) i32 @write_ref_to_lockfile(ptr noundef r
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !87
-  %9 = tail call ptr @parse_object(ptr noundef %8, ptr noundef %2) #19
+  %9 = tail call ptr @parse_object(ptr noundef %8, ptr noundef %2) #20
   %.not25 = icmp eq ptr %9, null
   br i1 %.not25, label %10, label %18
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %1, align 8, !tbaa !55
-  %12 = tail call ptr @oid_to_hex(ptr noundef %2) #19
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %4, ptr noundef nonnull @.str.53, ptr noundef %11, ptr noundef %12) #19
+  %12 = tail call ptr @oid_to_hex(ptr noundef %2) #20
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %4, ptr noundef nonnull @.str.53, ptr noundef %11, ptr noundef %12) #20
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %14 = load i32, ptr %13, align 4, !tbaa !50
   %15 = add i32 %14, -1
@@ -3835,14 +3835,14 @@ define internal fastcc range(i32 -1, 1) i32 @write_ref_to_lockfile(ptr noundef r
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %1, align 8, !tbaa !55
-  %23 = tail call i32 @is_branch(ptr noundef %22) #19
+  %23 = tail call i32 @is_branch(ptr noundef %22) #20
   %.not27 = icmp eq i32 %23, 0
   br i1 %.not27, label %32, label %24
 
 24:                                               ; preds = %21
-  %25 = tail call ptr @oid_to_hex(ptr noundef %2) #19
+  %25 = tail call ptr @oid_to_hex(ptr noundef %2) #20
   %26 = load ptr, ptr %1, align 8, !tbaa !55
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %4, ptr noundef nonnull @.str.54, ptr noundef %25, ptr noundef %26) #19
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %4, ptr noundef nonnull @.str.54, ptr noundef %25, ptr noundef %26) #20
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %28 = load i32, ptr %27, align 4, !tbaa !50
   %29 = add i32 %28, -1
@@ -3857,40 +3857,40 @@ define internal fastcc range(i32 -1, 1) i32 @write_ref_to_lockfile(ptr noundef r
 32:                                               ; preds = %18, %21, %5
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val28 = load ptr, ptr %33, align 8, !tbaa !59
-  %34 = tail call i32 @get_tempfile_fd(ptr noundef %.val28) #19
-  %35 = tail call ptr @oid_to_hex(ptr noundef %2) #19
+  %34 = tail call i32 @get_tempfile_fd(ptr noundef %.val28) #20
+  %35 = tail call ptr @oid_to_hex(ptr noundef %2) #20
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !87
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 400
   %39 = load ptr, ptr %38, align 8, !tbaa !116
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load i64, ptr %40, align 8, !tbaa !129
-  %42 = tail call i64 @write_in_full(i32 noundef %34, ptr noundef %35, i64 noundef %41) #19
+  %42 = tail call i64 @write_in_full(i32 noundef %34, ptr noundef %35, i64 noundef %41) #20
   %43 = icmp slt i64 %42, 0
   br i1 %43, label %53, label %44
 
 44:                                               ; preds = %32
-  %45 = tail call i64 @write_in_full(i32 noundef %34, ptr noundef nonnull @write_ref_to_lockfile.term, i64 noundef 1) #19
+  %45 = tail call i64 @write_in_full(i32 noundef %34, ptr noundef nonnull @write_ref_to_lockfile.term, i64 noundef 1) #20
   %46 = icmp slt i64 %45, 0
   br i1 %46, label %53, label %47
 
 47:                                               ; preds = %44
   %.val29 = load ptr, ptr %33, align 8, !tbaa !59
-  %48 = tail call i32 @get_tempfile_fd(ptr noundef %.val29) #19
-  %49 = tail call i32 @fsync_component(i32 noundef 32, i32 noundef %48) #19
+  %48 = tail call i32 @get_tempfile_fd(ptr noundef %.val29) #20
+  %49 = tail call i32 @fsync_component(i32 noundef 32, i32 noundef %48) #20
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %53, label %51
 
 51:                                               ; preds = %47
   %.val30 = load ptr, ptr %33, align 8, !tbaa !59
-  %52 = tail call i32 @close_tempfile_gently(ptr noundef %.val30) #19
+  %52 = tail call i32 @close_tempfile_gently(ptr noundef %.val30) #20
   %.not.i33.not = icmp eq i32 %52, 0
   br i1 %.not.i33.not, label %unlock_ref.exit, label %53
 
 53:                                               ; preds = %51, %47, %44, %32
   %.val = load ptr, ptr %33, align 8, !tbaa !59
-  %54 = tail call ptr @get_tempfile_path(ptr noundef %.val) #19
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %4, ptr noundef nonnull @.str.55, ptr noundef %54) #19
+  %54 = tail call ptr @get_tempfile_path(ptr noundef %.val) #20
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %4, ptr noundef nonnull @.str.55, ptr noundef %54) #20
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %56 = load i32, ptr %55, align 4, !tbaa !50
   %57 = add i32 %56, -1
@@ -3900,10 +3900,10 @@ define internal fastcc range(i32 -1, 1) i32 @write_ref_to_lockfile(ptr noundef r
 
 unlock_ref.exit.sink.split:                       ; preds = %53, %16, %30
   %.sink = phi ptr [ %31, %30 ], [ %17, %16 ], [ %33, %53 ]
-  %58 = tail call i32 @delete_tempfile(ptr noundef nonnull %.sink) #19
+  %58 = tail call i32 @delete_tempfile(ptr noundef nonnull %.sink) #20
   %59 = load ptr, ptr %1, align 8, !tbaa !55
-  tail call void @free(ptr noundef %59) #19
-  tail call void @free(ptr noundef nonnull %1) #19
+  tail call void @free(ptr noundef %59) #20
+  tail call void @free(ptr noundef nonnull %1) #20
   br label %unlock_ref.exit
 
 unlock_ref.exit:                                  ; preds = %unlock_ref.exit.sink.split, %53, %24, %10, %51
@@ -3969,9 +3969,9 @@ define internal fastcc range(i32 -1, 1) i32 @commit_ref(ptr noundef %0) unnamed_
   %2 = alloca %struct.stat, align 8
   %3 = alloca %struct.strbuf, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = tail call ptr @get_locked_file_path(ptr noundef nonnull %4) #19
+  %5 = tail call ptr @get_locked_file_path(ptr noundef nonnull %4) #20
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %6 = call i32 @lstat64(ptr noundef %5, ptr noundef nonnull %2) #19
+  %6 = call i32 @lstat64(ptr noundef %5, ptr noundef nonnull %2) #20
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %15
 
@@ -3983,21 +3983,21 @@ define internal fastcc range(i32 -1, 1) i32 @commit_ref(ptr noundef %0) unnamed_
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %7
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #18
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_fsck_refs_dir.sb, i64 24, i1 false)
-  call void @strbuf_attach(ptr noundef nonnull %3, ptr noundef nonnull %5, i64 noundef %13, i64 noundef %13) #19
-  %14 = call i32 @remove_dir_recursively(ptr noundef nonnull %3, i32 noundef 1) #19
-  call void @strbuf_release(ptr noundef nonnull %3) #19
+  call void @strbuf_attach(ptr noundef nonnull %3, ptr noundef nonnull %5, i64 noundef %13, i64 noundef %13) #20
+  %14 = call i32 @remove_dir_recursively(ptr noundef nonnull %3, i32 noundef 1) #20
+  call void @strbuf_release(ptr noundef nonnull %3) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %16
 
 15:                                               ; preds = %7, %1
-  tail call void @free(ptr noundef %5) #19
+  tail call void @free(ptr noundef %5) #20
   br label %16
 
 16:                                               ; preds = %15, %12
-  %17 = call i32 @commit_lock_file(ptr noundef nonnull %4) #19
+  %17 = call i32 @commit_lock_file(ptr noundef nonnull %4) #20
   %.not8 = icmp ne i32 %17, 0
   %. = sext i1 %.not8 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -4012,7 +4012,7 @@ define internal fastcc void @files_reflog_path(ptr noundef readonly captures(non
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %7 = call i32 @parse_worktree_ref(ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4) #19
+  %7 = call i32 @parse_worktree_ref(ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4) #20
   switch i32 %7, label %21 [
     i32 0, label %8
     i32 3, label %11
@@ -4023,14 +4023,14 @@ define internal fastcc void @files_reflog_path(ptr noundef readonly captures(non
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !34
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %1, ptr noundef nonnull @.str.69, ptr noundef %10, ptr noundef %2) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %1, ptr noundef nonnull @.str.69, ptr noundef %10, ptr noundef %2) #20
   br label %22
 
 11:                                               ; preds = %3, %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !26
   %14 = load ptr, ptr %4, align 8, !tbaa !18
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %1, ptr noundef nonnull @.str.69, ptr noundef %13, ptr noundef %14) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %1, ptr noundef nonnull @.str.69, ptr noundef %13, ptr noundef %14) #20
   br label %22
 
 15:                                               ; preds = %3
@@ -4039,11 +4039,11 @@ define internal fastcc void @files_reflog_path(ptr noundef readonly captures(non
   %18 = load i32, ptr %6, align 4, !tbaa !16
   %19 = load ptr, ptr %5, align 8, !tbaa !18
   %20 = load ptr, ptr %4, align 8, !tbaa !18
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %1, ptr noundef nonnull @.str.70, ptr noundef %17, i32 noundef %18, ptr noundef %19, ptr noundef %20) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %1, ptr noundef nonnull @.str.70, ptr noundef %17, i32 noundef %18, ptr noundef %19, ptr noundef %20) #20
   br label %22
 
 21:                                               ; preds = %3
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 197, ptr noundef nonnull @.str.17, i32 noundef %7, ptr noundef %2) #20
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 197, ptr noundef nonnull @.str.17, i32 noundef %7, ptr noundef %2) #21
   unreachable
 
 22:                                               ; preds = %15, %11, %8
@@ -4063,8 +4063,8 @@ define internal fastcc void @try_remove_empty_parents(ptr noundef readonly captu
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_fsck_refs_dir.sb, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_fsck_refs_dir.sb, i64 24, i1 false)
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
-  call void @strbuf_add(ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef %6) #19
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
+  call void @strbuf_add(ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef %6) #20
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !15
   br label %.preheader51
@@ -4154,7 +4154,7 @@ define internal fastcc void @try_remove_empty_parents(ptr noundef readonly captu
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %35
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.2, i32 noundef 167, ptr noundef nonnull @.str.3) #20
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.2, i32 noundef 167, ptr noundef nonnull @.str.3) #21
   unreachable
 
 43:                                               ; preds = %35
@@ -4186,7 +4186,7 @@ strbuf_setlen.exit47:                             ; preds = %strbuf_setlen.exit,
 
 50:                                               ; preds = %strbuf_setlen.exit47
   %51 = load ptr, ptr %23, align 8, !tbaa !15
-  %52 = call i32 @lstat_cache_aware_rmdir(ptr noundef %51) #19
+  %52 = call i32 @lstat_cache_aware_rmdir(ptr noundef %51) #20
   %.not39 = icmp eq i32 %52, 0
   %53 = and i32 %.03357, -2
   %spec.select = select i1 %.not39, i32 %.03357, i32 %53
@@ -4212,7 +4212,7 @@ strbuf_setlen.exit50:                             ; preds = %54, %56
 
 59:                                               ; preds = %strbuf_setlen.exit50
   %60 = load ptr, ptr %23, align 8, !tbaa !15
-  %61 = call i32 @lstat_cache_aware_rmdir(ptr noundef %60) #19
+  %61 = call i32 @lstat_cache_aware_rmdir(ptr noundef %60) #20
   %.not41 = icmp eq i32 %61, 0
   %62 = and i32 %.134, -3
   %spec.select63 = select i1 %.not41, i32 %.134, i32 %62
@@ -4224,8 +4224,8 @@ select.unfold:                                    ; preds = %59, %strbuf_setlen.
   br i1 %.not, label %63, label %.preheader, !llvm.loop !160
 
 63:                                               ; preds = %.critedge4, %select.unfold
-  call void @strbuf_release(ptr noundef nonnull %4) #19
-  call void @strbuf_release(ptr noundef nonnull %5) #19
+  call void @strbuf_release(ptr noundef nonnull %4) #20
+  call void @strbuf_release(ptr noundef nonnull %5) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -4239,7 +4239,7 @@ declare i32 @refs_for_each_rawref(ptr noundef, ptr noundef, ptr noundef) local_u
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ref_present(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 %3, ptr noundef %4) #0 {
-  %6 = tail call i32 @string_list_has_string(ptr noundef %4, ptr noundef %0) #19
+  %6 = tail call i32 @string_list_has_string(ptr noundef %4, ptr noundef %0) #20
   ret i32 %6
 }
 
@@ -4272,14 +4272,14 @@ define internal fastcc range(i32 -1, 1) i32 @files_log_ref_write(ptr noundef rea
   br i1 %.not.i, label %21, label %23
 
 21:                                               ; preds = %20
-  %22 = call ptr @git_committer_info(i32 noundef 0) #19
+  %22 = call ptr @git_committer_info(i32 noundef 0) #20
   br label %23
 
 23:                                               ; preds = %21, %20
   %.08.i = phi ptr [ %4, %20 ], [ %22, %21 ]
-  %24 = call ptr @oid_to_hex(ptr noundef %2) #19
-  %25 = call ptr @oid_to_hex(ptr noundef %3) #19
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %9, ptr noundef nonnull @.str.67, ptr noundef %24, ptr noundef %25, ptr noundef %.08.i) #19
+  %24 = call ptr @oid_to_hex(ptr noundef %2) #20
+  %25 = call ptr @oid_to_hex(ptr noundef %3) #20
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %9, ptr noundef nonnull @.str.67, ptr noundef %24, ptr noundef %25, ptr noundef %.08.i) #20
   %.not11.i = icmp eq ptr %5, null
   br i1 %.not11.i, label %41, label %26
 
@@ -4301,7 +4301,7 @@ strbuf_avail.exit.i.i:                            ; preds = %28
   br i1 %.not.i.i, label %strbuf_avail.exit.thread.i.i, label %strbuf_addch.exit.i
 
 strbuf_avail.exit.thread.i.i:                     ; preds = %strbuf_avail.exit.i.i, %28
-  call void @strbuf_grow(ptr noundef nonnull %9, i64 noundef 1) #19
+  call void @strbuf_grow(ptr noundef nonnull %9, i64 noundef 1) #20
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !10
   %.pre7.i.i = add i64 %.pre.i.i, 1
@@ -4320,8 +4320,8 @@ strbuf_addch.exit.i:                              ; preds = %strbuf_avail.exit.t
   %38 = load i64, ptr %35, align 8, !tbaa !10
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 %38
   store i8 0, ptr %39, align 1, !tbaa !4
-  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #18
-  call void @strbuf_add(ptr noundef nonnull %9, ptr noundef nonnull %5, i64 noundef %40) #19
+  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #19
+  call void @strbuf_add(ptr noundef nonnull %9, ptr noundef nonnull %5, i64 noundef %40) #20
   br label %41
 
 41:                                               ; preds = %strbuf_addch.exit.i, %26, %23
@@ -4337,7 +4337,7 @@ strbuf_avail.exit.i14.i:                          ; preds = %41
   br i1 %.not.i16.i, label %strbuf_avail.exit.thread.i18.i, label %log_ref_write_fd.exit
 
 strbuf_avail.exit.thread.i18.i:                   ; preds = %strbuf_avail.exit.i14.i, %41
-  call void @strbuf_grow(ptr noundef nonnull %9, i64 noundef 1) #19
+  call void @strbuf_grow(ptr noundef nonnull %9, i64 noundef 1) #20
   %.phi.trans.insert.i19.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.pre.i20.i = load i64, ptr %.phi.trans.insert.i19.i, align 8, !tbaa !10
   %.pre7.i21.i = add i64 %.pre.i20.i, 1
@@ -4358,8 +4358,8 @@ log_ref_write_fd.exit:                            ; preds = %strbuf_avail.exit.i
   store i8 0, ptr %52, align 1, !tbaa !4
   %53 = load ptr, ptr %46, align 8, !tbaa !15
   %54 = load i64, ptr %48, align 8, !tbaa !10
-  %55 = call i64 @write_in_full(i32 noundef range(i32 0, -2147483648) %18, ptr noundef %53, i64 noundef %54) #19
-  call void @strbuf_release(ptr noundef nonnull %9) #19
+  %55 = call i64 @write_in_full(i32 noundef range(i32 0, -2147483648) %18, ptr noundef %53, i64 noundef %54) #20
+  call void @strbuf_release(ptr noundef nonnull %9) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not23 = icmp sgt i64 %55, -1
   br i1 %.not23, label %64, label %56
@@ -4367,36 +4367,36 @@ log_ref_write_fd.exit:                            ; preds = %strbuf_avail.exit.i
 56:                                               ; preds = %log_ref_write_fd.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_fsck_refs_dir.sb, i64 24, i1 false)
-  %57 = tail call ptr @__errno_location() #21
+  %57 = tail call ptr @__errno_location() #22
   %58 = load i32, ptr %57, align 4, !tbaa !16
   call fastcc void @files_reflog_path(ptr noundef %0, ptr noundef %11, ptr noundef %1)
   %59 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !15
-  %61 = call ptr @strerror(i32 noundef %58) #19
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %7, ptr noundef nonnull @.str.63, ptr noundef %60, ptr noundef %61) #19
-  call void @strbuf_release(ptr noundef nonnull %11) #19
+  %61 = call ptr @strerror(i32 noundef %58) #20
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %7, ptr noundef nonnull @.str.63, ptr noundef %60, ptr noundef %61) #20
+  call void @strbuf_release(ptr noundef nonnull %11) #20
   %62 = load i32, ptr %10, align 4, !tbaa !16
-  %63 = call i32 @close(i32 noundef %62) #19
+  %63 = call i32 @close(i32 noundef %62) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %73
 
 64:                                               ; preds = %log_ref_write_fd.exit
   %65 = load i32, ptr %10, align 4, !tbaa !16
-  %66 = call i32 @close(i32 noundef %65) #19
+  %66 = call i32 @close(i32 noundef %65) #20
   %.not24 = icmp eq i32 %66, 0
   br i1 %.not24, label %73, label %67
 
 67:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_fsck_refs_dir.sb, i64 24, i1 false)
-  %68 = tail call ptr @__errno_location() #21
+  %68 = tail call ptr @__errno_location() #22
   %69 = load i32, ptr %68, align 4, !tbaa !16
   call fastcc void @files_reflog_path(ptr noundef %0, ptr noundef %12, ptr noundef %1)
   %70 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %71 = load ptr, ptr %70, align 8, !tbaa !15
-  %72 = call ptr @strerror(i32 noundef %69) #19
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %7, ptr noundef nonnull @.str.63, ptr noundef %71, ptr noundef %72) #19
-  call void @strbuf_release(ptr noundef nonnull %12) #19
+  %72 = call ptr @strerror(i32 noundef %69) #20
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %7, ptr noundef nonnull @.str.63, ptr noundef %71, ptr noundef %72) #20
+  call void @strbuf_release(ptr noundef nonnull %12) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %73
 
@@ -4417,7 +4417,7 @@ define internal fastcc range(i32 -1, 1) i32 @log_ref_setup(ptr noundef readonly 
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %5
-  %11 = tail call i32 @is_bare_repository() #19
+  %11 = tail call i32 @is_bare_repository() #20
   %.not = icmp eq i32 %11, 0
   %12 = zext i1 %.not to i32
   br label %13
@@ -4425,12 +4425,12 @@ define internal fastcc range(i32 -1, 1) i32 @log_ref_setup(ptr noundef readonly 
 13:                                               ; preds = %10, %5
   %.024 = phi i32 [ %12, %10 ], [ %8, %5 ]
   call fastcc void @files_reflog_path(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %1)
-  %14 = call ptr @strbuf_detach(ptr noundef nonnull %6, ptr noundef null) #19
+  %14 = call ptr @strbuf_detach(ptr noundef nonnull %6, ptr noundef null) #20
   %.not28 = icmp eq i32 %2, 0
   br i1 %.not28, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = call i32 @should_autocreate_reflog(i32 noundef %.024, ptr noundef %1) #19
+  %16 = call i32 @should_autocreate_reflog(i32 noundef %.024, ptr noundef %1) #20
   %.not29 = icmp eq i32 %16, 0
   br i1 %.not29, label %27, label %17
 
@@ -4440,7 +4440,7 @@ define internal fastcc range(i32 -1, 1) i32 @log_ref_setup(ptr noundef readonly 
   br i1 %.not30, label %35, label %19
 
 19:                                               ; preds = %17
-  %20 = tail call ptr @__errno_location() #21
+  %20 = tail call ptr @__errno_location() #22
   %21 = load i32, ptr %20, align 4, !tbaa !16
   switch i32 %21, label %25 [
     i32 2, label %22
@@ -4448,27 +4448,27 @@ define internal fastcc range(i32 -1, 1) i32 @log_ref_setup(ptr noundef readonly 
   ]
 
 22:                                               ; preds = %19
-  %23 = call ptr @strerror(i32 noundef 2) #19
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %4, ptr noundef nonnull @.str.65, ptr noundef %14, ptr noundef %23) #19
+  %23 = call ptr @strerror(i32 noundef 2) #20
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %4, ptr noundef nonnull @.str.65, ptr noundef %14, ptr noundef %23) #20
   br label %.thread31
 
 24:                                               ; preds = %19
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %4, ptr noundef nonnull @.str.66, ptr noundef %14) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %4, ptr noundef nonnull @.str.66, ptr noundef %14) #20
   br label %.thread31
 
 25:                                               ; preds = %19
-  %26 = call ptr @strerror(i32 noundef %21) #19
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %4, ptr noundef nonnull @.str.63, ptr noundef %14, ptr noundef %26) #19
+  %26 = call ptr @strerror(i32 noundef %21) #20
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %4, ptr noundef nonnull @.str.63, ptr noundef %14, ptr noundef %26) #20
   br label %.thread31
 
 27:                                               ; preds = %15
-  %28 = call i32 (ptr, i32, ...) @open64(ptr noundef %14, i32 noundef 1025) #19
+  %28 = call i32 (ptr, i32, ...) @open64(ptr noundef %14, i32 noundef 1025) #20
   store i32 %28, ptr %3, align 4, !tbaa !16
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %30, label %.thread
 
 30:                                               ; preds = %27
-  %31 = tail call ptr @__errno_location() #21
+  %31 = tail call ptr @__errno_location() #22
   %32 = load i32, ptr %31, align 4, !tbaa !16
   switch i32 %32, label %33 [
     i32 2, label %.thread31
@@ -4476,8 +4476,8 @@ define internal fastcc range(i32 -1, 1) i32 @log_ref_setup(ptr noundef readonly 
   ]
 
 33:                                               ; preds = %30
-  %34 = call ptr @strerror(i32 noundef %32) #19
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %4, ptr noundef nonnull @.str.63, ptr noundef %14, ptr noundef %34) #19
+  %34 = call ptr @strerror(i32 noundef %32) #20
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %4, ptr noundef nonnull @.str.63, ptr noundef %14, ptr noundef %34) #20
   br label %.thread31
 
 35:                                               ; preds = %17
@@ -4486,12 +4486,12 @@ define internal fastcc range(i32 -1, 1) i32 @log_ref_setup(ptr noundef readonly 
   br i1 %36, label %.thread, label %.thread31
 
 .thread:                                          ; preds = %27, %35
-  %37 = call i32 @adjust_shared_perm(ptr noundef %14) #19
+  %37 = call i32 @adjust_shared_perm(ptr noundef %14) #20
   br label %.thread31
 
 .thread31:                                        ; preds = %33, %24, %25, %22, %35, %.thread, %30, %30
   %.0 = phi i32 [ 0, %30 ], [ 0, %30 ], [ 0, %.thread ], [ 0, %35 ], [ -1, %22 ], [ -1, %25 ], [ -1, %24 ], [ -1, %33 ]
-  call void @free(ptr noundef %14) #19
+  call void @free(ptr noundef %14) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -4518,8 +4518,8 @@ define internal fastcc i32 @raceproof_create_file(ptr noundef %0, ptr noundef re
 
 7:                                                ; preds = %.outer, %19
   %.013 = phi i32 [ %13, %19 ], [ %.013.ph, %.outer ]
-  %8 = call i32 %1(ptr noundef %0, ptr noundef %2) #19, !callees !161
-  %9 = tail call ptr @__errno_location() #21
+  %8 = call i32 %1(ptr noundef %0, ptr noundef %2) #20, !callees !161
+  %9 = tail call ptr @__errno_location() #22
   %10 = load i32, ptr %9, align 4, !tbaa !16
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %.thread, label %11
@@ -4541,12 +4541,12 @@ define internal fastcc i32 @raceproof_create_file(ptr noundef %0, ptr noundef re
   br i1 %.not18, label %17, label %19
 
 17:                                               ; preds = %15
-  %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
-  call void @strbuf_add(ptr noundef nonnull %4, ptr noundef nonnull %0, i64 noundef %18) #19
+  %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
+  call void @strbuf_add(ptr noundef nonnull %4, ptr noundef nonnull %0, i64 noundef %18) #20
   br label %19
 
 19:                                               ; preds = %17, %15
-  %20 = call i32 @remove_dir_recursively(ptr noundef nonnull %4, i32 noundef 1) #19
+  %20 = call i32 @remove_dir_recursively(ptr noundef nonnull %4, i32 noundef 1) #20
   %.not19 = icmp eq i32 %20, 0
   br i1 %.not19, label %7, label %.thread
 
@@ -4560,8 +4560,8 @@ define internal fastcc i32 @raceproof_create_file(ptr noundef %0, ptr noundef re
   br i1 %.not17, label %25, label %.preheader
 
 25:                                               ; preds = %23
-  %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
-  call void @strbuf_add(ptr noundef nonnull %4, ptr noundef nonnull %0, i64 noundef %26) #19
+  %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
+  call void @strbuf_add(ptr noundef nonnull %4, ptr noundef nonnull %0, i64 noundef %26) #20
   br label %.preheader
 
 .preheader:                                       ; preds = %25, %23
@@ -4571,7 +4571,7 @@ define internal fastcc i32 @raceproof_create_file(ptr noundef %0, ptr noundef re
   %.115.in = phi i32 [ %.115, %30 ], [ %.014.ph, %.preheader ]
   %.115 = add nsw i32 %.115.in, -1
   %28 = load ptr, ptr %6, align 8, !tbaa !15
-  %29 = call i32 @safe_create_leading_directories(ptr noundef %28) #19
+  %29 = call i32 @safe_create_leading_directories(ptr noundef %28) #20
   switch i32 %29, label %.thread [
     i32 0, label %.outer
     i32 -4, label %30
@@ -4583,7 +4583,7 @@ define internal fastcc i32 @raceproof_create_file(ptr noundef %0, ptr noundef re
 
 .thread:                                          ; preds = %21, %11, %12, %19, %7, %27, %30
   %32 = phi i32 [ 2, %30 ], [ 2, %27 ], [ %10, %11 ], [ 21, %12 ], [ 21, %19 ], [ %10, %7 ], [ 2, %21 ]
-  call void @strbuf_release(ptr noundef nonnull %4) #19
+  call void @strbuf_release(ptr noundef nonnull %4) #20
   store i32 %32, ptr %9, align 4, !tbaa !16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %8
@@ -4591,7 +4591,7 @@ define internal fastcc i32 @raceproof_create_file(ptr noundef %0, ptr noundef re
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef range(i32 -1, 1) i32 @open_or_create_logfile(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #10 {
-  %3 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %0, i32 noundef 1089, i32 noundef 438) #19
+  %3 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %0, i32 noundef 1089, i32 noundef 438) #20
   store i32 %3, ptr %1, align 4, !tbaa !16
   %.lobit = ashr i32 %3, 31
   ret i32 %.lobit
@@ -4624,7 +4624,7 @@ declare i32 @ref_iterator_advance(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @should_pack_ref(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
-  %6 = tail call i32 @parse_worktree_ref(ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef null) #19
+  %6 = tail call i32 @parse_worktree_ref(ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef null) #20
   %.not = icmp eq i32 %6, 3
   %7 = and i32 %3, 1
   %.not17 = icmp eq i32 %7, 0
@@ -4634,14 +4634,14 @@ define internal fastcc range(i32 0, 2) i32 @should_pack_ref(ptr noundef readonly
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !87
-  %11 = tail call i32 @ref_resolves_to_object(ptr noundef %1, ptr noundef %10, ptr noundef %2, i32 noundef %3) #19
+  %11 = tail call i32 @ref_resolves_to_object(ptr noundef %1, ptr noundef %10, ptr noundef %2, i32 noundef %3) #20
   %.not18 = icmp eq i32 %11, 0
   br i1 %.not18, label %.critedge, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !163
-  %15 = tail call i32 @ref_excluded(ptr noundef %14, ptr noundef %1) #19
+  %15 = tail call i32 @ref_excluded(ptr noundef %14, ptr noundef %1) #20
   %.not19 = icmp eq i32 %15, 0
   br i1 %.not19, label %16, label %.critedge
 
@@ -4674,7 +4674,7 @@ define internal fastcc range(i32 0, 2) i32 @should_pack_ref(ptr noundef readonly
 .lr.ph29:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.02328 = phi ptr [ %26, %.lr.ph ], [ %19, %.lr.ph.preheader ]
   %33 = load ptr, ptr %.02328, align 8, !tbaa !169
-  %34 = tail call i32 @wildmatch(ptr noundef %33, ptr noundef %1, i32 noundef 0) #19
+  %34 = tail call i32 @wildmatch(ptr noundef %33, ptr noundef %1, i32 noundef 0) #20
   %.not21 = icmp eq i32 %34, 0
   br i1 %.not21, label %.critedge, label %.lr.ph
 
@@ -4704,7 +4704,7 @@ define internal void @loose_fill_ref_dir(ptr noundef %0, ptr noundef %1, ptr nou
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %6, align 8, !tbaa !30
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %8, ptr noundef nonnull @.str.78) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %8, ptr noundef nonnull @.str.78) #21
   unreachable
 
 9:                                                ; preds = %3
@@ -4715,11 +4715,11 @@ define internal void @loose_fill_ref_dir(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not11.i.not, label %13, label %files_downcast.exit
 
 13:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.78, i32 noundef 1, i32 noundef %11) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.78, i32 noundef 1, i32 noundef %11) #21
   unreachable
 
 files_downcast.exit:                              ; preds = %9
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_fsck_refs_dir.sb, i64 24, i1 false)
@@ -4731,17 +4731,17 @@ files_downcast.exit:                              ; preds = %9
   br i1 %.not, label %18, label %19
 
 18:                                               ; preds = %files_downcast.exit
-  call void @strbuf_release(ptr noundef nonnull %5) #19
+  call void @strbuf_release(ptr noundef nonnull %5) #20
   br label %add_per_worktree_entries_to_dir.exit
 
 19:                                               ; preds = %files_downcast.exit
   %20 = shl i64 %14, 32
   %sext = add i64 %20, 1103806595072
   %21 = ashr exact i64 %sext, 32
-  call void @strbuf_init(ptr noundef nonnull %4, i64 noundef %21) #19
+  call void @strbuf_init(ptr noundef nonnull %4, i64 noundef %21) #20
   %22 = ashr exact i64 %20, 32
-  call void @strbuf_add(ptr noundef nonnull %4, ptr noundef nonnull %2, i64 noundef %22) #19
-  %23 = call ptr @readdir64(ptr noundef nonnull %17) #19
+  call void @strbuf_add(ptr noundef nonnull %4, ptr noundef nonnull %2, i64 noundef %22) #20
+  %23 = call ptr @readdir64(ptr noundef nonnull %17) #20
   %.not2531 = icmp eq ptr %23, null
   br i1 %.not2531, label %._crit_edge, label %.lr.ph
 
@@ -4759,7 +4759,7 @@ files_downcast.exit:                              ; preds = %9
   br i1 %31, label %strbuf_setlen.exit, label %32, !llvm.loop !170
 
 32:                                               ; preds = %27
-  %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #18
+  %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #19
   %34 = icmp ult i64 %33, 5
   br i1 %34, label %ends_with.exit.thread, label %ends_with.exit
 
@@ -4771,8 +4771,8 @@ ends_with.exit:                                   ; preds = %32
   br i1 %.not.i.i.i.not, label %strbuf_setlen.exit, label %ends_with.exit.thread, !llvm.loop !170
 
 ends_with.exit.thread:                            ; preds = %32, %ends_with.exit
-  call void @strbuf_add(ptr noundef nonnull %4, ptr noundef nonnull %29, i64 noundef %33) #19
-  %37 = call zeroext i8 @get_dtype(ptr noundef nonnull %28, ptr noundef nonnull %5, i32 noundef 1) #19
+  call void @strbuf_add(ptr noundef nonnull %4, ptr noundef nonnull %29, i64 noundef %33) #20
+  %37 = call zeroext i8 @get_dtype(ptr noundef nonnull %28, ptr noundef nonnull %5, i32 noundef 1) #20
   switch i8 %37, label %53 [
     i8 4, label %38
     i8 8, label %51
@@ -4790,7 +4790,7 @@ strbuf_avail.exit.i:                              ; preds = %38
   br i1 %.not.i27, label %strbuf_avail.exit.thread.i, label %strbuf_addch.exit
 
 strbuf_avail.exit.thread.i:                       ; preds = %strbuf_avail.exit.i, %38
-  call void @strbuf_grow(ptr noundef nonnull %4, i64 noundef 1) #19
+  call void @strbuf_grow(ptr noundef nonnull %4, i64 noundef 1) #20
   %.pre.i = load i64, ptr %25, align 8, !tbaa !10
   %.pre7.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
@@ -4809,8 +4809,8 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %47 = load ptr, ptr %26, align 8, !tbaa !171
   %48 = load ptr, ptr %24, align 8, !tbaa !15
   %49 = load i64, ptr %25, align 8, !tbaa !10
-  %50 = call ptr @create_dir_entry(ptr noundef %47, ptr noundef %48, i64 noundef %49) #19
-  call void @add_entry_to_dir(ptr noundef %1, ptr noundef %50) #19
+  %50 = call ptr @create_dir_entry(ptr noundef %47, ptr noundef %48, i64 noundef %49) #20
+  call void @add_entry_to_dir(ptr noundef %1, ptr noundef %50) #20
   br label %53
 
 51:                                               ; preds = %ends_with.exit.thread
@@ -4825,7 +4825,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %53
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.2, i32 noundef 167, ptr noundef nonnull @.str.3) #20
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.2, i32 noundef 167, ptr noundef nonnull @.str.3) #21
   unreachable
 
 57:                                               ; preds = %53
@@ -4840,15 +4840,15 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %59, %57, %ends_with.exit, %27
-  %61 = call ptr @readdir64(ptr noundef nonnull %17) #19
+  %61 = call ptr @readdir64(ptr noundef nonnull %17) #20
   %.not25 = icmp eq ptr %61, null
   br i1 %.not25, label %._crit_edge, label %27
 
 ._crit_edge:                                      ; preds = %strbuf_setlen.exit, %19
-  call void @strbuf_release(ptr noundef nonnull %4) #19
-  call void @strbuf_release(ptr noundef nonnull %5) #19
+  call void @strbuf_release(ptr noundef nonnull %4) #20
+  call void @strbuf_release(ptr noundef nonnull %5) #20
   %62 = call i32 @closedir(ptr noundef nonnull %17)
-  %63 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(6) @.str.77) #18
+  %63 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(6) @.str.77) #19
   %.not.i28 = icmp eq i32 %63, 0
   br i1 %.not.i28, label %.preheader.i, label %add_per_worktree_entries_to_dir.exit
 
@@ -4860,17 +4860,17 @@ strbuf_setlen.exit:                               ; preds = %59, %57, %ends_with
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %75 ]
   %66 = getelementptr inbounds nuw ptr, ptr @__const.add_per_worktree_entries_to_dir.prefixes, i64 %indvars.iv.i
   %67 = load ptr, ptr %66, align 8, !tbaa !18
-  %68 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #18
+  %68 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #19
   %sext.i = shl i64 %68, 32
   %69 = ashr exact i64 %sext.i, 32
-  %70 = call i32 @search_ref_dir(ptr noundef %1, ptr noundef nonnull %67, i64 noundef %69) #19
+  %70 = call i32 @search_ref_dir(ptr noundef %1, ptr noundef nonnull %67, i64 noundef %69) #20
   %71 = icmp sgt i32 %70, -1
   br i1 %71, label %75, label %72
 
 72:                                               ; preds = %65
   %73 = load ptr, ptr %64, align 8, !tbaa !171
-  %74 = call ptr @create_dir_entry(ptr noundef %73, ptr noundef nonnull %67, i64 noundef %69) #19
-  call void @add_entry_to_dir(ptr noundef %1, ptr noundef %74) #19
+  %74 = call ptr @create_dir_entry(ptr noundef %73, ptr noundef nonnull %67, i64 noundef %69) #20
+  call void @add_entry_to_dir(ptr noundef %1, ptr noundef %74) #20
   br label %75
 
 75:                                               ; preds = %72, %65
@@ -4898,7 +4898,7 @@ define internal fastcc void @loose_fill_ref_dir_regular_file(ptr noundef %0, ptr
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = call ptr @refs_resolve_ref_unsafe(ptr noundef %0, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull %5) #19
+  %6 = call ptr @refs_resolve_ref_unsafe(ptr noundef %0, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull %5) #20
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %18
 
@@ -4943,7 +4943,7 @@ oidclr.exit:                                      ; preds = %14, %.split.loop.ex
   br label %21
 
 21:                                               ; preds = %.sink.split, %18
-  %22 = call i32 @check_refname_format(ptr noundef %1, i32 noundef 1) #19
+  %22 = call i32 @check_refname_format(ptr noundef %1, i32 noundef 1) #20
   %.not12 = icmp eq i32 %22, 0
   br i1 %.not12, label %._crit_edge, label %23
 
@@ -4952,12 +4952,12 @@ oidclr.exit:                                      ; preds = %14, %.split.loop.ex
   br label %39
 
 23:                                               ; preds = %21
-  %24 = call i32 @refname_is_safe(ptr noundef %1) #19
+  %24 = call i32 @refname_is_safe(ptr noundef %1) #20
   %.not13 = icmp eq i32 %24, 0
   br i1 %.not13, label %25, label %26
 
 25:                                               ; preds = %23
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.79, ptr noundef %1) #20
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.79, ptr noundef %1) #21
   unreachable
 
 26:                                               ; preds = %23
@@ -4997,8 +4997,8 @@ oidclr.exit20:                                    ; preds = %33, %.split.loop.ex
   %41 = and i32 %40, 1
   %.not14 = icmp eq i32 %41, 0
   %spec.select = select i1 %.not14, ptr null, ptr %6
-  %42 = call ptr @create_ref_entry(ptr noundef %1, ptr noundef %spec.select, ptr noundef nonnull %4, i32 noundef %40) #19
-  call void @add_entry_to_dir(ptr noundef %2, ptr noundef %42) #19
+  %42 = call ptr @create_ref_entry(ptr noundef %1, ptr noundef %spec.select, ptr noundef nonnull %4, i32 noundef %40) #20
+  call void @add_entry_to_dir(ptr noundef %2, ptr noundef %42) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -5050,7 +5050,7 @@ define internal fastcc range(i32 -1, 2) i32 @files_copy_or_rename_ref(ptr nounde
 
 20:                                               ; preds = %5
   %21 = load ptr, ptr %19, align 8, !tbaa !30
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %21, ptr noundef nonnull @.str.85) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %21, ptr noundef nonnull @.str.85) #21
   unreachable
 
 22:                                               ; preds = %5
@@ -5061,7 +5061,7 @@ define internal fastcc range(i32 -1, 2) i32 @files_copy_or_rename_ref(ptr nounde
   br i1 %.not11.i.not, label %26, label %files_downcast.exit
 
 26:                                               ; preds = %22
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.85, i32 noundef 2, i32 noundef %24) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.85, i32 noundef 2, i32 noundef %24) #21
   unreachable
 
 files_downcast.exit:                              ; preds = %22
@@ -5082,7 +5082,7 @@ files_downcast.exit:                              ; preds = %22
   call fastcc void @files_reflog_path(ptr noundef nonnull %0, ptr noundef %16, ptr noundef nonnull @.str.86)
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !15
-  %29 = call i32 @lstat64(ptr noundef %28, ptr noundef nonnull %13) #19
+  %29 = call i32 @lstat64(ptr noundef %28, ptr noundef nonnull %13) #20
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %30, label %37
 
@@ -5094,16 +5094,16 @@ files_downcast.exit:                              ; preds = %22
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %30
-  %36 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.87, ptr noundef %1) #19
+  %36 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.87, ptr noundef %1) #20
   br label %.thread107
 
 37:                                               ; preds = %30, %files_downcast.exit
-  %38 = call ptr @refs_resolve_ref_unsafe(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 3, ptr noundef nonnull %11, ptr noundef nonnull %12) #19
+  %38 = call ptr @refs_resolve_ref_unsafe(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 3, ptr noundef nonnull %11, ptr noundef nonnull %12) #20
   %.not84 = icmp eq ptr %38, null
   br i1 %.not84, label %39, label %41
 
 39:                                               ; preds = %37
-  %40 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.88, ptr noundef %1) #19
+  %40 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.88, ptr noundef %1) #20
   br label %.thread107
 
 41:                                               ; preds = %37
@@ -5117,11 +5117,11 @@ files_downcast.exit:                              ; preds = %22
   br i1 %.not102, label %47, label %45
 
 45:                                               ; preds = %44
-  %46 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.89, ptr noundef %1) #19
+  %46 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.89, ptr noundef %1) #20
   br label %.thread107
 
 47:                                               ; preds = %44
-  %48 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.90, ptr noundef %1) #19
+  %48 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.90, ptr noundef %1) #20
   br label %.thread107
 
 49:                                               ; preds = %41
@@ -5129,24 +5129,24 @@ files_downcast.exit:                              ; preds = %22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_fsck_refs_dir.sb, i64 24, i1 false)
-  %50 = call ptr @string_list_insert(ptr noundef nonnull %9, ptr noundef %1) #19
-  %51 = call i32 @refs_verify_refname_available(ptr noundef nonnull %0, ptr noundef %2, ptr noundef null, ptr noundef nonnull %9, i32 noundef 0, ptr noundef nonnull %10) #19
+  %50 = call ptr @string_list_insert(ptr noundef nonnull %9, ptr noundef %1) #20
+  %51 = call i32 @refs_verify_refname_available(ptr noundef nonnull %0, ptr noundef %2, ptr noundef null, ptr noundef nonnull %9, i32 noundef 0, ptr noundef nonnull %10) #20
   %.not.i103.not = icmp eq i32 %51, 0
   br i1 %.not.i103.not, label %.critedge110, label %refs_rename_ref_available.exit
 
 refs_rename_ref_available.exit:                   ; preds = %49
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !15
-  %54 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.84, ptr noundef %53) #19
-  call void @string_list_clear(ptr noundef nonnull %9, i32 noundef 0) #19
-  call void @strbuf_release(ptr noundef nonnull %10) #19
+  %54 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.84, ptr noundef %53) #20
+  call void @string_list_clear(ptr noundef nonnull %9, i32 noundef 0) #20
+  call void @strbuf_release(ptr noundef nonnull %10) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread107
 
 .critedge110:                                     ; preds = %49
-  call void @string_list_clear(ptr noundef nonnull %9, i32 noundef 0) #19
-  call void @strbuf_release(ptr noundef nonnull %10) #19
+  call void @string_list_clear(ptr noundef nonnull %9, i32 noundef 0) #20
+  call void @strbuf_release(ptr noundef nonnull %10) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %55 = or i32 %29, %4
@@ -5157,15 +5157,15 @@ refs_rename_ref_available.exit:                   ; preds = %49
   %57 = load ptr, ptr %27, align 8, !tbaa !15
   %58 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !15
-  %60 = call i32 @rename(ptr noundef %57, ptr noundef %59) #19
+  %60 = call i32 @rename(ptr noundef %57, ptr noundef %59) #20
   %.not87 = icmp eq i32 %60, 0
   br i1 %.not87, label %66, label %61
 
 61:                                               ; preds = %56
-  %62 = tail call ptr @__errno_location() #21
+  %62 = tail call ptr @__errno_location() #22
   %63 = load i32, ptr %62, align 4, !tbaa !16
-  %64 = call ptr @strerror(i32 noundef %63) #19
-  %65 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.91, ptr noundef %1, ptr noundef %64) #19
+  %64 = call ptr @strerror(i32 noundef %63) #20
+  %65 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.91, ptr noundef %1, ptr noundef %64) #20
   br label %.thread107
 
 66:                                               ; preds = %56, %.critedge110
@@ -5177,41 +5177,41 @@ refs_rename_ref_available.exit:                   ; preds = %49
   %69 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %70 = load ptr, ptr %69, align 8, !tbaa !15
   %71 = load ptr, ptr %27, align 8, !tbaa !15
-  %72 = call i32 @copy_file(ptr noundef %70, ptr noundef %71, i32 noundef 420) #19
+  %72 = call i32 @copy_file(ptr noundef %70, ptr noundef %71, i32 noundef 420) #20
   %.not88 = icmp eq i32 %72, 0
   br i1 %.not88, label %.critedge.thread, label %73
 
 73:                                               ; preds = %68
-  %74 = tail call ptr @__errno_location() #21
+  %74 = tail call ptr @__errno_location() #22
   %75 = load i32, ptr %74, align 4, !tbaa !16
-  %76 = call ptr @strerror(i32 noundef %75) #19
-  %77 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.92, ptr noundef %1, ptr noundef %76) #19
+  %76 = call ptr @strerror(i32 noundef %75) #20
+  %77 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.92, ptr noundef %1, ptr noundef %76) #20
   br label %.thread107
 
 78:                                               ; preds = %66
   br i1 %67, label %.critedge, label %79
 
 79:                                               ; preds = %78
-  %80 = call i32 @refs_delete_ref(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %1, ptr noundef nonnull %11, i32 noundef 1) #19
+  %80 = call i32 @refs_delete_ref(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %1, ptr noundef nonnull %11, i32 noundef 1) #20
   %.not89 = icmp eq i32 %80, 0
   br i1 %.not89, label %83, label %81
 
 81:                                               ; preds = %79
-  %82 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.93, ptr noundef %1) #19
+  %82 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.93, ptr noundef %1) #20
   br label %134
 
 83:                                               ; preds = %79
-  %84 = call ptr @refs_resolve_ref_unsafe(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 3, ptr noundef null, ptr noundef null) #19
+  %84 = call ptr @refs_resolve_ref_unsafe(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 3, ptr noundef null, ptr noundef null) #20
   %.not90 = icmp eq ptr %84, null
   br i1 %.not90, label %.critedge, label %85
 
 85:                                               ; preds = %83
-  %86 = call i32 @refs_delete_ref(ptr noundef nonnull %0, ptr noundef null, ptr noundef %2, ptr noundef null, i32 noundef 1) #19
+  %86 = call i32 @refs_delete_ref(ptr noundef nonnull %0, ptr noundef null, ptr noundef %2, ptr noundef null, i32 noundef 1) #20
   %.not91 = icmp eq i32 %86, 0
   br i1 %.not91, label %.critedge, label %87
 
 87:                                               ; preds = %85
-  %88 = tail call ptr @__errno_location() #21
+  %88 = tail call ptr @__errno_location() #22
   %89 = load i32, ptr %88, align 4, !tbaa !16
   %90 = icmp eq i32 %89, 21
   br i1 %90, label %91, label %95
@@ -5220,8 +5220,8 @@ refs_rename_ref_available.exit:                   ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_fsck_refs_dir.sb, i64 24, i1 false)
   call fastcc void @files_ref_path(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %2)
-  %92 = call i32 @remove_dir_recursively(ptr noundef nonnull %18, i32 noundef 1) #19
-  call void @strbuf_release(ptr noundef nonnull %18) #19
+  %92 = call i32 @remove_dir_recursively(ptr noundef nonnull %18, i32 noundef 1) #20
+  call void @strbuf_release(ptr noundef nonnull %18) #20
   %.not92 = icmp eq i32 %92, 0
   br i1 %.not92, label %.thread105, label %93
 
@@ -5230,12 +5230,12 @@ refs_rename_ref_available.exit:                   ; preds = %49
   br label %.critedge
 
 93:                                               ; preds = %91
-  %94 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.94, ptr noundef %2) #19
+  %94 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.94, ptr noundef %2) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %134
 
 95:                                               ; preds = %87
-  %96 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.95, ptr noundef %2) #19
+  %96 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.95, ptr noundef %2) #20
   br label %134
 
 .critedge:                                        ; preds = %.thread105, %78, %85, %83
@@ -5259,14 +5259,14 @@ refs_rename_ref_available.exit:                   ; preds = %49
   br i1 %.not.i104, label %.critedge109, label %102
 
 102:                                              ; preds = %.critedge.thread
-  %103 = tail call ptr @__errno_location() #21
+  %103 = tail call ptr @__errno_location() #22
   %104 = load i32, ptr %103, align 4, !tbaa !16
   %105 = icmp eq i32 %104, 21
   br i1 %105, label %106, label %109
 
 106:                                              ; preds = %102
   %107 = load ptr, ptr %99, align 8, !tbaa !15
-  %108 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.102, ptr noundef %107) #19
+  %108 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.102, ptr noundef %107) #20
   br label %rename_tmp_log.exit
 
 109:                                              ; preds = %102
@@ -5274,21 +5274,21 @@ refs_rename_ref_available.exit:                   ; preds = %49
   %111 = load ptr, ptr %99, align 8, !tbaa !15
   %112 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %113 = load i32, ptr %112, align 8, !tbaa !178
-  %114 = call ptr @strerror(i32 noundef %113) #19
-  %115 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.103, ptr noundef %110, ptr noundef %111, ptr noundef %114) #19
+  %114 = call ptr @strerror(i32 noundef %113) #20
+  %115 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.103, ptr noundef %110, ptr noundef %111, ptr noundef %114) #20
   br label %rename_tmp_log.exit
 
 rename_tmp_log.exit:                              ; preds = %106, %109
-  call void @strbuf_release(ptr noundef nonnull %6) #19
-  call void @strbuf_release(ptr noundef nonnull %7) #19
+  call void @strbuf_release(ptr noundef nonnull %6) #20
+  call void @strbuf_release(ptr noundef nonnull %7) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %134
 
 .critedge109:                                     ; preds = %.critedge.thread
-  call void @strbuf_release(ptr noundef nonnull %6) #19
-  call void @strbuf_release(ptr noundef nonnull %7) #19
+  call void @strbuf_release(ptr noundef nonnull %6) #20
+  call void @strbuf_release(ptr noundef nonnull %7) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -5303,8 +5303,8 @@ rename_tmp_log.exit:                              ; preds = %106, %109
   %119 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %120 = load ptr, ptr %119, align 8, !tbaa !15
   %.str.96..str.97 = select i1 %67, ptr @.str.96, ptr @.str.97
-  %121 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.96..str.97, ptr noundef %1, ptr noundef %2, ptr noundef %120) #19
-  call void @strbuf_release(ptr noundef nonnull %17) #19
+  %121 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.96..str.97, ptr noundef %1, ptr noundef %2, ptr noundef %120) #20
+  call void @strbuf_release(ptr noundef nonnull %17) #20
   br label %134
 
 122:                                              ; preds = %116
@@ -5326,8 +5326,8 @@ rename_tmp_log.exit:                              ; preds = %106, %109
 130:                                              ; preds = %128, %122
   %131 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %132 = load ptr, ptr %131, align 8, !tbaa !15
-  %133 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.98, ptr noundef %2, ptr noundef %132) #19
-  call void @strbuf_release(ptr noundef nonnull %17) #19
+  %133 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.98, ptr noundef %2, ptr noundef %132) #20
+  call void @strbuf_release(ptr noundef nonnull %17) #20
   br label %134
 
 134:                                              ; preds = %rename_tmp_log.exit, %93, %130, %118, %95, %81
@@ -5350,8 +5350,8 @@ rename_tmp_log.exit:                              ; preds = %106, %109
   %.str.98.sink = phi ptr [ @.str.99, %134 ], [ @.str.98, %138 ], [ @.str.98, %136 ]
   %140 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %141 = load ptr, ptr %140, align 8, !tbaa !15
-  %142 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.98.sink, ptr noundef %1, ptr noundef %141) #19
-  call void @strbuf_release(ptr noundef nonnull %17) #19
+  %142 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.98.sink, ptr noundef %1, ptr noundef %141) #20
+  call void @strbuf_release(ptr noundef nonnull %17) #20
   br label %143
 
 143:                                              ; preds = %.sink.split, %138
@@ -5361,15 +5361,15 @@ rename_tmp_log.exit:                              ; preds = %106, %109
   %145 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %146 = load ptr, ptr %145, align 8, !tbaa !15
   %147 = load ptr, ptr %27, align 8, !tbaa !15
-  %148 = call i32 @rename(ptr noundef %146, ptr noundef %147) #19
+  %148 = call i32 @rename(ptr noundef %146, ptr noundef %147) #20
   %.not100 = icmp eq i32 %148, 0
   br i1 %.not100, label %.thread107, label %149
 
 149:                                              ; preds = %144
-  %150 = tail call ptr @__errno_location() #21
+  %150 = tail call ptr @__errno_location() #22
   %151 = load i32, ptr %150, align 4, !tbaa !16
-  %152 = call ptr @strerror(i32 noundef %151) #19
-  %153 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.100, ptr noundef %1, ptr noundef %2, ptr noundef %152) #19
+  %152 = call ptr @strerror(i32 noundef %151) #20
+  %153 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.100, ptr noundef %1, ptr noundef %2, ptr noundef %152) #20
   br label %.thread107
 
 154:                                              ; preds = %143
@@ -5379,22 +5379,22 @@ rename_tmp_log.exit:                              ; preds = %106, %109
   %156 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %157 = load ptr, ptr %156, align 8, !tbaa !15
   %158 = load ptr, ptr %27, align 8, !tbaa !15
-  %159 = call i32 @rename(ptr noundef %157, ptr noundef %158) #19
+  %159 = call i32 @rename(ptr noundef %157, ptr noundef %158) #20
   %.not101 = icmp eq i32 %159, 0
   br i1 %.not101, label %.thread107, label %160
 
 160:                                              ; preds = %155
-  %161 = tail call ptr @__errno_location() #21
+  %161 = tail call ptr @__errno_location() #22
   %162 = load i32, ptr %161, align 4, !tbaa !16
-  %163 = call ptr @strerror(i32 noundef %162) #19
-  %164 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.101, ptr noundef %1, ptr noundef %163) #19
+  %163 = call ptr @strerror(i32 noundef %162) #20
+  %164 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.101, ptr noundef %1, ptr noundef %163) #20
   br label %.thread107
 
 .thread107:                                       ; preds = %refs_rename_ref_available.exit, %144, %149, %35, %39, %61, %73, %47, %45, %128, %160, %155, %154
   %.080 = phi i32 [ -1, %35 ], [ -1, %45 ], [ -1, %47 ], [ -1, %61 ], [ -1, %73 ], [ -1, %39 ], [ 1, %refs_rename_ref_available.exit ], [ 0, %128 ], [ 1, %160 ], [ 1, %155 ], [ 1, %154 ], [ 1, %149 ], [ 1, %144 ]
-  call void @strbuf_release(ptr noundef nonnull %15) #19
-  call void @strbuf_release(ptr noundef nonnull %14) #19
-  call void @strbuf_release(ptr noundef nonnull %16) #19
+  call void @strbuf_release(ptr noundef nonnull %15) #20
+  call void @strbuf_release(ptr noundef nonnull %14) #20
+  call void @strbuf_release(ptr noundef nonnull %16) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -5424,11 +5424,11 @@ define internal fastcc ptr @lock_ref_oid_basic(ptr noundef %0, ptr noundef %1, p
   br i1 %.not.i, label %7, label %files_assert_main_repository.exit
 
 7:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 137, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.104) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 137, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.104) #21
   unreachable
 
 files_assert_main_repository.exit:                ; preds = %3
-  %8 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 56) #19
+  %8 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 56) #20
   call fastcc void @files_ref_path(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %1)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %9, ptr noundef nonnull dereferenceable(32) @is_null_oid.null_hash, i64 32)
@@ -5438,12 +5438,12 @@ files_assert_main_repository.exit:                ; preds = %3
 10:                                               ; preds = %files_assert_main_repository.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8, !tbaa !27
-  %13 = call i32 @refs_verify_refname_available(ptr noundef %12, ptr noundef %1, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %2) #19
+  %13 = call i32 @refs_verify_refname_available(ptr noundef %12, ptr noundef %1, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %2) #20
   %.not19 = icmp eq i32 %13, 0
   br i1 %.not19, label %14, label %39
 
 14:                                               ; preds = %10, %files_assert_main_repository.exit
-  %15 = call ptr @xstrdup(ptr noundef %1) #19
+  %15 = call ptr @xstrdup(ptr noundef %1) #20
   store ptr %15, ptr %8, align 8, !tbaa !55
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 52
   store i32 1, ptr %16, align 4, !tbaa !50
@@ -5456,14 +5456,14 @@ files_assert_main_repository.exit:                ; preds = %3
 
 21:                                               ; preds = %14
   %22 = load ptr, ptr %17, align 8, !tbaa !15
-  %23 = tail call ptr @__errno_location() #21
+  %23 = tail call ptr @__errno_location() #22
   %24 = load i32, ptr %23, align 4, !tbaa !16
-  call void @unable_to_lock_message(ptr noundef %22, i32 noundef %24, ptr noundef nonnull %2) #19
+  call void @unable_to_lock_message(ptr noundef %22, i32 noundef %24, ptr noundef nonnull %2) #20
   br label %39
 
 25:                                               ; preds = %14
   %26 = load ptr, ptr %8, align 8, !tbaa !55
-  %27 = call ptr @refs_resolve_ref_unsafe(ptr noundef nonnull %0, ptr noundef %26, i32 noundef 0, ptr noundef nonnull %9, ptr noundef null) #19
+  %27 = call ptr @refs_resolve_ref_unsafe(ptr noundef nonnull %0, ptr noundef %26, i32 noundef 0, ptr noundef nonnull %9, ptr noundef null) #20
   %.not21 = icmp eq ptr %27, null
   br i1 %.not21, label %28, label %unlock_ref.exit
 
@@ -5506,15 +5506,15 @@ oidclr.exit:                                      ; preds = %35, %.split.loop.ex
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %45 = call i32 @delete_tempfile(ptr noundef nonnull %44) #19
+  %45 = call i32 @delete_tempfile(ptr noundef nonnull %44) #20
   %46 = load ptr, ptr %8, align 8, !tbaa !55
-  call void @free(ptr noundef %46) #19
-  call void @free(ptr noundef nonnull %8) #19
+  call void @free(ptr noundef %46) #20
+  call void @free(ptr noundef nonnull %8) #20
   br label %unlock_ref.exit
 
 unlock_ref.exit:                                  ; preds = %43, %39, %25, %oidclr.exit
   %.0 = phi ptr [ %8, %25 ], [ %8, %oidclr.exit ], [ null, %39 ], [ null, %43 ]
-  call void @strbuf_release(ptr noundef nonnull %4) #19
+  call void @strbuf_release(ptr noundef nonnull %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -5530,7 +5530,7 @@ define internal fastcc range(i32 -1, 1) i32 @commit_ref_update(ptr noundef %0, p
   br i1 %.not.i, label %11, label %files_assert_main_repository.exit
 
 11:                                               ; preds = %6
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 137, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.105) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 137, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.105) #21
   unreachable
 
 files_assert_main_repository.exit:                ; preds = %6
@@ -5540,7 +5540,7 @@ files_assert_main_repository.exit:                ; preds = %6
   br i1 %.not.i37, label %clear_loose_ref_cache.exit, label %14
 
 14:                                               ; preds = %files_assert_main_repository.exit
-  tail call void @free_ref_cache(ptr noundef nonnull %13) #19
+  tail call void @free_ref_cache(ptr noundef nonnull %13) #20
   store ptr null, ptr %12, align 8, !tbaa !32
   br label %clear_loose_ref_cache.exit
 
@@ -5552,10 +5552,10 @@ clear_loose_ref_cache.exit:                       ; preds = %files_assert_main_r
   br i1 %.not, label %28, label %18
 
 18:                                               ; preds = %clear_loose_ref_cache.exit
-  %19 = tail call ptr @strbuf_detach(ptr noundef nonnull %5, ptr noundef null) #19
+  %19 = tail call ptr @strbuf_detach(ptr noundef nonnull %5, ptr noundef null) #20
   %20 = load ptr, ptr %1, align 8, !tbaa !55
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %5, ptr noundef nonnull @.str.62, ptr noundef %20, ptr noundef %19) #19
-  tail call void @free(ptr noundef %19) #19
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %5, ptr noundef nonnull @.str.62, ptr noundef %20, ptr noundef %19) #20
+  tail call void @free(ptr noundef %19) #20
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %22 = load i32, ptr %21, align 4, !tbaa !50
   %23 = add i32 %22, -1
@@ -5565,21 +5565,21 @@ clear_loose_ref_cache.exit:                       ; preds = %files_assert_main_r
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %26 = tail call i32 @delete_tempfile(ptr noundef nonnull %25) #19
+  %26 = tail call i32 @delete_tempfile(ptr noundef nonnull %25) #20
   %27 = load ptr, ptr %1, align 8, !tbaa !55
-  tail call void @free(ptr noundef %27) #19
-  tail call void @free(ptr noundef nonnull %1) #19
+  tail call void @free(ptr noundef %27) #20
+  tail call void @free(ptr noundef nonnull %1) #20
   br label %unlock_ref.exit
 
 28:                                               ; preds = %clear_loose_ref_cache.exit
   %29 = load ptr, ptr %1, align 8, !tbaa !55
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(5) @.str.26) #18
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(5) @.str.26) #19
   %.not31 = icmp eq i32 %30, 0
   br i1 %.not31, label %47, label %31
 
 31:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %32 = call ptr @refs_resolve_ref_unsafe(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, i32 noundef 1, ptr noundef null, ptr noundef nonnull %7) #19
+  %32 = call ptr @refs_resolve_ref_unsafe(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, i32 noundef 1, ptr noundef null, ptr noundef nonnull %7) #20
   %.not32 = icmp eq ptr %32, null
   br i1 %.not32, label %46, label %33
 
@@ -5591,7 +5591,7 @@ clear_loose_ref_cache.exit:                       ; preds = %files_assert_main_r
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr %1, align 8, !tbaa !55
-  %38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %37) #18
+  %38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %37) #19
   %.not34 = icmp eq i32 %38, 0
   br i1 %.not34, label %39, label %46
 
@@ -5605,8 +5605,8 @@ clear_loose_ref_cache.exit:                       ; preds = %files_assert_main_r
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !15
-  %44 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.84, ptr noundef %43) #19
-  call void @strbuf_release(ptr noundef nonnull %8) #19
+  %44 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.84, ptr noundef %43) #20
+  call void @strbuf_release(ptr noundef nonnull %8) #20
   br label %45
 
 45:                                               ; preds = %41, %39
@@ -5624,7 +5624,7 @@ clear_loose_ref_cache.exit:                       ; preds = %files_assert_main_r
 
 49:                                               ; preds = %47
   %50 = load ptr, ptr %1, align 8, !tbaa !55
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %5, ptr noundef nonnull @.str.58, ptr noundef %50) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %5, ptr noundef nonnull @.str.58, ptr noundef %50) #20
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %52 = load i32, ptr %51, align 4, !tbaa !50
   %53 = add i32 %52, -1
@@ -5634,10 +5634,10 @@ clear_loose_ref_cache.exit:                       ; preds = %files_assert_main_r
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %56 = call i32 @delete_tempfile(ptr noundef nonnull %55) #19
+  %56 = call i32 @delete_tempfile(ptr noundef nonnull %55) #20
   %57 = load ptr, ptr %1, align 8, !tbaa !55
-  call void @free(ptr noundef %57) #19
-  call void @free(ptr noundef nonnull %1) #19
+  call void @free(ptr noundef %57) #20
+  call void @free(ptr noundef nonnull %1) #20
   br label %unlock_ref.exit
 
 58:                                               ; preds = %47
@@ -5650,10 +5650,10 @@ clear_loose_ref_cache.exit:                       ; preds = %files_assert_main_r
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = call i32 @delete_tempfile(ptr noundef nonnull %63) #19
+  %64 = call i32 @delete_tempfile(ptr noundef nonnull %63) #20
   %65 = load ptr, ptr %1, align 8, !tbaa !55
-  call void @free(ptr noundef %65) #19
-  call void @free(ptr noundef nonnull %1) #19
+  call void @free(ptr noundef %65) #20
+  call void @free(ptr noundef nonnull %1) #20
   br label %unlock_ref.exit
 
 unlock_ref.exit:                                  ; preds = %62, %58, %54, %49, %24, %18
@@ -5664,12 +5664,12 @@ unlock_ref.exit:                                  ; preds = %62, %58, %54, %49, 
 ; Function Attrs: nofree nounwind uwtable
 define internal range(i32 -1, 1) i32 @rename_tmp_log_callback(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #10 {
   %3 = load ptr, ptr %1, align 8, !tbaa !176
-  %4 = tail call i32 @rename(ptr noundef %3, ptr noundef %0) #19
+  %4 = tail call i32 @rename(ptr noundef %3, ptr noundef %0) #20
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %11, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @__errno_location() #21
+  %6 = tail call ptr @__errno_location() #22
   %7 = load i32, ptr %6, align 4, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %7, ptr %8, align 8, !tbaa !178
@@ -5687,8 +5687,8 @@ define internal range(i32 -1, 1) i32 @rename_tmp_log_callback(ptr noundef readon
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @create_reflock(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = tail call i64 @get_files_ref_lock_timeout_ms() #19
-  %4 = tail call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef %1, ptr noundef %0, i32 noundef 2, i64 noundef %3, i32 noundef 438) #19
+  %3 = tail call i64 @get_files_ref_lock_timeout_ms() #20
+  %4 = tail call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef %1, ptr noundef %0, i32 noundef 2, i64 noundef %3, i32 noundef 438) #20
   %.lobit = ashr i32 %4, 31
   ret i32 %.lobit
 }
@@ -5703,7 +5703,7 @@ declare void @base_ref_iterator_init(ptr noundef, ptr noundef) local_unnamed_add
 define internal i32 @files_ref_iterator_advance(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !105
-  %4 = tail call i32 @ref_iterator_advance(ptr noundef %3) #19
+  %4 = tail call i32 @ref_iterator_advance(ptr noundef %3) #20
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -5722,7 +5722,7 @@ define internal i32 @files_ref_iterator_advance(ptr noundef %0) #0 {
   %12 = load ptr, ptr %2, align 8, !tbaa !105
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !88
-  %15 = tail call i32 @parse_worktree_ref(ptr noundef %14, ptr noundef null, ptr noundef null, ptr noundef null) #19
+  %15 = tail call i32 @parse_worktree_ref(ptr noundef %14, ptr noundef null, ptr noundef null, ptr noundef null) #20
   %.not26 = icmp eq i32 %15, 0
   br i1 %.not26, label %._crit_edge37, label %..backedge_crit_edge
 
@@ -5736,7 +5736,7 @@ define internal i32 @files_ref_iterator_advance(ptr noundef %0) #0 {
 
 .backedge:                                        ; preds = %..backedge_crit_edge, %28, %22
   %16 = phi ptr [ %.pre41, %..backedge_crit_edge ], [ %.pre42, %28 ], [ %.pre40.pre, %22 ]
-  %17 = tail call i32 @ref_iterator_advance(ptr noundef %16) #19
+  %17 = tail call i32 @ref_iterator_advance(ptr noundef %16) #20
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %8, label %._crit_edge, !llvm.loop !179
 
@@ -5767,7 +5767,7 @@ define internal i32 @files_ref_iterator_advance(ptr noundef %0) #0 {
   %33 = load ptr, ptr %32, align 8, !tbaa !92
   %34 = getelementptr inbounds nuw i8, ptr %.pre40.pre, i64 32
   %35 = load i32, ptr %34, align 8, !tbaa !93
-  %36 = tail call i32 @ref_resolves_to_object(ptr noundef %30, ptr noundef %31, ptr noundef %33, i32 noundef %35) #19
+  %36 = tail call i32 @ref_resolves_to_object(ptr noundef %30, ptr noundef %31, ptr noundef %33, i32 noundef %35) #20
   %.not31 = icmp eq i32 %36, 0
   %.pre42 = load ptr, ptr %2, align 8, !tbaa !105
   br i1 %.not31, label %.backedge, label %._crit_edge38
@@ -5795,7 +5795,7 @@ define internal i32 @files_ref_iterator_advance(ptr noundef %0) #0 {
 ._crit_edge:                                      ; preds = %.backedge, %1
   %.lcssa = phi i32 [ %4, %1 ], [ %17, %.backedge ]
   store ptr null, ptr %2, align 8, !tbaa !105
-  %50 = tail call i32 @ref_iterator_abort(ptr noundef nonnull %0) #19
+  %50 = tail call i32 @ref_iterator_abort(ptr noundef nonnull %0) #20
   %.not = icmp eq i32 %50, -1
   %spec.select = select i1 %.not, i32 %.lcssa, i32 -2
   br label %51
@@ -5809,7 +5809,7 @@ define internal i32 @files_ref_iterator_advance(ptr noundef %0) #0 {
 define internal i32 @files_ref_iterator_peel(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !105
-  %5 = tail call i32 @ref_iterator_peel(ptr noundef %4, ptr noundef %1) #19
+  %5 = tail call i32 @ref_iterator_peel(ptr noundef %4, ptr noundef %1) #20
   ret i32 %5
 }
 
@@ -5821,12 +5821,12 @@ define internal i32 @files_ref_iterator_abort(ptr noundef %0) #0 {
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @ref_iterator_abort(ptr noundef nonnull %3) #19
+  %5 = tail call i32 @ref_iterator_abort(ptr noundef nonnull %3) #20
   br label %6
 
 6:                                                ; preds = %4, %1
   %.0 = phi i32 [ %5, %4 ], [ -1, %1 ]
-  tail call void @base_ref_iterator_free(ptr noundef nonnull %0) #19
+  tail call void @base_ref_iterator_free(ptr noundef nonnull %0) #20
   ret i32 %.0
 }
 
@@ -5849,7 +5849,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_ref_internal(ptr noundef reado
 
 16:                                               ; preds = %7
   %17 = load ptr, ptr %15, align 8, !tbaa !30
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %17, ptr noundef nonnull @.str.107) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 154, ptr noundef nonnull @.str.9, ptr noundef %17, ptr noundef nonnull @.str.107) #21
   unreachable
 
 18:                                               ; preds = %7
@@ -5860,7 +5860,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_ref_internal(ptr noundef reado
   br i1 %.not11.i.not, label %22, label %strbuf_setlen.exit
 
 22:                                               ; preds = %18
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.107, i32 noundef 1, i32 noundef %20) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 160, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.107, i32 noundef 1, i32 noundef %20) #21
   unreachable
 
 strbuf_setlen.exit:                               ; preds = %18
@@ -5884,13 +5884,13 @@ strbuf_setlen.exit:                               ; preds = %18
 30:                                               ; preds = %strbuf_setlen.exit, %.backedge
   %31 = phi i32 [ 2, %strbuf_setlen.exit ], [ %82, %.backedge ]
   %.073 = phi i32 [ 0, %strbuf_setlen.exit ], [ %.0.be, %.backedge ]
-  %32 = call i32 @lstat64(ptr noundef %25, ptr noundef nonnull %12) #19
+  %32 = call i32 @lstat64(ptr noundef %25, ptr noundef nonnull %12) #20
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %34, label %44
 
 34:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %35 = tail call ptr @__errno_location() #21
+  %35 = tail call ptr @__errno_location() #22
   %36 = load i32, ptr %35, align 4, !tbaa !16
   %37 = icmp ne i32 %36, 2
   %38 = icmp ne i32 %6, 0
@@ -5900,7 +5900,7 @@ strbuf_setlen.exit:                               ; preds = %18
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %41 = load ptr, ptr %40, align 8, !tbaa !27
-  %42 = call i32 @refs_read_raw_ref(ptr noundef %41, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %13) #19
+  %42 = call i32 @refs_read_raw_ref(ptr noundef %41, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %13) #20
   %.not50 = icmp ne i32 %42, 0
   %spec.select = sext i1 %.not50 to i32
   br label %43
@@ -5928,12 +5928,12 @@ strbuf_setlen.exit:                               ; preds = %18
 
 strbuf_setlen.exit53:                             ; preds = %48, %50
   %51 = load i64, ptr %29, align 8, !tbaa !185
-  %52 = call i32 @strbuf_readlink(ptr noundef nonnull %10, ptr noundef %25, i64 noundef %51) #19
+  %52 = call i32 @strbuf_readlink(ptr noundef nonnull %10, ptr noundef %25, i64 noundef %51) #20
   %53 = icmp slt i32 %52, 0
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %strbuf_setlen.exit53
-  %55 = tail call ptr @__errno_location() #21
+  %55 = tail call ptr @__errno_location() #22
   %56 = load i32, ptr %55, align 4, !tbaa !16
   switch i32 %56, label %.loopexit [
     i32 22, label %.backedge
@@ -5942,13 +5942,13 @@ strbuf_setlen.exit53:                             ; preds = %48, %50
 
 57:                                               ; preds = %strbuf_setlen.exit53
   %58 = load ptr, ptr %28, align 8, !tbaa !15
-  %59 = call i32 @starts_with(ptr noundef %58, ptr noundef nonnull @.str.77) #19
+  %59 = call i32 @starts_with(ptr noundef %58, ptr noundef nonnull @.str.77) #20
   %.not = icmp eq i32 %59, 0
   br i1 %.not, label %.thread, label %60
 
 60:                                               ; preds = %57
   %61 = load ptr, ptr %28, align 8, !tbaa !15
-  %62 = call i32 @check_refname_format(ptr noundef %61, i32 noundef 0) #19
+  %62 = call i32 @check_refname_format(ptr noundef %61, i32 noundef 0) #20
   %.not47 = icmp eq i32 %62, 0
   br i1 %.not47, label %63, label %.thread
 
@@ -5975,7 +5975,7 @@ strbuf_setlen.exit53:                             ; preds = %48, %50
 69:                                               ; preds = %68
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %71 = load ptr, ptr %70, align 8, !tbaa !27
-  %72 = call i32 @refs_read_raw_ref(ptr noundef %71, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %14) #19
+  %72 = call i32 @refs_read_raw_ref(ptr noundef %71, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %14) #20
   %.not49 = icmp eq i32 %72, 0
   br i1 %.not49, label %74, label %73
 
@@ -5989,12 +5989,12 @@ strbuf_setlen.exit53:                             ; preds = %48, %50
   br label %.loopexit
 
 .thread:                                          ; preds = %60, %57, %66
-  %75 = call i32 (ptr, i32, ...) @open64(ptr noundef %25, i32 noundef 0) #19
+  %75 = call i32 (ptr, i32, ...) @open64(ptr noundef %25, i32 noundef 0) #20
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %77, label %84
 
 77:                                               ; preds = %.thread
-  %78 = tail call ptr @__errno_location() #21
+  %78 = tail call ptr @__errno_location() #22
   %79 = load i32, ptr %78, align 4, !tbaa !16
   %80 = icmp eq i32 %79, 2
   br i1 %80, label %81, label %.loopexit
@@ -6019,19 +6019,19 @@ strbuf_setlen.exit53:                             ; preds = %48, %50
   br label %strbuf_setlen.exit56
 
 strbuf_setlen.exit56:                             ; preds = %84, %86
-  %87 = call i64 @strbuf_read(ptr noundef nonnull %10, i32 noundef %75, i64 noundef 256) #19
+  %87 = call i64 @strbuf_read(ptr noundef nonnull %10, i32 noundef %75, i64 noundef 256) #20
   %88 = icmp slt i64 %87, 0
   br i1 %88, label %89, label %93
 
 89:                                               ; preds = %strbuf_setlen.exit56
-  %90 = tail call ptr @__errno_location() #21
+  %90 = tail call ptr @__errno_location() #22
   %91 = load i32, ptr %90, align 4, !tbaa !16
-  %92 = call i32 @close(i32 noundef %75) #19
+  %92 = call i32 @close(i32 noundef %75) #20
   br label %.loopexit
 
 93:                                               ; preds = %strbuf_setlen.exit56
-  %94 = call i32 @close(i32 noundef %75) #19
-  call void @strbuf_rtrim(ptr noundef nonnull %10) #19
+  %94 = call i32 @close(i32 noundef %75) #20
+  call void @strbuf_rtrim(ptr noundef nonnull %10) #20
   %95 = load ptr, ptr %28, align 8, !tbaa !15
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %97 = load ptr, ptr %96, align 8, !tbaa !104
@@ -6080,12 +6080,12 @@ skip_prefix.exit.i:                               ; preds = %100, %skip_prefix.e
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %116, %112
-  %117 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.016.i) #18
-  call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull %.016.i, i64 noundef %117) #19
+  %117 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.016.i) #19
+  call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull %.016.i, i64 noundef %117) #20
   br label %parse_loose_ref_contents.exit.sink.split
 
 118:                                              ; preds = %101
-  %119 = call i32 @parse_oid_hex_algop(ptr noundef %95, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %99) #19
+  %119 = call i32 @parse_oid_hex_algop(ptr noundef %95, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %99) #20
   %.not.i57 = icmp eq i32 %119, 0
   br i1 %.not.i57, label %120, label %parse_loose_ref_contents.exit.sink.split
 
@@ -6127,16 +6127,16 @@ parse_loose_ref_contents.exit:                    ; preds = %parse_loose_ref_con
   br i1 %or.cond6, label %.thread61, label %132
 
 132:                                              ; preds = %.loopexit
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 579, ptr noundef nonnull @.str.108, i32 noundef -1) #20
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 579, ptr noundef nonnull @.str.108, i32 noundef -1) #21
   unreachable
 
 .thread61:                                        ; preds = %.backedge, %81, %63, %.loopexit
   %.04466 = phi i32 [ %.044, %.loopexit ], [ 0, %63 ], [ -1, %81 ], [ -1, %.backedge ]
   %.165 = phi i32 [ %.1, %.loopexit ], [ %.073, %63 ], [ %.0.be, %.backedge ], [ 2, %81 ]
   store i32 %.165, ptr %5, align 4, !tbaa !16
-  call void @strbuf_release(ptr noundef nonnull %11) #19
-  call void @strbuf_release(ptr noundef nonnull %10) #19
-  %133 = tail call ptr @__errno_location() #21
+  call void @strbuf_release(ptr noundef nonnull %11) #20
+  call void @strbuf_release(ptr noundef nonnull %10) #20
+  %133 = tail call ptr @__errno_location() #22
   store i32 0, ptr %133, align 4, !tbaa !16
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -6159,26 +6159,26 @@ define internal fastcc ptr @reflog_iterator_begin(ptr noundef %0, ptr noundef %1
   %3 = alloca %struct.strbuf, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_fsck_refs_dir.sb, i64 24, i1 false)
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, ptr noundef %1) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, ptr noundef %1) #20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !15
-  %6 = call ptr @dir_iterator_begin(ptr noundef %5, i32 noundef 2) #19
+  %6 = call ptr @dir_iterator_begin(ptr noundef %5, i32 noundef 2) #20
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %2
-  call void @strbuf_release(ptr noundef nonnull %3) #19
-  %8 = call ptr @empty_ref_iterator_begin() #19
+  call void @strbuf_release(ptr noundef nonnull %3) #20
+  %8 = call ptr @empty_ref_iterator_begin() #20
   br label %13
 
 9:                                                ; preds = %2
-  %10 = call ptr @xcalloc(i64 noundef 1, i64 noundef 56) #19
-  call void @base_ref_iterator_init(ptr noundef %10, ptr noundef nonnull @files_reflog_iterator_vtable) #19
+  %10 = call ptr @xcalloc(i64 noundef 1, i64 noundef 56) #20
+  call void @base_ref_iterator_init(ptr noundef %10, ptr noundef nonnull @files_reflog_iterator_vtable) #20
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %6, ptr %11, align 8, !tbaa !186
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %0, ptr %12, align 8, !tbaa !189
-  call void @strbuf_release(ptr noundef nonnull %3) #19
+  call void @strbuf_release(ptr noundef nonnull %3) #20
   br label %13
 
 13:                                               ; preds = %9, %7
@@ -6199,7 +6199,7 @@ declare ptr @empty_ref_iterator_begin() local_unnamed_addr #1
 define internal i32 @files_reflog_iterator_advance(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !186
-  %4 = tail call i32 @dir_iterator_advance(ptr noundef %3) #19
+  %4 = tail call i32 @dir_iterator_advance(ptr noundef %3) #20
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -6215,13 +6215,13 @@ define internal i32 @files_reflog_iterator_advance(ptr noundef %0) #0 {
   br i1 %11, label %14, label %.backedge
 
 .backedge:                                        ; preds = %8, %14
-  %12 = tail call i32 @dir_iterator_advance(ptr noundef nonnull %3) #19
+  %12 = tail call i32 @dir_iterator_advance(ptr noundef nonnull %3) #20
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %8, label %._crit_edge, !llvm.loop !190
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %7, align 8, !tbaa !145
-  %16 = tail call i32 @check_refname_format(ptr noundef %15, i32 noundef 1) #19
+  %16 = tail call i32 @check_refname_format(ptr noundef %15, i32 noundef 1) #20
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %.backedge
 
@@ -6235,7 +6235,7 @@ define internal i32 @files_reflog_iterator_advance(ptr noundef %0) #0 {
 ._crit_edge:                                      ; preds = %.backedge, %1
   %.lcssa = phi i32 [ %4, %1 ], [ %12, %.backedge ]
   store ptr null, ptr %2, align 8, !tbaa !186
-  %21 = tail call i32 @ref_iterator_abort(ptr noundef %0) #19
+  %21 = tail call i32 @ref_iterator_abort(ptr noundef %0) #20
   %22 = icmp eq i32 %21, -2
   %spec.select = select i1 %22, i32 -2, i32 %.lcssa
   br label %23
@@ -6247,7 +6247,7 @@ define internal i32 @files_reflog_iterator_advance(ptr noundef %0) #0 {
 
 ; Function Attrs: noreturn nounwind uwtable
 define internal noundef i32 @files_reflog_iterator_peel(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #12 {
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 2315, ptr noundef nonnull @.str.110) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.8, i32 noundef 2315, ptr noundef nonnull @.str.110) #21
   unreachable
 }
 
@@ -6259,12 +6259,12 @@ define internal i32 @files_reflog_iterator_abort(ptr noundef %0) #0 {
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @dir_iterator_abort(ptr noundef nonnull %3) #19
+  %5 = tail call i32 @dir_iterator_abort(ptr noundef nonnull %3) #20
   br label %6
 
 6:                                                ; preds = %4, %1
   %.0 = phi i32 [ %5, %4 ], [ -1, %1 ]
-  tail call void @base_ref_iterator_free(ptr noundef nonnull %0) #19
+  tail call void @base_ref_iterator_free(ptr noundef nonnull %0) #20
   ret i32 %.0
 }
 
@@ -6302,7 +6302,7 @@ define internal fastcc i32 @show_one_reflog_ent(ptr noundef readonly captures(no
   %14 = load ptr, ptr %13, align 8, !tbaa !87
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 400
   %16 = load ptr, ptr %15, align 8, !tbaa !116
-  %17 = call i32 @parse_oid_hex_algop(ptr noundef nonnull %.16.val, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef %16) #19
+  %17 = call i32 @parse_oid_hex_algop(ptr noundef nonnull %.16.val, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef %16) #20
   %.not20 = icmp eq i32 %17, 0
   br i1 %.not20, label %18, label %84
 
@@ -6318,7 +6318,7 @@ define internal fastcc i32 @show_one_reflog_ent(ptr noundef readonly captures(no
   %23 = load ptr, ptr %13, align 8, !tbaa !87
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 400
   %25 = load ptr, ptr %24, align 8, !tbaa !116
-  %26 = call i32 @parse_oid_hex_algop(ptr noundef nonnull %20, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef %25) #19
+  %26 = call i32 @parse_oid_hex_algop(ptr noundef nonnull %20, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef %25) #20
   %.not22 = icmp eq i32 %26, 0
   br i1 %.not22, label %27, label %84
 
@@ -6331,7 +6331,7 @@ define internal fastcc i32 @show_one_reflog_ent(ptr noundef readonly captures(no
   br i1 %.not23, label %31, label %84
 
 31:                                               ; preds = %27
-  %32 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %29, i32 noundef 62) #18
+  %32 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %29, i32 noundef 62) #19
   %.not24 = icmp eq ptr %32, null
   br i1 %.not24, label %84, label %33
 
@@ -6343,7 +6343,7 @@ define internal fastcc i32 @show_one_reflog_ent(ptr noundef readonly captures(no
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 2
-  %38 = call i64 @strtoumax(ptr noundef nonnull %37, ptr noundef nonnull %6, i32 noundef 10) #19
+  %38 = call i64 @strtoumax(ptr noundef nonnull %37, ptr noundef nonnull %6, i32 noundef 10) #20
   %39 = icmp ne i64 %38, 0
   %40 = load ptr, ptr %6, align 8
   %41 = icmp ne ptr %40, null
@@ -6405,7 +6405,7 @@ define internal fastcc i32 @show_one_reflog_ent(ptr noundef readonly captures(no
 
 75:                                               ; preds = %68
   store i8 0, ptr %34, align 1, !tbaa !4
-  %76 = call i64 @strtol(ptr noundef nonnull captures(none) %45, ptr noundef null, i32 noundef 10) #19
+  %76 = call i64 @strtol(ptr noundef nonnull captures(none) %45, ptr noundef null, i32 noundef 10) #20
   %77 = trunc i64 %76 to i32
   %78 = load ptr, ptr %6, align 8, !tbaa !18
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 6
@@ -6415,7 +6415,7 @@ define internal fastcc i32 @show_one_reflog_ent(ptr noundef readonly captures(no
   %storemerge = select i1 %.not33, ptr %81, ptr %79
   store ptr %storemerge, ptr %6, align 8, !tbaa !18
   %82 = load ptr, ptr %7, align 8, !tbaa !18
-  %83 = call i32 %1(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %82, i64 noundef %38, i32 noundef %77, ptr noundef nonnull %storemerge, ptr noundef %2) #19
+  %83 = call i32 %1(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %82, i64 noundef %38, i32 noundef %77, ptr noundef nonnull %storemerge, ptr noundef %2) #20
   br label %84
 
 84:                                               ; preds = %3, %8, %12, %18, %22, %27, %31, %33, %36, %42, %47, %54, %61, %68, %44, %75
@@ -6467,7 +6467,7 @@ define internal noundef i32 @expire_reflog_ent(ptr noundef %0, ptr noundef %1, p
   %spec.select = select i1 %.not, ptr %0, ptr %12
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !112
-  %15 = tail call i32 %8(ptr noundef %spec.select, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %14) #19
+  %15 = tail call i32 %8(ptr noundef %spec.select, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %14) #20
   %.not23 = icmp eq i32 %15, 0
   br i1 %.not23, label %16, label %28
 
@@ -6480,9 +6480,9 @@ define internal noundef i32 @expire_reflog_ent(ptr noundef %0, ptr noundef %1, p
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !115
-  %22 = tail call ptr @oid_to_hex(ptr noundef %spec.select) #19
-  %23 = tail call ptr @oid_to_hex(ptr noundef %1) #19
-  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.128, ptr noundef %22, ptr noundef %23, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5) #19
+  %22 = tail call ptr @oid_to_hex(ptr noundef %spec.select) #20
+  %23 = tail call ptr @oid_to_hex(ptr noundef %1) #20
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.128, ptr noundef %22, ptr noundef %23, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5) #20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %12, ptr noundef nonnull readonly align 4 dereferenceable(32) %1, i64 32, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = load i32, ptr %25, align 4, !tbaa !57
@@ -6507,7 +6507,7 @@ define internal i32 @files_fsck_refs_name(ptr readnone captures(none) %0, ptr no
   br i1 %.not, label %ends_with.exit.thread, label %10
 
 10:                                               ; preds = %4
-  %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %8) #18
+  %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %8) #19
   %12 = icmp ult i64 %11, 5
   br i1 %12, label %ends_with.exit.thread, label %ends_with.exit
 
@@ -6519,7 +6519,7 @@ ends_with.exit:                                   ; preds = %10
   br i1 %.not.i.i.i.not, label %19, label %ends_with.exit.thread
 
 ends_with.exit.thread:                            ; preds = %10, %ends_with.exit, %4
-  %15 = tail call i32 @check_refname_format(ptr noundef %2, i32 noundef 0) #19
+  %15 = tail call i32 @check_refname_format(ptr noundef %2, i32 noundef 0) #20
   %.not6 = icmp eq i32 %15, 0
   br i1 %.not6, label %19, label %16
 
@@ -6528,13 +6528,13 @@ ends_with.exit.thread:                            ; preds = %10, %ends_with.exit
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   store ptr %2, ptr %6, align 8, !tbaa !146
-  %18 = call i32 (ptr, ptr, i32, ptr, ...) @fsck_report_ref(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 10, ptr noundef nonnull @.str.132) #19
+  %18 = call i32 (ptr, ptr, i32, ptr, ...) @fsck_report_ref(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 10, ptr noundef nonnull @.str.132) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %19
 
 19:                                               ; preds = %ends_with.exit.thread, %16, %ends_with.exit
   %.0 = phi i32 [ 0, %ends_with.exit ], [ %18, %16 ], [ 0, %ends_with.exit.thread ]
-  call void @strbuf_release(ptr noundef nonnull %5) #19
+  call void @strbuf_release(ptr noundef nonnull %5) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -6565,12 +6565,12 @@ define internal i32 @files_fsck_refs_content(ptr noundef readonly captures(none)
   br i1 %15, label %16, label %55
 
 16:                                               ; preds = %4
-  %17 = call i32 (ptr, ptr, i32, ptr, ...) @fsck_report_ref(ptr noundef %1, ptr noundef nonnull %9, i32 noundef 61, ptr noundef nonnull @.str.133) #19
+  %17 = call i32 (ptr, ptr, i32, ptr, ...) @fsck_report_ref(ptr noundef %1, ptr noundef nonnull %9, i32 noundef 61, ptr noundef nonnull @.str.133) #20
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !104
   %20 = load ptr, ptr %19, align 8, !tbaa !192
-  call void @strbuf_add_absolute_path(ptr noundef nonnull %7, ptr noundef %20) #19
-  %21 = call i32 @strbuf_normalize_path(ptr noundef nonnull %7) #19
+  call void @strbuf_add_absolute_path(ptr noundef nonnull %7, ptr noundef %20) #20
+  %21 = call i32 @strbuf_normalize_path(ptr noundef nonnull %7) #20
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !15
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -6590,7 +6590,7 @@ define internal i32 @files_fsck_refs_content(ptr noundef readonly captures(none)
   br i1 %or.cond, label %strbuf_avail.exit.thread.i, label %strbuf_addch.exit
 
 strbuf_avail.exit.thread.i:                       ; preds = %29
-  call void @strbuf_grow(ptr noundef nonnull %7, i64 noundef 1) #19
+  call void @strbuf_grow(ptr noundef nonnull %7, i64 noundef 1) #20
   %.pre.i = load i64, ptr %24, align 8, !tbaa !10
   %.pre7.i = add i64 %.pre.i, 1
   %.pre = load ptr, ptr %22, align 8, !tbaa !15
@@ -6612,7 +6612,7 @@ strbuf_addch.exit:                                ; preds = %29, %strbuf_avail.e
 37:                                               ; preds = %strbuf_addch.exit, %16
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !193
-  call void @strbuf_add_real_path(ptr noundef nonnull %6, ptr noundef %39) #19
+  call void @strbuf_add_real_path(ptr noundef nonnull %6, ptr noundef %39) #20
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !15
   %42 = load ptr, ptr %22, align 8, !tbaa !15
@@ -6637,12 +6637,12 @@ skip_prefix.exit:                                 ; preds = %43
   br i1 %.not24, label %skip_prefix.exit.thread, label %50
 
 50:                                               ; preds = %skip_prefix.exit
-  %51 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.07.i) #18
-  call void @strbuf_add(ptr noundef nonnull %8, ptr noundef nonnull %.07.i, i64 noundef %51) #19
+  %51 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.07.i) #19
+  call void @strbuf_add(ptr noundef nonnull %8, ptr noundef nonnull %.07.i, i64 noundef %51) #20
   br label %52
 
 skip_prefix.exit.thread:                          ; preds = %45, %skip_prefix.exit
-  call void @strbuf_addbuf(ptr noundef nonnull %8, ptr noundef nonnull %6) #19
+  call void @strbuf_addbuf(ptr noundef nonnull %8, ptr noundef nonnull %6) #20
   br label %52
 
 52:                                               ; preds = %skip_prefix.exit.thread, %50
@@ -6653,12 +6653,12 @@ skip_prefix.exit.thread:                          ; preds = %45, %skip_prefix.ex
 55:                                               ; preds = %4
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %57 = load ptr, ptr %56, align 8, !tbaa !193
-  %58 = call i64 @strbuf_read_file(ptr noundef nonnull %6, ptr noundef %57, i64 noundef 0) #19
+  %58 = call i64 @strbuf_read_file(ptr noundef nonnull %6, ptr noundef %57, i64 noundef 0) #20
   %59 = icmp slt i64 %58, 0
   br i1 %59, label %60, label %70
 
 60:                                               ; preds = %55
-  %61 = tail call ptr @__errno_location() #21
+  %61 = tail call ptr @__errno_location() #22
   %62 = load i32, ptr %61, align 4, !tbaa !16
   %63 = icmp eq i32 %62, 2
   br i1 %63, label %119, label %64
@@ -6669,13 +6669,13 @@ skip_prefix.exit.thread:                          ; preds = %45, %skip_prefix.ex
   br i1 %.not4.i, label %_.exit, label %66
 
 66:                                               ; preds = %64
-  %67 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.134, i32 noundef 5) #19
+  %67 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.134, i32 noundef 5) #20
   br label %_.exit
 
 _.exit:                                           ; preds = %64, %66
   %.0.i = phi ptr [ %67, %66 ], [ @.str.134, %64 ]
   %68 = load ptr, ptr %56, align 8, !tbaa !193
-  %69 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i, ptr noundef %68) #19
+  %69 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i, ptr noundef %68) #20
   br label %119
 
 70:                                               ; preds = %55
@@ -6728,7 +6728,7 @@ skip_prefix.exit.i:                               ; preds = %77, %skip_prefix.ex
   br label %116
 
 94:                                               ; preds = %78
-  %95 = call i32 @parse_oid_hex_algop(ptr noundef %76, ptr noundef nonnull %10, ptr noundef nonnull %5, ptr noundef %74) #19
+  %95 = call i32 @parse_oid_hex_algop(ptr noundef %76, ptr noundef nonnull %10, ptr noundef nonnull %5, ptr noundef %74) #20
   %.not.i26 = icmp eq i32 %95, 0
   br i1 %.not.i26, label %96, label %104
 
@@ -6748,9 +6748,9 @@ skip_prefix.exit.i:                               ; preds = %77, %skip_prefix.ex
 
 104:                                              ; preds = %99, %94
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @strbuf_rtrim(ptr noundef nonnull %6) #19
+  call void @strbuf_rtrim(ptr noundef nonnull %6) #20
   %105 = load ptr, ptr %75, align 8, !tbaa !15
-  %106 = call i32 (ptr, ptr, i32, ptr, ...) @fsck_report_ref(ptr noundef %1, ptr noundef nonnull %9, i32 noundef 8, ptr noundef nonnull @.str.84, ptr noundef %105) #19
+  %106 = call i32 (ptr, ptr, i32, ptr, ...) @fsck_report_ref(ptr noundef %1, ptr noundef nonnull %9, i32 noundef 8, ptr noundef nonnull @.str.84, ptr noundef %105) #20
   br label %119
 
 107:                                              ; preds = %96, %99
@@ -6762,7 +6762,7 @@ skip_prefix.exit.i:                               ; preds = %77, %skip_prefix.ex
   ]
 
 109:                                              ; preds = %107
-  %110 = call i32 (ptr, ptr, i32, ptr, ...) @fsck_report_ref(ptr noundef %1, ptr noundef nonnull %9, i32 noundef 62, ptr noundef nonnull @.str.135) #19
+  %110 = call i32 (ptr, ptr, i32, ptr, ...) @fsck_report_ref(ptr noundef %1, ptr noundef nonnull %9, i32 noundef 62, ptr noundef nonnull @.str.135) #20
   br label %119
 
 111:                                              ; preds = %107
@@ -6772,21 +6772,21 @@ skip_prefix.exit.i:                               ; preds = %77, %skip_prefix.ex
   br i1 %.not22, label %119, label %114
 
 114:                                              ; preds = %107, %111
-  %115 = call i32 (ptr, ptr, i32, ptr, ...) @fsck_report_ref(ptr noundef %1, ptr noundef nonnull %9, i32 noundef 64, ptr noundef nonnull @.str.136, ptr noundef nonnull %97) #19
+  %115 = call i32 (ptr, ptr, i32, ptr, ...) @fsck_report_ref(ptr noundef %1, ptr noundef nonnull %9, i32 noundef 64, ptr noundef nonnull @.str.136, ptr noundef nonnull %97) #20
   br label %119
 
 116:                                              ; preds = %93, %89
-  %117 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.016.i) #18
-  call void @strbuf_add(ptr noundef nonnull %8, ptr noundef nonnull %.016.i, i64 noundef %117) #19
+  %117 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.016.i) #19
+  call void @strbuf_add(ptr noundef nonnull %8, ptr noundef nonnull %.016.i, i64 noundef %117) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %118 = call fastcc i32 @files_fsck_symref_target(ptr noundef %1, ptr noundef %9, ptr noundef %8, i32 noundef 0)
   br label %119
 
 119:                                              ; preds = %52, %111, %60, %116, %114, %109, %104, %_.exit
   %.0 = phi i32 [ %54, %52 ], [ 0, %60 ], [ -1, %_.exit ], [ %106, %104 ], [ %118, %116 ], [ %115, %114 ], [ 0, %111 ], [ %110, %109 ]
-  call void @strbuf_release(ptr noundef nonnull %6) #19
-  call void @strbuf_release(ptr noundef nonnull %8) #19
-  call void @strbuf_release(ptr noundef nonnull %7) #19
+  call void @strbuf_release(ptr noundef nonnull %6) #20
+  call void @strbuf_release(ptr noundef nonnull %8) #20
+  call void @strbuf_release(ptr noundef nonnull %7) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -6820,43 +6820,43 @@ define internal fastcc i32 @files_fsck_symref_target(ptr noundef %0, ptr noundef
   br i1 %.not, label %12, label %13
 
 12:                                               ; preds = %4
-  tail call void @strbuf_rtrim(ptr noundef nonnull %2) #19
+  tail call void @strbuf_rtrim(ptr noundef nonnull %2) #20
   %.pre = load ptr, ptr %7, align 8, !tbaa !15
   br label %13
 
 13:                                               ; preds = %12, %4
   %14 = phi ptr [ %.pre, %12 ], [ %8, %4 ]
-  %15 = tail call i32 @is_root_ref(ptr noundef %14) #19
+  %15 = tail call i32 @is_root_ref(ptr noundef %14) #20
   %.not36 = icmp eq i32 %15, 0
   br i1 %.not36, label %16, label %31
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %7, align 8, !tbaa !15
-  %18 = tail call i32 @starts_with(ptr noundef %17, ptr noundef nonnull @.str.77) #19
+  %18 = tail call i32 @starts_with(ptr noundef %17, ptr noundef nonnull @.str.77) #20
   %.not37 = icmp eq i32 %18, 0
   br i1 %.not37, label %19, label %25
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %7, align 8, !tbaa !15
-  %21 = tail call i32 @starts_with(ptr noundef %20, ptr noundef nonnull @.str.137) #19
+  %21 = tail call i32 @starts_with(ptr noundef %20, ptr noundef nonnull @.str.137) #20
   %.not38 = icmp eq i32 %21, 0
   br i1 %.not38, label %22, label %25
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr %7, align 8, !tbaa !15
-  %24 = tail call i32 (ptr, ptr, i32, ptr, ...) @fsck_report_ref(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 63, ptr noundef nonnull @.str.138, ptr noundef %23) #19
+  %24 = tail call i32 (ptr, ptr, i32, ptr, ...) @fsck_report_ref(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 63, ptr noundef nonnull @.str.138, ptr noundef %23) #20
   br label %25
 
 25:                                               ; preds = %22, %19, %16
   %.0.ph = phi i32 [ %24, %22 ], [ 0, %19 ], [ 0, %16 ]
   %26 = load ptr, ptr %7, align 8, !tbaa !15
-  %27 = tail call i32 @check_refname_format(ptr noundef %26, i32 noundef 0) #19
+  %27 = tail call i32 @check_refname_format(ptr noundef %26, i32 noundef 0) #20
   %.not39 = icmp eq i32 %27, 0
   br i1 %.not39, label %31, label %28
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %7, align 8, !tbaa !15
-  %30 = tail call i32 (ptr, ptr, i32, ptr, ...) @fsck_report_ref(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 11, ptr noundef nonnull @.str.139, ptr noundef %29) #19
+  %30 = tail call i32 (ptr, ptr, i32, ptr, ...) @fsck_report_ref(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 11, ptr noundef nonnull @.str.139, ptr noundef %29) #20
   br label %44
 
 31:                                               ; preds = %13, %25
@@ -6875,7 +6875,7 @@ define internal fastcc i32 @files_fsck_symref_target(ptr noundef %0, ptr noundef
   br i1 %or.cond, label %38, label %40
 
 38:                                               ; preds = %35, %32
-  %39 = tail call i32 (ptr, ptr, i32, ptr, ...) @fsck_report_ref(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 62, ptr noundef nonnull @.str.135) #19
+  %39 = tail call i32 (ptr, ptr, i32, ptr, ...) @fsck_report_ref(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 62, ptr noundef nonnull @.str.135) #20
   %.pre46 = load i64, ptr %5, align 8, !tbaa !10
   br label %40
 
@@ -6888,7 +6888,7 @@ define internal fastcc i32 @files_fsck_symref_target(ptr noundef %0, ptr noundef
   br i1 %or.cond42, label %44, label %42
 
 42:                                               ; preds = %40
-  %43 = tail call i32 (ptr, ptr, i32, ptr, ...) @fsck_report_ref(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 64, ptr noundef nonnull @.str.140) #19
+  %43 = tail call i32 (ptr, ptr, i32, ptr, ...) @fsck_report_ref(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 64, ptr noundef nonnull @.str.140) #20
   br label %44
 
 44:                                               ; preds = %40, %42, %31, %28
@@ -6908,7 +6908,7 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
@@ -6917,14 +6917,14 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #15
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #18
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6941,14 +6941,15 @@ attributes #11 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size
 attributes #12 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #17 = { nofree nounwind }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { nounwind }
-attributes #20 = { noreturn nounwind }
-attributes #21 = { nounwind willreturn memory(none) }
-attributes #22 = { cold }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nounwind willreturn memory(read) }
+attributes #20 = { nounwind }
+attributes #21 = { noreturn nounwind }
+attributes #22 = { nounwind willreturn memory(none) }
+attributes #23 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

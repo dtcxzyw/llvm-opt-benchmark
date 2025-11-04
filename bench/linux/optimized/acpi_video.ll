@@ -168,7 +168,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr nounde
   store i64 -1, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %7, align 8
-  %8 = call i32 @acpi_evaluate_object(ptr noundef %6, ptr noundef nonnull @.str.4, ptr noundef null, ptr noundef nonnull %4) #18
+  %8 = call i32 @acpi_evaluate_object(ptr noundef %6, ptr noundef nonnull @.str.4, ptr noundef null, ptr noundef nonnull %4) #19
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %.thread
 
@@ -183,9 +183,9 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr nounde
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %13, %10
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %6, ptr noundef nonnull @.str.5) #18
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %6, ptr noundef nonnull @.str.5) #19
   %17 = load ptr, ptr %7, align 8
-  call void @kfree(ptr noundef %17) #18
+  call void @kfree(ptr noundef %17) #19
   br label %.thread
 
 .thread:                                          ; preds = %16, %3
@@ -201,7 +201,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr nounde
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
-  %24 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %23, i32 noundef 3520, i64 noundef 24) #19
+  %24 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %23, i32 noundef 3520, i64 noundef 24) #20
   %25 = icmp eq ptr %24, null
   br i1 %25, label %151, label %26
 
@@ -210,7 +210,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr nounde
   %28 = add i32 %27, 2
   %29 = zext i32 %28 to i64
   %30 = shl nuw nsw i64 %29, 2
-  %31 = call noalias align 8 ptr @__kmalloc(i64 noundef %30, i32 noundef 3264) #20
+  %31 = call noalias align 8 ptr @__kmalloc(i64 noundef %30, i32 noundef 3264) #21
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %31, ptr %32, align 8
   %33 = icmp eq ptr %31, null
@@ -226,7 +226,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr nounde
   br label %48
 
 39:                                               ; preds = %26
-  call void @kfree(ptr noundef nonnull %24) #18
+  call void @kfree(ptr noundef nonnull %24) #19
   br label %151
 
 40:                                               ; preds = %78
@@ -254,7 +254,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr nounde
 
 57:                                               ; preds = %48
   %58 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %58, ptr noundef nonnull @.str.1) #18
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %58, ptr noundef nonnull @.str.1) #19
   br label %78
 
 59:                                               ; preds = %48
@@ -353,7 +353,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr nounde
 
 124:                                              ; preds = %122
   %125 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %125, ptr noundef nonnull @.str.2) #18
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %125, ptr noundef nonnull @.str.2) #19
   br label %126
 
 126:                                              ; preds = %124, %122, %.loopexit
@@ -372,7 +372,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr nounde
   store i8 %136, ptr %134, align 8
   %137 = add i32 %128, -2
   %138 = sext i32 %137 to i64
-  call void @sort(ptr noundef %130, i64 noundef %138, i64 noundef 4, ptr noundef nonnull @acpi_video_cmp_level, ptr noundef null) #18
+  call void @sort(ptr noundef %130, i64 noundef %138, i64 noundef 4, ptr noundef nonnull @acpi_video_cmp_level, ptr noundef null) #19
   br label %147
 
 139:                                              ; preds = %126
@@ -385,7 +385,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr nounde
 
 145:                                              ; preds = %139
   %146 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %146, ptr noundef nonnull @.str.3) #18
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %146, ptr noundef nonnull @.str.3) #19
   br label %147
 
 147:                                              ; preds = %145, %139, %133
@@ -402,7 +402,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr nounde
 151:                                              ; preds = %.thread, %150, %147, %39, %22, %18
   %152 = phi ptr [ %11, %150 ], [ %11, %147 ], [ %11, %39 ], [ %11, %18 ], [ %11, %22 ], [ null, %.thread ]
   %153 = phi i32 [ 0, %150 ], [ 0, %147 ], [ -12, %39 ], [ -22, %18 ], [ -12, %22 ], [ -19, %.thread ]
-  call void @kfree(ptr noundef %152) #18
+  call void @kfree(ptr noundef %152) #19
   ret i32 %153
 }
 
@@ -533,7 +533,7 @@ define dso_local noundef range(i32 -22, 257) i32 @acpi_video_get_edid(ptr nounde
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
-  %71 = call i32 @acpi_evaluate_object(ptr noundef %70, ptr noundef nonnull @.str.7, ptr noundef nonnull %10, ptr noundef nonnull %8) #18
+  %71 = call i32 @acpi_evaluate_object(ptr noundef %70, ptr noundef nonnull @.str.7, ptr noundef nonnull %10, ptr noundef nonnull %8) #19
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %73, label %.thread
 
@@ -551,8 +551,8 @@ define dso_local noundef range(i32 -22, 257) i32 @acpi_video_get_edid(ptr nounde
   %80 = load ptr, ptr %67, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load ptr, ptr %81, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %82, ptr noundef nonnull @.str.8) #18
-  call void @kfree(ptr noundef %74) #18
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %82, ptr noundef nonnull @.str.8) #19
+  call void @kfree(ptr noundef %74) #19
   br label %.thread
 
 .thread:                                          ; preds = %79, %66
@@ -584,7 +584,7 @@ define dso_local noundef range(i32 -22, 257) i32 @acpi_video_get_edid(ptr nounde
   %87 = load ptr, ptr %67, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8
-  %90 = call i32 @acpi_evaluate_object(ptr noundef %89, ptr noundef nonnull @.str.7, ptr noundef nonnull %7, ptr noundef nonnull %5) #18
+  %90 = call i32 @acpi_evaluate_object(ptr noundef %89, ptr noundef nonnull @.str.7, ptr noundef nonnull %7, ptr noundef nonnull %5) #19
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %92, label %.thread9
 
@@ -602,8 +602,8 @@ define dso_local noundef range(i32 -22, 257) i32 @acpi_video_get_edid(ptr nounde
   %99 = load ptr, ptr %67, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %101, ptr noundef nonnull @.str.8) #18
-  call void @kfree(ptr noundef %93) #18
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %101, ptr noundef nonnull @.str.8) #19
+  call void @kfree(ptr noundef %93) #19
   br label %.thread9
 
 .thread9:                                         ; preds = %98, %86
@@ -642,13 +642,13 @@ define dso_local noundef range(i32 -22, 257) i32 @acpi_video_get_edid(ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_video_register() #0 align 16 {
-  tail call void @mutex_lock(ptr noundef nonnull @register_count_mutex) #18
+  tail call void @mutex_lock(ptr noundef nonnull @register_count_mutex) #19
   %1 = load i1, ptr @register_count, align 4
   br i1 %1, label %7, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @dmi_check_system(ptr noundef nonnull @video_dmi_table) #18
-  %4 = tail call i32 @acpi_bus_register_driver(ptr noundef nonnull @acpi_video_bus) #18
+  %3 = tail call i32 @dmi_check_system(ptr noundef nonnull @video_dmi_table) #19
+  %4 = tail call i32 @acpi_bus_register_driver(ptr noundef nonnull @acpi_video_bus) #19
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %7
 
@@ -658,7 +658,7 @@ define dso_local i32 @acpi_video_register() #0 align 16 {
 
 7:                                                ; preds = %6, %2, %0
   %8 = phi i32 [ 0, %0 ], [ %4, %2 ], [ 0, %6 ]
-  tail call void @mutex_unlock(ptr noundef nonnull @register_count_mutex) #18
+  tail call void @mutex_unlock(ptr noundef nonnull @register_count_mutex) #19
   ret i32 %8
 }
 
@@ -676,18 +676,18 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @acpi_video_unregister() #0 align 16 {
-  tail call void @mutex_lock(ptr noundef nonnull @register_count_mutex) #18
+  tail call void @mutex_lock(ptr noundef nonnull @register_count_mutex) #19
   %1 = load i1, ptr @register_count, align 4
   br i1 %1, label %2, label %3
 
 2:                                                ; preds = %0
-  tail call void @acpi_bus_unregister_driver(ptr noundef nonnull @acpi_video_bus) #18
+  tail call void @acpi_bus_unregister_driver(ptr noundef nonnull @acpi_video_bus) #19
   store i1 false, ptr @register_count, align 4
   store i1 false, ptr @may_report_brightness_keys, align 1
   br label %3
 
 3:                                                ; preds = %2, %0
-  tail call void @mutex_unlock(ptr noundef nonnull @register_count_mutex) #18
+  tail call void @mutex_unlock(ptr noundef nonnull @register_count_mutex) #19
   ret void
 }
 
@@ -696,7 +696,7 @@ declare dso_local void @acpi_bus_unregister_driver(ptr noundef) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @acpi_video_register_backlight() #0 align 16 {
-  tail call void @mutex_lock(ptr noundef nonnull @video_list_lock) #18
+  tail call void @mutex_lock(ptr noundef nonnull @video_list_lock) #19
   %1 = load ptr, ptr @video_bus_head, align 8
   %2 = icmp eq ptr %1, @video_bus_head
   br i1 %2, label %.loopexit, label %.preheader
@@ -710,7 +710,7 @@ define dso_local void @acpi_video_register_backlight() #0 align 16 {
   br i1 %6, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %0
-  tail call void @mutex_unlock(ptr noundef nonnull @video_list_lock) #18
+  tail call void @mutex_unlock(ptr noundef nonnull @video_list_lock) #19
   ret void
 }
 
@@ -729,13 +729,13 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
   br i1 %11, label %12, label %381
 
 12:                                               ; preds = %1
-  %13 = tail call i32 @__acpi_video_get_backlight_type(i1 noundef zeroext false, ptr noundef null) #18
+  %13 = tail call i32 @__acpi_video_get_backlight_type(i1 noundef zeroext false, ptr noundef null) #19
   %14 = icmp eq i32 %13, 1
   br i1 %14, label %15, label %381
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @mutex_lock(ptr noundef nonnull %16) #18
+  tail call void @mutex_lock(ptr noundef nonnull %16) #19
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %17
@@ -831,7 +831,7 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
   %75 = load ptr, ptr %61, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8
-  %78 = call i32 @acpi_evaluate_integer(ptr noundef %77, ptr noundef nonnull @.str.41, ptr noundef null, ptr noundef nonnull %5) #18
+  %78 = call i32 @acpi_evaluate_integer(ptr noundef %77, ptr noundef nonnull @.str.41, ptr noundef null, ptr noundef nonnull %5) #19
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %._crit_edge, label %81
 
@@ -844,7 +844,7 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
   %82 = load ptr, ptr %61, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %84, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.41) #18
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %84, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.41) #19
   %85 = load i8, ptr %70, align 1
   %86 = and i8 %85, -25
   store i8 %86, ptr %70, align 1
@@ -880,7 +880,7 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8
   %107 = sext i32 %103 to i64
-  %108 = call i32 @acpi_execute_simple_method(ptr noundef %106, ptr noundef nonnull @.str.45, i64 noundef %107) #18
+  %108 = call i32 @acpi_execute_simple_method(ptr noundef %106, ptr noundef nonnull @.str.45, i64 noundef %107) #19
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %110, label %acpi_video_device_lcd_set_level.exit
 
@@ -936,7 +936,7 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
   %141 = load ptr, ptr %61, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %143 = load ptr, ptr %142, align 8
-  %144 = call i32 @acpi_evaluate_integer(ptr noundef %143, ptr noundef nonnull %140, ptr noundef null, ptr noundef nonnull %3) #18
+  %144 = call i32 @acpi_evaluate_integer(ptr noundef %143, ptr noundef nonnull %140, ptr noundef null, ptr noundef nonnull %3) #19
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %._crit_edge32, label %146
 
@@ -948,7 +948,7 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
   %147 = load ptr, ptr %61, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = load ptr, ptr %148, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %149, ptr noundef nonnull @.str.44, ptr noundef nonnull %140) #18
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %149, ptr noundef nonnull @.str.44, ptr noundef nonnull %140) #19
   %150 = load i8, ptr %70, align 1
   %151 = and i8 %150, -25
   store i8 %151, ptr %70, align 1
@@ -1019,7 +1019,7 @@ acpi_video_device_lcd_set_level.exit:             ; preds = %131, %110, %102
   %189 = load ptr, ptr %61, align 8
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = load ptr, ptr %190, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %191, ptr noundef nonnull %.str.47.sink) #18
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %191, ptr noundef nonnull %.str.47.sink) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %acpi_video_device_lcd_set_level.exit18
 
@@ -1116,7 +1116,7 @@ acpi_video_device_lcd_set_level.exit:             ; preds = %131, %110, %102
   %256 = load ptr, ptr %255, align 8
   %sext = shl i64 %252, 32
   %257 = ashr exact i64 %sext, 32
-  %258 = call i32 @acpi_execute_simple_method(ptr noundef %256, ptr noundef nonnull @.str.45, i64 noundef %257) #18
+  %258 = call i32 @acpi_execute_simple_method(ptr noundef %256, ptr noundef nonnull @.str.45, i64 noundef %257) #19
   %259 = icmp eq i32 %258, 0
   br i1 %259, label %264, label %260
 
@@ -1124,7 +1124,7 @@ acpi_video_device_lcd_set_level.exit:             ; preds = %131, %110, %102
   %261 = load ptr, ptr %61, align 8
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %263 = load ptr, ptr %262, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %263, ptr noundef nonnull @.str.46) #18
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %263, ptr noundef nonnull @.str.46) #19
   br label %acpi_video_device_lcd_set_level.exit18
 
 264:                                              ; preds = %251
@@ -1170,15 +1170,15 @@ acpi_video_device_lcd_set_level.exit:             ; preds = %131, %110, %102
   %287 = load ptr, ptr %61, align 8
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 8
   %289 = load ptr, ptr %288, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %289, ptr noundef nonnull @.str.47) #18
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %289, ptr noundef nonnull @.str.47) #19
   br label %acpi_video_device_lcd_set_level.exit18
 
 acpi_video_device_lcd_set_level.exit18:           ; preds = %.loopexit.i15, %260, %acpi_video_device_lcd_set_level.exit
   %290 = load ptr, ptr %6, align 8
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 8
   %292 = load ptr, ptr %291, align 8
-  call void @kfree(ptr noundef %292) #18
-  call void @kfree(ptr noundef %290) #18
+  call void @kfree(ptr noundef %292) #19
+  call void @kfree(ptr noundef %290) #19
   store ptr null, ptr %67, align 8
   br label %373
 
@@ -1187,7 +1187,7 @@ acpi_video_device_lcd_set_level.exit18:           ; preds = %.loopexit.i15, %260
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %294 = load i32, ptr @acpi_video_dev_register_backlight.count, align 4
-  %295 = call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.53, i32 noundef %294) #18
+  %295 = call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.53, i32 noundef %294) #19
   %296 = icmp eq ptr %295, null
   br i1 %296, label %374, label %297
 
@@ -1198,19 +1198,19 @@ acpi_video_device_lcd_set_level.exit18:           ; preds = %.loopexit.i15, %260
   %300 = load ptr, ptr %61, align 8
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %302 = load ptr, ptr %301, align 8
-  %303 = call i32 @acpi_get_parent(ptr noundef %302, ptr noundef nonnull %8) #18
+  %303 = call i32 @acpi_get_parent(ptr noundef %302, ptr noundef nonnull %8) #19
   %304 = icmp eq i32 %303, 0
   br i1 %304, label %305, label %311
 
 305:                                              ; preds = %297
   %306 = load ptr, ptr %8, align 8
-  %307 = call ptr @acpi_get_pci_dev(ptr noundef %306) #18
+  %307 = call ptr @acpi_get_pci_dev(ptr noundef %306) #19
   %308 = icmp eq ptr %307, null
   br i1 %308, label %311, label %309
 
 309:                                              ; preds = %305
   %310 = getelementptr inbounds nuw i8, ptr %307, i64 184
-  call void @pci_dev_put(ptr noundef nonnull %307) #18
+  call void @pci_dev_put(ptr noundef nonnull %307) #19
   br label %311
 
 311:                                              ; preds = %309, %305, %297
@@ -1222,9 +1222,9 @@ acpi_video_device_lcd_set_level.exit18:           ; preds = %.loopexit.i15, %260
   %315 = load i32, ptr %314, align 4
   %316 = add i32 %315, -3
   store i32 %316, ptr %22, align 4
-  %317 = call ptr @backlight_device_register(ptr noundef nonnull %295, ptr noundef %312, ptr noundef %25, ptr noundef nonnull @acpi_backlight_ops, ptr noundef nonnull %7) #18
+  %317 = call ptr @backlight_device_register(ptr noundef nonnull %295, ptr noundef %312, ptr noundef %25, ptr noundef nonnull @acpi_backlight_ops, ptr noundef nonnull %7) #19
   store ptr %317, ptr %279, align 8
-  call void @kfree(ptr noundef nonnull %295) #18
+  call void @kfree(ptr noundef nonnull %295) #19
   %318 = load ptr, ptr %279, align 8
   %319 = icmp ugt ptr %318, inttoptr (i64 -4096 to ptr)
   br i1 %319, label %320, label %321
@@ -1276,7 +1276,7 @@ acpi_video_device_lcd_set_level.exit18:           ; preds = %.loopexit.i15, %260
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %347 = load ptr, ptr %279, align 8
   store i32 %346, ptr %347, align 8
-  %348 = call ptr @thermal_cooling_device_register(ptr noundef nonnull @.str.54, ptr noundef %25, ptr noundef nonnull @video_cooling_ops) #18
+  %348 = call ptr @thermal_cooling_device_register(ptr noundef nonnull @.str.54, ptr noundef %25, ptr noundef nonnull @video_cooling_ops) #19
   %349 = getelementptr i8, ptr %24, i64 144
   store ptr %348, ptr %349, align 8
   %350 = icmp ugt ptr %348, inttoptr (i64 -4096 to ptr)
@@ -1290,17 +1290,17 @@ acpi_video_device_lcd_set_level.exit18:           ; preds = %.loopexit.i15, %260
   %353 = load ptr, ptr %61, align 8
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 616
   %355 = load i32, ptr %348, align 8
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %354, ptr noundef nonnull @.str.55, i32 noundef %355) #21
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %354, ptr noundef nonnull @.str.55, i32 noundef %355) #22
   %356 = load ptr, ptr %61, align 8
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 616
   %358 = load ptr, ptr %349, align 8
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 24
-  %360 = call i32 @sysfs_create_link(ptr noundef nonnull %357, ptr noundef nonnull %359, ptr noundef nonnull @.str.51) #18
+  %360 = call i32 @sysfs_create_link(ptr noundef nonnull %357, ptr noundef nonnull %359, ptr noundef nonnull @.str.51) #19
   %361 = icmp eq i32 %360, 0
   br i1 %361, label %364, label %362
 
 362:                                              ; preds = %352
-  %363 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.56) #21
+  %363 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.56) #22
   br label %364
 
 364:                                              ; preds = %362, %352
@@ -1308,12 +1308,12 @@ acpi_video_device_lcd_set_level.exit18:           ; preds = %.loopexit.i15, %260
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 24
   %367 = load ptr, ptr %61, align 8
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 616
-  %369 = call i32 @sysfs_create_link(ptr noundef nonnull %366, ptr noundef nonnull %368, ptr noundef nonnull @.str.52) #18
+  %369 = call i32 @sysfs_create_link(ptr noundef nonnull %366, ptr noundef nonnull %368, ptr noundef nonnull @.str.52) #19
   %370 = icmp eq i32 %369, 0
   br i1 %370, label %374, label %371
 
 371:                                              ; preds = %364
-  %372 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.57) #21
+  %372 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.57) #22
   br label %374
 
 373:                                              ; preds = %acpi_video_device_lcd_set_level.exit18, %60
@@ -1333,13 +1333,13 @@ acpi_video_device_lcd_set_level.exit18:           ; preds = %.loopexit.i15, %260
   br i1 %377, label %.loopexit19, label %23, !llvm.loop !20
 
 .loopexit19:                                      ; preds = %375, %15
-  call void @mutex_unlock(ptr noundef nonnull %16) #18
+  call void @mutex_unlock(ptr noundef nonnull %16) #19
   store i8 1, ptr %9, align 8
   %378 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr @acpi_video_resume, ptr %378, align 8
   %379 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 0, ptr %379, align 8
-  %380 = call i32 @register_pm_notifier(ptr noundef nonnull %378) #18
+  %380 = call i32 @register_pm_notifier(ptr noundef nonnull %378) #19
   br label %381
 
 381:                                              ; preds = %.loopexit19, %12, %1
@@ -1369,7 +1369,7 @@ define internal i32 @acpi_video_init() #4 section ".init.text" align 16 {
   br i1 %2, label %3, label %8
 
 3:                                                ; preds = %0
-  %4 = tail call fastcc i32 @intel_opregion_present() #22, !range !21
+  %4 = tail call fastcc i32 @intel_opregion_present() #23, !range !21
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %8
 
@@ -1455,25 +1455,25 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
   %7 = select i1 %5, ptr null, ptr %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @acpi_walk_namespace(i32 noundef 6, ptr noundef %9, i32 noundef 1, ptr noundef nonnull @acpi_video_bus_match, ptr noundef null, ptr noundef %0, ptr noundef null) #18
+  %10 = tail call i32 @acpi_walk_namespace(i32 noundef 6, ptr noundef %9, i32 noundef 1, ptr noundef nonnull @acpi_video_bus_match, ptr noundef null, ptr noundef %0, ptr noundef null) #19
   %11 = icmp eq i32 %10, 7
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %1
-  %13 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19) #21
+  %13 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19) #22
   %14 = load i8, ptr @allow_duplicates, align 1, !range !13, !noundef !14
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %192, label %16
 
 16:                                               ; preds = %12, %1
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
-  %18 = tail call noalias align 8 dereferenceable_or_null(160) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 3520, i64 noundef 160) #19
+  %18 = tail call noalias align 8 dereferenceable_or_null(160) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 3520, i64 noundef 160) #20
   %19 = icmp eq ptr %18, null
   br i1 %19, label %192, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(4) @.str.20) #18
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(4) @.str.20) #19
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %33
 
@@ -1495,7 +1495,7 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
   br label %33
 
 33:                                               ; preds = %31, %20
-  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(4) @.str.21) #18
+  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(4) @.str.21) #19
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %45
 
@@ -1519,14 +1519,14 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
 45:                                               ; preds = %43, %33
   store ptr %0, ptr %18, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %46, ptr noundef nonnull align 1 dereferenceable(10) @.str.22, i64 10, i1 false) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %46, ptr noundef nonnull align 1 dereferenceable(10) @.str.22, i64 10, i1 false) #19
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %47, ptr noundef nonnull align 1 dereferenceable(6) @.str.23, i64 6, i1 false) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %47, ptr noundef nonnull align 1 dereferenceable(6) @.str.23, i64 6, i1 false) #19
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 608
   store ptr %18, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call zeroext i1 @acpi_has_method(ptr noundef %50, ptr noundef nonnull @.str.29) #18
+  %51 = tail call zeroext i1 @acpi_has_method(ptr noundef %50, ptr noundef nonnull @.str.29) #19
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %45
@@ -1540,7 +1540,7 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
   %57 = load ptr, ptr %18, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
-  %60 = tail call zeroext i1 @acpi_has_method(ptr noundef %59, ptr noundef nonnull @.str.30) #18
+  %60 = tail call zeroext i1 @acpi_has_method(ptr noundef %59, ptr noundef nonnull @.str.30) #19
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %56
@@ -1554,7 +1554,7 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
   %66 = load ptr, ptr %18, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call zeroext i1 @acpi_has_method(ptr noundef %68, ptr noundef nonnull @.str.31) #18
+  %69 = tail call zeroext i1 @acpi_has_method(ptr noundef %68, ptr noundef nonnull @.str.31) #19
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %65
@@ -1568,7 +1568,7 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
   %75 = load ptr, ptr %18, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8
-  %78 = tail call zeroext i1 @acpi_has_method(ptr noundef %77, ptr noundef nonnull @.str.32) #18
+  %78 = tail call zeroext i1 @acpi_has_method(ptr noundef %77, ptr noundef nonnull @.str.32) #19
   br i1 %78, label %79, label %83
 
 79:                                               ; preds = %74
@@ -1582,7 +1582,7 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
   %84 = load ptr, ptr %18, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load ptr, ptr %85, align 8
-  %87 = tail call zeroext i1 @acpi_has_method(ptr noundef %86, ptr noundef nonnull @.str.33) #18
+  %87 = tail call zeroext i1 @acpi_has_method(ptr noundef %86, ptr noundef nonnull @.str.33) #19
   br i1 %87, label %88, label %92
 
 88:                                               ; preds = %83
@@ -1596,7 +1596,7 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
   %93 = load ptr, ptr %18, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load ptr, ptr %94, align 8
-  %96 = tail call zeroext i1 @acpi_has_method(ptr noundef %95, ptr noundef nonnull @.str.34) #18
+  %96 = tail call zeroext i1 @acpi_has_method(ptr noundef %95, ptr noundef nonnull @.str.34) #19
   br i1 %96, label %97, label %101
 
 97:                                               ; preds = %92
@@ -1611,12 +1611,12 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
   %102 = load ptr, ptr %18, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8
-  %105 = tail call ptr @acpi_get_pci_dev(ptr noundef %104) #18
+  %105 = tail call ptr @acpi_get_pci_dev(ptr noundef %104) #19
   %106 = icmp eq ptr %105, null
   br i1 %106, label %.thread9, label %107
 
 107:                                              ; preds = %101
-  tail call void @pci_dev_put(ptr noundef nonnull %105) #18
+  tail call void @pci_dev_put(ptr noundef nonnull %105) #19
   %108 = getelementptr inbounds nuw i8, ptr %18, i64 26
   %109 = load i8, ptr %108, align 2
   %110 = and i8 %109, 3
@@ -1631,7 +1631,7 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
 114:                                              ; preds = %111
   %115 = load ptr, ptr %18, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 120
-  %117 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35, ptr noundef nonnull %116) #21
+  %117 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35, ptr noundef nonnull %116) #22
   %.pre.pre = load i8, ptr %108, align 2
   br label %118
 
@@ -1676,18 +1676,18 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
 
 .thread21:                                        ; preds = %.thread20, %.thread, %138
   %139 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  tail call void @__mutex_init(ptr noundef nonnull %139, ptr noundef nonnull @.str.24, ptr noundef nonnull @acpi_video_bus_add.__key) #18
+  tail call void @__mutex_init(ptr noundef nonnull %139, ptr noundef nonnull @.str.24, ptr noundef nonnull @acpi_video_bus_add.__key) #19
   %140 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store volatile ptr %140, ptr %140, align 8
   %141 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store volatile ptr %140, ptr %141, align 8
   tail call fastcc void @acpi_video_device_enumerate(ptr noundef %18)
-  %142 = tail call i32 @acpi_dev_for_each_child(ptr noundef %0, ptr noundef nonnull @acpi_video_bus_get_one_device, ptr noundef nonnull %18) #18
+  %142 = tail call i32 @acpi_dev_for_each_child(ptr noundef %0, ptr noundef nonnull @acpi_video_bus_get_one_device, ptr noundef nonnull %18) #19
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %144, label %178
 
 144:                                              ; preds = %.thread21
-  tail call void @acpi_device_fix_up_power_children(ptr noundef %0) #18
+  tail call void @acpi_device_fix_up_power_children(ptr noundef %0) #19
   %145 = getelementptr inbounds nuw i8, ptr %18, i64 27
   %146 = load i8, ptr %145, align 1
   %147 = and i8 %146, 1
@@ -1699,8 +1699,8 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
   %153 = and i8 %146, 4
   %154 = icmp eq i8 %153, 0
   %155 = select i1 %154, ptr @.str.28, ptr @.str.27
-  %156 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26, ptr noundef nonnull %21, ptr noundef nonnull %149, ptr noundef nonnull %152, ptr noundef nonnull %155) #21
-  tail call void @mutex_lock(ptr noundef nonnull @video_list_lock) #18
+  %156 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26, ptr noundef nonnull %21, ptr noundef nonnull %149, ptr noundef nonnull %152, ptr noundef nonnull %155) #22
+  tail call void @mutex_lock(ptr noundef nonnull @video_list_lock) #19
   %157 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %158 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @video_bus_head, i64 8), align 8
   store ptr %157, ptr getelementptr inbounds nuw (i8, ptr @video_bus_head, i64 8), align 8
@@ -1708,9 +1708,9 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
   %159 = getelementptr inbounds nuw i8, ptr %18, i64 88
   store ptr %158, ptr %159, align 8
   store volatile ptr %157, ptr %158, align 8
-  tail call void @mutex_unlock(ptr noundef nonnull @video_list_lock) #18
+  tail call void @mutex_unlock(ptr noundef nonnull @video_list_lock) #19
   tail call fastcc void @acpi_video_run_bcl_for_osi(ptr noundef nonnull %18)
-  %160 = call i32 @__acpi_video_get_backlight_type(i1 noundef zeroext false, ptr noundef nonnull %2) #18
+  %160 = call i32 @__acpi_video_get_backlight_type(i1 noundef zeroext false, ptr noundef nonnull %2) #19
   %161 = icmp eq i32 %160, 1
   %162 = load i8, ptr %2, align 1, !range !13
   %163 = icmp eq i8 %162, 0
@@ -1727,7 +1727,7 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
   br i1 %168, label %169, label %173
 
 169:                                              ; preds = %166
-  %170 = call i32 @acpi_dev_install_notify_handler(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @acpi_video_bus_notify, ptr noundef %0) #18
+  %170 = call i32 @acpi_dev_install_notify_handler(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @acpi_video_bus_notify, ptr noundef %0) #19
   %171 = icmp eq i32 %170, 0
   br i1 %171, label %192, label %172
 
@@ -1737,7 +1737,7 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
 
 173:                                              ; preds = %172, %166
   %174 = phi i32 [ %167, %166 ], [ %170, %172 ]
-  call void @mutex_lock(ptr noundef nonnull @video_list_lock) #18
+  call void @mutex_lock(ptr noundef nonnull @video_list_lock) #19
   %175 = load ptr, ptr %159, align 8
   %176 = load ptr, ptr %157, align 8
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
@@ -1745,13 +1745,13 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
   store volatile ptr %176, ptr %175, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %157, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %159, align 8
-  call void @mutex_unlock(ptr noundef nonnull @video_list_lock) #18
+  call void @mutex_unlock(ptr noundef nonnull @video_list_lock) #19
   call fastcc void @acpi_video_bus_unregister_backlight(ptr noundef nonnull %18)
   br label %178
 
 178:                                              ; preds = %173, %.thread21
   %179 = phi i32 [ %142, %.thread21 ], [ %174, %173 ]
-  call void @mutex_lock(ptr noundef nonnull %139) #18
+  call void @mutex_lock(ptr noundef nonnull %139) #19
   %180 = load ptr, ptr %140, align 8
   %181 = icmp eq ptr %180, %140
   br i1 %181, label %.loopexit, label %.preheader
@@ -1767,20 +1767,20 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
   store volatile ptr %184, ptr %186, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %182, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %185, align 8
-  call void @kfree(ptr noundef %183) #18
+  call void @kfree(ptr noundef %183) #19
   %188 = icmp eq ptr %184, %140
   br i1 %188, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.preheader, %178
-  call void @mutex_unlock(ptr noundef nonnull %139) #18
+  call void @mutex_unlock(ptr noundef nonnull %139) #19
   %189 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %190 = load ptr, ptr %189, align 8
-  call void @kfree(ptr noundef %190) #18
+  call void @kfree(ptr noundef %190) #19
   br label %.thread9
 
 .thread9:                                         ; preds = %101, %.loopexit, %138
   %191 = phi i32 [ %124, %138 ], [ %179, %.loopexit ], [ -19, %101 ]
-  call void @kfree(ptr noundef nonnull %18) #18
+  call void @kfree(ptr noundef nonnull %18) #19
   store ptr null, ptr %48, align 8
   br label %192
 
@@ -1802,8 +1802,8 @@ define internal void @acpi_video_bus_remove(ptr noundef %0) #0 align 16 {
   br i1 %6, label %26, label %7
 
 7:                                                ; preds = %3
-  tail call void @acpi_dev_remove_notify_handler(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @acpi_video_bus_notify) #18
-  tail call void @mutex_lock(ptr noundef nonnull @video_list_lock) #18
+  tail call void @acpi_dev_remove_notify_handler(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @acpi_video_bus_notify) #19
+  tail call void @mutex_lock(ptr noundef nonnull @video_list_lock) #19
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %10 = load ptr, ptr %9, align 8
@@ -1813,11 +1813,11 @@ define internal void @acpi_video_bus_remove(ptr noundef %0) #0 align 16 {
   store volatile ptr %11, ptr %10, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %8, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %9, align 8
-  tail call void @mutex_unlock(ptr noundef nonnull @video_list_lock) #18
+  tail call void @mutex_unlock(ptr noundef nonnull @video_list_lock) #19
   tail call fastcc void @acpi_video_bus_remove_notify_handler(ptr noundef nonnull %5)
   tail call fastcc void @acpi_video_bus_unregister_backlight(ptr noundef nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  tail call void @mutex_lock(ptr noundef nonnull %13) #18
+  tail call void @mutex_lock(ptr noundef nonnull %13) #19
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %14
@@ -1834,16 +1834,16 @@ define internal void @acpi_video_bus_remove(ptr noundef %0) #0 align 16 {
   store volatile ptr %19, ptr %21, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %17, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %20, align 8
-  tail call void @kfree(ptr noundef %18) #18
+  tail call void @kfree(ptr noundef %18) #19
   %23 = icmp eq ptr %19, %14
   br i1 %23, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.preheader, %7
-  tail call void @mutex_unlock(ptr noundef nonnull %13) #18
+  tail call void @mutex_unlock(ptr noundef nonnull %13) #19
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %25 = load ptr, ptr %24, align 8
-  tail call void @kfree(ptr noundef %25) #18
-  tail call void @kfree(ptr noundef nonnull %5) #18
+  tail call void @kfree(ptr noundef %25) #19
+  tail call void @kfree(ptr noundef nonnull %5) #19
   br label %26
 
 26:                                               ; preds = %.loopexit, %3, %1
@@ -1861,13 +1861,13 @@ define internal range(i32 0, 16388) i32 @acpi_video_bus_match(ptr noundef %0, i3
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %4
-  %9 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %0) #18
+  %9 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %0) #19
   %10 = icmp eq ptr %9, null
   br i1 %10, label %16, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 168
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(10) @.str.22) #18
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(10) @.str.22) #19
   %14 = icmp eq i32 %13, 0
   %15 = select i1 %14, i32 7, i32 0
   br label %16
@@ -1893,7 +1893,7 @@ declare dso_local void @acpi_device_fix_up_power_children(ptr noundef) local_unn
 define internal fastcc void @acpi_video_run_bcl_for_osi(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.acpi_buffer, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @mutex_lock(ptr noundef nonnull %3) #18
+  tail call void @mutex_lock(ptr noundef nonnull %3) #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %4
@@ -1912,7 +1912,7 @@ define internal fastcc void @acpi_video_run_bcl_for_osi(ptr noundef nonnull %0) 
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 -1, ptr %2, align 8
   store ptr null, ptr %8, align 8
-  %15 = call i32 @acpi_evaluate_object(ptr noundef %14, ptr noundef nonnull @.str.4, ptr noundef null, ptr noundef nonnull %2) #18
+  %15 = call i32 @acpi_evaluate_object(ptr noundef %14, ptr noundef nonnull @.str.4, ptr noundef null, ptr noundef nonnull %2) #19
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %.critedge
 
@@ -1927,14 +1927,14 @@ define internal fastcc void @acpi_video_run_bcl_for_osi(ptr noundef nonnull %0) 
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %20, %17
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %14, ptr noundef nonnull @.str.5) #18
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %14, ptr noundef nonnull @.str.5) #19
   %24 = load ptr, ptr %8, align 8
-  call void @kfree(ptr noundef %24) #18
+  call void @kfree(ptr noundef %24) #19
   br label %.critedge
 
 25:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  call void @kfree(ptr noundef nonnull %18) #18
+  call void @kfree(ptr noundef nonnull %18) #19
   br label %26
 
 .critedge:                                        ; preds = %9, %23
@@ -1947,7 +1947,7 @@ define internal fastcc void @acpi_video_run_bcl_for_osi(ptr noundef nonnull %0) 
   br i1 %28, label %.loopexit, label %9, !llvm.loop !23
 
 .loopexit:                                        ; preds = %26, %1
-  call void @mutex_unlock(ptr noundef nonnull %3) #18
+  call void @mutex_unlock(ptr noundef nonnull %3) #19
   ret void
 }
 
@@ -1956,14 +1956,14 @@ declare dso_local i32 @__acpi_video_get_backlight_type(i1 noundef zeroext, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @acpi_video_bus_add_notify_handler(ptr noundef nonnull initializes((96, 104)) %0) unnamed_addr #0 align 16 {
-  %2 = tail call ptr @input_allocate_device() #18
+  %2 = tail call ptr @input_allocate_device() #19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %2, ptr %3, align 8
   %4 = icmp eq ptr %2, null
   br i1 %4, label %76, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call zeroext i1 @acpi_osi_is_win8() #18
+  %6 = tail call zeroext i1 @acpi_osi_is_win8() #19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %8 = load i8, ptr %7, align 2
   %9 = and i8 %8, 1
@@ -1979,15 +1979,15 @@ define internal fastcc i32 @acpi_video_bus_add_notify_handler(ptr noundef nonnul
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = zext nneg i32 %12 to i64
-  %19 = tail call i32 @acpi_execute_simple_method(ptr noundef %17, ptr noundef nonnull @.str.29, i64 noundef %18) #18
+  %19 = tail call i32 @acpi_execute_simple_method(ptr noundef %17, ptr noundef nonnull @.str.29, i64 noundef %18) #19
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %select.unfold, label %74
 
 select.unfold:                                    ; preds = %11, %5
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = load ptr, ptr %0, align 8
-  %23 = tail call ptr @acpi_device_hid(ptr noundef %22) #18
-  %24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %21, i64 noundef 32, ptr noundef nonnull @.str.49, ptr noundef %23) #18
+  %23 = tail call ptr @acpi_device_hid(ptr noundef %22) #19
+  %24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %21, i64 noundef 32, ptr noundef nonnull @.str.49, ptr noundef %23) #19
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 168
   store ptr %26, ptr %2, align 8
@@ -2004,22 +2004,22 @@ select.unfold:                                    ; preds = %11, %5
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 2, ptr %33, align 8
   %34 = getelementptr i8, ptr %2, i64 76
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %34, i32 8, ptr elementtype(i8) %34) #18, !srcloc !24
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %34, i32 8, ptr elementtype(i8) %34) #19, !srcloc !24
   %35 = getelementptr i8, ptr %2, i64 78
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i32 2, ptr elementtype(i8) %35) #18, !srcloc !24
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i32 4, ptr elementtype(i8) %35) #18, !srcloc !24
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i32 8, ptr elementtype(i8) %35) #18, !srcloc !24
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %34, i32 2, ptr elementtype(i8) %34) #18, !srcloc !24
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %34, i32 1, ptr elementtype(i8) %34) #18, !srcloc !24
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i32 16, ptr elementtype(i8) %35) #18, !srcloc !24
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i32 32, ptr elementtype(i8) %35) #18, !srcloc !24
-  %36 = tail call i32 @input_register_device(ptr noundef nonnull %2) #18
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i32 2, ptr elementtype(i8) %35) #19, !srcloc !24
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i32 4, ptr elementtype(i8) %35) #19, !srcloc !24
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i32 8, ptr elementtype(i8) %35) #19, !srcloc !24
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %34, i32 2, ptr elementtype(i8) %34) #19, !srcloc !24
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %34, i32 1, ptr elementtype(i8) %34) #19, !srcloc !24
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i32 16, ptr elementtype(i8) %35) #19, !srcloc !24
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i32 32, ptr elementtype(i8) %35) #19, !srcloc !24
+  %36 = tail call i32 @input_register_device(ptr noundef nonnull %2) #19
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %60
 
 38:                                               ; preds = %select.unfold
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @mutex_lock(ptr noundef nonnull %39) #18
+  tail call void @mutex_lock(ptr noundef nonnull %39) #19
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, %40
@@ -2032,13 +2032,13 @@ select.unfold:                                    ; preds = %11, %5
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
-  %49 = tail call i32 @acpi_install_notify_handler(ptr noundef %48, i32 noundef 2, ptr noundef nonnull @acpi_video_device_notify, ptr noundef %44) #18
+  %49 = tail call i32 @acpi_install_notify_handler(ptr noundef %48, i32 noundef 2, ptr noundef nonnull @acpi_video_device_notify, ptr noundef %44) #19
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %53, label %51
 
 51:                                               ; preds = %.preheader
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 616
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %52, ptr noundef nonnull @.str.50) #21
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %52, ptr noundef nonnull @.str.50) #22
   br label %57
 
 53:                                               ; preds = %.preheader
@@ -2054,11 +2054,11 @@ select.unfold:                                    ; preds = %11, %5
   br i1 %59, label %.loopexit, label %.preheader, !llvm.loop !25
 
 .loopexit:                                        ; preds = %57, %38
-  tail call void @mutex_unlock(ptr noundef nonnull %39) #18
+  tail call void @mutex_unlock(ptr noundef nonnull %39) #19
   br label %76
 
 60:                                               ; preds = %select.unfold
-  %61 = tail call zeroext i1 @acpi_osi_is_win8() #18
+  %61 = tail call zeroext i1 @acpi_osi_is_win8() #19
   %62 = load i8, ptr %7, align 2
   %63 = and i8 %62, 1
   %64 = icmp eq i8 %63, 0
@@ -2073,12 +2073,12 @@ select.unfold:                                    ; preds = %11, %5
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = zext nneg i32 %66 to i64
-  %73 = tail call i32 @acpi_execute_simple_method(ptr noundef %71, ptr noundef nonnull @.str.29, i64 noundef %72) #18
+  %73 = tail call i32 @acpi_execute_simple_method(ptr noundef %71, ptr noundef nonnull @.str.29, i64 noundef %72) #19
   br label %74
 
 74:                                               ; preds = %11, %65, %60
   %75 = phi i32 [ %36, %60 ], [ %36, %65 ], [ -5, %11 ]
-  tail call void @input_free_device(ptr noundef nonnull %2) #18
+  tail call void @input_free_device(ptr noundef nonnull %2) #19
   store ptr null, ptr %3, align 8
   br label %76
 
@@ -2115,7 +2115,7 @@ define internal void @acpi_video_bus_notify(ptr readnone captures(none) %0, i32 
 12:                                               ; preds = %11
   tail call fastcc void @acpi_video_device_enumerate(ptr noundef nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  tail call void @mutex_lock(ptr noundef nonnull %13) #18
+  tail call void @mutex_lock(ptr noundef nonnull %13) #19
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %14
@@ -2169,7 +2169,7 @@ define internal void @acpi_video_bus_notify(ptr readnone captures(none) %0, i32 
   br i1 %46, label %.loopexit6, label %.split, !llvm.loop !27
 
 .loopexit6:                                       ; preds = %.loopexit, %17, %12
-  tail call void @mutex_unlock(ptr noundef nonnull %13) #18
+  tail call void @mutex_unlock(ptr noundef nonnull %13) #19
   br label %50
 
 47:                                               ; preds = %11
@@ -2179,12 +2179,12 @@ define internal void @acpi_video_bus_notify(ptr readnone captures(none) %0, i32 
   br label %50
 
 .thread:                                          ; preds = %11
-  %49 = tail call i32 @acpi_notifier_call_chain(ptr noundef %2, i32 noundef %1, i32 noundef 0) #18
+  %49 = tail call i32 @acpi_notifier_call_chain(ptr noundef %2, i32 noundef %1, i32 noundef 0) #19
   br label %58
 
 50:                                               ; preds = %48, %47, %.loopexit6, %11, %11
   %51 = phi i32 [ 242, %48 ], [ 241, %47 ], [ 227, %.loopexit6 ], [ 227, %11 ], [ 227, %11 ]
-  %52 = tail call i32 @acpi_notifier_call_chain(ptr noundef %2, i32 noundef %1, i32 noundef 0) #18
+  %52 = tail call i32 @acpi_notifier_call_chain(ptr noundef %2, i32 noundef %1, i32 noundef 0) #19
   %.not = icmp eq i32 %52, 0
   br i1 %.not, label %53, label %58
 
@@ -2195,10 +2195,10 @@ define internal void @acpi_video_bus_notify(ptr readnone captures(none) %0, i32 
   br i1 %56, label %58, label %57
 
 57:                                               ; preds = %53
-  tail call void @input_event(ptr noundef nonnull %9, i32 noundef 1, i32 noundef %51, i32 noundef 1) #18
-  tail call void @input_event(ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, i32 noundef 0) #18
-  tail call void @input_event(ptr noundef nonnull %9, i32 noundef 1, i32 noundef %51, i32 noundef 0) #18
-  tail call void @input_event(ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, i32 noundef 0) #18
+  tail call void @input_event(ptr noundef nonnull %9, i32 noundef 1, i32 noundef %51, i32 noundef 1) #19
+  tail call void @input_event(ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, i32 noundef 0) #19
+  tail call void @input_event(ptr noundef nonnull %9, i32 noundef 1, i32 noundef %51, i32 noundef 0) #19
+  tail call void @input_event(ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, i32 noundef 0) #19
   br label %58
 
 58:                                               ; preds = %.thread, %57, %53, %50, %7, %3
@@ -2208,7 +2208,7 @@ define internal void @acpi_video_bus_notify(ptr readnone captures(none) %0, i32 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @acpi_video_bus_remove_notify_handler(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @mutex_lock(ptr noundef nonnull %2) #18
+  tail call void @mutex_lock(ptr noundef nonnull %2) #19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
@@ -2227,7 +2227,7 @@ define internal fastcc void @acpi_video_bus_remove_notify_handler(ptr noundef no
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @acpi_remove_notify_handler(ptr noundef %15, i32 noundef 2, ptr noundef nonnull @acpi_video_device_notify) #18
+  %16 = tail call i32 @acpi_remove_notify_handler(ptr noundef %15, i32 noundef 2, ptr noundef nonnull @acpi_video_device_notify) #19
   %17 = load i8, ptr %7, align 8
   %18 = and i8 %17, -65
   store i8 %18, ptr %7, align 8
@@ -2239,8 +2239,8 @@ define internal fastcc void @acpi_video_bus_remove_notify_handler(ptr noundef no
   br i1 %21, label %.loopexit, label %.preheader, !llvm.loop !29
 
 .loopexit:                                        ; preds = %19, %1
-  tail call void @mutex_unlock(ptr noundef nonnull %2) #18
-  %22 = tail call zeroext i1 @acpi_osi_is_win8() #18
+  tail call void @mutex_unlock(ptr noundef nonnull %2) #19
+  %22 = tail call zeroext i1 @acpi_osi_is_win8() #19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %24 = load i8, ptr %23, align 2
   %25 = and i8 %24, 1
@@ -2256,13 +2256,13 @@ define internal fastcc void @acpi_video_bus_remove_notify_handler(ptr noundef no
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = zext nneg i32 %28 to i64
-  %35 = tail call i32 @acpi_execute_simple_method(ptr noundef %33, ptr noundef nonnull @.str.29, i64 noundef %34) #18
+  %35 = tail call i32 @acpi_execute_simple_method(ptr noundef %33, ptr noundef nonnull @.str.29, i64 noundef %34) #19
   br label %36
 
 36:                                               ; preds = %27, %.loopexit
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %38 = load ptr, ptr %37, align 8
-  tail call void @input_unregister_device(ptr noundef %38) #18
+  tail call void @input_unregister_device(ptr noundef %38) #19
   store ptr null, ptr %37, align 8
   ret void
 }
@@ -2276,9 +2276,9 @@ define internal fastcc void @acpi_video_bus_unregister_backlight(ptr noundef non
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %7 = tail call i32 @unregister_pm_notifier(ptr noundef nonnull %6) #18
+  %7 = tail call i32 @unregister_pm_notifier(ptr noundef nonnull %6) #19
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @mutex_lock(ptr noundef nonnull %8) #18
+  tail call void @mutex_lock(ptr noundef nonnull %8) #19
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %9
@@ -2292,7 +2292,7 @@ define internal fastcc void @acpi_video_bus_unregister_backlight(ptr noundef non
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %.preheader
-  tail call void @backlight_device_unregister(ptr noundef nonnull %14) #18
+  tail call void @backlight_device_unregister(ptr noundef nonnull %14) #19
   store ptr null, ptr %13, align 8
   br label %17
 
@@ -2305,9 +2305,9 @@ define internal fastcc void @acpi_video_bus_unregister_backlight(ptr noundef non
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load ptr, ptr %22, align 8
-  tail call void @kfree(ptr noundef %23) #18
+  tail call void @kfree(ptr noundef %23) #19
   %24 = load ptr, ptr %18, align 8
-  tail call void @kfree(ptr noundef %24) #18
+  tail call void @kfree(ptr noundef %24) #19
   store ptr null, ptr %18, align 8
   br label %25
 
@@ -2321,12 +2321,12 @@ define internal fastcc void @acpi_video_bus_unregister_backlight(ptr noundef non
   %30 = getelementptr i8, ptr %12, i64 120
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 616
-  tail call void @sysfs_remove_link(ptr noundef nonnull %32, ptr noundef nonnull @.str.51) #18
+  tail call void @sysfs_remove_link(ptr noundef nonnull %32, ptr noundef nonnull @.str.51) #19
   %33 = load ptr, ptr %26, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  tail call void @sysfs_remove_link(ptr noundef nonnull %34, ptr noundef nonnull @.str.52) #18
+  tail call void @sysfs_remove_link(ptr noundef nonnull %34, ptr noundef nonnull @.str.52) #19
   %35 = load ptr, ptr %26, align 8
-  tail call void @thermal_cooling_device_unregister(ptr noundef %35) #18
+  tail call void @thermal_cooling_device_unregister(ptr noundef %35) #19
   store ptr null, ptr %26, align 8
   br label %36
 
@@ -2336,7 +2336,7 @@ define internal fastcc void @acpi_video_bus_unregister_backlight(ptr noundef non
   br i1 %38, label %.loopexit, label %.preheader, !llvm.loop !30
 
 .loopexit:                                        ; preds = %36, %5
-  tail call void @mutex_unlock(ptr noundef nonnull %8) #18
+  tail call void @mutex_unlock(ptr noundef nonnull %8) #19
   store i8 0, ptr %2, align 8
   br label %39
 
@@ -2373,7 +2373,7 @@ define internal fastcc void @acpi_video_device_enumerate(ptr noundef nonnull cap
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = call i32 @acpi_evaluate_object(ptr noundef %11, ptr noundef nonnull @.str.30, ptr noundef null, ptr noundef nonnull %2) #18
+  %12 = call i32 @acpi_evaluate_object(ptr noundef %11, ptr noundef nonnull @.str.30, ptr noundef null, ptr noundef nonnull %2) #19
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %19, label %14
 
@@ -2381,8 +2381,8 @@ define internal fastcc void @acpi_video_device_enumerate(ptr noundef nonnull cap
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = call ptr @acpi_format_exception(i32 noundef %12) #18
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %17, ptr noundef nonnull @.str.36, ptr noundef %18) #18
+  %18 = call ptr @acpi_format_exception(i32 noundef %12) #19
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %17, ptr noundef nonnull @.str.36, ptr noundef %18) #19
   br label %77
 
 19:                                               ; preds = %8
@@ -2399,7 +2399,7 @@ define internal fastcc void @acpi_video_device_enumerate(ptr noundef nonnull cap
   %26 = load ptr, ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %28, ptr noundef nonnull @.str.37) #18
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %28, ptr noundef nonnull @.str.37) #19
   br label %75
 
 29:                                               ; preds = %22
@@ -2408,7 +2408,7 @@ define internal fastcc void @acpi_video_device_enumerate(ptr noundef nonnull cap
   %32 = add i32 %31, 1
   %33 = zext i32 %32 to i64
   %34 = shl nuw nsw i64 %33, 4
-  %35 = call noalias align 8 ptr @__kmalloc(i64 noundef %34, i32 noundef 3520) #20
+  %35 = call noalias align 8 ptr @__kmalloc(i64 noundef %34, i32 noundef 3520) #21
   %36 = icmp eq ptr %35, null
   br i1 %36, label %75, label %37
 
@@ -2436,7 +2436,7 @@ define internal fastcc void @acpi_video_device_enumerate(ptr noundef nonnull cap
   %52 = load ptr, ptr %0, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %54, ptr noundef nonnull @.str.38, i32 noundef %44) #18
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %54, ptr noundef nonnull @.str.38, i32 noundef %44) #19
   %.pre = load i32, ptr %30, align 4
   br label %63
 
@@ -2467,7 +2467,7 @@ define internal fastcc void @acpi_video_device_enumerate(ptr noundef nonnull cap
   %71 = phi i8 [ 0, %37 ], [ %69, %68 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %73 = load ptr, ptr %72, align 8
-  call void @kfree(ptr noundef %73) #18
+  call void @kfree(ptr noundef %73) #19
   store ptr %35, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %71, ptr %74, align 8
@@ -2475,7 +2475,7 @@ define internal fastcc void @acpi_video_device_enumerate(ptr noundef nonnull cap
 
 75:                                               ; preds = %70, %29, %25
   %76 = load ptr, ptr %3, align 8
-  call void @kfree(ptr noundef %76) #18
+  call void @kfree(ptr noundef %76) #19
   br label %77
 
 77:                                               ; preds = %75, %14, %1
@@ -2493,21 +2493,21 @@ define internal noundef range(i32 -12, 1) i32 @acpi_video_bus_get_one_device(ptr
   store i64 0, ptr %3, align 8, !annotation !10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = call i32 @acpi_evaluate_integer(ptr noundef %5, ptr noundef nonnull @.str.39, ptr noundef null, ptr noundef nonnull %3) #18
+  %6 = call i32 @acpi_evaluate_integer(ptr noundef %5, ptr noundef nonnull @.str.39, ptr noundef null, ptr noundef nonnull %3) #19
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %172
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
-  %10 = call noalias align 8 dereferenceable_or_null(168) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 168) #19
+  %10 = call noalias align 8 dereferenceable_or_null(168) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 168) #20
   %11 = icmp eq ptr %10, null
   br i1 %11, label %176, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %13, ptr noundef nonnull align 1 dereferenceable(13) @.str.26, i64 13, i1 false) #18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %13, ptr noundef nonnull align 1 dereferenceable(13) @.str.26, i64 13, i1 false) #19
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %14, ptr noundef nonnull align 1 dereferenceable(6) @.str.23, i64 6, i1 false) #18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %14, ptr noundef nonnull align 1 dereferenceable(6) @.str.23, i64 6, i1 false) #19
   %15 = load i64, ptr %3, align 8
   store i64 %15, ptr %10, align 8
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 128
@@ -2523,7 +2523,7 @@ define internal noundef range(i32 -12, 1) i32 @acpi_video_bus_get_one_device(ptr
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store ptr @acpi_video_switch_brightness, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  call void @init_timer_key(ptr noundef nonnull %22, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #18
+  call void @init_timer_key(ptr noundef nonnull %22, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #19
   %23 = load i64, ptr %3, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load i8, ptr %24, align 8
@@ -2674,7 +2674,7 @@ define internal noundef range(i32 -12, 1) i32 @acpi_video_bus_get_one_device(ptr
   %107 = load ptr, ptr %17, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
-  %110 = call zeroext i1 @acpi_has_method(ptr noundef %109, ptr noundef nonnull @.str.39) #18
+  %110 = call zeroext i1 @acpi_has_method(ptr noundef %109, ptr noundef nonnull @.str.39) #19
   br i1 %110, label %111, label %115
 
 111:                                              ; preds = %.loopexit
@@ -2688,7 +2688,7 @@ define internal noundef range(i32 -12, 1) i32 @acpi_video_bus_get_one_device(ptr
   %116 = load ptr, ptr %17, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8
-  %119 = call zeroext i1 @acpi_has_method(ptr noundef %118, ptr noundef nonnull @.str.4) #18
+  %119 = call zeroext i1 @acpi_has_method(ptr noundef %118, ptr noundef nonnull @.str.4) #19
   br i1 %119, label %120, label %124
 
 120:                                              ; preds = %115
@@ -2702,7 +2702,7 @@ define internal noundef range(i32 -12, 1) i32 @acpi_video_bus_get_one_device(ptr
   %125 = load ptr, ptr %17, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %127 = load ptr, ptr %126, align 8
-  %128 = call zeroext i1 @acpi_has_method(ptr noundef %127, ptr noundef nonnull @.str.45) #18
+  %128 = call zeroext i1 @acpi_has_method(ptr noundef %127, ptr noundef nonnull @.str.45) #19
   br i1 %128, label %129, label %133
 
 129:                                              ; preds = %124
@@ -2716,21 +2716,21 @@ define internal noundef range(i32 -12, 1) i32 @acpi_video_bus_get_one_device(ptr
   %134 = load ptr, ptr %17, align 8
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %136 = load ptr, ptr %135, align 8
-  %137 = call zeroext i1 @acpi_has_method(ptr noundef %136, ptr noundef nonnull @.str.41) #18
+  %137 = call zeroext i1 @acpi_has_method(ptr noundef %136, ptr noundef nonnull @.str.41) #19
   br i1 %137, label %147, label %138
 
 138:                                              ; preds = %133
   %139 = load ptr, ptr %17, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = load ptr, ptr %140, align 8
-  %142 = call zeroext i1 @acpi_has_method(ptr noundef %141, ptr noundef nonnull @.str.42) #18
+  %142 = call zeroext i1 @acpi_has_method(ptr noundef %141, ptr noundef nonnull @.str.42) #19
   br i1 %142, label %143, label %152
 
 143:                                              ; preds = %138
   %144 = load ptr, ptr %17, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %146 = load ptr, ptr %145, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %146, ptr noundef nonnull @.str.48) #18
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %146, ptr noundef nonnull @.str.48) #19
   br label %147
 
 147:                                              ; preds = %143, %133
@@ -2745,7 +2745,7 @@ define internal noundef range(i32 -12, 1) i32 @acpi_video_bus_get_one_device(ptr
   %153 = load ptr, ptr %17, align 8
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load ptr, ptr %154, align 8
-  %156 = call zeroext i1 @acpi_has_method(ptr noundef %155, ptr noundef nonnull @.str.7) #18
+  %156 = call zeroext i1 @acpi_has_method(ptr noundef %155, ptr noundef nonnull @.str.7) #19
   %157 = getelementptr inbounds nuw i8, ptr %10, i64 9
   %158 = load i8, ptr %157, align 1
   br i1 %156, label %159, label %._crit_edge
@@ -2767,7 +2767,7 @@ define internal noundef range(i32 -12, 1) i32 @acpi_video_bus_get_one_device(ptr
 
 165:                                              ; preds = %164, %._crit_edge
   %166 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  call void @mutex_lock(ptr noundef nonnull %166) #18
+  call void @mutex_lock(ptr noundef nonnull %166) #19
   %167 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %168 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -2777,7 +2777,7 @@ define internal noundef range(i32 -12, 1) i32 @acpi_video_bus_get_one_device(ptr
   %171 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %170, ptr %171, align 8
   store volatile ptr %167, ptr %170, align 8
-  call void @mutex_unlock(ptr noundef nonnull %166) #18
+  call void @mutex_unlock(ptr noundef nonnull %166) #19
   br label %172
 
 172:                                              ; preds = %165, %2
@@ -2925,7 +2925,7 @@ define internal void @acpi_video_switch_brightness(ptr noundef captures(none) %0
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = sext i32 %79 to i64
-  %85 = call i32 @acpi_execute_simple_method(ptr noundef %83, ptr noundef nonnull @.str.45, i64 noundef %84) #18
+  %85 = call i32 @acpi_execute_simple_method(ptr noundef %83, ptr noundef nonnull @.str.45, i64 noundef %84) #19
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %87, label %acpi_video_device_lcd_set_level.exit.sink.split
 
@@ -2970,7 +2970,7 @@ define internal void @acpi_video_switch_brightness(ptr noundef captures(none) %0
 
 109:                                              ; preds = %104, %101
   %110 = phi ptr [ %.pre, %104 ], [ null, %101 ]
-  call void @backlight_force_update(ptr noundef %110, i32 noundef 0) #18
+  call void @backlight_force_update(ptr noundef %110, i32 noundef 0) #19
   br label %118
 
 acpi_video_device_lcd_set_level.exit.sink.split:  ; preds = %107, %87, %78
@@ -2978,7 +2978,7 @@ acpi_video_device_lcd_set_level.exit.sink.split:  ; preds = %107, %87, %78
   %111 = load ptr, ptr %80, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %113, ptr noundef nonnull %.str.47.sink) #18
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %113, ptr noundef nonnull %.str.47.sink) #19
   br label %acpi_video_device_lcd_set_level.exit
 
 acpi_video_device_lcd_set_level.exit:             ; preds = %acpi_video_device_lcd_set_level.exit.sink.split, %9
@@ -2986,7 +2986,7 @@ acpi_video_device_lcd_set_level.exit:             ; preds = %acpi_video_device_l
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load ptr, ptr %116, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %117, ptr noundef nonnull @.str.40) #18
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %117, ptr noundef nonnull @.str.40) #19
   br label %118
 
 118:                                              ; preds = %acpi_video_device_lcd_set_level.exit, %109, %1
@@ -3016,7 +3016,7 @@ define internal fastcc void @acpi_video_device_lcd_get_level_current(ptr noundef
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 @acpi_evaluate_integer(ptr noundef %14, ptr noundef nonnull %10, ptr noundef null, ptr noundef %1) #18
+  %15 = tail call i32 @acpi_evaluate_integer(ptr noundef %14, ptr noundef nonnull %10, ptr noundef null, ptr noundef %1) #19
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %.loopexit
 
@@ -3094,7 +3094,7 @@ define internal fastcc void @acpi_video_device_lcd_get_level_current(ptr noundef
   %65 = load ptr, ptr %11, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
-  tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %67, ptr noundef nonnull %64, ptr noundef nonnull %10) #18
+  tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %67, ptr noundef nonnull %64, ptr noundef nonnull %10) #19
   %68 = load i8, ptr %3, align 1
   %69 = and i8 %68, -25
   store i8 %69, ptr %3, align 1
@@ -3162,11 +3162,11 @@ define internal void @acpi_video_device_notify(ptr readnone captures(none) %0, i
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %14
-  tail call void @backlight_force_update(ptr noundef nonnull %16, i32 noundef 0) #18
+  tail call void @backlight_force_update(ptr noundef nonnull %16, i32 noundef 0) #19
   br label %19
 
 19:                                               ; preds = %18, %14
-  %20 = tail call i32 @acpi_notifier_call_chain(ptr noundef %7, i32 noundef %1, i32 noundef 0) #18
+  %20 = tail call i32 @acpi_notifier_call_chain(ptr noundef %7, i32 noundef %1, i32 noundef 0) #19
   br label %51
 
 21:                                               ; preds = %5
@@ -3209,27 +3209,27 @@ define internal void @acpi_video_device_notify(ptr readnone captures(none) %0, i
   store i32 %1, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %41 = load ptr, ptr @system_wq, align 8
-  %42 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %41, ptr noundef nonnull %40, i64 noundef 100) #18
+  %42 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %41, ptr noundef nonnull %40, i64 noundef 100) #19
   br label %43
 
 43:                                               ; preds = %22, %25, %28, %31, %34, %37
   %44 = phi i32 [ 243, %22 ], [ 225, %25 ], [ 224, %28 ], [ 244, %31 ], [ 245, %34 ], [ %38, %37 ]
   store i1 true, ptr @may_report_brightness_keys, align 1
-  %45 = tail call i32 @acpi_notifier_call_chain(ptr noundef %7, i32 noundef %1, i32 noundef 0) #18
+  %45 = tail call i32 @acpi_notifier_call_chain(ptr noundef %7, i32 noundef %1, i32 noundef 0) #19
   %46 = load i32, ptr @report_key_events, align 4
   %47 = and i32 %46, 2
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %51, label %49
 
 49:                                               ; preds = %43
-  tail call void @input_event(ptr noundef %11, i32 noundef 1, i32 noundef %44, i32 noundef 1) #18
-  tail call void @input_event(ptr noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 0) #18
-  tail call void @input_event(ptr noundef %11, i32 noundef 1, i32 noundef %44, i32 noundef 0) #18
-  tail call void @input_event(ptr noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 0) #18
+  tail call void @input_event(ptr noundef %11, i32 noundef 1, i32 noundef %44, i32 noundef 1) #19
+  tail call void @input_event(ptr noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 0) #19
+  tail call void @input_event(ptr noundef %11, i32 noundef 1, i32 noundef %44, i32 noundef 0) #19
+  tail call void @input_event(ptr noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 0) #19
   br label %51
 
 .critedge:                                        ; preds = %21
-  %50 = tail call i32 @acpi_notifier_call_chain(ptr noundef %7, i32 noundef %1, i32 noundef 0) #18
+  %50 = tail call i32 @acpi_notifier_call_chain(ptr noundef %7, i32 noundef %1, i32 noundef 0) #19
   br label %51
 
 51:                                               ; preds = %.critedge, %49, %43, %19, %3
@@ -3281,7 +3281,7 @@ define internal noundef range(i32 0, 2) i32 @acpi_video_resume(ptr noundef reado
   %5 = getelementptr i8, ptr %0, i64 -136
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 616
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %7, ptr noundef nonnull @.str.58) #21
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %7, ptr noundef nonnull @.str.58) #22
   %8 = getelementptr i8, ptr %0, i64 -112
   %9 = load i8, ptr %8, align 8
   %10 = icmp eq i8 %9, 0
@@ -3313,7 +3313,7 @@ define internal noundef range(i32 0, 2) i32 @acpi_video_resume(ptr noundef reado
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = sext i32 %24 to i64
-  %30 = tail call i32 @acpi_execute_simple_method(ptr noundef %28, ptr noundef nonnull @.str.45, i64 noundef %29) #18
+  %30 = tail call i32 @acpi_execute_simple_method(ptr noundef %28, ptr noundef nonnull @.str.45, i64 noundef %29) #19
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %36, label %32
 
@@ -3321,7 +3321,7 @@ define internal noundef range(i32 0, 2) i32 @acpi_video_resume(ptr noundef reado
   %33 = load ptr, ptr %25, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
-  tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %35, ptr noundef nonnull @.str.46) #18
+  tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %35, ptr noundef nonnull @.str.46) #19
   br label %acpi_video_device_lcd_set_level.exit
 
 36:                                               ; preds = %23
@@ -3367,7 +3367,7 @@ define internal noundef range(i32 0, 2) i32 @acpi_video_resume(ptr noundef reado
   %59 = load ptr, ptr %25, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
-  tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %61, ptr noundef nonnull @.str.47) #18
+  tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %61, ptr noundef nonnull @.str.47) #19
   br label %acpi_video_device_lcd_set_level.exit
 
 acpi_video_device_lcd_set_level.exit:             ; preds = %.loopexit.i, %54, %50, %32, %19, %13
@@ -3456,7 +3456,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_video_set_brightness(ptr nou
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = tail call zeroext i1 @cancel_delayed_work(ptr noundef nonnull %6) #18
+  %7 = tail call zeroext i1 @cancel_delayed_work(ptr noundef nonnull %6) #19
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -3469,7 +3469,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_video_set_brightness(ptr nou
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = sext i32 %14 to i64
-  %20 = tail call i32 @acpi_execute_simple_method(ptr noundef %18, ptr noundef nonnull @.str.45, i64 noundef %19) #18
+  %20 = tail call i32 @acpi_execute_simple_method(ptr noundef %18, ptr noundef nonnull @.str.45, i64 noundef %19) #19
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %26, label %22
 
@@ -3477,7 +3477,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_video_set_brightness(ptr nou
   %23 = load ptr, ptr %15, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
-  tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %25, ptr noundef nonnull @.str.46) #18
+  tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %25, ptr noundef nonnull @.str.46) #19
   br label %acpi_video_device_lcd_set_level.exit
 
 26:                                               ; preds = %1
@@ -3523,7 +3523,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_video_set_brightness(ptr nou
   %49 = load ptr, ptr %15, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
-  tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %51, ptr noundef nonnull @.str.47) #18
+  tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %51, ptr noundef nonnull @.str.47) #19
   br label %acpi_video_device_lcd_set_level.exit
 
 acpi_video_device_lcd_set_level.exit:             ; preds = %22, %40, %44, %.loopexit.i
@@ -3623,7 +3623,7 @@ define internal noundef range(i32 -22, 1) i32 @video_set_cur_state(ptr noundef r
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = sext i32 %19 to i64
-  %25 = tail call i32 @acpi_execute_simple_method(ptr noundef %23, ptr noundef nonnull @.str.45, i64 noundef %24) #18
+  %25 = tail call i32 @acpi_execute_simple_method(ptr noundef %23, ptr noundef nonnull @.str.45, i64 noundef %24) #19
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %31, label %27
 
@@ -3631,7 +3631,7 @@ define internal noundef range(i32 -22, 1) i32 @video_set_cur_state(ptr noundef r
   %28 = load ptr, ptr %20, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
-  tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %30, ptr noundef nonnull @.str.46) #18
+  tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %30, ptr noundef nonnull @.str.46) #19
   br label %acpi_video_device_lcd_set_level.exit
 
 31:                                               ; preds = %12
@@ -3677,7 +3677,7 @@ define internal noundef range(i32 -22, 1) i32 @video_set_cur_state(ptr noundef r
   %54 = load ptr, ptr %20, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
-  tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %56, ptr noundef nonnull @.str.47) #18
+  tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %56, ptr noundef nonnull @.str.47) #19
   br label %acpi_video_device_lcd_set_level.exit
 
 acpi_video_device_lcd_set_level.exit:             ; preds = %.loopexit.i, %49, %45, %27, %2
@@ -3690,7 +3690,7 @@ define internal fastcc range(i32 0, 2) i32 @intel_opregion_present() unnamed_add
   %1 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 0, ptr %1, align 4, !annotation !10
-  %2 = tail call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef null) #18
+  %2 = tail call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef null) #19
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -3708,7 +3708,7 @@ define internal fastcc range(i32 0, 2) i32 @intel_opregion_present() unnamed_add
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %19, %19, %15, %6
-  %13 = call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %7) #18
+  %13 = call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %7) #19
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit, label %6, !llvm.loop !39
 
@@ -3727,11 +3727,11 @@ define internal fastcc range(i32 0, 2) i32 @intel_opregion_present() unnamed_add
   ]
 
 22:                                               ; preds = %19
-  %23 = call i32 @pci_read_config_dword(ptr noundef nonnull %7, i32 noundef 252, ptr noundef nonnull %1) #18
+  %23 = call i32 @pci_read_config_dword(ptr noundef nonnull %7, i32 noundef 252, ptr noundef nonnull %1) #19
   %24 = load i32, ptr %1, align 4
   %25 = icmp eq i32 %24, 0
   %26 = select i1 %25, i32 %5, i32 1
-  %27 = call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %7) #18
+  %27 = call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %7) #19
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.loopexit, label %.preheader, !llvm.loop !39
 
@@ -3753,17 +3753,17 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #16
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #16
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #17
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #16
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -3782,12 +3782,13 @@ attributes #13 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="tru
 attributes #14 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nounwind }
-attributes #19 = { nounwind allocsize(2) }
-attributes #20 = { nounwind allocsize(0) }
-attributes #21 = { cold nounwind }
-attributes #22 = { cold }
+attributes #17 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { nounwind }
+attributes #20 = { nounwind allocsize(2) }
+attributes #21 = { nounwind allocsize(0) }
+attributes #22 = { cold nounwind }
+attributes #23 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

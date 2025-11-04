@@ -1663,7 +1663,7 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
 
 956:                                              ; preds = %._crit_edge.i
   %957 = uitofp nneg i32 %952 to double
-  %958 = tail call double @log2(double noundef %957) #10, !tbaa !77
+  %958 = tail call double @log2(double noundef %957) #11, !tbaa !77
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %956, %._crit_edge.thread.i
@@ -1692,7 +1692,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %956, %._crit_edge.t
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit23.i
 
 973:                                              ; preds = %961
-  %974 = tail call double @log2(double noundef %964) #10, !tbaa !77
+  %974 = tail call double @log2(double noundef %964) #11, !tbaa !77
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit23.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit23.i:          ; preds = %973, %969
@@ -3671,7 +3671,7 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
 
 956:                                              ; preds = %._crit_edge.i
   %957 = uitofp nneg i32 %952 to double
-  %958 = tail call double @log2(double noundef %957) #10, !tbaa !77
+  %958 = tail call double @log2(double noundef %957) #11, !tbaa !77
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %956, %._crit_edge.thread.i
@@ -3700,7 +3700,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %956, %._crit_edge.t
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit23.i
 
 973:                                              ; preds = %961
-  %974 = tail call double @log2(double noundef %964) #10, !tbaa !77
+  %974 = tail call double @log2(double noundef %964) #11, !tbaa !77
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit23.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit23.i:          ; preds = %973, %969
@@ -5679,7 +5679,7 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
 
 956:                                              ; preds = %._crit_edge.i
   %957 = uitofp nneg i32 %952 to double
-  %958 = tail call double @log2(double noundef %957) #10, !tbaa !77
+  %958 = tail call double @log2(double noundef %957) #11, !tbaa !77
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %956, %._crit_edge.thread.i
@@ -5708,7 +5708,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %956, %._crit_edge.t
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit23.i
 
 973:                                              ; preds = %961
-  %974 = tail call double @log2(double noundef %964) #10, !tbaa !77
+  %974 = tail call double @log2(double noundef %964) #11, !tbaa !77
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit23.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit23.i:          ; preds = %973, %969
@@ -7687,7 +7687,7 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
 
 956:                                              ; preds = %._crit_edge.i
   %957 = uitofp nneg i32 %952 to double
-  %958 = tail call double @log2(double noundef %957) #10, !tbaa !77
+  %958 = tail call double @log2(double noundef %957) #11, !tbaa !77
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %956, %._crit_edge.thread.i
@@ -7716,7 +7716,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %956, %._crit_edge.t
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit23.i
 
 973:                                              ; preds = %961
-  %974 = tail call double @log2(double noundef %964) #10, !tbaa !77
+  %974 = tail call double @log2(double noundef %964) #11, !tbaa !77
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit23.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit23.i:          ; preds = %973, %969
@@ -8489,11 +8489,11 @@ declare void @_ZN13duckdb_brotli34BrotliBuildAndStoreHuffmanTreeFastEPNS_11Huffm
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #3
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log2(double noundef) local_unnamed_addr #7
+declare double @log2(double noundef) local_unnamed_addr #8
 
 declare void @_ZN13duckdb_brotli23BrotliCreateHuffmanTreeEPKjmiPNS_11HuffmanTreeEPh(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
@@ -8501,14 +8501,14 @@ declare void @_ZN13duckdb_brotli31BrotliConvertBitDepthsToSymbolsEPKhmPt(ptr nou
 
 declare void @_ZN13duckdb_brotli22BrotliStoreHuffmanTreeEPKhmPNS_11HuffmanTreeEPmPh(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #9
+declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8517,10 +8517,11 @@ attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #10 = { nounwind }
+attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

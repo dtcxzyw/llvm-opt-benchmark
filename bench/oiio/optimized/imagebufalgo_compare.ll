@@ -845,8 +845,8 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3fmt2v812format_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #27
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #28
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #30
   ret void
 }
 
@@ -1317,7 +1317,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN11OpenImageIO6v3_1_0
   %13 = ptrtoint ptr %6 to i64
   %14 = ptrtoint ptr %3 to i64
   %15 = sub i64 %13, %14
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %15) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %15) #30
   br label %_ZNSt6vectorIfSaIfEEaSEOS1_.exit
 
 _ZNSt6vectorIfSaIfEEaSEOS1_.exit:                 ; preds = %2, %12
@@ -1343,7 +1343,7 @@ _ZNSt6vectorIfSaIfEEaSEOS1_.exit:                 ; preds = %2, %12
   %28 = ptrtoint ptr %21 to i64
   %29 = ptrtoint ptr %18 to i64
   %30 = sub i64 %28, %29
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %30) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %30) #30
   br label %_ZNSt6vectorIfSaIfEEaSEOS1_.exit11
 
 _ZNSt6vectorIfSaIfEEaSEOS1_.exit11:               ; preds = %_ZNSt6vectorIfSaIfEEaSEOS1_.exit, %27
@@ -1369,7 +1369,7 @@ _ZNSt6vectorIfSaIfEEaSEOS1_.exit11:               ; preds = %_ZNSt6vectorIfSaIfE
   %43 = ptrtoint ptr %36 to i64
   %44 = ptrtoint ptr %33 to i64
   %45 = sub i64 %43, %44
-  tail call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %45) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %45) #30
   br label %_ZNSt6vectorIfSaIfEEaSEOS1_.exit13
 
 _ZNSt6vectorIfSaIfEEaSEOS1_.exit13:               ; preds = %_ZNSt6vectorIfSaIfEEaSEOS1_.exit11, %42
@@ -1395,7 +1395,7 @@ _ZNSt6vectorIfSaIfEEaSEOS1_.exit13:               ; preds = %_ZNSt6vectorIfSaIfE
   %58 = ptrtoint ptr %51 to i64
   %59 = ptrtoint ptr %48 to i64
   %60 = sub i64 %58, %59
-  tail call void @_ZdlPvm(ptr noundef nonnull %48, i64 noundef %60) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %48, i64 noundef %60) #30
   br label %_ZNSt6vectorIfSaIfEEaSEOS1_.exit15
 
 _ZNSt6vectorIfSaIfEEaSEOS1_.exit15:               ; preds = %_ZNSt6vectorIfSaIfEEaSEOS1_.exit13, %57
@@ -1421,7 +1421,7 @@ _ZNSt6vectorIfSaIfEEaSEOS1_.exit15:               ; preds = %_ZNSt6vectorIfSaIfE
   %73 = ptrtoint ptr %66 to i64
   %74 = ptrtoint ptr %63 to i64
   %75 = sub i64 %73, %74
-  tail call void @_ZdlPvm(ptr noundef nonnull %63, i64 noundef %75) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %63, i64 noundef %75) #30
   br label %_ZNSt6vectorImSaImEEaSEOS1_.exit
 
 _ZNSt6vectorImSaImEEaSEOS1_.exit:                 ; preds = %_ZNSt6vectorIfSaIfEEaSEOS1_.exit15, %72
@@ -1447,7 +1447,7 @@ _ZNSt6vectorImSaImEEaSEOS1_.exit:                 ; preds = %_ZNSt6vectorIfSaIfE
   %88 = ptrtoint ptr %81 to i64
   %89 = ptrtoint ptr %78 to i64
   %90 = sub i64 %88, %89
-  tail call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef %90) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef %90) #30
   br label %_ZNSt6vectorImSaImEEaSEOS1_.exit18
 
 _ZNSt6vectorImSaImEEaSEOS1_.exit18:               ; preds = %_ZNSt6vectorImSaImEEaSEOS1_.exit, %87
@@ -1473,7 +1473,7 @@ _ZNSt6vectorImSaImEEaSEOS1_.exit18:               ; preds = %_ZNSt6vectorImSaImE
   %103 = ptrtoint ptr %96 to i64
   %104 = ptrtoint ptr %93 to i64
   %105 = sub i64 %103, %104
-  tail call void @_ZdlPvm(ptr noundef nonnull %93, i64 noundef %105) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %93, i64 noundef %105) #30
   br label %_ZNSt6vectorImSaImEEaSEOS1_.exit20
 
 _ZNSt6vectorImSaImEEaSEOS1_.exit20:               ; preds = %_ZNSt6vectorImSaImEEaSEOS1_.exit18, %102
@@ -1499,7 +1499,7 @@ _ZNSt6vectorImSaImEEaSEOS1_.exit20:               ; preds = %_ZNSt6vectorImSaImE
   %118 = ptrtoint ptr %111 to i64
   %119 = ptrtoint ptr %108 to i64
   %120 = sub i64 %118, %119
-  tail call void @_ZdlPvm(ptr noundef nonnull %108, i64 noundef %120) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %108, i64 noundef %120) #30
   br label %_ZNSt6vectorIdSaIdEEaSEOS1_.exit
 
 _ZNSt6vectorIdSaIdEEaSEOS1_.exit:                 ; preds = %_ZNSt6vectorImSaImEEaSEOS1_.exit20, %117
@@ -1525,7 +1525,7 @@ _ZNSt6vectorIdSaIdEEaSEOS1_.exit:                 ; preds = %_ZNSt6vectorImSaImE
   %133 = ptrtoint ptr %126 to i64
   %134 = ptrtoint ptr %123 to i64
   %135 = sub i64 %133, %134
-  tail call void @_ZdlPvm(ptr noundef nonnull %123, i64 noundef %135) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %123, i64 noundef %135) #30
   br label %_ZNSt6vectorIdSaIdEEaSEOS1_.exit23
 
 _ZNSt6vectorIdSaIdEEaSEOS1_.exit23:               ; preds = %_ZNSt6vectorIdSaIdEEaSEOS1_.exit, %132
@@ -1751,7 +1751,7 @@ define void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo17computePixelStatsERKNS0_8Ima
   %121 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %122 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i64 0, ptr %122, align 8
-  %123 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %123 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %124 unwind label %135
 
 124:                                              ; preds = %120
@@ -1797,7 +1797,7 @@ define void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo17computePixelStatsERKNS0_8Ima
   %133 = landingpad { ptr, i32 }
           catch ptr null
   %134 = extractvalue { ptr, i32 } %133, 0
-  call void @__clang_call_terminate(ptr %134) #30
+  call void @__clang_call_terminate(ptr %134) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %130, %128
@@ -1824,7 +1824,7 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %130, %128
   %143 = landingpad { ptr, i32 }
           catch ptr null
   %144 = extractvalue { ptr, i32 } %143, 0
-  call void @__clang_call_terminate(ptr %144) #30
+  call void @__clang_call_terminate(ptr %144) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit22.i:               ; preds = %140, %137, %135
@@ -1837,7 +1837,7 @@ _ZNSt14_Function_baseD2Ev.exit22.i:               ; preds = %140, %137, %135
   %146 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %147 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i64 0, ptr %147, align 8
-  %148 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %148 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %149 unwind label %160
 
 149:                                              ; preds = %145
@@ -1883,7 +1883,7 @@ _ZNSt14_Function_baseD2Ev.exit22.i:               ; preds = %140, %137, %135
   %158 = landingpad { ptr, i32 }
           catch ptr null
   %159 = extractvalue { ptr, i32 } %158, 0
-  call void @__clang_call_terminate(ptr %159) #30
+  call void @__clang_call_terminate(ptr %159) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit24.i:               ; preds = %155, %153
@@ -1910,7 +1910,7 @@ _ZNSt14_Function_baseD2Ev.exit24.i:               ; preds = %155, %153
   %168 = landingpad { ptr, i32 }
           catch ptr null
   %169 = extractvalue { ptr, i32 } %168, 0
-  call void @__clang_call_terminate(ptr %169) #30
+  call void @__clang_call_terminate(ptr %169) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit26.i:               ; preds = %165, %162, %160
@@ -2062,7 +2062,7 @@ _ZN11OpenImageIO6v3_1_0L18computePixelStats_IfEEbRKNS0_8ImageBufERNS0_12ImageBuf
   %235 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %236 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i64 0, ptr %236, align 8
-  %237 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %237 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %238 unwind label %249
 
 238:                                              ; preds = %234
@@ -2108,7 +2108,7 @@ _ZN11OpenImageIO6v3_1_0L18computePixelStats_IfEEbRKNS0_8ImageBufERNS0_12ImageBuf
   %247 = landingpad { ptr, i32 }
           catch ptr null
   %248 = extractvalue { ptr, i32 } %247, 0
-  call void @__clang_call_terminate(ptr %248) #30
+  call void @__clang_call_terminate(ptr %248) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i77:               ; preds = %244, %242
@@ -2135,7 +2135,7 @@ _ZNSt14_Function_baseD2Ev.exit.i77:               ; preds = %244, %242
   %257 = landingpad { ptr, i32 }
           catch ptr null
   %258 = extractvalue { ptr, i32 } %257, 0
-  call void @__clang_call_terminate(ptr %258) #30
+  call void @__clang_call_terminate(ptr %258) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit22.i64:             ; preds = %254, %251, %249
@@ -2148,7 +2148,7 @@ _ZNSt14_Function_baseD2Ev.exit22.i64:             ; preds = %254, %251, %249
   %260 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %261 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 0, ptr %261, align 8
-  %262 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %262 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %263 unwind label %274
 
 263:                                              ; preds = %259
@@ -2194,7 +2194,7 @@ _ZNSt14_Function_baseD2Ev.exit22.i64:             ; preds = %254, %251, %249
   %272 = landingpad { ptr, i32 }
           catch ptr null
   %273 = extractvalue { ptr, i32 } %272, 0
-  call void @__clang_call_terminate(ptr %273) #30
+  call void @__clang_call_terminate(ptr %273) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit24.i56:             ; preds = %269, %267
@@ -2221,7 +2221,7 @@ _ZNSt14_Function_baseD2Ev.exit24.i56:             ; preds = %269, %267
   %282 = landingpad { ptr, i32 }
           catch ptr null
   %283 = extractvalue { ptr, i32 } %282, 0
-  call void @__clang_call_terminate(ptr %283) #30
+  call void @__clang_call_terminate(ptr %283) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit26.i42:             ; preds = %279, %276, %274
@@ -2373,7 +2373,7 @@ _ZN11OpenImageIO6v3_1_0L18computePixelStats_IhEEbRKNS0_8ImageBufERNS0_12ImageBuf
   %349 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %350 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i64 0, ptr %350, align 8
-  %351 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %351 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %352 unwind label %363
 
 352:                                              ; preds = %348
@@ -2419,7 +2419,7 @@ _ZN11OpenImageIO6v3_1_0L18computePixelStats_IhEEbRKNS0_8ImageBufERNS0_12ImageBuf
   %361 = landingpad { ptr, i32 }
           catch ptr null
   %362 = extractvalue { ptr, i32 } %361, 0
-  call void @__clang_call_terminate(ptr %362) #30
+  call void @__clang_call_terminate(ptr %362) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i124:              ; preds = %358, %356
@@ -2446,7 +2446,7 @@ _ZNSt14_Function_baseD2Ev.exit.i124:              ; preds = %358, %356
   %371 = landingpad { ptr, i32 }
           catch ptr null
   %372 = extractvalue { ptr, i32 } %371, 0
-  call void @__clang_call_terminate(ptr %372) #30
+  call void @__clang_call_terminate(ptr %372) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit22.i111:            ; preds = %368, %365, %363
@@ -2459,7 +2459,7 @@ _ZNSt14_Function_baseD2Ev.exit22.i111:            ; preds = %368, %365, %363
   %374 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %375 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i64 0, ptr %375, align 8
-  %376 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %376 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %377 unwind label %388
 
 377:                                              ; preds = %373
@@ -2505,7 +2505,7 @@ _ZNSt14_Function_baseD2Ev.exit22.i111:            ; preds = %368, %365, %363
   %386 = landingpad { ptr, i32 }
           catch ptr null
   %387 = extractvalue { ptr, i32 } %386, 0
-  call void @__clang_call_terminate(ptr %387) #30
+  call void @__clang_call_terminate(ptr %387) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit24.i103:            ; preds = %383, %381
@@ -2532,7 +2532,7 @@ _ZNSt14_Function_baseD2Ev.exit24.i103:            ; preds = %383, %381
   %396 = landingpad { ptr, i32 }
           catch ptr null
   %397 = extractvalue { ptr, i32 } %396, 0
-  call void @__clang_call_terminate(ptr %397) #30
+  call void @__clang_call_terminate(ptr %397) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit26.i89:             ; preds = %393, %390, %388
@@ -2684,7 +2684,7 @@ _ZN11OpenImageIO6v3_1_0L18computePixelStats_IN9Imath_3_14halfEEEbRKNS0_8ImageBuf
   %463 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %464 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 0, ptr %464, align 8
-  %465 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %465 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %466 unwind label %477
 
 466:                                              ; preds = %462
@@ -2730,7 +2730,7 @@ _ZN11OpenImageIO6v3_1_0L18computePixelStats_IN9Imath_3_14halfEEEbRKNS0_8ImageBuf
   %475 = landingpad { ptr, i32 }
           catch ptr null
   %476 = extractvalue { ptr, i32 } %475, 0
-  call void @__clang_call_terminate(ptr %476) #30
+  call void @__clang_call_terminate(ptr %476) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i171:              ; preds = %472, %470
@@ -2757,7 +2757,7 @@ _ZNSt14_Function_baseD2Ev.exit.i171:              ; preds = %472, %470
   %485 = landingpad { ptr, i32 }
           catch ptr null
   %486 = extractvalue { ptr, i32 } %485, 0
-  call void @__clang_call_terminate(ptr %486) #30
+  call void @__clang_call_terminate(ptr %486) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit22.i158:            ; preds = %482, %479, %477
@@ -2770,7 +2770,7 @@ _ZNSt14_Function_baseD2Ev.exit22.i158:            ; preds = %482, %479, %477
   %488 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %489 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i64 0, ptr %489, align 8
-  %490 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %490 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %491 unwind label %502
 
 491:                                              ; preds = %487
@@ -2816,7 +2816,7 @@ _ZNSt14_Function_baseD2Ev.exit22.i158:            ; preds = %482, %479, %477
   %500 = landingpad { ptr, i32 }
           catch ptr null
   %501 = extractvalue { ptr, i32 } %500, 0
-  call void @__clang_call_terminate(ptr %501) #30
+  call void @__clang_call_terminate(ptr %501) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit24.i150:            ; preds = %497, %495
@@ -2843,7 +2843,7 @@ _ZNSt14_Function_baseD2Ev.exit24.i150:            ; preds = %497, %495
   %510 = landingpad { ptr, i32 }
           catch ptr null
   %511 = extractvalue { ptr, i32 } %510, 0
-  call void @__clang_call_terminate(ptr %511) #30
+  call void @__clang_call_terminate(ptr %511) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit26.i136:            ; preds = %507, %504, %502
@@ -2995,7 +2995,7 @@ _ZN11OpenImageIO6v3_1_0L18computePixelStats_ItEEbRKNS0_8ImageBufERNS0_12ImageBuf
   %577 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %578 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 0, ptr %578, align 8
-  %579 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %579 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %580 unwind label %591
 
 580:                                              ; preds = %576
@@ -3041,7 +3041,7 @@ _ZN11OpenImageIO6v3_1_0L18computePixelStats_ItEEbRKNS0_8ImageBufERNS0_12ImageBuf
   %589 = landingpad { ptr, i32 }
           catch ptr null
   %590 = extractvalue { ptr, i32 } %589, 0
-  call void @__clang_call_terminate(ptr %590) #30
+  call void @__clang_call_terminate(ptr %590) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i218:              ; preds = %586, %584
@@ -3068,7 +3068,7 @@ _ZNSt14_Function_baseD2Ev.exit.i218:              ; preds = %586, %584
   %599 = landingpad { ptr, i32 }
           catch ptr null
   %600 = extractvalue { ptr, i32 } %599, 0
-  call void @__clang_call_terminate(ptr %600) #30
+  call void @__clang_call_terminate(ptr %600) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit22.i205:            ; preds = %596, %593, %591
@@ -3081,7 +3081,7 @@ _ZNSt14_Function_baseD2Ev.exit22.i205:            ; preds = %596, %593, %591
   %602 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %603 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 0, ptr %603, align 8
-  %604 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %604 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %605 unwind label %616
 
 605:                                              ; preds = %601
@@ -3127,7 +3127,7 @@ _ZNSt14_Function_baseD2Ev.exit22.i205:            ; preds = %596, %593, %591
   %614 = landingpad { ptr, i32 }
           catch ptr null
   %615 = extractvalue { ptr, i32 } %614, 0
-  call void @__clang_call_terminate(ptr %615) #30
+  call void @__clang_call_terminate(ptr %615) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit24.i197:            ; preds = %611, %609
@@ -3154,7 +3154,7 @@ _ZNSt14_Function_baseD2Ev.exit24.i197:            ; preds = %611, %609
   %624 = landingpad { ptr, i32 }
           catch ptr null
   %625 = extractvalue { ptr, i32 } %624, 0
-  call void @__clang_call_terminate(ptr %625) #30
+  call void @__clang_call_terminate(ptr %625) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit26.i183:            ; preds = %621, %618, %616
@@ -3306,7 +3306,7 @@ _ZN11OpenImageIO6v3_1_0L18computePixelStats_IcEEbRKNS0_8ImageBufERNS0_12ImageBuf
   %691 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %692 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 0, ptr %692, align 8
-  %693 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %693 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %694 unwind label %705
 
 694:                                              ; preds = %690
@@ -3352,7 +3352,7 @@ _ZN11OpenImageIO6v3_1_0L18computePixelStats_IcEEbRKNS0_8ImageBufERNS0_12ImageBuf
   %703 = landingpad { ptr, i32 }
           catch ptr null
   %704 = extractvalue { ptr, i32 } %703, 0
-  call void @__clang_call_terminate(ptr %704) #30
+  call void @__clang_call_terminate(ptr %704) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i265:              ; preds = %700, %698
@@ -3379,7 +3379,7 @@ _ZNSt14_Function_baseD2Ev.exit.i265:              ; preds = %700, %698
   %713 = landingpad { ptr, i32 }
           catch ptr null
   %714 = extractvalue { ptr, i32 } %713, 0
-  call void @__clang_call_terminate(ptr %714) #30
+  call void @__clang_call_terminate(ptr %714) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit22.i252:            ; preds = %710, %707, %705
@@ -3392,7 +3392,7 @@ _ZNSt14_Function_baseD2Ev.exit22.i252:            ; preds = %710, %707, %705
   %716 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %717 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 0, ptr %717, align 8
-  %718 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %718 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %719 unwind label %730
 
 719:                                              ; preds = %715
@@ -3438,7 +3438,7 @@ _ZNSt14_Function_baseD2Ev.exit22.i252:            ; preds = %710, %707, %705
   %728 = landingpad { ptr, i32 }
           catch ptr null
   %729 = extractvalue { ptr, i32 } %728, 0
-  call void @__clang_call_terminate(ptr %729) #30
+  call void @__clang_call_terminate(ptr %729) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit24.i244:            ; preds = %725, %723
@@ -3465,7 +3465,7 @@ _ZNSt14_Function_baseD2Ev.exit24.i244:            ; preds = %725, %723
   %738 = landingpad { ptr, i32 }
           catch ptr null
   %739 = extractvalue { ptr, i32 } %738, 0
-  call void @__clang_call_terminate(ptr %739) #30
+  call void @__clang_call_terminate(ptr %739) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit26.i230:            ; preds = %735, %732, %730
@@ -3617,7 +3617,7 @@ _ZN11OpenImageIO6v3_1_0L18computePixelStats_IsEEbRKNS0_8ImageBufERNS0_12ImageBuf
   %805 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %806 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 0, ptr %806, align 8
-  %807 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %807 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %808 unwind label %819
 
 808:                                              ; preds = %804
@@ -3663,7 +3663,7 @@ _ZN11OpenImageIO6v3_1_0L18computePixelStats_IsEEbRKNS0_8ImageBufERNS0_12ImageBuf
   %817 = landingpad { ptr, i32 }
           catch ptr null
   %818 = extractvalue { ptr, i32 } %817, 0
-  call void @__clang_call_terminate(ptr %818) #30
+  call void @__clang_call_terminate(ptr %818) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i312:              ; preds = %814, %812
@@ -3690,7 +3690,7 @@ _ZNSt14_Function_baseD2Ev.exit.i312:              ; preds = %814, %812
   %827 = landingpad { ptr, i32 }
           catch ptr null
   %828 = extractvalue { ptr, i32 } %827, 0
-  call void @__clang_call_terminate(ptr %828) #30
+  call void @__clang_call_terminate(ptr %828) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit22.i299:            ; preds = %824, %821, %819
@@ -3703,7 +3703,7 @@ _ZNSt14_Function_baseD2Ev.exit22.i299:            ; preds = %824, %821, %819
   %830 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %831 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 0, ptr %831, align 8
-  %832 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %832 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %833 unwind label %844
 
 833:                                              ; preds = %829
@@ -3749,7 +3749,7 @@ _ZNSt14_Function_baseD2Ev.exit22.i299:            ; preds = %824, %821, %819
   %842 = landingpad { ptr, i32 }
           catch ptr null
   %843 = extractvalue { ptr, i32 } %842, 0
-  call void @__clang_call_terminate(ptr %843) #30
+  call void @__clang_call_terminate(ptr %843) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit24.i291:            ; preds = %839, %837
@@ -3776,7 +3776,7 @@ _ZNSt14_Function_baseD2Ev.exit24.i291:            ; preds = %839, %837
   %852 = landingpad { ptr, i32 }
           catch ptr null
   %853 = extractvalue { ptr, i32 } %852, 0
-  call void @__clang_call_terminate(ptr %853) #30
+  call void @__clang_call_terminate(ptr %853) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit26.i277:            ; preds = %849, %846, %844
@@ -3928,7 +3928,7 @@ _ZN11OpenImageIO6v3_1_0L18computePixelStats_IjEEbRKNS0_8ImageBufERNS0_12ImageBuf
   %919 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %920 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 0, ptr %920, align 8
-  %921 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %921 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %922 unwind label %933
 
 922:                                              ; preds = %918
@@ -3974,7 +3974,7 @@ _ZN11OpenImageIO6v3_1_0L18computePixelStats_IjEEbRKNS0_8ImageBufERNS0_12ImageBuf
   %931 = landingpad { ptr, i32 }
           catch ptr null
   %932 = extractvalue { ptr, i32 } %931, 0
-  call void @__clang_call_terminate(ptr %932) #30
+  call void @__clang_call_terminate(ptr %932) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i359:              ; preds = %928, %926
@@ -4001,7 +4001,7 @@ _ZNSt14_Function_baseD2Ev.exit.i359:              ; preds = %928, %926
   %941 = landingpad { ptr, i32 }
           catch ptr null
   %942 = extractvalue { ptr, i32 } %941, 0
-  call void @__clang_call_terminate(ptr %942) #30
+  call void @__clang_call_terminate(ptr %942) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit22.i346:            ; preds = %938, %935, %933
@@ -4014,7 +4014,7 @@ _ZNSt14_Function_baseD2Ev.exit22.i346:            ; preds = %938, %935, %933
   %944 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %945 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 0, ptr %945, align 8
-  %946 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %946 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %947 unwind label %958
 
 947:                                              ; preds = %943
@@ -4060,7 +4060,7 @@ _ZNSt14_Function_baseD2Ev.exit22.i346:            ; preds = %938, %935, %933
   %956 = landingpad { ptr, i32 }
           catch ptr null
   %957 = extractvalue { ptr, i32 } %956, 0
-  call void @__clang_call_terminate(ptr %957) #30
+  call void @__clang_call_terminate(ptr %957) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit24.i338:            ; preds = %953, %951
@@ -4087,7 +4087,7 @@ _ZNSt14_Function_baseD2Ev.exit24.i338:            ; preds = %953, %951
   %966 = landingpad { ptr, i32 }
           catch ptr null
   %967 = extractvalue { ptr, i32 } %966, 0
-  call void @__clang_call_terminate(ptr %967) #30
+  call void @__clang_call_terminate(ptr %967) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit26.i324:            ; preds = %963, %960, %958
@@ -4239,7 +4239,7 @@ _ZN11OpenImageIO6v3_1_0L18computePixelStats_IiEEbRKNS0_8ImageBufERNS0_12ImageBuf
   %1033 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %1034 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %1034, align 8
-  %1035 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %1035 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %1036 unwind label %1047
 
 1036:                                             ; preds = %1032
@@ -4285,7 +4285,7 @@ _ZN11OpenImageIO6v3_1_0L18computePixelStats_IiEEbRKNS0_8ImageBufERNS0_12ImageBuf
   %1045 = landingpad { ptr, i32 }
           catch ptr null
   %1046 = extractvalue { ptr, i32 } %1045, 0
-  call void @__clang_call_terminate(ptr %1046) #30
+  call void @__clang_call_terminate(ptr %1046) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i406:              ; preds = %1042, %1040
@@ -4312,7 +4312,7 @@ _ZNSt14_Function_baseD2Ev.exit.i406:              ; preds = %1042, %1040
   %1055 = landingpad { ptr, i32 }
           catch ptr null
   %1056 = extractvalue { ptr, i32 } %1055, 0
-  call void @__clang_call_terminate(ptr %1056) #30
+  call void @__clang_call_terminate(ptr %1056) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit22.i393:            ; preds = %1052, %1049, %1047
@@ -4325,7 +4325,7 @@ _ZNSt14_Function_baseD2Ev.exit22.i393:            ; preds = %1052, %1049, %1047
   %1058 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %1059 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %1059, align 8
-  %1060 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %1060 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %1061 unwind label %1072
 
 1061:                                             ; preds = %1057
@@ -4371,7 +4371,7 @@ _ZNSt14_Function_baseD2Ev.exit22.i393:            ; preds = %1052, %1049, %1047
   %1070 = landingpad { ptr, i32 }
           catch ptr null
   %1071 = extractvalue { ptr, i32 } %1070, 0
-  call void @__clang_call_terminate(ptr %1071) #30
+  call void @__clang_call_terminate(ptr %1071) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit24.i385:            ; preds = %1067, %1065
@@ -4398,7 +4398,7 @@ _ZNSt14_Function_baseD2Ev.exit24.i385:            ; preds = %1067, %1065
   %1080 = landingpad { ptr, i32 }
           catch ptr null
   %1081 = extractvalue { ptr, i32 } %1080, 0
-  call void @__clang_call_terminate(ptr %1081) #30
+  call void @__clang_call_terminate(ptr %1081) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit26.i371:            ; preds = %1077, %1074, %1072
@@ -4535,18 +4535,18 @@ _ZN11OpenImageIO6v3_1_08finalizeERNS0_12ImageBufAlgo10PixelStatsE.exit.i392: ; p
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %1145
   %1150 = load i64, ptr %1148, align 8, !tbaa !94
   %1151 = add i64 %1150, 1
-  call void @_ZdlPvm(ptr noundef %1147, i64 noundef %1151) #28
+  call void @_ZdlPvm(ptr noundef %1147, i64 noundef %1151) #30
   br label %_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev.exit
 
 1152:                                             ; preds = %1137
   %1153 = landingpad { ptr, i32 }
           catch ptr null
   %1154 = extractvalue { ptr, i32 } %1153, 0
-  call void @__clang_call_terminate(ptr %1154) #30
+  call void @__clang_call_terminate(ptr %1154) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev.exit: ; preds = %1145, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %69) #27
+  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %69) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
   ret void
@@ -4558,8 +4558,8 @@ _ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev.exit: ; preds = %1145, %_ZNKSt7__cx
 
 1155:                                             ; preds = %.body, %86, %79
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %87, %86 ], [ %80, %79 ]
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #27
-  call void @_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %69) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #29
+  call void @_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %69) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
   resume { ptr, i32 } %.pn.pn
 }
@@ -4589,7 +4589,7 @@ _ZN11OpenImageIO6v3_1_05TimerC2Eb.exit.thread:    ; preds = %2
 
 _ZN11OpenImageIO6v3_1_05TimerC2Eb.exit:           ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %11 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #27
+  %11 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #29
   %12 = load i64, ptr %3, align 8, !tbaa !98
   %13 = mul nsw i64 %12, 1000000000
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4627,11 +4627,11 @@ _ZN11OpenImageIO6v3_1_05TimerC2Eb.exit:           ; preds = %2
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %27
   %31 = load i64, ptr %19, align 8, !tbaa !94
   %32 = add i64 %31, 1
-  call void @_ZdlPvm(ptr noundef %29, i64 noundef %32) #28
+  call void @_ZdlPvm(ptr noundef %29, i64 noundef %32) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %27, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
+  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #29
   resume { ptr, i32 } %28
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSIN11OpenImageIO6v3_1_017basic_string_viewIcS2_EEEENSt9enable_ifIXsr6__and_ISt14is_convertibleIRKT_St17basic_string_viewIcS2_EESt6__not_ISB_IPSD_PKS4_EESI_ISB_ISE_PKcEEEE5valueERS4_E4typeESE_.exit: ; preds = %_ZN11OpenImageIO6v3_1_05TimerC2Eb.exit.thread, %22, %_ZN11OpenImageIO6v3_1_05TimerC2Eb.exit
@@ -4655,7 +4655,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA32_cJRiEEE
   %5 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %7 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(32) %1) #27, !noalias !102
+  %7 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(32) %1) #29, !noalias !102
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !102
   %8 = load i32, ptr %2, align 4, !tbaa !37, !noalias !102
   %.sroa.03.0.insert.ext.i.i = zext i32 %8 to i64
@@ -4680,7 +4680,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA32_cJRiEEE
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %13
   %17 = load i64, ptr %15, align 8, !tbaa !94
   %18 = add i64 %17, 1
-  call void @_ZdlPvm(ptr noundef %14, i64 noundef %18) #28
+  call void @_ZdlPvm(ptr noundef %14, i64 noundef %18) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -4698,7 +4698,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %13, %
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4: ; preds = %19
   %24 = load i64, ptr %22, align 8, !tbaa !94
   %25 = add i64 %24, 1
-  call void @_ZdlPvm(ptr noundef %21, i64 noundef %25) #28
+  call void @_ZdlPvm(ptr noundef %21, i64 noundef %25) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4
@@ -4712,7 +4712,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA39_cJRA18_
   %6 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %8 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(39) %1) #27, !noalias !105
+  %8 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(39) %1) #29, !noalias !105
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !105
   %9 = ptrtoint ptr %2 to i64
   %10 = ptrtoint ptr %3 to i64
@@ -4741,7 +4741,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA39_cJRA18_
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %16
   %20 = load i64, ptr %18, align 8, !tbaa !94
   %21 = add i64 %20, 1
-  call void @_ZdlPvm(ptr noundef %17, i64 noundef %21) #28
+  call void @_ZdlPvm(ptr noundef %17, i64 noundef %21) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -4759,7 +4759,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %16, %
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5: ; preds = %22
   %27 = load i64, ptr %25, align 8, !tbaa !94
   %28 = add i64 %27, 1
-  call void @_ZdlPvm(ptr noundef %24, i64 noundef %28) #28
+  call void @_ZdlPvm(ptr noundef %24, i64 noundef %28) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5
@@ -4780,7 +4780,7 @@ define linkonce_odr void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #30
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %1, %4
@@ -4795,7 +4795,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %1, %4
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #30
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit2
 
 _ZNSt6vectorIdSaIdEED2Ev.exit2:                   ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %12
@@ -4810,7 +4810,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit2:                   ; preds = %_ZNSt6vectorIdSaIdE
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
   %25 = sub i64 %23, %24
-  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #30
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit2, %20
@@ -4825,7 +4825,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdE
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %27 to i64
   %33 = sub i64 %31, %32
-  tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef %33) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef %33) #30
   br label %_ZNSt6vectorImSaImEED2Ev.exit5
 
 _ZNSt6vectorImSaImEED2Ev.exit5:                   ; preds = %_ZNSt6vectorImSaImEED2Ev.exit, %28
@@ -4840,7 +4840,7 @@ _ZNSt6vectorImSaImEED2Ev.exit5:                   ; preds = %_ZNSt6vectorImSaImE
   %39 = ptrtoint ptr %38 to i64
   %40 = ptrtoint ptr %35 to i64
   %41 = sub i64 %39, %40
-  tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %41) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %41) #30
   br label %_ZNSt6vectorImSaImEED2Ev.exit7
 
 _ZNSt6vectorImSaImEED2Ev.exit7:                   ; preds = %_ZNSt6vectorImSaImEED2Ev.exit5, %36
@@ -4855,7 +4855,7 @@ _ZNSt6vectorImSaImEED2Ev.exit7:                   ; preds = %_ZNSt6vectorImSaImE
   %47 = ptrtoint ptr %46 to i64
   %48 = ptrtoint ptr %43 to i64
   %49 = sub i64 %47, %48
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %49) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %49) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImEED2Ev.exit7, %44
@@ -4870,7 +4870,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImE
   %55 = ptrtoint ptr %54 to i64
   %56 = ptrtoint ptr %51 to i64
   %57 = sub i64 %55, %56
-  tail call void @_ZdlPvm(ptr noundef nonnull %51, i64 noundef %57) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %51, i64 noundef %57) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit10
 
 _ZNSt6vectorIfSaIfEED2Ev.exit10:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %52
@@ -4885,7 +4885,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit10:                  ; preds = %_ZNSt6vectorIfSaIfE
   %63 = ptrtoint ptr %62 to i64
   %64 = ptrtoint ptr %59 to i64
   %65 = sub i64 %63, %64
-  tail call void @_ZdlPvm(ptr noundef nonnull %59, i64 noundef %65) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %59, i64 noundef %65) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit12
 
 _ZNSt6vectorIfSaIfEED2Ev.exit12:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit10, %60
@@ -4899,7 +4899,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit12:                  ; preds = %_ZNSt6vectorIfSaIfE
   %70 = ptrtoint ptr %69 to i64
   %71 = ptrtoint ptr %66 to i64
   %72 = sub i64 %70, %71
-  tail call void @_ZdlPvm(ptr noundef nonnull %66, i64 noundef %72) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %66, i64 noundef %72) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit14
 
 _ZNSt6vectorIfSaIfEED2Ev.exit14:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit12, %67
@@ -4936,18 +4936,18 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev(pt
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %12
   %17 = load i64, ptr %15, align 8, !tbaa !94
   %18 = add i64 %17, 1
-  call void @_ZdlPvm(ptr noundef %14, i64 noundef %18) #28
+  call void @_ZdlPvm(ptr noundef %14, i64 noundef %18) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
+  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #29
   ret void
 
 19:                                               ; preds = %4
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #30
+  call void @__clang_call_terminate(ptr %21) #32
   unreachable
 }
 
@@ -5160,7 +5160,7 @@ _ZN11OpenImageIO6v3_1_09roi_unionERKNS0_3ROIES3_.exit: ; preds = %30, %53
 
 84:                                               ; preds = %83
   %85 = load ptr, ptr @stderr, align 8, !tbaa !117
-  %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 369, ptr noundef nonnull @__FUNCTION__._ZN11OpenImageIO6v3_1_012ImageBufAlgo7compareERKNS0_8ImageBufES4_ffffNS0_3ROIEi, ptr noundef nonnull @.str.8) #31
+  %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 369, ptr noundef nonnull @__FUNCTION__._ZN11OpenImageIO6v3_1_012ImageBufAlgo7compareERKNS0_8ImageBufES4_ffffNS0_3ROIEi, ptr noundef nonnull @.str.8) #33
   br label %87
 
 87:                                               ; preds = %83, %84
@@ -5344,9 +5344,9 @@ _ZN11OpenImageIO6v3_1_012ImageBufAlgo20is_common_pixel_typeENS0_8TypeDescE.exit1
 
 144:                                              ; preds = %142, %140, %138, %136, %133, %131, %129, %127, %124, %122, %120, %118, %115, %113, %111, %109, %135, %126, %117, %108, %_ZN11OpenImageIO6v3_1_012ImageBufAlgo20is_common_pixel_typeENS0_8TypeDescE.exit180.thread
   %.0165.shrunk = phi i1 [ false, %_ZN11OpenImageIO6v3_1_012ImageBufAlgo20is_common_pixel_typeENS0_8TypeDescE.exit180.thread ], [ %110, %109 ], [ %112, %111 ], [ %114, %113 ], [ %116, %115 ], [ false, %108 ], [ %119, %118 ], [ %121, %120 ], [ %123, %122 ], [ %125, %124 ], [ false, %117 ], [ %128, %127 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ false, %126 ], [ %137, %136 ], [ %139, %138 ], [ %141, %140 ], [ %143, %142 ], [ false, %135 ]
-  call void @_ZN11OpenImageIO6v3_1_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  call void @_ZN11OpenImageIO6v3_1_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %145 = xor i1 %.0165.shrunk, true
   %146 = zext i1 %145 to i8
@@ -5355,13 +5355,13 @@ _ZN11OpenImageIO6v3_1_012ImageBufAlgo20is_common_pixel_typeENS0_8TypeDescE.exit1
 
 147:                                              ; preds = %105, %103
   %.pn171 = phi { ptr, i32 } [ %106, %105 ], [ %104, %103 ]
-  call void @_ZN11OpenImageIO6v3_1_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #29
   br label %148
 
 148:                                              ; preds = %147, %101
   %.pn171.pn = phi { ptr, i32 } [ %.pn171, %147 ], [ %102, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  call void @_ZN11OpenImageIO6v3_1_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #29
   br label %149
 
 149:                                              ; preds = %148, %99
@@ -5398,25 +5398,25 @@ _ZN11OpenImageIO6v3_1_012ImageBufAlgo20is_common_pixel_typeENS0_8TypeDescE.exit1
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %160
   %165 = load i64, ptr %163, align 8, !tbaa !94
   %166 = add i64 %165, 1
-  call void @_ZdlPvm(ptr noundef %162, i64 noundef %166) #28
+  call void @_ZdlPvm(ptr noundef %162, i64 noundef %166) #30
   br label %_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev.exit
 
 167:                                              ; preds = %152
   %168 = landingpad { ptr, i32 }
           catch ptr null
   %169 = extractvalue { ptr, i32 } %168, 0
-  call void @__clang_call_terminate(ptr %169) #30
+  call void @__clang_call_terminate(ptr %169) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev.exit: ; preds = %160, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %11) #27
+  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %11) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 170:                                              ; preds = %75, %77, %97, %149, %79, %59
   %.pn176 = phi { ptr, i32 } [ %80, %79 ], [ %.pn, %59 ], [ %.pn171.pn.pn, %149 ], [ %98, %97 ], [ %78, %77 ], [ %76, %75 ]
-  call void @_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %11) #27
+  call void @_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %11) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %.pn176
 }
@@ -5429,7 +5429,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA44_cJEEEvR
   %4 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(44) %1) #27, !noalias !119
+  %6 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(44) %1) #29, !noalias !119
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !119
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull align 1 dereferenceable(44) %1, i64 %6, i64 0, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !119
@@ -5451,7 +5451,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA44_cJEEEvR
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %11
   %15 = load i64, ptr %13, align 8, !tbaa !94
   %16 = add i64 %15, 1
-  call void @_ZdlPvm(ptr noundef %12, i64 noundef %16) #28
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef %16) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -5469,7 +5469,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %11, %
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3: ; preds = %17
   %22 = load i64, ptr %20, align 8, !tbaa !94
   %23 = add i64 %22, 1
-  call void @_ZdlPvm(ptr noundef %19, i64 noundef %23) #28
+  call void @_ZdlPvm(ptr noundef %19, i64 noundef %23) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5: ; preds = %17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3
@@ -6543,7 +6543,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit146: ; preds = %504, %474
   %528 = landingpad { ptr, i32 }
           catch ptr null
   %529 = extractvalue { ptr, i32 } %528, 0
-  call void @__clang_call_terminate(ptr %529) #30
+  call void @__clang_call_terminate(ptr %529) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us289, %526
@@ -6560,7 +6560,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us289
   %533 = landingpad { ptr, i32 }
           catch ptr null
   %534 = extractvalue { ptr, i32 } %533, 0
-  call void @__clang_call_terminate(ptr %534) #30
+  call void @__clang_call_terminate(ptr %534) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit, %531
@@ -6583,7 +6583,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11Open
   %541 = landingpad { ptr, i32 }
           catch ptr null
   %542 = extractvalue { ptr, i32 } %541, 0
-  call void @__clang_call_terminate(ptr %542) #30
+  call void @__clang_call_terminate(ptr %542) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %539, %536, %319
@@ -6602,7 +6602,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %539, %536
   %547 = landingpad { ptr, i32 }
           catch ptr null
   %548 = extractvalue { ptr, i32 } %547, 0
-  call void @__clang_call_terminate(ptr %548) #30
+  call void @__clang_call_terminate(ptr %548) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit153: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151, %545
@@ -7666,7 +7666,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit146: ; preds = %503, %473
   %527 = landingpad { ptr, i32 }
           catch ptr null
   %528 = extractvalue { ptr, i32 } %527, 0
-  call void @__clang_call_terminate(ptr %528) #30
+  call void @__clang_call_terminate(ptr %528) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us289, %525
@@ -7683,7 +7683,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us289
   %532 = landingpad { ptr, i32 }
           catch ptr null
   %533 = extractvalue { ptr, i32 } %532, 0
-  call void @__clang_call_terminate(ptr %533) #30
+  call void @__clang_call_terminate(ptr %533) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit, %530
@@ -7706,7 +7706,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11Open
   %540 = landingpad { ptr, i32 }
           catch ptr null
   %541 = extractvalue { ptr, i32 } %540, 0
-  call void @__clang_call_terminate(ptr %541) #30
+  call void @__clang_call_terminate(ptr %541) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %538, %535, %319
@@ -7725,7 +7725,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %538, %535
   %546 = landingpad { ptr, i32 }
           catch ptr null
   %547 = extractvalue { ptr, i32 } %546, 0
-  call void @__clang_call_terminate(ptr %547) #30
+  call void @__clang_call_terminate(ptr %547) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit153: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151, %544
@@ -8828,7 +8828,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit146: ; preds = %526, %496
   %550 = landingpad { ptr, i32 }
           catch ptr null
   %551 = extractvalue { ptr, i32 } %550, 0
-  call void @__clang_call_terminate(ptr %551) #30
+  call void @__clang_call_terminate(ptr %551) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us289, %548
@@ -8845,7 +8845,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us289
   %555 = landingpad { ptr, i32 }
           catch ptr null
   %556 = extractvalue { ptr, i32 } %555, 0
-  call void @__clang_call_terminate(ptr %556) #30
+  call void @__clang_call_terminate(ptr %556) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit, %553
@@ -8868,7 +8868,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11Open
   %563 = landingpad { ptr, i32 }
           catch ptr null
   %564 = extractvalue { ptr, i32 } %563, 0
-  call void @__clang_call_terminate(ptr %564) #30
+  call void @__clang_call_terminate(ptr %564) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %561, %558, %319
@@ -8887,7 +8887,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %561, %558
   %569 = landingpad { ptr, i32 }
           catch ptr null
   %570 = extractvalue { ptr, i32 } %569, 0
-  call void @__clang_call_terminate(ptr %570) #30
+  call void @__clang_call_terminate(ptr %570) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit153: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151, %567
@@ -9951,7 +9951,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit146: ; preds = %503, %473
   %527 = landingpad { ptr, i32 }
           catch ptr null
   %528 = extractvalue { ptr, i32 } %527, 0
-  call void @__clang_call_terminate(ptr %528) #30
+  call void @__clang_call_terminate(ptr %528) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us289, %525
@@ -9968,7 +9968,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us289
   %532 = landingpad { ptr, i32 }
           catch ptr null
   %533 = extractvalue { ptr, i32 } %532, 0
-  call void @__clang_call_terminate(ptr %533) #30
+  call void @__clang_call_terminate(ptr %533) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit, %530
@@ -9991,7 +9991,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11Open
   %540 = landingpad { ptr, i32 }
           catch ptr null
   %541 = extractvalue { ptr, i32 } %540, 0
-  call void @__clang_call_terminate(ptr %541) #30
+  call void @__clang_call_terminate(ptr %541) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %538, %535, %319
@@ -10010,7 +10010,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %538, %535
   %546 = landingpad { ptr, i32 }
           catch ptr null
   %547 = extractvalue { ptr, i32 } %546, 0
-  call void @__clang_call_terminate(ptr %547) #30
+  call void @__clang_call_terminate(ptr %547) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit153: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151, %544
@@ -11081,7 +11081,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit146: ; preds = %506, %476
   %530 = landingpad { ptr, i32 }
           catch ptr null
   %531 = extractvalue { ptr, i32 } %530, 0
-  call void @__clang_call_terminate(ptr %531) #30
+  call void @__clang_call_terminate(ptr %531) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us294, %528
@@ -11098,7 +11098,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us294
   %535 = landingpad { ptr, i32 }
           catch ptr null
   %536 = extractvalue { ptr, i32 } %535, 0
-  call void @__clang_call_terminate(ptr %536) #30
+  call void @__clang_call_terminate(ptr %536) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit, %533
@@ -11121,7 +11121,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11Open
   %543 = landingpad { ptr, i32 }
           catch ptr null
   %544 = extractvalue { ptr, i32 } %543, 0
-  call void @__clang_call_terminate(ptr %544) #30
+  call void @__clang_call_terminate(ptr %544) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %541, %538, %319
@@ -11140,7 +11140,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %541, %538
   %549 = landingpad { ptr, i32 }
           catch ptr null
   %550 = extractvalue { ptr, i32 } %549, 0
-  call void @__clang_call_terminate(ptr %550) #30
+  call void @__clang_call_terminate(ptr %550) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit153: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151, %547
@@ -12201,7 +12201,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit146: ; preds = %502, %472
   %526 = landingpad { ptr, i32 }
           catch ptr null
   %527 = extractvalue { ptr, i32 } %526, 0
-  call void @__clang_call_terminate(ptr %527) #30
+  call void @__clang_call_terminate(ptr %527) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us289, %524
@@ -12218,7 +12218,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us289
   %531 = landingpad { ptr, i32 }
           catch ptr null
   %532 = extractvalue { ptr, i32 } %531, 0
-  call void @__clang_call_terminate(ptr %532) #30
+  call void @__clang_call_terminate(ptr %532) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit, %529
@@ -12241,7 +12241,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11Open
   %539 = landingpad { ptr, i32 }
           catch ptr null
   %540 = extractvalue { ptr, i32 } %539, 0
-  call void @__clang_call_terminate(ptr %540) #30
+  call void @__clang_call_terminate(ptr %540) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %537, %534, %319
@@ -12260,7 +12260,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %537, %534
   %545 = landingpad { ptr, i32 }
           catch ptr null
   %546 = extractvalue { ptr, i32 } %545, 0
-  call void @__clang_call_terminate(ptr %546) #30
+  call void @__clang_call_terminate(ptr %546) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit153: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151, %543
@@ -13369,7 +13369,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit146: ; preds = %529, %499
   %553 = landingpad { ptr, i32 }
           catch ptr null
   %554 = extractvalue { ptr, i32 } %553, 0
-  call void @__clang_call_terminate(ptr %554) #30
+  call void @__clang_call_terminate(ptr %554) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us294, %551
@@ -13386,7 +13386,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us294
   %558 = landingpad { ptr, i32 }
           catch ptr null
   %559 = extractvalue { ptr, i32 } %558, 0
-  call void @__clang_call_terminate(ptr %559) #30
+  call void @__clang_call_terminate(ptr %559) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit, %556
@@ -13409,7 +13409,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11Open
   %566 = landingpad { ptr, i32 }
           catch ptr null
   %567 = extractvalue { ptr, i32 } %566, 0
-  call void @__clang_call_terminate(ptr %567) #30
+  call void @__clang_call_terminate(ptr %567) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %564, %561, %319
@@ -13428,7 +13428,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %564, %561
   %572 = landingpad { ptr, i32 }
           catch ptr null
   %573 = extractvalue { ptr, i32 } %572, 0
-  call void @__clang_call_terminate(ptr %573) #30
+  call void @__clang_call_terminate(ptr %573) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit153: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151, %570
@@ -14489,7 +14489,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit146: ; preds = %502, %472
   %526 = landingpad { ptr, i32 }
           catch ptr null
   %527 = extractvalue { ptr, i32 } %526, 0
-  call void @__clang_call_terminate(ptr %527) #30
+  call void @__clang_call_terminate(ptr %527) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us289, %524
@@ -14506,7 +14506,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us289
   %531 = landingpad { ptr, i32 }
           catch ptr null
   %532 = extractvalue { ptr, i32 } %531, 0
-  call void @__clang_call_terminate(ptr %532) #30
+  call void @__clang_call_terminate(ptr %532) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit, %529
@@ -14529,7 +14529,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11Open
   %539 = landingpad { ptr, i32 }
           catch ptr null
   %540 = extractvalue { ptr, i32 } %539, 0
-  call void @__clang_call_terminate(ptr %540) #30
+  call void @__clang_call_terminate(ptr %540) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %537, %534, %319
@@ -14548,7 +14548,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %537, %534
   %545 = landingpad { ptr, i32 }
           catch ptr null
   %546 = extractvalue { ptr, i32 } %545, 0
-  call void @__clang_call_terminate(ptr %546) #30
+  call void @__clang_call_terminate(ptr %546) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit153: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151, %543
@@ -15651,7 +15651,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit146: ; preds = %526, %496
   %550 = landingpad { ptr, i32 }
           catch ptr null
   %551 = extractvalue { ptr, i32 } %550, 0
-  call void @__clang_call_terminate(ptr %551) #30
+  call void @__clang_call_terminate(ptr %551) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us289, %548
@@ -15668,7 +15668,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us289
   %555 = landingpad { ptr, i32 }
           catch ptr null
   %556 = extractvalue { ptr, i32 } %555, 0
-  call void @__clang_call_terminate(ptr %556) #30
+  call void @__clang_call_terminate(ptr %556) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit, %553
@@ -15691,7 +15691,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11Open
   %563 = landingpad { ptr, i32 }
           catch ptr null
   %564 = extractvalue { ptr, i32 } %563, 0
-  call void @__clang_call_terminate(ptr %564) #30
+  call void @__clang_call_terminate(ptr %564) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %561, %558, %319
@@ -15710,7 +15710,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %561, %558
   %569 = landingpad { ptr, i32 }
           catch ptr null
   %570 = extractvalue { ptr, i32 } %569, 0
-  call void @__clang_call_terminate(ptr %570) #30
+  call void @__clang_call_terminate(ptr %570) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit153: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151, %567
@@ -16812,7 +16812,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit146: ; preds = %525, %495
   %549 = landingpad { ptr, i32 }
           catch ptr null
   %550 = extractvalue { ptr, i32 } %549, 0
-  call void @__clang_call_terminate(ptr %550) #30
+  call void @__clang_call_terminate(ptr %550) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us289, %547
@@ -16829,7 +16829,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us289
   %554 = landingpad { ptr, i32 }
           catch ptr null
   %555 = extractvalue { ptr, i32 } %554, 0
-  call void @__clang_call_terminate(ptr %555) #30
+  call void @__clang_call_terminate(ptr %555) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit, %552
@@ -16852,7 +16852,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11Open
   %562 = landingpad { ptr, i32 }
           catch ptr null
   %563 = extractvalue { ptr, i32 } %562, 0
-  call void @__clang_call_terminate(ptr %563) #30
+  call void @__clang_call_terminate(ptr %563) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %560, %557, %319
@@ -16871,7 +16871,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %560, %557
   %568 = landingpad { ptr, i32 }
           catch ptr null
   %569 = extractvalue { ptr, i32 } %568, 0
-  call void @__clang_call_terminate(ptr %569) #30
+  call void @__clang_call_terminate(ptr %569) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit153: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151, %566
@@ -18012,7 +18012,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit150: ; preds = %548, %518
   %572 = landingpad { ptr, i32 }
           catch ptr null
   %573 = extractvalue { ptr, i32 } %572, 0
-  call void @__clang_call_terminate(ptr %573) #30
+  call void @__clang_call_terminate(ptr %573) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us293, %570
@@ -18029,7 +18029,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us293
   %577 = landingpad { ptr, i32 }
           catch ptr null
   %578 = extractvalue { ptr, i32 } %577, 0
-  call void @__clang_call_terminate(ptr %578) #30
+  call void @__clang_call_terminate(ptr %578) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit153: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit, %575
@@ -18052,7 +18052,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit153: ; preds = %_ZN11Open
   %585 = landingpad { ptr, i32 }
           catch ptr null
   %586 = extractvalue { ptr, i32 } %585, 0
-  call void @__clang_call_terminate(ptr %586) #30
+  call void @__clang_call_terminate(ptr %586) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit155: ; preds = %583, %580, %319
@@ -18071,7 +18071,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit155: ; preds = %583, %580
   %591 = landingpad { ptr, i32 }
           catch ptr null
   %592 = extractvalue { ptr, i32 } %591, 0
-  call void @__clang_call_terminate(ptr %592) #30
+  call void @__clang_call_terminate(ptr %592) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit157: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit155, %589
@@ -19173,7 +19173,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit146: ; preds = %525, %495
   %549 = landingpad { ptr, i32 }
           catch ptr null
   %550 = extractvalue { ptr, i32 } %549, 0
-  call void @__clang_call_terminate(ptr %550) #30
+  call void @__clang_call_terminate(ptr %550) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us289, %547
@@ -19190,7 +19190,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us289
   %554 = landingpad { ptr, i32 }
           catch ptr null
   %555 = extractvalue { ptr, i32 } %554, 0
-  call void @__clang_call_terminate(ptr %555) #30
+  call void @__clang_call_terminate(ptr %555) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit, %552
@@ -19213,7 +19213,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11Open
   %562 = landingpad { ptr, i32 }
           catch ptr null
   %563 = extractvalue { ptr, i32 } %562, 0
-  call void @__clang_call_terminate(ptr %563) #30
+  call void @__clang_call_terminate(ptr %563) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %560, %557, %319
@@ -19232,7 +19232,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %560, %557
   %568 = landingpad { ptr, i32 }
           catch ptr null
   %569 = extractvalue { ptr, i32 } %568, 0
-  call void @__clang_call_terminate(ptr %569) #30
+  call void @__clang_call_terminate(ptr %569) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit153: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151, %566
@@ -20303,7 +20303,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit146: ; preds = %506, %476
   %530 = landingpad { ptr, i32 }
           catch ptr null
   %531 = extractvalue { ptr, i32 } %530, 0
-  call void @__clang_call_terminate(ptr %531) #30
+  call void @__clang_call_terminate(ptr %531) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us294, %528
@@ -20320,7 +20320,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us294
   %535 = landingpad { ptr, i32 }
           catch ptr null
   %536 = extractvalue { ptr, i32 } %535, 0
-  call void @__clang_call_terminate(ptr %536) #30
+  call void @__clang_call_terminate(ptr %536) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit, %533
@@ -20343,7 +20343,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11Open
   %543 = landingpad { ptr, i32 }
           catch ptr null
   %544 = extractvalue { ptr, i32 } %543, 0
-  call void @__clang_call_terminate(ptr %544) #30
+  call void @__clang_call_terminate(ptr %544) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %541, %538, %319
@@ -20362,7 +20362,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %541, %538
   %549 = landingpad { ptr, i32 }
           catch ptr null
   %550 = extractvalue { ptr, i32 } %549, 0
-  call void @__clang_call_terminate(ptr %550) #30
+  call void @__clang_call_terminate(ptr %550) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit153: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151, %547
@@ -21423,7 +21423,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit146: ; preds = %502, %472
   %526 = landingpad { ptr, i32 }
           catch ptr null
   %527 = extractvalue { ptr, i32 } %526, 0
-  call void @__clang_call_terminate(ptr %527) #30
+  call void @__clang_call_terminate(ptr %527) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us289, %524
@@ -21440,7 +21440,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us289
   %531 = landingpad { ptr, i32 }
           catch ptr null
   %532 = extractvalue { ptr, i32 } %531, 0
-  call void @__clang_call_terminate(ptr %532) #30
+  call void @__clang_call_terminate(ptr %532) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit, %529
@@ -21463,7 +21463,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11Open
   %539 = landingpad { ptr, i32 }
           catch ptr null
   %540 = extractvalue { ptr, i32 } %539, 0
-  call void @__clang_call_terminate(ptr %540) #30
+  call void @__clang_call_terminate(ptr %540) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %537, %534, %319
@@ -21482,7 +21482,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %537, %534
   %545 = landingpad { ptr, i32 }
           catch ptr null
   %546 = extractvalue { ptr, i32 } %545, 0
-  call void @__clang_call_terminate(ptr %546) #30
+  call void @__clang_call_terminate(ptr %546) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit153: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151, %543
@@ -22591,7 +22591,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit146: ; preds = %529, %499
   %553 = landingpad { ptr, i32 }
           catch ptr null
   %554 = extractvalue { ptr, i32 } %553, 0
-  call void @__clang_call_terminate(ptr %554) #30
+  call void @__clang_call_terminate(ptr %554) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us294, %551
@@ -22608,7 +22608,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us294
   %558 = landingpad { ptr, i32 }
           catch ptr null
   %559 = extractvalue { ptr, i32 } %558, 0
-  call void @__clang_call_terminate(ptr %559) #30
+  call void @__clang_call_terminate(ptr %559) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit, %556
@@ -22631,7 +22631,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11Open
   %566 = landingpad { ptr, i32 }
           catch ptr null
   %567 = extractvalue { ptr, i32 } %566, 0
-  call void @__clang_call_terminate(ptr %567) #30
+  call void @__clang_call_terminate(ptr %567) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %564, %561, %319
@@ -22650,7 +22650,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %564, %561
   %572 = landingpad { ptr, i32 }
           catch ptr null
   %573 = extractvalue { ptr, i32 } %572, 0
-  call void @__clang_call_terminate(ptr %573) #30
+  call void @__clang_call_terminate(ptr %573) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit153: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151, %570
@@ -23711,7 +23711,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit146: ; preds = %502, %472
   %526 = landingpad { ptr, i32 }
           catch ptr null
   %527 = extractvalue { ptr, i32 } %526, 0
-  call void @__clang_call_terminate(ptr %527) #30
+  call void @__clang_call_terminate(ptr %527) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us289, %524
@@ -23728,7 +23728,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us289
   %531 = landingpad { ptr, i32 }
           catch ptr null
   %532 = extractvalue { ptr, i32 } %531, 0
-  call void @__clang_call_terminate(ptr %532) #30
+  call void @__clang_call_terminate(ptr %532) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit, %529
@@ -23751,7 +23751,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit149: ; preds = %_ZN11Open
   %539 = landingpad { ptr, i32 }
           catch ptr null
   %540 = extractvalue { ptr, i32 } %539, 0
-  call void @__clang_call_terminate(ptr %540) #30
+  call void @__clang_call_terminate(ptr %540) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %537, %534, %319
@@ -23770,7 +23770,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151: ; preds = %537, %534
   %545 = landingpad { ptr, i32 }
           catch ptr null
   %546 = extractvalue { ptr, i32 } %545, 0
-  call void @__clang_call_terminate(ptr %546) #30
+  call void @__clang_call_terminate(ptr %546) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit153: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit151, %543
@@ -24007,7 +24007,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIfS
 
 .noexc65.i:                                       ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i
   %155 = shl nuw nsw i64 %153, 2
-  %156 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %155) #29
+  %156 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %155) #31
           to label %.noexc64 unwind label %124
 
 .noexc64:                                         ; preds = %.noexc65.i
@@ -24128,7 +24128,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   store i8 0, ptr %204, align 8, !tbaa !237
   %205 = getelementptr inbounds nuw i8, ptr %93, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, i8 0, i64 32, i1 false)
-  %206 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %206 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %207 unwind label %216
 
 207:                                              ; preds = %199
@@ -24157,7 +24157,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %214 = landingpad { ptr, i32 }
           catch ptr null
   %215 = extractvalue { ptr, i32 } %214, 0
-  call void @__clang_call_terminate(ptr %215) #30
+  call void @__clang_call_terminate(ptr %215) #32
   unreachable
 
 216:                                              ; preds = %199
@@ -24180,7 +24180,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %224 = landingpad { ptr, i32 }
           catch ptr null
   %225 = extractvalue { ptr, i32 } %224, 0
-  call void @__clang_call_terminate(ptr %225) #30
+  call void @__clang_call_terminate(ptr %225) #32
   unreachable
 
 226:                                              ; preds = %.critedge.thread.i
@@ -24197,7 +24197,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   store i8 0, ptr %231, align 8, !tbaa !237
   %232 = getelementptr inbounds nuw i8, ptr %95, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %95, i8 0, i64 32, i1 false)
-  %233 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
+  %233 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
           to label %234 unwind label %243
 
 234:                                              ; preds = %226
@@ -24228,7 +24228,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %241 = landingpad { ptr, i32 }
           catch ptr null
   %242 = extractvalue { ptr, i32 } %241, 0
-  call void @__clang_call_terminate(ptr %242) #30
+  call void @__clang_call_terminate(ptr %242) #32
   unreachable
 
 243:                                              ; preds = %226
@@ -24251,7 +24251,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %251 = landingpad { ptr, i32 }
           catch ptr null
   %252 = extractvalue { ptr, i32 } %251, 0
-  call void @__clang_call_terminate(ptr %252) #30
+  call void @__clang_call_terminate(ptr %252) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %238, %236, %211, %209, %.critedge.i
@@ -24336,7 +24336,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %284 = landingpad { ptr, i32 }
           catch ptr null
   %285 = extractvalue { ptr, i32 } %284, 0
-  call void @__clang_call_terminate(ptr %285) #30
+  call void @__clang_call_terminate(ptr %285) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i: ; preds = %282, %279
@@ -24346,7 +24346,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i: ; preds = %282, %279
 286:                                              ; preds = %272
   %287 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %96) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %96) #29
   br label %290
 
 288:                                              ; preds = %274
@@ -24380,7 +24380,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i: ; preds = %282, %279
   %298 = landingpad { ptr, i32 }
           catch ptr null
   %299 = extractvalue { ptr, i32 } %298, 0
-  call void @__clang_call_terminate(ptr %299) #30
+  call void @__clang_call_terminate(ptr %299) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit80.i: ; preds = %296, %.loopexit.i
@@ -24395,7 +24395,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit80.i: ; preds = %296, %.l
   %304 = ptrtoint ptr %303 to i64
   %305 = ptrtoint ptr %300 to i64
   %306 = sub i64 %304, %305
-  call void @_ZdlPvm(ptr noundef nonnull %300, i64 noundef %306) #28
+  call void @_ZdlPvm(ptr noundef nonnull %300, i64 noundef %306) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %301, %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit80.i
@@ -24404,7 +24404,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %301, %_ZN11OpenImag
 
 _ZNSt14_Function_baseD2Ev.exit70.i:               ; preds = %290, %248, %245, %243, %221, %218, %216, %188
   %.pn61.i = phi { ptr, i32 } [ %.pn58.pn.i, %290 ], [ %189, %188 ], [ %217, %216 ], [ %219, %218 ], [ %219, %221 ], [ %244, %243 ], [ %246, %245 ], [ %246, %248 ]
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %91) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %91) #29
   br label %307
 
 307:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit70.i, %173
@@ -24420,7 +24420,7 @@ _ZNSt14_Function_baseD2Ev.exit70.i:               ; preds = %290, %248, %245, %2
   %312 = ptrtoint ptr %311 to i64
   %313 = ptrtoint ptr %308 to i64
   %314 = sub i64 %312, %313
-  call void @_ZdlPvm(ptr noundef nonnull %308, i64 noundef %314) #28
+  call void @_ZdlPvm(ptr noundef nonnull %308, i64 noundef %314) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit82.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit82.i:                ; preds = %309, %307
@@ -24496,7 +24496,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIhS
   br label %351
 
 .noexc66.i:                                       ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %344 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %342) #29
+  %344 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %342) #31
           to label %.noexc102 unwind label %124
 
 .noexc102:                                        ; preds = %.noexc66.i
@@ -24616,7 +24616,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhhEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   store i8 0, ptr %394, align 8, !tbaa !237
   %395 = getelementptr inbounds nuw i8, ptr %83, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %83, i8 0, i64 32, i1 false)
-  %396 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %396 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %397 unwind label %406
 
 397:                                              ; preds = %389
@@ -24645,7 +24645,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhhEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %404 = landingpad { ptr, i32 }
           catch ptr null
   %405 = extractvalue { ptr, i32 } %404, 0
-  call void @__clang_call_terminate(ptr %405) #30
+  call void @__clang_call_terminate(ptr %405) #32
   unreachable
 
 406:                                              ; preds = %389
@@ -24668,7 +24668,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhhEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %414 = landingpad { ptr, i32 }
           catch ptr null
   %415 = extractvalue { ptr, i32 } %414, 0
-  call void @__clang_call_terminate(ptr %415) #30
+  call void @__clang_call_terminate(ptr %415) #32
   unreachable
 
 416:                                              ; preds = %.critedge.thread.i72
@@ -24685,7 +24685,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhhEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   store i8 0, ptr %421, align 8, !tbaa !237
   %422 = getelementptr inbounds nuw i8, ptr %85, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %85, i8 0, i64 32, i1 false)
-  %423 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
+  %423 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
           to label %424 unwind label %433
 
 424:                                              ; preds = %416
@@ -24716,7 +24716,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhhEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %431 = landingpad { ptr, i32 }
           catch ptr null
   %432 = extractvalue { ptr, i32 } %431, 0
-  call void @__clang_call_terminate(ptr %432) #30
+  call void @__clang_call_terminate(ptr %432) #32
   unreachable
 
 433:                                              ; preds = %416
@@ -24739,7 +24739,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhhEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %441 = landingpad { ptr, i32 }
           catch ptr null
   %442 = extractvalue { ptr, i32 } %441, 0
-  call void @__clang_call_terminate(ptr %442) #30
+  call void @__clang_call_terminate(ptr %442) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i76:               ; preds = %428, %426, %401, %399, %.critedge.i71
@@ -24826,7 +24826,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %476 = landingpad { ptr, i32 }
           catch ptr null
   %477 = extractvalue { ptr, i32 } %476, 0
-  call void @__clang_call_terminate(ptr %477) #30
+  call void @__clang_call_terminate(ptr %477) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i83: ; preds = %474, %471
@@ -24836,7 +24836,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i83: ; preds = %474, %47
 478:                                              ; preds = %464
   %479 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %86) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %86) #29
   br label %482
 
 480:                                              ; preds = %466
@@ -24870,7 +24870,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i83: ; preds = %474, %47
   %490 = landingpad { ptr, i32 }
           catch ptr null
   %491 = extractvalue { ptr, i32 } %490, 0
-  call void @__clang_call_terminate(ptr %491) #30
+  call void @__clang_call_terminate(ptr %491) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit80.i87: ; preds = %488, %.loopexit.i84
@@ -24885,7 +24885,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit80.i87: ; preds = %488, %
   %496 = ptrtoint ptr %495 to i64
   %497 = ptrtoint ptr %492 to i64
   %498 = sub i64 %496, %497
-  call void @_ZdlPvm(ptr noundef nonnull %492, i64 noundef %498) #28
+  call void @_ZdlPvm(ptr noundef nonnull %492, i64 noundef %498) #30
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit.i
 
 _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %493, %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit80.i87
@@ -24894,7 +24894,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %493, %_ZN11OpenImag
 
 _ZNSt14_Function_baseD2Ev.exit71.i:               ; preds = %482, %438, %435, %433, %411, %408, %406, %379
   %.pn62.i = phi { ptr, i32 } [ %.pn59.pn.i, %482 ], [ %380, %379 ], [ %407, %406 ], [ %409, %408 ], [ %409, %411 ], [ %434, %433 ], [ %436, %435 ], [ %436, %438 ]
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %81) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %81) #29
   br label %499
 
 499:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit71.i, %359
@@ -24910,7 +24910,7 @@ _ZNSt14_Function_baseD2Ev.exit71.i:               ; preds = %482, %438, %435, %4
   %504 = ptrtoint ptr %503 to i64
   %505 = ptrtoint ptr %500 to i64
   %506 = sub i64 %504, %505
-  call void @_ZdlPvm(ptr noundef nonnull %500, i64 noundef %506) #28
+  call void @_ZdlPvm(ptr noundef nonnull %500, i64 noundef %506) #30
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit82.i
 
 _ZNSt6vectorIhSaIhEED2Ev.exit82.i:                ; preds = %501, %499
@@ -24987,7 +24987,7 @@ _ZNSt12_Vector_baseIN9Imath_3_14halfESaIS1_EEC2EmRKS2_.exit.thread.i.i: ; preds 
 
 .noexc65.i108:                                    ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
   %536 = shl nuw nsw i64 %534, 1
-  %537 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %536) #29
+  %537 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %536) #31
           to label %.noexc145 unwind label %124
 
 .noexc145:                                        ; preds = %.noexc65.i108
@@ -25184,7 +25184,7 @@ _ZNK9Imath_3_14halfcvfEv.exit71.i:                ; preds = %609, %608, %606, %6
   store i8 0, ptr %627, align 8, !tbaa !237
   %628 = getelementptr inbounds nuw i8, ptr %73, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %73, i8 0, i64 32, i1 false)
-  %629 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %629 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %630 unwind label %639
 
 630:                                              ; preds = %622
@@ -25213,7 +25213,7 @@ _ZNK9Imath_3_14halfcvfEv.exit71.i:                ; preds = %609, %608, %606, %6
   %637 = landingpad { ptr, i32 }
           catch ptr null
   %638 = extractvalue { ptr, i32 } %637, 0
-  call void @__clang_call_terminate(ptr %638) #30
+  call void @__clang_call_terminate(ptr %638) #32
   unreachable
 
 639:                                              ; preds = %622
@@ -25236,7 +25236,7 @@ _ZNK9Imath_3_14halfcvfEv.exit71.i:                ; preds = %609, %608, %606, %6
   %647 = landingpad { ptr, i32 }
           catch ptr null
   %648 = extractvalue { ptr, i32 } %647, 0
-  call void @__clang_call_terminate(ptr %648) #30
+  call void @__clang_call_terminate(ptr %648) #32
   unreachable
 
 649:                                              ; preds = %.critedge.thread.i114
@@ -25253,7 +25253,7 @@ _ZNK9Imath_3_14halfcvfEv.exit71.i:                ; preds = %609, %608, %606, %6
   store i8 0, ptr %654, align 8, !tbaa !237
   %655 = getelementptr inbounds nuw i8, ptr %75, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, i8 0, i64 32, i1 false)
-  %656 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
+  %656 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
           to label %657 unwind label %666
 
 657:                                              ; preds = %649
@@ -25284,7 +25284,7 @@ _ZNK9Imath_3_14halfcvfEv.exit71.i:                ; preds = %609, %608, %606, %6
   %664 = landingpad { ptr, i32 }
           catch ptr null
   %665 = extractvalue { ptr, i32 } %664, 0
-  call void @__clang_call_terminate(ptr %665) #30
+  call void @__clang_call_terminate(ptr %665) #32
   unreachable
 
 666:                                              ; preds = %649
@@ -25307,7 +25307,7 @@ _ZNK9Imath_3_14halfcvfEv.exit71.i:                ; preds = %609, %608, %606, %6
   %674 = landingpad { ptr, i32 }
           catch ptr null
   %675 = extractvalue { ptr, i32 } %674, 0
-  call void @__clang_call_terminate(ptr %675) #30
+  call void @__clang_call_terminate(ptr %675) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i120:              ; preds = %661, %659, %634, %632, %.critedge.i113
@@ -25429,7 +25429,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %729 = landingpad { ptr, i32 }
           catch ptr null
   %730 = extractvalue { ptr, i32 } %729, 0
-  call void @__clang_call_terminate(ptr %730) #30
+  call void @__clang_call_terminate(ptr %730) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i126: ; preds = %727, %724
@@ -25439,7 +25439,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i126: ; preds = %727, %7
 731:                                              ; preds = %717
   %732 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %76) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %76) #29
   br label %735
 
 733:                                              ; preds = %719
@@ -25473,7 +25473,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i126: ; preds = %727, %7
   %743 = landingpad { ptr, i32 }
           catch ptr null
   %744 = extractvalue { ptr, i32 } %743, 0
-  call void @__clang_call_terminate(ptr %744) #30
+  call void @__clang_call_terminate(ptr %744) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit84.i: ; preds = %741, %.loopexit.i127
@@ -25488,7 +25488,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit84.i: ; preds = %741, %.l
   %749 = ptrtoint ptr %748 to i64
   %750 = ptrtoint ptr %745 to i64
   %751 = sub i64 %749, %750
-  call void @_ZdlPvm(ptr noundef nonnull %745, i64 noundef %751) #28
+  call void @_ZdlPvm(ptr noundef nonnull %745, i64 noundef %751) #30
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit.i: ; preds = %746, %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit84.i
@@ -25497,7 +25497,7 @@ _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit.i: ; preds = %746, %_ZN11OpenIma
 
 _ZNSt14_Function_baseD2Ev.exit75.i:               ; preds = %735, %671, %668, %666, %644, %641, %639, %568
   %.pn61.i115 = phi { ptr, i32 } [ %.pn58.pn.i122, %735 ], [ %569, %568 ], [ %640, %639 ], [ %642, %641 ], [ %642, %644 ], [ %667, %666 ], [ %669, %668 ], [ %669, %671 ]
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %71) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %71) #29
   br label %752
 
 752:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit75.i, %554
@@ -25513,7 +25513,7 @@ _ZNSt14_Function_baseD2Ev.exit75.i:               ; preds = %735, %671, %668, %6
   %757 = ptrtoint ptr %756 to i64
   %758 = ptrtoint ptr %753 to i64
   %759 = sub i64 %757, %758
-  call void @_ZdlPvm(ptr noundef nonnull %753, i64 noundef %759) #28
+  call void @_ZdlPvm(ptr noundef nonnull %753, i64 noundef %759) #30
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit86.i
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit86.i: ; preds = %754, %752
@@ -25590,7 +25590,7 @@ _ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorItS
 
 .noexc66.i151:                                    ; preds = %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i
   %789 = shl nuw nsw i64 %787, 1
-  %790 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %789) #29
+  %790 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %789) #31
           to label %.noexc203 unwind label %124
 
 .noexc203:                                        ; preds = %.noexc66.i151
@@ -25711,7 +25711,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIttEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   store i8 0, ptr %837, align 8, !tbaa !237
   %838 = getelementptr inbounds nuw i8, ptr %63, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %63, i8 0, i64 32, i1 false)
-  %839 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %839 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %840 unwind label %849
 
 840:                                              ; preds = %832
@@ -25740,7 +25740,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIttEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %847 = landingpad { ptr, i32 }
           catch ptr null
   %848 = extractvalue { ptr, i32 } %847, 0
-  call void @__clang_call_terminate(ptr %848) #30
+  call void @__clang_call_terminate(ptr %848) #32
   unreachable
 
 849:                                              ; preds = %832
@@ -25763,7 +25763,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIttEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %857 = landingpad { ptr, i32 }
           catch ptr null
   %858 = extractvalue { ptr, i32 } %857, 0
-  call void @__clang_call_terminate(ptr %858) #30
+  call void @__clang_call_terminate(ptr %858) #32
   unreachable
 
 859:                                              ; preds = %.critedge.thread.i158
@@ -25780,7 +25780,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIttEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   store i8 0, ptr %864, align 8, !tbaa !237
   %865 = getelementptr inbounds nuw i8, ptr %65, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %65, i8 0, i64 32, i1 false)
-  %866 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
+  %866 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
           to label %867 unwind label %876
 
 867:                                              ; preds = %859
@@ -25811,7 +25811,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIttEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %874 = landingpad { ptr, i32 }
           catch ptr null
   %875 = extractvalue { ptr, i32 } %874, 0
-  call void @__clang_call_terminate(ptr %875) #30
+  call void @__clang_call_terminate(ptr %875) #32
   unreachable
 
 876:                                              ; preds = %859
@@ -25834,7 +25834,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIttEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %884 = landingpad { ptr, i32 }
           catch ptr null
   %885 = extractvalue { ptr, i32 } %884, 0
-  call void @__clang_call_terminate(ptr %885) #30
+  call void @__clang_call_terminate(ptr %885) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i166:              ; preds = %871, %869, %844, %842, %.critedge.i157
@@ -25921,7 +25921,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %919 = landingpad { ptr, i32 }
           catch ptr null
   %920 = extractvalue { ptr, i32 } %919, 0
-  call void @__clang_call_terminate(ptr %920) #30
+  call void @__clang_call_terminate(ptr %920) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i176: ; preds = %917, %914
@@ -25931,7 +25931,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i176: ; preds = %917, %9
 921:                                              ; preds = %907
   %922 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %66) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %66) #29
   br label %925
 
 923:                                              ; preds = %909
@@ -25965,7 +25965,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i176: ; preds = %917, %9
   %933 = landingpad { ptr, i32 }
           catch ptr null
   %934 = extractvalue { ptr, i32 } %933, 0
-  call void @__clang_call_terminate(ptr %934) #30
+  call void @__clang_call_terminate(ptr %934) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit80.i180: ; preds = %931, %.loopexit.i177
@@ -25980,7 +25980,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit80.i180: ; preds = %931, 
   %939 = ptrtoint ptr %938 to i64
   %940 = ptrtoint ptr %935 to i64
   %941 = sub i64 %939, %940
-  call void @_ZdlPvm(ptr noundef nonnull %935, i64 noundef %941) #28
+  call void @_ZdlPvm(ptr noundef nonnull %935, i64 noundef %941) #30
   br label %_ZNSt6vectorItSaItEED2Ev.exit.i
 
 _ZNSt6vectorItSaItEED2Ev.exit.i:                  ; preds = %936, %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit80.i180
@@ -25989,7 +25989,7 @@ _ZNSt6vectorItSaItEED2Ev.exit.i:                  ; preds = %936, %_ZN11OpenImag
 
 _ZNSt14_Function_baseD2Ev.exit71.i159:            ; preds = %925, %881, %878, %876, %854, %851, %849, %822
   %.pn62.i160 = phi { ptr, i32 } [ %.pn59.pn.i168, %925 ], [ %823, %822 ], [ %850, %849 ], [ %852, %851 ], [ %852, %854 ], [ %877, %876 ], [ %879, %878 ], [ %879, %881 ]
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %61) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %61) #29
   br label %942
 
 942:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit71.i159, %807
@@ -26005,7 +26005,7 @@ _ZNSt14_Function_baseD2Ev.exit71.i159:            ; preds = %925, %881, %878, %8
   %947 = ptrtoint ptr %946 to i64
   %948 = ptrtoint ptr %943 to i64
   %949 = sub i64 %947, %948
-  call void @_ZdlPvm(ptr noundef nonnull %943, i64 noundef %949) #28
+  call void @_ZdlPvm(ptr noundef nonnull %943, i64 noundef %949) #30
   br label %_ZNSt6vectorItSaItEED2Ev.exit82.i
 
 _ZNSt6vectorItSaItEED2Ev.exit82.i:                ; preds = %944, %942
@@ -26081,7 +26081,7 @@ _ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIcS
   br label %986
 
 .noexc66.i209:                                    ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %979 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %977) #29
+  %979 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %977) #31
           to label %.noexc262 unwind label %124
 
 .noexc262:                                        ; preds = %.noexc66.i209
@@ -26201,7 +26201,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIccEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   store i8 0, ptr %1029, align 8, !tbaa !237
   %1030 = getelementptr inbounds nuw i8, ptr %53, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, i8 0, i64 32, i1 false)
-  %1031 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %1031 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %1032 unwind label %1041
 
 1032:                                             ; preds = %1024
@@ -26230,7 +26230,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIccEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1039 = landingpad { ptr, i32 }
           catch ptr null
   %1040 = extractvalue { ptr, i32 } %1039, 0
-  call void @__clang_call_terminate(ptr %1040) #30
+  call void @__clang_call_terminate(ptr %1040) #32
   unreachable
 
 1041:                                             ; preds = %1024
@@ -26253,7 +26253,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIccEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1049 = landingpad { ptr, i32 }
           catch ptr null
   %1050 = extractvalue { ptr, i32 } %1049, 0
-  call void @__clang_call_terminate(ptr %1050) #30
+  call void @__clang_call_terminate(ptr %1050) #32
   unreachable
 
 1051:                                             ; preds = %.critedge.thread.i215
@@ -26270,7 +26270,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIccEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   store i8 0, ptr %1056, align 8, !tbaa !237
   %1057 = getelementptr inbounds nuw i8, ptr %55, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %55, i8 0, i64 32, i1 false)
-  %1058 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
+  %1058 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
           to label %1059 unwind label %1068
 
 1059:                                             ; preds = %1051
@@ -26301,7 +26301,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIccEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1066 = landingpad { ptr, i32 }
           catch ptr null
   %1067 = extractvalue { ptr, i32 } %1066, 0
-  call void @__clang_call_terminate(ptr %1067) #30
+  call void @__clang_call_terminate(ptr %1067) #32
   unreachable
 
 1068:                                             ; preds = %1051
@@ -26324,7 +26324,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIccEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1076 = landingpad { ptr, i32 }
           catch ptr null
   %1077 = extractvalue { ptr, i32 } %1076, 0
-  call void @__clang_call_terminate(ptr %1077) #30
+  call void @__clang_call_terminate(ptr %1077) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i223:              ; preds = %1063, %1061, %1036, %1034, %.critedge.i214
@@ -26411,7 +26411,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1111 = landingpad { ptr, i32 }
           catch ptr null
   %1112 = extractvalue { ptr, i32 } %1111, 0
-  call void @__clang_call_terminate(ptr %1112) #30
+  call void @__clang_call_terminate(ptr %1112) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i233: ; preds = %1109, %1106
@@ -26421,7 +26421,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i233: ; preds = %1109, %
 1113:                                             ; preds = %1099
   %1114 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %56) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %56) #29
   br label %1117
 
 1115:                                             ; preds = %1101
@@ -26455,7 +26455,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i233: ; preds = %1109, %
   %1125 = landingpad { ptr, i32 }
           catch ptr null
   %1126 = extractvalue { ptr, i32 } %1125, 0
-  call void @__clang_call_terminate(ptr %1126) #30
+  call void @__clang_call_terminate(ptr %1126) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit80.i237: ; preds = %1123, %.loopexit.i234
@@ -26470,7 +26470,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit80.i237: ; preds = %1123,
   %1131 = ptrtoint ptr %1130 to i64
   %1132 = ptrtoint ptr %1127 to i64
   %1133 = sub i64 %1131, %1132
-  call void @_ZdlPvm(ptr noundef nonnull %1127, i64 noundef %1133) #28
+  call void @_ZdlPvm(ptr noundef nonnull %1127, i64 noundef %1133) #30
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit.i
 
 _ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %1128, %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit80.i237
@@ -26479,7 +26479,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %1128, %_ZN11OpenIma
 
 _ZNSt14_Function_baseD2Ev.exit71.i216:            ; preds = %1117, %1073, %1070, %1068, %1046, %1043, %1041, %1014
   %.pn62.i217 = phi { ptr, i32 } [ %.pn59.pn.i225, %1117 ], [ %1015, %1014 ], [ %1042, %1041 ], [ %1044, %1043 ], [ %1044, %1046 ], [ %1069, %1068 ], [ %1071, %1070 ], [ %1071, %1073 ]
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %51) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %51) #29
   br label %1134
 
 1134:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit71.i216, %994
@@ -26495,7 +26495,7 @@ _ZNSt14_Function_baseD2Ev.exit71.i216:            ; preds = %1117, %1073, %1070,
   %1139 = ptrtoint ptr %1138 to i64
   %1140 = ptrtoint ptr %1135 to i64
   %1141 = sub i64 %1139, %1140
-  call void @_ZdlPvm(ptr noundef nonnull %1135, i64 noundef %1141) #28
+  call void @_ZdlPvm(ptr noundef nonnull %1135, i64 noundef %1141) #30
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit82.i
 
 _ZNSt6vectorIcSaIcEED2Ev.exit82.i:                ; preds = %1136, %1134
@@ -26572,7 +26572,7 @@ _ZNSt12_Vector_baseIsSaIsEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIsS
 
 .noexc66.i268:                                    ; preds = %_ZNSt6vectorIsSaIsEE17_S_check_init_lenEmRKS0_.exit.i.i
   %1171 = shl nuw nsw i64 %1169, 1
-  %1172 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1171) #29
+  %1172 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1171) #31
           to label %.noexc324 unwind label %124
 
 .noexc324:                                        ; preds = %.noexc66.i268
@@ -26693,7 +26693,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIssEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   store i8 0, ptr %1219, align 8, !tbaa !237
   %1220 = getelementptr inbounds nuw i8, ptr %43, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, i8 0, i64 32, i1 false)
-  %1221 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %1221 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %1222 unwind label %1231
 
 1222:                                             ; preds = %1214
@@ -26722,7 +26722,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIssEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1229 = landingpad { ptr, i32 }
           catch ptr null
   %1230 = extractvalue { ptr, i32 } %1229, 0
-  call void @__clang_call_terminate(ptr %1230) #30
+  call void @__clang_call_terminate(ptr %1230) #32
   unreachable
 
 1231:                                             ; preds = %1214
@@ -26745,7 +26745,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIssEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1239 = landingpad { ptr, i32 }
           catch ptr null
   %1240 = extractvalue { ptr, i32 } %1239, 0
-  call void @__clang_call_terminate(ptr %1240) #30
+  call void @__clang_call_terminate(ptr %1240) #32
   unreachable
 
 1241:                                             ; preds = %.critedge.thread.i275
@@ -26762,7 +26762,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIssEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   store i8 0, ptr %1246, align 8, !tbaa !237
   %1247 = getelementptr inbounds nuw i8, ptr %45, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 0, i64 32, i1 false)
-  %1248 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
+  %1248 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
           to label %1249 unwind label %1258
 
 1249:                                             ; preds = %1241
@@ -26793,7 +26793,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIssEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1256 = landingpad { ptr, i32 }
           catch ptr null
   %1257 = extractvalue { ptr, i32 } %1256, 0
-  call void @__clang_call_terminate(ptr %1257) #30
+  call void @__clang_call_terminate(ptr %1257) #32
   unreachable
 
 1258:                                             ; preds = %1241
@@ -26816,7 +26816,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIssEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1266 = landingpad { ptr, i32 }
           catch ptr null
   %1267 = extractvalue { ptr, i32 } %1266, 0
-  call void @__clang_call_terminate(ptr %1267) #30
+  call void @__clang_call_terminate(ptr %1267) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i283:              ; preds = %1253, %1251, %1226, %1224, %.critedge.i274
@@ -26903,7 +26903,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1301 = landingpad { ptr, i32 }
           catch ptr null
   %1302 = extractvalue { ptr, i32 } %1301, 0
-  call void @__clang_call_terminate(ptr %1302) #30
+  call void @__clang_call_terminate(ptr %1302) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i293: ; preds = %1299, %1296
@@ -26913,7 +26913,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i293: ; preds = %1299, %
 1303:                                             ; preds = %1289
   %1304 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %46) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %46) #29
   br label %1307
 
 1305:                                             ; preds = %1291
@@ -26947,7 +26947,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i293: ; preds = %1299, %
   %1315 = landingpad { ptr, i32 }
           catch ptr null
   %1316 = extractvalue { ptr, i32 } %1315, 0
-  call void @__clang_call_terminate(ptr %1316) #30
+  call void @__clang_call_terminate(ptr %1316) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit80.i297: ; preds = %1313, %.loopexit.i294
@@ -26962,7 +26962,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit80.i297: ; preds = %1313,
   %1321 = ptrtoint ptr %1320 to i64
   %1322 = ptrtoint ptr %1317 to i64
   %1323 = sub i64 %1321, %1322
-  call void @_ZdlPvm(ptr noundef nonnull %1317, i64 noundef %1323) #28
+  call void @_ZdlPvm(ptr noundef nonnull %1317, i64 noundef %1323) #30
   br label %_ZNSt6vectorIsSaIsEED2Ev.exit.i
 
 _ZNSt6vectorIsSaIsEED2Ev.exit.i:                  ; preds = %1318, %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit80.i297
@@ -26971,7 +26971,7 @@ _ZNSt6vectorIsSaIsEED2Ev.exit.i:                  ; preds = %1318, %_ZN11OpenIma
 
 _ZNSt14_Function_baseD2Ev.exit71.i276:            ; preds = %1307, %1263, %1260, %1258, %1236, %1233, %1231, %1204
   %.pn62.i277 = phi { ptr, i32 } [ %.pn59.pn.i285, %1307 ], [ %1205, %1204 ], [ %1232, %1231 ], [ %1234, %1233 ], [ %1234, %1236 ], [ %1259, %1258 ], [ %1261, %1260 ], [ %1261, %1263 ]
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %41) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %41) #29
   br label %1324
 
 1324:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit71.i276, %1189
@@ -26987,7 +26987,7 @@ _ZNSt14_Function_baseD2Ev.exit71.i276:            ; preds = %1307, %1263, %1260,
   %1329 = ptrtoint ptr %1328 to i64
   %1330 = ptrtoint ptr %1325 to i64
   %1331 = sub i64 %1329, %1330
-  call void @_ZdlPvm(ptr noundef nonnull %1325, i64 noundef %1331) #28
+  call void @_ZdlPvm(ptr noundef nonnull %1325, i64 noundef %1331) #30
   br label %_ZNSt6vectorIsSaIsEED2Ev.exit82.i
 
 _ZNSt6vectorIsSaIsEED2Ev.exit82.i:                ; preds = %1326, %1324
@@ -27064,7 +27064,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIjS
 
 .noexc66.i330:                                    ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i.i
   %1361 = shl nuw nsw i64 %1359, 2
-  %1362 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1361) #29
+  %1362 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1361) #31
           to label %.noexc384 unwind label %124
 
 .noexc384:                                        ; preds = %.noexc66.i330
@@ -27186,7 +27186,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjjEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   store i8 0, ptr %1412, align 8, !tbaa !237
   %1413 = getelementptr inbounds nuw i8, ptr %33, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 32, i1 false)
-  %1414 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %1414 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %1415 unwind label %1424
 
 1415:                                             ; preds = %1407
@@ -27215,7 +27215,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjjEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1422 = landingpad { ptr, i32 }
           catch ptr null
   %1423 = extractvalue { ptr, i32 } %1422, 0
-  call void @__clang_call_terminate(ptr %1423) #30
+  call void @__clang_call_terminate(ptr %1423) #32
   unreachable
 
 1424:                                             ; preds = %1407
@@ -27238,7 +27238,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjjEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1432 = landingpad { ptr, i32 }
           catch ptr null
   %1433 = extractvalue { ptr, i32 } %1432, 0
-  call void @__clang_call_terminate(ptr %1433) #30
+  call void @__clang_call_terminate(ptr %1433) #32
   unreachable
 
 1434:                                             ; preds = %.critedge.thread.i337
@@ -27255,7 +27255,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjjEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   store i8 0, ptr %1439, align 8, !tbaa !237
   %1440 = getelementptr inbounds nuw i8, ptr %35, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 0, i64 32, i1 false)
-  %1441 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
+  %1441 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
           to label %1442 unwind label %1451
 
 1442:                                             ; preds = %1434
@@ -27286,7 +27286,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjjEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1449 = landingpad { ptr, i32 }
           catch ptr null
   %1450 = extractvalue { ptr, i32 } %1449, 0
-  call void @__clang_call_terminate(ptr %1450) #30
+  call void @__clang_call_terminate(ptr %1450) #32
   unreachable
 
 1451:                                             ; preds = %1434
@@ -27309,7 +27309,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjjEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1459 = landingpad { ptr, i32 }
           catch ptr null
   %1460 = extractvalue { ptr, i32 } %1459, 0
-  call void @__clang_call_terminate(ptr %1460) #30
+  call void @__clang_call_terminate(ptr %1460) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i345:              ; preds = %1446, %1444, %1419, %1417, %.critedge.i336
@@ -27396,7 +27396,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1494 = landingpad { ptr, i32 }
           catch ptr null
   %1495 = extractvalue { ptr, i32 } %1494, 0
-  call void @__clang_call_terminate(ptr %1495) #30
+  call void @__clang_call_terminate(ptr %1495) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i355: ; preds = %1492, %1489
@@ -27406,7 +27406,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i355: ; preds = %1492, %
 1496:                                             ; preds = %1482
   %1497 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %36) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %36) #29
   br label %1500
 
 1498:                                             ; preds = %1484
@@ -27440,7 +27440,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i355: ; preds = %1492, %
   %1508 = landingpad { ptr, i32 }
           catch ptr null
   %1509 = extractvalue { ptr, i32 } %1508, 0
-  call void @__clang_call_terminate(ptr %1509) #30
+  call void @__clang_call_terminate(ptr %1509) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit80.i359: ; preds = %1506, %.loopexit.i356
@@ -27455,7 +27455,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit80.i359: ; preds = %1506,
   %1514 = ptrtoint ptr %1513 to i64
   %1515 = ptrtoint ptr %1510 to i64
   %1516 = sub i64 %1514, %1515
-  call void @_ZdlPvm(ptr noundef nonnull %1510, i64 noundef %1516) #28
+  call void @_ZdlPvm(ptr noundef nonnull %1510, i64 noundef %1516) #30
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit.i
 
 _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %1511, %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit80.i359
@@ -27464,7 +27464,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %1511, %_ZN11OpenIma
 
 _ZNSt14_Function_baseD2Ev.exit71.i338:            ; preds = %1500, %1456, %1453, %1451, %1429, %1426, %1424, %1397
   %.pn62.i339 = phi { ptr, i32 } [ %.pn59.pn.i347, %1500 ], [ %1398, %1397 ], [ %1425, %1424 ], [ %1427, %1426 ], [ %1427, %1429 ], [ %1452, %1451 ], [ %1454, %1453 ], [ %1454, %1456 ]
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %31) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %31) #29
   br label %1517
 
 1517:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit71.i338, %1379
@@ -27480,7 +27480,7 @@ _ZNSt14_Function_baseD2Ev.exit71.i338:            ; preds = %1500, %1456, %1453,
   %1522 = ptrtoint ptr %1521 to i64
   %1523 = ptrtoint ptr %1518 to i64
   %1524 = sub i64 %1522, %1523
-  call void @_ZdlPvm(ptr noundef nonnull %1518, i64 noundef %1524) #28
+  call void @_ZdlPvm(ptr noundef nonnull %1518, i64 noundef %1524) #30
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit82.i
 
 _ZNSt6vectorIjSaIjEED2Ev.exit82.i:                ; preds = %1519, %1517
@@ -27557,7 +27557,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIiS
 
 .noexc66.i390:                                    ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
   %1554 = shl nuw nsw i64 %1552, 2
-  %1555 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1554) #29
+  %1555 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1554) #31
           to label %.noexc444 unwind label %124
 
 .noexc444:                                        ; preds = %.noexc66.i390
@@ -27679,7 +27679,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIiiEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   store i8 0, ptr %1605, align 8, !tbaa !237
   %1606 = getelementptr inbounds nuw i8, ptr %23, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false)
-  %1607 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %1607 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %1608 unwind label %1617
 
 1608:                                             ; preds = %1600
@@ -27708,7 +27708,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIiiEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1615 = landingpad { ptr, i32 }
           catch ptr null
   %1616 = extractvalue { ptr, i32 } %1615, 0
-  call void @__clang_call_terminate(ptr %1616) #30
+  call void @__clang_call_terminate(ptr %1616) #32
   unreachable
 
 1617:                                             ; preds = %1600
@@ -27731,7 +27731,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIiiEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1625 = landingpad { ptr, i32 }
           catch ptr null
   %1626 = extractvalue { ptr, i32 } %1625, 0
-  call void @__clang_call_terminate(ptr %1626) #30
+  call void @__clang_call_terminate(ptr %1626) #32
   unreachable
 
 1627:                                             ; preds = %.critedge.thread.i397
@@ -27748,7 +27748,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIiiEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   store i8 0, ptr %1632, align 8, !tbaa !237
   %1633 = getelementptr inbounds nuw i8, ptr %25, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 32, i1 false)
-  %1634 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
+  %1634 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
           to label %1635 unwind label %1644
 
 1635:                                             ; preds = %1627
@@ -27779,7 +27779,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIiiEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1642 = landingpad { ptr, i32 }
           catch ptr null
   %1643 = extractvalue { ptr, i32 } %1642, 0
-  call void @__clang_call_terminate(ptr %1643) #30
+  call void @__clang_call_terminate(ptr %1643) #32
   unreachable
 
 1644:                                             ; preds = %1627
@@ -27802,7 +27802,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIiiEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1652 = landingpad { ptr, i32 }
           catch ptr null
   %1653 = extractvalue { ptr, i32 } %1652, 0
-  call void @__clang_call_terminate(ptr %1653) #30
+  call void @__clang_call_terminate(ptr %1653) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i405:              ; preds = %1639, %1637, %1612, %1610, %.critedge.i396
@@ -27889,7 +27889,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1687 = landingpad { ptr, i32 }
           catch ptr null
   %1688 = extractvalue { ptr, i32 } %1687, 0
-  call void @__clang_call_terminate(ptr %1688) #30
+  call void @__clang_call_terminate(ptr %1688) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i415: ; preds = %1685, %1682
@@ -27899,7 +27899,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i415: ; preds = %1685, %
 1689:                                             ; preds = %1675
   %1690 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %26) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %26) #29
   br label %1693
 
 1691:                                             ; preds = %1677
@@ -27933,7 +27933,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i415: ; preds = %1685, %
   %1701 = landingpad { ptr, i32 }
           catch ptr null
   %1702 = extractvalue { ptr, i32 } %1701, 0
-  call void @__clang_call_terminate(ptr %1702) #30
+  call void @__clang_call_terminate(ptr %1702) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit80.i419: ; preds = %1699, %.loopexit.i416
@@ -27948,7 +27948,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit80.i419: ; preds = %1699,
   %1707 = ptrtoint ptr %1706 to i64
   %1708 = ptrtoint ptr %1703 to i64
   %1709 = sub i64 %1707, %1708
-  call void @_ZdlPvm(ptr noundef nonnull %1703, i64 noundef %1709) #28
+  call void @_ZdlPvm(ptr noundef nonnull %1703, i64 noundef %1709) #30
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %1704, %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit80.i419
@@ -27957,7 +27957,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %1704, %_ZN11OpenIma
 
 _ZNSt14_Function_baseD2Ev.exit71.i398:            ; preds = %1693, %1649, %1646, %1644, %1622, %1619, %1617, %1590
   %.pn62.i399 = phi { ptr, i32 } [ %.pn59.pn.i407, %1693 ], [ %1591, %1590 ], [ %1618, %1617 ], [ %1620, %1619 ], [ %1620, %1622 ], [ %1645, %1644 ], [ %1647, %1646 ], [ %1647, %1649 ]
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %21) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %21) #29
   br label %1710
 
 1710:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit71.i398, %1572
@@ -27973,7 +27973,7 @@ _ZNSt14_Function_baseD2Ev.exit71.i398:            ; preds = %1693, %1649, %1646,
   %1715 = ptrtoint ptr %1714 to i64
   %1716 = ptrtoint ptr %1711 to i64
   %1717 = sub i64 %1715, %1716
-  call void @_ZdlPvm(ptr noundef nonnull %1711, i64 noundef %1717) #28
+  call void @_ZdlPvm(ptr noundef nonnull %1711, i64 noundef %1717) #30
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit82.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit82.i:                ; preds = %1712, %1710
@@ -28041,7 +28041,7 @@ _ZNK11OpenImageIO6v3_1_03ROI7npixelsEv.exit.i448: ; preds = %1718
   br i1 %1746, label %.noexc.i486.invoke, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i
 
 .noexc.i486.invoke:                               ; preds = %1739, %1546, %1353, %1163, %971, %781, %528, %336, %147
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.87) #32
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.87) #34
           to label %.noexc.i486.cont unwind label %124
 
 .noexc.i486.cont:                                 ; preds = %.noexc.i486.invoke
@@ -28057,7 +28057,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIdS
 
 .noexc65.i450:                                    ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i
   %1747 = shl nuw nsw i64 %1745, 3
-  %1748 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1747) #29
+  %1748 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1747) #31
           to label %.noexc488 unwind label %124
 
 .noexc488:                                        ; preds = %.noexc65.i450
@@ -28178,7 +28178,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIddEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   store i8 0, ptr %1796, align 8, !tbaa !237
   %1797 = getelementptr inbounds nuw i8, ptr %13, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
-  %1798 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %1798 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %1799 unwind label %1808
 
 1799:                                             ; preds = %1791
@@ -28207,7 +28207,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIddEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1806 = landingpad { ptr, i32 }
           catch ptr null
   %1807 = extractvalue { ptr, i32 } %1806, 0
-  call void @__clang_call_terminate(ptr %1807) #30
+  call void @__clang_call_terminate(ptr %1807) #32
   unreachable
 
 1808:                                             ; preds = %1791
@@ -28230,7 +28230,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIddEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1816 = landingpad { ptr, i32 }
           catch ptr null
   %1817 = extractvalue { ptr, i32 } %1816, 0
-  call void @__clang_call_terminate(ptr %1817) #30
+  call void @__clang_call_terminate(ptr %1817) #32
   unreachable
 
 1818:                                             ; preds = %.critedge.thread.i456
@@ -28247,7 +28247,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIddEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   store i8 0, ptr %1823, align 8, !tbaa !237
   %1824 = getelementptr inbounds nuw i8, ptr %15, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false)
-  %1825 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
+  %1825 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
           to label %1826 unwind label %1835
 
 1826:                                             ; preds = %1818
@@ -28278,7 +28278,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIddEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1833 = landingpad { ptr, i32 }
           catch ptr null
   %1834 = extractvalue { ptr, i32 } %1833, 0
-  call void @__clang_call_terminate(ptr %1834) #30
+  call void @__clang_call_terminate(ptr %1834) #32
   unreachable
 
 1835:                                             ; preds = %1818
@@ -28301,7 +28301,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIddEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1843 = landingpad { ptr, i32 }
           catch ptr null
   %1844 = extractvalue { ptr, i32 } %1843, 0
-  call void @__clang_call_terminate(ptr %1844) #30
+  call void @__clang_call_terminate(ptr %1844) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i464:              ; preds = %1830, %1828, %1803, %1801, %.critedge.i455
@@ -28387,7 +28387,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %1877 = landingpad { ptr, i32 }
           catch ptr null
   %1878 = extractvalue { ptr, i32 } %1877, 0
-  call void @__clang_call_terminate(ptr %1878) #30
+  call void @__clang_call_terminate(ptr %1878) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i471: ; preds = %1875, %1872
@@ -28397,7 +28397,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i471: ; preds = %1875, %
 1879:                                             ; preds = %1865
   %1880 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %16) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %16) #29
   br label %1883
 
 1881:                                             ; preds = %1867
@@ -28431,7 +28431,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i471: ; preds = %1875, %
   %1891 = landingpad { ptr, i32 }
           catch ptr null
   %1892 = extractvalue { ptr, i32 } %1891, 0
-  call void @__clang_call_terminate(ptr %1892) #30
+  call void @__clang_call_terminate(ptr %1892) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit79.i: ; preds = %1889, %.loopexit.i472
@@ -28446,7 +28446,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit79.i: ; preds = %1889, %.
   %1897 = ptrtoint ptr %1896 to i64
   %1898 = ptrtoint ptr %1893 to i64
   %1899 = sub i64 %1897, %1898
-  call void @_ZdlPvm(ptr noundef nonnull %1893, i64 noundef %1899) #28
+  call void @_ZdlPvm(ptr noundef nonnull %1893, i64 noundef %1899) #30
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %1894, %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit79.i
@@ -28455,7 +28455,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %1894, %_ZN11OpenIma
 
 _ZNSt14_Function_baseD2Ev.exit70.i457:            ; preds = %1883, %1840, %1837, %1835, %1813, %1810, %1808, %1780
   %.pn61.i458 = phi { ptr, i32 } [ %.pn58.pn.i466, %1883 ], [ %1781, %1780 ], [ %1809, %1808 ], [ %1811, %1810 ], [ %1811, %1813 ], [ %1836, %1835 ], [ %1838, %1837 ], [ %1838, %1840 ]
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %11) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %11) #29
   br label %1900
 
 1900:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit70.i457, %1765
@@ -28471,7 +28471,7 @@ _ZNSt14_Function_baseD2Ev.exit70.i457:            ; preds = %1883, %1840, %1837,
   %1905 = ptrtoint ptr %1904 to i64
   %1906 = ptrtoint ptr %1901 to i64
   %1907 = sub i64 %1905, %1906
-  call void @_ZdlPvm(ptr noundef nonnull %1901, i64 noundef %1907) #28
+  call void @_ZdlPvm(ptr noundef nonnull %1901, i64 noundef %1907) #30
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit81.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit81.i:                ; preds = %1902, %1900
@@ -28529,25 +28529,25 @@ _ZN11OpenImageIO6v3_1_0L16isConstantColor_IdEEbRKNS0_8ImageBufEfNS0_4spanIfLm184
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %1922
   %1927 = load i64, ptr %1925, align 8, !tbaa !94
   %1928 = add i64 %1927, 1
-  call void @_ZdlPvm(ptr noundef %1924, i64 noundef %1928) #28
+  call void @_ZdlPvm(ptr noundef %1924, i64 noundef %1928) #30
   br label %_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev.exit
 
 1929:                                             ; preds = %1914
   %1930 = landingpad { ptr, i32 }
           catch ptr null
   %1931 = extractvalue { ptr, i32 } %1930, 0
-  call void @__clang_call_terminate(ptr %1931) #30
+  call void @__clang_call_terminate(ptr %1931) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev.exit: ; preds = %1922, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %98) #27
+  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %98) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %98)
   ret i1 %.0
 
 .body:                                            ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit82.i, %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit86.i, %_ZNSt6vectorIcSaIcEED2Ev.exit82.i, %_ZNSt6vectorIjSaIjEED2Ev.exit82.i, %124, %_ZNSt6vectorIdSaIdEED2Ev.exit81.i, %_ZNSt6vectorIiSaIiEED2Ev.exit82.i, %_ZNSt6vectorIsSaIsEED2Ev.exit82.i, %_ZNSt6vectorItSaItEED2Ev.exit82.i, %_ZNSt6vectorIhSaIhEED2Ev.exit82.i, %117, %107
   %.pn = phi { ptr, i32 } [ %118, %117 ], [ %108, %107 ], [ %.pn61.pn.i, %_ZNSt6vectorIfSaIfEED2Ev.exit82.i ], [ %.pn62.pn.i, %_ZNSt6vectorIhSaIhEED2Ev.exit82.i ], [ %.pn61.pn.i111, %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit86.i ], [ %.pn62.pn.i154, %_ZNSt6vectorItSaItEED2Ev.exit82.i ], [ %.pn62.pn.i211, %_ZNSt6vectorIcSaIcEED2Ev.exit82.i ], [ %.pn62.pn.i271, %_ZNSt6vectorIsSaIsEED2Ev.exit82.i ], [ %.pn62.pn.i333, %_ZNSt6vectorIjSaIjEED2Ev.exit82.i ], [ %.pn62.pn.i393, %_ZNSt6vectorIiSaIiEED2Ev.exit82.i ], [ %125, %124 ], [ %.pn61.pn.i453, %_ZNSt6vectorIdSaIdEED2Ev.exit81.i ]
-  call void @_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %98) #27
+  call void @_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %98) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %98)
   resume { ptr, i32 } %.pn
 }
@@ -28558,7 +28558,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA39_cJRA16_
   %6 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %8 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(39) %1) #27, !noalias !325
+  %8 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(39) %1) #29, !noalias !325
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !325
   %9 = ptrtoint ptr %2 to i64
   %10 = ptrtoint ptr %3 to i64
@@ -28587,7 +28587,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA39_cJRA16_
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %16
   %20 = load i64, ptr %18, align 8, !tbaa !94
   %21 = add i64 %20, 1
-  call void @_ZdlPvm(ptr noundef %17, i64 noundef %21) #28
+  call void @_ZdlPvm(ptr noundef %17, i64 noundef %21) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -28605,7 +28605,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %16, %
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5: ; preds = %22
   %27 = load i64, ptr %25, align 8, !tbaa !94
   %28 = add i64 %27, 1
-  call void @_ZdlPvm(ptr noundef %24, i64 noundef %28) #28
+  call void @_ZdlPvm(ptr noundef %24, i64 noundef %28) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5
@@ -28768,7 +28768,7 @@ define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012ImageBufAlgo17isConstantChan
   %93 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %94 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i64 0, ptr %94, align 8
-  %95 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %95 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %.noexc unwind label %85
 
 .noexc:                                           ; preds = %87
@@ -28801,7 +28801,7 @@ define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012ImageBufAlgo17isConstantChan
   %102 = landingpad { ptr, i32 }
           catch ptr null
   %103 = extractvalue { ptr, i32 } %102, 0
-  call void @__clang_call_terminate(ptr %103) #30
+  call void @__clang_call_terminate(ptr %103) #32
   unreachable
 
 104:                                              ; preds = %.noexc
@@ -28819,7 +28819,7 @@ define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012ImageBufAlgo17isConstantChan
   %110 = landingpad { ptr, i32 }
           catch ptr null
   %111 = extractvalue { ptr, i32 } %110, 0
-  call void @__clang_call_terminate(ptr %111) #30
+  call void @__clang_call_terminate(ptr %111) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4.i:                ; preds = %107, %104
@@ -28862,7 +28862,7 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_IfEEbRKNS0_8ImageBufEiffNS0_3ROIEi.e
   %120 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %121 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i64 0, ptr %121, align 8
-  %122 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %122 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %.noexc67 unwind label %85
 
 .noexc67:                                         ; preds = %114
@@ -28895,7 +28895,7 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_IfEEbRKNS0_8ImageBufEiffNS0_3ROIEi.e
   %129 = landingpad { ptr, i32 }
           catch ptr null
   %130 = extractvalue { ptr, i32 } %129, 0
-  call void @__clang_call_terminate(ptr %130) #30
+  call void @__clang_call_terminate(ptr %130) #32
   unreachable
 
 131:                                              ; preds = %.noexc67
@@ -28913,7 +28913,7 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_IfEEbRKNS0_8ImageBufEiffNS0_3ROIEi.e
   %137 = landingpad { ptr, i32 }
           catch ptr null
   %138 = extractvalue { ptr, i32 } %137, 0
-  call void @__clang_call_terminate(ptr %138) #30
+  call void @__clang_call_terminate(ptr %138) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4.i65:              ; preds = %134, %131
@@ -28956,7 +28956,7 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_IhEEbRKNS0_8ImageBufEiffNS0_3ROIEi.e
   %147 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %148 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i64 0, ptr %148, align 8
-  %149 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %149 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %.noexc77 unwind label %85
 
 .noexc77:                                         ; preds = %141
@@ -28989,7 +28989,7 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_IhEEbRKNS0_8ImageBufEiffNS0_3ROIEi.e
   %156 = landingpad { ptr, i32 }
           catch ptr null
   %157 = extractvalue { ptr, i32 } %156, 0
-  call void @__clang_call_terminate(ptr %157) #30
+  call void @__clang_call_terminate(ptr %157) #32
   unreachable
 
 158:                                              ; preds = %.noexc77
@@ -29007,7 +29007,7 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_IhEEbRKNS0_8ImageBufEiffNS0_3ROIEi.e
   %164 = landingpad { ptr, i32 }
           catch ptr null
   %165 = extractvalue { ptr, i32 } %164, 0
-  call void @__clang_call_terminate(ptr %165) #30
+  call void @__clang_call_terminate(ptr %165) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4.i75:              ; preds = %161, %158
@@ -29050,7 +29050,7 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_IN9Imath_3_14halfEEEbRKNS0_8ImageBuf
   %174 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %175 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 0, ptr %175, align 8
-  %176 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %176 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %.noexc87 unwind label %85
 
 .noexc87:                                         ; preds = %168
@@ -29083,7 +29083,7 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_IN9Imath_3_14halfEEEbRKNS0_8ImageBuf
   %183 = landingpad { ptr, i32 }
           catch ptr null
   %184 = extractvalue { ptr, i32 } %183, 0
-  call void @__clang_call_terminate(ptr %184) #30
+  call void @__clang_call_terminate(ptr %184) #32
   unreachable
 
 185:                                              ; preds = %.noexc87
@@ -29101,7 +29101,7 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_IN9Imath_3_14halfEEEbRKNS0_8ImageBuf
   %191 = landingpad { ptr, i32 }
           catch ptr null
   %192 = extractvalue { ptr, i32 } %191, 0
-  call void @__clang_call_terminate(ptr %192) #30
+  call void @__clang_call_terminate(ptr %192) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4.i85:              ; preds = %188, %185
@@ -29144,7 +29144,7 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_ItEEbRKNS0_8ImageBufEiffNS0_3ROIEi.e
   %201 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %202 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 0, ptr %202, align 8
-  %203 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %203 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %.noexc97 unwind label %85
 
 .noexc97:                                         ; preds = %195
@@ -29177,7 +29177,7 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_ItEEbRKNS0_8ImageBufEiffNS0_3ROIEi.e
   %210 = landingpad { ptr, i32 }
           catch ptr null
   %211 = extractvalue { ptr, i32 } %210, 0
-  call void @__clang_call_terminate(ptr %211) #30
+  call void @__clang_call_terminate(ptr %211) #32
   unreachable
 
 212:                                              ; preds = %.noexc97
@@ -29195,7 +29195,7 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_ItEEbRKNS0_8ImageBufEiffNS0_3ROIEi.e
   %218 = landingpad { ptr, i32 }
           catch ptr null
   %219 = extractvalue { ptr, i32 } %218, 0
-  call void @__clang_call_terminate(ptr %219) #30
+  call void @__clang_call_terminate(ptr %219) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4.i95:              ; preds = %215, %212
@@ -29238,7 +29238,7 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_IcEEbRKNS0_8ImageBufEiffNS0_3ROIEi.e
   %228 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %229 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 0, ptr %229, align 8
-  %230 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %230 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %.noexc107 unwind label %85
 
 .noexc107:                                        ; preds = %222
@@ -29271,7 +29271,7 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_IcEEbRKNS0_8ImageBufEiffNS0_3ROIEi.e
   %237 = landingpad { ptr, i32 }
           catch ptr null
   %238 = extractvalue { ptr, i32 } %237, 0
-  call void @__clang_call_terminate(ptr %238) #30
+  call void @__clang_call_terminate(ptr %238) #32
   unreachable
 
 239:                                              ; preds = %.noexc107
@@ -29289,7 +29289,7 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_IcEEbRKNS0_8ImageBufEiffNS0_3ROIEi.e
   %245 = landingpad { ptr, i32 }
           catch ptr null
   %246 = extractvalue { ptr, i32 } %245, 0
-  call void @__clang_call_terminate(ptr %246) #30
+  call void @__clang_call_terminate(ptr %246) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4.i105:             ; preds = %242, %239
@@ -29332,7 +29332,7 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_IsEEbRKNS0_8ImageBufEiffNS0_3ROIEi.e
   %255 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %256 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %256, align 8
-  %257 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %257 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %.noexc117 unwind label %85
 
 .noexc117:                                        ; preds = %249
@@ -29365,7 +29365,7 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_IsEEbRKNS0_8ImageBufEiffNS0_3ROIEi.e
   %264 = landingpad { ptr, i32 }
           catch ptr null
   %265 = extractvalue { ptr, i32 } %264, 0
-  call void @__clang_call_terminate(ptr %265) #30
+  call void @__clang_call_terminate(ptr %265) #32
   unreachable
 
 266:                                              ; preds = %.noexc117
@@ -29383,7 +29383,7 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_IsEEbRKNS0_8ImageBufEiffNS0_3ROIEi.e
   %272 = landingpad { ptr, i32 }
           catch ptr null
   %273 = extractvalue { ptr, i32 } %272, 0
-  call void @__clang_call_terminate(ptr %273) #30
+  call void @__clang_call_terminate(ptr %273) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4.i115:             ; preds = %269, %266
@@ -29426,7 +29426,7 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_IjEEbRKNS0_8ImageBufEiffNS0_3ROIEi.e
   %282 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %283 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 0, ptr %283, align 8
-  %284 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %284 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %.noexc127 unwind label %85
 
 .noexc127:                                        ; preds = %276
@@ -29459,7 +29459,7 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_IjEEbRKNS0_8ImageBufEiffNS0_3ROIEi.e
   %291 = landingpad { ptr, i32 }
           catch ptr null
   %292 = extractvalue { ptr, i32 } %291, 0
-  call void @__clang_call_terminate(ptr %292) #30
+  call void @__clang_call_terminate(ptr %292) #32
   unreachable
 
 293:                                              ; preds = %.noexc127
@@ -29477,7 +29477,7 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_IjEEbRKNS0_8ImageBufEiffNS0_3ROIEi.e
   %299 = landingpad { ptr, i32 }
           catch ptr null
   %300 = extractvalue { ptr, i32 } %299, 0
-  call void @__clang_call_terminate(ptr %300) #30
+  call void @__clang_call_terminate(ptr %300) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4.i125:             ; preds = %296, %293
@@ -29520,7 +29520,7 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_IiEEbRKNS0_8ImageBufEiffNS0_3ROIEi.e
   %309 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %310 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %310, align 8
-  %311 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %311 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %.noexc137 unwind label %85
 
 .noexc137:                                        ; preds = %303
@@ -29553,7 +29553,7 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_IiEEbRKNS0_8ImageBufEiffNS0_3ROIEi.e
   %318 = landingpad { ptr, i32 }
           catch ptr null
   %319 = extractvalue { ptr, i32 } %318, 0
-  call void @__clang_call_terminate(ptr %319) #30
+  call void @__clang_call_terminate(ptr %319) #32
   unreachable
 
 320:                                              ; preds = %.noexc137
@@ -29571,7 +29571,7 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_IiEEbRKNS0_8ImageBufEiffNS0_3ROIEi.e
   %326 = landingpad { ptr, i32 }
           catch ptr null
   %327 = extractvalue { ptr, i32 } %326, 0
-  call void @__clang_call_terminate(ptr %327) #30
+  call void @__clang_call_terminate(ptr %327) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4.i135:             ; preds = %323, %320
@@ -29628,25 +29628,25 @@ _ZN11OpenImageIO6v3_1_0L18isConstantChannel_IdEEbRKNS0_8ImageBufEiffNS0_3ROIEi.e
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %344
   %349 = load i64, ptr %347, align 8, !tbaa !94
   %350 = add i64 %349, 1
-  call void @_ZdlPvm(ptr noundef %346, i64 noundef %350) #28
+  call void @_ZdlPvm(ptr noundef %346, i64 noundef %350) #30
   br label %_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev.exit
 
 351:                                              ; preds = %336
   %352 = landingpad { ptr, i32 }
           catch ptr null
   %353 = extractvalue { ptr, i32 } %352, 0
-  call void @__clang_call_terminate(ptr %353) #30
+  call void @__clang_call_terminate(ptr %353) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev.exit: ; preds = %344, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %62) #27
+  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %62) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   ret i1 %.057
 
 .body:                                            ; preds = %_ZNSt14_Function_baseD2Ev.exit4.i, %_ZNSt14_Function_baseD2Ev.exit4.i75, %_ZNSt14_Function_baseD2Ev.exit4.i95, %_ZNSt14_Function_baseD2Ev.exit4.i115, %85, %_ZNSt14_Function_baseD2Ev.exit4.i135, %_ZNSt14_Function_baseD2Ev.exit4.i125, %_ZNSt14_Function_baseD2Ev.exit4.i105, %_ZNSt14_Function_baseD2Ev.exit4.i85, %_ZNSt14_Function_baseD2Ev.exit4.i65, %78, %71
   %.pn = phi { ptr, i32 } [ %79, %78 ], [ %72, %71 ], [ %105, %_ZNSt14_Function_baseD2Ev.exit4.i ], [ %132, %_ZNSt14_Function_baseD2Ev.exit4.i65 ], [ %159, %_ZNSt14_Function_baseD2Ev.exit4.i75 ], [ %186, %_ZNSt14_Function_baseD2Ev.exit4.i85 ], [ %213, %_ZNSt14_Function_baseD2Ev.exit4.i95 ], [ %240, %_ZNSt14_Function_baseD2Ev.exit4.i105 ], [ %267, %_ZNSt14_Function_baseD2Ev.exit4.i115 ], [ %294, %_ZNSt14_Function_baseD2Ev.exit4.i125 ], [ %86, %85 ], [ %321, %_ZNSt14_Function_baseD2Ev.exit4.i135 ]
-  call void @_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %62) #27
+  call void @_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %62) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   resume { ptr, i32 } %.pn
 }
@@ -29795,7 +29795,7 @@ define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012ImageBufAlgo12isMonochromeER
   %80 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i64 0, ptr %81, align 8
-  %82 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %82 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %.noexc39 unwind label %69
 
 .noexc39:                                         ; preds = %74
@@ -29824,7 +29824,7 @@ define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012ImageBufAlgo12isMonochromeER
   %89 = landingpad { ptr, i32 }
           catch ptr null
   %90 = extractvalue { ptr, i32 } %89, 0
-  call void @__clang_call_terminate(ptr %90) #30
+  call void @__clang_call_terminate(ptr %90) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %86, %84
@@ -29848,7 +29848,7 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %86, %84
   %99 = landingpad { ptr, i32 }
           catch ptr null
   %100 = extractvalue { ptr, i32 } %99, 0
-  call void @__clang_call_terminate(ptr %100) #30
+  call void @__clang_call_terminate(ptr %100) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit7.i:                ; preds = %96, %93
@@ -29891,7 +29891,7 @@ _ZN11OpenImageIO6v3_1_0L13isMonochrome_IfEEbRKNS0_8ImageBufEfNS0_3ROIEi.exit: ; 
   %110 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %111 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 0, ptr %111, align 8
-  %112 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %112 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %.noexc48 unwind label %69
 
 .noexc48:                                         ; preds = %104
@@ -29920,7 +29920,7 @@ _ZN11OpenImageIO6v3_1_0L13isMonochrome_IfEEbRKNS0_8ImageBufEfNS0_3ROIEi.exit: ; 
   %119 = landingpad { ptr, i32 }
           catch ptr null
   %120 = extractvalue { ptr, i32 } %119, 0
-  call void @__clang_call_terminate(ptr %120) #30
+  call void @__clang_call_terminate(ptr %120) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i45:               ; preds = %116, %114
@@ -29944,7 +29944,7 @@ _ZNSt14_Function_baseD2Ev.exit.i45:               ; preds = %116, %114
   %129 = landingpad { ptr, i32 }
           catch ptr null
   %130 = extractvalue { ptr, i32 } %129, 0
-  call void @__clang_call_terminate(ptr %130) #30
+  call void @__clang_call_terminate(ptr %130) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit7.i43:              ; preds = %126, %123
@@ -29987,7 +29987,7 @@ _ZN11OpenImageIO6v3_1_0L13isMonochrome_IhEEbRKNS0_8ImageBufEfNS0_3ROIEi.exit: ; 
   %140 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %141 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i64 0, ptr %141, align 8
-  %142 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %142 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %.noexc59 unwind label %69
 
 .noexc59:                                         ; preds = %134
@@ -30016,7 +30016,7 @@ _ZN11OpenImageIO6v3_1_0L13isMonochrome_IhEEbRKNS0_8ImageBufEfNS0_3ROIEi.exit: ; 
   %149 = landingpad { ptr, i32 }
           catch ptr null
   %150 = extractvalue { ptr, i32 } %149, 0
-  call void @__clang_call_terminate(ptr %150) #30
+  call void @__clang_call_terminate(ptr %150) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i56:               ; preds = %146, %144
@@ -30040,7 +30040,7 @@ _ZNSt14_Function_baseD2Ev.exit.i56:               ; preds = %146, %144
   %159 = landingpad { ptr, i32 }
           catch ptr null
   %160 = extractvalue { ptr, i32 } %159, 0
-  call void @__clang_call_terminate(ptr %160) #30
+  call void @__clang_call_terminate(ptr %160) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit7.i54:              ; preds = %156, %153
@@ -30083,7 +30083,7 @@ _ZN11OpenImageIO6v3_1_0L13isMonochrome_IN9Imath_3_14halfEEEbRKNS0_8ImageBufEfNS0
   %170 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %171 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 0, ptr %171, align 8
-  %172 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %172 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %.noexc70 unwind label %69
 
 .noexc70:                                         ; preds = %164
@@ -30112,7 +30112,7 @@ _ZN11OpenImageIO6v3_1_0L13isMonochrome_IN9Imath_3_14halfEEEbRKNS0_8ImageBufEfNS0
   %179 = landingpad { ptr, i32 }
           catch ptr null
   %180 = extractvalue { ptr, i32 } %179, 0
-  call void @__clang_call_terminate(ptr %180) #30
+  call void @__clang_call_terminate(ptr %180) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i67:               ; preds = %176, %174
@@ -30136,7 +30136,7 @@ _ZNSt14_Function_baseD2Ev.exit.i67:               ; preds = %176, %174
   %189 = landingpad { ptr, i32 }
           catch ptr null
   %190 = extractvalue { ptr, i32 } %189, 0
-  call void @__clang_call_terminate(ptr %190) #30
+  call void @__clang_call_terminate(ptr %190) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit7.i65:              ; preds = %186, %183
@@ -30179,7 +30179,7 @@ _ZN11OpenImageIO6v3_1_0L13isMonochrome_ItEEbRKNS0_8ImageBufEfNS0_3ROIEi.exit: ; 
   %200 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %201 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %201, align 8
-  %202 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %202 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %.noexc81 unwind label %69
 
 .noexc81:                                         ; preds = %194
@@ -30208,7 +30208,7 @@ _ZN11OpenImageIO6v3_1_0L13isMonochrome_ItEEbRKNS0_8ImageBufEfNS0_3ROIEi.exit: ; 
   %209 = landingpad { ptr, i32 }
           catch ptr null
   %210 = extractvalue { ptr, i32 } %209, 0
-  call void @__clang_call_terminate(ptr %210) #30
+  call void @__clang_call_terminate(ptr %210) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i78:               ; preds = %206, %204
@@ -30232,7 +30232,7 @@ _ZNSt14_Function_baseD2Ev.exit.i78:               ; preds = %206, %204
   %219 = landingpad { ptr, i32 }
           catch ptr null
   %220 = extractvalue { ptr, i32 } %219, 0
-  call void @__clang_call_terminate(ptr %220) #30
+  call void @__clang_call_terminate(ptr %220) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit7.i76:              ; preds = %216, %213
@@ -30275,7 +30275,7 @@ _ZN11OpenImageIO6v3_1_0L13isMonochrome_IcEEbRKNS0_8ImageBufEfNS0_3ROIEi.exit: ; 
   %230 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %231 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %231, align 8
-  %232 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %232 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %.noexc92 unwind label %69
 
 .noexc92:                                         ; preds = %224
@@ -30304,7 +30304,7 @@ _ZN11OpenImageIO6v3_1_0L13isMonochrome_IcEEbRKNS0_8ImageBufEfNS0_3ROIEi.exit: ; 
   %239 = landingpad { ptr, i32 }
           catch ptr null
   %240 = extractvalue { ptr, i32 } %239, 0
-  call void @__clang_call_terminate(ptr %240) #30
+  call void @__clang_call_terminate(ptr %240) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i89:               ; preds = %236, %234
@@ -30328,7 +30328,7 @@ _ZNSt14_Function_baseD2Ev.exit.i89:               ; preds = %236, %234
   %249 = landingpad { ptr, i32 }
           catch ptr null
   %250 = extractvalue { ptr, i32 } %249, 0
-  call void @__clang_call_terminate(ptr %250) #30
+  call void @__clang_call_terminate(ptr %250) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit7.i87:              ; preds = %246, %243
@@ -30371,7 +30371,7 @@ _ZN11OpenImageIO6v3_1_0L13isMonochrome_IsEEbRKNS0_8ImageBufEfNS0_3ROIEi.exit: ; 
   %260 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %261 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 0, ptr %261, align 8
-  %262 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %262 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %.noexc103 unwind label %69
 
 .noexc103:                                        ; preds = %254
@@ -30400,7 +30400,7 @@ _ZN11OpenImageIO6v3_1_0L13isMonochrome_IsEEbRKNS0_8ImageBufEfNS0_3ROIEi.exit: ; 
   %269 = landingpad { ptr, i32 }
           catch ptr null
   %270 = extractvalue { ptr, i32 } %269, 0
-  call void @__clang_call_terminate(ptr %270) #30
+  call void @__clang_call_terminate(ptr %270) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i100:              ; preds = %266, %264
@@ -30424,7 +30424,7 @@ _ZNSt14_Function_baseD2Ev.exit.i100:              ; preds = %266, %264
   %279 = landingpad { ptr, i32 }
           catch ptr null
   %280 = extractvalue { ptr, i32 } %279, 0
-  call void @__clang_call_terminate(ptr %280) #30
+  call void @__clang_call_terminate(ptr %280) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit7.i98:              ; preds = %276, %273
@@ -30467,7 +30467,7 @@ _ZN11OpenImageIO6v3_1_0L13isMonochrome_IjEEbRKNS0_8ImageBufEfNS0_3ROIEi.exit: ; 
   %290 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %291 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %291, align 8
-  %292 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %292 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %.noexc114 unwind label %69
 
 .noexc114:                                        ; preds = %284
@@ -30496,7 +30496,7 @@ _ZN11OpenImageIO6v3_1_0L13isMonochrome_IjEEbRKNS0_8ImageBufEfNS0_3ROIEi.exit: ; 
   %299 = landingpad { ptr, i32 }
           catch ptr null
   %300 = extractvalue { ptr, i32 } %299, 0
-  call void @__clang_call_terminate(ptr %300) #30
+  call void @__clang_call_terminate(ptr %300) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i111:              ; preds = %296, %294
@@ -30520,7 +30520,7 @@ _ZNSt14_Function_baseD2Ev.exit.i111:              ; preds = %296, %294
   %309 = landingpad { ptr, i32 }
           catch ptr null
   %310 = extractvalue { ptr, i32 } %309, 0
-  call void @__clang_call_terminate(ptr %310) #30
+  call void @__clang_call_terminate(ptr %310) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit7.i109:             ; preds = %306, %303
@@ -30563,7 +30563,7 @@ _ZN11OpenImageIO6v3_1_0L13isMonochrome_IiEEbRKNS0_8ImageBufEfNS0_3ROIEi.exit: ; 
   %320 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %321 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %321, align 8
-  %322 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %322 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %.noexc125 unwind label %69
 
 .noexc125:                                        ; preds = %314
@@ -30592,7 +30592,7 @@ _ZN11OpenImageIO6v3_1_0L13isMonochrome_IiEEbRKNS0_8ImageBufEfNS0_3ROIEi.exit: ; 
   %329 = landingpad { ptr, i32 }
           catch ptr null
   %330 = extractvalue { ptr, i32 } %329, 0
-  call void @__clang_call_terminate(ptr %330) #30
+  call void @__clang_call_terminate(ptr %330) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i122:              ; preds = %326, %324
@@ -30616,7 +30616,7 @@ _ZNSt14_Function_baseD2Ev.exit.i122:              ; preds = %326, %324
   %339 = landingpad { ptr, i32 }
           catch ptr null
   %340 = extractvalue { ptr, i32 } %339, 0
-  call void @__clang_call_terminate(ptr %340) #30
+  call void @__clang_call_terminate(ptr %340) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit7.i120:             ; preds = %336, %333
@@ -30669,25 +30669,25 @@ _ZN11OpenImageIO6v3_1_0L13isMonochrome_IdEEbRKNS0_8ImageBufEfNS0_3ROIEi.exit: ; 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %355
   %360 = load i64, ptr %358, align 8, !tbaa !94
   %361 = add i64 %360, 1
-  call void @_ZdlPvm(ptr noundef %357, i64 noundef %361) #28
+  call void @_ZdlPvm(ptr noundef %357, i64 noundef %361) #30
   br label %_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev.exit
 
 362:                                              ; preds = %347
   %363 = landingpad { ptr, i32 }
           catch ptr null
   %364 = extractvalue { ptr, i32 } %363, 0
-  call void @__clang_call_terminate(ptr %364) #30
+  call void @__clang_call_terminate(ptr %364) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev.exit: ; preds = %355, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %42) #27
+  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %42) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   ret i1 %.037
 
 .body:                                            ; preds = %_ZNSt14_Function_baseD2Ev.exit7.i, %_ZNSt14_Function_baseD2Ev.exit7.i54, %_ZNSt14_Function_baseD2Ev.exit7.i76, %_ZNSt14_Function_baseD2Ev.exit7.i98, %69, %_ZNSt14_Function_baseD2Ev.exit7.i120, %_ZNSt14_Function_baseD2Ev.exit7.i109, %_ZNSt14_Function_baseD2Ev.exit7.i87, %_ZNSt14_Function_baseD2Ev.exit7.i65, %_ZNSt14_Function_baseD2Ev.exit7.i43, %62, %51
   %.pn = phi { ptr, i32 } [ %63, %62 ], [ %52, %51 ], [ %94, %_ZNSt14_Function_baseD2Ev.exit7.i ], [ %124, %_ZNSt14_Function_baseD2Ev.exit7.i43 ], [ %154, %_ZNSt14_Function_baseD2Ev.exit7.i54 ], [ %184, %_ZNSt14_Function_baseD2Ev.exit7.i65 ], [ %214, %_ZNSt14_Function_baseD2Ev.exit7.i76 ], [ %244, %_ZNSt14_Function_baseD2Ev.exit7.i87 ], [ %274, %_ZNSt14_Function_baseD2Ev.exit7.i98 ], [ %304, %_ZNSt14_Function_baseD2Ev.exit7.i109 ], [ %70, %69 ], [ %334, %_ZNSt14_Function_baseD2Ev.exit7.i120 ]
-  call void @_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %42) #27
+  call void @_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %42) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   resume { ptr, i32 } %.pn
 }
@@ -30698,7 +30698,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA39_cJRA13_
   %6 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %8 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(39) %1) #27, !noalias !333
+  %8 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(39) %1) #29, !noalias !333
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !333
   %9 = ptrtoint ptr %2 to i64
   %10 = ptrtoint ptr %3 to i64
@@ -30727,7 +30727,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA39_cJRA13_
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %16
   %20 = load i64, ptr %18, align 8, !tbaa !94
   %21 = add i64 %20, 1
-  call void @_ZdlPvm(ptr noundef %17, i64 noundef %21) #28
+  call void @_ZdlPvm(ptr noundef %17, i64 noundef %21) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -30745,7 +30745,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %16, %
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5: ; preds = %22
   %27 = load i64, ptr %25, align 8, !tbaa !94
   %28 = add i64 %27, 1
-  call void @_ZdlPvm(ptr noundef %24, i64 noundef %28) #28
+  call void @_ZdlPvm(ptr noundef %24, i64 noundef %28) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5
@@ -31005,7 +31005,7 @@ define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012ImageBufAlgo11color_countERK
   %140 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %141 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i64 0, ptr %141, align 8
-  %142 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %142 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %.noexc unwind label %131
 
 .noexc:                                           ; preds = %133
@@ -31038,7 +31038,7 @@ define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012ImageBufAlgo11color_countERK
   %149 = landingpad { ptr, i32 }
           catch ptr null
   %150 = extractvalue { ptr, i32 } %149, 0
-  call void @__clang_call_terminate(ptr %150) #30
+  call void @__clang_call_terminate(ptr %150) #32
   unreachable
 
 151:                                              ; preds = %.noexc
@@ -31056,7 +31056,7 @@ define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012ImageBufAlgo11color_countERK
   %157 = landingpad { ptr, i32 }
           catch ptr null
   %158 = extractvalue { ptr, i32 } %157, 0
-  call void @__clang_call_terminate(ptr %158) #30
+  call void @__clang_call_terminate(ptr %158) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_0L12color_count_IfEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_NS0_3ROIEi.exit: ; preds = %144, %146
@@ -31094,7 +31094,7 @@ _ZN11OpenImageIO6v3_1_0L12color_count_IfEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_N
   %166 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %167 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i64 0, ptr %167, align 8
-  %168 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %168 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %.noexc85 unwind label %131
 
 .noexc85:                                         ; preds = %159
@@ -31127,7 +31127,7 @@ _ZN11OpenImageIO6v3_1_0L12color_count_IfEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_N
   %175 = landingpad { ptr, i32 }
           catch ptr null
   %176 = extractvalue { ptr, i32 } %175, 0
-  call void @__clang_call_terminate(ptr %176) #30
+  call void @__clang_call_terminate(ptr %176) #32
   unreachable
 
 177:                                              ; preds = %.noexc85
@@ -31145,7 +31145,7 @@ _ZN11OpenImageIO6v3_1_0L12color_count_IfEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_N
   %183 = landingpad { ptr, i32 }
           catch ptr null
   %184 = extractvalue { ptr, i32 } %183, 0
-  call void @__clang_call_terminate(ptr %184) #30
+  call void @__clang_call_terminate(ptr %184) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_0L12color_count_IhEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_NS0_3ROIEi.exit: ; preds = %170, %172
@@ -31183,7 +31183,7 @@ _ZN11OpenImageIO6v3_1_0L12color_count_IhEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_N
   %192 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %193 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 0, ptr %193, align 8
-  %194 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %194 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %.noexc95 unwind label %131
 
 .noexc95:                                         ; preds = %185
@@ -31216,7 +31216,7 @@ _ZN11OpenImageIO6v3_1_0L12color_count_IhEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_N
   %201 = landingpad { ptr, i32 }
           catch ptr null
   %202 = extractvalue { ptr, i32 } %201, 0
-  call void @__clang_call_terminate(ptr %202) #30
+  call void @__clang_call_terminate(ptr %202) #32
   unreachable
 
 203:                                              ; preds = %.noexc95
@@ -31234,7 +31234,7 @@ _ZN11OpenImageIO6v3_1_0L12color_count_IhEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_N
   %209 = landingpad { ptr, i32 }
           catch ptr null
   %210 = extractvalue { ptr, i32 } %209, 0
-  call void @__clang_call_terminate(ptr %210) #30
+  call void @__clang_call_terminate(ptr %210) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_0L12color_count_IN9Imath_3_14halfEEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_NS0_3ROIEi.exit: ; preds = %196, %198
@@ -31272,7 +31272,7 @@ _ZN11OpenImageIO6v3_1_0L12color_count_IN9Imath_3_14halfEEEbRKNS0_8ImageBufEPSt6a
   %218 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %219 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i64 0, ptr %219, align 8
-  %220 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %220 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %.noexc105 unwind label %131
 
 .noexc105:                                        ; preds = %211
@@ -31305,7 +31305,7 @@ _ZN11OpenImageIO6v3_1_0L12color_count_IN9Imath_3_14halfEEEbRKNS0_8ImageBufEPSt6a
   %227 = landingpad { ptr, i32 }
           catch ptr null
   %228 = extractvalue { ptr, i32 } %227, 0
-  call void @__clang_call_terminate(ptr %228) #30
+  call void @__clang_call_terminate(ptr %228) #32
   unreachable
 
 229:                                              ; preds = %.noexc105
@@ -31323,7 +31323,7 @@ _ZN11OpenImageIO6v3_1_0L12color_count_IN9Imath_3_14halfEEEbRKNS0_8ImageBufEPSt6a
   %235 = landingpad { ptr, i32 }
           catch ptr null
   %236 = extractvalue { ptr, i32 } %235, 0
-  call void @__clang_call_terminate(ptr %236) #30
+  call void @__clang_call_terminate(ptr %236) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_0L12color_count_ItEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_NS0_3ROIEi.exit: ; preds = %222, %224
@@ -31361,7 +31361,7 @@ _ZN11OpenImageIO6v3_1_0L12color_count_ItEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_N
   %244 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %245 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 0, ptr %245, align 8
-  %246 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %246 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %.noexc115 unwind label %131
 
 .noexc115:                                        ; preds = %237
@@ -31394,7 +31394,7 @@ _ZN11OpenImageIO6v3_1_0L12color_count_ItEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_N
   %253 = landingpad { ptr, i32 }
           catch ptr null
   %254 = extractvalue { ptr, i32 } %253, 0
-  call void @__clang_call_terminate(ptr %254) #30
+  call void @__clang_call_terminate(ptr %254) #32
   unreachable
 
 255:                                              ; preds = %.noexc115
@@ -31412,7 +31412,7 @@ _ZN11OpenImageIO6v3_1_0L12color_count_ItEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_N
   %261 = landingpad { ptr, i32 }
           catch ptr null
   %262 = extractvalue { ptr, i32 } %261, 0
-  call void @__clang_call_terminate(ptr %262) #30
+  call void @__clang_call_terminate(ptr %262) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_0L12color_count_IcEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_NS0_3ROIEi.exit: ; preds = %248, %250
@@ -31450,7 +31450,7 @@ _ZN11OpenImageIO6v3_1_0L12color_count_IcEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_N
   %270 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %271 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i64 0, ptr %271, align 8
-  %272 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %272 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %.noexc125 unwind label %131
 
 .noexc125:                                        ; preds = %263
@@ -31483,7 +31483,7 @@ _ZN11OpenImageIO6v3_1_0L12color_count_IcEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_N
   %279 = landingpad { ptr, i32 }
           catch ptr null
   %280 = extractvalue { ptr, i32 } %279, 0
-  call void @__clang_call_terminate(ptr %280) #30
+  call void @__clang_call_terminate(ptr %280) #32
   unreachable
 
 281:                                              ; preds = %.noexc125
@@ -31501,7 +31501,7 @@ _ZN11OpenImageIO6v3_1_0L12color_count_IcEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_N
   %287 = landingpad { ptr, i32 }
           catch ptr null
   %288 = extractvalue { ptr, i32 } %287, 0
-  call void @__clang_call_terminate(ptr %288) #30
+  call void @__clang_call_terminate(ptr %288) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_0L12color_count_IsEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_NS0_3ROIEi.exit: ; preds = %274, %276
@@ -31539,7 +31539,7 @@ _ZN11OpenImageIO6v3_1_0L12color_count_IsEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_N
   %296 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %297 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 0, ptr %297, align 8
-  %298 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %298 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %.noexc135 unwind label %131
 
 .noexc135:                                        ; preds = %289
@@ -31572,7 +31572,7 @@ _ZN11OpenImageIO6v3_1_0L12color_count_IsEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_N
   %305 = landingpad { ptr, i32 }
           catch ptr null
   %306 = extractvalue { ptr, i32 } %305, 0
-  call void @__clang_call_terminate(ptr %306) #30
+  call void @__clang_call_terminate(ptr %306) #32
   unreachable
 
 307:                                              ; preds = %.noexc135
@@ -31590,7 +31590,7 @@ _ZN11OpenImageIO6v3_1_0L12color_count_IsEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_N
   %313 = landingpad { ptr, i32 }
           catch ptr null
   %314 = extractvalue { ptr, i32 } %313, 0
-  call void @__clang_call_terminate(ptr %314) #30
+  call void @__clang_call_terminate(ptr %314) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_0L12color_count_IjEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_NS0_3ROIEi.exit: ; preds = %300, %302
@@ -31628,7 +31628,7 @@ _ZN11OpenImageIO6v3_1_0L12color_count_IjEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_N
   %322 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %323 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %323, align 8
-  %324 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %324 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %.noexc145 unwind label %131
 
 .noexc145:                                        ; preds = %315
@@ -31661,7 +31661,7 @@ _ZN11OpenImageIO6v3_1_0L12color_count_IjEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_N
   %331 = landingpad { ptr, i32 }
           catch ptr null
   %332 = extractvalue { ptr, i32 } %331, 0
-  call void @__clang_call_terminate(ptr %332) #30
+  call void @__clang_call_terminate(ptr %332) #32
   unreachable
 
 333:                                              ; preds = %.noexc145
@@ -31679,7 +31679,7 @@ _ZN11OpenImageIO6v3_1_0L12color_count_IjEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_N
   %339 = landingpad { ptr, i32 }
           catch ptr null
   %340 = extractvalue { ptr, i32 } %339, 0
-  call void @__clang_call_terminate(ptr %340) #30
+  call void @__clang_call_terminate(ptr %340) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_0L12color_count_IiEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_NS0_3ROIEi.exit: ; preds = %326, %328
@@ -31717,7 +31717,7 @@ _ZN11OpenImageIO6v3_1_0L12color_count_IiEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_N
   %348 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %349 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 0, ptr %349, align 8
-  %350 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %350 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %.noexc155 unwind label %131
 
 .noexc155:                                        ; preds = %341
@@ -31750,7 +31750,7 @@ _ZN11OpenImageIO6v3_1_0L12color_count_IiEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_N
   %357 = landingpad { ptr, i32 }
           catch ptr null
   %358 = extractvalue { ptr, i32 } %357, 0
-  call void @__clang_call_terminate(ptr %358) #30
+  call void @__clang_call_terminate(ptr %358) #32
   unreachable
 
 359:                                              ; preds = %.noexc155
@@ -31768,7 +31768,7 @@ _ZN11OpenImageIO6v3_1_0L12color_count_IiEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_N
   %365 = landingpad { ptr, i32 }
           catch ptr null
   %366 = extractvalue { ptr, i32 } %365, 0
-  call void @__clang_call_terminate(ptr %366) #30
+  call void @__clang_call_terminate(ptr %366) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_0L12color_count_IdEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_NS0_3ROIEi.exit: ; preds = %352, %354
@@ -31819,25 +31819,25 @@ _ZN11OpenImageIO6v3_1_0L12color_count_IdEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfS9_N
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %381
   %386 = load i64, ptr %384, align 8, !tbaa !94
   %387 = add i64 %386, 1
-  call void @_ZdlPvm(ptr noundef %383, i64 noundef %387) #28
+  call void @_ZdlPvm(ptr noundef %383, i64 noundef %387) #30
   br label %_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev.exit
 
 388:                                              ; preds = %373
   %389 = landingpad { ptr, i32 }
           catch ptr null
   %390 = extractvalue { ptr, i32 } %389, 0
-  call void @__clang_call_terminate(ptr %390) #30
+  call void @__clang_call_terminate(ptr %390) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev.exit: ; preds = %381, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %64) #27
+  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %64) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
   ret i1 %.070
 
 .body:                                            ; preds = %359, %362, %333, %336, %307, %310, %281, %284, %255, %258, %229, %232, %203, %206, %177, %180, %151, %154, %131, %108, %88, %86, %73
   %.pn = phi { ptr, i32 } [ %89, %88 ], [ %109, %108 ], [ %87, %86 ], [ %74, %73 ], [ %132, %131 ], [ %152, %154 ], [ %152, %151 ], [ %178, %180 ], [ %178, %177 ], [ %204, %206 ], [ %204, %203 ], [ %230, %232 ], [ %230, %229 ], [ %256, %258 ], [ %256, %255 ], [ %282, %284 ], [ %282, %281 ], [ %308, %310 ], [ %308, %307 ], [ %334, %336 ], [ %334, %333 ], [ %360, %362 ], [ %360, %359 ]
-  call void @_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %64) #27
+  call void @_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %64) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
   resume { ptr, i32 } %.pn
 }
@@ -31848,7 +31848,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA60_cJEEEvR
   %4 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(60) %1) #27, !noalias !350
+  %6 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(60) %1) #29, !noalias !350
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !350
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull align 1 dereferenceable(60) %1, i64 %6, i64 0, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !350
@@ -31870,7 +31870,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA60_cJEEEvR
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %11
   %15 = load i64, ptr %13, align 8, !tbaa !94
   %16 = add i64 %15, 1
-  call void @_ZdlPvm(ptr noundef %12, i64 noundef %16) #28
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef %16) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -31888,7 +31888,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %11, %
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3: ; preds = %17
   %22 = load i64, ptr %20, align 8, !tbaa !94
   %23 = add i64 %22, 1
-  call void @_ZdlPvm(ptr noundef %19, i64 noundef %23) #28
+  call void @_ZdlPvm(ptr noundef %19, i64 noundef %23) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5: ; preds = %17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3
@@ -31902,7 +31902,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA39_cJRA12_
   %6 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %8 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(39) %1) #27, !noalias !353
+  %8 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(39) %1) #29, !noalias !353
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !353
   %9 = ptrtoint ptr %2 to i64
   %10 = ptrtoint ptr %3 to i64
@@ -31931,7 +31931,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA39_cJRA12_
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %16
   %20 = load i64, ptr %18, align 8, !tbaa !94
   %21 = add i64 %20, 1
-  call void @_ZdlPvm(ptr noundef %17, i64 noundef %21) #28
+  call void @_ZdlPvm(ptr noundef %17, i64 noundef %21) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -31949,7 +31949,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %16, %
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5: ; preds = %22
   %27 = load i64, ptr %25, align 8, !tbaa !94
   %28 = add i64 %27, 1
-  call void @_ZdlPvm(ptr noundef %24, i64 noundef %28) #28
+  call void @_ZdlPvm(ptr noundef %24, i64 noundef %28) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5
@@ -32227,7 +32227,7 @@ define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012ImageBufAlgo17color_range_ch
   %127 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %128 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 0, ptr %128, align 8
-  %129 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
+  %129 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
           to label %.noexc unwind label %118
 
 .noexc:                                           ; preds = %120
@@ -32262,7 +32262,7 @@ define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012ImageBufAlgo17color_range_ch
   %136 = landingpad { ptr, i32 }
           catch ptr null
   %137 = extractvalue { ptr, i32 } %136, 0
-  call void @__clang_call_terminate(ptr %137) #30
+  call void @__clang_call_terminate(ptr %137) #32
   unreachable
 
 138:                                              ; preds = %.noexc
@@ -32280,7 +32280,7 @@ define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012ImageBufAlgo17color_range_ch
   %144 = landingpad { ptr, i32 }
           catch ptr null
   %145 = extractvalue { ptr, i32 } %144, 0
-  call void @__clang_call_terminate(ptr %145) #30
+  call void @__clang_call_terminate(ptr %145) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_0L18color_range_check_IfEEbRKNS0_8ImageBufEPSt6atomicIxES7_S7_PKfS9_NS0_3ROIEi.exit: ; preds = %131, %133
@@ -32306,7 +32306,7 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_IfEEbRKNS0_8ImageBufEPSt6atomicIxES7
   %153 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %154 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 0, ptr %154, align 8
-  %155 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
+  %155 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
           to label %.noexc120 unwind label %118
 
 .noexc120:                                        ; preds = %146
@@ -32341,7 +32341,7 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_IfEEbRKNS0_8ImageBufEPSt6atomicIxES7
   %162 = landingpad { ptr, i32 }
           catch ptr null
   %163 = extractvalue { ptr, i32 } %162, 0
-  call void @__clang_call_terminate(ptr %163) #30
+  call void @__clang_call_terminate(ptr %163) #32
   unreachable
 
 164:                                              ; preds = %.noexc120
@@ -32359,7 +32359,7 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_IfEEbRKNS0_8ImageBufEPSt6atomicIxES7
   %170 = landingpad { ptr, i32 }
           catch ptr null
   %171 = extractvalue { ptr, i32 } %170, 0
-  call void @__clang_call_terminate(ptr %171) #30
+  call void @__clang_call_terminate(ptr %171) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_0L18color_range_check_IhEEbRKNS0_8ImageBufEPSt6atomicIxES7_S7_PKfS9_NS0_3ROIEi.exit: ; preds = %157, %159
@@ -32385,7 +32385,7 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_IhEEbRKNS0_8ImageBufEPSt6atomicIxES7
   %179 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %180 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 0, ptr %180, align 8
-  %181 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
+  %181 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
           to label %.noexc131 unwind label %118
 
 .noexc131:                                        ; preds = %172
@@ -32420,7 +32420,7 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_IhEEbRKNS0_8ImageBufEPSt6atomicIxES7
   %188 = landingpad { ptr, i32 }
           catch ptr null
   %189 = extractvalue { ptr, i32 } %188, 0
-  call void @__clang_call_terminate(ptr %189) #30
+  call void @__clang_call_terminate(ptr %189) #32
   unreachable
 
 190:                                              ; preds = %.noexc131
@@ -32438,7 +32438,7 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_IhEEbRKNS0_8ImageBufEPSt6atomicIxES7
   %196 = landingpad { ptr, i32 }
           catch ptr null
   %197 = extractvalue { ptr, i32 } %196, 0
-  call void @__clang_call_terminate(ptr %197) #30
+  call void @__clang_call_terminate(ptr %197) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_0L18color_range_check_IN9Imath_3_14halfEEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS0_3ROIEi.exit: ; preds = %183, %185
@@ -32464,7 +32464,7 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_IN9Imath_3_14halfEEEbRKNS0_8ImageBuf
   %205 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %206 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 0, ptr %206, align 8
-  %207 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
+  %207 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
           to label %.noexc142 unwind label %118
 
 .noexc142:                                        ; preds = %198
@@ -32499,7 +32499,7 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_IN9Imath_3_14halfEEEbRKNS0_8ImageBuf
   %214 = landingpad { ptr, i32 }
           catch ptr null
   %215 = extractvalue { ptr, i32 } %214, 0
-  call void @__clang_call_terminate(ptr %215) #30
+  call void @__clang_call_terminate(ptr %215) #32
   unreachable
 
 216:                                              ; preds = %.noexc142
@@ -32517,7 +32517,7 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_IN9Imath_3_14halfEEEbRKNS0_8ImageBuf
   %222 = landingpad { ptr, i32 }
           catch ptr null
   %223 = extractvalue { ptr, i32 } %222, 0
-  call void @__clang_call_terminate(ptr %223) #30
+  call void @__clang_call_terminate(ptr %223) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_0L18color_range_check_ItEEbRKNS0_8ImageBufEPSt6atomicIxES7_S7_PKfS9_NS0_3ROIEi.exit: ; preds = %209, %211
@@ -32543,7 +32543,7 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_ItEEbRKNS0_8ImageBufEPSt6atomicIxES7
   %231 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %232 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 0, ptr %232, align 8
-  %233 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
+  %233 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
           to label %.noexc153 unwind label %118
 
 .noexc153:                                        ; preds = %224
@@ -32578,7 +32578,7 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_ItEEbRKNS0_8ImageBufEPSt6atomicIxES7
   %240 = landingpad { ptr, i32 }
           catch ptr null
   %241 = extractvalue { ptr, i32 } %240, 0
-  call void @__clang_call_terminate(ptr %241) #30
+  call void @__clang_call_terminate(ptr %241) #32
   unreachable
 
 242:                                              ; preds = %.noexc153
@@ -32596,7 +32596,7 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_ItEEbRKNS0_8ImageBufEPSt6atomicIxES7
   %248 = landingpad { ptr, i32 }
           catch ptr null
   %249 = extractvalue { ptr, i32 } %248, 0
-  call void @__clang_call_terminate(ptr %249) #30
+  call void @__clang_call_terminate(ptr %249) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_0L18color_range_check_IcEEbRKNS0_8ImageBufEPSt6atomicIxES7_S7_PKfS9_NS0_3ROIEi.exit: ; preds = %235, %237
@@ -32622,7 +32622,7 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_IcEEbRKNS0_8ImageBufEPSt6atomicIxES7
   %257 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %258 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 0, ptr %258, align 8
-  %259 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
+  %259 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
           to label %.noexc164 unwind label %118
 
 .noexc164:                                        ; preds = %250
@@ -32657,7 +32657,7 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_IcEEbRKNS0_8ImageBufEPSt6atomicIxES7
   %266 = landingpad { ptr, i32 }
           catch ptr null
   %267 = extractvalue { ptr, i32 } %266, 0
-  call void @__clang_call_terminate(ptr %267) #30
+  call void @__clang_call_terminate(ptr %267) #32
   unreachable
 
 268:                                              ; preds = %.noexc164
@@ -32675,7 +32675,7 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_IcEEbRKNS0_8ImageBufEPSt6atomicIxES7
   %274 = landingpad { ptr, i32 }
           catch ptr null
   %275 = extractvalue { ptr, i32 } %274, 0
-  call void @__clang_call_terminate(ptr %275) #30
+  call void @__clang_call_terminate(ptr %275) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_0L18color_range_check_IsEEbRKNS0_8ImageBufEPSt6atomicIxES7_S7_PKfS9_NS0_3ROIEi.exit: ; preds = %261, %263
@@ -32701,7 +32701,7 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_IsEEbRKNS0_8ImageBufEPSt6atomicIxES7
   %283 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %284 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %284, align 8
-  %285 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
+  %285 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
           to label %.noexc175 unwind label %118
 
 .noexc175:                                        ; preds = %276
@@ -32736,7 +32736,7 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_IsEEbRKNS0_8ImageBufEPSt6atomicIxES7
   %292 = landingpad { ptr, i32 }
           catch ptr null
   %293 = extractvalue { ptr, i32 } %292, 0
-  call void @__clang_call_terminate(ptr %293) #30
+  call void @__clang_call_terminate(ptr %293) #32
   unreachable
 
 294:                                              ; preds = %.noexc175
@@ -32754,7 +32754,7 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_IsEEbRKNS0_8ImageBufEPSt6atomicIxES7
   %300 = landingpad { ptr, i32 }
           catch ptr null
   %301 = extractvalue { ptr, i32 } %300, 0
-  call void @__clang_call_terminate(ptr %301) #30
+  call void @__clang_call_terminate(ptr %301) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_0L18color_range_check_IjEEbRKNS0_8ImageBufEPSt6atomicIxES7_S7_PKfS9_NS0_3ROIEi.exit: ; preds = %287, %289
@@ -32780,7 +32780,7 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_IjEEbRKNS0_8ImageBufEPSt6atomicIxES7
   %309 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %310 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %310, align 8
-  %311 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
+  %311 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
           to label %.noexc186 unwind label %118
 
 .noexc186:                                        ; preds = %302
@@ -32815,7 +32815,7 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_IjEEbRKNS0_8ImageBufEPSt6atomicIxES7
   %318 = landingpad { ptr, i32 }
           catch ptr null
   %319 = extractvalue { ptr, i32 } %318, 0
-  call void @__clang_call_terminate(ptr %319) #30
+  call void @__clang_call_terminate(ptr %319) #32
   unreachable
 
 320:                                              ; preds = %.noexc186
@@ -32833,7 +32833,7 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_IjEEbRKNS0_8ImageBufEPSt6atomicIxES7
   %326 = landingpad { ptr, i32 }
           catch ptr null
   %327 = extractvalue { ptr, i32 } %326, 0
-  call void @__clang_call_terminate(ptr %327) #30
+  call void @__clang_call_terminate(ptr %327) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_0L18color_range_check_IiEEbRKNS0_8ImageBufEPSt6atomicIxES7_S7_PKfS9_NS0_3ROIEi.exit: ; preds = %313, %315
@@ -32859,7 +32859,7 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_IiEEbRKNS0_8ImageBufEPSt6atomicIxES7
   %335 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %336 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %336, align 8
-  %337 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
+  %337 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
           to label %.noexc197 unwind label %118
 
 .noexc197:                                        ; preds = %328
@@ -32894,7 +32894,7 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_IiEEbRKNS0_8ImageBufEPSt6atomicIxES7
   %344 = landingpad { ptr, i32 }
           catch ptr null
   %345 = extractvalue { ptr, i32 } %344, 0
-  call void @__clang_call_terminate(ptr %345) #30
+  call void @__clang_call_terminate(ptr %345) #32
   unreachable
 
 346:                                              ; preds = %.noexc197
@@ -32912,7 +32912,7 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_IiEEbRKNS0_8ImageBufEPSt6atomicIxES7
   %352 = landingpad { ptr, i32 }
           catch ptr null
   %353 = extractvalue { ptr, i32 } %352, 0
-  call void @__clang_call_terminate(ptr %353) #30
+  call void @__clang_call_terminate(ptr %353) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_0L18color_range_check_IdEEbRKNS0_8ImageBufEPSt6atomicIxES7_S7_PKfS9_NS0_3ROIEi.exit: ; preds = %339, %341
@@ -32959,25 +32959,25 @@ _ZN11OpenImageIO6v3_1_0L18color_range_check_IdEEbRKNS0_8ImageBufEPSt6atomicIxES7
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %368
   %373 = load i64, ptr %371, align 8, !tbaa !94
   %374 = add i64 %373, 1
-  call void @_ZdlPvm(ptr noundef %370, i64 noundef %374) #28
+  call void @_ZdlPvm(ptr noundef %370, i64 noundef %374) #30
   br label %_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev.exit
 
 375:                                              ; preds = %360
   %376 = landingpad { ptr, i32 }
           catch ptr null
   %377 = extractvalue { ptr, i32 } %376, 0
-  call void @__clang_call_terminate(ptr %377) #30
+  call void @__clang_call_terminate(ptr %377) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev.exit: ; preds = %368, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %29) #27
+  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %29) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   ret i1 %.0
 
 .body:                                            ; preds = %346, %349, %320, %323, %294, %297, %268, %271, %242, %245, %216, %219, %190, %193, %164, %167, %138, %141, %118, %59, %61, %92, %57, %38
   %.pn.pn = phi { ptr, i32 } [ %58, %57 ], [ %39, %38 ], [ %93, %92 ], [ %60, %59 ], [ %62, %61 ], [ %119, %118 ], [ %139, %141 ], [ %139, %138 ], [ %165, %167 ], [ %165, %164 ], [ %191, %193 ], [ %191, %190 ], [ %217, %219 ], [ %217, %216 ], [ %243, %245 ], [ %243, %242 ], [ %269, %271 ], [ %269, %268 ], [ %295, %297 ], [ %295, %294 ], [ %321, %323 ], [ %321, %320 ], [ %347, %349 ], [ %347, %346 ]
-  call void @_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %29) #27
+  call void @_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %29) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   resume { ptr, i32 } %.pn.pn
 }
@@ -33258,7 +33258,7 @@ _ZN11OpenImageIO6v3_1_016roi_intersectionERKNS0_3ROIES3_.exit: ; preds = %20, %4
   br i1 %105, label %106, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 
 106:                                              ; preds = %103
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.87) #32
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.87) #34
           to label %.noexc80 unwind label %153
 
 .noexc80:                                         ; preds = %106
@@ -33270,7 +33270,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %103
 
 107:                                              ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
   %108 = shl nuw nsw i64 %104, 2
-  %109 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %108) #29
+  %109 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %108) #31
           to label %.noexc81 unwind label %153
 
 .noexc81:                                         ; preds = %107
@@ -33294,7 +33294,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %.noexc81, %_ZNSt6ve
   br i1 %117, label %118, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i82
 
 118:                                              ; preds = %115
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.87) #32
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.87) #34
           to label %.noexc90 unwind label %157
 
 .noexc90:                                         ; preds = %118
@@ -33306,7 +33306,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i82: ; preds = %115
 
 119:                                              ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i82
   %120 = shl nuw nsw i64 %116, 2
-  %121 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %120) #29
+  %121 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %120) #31
           to label %.noexc91 unwind label %157
 
 .noexc91:                                         ; preds = %119
@@ -33774,7 +33774,7 @@ _ZStneIfSaIfEEbRKSt6vectorIT_T0_ES6_.exit110.thread228: ; preds = %.loopexit265,
 284:                                              ; preds = %.loopexit260
   %285 = ptrtoint ptr %.sroa.0142.0 to i64
   %286 = sub i64 %.sroa.33.0, %285
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0142.0, i64 noundef %286) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0142.0, i64 noundef %286) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.loopexit260, %284
@@ -33784,7 +33784,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.loopexit260, %284
 287:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
   %288 = ptrtoint ptr %.sroa.0173.0 to i64
   %289 = sub i64 %.sroa.21.0, %288
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0173.0, i64 noundef %289) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0173.0, i64 noundef %289) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit124
 
 290:                                              ; preds = %.split322, %.split322.us, %.split316, %.split316.us, %.split308, %.split308.us, %.split297, %.split297.us, %.split292, %.split292.us, %.split, %.split.us
@@ -33795,7 +33795,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.loopexit260, %284
 291:                                              ; preds = %290
   %292 = ptrtoint ptr %.sroa.0142.0 to i64
   %293 = sub i64 %.sroa.33.0, %292
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0142.0, i64 noundef %293) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0142.0, i64 noundef %293) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit126
 
 _ZNSt6vectorIfSaIfEED2Ev.exit126:                 ; preds = %291, %290, %157, %155
@@ -33806,7 +33806,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit126:                 ; preds = %291, %290, %157, %1
 294:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit126
   %295 = ptrtoint ptr %.sroa.0173.0 to i64
   %296 = sub i64 %.sroa.21.0, %295
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0173.0, i64 noundef %296) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0173.0, i64 noundef %296) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit128
 
 _ZNSt6vectorIfSaIfEED2Ev.exit124.loopexit:        ; preds = %._crit_edge57.split.us.us.us.i
@@ -33849,25 +33849,25 @@ _ZNSt6vectorIfSaIfEED2Ev.exit124:                 ; preds = %_ZNSt6vectorIfSaIfE
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %306
   %311 = load i64, ptr %309, align 8, !tbaa !94
   %312 = add i64 %311, 1
-  call void @_ZdlPvm(ptr noundef %308, i64 noundef %312) #28
+  call void @_ZdlPvm(ptr noundef %308, i64 noundef %312) #30
   br label %_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev.exit
 
 313:                                              ; preds = %298
   %314 = landingpad { ptr, i32 }
           catch ptr null
   %315 = extractvalue { ptr, i32 } %314, 0
-  call void @__clang_call_terminate(ptr %315) #30
+  call void @__clang_call_terminate(ptr %315) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev.exit: ; preds = %306, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 _ZNSt6vectorIfSaIfEED2Ev.exit128:                 ; preds = %.loopexit, %.loopexit.split-lp, %151, %153, %_ZNSt6vectorIfSaIfEED2Ev.exit126, %294, %99
   %.pn67 = phi { ptr, i32 } [ %100, %99 ], [ %154, %153 ], [ %152, %151 ], [ %.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit126 ], [ %.pn.pn, %294 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn67
 }
@@ -33955,7 +33955,7 @@ define void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo20computePixelHashSHA1B5cxx11E
 
 46:                                               ; preds = %41
   %47 = load ptr, ptr @stderr, align 8, !tbaa !117
-  %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 871, ptr noundef nonnull @__FUNCTION__._ZN11OpenImageIO6v3_1_012ImageBufAlgo20computePixelHashSHA1B5cxx11ERKNS0_8ImageBufENS0_17basic_string_viewIcSt11char_traitsIcEEENS0_3ROIEii, ptr noundef nonnull @.str.22) #31
+  %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 871, ptr noundef nonnull @__FUNCTION__._ZN11OpenImageIO6v3_1_012ImageBufAlgo20computePixelHashSHA1B5cxx11ERKNS0_8ImageBufENS0_17basic_string_viewIcSt11char_traitsIcEEENS0_3ROIEii, ptr noundef nonnull @.str.22) #33
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i: ; preds = %41, %46
@@ -33970,7 +33970,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
   %50 = shl nuw nsw i64 %49, 5
-  %51 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #29
+  %51 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #31
           to label %.noexc27 unwind label %87
 
 .noexc27:                                         ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i
@@ -34004,7 +34004,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %62 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %63 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %63, align 8
-  %64 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
+  %64 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
           to label %65 unwind label %89
 
 65:                                               ; preds = %.loopexit
@@ -34049,7 +34049,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %80 = landingpad { ptr, i32 }
           catch ptr null
   %81 = extractvalue { ptr, i32 } %80, 0
-  call void @__clang_call_terminate(ptr %81) #30
+  call void @__clang_call_terminate(ptr %81) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %75, %77
@@ -34098,7 +34098,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %75, %77
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  call void @__clang_call_terminate(ptr %98) #30
+  call void @__clang_call_terminate(ptr %98) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit31:                 ; preds = %94, %91, %89
@@ -34136,7 +34136,7 @@ _ZN11OpenImageIO6v3_1_04SHA16appendENS0_17basic_string_viewIcSt11char_traitsIcEE
           to label %109 unwind label %125
 
 109:                                              ; preds = %_ZN11OpenImageIO6v3_1_04SHA16appendENS0_17basic_string_viewIcSt11char_traitsIcEEE.exit
-  call void @_ZN11OpenImageIO6v3_1_04SHA1D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %16) #27
+  call void @_ZN11OpenImageIO6v3_1_04SHA1D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %16) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %110 = load ptr, ptr %13, align 8, !tbaa !377
   %111 = load ptr, ptr %58, align 8, !tbaa !380
@@ -34153,7 +34153,7 @@ _ZN11OpenImageIO6v3_1_04SHA16appendENS0_17basic_string_viewIcSt11char_traitsIcEE
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %115 = load i64, ptr %113, align 8, !tbaa !94
   %116 = add i64 %115, 1
-  call void @_ZdlPvm(ptr noundef %112, i64 noundef %116) #28
+  call void @_ZdlPvm(ptr noundef %112, i64 noundef %116) #30
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
@@ -34176,7 +34176,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %122 = ptrtoint ptr %121 to i64
   %123 = ptrtoint ptr %118 to i64
   %124 = sub i64 %122, %123
-  call void @_ZdlPvm(ptr noundef nonnull %118, i64 noundef %124) #28
+  call void @_ZdlPvm(ptr noundef nonnull %118, i64 noundef %124) #30
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %119
@@ -34190,7 +34190,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 127:                                              ; preds = %125, %107
   %.pn20 = phi { ptr, i32 } [ %108, %107 ], [ %126, %125 ]
-  call void @_ZN11OpenImageIO6v3_1_04SHA1D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %16) #27
+  call void @_ZN11OpenImageIO6v3_1_04SHA1D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %16) #29
   br label %128
 
 128:                                              ; preds = %127, %99
@@ -34200,7 +34200,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 129:                                              ; preds = %128, %_ZNSt14_Function_baseD2Ev.exit31
   %.pn20.pn.pn = phi { ptr, i32 } [ %.pn20.pn, %128 ], [ %.pn, %_ZNSt14_Function_baseD2Ev.exit31 ]
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #27
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #29
   br label %130
 
 130:                                              ; preds = %129, %87
@@ -34237,25 +34237,25 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %141
   %146 = load i64, ptr %144, align 8, !tbaa !94
   %147 = add i64 %146, 1
-  call void @_ZdlPvm(ptr noundef %143, i64 noundef %147) #28
+  call void @_ZdlPvm(ptr noundef %143, i64 noundef %147) #30
   br label %_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev.exit
 
 148:                                              ; preds = %133
   %149 = landingpad { ptr, i32 }
           catch ptr null
   %150 = extractvalue { ptr, i32 } %149, 0
-  call void @__clang_call_terminate(ptr %150) #30
+  call void @__clang_call_terminate(ptr %150) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev.exit: ; preds = %141, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %9) #27
+  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %9) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
 151:                                              ; preds = %130, %39, %23
   %.pn25 = phi { ptr, i32 } [ %40, %39 ], [ %.pn20.pn.pn.pn, %130 ], [ %24, %23 ]
-  call void @_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %9) #27
+  call void @_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %9) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn25
 }
@@ -34283,14 +34283,14 @@ define internal fastcc void @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_119simplePixelH
   %15 = sub nsw i32 %14, %11
   %16 = sext i32 %15 to i64
   %17 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK11OpenImageIO6v3_1_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %18 = call noundef i64 @_ZNK11OpenImageIO6v3_1_09ImageSpec11pixel_bytesEb(ptr noundef nonnull align 8 dereferenceable(160) %17, i1 noundef zeroext false) #27
+  %18 = call noundef i64 @_ZNK11OpenImageIO6v3_1_09ImageSpec11pixel_bytesEb(ptr noundef nonnull align 8 dereferenceable(160) %17, i1 noundef zeroext false) #29
   %19 = mul i64 %18, %16
   %20 = icmp ult i64 %19, 4294967295
   br i1 %20, label %24, label %21, !prof !116
 
 21:                                               ; preds = %10
   %22 = load ptr, ptr @stderr, align 8, !tbaa !117
-  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 825, ptr noundef nonnull @__FUNCTION__._ZN11OpenImageIO6v3_1_012_GLOBAL__N_119simplePixelHashSHA1B5cxx11ERKNS0_8ImageBufENS0_17basic_string_viewIcSt11char_traitsIcEEENS0_3ROIE, ptr noundef nonnull @.str.83) #31
+  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 825, ptr noundef nonnull @__FUNCTION__._ZN11OpenImageIO6v3_1_012_GLOBAL__N_119simplePixelHashSHA1B5cxx11ERKNS0_8ImageBufENS0_17basic_string_viewIcSt11char_traitsIcEEENS0_3ROIE, ptr noundef nonnull @.str.83) #33
   br label %24
 
 24:                                               ; preds = %10, %21
@@ -34310,11 +34310,11 @@ define internal fastcc void @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_119simplePixelH
   br i1 %31, label %.noexc, label %_ZNKSt6vectorISt4byteSaIS0_EE12_M_check_lenEmPKc.exit.i.i
 
 .noexc:                                           ; preds = %30
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.84) #32
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.84) #34
   unreachable
 
 _ZNKSt6vectorISt4byteSaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %30
-  %32 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #29
+  %32 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #31
   store i8 0, ptr %32, align 1, !tbaa !94
   %33 = add nsw i64 %29, -1
   %34 = icmp eq i64 %33, 0
@@ -34460,7 +34460,7 @@ _ZNSt6vectorISt4byteSaIS0_EE6resizeEm.exit:       ; preds = %_ZNSt12_Vector_base
           to label %90 unwind label %94
 
 90:                                               ; preds = %89
-  call void @_ZN11OpenImageIO6v3_1_04SHA1D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %5) #27
+  call void @_ZN11OpenImageIO6v3_1_04SHA1D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %5) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i.i.i = icmp eq ptr %.sroa.049.0, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt4byteSaIS0_EED2Ev.exit, label %91
@@ -34468,7 +34468,7 @@ _ZNSt6vectorISt4byteSaIS0_EE6resizeEm.exit:       ; preds = %_ZNSt12_Vector_base
 91:                                               ; preds = %90
   %92 = ptrtoint ptr %.sroa.049.0 to i64
   %93 = sub i64 %.sroa.15.0, %92
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.049.0, i64 noundef %93) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.049.0, i64 noundef %93) #30
   br label %_ZNSt6vectorISt4byteSaIS0_EED2Ev.exit
 
 _ZNSt6vectorISt4byteSaIS0_EED2Ev.exit:            ; preds = %90, %91
@@ -34481,7 +34481,7 @@ _ZNSt6vectorISt4byteSaIS0_EED2Ev.exit:            ; preds = %90, %91
 
 96:                                               ; preds = %.split.split.us, %.split.us.split.us.split.us, %94
   %.pn = phi { ptr, i32 } [ %95, %94 ], [ %83, %.split.split.us ], [ %72, %.split.us.split.us.split.us ]
-  call void @_ZN11OpenImageIO6v3_1_04SHA1D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %5) #27
+  call void @_ZN11OpenImageIO6v3_1_04SHA1D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %5) #29
   br label %97
 
 97:                                               ; preds = %87, %96
@@ -34493,7 +34493,7 @@ _ZNSt6vectorISt4byteSaIS0_EED2Ev.exit:            ; preds = %90, %91
 98:                                               ; preds = %97
   %99 = ptrtoint ptr %.sroa.049.0 to i64
   %100 = sub i64 %.sroa.15.0, %99
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.049.0, i64 noundef %100) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.049.0, i64 noundef %100) #30
   br label %_ZNSt6vectorISt4byteSaIS0_EED2Ev.exit44
 
 _ZNSt6vectorISt4byteSaIS0_EED2Ev.exit44:          ; preds = %97, %98
@@ -34527,7 +34527,7 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_trait
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %8 = load i64, ptr %6, align 8, !tbaa !94
   %9 = add i64 %8, 1
-  tail call void @_ZdlPvm(ptr noundef %5, i64 noundef %9) #28
+  tail call void @_ZdlPvm(ptr noundef %5, i64 noundef %9) #30
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
@@ -34550,7 +34550,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #30
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit, %12
@@ -34811,18 +34811,18 @@ _ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %100, %97, %32, %20,
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %110
   %115 = load i64, ptr %113, align 8, !tbaa !94
   %116 = add i64 %115, 1
-  call void @_ZdlPvm(ptr noundef %112, i64 noundef %116) #28
+  call void @_ZdlPvm(ptr noundef %112, i64 noundef %116) #30
   br label %_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev.exit
 
 117:                                              ; preds = %102
   %118 = landingpad { ptr, i32 }
           catch ptr null
   %119 = extractvalue { ptr, i32 } %118, 0
-  call void @__clang_call_terminate(ptr %119) #30
+  call void @__clang_call_terminate(ptr %119) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev.exit: ; preds = %110, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %12) #27
+  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %12) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
@@ -34839,11 +34839,11 @@ _ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev.exit: ; preds = %110, %_ZNKSt7__cxx
   %125 = ptrtoint ptr %124 to i64
   %126 = ptrtoint ptr %121 to i64
   %127 = sub i64 %125, %126
-  call void @_ZdlPvm(ptr noundef nonnull %121, i64 noundef %127) #28
+  call void @_ZdlPvm(ptr noundef nonnull %121, i64 noundef %127) #30
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %120, %122
-  call void @_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %12) #27
+  call void @_ZN11OpenImageIO6v3_1_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %12) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %.pn
 }
@@ -34854,7 +34854,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA41_cJEEEvR
   %4 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(41) %1) #27, !noalias !387
+  %6 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(41) %1) #29, !noalias !387
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !387
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull align 1 dereferenceable(41) %1, i64 %6, i64 0, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !387
@@ -34876,7 +34876,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA41_cJEEEvR
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %11
   %15 = load i64, ptr %13, align 8, !tbaa !94
   %16 = add i64 %15, 1
-  call void @_ZdlPvm(ptr noundef %12, i64 noundef %16) #28
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef %16) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -34894,7 +34894,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %11, %
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3: ; preds = %17
   %22 = load i64, ptr %20, align 8, !tbaa !94
   %23 = add i64 %22, 1
-  call void @_ZdlPvm(ptr noundef %19, i64 noundef %23) #28
+  call void @_ZdlPvm(ptr noundef %19, i64 noundef %23) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5: ; preds = %17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3
@@ -34908,7 +34908,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA57_cJRiiEE
   %6 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %8 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(57) %1) #27, !noalias !390
+  %8 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(57) %1) #29, !noalias !390
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !390
   tail call void @llvm.experimental.noalias.scope.decl(metadata !393)
   %9 = load i32, ptr %2, align 4, !tbaa !37, !noalias !396
@@ -34938,7 +34938,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA57_cJRiiEE
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %16
   %20 = load i64, ptr %18, align 8, !tbaa !94
   %21 = add i64 %20, 1
-  call void @_ZdlPvm(ptr noundef %17, i64 noundef %21) #28
+  call void @_ZdlPvm(ptr noundef %17, i64 noundef %21) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -34956,7 +34956,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %16, %
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5: ; preds = %22
   %27 = load i64, ptr %25, align 8, !tbaa !94
   %28 = add i64 %27, 1
-  call void @_ZdlPvm(ptr noundef %24, i64 noundef %28) #28
+  call void @_ZdlPvm(ptr noundef %24, i64 noundef %28) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5
@@ -34970,7 +34970,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA38_cJEEEvR
   %4 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(38) %1) #27, !noalias !397
+  %6 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(38) %1) #29, !noalias !397
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !397
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull align 1 dereferenceable(38) %1, i64 %6, i64 0, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !397
@@ -34992,7 +34992,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA38_cJEEEvR
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %11
   %15 = load i64, ptr %13, align 8, !tbaa !94
   %16 = add i64 %15, 1
-  call void @_ZdlPvm(ptr noundef %12, i64 noundef %16) #28
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef %16) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -35010,7 +35010,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %11, %
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3: ; preds = %17
   %22 = load i64, ptr %20, align 8, !tbaa !94
   %23 = add i64 %22, 1
-  call void @_ZdlPvm(ptr noundef %19, i64 noundef %23) #28
+  call void @_ZdlPvm(ptr noundef %19, i64 noundef %23) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5: ; preds = %17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3
@@ -35024,7 +35024,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA53_cJEEEvR
   %4 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(53) %1) #27, !noalias !400
+  %6 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(53) %1) #29, !noalias !400
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !400
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull align 1 dereferenceable(53) %1, i64 %6, i64 0, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !400
@@ -35046,7 +35046,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA53_cJEEEvR
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %11
   %15 = load i64, ptr %13, align 8, !tbaa !94
   %16 = add i64 %15, 1
-  call void @_ZdlPvm(ptr noundef %12, i64 noundef %16) #28
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef %16) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -35064,7 +35064,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %11, %
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3: ; preds = %17
   %22 = load i64, ptr %20, align 8, !tbaa !94
   %23 = add i64 %22, 1
-  call void @_ZdlPvm(ptr noundef %19, i64 noundef %23) #28
+  call void @_ZdlPvm(ptr noundef %19, i64 noundef %23) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5: ; preds = %17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3
@@ -35128,7 +35128,7 @@ _ZN11OpenImageIO6v3_1_0neERKNS0_8TypeDescENS1_8BASETYPEE.exit.thread: ; preds = 
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 0, ptr %36, align 8
-  %37 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
+  %37 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
   store ptr %11, ptr %37, align 16, !tbaa !66
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %13, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !244
@@ -35163,7 +35163,7 @@ _ZN11OpenImageIO6v3_1_0neERKNS0_8TypeDescENS1_8BASETYPEE.exit.thread: ; preds = 
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #30
+  call void @__clang_call_terminate(ptr %44) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %40
@@ -35185,7 +35185,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %40
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #30
+  call void @__clang_call_terminate(ptr %52) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %45, %48
@@ -35253,7 +35253,7 @@ _ZN11OpenImageIO6v3_1_0neERKNS0_8TypeDescENS1_8BASETYPEE.exit.thread: ; preds = 
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 0, ptr %36, align 8
-  %37 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
+  %37 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
   store ptr %11, ptr %37, align 16, !tbaa !66
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %13, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !244
@@ -35288,7 +35288,7 @@ _ZN11OpenImageIO6v3_1_0neERKNS0_8TypeDescENS1_8BASETYPEE.exit.thread: ; preds = 
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #30
+  call void @__clang_call_terminate(ptr %44) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %40
@@ -35310,7 +35310,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %40
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #30
+  call void @__clang_call_terminate(ptr %52) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %45, %48
@@ -35378,7 +35378,7 @@ _ZN11OpenImageIO6v3_1_0neERKNS0_8TypeDescENS1_8BASETYPEE.exit.thread: ; preds = 
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 0, ptr %36, align 8
-  %37 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
+  %37 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
   store ptr %11, ptr %37, align 16, !tbaa !66
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %13, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !244
@@ -35413,7 +35413,7 @@ _ZN11OpenImageIO6v3_1_0neERKNS0_8TypeDescENS1_8BASETYPEE.exit.thread: ; preds = 
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #30
+  call void @__clang_call_terminate(ptr %44) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %40
@@ -35435,7 +35435,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %40
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #30
+  call void @__clang_call_terminate(ptr %52) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %45, %48
@@ -35503,7 +35503,7 @@ _ZN11OpenImageIO6v3_1_0neERKNS0_8TypeDescENS1_8BASETYPEE.exit.thread: ; preds = 
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 0, ptr %36, align 8
-  %37 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
+  %37 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
   store ptr %11, ptr %37, align 16, !tbaa !66
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %13, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !244
@@ -35538,7 +35538,7 @@ _ZN11OpenImageIO6v3_1_0neERKNS0_8TypeDescENS1_8BASETYPEE.exit.thread: ; preds = 
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #30
+  call void @__clang_call_terminate(ptr %44) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %40
@@ -35560,7 +35560,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %40
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #30
+  call void @__clang_call_terminate(ptr %52) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %45, %48
@@ -35628,7 +35628,7 @@ _ZN11OpenImageIO6v3_1_0neERKNS0_8TypeDescENS1_8BASETYPEE.exit.thread: ; preds = 
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 0, ptr %36, align 8
-  %37 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
+  %37 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
   store ptr %11, ptr %37, align 16, !tbaa !66
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %13, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !244
@@ -35663,7 +35663,7 @@ _ZN11OpenImageIO6v3_1_0neERKNS0_8TypeDescENS1_8BASETYPEE.exit.thread: ; preds = 
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #30
+  call void @__clang_call_terminate(ptr %44) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %40
@@ -35685,7 +35685,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %40
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #30
+  call void @__clang_call_terminate(ptr %52) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %45, %48
@@ -35753,7 +35753,7 @@ _ZN11OpenImageIO6v3_1_0neERKNS0_8TypeDescENS1_8BASETYPEE.exit.thread: ; preds = 
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 0, ptr %36, align 8
-  %37 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
+  %37 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
   store ptr %11, ptr %37, align 16, !tbaa !66
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %13, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !244
@@ -35788,7 +35788,7 @@ _ZN11OpenImageIO6v3_1_0neERKNS0_8TypeDescENS1_8BASETYPEE.exit.thread: ; preds = 
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #30
+  call void @__clang_call_terminate(ptr %44) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %40
@@ -35810,7 +35810,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %40
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #30
+  call void @__clang_call_terminate(ptr %52) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %45, %48
@@ -35878,7 +35878,7 @@ _ZN11OpenImageIO6v3_1_0neERKNS0_8TypeDescENS1_8BASETYPEE.exit.thread: ; preds = 
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 0, ptr %36, align 8
-  %37 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
+  %37 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
   store ptr %11, ptr %37, align 16, !tbaa !66
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %13, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !244
@@ -35913,7 +35913,7 @@ _ZN11OpenImageIO6v3_1_0neERKNS0_8TypeDescENS1_8BASETYPEE.exit.thread: ; preds = 
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #30
+  call void @__clang_call_terminate(ptr %44) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %40
@@ -35935,7 +35935,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %40
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #30
+  call void @__clang_call_terminate(ptr %52) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %45, %48
@@ -36003,7 +36003,7 @@ _ZN11OpenImageIO6v3_1_0neERKNS0_8TypeDescENS1_8BASETYPEE.exit.thread: ; preds = 
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 0, ptr %36, align 8
-  %37 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
+  %37 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
   store ptr %11, ptr %37, align 16, !tbaa !66
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %13, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !244
@@ -36038,7 +36038,7 @@ _ZN11OpenImageIO6v3_1_0neERKNS0_8TypeDescENS1_8BASETYPEE.exit.thread: ; preds = 
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #30
+  call void @__clang_call_terminate(ptr %44) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %40
@@ -36060,7 +36060,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %40
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #30
+  call void @__clang_call_terminate(ptr %52) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %45, %48
@@ -36128,7 +36128,7 @@ _ZN11OpenImageIO6v3_1_0neERKNS0_8TypeDescENS1_8BASETYPEE.exit.thread: ; preds = 
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 0, ptr %36, align 8
-  %37 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
+  %37 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
   store ptr %11, ptr %37, align 16, !tbaa !66
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %13, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !244
@@ -36163,7 +36163,7 @@ _ZN11OpenImageIO6v3_1_0neERKNS0_8TypeDescENS1_8BASETYPEE.exit.thread: ; preds = 
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #30
+  call void @__clang_call_terminate(ptr %44) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %40
@@ -36185,7 +36185,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %40
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #30
+  call void @__clang_call_terminate(ptr %52) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %45, %48
@@ -36203,7 +36203,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA39_cJRA10_
   %6 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %8 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(39) %1) #27, !noalias !409
+  %8 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(39) %1) #29, !noalias !409
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !409
   %9 = ptrtoint ptr %2 to i64
   %10 = ptrtoint ptr %3 to i64
@@ -36232,7 +36232,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA39_cJRA10_
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %16
   %20 = load i64, ptr %18, align 8, !tbaa !94
   %21 = add i64 %20, 1
-  call void @_ZdlPvm(ptr noundef %17, i64 noundef %21) #28
+  call void @_ZdlPvm(ptr noundef %17, i64 noundef %21) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -36250,7 +36250,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %16, %
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5: ; preds = %22
   %27 = load i64, ptr %25, align 8, !tbaa !94
   %28 = add i64 %27, 1
-  call void @_ZdlPvm(ptr noundef %24, i64 noundef %28) #28
+  call void @_ZdlPvm(ptr noundef %24, i64 noundef %28) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5
@@ -36265,8 +36265,8 @@ declare noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 de
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #27
-  tail call void @_ZSt9terminatev() #30
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #29
+  tail call void @_ZSt9terminatev() #32
   unreachable
 }
 
@@ -36301,7 +36301,7 @@ define linkonce_odr void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull 
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !101
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %16 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #27
+  %16 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #29
   %17 = load i64, ptr %3, align 8, !tbaa !98
   %18 = mul nsw i64 %17, 1000000000
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -36351,7 +36351,7 @@ _ZN3fmt2v86detail5printEP8_IO_FILENS0_17basic_string_viewIcEE.exit.i.i: ; preds 
 
 42:                                               ; preds = %_ZN3fmt2v86detail5printEP8_IO_FILENS0_17basic_string_viewIcEE.exit.i.i
   %43 = load i64, ptr %35, align 8, !tbaa !424
-  call void @_ZdlPvm(ptr noundef %41, i64 noundef %43) #28
+  call void @_ZdlPvm(ptr noundef %41, i64 noundef %43) #30
   br label %50
 
 44:                                               ; preds = %38, %.noexc1
@@ -36363,13 +36363,13 @@ _ZN3fmt2v86detail5printEP8_IO_FILENS0_17basic_string_viewIcEE.exit.i.i: ; preds 
 
 47:                                               ; preds = %44
   %48 = load i64, ptr %35, align 8, !tbaa !424
-  call void @_ZdlPvm(ptr noundef %46, i64 noundef %48) #28
+  call void @_ZdlPvm(ptr noundef %46, i64 noundef %48) #30
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit9.i.i
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit9.i.i: ; preds = %47, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %49 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %49) #30
+  call void @__clang_call_terminate(ptr %49) #32
   unreachable
 
 50:                                               ; preds = %_ZN3fmt2v86detail5printEP8_IO_FILENS0_17basic_string_viewIcEE.exit.i.i, %42
@@ -36450,7 +36450,7 @@ _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3get
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull @.str.32)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %10, align 8, !tbaa !420
-  %37 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #27
+  %37 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %37)
           to label %.thread unwind label %38
 
@@ -36461,12 +36461,12 @@ common.resume:                                    ; preds = %111, %38
 38:                                               ; preds = %_ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit.thread
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 .thread:                                          ; preds = %_ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit.thread
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail21default_arg_formatterIcEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit
@@ -36671,19 +36671,19 @@ _ZN3fmt2v816visit_format_argINS0_6detail21default_arg_formatterIcEENS0_20basic_f
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.58)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %7, align 8, !tbaa !420
-  %110 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  %110 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %110)
           to label %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit26 unwind label %111
 
 111:                                              ; preds = %.critedge.i
   %112 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit26: ; preds = %.critedge.i
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN3fmt2v86detail19parse_format_stringILb0EcZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS4_ISF_EEEE4typeESF_EEEENS1_10locale_refEE14format_handlerEEvNS8_IT0_EEOT1_.exit
 
@@ -36734,7 +36734,7 @@ _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit26: ; preds = %.critedge.i
   %130 = getelementptr inbounds nuw i8, ptr %.3.i72, i64 1
   %131 = ptrtoint ptr %130 to i64
   %132 = sub i64 %126, %131
-  %133 = call noundef ptr @memchr(ptr noundef nonnull %130, i32 noundef 123, i64 noundef %132) #33
+  %133 = call noundef ptr @memchr(ptr noundef nonnull %130, i32 noundef 123, i64 noundef %132) #35
   %.not = icmp eq ptr %133, null
   br i1 %.not, label %.critedge54.i, label %134
 
@@ -36784,14 +36784,14 @@ define linkonce_odr hidden void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEE4g
   br i1 %13, label %14, label %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit, !prof !438
 
 14:                                               ; preds = %12
-  tail call void @_ZSt17__throw_bad_allocv() #32
+  tail call void @_ZSt17__throw_bad_allocv() #34
   unreachable
 
 _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit: ; preds = %8, %12
   %.026 = phi i64 [ %.0, %12 ], [ %6, %8 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !422
-  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.026) #29
+  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.026) #31
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !425
   %.not.i.i.i.i.i.i.i = icmp samesign eq i64 %19, 0
@@ -36809,7 +36809,7 @@ _ZSt18uninitialized_copyIPcS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt16allocator_tr
   br i1 %.not, label %23, label %22
 
 22:                                               ; preds = %_ZSt18uninitialized_copyIPcS0_ET0_T_S2_S1_.exit
-  tail call void @_ZdlPvm(ptr noundef %16, i64 noundef %4) #28
+  tail call void @_ZdlPvm(ptr noundef %16, i64 noundef %4) #30
   br label %23
 
 23:                                               ; preds = %22, %_ZSt18uninitialized_copyIPcS0_ET0_T_S2_S1_.exit
@@ -37026,7 +37026,7 @@ _ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_sp
   %18 = lshr i32 %7, 23
   %.sroa.4.0.i = and i32 %18, 256
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %19 = tail call i64 @_ZN3fmt2v86detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %.0.i) #27
+  %19 = tail call i64 @_ZN3fmt2v86detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %.0.i) #29
   store i64 %19, ptr %6, align 8
   %.sroa.4.0.insert.ext.i = zext nneg i32 %.sroa.4.0.i to i64
   %.sroa.4.0.insert.shift.i = shl nuw nsw i64 %.sroa.4.0.insert.ext.i, 32
@@ -37077,7 +37077,7 @@ _ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_sp
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %19 = tail call { i64, i32 } @_ZN3fmt2v86detail9dragonbox10to_decimalIdEENS2_10decimal_fpIT_EES5_(double noundef %.0.i) #27
+  %19 = tail call { i64, i32 } @_ZN3fmt2v86detail9dragonbox10to_decimalIdEENS2_10decimal_fpIT_EES5_(double noundef %.0.i) #29
   %20 = extractvalue { i64, i32 } %19, 0
   store i64 %20, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -38160,7 +38160,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail18write_int_noinlineIcNS0_8appe
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %24
   %28 = load i64, ptr %26, align 8, !tbaa !94
   %29 = add i64 %28, 1
-  call void @_ZdlPvm(ptr noundef %25, i64 noundef %29) #28
+  call void @_ZdlPvm(ptr noundef %25, i64 noundef %29) #30
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
 
 30:                                               ; preds = %21
@@ -38174,7 +38174,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i9.i: ; preds = %30
   %35 = load i64, ptr %33, align 8, !tbaa !94
   %36 = add i64 %35, 1
-  call void @_ZdlPvm(ptr noundef %32, i64 noundef %36) #28
+  call void @_ZdlPvm(ptr noundef %32, i64 noundef %36) #30
   br label %_ZN3fmt2v86detail14digit_groupingIcED2Ev.exit11.i
 
 common.resume:                                    ; preds = %567, %_ZN3fmt2v86detail14digit_groupingIcED2Ev.exit11.i
@@ -39258,19 +39258,19 @@ _ZZN3fmt2v86detail10write_charIcNS0_8appenderEEET0_S4_T_RKNS0_18basic_format_spe
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.38)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %7, align 8, !tbaa !420
-  %566 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  %566 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %566)
           to label %_ZN3fmt2v86detail18throw_format_errorEPKc.exit unwind label %567
 
 567:                                              ; preds = %565
   %568 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN3fmt2v86detail18throw_format_errorEPKc.exit:   ; preds = %565
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN3fmt2v86detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE.exit
 
@@ -39355,7 +39355,7 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail14digit_groupingIcEC2ENS1_10lo
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %21
   %32 = load i64, ptr %30, align 8, !tbaa !94, !noalias !473
   %33 = add i64 %32, 1
-  call void @_ZdlPvm(ptr noundef %29, i64 noundef %33) #28
+  call void @_ZdlPvm(ptr noundef %29, i64 noundef %33) #30
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
 
 34:                                               ; preds = %.noexc.i.i
@@ -39369,7 +39369,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i2.i: ; preds = %34
   %39 = load i64, ptr %37, align 8, !tbaa !94, !noalias !473
   %40 = add i64 %39, 1
-  call void @_ZdlPvm(ptr noundef %36, i64 noundef %40) #28
+  call void @_ZdlPvm(ptr noundef %36, i64 noundef %40) #30
   br label %_ZN3fmt2v86detail20thousands_sep_resultIcED2Ev.exit4.i
 
 _ZN3fmt2v86detail20thousands_sep_resultIcED2Ev.exit4.i: ; preds = %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i2.i
@@ -39462,7 +39462,7 @@ _ZN3fmt2v86detail20thousands_sep_resultIcEaSEOS3_.exit: ; preds = %45, %_ZNSt7__
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZN3fmt2v86detail20thousands_sep_resultIcEaSEOS3_.exit
   %67 = load i64, ptr %10, align 8, !tbaa !94
   %68 = add i64 %67, 1
-  call void @_ZdlPvm(ptr noundef %65, i64 noundef %68) #28
+  call void @_ZdlPvm(ptr noundef %65, i64 noundef %68) #30
   br label %_ZN3fmt2v86detail20thousands_sep_resultIcED2Ev.exit
 
 _ZN3fmt2v86detail20thousands_sep_resultIcED2Ev.exit: ; preds = %_ZN3fmt2v86detail20thousands_sep_resultIcEaSEOS3_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -39484,7 +39484,7 @@ _ZN3fmt2v86detail20thousands_sep_resultIcED2Ev.exit: ; preds = %_ZN3fmt2v86detai
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4: ; preds = %.body
   %73 = load i64, ptr %7, align 8, !tbaa !94
   %74 = add i64 %73, 1
-  call void @_ZdlPvm(ptr noundef %71, i64 noundef %74) #28
+  call void @_ZdlPvm(ptr noundef %71, i64 noundef %74) #30
   br label %_ZN3fmt2v86detail20thousands_sep_resultIcED2Ev.exit6
 
 _ZN3fmt2v86detail20thousands_sep_resultIcED2Ev.exit6: ; preds = %.body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4
@@ -39687,11 +39687,11 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail18thousands_sep_implIcEENS1_20
   br i1 %.not.i, label %6, label %5
 
 5:                                                ; preds = %2
-  call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %1) #27
+  call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %1) #29
   br label %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit
 
 6:                                                ; preds = %2
-  call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #27
+  call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
   br label %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit
 
 _ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit: ; preds = %5, %6
@@ -39699,7 +39699,7 @@ _ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit: ; preds = %5, %6
           to label %8 unwind label %33
 
 8:                                                ; preds = %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #27
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = load ptr, ptr %7, align 8, !tbaa !420, !noalias !481
@@ -39754,7 +39754,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %25, %
 33:                                               ; preds = %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #27
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %42
 
@@ -39769,7 +39769,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %25, %
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6: ; preds = %35
   %40 = load i64, ptr %38, align 8, !tbaa !94
   %41 = add i64 %40, 1
-  call void @_ZdlPvm(ptr noundef %37, i64 noundef %41) #28
+  call void @_ZdlPvm(ptr noundef %37, i64 noundef %41) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6
@@ -40039,7 +40039,7 @@ _ZNK3fmt2v86detail14digit_groupingIcE4nextERNS3_10next_stateE.exit.thread: ; pre
 57:                                               ; preds = %._crit_edge
   %58 = load i64, ptr %8, align 8, !tbaa !487
   %59 = shl i64 %58, 2
-  call void @_ZdlPvm(ptr noundef %56, i64 noundef %59) #28
+  call void @_ZdlPvm(ptr noundef %56, i64 noundef %59) #30
   br label %_ZN3fmt2v819basic_memory_bufferIiLm500ESaIiEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIiLm500ESaIiEED2Ev.exit: ; preds = %._crit_edge, %57
@@ -40138,7 +40138,7 @@ _ZN3fmt2v819basic_memory_bufferIiLm500ESaIiEED2Ev.exit: ; preds = %._crit_edge, 
 102:                                              ; preds = %100
   %103 = load i64, ptr %8, align 8, !tbaa !487
   %104 = shl i64 %103, 2
-  call void @_ZdlPvm(ptr noundef %101, i64 noundef %104) #28
+  call void @_ZdlPvm(ptr noundef %101, i64 noundef %104) #30
   br label %_ZN3fmt2v819basic_memory_bufferIiLm500ESaIiEED2Ev.exit39
 
 _ZN3fmt2v819basic_memory_bufferIiLm500ESaIiEED2Ev.exit39: ; preds = %100, %102
@@ -40173,11 +40173,11 @@ define linkonce_odr hidden void @_ZN3fmt2v819basic_memory_bufferIiLm500ESaIiEE4g
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %14
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #32
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #34
   unreachable
 
 17:                                               ; preds = %14
-  tail call void @_ZSt17__throw_bad_allocv() #32
+  tail call void @_ZSt17__throw_bad_allocv() #34
   unreachable
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit: ; preds = %8, %12
@@ -40185,7 +40185,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit: ; preds = %8, %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !485
   %20 = shl nuw nsw i64 %.026, 2
-  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #29
+  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #31
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i64, ptr %22, align 8, !tbaa !488
   %.not.i.i.i.i.i.i.i = icmp eq i64 %23, 0
@@ -40205,7 +40205,7 @@ _ZSt18uninitialized_copyIPiS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt16allocator_tr
 
 26:                                               ; preds = %_ZSt18uninitialized_copyIPiS0_ET0_T_S2_S1_.exit
   %27 = shl i64 %4, 2
-  tail call void @_ZdlPvm(ptr noundef %19, i64 noundef %27) #28
+  tail call void @_ZdlPvm(ptr noundef %19, i64 noundef %27) #30
   br label %28
 
 28:                                               ; preds = %26, %_ZSt18uninitialized_copyIPiS0_ET0_T_S2_S1_.exit
@@ -41068,11 +41068,11 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderE
   br i1 %.not.i.i.i, label %46, label %45
 
 45:                                               ; preds = %44
-  call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %4) #27
+  call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %4) #29
   br label %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit.i.i
 
 46:                                               ; preds = %44
-  call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #27
+  call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #29
   br label %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit.i.i
 
 _ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit.i.i: ; preds = %46, %45
@@ -41093,12 +41093,12 @@ common.resume:                                    ; preds = %295, %53
 53:                                               ; preds = %48, %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit.i.i
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #27
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN3fmt2v86detail13decimal_pointIcEET_NS1_10locale_refE.exit: ; preds = %48
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #27
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load i32, ptr %9, align 4, !tbaa !37
   br label %55
@@ -41384,7 +41384,7 @@ _ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_writ
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E0_EESD_SD_SK_mOT2_.exit
   %190 = load i64, ptr %188, align 8, !tbaa !94
   %191 = add i64 %190, 1
-  call void @_ZdlPvm(ptr noundef %187, i64 noundef %191) #28
+  call void @_ZdlPvm(ptr noundef %187, i64 noundef %191) #30
   br label %_ZN3fmt2v86detail14digit_groupingIcED2Ev.exit
 
 _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit:    ; preds = %_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E0_EESD_SD_SK_mOT2_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
@@ -41404,7 +41404,7 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit:    ; preds = %_ZN3fmt2v86detail12
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i85: ; preds = %192
   %197 = load i64, ptr %195, align 8, !tbaa !94
   %198 = add i64 %197, 1
-  call void @_ZdlPvm(ptr noundef %194, i64 noundef %198) #28
+  call void @_ZdlPvm(ptr noundef %194, i64 noundef %198) #30
   br label %_ZN3fmt2v86detail14digit_groupingIcED2Ev.exit87
 
 _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit87:  ; preds = %192, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i85
@@ -41513,7 +41513,7 @@ _ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_writ
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i102: ; preds = %_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E1_EESD_SD_SK_mOT2_.exit
   %243 = load i64, ptr %241, align 8, !tbaa !94
   %244 = add i64 %243, 1
-  call void @_ZdlPvm(ptr noundef %240, i64 noundef %244) #28
+  call void @_ZdlPvm(ptr noundef %240, i64 noundef %244) #30
   br label %_ZN3fmt2v86detail14digit_groupingIcED2Ev.exit104
 
 _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit104: ; preds = %_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E1_EESD_SD_SK_mOT2_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i102
@@ -41533,7 +41533,7 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit104: ; preds = %_ZN3fmt2v86detail12
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i105: ; preds = %245
   %250 = load i64, ptr %248, align 8, !tbaa !94
   %251 = add i64 %250, 1
-  call void @_ZdlPvm(ptr noundef %247, i64 noundef %251) #28
+  call void @_ZdlPvm(ptr noundef %247, i64 noundef %251) #30
   br label %_ZN3fmt2v86detail14digit_groupingIcED2Ev.exit107
 
 _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit107: ; preds = %245, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i105
@@ -42413,7 +42413,7 @@ _ZN3fmt2v86detail6fill_nINS0_8appenderEicEET_S4_T0_RKT1_.exit32: ; preds = %_ZNS
 
 97:                                               ; preds = %95
   %98 = load i64, ptr %53, align 8, !tbaa !424
-  call void @_ZdlPvm(ptr noundef %96, i64 noundef %98) #28
+  call void @_ZdlPvm(ptr noundef %96, i64 noundef %98) #30
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %95, %97
@@ -42438,7 +42438,7 @@ _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %95, %97
 
 105:                                              ; preds = %103
   %106 = load i64, ptr %53, align 8, !tbaa !424
-  call void @_ZdlPvm(ptr noundef %104, i64 noundef %106) #28
+  call void @_ZdlPvm(ptr noundef %104, i64 noundef %106) #30
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit34
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit34: ; preds = %103, %105
@@ -42900,7 +42900,7 @@ _ZN3fmt2v86detail17write_significandIcjTnNSt9enable_ifIXsr3std11is_integralIT0_E
 
 165:                                              ; preds = %163
   %166 = load i64, ptr %82, align 8, !tbaa !424
-  call void @_ZdlPvm(ptr noundef %164, i64 noundef %166) #28
+  call void @_ZdlPvm(ptr noundef %164, i64 noundef %166) #30
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %163, %165
@@ -42916,7 +42916,7 @@ _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %163, %165
 
 170:                                              ; preds = %167
   %171 = load i64, ptr %82, align 8, !tbaa !424
-  call void @_ZdlPvm(ptr noundef %169, i64 noundef %171) #28
+  call void @_ZdlPvm(ptr noundef %169, i64 noundef %171) #30
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit47
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit47: ; preds = %167, %170
@@ -43922,11 +43922,11 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderE
   br i1 %.not.i.i.i, label %47, label %46
 
 46:                                               ; preds = %45
-  call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %4) #27
+  call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %4) #29
   br label %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit.i.i
 
 47:                                               ; preds = %45
-  call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #27
+  call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #29
   br label %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit.i.i
 
 _ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit.i.i: ; preds = %47, %46
@@ -43947,12 +43947,12 @@ common.resume:                                    ; preds = %296, %54
 54:                                               ; preds = %49, %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit.i.i
   %55 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #27
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN3fmt2v86detail13decimal_pointIcEET_NS1_10locale_refE.exit: ; preds = %49
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #27
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load i32, ptr %9, align 4, !tbaa !37
   br label %56
@@ -44238,7 +44238,7 @@ _ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_writ
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E0_EESD_SD_SK_mOT2_.exit
   %191 = load i64, ptr %189, align 8, !tbaa !94
   %192 = add i64 %191, 1
-  call void @_ZdlPvm(ptr noundef %188, i64 noundef %192) #28
+  call void @_ZdlPvm(ptr noundef %188, i64 noundef %192) #30
   br label %_ZN3fmt2v86detail14digit_groupingIcED2Ev.exit
 
 _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit:    ; preds = %_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E0_EESD_SD_SK_mOT2_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
@@ -44258,7 +44258,7 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit:    ; preds = %_ZN3fmt2v86detail12
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i85: ; preds = %193
   %198 = load i64, ptr %196, align 8, !tbaa !94
   %199 = add i64 %198, 1
-  call void @_ZdlPvm(ptr noundef %195, i64 noundef %199) #28
+  call void @_ZdlPvm(ptr noundef %195, i64 noundef %199) #30
   br label %_ZN3fmt2v86detail14digit_groupingIcED2Ev.exit87
 
 _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit87:  ; preds = %193, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i85
@@ -44367,7 +44367,7 @@ _ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_writ
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i102: ; preds = %_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E1_EESD_SD_SK_mOT2_.exit
   %244 = load i64, ptr %242, align 8, !tbaa !94
   %245 = add i64 %244, 1
-  call void @_ZdlPvm(ptr noundef %241, i64 noundef %245) #28
+  call void @_ZdlPvm(ptr noundef %241, i64 noundef %245) #30
   br label %_ZN3fmt2v86detail14digit_groupingIcED2Ev.exit104
 
 _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit104: ; preds = %_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E1_EESD_SD_SK_mOT2_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i102
@@ -44387,7 +44387,7 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit104: ; preds = %_ZN3fmt2v86detail12
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i105: ; preds = %246
   %251 = load i64, ptr %249, align 8, !tbaa !94
   %252 = add i64 %251, 1
-  call void @_ZdlPvm(ptr noundef %248, i64 noundef %252) #28
+  call void @_ZdlPvm(ptr noundef %248, i64 noundef %252) #30
   br label %_ZN3fmt2v86detail14digit_groupingIcED2Ev.exit107
 
 _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit107: ; preds = %246, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i105
@@ -45077,7 +45077,7 @@ _ZN3fmt2v86detail6fill_nINS0_8appenderEicEET_S4_T0_RKT1_.exit32: ; preds = %_ZNS
 
 93:                                               ; preds = %91
   %94 = load i64, ptr %51, align 8, !tbaa !424
-  call void @_ZdlPvm(ptr noundef %92, i64 noundef %94) #28
+  call void @_ZdlPvm(ptr noundef %92, i64 noundef %94) #30
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %91, %93
@@ -45102,7 +45102,7 @@ _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %91, %93
 
 101:                                              ; preds = %99
   %102 = load i64, ptr %51, align 8, !tbaa !424
-  call void @_ZdlPvm(ptr noundef %100, i64 noundef %102) #28
+  call void @_ZdlPvm(ptr noundef %100, i64 noundef %102) #30
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit34
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit34: ; preds = %99, %101
@@ -45554,7 +45554,7 @@ _ZN3fmt2v86detail17write_significandIcmTnNSt9enable_ifIXsr3std11is_integralIT0_E
 
 155:                                              ; preds = %153
   %156 = load i64, ptr %77, align 8, !tbaa !424
-  call void @_ZdlPvm(ptr noundef %154, i64 noundef %156) #28
+  call void @_ZdlPvm(ptr noundef %154, i64 noundef %156) #30
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %153, %155
@@ -45570,7 +45570,7 @@ _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %153, %155
 
 160:                                              ; preds = %157
   %161 = load i64, ptr %77, align 8, !tbaa !424
-  call void @_ZdlPvm(ptr noundef %159, i64 noundef %161) #28
+  call void @_ZdlPvm(ptr noundef %159, i64 noundef %161) #30
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit47
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit47: ; preds = %157, %160
@@ -46060,19 +46060,19 @@ _ZZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17
 
 .noexc46:                                         ; preds = %143
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %6, align 8, !tbaa !420
-  %144 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  %144 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %144)
           to label %_ZN3fmt2v86detail18throw_format_errorEPKc.exit unwind label %145
 
 145:                                              ; preds = %.noexc46
   %146 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.body
 
 _ZN3fmt2v86detail18throw_format_errorEPKc.exit:   ; preds = %.noexc46
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %151
 
@@ -46133,7 +46133,7 @@ _ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17b
 
 166:                                              ; preds = %_ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EE.exit
   %167 = load i64, ptr %72, align 8, !tbaa !424
-  call void @_ZdlPvm(ptr noundef %165, i64 noundef %167) #28
+  call void @_ZdlPvm(ptr noundef %165, i64 noundef %167) #30
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %_ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EE.exit, %166
@@ -46148,7 +46148,7 @@ _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %_ZN3fmt2v86de
 
 169:                                              ; preds = %.body
   %170 = load i64, ptr %72, align 8, !tbaa !424
-  call void @_ZdlPvm(ptr noundef %168, i64 noundef %170) #28
+  call void @_ZdlPvm(ptr noundef %168, i64 noundef %170) #30
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit49
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit49: ; preds = %.body, %169
@@ -46241,19 +46241,19 @@ define linkonce_odr hidden i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13e
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.38)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %3, align 8, !tbaa !420
-  %48 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  %48 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %48)
           to label %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit unwind label %49
 
 49:                                               ; preds = %47
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %50
 
 _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit: ; preds = %47
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %51
 
@@ -46640,7 +46640,7 @@ _ZN3fmt2v86detail6bufferIcE10try_resizeEm.exit:   ; preds = %26, %31
 
 47:                                               ; preds = %45
   %48 = fptrunc x86_fp80 %0 to float
-  %49 = tail call i64 @_ZN3fmt2v86detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %48) #27
+  %49 = tail call i64 @_ZN3fmt2v86detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %48) #29
   %.sroa.010.0.extract.trunc = trunc i64 %49 to i32
   %.sroa.411.0.extract.shift = lshr i64 %49, 32
   %.sroa.411.0.extract.trunc = trunc nuw i64 %.sroa.411.0.extract.shift to i32
@@ -46759,7 +46759,7 @@ _ZN3fmt2v86detail14format_decimalIcjNS0_8appenderETnNSt9enable_ifIXntsr3std10is_
 
 112:                                              ; preds = %45
   %113 = fptrunc x86_fp80 %0 to double
-  %114 = tail call { i64, i32 } @_ZN3fmt2v86detail9dragonbox10to_decimalIdEENS2_10decimal_fpIT_EES5_(double noundef %113) #27
+  %114 = tail call { i64, i32 } @_ZN3fmt2v86detail9dragonbox10to_decimalIdEENS2_10decimal_fpIT_EES5_(double noundef %113) #29
   %115 = extractvalue { i64, i32 } %114, 0
   %116 = extractvalue { i64, i32 } %114, 1
   %117 = tail call ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEmTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_(ptr nonnull %3, i64 noundef %115)
@@ -47055,7 +47055,7 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail13format_dragonENS1_2fpEbiRNS1
   br i1 %.not8.i, label %41, label %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i
 
 _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i: ; preds = %39
-  %40 = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #29
+  %40 = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #31
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i
@@ -47346,7 +47346,7 @@ _ZN3fmt2v86detail6bigintmLImEERS2_T_.exit:        ; preds = %_ZN3fmt2v86detail6b
   br i1 %.not8.i162, label %145, label %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i583
 
 _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i583: ; preds = %143
-  %144 = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #29
+  %144 = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #31
           to label %.noexc166 unwind label %.loopexit.split-lp
 
 .noexc166:                                        ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i583
@@ -48385,7 +48385,7 @@ _ZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_.exit319: ; preds = %_ZZN3fmt
 610:                                              ; preds = %.loopexit
   %611 = load i64, ptr %27, align 8, !tbaa !612
   %612 = shl i64 %611, 2
-  call void @_ZdlPvm(ptr noundef %609, i64 noundef %612) #28
+  call void @_ZdlPvm(ptr noundef %609, i64 noundef %612) #30
   br label %_ZN3fmt2v86detail6bigintD2Ev.exit
 
 _ZN3fmt2v86detail6bigintD2Ev.exit:                ; preds = %.loopexit, %610
@@ -48397,7 +48397,7 @@ _ZN3fmt2v86detail6bigintD2Ev.exit:                ; preds = %.loopexit, %610
 614:                                              ; preds = %_ZN3fmt2v86detail6bigintD2Ev.exit
   %615 = load i64, ptr %22, align 8, !tbaa !612
   %616 = shl i64 %615, 2
-  call void @_ZdlPvm(ptr noundef %613, i64 noundef %616) #28
+  call void @_ZdlPvm(ptr noundef %613, i64 noundef %616) #30
   br label %_ZN3fmt2v86detail6bigintD2Ev.exit321
 
 _ZN3fmt2v86detail6bigintD2Ev.exit321:             ; preds = %_ZN3fmt2v86detail6bigintD2Ev.exit, %614
@@ -48409,7 +48409,7 @@ _ZN3fmt2v86detail6bigintD2Ev.exit321:             ; preds = %_ZN3fmt2v86detail6b
 618:                                              ; preds = %_ZN3fmt2v86detail6bigintD2Ev.exit321
   %619 = load i64, ptr %17, align 8, !tbaa !612
   %620 = shl i64 %619, 2
-  call void @_ZdlPvm(ptr noundef %617, i64 noundef %620) #28
+  call void @_ZdlPvm(ptr noundef %617, i64 noundef %620) #30
   br label %_ZN3fmt2v86detail6bigintD2Ev.exit323
 
 _ZN3fmt2v86detail6bigintD2Ev.exit323:             ; preds = %_ZN3fmt2v86detail6bigintD2Ev.exit321, %618
@@ -48421,7 +48421,7 @@ _ZN3fmt2v86detail6bigintD2Ev.exit323:             ; preds = %_ZN3fmt2v86detail6b
 622:                                              ; preds = %_ZN3fmt2v86detail6bigintD2Ev.exit323
   %623 = load i64, ptr %12, align 8, !tbaa !612
   %624 = shl i64 %623, 2
-  call void @_ZdlPvm(ptr noundef %621, i64 noundef %624) #28
+  call void @_ZdlPvm(ptr noundef %621, i64 noundef %624) #30
   br label %_ZN3fmt2v86detail6bigintD2Ev.exit325
 
 _ZN3fmt2v86detail6bigintD2Ev.exit325:             ; preds = %_ZN3fmt2v86detail6bigintD2Ev.exit323, %622
@@ -48437,7 +48437,7 @@ _ZN3fmt2v86detail6bigintD2Ev.exit325:             ; preds = %_ZN3fmt2v86detail6b
 627:                                              ; preds = %625
   %628 = load i64, ptr %27, align 8, !tbaa !612
   %629 = shl i64 %628, 2
-  call void @_ZdlPvm(ptr noundef %626, i64 noundef %629) #28
+  call void @_ZdlPvm(ptr noundef %626, i64 noundef %629) #30
   br label %_ZN3fmt2v86detail6bigintD2Ev.exit327
 
 _ZN3fmt2v86detail6bigintD2Ev.exit327:             ; preds = %627, %625
@@ -48449,7 +48449,7 @@ _ZN3fmt2v86detail6bigintD2Ev.exit327:             ; preds = %627, %625
 631:                                              ; preds = %_ZN3fmt2v86detail6bigintD2Ev.exit327
   %632 = load i64, ptr %22, align 8, !tbaa !612
   %633 = shl i64 %632, 2
-  call void @_ZdlPvm(ptr noundef %630, i64 noundef %633) #28
+  call void @_ZdlPvm(ptr noundef %630, i64 noundef %633) #30
   br label %_ZN3fmt2v86detail6bigintD2Ev.exit329
 
 _ZN3fmt2v86detail6bigintD2Ev.exit329:             ; preds = %631, %_ZN3fmt2v86detail6bigintD2Ev.exit327
@@ -48461,7 +48461,7 @@ _ZN3fmt2v86detail6bigintD2Ev.exit329:             ; preds = %631, %_ZN3fmt2v86de
 635:                                              ; preds = %_ZN3fmt2v86detail6bigintD2Ev.exit329
   %636 = load i64, ptr %17, align 8, !tbaa !612
   %637 = shl i64 %636, 2
-  call void @_ZdlPvm(ptr noundef %634, i64 noundef %637) #28
+  call void @_ZdlPvm(ptr noundef %634, i64 noundef %637) #30
   br label %_ZN3fmt2v86detail6bigintD2Ev.exit331
 
 _ZN3fmt2v86detail6bigintD2Ev.exit331:             ; preds = %635, %_ZN3fmt2v86detail6bigintD2Ev.exit329
@@ -48473,7 +48473,7 @@ _ZN3fmt2v86detail6bigintD2Ev.exit331:             ; preds = %635, %_ZN3fmt2v86de
 639:                                              ; preds = %_ZN3fmt2v86detail6bigintD2Ev.exit331
   %640 = load i64, ptr %12, align 8, !tbaa !612
   %641 = shl i64 %640, 2
-  call void @_ZdlPvm(ptr noundef %638, i64 noundef %641) #28
+  call void @_ZdlPvm(ptr noundef %638, i64 noundef %641) #30
   br label %_ZN3fmt2v86detail6bigintD2Ev.exit333
 
 _ZN3fmt2v86detail6bigintD2Ev.exit333:             ; preds = %_ZN3fmt2v86detail6bigintD2Ev.exit331, %639
@@ -49004,11 +49004,11 @@ define linkonce_odr hidden void @_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE4gr
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %14
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #32
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #34
   unreachable
 
 17:                                               ; preds = %14
-  tail call void @_ZSt17__throw_bad_allocv() #32
+  tail call void @_ZSt17__throw_bad_allocv() #34
   unreachable
 
 _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit: ; preds = %8, %12
@@ -49016,7 +49016,7 @@ _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit: ; preds = %8, %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !610
   %20 = shl nuw nsw i64 %.026, 2
-  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #29
+  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #31
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i64, ptr %22, align 8, !tbaa !618
   %.not.i.i.i.i.i.i.i = icmp eq i64 %23, 0
@@ -49036,7 +49036,7 @@ _ZSt18uninitialized_copyIPjS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt16allocator_tr
 
 26:                                               ; preds = %_ZSt18uninitialized_copyIPjS0_ET0_T_S2_S1_.exit
   %27 = shl i64 %4, 2
-  tail call void @_ZdlPvm(ptr noundef %19, i64 noundef %27) #28
+  tail call void @_ZdlPvm(ptr noundef %19, i64 noundef %27) #30
   br label %28
 
 28:                                               ; preds = %26, %_ZSt18uninitialized_copyIPjS0_ET0_T_S2_S1_.exit
@@ -49051,7 +49051,7 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail6bigint6squareEv(ptr noundef n
   %5 = trunc i64 %4 to i32
   %6 = shl nsw i32 %5, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull align 8 dereferenceable(168) %0) #27
+  call void @_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull align 8 dereferenceable(168) %0) #29
   %7 = zext i32 %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8, !tbaa !612
@@ -49234,7 +49234,7 @@ _ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE6resizeEm.exit: ; preds = %1, %.noex
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %85 = load i64, ptr %84, align 8, !tbaa !612
   %86 = shl i64 %85, 2
-  call void @_ZdlPvm(ptr noundef %81, i64 noundef %86) #28
+  call void @_ZdlPvm(ptr noundef %81, i64 noundef %86) #30
   br label %_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEED2Ev.exit: ; preds = %75, %83
@@ -49258,7 +49258,7 @@ _ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEED2Ev.exit: ; preds = %75, %83
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %95 = load i64, ptr %94, align 8, !tbaa !612
   %96 = shl i64 %95, 2
-  call void @_ZdlPvm(ptr noundef %91, i64 noundef %96) #28
+  call void @_ZdlPvm(ptr noundef %91, i64 noundef %96) #30
   br label %_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEED2Ev.exit47
 
 _ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEED2Ev.exit47: ; preds = %89, %93
@@ -49331,14 +49331,14 @@ _ZSt18uninitialized_copyIPjS0_ET0_T_S2_S1_.exit.i: ; preds = %16, %15, %13
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %29
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #32
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #34
           to label %.noexc9 unwind label %41
 
 .noexc9:                                          ; preds = %31
   unreachable
 
 32:                                               ; preds = %29
-  invoke void @_ZSt17__throw_bad_allocv() #32
+  invoke void @_ZSt17__throw_bad_allocv() #34
           to label %.noexc10 unwind label %41
 
 .noexc10:                                         ; preds = %32
@@ -49348,7 +49348,7 @@ _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i: ; preds = %27, %23
   %.026.i = phi i64 [ %.0.i, %27 ], [ %21, %23 ]
   %33 = load ptr, ptr %3, align 8, !tbaa !610
   %34 = shl nuw nsw i64 %.026.i, 2
-  %35 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %34) #29
+  %35 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %34) #31
           to label %_ZSt18uninitialized_copyIPjS0_ET0_T_S2_S1_.exit.i8 unwind label %41
 
 _ZSt18uninitialized_copyIPjS0_ET0_T_S2_S1_.exit.i8: ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i
@@ -49360,7 +49360,7 @@ _ZSt18uninitialized_copyIPjS0_ET0_T_S2_S1_.exit.i8: ; preds = %_ZNSt16allocator_
 
 37:                                               ; preds = %_ZSt18uninitialized_copyIPjS0_ET0_T_S2_S1_.exit.i8
   %38 = shl i64 %17, 2
-  tail call void @_ZdlPvm(ptr noundef %33, i64 noundef %38) #28
+  tail call void @_ZdlPvm(ptr noundef %33, i64 noundef %38) #30
   %.pre.i.i.i.pre = load i64, ptr %4, align 8, !tbaa !612
   br label %.noexc
 
@@ -49375,7 +49375,7 @@ _ZSt18uninitialized_copyIPjS0_ET0_T_S2_S1_.exit.i8: ; preds = %_ZNSt16allocator_
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #30
+  tail call void @__clang_call_terminate(ptr %43) #32
   unreachable
 }
 
@@ -49432,11 +49432,11 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderE
   br i1 %.not.i.i.i, label %38, label %37
 
 37:                                               ; preds = %36
-  call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %4) #27
+  call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %4) #29
   br label %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit.i.i
 
 38:                                               ; preds = %36
-  call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #27
+  call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #29
   br label %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit.i.i
 
 _ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit.i.i: ; preds = %38, %37
@@ -49457,12 +49457,12 @@ common.resume:                                    ; preds = %287, %45
 45:                                               ; preds = %40, %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit.i.i
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #27
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN3fmt2v86detail13decimal_pointIcEET_NS1_10locale_refE.exit: ; preds = %40
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #27
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load i32, ptr %9, align 4, !tbaa !37
   br label %47
@@ -49748,7 +49748,7 @@ _ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_writ
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_write_floatIS5_NS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_SA_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E0_EESB_SB_SI_mOT2_.exit
   %182 = load i64, ptr %180, align 8, !tbaa !94
   %183 = add i64 %182, 1
-  call void @_ZdlPvm(ptr noundef %179, i64 noundef %183) #28
+  call void @_ZdlPvm(ptr noundef %179, i64 noundef %183) #30
   br label %_ZN3fmt2v86detail14digit_groupingIcED2Ev.exit
 
 _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit:    ; preds = %_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_write_floatIS5_NS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_SA_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E0_EESB_SB_SI_mOT2_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
@@ -49768,7 +49768,7 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit:    ; preds = %_ZN3fmt2v86detail12
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i85: ; preds = %184
   %189 = load i64, ptr %187, align 8, !tbaa !94
   %190 = add i64 %189, 1
-  call void @_ZdlPvm(ptr noundef %186, i64 noundef %190) #28
+  call void @_ZdlPvm(ptr noundef %186, i64 noundef %190) #30
   br label %_ZN3fmt2v86detail14digit_groupingIcED2Ev.exit87
 
 _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit87:  ; preds = %184, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i85
@@ -49877,7 +49877,7 @@ _ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_writ
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i102: ; preds = %_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_write_floatIS5_NS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_SA_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E1_EESB_SB_SI_mOT2_.exit
   %235 = load i64, ptr %233, align 8, !tbaa !94
   %236 = add i64 %235, 1
-  call void @_ZdlPvm(ptr noundef %232, i64 noundef %236) #28
+  call void @_ZdlPvm(ptr noundef %232, i64 noundef %236) #30
   br label %_ZN3fmt2v86detail14digit_groupingIcED2Ev.exit104
 
 _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit104: ; preds = %_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_write_floatIS5_NS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_SA_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E1_EESB_SB_SI_mOT2_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i102
@@ -49897,7 +49897,7 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit104: ; preds = %_ZN3fmt2v86detail12
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i105: ; preds = %237
   %242 = load i64, ptr %240, align 8, !tbaa !94
   %243 = add i64 %242, 1
-  call void @_ZdlPvm(ptr noundef %239, i64 noundef %243) #28
+  call void @_ZdlPvm(ptr noundef %239, i64 noundef %243) #30
   br label %_ZN3fmt2v86detail14digit_groupingIcED2Ev.exit107
 
 _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit107: ; preds = %237, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i105
@@ -50573,7 +50573,7 @@ _ZN3fmt2v86detail6fill_nINS0_8appenderEicEET_S4_T0_RKT1_.exit40: ; preds = %_ZN3
 
 96:                                               ; preds = %94
   %97 = load i64, ptr %53, align 8, !tbaa !424
-  call void @_ZdlPvm(ptr noundef %95, i64 noundef %97) #28
+  call void @_ZdlPvm(ptr noundef %95, i64 noundef %97) #30
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %94, %96
@@ -50603,7 +50603,7 @@ _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %94, %96
 
 102:                                              ; preds = %100
   %103 = load i64, ptr %53, align 8, !tbaa !424
-  call void @_ZdlPvm(ptr noundef %101, i64 noundef %103) #28
+  call void @_ZdlPvm(ptr noundef %101, i64 noundef %103) #30
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit42
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit42: ; preds = %100, %102
@@ -50864,7 +50864,7 @@ _ZN3fmt2v86detail17write_significandINS0_8appenderEcEET_S4_PKciiT0_.exit27: ; pr
 
 67:                                               ; preds = %65
   %68 = load i64, ptr %33, align 8, !tbaa !424
-  call void @_ZdlPvm(ptr noundef %66, i64 noundef %68) #28
+  call void @_ZdlPvm(ptr noundef %66, i64 noundef %68) #30
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %65, %67
@@ -50880,7 +50880,7 @@ _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %65, %67
 
 72:                                               ; preds = %69
   %73 = load i64, ptr %33, align 8, !tbaa !424
-  call void @_ZdlPvm(ptr noundef %71, i64 noundef %73) #28
+  call void @_ZdlPvm(ptr noundef %71, i64 noundef %73) #30
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit29
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit29: ; preds = %69, %72
@@ -51095,24 +51095,24 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_P
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.57)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %3, align 8, !tbaa !420
-  %5 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  %5 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %5)
           to label %_ZN3fmt2v86detail18throw_format_errorEPKc.exit unwind label %6
 
 6:                                                ; preds = %4
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %7
 
 _ZN3fmt2v86detail18throw_format_errorEPKc.exit:   ; preds = %4
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %12
 
 8:                                                ; preds = %2
-  %9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #27
+  %9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %9
   %11 = tail call ptr @_ZN3fmt2v86detail17copy_str_noinlineIcPKcNS0_8appenderEEET1_T0_S7_S6_(ptr noundef nonnull %1, ptr noundef nonnull %10, ptr %0)
   br label %12
@@ -51137,19 +51137,19 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEvTnNSt9en
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.38)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %6, align 8, !tbaa !420
-  %10 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  %10 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %10)
           to label %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i unwind label %11
 
 11:                                               ; preds = %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %12
 
 _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i: ; preds = %9
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN3fmt2v86detail23check_pointer_type_specINS1_13error_handlerEEEvNS0_17presentation_typeEOT_.exit
 
@@ -51343,7 +51343,7 @@ define linkonce_odr hidden noundef ptr @_ZN3fmt2v86detail23parse_replacement_fie
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull @.str.59)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %12, align 8, !tbaa !420
-  %21 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #27
+  %21 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %21)
           to label %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit unwind label %22
 
@@ -51354,12 +51354,12 @@ common.resume:                                    ; preds = %206, %203, %120, %3
 22:                                               ; preds = %20
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 
 _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit: ; preds = %20
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %211
 
@@ -51385,19 +51385,19 @@ _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit: ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull @.str.62)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %11, align 8, !tbaa !420
-  %33 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #27
+  %33 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %33)
           to label %_ZN3fmt2v826basic_format_parse_contextIcNS0_6detail13error_handlerEE8on_errorEPKc.exit.i.i unwind label %34
 
 34:                                               ; preds = %32
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZN3fmt2v826basic_format_parse_contextIcNS0_6detail13error_handlerEE8on_errorEPKc.exit.i.i: ; preds = %32
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZZN3fmt2v86detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS3_ISE_EEEE4typeESE_EEEENS1_10locale_refEEN14format_handler9on_arg_idEv.exit
 
@@ -51604,19 +51604,19 @@ _ZZN3fmt2v86detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_E
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str.62)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %8, align 8, !tbaa !420
-  %119 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #27
+  %119 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %119)
           to label %_ZN3fmt2v826basic_format_parse_contextIcNS0_6detail13error_handlerEE8on_errorEPKc.exit.i.i.i unwind label %120
 
 120:                                              ; preds = %118
   %121 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN3fmt2v826basic_format_parse_contextIcNS0_6detail13error_handlerEE8on_errorEPKc.exit.i.i.i: ; preds = %118
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZZN3fmt2v86detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS4_ISF_EEEE4typeESF_EEEENS1_10locale_refEE14format_handlerEEPKS5_SS_SS_OT0_EN10id_adapterclEv.exit
 
@@ -51821,19 +51821,19 @@ _ZZN3fmt2v86detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_E
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.60)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %5, align 8, !tbaa !420
-  %202 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
+  %202 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %202)
           to label %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit101 unwind label %203
 
 203:                                              ; preds = %201
   %204 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit101: ; preds = %201
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %208
 
@@ -51841,19 +51841,19 @@ _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit101: ; preds = %201
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.61)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %4, align 8, !tbaa !420
-  %205 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  %205 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %205)
           to label %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit102 unwind label %206
 
 206:                                              ; preds = %.thread
   %207 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit102: ; preds = %.thread
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %208
 
@@ -51886,7 +51886,7 @@ define linkonce_odr hidden void @_ZZN3fmt2v86detail19parse_format_stringILb0EcZN
   %6 = ptrtoint ptr %2 to i64
   %7 = ptrtoint ptr %1 to i64
   %8 = sub i64 %6, %7
-  %9 = tail call noundef ptr @memchr(ptr noundef %1, i32 noundef 125, i64 noundef %8) #33
+  %9 = tail call noundef ptr @memchr(ptr noundef %1, i32 noundef 125, i64 noundef %8) #35
   %.not1619 = icmp eq ptr %9, null
   br i1 %.not1619, label %._crit_edge, label %.lr.ph
 
@@ -51918,19 +51918,19 @@ define linkonce_odr hidden void @_ZZN3fmt2v86detail19parse_format_stringILb0EcZN
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.58)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %4, align 8, !tbaa !420
-  %21 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  %21 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %21)
           to label %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit unwind label %22
 
 22:                                               ; preds = %20
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %23
 
 _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit: ; preds = %20
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
@@ -51946,7 +51946,7 @@ _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit: ; preds = %20
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %32 = ptrtoint ptr %31 to i64
   %33 = sub i64 %6, %32
-  %34 = tail call noundef ptr @memchr(ptr noundef nonnull %31, i32 noundef 125, i64 noundef %33) #33
+  %34 = tail call noundef ptr @memchr(ptr noundef nonnull %31, i32 noundef 125, i64 noundef %33) #35
   %.not16 = icmp eq ptr %34, null
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
@@ -52095,7 +52095,7 @@ _ZN3fmt2v816visit_format_argINS0_6detail16custom_formatterIcEENS0_20basic_format
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str.67)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %8, align 8, !tbaa !420
-  %76 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #27
+  %76 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %76)
           to label %_ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc.exit.i.i unwind label %77
 
@@ -52106,12 +52106,12 @@ common.resume:                                    ; preds = %235, %131, %94, %77
 77:                                               ; preds = %75
   %78 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc.exit.i.i: ; preds = %75
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE7on_hashEv.exit
 
@@ -52145,19 +52145,19 @@ thread-pre-split:                                 ; preds = %_ZN3fmt2v86detail13
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.67)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %7, align 8, !tbaa !420
-  %93 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  %93 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %93)
           to label %_ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc.exit.i.i62 unwind label %94
 
 94:                                               ; preds = %92
   %95 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc.exit.i.i62: ; preds = %92
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit.i
 
@@ -52258,19 +52258,19 @@ _ZN3fmt2v86detail18parse_format_specsIcRNS1_13specs_checkerINS1_13specs_handlerI
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.61)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %6, align 8, !tbaa !420
-  %130 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  %130 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %130)
           to label %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit unwind label %131
 
 131:                                              ; preds = %129
   %132 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit: ; preds = %129
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %133
 
@@ -52472,19 +52472,19 @@ _ZN3fmt2v86detail18make_write_int_argInEENS1_13write_int_argINSt11conditionalIXa
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.38)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %5, align 8, !tbaa !420
-  %234 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
+  %234 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %234)
           to label %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i.i unwind label %235
 
 235:                                              ; preds = %233
   %236 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i.i: ; preds = %233
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit
 
@@ -52563,19 +52563,19 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.thread: ; preds = 
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.32)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %4, align 8, !tbaa !420
-  %30 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  %30 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %30)
           to label %_ZN3fmt2v820basic_format_contextINS0_8appenderEcE8on_errorEPKc.exit unwind label %31
 
 31:                                               ; preds = %_ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.thread
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %32
 
 _ZN3fmt2v820basic_format_contextINS0_8appenderEcE8on_errorEPKc.exit: ; preds = %_ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.thread
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %33
 
@@ -52668,7 +52668,7 @@ _ZN3fmt2v86detail21parse_nonnegative_intIcEEiRPKT_S5_i.exit: ; preds = %38, %29,
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str.59)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %8, align 8, !tbaa !420
-  %45 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #27
+  %45 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %45)
           to label %_ZZN3fmt2v86detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS4_ISF_EEEE4typeESF_EEEENS1_10locale_refEE14format_handlerEEPKS5_SS_SS_OT0_EN10id_adapter8on_errorEPKc.exit unwind label %46
 
@@ -52679,12 +52679,12 @@ common.resume:                                    ; preds = %66, %55, %46
 46:                                               ; preds = %44
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZZN3fmt2v86detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS4_ISF_EEEE4typeESF_EEEENS1_10locale_refEE14format_handlerEEPKS5_SS_SS_OT0_EN10id_adapter8on_errorEPKc.exit: ; preds = %44
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %81
 
@@ -52699,19 +52699,19 @@ _ZZN3fmt2v86detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6buffer
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.63)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %7, align 8, !tbaa !420
-  %54 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  %54 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %54)
           to label %_ZN3fmt2v826basic_format_parse_contextIcNS0_6detail13error_handlerEE8on_errorEPKc.exit.i.i.i unwind label %55
 
 55:                                               ; preds = %53
   %56 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN3fmt2v826basic_format_parse_contextIcNS0_6detail13error_handlerEE8on_errorEPKc.exit.i.i.i: ; preds = %53
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZZN3fmt2v86detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS4_ISF_EEEE4typeESF_EEEENS1_10locale_refEE14format_handlerEEPKS5_SS_SS_OT0_EN10id_adapterclEi.exit
 
@@ -52741,19 +52741,19 @@ _ZZN3fmt2v86detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6buffer
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.59)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %6, align 8, !tbaa !420
-  %65 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  %65 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %65)
           to label %_ZZN3fmt2v86detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS4_ISF_EEEE4typeESF_EEEENS1_10locale_refEE14format_handlerEEPKS5_SS_SS_OT0_EN10id_adapter8on_errorEPKc.exit35 unwind label %66
 
 66:                                               ; preds = %64
   %67 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZZN3fmt2v86detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS4_ISF_EEEE4typeESF_EEEENS1_10locale_refEE14format_handlerEEPKS5_SS_SS_OT0_EN10id_adapter8on_errorEPKc.exit35: ; preds = %64
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %81
 
@@ -52818,7 +52818,7 @@ define linkonce_odr hidden noundef i32 @_ZZN3fmt2v86detail10vformat_toIcEEvRNS1_
   %.01116.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %23, %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i ]
   %17 = getelementptr inbounds nuw %"struct.fmt::v8::detail::named_arg_info", ptr %15, i64 %.01116.i.i
   %18 = load ptr, ptr %17, align 8, !tbaa !730
-  %19 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #27
+  %19 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #29
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %19, i64 %2)
   %20 = icmp eq i64 %..i.i.i.i, 0
   br i1 %20, label %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -52850,19 +52850,19 @@ _ZN3fmt2v820basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_view
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.32)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %4, align 8, !tbaa !420
-  %27 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  %27 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %27)
           to label %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit unwind label %28
 
 28:                                               ; preds = %_ZN3fmt2v820basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit.thread
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %29
 
 _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit: ; preds = %_ZN3fmt2v820basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit.thread
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %30
 
@@ -52955,19 +52955,19 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail13specs_handlerIcE8on_errorEPK
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %3, align 8, !tbaa !420
-  %4 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  %4 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %4)
           to label %_ZN3fmt2v820basic_format_contextINS0_8appenderEcE8on_errorEPKc.exit unwind label %5
 
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %6
 
 _ZN3fmt2v820basic_format_contextINS0_8appenderEcE8on_errorEPKc.exit: ; preds = %2
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -53018,7 +53018,7 @@ define linkonce_odr hidden noundef ptr @_ZN3fmt2v86detail11parse_alignIcRNS1_13s
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.64)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %5, align 8, !tbaa !420
-  %20 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
+  %20 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %20)
           to label %.thread unwind label %21
 
@@ -53029,12 +53029,12 @@ common.resume:                                    ; preds = %32, %21
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 .thread:                                          ; preds = %19
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit43
 
@@ -53051,19 +53051,19 @@ common.resume:                                    ; preds = %32, %21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.66)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %4, align 8, !tbaa !420
-  %31 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  %31 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %31)
           to label %_ZN3fmt2v86detail18throw_format_errorEPKc.exit.i.i unwind label %32
 
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN3fmt2v86detail18throw_format_errorEPKc.exit.i.i: ; preds = %30
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %40
 
@@ -53117,7 +53117,7 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail13specs_checkerINS1_13specs_ha
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.67)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %4, align 8, !tbaa !420
-  %10 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  %10 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %10)
           to label %_ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc.exit.i unwind label %11
 
@@ -53128,12 +53128,12 @@ common.resume:                                    ; preds = %18, %11
 11:                                               ; preds = %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc.exit.i: ; preds = %9
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pr = load i32, ptr %5, align 8, !tbaa !696
   %.pre = add i32 %.pr, -1
@@ -53156,19 +53156,19 @@ _ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argum
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.68)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %3, align 8, !tbaa !420
-  %17 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  %17 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %17)
           to label %_ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc.exit unwind label %18
 
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
 _ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc.exit: ; preds = %16
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %20
 
@@ -53257,7 +53257,7 @@ _ZN3fmt2v86detail21parse_nonnegative_intIcEEiRPKT_S5_i.exit.thread: ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.53)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %5, align 8, !tbaa !420
-  %39 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
+  %39 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %39)
           to label %_ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc.exit unwind label %40
 
@@ -53268,12 +53268,12 @@ common.resume:                                    ; preds = %57, %40
 40:                                               ; preds = %_ZN3fmt2v86detail21parse_nonnegative_intIcEEiRPKT_S5_i.exit.thread
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc.exit: ; preds = %_ZN3fmt2v86detail21parse_nonnegative_intIcEEiRPKT_S5_i.exit.thread
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %61
 
@@ -53322,19 +53322,19 @@ _ZN3fmt2v86detail12parse_arg_idIcZNS1_11parse_widthIcRNS1_13specs_checkerINS1_13
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.59)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %4, align 8, !tbaa !420
-  %56 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  %56 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %56)
           to label %_ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc.exit19 unwind label %57
 
 57:                                               ; preds = %55
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc.exit19: ; preds = %55
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %61
 
@@ -53428,7 +53428,7 @@ _ZN3fmt2v86detail21parse_nonnegative_intIcEEiRPKT_S5_i.exit.thread: ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.53)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %7, align 8, !tbaa !420
-  %45 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  %45 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %45)
           to label %_ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc.exit unwind label %46
 
@@ -53439,12 +53439,12 @@ common.resume:                                    ; preds = %74, %67, %64, %46
 46:                                               ; preds = %_ZN3fmt2v86detail21parse_nonnegative_intIcEEiRPKT_S5_i.exit.thread
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc.exit: ; preds = %_ZN3fmt2v86detail21parse_nonnegative_intIcEEiRPKT_S5_i.exit.thread
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %69
 
@@ -53495,19 +53495,19 @@ _ZN3fmt2v86detail12parse_arg_idIcZNS1_15parse_precisionIcRNS1_13specs_checkerINS
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.59)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %6, align 8, !tbaa !420
-  %63 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  %63 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %63)
           to label %_ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc.exit27 unwind label %64
 
 64:                                               ; preds = %62
   %65 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc.exit27: ; preds = %62
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE13end_precisionEv.exit
 
@@ -53515,19 +53515,19 @@ _ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc.exit27: ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.71)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %5, align 8, !tbaa !420
-  %66 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
+  %66 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %66)
           to label %_ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc.exit28 unwind label %67
 
 67:                                               ; preds = %.thread34
   %68 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc.exit28: ; preds = %.thread34
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE13end_precisionEv.exit
 
@@ -53551,19 +53551,19 @@ _ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc.exit28: ; preds = %.thread34
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.74)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %4, align 8, !tbaa !420
-  %73 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  %73 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %73)
           to label %_ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc.exit.i unwind label %74
 
 74:                                               ; preds = %72
   %75 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc.exit.i: ; preds = %72
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE13end_precisionEv.exit
 
@@ -53585,19 +53585,19 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail13specs_checkerINS1_13specs_ha
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.67)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %2, align 8, !tbaa !420
-  %8 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
+  %8 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %8)
           to label %_ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc.exit.i unwind label %9
 
 9:                                                ; preds = %7
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %10
 
 _ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc.exit.i: ; preds = %7
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit
 
@@ -53694,7 +53694,7 @@ _ZN3fmt2v86detail21parse_nonnegative_intIcEEiRPKT_S5_i.exit: ; preds = %37, %28,
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.59)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %7, align 8, !tbaa !420
-  %44 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  %44 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %44)
           to label %_ZZN3fmt2v86detail11parse_widthIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_EN13width_adapter8on_errorEPKc.exit unwind label %45
 
@@ -53705,12 +53705,12 @@ common.resume:                                    ; preds = %56, %45
 45:                                               ; preds = %43
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZZN3fmt2v86detail11parse_widthIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_EN13width_adapter8on_errorEPKc.exit: ; preds = %43
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %69
 
@@ -53736,19 +53736,19 @@ _ZZN3fmt2v86detail11parse_widthIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEE
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.59)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %6, align 8, !tbaa !420
-  %55 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  %55 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %55)
           to label %_ZZN3fmt2v86detail11parse_widthIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_EN13width_adapter8on_errorEPKc.exit35 unwind label %56
 
 56:                                               ; preds = %54
   %57 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZZN3fmt2v86detail11parse_widthIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_EN13width_adapter8on_errorEPKc.exit35: ; preds = %54
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %69
 
@@ -53798,19 +53798,19 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail13specs_handlerIcE16on_dynamic
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !742
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.63), !noalias !742
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %3, align 8, !tbaa !420, !noalias !742
-  %11 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27, !noalias !742
+  %11 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #29, !noalias !742
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %11)
           to label %_ZN3fmt2v826basic_format_parse_contextIcNS0_6detail13error_handlerEE8on_errorEPKc.exit.i.i unwind label %12, !noalias !742
 
 12:                                               ; preds = %10
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27, !noalias !742
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #29, !noalias !742
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !742
   resume { ptr, i32 } %13
 
 _ZN3fmt2v826basic_format_parse_contextIcNS0_6detail13error_handlerEE8on_errorEPKc.exit.i.i: ; preds = %10
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27, !noalias !742
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #29, !noalias !742
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !742
   br label %_ZN3fmt2v86detail13specs_handlerIcE7get_argEi.exit
 
@@ -53873,7 +53873,7 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail16get_dynamic_specINS1_
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull @.str.69)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %15, align 8, !tbaa !420
-  %22 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #27
+  %22 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %22)
           to label %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i unwind label %23
 
@@ -53884,12 +53884,12 @@ common.resume:                                    ; preds = %90, %85, %81, %77, 
 23:                                               ; preds = %21
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %common.resume
 
 _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i: ; preds = %21
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIiTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit
 
@@ -53911,19 +53911,19 @@ _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIiTnNSt9enable_ifIXsr10i
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull @.str.69)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %14, align 8, !tbaa !420
-  %33 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #27
+  %33 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %33)
           to label %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread23 unwind label %34
 
 34:                                               ; preds = %32
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %common.resume
 
 _ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread23: ; preds = %32
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %88
 
@@ -53941,19 +53941,19 @@ _ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull @.str.69)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %13, align 8, !tbaa !420
-  %42 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #27
+  %42 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %42)
           to label %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i3 unwind label %43
 
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %common.resume
 
 _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i3: ; preds = %41
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit
 
@@ -53966,19 +53966,19 @@ _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i3: ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull @.str.70)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %12, align 8, !tbaa !420
-  %48 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #27
+  %48 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %48)
           to label %_ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIbTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit unwind label %49
 
 49:                                               ; preds = %47
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 
 _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIbTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit: ; preds = %47
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
@@ -53986,19 +53986,19 @@ _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIbTnNSt9enable_ifIXntsr1
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull @.str.70)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %11, align 8, !tbaa !420
-  %52 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #27
+  %52 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %52)
           to label %_ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIcTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit unwind label %53
 
 53:                                               ; preds = %51
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIcTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit: ; preds = %51
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
@@ -54006,19 +54006,19 @@ _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIcTnNSt9enable_ifIXntsr1
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull @.str.70)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %10, align 8, !tbaa !420
-  %56 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #27
+  %56 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %56)
           to label %_ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIfTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit unwind label %57
 
 57:                                               ; preds = %55
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIfTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit: ; preds = %55
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
@@ -54026,19 +54026,19 @@ _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIfTnNSt9enable_ifIXntsr1
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.70)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %9, align 8, !tbaa !420
-  %60 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #27
+  %60 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %60)
           to label %_ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIdTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit unwind label %61
 
 61:                                               ; preds = %59
   %62 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIdTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit: ; preds = %59
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
@@ -54046,19 +54046,19 @@ _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIdTnNSt9enable_ifIXntsr1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str.70)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %8, align 8, !tbaa !420
-  %64 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #27
+  %64 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %64)
           to label %_ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIeTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit unwind label %65
 
 65:                                               ; preds = %63
   %66 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIeTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit: ; preds = %63
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
@@ -54066,19 +54066,19 @@ _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIeTnNSt9enable_ifIXntsr1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.70)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %7, align 8, !tbaa !420
-  %68 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  %68 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %68)
           to label %_ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIPKcTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS9_.exit unwind label %69
 
 69:                                               ; preds = %67
   %70 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIPKcTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS9_.exit: ; preds = %67
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
@@ -54086,19 +54086,19 @@ _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIPKcTnNSt9enable_ifIXnts
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.70)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %6, align 8, !tbaa !420
-  %72 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  %72 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %72)
           to label %_ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclINS0_17basic_string_viewIcEETnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS9_.exit unwind label %73
 
 73:                                               ; preds = %71
   %74 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclINS0_17basic_string_viewIcEETnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS9_.exit: ; preds = %71
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
@@ -54106,19 +54106,19 @@ _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclINS0_17basic_string_view
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.70)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %5, align 8, !tbaa !420
-  %76 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
+  %76 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %76)
           to label %_ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIPKvTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS9_.exit unwind label %77
 
 77:                                               ; preds = %75
   %78 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIPKvTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS9_.exit: ; preds = %75
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
@@ -54126,19 +54126,19 @@ _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIPKvTnNSt9enable_ifIXnts
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.70)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %4, align 8, !tbaa !420
-  %80 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  %80 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %80)
           to label %_ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclINS0_16basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEE6handleETnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEySD_.exit unwind label %81
 
 81:                                               ; preds = %79
   %82 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclINS0_16basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEE6handleETnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEySD_.exit: ; preds = %79
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
@@ -54146,19 +54146,19 @@ _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclINS0_16basic_format_argI
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.70)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %3, align 8, !tbaa !420
-  %84 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  %84 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %84)
           to label %_ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclINS0_9monostateETnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS8_.exit unwind label %85
 
 85:                                               ; preds = %83
   %86 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
 _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclINS0_9monostateETnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS8_.exit: ; preds = %83
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
@@ -54172,19 +54172,19 @@ _ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.53)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %2, align 8, !tbaa !420
-  %89 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
+  %89 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %89)
           to label %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit unwind label %90
 
 90:                                               ; preds = %88
   %91 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %common.resume
 
 _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit: ; preds = %88
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
@@ -54228,7 +54228,7 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail13specs_handlerIcE16on_dynamic
   %.01116.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %26, %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i ]
   %20 = getelementptr inbounds nuw %"struct.fmt::v8::detail::named_arg_info", ptr %18, i64 %.01116.i.i
   %21 = load ptr, ptr %20, align 8, !tbaa !730, !noalias !752
-  %22 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #27, !noalias !752
+  %22 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #29, !noalias !752
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %22, i64 %2)
   %23 = icmp eq i64 %..i.i.i.i, 0
   br i1 %23, label %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -54303,19 +54303,19 @@ _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3get
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !758
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.32)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %4, align 8, !tbaa !420, !noalias !758
-  %51 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  %51 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %51)
           to label %_ZN3fmt2v820basic_format_contextINS0_8appenderEcE8on_errorEPKc.exit.i.i unwind label %52
 
 52:                                               ; preds = %_ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !758
   resume { ptr, i32 } %53
 
 _ZN3fmt2v820basic_format_contextINS0_8appenderEcE8on_errorEPKc.exit.i.i: ; preds = %_ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !758
   br label %_ZN3fmt2v86detail13specs_handlerIcE7get_argENS0_17basic_string_viewIcEE.exit
 
@@ -54348,19 +54348,19 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail13specs_handlerIcE16on_dynamic
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !759
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.62), !noalias !759
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %2, align 8, !tbaa !420, !noalias !759
-  %14 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #27, !noalias !759
+  %14 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #29, !noalias !759
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %14)
           to label %_ZN3fmt2v826basic_format_parse_contextIcNS0_6detail13error_handlerEE8on_errorEPKc.exit.i.i unwind label %15, !noalias !759
 
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27, !noalias !759
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #29, !noalias !759
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !759
   resume { ptr, i32 } %16
 
 _ZN3fmt2v826basic_format_parse_contextIcNS0_6detail13error_handlerEE8on_errorEPKc.exit.i.i: ; preds = %13
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27, !noalias !759
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #29, !noalias !759
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !759
   br label %_ZN3fmt2v86detail13specs_handlerIcE7get_argENS1_7auto_idE.exit
 
@@ -54457,7 +54457,7 @@ _ZN3fmt2v86detail21parse_nonnegative_intIcEEiRPKT_S5_i.exit: ; preds = %37, %28,
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.59)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %7, align 8, !tbaa !420
-  %44 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  %44 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %44)
           to label %_ZZN3fmt2v86detail15parse_precisionIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_EN17precision_adapter8on_errorEPKc.exit unwind label %45
 
@@ -54468,12 +54468,12 @@ common.resume:                                    ; preds = %56, %45
 45:                                               ; preds = %43
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZZN3fmt2v86detail15parse_precisionIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_EN17precision_adapter8on_errorEPKc.exit: ; preds = %43
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %69
 
@@ -54499,19 +54499,19 @@ _ZZN3fmt2v86detail15parse_precisionIcRNS1_13specs_checkerINS1_13specs_handlerIcE
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.59)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %6, align 8, !tbaa !420
-  %55 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  %55 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %55)
           to label %_ZZN3fmt2v86detail15parse_precisionIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_EN17precision_adapter8on_errorEPKc.exit35 unwind label %56
 
 56:                                               ; preds = %54
   %57 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZZN3fmt2v86detail15parse_precisionIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_EN17precision_adapter8on_errorEPKc.exit35: ; preds = %54
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %69
 
@@ -54561,19 +54561,19 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail13specs_handlerIcE20on_dynamic
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !765
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.63), !noalias !765
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %3, align 8, !tbaa !420, !noalias !765
-  %11 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27, !noalias !765
+  %11 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #29, !noalias !765
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %11)
           to label %_ZN3fmt2v826basic_format_parse_contextIcNS0_6detail13error_handlerEE8on_errorEPKc.exit.i.i unwind label %12, !noalias !765
 
 12:                                               ; preds = %10
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27, !noalias !765
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #29, !noalias !765
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !765
   resume { ptr, i32 } %13
 
 _ZN3fmt2v826basic_format_parse_contextIcNS0_6detail13error_handlerEE8on_errorEPKc.exit.i.i: ; preds = %10
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27, !noalias !765
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #29, !noalias !765
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !765
   br label %_ZN3fmt2v86detail13specs_handlerIcE7get_argEi.exit
 
@@ -54637,7 +54637,7 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail16get_dynamic_specINS1_
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull @.str.72)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %15, align 8, !tbaa !420
-  %22 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #27
+  %22 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %22)
           to label %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i unwind label %23
 
@@ -54648,12 +54648,12 @@ common.resume:                                    ; preds = %90, %85, %81, %77, 
 23:                                               ; preds = %21
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %common.resume
 
 _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i: ; preds = %21
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIiTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit
 
@@ -54675,19 +54675,19 @@ _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIiTnNSt9enable_ifIXs
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull @.str.72)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %14, align 8, !tbaa !420
-  %33 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #27
+  %33 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %33)
           to label %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread23 unwind label %34
 
 34:                                               ; preds = %32
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %common.resume
 
 _ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread23: ; preds = %32
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %88
 
@@ -54705,19 +54705,19 @@ _ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerE
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull @.str.72)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %13, align 8, !tbaa !420
-  %42 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #27
+  %42 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %42)
           to label %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i3 unwind label %43
 
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %common.resume
 
 _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i3: ; preds = %41
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit
 
@@ -54730,19 +54730,19 @@ _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i3: ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull @.str.73)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %12, align 8, !tbaa !420
-  %48 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #27
+  %48 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %48)
           to label %_ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIbTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit unwind label %49
 
 49:                                               ; preds = %47
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 
 _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIbTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit: ; preds = %47
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
@@ -54750,19 +54750,19 @@ _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIbTnNSt9enable_ifIXn
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull @.str.73)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %11, align 8, !tbaa !420
-  %52 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #27
+  %52 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %52)
           to label %_ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIcTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit unwind label %53
 
 53:                                               ; preds = %51
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIcTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit: ; preds = %51
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
@@ -54770,19 +54770,19 @@ _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIcTnNSt9enable_ifIXn
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull @.str.73)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %10, align 8, !tbaa !420
-  %56 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #27
+  %56 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %56)
           to label %_ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIfTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit unwind label %57
 
 57:                                               ; preds = %55
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIfTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit: ; preds = %55
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
@@ -54790,19 +54790,19 @@ _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIfTnNSt9enable_ifIXn
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.73)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %9, align 8, !tbaa !420
-  %60 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #27
+  %60 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %60)
           to label %_ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIdTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit unwind label %61
 
 61:                                               ; preds = %59
   %62 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIdTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit: ; preds = %59
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
@@ -54810,19 +54810,19 @@ _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIdTnNSt9enable_ifIXn
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str.73)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %8, align 8, !tbaa !420
-  %64 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #27
+  %64 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %64)
           to label %_ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIeTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit unwind label %65
 
 65:                                               ; preds = %63
   %66 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIeTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit: ; preds = %63
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
@@ -54830,19 +54830,19 @@ _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIeTnNSt9enable_ifIXn
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.73)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %7, align 8, !tbaa !420
-  %68 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  %68 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %68)
           to label %_ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIPKcTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS9_.exit unwind label %69
 
 69:                                               ; preds = %67
   %70 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIPKcTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS9_.exit: ; preds = %67
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
@@ -54850,19 +54850,19 @@ _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIPKcTnNSt9enable_ifI
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.73)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %6, align 8, !tbaa !420
-  %72 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  %72 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %72)
           to label %_ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclINS0_17basic_string_viewIcEETnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS9_.exit unwind label %73
 
 73:                                               ; preds = %71
   %74 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclINS0_17basic_string_viewIcEETnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS9_.exit: ; preds = %71
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
@@ -54870,19 +54870,19 @@ _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclINS0_17basic_string_
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.73)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %5, align 8, !tbaa !420
-  %76 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
+  %76 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %76)
           to label %_ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIPKvTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS9_.exit unwind label %77
 
 77:                                               ; preds = %75
   %78 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIPKvTnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS9_.exit: ; preds = %75
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
@@ -54890,19 +54890,19 @@ _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIPKvTnNSt9enable_ifI
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.73)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %4, align 8, !tbaa !420
-  %80 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  %80 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %80)
           to label %_ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclINS0_16basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEE6handleETnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEySD_.exit unwind label %81
 
 81:                                               ; preds = %79
   %82 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclINS0_16basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEE6handleETnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEySD_.exit: ; preds = %79
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
@@ -54910,19 +54910,19 @@ _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclINS0_16basic_format_
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.73)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %3, align 8, !tbaa !420
-  %84 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  %84 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %84)
           to label %_ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclINS0_9monostateETnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS8_.exit unwind label %85
 
 85:                                               ; preds = %83
   %86 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
 _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclINS0_9monostateETnNSt9enable_ifIXntsr10is_integerIT_EE5valueEiE4typeELi0EEEyS8_.exit: ; preds = %83
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
@@ -54936,19 +54936,19 @@ _ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerE
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.53)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %2, align 8, !tbaa !420
-  %89 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
+  %89 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %89)
           to label %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit unwind label %90
 
 90:                                               ; preds = %88
   %91 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %common.resume
 
 _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit: ; preds = %88
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
@@ -54992,7 +54992,7 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail13specs_handlerIcE20on_dynamic
   %.01116.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %26, %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i ]
   %20 = getelementptr inbounds nuw %"struct.fmt::v8::detail::named_arg_info", ptr %18, i64 %.01116.i.i
   %21 = load ptr, ptr %20, align 8, !tbaa !730, !noalias !774
-  %22 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #27, !noalias !774
+  %22 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #29, !noalias !774
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %22, i64 %2)
   %23 = icmp eq i64 %..i.i.i.i, 0
   br i1 %23, label %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -55067,19 +55067,19 @@ _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3get
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !780
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.32)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %4, align 8, !tbaa !420, !noalias !780
-  %51 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  %51 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %51)
           to label %_ZN3fmt2v820basic_format_contextINS0_8appenderEcE8on_errorEPKc.exit.i.i unwind label %52
 
 52:                                               ; preds = %_ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !780
   resume { ptr, i32 } %53
 
 _ZN3fmt2v820basic_format_contextINS0_8appenderEcE8on_errorEPKc.exit.i.i: ; preds = %_ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !780
   br label %_ZN3fmt2v86detail13specs_handlerIcE7get_argENS0_17basic_string_viewIcEE.exit
 
@@ -55113,19 +55113,19 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail13specs_handlerIcE20on_dynamic
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !781
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.62), !noalias !781
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %2, align 8, !tbaa !420, !noalias !781
-  %14 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #27, !noalias !781
+  %14 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #29, !noalias !781
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %14)
           to label %_ZN3fmt2v826basic_format_parse_contextIcNS0_6detail13error_handlerEE8on_errorEPKc.exit.i.i unwind label %15, !noalias !781
 
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27, !noalias !781
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #29, !noalias !781
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !781
   resume { ptr, i32 } %16
 
 _ZN3fmt2v826basic_format_parse_contextIcNS0_6detail13error_handlerEE8on_errorEPKc.exit.i.i: ; preds = %13
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27, !noalias !781
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #29, !noalias !781
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !781
   br label %_ZN3fmt2v86detail13specs_handlerIcE7get_argENS1_7auto_idE.exit
 
@@ -55186,7 +55186,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail18write_int_noinlineIcNS0_8appe
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %24
   %28 = load i64, ptr %26, align 8, !tbaa !94
   %29 = add i64 %28, 1
-  call void @_ZdlPvm(ptr noundef %25, i64 noundef %29) #28
+  call void @_ZdlPvm(ptr noundef %25, i64 noundef %29) #30
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
 
 30:                                               ; preds = %22
@@ -55200,7 +55200,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i9.i: ; preds = %30
   %35 = load i64, ptr %33, align 8, !tbaa !94
   %36 = add i64 %35, 1
-  call void @_ZdlPvm(ptr noundef %32, i64 noundef %36) #28
+  call void @_ZdlPvm(ptr noundef %32, i64 noundef %36) #30
   br label %_ZN3fmt2v86detail14digit_groupingIcED2Ev.exit11.i
 
 common.resume:                                    ; preds = %562, %_ZN3fmt2v86detail14digit_groupingIcED2Ev.exit11.i
@@ -56299,19 +56299,19 @@ _ZZN3fmt2v86detail10write_charIcNS0_8appenderEEET0_S4_T_RKNS0_18basic_format_spe
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str.38)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %8, align 8, !tbaa !420
-  %561 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #27
+  %561 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %561)
           to label %_ZN3fmt2v86detail18throw_format_errorEPKc.exit unwind label %562
 
 562:                                              ; preds = %560
   %563 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN3fmt2v86detail18throw_format_errorEPKc.exit:   ; preds = %560
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN3fmt2v86detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE.exit
 
@@ -56690,7 +56690,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail18write_int_noinlineIcNS0_8appe
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %23
   %27 = load i64, ptr %25, align 8, !tbaa !94
   %28 = add i64 %27, 1
-  call void @_ZdlPvm(ptr noundef %24, i64 noundef %28) #28
+  call void @_ZdlPvm(ptr noundef %24, i64 noundef %28) #30
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
 
 29:                                               ; preds = %21
@@ -56704,7 +56704,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i12.i: ; preds = %29
   %34 = load i64, ptr %32, align 8, !tbaa !94
   %35 = add i64 %34, 1
-  call void @_ZdlPvm(ptr noundef %31, i64 noundef %35) #28
+  call void @_ZdlPvm(ptr noundef %31, i64 noundef %35) #30
   br label %_ZN3fmt2v86detail14digit_groupingIcED2Ev.exit14.i
 
 common.resume:                                    ; preds = %572, %_ZN3fmt2v86detail14digit_groupingIcED2Ev.exit14.i
@@ -57834,19 +57834,19 @@ _ZZN3fmt2v86detail10write_charIcNS0_8appenderEEET0_S4_T_RKNS0_18basic_format_spe
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.38)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %7, align 8, !tbaa !420
-  %571 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  %571 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %571)
           to label %_ZN3fmt2v86detail18throw_format_errorEPKc.exit unwind label %572
 
 572:                                              ; preds = %570
   %573 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN3fmt2v86detail18throw_format_errorEPKc.exit:   ; preds = %570
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN3fmt2v86detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE.exit
 
@@ -58518,7 +58518,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3fmt2v86detail16check_char_spe
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.38)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %4, align 8, !tbaa !420
-  %8 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  %8 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %8)
           to label %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i unwind label %9
 
@@ -58529,12 +58529,12 @@ common.resume:                                    ; preds = %20, %9
 9:                                                ; preds = %7
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i: ; preds = %7
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3fmt2v86detail19check_int_type_specIRNS1_13error_handlerEEEvNS0_17presentation_typeEOT_.exit
 
@@ -58552,19 +58552,19 @@ _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i: ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.75)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %3, align 8, !tbaa !420
-  %19 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  %19 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %19)
           to label %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit unwind label %20
 
 20:                                               ; preds = %18
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
 _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit: ; preds = %18
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN3fmt2v86detail19check_int_type_specIRNS1_13error_handlerEEEvNS0_17presentation_typeEOT_.exit
 
@@ -58863,19 +58863,19 @@ _ZZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17
 
 .noexc46:                                         ; preds = %144
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %6, align 8, !tbaa !420
-  %145 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  %145 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %145)
           to label %_ZN3fmt2v86detail18throw_format_errorEPKc.exit unwind label %146
 
 146:                                              ; preds = %.noexc46
   %147 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.body
 
 _ZN3fmt2v86detail18throw_format_errorEPKc.exit:   ; preds = %.noexc46
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %152
 
@@ -58937,7 +58937,7 @@ _ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17b
 
 168:                                              ; preds = %_ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EE.exit
   %169 = load i64, ptr %72, align 8, !tbaa !424
-  call void @_ZdlPvm(ptr noundef %167, i64 noundef %169) #28
+  call void @_ZdlPvm(ptr noundef %167, i64 noundef %169) #30
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %_ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EE.exit, %168
@@ -58952,7 +58952,7 @@ _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %_ZN3fmt2v86de
 
 171:                                              ; preds = %.body
   %172 = load i64, ptr %72, align 8, !tbaa !424
-  call void @_ZdlPvm(ptr noundef %170, i64 noundef %172) #28
+  call void @_ZdlPvm(ptr noundef %170, i64 noundef %172) #30
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit49
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit49: ; preds = %.body, %171
@@ -59339,7 +59339,7 @@ _ZN3fmt2v86detail6bufferIcE10try_resizeEm.exit:   ; preds = %27, %32
 
 48:                                               ; preds = %46
   %49 = fptrunc double %0 to float
-  %50 = tail call i64 @_ZN3fmt2v86detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %49) #27
+  %50 = tail call i64 @_ZN3fmt2v86detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %49) #29
   %.sroa.040.0.extract.trunc = trunc i64 %50 to i32
   %.sroa.441.0.extract.shift = lshr i64 %50, 32
   %.sroa.441.0.extract.trunc = trunc nuw i64 %.sroa.441.0.extract.shift to i32
@@ -59457,7 +59457,7 @@ _ZN3fmt2v86detail14format_decimalIcjNS0_8appenderETnNSt9enable_ifIXntsr3std10is_
   br label %_ZN3fmt2v86detail5writeIcNS0_8appenderEjTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_.exit
 
 113:                                              ; preds = %46
-  %114 = tail call { i64, i32 } @_ZN3fmt2v86detail9dragonbox10to_decimalIdEENS2_10decimal_fpIT_EES5_(double noundef %0) #27
+  %114 = tail call { i64, i32 } @_ZN3fmt2v86detail9dragonbox10to_decimalIdEENS2_10decimal_fpIT_EES5_(double noundef %0) #29
   %115 = extractvalue { i64, i32 } %114, 0
   %116 = extractvalue { i64, i32 } %114, 1
   %117 = tail call ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEmTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_(ptr nonnull %3, i64 noundef %115)
@@ -59549,19 +59549,19 @@ _ZN3fmt2v86detail9normalizeILi0EEENS1_2fpES3_.exit: ; preds = %.lr.ph.i, %_ZN3fm
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.53)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %6, align 8, !tbaa !420
-  %180 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  %180 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %180)
           to label %181 unwind label %182
 
 181:                                              ; preds = %179
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %184
 
 182:                                              ; preds = %179
   %183 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %183
 
@@ -60289,19 +60289,19 @@ _ZZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17
 
 .noexc46:                                         ; preds = %143
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %6, align 8, !tbaa !420
-  %144 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  %144 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %144)
           to label %_ZN3fmt2v86detail18throw_format_errorEPKc.exit unwind label %145
 
 145:                                              ; preds = %.noexc46
   %146 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.body
 
 _ZN3fmt2v86detail18throw_format_errorEPKc.exit:   ; preds = %.noexc46
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %151
 
@@ -60361,7 +60361,7 @@ _ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17b
 
 165:                                              ; preds = %_ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EE.exit
   %166 = load i64, ptr %72, align 8, !tbaa !424
-  call void @_ZdlPvm(ptr noundef %164, i64 noundef %166) #28
+  call void @_ZdlPvm(ptr noundef %164, i64 noundef %166) #30
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %_ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EE.exit, %165
@@ -60376,7 +60376,7 @@ _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %_ZN3fmt2v86de
 
 168:                                              ; preds = %.body
   %169 = load i64, ptr %72, align 8, !tbaa !424
-  call void @_ZdlPvm(ptr noundef %167, i64 noundef %169) #28
+  call void @_ZdlPvm(ptr noundef %167, i64 noundef %169) #30
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit49
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit49: ; preds = %.body, %168
@@ -60405,7 +60405,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_P
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.38)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %7, align 8, !tbaa !420
-  %11 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  %11 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %11)
           to label %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i unwind label %12
 
@@ -60416,12 +60416,12 @@ common.resume:                                    ; preds = %21, %12
 12:                                               ; preds = %10
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i: ; preds = %10
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN3fmt2v86detail23check_cstring_type_specINS1_13error_handlerEEEbNS0_17presentation_typeEOT_.exit
 
@@ -60431,7 +60431,7 @@ _ZN3fmt2v86detail23check_cstring_type_specINS1_13error_handlerEEEbNS0_17presenta
   br i1 %or.cond.i, label %15, label %24
 
 15:                                               ; preds = %_ZN3fmt2v86detail23check_cstring_type_specINS1_13error_handlerEEEbNS0_17presentation_typeEOT_.exit
-  %16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #27
+  %16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
   %17 = load i8, ptr %8, align 4, !tbaa !447
   %18 = and i8 %17, -17
   %or.cond.not.i.i = icmp eq i8 %18, 0
@@ -60441,19 +60441,19 @@ _ZN3fmt2v86detail23check_cstring_type_specINS1_13error_handlerEEEbNS0_17presenta
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.38)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %6, align 8, !tbaa !420
-  %20 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  %20 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %20)
           to label %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i.i unwind label %21
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i.i: ; preds = %19
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit
 
@@ -60794,10 +60794,10 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail12fwrite_fullyEPKvmmP8_IO_FILE
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %11 = tail call ptr @__errno_location() #34
+  %11 = tail call ptr @__errno_location() #36
   %12 = load i32, ptr %11, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !850
-  %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #34
+  %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #36
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !853
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull @.str.77, i64 20, i64 0, ptr nonnull %6), !noalias !853
   invoke void @_ZNSt12system_errorC2ESt10error_codeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 %12, ptr nonnull %13, ptr noundef nonnull align 8 dereferenceable(32) %5)
@@ -60812,7 +60812,7 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail12fwrite_fullyEPKvmmP8_IO_FILE
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %14
   %18 = load i64, ptr %16, align 8, !tbaa !94, !noalias !853
   %19 = add i64 %18, 1
-  call void @_ZdlPvm(ptr noundef %15, i64 noundef %19) #28
+  call void @_ZdlPvm(ptr noundef %15, i64 noundef %19) #30
   br label %_ZN3fmt2v812system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_.exit
 
 20:                                               ; preds = %10
@@ -60826,7 +60826,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11.i.i: ; preds = %20
   %25 = load i64, ptr %23, align 8, !tbaa !94, !noalias !853
   %26 = add i64 %25, 1
-  call void @_ZdlPvm(ptr noundef %22, i64 noundef %26) #28
+  call void @_ZdlPvm(ptr noundef %22, i64 noundef %26) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13.i.i
 
 common.resume:                                    ; preds = %29, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13.i.i
@@ -60840,19 +60840,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13.i.i: ; preds = 
 _ZN3fmt2v812system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_.exit: ; preds = %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !853
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !850
-  %27 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  %27 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %27)
           to label %28 unwind label %29
 
 28:                                               ; preds = %_ZN3fmt2v812system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_.exit
-  call void @_ZNSt12system_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #27
+  call void @_ZNSt12system_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %31
 
 29:                                               ; preds = %_ZN3fmt2v812system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_.exit
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12system_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #27
+  call void @_ZNSt12system_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
@@ -60902,7 +60902,7 @@ define linkonce_odr hidden void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_vi
   br i1 %or.cond.i.i, label %.noexc.i, label %19
 
 .noexc.i:                                         ; preds = %12
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.78) #32
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.78) #34
           to label %.noexc unwind label %35
 
 .noexc:                                           ; preds = %.noexc.i
@@ -60954,7 +60954,7 @@ define linkonce_odr hidden void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_vi
 
 33:                                               ; preds = %27
   %34 = load i64, ptr %9, align 8, !tbaa !424
-  call void @_ZdlPvm(ptr noundef %32, i64 noundef %34) #28
+  call void @_ZdlPvm(ptr noundef %32, i64 noundef %34) #30
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %27, %33
@@ -60970,7 +60970,7 @@ _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %27, %33
 
 38:                                               ; preds = %35
   %39 = load i64, ptr %9, align 8, !tbaa !424
-  call void @_ZdlPvm(ptr noundef %37, i64 noundef %39) #28
+  call void @_ZdlPvm(ptr noundef %37, i64 noundef %39) #30
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit9
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit9: ; preds = %35, %38
@@ -61034,7 +61034,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   br i1 %26, label %27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
 
 27:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.82) #32
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.82) #34
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %27
@@ -61054,7 +61054,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %29
   %33 = load i64, ptr %9, align 8, !tbaa !94, !alias.scope !859
   %34 = add i64 %33, 1
-  call void @_ZdlPvm(ptr noundef %31, i64 noundef %34) #28
+  call void @_ZdlPvm(ptr noundef %31, i64 noundef %34) #30
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
@@ -61150,7 +61150,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   br i1 %73, label %74, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i
 
 74:                                               ; preds = %71
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.82) #32
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.82) #34
           to label %.noexc7 unwind label %108
 
 .noexc7:                                          ; preds = %74
@@ -61207,7 +61207,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9: ; preds = %90
   %94 = load i64, ptr %92, align 8, !tbaa !94
   %95 = add i64 %94, 1
-  call void @_ZdlPvm(ptr noundef %91, i64 noundef %95) #28
+  call void @_ZdlPvm(ptr noundef %91, i64 noundef %95) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %90, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9
@@ -61219,7 +61219,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %90, %
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %99 = load i64, ptr %97, align 8, !tbaa !94
   %100 = add i64 %99, 1
-  call void @_ZdlPvm(ptr noundef %96, i64 noundef %100) #28
+  call void @_ZdlPvm(ptr noundef %96, i64 noundef %100) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
@@ -61231,7 +61231,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %_ZN
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12
   %103 = load i64, ptr %9, align 8, !tbaa !94
   %104 = add i64 %103, 1
-  call void @_ZdlPvm(ptr noundef %101, i64 noundef %104) #28
+  call void @_ZdlPvm(ptr noundef %101, i64 noundef %104) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
@@ -61265,7 +61265,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZN
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16: ; preds = %110
   %115 = load i64, ptr %113, align 8, !tbaa !94
   %116 = add i64 %115, 1
-  call void @_ZdlPvm(ptr noundef %112, i64 noundef %116) #28
+  call void @_ZdlPvm(ptr noundef %112, i64 noundef %116) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18: ; preds = %110, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16, %108
@@ -61278,7 +61278,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18: ; preds = %110
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18
   %120 = load i64, ptr %118, align 8, !tbaa !94
   %121 = add i64 %120, 1
-  call void @_ZdlPvm(ptr noundef %117, i64 noundef %121) #28
+  call void @_ZdlPvm(ptr noundef %117, i64 noundef %121) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19, %106
@@ -61291,7 +61291,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %_ZN
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21
   %124 = load i64, ptr %9, align 8, !tbaa !94
   %125 = add i64 %124, 1
-  call void @_ZdlPvm(ptr noundef %122, i64 noundef %125) #28
+  call void @_ZdlPvm(ptr noundef %122, i64 noundef %125) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
@@ -61445,7 +61445,7 @@ _ZSt22__uninitialized_move_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit69: ; preds = %_ZSt2
   br i1 %50, label %51, label %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
 
 51:                                               ; preds = %44
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.85) #32
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.85) #34
   unreachable
 
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %44
@@ -61461,7 +61461,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %44
 
 58:                                               ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
   %59 = shl nuw nsw i64 %55, 2
-  %60 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %59) #29
+  %60 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %59) #31
   br label %61
 
 61:                                               ; preds = %58, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
@@ -61504,7 +61504,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit: ; pred
 
 73:                                               ; preds = %71
   %74 = sub i64 %10, %46
-  tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef %74) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef %74) #30
   br label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit: ; preds = %71, %73
@@ -61567,7 +61567,7 @@ _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_Z
   br i1 %25, label %26, label %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
 
 26:                                               ; preds = %24
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.84) #32
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.84) #34
   unreachable
 
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %24
@@ -61575,7 +61575,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %24
   %27 = add nuw nsw i64 %.sroa.speculated.i, %10
   %28 = tail call i64 @llvm.umin.i64(i64 %27, i64 2305843009213693951)
   %29 = shl nuw nsw i64 %28, 2
-  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #29
+  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #31
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %9
   store float 0.000000e+00, ptr %31, align 4, !tbaa !3
   %32 = add nsw i64 %1, -1
@@ -61602,7 +61602,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 37:                                               ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
   %38 = sub i64 %13, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %38) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %38) #30
   br label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
@@ -61734,7 +61734,7 @@ _ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit69: ; preds = %_ZSt2
   br i1 %50, label %51, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit
 
 51:                                               ; preds = %44
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.85) #32
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.85) #34
   unreachable
 
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit:    ; preds = %44
@@ -61750,7 +61750,7 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit:    ; preds = %44
 
 58:                                               ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit
   %59 = shl nuw nsw i64 %55, 3
-  %60 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %59) #29
+  %60 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %59) #31
   br label %61
 
 61:                                               ; preds = %58, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit
@@ -61793,7 +61793,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit: ; pred
 
 73:                                               ; preds = %71
   %74 = sub i64 %10, %46
-  tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef %74) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef %74) #30
   br label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit: ; preds = %71, %73
@@ -61924,7 +61924,7 @@ _ZSt22__uninitialized_move_aIPdS0_SaIdEET0_T_S3_S2_RT1_.exit69: ; preds = %_ZSt2
   br i1 %50, label %51, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit
 
 51:                                               ; preds = %44
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.85) #32
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.85) #34
   unreachable
 
 _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit:    ; preds = %44
@@ -61940,7 +61940,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit:    ; preds = %44
 
 58:                                               ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit
   %59 = shl nuw nsw i64 %55, 3
-  %60 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %59) #29
+  %60 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %59) #31
   br label %61
 
 61:                                               ; preds = %58, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit
@@ -61983,7 +61983,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPdS0_SaIdEET0_T_S3_S2_RT1_.exit: ; pred
 
 73:                                               ; preds = %71
   %74 = sub i64 %10, %46
-  tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef %74) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef %74) #30
   br label %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %71, %73
@@ -62117,7 +62117,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #30
+  call void @__clang_call_terminate(ptr %76) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %73, %71
@@ -62144,7 +62144,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %73, %7
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %82, %.lr.ph.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i = phi i32 [ %84, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %82 ]
-  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !878
+  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !878
   %84 = add nuw nsw i32 %.03.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i32 %84, %.sroa.0.1.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !879
@@ -62154,7 +62154,7 @@ _ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 86:                                               ; preds = %.preheader.i.i.i.i.i
-  %87 = call noundef i32 @sched_yield() #27
+  %87 = call noundef i32 @sched_yield() #29
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 _ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i: ; preds = %86, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
@@ -62505,20 +62505,20 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %278 = landingpad { ptr, i32 }
           catch ptr null
   %279 = extractvalue { ptr, i32 } %278, 0
-  call void @__clang_call_terminate(ptr %279) #30
+  call void @__clang_call_terminate(ptr %279) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit27.i.i.i: ; preds = %276, %274, %161
   %.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %162, %161 ], [ %.pn.pn.i.i.i, %274 ], [ %.pn.pn.i.i.i, %276 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L18computePixelStats_IfEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit: ; preds = %122, %_ZNSt10lock_guardIN11OpenImageIO6v3_1_010spin_mutexEEC2ERS2_.exit.i.i.i
   store atomic i8 0, ptr %78 release, align 1
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -62544,7 +62544,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !886
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IfEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
@@ -62555,7 +62555,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IfEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IfEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IfEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -62592,7 +62592,7 @@ define linkonce_odr void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsC2Ei(
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
-  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %20) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %20) #30
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %11, %15
@@ -62606,7 +62606,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %11, %15
   %25 = ptrtoint ptr %24 to i64
   %26 = ptrtoint ptr %21 to i64
   %27 = sub i64 %25, %26
-  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %27) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %27) #30
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit4
 
 _ZNSt6vectorIdSaIdEED2Ev.exit4:                   ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %22
@@ -62620,7 +62620,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit4:                   ; preds = %_ZNSt6vectorIdSaIdE
   %32 = ptrtoint ptr %31 to i64
   %33 = ptrtoint ptr %28 to i64
   %34 = sub i64 %32, %33
-  tail call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef %34) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef %34) #30
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit4, %29
@@ -62634,7 +62634,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdE
   %39 = ptrtoint ptr %38 to i64
   %40 = ptrtoint ptr %35 to i64
   %41 = sub i64 %39, %40
-  tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %41) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %41) #30
   br label %_ZNSt6vectorImSaImEED2Ev.exit7
 
 _ZNSt6vectorImSaImEED2Ev.exit7:                   ; preds = %_ZNSt6vectorImSaImEED2Ev.exit, %36
@@ -62648,7 +62648,7 @@ _ZNSt6vectorImSaImEED2Ev.exit7:                   ; preds = %_ZNSt6vectorImSaImE
   %46 = ptrtoint ptr %45 to i64
   %47 = ptrtoint ptr %42 to i64
   %48 = sub i64 %46, %47
-  tail call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef %48) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef %48) #30
   br label %_ZNSt6vectorImSaImEED2Ev.exit9
 
 _ZNSt6vectorImSaImEED2Ev.exit9:                   ; preds = %_ZNSt6vectorImSaImEED2Ev.exit7, %43
@@ -62662,7 +62662,7 @@ _ZNSt6vectorImSaImEED2Ev.exit9:                   ; preds = %_ZNSt6vectorImSaImE
   %53 = ptrtoint ptr %52 to i64
   %54 = ptrtoint ptr %49 to i64
   %55 = sub i64 %53, %54
-  tail call void @_ZdlPvm(ptr noundef nonnull %49, i64 noundef %55) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %49, i64 noundef %55) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImEED2Ev.exit9, %50
@@ -62676,7 +62676,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImE
   %60 = ptrtoint ptr %59 to i64
   %61 = ptrtoint ptr %56 to i64
   %62 = sub i64 %60, %61
-  tail call void @_ZdlPvm(ptr noundef nonnull %56, i64 noundef %62) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %56, i64 noundef %62) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit12
 
 _ZNSt6vectorIfSaIfEED2Ev.exit12:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %57
@@ -62690,7 +62690,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit12:                  ; preds = %_ZNSt6vectorIfSaIfE
   %67 = ptrtoint ptr %66 to i64
   %68 = ptrtoint ptr %63 to i64
   %69 = sub i64 %67, %68
-  tail call void @_ZdlPvm(ptr noundef nonnull %63, i64 noundef %69) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %63, i64 noundef %69) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit14
 
 _ZNSt6vectorIfSaIfEED2Ev.exit14:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit12, %64
@@ -62704,7 +62704,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit14:                  ; preds = %_ZNSt6vectorIfSaIfE
   %74 = ptrtoint ptr %73 to i64
   %75 = ptrtoint ptr %70 to i64
   %76 = sub i64 %74, %75
-  tail call void @_ZdlPvm(ptr noundef nonnull %70, i64 noundef %76) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %70, i64 noundef %76) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit16
 
 _ZNSt6vectorIfSaIfEED2Ev.exit16:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit14, %71
@@ -62847,8 +62847,8 @@ declare void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseC2ERKS1_RKNS0_3ROIEN
 
 declare noundef float @_ZNK11OpenImageIO6v3_1_08ImageBuf10deep_valueEiiiii(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #15
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #21
 
 declare void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(126), i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
@@ -62978,7 +62978,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %68
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #30
+  call void @__clang_call_terminate(ptr %80) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %77, %75
@@ -63005,7 +63005,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %77, %7
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %86, %.lr.ph.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i = phi i32 [ %88, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %86 ]
-  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !878
+  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !878
   %88 = add nuw nsw i32 %.03.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i32 %88, %.sroa.0.1.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !879
@@ -63015,7 +63015,7 @@ _ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 90:                                               ; preds = %.preheader.i.i.i.i.i
-  %91 = call noundef i32 @sched_yield() #27
+  %91 = call noundef i32 @sched_yield() #29
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 _ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i: ; preds = %90, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
@@ -63311,20 +63311,20 @@ _ZN11OpenImageIO6v3_1_03valERNS0_12ImageBufAlgo10PixelStatsEif.exit.i.i.i: ; pre
 260:                                              ; preds = %224, %.critedge.i.i.i.i, %194
   %261 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %7) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %7) #29
   br label %262
 
 262:                                              ; preds = %260, %165
   %.pn.pn.i.i.i = phi { ptr, i32 } [ %261, %260 ], [ %166, %165 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L18computePixelStats_IfEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit: ; preds = %126, %_ZNSt10lock_guardIN11OpenImageIO6v3_1_010spin_mutexEEC2ERS2_.exit.i.i.i
   store atomic i8 0, ptr %82 release, align 1
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -63350,7 +63350,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !886
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IfEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
@@ -63361,15 +63361,15 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IfEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IfEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IfEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #15
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #21
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNSt17_Function_handlerIFvllEZN11OpenImageIO6v3_1_0L18computePixelStats_IhEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E9_M_invokeERKSt9_Any_dataOlSG_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) #5 align 2 personality ptr @__gxx_personality_v0 {
@@ -63489,7 +63489,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #30
+  call void @__clang_call_terminate(ptr %76) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %73, %71
@@ -63516,7 +63516,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %73, %7
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %82, %.lr.ph.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i = phi i32 [ %84, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %82 ]
-  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !878
+  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !878
   %84 = add nuw nsw i32 %.03.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i32 %84, %.sroa.0.1.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !879
@@ -63526,7 +63526,7 @@ _ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 86:                                               ; preds = %.preheader.i.i.i.i.i
-  %87 = call noundef i32 @sched_yield() #27
+  %87 = call noundef i32 @sched_yield() #29
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 _ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i: ; preds = %86, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
@@ -63877,20 +63877,20 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %278 = landingpad { ptr, i32 }
           catch ptr null
   %279 = extractvalue { ptr, i32 } %278, 0
-  call void @__clang_call_terminate(ptr %279) #30
+  call void @__clang_call_terminate(ptr %279) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit27.i.i.i: ; preds = %276, %274, %161
   %.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %162, %161 ], [ %.pn.pn.i.i.i, %274 ], [ %.pn.pn.i.i.i, %276 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L18computePixelStats_IhEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit: ; preds = %122, %_ZNSt10lock_guardIN11OpenImageIO6v3_1_010spin_mutexEEC2ERS2_.exit.i.i.i
   store atomic i8 0, ptr %78 release, align 1
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -63916,7 +63916,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !886
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IhEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
@@ -63927,7 +63927,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IhEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IhEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IhEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -64050,7 +64050,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %67
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #30
+  call void @__clang_call_terminate(ptr %79) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %76, %74
@@ -64077,7 +64077,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %76, %7
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %85, %.lr.ph.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i = phi i32 [ %87, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %85 ]
-  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !878
+  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !878
   %87 = add nuw nsw i32 %.03.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i32 %87, %.sroa.0.1.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !879
@@ -64087,7 +64087,7 @@ _ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 89:                                               ; preds = %.preheader.i.i.i.i.i
-  %90 = call noundef i32 @sched_yield() #27
+  %90 = call noundef i32 @sched_yield() #29
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 _ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i: ; preds = %89, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
@@ -64373,20 +64373,20 @@ _ZN11OpenImageIO6v3_1_03valERNS0_12ImageBufAlgo10PixelStatsEif.exit.i.i.i: ; pre
 254:                                              ; preds = %223, %.critedge.i.i.i.i, %193
   %255 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %7) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %7) #29
   br label %256
 
 256:                                              ; preds = %254, %165
   %.pn.pn.i.i.i = phi { ptr, i32 } [ %255, %254 ], [ %166, %165 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L18computePixelStats_IhEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit: ; preds = %126, %_ZNSt10lock_guardIN11OpenImageIO6v3_1_010spin_mutexEEC2ERS2_.exit.i.i.i
   store atomic i8 0, ptr %81 release, align 1
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -64412,7 +64412,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !886
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IhEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
@@ -64423,7 +64423,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IhEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IhEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IhEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -64548,7 +64548,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #30
+  call void @__clang_call_terminate(ptr %76) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %73, %71
@@ -64575,7 +64575,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %73, %7
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %82, %.lr.ph.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i = phi i32 [ %84, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %82 ]
-  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !878
+  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !878
   %84 = add nuw nsw i32 %.03.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i32 %84, %.sroa.0.1.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !879
@@ -64585,7 +64585,7 @@ _ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 86:                                               ; preds = %.preheader.i.i.i.i.i
-  %87 = call noundef i32 @sched_yield() #27
+  %87 = call noundef i32 @sched_yield() #29
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 _ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i: ; preds = %86, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
@@ -64936,20 +64936,20 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %278 = landingpad { ptr, i32 }
           catch ptr null
   %279 = extractvalue { ptr, i32 } %278, 0
-  call void @__clang_call_terminate(ptr %279) #30
+  call void @__clang_call_terminate(ptr %279) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit27.i.i.i: ; preds = %276, %274, %161
   %.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %162, %161 ], [ %.pn.pn.i.i.i, %274 ], [ %.pn.pn.i.i.i, %276 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L18computePixelStats_IN9Imath_3_14halfEEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit: ; preds = %122, %_ZNSt10lock_guardIN11OpenImageIO6v3_1_010spin_mutexEEC2ERS2_.exit.i.i.i
   store atomic i8 0, ptr %78 release, align 1
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -64975,7 +64975,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !886
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IN9Imath_3_14halfEEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
@@ -64986,7 +64986,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IN9Imath_3_14halfEEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IN9Imath_3_14halfEEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IN9Imath_3_14halfEEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -65110,7 +65110,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %68
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #30
+  call void @__clang_call_terminate(ptr %80) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %77, %75
@@ -65137,7 +65137,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %77, %7
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %86, %.lr.ph.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i = phi i32 [ %88, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %86 ]
-  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !878
+  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !878
   %88 = add nuw nsw i32 %.03.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i32 %88, %.sroa.0.1.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !879
@@ -65147,7 +65147,7 @@ _ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 90:                                               ; preds = %.preheader.i.i.i.i.i
-  %91 = call noundef i32 @sched_yield() #27
+  %91 = call noundef i32 @sched_yield() #29
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 _ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i: ; preds = %90, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
@@ -65481,20 +65481,20 @@ _ZN11OpenImageIO6v3_1_03valERNS0_12ImageBufAlgo10PixelStatsEif.exit.i.i.i: ; pre
 283:                                              ; preds = %224, %.critedge.i.i.i.i, %194
   %284 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %7) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %7) #29
   br label %285
 
 285:                                              ; preds = %283, %165
   %.pn.pn.i.i.i = phi { ptr, i32 } [ %284, %283 ], [ %166, %165 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L18computePixelStats_IN9Imath_3_14halfEEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit: ; preds = %126, %_ZNSt10lock_guardIN11OpenImageIO6v3_1_010spin_mutexEEC2ERS2_.exit.i.i.i
   store atomic i8 0, ptr %82 release, align 1
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -65520,7 +65520,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !886
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IN9Imath_3_14halfEEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
@@ -65531,7 +65531,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IN9Imath_3_14halfEEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IN9Imath_3_14halfEEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IN9Imath_3_14halfEEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -65656,7 +65656,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #30
+  call void @__clang_call_terminate(ptr %76) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %73, %71
@@ -65683,7 +65683,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %73, %7
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %82, %.lr.ph.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i = phi i32 [ %84, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %82 ]
-  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !878
+  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !878
   %84 = add nuw nsw i32 %.03.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i32 %84, %.sroa.0.1.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !879
@@ -65693,7 +65693,7 @@ _ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 86:                                               ; preds = %.preheader.i.i.i.i.i
-  %87 = call noundef i32 @sched_yield() #27
+  %87 = call noundef i32 @sched_yield() #29
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 _ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i: ; preds = %86, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
@@ -66044,20 +66044,20 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %278 = landingpad { ptr, i32 }
           catch ptr null
   %279 = extractvalue { ptr, i32 } %278, 0
-  call void @__clang_call_terminate(ptr %279) #30
+  call void @__clang_call_terminate(ptr %279) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit27.i.i.i: ; preds = %276, %274, %161
   %.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %162, %161 ], [ %.pn.pn.i.i.i, %274 ], [ %.pn.pn.i.i.i, %276 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L18computePixelStats_ItEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit: ; preds = %122, %_ZNSt10lock_guardIN11OpenImageIO6v3_1_010spin_mutexEEC2ERS2_.exit.i.i.i
   store atomic i8 0, ptr %78 release, align 1
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -66083,7 +66083,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !886
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_ItEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
@@ -66094,7 +66094,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_ItEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_ItEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_ItEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -66217,7 +66217,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %67
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #30
+  call void @__clang_call_terminate(ptr %79) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %76, %74
@@ -66244,7 +66244,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %76, %7
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %85, %.lr.ph.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i = phi i32 [ %87, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %85 ]
-  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !878
+  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !878
   %87 = add nuw nsw i32 %.03.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i32 %87, %.sroa.0.1.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !879
@@ -66254,7 +66254,7 @@ _ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 89:                                               ; preds = %.preheader.i.i.i.i.i
-  %90 = call noundef i32 @sched_yield() #27
+  %90 = call noundef i32 @sched_yield() #29
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 _ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i: ; preds = %89, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
@@ -66540,20 +66540,20 @@ _ZN11OpenImageIO6v3_1_03valERNS0_12ImageBufAlgo10PixelStatsEif.exit.i.i.i: ; pre
 254:                                              ; preds = %223, %.critedge.i.i.i.i, %193
   %255 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %7) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %7) #29
   br label %256
 
 256:                                              ; preds = %254, %165
   %.pn.pn.i.i.i = phi { ptr, i32 } [ %255, %254 ], [ %166, %165 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L18computePixelStats_ItEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit: ; preds = %126, %_ZNSt10lock_guardIN11OpenImageIO6v3_1_010spin_mutexEEC2ERS2_.exit.i.i.i
   store atomic i8 0, ptr %81 release, align 1
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -66579,7 +66579,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !886
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_ItEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
@@ -66590,7 +66590,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_ItEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_ItEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_ItEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -66715,7 +66715,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #30
+  call void @__clang_call_terminate(ptr %76) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %73, %71
@@ -66742,7 +66742,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %73, %7
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %82, %.lr.ph.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i = phi i32 [ %84, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %82 ]
-  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !878
+  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !878
   %84 = add nuw nsw i32 %.03.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i32 %84, %.sroa.0.1.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !879
@@ -66752,7 +66752,7 @@ _ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 86:                                               ; preds = %.preheader.i.i.i.i.i
-  %87 = call noundef i32 @sched_yield() #27
+  %87 = call noundef i32 @sched_yield() #29
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 _ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i: ; preds = %86, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
@@ -67103,20 +67103,20 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %278 = landingpad { ptr, i32 }
           catch ptr null
   %279 = extractvalue { ptr, i32 } %278, 0
-  call void @__clang_call_terminate(ptr %279) #30
+  call void @__clang_call_terminate(ptr %279) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit27.i.i.i: ; preds = %276, %274, %161
   %.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %162, %161 ], [ %.pn.pn.i.i.i, %274 ], [ %.pn.pn.i.i.i, %276 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L18computePixelStats_IcEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit: ; preds = %122, %_ZNSt10lock_guardIN11OpenImageIO6v3_1_010spin_mutexEEC2ERS2_.exit.i.i.i
   store atomic i8 0, ptr %78 release, align 1
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -67142,7 +67142,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !886
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IcEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
@@ -67153,7 +67153,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IcEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IcEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IcEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -67276,7 +67276,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %67
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #30
+  call void @__clang_call_terminate(ptr %79) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %76, %74
@@ -67303,7 +67303,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %76, %7
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %85, %.lr.ph.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i = phi i32 [ %87, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %85 ]
-  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !878
+  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !878
   %87 = add nuw nsw i32 %.03.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i32 %87, %.sroa.0.1.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !879
@@ -67313,7 +67313,7 @@ _ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 89:                                               ; preds = %.preheader.i.i.i.i.i
-  %90 = call noundef i32 @sched_yield() #27
+  %90 = call noundef i32 @sched_yield() #29
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 _ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i: ; preds = %89, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
@@ -67600,20 +67600,20 @@ _ZN11OpenImageIO6v3_1_03valERNS0_12ImageBufAlgo10PixelStatsEif.exit.i.i.i: ; pre
 255:                                              ; preds = %223, %.critedge.i.i.i.i, %193
   %256 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %7) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %7) #29
   br label %257
 
 257:                                              ; preds = %255, %165
   %.pn.pn.i.i.i = phi { ptr, i32 } [ %256, %255 ], [ %166, %165 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L18computePixelStats_IcEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit: ; preds = %126, %_ZNSt10lock_guardIN11OpenImageIO6v3_1_010spin_mutexEEC2ERS2_.exit.i.i.i
   store atomic i8 0, ptr %81 release, align 1
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -67639,7 +67639,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !886
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IcEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
@@ -67650,7 +67650,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IcEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IcEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IcEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -67775,7 +67775,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #30
+  call void @__clang_call_terminate(ptr %76) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %73, %71
@@ -67802,7 +67802,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %73, %7
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %82, %.lr.ph.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i = phi i32 [ %84, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %82 ]
-  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !878
+  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !878
   %84 = add nuw nsw i32 %.03.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i32 %84, %.sroa.0.1.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !879
@@ -67812,7 +67812,7 @@ _ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 86:                                               ; preds = %.preheader.i.i.i.i.i
-  %87 = call noundef i32 @sched_yield() #27
+  %87 = call noundef i32 @sched_yield() #29
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 _ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i: ; preds = %86, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
@@ -68163,20 +68163,20 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %278 = landingpad { ptr, i32 }
           catch ptr null
   %279 = extractvalue { ptr, i32 } %278, 0
-  call void @__clang_call_terminate(ptr %279) #30
+  call void @__clang_call_terminate(ptr %279) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit27.i.i.i: ; preds = %276, %274, %161
   %.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %162, %161 ], [ %.pn.pn.i.i.i, %274 ], [ %.pn.pn.i.i.i, %276 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L18computePixelStats_IsEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit: ; preds = %122, %_ZNSt10lock_guardIN11OpenImageIO6v3_1_010spin_mutexEEC2ERS2_.exit.i.i.i
   store atomic i8 0, ptr %78 release, align 1
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -68202,7 +68202,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !886
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IsEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
@@ -68213,7 +68213,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IsEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IsEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IsEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -68336,7 +68336,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %67
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #30
+  call void @__clang_call_terminate(ptr %79) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %76, %74
@@ -68363,7 +68363,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %76, %7
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %85, %.lr.ph.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i = phi i32 [ %87, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %85 ]
-  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !878
+  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !878
   %87 = add nuw nsw i32 %.03.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i32 %87, %.sroa.0.1.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !879
@@ -68373,7 +68373,7 @@ _ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 89:                                               ; preds = %.preheader.i.i.i.i.i
-  %90 = call noundef i32 @sched_yield() #27
+  %90 = call noundef i32 @sched_yield() #29
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 _ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i: ; preds = %89, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
@@ -68660,20 +68660,20 @@ _ZN11OpenImageIO6v3_1_03valERNS0_12ImageBufAlgo10PixelStatsEif.exit.i.i.i: ; pre
 255:                                              ; preds = %223, %.critedge.i.i.i.i, %193
   %256 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %7) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %7) #29
   br label %257
 
 257:                                              ; preds = %255, %165
   %.pn.pn.i.i.i = phi { ptr, i32 } [ %256, %255 ], [ %166, %165 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L18computePixelStats_IsEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit: ; preds = %126, %_ZNSt10lock_guardIN11OpenImageIO6v3_1_010spin_mutexEEC2ERS2_.exit.i.i.i
   store atomic i8 0, ptr %81 release, align 1
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -68699,7 +68699,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !886
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IsEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
@@ -68710,7 +68710,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IsEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IsEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IsEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -68835,7 +68835,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #30
+  call void @__clang_call_terminate(ptr %76) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %73, %71
@@ -68862,7 +68862,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %73, %7
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %82, %.lr.ph.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i = phi i32 [ %84, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %82 ]
-  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !878
+  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !878
   %84 = add nuw nsw i32 %.03.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i32 %84, %.sroa.0.1.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !879
@@ -68872,7 +68872,7 @@ _ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 86:                                               ; preds = %.preheader.i.i.i.i.i
-  %87 = call noundef i32 @sched_yield() #27
+  %87 = call noundef i32 @sched_yield() #29
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 _ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i: ; preds = %86, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
@@ -69223,20 +69223,20 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %278 = landingpad { ptr, i32 }
           catch ptr null
   %279 = extractvalue { ptr, i32 } %278, 0
-  call void @__clang_call_terminate(ptr %279) #30
+  call void @__clang_call_terminate(ptr %279) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit27.i.i.i: ; preds = %276, %274, %161
   %.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %162, %161 ], [ %.pn.pn.i.i.i, %274 ], [ %.pn.pn.i.i.i, %276 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L18computePixelStats_IjEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit: ; preds = %122, %_ZNSt10lock_guardIN11OpenImageIO6v3_1_010spin_mutexEEC2ERS2_.exit.i.i.i
   store atomic i8 0, ptr %78 release, align 1
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -69262,7 +69262,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !886
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IjEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
@@ -69273,7 +69273,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IjEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IjEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IjEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -69396,7 +69396,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %67
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #30
+  call void @__clang_call_terminate(ptr %79) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %76, %74
@@ -69423,7 +69423,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %76, %7
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %85, %.lr.ph.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i = phi i32 [ %87, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %85 ]
-  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !878
+  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !878
   %87 = add nuw nsw i32 %.03.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i32 %87, %.sroa.0.1.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !879
@@ -69433,7 +69433,7 @@ _ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 89:                                               ; preds = %.preheader.i.i.i.i.i
-  %90 = call noundef i32 @sched_yield() #27
+  %90 = call noundef i32 @sched_yield() #29
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 _ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i: ; preds = %89, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
@@ -69719,20 +69719,20 @@ _ZN11OpenImageIO6v3_1_03valERNS0_12ImageBufAlgo10PixelStatsEif.exit.i.i.i: ; pre
 254:                                              ; preds = %223, %.critedge.i.i.i.i, %193
   %255 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %7) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %7) #29
   br label %256
 
 256:                                              ; preds = %254, %165
   %.pn.pn.i.i.i = phi { ptr, i32 } [ %255, %254 ], [ %166, %165 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L18computePixelStats_IjEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit: ; preds = %126, %_ZNSt10lock_guardIN11OpenImageIO6v3_1_010spin_mutexEEC2ERS2_.exit.i.i.i
   store atomic i8 0, ptr %81 release, align 1
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -69758,7 +69758,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !886
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IjEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
@@ -69769,7 +69769,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IjEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IjEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IjEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -69894,7 +69894,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #30
+  call void @__clang_call_terminate(ptr %76) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %73, %71
@@ -69921,7 +69921,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %73, %7
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %82, %.lr.ph.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i = phi i32 [ %84, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %82 ]
-  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !878
+  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !878
   %84 = add nuw nsw i32 %.03.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i32 %84, %.sroa.0.1.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !879
@@ -69931,7 +69931,7 @@ _ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 86:                                               ; preds = %.preheader.i.i.i.i.i
-  %87 = call noundef i32 @sched_yield() #27
+  %87 = call noundef i32 @sched_yield() #29
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 _ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i: ; preds = %86, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
@@ -70282,20 +70282,20 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %278 = landingpad { ptr, i32 }
           catch ptr null
   %279 = extractvalue { ptr, i32 } %278, 0
-  call void @__clang_call_terminate(ptr %279) #30
+  call void @__clang_call_terminate(ptr %279) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit27.i.i.i: ; preds = %276, %274, %161
   %.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %162, %161 ], [ %.pn.pn.i.i.i, %274 ], [ %.pn.pn.i.i.i, %276 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L18computePixelStats_IiEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit: ; preds = %122, %_ZNSt10lock_guardIN11OpenImageIO6v3_1_010spin_mutexEEC2ERS2_.exit.i.i.i
   store atomic i8 0, ptr %78 release, align 1
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -70321,7 +70321,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !886
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IiEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
@@ -70332,7 +70332,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IiEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IiEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IiEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -70455,7 +70455,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %67
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #30
+  call void @__clang_call_terminate(ptr %79) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %76, %74
@@ -70482,7 +70482,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %76, %7
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %85, %.lr.ph.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i = phi i32 [ %87, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %85 ]
-  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !878
+  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !878
   %87 = add nuw nsw i32 %.03.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i32 %87, %.sroa.0.1.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !879
@@ -70492,7 +70492,7 @@ _ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 89:                                               ; preds = %.preheader.i.i.i.i.i
-  %90 = call noundef i32 @sched_yield() #27
+  %90 = call noundef i32 @sched_yield() #29
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 _ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i: ; preds = %89, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
@@ -70779,20 +70779,20 @@ _ZN11OpenImageIO6v3_1_03valERNS0_12ImageBufAlgo10PixelStatsEif.exit.i.i.i: ; pre
 255:                                              ; preds = %223, %.critedge.i.i.i.i, %193
   %256 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %7) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %7) #29
   br label %257
 
 257:                                              ; preds = %255, %165
   %.pn.pn.i.i.i = phi { ptr, i32 } [ %256, %255 ], [ %166, %165 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L18computePixelStats_IiEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit: ; preds = %126, %_ZNSt10lock_guardIN11OpenImageIO6v3_1_010spin_mutexEEC2ERS2_.exit.i.i.i
   store atomic i8 0, ptr %81 release, align 1
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -70818,7 +70818,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !886
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IiEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
@@ -70829,7 +70829,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IiEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IiEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IiEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -70954,7 +70954,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #30
+  call void @__clang_call_terminate(ptr %76) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %73, %71
@@ -70981,7 +70981,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %73, %7
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %82, %.lr.ph.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i = phi i32 [ %84, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %82 ]
-  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !878
+  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !878
   %84 = add nuw nsw i32 %.03.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i32 %84, %.sroa.0.1.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !879
@@ -70991,7 +70991,7 @@ _ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 86:                                               ; preds = %.preheader.i.i.i.i.i
-  %87 = call noundef i32 @sched_yield() #27
+  %87 = call noundef i32 @sched_yield() #29
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 _ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i: ; preds = %86, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
@@ -71342,20 +71342,20 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %278 = landingpad { ptr, i32 }
           catch ptr null
   %279 = extractvalue { ptr, i32 } %278, 0
-  call void @__clang_call_terminate(ptr %279) #30
+  call void @__clang_call_terminate(ptr %279) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit27.i.i.i: ; preds = %276, %274, %161
   %.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %162, %161 ], [ %.pn.pn.i.i.i, %274 ], [ %.pn.pn.i.i.i, %276 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L18computePixelStats_IdEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit: ; preds = %122, %_ZNSt10lock_guardIN11OpenImageIO6v3_1_010spin_mutexEEC2ERS2_.exit.i.i.i
   store atomic i8 0, ptr %78 release, align 1
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -71381,7 +71381,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !886
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IdEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
@@ -71392,7 +71392,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IdEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IdEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IdEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -71516,7 +71516,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %68
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #30
+  call void @__clang_call_terminate(ptr %80) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %77, %75
@@ -71543,7 +71543,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %77, %7
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %86, %.lr.ph.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i = phi i32 [ %88, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %86 ]
-  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !878
+  call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !878
   %88 = add nuw nsw i32 %.03.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i32 %88, %.sroa.0.1.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !879
@@ -71553,7 +71553,7 @@ _ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 90:                                               ; preds = %.preheader.i.i.i.i.i
-  %91 = call noundef i32 @sched_yield() #27
+  %91 = call noundef i32 @sched_yield() #29
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
 _ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i: ; preds = %90, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
@@ -71850,20 +71850,20 @@ _ZN11OpenImageIO6v3_1_03valERNS0_12ImageBufAlgo10PixelStatsEif.exit.i.i.i: ; pre
 261:                                              ; preds = %224, %.critedge.i.i.i.i, %194
   %262 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %7) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %7) #29
   br label %263
 
 263:                                              ; preds = %261, %165
   %.pn.pn.i.i.i = phi { ptr, i32 } [ %262, %261 ], [ %166, %165 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L18computePixelStats_IdEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit: ; preds = %126, %_ZNSt10lock_guardIN11OpenImageIO6v3_1_010spin_mutexEEC2ERS2_.exit.i.i.i
   store atomic i8 0, ptr %82 release, align 1
-  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #27
+  call void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -71889,7 +71889,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !886
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IdEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
@@ -71900,7 +71900,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN11OpenImageI
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IdEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IdEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18computePixelStats_IdEEbRKNS2_8ImageBufERNS2_12ImageBufAlgo10PixelStatsENS2_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -71935,18 +71935,18 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail5valueINS0_20basic_format_cont
   br i1 %.not13.i, label %_ZN3fmt2v89formatterIN11OpenImageIO6v3_1_08TypeDescEcvE5parseERNS0_26basic_format_parse_contextIcNS0_6detail13error_handlerEEE.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call ptr @__cxa_allocate_exception(i64 16) #27
+  %16 = tail call ptr @__cxa_allocate_exception(i64 16) #29
   invoke void @_ZN3fmt2v812format_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull @.str.86)
           to label %17 unwind label %18
 
 17:                                               ; preds = %15
-  tail call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTIN3fmt2v812format_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #32
+  tail call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTIN3fmt2v812format_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #34
   unreachable
 
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %16) #27
+  tail call void @__cxa_free_exception(ptr nonnull %16) #29
   resume { ptr, i32 } %19
 
 _ZN3fmt2v89formatterIN11OpenImageIO6v3_1_08TypeDescEcvE5parseERNS0_26basic_format_parse_contextIcNS0_6detail13error_handlerEEE.exit: ; preds = %12, %13
@@ -71973,15 +71973,15 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #21
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #22
 
 declare noundef ptr @_ZNK11OpenImageIO6v3_1_08TypeDesc5c_strEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.log10.f64(double) #15
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log10.f64(double) #21
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #15
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #21
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo14parallel_imageENS0_3ROIENS0_6paroptESt8functionIFvS2_EE(ptr noundef byval(%"struct.OpenImageIO::v3_1_0::ROI") align 8 %0, ptr noundef byval(%"class.OpenImageIO::v3_1_0::paropt") align 8 %1, ptr noundef %2) local_unnamed_addr #17 comdat personality ptr @__gxx_personality_v0 {
@@ -72037,7 +72037,7 @@ _ZNK11OpenImageIO6v3_1_03ROI7npixelsEv.exit:      ; preds = %3, %8
   br i1 %.not.i.i, label %38, label %_ZNKSt8functionIFvN11OpenImageIO6v3_1_03ROIEEEclES2_.exit
 
 38:                                               ; preds = %35
-  call void @_ZSt25__throw_bad_function_callv() #32
+  call void @_ZSt25__throw_bad_function_callv() #34
   unreachable
 
 _ZNKSt8functionIFvN11OpenImageIO6v3_1_03ROIEEEclES2_.exit: ; preds = %35
@@ -72166,7 +72166,7 @@ _ZNK11OpenImageIO6v3_1_03ROI7npixelsEv.exit12:    ; preds = %70, %69, %62, %96, 
   %118 = landingpad { ptr, i32 }
           catch ptr null
   %119 = extractvalue { ptr, i32 } %118, 0
-  call void @__clang_call_terminate(ptr %119) #30
+  call void @__clang_call_terminate(ptr %119) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %113, %115
@@ -72191,7 +72191,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %113, %115
   %127 = landingpad { ptr, i32 }
           catch ptr null
   %128 = extractvalue { ptr, i32 } %127, 0
-  call void @__clang_call_terminate(ptr %128) #30
+  call void @__clang_call_terminate(ptr %128) #32
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit18:                 ; preds = %121, %124
@@ -72250,7 +72250,7 @@ define linkonce_odr hidden void @_ZNSt17_Function_handlerIFvllllEZN11OpenImageIO
   br i1 %.not.i.i.i.i.i, label %28, label %_ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_012ImageBufAlgo14parallel_imageENS1_3ROIENS1_6paroptESt8functionIFvS3_EEEUlllllE_JllllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit
 
 28:                                               ; preds = %5
-  tail call void @_ZSt25__throw_bad_function_callv() #32
+  tail call void @_ZSt25__throw_bad_function_callv() #34
   unreachable
 
 _ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_012ImageBufAlgo14parallel_imageENS1_3ROIENS1_6paroptESt8functionIFvS3_EEEUlllllE_JllllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %5
@@ -72383,7 +72383,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 54:                                               ; preds = %.critedge12.i.i.i
   %55 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %55
 
@@ -72401,7 +72401,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #30
+  call void @__clang_call_terminate(ptr %61) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %58, %.critedge.i.i.i
@@ -72433,7 +72433,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false), !tbaa.struct !1028
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IfEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
@@ -72444,7 +72444,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IfEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IfEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IfEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -72554,7 +72554,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 59:                                               ; preds = %.critedge12.i.i.i
   %60 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %60
 
@@ -72572,7 +72572,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #30
+  call void @__clang_call_terminate(ptr %66) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %63, %.critedge.i.i.i
@@ -72604,7 +72604,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false), !tbaa.struct !1036
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IfEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
@@ -72615,7 +72615,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IfEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IfEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IfEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -72720,7 +72720,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 53:                                               ; preds = %.critedge13.i.i.i
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %54
 
@@ -72738,7 +72738,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #30
+  call void @__clang_call_terminate(ptr %60) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %57, %.critedge.i.i.i
@@ -72770,7 +72770,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false), !tbaa.struct !1043
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IhEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
@@ -72781,7 +72781,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IhEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IhEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IhEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -72894,7 +72894,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 62:                                               ; preds = %.critedge12.i.i.i
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %63
 
@@ -72912,7 +72912,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #30
+  call void @__clang_call_terminate(ptr %69) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %66, %.critedge.i.i.i
@@ -72944,7 +72944,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false), !tbaa.struct !1051
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IhEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
@@ -72955,7 +72955,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IhEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IhEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IhEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -73136,7 +73136,7 @@ _ZNK9Imath_3_14halfcvfEv.exit16.i.i.i:            ; preds = %86, %85, %83, %81
 97:                                               ; preds = %.critedge12.i.i.i
   %98 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %98
 
@@ -73154,7 +73154,7 @@ _ZNK9Imath_3_14halfcvfEv.exit16.i.i.i:            ; preds = %86, %85, %83, %81
   %103 = landingpad { ptr, i32 }
           catch ptr null
   %104 = extractvalue { ptr, i32 } %103, 0
-  call void @__clang_call_terminate(ptr %104) #30
+  call void @__clang_call_terminate(ptr %104) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %101, %.critedge.i.i.i
@@ -73186,7 +73186,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false), !tbaa.struct !1058
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IN9Imath_3_14halfEEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit
@@ -73197,7 +73197,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IN9Imath_3_14halfEEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IN9Imath_3_14halfEEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IN9Imath_3_14halfEEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -73383,7 +73383,7 @@ _ZNK9Imath_3_14halfcvfEv.exit.i.i.i:              ; preds = %91, %90, %88, %86
 104:                                              ; preds = %.critedge12.i.i.i
   %105 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %105
 
@@ -73401,7 +73401,7 @@ _ZNK9Imath_3_14halfcvfEv.exit.i.i.i:              ; preds = %91, %90, %88, %86
   %110 = landingpad { ptr, i32 }
           catch ptr null
   %111 = extractvalue { ptr, i32 } %110, 0
-  call void @__clang_call_terminate(ptr %111) #30
+  call void @__clang_call_terminate(ptr %111) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %108, %.critedge.i.i.i
@@ -73433,7 +73433,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false), !tbaa.struct !1066
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IN9Imath_3_14halfEEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlSB_E0_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit
@@ -73444,7 +73444,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IN9Imath_3_14halfEEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlSB_E0_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IN9Imath_3_14halfEEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlSB_E0_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IN9Imath_3_14halfEEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlSB_E0_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -73549,7 +73549,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 53:                                               ; preds = %.critedge13.i.i.i
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %54
 
@@ -73567,7 +73567,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #30
+  call void @__clang_call_terminate(ptr %60) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %57, %.critedge.i.i.i
@@ -73599,7 +73599,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false), !tbaa.struct !1073
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_ItEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
@@ -73610,7 +73610,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_ItEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_ItEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_ItEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -73723,7 +73723,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 62:                                               ; preds = %.critedge12.i.i.i
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %63
 
@@ -73741,7 +73741,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #30
+  call void @__clang_call_terminate(ptr %69) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %66, %.critedge.i.i.i
@@ -73773,7 +73773,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false), !tbaa.struct !1081
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_ItEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
@@ -73784,7 +73784,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_ItEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_ItEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_ItEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -73889,7 +73889,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 53:                                               ; preds = %.critedge13.i.i.i
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %54
 
@@ -73907,7 +73907,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #30
+  call void @__clang_call_terminate(ptr %60) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %57, %.critedge.i.i.i
@@ -73939,7 +73939,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false), !tbaa.struct !1088
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IcEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
@@ -73950,7 +73950,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IcEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IcEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IcEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -74063,7 +74063,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 62:                                               ; preds = %.critedge12.i.i.i
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %63
 
@@ -74081,7 +74081,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #30
+  call void @__clang_call_terminate(ptr %69) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %66, %.critedge.i.i.i
@@ -74113,7 +74113,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false), !tbaa.struct !1096
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IcEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
@@ -74124,7 +74124,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IcEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IcEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IcEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -74229,7 +74229,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 53:                                               ; preds = %.critedge13.i.i.i
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %54
 
@@ -74247,7 +74247,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #30
+  call void @__clang_call_terminate(ptr %60) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %57, %.critedge.i.i.i
@@ -74279,7 +74279,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false), !tbaa.struct !1103
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IsEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
@@ -74290,7 +74290,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IsEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IsEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IsEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -74403,7 +74403,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 62:                                               ; preds = %.critedge12.i.i.i
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %63
 
@@ -74421,7 +74421,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #30
+  call void @__clang_call_terminate(ptr %69) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %66, %.critedge.i.i.i
@@ -74453,7 +74453,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false), !tbaa.struct !1111
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IsEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
@@ -74464,7 +74464,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IsEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IsEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IsEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -74569,7 +74569,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 53:                                               ; preds = %.critedge13.i.i.i
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %54
 
@@ -74587,7 +74587,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #30
+  call void @__clang_call_terminate(ptr %60) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %57, %.critedge.i.i.i
@@ -74619,7 +74619,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false), !tbaa.struct !1118
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IjEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
@@ -74630,7 +74630,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IjEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IjEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IjEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -74743,7 +74743,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 62:                                               ; preds = %.critedge12.i.i.i
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %63
 
@@ -74761,7 +74761,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #30
+  call void @__clang_call_terminate(ptr %69) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %66, %.critedge.i.i.i
@@ -74793,7 +74793,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false), !tbaa.struct !1126
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IjEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
@@ -74804,7 +74804,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IjEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IjEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IjEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -74909,7 +74909,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 53:                                               ; preds = %.critedge13.i.i.i
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %54
 
@@ -74927,7 +74927,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #30
+  call void @__clang_call_terminate(ptr %60) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %57, %.critedge.i.i.i
@@ -74959,7 +74959,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false), !tbaa.struct !1133
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IiEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
@@ -74970,7 +74970,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IiEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IiEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IiEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -75083,7 +75083,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 62:                                               ; preds = %.critedge12.i.i.i
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %63
 
@@ -75101,7 +75101,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #30
+  call void @__clang_call_terminate(ptr %69) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %66, %.critedge.i.i.i
@@ -75133,7 +75133,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false), !tbaa.struct !1141
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IiEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
@@ -75144,7 +75144,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IiEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IiEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IiEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -75169,7 +75169,7 @@ define linkonce_odr void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #30
+  tail call void @__clang_call_terminate(ptr %8) #32
   unreachable
 }
 
@@ -75271,7 +75271,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 54:                                               ; preds = %.critedge12.i.i.i
   %55 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %55
 
@@ -75289,7 +75289,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #30
+  call void @__clang_call_terminate(ptr %61) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %58, %.critedge.i.i.i
@@ -75321,7 +75321,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false), !tbaa.struct !1148
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IdEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
@@ -75332,7 +75332,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IdEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IdEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IdEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -75445,7 +75445,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 62:                                               ; preds = %.critedge12.i.i.i
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %63
 
@@ -75463,7 +75463,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #30
+  call void @__clang_call_terminate(ptr %69) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %66, %.critedge.i.i.i
@@ -75495,7 +75495,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false), !tbaa.struct !1156
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IdEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
@@ -75506,15 +75506,15 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IdEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IdEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L16isConstantColor_IdEEbRKNS2_8ImageBufEfNS2_4spanIfLm18446744073709551615EEENS2_3ROIEiEUlS9_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #15
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #21
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3_1_03ROIEEZNS1_L18isConstantChannel_IfEEbRKNS1_8ImageBufEiffS2_iEUlS2_E_E9_M_invokeERKSt9_Any_dataOS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %1) #5 align 2 personality ptr @__gxx_personality_v0 {
@@ -75596,7 +75596,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 51:                                               ; preds = %53
   %52 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %110
 
@@ -75618,7 +75618,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #30
+  call void @__clang_call_terminate(ptr %59) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %56, %.loopexit.i.i.i
@@ -75693,7 +75693,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit14.thread.i.i.i: ; pr
 102:                                              ; preds = %.critedge.i.i.i
   %103 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %110
 
@@ -75711,7 +75711,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit14.thread.i.i.i: ; pr
   %108 = landingpad { ptr, i32 }
           catch ptr null
   %109 = extractvalue { ptr, i32 } %108, 0
-  call void @__clang_call_terminate(ptr %109) #30
+  call void @__clang_call_terminate(ptr %109) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit16.i.i.i: ; preds = %106, %.loopexit17.i.i.i
@@ -75747,7 +75747,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !1165
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IfEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
@@ -75758,7 +75758,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IfEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IfEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IfEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -75854,7 +75854,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 56:                                               ; preds = %58
   %57 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %117
 
@@ -75876,7 +75876,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #30
+  call void @__clang_call_terminate(ptr %64) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %61, %.loopexit.i.i.i
@@ -75953,7 +75953,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit15.thread.i.i.i: ; pr
 109:                                              ; preds = %.critedge.i.i.i
   %110 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %117
 
@@ -75971,7 +75971,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit15.thread.i.i.i: ; pr
   %115 = landingpad { ptr, i32 }
           catch ptr null
   %116 = extractvalue { ptr, i32 } %115, 0
-  call void @__clang_call_terminate(ptr %116) #30
+  call void @__clang_call_terminate(ptr %116) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit17.i.i.i: ; preds = %113, %.loopexit18.i.i.i
@@ -76007,7 +76007,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !1165
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IhEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
@@ -76018,7 +76018,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IhEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IhEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IhEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -76424,7 +76424,7 @@ _ZNK9Imath_3_14halfcvfEv.exit.i.i.i:              ; preds = %218, %217, %215, %2
 
 .split25.i.i.i:                                   ; preds = %.split25.split.i.i.i, %.split25.split.us.i.i.i, %.split25.us.i.i.i
   %.us-phi.i.i.i = phi { ptr, i32 } [ %139, %.split25.us.i.i.i ], [ %230, %.split25.split.i.i.i ], [ %184, %.split25.split.us.i.i.i ]
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %310
 
@@ -76442,7 +76442,7 @@ _ZNK9Imath_3_14halfcvfEv.exit.i.i.i:              ; preds = %218, %217, %215, %2
   %235 = landingpad { ptr, i32 }
           catch ptr null
   %236 = extractvalue { ptr, i32 } %235, 0
-  call void @__clang_call_terminate(ptr %236) #30
+  call void @__clang_call_terminate(ptr %236) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %233, %.loopexit.i.i.i
@@ -76555,7 +76555,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit19.thread.i.i.i: ; pr
 302:                                              ; preds = %.critedge.i.i.i
   %303 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %310
 
@@ -76573,7 +76573,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit19.thread.i.i.i: ; pr
   %308 = landingpad { ptr, i32 }
           catch ptr null
   %309 = extractvalue { ptr, i32 } %308, 0
-  call void @__clang_call_terminate(ptr %309) #30
+  call void @__clang_call_terminate(ptr %309) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit21.i.i.i: ; preds = %306, %.loopexit23.i.i.i
@@ -76609,7 +76609,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !1165
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IN9Imath_3_14halfEEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
@@ -76620,7 +76620,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IN9Imath_3_14halfEEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IN9Imath_3_14halfEEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IN9Imath_3_14halfEEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -76716,7 +76716,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 56:                                               ; preds = %58
   %57 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %117
 
@@ -76738,7 +76738,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #30
+  call void @__clang_call_terminate(ptr %64) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %61, %.loopexit.i.i.i
@@ -76815,7 +76815,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit15.thread.i.i.i: ; pr
 109:                                              ; preds = %.critedge.i.i.i
   %110 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %117
 
@@ -76833,7 +76833,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit15.thread.i.i.i: ; pr
   %115 = landingpad { ptr, i32 }
           catch ptr null
   %116 = extractvalue { ptr, i32 } %115, 0
-  call void @__clang_call_terminate(ptr %116) #30
+  call void @__clang_call_terminate(ptr %116) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit17.i.i.i: ; preds = %113, %.loopexit18.i.i.i
@@ -76869,7 +76869,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !1165
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_ItEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
@@ -76880,7 +76880,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_ItEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_ItEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_ItEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -76976,7 +76976,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 56:                                               ; preds = %58
   %57 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %117
 
@@ -76998,7 +76998,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #30
+  call void @__clang_call_terminate(ptr %64) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %61, %.loopexit.i.i.i
@@ -77075,7 +77075,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit15.thread.i.i.i: ; pr
 109:                                              ; preds = %.critedge.i.i.i
   %110 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %117
 
@@ -77093,7 +77093,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit15.thread.i.i.i: ; pr
   %115 = landingpad { ptr, i32 }
           catch ptr null
   %116 = extractvalue { ptr, i32 } %115, 0
-  call void @__clang_call_terminate(ptr %116) #30
+  call void @__clang_call_terminate(ptr %116) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit17.i.i.i: ; preds = %113, %.loopexit18.i.i.i
@@ -77129,7 +77129,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !1165
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IcEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
@@ -77140,7 +77140,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IcEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IcEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IcEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -77236,7 +77236,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 56:                                               ; preds = %58
   %57 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %117
 
@@ -77258,7 +77258,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #30
+  call void @__clang_call_terminate(ptr %64) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %61, %.loopexit.i.i.i
@@ -77335,7 +77335,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit15.thread.i.i.i: ; pr
 109:                                              ; preds = %.critedge.i.i.i
   %110 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %117
 
@@ -77353,7 +77353,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit15.thread.i.i.i: ; pr
   %115 = landingpad { ptr, i32 }
           catch ptr null
   %116 = extractvalue { ptr, i32 } %115, 0
-  call void @__clang_call_terminate(ptr %116) #30
+  call void @__clang_call_terminate(ptr %116) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit17.i.i.i: ; preds = %113, %.loopexit18.i.i.i
@@ -77389,7 +77389,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !1165
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IsEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
@@ -77400,7 +77400,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IsEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IsEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IsEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -77497,7 +77497,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 57:                                               ; preds = %59
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %118
 
@@ -77519,7 +77519,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #30
+  call void @__clang_call_terminate(ptr %65) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %62, %.loopexit.i.i.i
@@ -77596,7 +77596,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit15.thread.i.i.i: ; pr
 110:                                              ; preds = %.critedge.i.i.i
   %111 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %118
 
@@ -77614,7 +77614,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit15.thread.i.i.i: ; pr
   %116 = landingpad { ptr, i32 }
           catch ptr null
   %117 = extractvalue { ptr, i32 } %116, 0
-  call void @__clang_call_terminate(ptr %117) #30
+  call void @__clang_call_terminate(ptr %117) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit17.i.i.i: ; preds = %114, %.loopexit18.i.i.i
@@ -77650,7 +77650,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !1165
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IjEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
@@ -77661,7 +77661,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IjEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IjEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IjEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -77758,7 +77758,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 57:                                               ; preds = %59
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %118
 
@@ -77780,7 +77780,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #30
+  call void @__clang_call_terminate(ptr %65) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %62, %.loopexit.i.i.i
@@ -77857,7 +77857,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit15.thread.i.i.i: ; pr
 110:                                              ; preds = %.critedge.i.i.i
   %111 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %118
 
@@ -77875,7 +77875,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit15.thread.i.i.i: ; pr
   %116 = landingpad { ptr, i32 }
           catch ptr null
   %117 = extractvalue { ptr, i32 } %116, 0
-  call void @__clang_call_terminate(ptr %117) #30
+  call void @__clang_call_terminate(ptr %117) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit17.i.i.i: ; preds = %114, %.loopexit18.i.i.i
@@ -77911,7 +77911,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !1165
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IiEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
@@ -77922,7 +77922,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IiEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IiEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IiEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -78010,7 +78010,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 52:                                               ; preds = %54
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %112
 
@@ -78032,7 +78032,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #30
+  call void @__clang_call_terminate(ptr %60) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %57, %.loopexit.i.i.i
@@ -78108,7 +78108,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit14.thread.i.i.i: ; pr
 104:                                              ; preds = %.critedge.i.i.i
   %105 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %112
 
@@ -78126,7 +78126,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit14.thread.i.i.i: ; pr
   %110 = landingpad { ptr, i32 }
           catch ptr null
   %111 = extractvalue { ptr, i32 } %110, 0
-  call void @__clang_call_terminate(ptr %111) #30
+  call void @__clang_call_terminate(ptr %111) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit16.i.i.i: ; preds = %108, %.loopexit17.i.i.i
@@ -78162,7 +78162,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !1165
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IdEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
@@ -78173,7 +78173,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IdEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IdEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18isConstantChannel_IdEEbRKNS2_8ImageBufEiffNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -78274,7 +78274,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 54:                                               ; preds = %.critedge.i.i.i
   %55 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %112
 
@@ -78292,7 +78292,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #30
+  call void @__clang_call_terminate(ptr %61) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %58, %.loopexit.i.i.i
@@ -78374,7 +78374,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit39.thread.i.i.i: ; pr
 104:                                              ; preds = %.critedge38.i.i.i
   %105 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %112
 
@@ -78392,7 +78392,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit39.thread.i.i.i: ; pr
   %110 = landingpad { ptr, i32 }
           catch ptr null
   %111 = extractvalue { ptr, i32 } %110, 0
-  call void @__clang_call_terminate(ptr %111) #30
+  call void @__clang_call_terminate(ptr %111) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit41.i.i.i: ; preds = %108, %.loopexit42.i.i.i
@@ -78428,7 +78428,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false), !tbaa.struct !1238
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IfEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
@@ -78439,7 +78439,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IfEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IfEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IfEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -78540,7 +78540,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 53:                                               ; preds = %.critedge.i.i.i
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %115
 
@@ -78558,7 +78558,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #30
+  call void @__clang_call_terminate(ptr %60) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %57, %.loopexit.i.i.i
@@ -78644,7 +78644,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit40.thread.i.i.i: ; pr
 107:                                              ; preds = %.critedge39.i.i.i
   %108 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %115
 
@@ -78662,7 +78662,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit40.thread.i.i.i: ; pr
   %113 = landingpad { ptr, i32 }
           catch ptr null
   %114 = extractvalue { ptr, i32 } %113, 0
-  call void @__clang_call_terminate(ptr %114) #30
+  call void @__clang_call_terminate(ptr %114) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit42.i.i.i: ; preds = %111, %.loopexit43.i.i.i
@@ -78698,7 +78698,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false), !tbaa.struct !1238
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IhEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
@@ -78709,7 +78709,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IhEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IhEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IhEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -78927,7 +78927,7 @@ _ZNK9Imath_3_14halfcvfEv.exit.i.i.i:              ; preds = %104, %103, %101, %9
 115:                                              ; preds = %.critedge.i.i.i
   %116 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %219
 
@@ -78945,7 +78945,7 @@ _ZNK9Imath_3_14halfcvfEv.exit.i.i.i:              ; preds = %104, %103, %101, %9
   %121 = landingpad { ptr, i32 }
           catch ptr null
   %122 = extractvalue { ptr, i32 } %121, 0
-  call void @__clang_call_terminate(ptr %122) #30
+  call void @__clang_call_terminate(ptr %122) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %119, %.loopexit.i.i.i
@@ -79103,7 +79103,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit43.thread.i.i.i: ; pr
 211:                                              ; preds = %.critedge37.i.i.i
   %212 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %219
 
@@ -79121,7 +79121,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit43.thread.i.i.i: ; pr
   %217 = landingpad { ptr, i32 }
           catch ptr null
   %218 = extractvalue { ptr, i32 } %217, 0
-  call void @__clang_call_terminate(ptr %218) #30
+  call void @__clang_call_terminate(ptr %218) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit49.i.i.i: ; preds = %215, %.loopexit51.i.i.i
@@ -79157,7 +79157,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false), !tbaa.struct !1238
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IN9Imath_3_14halfEEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
@@ -79168,7 +79168,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IN9Imath_3_14halfEEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IN9Imath_3_14halfEEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IN9Imath_3_14halfEEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS9_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -79269,7 +79269,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 53:                                               ; preds = %.critedge.i.i.i
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %115
 
@@ -79287,7 +79287,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #30
+  call void @__clang_call_terminate(ptr %60) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %57, %.loopexit.i.i.i
@@ -79373,7 +79373,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit40.thread.i.i.i: ; pr
 107:                                              ; preds = %.critedge39.i.i.i
   %108 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %115
 
@@ -79391,7 +79391,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit40.thread.i.i.i: ; pr
   %113 = landingpad { ptr, i32 }
           catch ptr null
   %114 = extractvalue { ptr, i32 } %113, 0
-  call void @__clang_call_terminate(ptr %114) #30
+  call void @__clang_call_terminate(ptr %114) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit42.i.i.i: ; preds = %111, %.loopexit43.i.i.i
@@ -79427,7 +79427,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false), !tbaa.struct !1238
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_ItEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
@@ -79438,7 +79438,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_ItEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_ItEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_ItEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -79539,7 +79539,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 53:                                               ; preds = %.critedge.i.i.i
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %115
 
@@ -79557,7 +79557,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #30
+  call void @__clang_call_terminate(ptr %60) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %57, %.loopexit.i.i.i
@@ -79643,7 +79643,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit40.thread.i.i.i: ; pr
 107:                                              ; preds = %.critedge39.i.i.i
   %108 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %115
 
@@ -79661,7 +79661,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit40.thread.i.i.i: ; pr
   %113 = landingpad { ptr, i32 }
           catch ptr null
   %114 = extractvalue { ptr, i32 } %113, 0
-  call void @__clang_call_terminate(ptr %114) #30
+  call void @__clang_call_terminate(ptr %114) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit42.i.i.i: ; preds = %111, %.loopexit43.i.i.i
@@ -79697,7 +79697,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false), !tbaa.struct !1238
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IcEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
@@ -79708,7 +79708,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IcEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IcEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IcEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -79809,7 +79809,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 53:                                               ; preds = %.critedge.i.i.i
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %115
 
@@ -79827,7 +79827,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #30
+  call void @__clang_call_terminate(ptr %60) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %57, %.loopexit.i.i.i
@@ -79913,7 +79913,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit40.thread.i.i.i: ; pr
 107:                                              ; preds = %.critedge39.i.i.i
   %108 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %115
 
@@ -79931,7 +79931,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit40.thread.i.i.i: ; pr
   %113 = landingpad { ptr, i32 }
           catch ptr null
   %114 = extractvalue { ptr, i32 } %113, 0
-  call void @__clang_call_terminate(ptr %114) #30
+  call void @__clang_call_terminate(ptr %114) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit42.i.i.i: ; preds = %111, %.loopexit43.i.i.i
@@ -79967,7 +79967,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false), !tbaa.struct !1238
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IsEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
@@ -79978,7 +79978,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IsEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IsEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IsEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -80079,7 +80079,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 53:                                               ; preds = %.critedge.i.i.i
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %115
 
@@ -80097,7 +80097,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #30
+  call void @__clang_call_terminate(ptr %60) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %57, %.loopexit.i.i.i
@@ -80183,7 +80183,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit40.thread.i.i.i: ; pr
 107:                                              ; preds = %.critedge39.i.i.i
   %108 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %115
 
@@ -80201,7 +80201,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit40.thread.i.i.i: ; pr
   %113 = landingpad { ptr, i32 }
           catch ptr null
   %114 = extractvalue { ptr, i32 } %113, 0
-  call void @__clang_call_terminate(ptr %114) #30
+  call void @__clang_call_terminate(ptr %114) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit42.i.i.i: ; preds = %111, %.loopexit43.i.i.i
@@ -80237,7 +80237,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false), !tbaa.struct !1238
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IjEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
@@ -80248,7 +80248,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IjEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IjEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IjEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -80349,7 +80349,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 53:                                               ; preds = %.critedge.i.i.i
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %115
 
@@ -80367,7 +80367,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #30
+  call void @__clang_call_terminate(ptr %60) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %57, %.loopexit.i.i.i
@@ -80453,7 +80453,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit40.thread.i.i.i: ; pr
 107:                                              ; preds = %.critedge39.i.i.i
   %108 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %115
 
@@ -80471,7 +80471,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit40.thread.i.i.i: ; pr
   %113 = landingpad { ptr, i32 }
           catch ptr null
   %114 = extractvalue { ptr, i32 } %113, 0
-  call void @__clang_call_terminate(ptr %114) #30
+  call void @__clang_call_terminate(ptr %114) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit42.i.i.i: ; preds = %111, %.loopexit43.i.i.i
@@ -80507,7 +80507,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false), !tbaa.struct !1238
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IiEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
@@ -80518,7 +80518,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IiEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IiEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IiEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -80619,7 +80619,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 54:                                               ; preds = %.critedge.i.i.i
   %55 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %114
 
@@ -80637,7 +80637,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #30
+  call void @__clang_call_terminate(ptr %61) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %58, %.loopexit.i.i.i
@@ -80721,7 +80721,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit39.thread.i.i.i: ; pr
 106:                                              ; preds = %.critedge38.i.i.i
   %107 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %114
 
@@ -80739,7 +80739,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit39.thread.i.i.i: ; pr
   %112 = landingpad { ptr, i32 }
           catch ptr null
   %113 = extractvalue { ptr, i32 } %112, 0
-  call void @__clang_call_terminate(ptr %113) #30
+  call void @__clang_call_terminate(ptr %113) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit41.i.i.i: ; preds = %110, %.loopexit42.i.i.i
@@ -80775,7 +80775,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false), !tbaa.struct !1238
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IdEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
@@ -80786,7 +80786,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IdEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IdEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L13isMonochrome_IdEEbRKNS2_8ImageBufEfNS2_3ROIEiEUlS7_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -80824,7 +80824,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !1303
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IfEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
@@ -80835,7 +80835,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IfEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IfEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IfEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -80985,7 +80985,7 @@ define internal fastcc void @_ZZN11OpenImageIO6v3_1_0L12color_count_IfEEbRKNS0_8
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #30
+  call void @__clang_call_terminate(ptr %77) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %71, %74
@@ -81016,7 +81016,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %71, %74
 85:                                               ; preds = %._crit_edge43
   %86 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %86
 
@@ -81070,7 +81070,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !1303
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IhEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
@@ -81081,7 +81081,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IhEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IhEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IhEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -81233,7 +81233,7 @@ define internal fastcc void @_ZZN11OpenImageIO6v3_1_0L12color_count_IhEEbRKNS0_8
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #30
+  call void @__clang_call_terminate(ptr %79) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %73, %76
@@ -81264,7 +81264,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %73, %76
 87:                                               ; preds = %._crit_edge43
   %88 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %88
 
@@ -81318,7 +81318,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !1303
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IN9Imath_3_14halfEEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSD_NS2_3ROIEiEUlSE_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit
@@ -81329,7 +81329,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IN9Imath_3_14halfEEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSD_NS2_3ROIEiEUlSE_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IN9Imath_3_14halfEEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSD_NS2_3ROIEiEUlSE_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IN9Imath_3_14halfEEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSD_NS2_3ROIEiEUlSE_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -81517,7 +81517,7 @@ define internal fastcc void @_ZZN11OpenImageIO6v3_1_0L12color_count_IN9Imath_3_1
   %99 = landingpad { ptr, i32 }
           catch ptr null
   %100 = extractvalue { ptr, i32 } %99, 0
-  call void @__clang_call_terminate(ptr %100) #30
+  call void @__clang_call_terminate(ptr %100) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %94, %97
@@ -81548,7 +81548,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %94, %97
 108:                                              ; preds = %._crit_edge43
   %109 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %109
 
@@ -81602,7 +81602,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !1303
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_ItEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
@@ -81613,7 +81613,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_ItEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_ItEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_ItEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -81765,7 +81765,7 @@ define internal fastcc void @_ZZN11OpenImageIO6v3_1_0L12color_count_ItEEbRKNS0_8
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #30
+  call void @__clang_call_terminate(ptr %79) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %73, %76
@@ -81796,7 +81796,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %73, %76
 87:                                               ; preds = %._crit_edge43
   %88 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %88
 
@@ -81850,7 +81850,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !1303
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IcEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
@@ -81861,7 +81861,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IcEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IcEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IcEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -82013,7 +82013,7 @@ define internal fastcc void @_ZZN11OpenImageIO6v3_1_0L12color_count_IcEEbRKNS0_8
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #30
+  call void @__clang_call_terminate(ptr %79) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %73, %76
@@ -82044,7 +82044,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %73, %76
 87:                                               ; preds = %._crit_edge43
   %88 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %88
 
@@ -82098,7 +82098,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !1303
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IsEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
@@ -82109,7 +82109,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IsEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IsEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IsEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -82261,7 +82261,7 @@ define internal fastcc void @_ZZN11OpenImageIO6v3_1_0L12color_count_IsEEbRKNS0_8
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #30
+  call void @__clang_call_terminate(ptr %79) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %73, %76
@@ -82292,7 +82292,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %73, %76
 87:                                               ; preds = %._crit_edge43
   %88 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %88
 
@@ -82346,7 +82346,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !1303
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IjEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
@@ -82357,7 +82357,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IjEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IjEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IjEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -82509,7 +82509,7 @@ define internal fastcc void @_ZZN11OpenImageIO6v3_1_0L12color_count_IjEEbRKNS0_8
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #30
+  call void @__clang_call_terminate(ptr %79) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %73, %76
@@ -82540,7 +82540,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %73, %76
 87:                                               ; preds = %._crit_edge43
   %88 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %88
 
@@ -82594,7 +82594,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !1303
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IiEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
@@ -82605,7 +82605,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IiEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IiEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IiEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -82757,7 +82757,7 @@ define internal fastcc void @_ZZN11OpenImageIO6v3_1_0L12color_count_IiEEbRKNS0_8
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #30
+  call void @__clang_call_terminate(ptr %79) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %73, %76
@@ -82788,7 +82788,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %73, %76
 87:                                               ; preds = %._crit_edge43
   %88 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %88
 
@@ -82842,7 +82842,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false), !tbaa.struct !1303
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IdEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
@@ -82853,7 +82853,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IdEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 40) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IdEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L12color_count_IdEEbRKNS2_8ImageBufEPSt6atomicIxEiPKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -83004,7 +83004,7 @@ define internal fastcc void @_ZZN11OpenImageIO6v3_1_0L12color_count_IdEEbRKNS0_8
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #30
+  call void @__clang_call_terminate(ptr %78) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %72, %75
@@ -83035,7 +83035,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %72, %75
 86:                                               ; preds = %._crit_edge43
   %87 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %87
 
@@ -83135,7 +83135,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %38
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #30
+  call void @__clang_call_terminate(ptr %50) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %47, %45
@@ -83295,7 +83295,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i.backedge: ; preds = 
 123:                                              ; preds = %108, %.critedge.i.i.i.i, %78
   %124 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %124
 
@@ -83348,7 +83348,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false), !tbaa.struct !1384
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IfEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
@@ -83359,7 +83359,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IfEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 48) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 48) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IfEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IfEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -83443,7 +83443,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %38
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #30
+  call void @__clang_call_terminate(ptr %50) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %47, %45
@@ -83605,7 +83605,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i.backedge: ; preds = 
 125:                                              ; preds = %108, %.critedge.i.i.i.i, %78
   %126 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %126
 
@@ -83658,7 +83658,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false), !tbaa.struct !1384
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IhEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
@@ -83669,7 +83669,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IhEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 48) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 48) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IhEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IhEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -83753,7 +83753,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %38
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #30
+  call void @__clang_call_terminate(ptr %50) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %47, %45
@@ -83951,7 +83951,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i.backedge: ; preds = 
 146:                                              ; preds = %108, %.critedge.i.i.i.i, %78
   %147 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %147
 
@@ -84004,7 +84004,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false), !tbaa.struct !1384
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IN9Imath_3_14halfEEEbRKNS2_8ImageBufEPSt6atomicIxESB_SB_PKfSD_NS2_3ROIEiEUlSE_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit
@@ -84015,7 +84015,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IN9Imath_3_14halfEEEbRKNS2_8ImageBufEPSt6atomicIxESB_SB_PKfSD_NS2_3ROIEiEUlSE_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 48) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 48) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IN9Imath_3_14halfEEEbRKNS2_8ImageBufEPSt6atomicIxESB_SB_PKfSD_NS2_3ROIEiEUlSE_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IN9Imath_3_14halfEEEbRKNS2_8ImageBufEPSt6atomicIxESB_SB_PKfSD_NS2_3ROIEiEUlSE_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -84099,7 +84099,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %38
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #30
+  call void @__clang_call_terminate(ptr %50) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %47, %45
@@ -84261,7 +84261,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i.backedge: ; preds = 
 125:                                              ; preds = %108, %.critedge.i.i.i.i, %78
   %126 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %126
 
@@ -84314,7 +84314,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false), !tbaa.struct !1384
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_ItEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
@@ -84325,7 +84325,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_ItEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 48) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 48) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_ItEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_ItEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -84409,7 +84409,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %38
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #30
+  call void @__clang_call_terminate(ptr %50) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %47, %45
@@ -84571,7 +84571,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i.backedge: ; preds = 
 125:                                              ; preds = %108, %.critedge.i.i.i.i, %78
   %126 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %126
 
@@ -84624,7 +84624,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false), !tbaa.struct !1384
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IcEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
@@ -84635,7 +84635,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IcEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 48) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 48) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IcEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IcEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -84719,7 +84719,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %38
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #30
+  call void @__clang_call_terminate(ptr %50) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %47, %45
@@ -84881,7 +84881,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i.backedge: ; preds = 
 125:                                              ; preds = %108, %.critedge.i.i.i.i, %78
   %126 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %126
 
@@ -84934,7 +84934,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false), !tbaa.struct !1384
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IsEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
@@ -84945,7 +84945,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IsEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 48) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 48) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IsEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IsEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -85029,7 +85029,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %38
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #30
+  call void @__clang_call_terminate(ptr %50) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %47, %45
@@ -85191,7 +85191,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i.backedge: ; preds = 
 125:                                              ; preds = %108, %.critedge.i.i.i.i, %78
   %126 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %126
 
@@ -85244,7 +85244,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false), !tbaa.struct !1384
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IjEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
@@ -85255,7 +85255,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IjEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 48) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 48) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IjEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IjEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -85339,7 +85339,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %38
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #30
+  call void @__clang_call_terminate(ptr %50) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %47, %45
@@ -85501,7 +85501,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i.backedge: ; preds = 
 125:                                              ; preds = %108, %.critedge.i.i.i.i, %78
   %126 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %126
 
@@ -85554,7 +85554,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false), !tbaa.struct !1384
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IiEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
@@ -85565,7 +85565,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IiEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 48) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 48) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IiEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IiEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -85649,7 +85649,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %38
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #30
+  call void @__clang_call_terminate(ptr %50) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %47, %45
@@ -85810,7 +85810,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i.backedge: ; preds = 
 124:                                              ; preds = %108, %.critedge.i.i.i.i, %78
   %125 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %125
 
@@ -85863,7 +85863,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false), !tbaa.struct !1384
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IdEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
@@ -85874,7 +85874,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IdEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 48) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 48) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IdEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L18color_range_check_IdEEbRKNS2_8ImageBufEPSt6atomicIxES9_S9_PKfSB_NS2_3ROIEiEUlSC_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -86014,7 +86014,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i.i.i: ; preds
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i.i.i
   %61 = load i64, ptr %59, align 8, !tbaa !94
   %62 = add i64 %61, 1
-  call void @_ZdlPvm(ptr noundef %58, i64 noundef %62) #28
+  call void @_ZdlPvm(ptr noundef %58, i64 noundef %62) #30
   br label %"_ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_012ImageBufAlgo20computePixelHashSHA1B5cxx11ERKNS1_8ImageBufENS1_17basic_string_viewIcSt11char_traitsIcEEENS1_3ROIEiiE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 "_ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_012ImageBufAlgo20computePixelHashSHA1B5cxx11ERKNS1_8ImageBufENS1_17basic_string_viewIcSt11char_traitsIcEEENS1_3ROIEiiE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
@@ -86044,7 +86044,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvllEZN11OpenImage
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false), !tbaa.struct !1454
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %"_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_012ImageBufAlgo20computePixelHashSHA1B5cxx11ERKNS2_8ImageBufENS2_17basic_string_viewIcSt11char_traitsIcEEENS2_3ROIEiiE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
@@ -86055,7 +86055,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvllEZN11OpenImage
   br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_012ImageBufAlgo20computePixelHashSHA1B5cxx11ERKNS2_8ImageBufENS2_17basic_string_viewIcSt11char_traitsIcEEENS2_3ROIEiiE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #30
   br label %"_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_012ImageBufAlgo20computePixelHashSHA1B5cxx11ERKNS2_8ImageBufENS2_17basic_string_viewIcSt11char_traitsIcEEENS2_3ROIEiiE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_012ImageBufAlgo20computePixelHashSHA1B5cxx11ERKNS2_8ImageBufENS2_17basic_string_viewIcSt11char_traitsIcEEENS2_3ROIEiiE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
@@ -86113,7 +86113,7 @@ _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_Z
   br i1 %25, label %26, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit
 
 26:                                               ; preds = %24
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.84) #32
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.84) #34
   unreachable
 
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit:    ; preds = %24
@@ -86121,7 +86121,7 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit:    ; preds = %24
   %27 = add nuw nsw i64 %.sroa.speculated.i, %10
   %28 = tail call i64 @llvm.umin.i64(i64 %27, i64 1152921504606846975)
   %29 = shl nuw nsw i64 %28, 3
-  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #29
+  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #31
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %9
   store i64 0, ptr %31, align 8, !tbaa !16
   %32 = add nsw i64 %1, -1
@@ -86148,7 +86148,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 37:                                               ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit
   %38 = sub i64 %13, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %38) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %38) #30
   br label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36: ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit, %37
@@ -86169,7 +86169,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA35_cJRKNS0
   %5 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %7 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(35) %1) #27, !noalias !1455
+  %7 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(35) %1) #29, !noalias !1455
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1455
   %8 = ptrtoint ptr %2 to i64
   store i64 %8, ptr %4, align 16, !noalias !1455
@@ -86195,7 +86195,7 @@ define linkonce_odr void @_ZNK11OpenImageIO6v3_1_08ImageBuf8errorfmtIA35_cJRKNS0
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %14
   %18 = load i64, ptr %16, align 8, !tbaa !94
   %19 = add i64 %18, 1
-  call void @_ZdlPvm(ptr noundef %15, i64 noundef %19) #28
+  call void @_ZdlPvm(ptr noundef %15, i64 noundef %19) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -86213,7 +86213,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %14, %
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4: ; preds = %20
   %25 = load i64, ptr %23, align 8, !tbaa !94
   %26 = add i64 %25, 1
-  call void @_ZdlPvm(ptr noundef %22, i64 noundef %26) #28
+  call void @_ZdlPvm(ptr noundef %22, i64 noundef %26) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4
@@ -86245,7 +86245,7 @@ define internal void @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3_1_03ROIEEZNS1
   br i1 %18, label %.noexc.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %2
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.87) #32
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.87) #34
   unreachable
 
 _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %2
@@ -86254,7 +86254,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %2
 
 .noexc27.i.i.i:                                   ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
   %19 = shl nuw nsw i64 %17, 3
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #29
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #31
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %20, i8 0, i64 %19, i1 false), !tbaa !16
   %21 = getelementptr inbounds nuw i64, ptr %20, i64 %17
   %22 = ptrtoint ptr %21 to i64
@@ -86334,14 +86334,14 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %57
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #30
+  call void @__clang_call_terminate(ptr %69) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %66, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %70 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %71 = load ptr, ptr %70, align 8, !tbaa !1463
-  %72 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %72 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   %.not.i.i.i.i.i = icmp eq i32 %72, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i, label %79
 
@@ -86359,7 +86359,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i: ; preds = %_ZN11OpenIma
   br label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i
 
 79:                                               ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %72) #32
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %72) #34
           to label %.noexc30.i.i.i unwind label %171
 
 .noexc30.i.i.i:                                   ; preds = %79
@@ -86541,7 +86541,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
 164:                                              ; preds = %160, %.critedge.i.i.i.i, %130
   %165 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   br label %166
 
 166:                                              ; preds = %164, %80
@@ -86550,14 +86550,14 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   br label %179
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.i.i.i: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i
-  %167 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %167 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.037.0.i.i.i, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L14histogram_implIfEEbRKNS1_8ImageBufEiRSt6vectorImSaImEEiffbNS1_3ROIEiEUlSA_E_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit, label %168
 
 168:                                              ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.i.i.i
   %169 = ptrtoint ptr %.sroa.037.0.i.i.i to i64
   %170 = sub i64 %.sroa.11.0.i.i.i, %169
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %170) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %170) #30
   br label %_ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L14histogram_implIfEEbRKNS1_8ImageBufEiRSt6vectorImSaImEEiffbNS1_3ROIEiEUlSA_E_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit
 
 171:                                              ; preds = %79
@@ -86578,7 +86578,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i:    ; preds = %_ZNSt10lock_guardIS
   br i1 %exitcond54.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i, !llvm.loop !1468
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i
-  %178 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %178 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   br label %168
 
 179:                                              ; preds = %171, %166
@@ -86589,7 +86589,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i: ; preds = %_ZNS
 180:                                              ; preds = %179
   %181 = ptrtoint ptr %.sroa.037.0.i.i.i to i64
   %182 = sub i64 %.sroa.11.0.i.i.i, %181
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %182) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %182) #30
   br label %_ZNSt6vectorImSaImEED2Ev.exit33.i.i.i
 
 _ZNSt6vectorImSaImEED2Ev.exit33.i.i.i:            ; preds = %180, %179
@@ -86620,7 +86620,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull readonly align 8 dereferenceable(64) %.val6, i64 64, i1 false), !tbaa.struct !1469
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIfEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit
@@ -86631,7 +86631,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIfEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 64) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 64) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIfEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIfEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -86671,7 +86671,7 @@ define internal void @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3_1_03ROIEEZNS1
   br i1 %18, label %.noexc.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %2
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.87) #32
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.87) #34
   unreachable
 
 _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %2
@@ -86680,7 +86680,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %2
 
 .noexc27.i.i.i:                                   ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
   %19 = shl nuw nsw i64 %17, 3
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #29
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #31
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %20, i8 0, i64 %19, i1 false), !tbaa !16
   %21 = getelementptr inbounds nuw i64, ptr %20, i64 %17
   %22 = ptrtoint ptr %21 to i64
@@ -86760,14 +86760,14 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %57
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #30
+  call void @__clang_call_terminate(ptr %69) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %66, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %70 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %71 = load ptr, ptr %70, align 8, !tbaa !1475
-  %72 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %72 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   %.not.i.i.i.i.i = icmp eq i32 %72, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i, label %79
 
@@ -86785,7 +86785,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i: ; preds = %_ZN11OpenIma
   br label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i
 
 79:                                               ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %72) #32
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %72) #34
           to label %.noexc30.i.i.i unwind label %175
 
 .noexc30.i.i.i:                                   ; preds = %79
@@ -86971,7 +86971,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
 168:                                              ; preds = %164, %.critedge.i.i.i.i, %134
   %169 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   br label %170
 
 170:                                              ; preds = %168, %80
@@ -86980,14 +86980,14 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   br label %183
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.i.i.i: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i
-  %171 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %171 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.037.0.i.i.i, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L14histogram_implIhEEbRKNS1_8ImageBufEiRSt6vectorImSaImEEiffbNS1_3ROIEiEUlSA_E_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit, label %172
 
 172:                                              ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.i.i.i
   %173 = ptrtoint ptr %.sroa.037.0.i.i.i to i64
   %174 = sub i64 %.sroa.11.0.i.i.i, %173
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %174) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %174) #30
   br label %_ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L14histogram_implIhEEbRKNS1_8ImageBufEiRSt6vectorImSaImEEiffbNS1_3ROIEiEUlSA_E_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit
 
 175:                                              ; preds = %79
@@ -87008,7 +87008,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i:    ; preds = %_ZNSt10lock_guardIS
   br i1 %exitcond54.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i, !llvm.loop !1480
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i
-  %182 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %182 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   br label %172
 
 183:                                              ; preds = %175, %170
@@ -87019,7 +87019,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i: ; preds = %_ZNS
 184:                                              ; preds = %183
   %185 = ptrtoint ptr %.sroa.037.0.i.i.i to i64
   %186 = sub i64 %.sroa.11.0.i.i.i, %185
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %186) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %186) #30
   br label %_ZNSt6vectorImSaImEED2Ev.exit33.i.i.i
 
 _ZNSt6vectorImSaImEED2Ev.exit33.i.i.i:            ; preds = %184, %183
@@ -87050,7 +87050,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull readonly align 8 dereferenceable(64) %.val6, i64 64, i1 false), !tbaa.struct !1469
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIhEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit
@@ -87061,7 +87061,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIhEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 64) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 64) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIhEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIhEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -87092,7 +87092,7 @@ define internal void @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3_1_03ROIEEZNS1
   br i1 %18, label %.noexc.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %2
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.87) #32
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.87) #34
   unreachable
 
 _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %2
@@ -87101,7 +87101,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %2
 
 .noexc27.i.i.i:                                   ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
   %19 = shl nuw nsw i64 %17, 3
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #29
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #31
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %20, i8 0, i64 %19, i1 false), !tbaa !16
   %21 = getelementptr inbounds nuw i64, ptr %20, i64 %17
   %22 = ptrtoint ptr %21 to i64
@@ -87181,14 +87181,14 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %57
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #30
+  call void @__clang_call_terminate(ptr %69) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %66, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %70 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %71 = load ptr, ptr %70, align 8, !tbaa !1486
-  %72 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %72 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   %.not.i.i.i.i.i = icmp eq i32 %72, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i, label %79
 
@@ -87206,7 +87206,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i: ; preds = %_ZN11OpenIma
   br label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i
 
 79:                                               ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %72) #32
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %72) #34
           to label %.noexc30.i.i.i unwind label %214
 
 .noexc30.i.i.i:                                   ; preds = %79
@@ -87460,7 +87460,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
 207:                                              ; preds = %203, %.critedge.i.i.i.i, %173
   %208 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   br label %209
 
 209:                                              ; preds = %207, %80
@@ -87469,14 +87469,14 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   br label %222
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.i.i.i: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i
-  %210 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %210 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.041.0.i.i.i, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L14histogram_implIN9Imath_3_14halfEEEbRKNS1_8ImageBufEiRSt6vectorImSaImEEiffbNS1_3ROIEiEUlSC_E_JSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit, label %211
 
 211:                                              ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.i.i.i
   %212 = ptrtoint ptr %.sroa.041.0.i.i.i to i64
   %213 = sub i64 %.sroa.11.0.i.i.i, %212
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.041.0.i.i.i, i64 noundef %213) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.041.0.i.i.i, i64 noundef %213) #30
   br label %_ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L14histogram_implIN9Imath_3_14halfEEEbRKNS1_8ImageBufEiRSt6vectorImSaImEEiffbNS1_3ROIEiEUlSC_E_JSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit
 
 214:                                              ; preds = %79
@@ -87497,7 +87497,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i:    ; preds = %_ZNSt10lock_guardIS
   br i1 %exitcond58.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i, !llvm.loop !1491
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i
-  %221 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %221 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   br label %211
 
 222:                                              ; preds = %214, %209
@@ -87508,7 +87508,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i: ; preds = %_ZNS
 223:                                              ; preds = %222
   %224 = ptrtoint ptr %.sroa.041.0.i.i.i to i64
   %225 = sub i64 %.sroa.11.0.i.i.i, %224
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.041.0.i.i.i, i64 noundef %225) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.041.0.i.i.i, i64 noundef %225) #30
   br label %_ZNSt6vectorImSaImEED2Ev.exit37.i.i.i
 
 _ZNSt6vectorImSaImEED2Ev.exit37.i.i.i:            ; preds = %223, %222
@@ -87539,7 +87539,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull readonly align 8 dereferenceable(64) %.val6, i64 64, i1 false), !tbaa.struct !1469
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIN9Imath_3_14halfEEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSD_E_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit
@@ -87550,7 +87550,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIN9Imath_3_14halfEEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSD_E_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 64) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 64) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIN9Imath_3_14halfEEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSD_E_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIN9Imath_3_14halfEEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSD_E_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -87581,7 +87581,7 @@ define internal void @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3_1_03ROIEEZNS1
   br i1 %18, label %.noexc.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %2
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.87) #32
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.87) #34
   unreachable
 
 _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %2
@@ -87590,7 +87590,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %2
 
 .noexc27.i.i.i:                                   ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
   %19 = shl nuw nsw i64 %17, 3
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #29
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #31
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %20, i8 0, i64 %19, i1 false), !tbaa !16
   %21 = getelementptr inbounds nuw i64, ptr %20, i64 %17
   %22 = ptrtoint ptr %21 to i64
@@ -87670,14 +87670,14 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %57
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #30
+  call void @__clang_call_terminate(ptr %69) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %66, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %70 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %71 = load ptr, ptr %70, align 8, !tbaa !1497
-  %72 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %72 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   %.not.i.i.i.i.i = icmp eq i32 %72, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i, label %79
 
@@ -87695,7 +87695,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i: ; preds = %_ZN11OpenIma
   br label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i
 
 79:                                               ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %72) #32
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %72) #34
           to label %.noexc30.i.i.i unwind label %175
 
 .noexc30.i.i.i:                                   ; preds = %79
@@ -87881,7 +87881,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
 168:                                              ; preds = %164, %.critedge.i.i.i.i, %134
   %169 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   br label %170
 
 170:                                              ; preds = %168, %80
@@ -87890,14 +87890,14 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   br label %183
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.i.i.i: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i
-  %171 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %171 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.037.0.i.i.i, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L14histogram_implItEEbRKNS1_8ImageBufEiRSt6vectorImSaImEEiffbNS1_3ROIEiEUlSA_E_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit, label %172
 
 172:                                              ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.i.i.i
   %173 = ptrtoint ptr %.sroa.037.0.i.i.i to i64
   %174 = sub i64 %.sroa.11.0.i.i.i, %173
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %174) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %174) #30
   br label %_ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L14histogram_implItEEbRKNS1_8ImageBufEiRSt6vectorImSaImEEiffbNS1_3ROIEiEUlSA_E_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit
 
 175:                                              ; preds = %79
@@ -87918,7 +87918,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i:    ; preds = %_ZNSt10lock_guardIS
   br i1 %exitcond54.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i, !llvm.loop !1502
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i
-  %182 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %182 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   br label %172
 
 183:                                              ; preds = %175, %170
@@ -87929,7 +87929,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i: ; preds = %_ZNS
 184:                                              ; preds = %183
   %185 = ptrtoint ptr %.sroa.037.0.i.i.i to i64
   %186 = sub i64 %.sroa.11.0.i.i.i, %185
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %186) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %186) #30
   br label %_ZNSt6vectorImSaImEED2Ev.exit33.i.i.i
 
 _ZNSt6vectorImSaImEED2Ev.exit33.i.i.i:            ; preds = %184, %183
@@ -87960,7 +87960,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull readonly align 8 dereferenceable(64) %.val6, i64 64, i1 false), !tbaa.struct !1469
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implItEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit
@@ -87971,7 +87971,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implItEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 64) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 64) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implItEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implItEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -88002,7 +88002,7 @@ define internal void @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3_1_03ROIEEZNS1
   br i1 %18, label %.noexc.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %2
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.87) #32
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.87) #34
   unreachable
 
 _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %2
@@ -88011,7 +88011,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %2
 
 .noexc27.i.i.i:                                   ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
   %19 = shl nuw nsw i64 %17, 3
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #29
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #31
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %20, i8 0, i64 %19, i1 false), !tbaa !16
   %21 = getelementptr inbounds nuw i64, ptr %20, i64 %17
   %22 = ptrtoint ptr %21 to i64
@@ -88091,14 +88091,14 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %57
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #30
+  call void @__clang_call_terminate(ptr %69) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %66, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %70 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %71 = load ptr, ptr %70, align 8, !tbaa !1508
-  %72 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %72 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   %.not.i.i.i.i.i = icmp eq i32 %72, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i, label %79
 
@@ -88116,7 +88116,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i: ; preds = %_ZN11OpenIma
   br label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i
 
 79:                                               ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %72) #32
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %72) #34
           to label %.noexc30.i.i.i unwind label %175
 
 .noexc30.i.i.i:                                   ; preds = %79
@@ -88302,7 +88302,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
 168:                                              ; preds = %164, %.critedge.i.i.i.i, %134
   %169 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   br label %170
 
 170:                                              ; preds = %168, %80
@@ -88311,14 +88311,14 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   br label %183
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.i.i.i: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i
-  %171 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %171 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.037.0.i.i.i, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L14histogram_implIcEEbRKNS1_8ImageBufEiRSt6vectorImSaImEEiffbNS1_3ROIEiEUlSA_E_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit, label %172
 
 172:                                              ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.i.i.i
   %173 = ptrtoint ptr %.sroa.037.0.i.i.i to i64
   %174 = sub i64 %.sroa.11.0.i.i.i, %173
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %174) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %174) #30
   br label %_ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L14histogram_implIcEEbRKNS1_8ImageBufEiRSt6vectorImSaImEEiffbNS1_3ROIEiEUlSA_E_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit
 
 175:                                              ; preds = %79
@@ -88339,7 +88339,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i:    ; preds = %_ZNSt10lock_guardIS
   br i1 %exitcond54.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i, !llvm.loop !1513
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i
-  %182 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %182 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   br label %172
 
 183:                                              ; preds = %175, %170
@@ -88350,7 +88350,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i: ; preds = %_ZNS
 184:                                              ; preds = %183
   %185 = ptrtoint ptr %.sroa.037.0.i.i.i to i64
   %186 = sub i64 %.sroa.11.0.i.i.i, %185
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %186) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %186) #30
   br label %_ZNSt6vectorImSaImEED2Ev.exit33.i.i.i
 
 _ZNSt6vectorImSaImEED2Ev.exit33.i.i.i:            ; preds = %184, %183
@@ -88381,7 +88381,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull readonly align 8 dereferenceable(64) %.val6, i64 64, i1 false), !tbaa.struct !1469
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIcEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit
@@ -88392,7 +88392,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIcEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 64) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 64) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIcEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIcEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -88423,7 +88423,7 @@ define internal void @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3_1_03ROIEEZNS1
   br i1 %18, label %.noexc.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %2
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.87) #32
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.87) #34
   unreachable
 
 _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %2
@@ -88432,7 +88432,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %2
 
 .noexc27.i.i.i:                                   ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
   %19 = shl nuw nsw i64 %17, 3
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #29
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #31
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %20, i8 0, i64 %19, i1 false), !tbaa !16
   %21 = getelementptr inbounds nuw i64, ptr %20, i64 %17
   %22 = ptrtoint ptr %21 to i64
@@ -88512,14 +88512,14 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %57
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #30
+  call void @__clang_call_terminate(ptr %69) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %66, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %70 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %71 = load ptr, ptr %70, align 8, !tbaa !1519
-  %72 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %72 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   %.not.i.i.i.i.i = icmp eq i32 %72, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i, label %79
 
@@ -88537,7 +88537,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i: ; preds = %_ZN11OpenIma
   br label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i
 
 79:                                               ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %72) #32
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %72) #34
           to label %.noexc30.i.i.i unwind label %175
 
 .noexc30.i.i.i:                                   ; preds = %79
@@ -88723,7 +88723,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
 168:                                              ; preds = %164, %.critedge.i.i.i.i, %134
   %169 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   br label %170
 
 170:                                              ; preds = %168, %80
@@ -88732,14 +88732,14 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   br label %183
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.i.i.i: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i
-  %171 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %171 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.037.0.i.i.i, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L14histogram_implIsEEbRKNS1_8ImageBufEiRSt6vectorImSaImEEiffbNS1_3ROIEiEUlSA_E_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit, label %172
 
 172:                                              ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.i.i.i
   %173 = ptrtoint ptr %.sroa.037.0.i.i.i to i64
   %174 = sub i64 %.sroa.11.0.i.i.i, %173
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %174) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %174) #30
   br label %_ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L14histogram_implIsEEbRKNS1_8ImageBufEiRSt6vectorImSaImEEiffbNS1_3ROIEiEUlSA_E_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit
 
 175:                                              ; preds = %79
@@ -88760,7 +88760,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i:    ; preds = %_ZNSt10lock_guardIS
   br i1 %exitcond54.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i, !llvm.loop !1524
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i
-  %182 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %182 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   br label %172
 
 183:                                              ; preds = %175, %170
@@ -88771,7 +88771,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i: ; preds = %_ZNS
 184:                                              ; preds = %183
   %185 = ptrtoint ptr %.sroa.037.0.i.i.i to i64
   %186 = sub i64 %.sroa.11.0.i.i.i, %185
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %186) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %186) #30
   br label %_ZNSt6vectorImSaImEED2Ev.exit33.i.i.i
 
 _ZNSt6vectorImSaImEED2Ev.exit33.i.i.i:            ; preds = %184, %183
@@ -88802,7 +88802,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull readonly align 8 dereferenceable(64) %.val6, i64 64, i1 false), !tbaa.struct !1469
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIsEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit
@@ -88813,7 +88813,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIsEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 64) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 64) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIsEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIsEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -88844,7 +88844,7 @@ define internal void @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3_1_03ROIEEZNS1
   br i1 %18, label %.noexc.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %2
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.87) #32
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.87) #34
   unreachable
 
 _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %2
@@ -88853,7 +88853,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %2
 
 .noexc27.i.i.i:                                   ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
   %19 = shl nuw nsw i64 %17, 3
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #29
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #31
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %20, i8 0, i64 %19, i1 false), !tbaa !16
   %21 = getelementptr inbounds nuw i64, ptr %20, i64 %17
   %22 = ptrtoint ptr %21 to i64
@@ -88933,14 +88933,14 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %57
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #30
+  call void @__clang_call_terminate(ptr %69) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %66, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %70 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %71 = load ptr, ptr %70, align 8, !tbaa !1530
-  %72 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %72 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   %.not.i.i.i.i.i = icmp eq i32 %72, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i, label %79
 
@@ -88958,7 +88958,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i: ; preds = %_ZN11OpenIma
   br label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i
 
 79:                                               ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %72) #32
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %72) #34
           to label %.noexc30.i.i.i unwind label %175
 
 .noexc30.i.i.i:                                   ; preds = %79
@@ -89144,7 +89144,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
 168:                                              ; preds = %164, %.critedge.i.i.i.i, %134
   %169 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   br label %170
 
 170:                                              ; preds = %168, %80
@@ -89153,14 +89153,14 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   br label %183
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.i.i.i: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i
-  %171 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %171 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.037.0.i.i.i, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L14histogram_implIjEEbRKNS1_8ImageBufEiRSt6vectorImSaImEEiffbNS1_3ROIEiEUlSA_E_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit, label %172
 
 172:                                              ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.i.i.i
   %173 = ptrtoint ptr %.sroa.037.0.i.i.i to i64
   %174 = sub i64 %.sroa.11.0.i.i.i, %173
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %174) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %174) #30
   br label %_ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L14histogram_implIjEEbRKNS1_8ImageBufEiRSt6vectorImSaImEEiffbNS1_3ROIEiEUlSA_E_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit
 
 175:                                              ; preds = %79
@@ -89181,7 +89181,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i:    ; preds = %_ZNSt10lock_guardIS
   br i1 %exitcond54.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i, !llvm.loop !1535
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i
-  %182 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %182 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   br label %172
 
 183:                                              ; preds = %175, %170
@@ -89192,7 +89192,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i: ; preds = %_ZNS
 184:                                              ; preds = %183
   %185 = ptrtoint ptr %.sroa.037.0.i.i.i to i64
   %186 = sub i64 %.sroa.11.0.i.i.i, %185
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %186) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %186) #30
   br label %_ZNSt6vectorImSaImEED2Ev.exit33.i.i.i
 
 _ZNSt6vectorImSaImEED2Ev.exit33.i.i.i:            ; preds = %184, %183
@@ -89223,7 +89223,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull readonly align 8 dereferenceable(64) %.val6, i64 64, i1 false), !tbaa.struct !1469
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIjEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit
@@ -89234,7 +89234,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIjEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 64) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 64) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIjEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIjEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -89265,7 +89265,7 @@ define internal void @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3_1_03ROIEEZNS1
   br i1 %18, label %.noexc.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %2
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.87) #32
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.87) #34
   unreachable
 
 _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %2
@@ -89274,7 +89274,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %2
 
 .noexc27.i.i.i:                                   ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
   %19 = shl nuw nsw i64 %17, 3
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #29
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #31
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %20, i8 0, i64 %19, i1 false), !tbaa !16
   %21 = getelementptr inbounds nuw i64, ptr %20, i64 %17
   %22 = ptrtoint ptr %21 to i64
@@ -89354,14 +89354,14 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %57
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #30
+  call void @__clang_call_terminate(ptr %69) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %66, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %70 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %71 = load ptr, ptr %70, align 8, !tbaa !1541
-  %72 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %72 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   %.not.i.i.i.i.i = icmp eq i32 %72, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i, label %79
 
@@ -89379,7 +89379,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i: ; preds = %_ZN11OpenIma
   br label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i
 
 79:                                               ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %72) #32
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %72) #34
           to label %.noexc30.i.i.i unwind label %175
 
 .noexc30.i.i.i:                                   ; preds = %79
@@ -89565,7 +89565,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
 168:                                              ; preds = %164, %.critedge.i.i.i.i, %134
   %169 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   br label %170
 
 170:                                              ; preds = %168, %80
@@ -89574,14 +89574,14 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   br label %183
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.i.i.i: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i
-  %171 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %171 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.037.0.i.i.i, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L14histogram_implIiEEbRKNS1_8ImageBufEiRSt6vectorImSaImEEiffbNS1_3ROIEiEUlSA_E_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit, label %172
 
 172:                                              ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.i.i.i
   %173 = ptrtoint ptr %.sroa.037.0.i.i.i to i64
   %174 = sub i64 %.sroa.11.0.i.i.i, %173
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %174) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %174) #30
   br label %_ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L14histogram_implIiEEbRKNS1_8ImageBufEiRSt6vectorImSaImEEiffbNS1_3ROIEiEUlSA_E_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit
 
 175:                                              ; preds = %79
@@ -89602,7 +89602,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i:    ; preds = %_ZNSt10lock_guardIS
   br i1 %exitcond54.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i, !llvm.loop !1546
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i
-  %182 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %182 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   br label %172
 
 183:                                              ; preds = %175, %170
@@ -89613,7 +89613,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i: ; preds = %_ZNS
 184:                                              ; preds = %183
   %185 = ptrtoint ptr %.sroa.037.0.i.i.i to i64
   %186 = sub i64 %.sroa.11.0.i.i.i, %185
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %186) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %186) #30
   br label %_ZNSt6vectorImSaImEED2Ev.exit33.i.i.i
 
 _ZNSt6vectorImSaImEED2Ev.exit33.i.i.i:            ; preds = %184, %183
@@ -89644,7 +89644,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull readonly align 8 dereferenceable(64) %.val6, i64 64, i1 false), !tbaa.struct !1469
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIiEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit
@@ -89655,7 +89655,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIiEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 64) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 64) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIiEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIiEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -89686,7 +89686,7 @@ define internal void @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3_1_03ROIEEZNS1
   br i1 %18, label %.noexc.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %2
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.87) #32
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.87) #34
   unreachable
 
 _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %2
@@ -89695,7 +89695,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %2
 
 .noexc27.i.i.i:                                   ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
   %19 = shl nuw nsw i64 %17, 3
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #29
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #31
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %20, i8 0, i64 %19, i1 false), !tbaa !16
   %21 = getelementptr inbounds nuw i64, ptr %20, i64 %17
   %22 = ptrtoint ptr %21 to i64
@@ -89775,14 +89775,14 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.i.i.i: ; preds = %57
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #30
+  call void @__clang_call_terminate(ptr %69) #32
   unreachable
 
 _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i: ; preds = %66, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %70 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %71 = load ptr, ptr %70, align 8, !tbaa !1552
-  %72 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %72 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   %.not.i.i.i.i.i = icmp eq i32 %72, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i, label %79
 
@@ -89800,7 +89800,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i: ; preds = %_ZN11OpenIma
   br label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i
 
 79:                                               ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %72) #32
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %72) #34
           to label %.noexc30.i.i.i unwind label %173
 
 .noexc30.i.i.i:                                   ; preds = %79
@@ -89984,7 +89984,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
 166:                                              ; preds = %162, %.critedge.i.i.i.i, %132
   %167 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #27
+  call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #29
   br label %168
 
 168:                                              ; preds = %166, %80
@@ -89993,14 +89993,14 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   br label %181
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.i.i.i: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader.i.i.i
-  %169 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %169 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.037.0.i.i.i, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L14histogram_implIdEEbRKNS1_8ImageBufEiRSt6vectorImSaImEEiffbNS1_3ROIEiEUlSA_E_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit, label %170
 
 170:                                              ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.i.i.i
   %171 = ptrtoint ptr %.sroa.037.0.i.i.i to i64
   %172 = sub i64 %.sroa.11.0.i.i.i, %171
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %172) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %172) #30
   br label %_ZSt10__invoke_rIvRZN11OpenImageIO6v3_1_0L14histogram_implIdEEbRKNS1_8ImageBufEiRSt6vectorImSaImEEiffbNS1_3ROIEiEUlSA_E_JSA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit
 
 173:                                              ; preds = %79
@@ -90021,7 +90021,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i:    ; preds = %_ZNSt10lock_guardIS
   br i1 %exitcond54.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i, !llvm.loop !1557
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i
-  %180 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #27
+  %180 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %71) #29
   br label %170
 
 181:                                              ; preds = %173, %168
@@ -90032,7 +90032,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread.i.i.i: ; preds = %_ZNS
 182:                                              ; preds = %181
   %183 = ptrtoint ptr %.sroa.037.0.i.i.i to i64
   %184 = sub i64 %.sroa.11.0.i.i.i, %183
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %184) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.0.i.i.i, i64 noundef %184) #30
   br label %_ZNSt6vectorImSaImEED2Ev.exit33.i.i.i
 
 _ZNSt6vectorImSaImEED2Ev.exit33.i.i.i:            ; preds = %182, %181
@@ -90063,7 +90063,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull readonly align 8 dereferenceable(64) %.val6, i64 64, i1 false), !tbaa.struct !1469
   store ptr %7, ptr %0, align 8, !tbaa !74
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIdEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit
@@ -90074,7 +90074,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3
   br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIdEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 64) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 64) #30
   br label %_ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIdEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIdEEbRKNS2_8ImageBufEiRSt6vectorImSaImEEiffbNS2_3ROIEiEUlSB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
@@ -90082,53 +90082,53 @@ _ZNSt14_Function_base13_Base_managerIZN11OpenImageIO6v3_1_0L14histogram_implIdEE
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_imagebufalgo_compare.cpp() #22 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_imagebufalgo_compare.cpp() #23 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #27
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #29
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #24
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #25
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #26
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #25
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #25
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #25
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #25
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #24
+declare i64 @llvm.abs.i64(i64, i1 immarg) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #24
+declare i32 @llvm.abs.i32(i32, i1 immarg) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #26
+declare void @llvm.experimental.noalias.scope.decl(metadata) #28
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #24
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #25
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #24
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #25
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -90151,20 +90151,22 @@ attributes #17 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" 
 attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #19 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #21 = { cold noreturn }
-attributes #22 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #25 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #26 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #27 = { nounwind }
-attributes #28 = { builtin nounwind }
-attributes #29 = { builtin allocsize(0) }
-attributes #30 = { noreturn nounwind }
-attributes #31 = { cold nounwind }
-attributes #32 = { noreturn }
-attributes #33 = { nounwind willreturn memory(read) }
-attributes #34 = { nounwind willreturn memory(none) }
+attributes #21 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { cold noreturn }
+attributes #23 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #25 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #26 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #27 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #28 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #29 = { nounwind }
+attributes #30 = { builtin nounwind }
+attributes #31 = { builtin allocsize(0) }
+attributes #32 = { noreturn nounwind }
+attributes #33 = { cold nounwind }
+attributes #34 = { noreturn }
+attributes #35 = { nounwind willreturn memory(read) }
+attributes #36 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

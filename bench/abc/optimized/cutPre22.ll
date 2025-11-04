@@ -79,10 +79,10 @@ define void @Cut_CellLoad() local_unnamed_addr #0 {
 
 6:                                                ; preds = %0
   %calloc.i = tail call dereferenceable_or_null(5184) ptr @calloc(i64 1, i64 5184)
-  %7 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #16
+  %7 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #17
   %8 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %7, ptr %8, align 8, !tbaa !3
-  %9 = tail call ptr @Extra_MmFixedStart(i32 noundef 152) #16
+  %9 = tail call ptr @Extra_MmFixedStart(i32 noundef 152) #17
   store ptr %9, ptr %calloc.i, align 8, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 96
   br label %.preheader.i
@@ -133,7 +133,7 @@ Cut_CManStart.exit:                               ; preds = %26
   br label %30
 
 30:                                               ; preds = %.lr.ph, %.backedge
-  %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %32 = trunc i64 %31 to i32
   %33 = add nsw i32 %32, -1
   %sext = shl i64 %31, 32
@@ -145,7 +145,7 @@ Cut_CManStart.exit:                               ; preds = %26
 
 37:                                               ; preds = %30
   %38 = load ptr, ptr %calloc.i, align 8, !tbaa !12
-  %39 = call ptr @Extra_MmFixedEntryFetch(ptr noundef %38) #16
+  %39 = call ptr @Extra_MmFixedEntryFetch(ptr noundef %38) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %39, i8 0, i64 152, i1 false)
   %40 = shl nsw i32 %33, 2
   %41 = add i32 %40, -1
@@ -157,7 +157,7 @@ Cut_CManStart.exit:                               ; preds = %26
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store i32 1, ptr %46, align 8, !tbaa !20
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 84
-  %48 = call i32 @Extra_ReadHexadecimal(ptr noundef nonnull %47, ptr noundef nonnull %1, i32 noundef %45) #16
+  %48 = call i32 @Extra_ReadHexadecimal(ptr noundef nonnull %47, ptr noundef nonnull %1, i32 noundef %45) #17
   call fastcc void @Cut_CellSuppMin(ptr noundef nonnull %39)
   %49 = load i32, ptr %28, align 8, !tbaa !23
   %50 = add nsw i32 %49, 1
@@ -231,7 +231,7 @@ define internal fastcc void @Cut_CellSuppMin(ptr noundef %0) unnamed_addr #0 {
   %.03345 = add nsw i32 %.03345.in, -1
   %10 = load i32, ptr %2, align 8
   %11 = and i32 %10, 15
-  %12 = tail call i32 @Extra_TruthVarInSupport(ptr noundef nonnull %5, i32 noundef %11, i32 noundef %.03345) #16
+  %12 = tail call i32 @Extra_TruthVarInSupport(ptr noundef nonnull %5, i32 noundef %11, i32 noundef %.03345) #17
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %.preheader, label %42
 
@@ -248,7 +248,7 @@ define internal fastcc void @Cut_CellSuppMin(ptr noundef %0) unnamed_addr #0 {
   %.03239 = phi i32 [ %22, %.lr.ph ], [ 0, %.preheader ]
   %.03537 = phi ptr [ %.040, %.lr.ph ], [ @Cut_CellSuppMin.uTemp, %.preheader ]
   %17 = trunc nuw i64 %indvars.iv52 to i32
-  tail call void @Extra_TruthSwapAdjacentVars(ptr noundef %.03537, ptr noundef %.040, i32 noundef %16, i32 noundef %17) #16
+  tail call void @Extra_TruthSwapAdjacentVars(ptr noundef %.03537, ptr noundef %.040, i32 noundef %16, i32 noundef %17) #17
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv52
   %19 = load i8, ptr %18, align 1, !tbaa !19
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
@@ -321,12 +321,12 @@ define internal fastcc range(i32 0, 2) i32 @Cut_CellTableLookup(ptr noundef capt
   %9 = add nsw i32 %7, -5
   %10 = shl nuw nsw i32 1, %9
   %11 = select i1 %8, i32 1, i32 %10
-  %12 = tail call i32 @Extra_TruthHash(ptr noundef nonnull %4, i32 noundef %11) #16
+  %12 = tail call i32 @Extra_TruthHash(ptr noundef nonnull %4, i32 noundef %11) #17
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = zext i32 %12 to i64
   %16 = inttoptr i64 %15 to ptr
-  %17 = call i32 @st__find_or_add(ptr noundef %14, ptr noundef %16, ptr noundef nonnull %3) #16
+  %17 = call i32 @st__find_or_add(ptr noundef %14, ptr noundef %16, ptr noundef nonnull %3) #17
   %.not = icmp eq i32 %17, 0
   %.pre = load ptr, ptr %3, align 8, !tbaa !29
   br i1 %.not, label %._crit_edge, label %18
@@ -409,7 +409,7 @@ define void @Cut_CellPrecompute() local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #16
+  %6 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #17
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %Abc_Clock.exit, label %8
 
@@ -426,10 +426,10 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   %.0.i = phi i64 [ %14, %8 ], [ -1, %0 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %calloc.i = call dereferenceable_or_null(5184) ptr @calloc(i64 1, i64 5184)
-  %15 = call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #16
+  %15 = call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #17
   %16 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %15, ptr %16, align 8, !tbaa !3
-  %17 = call ptr @Extra_MmFixedStart(i32 noundef 152) #16
+  %17 = call ptr @Extra_MmFixedStart(i32 noundef 152) #17
   store ptr %17, ptr %calloc.i, align 8, !tbaa !12
   %18 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 96
   br label %.preheader.i
@@ -546,7 +546,7 @@ Cut_CManStart.exit:                               ; preds = %34
 .lr.ph:                                           ; preds = %.loopexit312, %.preheader314
   %indvars.iv393 = phi i64 [ 0, %.preheader314 ], [ %indvars.iv.next394, %.loopexit312 ]
   %67 = load ptr, ptr %calloc.i, align 8, !tbaa !12
-  %68 = call ptr @Extra_MmFixedEntryFetch(ptr noundef %67) #16
+  %68 = call ptr @Extra_MmFixedEntryFetch(ptr noundef %67) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %68, i8 0, i64 152, i1 false)
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
   store i32 9, ptr %69, align 8
@@ -594,7 +594,7 @@ Cut_CManStart.exit:                               ; preds = %34
   %.03345.i = add nsw i32 %.03345.in.i, -1
   %90 = load i32, ptr %69, align 8
   %91 = and i32 %90, 15
-  %92 = call i32 @Extra_TruthVarInSupport(ptr noundef nonnull %83, i32 noundef %91, i32 noundef %.03345.i) #16
+  %92 = call i32 @Extra_TruthVarInSupport(ptr noundef nonnull %83, i32 noundef %91, i32 noundef %.03345.i) #17
   %.not.i236 = icmp eq i32 %92, 0
   br i1 %.not.i236, label %.preheader.i238, label %122
 
@@ -611,7 +611,7 @@ Cut_CManStart.exit:                               ; preds = %34
   %.03239.i = phi i32 [ %102, %.lr.ph.i ], [ 0, %.preheader.i238 ]
   %.03537.i = phi ptr [ %.040.i, %.lr.ph.i ], [ @Cut_CellSuppMin.uTemp, %.preheader.i238 ]
   %97 = trunc nuw i64 %indvars.iv52.i to i32
-  call void @Extra_TruthSwapAdjacentVars(ptr noundef %.03537.i, ptr noundef %.040.i, i32 noundef %96, i32 noundef %97) #16
+  call void @Extra_TruthSwapAdjacentVars(ptr noundef %.03537.i, ptr noundef %.040.i, i32 noundef %96, i32 noundef %97) #17
   %98 = getelementptr inbounds nuw i8, ptr %86, i64 %indvars.iv52.i
   %99 = load i8, ptr %98, align 1, !tbaa !19
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
@@ -677,7 +677,7 @@ Cut_CellSuppMin.exit:                             ; preds = %Cut_CellSuppMin.exi
   %.pre-phi = phi i32 [ %.pre461, %Cut_CellSuppMin.exit.loopexit ], [ 0, %._crit_edge ]
   %124 = getelementptr inbounds nuw i8, ptr %68, i64 36
   %125 = getelementptr inbounds nuw i8, ptr %68, i64 48
-  %126 = call i32 @Extra_TruthSemiCanonicize(ptr noundef nonnull %83, ptr noundef nonnull %52, i32 noundef %.pre-phi, ptr noundef nonnull %124, ptr noundef nonnull %125) #16
+  %126 = call i32 @Extra_TruthSemiCanonicize(ptr noundef nonnull %83, ptr noundef nonnull %52, i32 noundef %.pre-phi, ptr noundef nonnull %124, ptr noundef nonnull %125) #17
   %127 = load i32, ptr %69, align 8
   %128 = shl i32 %126, 14
   %129 = and i32 %127, 16383
@@ -693,11 +693,11 @@ Cut_CellSuppMin.exit:                             ; preds = %Cut_CellSuppMin.exi
   %136 = add nsw i32 %134, -5
   %137 = shl nuw nsw i32 1, %136
   %138 = select i1 %135, i32 1, i32 %137
-  %139 = call i32 @Extra_TruthHash(ptr noundef nonnull %83, i32 noundef %138) #16
+  %139 = call i32 @Extra_TruthHash(ptr noundef nonnull %83, i32 noundef %138) #17
   %140 = load ptr, ptr %16, align 8, !tbaa !3
   %141 = zext i32 %139 to i64
   %142 = inttoptr i64 %141 to ptr
-  %143 = call i32 @st__find_or_add(ptr noundef %140, ptr noundef %142, ptr noundef nonnull %4) #16
+  %143 = call i32 @st__find_or_add(ptr noundef %140, ptr noundef %142, ptr noundef nonnull %4) #17
   %.not.i239 = icmp eq i32 %143, 0
   %.pre.i240 = load ptr, ptr %4, align 8, !tbaa !29
   br i1 %.not.i239, label %.loopexit313, label %144
@@ -751,7 +751,7 @@ Extra_TruthIsEqual.exit.thread.i:                 ; preds = %158, %151
 163:                                              ; preds = %select.unfold.i.i245
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %164 = load ptr, ptr %calloc.i, align 8, !tbaa !12
-  call void @Extra_MmFixedEntryRecycle(ptr noundef %164, ptr noundef nonnull %68) #16
+  call void @Extra_MmFixedEntryRecycle(ptr noundef %164, ptr noundef nonnull %68) #17
   br label %.loopexit312
 
 .loopexit313:                                     ; preds = %Extra_TruthIsEqual.exit.thread.i, %Cut_CellSuppMin.exit, %144
@@ -874,7 +874,7 @@ Extra_TruthIsEqual.exit.thread.i:                 ; preds = %158, %151
   %220 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %218, i32 noundef %219, i32 noundef 152)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %221 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #16
+  %221 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #17
   %222 = icmp slt i32 %221, 0
   br i1 %222, label %Abc_Clock.exit249, label %223
 
@@ -969,7 +969,7 @@ Abc_Clock.exit249:                                ; preds = %217, %223
 266:                                              ; preds = %.preheader307.us, %.loopexit.us
   %.0353.us = phi i32 [ 0, %.preheader307.us ], [ %464, %.loopexit.us ]
   %267 = load ptr, ptr %calloc.i, align 8, !tbaa !12
-  %268 = call ptr @Extra_MmFixedEntryFetch(ptr noundef %267) #16
+  %268 = call ptr @Extra_MmFixedEntryFetch(ptr noundef %267) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %268, i8 0, i64 152, i1 false)
   %269 = load i32, ptr %257, align 8
   %270 = and i32 %269, 15
@@ -1063,66 +1063,66 @@ Extra_TruthCopy.exit39.i.us:                      ; preds = %select.unfold.i36.i
   %314 = and i32 %309, 15
   %315 = lshr i32 %309, 4
   %316 = and i32 %315, 15
-  call void @Extra_TruthCofactor0(ptr noundef nonnull @Cut_CellCrossBar.uTemp0, i32 noundef %314, i32 noundef %316) #16
+  call void @Extra_TruthCofactor0(ptr noundef nonnull @Cut_CellCrossBar.uTemp0, i32 noundef %314, i32 noundef %316) #17
   %317 = load i32, ptr %271, align 8
   %318 = and i32 %317, 15
   %319 = lshr i32 %317, 8
   %320 = and i32 %319, 15
-  call void @Extra_TruthCofactor1(ptr noundef nonnull @Cut_CellCrossBar.uTemp0, i32 noundef %318, i32 noundef %320) #16
+  call void @Extra_TruthCofactor1(ptr noundef nonnull @Cut_CellCrossBar.uTemp0, i32 noundef %318, i32 noundef %320) #17
   %321 = load i32, ptr %271, align 8
   %322 = and i32 %321, 15
   %323 = lshr i32 %321, 4
   %324 = and i32 %323, 15
-  call void @Extra_TruthCofactor1(ptr noundef nonnull @Cut_CellCrossBar.uTemp1, i32 noundef %322, i32 noundef %324) #16
+  call void @Extra_TruthCofactor1(ptr noundef nonnull @Cut_CellCrossBar.uTemp1, i32 noundef %322, i32 noundef %324) #17
   %325 = load i32, ptr %271, align 8
   %326 = and i32 %325, 15
   %327 = lshr i32 %325, 8
   %328 = and i32 %327, 15
-  call void @Extra_TruthCofactor0(ptr noundef nonnull @Cut_CellCrossBar.uTemp1, i32 noundef %326, i32 noundef %328) #16
+  call void @Extra_TruthCofactor0(ptr noundef nonnull @Cut_CellCrossBar.uTemp1, i32 noundef %326, i32 noundef %328) #17
   br label %Cut_CellCrossBar.exit.us
 
 329:                                              ; preds = %311
   %330 = and i32 %309, 15
   %331 = lshr i32 %309, 4
   %332 = and i32 %331, 15
-  call void @Extra_TruthCofactor1(ptr noundef nonnull @Cut_CellCrossBar.uTemp0, i32 noundef %330, i32 noundef %332) #16
+  call void @Extra_TruthCofactor1(ptr noundef nonnull @Cut_CellCrossBar.uTemp0, i32 noundef %330, i32 noundef %332) #17
   %333 = load i32, ptr %271, align 8
   %334 = and i32 %333, 15
   %335 = lshr i32 %333, 8
   %336 = and i32 %335, 15
-  call void @Extra_TruthCofactor0(ptr noundef nonnull @Cut_CellCrossBar.uTemp0, i32 noundef %334, i32 noundef %336) #16
+  call void @Extra_TruthCofactor0(ptr noundef nonnull @Cut_CellCrossBar.uTemp0, i32 noundef %334, i32 noundef %336) #17
   %337 = load i32, ptr %271, align 8
   %338 = and i32 %337, 15
   %339 = lshr i32 %337, 4
   %340 = and i32 %339, 15
-  call void @Extra_TruthCofactor0(ptr noundef nonnull @Cut_CellCrossBar.uTemp1, i32 noundef %338, i32 noundef %340) #16
+  call void @Extra_TruthCofactor0(ptr noundef nonnull @Cut_CellCrossBar.uTemp1, i32 noundef %338, i32 noundef %340) #17
   %341 = load i32, ptr %271, align 8
   %342 = and i32 %341, 15
   %343 = lshr i32 %341, 8
   %344 = and i32 %343, 15
-  call void @Extra_TruthCofactor1(ptr noundef nonnull @Cut_CellCrossBar.uTemp1, i32 noundef %342, i32 noundef %344) #16
+  call void @Extra_TruthCofactor1(ptr noundef nonnull @Cut_CellCrossBar.uTemp1, i32 noundef %342, i32 noundef %344) #17
   br label %Cut_CellCrossBar.exit.us
 
 345:                                              ; preds = %Extra_TruthCopy.exit39.i.us
   %346 = and i32 %309, 15
   %347 = lshr i32 %309, 4
   %348 = and i32 %347, 15
-  call void @Extra_TruthCofactor0(ptr noundef nonnull @Cut_CellCrossBar.uTemp0, i32 noundef %346, i32 noundef %348) #16
+  call void @Extra_TruthCofactor0(ptr noundef nonnull @Cut_CellCrossBar.uTemp0, i32 noundef %346, i32 noundef %348) #17
   %349 = load i32, ptr %271, align 8
   %350 = and i32 %349, 15
   %351 = lshr i32 %349, 8
   %352 = and i32 %351, 15
-  call void @Extra_TruthCofactor0(ptr noundef nonnull @Cut_CellCrossBar.uTemp0, i32 noundef %350, i32 noundef %352) #16
+  call void @Extra_TruthCofactor0(ptr noundef nonnull @Cut_CellCrossBar.uTemp0, i32 noundef %350, i32 noundef %352) #17
   %353 = load i32, ptr %271, align 8
   %354 = and i32 %353, 15
   %355 = lshr i32 %353, 4
   %356 = and i32 %355, 15
-  call void @Extra_TruthCofactor1(ptr noundef nonnull @Cut_CellCrossBar.uTemp1, i32 noundef %354, i32 noundef %356) #16
+  call void @Extra_TruthCofactor1(ptr noundef nonnull @Cut_CellCrossBar.uTemp1, i32 noundef %354, i32 noundef %356) #17
   %357 = load i32, ptr %271, align 8
   %358 = and i32 %357, 15
   %359 = lshr i32 %357, 8
   %360 = and i32 %359, 15
-  call void @Extra_TruthCofactor1(ptr noundef nonnull @Cut_CellCrossBar.uTemp1, i32 noundef %358, i32 noundef %360) #16
+  call void @Extra_TruthCofactor1(ptr noundef nonnull @Cut_CellCrossBar.uTemp1, i32 noundef %358, i32 noundef %360) #17
   br label %Cut_CellCrossBar.exit.us
 
 Cut_CellCrossBar.exit.us:                         ; preds = %345, %329, %313, %311
@@ -1130,7 +1130,7 @@ Cut_CellCrossBar.exit.us:                         ; preds = %345, %329, %313, %3
   %362 = and i32 %361, 15
   %363 = lshr i32 %361, 4
   %364 = and i32 %363, 15
-  call void @Extra_TruthMux(ptr noundef nonnull %273, ptr noundef nonnull @Cut_CellCrossBar.uTemp0, ptr noundef nonnull @Cut_CellCrossBar.uTemp1, i32 noundef %362, i32 noundef %364) #16
+  call void @Extra_TruthMux(ptr noundef nonnull %273, ptr noundef nonnull @Cut_CellCrossBar.uTemp0, ptr noundef nonnull @Cut_CellCrossBar.uTemp1, i32 noundef %362, i32 noundef %364) #17
   %365 = load i32, ptr %271, align 8
   %366 = and i32 %365, 15
   %.not49.i257.us = icmp eq i32 %366, 0
@@ -1148,7 +1148,7 @@ Cut_CellCrossBar.exit.us:                         ; preds = %345, %329, %313, %3
   %.03345.i261.us = add nsw i32 %.03345.in.i260.us, -1
   %371 = load i32, ptr %271, align 8
   %372 = and i32 %371, 15
-  %373 = call i32 @Extra_TruthVarInSupport(ptr noundef nonnull %273, i32 noundef %372, i32 noundef %.03345.i261.us) #16
+  %373 = call i32 @Extra_TruthVarInSupport(ptr noundef nonnull %273, i32 noundef %372, i32 noundef %.03345.i261.us) #17
   %.not.i262.us = icmp eq i32 %373, 0
   br i1 %.not.i262.us, label %.preheader.i264.us, label %403
 
@@ -1165,7 +1165,7 @@ Cut_CellCrossBar.exit.us:                         ; preds = %345, %329, %313, %3
   %.03239.i269.us = phi i32 [ %383, %.lr.ph.i266.us ], [ 0, %.preheader.i264.us ]
   %.03537.i270.us = phi ptr [ %.040.i268.us, %.lr.ph.i266.us ], [ @Cut_CellSuppMin.uTemp, %.preheader.i264.us ]
   %378 = trunc nuw i64 %indvars.iv52.i267.us to i32
-  call void @Extra_TruthSwapAdjacentVars(ptr noundef %.03537.i270.us, ptr noundef %.040.i268.us, i32 noundef %377, i32 noundef %378) #16
+  call void @Extra_TruthSwapAdjacentVars(ptr noundef %.03537.i270.us, ptr noundef %.040.i268.us, i32 noundef %377, i32 noundef %378) #17
   %379 = getelementptr inbounds nuw i8, ptr %367, i64 %indvars.iv52.i267.us
   %380 = load i8, ptr %379, align 1, !tbaa !19
   %indvars.iv.next53.i271.us = add nuw nsw i64 %indvars.iv52.i267.us, 1
@@ -1231,7 +1231,7 @@ Cut_CellSuppMin.exit281.us:                       ; preds = %Cut_CellSuppMin.exi
   %.pre-phi463 = phi i32 [ %.pre462, %Cut_CellSuppMin.exit281.us.loopexit ], [ 0, %Cut_CellCrossBar.exit.us ]
   %405 = getelementptr inbounds nuw i8, ptr %268, i64 36
   %406 = getelementptr inbounds nuw i8, ptr %268, i64 48
-  %407 = call i32 @Extra_TruthSemiCanonicize(ptr noundef nonnull %273, ptr noundef nonnull %52, i32 noundef %.pre-phi463, ptr noundef nonnull %405, ptr noundef nonnull %406) #16
+  %407 = call i32 @Extra_TruthSemiCanonicize(ptr noundef nonnull %273, ptr noundef nonnull %52, i32 noundef %.pre-phi463, ptr noundef nonnull %405, ptr noundef nonnull %406) #17
   %408 = load i32, ptr %271, align 8
   %409 = shl i32 %407, 14
   %410 = and i32 %408, 16383
@@ -1247,11 +1247,11 @@ Cut_CellSuppMin.exit281.us:                       ; preds = %Cut_CellSuppMin.exi
   %417 = add nsw i32 %415, -5
   %418 = shl nuw nsw i32 1, %417
   %419 = select i1 %416, i32 1, i32 %418
-  %420 = call i32 @Extra_TruthHash(ptr noundef nonnull %273, i32 noundef %419) #16
+  %420 = call i32 @Extra_TruthHash(ptr noundef nonnull %273, i32 noundef %419) #17
   %421 = load ptr, ptr %16, align 8, !tbaa !3
   %422 = zext i32 %420 to i64
   %423 = inttoptr i64 %422 to ptr
-  %424 = call i32 @st__find_or_add(ptr noundef %421, ptr noundef %423, ptr noundef nonnull %2) #16
+  %424 = call i32 @st__find_or_add(ptr noundef %421, ptr noundef %423, ptr noundef nonnull %2) #17
   %.not.i282.us = icmp eq i32 %424, 0
   %.pre.i283.us = load ptr, ptr %2, align 8, !tbaa !29
   br i1 %.not.i282.us, label %.loopexit306.us, label %425
@@ -1291,7 +1291,7 @@ select.unfold.i.i295.us:                          ; preds = %441, %436
 439:                                              ; preds = %select.unfold.i.i295.us
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %440 = load ptr, ptr %calloc.i, align 8, !tbaa !12
-  call void @Extra_MmFixedEntryRecycle(ptr noundef %440, ptr noundef nonnull %268) #16
+  call void @Extra_MmFixedEntryRecycle(ptr noundef %440, ptr noundef nonnull %268) #17
   br label %.loopexit.us
 
 441:                                              ; preds = %select.unfold.i.i295.us
@@ -1448,7 +1448,7 @@ Extra_TruthIsEqual.exit.thread.i290.us:           ; preds = %441, %432
   %510 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %509, i32 noundef %507, i32 noundef %508, i32 noundef 152)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %511 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #16
+  %511 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #17
   %512 = icmp slt i32 %511, 0
   br i1 %512, label %Abc_Clock.exit301, label %513
 
@@ -1925,24 +1925,24 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #6 {
   br i1 %.not, label %18, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #16
+  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #17
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #16
+  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #17
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #16
+  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #17
   %10 = load ptr, ptr @stdout, align 8, !tbaa !89
-  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #17
+  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #18
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #16
-  call void @free(ptr noundef %9) #16
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #17
+  call void @free(ptr noundef %9) #17
   br label %17
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr @stdout, align 8, !tbaa !89, !noalias !91
-  %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #16
+  %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #17
   br label %17
 
 17:                                               ; preds = %14, %8
@@ -1974,7 +1974,7 @@ define void @Cut_CellDumpToFile() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(440) %4, i8 0, i64 440, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %6 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #16
+  %6 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #17
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %Abc_Clock.exit, label %8
 
@@ -2240,7 +2240,7 @@ Abc_Clock.exit:                                   ; preds = %0, %8
 
 120:                                              ; preds = %116
   %121 = getelementptr inbounds nuw i8, ptr %.1107, i64 84
-  call void @Extra_PrintHexadecimal(ptr noundef nonnull %110, ptr noundef nonnull %121, i32 noundef %115) #16
+  call void @Extra_PrintHexadecimal(ptr noundef nonnull %110, ptr noundef nonnull %121, i32 noundef %115) #17
   %fputc80 = call i32 @fputc(i32 10, ptr nonnull %110)
   %122 = add nsw i32 %.169106, 1
   br label %123
@@ -2264,7 +2264,7 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   %127 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %.169.lcssa, ptr noundef nonnull @.str.17)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %128 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #16
+  %128 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #17
   %129 = icmp slt i32 %128, 0
   br i1 %129, label %Abc_Clock.exit86, label %130
 
@@ -2352,7 +2352,7 @@ Extra_TruthCopy.exit:                             ; preds = %select.unfold.prehe
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4960
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %27 = call i32 @Extra_TruthSemiCanonicize(ptr noundef nonnull %11, ptr noundef nonnull %24, i32 noundef %19, ptr noundef nonnull %25, ptr noundef nonnull %26) #16
+  %27 = call i32 @Extra_TruthSemiCanonicize(ptr noundef nonnull %11, ptr noundef nonnull %24, i32 noundef %19, ptr noundef nonnull %25, ptr noundef nonnull %26) #17
   %28 = load i32, ptr %9, align 8
   %29 = shl i32 %27, 14
   %30 = and i32 %28, 16383
@@ -2363,12 +2363,12 @@ Extra_TruthCopy.exit:                             ; preds = %select.unfold.prehe
   %34 = add nsw i32 %32, -5
   %35 = shl nuw nsw i32 1, %34
   %36 = select i1 %33, i32 1, i32 %35
-  %37 = call i32 @Extra_TruthHash(ptr noundef nonnull %11, i32 noundef %36) #16
+  %37 = call i32 @Extra_TruthHash(ptr noundef nonnull %11, i32 noundef %36) #17
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !3
   %40 = zext i32 %37 to i64
   %41 = inttoptr i64 %40 to ptr
-  %42 = call i32 @st__lookup(ptr noundef %39, ptr noundef %41, ptr noundef nonnull %3) #16
+  %42 = call i32 @st__lookup(ptr noundef %39, ptr noundef %41, ptr noundef nonnull %3) #17
   %43 = icmp ne i32 %42, 0
   %44 = load ptr, ptr %3, align 8
   %45 = icmp ne ptr %44, null
@@ -2502,17 +2502,17 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #13
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2527,11 +2527,12 @@ attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nofree nounwind }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind willreturn memory(read) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nounwind }
+attributes #18 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

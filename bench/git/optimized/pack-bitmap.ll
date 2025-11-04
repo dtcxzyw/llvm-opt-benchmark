@@ -124,11 +124,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @read_bitmap(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @ewah_pool_new() #21
+  %4 = tail call ptr @ewah_pool_new() #22
   %5 = load i64, ptr %2, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %7 = sub i64 %1, %5
-  %8 = tail call i64 @ewah_read_mmap(ptr noundef %4, ptr noundef %6, i64 noundef %7) #21
+  %8 = tail call i64 @ewah_read_mmap(ptr noundef %4, ptr noundef %6, i64 noundef %7) #22
   %9 = icmp slt i64 %8, 0
   br i1 %9, label %10, label %15
 
@@ -138,13 +138,13 @@ define dso_local noundef ptr @read_bitmap(ptr noundef %0, i64 noundef %1, ptr no
   br i1 %.not4.i, label %_.exit, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #21
+  %13 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #22
   br label %_.exit
 
 _.exit:                                           ; preds = %10, %12
   %.0.i = phi ptr [ %13, %12 ], [ @.str, %10 ]
-  %14 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i) #21
-  tail call void @ewah_pool_free(ptr noundef %4) #21
+  %14 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i) #22
+  tail call void @ewah_pool_free(ptr noundef %4) #22
   br label %18
 
 15:                                               ; preds = %3
@@ -176,7 +176,7 @@ define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #2 {
   br i1 %.not4, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %0, i32 noundef 5) #21
+  %6 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %0, i32 noundef 5) #22
   br label %7
 
 7:                                                ; preds = %3, %1, %5
@@ -196,9 +196,9 @@ define dso_local ptr @midx_bitmap_filename(ptr noundef %0) local_unnamed_addr #0
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 400
   %6 = load ptr, ptr %5, align 8, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %8 = tail call ptr @get_midx_checksum(ptr noundef %0) #21
-  call void @get_midx_filename_ext(ptr noundef %6, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull @.str.1) #21
-  %9 = call ptr @strbuf_detach(ptr noundef nonnull %2, ptr noundef null) #21
+  %8 = tail call ptr @get_midx_checksum(ptr noundef %0) #22
+  call void @get_midx_filename_ext(ptr noundef %6, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull @.str.1) #22
+  %9 = call ptr @strbuf_detach(ptr noundef nonnull %2, ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %9
 }
@@ -215,7 +215,7 @@ declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @pack_bitmap_filename(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #22
+  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #23
   %4 = icmp ult i64 %3, 5
   br i1 %4, label %8, label %5
 
@@ -227,12 +227,12 @@ define dso_local ptr @pack_bitmap_filename(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not.i.i, label %strip_suffix.exit, label %8
 
 8:                                                ; preds = %5, %1
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.3, i32 noundef 391, ptr noundef nonnull @.str.4) #23
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.3, i32 noundef 391, ptr noundef nonnull @.str.4) #24
   unreachable
 
 strip_suffix.exit:                                ; preds = %5
   %9 = trunc i64 %6 to i32
-  %10 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.5, i32 noundef %9, ptr noundef nonnull %2) #21
+  %10 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.5, i32 noundef %9, ptr noundef nonnull %2) #22
   ret ptr %10
 }
 
@@ -243,7 +243,7 @@ declare ptr @xstrfmt(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @prepare_bitmap_git(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 216) #21
+  %2 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 216) #22
   %3 = tail call fastcc i32 @open_bitmap(ptr noundef %0, ptr noundef %2)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %6
@@ -267,7 +267,7 @@ declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @open_bitmap(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
-  %4 = tail call ptr @get_multi_pack_index(ptr noundef %0) #21
+  %4 = tail call ptr @get_multi_pack_index(ptr noundef %0) #22
   %.not7.i = icmp eq ptr %4, null
   br i1 %.not7.i, label %open_midx_bitmap.exit.thread, label %.lr.ph.i
 
@@ -286,13 +286,13 @@ open_midx_bitmap.exit:                            ; preds = %.lr.ph.i
   br i1 %.not, label %7, label %open_midx_bitmap.exit.thread
 
 7:                                                ; preds = %open_midx_bitmap.exit
-  %8 = tail call i32 @trace2_is_enabled() #21
+  %8 = tail call i32 @trace2_is_enabled() #22
   %.not6 = icmp eq i32 %8, 0
   br i1 %.not6, label %76, label %open_midx_bitmap.exit.thread
 
 open_midx_bitmap.exit.thread:                     ; preds = %2, %7, %open_midx_bitmap.exit
   %.not13.not = phi i1 [ false, %7 ], [ true, %open_midx_bitmap.exit ], [ true, %2 ]
-  %9 = tail call ptr @get_all_packs(ptr noundef %0) #21
+  %9 = tail call ptr @get_all_packs(ptr noundef %0) #22
   %.not8.i = icmp eq ptr %9, null
   br i1 %.not8.i, label %open_pack_bitmap.exit, label %.lr.ph.i8
 
@@ -309,7 +309,7 @@ open_midx_bitmap.exit.thread:                     ; preds = %2, %7, %open_midx_b
   %.059.i = phi ptr [ %9, %.lr.ph.i8 ], [ %73, %71 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = getelementptr inbounds nuw i8, ptr %.059.i, i64 248
-  %17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %16) #22
+  %17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %16) #23
   %18 = icmp ult i64 %17, 5
   br i1 %18, label %22, label %19
 
@@ -321,33 +321,33 @@ open_midx_bitmap.exit.thread:                     ; preds = %2, %7, %open_midx_b
   br i1 %.not.i.i.i.i.i, label %pack_bitmap_filename.exit.i.i, label %22
 
 22:                                               ; preds = %19, %15
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.3, i32 noundef 391, ptr noundef nonnull @.str.4) #23
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.3, i32 noundef 391, ptr noundef nonnull @.str.4) #24
   unreachable
 
 pack_bitmap_filename.exit.i.i:                    ; preds = %19
   %23 = trunc i64 %20 to i32
-  %24 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.5, i32 noundef %23, ptr noundef nonnull %16) #21
-  %25 = tail call i32 @git_open_cloexec(ptr noundef %24, i32 noundef 0) #21
+  %24 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.5, i32 noundef %23, ptr noundef nonnull %16) #22
+  %25 = tail call i32 @git_open_cloexec(ptr noundef %24, i32 noundef 0) #22
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %pack_bitmap_filename.exit.i.i
-  %28 = tail call ptr @__errno_location() #24
+  %28 = tail call ptr @__errno_location() #25
   %29 = load i32, ptr %28, align 4, !tbaa !8
   %.not36.i.i = icmp eq i32 %29, 2
   br i1 %.not36.i.i, label %31, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, ...) @warning_errno(ptr noundef nonnull @.str.36, ptr noundef %24) #21
+  tail call void (ptr, ...) @warning_errno(ptr noundef nonnull @.str.36, ptr noundef %24) #22
   br label %31
 
 31:                                               ; preds = %30, %27
-  tail call void @free(ptr noundef %24) #21
+  tail call void @free(ptr noundef %24) #22
   br label %open_pack_bitmap_1.exit.thread.i
 
 32:                                               ; preds = %pack_bitmap_filename.exit.i.i
-  tail call void @free(ptr noundef %24) #21
-  %33 = call i32 @fstat64(i32 noundef %25, ptr noundef nonnull %3) #21
+  tail call void @free(ptr noundef %24) #22
+  %33 = call i32 @fstat64(i32 noundef %25, ptr noundef nonnull %3) #22
   %.not.i.i = icmp eq i32 %33, 0
   br i1 %.not.i.i, label %40, label %34
 
@@ -357,13 +357,13 @@ pack_bitmap_filename.exit.i.i:                    ; preds = %19
   br i1 %.not4.i.i.i, label %_.exit.i.i, label %36
 
 36:                                               ; preds = %34
-  %37 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.37, i32 noundef 5) #21
+  %37 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.37, i32 noundef 5) #22
   br label %_.exit.i.i
 
 _.exit.i.i:                                       ; preds = %36, %34
   %.0.i.i.i = phi ptr [ %37, %36 ], [ @.str.37, %34 ]
-  %38 = tail call i32 (ptr, ...) @error_errno(ptr noundef %.0.i.i.i) #21
-  %39 = tail call i32 @close(i32 noundef %25) #21
+  %38 = tail call i32 (ptr, ...) @error_errno(ptr noundef %.0.i.i.i) #22
+  %39 = tail call i32 @close(i32 noundef %25) #22
   br label %open_pack_bitmap_1.exit.thread.i
 
 40:                                               ; preds = %32
@@ -379,17 +379,17 @@ bitmap_repo.exit.i.i:                             ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 240
   %.0.in.i.i.i = select i1 %.not34.i.i, ptr %44, ptr %43
   %.0.i38.i.i = load ptr, ptr %.0.in.i.i.i, align 8, !tbaa !11
-  tail call void @trace2_data_string_fl(ptr noundef nonnull @.str.3, i32 noundef 495, ptr noundef nonnull @.str.1, ptr noundef %.0.i38.i.i, ptr noundef nonnull @.str.38, ptr noundef nonnull %16) #21
-  %45 = tail call i32 @close(i32 noundef %25) #21
+  tail call void @trace2_data_string_fl(ptr noundef nonnull @.str.3, i32 noundef 495, ptr noundef nonnull @.str.1, ptr noundef %.0.i38.i.i, ptr noundef nonnull @.str.38, ptr noundef nonnull %16) #22
+  %45 = tail call i32 @close(i32 noundef %25) #22
   br label %open_pack_bitmap_1.exit.thread.i
 
 46:                                               ; preds = %40
-  %47 = tail call i32 @is_pack_valid(ptr noundef nonnull %.059.i) #21
+  %47 = tail call i32 @is_pack_valid(ptr noundef nonnull %.059.i) #22
   %.not35.i.i = icmp eq i32 %47, 0
   br i1 %.not35.i.i, label %48, label %50
 
 48:                                               ; preds = %46
-  %49 = tail call i32 @close(i32 noundef %25) #21
+  %49 = tail call i32 @close(i32 noundef %25) #22
   br label %open_pack_bitmap_1.exit.thread.i
 
 50:                                               ; preds = %46
@@ -399,15 +399,15 @@ bitmap_repo.exit.i.i:                             ; preds = %40
   br i1 %52, label %53, label %xsize_t.exit.i.i
 
 53:                                               ; preds = %50
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.40) #23
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.40) #24
   unreachable
 
 xsize_t.exit.i.i:                                 ; preds = %50
   store i64 %51, ptr %12, align 8, !tbaa !53
-  %54 = tail call ptr @xmmap(ptr noundef null, i64 noundef %51, i32 noundef 1, i32 noundef 2, i32 noundef %25, i64 noundef 0) #21
+  %54 = tail call ptr @xmmap(ptr noundef null, i64 noundef %51, i32 noundef 1, i32 noundef 2, i32 noundef %25, i64 noundef 0) #22
   store ptr %54, ptr %13, align 8, !tbaa !54
   store i64 0, ptr %14, align 8, !tbaa !55
-  %55 = tail call i32 @close(i32 noundef %25) #21
+  %55 = tail call i32 @close(i32 noundef %25) #22
   %56 = tail call fastcc i32 @load_bitmap_header(ptr noundef nonnull %1)
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %58, label %62
@@ -415,7 +415,7 @@ xsize_t.exit.i.i:                                 ; preds = %50
 58:                                               ; preds = %xsize_t.exit.i.i
   %59 = load ptr, ptr %13, align 8, !tbaa !54
   %60 = load i64, ptr %12, align 8, !tbaa !53
-  %61 = tail call i32 @munmap(ptr noundef %59, i64 noundef %60) #21
+  %61 = tail call i32 @munmap(ptr noundef %59, i64 noundef %60) #22
   store ptr null, ptr %1, align 8, !tbaa !37
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   br label %open_pack_bitmap_1.exit.thread.i
@@ -441,9 +441,9 @@ open_pack_bitmap_1.exit.thread.i:                 ; preds = %58, %48, %bitmap_re
 69:                                               ; preds = %66, %64
   %.0.in.i40.i.i = phi ptr [ %65, %64 ], [ %68, %66 ]
   %.0.i41.i.i = load ptr, ptr %.0.in.i40.i.i, align 8, !tbaa !11
-  tail call void @trace2_data_string_fl(ptr noundef nonnull @.str.3, i32 noundef 521, ptr noundef nonnull @.str.1, ptr noundef %.0.i41.i.i, ptr noundef nonnull @.str.39, ptr noundef nonnull %16) #21
+  tail call void @trace2_data_string_fl(ptr noundef nonnull @.str.3, i32 noundef 521, ptr noundef nonnull @.str.1, ptr noundef %.0.i41.i.i, ptr noundef nonnull @.str.39, ptr noundef nonnull %16) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %70 = tail call i32 @trace2_is_enabled() #21
+  %70 = tail call i32 @trace2_is_enabled() #22
   %.not6.i10 = icmp eq i32 %70, 0
   br i1 %.not6.i10, label %open_pack_bitmap.exit.loopexit, label %71
 
@@ -472,10 +472,10 @@ open_pack_bitmap.exit:                            ; preds = %open_pack_bitmap.ex
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @load_bitmap(ptr noundef %0, ptr noundef captures(none) initializes((72, 80), (184, 192)) %1) unnamed_addr #0 {
-  %3 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #21
+  %3 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %3, ptr %4, align 8, !tbaa !58
-  %5 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #21
+  %5 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #22
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 184
   store ptr %5, ptr %6, align 8, !tbaa !59
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -505,13 +505,13 @@ define internal fastcc range(i32 -1, 1) i32 @load_bitmap(ptr noundef %0, ptr nou
   %19 = load ptr, ptr %18, align 8, !tbaa !61
   %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i
   %21 = load ptr, ptr %20, align 8, !tbaa !56
-  %22 = tail call i32 @load_pack_revindex(ptr noundef %0, ptr noundef %21) #21
+  %22 = tail call i32 @load_pack_revindex(ptr noundef %0, ptr noundef %21) #22
   %.not13.i = icmp eq i32 %22, 0
   br i1 %.not13.i, label %11, label %load_reverse_index.exit.thread46
 
 load_reverse_index.exit:                          ; preds = %2
   %23 = load ptr, ptr %1, align 8, !tbaa !37
-  %24 = tail call i32 @load_pack_revindex(ptr noundef %0, ptr noundef %23) #21
+  %24 = tail call i32 @load_pack_revindex(ptr noundef %0, ptr noundef %23) #22
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %load_reverse_index.exit.thread, label %load_reverse_index.exit.thread46
 
@@ -521,11 +521,11 @@ load_reverse_index.exit.thread:                   ; preds = %11, %.preheader.i, 
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = load i64, ptr %27, align 8, !tbaa !53
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %30 = tail call ptr @ewah_pool_new() #21
+  %30 = tail call ptr @ewah_pool_new() #22
   %31 = load i64, ptr %29, align 8, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 %31
   %33 = sub i64 %28, %31
-  %34 = tail call i64 @ewah_read_mmap(ptr noundef %30, ptr noundef %32, i64 noundef %33) #21
+  %34 = tail call i64 @ewah_read_mmap(ptr noundef %30, ptr noundef %32, i64 noundef %33) #22
   %35 = icmp slt i64 %34, 0
   br i1 %35, label %36, label %read_bitmap_1.exit
 
@@ -546,11 +546,11 @@ read_bitmap_1.exit:                               ; preds = %load_reverse_index.
 41:                                               ; preds = %read_bitmap_1.exit
   %42 = load ptr, ptr %25, align 8, !tbaa !54
   %43 = load i64, ptr %27, align 8, !tbaa !53
-  %44 = tail call ptr @ewah_pool_new() #21
+  %44 = tail call ptr @ewah_pool_new() #22
   %45 = load i64, ptr %29, align 8, !tbaa !4
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 %45
   %47 = sub i64 %43, %45
-  %48 = tail call i64 @ewah_read_mmap(ptr noundef %44, ptr noundef %46, i64 noundef %47) #21
+  %48 = tail call i64 @ewah_read_mmap(ptr noundef %44, ptr noundef %46, i64 noundef %47) #22
   %49 = icmp slt i64 %48, 0
   br i1 %49, label %50, label %read_bitmap_1.exit31
 
@@ -571,11 +571,11 @@ read_bitmap_1.exit31:                             ; preds = %41
 55:                                               ; preds = %read_bitmap_1.exit31
   %56 = load ptr, ptr %25, align 8, !tbaa !54
   %57 = load i64, ptr %27, align 8, !tbaa !53
-  %58 = tail call ptr @ewah_pool_new() #21
+  %58 = tail call ptr @ewah_pool_new() #22
   %59 = load i64, ptr %29, align 8, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 %59
   %61 = sub i64 %57, %59
-  %62 = tail call i64 @ewah_read_mmap(ptr noundef %58, ptr noundef %60, i64 noundef %61) #21
+  %62 = tail call i64 @ewah_read_mmap(ptr noundef %58, ptr noundef %60, i64 noundef %61) #22
   %63 = icmp slt i64 %62, 0
   br i1 %63, label %64, label %read_bitmap_1.exit36
 
@@ -596,11 +596,11 @@ read_bitmap_1.exit36:                             ; preds = %55
 69:                                               ; preds = %read_bitmap_1.exit36
   %70 = load ptr, ptr %25, align 8, !tbaa !54
   %71 = load i64, ptr %27, align 8, !tbaa !53
-  %72 = tail call ptr @ewah_pool_new() #21
+  %72 = tail call ptr @ewah_pool_new() #22
   %73 = load i64, ptr %29, align 8, !tbaa !4
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 %73
   %75 = sub i64 %71, %73
-  %76 = tail call i64 @ewah_read_mmap(ptr noundef %72, ptr noundef %74, i64 noundef %75) #21
+  %76 = tail call i64 @ewah_read_mmap(ptr noundef %72, ptr noundef %74, i64 noundef %75) #22
   %77 = icmp slt i64 %76, 0
   br i1 %77, label %78, label %read_bitmap_1.exit41
 
@@ -632,15 +632,15 @@ read_bitmap_1.exit41:                             ; preds = %69
 load_reverse_index.exit.thread46.sink.split.sink.split: ; preds = %78, %64, %50, %36
   %.sink.ph = phi ptr [ %30, %36 ], [ %44, %50 ], [ %58, %64 ], [ %72, %78 ]
   %.sink64.ph = phi i64 [ 40, %36 ], [ 48, %50 ], [ 56, %64 ], [ 64, %78 ]
-  %89 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #21
+  %89 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #22
   br label %load_reverse_index.exit.thread46.sink.split
 
 load_reverse_index.exit.thread46.sink.split:      ; preds = %load_reverse_index.exit.thread46.sink.split.sink.split, %78, %64, %50, %36
   %.0.i.i.i40.sink = phi ptr [ @.str, %36 ], [ @.str, %50 ], [ @.str, %64 ], [ @.str, %78 ], [ %89, %load_reverse_index.exit.thread46.sink.split.sink.split ]
   %.sink = phi ptr [ %30, %36 ], [ %44, %50 ], [ %58, %64 ], [ %72, %78 ], [ %.sink.ph, %load_reverse_index.exit.thread46.sink.split.sink.split ]
   %.sink64 = phi i64 [ 40, %36 ], [ 48, %50 ], [ 56, %64 ], [ 64, %78 ], [ %.sink64.ph, %load_reverse_index.exit.thread46.sink.split.sink.split ]
-  %90 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i.i.i40.sink) #21
-  tail call void @ewah_pool_free(ptr noundef %.sink) #21
+  %90 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i.i.i40.sink) #22
+  tail call void @ewah_pool_free(ptr noundef %.sink) #22
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink64
   store ptr null, ptr %91, align 8, !tbaa !68
   br label %load_reverse_index.exit.thread46
@@ -650,7 +650,7 @@ load_reverse_index.exit.thread46:                 ; preds = %.lr.ph.i, %load_rev
   %93 = load ptr, ptr %92, align 8, !tbaa !54
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %95 = load i64, ptr %94, align 8, !tbaa !53
-  %96 = tail call i32 @munmap(ptr noundef %93, i64 noundef %95) #21
+  %96 = tail call i32 @munmap(ptr noundef %93, i64 noundef %95) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
   %97 = load ptr, ptr %4, align 8, !tbaa !58
   %.not.i42 = icmp eq ptr %97, null
@@ -659,14 +659,14 @@ load_reverse_index.exit.thread46:                 ; preds = %.lr.ph.i, %load_rev
 98:                                               ; preds = %load_reverse_index.exit.thread46
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %100 = load ptr, ptr %99, align 8, !tbaa !69
-  tail call void @free(ptr noundef %100) #21
+  tail call void @free(ptr noundef %100) #22
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %102 = load ptr, ptr %101, align 8, !tbaa !72
-  tail call void @free(ptr noundef %102) #21
+  tail call void @free(ptr noundef %102) #22
   %103 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %104 = load ptr, ptr %103, align 8, !tbaa !73
-  tail call void @free(ptr noundef %104) #21
-  tail call void @free(ptr noundef nonnull %97) #21
+  tail call void @free(ptr noundef %104) #22
+  tail call void @free(ptr noundef nonnull %97) #22
   br label %kh_destroy_oid_map.exit
 
 kh_destroy_oid_map.exit:                          ; preds = %load_reverse_index.exit.thread46, %98
@@ -678,14 +678,14 @@ kh_destroy_oid_map.exit:                          ; preds = %load_reverse_index.
 106:                                              ; preds = %kh_destroy_oid_map.exit
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %108 = load ptr, ptr %107, align 8, !tbaa !74
-  tail call void @free(ptr noundef %108) #21
+  tail call void @free(ptr noundef %108) #22
   %109 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %110 = load ptr, ptr %109, align 8, !tbaa !76
-  tail call void @free(ptr noundef %110) #21
+  tail call void @free(ptr noundef %110) #22
   %111 = getelementptr inbounds nuw i8, ptr %105, i64 32
   %112 = load ptr, ptr %111, align 8, !tbaa !77
-  tail call void @free(ptr noundef %112) #21
-  tail call void @free(ptr noundef nonnull %105) #21
+  tail call void @free(ptr noundef %112) #22
+  tail call void @free(ptr noundef nonnull %105) #22
   br label %kh_destroy_oid_pos.exit
 
 kh_destroy_oid_pos.exit:                          ; preds = %kh_destroy_oid_map.exit, %106
@@ -711,22 +711,22 @@ define dso_local void @free_bitmap_index(ptr noundef %0) local_unnamed_addr #0 {
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8, !tbaa !53
-  %8 = tail call i32 @munmap(ptr noundef nonnull %4, i64 noundef %7) #21
+  %8 = tail call i32 @munmap(ptr noundef nonnull %4, i64 noundef %7) #22
   br label %9
 
 9:                                                ; preds = %5, %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !63
-  tail call void @ewah_pool_free(ptr noundef %11) #21
+  tail call void @ewah_pool_free(ptr noundef %11) #22
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !64
-  tail call void @ewah_pool_free(ptr noundef %13) #21
+  tail call void @ewah_pool_free(ptr noundef %13) #22
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8, !tbaa !65
-  tail call void @ewah_pool_free(ptr noundef %15) #21
+  tail call void @ewah_pool_free(ptr noundef %15) #22
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load ptr, ptr %16, align 8, !tbaa !66
-  tail call void @ewah_pool_free(ptr noundef %17) #21
+  tail call void @ewah_pool_free(ptr noundef %17) #22
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load ptr, ptr %18, align 8, !tbaa !58
   %.not31 = icmp eq ptr %19, null
@@ -762,8 +762,8 @@ define dso_local void @free_bitmap_index(ptr noundef %0) local_unnamed_addr #0 {
   %38 = load ptr, ptr %37, align 8, !tbaa !79
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %40 = load ptr, ptr %39, align 8, !tbaa !80
-  tail call void @ewah_pool_free(ptr noundef %40) #21
-  tail call void @free(ptr noundef %38) #21
+  tail call void @ewah_pool_free(ptr noundef %40) #22
+  tail call void @free(ptr noundef %38) #22
   %.pre = load ptr, ptr %18, align 8, !tbaa !58
   %.pre41 = load i32, ptr %.pre, align 8, !tbaa !78
   br label %41
@@ -779,23 +779,23 @@ define dso_local void @free_bitmap_index(ptr noundef %0) local_unnamed_addr #0 {
   %.lcssa = phi ptr [ %19, %.preheader ], [ %43, %41 ]
   %45 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !69
-  tail call void @free(ptr noundef %46) #21
+  tail call void @free(ptr noundef %46) #22
   %47 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
   %48 = load ptr, ptr %47, align 8, !tbaa !72
-  tail call void @free(ptr noundef %48) #21
+  tail call void @free(ptr noundef %48) #22
   %49 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 32
   %50 = load ptr, ptr %49, align 8, !tbaa !73
-  tail call void @free(ptr noundef %50) #21
-  tail call void @free(ptr noundef nonnull %.lcssa) #21
+  tail call void @free(ptr noundef %50) #22
+  tail call void @free(ptr noundef nonnull %.lcssa) #22
   br label %kh_destroy_oid_map.exit
 
 kh_destroy_oid_map.exit:                          ; preds = %9, %._crit_edge
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %52 = load ptr, ptr %51, align 8, !tbaa !85
-  tail call void @free(ptr noundef %52) #21
+  tail call void @free(ptr noundef %52) #22
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %54 = load ptr, ptr %53, align 8, !tbaa !86
-  tail call void @free(ptr noundef %54) #21
+  tail call void @free(ptr noundef %54) #22
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %56 = load ptr, ptr %55, align 8, !tbaa !59
   %.not.i35 = icmp eq ptr %56, null
@@ -804,36 +804,36 @@ kh_destroy_oid_map.exit:                          ; preds = %9, %._crit_edge
 57:                                               ; preds = %kh_destroy_oid_map.exit
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !74
-  tail call void @free(ptr noundef %59) #21
+  tail call void @free(ptr noundef %59) #22
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %61 = load ptr, ptr %60, align 8, !tbaa !76
-  tail call void @free(ptr noundef %61) #21
+  tail call void @free(ptr noundef %61) #22
   %62 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %63 = load ptr, ptr %62, align 8, !tbaa !77
-  tail call void @free(ptr noundef %63) #21
-  tail call void @free(ptr noundef nonnull %56) #21
+  tail call void @free(ptr noundef %63) #22
+  tail call void @free(ptr noundef nonnull %56) #22
   br label %kh_destroy_oid_pos.exit
 
 kh_destroy_oid_pos.exit:                          ; preds = %kh_destroy_oid_map.exit, %57
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %65 = load ptr, ptr %64, align 8, !tbaa !87
-  tail call void @bitmap_free(ptr noundef %65) #21
+  tail call void @bitmap_free(ptr noundef %65) #22
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %67 = load ptr, ptr %66, align 8, !tbaa !88
-  tail call void @bitmap_free(ptr noundef %67) #21
+  tail call void @bitmap_free(ptr noundef %67) #22
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !49
   %.not37 = icmp eq ptr %69, null
   br i1 %.not37, label %72, label %70
 
 70:                                               ; preds = %kh_destroy_oid_pos.exit
-  %71 = tail call i32 @close_midx_revindex(ptr noundef nonnull %69) #21
+  %71 = tail call i32 @close_midx_revindex(ptr noundef nonnull %69) #22
   br label %72
 
 72:                                               ; preds = %70, %kh_destroy_oid_pos.exit
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  tail call void @free_pseudo_merge_map(ptr noundef nonnull %73) #21
-  tail call void @free(ptr noundef nonnull %0) #21
+  tail call void @free_pseudo_merge_map(ptr noundef nonnull %73) #22
+  tail call void @free(ptr noundef nonnull %0) #22
   br label %74
 
 74:                                               ; preds = %1, %72
@@ -844,7 +844,7 @@ kh_destroy_oid_pos.exit:                          ; preds = %kh_destroy_oid_map.
 define dso_local noundef ptr @prepare_midx_bitmap_git(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8, !tbaa !11
-  %4 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 216) #21
+  %4 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 216) #22
   %5 = tail call fastcc i32 @open_midx_bitmap_1(ptr noundef %4, ptr noundef %0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %8
@@ -876,31 +876,31 @@ define internal fastcc range(i32 -1, 1) i32 @open_midx_bitmap_1(ptr noundef capt
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 400
   %9 = load ptr, ptr %8, align 8, !tbaa !14
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %11 = tail call ptr @get_midx_checksum(ptr noundef %1) #21
-  call void @get_midx_filename_ext(ptr noundef %9, ptr noundef nonnull %3, ptr noundef nonnull %10, ptr noundef %11, ptr noundef nonnull @.str.1) #21
-  %12 = call ptr @strbuf_detach(ptr noundef nonnull %3, ptr noundef null) #21
+  %11 = tail call ptr @get_midx_checksum(ptr noundef %1) #22
+  call void @get_midx_filename_ext(ptr noundef %9, ptr noundef nonnull %3, ptr noundef nonnull %10, ptr noundef %11, ptr noundef nonnull @.str.1) #22
+  %12 = call ptr @strbuf_detach(ptr noundef nonnull %3, ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %13 = call i32 @git_open_cloexec(ptr noundef %12, i32 noundef 0) #21
+  %13 = call i32 @git_open_cloexec(ptr noundef %12, i32 noundef 0) #22
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %2
-  %16 = tail call ptr @__errno_location() #24
+  %16 = tail call ptr @__errno_location() #25
   %17 = load i32, ptr %16, align 4, !tbaa !8
   %.not48 = icmp eq i32 %17, 2
   br i1 %.not48, label %19, label %18
 
 18:                                               ; preds = %15
-  call void (ptr, ...) @warning_errno(ptr noundef nonnull @.str.36, ptr noundef %12) #21
+  call void (ptr, ...) @warning_errno(ptr noundef nonnull @.str.36, ptr noundef %12) #22
   br label %19
 
 19:                                               ; preds = %18, %15
-  call void @free(ptr noundef %12) #21
+  call void @free(ptr noundef %12) #22
   br label %.loopexit
 
 20:                                               ; preds = %2
-  call void @free(ptr noundef %12) #21
-  %21 = call i32 @fstat64(i32 noundef %13, ptr noundef nonnull %4) #21
+  call void @free(ptr noundef %12) #22
+  %21 = call i32 @fstat64(i32 noundef %13, ptr noundef nonnull %4) #22
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %28, label %22
 
@@ -910,13 +910,13 @@ define internal fastcc range(i32 -1, 1) i32 @open_midx_bitmap_1(ptr noundef capt
   br i1 %.not4.i, label %_.exit, label %24
 
 24:                                               ; preds = %22
-  %25 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.37, i32 noundef 5) #21
+  %25 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.37, i32 noundef 5) #22
   br label %_.exit
 
 _.exit:                                           ; preds = %22, %24
   %.0.i = phi ptr [ %25, %24 ], [ @.str.37, %22 ]
-  %26 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i) #21
-  %27 = call i32 @close(i32 noundef %13) #21
+  %26 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i) #22
+  %27 = call i32 @close(i32 noundef %13) #22
   br label %.loopexit
 
 28:                                               ; preds = %20
@@ -936,7 +936,7 @@ _.exit:                                           ; preds = %22, %24
   %34 = load ptr, ptr %6, align 8, !tbaa !11
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 400
   %36 = load ptr, ptr %35, align 8, !tbaa !14
-  call void @get_midx_filename(ptr noundef %36, ptr noundef nonnull %5, ptr noundef nonnull %10) #21
+  call void @get_midx_filename(ptr noundef %36, ptr noundef nonnull %5, ptr noundef nonnull %10) #22
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !49
   %.not4.i49 = icmp eq ptr %38, null
@@ -956,9 +956,9 @@ bitmap_repo.exit:                                 ; preds = %39, %41
   %.0.i50 = load ptr, ptr %.0.in.i, align 8, !tbaa !11
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !89
-  call void @trace2_data_string_fl(ptr noundef nonnull @.str.3, i32 noundef 421, ptr noundef nonnull @.str.1, ptr noundef %.0.i50, ptr noundef nonnull @.str.53, ptr noundef %45) #21
-  %46 = call i32 @close(i32 noundef %13) #21
-  call void @strbuf_release(ptr noundef nonnull %5) #21
+  call void @trace2_data_string_fl(ptr noundef nonnull @.str.3, i32 noundef 421, ptr noundef nonnull @.str.1, ptr noundef %.0.i50, ptr noundef nonnull @.str.53, ptr noundef %45) #22
+  %46 = call i32 @close(i32 noundef %13) #22
+  call void @strbuf_release(ptr noundef nonnull %5) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
@@ -970,7 +970,7 @@ bitmap_repo.exit:                                 ; preds = %39, %41
   br i1 %50, label %51, label %xsize_t.exit
 
 51:                                               ; preds = %47
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.40) #23
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.40) #24
   unreachable
 
 xsize_t.exit:                                     ; preds = %47
@@ -978,17 +978,17 @@ xsize_t.exit:                                     ; preds = %47
   store i64 %49, ptr %52, align 8, !tbaa !53
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %53, align 8, !tbaa !55
-  %54 = call ptr @xmmap(ptr noundef null, i64 noundef %49, i32 noundef 1, i32 noundef 2, i32 noundef %13, i64 noundef 0) #21
+  %54 = call ptr @xmmap(ptr noundef null, i64 noundef %49, i32 noundef 1, i32 noundef 2, i32 noundef %13, i64 noundef 0) #22
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %54, ptr %55, align 8, !tbaa !54
-  %56 = call i32 @close(i32 noundef %13) #21
+  %56 = call i32 @close(i32 noundef %13) #22
   %57 = call fastcc i32 @load_bitmap_header(ptr noundef nonnull %0)
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %107, label %59
 
 59:                                               ; preds = %xsize_t.exit
   %60 = load ptr, ptr %31, align 8, !tbaa !49
-  %61 = call ptr @get_midx_checksum(ptr noundef %60) #21
+  %61 = call ptr @get_midx_checksum(ptr noundef %60) #22
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %63 = load ptr, ptr %62, align 8, !tbaa !91
   %64 = load ptr, ptr %31, align 8, !tbaa !49
@@ -1023,16 +1023,16 @@ bitmap_repo.exit54:                               ; preds = %65, %67
   br i1 %.not4.i57, label %_.exit59, label %76
 
 76:                                               ; preds = %74
-  %77 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.54, i32 noundef 5) #21
+  %77 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.54, i32 noundef 5) #22
   br label %_.exit59
 
 _.exit59:                                         ; preds = %74, %76
   %.0.i58 = phi ptr [ %77, %76 ], [ @.str.54, %74 ]
-  %78 = call i32 (ptr, ...) @error(ptr noundef %.0.i58) #21
+  %78 = call i32 (ptr, ...) @error(ptr noundef %.0.i58) #22
   br label %107
 
 79:                                               ; preds = %bitmap_repo.exit54
-  %80 = call i32 @load_midx_revindex(ptr noundef %64) #21
+  %80 = call i32 @load_midx_revindex(ptr noundef %64) #22
   %.not46 = icmp eq i32 %80, 0
   br i1 %.not46, label %.preheader, label %84
 
@@ -1049,12 +1049,12 @@ _.exit59:                                         ; preds = %74, %76
   br i1 %.not4.i60, label %_.exit62, label %86
 
 86:                                               ; preds = %84
-  %87 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.55, i32 noundef 5) #21
+  %87 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.55, i32 noundef 5) #22
   br label %_.exit62
 
 _.exit62:                                         ; preds = %84, %86
   %.0.i61 = phi ptr [ %87, %86 ], [ @.str.55, %84 ]
-  call void (ptr, ...) @warning(ptr noundef %.0.i61) #21
+  call void (ptr, ...) @warning(ptr noundef %.0.i61) #22
   br label %107
 
 bitmap_repo.exit66:                               ; preds = %.preheader, %101
@@ -1062,7 +1062,7 @@ bitmap_repo.exit66:                               ; preds = %.preheader, %101
   %.071 = phi i32 [ %102, %101 ], [ 0, %.preheader ]
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 200
   %.0.i65 = load ptr, ptr %89, align 8, !tbaa !11
-  %90 = call i32 @prepare_midx_pack(ptr noundef %.0.i65, ptr noundef nonnull %88, i32 noundef %.071) #21
+  %90 = call i32 @prepare_midx_pack(ptr noundef %.0.i65, ptr noundef nonnull %88, i32 noundef %.071) #22
   %.not47 = icmp eq i32 %90, 0
   br i1 %.not47, label %101, label %91
 
@@ -1072,7 +1072,7 @@ bitmap_repo.exit66:                               ; preds = %.preheader, %101
   br i1 %.not4.i67, label %_.exit69, label %93
 
 93:                                               ; preds = %91
-  %94 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.56, i32 noundef 5) #21
+  %94 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.56, i32 noundef 5) #22
   br label %_.exit69
 
 _.exit69:                                         ; preds = %91, %93
@@ -1083,7 +1083,7 @@ _.exit69:                                         ; preds = %91, %93
   %98 = zext i32 %.071 to i64
   %99 = getelementptr inbounds nuw ptr, ptr %97, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !96
-  call void (ptr, ...) @warning(ptr noundef %.0.i68, ptr noundef %100) #21
+  call void (ptr, ...) @warning(ptr noundef %.0.i68, ptr noundef %100) #22
   br label %107
 
 101:                                              ; preds = %bitmap_repo.exit66
@@ -1097,7 +1097,7 @@ _.exit69:                                         ; preds = %91, %93
 107:                                              ; preds = %xsize_t.exit, %_.exit69, %_.exit62, %_.exit59
   %108 = load ptr, ptr %55, align 8, !tbaa !54
   %109 = load i64, ptr %52, align 8, !tbaa !53
-  %110 = call i32 @munmap(ptr noundef %108, i64 noundef %109) #21
+  %110 = call i32 @munmap(ptr noundef %108, i64 noundef %109) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 32, i1 false)
   br label %.loopexit
 
@@ -1204,12 +1204,12 @@ kh_get_oid_map.exit:                              ; preds = %2, %.critedge.i
   br i1 %.not7.i.i, label %48, label %46
 
 46:                                               ; preds = %43
-  %47 = call i32 @bsearch_midx(ptr noundef nonnull %10, ptr noundef nonnull %45, ptr noundef nonnull %5) #21
+  %47 = call i32 @bsearch_midx(ptr noundef nonnull %10, ptr noundef nonnull %45, ptr noundef nonnull %5) #22
   br label %bitmap_bsearch_pos.exit.i
 
 48:                                               ; preds = %43
   %49 = load ptr, ptr %0, align 8, !tbaa !37
-  %50 = call i32 @bsearch_pack(ptr noundef nonnull %10, ptr noundef %49, ptr noundef nonnull %5) #21
+  %50 = call i32 @bsearch_pack(ptr noundef nonnull %10, ptr noundef %49, ptr noundef nonnull %5) #22
   br label %bitmap_bsearch_pos.exit.i
 
 bitmap_bsearch_pos.exit.i:                        ; preds = %48, %46
@@ -1349,13 +1349,13 @@ bitmap_bsearch_pos.exit.i:                        ; preds = %48, %46
   br i1 %mul.ov.i.i, label %147, label %st_mult.exit.i
 
 147:                                              ; preds = %143
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.70, i64 noundef 48, i64 noundef %..i) #23
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.70, i64 noundef 48, i64 noundef %..i) #24
   unreachable
 
 st_mult.exit.i:                                   ; preds = %143
   %148 = load ptr, ptr @lazy_bitmap_for_commit.xor_items, align 8, !tbaa !102
   %149 = mul nuw i64 %..i, 48
-  %150 = call ptr @xrealloc(ptr noundef %148, i64 noundef %149) #21
+  %150 = call ptr @xrealloc(ptr noundef %148, i64 noundef %149) #22
   store ptr %150, ptr @lazy_bitmap_for_commit.xor_items, align 8, !tbaa !102
   %.pre.i = load i64, ptr @lazy_bitmap_for_commit.xor_items_nr, align 8, !tbaa !4
   %.pre140.i = add i64 %.pre.i, 1
@@ -1375,12 +1375,12 @@ st_mult.exit.i:                                   ; preds = %143
   br i1 %.not4.i.i, label %_.exit.i, label %157
 
 157:                                              ; preds = %155
-  %158 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.57, i32 noundef 5) #21
+  %158 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.57, i32 noundef 5) #22
   br label %_.exit.i
 
 _.exit.i:                                         ; preds = %157, %155
   %.0.i66.i = phi ptr [ %158, %157 ], [ @.str.57, %155 ]
-  %159 = call i32 (ptr, ...) @error(ptr noundef %.0.i66.i) #21
+  %159 = call i32 (ptr, ...) @error(ptr noundef %.0.i66.i) #22
   br label %.loopexit.i
 
 160:                                              ; preds = %151
@@ -1393,12 +1393,12 @@ _.exit.i:                                         ; preds = %157, %155
   br i1 %.not4.i.i.i, label %bitmap_lookup_table_get_triplet.exit.thread.i, label %163
 
 163:                                              ; preds = %161
-  %164 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.60, i32 noundef 5) #21
+  %164 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.60, i32 noundef 5) #22
   br label %bitmap_lookup_table_get_triplet.exit.thread.i
 
 bitmap_lookup_table_get_triplet.exit.thread.i:    ; preds = %163, %161
   %.0.i.i.i = phi ptr [ %164, %163 ], [ @.str.60, %161 ]
-  %165 = call i32 (ptr, ...) @error(ptr noundef %.0.i.i.i) #21
+  %165 = call i32 (ptr, ...) @error(ptr noundef %.0.i.i.i) #22
   br label %.loopexit.i
 
 166:                                              ; preds = %160
@@ -1488,13 +1488,13 @@ bitmap_lookup_table_get_triplet.exit.thread.i:    ; preds = %163, %161
   br i1 %.not.i68.i, label %nth_bitmap_object_oid.exit.i, label %248
 
 248:                                              ; preds = %166
-  %249 = call ptr @nth_midxed_object_oid(ptr noundef nonnull %245, ptr noundef nonnull %247, i32 noundef %187) #21
+  %249 = call ptr @nth_midxed_object_oid(ptr noundef nonnull %245, ptr noundef nonnull %247, i32 noundef %187) #22
   %.not8.i.i = icmp eq ptr %249, null
   br i1 %.not8.i.i, label %253, label %258
 
 nth_bitmap_object_oid.exit.i:                     ; preds = %166
   %250 = load ptr, ptr %0, align 8, !tbaa !37
-  %251 = call i32 @nth_packed_object_id(ptr noundef nonnull %245, ptr noundef %250, i32 noundef %187) #21
+  %251 = call i32 @nth_packed_object_id(ptr noundef nonnull %245, ptr noundef %250, i32 noundef %187) #22
   %252 = icmp slt i32 %251, 0
   br i1 %252, label %253, label %258
 
@@ -1504,12 +1504,12 @@ nth_bitmap_object_oid.exit.i:                     ; preds = %166
   br i1 %.not4.i70.i, label %_.exit72.i, label %255
 
 255:                                              ; preds = %253
-  %256 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.58, i32 noundef 5) #21
+  %256 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.58, i32 noundef 5) #22
   br label %_.exit72.i
 
 _.exit72.i:                                       ; preds = %255, %253
   %.0.i71.i = phi ptr [ %256, %255 ], [ @.str.58, %253 ]
-  %257 = call i32 (ptr, ...) @error(ptr noundef %.0.i71.i, i32 noundef %187) #21
+  %257 = call i32 (ptr, ...) @error(ptr noundef %.0.i71.i, i32 noundef %187) #22
   br label %.loopexit.i
 
 258:                                              ; preds = %nth_bitmap_object_oid.exit.i, %248
@@ -1635,13 +1635,13 @@ kh_get_oid_map.exit.i:                            ; preds = %.critedge.i.i, %258
   br i1 %.not4.i75.i, label %_.exit77.i, label %313
 
 313:                                              ; preds = %311
-  %314 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.59, i32 noundef 5) #21
+  %314 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.59, i32 noundef 5) #22
   br label %_.exit77.i
 
 _.exit77.i:                                       ; preds = %313, %311
   %.0.i76.i = phi ptr [ %314, %313 ], [ @.str.59, %311 ]
-  %315 = call ptr @oid_to_hex(ptr noundef %305) #21
-  %316 = call i32 (ptr, ...) @error(ptr noundef %.0.i76.i, ptr noundef %315) #21
+  %315 = call ptr @oid_to_hex(ptr noundef %305) #22
+  %316 = call i32 (ptr, ...) @error(ptr noundef %.0.i76.i, ptr noundef %315) #22
   br label %.loopexit.i
 
 317:                                              ; preds = %301
@@ -1651,11 +1651,11 @@ _.exit77.i:                                       ; preds = %313, %311
   %320 = getelementptr i8, ptr %318, i64 %307
   %321 = getelementptr i8, ptr %320, i64 5
   %322 = load i8, ptr %321, align 1, !tbaa !10
-  %323 = call ptr @ewah_pool_new() #21
+  %323 = call ptr @ewah_pool_new() #22
   %324 = load i64, ptr %298, align 8, !tbaa !4
   %325 = getelementptr inbounds nuw i8, ptr %318, i64 %324
   %326 = sub i64 %308, %324
-  %327 = call i64 @ewah_read_mmap(ptr noundef %323, ptr noundef %325, i64 noundef %326) #21
+  %327 = call i64 @ewah_read_mmap(ptr noundef %323, ptr noundef %325, i64 noundef %326) #22
   %328 = icmp slt i64 %327, 0
   br i1 %328, label %329, label %read_bitmap_1.exit.i
 
@@ -1665,13 +1665,13 @@ _.exit77.i:                                       ; preds = %313, %311
   br i1 %.not4.i.i.i.i, label %read_bitmap_1.exit.thread.i, label %331
 
 331:                                              ; preds = %329
-  %332 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #21
+  %332 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #22
   br label %read_bitmap_1.exit.thread.i
 
 read_bitmap_1.exit.thread.i:                      ; preds = %331, %329
   %.0.i.i.i.i = phi ptr [ %332, %331 ], [ @.str, %329 ]
-  %333 = call i32 (ptr, ...) @error(ptr noundef %.0.i.i.i.i) #21
-  call void @ewah_pool_free(ptr noundef %323) #21
+  %333 = call i32 (ptr, ...) @error(ptr noundef %.0.i.i.i.i) #22
+  call void @ewah_pool_free(ptr noundef %323) #22
   br label %.loopexit.i
 
 read_bitmap_1.exit.i:                             ; preds = %317
@@ -1706,13 +1706,13 @@ read_bitmap_1.exit.i:                             ; preds = %317
   br i1 %.not4.i79.i, label %_.exit81.i, label %348
 
 348:                                              ; preds = %346
-  %349 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.59, i32 noundef 5) #21
+  %349 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.59, i32 noundef 5) #22
   br label %_.exit81.i
 
 _.exit81.i:                                       ; preds = %348, %346
   %.0.i80.i = phi ptr [ %349, %348 ], [ @.str.59, %346 ]
-  %350 = call ptr @oid_to_hex(ptr noundef nonnull %10) #21
-  %351 = call i32 (ptr, ...) @error(ptr noundef %.0.i80.i, ptr noundef %350) #21
+  %350 = call ptr @oid_to_hex(ptr noundef nonnull %10) #22
+  %351 = call i32 (ptr, ...) @error(ptr noundef %.0.i80.i, ptr noundef %350) #22
   br label %.loopexit.i
 
 352:                                              ; preds = %._crit_edge120.i
@@ -1729,7 +1729,7 @@ _.exit81.i:                                       ; preds = %348, %346
 
 .loopexit.i:                                      ; preds = %read_bitmap_1.exit.i, %352, %_.exit81.i, %read_bitmap_1.exit.thread.i, %_.exit77.i, %_.exit72.i, %bitmap_lookup_table_get_triplet.exit.thread.i, %_.exit.i
   %360 = load ptr, ptr @lazy_bitmap_for_commit.xor_items, align 8, !tbaa !102
-  call void @free(ptr noundef %360) #21
+  call void @free(ptr noundef %360) #22
   store i1 true, ptr @lazy_bitmap_for_commit.is_corrupt, align 4
   br label %lazy_bitmap_for_commit.exit.thread
 
@@ -1779,14 +1779,14 @@ common.ret12:                                     ; preds = %6, %common.ret
   ret ptr %common.ret12.op
 
 6:                                                ; preds = %1
-  %7 = tail call ptr @ewah_pool_new() #21
+  %7 = tail call ptr @ewah_pool_new() #22
   %8 = load ptr, ptr %2, align 8, !tbaa !108
   %9 = tail call fastcc ptr @lookup_stored_bitmap(ptr noundef %8)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !80
-  tail call void @ewah_xor(ptr noundef %11, ptr noundef %9, ptr noundef %7) #21
+  tail call void @ewah_xor(ptr noundef %11, ptr noundef %9, ptr noundef %7) #22
   %12 = load ptr, ptr %10, align 8, !tbaa !80
-  tail call void @ewah_pool_free(ptr noundef %12) #21
+  tail call void @ewah_pool_free(ptr noundef %12) #22
   store ptr %7, ptr %10, align 8, !tbaa !80
   store ptr null, ptr %2, align 8, !tbaa !108
   br label %common.ret12
@@ -1801,7 +1801,7 @@ define dso_local ptr @pseudo_merge_bitmap_for_commit(ptr noundef %0, ptr noundef
   br i1 %.not, label %28, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @bitmap_new() #21
+  %7 = tail call ptr @bitmap_new() #22
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.02029 = load ptr, ptr %8, align 8, !tbaa !110
   %.not2230 = icmp eq ptr %.02029, null
@@ -1840,25 +1840,25 @@ bitmap_num_objects.exit:                          ; preds = %17, %19
   br i1 %.not23, label %22, label %.thread26
 
 .thread26:                                        ; preds = %10, %bitmap_num_objects.exit
-  tail call void @bitmap_free(ptr noundef %7) #21
+  tail call void @bitmap_free(ptr noundef %7) #22
   br label %28
 
 22:                                               ; preds = %bitmap_num_objects.exit
   %23 = zext nneg i32 %13 to i64
-  tail call void @bitmap_set(ptr noundef %7, i64 noundef %23) #21
+  tail call void @bitmap_set(ptr noundef %7, i64 noundef %23) #22
   %24 = getelementptr inbounds nuw i8, ptr %.02031, i64 8
   %.020 = load ptr, ptr %24, align 8, !tbaa !110
   %.not22 = icmp eq ptr %.020, null
   br i1 %.not22, label %._crit_edge, label %10, !llvm.loop !115
 
 ._crit_edge:                                      ; preds = %22, %6
-  %25 = tail call ptr @pseudo_merge_for_parents(ptr noundef nonnull %3, ptr noundef %7) #21
-  tail call void @bitmap_free(ptr noundef %7) #21
+  %25 = tail call ptr @pseudo_merge_for_parents(ptr noundef nonnull %3, ptr noundef %7) #22
+  tail call void @bitmap_free(ptr noundef %7) #22
   %.not24 = icmp eq ptr %25, null
   br i1 %.not24, label %28, label %26
 
 26:                                               ; preds = %._crit_edge
-  %27 = tail call ptr @pseudo_merge_bitmap(ptr noundef nonnull %3, ptr noundef nonnull %25) #21
+  %27 = tail call ptr @pseudo_merge_bitmap(ptr noundef nonnull %3, ptr noundef nonnull %25) #22
   br label %28
 
 28:                                               ; preds = %.thread26, %._crit_edge, %2, %26
@@ -1883,14 +1883,14 @@ define internal fastcc i32 @bitmap_position(ptr noundef readonly captures(none) 
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %11 = call i32 @bsearch_midx(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %6) #21
+  %11 = call i32 @bsearch_midx(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %6) #22
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %bitmap_position_midx.exit, label %12
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %8, align 8, !tbaa !49
   %14 = load i32, ptr %6, align 4, !tbaa !8
-  %15 = call i32 @midx_to_pack_pos(ptr noundef %13, i32 noundef %14, ptr noundef nonnull %7) #21
+  %15 = call i32 @midx_to_pack_pos(ptr noundef %13, i32 noundef %14, ptr noundef nonnull %7) #22
   %16 = load i32, ptr %7, align 4
   %.inv.i = icmp sgt i32 %15, -1
   %spec.select.i = select i1 %.inv.i, i32 %16, i32 -1
@@ -1905,13 +1905,13 @@ bitmap_position_midx.exit:                        ; preds = %10, %12
 17:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = load ptr, ptr %0, align 8, !tbaa !37
-  %19 = tail call i64 @find_pack_entry_one(ptr noundef %1, ptr noundef %18) #21
+  %19 = tail call i64 @find_pack_entry_one(ptr noundef %1, ptr noundef %18) #22
   %.not.i8 = icmp eq i64 %19, 0
   br i1 %.not.i8, label %bitmap_position_packfile.exit, label %20
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %0, align 8, !tbaa !37
-  %22 = call i32 @offset_to_pack_pos(ptr noundef %21, i64 noundef %19, ptr noundef nonnull %5) #21
+  %22 = call i32 @offset_to_pack_pos(ptr noundef %21, i64 noundef %19, ptr noundef nonnull %5) #22
   %23 = load i32, ptr %5, align 4
   %.inv.i9 = icmp sgt i32 %22, -1
   %spec.select.i10 = select i1 %.inv.i9, i32 %23, i32 -1
@@ -2061,7 +2061,7 @@ define dso_local noundef ptr @prepare_bitmap_walk(ptr noundef %0, i32 noundef %1
   br i1 %.not.i.not, label %14, label %301
 
 14:                                               ; preds = %11
-  %15 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 216) #21
+  %15 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 216) #22
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !120
   %18 = tail call fastcc i32 @open_bitmap(ptr noundef %17, ptr noundef %15)
@@ -2090,7 +2090,7 @@ define dso_local noundef ptr @prepare_bitmap_walk(ptr noundef %0, i32 noundef %1
 
 30:                                               ; preds = %23
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %32 = call ptr @parse_object_or_die(ptr noundef nonnull %31, ptr noundef null) #21
+  %32 = call ptr @parse_object_or_die(ptr noundef nonnull %31, ptr noundef null) #22
   %.pre = load i32, ptr %26, align 4
   br label %33
 
@@ -2106,9 +2106,9 @@ define dso_local noundef ptr @prepare_bitmap_walk(ptr noundef %0, i32 noundef %1
   %38 = and i32 %37, 32
   %.not93 = icmp eq i32 %38, 0
   %. = select i1 %.not93, ptr %6, ptr %7
-  %39 = call ptr @object_list_insert(ptr noundef nonnull %.078112, ptr noundef nonnull %.) #21
-  %40 = call ptr @get_tagged_oid(ptr noundef nonnull %.078112) #21
-  %41 = call ptr @parse_object_or_die(ptr noundef %40, ptr noundef null) #21
+  %39 = call ptr @object_list_insert(ptr noundef nonnull %.078112, ptr noundef nonnull %.) #22
+  %40 = call ptr @get_tagged_oid(ptr noundef nonnull %.078112) #22
+  %41 = call ptr @parse_object_or_die(ptr noundef %40, ptr noundef null) #22
   %42 = load i32, ptr %.078112, align 8
   %43 = load i32, ptr %41, align 4
   %44 = and i32 %42, 32
@@ -2124,7 +2124,7 @@ define dso_local noundef ptr @prepare_bitmap_walk(ptr noundef %0, i32 noundef %1
   %48 = and i32 %.lcssa110, 32
   %.not92 = icmp eq i32 %48, 0
   %.157 = select i1 %.not92, ptr %6, ptr %7
-  %49 = call ptr @object_list_insert(ptr noundef nonnull %.078.lcssa, ptr noundef nonnull %.157) #21
+  %49 = call ptr @object_list_insert(ptr noundef nonnull %.078.lcssa, ptr noundef nonnull %.157) #22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load i32, ptr %20, align 8, !tbaa !162
   %51 = zext i32 %50 to i64
@@ -2132,13 +2132,13 @@ define dso_local noundef ptr @prepare_bitmap_walk(ptr noundef %0, i32 noundef %1
   br i1 %52, label %23, label %._crit_edge116, !llvm.loop !168
 
 ._crit_edge116:                                   ; preds = %._crit_edge, %.preheader
-  %53 = call i32 @git_env_bool(ptr noundef nonnull @.str.6, i32 noundef -1) #21
+  %53 = call i32 @git_env_bool(ptr noundef nonnull @.str.6, i32 noundef -1) #22
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %55, label %60
 
 55:                                               ; preds = %._crit_edge116
   %56 = load ptr, ptr %16, align 8, !tbaa !120
-  call void @prepare_repo_settings(ptr noundef %56) #21
+  call void @prepare_repo_settings(ptr noundef %56) #22
   %57 = load ptr, ptr %16, align 8, !tbaa !120
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 292
   %59 = load i32, ptr %58, align 4, !tbaa !169
@@ -2167,13 +2167,13 @@ define dso_local noundef ptr @prepare_bitmap_walk(ptr noundef %0, i32 noundef %1
   br i1 %.not14.i, label %74, label %72
 
 72:                                               ; preds = %66
-  %73 = call i32 @bsearch_midx(ptr noundef nonnull %71, ptr noundef nonnull %70, ptr noundef null) #21
+  %73 = call i32 @bsearch_midx(ptr noundef nonnull %71, ptr noundef nonnull %70, ptr noundef null) #22
   %.not12.i = icmp eq i32 %73, 0
   br i1 %.not12.i, label %78, label %in_bitmapped_pack.exit
 
 74:                                               ; preds = %66
   %75 = load ptr, ptr %15, align 8, !tbaa !37
-  %76 = call i64 @find_pack_entry_one(ptr noundef nonnull %71, ptr noundef %75) #21
+  %76 = call i64 @find_pack_entry_one(ptr noundef nonnull %71, ptr noundef %75) #22
   %77 = icmp sgt i64 %76, 0
   br i1 %77, label %in_bitmapped_pack.exit, label %78
 
@@ -2201,7 +2201,7 @@ in_bitmapped_pack.exit:                           ; preds = %72, %74
   br i1 %61, label %86, label %87
 
 86:                                               ; preds = %85
-  call void @object_array_clear(ptr noundef nonnull %20) #21
+  call void @object_array_clear(ptr noundef nonnull %20) #22
   br label %87
 
 87:                                               ; preds = %86, %85
@@ -2230,15 +2230,15 @@ bitmap_repo.exit:                                 ; preds = %90, %92
   br i1 %61, label %223, label %97
 
 97:                                               ; preds = %96
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.3, i32 noundef 1993, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef %.0.i) #21
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.3, i32 noundef 1993, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef %.0.i) #22
   %98 = load ptr, ptr %7, align 8, !tbaa !118
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %15, ptr %5, align 8, !tbaa !173
-  %99 = call ptr @bitmap_new() #21
+  %99 = call ptr @bitmap_new() #22
   %100 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %99, ptr %100, align 8, !tbaa !176
   %101 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @object_array_init(ptr noundef nonnull %101) #21
+  call void @object_array_init(ptr noundef nonnull %101) #22
   %102 = load ptr, ptr %88, align 8, !tbaa !49
   %.not4.i.i = icmp eq ptr %102, null
   br i1 %.not4.i.i, label %105, label %103
@@ -2264,7 +2264,7 @@ bitmap_repo.exit.i:                               ; preds = %105, %103
   br i1 %.not.i95, label %131, label %112
 
 112:                                              ; preds = %bitmap_repo.exit.i
-  %113 = call ptr @bitmap_new() #21
+  %113 = call ptr @bitmap_new() #22
   %.not6795.i = icmp eq ptr %98, null
   br i1 %.not6795.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -2278,7 +2278,7 @@ bitmap_repo.exit.i:                               ; preds = %105, %103
 
 118:                                              ; preds = %.lr.ph.i
   %119 = zext nneg i32 %116 to i64
-  call void @bitmap_set(ptr noundef %113, i64 noundef %119) #21
+  call void @bitmap_set(ptr noundef %113, i64 noundef %119) #22
   br label %120
 
 120:                                              ; preds = %118, %.lr.ph.i
@@ -2290,7 +2290,7 @@ bitmap_repo.exit.i:                               ; preds = %105, %103
 ._crit_edge.i:                                    ; preds = %120, %112
   %123 = load ptr, ptr %100, align 8, !tbaa !176
   %124 = getelementptr inbounds nuw i8, ptr %15, i64 112
-  %125 = call i32 @cascade_pseudo_merges(ptr noundef nonnull %124, ptr noundef %123, ptr noundef %113) #21
+  %125 = call i32 @cascade_pseudo_merges(ptr noundef nonnull %124, ptr noundef %123, ptr noundef %113) #22
   %.not.i.i = icmp eq i32 %125, 0
   br i1 %.not.i.i, label %130, label %cascade_pseudo_merges_1.exit.i
 
@@ -2304,7 +2304,7 @@ cascade_pseudo_merges_1.exit.i:                   ; preds = %._crit_edge.i
   br label %131
 
 130:                                              ; preds = %._crit_edge.i
-  call void @bitmap_free(ptr noundef %113) #21
+  call void @bitmap_free(ptr noundef %113) #22
   br label %131
 
 131:                                              ; preds = %130, %cascade_pseudo_merges_1.exit.i, %bitmap_repo.exit.i
@@ -2339,7 +2339,7 @@ cascade_pseudo_merges_1.exit.i:                   ; preds = %._crit_edge.i
 
 bitmap_walk_contains.exit.i:                      ; preds = %138
   %142 = zext nneg i32 %140 to i64
-  %143 = call i32 @bitmap_get(ptr noundef nonnull %137, i64 noundef %142) #21
+  %143 = call i32 @bitmap_get(ptr noundef nonnull %137, i64 noundef %142) #22
   %.not93.i = icmp eq i32 %143, 0
   br i1 %.not93.i, label %bitmap_walk_contains.exit.thread.i, label %add_commit_to_bitmap.exit.i
 
@@ -2357,12 +2357,12 @@ bitmap_walk_contains.exit.thread.i:               ; preds = %bitmap_walk_contain
   br i1 %.not10.i.i, label %149, label %151
 
 149:                                              ; preds = %145
-  %150 = call ptr @ewah_to_bitmap(ptr noundef nonnull %144) #21
+  %150 = call ptr @ewah_to_bitmap(ptr noundef nonnull %144) #22
   store ptr %150, ptr %100, align 8, !tbaa !178
   br label %add_commit_to_bitmap.exit.i
 
 151:                                              ; preds = %145
-  call void @bitmap_or_ewah(ptr noundef nonnull %148, ptr noundef nonnull %144) #21
+  call void @bitmap_or_ewah(ptr noundef nonnull %148, ptr noundef nonnull %144) #22
   br label %add_commit_to_bitmap.exit.i
 
 add_commit_to_bitmap.exit.i:                      ; preds = %151, %149, %bitmap_walk_contains.exit.i, %.lr.ph102.i
@@ -2395,7 +2395,7 @@ add_commit_to_bitmap.exit.thread.i:               ; preds = %bitmap_walk_contain
 161:                                              ; preds = %159, %._crit_edge103.thread132.i
   %162 = load ptr, ptr %100, align 8, !tbaa !176
   %163 = getelementptr inbounds nuw i8, ptr %15, i64 112
-  %164 = call i32 @cascade_pseudo_merges(ptr noundef nonnull %163, ptr noundef %162, ptr noundef null) #21
+  %164 = call i32 @cascade_pseudo_merges(ptr noundef nonnull %163, ptr noundef %162, ptr noundef null) #22
   %.not.i82.i = icmp eq i32 %164, 0
   br i1 %.not.i82.i, label %cascade_pseudo_merges_1.exit83.i, label %165
 
@@ -2412,35 +2412,35 @@ cascade_pseudo_merges_1.exit83.i:                 ; preds = %165, %161, %159, %.
   %170 = load i64, ptr %8, align 8
   %171 = and i64 %170, -57345
   store i64 %171, ptr %8, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.3, i32 noundef 1285, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.62, ptr noundef %.0.i.i) #21
-  %172 = call i32 @prepare_revision_walk(ptr noundef %0) #21
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.3, i32 noundef 1285, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.62, ptr noundef %.0.i.i) #22
+  %172 = call i32 @prepare_revision_walk(ptr noundef %0) #22
   %.not72.i = icmp eq i32 %172, 0
   br i1 %.not72.i, label %174, label %173
 
 173:                                              ; preds = %cascade_pseudo_merges_1.exit83.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.26) #23
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.26) #24
   unreachable
 
 174:                                              ; preds = %cascade_pseudo_merges_1.exit83.i
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.3, i32 noundef 1288, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.62, ptr noundef %.0.i.i) #21
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.3, i32 noundef 1290, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.63, ptr noundef %.0.i.i) #21
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.3, i32 noundef 1288, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.62, ptr noundef %.0.i.i) #22
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.3, i32 noundef 1290, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.63, ptr noundef %.0.i.i) #22
   %175 = load i64, ptr %8, align 8
   %176 = and i64 %175, -12582913
   %177 = or disjoint i64 %176, 4194304
   store i64 %177, ptr %8, align 8
-  call void @traverse_commit_list_filtered(ptr noundef nonnull %0, ptr noundef nonnull @show_boundary_commit, ptr noundef nonnull @show_boundary_object, ptr noundef nonnull %5, ptr noundef null) #21
+  call void @traverse_commit_list_filtered(ptr noundef nonnull %0, ptr noundef nonnull @show_boundary_commit, ptr noundef nonnull @show_boundary_object, ptr noundef nonnull %5, ptr noundef null) #22
   %178 = load i64, ptr %8, align 8
   %179 = and i64 %178, -12582913
   store i64 %179, ptr %8, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.3, i32 noundef 1297, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.63, ptr noundef %.0.i.i) #21
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.3, i32 noundef 1297, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.63, ptr noundef %.0.i.i) #22
   %180 = load i64, ptr %8, align 8
   %181 = and i64 %180, -57345
   %182 = and i64 %170, 57344
   %183 = or disjoint i64 %181, %182
   store i64 %183, ptr %8, align 8
-  call void @reset_revision_walk() #21
-  call void @clear_object_flags(i32 noundef 2) #21
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.3, i32 noundef 1309, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.64, ptr noundef %.0.i.i) #21
+  call void @reset_revision_walk() #22
+  call void @clear_object_flags(i32 noundef 2) #22
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.3, i32 noundef 1309, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.64, ptr noundef %.0.i.i) #22
   %184 = load i32, ptr %101, align 8, !tbaa !180
   %.not109.i = icmp eq i32 %184, 0
   br i1 %.not109.i, label %._crit_edge108.i, label %.lr.ph107.i
@@ -2466,7 +2466,7 @@ cascade_pseudo_merges_1.exit83.i:                 ; preds = %165, %161, %159, %.
 
 bitmap_walk_contains.exit86.i:                    ; preds = %191
   %195 = zext nneg i32 %193 to i64
-  %196 = call i32 @bitmap_get(ptr noundef nonnull %190, i64 noundef %195) #21
+  %196 = call i32 @bitmap_get(ptr noundef nonnull %190, i64 noundef %195) #22
   %.not94.i = icmp eq i32 %196, 0
   br i1 %.not94.i, label %bitmap_walk_contains.exit86.thread.i, label %197
 
@@ -2477,7 +2477,7 @@ bitmap_walk_contains.exit86.i:                    ; preds = %191
   br label %200
 
 bitmap_walk_contains.exit86.thread.i:             ; preds = %bitmap_walk_contains.exit86.i, %191, %186
-  call void @add_pending_object(ptr noundef nonnull %0, ptr noundef %189, ptr noundef nonnull @.str.22) #21
+  call void @add_pending_object(ptr noundef nonnull %0, ptr noundef %189, ptr noundef nonnull @.str.22) #22
   br label %200
 
 200:                                              ; preds = %bitmap_walk_contains.exit86.thread.i, %197
@@ -2500,7 +2500,7 @@ bitmap_walk_contains.exit86.thread.i:             ; preds = %bitmap_walk_contain
   br i1 %.not.i87.i, label %207, label %209
 
 207:                                              ; preds = %205
-  %208 = call ptr @bitmap_new() #21
+  %208 = call ptr @bitmap_new() #22
   br label %209
 
 209:                                              ; preds = %207, %205
@@ -2516,20 +2516,20 @@ bitmap_walk_contains.exit86.thread.i:             ; preds = %bitmap_walk_contain
   store ptr @should_include_obj, ptr %213, align 8, !tbaa !188
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   store ptr %3, ptr %214, align 8, !tbaa !189
-  %215 = call i32 @prepare_revision_walk(ptr noundef nonnull %0) #21
+  %215 = call i32 @prepare_revision_walk(ptr noundef nonnull %0) #22
   %.not16.i.i = icmp eq i32 %215, 0
   br i1 %.not16.i.i, label %fill_in_bitmap.exit.i, label %216
 
 216:                                              ; preds = %209
   %217 = call fastcc ptr @_(ptr noundef nonnull @.str.26)
-  call void (ptr, ...) @die(ptr noundef %217) #23
+  call void (ptr, ...) @die(ptr noundef %217) #24
   unreachable
 
 fill_in_bitmap.exit.i:                            ; preds = %209
   store ptr %15, ptr %4, align 8, !tbaa !190
   %218 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.0.i88.i, ptr %218, align 8, !tbaa !192
-  call void @traverse_commit_list_filtered(ptr noundef nonnull %0, ptr noundef nonnull @show_commit, ptr noundef nonnull @show_object, ptr noundef nonnull %4, ptr noundef null) #21
+  call void @traverse_commit_list_filtered(ptr noundef nonnull %0, ptr noundef nonnull @show_commit, ptr noundef nonnull @show_object, ptr noundef nonnull %4, ptr noundef null) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %212, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2537,31 +2537,31 @@ fill_in_bitmap.exit.i:                            ; preds = %209
   br label %219
 
 219:                                              ; preds = %fill_in_bitmap.exit.i, %._crit_edge108.i
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.3, i32 noundef 1319, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.64, ptr noundef %.0.i.i) #21
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.3, i32 noundef 1319, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.64, ptr noundef %.0.i.i) #22
   br label %find_boundary_objects.exit
 
 find_boundary_objects.exit:                       ; preds = %131, %._crit_edge103.i, %219
-  call void @object_array_clear(ptr noundef nonnull %101) #21
+  call void @object_array_clear(ptr noundef nonnull %101) #22
   %220 = load i64, ptr %8, align 8
   %221 = and i64 %220, -3
   store i64 %221, ptr %8, align 8
   %222 = load ptr, ptr %100, align 8, !tbaa !176
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.3, i32 noundef 1995, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef %.0.i) #21
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.3, i32 noundef 1995, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef %.0.i) #22
   br label %230
 
 223:                                              ; preds = %96
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.3, i32 noundef 1997, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9, ptr noundef %.0.i) #21
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.3, i32 noundef 1997, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9, ptr noundef %.0.i) #22
   %224 = load i64, ptr %8, align 8
   %225 = or i64 %224, 2
   store i64 %225, ptr %8, align 8
   %226 = load ptr, ptr %7, align 8, !tbaa !118
   %227 = call fastcc ptr @find_objects(ptr noundef nonnull %15, ptr noundef nonnull %0, ptr noundef %226, ptr noundef null)
-  call void @reset_revision_walk() #21
+  call void @reset_revision_walk() #22
   %228 = load i64, ptr %8, align 8
   %229 = and i64 %228, -3
   store i64 %229, ptr %8, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.3, i32 noundef 2002, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9, ptr noundef %.0.i) #21
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.3, i32 noundef 2002, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9, ptr noundef %.0.i) #22
   br label %230
 
 230:                                              ; preds = %223, %find_boundary_objects.exit
@@ -2570,7 +2570,7 @@ find_boundary_objects.exit:                       ; preds = %131, %._crit_edge10
   br i1 %.not88, label %231, label %232
 
 231:                                              ; preds = %230
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.3, i32 noundef 2006, ptr noundef nonnull @.str.10) #23
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.3, i32 noundef 2006, ptr noundef nonnull @.str.10) #24
   unreachable
 
 232:                                              ; preds = %230, %bitmap_repo.exit
@@ -2578,8 +2578,8 @@ find_boundary_objects.exit:                       ; preds = %131, %._crit_edge10
   br i1 %61, label %234, label %233
 
 233:                                              ; preds = %232
-  call void @object_array_clear(ptr noundef nonnull %20) #21
-  call void @reset_revision_walk() #21
+  call void @object_array_clear(ptr noundef nonnull %20) #22
+  call void @reset_revision_walk() #22
   br label %234
 
 234:                                              ; preds = %233, %232
@@ -2589,7 +2589,7 @@ find_boundary_objects.exit:                       ; preds = %131, %._crit_edge10
   br i1 %.not89, label %237, label %238
 
 237:                                              ; preds = %234
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.3, i32 noundef 2017, ptr noundef nonnull @.str.10) #23
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.3, i32 noundef 2017, ptr noundef nonnull @.str.10) #24
   unreachable
 
 238:                                              ; preds = %234
@@ -2597,7 +2597,7 @@ find_boundary_objects.exit:                       ; preds = %131, %._crit_edge10
   br i1 %.not90, label %240, label %239
 
 239:                                              ; preds = %238
-  call void @bitmap_and_not(ptr noundef nonnull %236, ptr noundef nonnull %.081) #21
+  call void @bitmap_and_not(ptr noundef nonnull %236, ptr noundef nonnull %.081) #22
   br label %240
 
 240:                                              ; preds = %239, %238
@@ -2652,7 +2652,7 @@ bitmap_num_objects.exit.i:                        ; preds = %255, %253
 
 .lr.ph.i103:                                      ; preds = %bitmap_num_objects.exit.i, %.lr.ph.i103
   %.02228.i = phi i64 [ %268, %.lr.ph.i103 ], [ %264, %bitmap_num_objects.exit.i ]
-  call void @bitmap_unset(ptr noundef nonnull %236, i64 noundef %.02228.i) #21
+  call void @bitmap_unset(ptr noundef nonnull %236, i64 noundef %.02228.i) #22
   %268 = add nuw nsw i64 %.02228.i, 1
   %exitcond.not.i = icmp eq i64 %268, %258
   br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i103, !llvm.loop !199
@@ -2679,13 +2679,13 @@ bitmap_repo.exit.i100:                            ; preds = %272, %270
   %276 = getelementptr inbounds nuw ptr, ptr %275, i64 %.129.i
   %277 = load ptr, ptr %276, align 8, !tbaa !201
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 4
-  %279 = call i32 @has_object_pack(ptr noundef %.0.i27.i, ptr noundef nonnull %278) #21
+  %279 = call i32 @has_object_pack(ptr noundef %.0.i27.i, ptr noundef nonnull %278) #22
   %.not.i101 = icmp eq i32 %279, 0
   br i1 %.not.i101, label %282, label %280
 
 280:                                              ; preds = %bitmap_repo.exit.i100
   %281 = add nuw nsw i64 %.129.i, %258
-  call void @bitmap_unset(ptr noundef nonnull %236, i64 noundef %281) #21
+  call void @bitmap_unset(ptr noundef nonnull %236, i64 noundef %281) #22
   br label %282
 
 282:                                              ; preds = %280, %bitmap_repo.exit.i100
@@ -2700,32 +2700,32 @@ filter_packed_objects_from_bitmap.exit:           ; preds = %282, %.preheader.i,
   store ptr %236, ptr %287, align 8, !tbaa !87
   %288 = getelementptr inbounds nuw i8, ptr %15, i64 200
   store ptr %.081, ptr %288, align 8, !tbaa !88
-  call void @object_list_free(ptr noundef nonnull %6) #21
-  call void @object_list_free(ptr noundef nonnull %7) #21
+  call void @object_list_free(ptr noundef nonnull %6) #22
+  call void @object_list_free(ptr noundef nonnull %7) #22
   %289 = load i32, ptr @pseudo_merges_satisfied_nr, align 4, !tbaa !8
   %290 = sext i32 %289 to i64
-  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.3, i32 noundef 2037, ptr noundef nonnull @.str.1, ptr noundef %.0.i, ptr noundef nonnull @.str.11, i64 noundef %290) #21
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.3, i32 noundef 2037, ptr noundef nonnull @.str.1, ptr noundef %.0.i, ptr noundef nonnull @.str.11, i64 noundef %290) #22
   %291 = load i32, ptr @pseudo_merges_cascades_nr, align 4, !tbaa !8
   %292 = sext i32 %291 to i64
-  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.3, i32 noundef 2039, ptr noundef nonnull @.str.1, ptr noundef %.0.i, ptr noundef nonnull @.str.12, i64 noundef %292) #21
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.3, i32 noundef 2039, ptr noundef nonnull @.str.1, ptr noundef %.0.i, ptr noundef nonnull @.str.12, i64 noundef %292) #22
   %293 = load i32, ptr @existing_bitmaps_hits_nr, align 4, !tbaa !8
   %294 = sext i32 %293 to i64
-  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.3, i32 noundef 2041, ptr noundef nonnull @.str.1, ptr noundef %.0.i, ptr noundef nonnull @.str.13, i64 noundef %294) #21
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.3, i32 noundef 2041, ptr noundef nonnull @.str.1, ptr noundef %.0.i, ptr noundef nonnull @.str.13, i64 noundef %294) #22
   %295 = load i32, ptr @existing_bitmaps_misses_nr, align 4, !tbaa !8
   %296 = sext i32 %295 to i64
-  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.3, i32 noundef 2043, ptr noundef nonnull @.str.1, ptr noundef %.0.i, ptr noundef nonnull @.str.14, i64 noundef %296) #21
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.3, i32 noundef 2043, ptr noundef nonnull @.str.1, ptr noundef %.0.i, ptr noundef nonnull @.str.14, i64 noundef %296) #22
   %297 = load i32, ptr @roots_with_bitmaps_nr, align 4, !tbaa !8
   %298 = sext i32 %297 to i64
-  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.3, i32 noundef 2045, ptr noundef nonnull @.str.1, ptr noundef %.0.i, ptr noundef nonnull @.str.15, i64 noundef %298) #21
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.3, i32 noundef 2045, ptr noundef nonnull @.str.1, ptr noundef %.0.i, ptr noundef nonnull @.str.15, i64 noundef %298) #22
   %299 = load i32, ptr @roots_without_bitmaps_nr, align 4, !tbaa !8
   %300 = sext i32 %299 to i64
-  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.3, i32 noundef 2047, ptr noundef nonnull @.str.1, ptr noundef %.0.i, ptr noundef nonnull @.str.16, i64 noundef %300) #21
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.3, i32 noundef 2047, ptr noundef nonnull @.str.1, ptr noundef %.0.i, ptr noundef nonnull @.str.16, i64 noundef %300) #22
   br label %301
 
 in_bitmapped_pack.exit.thread:                    ; preds = %78, %81, %80, %in_bitmapped_pack.exit, %14
   call void @free_bitmap_index(ptr noundef %15)
-  call void @object_list_free(ptr noundef nonnull %6) #21
-  call void @object_list_free(ptr noundef nonnull %7) #21
+  call void @object_list_free(ptr noundef nonnull %6) #22
+  call void @object_list_free(ptr noundef nonnull %7) #22
   br label %301
 
 301:                                              ; preds = %11, %2, %in_bitmapped_pack.exit.thread, %filter_packed_objects_from_bitmap.exit
@@ -2787,7 +2787,7 @@ unsatisfy_all_pseudo_merges.exit:                 ; preds = %11
   br i1 %.not, label %unsatisfy_all_pseudo_merges.exit.thread, label %22
 
 22:                                               ; preds = %unsatisfy_all_pseudo_merges.exit
-  %23 = tail call ptr @bitmap_new() #21
+  %23 = tail call ptr @bitmap_new() #22
   %.not5885 = icmp eq ptr %2, null
   br i1 %.not5885, label %._crit_edge, label %.lr.ph
 
@@ -2801,7 +2801,7 @@ unsatisfy_all_pseudo_merges.exit:                 ; preds = %11
 
 28:                                               ; preds = %.lr.ph
   %29 = zext nneg i32 %26 to i64
-  tail call void @bitmap_set(ptr noundef %23, i64 noundef %29) #21
+  tail call void @bitmap_set(ptr noundef %23, i64 noundef %29) #22
   br label %30
 
 30:                                               ; preds = %.lr.ph, %28
@@ -2811,8 +2811,8 @@ unsatisfy_all_pseudo_merges.exit:                 ; preds = %11
   br i1 %.not58, label %._crit_edge, label %.lr.ph, !llvm.loop !205
 
 ._crit_edge:                                      ; preds = %30, %22
-  %33 = tail call ptr @bitmap_new() #21
-  %34 = tail call i32 @cascade_pseudo_merges(ptr noundef nonnull %10, ptr noundef %33, ptr noundef %23) #21
+  %33 = tail call ptr @bitmap_new() #22
+  %34 = tail call i32 @cascade_pseudo_merges(ptr noundef nonnull %10, ptr noundef %33, ptr noundef %23) #22
   %.not.i68 = icmp eq i32 %34, 0
   br i1 %.not.i68, label %cascade_pseudo_merges_1.exit, label %35
 
@@ -2826,7 +2826,7 @@ unsatisfy_all_pseudo_merges.exit:                 ; preds = %11
   br label %cascade_pseudo_merges_1.exit
 
 cascade_pseudo_merges_1.exit:                     ; preds = %._crit_edge, %35
-  tail call void @bitmap_free(ptr noundef %23) #21
+  tail call void @bitmap_free(ptr noundef %23) #22
   br label %unsatisfy_all_pseudo_merges.exit.thread
 
 unsatisfy_all_pseudo_merges.exit.thread:          ; preds = %4, %cascade_pseudo_merges_1.exit, %unsatisfy_all_pseudo_merges.exit
@@ -2852,7 +2852,7 @@ unsatisfy_all_pseudo_merges.exit.thread:          ; preds = %4, %cascade_pseudo_
 
 47:                                               ; preds = %43
   %48 = zext nneg i32 %45 to i64
-  %49 = call i32 @bitmap_get(ptr noundef nonnull %.17988, i64 noundef %48) #21
+  %49 = call i32 @bitmap_get(ptr noundef nonnull %.17988, i64 noundef %48) #22
   %.not66 = icmp eq i32 %49, 0
   br i1 %.not66, label %52, label %.critedge
 
@@ -2880,11 +2880,11 @@ unsatisfy_all_pseudo_merges.exit.thread:          ; preds = %4, %cascade_pseudo_
   br i1 %.not65, label %61, label %63
 
 61:                                               ; preds = %58
-  %62 = call ptr @ewah_to_bitmap(ptr noundef nonnull %57) #21
+  %62 = call ptr @ewah_to_bitmap(ptr noundef nonnull %57) #22
   br label %66
 
 63:                                               ; preds = %58
-  call void @bitmap_or_ewah(ptr noundef nonnull %.17988, ptr noundef nonnull %57) #21
+  call void @bitmap_or_ewah(ptr noundef nonnull %.17988, ptr noundef nonnull %57) #22
   br label %66
 
 add_commit_to_bitmap.exit:                        ; preds = %56
@@ -2902,7 +2902,7 @@ add_commit_to_bitmap.exit:                        ; preds = %56
   br label %72, !llvm.loop !206
 
 70:                                               ; preds = %add_commit_to_bitmap.exit, %52
-  %71 = call ptr @object_list_insert(ptr noundef nonnull %40, ptr noundef nonnull %7) #21
+  %71 = call ptr @object_list_insert(ptr noundef nonnull %40, ptr noundef nonnull %7) #22
   br label %72
 
 72:                                               ; preds = %.critedge, %70, %66
@@ -2927,7 +2927,7 @@ add_commit_to_bitmap.exit:                        ; preds = %56
 
 77:                                               ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %79 = call i32 @cascade_pseudo_merges(ptr noundef nonnull %78, ptr noundef %.2, ptr noundef null) #21
+  %79 = call i32 @cascade_pseudo_merges(ptr noundef nonnull %78, ptr noundef %.2, ptr noundef null) #22
   %.not.i70 = icmp eq i32 %79, 0
   br i1 %.not.i70, label %cascade_pseudo_merges_1.exit71, label %80
 
@@ -2961,7 +2961,7 @@ cascade_pseudo_merges_1.exit71.split.us:          ; preds = %cascade_pseudo_merg
   %93 = load i32, ptr %88, align 4
   %94 = and i32 %93, -33
   store i32 %94, ptr %88, align 4
-  call void @add_pending_object(ptr noundef %1, ptr noundef nonnull %88, ptr noundef nonnull @.str.22) #21
+  call void @add_pending_object(ptr noundef %1, ptr noundef nonnull %88, ptr noundef nonnull @.str.22) #22
   %95 = load i32, ptr @roots_without_bitmaps_nr, align 4, !tbaa !8
   %96 = add nsw i32 %95, 1
   store i32 %96, ptr @roots_without_bitmaps_nr, align 4, !tbaa !8
@@ -2971,7 +2971,7 @@ cascade_pseudo_merges_1.exit71.split.us:          ; preds = %cascade_pseudo_merg
 .thread124:                                       ; preds = %cascade_pseudo_merges_1.exit71.split.us
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %97 = call ptr @bitmap_new() #21
+  %97 = call ptr @bitmap_new() #22
   br label %117
 
 cascade_pseudo_merges_1.exit71.split:             ; preds = %cascade_pseudo_merges_1.exit71.split.outer, %107
@@ -2986,7 +2986,7 @@ cascade_pseudo_merges_1.exit71.split:             ; preds = %cascade_pseudo_merg
 
 104:                                              ; preds = %cascade_pseudo_merges_1.exit71.split
   %105 = zext nneg i32 %102 to i64
-  %106 = call i32 @bitmap_get(ptr noundef nonnull %.179.lcssa112116, i64 noundef %105) #21
+  %106 = call i32 @bitmap_get(ptr noundef nonnull %.179.lcssa112116, i64 noundef %105) #22
   %.not64 = icmp eq i32 %106, 0
   br i1 %.not64, label %.thread118, label %107
 
@@ -3004,7 +3004,7 @@ cascade_pseudo_merges_1.exit71.split:             ; preds = %cascade_pseudo_merg
   %112 = load i32, ptr %98, align 4
   %113 = and i32 %112, -33
   store i32 %113, ptr %98, align 4
-  call void @add_pending_object(ptr noundef %1, ptr noundef nonnull %98, ptr noundef nonnull @.str.22) #21
+  call void @add_pending_object(ptr noundef %1, ptr noundef nonnull %98, ptr noundef nonnull @.str.22) #22
   %114 = load i32, ptr @roots_without_bitmaps_nr, align 4, !tbaa !8
   %115 = add nsw i32 %114, 1
   store i32 %115, ptr @roots_without_bitmaps_nr, align 4, !tbaa !8
@@ -3037,20 +3037,20 @@ cascade_pseudo_merges_1.exit71.split:             ; preds = %cascade_pseudo_merg
   store ptr @should_include_obj, ptr %121, align 8, !tbaa !188
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 1464
   store ptr %5, ptr %122, align 8, !tbaa !189
-  %123 = call i32 @prepare_revision_walk(ptr noundef %1) #21
+  %123 = call i32 @prepare_revision_walk(ptr noundef %1) #22
   %.not16.i = icmp eq i32 %123, 0
   br i1 %.not16.i, label %fill_in_bitmap.exit, label %124
 
 124:                                              ; preds = %117
   %125 = call fastcc ptr @_(ptr noundef nonnull @.str.26)
-  call void (ptr, ...) @die(ptr noundef %125) #23
+  call void (ptr, ...) @die(ptr noundef %125) #24
   unreachable
 
 fill_in_bitmap.exit:                              ; preds = %117
   store ptr %0, ptr %6, align 8, !tbaa !190
   %126 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.0.i73, ptr %126, align 8, !tbaa !192
-  call void @traverse_commit_list_filtered(ptr noundef nonnull %1, ptr noundef nonnull @show_commit, ptr noundef nonnull @show_object, ptr noundef nonnull %6, ptr noundef null) #21
+  call void @traverse_commit_list_filtered(ptr noundef nonnull %1, ptr noundef nonnull @show_commit, ptr noundef nonnull @show_object, ptr noundef nonnull %6, ptr noundef null) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3058,7 +3058,7 @@ fill_in_bitmap.exit:                              ; preds = %117
 
 127:                                              ; preds = %fill_in_bitmap.exit, %.split.us
   %.5 = phi ptr [ %.179.lcssa112116, %.split.us ], [ %.0.i73, %fill_in_bitmap.exit ]
-  call void @object_list_free(ptr noundef nonnull %7) #21
+  call void @object_list_free(ptr noundef nonnull %7) #22
   br label %128
 
 128:                                              ; preds = %._crit_edge92.thread, %._crit_edge92, %127
@@ -3115,7 +3115,7 @@ define internal fastcc range(i32 -1, 1) i32 @filter_bitmap(ptr noundef readonly 
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 160
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %20 = tail call ptr @bitmap_new() #21
+  %20 = tail call ptr @bitmap_new() #22
   %.not12.i.i = icmp eq ptr %1, null
   br i1 %.not12.i.i, label %find_tip_objects.exit.i, label %.lr.ph.i.i
 
@@ -3135,7 +3135,7 @@ define internal fastcc range(i32 -1, 1) i32 @filter_bitmap(ptr noundef readonly 
 
 28:                                               ; preds = %24
   %29 = zext nneg i32 %26 to i64
-  tail call void @bitmap_set(ptr noundef %20, i64 noundef %29) #21
+  tail call void @bitmap_set(ptr noundef %20, i64 noundef %29) #22
   br label %30
 
 30:                                               ; preds = %28, %24, %.lr.ph.i.i
@@ -3147,7 +3147,7 @@ define internal fastcc range(i32 -1, 1) i32 @filter_bitmap(ptr noundef readonly 
 find_tip_objects.exit.i:                          ; preds = %30, %16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = load ptr, ptr %33, align 8, !tbaa !68
-  call void @ewah_iterator_init(ptr noundef nonnull %5, ptr noundef %34) #21
+  call void @ewah_iterator_init(ptr noundef nonnull %5, ptr noundef %34) #22
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %36 = load i64, ptr %35, align 8, !tbaa !194
   %.not62.i = icmp eq i64 %36, 0
@@ -3156,7 +3156,7 @@ find_tip_objects.exit.i:                          ; preds = %30, %16
 .lr.ph.i:                                         ; preds = %find_tip_objects.exit.i, %63
   %37 = phi i64 [ %65, %63 ], [ 0, %find_tip_objects.exit.i ]
   %.058.i = phi i32 [ %64, %63 ], [ 0, %find_tip_objects.exit.i ]
-  %38 = call i32 @ewah_iterator_next(ptr noundef nonnull %6, ptr noundef nonnull %5) #21
+  %38 = call i32 @ewah_iterator_next(ptr noundef nonnull %6, ptr noundef nonnull %5) #22
   %.not.i = icmp eq i32 %38, 0
   br i1 %.not.i, label %.critedge.i, label %39
 
@@ -3182,7 +3182,7 @@ find_tip_objects.exit.i:                          ; preds = %30, %16
   %53 = add nuw nsw i32 %.04357.i, %52
   %54 = add i32 %53, %45
   %55 = zext i32 %54 to i64
-  %56 = call i32 @bitmap_get(ptr noundef %20, i64 noundef %55) #21
+  %56 = call i32 @bitmap_get(ptr noundef %20, i64 noundef %55) #22
   %.not51.i = icmp eq i32 %56, 0
   br i1 %.not51.i, label %57, label %60
 
@@ -3192,7 +3192,7 @@ find_tip_objects.exit.i:                          ; preds = %30, %16
   br i1 %.not52.i, label %60, label %59
 
 59:                                               ; preds = %57
-  call void @bitmap_unset(ptr noundef nonnull %2, i64 noundef %55) #21
+  call void @bitmap_unset(ptr noundef nonnull %2, i64 noundef %55) #22
   br label %60
 
 60:                                               ; preds = %59, %57, %50
@@ -3246,12 +3246,12 @@ bitmap_num_objects.exit.i:                        ; preds = %75, %73
   br i1 %85, label %86, label %94
 
 86:                                               ; preds = %bitmap_num_objects.exit.i
-  %87 = call i32 @bitmap_get(ptr noundef %2, i64 noundef %79) #21
+  %87 = call i32 @bitmap_get(ptr noundef %2, i64 noundef %79) #22
   %.not48.i = icmp eq i32 %87, 0
   br i1 %.not48.i, label %94, label %88
 
 88:                                               ; preds = %86
-  %89 = call i32 @bitmap_get(ptr noundef %20, i64 noundef %79) #21
+  %89 = call i32 @bitmap_get(ptr noundef %20, i64 noundef %79) #22
   %.not49.i = icmp eq i32 %89, 0
   br i1 %.not49.i, label %90, label %94
 
@@ -3262,7 +3262,7 @@ bitmap_num_objects.exit.i:                        ; preds = %75, %73
   br i1 %.not50.i, label %94, label %93
 
 93:                                               ; preds = %90
-  call void @bitmap_unset(ptr noundef %2, i64 noundef %79) #21
+  call void @bitmap_unset(ptr noundef %2, i64 noundef %79) #22
   br label %94
 
 94:                                               ; preds = %93, %90, %88, %86, %bitmap_num_objects.exit.i
@@ -3273,7 +3273,7 @@ bitmap_num_objects.exit.i:                        ; preds = %75, %73
   br i1 %97, label %71, label %filter_bitmap_blob_limit.exit, !llvm.loop !214
 
 filter_bitmap_blob_limit.exit:                    ; preds = %94, %.critedge.i
-  call void @bitmap_free(ptr noundef %20) #21
+  call void @bitmap_free(ptr noundef %20) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
@@ -3305,7 +3305,7 @@ filter_bitmap_blob_limit.exit:                    ; preds = %94, %.critedge.i
   br i1 %or.cond.i, label %109, label %110
 
 109:                                              ; preds = %105
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.3, i32 noundef 1806, ptr noundef nonnull @.str.69) #23
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.3, i32 noundef 1806, ptr noundef nonnull @.str.69) #24
   unreachable
 
 110:                                              ; preds = %105
@@ -3405,7 +3405,7 @@ define dso_local void @reuse_partial_packfile_from_bitmap(ptr noundef readonly c
   %29 = load ptr, ptr %28, align 8, !tbaa !61
   %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i
   %31 = load ptr, ptr %30, align 8, !tbaa !56
-  %32 = tail call i32 @load_pack_revindex(ptr noundef %.0.i, ptr noundef %31) #21
+  %32 = tail call i32 @load_pack_revindex(ptr noundef %.0.i, ptr noundef %31) #22
   %.not13.i = icmp eq i32 %32, 0
   br i1 %.not13.i, label %21, label %load_reverse_index.exit
 
@@ -3415,7 +3415,7 @@ define dso_local void @reuse_partial_packfile_from_bitmap(ptr noundef readonly c
   %.0.i134 = load ptr, ptr %35, align 8, !tbaa !11
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %37 = load ptr, ptr %36, align 8, !tbaa !87
-  %38 = tail call i32 @load_pack_revindex(ptr noundef %.0.i134, ptr noundef %34) #21
+  %38 = tail call i32 @load_pack_revindex(ptr noundef %.0.i134, ptr noundef %34) #22
   br label %load_reverse_index.exit
 
 load_reverse_index.exit:                          ; preds = %.lr.ph.i, %.preheader.i, %33
@@ -3457,7 +3457,7 @@ load_reverse_index.exit.thread:                   ; preds = %21, %load_reverse_i
   %.0105173 = phi ptr [ null, %.lr.ph ], [ %.1106.ph, %84 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %49 = trunc nuw i64 %.0102174 to i32
-  %50 = call i32 @nth_bitmapped_pack(ptr noundef %.0.i135211, ptr noundef nonnull %48, ptr noundef nonnull %12, i32 noundef %49) #21
+  %50 = call i32 @nth_bitmapped_pack(ptr noundef %.0.i135211, ptr noundef nonnull %48, ptr noundef nonnull %12, i32 noundef %49) #22
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %52, label %56
 
@@ -3467,7 +3467,7 @@ load_reverse_index.exit.thread:                   ; preds = %21, %load_reverse_i
   br i1 %.not4.i124, label %78, label %54
 
 54:                                               ; preds = %52
-  %55 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #21
+  %55 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #22
   br label %78
 
 56:                                               ; preds = %47
@@ -3477,7 +3477,7 @@ load_reverse_index.exit.thread:                   ; preds = %21, %load_reverse_i
 
 58:                                               ; preds = %56
   %59 = load ptr, ptr %12, align 8, !tbaa !222
-  %60 = call i32 @is_pack_valid(ptr noundef %59) #21
+  %60 = call i32 @is_pack_valid(ptr noundef %59) #22
   %.not123 = icmp eq i32 %60, 0
   br i1 %.not123, label %73, label %61
 
@@ -3495,12 +3495,12 @@ load_reverse_index.exit.thread:                   ; preds = %21, %load_reverse_i
   br i1 %mul.ov.i, label %68, label %st_mult.exit
 
 68:                                               ; preds = %64
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.70, i64 noundef 32, i64 noundef %.) #23
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.70, i64 noundef 32, i64 noundef %.) #24
   unreachable
 
 st_mult.exit:                                     ; preds = %64
   %69 = shl nuw i64 %., 5
-  %70 = call ptr @xrealloc(ptr noundef %.0105173, i64 noundef %69) #21
+  %70 = call ptr @xrealloc(ptr noundef %.0105173, i64 noundef %69) #22
   br label %71
 
 71:                                               ; preds = %st_mult.exit, %61
@@ -3527,8 +3527,8 @@ st_mult.exit:                                     ; preds = %64
   %81 = load ptr, ptr %80, align 8, !tbaa !94
   %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %.0102174
   %83 = load ptr, ptr %82, align 8, !tbaa !96
-  call void (ptr, ...) @warning(ptr noundef %.0.i125, ptr noundef %83) #21
-  call void @free(ptr noundef %.0105173) #21
+  call void (ptr, ...) @warning(ptr noundef %.0.i125, ptr noundef %83) #22
+  call void @free(ptr noundef %.0105173) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.critedge
 
@@ -3551,12 +3551,12 @@ st_mult.exit:                                     ; preds = %64
   br i1 %91, label %sane_qsort.exit.thread, label %sane_qsort.exit
 
 sane_qsort.exit.thread:                           ; preds = %._crit_edge
-  call void @qsort(ptr noundef %.1106.ph, i64 noundef %.197.ph, i64 noundef 32, ptr noundef nonnull @bitmapped_pack_cmp) #21
+  call void @qsort(ptr noundef %.1106.ph, i64 noundef %.197.ph, i64 noundef 32, ptr noundef nonnull @bitmapped_pack_cmp) #22
   br label %125
 
 .thread149:                                       ; preds = %load_reverse_index.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %92 = call i32 @midx_preferred_pack(ptr noundef nonnull %41, ptr noundef nonnull %13) #21
+  %92 = call i32 @midx_preferred_pack(ptr noundef nonnull %41, ptr noundef nonnull %13) #22
   %93 = icmp sgt i32 %92, -1
   br i1 %93, label %.thread151, label %94
 
@@ -3566,7 +3566,7 @@ sane_qsort.exit.thread:                           ; preds = %._crit_edge
   br i1 %.not4.i126, label %105, label %96
 
 96:                                               ; preds = %94
-  %97 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 5) #21
+  %97 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 5) #22
   br label %105
 
 .thread151:                                       ; preds = %.thread149
@@ -3582,7 +3582,7 @@ sane_qsort.exit.thread:                           ; preds = %._crit_edge
 
 105:                                              ; preds = %96, %94
   %.0.i127 = phi ptr [ %97, %96 ], [ @.str.18, %94 ]
-  call void (ptr, ...) @warning(ptr noundef %.0.i127) #21
+  call void (ptr, ...) @warning(ptr noundef %.0.i127) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.critedge
 
@@ -3595,12 +3595,12 @@ sane_qsort.exit.thread:                           ; preds = %._crit_edge
   %110 = phi ptr [ %.ph, %106 ], [ %40, %.thread151 ]
   %.185 = phi ptr [ %107, %106 ], [ %104, %.thread151 ]
   %.1 = phi i32 [ -1, %106 ], [ %101, %.thread151 ]
-  %111 = call i32 @is_pack_valid(ptr noundef %.185) #21
+  %111 = call i32 @is_pack_valid(ptr noundef %.185) #22
   %.not118 = icmp eq i32 %111, 0
   br i1 %.not118, label %120, label %.split
 
 .split:                                           ; preds = %108
-  %112 = call ptr @xrealloc(ptr noundef null, i64 noundef 768) #21
+  %112 = call ptr @xrealloc(ptr noundef null, i64 noundef 768) #22
   store ptr %.185, ptr %112, align 8, !tbaa !222
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
   store i32 %.1, ptr %113, align 8, !tbaa !224
@@ -3640,7 +3640,7 @@ sane_qsort.exit:                                  ; preds = %._crit_edge, %120
   %128 = zext i32 %.290160 to i64
   %129 = add nuw nsw i64 %128, 63
   %spec.select = lshr i64 %129, 6
-  %130 = call ptr @bitmap_word_alloc(i64 noundef %spec.select) #21
+  %130 = call ptr @bitmap_word_alloc(i64 noundef %spec.select) #22
   br label %131
 
 131:                                              ; preds = %125, %reuse_partial_packfile_from_bitmap_1.exit
@@ -3743,18 +3743,18 @@ sane_qsort.exit:                                  ; preds = %._crit_edge, %120
   br i1 %.not75.i, label %st_sub.exit.i, label %183
 
 183:                                              ; preds = %180
-  %184 = call i32 @pack_pos_to_midx(ptr noundef nonnull %181, i32 noundef %182) #21
+  %184 = call i32 @pack_pos_to_midx(ptr noundef nonnull %181, i32 noundef %182) #22
   %185 = load ptr, ptr %14, align 8, !tbaa !49
-  %186 = call i64 @nth_midxed_offset(ptr noundef %185, i32 noundef %184) #21
+  %186 = call i64 @nth_midxed_offset(ptr noundef %185, i32 noundef %184) #22
   %187 = load ptr, ptr %132, align 8, !tbaa !222
-  %188 = call i32 @offset_to_pack_pos(ptr noundef %187, i64 noundef %186, ptr noundef nonnull %11) #21
+  %188 = call i32 @offset_to_pack_pos(ptr noundef %187, i64 noundef %186, ptr noundef nonnull %11) #22
   %189 = icmp slt i32 %188, 0
   br i1 %189, label %190, label %206
 
 190:                                              ; preds = %183
   %191 = load ptr, ptr %132, align 8, !tbaa !222
-  %192 = call ptr @pack_basename(ptr noundef %191) #21
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.3, i32 noundef 2218, ptr noundef nonnull @.str.71, ptr noundef %192, i64 noundef %186) #23
+  %192 = call ptr @pack_basename(ptr noundef %191) #22
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.3, i32 noundef 2218, ptr noundef nonnull @.str.71, ptr noundef %192, i64 noundef %186) #24
   unreachable
 
 st_sub.exit.i:                                    ; preds = %180
@@ -3767,17 +3767,17 @@ st_sub.exit.i:                                    ; preds = %180
   br i1 %.not62.i, label %204, label %197
 
 197:                                              ; preds = %st_sub.exit.i
-  %198 = call ptr @pack_basename(ptr noundef nonnull %194) #21
+  %198 = call ptr @pack_basename(ptr noundef nonnull %194) #22
   %199 = load i32, ptr %11, align 4, !tbaa !8
   %200 = zext i32 %199 to i64
   %201 = load ptr, ptr %132, align 8, !tbaa !222
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 72
   %203 = load i32, ptr %202, align 8, !tbaa !8
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.3, i32 noundef 2224, ptr noundef nonnull @.str.72, ptr noundef %198, i64 noundef %200, i32 noundef %203) #23
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.3, i32 noundef 2224, ptr noundef nonnull @.str.72, ptr noundef %198, i64 noundef %200, i32 noundef %203) #24
   unreachable
 
 204:                                              ; preds = %st_sub.exit.i
-  %205 = call i64 @pack_pos_to_offset(ptr noundef nonnull %194, i32 noundef %193) #21
+  %205 = call i64 @pack_pos_to_offset(ptr noundef nonnull %194, i32 noundef %193) #22
   br label %206
 
 206:                                              ; preds = %204, %183
@@ -3793,7 +3793,7 @@ st_sub.exit.i:                                    ; preds = %180
   br i1 %.not.i63.i, label %211, label %241
 
 211:                                              ; preds = %206
-  %212 = call i32 @unpack_object_header(ptr noundef nonnull %208, ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef nonnull %7) #21
+  %212 = call i32 @unpack_object_header(ptr noundef nonnull %208, ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef nonnull %7) #22
   %213 = icmp slt i32 %212, 0
   br i1 %213, label %241, label %214
 
@@ -3806,20 +3806,20 @@ st_sub.exit.i:                                    ; preds = %180
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %217 = load ptr, ptr %132, align 8, !tbaa !222
-  %218 = call i64 @get_delta_base(ptr noundef %217, ptr noundef nonnull %10, ptr noundef nonnull %6, i32 noundef %212, i64 noundef %.054.i) #21
+  %218 = call i64 @get_delta_base(ptr noundef %217, ptr noundef nonnull %10, ptr noundef nonnull %6, i32 noundef %212, i64 noundef %.054.i) #22
   %.not32.i.i = icmp eq i64 %218, 0
   br i1 %.not32.i.i, label %.critedge.i.i, label %219
 
 219:                                              ; preds = %216
   %220 = load ptr, ptr %132, align 8, !tbaa !222
-  %221 = call i32 @offset_to_pack_pos(ptr noundef %220, i64 noundef %218, ptr noundef nonnull %8) #21
+  %221 = call i32 @offset_to_pack_pos(ptr noundef %220, i64 noundef %218, ptr noundef nonnull %8) #22
   %222 = load ptr, ptr %14, align 8, !tbaa !49
   %.not36.i.i = icmp eq ptr %222, null
   br i1 %.not36.i.i, label %227, label %223
 
 223:                                              ; preds = %219
   %224 = load i32, ptr %160, align 8, !tbaa !224
-  %225 = call i32 @midx_pair_to_pack_pos(ptr noundef nonnull %222, i32 noundef %224, i64 noundef %218, ptr noundef nonnull %9) #21
+  %225 = call i32 @midx_pair_to_pack_pos(ptr noundef nonnull %222, i32 noundef %224, i64 noundef %218, ptr noundef nonnull %9) #22
   %226 = icmp slt i32 %225, 0
   br i1 %226, label %.critedge.i.i, label %._crit_edge.i.i
 
@@ -3829,7 +3829,7 @@ st_sub.exit.i:                                    ; preds = %180
 
 227:                                              ; preds = %219
   %228 = load ptr, ptr %132, align 8, !tbaa !222
-  %229 = call i32 @offset_to_pack_pos(ptr noundef %228, i64 noundef %218, ptr noundef nonnull %8) #21
+  %229 = call i32 @offset_to_pack_pos(ptr noundef %228, i64 noundef %218, ptr noundef nonnull %8) #22
   %230 = icmp slt i32 %229, 0
   br i1 %230, label %.critedge.i.i, label %231
 
@@ -3847,14 +3847,14 @@ st_sub.exit.i:                                    ; preds = %180
 236:                                              ; preds = %233, %._crit_edge.i.i
   %237 = phi i32 [ %.pre.i.i, %._crit_edge.i.i ], [ %235, %233 ]
   %238 = zext i32 %237 to i64
-  %239 = call i32 @bitmap_get(ptr noundef %130, i64 noundef %238) #21
+  %239 = call i32 @bitmap_get(ptr noundef %130, i64 noundef %238) #22
   %.not35.not.i.i = icmp eq i32 %239, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not35.not.i.i, label %try_partial_reuse.exit.thread.i, label %240
 
 240:                                              ; preds = %236, %214
-  call void @bitmap_set(ptr noundef %130, i64 noundef range(i64 0, 4294967295) %172) #21
+  call void @bitmap_set(ptr noundef %130, i64 noundef range(i64 0, 4294967295) %172) #22
   br label %try_partial_reuse.exit.thread.i
 
 .critedge.i.i:                                    ; preds = %231, %227, %223, %216
@@ -3893,24 +3893,24 @@ try_partial_reuse.exit.thread.i:                  ; preds = %.critedge.i.i, %240
   br i1 %248, label %161, label %reuse_partial_packfile_from_bitmap_1.exit, !llvm.loop !231
 
 reuse_partial_packfile_from_bitmap_1.exit:        ; preds = %.loopexit.i, %155, %.loopexit76.i
-  call void @unuse_pack(ptr noundef nonnull %10) #21
+  call void @unuse_pack(ptr noundef nonnull %10) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %249 = add nuw i64 %.1103180, 1
   %exitcond.not = icmp eq i64 %249, %.399159
   br i1 %exitcond.not, label %250, label %131, !llvm.loop !232
 
 250:                                              ; preds = %reuse_partial_packfile_from_bitmap_1.exit
-  %251 = call i32 @bitmap_is_empty(ptr noundef %130) #21
+  %251 = call i32 @bitmap_is_empty(ptr noundef %130) #22
   %.not121 = icmp eq i32 %251, 0
   br i1 %.not121, label %253, label %252
 
 252:                                              ; preds = %250
-  call void @free(ptr noundef %.4109158) #21
-  call void @bitmap_free(ptr noundef %130) #21
+  call void @free(ptr noundef %.4109158) #22
+  call void @bitmap_free(ptr noundef %130) #22
   br label %.critedge
 
 253:                                              ; preds = %250
-  call void @bitmap_and_not(ptr noundef %127, ptr noundef %130) #21
+  call void @bitmap_and_not(ptr noundef %127, ptr noundef %130) #22
   store ptr %.4109158, ptr %1, align 8, !tbaa !233
   store i64 %.399159, ptr %2, align 8, !tbaa !4
   store ptr %130, ptr %3, align 8, !tbaa !178
@@ -3968,7 +3968,7 @@ define dso_local range(i32 0, 2) i32 @bitmap_walk_contains(ptr noundef readonly 
 
 7:                                                ; preds = %4
   %8 = zext nneg i32 %5 to i64
-  %9 = tail call i32 @bitmap_get(ptr noundef nonnull %1, i64 noundef %8) #21
+  %9 = tail call i32 @bitmap_get(ptr noundef nonnull %1, i64 noundef %8) #22
   %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i32
   br label %12
@@ -4049,7 +4049,7 @@ bitmap_num_objects.exit.i:                        ; preds = %28, %26
   %.0.i.i = load i32, ptr %.0.in.i.i, align 4, !tbaa !8
   %31 = zext i32 %.0.i.i to i64
   %32 = add nuw nsw i64 %indvars.iv.i, %31
-  %33 = tail call i32 @bitmap_get(ptr noundef %18, i64 noundef %32) #21
+  %33 = tail call i32 @bitmap_get(ptr noundef %18, i64 noundef %32) #22
   %.not.i = icmp eq i32 %33, 0
   br i1 %.not.i, label %56, label %34
 
@@ -4090,7 +4090,7 @@ bitmap_num_objects.exit.i:                        ; preds = %28, %26
   %52 = load ptr, ptr %23, align 8, !tbaa !235
   %53 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv.i
   %54 = load i32, ptr %53, align 4, !tbaa !8
-  %55 = tail call i32 %2(ptr noundef nonnull %49, i32 noundef %51, i32 noundef 0, i32 noundef %54, ptr noundef null, i64 noundef 0) #21
+  %55 = tail call i32 %2(ptr noundef nonnull %49, i32 noundef %51, i32 noundef 0, i32 noundef %54, ptr noundef null, i64 noundef 0) #22
   br label %56
 
 56:                                               ; preds = %.thread23.i, %46, %43, %40, %bitmap_num_objects.exit.i
@@ -4119,7 +4119,7 @@ define internal fastcc void @show_objects_for_type(ptr noundef readonly captures
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.idx.mult.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !68
-  call void @ewah_iterator_init(ptr noundef nonnull %4, ptr noundef %11) #21
+  call void @ewah_iterator_init(ptr noundef nonnull %4, ptr noundef %11) #22
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !194
   %.not67 = icmp eq i64 %13, 0
@@ -4132,7 +4132,7 @@ define internal fastcc void @show_objects_for_type(ptr noundef readonly captures
 
 16:                                               ; preds = %.lr.ph, %.loopexit
   %.065 = phi i64 [ 0, %.lr.ph ], [ %83, %.loopexit ]
-  %17 = call i32 @ewah_iterator_next(ptr noundef nonnull %5, ptr noundef nonnull %4) #21
+  %17 = call i32 @ewah_iterator_next(ptr noundef nonnull %5, ptr noundef nonnull %4) #22
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %.critedge, label %18
 
@@ -4168,10 +4168,10 @@ define internal fastcc void @show_objects_for_type(ptr noundef readonly captures
 
 34:                                               ; preds = %29
   %35 = add i32 %32, %24
-  %36 = call i32 @pack_pos_to_midx(ptr noundef nonnull %33, i32 noundef %35) #21
-  %37 = call i64 @nth_midxed_offset(ptr noundef nonnull %33, i32 noundef %36) #21
-  %38 = call ptr @nth_midxed_object_oid(ptr noundef nonnull %6, ptr noundef nonnull %33, i32 noundef %36) #21
-  %39 = call i32 @nth_midxed_pack_int_id(ptr noundef nonnull %33, i32 noundef %36) #21
+  %36 = call i32 @pack_pos_to_midx(ptr noundef nonnull %33, i32 noundef %35) #22
+  %37 = call i64 @nth_midxed_offset(ptr noundef nonnull %33, i32 noundef %36) #22
+  %38 = call ptr @nth_midxed_object_oid(ptr noundef nonnull %6, ptr noundef nonnull %33, i32 noundef %36) #22
+  %39 = call i32 @nth_midxed_pack_int_id(ptr noundef nonnull %33, i32 noundef %36) #22
   %40 = load ptr, ptr %14, align 8, !tbaa !49
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 192
   %42 = load ptr, ptr %41, align 8, !tbaa !61
@@ -4182,20 +4182,20 @@ define internal fastcc void @show_objects_for_type(ptr noundef readonly captures
 45:                                               ; preds = %29
   %46 = load ptr, ptr %0, align 8, !tbaa !37
   %47 = add i32 %32, %24
-  %48 = call i32 @pack_pos_to_index(ptr noundef %46, i32 noundef %47) #21
+  %48 = call i32 @pack_pos_to_index(ptr noundef %46, i32 noundef %47) #22
   %49 = load ptr, ptr %0, align 8, !tbaa !37
-  %50 = call i64 @pack_pos_to_offset(ptr noundef %49, i32 noundef %47) #21
+  %50 = call i64 @pack_pos_to_offset(ptr noundef %49, i32 noundef %47) #22
   %51 = load ptr, ptr %14, align 8, !tbaa !49
   %.not.i = icmp eq ptr %51, null
   br i1 %.not.i, label %54, label %52
 
 52:                                               ; preds = %45
-  %53 = call ptr @nth_midxed_object_oid(ptr noundef nonnull %6, ptr noundef nonnull %51, i32 noundef %48) #21
+  %53 = call ptr @nth_midxed_object_oid(ptr noundef nonnull %6, ptr noundef nonnull %51, i32 noundef %48) #22
   br label %nth_bitmap_object_oid.exit
 
 54:                                               ; preds = %45
   %55 = load ptr, ptr %0, align 8, !tbaa !37
-  %56 = call i32 @nth_packed_object_id(ptr noundef nonnull %6, ptr noundef %55, i32 noundef %48) #21
+  %56 = call i32 @nth_packed_object_id(ptr noundef nonnull %6, ptr noundef %55, i32 noundef %48) #22
   br label %nth_bitmap_object_oid.exit
 
 nth_bitmap_object_oid.exit:                       ; preds = %54, %52, %34
@@ -4235,7 +4235,7 @@ nth_bitmap_object_oid.exit:                       ; preds = %54, %52, %34
 
 79:                                               ; preds = %nth_bitmap_object_oid.exit, %58
   %.050 = phi i32 [ %77, %58 ], [ 0, %nth_bitmap_object_oid.exit ]
-  %80 = call i32 %2(ptr noundef nonnull %6, i32 noundef %1, i32 noundef 0, i32 noundef %.050, ptr noundef %.051, i64 noundef %.048) #21
+  %80 = call i32 %2(ptr noundef nonnull %6, i32 noundef %1, i32 noundef 0, i32 noundef %.050, ptr noundef %.051, i64 noundef %.048) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %81 = add nuw nsw i32 %32, 1
   %82 = icmp ult i32 %32, 63
@@ -4309,7 +4309,7 @@ define internal fastcc i32 @count_object_type(ptr noundef readonly captures(none
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.idx.mult.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !68
-  call void @ewah_iterator_init(ptr noundef nonnull %3, ptr noundef %10) #21
+  call void @ewah_iterator_init(ptr noundef nonnull %3, ptr noundef %10) #22
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !194
   %.not32 = icmp eq i64 %12, 0
@@ -4319,7 +4319,7 @@ define internal fastcc i32 @count_object_type(ptr noundef readonly captures(none
   %13 = phi i64 [ %38, %15 ], [ 0, %2 ]
   %.025 = phi i32 [ %17, %15 ], [ 0, %2 ]
   %.02024 = phi i32 [ %37, %15 ], [ 0, %2 ]
-  %14 = call i32 @ewah_iterator_next(ptr noundef nonnull %4, ptr noundef nonnull %3) #21
+  %14 = call i32 @ewah_iterator_next(ptr noundef nonnull %4, ptr noundef nonnull %3) #22
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %.critedge, label %15
 
@@ -4394,7 +4394,7 @@ bitmap_num_objects.exit:                          ; preds = %55, %57
   %.0.i = load i32, ptr %.0.in.i, align 4, !tbaa !8
   %60 = zext i32 %.0.i to i64
   %61 = add nuw nsw i64 %indvars.iv, %60
-  %62 = call i32 @bitmap_get(ptr noundef %6, i64 noundef %61) #21
+  %62 = call i32 @bitmap_get(ptr noundef %6, i64 noundef %61) #22
   %.not23 = icmp ne i32 %62, 0
   %63 = zext i1 %.not23 to i32
   %spec.select = add i32 %.12128, %63
@@ -4422,7 +4422,7 @@ define dso_local void @test_bitmap_walk(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !120
-  %5 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 216) #21
+  %5 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 216) #22
   %6 = tail call fastcc i32 @open_bitmap(ptr noundef %4, ptr noundef %5)
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %prepare_bitmap_git.exit.thread
@@ -4442,7 +4442,7 @@ prepare_bitmap_git.exit:                          ; preds = %7
 
 9:                                                ; preds = %prepare_bitmap_git.exit.thread, %prepare_bitmap_git.exit
   %10 = tail call fastcc ptr @_(ptr noundef nonnull @.str.19)
-  tail call void (ptr, ...) @die(ptr noundef %10) #23
+  tail call void (ptr, ...) @die(ptr noundef %10) #24
   unreachable
 
 11:                                               ; preds = %prepare_bitmap_git.exit
@@ -4453,7 +4453,7 @@ prepare_bitmap_git.exit:                          ; preds = %7
 
 14:                                               ; preds = %11
   %15 = tail call fastcc ptr @_(ptr noundef nonnull @.str.20)
-  tail call void (ptr, ...) @die(ptr noundef %15) #23
+  tail call void (ptr, ...) @die(ptr noundef %15) #24
   unreachable
 
 16:                                               ; preds = %11
@@ -4466,7 +4466,7 @@ prepare_bitmap_git.exit:                          ; preds = %7
   %23 = load ptr, ptr %22, align 8, !tbaa !67
   %.not33 = icmp eq ptr %23, null
   %24 = select i1 %.not33, ptr @.str.23, ptr @.str.22
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %17, ptr noundef nonnull @.str.21, i32 noundef %19, i32 noundef %21, ptr noundef nonnull %24) #21
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %17, ptr noundef nonnull @.str.21, i32 noundef %19, i32 noundef %21, ptr noundef nonnull %24) #22
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !163
   %28 = load ptr, ptr %27, align 8, !tbaa !164
@@ -4477,21 +4477,21 @@ prepare_bitmap_git.exit:                          ; preds = %7
 30:                                               ; preds = %16
   %31 = load ptr, ptr @stderr, align 8, !tbaa !242
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %33 = tail call ptr @oid_to_hex(ptr noundef nonnull %32) #21
+  %33 = tail call ptr @oid_to_hex(ptr noundef nonnull %32) #22
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %35 = load i64, ptr %34, align 8, !tbaa !244
   %36 = trunc i64 %35 to i32
-  %37 = tail call i32 @ewah_checksum(ptr noundef nonnull %29) #21
-  %38 = tail call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %31, ptr noundef nonnull @.str.24, ptr noundef %33, i32 noundef %36, i32 noundef %37) #21
-  %39 = tail call ptr @ewah_to_bitmap(ptr noundef nonnull %29) #21
+  %37 = tail call i32 @ewah_checksum(ptr noundef nonnull %29) #22
+  %38 = tail call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %31, ptr noundef nonnull @.str.24, ptr noundef %33, i32 noundef %36, i32 noundef %37) #22
+  %39 = tail call ptr @ewah_to_bitmap(ptr noundef nonnull %29) #22
   %.not35 = icmp eq ptr %39, null
   br i1 %.not35, label %.thread, label %43
 
 .thread:                                          ; preds = %16, %30
   %40 = tail call fastcc ptr @_(ptr noundef nonnull @.str.25)
   %41 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %42 = tail call ptr @oid_to_hex(ptr noundef nonnull %41) #21
-  tail call void (ptr, ...) @die(ptr noundef %40, ptr noundef %42) #23
+  %42 = tail call ptr @oid_to_hex(ptr noundef nonnull %41) #22
+  tail call void (ptr, ...) @die(ptr noundef %40, ptr noundef %42) #24
   unreachable
 
 43:                                               ; preds = %30
@@ -4499,85 +4499,85 @@ prepare_bitmap_git.exit:                          ; preds = %7
   %45 = load i64, ptr %44, align 8
   %46 = or i64 %45, 57344
   store i64 %46, ptr %44, align 8
-  %47 = tail call i64 @bitmap_popcount(ptr noundef nonnull %39) #21
-  %48 = tail call i32 @prepare_revision_walk(ptr noundef nonnull %0) #21
+  %47 = tail call i64 @bitmap_popcount(ptr noundef nonnull %39) #22
+  %48 = tail call i32 @prepare_revision_walk(ptr noundef nonnull %0) #22
   %.not36 = icmp eq i32 %48, 0
   br i1 %.not36, label %51, label %49
 
 49:                                               ; preds = %43
   %50 = tail call fastcc ptr @_(ptr noundef nonnull @.str.26)
-  tail call void (ptr, ...) @die(ptr noundef %50) #23
+  tail call void (ptr, ...) @die(ptr noundef %50) #24
   unreachable
 
 51:                                               ; preds = %43
   store ptr %5, ptr %2, align 8, !tbaa !246
-  %52 = tail call ptr @bitmap_new() #21
+  %52 = tail call ptr @bitmap_new() #22
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %52, ptr %53, align 8, !tbaa !249
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %55 = load ptr, ptr %54, align 8, !tbaa !63
-  %56 = tail call ptr @ewah_to_bitmap(ptr noundef %55) #21
+  %56 = tail call ptr @ewah_to_bitmap(ptr noundef %55) #22
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %56, ptr %57, align 8, !tbaa !250
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %59 = load ptr, ptr %58, align 8, !tbaa !64
-  %60 = tail call ptr @ewah_to_bitmap(ptr noundef %59) #21
+  %60 = tail call ptr @ewah_to_bitmap(ptr noundef %59) #22
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %60, ptr %61, align 8, !tbaa !251
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %63 = load ptr, ptr %62, align 8, !tbaa !65
-  %64 = tail call ptr @ewah_to_bitmap(ptr noundef %63) #21
+  %64 = tail call ptr @ewah_to_bitmap(ptr noundef %63) #22
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %64, ptr %65, align 8, !tbaa !252
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %67 = load ptr, ptr %66, align 8, !tbaa !66
-  %68 = tail call ptr @ewah_to_bitmap(ptr noundef %67) #21
+  %68 = tail call ptr @ewah_to_bitmap(ptr noundef %67) #22
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %68, ptr %69, align 8, !tbaa !253
   %70 = load ptr, ptr %3, align 8, !tbaa !120
-  %71 = tail call ptr @start_progress(ptr noundef %70, ptr noundef nonnull @.str.27, i64 noundef %47) #21
+  %71 = tail call ptr @start_progress(ptr noundef %70, ptr noundef nonnull @.str.27, i64 noundef %47) #22
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %71, ptr %72, align 8, !tbaa !254
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %73, align 8, !tbaa !255
-  call void @traverse_commit_list_filtered(ptr noundef nonnull %0, ptr noundef nonnull @test_show_commit, ptr noundef nonnull @test_show_object, ptr noundef nonnull %2, ptr noundef null) #21
+  call void @traverse_commit_list_filtered(ptr noundef nonnull %0, ptr noundef nonnull @test_show_commit, ptr noundef nonnull @test_show_object, ptr noundef nonnull %2, ptr noundef null) #22
   %74 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !8
   %.not4.i.i = icmp eq i32 %74, 0
   br i1 %.not4.i.i, label %stop_progress.exit, label %75
 
 75:                                               ; preds = %51
-  %76 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.79, i32 noundef 5) #21
+  %76 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.79, i32 noundef 5) #22
   br label %stop_progress.exit
 
 stop_progress.exit:                               ; preds = %51, %75
   %.0.i.i = phi ptr [ %76, %75 ], [ @.str.79, %51 ]
-  call void @stop_progress_msg(ptr noundef nonnull %72, ptr noundef %.0.i.i) #21
+  call void @stop_progress_msg(ptr noundef nonnull %72, ptr noundef %.0.i.i) #22
   %77 = load ptr, ptr %53, align 8, !tbaa !249
-  %78 = call i32 @bitmap_equals(ptr noundef nonnull %39, ptr noundef %77) #21
+  %78 = call i32 @bitmap_equals(ptr noundef nonnull %39, ptr noundef %77) #22
   %.not37 = icmp eq i32 %78, 0
   br i1 %.not37, label %87, label %79
 
 79:                                               ; preds = %stop_progress.exit
   %80 = load ptr, ptr @stderr, align 8, !tbaa !242
-  %81 = call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %80, ptr noundef nonnull @.str.28) #21
-  call void @bitmap_free(ptr noundef nonnull %39) #21
+  %81 = call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %80, ptr noundef nonnull @.str.28) #22
+  call void @bitmap_free(ptr noundef nonnull %39) #22
   %82 = load ptr, ptr %53, align 8, !tbaa !249
-  call void @bitmap_free(ptr noundef %82) #21
+  call void @bitmap_free(ptr noundef %82) #22
   %83 = load ptr, ptr %57, align 8, !tbaa !250
-  call void @bitmap_free(ptr noundef %83) #21
+  call void @bitmap_free(ptr noundef %83) #22
   %84 = load ptr, ptr %61, align 8, !tbaa !251
-  call void @bitmap_free(ptr noundef %84) #21
+  call void @bitmap_free(ptr noundef %84) #22
   %85 = load ptr, ptr %65, align 8, !tbaa !252
-  call void @bitmap_free(ptr noundef %85) #21
+  call void @bitmap_free(ptr noundef %85) #22
   %86 = load ptr, ptr %69, align 8, !tbaa !253
-  call void @bitmap_free(ptr noundef %86) #21
+  call void @bitmap_free(ptr noundef %86) #22
   call void @free_bitmap_index(ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 87:                                               ; preds = %stop_progress.exit
   %88 = call fastcc ptr @_(ptr noundef nonnull @.str.29)
-  call void (ptr, ...) @die(ptr noundef %88) #23
+  call void (ptr, ...) @die(ptr noundef %88) #24
   unreachable
 }
 
@@ -4608,8 +4608,8 @@ define internal void @test_show_commit(ptr noundef %0, ptr noundef captures(none
 
 7:                                                ; preds = %2
   %8 = tail call fastcc ptr @_(ptr noundef nonnull @.str.75)
-  %9 = tail call ptr @oid_to_hex(ptr noundef nonnull %4) #21
-  tail call void (ptr, ...) @die(ptr noundef %8, ptr noundef %9) #23
+  %9 = tail call ptr @oid_to_hex(ptr noundef nonnull %4) #22
+  tail call void (ptr, ...) @die(ptr noundef %8, ptr noundef %9) #24
   unreachable
 
 10:                                               ; preds = %2
@@ -4617,14 +4617,14 @@ define internal void @test_show_commit(ptr noundef %0, ptr noundef captures(none
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !249
   %13 = zext nneg i32 %5 to i64
-  tail call void @bitmap_set(ptr noundef %12, i64 noundef %13) #21
+  tail call void @bitmap_set(ptr noundef %12, i64 noundef %13) #22
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %15 = load ptr, ptr %14, align 8, !tbaa !254
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %17 = load i64, ptr %16, align 8, !tbaa !255
   %18 = add i64 %17, 1
   store i64 %18, ptr %16, align 8, !tbaa !255
-  tail call void @display_progress(ptr noundef %15, i64 noundef %18) #21
+  tail call void @display_progress(ptr noundef %15, i64 noundef %18) #22
   ret void
 }
 
@@ -4638,8 +4638,8 @@ define internal void @test_show_object(ptr noundef %0, ptr readnone captures(non
 
 8:                                                ; preds = %3
   %9 = tail call fastcc ptr @_(ptr noundef nonnull @.str.75)
-  %10 = tail call ptr @oid_to_hex(ptr noundef nonnull %5) #21
-  tail call void (ptr, ...) @die(ptr noundef %9, ptr noundef %10) #23
+  %10 = tail call ptr @oid_to_hex(ptr noundef nonnull %5) #22
+  tail call void (ptr, ...) @die(ptr noundef %9, ptr noundef %10) #24
   unreachable
 
 11:                                               ; preds = %3
@@ -4647,14 +4647,14 @@ define internal void @test_show_object(ptr noundef %0, ptr readnone captures(non
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !249
   %14 = zext nneg i32 %6 to i64
-  tail call void @bitmap_set(ptr noundef %13, i64 noundef %14) #21
+  tail call void @bitmap_set(ptr noundef %13, i64 noundef %14) #22
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %16 = load ptr, ptr %15, align 8, !tbaa !254
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %18 = load i64, ptr %17, align 8, !tbaa !255
   %19 = add i64 %18, 1
   store i64 %19, ptr %17, align 8, !tbaa !255
-  tail call void @display_progress(ptr noundef %16, i64 noundef %19) #21
+  tail call void @display_progress(ptr noundef %16, i64 noundef %19) #22
   ret void
 }
 
@@ -4664,7 +4664,7 @@ declare i32 @bitmap_equals(ptr noundef, ptr noundef) local_unnamed_addr #1
 define dso_local noundef i32 @test_bitmap_commits(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.object_id, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %3 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 216) #21
+  %3 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 216) #22
   %4 = tail call fastcc i32 @open_bitmap(ptr noundef %0, ptr noundef %3)
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %5, label %prepare_bitmap_git.exit.thread
@@ -4684,7 +4684,7 @@ prepare_bitmap_git.exit:                          ; preds = %5
 
 7:                                                ; preds = %prepare_bitmap_git.exit.thread, %prepare_bitmap_git.exit
   %8 = tail call fastcc ptr @_(ptr noundef nonnull @.str.19)
-  tail call void (ptr, ...) @die(ptr noundef %8) #23
+  tail call void (ptr, ...) @die(ptr noundef %8) #24
   unreachable
 
 9:                                                ; preds = %prepare_bitmap_git.exit
@@ -4700,7 +4700,7 @@ prepare_bitmap_git.exit:                          ; preds = %5
 
 15:                                               ; preds = %12
   %16 = tail call fastcc ptr @_(ptr noundef nonnull @.str.19)
-  tail call void (ptr, ...) @die(ptr noundef %16) #23
+  tail call void (ptr, ...) @die(ptr noundef %16) #24
   unreachable
 
 17:                                               ; preds = %12, %9
@@ -4733,8 +4733,8 @@ prepare_bitmap_git.exit:                          ; preds = %5
   %36 = zext i32 %.021 to i64
   %37 = getelementptr inbounds nuw %struct.object_id, ptr %35, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %2, ptr noundef nonnull align 4 dereferenceable(36) %37, i64 36, i1 false), !tbaa.struct !98
-  %38 = call ptr @oid_to_hex(ptr noundef nonnull %2) #21
-  %39 = call i32 (ptr, ...) @printf_ln(ptr noundef nonnull @.str.30, ptr noundef %38) #21
+  %38 = call ptr @oid_to_hex(ptr noundef nonnull %2) #22
+  %39 = call i32 (ptr, ...) @printf_ln(ptr noundef nonnull @.str.30, ptr noundef %38) #22
   %.pre = load ptr, ptr %18, align 8, !tbaa !58
   %.pre22 = load i32, ptr %.pre, align 8, !tbaa !78
   br label %40
@@ -4785,12 +4785,12 @@ define internal fastcc range(i32 -1, 1) i32 @load_bitmap_entries_v1(ptr noundef 
   br i1 %.not4.i, label %_.exit, label %17
 
 17:                                               ; preds = %15
-  %18 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.80, i32 noundef 5) #21
+  %18 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.80, i32 noundef 5) #22
   br label %_.exit
 
 _.exit:                                           ; preds = %15, %17
   %.0.i = phi ptr [ %18, %17 ], [ @.str.80, %15 ]
-  %19 = call i32 (ptr, ...) @error(ptr noundef %.0.i, i32 noundef %.03264) #21
+  %19 = call i32 (ptr, ...) @error(ptr noundef %.0.i, i32 noundef %.03264) #22
   br label %.critedge
 
 20:                                               ; preds = %10
@@ -4828,13 +4828,13 @@ _.exit:                                           ; preds = %15, %17
   br i1 %.not.i, label %nth_bitmap_object_oid.exit, label %49
 
 49:                                               ; preds = %20
-  %50 = call ptr @nth_midxed_object_oid(ptr noundef nonnull %3, ptr noundef nonnull %48, i32 noundef %39) #21
+  %50 = call ptr @nth_midxed_object_oid(ptr noundef nonnull %3, ptr noundef nonnull %48, i32 noundef %39) #22
   %.not8.i = icmp eq ptr %50, null
   br i1 %.not8.i, label %54, label %59
 
 nth_bitmap_object_oid.exit:                       ; preds = %20
   %51 = load ptr, ptr %0, align 8, !tbaa !37
-  %52 = call i32 @nth_packed_object_id(ptr noundef nonnull %3, ptr noundef %51, i32 noundef %39) #21
+  %52 = call i32 @nth_packed_object_id(ptr noundef nonnull %3, ptr noundef %51, i32 noundef %39) #22
   %53 = icmp slt i32 %52, 0
   br i1 %53, label %54, label %59
 
@@ -4844,22 +4844,22 @@ nth_bitmap_object_oid.exit:                       ; preds = %20
   br i1 %.not4.i39, label %_.exit41, label %56
 
 56:                                               ; preds = %54
-  %57 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.81, i32 noundef 5) #21
+  %57 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.81, i32 noundef 5) #22
   br label %_.exit41
 
 _.exit41:                                         ; preds = %54, %56
   %.0.i40 = phi ptr [ %57, %56 ], [ @.str.81, %54 ]
-  %58 = call i32 (ptr, ...) @error(ptr noundef %.0.i40, i32 noundef %39) #21
+  %58 = call i32 (ptr, ...) @error(ptr noundef %.0.i40, i32 noundef %39) #22
   br label %.critedge
 
 59:                                               ; preds = %49, %nth_bitmap_object_oid.exit
   %60 = load ptr, ptr %8, align 8, !tbaa !54
   %61 = load i64, ptr %6, align 8, !tbaa !53
-  %62 = call ptr @ewah_pool_new() #21
+  %62 = call ptr @ewah_pool_new() #22
   %63 = load i64, ptr %7, align 8, !tbaa !4
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 %63
   %65 = sub i64 %61, %63
-  %66 = call i64 @ewah_read_mmap(ptr noundef %62, ptr noundef %64, i64 noundef %65) #21
+  %66 = call i64 @ewah_read_mmap(ptr noundef %62, ptr noundef %64, i64 noundef %65) #22
   %67 = icmp slt i64 %66, 0
   br i1 %67, label %68, label %read_bitmap_1.exit
 
@@ -4869,13 +4869,13 @@ _.exit41:                                         ; preds = %54, %56
   br i1 %.not4.i.i.i, label %read_bitmap_1.exit.thread, label %70
 
 70:                                               ; preds = %68
-  %71 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #21
+  %71 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #22
   br label %read_bitmap_1.exit.thread
 
 read_bitmap_1.exit.thread:                        ; preds = %68, %70
   %.0.i.i.i = phi ptr [ %71, %70 ], [ @.str, %68 ]
-  %72 = call i32 (ptr, ...) @error(ptr noundef %.0.i.i.i) #21
-  call void @ewah_pool_free(ptr noundef %62) #21
+  %72 = call i32 (ptr, ...) @error(ptr noundef %.0.i.i.i) #22
+  call void @ewah_pool_free(ptr noundef %62) #22
   br label %.critedge
 
 read_bitmap_1.exit:                               ; preds = %59
@@ -4897,12 +4897,12 @@ read_bitmap_1.exit:                               ; preds = %59
   br i1 %.not4.i42, label %_.exit44, label %80
 
 80:                                               ; preds = %78
-  %81 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.82, i32 noundef 5) #21
+  %81 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.82, i32 noundef 5) #22
   br label %_.exit44
 
 _.exit44:                                         ; preds = %78, %80
   %.0.i43 = phi ptr [ %81, %80 ], [ @.str.82, %78 ]
-  %82 = call i32 (ptr, ...) @error(ptr noundef %.0.i43) #21
+  %82 = call i32 (ptr, ...) @error(ptr noundef %.0.i43) #22
   br label %.critedge
 
 83:                                               ; preds = %75
@@ -4924,12 +4924,12 @@ _.exit44:                                         ; preds = %78, %80
   br i1 %.not4.i45, label %_.exit47, label %92
 
 92:                                               ; preds = %90
-  %93 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.83, i32 noundef 5) #21
+  %93 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.83, i32 noundef 5) #22
   br label %_.exit47
 
 _.exit47:                                         ; preds = %90, %92
   %.0.i46 = phi ptr [ %93, %92 ], [ @.str.83, %90 ]
-  %94 = call i32 (ptr, ...) @error(ptr noundef %.0.i46) #21
+  %94 = call i32 (ptr, ...) @error(ptr noundef %.0.i46) #22
   br label %.critedge
 
 95:                                               ; preds = %84, %83
@@ -4960,7 +4960,7 @@ declare i32 @printf_ln(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @test_bitmap_hashes(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.object_id, align 4
-  %3 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 216) #21
+  %3 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 216) #22
   %4 = tail call fastcc i32 @open_bitmap(ptr noundef %0, ptr noundef %3)
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %5, label %prepare_bitmap_git.exit.thread
@@ -5010,12 +5010,12 @@ bitmap_num_objects.exit.thread:                   ; preds = %11
   br i1 %17, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %bitmap_num_objects.exit.thread
-  %18 = call i32 @pack_pos_to_midx(ptr noundef nonnull %12, i32 noundef %.015) #21
+  %18 = call i32 @pack_pos_to_midx(ptr noundef nonnull %12, i32 noundef %.015) #22
   br label %22
 
 19:                                               ; preds = %bitmap_num_objects.exit
   %20 = load ptr, ptr %3, align 8, !tbaa !37
-  %21 = call i32 @pack_pos_to_index(ptr noundef %20, i32 noundef %.015) #21
+  %21 = call i32 @pack_pos_to_index(ptr noundef %20, i32 noundef %.015) #22
   br label %22
 
 22:                                               ; preds = %19, %.thread
@@ -5025,16 +5025,16 @@ bitmap_num_objects.exit.thread:                   ; preds = %11
   br i1 %.not.i21, label %26, label %24
 
 24:                                               ; preds = %22
-  %25 = call ptr @nth_midxed_object_oid(ptr noundef nonnull %2, ptr noundef nonnull %23, i32 noundef %.0) #21
+  %25 = call ptr @nth_midxed_object_oid(ptr noundef nonnull %2, ptr noundef nonnull %23, i32 noundef %.0) #22
   br label %nth_bitmap_object_oid.exit
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %3, align 8, !tbaa !37
-  %28 = call i32 @nth_packed_object_id(ptr noundef nonnull %2, ptr noundef %27, i32 noundef %.0) #21
+  %28 = call i32 @nth_packed_object_id(ptr noundef nonnull %2, ptr noundef %27, i32 noundef %.0) #22
   br label %nth_bitmap_object_oid.exit
 
 nth_bitmap_object_oid.exit:                       ; preds = %24, %26
-  %29 = call ptr @oid_to_hex(ptr noundef nonnull %2) #21
+  %29 = call ptr @oid_to_hex(ptr noundef nonnull %2) #22
   %30 = load ptr, ptr %8, align 8, !tbaa !237
   %31 = zext i32 %.0 to i64
   %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
@@ -5055,7 +5055,7 @@ nth_bitmap_object_oid.exit:                       ; preds = %24, %26
   %47 = load i8, ptr %46, align 1, !tbaa !10
   %48 = zext i8 %47 to i32
   %49 = or disjoint i32 %45, %48
-  %50 = call i32 (ptr, ...) @printf_ln(ptr noundef nonnull @.str.31, ptr noundef %29, i32 noundef %49) #21
+  %50 = call i32 (ptr, ...) @printf_ln(ptr noundef nonnull @.str.31, ptr noundef %29, i32 noundef %49) #22
   %51 = add nuw i32 %.015, 1
   br label %11, !llvm.loop !259
 
@@ -5078,12 +5078,12 @@ define internal fastcc void @nth_bitmap_object_oid(ptr noundef readonly captures
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @nth_midxed_object_oid(ptr noundef %1, ptr noundef nonnull %5, i32 noundef %2) #21
+  %7 = tail call ptr @nth_midxed_object_oid(ptr noundef %1, ptr noundef nonnull %5, i32 noundef %2) #22
   br label %11
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8, !tbaa !37
-  %10 = tail call i32 @nth_packed_object_id(ptr noundef %1, ptr noundef %9, i32 noundef %2) #21
+  %10 = tail call i32 @nth_packed_object_id(ptr noundef %1, ptr noundef %9, i32 noundef %2) #22
   br label %11
 
 11:                                               ; preds = %8, %6
@@ -5092,7 +5092,7 @@ define internal fastcc void @nth_bitmap_object_oid(ptr noundef readonly captures
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @test_bitmap_pseudo_merges(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 216) #21
+  %2 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 216) #22
   %3 = tail call fastcc i32 @open_bitmap(ptr noundef %0, ptr noundef %2)
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %4, label %prepare_bitmap_git.exit.thread
@@ -5122,13 +5122,13 @@ prepare_bitmap_git.exit:                          ; preds = %4
   %.021 = phi i32 [ %21, %.lr.ph ], [ 0, %6 ]
   %11 = load ptr, ptr %7, align 8, !tbaa !203
   %12 = getelementptr inbounds nuw %struct.pseudo_merge, ptr %11, i64 %10
-  %13 = tail call ptr @use_pseudo_merge(ptr noundef nonnull %7, ptr noundef %12) #21
+  %13 = tail call ptr @use_pseudo_merge(ptr noundef nonnull %7, ptr noundef %12) #22
   %14 = load ptr, ptr %13, align 8, !tbaa !260
-  %15 = tail call ptr @pseudo_merge_bitmap(ptr noundef nonnull %7, ptr noundef nonnull %13) #21
+  %15 = tail call ptr @pseudo_merge_bitmap(ptr noundef nonnull %7, ptr noundef nonnull %13) #22
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !262
-  %18 = tail call i64 @ewah_bitmap_popcount(ptr noundef %14) #21
-  %19 = tail call i64 @ewah_bitmap_popcount(ptr noundef %15) #21
+  %18 = tail call i64 @ewah_bitmap_popcount(ptr noundef %14) #22
+  %19 = tail call i64 @ewah_bitmap_popcount(ptr noundef %15) #22
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i64 noundef %17, i64 noundef %18, i64 noundef %19)
   %21 = add i32 %.021, 1
   %22 = zext i32 %21 to i64
@@ -5151,7 +5151,7 @@ declare i64 @ewah_bitmap_popcount(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @test_bitmap_pseudo_merge_commits(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 216) #21
+  %3 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 216) #22
   %4 = tail call fastcc i32 @open_bitmap(ptr noundef %0, ptr noundef %3)
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %5, label %prepare_bitmap_git.exit.thread
@@ -5187,20 +5187,20 @@ prepare_bitmap_git.exit:                          ; preds = %5
   br i1 %.not4.i, label %_.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.33, i32 noundef 5) #21
+  %16 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.33, i32 noundef 5) #22
   %.pre = load i64, ptr %9, align 8, !tbaa !109
   br label %_.exit
 
 _.exit:                                           ; preds = %13, %15
   %17 = phi i64 [ %.pre, %15 ], [ %10, %13 ]
   %.0.i18 = phi ptr [ %16, %15 ], [ @.str.33, %13 ]
-  %18 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i18, i32 noundef %1, i64 noundef %17) #21
+  %18 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i18, i32 noundef %1, i64 noundef %17) #22
   br label %24
 
 19:                                               ; preds = %11
   %20 = load ptr, ptr %8, align 8, !tbaa !203
   %21 = getelementptr inbounds nuw %struct.pseudo_merge, ptr %20, i64 %12
-  %22 = tail call ptr @use_pseudo_merge(ptr noundef nonnull %8, ptr noundef %21) #21
+  %22 = tail call ptr @use_pseudo_merge(ptr noundef nonnull %8, ptr noundef %21) #22
   %23 = load ptr, ptr %22, align 8, !tbaa !260
   tail call fastcc void @dump_ewah_object_ids(ptr noundef %3, ptr noundef %23)
   br label %24
@@ -5219,8 +5219,8 @@ define internal fastcc void @dump_ewah_object_ids(ptr noundef nonnull readonly c
   %5 = alloca %struct.object_id, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @ewah_iterator_init(ptr noundef nonnull %3, ptr noundef %1) #21
-  %6 = call i32 @ewah_iterator_next(ptr noundef nonnull %4, ptr noundef nonnull %3) #21
+  call void @ewah_iterator_init(ptr noundef nonnull %3, ptr noundef %1) #22
+  %6 = call i32 @ewah_iterator_next(ptr noundef nonnull %4, ptr noundef nonnull %3) #22
   %.not14 = icmp eq i32 %6, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -5251,12 +5251,12 @@ define internal fastcc void @dump_ewah_object_ids(ptr noundef nonnull readonly c
   br i1 %.not7.i, label %21, label %19
 
 19:                                               ; preds = %13
-  %20 = call i32 @pack_pos_to_midx(ptr noundef nonnull %18, i32 noundef %17) #21
+  %20 = call i32 @pack_pos_to_midx(ptr noundef nonnull %18, i32 noundef %17) #22
   br label %24
 
 21:                                               ; preds = %13
   %22 = load ptr, ptr %0, align 8, !tbaa !37
-  %23 = call i32 @pack_pos_to_index(ptr noundef %22, i32 noundef %17) #21
+  %23 = call i32 @pack_pos_to_index(ptr noundef %22, i32 noundef %17) #22
   br label %24
 
 24:                                               ; preds = %21, %19
@@ -5266,16 +5266,16 @@ define internal fastcc void @dump_ewah_object_ids(ptr noundef nonnull readonly c
   br i1 %.not.i.i, label %28, label %26
 
 26:                                               ; preds = %24
-  %27 = call ptr @nth_midxed_object_oid(ptr noundef nonnull %5, ptr noundef nonnull %25, i32 noundef %.0.i) #21
+  %27 = call ptr @nth_midxed_object_oid(ptr noundef nonnull %5, ptr noundef nonnull %25, i32 noundef %.0.i) #22
   br label %bit_pos_to_object_id.exit
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %0, align 8, !tbaa !37
-  %30 = call i32 @nth_packed_object_id(ptr noundef nonnull %5, ptr noundef %29, i32 noundef %.0.i) #21
+  %30 = call i32 @nth_packed_object_id(ptr noundef nonnull %5, ptr noundef %29, i32 noundef %.0.i) #22
   br label %bit_pos_to_object_id.exit
 
 bit_pos_to_object_id.exit:                        ; preds = %26, %28
-  %31 = call ptr @oid_to_hex(ptr noundef nonnull %5) #21
+  %31 = call ptr @oid_to_hex(ptr noundef nonnull %5) #22
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %31)
   %32 = add nuw nsw i32 %16, 1
   %33 = icmp ult i32 %16, 63
@@ -5284,7 +5284,7 @@ bit_pos_to_object_id.exit:                        ; preds = %26, %28
 34:                                               ; preds = %9, %bit_pos_to_object_id.exit
   %35 = add i32 %.0915, 64
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %36 = call i32 @ewah_iterator_next(ptr noundef nonnull %4, ptr noundef nonnull %3) #21
+  %36 = call i32 @ewah_iterator_next(ptr noundef nonnull %4, ptr noundef nonnull %3) #22
   %.not = icmp eq i32 %36, 0
   br i1 %.not, label %._crit_edge, label %8, !llvm.loop !265
 
@@ -5296,7 +5296,7 @@ bit_pos_to_object_id.exit:                        ; preds = %26, %28
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @test_bitmap_pseudo_merge_objects(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 216) #21
+  %3 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 216) #22
   %4 = tail call fastcc i32 @open_bitmap(ptr noundef %0, ptr noundef %3)
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %5, label %prepare_bitmap_git.exit.thread
@@ -5332,21 +5332,21 @@ prepare_bitmap_git.exit:                          ; preds = %5
   br i1 %.not4.i, label %_.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.33, i32 noundef 5) #21
+  %16 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.33, i32 noundef 5) #22
   %.pre = load i64, ptr %9, align 8, !tbaa !109
   br label %_.exit
 
 _.exit:                                           ; preds = %13, %15
   %17 = phi i64 [ %.pre, %15 ], [ %10, %13 ]
   %.0.i19 = phi ptr [ %16, %15 ], [ @.str.33, %13 ]
-  %18 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i19, i32 noundef %1, i64 noundef %17) #21
+  %18 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i19, i32 noundef %1, i64 noundef %17) #22
   br label %24
 
 19:                                               ; preds = %11
   %20 = load ptr, ptr %8, align 8, !tbaa !203
   %21 = getelementptr inbounds nuw %struct.pseudo_merge, ptr %20, i64 %12
-  %22 = tail call ptr @use_pseudo_merge(ptr noundef nonnull %8, ptr noundef %21) #21
-  %23 = tail call ptr @pseudo_merge_bitmap(ptr noundef nonnull %8, ptr noundef %22) #21
+  %22 = tail call ptr @use_pseudo_merge(ptr noundef nonnull %8, ptr noundef %21) #22
+  %23 = tail call ptr @pseudo_merge_bitmap(ptr noundef nonnull %8, ptr noundef %22) #22
   tail call fastcc void @dump_ewah_object_ids(ptr noundef %3, ptr noundef %23)
   br label %24
 
@@ -5363,8 +5363,8 @@ define dso_local range(i32 -1, 1) i32 @rebuild_bitmap(ptr noundef readonly captu
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @ewah_iterator_init(ptr noundef nonnull %4, ptr noundef %1) #21
-  %6 = call i32 @ewah_iterator_next(ptr noundef nonnull %5, ptr noundef nonnull %4) #21
+  call void @ewah_iterator_init(ptr noundef nonnull %4, ptr noundef %1) #22
+  %6 = call i32 @ewah_iterator_next(ptr noundef nonnull %5, ptr noundef nonnull %4) #22
   %.not24 = icmp eq i32 %6, 0
   br i1 %.not24, label %.critedge, label %.preheader
 
@@ -5394,14 +5394,14 @@ define dso_local range(i32 -1, 1) i32 @rebuild_bitmap(ptr noundef readonly captu
 20:                                               ; preds = %12
   %21 = add i32 %19, -1
   %22 = zext i32 %21 to i64
-  call void @bitmap_set(ptr noundef %2, i64 noundef %22) #21
+  call void @bitmap_set(ptr noundef %2, i64 noundef %22) #22
   %23 = add nuw nsw i32 %15, 1
   %24 = icmp ult i32 %15, 63
   br i1 %24, label %7, label %25, !llvm.loop !266
 
 25:                                               ; preds = %7, %20
   %26 = add i32 %.01625, 64
-  %27 = call i32 @ewah_iterator_next(ptr noundef nonnull %5, ptr noundef nonnull %4) #21
+  %27 = call i32 @ewah_iterator_next(ptr noundef nonnull %5, ptr noundef nonnull %4) #22
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !267
 
@@ -5431,16 +5431,16 @@ load_reverse_index.exit:                          ; preds = %2
   %6 = load ptr, ptr %0, align 8, !tbaa !37
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 240
   %.0.i43 = load ptr, ptr %7, align 8, !tbaa !11
-  %8 = tail call i32 @load_pack_revindex(ptr noundef %.0.i43, ptr noundef %6) #21
+  %8 = tail call i32 @load_pack_revindex(ptr noundef %.0.i43, ptr noundef %6) #22
   br label %12
 
 9:                                                ; preds = %2
-  %10 = tail call i32 @load_midx_revindex(ptr noundef nonnull %5) #21
+  %10 = tail call i32 @load_midx_revindex(ptr noundef nonnull %5) #22
   %.not31 = icmp eq i32 %10, 0
   br i1 %.not31, label %12, label %11
 
 11:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.3, i32 noundef 2821, ptr noundef nonnull @.str.34) #23
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.3, i32 noundef 2821, ptr noundef nonnull @.str.34) #24
   unreachable
 
 12:                                               ; preds = %9, %load_reverse_index.exit
@@ -5461,7 +5461,7 @@ bitmap_num_objects.exit:                          ; preds = %14, %16
   %.0.in.i38 = phi ptr [ %15, %14 ], [ %18, %16 ]
   %.0.i39 = load i32, ptr %.0.in.i38, align 4, !tbaa !8
   %19 = zext i32 %.0.i39 to i64
-  %20 = tail call ptr @xcalloc(i64 noundef %19, i64 noundef 4) #21
+  %20 = tail call ptr @xcalloc(i64 noundef %19, i64 noundef 4) #22
   %.not47 = icmp eq i32 %.0.i39, 0
   br i1 %.not47, label %._crit_edge, label %.lr.ph
 
@@ -5480,13 +5480,13 @@ bitmap_num_objects.exit:                          ; preds = %14, %16
 
 26:                                               ; preds = %24
   %27 = trunc nuw i64 %indvars.iv to i32
-  %28 = call i32 @pack_pos_to_midx(ptr noundef nonnull %25, i32 noundef %27) #21
+  %28 = call i32 @pack_pos_to_midx(ptr noundef nonnull %25, i32 noundef %27) #22
   br label %33
 
 29:                                               ; preds = %24
   %30 = load ptr, ptr %0, align 8, !tbaa !37
   %31 = trunc nuw i64 %indvars.iv to i32
-  %32 = call i32 @pack_pos_to_index(ptr noundef %30, i32 noundef %31) #21
+  %32 = call i32 @pack_pos_to_index(ptr noundef %30, i32 noundef %31) #22
   br label %33
 
 33:                                               ; preds = %29, %26
@@ -5496,16 +5496,16 @@ bitmap_num_objects.exit:                          ; preds = %14, %16
   br i1 %.not.i40, label %37, label %35
 
 35:                                               ; preds = %33
-  %36 = call ptr @nth_midxed_object_oid(ptr noundef nonnull %3, ptr noundef nonnull %34, i32 noundef %.0) #21
+  %36 = call ptr @nth_midxed_object_oid(ptr noundef nonnull %3, ptr noundef nonnull %34, i32 noundef %.0) #22
   br label %nth_bitmap_object_oid.exit
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %0, align 8, !tbaa !37
-  %39 = call i32 @nth_packed_object_id(ptr noundef nonnull %3, ptr noundef %38, i32 noundef %.0) #21
+  %39 = call i32 @nth_packed_object_id(ptr noundef nonnull %3, ptr noundef %38, i32 noundef %.0) #22
   br label %nth_bitmap_object_oid.exit
 
 nth_bitmap_object_oid.exit:                       ; preds = %35, %37
-  %40 = call ptr @packlist_find(ptr noundef %1, ptr noundef nonnull %3) #21
+  %40 = call ptr @packlist_find(ptr noundef %1, ptr noundef nonnull %3) #22
   %.not33 = icmp eq ptr %40, null
   br i1 %.not33, label %74, label %41
 
@@ -5593,7 +5593,7 @@ define dso_local range(i32 0, 2) i32 @bitmap_has_oid_in_uninteresting(ptr nounde
 
 9:                                                ; preds = %6
   %10 = zext nneg i32 %7 to i64
-  %11 = tail call i32 @bitmap_get(ptr noundef nonnull %5, i64 noundef %10) #21
+  %11 = tail call i32 @bitmap_get(ptr noundef nonnull %5, i64 noundef %10) #22
   %12 = icmp ne i32 %11, 0
   %13 = zext i1 %12 to i32
   br label %bitmap_walk_contains.exit
@@ -5688,7 +5688,7 @@ bitmap_num_objects.exit.i:                        ; preds = %39, %37
   %.0.i.i = load i32, ptr %.0.in.i.i, align 4, !tbaa !8
   %42 = zext i32 %.0.i.i to i64
   %43 = add nuw nsw i64 %.01418.i, %42
-  %44 = call i32 @bitmap_get(ptr noundef %26, i64 noundef %43) #21
+  %44 = call i32 @bitmap_get(ptr noundef %26, i64 noundef %43) #22
   %.not.i = icmp eq i32 %44, 0
   br i1 %.not.i, label %61, label %45
 
@@ -5710,14 +5710,14 @@ bitmap_repo.exit.i:                               ; preds = %49, %47
   %.0.in.i15.i = phi ptr [ %48, %47 ], [ %51, %49 ]
   %.0.i16.i = load ptr, ptr %.0.in.i15.i, align 8, !tbaa !11
   %52 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %53 = call i32 @oid_object_info_extended(ptr noundef %.0.i16.i, ptr noundef nonnull %52, ptr noundef nonnull %3, i32 noundef 0) #21
+  %53 = call i32 @oid_object_info_extended(ptr noundef %.0.i16.i, ptr noundef nonnull %52, ptr noundef nonnull %3, i32 noundef 0) #22
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %bitmap_repo.exit.i
   %56 = call fastcc ptr @_(ptr noundef nonnull @.str.86)
-  %57 = call ptr @oid_to_hex(ptr noundef nonnull %52) #21
-  call void (ptr, ...) @die(ptr noundef %56, ptr noundef %57) #23
+  %57 = call ptr @oid_to_hex(ptr noundef nonnull %52) #22
+  call void (ptr, ...) @die(ptr noundef %56, ptr noundef %57) #24
   unreachable
 
 58:                                               ; preds = %bitmap_repo.exit.i
@@ -5757,7 +5757,7 @@ define internal fastcc i64 @get_disk_usage_for_type(ptr noundef readonly capture
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.idx.mult.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !68
-  call void @ewah_iterator_init(ptr noundef nonnull %3, ptr noundef %11) #21
+  call void @ewah_iterator_init(ptr noundef nonnull %3, ptr noundef %11) #22
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !194
   %.not62 = icmp eq i64 %13, 0
@@ -5770,7 +5770,7 @@ define internal fastcc i64 @get_disk_usage_for_type(ptr noundef readonly capture
 15:                                               ; preds = %.lr.ph, %.loopexit
   %.059 = phi i64 [ 0, %.lr.ph ], [ %.1, %.loopexit ]
   %.04358 = phi i64 [ 0, %.lr.ph ], [ %69, %.loopexit ]
-  %16 = call i32 @ewah_iterator_next(ptr noundef nonnull %4, ptr noundef nonnull %3) #21
+  %16 = call i32 @ewah_iterator_next(ptr noundef nonnull %4, ptr noundef nonnull %3) #22
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %.critedge, label %17
 
@@ -5807,35 +5807,35 @@ define internal fastcc i64 @get_disk_usage_for_type(ptr noundef readonly capture
 
 34:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %35 = call i32 @pack_pos_to_midx(ptr noundef nonnull %32, i32 noundef %33) #21
+  %35 = call i32 @pack_pos_to_midx(ptr noundef nonnull %32, i32 noundef %33) #22
   %36 = load ptr, ptr %14, align 8, !tbaa !49
-  %37 = call i64 @nth_midxed_offset(ptr noundef %36, i32 noundef %35) #21
+  %37 = call i64 @nth_midxed_offset(ptr noundef %36, i32 noundef %35) #22
   %38 = load ptr, ptr %14, align 8, !tbaa !49
-  %39 = call i32 @nth_midxed_pack_int_id(ptr noundef %38, i32 noundef %35) #21
+  %39 = call i32 @nth_midxed_pack_int_id(ptr noundef %38, i32 noundef %35) #22
   %40 = load ptr, ptr %14, align 8, !tbaa !49
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 192
   %42 = load ptr, ptr %41, align 8, !tbaa !61
   %43 = zext i32 %39 to i64
   %44 = getelementptr inbounds nuw ptr, ptr %42, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !56
-  %46 = call i32 @offset_to_pack_pos(ptr noundef %45, i64 noundef %37, ptr noundef nonnull %5) #21
+  %46 = call i32 @offset_to_pack_pos(ptr noundef %45, i64 noundef %37, ptr noundef nonnull %5) #22
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %49 = load ptr, ptr %14, align 8, !tbaa !49
-  %50 = call ptr @nth_midxed_object_oid(ptr noundef nonnull %6, ptr noundef %49, i32 noundef %35) #21
+  %50 = call ptr @nth_midxed_object_oid(ptr noundef nonnull %6, ptr noundef %49, i32 noundef %35) #22
   %51 = call fastcc ptr @_(ptr noundef nonnull @.str.85)
-  %52 = call ptr @oid_to_hex(ptr noundef nonnull %6) #21
+  %52 = call ptr @oid_to_hex(ptr noundef nonnull %6) #22
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 248
-  call void (ptr, ...) @die(ptr noundef %51, ptr noundef %52, ptr noundef nonnull %53, i64 noundef %37) #23
+  call void (ptr, ...) @die(ptr noundef %51, ptr noundef %52, ptr noundef nonnull %53, i64 noundef %37) #24
   unreachable
 
 54:                                               ; preds = %34
   %55 = load i32, ptr %5, align 4, !tbaa !8
   %56 = add i32 %55, 1
-  %57 = call i64 @pack_pos_to_offset(ptr noundef %45, i32 noundef %56) #21
+  %57 = call i64 @pack_pos_to_offset(ptr noundef %45, i32 noundef %56) #22
   %58 = sub nsw i64 %57, %37
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %66
@@ -5843,9 +5843,9 @@ define internal fastcc i64 @get_disk_usage_for_type(ptr noundef readonly capture
 59:                                               ; preds = %28
   %60 = load ptr, ptr %0, align 8, !tbaa !37
   %61 = add i32 %33, 1
-  %62 = call i64 @pack_pos_to_offset(ptr noundef %60, i32 noundef %61) #21
+  %62 = call i64 @pack_pos_to_offset(ptr noundef %60, i32 noundef %61) #22
   %63 = load ptr, ptr %0, align 8, !tbaa !37
-  %64 = call i64 @pack_pos_to_offset(ptr noundef %63, i32 noundef %33) #21
+  %64 = call i64 @pack_pos_to_offset(ptr noundef %63, i32 noundef %33) #22
   %65 = sub nsw i64 %62, %64
   br label %66
 
@@ -5874,7 +5874,7 @@ define internal fastcc i64 @get_disk_usage_for_type(ptr noundef readonly capture
 define dso_local ptr @bitmap_preferred_tips(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %3 = call i32 @repo_config_get_string_multi(ptr noundef %0, ptr noundef nonnull @.str.35, ptr noundef nonnull %2) #21
+  %3 = call i32 @repo_config_get_string_multi(ptr noundef %0, ptr noundef nonnull @.str.35, ptr noundef nonnull %2) #22
   %.not = icmp eq i32 %3, 0
   %4 = load ptr, ptr %2, align 8
   %.0 = select i1 %.not, ptr %4, ptr null
@@ -5888,7 +5888,7 @@ declare i32 @repo_config_get_string_multi(ptr noundef, ptr noundef, ptr noundef)
 define dso_local range(i32 0, 2) i32 @bitmap_is_preferred_refname(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call i32 @repo_config_get_string_multi(ptr noundef %0, ptr noundef nonnull @.str.35, ptr noundef nonnull %3) #21
+  %4 = call i32 @repo_config_get_string_multi(ptr noundef %0, ptr noundef nonnull @.str.35, ptr noundef nonnull %3) #22
   %.not.i = icmp ne i32 %4, 0
   %5 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -5920,7 +5920,7 @@ define dso_local range(i32 0, 2) i32 @bitmap_is_preferred_refname(ptr noundef %0
 .lr.ph23:                                         ; preds = %.lr.ph, %13
   %.01622 = phi ptr [ %14, %13 ], [ %7, %.lr.ph ]
   %19 = load ptr, ptr %.01622, align 8, !tbaa !284
-  %20 = call i32 @starts_with(ptr noundef %1, ptr noundef %19) #21
+  %20 = call i32 @starts_with(ptr noundef %1, ptr noundef %19) #22
   %.not13 = icmp eq i32 %20, 0
   br i1 %.not13, label %13, label %.critedge
 
@@ -5934,13 +5934,13 @@ declare i32 @starts_with(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @verify_bitmap_files(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.strbuf, align 8
-  %3 = tail call ptr @get_multi_pack_index(ptr noundef %0) #21
+  %3 = tail call ptr @get_multi_pack_index(ptr noundef %0) #22
   %.not18 = icmp eq ptr %3, null
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %13, %.lr.ph ]
-  %4 = call ptr @get_all_packs(ptr noundef %0) #21
+  %4 = call ptr @get_all_packs(ptr noundef %0) #22
   %.not1621 = icmp eq ptr %4, null
   br i1 %.not1621, label %._crit_edge26, label %.lr.ph25
 
@@ -5954,13 +5954,13 @@ define dso_local i32 @verify_bitmap_files(ptr noundef %0) local_unnamed_addr #0 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 400
   %8 = load ptr, ptr %7, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %.01519, i64 208
-  %10 = call ptr @get_midx_checksum(ptr noundef nonnull %.01519) #21
-  call void @get_midx_filename_ext(ptr noundef %8, ptr noundef nonnull %2, ptr noundef nonnull %9, ptr noundef %10, ptr noundef nonnull @.str.1) #21
-  %11 = call ptr @strbuf_detach(ptr noundef nonnull %2, ptr noundef null) #21
+  %10 = call ptr @get_midx_checksum(ptr noundef nonnull %.01519) #22
+  call void @get_midx_filename_ext(ptr noundef %8, ptr noundef nonnull %2, ptr noundef nonnull %9, ptr noundef %10, ptr noundef nonnull @.str.1) #22
+  %11 = call ptr @strbuf_detach(ptr noundef nonnull %2, ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %12 = call fastcc i32 @verify_bitmap_file(ptr noundef %11)
   %13 = or i32 %12, %.020
-  call void @free(ptr noundef %11) #21
+  call void @free(ptr noundef %11) #22
   %14 = load ptr, ptr %.01519, align 8, !tbaa !33
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !286
@@ -5973,7 +5973,7 @@ define dso_local i32 @verify_bitmap_files(ptr noundef %0) local_unnamed_addr #0 
   %.123 = phi i32 [ %25, %pack_bitmap_filename.exit ], [ %.0.lcssa, %._crit_edge ]
   %.01422 = phi ptr [ %27, %pack_bitmap_filename.exit ], [ %4, %._crit_edge ]
   %15 = getelementptr inbounds nuw i8, ptr %.01422, i64 248
-  %16 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %15) #22
+  %16 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %15) #23
   %17 = icmp ult i64 %16, 5
   br i1 %17, label %21, label %18
 
@@ -5985,15 +5985,15 @@ define dso_local i32 @verify_bitmap_files(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not.i.i.i, label %pack_bitmap_filename.exit, label %21
 
 21:                                               ; preds = %18, %.lr.ph25
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.3, i32 noundef 391, ptr noundef nonnull @.str.4) #23
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.3, i32 noundef 391, ptr noundef nonnull @.str.4) #24
   unreachable
 
 pack_bitmap_filename.exit:                        ; preds = %18
   %22 = trunc i64 %19 to i32
-  %23 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.5, i32 noundef %22, ptr noundef nonnull %15) #21
+  %23 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.5, i32 noundef %22, ptr noundef nonnull %15) #22
   %24 = call fastcc i32 @verify_bitmap_file(ptr noundef %23)
   %25 = or i32 %24, %.123
-  call void @free(ptr noundef %23) #21
+  call void @free(ptr noundef %23) #22
   %26 = getelementptr inbounds nuw i8, ptr %.01422, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !56
   %.not16 = icmp eq ptr %27, null
@@ -6006,25 +6006,25 @@ declare ptr @get_multi_pack_index(ptr noundef) local_unnamed_addr #1
 define internal fastcc range(i32 -1, 1) i32 @verify_bitmap_file(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %3 = tail call i32 @git_open_cloexec(ptr noundef %0, i32 noundef 0) #21
+  %3 = tail call i32 @git_open_cloexec(ptr noundef %0, i32 noundef 0) #22
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %22, label %5
 
 5:                                                ; preds = %1
-  %6 = call i32 @fstat64(i32 noundef %3, ptr noundef nonnull %2) #21
+  %6 = call i32 @fstat64(i32 noundef %3, ptr noundef nonnull %2) #22
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @close(i32 noundef %3) #21
+  %8 = tail call i32 @close(i32 noundef %3) #22
   br label %22
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %11 = load i64, ptr %10, align 8, !tbaa !50
-  %12 = tail call ptr @xmmap(ptr noundef null, i64 noundef %11, i32 noundef 1, i32 noundef 2, i32 noundef %3, i64 noundef 0) #21
-  %13 = tail call i32 @close(i32 noundef %3) #21
-  %14 = tail call i32 @hashfile_checksum_valid(ptr noundef %12, i64 noundef %11) #21
+  %12 = tail call ptr @xmmap(ptr noundef null, i64 noundef %11, i32 noundef 1, i32 noundef 2, i32 noundef %3, i64 noundef 0) #22
+  %13 = tail call i32 @close(i32 noundef %3) #22
+  %14 = tail call i32 @hashfile_checksum_valid(ptr noundef %12, i64 noundef %11) #22
   %.not13 = icmp eq i32 %14, 0
   br i1 %.not13, label %15, label %20
 
@@ -6034,17 +6034,17 @@ define internal fastcc range(i32 -1, 1) i32 @verify_bitmap_file(ptr noundef %0) 
   br i1 %.not4.i, label %_.exit, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.87, i32 noundef 5) #21
+  %18 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.87, i32 noundef 5) #22
   br label %_.exit
 
 _.exit:                                           ; preds = %15, %17
   %.0.i = phi ptr [ %18, %17 ], [ @.str.87, %15 ]
-  %19 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i, ptr noundef %0) #21
+  %19 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i, ptr noundef %0) #22
   br label %20
 
 20:                                               ; preds = %_.exit, %9
   %.0 = phi i32 [ 0, %9 ], [ -1, %_.exit ]
-  %21 = tail call i32 @munmap(ptr noundef %12, i64 noundef %11) #21
+  %21 = tail call i32 @munmap(ptr noundef %12, i64 noundef %11) #22
   br label %22
 
 22:                                               ; preds = %1, %7, %20
@@ -6120,12 +6120,12 @@ bitmap_repo.exit:                                 ; preds = %6, %8
   br i1 %.not4.i110, label %_.exit, label %22
 
 22:                                               ; preds = %20
-  %23 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.41, i32 noundef 5) #21
+  %23 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.41, i32 noundef 5) #22
   br label %_.exit
 
 _.exit:                                           ; preds = %20, %22
   %.0.i111 = phi ptr [ %23, %22 ], [ @.str.41, %20 ]
-  %24 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i111) #21
+  %24 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i111) #22
   br label %.critedge109
 
 25:                                               ; preds = %bitmap_repo.exit
@@ -6139,12 +6139,12 @@ _.exit:                                           ; preds = %20, %22
   br i1 %.not4.i112, label %_.exit114, label %28
 
 28:                                               ; preds = %26
-  %29 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.42, i32 noundef 5) #21
+  %29 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.42, i32 noundef 5) #22
   br label %_.exit114
 
 _.exit114:                                        ; preds = %26, %28
   %.0.i113 = phi ptr [ %29, %28 ], [ @.str.42, %26 ]
-  %30 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i113) #21
+  %30 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i113) #22
   br label %.critedge109
 
 31:                                               ; preds = %25
@@ -6163,14 +6163,14 @@ _.exit114:                                        ; preds = %26, %28
   br i1 %.not4.i115, label %_.exit117, label %38
 
 38:                                               ; preds = %36
-  %39 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.43, i32 noundef 5) #21
+  %39 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.43, i32 noundef 5) #22
   %.pre = load i32, ptr %35, align 8, !tbaa !243
   br label %_.exit117
 
 _.exit117:                                        ; preds = %36, %38
   %40 = phi i32 [ %.pre, %38 ], [ %34, %36 ]
   %.0.i116 = phi ptr [ %39, %38 ], [ @.str.43, %36 ]
-  %41 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i116, i32 noundef %40) #21
+  %41 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i116, i32 noundef %40) #22
   br label %.critedge109
 
 42:                                               ; preds = %31
@@ -6202,7 +6202,7 @@ bitmap_num_objects.exit:                          ; preds = %46, %48
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %bitmap_num_objects.exit
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.3, i32 noundef 212, ptr noundef nonnull @.str.44) #23
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.3, i32 noundef 212, ptr noundef nonnull @.str.44) #24
   unreachable
 
 59:                                               ; preds = %bitmap_num_objects.exit
@@ -6221,12 +6221,12 @@ bitmap_num_objects.exit:                          ; preds = %46, %48
   br i1 %.not4.i122, label %_.exit124, label %66
 
 66:                                               ; preds = %64
-  %67 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.45, i32 noundef 5) #21
+  %67 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.45, i32 noundef 5) #22
   br label %_.exit124
 
 _.exit124:                                        ; preds = %64, %66
   %.0.i123 = phi ptr [ %67, %66 ], [ @.str.45, %64 ]
-  %68 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i123) #21
+  %68 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i123) #22
   br label %.critedge109
 
 69:                                               ; preds = %61
@@ -6245,7 +6245,7 @@ _.exit124:                                        ; preds = %64, %66
 git_bswap32.exit:                                 ; preds = %73
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %76 = load i32, ptr %75, align 4, !tbaa !292
-  %77 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %76) #25, !srcloc !293
+  %77 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %76) #26, !srcloc !293
   %78 = zext i32 %77 to i64
   %79 = shl nuw nsw i64 %78, 4
   %80 = ptrtoint ptr %.094 to i64
@@ -6261,16 +6261,16 @@ git_bswap32.exit:                                 ; preds = %73
   br i1 %.not4.i130, label %.thread, label %85
 
 85:                                               ; preds = %83
-  %86 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.46, i32 noundef 5) #21
+  %86 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.46, i32 noundef 5) #22
   br label %.thread
 
 .thread:                                          ; preds = %85, %83
   %.0.i131 = phi ptr [ %86, %85 ], [ @.str.46, %83 ]
-  %87 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i131) #21
+  %87 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i131) #22
   br label %.critedge109
 
 88:                                               ; preds = %git_bswap32.exit
-  %89 = tail call i32 @git_env_bool(ptr noundef nonnull @.str.47, i32 noundef 1) #21
+  %89 = tail call i32 @git_env_bool(ptr noundef nonnull @.str.47, i32 noundef 1) #22
   %.not104 = icmp eq i32 %89, 0
   %.pre161 = sub nsw i64 0, %79
   br i1 %.not104, label %._crit_edge, label %90
@@ -6306,12 +6306,12 @@ git_bswap32.exit:                                 ; preds = %73
   br i1 %.not4.i133, label %_.exit135, label %104
 
 104:                                              ; preds = %102
-  %105 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.48, i32 noundef 5) #21
+  %105 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.48, i32 noundef 5) #22
   br label %_.exit135
 
 _.exit135:                                        ; preds = %102, %104
   %.0.i134 = phi ptr [ %105, %104 ], [ @.str.48, %102 ]
-  %106 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i134) #21
+  %106 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i134) #22
   br label %.critedge109
 
 107:                                              ; preds = %96
@@ -6326,16 +6326,16 @@ _.exit135:                                        ; preds = %102, %104
   br i1 %.not4.i136, label %_.exit138, label %113
 
 113:                                              ; preds = %111
-  %114 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.49, i32 noundef 5) #21
+  %114 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.49, i32 noundef 5) #22
   br label %_.exit138
 
 _.exit138:                                        ; preds = %111, %113
   %.0.i137 = phi ptr [ %114, %113 ], [ @.str.49, %111 ]
-  %115 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i137) #21
+  %115 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i137) #22
   br label %.critedge109
 
 116:                                              ; preds = %107
-  %117 = tail call i32 @git_env_bool(ptr noundef nonnull @.str.50, i32 noundef 1) #21
+  %117 = tail call i32 @git_env_bool(ptr noundef nonnull @.str.50, i32 noundef 1) #22
   %.not107 = icmp eq i32 %117, 0
   br i1 %.not107, label %.critedge, label %st_mult.exit142
 
@@ -6404,17 +6404,17 @@ st_mult.exit142:                                  ; preds = %116
   br i1 %.not4.i143, label %.thread149, label %170
 
 170:                                              ; preds = %168
-  %171 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 5) #21
+  %171 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.51, i32 noundef 5) #22
   br label %.thread149
 
 .thread149:                                       ; preds = %170, %168
   %.0.i144 = phi ptr [ %171, %170 ], [ @.str.51, %168 ]
-  %172 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i144) #21
+  %172 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i144) #22
   br label %.critedge109
 
 173:                                              ; preds = %st_mult.exit142
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %175 = tail call ptr @xcalloc(i64 noundef %164, i64 noundef 40) #21
+  %175 = tail call ptr @xcalloc(i64 noundef %164, i64 noundef 40) #22
   store ptr %175, ptr %174, align 8, !tbaa !203
   %176 = load i64, ptr %165, align 8, !tbaa !109
   %.not160 = icmp eq i64 %176, 0
@@ -6478,7 +6478,7 @@ st_mult.exit142:                                  ; preds = %116
 .critedge:                                        ; preds = %.lr.ph, %94, %116, %173
   %222 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %223 = load i32, ptr %222, align 4, !tbaa !292
-  %224 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %223) #25, !srcloc !293
+  %224 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %223) #26, !srcloc !293
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %224, ptr %225, align 8, !tbaa !100
   %226 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -6544,11 +6544,11 @@ define internal fastcc noundef ptr @read_bitmap_1(ptr noundef captures(none) %0)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !tbaa !53
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = tail call ptr @ewah_pool_new() #21
+  %7 = tail call ptr @ewah_pool_new() #22
   %8 = load i64, ptr %6, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 %8
   %10 = sub i64 %5, %8
-  %11 = tail call i64 @ewah_read_mmap(ptr noundef %7, ptr noundef %9, i64 noundef %10) #21
+  %11 = tail call i64 @ewah_read_mmap(ptr noundef %7, ptr noundef %9, i64 noundef %10) #22
   %12 = icmp slt i64 %11, 0
   br i1 %12, label %13, label %18
 
@@ -6558,13 +6558,13 @@ define internal fastcc noundef ptr @read_bitmap_1(ptr noundef captures(none) %0)
   br i1 %.not4.i.i, label %_.exit.i, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #21
+  %16 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #22
   br label %_.exit.i
 
 _.exit.i:                                         ; preds = %15, %13
   %.0.i.i = phi ptr [ %16, %15 ], [ @.str, %13 ]
-  %17 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i.i) #21
-  tail call void @ewah_pool_free(ptr noundef %7) #21
+  %17 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i.i) #22
+  tail call void @ewah_pool_free(ptr noundef %7) #22
   br label %read_bitmap.exit
 
 18:                                               ; preds = %1
@@ -6590,7 +6590,7 @@ define internal fastcc noundef ptr @store_bitmap(ptr noundef readonly captures(n
   %.sroa.4.i = alloca [32 x i8], align 4
   %6 = alloca %struct.object_id, align 8
   %7 = alloca %struct.object_id, align 8
-  %8 = tail call ptr @xmalloc(i64 noundef 64) #21
+  %8 = tail call ptr @xmalloc(i64 noundef 64) #22
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %1, ptr %9, align 8, !tbaa !80
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
@@ -6646,7 +6646,7 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
   %43 = and i32 %42, 1073741820
   %44 = select i1 %41, i32 4, i32 %43
   %45 = zext nneg i32 %44 to i64
-  %46 = tail call ptr @xmalloc(i64 noundef %45) #21
+  %46 = tail call ptr @xmalloc(i64 noundef %45) #22
   tail call void @llvm.memset.p0.i64(ptr align 4 %46, i8 -86, i64 %45, i1 false)
   %47 = load i32, ptr %16, align 8, !tbaa !78
   %48 = icmp ult i32 %47, %spec.store.select.i
@@ -6657,12 +6657,12 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %52 = load ptr, ptr %51, align 8, !tbaa !72
   %53 = mul nuw nsw i64 %50, 36
-  %54 = tail call ptr @xrealloc(ptr noundef %52, i64 noundef %53) #21
+  %54 = tail call ptr @xrealloc(ptr noundef %52, i64 noundef %53) #22
   store ptr %54, ptr %51, align 8, !tbaa !72
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %56 = load ptr, ptr %55, align 8, !tbaa !73
   %57 = shl nuw nsw i64 %50, 3
-  %58 = tail call ptr @xrealloc(ptr noundef %56, i64 noundef %57) #21
+  %58 = tail call ptr @xrealloc(ptr noundef %56, i64 noundef %57) #22
   store ptr %58, ptr %55, align 8, !tbaa !73
   %.pre.i18 = load i32, ptr %16, align 8, !tbaa !78
   %.not145.i = icmp eq i32 %.pre.i18, 0
@@ -6818,18 +6818,18 @@ st_mult.exit111.i:                                ; preds = %._crit_edge149.i
   %136 = zext i32 %spec.store.select.i to i64
   %137 = load ptr, ptr %61, align 8, !tbaa !72
   %138 = mul nuw nsw i64 %136, 36
-  %139 = tail call ptr @xrealloc(ptr noundef %137, i64 noundef %138) #21
+  %139 = tail call ptr @xrealloc(ptr noundef %137, i64 noundef %138) #22
   store ptr %139, ptr %61, align 8, !tbaa !72
   %140 = load ptr, ptr %63, align 8, !tbaa !73
   %141 = shl nuw nsw i64 %136, 3
-  %142 = tail call ptr @xrealloc(ptr noundef %140, i64 noundef %141) #21
+  %142 = tail call ptr @xrealloc(ptr noundef %140, i64 noundef %141) #22
   store ptr %142, ptr %63, align 8, !tbaa !73
   br label %._crit_edge149.thread.i
 
 ._crit_edge149.thread.i:                          ; preds = %st_mult.exit111.i, %._crit_edge149.i, %49
   %143 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %144 = load ptr, ptr %143, align 8, !tbaa !69
-  tail call void @free(ptr noundef %144) #21
+  tail call void @free(ptr noundef %144) #22
   store ptr %46, ptr %143, align 8, !tbaa !69
   store i32 %spec.store.select.i, ptr %16, align 8, !tbaa !78
   %145 = load i32, ptr %21, align 4, !tbaa !303
@@ -6986,13 +6986,13 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge149.thre
   br i1 %.not4.i, label %_.exit, label %226
 
 226:                                              ; preds = %224
-  %227 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.61, i32 noundef 5) #21
+  %227 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.61, i32 noundef 5) #22
   br label %_.exit
 
 _.exit:                                           ; preds = %224, %226
   %.0.i15 = phi ptr [ %227, %226 ], [ @.str.61, %224 ]
-  %228 = tail call ptr @oid_to_hex(ptr noundef nonnull %2) #21
-  %229 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i15, ptr noundef %228) #21
+  %228 = tail call ptr @oid_to_hex(ptr noundef nonnull %2) #22
+  %229 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i15, ptr noundef %228) #22
   br label %235
 
 230:                                              ; preds = %210, %192
@@ -7016,11 +7016,11 @@ declare i32 @bsearch_pack(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #8
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 declare void @ewah_xor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -7043,7 +7043,7 @@ define internal void @show_boundary_commit(ptr noundef %0, ptr noundef %1) #0 {
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @add_object_array(ptr noundef nonnull %0, ptr noundef nonnull @.str.22, ptr noundef nonnull %6) #21
+  tail call void @add_object_array(ptr noundef nonnull %0, ptr noundef nonnull @.str.22, ptr noundef nonnull %6) #22
   %.pre = load i32, ptr %0, align 8
   br label %7
 
@@ -7068,7 +7068,7 @@ define internal void @show_boundary_commit(ptr noundef %0, ptr noundef %1) #0 {
 
 bitmap_walk_contains.exit:                        ; preds = %13
   %18 = zext nneg i32 %16 to i64
-  %19 = tail call i32 @bitmap_get(ptr noundef nonnull %12, i64 noundef %18) #21
+  %19 = tail call i32 @bitmap_get(ptr noundef nonnull %12, i64 noundef %18) #22
   %.not17 = icmp eq i32 %19, 0
   br i1 %.not17, label %bitmap_walk_contains.exit.thread, label %add_commit_to_bitmap.exit
 
@@ -7093,12 +7093,12 @@ bitmap_walk_contains.exit.thread:                 ; preds = %13, %10, %bitmap_wa
   br i1 %.not10.i, label %29, label %31
 
 29:                                               ; preds = %25
-  %30 = tail call ptr @ewah_to_bitmap(ptr noundef nonnull %21) #21
+  %30 = tail call ptr @ewah_to_bitmap(ptr noundef nonnull %21) #22
   store ptr %30, ptr %11, align 8, !tbaa !178
   br label %add_commit_to_bitmap.exit
 
 31:                                               ; preds = %25
-  tail call void @bitmap_or_ewah(ptr noundef nonnull %28, ptr noundef nonnull %21) #21
+  tail call void @bitmap_or_ewah(ptr noundef nonnull %28, ptr noundef nonnull %21) #22
   br label %add_commit_to_bitmap.exit
 
 add_commit_to_bitmap.exit:                        ; preds = %31, %29, %22, %7, %bitmap_walk_contains.exit
@@ -7106,8 +7106,8 @@ add_commit_to_bitmap.exit:                        ; preds = %31, %29, %22, %7, %
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal void @show_boundary_object(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #14 {
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.3, i32 noundef 1192, ptr noundef nonnull @.str.65) #23
+define internal void @show_boundary_object(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #15 {
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.3, i32 noundef 1192, ptr noundef nonnull @.str.65) #24
   unreachable
 }
 
@@ -7144,14 +7144,14 @@ define internal range(i32 0, 2) i32 @should_include(ptr noundef %0, ptr noundef 
   br i1 %.not.i, label %._crit_edge.i, label %14
 
 14:                                               ; preds = %10
-  %15 = tail call i32 @bitmap_get(ptr noundef nonnull %13, i64 noundef %.pre.i) #21
+  %15 = tail call i32 @bitmap_get(ptr noundef nonnull %13, i64 noundef %.pre.i) #22
   %.not18.i = icmp eq i32 %15, 0
   br i1 %.not18.i, label %._crit_edge.i, label %add_to_include_set.exit.thread
 
 ._crit_edge.i:                                    ; preds = %14, %10
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !185
-  %18 = tail call i32 @bitmap_get(ptr noundef %17, i64 noundef %.pre.i) #21
+  %18 = tail call i32 @bitmap_get(ptr noundef %17, i64 noundef %.pre.i) #22
   %.not19.i = icmp eq i32 %18, 0
   br i1 %.not19.i, label %19, label %add_to_include_set.exit.thread
 
@@ -7165,7 +7165,7 @@ define internal range(i32 0, 2) i32 @should_include(ptr noundef %0, ptr noundef 
   %23 = add nsw i32 %22, 1
   store i32 %23, ptr @existing_bitmaps_hits_nr, align 4, !tbaa !8
   %24 = load ptr, ptr %16, align 8, !tbaa !185
-  tail call void @bitmap_or_ewah(ptr noundef %24, ptr noundef nonnull %20) #21
+  tail call void @bitmap_or_ewah(ptr noundef %24, ptr noundef nonnull %20) #22
   br label %add_to_include_set.exit.thread
 
 25:                                               ; preds = %19
@@ -7173,10 +7173,10 @@ define internal range(i32 0, 2) i32 @should_include(ptr noundef %0, ptr noundef 
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr @existing_bitmaps_misses_nr, align 4, !tbaa !8
   %28 = load ptr, ptr %16, align 8, !tbaa !185
-  tail call void @bitmap_set(ptr noundef %28, i64 noundef %.pre.i) #21
+  tail call void @bitmap_set(ptr noundef %28, i64 noundef %.pre.i) #22
   %29 = load ptr, ptr %16, align 8, !tbaa !185
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 112
-  %31 = tail call i32 @apply_pseudo_merges_for_commit(ptr noundef nonnull %30, ptr noundef %29, ptr noundef nonnull %0, i32 noundef %.014) #21
+  %31 = tail call i32 @apply_pseudo_merges_for_commit(ptr noundef nonnull %30, ptr noundef %29, ptr noundef nonnull %0, i32 noundef %.014) #22
   %.not.i.i = icmp eq i32 %31, 0
   br i1 %.not.i.i, label %add_to_include_set.exit, label %add_to_include_set.exit.thread20
 
@@ -7224,14 +7224,14 @@ define internal range(i32 0, 2) i32 @should_include_obj(ptr noundef %0, ptr noun
   br i1 %.not, label %._crit_edge, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call i32 @bitmap_get(ptr noundef nonnull %9, i64 noundef %.pre) #21
+  %11 = tail call i32 @bitmap_get(ptr noundef nonnull %9, i64 noundef %.pre) #22
   %.not12 = icmp eq i32 %11, 0
   br i1 %.not12, label %._crit_edge, label %15
 
 ._crit_edge:                                      ; preds = %7, %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !185
-  %14 = tail call i32 @bitmap_get(ptr noundef %13, i64 noundef %.pre) #21
+  %14 = tail call i32 @bitmap_get(ptr noundef %13, i64 noundef %.pre) #22
   %.not13 = icmp eq i32 %14, 0
   br i1 %.not13, label %18, label %15
 
@@ -7247,7 +7247,7 @@ define internal range(i32 0, 2) i32 @should_include_obj(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @show_commit(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #15 {
+define internal void @show_commit(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #16 {
   ret void
 }
 
@@ -7269,7 +7269,7 @@ define internal void @show_object(ptr noundef %0, ptr noundef readonly captures(
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !192
   %14 = sext i32 %.0 to i64
-  tail call void @bitmap_set(ptr noundef %13, i64 noundef %14) #21
+  tail call void @bitmap_set(ptr noundef %13, i64 noundef %14) #22
   ret void
 }
 
@@ -7325,7 +7325,7 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
   %36 = and i32 %35, 1073741820
   %37 = select i1 %34, i32 4, i32 %36
   %38 = zext nneg i32 %37 to i64
-  %39 = tail call ptr @xmalloc(i64 noundef %38) #21
+  %39 = tail call ptr @xmalloc(i64 noundef %38) #22
   tail call void @llvm.memset.p0.i64(ptr align 4 %39, i8 -86, i64 %38, i1 false)
   %40 = load i32, ptr %8, align 8, !tbaa !116
   %41 = icmp ult i32 %40, %spec.store.select.i
@@ -7336,12 +7336,12 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !76
   %46 = mul nuw nsw i64 %43, 36
-  %47 = tail call ptr @xrealloc(ptr noundef %45, i64 noundef %46) #21
+  %47 = tail call ptr @xrealloc(ptr noundef %45, i64 noundef %46) #22
   store ptr %47, ptr %44, align 8, !tbaa !76
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %49 = load ptr, ptr %48, align 8, !tbaa !77
   %50 = shl nuw nsw i64 %43, 2
-  %51 = tail call ptr @xrealloc(ptr noundef %49, i64 noundef %50) #21
+  %51 = tail call ptr @xrealloc(ptr noundef %49, i64 noundef %50) #22
   store ptr %51, ptr %48, align 8, !tbaa !77
   %.pre.i36 = load i32, ptr %8, align 8, !tbaa !116
   %.not145.i = icmp eq i32 %.pre.i36, 0
@@ -7497,18 +7497,18 @@ st_mult.exit111.i:                                ; preds = %._crit_edge149.i
   %129 = zext i32 %spec.store.select.i to i64
   %130 = load ptr, ptr %54, align 8, !tbaa !76
   %131 = mul nuw nsw i64 %129, 36
-  %132 = tail call ptr @xrealloc(ptr noundef %130, i64 noundef %131) #21
+  %132 = tail call ptr @xrealloc(ptr noundef %130, i64 noundef %131) #22
   store ptr %132, ptr %54, align 8, !tbaa !76
   %133 = load ptr, ptr %56, align 8, !tbaa !77
   %134 = shl nuw nsw i64 %129, 2
-  %135 = tail call ptr @xrealloc(ptr noundef %133, i64 noundef %134) #21
+  %135 = tail call ptr @xrealloc(ptr noundef %133, i64 noundef %134) #22
   store ptr %135, ptr %56, align 8, !tbaa !77
   br label %._crit_edge149.thread.i
 
 ._crit_edge149.thread.i:                          ; preds = %st_mult.exit111.i, %._crit_edge149.i, %42
   %136 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %137 = load ptr, ptr %136, align 8, !tbaa !74
-  tail call void @free(ptr noundef %137) #21
+  tail call void @free(ptr noundef %137) #22
   store ptr %39, ptr %136, align 8, !tbaa !74
   store i32 %spec.store.select.i, ptr %8, align 8, !tbaa !116
   %138 = load i32, ptr %14, align 4, !tbaa !312
@@ -7675,14 +7675,14 @@ st_mult.exit:                                     ; preds = %217
   %225 = zext nneg i32 %224 to i64
   %226 = load ptr, ptr %6, align 8, !tbaa !200
   %227 = shl nuw nsw i64 %225, 3
-  %228 = tail call ptr @xrealloc(ptr noundef %226, i64 noundef %227) #21
+  %228 = tail call ptr @xrealloc(ptr noundef %226, i64 noundef %227) #22
   store ptr %228, ptr %6, align 8, !tbaa !200
   %229 = load i32, ptr %220, align 4, !tbaa !316
   %230 = zext i32 %229 to i64
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %232 = load ptr, ptr %231, align 8, !tbaa !235
   %233 = shl nuw nsw i64 %230, 2
-  %234 = tail call ptr @xrealloc(ptr noundef %232, i64 noundef %233) #21
+  %234 = tail call ptr @xrealloc(ptr noundef %232, i64 noundef %233) #22
   store ptr %234, ptr %231, align 8, !tbaa !235
   %.pre76 = load i32, ptr %218, align 8, !tbaa !198
   br label %235
@@ -7782,7 +7782,7 @@ define internal fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull read
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %8 = tail call ptr @bitmap_new() #21
+  %8 = tail call ptr @bitmap_new() #22
   %.not12.i = icmp eq ptr %1, null
   br i1 %.not12.i, label %find_tip_objects.exit, label %.lr.ph.i
 
@@ -7803,7 +7803,7 @@ define internal fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull read
 
 17:                                               ; preds = %13
   %18 = zext nneg i32 %15 to i64
-  tail call void @bitmap_set(ptr noundef %8, i64 noundef %18) #21
+  tail call void @bitmap_set(ptr noundef %8, i64 noundef %18) #22
   br label %19
 
 19:                                               ; preds = %17, %13, %.lr.ph.i
@@ -7819,7 +7819,7 @@ find_tip_objects.exit:                            ; preds = %19, %4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.idx.mult.i
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load ptr, ptr %23, align 8, !tbaa !68
-  call void @ewah_iterator_init(ptr noundef nonnull %5, ptr noundef %24) #21
+  call void @ewah_iterator_init(ptr noundef nonnull %5, ptr noundef %24) #22
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !194
   %.not37 = icmp eq i64 %26, 0
@@ -7832,7 +7832,7 @@ find_tip_objects.exit:                            ; preds = %19, %4
 28:                                               ; preds = %.lr.ph, %40
   %29 = phi i64 [ 0, %.lr.ph ], [ %48, %40 ]
   %.033 = phi i32 [ 0, %.lr.ph ], [ %47, %40 ]
-  %30 = call i32 @ewah_iterator_next(ptr noundef nonnull %6, ptr noundef nonnull %5) #21
+  %30 = call i32 @ewah_iterator_next(ptr noundef nonnull %6, ptr noundef nonnull %5) #22
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %.critedge, label %31
 
@@ -7905,17 +7905,17 @@ bitmap_num_objects.exit:                          ; preds = %56, %58
   br i1 %69, label %70, label %75
 
 70:                                               ; preds = %bitmap_num_objects.exit
-  %71 = call i32 @bitmap_get(ptr noundef %2, i64 noundef %62) #21
+  %71 = call i32 @bitmap_get(ptr noundef %2, i64 noundef %62) #22
   %.not30 = icmp eq i32 %71, 0
   br i1 %.not30, label %75, label %72
 
 72:                                               ; preds = %70
-  %73 = call i32 @bitmap_get(ptr noundef %8, i64 noundef %62) #21
+  %73 = call i32 @bitmap_get(ptr noundef %8, i64 noundef %62) #22
   %.not31 = icmp eq i32 %73, 0
   br i1 %.not31, label %74, label %75
 
 74:                                               ; preds = %72
-  call void @bitmap_unset(ptr noundef %2, i64 noundef %62) #21
+  call void @bitmap_unset(ptr noundef %2, i64 noundef %62) #22
   br label %75
 
 75:                                               ; preds = %74, %72, %70, %bitmap_num_objects.exit
@@ -7926,7 +7926,7 @@ bitmap_num_objects.exit:                          ; preds = %56, %58
   br i1 %78, label %54, label %._crit_edge, !llvm.loop !319
 
 ._crit_edge:                                      ; preds = %75, %.critedge
-  call void @bitmap_free(ptr noundef %8) #21
+  call void @bitmap_free(ptr noundef %8) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -7963,20 +7963,20 @@ bitmap_num_objects.exit.thread:                   ; preds = %2
   br i1 %13, label %.thread42, label %39
 
 .thread42:                                        ; preds = %bitmap_num_objects.exit.thread
-  %14 = call i32 @pack_pos_to_midx(ptr noundef nonnull %8, i32 noundef %1) #21
+  %14 = call i32 @pack_pos_to_midx(ptr noundef nonnull %8, i32 noundef %1) #22
   %15 = load ptr, ptr %7, align 8, !tbaa !49
-  %16 = call i32 @nth_midxed_pack_int_id(ptr noundef %15, i32 noundef %14) #21
+  %16 = call i32 @nth_midxed_pack_int_id(ptr noundef %15, i32 noundef %14) #22
   %17 = load ptr, ptr %7, align 8, !tbaa !49
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 192
   %19 = load ptr, ptr %18, align 8, !tbaa !61
   %20 = zext i32 %16 to i64
   %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !56
-  %23 = call i64 @nth_midxed_offset(ptr noundef %17, i32 noundef %14) #21
+  %23 = call i64 @nth_midxed_offset(ptr noundef %17, i32 noundef %14) #22
   br label %26
 
 24:                                               ; preds = %bitmap_num_objects.exit
-  %25 = call i64 @pack_pos_to_offset(ptr noundef nonnull %9, i32 noundef %1) #21
+  %25 = call i64 @pack_pos_to_offset(ptr noundef nonnull %9, i32 noundef %1) #22
   br label %26
 
 26:                                               ; preds = %24, %.thread42
@@ -7998,17 +7998,17 @@ bitmap_num_objects.exit.thread:                   ; preds = %2
 bitmap_repo.exit:                                 ; preds = %28, %30
   %.0.in.i28 = phi ptr [ %29, %28 ], [ %32, %30 ]
   %.0.i29 = load ptr, ptr %.0.in.i28, align 8, !tbaa !11
-  %33 = call i32 @packed_object_info(ptr noundef %.0.i29, ptr noundef %.0, i64 noundef %.026, ptr noundef nonnull %4) #21
+  %33 = call i32 @packed_object_info(ptr noundef %.0.i29, ptr noundef %.0, i64 noundef %.026, ptr noundef nonnull %4) #22
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %35, label %60
 
 35:                                               ; preds = %bitmap_repo.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %36 = call i32 @pack_pos_to_index(ptr noundef %.0, i32 noundef %1) #21
+  %36 = call i32 @pack_pos_to_index(ptr noundef %.0, i32 noundef %1) #22
   call fastcc void @nth_bitmap_object_oid(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %36)
   %37 = call fastcc ptr @_(ptr noundef nonnull @.str.67)
-  %38 = call ptr @oid_to_hex(ptr noundef nonnull %5) #21
-  call void (ptr, ...) @die(ptr noundef %37, ptr noundef %38) #23
+  %38 = call ptr @oid_to_hex(ptr noundef nonnull %5) #22
+  call void (ptr, ...) @die(ptr noundef %37, ptr noundef %38) #24
   unreachable
 
 39:                                               ; preds = %bitmap_num_objects.exit.thread
@@ -8035,14 +8035,14 @@ bitmap_repo.exit37:                               ; preds = %39, %46
   %53 = load ptr, ptr %.in, align 8, !tbaa !201
   %.0.i36 = load ptr, ptr %.0.in.i35, align 8, !tbaa !11
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  %55 = call i32 @oid_object_info_extended(ptr noundef %.0.i36, ptr noundef nonnull %54, ptr noundef nonnull %4, i32 noundef 0) #21
+  %55 = call i32 @oid_object_info_extended(ptr noundef %.0.i36, ptr noundef nonnull %54, ptr noundef nonnull %4, i32 noundef 0) #22
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %bitmap_repo.exit37
   %58 = call fastcc ptr @_(ptr noundef nonnull @.str.67)
-  %59 = call ptr @oid_to_hex(ptr noundef nonnull %54) #21
-  call void (ptr, ...) @die(ptr noundef %58, ptr noundef %59) #23
+  %59 = call ptr @oid_to_hex(ptr noundef nonnull %54) #22
+  call void (ptr, ...) @die(ptr noundef %58, ptr noundef %59) #24
   unreachable
 
 60:                                               ; preds = %bitmap_repo.exit37, %bitmap_repo.exit
@@ -8067,7 +8067,7 @@ declare i32 @has_object_pack(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @load_pack_revindex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #17
 
 declare ptr @pack_basename(ptr noundef) local_unnamed_addr #1
 
@@ -8086,22 +8086,22 @@ define internal fastcc void @test_bitmap_type(ptr noundef readonly captures(none
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !250
   %6 = zext nneg i32 %2 to i64
-  %7 = tail call i32 @bitmap_get(ptr noundef %5, i64 noundef %6) #21
+  %7 = tail call i32 @bitmap_get(ptr noundef %5, i64 noundef %6) #22
   %.not = icmp ne i32 %7, 0
   %spec.select = zext i1 %.not to i32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !251
-  %10 = tail call i32 @bitmap_get(ptr noundef %9, i64 noundef %6) #21
+  %10 = tail call i32 @bitmap_get(ptr noundef %9, i64 noundef %6) #22
   %.not24 = icmp eq i32 %10, 0
   %.121 = select i1 %.not24, i32 %spec.select, i32 2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !252
-  %13 = tail call i32 @bitmap_get(ptr noundef %12, i64 noundef %6) #21
+  %13 = tail call i32 @bitmap_get(ptr noundef %12, i64 noundef %6) #22
   %.not25 = icmp ne i32 %13, 0
   %.222 = select i1 %.not25, i32 3, i32 %.121
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !253
-  %16 = tail call i32 @bitmap_get(ptr noundef %15, i64 noundef %6) #21
+  %16 = tail call i32 @bitmap_get(ptr noundef %15, i64 noundef %6) #22
   %.not26 = icmp ne i32 %16, 0
   %.323 = select i1 %.not26, i32 4, i32 %.222
   %17 = icmp eq i32 %.323, 0
@@ -8110,8 +8110,8 @@ define internal fastcc void @test_bitmap_type(ptr noundef readonly captures(none
 18:                                               ; preds = %3
   %19 = tail call fastcc ptr @_(ptr noundef nonnull @.str.76)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %21 = tail call ptr @oid_to_hex(ptr noundef nonnull %20) #21
-  tail call void (ptr, ...) @die(ptr noundef %19, ptr noundef %21) #23
+  %21 = tail call ptr @oid_to_hex(ptr noundef nonnull %20) #22
+  tail call void (ptr, ...) @die(ptr noundef %19, ptr noundef %21) #24
   unreachable
 
 22:                                               ; preds = %3
@@ -8127,8 +8127,8 @@ define internal fastcc void @test_bitmap_type(ptr noundef readonly captures(none
 27:                                               ; preds = %22
   %28 = tail call fastcc ptr @_(ptr noundef nonnull @.str.77)
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %30 = tail call ptr @oid_to_hex(ptr noundef nonnull %29) #21
-  tail call void (ptr, ...) @die(ptr noundef %28, ptr noundef %30) #23
+  %30 = tail call ptr @oid_to_hex(ptr noundef nonnull %29) #22
+  tail call void (ptr, ...) @die(ptr noundef %28, ptr noundef %30) #24
   unreachable
 
 31:                                               ; preds = %22
@@ -8141,13 +8141,13 @@ define internal fastcc void @test_bitmap_type(ptr noundef readonly captures(none
 35:                                               ; preds = %31
   %36 = tail call fastcc ptr @_(ptr noundef nonnull @.str.78)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %38 = tail call ptr @oid_to_hex(ptr noundef nonnull %37) #21
+  %38 = tail call ptr @oid_to_hex(ptr noundef nonnull %37) #22
   %39 = load i32, ptr %1, align 4
   %40 = lshr i32 %39, 1
   %41 = and i32 %40, 7
-  %42 = tail call ptr @type_name(i32 noundef %41) #21
-  %43 = tail call ptr @type_name(i32 noundef %.323) #21
-  tail call void (ptr, ...) @die(ptr noundef %36, ptr noundef %38, ptr noundef %42, ptr noundef %43) #23
+  %42 = tail call ptr @type_name(i32 noundef %41) #22
+  %43 = tail call ptr @type_name(i32 noundef %.323) #22
+  tail call void (ptr, ...) @die(ptr noundef %36, ptr noundef %38, ptr noundef %42, ptr noundef %43) #24
   unreachable
 
 44:                                               ; preds = %31
@@ -8165,31 +8165,31 @@ declare i32 @nth_packed_object_id(ptr noundef, ptr noundef, i32 noundef) local_u
 declare i32 @hashfile_checksum_valid(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #18
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #20
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.bswap.i16(i16) #21
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #20
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #21
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #20
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #21
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #20
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #21
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #20
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #21
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8204,19 +8204,20 @@ attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nofree nounwind }
-attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { nounwind }
-attributes #22 = { nounwind willreturn memory(read) }
-attributes #23 = { noreturn nounwind }
-attributes #24 = { nounwind willreturn memory(none) }
-attributes #25 = { nounwind memory(none) }
+attributes #13 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { nofree nounwind }
+attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #21 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nounwind }
+attributes #23 = { nounwind willreturn memory(read) }
+attributes #24 = { noreturn nounwind }
+attributes #25 = { nounwind willreturn memory(none) }
+attributes #26 = { nounwind memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

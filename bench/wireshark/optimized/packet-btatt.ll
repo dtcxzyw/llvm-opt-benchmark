@@ -4664,7 +4664,7 @@ define hidden void @get_gatt_bluetooth_uuid_from_handle(ptr dead_on_unwind noali
   store i32 %2, ptr %6, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  tail call void @llvm.memset.p0.i64(ptr noundef align 2 dereferenceable(20) %0, i8 noundef 0, i64 noundef 20, i1 noundef false) #14
+  tail call void @llvm.memset.p0.i64(ptr noundef align 2 dereferenceable(20) %0, i8 noundef 0, i64 noundef 20, i1 noundef false) #15
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.thread, label %9
 
@@ -4973,7 +4973,7 @@ define internal i32 @dissect_btatt(ptr noundef %0, ptr noundef %1, ptr noundef %
   %39 = alloca %union.request_parameters_union, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %21, i8 noundef 0, i64 noundef 20, i1 noundef false) #14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %21, i8 noundef 0, i64 noundef 20, i1 noundef false) #15
   %40 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   %41 = icmp slt i32 %40, 1
   br i1 %41, label %proto_item_set_generated.exit1011, label %42
@@ -6368,7 +6368,7 @@ is_long_attribute_value.exit:                     ; preds = %488, %517
   %782 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store ptr null, ptr %782, align 8
   %783 = call ptr @wmem_file_scope()
-  %784 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %783, i64 noundef 40) #15
+  %784 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %783, i64 noundef 40) #16
   store i8 %75, ptr %784, align 8
   %785 = load i32, ptr %13, align 4
   %786 = getelementptr inbounds nuw i8, ptr %784, i64 4
@@ -6472,7 +6472,7 @@ is_long_attribute_value.exit:                     ; preds = %488, %517
   %840 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store ptr null, ptr %840, align 8
   %841 = call ptr @wmem_file_scope()
-  %842 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %841, i64 noundef 40) #15
+  %842 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %841, i64 noundef 40) #16
   store i8 22, ptr %842, align 8
   %843 = load i32, ptr %9, align 4
   %844 = getelementptr inbounds nuw i8, ptr %842, i64 4
@@ -6535,7 +6535,7 @@ is_long_attribute_value.exit:                     ; preds = %488, %517
   %867 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr null, ptr %867, align 8
   %868 = call ptr @wmem_file_scope()
-  %869 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %868, i64 noundef 24) #15
+  %869 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %868, i64 noundef 24) #16
   %870 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %813)
   store i32 %870, ptr %869, align 8
   %871 = getelementptr inbounds nuw i8, ptr %869, i64 4
@@ -6919,7 +6919,7 @@ define internal i32 @dissect_btgatt(ptr noundef %0, ptr noundef %1, ptr noundef 
   %14 = load i32, ptr @ett_btgatt, align 4
   %15 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14)
   %16 = load ptr, ptr %1, align 8
-  %17 = tail call i64 @strlen(ptr noundef %16) #16
+  %17 = tail call i64 @strlen(ptr noundef %16) #17
   %18 = icmp ugt i64 %17, 7
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 2, ptr %19, align 2
@@ -8125,7 +8125,7 @@ define internal fastcc void @get_service_uuid_from_handle(ptr dead_on_unwind noa
   store i32 %2, ptr %6, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  tail call void @llvm.memset.p0.i64(ptr noundef align 2 dereferenceable(20) %0, i8 noundef 0, i64 noundef 20, i1 noundef false) #14
+  tail call void @llvm.memset.p0.i64(ptr noundef align 2 dereferenceable(20) %0, i8 noundef 0, i64 noundef 20, i1 noundef false) #15
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %9
 
@@ -8380,7 +8380,7 @@ define internal fastcc void @save_request(ptr noundef readonly captures(none) %0
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store ptr null, ptr %27, align 8
   %28 = call ptr @wmem_file_scope()
-  %29 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %28, i64 noundef 40) #15
+  %29 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %28, i64 noundef 40) #16
   store i8 %1, ptr %29, align 8
   %30 = load i32, ptr %6, align 4
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 4
@@ -8422,7 +8422,7 @@ define internal fastcc void @save_mtu(i32 %.20.val, ptr noundef nonnull %0, i32 
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr null, ptr %12, align 8
   %13 = call ptr @wmem_file_scope()
-  %14 = call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %13, i64 noundef 4) #15
+  %14 = call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %13, i64 noundef 4) #16
   store i32 %1, ptr %14, align 4
   %15 = load ptr, ptr @mtus, align 8
   call void @wmem_tree_insert32_array(ptr noundef %15, ptr noundef nonnull %3, ptr noundef %14)
@@ -8472,7 +8472,7 @@ switch.early.test:                                ; preds = %5
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %24, i64 noundef 32) #15
+  %25 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %24, i64 noundef 32) #16
   store i32 %2, ptr %25, align 4
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %26, ptr noundef align 8 dereferenceable(20) %1, i64 20, i1 false)
@@ -8704,7 +8704,7 @@ get_gatt_char_decl_handle_from_handle.exit:       ; preds = %.thread.i37, %get_g
   %113 = getelementptr inbounds nuw i8, ptr %13, i64 88
   store ptr null, ptr %113, align 8
   %114 = call ptr @wmem_file_scope()
-  %115 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %114, i64 noundef 24) #15
+  %115 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %114, i64 noundef 24) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(20) %115, ptr noundef align 8 dereferenceable(20) %1, i64 20, i1 false)
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 20
   store i32 %3, ptr %116, align 4
@@ -8739,7 +8739,7 @@ define internal fastcc i32 @dissect_attribute_value(ptr noundef %0, ptr noundef 
   br i1 %.not, label %20, label %21
 
 20:                                               ; preds = %9
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.3234, ptr noundef nonnull @.str.3227, i32 noundef 4945, ptr noundef nonnull @.str.3235) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.3234, ptr noundef nonnull @.str.3227, i32 noundef 4945, ptr noundef nonnull @.str.3235) #18
   unreachable
 
 21:                                               ; preds = %9
@@ -8756,7 +8756,7 @@ define internal fastcc i32 @dissect_attribute_value(ptr noundef %0, ptr noundef 
 
 30:                                               ; preds = %21
   %31 = tail call ptr @wmem_file_scope()
-  %32 = tail call noalias dereferenceable_or_null(2) ptr @wmem_alloc(ptr noundef %31, i64 noundef 2) #15
+  %32 = tail call noalias dereferenceable_or_null(2) ptr @wmem_alloc(ptr noundef %31, i64 noundef 2) #16
   store i16 %6, ptr %32, align 2
   %33 = load ptr, ptr %25, align 8
   %34 = load i32, ptr @proto_btatt, align 4
@@ -8791,11 +8791,11 @@ define internal fastcc i32 @dissect_attribute_value(ptr noundef %0, ptr noundef 
   br i1 %.not.i.i, label %51, label %52
 
 51:                                               ; preds = %49
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.3234, ptr noundef nonnull @.str.3227, i32 noundef 10656, ptr noundef nonnull @.str.3257) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.3234, ptr noundef nonnull @.str.3227, i32 noundef 10656, ptr noundef nonnull @.str.3257) #18
   unreachable
 
 52:                                               ; preds = %49
-  %53 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(7) @.str.2288, i64 noundef 6) #16
+  %53 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(7) @.str.2288, i64 noundef 6) #17
   %.not14.i.i = icmp eq i32 %53, 0
   br i1 %.not14.i.i, label %btatt_dissect_attribute_handle.exit.i, label %54
 
@@ -21038,7 +21038,7 @@ switch.early.test6365.thread:                     ; preds = %5124, %switch.early
 
 5239:                                             ; preds = %5237
   %5240 = load ptr, ptr %25, align 8
-  %5241 = call noalias dereferenceable_or_null(20) ptr @wmem_alloc0(ptr noundef %5240, i64 noundef 20) #15
+  %5241 = call noalias dereferenceable_or_null(20) ptr @wmem_alloc0(ptr noundef %5240, i64 noundef 20) #16
   %.not4678 = icmp eq ptr %22, null
   br i1 %.not4678, label %5246, label %5242
 
@@ -21274,7 +21274,7 @@ define internal fastcc void @save_value_fragment(i32 %.20.val, ptr noundef %0, i
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store ptr null, ptr %18, align 8
   %19 = call ptr @wmem_file_scope()
-  %20 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %19, i64 noundef 24) #15
+  %20 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %19, i64 noundef 24) #16
   %21 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1)
   store i32 %21, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
@@ -21359,7 +21359,7 @@ define internal fastcc ptr @get_value(ptr noundef readonly captures(none) %0, i3
 29:                                               ; preds = %25
   %30 = load ptr, ptr %20, align 8
   %31 = zext i32 %27 to i64
-  %32 = call noalias ptr @wmem_alloc(ptr noundef %30, i64 noundef %31) #15
+  %32 = call noalias ptr @wmem_alloc(ptr noundef %30, i64 noundef %31) #16
   %.pre85 = load i32, ptr %23, align 4
   %.pre86 = load i32, ptr %22, align 8
   br label %33
@@ -21373,7 +21373,7 @@ define internal fastcc ptr @get_value(ptr noundef readonly captures(none) %0, i3
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = zext i32 %34 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %37, ptr noundef align 1 %39, i64 noundef range(i64 0, 4294967296) %40, i1 noundef false) #14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %37, ptr noundef align 1 %39, i64 noundef range(i64 0, 4294967296) %40, i1 noundef false) #15
   %41 = load i32, ptr %23, align 4
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %.loopexit, label %43
@@ -21407,7 +21407,7 @@ define internal fastcc ptr @get_value(ptr noundef readonly captures(none) %0, i3
 54:                                               ; preds = %51
   %55 = load ptr, ptr %20, align 8
   %56 = zext i32 %53 to i64
-  %57 = call noalias ptr @wmem_alloc(ptr noundef %55, i64 noundef %56) #15
+  %57 = call noalias ptr @wmem_alloc(ptr noundef %55, i64 noundef %56) #16
   store i32 %53, ptr %3, align 4
   %.pre = load i32, ptr %49, align 4
   %.pre81 = load i32, ptr %48, align 8
@@ -21426,7 +21426,7 @@ define internal fastcc ptr @get_value(ptr noundef readonly captures(none) %0, i3
   %64 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %65 = load ptr, ptr %64, align 8
   %66 = zext i32 %60 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %63, ptr noundef align 1 %65, i64 noundef range(i64 0, 4294967296) %66, i1 noundef false) #14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %63, ptr noundef align 1 %65, i64 noundef range(i64 0, 4294967296) %66, i1 noundef false) #15
   %67 = load i32, ptr %49, align 4
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %.loopexit, label %69
@@ -21473,7 +21473,7 @@ define internal fastcc void @get_characteristic_uuid_from_handle(ptr dead_on_unw
   store i32 %2, ptr %6, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  tail call void @llvm.memset.p0.i64(ptr noundef align 2 dereferenceable(20) %0, i8 noundef 0, i64 noundef 20, i1 noundef false) #14
+  tail call void @llvm.memset.p0.i64(ptr noundef align 2 dereferenceable(20) %0, i8 noundef 0, i64 noundef 20, i1 noundef false) #15
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %9
 
@@ -21611,7 +21611,7 @@ define internal fastcc void @btatt_call_dissector_by_dissector_name_with_data(pt
   ret void
 
 9:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.3258, ptr noundef %0) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.3258, ptr noundef %0) #18
   unreachable
 }
 
@@ -21795,22 +21795,22 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #10
+declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #12
+declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -21823,14 +21823,15 @@ attributes #6 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stac
 attributes #7 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nounwind }
-attributes #15 = { allocsize(1) }
-attributes #16 = { nounwind willreturn memory(read) }
-attributes #17 = { noreturn }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { nounwind }
+attributes #16 = { allocsize(1) }
+attributes #17 = { nounwind willreturn memory(read) }
+attributes #18 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

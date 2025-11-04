@@ -3164,7 +3164,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
   %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(96) ptr @wmem_alloc0(ptr noundef %12, i64 noundef 96) #13
+  %13 = tail call noalias dereferenceable_or_null(96) ptr @wmem_alloc0(ptr noundef %12, i64 noundef 96) #14
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %16 = load i32, ptr %15, align 8
@@ -3246,7 +3246,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
 
 57:                                               ; preds = %.thread, %55
   %58 = call ptr @find_or_create_conversation(ptr noundef %1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 noundef 0, i64 noundef 88, i1 noundef false) #14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 noundef 0, i64 noundef 88, i1 noundef false) #15
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load i32, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 80
@@ -3442,7 +3442,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
 
 174:                                              ; preds = %161
   %175 = call ptr @wmem_file_scope()
-  %176 = call dereferenceable_or_null(88) ptr @wmem_memdup(ptr noundef %175, ptr noundef nonnull %7, i64 noundef 88) #15
+  %176 = call dereferenceable_or_null(88) ptr @wmem_memdup(ptr noundef %175, ptr noundef nonnull %7, i64 noundef 88) #16
   %177 = load i32, ptr %7, align 8
   switch i32 %177, label %copy_address_wmem.exit [
     i32 1, label %178
@@ -3470,7 +3470,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
 
 188:                                              ; preds = %178
   %189 = sext i32 %184 to i64
-  %190 = call ptr @wmem_memdup(ptr noundef %179, ptr noundef %186, i64 noundef %189) #15
+  %190 = call ptr @wmem_memdup(ptr noundef %179, ptr noundef %186, i64 noundef %189) #16
   br label %copy_address_wmem.exit.sink.split
 
 191:                                              ; preds = %174
@@ -3489,7 +3489,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
 
 201:                                              ; preds = %191
   %202 = sext i32 %197 to i64
-  %203 = call ptr @wmem_memdup(ptr noundef %192, ptr noundef %199, i64 noundef %202) #15
+  %203 = call ptr @wmem_memdup(ptr noundef %192, ptr noundef %199, i64 noundef %202) #16
   br label %copy_address_wmem.exit.sink.split
 
 204:                                              ; preds = %174
@@ -3508,7 +3508,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
 
 214:                                              ; preds = %204
   %215 = sext i32 %210 to i64
-  %216 = call ptr @wmem_memdup(ptr noundef %205, ptr noundef %212, i64 noundef %215) #15
+  %216 = call ptr @wmem_memdup(ptr noundef %205, ptr noundef %212, i64 noundef %215) #16
   br label %copy_address_wmem.exit.sink.split
 
 217:                                              ; preds = %174
@@ -3527,7 +3527,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
 
 227:                                              ; preds = %217
   %228 = sext i32 %223 to i64
-  %229 = call ptr @wmem_memdup(ptr noundef %218, ptr noundef %225, i64 noundef %228) #15
+  %229 = call ptr @wmem_memdup(ptr noundef %218, ptr noundef %225, i64 noundef %228) #16
   br label %copy_address_wmem.exit.sink.split
 
 230:                                              ; preds = %174
@@ -3546,7 +3546,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
 
 240:                                              ; preds = %230
   %241 = sext i32 %236 to i64
-  %242 = call ptr @wmem_memdup(ptr noundef %231, ptr noundef %238, i64 noundef %241) #15
+  %242 = call ptr @wmem_memdup(ptr noundef %231, ptr noundef %238, i64 noundef %241) #16
   br label %copy_address_wmem.exit.sink.split
 
 243:                                              ; preds = %174
@@ -3565,7 +3565,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
 
 253:                                              ; preds = %243
   %254 = sext i32 %249 to i64
-  %255 = call ptr @wmem_memdup(ptr noundef %244, ptr noundef %251, i64 noundef %254) #15
+  %255 = call ptr @wmem_memdup(ptr noundef %244, ptr noundef %251, i64 noundef %254) #16
   br label %copy_address_wmem.exit.sink.split
 
 256:                                              ; preds = %174
@@ -3584,7 +3584,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
 
 266:                                              ; preds = %256
   %267 = sext i32 %262 to i64
-  %268 = call ptr @wmem_memdup(ptr noundef %257, ptr noundef %264, i64 noundef %267) #15
+  %268 = call ptr @wmem_memdup(ptr noundef %257, ptr noundef %264, i64 noundef %267) #16
   br label %copy_address_wmem.exit.sink.split
 
 copy_address_wmem.exit.sink.split:                ; preds = %188, %201, %214, %227, %240, %253, %266
@@ -3611,7 +3611,7 @@ copy_address_wmem.exit:                           ; preds = %copy_address_wmem.e
 
 278:                                              ; preds = %copy_address_wmem.exit
   %279 = sext i32 %275 to i64
-  %280 = call ptr @wmem_memdup(ptr noundef %272, ptr noundef %276, i64 noundef %279) #15
+  %280 = call ptr @wmem_memdup(ptr noundef %272, ptr noundef %276, i64 noundef %279) #16
   %281 = getelementptr inbounds nuw i8, ptr %176, i64 64
   store ptr %280, ptr %281, align 8
   %282 = getelementptr inbounds nuw i8, ptr %176, i64 56
@@ -3622,7 +3622,7 @@ copy_address_wmem.exit:                           ; preds = %copy_address_wmem.e
 
 copy_address_wmem.exit101:                        ; preds = %copy_address_wmem.exit, %278
   %284 = call ptr @wmem_file_scope()
-  %285 = call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %284, i64 noundef 4) #13
+  %285 = call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %284, i64 noundef 4) #14
   %286 = load i32, ptr %59, align 8
   store i32 %286, ptr %285, align 4
   %287 = load ptr, ptr @rsvp_request_hash, align 8
@@ -10872,7 +10872,7 @@ declare ptr @rval_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: null_pointer_is_valid
@@ -11808,17 +11808,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -11827,15 +11827,16 @@ attributes #3 = { mustprogress nofree norecurse nounwind null_pointer_is_valid s
 attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { allocsize(1) }
-attributes #14 = { nounwind }
-attributes #15 = { allocsize(2) }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { allocsize(1) }
+attributes #15 = { nounwind }
+attributes #16 = { allocsize(2) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

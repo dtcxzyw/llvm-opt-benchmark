@@ -36,7 +36,7 @@ define internal i32 @aptx_encode_init(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4400
-  tail call void @ff_af_queue_init(ptr noundef %0, ptr noundef nonnull %4) #5
+  tail call void @ff_af_queue_init(ptr noundef %0, ptr noundef nonnull %4) #6
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %6 = load i32, ptr %5, align 8, !tbaa !27
   %.not = icmp ne i32 %6, 0
@@ -54,7 +54,7 @@ define internal i32 @aptx_encode_init(ptr noundef %0) #0 {
   %11 = load ptr, ptr %10, align 8, !tbaa !28
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 4, ptr %12, align 8, !tbaa !29
-  %13 = tail call i32 @ff_aptx_init(ptr noundef nonnull %0) #5
+  %13 = tail call i32 @ff_aptx_init(ptr noundef nonnull %0) #6
   ret i32 %13
 }
 
@@ -70,7 +70,7 @@ define internal range(i32 -2147483648, 1) i32 @aptx_encode_frame(ptr noundef %0,
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4400
-  %11 = tail call i32 @ff_af_queue_add(ptr noundef nonnull %10, ptr noundef %2) #5
+  %11 = tail call i32 @ff_af_queue_add(ptr noundef nonnull %10, ptr noundef %2) #6
   %12 = icmp slt i32 %11, 0
   %indvars.iv.i.sroa.gep40 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %indvars.iv57.sroa.gep82 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -84,7 +84,7 @@ define internal range(i32 -2147483648, 1) i32 @aptx_encode_frame(ptr noundef %0,
   %18 = mul nsw i32 %17, %15
   %19 = sdiv i32 %18, 4
   %20 = sext i32 %19 to i64
-  %21 = tail call i32 @ff_get_encode_buffer(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %20, i32 noundef 0) #5
+  %21 = tail call i32 @ff_get_encode_buffer(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %20, i32 noundef 0) #6
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %359, label %.preheader41
 
@@ -317,7 +317,7 @@ aptx_qmf_polyphase_analysis.exit20.i.i.i:         ; preds = %aptx_qmf_convolutio
 
 aptx_qmf_tree_analysis.exit.i.i:                  ; preds = %aptx_qmf_polyphase_analysis.exit20.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  tail call void @ff_aptx_generate_dither(ptr noundef nonnull %48) #5
+  tail call void @ff_aptx_generate_dither(ptr noundef nonnull %48) #6
   %143 = getelementptr inbounds nuw i8, ptr %48, i64 816
   %144 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %145 = getelementptr inbounds nuw i8, ptr %48, i64 864
@@ -549,7 +549,7 @@ aptx_insert_sync.exit.i:                          ; preds = %aptx_insert_sync.ex
   %indvars.iv64.i = phi i64 [ 1, %352 ], [ 0, %aptx_insert_sync.exit.i.preheader ]
   %280 = getelementptr inbounds nuw %struct.Channel, ptr %25, i64 %indvars.iv64.i
   %281 = load i32, ptr %9, align 4, !tbaa !51
-  tail call void @ff_aptx_invert_quantize_and_prediction(ptr noundef nonnull %280, i32 noundef %281) #5
+  tail call void @ff_aptx_invert_quantize_and_prediction(ptr noundef nonnull %280, i32 noundef %281) #6
   %282 = load i32, ptr %9, align 4, !tbaa !51
   %.not.i = icmp eq i32 %282, 0
   br i1 %.not.i, label %321, label %.preheader.i
@@ -665,7 +665,7 @@ aptx_encode_samples.exit:                         ; preds = %352
   %356 = load i32, ptr %16, align 8, !tbaa !38
   %357 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %358 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  tail call void @ff_af_queue_remove(ptr noundef nonnull %10, i32 noundef %356, ptr noundef nonnull %357, ptr noundef nonnull %358) #5
+  tail call void @ff_af_queue_remove(ptr noundef nonnull %10, i32 noundef %356, ptr noundef nonnull %357, ptr noundef nonnull %358) #6
   store i32 1, ptr %3, align 4, !tbaa !45
   br label %359
 
@@ -679,7 +679,7 @@ define internal noundef i32 @aptx_close(ptr noundef readonly captures(none) %0) 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4400
-  tail call void @ff_af_queue_close(ptr noundef nonnull %4) #5
+  tail call void @ff_af_queue_close(ptr noundef nonnull %4) #6
   ret i32 0
 }
 
@@ -705,30 +705,31 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #4
+declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #4
+declare i64 @llvm.abs.i64(i64, i1 immarg) #5
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

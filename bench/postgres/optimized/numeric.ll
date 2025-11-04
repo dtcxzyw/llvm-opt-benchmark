@@ -10,15 +10,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @PGTYPESnumeric_new() local_unnamed_addr #0 {
-  %1 = tail call ptr @pgtypes_alloc(i64 noundef 40) #14
+  %1 = tail call ptr @pgtypes_alloc(i64 noundef 40) #15
   %2 = icmp eq ptr %1, null
   br i1 %2, label %12, label %3
 
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
-  tail call void @free(ptr noundef %5) #14
-  %6 = tail call ptr @pgtypes_alloc(i64 noundef 1) #14
+  tail call void @free(ptr noundef %5) #15
+  %6 = tail call ptr @pgtypes_alloc(i64 noundef 1) #15
   store ptr %6, ptr %4, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %11, label %alloc_var.exit
@@ -33,7 +33,7 @@ alloc_var.exit:                                   ; preds = %3
   br label %12
 
 11:                                               ; preds = %3
-  tail call void @free(ptr noundef nonnull %1) #14
+  tail call void @free(ptr noundef nonnull %1) #15
   br label %12
 
 12:                                               ; preds = %alloc_var.exit, %0, %11
@@ -48,7 +48,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @PGTYPESdecimal_new() local_unnamed_addr #0 {
-  %1 = tail call ptr @pgtypes_alloc(i64 noundef 52) #14
+  %1 = tail call ptr @pgtypes_alloc(i64 noundef 52) #15
   %2 = icmp eq ptr %1, null
   br i1 %2, label %4, label %3
 
@@ -66,13 +66,13 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nounwind uwtable
 define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = tail call ptr @pgtypes_alloc(i64 noundef 40) #14
+  %4 = tail call ptr @pgtypes_alloc(i64 noundef 40) #15
   %.not10 = icmp eq ptr %4, null
   br i1 %.not10, label %set_var_from_str.exit, label %5
 
 5:                                                ; preds = %2
   %.not = icmp eq ptr %1, null
-  %6 = tail call ptr @__errno_location() #15
+  %6 = tail call ptr @__errno_location() #16
   store i32 0, ptr %6, align 4
   br i1 %.not, label %.cont58, label %.cont58.thread
 
@@ -88,11 +88,11 @@ define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef captures(address
   br i1 %.not91.i127, label %._crit_edge.i.thread, label %.lr.ph.i.split.preheader
 
 .lr.ph.i.split.preheader:                         ; preds = %.cont58.thread
-  %9 = tail call ptr @__ctype_b_loc() #15
+  %9 = tail call ptr @__ctype_b_loc() #16
   br label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.cont58
-  %10 = tail call ptr @__ctype_b_loc() #15
+  %10 = tail call ptr @__ctype_b_loc() #16
   %11 = load ptr, ptr %10, align 8
   %12 = zext i8 %7 to i64
   %13 = getelementptr inbounds nuw i16, ptr %11, i64 %12
@@ -139,14 +139,14 @@ define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef captures(address
 
 ._crit_edge.i.thread:                             ; preds = %.lr.ph.i.split, %.else57, %.cont58.thread
   %storemerge.lcssa.i.ph = phi ptr [ %0, %.cont58.thread ], [ %storemerge92.i, %.lr.ph.i.split ], [ %29, %.else57 ]
-  %31 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %storemerge.lcssa.i.ph, ptr noundef nonnull @.str.1, i64 noundef 3) #14
+  %31 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %storemerge.lcssa.i.ph, ptr noundef nonnull @.str.1, i64 noundef 3) #15
   %32 = icmp eq i32 %31, 0
   %.else.val54132 = load ptr, ptr %1, align 8
   br i1 %32, label %.cont12, label %62
 
 ._crit_edge.i:                                    ; preds = %16, %.cont55.us.._crit_edge.i.loopexit.split.us_crit_edge, %.lr.ph.i.split.us, %.cont58
   %.1 = phi ptr [ %0, %.cont58 ], [ %21, %.cont55.us.._crit_edge.i.loopexit.split.us_crit_edge ], [ %0, %.lr.ph.i.split.us ], [ %21, %16 ]
-  %33 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.1, ptr noundef nonnull @.str.1, i64 noundef 3) #14
+  %33 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.1, ptr noundef nonnull @.str.1, i64 noundef 3) #15
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %.cont12.thread, label %62
 
@@ -169,12 +169,12 @@ define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef captures(address
   br i1 %.not84109.i135, label %set_var_from_str.exit, label %.lr.ph111.i.thread
 
 .lr.ph111.i.thread:                               ; preds = %.cont12.thread
-  %41 = tail call ptr @__ctype_b_loc() #15
+  %41 = tail call ptr @__ctype_b_loc() #16
   %42 = load ptr, ptr %41, align 8
   br label %44
 
 .lr.ph111.i:                                      ; preds = %.cont12
-  %43 = tail call ptr @__ctype_b_loc() #15
+  %43 = tail call ptr @__ctype_b_loc() #16
   br label %.lr.ph111.i.split
 
 44:                                               ; preds = %.cont.us, %.lr.ph111.i.thread
@@ -218,14 +218,14 @@ define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef captures(address
 62:                                               ; preds = %._crit_edge.i.thread, %._crit_edge.i
   %.1130 = phi ptr [ %.1, %._crit_edge.i ], [ %0, %._crit_edge.i.thread ]
   %63 = phi ptr [ %.1, %._crit_edge.i ], [ %.else.val54132, %._crit_edge.i.thread ]
-  %64 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #16
+  %64 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #17
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %66 = load ptr, ptr %65, align 8
-  tail call void @free(ptr noundef %66) #14
+  tail call void @free(ptr noundef %66) #15
   %67 = shl i64 %64, 32
   %sext.i = add i64 %67, 4294967296
   %68 = ashr exact i64 %sext.i, 32
-  %69 = tail call ptr @pgtypes_alloc(i64 noundef %68) #14
+  %69 = tail call ptr @pgtypes_alloc(i64 noundef %68) #15
   store ptr %69, ptr %65, align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %186, label %71
@@ -306,7 +306,7 @@ thread-pre-split126.i.cont:                       ; preds = %thread-pre-split126
   %92 = phi i8 [ %.pre.i, %.cont17 ], [ %86, %85 ]
   %93 = phi ptr [ %90, %.cont17 ], [ %87, %85 ]
   %.068.i = phi i8 [ 1, %.cont17 ], [ 0, %85 ]
-  %94 = tail call ptr @__ctype_b_loc() #15
+  %94 = tail call ptr @__ctype_b_loc() #16
   %95 = load ptr, ptr %94, align 8
   %96 = zext i8 %92 to i64
   %97 = getelementptr inbounds nuw i16, ptr %95, i64 %96
@@ -431,14 +431,14 @@ thread-pre-split126.i.cont:                       ; preds = %thread-pre-split126
   br i1 %.not, label %.cont31, label %.cont31.thread
 
 .cont31:                                          ; preds = %134
-  %136 = call i64 @strtol(ptr noundef nonnull %135, ptr noundef nonnull %3, i32 noundef 10) #14
+  %136 = call i64 @strtol(ptr noundef nonnull %135, ptr noundef nonnull %3, i32 noundef 10) #15
   %137 = load ptr, ptr %3, align 8
   %138 = icmp eq ptr %137, %135
   br i1 %138, label %.critedge87.i, label %.cont28
 
 .cont31.thread:                                   ; preds = %134
   store ptr %135, ptr %1, align 8
-  %139 = call i64 @strtol(ptr noundef nonnull %135, ptr noundef nonnull %3, i32 noundef 10) #14
+  %139 = call i64 @strtol(ptr noundef nonnull %135, ptr noundef nonnull %3, i32 noundef 10) #15
   %140 = load ptr, ptr %3, align 8
   %.else.val = load ptr, ptr %1, align 8
   %141 = icmp eq ptr %140, %.else.val
@@ -576,8 +576,8 @@ thread-pre-split.i:                               ; preds = %.else25, %.cont23.u
 186:                                              ; preds = %.split92.us, %127, %.split.us, %100, %.critedge87.i, %62
   %187 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %188 = load ptr, ptr %187, align 8
-  tail call void @free(ptr noundef %188) #14
-  tail call void @free(ptr noundef nonnull %4) #14
+  tail call void @free(ptr noundef %188) #15
+  tail call void @free(ptr noundef nonnull %4) #15
   br label %set_var_from_str.exit
 
 set_var_from_str.exit:                            ; preds = %.else, %.cont.us, %.cont12.thread, %.critedge.thread.i, %.cont12, %2, %186
@@ -589,22 +589,22 @@ set_var_from_str.exit:                            ; preds = %.else, %.cont.us, %
 define void @PGTYPESnumeric_free(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  tail call void @free(ptr noundef %3) #14
-  tail call void @free(ptr noundef %0) #14
+  tail call void @free(ptr noundef %3) #15
+  tail call void @free(ptr noundef %0) #15
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @PGTYPESnumeric_to_asc(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @pgtypes_alloc(i64 noundef 40) #14
+  %3 = tail call ptr @pgtypes_alloc(i64 noundef 40) #15
   %4 = icmp eq ptr %3, null
   br i1 %4, label %PGTYPESnumeric_new.exit.thread, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load ptr, ptr %6, align 8
-  tail call void @free(ptr noundef %7) #14
-  %8 = tail call ptr @pgtypes_alloc(i64 noundef 1) #14
+  tail call void @free(ptr noundef %7) #15
+  %8 = tail call ptr @pgtypes_alloc(i64 noundef 1) #15
   store ptr %8, ptr %6, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %PGTYPESnumeric_new.exit.thread.sink.split, label %10
@@ -616,7 +616,7 @@ define ptr @PGTYPESnumeric_to_asc(ptr noundef readonly captures(none) %0, i32 no
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %12, ptr %13, align 8
   store i32 0, ptr %3, align 8
-  tail call void @free(ptr noundef %11) #14
+  tail call void @free(ptr noundef %11) #15
   store i32 0, ptr %3, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %14, align 4
@@ -640,7 +640,7 @@ define ptr @PGTYPESnumeric_to_asc(ptr noundef readonly captures(none) %0, i32 no
   %26 = load i32, ptr %0, align 8
   %27 = add i32 %26, 1
   %28 = sext i32 %27 to i64
-  %29 = tail call ptr @pgtypes_alloc(i64 noundef %28) #14
+  %29 = tail call ptr @pgtypes_alloc(i64 noundef %28) #15
   store ptr %29, ptr %6, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %PGTYPESnumeric_new.exit.thread.sink.split, label %alloc_var.exit.i13
@@ -685,12 +685,12 @@ alloc_var.exit.i13:                               ; preds = %10
   %.010 = phi i32 [ %47, %46 ], [ %1, %.loopexit ]
   %49 = tail call fastcc ptr @get_str_from_var(ptr noundef %3, i32 noundef %.010)
   %50 = load ptr, ptr %6, align 8
-  tail call void @free(ptr noundef %50) #14
+  tail call void @free(ptr noundef %50) #15
   br label %PGTYPESnumeric_new.exit.thread.sink.split
 
 PGTYPESnumeric_new.exit.thread.sink.split:        ; preds = %10, %5, %48
   %.0.ph = phi ptr [ %49, %48 ], [ null, %5 ], [ null, %10 ]
-  tail call void @free(ptr noundef nonnull %3) #14
+  tail call void @free(ptr noundef nonnull %3) #15
   br label %PGTYPESnumeric_new.exit.thread
 
 PGTYPESnumeric_new.exit.thread:                   ; preds = %PGTYPESnumeric_new.exit.thread.sink.split, %2
@@ -706,7 +706,7 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_copy(ptr noundef readonly captures(n
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
-  tail call void @free(ptr noundef %6) #14
+  tail call void @free(ptr noundef %6) #15
   store i32 0, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %7, align 4
@@ -730,7 +730,7 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_copy(ptr noundef readonly captures(n
   %19 = load i32, ptr %0, align 8
   %20 = add i32 %19, 1
   %21 = sext i32 %20 to i64
-  %22 = tail call ptr @pgtypes_alloc(i64 noundef %21) #14
+  %22 = tail call ptr @pgtypes_alloc(i64 noundef %21) #15
   store ptr %22, ptr %5, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %alloc_var.exit.thread, label %alloc_var.exit
@@ -777,12 +777,12 @@ define internal fastcc ptr @get_str_from_var(ptr noundef nonnull captures(none) 
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @pgtypes_alloc(i64 noundef 4) #14
+  %7 = tail call ptr @pgtypes_alloc(i64 noundef 4) #15
   %8 = icmp eq ptr %7, null
   br i1 %8, label %89, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.1) #14
+  %10 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.1) #15
   br label %89
 
 11:                                               ; preds = %2
@@ -852,7 +852,7 @@ define internal fastcc ptr @get_str_from_var(ptr noundef nonnull captures(none) 
   %45 = add nuw i32 %44, 4
   %46 = add i32 %45, %spec.select
   %47 = sext i32 %46 to i64
-  %48 = tail call ptr @pgtypes_alloc(i64 noundef %47) #14
+  %48 = tail call ptr @pgtypes_alloc(i64 noundef %47) #15
   %49 = icmp eq ptr %48, null
   br i1 %49, label %89, label %50
 
@@ -957,7 +957,7 @@ select.unfold:                                    ; preds = %58, %60, %63
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @PGTYPESdecimal_free(ptr noundef captures(none) %0) local_unnamed_addr #5 {
-  tail call void @free(ptr noundef %0) #14
+  tail call void @free(ptr noundef %0) #15
   ret void
 }
 
@@ -995,7 +995,7 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_add(ptr noundef readonly captures(no
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = load ptr, ptr %18, align 8
-  tail call void @free(ptr noundef %19) #14
+  tail call void @free(ptr noundef %19) #15
   store i32 0, ptr %2, align 8
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %20, align 4
@@ -1052,7 +1052,7 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_add(ptr noundef readonly captures(no
 44:                                               ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %46 = load ptr, ptr %45, align 8
-  tail call void @free(ptr noundef %46) #14
+  tail call void @free(ptr noundef %46) #15
   store i32 0, ptr %2, align 8
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %47, align 4
@@ -1145,7 +1145,7 @@ define internal fastcc range(i32 -1, 1) i32 @add_abs(ptr noundef readonly captur
   %26 = add i32 %25, %14
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %26, i32 1)
   %27 = zext nneg i32 %spec.store.select to i64
-  %28 = tail call ptr @pgtypes_alloc(i64 noundef %27) #14
+  %28 = tail call ptr @pgtypes_alloc(i64 noundef %27) #15
   %29 = icmp eq ptr %28, null
   br i1 %29, label %85, label %30
 
@@ -1252,7 +1252,7 @@ define internal fastcc range(i32 -1, 1) i32 @add_abs(ptr noundef readonly captur
   %78 = phi i32 [ %spec.select, %.critedge2 ], [ 0, %74 ], [ %.07698, %.lr.ph ], [ 0, %63 ]
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %80 = load ptr, ptr %79, align 8
-  tail call void @free(ptr noundef %80) #14
+  tail call void @free(ptr noundef %80) #15
   store i32 %.1.lcssa119, ptr %2, align 8
   store ptr %28, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -1469,7 +1469,7 @@ define internal fastcc range(i32 -1, 1) i32 @sub_abs(ptr noundef readonly captur
   %22 = add i32 %21, %.fr126
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %22, i32 1)
   %23 = zext nneg i32 %spec.store.select to i64
-  %24 = tail call ptr @pgtypes_alloc(i64 noundef %23) #14
+  %24 = tail call ptr @pgtypes_alloc(i64 noundef %23) #15
   %25 = icmp eq ptr %24, null
   br i1 %25, label %82, label %26
 
@@ -1577,7 +1577,7 @@ define internal fastcc range(i32 -1, 1) i32 @sub_abs(ptr noundef readonly captur
   %75 = phi i32 [ %spec.select, %.critedge2 ], [ 0, %71 ], [ %.07393, %.lr.ph ], [ 0, %60 ]
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %77 = load ptr, ptr %76, align 8
-  tail call void @free(ptr noundef %77) #14
+  tail call void @free(ptr noundef %77) #15
   store i32 %.1.lcssa114, ptr %2, align 8
   store ptr %24, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -1629,7 +1629,7 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_sub(ptr noundef readonly captures(no
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = load ptr, ptr %18, align 8
-  tail call void @free(ptr noundef %19) #14
+  tail call void @free(ptr noundef %19) #15
   store i32 0, ptr %2, align 8
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %20, align 4
@@ -1686,7 +1686,7 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_sub(ptr noundef readonly captures(no
 44:                                               ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %46 = load ptr, ptr %45, align 8
-  tail call void @free(ptr noundef %46) #14
+  tail call void @free(ptr noundef %46) #15
   store i32 0, ptr %2, align 8
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %47, align 4
@@ -1770,7 +1770,7 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_mul(ptr noundef readonly captures(no
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %20, %22
   %24 = sext i32 %18 to i64
-  %25 = tail call ptr @pgtypes_alloc(i64 noundef %24) #14
+  %25 = tail call ptr @pgtypes_alloc(i64 noundef %24) #15
   %26 = icmp eq ptr %25, null
   br i1 %26, label %115, label %27
 
@@ -1929,7 +1929,7 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_mul(ptr noundef readonly captures(no
   %spec.select95 = select i1 %102, i32 0, i32 16384
   %103 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %104 = load ptr, ptr %103, align 8
-  tail call void @free(ptr noundef %104) #14
+  tail call void @free(ptr noundef %104) #15
   store ptr %25, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %.091.lcssa139, ptr %105, align 8
@@ -2043,7 +2043,7 @@ select_div_scale.exit:                            ; preds = %30, %.loopexit52.i,
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %select_div_scale.exit
-  %44 = tail call ptr @__errno_location() #15
+  %44 = tail call ptr @__errno_location() #16
   store i32 303, ptr %44, align 4
   br label %.loopexit
 
@@ -2068,7 +2068,7 @@ select_div_scale.exit:                            ; preds = %30, %.loopexit52.i,
 59:                                               ; preds = %45
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %61 = load ptr, ptr %60, align 8
-  tail call void @free(ptr noundef %61) #14
+  tail call void @free(ptr noundef %61) #15
   store i32 0, ptr %2, align 8
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %62, align 4
@@ -2087,7 +2087,7 @@ select_div_scale.exit:                            ; preds = %30, %.loopexit52.i,
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 %19, ptr %66, align 16
   %67 = sext i32 %41 to i64
-  %68 = tail call ptr @pgtypes_alloc(i64 noundef %67) #14
+  %68 = tail call ptr @pgtypes_alloc(i64 noundef %67) #15
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr %68, ptr %69, align 16
   %70 = icmp eq ptr %68, null
@@ -2111,7 +2111,7 @@ select_div_scale.exit:                            ; preds = %30, %.loopexit52.i,
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %80, align 8
   %81 = sext i32 %77 to i64
-  %82 = tail call ptr @pgtypes_alloc(i64 noundef %81) #14
+  %82 = tail call ptr @pgtypes_alloc(i64 noundef %81) #15
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %82, ptr %83, align 8
   %84 = icmp eq ptr %82, null
@@ -2127,14 +2127,14 @@ select_div_scale.exit:                            ; preds = %30, %.loopexit52.i,
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %82, ptr align 1 %88, i64 %90, i1 false)
   %91 = add nuw i32 %spec.store.select, 2
   %92 = sext i32 %91 to i64
-  %93 = tail call ptr @pgtypes_alloc(i64 noundef %92) #14
+  %93 = tail call ptr @pgtypes_alloc(i64 noundef %92) #15
   %94 = icmp eq ptr %93, null
   br i1 %94, label %.loopexit178, label %95
 
 95:                                               ; preds = %85
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %97 = load ptr, ptr %96, align 8
-  tail call void @free(ptr noundef %97) #14
+  tail call void @free(ptr noundef %97) #15
   store ptr %93, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %93, ptr %98, align 8
@@ -2208,7 +2208,7 @@ select_div_scale.exit:                            ; preds = %30, %.loopexit52.i,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %129, ptr noundef nonnull align 8 dereferenceable(40) %scevgep, i64 40, i1 false)
   %134 = load i32, ptr %129, align 8
   %135 = sext i32 %134 to i64
-  %136 = tail call ptr @pgtypes_alloc(i64 noundef %135) #14
+  %136 = tail call ptr @pgtypes_alloc(i64 noundef %135) #15
   store ptr %136, ptr %130, align 8
   %137 = icmp eq ptr %136, null
   br i1 %137, label %.loopexit178, label %138
@@ -2429,7 +2429,7 @@ select_div_scale.exit:                            ; preds = %30, %.loopexit52.i,
   br i1 %.not168, label %.preheader, label %242
 
 242:                                              ; preds = %.loopexit178
-  tail call void @free(ptr noundef nonnull %241) #14
+  tail call void @free(ptr noundef nonnull %241) #15
   br label %.preheader
 
 .preheader:                                       ; preds = %242, %.loopexit178
@@ -2444,7 +2444,7 @@ select_div_scale.exit:                            ; preds = %30, %.loopexit52.i,
   br i1 %.not169, label %248, label %247
 
 247:                                              ; preds = %243
-  tail call void @free(ptr noundef nonnull %246) #14
+  tail call void @free(ptr noundef nonnull %246) #15
   br label %248
 
 248:                                              ; preds = %243, %247
@@ -2499,7 +2499,7 @@ define range(i32 -1, -2147483648) i32 @PGTYPESnumeric_cmp(ptr noundef readonly c
   br label %16
 
 .thread12:                                        ; preds = %10, %5, %2
-  %15 = tail call ptr @__errno_location() #15
+  %15 = tail call ptr @__errno_location() #16
   store i32 302, ptr %15, align 4
   br label %16
 
@@ -2547,10 +2547,10 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_from_int(i32 noundef %0, ptr noundef
   %.1.i = phi i64 [ %8, %15 ], [ %19, %17 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
-  tail call void @free(ptr noundef %22) #14
+  tail call void @free(ptr noundef %22) #15
   %23 = add i32 %.137.i, 1
   %24 = sext i32 %23 to i64
-  %25 = tail call ptr @pgtypes_alloc(i64 noundef %24) #14
+  %25 = tail call ptr @pgtypes_alloc(i64 noundef %24) #15
   store ptr %25, ptr %21, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %PGTYPESnumeric_from_long.exit, label %27
@@ -2630,10 +2630,10 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_from_long(i64 noundef %0, ptr nounde
   %.1 = phi i64 [ %7, %14 ], [ %18, %16 ]
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8
-  tail call void @free(ptr noundef %21) #14
+  tail call void @free(ptr noundef %21) #15
   %22 = add i32 %.137, 1
   %23 = sext i32 %22 to i64
-  %24 = tail call ptr @pgtypes_alloc(i64 noundef %23) #14
+  %24 = tail call ptr @pgtypes_alloc(i64 noundef %23) #15
   store ptr %24, ptr %20, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %alloc_var.exit.thread, label %26
@@ -2679,7 +2679,7 @@ alloc_var.exit.thread:                            ; preds = %34, %19
 define range(i32 -1, 1) i32 @PGTYPESnumeric_from_double(double noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca [115 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str, i32 noundef 15, double noundef %0) #14
+  %4 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str, i32 noundef 15, double noundef %0) #15
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %51, label %6
 
@@ -2695,7 +2695,7 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_from_double(double noundef %0, ptr n
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %13) #14
+  call void @free(ptr noundef %13) #15
   store i32 0, ptr %1, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %14, align 4
@@ -2719,7 +2719,7 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_from_double(double noundef %0, ptr n
   %26 = load i32, ptr %7, align 8
   %27 = add i32 %26, 1
   %28 = sext i32 %27 to i64
-  %29 = call ptr @pgtypes_alloc(i64 noundef %28) #14
+  %29 = call ptr @pgtypes_alloc(i64 noundef %28) #15
   store ptr %29, ptr %12, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.critedge, label %alloc_var.exit.i
@@ -2756,17 +2756,17 @@ alloc_var.exit.i:                                 ; preds = %11
 PGTYPESnumeric_copy.exit:                         ; preds = %37, %alloc_var.exit.i
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %47 = load ptr, ptr %46, align 8
-  call void @free(ptr noundef %47) #14
-  call void @free(ptr noundef nonnull %7) #14
-  %48 = tail call ptr @__errno_location() #15
+  call void @free(ptr noundef %47) #15
+  call void @free(ptr noundef nonnull %7) #15
+  %48 = tail call ptr @__errno_location() #16
   store i32 0, ptr %48, align 4
   br label %51
 
 .critedge:                                        ; preds = %11, %9
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %50 = load ptr, ptr %49, align 8
-  call void @free(ptr noundef %50) #14
-  call void @free(ptr noundef nonnull %7) #14
+  call void @free(ptr noundef %50) #15
+  call void @free(ptr noundef nonnull %7) #15
   br label %51
 
 51:                                               ; preds = %.critedge, %6, %2, %PGTYPESnumeric_copy.exit
@@ -2781,21 +2781,21 @@ declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 define range(i32 -1, 1) i32 @PGTYPESnumeric_to_double(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = tail call ptr @pgtypes_alloc(i64 noundef 40) #14
+  %4 = tail call ptr @pgtypes_alloc(i64 noundef 40) #15
   %5 = icmp eq ptr %4, null
   br i1 %5, label %numericvar_to_double.exit.thread, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load ptr, ptr %7, align 8
-  tail call void @free(ptr noundef %8) #14
-  %9 = tail call ptr @pgtypes_alloc(i64 noundef 1) #14
+  tail call void @free(ptr noundef %8) #15
+  %9 = tail call ptr @pgtypes_alloc(i64 noundef 1) #15
   store ptr %9, ptr %7, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %6
-  tail call void @free(ptr noundef nonnull %4) #14
+  tail call void @free(ptr noundef nonnull %4) #15
   br label %numericvar_to_double.exit.thread
 
 12:                                               ; preds = %6
@@ -2805,7 +2805,7 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_to_double(ptr noundef readonly captu
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %14, ptr %15, align 8
   store i32 0, ptr %4, align 8
-  tail call void @free(ptr noundef %13) #14
+  tail call void @free(ptr noundef %13) #15
   store i32 0, ptr %4, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %16, align 4
@@ -2829,7 +2829,7 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_to_double(ptr noundef readonly captu
   %28 = load i32, ptr %0, align 8
   %29 = add i32 %28, 1
   %30 = sext i32 %29 to i64
-  %31 = tail call ptr @pgtypes_alloc(i64 noundef %30) #14
+  %31 = tail call ptr @pgtypes_alloc(i64 noundef %30) #15
   store ptr %31, ptr %7, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %PGTYPESnumeric_copy.exit.i, label %alloc_var.exit.i17.i
@@ -2863,28 +2863,28 @@ alloc_var.exit.i17.i:                             ; preds = %12
   br i1 %46, label %38, label %.loopexit.i, !llvm.loop !9
 
 PGTYPESnumeric_copy.exit.i:                       ; preds = %12
-  tail call void @free(ptr noundef nonnull %4) #14
+  tail call void @free(ptr noundef nonnull %4) #15
   br label %numericvar_to_double.exit.thread
 
 .loopexit.i:                                      ; preds = %38, %alloc_var.exit.i17.i
   %47 = load i32, ptr %25, align 4
   %48 = tail call fastcc ptr @get_str_from_var(ptr noundef %4, i32 noundef %47)
   %49 = load ptr, ptr %7, align 8
-  tail call void @free(ptr noundef %49) #14
-  tail call void @free(ptr noundef nonnull %4) #14
+  tail call void @free(ptr noundef %49) #15
+  tail call void @free(ptr noundef nonnull %4) #15
   %50 = icmp eq ptr %48, null
   br i1 %50, label %numericvar_to_double.exit.thread, label %51
 
 51:                                               ; preds = %.loopexit.i
-  %52 = tail call ptr @__errno_location() #15
+  %52 = tail call ptr @__errno_location() #16
   store i32 0, ptr %52, align 4
-  %53 = call double @strtod(ptr noundef nonnull %48, ptr noundef nonnull %3) #14
+  %53 = call double @strtod(ptr noundef nonnull %48, ptr noundef nonnull %3) #15
   %54 = load i32, ptr %52, align 4
   %55 = icmp eq i32 %54, 34
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %51
-  tail call void @free(ptr noundef nonnull %48) #14
+  tail call void @free(ptr noundef nonnull %48) #15
   %57 = fcmp oeq double %53, 0.000000e+00
   %..i = select i1 %57, i32 304, i32 301
   store i32 %..i, ptr %52, align 4
@@ -2894,7 +2894,7 @@ PGTYPESnumeric_copy.exit.i:                       ; preds = %12
   %59 = load ptr, ptr %3, align 8
   %60 = load i8, ptr %59, align 1
   %.not.i = icmp eq i8 %60, 0
-  tail call void @free(ptr noundef nonnull %48) #14
+  tail call void @free(ptr noundef nonnull %48) #15
   br i1 %.not.i, label %62, label %61
 
 61:                                               ; preds = %58
@@ -2924,12 +2924,12 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_to_int(ptr noundef readonly captures
   br i1 %5, label %PGTYPESnumeric_to_long.exit.thread, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @__errno_location() #15
+  %7 = tail call ptr @__errno_location() #16
   store i32 0, ptr %7, align 4
-  %8 = call i64 @strtol(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 10) #14
+  %8 = call i64 @strtol(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 10) #15
   %9 = load ptr, ptr %3, align 8
   %10 = icmp eq ptr %9, %4
-  tail call void @free(ptr noundef nonnull %4) #14
+  tail call void @free(ptr noundef nonnull %4) #15
   br i1 %10, label %PGTYPESnumeric_to_long.exit.thread, label %11
 
 11:                                               ; preds = %6
@@ -2976,13 +2976,13 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_to_long(ptr noundef readonly capture
   br i1 %5, label %17, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @__errno_location() #15
+  %7 = tail call ptr @__errno_location() #16
   store i32 0, ptr %7, align 4
-  %8 = call i64 @strtol(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 10) #14
+  %8 = call i64 @strtol(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 10) #15
   store i64 %8, ptr %1, align 8
   %9 = load ptr, ptr %3, align 8
   %10 = icmp eq ptr %9, %4
-  tail call void @free(ptr noundef nonnull %4) #14
+  tail call void @free(ptr noundef nonnull %4) #15
   br i1 %10, label %17, label %11
 
 11:                                               ; preds = %6
@@ -3013,7 +3013,7 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_to_decimal(ptr noundef readonly capt
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @__errno_location() #15
+  %6 = tail call ptr @__errno_location() #16
   store i32 301, ptr %6, align 4
   br label %.loopexit
 
@@ -3066,7 +3066,7 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_to_decimal(ptr noundef readonly capt
 define range(i32 -1, 1) i32 @PGTYPESnumeric_from_decimal(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 20), (32, 40)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
-  tail call void @free(ptr noundef %4) #14
+  tail call void @free(ptr noundef %4) #15
   store i32 0, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %5, align 4
@@ -3090,7 +3090,7 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_from_decimal(ptr noundef readonly ca
   %17 = load i32, ptr %0, align 4
   %18 = add i32 %17, 1
   %19 = sext i32 %18 to i64
-  %20 = tail call ptr @pgtypes_alloc(i64 noundef %19) #14
+  %20 = tail call ptr @pgtypes_alloc(i64 noundef %19) #15
   store ptr %20, ptr %3, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %alloc_var.exit.thread, label %alloc_var.exit
@@ -3145,23 +3145,23 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #13
+declare i64 @llvm.abs.i64(i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #13
+declare i32 @llvm.abs.i32(i32, i1 immarg) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3176,10 +3176,11 @@ attributes #9 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind willreturn memory(none) }
-attributes #16 = { nounwind willreturn memory(read) }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind willreturn memory(none) }
+attributes #17 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -90,17 +90,17 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %51, label %.thread1197, label %52
 
 52:                                               ; preds = %49
-  %53 = tail call i32 @lsame_(ptr noundef %2, ptr noundef nonnull @.str) #6
+  %53 = tail call i32 @lsame_(ptr noundef %2, ptr noundef nonnull @.str) #7
   %.not = icmp eq i32 %53, 0
   br i1 %.not, label %54, label %58
 
 54:                                               ; preds = %52
-  %55 = tail call i32 @lsame_(ptr noundef %2, ptr noundef nonnull @.str.1) #6
+  %55 = tail call i32 @lsame_(ptr noundef %2, ptr noundef nonnull @.str.1) #7
   %.not1063 = icmp eq i32 %55, 0
   br i1 %.not1063, label %56, label %58
 
 56:                                               ; preds = %54
-  %57 = tail call i32 @lsame_(ptr noundef %2, ptr noundef nonnull @.str.2) #6
+  %57 = tail call i32 @lsame_(ptr noundef %2, ptr noundef nonnull @.str.2) #7
   %.not1064 = icmp eq i32 %57, 0
   %. = select i1 %.not1064, i32 -1, i32 3
   br label %58
@@ -109,22 +109,22 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.sink = phi i32 [ 1, %52 ], [ 2, %54 ], [ %., %56 ]
   %59 = phi i1 [ false, %52 ], [ false, %54 ], [ %.not1064, %56 ]
   store i32 %.sink, ptr %30, align 4, !tbaa !3
-  %60 = tail call i32 @lsame_(ptr noundef %4, ptr noundef nonnull @.str.2) #6
+  %60 = tail call i32 @lsame_(ptr noundef %4, ptr noundef nonnull @.str.2) #7
   %.not1065 = icmp ne i32 %60, 0
   br i1 %.not1065, label %.sink.split, label %61
 
 61:                                               ; preds = %58
-  %62 = tail call i32 @lsame_(ptr noundef %4, ptr noundef nonnull @.str.3) #6
+  %62 = tail call i32 @lsame_(ptr noundef %4, ptr noundef nonnull @.str.3) #7
   %.not1066 = icmp eq i32 %62, 0
   br i1 %.not1066, label %63, label %.sink.split
 
 63:                                               ; preds = %61
-  %64 = tail call i32 @lsame_(ptr noundef %4, ptr noundef nonnull @.str.1) #6
+  %64 = tail call i32 @lsame_(ptr noundef %4, ptr noundef nonnull @.str.1) #7
   %.not1067 = icmp eq i32 %64, 0
   br i1 %.not1067, label %65, label %.sink.split
 
 65:                                               ; preds = %63
-  %66 = tail call i32 @lsame_(ptr noundef %4, ptr noundef nonnull @.str.4) #6
+  %66 = tail call i32 @lsame_(ptr noundef %4, ptr noundef nonnull @.str.4) #7
   %.not1068 = icmp eq i32 %66, 0
   br i1 %.not1068, label %67, label %.sink.split
 
@@ -135,42 +135,42 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 67:                                               ; preds = %.sink.split, %65
   %68 = phi i1 [ true, %65 ], [ false, %.sink.split ]
-  %69 = tail call i32 @lsame_(ptr noundef %11, ptr noundef nonnull @.str.2) #6
+  %69 = tail call i32 @lsame_(ptr noundef %11, ptr noundef nonnull @.str.2) #7
   %.not1069 = icmp eq i32 %69, 0
   br i1 %.not1069, label %70, label %84
 
 70:                                               ; preds = %67
-  %71 = tail call i32 @lsame_(ptr noundef %11, ptr noundef nonnull @.str) #6
+  %71 = tail call i32 @lsame_(ptr noundef %11, ptr noundef nonnull @.str) #7
   %.not1070 = icmp eq i32 %71, 0
   br i1 %.not1070, label %72, label %84
 
 72:                                               ; preds = %70
-  %73 = tail call i32 @lsame_(ptr noundef %11, ptr noundef nonnull @.str.5) #6
+  %73 = tail call i32 @lsame_(ptr noundef %11, ptr noundef nonnull @.str.5) #7
   %.not1071 = icmp eq i32 %73, 0
   br i1 %.not1071, label %74, label %84
 
 74:                                               ; preds = %72
-  %75 = tail call i32 @lsame_(ptr noundef %11, ptr noundef nonnull @.str.6) #6
+  %75 = tail call i32 @lsame_(ptr noundef %11, ptr noundef nonnull @.str.6) #7
   %.not1072 = icmp eq i32 %75, 0
   br i1 %.not1072, label %76, label %84
 
 76:                                               ; preds = %74
-  %77 = tail call i32 @lsame_(ptr noundef %11, ptr noundef nonnull @.str.7) #6
+  %77 = tail call i32 @lsame_(ptr noundef %11, ptr noundef nonnull @.str.7) #7
   %.not1073 = icmp eq i32 %77, 0
   br i1 %.not1073, label %78, label %84
 
 78:                                               ; preds = %76
-  %79 = tail call i32 @lsame_(ptr noundef %11, ptr noundef nonnull @.str.8) #6
+  %79 = tail call i32 @lsame_(ptr noundef %11, ptr noundef nonnull @.str.8) #7
   %.not1074 = icmp eq i32 %79, 0
   br i1 %.not1074, label %80, label %84
 
 80:                                               ; preds = %78
-  %81 = tail call i32 @lsame_(ptr noundef %11, ptr noundef nonnull @.str.9) #6
+  %81 = tail call i32 @lsame_(ptr noundef %11, ptr noundef nonnull @.str.9) #7
   %.not1075 = icmp eq i32 %81, 0
   br i1 %.not1075, label %82, label %84
 
 82:                                               ; preds = %80
-  %83 = tail call i32 @lsame_(ptr noundef %11, ptr noundef nonnull @.str.10) #6
+  %83 = tail call i32 @lsame_(ptr noundef %11, ptr noundef nonnull @.str.10) #7
   %.not1076 = icmp eq i32 %83, 0
   %not..not1076 = xor i1 %.not1076, true
   %.1170 = select i1 %.not1076, i32 -1, i32 7
@@ -341,7 +341,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %161 = phi i32 [ %.pr, %160 ], [ %.sink1845, %.thread.sink.split ]
   %162 = sub nsw i32 0, %161
   store i32 %162, ptr %17, align 4, !tbaa !3
-  %163 = call i32 @xerbla_(ptr noundef nonnull @.str.11, ptr noundef nonnull %17, i32 noundef 6) #6
+  %163 = call i32 @xerbla_(ptr noundef nonnull @.str.11, ptr noundef nonnull %17, i32 noundef 6) #7
   br label %.thread1197
 
 .preheader:                                       ; preds = %160, %.preheader
@@ -369,7 +369,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %174
 
 174:                                              ; preds = %172, %168
-  call void @dlatm1_(ptr noundef nonnull %6, ptr noundef %7, ptr noundef nonnull %38, ptr noundef nonnull %30, ptr noundef nonnull %3, ptr noundef %5, ptr noundef nonnull %31, ptr noundef nonnull %29) #6
+  call void @dlatm1_(ptr noundef nonnull %6, ptr noundef %7, ptr noundef nonnull %38, ptr noundef nonnull %30, ptr noundef nonnull %3, ptr noundef %5, ptr noundef nonnull %31, ptr noundef nonnull %29) #7
   %175 = load i32, ptr %29, align 4, !tbaa !3
   %.not1092 = icmp eq i32 %175, 0
   br i1 %.not1092, label %177, label %176
@@ -436,7 +436,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %204 = load double, ptr %8, align 8, !tbaa !7
   %205 = fdiv double %204, %201
   store double %205, ptr %28, align 8, !tbaa !7
-  call void @dscal_(ptr noundef nonnull %31, ptr noundef nonnull %28, ptr noundef nonnull %5, ptr noundef nonnull @c__1) #6
+  call void @dscal_(ptr noundef nonnull %31, ptr noundef nonnull %28, ptr noundef nonnull %5, ptr noundef nonnull @c__1) #7
   br label %207
 
 206:                                              ; preds = %200
@@ -464,7 +464,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 215:                                              ; preds = %209, %211, %214
   %.0976 = phi i32 [ 1, %211 ], [ 0, %214 ], [ 1, %209 ]
   %.0941 = phi i32 [ %213, %211 ], [ 0, %214 ], [ 1, %209 ]
-  call void @dlaset_(ptr noundef nonnull @.str.12, ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef nonnull @c_b22, ptr noundef nonnull @c_b22, ptr noundef %12, ptr noundef nonnull %13) #6
+  call void @dlaset_(ptr noundef nonnull @.str.12, ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef nonnull @c_b22, ptr noundef nonnull @c_b22, ptr noundef %12, ptr noundef nonnull %13) #7
   %216 = load i32, ptr %40, align 4, !tbaa !3
   %217 = icmp eq i32 %216, 0
   %218 = load i32, ptr %41, align 4
@@ -481,7 +481,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %225 = add i32 %224, %223
   %226 = sext i32 %225 to i64
   %227 = getelementptr inbounds double, ptr %46, i64 %226
-  call void @dcopy_(ptr noundef nonnull %31, ptr noundef nonnull %5, ptr noundef nonnull @c__1, ptr noundef %227, ptr noundef nonnull %17) #6
+  call void @dcopy_(ptr noundef nonnull %31, ptr noundef nonnull %5, ptr noundef nonnull @c__1, ptr noundef %227, ptr noundef nonnull %17) #7
   %or.cond13 = or i1 %89, %93
   %spec.select1175 = select i1 %or.cond13, i32 %.0979, i32 0
   br label %.loopexit1282
@@ -503,7 +503,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %235 = add i32 %234, %233
   %236 = sext i32 %235 to i64
   %237 = getelementptr inbounds double, ptr %46, i64 %236
-  call void @dcopy_(ptr noundef nonnull %31, ptr noundef nonnull %5, ptr noundef nonnull @c__1, ptr noundef %237, ptr noundef nonnull %17) #6
+  call void @dcopy_(ptr noundef nonnull %31, ptr noundef nonnull %5, ptr noundef nonnull @c__1, ptr noundef %237, ptr noundef nonnull %17) #7
   %238 = load i32, ptr %41, align 4, !tbaa !3
   store i32 %238, ptr %17, align 4, !tbaa !3
   %.not11171452 = icmp slt i32 %238, 1
@@ -542,11 +542,11 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 250:                                              ; preds = %.lr.ph1397, %._crit_edge1390
   %indvars.iv1655 = phi i64 [ 1, %.lr.ph1397 ], [ %indvars.iv.next1656, %._crit_edge1390 ]
   store double 0.000000e+00, ptr %32, align 8, !tbaa !7
-  %251 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef nonnull %3) #6
+  %251 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef nonnull %3) #7
   %252 = fmul double %251, 0x401921FB54442D18
-  %253 = call double @cos(double noundef %252) #6, !tbaa !3
+  %253 = call double @cos(double noundef %252) #7, !tbaa !3
   store double %253, ptr %26, align 8, !tbaa !7
-  %254 = call double @sin(double noundef %252) #6, !tbaa !3
+  %254 = call double @sin(double noundef %252) #7, !tbaa !3
   store double %254, ptr %27, align 8, !tbaa !7
   %255 = trunc nuw nsw i64 %indvars.iv1655 to i32
   store i32 %255, ptr %20, align 4, !tbaa !3
@@ -570,7 +570,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %265 = add i32 %reass.mul1226, %.0941
   %266 = sext i32 %265 to i64
   %267 = getelementptr inbounds double, ptr %46, i64 %266
-  call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull %23, ptr noundef nonnull @c_false, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %267, ptr noundef nonnull %24, ptr noundef nonnull %32, ptr noundef nonnull %33) #6
+  call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull %23, ptr noundef nonnull @c_false, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %267, ptr noundef nonnull %24, ptr noundef nonnull %32, ptr noundef nonnull %33) #7
   br label %.lr.ph1389.preheader
 
 .lr.ph1389.preheader:                             ; preds = %250, %259
@@ -593,7 +593,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %273 = add i32 %272, %reass.mul1229
   %274 = sext i32 %273 to i64
   %275 = getelementptr inbounds double, ptr %46, i64 %274
-  call void @dlartg_(ptr noundef %275, ptr noundef nonnull %32, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %33) #6
+  call void @dlartg_(ptr noundef %275, ptr noundef nonnull %32, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %33) #7
   br label %276
 
 276:                                              ; preds = %270, %.lr.ph1389
@@ -617,7 +617,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %287 = add i32 %286, %reass.mul1233
   %288 = sext i32 %287 to i64
   %289 = getelementptr inbounds double, ptr %46, i64 %288
-  call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull %37, ptr noundef nonnull @c_true, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef %289, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %32) #6
+  call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull %37, ptr noundef nonnull @c_true, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef %289, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %32) #7
   %290 = load i32, ptr %37, align 4, !tbaa !3
   %.not1146 = icmp eq i32 %290, 0
   br i1 %.not1146, label %304, label %291
@@ -629,7 +629,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %294 = add i32 %293, %reass.mul1238
   %295 = sext i32 %294 to i64
   %296 = getelementptr inbounds double, ptr %46, i64 %295
-  call void @dlartg_(ptr noundef %296, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %33) #6
+  call void @dlartg_(ptr noundef %296, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %33) #7
   store i32 1, ptr %20, align 4, !tbaa !3
   store i32 %277, ptr %21, align 4, !tbaa !3
   %297 = add nuw nsw i32 %.09701385, 2
@@ -644,7 +644,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %301 = add i32 %reass.mul1236, %.0941
   %302 = sext i32 %301 to i64
   %303 = getelementptr inbounds double, ptr %46, i64 %302
-  call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull %23, ptr noundef nonnull @c_true, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef %303, ptr noundef nonnull %24, ptr noundef nonnull %32, ptr noundef nonnull %25) #6
+  call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull %23, ptr noundef nonnull @c_true, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef %303, ptr noundef nonnull %24, ptr noundef nonnull %32, ptr noundef nonnull %25) #7
   br label %304
 
 304:                                              ; preds = %276, %291
@@ -723,11 +723,11 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.09611422 = phi i32 [ 1, %.lr.ph1424 ], [ %400, %._crit_edge1417 ]
   %.610131421 = phi i32 [ %.510121429, %.lr.ph1424 ], [ %.71014.lcssa, %._crit_edge1417 ]
   store double 0.000000e+00, ptr %32, align 8, !tbaa !7
-  %328 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef nonnull %3) #6
+  %328 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef nonnull %3) #7
   %329 = fmul double %328, 0x401921FB54442D18
-  %330 = call double @cos(double noundef %329) #6, !tbaa !3
+  %330 = call double @cos(double noundef %329) #7, !tbaa !3
   store double %330, ptr %26, align 8, !tbaa !7
-  %331 = call double @sin(double noundef %329) #6, !tbaa !3
+  %331 = call double @sin(double noundef %329) #7, !tbaa !3
   store double %331, ptr %27, align 8, !tbaa !7
   %332 = sub nsw i32 %.09611422, %314
   store i32 %332, ptr %20, align 4, !tbaa !3
@@ -753,7 +753,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %344 = add i32 %343, %reass.mul1242
   %345 = sext i32 %344 to i64
   %346 = getelementptr inbounds double, ptr %46, i64 %345
-  call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull %23, ptr noundef nonnull @c_false, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %346, ptr noundef nonnull %24, ptr noundef nonnull %32, ptr noundef nonnull %33) #6
+  call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull %23, ptr noundef nonnull @c_false, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %346, ptr noundef nonnull %24, ptr noundef nonnull %32, ptr noundef nonnull %33) #7
   br label %347
 
 347:                                              ; preds = %336, %327
@@ -779,7 +779,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %355 = add i32 %354, %reass.mul1245
   %356 = sext i32 %355 to i64
   %357 = getelementptr inbounds double, ptr %46, i64 %356
-  call void @dlartg_(ptr noundef %357, ptr noundef nonnull %32, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %33) #6
+  call void @dlartg_(ptr noundef %357, ptr noundef nonnull %32, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %33) #7
   br label %358
 
 358:                                              ; preds = %352, %.lr.ph1416
@@ -804,7 +804,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %371 = sub i32 %370, %367
   %372 = sext i32 %371 to i64
   %373 = getelementptr inbounds double, ptr %46, i64 %372
-  call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull %37, ptr noundef nonnull @c_true, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef %373, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %32) #6
+  call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull %37, ptr noundef nonnull @c_true, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef %373, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %32) #7
   %374 = load i32, ptr %37, align 4, !tbaa !3
   %.not1141 = icmp eq i32 %374, 0
   br i1 %.not1141, label %394, label %375
@@ -816,7 +816,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %378 = add i32 %377, %reass.mul1251
   %379 = sext i32 %378 to i64
   %380 = getelementptr inbounds double, ptr %46, i64 %379
-  call void @dlartg_(ptr noundef %380, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %33) #6
+  call void @dlartg_(ptr noundef %380, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %33) #7
   store i32 1, ptr %20, align 4, !tbaa !3
   %381 = sub nsw i32 %359, %314
   store i32 %381, ptr %21, align 4, !tbaa !3
@@ -836,7 +836,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %391 = sub i32 %390, %367
   %392 = sext i32 %391 to i64
   %393 = getelementptr inbounds double, ptr %46, i64 %392
-  call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull %23, ptr noundef nonnull @c_true, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef %393, ptr noundef nonnull %24, ptr noundef nonnull %32, ptr noundef nonnull %25) #6
+  call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull %23, ptr noundef nonnull @c_true, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef %393, ptr noundef nonnull %24, ptr noundef nonnull %32, ptr noundef nonnull %25) #7
   br label %394
 
 394:                                              ; preds = %358, %375
@@ -905,11 +905,11 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.910161444 = phi i32 [ %.101017.lcssa, %.loopexit1283 ], [ %.810151453, %405 ]
   %.19621446 = add nsw i32 %.1962.in1445, -1
   store double 0.000000e+00, ptr %32, align 8, !tbaa !7
-  %413 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef nonnull %3) #6
+  %413 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef nonnull %3) #7
   %414 = fmul double %413, 0x401921FB54442D18
-  %415 = call double @cos(double noundef %414) #6, !tbaa !3
+  %415 = call double @cos(double noundef %414) #7, !tbaa !3
   store double %415, ptr %26, align 8, !tbaa !7
-  %416 = call double @sin(double noundef %414) #6, !tbaa !3
+  %416 = call double @sin(double noundef %414) #7, !tbaa !3
   store double %416, ptr %27, align 8, !tbaa !7
   %417 = sub nsw i32 %.19621446, %.11455
   %418 = call i32 @llvm.smax.i32(i32 %417, i32 0)
@@ -933,7 +933,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %428 = add i32 %427, %reass.mul1255
   %429 = sext i32 %428 to i64
   %430 = getelementptr inbounds double, ptr %46, i64 %429
-  call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull @c_false, ptr noundef nonnull %23, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %430, ptr noundef nonnull %24, ptr noundef nonnull %33, ptr noundef nonnull %32) #6
+  call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull @c_false, ptr noundef nonnull %23, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %430, ptr noundef nonnull %24, ptr noundef nonnull %33, ptr noundef nonnull %32) #7
   br label %431
 
 431:                                              ; preds = %421, %.lr.ph1448
@@ -960,7 +960,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %436 = add i32 %435, %reass.mul1258
   %437 = sext i32 %436 to i64
   %438 = getelementptr inbounds double, ptr %46, i64 %437
-  call void @dlartg_(ptr noundef %438, ptr noundef nonnull %32, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %33) #6
+  call void @dlartg_(ptr noundef %438, ptr noundef nonnull %32, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %33) #7
   br label %439
 
 439:                                              ; preds = %.lr.ph1440._crit_edge, %434
@@ -981,7 +981,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %448 = add i32 %.pre-phi1783, %reass.mul1262
   %449 = sext i32 %448 to i64
   %450 = getelementptr inbounds double, ptr %46, i64 %449
-  call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull %39, ptr noundef nonnull %37, ptr noundef nonnull %21, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %450, ptr noundef nonnull %24, ptr noundef nonnull %32, ptr noundef nonnull %25) #6
+  call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull %39, ptr noundef nonnull %37, ptr noundef nonnull %21, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %450, ptr noundef nonnull %24, ptr noundef nonnull %32, ptr noundef nonnull %25) #7
   %451 = load i32, ptr %37, align 4, !tbaa !3
   %.not1133 = icmp eq i32 %451, 0
   br i1 %.not1133, label %460, label %452
@@ -991,7 +991,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %453 = add i32 %.pre-phi1783, %reass.mul1265
   %454 = sext i32 %453 to i64
   %455 = getelementptr inbounds double, ptr %46, i64 %454
-  call void @dlartg_(ptr noundef %455, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %33) #6
+  call void @dlartg_(ptr noundef %455, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %33) #7
   store i32 %410, ptr %21, align 4, !tbaa !3
   %456 = call i32 @llvm.smin.i32(i32 %410, i32 %443)
   %reass.sub1574 = sub i32 %456, %.21438
@@ -1001,7 +1001,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %458 = icmp slt i32 %443, %409
   %459 = zext i1 %458 to i32
   store i32 %459, ptr %23, align 4, !tbaa !3
-  call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull @c_true, ptr noundef nonnull %23, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %455, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %32) #6
+  call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull @c_true, ptr noundef nonnull %23, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %455, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %32) #7
   br label %460
 
 460:                                              ; preds = %439, %452
@@ -1078,11 +1078,11 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.111469 = phi i32 [ %.101479, %.lr.ph1473 ], [ %.12.lcssa, %.loopexit1281 ]
   %.19501471 = add nsw i32 %.1950.in1470, -1
   store double 0.000000e+00, ptr %32, align 8, !tbaa !7
-  %484 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef nonnull %3) #6
+  %484 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef nonnull %3) #7
   %485 = fmul double %484, 0x401921FB54442D18
-  %486 = call double @cos(double noundef %485) #6, !tbaa !3
+  %486 = call double @cos(double noundef %485) #7, !tbaa !3
   store double %486, ptr %26, align 8, !tbaa !7
-  %487 = call double @sin(double noundef %485) #6, !tbaa !3
+  %487 = call double @sin(double noundef %485) #7, !tbaa !3
   store double %487, ptr %27, align 8, !tbaa !7
   %488 = sub nsw i32 %.19501471, %.19361480
   %489 = call i32 @llvm.smax.i32(i32 %488, i32 0)
@@ -1112,7 +1112,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %501 = add i32 %500, %reass.mul1269
   %502 = sext i32 %501 to i64
   %503 = getelementptr inbounds double, ptr %46, i64 %502
-  call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull @c_false, ptr noundef nonnull %23, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %503, ptr noundef nonnull %24, ptr noundef nonnull %33, ptr noundef nonnull %32) #6
+  call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull @c_false, ptr noundef nonnull %23, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %503, ptr noundef nonnull %24, ptr noundef nonnull %33, ptr noundef nonnull %32) #7
   br label %504
 
 504:                                              ; preds = %._crit_edge1780, %492
@@ -1138,7 +1138,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %511 = add i32 %510, %reass.mul1272
   %512 = sext i32 %511 to i64
   %513 = getelementptr inbounds double, ptr %46, i64 %512
-  call void @dlartg_(ptr noundef %513, ptr noundef nonnull %32, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %33) #6
+  call void @dlartg_(ptr noundef %513, ptr noundef nonnull %32, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %33) #7
   br label %514
 
 514:                                              ; preds = %509, %.lr.ph1465
@@ -1161,7 +1161,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %527 = sub i32 %526, %523
   %528 = sext i32 %527 to i64
   %529 = getelementptr inbounds double, ptr %46, i64 %528
-  call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull %39, ptr noundef nonnull %37, ptr noundef nonnull %21, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %529, ptr noundef nonnull %24, ptr noundef nonnull %32, ptr noundef nonnull %25) #6
+  call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull %39, ptr noundef nonnull %37, ptr noundef nonnull %21, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %529, ptr noundef nonnull %24, ptr noundef nonnull %32, ptr noundef nonnull %25) #7
   %530 = load i32, ptr %37, align 4, !tbaa !3
   %.not1125 = icmp eq i32 %530, 0
   br i1 %.not1125, label %541, label %531
@@ -1171,7 +1171,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %533 = add i32 %532, %519
   %534 = sext i32 %533 to i64
   %535 = getelementptr inbounds double, ptr %46, i64 %534
-  call void @dlartg_(ptr noundef %535, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %33) #6
+  call void @dlartg_(ptr noundef %535, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %33) #7
   store i32 %478, ptr %21, align 4, !tbaa !3
   %536 = add nsw i32 %518, %469
   %537 = call i32 @llvm.smin.i32(i32 %478, i32 %536)
@@ -1182,7 +1182,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %539 = icmp slt i32 %536, %477
   %540 = zext i1 %539 to i32
   store i32 %540, ptr %23, align 4, !tbaa !3
-  call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull @c_true, ptr noundef nonnull %23, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %535, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %32) #6
+  call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull @c_true, ptr noundef nonnull %23, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %535, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %32) #7
   br label %541
 
 541:                                              ; preds = %514, %531
@@ -1222,7 +1222,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %557 = add i32 %554, %.0977
   %558 = sext i32 %557 to i64
   %559 = getelementptr inbounds double, ptr %46, i64 %558
-  call void @dcopy_(ptr noundef nonnull %31, ptr noundef nonnull %5, ptr noundef nonnull @c__1, ptr noundef %559, ptr noundef nonnull %17) #6
+  call void @dcopy_(ptr noundef nonnull %31, ptr noundef nonnull %5, ptr noundef nonnull @c__1, ptr noundef %559, ptr noundef nonnull %17) #7
   %560 = load i32, ptr %41, align 4, !tbaa !3
   store i32 %560, ptr %17, align 4, !tbaa !3
   %.not11051310 = icmp slt i32 %560, 1
@@ -1279,11 +1279,11 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %582 = getelementptr inbounds double, ptr %46, i64 %581
   %583 = load double, ptr %582, align 8, !tbaa !7
   store double %583, ptr %25, align 8, !tbaa !7
-  %584 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef nonnull %3) #6
+  %584 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef nonnull %3) #7
   %585 = fmul double %584, 0x401921FB54442D18
-  %586 = call double @cos(double noundef %585) #6, !tbaa !3
+  %586 = call double @cos(double noundef %585) #7, !tbaa !3
   store double %586, ptr %26, align 8, !tbaa !7
-  %587 = call double @sin(double noundef %585) #6, !tbaa !3
+  %587 = call double @sin(double noundef %585) #7, !tbaa !3
   store double %587, ptr %27, align 8, !tbaa !7
   %588 = icmp samesign ugt i64 %indvars.iv1605, %indvars.iv1608
   %589 = zext i1 %588 to i32
@@ -1297,7 +1297,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %596 = add i32 %595, %575
   %597 = sext i32 %596 to i64
   %598 = getelementptr inbounds double, ptr %46, i64 %597
-  call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull %23, ptr noundef nonnull @c_true, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %598, ptr noundef nonnull %24, ptr noundef nonnull %32, ptr noundef nonnull %25) #6
+  call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull %23, ptr noundef nonnull @c_true, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %598, ptr noundef nonnull %24, ptr noundef nonnull %32, ptr noundef nonnull %25) #7
   store i32 %567, ptr %19, align 4, !tbaa !3
   %599 = load i32, ptr %1, align 4, !tbaa !3
   %600 = sub nsw i32 %599, %578
@@ -1310,7 +1310,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %605 = add i32 %592, %604
   %606 = sext i32 %605 to i64
   %607 = getelementptr inbounds double, ptr %46, i64 %606
-  call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull @c_true, ptr noundef nonnull @c_false, ptr noundef nonnull %18, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %607, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %33) #6
+  call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull @c_true, ptr noundef nonnull @c_false, ptr noundef nonnull %18, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %607, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %33) #7
   store i32 %569, ptr %18, align 4, !tbaa !3
   %608 = icmp sgt i64 %573, 0
   br i1 %608, label %.lr.ph1299, label %.loopexit1289
@@ -1325,7 +1325,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %612 = add i32 %611, %reass.mul1209
   %613 = sext i32 %612 to i64
   %614 = getelementptr inbounds double, ptr %46, i64 %613
-  call void @dlartg_(ptr noundef %614, ptr noundef nonnull %32, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %33) #6
+  call void @dlartg_(ptr noundef %614, ptr noundef nonnull %32, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %33) #7
   %reass.mul1211 = mul i32 %reass.add, %609
   %615 = add i32 %.41297, %.0977
   %616 = add i32 %615, %reass.mul1211
@@ -1343,7 +1343,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %625 = add i32 %624, %622
   %626 = sext i32 %625 to i64
   %627 = getelementptr inbounds double, ptr %46, i64 %626
-  call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull @c_true, ptr noundef nonnull @c_true, ptr noundef nonnull %19, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef %627, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %32) #6
+  call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull @c_true, ptr noundef nonnull @c_true, ptr noundef nonnull %19, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef %627, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %32) #7
   %628 = sub nsw i32 %.41297, %567
   %629 = call i32 @llvm.smax.i32(i32 %628, i32 1)
   store i32 %609, ptr %19, align 4, !tbaa !3
@@ -1363,7 +1363,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %638 = add i32 %637, %629
   %639 = sext i32 %638 to i64
   %640 = getelementptr inbounds double, ptr %46, i64 %639
-  call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull %23, ptr noundef nonnull @c_true, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef %640, ptr noundef nonnull %24, ptr noundef nonnull %32, ptr noundef nonnull %25) #6
+  call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull %23, ptr noundef nonnull @c_true, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef %640, ptr noundef nonnull %24, ptr noundef nonnull %32, ptr noundef nonnull %25) #7
   %641 = load i32, ptr %18, align 4, !tbaa !3
   %642 = add nsw i32 %641, %.41297
   %643 = icmp slt i32 %641, 0
@@ -1501,7 +1501,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %693 = add i32 %554, %.1978
   %694 = sext i32 %693 to i64
   %695 = getelementptr inbounds double, ptr %46, i64 %694
-  call void @dcopy_(ptr noundef nonnull %31, ptr noundef nonnull %5, ptr noundef nonnull @c__1, ptr noundef %695, ptr noundef nonnull %17) #6
+  call void @dcopy_(ptr noundef nonnull %31, ptr noundef nonnull %5, ptr noundef nonnull @c__1, ptr noundef %695, ptr noundef nonnull %17) #7
   %696 = load i32, ptr %41, align 4, !tbaa !3
   store i32 %696, ptr %17, align 4, !tbaa !3
   %.not10991354 = icmp slt i32 %696, 1
@@ -1558,11 +1558,11 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %721 = getelementptr double, ptr %720, i64 %719
   %722 = load double, ptr %721, align 8, !tbaa !7
   store double %722, ptr %25, align 8, !tbaa !7
-  %723 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef nonnull %3) #6
+  %723 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef nonnull %3) #7
   %724 = fmul double %723, 0x401921FB54442D18
-  %725 = call double @cos(double noundef %724) #6, !tbaa !3
+  %725 = call double @cos(double noundef %724) #7, !tbaa !3
   store double %725, ptr %26, align 8, !tbaa !7
-  %726 = call double @sin(double noundef %724) #6, !tbaa !3
+  %726 = call double @sin(double noundef %724) #7, !tbaa !3
   %727 = fneg double %726
   store double %727, ptr %27, align 8, !tbaa !7
   %728 = load i32, ptr %1, align 4, !tbaa !3
@@ -1573,7 +1573,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %732, ptr %23, align 4, !tbaa !3
   %gep = getelementptr double, ptr %invariant.gep, i64 %715
   %733 = getelementptr double, ptr %gep, i64 %716
-  call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull @c_true, ptr noundef nonnull %23, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %733, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %32) #6
+  call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull @c_true, ptr noundef nonnull %23, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %733, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %32) #7
   %734 = sub nsw i64 %indvars.iv.next1629, %indvars.iv1631
   %735 = trunc i64 %734 to i32
   %736 = add i32 %735, 1
@@ -1588,7 +1588,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %742 = add i32 %741, %reass.mul1218
   %743 = sext i32 %742 to i64
   %744 = getelementptr inbounds double, ptr %46, i64 %743
-  call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull @c_false, ptr noundef nonnull @c_true, ptr noundef nonnull %20, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %744, ptr noundef nonnull %24, ptr noundef nonnull %33, ptr noundef nonnull %25) #6
+  call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull @c_false, ptr noundef nonnull @c_true, ptr noundef nonnull %20, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %744, ptr noundef nonnull %24, ptr noundef nonnull %33, ptr noundef nonnull %25) #7
   %745 = load i32, ptr %1, align 4, !tbaa !3
   %746 = add nsw i32 %745, -1
   store i32 %746, ptr %20, align 4, !tbaa !3
@@ -1610,7 +1610,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %752 = add i32 %751, %reass.mul1221
   %753 = sext i32 %752 to i64
   %754 = getelementptr inbounds double, ptr %46, i64 %753
-  call void @dlartg_(ptr noundef %754, ptr noundef nonnull %32, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %33) #6
+  call void @dlartg_(ptr noundef %754, ptr noundef nonnull %32, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %33) #7
   %755 = mul nuw nsw i32 %.51343, %553
   %756 = mul nsw i32 %.51343, %44
   %757 = add i32 %697, %755
@@ -1620,7 +1620,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %761 = load double, ptr %760, align 8, !tbaa !7
   store double %761, ptr %25, align 8, !tbaa !7
   store i32 %707, ptr %19, align 4, !tbaa !3
-  call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull @c_true, ptr noundef nonnull @c_true, ptr noundef nonnull %19, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %754, ptr noundef nonnull %24, ptr noundef nonnull %32, ptr noundef nonnull %25) #6
+  call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull @c_true, ptr noundef nonnull @c_true, ptr noundef nonnull %19, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %754, ptr noundef nonnull %24, ptr noundef nonnull %32, ptr noundef nonnull %25) #7
   %762 = load i32, ptr %1, align 4, !tbaa !3
   %reass.sub1568 = sub i32 %762, %.51343
   %763 = add i32 %reass.sub1568, 1
@@ -1637,7 +1637,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %769 = add nsw i32 %768, %756
   %770 = sext i32 %769 to i64
   %771 = getelementptr inbounds double, ptr %46, i64 %770
-  call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull @c_true, ptr noundef nonnull %23, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %771, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %32) #6
+  call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull @c_true, ptr noundef nonnull %23, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %771, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %32) #7
   %772 = load i32, ptr %18, align 4, !tbaa !3
   %773 = add nsw i32 %772, %.51343
   %774 = icmp slt i32 %772, 0
@@ -1765,11 +1765,11 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not1065, label %821, label %822
 
 821:                                              ; preds = %820
-  call void @dlagge_(ptr noundef nonnull %36, ptr noundef nonnull %34, ptr noundef nonnull %40, ptr noundef nonnull %41, ptr noundef nonnull %5, ptr noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %3, ptr noundef %14, ptr noundef nonnull %29) #6
+  call void @dlagge_(ptr noundef nonnull %36, ptr noundef nonnull %34, ptr noundef nonnull %40, ptr noundef nonnull %41, ptr noundef nonnull %5, ptr noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %3, ptr noundef %14, ptr noundef nonnull %29) #7
   br label %823
 
 822:                                              ; preds = %820
-  call void @dlagsy_(ptr noundef nonnull %0, ptr noundef nonnull %40, ptr noundef nonnull %5, ptr noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %3, ptr noundef %14, ptr noundef nonnull %29) #6
+  call void @dlagsy_(ptr noundef nonnull %0, ptr noundef nonnull %40, ptr noundef nonnull %5, ptr noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %3, ptr noundef %14, ptr noundef nonnull %29) #7
   br label %823
 
 823:                                              ; preds = %822, %821
@@ -2276,34 +2276,35 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #4
+declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind }
+attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -54,7 +54,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_Q(ptr noundef %0, ptr n
 37:                                               ; preds = %29
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %39 = load i32, ptr %38, align 8
-  %40 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %39, ptr noundef %13) #13
+  %40 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %39, ptr noundef %13) #14
   %41 = icmp eq i32 %40, 0
   store i8 0, ptr %27, align 8
   br i1 %41, label %nfaExecMcSheng8_Q2i.exit, label %65
@@ -98,7 +98,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_Q(ptr noundef %0, ptr n
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
   %60 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
-  %62 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %61, ptr noundef %13) #13
+  %62 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %61, ptr noundef %13) #14
   %.not = icmp eq i32 %62, 0
   br i1 %.not, label %.thread36, label %59
 
@@ -112,7 +112,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_Q(ptr noundef %0, ptr n
 
 63:                                               ; preds = %42, %57
   %.sink39 = phi i32 [ %58, %57 ], [ 0, %42 ]
-  %64 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %.sink39, ptr noundef %13) #13
+  %64 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %.sink39, ptr noundef %13) #14
   %.not41 = icmp eq i32 %64, 0
   store i8 0, ptr %27, align 8
   br i1 %.not41, label %nfaExecMcSheng8_Q2i.exit, label %65
@@ -313,7 +313,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_Q(ptr noundef %0, ptr 
 36:                                               ; preds = %28
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %38 = load i32, ptr %37, align 8
-  %39 = tail call i32 %10(i64 noundef 0, i64 noundef %35, i32 noundef %38, ptr noundef %12) #13
+  %39 = tail call i32 %10(i64 noundef 0, i64 noundef %35, i32 noundef %38, ptr noundef %12) #14
   %40 = icmp eq i32 %39, 0
   store i8 0, ptr %26, align 8
   br i1 %40, label %nfaExecMcSheng16_Q2i.exit, label %64
@@ -357,7 +357,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_Q(ptr noundef %0, ptr 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %58 ]
   %59 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4
-  %61 = tail call i32 %10(i64 noundef 0, i64 noundef %35, i32 noundef %60, ptr noundef %12) #13
+  %61 = tail call i32 %10(i64 noundef 0, i64 noundef %35, i32 noundef %60, ptr noundef %12) #14
   %.not = icmp eq i32 %61, 0
   br i1 %.not, label %.thread35, label %58
 
@@ -371,7 +371,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_Q(ptr noundef %0, ptr 
 
 62:                                               ; preds = %41, %56
   %.sink38 = phi i32 [ %57, %56 ], [ 0, %41 ]
-  %63 = tail call i32 %10(i64 noundef 0, i64 noundef %35, i32 noundef %.sink38, ptr noundef %12) #13
+  %63 = tail call i32 %10(i64 noundef 0, i64 noundef %35, i32 noundef %.sink38, ptr noundef %12) #14
   %.not40 = icmp eq i32 %63, 0
   store i8 0, ptr %26, align 8
   br i1 %.not40, label %nfaExecMcSheng16_Q2i.exit, label %64
@@ -586,7 +586,7 @@ define hidden noundef signext i8 @nfaExecMcSheng8_reportCurrent(ptr noundef read
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %47 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4
-  %49 = tail call i32 %5(i64 noundef 0, i64 noundef %19, i32 noundef %48, ptr noundef %7) #13
+  %49 = tail call i32 %5(i64 noundef 0, i64 noundef %19, i32 noundef %48, ptr noundef %7) #14
   %50 = icmp eq i32 %49, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -595,7 +595,7 @@ define hidden noundef signext i8 @nfaExecMcSheng8_reportCurrent(ptr noundef read
 
 doComplexReport.exit.sink.split:                  ; preds = %30, %27, %45
   %.sink = phi i32 [ %46, %45 ], [ %29, %27 ], [ 0, %30 ]
-  %51 = tail call i32 %5(i64 noundef 0, i64 noundef %19, i32 noundef %.sink, ptr noundef %7) #13
+  %51 = tail call i32 %5(i64 noundef 0, i64 noundef %19, i32 noundef %.sink, ptr noundef %7) #14
   br label %doComplexReport.exit
 
 doComplexReport.exit:                             ; preds = %.lr.ph, %doComplexReport.exit.sink.split, %32, %2
@@ -670,7 +670,7 @@ define hidden noundef signext i8 @nfaExecMcSheng16_reportCurrent(ptr noundef rea
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %44 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4
-  %46 = tail call i32 %5(i64 noundef 0, i64 noundef %25, i32 noundef %45, ptr noundef %7) #13
+  %46 = tail call i32 %5(i64 noundef 0, i64 noundef %25, i32 noundef %45, ptr noundef %7) #14
   %47 = icmp eq i32 %46, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -679,7 +679,7 @@ define hidden noundef signext i8 @nfaExecMcSheng16_reportCurrent(ptr noundef rea
 
 doComplexReport.exit.sink.split:                  ; preds = %34, %31, %42
   %.sink = phi i32 [ %43, %42 ], [ %33, %31 ], [ 0, %34 ]
-  %48 = tail call i32 %5(i64 noundef 0, i64 noundef %25, i32 noundef %.sink, ptr noundef %7) #13
+  %48 = tail call i32 %5(i64 noundef 0, i64 noundef %25, i32 noundef %.sink, ptr noundef %7) #14
   br label %doComplexReport.exit
 
 doComplexReport.exit:                             ; preds = %.lr.ph, %doComplexReport.exit.sink.split, %36, %2
@@ -858,7 +858,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_Q2(ptr noundef %0, ptr 
 37:                                               ; preds = %28
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %39 = load i32, ptr %38, align 8
-  %40 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %39, ptr noundef %13) #13
+  %40 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %39, ptr noundef %13) #14
   %41 = icmp eq i32 %40, 0
   store i8 0, ptr %26, align 8
   br i1 %41, label %nfaExecMcSheng8_Q2i.exit, label %65
@@ -902,7 +902,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_Q2(ptr noundef %0, ptr 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
   %60 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
-  %62 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %61, ptr noundef %13) #13
+  %62 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %61, ptr noundef %13) #14
   %.not = icmp eq i32 %62, 0
   br i1 %.not, label %.thread40, label %59
 
@@ -916,7 +916,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_Q2(ptr noundef %0, ptr 
 
 63:                                               ; preds = %42, %57
   %.sink45 = phi i32 [ %58, %57 ], [ 0, %42 ]
-  %64 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %.sink45, ptr noundef %13) #13
+  %64 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %.sink45, ptr noundef %13) #14
   %.not47 = icmp eq i32 %64, 0
   store i8 0, ptr %26, align 8
   br i1 %.not47, label %nfaExecMcSheng8_Q2i.exit, label %65
@@ -1131,7 +1131,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_Q2(ptr noundef %0, ptr
 37:                                               ; preds = %28
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %39 = load i32, ptr %38, align 8
-  %40 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %39, ptr noundef %13) #13
+  %40 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %39, ptr noundef %13) #14
   %41 = icmp eq i32 %40, 0
   store i8 0, ptr %26, align 8
   br i1 %41, label %nfaExecMcSheng16_Q2i.exit, label %65
@@ -1175,7 +1175,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_Q2(ptr noundef %0, ptr
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
   %60 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
-  %62 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %61, ptr noundef %13) #13
+  %62 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %61, ptr noundef %13) #14
   %.not = icmp eq i32 %62, 0
   br i1 %.not, label %.thread40, label %59
 
@@ -1189,7 +1189,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_Q2(ptr noundef %0, ptr
 
 63:                                               ; preds = %42, %57
   %.sink45 = phi i32 [ %58, %57 ], [ 0, %42 ]
-  %64 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %.sink45, ptr noundef %13) #13
+  %64 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %.sink45, ptr noundef %13) #14
   %.not47 = icmp eq i32 %64, 0
   store i8 0, ptr %26, align 8
   br i1 %.not47, label %nfaExecMcSheng16_Q2i.exit, label %65
@@ -1399,7 +1399,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_QR(ptr noundef %0, ptr 
 37:                                               ; preds = %28
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %39 = load i32, ptr %38, align 8
-  %40 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %39, ptr noundef %13) #13
+  %40 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %39, ptr noundef %13) #14
   %41 = icmp eq i32 %40, 0
   store i8 0, ptr %26, align 8
   br i1 %41, label %nfaExecMcSheng8_inAccept.exit.sink.split, label %65
@@ -1443,7 +1443,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_QR(ptr noundef %0, ptr 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
   %60 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
-  %62 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %61, ptr noundef %13) #13
+  %62 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %61, ptr noundef %13) #14
   %.not = icmp eq i32 %62, 0
   br i1 %.not, label %.thread47, label %59
 
@@ -1457,7 +1457,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_QR(ptr noundef %0, ptr 
 
 63:                                               ; preds = %42, %57
   %.sink49 = phi i32 [ %58, %57 ], [ 0, %42 ]
-  %64 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %.sink49, ptr noundef %13) #13
+  %64 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %.sink49, ptr noundef %13) #14
   %.not51 = icmp eq i32 %64, 0
   store i8 0, ptr %26, align 8
   br i1 %.not51, label %nfaExecMcSheng8_inAccept.exit.sink.split, label %65
@@ -1669,7 +1669,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_QR(ptr noundef %0, ptr
 36:                                               ; preds = %27
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %38 = load i32, ptr %37, align 8
-  %39 = tail call i32 %10(i64 noundef 0, i64 noundef %35, i32 noundef %38, ptr noundef %12) #13
+  %39 = tail call i32 %10(i64 noundef 0, i64 noundef %35, i32 noundef %38, ptr noundef %12) #14
   %40 = icmp eq i32 %39, 0
   store i8 0, ptr %25, align 8
   br i1 %40, label %nfaExecMcSheng16_inAccept.exit.sink.split, label %64
@@ -1713,7 +1713,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_QR(ptr noundef %0, ptr
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %58 ]
   %59 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4
-  %61 = tail call i32 %10(i64 noundef 0, i64 noundef %35, i32 noundef %60, ptr noundef %12) #13
+  %61 = tail call i32 %10(i64 noundef 0, i64 noundef %35, i32 noundef %60, ptr noundef %12) #14
   %.not = icmp eq i32 %61, 0
   br i1 %.not, label %.thread47, label %58
 
@@ -1727,7 +1727,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_QR(ptr noundef %0, ptr
 
 62:                                               ; preds = %41, %56
   %.sink49 = phi i32 [ %57, %56 ], [ 0, %41 ]
-  %63 = tail call i32 %10(i64 noundef 0, i64 noundef %35, i32 noundef %.sink49, ptr noundef %12) #13
+  %63 = tail call i32 %10(i64 noundef 0, i64 noundef %35, i32 noundef %.sink49, ptr noundef %12) #14
   %.not51 = icmp eq i32 %63, 0
   store i8 0, ptr %25, align 8
   br i1 %.not51, label %nfaExecMcSheng16_inAccept.exit.sink.split, label %64
@@ -1958,7 +1958,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_testEOD(ptr noundef rea
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
   %24 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
-  %26 = tail call i32 %4(i64 noundef 0, i64 noundef %3, i32 noundef %25, ptr noundef %5) #13
+  %26 = tail call i32 %4(i64 noundef 0, i64 noundef %3, i32 noundef %25, ptr noundef %5) #14
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %mcshengCheckEOD.exit, label %23
 
@@ -2004,7 +2004,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_testEOD(ptr noundef re
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
   %24 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
-  %26 = tail call i32 %4(i64 noundef 0, i64 noundef %3, i32 noundef %25, ptr noundef %5) #13
+  %26 = tail call i32 %4(i64 noundef 0, i64 noundef %3, i32 noundef %25, ptr noundef %5) #14
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %mcshengCheckEOD.exit, label %23
 
@@ -2468,7 +2468,7 @@ doNormal8.exit74:                                 ; preds = %252, %248, %doSheng
 
 270:                                              ; preds = %266
   %271 = load i32, ptr %38, align 8
-  %272 = tail call i32 %5(i64 noundef 0, i64 noundef %269, i32 noundef %271, ptr noundef %6) #13
+  %272 = tail call i32 %5(i64 noundef 0, i64 noundef %269, i32 noundef %271, ptr noundef %6) #14
   %273 = icmp eq i32 %272, 0
   br i1 %273, label %mcshengExec8_i.exit, label %.thread133
 
@@ -2477,7 +2477,7 @@ doNormal8.exit74:                                 ; preds = %252, %248, %doSheng
   br i1 %275, label %276, label %279
 
 276:                                              ; preds = %274
-  %277 = tail call i32 %5(i64 noundef 0, i64 noundef %269, i32 noundef %.4105, ptr noundef %6) #13
+  %277 = tail call i32 %5(i64 noundef 0, i64 noundef %269, i32 noundef %.4105, ptr noundef %6) #14
   %278 = icmp eq i32 %277, 0
   br i1 %278, label %mcshengExec8_i.exit, label %.thread133
 
@@ -2505,7 +2505,7 @@ doNormal8.exit74:                                 ; preds = %252, %248, %doSheng
 291:                                              ; preds = %279
   %292 = getelementptr inbounds i8, ptr %287, i64 -60
   %293 = load i32, ptr %292, align 4
-  %294 = tail call i32 %5(i64 noundef 0, i64 noundef %269, i32 noundef %293, ptr noundef %6) #13
+  %294 = tail call i32 %5(i64 noundef 0, i64 noundef %269, i32 noundef %293, ptr noundef %6) #14
   %295 = icmp eq i32 %294, 0
   br i1 %295, label %mcshengExec8_i.exit, label %.thread133
 
@@ -2518,7 +2518,7 @@ doNormal8.exit74:                                 ; preds = %252, %248, %doSheng
   %indvars.iv = phi i64 [ 0, %.lr.ph268 ], [ %indvars.iv.next, %296 ]
   %298 = getelementptr inbounds nuw i32, ptr %290, i64 %indvars.iv
   %299 = load i32, ptr %298, align 4
-  %300 = tail call i32 %5(i64 noundef 0, i64 noundef %269, i32 noundef %299, ptr noundef %6) #13
+  %300 = tail call i32 %5(i64 noundef 0, i64 noundef %269, i32 noundef %299, ptr noundef %6) #14
   %301 = icmp eq i32 %300, 0
   br i1 %301, label %mcshengExec8_i.exit, label %296
 
@@ -2580,7 +2580,7 @@ doNormal8.exit74:                                 ; preds = %252, %248, %doSheng
   %329 = load i32, ptr %328, align 4
   %330 = zext i32 %329 to i64
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 %330
-  %332 = tail call ptr @run_accel(ptr noundef %331, ptr noundef %.1114, ptr noundef nonnull %13) #13
+  %332 = tail call ptr @run_accel(ptr noundef %331, ptr noundef %.1114, ptr noundef nonnull %13) #14
   %333 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %334 = icmp ult ptr %332, %333
   %storemerge.i.v = select i1 %334, i64 32, i64 8
@@ -2886,7 +2886,7 @@ doSheng.exit:                                     ; preds = %408, %405, %457, %4
 545:                                              ; preds = %540
   %546 = zext i32 %544 to i64
   %547 = getelementptr inbounds nuw i8, ptr %0, i64 %546
-  %548 = tail call ptr @run_accel(ptr noundef nonnull %547, ptr noundef %.1114, ptr noundef nonnull %13) #13
+  %548 = tail call ptr @run_accel(ptr noundef nonnull %547, ptr noundef %.1114, ptr noundef nonnull %13) #14
   %549 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %550 = icmp ult ptr %548, %549
   %storemerge.i76.v = select i1 %550, i64 32, i64 8
@@ -2947,7 +2947,7 @@ doNormal8.exit:                                   ; preds = %566, %562, %doSheng
 
 584:                                              ; preds = %580
   %585 = load i32, ptr %314, align 8
-  %586 = tail call i32 %5(i64 noundef 0, i64 noundef %583, i32 noundef %585, ptr noundef %6) #13
+  %586 = tail call i32 %5(i64 noundef 0, i64 noundef %583, i32 noundef %585, ptr noundef %6) #14
   %587 = icmp eq i32 %586, 0
   br i1 %587, label %mcshengExec8_i.exit, label %doComplexReport.exit.i
 
@@ -2956,7 +2956,7 @@ doNormal8.exit:                                   ; preds = %566, %562, %doSheng
   br i1 %589, label %590, label %593
 
 590:                                              ; preds = %588
-  %591 = tail call i32 %5(i64 noundef 0, i64 noundef %583, i32 noundef %.1102, ptr noundef %6) #13
+  %591 = tail call i32 %5(i64 noundef 0, i64 noundef %583, i32 noundef %.1102, ptr noundef %6) #14
   %592 = icmp eq i32 %591, 0
   br i1 %592, label %mcshengExec8_i.exit, label %doComplexReport.exit.i
 
@@ -2984,7 +2984,7 @@ doNormal8.exit:                                   ; preds = %566, %562, %doSheng
 605:                                              ; preds = %593
   %606 = getelementptr inbounds i8, ptr %601, i64 -60
   %607 = load i32, ptr %606, align 4
-  %608 = tail call i32 %5(i64 noundef 0, i64 noundef %583, i32 noundef %607, ptr noundef %6) #13
+  %608 = tail call i32 %5(i64 noundef 0, i64 noundef %583, i32 noundef %607, ptr noundef %6) #14
   %609 = icmp eq i32 %608, 0
   br i1 %609, label %mcshengExec8_i.exit, label %doComplexReport.exit.i
 
@@ -2997,7 +2997,7 @@ doNormal8.exit:                                   ; preds = %566, %562, %doSheng
   %indvars.iv356 = phi i64 [ 0, %.lr.ph285 ], [ %indvars.iv.next357, %610 ]
   %612 = getelementptr inbounds nuw i32, ptr %604, i64 %indvars.iv356
   %613 = load i32, ptr %612, align 4
-  %614 = tail call i32 %5(i64 noundef 0, i64 noundef %583, i32 noundef %613, ptr noundef %6) #13
+  %614 = tail call i32 %5(i64 noundef 0, i64 noundef %583, i32 noundef %613, ptr noundef %6) #14
   %615 = icmp eq i32 %614, 0
   br i1 %615, label %mcshengExec8_i.exit, label %610
 
@@ -3455,7 +3455,7 @@ doNormal8.exit70:                                 ; preds = %244, %240, %doSheng
   %293 = load i32, ptr %292, align 4
   %294 = zext i32 %293 to i64
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 %294
-  %296 = tail call ptr @run_accel(ptr noundef %295, ptr noundef %.5, ptr noundef nonnull %8) #13
+  %296 = tail call ptr @run_accel(ptr noundef %295, ptr noundef %.5, ptr noundef nonnull %8) #14
   %297 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %298 = icmp ult ptr %296, %297
   %storemerge.i.v = select i1 %298, i64 32, i64 8
@@ -3756,7 +3756,7 @@ doSheng.exit:                                     ; preds = %367, %364, %416, %4
 504:                                              ; preds = %499
   %505 = zext i32 %503 to i64
   %506 = getelementptr inbounds nuw i8, ptr %0, i64 %505
-  %507 = tail call ptr @run_accel(ptr noundef nonnull %506, ptr noundef %.5, ptr noundef nonnull %8) #13
+  %507 = tail call ptr @run_accel(ptr noundef nonnull %506, ptr noundef %.5, ptr noundef nonnull %8) #14
   %508 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %509 = icmp ult ptr %507, %508
   %storemerge.i72.v = select i1 %509, i64 32, i64 8
@@ -4255,7 +4255,7 @@ doNormal8.exit69:                                 ; preds = %.lr.ph, %228, %doSh
   %287 = load i32, ptr %286, align 4
   %288 = zext i32 %287 to i64
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 %288
-  %290 = tail call ptr @run_accel(ptr noundef %289, ptr noundef %.5, ptr noundef nonnull %9) #13
+  %290 = tail call ptr @run_accel(ptr noundef %289, ptr noundef %.5, ptr noundef nonnull %9) #14
   %291 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %292 = icmp ult ptr %290, %291
   %storemerge.i.v = select i1 %292, i64 32, i64 8
@@ -4556,7 +4556,7 @@ doSheng.exit:                                     ; preds = %361, %358, %410, %4
 498:                                              ; preds = %493
   %499 = zext i32 %497 to i64
   %500 = getelementptr inbounds nuw i8, ptr %0, i64 %499
-  %501 = tail call ptr @run_accel(ptr noundef nonnull %500, ptr noundef %.5, ptr noundef nonnull %9) #13
+  %501 = tail call ptr @run_accel(ptr noundef nonnull %500, ptr noundef %.5, ptr noundef nonnull %9) #14
   %502 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %503 = icmp ult ptr %501, %502
   %storemerge.i71.v = select i1 %503, i64 32, i64 8
@@ -4625,16 +4625,16 @@ declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare i64 @llvm.x86.bmi.pext.64(i64, i64) #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare <16 x i8> @llvm.uadd.sat.v16i8(<16 x i8>, <16 x i8>) #9
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare <16 x i8> @llvm.umax.v16i8(<16 x i8>, <16 x i8>) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
 
-declare ptr @run_accel(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
+declare ptr @run_accel(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: noinline nounwind uwtable
 define internal fastcc signext range(i8 0, 2) i8 @mcshengExec16_i_cb(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6, i8 noundef signext range(i8 0, 2) %7) unnamed_addr #6 {
@@ -5104,7 +5104,7 @@ doNormal16.exit26:                                ; preds = %doSherman16.exit, %
 
 312:                                              ; preds = %doNormal16.exit26
   %313 = load i32, ptr %37, align 8
-  %314 = tail call i32 %5(i64 noundef 0, i64 noundef %311, i32 noundef %313, ptr noundef %6) #13
+  %314 = tail call i32 %5(i64 noundef 0, i64 noundef %311, i32 noundef %313, ptr noundef %6) #14
   %315 = icmp eq i32 %314, 0
   br i1 %315, label %mcshengExec16_i.exit, label %doComplexReport.exit149.i
 
@@ -5114,7 +5114,7 @@ doNormal16.exit26:                                ; preds = %doSherman16.exit, %
   br i1 %318, label %319, label %322
 
 319:                                              ; preds = %316
-  %320 = tail call i32 %5(i64 noundef 0, i64 noundef %311, i32 noundef %.124, ptr noundef %6) #13
+  %320 = tail call i32 %5(i64 noundef 0, i64 noundef %311, i32 noundef %.124, ptr noundef %6) #14
   %321 = icmp eq i32 %320, 0
   br i1 %321, label %mcshengExec16_i.exit, label %doComplexReport.exit149.i
 
@@ -5142,7 +5142,7 @@ doNormal16.exit26:                                ; preds = %doSherman16.exit, %
 334:                                              ; preds = %322
   %335 = getelementptr inbounds i8, ptr %330, i64 -60
   %336 = load i32, ptr %335, align 4
-  %337 = tail call i32 %5(i64 noundef 0, i64 noundef %311, i32 noundef %336, ptr noundef %6) #13
+  %337 = tail call i32 %5(i64 noundef 0, i64 noundef %311, i32 noundef %336, ptr noundef %6) #14
   %338 = icmp eq i32 %337, 0
   br i1 %338, label %mcshengExec16_i.exit, label %doComplexReport.exit149.i
 
@@ -5155,7 +5155,7 @@ doNormal16.exit26:                                ; preds = %doSherman16.exit, %
   %indvars.iv = phi i64 [ 0, %.lr.ph225 ], [ %indvars.iv.next, %339 ]
   %341 = getelementptr inbounds nuw i32, ptr %333, i64 %indvars.iv
   %342 = load i32, ptr %341, align 4
-  %343 = tail call i32 %5(i64 noundef 0, i64 noundef %311, i32 noundef %342, ptr noundef %6) #13
+  %343 = tail call i32 %5(i64 noundef 0, i64 noundef %311, i32 noundef %342, ptr noundef %6) #14
   %344 = icmp eq i32 %343, 0
   br i1 %344, label %mcshengExec16_i.exit, label %339
 
@@ -5218,7 +5218,7 @@ doComplexReport.exit149.i:                        ; preds = %246, %339, %322, %3
   %371 = load i32, ptr %370, align 4
   %372 = zext i32 %371 to i64
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 %372
-  %374 = tail call ptr @run_accel(ptr noundef %373, ptr noundef %.641, ptr noundef nonnull %11) #13
+  %374 = tail call ptr @run_accel(ptr noundef %373, ptr noundef %.641, ptr noundef nonnull %11) #14
   %375 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %376 = icmp ult ptr %374, %375
   %storemerge.i199.i.v = select i1 %376, i64 32, i64 8
@@ -5511,7 +5511,7 @@ doComplexReport.exit149.i:                        ; preds = %246, %339, %322, %3
   %584 = load i32, ptr %583, align 4
   %585 = zext i32 %584 to i64
   %586 = getelementptr inbounds nuw i8, ptr %0, i64 %585
-  %587 = tail call ptr @run_accel(ptr noundef %586, ptr noundef %.641, ptr noundef nonnull %11) #13
+  %587 = tail call ptr @run_accel(ptr noundef %586, ptr noundef %.641, ptr noundef nonnull %11) #14
   %588 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %589 = icmp ult ptr %587, %588
   %storemerge.i.i.v = select i1 %589, i64 32, i64 8
@@ -5660,7 +5660,7 @@ doNormal16.exit:                                  ; preds = %doSherman16.exit34
 
 675:                                              ; preds = %671
   %676 = load i32, ptr %359, align 8
-  %677 = tail call i32 %5(i64 noundef 0, i64 noundef %674, i32 noundef %676, ptr noundef %6) #13
+  %677 = tail call i32 %5(i64 noundef 0, i64 noundef %674, i32 noundef %676, ptr noundef %6) #14
   %678 = icmp eq i32 %677, 0
   br i1 %678, label %mcshengExec16_i.exit, label %doComplexReport.exit.i
 
@@ -5670,7 +5670,7 @@ doNormal16.exit:                                  ; preds = %doSherman16.exit34
   br i1 %681, label %682, label %685
 
 682:                                              ; preds = %679
-  %683 = tail call i32 %5(i64 noundef 0, i64 noundef %674, i32 noundef %.730, ptr noundef %6) #13
+  %683 = tail call i32 %5(i64 noundef 0, i64 noundef %674, i32 noundef %.730, ptr noundef %6) #14
   %684 = icmp eq i32 %683, 0
   br i1 %684, label %mcshengExec16_i.exit, label %doComplexReport.exit.i
 
@@ -5698,7 +5698,7 @@ doNormal16.exit:                                  ; preds = %doSherman16.exit34
 697:                                              ; preds = %685
   %698 = getelementptr inbounds i8, ptr %693, i64 -60
   %699 = load i32, ptr %698, align 4
-  %700 = tail call i32 %5(i64 noundef 0, i64 noundef %674, i32 noundef %699, ptr noundef %6) #13
+  %700 = tail call i32 %5(i64 noundef 0, i64 noundef %674, i32 noundef %699, ptr noundef %6) #14
   %701 = icmp eq i32 %700, 0
   br i1 %701, label %mcshengExec16_i.exit, label %doComplexReport.exit.i
 
@@ -5711,7 +5711,7 @@ doNormal16.exit:                                  ; preds = %doSherman16.exit34
   %indvars.iv307 = phi i64 [ 0, %.lr.ph242 ], [ %indvars.iv.next308, %702 ]
   %704 = getelementptr inbounds nuw i32, ptr %696, i64 %indvars.iv307
   %705 = load i32, ptr %704, align 4
-  %706 = tail call i32 %5(i64 noundef 0, i64 noundef %674, i32 noundef %705, ptr noundef %6) #13
+  %706 = tail call i32 %5(i64 noundef 0, i64 noundef %674, i32 noundef %705, ptr noundef %6) #14
   %707 = icmp eq i32 %706, 0
   br i1 %707, label %mcshengExec16_i.exit, label %702
 
@@ -6250,7 +6250,7 @@ doNormal16.exit25.thread:                         ; preds = %242, %.thread
   %339 = load i32, ptr %338, align 4
   %340 = zext i32 %339 to i64
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 %340
-  %342 = tail call ptr @run_accel(ptr noundef %341, ptr noundef %.6, ptr noundef nonnull %9) #13
+  %342 = tail call ptr @run_accel(ptr noundef %341, ptr noundef %.6, ptr noundef nonnull %9) #14
   %343 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %344 = icmp ult ptr %342, %343
   %storemerge.i199.i.v = select i1 %344, i64 32, i64 8
@@ -6538,7 +6538,7 @@ doNormal16.exit25.thread:                         ; preds = %242, %.thread
   %547 = load i32, ptr %546, align 4
   %548 = zext i32 %547 to i64
   %549 = getelementptr inbounds nuw i8, ptr %0, i64 %548
-  %550 = tail call ptr @run_accel(ptr noundef %549, ptr noundef %.6, ptr noundef nonnull %9) #13
+  %550 = tail call ptr @run_accel(ptr noundef %549, ptr noundef %.6, ptr noundef nonnull %9) #14
   %551 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %552 = icmp ult ptr %550, %551
   %storemerge.i.i.v = select i1 %552, i64 32, i64 8
@@ -7197,7 +7197,7 @@ doSherman16.exit:                                 ; preds = %.thread21, %278, %2
   %331 = load i32, ptr %330, align 4
   %332 = zext i32 %331 to i64
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 %332
-  %334 = tail call ptr @run_accel(ptr noundef %333, ptr noundef %.6, ptr noundef nonnull %7) #13
+  %334 = tail call ptr @run_accel(ptr noundef %333, ptr noundef %.6, ptr noundef nonnull %7) #14
   %335 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %336 = icmp ult ptr %334, %335
   %storemerge.i199.i.v = select i1 %336, i64 32, i64 8
@@ -7496,7 +7496,7 @@ doSheng.exit.i:                                   ; preds = %405, %402, %454, %4
   %543 = load i32, ptr %542, align 4
   %544 = zext i32 %543 to i64
   %545 = getelementptr inbounds nuw i8, ptr %0, i64 %544
-  %546 = tail call ptr @run_accel(ptr noundef %545, ptr noundef %.6, ptr noundef nonnull %7) #13
+  %546 = tail call ptr @run_accel(ptr noundef %545, ptr noundef %.6, ptr noundef nonnull %7) #14
   %547 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %548 = icmp ult ptr %546, %547
   %storemerge.i.i.v = select i1 %548, i64 32, i64 8
@@ -7626,16 +7626,16 @@ mcshengExec16_i.exit:                             ; preds = %4, %.thread40
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i8> @llvm.usub.sat.v16i8(<16 x i8>, <16 x i8>) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare <16 x i8> @llvm.usub.sat.v16i8(<16 x i8>, <16 x i8>) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
 attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
@@ -7646,11 +7646,12 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { noinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
+attributes #9 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

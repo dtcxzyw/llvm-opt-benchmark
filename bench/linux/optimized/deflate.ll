@@ -155,7 +155,7 @@ define dso_local noundef range(i32 -2, 1) i32 @zlib_deflateInit2(ptr noundef %0,
   store i64 1, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %78, i64 52
   store i32 0, ptr %98, align 4
-  tail call void @zlib_tr_init(ptr noundef nonnull %78) #10
+  tail call void @zlib_tr_init(ptr noundef nonnull %78) #11
   %99 = getelementptr inbounds nuw i8, ptr %78, i64 56
   %100 = load i32, ptr %99, align 8
   %101 = zext i32 %100 to i64
@@ -269,7 +269,7 @@ define dso_local noundef range(i32 -2, 1) i32 @zlib_deflateReset(ptr noundef cap
   store i64 1, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 52
   store i32 0, ptr %25, align 4
-  tail call void @zlib_tr_init(ptr noundef nonnull %5) #10
+  tail call void @zlib_tr_init(ptr noundef nonnull %5) #11
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %27 = load i32, ptr %26, align 8
   %28 = zext i32 %27 to i64
@@ -642,7 +642,7 @@ thread-pre-split:                                 ; preds = %165, %177
   %.split = getelementptr %struct.config_s, ptr @configuration_table, i64 %208
   %209 = getelementptr i8, ptr %.split, i64 8
   %210 = load ptr, ptr %209, align 8
-  %211 = tail call i32 %210(ptr noundef nonnull %6, i32 noundef %1) #10
+  %211 = tail call i32 %210(ptr noundef nonnull %6, i32 noundef %1) #11
   %212 = and i32 %211, -2
   %213 = icmp eq i32 %212, 2
   br i1 %213, label %214, label %215
@@ -676,15 +676,15 @@ thread-pre-split:                                 ; preds = %165, %177
   ]
 
 225:                                              ; preds = %224
-  tail call void @zlib_tr_align(ptr noundef nonnull %6) #10
+  tail call void @zlib_tr_align(ptr noundef nonnull %6) #11
   br label %242
 
 226:                                              ; preds = %224
-  tail call void @zlib_tr_stored_type_only(ptr noundef nonnull %6) #10
+  tail call void @zlib_tr_stored_type_only(ptr noundef nonnull %6) #11
   br label %242
 
 227:                                              ; preds = %224
-  tail call void @zlib_tr_stored_block(ptr noundef nonnull %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #10
+  tail call void @zlib_tr_stored_block(ptr noundef nonnull %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #11
   %228 = icmp eq i32 %1, 4
   br i1 %228, label %229, label %242
 
@@ -959,8 +959,8 @@ define dso_local range(i32 9032, 268105) i32 @zlib_deflate_workspacesize(i32 nou
   br i1 %8, label %9, label %10, !prof !5
 
 9:                                                ; preds = %2
-  tail call void asm sideeffect "303: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 303b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 303) #10, !srcloc !6
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1141, i32 0, i64 12) #10, !srcloc !7
+  tail call void asm sideeffect "303: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 303b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 303) #11, !srcloc !6
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1141, i32 0, i64 12) #11, !srcloc !7
   unreachable
 
 10:                                               ; preds = %2
@@ -1045,7 +1045,7 @@ define internal noundef range(i32 0, 4) i32 @deflate_stored(ptr noundef %0, i32 
   %40 = phi ptr [ %38, %35 ], [ null, %31 ]
   %41 = and i64 %26, 4294967295
   %42 = sub i64 %41, %22
-  %43 = tail call i64 @zlib_tr_flush_block(ptr noundef %0, ptr noundef %40, i64 noundef %42, i32 noundef 0) #10
+  %43 = tail call i64 @zlib_tr_flush_block(ptr noundef %0, ptr noundef %40, i64 noundef %42, i32 noundef 0) #11
   %44 = load i32, ptr %8, align 4
   %45 = zext i32 %44 to i64
   store i64 %45, ptr %9, align 8
@@ -1198,7 +1198,7 @@ define internal noundef range(i32 0, 4) i32 @deflate_stored(ptr noundef %0, i32 
   %143 = phi ptr [ %141, %138 ], [ null, %136 ]
   %144 = zext i32 %130 to i64
   %145 = sub i64 %144, %129
-  %146 = tail call i64 @zlib_tr_flush_block(ptr noundef %0, ptr noundef %143, i64 noundef %145, i32 noundef 0) #10
+  %146 = tail call i64 @zlib_tr_flush_block(ptr noundef %0, ptr noundef %143, i64 noundef %145, i32 noundef 0) #11
   %147 = load i32, ptr %8, align 4
   %148 = zext i32 %147 to i64
   store i64 %148, ptr %9, align 8
@@ -1342,7 +1342,7 @@ define internal noundef range(i32 0, 4) i32 @deflate_stored(ptr noundef %0, i32 
   %241 = sub i64 %240, %.pre12
   %242 = icmp eq i32 %1, 5
   %243 = zext i1 %242 to i32
-  %244 = tail call i64 @zlib_tr_flush_block(ptr noundef %0, ptr noundef %238, i64 noundef %241, i32 noundef %243) #10
+  %244 = tail call i64 @zlib_tr_flush_block(ptr noundef %0, ptr noundef %238, i64 noundef %241, i32 noundef %243) #11
   %245 = load i32, ptr %8, align 4
   %246 = zext i32 %245 to i64
   store i64 %246, ptr %9, align 8
@@ -1592,7 +1592,7 @@ thread-pre-split:                                 ; preds = %60, %63, %69
   %79 = load i32, ptr %16, align 8
   %80 = sub i32 %78, %79
   %81 = add i32 %75, -3
-  %82 = tail call i32 @zlib_tr_tally(ptr noundef %0, i32 noundef %80, i32 noundef %81) #10
+  %82 = tail call i32 @zlib_tr_tally(ptr noundef %0, i32 noundef %80, i32 noundef %81) #11
   %83 = load i32, ptr %15, align 8
   %84 = load i32, ptr %3, align 4
   %85 = sub i32 %84, %83
@@ -1686,7 +1686,7 @@ thread-pre-split:                                 ; preds = %60, %63, %69
   %151 = getelementptr i8, ptr %148, i64 %150
   %152 = load i8, ptr %151, align 1
   %153 = zext i8 %152 to i32
-  %154 = tail call i32 @zlib_tr_tally(ptr noundef %0, i32 noundef 0, i32 noundef %153) #10
+  %154 = tail call i32 @zlib_tr_tally(ptr noundef %0, i32 noundef 0, i32 noundef %153) #11
   %155 = load i32, ptr %3, align 4
   %156 = add i32 %155, -1
   store i32 %156, ptr %3, align 4
@@ -1717,7 +1717,7 @@ thread-pre-split:                                 ; preds = %60, %63, %69
   %172 = phi ptr [ %170, %167 ], [ null, %164 ]
   %173 = zext i32 %160 to i64
   %174 = sub i64 %173, %165
-  %175 = tail call i64 @zlib_tr_flush_block(ptr noundef %0, ptr noundef %172, i64 noundef %174, i32 noundef 0) #10
+  %175 = tail call i64 @zlib_tr_flush_block(ptr noundef %0, ptr noundef %172, i64 noundef %174, i32 noundef 0) #11
   %176 = load i32, ptr %8, align 4
   %177 = zext i32 %176 to i64
   store i64 %177, ptr %18, align 8
@@ -1862,7 +1862,7 @@ thread-pre-split:                                 ; preds = %60, %63, %69
   %271 = sub i64 %270, %261
   %272 = icmp eq i32 %1, 5
   %273 = zext i1 %272 to i32
-  %274 = tail call i64 @zlib_tr_flush_block(ptr noundef %0, ptr noundef %268, i64 noundef %271, i32 noundef %273) #10
+  %274 = tail call i64 @zlib_tr_flush_block(ptr noundef %0, ptr noundef %268, i64 noundef %271, i32 noundef %273) #11
   %275 = load i32, ptr %8, align 4
   %276 = zext i32 %275 to i64
   store i64 %276, ptr %18, align 8
@@ -2154,7 +2154,7 @@ thread-pre-split16:                               ; preds = %77, %68, %71, %thre
   %104 = xor i32 %103, -1
   %105 = add i32 %99, %104
   %106 = add i32 %95, -3
-  %107 = tail call i32 @zlib_tr_tally(ptr noundef %0, i32 noundef %105, i32 noundef %106) #10
+  %107 = tail call i32 @zlib_tr_tally(ptr noundef %0, i32 noundef %105, i32 noundef %106) #11
   %108 = load i32, ptr %14, align 8
   %109 = load i32, ptr %3, align 4
   %reass.sub = sub i32 %109, %108
@@ -2240,7 +2240,7 @@ thread-pre-split16:                               ; preds = %77, %68, %71, %thre
   %164 = phi ptr [ %162, %159 ], [ null, %156 ]
   %165 = zext i32 %154 to i64
   %166 = sub i64 %165, %157
-  %167 = tail call i64 @zlib_tr_flush_block(ptr noundef %0, ptr noundef %164, i64 noundef %166, i32 noundef 0) #10
+  %167 = tail call i64 @zlib_tr_flush_block(ptr noundef %0, ptr noundef %164, i64 noundef %166, i32 noundef 0) #11
   %168 = load i32, ptr %8, align 4
   %169 = zext i32 %168 to i64
   store i64 %169, ptr %21, align 8
@@ -2377,7 +2377,7 @@ thread-pre-split16:                               ; preds = %77, %68, %71, %thre
   %260 = getelementptr i8, ptr %256, i64 %259
   %261 = load i8, ptr %260, align 1
   %262 = zext i8 %261 to i32
-  %263 = tail call i32 @zlib_tr_tally(ptr noundef %0, i32 noundef 0, i32 noundef %262) #10
+  %263 = tail call i32 @zlib_tr_tally(ptr noundef %0, i32 noundef 0, i32 noundef %262) #11
   %264 = icmp eq i32 %263, 0
   br i1 %264, label %357, label %265
 
@@ -2397,7 +2397,7 @@ thread-pre-split16:                               ; preds = %77, %68, %71, %thre
   %274 = load i32, ptr %8, align 4
   %275 = zext i32 %274 to i64
   %276 = sub i64 %275, %266
-  %277 = tail call i64 @zlib_tr_flush_block(ptr noundef %0, ptr noundef %273, i64 noundef %276, i32 noundef 0) #10
+  %277 = tail call i64 @zlib_tr_flush_block(ptr noundef %0, ptr noundef %273, i64 noundef %276, i32 noundef 0) #11
   %278 = load i32, ptr %8, align 4
   %279 = zext i32 %278 to i64
   store i64 %279, ptr %21, align 8
@@ -2554,7 +2554,7 @@ thread-pre-split16:                               ; preds = %77, %68, %71, %thre
   %379 = getelementptr i8, ptr %375, i64 %378
   %380 = load i8, ptr %379, align 1
   %381 = zext i8 %380 to i32
-  %382 = tail call i32 @zlib_tr_tally(ptr noundef %0, i32 noundef 0, i32 noundef %381) #10
+  %382 = tail call i32 @zlib_tr_tally(ptr noundef %0, i32 noundef 0, i32 noundef %381) #11
   store i32 0, ptr %20, align 8
   br label %383
 
@@ -2576,7 +2576,7 @@ thread-pre-split16:                               ; preds = %77, %68, %71, %thre
   %394 = sub i64 %393, %384
   %395 = icmp eq i32 %1, 5
   %396 = zext i1 %395 to i32
-  %397 = tail call i64 @zlib_tr_flush_block(ptr noundef %0, ptr noundef %391, i64 noundef %394, i32 noundef %396) #10
+  %397 = tail call i64 @zlib_tr_flush_block(ptr noundef %0, ptr noundef %391, i64 noundef %394, i32 noundef %396) #11
   %398 = load i32, ptr %8, align 4
   %399 = zext i32 %398 to i64
   store i64 %399, ptr %21, align 8
@@ -3290,17 +3290,17 @@ define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 nou
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @zlib_tr_tally(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #9
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #9
+declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -3311,8 +3311,9 @@ attributes #5 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounw
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #8 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
+attributes #9 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

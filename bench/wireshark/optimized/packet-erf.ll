@@ -1509,7 +1509,7 @@ define hidden void @proto_register_erf() local_unnamed_addr #1 {
   %69 = load ptr, ptr @erf_meta_index.2, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %70 = call ptr @wmem_epan_scope()
-  %71 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %70, i64 noundef 40) #11
+  %71 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %70, i64 noundef 40) #12
   %72 = load i16, ptr %64, align 16
   store i16 %72, ptr %71, align 8
   %73 = load i16, ptr %67, align 16
@@ -1542,7 +1542,7 @@ define hidden void @proto_register_erf() local_unnamed_addr #1 {
 80:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %81 = call ptr @wmem_epan_scope()
-  %82 = call noalias noundef dereferenceable_or_null(132) ptr @wmem_alloc0(ptr noundef %81, i64 noundef 132) #11
+  %82 = call noalias noundef dereferenceable_or_null(132) ptr @wmem_alloc0(ptr noundef %81, i64 noundef 132) #12
   call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(132) %82, i8 -1, i64 132, i1 false)
   store ptr %82, ptr %79, align 8
   br label %83
@@ -1579,7 +1579,7 @@ define hidden void @proto_register_erf() local_unnamed_addr #1 {
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %13, ptr noundef nonnull align 16 dereferenceable(144) @__const.init_ns_addr_tag_value_fields.ns_addr_extra_fields, i64 144, i1 false)
   %99 = call ptr @wmem_epan_scope()
-  %100 = call noalias noundef dereferenceable_or_null(132) ptr @wmem_alloc0(ptr noundef %99, i64 noundef 132) #11
+  %100 = call noalias noundef dereferenceable_or_null(132) ptr @wmem_alloc0(ptr noundef %99, i64 noundef 132) #12
   call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(132) %100, i8 -1, i64 132, i1 false)
   store ptr %100, ptr %79, align 8
   %101 = load ptr, ptr %77, align 8
@@ -1589,7 +1589,7 @@ define hidden void @proto_register_erf() local_unnamed_addr #1 {
   store ptr @.str.1041, ptr %29, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %103 = call ptr @wmem_epan_scope()
-  %104 = call noalias noundef dereferenceable_or_null(132) ptr @wmem_alloc0(ptr noundef %103, i64 noundef 132) #11
+  %104 = call noalias noundef dereferenceable_or_null(132) ptr @wmem_alloc0(ptr noundef %103, i64 noundef 132) #12
   call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(132) %104, i8 -1, i64 132, i1 false)
   store ptr %104, ptr %79, align 8
   br label %105
@@ -1655,7 +1655,7 @@ init_ns_addr_tag_value_fields.exit.i.i:           ; preds = %105
 130:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %131 = call ptr @wmem_epan_scope()
-  %132 = call noalias noundef dereferenceable_or_null(132) ptr @wmem_alloc0(ptr noundef %131, i64 noundef 132) #11
+  %132 = call noalias noundef dereferenceable_or_null(132) ptr @wmem_alloc0(ptr noundef %131, i64 noundef 132) #12
   call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(132) %132, i8 -1, i64 132, i1 false)
   store ptr %132, ptr %79, align 8
   br label %133
@@ -1691,7 +1691,7 @@ init_tag_value_subfields.exit30.i.i:              ; preds = %133
 init_tag_value_subfields.exit34.i.i:              ; preds = %129
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %148 = call ptr @wmem_epan_scope()
-  %149 = call noalias noundef dereferenceable_or_null(132) ptr @wmem_alloc0(ptr noundef %148, i64 noundef 132) #11
+  %149 = call noalias noundef dereferenceable_or_null(132) ptr @wmem_alloc0(ptr noundef %148, i64 noundef 132) #12
   call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(132) %149, i8 -1, i64 132, i1 false)
   store ptr %149, ptr %79, align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 4
@@ -1713,7 +1713,7 @@ init_tag_value_subfields.exit34.i.i:              ; preds = %129
 159:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %160 = call ptr @wmem_epan_scope()
-  %161 = call noalias noundef dereferenceable_or_null(132) ptr @wmem_alloc0(ptr noundef %160, i64 noundef 132) #11
+  %161 = call noalias noundef dereferenceable_or_null(132) ptr @wmem_alloc0(ptr noundef %160, i64 noundef 132) #12
   call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(132) %161, i8 -1, i64 132, i1 false)
   store ptr %161, ptr %79, align 8
   br label %162
@@ -1749,7 +1749,7 @@ init_tag_value_subfields.exit38.i.i:              ; preds = %162
 177:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %178 = call ptr @wmem_epan_scope()
-  %179 = call noalias noundef dereferenceable_or_null(132) ptr @wmem_alloc0(ptr noundef %178, i64 noundef 132) #11
+  %179 = call noalias noundef dereferenceable_or_null(132) ptr @wmem_alloc0(ptr noundef %178, i64 noundef 132) #12
   call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(132) %179, i8 -1, i64 132, i1 false)
   store ptr %179, ptr %79, align 8
   br label %180
@@ -1785,7 +1785,7 @@ init_tag_value_subfields.exit42.i.i:              ; preds = %180
 195:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %196 = call ptr @wmem_epan_scope()
-  %197 = call noalias noundef dereferenceable_or_null(132) ptr @wmem_alloc0(ptr noundef %196, i64 noundef 132) #11
+  %197 = call noalias noundef dereferenceable_or_null(132) ptr @wmem_alloc0(ptr noundef %196, i64 noundef 132) #12
   call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(132) %197, i8 -1, i64 132, i1 false)
   store ptr %197, ptr %79, align 8
   br label %198
@@ -1821,7 +1821,7 @@ init_tag_value_subfields.exit46.i.i:              ; preds = %198
 init_tag_value_subfields.exit50.i.i:              ; preds = %129
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %213 = call ptr @wmem_epan_scope()
-  %214 = call noalias noundef dereferenceable_or_null(132) ptr @wmem_alloc0(ptr noundef %213, i64 noundef 132) #11
+  %214 = call noalias noundef dereferenceable_or_null(132) ptr @wmem_alloc0(ptr noundef %213, i64 noundef 132) #12
   call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(132) %214, i8 -1, i64 132, i1 false)
   store ptr %214, ptr %79, align 8
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 4
@@ -1850,7 +1850,7 @@ init_tag_value_subfields.exit50.i.i:              ; preds = %129
   store i32 -1, ptr %40, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %225 = call ptr @wmem_epan_scope()
-  %226 = call noalias noundef dereferenceable_or_null(132) ptr @wmem_alloc0(ptr noundef %225, i64 noundef 132) #11
+  %226 = call noalias noundef dereferenceable_or_null(132) ptr @wmem_alloc0(ptr noundef %225, i64 noundef 132) #12
   call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(132) %226, i8 -1, i64 132, i1 false)
   store ptr %226, ptr %79, align 8
   br label %227
@@ -1886,7 +1886,7 @@ init_tag_value_subfields.exit.i.i.i:              ; preds = %227
   br i1 %.not.i.i.i, label %243, label %.preheader.i.i.i
 
 243:                                              ; preds = %init_tag_value_subfields.exit.i.i.i
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.425, ptr noundef nonnull @.str.426, i32 noundef 1196, ptr noundef nonnull @.str.427) #12
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.425, ptr noundef nonnull @.str.426, i32 noundef 1196, ptr noundef nonnull @.str.427) #13
   unreachable
 
 .preheader.i.i.i:                                 ; preds = %init_tag_value_subfields.exit.i.i.i, %.preheader.i.i.i
@@ -1963,7 +1963,7 @@ init_tag_fields.exit.i:                           ; preds = %init_ext_hdrs_tag_v
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %2, ptr noundef nonnull align 16 dereferenceable(240) @__const.init_section_fields.hfri_tmp, i64 240, i1 false)
   %281 = call ptr @wmem_epan_scope()
-  %282 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %281, i64 noundef 40) #11
+  %282 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %281, i64 noundef 40) #12
   %283 = load i16, ptr %278, align 16
   store i16 %283, ptr %282, align 8
   %284 = getelementptr inbounds nuw i8, ptr %282, i64 2
@@ -1979,7 +1979,7 @@ init_tag_fields.exit.i:                           ; preds = %init_ext_hdrs_tag_v
   %289 = getelementptr inbounds nuw i8, ptr %282, i64 32
   store ptr null, ptr %289, align 8
   %290 = call ptr @wmem_epan_scope()
-  %291 = call noalias noundef dereferenceable_or_null(132) ptr @wmem_alloc0(ptr noundef %290, i64 noundef 132) #11
+  %291 = call noalias noundef dereferenceable_or_null(132) ptr @wmem_alloc0(ptr noundef %290, i64 noundef 132) #12
   call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(132) %291, i8 -1, i64 132, i1 false)
   store ptr %291, ptr %289, align 8
   %292 = call ptr @wmem_epan_scope()
@@ -2815,10 +2815,10 @@ dissect_channelised_ex_header.exit.i:             ; preds = %.loopexit.i.i.i, %3
 
 482:                                              ; preds = %479
   %483 = call ptr @wmem_file_scope()
-  %484 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %483, i64 noundef 16) #11
+  %484 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %483, i64 noundef 16) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %484, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false)
   %485 = call ptr @wmem_file_scope()
-  %486 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %485, i64 noundef 16) #11
+  %486 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %485, i64 noundef 16) #12
   %487 = call ptr @wmem_file_scope()
   %488 = call noalias ptr @wmem_tree_new(ptr noundef %487)
   store ptr %488, ptr %486, align 8
@@ -2840,7 +2840,7 @@ dissect_channelised_ex_header.exit.i:             ; preds = %.loopexit.i.i.i, %3
 
 498:                                              ; preds = %494
   %499 = call ptr @wmem_file_scope()
-  %500 = call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %499, i64 noundef 4) #11
+  %500 = call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %499, i64 noundef 4) #12
   %501 = load i32, ptr %188, align 4
   store i32 %501, ptr %500, align 4
   %502 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
@@ -3237,7 +3237,7 @@ dissect_erf_pseudo_extension_header.exit:         ; preds = %614, %598, %597, %5
   br label %728
 
 728:                                              ; preds = %696, %dissect_erf_pseudo_extension_header.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %19, i8 noundef 0, i64 noundef 28, i1 noundef false) #13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %19, i8 noundef 0, i64 noundef 28, i1 noundef false) #14
   %729 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
   %730 = lshr i32 %729, 20
   %731 = trunc nuw nsw i32 %730 to i16
@@ -3339,7 +3339,7 @@ dissect_erf_pseudo_extension_header.exit:         ; preds = %614, %598, %597, %5
 
 795:                                              ; preds = %765, %dissect_erf_pseudo_extension_header.exit
   %796 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %19, i8 noundef 0, i64 noundef 28, i1 noundef false) #13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %19, i8 noundef 0, i64 noundef 28, i1 noundef false) #14
   %797 = lshr i32 %796, 20
   %798 = trunc nuw nsw i32 %797 to i16
   %799 = and i16 %798, 255
@@ -3426,7 +3426,7 @@ dissect_erf_pseudo_extension_header.exit:         ; preds = %614, %598, %597, %5
   %855 = lshr i32 %854, 24
   %856 = trunc nuw i32 %855 to i8
   %857 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %857, i8 noundef 0, i64 noundef 24, i1 noundef false) #13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %857, i8 noundef 0, i64 noundef 24, i1 noundef false) #14
   %858 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i8 2, ptr %858, align 4
   store i32 4, ptr %19, align 4
@@ -3478,7 +3478,7 @@ dissect_erf_pseudo_extension_header.exit:         ; preds = %614, %598, %597, %5
   %897 = load i32, ptr %896, align 8
   %898 = trunc i32 %897 to i8
   %899 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %899, i8 noundef 0, i64 noundef 24, i1 noundef false) #13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %899, i8 noundef 0, i64 noundef 24, i1 noundef false) #14
   %900 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i8 2, ptr %900, align 4
   store i32 4, ptr %19, align 4
@@ -3786,7 +3786,7 @@ check_section_length.exit.i:                      ; preds = %1045, %1044, %1043,
   br i1 %.not435.i, label %1051, label %1052
 
 1051:                                             ; preds = %check_section_length.exit.i
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.425, ptr noundef nonnull @.str.426, i32 noundef 2771, ptr noundef nonnull @.str.427) #12
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.425, ptr noundef nonnull @.str.426, i32 noundef 2771, ptr noundef nonnull @.str.427) #13
   unreachable
 
 1052:                                             ; preds = %check_section_length.exit.i
@@ -4000,7 +4000,7 @@ check_section_length.exit.i:                      ; preds = %1045, %1044, %1043,
   br i1 %.not432.i, label %1143, label %1144
 
 1143:                                             ; preds = %1141
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.425, ptr noundef nonnull @.str.426, i32 noundef 2867, ptr noundef nonnull @.str.427) #12
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.425, ptr noundef nonnull @.str.426, i32 noundef 2867, ptr noundef nonnull @.str.427) #13
   unreachable
 
 1144:                                             ; preds = %1141
@@ -4061,7 +4061,7 @@ check_section_length.exit.i:                      ; preds = %1045, %1044, %1043,
   br i1 %.not1719.i.i, label %dissect_meta_tag_bitfield.exit.i, label %.lr.ph.i.i153
 
 1182:                                             ; preds = %1178
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.425, ptr noundef nonnull @.str.426, i32 noundef 2466, ptr noundef nonnull @.str.427) #12
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.425, ptr noundef nonnull @.str.426, i32 noundef 2466, ptr noundef nonnull @.str.427) #13
   unreachable
 
 .lr.ph.i.i153:                                    ; preds = %.preheader.i.i, %.lr.ph.i.i153
@@ -4103,7 +4103,7 @@ dissect_meta_tag_bitfield.exit.i:                 ; preds = %.lr.ph.i.i153, %.pr
   br i1 %.not430.i, label %1199, label %1200
 
 1199:                                             ; preds = %1196
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.425, ptr noundef nonnull @.str.426, i32 noundef 2909, ptr noundef nonnull @.str.427) #12
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.425, ptr noundef nonnull @.str.426, i32 noundef 2909, ptr noundef nonnull @.str.427) #13
   unreachable
 
 1200:                                             ; preds = %1196
@@ -4247,7 +4247,7 @@ dissect_relative_time.exit.i:                     ; preds = %1256, %1254
   br i1 %.not.i454.i, label %1275, label %1276
 
 1275:                                             ; preds = %1272
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.425, ptr noundef nonnull @.str.426, i32 noundef 2497, ptr noundef nonnull @.str.427) #12
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.425, ptr noundef nonnull @.str.426, i32 noundef 2497, ptr noundef nonnull @.str.427) #13
   unreachable
 
 1276:                                             ; preds = %1272
@@ -4954,11 +4954,11 @@ define internal fastcc void @erf_source_append(i64 noundef %0, i8 noundef zeroex
 
 10:                                               ; preds = %3
   %11 = call ptr @wmem_file_scope()
-  %12 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %11, i64 noundef 8) #11
+  %12 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %11, i64 noundef 8) #12
   %13 = load i64, ptr %4, align 8
   store i64 %13, ptr %12, align 8
   %14 = call ptr @wmem_file_scope()
-  %15 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %14, i64 noundef 16) #11
+  %15 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %14, i64 noundef 16) #12
   %16 = call ptr @wmem_file_scope()
   %17 = call noalias ptr @wmem_tree_new(ptr noundef %16)
   store ptr %17, ptr %15, align 8
@@ -5334,7 +5334,7 @@ define internal fastcc ptr @dissect_relative_time(ptr noundef %0, i32 noundef %1
   br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.425, ptr noundef nonnull @.str.426, i32 noundef 2585, ptr noundef nonnull @.str.446) #12
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.425, ptr noundef nonnull @.str.426, i32 noundef 2585, ptr noundef nonnull @.str.446) #13
   unreachable
 
 8:                                                ; preds = %6
@@ -5452,14 +5452,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #10
+declare i64 @llvm.abs.i64(i64, i1 immarg) #11
 
 attributes #0 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5471,10 +5471,11 @@ attributes #6 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stac
 attributes #7 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { allocsize(1) }
-attributes #12 = { noreturn }
-attributes #13 = { nounwind }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { allocsize(1) }
+attributes #13 = { noreturn }
+attributes #14 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -100,7 +100,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @dictStringKeyCompare(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %2) #13
+  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %2) #14
   %5 = icmp eq i32 %4, 0
   %6 = zext i1 %5 to i32
   ret i32 %6
@@ -111,8 +111,8 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @dictStringHash(ptr noundef %0) #2 {
-  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
-  %3 = tail call i64 @dictGenHashFunction(ptr noundef nonnull %0, i64 noundef %2) #14
+  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
+  %3 = tail call i64 @dictGenHashFunction(ptr noundef nonnull %0, i64 noundef %2) #15
   ret i64 %3
 }
 
@@ -125,7 +125,7 @@ declare void @dictVanillaFree(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @THPGetAnonHugePagesSize() local_unnamed_addr #2 {
-  %1 = tail call i64 @zmalloc_get_smap_bytes_by_field(ptr noundef nonnull @.str, i64 noundef -1) #14
+  %1 = tail call i64 @zmalloc_get_smap_bytes_by_field(ptr noundef nonnull @.str, i64 noundef -1) #15
   %2 = trunc i64 %1 to i32
   ret i32 %2
 }
@@ -134,7 +134,7 @@ declare i64 @zmalloc_get_smap_bytes_by_field(ptr noundef, i64 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @latencyMonitorInit() local_unnamed_addr #2 {
-  %1 = tail call ptr @dictCreate(ptr noundef nonnull @latencyTimeSeriesDictType) #14
+  %1 = tail call ptr @dictCreate(ptr noundef nonnull @latencyTimeSeriesDictType) #15
   store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8072), align 8, !tbaa !5
   ret void
 }
@@ -144,17 +144,17 @@ declare ptr @dictCreate(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @latencyAddSample(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8072), align 8, !tbaa !5
-  %4 = tail call ptr @dictFetchValue(ptr noundef %3, ptr noundef %0) #14
-  %5 = tail call i64 @time(ptr noundef null) #14
+  %4 = tail call ptr @dictFetchValue(ptr noundef %3, ptr noundef %0) #15
+  %5 = tail call i64 @time(ptr noundef null) #15
   %6 = icmp eq ptr %4, null
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %2
-  %8 = tail call noalias dereferenceable_or_null(1288) ptr @zmalloc(i64 noundef 1288) #15
+  %8 = tail call noalias dereferenceable_or_null(1288) ptr @zmalloc(i64 noundef 1288) #16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1288) %8, i8 0, i64 1288, i1 false)
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8072), align 8, !tbaa !5
-  %10 = tail call noalias ptr @zstrdup(ptr noundef %0) #14
-  %11 = tail call i32 @dictAdd(ptr noundef %9, ptr noundef %10, ptr noundef nonnull %8) #14
+  %10 = tail call noalias ptr @zstrdup(ptr noundef %0) #15
+  %11 = tail call i32 @dictAdd(ptr noundef %9, ptr noundef %10, ptr noundef nonnull %8) #15
   br label %12
 
 12:                                               ; preds = %7, %2
@@ -230,8 +230,8 @@ declare noalias ptr @zstrdup(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @latencyResetEvent(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8072), align 8, !tbaa !5
-  %3 = tail call ptr @dictGetSafeIterator(ptr noundef %2) #14
-  %4 = tail call ptr @dictNext(ptr noundef %3) #14
+  %3 = tail call ptr @dictGetSafeIterator(ptr noundef %2) #15
+  %4 = tail call ptr @dictNext(ptr noundef %3) #15
   %.not10 = icmp eq ptr %4, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -242,37 +242,37 @@ define dso_local i32 @latencyResetEvent(ptr noundef readonly captures(address_is
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %6 = phi ptr [ %11, %.lr.ph.split.us ], [ %4, %.lr.ph ]
   %.011.us = phi i32 [ %10, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %7 = tail call ptr @dictGetKey(ptr noundef nonnull %6) #14
+  %7 = tail call ptr @dictGetKey(ptr noundef nonnull %6) #15
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8072), align 8, !tbaa !5
-  %9 = tail call i32 @dictDelete(ptr noundef %8, ptr noundef %7) #14
+  %9 = tail call i32 @dictDelete(ptr noundef %8, ptr noundef %7) #15
   %10 = add nuw nsw i32 %.011.us, 1
-  %11 = tail call ptr @dictNext(ptr noundef %3) #14
+  %11 = tail call ptr @dictNext(ptr noundef %3) #15
   %.not.us = icmp eq ptr %11, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !44
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %20
   %12 = phi ptr [ %21, %20 ], [ %4, %.lr.ph ]
   %.011 = phi i32 [ %.1, %20 ], [ 0, %.lr.ph ]
-  %13 = tail call ptr @dictGetKey(ptr noundef nonnull %12) #14
-  %14 = tail call i32 @strcasecmp(ptr noundef %13, ptr noundef nonnull %0) #13
+  %13 = tail call ptr @dictGetKey(ptr noundef nonnull %12) #15
+  %14 = tail call i32 @strcasecmp(ptr noundef %13, ptr noundef nonnull %0) #14
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %.lr.ph.split
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8072), align 8, !tbaa !5
-  %18 = tail call i32 @dictDelete(ptr noundef %17, ptr noundef %13) #14
+  %18 = tail call i32 @dictDelete(ptr noundef %17, ptr noundef %13) #15
   %19 = add nsw i32 %.011, 1
   br label %20
 
 20:                                               ; preds = %16, %.lr.ph.split
   %.1 = phi i32 [ %19, %16 ], [ %.011, %.lr.ph.split ]
-  %21 = tail call ptr @dictNext(ptr noundef %3) #14
+  %21 = tail call ptr @dictNext(ptr noundef %3) #15
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %20, %.lr.ph.split.us, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %10, %.lr.ph.split.us ], [ %.1, %20 ]
-  tail call void @dictReleaseIterator(ptr noundef %3) #14
+  tail call void @dictReleaseIterator(ptr noundef %3) #15
   ret i32 %.0.lcssa
 }
 
@@ -292,7 +292,7 @@ declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @analyzeLatencyForEvent(ptr noundef %0, ptr noundef captures(none) initializes((0, 32)) %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8072), align 8, !tbaa !5
-  %4 = tail call ptr @dictFetchValue(ptr noundef %3, ptr noundef %0) #14
+  %4 = tail call ptr @dictFetchValue(ptr noundef %3, ptr noundef %0) #15
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.critedge, label %.preheader
 
@@ -386,7 +386,7 @@ define dso_local void @analyzeLatencyForEvent(ptr noundef %0, ptr noundef captur
   %52 = udiv i64 %.1, %51
   %53 = trunc i64 %52 to i32
   store i32 %53, ptr %7, align 4, !tbaa !53
-  %54 = tail call i64 @time(ptr noundef null) #14
+  %54 = tail call i64 @time(ptr noundef null) #15
   %55 = load i64, ptr %11, align 8, !tbaa !51
   %56 = sub nsw i64 %54, %55
   %57 = icmp eq i64 %54, %55
@@ -447,7 +447,7 @@ define dso_local void @analyzeLatencyForEvent(ptr noundef %0, ptr noundef captur
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   %1 = alloca %struct.latencyStats, align 8
-  %2 = tail call ptr @sdsempty() #14
+  %2 = tail call ptr @sdsempty() #15
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8072), align 8, !tbaa !5
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8, !tbaa !56
@@ -461,12 +461,12 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   br i1 %or.cond, label %12, label %14
 
 12:                                               ; preds = %0
-  %13 = tail call ptr @sdscat(ptr noundef %2, ptr noundef nonnull @.str.1) #14
+  %13 = tail call ptr @sdscat(ptr noundef %2, ptr noundef nonnull @.str.1) #15
   br label %195
 
 14:                                               ; preds = %0
-  %15 = tail call ptr @dictGetSafeIterator(ptr noundef nonnull %3) #14
-  %16 = tail call ptr @dictNext(ptr noundef %15) #14
+  %15 = tail call ptr @dictGetSafeIterator(ptr noundef nonnull %3) #15
+  %16 = tail call ptr @dictNext(ptr noundef %15) #15
   %.not219 = icmp eq ptr %16, null
   br i1 %.not219, label %._crit_edge, label %.lr.ph
 
@@ -497,8 +497,8 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   %.0170222 = phi i32 [ 0, %.lr.ph ], [ %.1171, %110 ]
   %.0174221 = phi i32 [ 0, %.lr.ph ], [ %.1175, %110 ]
   %.0177220 = phi i32 [ 0, %.lr.ph ], [ %.1178, %110 ]
-  %23 = tail call ptr @dictGetKey(ptr noundef nonnull %22) #14
-  %24 = tail call ptr @dictGetVal(ptr noundef nonnull %22) #14
+  %23 = tail call ptr @dictGetKey(ptr noundef nonnull %22) #15
+  %24 = tail call ptr @dictGetVal(ptr noundef nonnull %22) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %25 = icmp eq ptr %24, null
   br i1 %25, label %110, label %26, !llvm.loop !57
@@ -509,7 +509,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
-  %30 = tail call ptr @sdscat(ptr noundef %.0100237, ptr noundef nonnull @.str.2) #14
+  %30 = tail call ptr @sdscat(ptr noundef %.0100237, ptr noundef nonnull @.str.2) #15
   br label %31
 
 31:                                               ; preds = %29, %26
@@ -527,8 +527,8 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   %41 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !38
   %43 = zext i32 %42 to i64
-  %44 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.2, ptr noundef nonnull @.str.3, i32 noundef %27, ptr noundef %23, i32 noundef %32, i64 noundef %34, i64 noundef %36, double noundef %40, i64 noundef %43) #14
-  %45 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.4) #13
+  %44 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.2, ptr noundef nonnull @.str.3, i32 noundef %27, ptr noundef %23, i32 noundef %32, i64 noundef %34, i64 noundef %36, double noundef %40, i64 noundef %43) #15
+  %45 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.4) #14
   %.not199 = icmp eq i32 %45, 0
   br i1 %.not199, label %46, label %59
 
@@ -558,14 +558,14 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   %.3114 = phi i32 [ %50, %49 ], [ %54, %53 ], [ %.0111233, %55 ]
   %.3106 = phi i32 [ 1, %49 ], [ 1, %53 ], [ %.0103235, %55 ]
   %.0 = phi ptr [ @.str.5, %49 ], [ @.str.6, %53 ], [ %.str.7..str.8, %55 ]
-  %58 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %44, ptr noundef nonnull @.str.9, double noundef %47, ptr noundef nonnull %.0) #14
+  %58 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %44, ptr noundef nonnull @.str.9, double noundef %47, ptr noundef nonnull %.0) #15
   br label %59
 
 59:                                               ; preds = %57, %31
   %.2113 = phi i32 [ %.0111233, %31 ], [ %.3114, %57 ]
   %.2105 = phi i32 [ %.0103235, %31 ], [ %.3106, %57 ]
   %.3 = phi ptr [ %44, %31 ], [ %58, %57 ]
-  %60 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.10) #13
+  %60 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.10) #14
   %.not200 = icmp eq i32 %60, 0
   br i1 %.not200, label %61, label %73
 
@@ -599,12 +599,12 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   %.2137 = phi i32 [ %.0135230, %59 ], [ 1, %71 ]
   %.4115 = phi i32 [ %.2113, %59 ], [ %72, %71 ]
   %.2109 = phi i32 [ %.0107234, %59 ], [ %.3110, %71 ]
-  %74 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.11) #13
+  %74 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.11) #14
   %.not201 = icmp eq i32 %74, 0
   %spec.select214 = select i1 %.not201, i32 1, i32 %.0167223
   %75 = zext i1 %.not201 to i32
   %spec.select215 = add nsw i32 %.4115, %75
-  %76 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.12) #13
+  %76 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.12) #14
   %.not202 = icmp eq i32 %76, 0
   br i1 %.not202, label %77, label %79
 
@@ -618,7 +618,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   %.2154 = phi i32 [ %.0152226, %73 ], [ 1, %77 ]
   %.2148 = phi i32 [ %.0146227, %73 ], [ 1, %77 ]
   %.7118 = phi i32 [ %spec.select215, %73 ], [ %78, %77 ]
-  %80 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.13) #13
+  %80 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.13) #14
   %.not203 = icmp eq i32 %80, 0
   br i1 %.not203, label %81, label %83
 
@@ -631,7 +631,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   %.2160 = phi i32 [ %.0158225, %79 ], [ 1, %81 ]
   %.3149 = phi i32 [ %.2148, %79 ], [ 1, %81 ]
   %.8119 = phi i32 [ %.7118, %79 ], [ %82, %81 ]
-  %84 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.14) #13
+  %84 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.14) #14
   %.not204 = icmp eq i32 %84, 0
   br i1 %.not204, label %85, label %87
 
@@ -644,17 +644,17 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   %.3155 = phi i32 [ %.2154, %83 ], [ 1, %85 ]
   %.4150 = phi i32 [ %.3149, %83 ], [ 1, %85 ]
   %.9120 = phi i32 [ %.8119, %83 ], [ %86, %85 ]
-  %88 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.15) #13
+  %88 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.15) #14
   %.not205 = icmp eq i32 %88, 0
   %spec.select216 = select i1 %.not205, i32 1, i32 %.0129232
   %89 = zext i1 %.not205 to i32
   %spec.select217 = add nsw i32 %.9120, %89
-  %90 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.16) #13
+  %90 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.16) #14
   %.not206 = icmp eq i32 %90, 0
   br i1 %.not206, label %93, label %91
 
 91:                                               ; preds = %87
-  %92 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.17) #13
+  %92 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.17) #14
   %.not207 = icmp eq i32 %92, 0
   br i1 %.not207, label %93, label %95
 
@@ -666,12 +666,12 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   %.3173 = phi i32 [ %.2172, %91 ], [ 1, %93 ]
   %.4156 = phi i32 [ %.3155, %91 ], [ 1, %93 ]
   %.11122 = phi i32 [ %spec.select217, %91 ], [ %94, %93 ]
-  %96 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.18) #13
+  %96 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.18) #14
   %.not208 = icmp eq i32 %96, 0
   br i1 %.not208, label %99, label %97
 
 97:                                               ; preds = %95
-  %98 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.19) #13
+  %98 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.19) #14
   %.not209 = icmp eq i32 %98, 0
   br i1 %.not209, label %99, label %101
 
@@ -685,23 +685,23 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   %.5151 = phi i32 [ %.4150, %97 ], [ 1, %99 ]
   %.2145 = phi i32 [ %.0143228, %97 ], [ 1, %99 ]
   %.12123 = phi i32 [ %.11122, %97 ], [ %100, %99 ]
-  %102 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.20) #13
+  %102 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.20) #14
   %.not210 = icmp eq i32 %102, 0
   %103 = add nsw i32 %.12123, 2
   %.2142 = select i1 %.not210, i32 1, i32 %.0140229
   %.13124 = select i1 %.not210, i32 %103, i32 %.12123
-  %104 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.21) #13
+  %104 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.21) #14
   %.not211 = icmp eq i32 %104, 0
   %105 = select i1 %.not211, i1 true, i1 %.not210
   %.4139 = select i1 %105, i32 1, i32 %.2137
   %106 = zext i1 %.not211 to i32
   %.14125 = add nsw i32 %.13124, %106
-  %107 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.22) #13
+  %107 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.22) #14
   %.not212 = icmp eq i32 %107, 0
   %.2134 = select i1 %.not212, i32 1, i32 %.0132231
   %108 = zext i1 %.not212 to i32
   %.15126 = add nsw i32 %.14125, %108
-  %109 = tail call ptr @sdscatlen(ptr noundef %.3, ptr noundef nonnull @.str.23, i64 noundef 1) #14
+  %109 = tail call ptr @sdscatlen(ptr noundef %.3, ptr noundef nonnull @.str.23, i64 noundef 1) #15
   br label %110
 
 110:                                              ; preds = %21, %101
@@ -724,7 +724,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   %.1102 = phi i32 [ %27, %101 ], [ %.0101236, %21 ]
   %.1 = phi ptr [ %109, %101 ], [ %.0100237, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %111 = tail call ptr @dictNext(ptr noundef %15) #14
+  %111 = tail call ptr @dictNext(ptr noundef %15) #15
   %.not = icmp eq ptr %111, null
   br i1 %.not, label %._crit_edge.loopexit, label %21
 
@@ -765,8 +765,8 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   %.0103.lcssa = phi i1 [ true, %14 ], [ %112, %._crit_edge.loopexit ]
   %.0101.lcssa = phi i32 [ 0, %14 ], [ %.1102, %._crit_edge.loopexit ]
   %.0100.lcssa = phi ptr [ %2, %14 ], [ %.1, %._crit_edge.loopexit ]
-  tail call void @dictReleaseIterator(ptr noundef %15) #14
-  %127 = tail call i64 @zmalloc_get_smap_bytes_by_field(ptr noundef nonnull @.str, i64 noundef -1) #14
+  tail call void @dictReleaseIterator(ptr noundef %15) #15
+  %127 = tail call i64 @zmalloc_get_smap_bytes_by_field(ptr noundef nonnull @.str, i64 noundef -1) #15
   %128 = trunc i64 %127 to i32
   %129 = icmp sgt i32 %128, 0
   %.neg = sext i1 %129 to i32
@@ -776,7 +776,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   br i1 %or.cond5, label %132, label %134
 
 132:                                              ; preds = %._crit_edge
-  %133 = tail call ptr @sdscat(ptr noundef %.0100.lcssa, ptr noundef nonnull @.str.24) #14
+  %133 = tail call ptr @sdscat(ptr noundef %.0100.lcssa, ptr noundef nonnull @.str.24) #15
   br label %195
 
 134:                                              ; preds = %._crit_edge
@@ -785,15 +785,15 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   br i1 %or.cond7, label %136, label %138
 
 136:                                              ; preds = %134
-  %137 = tail call ptr @sdscat(ptr noundef %.0100.lcssa, ptr noundef nonnull @.str.25) #14
+  %137 = tail call ptr @sdscat(ptr noundef %.0100.lcssa, ptr noundef nonnull @.str.25) #15
   br label %195
 
 138:                                              ; preds = %134
-  %139 = tail call ptr @sdscat(ptr noundef %.0100.lcssa, ptr noundef nonnull @.str.26) #14
+  %139 = tail call ptr @sdscat(ptr noundef %.0100.lcssa, ptr noundef nonnull @.str.26) #15
   br i1 %.0103.lcssa, label %142, label %140
 
 140:                                              ; preds = %138
-  %141 = tail call ptr @sdscat(ptr noundef %139, ptr noundef nonnull @.str.27) #14
+  %141 = tail call ptr @sdscat(ptr noundef %139, ptr noundef nonnull @.str.27) #15
   br label %142
 
 142:                                              ; preds = %140, %138
@@ -803,7 +803,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
 143:                                              ; preds = %142
   %144 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !60
   %145 = mul i64 %144, 1000
-  %146 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.5, ptr noundef nonnull @.str.28, i64 noundef %145) #14
+  %146 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.5, ptr noundef nonnull @.str.28, i64 noundef %145) #15
   br label %147
 
 147:                                              ; preds = %143, %142
@@ -813,7 +813,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
 148:                                              ; preds = %147
   %149 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !60
   %150 = mul i64 %149, 1000
-  %151 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.6, ptr noundef nonnull @.str.29, i64 noundef %150) #14
+  %151 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.6, ptr noundef nonnull @.str.29, i64 noundef %150) #15
   br label %152
 
 152:                                              ; preds = %148, %147
@@ -821,7 +821,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   br i1 %.0174.lcssa, label %155, label %153
 
 153:                                              ; preds = %152
-  %154 = tail call ptr @sdscat(ptr noundef %.7, ptr noundef nonnull @.str.30) #14
+  %154 = tail call ptr @sdscat(ptr noundef %.7, ptr noundef nonnull @.str.30) #15
   br label %155
 
 155:                                              ; preds = %153, %152
@@ -829,7 +829,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   br i1 %.0167.lcssa, label %158, label %156
 
 156:                                              ; preds = %155
-  %157 = tail call ptr @sdscat(ptr noundef %.8, ptr noundef nonnull @.str.31) #14
+  %157 = tail call ptr @sdscat(ptr noundef %.8, ptr noundef nonnull @.str.31) #15
   br label %158
 
 158:                                              ; preds = %156, %155
@@ -837,7 +837,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   br i1 %.0152.lcssa, label %161, label %159
 
 159:                                              ; preds = %158
-  %160 = tail call ptr @sdscat(ptr noundef %.9, ptr noundef nonnull @.str.32) #14
+  %160 = tail call ptr @sdscat(ptr noundef %.9, ptr noundef nonnull @.str.32) #15
   br label %161
 
 161:                                              ; preds = %159, %158
@@ -845,7 +845,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   br i1 %.0146.lcssa, label %164, label %162
 
 162:                                              ; preds = %161
-  %163 = tail call ptr @sdscat(ptr noundef %.10, ptr noundef nonnull @.str.33) #14
+  %163 = tail call ptr @sdscat(ptr noundef %.10, ptr noundef nonnull @.str.33) #15
   br label %164
 
 164:                                              ; preds = %162, %161
@@ -853,7 +853,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   br i1 %.0161.lcssa, label %167, label %165
 
 165:                                              ; preds = %164
-  %166 = tail call ptr @sdscat(ptr noundef %.11, ptr noundef nonnull @.str.34) #14
+  %166 = tail call ptr @sdscat(ptr noundef %.11, ptr noundef nonnull @.str.34) #15
   br label %167
 
 167:                                              ; preds = %165, %164
@@ -861,7 +861,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   br i1 %.0170.lcssa, label %170, label %168
 
 168:                                              ; preds = %167
-  %169 = tail call ptr @sdscat(ptr noundef %.12, ptr noundef nonnull @.str.35) #14
+  %169 = tail call ptr @sdscat(ptr noundef %.12, ptr noundef nonnull @.str.35) #15
   br label %170
 
 170:                                              ; preds = %168, %167
@@ -869,7 +869,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   br i1 %.0158.lcssa, label %173, label %171
 
 171:                                              ; preds = %170
-  %172 = tail call ptr @sdscat(ptr noundef %.13, ptr noundef nonnull @.str.36) #14
+  %172 = tail call ptr @sdscat(ptr noundef %.13, ptr noundef nonnull @.str.36) #15
   br label %173
 
 173:                                              ; preds = %171, %170
@@ -880,7 +880,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   br i1 %or.cond9, label %176, label %178
 
 176:                                              ; preds = %173
-  %177 = tail call ptr @sdscat(ptr noundef %.14, ptr noundef nonnull @.str.37) #14
+  %177 = tail call ptr @sdscat(ptr noundef %.14, ptr noundef nonnull @.str.37) #15
   br label %178
 
 178:                                              ; preds = %176, %173
@@ -888,7 +888,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   br i1 %.0143.lcssa, label %181, label %179
 
 179:                                              ; preds = %178
-  %180 = tail call ptr @sdscat(ptr noundef %.15, ptr noundef nonnull @.str.38) #14
+  %180 = tail call ptr @sdscat(ptr noundef %.15, ptr noundef nonnull @.str.38) #15
   br label %181
 
 181:                                              ; preds = %179, %178
@@ -899,7 +899,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   br i1 %or.cond11, label %184, label %186
 
 184:                                              ; preds = %181
-  %185 = tail call ptr @sdscat(ptr noundef %.16, ptr noundef nonnull @.str.39) #14
+  %185 = tail call ptr @sdscat(ptr noundef %.16, ptr noundef nonnull @.str.39) #15
   br label %186
 
 186:                                              ; preds = %184, %181
@@ -907,7 +907,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   br i1 %.0135.lcssa, label %189, label %187
 
 187:                                              ; preds = %186
-  %188 = tail call ptr @sdscat(ptr noundef %.17, ptr noundef nonnull @.str.40) #14
+  %188 = tail call ptr @sdscat(ptr noundef %.17, ptr noundef nonnull @.str.40) #15
   br label %189
 
 189:                                              ; preds = %187, %186
@@ -915,7 +915,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   br i1 %.0132.lcssa, label %192, label %190
 
 190:                                              ; preds = %189
-  %191 = tail call ptr @sdscat(ptr noundef %.18, ptr noundef nonnull @.str.41) #14
+  %191 = tail call ptr @sdscat(ptr noundef %.18, ptr noundef nonnull @.str.41) #15
   br label %192
 
 192:                                              ; preds = %190, %189
@@ -923,7 +923,7 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
   br i1 %129, label %193, label %195
 
 193:                                              ; preds = %192
-  %194 = tail call ptr @sdscat(ptr noundef %.19, ptr noundef nonnull @.str.42) #14
+  %194 = tail call ptr @sdscat(ptr noundef %.19, ptr noundef nonnull @.str.42) #15
   br label %195
 
 195:                                              ; preds = %132, %192, %193, %136, %12
@@ -944,16 +944,16 @@ declare ptr @sdscatlen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local void @fillCommandCDF(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.hdr_iter, align 8
-  tail call void @addReplyMapLen(ptr noundef %0, i64 noundef 2) #14
-  tail call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.43) #14
+  tail call void @addReplyMapLen(ptr noundef %0, i64 noundef 2) #15
+  tail call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.43) #15
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %5 = load i64, ptr %4, align 8, !tbaa !61
-  tail call void @addReplyLongLong(ptr noundef %0, i64 noundef %5) #14
-  tail call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.44) #14
-  %6 = tail call ptr @addReplyDeferredLen(ptr noundef %0) #14
+  tail call void @addReplyLongLong(ptr noundef %0, i64 noundef %5) #15
+  tail call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.44) #15
+  %6 = tail call ptr @addReplyDeferredLen(ptr noundef %0) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @hdr_iter_log_init(ptr noundef nonnull %3, ptr noundef %1, i64 noundef 1024, double noundef 2.000000e+00) #14
-  %7 = call zeroext i1 @hdr_iter_next(ptr noundef nonnull %3) #14
+  call void @hdr_iter_log_init(ptr noundef nonnull %3, ptr noundef %1, i64 noundef 1024, double noundef 2.000000e+00) #15
+  %7 = call zeroext i1 @hdr_iter_next(ptr noundef nonnull %3) #15
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
@@ -971,14 +971,14 @@ define dso_local void @fillCommandCDF(ptr noundef %0, ptr noundef %1) local_unna
 13:                                               ; preds = %10
   %14 = load i64, ptr %9, align 8, !tbaa !67
   %15 = sdiv i64 %14, 1000
-  call void @addReplyLongLong(ptr noundef %0, i64 noundef %15) #14
-  call void @addReplyLongLong(ptr noundef %0, i64 noundef %11) #14
+  call void @addReplyLongLong(ptr noundef %0, i64 noundef %15) #15
+  call void @addReplyLongLong(ptr noundef %0, i64 noundef %11) #15
   %16 = add nsw i32 %.020, 1
   br label %17
 
 17:                                               ; preds = %13, %10
   %.1 = phi i32 [ %16, %13 ], [ %.020, %10 ]
-  %18 = call zeroext i1 @hdr_iter_next(ptr noundef nonnull %3) #14
+  %18 = call zeroext i1 @hdr_iter_next(ptr noundef nonnull %3) #15
   br i1 %18, label %10, label %._crit_edge.loopexit, !llvm.loop !68
 
 ._crit_edge.loopexit:                             ; preds = %17
@@ -987,7 +987,7 @@ define dso_local void @fillCommandCDF(ptr noundef %0, ptr noundef %1) local_unna
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %19, %._crit_edge.loopexit ]
-  call void @setDeferredMapLen(ptr noundef %0, ptr noundef %6, i64 noundef %.0.lcssa) #14
+  call void @setDeferredMapLen(ptr noundef %0, ptr noundef %6, i64 noundef %.0.lcssa) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1008,14 +1008,14 @@ declare void @setDeferredMapLen(ptr noundef, ptr noundef, i64 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @latencyAllCommandsFillCDF(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
-  %4 = tail call ptr @dictGetSafeIterator(ptr noundef %1) #14
-  %5 = tail call ptr @dictNext(ptr noundef %4) #14
+  %4 = tail call ptr @dictGetSafeIterator(ptr noundef %1) #15
+  %5 = tail call ptr @dictNext(ptr noundef %4) #15
   %.not17 = icmp eq ptr %5, null
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %44
   %6 = phi ptr [ %45, %44 ], [ %5, %3 ]
-  %7 = tail call ptr @dictGetVal(ptr noundef nonnull %6) #14
+  %7 = tail call ptr @dictGetVal(ptr noundef nonnull %6) #15
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %9 = load ptr, ptr %8, align 8, !tbaa !69
   %.not15 = icmp eq ptr %9, null
@@ -1066,7 +1066,7 @@ define dso_local void @latencyAllCommandsFillCDF(ptr noundef %0, ptr noundef %1,
 
 sdslen.exit:                                      ; preds = %10, %17, %20, %24, %28, %32
   %.0.i = phi i64 [ %19, %17 ], [ %23, %20 ], [ %27, %24 ], [ %31, %28 ], [ %34, %32 ], [ 0, %10 ]
-  tail call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %12, i64 noundef %.0.i) #14
+  tail call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %12, i64 noundef %.0.i) #15
   %35 = load ptr, ptr %8, align 8, !tbaa !69
   tail call void @fillCommandCDF(ptr noundef %0, ptr noundef %35)
   %36 = load i32, ptr %2, align 4, !tbaa !79
@@ -1087,12 +1087,12 @@ sdslen.exit:                                      ; preds = %10, %17, %20, %24, 
   br label %44
 
 44:                                               ; preds = %41, %38
-  %45 = tail call ptr @dictNext(ptr noundef %4) #14
+  %45 = tail call ptr @dictNext(ptr noundef %4) #15
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %44, %3
-  tail call void @dictReleaseIterator(ptr noundef %4) #14
+  tail call void @dictReleaseIterator(ptr noundef %4) #15
   ret void
 }
 
@@ -1101,7 +1101,7 @@ declare void @addReplyBulkCBuffer(ptr noundef, ptr noundef, i64 noundef) local_u
 ; Function Attrs: nounwind uwtable
 define dso_local void @latencySpecificCommandsFillCDF(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca %struct.hdr_iter, align 8
-  %3 = tail call ptr @addReplyDeferredLen(ptr noundef %0) #14
+  %3 = tail call ptr @addReplyDeferredLen(ptr noundef %0) #15
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i32, ptr %4, align 8, !tbaa !83
   %6 = icmp sgt i32 %5, 2
@@ -1119,7 +1119,7 @@ define dso_local void @latencySpecificCommandsFillCDF(ptr noundef %0) local_unna
 
 ._crit_edge43:                                    ; preds = %._crit_edge43.loopexit, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %10, %._crit_edge43.loopexit ]
-  call void @setDeferredMapLen(ptr noundef nonnull %0, ptr noundef %3, i64 noundef %.0.lcssa) #14
+  call void @setDeferredMapLen(ptr noundef nonnull %0, ptr noundef %3, i64 noundef %.0.lcssa) #15
   ret void
 
 11:                                               ; preds = %.lr.ph42, %101
@@ -1130,7 +1130,7 @@ define dso_local void @latencySpecificCommandsFillCDF(ptr noundef %0) local_unna
   %14 = load ptr, ptr %13, align 8, !tbaa !94
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !95
-  %17 = call ptr @lookupCommandBySds(ptr noundef %16) #14
+  %17 = call ptr @lookupCommandBySds(ptr noundef %16) #15
   %18 = icmp eq ptr %17, null
   br i1 %18, label %101, label %19
 
@@ -1185,7 +1185,7 @@ define dso_local void @latencySpecificCommandsFillCDF(ptr noundef %0) local_unna
 
 sdslen.exit:                                      ; preds = %22, %29, %32, %36, %40, %44
   %.0.i = phi i64 [ %31, %29 ], [ %35, %32 ], [ %39, %36 ], [ %43, %40 ], [ %46, %44 ], [ 0, %22 ]
-  call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %24, i64 noundef %.0.i) #14
+  call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %24, i64 noundef %.0.i) #15
   %47 = load ptr, ptr %20, align 8, !tbaa !69
   call void @fillCommandCDF(ptr noundef nonnull %0, ptr noundef %47)
   %48 = add nsw i32 %.040, 1
@@ -1199,15 +1199,15 @@ sdslen.exit:                                      ; preds = %22, %29, %32, %36, 
   br i1 %.not32, label %101, label %52
 
 52:                                               ; preds = %49
-  %53 = call ptr @dictGetSafeIterator(ptr noundef nonnull %51) #14
-  %54 = call ptr @dictNext(ptr noundef %53) #14
+  %53 = call ptr @dictGetSafeIterator(ptr noundef nonnull %51) #15
+  %54 = call ptr @dictNext(ptr noundef %53) #15
   %.not3337 = icmp eq ptr %54, null
   br i1 %.not3337, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %52, %99
   %55 = phi ptr [ %100, %99 ], [ %54, %52 ]
   %.438 = phi i32 [ %.5, %99 ], [ %.2, %52 ]
-  %56 = call ptr @dictGetVal(ptr noundef nonnull %55) #14
+  %56 = call ptr @dictGetVal(ptr noundef nonnull %55) #15
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 224
   %58 = load ptr, ptr %57, align 8, !tbaa !69
   %.not34 = icmp eq ptr %58, null
@@ -1258,18 +1258,18 @@ sdslen.exit:                                      ; preds = %22, %29, %32, %36, 
 
 sdslen.exit36:                                    ; preds = %59, %66, %69, %73, %77, %81
   %.0.i35 = phi i64 [ %68, %66 ], [ %72, %69 ], [ %76, %73 ], [ %80, %77 ], [ %83, %81 ], [ 0, %59 ]
-  call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %61, i64 noundef %.0.i35) #14
+  call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %61, i64 noundef %.0.i35) #15
   %84 = load ptr, ptr %57, align 8, !tbaa !69
-  call void @addReplyMapLen(ptr noundef %0, i64 noundef 2) #14
-  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.43) #14
+  call void @addReplyMapLen(ptr noundef %0, i64 noundef 2) #15
+  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.43) #15
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 88
   %86 = load i64, ptr %85, align 8, !tbaa !61
-  call void @addReplyLongLong(ptr noundef %0, i64 noundef %86) #14
-  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.44) #14
-  %87 = call ptr @addReplyDeferredLen(ptr noundef %0) #14
+  call void @addReplyLongLong(ptr noundef %0, i64 noundef %86) #15
+  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.44) #15
+  %87 = call ptr @addReplyDeferredLen(ptr noundef %0) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @hdr_iter_log_init(ptr noundef nonnull %2, ptr noundef %84, i64 noundef 1024, double noundef 2.000000e+00) #14
-  %88 = call zeroext i1 @hdr_iter_next(ptr noundef nonnull %2) #14
+  call void @hdr_iter_log_init(ptr noundef nonnull %2, ptr noundef %84, i64 noundef 1024, double noundef 2.000000e+00) #15
+  %88 = call zeroext i1 @hdr_iter_next(ptr noundef nonnull %2) #15
   br i1 %88, label %.lr.ph.i, label %fillCommandCDF.exit
 
 .lr.ph.i:                                         ; preds = %sdslen.exit36, %95
@@ -1282,14 +1282,14 @@ sdslen.exit36:                                    ; preds = %59, %66, %69, %73, 
 91:                                               ; preds = %.lr.ph.i
   %92 = load i64, ptr %9, align 8, !tbaa !67
   %93 = sdiv i64 %92, 1000
-  call void @addReplyLongLong(ptr noundef %0, i64 noundef %93) #14
-  call void @addReplyLongLong(ptr noundef %0, i64 noundef %89) #14
+  call void @addReplyLongLong(ptr noundef %0, i64 noundef %93) #15
+  call void @addReplyLongLong(ptr noundef %0, i64 noundef %89) #15
   %94 = add nsw i32 %.020.i, 1
   br label %95
 
 95:                                               ; preds = %91, %.lr.ph.i
   %.1.i = phi i32 [ %94, %91 ], [ %.020.i, %.lr.ph.i ]
-  %96 = call zeroext i1 @hdr_iter_next(ptr noundef nonnull %2) #14
+  %96 = call zeroext i1 @hdr_iter_next(ptr noundef nonnull %2) #15
   br i1 %96, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !68
 
 ._crit_edge.loopexit.i:                           ; preds = %95
@@ -1298,20 +1298,20 @@ sdslen.exit36:                                    ; preds = %59, %66, %69, %73, 
 
 fillCommandCDF.exit:                              ; preds = %sdslen.exit36, %._crit_edge.loopexit.i
   %.0.lcssa.i = phi i64 [ 0, %sdslen.exit36 ], [ %97, %._crit_edge.loopexit.i ]
-  call void @setDeferredMapLen(ptr noundef %0, ptr noundef %87, i64 noundef %.0.lcssa.i) #14
+  call void @setDeferredMapLen(ptr noundef %0, ptr noundef %87, i64 noundef %.0.lcssa.i) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %98 = add nsw i32 %.438, 1
   br label %99
 
 99:                                               ; preds = %fillCommandCDF.exit, %.lr.ph
   %.5 = phi i32 [ %98, %fillCommandCDF.exit ], [ %.438, %.lr.ph ]
-  %100 = call ptr @dictNext(ptr noundef %53) #14
+  %100 = call ptr @dictNext(ptr noundef %53) #15
   %.not33 = icmp eq ptr %100, null
   br i1 %.not33, label %._crit_edge, label %.lr.ph, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %99, %52
   %.4.lcssa = phi i32 [ %.2, %52 ], [ %.5, %99 ]
-  call void @dictReleaseIterator(ptr noundef %53) #14
+  call void @dictReleaseIterator(ptr noundef %53) #15
   br label %101
 
 101:                                              ; preds = %49, %._crit_edge, %11
@@ -1327,7 +1327,7 @@ declare ptr @lookupCommandBySds(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @latencyCommandReplyWithSamples(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
-  %3 = tail call ptr @addReplyDeferredLen(ptr noundef %0) #14
+  %3 = tail call ptr @addReplyDeferredLen(ptr noundef %0) #15
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %5
 
@@ -1344,14 +1344,14 @@ define dso_local void @latencyCommandReplyWithSamples(ptr noundef %0, ptr nounde
   br i1 %12, label %20, label %13
 
 13:                                               ; preds = %5
-  tail call void @addReplyArrayLen(ptr noundef %0, i64 noundef 2) #14
+  tail call void @addReplyArrayLen(ptr noundef %0, i64 noundef 2) #15
   %14 = load i32, ptr %10, align 4, !tbaa !41
   %15 = sext i32 %14 to i64
-  tail call void @addReplyLongLong(ptr noundef %0, i64 noundef %15) #14
+  tail call void @addReplyLongLong(ptr noundef %0, i64 noundef %15) #15
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !43
   %18 = zext i32 %17 to i64
-  tail call void @addReplyLongLong(ptr noundef %0, i64 noundef %18) #14
+  tail call void @addReplyLongLong(ptr noundef %0, i64 noundef %18) #15
   %19 = add nsw i32 %.019, 1
   br label %20
 
@@ -1363,7 +1363,7 @@ define dso_local void @latencyCommandReplyWithSamples(ptr noundef %0, ptr nounde
 
 22:                                               ; preds = %20
   %23 = sext i32 %.1 to i64
-  tail call void @setDeferredArrayLen(ptr noundef %0, ptr noundef %3, i64 noundef %23) #14
+  tail call void @setDeferredArrayLen(ptr noundef %0, ptr noundef %3, i64 noundef %23) #15
   ret void
 }
 
@@ -1379,42 +1379,42 @@ define dso_local void @latencyCommandReplyWithLatestEvents(ptr noundef %0) local
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = load i64, ptr %5, align 8, !tbaa !56
   %7 = add i64 %6, %4
-  tail call void @addReplyArrayLen(ptr noundef %0, i64 noundef %7) #14
+  tail call void @addReplyArrayLen(ptr noundef %0, i64 noundef %7) #15
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8072), align 8, !tbaa !5
-  %9 = tail call ptr @dictGetIterator(ptr noundef %8) #14
-  %10 = tail call ptr @dictNext(ptr noundef %9) #14
+  %9 = tail call ptr @dictGetIterator(ptr noundef %8) #15
+  %10 = tail call ptr @dictNext(ptr noundef %9) #15
   %.not16 = icmp eq ptr %10, null
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %11 = phi ptr [ %28, %.lr.ph ], [ %10, %1 ]
-  %12 = tail call ptr @dictGetKey(ptr noundef nonnull %11) #14
-  %13 = tail call ptr @dictGetVal(ptr noundef nonnull %11) #14
+  %12 = tail call ptr @dictGetKey(ptr noundef nonnull %11) #15
+  %13 = tail call ptr @dictGetVal(ptr noundef nonnull %11) #15
   %14 = load i32, ptr %13, align 4, !tbaa !40
   %15 = add nsw i32 %14, 159
   %16 = srem i32 %15, 160
-  tail call void @addReplyArrayLen(ptr noundef %0, i64 noundef 4) #14
-  tail call void @addReplyBulkCString(ptr noundef %0, ptr noundef %12) #14
+  tail call void @addReplyArrayLen(ptr noundef %0, i64 noundef 4) #15
+  tail call void @addReplyBulkCString(ptr noundef %0, ptr noundef %12) #15
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %18 = sext i32 %16 to i64
   %19 = getelementptr inbounds %struct.latencySample, ptr %17, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !41
   %21 = sext i32 %20 to i64
-  tail call void @addReplyLongLong(ptr noundef %0, i64 noundef %21) #14
+  tail call void @addReplyLongLong(ptr noundef %0, i64 noundef %21) #15
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !43
   %24 = zext i32 %23 to i64
-  tail call void @addReplyLongLong(ptr noundef %0, i64 noundef %24) #14
+  tail call void @addReplyLongLong(ptr noundef %0, i64 noundef %24) #15
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !38
   %27 = zext i32 %26 to i64
-  tail call void @addReplyLongLong(ptr noundef %0, i64 noundef %27) #14
-  %28 = tail call ptr @dictNext(ptr noundef %9) #14
+  tail call void @addReplyLongLong(ptr noundef %0, i64 noundef %27) #15
+  %28 = tail call ptr @dictNext(ptr noundef %9) #15
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  tail call void @dictReleaseIterator(ptr noundef %9) #14
+  tail call void @dictReleaseIterator(ptr noundef %9) #15
   ret void
 }
 
@@ -1423,8 +1423,8 @@ declare ptr @dictGetIterator(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @latencyCommandGenSparkeline(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca [64 x i8], align 16
-  %4 = tail call ptr @createSparklineSequence() #14
-  %5 = tail call ptr @sdsempty() #14
+  %4 = tail call ptr @createSparklineSequence() #15
+  %5 = tail call ptr @sdsempty() #15
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %7
 
@@ -1457,7 +1457,7 @@ define dso_local ptr @latencyCommandGenSparkeline(ptr noundef %0, ptr noundef re
 21:                                               ; preds = %15, %20
   %.248 = phi i32 [ %spec.select53, %20 ], [ %19, %15 ]
   %.2 = phi i32 [ %spec.select, %20 ], [ %19, %15 ]
-  %22 = call i64 @time(ptr noundef null) #14
+  %22 = call i64 @time(ptr noundef null) #15
   %23 = load i32, ptr %12, align 4, !tbaa !41
   %24 = trunc i64 %22 to i32
   %25 = sub i32 %24, %23
@@ -1465,7 +1465,7 @@ define dso_local ptr @latencyCommandGenSparkeline(ptr noundef %0, ptr noundef re
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %21
-  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 64, ptr noundef nonnull @.str.45, i32 noundef %25) #14
+  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 64, ptr noundef nonnull @.str.45, i32 noundef %25) #15
   br label %42
 
 29:                                               ; preds = %21
@@ -1476,7 +1476,7 @@ define dso_local ptr @latencyCommandGenSparkeline(ptr noundef %0, ptr noundef re
   %.lhs.trunc = trunc nuw nsw i32 %25 to i16
   %32 = udiv i16 %.lhs.trunc, 60
   %.zext = zext nneg i16 %32 to i32
-  %33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 64, ptr noundef nonnull @.str.46, i32 noundef %.zext) #14
+  %33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 64, ptr noundef nonnull @.str.46, i32 noundef %.zext) #15
   br label %42
 
 34:                                               ; preds = %29
@@ -1485,19 +1485,19 @@ define dso_local ptr @latencyCommandGenSparkeline(ptr noundef %0, ptr noundef re
 
 36:                                               ; preds = %34
   %37 = udiv i32 %25, 3600
-  %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 64, ptr noundef nonnull @.str.47, i32 noundef %37) #14
+  %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 64, ptr noundef nonnull @.str.47, i32 noundef %37) #15
   br label %42
 
 39:                                               ; preds = %34
   %40 = udiv i32 %25, 86400
-  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 64, ptr noundef nonnull @.str.48, i32 noundef %40) #14
+  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 64, ptr noundef nonnull @.str.48, i32 noundef %40) #15
   br label %42
 
 42:                                               ; preds = %31, %39, %36, %27
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %44 = load i32, ptr %43, align 4, !tbaa !43
   %45 = uitofp i32 %44 to double
-  call void @sparklineSequenceAddSample(ptr noundef nonnull %4, double noundef %45, ptr noundef nonnull %3) #14
+  call void @sparklineSequenceAddSample(ptr noundef nonnull %4, double noundef %45, ptr noundef nonnull %3) #15
   br label %46
 
 46:                                               ; preds = %7, %42
@@ -1514,21 +1514,21 @@ define dso_local ptr @latencyCommandGenSparkeline(ptr noundef %0, ptr noundef re
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !38
   %53 = zext i32 %52 to i64
-  %54 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %5, ptr noundef nonnull @.str.49, ptr noundef %0, i64 noundef %49, i64 noundef %50, i64 noundef %53) #14
+  %54 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %5, ptr noundef nonnull @.str.49, ptr noundef %0, i64 noundef %49, i64 noundef %50, i64 noundef %53) #15
   br label %55
 
 55:                                               ; preds = %48, %55
   %.158 = phi i32 [ 0, %48 ], [ %57, %55 ]
   %.04357 = phi ptr [ %54, %48 ], [ %56, %55 ]
-  %56 = call ptr @sdscatlen(ptr noundef %.04357, ptr noundef nonnull @.str.50, i64 noundef 1) #14
+  %56 = call ptr @sdscatlen(ptr noundef %.04357, ptr noundef nonnull @.str.50, i64 noundef 1) #15
   %57 = add nuw nsw i32 %.158, 1
   %exitcond59.not = icmp eq i32 %57, 80
   br i1 %exitcond59.not, label %58, label %55, !llvm.loop !105
 
 58:                                               ; preds = %55
-  %59 = call ptr @sdscatlen(ptr noundef %56, ptr noundef nonnull @.str.23, i64 noundef 1) #14
-  %60 = call ptr @sparklineRender(ptr noundef %59, ptr noundef %4, i32 noundef 80, i32 noundef 4, i32 noundef 1) #14
-  call void @freeSparklineSequence(ptr noundef %4) #14
+  %59 = call ptr @sdscatlen(ptr noundef %56, ptr noundef nonnull @.str.23, i64 noundef 1) #15
+  %60 = call ptr @sparklineRender(ptr noundef %59, ptr noundef %4, i32 noundef 80, i32 noundef 4, i32 noundef 1) #15
+  call void @freeSparklineSequence(ptr noundef %4) #15
   ret ptr %60
 }
 
@@ -1553,7 +1553,7 @@ define dso_local void @latencyCommand(ptr noundef %0) local_unnamed_addr #2 {
   %7 = load ptr, ptr %6, align 8, !tbaa !94
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !95
-  %10 = tail call i32 @strcasecmp(ptr noundef %9, ptr noundef nonnull @.str.51) #13
+  %10 = tail call i32 @strcasecmp(ptr noundef %9, ptr noundef nonnull @.str.51) #14
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %45
 
@@ -1569,16 +1569,16 @@ define dso_local void @latencyCommand(ptr noundef %0) local_unnamed_addr #2 {
   %18 = load ptr, ptr %17, align 8, !tbaa !94
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !95
-  %21 = tail call ptr @dictFetchValue(ptr noundef %16, ptr noundef %20) #14
+  %21 = tail call ptr @dictFetchValue(ptr noundef %16, ptr noundef %20) #15
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %15
-  tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 0) #14
+  tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 0) #15
   br label %180
 
 24:                                               ; preds = %15
-  %25 = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %0) #14
+  %25 = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %0) #15
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
   br label %27
 
@@ -1595,14 +1595,14 @@ define dso_local void @latencyCommand(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %34, label %42, label %35
 
 35:                                               ; preds = %27
-  tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 2) #14
+  tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 2) #15
   %36 = load i32, ptr %32, align 4, !tbaa !41
   %37 = sext i32 %36 to i64
-  tail call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %37) #14
+  tail call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %37) #15
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !43
   %40 = zext i32 %39 to i64
-  tail call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %40) #14
+  tail call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %40) #15
   %41 = add nsw i32 %.019.i, 1
   br label %42
 
@@ -1614,11 +1614,11 @@ define dso_local void @latencyCommand(ptr noundef %0) local_unnamed_addr #2 {
 
 latencyCommandReplyWithSamples.exit:              ; preds = %42
   %44 = sext i32 %.1.i to i64
-  tail call void @setDeferredArrayLen(ptr noundef nonnull %0, ptr noundef %25, i64 noundef %44) #14
+  tail call void @setDeferredArrayLen(ptr noundef nonnull %0, ptr noundef %25, i64 noundef %44) #15
   br label %180
 
 45:                                               ; preds = %11, %1
-  %46 = tail call i32 @strcasecmp(ptr noundef %9, ptr noundef nonnull @.str.52) #13
+  %46 = tail call i32 @strcasecmp(ptr noundef %9, ptr noundef nonnull @.str.52) #14
   %.not60 = icmp eq i32 %46, 0
   br i1 %.not60, label %47, label %85
 
@@ -1634,13 +1634,13 @@ latencyCommandReplyWithSamples.exit:              ; preds = %42
   %54 = load ptr, ptr %53, align 8, !tbaa !94
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !95
-  %57 = tail call ptr @dictFind(ptr noundef %52, ptr noundef %56) #14
+  %57 = tail call ptr @dictFind(ptr noundef %52, ptr noundef %56) #15
   %58 = icmp eq ptr %57, null
   br i1 %58, label %174, label %59
 
 59:                                               ; preds = %51
-  %60 = tail call ptr @dictGetVal(ptr noundef nonnull %57) #14
-  %61 = tail call ptr @dictGetKey(ptr noundef nonnull %57) #14
+  %60 = tail call ptr @dictGetVal(ptr noundef nonnull %57) #15
+  %61 = tail call ptr @dictGetKey(ptr noundef nonnull %57) #15
   %62 = tail call ptr @latencyCommandGenSparkeline(ptr noundef %61, ptr noundef %60)
   %63 = getelementptr inbounds i8, ptr %62, i64 -1
   %64 = load i8, ptr %63, align 1, !tbaa !76
@@ -1684,12 +1684,12 @@ latencyCommandReplyWithSamples.exit:              ; preds = %42
 
 .thread:                                          ; preds = %82, %78, %74, %70, %67, %59
   %.0.i = phi i64 [ %69, %67 ], [ %73, %70 ], [ %77, %74 ], [ %81, %78 ], [ %84, %82 ], [ 0, %59 ]
-  tail call void @addReplyVerbatim(ptr noundef nonnull %0, ptr noundef nonnull %62, i64 noundef %.0.i, ptr noundef nonnull @.str.53) #14
-  tail call void @sdsfree(ptr noundef nonnull %62) #14
+  tail call void @addReplyVerbatim(ptr noundef nonnull %0, ptr noundef nonnull %62, i64 noundef %.0.i, ptr noundef nonnull @.str.53) #15
+  tail call void @sdsfree(ptr noundef nonnull %62) #15
   br label %180
 
 85:                                               ; preds = %47, %45
-  %86 = tail call i32 @strcasecmp(ptr noundef %9, ptr noundef nonnull @.str.54) #13
+  %86 = tail call i32 @strcasecmp(ptr noundef %9, ptr noundef nonnull @.str.54) #14
   %.not61 = icmp eq i32 %86, 0
   br i1 %.not61, label %87, label %92
 
@@ -1704,7 +1704,7 @@ latencyCommandReplyWithSamples.exit:              ; preds = %42
   br label %180
 
 92:                                               ; preds = %87, %85
-  %93 = tail call i32 @strcasecmp(ptr noundef %9, ptr noundef nonnull @.str.55) #13
+  %93 = tail call i32 @strcasecmp(ptr noundef %9, ptr noundef nonnull @.str.55) #14
   %.not62 = icmp eq i32 %93, 0
   br i1 %.not62, label %94, label %122
 
@@ -1758,12 +1758,12 @@ latencyCommandReplyWithSamples.exit:              ; preds = %42
 
 sdslen.exit68:                                    ; preds = %98, %104, %107, %111, %115, %119
   %.0.i67 = phi i64 [ %106, %104 ], [ %110, %107 ], [ %114, %111 ], [ %118, %115 ], [ %121, %119 ], [ 0, %98 ]
-  tail call void @addReplyVerbatim(ptr noundef nonnull %0, ptr noundef nonnull %99, i64 noundef %.0.i67, ptr noundef nonnull @.str.53) #14
-  tail call void @sdsfree(ptr noundef nonnull %99) #14
+  tail call void @addReplyVerbatim(ptr noundef nonnull %0, ptr noundef nonnull %99, i64 noundef %.0.i67, ptr noundef nonnull @.str.53) #15
+  tail call void @sdsfree(ptr noundef nonnull %99) #15
   br label %180
 
 122:                                              ; preds = %94, %92
-  %123 = tail call i32 @strcasecmp(ptr noundef %9, ptr noundef nonnull @.str.56) #13
+  %123 = tail call i32 @strcasecmp(ptr noundef %9, ptr noundef nonnull @.str.56) #14
   %.not63 = icmp eq i32 %123, 0
   br i1 %.not63, label %124, label %152
 
@@ -1779,19 +1779,19 @@ sdslen.exit68:                                    ; preds = %98, %104, %107, %11
 
 130:                                              ; preds = %128
   %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8072), align 8, !tbaa !5
-  %132 = tail call ptr @dictGetSafeIterator(ptr noundef %131) #14
-  %133 = tail call ptr @dictNext(ptr noundef %132) #14
+  %132 = tail call ptr @dictGetSafeIterator(ptr noundef %131) #15
+  %133 = tail call ptr @dictNext(ptr noundef %132) #15
   %.not10.i = icmp eq ptr %133, null
   br i1 %.not10.i, label %latencyResetEvent.exit, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %130, %.lr.ph.split.us.i
   %134 = phi ptr [ %139, %.lr.ph.split.us.i ], [ %133, %130 ]
   %.011.us.i = phi i32 [ %138, %.lr.ph.split.us.i ], [ 0, %130 ]
-  %135 = tail call ptr @dictGetKey(ptr noundef nonnull %134) #14
+  %135 = tail call ptr @dictGetKey(ptr noundef nonnull %134) #15
   %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8072), align 8, !tbaa !5
-  %137 = tail call i32 @dictDelete(ptr noundef %136, ptr noundef %135) #14
+  %137 = tail call i32 @dictDelete(ptr noundef %136, ptr noundef %135) #15
   %138 = add nuw nsw i32 %.011.us.i, 1
-  %139 = tail call ptr @dictNext(ptr noundef %132) #14
+  %139 = tail call ptr @dictNext(ptr noundef %132) #15
   %.not.us.i = icmp eq ptr %139, null
   br i1 %.not.us.i, label %latencyResetEvent.exit.loopexit, label %.lr.ph.split.us.i, !llvm.loop !44
 
@@ -1801,8 +1801,8 @@ latencyResetEvent.exit.loopexit:                  ; preds = %.lr.ph.split.us.i
 
 latencyResetEvent.exit:                           ; preds = %latencyResetEvent.exit.loopexit, %130
   %.0.lcssa.i = phi i64 [ 0, %130 ], [ %140, %latencyResetEvent.exit.loopexit ]
-  tail call void @dictReleaseIterator(ptr noundef %132) #14
-  tail call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.0.lcssa.i) #14
+  tail call void @dictReleaseIterator(ptr noundef %132) #15
+  tail call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.0.lcssa.i) #15
   br label %180
 
 .lr.ph:                                           ; preds = %128, %.lr.ph
@@ -1823,11 +1823,11 @@ latencyResetEvent.exit:                           ; preds = %latencyResetEvent.e
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %151 = sext i32 %147 to i64
-  tail call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %151) #14
+  tail call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %151) #15
   br label %180
 
 152:                                              ; preds = %124, %122
-  %153 = tail call i32 @strcasecmp(ptr noundef %9, ptr noundef nonnull @.str.57) #13
+  %153 = tail call i32 @strcasecmp(ptr noundef %9, ptr noundef nonnull @.str.57) #14
   %.not64 = icmp eq i32 %153, 0
   br i1 %.not64, label %154, label %166
 
@@ -1844,12 +1844,12 @@ latencyResetEvent.exit:                           ; preds = %latencyResetEvent.e
 160:                                              ; preds = %158
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !79
-  %161 = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %0) #14
+  %161 = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %0) #15
   %162 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 72), align 8, !tbaa !107
   call void @latencyAllCommandsFillCDF(ptr noundef nonnull %0, ptr noundef %162, ptr noundef nonnull %2)
   %163 = load i32, ptr %2, align 4, !tbaa !79
   %164 = sext i32 %163 to i64
-  tail call void @setDeferredMapLen(ptr noundef nonnull %0, ptr noundef %161, i64 noundef %164) #14
+  tail call void @setDeferredMapLen(ptr noundef nonnull %0, ptr noundef %161, i64 noundef %164) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %180
 
@@ -1858,7 +1858,7 @@ latencyResetEvent.exit:                           ; preds = %latencyResetEvent.e
   br label %180
 
 166:                                              ; preds = %154, %152
-  %167 = tail call i32 @strcasecmp(ptr noundef %9, ptr noundef nonnull @.str.58) #13
+  %167 = tail call i32 @strcasecmp(ptr noundef %9, ptr noundef nonnull @.str.58) #14
   %.not65 = icmp eq i32 %167, 0
   br i1 %.not65, label %168, label %173
 
@@ -1871,12 +1871,12 @@ latencyResetEvent.exit:                           ; preds = %latencyResetEvent.e
 172:                                              ; preds = %168
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %3, ptr noundef nonnull align 16 dereferenceable(120) @__const.latencyCommand.help, i64 120, i1 false)
-  call void @addReplyHelp(ptr noundef nonnull %0, ptr noundef nonnull %3) #14
+  call void @addReplyHelp(ptr noundef nonnull %0, ptr noundef nonnull %3) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %180
 
 173:                                              ; preds = %168, %166
-  tail call void @addReplySubcommandSyntaxError(ptr noundef nonnull %0) #14
+  tail call void @addReplySubcommandSyntaxError(ptr noundef nonnull %0) #15
   br label %180
 
 174:                                              ; preds = %51
@@ -1885,7 +1885,7 @@ latencyResetEvent.exit:                           ; preds = %latencyResetEvent.e
   %177 = load ptr, ptr %176, align 8, !tbaa !94
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
   %179 = load ptr, ptr %178, align 8, !tbaa !95
-  tail call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.73, ptr noundef %179) #14
+  tail call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.73, ptr noundef %179) #15
   br label %180
 
 180:                                              ; preds = %.thread, %latencyCommandReplyWithSamples.exit, %23, %91, %._crit_edge, %latencyResetEvent.exit, %172, %173, %160, %165, %sdslen.exit68, %174
@@ -1944,11 +1944,11 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #13
 
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1963,9 +1963,10 @@ attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind willreturn memory(read) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind allocsize(0) }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind willreturn memory(read) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

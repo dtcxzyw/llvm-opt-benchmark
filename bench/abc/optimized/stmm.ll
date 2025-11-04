@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @stmm_init_table_with_params(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, i32 noundef %5) local_unnamed_addr #0 {
-  %7 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #13
+  %7 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #14
   %8 = icmp eq ptr %7, null
   br i1 %8, label %23, label %9
 
@@ -33,13 +33,13 @@ define noalias noundef ptr @stmm_init_table_with_params(ptr noundef %0, ptr noun
   br i1 %19, label %22, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %9
-  %20 = tail call ptr @Extra_MmFixedStart(i32 noundef 24) #14
+  %20 = tail call ptr @Extra_MmFixedStart(i32 noundef 24) #15
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %20, ptr %21, align 8, !tbaa !18
   br label %23
 
 22:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %7) #14
+  tail call void @free(ptr noundef nonnull %7) #15
   br label %23
 
 23:                                               ; preds = %6, %.preheader.preheader, %22
@@ -57,7 +57,7 @@ declare ptr @Extra_MmFixedStart(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @stmm_init_table(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #13
+  %3 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #14
   %4 = icmp eq ptr %3, null
   br i1 %4, label %stmm_init_table_with_params.exit, label %5
 
@@ -82,13 +82,13 @@ define noalias noundef ptr @stmm_init_table(ptr noundef %0, ptr noundef %1) loca
   br i1 %13, label %16, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %5
-  %14 = tail call ptr @Extra_MmFixedStart(i32 noundef 24) #14
+  %14 = tail call ptr @Extra_MmFixedStart(i32 noundef 24) #15
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %14, ptr %15, align 8, !tbaa !18
   br label %stmm_init_table_with_params.exit
 
 16:                                               ; preds = %5
-  tail call void @free(ptr noundef nonnull %3) #14
+  tail call void @free(ptr noundef nonnull %3) #15
   br label %stmm_init_table_with_params.exit
 
 stmm_init_table_with_params.exit:                 ; preds = %2, %.preheader.preheader.i, %16
@@ -104,7 +104,7 @@ define void @stmm_free_table(ptr noundef captures(none) %0) local_unnamed_addr #
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @Extra_MmFixedStop(ptr noundef nonnull %3) #14
+  tail call void @Extra_MmFixedStop(ptr noundef nonnull %3) #15
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -114,11 +114,11 @@ define void @stmm_free_table(ptr noundef captures(none) %0) local_unnamed_addr #
   br i1 %.not9, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void @free(ptr noundef nonnull %7) #14
+  tail call void @free(ptr noundef nonnull %7) #15
   br label %9
 
 9:                                                ; preds = %5, %8
-  tail call void @free(ptr noundef nonnull %0) #14
+  tail call void @free(ptr noundef nonnull %0) #15
   ret void
 }
 
@@ -144,7 +144,7 @@ define void @stmm_clean(ptr noundef captures(none) initializes((20, 24)) %0) loc
   store i32 0, ptr %9, align 4, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !18
-  tail call void @Extra_MmFixedRestart(ptr noundef %11) #14
+  tail call void @Extra_MmFixedRestart(ptr noundef %11) #15
   ret void
 }
 
@@ -183,7 +183,7 @@ define range(i32 0, 2) i32 @stmm_lookup(ptr noundef readonly captures(none) %0, 
 24:                                               ; preds = %15
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i32, ptr %25, align 8, !tbaa !16
-  %27 = tail call i32 %5(ptr noundef %1, i32 noundef %26) #14
+  %27 = tail call i32 %5(ptr noundef %1, i32 noundef %26) #15
   br label %28
 
 28:                                               ; preds = %17, %24, %7
@@ -211,7 +211,7 @@ define range(i32 0, 2) i32 @stmm_lookup(ptr noundef readonly captures(none) %0, 
   br i1 %.not41, label %.critedge, label %42
 
 39:                                               ; preds = %.lr.ph
-  %40 = tail call i32 %34(ptr noundef %1, ptr noundef %37) #14
+  %40 = tail call i32 %34(ptr noundef %1, ptr noundef %37) #15
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.critedge, label %42
 
@@ -319,7 +319,7 @@ define range(i32 0, 2) i32 @stmm_lookup_int(ptr noundef readonly captures(none) 
 24:                                               ; preds = %15
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i32, ptr %25, align 8, !tbaa !16
-  %27 = tail call i32 %5(ptr noundef %1, i32 noundef %26) #14
+  %27 = tail call i32 %5(ptr noundef %1, i32 noundef %26) #15
   br label %28
 
 28:                                               ; preds = %17, %24, %7
@@ -347,7 +347,7 @@ define range(i32 0, 2) i32 @stmm_lookup_int(ptr noundef readonly captures(none) 
   br i1 %.not41, label %.critedge, label %42
 
 39:                                               ; preds = %.lr.ph
-  %40 = tail call i32 %34(ptr noundef %1, ptr noundef %37) #14
+  %40 = tail call i32 %34(ptr noundef %1, ptr noundef %37) #15
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.critedge, label %42
 
@@ -424,7 +424,7 @@ define range(i32 -10000, 2) i32 @stmm_insert(ptr noundef captures(none) %0, ptr 
 24:                                               ; preds = %15
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i32, ptr %25, align 8, !tbaa !16
-  %27 = tail call i32 %5(ptr noundef %1, i32 noundef %26) #14
+  %27 = tail call i32 %5(ptr noundef %1, i32 noundef %26) #15
   br label %28
 
 28:                                               ; preds = %17, %24, %7
@@ -452,7 +452,7 @@ define range(i32 -10000, 2) i32 @stmm_insert(ptr noundef captures(none) %0, ptr 
   br i1 %.not68, label %.critedge, label %42
 
 39:                                               ; preds = %.lr.ph
-  %40 = tail call i32 %34(ptr noundef %1, ptr noundef %37) #14
+  %40 = tail call i32 %34(ptr noundef %1, ptr noundef %37) #15
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.critedge, label %42
 
@@ -523,14 +523,14 @@ define range(i32 -10000, 2) i32 @stmm_insert(ptr noundef captures(none) %0, ptr 
 
 80:                                               ; preds = %72
   %81 = load i32, ptr %54, align 8, !tbaa !16
-  %82 = tail call i32 %63(ptr noundef %1, i32 noundef %81) #14
+  %82 = tail call i32 %63(ptr noundef %1, i32 noundef %81) #15
   br label %83
 
 83:                                               ; preds = %65, %80, %74, %.critedge71
   %.063 = phi i32 [ %29, %.critedge71 ], [ %71, %65 ], [ %79, %74 ], [ %82, %80 ]
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %85 = load ptr, ptr %84, align 8, !tbaa !18
-  %86 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %85) #14
+  %86 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %85) #15
   %87 = icmp eq ptr %86, null
   br i1 %87, label %99, label %88
 
@@ -578,7 +578,7 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr noundef captures(non
   store i32 0, ptr %6, align 4, !tbaa !12
   %13 = sext i32 %spec.select to i64
   %14 = shl nsw i64 %13, 3
-  %15 = tail call noalias ptr @malloc(i64 noundef %14) #13
+  %15 = tail call noalias ptr @malloc(i64 noundef %14) #14
   store ptr %15, ptr %2, align 8, !tbaa !17
   %16 = icmp eq ptr %15, null
   br i1 %16, label %20, label %.preheader54
@@ -691,7 +691,7 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr noundef captures(non
 
 68:                                               ; preds = %59
   %69 = load i32, ptr %4, align 8, !tbaa !16
-  %70 = tail call i32 %44(ptr noundef %61, i32 noundef %69) #14
+  %70 = tail call i32 %44(ptr noundef %61, i32 noundef %69) #15
   %.pre = load ptr, ptr %2, align 8, !tbaa !17
   %.pre64 = load i32, ptr %6, align 4, !tbaa !12
   br label %71
@@ -724,7 +724,7 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr noundef captures(non
   br i1 %.not, label %84, label %83
 
 83:                                               ; preds = %._crit_edge61
-  tail call void @free(ptr noundef nonnull %3) #14
+  tail call void @free(ptr noundef nonnull %3) #15
   br label %84
 
 84:                                               ; preds = %83, %._crit_edge61, %20
@@ -746,7 +746,7 @@ define range(i32 -10000, 2) i32 @stmm_add_direct(ptr noundef captures(none) %0, 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !16
-  %11 = tail call i32 %5(ptr noundef %1, i32 noundef %10) #14
+  %11 = tail call i32 %5(ptr noundef %1, i32 noundef %10) #15
   br label %12
 
 12:                                               ; preds = %3, %8
@@ -793,14 +793,14 @@ define range(i32 -10000, 2) i32 @stmm_add_direct(ptr noundef captures(none) %0, 
 
 41:                                               ; preds = %33
   %42 = load i32, ptr %15, align 8, !tbaa !16
-  %43 = tail call i32 %24(ptr noundef %1, i32 noundef %42) #14
+  %43 = tail call i32 %24(ptr noundef %1, i32 noundef %42) #15
   br label %44
 
 44:                                               ; preds = %35, %41, %26
   %45 = phi i32 [ %32, %26 ], [ %40, %35 ], [ %43, %41 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %47 = load ptr, ptr %46, align 8, !tbaa !18
-  %48 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %47) #14
+  %48 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %47) #15
   %49 = icmp eq ptr %48, null
   br i1 %49, label %60, label %50
 
@@ -859,7 +859,7 @@ define range(i32 -10000, 2) i32 @stmm_find_or_add(ptr noundef captures(none) %0,
 24:                                               ; preds = %15
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i32, ptr %25, align 8, !tbaa !16
-  %27 = tail call i32 %5(ptr noundef %1, i32 noundef %26) #14
+  %27 = tail call i32 %5(ptr noundef %1, i32 noundef %26) #15
   br label %28
 
 28:                                               ; preds = %17, %24, %7
@@ -887,7 +887,7 @@ define range(i32 -10000, 2) i32 @stmm_find_or_add(ptr noundef captures(none) %0,
   br i1 %.not72, label %.critedge, label %42
 
 39:                                               ; preds = %.lr.ph
-  %40 = tail call i32 %34(ptr noundef %1, ptr noundef %37) #14
+  %40 = tail call i32 %34(ptr noundef %1, ptr noundef %37) #15
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.critedge, label %42
 
@@ -958,14 +958,14 @@ define range(i32 -10000, 2) i32 @stmm_find_or_add(ptr noundef captures(none) %0,
 
 80:                                               ; preds = %72
   %81 = load i32, ptr %54, align 8, !tbaa !16
-  %82 = tail call i32 %63(ptr noundef %1, i32 noundef %81) #14
+  %82 = tail call i32 %63(ptr noundef %1, i32 noundef %81) #15
   br label %83
 
 83:                                               ; preds = %65, %80, %74, %.critedge77
   %.066 = phi i32 [ %29, %.critedge77 ], [ %71, %65 ], [ %79, %74 ], [ %82, %80 ]
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %85 = load ptr, ptr %84, align 8, !tbaa !18
-  %86 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %85) #14
+  %86 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %85) #15
   %87 = icmp eq ptr %86, null
   br i1 %87, label %100, label %88
 
@@ -1038,7 +1038,7 @@ define range(i32 0, 2) i32 @stmm_find(ptr noundef readonly captures(none) %0, pt
 24:                                               ; preds = %15
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i32, ptr %25, align 8, !tbaa !16
-  %27 = tail call i32 %5(ptr noundef %1, i32 noundef %26) #14
+  %27 = tail call i32 %5(ptr noundef %1, i32 noundef %26) #15
   br label %28
 
 28:                                               ; preds = %17, %24, %7
@@ -1066,7 +1066,7 @@ define range(i32 0, 2) i32 @stmm_find(ptr noundef readonly captures(none) %0, pt
   br i1 %.not41, label %.critedge, label %42
 
 39:                                               ; preds = %.lr.ph
-  %40 = tail call i32 %34(ptr noundef %1, ptr noundef %37) #14
+  %40 = tail call i32 %34(ptr noundef %1, ptr noundef %37) #15
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.critedge, label %42
 
@@ -1111,7 +1111,7 @@ define range(i32 0, 2) i32 @stmm_find(ptr noundef readonly captures(none) %0, pt
 define noalias noundef ptr @stmm_copy(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !16
-  %4 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #13
+  %4 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #14
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %6
 
@@ -1119,14 +1119,14 @@ define noalias noundef ptr @stmm_copy(ptr noundef readonly captures(none) %0) lo
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %0, i64 56, i1 false), !tbaa.struct !40
   %7 = sext i32 %3 to i64
   %8 = shl nsw i64 %7, 3
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #13
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #14
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %9, ptr %10, align 8, !tbaa !17
   %11 = icmp eq ptr %9, null
   br i1 %11, label %.loopexit.sink.split, label %12
 
 12:                                               ; preds = %6
-  %13 = tail call ptr @Extra_MmFixedStart(i32 noundef 24) #14
+  %13 = tail call ptr @Extra_MmFixedStart(i32 noundef 24) #15
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %13, ptr %14, align 8, !tbaa !18
   %15 = icmp sgt i32 %3, 0
@@ -1149,13 +1149,13 @@ define noalias noundef ptr @stmm_copy(ptr noundef readonly captures(none) %0) lo
 
 .lr.ph:                                           ; preds = %17, %24
   %.03744 = phi ptr [ %.037, %24 ], [ %.03742, %17 ]
-  %21 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %13) #14
+  %21 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %13) #15
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %.lr.ph
-  tail call void @Extra_MmFixedStop(ptr noundef %13) #14
-  tail call void @free(ptr noundef nonnull %9) #14
+  tail call void @Extra_MmFixedStop(ptr noundef %13) #15
+  tail call void @free(ptr noundef nonnull %9) #15
   br label %.loopexit.sink.split
 
 24:                                               ; preds = %.lr.ph
@@ -1175,7 +1175,7 @@ define noalias noundef ptr @stmm_copy(ptr noundef readonly captures(none) %0) lo
   br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !46
 
 .loopexit.sink.split:                             ; preds = %6, %23
-  tail call void @free(ptr noundef %4) #14
+  tail call void @free(ptr noundef %4) #15
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %.loopexit.sink.split, %12, %1
@@ -1220,7 +1220,7 @@ define range(i32 0, 2) i32 @stmm_delete(ptr noundef captures(none) %0, ptr nound
 25:                                               ; preds = %16
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load i32, ptr %26, align 8, !tbaa !16
-  %28 = tail call i32 %6(ptr noundef %4, i32 noundef %27) #14
+  %28 = tail call i32 %6(ptr noundef %4, i32 noundef %27) #15
   br label %29
 
 29:                                               ; preds = %18, %25, %8
@@ -1248,7 +1248,7 @@ define range(i32 0, 2) i32 @stmm_delete(ptr noundef captures(none) %0, ptr nound
   br i1 %.not49, label %.critedge, label %43
 
 40:                                               ; preds = %.lr.ph
-  %41 = tail call i32 %35(ptr noundef %4, ptr noundef %38) #14
+  %41 = tail call i32 %35(ptr noundef %4, ptr noundef %38) #15
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %.critedge, label %43
 
@@ -1293,7 +1293,7 @@ define range(i32 0, 2) i32 @stmm_delete(ptr noundef captures(none) %0, ptr nound
   store ptr %60, ptr %1, align 8, !tbaa !28
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %62 = load ptr, ptr %61, align 8, !tbaa !18
-  tail call void @Extra_MmFixedEntryRecycle(ptr noundef %62, ptr noundef nonnull %.04458) #14
+  tail call void @Extra_MmFixedEntryRecycle(ptr noundef %62, ptr noundef nonnull %.04458) #15
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %64 = load i32, ptr %63, align 4, !tbaa !12
   %65 = add nsw i32 %64, -1
@@ -1340,7 +1340,7 @@ define range(i32 0, 2) i32 @stmm_delete_int(ptr noundef captures(none) %0, ptr n
 24:                                               ; preds = %16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i32, ptr %25, align 8, !tbaa !16
-  %27 = tail call i32 %7(ptr noundef %5, i32 noundef %26) #14
+  %27 = tail call i32 %7(ptr noundef %5, i32 noundef %26) #15
   br label %28
 
 28:                                               ; preds = %18, %24, %9
@@ -1368,7 +1368,7 @@ define range(i32 0, 2) i32 @stmm_delete_int(ptr noundef captures(none) %0, ptr n
   br i1 %.not49, label %.critedge, label %42
 
 39:                                               ; preds = %.lr.ph
-  %40 = tail call i32 %34(ptr noundef %5, ptr noundef %37) #14
+  %40 = tail call i32 %34(ptr noundef %5, ptr noundef %37) #15
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.critedge, label %42
 
@@ -1414,7 +1414,7 @@ define range(i32 0, 2) i32 @stmm_delete_int(ptr noundef captures(none) %0, ptr n
   store i64 %60, ptr %1, align 8, !tbaa !48
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %62 = load ptr, ptr %61, align 8, !tbaa !18
-  tail call void @Extra_MmFixedEntryRecycle(ptr noundef %62, ptr noundef nonnull %.04458) #14
+  tail call void @Extra_MmFixedEntryRecycle(ptr noundef %62, ptr noundef nonnull %.04458) #15
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %64 = load i32, ptr %63, align 4, !tbaa !12
   %65 = add nsw i32 %64, -1
@@ -1454,7 +1454,7 @@ define range(i32 0, 2) i32 @stmm_foreach(ptr noundef captures(none) %0, ptr noun
   %15 = load ptr, ptr %.02226, align 8, !tbaa !21
   %16 = getelementptr inbounds nuw i8, ptr %.02226, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !27
-  %18 = tail call i32 %1(ptr noundef %15, ptr noundef %17, ptr noundef %2) #14
+  %18 = tail call i32 %1(ptr noundef %15, ptr noundef %17, ptr noundef %2) #15
   switch i32 %18, label %29 [
     i32 0, label %19
     i32 1, label %.loopexit
@@ -1474,7 +1474,7 @@ define range(i32 0, 2) i32 @stmm_foreach(ptr noundef captures(none) %0, ptr noun
   %26 = add nsw i32 %25, -1
   store i32 %26, ptr %8, align 4, !tbaa !12
   %27 = load ptr, ptr %9, align 8, !tbaa !18
-  tail call void @Extra_MmFixedEntryRecycle(ptr noundef %27, ptr noundef nonnull %.02226) #14
+  tail call void @Extra_MmFixedEntryRecycle(ptr noundef %27, ptr noundef nonnull %.02226) #15
   %28 = load ptr, ptr %.02127, align 8, !tbaa !19
   br label %29
 
@@ -1530,7 +1530,7 @@ define range(i32 0, -2147483648) i32 @stmm_strhash(ptr noundef readonly captures
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @stmm_init_gen(ptr noundef %0) local_unnamed_addr #7 {
-  %2 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #13
+  %2 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #14
   %3 = icmp eq ptr %2, null
   br i1 %3, label %7, label %4
 
@@ -1683,24 +1683,24 @@ define void @stmm_free_gen(ptr noundef captures(address_is_null) %0) local_unnam
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %0) #14
+  tail call void @free(ptr noundef nonnull %0) #15
   br label %3
 
 3:                                                ; preds = %1, %2
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #10
+declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1712,11 +1712,12 @@ attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable 
 attributes #7 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #13 = { nounwind allocsize(0) }
-attributes #14 = { nounwind }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #14 = { nounwind allocsize(0) }
+attributes #15 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

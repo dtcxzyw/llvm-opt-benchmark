@@ -2476,7 +2476,7 @@ define internal void @message_decode_match_criteria_tostr_cb(ptr noundef readonl
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %15, %16 ]
   %19 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %19, ptr %1, align 8
-  %20 = tail call i64 @strlen(ptr noundef %19) #12
+  %20 = tail call i64 @strlen(ptr noundef %19) #13
   %21 = trunc i64 %20 to i32
   br label %23
 
@@ -2516,7 +2516,7 @@ define internal void @message_decode_topic_pattern_tostr_cb(ptr noundef readonly
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #12
+  %11 = tail call i64 @strlen(ptr noundef %10) #13
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -2572,7 +2572,7 @@ define internal void @message_decode_payload_proto_tostr_cb(ptr noundef readonly
 
 8:                                                ; preds = %5
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
-  %10 = tail call i64 @strlen(ptr noundef %9) #12
+  %10 = tail call i64 @strlen(ptr noundef %9) #13
   %11 = trunc i64 %10 to i32
   br label %14
 
@@ -2610,7 +2610,7 @@ define internal void @message_decode_topic_more_info_tostr_cb(ptr noundef readon
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #12
+  %11 = tail call i64 @strlen(ptr noundef %10) #13
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -2808,7 +2808,7 @@ define internal i32 @dissect_amqp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 17:                                               ; preds = %12
   %18 = tail call ptr @wmem_file_scope()
-  %19 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %18, i64 noundef 16) #13
+  %19 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %18, i64 noundef 16) #14
   %20 = tail call ptr @wmem_file_scope()
   %21 = tail call noalias ptr @wmem_map_new(ptr noundef %20, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -3931,7 +3931,7 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
 
 359:                                              ; preds = %352
   %360 = tail call ptr @wmem_file_scope()
-  %361 = tail call noalias dereferenceable_or_null(48) ptr @wmem_alloc0(ptr noundef %360, i64 noundef 48) #13
+  %361 = tail call noalias dereferenceable_or_null(48) ptr @wmem_alloc0(ptr noundef %360, i64 noundef 48) #14
   store ptr %351, ptr %361, align 8
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 10
   store i16 %52, ptr %362, align 2
@@ -3942,7 +3942,7 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
 get_conversation_channel.exit:                    ; preds = %348, %352, %359
   %.013.i = phi ptr [ null, %348 ], [ %361, %359 ], [ %357, %352 ]
   %365 = tail call ptr @wmem_file_scope()
-  %366 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %365, i64 noundef 16) #13
+  %366 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %365, i64 noundef 16) #14
   %367 = getelementptr inbounds nuw i8, ptr %.013.i, i64 40
   store ptr %366, ptr %367, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -4535,7 +4535,7 @@ dissect_amqp_0_9_content_header_stream.exit:      ; preds = %627, %628
 
 689:                                              ; preds = %682
   %690 = tail call ptr @wmem_file_scope()
-  %691 = tail call noalias dereferenceable_or_null(48) ptr @wmem_alloc0(ptr noundef %690, i64 noundef 48) #13
+  %691 = tail call noalias dereferenceable_or_null(48) ptr @wmem_alloc0(ptr noundef %690, i64 noundef 48) #14
   store ptr %681, ptr %691, align 8
   %692 = getelementptr inbounds nuw i8, ptr %691, i64 10
   store i16 %52, ptr %692, align 2
@@ -5392,7 +5392,7 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_publish(i16 noundef z
 
 22:                                               ; preds = %15
   %23 = tail call ptr @wmem_file_scope()
-  %24 = tail call noalias dereferenceable_or_null(48) ptr @wmem_alloc0(ptr noundef %23, i64 noundef 48) #13
+  %24 = tail call noalias dereferenceable_or_null(48) ptr @wmem_alloc0(ptr noundef %23, i64 noundef 48) #14
   store ptr %14, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 10
   store i16 %0, ptr %25, align 2
@@ -5413,7 +5413,7 @@ get_conversation_channel.exit:                    ; preds = %11, %15, %22
   %.v.i = select i1 %34, i64 24, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %.013.i, i64 %.v.i
   %36 = tail call ptr @wmem_file_scope()
-  %37 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %36, i64 noundef 24) #13
+  %37 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %36, i64 noundef 24) #14
   store i64 %30, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %39 = load i32, ptr %38, align 4
@@ -6271,7 +6271,7 @@ define internal fastcc void @dissect_amqp_0_9_method_confirm_select_ok(i16 nound
 
 19:                                               ; preds = %12
   %20 = tail call ptr @wmem_file_scope()
-  %21 = tail call noalias dereferenceable_or_null(48) ptr @wmem_alloc0(ptr noundef %20, i64 noundef 48) #13
+  %21 = tail call noalias dereferenceable_or_null(48) ptr @wmem_alloc0(ptr noundef %20, i64 noundef 48) #14
   store ptr %11, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 10
   store i16 %0, ptr %22, align 2
@@ -6418,7 +6418,7 @@ define internal fastcc noundef i32 @dissect_amqp_0_9_field_value(ptr noundef %0,
   %27 = uitofp i32 %26 to double
   %28 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %14)
   %29 = uitofp i8 %28 to double
-  %30 = tail call double @pow(double noundef 1.000000e+01, double noundef %29) #14
+  %30 = tail call double @pow(double noundef 1.000000e+01, double noundef %29) #15
   %31 = fdiv double %27, %30
   %32 = load i32, ptr @hf_amqp_field_decimal, align 4
   %33 = tail call ptr @proto_tree_add_double(ptr noundef %4, i32 noundef %32, ptr noundef %0, i32 noundef %14, i32 noundef 5, double noundef %31)
@@ -6737,7 +6737,7 @@ define internal fastcc void @record_msg_delivery(ptr noundef %0, ptr noundef %1,
 
 15:                                               ; preds = %8
   %16 = tail call ptr @wmem_file_scope()
-  %17 = tail call noalias dereferenceable_or_null(48) ptr @wmem_alloc0(ptr noundef %16, i64 noundef 48) #13
+  %17 = tail call noalias dereferenceable_or_null(48) ptr @wmem_alloc0(ptr noundef %16, i64 noundef 48) #14
   store ptr %7, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 10
   store i16 %2, ptr %18, align 2
@@ -6754,7 +6754,7 @@ get_conversation_channel.exit:                    ; preds = %4, %8, %15
   %.v.i = select i1 %24, i64 24, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.013.i, i64 %.v.i
   %26 = tail call ptr @wmem_file_scope()
-  %27 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %26, i64 noundef 24) #13
+  %27 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %26, i64 noundef 24) #14
   store i64 %3, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %29 = load i32, ptr %28, align 4
@@ -6791,7 +6791,7 @@ define internal fastcc void @record_delivery_ack(ptr noundef %0, ptr noundef %1,
 
 16:                                               ; preds = %9
   %17 = tail call ptr @wmem_file_scope()
-  %18 = tail call noalias dereferenceable_or_null(48) ptr @wmem_alloc0(ptr noundef %17, i64 noundef 48) #13
+  %18 = tail call noalias dereferenceable_or_null(48) ptr @wmem_alloc0(ptr noundef %17, i64 noundef 48) #14
   store ptr %8, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 10
   store i16 %2, ptr %19, align 2
@@ -12336,7 +12336,7 @@ get_amqp_1_0_type_value_formatter.exit.i:         ; preds = %.lr.ph.i
   %116 = load i32, ptr %6, align 4
   %117 = load i32, ptr %7, align 4
   %118 = load ptr, ptr %8, align 8
-  call fastcc void @get_amqp_1_0_value_formatter(ptr noundef %.058, ptr noundef %1, i8 noundef zeroext %115, i32 noundef %114, i32 noundef %116, ptr noundef %112, i32 noundef %117, ptr noundef %118, ptr noundef nonnull %11, ptr noundef %77) #15
+  call fastcc void @get_amqp_1_0_value_formatter(ptr noundef %.058, ptr noundef %1, i8 noundef zeroext %115, i32 noundef %114, i32 noundef %116, ptr noundef %112, i32 noundef %117, ptr noundef %118, ptr noundef nonnull %11, ptr noundef %77) #16
   %119 = load i32, ptr %11, align 4
   %120 = add i32 %119, %113
   store i32 %120, ptr %11, align 4
@@ -13807,35 +13807,35 @@ define internal i32 @dissect_amqp_1_0_variable(ptr noundef %0, ptr noundef %1, i
 72:                                               ; preds = %.lr.ph.i
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %74 = load ptr, ptr %73, align 8
-  %75 = call i32 @strcmp(ptr noundef %65, ptr noundef %74) #12
+  %75 = call i32 @strcmp(ptr noundef %65, ptr noundef %74) #13
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %find_data_dissector.exit, label %.thread.i
 
 77:                                               ; preds = %.lr.ph.i
   %78 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %79 = load ptr, ptr %78, align 8
-  %80 = call ptr @strstr(ptr noundef %65, ptr noundef %79) #12
+  %80 = call ptr @strstr(ptr noundef %65, ptr noundef %79) #13
   %.not76.i = icmp eq ptr %80, null
   br i1 %.not76.i, label %.thread.i, label %find_data_dissector.exit
 
 81:                                               ; preds = %.lr.ph.i
-  %82 = call i64 @strlen(ptr noundef %65) #12
+  %82 = call i64 @strlen(ptr noundef %65) #13
   %83 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = call i64 @strlen(ptr noundef %84) #12
+  %85 = call i64 @strlen(ptr noundef %84) #13
   %.not61.i = icmp ult i64 %82, %85
   br i1 %.not61.i, label %.thread.i, label %86
 
 86:                                               ; preds = %81
-  %87 = call i32 @strncmp(ptr noundef %65, ptr noundef %84, i64 noundef %85) #12
+  %87 = call i32 @strncmp(ptr noundef %65, ptr noundef %84, i64 noundef %85) #13
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %find_data_dissector.exit, label %.thread.i
 
 89:                                               ; preds = %.lr.ph.i
-  %90 = call i64 @strlen(ptr noundef %65) #12
+  %90 = call i64 @strlen(ptr noundef %65) #13
   %91 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %92 = load ptr, ptr %91, align 8
-  %93 = call i64 @strlen(ptr noundef %92) #12
+  %93 = call i64 @strlen(ptr noundef %92) #13
   %.not60.i = icmp ult i64 %90, %93
   br i1 %.not60.i, label %.thread.i, label %103
 
@@ -13866,7 +13866,7 @@ define internal i32 @dissect_amqp_1_0_variable(ptr noundef %0, ptr noundef %1, i
 103:                                              ; preds = %89
   %104 = sub nuw i64 %90, %93
   %105 = getelementptr i8, ptr %65, i64 %104
-  %106 = call i32 @strcmp(ptr noundef %105, ptr noundef %92) #12
+  %106 = call i32 @strcmp(ptr noundef %105, ptr noundef %92) #13
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %find_data_dissector.exit, label %.thread.i
 
@@ -14045,16 +14045,16 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -14068,11 +14068,12 @@ attributes #7 = { mustprogress nocallback nofree nounwind null_pointer_is_valid 
 attributes #8 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { allocsize(1) }
-attributes #14 = { nounwind }
-attributes #15 = { "function-inline-cost-multiplier"="2" }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { allocsize(1) }
+attributes #15 = { nounwind }
+attributes #16 = { "function-inline-cost-multiplier"="2" }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

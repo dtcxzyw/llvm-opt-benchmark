@@ -113,13 +113,13 @@ define i32 @ff_swscale(ptr noundef %0, ptr noundef readonly captures(none) %1, p
   %56 = sub nsw i32 0, %55
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %58 = load i32, ptr %57, align 8, !tbaa !43
-  %59 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %58) #11
+  %59 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %58) #12
   %.not.i = icmp eq ptr %59, null
   br i1 %.not.i, label %60, label %isNBPS.exit
 
 60:                                               ; preds = %._crit_edge530
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 744) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 744) #12
+  tail call void @abort() #13
   unreachable
 
 isNBPS.exit:                                      ; preds = %._crit_edge530
@@ -131,13 +131,13 @@ isNBPS.exit:                                      ; preds = %._crit_edge530
 
 64:                                               ; preds = %isNBPS.exit
   %65 = load i32, ptr %57, align 8, !tbaa !43
-  %66 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %65) #11
+  %66 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %65) #12
   %.not.i428 = icmp eq ptr %66, null
   br i1 %.not.i428, label %67, label %is16BPS.exit
 
 67:                                               ; preds = %64
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 730) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 730) #12
+  tail call void @abort() #13
   unreachable
 
 is16BPS.exit:                                     ; preds = %64
@@ -175,13 +175,13 @@ is16BPS.exit:                                     ; preds = %64
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %97 = load i32, ptr %57, align 8, !tbaa !43
-  %98 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %97) #11
+  %98 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %97) #12
   %.not.i431 = icmp eq ptr %98, null
   br i1 %.not.i431, label %99, label %100
 
 99:                                               ; preds = %71
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 890) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 890) #12
+  tail call void @abort() #13
   unreachable
 
 100:                                              ; preds = %71
@@ -286,7 +286,7 @@ isPacked.exit.thread:                             ; preds = %111, %104
   br i1 %.not410, label %151, label %152
 
 151:                                              ; preds = %146
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str) #12
   br label %152
 
 152:                                              ; preds = %145, %146, %151, %140
@@ -320,10 +320,10 @@ isPacked.exit.thread:                             ; preds = %111, %104
 162:                                              ; preds = %159, %158
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 52880
   %164 = load i32, ptr %163, align 16, !tbaa !63
-  tail call void @ff_init_vscale_pfn(ptr noundef nonnull %0, ptr noundef %38, ptr noundef %40, ptr noundef %42, ptr noundef %44, ptr noundef %46, ptr noundef %48, ptr noundef %50, i32 noundef %164) #11
+  tail call void @ff_init_vscale_pfn(ptr noundef nonnull %0, ptr noundef %38, ptr noundef %40, ptr noundef %42, ptr noundef %44, ptr noundef %46, ptr noundef %48, ptr noundef %50, i32 noundef %164) #12
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %166 = load i32, ptr %165, align 8, !tbaa !64
-  %167 = call i32 @ff_init_slice_from_src(ptr noundef %86, ptr noundef nonnull %16, ptr noundef nonnull %17, i32 noundef %166, i32 noundef %3, i32 noundef %4, i32 noundef %53, i32 noundef %56, i32 noundef 1) #11
+  %167 = call i32 @ff_init_slice_from_src(ptr noundef %86, ptr noundef nonnull %16, ptr noundef nonnull %17, i32 noundef %166, i32 noundef %3, i32 noundef %4, i32 noundef %53, i32 noundef %56, i32 noundef 1) #12
   %168 = load i32, ptr %22, align 16, !tbaa !27
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %170 = load i32, ptr %169, align 4, !tbaa !65
@@ -331,7 +331,7 @@ isPacked.exit.thread:                             ; preds = %111, %104
   %172 = sub nsw i32 0, %8
   %173 = ashr i32 %172, %170
   %174 = sub nsw i32 0, %173
-  %175 = call i32 @ff_init_slice_from_src(ptr noundef %92, ptr noundef %5, ptr noundef nonnull %6, i32 noundef %168, i32 noundef %.0359, i32 noundef %8, i32 noundef %171, i32 noundef %174, i32 noundef %21) #11
+  %175 = call i32 @ff_init_slice_from_src(ptr noundef %92, ptr noundef %5, ptr noundef nonnull %6, i32 noundef %168, i32 noundef %.0359, i32 noundef %8, i32 noundef %171, i32 noundef %174, i32 noundef %21) #12
   %176 = icmp eq i32 %3, 0
   br i1 %176, label %177, label %188
 
@@ -486,8 +486,8 @@ isPacked.exit.thread:                             ; preds = %111, %104
   br i1 %.not415.not, label %260, label %259
 
 259:                                              ; preds = %.thread452
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 471) #11
-  call void @abort() #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 471) #12
+  call void @abort() #13
   unreachable
 
 260:                                              ; preds = %.thread452
@@ -497,8 +497,8 @@ isPacked.exit.thread:                             ; preds = %111, %104
   br i1 %.not416.not, label %264, label %263
 
 263:                                              ; preds = %260
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i32 noundef 472) #11
-  call void @abort() #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i32 noundef 472) #12
+  call void @abort() #13
   unreachable
 
 264:                                              ; preds = %260
@@ -544,7 +544,7 @@ isPacked.exit.thread:                             ; preds = %111, %104
 290:                                              ; preds = %274, %280
   %.0369 = phi i32 [ %281, %280 ], [ %277, %274 ]
   %.0368 = phi i32 [ %289, %280 ], [ %.0378, %274 ]
-  %291 = call i32 @ff_rotate_slice(ptr noundef %91, i32 noundef %.0370, i32 noundef %.0368) #11
+  %291 = call i32 @ff_rotate_slice(ptr noundef %91, i32 noundef %.0370, i32 noundef %.0368) #12
   %292 = icmp sge i32 %267, %256
   %brmerge = select i1 %292, i1 true, i1 %207
   br i1 %brmerge, label %.loopexit480, label %.lr.ph
@@ -559,7 +559,7 @@ isPacked.exit.thread:                             ; preds = %111, %104
   %294 = getelementptr inbounds nuw %struct.SwsFilterDescriptor, ptr %94, i64 %indvars.iv
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 32
   %296 = load ptr, ptr %295, align 8, !tbaa !75
-  %297 = call i32 %296(ptr noundef %0, ptr noundef %294, i32 noundef %.0371, i32 noundef %.reass) #11
+  %297 = call i32 %296(ptr noundef %0, ptr noundef %294, i32 noundef %.0371, i32 noundef %.reass) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit480, label %293, !llvm.loop !77
@@ -579,7 +579,7 @@ isPacked.exit.thread:                             ; preds = %111, %104
   %300 = getelementptr inbounds %struct.SwsFilterDescriptor, ptr %94, i64 %indvars.iv515
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 32
   %302 = load ptr, ptr %301, align 8, !tbaa !75
-  %303 = call i32 %302(ptr noundef %0, ptr noundef %300, i32 noundef %.0369, i32 noundef %.reass485) #11
+  %303 = call i32 %302(ptr noundef %0, ptr noundef %300, i32 noundef %.0369, i32 noundef %.reass485) #12
   %indvars.iv.next516 = add nsw i64 %indvars.iv515, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next516 to i32
   %exitcond518.not = icmp eq i32 %82, %lftr.wideiv
@@ -609,7 +609,7 @@ isPacked.exit.thread:                             ; preds = %111, %104
   br i1 %.not418, label %323, label %315
 
 315:                                              ; preds = %311
-  call void @ff_sws_init_output_funcs(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #11
+  call void @ff_sws_init_output_funcs(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #12
   %316 = load ptr, ptr %9, align 8, !tbaa !35
   %317 = load ptr, ptr %10, align 8, !tbaa !35
   %318 = load ptr, ptr %11, align 8, !tbaa !35
@@ -617,7 +617,7 @@ isPacked.exit.thread:                             ; preds = %111, %104
   %320 = load ptr, ptr %13, align 8, !tbaa !35
   %321 = load ptr, ptr %14, align 8, !tbaa !35
   %322 = load ptr, ptr %15, align 8, !tbaa !35
-  call void @ff_init_vscale_pfn(ptr noundef nonnull %0, ptr noundef %316, ptr noundef %317, ptr noundef %318, ptr noundef %319, ptr noundef %320, ptr noundef %321, ptr noundef %322, i32 noundef 0) #11
+  call void @ff_init_vscale_pfn(ptr noundef nonnull %0, ptr noundef %316, ptr noundef %317, ptr noundef %318, ptr noundef %319, ptr noundef %320, ptr noundef %321, ptr noundef %322, i32 noundef 0) #12
   br label %323
 
 323:                                              ; preds = %315, %311
@@ -628,7 +628,7 @@ isPacked.exit.thread:                             ; preds = %111, %104
   %324 = getelementptr inbounds %struct.SwsFilterDescriptor, ptr %94, i64 %indvars.iv519
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 32
   %326 = load ptr, ptr %325, align 8, !tbaa !75
-  %327 = call i32 %326(ptr noundef nonnull %0, ptr noundef %324, i32 noundef %217, i32 noundef 1) #11
+  %327 = call i32 %326(ptr noundef nonnull %0, ptr noundef %324, i32 noundef %217, i32 noundef 1) #12
   %indvars.iv.next520 = add nsw i64 %indvars.iv519, 1
   %lftr.wideiv522 = trunc i64 %indvars.iv.next520 to i32
   %exitcond523.not = icmp eq i32 %84, %lftr.wideiv522
@@ -644,13 +644,13 @@ isPacked.exit.thread:                             ; preds = %111, %104
   %.1.lcssa = phi i32 [ %.0359, %188 ], [ %217, %.loopexit ], [ %.0, %._crit_edge ]
   %.2364 = phi i32 [ %.0362, %188 ], [ %.0378, %.loopexit ], [ %.0378, %._crit_edge ]
   %.2 = phi i32 [ %.0360, %188 ], [ %.0377.pre-phi, %.loopexit ], [ %.0377.pre-phi, %._crit_edge ]
-  %328 = call ptr @av_pix_fmt_desc_get(i32 noundef %26) #11
+  %328 = call ptr @av_pix_fmt_desc_get(i32 noundef %26) #12
   %.not.i432 = icmp eq ptr %328, null
   br i1 %.not.i432, label %329, label %330
 
 329:                                              ; preds = %._crit_edge497
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 899) #11
-  call void @abort() #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 899) #12
+  call void @abort() #13
   unreachable
 
 330:                                              ; preds = %._crit_edge497
@@ -667,13 +667,13 @@ isPlanar.exit:                                    ; preds = %330
   br i1 %.not419, label %fillPlane16.exit, label %337
 
 337:                                              ; preds = %isPlanar.exit
-  %338 = call ptr @av_pix_fmt_desc_get(i32 noundef %26) #11
+  %338 = call ptr @av_pix_fmt_desc_get(i32 noundef %26) #12
   %.not.i433 = icmp eq ptr %338, null
   br i1 %.not.i433, label %339, label %340
 
 339:                                              ; preds = %337
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 881) #11
-  call void @abort() #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 881) #12
+  call void @abort() #13
   unreachable
 
 340:                                              ; preds = %337
@@ -696,13 +696,13 @@ isALPHA.exit:                                     ; preds = %340, %342
 348:                                              ; preds = %isALPHA.exit
   %349 = sub nsw i32 %.0359, %7
   %350 = sub i32 %.1.lcssa, %.0359
-  %351 = call ptr @av_pix_fmt_desc_get(i32 noundef %26) #11
+  %351 = call ptr @av_pix_fmt_desc_get(i32 noundef %26) #12
   %.not.i429 = icmp eq ptr %351, null
   br i1 %.not.i429, label %352, label %is16BPS.exit430
 
 352:                                              ; preds = %348
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 730) #11
-  call void @abort() #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 730) #12
+  call void @abort() #13
   unreachable
 
 is16BPS.exit430:                                  ; preds = %348
@@ -712,13 +712,13 @@ is16BPS.exit430:                                  ; preds = %348
   br i1 %.not468, label %361, label %355
 
 355:                                              ; preds = %is16BPS.exit430
-  %356 = call ptr @av_pix_fmt_desc_get(i32 noundef %26) #11
+  %356 = call ptr @av_pix_fmt_desc_get(i32 noundef %26) #12
   %.not.i426 = icmp eq ptr %356, null
   br i1 %.not.i426, label %357, label %isNBPS.exit427
 
 357:                                              ; preds = %355
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 744) #11
-  call void @abort() #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 744) #12
+  call void @abort() #13
   unreachable
 
 isNBPS.exit427:                                   ; preds = %355
@@ -729,20 +729,20 @@ isNBPS.exit427:                                   ; preds = %355
   br i1 %narrow469, label %390, label %361
 
 361:                                              ; preds = %isNBPS.exit427, %is16BPS.exit430
-  %362 = call ptr @av_pix_fmt_desc_get(i32 noundef %26) #11
+  %362 = call ptr @av_pix_fmt_desc_get(i32 noundef %26) #12
   %363 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %364 = load ptr, ptr %363, align 8, !tbaa !58
   %365 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %366 = load i32, ptr %365, align 4, !tbaa !49
   %367 = getelementptr inbounds nuw i8, ptr %362, i64 100
   %368 = load i32, ptr %367, align 4, !tbaa !44
-  %369 = call ptr @av_pix_fmt_desc_get(i32 noundef %26) #11
+  %369 = call ptr @av_pix_fmt_desc_get(i32 noundef %26) #12
   %.not.i434 = icmp eq ptr %369, null
   br i1 %.not.i434, label %370, label %isBE.exit
 
 370:                                              ; preds = %361
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 751) #11
-  call void @abort() #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 751) #12
+  call void @abort() #13
   unreachable
 
 isBE.exit:                                        ; preds = %361
@@ -791,13 +791,13 @@ isBE.exit:                                        ; preds = %361
   br i1 %exitcond27.not.i, label %fillPlane16.exit, label %.preheader.us.i, !llvm.loop !84
 
 390:                                              ; preds = %isNBPS.exit427
-  %391 = call ptr @av_pix_fmt_desc_get(i32 noundef %26) #11
+  %391 = call ptr @av_pix_fmt_desc_get(i32 noundef %26) #12
   %.not.i437 = icmp eq ptr %391, null
   br i1 %.not.i437, label %392, label %is32BPS.exit
 
 392:                                              ; preds = %390
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 737) #11
-  call void @abort() #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 737) #12
+  call void @abort() #13
   unreachable
 
 is32BPS.exit:                                     ; preds = %390
@@ -807,20 +807,20 @@ is32BPS.exit:                                     ; preds = %390
   br i1 %.not470, label %395, label %425
 
 395:                                              ; preds = %is32BPS.exit
-  %396 = call ptr @av_pix_fmt_desc_get(i32 noundef %26) #11
+  %396 = call ptr @av_pix_fmt_desc_get(i32 noundef %26) #12
   %397 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %398 = load ptr, ptr %397, align 8, !tbaa !58
   %399 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %400 = load i32, ptr %399, align 4, !tbaa !49
   %401 = getelementptr inbounds nuw i8, ptr %396, i64 100
   %402 = load i32, ptr %401, align 4, !tbaa !44
-  %403 = call ptr @av_pix_fmt_desc_get(i32 noundef %26) #11
+  %403 = call ptr @av_pix_fmt_desc_get(i32 noundef %26) #12
   %.not.i435 = icmp eq ptr %403, null
   br i1 %.not.i435, label %404, label %isBE.exit436
 
 404:                                              ; preds = %395
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 751) #11
-  call void @abort() #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 751) #12
+  call void @abort() #13
   unreachable
 
 isBE.exit436:                                     ; preds = %395
@@ -947,13 +947,13 @@ define void @ff_sws_init_range_convert(ptr noundef captures(none) initializes((5
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %10 = load i32, ptr %9, align 4, !tbaa !28
-  %11 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %10) #11
+  %11 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %10) #12
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %12, label %isAnyRGB.exit
 
 12:                                               ; preds = %8
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 859) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 859) #12
+  tail call void @abort() #13
   unreachable
 
 isAnyRGB.exit:                                    ; preds = %8
@@ -1327,7 +1327,7 @@ define internal void @chrRangeToJpeg16_c(ptr noundef captures(none) %0, ptr noun
 
 ; Function Attrs: cold nounwind uwtable
 define void @ff_sws_init_scale(ptr noundef %0) local_unnamed_addr #6 {
-  tail call fastcc void @sws_init_swscale(ptr noundef %0) #13
+  tail call fastcc void @sws_init_swscale(ptr noundef %0) #14
   ret void
 }
 
@@ -1342,14 +1342,14 @@ define internal fastcc void @sws_init_swscale(ptr noundef %0) unnamed_addr #4 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 53000
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 53008
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 53016
-  tail call void @ff_sws_init_output_funcs(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #11
+  tail call void @ff_sws_init_output_funcs(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #12
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 53032
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 53040
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 53048
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 53056
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 53064
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 53072
-  tail call void @ff_sws_init_input_funcs(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16) #11
+  tail call void @ff_sws_init_input_funcs(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16) #12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %18 = load i32, ptr %17, align 4, !tbaa !104
   %19 = icmp eq i32 %18, 8
@@ -1394,14 +1394,14 @@ define internal fastcc void @sws_init_swscale(ptr noundef %0) unnamed_addr #4 {
   br label %39
 
 39:                                               ; preds = %33, %30, %26, %34
-  tail call void @ff_sws_init_range_convert(ptr noundef nonnull %0) #13
-  %40 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #11
+  tail call void @ff_sws_init_range_convert(ptr noundef nonnull %0) #14
+  %40 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #12
   %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %41, label %42
 
 41:                                               ; preds = %39
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 790) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 790) #12
+  tail call void @abort() #13
   unreachable
 
 42:                                               ; preds = %39
@@ -1423,13 +1423,13 @@ define internal fastcc void @sws_init_swscale(ptr noundef %0) unnamed_addr #4 {
 isGray.exit.thread:                               ; preds = %42, %46
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %53 = load i32, ptr %52, align 4, !tbaa !28
-  %54 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %53) #11
+  %54 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %53) #12
   %.not.i37 = icmp eq ptr %54, null
   br i1 %.not.i37, label %55, label %56
 
 55:                                               ; preds = %isGray.exit.thread
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 790) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 790) #12
+  tail call void @abort() #13
   unreachable
 
 56:                                               ; preds = %isGray.exit.thread
@@ -1468,7 +1468,7 @@ isGray.exit42:                                    ; preds = %60, %56
 define void @ff_xyz12Torgb48(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i32, ptr %8, align 8, !tbaa !43
-  %10 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %9) #11
+  %10 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %9) #12
   %11 = icmp sgt i32 %6, 0
   br i1 %11, label %.preheader.lr.ph, label %._crit_edge92
 
@@ -1666,7 +1666,7 @@ define void @ff_xyz12Torgb48(ptr noundef readonly captures(none) %0, ptr noundef
 define void @ff_rgb48Toxyz12(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %9 = load i32, ptr %8, align 4, !tbaa !28
-  %10 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %9) #11
+  %10 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %9) #12
   %11 = icmp sgt i32 %6, 0
   br i1 %11, label %.preheader.lr.ph, label %._crit_edge92
 
@@ -2047,10 +2047,10 @@ define void @ff_update_palette(ptr noundef captures(none) %0, ptr noundef readon
 define void @sws_frame_end(ptr noundef captures(none) initializes((280, 284)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 16, !tbaa !119
-  tail call void @av_frame_unref(ptr noundef %3) #11
+  tail call void @av_frame_unref(ptr noundef %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %5 = load ptr, ptr %4, align 8, !tbaa !120
-  tail call void @av_frame_unref(ptr noundef %5) #11
+  tail call void @av_frame_unref(ptr noundef %5) #12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 0, ptr %6, align 8, !tbaa !121
   ret void
@@ -2062,7 +2062,7 @@ declare void @av_frame_unref(ptr noundef) local_unnamed_addr #2
 define range(i32 -2147483648, 1) i32 @sws_frame_start(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = load ptr, ptr %4, align 16, !tbaa !119
-  %6 = tail call i32 @av_frame_ref(ptr noundef %5, ptr noundef %2) #11
+  %6 = tail call i32 @av_frame_ref(ptr noundef %5, ptr noundef %2) #12
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %29, label %8
 
@@ -2085,21 +2085,21 @@ define range(i32 -2147483648, 1) i32 @sws_frame_start(ptr noundef readonly captu
   %19 = load i32, ptr %18, align 4, !tbaa !134
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store i32 %19, ptr %20, align 4, !tbaa !135
-  %21 = tail call i32 @av_frame_get_buffer(ptr noundef nonnull %1, i32 noundef 0) #11
+  %21 = tail call i32 @av_frame_get_buffer(ptr noundef nonnull %1, i32 noundef 0) #12
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %29, label %23
 
 23:                                               ; preds = %11, %8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %25 = load ptr, ptr %24, align 8, !tbaa !120
-  %26 = tail call i32 @av_frame_ref(ptr noundef %25, ptr noundef nonnull %1) #11
+  %26 = tail call i32 @av_frame_ref(ptr noundef %25, ptr noundef nonnull %1) #12
   %27 = icmp sgt i32 %26, -1
   %brmerge = or i1 %.not.not, %27
   %.mux = select i1 %27, i32 0, i32 %26
   br i1 %brmerge, label %29, label %28
 
 28:                                               ; preds = %23
-  tail call void @av_frame_unref(ptr noundef nonnull %1) #11
+  tail call void @av_frame_unref(ptr noundef nonnull %1) #12
   br label %29
 
 29:                                               ; preds = %23, %28, %11, %3
@@ -2114,7 +2114,7 @@ declare i32 @av_frame_get_buffer(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @sws_send_slice(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %5 = tail call i32 @ff_range_add(ptr noundef nonnull %4, i32 noundef %1, i32 noundef %2) #11
+  %5 = tail call i32 @ff_range_add(ptr noundef nonnull %4, i32 noundef %1, i32 noundef %2) #12
   %. = tail call i32 @llvm.smin.i32(i32 %5, i32 0)
   ret i32 %.
 }
@@ -2197,7 +2197,7 @@ sws_receive_slice_alignment.exit:                 ; preds = %3, %7
   br i1 %.not64, label %33, label %32
 
 32:                                               ; preds = %30, %28
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.5, i32 noundef %1, i32 noundef %2, i32 noundef %.0.i) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.5, i32 noundef %1, i32 noundef %2, i32 noundef %.0.i) #12
   br label %77
 
 33:                                               ; preds = %30, %24
@@ -2228,7 +2228,7 @@ sws_receive_slice_alignment.exit:                 ; preds = %3, %7
   store i32 %1, ptr %50, align 8, !tbaa !147
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i32 %2, ptr %51, align 4, !tbaa !148
-  tail call void @avpriv_slicethread_execute(ptr noundef nonnull %35, i32 noundef %spec.select, i32 noundef 0) #11
+  tail call void @avpriv_slicethread_execute(ptr noundef nonnull %35, i32 noundef %spec.select, i32 noundef 0) #12
   %52 = load i32, ptr %44, align 16, !tbaa !145
   %53 = icmp sgt i32 %52, 0
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -2319,13 +2319,13 @@ define internal fastcc i32 @scale_internal(ptr noundef %0, ptr noundef readonly 
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = load i32, ptr %24, align 8, !tbaa !153
-  %26 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %25) #11
+  %26 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %25) #12
   %.not.i359 = icmp eq ptr %26, null
   br i1 %.not.i359, label %27, label %isBayer.exit
 
 27:                                               ; preds = %.thread
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 845) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 845) #12
+  tail call void @abort() #13
   unreachable
 
 isBayer.exit:                                     ; preds = %.thread
@@ -2346,13 +2346,13 @@ isBayer.exit:                                     ; preds = %.thread
   %36 = phi i32 [ %34, %31 ], [ 1, %isBayer.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %38 = load i32, ptr %37, align 4, !tbaa !134
-  %39 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %38) #11
+  %39 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %38) #12
   %.not.i360 = icmp eq ptr %39, null
   br i1 %.not.i360, label %40, label %isBayer.exit361
 
 40:                                               ; preds = %35
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 845) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 845) #12
+  tail call void @abort() #13
   unreachable
 
 isBayer.exit361:                                  ; preds = %35
@@ -2383,7 +2383,7 @@ isBayer.exit361:                                  ; preds = %35
   br i1 %or.cond6, label %55, label %54
 
 54:                                               ; preds = %48
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.14) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.14) #12
   br label %.critedge356
 
 55:                                               ; preds = %48
@@ -2414,13 +2414,13 @@ isBayer.exit361:                                  ; preds = %35
   %.pre-phi449 = phi i32 [ %.pre426, %63 ], [ %60, %59 ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %66 = load i32, ptr %24, align 8, !tbaa !153
-  %67 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %66) #11
+  %67 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %66) #12
   %.not.i362 = icmp eq ptr %67, null
   br i1 %.not.i362, label %68, label %isBayer.exit363
 
 68:                                               ; preds = %.thread447
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 845) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 845) #12
+  tail call void @abort() #13
   unreachable
 
 isBayer.exit363:                                  ; preds = %.thread447
@@ -2433,7 +2433,7 @@ isBayer.exit363:                                  ; preds = %.thread447
   br i1 %or.cond8, label %74, label %75
 
 74:                                               ; preds = %isBayer.exit363, %63, %59, %55
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.15, i32 noundef %3, i32 noundef %4) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.15, i32 noundef %3, i32 noundef %4) #12
   br label %.critedge356
 
 75:                                               ; preds = %isBayer.exit363
@@ -2461,7 +2461,7 @@ isBayer.exit363:                                  ; preds = %.thread447
   br i1 %84, label %85, label %.thread451
 
 85:                                               ; preds = %83, %79, %75
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.15, i32 noundef %7, i32 noundef %8) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.15, i32 noundef %7, i32 noundef %8) #12
   br label %.critedge356
 
 .thread451:                                       ; preds = %79, %83
@@ -2472,7 +2472,7 @@ isBayer.exit363:                                  ; preds = %.thread447
   br i1 %.not325, label %89, label %90
 
 89:                                               ; preds = %.thread451
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.16) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.16) #12
   br label %.critedge356
 
 90:                                               ; preds = %.thread451
@@ -2482,7 +2482,7 @@ isBayer.exit363:                                  ; preds = %.thread447
   br i1 %.not326, label %93, label %94
 
 93:                                               ; preds = %90
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.17) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.17) #12
   br label %.critedge356
 
 94:                                               ; preds = %90
@@ -2600,7 +2600,7 @@ usePal.exit.thread:                               ; preds = %.loopexit, %usePal.
   br i1 %.not333, label %.sink.split, label %139
 
 139:                                              ; preds = %137
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.18) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.18) #12
   br label %.critedge356
 
 140:                                              ; preds = %usePal.exit.thread
@@ -2626,13 +2626,13 @@ usePal.exit.thread:                               ; preds = %.loopexit, %usePal.
 
 148:                                              ; preds = %145
   %149 = load i32, ptr %37, align 4, !tbaa !134
-  %150 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %149) #11
+  %150 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %149) #12
   %.not.i = icmp eq ptr %150, null
   br i1 %.not.i, label %151, label %152
 
 151:                                              ; preds = %148
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 881) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 881) #12
+  tail call void @abort() #13
   unreachable
 
 152:                                              ; preds = %148
@@ -2654,7 +2654,7 @@ isALPHA.exit.thread:                              ; preds = %152, %isALPHA.exit
   %161 = mul nsw i32 %160, %4
   %162 = add nsw i32 %161, 32
   %163 = sext i32 %162 to i64
-  tail call void @av_fast_malloc(ptr noundef nonnull %157, ptr noundef nonnull %158, i64 noundef %163) #11
+  tail call void @av_fast_malloc(ptr noundef nonnull %157, ptr noundef nonnull %158, i64 noundef %163) #12
   %164 = load ptr, ptr %157, align 8, !tbaa !160
   %.not337.not = icmp eq ptr %164, null
   br i1 %.not337.not, label %.critedge356, label %165
@@ -2756,7 +2756,7 @@ isALPHA.exit.thread:                              ; preds = %152, %isALPHA.exit
   %221 = mul nsw i32 %220, %4
   %222 = add nsw i32 %221, 32
   %223 = sext i32 %222 to i64
-  tail call void @av_fast_malloc(ptr noundef nonnull %217, ptr noundef nonnull %218, i64 noundef %223) #11
+  tail call void @av_fast_malloc(ptr noundef nonnull %217, ptr noundef nonnull %218, i64 noundef %223) #12
   %224 = load ptr, ptr %217, align 8, !tbaa !166
   %.not340.not = icmp eq ptr %224, null
   br i1 %.not340.not, label %.critedge356, label %225
@@ -2910,7 +2910,7 @@ usePal.exit366:                                   ; preds = %245, %245, %245, %2
   br i1 %22, label %324, label %.critedge16.thread
 
 .critedge16.thread:                               ; preds = %322
-  %323 = call i32 %321(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %12, i32 noundef %.0298, i32 noundef %4, ptr noundef nonnull %11, ptr noundef nonnull %13) #11
+  %323 = call i32 %321(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %12, i32 noundef %.0298, i32 noundef %4, ptr noundef nonnull %11, ptr noundef nonnull %13) #12
   br label %370
 
 324:                                              ; preds = %322
@@ -2922,8 +2922,8 @@ usePal.exit366:                                   ; preds = %245, %245, %245, %2
   br label %328
 
 327:                                              ; preds = %324
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.3, i32 noundef 1144) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.3, i32 noundef 1144) #12
+  tail call void @abort() #13
   unreachable
 
 328:                                              ; preds = %.preheader, %.thread380
@@ -3018,7 +3018,7 @@ usePal.exit366:                                   ; preds = %245, %245, %245, %2
   br i1 %exitcond414.not, label %.critedge16, label %345, !llvm.loop !170
 
 .critedge16:                                      ; preds = %349, %349, %349, %349, %349, %349, %345, %.thread384
-  %362 = call i32 %321(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %12, i32 noundef %7, i32 noundef %8, ptr noundef nonnull %11, ptr noundef nonnull %13) #11
+  %362 = call i32 %321(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %12, i32 noundef %7, i32 noundef %8, ptr noundef nonnull %11, ptr noundef nonnull %13) #12
   %363 = load i32, ptr %13, align 16, !tbaa !49
   %364 = mul nsw i32 %363, %7
   %365 = load ptr, ptr %11, align 16, !tbaa !58
@@ -3074,8 +3074,8 @@ usePal.exit366:                                   ; preds = %245, %245, %245, %2
   br i1 %.not353, label %391, label %392
 
 391:                                              ; preds = %388
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.3, i32 noundef 1177) #11
-  call void @abort() #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.3, i32 noundef 1177) #12
+  call void @abort() #13
   unreachable
 
 392:                                              ; preds = %388
@@ -3083,8 +3083,8 @@ usePal.exit366:                                   ; preds = %245, %245, %245, %2
   br i1 %393, label %395, label %394
 
 394:                                              ; preds = %392
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.3, i32 noundef 1178) #11
-  call void @abort() #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.3, i32 noundef 1178) #12
+  call void @abort() #13
   unreachable
 
 395:                                              ; preds = %392
@@ -3093,8 +3093,8 @@ usePal.exit366:                                   ; preds = %245, %245, %245, %2
   br i1 %.not354, label %397, label %398
 
 397:                                              ; preds = %395
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.3, i32 noundef 1179) #11
-  call void @abort() #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.3, i32 noundef 1179) #12
+  call void @abort() #13
   unreachable
 
 398:                                              ; preds = %395
@@ -3152,7 +3152,7 @@ define i32 @sws_scale_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
   br i1 %.not, label %51, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call i32 @av_frame_ref(ptr noundef nonnull %12, ptr noundef nonnull %2) #11
+  %14 = tail call i32 @av_frame_ref(ptr noundef nonnull %12, ptr noundef nonnull %2) #12
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %sws_frame_start.exit.thread, label %16
 
@@ -3175,20 +3175,20 @@ define i32 @sws_scale_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
   %27 = load i32, ptr %26, align 4, !tbaa !134
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store i32 %27, ptr %28, align 4, !tbaa !135
-  %29 = tail call i32 @av_frame_get_buffer(ptr noundef nonnull %1, i32 noundef 0) #11
+  %29 = tail call i32 @av_frame_get_buffer(ptr noundef nonnull %1, i32 noundef 0) #12
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %sws_frame_start.exit.thread, label %31
 
 31:                                               ; preds = %19, %16
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %33 = load ptr, ptr %32, align 8, !tbaa !120
-  %34 = tail call i32 @av_frame_ref(ptr noundef %33, ptr noundef nonnull %1) #11
+  %34 = tail call i32 @av_frame_ref(ptr noundef %33, ptr noundef nonnull %1) #12
   %35 = icmp sgt i32 %34, -1
   %brmerge.i = or i1 %.not.not.i, %35
   br i1 %brmerge.i, label %sws_frame_start.exit, label %36
 
 36:                                               ; preds = %31
-  tail call void @av_frame_unref(ptr noundef nonnull %1) #11
+  tail call void @av_frame_unref(ptr noundef nonnull %1) #12
   br label %sws_frame_start.exit.thread
 
 sws_frame_start.exit:                             ; preds = %31
@@ -3198,7 +3198,7 @@ sws_frame_start.exit:                             ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %39 = load i32, ptr %38, align 4, !tbaa !133
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %41 = tail call i32 @ff_range_add(ptr noundef nonnull %40, i32 noundef 0, i32 noundef %39) #11
+  %41 = tail call i32 @ff_range_add(ptr noundef nonnull %40, i32 noundef 0, i32 noundef %39) #12
   %42 = icmp sgt i32 %41, -1
   br i1 %42, label %43, label %47
 
@@ -3211,9 +3211,9 @@ sws_frame_start.exit:                             ; preds = %31
 47:                                               ; preds = %43, %37
   %.050 = phi i32 [ %46, %43 ], [ %41, %37 ]
   %48 = load ptr, ptr %11, align 16, !tbaa !119
-  tail call void @av_frame_unref(ptr noundef %48) #11
+  tail call void @av_frame_unref(ptr noundef %48) #12
   %49 = load ptr, ptr %32, align 8, !tbaa !120
-  tail call void @av_frame_unref(ptr noundef %49) #11
+  tail call void @av_frame_unref(ptr noundef %49) #12
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 0, ptr %50, align 8, !tbaa !121
   br label %sws_frame_start.exit.thread
@@ -3276,7 +3276,7 @@ sws_frame_start.exit:                             ; preds = %31
   br i1 %.not64, label %81, label %.thread
 
 81:                                               ; preds = %80
-  %82 = tail call i32 @av_frame_get_buffer(ptr noundef nonnull %1, i32 noundef 0) #11
+  %82 = tail call i32 @av_frame_get_buffer(ptr noundef nonnull %1, i32 noundef 0) #12
   %83 = icmp slt i32 %82, 0
   br i1 %83, label %sws_frame_start.exit.thread, label %.thread
 
@@ -3310,7 +3310,7 @@ sws_frame_start.exit:                             ; preds = %31
 
 96:                                               ; preds = %95
   %97 = load i32, ptr %86, align 4, !tbaa !135
-  %98 = call ptr @av_pix_fmt_desc_get(i32 noundef %97) #11
+  %98 = call ptr @av_pix_fmt_desc_get(i32 noundef %97) #12
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load i64, ptr %99, align 8, !tbaa !57
   %101 = and i64 %100, 2
@@ -3364,7 +3364,7 @@ get_frame_pointers.exit:                          ; preds = %.loopexit27.i, %90
 
 118:                                              ; preds = %117
   %119 = load i32, ptr %89, align 4, !tbaa !135
-  %120 = call ptr @av_pix_fmt_desc_get(i32 noundef %119) #11
+  %120 = call ptr @av_pix_fmt_desc_get(i32 noundef %119) #12
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %122 = load i64, ptr %121, align 8, !tbaa !57
   %123 = and i64 %122, 2
@@ -3406,7 +3406,7 @@ get_frame_pointers.exit:                          ; preds = %.loopexit27.i, %90
   br i1 %exitcond39.not.i76, label %get_frame_pointers.exit81, label %.loopexit27.i73, !llvm.loop !189
 
 get_frame_pointers.exit81:                        ; preds = %.loopexit27.i73, %get_frame_pointers.exit
-  call void @ff_sws_graph_run(ptr noundef %92, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %7) #11
+  call void @ff_sws_graph_run(ptr noundef %92, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %7) #12
   %137 = getelementptr inbounds nuw i8, ptr %92, i64 288
   %138 = load i32, ptr %137, align 8, !tbaa !190
   %.not65.not = icmp ne i32 %138, 0
@@ -3442,7 +3442,7 @@ define range(i32 -2147483648, 1) i32 @sws_frame_setup(ptr noundef %0, ptr nounde
   br i1 %or.cond.i, label %12, label %13
 
 12:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef %11, i32 noundef 0, i32 noundef 8192) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef %11, i32 noundef 0, i32 noundef 8192) #12
   br label %validate_params.exit.thread
 
 13:                                               ; preds = %9
@@ -3452,7 +3452,7 @@ define range(i32 -2147483648, 1) i32 @sws_frame_setup(ptr noundef %0, ptr nounde
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %13
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.25, i32 noundef %15, i32 noundef 0, i32 noundef 5) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.25, i32 noundef %15, i32 noundef 0, i32 noundef 5) #12
   br label %validate_params.exit.thread
 
 18:                                               ; preds = %13
@@ -3499,7 +3499,7 @@ validate_params.exit.preheader:                   ; preds = %18
   br label %57
 
 56:                                               ; preds = %18
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.26, i32 noundef %20, i32 noundef 0, i32 noundef 2) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.26, i32 noundef %20, i32 noundef 0, i32 noundef 2) #12
   br label %validate_params.exit.thread
 
 57:                                               ; preds = %validate_params.exit.preheader, %validate_params.exit
@@ -3507,9 +3507,9 @@ validate_params.exit.preheader:                   ; preds = %18
   %indvars.iv = phi i64 [ 0, %validate_params.exit.preheader ], [ 1, %validate_params.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %59 = trunc nuw nsw i64 %indvars.iv to i32
-  call void @ff_fmt_from_frame(ptr dead_on_unwind nonnull writable sret(%struct.SwsFormat) align 8 %4, ptr noundef nonnull %2, i32 noundef %59) #11
+  call void @ff_fmt_from_frame(ptr dead_on_unwind nonnull writable sret(%struct.SwsFormat) align 8 %4, ptr noundef nonnull %2, i32 noundef %59) #12
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @ff_fmt_from_frame(ptr dead_on_unwind nonnull writable sret(%struct.SwsFormat) align 8 %5, ptr noundef nonnull %1, i32 noundef %59) #11
+  call void @ff_fmt_from_frame(ptr dead_on_unwind nonnull writable sret(%struct.SwsFormat) align 8 %5, ptr noundef nonnull %1, i32 noundef %59) #12
   %60 = load i32, ptr %22, align 4, !tbaa !187
   %61 = load i32, ptr %23, align 4, !tbaa !187
   %62 = xor i32 %61, %60
@@ -3518,8 +3518,8 @@ validate_params.exit.preheader:                   ; preds = %18
   br i1 %.not, label %64, label %.loopexit
 
 64:                                               ; preds = %57
-  %65 = call i32 @ff_test_fmt(ptr noundef nonnull %4, i32 noundef 0) #11
-  %66 = call i32 @ff_test_fmt(ptr noundef nonnull %5, i32 noundef 1) #11
+  %65 = call i32 @ff_test_fmt(ptr noundef nonnull %4, i32 noundef 0) #12
+  %66 = call i32 @ff_test_fmt(ptr noundef nonnull %5, i32 noundef 1) #12
   %67 = icmp ne i32 %65, 0
   %68 = icmp ne i32 %66, 0
   %or.cond4 = select i1 %67, i1 %68, i1 false
@@ -3869,7 +3869,7 @@ ff_props_equal.exit.thread:                       ; preds = %116, %126, %100, %1
 
 ff_props_equal.exit.thread56:                     ; preds = %222, %219, %ff_q_equal.exit.thread17.i44.i.i.i, %64
   %227 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
-  %228 = call i32 @ff_sws_graph_reinit(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef %59, ptr noundef nonnull %227) #11
+  %228 = call i32 @ff_sws_graph_reinit(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef %59, ptr noundef nonnull %227) #12
   %229 = icmp slt i32 %228, 0
   br i1 %229, label %.loopexit, label %230
 
@@ -3893,7 +3893,7 @@ ff_props_equal.exit.thread56:                     ; preds = %222, %219, %ff_q_eq
 
 .thread65:                                        ; preds = %238
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  call void @ff_sws_graph_free(ptr noundef nonnull %240) #11
+  call void @ff_sws_graph_free(ptr noundef nonnull %240) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %validate_params.exit.thread
@@ -3902,27 +3902,27 @@ ff_props_equal.exit.thread56:                     ; preds = %222, %219, %ff_q_eq
   %.044 = phi i32 [ -95, %ff_props_equal.exit.thread ], [ -22, %235 ], [ %228, %ff_props_equal.exit.thread56 ], [ -22, %57 ]
   %.040 = phi ptr [ %226, %ff_props_equal.exit.thread ], [ @.str.10, %235 ], [ @.str.9, %ff_props_equal.exit.thread56 ], [ @.str.6, %57 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %6, i8 0, i64 64, i1 false)
-  %241 = call i32 @av_strerror(i32 noundef range(i32 -2147483648, 0) %.044, ptr noundef nonnull %6, i64 noundef 64) #11
+  %241 = call i32 @av_strerror(i32 noundef range(i32 -2147483648, 0) %.044, ptr noundef nonnull %6, i64 noundef 64) #12
   %242 = load i32, ptr %26, align 4, !tbaa !195
-  %243 = call ptr @av_get_pix_fmt_name(i32 noundef %242) #11
+  %243 = call ptr @av_get_pix_fmt_name(i32 noundef %242) #12
   %244 = load i32, ptr %30, align 4, !tbaa !197
-  %245 = call ptr @av_color_space_name(i32 noundef %244) #11
+  %245 = call ptr @av_color_space_name(i32 noundef %244) #12
   %246 = load i32, ptr %34, align 8, !tbaa !202
-  %247 = call ptr @av_color_primaries_name(i32 noundef %246) #11
+  %247 = call ptr @av_color_primaries_name(i32 noundef %246) #12
   %248 = load i32, ptr %36, align 4, !tbaa !203
-  %249 = call ptr @av_color_transfer_name(i32 noundef %248) #11
+  %249 = call ptr @av_color_transfer_name(i32 noundef %248) #12
   %250 = load i32, ptr %27, align 4, !tbaa !195
-  %251 = call ptr @av_get_pix_fmt_name(i32 noundef %250) #11
+  %251 = call ptr @av_get_pix_fmt_name(i32 noundef %250) #12
   %252 = load i32, ptr %31, align 4, !tbaa !197
-  %253 = call ptr @av_color_space_name(i32 noundef %252) #11
+  %253 = call ptr @av_color_space_name(i32 noundef %252) #12
   %254 = load i32, ptr %35, align 8, !tbaa !202
-  %255 = call ptr @av_color_primaries_name(i32 noundef %254) #11
+  %255 = call ptr @av_color_primaries_name(i32 noundef %254) #12
   %256 = load i32, ptr %37, align 4, !tbaa !203
-  %257 = call ptr @av_color_transfer_name(i32 noundef %256) #11
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.11, ptr noundef nonnull %.040, ptr noundef nonnull %6, ptr noundef %243, ptr noundef %245, ptr noundef %247, ptr noundef %249, ptr noundef %251, ptr noundef %253, ptr noundef %255, ptr noundef %257) #11
-  call void @ff_sws_graph_free(ptr noundef nonnull %54) #11
+  %257 = call ptr @av_color_transfer_name(i32 noundef %256) #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.11, ptr noundef nonnull %.040, ptr noundef nonnull %6, ptr noundef %243, ptr noundef %245, ptr noundef %247, ptr noundef %249, ptr noundef %251, ptr noundef %253, ptr noundef %255, ptr noundef %257) #12
+  call void @ff_sws_graph_free(ptr noundef nonnull %54) #12
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  call void @ff_sws_graph_free(ptr noundef nonnull %258) #11
+  call void @ff_sws_graph_free(ptr noundef nonnull %258) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %validate_params.exit.thread
@@ -3951,7 +3951,7 @@ define internal fastcc range(i32 -12, 1) i32 @frame_ref(ptr noundef nonnull writ
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call ptr @av_buffer_ref(ptr noundef nonnull %7) #11
+  %9 = tail call ptr @av_buffer_ref(ptr noundef nonnull %7) #12
   %10 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   store ptr %9, ptr %10, align 8, !tbaa !122
   %.not19 = icmp eq ptr %9, null
@@ -4239,18 +4239,18 @@ define internal void @hScale8To19_c(ptr readnone captures(none) %0, ptr noundef 
 define internal void @hScale16To19_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i32, ptr %8, align 8, !tbaa !43
-  %10 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %9) #11
+  %10 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %9) #12
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load i32, ptr %11, align 8, !tbaa !44
   %13 = add nsw i32 %12, -5
   %14 = load i32, ptr %8, align 8, !tbaa !43
-  %15 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %14) #11
+  %15 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %14) #12
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %16, label %isAnyRGB.exit
 
 16:                                               ; preds = %7
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 859) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 859) #12
+  tail call void @abort() #13
   unreachable
 
 isAnyRGB.exit:                                    ; preds = %7
@@ -4344,7 +4344,7 @@ isAnyRGB.exit:                                    ; preds = %7
 define internal void @hScale16To15_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i32, ptr %8, align 8, !tbaa !43
-  %10 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %9) #11
+  %10 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %9) #12
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load i32, ptr %11, align 8, !tbaa !44
   %13 = icmp slt i32 %12, 16
@@ -4352,13 +4352,13 @@ define internal void @hScale16To15_c(ptr noundef readonly captures(none) %0, ptr
 
 14:                                               ; preds = %7
   %15 = load i32, ptr %8, align 8, !tbaa !43
-  %16 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %15) #11
+  %16 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %15) #12
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %17, label %isAnyRGB.exit
 
 17:                                               ; preds = %14
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 859) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 859) #12
+  tail call void @abort() #13
   unreachable
 
 isAnyRGB.exit:                                    ; preds = %14
@@ -4452,7 +4452,7 @@ isAnyRGB.exit:                                    ; preds = %14
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @check_image_pointers(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
-  %4 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1) #11
+  %4 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1) #12
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %7
 
@@ -4567,13 +4567,13 @@ declare void @av_fast_malloc(ptr noundef, ptr noundef, i64 noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @reset_ptr(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
-  %3 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1) #11
+  %3 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1) #12
   %.not.i8 = icmp eq ptr %3, null
   br i1 %.not.i8, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 881) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 881) #12
+  tail call void @abort() #13
   unreachable
 
 5:                                                ; preds = %2
@@ -4593,13 +4593,13 @@ isALPHA.exit:                                     ; preds = %5
   br label %isALPHA.exit.thread
 
 isALPHA.exit.thread:                              ; preds = %5, %10, %isALPHA.exit
-  %12 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1) #11
+  %12 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1) #12
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %13, label %14
 
 13:                                               ; preds = %isALPHA.exit.thread
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 899) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 899) #12
+  tail call void @abort() #13
   unreachable
 
 14:                                               ; preds = %isALPHA.exit.thread
@@ -4646,20 +4646,20 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #10
+declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -4671,10 +4671,11 @@ attributes #6 = { cold nounwind uwtable "min-legal-vector-width"="0" "no-signed-
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { cold }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

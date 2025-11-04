@@ -12970,7 +12970,7 @@ ncp_requires_subfunc.exit:                        ; preds = %220
   %465 = load i32, ptr @hf_ncp_nds_verb, align 4
   %466 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %5, i32 noundef %465, ptr noundef %0, i32 noundef 6, i32 noundef 0, i32 noundef %464, ptr noundef nonnull @.str.7459, i32 noundef %464, ptr noundef %454)
   %.pre.i = load i8, ptr %451, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %14, i8 noundef 0, i64 noundef 312, i1 noundef false) #14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %14, i8 noundef 0, i64 noundef 312, i1 noundef false) #15
   switch i8 %.pre.i, label %dissect_nds_reply.exit [
     i8 1, label %467
     i8 2, label %535
@@ -13445,10 +13445,10 @@ ncp_requires_subfunc.exit:                        ; preds = %220
 731:                                              ; preds = %727
   %732 = load i32, ptr %13, align 4
   %733 = call ptr @wmem_file_scope()
-  %734 = call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %733, i64 noundef 4) #15
+  %734 = call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %733, i64 noundef 4) #16
   store i32 %732, ptr %734, align 4
   %735 = call ptr @wmem_file_scope()
-  %736 = call noalias dereferenceable_or_null(264) ptr @wmem_alloc0(ptr noundef %735, i64 noundef 264) #15
+  %736 = call noalias dereferenceable_or_null(264) ptr @wmem_alloc0(ptr noundef %735, i64 noundef 264) #16
   %737 = getelementptr inbounds nuw i8, ptr %736, i64 8
   %738 = call i64 @g_strlcpy(ptr noundef nonnull %737, ptr noundef nonnull @.str.23, i64 noundef 256)
   %739 = load ptr, ptr @ncp_req_eid_hash, align 8
@@ -14683,7 +14683,7 @@ ncp_record_find.exit:                             ; preds = %64, %68, %71
   %.0..0..0..0.43 = load volatile ptr, ptr %15, align 8
   %115 = load i32, ptr %105, align 4
   %116 = call ptr @wmem_file_scope()
-  %117 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %116, i64 noundef 16) #15
+  %117 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %116, i64 noundef 16) #16
   store ptr %.0184, ptr %117, align 8
   %118 = shl i32 %115, 12
   %119 = and i32 %118, -65536
@@ -14693,7 +14693,7 @@ ncp_record_find.exit:                             ; preds = %64, %68, %71
   %123 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store i32 %122, ptr %123, align 8
   %124 = call ptr @wmem_file_scope()
-  %125 = call noalias dereferenceable_or_null(328) ptr @wmem_alloc0(ptr noundef %124, i64 noundef 328) #15
+  %125 = call noalias dereferenceable_or_null(328) ptr @wmem_alloc0(ptr noundef %124, i64 noundef 328) #16
   store ptr %.0..0..0..0.43, ptr %125, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   store ptr null, ptr %126, align 8
@@ -14935,7 +14935,7 @@ proto_item_set_generated.exit:                    ; preds = %215, %212, %202, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @except_setup_try(ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull @dissect_ncp_request.catch_spec, i64 noundef 1)
   %223 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  %224 = call i32 @_setjmp(ptr noundef nonnull %223) #16
+  %224 = call i32 @_setjmp(ptr noundef nonnull %223) #17
   %.not203 = icmp eq i32 %224, 0
   %225 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sink = select i1 %.not203, ptr null, ptr %225
@@ -15010,7 +15010,7 @@ proto_item_set_generated.exit:                    ; preds = %215, %212, %202, %1
 
 249:                                              ; preds = %248
   %.0..0..0..0.19 = load volatile ptr, ptr %22, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.19) #17
+  call void @except_rethrow(ptr noundef %.0..0..0..0.19) #18
   unreachable
 
 250:                                              ; preds = %248, %246
@@ -15033,7 +15033,7 @@ proto_item_set_generated.exit:                    ; preds = %215, %212, %202, %1
 
 256:                                              ; preds = %254
   %257 = call ptr @wmem_file_scope()
-  %258 = call noalias dereferenceable_or_null(127) ptr @wmem_alloc0(ptr noundef %257, i64 noundef 127) #15
+  %258 = call noalias dereferenceable_or_null(127) ptr @wmem_alloc0(ptr noundef %257, i64 noundef 127) #16
   %.0..0..0..0.56 = load volatile ptr, ptr %15, align 8
   %259 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.56, i64 48
   %260 = load ptr, ptr %259, align 8
@@ -15302,7 +15302,7 @@ dissect_ncp_89_6_request.exit:                    ; preds = %.lr.ph.split.i, %.l
 375:                                              ; preds = %370
   %.0..0..0..0.28 = load volatile i64, ptr %18, align 8
   %.0..0..0..0.26 = load volatile ptr, ptr %19, align 8
-  call void @except_throw(i64 noundef 1, i64 noundef %.0..0..0..0.28, ptr noundef %.0..0..0..0.26) #17
+  call void @except_throw(i64 noundef 1, i64 noundef %.0..0..0..0.28, ptr noundef %.0..0..0..0.26) #18
   unreachable
 
 376:                                              ; preds = %153, %370, %102, %98
@@ -15488,7 +15488,7 @@ define internal fastcc void @process_ptvc_record(ptr noundef %0, ptr noundef %1,
   br i1 %.not27.i42, label %66, label %65
 
 65:                                               ; preds = %63
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 66:                                               ; preds = %63
@@ -15562,7 +15562,7 @@ process_struct_sub_ptvc_record.exit43:            ; preds = %56, %66
   br i1 %.not27.i, label %101, label %100
 
 100:                                              ; preds = %98
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 101:                                              ; preds = %98
@@ -15613,7 +15613,7 @@ process_struct_sub_ptvc_record.exit:              ; preds = %91, %101
   br i1 %119, label %121, label %120
 
 120:                                              ; preds = %117
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.6846, ptr noundef nonnull @.str.4274, i32 noundef 2615, ptr noundef nonnull @.str.6847) #17
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.6846, ptr noundef nonnull @.str.4274, i32 noundef 2615, ptr noundef nonnull @.str.6847) #18
   unreachable
 
 121:                                              ; preds = %117
@@ -15631,7 +15631,7 @@ process_struct_sub_ptvc_record.exit:              ; preds = %91, %101
   br i1 %.not61.i, label %130, label %131
 
 130:                                              ; preds = %125, %121
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.6846, ptr noundef nonnull @.str.4274, i32 noundef 2620, ptr noundef nonnull @.str.6848) #17
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.6846, ptr noundef nonnull @.str.4274, i32 noundef 2620, ptr noundef nonnull @.str.6848) #18
   unreachable
 
 131:                                              ; preds = %125
@@ -15680,7 +15680,7 @@ process_struct_sub_ptvc_record.exit:              ; preds = %91, %101
   br i1 %.not60.i, label %149, label %150
 
 149:                                              ; preds = %143, %140
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.6846, ptr noundef nonnull @.str.4274, i32 noundef 2635, ptr noundef nonnull @.str.6848) #17
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.6846, ptr noundef nonnull @.str.4274, i32 noundef 2635, ptr noundef nonnull @.str.6848) #18
   unreachable
 
 150:                                              ; preds = %143
@@ -15775,7 +15775,7 @@ define internal fastcc void @dissect_ncp_8x20req(ptr noundef %0, ptr noundef %1,
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %18
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 21:                                               ; preds = %18
@@ -16112,7 +16112,7 @@ define internal fastcc void @dissect_ncp_123_62_reply(ptr noundef %0, ptr nounde
 8:                                                ; preds = %2, %2, %2, %2, %2
   %.0..0..0..0.3 = load volatile ptr, ptr %3, align 8
   %9 = load i32, ptr @hf_srvr_param_number, align 4
-  %10 = call i64 @strlen(ptr noundef %7) #18
+  %10 = call i64 @strlen(ptr noundef %7) #19
   %11 = trunc i64 %10 to i32
   %12 = add i32 %11, 37
   %13 = call ptr @proto_tree_add_item(ptr noundef %.0..0..0..0.3, i32 noundef %9, ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef -2147483648)
@@ -16121,7 +16121,7 @@ define internal fastcc void @dissect_ncp_123_62_reply(ptr noundef %0, ptr nounde
 14:                                               ; preds = %2
   %.0..0..0..0.4 = load volatile ptr, ptr %3, align 8
   %15 = load i32, ptr @hf_srvr_param_boolean, align 4
-  %16 = call i64 @strlen(ptr noundef %7) #18
+  %16 = call i64 @strlen(ptr noundef %7) #19
   %17 = trunc i64 %16 to i32
   %18 = add i32 %17, 37
   %19 = call ptr @proto_tree_add_item(ptr noundef %.0..0..0..0.4, i32 noundef %15, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef -2147483648)
@@ -16130,7 +16130,7 @@ define internal fastcc void @dissect_ncp_123_62_reply(ptr noundef %0, ptr nounde
 20:                                               ; preds = %2
   %.0..0..0..0.5 = load volatile ptr, ptr %3, align 8
   %21 = load i32, ptr @hf_srvr_param_string, align 4
-  %22 = call i64 @strlen(ptr noundef %7) #18
+  %22 = call i64 @strlen(ptr noundef %7) #19
   %23 = trunc i64 %22 to i32
   %24 = add i32 %23, 37
   %25 = call ptr @proto_tree_add_item(ptr noundef %.0..0..0..0.5, i32 noundef %21, ptr noundef %0, i32 noundef %24, i32 noundef -1, i32 noundef 0)
@@ -16290,7 +16290,7 @@ ncp_record_find.exit.thread:                      ; preds = %23, %ncp_record_fin
 59:                                               ; preds = %53
   %60 = load i32, ptr %44, align 4
   %61 = tail call ptr @wmem_file_scope()
-  %62 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %61, i64 noundef 16) #15
+  %62 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %61, i64 noundef 16) #16
   store ptr %.01203, ptr %62, align 8
   %63 = shl i32 %60, 12
   %64 = and i32 %63, -65536
@@ -16300,7 +16300,7 @@ ncp_record_find.exit.thread:                      ; preds = %23, %ncp_record_fin
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i32 %67, ptr %68, align 8
   %69 = tail call ptr @wmem_file_scope()
-  %70 = tail call noalias dereferenceable_or_null(328) ptr @wmem_alloc0(ptr noundef %69, i64 noundef 328) #15
+  %70 = tail call noalias dereferenceable_or_null(328) ptr @wmem_alloc0(ptr noundef %69, i64 noundef 328) #16
   store ptr %.011.i1267, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store ptr null, ptr %71, align 8
@@ -16452,7 +16452,7 @@ ncp_hash_lookup.exit:                             ; preds = %.lr.ph.i
   br i1 %142, label %143, label %1246
 
 143:                                              ; preds = %138
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %13, i8 noundef 0, i64 noundef 312, i1 noundef false) #14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %13, i8 noundef 0, i64 noundef 312, i1 noundef false) #15
   %144 = load i32, ptr %44, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %.01203, ptr %8, align 8
@@ -18224,7 +18224,7 @@ define internal fastcc void @process_multivalues(ptr noundef %0, ptr noundef %1,
 
 72:                                               ; preds = %.lr.ph2250
   %73 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %65)
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit:                       ; preds = %.lr.ph2250
@@ -18309,7 +18309,7 @@ check_offset_addition.exit:                       ; preds = %.lr.ph2250
 
 106:                                              ; preds = %.lr.ph2242
   %107 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %99)
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1771:                   ; preds = %.lr.ph2242
@@ -18366,7 +18366,7 @@ check_offset_addition.exit1771:                   ; preds = %.lr.ph2242
 
 139:                                              ; preds = %128
   %140 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %132)
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1773:                   ; preds = %128
@@ -18421,7 +18421,7 @@ check_offset_addition.exit1773:                   ; preds = %128
 
 168:                                              ; preds = %157
   %169 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %161)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1775:                   ; preds = %157
@@ -18509,7 +18509,7 @@ check_offset_addition.exit1775:                   ; preds = %157
 
 227:                                              ; preds = %216
   %228 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %220)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1778:                   ; preds = %216
@@ -18573,7 +18573,7 @@ check_offset_addition.exit1778:                   ; preds = %216
 
 260:                                              ; preds = %.lr.ph2199
   %261 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef %2, ptr noundef nonnull @ei_ncp_invalid_offset, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7560, i32 noundef %.1117162197)
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 262:                                              ; preds = %.lr.ph2199
@@ -18591,7 +18591,7 @@ check_offset_addition.exit1778:                   ; preds = %216
 
 272:                                              ; preds = %262
   %273 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %267)
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1781:                   ; preds = %262
@@ -18616,7 +18616,7 @@ check_offset_addition.exit1781:                   ; preds = %262
 
 284:                                              ; preds = %.lr.ph2190
   %285 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %277)
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1782:                   ; preds = %.lr.ph2190
@@ -18655,7 +18655,7 @@ check_offset_addition.exit1782:                   ; preds = %.lr.ph2190
 
 305:                                              ; preds = %.lr.ph2182
   %306 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %298)
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1785:                   ; preds = %.lr.ph2182
@@ -18769,7 +18769,7 @@ check_offset_addition.exit1785:                   ; preds = %.lr.ph2182
 
 365:                                              ; preds = %355
   %366 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %362)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1786:                   ; preds = %355
@@ -18844,7 +18844,7 @@ check_offset_addition.exit1786:                   ; preds = %355
 
 414:                                              ; preds = %396
   %415 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %407)
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1789:                   ; preds = %396
@@ -18981,7 +18981,7 @@ check_offset_addition.exit1789:                   ; preds = %396
 
 494:                                              ; preds = %490
   %495 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %445, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %491)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1791:                   ; preds = %490
@@ -19087,7 +19087,7 @@ check_offset_addition.exit1791:                   ; preds = %490
 
 557:                                              ; preds = %553
   %558 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %512, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %554)
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1793:                   ; preds = %553
@@ -19203,7 +19203,7 @@ check_offset_addition.exit1793:                   ; preds = %553
 
 621:                                              ; preds = %614
   %622 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef %2, ptr noundef nonnull @ei_ncp_invalid_offset, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7573, i32 noundef %.01705)
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 623:                                              ; preds = %810, %.lr.ph2126
@@ -19381,7 +19381,7 @@ check_offset_addition.exit1793:                   ; preds = %553
 
 723:                                              ; preds = %713
   %724 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %720)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1795:                   ; preds = %713
@@ -19403,7 +19403,7 @@ check_offset_addition.exit1795:                   ; preds = %713
 
 736:                                              ; preds = %726
   %737 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %733)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1796:                   ; preds = %726
@@ -19425,7 +19425,7 @@ check_offset_addition.exit1796:                   ; preds = %726
 
 749:                                              ; preds = %739
   %750 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %746)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1797:                   ; preds = %739
@@ -19447,7 +19447,7 @@ check_offset_addition.exit1797:                   ; preds = %739
 
 762:                                              ; preds = %752
   %763 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %759)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1798:                   ; preds = %752
@@ -19469,7 +19469,7 @@ check_offset_addition.exit1798:                   ; preds = %752
 
 775:                                              ; preds = %765
   %776 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %772)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1799:                   ; preds = %765
@@ -19503,7 +19503,7 @@ check_offset_addition.exit1799:                   ; preds = %765
 
 796:                                              ; preds = %786
   %797 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %793)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1800:                   ; preds = %786
@@ -19575,7 +19575,7 @@ check_offset_addition.exit1800:                   ; preds = %786
 
 836:                                              ; preds = %820
   %837 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %832, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %833)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1803:                   ; preds = %820
@@ -19651,7 +19651,7 @@ check_offset_addition.exit1803:                   ; preds = %820
 
 880:                                              ; preds = %.lr.ph2051
   %881 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %870, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %873)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1805:                   ; preds = %.lr.ph2051
@@ -19693,7 +19693,7 @@ check_offset_addition.exit1805:                   ; preds = %.lr.ph2051
 
 904:                                              ; preds = %.lr.ph2057
   %905 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %894, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %897)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1807:                   ; preds = %.lr.ph2057
@@ -19735,7 +19735,7 @@ check_offset_addition.exit1807:                   ; preds = %.lr.ph2057
 
 928:                                              ; preds = %.lr.ph2063
   %929 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %918, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %921)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1809:                   ; preds = %.lr.ph2063
@@ -19777,7 +19777,7 @@ check_offset_addition.exit1809:                   ; preds = %.lr.ph2063
 
 952:                                              ; preds = %.lr.ph2069
   %953 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %942, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %945)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1811:                   ; preds = %.lr.ph2069
@@ -19824,7 +19824,7 @@ check_offset_addition.exit1811:                   ; preds = %.lr.ph2069
 
 980:                                              ; preds = %.lr.ph2075
   %981 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %966, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %973)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1814:                   ; preds = %.lr.ph2075
@@ -19875,7 +19875,7 @@ thread-pre-split:                                 ; preds = %check_offset_additi
 
 1005:                                             ; preds = %.lr.ph2083
   %1006 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %996, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %998)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1815:                   ; preds = %.lr.ph2083
@@ -19896,7 +19896,7 @@ check_offset_addition.exit1815:                   ; preds = %.lr.ph2083
 
 1019:                                             ; preds = %check_offset_addition.exit1815
   %1020 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %996, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %1012)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1817:                   ; preds = %check_offset_addition.exit1815
@@ -19977,7 +19977,7 @@ check_offset_addition.exit1817:                   ; preds = %check_offset_additi
 
 1072:                                             ; preds = %.lr.ph2087
   %1073 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %1062, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %1065)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1819:                   ; preds = %.lr.ph2087
@@ -20019,7 +20019,7 @@ check_offset_addition.exit1819:                   ; preds = %.lr.ph2087
 
 1096:                                             ; preds = %.lr.ph2093
   %1097 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %1086, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %1089)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1821:                   ; preds = %.lr.ph2093
@@ -20061,7 +20061,7 @@ check_offset_addition.exit1821:                   ; preds = %.lr.ph2093
 
 1120:                                             ; preds = %.lr.ph2099
   %1121 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %1110, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %1113)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1823:                   ; preds = %.lr.ph2099
@@ -20103,7 +20103,7 @@ check_offset_addition.exit1823:                   ; preds = %.lr.ph2099
 
 1144:                                             ; preds = %.lr.ph2105
   %1145 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %1134, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %1137)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1825:                   ; preds = %.lr.ph2105
@@ -20145,7 +20145,7 @@ check_offset_addition.exit1825:                   ; preds = %.lr.ph2105
 
 1168:                                             ; preds = %.lr.ph2111
   %1169 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %1158, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %1161)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1827:                   ; preds = %.lr.ph2111
@@ -20238,7 +20238,7 @@ check_offset_addition.exit1827:                   ; preds = %.lr.ph2111
 
 1220:                                             ; preds = %.lr.ph2030
   %1221 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %1213)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1832:                   ; preds = %.lr.ph2030
@@ -20288,7 +20288,7 @@ check_offset_addition.exit1832:                   ; preds = %.lr.ph2030
 
 1246:                                             ; preds = %.lr.ph2039
   %1247 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %1239)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1835:                   ; preds = %.lr.ph2039
@@ -20310,7 +20310,7 @@ check_offset_addition.exit1835:                   ; preds = %.lr.ph2039
 
 1260:                                             ; preds = %check_offset_addition.exit1835
   %1261 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %1253)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1837:                   ; preds = %check_offset_addition.exit1835
@@ -20368,7 +20368,7 @@ check_offset_addition.exit1837:                   ; preds = %check_offset_additi
 
 1292:                                             ; preds = %.lr.ph2047
   %1293 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %1285)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1841:                   ; preds = %.lr.ph2047
@@ -20390,7 +20390,7 @@ check_offset_addition.exit1841:                   ; preds = %.lr.ph2047
 
 1306:                                             ; preds = %check_offset_addition.exit1841
   %1307 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %1299)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit1843:                   ; preds = %check_offset_addition.exit1841
@@ -20738,7 +20738,7 @@ ncp_record_find.exit.thread:                      ; preds = %22, %35, %ncp_recor
   %.079 = phi ptr [ %53, %51 ], [ %49, %44 ]
   %55 = load i32, ptr %45, align 4
   %56 = tail call ptr @wmem_file_scope()
-  %57 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %56, i64 noundef 16) #15
+  %57 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %56, i64 noundef 16) #16
   store ptr %.079, ptr %57, align 8
   %58 = shl i32 %55, 12
   %59 = and i32 %58, -65536
@@ -20748,7 +20748,7 @@ ncp_record_find.exit.thread:                      ; preds = %22, %35, %ncp_recor
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i32 %62, ptr %63, align 8
   %64 = tail call ptr @wmem_file_scope()
-  %65 = tail call noalias dereferenceable_or_null(328) ptr @wmem_alloc0(ptr noundef %64, i64 noundef 328) #15
+  %65 = tail call noalias dereferenceable_or_null(328) ptr @wmem_alloc0(ptr noundef %64, i64 noundef 328) #16
   store ptr %.011.i90, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr null, ptr %66, align 8
@@ -21419,7 +21419,7 @@ define internal fastcc void @process_bitfield_sub_ptvc_record(ptr noundef %0, pt
   br i1 %.not26, label %29, label %28
 
 28:                                               ; preds = %.lr.ph
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.6846, ptr noundef nonnull @.str.4274, i32 noundef 2505, ptr noundef nonnull @.str.6849) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.6846, ptr noundef nonnull @.str.4274, i32 noundef 2505, ptr noundef nonnull @.str.6849) #18
   unreachable
 
 29:                                               ; preds = %.lr.ph
@@ -21454,7 +21454,7 @@ define internal fastcc void @process_bitfield_sub_ptvc_record(ptr noundef %0, pt
   br i1 %.not, label %48, label %49
 
 48:                                               ; preds = %42, %38
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.6846, ptr noundef nonnull @.str.4274, i32 noundef 2517, ptr noundef nonnull @.str.6848) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.6846, ptr noundef nonnull @.str.4274, i32 noundef 2517, ptr noundef nonnull @.str.6848) #18
   unreachable
 
 49:                                               ; preds = %42
@@ -21595,7 +21595,7 @@ define internal fastcc void @add_ptvc_field(ptr noundef readonly captures(none) 
   br label %72
 
 71:                                               ; preds = %20
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.6846, ptr noundef nonnull @.str.4274, i32 noundef 2371, ptr noundef nonnull @.str.6851) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.6846, ptr noundef nonnull @.str.4274, i32 noundef 2371, ptr noundef nonnull @.str.6851) #18
   unreachable
 
 72:                                               ; preds = %65, %59, %53, %47, %41, %35, %28, %23
@@ -21719,7 +21719,7 @@ define internal fastcc void @add_ptvc_field(ptr noundef readonly captures(none) 
   br label %137
 
 136:                                              ; preds = %109
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.6846, ptr noundef nonnull @.str.4274, i32 noundef 2417, ptr noundef nonnull @.str.6851) #17
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.6846, ptr noundef nonnull @.str.4274, i32 noundef 2417, ptr noundef nonnull @.str.6851) #18
   unreachable
 
 137:                                              ; preds = %130, %124, %117, %112
@@ -22049,12 +22049,12 @@ check_offset_addition.exit.us:                    ; preds = %35
   br i1 %or.cond, label %134, label %136
 
 .split252.us:                                     ; preds = %.lr.ph.us
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 .split248.us:                                     ; preds = %35
   %130 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %24, ptr noundef %2, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %42)
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 .split246.us:                                     ; preds = %.split.us
@@ -22063,7 +22063,7 @@ check_offset_addition.exit.us:                    ; preds = %35
   br i1 %132, label %133, label %475
 
 133:                                              ; preds = %.split246.us
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 134:                                              ; preds = %.split
@@ -22351,7 +22351,7 @@ check_offset_addition.exit.us:                    ; preds = %35
 
 285:                                              ; preds = %275
   %286 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %156, ptr noundef null, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %282)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit.i:                     ; preds = %275
@@ -22385,7 +22385,7 @@ check_offset_addition.exit.i:                     ; preds = %275
 
 304:                                              ; preds = %294
   %305 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %156, ptr noundef null, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %301)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit353.i:                  ; preds = %294
@@ -22419,7 +22419,7 @@ check_offset_addition.exit353.i:                  ; preds = %294
 
 323:                                              ; preds = %313
   %324 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %156, ptr noundef null, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %320)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit355.i:                  ; preds = %313
@@ -22453,7 +22453,7 @@ check_offset_addition.exit355.i:                  ; preds = %313
 
 342:                                              ; preds = %332
   %343 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %156, ptr noundef null, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %339)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit357.i:                  ; preds = %332
@@ -22487,7 +22487,7 @@ check_offset_addition.exit357.i:                  ; preds = %332
 
 361:                                              ; preds = %351
   %362 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %156, ptr noundef null, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %358)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit359.i:                  ; preds = %351
@@ -22537,7 +22537,7 @@ check_offset_addition.exit359.i:                  ; preds = %351
 
 388:                                              ; preds = %378
   %389 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %156, ptr noundef null, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %385)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit361.i:                  ; preds = %378
@@ -22689,7 +22689,7 @@ process_entry_info.exit:                          ; preds = %442, %444
   br i1 %462, label %463, label %475
 
 463:                                              ; preds = %460
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 .loopexit200.sink.split:                          ; preds = %136, %136, %136, %136, %459, %458, %457, %456, %140, %139, %138
@@ -22847,7 +22847,7 @@ define internal fastcc void @process_set_filter(ptr noundef %0, ptr noundef %1, 
 
 55:                                               ; preds = %43
   %56 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef null, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %52)
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit.i:                     ; preds = %43
@@ -22974,7 +22974,7 @@ check_offset_addition.exit.i:                     ; preds = %43
   br i1 %148, label %149, label %.sink.split.sink.split
 
 149:                                              ; preds = %146
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 150:                                              ; preds = %3
@@ -23015,7 +23015,7 @@ check_offset_addition.exit.i:                     ; preds = %43
 
 179:                                              ; preds = %150
   %180 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef null, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %176)
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 process_search_match.exit:                        ; preds = %150
@@ -23073,7 +23073,7 @@ process_search_match.exit:                        ; preds = %150
   br i1 %214, label %215, label %207, !llvm.loop !75
 
 215:                                              ; preds = %208
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 216:                                              ; preds = %3
@@ -23082,7 +23082,7 @@ process_search_match.exit:                        ; preds = %150
   br i1 %218, label %219, label %224
 
 219:                                              ; preds = %216
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 .sink.split.sink.split:                           ; preds = %146, %132, %106, %80, %69, %58, %check_offset_addition.exit.i, %17, %process_search_match.exit
@@ -23111,7 +23111,7 @@ define internal fastcc noundef ptr @get_string(ptr noundef %0, i32 noundef %1, i
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %3
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 8:                                                ; preds = %3
@@ -23122,7 +23122,7 @@ define internal fastcc noundef ptr @get_string(ptr noundef %0, i32 noundef %1, i
   %11 = tail call ptr @wmem_packet_scope()
   %12 = add nuw nsw i32 %4, 1
   %13 = zext nneg i32 %12 to i64
-  %14 = tail call noalias ptr @wmem_alloc(ptr noundef %11, i64 noundef %13) #15
+  %14 = tail call noalias ptr @wmem_alloc(ptr noundef %11, i64 noundef %13) #16
   store i8 0, ptr %14, align 1
   %15 = icmp sgt i32 %2, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
@@ -23248,7 +23248,7 @@ define internal fastcc void @print_nds_values(ptr noundef %0, ptr noundef %1, pt
 
 20:                                               ; preds = %19
   %21 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %13, ptr noundef %1, ptr noundef nonnull @ei_ncp_invalid_offset, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7560, i32 noundef %.0656791)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 22:                                               ; preds = %19
@@ -23297,7 +23297,7 @@ define internal fastcc void @print_nds_values(ptr noundef %0, ptr noundef %1, pt
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %.lr.ph788
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 37:                                               ; preds = %.lr.ph788
@@ -23308,7 +23308,7 @@ define internal fastcc void @print_nds_values(ptr noundef %0, ptr noundef %1, pt
   %40 = call ptr @wmem_packet_scope()
   %41 = add nuw nsw i32 %33, 1
   %42 = zext nneg i32 %41 to i64
-  %43 = call noalias ptr @wmem_alloc(ptr noundef %40, i64 noundef %42) #15
+  %43 = call noalias ptr @wmem_alloc(ptr noundef %40, i64 noundef %42) #16
   store i8 0, ptr %43, align 1
   %44 = icmp sgt i32 %31, 0
   br i1 %44, label %.lr.ph.i, label %._crit_edge.i
@@ -23391,7 +23391,7 @@ get_string.exit:                                  ; preds = %37, %61, %._crit_ed
 
 77:                                               ; preds = %get_string.exit
   %78 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %13, ptr noundef %1, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %31)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit:                       ; preds = %get_string.exit
@@ -23497,7 +23497,7 @@ check_offset_addition.exit:                       ; preds = %get_string.exit
   %143 = add i32 %.0656791, 4
   %144 = call i32 @tvb_get_letohl(ptr noundef %2, i32 noundef %143)
   %145 = load ptr, ptr %15, align 8
-  %146 = call i32 @strcmp(ptr noundef %145, ptr noundef nonnull dereferenceable(16) @.str.7596) #18
+  %146 = call i32 @strcmp(ptr noundef %145, ptr noundef nonnull dereferenceable(16) @.str.7596) #19
   %147 = icmp eq i32 %146, 0
   %148 = load i32, ptr @hf_nds_uint32value, align 4
   br i1 %147, label %149, label %152
@@ -23528,7 +23528,7 @@ check_offset_addition.exit:                       ; preds = %get_string.exit
 
 164:                                              ; preds = %156
   %165 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %13, ptr noundef %1, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %157)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit679:                    ; preds = %156
@@ -23625,7 +23625,7 @@ check_offset_addition.exit679:                    ; preds = %156
 
 221:                                              ; preds = %218
   %222 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %13, ptr noundef %1, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %179)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit681:                    ; preds = %218
@@ -23656,7 +23656,7 @@ check_offset_addition.exit681:                    ; preds = %218
 
 242:                                              ; preds = %228
   %243 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %13, ptr noundef %1, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %235)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit683:                    ; preds = %228
@@ -23678,7 +23678,7 @@ check_offset_addition.exit683:                    ; preds = %228
 
 256:                                              ; preds = %check_offset_addition.exit683
   %257 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %13, ptr noundef %1, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %249)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit685:                    ; preds = %check_offset_addition.exit683
@@ -23704,7 +23704,7 @@ check_offset_addition.exit685:                    ; preds = %check_offset_additi
 
 272:                                              ; preds = %263
   %273 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %13, ptr noundef %1, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %265)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit687:                    ; preds = %263
@@ -23753,7 +23753,7 @@ check_offset_addition.exit687:                    ; preds = %263
   br i1 %302, label %303, label %304
 
 303:                                              ; preds = %.lr.ph
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 304:                                              ; preds = %.lr.ph
@@ -23827,7 +23827,7 @@ check_offset_addition.exit687:                    ; preds = %263
 
 350:                                              ; preds = %347
   %351 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %299, ptr noundef %1, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %314)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit690:                    ; preds = %347
@@ -23854,7 +23854,7 @@ check_offset_addition.exit690:                    ; preds = %347
   %363 = load i32, ptr @hf_value_string, align 4
   %364 = call ptr @proto_tree_add_string(ptr noundef %13, i32 noundef %363, ptr noundef %2, i32 noundef %361, i32 noundef %360, ptr noundef %362)
   %365 = load ptr, ptr %15, align 8
-  %366 = call i32 @strcmp(ptr noundef %365, ptr noundef nonnull dereferenceable(15) @.str.7600) #18
+  %366 = call i32 @strcmp(ptr noundef %365, ptr noundef nonnull dereferenceable(15) @.str.7600) #19
   %.not668.not = icmp eq i32 %366, 0
   %367 = xor i32 %360, -1
   %368 = icmp ugt i32 %361, %367
@@ -23862,7 +23862,7 @@ check_offset_addition.exit690:                    ; preds = %347
 
 369:                                              ; preds = %358
   %370 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %13, ptr noundef %1, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %360)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit692:                    ; preds = %358
@@ -23884,7 +23884,7 @@ check_offset_addition.exit692:                    ; preds = %358
 
 383:                                              ; preds = %check_offset_addition.exit692
   %384 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %13, ptr noundef %1, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %376)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit694:                    ; preds = %check_offset_addition.exit692
@@ -24023,7 +24023,7 @@ check_offset_addition.exit694:                    ; preds = %check_offset_additi
   %491 = call i32 @tvb_get_letohl(ptr noundef %2, i32 noundef %.0656791)
   %492 = add i32 %.0656791, 4
   %493 = load ptr, ptr %15, align 8
-  %494 = call i32 @strcmp(ptr noundef %493, ptr noundef nonnull dereferenceable(17) @.str.7610) #18
+  %494 = call i32 @strcmp(ptr noundef %493, ptr noundef nonnull dereferenceable(17) @.str.7610) #19
   %495 = icmp eq i32 %494, 0
   %496 = call fastcc ptr @get_string(ptr noundef %2, i32 noundef %492, i32 noundef %491)
   store ptr %496, ptr %15, align 8
@@ -24128,32 +24128,32 @@ sub_1737:                                         ; preds = %.tail730, %sub_1732
   br i1 %536, label %.sink.split, label %.tail735.thread
 
 .tail735.thread:                                  ; preds = %sub_1727, %sub_1717, %.tail715, %.tail725, %sub_0, %sub_1737, %.tail735
-  %537 = call i32 @strcmp(ptr noundef %496, ptr noundef nonnull dereferenceable(4) @.str.7628) #18
+  %537 = call i32 @strcmp(ptr noundef %496, ptr noundef nonnull dereferenceable(4) @.str.7628) #19
   %538 = icmp eq i32 %537, 0
   br i1 %538, label %.sink.split, label %539
 
 539:                                              ; preds = %.tail735.thread
-  %540 = call i32 @strcmp(ptr noundef %496, ptr noundef nonnull dereferenceable(4) @.str.7630) #18
+  %540 = call i32 @strcmp(ptr noundef %496, ptr noundef nonnull dereferenceable(4) @.str.7630) #19
   %541 = icmp eq i32 %540, 0
   br i1 %541, label %.sink.split, label %542
 
 542:                                              ; preds = %539
-  %543 = call i32 @strcmp(ptr noundef %496, ptr noundef nonnull dereferenceable(4) @.str.7632) #18
+  %543 = call i32 @strcmp(ptr noundef %496, ptr noundef nonnull dereferenceable(4) @.str.7632) #19
   %544 = icmp eq i32 %543, 0
   br i1 %544, label %.sink.split, label %545
 
 545:                                              ; preds = %542
-  %546 = call i32 @strcmp(ptr noundef %496, ptr noundef nonnull dereferenceable(4) @.str.7634) #18
+  %546 = call i32 @strcmp(ptr noundef %496, ptr noundef nonnull dereferenceable(4) @.str.7634) #19
   %547 = icmp eq i32 %546, 0
   br i1 %547, label %.sink.split, label %548
 
 548:                                              ; preds = %545
-  %549 = call i32 @strcmp(ptr noundef %496, ptr noundef nonnull dereferenceable(4) @.str.7636) #18
+  %549 = call i32 @strcmp(ptr noundef %496, ptr noundef nonnull dereferenceable(4) @.str.7636) #19
   %550 = icmp eq i32 %549, 0
   br i1 %550, label %.sink.split, label %551
 
 551:                                              ; preds = %548
-  %552 = call i32 @strcmp(ptr noundef %496, ptr noundef nonnull dereferenceable(4) @.str.7638) #18
+  %552 = call i32 @strcmp(ptr noundef %496, ptr noundef nonnull dereferenceable(4) @.str.7638) #19
   %553 = icmp eq i32 %552, 0
   br i1 %553, label %.sink.split, label %554
 
@@ -24243,7 +24243,7 @@ define internal fastcc i32 @print_es_type(ptr noundef %0, ptr noundef %1, ptr no
 
 32:                                               ; preds = %13
   %33 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef null, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %25)
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit:                       ; preds = %13
@@ -24294,7 +24294,7 @@ check_offset_addition.exit:                       ; preds = %13
 
 61:                                               ; preds = %52
   %62 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %46, ptr noundef null, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %53)
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit518:                    ; preds = %52
@@ -24436,7 +24436,7 @@ check_offset_addition.exit518:                    ; preds = %52
 
 149:                                              ; preds = %138
   %150 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %131, ptr noundef null, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %146)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit523:                    ; preds = %138
@@ -24630,7 +24630,7 @@ check_offset_addition.exit523:                    ; preds = %138
 
 268:                                              ; preds = %265
   %269 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %220, ptr noundef null, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %231)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit528:                    ; preds = %265
@@ -24693,7 +24693,7 @@ check_offset_addition.exit528:                    ; preds = %265
 
 301:                                              ; preds = %290
   %302 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %283, ptr noundef null, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %298)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit530:                    ; preds = %290
@@ -24715,7 +24715,7 @@ check_offset_addition.exit530:                    ; preds = %290
 
 315:                                              ; preds = %check_offset_addition.exit530
   %316 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %283, ptr noundef null, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %308)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit532:                    ; preds = %check_offset_addition.exit530
@@ -24782,7 +24782,7 @@ check_offset_addition.exit532:                    ; preds = %check_offset_additi
 
 352:                                              ; preds = %._crit_edge569
   %353 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %283, ptr noundef null, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %344)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit534:                    ; preds = %._crit_edge569
@@ -24804,7 +24804,7 @@ check_offset_addition.exit534:                    ; preds = %._crit_edge569
 
 366:                                              ; preds = %check_offset_addition.exit534
   %367 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %283, ptr noundef null, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %359)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit536:                    ; preds = %check_offset_addition.exit534
@@ -24878,7 +24878,7 @@ check_offset_addition.exit536:                    ; preds = %check_offset_additi
 
 412:                                              ; preds = %._crit_edge
   %413 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %382, ptr noundef null, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %404)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit538:                    ; preds = %._crit_edge
@@ -24900,7 +24900,7 @@ check_offset_addition.exit538:                    ; preds = %._crit_edge
 
 426:                                              ; preds = %check_offset_addition.exit538
   %427 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %382, ptr noundef null, ptr noundef nonnull @ei_ncp_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7527, i32 noundef %419)
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
   unreachable
 
 check_offset_addition.exit540:                    ; preds = %check_offset_addition.exit538
@@ -24947,14 +24947,14 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -24969,12 +24969,13 @@ attributes #9 = { mustprogress nocallback nofree nounwind null_pointer_is_valid 
 attributes #10 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nounwind }
-attributes #15 = { allocsize(1) }
-attributes #16 = { nounwind returns_twice }
-attributes #17 = { noreturn }
-attributes #18 = { nounwind willreturn memory(read) }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { nounwind }
+attributes #16 = { allocsize(1) }
+attributes #17 = { nounwind returns_twice }
+attributes #18 = { noreturn }
+attributes #19 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -4701,7 +4701,7 @@ define internal void @_ZL13ucnv_MBCSLoadP20UConverterSharedDataP18UConverterLoad
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !117
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %61) #15
+  %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %61) #16
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %65
 
@@ -4846,7 +4846,7 @@ define internal void @_ZL13ucnv_MBCSLoadP20UConverterSharedDataP18UConverterLoad
   %142 = add nuw nsw i32 %139, 1
   %143 = shl nuw nsw i32 %142, 10
   %144 = zext nneg i32 %143 to i64
-  %145 = call noalias ptr @uprv_malloc_77(i64 noundef %144) #16
+  %145 = call noalias ptr @uprv_malloc_77(i64 noundef %144) #17
   %.not205 = icmp eq ptr %145, null
   br i1 %.not205, label %.thread218, label %146
 
@@ -5106,7 +5106,7 @@ define internal void @_ZL13ucnv_MBCSLoadP20UConverterSharedDataP18UConverterLoad
   %290 = load i32, ptr %200, align 8, !tbaa !151
   %291 = add i32 %289, %290
   %292 = zext i32 %291 to i64
-  %293 = call noalias ptr @uprv_malloc_77(i64 noundef %292) #16
+  %293 = call noalias ptr @uprv_malloc_77(i64 noundef %292) #17
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr %293, ptr %294, align 8, !tbaa !163
   %295 = icmp eq ptr %293, null
@@ -5481,7 +5481,7 @@ define internal void @_ZL13ucnv_MBCSOpenP10UConverterP18UConverterLoadArgsP10UEr
   %93 = add i32 %88, 80
   %94 = add i32 %93, %92
   %95 = zext i32 %94 to i64
-  %96 = tail call noalias ptr @uprv_malloc_77(i64 noundef %95) #16
+  %96 = tail call noalias ptr @uprv_malloc_77(i64 noundef %95) #17
   %97 = icmp eq ptr %96, null
   br i1 %97, label %99, label %100
 
@@ -5550,7 +5550,7 @@ define internal void @_ZL13ucnv_MBCSOpenP10UConverterP18UConverterLoadArgsP10UEr
   %139 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %140 = load ptr, ptr %139, align 8, !tbaa !117
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
-  %142 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %138, ptr noundef nonnull dereferenceable(1) %141) #17
+  %142 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %138, ptr noundef nonnull dereferenceable(1) %141) #18
   %strlen.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %138)
   %endptr.i = getelementptr inbounds i8, ptr %138, i64 %strlen.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %endptr.i, ptr noundef nonnull align 1 dereferenceable(10) @.str.11, i64 10, i1 false)
@@ -5590,47 +5590,47 @@ define internal void @_ZL13ucnv_MBCSOpenP10UConverterP18UConverterLoadArgsP10UEr
 _ZL15_EBCDICSwapLFNLP20UConverterSharedDataP10UErrorCode.exit: ; preds = %.thread, %148, %.thread.i, %151, %20, %16
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %156 = load ptr, ptr %155, align 8, !tbaa !132
-  %157 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.2) #15
+  %157 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.2) #16
   %.not44 = icmp eq ptr %157, null
   br i1 %.not44, label %162, label %158
 
 158:                                              ; preds = %_ZL15_EBCDICSwapLFNLP20UConverterSharedDataP10UErrorCode.exit
-  %159 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.3) #15
+  %159 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.3) #16
   %.not51 = icmp eq ptr %159, null
   br i1 %.not51, label %160, label %.sink.split
 
 160:                                              ; preds = %158
-  %161 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.4) #15
+  %161 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.4) #16
   %.not52 = icmp eq ptr %161, null
   br i1 %.not52, label %177, label %.sink.split
 
 162:                                              ; preds = %_ZL15_EBCDICSwapLFNLP20UConverterSharedDataP10UErrorCode.exit
-  %163 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.5) #15
+  %163 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.5) #16
   %.not45 = icmp eq ptr %163, null
   br i1 %.not45, label %164, label %.sink.split
 
 164:                                              ; preds = %162
-  %165 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.6) #15
+  %165 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.6) #16
   %.not46 = icmp eq ptr %165, null
   br i1 %.not46, label %166, label %.sink.split
 
 166:                                              ; preds = %164
-  %167 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.7) #15
+  %167 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.7) #16
   %.not47 = icmp eq ptr %167, null
   br i1 %.not47, label %168, label %.sink.split
 
 168:                                              ; preds = %166
-  %169 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.8) #15
+  %169 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.8) #16
   %.not48 = icmp eq ptr %169, null
   br i1 %.not48, label %170, label %.sink.split
 
 170:                                              ; preds = %168
-  %171 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.9) #15
+  %171 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.9) #16
   %.not49 = icmp eq ptr %171, null
   br i1 %.not49, label %172, label %.sink.split
 
 172:                                              ; preds = %170
-  %173 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.10) #15
+  %173 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.10) #16
   %.not50 = icmp eq ptr %173, null
   br i1 %.not50, label %177, label %.sink.split
 
@@ -8223,16 +8223,16 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #13
+declare i32 @llvm.abs.i32(i32, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr captures(none)) local_unnamed_addr #14
+declare i64 @strlen(ptr captures(none)) local_unnamed_addr #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8248,11 +8248,12 @@ attributes #9 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) 
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { allocsize(0) }
-attributes #17 = { nounwind }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #16 = { nounwind willreturn memory(read) }
+attributes #17 = { allocsize(0) }
+attributes #18 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

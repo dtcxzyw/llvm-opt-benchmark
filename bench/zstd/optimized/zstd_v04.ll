@@ -128,7 +128,7 @@ define ptr @ZBUFFv04_getErrorName(i64 noundef %0) local_unnamed_addr #2 {
   %3 = trunc nsw i64 %0 to i32
   %4 = sub i32 0, %3
   %.0.i.i = select i1 %2, i32 0, i32 %4
-  %5 = tail call ptr @ERR_getErrorString(i32 noundef %.0.i.i) #22
+  %5 = tail call ptr @ERR_getErrorString(i32 noundef %.0.i.i) #23
   ret ptr %5
 }
 
@@ -290,7 +290,7 @@ ZSTD_decompress_usingDict.exit:                   ; preds = %47, %51, %52, %ZSTD
 
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTDv04_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #2 {
-  %5 = tail call noalias dereferenceable_or_null(141448) ptr @malloc(i64 noundef 141448) #23
+  %5 = tail call noalias dereferenceable_or_null(141448) ptr @malloc(i64 noundef 141448) #24
   %6 = icmp eq ptr %5, null
   br i1 %6, label %ZSTD_createDCtx.exit.thread, label %7
 
@@ -302,7 +302,7 @@ define i64 @ZSTDv04_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10256
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %11 = tail call i64 @ZSTDv04_decompressDCtx(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3)
-  tail call void @free(ptr noundef nonnull %5) #22
+  tail call void @free(ptr noundef nonnull %5) #23
   br label %ZSTD_createDCtx.exit.thread
 
 ZSTD_createDCtx.exit.thread:                      ; preds = %4, %7
@@ -523,7 +523,7 @@ define noalias noundef ptr @ZBUFFv04_createDCtx() local_unnamed_addr #5 {
   br i1 %1, label %ZBUFF_createDCtx.exit, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call noalias dereferenceable_or_null(141448) ptr @malloc(i64 noundef 141448) #23
+  %3 = tail call noalias dereferenceable_or_null(141448) ptr @malloc(i64 noundef 141448) #24
   %4 = icmp eq ptr %3, null
   br i1 %4, label %ZSTD_createDCtx.exit.i, label %5
 
@@ -551,14 +551,14 @@ define noundef i64 @ZBUFFv04_freeDCtx(ptr noundef captures(address_is_null) %0) 
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8, !tbaa !24
-  tail call void @free(ptr noundef %4) #22
+  tail call void @free(ptr noundef %4) #23
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !27
-  tail call void @free(ptr noundef %6) #22
+  tail call void @free(ptr noundef %6) #23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8, !tbaa !28
-  tail call void @free(ptr noundef %8) #22
-  tail call void @free(ptr noundef nonnull %0) #22
+  tail call void @free(ptr noundef %8) #23
+  tail call void @free(ptr noundef nonnull %0) #23
   br label %ZBUFF_freeDCtx.exit
 
 ZBUFF_freeDCtx.exit:                              ; preds = %1, %3
@@ -746,9 +746,9 @@ ZSTD_getFrameParams.exit228.i:                    ; preds = %54
 
 66:                                               ; preds = %60
   %67 = load ptr, ptr %17, align 8, !tbaa !27
-  tail call void @free(ptr noundef %67) #22
+  tail call void @free(ptr noundef %67) #23
   store i64 131072, ptr %16, align 8, !tbaa !39
-  %68 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #23
+  %68 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #24
   store ptr %68, ptr %17, align 8, !tbaa !27
   %69 = icmp eq ptr %68, null
   br i1 %69, label %ZBUFF_decompressContinue.exit, label %70
@@ -760,9 +760,9 @@ ZSTD_getFrameParams.exit228.i:                    ; preds = %54
 
 73:                                               ; preds = %70
   %74 = load ptr, ptr %19, align 8, !tbaa !28
-  tail call void @free(ptr noundef %74) #22
+  tail call void @free(ptr noundef %74) #23
   store i64 %63, ptr %18, align 8, !tbaa !40
-  %75 = tail call noalias ptr @malloc(i64 noundef %63) #23
+  %75 = tail call noalias ptr @malloc(i64 noundef %63) #24
   store ptr %75, ptr %19, align 8, !tbaa !28
   %76 = icmp eq ptr %75, null
   br i1 %76, label %ZBUFF_decompressContinue.exit, label %77
@@ -999,7 +999,7 @@ ZBUFF_decompressContinue.exit:                    ; preds = %32, %ZSTD_getFrameP
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @ZSTDv04_createDCtx() local_unnamed_addr #5 {
-  %1 = tail call noalias dereferenceable_or_null(141448) ptr @malloc(i64 noundef 141448) #23
+  %1 = tail call noalias dereferenceable_or_null(141448) ptr @malloc(i64 noundef 141448) #24
   %2 = icmp eq ptr %1, null
   br i1 %2, label %ZSTD_createDCtx.exit, label %3
 
@@ -1018,7 +1018,7 @@ ZSTD_createDCtx.exit:                             ; preds = %0, %3
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define noundef i64 @ZSTDv04_freeDCtx(ptr noundef captures(none) %0) local_unnamed_addr #8 {
-  tail call void @free(ptr noundef %0) #22
+  tail call void @free(ptr noundef %0) #23
   ret i64 0
 }
 
@@ -1136,7 +1136,7 @@ HUF_decompress.exit.i.i:                          ; preds = %47
   %spec.select.i.i.i = zext i1 %60 to i64
   %61 = getelementptr inbounds nuw ptr, ptr @HUF_decompress.decompress, i64 %spec.select.i.i.i
   %62 = load ptr, ptr %61, align 8, !tbaa !46
-  %63 = tail call i64 %62(ptr noundef nonnull %19, i64 noundef range(i64 0, 524288) %22, ptr noundef nonnull %34, i64 noundef range(i64 0, 524288) %26) #22
+  %63 = tail call i64 %62(ptr noundef nonnull %19, i64 noundef range(i64 0, 524288) %22, ptr noundef nonnull %34, i64 noundef range(i64 0, 524288) %26) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %64 = icmp ult i64 %63, -119
   br i1 %64, label %ZSTD_decodeLiteralsBlock.exit, label %ZSTD_decodeLiteralsBlock.exit.thread31
@@ -7075,20 +7075,20 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.abs.i16(i16, i1 immarg) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #20
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #21
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #20
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #21
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #20
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #21
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #20
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #21
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #21
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #22
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -7111,9 +7111,10 @@ attributes #17 = { mustprogress nofree nounwind willreturn allockind("alloc,unin
 attributes #18 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #22 = { nounwind }
-attributes #23 = { nounwind allocsize(0) }
+attributes #21 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #23 = { nounwind }
+attributes #24 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

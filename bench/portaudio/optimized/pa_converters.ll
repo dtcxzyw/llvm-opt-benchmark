@@ -573,7 +573,7 @@ define internal void @Float32_To_Int32_Dither(ptr noundef writeonly captures(non
   %.01115 = phi ptr [ %2, %.lr.ph ], [ %17, %9 ]
   %.01214 = phi ptr [ %0, %.lr.ph ], [ %18, %9 ]
   %10 = add i32 %.016, -1
-  %11 = tail call float @PaUtil_GenerateFloatTriangularDither(ptr noundef %5) #9
+  %11 = tail call float @PaUtil_GenerateFloatTriangularDither(ptr noundef %5) #10
   %12 = fpext float %11 to double
   %13 = load float, ptr %.01115, align 4, !tbaa !68
   %14 = fpext float %13 to double
@@ -643,7 +643,7 @@ define internal void @Float32_To_Int32_DitherClip(ptr noundef writeonly captures
   %.01419 = phi ptr [ %0, %.lr.ph ], [ %24, %21 ]
   %.01518 = phi ptr [ %2, %.lr.ph ], [ %23, %21 ]
   %10 = add i32 %.in, -1
-  %11 = tail call float @PaUtil_GenerateFloatTriangularDither(ptr noundef %5) #9
+  %11 = tail call float @PaUtil_GenerateFloatTriangularDither(ptr noundef %5) #10
   %12 = fpext float %11 to double
   %13 = load float, ptr %.01518, align 4, !tbaa !68
   %14 = fpext float %13 to double
@@ -725,7 +725,7 @@ define internal void @Float32_To_Int24_Dither(ptr noundef writeonly captures(non
   %.01620 = phi ptr [ %2, %.lr.ph ], [ %26, %10 ]
   %.01719 = phi ptr [ %0, %.lr.ph ], [ %27, %10 ]
   %11 = add i32 %.021, -1
-  %12 = tail call float @PaUtil_GenerateFloatTriangularDither(ptr noundef %5) #9
+  %12 = tail call float @PaUtil_GenerateFloatTriangularDither(ptr noundef %5) #10
   %13 = fpext float %12 to double
   %14 = load float, ptr %.01620, align 4, !tbaa !68
   %15 = fpext float %14 to double
@@ -817,7 +817,7 @@ define internal void @Float32_To_Int24_DitherClip(ptr noundef writeonly captures
   %.01924 = phi ptr [ %2, %.lr.ph ], [ %32, %22 ]
   %.02023 = phi ptr [ %0, %.lr.ph ], [ %33, %22 ]
   %11 = add i32 %.in, -1
-  %12 = tail call float @PaUtil_GenerateFloatTriangularDither(ptr noundef %5) #9
+  %12 = tail call float @PaUtil_GenerateFloatTriangularDither(ptr noundef %5) #10
   %13 = fpext float %12 to double
   %14 = load float, ptr %.01924, align 4, !tbaa !68
   %15 = fpext float %14 to double
@@ -896,7 +896,7 @@ define internal void @Float32_To_Int16_Dither(ptr noundef writeonly captures(non
   %.01115 = phi ptr [ %2, %.lr.ph ], [ %15, %9 ]
   %.01214 = phi ptr [ %0, %.lr.ph ], [ %16, %9 ]
   %10 = add i32 %.016, -1
-  %11 = tail call float @PaUtil_GenerateFloatTriangularDither(ptr noundef %5) #9
+  %11 = tail call float @PaUtil_GenerateFloatTriangularDither(ptr noundef %5) #10
   %12 = load float, ptr %.01115, align 4, !tbaa !68
   %13 = tail call float @llvm.fmuladd.f32(float %12, float 3.276600e+04, float %11)
   %14 = fptosi float %13 to i16
@@ -953,7 +953,7 @@ define internal void @Float32_To_Int16_DitherClip(ptr noundef writeonly captures
   %.01519 = phi ptr [ %2, %.lr.ph ], [ %15, %9 ]
   %.01618 = phi ptr [ %0, %.lr.ph ], [ %16, %9 ]
   %10 = add i32 %.020, -1
-  %11 = tail call float @PaUtil_GenerateFloatTriangularDither(ptr noundef %5) #9
+  %11 = tail call float @PaUtil_GenerateFloatTriangularDither(ptr noundef %5) #10
   %12 = load float, ptr %.01519, align 4, !tbaa !68
   %13 = tail call float @llvm.fmuladd.f32(float %12, float 3.276600e+04, float %11)
   %14 = tail call i16 @llvm.fptosi.sat.i16.f32(float %13)
@@ -1010,7 +1010,7 @@ define internal void @Float32_To_Int8_Dither(ptr noundef writeonly captures(none
   %.01216 = phi ptr [ %2, %.lr.ph ], [ %16, %9 ]
   %.01315 = phi ptr [ %0, %.lr.ph ], [ %17, %9 ]
   %10 = add i32 %.017, -1
-  %11 = tail call float @PaUtil_GenerateFloatTriangularDither(ptr noundef %5) #9
+  %11 = tail call float @PaUtil_GenerateFloatTriangularDither(ptr noundef %5) #10
   %12 = load float, ptr %.01216, align 4, !tbaa !68
   %13 = tail call float @llvm.fmuladd.f32(float %12, float 1.260000e+02, float %11)
   %14 = fptosi float %13 to i32
@@ -1068,7 +1068,7 @@ define internal void @Float32_To_Int8_DitherClip(ptr noundef writeonly captures(
   %.01519 = phi ptr [ %2, %.lr.ph ], [ %15, %9 ]
   %.01618 = phi ptr [ %0, %.lr.ph ], [ %16, %9 ]
   %10 = add i32 %.020, -1
-  %11 = tail call float @PaUtil_GenerateFloatTriangularDither(ptr noundef %5) #9
+  %11 = tail call float @PaUtil_GenerateFloatTriangularDither(ptr noundef %5) #10
   %12 = load float, ptr %.01519, align 4, !tbaa !68
   %13 = tail call float @llvm.fmuladd.f32(float %12, float 1.260000e+02, float %11)
   %14 = tail call i8 @llvm.fptosi.sat.i8.f32(float %13)
@@ -1126,7 +1126,7 @@ define internal void @Float32_To_UInt8_Dither(ptr noundef writeonly captures(non
   %.01216 = phi ptr [ %2, %.lr.ph ], [ %17, %9 ]
   %.01315 = phi ptr [ %0, %.lr.ph ], [ %18, %9 ]
   %10 = add i32 %.017, -1
-  %11 = tail call float @PaUtil_GenerateFloatTriangularDither(ptr noundef %5) #9
+  %11 = tail call float @PaUtil_GenerateFloatTriangularDither(ptr noundef %5) #10
   %12 = load float, ptr %.01216, align 4, !tbaa !68
   %13 = tail call float @llvm.fmuladd.f32(float %12, float 1.260000e+02, float %11)
   %14 = fptosi float %13 to i32
@@ -1186,7 +1186,7 @@ define internal void @Float32_To_UInt8_DitherClip(ptr noundef writeonly captures
   %.01519 = phi ptr [ %2, %.lr.ph ], [ %16, %9 ]
   %.01618 = phi ptr [ %0, %.lr.ph ], [ %17, %9 ]
   %10 = add i32 %.020, -1
-  %11 = tail call float @PaUtil_GenerateFloatTriangularDither(ptr noundef %5) #9
+  %11 = tail call float @PaUtil_GenerateFloatTriangularDither(ptr noundef %5) #10
   %12 = load float, ptr %.01519, align 4, !tbaa !68
   %13 = tail call float @llvm.fmuladd.f32(float %12, float 1.260000e+02, float %11)
   %14 = tail call i8 @llvm.fptosi.sat.i8.f32(float %13)
@@ -1317,7 +1317,7 @@ define internal void @Int32_To_Int16_Dither(ptr noundef writeonly captures(none)
   %.01014 = phi ptr [ %0, %.lr.ph ], [ %18, %9 ]
   %.01113 = phi ptr [ %2, %.lr.ph ], [ %17, %9 ]
   %10 = add i32 %.015, -1
-  %11 = tail call i32 @PaUtil_Generate16BitTriangularDither(ptr noundef %5) #9
+  %11 = tail call i32 @PaUtil_Generate16BitTriangularDither(ptr noundef %5) #10
   %12 = load i32, ptr %.01113, align 4, !tbaa !70
   %13 = lshr i32 %12, 1
   %14 = add i32 %13, %11
@@ -1376,7 +1376,7 @@ define internal void @Int32_To_Int8_Dither(ptr noundef writeonly captures(none) 
   %.01014 = phi ptr [ %0, %.lr.ph ], [ %18, %9 ]
   %.01113 = phi ptr [ %2, %.lr.ph ], [ %17, %9 ]
   %10 = add i32 %.015, -1
-  %11 = tail call i32 @PaUtil_Generate16BitTriangularDither(ptr noundef %5) #9
+  %11 = tail call i32 @PaUtil_Generate16BitTriangularDither(ptr noundef %5) #10
   %12 = load i32, ptr %.01113, align 4, !tbaa !70
   %13 = lshr i32 %12, 1
   %14 = add i32 %13, %11
@@ -1549,7 +1549,7 @@ define internal void @Int24_To_Int16_Dither(ptr noundef writeonly captures(none)
   %17 = zext i8 %16 to i32
   %18 = shl nuw nsw i32 %17, 23
   %19 = or disjoint i32 %18, %14
-  %20 = tail call i32 @PaUtil_Generate16BitTriangularDither(ptr noundef %5) #9
+  %20 = tail call i32 @PaUtil_Generate16BitTriangularDither(ptr noundef %5) #10
   %21 = add i32 %19, %20
   %22 = lshr i32 %21, 15
   %23 = trunc i32 %22 to i16
@@ -1615,7 +1615,7 @@ define internal void @Int24_To_Int8_Dither(ptr noundef writeonly captures(none) 
   %17 = zext i8 %16 to i32
   %18 = shl nuw nsw i32 %17, 23
   %19 = or disjoint i32 %18, %14
-  %20 = tail call i32 @PaUtil_Generate16BitTriangularDither(ptr noundef %5) #9
+  %20 = tail call i32 @PaUtil_Generate16BitTriangularDither(ptr noundef %5) #10
   %21 = add i32 %19, %20
   %22 = lshr i32 %21, 23
   %23 = trunc i32 %22 to i8
@@ -2382,24 +2382,24 @@ define internal void @Zero32(ptr noundef writeonly captures(none) %0, i32 nounde
 
 declare float @PaUtil_GenerateFloatTriangularDither(ptr noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #7
 
 declare i32 @PaUtil_Generate16BitTriangularDither(ptr noundef) local_unnamed_addr #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #8
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.fptosi.sat.i8.f32(float) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.fptosi.sat.i16.f32(float) #8
 
 attributes #0 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2409,9 +2409,10 @@ attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
+attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -779,7 +779,7 @@ define internal void @someip_service_ident_id_tostr_cb(ptr noundef readonly capt
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef %6)
   store ptr %7, ptr %1, align 8
-  %8 = tail call i64 @strlen(ptr noundef %7) #18
+  %8 = tail call i64 @strlen(ptr noundef %7) #19
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
   ret void
@@ -810,7 +810,7 @@ define internal void @someip_service_ident_name_tostr_cb(ptr noundef readonly ca
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -839,7 +839,7 @@ define internal void @someip_method_ident_id_tostr_cb(ptr noundef readonly captu
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef %6)
   store ptr %7, ptr %1, align 8
-  %8 = tail call i64 @strlen(ptr noundef %7) #18
+  %8 = tail call i64 @strlen(ptr noundef %7) #19
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
   ret void
@@ -861,7 +861,7 @@ define internal void @someip_method_ident_id2_tostr_cb(ptr noundef readonly capt
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -889,7 +889,7 @@ define internal void @someip_method_ident_name_tostr_cb(ptr noundef readonly cap
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -918,7 +918,7 @@ define internal void @someip_eventgroup_ident_id_tostr_cb(ptr noundef readonly c
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef %6)
   store ptr %7, ptr %1, align 8
-  %8 = tail call i64 @strlen(ptr noundef %7) #18
+  %8 = tail call i64 @strlen(ptr noundef %7) #19
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
   ret void
@@ -940,7 +940,7 @@ define internal void @someip_eventgroup_ident_id2_tostr_cb(ptr noundef readonly 
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -968,7 +968,7 @@ define internal void @someip_eventgroup_ident_name_tostr_cb(ptr noundef readonly
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -997,7 +997,7 @@ define internal void @someip_client_ident_id_tostr_cb(ptr noundef readonly captu
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef %6)
   store ptr %7, ptr %1, align 8
-  %8 = tail call i64 @strlen(ptr noundef %7) #18
+  %8 = tail call i64 @strlen(ptr noundef %7) #19
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
   ret void
@@ -1019,7 +1019,7 @@ define internal void @someip_client_ident_id2_tostr_cb(ptr noundef readonly capt
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -1047,7 +1047,7 @@ define internal void @someip_client_ident_name_tostr_cb(ptr noundef readonly cap
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -1076,7 +1076,7 @@ define internal void @someip_parameter_list_service_id_tostr_cb(ptr noundef read
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef %6)
   store ptr %7, ptr %1, align 8
-  %8 = tail call i64 @strlen(ptr noundef %7) #18
+  %8 = tail call i64 @strlen(ptr noundef %7) #19
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
   ret void
@@ -1098,7 +1098,7 @@ define internal void @someip_parameter_list_method_id_tostr_cb(ptr noundef reado
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -1123,7 +1123,7 @@ define internal void @someip_parameter_list_version_tostr_cb(ptr noundef readonl
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -1145,7 +1145,7 @@ define internal void @someip_parameter_list_message_type_tostr_cb(ptr noundef re
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -1185,7 +1185,7 @@ define internal void @someip_parameter_list_wtlv_encoding_tostr_cb(ptr noundef r
   %9 = select i1 %8, ptr @.str.312, ptr @.str.313
   %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.311, ptr noundef nonnull %9)
   store ptr %10, ptr %1, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   store i32 %12, ptr %2, align 4
   ret void
@@ -1207,7 +1207,7 @@ define internal void @someip_parameter_list_num_of_params_tostr_cb(ptr noundef r
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -1229,7 +1229,7 @@ define internal void @someip_parameter_list_pos_tostr_cb(ptr noundef readonly ca
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -1257,7 +1257,7 @@ define internal void @someip_parameter_list_name_tostr_cb(ptr noundef readonly c
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -1288,7 +1288,7 @@ define internal void @someip_parameter_list_data_type_tostr_cb(ptr noundef reado
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -1310,7 +1310,7 @@ define internal void @someip_parameter_list_id_ref_tostr_cb(ptr noundef readonly
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -1338,7 +1338,7 @@ define internal void @someip_parameter_list_filter_string_tostr_cb(ptr noundef r
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -1367,7 +1367,7 @@ define internal void @someip_parameter_arrays_id_tostr_cb(ptr noundef readonly c
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef %6)
   store ptr %7, ptr %1, align 8
-  %8 = tail call i64 @strlen(ptr noundef %7) #18
+  %8 = tail call i64 @strlen(ptr noundef %7) #19
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
   ret void
@@ -1395,7 +1395,7 @@ define internal void @someip_parameter_arrays_name_tostr_cb(ptr noundef readonly
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -1426,7 +1426,7 @@ define internal void @someip_parameter_arrays_data_type_tostr_cb(ptr noundef rea
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -1448,7 +1448,7 @@ define internal void @someip_parameter_arrays_id_ref_tostr_cb(ptr noundef readon
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -1470,7 +1470,7 @@ define internal void @someip_parameter_arrays_num_of_dims_tostr_cb(ptr noundef r
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -1498,7 +1498,7 @@ define internal void @someip_parameter_arrays_filter_string_tostr_cb(ptr noundef
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -1529,7 +1529,7 @@ define internal void @someip_parameter_arrays_num_tostr_cb(ptr noundef readonly 
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -1551,7 +1551,7 @@ define internal void @someip_parameter_arrays_lower_limit_tostr_cb(ptr noundef r
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -1573,7 +1573,7 @@ define internal void @someip_parameter_arrays_upper_limit_tostr_cb(ptr noundef r
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -1595,7 +1595,7 @@ define internal void @someip_parameter_arrays_length_of_length_tostr_cb(ptr noun
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -1617,7 +1617,7 @@ define internal void @someip_parameter_arrays_pad_to_tostr_cb(ptr noundef readon
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -1637,7 +1637,7 @@ define internal void @someip_parameter_structs_id_tostr_cb(ptr noundef readonly 
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef %6)
   store ptr %7, ptr %1, align 8
-  %8 = tail call i64 @strlen(ptr noundef %7) #18
+  %8 = tail call i64 @strlen(ptr noundef %7) #19
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
   ret void
@@ -1665,7 +1665,7 @@ define internal void @someip_parameter_structs_struct_name_tostr_cb(ptr noundef 
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -1696,7 +1696,7 @@ define internal void @someip_parameter_structs_length_of_length_tostr_cb(ptr nou
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -1718,7 +1718,7 @@ define internal void @someip_parameter_structs_pad_to_tostr_cb(ptr noundef reado
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -1755,7 +1755,7 @@ define internal void @someip_parameter_structs_wtlv_encoding_tostr_cb(ptr nounde
   %9 = select i1 %8, ptr @.str.312, ptr @.str.313
   %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.311, ptr noundef nonnull %9)
   store ptr %10, ptr %1, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   store i32 %12, ptr %2, align 4
   ret void
@@ -1777,7 +1777,7 @@ define internal void @someip_parameter_structs_num_of_items_tostr_cb(ptr noundef
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -1799,7 +1799,7 @@ define internal void @someip_parameter_structs_pos_tostr_cb(ptr noundef readonly
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -1827,7 +1827,7 @@ define internal void @someip_parameter_structs_name_tostr_cb(ptr noundef readonl
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -1858,7 +1858,7 @@ define internal void @someip_parameter_structs_data_type_tostr_cb(ptr noundef re
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -1880,7 +1880,7 @@ define internal void @someip_parameter_structs_id_ref_tostr_cb(ptr noundef reado
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -1908,7 +1908,7 @@ define internal void @someip_parameter_structs_filter_string_tostr_cb(ptr nounde
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -1937,7 +1937,7 @@ define internal void @someip_parameter_unions_id_tostr_cb(ptr noundef readonly c
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef %6)
   store ptr %7, ptr %1, align 8
-  %8 = tail call i64 @strlen(ptr noundef %7) #18
+  %8 = tail call i64 @strlen(ptr noundef %7) #19
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
   ret void
@@ -1965,7 +1965,7 @@ define internal void @someip_parameter_unions_name_tostr_cb(ptr noundef readonly
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -1996,7 +1996,7 @@ define internal void @someip_parameter_unions_length_of_length_tostr_cb(ptr noun
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -2018,7 +2018,7 @@ define internal void @someip_parameter_unions_length_of_type_tostr_cb(ptr nounde
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -2040,7 +2040,7 @@ define internal void @someip_parameter_unions_pad_to_tostr_cb(ptr noundef readon
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -2062,7 +2062,7 @@ define internal void @someip_parameter_unions_num_of_items_tostr_cb(ptr noundef 
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -2084,7 +2084,7 @@ define internal void @someip_parameter_unions_type_id_tostr_cb(ptr noundef reado
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -2112,7 +2112,7 @@ define internal void @someip_parameter_unions_type_name_tostr_cb(ptr noundef rea
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -2143,7 +2143,7 @@ define internal void @someip_parameter_unions_data_type_tostr_cb(ptr noundef rea
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -2165,7 +2165,7 @@ define internal void @someip_parameter_unions_id_ref_tostr_cb(ptr noundef readon
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -2193,7 +2193,7 @@ define internal void @someip_parameter_unions_filter_string_tostr_cb(ptr noundef
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -2222,7 +2222,7 @@ define internal void @someip_parameter_enums_id_tostr_cb(ptr noundef readonly ca
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef %6)
   store ptr %7, ptr %1, align 8
-  %8 = tail call i64 @strlen(ptr noundef %7) #18
+  %8 = tail call i64 @strlen(ptr noundef %7) #19
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
   ret void
@@ -2250,7 +2250,7 @@ define internal void @someip_parameter_enums_name_tostr_cb(ptr noundef readonly 
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -2281,7 +2281,7 @@ define internal void @someip_parameter_enums_data_type_tostr_cb(ptr noundef read
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -2303,7 +2303,7 @@ define internal void @someip_parameter_enums_id_ref_tostr_cb(ptr noundef readonl
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -2325,7 +2325,7 @@ define internal void @someip_parameter_enums_num_of_items_tostr_cb(ptr noundef r
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -2347,7 +2347,7 @@ define internal void @someip_parameter_enums_value_tostr_cb(ptr noundef readonly
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -2375,7 +2375,7 @@ define internal void @someip_parameter_enums_value_name_tostr_cb(ptr noundef rea
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -2404,7 +2404,7 @@ define internal void @someip_parameter_base_type_list_id_tostr_cb(ptr noundef re
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef %6)
   store ptr %7, ptr %1, align 8
-  %8 = tail call i64 @strlen(ptr noundef %7) #18
+  %8 = tail call i64 @strlen(ptr noundef %7) #19
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
   ret void
@@ -2432,7 +2432,7 @@ define internal void @someip_parameter_base_type_list_name_tostr_cb(ptr noundef 
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -2469,7 +2469,7 @@ define internal void @someip_parameter_base_type_list_data_type_tostr_cb(ptr nou
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -2515,7 +2515,7 @@ define internal void @someip_parameter_base_type_list_big_endian_tostr_cb(ptr no
   %9 = select i1 %8, ptr @.str.312, ptr @.str.313
   %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.311, ptr noundef nonnull %9)
   store ptr %10, ptr %1, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   store i32 %12, ptr %2, align 4
   ret void
@@ -2537,7 +2537,7 @@ define internal void @someip_parameter_base_type_list_bitlength_base_type_tostr_
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -2559,7 +2559,7 @@ define internal void @someip_parameter_base_type_list_bitlength_encoded_type_tos
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -2579,7 +2579,7 @@ define internal void @someip_parameter_strings_id_tostr_cb(ptr noundef readonly 
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef %6)
   store ptr %7, ptr %1, align 8
-  %8 = tail call i64 @strlen(ptr noundef %7) #18
+  %8 = tail call i64 @strlen(ptr noundef %7) #19
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
   ret void
@@ -2607,7 +2607,7 @@ define internal void @someip_parameter_strings_name_tostr_cb(ptr noundef readonl
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -2644,7 +2644,7 @@ define internal void @someip_parameter_strings_encoding_tostr_cb(ptr noundef rea
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -2690,7 +2690,7 @@ define internal void @someip_parameter_strings_dynamic_length_tostr_cb(ptr nound
   %9 = select i1 %8, ptr @.str.312, ptr @.str.313
   %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.311, ptr noundef nonnull %9)
   store ptr %10, ptr %1, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   store i32 %12, ptr %2, align 4
   ret void
@@ -2712,7 +2712,7 @@ define internal void @someip_parameter_strings_max_length_tostr_cb(ptr noundef r
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -2734,7 +2734,7 @@ define internal void @someip_parameter_strings_length_of_length_tostr_cb(ptr nou
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -2771,7 +2771,7 @@ define internal void @someip_parameter_strings_big_endian_tostr_cb(ptr noundef r
   %9 = select i1 %8, ptr @.str.312, ptr @.str.313
   %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.311, ptr noundef nonnull %9)
   store ptr %10, ptr %1, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   store i32 %12, ptr %2, align 4
   ret void
@@ -2793,7 +2793,7 @@ define internal void @someip_parameter_strings_pad_to_tostr_cb(ptr noundef reado
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -2813,7 +2813,7 @@ define internal void @someip_parameter_typedefs_id_tostr_cb(ptr noundef readonly
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef %6)
   store ptr %7, ptr %1, align 8
-  %8 = tail call i64 @strlen(ptr noundef %7) #18
+  %8 = tail call i64 @strlen(ptr noundef %7) #19
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
   ret void
@@ -2841,7 +2841,7 @@ define internal void @someip_parameter_typedefs_name_tostr_cb(ptr noundef readon
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #18
+  %11 = tail call i64 @strlen(ptr noundef %10) #19
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -2872,7 +2872,7 @@ define internal void @someip_parameter_typedefs_data_type_tostr_cb(ptr noundef r
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -2894,7 +2894,7 @@ define internal void @someip_parameter_typedefs_id_ref_tostr_cb(ptr noundef read
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #18
+  %9 = tail call i64 @strlen(ptr noundef %8) #19
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -3426,7 +3426,7 @@ proto_item_set_generated.exit215:                 ; preds = %187, %203, %206
 230:                                              ; preds = %227
   %231 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %232 = load ptr, ptr %231, align 8
-  %233 = call noalias dereferenceable_or_null(6) ptr @wmem_alloc(ptr noundef %232, i64 noundef 6) #19
+  %233 = call noalias dereferenceable_or_null(6) ptr @wmem_alloc(ptr noundef %232, i64 noundef 6) #20
   %234 = load i32, ptr %5, align 4
   %235 = trunc i32 %234 to i16
   store i16 %235, ptr %233, align 2
@@ -3613,7 +3613,7 @@ define hidden void @proto_reg_handoff_someip() #0 {
 deregister_dynamic_hf_data.exit.i:                ; preds = %._crit_edge.i.i, %16
   %34 = load i32, ptr @someip_parameter_list_num, align 4
   %35 = zext i32 %34 to i64
-  %36 = tail call noalias ptr @g_malloc0_n(i64 noundef %35, i64 noundef 80) #20
+  %36 = tail call noalias ptr @g_malloc0_n(i64 noundef %35, i64 noundef 80) #21
   store ptr %36, ptr @dynamic_hf_param, align 8
   store i32 %34, ptr @dynamic_hf_param_size, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3681,7 +3681,7 @@ update_dynamic_hf_entries_someip_parameter_list.exit: ; preds = %14, %deregister
 deregister_dynamic_hf_data.exit.i12:              ; preds = %._crit_edge.i.i11, %42
   %60 = load i32, ptr @someip_parameter_arrays_num, align 4
   %61 = zext i32 %60 to i64
-  %62 = call noalias ptr @g_malloc0_n(i64 noundef %61, i64 noundef 80) #20
+  %62 = call noalias ptr @g_malloc0_n(i64 noundef %61, i64 noundef 80) #21
   store ptr %62, ptr @dynamic_hf_array, align 8
   store i32 %60, ptr @dynamic_hf_array_size, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3749,7 +3749,7 @@ update_dynamic_hf_entries_someip_parameter_arrays.exit: ; preds = %update_dynami
 deregister_dynamic_hf_data.exit.i26:              ; preds = %._crit_edge.i.i25, %68
   %86 = load i32, ptr @someip_parameter_structs_num, align 4
   %87 = zext i32 %86 to i64
-  %88 = call noalias ptr @g_malloc0_n(i64 noundef %87, i64 noundef 80) #20
+  %88 = call noalias ptr @g_malloc0_n(i64 noundef %87, i64 noundef 80) #21
   store ptr %88, ptr @dynamic_hf_struct, align 8
   store i32 %86, ptr @dynamic_hf_struct_size, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -3817,7 +3817,7 @@ update_dynamic_hf_entries_someip_parameter_structs.exit: ; preds = %update_dynam
 deregister_dynamic_hf_data.exit.i40:              ; preds = %._crit_edge.i.i39, %94
   %112 = load i32, ptr @someip_parameter_unions_num, align 4
   %113 = zext i32 %112 to i64
-  %114 = call noalias ptr @g_malloc0_n(i64 noundef %113, i64 noundef 80) #20
+  %114 = call noalias ptr @g_malloc0_n(i64 noundef %113, i64 noundef 80) #21
   store ptr %114, ptr @dynamic_hf_union, align 8
   store i32 %112, ptr @dynamic_hf_union_size, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
@@ -4551,7 +4551,7 @@ define internal void @post_update_someip_parameter_list_cb() #0 {
 
 30:                                               ; preds = %.lr.ph.i
   %31 = call ptr @wmem_epan_scope()
-  %32 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %31, i64 noundef 32) #19
+  %32 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %31, i64 noundef 32) #20
   %33 = load i32, ptr %8, align 8
   store i32 %33, ptr %32, align 8
   %34 = load i32, ptr %10, align 4
@@ -4575,10 +4575,10 @@ define internal void @post_update_someip_parameter_list_cb() #0 {
   %47 = load i32, ptr %43, align 4
   %48 = zext i32 %47 to i64
   %49 = mul nuw nsw i64 %48, 40
-  %50 = call noalias ptr @wmem_alloc0(ptr noundef %46, i64 noundef %49) #19
+  %50 = call noalias ptr @wmem_alloc0(ptr noundef %46, i64 noundef %49) #20
   %51 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store ptr %50, ptr %51, align 8
-  %52 = call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #21
+  %52 = call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #22
   %53 = load i64, ptr %1, align 8
   store i64 %53, ptr %52, align 8
   %54 = call i32 @g_hash_table_insert(ptr noundef nonnull %2, ptr noundef %52, ptr noundef %32)
@@ -4944,7 +4944,7 @@ define internal void @post_update_someip_parameter_array_cb() #0 {
 
 13:                                               ; preds = %.lr.ph.i
   %14 = tail call ptr @wmem_epan_scope()
-  %15 = tail call noalias dereferenceable_or_null(56) ptr @wmem_alloc(ptr noundef %14, i64 noundef 56) #19
+  %15 = tail call noalias dereferenceable_or_null(56) ptr @wmem_alloc(ptr noundef %14, i64 noundef 56) #20
   %16 = load i32, ptr %7, align 8
   store i32 %16, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -4971,7 +4971,7 @@ define internal void @post_update_someip_parameter_array_cb() #0 {
   %33 = load i32, ptr %26, align 8
   %34 = zext i32 %33 to i64
   %35 = mul nuw nsw i64 %34, 20
-  %36 = tail call noalias ptr @wmem_alloc0(ptr noundef %32, i64 noundef %35) #19
+  %36 = tail call noalias ptr @wmem_alloc0(ptr noundef %32, i64 noundef %35) #20
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr %36, ptr %37, align 8
   %38 = load i32, ptr %7, align 8
@@ -5371,7 +5371,7 @@ define internal void @post_update_someip_parameter_struct_cb() #0 {
 
 13:                                               ; preds = %.lr.ph.i
   %14 = tail call ptr @wmem_epan_scope()
-  %15 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %14, i64 noundef 40) #19
+  %15 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %14, i64 noundef 40) #20
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 20
@@ -5398,7 +5398,7 @@ define internal void @post_update_someip_parameter_struct_cb() #0 {
   %33 = load i32, ptr %30, align 4
   %34 = zext i32 %33 to i64
   %35 = mul nuw nsw i64 %34, 40
-  %36 = tail call noalias ptr @wmem_alloc0(ptr noundef %32, i64 noundef %35) #19
+  %36 = tail call noalias ptr @wmem_alloc0(ptr noundef %32, i64 noundef %35) #20
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %36, ptr %37, align 8
   %38 = load i32, ptr %7, align 8
@@ -5774,7 +5774,7 @@ define internal void @post_update_someip_parameter_union_cb() #0 {
 
 13:                                               ; preds = %.lr.ph72.i
   %14 = tail call ptr @wmem_epan_scope()
-  %15 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %14, i64 noundef 40) #19
+  %15 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %14, i64 noundef 40) #20
   %16 = load i32, ptr %7, align 8
   store i32 %16, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -5801,7 +5801,7 @@ define internal void @post_update_someip_parameter_union_cb() #0 {
   %33 = load i32, ptr %31, align 4
   %34 = zext i32 %33 to i64
   %35 = mul nuw nsw i64 %34, 40
-  %36 = tail call noalias ptr @wmem_alloc0(ptr noundef %32, i64 noundef %35) #19
+  %36 = tail call noalias ptr @wmem_alloc0(ptr noundef %32, i64 noundef %35) #20
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %36, ptr %37, align 8
   %38 = load i32, ptr %7, align 8
@@ -6122,7 +6122,7 @@ reset_someip_parameter_enum_cb.exit:              ; preds = %3, %5
 
 21:                                               ; preds = %.lr.ph.i
   %22 = tail call ptr @wmem_epan_scope()
-  %23 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %22, i64 noundef 40) #19
+  %23 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %22, i64 noundef 40) #20
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 20
@@ -6147,7 +6147,7 @@ reset_someip_parameter_enum_cb.exit:              ; preds = %3, %5
   %39 = load i32, ptr %27, align 8
   %40 = zext i32 %39 to i64
   %41 = shl nuw nsw i64 %40, 4
-  %42 = tail call noalias ptr @wmem_alloc0(ptr noundef %38, i64 noundef %41) #19
+  %42 = tail call noalias ptr @wmem_alloc0(ptr noundef %38, i64 noundef %41) #20
   store ptr %42, ptr %28, align 8
   %43 = load i32, ptr %15, align 8
   %44 = zext i32 %43 to i64
@@ -6841,7 +6841,7 @@ define internal noundef i32 @someip_messages_stats_tree_packet(ptr noundef %0, p
   br i1 %.not, label %6, label %7
 
 6:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.420, ptr noundef nonnull @.str.421, i32 noundef 2563, ptr noundef nonnull @.str.422) #22
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.420, ptr noundef nonnull @.str.421, i32 noundef 2563, ptr noundef nonnull @.str.422) #23
   unreachable
 
 7:                                                ; preds = %5
@@ -7609,7 +7609,7 @@ get_base_type_config.exit.i:                      ; preds = %48
 67:                                               ; preds = %65
   %68 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %69 = load ptr, ptr %68, align 8
-  %70 = tail call i32 @strncmp(ptr noundef %69, ptr noundef nonnull dereferenceable(5) @.str.358, i64 noundef 4) #18
+  %70 = tail call i32 @strncmp(ptr noundef %69, ptr noundef nonnull dereferenceable(5) @.str.358, i64 noundef 4) #19
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %82
 
@@ -7861,12 +7861,12 @@ dissect_someip_payload_add_wtlv_if_needed.exit.i59: ; preds = %159, %.thread.i
 189:                                              ; preds = %182
   %190 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %191 = load ptr, ptr %190, align 8
-  %192 = call i32 @strcmp(ptr noundef %191, ptr noundef nonnull dereferenceable(6) @.str.361) #18
+  %192 = call i32 @strcmp(ptr noundef %191, ptr noundef nonnull dereferenceable(6) @.str.361) #19
   %193 = icmp eq i32 %192, 0
   br i1 %193, label %202, label %194
 
 194:                                              ; preds = %189
-  %195 = call i32 @strcmp(ptr noundef %191, ptr noundef nonnull dereferenceable(7) @.str.362) #18
+  %195 = call i32 @strcmp(ptr noundef %191, ptr noundef nonnull dereferenceable(7) @.str.362) #19
   %196 = icmp eq i32 %195, 0
   br i1 %196, label %197, label %202
 
@@ -8951,7 +8951,7 @@ define internal range(i32 0, 2) i32 @someip_segment_equal(ptr noundef readonly c
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noalias noundef ptr @someip_segment_temporary_key(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2) #0 {
-  %4 = tail call noalias dereferenceable_or_null(72) ptr @g_slice_alloc(i64 noundef 72) #21
+  %4 = tail call noalias dereferenceable_or_null(72) ptr @g_slice_alloc(i64 noundef 72) #22
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 212
@@ -8988,13 +8988,13 @@ define internal noalias noundef ptr @someip_segment_temporary_key(ptr noundef re
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 %28, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %30, ptr noundef align 1 dereferenceable(10) %2, i64 noundef 10, i1 noundef false) #23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %30, ptr noundef align 1 dereferenceable(10) %2, i64 noundef 10, i1 noundef false) #24
   ret ptr %4
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noalias noundef ptr @someip_segment_persistent_key(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2) #0 {
-  %4 = tail call noalias dereferenceable_or_null(72) ptr @g_slice_alloc(i64 noundef 72) #21
+  %4 = tail call noalias dereferenceable_or_null(72) ptr @g_slice_alloc(i64 noundef 72) #22
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 212
@@ -9008,7 +9008,7 @@ define internal noalias noundef ptr @someip_segment_persistent_key(ptr noundef r
 
 12:                                               ; preds = %3
   %13 = sext i32 %8 to i64
-  %14 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %10, i64 noundef %13) #24
+  %14 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %10, i64 noundef %13) #25
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %14, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -9032,7 +9032,7 @@ copy_address.exit:                                ; preds = %3, %12
 
 26:                                               ; preds = %copy_address.exit
   %27 = sext i32 %22 to i64
-  %28 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %24, i64 noundef %27) #24
+  %28 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %24, i64 noundef %27) #25
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %28, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -9051,7 +9051,7 @@ copy_address.exit12:                              ; preds = %copy_address.exit, 
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 %36, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %38, ptr noundef align 1 dereferenceable(10) %2, i64 noundef 10, i1 noundef false) #23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %38, ptr noundef align 1 dereferenceable(10) %2, i64 noundef 10, i1 noundef false) #24
   ret ptr %4
 }
 
@@ -9666,7 +9666,7 @@ get_param_attributes.exit:                        ; preds = %41, %get_string_con
   br i1 %or.cond, label %get_param_attributes.exit.thread, label %135
 
 135:                                              ; preds = %get_param_attributes.exit
-  %136 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #21
+  %136 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #22
   store i32 0, ptr %136, align 4
   %137 = sext i32 %1 to i64
   %138 = getelementptr %struct.hf_register_info, ptr %0, i64 %137
@@ -9858,20 +9858,20 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #15
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #18
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -9888,16 +9888,17 @@ attributes #11 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "sta
 attributes #12 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { null_pointer_is_valid allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { allocsize(1) }
-attributes #20 = { allocsize(0,1) }
-attributes #21 = { allocsize(0) }
-attributes #22 = { noreturn }
-attributes #23 = { nounwind }
-attributes #24 = { allocsize(2) }
+attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { nounwind willreturn memory(read) }
+attributes #20 = { allocsize(1) }
+attributes #21 = { allocsize(0,1) }
+attributes #22 = { allocsize(0) }
+attributes #23 = { noreturn }
+attributes #24 = { nounwind }
+attributes #25 = { allocsize(2) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

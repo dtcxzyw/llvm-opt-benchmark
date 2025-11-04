@@ -296,7 +296,7 @@ if.then.i25:                                      ; preds = %invoke.cont3
   br i1 %tobool.not.i.i.i63, label %if.then.i.i.i67, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 if.then.i.i.i67:                                  ; preds = %if.then.i25
-  invoke void @_ZSt16__throw_bad_castv() #21
+  invoke void @_ZSt16__throw_bad_castv() #22
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i.i.i67
@@ -403,7 +403,7 @@ if.then.i.i.i52:                                  ; preds = %cleanup
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNSt14_Optional_baseIN5sound17OggFileDecodeInfoELb0ELb0EED2Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i52
-  call void @_ZdlPv(ptr noundef %20) #22
+  call void @_ZdlPv(ptr noundef %20) #23
   br label %_ZNSt14_Optional_baseIN5sound17OggFileDecodeInfoELb0ELb0EED2Ev.exit
 
 _ZNSt14_Optional_baseIN5sound17OggFileDecodeInfoELb0ELb0EED2Ev.exit: ; preds = %if.then.i.i.i52, %if.then.i.i.i.i.i.i.i, %cleanup
@@ -424,7 +424,7 @@ if.then.i.i.i55:                                  ; preds = %ehcleanup
   br i1 %cmp.i.i.i.i.i.i.i.i56, label %_ZNSt14_Optional_baseIN5sound17OggFileDecodeInfoELb0ELb0EED2Ev.exit61, label %if.then.i.i.i.i.i.i.i57
 
 if.then.i.i.i.i.i.i.i57:                          ; preds = %if.then.i.i.i55
-  call void @_ZdlPv(ptr noundef %23) #22
+  call void @_ZdlPv(ptr noundef %23) #23
   br label %_ZNSt14_Optional_baseIN5sound17OggFileDecodeInfoELb0ELb0EED2Ev.exit61
 
 _ZNSt14_Optional_baseIN5sound17OggFileDecodeInfoELb0ELb0EED2Ev.exit61: ; preds = %if.then.i.i.i55, %if.then.i.i.i.i.i.i.i57, %ehcleanup
@@ -444,12 +444,12 @@ entry:
   %agg.tmp19 = alloca %"class.std::unique_ptr", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %oggfile)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
-  %call.i = tail call noalias noundef nonnull dereferenceable(952) ptr @_Znwm(i64 noundef 952) #23, !noalias !56
+  %call.i = tail call noalias noundef nonnull dereferenceable(952) ptr @_Znwm(i64 noundef 952) #24, !noalias !56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(952) %call.i, i8 0, i64 952, i1 false), !noalias !56
   store ptr %call.i, ptr %oggfile, align 8, !tbaa !4, !alias.scope !56
   call void @llvm.lifetime.start.p0(ptr nonnull %buffer_source)
   %0 = ptrtoint ptr %call.i to i64
-  %call.i3233 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
+  %call.i3233 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
           to label %if.end.i unwind label %lpad
 
 if.end.i:                                         ; preds = %entry
@@ -582,7 +582,7 @@ if.then.i44:                                      ; preds = %invoke.cont15
   br i1 %tobool.not.i.i.i64, label %if.then.i.i.i67, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 if.then.i.i.i67:                                  ; preds = %if.then.i44
-  invoke void @_ZSt16__throw_bad_castv() #21
+  invoke void @_ZSt16__throw_bad_castv() #22
           to label %.noexc unwind label %lpad6
 
 .noexc:                                           ; preds = %if.then.i.i.i67
@@ -654,11 +654,11 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #24
+  call void @__clang_call_terminate(ptr %24) #25
   unreachable
 
 _ZNKSt14default_deleteIN5sound11RAIIOggFileEEclEPS1_.exit.i: ; preds = %if.then.i.i.i, %delete.notnull.i.i
-  call void @_ZdlPv(ptr noundef nonnull %21) #22
+  call void @_ZdlPv(ptr noundef nonnull %21) #23
   br label %_ZNSt10unique_ptrIN5sound21OggVorbisBufferSourceESt14default_deleteIS1_EED2Ev.exit.thread
 
 _ZNSt10unique_ptrIN5sound21OggVorbisBufferSourceESt14default_deleteIS1_EED2Ev.exit.thread: ; preds = %_ZNKSt14default_deleteIN5sound11RAIIOggFileEEclEPS1_.exit.i, %invoke.cont21
@@ -668,7 +668,7 @@ _ZNSt10unique_ptrIN5sound21OggVorbisBufferSourceESt14default_deleteIS1_EED2Ev.ex
 lpad20:                                           ; preds = %if.end
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp19) #25
+  call void @_ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp19) #26
   br label %ehcleanup
 
 delete.notnull.i.i54:                             ; preds = %call1.i.noexc, %invoke.cont15, %invoke.cont13, %invoke.cont11, %call.i34.noexc
@@ -686,11 +686,11 @@ terminate.lpad.i.i.i59:                           ; preds = %if.then.i.i.i56
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #24
+  tail call void @__clang_call_terminate(ptr %28) #25
   unreachable
 
 _ZNKSt14default_deleteIN5sound11RAIIOggFileEEclEPS1_.exit.i60: ; preds = %if.then.i.i.i56, %delete.notnull.i.i54
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #23
   br label %_ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev.exit62
 
 _ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev.exit62: ; preds = %_ZNKSt14default_deleteIN5sound11RAIIOggFileEEclEPS1_.exit.i60, %_ZNSt10unique_ptrIN5sound21OggVorbisBufferSourceESt14default_deleteIS1_EED2Ev.exit.thread
@@ -699,13 +699,13 @@ _ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev.exit62: ; pr
 
 ehcleanup:                                        ; preds = %lpad20, %lpad6
   %.pn = phi { ptr, i32 } [ %20, %lpad6 ], [ %25, %lpad20 ]
-  call void @_ZNSt10unique_ptrIN5sound21OggVorbisBufferSourceESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %buffer_source) #25
+  call void @_ZNSt10unique_ptrIN5sound21OggVorbisBufferSourceESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %buffer_source) #26
   br label %ehcleanup23
 
 ehcleanup23:                                      ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %19, %lpad ]
   call void @llvm.lifetime.end.p0(ptr nonnull %buffer_source)
-  call void @_ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %oggfile) #25
+  call void @_ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %oggfile) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %oggfile)
   resume { ptr, i32 } %.pn.pn
 }
@@ -736,11 +736,11 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #24
+  tail call void @__clang_call_terminate(ptr %3) #25
   unreachable
 
 _ZNKSt14default_deleteIN5sound11RAIIOggFileEEclEPS1_.exit: ; preds = %if.then.i.i, %delete.notnull.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   br label %if.end
 
 if.end:                                           ; preds = %_ZNKSt14default_deleteIN5sound11RAIIOggFileEEclEPS1_.exit, %entry
@@ -762,11 +762,11 @@ delete.notnull.i:                                 ; preds = %entry
   br i1 %cmp.i.i.i.i.i, label %_ZNKSt14default_deleteIN5sound21OggVorbisBufferSourceEEclEPS1_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %delete.notnull.i
-  tail call void @_ZdlPv(ptr noundef %1) #22
+  tail call void @_ZdlPv(ptr noundef %1) #23
   br label %_ZNKSt14default_deleteIN5sound21OggVorbisBufferSourceEEclEPS1_.exit
 
 _ZNKSt14default_deleteIN5sound21OggVorbisBufferSourceEEclEPS1_.exit: ; preds = %delete.notnull.i, %if.then.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   br label %if.end
 
 if.end:                                           ; preds = %_ZNKSt14default_deleteIN5sound21OggVorbisBufferSourceEEclEPS1_.exit, %entry
@@ -781,7 +781,7 @@ entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %oggfile)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
-  %call.i = tail call noalias noundef nonnull dereferenceable(952) ptr @_Znwm(i64 noundef 952) #23, !noalias !76
+  %call.i = tail call noalias noundef nonnull dereferenceable(952) ptr @_Znwm(i64 noundef 952) #24, !noalias !76
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(952) %call.i, i8 0, i64 952, i1 false), !noalias !76
   store ptr %call.i, ptr %oggfile, align 8, !tbaa !4, !alias.scope !76
   %m_path = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -858,7 +858,7 @@ if.then.i30:                                      ; preds = %invoke.cont11
   br i1 %tobool.not.i.i.i43, label %if.then.i.i.i45, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 if.then.i.i.i45:                                  ; preds = %if.then.i30
-  invoke void @_ZSt16__throw_bad_castv() #21
+  invoke void @_ZSt16__throw_bad_castv() #22
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i.i.i45
@@ -927,13 +927,13 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #24
+  call void @__clang_call_terminate(ptr %16) #25
   unreachable
 
 lpad16:                                           ; preds = %if.end
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #25
+  call void @_ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #26
   br label %ehcleanup
 
 delete.notnull.i.i34:                             ; preds = %call1.i.noexc, %invoke.cont11, %invoke.cont9, %invoke.cont6, %call.i22.noexc
@@ -950,12 +950,12 @@ terminate.lpad.i.i.i39:                           ; preds = %if.then.i.i.i36
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #24
+  tail call void @__clang_call_terminate(ptr %20) #25
   unreachable
 
 _ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev.exit41.sink.split: ; preds = %if.then.i.i.i36, %delete.notnull.i.i34, %if.then.i.i.i, %delete.notnull.i.i
   %.sink = phi ptr [ %13, %if.then.i.i.i ], [ %13, %delete.notnull.i.i ], [ %call.i, %if.then.i.i.i36 ], [ %call.i, %delete.notnull.i.i34 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sink) #22
+  call void @_ZdlPv(ptr noundef nonnull %.sink) #23
   br label %_ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev.exit41
 
 _ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev.exit41: ; preds = %_ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev.exit41.sink.split, %invoke.cont17
@@ -964,7 +964,7 @@ _ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev.exit41: ; pr
 
 ehcleanup:                                        ; preds = %lpad16, %lpad
   %.pn = phi { ptr, i32 } [ %12, %lpad ], [ %17, %lpad16 ]
-  call void @_ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %oggfile) #25
+  call void @_ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %oggfile) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %oggfile)
   resume { ptr, i32 } %.pn
 }
@@ -1033,8 +1033,8 @@ _ZN5sound14ISoundDataOpenC2ERKNS_17OggFileDecodeInfoE.exit: ; preds = %if.end.i.
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN5sound14ISoundDataOpenC2ERKNS_17OggFileDecodeInfoE.exit
-  %call4 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5sound17RAIIALSoundBufferaSEOS0_(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp) #25
-  call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, i32 noundef 0) #25
+  %call4 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5sound17RAIIALSoundBufferaSEOS0_(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp) #26
+  call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, i32 noundef 0) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %10 = load i32, ptr %m_buffer, align 8, !tbaa !80
   %cmp = icmp eq i32 %10, 0
@@ -1103,7 +1103,7 @@ if.then.i27:                                      ; preds = %invoke.cont13
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i27
-  invoke void @_ZSt16__throw_bad_castv() #21
+  invoke void @_ZSt16__throw_bad_castv() #22
           to label %.noexc unwind label %lpad7
 
 .noexc:                                           ; preds = %if.then.i.i.i
@@ -1156,14 +1156,14 @@ if.end:                                           ; preds = %call1.i.noexc, %inv
 
 ehcleanup:                                        ; preds = %lpad7, %lpad
   %.pn = phi { ptr, i32 } [ %23, %lpad7 ], [ %22, %lpad ]
-  call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer, i32 noundef 0) #25
+  call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer, i32 noundef 0) #26
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5sound14ISoundDataOpenE, i64 16), ptr %this, align 8, !tbaa !24
   %24 = load ptr, ptr %m_decode_info.i, align 8, !tbaa !27
   %cmp.i.i.i.i.i = icmp eq ptr %24, %0
   br i1 %cmp.i.i.i.i.i, label %_ZN5sound14ISoundDataOpenD2Ev.exit, label %if.then.i.i.i.i30
 
 if.then.i.i.i.i30:                                ; preds = %ehcleanup
-  call void @_ZdlPv(ptr noundef %24) #22
+  call void @_ZdlPv(ptr noundef %24) #23
   br label %_ZN5sound14ISoundDataOpenD2Ev.exit
 
 _ZN5sound14ISoundDataOpenD2Ev.exit:               ; preds = %ehcleanup, %if.then.i.i.i.i30
@@ -1460,7 +1460,7 @@ cond.end59:                                       ; preds = %if.else21.i.i, %if.
 for.body.i.i.i.i.i:                               ; preds = %cond.end59, %for.body.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %10, %cond.end59 ]
   %m_buffer.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 4
-  call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i.i, i32 noundef 0) #25
+  call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i.i, i32 noundef 0) #26
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %11
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !117
@@ -1475,7 +1475,7 @@ invoke.cont.i.i:                                  ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i, label %_ZN5sound19SoundDataOpenStream17ContiguousBuffersD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
-  call void @_ZdlPv(ptr noundef nonnull %12) #22
+  call void @_ZdlPv(ptr noundef nonnull %12) #23
   br label %_ZN5sound19SoundDataOpenStream17ContiguousBuffersD2Ev.exit
 
 _ZN5sound19SoundDataOpenStream17ContiguousBuffersD2Ev.exit: ; preds = %if.then.i.i.i.i, %invoke.cont.i.i
@@ -1513,7 +1513,7 @@ if.else.i.i193:                                   ; preds = %cleanup.done65
           to label %invoke.cont77 unwind label %lpad76
 
 invoke.cont77:                                    ; preds = %if.else.i.i193, %if.then.i.i191
-  call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer, i32 noundef 0) #25
+  call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer, i32 noundef 0) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp74)
   %cmp80 = icmp eq i32 %spec.select229, %cond20
   %or.cond179 = and i1 %cmp.i180, %cmp80
@@ -1550,14 +1550,14 @@ invoke.cont129:                                   ; preds = %invoke.cont117
 lpad:                                             ; preds = %if.else21.i.i, %if.else.i.i
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5sound19SoundDataOpenStream17ContiguousBuffersD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51) #25
+  call void @_ZN5sound19SoundDataOpenStream17ContiguousBuffersD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp51)
   br label %ehcleanup145
 
 lpad76:                                           ; preds = %if.else.i.i193
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer, i32 noundef 0) #25
+  call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer, i32 noundef 0) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp74)
   br label %ehcleanup145
 
@@ -1587,13 +1587,13 @@ if.end135:                                        ; preds = %invoke.cont129, %in
   store i32 %spec.select229, ptr %28, align 4, !tbaa !87
   %29 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 %27, ptr %29, align 4, !tbaa !89
-  call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %new_buf, i32 noundef 0) #25
+  call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %new_buf, i32 noundef 0) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %new_buf)
   ret void
 
 ehcleanup145:                                     ; preds = %lpad128, %lpad98, %lpad76, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %22, %lpad ], [ %23, %lpad76 ], [ %25, %lpad128 ], [ %24, %lpad98 ]
-  call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %new_buf, i32 noundef 0) #25
+  call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %new_buf, i32 noundef 0) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %new_buf)
   resume { ptr, i32 } %.pn.pn.pn
 }
@@ -1614,7 +1614,7 @@ entry:
 for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %0, %entry ]
   %m_buffer.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 4
-  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i, i32 noundef 0) #25
+  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i, i32 noundef 0) #26
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !117
@@ -1629,7 +1629,7 @@ invoke.cont.i:                                    ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
   br label %_ZNSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EED2Ev.exit: ; preds = %if.then.i.i.i, %invoke.cont.i
@@ -1646,7 +1646,7 @@ entry:
   br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #22
+  tail call void @_ZdlPv(ptr noundef %0) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %entry, %if.then.i.i
@@ -1663,11 +1663,11 @@ entry:
   br i1 %cmp.i.i.i.i, label %_ZN5sound21SoundDataUnopenBufferD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #22
+  tail call void @_ZdlPv(ptr noundef %0) #23
   br label %_ZN5sound21SoundDataUnopenBufferD2Ev.exit
 
 _ZN5sound21SoundDataUnopenBufferD2Ev.exit:        ; preds = %entry, %if.then.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -1681,7 +1681,7 @@ entry:
   br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #22
+  tail call void @_ZdlPv(ptr noundef %0) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %entry, %if.then.i.i
@@ -1698,11 +1698,11 @@ entry:
   br i1 %cmp.i.i.i.i, label %_ZN5sound19SoundDataUnopenFileD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #22
+  tail call void @_ZdlPv(ptr noundef %0) #23
   br label %_ZN5sound19SoundDataUnopenFileD2Ev.exit
 
 _ZN5sound19SoundDataUnopenFileD2Ev.exit:          ; preds = %entry, %if.then.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -1728,7 +1728,7 @@ for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_Destr
 for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i ], [ %2, %for.body.i.i.i.i ]
   %m_buffer.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, i64 4
-  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i.i.i.i.i.i.i, i32 noundef 0) #25
+  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i.i.i.i.i.i.i, i32 noundef 0) #26
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !117
@@ -1743,7 +1743,7 @@ invoke.cont.i.i.i.i.i.i.i:                        ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5sound19SoundDataOpenStream17ContiguousBuffersEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #23
   br label %_ZSt8_DestroyIN5sound19SoundDataOpenStream17ContiguousBuffersEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN5sound19SoundDataOpenStream17ContiguousBuffersEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i
@@ -1761,7 +1761,7 @@ invoke.cont.i:                                    ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #23
   br label %_ZNSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EED2Ev.exit: ; preds = %if.then.i.i.i, %invoke.cont.i
@@ -1784,11 +1784,11 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i3
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #24
+  tail call void @__clang_call_terminate(ptr %9) #25
   unreachable
 
 _ZNKSt14default_deleteIN5sound11RAIIOggFileEEclEPS1_.exit.i: ; preds = %if.then.i.i.i3, %delete.notnull.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #23
   br label %_ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5sound11RAIIOggFileEEclEPS1_.exit.i, %_ZNSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EED2Ev.exit
@@ -1801,7 +1801,7 @@ _ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev.exit: ; pred
   br i1 %cmp.i.i.i.i.i, label %_ZN5sound14ISoundDataOpenD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef %10) #22
+  tail call void @_ZdlPv(ptr noundef %10) #23
   br label %_ZN5sound14ISoundDataOpenD2Ev.exit
 
 _ZN5sound14ISoundDataOpenD2Ev.exit:               ; preds = %_ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev.exit, %if.then.i.i.i.i
@@ -1811,8 +1811,8 @@ _ZN5sound14ISoundDataOpenD2Ev.exit:               ; preds = %_ZNSt10unique_ptrIN
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5sound19SoundDataOpenStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @_ZN5sound19SoundDataOpenStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #25
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
+  tail call void @_ZN5sound19SoundDataOpenStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -1826,7 +1826,7 @@ entry:
 define linkonce_odr dso_local void @_ZN5sound19SoundDataOpenBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_buffer = getelementptr inbounds nuw i8, ptr %this, i64 72
-  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer, i32 noundef 0) #25
+  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer, i32 noundef 0) #26
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5sound14ISoundDataOpenE, i64 16), ptr %this, align 8, !tbaa !24
   %m_decode_info.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_decode_info.i, align 8, !tbaa !27
@@ -1835,7 +1835,7 @@ entry:
   br i1 %cmp.i.i.i.i.i, label %_ZN5sound14ISoundDataOpenD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #22
+  tail call void @_ZdlPv(ptr noundef %0) #23
   br label %_ZN5sound14ISoundDataOpenD2Ev.exit
 
 _ZN5sound14ISoundDataOpenD2Ev.exit:               ; preds = %entry, %if.then.i.i.i.i
@@ -1846,7 +1846,7 @@ _ZN5sound14ISoundDataOpenD2Ev.exit:               ; preds = %entry, %if.then.i.i
 define linkonce_odr dso_local void @_ZN5sound19SoundDataOpenBufferD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_buffer.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i, i32 noundef 0) #25
+  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i, i32 noundef 0) #26
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5sound14ISoundDataOpenE, i64 16), ptr %this, align 8, !tbaa !24
   %m_decode_info.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_decode_info.i.i, align 8, !tbaa !27
@@ -1855,11 +1855,11 @@ entry:
   br i1 %cmp.i.i.i.i.i.i, label %_ZN5sound19SoundDataOpenBufferD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #22
+  tail call void @_ZdlPv(ptr noundef %0) #23
   br label %_ZN5sound19SoundDataOpenBufferD2Ev.exit
 
 _ZN5sound19SoundDataOpenBufferD2Ev.exit:          ; preds = %entry, %if.then.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -1889,8 +1889,8 @@ entry:
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #25
-  tail call void @_ZSt9terminatev() #24
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #26
+  tail call void @_ZSt9terminatev() #25
   unreachable
 }
 
@@ -1913,7 +1913,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %_ZN5sound17OggFileDecodeInfoD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #22
+  tail call void @_ZdlPv(ptr noundef %0) #23
   br label %_ZN5sound17OggFileDecodeInfoD2Ev.exit
 
 _ZN5sound17OggFileDecodeInfoD2Ev.exit:            ; preds = %entry, %if.then.i.i.i
@@ -1923,7 +1923,7 @@ _ZN5sound17OggFileDecodeInfoD2Ev.exit:            ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5sound14ISoundDataOpenD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #24
+  tail call void @llvm.trap() #25
   unreachable
 }
 
@@ -1952,7 +1952,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 define linkonce_odr dso_local void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5sound19SoundDataOpenBufferESaIvEJSt10unique_ptrINS4_11RAIIOggFileESt14default_deleteIS8_EERNS4_17OggFileDecodeInfoEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__p, ptr %__a.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(60) %__args1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"class.std::unique_ptr", align 8
-  %call5.i.i.i19 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
+  %call5.i.i.i19 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #24
   %_M_use_count.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i19, i64 8
   store i32 1, ptr %_M_use_count.i.i, align 8, !tbaa !120
   %_M_weak_count.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i19, i64 12
@@ -1985,18 +1985,18 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #24
+  tail call void @__clang_call_terminate(ptr %4) #25
   unreachable
 
 _ZNKSt14default_deleteIN5sound11RAIIOggFileEEclEPS1_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %delete.notnull.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #23
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5sound19SoundDataOpenBufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
 
 lpad.i.i.i:                                       ; preds = %entry
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i.i.i) #25
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i19) #22
+  call void @_ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i.i.i) #26
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i19) #23
   resume { ptr, i32 } %5
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5sound19SoundDataOpenBufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5sound11RAIIOggFileEEclEPS1_.exit.i.i.i.i, %invoke.cont.i.i.i
@@ -2012,7 +2012,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN5sound19SoundDataOpenBufferESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -2021,7 +2021,7 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN5sound19Soun
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %m_buffer.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i, i32 noundef 0) #25
+  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i, i32 noundef 0) #26
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5sound14ISoundDataOpenE, i64 16), ptr %_M_impl.i, align 8, !tbaa !24
   %m_decode_info.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_decode_info.i.i.i.i, align 8, !tbaa !27
@@ -2030,7 +2030,7 @@ entry:
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN5sound19SoundDataOpenBufferEEEvRS0_PT_.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #22
+  tail call void @_ZdlPv(ptr noundef %0) #23
   br label %_ZNSt16allocator_traitsISaIvEE7destroyIN5sound19SoundDataOpenBufferEEEvRS0_PT_.exit
 
 _ZNSt16allocator_traitsISaIvEE7destroyIN5sound19SoundDataOpenBufferEEEvRS0_PT_.exit: ; preds = %entry, %if.then.i.i.i.i.i.i.i
@@ -2040,7 +2040,7 @@ _ZNSt16allocator_traitsISaIvEE7destroyIN5sound19SoundDataOpenBufferEEEvRS0_PT_.e
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN5sound19SoundDataOpenBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5sound19SoundDataOpenBufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -2063,7 +2063,7 @@ if.end.i:                                         ; preds = %lor.lhs.false
   br i1 %cmp4.not.i, label %cleanup, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #25
+  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #26
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
   br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
@@ -2084,7 +2084,7 @@ define linkonce_odr dso_local void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_po
 entry:
   %__dnew.i.i.i.i.i.i.i.i = alloca i64, align 8
   %agg.tmp.i.i.i = alloca %"class.std::unique_ptr", align 8
-  %call5.i.i.i19 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #23
+  %call5.i.i.i19 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #24
   %_M_use_count.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i19, i64 8
   store i32 1, ptr %_M_use_count.i.i, align 8, !tbaa !120
   %_M_weak_count.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i19, i64 12
@@ -2136,8 +2136,8 @@ if.end.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i.i.i.
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i.i.i) #25
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i19) #22
+  call void @_ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i.i.i) #26
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i19) #23
   resume { ptr, i32 } %7
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5sound19SoundDataOpenStreamESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i
@@ -2171,7 +2171,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN5sound19SoundDataOpenStreamESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -2179,14 +2179,14 @@ entry:
 define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN5sound19SoundDataOpenStreamESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  tail call void @_ZN5sound19SoundDataOpenStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %_M_impl.i) #25
+  tail call void @_ZN5sound19SoundDataOpenStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %_M_impl.i) #26
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN5sound19SoundDataOpenStreamESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5sound19SoundDataOpenStreamESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -2209,7 +2209,7 @@ if.end.i:                                         ; preds = %lor.lhs.false
   br i1 %cmp4.not.i, label %cleanup, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #25
+  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #26
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
   br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
@@ -2278,7 +2278,7 @@ for.body.i.i.i.i.i:                               ; preds = %entry, %_ZN5sound19
 for.body.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i ], [ %6, %for.body.i.i.i.i.i ]
   %m_buffer.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i, i64 4
-  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i32 noundef 0) #25
+  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i32 noundef 0) #26
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %7
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !117
@@ -2288,7 +2288,7 @@ invoke.cont.i.i.i.i.i.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i.
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5sound19SoundDataOpenStream17ContiguousBuffersaSEOS1_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %invoke.cont.i.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #23
   br label %_ZN5sound19SoundDataOpenStream17ContiguousBuffersaSEOS1_.exit.i.i.i.i.i
 
 _ZN5sound19SoundDataOpenStream17ContiguousBuffersaSEOS1_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i.i
@@ -2317,7 +2317,7 @@ _ZSt13move_backwardIPN5sound19SoundDataOpenStream17ContiguousBuffersES3_ET0_T_S5
 for.body.i.i.i.i.i.i.i:                           ; preds = %_ZSt13move_backwardIPN5sound19SoundDataOpenStream17ContiguousBuffersES3_ET0_T_S5_S4_.exit, %for.body.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %11, %_ZSt13move_backwardIPN5sound19SoundDataOpenStream17ContiguousBuffersES3_ET0_T_S5_S4_.exit ]
   %m_buffer.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 4
-  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i.i.i.i, i32 noundef 0) #25
+  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i.i.i.i, i32 noundef 0) #26
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %12
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !117
@@ -2327,7 +2327,7 @@ invoke.cont.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN5sound19SoundDataOpenStream17ContiguousBuffersaSEOS1_.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #23
   br label %_ZN5sound19SoundDataOpenStream17ContiguousBuffersaSEOS1_.exit
 
 _ZN5sound19SoundDataOpenStream17ContiguousBuffersaSEOS1_.exit: ; preds = %if.then.i.i.i.i.i.i, %invoke.cont.i.i.i.i
@@ -2347,7 +2347,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #22
   unreachable
 
 _ZNKSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %entry
@@ -2362,7 +2362,7 @@ _ZNKSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE12_M_check
   %cmp.not.i = icmp ne i64 %cond.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i)
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 5
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #23
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #24
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   %3 = load i32, ptr %__args, align 8, !tbaa !94
   store i32 %3, ptr %add.ptr, align 8, !tbaa !94
@@ -2432,7 +2432,7 @@ _ZNSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE11_S_reloca
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE13_M_deallocateEPS2_m.exit, label %if.then.i47
 
 if.then.i47:                                      ; preds = %_ZNSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit46
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #23
   br label %_ZNSt12_Vector_baseIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %if.then.i47, %_ZNSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit46
@@ -2460,7 +2460,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #22
   unreachable
 
 _ZNKSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %entry
@@ -2475,7 +2475,7 @@ _ZNKSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE12_M_check_
   %cmp.not.i = icmp ne i64 %cond.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i)
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 3
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #23
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #24
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   %m_buffer3.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 4
   %3 = load <2 x i32>, ptr %__args, align 4, !tbaa !84
@@ -2493,7 +2493,7 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN5sou
   %4 = load <2 x i32>, ptr %__first.addr.07.i.i.i, align 4, !tbaa !84, !alias.scope !141, !noalias !138
   store i32 0, ptr %m_buffer3.i.i.i.i.i.i.i, align 4, !tbaa !84, !alias.scope !141, !noalias !138
   store <2 x i32> %4, ptr %__cur.08.i.i.i, align 4, !tbaa !84, !alias.scope !138, !noalias !141
-  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer3.i.i.i.i.i.i.i, i32 noundef 0) #25, !noalias !138
+  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer3.i.i.i.i.i.i.i, i32 noundef 0) #26, !noalias !138
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 8
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -2514,7 +2514,7 @@ for.body.i.i.i33:                                 ; preds = %_ZNSt6vectorIN5soun
   %5 = load <2 x i32>, ptr %__first.addr.07.i.i.i35, align 4, !tbaa !84, !alias.scope !147, !noalias !144
   store i32 0, ptr %m_buffer3.i.i.i.i.i.i.i37, align 4, !tbaa !84, !alias.scope !147, !noalias !144
   store <2 x i32> %5, ptr %__cur.08.i.i.i34, align 4, !tbaa !84, !alias.scope !144, !noalias !147
-  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer3.i.i.i.i.i.i.i37, i32 noundef 0) #25, !noalias !144
+  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer3.i.i.i.i.i.i.i37, i32 noundef 0) #26, !noalias !144
   %incdec.ptr.i.i.i38 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i35, i64 8
   %incdec.ptr1.i.i.i39 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i34, i64 8
   %cmp.not.i.i.i40 = icmp eq ptr %incdec.ptr.i.i.i38, %0
@@ -2526,7 +2526,7 @@ _ZNSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE11_S_relocat
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE13_M_deallocateEPS2_m.exit, label %if.then.i43
 
 if.then.i43:                                      ; preds = %_ZNSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit42
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #23
   br label %_ZNSt12_Vector_baseIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %if.then.i43, %_ZNSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit42
@@ -2605,7 +2605,7 @@ for.body.i.i.i.i.i149:                            ; preds = %_ZSt22__uninitializ
   store i32 %4, ptr %incdec.ptr1.i.i.i.i.i, align 4, !tbaa !107
   %m_buffer.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i.i.i, i64 -4
   %m_buffer3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.06.i.i.i.i.i, i64 -4
-  %call.i.i.i.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5sound17RAIIALSoundBufferaSEOS0_(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_buffer3.i.i.i.i.i.i) #25
+  %call.i.i.i.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5sound17RAIIALSoundBufferaSEOS0_(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_buffer3.i.i.i.i.i.i) #26
   %dec.i.i.i.i.i = add nsw i64 %__n.08.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp ugt i64 %__n.08.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i149, label %_ZSt13move_backwardIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_ET0_T_S5_S4_.exit, !llvm.loop !150
@@ -2622,7 +2622,7 @@ for.body.i.i.i.i.i156:                            ; preds = %_ZSt13move_backward
   store i32 %5, ptr %__result.addr.09.i.i.i.i.i, align 4, !tbaa !107
   %m_buffer.i.i.i.i.i.i157 = getelementptr inbounds nuw i8, ptr %__result.addr.09.i.i.i.i.i, i64 4
   %m_buffer3.i.i.i.i.i.i158 = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i, i64 4
-  %call.i.i.i.i.i.i159 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5sound17RAIIALSoundBufferaSEOS0_(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i157, ptr noundef nonnull align 4 dereferenceable(4) %m_buffer3.i.i.i.i.i.i158) #25
+  %call.i.i.i.i.i.i159 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5sound17RAIIALSoundBufferaSEOS0_(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i157, ptr noundef nonnull align 4 dereferenceable(4) %m_buffer3.i.i.i.i.i.i158) #26
   %incdec.ptr.i.i.i.i.i160 = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i.i161 = getelementptr inbounds nuw i8, ptr %__result.addr.09.i.i.i.i.i, i64 8
   %dec.i.i.i.i.i162 = add nsw i64 %__n.010.i.i.i.i.i, -1
@@ -2692,7 +2692,7 @@ for.body.i.i.i.i.i190:                            ; preds = %_ZSt22__uninitializ
   store i32 %10, ptr %__result.addr.09.i.i.i.i.i192, align 4, !tbaa !107
   %m_buffer.i.i.i.i.i.i194 = getelementptr inbounds nuw i8, ptr %__result.addr.09.i.i.i.i.i192, i64 4
   %m_buffer3.i.i.i.i.i.i195 = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i193, i64 4
-  %call.i.i.i.i.i.i196 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5sound17RAIIALSoundBufferaSEOS0_(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i194, ptr noundef nonnull align 4 dereferenceable(4) %m_buffer3.i.i.i.i.i.i195) #25
+  %call.i.i.i.i.i.i196 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5sound17RAIIALSoundBufferaSEOS0_(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i194, ptr noundef nonnull align 4 dereferenceable(4) %m_buffer3.i.i.i.i.i.i195) #26
   %incdec.ptr.i.i.i.i.i197 = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i193, i64 8
   %incdec.ptr1.i.i.i.i.i198 = getelementptr inbounds nuw i8, ptr %__result.addr.09.i.i.i.i.i192, i64 8
   %dec.i.i.i.i.i199 = add nsw i64 %__n.010.i.i.i.i.i191, -1
@@ -2709,7 +2709,7 @@ if.else78:                                        ; preds = %if.then
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %if.else78
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #21
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #22
   unreachable
 
 _ZNKSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %if.else78
@@ -2723,7 +2723,7 @@ _ZNKSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE12_M_check_
 
 cond.true.i:                                      ; preds = %_ZNKSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 3
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #23
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #24
   br label %_ZNSt12_Vector_baseIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE11_M_allocateEm.exit: ; preds = %cond.true.i, %_ZNKSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE12_M_check_lenEmPKc.exit
@@ -2792,7 +2792,7 @@ invoke.cont99:                                    ; preds = %for.body.i.i.i.i.i2
 for.body.i.i.i:                                   ; preds = %invoke.cont99, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %11, %invoke.cont99 ]
   %m_buffer.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 4
-  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i, i32 noundef 0) #25
+  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i, i32 noundef 0) #26
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN5sound19SoundDataOpenStream16SoundBufferUntilES2_EvT_S4_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !117
@@ -2802,7 +2802,7 @@ _ZSt8_DestroyIPN5sound19SoundDataOpenStream16SoundBufferUntilES2_EvT_S4_RSaIT0_E
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE13_M_deallocateEPS2_m.exit, label %if.then.i235
 
 if.then.i235:                                     ; preds = %_ZSt8_DestroyIPN5sound19SoundDataOpenStream16SoundBufferUntilES2_EvT_S4_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #23
   br label %_ZNSt12_Vector_baseIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %if.then.i235, %_ZSt8_DestroyIPN5sound19SoundDataOpenStream16SoundBufferUntilES2_EvT_S4_RSaIT0_E.exit
@@ -2857,7 +2857,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then, %_ZN5sound
 for.body.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i ], [ %2, %for.body.i.i.i.i.i ]
   %m_buffer.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i, i64 4
-  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i32 noundef 0) #25
+  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i32 noundef 0) #26
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !117
@@ -2867,7 +2867,7 @@ invoke.cont.i.i.i.i.i.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i.
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5sound19SoundDataOpenStream17ContiguousBuffersaSEOS1_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %invoke.cont.i.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
   br label %_ZN5sound19SoundDataOpenStream17ContiguousBuffersaSEOS1_.exit.i.i.i.i.i
 
 _ZN5sound19SoundDataOpenStream17ContiguousBuffersaSEOS1_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i.i
@@ -2895,7 +2895,7 @@ if.end:                                           ; preds = %if.end.loopexit, %i
 for.body.i.i.i.i.i.i.i:                           ; preds = %if.end, %for.body.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %7, %if.end ]
   %m_buffer.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 4
-  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i.i.i.i, i32 noundef 0) #25
+  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i.i.i.i, i32 noundef 0) #26
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %8
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !117
@@ -2910,7 +2910,7 @@ invoke.cont.i.i.i.i:                              ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN5sound19SoundDataOpenStream17ContiguousBuffersEEE7destroyIS2_EEvRS3_PT_.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #23
   br label %_ZNSt16allocator_traitsISaIN5sound19SoundDataOpenStream17ContiguousBuffersEEE7destroyIS2_EEvRS3_PT_.exit
 
 _ZNSt16allocator_traitsISaIN5sound19SoundDataOpenStream17ContiguousBuffersEEE7destroyIS2_EEvRS3_PT_.exit: ; preds = %if.then.i.i.i.i.i.i, %invoke.cont.i.i.i.i
@@ -2921,7 +2921,7 @@ _ZNSt16allocator_traitsISaIN5sound19SoundDataOpenStream17ContiguousBuffersEEE7de
 define internal void @_GLOBAL__sub_I_sound_data.cpp() #16 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #25
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #26
   ret void
 }
 
@@ -2933,26 +2933,26 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #17
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #18
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #17
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #19
+declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #19
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #17
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #19
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 attributes #0 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2973,13 +2973,14 @@ attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #16 = { uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { noreturn }
-attributes #22 = { builtin nounwind }
-attributes #23 = { builtin allocsize(0) }
-attributes #24 = { noreturn nounwind }
-attributes #25 = { nounwind }
+attributes #19 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #22 = { noreturn }
+attributes #23 = { builtin nounwind }
+attributes #24 = { builtin allocsize(0) }
+attributes #25 = { noreturn nounwind }
+attributes #26 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
